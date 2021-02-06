@@ -5,10 +5,6 @@ class Mp3blaster < Formula
   sha256 "43d9f656367d16aaac163f93dc323e9843c3dd565401567edef3e1e72b9e1ee0"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "638fe9765eebafa021a8fb328ef8dd742e047eceb540706792cf828abd4382ab"
     sha256 big_sur:       "7a507393848bbaa8d06f64be1b528256589a3627577f1298dea50353f3303cef"

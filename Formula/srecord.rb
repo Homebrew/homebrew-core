@@ -4,10 +4,6 @@ class Srecord < Formula
   url "https://downloads.sourceforge.net/project/srecord/srecord/1.64/srecord-1.64.tar.gz"
   sha256 "49a4418733c508c03ad79a29e95acec9a2fbc4c7306131d2a8f5ef32012e67e2"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2531dde4b69ae50e0cb15b498b2729862e64d00b98be831e581989d9e907f36a"
     sha256 cellar: :any, big_sur:       "5c5129ae228ef644b5ed2a26516295feabd198aea270eab03c5c6d3e418980b1"

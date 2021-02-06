@@ -6,10 +6,6 @@ class Help2man < Formula
   sha256 "da3a35c50b1e1f8c8fa322d69fa47c9011ce443a8fb8d1d671b1f01b8b0008eb"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7bc46236d8916519b432020f2d51df5c6006c7000b67835ff7e1276c58ec208c"
     sha256 cellar: :any, big_sur:       "ee60622e70903c293171ea78097544d796a5454b29e8c1494529aa537901e460"

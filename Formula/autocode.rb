@@ -7,10 +7,6 @@ class Autocode < Formula
   sha256 "952364766e645d4ddae30f9d6cc106fdb74d05afc4028066f75eeeb17c4b0247"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "780c41a7ada390dbefa61b56497f4cf53f9a5db0094b38c7064f9a4c21177fff"

@@ -5,10 +5,6 @@ class Geographiclib < Formula
   sha256 "34370949617df5105bd6961e0b91581aef758dc455fe8629eb5858516022d310"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "9c9fcfba39ac076e5681018ffd222742f6d813e156f44389bbffae7f54a9c602"

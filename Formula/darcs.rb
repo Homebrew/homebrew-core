@@ -5,10 +5,6 @@ class Darcs < Formula
   sha256 "8925ee87e2a7b4f3d87b3867dddf68344f879ba18486b156eaee4cf39b0dc1ad"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "123735089ca603892e15f1c4f0965b3eb52ad19528e032cdd90b47a723374baa"
     sha256 cellar: :any_skip_relocation, catalina:    "918f313f3ed33f2efc56fde3187f0d3ee65239362cde6d625a488619fdedcf24"

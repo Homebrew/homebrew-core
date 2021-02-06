@@ -7,10 +7,6 @@ class Peru < Formula
   sha256 "4d2f30c71343ae2692f403b465b04a97c110d4126a3fa59cb42b25243cb24064"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "171980304c1aa1545f2397ecc9adcedd3f84b533974265d243a88ba2ccd36de0"
     sha256 cellar: :any, big_sur:       "b8d5f0915d0f6b7a0ce49ffc61a0503b809ac6c074d2057d2f1396ea0788de67"

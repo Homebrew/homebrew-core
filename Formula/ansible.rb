@@ -8,10 +8,6 @@ class Ansible < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "05db477b8271ef4449e33b337b53424f662ba6f486904554acbff73a96ee88c9"
     sha256 cellar: :any, big_sur:       "bdd2272c70e47285e9ed7ccc9d094767534859c603014a0df6a7de045ac0fb70"

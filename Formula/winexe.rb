@@ -5,10 +5,6 @@ class Winexe < Formula
   sha256 "99238bd3e1c0637041c737c86a05bd73a9375abc9794dca71d2765e22d87537e"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "4706b05f203ecaf3a56fc453d3c6588fd151d9ce4b8be0f6973725f70379dad3"
     sha256 cellar: :any_skip_relocation, mojave:      "43444e53e90a4f739a533e4a865952369874d9386460205e501631fa2b3ad2bb"

@@ -8,10 +8,6 @@ class Bit < Formula
   license "Apache-2.0"
   head "https://github.com/teambit/bit.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "616bf52a2d9e825320d9aab1af3603ee79e43f6d1455abd09576691049b70f0e"
     sha256 catalina:      "bc1b85c6100f4c5166eda34de5a92b66d73f45336536ed08921926dbb90ef6d8"

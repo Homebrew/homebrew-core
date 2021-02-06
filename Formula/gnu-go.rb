@@ -7,10 +7,6 @@ class GnuGo < Formula
   revision 1
   head "https://git.savannah.gnu.org/git/gnugo.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "93fd32bdebd46174fe9d1ff0572dea0859c0a9f29dad7d9e20097da446cea7ab"
     sha256 cellar: :any_skip_relocation, big_sur:       "41b40531006a8e8c83d81b0c7628b7bd25a946e9d322e0ac8d5b5a91c999c0d4"

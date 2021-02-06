@@ -5,10 +5,6 @@ class Pngnq < Formula
   sha256 "c147fe0a94b32d323ef60be9fdcc9b683d1a82cd7513786229ef294310b5b6e2"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "21e94d2f987e060920488bdaf121792282548dcf196eed01e4fd5221db414685"

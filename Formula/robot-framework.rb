@@ -9,10 +9,6 @@ class RobotFramework < Formula
   revision 3
   head "https://github.com/robotframework/robotframework.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "aa67bce52b6c4a04919d3ad4a0e99f8875ca054f9d7cd3c2699dab998205b1ae"
     sha256 cellar: :any, big_sur:       "de8036161c9ea308ab4022f699dab41ab5e4a3fc0f05816a9a75c9d37ba4bd94"

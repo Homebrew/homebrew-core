@@ -7,10 +7,6 @@ class Stormssh < Formula
   revision 5
   head "https://github.com/emre/storm.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "aa25e63f9cf6ff6d69e1c7b48dce6834de0ce4ed2d74af6775212ef1c9314f52"
     sha256 cellar: :any, big_sur:       "e2519c5c0c796e4fa0a5f63a7bcbe4f17c188616c10abf6aee4921c2670a7f7e"

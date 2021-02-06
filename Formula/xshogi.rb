@@ -7,10 +7,6 @@ class Xshogi < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "fc650945fdedff5236f9cd3ca7e04732e67e3c46a7c3ca1e592be1dfe16c69c3"
     sha256 cellar: :any, big_sur:       "998ba1de10cc68bfa3c111576e0ea9bc09cab9a8cc308590e3d0914482b62178"

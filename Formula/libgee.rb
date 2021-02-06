@@ -5,10 +5,6 @@ class Libgee < Formula
   sha256 "d0b5edefc88cbca5f1709d19fa62aef490922c6577a14ac4e7b085507911a5de"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "36e8d14974ce46847a85901ef9ce5822ac44f92a2bf0d60fa1ad317657c2d02b"
     sha256 cellar: :any, big_sur:       "cf79729c731beefa274a0c8dc88569a3e2a748ca28f660dde939768c4fdd03ae"

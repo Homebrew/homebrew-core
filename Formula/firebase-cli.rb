@@ -8,10 +8,6 @@ class FirebaseCli < Formula
   license "MIT"
   head "https://github.com/firebase/firebase-tools.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256                               arm64_big_sur: "164272fc6509d724c6fcc877ee988b6b6a3c9e1ab572fab6e93cf91fed432042"
     sha256 cellar: :any_skip_relocation, big_sur:       "8720c16da6eaadeb2e8155adfa302b7621137e8cc74344344dab680f4d9d6266"

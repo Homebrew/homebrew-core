@@ -7,10 +7,6 @@ class Unrtf < Formula
   license "GPL-3.0"
   head "https://hg.savannah.gnu.org/hgweb/unrtf/", using: :hg
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "7a091ab8d8e5a67f2821d1436300d6c41c9f15ead01a83ade9d38fc9cc2494b6"
     sha256 big_sur:       "198691cb483c4ae73b4c676d289bee8040937afe2881e07afbfb7b9f1e99a760"

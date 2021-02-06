@@ -5,10 +5,6 @@ class Gtranslator < Formula
   sha256 "dbcda9b81a22d9233be18e99fd5c448f6ab05759d1e94c10580bb831ca2d7635"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "5d5883134917ac1a97cdaafd240fc9f162843e8cc053954bce1381e893663d23"
     sha256 big_sur:       "87af99ef6bff1ac84eb04b70b0923040af2588909078f42ee2926620ebf9fd5c"

@@ -6,10 +6,6 @@ class Cgoban < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4cbe85bec961d2960ef76b905fac08ef7c01bb01ad5b380934dbc365f3a17768"
     sha256 cellar: :any, big_sur:       "a224cfdd74e8cc232edf360168bc0a7061abf5ce58b8c0723e5df156cb00604d"

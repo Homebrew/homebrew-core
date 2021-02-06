@@ -6,10 +6,6 @@ class Recutils < Formula
   sha256 "df8eae69593fdba53e264cbf4b2307dfb82120c09b6fab23e2dad51a89a5b193"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0ce93377375f551690f93d4cd68d2042f72354596dcae615ee632e8794bd7744"
     sha256 cellar: :any, big_sur:       "20ea3e2b014d2300a75f02b3c2beaf4c888c37214df878c5dccbad9255f65de4"

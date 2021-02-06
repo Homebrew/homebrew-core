@@ -7,10 +7,6 @@ class RstLint < Formula
   sha256 "d3b10a1fe2ecac537e51ae6d151b223b78de9fafdd50e5eb6b08c243df173c80"
   license "Unlicense"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f156a31ad65e1a3e56b7f45b1da4eb511ac5d3a371cfc8a3cbf4989aafae0f45"

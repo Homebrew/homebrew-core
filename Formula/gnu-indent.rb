@@ -7,10 +7,6 @@ class GnuIndent < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "bf082593202d39ea4c2929b333d544c72ef23d16fed04f570e1f4227098ebf6e"
     sha256 big_sur:       "af4b5212440cdbb8c1c80bef3a13ca33bbdbd49918d24588af3a9eb44e484dab"

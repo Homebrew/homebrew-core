@@ -5,10 +5,6 @@ class Bashish < Formula
   sha256 "3de48bc1aa69ec73dafc7436070e688015d794f22f6e74d5c78a0b09c938204b"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c18a9d6903c20ae676bfdae2152d8c71b86d2a918298fa9276878002e4ed3320"
     sha256 cellar: :any_skip_relocation, big_sur:       "19831ed9c970ba6d8fa4308ac70aa83148902f8057a029025f0bc6f3bad83900"

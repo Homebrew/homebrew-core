@@ -4,10 +4,6 @@ class Libnova < Formula
   url "https://downloads.sourceforge.net/project/libnova/libnova/v%200.15.0/libnova-0.15.0.tar.gz"
   sha256 "7c5aa33e45a3e7118d77df05af7341e61784284f1e8d0d965307f1663f415bb1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4b63bdd901dfc329c9c6caf41a0bb370f5b459f21ec5b09366c364156c38bd06"
     sha256 cellar: :any, big_sur:       "73650301b811cdf4d5aaaab55961708ac3ccede6900f61222a3dcf94a0b9f4fe"

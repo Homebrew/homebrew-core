@@ -8,10 +8,6 @@ class Pyvim < Formula
   license "BSD-3-Clause"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ec73945e19de8974e4ec0fa0b4c3e4ec636eb5e34bb6eb9302ed9766c34d60e"
     sha256 cellar: :any_skip_relocation, big_sur:       "868ee3749fceb49de0999143f39ba0514a5c719631df8dc7439097b3a0589884"

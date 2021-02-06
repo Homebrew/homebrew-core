@@ -5,10 +5,6 @@ class Librest < Formula
   sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "a565482a9685164d288df713142f23b91dda71fc9c694ea0c613c64320e4aa0a"
     sha256 big_sur:       "366b341df1c40a648f2847b5f1c13efccfaeb4c3c9610c30fe7e5b3087d07186"

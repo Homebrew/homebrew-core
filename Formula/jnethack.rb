@@ -12,10 +12,6 @@ class Jnethack < Formula
   license "NGPL"
   head "https://github.com/jnethack/jnethack-alpha.git", branch: "develop"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "799f0a8342d6a2d05932365d09634e64abaaea6fc1ee6e7f834c7c49bda72d9d"
     sha256 big_sur:       "9f9ffb883c96a2341c2ea098c941035f39ac428413bf0dd93c29d0a1192dce1e"

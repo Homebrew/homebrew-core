@@ -8,10 +8,6 @@ class Ykman < Formula
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0fc39d2fd810b8f6eb193e7f7e8104a9e8e3227c6262e15d60cbea7e1a862162"
     sha256 cellar: :any, big_sur:       "bdefdcfbdd17e876b92ee3405b79b094955ae2b597d1839ecbf3ef1e2cb48936"

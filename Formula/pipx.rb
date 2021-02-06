@@ -6,10 +6,6 @@ class Pipx < Formula
   license "MIT"
   head "https://github.com/pipxproject/pipx.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7175a21e5bf6045390b320c5eb5e88351bd7b3ac56fd7406390d45ac69876c59"
     sha256 cellar: :any_skip_relocation, big_sur:       "07c91b1e0ba3aaf7e285b21b2535c8c6a8d5adbf9558d119ec0c8538ea7477b1"

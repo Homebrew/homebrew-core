@@ -5,10 +5,6 @@ class Libglade < Formula
   sha256 "c41d189b68457976069073e48d6c14c183075d8b1d8077cb6dfb8b7c5097add3"
   revision 4
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "d4590501ed823f6ba28905f2a7ab3e5d64b6497393b11829fb753c7ed56cc1d3"

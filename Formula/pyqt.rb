@@ -5,10 +5,6 @@ class Pyqt < Formula
   sha256 "372b08dc9321d1201e4690182697c5e7ffb2e0770e6b4a45519025134b12e4fc"
   license "GPL-3.0-only"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8ccb745e9c567b384ca31f8e3f4b4943240d44b6c51e8e49b38073eb2fd7a835"
     sha256 cellar: :any, big_sur:       "167b4359448c02c360fb319a370ae27a002c2ad00430eb0ecf81b22f04714286"

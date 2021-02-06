@@ -4,10 +4,6 @@ class Gptsync < Formula
   url "https://downloads.sourceforge.net/project/refit/rEFIt/0.14/refit-src-0.14.tar.gz"
   sha256 "c4b0803683c9f8a1de0b9f65d2b5a25a69100dcc608d58dca1611a8134cde081"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ce578e36d0f50ee223a8578434563aa237ee4c98d951d8c818c21571258193a5"
     sha256 cellar: :any_skip_relocation, big_sur:       "7b7bf7603d6040dbb5b1982641e3a8f7bf70a7c96c5a8c476b57a344609b9705"

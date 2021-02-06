@@ -8,10 +8,6 @@ class ReorderPythonImports < Formula
   license "MIT"
   head "https://github.com/asottile/reorder_python_imports.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "541915078b0a90ba972a7976fda87237d3d9715fc5645e767117c34ca5b0e33a"

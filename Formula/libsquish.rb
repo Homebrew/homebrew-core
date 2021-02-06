@@ -5,10 +5,6 @@ class Libsquish < Formula
   sha256 "628796eeba608866183a61d080d46967c9dda6723bc0a3ec52324c85d2147269"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "bfc3e9d3b6239828025e5a35707ac35a82722c9a1f66b13116990a3597f33943"
     sha256 cellar: :any_skip_relocation, catalina:    "a3f9fc5e20792dd4ced369a1be063a01c873afc399c8c73bb8800db1777ce6fb"

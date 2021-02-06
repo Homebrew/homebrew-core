@@ -8,10 +8,6 @@ class Pdm < Formula
   license "MIT"
   head "https://github.com/frostming/pdm.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a221439d7ff09e734b181ce9e16e378d856df5f5981637c2783a1d5b7c129e60"
     sha256 cellar: :any_skip_relocation, big_sur:       "e7105237fad081ab87c65f97a8184b7d86b4c6a05df4856d1988d504568f407d"

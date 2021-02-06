@@ -8,10 +8,6 @@ class Gcalcli < Formula
   license "MIT"
   head "https://github.com/insanum/gcalcli.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "38015fc1203a392c9386e8d57088f9f8101cf56d81f50140db4bd1bfac6c8b5e"

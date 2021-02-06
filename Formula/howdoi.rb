@@ -7,10 +7,6 @@ class Howdoi < Formula
   sha256 "e561e3c5d4f39ab1f86e9f24bb0b2803ee6e312de61e90907f739aa638f35215"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1b8ca3639300a3c50d2bc6bb6e19b214b154dfd340b0db345a8d5491a35c4c3"
     sha256 cellar: :any_skip_relocation, big_sur:       "8f837e7757eac0892fdedff2b62f38b9041e7f909a69f8fd1f5bd1733787242a"

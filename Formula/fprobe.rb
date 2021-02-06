@@ -5,10 +5,6 @@ class Fprobe < Formula
   sha256 "3a1cedf5e7b0d36c648aa90914fa71a158c6743ecf74a38f4850afbac57d22a0"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "83c78c439cf2ec7338b3033e9cd623d04f8d19064ad566d206fc290d375f5472"
     sha256 cellar: :any_skip_relocation, big_sur:       "b0a00f4b300f319155db2ce5c159dd5731147380cb4b21cdd001e7b519d132b2"

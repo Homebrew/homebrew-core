@@ -5,10 +5,6 @@ class Flactag < Formula
   sha256 "c96718ac3ed3a0af494a1970ff64a606bfa54ac78854c5d1c7c19586177335b2"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "959006d7aa293066610af7cff0ae1be3a9d21ceb3badfe6012d52d3e2830416a"
     sha256 cellar: :any, big_sur:       "fd81ade08727163108bf6eb86fa4c971a7e7f902b720b7eec59e21cbe10fd945"

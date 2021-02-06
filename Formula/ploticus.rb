@@ -5,10 +5,6 @@ class Ploticus < Formula
   sha256 "3f29e4b9f405203a93efec900e5816d9e1b4381821881e241c08cab7dd66e0b0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "3b0d37697feadd571e84831579e10d1e0e3180833794e8784a2e8a7b5205e7c6"
     sha256 big_sur:       "8b86736a916ccd6455e8fa3fa79234abae9e9c55e963a696d9c393ec97818aeb"

@@ -5,10 +5,6 @@ class Stoken < Formula
   sha256 "aa2b481b058e4caf068f7e747a2dcf5772bcbf278a4f89bc9efcbf82bcc9ef5a"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2f66cb207fe048720b4497e774752de500d005b4bcc7bd45ccb164ecd11fafc8"
     sha256 cellar: :any, big_sur:       "701102c6cb8138920a8ccf7aae6d89ea247d259d17f7f4ce3e4af46cad516802"

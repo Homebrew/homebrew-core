@@ -8,10 +8,6 @@ class Pwntools < Formula
   license "MIT"
   head "https://github.com/Gallopsled/pwntools.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6d994b83aaf329588038fd9ce866ee390da3caeeca0e6dee92c95d6b37db9555"
     sha256 cellar: :any, big_sur:       "88ac68df8de83aec0e440738bceb421600e9b700e4d4c66456d6f2e28461c599"

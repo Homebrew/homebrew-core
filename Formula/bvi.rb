@@ -5,10 +5,6 @@ class Bvi < Formula
   sha256 "3035255ca79e0464567d255baa5544f7794e2b7eb791dcc60cc339cf1aa01e28"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "5e71e7f93fd8523543f85723621ca80faa67482ba01019eddcc0408e95a0b21d"
     sha256 big_sur:       "cc03571d7931314c6fbe6adacace77b4d6b5204b6c34d57da40f45915f84b1db"

@@ -9,10 +9,6 @@ class Streamlink < Formula
   revision 1
   head "https://github.com/streamlink/streamlink.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd9b93cc41448ba2f1d79d5c10f1e12a680707080945e00cf9f18822af95c0c1"
     sha256 cellar: :any_skip_relocation, big_sur:       "667e16ecc596e88508591b2a616dd90d609af5303daf333b5551a9376164e1c8"

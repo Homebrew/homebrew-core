@@ -8,10 +8,6 @@ class AnsibleLint < Formula
   license "MIT"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "08eb30d773543f0fe03cee479b418b45d8564cfeaf8b5a1266b4126d9e4abf44"
     sha256 cellar: :any, big_sur:       "98636b3d23f08bfac260fb3d70aab3e71879b852d0b1251b6fc589e0ede75e17"

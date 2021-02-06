@@ -5,10 +5,6 @@ class Liblo < Formula
   sha256 "2b4f446e1220dcd624ecd8405248b08b7601e9a0d87a0b94730c2907dbccc750"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "95b358e3f04623998f6c2d734599ec7e63b3c389f9d6e0cc9fc6311850929f55"
     sha256 cellar: :any, big_sur:       "19eef0619f05faa15a7d5368973dcd3e5ed2e44291b56cc6ff72825fe8879845"

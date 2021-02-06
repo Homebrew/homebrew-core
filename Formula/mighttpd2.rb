@@ -6,10 +6,6 @@ class Mighttpd2 < Formula
   license "BSD-3-Clause"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "f4825cfc94adb7f0d47ca4dcaa3b924726845eef22dafa8a9603c6efe8a3e24d"
     sha256 cellar: :any_skip_relocation, catalina:    "bcea435a9feba47df19b64d9fac972a1df8f580647204b07a73b2ade2e14c479"

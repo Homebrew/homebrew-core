@@ -7,10 +7,6 @@ class Txt2tags < Formula
   sha256 "27969387206d12b4e4a0eb13d0d5dd957d71dbb932451b0dceeab5e3dbb6178a"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0b2ab997932f742fb905ab546a1f12c417d12212f553ecc2be9ddbd49daa3a34"
     sha256 cellar: :any_skip_relocation, big_sur:       "d6c3f9115b0b82e14d0dd9cf8647c67004c1432e8c4469c8450950bbe29a3a6b"

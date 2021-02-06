@@ -8,10 +8,6 @@ class Grip < Formula
   license "MIT"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4dad17672896ca2ca357ba82c4779b9def18535b3a14ba460724d3a764329b13"
     sha256 cellar: :any_skip_relocation, big_sur:       "030e8c707b32fddf61e3d5d566fc0c5e6e89d34e92aaecbb33fa3f60abf63b64"

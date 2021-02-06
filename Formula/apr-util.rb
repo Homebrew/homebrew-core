@@ -7,10 +7,6 @@ class AprUtil < Formula
   license "Apache-2.0"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "29ffec15c99813b879d9410e2040044b02ee8e219492d065043b4bb65cf30741"
     sha256 big_sur:       "34dd598e189eefff7e09be3ee92c17816353b02cd1eb7b333ea4c74cd6204ffd"

@@ -5,10 +5,6 @@ class Libgdata < Formula
   sha256 "8740e071ecb2ae0d2a4b9f180d2ae5fdf9dc4c41e7ff9dc7e057f62442800827"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "e31807a39d967829c44e6fb94a2d3efba07e3e6fc8ae80747e18b435f46ed15f"
     sha256 big_sur:       "acf37716c065ba69fc22c35236bfc7ebdb7b01623e20ce82ec03306c2684b925"

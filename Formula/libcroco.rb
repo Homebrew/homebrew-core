@@ -5,10 +5,6 @@ class Libcroco < Formula
   sha256 "767ec234ae7aa684695b3a735548224888132e063f92db585759b422570621d4"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d6cced1a48822aac65fbb995159f26ed0552217d125969bcae4bd61bdf223407"
     sha256 cellar: :any, big_sur:       "001998f7977aa0e07aa26ab431422e56b2de76dcb7b75dee392f0d0f3674197a"

@@ -5,10 +5,6 @@ class Genext2fs < Formula
   sha256 "404dbbfa7a86a6c3de8225c8da254d026b17fd288e05cec4df2cc7e1f4feecfc"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a3d9a117858748bd0a157e77968666936832bf63ff14d28850061a9b2ea68e95"
     sha256 cellar: :any_skip_relocation, big_sur:       "38f2b63de0f6754933416ff8cb8e8137cb59a1431fb0a0859c7439e0ddb18e01"

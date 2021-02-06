@@ -8,10 +8,6 @@ class Fabric < Formula
   license "BSD-2-Clause"
   head "https://github.com/fabric/fabric.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "dcba9dc3326e61575f8465c1975b94f4829ab1300e08ca3ff42e6be7282c169a"
     sha256 cellar: :any, big_sur:       "39f9ee8ee9147fb0c78eb252af8df4aaed5bee3f81975cda24ca29cae261b882"

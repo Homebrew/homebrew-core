@@ -5,10 +5,6 @@ class Atkmm < Formula
   sha256 "c93fa9f3876536391b54c307a923b7788e79796ace69a5e9141d67398c019973"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "1b1aabce33bb159b047e9a7f39164f0969832fda522d79b3a2b70c642323869e"
     sha256 cellar: :any, big_sur:       "5089524e732962aac25fb780a671bdb8736cde11dd8565adeeab2f23fcfe9d8b"

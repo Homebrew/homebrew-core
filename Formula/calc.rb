@@ -5,10 +5,6 @@ class Calc < Formula
   sha256 "3e0f27bd6f910f2d556fe5e0fb9b670f16445640fcd157101b26556b2abccec9"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "d64c698c14375806dfe5ab6026aac624ccd4156c65ca3587f320415745e528dd"
     sha256 big_sur:       "3d4821d5977cafef210d99e121549c43d0f0afb51302224380e94fc8b92be7b8"

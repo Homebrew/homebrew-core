@@ -8,10 +8,6 @@ class JujuWait < Formula
   license "GPL-3.0-only"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e6b5a2374dcc6b496d184050039dcb233fdc695219518949ccb7b9d65ca98ef6"
     sha256 cellar: :any, big_sur:       "6e73b48dd92446f5cb69ec22117b9907aeff53ea52524fc5a2a095425430e5a3"

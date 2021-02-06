@@ -7,10 +7,6 @@ class ReactNativeCli < Formula
   sha256 "f1039232c86c29fa0b0c85ad2bfe0ff455c3d3cd9af9d9ddb8e9c560231a8322"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "393b87d95115e28c0fc2d56cf5ea0fb9d9f45d6a8d61a33b6805f1bfc24cc565"
     sha256 cellar: :any_skip_relocation, big_sur:       "7a02c0e2569f9906069d980a6b0d8c0ca3174407a2588c00e8d428ff9c29aa32"

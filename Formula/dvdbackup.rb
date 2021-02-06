@@ -5,10 +5,6 @@ class Dvdbackup < Formula
   sha256 "0a37c31cc6f2d3c146ec57064bda8a06cf5f2ec90455366cb250506bab964550"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "9ba4e29a4b06beac2b905b2ad54850a5e24678cc53e8d1775db1461e4748306c"
     sha256 cellar: :any, big_sur:       "661efc5b452ba9650bf9f5a5cd5cbf081b7f11cbef0b4d22f5271c8cd2e39da5"

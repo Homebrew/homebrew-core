@@ -7,10 +7,6 @@ class Robotfindskitten < Formula
   revision 1
   head "https://github.com/robotfindskitten/robotfindskitten.git", branch: "main"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "be80f51d5ff011ef17235dbd64bca5f1a857e30aca478421555b21a613b73b3b"
     sha256 big_sur:       "6e95713a4c9a5ace4ece0bcf430b08caaa09876a002964f9ef01ee6fc982d302"

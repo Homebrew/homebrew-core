@@ -9,10 +9,6 @@ class GitPlus < Formula
   revision 1
   head "https://github.com/tkrajina/git-plus.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e2a53a282b0e444cb0aca6173d8475b803b247b72462605574f28f62d2f7d9b9"
     sha256 cellar: :any_skip_relocation, big_sur:       "6fbeb0f79fb3149feec139360140b71dc8905336fe3e57979a5555542b14315d"

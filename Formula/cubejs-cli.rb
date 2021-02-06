@@ -7,10 +7,6 @@ class CubejsCli < Formula
   sha256 "a9795fad3ef386df073c97e5f0af23be626fa4e276a4b257e58c9c6b38f66fce"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "db23bb7ece8e56e2c9e6071bd23b157b4ae510d1bcae0dd3782693f491574699"
     sha256 cellar: :any_skip_relocation, big_sur:       "823b4dd4056cf99a6b99704ce705faf87865f123aa73341b2b738a6bb1d9dce1"

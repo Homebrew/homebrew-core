@@ -6,10 +6,6 @@ class AutoconfArchive < Formula
   sha256 "17195c833098da79de5778ee90948f4c5d90ed1a0cf8391b4ab348e2ec511e3f"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5adb533acd2e940523d4d49878a64ca53acd120144a448b55627ce6876af06e"

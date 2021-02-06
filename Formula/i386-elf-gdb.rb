@@ -7,10 +7,6 @@ class I386ElfGdb < Formula
   license "GPL-3.0-or-later"
   head "https://sourceware.org/git/binutils-gdb.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "9e8043b364dbe987a46ad35437e986321c9d5999c62b853f1d474637521f09a9"
     sha256 big_sur:       "133541f91ae660943bc8790002c35032a0cb30b1480f806c65c3b66ec782f52e"

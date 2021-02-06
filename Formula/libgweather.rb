@@ -5,10 +5,6 @@ class Libgweather < Formula
   sha256 "de2709f0ee233b20116d5fa9861d406071798c4aa37830ca25f5ef2c0083e450"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "ea89b381f0cb180a44a1ab0d106693a8874fb785221cc6840092da07ed4960ec"
     sha256 big_sur:       "fbed23f116de31b6c729671e719bb88246ed66007f779fef5289be3519de3223"

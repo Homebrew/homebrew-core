@@ -7,10 +7,6 @@ class ApacheArrowGlib < Formula
   license "Apache-2.0"
   head "https://github.com/apache/arrow.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "ba8da1e8724d7ea1c0928b4ce0243c86321b0abfe83e24260eb5f4a5e1a23964"
     sha256 cellar: :any, big_sur:       "83d1cd2b7e609b2511190646ab24b91e791656515273588172ce240a1354608e"

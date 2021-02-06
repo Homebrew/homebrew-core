@@ -6,10 +6,6 @@ class Cpio < Formula
   sha256 "eab5bdc5ae1df285c59f2a4f140a98fc33678a0bf61bdba67d9436ae26b46f6d"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "88bef9fc6dd8b882e98bf245b7a9cca1a44155d7987725a547bd63877fa216da"
     sha256 cellar: :any_skip_relocation, big_sur:       "5536f0e39997060791f3b7defe996e48e163068342a32340903783a74220347b"

@@ -16,10 +16,6 @@ class Bench < Formula
     end
   end
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "c9ee5713f0c97785f37506da9e34f4cda353beaad06a5209fce27aeb93e3f770"
     sha256 cellar: :any_skip_relocation, catalina:    "b1eccbf77a04e4de1a59a0eed5c0f6e2d8b6b191736ee9ad4fdea9a173010651"

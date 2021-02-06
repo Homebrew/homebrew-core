@@ -7,10 +7,6 @@ class Dvc < Formula
   sha256 "65d22c4232d38ca8ed524b45d5e987b6f87db0cec99f0f0c56205e10103947b5"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7c6f9ecf99a96f0b2f8adcbbf769761547f606637bb1b9e0587a1a84f2b49f9a"
     sha256 cellar: :any, big_sur:       "24460ffba980d2bef98d34af82b57b0eff0c20419dfa1e500bc02792cc5d4aba"

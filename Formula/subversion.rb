@@ -7,10 +7,6 @@ class Subversion < Formula
   license "Apache-2.0"
   revision 7
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "cbf0d587edf228480d7ff2f94bb850d96d30e2f03ed47fae7fed6e3efa2bfd43"
     sha256 big_sur:       "0c9c96e6d321a1e6d523d0783a315529e8f169c230017209d85f9afe6aa37693"

@@ -9,10 +9,6 @@ class GitRevise < Formula
   revision 1
   head "https://github.com/mystor/git-revise.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b4be5a6878b064979ad4ac52cdad2a4d98b344809bde0ead1a7e91370fdc2ed6"

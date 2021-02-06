@@ -7,10 +7,6 @@ class Mycli < Formula
   sha256 "6ae19b140bf02d1eda0c286181e3593d93cd189a3e6fd4384c50da3ab994db32"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "892dd35ba80781a61b68c6fb860211d496359de0ea73ca09a4e49fc4efe9c845"
     sha256 cellar: :any, big_sur:       "d9ae615304f231e75451bfb499c660a7bd06100ccfdf7be3865e364e44fa0f13"

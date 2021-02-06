@@ -8,10 +8,6 @@ class Breezy < Formula
   license "GPL-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3b56b4e6ac7ad2470781467392aa0018754fc03e4f84bfee2d93a00e64c33afe"
     sha256 cellar: :any_skip_relocation, big_sur:       "573375e163fbfa507e6fbd20e52559b30ca1c97ba8ef2f45eecc3b4ae8b4bb0d"

@@ -5,10 +5,6 @@ class Sbcl < Formula
   sha256 "87d2aa53cef092119a1c8b2f3de48d209375a674c3b60e08596838013bd7971d"
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "e6a0d4ba798d435a261e93062461a15801a42af1cab9344cdeab824b00112318"
     sha256 cellar: :any_skip_relocation, catalina: "82afe9ba6dad370ba0895be28b3591eeae9bb88fbba93a916637cea1e6b140c3"

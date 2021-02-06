@@ -6,10 +6,6 @@ class Libewf < Formula
   sha256 "b2c3a04ea7f49646518d108df8ea00fc0d2ca670064bb59428d8878ed8aef80d"
   license "LGPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "b2eb1858fa0942fea2edc3db283fe0c09f20ba79fa25ec0b7a4b7547f98a4124"
     sha256 cellar: :any, big_sur:       "1068de52fbf9dcc6bb65e959db1626da3850cc251c5c9ca4dc87a2f8cd895607"

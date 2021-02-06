@@ -7,10 +7,6 @@ class Fades < Formula
   revision 1
   head "https://github.com/PyAr/fades.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7bc2eb2954b2600729559c9f2f58b89b00ad958499aeddaeec1533160907831b"
     sha256 cellar: :any_skip_relocation, big_sur:       "21973bd9531e3c6af4359e51ac9e31982bfbdf024843b02226168910a39aabd2"

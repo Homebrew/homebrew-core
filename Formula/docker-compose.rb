@@ -8,10 +8,6 @@ class DockerCompose < Formula
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "f147a50464261bd34bd8af04390584badc4241e9d37ca54332fe7dac07e1d570"
     sha256 cellar: :any, big_sur:       "08525974a3404b234d7de572fea0f6095c3e6749df9fc192d571b1f815f00f3d"

@@ -7,10 +7,6 @@ class Pssh < Formula
   license "BSD-3-Clause"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f7e13419d61916a39cc1dfdca7d41e75b83ad569e752e706660a61bf5d27116d"

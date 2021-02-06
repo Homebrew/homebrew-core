@@ -6,10 +6,6 @@ class Pango < Formula
   license "LGPL-2.0-or-later"
   head "https://gitlab.gnome.org/GNOME/pango.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "61423401e031618466684aded96340d6df28170d679126342206a4e5b7114851"
     sha256 cellar: :any, big_sur:       "a370a18fe0ed8f328b1e059047d8e3f5ec6962e61eef8bb73dddc687929abdfe"

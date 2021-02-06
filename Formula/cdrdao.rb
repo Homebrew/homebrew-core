@@ -5,10 +5,6 @@ class Cdrdao < Formula
   sha256 "358d9cb83370ceaecdc60564cbf14c2ea2636eac60a966e2461c011ba09853b4"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "29b520f278e11f6742704d93aa391c44dc5cb386f04610fefb07a787fbcf0595"
     sha256 big_sur:       "1a2440998c344f7b1df9d01d6e3079f86fbc79e8827c440883fda7f8e12aa2fd"

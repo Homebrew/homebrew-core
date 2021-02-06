@@ -7,10 +7,6 @@ class NodeSass < Formula
   sha256 "226607d399eb66642ec3a94b593aaf540913f87b6a9ec15a991af04e7ee40286"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "28f61babd03feda0d39d66a5801d76123bd67e28feec6df95e10f2c739690af3"
     sha256 cellar: :any_skip_relocation, big_sur:       "5891229fce7328eb619b57b8ca4c04430159a1491b824a9ee427387ea599e6b4"

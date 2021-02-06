@@ -5,10 +5,6 @@ class GnomeLatex < Formula
   sha256 "a82a9fc6f056929ea18d6dffd121e71b2c21768808c86ef1f34da0f86e220d77"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "8ea1216cd53e87eb4c9667c90e29cfc007f115129070ef1dd205f2a2480900f9"
     sha256 big_sur:       "dc38c7827663f49f553996a757415dfe20d92c8c0dea83c462c887c8daf69f5f"

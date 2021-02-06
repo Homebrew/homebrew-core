@@ -6,10 +6,6 @@ class GnuUnits < Formula
   sha256 "6c3e80a9f980589fd962a5852a2674642257db1c5fd5b27c4d9e664f3486cbaf"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "843af59e54203a4235dd3522d10fa7d5b6aad5e7326b3ef858c35df7e3e35b84"
     sha256 big_sur:       "67c4941efc8a2b0b2b76193f28a83381cea01b74a2e981fb51222cc87e497aca"

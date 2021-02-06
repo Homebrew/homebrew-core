@@ -7,10 +7,6 @@ class Idutils < Formula
   license "GPL-3.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "226783d59f2f9d0d57462e16af1985c475af17ade456463c3c576804646adfe9"

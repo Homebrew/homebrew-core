@@ -6,10 +6,6 @@ class Jsvc < Formula
   sha256 "5c2e31a7c1198ade5034d625ea10353cdcc4b6e99b84ed7fca4040e3df3339db"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "771e112751eb5c424f61c04f9a4aec6c02e0001ce88b400565c7a2b8fce71a51"
     sha256 cellar: :any_skip_relocation, big_sur:       "50894019268b0cc6757fb62da6756fbfe92138f79afa4eb363f0e14df81de9d4"

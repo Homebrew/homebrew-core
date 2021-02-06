@@ -5,10 +5,6 @@ class Gtkglext < Formula
   sha256 "e5073f3c6b816e7fa67d359d9745a5bb5de94a628ac85f624c992925a46844f9"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any, arm64_big_sur: "0e7132d3e408cb5d9bbff6e8f6e93bc6460ebbb4f3e6f365d8cb331edee9435a"

@@ -5,10 +5,6 @@ class Sshguard < Formula
   sha256 "875d02e6e67dced614790ed5e36aef1160edea940f353a79306cbb1852af3c67"
   version_scheme 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "24aa4cab661aa1ecdf1c2f20e80de6cd7bc90ec928a7d251dbd0d45b0983e0b1"
     sha256 cellar: :any_skip_relocation, big_sur:       "9a11ca09ad3478fbd84a62c21e94c4f9997fedd210fd3ac271a8abb9fc006267"

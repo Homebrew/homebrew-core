@@ -5,10 +5,6 @@ class Gtkspell3 < Formula
   sha256 "b040f63836b347eb344f5542443dc254621805072f7141d49c067ecb5a375732"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "17e1dd6d234ee6ce072ab846cdccc3fb2f672f809b4e9a2af0d55d92600e66d7"
     sha256 big_sur:       "a3ad550626760e585e9474fd8a548315f02b113bb2a0d823957e809d848da464"

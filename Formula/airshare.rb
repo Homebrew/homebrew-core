@@ -8,10 +8,6 @@ class Airshare < Formula
   license "MIT"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "39e35bc89e09e6c7b106712658d222bb85640adb528d7dac368b9a728be17438"
     sha256 cellar: :any_skip_relocation, catalina:      "cecb1498d53e6df78f346438b5d529e1c025b870a5f7875afe71252deacfcd96"

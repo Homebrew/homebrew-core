@@ -6,10 +6,6 @@ class Activemq < Formula
   sha256 "43d3f3a890bffae85c6f1002e9cf950fcc1fd17f3f5e55dc3b85d39d09e2e323"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle :unneeded
 
   depends_on "openjdk"

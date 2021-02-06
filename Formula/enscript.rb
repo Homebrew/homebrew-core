@@ -7,10 +7,6 @@ class Enscript < Formula
   revision 1
   head "https://git.savannah.gnu.org/git/enscript.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "18c0e8fd04b918f671236e5feffe8406c8368369eb08fe301f817e59233659c0"
     sha256 big_sur:       "97b523c5513e54b82d963a7b34a4cfbcbe0af74399bc48839b5285cfce29a9a1"

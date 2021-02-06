@@ -7,10 +7,6 @@ class VercelCli < Formula
   sha256 "0628b029719b8fcc0ee4812c0ad5379226b65e858bad013dc9aaf2c9fcb03895"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d873f60196eb679baf4f95ca1d6b98892f4c2918c845e93a66a64db321a626d"
     sha256 cellar: :any_skip_relocation, big_sur:       "9abc682c893410a630752b8d07e214d72b4c4d61afaa2fd42dbc716e8279373b"

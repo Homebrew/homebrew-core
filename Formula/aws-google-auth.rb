@@ -8,10 +8,6 @@ class AwsGoogleAuth < Formula
   license "MIT"
   head "https://github.com/cevoaustralia/aws-google-auth.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d9ff01f8f261a4152f6aea74d58534570efc62c02eb88bc7081ec5c79d86c847"
     sha256 cellar: :any, big_sur:       "be1f6b869f40123cddba81ca3e1cc6298d51a83a2aec39dbc43f5c8d7306d403"

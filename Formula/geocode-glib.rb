@@ -6,10 +6,6 @@ class GeocodeGlib < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "878e80675652cec9dd995eb7d896681db3203a8567cce2b35577fbc952cb8be0"
     sha256 cellar: :any, big_sur:       "7a36865ee432311c7a36e3541a430a1f32c80935e6b16e11d5454c09a8f773de"

@@ -5,10 +5,6 @@ class LibxmpLite < Formula
   sha256 "bce9cbdaa19234e08e62660c19ed9a190134262066e7f8c323ea8ad2ac20dc39"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c0529347eb14021e29716dc96c5d275efa984fb5aa2394dd116547342878e6ed"
     sha256 cellar: :any, big_sur:       "8fd127bc9b8ddefedf784c9387b9b901a70917b600ce5f4e4087d0abbba530d1"

@@ -5,10 +5,6 @@ class Iat < Formula
   sha256 "fb72c42f4be18107ec1bff8448bd6fac2a3926a574d4950a4d5120f0012d62ca"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d62b3a234d80f15acfed8e030897b09f88678213024c5b5f47ae667507984d24"
     sha256 cellar: :any_skip_relocation, big_sur:       "a1a5029ab927dc08cf6cf89a583c52e475dd50521d461f5ed3d05056a7605dc1"

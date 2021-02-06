@@ -6,10 +6,6 @@ class Diffutils < Formula
   sha256 "b3a7a6221c3dc916085f0d205abf6b8e1ba443d4dd965118da364a1dc1cb3a26"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ffe8dc9603b805641fa3bedf9d33d50db10bcc47daaf1e0fec99a39184c2707c"
     sha256 cellar: :any_skip_relocation, big_sur:       "626485c5fb898eecdc93c2b2af1e98651662afd78181a8ce5683d59c8562ea2e"

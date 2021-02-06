@@ -5,10 +5,6 @@ class JsonrpcGlib < Formula
   sha256 "dc5f1914a91152b70fa8fc9a11ede13148ab4af644db27a36632388c927a8a82"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "06160c00773beabdcff9556c7b3cc1149b281e693807adb50afa5004999482d1"
     sha256 cellar: :any, big_sur:       "922f8e0d4df5ea8c43e188ca633694d0665046c2a364c62348c32e22309f2b5b"

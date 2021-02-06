@@ -7,10 +7,6 @@ class ApolloCli < Formula
   sha256 "cfeaafcc923e13a5504676c8f57965543960babc11d7d6130107c9df0d30e769"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f434c8484763c0a4d6bf7a07388479066e7c7a7ccb4393625a8e98d12fc213a1"
     sha256 cellar: :any_skip_relocation, big_sur:       "1fc3c00f4a19c5d6d14ce4d0d1d13359af23b7ffca125aa6bb8cf60add7ed681"

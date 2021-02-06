@@ -8,10 +8,6 @@ class Pyinvoke < Formula
   license "BSD-2-Clause"
   head "https://github.com/pyinvoke/invoke.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c1f2ddf912dcc04d8c2d29eb7ec303fc377664c3a6fe3a67ac556e8da34f9535"
     sha256 cellar: :any_skip_relocation, big_sur:       "70f385b068f6f303a29679061c48b6e9adcf6db396bba3680f26d63d065d926c"

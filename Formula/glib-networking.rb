@@ -5,10 +5,6 @@ class GlibNetworking < Formula
   sha256 "c5d7be2437fdd196eebfb70c4517b96d3ba7ec13bd496318b8f02dea383e0099"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "690e87b8d6f0cb80419854c589bf0f2390bfa9acf6578d226901c69398dc9155"
     sha256 big_sur:       "903584edc9d9e84945330f226909f445cd701fbc346649b4248556b44632a0df"

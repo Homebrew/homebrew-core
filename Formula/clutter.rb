@@ -5,10 +5,6 @@ class Clutter < Formula
   sha256 "8b48fac159843f556d0a6be3dbfc6b083fc6d9c58a20a49a6b4919ab4263c4e6"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "050dd98a11765590759dc9bfa5e289b50af4374b9deb126959c348057fc81642"
     sha256 big_sur:       "b6a60fc6c91f4e0a206e75c3fe5672215eb9460304202c4bfe1a4c7402ce9bd4"

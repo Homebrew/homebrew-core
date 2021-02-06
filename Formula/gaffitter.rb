@@ -5,10 +5,6 @@ class Gaffitter < Formula
   sha256 "c85d33bdc6c0875a7144b540a7cce3e78e7c23d2ead0489327625549c3ab23ee"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "669301900b6ced3cdd4e137fa2ca31e820ad5bda0581368ecb920d629c906edc"
     sha256 cellar: :any_skip_relocation, big_sur:       "59d1100a675e8b09edd424abee8c091c76e249118aa31d4a13a65196a217372b"

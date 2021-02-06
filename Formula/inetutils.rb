@@ -6,10 +6,6 @@ class Inetutils < Formula
   sha256 "849d96f136effdef69548a940e3e0ec0624fc0c81265296987986a0dd36ded37"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "e105a42e4d6c1f5bb76118c4457c4caf0b029e1e0182f8d6a44b41c412c945f1"

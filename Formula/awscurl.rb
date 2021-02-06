@@ -9,10 +9,6 @@ class Awscurl < Formula
   revision 1
   head "https://github.com/okigan/awscurl.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e4406bc4e1383339f207c1df729c0379baedb4142c6636ccbcf17762ae417633"
     sha256 cellar: :any, big_sur:       "bd800eb06b31ccd926313d9f2f31e0acd465db5879777f5c18ef8f9e67fa13b1"

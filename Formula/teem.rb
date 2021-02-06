@@ -5,10 +5,6 @@ class Teem < Formula
   sha256 "a01386021dfa802b3e7b4defced2f3c8235860d500c1fa2f347483775d4c8def"
   head "https://svn.code.sf.net/p/teem/code/teem/trunk"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "92abe3197ae4ee54df9af997f519538bd8e2b93f5221185f02aaa61de4b5e5aa"
     sha256 big_sur:       "c7c9999dbb12db2cfd64815a3df772be7222278bb22e857b72d0db0101d498af"

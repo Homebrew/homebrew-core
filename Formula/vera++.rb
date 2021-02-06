@@ -4,10 +4,6 @@ class Veraxx < Formula
   url "https://bitbucket.org/verateam/vera/downloads/vera++-1.3.0.tar.gz"
   sha256 "9415657a09438353489db10ca860dd6459e446cfd9c649a1a2e02268da66f270"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, catalina:    "985e75bcd4c9a559fd2e2841d10d0cb3d73fdc940a76aa3d3050514017d61560"

@@ -6,10 +6,6 @@ class P7zip < Formula
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "672dff61eba151f9c1117a1486ef2908dc0d834c355ca31f359ac56dafc75e3d"
     sha256 cellar: :any_skip_relocation, big_sur:       "910811e37db23bbe76d169211d31d36156403f503654d04ed612d7863ea907f8"

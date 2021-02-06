@@ -6,10 +6,6 @@ class Libunistring < Formula
   sha256 "eb8fb2c3e4b6e2d336608377050892b54c3c983b646c561836550863003c05d7"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "73cc290ebcefd6354329317266d9e110e3a5967d0a8260d2cf7d4dd3edc9218c"
     sha256 cellar: :any, big_sur:       "5d336bd939f678b48dc1ced97ed0def383999638d80caa8cb2da780594556524"

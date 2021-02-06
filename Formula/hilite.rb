@@ -4,10 +4,6 @@ class Hilite < Formula
   url "https://downloads.sourceforge.net/project/hilite/hilite/1.5/hilite.c"
   sha256 "e15bdff2605e8d23832d6828a62194ca26dedab691c9d75df2877468c2f6aaeb"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b4095517387a97c332c1acb88969995248ee95d2c29483e56ed7e47bbb8ca721"
     sha256 cellar: :any_skip_relocation, big_sur:       "3f3139534dda449285ab33db2042a264bc553b7efa47ac86507b598c50a5a2d7"

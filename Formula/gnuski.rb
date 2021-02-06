@@ -4,10 +4,6 @@ class Gnuski < Formula
   url "https://downloads.sourceforge.net/project/gnuski/gnuski/gnuski-0.3/gnuski-0.3.tar.gz"
   sha256 "1b629bd29dd6ad362b56055ccdb4c7ad462ff39d7a0deb915753c2096f5f959d"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d82abb34deac302a464e7c664a3dcf0726f1d0f8ee03586b195e3449a2c83d43"
     sha256 cellar: :any_skip_relocation, big_sur:       "6ae8c77ab5fed3e5f85be1c411cc631099d219bd49ddb3a35f527da27894b880"

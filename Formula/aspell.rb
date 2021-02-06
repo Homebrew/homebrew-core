@@ -6,10 +6,6 @@ class Aspell < Formula
   sha256 "f9b77e515334a751b2e60daab5db23499e26c9209f5e7b7443b05235ad0226f2"
   license "LGPL-2.1-only"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "bdd761d4454523f1bc8c0adba2db1a23c215c01371e348cd162b573347791159"

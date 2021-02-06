@@ -6,10 +6,6 @@ class Gnuplot < Formula
   license "gnuplot"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "72a503fc93c60629c22d4f286d45365037d792d76c2f7ff8a76e6469641b0cc7"

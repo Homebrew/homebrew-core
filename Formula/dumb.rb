@@ -4,10 +4,6 @@ class Dumb < Formula
   url "https://downloads.sourceforge.net/project/dumb/dumb/0.9.3/dumb-0.9.3.tar.gz"
   sha256 "8d44fbc9e57f3bac9f761c3b12ce102d47d717f0dd846657fb988e0bb5d1ea33"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d907efc07aefb58f43bca29a17b58957eb071c73e6aef3abd91e59687e5a78ed"
     sha256 cellar: :any_skip_relocation, big_sur:       "8ea105e8d30bae67ddb21a9e7eaba69cd2f372c41dd11d05f80756ec9d3fffee"

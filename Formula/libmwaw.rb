@@ -5,10 +5,6 @@ class Libmwaw < Formula
   sha256 "8e1537eb1de1b4714f4bf0a20478f342c5d71a65bf99307a694b1e9e30bb911c"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "36820eedbe0a09fdb594c065effba926ef287dae4ffe1f141a2a55615c46d4e2"
     sha256 cellar: :any, big_sur:       "a070c58f39b1cec0e17145f3c48ab2f42c6d4cfb3b6d1f10d55d6f215b725c7f"

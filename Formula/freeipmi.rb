@@ -6,10 +6,6 @@ class Freeipmi < Formula
   sha256 "cfa30179b44c582e73cf92c2ad0e54fe49f9fd87f7a0889be9dc2db5802e6aab"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "9b9cf442de57271b2a7d338e4828669da746e2a80fbfd7e5feee5108160262a4"
     sha256 big_sur:       "f34294d363284a09e5852070f2c73cdafcb9a94ce584c83a30c82b3451541433"

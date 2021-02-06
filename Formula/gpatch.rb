@@ -6,10 +6,6 @@ class Gpatch < Formula
   sha256 "ac610bda97abe0d9f6b7c963255a11dcb196c25e337c61f94e4778d632f1d8fd"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c90e7baee17d21e0cb594db676912e108f7df68b71509e15d37edfadcd6b12e9"
     sha256 cellar: :any_skip_relocation, big_sur:       "4c18141474072f9fac171680e75c77fa22af016d1cda998a052792980d9ce4f9"

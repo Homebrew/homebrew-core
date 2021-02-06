@@ -8,10 +8,6 @@ class Xz < Formula
   sha256 "f6f4910fd033078738bd82bfba4f49219d03b17eb0794eb91efbae419f4aba10"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c84206005787304416ed81094bd3a0cdd2ae8eb62649db5a3a44fa14b276d09f"
     sha256 cellar: :any, big_sur:       "4fbd4a9e3eb49c27e83bd125b0e76d386c0e12ae1139d4dc9e31841fb8880a35"

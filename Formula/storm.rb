@@ -6,10 +6,6 @@ class Storm < Formula
   sha256 "f621163f349a8e85130bc3d2fbb34e3b08f9c039ccac5474f3724e47a3a38675"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle :unneeded
 
   conflicts_with "stormssh", because: "both install 'storm' binary"

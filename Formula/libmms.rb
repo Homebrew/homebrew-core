@@ -4,10 +4,6 @@ class Libmms < Formula
   url "https://downloads.sourceforge.net/project/libmms/libmms/0.6.4/libmms-0.6.4.tar.gz"
   sha256 "3c05e05aebcbfcc044d9e8c2d4646cd8359be39a3f0ba8ce4e72a9094bee704f"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any, arm64_big_sur: "23e8d5a9591a26c8f167f346cfd2c789f1241458338eb4ce5f90e9c440aab7f0"

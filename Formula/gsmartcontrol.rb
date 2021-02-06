@@ -5,10 +5,6 @@ class Gsmartcontrol < Formula
   sha256 "b64f62cffa4430a90b6d06cd52ebadd5bcf39d548df581e67dfb275a673b12a9"
   revision 9
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "692948e6fb9022e026c360b311288a71867d1281e83f5660f60413b6fd405941"
     sha256 big_sur:       "64de2b67064449818ce0cf15d7ba8330e9fe408359bc0b4a384f6cd0c5fb217d"

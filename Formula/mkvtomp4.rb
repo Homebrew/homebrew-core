@@ -9,10 +9,6 @@ class Mkvtomp4 < Formula
   revision 2
   head "https://github.com/gavinbeatty/mkvtomp4.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "76e2587009f31923054390bd434b37f0fbf898088a79832b00a5ea6331066ae6"

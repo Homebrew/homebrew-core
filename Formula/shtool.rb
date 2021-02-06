@@ -6,10 +6,6 @@ class Shtool < Formula
   sha256 "1298a549416d12af239e9f4e787e6e6509210afb49d5cf28eb6ec4015046ae19"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7d8d8aad608219d2b3339f2b629140a52526992ca1d68e0a2a31f3764adc1237"
     sha256 cellar: :any_skip_relocation, big_sur:       "3b414c1d021d5c209412a8162722017490d3566176272e00340a249ba06adf4e"

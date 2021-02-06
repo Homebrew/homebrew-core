@@ -5,10 +5,6 @@ class Gptfdisk < Formula
   sha256 "ddc551d643a53f0bd4440345d3ae32c49b04a797e9c01036ea460b6bb4168ca8"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "dfe0b4cbc0e2cb2118fb2fbbbcd3ad1d42ff9fad8c7ad785c7a27bfd8cc48c5f"
     sha256 cellar: :any, big_sur:       "a3e4b6f68aba2aca20a6a197613e662af80a84a71765f7cdc9760ea495d00a86"

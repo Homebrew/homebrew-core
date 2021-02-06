@@ -5,10 +5,6 @@ class Libdazzle < Formula
   sha256 "e18af28217943bcec106585298a91ec3da48aa3ad62fd0992f23f0c70cd1678f"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "ef5f9dca4635b3347a8fda8285b55bd63b274ed51e6df5320ed3d61780b3bbab"
     sha256 cellar: :any, big_sur:       "fa2282bdb8556341d8fdb814ced63d41a5936b7c2905c8e6f0f3e98c4d0b54da"

@@ -5,10 +5,6 @@ class Mp3splt < Formula
   sha256 "3ec32b10ddd8bb11af987b8cd1c76382c48d265d0ffda53041d9aceb1f103baa"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "ffb07bf57273a24cb35a8e2805f34b817f3c90847c05978bc1cb7d9d7a08252d"
     sha256 big_sur:       "0a597bd74402f6d597569b670cf6c0208d24de58c00e27a7b4a91a1fffeaa689"

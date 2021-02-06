@@ -8,10 +8,6 @@ class YouGet < Formula
   license "MIT"
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2238c1f593a3d1e05642f550d5fd8b95bc871efc8fbbf8ca84c62b7838c8fb9f"
     sha256 cellar: :any_skip_relocation, big_sur:       "6264f3509de8eed9b86952c9e29ad83c701f829af203e6cf15ce7fe5a783309c"

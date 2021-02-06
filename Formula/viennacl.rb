@@ -5,10 +5,6 @@ class Viennacl < Formula
   sha256 "a596b77972ad3d2bab9d4e63200b171cd0e709fb3f0ceabcaf3668c87d3a238b"
   head "https://github.com/viennacl/viennacl-dev.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a59335b82a9f92448236ec0278d156f2425995d48fddcef730b906ca63aea6f9"
     sha256 cellar: :any_skip_relocation, big_sur:       "696235e232844f8af5d062bc9197ab87fcacb012da49304b7cce059b145255cf"

@@ -5,10 +5,6 @@ class Lpc21isp < Formula
   version "1.97"
   sha256 "9f7d80382e4b70bfa4200233466f29f73a36fea7dc604e32f05b9aa69ef591dc"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b6f26711684bfbf3ddde4574aab70336278338b206a5fe3e278d868903bd8910"
     sha256 cellar: :any_skip_relocation, big_sur:       "47edc941f73249c62b66a4d795bcec7c2916082ab60f1cc1e1c0c46ebe99b694"

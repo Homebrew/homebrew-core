@@ -7,10 +7,6 @@ class Gdbm < Formula
   license "GPL-3.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "801b2bf95118871ee206de507131325613a1aa59ab7809032bb456f1b5f01a89"
     sha256 cellar: :any, big_sur:       "36b492f1b0910367dd394cbdcffe1606f64ab41ec6701210becfb591a8557dee"

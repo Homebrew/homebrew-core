@@ -7,10 +7,6 @@ class Jrnl < Formula
   sha256 "7eacdee43675cc2b9ac091e5a843ccbd334d83d8802c7097bd71d0f2b0d3ba58"
   license "GPL-3.0-only"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "61c9d11c1bb47b070876ca61df5f0b0fa15fb67ca5b818cacb47bd2dd6c6869f"
     sha256 cellar: :any, big_sur:       "4e448410c5aaeb2956c40164885b44acbf490654b167e070d71994f801686846"

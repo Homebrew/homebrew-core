@@ -6,10 +6,6 @@ class Libxmi < Formula
   sha256 "9d56af6d6c41468ca658eb6c4ba33ff7967a388b606dc503cd68d024e08ca40d"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f62b288c26ca17a79f7c066f82a0a26b84e768960095eefdcf6c0c3b420d4a1"

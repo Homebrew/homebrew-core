@@ -6,10 +6,6 @@ class Texinfo < Formula
   sha256 "988403c1542d15ad044600b909997ba3079b10e03224c61188117f3676b02caa"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "8767f78e25929771eeb011b44247b0d864765094e707aeaff9b4783385ba05a8"
     sha256 big_sur:       "7332c7a1665fc64484fff626116928630d4ee21983f1e221bda360a4d590a396"

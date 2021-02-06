@@ -6,10 +6,6 @@ class Pdfsandwich < Formula
   revision 4
   head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "eed36d608adf9c4c6a7bcfa2f8d51fc7d7db6b9625d8dd87420b0a49432ed099"
     sha256 cellar: :any_skip_relocation, catalina: "e45ad2480a96ef2ff2ee1a0a561004510d3d3f2b61117fce51d2995b5a004b34"

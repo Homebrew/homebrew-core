@@ -9,10 +9,6 @@ class MongoOrchestration < Formula
   revision 1
   head "https://github.com/10gen/mongo-orchestration.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "caea2e09658e9e24c50411755c5f24763f1f445e0e7afad9d99dc14b324df2c1"
     sha256 cellar: :any_skip_relocation, big_sur:       "33b8aa1ce79e8b2255b39c2d39991c4289463c6c98bb7a924ab5c921253d4209"

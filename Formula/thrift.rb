@@ -6,10 +6,6 @@ class Thrift < Formula
   sha256 "7ad348b88033af46ce49148097afe354d513c1fca7c607b59c33ebb6064b5179"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "ef547715c618d3a3cd8586f9678e1b5d09e970680ca44e3a184a106142ff0537"

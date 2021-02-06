@@ -5,10 +5,6 @@ class Mp3val < Formula
   sha256 "95a16efe3c352bb31d23d68ee5cb8bb8ebd9868d3dcf0d84c96864f80c31c39f"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d5718fcb9967416eb3e3cf3e9a186e98bade6be099c57583b0d9dcc0fa43103"
     sha256 cellar: :any_skip_relocation, big_sur:       "671ef59185d212e89c19dda72da09ef7a37e3055f4d42d188079f29122c641dc"

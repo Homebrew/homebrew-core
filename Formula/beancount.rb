@@ -8,10 +8,6 @@ class Beancount < Formula
   license "GPL-2.0"
   head "https://github.com/beancount/beancount.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fbe766a3453274b51a4625bb8dad8f681738104678c144bd599970d535e828da"
     sha256 cellar: :any_skip_relocation, big_sur:       "0fdc75aafcace75a90c5373164f511e8a168e5fbc185a1ed99743734456340f2"

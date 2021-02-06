@@ -5,10 +5,6 @@ class Bittwist < Formula
   sha256 "8954462ac9e21376d9d24538018d1225ef19ddcddf9d27e0e37fe7597e408eaa"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "32f0ed29ff9caa578d26286aec740330e6218cfe4c9ea2aa35df9587e90b9699"
     sha256 cellar: :any_skip_relocation, big_sur:       "501f3df64c0991adb8be19bc835d4abc5277293de53206580ee9851ad36c23ce"

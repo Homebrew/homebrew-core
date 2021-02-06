@@ -7,10 +7,6 @@ class Allureofthestars < Formula
   revision 1
   head "https://github.com/AllureOfTheStars/Allure.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:  "d82455c81cf0a631109ea16ae197fbce21ba141a7d4af065e38f67bf9d03438c"
     sha256 catalina: "542feabc974e7b3506e46312dbe3aaaae6f03474708c969520c661edaf0da088"

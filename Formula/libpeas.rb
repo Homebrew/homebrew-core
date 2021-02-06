@@ -6,10 +6,6 @@ class Libpeas < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "665cf2215ffd3be1079233e2f825790dd0a000b3171deafd4547c76f8e900830"
     sha256 big_sur:       "e16499f8ca12b73b560186938cc435ebb57b9ad5b212f402bfef5fb1817d086f"

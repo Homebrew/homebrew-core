@@ -6,10 +6,6 @@ class Libtasn1 < Formula
   sha256 "0e0fb0903839117cb6e3b56e68222771bebf22ad7fc2295a0ed7d576e8d4329d"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e5ff2498ab8bcc108dd6797fede68929ae3fd2796c39e349ff3f8e0a87abb7a0"
     sha256 cellar: :any, big_sur:       "9a69770cae180c61ada4bb4701f5402b35b828d2baa7c5135196cf1df35965cb"

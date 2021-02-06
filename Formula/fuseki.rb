@@ -6,10 +6,6 @@ class Fuseki < Formula
   sha256 "70008c600cb9a04662e15b057462d0ab269bc25e34e29bf201d8d1a1d6db249e"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle :unneeded
 
   depends_on "openjdk"

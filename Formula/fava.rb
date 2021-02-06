@@ -8,10 +8,6 @@ class Fava < Formula
   license "MIT"
   head "https://github.com/beancount/fava.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "040ebf7614c0235d65be5088e3f101d49ddb73453fa384c547b457c979938453"
     sha256 cellar: :any_skip_relocation, big_sur:       "85a59d132ee21ae7edccc9431b27ca83688b3c8262c682246c2e28019fca2f6d"

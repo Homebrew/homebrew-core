@@ -5,10 +5,6 @@ class CodeServer < Formula
   sha256 "0838c6a844695126a780915eab4e4b7864016bee6fc17f58ab19998573000c9b"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c7f2f97dccfea452f85bd97068e2018575afe4633173887b2c6751649ded431"
     sha256 cellar: :any_skip_relocation, big_sur:       "52be90308e8b09b5fd9d74d1778dc2d4cf43d35e048ad0e171bbfa0ff41f19fc"

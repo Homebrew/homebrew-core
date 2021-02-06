@@ -6,10 +6,6 @@ class GnuSed < Formula
   sha256 "f79b0cfea71b37a8eeec8490db6c5f7ae7719c35587f21edb0617f370eeff633"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "72bc2b8cf7c7e18d106d79c7db382f7160408aafa8fb765b084cbe965e92db9b"
     sha256 cellar: :any_skip_relocation, big_sur:       "3846b361699dd0260a616085b2a1678c874a2fcce8ce70e704a018dce3b4a882"

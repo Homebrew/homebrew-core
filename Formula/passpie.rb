@@ -9,10 +9,6 @@ class Passpie < Formula
   revision 1
   head "https://github.com/marcwebbie/passpie.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2bea6978498b4a19b59ba269d158c833d31ee75c10528f34ceb4eaa7ffe2293f"
     sha256 cellar: :any, big_sur:       "e8550b5e5a4caa3515b9e726beeb3a571a98db40e3fc2731fc0a4460fe929a61"

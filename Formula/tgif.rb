@@ -6,10 +6,6 @@ class Tgif < Formula
   license "QPL-1.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "29699e47040d83ff53dbe9800a053ba9a41fe1ae1834e08ede2844ec59803662"
     sha256 big_sur:       "0488ea1c1291ea86653e1f5e3b0a9d7499ee101ccec3a5cb8f1e855aa445181d"

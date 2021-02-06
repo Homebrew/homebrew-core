@@ -8,10 +8,6 @@ class Yapf < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1e2e3659b521d218c9720c5c81b0a7a8c48b27844acfb391aaf2abc24809e84c"
     sha256 cellar: :any_skip_relocation, big_sur:       "c35f2e09c0d2ec13eb3372b99d149e821695f9657a4b0a77f4f9936837e9a8d3"

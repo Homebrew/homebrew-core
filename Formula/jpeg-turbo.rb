@@ -6,10 +6,6 @@ class JpegTurbo < Formula
   license "IJG"
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "ed33cdd98575680b68055415bc8416e4ff84cb5a458e65924027ef1726e37261"

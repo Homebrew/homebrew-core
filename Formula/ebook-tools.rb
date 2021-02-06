@@ -5,10 +5,6 @@ class EbookTools < Formula
   sha256 "cbc35996e911144fa62925366ad6a6212d6af2588f1e39075954973bbee627ae"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "22676305647bc9cad4335aba2d28d27cbee0db6092901cf1682fff9c833c92bd"
     sha256 cellar: :any, big_sur:       "e9c49bae08503eaf6e213454bd4f5ce58ead342ef192798c6d7d9c04fb6c2918"

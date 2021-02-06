@@ -6,10 +6,6 @@ class Gsl < Formula
   sha256 "b782339fc7a38fe17689cb39966c4d821236c28018b6593ddb6fd59ee40786a8"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "b4d8687427eb3a7f951c211f5a0b8051ca0bbaf174e68265fb6619d43b282aeb"
     sha256 cellar: :any, big_sur:       "49b52d742f10f6a62de28658419c33ab11027eef3427e81b771921bf8d068637"

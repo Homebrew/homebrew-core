@@ -6,10 +6,6 @@ class Libmpc < Formula
   sha256 "17503d2c395dfcf106b622dc142683c1199431d095367c6aacba6eec30340459"
   license "LGPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6a93bd78c1b55f8b29e11fd1e9c68c6c305ffe74aa5b978ba93189b6d84d1451"
     sha256 cellar: :any, big_sur:       "754667644cc287cd9691fd3215df260aa971562b5a7b6ca65e29b2e15ea1e656"

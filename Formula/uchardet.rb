@@ -5,10 +5,6 @@ class Uchardet < Formula
   sha256 "3fc79408ae1d84b406922fa9319ce005631c95ca0f34b205fad867e8b30e45b1"
   head "https://gitlab.freedesktop.org/uchardet/uchardet.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "33989aa08f1ffc6f71f536c2a3cb28aabcc774e90da2aa40db110048f4b38238"
     sha256 cellar: :any, big_sur:       "f5125cd193034470e278536d8b5d2498e99ddbd5c2853e214fe24fe845cc56d7"

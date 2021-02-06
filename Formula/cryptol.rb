@@ -6,10 +6,6 @@ class Cryptol < Formula
   license "BSD-3-Clause"
   head "https://github.com/GaloisInc/cryptol.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "3602fbe74d5bba84b2e36ea3e5860b4a8ca3be54a2c13b57dff69621673d1a26"
     sha256 cellar: :any_skip_relocation, catalina: "42bbe475407645974fb9e90c6811ca103c2d7d92ec5d622428f753fd7f9077b0"

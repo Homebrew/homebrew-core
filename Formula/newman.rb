@@ -7,10 +7,6 @@ class Newman < Formula
   sha256 "bac53129a0a71134c8a2ad08c66f9a7c38bf519fdfa99d101a252dcafde20f06"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a729a0eb82cbf54d5d2cd1d65faaafbf71ec0593d8dbc75820273ab00c790191"
     sha256 cellar: :any_skip_relocation, big_sur:       "c3926c935976ad87374883be61ba75351848437246709b58df1420a5fbb21bc9"

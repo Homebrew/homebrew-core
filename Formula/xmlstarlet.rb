@@ -5,10 +5,6 @@ class Xmlstarlet < Formula
   sha256 "15d838c4f3375332fd95554619179b69e4ec91418a3a5296e7c631b7ed19e7ca"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d654b90521d07ffc1304253fd2b927f9813effa5a65c3f6c43b67838077c009d"
     sha256 cellar: :any_skip_relocation, big_sur:       "bc3baa847a617f3d67000ff14e96126f9bbdf54e916b6c693a2c8bf633ca0bfa"

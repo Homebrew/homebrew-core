@@ -8,10 +8,6 @@ class GnuSmalltalk < Formula
   revision 9
   head "https://github.com/gnu-smalltalk/smalltalk.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:     "9fc21dd5d9f30b200c1d4b1187a22663f100ac4db1363e86edc12d59db96cd43"
     sha256 catalina:    "8a00e81f1a751efeec308de2bbf2e75a1173a636a29c27cec440c121208f0fe6"

@@ -6,10 +6,6 @@ class Hlint < Formula
   license "BSD-3-Clause"
   head "https://github.com/ndmitchell/hlint.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "537e2d46565c5b6799d5b538927741020c3422cb48eb81ce453180791fba03aa"
     sha256 cellar: :any_skip_relocation, catalina: "75d3c4a1ce18ec83dd7e02033b44d2c7d9086b70719fed008e02c6d552e6d03c"

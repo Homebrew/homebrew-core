@@ -6,10 +6,6 @@ class Mtools < Formula
   sha256 "b1adb6973d52b3b70b16047e682f96ef1b669d6b16894c9056a55f407e71cd0f"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "e79ddc6fe5d42ee6254d92868da71fefc84b3c65130ee84304f9cc73ae119b4f"
     sha256 cellar: :any_skip_relocation, catalina: "c03be273031ac22f8d407cbd903ba2913c81f058ad72d23f392289d3c7f9d7f6"

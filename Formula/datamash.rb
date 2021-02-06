@@ -6,10 +6,6 @@ class Datamash < Formula
   sha256 "574a592bb90c5ae702ffaed1b59498d5e3e7466a8abf8530c5f2f3f11fa4adb3"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d808354a764a06427e4768aa451493e111c5324e36fde94fbbab4d7fb41f2055"
     sha256 cellar: :any_skip_relocation, big_sur:       "50590b93f6f3a25e3e2724ddad696e6ed8a168f840fafe887be423f5020ce86c"

@@ -5,10 +5,6 @@ class Libmatio < Formula
   sha256 "a4fa4d248b0414fc72f3d6155f710c470d5628d3c31af834f8d5ccf06b60286f"
   license "BSD-2-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c2ce5f216e9fa77fd0d328504a4d339e1061b5e1c8800d7a1d741ac65c50a3ab"
     sha256 cellar: :any, big_sur:       "6581c5cc3897753a78031740d10ccc534e9d0e8bde17d7c97d578b0b034d0475"

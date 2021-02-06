@@ -6,10 +6,6 @@ class Keepassc < Formula
   license "ISC"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1fda05aa9860777fc35146d01c2828b50ea58e297301b6403ffe49a10538fd35"
     sha256 cellar: :any_skip_relocation, big_sur:       "8ba0332d53b90b3922beae741ea4ef144610c633a5852050c60d7876a158c1c3"

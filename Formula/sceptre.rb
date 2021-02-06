@@ -7,10 +7,6 @@ class Sceptre < Formula
   sha256 "2f01aeaee89cb8b72ffca4caa2861a8f4d33ba93d0ca5e79997b52e954110e5a"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9c240b1fd30599fc79ee9755570da4cb9cea1506add472d5bcdbf26f974f25e5"
     sha256 cellar: :any_skip_relocation, big_sur:       "cc213497cf27297cbe2733d24d7de57bad5a59abb4b4e96be1015815fab80915"

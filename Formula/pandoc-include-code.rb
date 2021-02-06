@@ -7,10 +7,6 @@ class PandocIncludeCode < Formula
   revision 2
   head "https://github.com/owickstrom/pandoc-include-code.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "dc076e4b3a63c70309a63b8c631500418b0b9ba5db2a0a46718527fe780d5136"
     sha256 cellar: :any_skip_relocation, catalina:    "63300eec1d6a9e05208917453d202436384beaa35a50c9e46cff101bac589849"

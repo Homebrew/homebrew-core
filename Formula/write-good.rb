@@ -7,10 +7,6 @@ class WriteGood < Formula
   sha256 "c9de39a23d60d99e22878b1e7a847b03888f848d04c4691f50e894aea9d54c5f"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "785f60e72a7fb8b15d1d839515df63f46f04487ebd5594cfa22bf39226096942"
     sha256 cellar: :any_skip_relocation, big_sur:       "37567d2c4ae6274cb8c02ce524d52bb30e09fb88013d558e76b74c67a9196bfb"

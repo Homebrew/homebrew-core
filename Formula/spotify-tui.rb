@@ -6,10 +6,6 @@ class SpotifyTui < Formula
   license "MIT"
   head "https://github.com/Rigellute/spotify-tui.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c970396f66b149b3c1d58f3bdf2cdf6d4f7b974473399c9be53b1f0f4258267f"
     sha256 cellar: :any_skip_relocation, big_sur:       "781396790a6006952bb22f17aa6b03f057c41ec6ecbb7c18156ad392c394bdb2"

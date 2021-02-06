@@ -8,10 +8,6 @@ class Openstackclient < Formula
   license "Apache-2.0"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "efa827b3bf78979962f0883719229c1c250d1fc1a6e0fa16940f9c80cd1c5ac7"
     sha256 cellar: :any, big_sur:       "d457a82ceb9d43b5089b03f3d94aa15e5ff08fbd95dc82b107f368c3b3eaa169"

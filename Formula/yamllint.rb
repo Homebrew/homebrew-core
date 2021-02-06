@@ -8,10 +8,6 @@ class Yamllint < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/adrienverge/yamllint.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "fe78135e634a2658a12f40e4889be14af79d8843404d145c54495d719275e9d7"
     sha256 cellar: :any, big_sur:       "2586c661c4e1e06056653bb0d62da23d631c84ddfad11e08cc34dbe76a5b2bac"

@@ -8,10 +8,6 @@ class Nbdime < Formula
   license "BSD-3-Clause"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fefd12101c601131de3ba5551bcd94371a3f4c4093989cb7d7f1f141a0e29278"
     sha256 cellar: :any_skip_relocation, big_sur:       "0dd0c2df3e9634ac0fa0017da2079375e97c775aa2d3d67136c7fd95085d3d44"

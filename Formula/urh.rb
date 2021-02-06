@@ -6,10 +6,6 @@ class Urh < Formula
   license "GPL-3.0"
   head "https://github.com/jopohl/urh.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "f59be551336b3d01b468da371a51dc654a6833dcaf39c1f62dc3dd4e85b00aba"
     sha256 cellar: :any, big_sur:       "6115bada2ad182024453d7d29ea4df3e6761204a9aa5f4b598209344a7b73f48"

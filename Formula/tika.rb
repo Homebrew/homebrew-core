@@ -6,10 +6,6 @@ class Tika < Formula
   sha256 "7a9965d6f69ef1dc5189179f3ac95ca243b07d9f80c63b753219f9ca1261e6df"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle :unneeded
 
   depends_on "openjdk"

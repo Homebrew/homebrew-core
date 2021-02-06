@@ -6,10 +6,6 @@ class Offlineimap < Formula
   license "GPL-2.0"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "af9077e9c6a1a2530d512d313a67a804cec500d88751ca2ab3525659a50a0c33"
     sha256 cellar: :any_skip_relocation, big_sur:       "d93a65acab0ec67ba0a7cec1788aaea55f345a328720d521c87e7eb2cc18121e"

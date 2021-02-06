@@ -8,10 +8,6 @@ class Mesa < Formula
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "a3e65d929df4b5bcb70c71abb33140e6fbcc8192876042a443ae71ba134d9b03"
     sha256 big_sur:       "32e6edaa53e047150bf4c64ecb9f755d0121a18dbb1c07b44ac47ca878d913f1"

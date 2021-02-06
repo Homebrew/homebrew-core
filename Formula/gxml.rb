@@ -5,10 +5,6 @@ class Gxml < Formula
   sha256 "0a0fc4f305ba9ea2f1f76aadfd660fd50febdc7a5e151f9559c81b2bd362d87b"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "33e373491cc352e2b11da05fc36b7c9e66451efcbee7b10c06b8454bda72b92c"
     sha256 big_sur:       "93014bd6358485893840d5e1fcb66bbb2b9528c342d5d38e08525ffd6c8dfd4c"

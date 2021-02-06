@@ -7,10 +7,6 @@ class Sqlparse < Formula
   sha256 "0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "23a704c78e708e33de4370e6a8bdff580be8cf707ac0d7708905c0618f6c4d4c"
     sha256 cellar: :any_skip_relocation, big_sur:       "223cb7df4d5a5024e7006b8584edf6c98ab4d7715c1a5e78cc87d9c989d254bb"

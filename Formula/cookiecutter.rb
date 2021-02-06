@@ -9,10 +9,6 @@ class Cookiecutter < Formula
   revision 1
   head "https://github.com/cookiecutter/cookiecutter.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "00f5f08f0d7035700476c2287a43535e5a30b4453f08a7fd7a0ae116392c90b9"

@@ -6,10 +6,6 @@ class Jasmin < Formula
   license "BSD-4-Clause"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle :unneeded
 
   depends_on "openjdk"

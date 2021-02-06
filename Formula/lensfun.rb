@@ -7,10 +7,6 @@ class Lensfun < Formula
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "d88e64dba59fb70ca04c45029ba2908d9d731dd94b835cbf88f488dd66c8c96c"
     sha256 big_sur:       "10c8d68811e3d286d340b8cdea0fff28380d719402f25e85ddc280e9d0a4b1fd"

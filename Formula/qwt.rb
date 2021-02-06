@@ -4,10 +4,6 @@ class Qwt < Formula
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.5/qwt-6.1.5.tar.bz2"
   sha256 "4076de63ec2b5e84379ddfebf27c7b29b8dc9074f3db7e2ca61d11a1d8adc041"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:     "1abf218dc1a4cd47873267d984c71cc6aac3830d19cd6dea6de7d67ee00aec40"
     sha256 catalina:    "1890f28117b4bc819d39359bfe70af5993d735a9bf4e8b5121992e3681287801"

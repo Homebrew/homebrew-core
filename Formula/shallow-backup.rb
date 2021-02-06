@@ -9,10 +9,6 @@ class ShallowBackup < Formula
   revision 1
   head "https://github.com/alichtman/shallow-backup.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "54e0db13cd94663dc668a6a219d4eb82146ee203b7734362c25e9d73f3f2b33e"

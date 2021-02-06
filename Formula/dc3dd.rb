@@ -5,10 +5,6 @@ class Dc3dd < Formula
   sha256 "c4e325e5cbdae49e3855b0849ea62fed17d553428724745cea53fe6d91fd2b7f"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:     "4b01295bd5bab46484c16fd08989ea81bb69711daa15696dee756f75323e9ed2"
     sha256 mojave:      "da27e2227f7fac70c613c4677ec597255c13b1253bc7c79cf58f7321a0a6427e"

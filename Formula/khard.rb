@@ -8,10 +8,6 @@ class Khard < Formula
   license "GPL-3.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4fddb11f8c7f98c5eb9263cf476db41bc664e906f24e3b3cbc3bc1c7a91f824a"
     sha256 cellar: :any_skip_relocation, big_sur:       "3d4e6546d203b68828168787c21dd4d5e1bfe86e08dcef4d07b05e79451f86b4"

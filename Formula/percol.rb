@@ -9,10 +9,6 @@ class Percol < Formula
   revision 3
   head "https://github.com/mooz/percol.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "12ac8e4fb2d128105a336fb66f03e5c4b2138f3e2d0008f3caeb5b9361286d83"

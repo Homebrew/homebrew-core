@@ -5,10 +5,6 @@ class Mpg321 < Formula
   sha256 "056fcc03e3f5c5021ec74bb5053d32c4a3b89b4086478dcf81adae650eac284e"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "0cde599f9f7a975ff76faddcdd85606f62445c2493e201db737916fd03ec907f"
     sha256 big_sur:       "f21a4649c7437144d8228ce229acf7dcd36541c8475ddc9e065bf62d7f501b35"

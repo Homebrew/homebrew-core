@@ -7,10 +7,6 @@ class CabalInstall < Formula
   revision 1
   head "https://github.com/haskell/cabal.git", branch: "3.2"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "e5cf4ef514f88918a5eb50b704b97cd5a335d9112b2458d19ba6ed2520e8da2c"
     sha256 cellar: :any_skip_relocation, catalina: "28a4d8d675adfd734abf2bc4294a1587caca5bf34c1a8e5dbf5c7bea03d36513"

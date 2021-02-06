@@ -8,10 +8,6 @@ class NetlifyCli < Formula
   license "MIT"
   head "https://github.com/netlify/cli.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c91d1e2be39205db743d7d742004719b109b4ad718eff7696f6314ed6b4f148f"
     sha256 cellar: :any_skip_relocation, big_sur:       "5b526e8d4c36837f79428d01872b5d1ac8a495e8871ba4953f43a566cc12ecca"

@@ -9,10 +9,6 @@ class Subliminal < Formula
   revision 1
   head "https://github.com/Diaoul/subliminal.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d87102a64a1865c41b5bffeae63eea3a0a256a2fb33cec0f891752bc5b2425a"
     sha256 cellar: :any_skip_relocation, big_sur:       "a08b741a403f492e203a65d9bf4dfca26062247db174f0e031466b80d7911415"

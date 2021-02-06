@@ -8,10 +8,6 @@ class Eralchemy < Formula
   license "Apache-2.0"
   revision 5
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d925eb8686a32d2bbf7b9bab62f65f6b761952dcb32923ef7b6428f5325c11a1"
     sha256 cellar: :any, big_sur:       "2a5ce41209235c75eeb092f0b6c17c6c46c03f2faada2b2a337fcda7f28a4288"

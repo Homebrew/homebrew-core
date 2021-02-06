@@ -5,10 +5,6 @@ class AdwaitaIconTheme < Formula
   sha256 "6683a1aaf2430ccd9ea638dd4bfe1002bc92b412050c3dba20e480f979faaf97"
   license any_of: ["LGPL-3.0-or-later", "CC-BY-SA-3.0"]
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3ada93f56a15c30f84f71037f769e21b506a11de01d8bc1d4d2c147be38851ff"
     sha256 cellar: :any_skip_relocation, big_sur:       "d92b1254bb3b7f6f85d85349467a38034fab55022bab0ca74fbc4318638124f1"

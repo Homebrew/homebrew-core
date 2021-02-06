@@ -7,10 +7,6 @@ class Glib < Formula
   sha256 "80fff9c63d2725834328071c42003c311f77f91caf2285195c587c62f5638329"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "2581429faf45f81b45b5a247a5b0182ed25cb88ece43f7898f9578f1d507562e"
     sha256 big_sur:       "1b633efb91bd4daad3252735886a27d37ad1aadcb70d95cfcc6da073a56164e8"

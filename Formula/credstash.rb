@@ -9,10 +9,6 @@ class Credstash < Formula
   revision 2
   head "https://github.com/fugue/credstash.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0158907bb9ea77ca4df22484d8f5706707e395963cedb88c2e8e9269b697c8fb"
     sha256 cellar: :any, big_sur:       "014126c51fdc447aaf9cd276bcf1e5db3e7f47de375d7df6b5c987e707406fba"

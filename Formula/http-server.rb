@@ -8,10 +8,6 @@ class HttpServer < Formula
   license "MIT"
   head "https://github.com/http-party/http-server.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1bbe9f7419b215d86dfb4a144e6250a3ab18f54a54dbc641c821be8b1cc43c2"
     sha256 cellar: :any_skip_relocation, big_sur:       "b4c7352df68e5821c56ac58a44f73272a5196f51c12d5ef73b7e34a90749c889"

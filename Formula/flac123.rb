@@ -5,10 +5,6 @@ class Flac123 < Formula
   sha256 "1976efd54a918eadd3cb10b34c77cee009e21ae56274148afa01edf32654e47d"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "beb35321efa9b0d023ede66ba6e8df9e906da354d654088a48e147f9f5c5dd6a"
     sha256 cellar: :any, big_sur:       "898d28a19dd90787cf49ecb1af955f7f65da13423f5bbfdc43a1fd0c6993c4d0"

@@ -6,10 +6,6 @@ class GnuTypist < Formula
   sha256 "c13af40b12479f8219ffa6c66020618c0ce305ad305590fde02d2c20eb9cf977"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "b241409e921daccc7d82bfd1641ba1b6fd43966d19458fc580d4245641306fe2"
     sha256 big_sur:       "74506e983cf7d74abcd8cfa4007d8429cdae7283a1b3cd3a3f0272d4380df024"

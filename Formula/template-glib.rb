@@ -5,10 +5,6 @@ class TemplateGlib < Formula
   sha256 "216bef6ac3607666b8ca72b936467f7020ce6421c02755c301d079576c9c3dfd"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2340864768d827293d86853d8d368d78ed1bb82b87311c3cd3e7c5b315bb3e47"
     sha256 cellar: :any, big_sur:       "4ebcd5e2a6aa072fadc6f4ce54e78aba96cac605fac1ba312bb9d798add9d60d"

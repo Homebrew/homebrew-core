@@ -6,10 +6,6 @@ class Gtkdatabox < Formula
   license "LGPL-2.1"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6159b963d83a085b13210a728e559a4f9fdb1a54f6887ed198792772d0c9c222"
     sha256 cellar: :any, big_sur:       "0653f694493bb5cda05df1dde2b340014e5c51e46d7f0c9351092cbc9c9d45fa"

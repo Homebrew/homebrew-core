@@ -4,10 +4,6 @@ class Gitslave < Formula
   url "https://downloads.sourceforge.net/project/gitslave/gitslave-2.0.2.tar.gz"
   sha256 "8aa3dcb1b50418cc9cee9bee86bb4b279c1c5a34b7adc846697205057d4826f0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d2048c8edb96fe0dd49b8cd52aa1139f63fb275523022cd2c4e7a6ab45a496a"
     sha256 cellar: :any_skip_relocation, big_sur:       "9975ca2bcb400d61bb8a456c951d9a069cff60f90efa440f211916fbc32bb5b0"

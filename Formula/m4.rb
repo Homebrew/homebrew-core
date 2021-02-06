@@ -6,10 +6,6 @@ class M4 < Formula
   sha256 "f2c1e86ca0a404ff281631bdc8377638992744b175afb806e25871a24a934e07"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1db2471add366dde3b52f8d2d32e6d118584f91d1390d8efd6c10c41c9d6a45c"

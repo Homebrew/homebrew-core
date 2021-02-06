@@ -6,10 +6,6 @@ class SafeRm < Formula
   license "GPL-3.0-or-later"
   head "https://git.launchpad.net/safe-rm", using: :git
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "843d018422bc9b5463f5c28c733ced5cd3a1c6c245de4c92f91da5f3b8bc458b"
     sha256 cellar: :any_skip_relocation, big_sur:       "702abe3719e6da0cc02c5b43c1a9e3878e8dd2dd30b2e214634545afe380f061"

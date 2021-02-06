@@ -4,10 +4,6 @@ class Tass64 < Formula
   url "https://downloads.sourceforge.net/project/tass64/source/64tass-1.55.2200-src.zip"
   sha256 "067d0a54cb3c473b26aa5d69ea3f1f956be7cccc9044f1117fc20cb84aa63880"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cf68212ef8aa0d63b5390a0108d00a61dad254fa630af42dca211368484647f0"
     sha256 cellar: :any_skip_relocation, big_sur:       "8c9cac57b73b6e69b31534935f72bc832f9ee85618063bd93dde2fa932183330"

@@ -8,10 +8,6 @@ class Buku < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/jarun/buku.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "754323aacff4caa8fe20fab1aca7f33131375493ca7d906aa909be037dae723b"
     sha256 cellar: :any, big_sur:       "ac5450196f6df19e734b6072aa9b6fd315520ffd87de0e58bfc3bd88523a73c9"

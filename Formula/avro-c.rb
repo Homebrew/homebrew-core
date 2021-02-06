@@ -6,10 +6,6 @@ class AvroC < Formula
   sha256 "5313dcb6d240b919f218a80a8b9b58f7a3eb501ff177b0dedc1c0595d0ee916d"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "e4cd6b302cfadbcd1f445c8957fd616b5f2fdc6730ca64ab3c825cd81a9d8dc5"
     sha256 big_sur:       "c99913941625740c45fd76a1fa8a69750f585375c0559af04284d8bed2cab872"

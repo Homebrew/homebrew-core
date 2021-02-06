@@ -8,10 +8,6 @@ class Notifiers < Formula
   license "MIT"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f096119adfb8ff779aa65d43189c91d2ffa4fe2b108d974cc75a78b777b273d"
     sha256 cellar: :any_skip_relocation, big_sur:       "84d843b6371da8b6858acda7c03126d2def410e3a1745c60a9ee2ce027740eb7"

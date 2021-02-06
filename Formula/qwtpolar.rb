@@ -5,10 +5,6 @@ class Qwtpolar < Formula
   sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 big_sur:     "634cd7925ec1cd45dee256c4e274592714caa44c25d0aeea554b309a90141299"

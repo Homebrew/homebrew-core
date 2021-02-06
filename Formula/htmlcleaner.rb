@@ -6,10 +6,6 @@ class Htmlcleaner < Formula
   license "BSD-3-Clause"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f589e5b99a7d2443607e863555978b07e7c6fe30d9e7c8b536583dfcf87713e4"

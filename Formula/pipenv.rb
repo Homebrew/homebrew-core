@@ -7,10 +7,6 @@ class Pipenv < Formula
   sha256 "8253fe6f9cfb3791a54da8a0571f73c918cb3457dd908684c1800a13a06ec4c1"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b78375585379d8b156b5cfd886c644cd088a0fc32d5ba567a12f610d1abdd0be"
     sha256 cellar: :any_skip_relocation, big_sur:       "58c0ee0415d06fc54e2411ca16257185512e677060f209c4b3cbd00d0c42f0d6"

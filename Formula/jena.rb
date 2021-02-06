@@ -6,10 +6,6 @@ class Jena < Formula
   sha256 "1c2a51c8a0137c9c12a8928e035351bc6dea99d716a8d2458b9c9467cebc6ec2"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle :unneeded
 
   depends_on "openjdk"

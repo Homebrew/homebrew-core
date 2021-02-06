@@ -6,10 +6,6 @@ class GnuTime < Formula
   sha256 "fbacf0c81e62429df3e33bda4cee38756604f18e01d977338e23306a3e3b521e"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3930463651363f08ca7a90ec25deafd85c57f7a71be8ee236f7e15f20de7ff22"

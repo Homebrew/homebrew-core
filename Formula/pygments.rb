@@ -8,10 +8,6 @@ class Pygments < Formula
   license "BSD-2-Clause"
   head "https://github.com/pygments/pygments.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a03ce270d1a5bc2b1b0b59b07939f041a433873fb89c3cb48df1d89ef9df8443"
     sha256 cellar: :any_skip_relocation, big_sur:       "ba143cb212e8a0e5065d46784c113d120b620dfc03bf01de940aea49c024b18f"

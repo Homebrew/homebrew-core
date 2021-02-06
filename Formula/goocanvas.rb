@@ -5,10 +5,6 @@ class Goocanvas < Formula
   sha256 "c728e2b7d4425ae81b54e1e07a3d3c8a4bd6377a63cffa43006045bceaa92e90"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "afc6329ef248fba21b033b7f9e409112260e28f0c9964e5748df4bed40a0cdae"
     sha256 big_sur:       "31471c7264bf173c9f82ba40daec0555403f9007cc8046d7bee5b2406bfeedae"

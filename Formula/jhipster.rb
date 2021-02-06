@@ -7,10 +7,6 @@ class Jhipster < Formula
   sha256 "3d6ac98e1e777f9f7a33a21a01f4f181a8d9252acb46003a0e850fb8c62bc918"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b0c8ea8fefe09ce1202c0643a25b94a337a2848f777f630d39461ebf33c95bd8"

@@ -5,10 +5,6 @@ class Libidl < Formula
   sha256 "c5d24d8c096546353fbc7cedf208392d5a02afe9d56ebcc1cccb258d7c4d2220"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8b4d33f25fe4a01c6924b42d64072cbf42ca133552e67d47c46412ca2e848867"
     sha256 cellar: :any, big_sur:       "320ddc04b68934e51f31fc33223c11097d712869a83242ca6669d05ca112ede9"

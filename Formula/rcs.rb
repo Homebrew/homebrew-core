@@ -6,10 +6,6 @@ class Rcs < Formula
   sha256 "3a0d9f958c7ad303e475e8634654974edbe6deb3a454491f3857dc1889bac5c5"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "94c2394da4a1f2a0fc57c82952526c1bf89d8ec977db1c9235e0e1167bad4ff2"
     sha256 cellar: :any_skip_relocation, big_sur:       "88ee0070ccfd3c5172b97c342c197c00a8643d8ca832477b7f0fe994bb204a56"

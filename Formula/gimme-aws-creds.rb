@@ -8,10 +8,6 @@ class GimmeAwsCreds < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "19457fe5cf9ac9b6e02d3fbc16bd5bc2f27dbb48d4ac013d6fd84f14cb372ca8"
     sha256 cellar: :any, big_sur:       "7d85cf718164805994d15fbf28459f7a3a4217ddac7273f72b739a7d4716fe92"

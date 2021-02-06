@@ -5,10 +5,6 @@ class Gucharmap < Formula
   sha256 "39de8aad9d7f0af33c29db1a89f645e76dad2fce00d1a0f7c8a689252a2c2155"
   revision 4
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "f96625e52ea9855f9d4f350e0e61cbc90c352dfd76931dff3fc3503810be0118"
     sha256 big_sur:       "318ada0ffb5e2b9a2c4ed5968f8d38762a4cc2bb7119e50d6bb13354ca1de47f"

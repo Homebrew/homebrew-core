@@ -7,10 +7,6 @@ class Octave < Formula
   license "GPL-3.0-or-later"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "0ffe32cfaeb313b49a4f6b1dd1663dbf313156682492c126cfa32bac542bcb1c"
     sha256 big_sur:       "364eefc2bd38db495795f8815f234031b00dec5a9a1f45cd9e667d1641ececf8"

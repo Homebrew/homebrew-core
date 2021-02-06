@@ -5,10 +5,6 @@ class Gnumeric < Formula
   sha256 "57cce33a41d34db81292e9eebae8b5046f30e5d919d848256fbb75bfc132a590"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "7d95883c243750094676ada23339c1f39d6b1472b8fcecf87d0793df8c30499b"
     sha256 big_sur:       "c744003a24dd677bedcc09d1f9064a553da3e2539bfbe14173bf6110fb231419"

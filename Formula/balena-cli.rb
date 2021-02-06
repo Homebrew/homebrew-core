@@ -8,10 +8,6 @@ class BalenaCli < Formula
   sha256 "af78b891de5492e567d731dee62369b3d1247c262acf94d2bf4e2379790a947e"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 catalina:    "1d68785ff12ddc57c8a6e93a0b83d3613e29ccf0ae8331dc8197a06bd1f47336"
     sha256 mojave:      "c2e8432c28bb7875f42d7815befa98001dbc72a65cffc121fb8dd6bf2d75290e"

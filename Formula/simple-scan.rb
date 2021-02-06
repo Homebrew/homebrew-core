@@ -5,10 +5,6 @@ class SimpleScan < Formula
   sha256 "a88d80729682888649cdfcdfa8692b0a34acde569dc080888f279afc3a9c4d0b"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "600fdb2b30c0b8749af1fd896142541c4e438d271f5ab0f5766a8b4269337c4d"
     sha256 big_sur:       "4716cff5e9a7afdf63f20dc2603cbf0fd103a4df285ce5caf40dc64dad842c09"

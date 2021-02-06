@@ -6,10 +6,6 @@ class RaxmlNg < Formula
       revision: "abdd9caff709a73928a8fe06f7934cd442b7a50e"
   license "AGPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:     "0e6a2372feba1e4db0627fa823d65bb31e83f8da4debf1a0a7a7c47e5283a04d"
     sha256 cellar: :any, catalina:    "4d7397bf30c609cb53ca946d398d14fadb6e7ade0bfd4b427fb0fd0a6385df95"

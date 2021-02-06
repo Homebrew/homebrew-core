@@ -7,10 +7,6 @@ class Athenacli < Formula
   sha256 "104e99f77ac0fbb4969ed15cfe0af265ad721324906250afe51039b75ef842d7"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "15e64a49fa18a2f1cfb3362798db1da722a4cfd087c99a285f7fd21461613655"
     sha256 cellar: :any_skip_relocation, big_sur:       "f9015e9c1f932668753f0baa32565678228a5d595f7ba9e9c8038a5293096fab"

@@ -8,10 +8,6 @@ class KeepkeyAgent < Formula
   license "LGPL-3.0"
   revision 4
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfd630395342344277c614e67fb6bf28aae72314987efb7cbb2a6bf23cc019e1"
     sha256 cellar: :any_skip_relocation, big_sur:       "3cf82088797d4ae0b693d840d59cabbaa07dfbad5e997ad500a0245b9c534413"

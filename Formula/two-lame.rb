@@ -5,10 +5,6 @@ class TwoLame < Formula
   sha256 "cc35424f6019a88c6f52570b63e1baf50f62963a3eac52a03a800bb070d7c87d"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "15f7868c873400af4b2f9e566356bfa00217f563d51511120367c4dc75d2867f"
     sha256 cellar: :any, big_sur:       "4847a0b0e48b6f8ac14113793e18a6b31d8dce22b09dc707c35306ec2b3ecdfa"

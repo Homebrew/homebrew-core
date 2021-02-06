@@ -7,10 +7,6 @@ class AvroCpp < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "ea71e8ee1e1274fed73fc1c748a2952104ddd2bcc9b06ae01bc7ca21caa7a637"
     sha256 cellar: :any, big_sur:       "6f51a239801589187903594eae05312d66b0e75c9aa1ff2eb35676656c8a5e71"

@@ -6,10 +6,6 @@ class DejaGnu < Formula
   sha256 "0d0671e1b45189c5fc8ade4b3b01635fb9eeab45cf54f57db23e4c4c1a17d261"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c8699cac95a51707a687e2a43de55517c9c19a49cdb34ea70a6ce869ee4ba4e"
     sha256 cellar: :any_skip_relocation, big_sur:       "5bad10e6433487c43ec72f99cee16123953b6834ab714302474b5135b99a9ed5"

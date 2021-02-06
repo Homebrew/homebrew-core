@@ -5,10 +5,6 @@ class Gmime < Formula
   sha256 "2aea96647a468ba2160a64e17c6dc6afe674ed9ac86070624a3f584c10737d44"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "0c12167da5badd3447325e0770666c1e7f5e5e8945613e4c54c4e3e5ef1915fa"
     sha256 big_sur:       "3714b2907a93c2495efb79c0cf870bdab5683c64c17696836b19e5b34108b852"

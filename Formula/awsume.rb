@@ -8,10 +8,6 @@ class Awsume < Formula
   license "MIT"
   head "https://github.com/trek10inc/awsume.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0060e3d76e2fabfdd8a037ff258d95c4df87cc297c180c45fe724fda1a470f5b"
     sha256 cellar: :any_skip_relocation, big_sur:       "fa6d4309582c604ce00ba83e7e6b2f15d8dc91b280bc85ee235d7912e62b50fa"

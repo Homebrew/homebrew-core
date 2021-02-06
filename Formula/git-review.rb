@@ -9,10 +9,6 @@ class GitReview < Formula
   revision 3
   head "https://opendev.org/opendev/git-review.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "341a0755197859195ec1f2a8be8db5171977503cdd7c64ce15208820496ca3cf"
     sha256 cellar: :any_skip_relocation, big_sur:       "190c3c9830ee15af21693da67676eb63fe1db783e8399f842d6adfc7097caf07"

@@ -5,10 +5,6 @@ class Bitchx < Formula
   sha256 "2d270500dd42b5e2b191980d584f6587ca8a0dbda26b35ce7fadb519f53c83e2"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "628166ae821a5f6e24e522aacf347d3789f4c16deeb060e234ba333432ee6dd7"
     sha256 big_sur:       "5c97a97f3f4633129252dbe9691dbfd23960469fca3214326f465cb94f2089dd"

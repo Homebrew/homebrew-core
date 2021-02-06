@@ -9,10 +9,6 @@ class Legit < Formula
   revision 1
   head "https://github.com/frostming/legit.git", branch: "master"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b991a34a3b1731bcd71a09aecf6b974b0b2fcb3a8fd42c3d34e7b553f840b640"
     sha256 cellar: :any_skip_relocation, big_sur:       "73161b2eb5a55db6d984dbf1b1aae96072419b500672bf6d58c0352e840cbc73"

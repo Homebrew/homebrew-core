@@ -5,10 +5,6 @@ class Myman < Formula
   sha256 "bf69607eabe4c373862c81bf56756f2a96eecb8eaa8c911bb2abda78b40c6d73"
   head ":pserver:anonymous:@myman.cvs.sourceforge.net:/cvsroot/myman", using: :cvs
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 arm64_big_sur: "a38be300e040956aa8f9d997a715c91152868d5aeaadc6406330729523036828"

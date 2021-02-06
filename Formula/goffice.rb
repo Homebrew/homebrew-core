@@ -5,10 +5,6 @@ class Goffice < Formula
   sha256 "a439162fa26a0e58117e07b82b37000a7f421088ad379eb1f6a1cdee101ecefc"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "b29f128d789d1399cb06fc284981d690a039ddeaa709bb15ac5f93483e3609f4"
     sha256 big_sur:       "314d34ff359e1d6eb5d5935ac6e2778b47e360e6e13a6c3b98f99b7071e4c961"

@@ -6,10 +6,6 @@ class Couchdb < Formula
   sha256 "8ffe766bba2ba39a7b49689a0732afacf69caffdf8e2d95447e82fb173c78ca3"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, catalina:    "8d192716d7cb1aabe1e0d556ee86717c11c9079e18699d718ffd3aa7c94d57ec"
     sha256 cellar: :any, mojave:      "d683b22eecb84fe5326b8644d8ff5a0f72a0c935e84d0411369271e521a7b7dc"

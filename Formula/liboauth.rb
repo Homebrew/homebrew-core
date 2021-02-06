@@ -5,10 +5,6 @@ class Liboauth < Formula
   sha256 "0df60157b052f0e774ade8a8bac59d6e8d4b464058cc55f9208d72e41156811f"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e843a7ac1cf285dfadcb2ebe515dc842d73a3035aa7ceede90b940d4036459ac"
     sha256 cellar: :any, big_sur:       "2a735e19305674c11fbf4aeae054f84fa9c50d4aed69aa757a818c8f27da0e7e"

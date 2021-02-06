@@ -6,10 +6,6 @@ class GnuBarcode < Formula
   sha256 "7c031cf3eb811242f53664379aebbdd9fae0b7b26b5e5d584c31a9f338154b64"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e621e1e142ab7c323b6bc133b4b3c373df050986e4282814f07a8ca1928d83c"
     sha256 cellar: :any_skip_relocation, big_sur:       "8db9cd7477dfce32af8a9451c792683d97ef0ab81d7929881ac59a6fab9d88aa"

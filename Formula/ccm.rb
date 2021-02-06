@@ -7,10 +7,6 @@ class Ccm < Formula
   revision 1
   head "https://github.com/pcmanus/ccm.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "955fd74e54ceaed0772238587c7fe45600813c685cdd4c1af19a5c0c99462a1f"
     sha256 cellar: :any_skip_relocation, big_sur:       "f0884f1aa2af574e62b130656d2110c9ad8d544caf6c984e08943c05a0bbf630"

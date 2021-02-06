@@ -6,10 +6,6 @@ class Sng < Formula
   license "Zlib"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "441c39690c079231af81a27fce72a0f0ea7cf982c9e48e320160ccc7304486a0"

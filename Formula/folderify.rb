@@ -9,10 +9,6 @@ class Folderify < Formula
   # Default branch is "main" not "master"
   head "https://github.com/lgarron/folderify.git", branch: "main"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1b56e80d1b6eabac87521806039b4cf15c625f35f63d0a8c636a1e82025ca53d"

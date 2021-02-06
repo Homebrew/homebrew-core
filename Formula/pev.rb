@@ -6,10 +6,6 @@ class Pev < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/merces/pev.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "9a6e1d64960daa44838f688dc596cb7ca02536521c7c39ee5349021870f41172"
     sha256 big_sur:       "bd9160da3191fbdc8c251c6513ae6ca73a330575171e7742e2488f655999d864"

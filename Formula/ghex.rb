@@ -5,10 +5,6 @@ class Ghex < Formula
   sha256 "c2d9c191ff5bce836618779865bee4059db81a3a0dff38bda3cc7a9e729637c0"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "0b3953f55c7d99378104344d01d3f3207cf4e0f8364906c90561ca43484e9d34"
     sha256 big_sur:       "3c7a8c7f133ff63b1398074340ed06140645d258b94e971d897f912b8631f609"

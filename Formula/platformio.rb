@@ -7,10 +7,6 @@ class Platformio < Formula
   sha256 "8382a07cce5f6490a61c817588e69d86ef768fefe0f53cab810cdfd2befab4a2"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "11de8a3e5c7303a0fb22728305939a3f2d62fecf50cea39de0c4d986e8307b0a"
     sha256 cellar: :any_skip_relocation, big_sur:       "815d462f210632cd558f01268896a74cc87b17defbb82de80c1d4619193792c9"

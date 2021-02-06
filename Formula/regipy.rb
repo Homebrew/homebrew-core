@@ -8,10 +8,6 @@ class Regipy < Formula
   license "MIT"
   head "https://github.com/mkorman90/regipy.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0bf99bcb150b785b4fff14ec4dc6425a936afd2a1798cd6a9359a988f85ff776"
     sha256 cellar: :any_skip_relocation, big_sur:       "11a11f25b4299ed4eecaf7220ae3c5c8f3f8cb8c67dcd46622c6b8b3fa323314"

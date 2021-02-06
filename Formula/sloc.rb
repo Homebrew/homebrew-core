@@ -7,10 +7,6 @@ class Sloc < Formula
   sha256 "fb56f1763b7dadfd0566f819665efc0725ba8dfbec13c75da3839edf309596e6"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebd1c159ad1f9f263528431a12b45bea9bffb4e0bf28393da414e9ccb62f9942"
     sha256 cellar: :any_skip_relocation, big_sur:       "28fb222768fc7ca90e6a9fa29c97d5f79f11bd9a928024ae84aabe8dfb8f0ff9"

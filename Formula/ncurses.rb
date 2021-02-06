@@ -6,10 +6,6 @@ class Ncurses < Formula
   sha256 "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "111ab64b5ffbe5aebe18096a2ff95e8e8f6426955799181db8338677e8f853e4"
     sha256 big_sur:       "b34b4aa433f23405c6104bf810836eed2686f11c660b8668a7af86f99be2329f"

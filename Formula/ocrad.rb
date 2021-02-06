@@ -6,10 +6,6 @@ class Ocrad < Formula
   sha256 "a9bfe67e9a040907aff5640dca56392476b6a89e48e37dc94ba846c5b6733b36"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "bfbe36f994bcbba6286b9bec6206e314d405a42ca222821648a6962b17a2aecb"
     sha256 cellar: :any_skip_relocation, big_sur:       "59bfd9714c393b8910fdd9cbc337dfeaf431f78215820ffe47fe59841231e7f4"

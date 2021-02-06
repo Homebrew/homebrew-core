@@ -4,10 +4,6 @@ class Lifelines < Formula
   url "https://downloads.sourceforge.net/project/lifelines/lifelines/3.0.62/lifelines-3.0.62.tar.gz"
   sha256 "2f00441ac0ed64aab8f76834c055e2b95600ed4c6f5845b9f6e5284ac58a9a52"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "0d4bbac64c9f9bb282761727298fbe0b04c8c520a9641ae7d16cf69453a0db48"
     sha256 big_sur:       "171cd3764cc895c2b4c7b9507a44da2aa2e13fe3a75df80af345500f81da3572"

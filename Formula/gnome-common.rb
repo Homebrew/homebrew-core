@@ -5,10 +5,6 @@ class GnomeCommon < Formula
   sha256 "22569e370ae755e04527b76328befc4c73b62bfd4a572499fde116b8318af8cf"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f0301bdbf6c3d84a7c95e2ddc3c94a82ba79ac415a49e93b36a793dda8c02e34"

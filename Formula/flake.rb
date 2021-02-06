@@ -5,10 +5,6 @@ class Flake < Formula
   sha256 "8dd249888005c2949cb4564f02b6badb34b2a0f408a7ec7ab01e11ceca1b7f19"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9a479261d3abb5f7cb8f4006cd025b7680d10148bdd66d817af0d040f4395de6"
     sha256 cellar: :any_skip_relocation, big_sur:       "453cccc52dcc4b3028b2fad54706de68b8eac67b1dd8884265f883c7721f5ee0"

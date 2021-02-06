@@ -8,10 +8,6 @@ class Csvtomd < Formula
   license "MIT"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6fd3c11c69283da1a7eea9160e5935a3ecb9b4e940d7522c7e10253bbbd8b93f"
     sha256 cellar: :any_skip_relocation, big_sur:       "9bf13d30c902c1c5fbdcdfd07aa29e4d0a698eaf39342ad3d2cb017fe2fe514d"

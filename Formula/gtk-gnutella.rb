@@ -5,10 +5,6 @@ class GtkGnutella < Formula
   sha256 "9608f28706f75423ac6b0d8f260506f1cf0f345a6f04de7cac1232b2504d94c9"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "0c52c25d2374166f992060c2975b920cd37d4a258de01e391102765c286009fb"
     sha256 big_sur:       "65fe3df74ec576a933c4aa3576b7cf387e09f1d1757b45e835a1daa326dd4df4"

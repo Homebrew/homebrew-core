@@ -4,10 +4,6 @@ class Cunit < Formula
   url "https://downloads.sourceforge.net/project/cunit/CUnit/2.1-3/CUnit-2.1-3.tar.bz2"
   sha256 "f5b29137f845bb08b77ec60584fdb728b4e58f1023e6f249a464efa49a40f214"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "699850740de719430e01f95dcd1391d00d67f3b8e4a29201bdfc73cab9d2d04a"
     sha256 cellar: :any, big_sur:       "2d5e3e62c0d0cd5cbf119d93249ca2ab671bebf53c77947d5c59daaad55aefed"

@@ -4,10 +4,6 @@ class Graphene < Formula
   url "https://download.gnome.org/sources/graphene/1.10/graphene-1.10.2.tar.xz"
   sha256 "e97de8208f1aac4f913d4fa71ab73a7034e807186feb2abe55876e51c425a7f6"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "ed93a2b7f3830d38f82bece133afa43636e1cb90b3342c222909229260e63716"
     sha256 cellar: :any, big_sur:       "0e6af428f089a813408d7edc7a5196372a1ee8dd3ed13f7edbf4acfb1f62407a"

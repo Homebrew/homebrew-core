@@ -5,10 +5,6 @@ class Lci < Formula
   sha256 "204f1ca5e2f56247d71ab320246811c220ed511bf08c9cb7f305cf180a93948e"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "10cf9d298c08ffd7dbc86b99853c79013027b0f6e8598f9687d679a312ce3f66"
     sha256 big_sur:       "bcdd98bead994b6b6c4551bb89575bfd154dcfff597d94da15a1f6158ca42f11"

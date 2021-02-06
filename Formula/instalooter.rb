@@ -8,10 +8,6 @@ class Instalooter < Formula
   license "GPL-3.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a4a55d13f26a65b0f515babb39cfc643b1e0d27921251cb9f0f0f038d16c8680"
     sha256 cellar: :any_skip_relocation, big_sur:       "cfee59324b528c7c9987e381a76bbaa246596e8606e90ffefd13741dce12f65b"

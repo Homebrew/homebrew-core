@@ -5,10 +5,6 @@ class GsettingsDesktopSchemas < Formula
   sha256 "5704c8266004b296036671f223c705dc046aa694a1b1abb87c67e7d2747a8c67"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a19a6b6a472566b10ceee4ee1d91c498097cd4e55ed56bfb875cf99e2223cc35"
     sha256 cellar: :any_skip_relocation, big_sur:       "abb92dac931cdbbe96c43137c3df3173b41c86565c1053a5578e4b36312de480"

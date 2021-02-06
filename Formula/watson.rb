@@ -9,10 +9,6 @@ class Watson < Formula
   revision 1
   head "https://github.com/TailorDev/Watson.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "bbacc9c9851817a475dffab977b811aae3e458ec44764cc913c6e5e7a695a0cf"
     sha256 cellar: :any_skip_relocation, big_sur:       "1bcccec3931eb5ba2ae34d3d43ba2862d80c12974e34e1fb86fcc30f03cbde08"

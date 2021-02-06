@@ -9,10 +9,6 @@ class Supervisor < Formula
   revision 1
   head "https://github.com/Supervisor/supervisor.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "687ab3e1017d97838e1ae06bd4899d02b675e0be80baf61a37cd8e89f1f86061"
     sha256 cellar: :any_skip_relocation, big_sur:       "248bad901b7e19631fb4d228a8e921d0f52002bce4aa9349c60b9643ab668376"

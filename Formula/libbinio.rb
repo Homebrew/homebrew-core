@@ -5,10 +5,6 @@ class Libbinio < Formula
   sha256 "4a32d3154517510a3fe4f2dc95e378dcc818a4a921fc0cb992bdc0d416a77e75"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "242943ef59b0240db7e61f8ba587bafcb68f080d66dea8b8bb461d2e292fdaaa"
     sha256 cellar: :any, big_sur:       "892d24b5664bb470d0b90f714b4d2f9d8bc9bc62f857f003b4736bd5efd9a5f2"

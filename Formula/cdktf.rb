@@ -7,10 +7,6 @@ class Cdktf < Formula
   sha256 "0b7e63dba77502e7f1710a5c0aed71fc8c33ed36c7bef8ab71c5b751a8b3dec6"
   license "MPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "2c0c649ff73fa68eea32584e0cbac50f86a5ca920c0493ed0146cf642b06a7d4"
     sha256 cellar: :any_skip_relocation, catalina: "c84e60b9eded34da028aeb2aeed72931602b42020fa91df0d2d30b6717ff5e83"

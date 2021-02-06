@@ -8,10 +8,6 @@ class Gitlint < Formula
   license "MIT"
   head "https://github.com/jorisroovers/gitlint.git", branch: "main"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8131d633d12e717a5cffd63fcd8717d1f7de4660c0ecea17e39a35cee982d9ca"
     sha256 cellar: :any_skip_relocation, big_sur:       "52ac0738eaf1ee717e838a7a2d2c2e8c4745f281bafc846a054be2526567c411"

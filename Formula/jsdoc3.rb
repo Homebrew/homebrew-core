@@ -8,10 +8,6 @@ class Jsdoc3 < Formula
   license "Apache-2.0"
   head "https://github.com/jsdoc3/jsdoc.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9328c5dc51044e1e036584f9f38e777cf54a0b9280092f276ab1b237e206ed9"
     sha256 cellar: :any_skip_relocation, big_sur:       "4c1da3c8d4fe156dd341effdefc520eda61a622584cde9fbdc307761c0befb87"

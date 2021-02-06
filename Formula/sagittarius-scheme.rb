@@ -5,10 +5,6 @@ class SagittariusScheme < Formula
   sha256 "a8517ef342aadf9fb964e03fd03d4eb13287e5686406ba60d93d6e5c9c91f2a2"
   license "BSD-2-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:     "571c191c879cfa536eb60639ad65f82bc30f2782c18ed747dae167254f1e1e8e"
     sha256 catalina:    "7199d76824cd0de62da70f2eff3db66f0944c2851e4ee868359b7bdbe4685994"

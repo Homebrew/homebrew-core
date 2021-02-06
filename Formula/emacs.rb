@@ -24,10 +24,6 @@ class Emacs < Formula
     end
   end
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "66c4fc4a6f21c3303ac39939e8971894560fd4d8e632539e72436bd05a203816"

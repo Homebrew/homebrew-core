@@ -5,10 +5,6 @@ class Libquicktime < Formula
   sha256 "1c53359c33b31347b4d7b00d3611463fe5e942cae3ec0fefe0d2fd413fd47368"
   revision 5
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "7d24ece79d6792b731695618cbc2535d5e374b0cb427cb72df1a1526e04b2974"
     sha256 big_sur:       "4a9a12712bedaa0ca62394a26ae842f64b4ef86108fca99c2e1712c6a7e7d9c4"

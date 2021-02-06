@@ -5,10 +5,6 @@ class Podofo < Formula
   sha256 "e9163650955ab8e4b9532e7aa43b841bac45701f7b0f9b793a98c8ca3ef14072"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "153f700bd2adc92e7fb10e6b2b89ebb4242a655fb0c19b9ccfe8363c71543729"
     sha256 cellar: :any, big_sur:       "4840cedd76d3e3622ebd529df4e3105515c659b2a26cb7a61e75263ccb03233e"

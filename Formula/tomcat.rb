@@ -6,10 +6,6 @@ class Tomcat < Formula
   sha256 "30703af07182c3c815a7e44376939b69da406ab64bd6f9c5ced9c455ad013a1b"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle :unneeded
 
   depends_on "openjdk"

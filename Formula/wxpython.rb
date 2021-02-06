@@ -7,10 +7,6 @@ class Wxpython < Formula
   sha256 "00e5e3180ac7f2852f342ad341d57c44e7e4326de0b550b9a5c4a8361b6c3528"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:  "9aed884ad2d17eadce20f6a004bdef1388b3f28a53dbe82751d110786723c336"
     sha256 cellar: :any, catalina: "962dc706ef5e748da2f8ec188ce1fca50dcab98350b2254f50955ef8b118761e"

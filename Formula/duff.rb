@@ -4,10 +4,6 @@ class Duff < Formula
   url "https://downloads.sourceforge.net/project/duff/duff/0.5.2/duff-0.5.2.tar.gz"
   sha256 "15b721f7e0ea43eba3fd6afb41dbd1be63c678952bf3d80350130a0e710c542e"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a56fadd23b68f73dc6800cb2d13435b8bc8893b3b1cf3ce48660663840cab8a9"
     sha256 cellar: :any_skip_relocation, big_sur:       "37eec490b6068cb6cb98f430740042712203e2bd2db39bfe25eeb5143f444965"

@@ -6,10 +6,6 @@ class GnuShogi < Formula
   sha256 "1ecc48a866303c63652552b325d685e7ef5e9893244080291a61d96505d52b29"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "106fee874d8adf30ee887dcf7aa6149cd469c3e629861d105a278a9a66318aea"
     sha256 big_sur:       "70258434181a6f40b0c3cddb7e2a5f0119bf953bff5dbd3e795533f558a104ea"

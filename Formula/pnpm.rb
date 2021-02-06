@@ -7,10 +7,6 @@ class Pnpm < Formula
   sha256 "087902adb2ce8f2a36a7d58cc8483fa2e40cb885fcaa40d9ef1df3e72a152482"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "af7cde2aac12ee4eb55dd1c70abcb34e528a042a6402ec8215c0bb589278b91c"
     sha256 cellar: :any_skip_relocation, big_sur:       "38f0857cdfcd85de81608412e85b20ea87ec8b3c55e673b327b36efe34a92f25"

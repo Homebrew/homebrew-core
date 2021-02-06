@@ -8,10 +8,6 @@ class Bzt < Formula
   license "Apache-2.0"
   head "https://github.com/Blazemeter/taurus.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "2914b239cc029c12f7242f5c36651d338810ba6e545e5fb2341946da28463be0"
     sha256 cellar: :any_skip_relocation, catalina: "87ca5630f029a90be43ba9f1f00fe2fc945ea7d0e5179028f7fbaf987a1665f5"

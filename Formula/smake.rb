@@ -4,10 +4,6 @@ class Smake < Formula
   url "https://downloads.sourceforge.net/project/s-make/smake-1.2.5.tar.bz2"
   sha256 "27566aa731a400c791cd95361cc755288b44ff659fa879933d4ea35d052259d4"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "43034c1f8106c8f34f94e6ffbfc143521f1688929227b28a0c2c35d15a36e1a2"
     sha256 big_sur:       "91320cb3802a9b395c25e93efc7162ebdf59514ec70fe82a7476b045120d7adc"

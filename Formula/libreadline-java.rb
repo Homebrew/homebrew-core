@@ -5,10 +5,6 @@ class LibreadlineJava < Formula
   sha256 "cdcfd9910bfe2dca4cd08b2462ec05efee7395e9b9c3efcb51e85fa70548c890"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:     "73b6dbaa9a738c05b8195665829637d9c4e5c1be74f7059ee17e97e2ab879e01"
     sha256 cellar: :any, catalina:    "cc49470dde32faf6c0621944621af9684366e6897a4994b5b021e63a8422f78e"

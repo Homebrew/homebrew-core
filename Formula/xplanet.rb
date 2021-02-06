@@ -6,10 +6,6 @@ class Xplanet < Formula
   license "GPL-2.0-or-later"
   revision 4
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:     "48c24de21612e3a5cb19747db269ec15dc1a85a4e49c6e0c0c87b0bdf5b15d90"
     sha256 catalina:    "c8e659713aaa70e8fc00d48e15cf997648759afa7b6ff8e0979212348fd6cc8f"

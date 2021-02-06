@@ -6,10 +6,6 @@ class GnuTar < Formula
   sha256 "7c77c427e8cce274d46a6325d45a55b08e13e2d2d0c9e6c0860a6d2b9589ff0e"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "992da32921e3033679cc2323a34f21e0c847661aedf0d8c59e04c2d6a47fed45"
     sha256 cellar: :any_skip_relocation, big_sur:       "14c85bf6742a4055f0a6d3444993af7866d4963cd264eb2f2419bfe07cafda74"

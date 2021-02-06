@@ -5,10 +5,6 @@ class Msktutil < Formula
   sha256 "56bf4af8f74d8be6a8d94b90a527acf1508cd58212886fcfe54daa9799dcaf6f"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b30da17f59ba235a55d146e7af8e5c704105a4947f6cc8136764db2664ca67c1"
     sha256 cellar: :any_skip_relocation, big_sur:       "7792cda91c0fe3c5bb4858d5af90cc897fa193c0609a44be276da8397bc97549"

@@ -8,10 +8,6 @@ class PythonMarkdown < Formula
   license "BSD-3-Clause"
   head "https://github.com/Python-Markdown/markdown.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e15c00fbbc97ddc7727ed969fa6b66e39d14a0840c701a278cc7d936265b3820"

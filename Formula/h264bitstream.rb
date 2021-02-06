@@ -5,10 +5,6 @@ class H264bitstream < Formula
   sha256 "94912cb07ef67da762be9c580b325fd8957ad400793c9030f3fb6565c6d263a7"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "86d9c15b08de87f85f791e45669241a1a27fefef2ddbccf6016642505e69c6e6"
     sha256 cellar: :any, big_sur:       "2ace75ebe5094b847024fb80a23a82bba3acfa7869399f3962c6910089ebc777"

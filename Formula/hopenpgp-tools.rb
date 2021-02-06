@@ -6,10 +6,6 @@ class HopenpgpTools < Formula
   license "AGPL-3.0-or-later"
   head "https://salsa.debian.org/clint/hOpenPGP.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "2055a599363bac4729fdb4313373b505fc2172a38061c84b5088ba1ca2785a3b"
     sha256 cellar: :any_skip_relocation, catalina: "dfe8f2f9e6aa6b58482f94a6735323aaf3d25815bec18efed443a93d57b02b4b"

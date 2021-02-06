@@ -5,10 +5,6 @@ class ClutterGtk < Formula
   sha256 "521493ec038973c77edcb8bc5eac23eed41645117894aaee7300b2487cb42b06"
   revision 4
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "2fe413931adfbb5801835172149dbf10aa1f1cdc669a0a8f973d834a6251fe0f"
     sha256 big_sur:       "4d0e9365bfeff618403fb3fa6db9319eb684b4c614af80f1ad6ed0f0fec57db1"

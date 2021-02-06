@@ -9,10 +9,6 @@ class Awslogs < Formula
   revision 1
   head "https://github.com/jorgebastida/awslogs.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "38caa20a341705f9ef458157f2efcd340ebac1ed4a28a9f087fd362aeb10651b"
     sha256 cellar: :any_skip_relocation, big_sur:       "7a0703d7739d19a445b81c7d67384cfbcc20e10a9c1dc5f11427b2cecddf18f2"

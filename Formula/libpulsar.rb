@@ -7,10 +7,6 @@ class Libpulsar < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2c7fb02b322cb489bd130f7d4fe768852ee1722957ba114397f8b92e76b76c31"
     sha256 cellar: :any, big_sur:       "e641637fb28781ecb290b663f0d0f9225827cb143888f0e76ff00b4993c84580"

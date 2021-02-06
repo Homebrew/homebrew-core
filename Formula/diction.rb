@@ -6,10 +6,6 @@ class Diction < Formula
   sha256 "35c2f1bf8ddf0d5fa9f737ffc8e55230736e5d850ff40b57fdf5ef1d7aa024f6"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "88a87488f8e893dc86f30e8736cf9cbdc2459976da13d899cb91daf8abdfe23e"
     sha256 big_sur:       "cf3b827429c5513b3289ab9c0df46de743cf84c773102a2f01058c982721e4cc"

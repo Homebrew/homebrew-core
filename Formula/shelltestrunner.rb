@@ -6,10 +6,6 @@ class Shelltestrunner < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "a2fc10b7cb762bc726a29922a3e17a78bbd397cb3c54be5a7a1827dedeef2a55"
     sha256 cellar: :any_skip_relocation, catalina:    "f4b8567777ed9313c913b29a45874c02cc517d5cf379a67e22797993e6b264c2"

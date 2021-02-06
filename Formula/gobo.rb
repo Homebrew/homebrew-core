@@ -4,10 +4,6 @@ class Gobo < Formula
   url "https://downloads.sourceforge.net/project/gobo-eiffel/gobo-eiffel/20.05/gobo2005-src.tar.gz"
   sha256 "047b6710abd94d1c1366316b4411d5cc1a3752bb60155c24e2a6d81494d63e5b"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "1f302b672e67e600556c1d5e30751bb0ca1a47f19f8167bf7661b1fd9dc9e7d4"
     sha256 cellar: :any_skip_relocation, catalina:    "a7cd43939f9300895b1b9261ae14dfab076c9daca40f553d1b6b7b263e6b5b98"

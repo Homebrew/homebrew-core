@@ -5,10 +5,6 @@ class Puf < Formula
   sha256 "3f1602057dc47debeb54effc2db9eadcffae266834389bdbf5ab14fc611eeaf0"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f9daf26921e00b28187380efab232b5f4d4e02877e258ec6e4e204d446c25cf0"
     sha256 cellar: :any_skip_relocation, big_sur:       "590e0087a563c0fa38996f69c80316f95a54a3a788f0e07390ba192db1d67c44"

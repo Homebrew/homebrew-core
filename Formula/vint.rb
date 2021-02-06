@@ -8,10 +8,6 @@ class Vint < Formula
   license "MIT"
   head "https://github.com/Vimjas/vint.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a65f86843dc5833129a0dc1b62d32d816e956171634304ea96263b4b30f96642"

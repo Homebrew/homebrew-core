@@ -5,10 +5,6 @@ class Gts < Formula
   sha256 "059c3e13e3e3b796d775ec9f96abdce8f2b3b5144df8514eda0cc12e13e8b81e"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "efa1e3990e707e16709bbd258502b9c248c25bb5468e8a7b3ef491c56c3a180a"
     sha256 cellar: :any, big_sur:       "659f27e7e8ab695125ffe0175bf4d915f5e5618fcae0c425180fc085c3388d41"

@@ -32,10 +32,6 @@ class Devil < Formula
     end
   end
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5091d86828c5b1c88ba853fdcf0fa90a8ff6b3ba0d682330ecb3740b91453d37"
     sha256 cellar: :any, big_sur:       "620f8f3092f690123ed2365fec5c39a1258e0705e8b5df5de5120102e6fca007"

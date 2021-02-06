@@ -6,10 +6,6 @@ class Libchamplain < Formula
   license "LGPL-2.1"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0d8f75014270cd171c9d059fe9aa9583c5ac7f8d4156d69cf685789218ab8246"
     sha256 cellar: :any, big_sur:       "b4d05a54fce8efb6482e4dabe54fe8ff184253045c70d76e50b6679915f591fb"

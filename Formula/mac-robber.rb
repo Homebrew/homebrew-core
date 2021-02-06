@@ -5,10 +5,6 @@ class MacRobber < Formula
   sha256 "5895d332ec8d87e15f21441c61545b7f68830a2ee2c967d381773bd08504806d"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3b884509ff648339c4d66a27fff082ac80b7762c831ae9aa5599419c68d86cfd"
     sha256 cellar: :any_skip_relocation, big_sur:       "0cba6aa1a9eeca9b46559e0592b2b667d84d99f344781bce1b994aa5ad7a6e05"

@@ -6,10 +6,6 @@ class Gtmess < Formula
   license "GPL-2.0"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "107b687b5c567bfec9de27d948f1ead0a9c97e7c2a1abfc3d1a819f756bf508d"
     sha256 big_sur:       "e11c66ecdaba54ce45967b358c5be1cd036a6763e840d842dd5f855578d45e9b"

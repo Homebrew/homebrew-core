@@ -9,10 +9,6 @@ class Doitlive < Formula
   revision 9
   head "https://github.com/sloria/doitlive.git", branch: "dev"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f345a5cb4cbdc15aead62eb339617c77cfe572f0b49de0fcc8602fa96f7c321"
     sha256 cellar: :any_skip_relocation, big_sur:       "a5f6cb32662a07f6610df737c92935c8f94547edf61550ebc653046cd217c65b"

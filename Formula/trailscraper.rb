@@ -9,10 +9,6 @@ class Trailscraper < Formula
   revision 1
   head "https://github.com/flosell/trailscraper.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8ebb97f86a9ef08e5fbd763ac922910e457c9ee3691a15cd280284a89a543c8f"

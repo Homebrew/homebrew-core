@@ -7,10 +7,6 @@ class Molecule < Formula
   sha256 "1c3d2e1b20ffe70b556923994516d5bc7774f59e89fa877d3d14e25eefb23ece"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8cafe8a6db8393d7f5d74e8412c63457272ecd258354642aaf2f2104a07ae40f"
     sha256 cellar: :any, big_sur:       "f4edf1d3fb45652bde05c1de65efc7c2f9bd8bd9808cc3bee1e6a93e6969bf29"

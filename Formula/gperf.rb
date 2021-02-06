@@ -6,10 +6,6 @@ class Gperf < Formula
   sha256 "588546b945bba4b70b6a3a616e80b4ab466e3f33024a352fc2198112cdbb3ae2"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "311e481114105723752e9b8d0f99dda4ad2bbbfd0cf9c75498384c2279d6b94a"
     sha256 cellar: :any_skip_relocation, big_sur:       "00685e086c83d1d93a856f35ae56106ac5c19cc4541174040d6d6d71e51bbe75"

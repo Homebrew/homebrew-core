@@ -6,10 +6,6 @@ class Mpfr < Formula
   sha256 "0c98a3f1732ff6ca4ea690552079da9c597872d30e96ec28414ee23c95558a7f"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "9df11560dd3650ffae35c134cef6e0e91aad0e862f5c8895c568b828cf0598d5"
     sha256 cellar: :any, big_sur:       "1e8eb0326f62d3461d420d98af6fc088daca481cae89fd77a75b420d2e76d776"

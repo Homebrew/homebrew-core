@@ -4,10 +4,6 @@ class Perceptualdiff < Formula
   url "https://downloads.sourceforge.net/project/pdiff/pdiff/perceptualdiff-1.1.1/perceptualdiff-1.1.1-src.tar.gz"
   sha256 "ab349279a63018663930133b04852bde2f6a373cc175184b615944a10c1c7c6a"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6260c155e96ef17bdaf4ba1032986371db4748e3de145c5354e936fd0f854875"
     sha256 cellar: :any, big_sur:       "fdc7e444e4d48802ce4a7c671260ec1a51ebb100248d4cb90622ce3cb2dfce82"

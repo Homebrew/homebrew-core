@@ -4,10 +4,6 @@ class Libdv < Formula
   url "https://downloads.sourceforge.net/project/libdv/libdv/1.0.0/libdv-1.0.0.tar.gz"
   sha256 "a305734033a9c25541a59e8dd1c254409953269ea7c710c39e540bd8853389ba"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "a72d9919c11d6950fcd115e6fa0e6cbac86ec6f06d8ade46b642006f652bf53f"

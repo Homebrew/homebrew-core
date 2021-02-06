@@ -5,10 +5,6 @@ class Mkclean < Formula
   sha256 "2f5cdcab0e09b65f9fef8949a55ef00ee3dd700e4b4050e245d442347d7cc3db"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9cbb79d68f3b6f25830b76a374782b1cee440c6112280393a718f0950a561ecc"
     sha256 cellar: :any_skip_relocation, big_sur:       "c840bc41e467e5e5da4a58843280ea53238cbc0574a1954904423fccf6a23350"

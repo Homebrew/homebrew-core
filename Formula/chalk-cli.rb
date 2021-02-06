@@ -7,10 +7,6 @@ class ChalkCli < Formula
   sha256 "000d9fa6969d5da248fc3b415c48e76a999e2f3e04594f14c335baab058c7a7c"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f16593ee30cc571295da9d7e954795d8eb7fb453728732ad8a0404f856eeb66e"
     sha256 cellar: :any_skip_relocation, big_sur:       "87e5d3b529b23dfc3fa215d531ad0f3a2f2578a9015a02ef95a7810d70c1a8b8"

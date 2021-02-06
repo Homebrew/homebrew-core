@@ -8,10 +8,6 @@ class Todoman < Formula
   license "ISC"
   head "https://github.com/pimutils/todoman.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8c560182a558c8374186d2e8b9944209308362b17d5a0c358adc21fc3e6885e4"
     sha256 cellar: :any_skip_relocation, big_sur:       "67b32a6c50b1ebd68727c4cf02086fab7206300c82abd76e364b0f66d664267f"

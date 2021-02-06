@@ -5,10 +5,6 @@ class Scrollkeeper < Formula
   sha256 "4a0bd3c3a2c5eca6caf2133a504036665485d3d729a16fc60e013e1b58e7ddad"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "88e96878a9f7cef658edaf418c55f7c9e6904aead82bd3102384cbdfb342a400"
     sha256 big_sur:       "0cdfc1e87fe8d2281867eb923dfce700906894f6593a763fe79f4afc936f2ad2"

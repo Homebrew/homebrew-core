@@ -8,10 +8,6 @@ class Babel < Formula
   sha256 "a128a4fa43e5b9032c709caaaf9b93a166a9bb7f7e78dbaff689a76e48900cdb"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2ca4905e175c2575f5c097120b0b375de6b7edd4dcbd051fdb979a1fd4a7b1da"
     sha256 cellar: :any_skip_relocation, big_sur:       "9c6c97edbee426fd6cec35a5c127877bc1f5ae69238dbe98708b22338b7758d4"

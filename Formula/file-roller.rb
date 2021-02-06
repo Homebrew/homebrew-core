@@ -5,10 +5,6 @@ class FileRoller < Formula
   sha256 "723d1c6e567d35dad5eeeaeb86b8d18705658ee73e0b3b97ea16adc7a4dc331a"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "48e094d70bf4efb02ca607e581c257d78f7da62b287c0293ca141472c70f3e05"
     sha256 big_sur:       "5f93b042a4c184676715979ee56beac1eac0d4cf371d314e4746968d5bc163d3"

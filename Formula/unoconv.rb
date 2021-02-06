@@ -9,10 +9,6 @@ class Unoconv < Formula
   revision 2
   head "https://github.com/unoconv/unoconv.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "be1cd33331c14eca168e7667eb571f23ebd5c8023cda1a388405d7f88991e94f"

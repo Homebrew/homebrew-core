@@ -5,10 +5,6 @@ class GupnpAv < Formula
   sha256 "689dcf1492ab8991daea291365a32548a77d1a2294d85b33622b55cca9ce6fdc"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "3e52333c72d83f4c403225a56687a9cdbb51e8f546d207d8d0cb56cbeafb43f0"
     sha256 big_sur:       "bc30eb6638541401da64805ddbdf10303a1908ab3393cb7b6c73c199f853ca90"

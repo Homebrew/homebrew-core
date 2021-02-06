@@ -5,10 +5,6 @@ class Dbacl < Formula
   sha256 "ff0dfb67682e863b1c3250acc441ce77c033b9b21d8e8793e55b622e42005abd"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "267668662863b785760b49c085001924efb548d2a01e9be3a14e330233a58943"
     sha256 cellar: :any_skip_relocation, big_sur:       "643c9891b075b1f8a766269cc1a9f5ec6b541e23055124f7cb2d289650bf08d0"

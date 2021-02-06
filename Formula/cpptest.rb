@@ -6,10 +6,6 @@ class Cpptest < Formula
   sha256 "7c258936a407bcd1635a9b7719fbdcd6c6e044b5d32f53bbf6fbf6f205e5e429"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "b76d3ce8ecaa806713abfbb903789702daa297cff3e491e670f531725c5e90b4"
     sha256 cellar: :any, big_sur:       "89c6ffcf939917d09725840bb55497a8477ddf951895a8f62377a8ff11e11b6b"

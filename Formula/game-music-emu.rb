@@ -6,10 +6,6 @@ class GameMusicEmu < Formula
   revision 2
   head "https://bitbucket.org/mpyne/game-music-emu.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e83fbee26086cc93f7d2eed7d3b93f00a0a0c9eb9d59abf3aba91216fe89d3d8"
     sha256 cellar: :any, big_sur:       "a0abdc4c5ae05ea22ad3627a1a717ed8a1a137065188b995858c0f301dfda640"

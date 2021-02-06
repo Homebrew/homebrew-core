@@ -5,10 +5,6 @@ class Intltool < Formula
   sha256 "67c74d94196b153b774ab9f89b2fa6c6ba79352407037c8c14d5aeb334e959cd"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a95b3272a26918e1a92ad548ca72e1b74f5ade8073193c560c418369f9dacb51"
     sha256 cellar: :any_skip_relocation, big_sur:       "aacf573a663f8c555bfa8163593386046462856392001b9dcad317fcf889fdfe"

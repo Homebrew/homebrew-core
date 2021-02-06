@@ -7,10 +7,6 @@ class ApacheForrest < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "141e43e9268d661881cd2873e71bfce3e7c0e95b92cb6f5786ef0905d0dbb03f"

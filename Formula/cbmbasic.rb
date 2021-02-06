@@ -6,10 +6,6 @@ class Cbmbasic < Formula
   license "BSD-2-Clause"
   head "https://github.com/mist64/cbmbasic.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b693c2b8fbfe49736bdc0ae4bce13d96295da75a6683e593c021c9335f6c57fd"
     sha256 cellar: :any_skip_relocation, big_sur:       "29f1eb35e6acf1bf907d2c89c0f5938507718b290cdeef92dfcee473b00f8fe5"

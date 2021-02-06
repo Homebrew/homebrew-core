@@ -5,10 +5,6 @@ class Dcfldd < Formula
   sha256 "f5143a184da56fd5ac729d6d8cbcf9f5da8e1cf4604aa9fb97c59553b7e6d5f8"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0467bb8c411c332e45b3dc5c5cfa82a0ee98d7d3c53e73357306986f81cd5b53"
     sha256 cellar: :any_skip_relocation, big_sur:       "e9355a9c6885f7c22087b05988e99e5fcf563c1bcd9856ee5de0d207e1dfa54e"

@@ -8,10 +8,6 @@ class Commitizen < Formula
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8dab29f65bb585bc5f392fdf8b553908eccf49936400e3aefbcd5b7cfff2da1f"
     sha256 cellar: :any_skip_relocation, big_sur:       "08e027f622f2569be91d555c6279910438cef56c85e13f0aed413a8237a3886b"

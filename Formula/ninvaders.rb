@@ -4,10 +4,6 @@ class Ninvaders < Formula
   url "https://downloads.sourceforge.net/project/ninvaders/ninvaders/0.1.1/ninvaders-0.1.1.tar.gz"
   sha256 "bfbc5c378704d9cf5e7fed288dac88859149bee5ed0850175759d310b61fd30b"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "641248bbd6c7f8895dd3c6f42ce68f047db05864354ef772b7c2490c9ddced5d"
     sha256 cellar: :any_skip_relocation, big_sur:       "f4b326a63fb608eee71916a19751837d8cc98167b32ffd11b4f0328fcce82a5c"

@@ -8,10 +8,6 @@ class ContentfulCli < Formula
   license "MIT"
   head "https://github.com/contentful/contentful-cli.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fbf880a3b8d6f231fcdde8d42d4156a41d6726d976dbea99f7d73bbd4a7771ef"
     sha256 cellar: :any_skip_relocation, big_sur:       "e94c9976b68a11b51c96e0edf7567595178d8a7bce5197648cd37a637101a8f9"

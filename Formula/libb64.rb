@@ -4,10 +4,6 @@ class Libb64 < Formula
   url "https://downloads.sourceforge.net/project/libb64/libb64/libb64/libb64-1.2.1.zip"
   sha256 "20106f0ba95cfd9c35a13c71206643e3fb3e46512df3e2efb2fdbf87116314b2"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "56d58f54a9441400aa4558ea15ced076cc3d712fbdc2801b786b923b7db2220a"

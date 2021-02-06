@@ -5,10 +5,6 @@ class JsonGlib < Formula
   sha256 "0d7c67602c4161ea7070fab6c5823afd9bd7f7bc955f652a50d3753b08494e73"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "f1bd5e3b5d7ece59dc8400c8570f4058ff3e6959d1b112d0144d270aa62bbc69"
     sha256 big_sur:       "9f694420f25e652d73e0e93798304ce26023e50bb5e4aeb5322e30b19e957ed0"

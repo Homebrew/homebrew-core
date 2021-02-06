@@ -8,10 +8,6 @@ class Csvkit < Formula
   license "MIT"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8812320438211d768b409cf59c399ca917f753154bc296d0d85101676296477e"
     sha256 cellar: :any_skip_relocation, big_sur:       "a13d662245da9f94026619ff3b2ffa4871e2b726243905f3a56c98af1097da49"

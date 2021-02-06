@@ -5,10 +5,6 @@ class Rkflashtool < Formula
   sha256 "2bc0ec580caa790b0aee634388a9110a429baf4b93ff2c4fce3d9ab583f51339"
   head "https://git.code.sf.net/p/rkflashtool/Git.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "385d2324a9740b034fa99eabe5325cde073cf301dcfb343dee7cf44bda109cbd"
     sha256 cellar: :any, big_sur:       "f3e27586cacbbe32859c4e29b681913204e1a52bd5a5761697edc37d1cc2d88c"

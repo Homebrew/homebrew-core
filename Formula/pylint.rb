@@ -8,10 +8,6 @@ class Pylint < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "36d38ff773fd914b3314302906f65d1c1a06dd8b0e4afc5bb91cabc4c91a5a03"
     sha256 cellar: :any_skip_relocation, big_sur:       "5bfed263aeab29b095c6444dfcfaa6f4d274fb64e879b49a861390d541d9e7d5"

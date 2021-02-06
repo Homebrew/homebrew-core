@@ -8,10 +8,6 @@ class Coffeescript < Formula
   license "MIT"
   head "https://github.com/jashkenas/coffeescript.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfe10ba50bec4e20897d1d2ead0a21e8bfcd25841dae5e875e8c04a8cbfdd44f"
     sha256 cellar: :any_skip_relocation, big_sur:       "203638208a42d33debe48c9e5c4cea7adfec2fb30b0afeb4d0dea77bcb506863"

@@ -5,10 +5,6 @@ class Gjs < Formula
   sha256 "8d4240455eff642c8bf6d9805077e33e0a60cb2ea13f77a55f7f30c29668344c"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:     "1d10fa86fecf3d354dc595db175548427f112943f84a5076222b978c9aff9cf7"
     sha256 catalina:    "819aaf721030c22a9f479fca06f52490a2df2b9d2731377d35bf017509723a17"

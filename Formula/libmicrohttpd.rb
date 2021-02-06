@@ -6,10 +6,6 @@ class Libmicrohttpd < Formula
   sha256 "0ae825f8e0d7f41201fd44a0df1cf454c1cb0bc50fe9d59c26552260264c2ff8"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "a5964ebfc90189dd2657f81e258b62de76a90f7d77d8db258c786a59baa33a3b"

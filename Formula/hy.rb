@@ -7,10 +7,6 @@ class Hy < Formula
   sha256 "1b72863754fb57e2dd275a9775bf621cb50a565e76733a2e74e9954e7fbb060e"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "98b24099b57bdb1322de0e0a20885853a3cc6ddeeb21b833293c3372a600f005"
     sha256 cellar: :any_skip_relocation, big_sur:       "b3a8611e5647203bc52944ae8c3a7fb1c105e1dda9d65a6641fef45edfc1f48c"

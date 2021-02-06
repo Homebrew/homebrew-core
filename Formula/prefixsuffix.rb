@@ -6,10 +6,6 @@ class Prefixsuffix < Formula
   license "GPL-2.0-or-later"
   revision 9
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "03a102fc5cbf319029a6b536b60caf5db40396b25e1d6de1eda1baf297cb0d81"
     sha256 big_sur:       "4300af03702b1873b307890bfb3bf9e08da08e43c401c958a2dcf796d56a34e8"

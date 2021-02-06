@@ -6,10 +6,6 @@ class Libgnomecanvasmm < Formula
   license "LGPL-2.1-or-later"
   revision 12
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "fdb748c4593e0ed588493f471ce80d9ebea3d7026020ecfab5d98d8288fd32a4"
     sha256 cellar: :any, big_sur:       "fbc2efc9e87a6f201ac94b37358d0464fbf2b2a277d1bfdbe2a626236cf41771"

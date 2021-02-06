@@ -5,10 +5,6 @@ class Mergelog < Formula
   sha256 "fd97c5b9ae88fbbf57d3be8d81c479e0df081ed9c4a0ada48b1ab8248a82676d"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6dac9051c91f80333b2640675187bdc2c93705183d3d119998e300e0137c0bff"
     sha256 cellar: :any_skip_relocation, big_sur:       "e778308b66cc9a27d21d41e17c97cf9f7aeef4e5da797eaadc5f2264c103b8c0"

@@ -4,10 +4,6 @@ class Yconalyzer < Formula
   url "https://downloads.sourceforge.net/project/yconalyzer/yconalyzer-1.0.4.tar.bz2"
   sha256 "3b2bd33ffa9f6de707c91deeb32d9e9a56c51e232be5002fbed7e7a6373b4d5b"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "58d53e3cef900391c6b010c6e5e7a8643630155947068b9755bed061b46c94c7"

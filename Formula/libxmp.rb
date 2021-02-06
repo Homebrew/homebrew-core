@@ -4,10 +4,6 @@ class Libxmp < Formula
   url "https://downloads.sourceforge.net/project/xmp/libxmp/4.4.1/libxmp-4.4.1.tar.gz"
   sha256 "353535cc84c8cddae8decec4e65fa4c51fc64f22eb0891bc3dae6eaf25f9cccf"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "edb417d203308a607caade02f7156391b9f44735d1ef2f4a310143effcb59ea3"
     sha256 cellar: :any, big_sur:       "71a0df8a26851412202809597d08ec2eb9f7d8e5c5bbea62d21dea8f0205fe5a"

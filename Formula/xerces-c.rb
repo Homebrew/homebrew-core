@@ -6,10 +6,6 @@ class XercesC < Formula
   sha256 "fb96fc49b1fb892d1e64e53a6ada8accf6f0e6d30ce0937956ec68d39bd72c7e"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "482e14a0ff78e66b3f701a744411b2144479f69a7d4b876def7723d4683ae81a"

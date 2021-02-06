@@ -6,10 +6,6 @@ class Mailutils < Formula
   sha256 "f075803a55b43c304b90bad6d31bf8aa09c4f81037b5f88e0f2d07192e98165a"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "f16f6ae8c4081e7c37016b14ed028834953ea7bd4d25d93b6263f17cc56751c6"
     sha256 big_sur:       "687c53f8c730b0de5464c6459a028d5b297e6b6c4543b1e4c1f686cda806b072"

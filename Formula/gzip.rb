@@ -6,10 +6,6 @@ class Gzip < Formula
   sha256 "c91f74430bf7bc20402e1f657d0b252cb80aa66ba333a25704512af346633c68"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d064cf47cc31ea7238c17f5305a5ddfb0e464e0ecd9591632a18264ddf3b98c"
     sha256 cellar: :any_skip_relocation, big_sur:       "c5193bef2b9a7974a169d32fd4e2191ea55b60aa31c3da5c4e2f8e132c0f71f7"

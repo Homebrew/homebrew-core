@@ -5,10 +5,6 @@ class Grsync < Formula
   sha256 "94ea5faca67e3df467b5283377af3cb32b2b47631b6a32d38bc7b371209306b1"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "55955b7e18bcb06ad62fa0bca9102901b15b47ae9ea5f69324b987db553cb929"
     sha256 big_sur:       "e5a84736533563fda92cc9173a70b6fed4dd450f75b6280734d069a6e1609139"

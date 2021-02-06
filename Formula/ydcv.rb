@@ -9,10 +9,6 @@ class Ydcv < Formula
   revision 3
   head "https://github.com/felixonmars/ydcv.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "95ef9e1189ea9279282e41a64a9bf0b50c7e7a377b450d0c1508ae1597b89a91"

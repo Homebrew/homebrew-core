@@ -7,10 +7,6 @@ class Nyx < Formula
   sha256 "88521488d1c9052e457b9e66498a4acfaaa3adf3adc5a199892632f129a5390b"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0588b4c6b3df71714a500b85096f5b83d2773cff86bec2d77ae11139117385ed"
     sha256 cellar: :any_skip_relocation, big_sur:       "a78e5ce784aeefb44ab69069294cf4aa306e8d9c3ed03ba6bf6883729094e396"

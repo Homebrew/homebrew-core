@@ -8,10 +8,6 @@ class Snakemake < Formula
   license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d0bcb9a2f9d299bd55731b46cff980afaf58a6769c0b14251078069408659b42"
     sha256 cellar: :any_skip_relocation, big_sur:       "4115bdd503a5481502974b540b7270bdc4bc7161711f652dc97d4fe26345ef9b"

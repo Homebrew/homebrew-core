@@ -6,10 +6,6 @@ class Vcdimager < Formula
   sha256 "67515fefb9829d054beae40f3e840309be60cda7d68753cafdd526727758f67a"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "858d5a11fe090476123893d28b270ca807936569ed83b7b3808b79c9519fa99c"
     sha256 cellar: :any, big_sur:       "1cee3cb2e9d1bff3441733dce927dcff82b125d414c6c226095d0c334fe2b112"

@@ -4,10 +4,6 @@ class Star < Formula
   url "https://downloads.sourceforge.net/project/s-tar/star-1.5.3.tar.bz2"
   sha256 "070342833ea83104169bf956aa880bcd088e7af7f5b1f8e3d29853b49b1a4f5b"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "b35d569dd3653c0ea0d626206d2101e7de401f39c2e046e5c4553e3701fabb25"
     sha256 cellar: :any_skip_relocation, catalina:    "d97f6a6df5eaf3360e7b4c17a475e5417ce268815c01dfcbc94709377a47f6eb"

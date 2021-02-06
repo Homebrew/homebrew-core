@@ -5,10 +5,6 @@ class Dopewars < Formula
   sha256 "83127903a61d81cda251a022f9df150d11e27bdd040e858c09c57927cc0edea6"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "490e166c6e7a12f93f51271b80aca3d3e6471089e51f77ba30db1ebce1861dcd"
     sha256 big_sur:       "390ce7a719041ebf745d790ea872db927cb587cfc91ddab183472fe2ceecec43"

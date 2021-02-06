@@ -5,10 +5,6 @@ class Gssdp < Formula
   sha256 "a263dcb6730e3b3dc4bbbff80cf3fab4cd364021981d419db6dd5a8e148aa7e8"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e3bc6dfa4ed41b0629533dbbe8fc4d9132a4349e05aacf0ea8099bf868fd6951"
     sha256 cellar: :any, big_sur:       "f5b00ceef2fed5c0140a8983fc8fed49cd220d1ad0cf1718125a81a047e370c3"

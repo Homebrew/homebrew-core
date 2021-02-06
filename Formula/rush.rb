@@ -6,10 +6,6 @@ class Rush < Formula
   sha256 "c2ff487d44ce3d14854d0269eb0aa4c0f98bcca35390fad5ea52da75d9e4abdf"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "e9969a26058fc567b5b5f342aabdc07a6c3ce7cebcf638e0b27a7dd4ef982a65"
     sha256 big_sur:       "c17a6969b3c949a756de8a5c60c8c916a485fffa6751aa8b365982ebfa66a676"

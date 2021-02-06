@@ -5,10 +5,6 @@ class Gaul < Formula
   sha256 "7aabb5c1c218911054164c3fca4f5c5f0b9c8d9bab8b2273f48a3ff573da6570"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:     "e6a64a500ac22aec1a76616d86ea2f70449dfa30d37543faf9a135c2f98e1a07"
     sha256 cellar: :any, catalina:    "f2f98c2f7d23ae7c1862702c6d17d4449bbcc2164940d9157ea12b97deadb273"

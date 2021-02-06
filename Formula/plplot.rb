@@ -5,10 +5,6 @@ class Plplot < Formula
   sha256 "b92de4d8f626a9b20c84fc94f4f6a9976edd76e33fb1eae44f6804bdcc628c7b"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "1f9f1b0eb13535a59cd938e43ad1b190e08bbe5ebab222673421d41fd442cedc"

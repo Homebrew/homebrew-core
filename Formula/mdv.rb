@@ -7,10 +7,6 @@ class Mdv < Formula
   sha256 "1534f477c85d580352c82141436f6fdba79d329af8a5ee7e329fea14424a660d"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "81ef8f08570dbd4af753403e58d266fa2e4b440db92fb9b4506a92e9bd6de100"
     sha256 cellar: :any_skip_relocation, big_sur:       "04e3e87af387732342c4674feeb11b493090eb6504d4c6797b57f41bbf9a90a8"

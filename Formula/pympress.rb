@@ -9,10 +9,6 @@ class Pympress < Formula
   revision 2
   head "https://github.com/Cimbali/pympress.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:  "0dace778ed9f1ac2939f6b4c1305a629c4fc256d8768b9658196e90f0819e84e"
     sha256 cellar: :any, catalina: "d730fa081be30bd9dd49fa5f08cf8aa39ac31842fbb8b86423c1bc28db8b616c"

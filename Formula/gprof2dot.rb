@@ -9,10 +9,6 @@ class Gprof2dot < Formula
   revision 2
   head "https://github.com/jrfonseca/gprof2dot.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "684c64da289229aa5f3b0cba37aded80aa5ce8e771cd863d3b06788fdcce532a"
     sha256 cellar: :any_skip_relocation, big_sur:       "e9834915198ff976dfc33b51aad580cdc585b19de21bae6ae2c23602e9d85c6f"

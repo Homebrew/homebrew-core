@@ -6,10 +6,6 @@ class Libicns < Formula
   sha256 "335f10782fc79855cf02beac4926c4bf9f800a742445afbbf7729dab384555c2"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "06b49357685dcaef31f7e32c7901ec217074a3b17d24c7a46456239e04ec3a9b"
     sha256 cellar: :any, big_sur:       "6d503b029cbb646b11bae4d81c3537ea14f8c415039b196dace05a6ea691a846"

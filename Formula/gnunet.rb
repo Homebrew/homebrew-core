@@ -7,10 +7,6 @@ class Gnunet < Formula
   license "AGPL-3.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d2e622cc444972bf0fd15a30922f7f853c066eac83c94b18415fa1547fe1aa2c"
     sha256 cellar: :any, big_sur:       "8f3629373c78f67c8995c3aeb9ec4d27f7576b5f28c1d5b9daac3c8d2ef1796c"

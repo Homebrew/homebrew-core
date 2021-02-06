@@ -5,10 +5,6 @@ class Libsecret < Formula
   sha256 "325a4c54db320c406711bf2b55e5cb5b6c29823426aa82596a907595abb39d28"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "115ff8e5af3b0bffd370a47d7165664dda193b4a2ac00e2054b455cbd77e6d6e"
     sha256 big_sur:       "68da058738e04fd8a7ec9713df527afec9dc8076a219548dc194184df337fe8a"

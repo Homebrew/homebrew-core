@@ -8,10 +8,6 @@ class Duplicity < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5c408cc5c3319ab6750aee8e97164557482b5ad1dd5572872f8f59cba6836076"
     sha256 cellar: :any, big_sur:       "f7dbf94b4d5f45eb4011ff6f79ae9b3a78a12e2c188bdc502740be0adafe76aa"

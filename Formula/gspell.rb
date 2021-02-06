@@ -6,10 +6,6 @@ class Gspell < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "95eb286c8aeeb8ce8b3342e96b44c028d6e0d0a8480028a69fdba8571e97caf6"
     sha256 big_sur:       "8f64c612f1821ce72363a92af87bd7b31a72a97b63979c890b2325397bdbd0f7"

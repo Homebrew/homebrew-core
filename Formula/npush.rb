@@ -6,10 +6,6 @@ class Npush < Formula
   license "GPL-2.0"
   head "https://svn.code.sf.net/p/npush/code/"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b0be6b0d7949e3e6b3322089f84c10c60c15ea41a0a7ebdaa7ff04862c1be103"
     sha256 cellar: :any_skip_relocation, big_sur:       "d3b1eb1513919a4120a9c2b6541872b39ef78d9eb618df96e62a1cc6f28d53ff"

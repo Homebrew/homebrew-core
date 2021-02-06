@@ -9,10 +9,6 @@ class Quicktype < Formula
   license "Apache-2.0"
   head "https://github.com/quicktype/quicktype.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b821ed4fc0888190e632f424bd75767bdcfabe26bba5b21af7f51a81451de88a"
     sha256 cellar: :any_skip_relocation, big_sur:       "8a722266b1d434cd898838d36e67ed444e8e34699ddeae6ab10367725fd2ed63"

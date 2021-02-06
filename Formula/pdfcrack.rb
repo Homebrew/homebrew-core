@@ -5,10 +5,6 @@ class Pdfcrack < Formula
   sha256 "3115206998b7cddf13971dd4b50946c077fc96e220aca1c0734798d907a2c0ed"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "74b660be05cc752df31644502eaf6017289b3d6ee370c49577a14f6052f82102"
     sha256 cellar: :any_skip_relocation, big_sur:       "b2f128d92c00fe5d1fa81d7b61e7458fcdb8b58e656b312679fbefe33d4295c4"

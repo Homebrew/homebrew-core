@@ -10,10 +10,6 @@ class Zile < Formula
   license "GPL-3.0-or-later"
   version_scheme 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "ed302040d0b263f1de4344e0826afe53462001af631becf80e8e6c5d97058719"

@@ -5,10 +5,6 @@ class Vpcs < Formula
   sha256 "dca602d0571ba852c916632c4c0060aa9557dd744059c0f7368860cfa8b3c993"
   license "BSD-2-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d673e17698f476b16e70b66227623b829779846d0f4b2246cf84c85f8427d8de"
     sha256 cellar: :any_skip_relocation, big_sur:       "75d81877dc7c7e8a07b5a1496e1264ac19fd8206f5dcc24de835931a0d1501eb"

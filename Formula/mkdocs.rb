@@ -8,10 +8,6 @@ class Mkdocs < Formula
   license "BSD-2-Clause"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "83bca122681942a19f62221116cccb1f86bda80fcac623b6a6e9c30deb841998"
     sha256 cellar: :any_skip_relocation, big_sur:       "c632678896672c74e404e891f8ed7c94fbbef5d73c38397f0f77398ea98d8162"

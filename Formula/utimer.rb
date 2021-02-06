@@ -5,10 +5,6 @@ class Utimer < Formula
   sha256 "07a9d28e15155a10b7e6b22af05c84c878d95be782b6b0afaadec2f7884aa0f7"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "bb50ed1a38ea9dc66c442261dbf8f6e517b9d374869e647d2136c580a47f7aca"
     sha256 cellar: :any, big_sur:       "35c830b5c976738af7451ff1d110028a351e1b16145efa54ba0d042ff43e8980"

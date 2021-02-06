@@ -8,10 +8,6 @@ class Coconut < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebbb005b2c3a3848f5593718d8a21a98adade56ef4bb4239fe553a60fc3f9a17"
     sha256 cellar: :any_skip_relocation, big_sur:       "987bf18d2f7bb2378ae95c21e2a2ede148c02086099c661081040a3b69b6a0d3"

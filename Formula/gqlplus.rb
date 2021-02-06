@@ -5,10 +5,6 @@ class Gqlplus < Formula
   sha256 "9e0071d6f8bc24b0b3623c69d9205f7d3a19c2cb32b5ac9cff133dc75814acdd"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e93b52a5967e87f0ccc282ad897c4d64b42e0bcf4e41f7ece17186f1fd36bcd6"
     sha256 cellar: :any, big_sur:       "6b4b7972c9c29e749bb0546aa83f756e967aca10793ff70de9bb1711536d929a"

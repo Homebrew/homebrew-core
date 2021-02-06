@@ -6,10 +6,6 @@ class Openmotif < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "ae3f4bf92f1cbc78a985e8c27979a52c1a4c16696a74bb142a317f88f5c46082"
     sha256 big_sur:       "ca698d287f8b964a34fa23cf2a8b6039fd5913d6169bbdf90bf90f6b580c8475"

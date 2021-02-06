@@ -9,10 +9,6 @@ class Khal < Formula
   revision 1
   head "https://github.com/pimutils/khal.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "517478833749c36bcec7765d545dee7e3fd3b7e1c2535668418342d1a5cfd6a4"
     sha256 cellar: :any_skip_relocation, big_sur:       "a53525bae76dc7fc1073ba0801fee8b97fe21c53799fe59c19c42749b2502891"

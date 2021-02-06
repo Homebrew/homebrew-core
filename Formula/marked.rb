@@ -7,10 +7,6 @@ class Marked < Formula
   sha256 "b17df81ae36ae3800c0e0eee7da7ede316203b0bc03d649473f5a94c5d4c42be"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a5d888a79d72e2783f56be1f1c280edf4bed83927831c6c4d673974f722d451f"
     sha256 cellar: :any_skip_relocation, big_sur:       "94fc83c11e93166522fb2d56f8a96d3627e622d30f37753106819dce812305d9"

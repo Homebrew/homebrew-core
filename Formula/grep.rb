@@ -6,10 +6,6 @@ class Grep < Formula
   sha256 "667e15e8afe189e93f9f21a7cd3a7b3f776202f417330b248c2ad4f997d9373e"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a48ab26324b25a6033372f26490b09e7e0569f76a4b7f85bdd0aa9a3fc996537"
     sha256 cellar: :any, big_sur:       "6ee2dac30a5250d7d218b6520392b4cb8e7a806149f900e11637e556e6a9237a"

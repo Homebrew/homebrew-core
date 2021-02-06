@@ -6,10 +6,6 @@ class TomcatNative < Formula
   sha256 "b7e5449d206803d6581e0bda7694c9ca8b989938e0054c468df87f9ecb28757d"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2ee50a4c91f3aa4730f5c377c4ef7c9a9494b3e02e6749412bb75e1708ad31b3"
     sha256 cellar: :any, big_sur:       "3b0f75610b602e3708086306a3e1d0bbe999733d31781528c9046c438466f1df"

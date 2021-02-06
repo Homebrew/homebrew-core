@@ -8,10 +8,6 @@ class Appium < Formula
   license "Apache-2.0"
   head "https://github.com/appium/appium.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "73c0488d2b56b71fa63c6ac64cf3907ba3af4af58edc1eb32501f15dcca98746"
     sha256 cellar: :any, big_sur:       "041e871dbb940d86bf7ca1c389ffd1ee4edfbebbe33e050c2c9ce614b06040f7"

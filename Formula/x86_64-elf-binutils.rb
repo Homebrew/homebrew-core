@@ -6,10 +6,6 @@ class X8664ElfBinutils < Formula
   sha256 "f67c632ccd81137d745681672bb4515a3411afa53722ccf01caa07d798fd8fb0"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "f98f3c65ee6d746e1f3d00fccf58eb6c224d4f981ebe2731aa6ec68d28b28828"
     sha256 big_sur:       "46f97c695943a5b35baffa5e06a372b9cf0c410799503b27610e7d17f13146eb"

@@ -4,10 +4,6 @@ class Tinyxml < Formula
   url "https://downloads.sourceforge.net/project/tinyxml/tinyxml/2.6.2/tinyxml_2_6_2.tar.gz"
   sha256 "15bdfdcec58a7da30adc87ac2b078e4417dbe5392f3afb719f9ba6d062645593"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "04fccb4076db86eb901b710f5d50b01ea6e6cec907979aed5eb5135c9654e16d"
     sha256 cellar: :any, big_sur:       "e98aaca0d889c322b5e2294495e7613e656773fb5f605a6239d8b85949011b99"

@@ -6,10 +6,6 @@ class Libglademm < Formula
   license "LGPL-2.1-or-later"
   revision 11
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8311ed9bcd9aa094070b749de1cd62d84645b9dfcbe38fee0cb0c0063c64031a"
     sha256 cellar: :any, big_sur:       "5fc582a1ef83d407db91fe1bc3a41560dca9fe4d4be84b1e74f8d6ef531f213c"

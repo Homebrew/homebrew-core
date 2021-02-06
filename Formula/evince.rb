@@ -5,10 +5,6 @@ class Evince < Formula
   sha256 "00f6d6689cc22de3c005bd87d4c2ebf720064cb8dc6a1887816f8b7e082b2e63"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "4a439a49655288679024251e580de7fbfd34ccaf1a075c0f4eb66279d5139128"
     sha256 big_sur:       "d933c0ca5a4093c159cc5ca792399650da74f0064ee23fd9aa5e09bcca8ec373"

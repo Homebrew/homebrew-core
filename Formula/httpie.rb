@@ -8,10 +8,6 @@ class Httpie < Formula
   license "BSD-3-Clause"
   head "https://github.com/httpie/httpie.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a01ce8767f6ea88eb8e7894347ba64eb29294053a8ee91eed44dfaf0ab5e7ea2"

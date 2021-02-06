@@ -16,10 +16,6 @@ class Libdc1394 < Formula
     end
   end
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8af168268139e714a725ab1d4384a34ef092a3e50e081baba66fdf583fef3711"
     sha256 cellar: :any, big_sur:       "7eef59a97b33666b144d68181b081eba93c4c23c58f159a67684d2ed2d043080"

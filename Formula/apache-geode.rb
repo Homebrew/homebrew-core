@@ -7,10 +7,6 @@ class ApacheGeode < Formula
   sha256 "3239522afee932e0a06246b2b4130bc8a5cbae71aa5244cc4dcb24d4329044c3"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle :unneeded
 
   depends_on "openjdk@8"

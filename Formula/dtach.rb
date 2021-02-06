@@ -5,10 +5,6 @@ class Dtach < Formula
   sha256 "32e9fd6923c553c443fab4ec9c1f95d83fa47b771e6e1dafb018c567291492f3"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e90da47e413ace287b5144813af99ee9f2bb8cac8c435189557db29aa597c681"
     sha256 cellar: :any_skip_relocation, big_sur:       "2037a41545a48ffd293c55deb33a675a6d304df1f25c46e6f9b85969e0968d78"

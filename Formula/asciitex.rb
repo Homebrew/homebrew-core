@@ -5,10 +5,6 @@ class Asciitex < Formula
   sha256 "abf964818833d8b256815eb107fb0de391d808fe131040fb13005988ff92a48d"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b9cae6e65df9390c4a9a9ab55813fe05e291ca928364350d333f0389042b8d1"
     sha256 cellar: :any_skip_relocation, big_sur:       "5d62737e9f19a499f84fb442ebc5d8738c96f44a4aeea9104a71b304a9777e6f"

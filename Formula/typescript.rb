@@ -8,10 +8,6 @@ class Typescript < Formula
   license "Apache-2.0"
   head "https://github.com/Microsoft/TypeScript.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e07a4be146fef8a1edc015fd84635d2ee0a8d1ec7358258a6fc21444554a05c0"
     sha256 cellar: :any_skip_relocation, big_sur:       "221b4f01eff3ac25750ac019c95380cf9136ab71d9885c99d0a17f9f1521af95"

@@ -7,10 +7,6 @@ class AwsShell < Formula
   sha256 "fd1699ea5f201e7cbaacaeb34bf1eb88c8fe6dc6b248bce1b3d22b3e099a41e5"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9581121be45392c0cc78938f568562f61127966428e08635a8ea69f615d0c477"
     sha256 cellar: :any_skip_relocation, big_sur:       "aee32db7e96f9239cf9bbb10d59589f9f890757efc73aab1f186dc2989fe211c"

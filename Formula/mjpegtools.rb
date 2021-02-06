@@ -5,10 +5,6 @@ class Mjpegtools < Formula
   sha256 "864f143d7686377f8ab94d91283c696ebd906bf256b2eacc7e9fb4dddcedc407"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0903181fb61252feccfb8d40a390a7d5c55ed1476d37d040983e5608efeaee1b"
     sha256 cellar: :any, big_sur:       "ff8f81930169f7581677b690fbc32ba8c3f818ca139fe4249c8606f309a0e298"

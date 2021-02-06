@@ -9,10 +9,6 @@ class Scour < Formula
   version_scheme 1
   head "https://github.com/scour-project/scour.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4530f553f087c0f15ce5119f60efd33d39ef42105678874bc2316ab4f5910fe4"

@@ -4,10 +4,6 @@ class BaculaFd < Formula
   url "https://downloads.sourceforge.net/project/bacula/bacula/11.0.0/bacula-11.0.0.tar.gz"
   sha256 "3be1125ae957f553aaa2898bb346e4db2102f69247b34e6efe9852734818ed1a"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:  "a19497e01b65fc02630188d010f7a9dfa97185d411680e32bd1401aa7fe467d4"
     sha256 catalina: "b9fcdda2e13a2f2367ad06d9142bff096c3241afc39a77f2d3b46c2716b0e8e5"

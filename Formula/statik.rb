@@ -9,10 +9,6 @@ class Statik < Formula
   revision 3
   head "https://github.com/thanethomson/statik.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d8ccb5efc25d0435ccf7c543d86991a83622845d04426eb1823e7e670ac9dbcd"
     sha256 cellar: :any, big_sur:       "4e57a49a51d642f6bf6aa16ec861e0d598099243b2f8adffd1bacc1c99f1c5e1"

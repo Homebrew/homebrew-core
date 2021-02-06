@@ -5,10 +5,6 @@ class Libgetdata < Formula
   sha256 "d547a022f435b9262dcf06dc37ebd41232e2229ded81ef4d4f5b3dbfc558aba3"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 3
     sha256 cellar: :any, arm64_big_sur: "731e469e2d2f4de61115fc882715a9dbaf33da5f14cc89fc628a1440766738fd"

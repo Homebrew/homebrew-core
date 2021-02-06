@@ -7,10 +7,6 @@ class Freeimage < Formula
   license "FreeImage"
   head "https://svn.code.sf.net/p/freeimage/svn/FreeImage/trunk/"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 3
     sha256 cellar: :any, arm64_big_sur: "02080c0a6c32413b1e85f6e1393559426b77f0a7e5dcfda406617bc6e46a13e0"

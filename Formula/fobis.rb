@@ -8,10 +8,6 @@ class Fobis < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "bfa1e5a5e7276be1292321294c418e9f1bac7a964f46d227a2d81fc3ad1b984e"
     sha256 cellar: :any_skip_relocation, big_sur:       "627133905b51d5436b9eb6a8e75080d847a6ea7c36886aa7f81e053fd89970d3"

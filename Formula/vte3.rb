@@ -5,10 +5,6 @@ class Vte3 < Formula
   sha256 "b0300bbcf0c02df5812a10a3cb8e4fff723bab92c08c97a0a90c167cf543aff0"
   license "LGPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "e4dffc796de1262ba9e996770f1077ae04f57c9f3309ade7acdd7d98e3e90e27"
     sha256 big_sur:       "4c9b4f83588414498702a755ed85adf8f82336e96904d53360430ed625f63b0f"

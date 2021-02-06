@@ -7,10 +7,6 @@ class QpidProton < Formula
   license "Apache-2.0"
   head "https://gitbox.apache.org/repos/asf/qpid-proton.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:  "8fbc4f2dd6d3da1b582d4ac681efbe6642556f5ac32f15ee9fc1519ffd2d00bd"
     sha256 cellar: :any, catalina: "95e0eee7ab97b025c67e28d3463eb903216820361a39e247683814a75c4f6ba7"

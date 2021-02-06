@@ -7,10 +7,6 @@ class Gitmoji < Formula
   sha256 "c4db0d01e8bb7b62cf424d6b2d9fd70225bc5ebc9111b2feaf274b64d6db3884"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b81b993db235de8580a935925a0b543f048637a2ae0e52df101f8a8a9aeddf0"
     sha256 cellar: :any_skip_relocation, big_sur:       "aa481b2d3232b52e38672d5d4a63b3554d5485b4c8a68a2bd708112e43cd1b17"

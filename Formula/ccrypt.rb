@@ -5,10 +5,6 @@ class Ccrypt < Formula
   sha256 "b19c47500a96ee5fbd820f704c912f6efcc42b638c0a6aa7a4e3dc0a6b51a44f"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "df71b344abdb49c98de85ee062d3e505afdcdb203cde01d165e326b52e7bb891"
     sha256 big_sur:       "f416ae1ffac238640025b992cfedb05ab6894d0ef6c60742b3ab95757bd137f0"

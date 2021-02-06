@@ -5,10 +5,6 @@ class Ufraw < Formula
   sha256 "f7abd28ce587db2a74b4c54149bd8a2523a7ddc09bedf4f923246ff0ae09a25e"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "f58b3545d468e343cff5fa82581c8888f60557e6c7badfbf1f6094f1444ac601"

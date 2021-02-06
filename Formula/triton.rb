@@ -7,10 +7,6 @@ class Triton < Formula
   sha256 "090b6b39359354ed19c4633dd7d4fa14f53d74a4d81449ec8535beeda0b5de22"
   license "MPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5ec9a519d279db791a9a2ba2df1555cc1fc7ac18caec1fed6c03e8281ff05c98"
     sha256 cellar: :any_skip_relocation, big_sur:       "2432730a23b371f308fc65ff859f290edec33886cc4e1f434d2f31e53b101132"

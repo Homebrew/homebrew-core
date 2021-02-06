@@ -7,10 +7,6 @@ class AngularCli < Formula
   sha256 "2e6480247737dc5d56aaf3636cb93c191898e7ef127b70b6de345370d1c8e59d"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f3824bf9e5c190fc99256f1a1dfba9efa491ccdcf012f66eca3fc6c14824ee58"
     sha256 cellar: :any_skip_relocation, big_sur:       "c96d55ed7c2f82d28d572e65562e99814477d09b3cc930e909f31c406fbb87d3"

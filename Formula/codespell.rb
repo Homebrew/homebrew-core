@@ -7,10 +7,6 @@ class Codespell < Formula
   sha256 "dd9983e096b9f7ba89dd2d2466d1fc37231d060f19066331b9571341363c77b8"
   license "GPL-2.0-only"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "75ab1ae15931e2358946065d9d9b53ec0a11516de94e69def4b097933207372e"
     sha256 cellar: :any_skip_relocation, big_sur:       "c593fceba8be94074570221a350741dc1f11929f5c1176197e3962f34fb46363"

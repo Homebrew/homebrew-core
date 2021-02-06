@@ -8,10 +8,6 @@ class GenerateJsonSchema < Formula
   license "MIT"
   head "https://github.com/Nijikokun/generate-schema.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d19c2a0542dea7690c93f7a8e97a25c8979c7e489dca485dcfc35f6073d47beb"
     sha256 cellar: :any_skip_relocation, big_sur:       "aee39ac19fd8f45785021bd737daf8f8ab15e7265b5e196485259d5a2c2cfede"

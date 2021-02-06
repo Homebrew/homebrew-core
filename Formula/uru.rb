@@ -4,10 +4,6 @@ class Uru < Formula
   url "https://bitbucket.org/jonforums/uru/get/v0.8.5.tar.gz"
   sha256 "47148454f4c4d5522641ac40aec552a9390a2edc1a0cd306c5d16924f0be7e34"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "ac10ec7e98c10782f1b238e768a7f4b2cd7c51040a2db171d731afb9c41130c0"
     sha256 cellar: :any_skip_relocation, catalina:    "d566fe465acd16153f2b1da700bacb19bb3fd78bfe13b055f255cd3b68688233"

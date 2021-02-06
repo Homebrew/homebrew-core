@@ -7,10 +7,6 @@ class Honcho < Formula
   revision 3
   head "https://github.com/nickstenning/honcho.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "45d84a15c2312ed91f5abe9ac993184bea7deb4a08ef3e51ba6271b268eee1f0"

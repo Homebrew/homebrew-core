@@ -5,10 +5,6 @@ class Bsponmpi < Formula
   sha256 "bc90ca22155be9ff65aca4e964d8cd0bef5f0facef0a42bc1db8b9f822c92a90"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 catalina:    "f9500519011600313f772afec98331291ce2f90ccb9d6d12bf61ddd05560aace"
     sha256 mojave:      "52b8665fac6efd355024c52473016b3ce2ce832256ba486c0db7ef33f9ddd9ce"

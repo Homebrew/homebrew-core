@@ -5,10 +5,6 @@ class Texmath < Formula
   sha256 "47d821a885cbdd7f1b4d020f4699636abc345a55ef28793be0c0792ec913e5de"
   license "GPL-2.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "f091dafb8c9967d2a47b85f45361e60eb7c85b88b8346d76cb2db8a757a1f776"
     sha256 cellar: :any_skip_relocation, catalina: "2769946483f9d19111f011337b7a25f2cf46145ddc86990fe58c311194be0eb8"

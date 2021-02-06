@@ -7,10 +7,6 @@ class Borgmatic < Formula
   sha256 "5cb6c126f351987f16f529ce8c5ef351b6b3458142316e9210edb028dff65536"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a053876cc2c25aeb2923ed88b7c367cf1587287bb4ecab816ac30d0101717c97"
     sha256 cellar: :any, big_sur:       "875035ec5d79c0641ef5a86ad7f41d79b9e965a90a2a9a822881cce3c318b14c"

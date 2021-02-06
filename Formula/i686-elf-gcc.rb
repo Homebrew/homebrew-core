@@ -6,10 +6,6 @@ class I686ElfGcc < Formula
   sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:     "774bb133598e76c19daa758e533132d632e6b541a4f6c348bc1428b573bb5c58"
     sha256 catalina:    "8e258af70b398807c115631de8a1dc8c6ebdb3be870fe26410c14e91a7659a58"

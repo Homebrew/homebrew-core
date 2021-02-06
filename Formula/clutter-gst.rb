@@ -5,10 +5,6 @@ class ClutterGst < Formula
   sha256 "fe69bd6c659d24ab30da3f091eb91cd1970026d431179b0724f13791e8ad9f9d"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "bd23c3da4a8e9c35bb93bb043967defead1d749e15d912006f48b51cd1e467d4"

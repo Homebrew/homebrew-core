@@ -8,10 +8,6 @@ class Hexo < Formula
   license "MIT"
   head "https://github.com/hexojs/hexo.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f5d1af98229cb54b69a8f256c45b20fecac6100c4663d38874c213cb7fe52936"
     sha256 cellar: :any_skip_relocation, big_sur:       "bc3cc137fef9e6bc0351f4438ae7a51c8ec9187fc2334c9ff5be74e7d118f9e6"

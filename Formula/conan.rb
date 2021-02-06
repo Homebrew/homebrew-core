@@ -8,10 +8,6 @@ class Conan < Formula
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "7f536d007c8d2797263346bc285e86baeb7fd76a9c48ea2d5ba62c772a6840a8"
     sha256 cellar: :any_skip_relocation, catalina: "0c2b0407be2cc7ff458f603c45018b16dfbfc93ce75c57fa380f3b2c1b07a3a6"

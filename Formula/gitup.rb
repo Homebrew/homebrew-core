@@ -9,10 +9,6 @@ class Gitup < Formula
   revision 4
   head "https://github.com/earwig/git-repo-updater.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "756252ddabb0074e82777e094dc48b873f9d92654b1af72a3818a0d5e1dfca33"
     sha256 cellar: :any_skip_relocation, big_sur:       "5ea818d777b458b351c6dba3fced8dfe0b2872855041f2f4dce01751e4ead21c"

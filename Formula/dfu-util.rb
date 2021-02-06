@@ -5,10 +5,6 @@ class DfuUtil < Formula
   sha256 "a03dc58dfc79c056819c0544b2a5970537566460102b3d82cfb038c60e619b42"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "387d614558287e0b5b7f6911d30f0f362d37771f21e7ee11f678859c0447ecea"
     sha256 cellar: :any, big_sur:       "1e960a2b57fd6fa0fbfe5a9bb7aa0e35e24664ee65d686eb8fbef724152bc0d0"

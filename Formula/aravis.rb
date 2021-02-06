@@ -5,10 +5,6 @@ class Aravis < Formula
   sha256 "b44a48069476bdf20de71b09c96cc009bf5bc0d200181e56317df94201375e4e"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "59472780fd24166c9699d3fb41a7365f947124a41b4a047975dcadda734762cf"
     sha256 big_sur:       "218ce79f2236b26add2e63a08d8c9a9e84602d529721961314d7e4983bda2876"

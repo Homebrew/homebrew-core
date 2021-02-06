@@ -6,10 +6,6 @@ class MmCommon < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1b2bf5b4980df003eb2917c33583345183dad27ccf27663bf0aead7747ece3c4"
     sha256 cellar: :any_skip_relocation, big_sur:       "a416e9010403d5ee9e6c80ffa384a31b8989613109e9ceb047d48d2538f75ceb"

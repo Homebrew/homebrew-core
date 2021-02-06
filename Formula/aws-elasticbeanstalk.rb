@@ -7,10 +7,6 @@ class AwsElasticbeanstalk < Formula
   sha256 "f0cd104e792d73606017422864ddb6dc11b5c7a0f20bda27bee09d3efbb0f405"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "59aae0027adbbd7ec7de9671095696c6ad3cc94fb923e521812370293df8234d"
     sha256 cellar: :any, big_sur:       "653ea8a1f2d18e3a20b61d7b8916b95a48137504b0011410d82dae008e1e558c"

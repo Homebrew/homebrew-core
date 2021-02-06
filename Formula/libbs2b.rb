@@ -5,10 +5,6 @@ class Libbs2b < Formula
   sha256 "6aaafd81aae3898ee40148dd1349aab348db9bfae9767d0e66e0b07ddd4b2528"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "348394113062af5f31f9dfd6617f8d248b9bdeba11d28711d83e3e5d9326437f"

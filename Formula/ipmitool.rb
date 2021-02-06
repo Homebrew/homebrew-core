@@ -7,10 +7,6 @@ class Ipmitool < Formula
   license "BSD-3-Clause"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "3223279b0188313a5d87ede24617f6bda5921acc1ce135c30c7c43823f14913f"
     sha256 cellar: :any, big_sur:       "6dd8c02b3e556949c98d40980dd9c1b456d1fa078d9d7792f36977e7d239a4ac"

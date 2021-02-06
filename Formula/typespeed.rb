@@ -5,10 +5,6 @@ class Typespeed < Formula
   sha256 "5c860385ceed8a60f13217cc0192c4c2b4705c3e80f9866f7d72ff306eb72961"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "bf2143006f2dbbb230b3c899a77fc98c1a056316fc957f195a5fb4b27c388947"
     sha256 big_sur:       "a1624c4d927fda389aceec074f743e73bd10417059764d480141a88fab23bb82"

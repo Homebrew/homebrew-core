@@ -6,10 +6,6 @@ class Pygobject3 < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7b65e09a52672b0b31ebeb73308d25adae46baf3d0a7d544da0c3a50617d90c4"
     sha256 cellar: :any, big_sur:       "d9eb35a72a4970c2c6c537b7b8938f9147390a2cd4027d33bb119417c5693aa1"

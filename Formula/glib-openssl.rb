@@ -5,10 +5,6 @@ class GlibOpenssl < Formula
   sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "3ff9db75ad58b19fe3b0c364cc0d8e1c7e570e6edd3eab8e7145f50ecdb2d237"
     sha256 big_sur:       "3ed8dc7e291495db26d893b673e7c665972569efa1fdbe0a3cf1ae39c1c2da50"

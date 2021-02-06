@@ -4,10 +4,6 @@ class Clean < Formula
   url "https://downloads.sourceforge.net/project/clean/clean/3.4/clean-3.4.tar.bz2"
   sha256 "761f3a9e1ed50747b6a62a8113fa362a7cc74d359ac6e8e30ba6b30d59115320"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b10d60c05907f49e588abdd62e34d1f3ab34be1abb2dca155a82172ea366aa7"
     sha256 cellar: :any_skip_relocation, big_sur:       "bca0f382d8835a36dd3ac9c4157f88f543291b21febea6c68769762f9067e2e0"

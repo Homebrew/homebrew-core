@@ -6,10 +6,6 @@ class Nettle < Formula
   sha256 "f001f64eb444bf13dd91bceccbc20acbc60c4311d6e2b20878452eb9a9cec75a"
   license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0f8cf7b90122188810887bd0b4b6230b1cf07898f7a135f8832db744fe89bd0d"
     sha256 cellar: :any, big_sur:       "e02e4ae1f73b54c0976a2e7afdbe2f461a202362c51c68e341f289477a9dfb6b"

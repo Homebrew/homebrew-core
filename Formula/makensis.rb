@@ -4,10 +4,6 @@ class Makensis < Formula
   url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1-src.tar.bz2"
   sha256 "9b5d68bf1874a7b393432410c7e8c376f174d2602179883845d2508152153ff0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "aa8a346937316765bf9ffe7d532b08212fab4ae697aad7e23185baeabe280249"
     sha256 cellar: :any_skip_relocation, catalina:    "889d630bf8637f68e90a9591a373ee44bde8d9d6a9395171e024fdced27f26ef"

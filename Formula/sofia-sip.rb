@@ -5,10 +5,6 @@ class SofiaSip < Formula
   sha256 "b9eca9688ce4b28e062daf0933c3bf661fb607e7afafa71bda3e8f07eb88df44"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e7b5462066dbb0bce9d0e6d16e709fc3adaf99f3624d136d5c929a8d6d5b68ba"
     sha256 cellar: :any, big_sur:       "4f581160ed9d9e1c478aca087b53483b493fd747afd480ad18fa2bc6ce5931b2"

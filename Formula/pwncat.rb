@@ -9,10 +9,6 @@ class Pwncat < Formula
   revision 1
   head "https://github.com/cytopia/pwncat.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3858b6511e81b5b8cee59724213d438f042f3cc80e3d87fb4eaa7df6771dd326"
     sha256 cellar: :any_skip_relocation, big_sur:       "4c25ffa0c2a969ee67ecbb252c841471c5ea9e2ce87e581c130ec800db482b51"

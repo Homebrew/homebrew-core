@@ -7,10 +7,6 @@ class Tdkjs < Formula
   sha256 "6c0e28b22fdb50b8bfe8d113457d048364e8be7dbe09df84dbf4135a5a0c0665"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "43f5d7c2bf9b903b1fea73e50a26fbd42757e3434f0dc9f80b652a49c89ba1a3"
     sha256 cellar: :any_skip_relocation, big_sur:       "4de478f9836d71f03230b6ca3f5926e374359989f64c2c9b662b89dd1fc2ae79"

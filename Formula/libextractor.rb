@@ -6,10 +6,6 @@ class Libextractor < Formula
   sha256 "16f633ab8746a38547c4a1da3f4591192b0825ad83c4336f0575b85843d8bd8f"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "46684b1a7a45edf4a8febdff6138463abd97cde89520824575f476f2d500f576"
     sha256 big_sur:       "c79547c7f5d513ede389034b436fce8a68898827dcbe814540b700286f0ad76b"

@@ -5,10 +5,6 @@ class Gtkextra < Formula
   sha256 "651b738a78edbd5d6ccb64f5a256c39ec35fbbed898e54a3ab7e6cf8fd82f1d6"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "841d46dfdaee00be8a853e8069db2b8ca1fbbfcaf298360411b6f9c0a0706da6"
     sha256 cellar: :any, big_sur:       "3c35df2372587b0cc5bde265a9ff06774ec70651ac5aa103639dc41e669ae3b7"

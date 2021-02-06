@@ -9,10 +9,6 @@ class Remarshal < Formula
   revision 1
   head "https://github.com/dbohdan/remarshal.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b0c1b75665dca786bde756d4af9c520a8663cc940a9c7b10a105d447e14ec2c2"
     sha256 cellar: :any_skip_relocation, big_sur:       "8521482cf34a60440f479a03265a6e7d8620ccf100496a6720f92eed4af11145"

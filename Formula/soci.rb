@@ -5,10 +5,6 @@ class Soci < Formula
   sha256 "ec25f69df0237882bb9035c69e21d91e62f0c6a2cd6f9f0153bbf00b435ff6b2"
   license "BSL-1.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:     "1110442edee6672ede9b93dccef0a933508d6aa9936ad7d7c82b9429965092ff"
     sha256 catalina:    "367f4d37091b11f2e63e220361f9344622a93f8c961122901889c5ef132fb0ec"

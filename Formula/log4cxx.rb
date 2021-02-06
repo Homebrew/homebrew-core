@@ -6,10 +6,6 @@ class Log4cxx < Formula
   sha256 "c316705ee3c4e5b919d3561d5f305162d21687aa6ae1f31f02f6cdadc958b393"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "3608d04c6ad5e3d6d0186519f9ad31157add75820c8a651a77cdc89e77c81ff1"
     sha256 cellar: :any, big_sur:       "33929bf44a188a1e7f16ae25a4b6495b63846640ed74a7d5f0c94db15151f5d0"

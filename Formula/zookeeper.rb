@@ -8,10 +8,6 @@ class Zookeeper < Formula
   revision 1
   head "https://gitbox.apache.org/repos/asf/zookeeper.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:     "5ff355365ea58279fd5702e194f45871779548d7b9a044e271e91f8824ed018f"
     sha256 cellar: :any, catalina:    "418667fe02a90fc96ea22a9331c0f39639041c77a8d9f7c9b07535a100102564"

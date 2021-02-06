@@ -5,10 +5,6 @@ class Dict < Formula
   sha256 "eeba51af77e87bb1b166c6bc469aad463632d40fb2bdd65e6675288d8e1a81e4"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 arm64_big_sur: "8e18fd5f8791cb97d71d38bce9e2190fab100fe578c70d2d8be17e2726e46931"

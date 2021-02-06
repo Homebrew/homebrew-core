@@ -6,10 +6,6 @@ class Nedit < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e81454f55e5a3b396abe741f65a4a2600d18e93301385edd3481d8d55cee20c0"
     sha256 cellar: :any, big_sur:       "d39ce752a03c79732c908a3cbe93df61f413a12126f764e7e1c3d71f4106f701"

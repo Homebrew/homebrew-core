@@ -6,10 +6,6 @@ class Optipng < Formula
   license "Zlib"
   head "http://hg.code.sf.net/p/optipng/mercurial", using: :hg
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "796af028b1dea8b680e40103712976b4f9df285df553db06d2643779630c716c"

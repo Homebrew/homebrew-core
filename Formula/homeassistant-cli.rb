@@ -9,10 +9,6 @@ class HomeassistantCli < Formula
   revision 1
   head "https://github.com/home-assistant/home-assistant-cli.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7ffc34201695100f205f8d06bcdce1b2801c31ef331a914761f53dc95d15991"
     sha256 cellar: :any_skip_relocation, big_sur:       "69c11f3f2524bb2fa08b48c7cf323adbaef91a47efe6b65a67a3f6f5752ee21b"

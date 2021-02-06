@@ -8,10 +8,6 @@ class SvtplayDl < Formula
   license "MIT"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "1b004732d32d13ad989a85bee109e99cbbd3b3a960c3201b0df004c5d8a58ac0"
     sha256 cellar: :any, big_sur:       "1e9ff023ae27237c46e5d67f0d22cb58fcaf97d7d678d05315e35f62c3cd2fa9"

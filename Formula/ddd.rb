@@ -7,10 +7,6 @@ class Ddd < Formula
   license all_of: ["GPL-3.0-only", "GFDL-1.1-or-later"]
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 big_sur:     "498ceb2dc933d2c85e7407f077d187c6cd799ba2f539694087134d038bb211d9"

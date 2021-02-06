@@ -5,10 +5,6 @@ class Libgtop < Formula
   sha256 "78f3274c0c79c434c03655c1b35edf7b95ec0421430897fb1345a98a265ed2d4"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 2
     sha256 arm64_big_sur: "1b03ee2aee7281a673eff7004f5141e4077e0dfbd2e1ce31a9590fb1f3fc221c"

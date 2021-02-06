@@ -7,10 +7,6 @@ class CfnLint < Formula
   sha256 "dec1fd133c419e8e9ba56ac2906dd385ddd5fc6b76e1c28db276c078096fd75c"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a894ba98163e9a6d82facd05563bbba8a963b322a8a6a3aa349056ab2124c227"
     sha256 cellar: :any_skip_relocation, big_sur:       "743cd92fba908a174df74489cde1540ec07e55da5f8dbfc9a8bd8ac537bb30a2"

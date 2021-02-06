@@ -8,10 +8,6 @@ class Toot < Formula
   revision 1
   head "https://github.com/ihabunek/toot.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "057fe7d791bf50d0a45acf0aa13752212af99f1e6ee1dd9552aa8cbf98f5cab2"

@@ -9,10 +9,6 @@ class S3cmd < Formula
   revision 2
   head "https://github.com/s3tools/s3cmd.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e2625bb936c5d4b7965544f722e94acef3565a4844735eedd036b70b3d11ad80"
     sha256 cellar: :any_skip_relocation, big_sur:       "e664b592e99416b945694ac030208b0ff12c41d9cfd7905dea7f9a5bc46d577d"

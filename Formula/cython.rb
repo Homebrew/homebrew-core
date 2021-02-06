@@ -6,10 +6,6 @@ class Cython < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "edd6535f8154608f559fc0898eec1babf966e768aa9be80e1ac05b103450356f"
     sha256 cellar: :any_skip_relocation, big_sur:       "fd74db80cbd06970855b2bd78d71593c919fad34d165c351663503f2429193c4"

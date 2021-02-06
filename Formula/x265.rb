@@ -7,10 +7,6 @@ class X265 < Formula
   revision 2
   head "https://bitbucket.org/multicoreware/x265_git.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "89918f59466d00820cd7e978c89b405959d082f108db2382bd76fe2bdedcfc5c"
     sha256 big_sur:       "8db84444f732498e1f1e3f8564b3091360ebb277a9c7f5d0bd457893a194f5a6"

@@ -5,10 +5,6 @@ class Anjuta < Formula
   sha256 "42a93130ed3ee02d064a7094e94e1ffae2032b3f35a87bf441e37fc3bb3a148f"
   revision 4
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "185ac50d99816b00213f7e3a6430c06dcef89408d92b0b8285772789ed600dde"
     sha256 big_sur:       "cb89537f1f0f79d74b348604fdf02a0d8c7e48a8b9211aade1a18e2d4eb1d70b"

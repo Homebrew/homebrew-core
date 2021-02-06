@@ -7,10 +7,6 @@ class Pygitup < Formula
   sha256 "ce1bc2285393145d0c287de271ecea9f5302b6103be92263077e4c4a1fcd58cb"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7e4a7970074265fa7855716aa4c4313ddcf91bf6a0dc76969dcac37e3b8e54af"
     sha256 cellar: :any_skip_relocation, big_sur:       "241451119588df0aedbcf3bfb4084a930a22644629ec2544554f17723cb40110"

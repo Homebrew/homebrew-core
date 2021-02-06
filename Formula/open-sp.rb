@@ -4,10 +4,6 @@ class OpenSp < Formula
   url "https://downloads.sourceforge.net/project/openjade/opensp/1.5.2/OpenSP-1.5.2.tar.gz"
   sha256 "57f4898498a368918b0d49c826aa434bb5b703d2c3b169beb348016ab25617ce"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 5
     sha256 cellar: :any, arm64_big_sur: "032676f1cd5c4bc0c1368cdf08bfe9a8b6df8f2c26ee4367c4a1285ab4fadc3a"

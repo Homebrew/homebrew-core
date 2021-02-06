@@ -8,10 +8,6 @@ class Flintrock < Formula
   license "Apache-2.0"
   revision 2
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a91dd481b9714abbc598429e8dd3183e8f90d95d775188a91d6f9364d473799c"
     sha256 cellar: :any, big_sur:       "93d4f64dcc0f46a09df349b5a8d939a9ce6f16225e9e2f16734fc7d6ef0ddbd1"

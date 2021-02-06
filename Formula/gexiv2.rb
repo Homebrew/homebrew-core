@@ -6,10 +6,6 @@ class Gexiv2 < Formula
   license "GPL-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:     "c70dc1804031fb8c387dc3eff59274de4fdd85152df44f42001c630302080ea7"
     sha256 cellar: :any, catalina:    "9ebb451be639c6e3557c4113dc999ab3a0ef6c0f9f2ab508a6eb5197da40e2c7"

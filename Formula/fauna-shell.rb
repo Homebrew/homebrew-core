@@ -7,10 +7,6 @@ class FaunaShell < Formula
   sha256 "25211083523ff83e89b71f2b9f571bc07fa607ee036a570e7db0b5d3c2543a0b"
   license "MPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e83784816f9eb9e73f027b25d9afd6dedc3b4f5eb7556c26a7bbe056c71c7b41"
     sha256 cellar: :any_skip_relocation, big_sur:       "18a734b293027c6659dadb8ceeced83da51122b3102d02cf2bb6e7e61b4b1681"

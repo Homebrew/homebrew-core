@@ -6,10 +6,6 @@ class PythonYq < Formula
   license "Apache-2.0"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e82db9e41acc0b88b8c5f6785953a016ed702c1213234e012a3002cb9f975b32"
     sha256 cellar: :any_skip_relocation, big_sur:       "f5d014ddb9d16c8cb902eed5adaf297f3fc10a96a492db5d2a567b3d0d637a6e"

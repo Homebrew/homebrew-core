@@ -8,10 +8,6 @@ class Xxh < Formula
   license "BSD-2-Clause"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0754a6da98349c722996e01826f2a241a2e4f6018d598681cb09e5eb63556616"
     sha256 cellar: :any_skip_relocation, big_sur:       "4befe7495d9545c742ffa02ec74391ca18ae98ad2e33c325d1d5fa1e78934498"

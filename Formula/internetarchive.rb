@@ -7,10 +7,6 @@ class Internetarchive < Formula
   sha256 "a1614cbf35499d833e07699ddfd344764f86959fd5535aa9ce1203f57a77f970"
   license "AGPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6fc93b7d1a7b5445af264cf80dbc46543ffaecfa5828aebbb8b8fa7a07cf12cc"
     sha256 cellar: :any_skip_relocation, big_sur:       "8bbb208166fe6d36ad639c3b2a7a062c23ffbefb46e6ff5087acb923eb2418f5"

@@ -9,10 +9,6 @@ class Flake8 < Formula
   revision 1
   head "https://gitlab.com/PyCQA/flake8.git", shallow: false
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "919c2b7426270504f2cad10d6652336476d3cea402880c5de2653cf2ec21587b"

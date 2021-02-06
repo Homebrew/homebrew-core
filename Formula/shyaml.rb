@@ -8,10 +8,6 @@ class Shyaml < Formula
   license "BSD-2-Clause"
   head "https://github.com/0k/shyaml.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "ff1ab13915b1148905c77a4bac3ff65db4bc496d3b2fcdf031f30678f781c9f1"
     sha256 cellar: :any, big_sur:       "bdfdbc881e2ef1cc0ae52ad5cafae3715bdfaf76a1ac905a6e3aa3a7fc1736a2"

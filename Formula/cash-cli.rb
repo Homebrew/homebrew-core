@@ -7,10 +7,6 @@ class CashCli < Formula
   sha256 "593e2b02aab0e4369225a2c78a895d511ee491a1708e44d7aba63d9a897b000e"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "11e8b5cf3e977adc9dde41f31173b5a1403d72da4dcdefc277e31ea22cf30612"
     sha256 cellar: :any_skip_relocation, big_sur:       "17d36688d320b64dd29f64127d3c05e2cb03de8a3a4e45d4a18016ae58abc675"

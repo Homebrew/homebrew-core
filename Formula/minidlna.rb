@@ -5,10 +5,6 @@ class Minidlna < Formula
   sha256 "47d9b06b4c48801a4c1112ec23d24782728b5495e95ec2195bbe5c81bc2d3c63"
   license "GPL-2.0-only"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e8123a9b2f7c100c538774cdb4114c0fdc44ea3a9a3a257e2f28db80a982c8ab"
     sha256 cellar: :any, big_sur:       "3934b6e9bea9c3f74be9b163909eff0a6f697bdcd36c0fb5b8ac46793b7e362b"

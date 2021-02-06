@@ -8,10 +8,6 @@ class Salt < Formula
   license "Apache-2.0"
   head "https://github.com/saltstack/salt.git", branch: "develop", shallow: false
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 big_sur:  "3b8936ee7fc3a11051f131b8c665320c37b06b4487797c1e3b6980f871d02fa9"
     sha256 catalina: "c669635717b6bd34e3540d97d71e6eeaa357eab209b7a8857b0190da73d193f6"

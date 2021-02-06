@@ -7,10 +7,6 @@ class Lerna < Formula
   sha256 "77a036b03fafd7a6915ef32ad9e0f5cb1950ae8c86ee27fa886e2e1bad4004ac"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c83c1729e22b25ee574dd777aeafa6609354b28677a84edb4871c6316ec695a8"
     sha256 cellar: :any_skip_relocation, big_sur:       "0284f238fa3b15213745e9b41112bba211478c88c6912a8cc5cdaddae626f5ea"

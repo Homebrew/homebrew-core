@@ -5,10 +5,6 @@ class Avanor < Formula
   sha256 "8f55be83d985470b9a5220263fc87d0a0a6e2b60dbbc977c1c49347321379ef3"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "6c2ae364f9e7c7ce1f3876a4ce9acb53489e9a17221646f004895ccd239e4646"
     sha256 big_sur:       "fe8fbd3aed29fc9c50753000036d9c13b5e8732f687d71b061d954e83517d403"

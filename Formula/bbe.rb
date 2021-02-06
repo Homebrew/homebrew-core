@@ -5,10 +5,6 @@ class Bbe < Formula
   sha256 "baaeaf5775a6d9bceb594ea100c8f45a677a0a7d07529fa573ba0842226edddb"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7181a956a065ea4b793431041e45cc04d217a7c64a579dcf1c7078249ee579ab"
     sha256 cellar: :any_skip_relocation, big_sur:       "677a07ce2e73761b8403033706a969d15bd89f98401054dccae350c0d9acdf6b"

@@ -6,10 +6,6 @@ class DhallLspServer < Formula
   license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "7c9f9d9f40fdca93c74c702d4d0ec4562dba40b108c23a199dbc421b8a0c7010"
     sha256 cellar: :any_skip_relocation, catalina: "796f9f64bca695133ac77808829b3061d440a8f553d088aebcf43722faa97d61"

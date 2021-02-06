@@ -6,10 +6,6 @@ class Findutils < Formula
   sha256 "57127b7e97d91282c6ace556378d5455a9509898297e46e10443016ea1387164"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "39ffd40141c1d583f89ffe0c091a76cba9f4ebdbe3035c007e45b37774eb5b84"
     sha256 cellar: :any_skip_relocation, big_sur:       "4841d8c66138b3f5eb7d6a3c1588ae19e69c4a2561f6a6e2192a51e324022093"

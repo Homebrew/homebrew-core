@@ -7,10 +7,6 @@ class Datasette < Formula
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b491724fa7ab5ea685346cd1c64a1009d7019bdf9c9aaae5c3e1afe727b4c66"
     sha256 cellar: :any_skip_relocation, big_sur:       "97c69650fe117746694414a30abeb8495452fef0fa3e5c665a815b1e352b6fa5"

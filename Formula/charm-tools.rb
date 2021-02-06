@@ -7,10 +7,6 @@ class CharmTools < Formula
   sha256 "f16b3f8b1033451cc6503f2a2eca83e746dac548506ecf547c495cd83784f9f2"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:     "6404dbae2164f20d435899289d4c65b798edf7f11feb8329dfb442fc596f6e6a"
     sha256 cellar: :any, catalina:    "5ee8a00243ad9490a3506ed4719f832940ec5ddd49f1527722da1953d6a6f112"

@@ -6,10 +6,6 @@ class Gedit < Formula
   license "GPL-2.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "7e2ee800477f0616c684e787b666b70153bd89ea686db852e07d6ece2ddd7ee6"
     sha256 big_sur:       "21b705058ca192bd2e0d8ef85efa3d6161d893286d9b0696307f4bcbee0d8458"

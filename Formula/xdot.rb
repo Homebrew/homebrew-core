@@ -6,10 +6,6 @@ class Xdot < Formula
   license "LGPL-3.0"
   head "https://github.com/jrfonseca/xdot.py.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "cde9b3087f5d052432a49145b7e7b91aae192999a842f5764c6ed17cda033206"
     sha256 cellar: :any_skip_relocation, catalina: "d8f03ae6eeb651fce014693fa933718777d2e1add5dbdd6939460797ca8bb4d0"

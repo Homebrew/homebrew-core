@@ -6,10 +6,6 @@ class Plotutils < Formula
   sha256 "4f4222820f97ca08c7ea707e4c53e5a3556af4d8f1ab51e0da6ff1627ff433ab"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "df2133fa4e5dd7c50d8145c3960afd6a75e1ff6e5d9e3255ff03cea00ddfdab6"

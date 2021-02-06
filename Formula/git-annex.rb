@@ -7,10 +7,6 @@ class GitAnnex < Formula
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:  "728bf8c5ad78063eba1661abce0d9d964c11914206325754b1ccde9723a8f470"
     sha256 cellar: :any, catalina: "7a266d8b04fc572b8142180b814ffea3505b790cd3543abc1627c103ff86941f"

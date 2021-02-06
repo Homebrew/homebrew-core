@@ -19,10 +19,6 @@ class Id3lib < Formula
     end
   end
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7511c1df301e89112972d2b8aa0cc3711f4be7276317f345a26e64ae2a31143b"
     sha256 cellar: :any, big_sur:       "18f0b568466493ca322662357962fecfe1774844ad140be1c2d23443c2845ff3"

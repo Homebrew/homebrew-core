@@ -4,10 +4,6 @@ class Baobab < Formula
   url "https://download.gnome.org/sources/baobab/3.38/baobab-3.38.0.tar.xz"
   sha256 "048468147860816b97f15d50b3c84e9acf0539c1441cfeb63703d112e8728329"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "900fff026ec24002744ec2f9836c55614f5d9a775cb562d38fcd883871ea69b0"
     sha256 big_sur:       "4a9d7b940b8d32bea12f03e4dde9c834a1efd60bcae26bc8dfce82784dee1183"

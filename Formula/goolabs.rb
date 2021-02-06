@@ -7,10 +7,6 @@ class Goolabs < Formula
   sha256 "4f768a5b98960c507f5ba4e1ca14d45e3139388669148a2750d415c312281527"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "df1ef2c9f6b3c72ab941aa3445575ecaf95aae6bfa1dd3e1ad96bd468f5d6f52"
     sha256 cellar: :any_skip_relocation, big_sur:       "529b86998aa6ab3fe97ddef439a2c4959047fa2a44ff552b3cd115c962cbb1b7"

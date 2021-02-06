@@ -4,10 +4,6 @@ class Rnv < Formula
   url "https://downloads.sourceforge.net/project/rnv/Sources/1.7.11/rnv-1.7.11.tar.bz2"
   sha256 "b2a1578773edd29ef7a828b3a392bbea61b4ca8013ce4efc3b5fbc18662c162e"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8901e5d1b3915babeec29f4485afa741d41b2b48946515c1d871f525512ae1b6"
     sha256 cellar: :any, big_sur:       "c262efcf45b880c131f5e466d1b672ce5120dff6302b9b7504f6c1e1ee87cb22"

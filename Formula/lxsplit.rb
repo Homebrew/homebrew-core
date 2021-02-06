@@ -5,10 +5,6 @@ class Lxsplit < Formula
   sha256 "858fa939803b2eba97ccc5ec57011c4f4b613ff299abbdc51e2f921016845056"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7a37c06c81b1160f5fee4c742537310afe07cccac1251384739f4340189ec4a2"
     sha256 cellar: :any_skip_relocation, big_sur:       "6fc68ea7f529c0d6d5a5efb98f9644c93cfb6472798e1686a4384be56381bfcd"

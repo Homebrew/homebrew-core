@@ -6,10 +6,6 @@ class Libiconv < Formula
   sha256 "e6a1b1b589654277ee790cce3734f07876ac4ccfaecbee8afa0b649cf529cc04"
   license "GPL-3.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5d7976b37516995241432ab9c4cb14a0eba03f2e8af5b7bb110147ce045c9e1f"
     sha256 cellar: :any, big_sur:       "9253ae6551eb63499fb292b4a65d054c918b93dab8beff0bc12f3290f77bd15c"

@@ -6,10 +6,6 @@ class Zsh < Formula
   sha256 "dcc4b54cc5565670a65581760261c163d720991f0d06486da61f8d839b52de27"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "01ae59e3ea21dd7691120aec89552e4f4c10c6489a24b9cc23256129e3cbe7b6"
     sha256 big_sur:       "a93717bcbb1a41829ac7549f7dea0e2be4bb11985be734f03801150338d6b8e6"

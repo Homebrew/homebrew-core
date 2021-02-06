@@ -6,10 +6,6 @@ class Pastebinit < Formula
   license "GPL-2.0"
   revision 3
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "90c20fef3e5c3e0944fadf42e45692288edb5e5ee241a4d936fe509c2e8ec16d"
     sha256 cellar: :any_skip_relocation, big_sur:       "43c42eb708a8452001802163a22e637ff7685c1e9fbd72b58102a68ccdffaf52"

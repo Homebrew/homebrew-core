@@ -5,10 +5,6 @@ class Id3v2 < Formula
   sha256 "8105fad3189dbb0e4cb381862b4fa18744233c3bbe6def6f81ff64f5101722bf"
   license "LGPL-2.1"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4eb1279baa3350a16d82139446ab610aa897087821c2dd6fce2a12fac692f958"
     sha256 cellar: :any, big_sur:       "363e3ccb0976eddc681538d70f43e498eafc6b03b31bcb1f3f4fccb2382790d9"

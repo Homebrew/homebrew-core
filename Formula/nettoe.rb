@@ -5,10 +5,6 @@ class Nettoe < Formula
   sha256 "dbc2c08e7e0f7e60236954ee19a165a350ab3e0bcbbe085ecd687f39253881cb"
   license "GPL-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9f2e1b0a27c15f903c42fd54af41f52553d9027cde5aff110e7f8a895b934a8"
     sha256 cellar: :any_skip_relocation, big_sur:       "2387ff01457bbf7019cff906e9503de1b7cc718f055abd3eaa9523b847d951a5"

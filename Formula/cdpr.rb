@@ -4,10 +4,6 @@ class Cdpr < Formula
   url "https://downloads.sourceforge.net/project/cdpr/cdpr/2.4/cdpr-2.4.tgz"
   sha256 "32d3b58d8be7e2f78834469bd5f48546450ccc2a86d513177311cce994dfbec5"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f2818981f1d2a090f072741028fc22ca8b420f6956661678b2768311f11f7064"
     sha256 cellar: :any_skip_relocation, big_sur:       "256d525f93fcdfb7f8c765ca45c6c3b422f00386045a9feb3bd99a083382c9c8"

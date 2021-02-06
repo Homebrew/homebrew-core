@@ -5,10 +5,6 @@ class Hello < Formula
   sha256 "31e066137a962676e89f69d1b65382de95a7ef7d914b8cb956f41ea72e0f516b"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "69489ae397e4645127aa7773211310f81ebb6c99e1f8e3e22c5cdb55333f5408"
     sha256 cellar: :any_skip_relocation, catalina:    "449de5ea35d0e9431f367f1bb34392e450f6853cdccdc6bd04e6ad6471904ddb"

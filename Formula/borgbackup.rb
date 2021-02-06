@@ -7,10 +7,6 @@ class Borgbackup < Formula
   sha256 "49cb9eed98b8e32ae3b97beaedf94cdff46f796445043f1923fd0fce7ed3c2bc"
   license "BSD-3-Clause"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "74defaac235883c8c4330ac0f5618ca30d17ff098d88fa83f158c6f4fef518c7"

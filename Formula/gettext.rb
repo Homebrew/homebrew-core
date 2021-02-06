@@ -6,10 +6,6 @@ class Gettext < Formula
   sha256 "d20fcbb537e02dcf1383197ba05bd0734ef7bf5db06bdb241eb69b7d16b73192"
   license "GPL-3.0-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "339b62b52ba86dfa73091d37341104b46c01ae354ca425000732df689305442b"
     sha256 big_sur:       "a025e143fe3f5f7e24a936b8b0a4926acfdd025b11d62024e3d355c106536d56"

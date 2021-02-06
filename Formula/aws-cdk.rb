@@ -7,10 +7,6 @@ class AwsCdk < Formula
   sha256 "13b58d2939b74afca6b48c2c9cd18df41f3578664ba568f1741d0a24430c54c6"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "db4f53ac6f43d594e001419e389e3cb7eaade2b8e55c49c0f77501cdcc55ae4b"
     sha256 cellar: :any_skip_relocation, big_sur:       "3c42fe319ba690757281ad68420396425219bc796bf58ccd2830e9be2297deab"

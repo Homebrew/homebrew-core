@@ -5,10 +5,6 @@ class GnomeRecipes < Formula
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
   revision 14
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "c2e5d814490f07f330d62591b7848c5b988706c74feeac8deb7a207201235045"
     sha256 big_sur:       "555f367e08429f2d3f3b7c328ae1ee3f98e6d814cbf74dff07082868e924e4ba"

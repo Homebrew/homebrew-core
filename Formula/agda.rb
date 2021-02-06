@@ -13,10 +13,6 @@ class Agda < Formula
     end
   end
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     rebuild 1
     sha256 big_sur:  "23ff8d4cfc8b39f2059a3c92b999a48548d8efb0546494438a337f716017c2f6"

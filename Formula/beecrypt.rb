@@ -5,10 +5,6 @@ class Beecrypt < Formula
   sha256 "286f1f56080d1a6b1d024003a5fa2158f4ff82cae0c6829d3c476a4b5898c55d"
   revision 7
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c67f38d1f106232edf5db9ea96b28c9cc240805c3021a41279085e592b3d1a5e"
     sha256 cellar: :any, big_sur:       "6a5d3034c4818dbf4332a65bc677edb230d174b2c0f47a4c329960f97400f926"

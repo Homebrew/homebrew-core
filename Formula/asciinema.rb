@@ -9,10 +9,6 @@ class Asciinema < Formula
   revision 3
   head "https://github.com/asciinema/asciinema.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b681c70de003112e00b3c31555e06453e0d22483095713fd27cfe9113e5363c6"
     sha256 cellar: :any_skip_relocation, big_sur:       "0a5101fb3da7411764b53fb8dc6b8ab8a7c4a54ced892f9c832301ecbb9964a0"

@@ -9,10 +9,6 @@ class SpoofMac < Formula
   revision 3
   head "https://github.com/feross/SpoofMAC.git"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "25919d55ba6ef291b597523bdd49fdd0b7187a8efb74ef9380868538d8430555"
     sha256 cellar: :any_skip_relocation, big_sur:       "c5ff7d0dcbee39117fd4283df8004801cee32ef8b411d2f59e552c8d467dcf61"

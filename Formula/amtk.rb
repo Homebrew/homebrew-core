@@ -5,10 +5,6 @@ class Amtk < Formula
   sha256 "820545bb4cf87ecebc2c3638d6b6e58b8dbd60a419a9b43cf020124e5dad7078"
   license "LGPL-2.1-or-later"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 arm64_big_sur: "d540852fa3ee1d9af33c5c1effe96547a98c7e03d20064b508662b14c6da202f"
     sha256 big_sur:       "6ab887f121458fad7c480b897bb296d48daf01e3379b96098ce18ca2ae9da7b7"

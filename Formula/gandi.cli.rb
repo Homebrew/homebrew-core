@@ -8,10 +8,6 @@ class GandiCli < Formula
   license "GPL-3.0-or-later"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7fd3804eb7e0e2a60c5b3a66fe7dae07d473b92981a0386a4f0249601a2f34b2"
     sha256 cellar: :any_skip_relocation, big_sur:       "759533fa634716deecb668eddf22df0e4f2afb23120733ab1726a2ca51e10903"

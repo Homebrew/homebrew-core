@@ -5,10 +5,6 @@ class Pms < Formula
   sha256 "96bf942b08cba10ee891a63eeccad307fd082ef3bd20be879f189e1959e775a6"
   revision 1
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c119951216c45f24ff265bb5046631b6cbd5730300b8f4d441e7ac2be1363fcd"
     sha256 cellar: :any, big_sur:       "61b7be3d89ec3436b9e14733936d31564c6989bccb05cb675e529383ba799924"
