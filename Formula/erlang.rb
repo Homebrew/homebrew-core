@@ -8,8 +8,8 @@ class Erlang < Formula
   head "https://github.com/erlang/otp.git"
 
   livecheck do
-    url :head
-    regex(/OTP[._-]v?(\d+(?:\.\d+)+)$/i)
+    url :stable
+    regex(/^OTP[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
