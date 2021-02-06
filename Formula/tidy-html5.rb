@@ -7,8 +7,8 @@ class TidyHtml5 < Formula
   head "https://github.com/htacg/tidy-html5.git", branch: "next"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+\.\d*?[02468]\.\d+)$/i)
+    url :stable
+    regex(/^v?(\d+\.\d*?[02468](?:\.\d+)*)$/i)
   end
 
   bottle do
