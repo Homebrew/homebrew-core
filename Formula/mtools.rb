@@ -26,6 +26,10 @@ class Mtools < Formula
       --without-x
     ]
 
+    # The mtools configure script incorrectly detects stat64. This forces it off
+    # to fix build errors on Apple Silicon. See stat(6) and pv.rb.
+    ENV["ac_cv_func_stat64"] = "no"
+
     system "./configure", *args
     system "make"
     ENV.deparallelize
