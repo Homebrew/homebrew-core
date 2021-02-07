@@ -22,6 +22,7 @@ class SpatialiteGui < Formula
   depends_on "freexl"
   depends_on "geos"
   depends_on "libgaiagraphics"
+  depends_on "librasterlite"
   depends_on "libspatialite"
   depends_on "lz4"
   depends_on "openjpeg"

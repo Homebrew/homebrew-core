@@ -6,6 +6,7 @@ class Libspatialite < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.0.0.tar.gz"
   sha256 "7b7fd70243f5a0b175696d87c46dde0ace030eacc27f39241c24bac5dfac6dac"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/"
@@ -56,6 +57,7 @@ class Libspatialite < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-sysroot=#{HOMEBREW_PREFIX}
+      --enable-gcp
       --enable-geocallbacks
       --enable-rttopo=yes
     ]
