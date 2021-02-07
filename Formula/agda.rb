@@ -4,8 +4,8 @@ class Agda < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.6.1.2/Agda-2.6.1.2.tar.gz"
-    sha256 "08703073c4a5bce89ea64931ac891245dc42dea44b59bed837614811a213072d"
+    url "https://hackage.haskell.org/package/Agda-2.6.1.3/Agda-2.6.1.3.tar.gz"
+    sha256 "bb1bc840cee95eea291bd220ea043b60153a6f7bd8198bc53be2bf3b83c8a1e7"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/v1.4.tar.gz"
