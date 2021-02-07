@@ -1,9 +1,9 @@
 class Autoconf < Formula
   desc "Automatic configure script builder"
   homepage "https://www.gnu.org/software/autoconf"
-  url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz"
-  mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz"
-  sha256 "954bd69b391edc12d6a4a51a2dd1476543da5c6bbf05a95b59dc0dd6fd4c2969"
+  url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz"
+  mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.71.tar.gz"
+  sha256 "431075ad0bf529ef13cb41e9042c542381103e80015686222b8a9d4abef42a1c"
   license "GPL-2.0-or-later"
 
   bottle do
