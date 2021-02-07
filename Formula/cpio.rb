@@ -16,6 +16,10 @@ class Cpio < Formula
 
   keg_only :shadowed_by_macos, "macOS provides cpio"
 
+  on_linux do
+    conflicts_with "libarchive", because: "both install `cpio` binaries"
+  end
+
   def install
     system "./configure",
       "--disable-debug",
