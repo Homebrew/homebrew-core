@@ -6,6 +6,7 @@ class Diffoscope < Formula
   url "https://files.pythonhosted.org/packages/82/0b/abc82afbcc451271df4bf027a6f9442f4d7a512c48e7f94d5f3e88a4bea8/diffoscope-166.tar.gz"
   sha256 "20d0b4091ae535dc7d094bf5f366e0687e0b4337a268254b11925b8e7c9ea9c4"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f653b6e9b2c87e5bd8b7510393ca221ffbb41091ab3d7c845e6bac72702e92b"
@@ -14,7 +15,6 @@ class Diffoscope < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "93271ba0f90255a8a93e2bd4d75701b9e4404fed70c27bb4dd97bcebe6d386a2"
   end
 
-  depends_on "gnu-tar"
   depends_on "libarchive"
   depends_on "libmagic"
   depends_on "python@3.9"
