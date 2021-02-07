@@ -31,6 +31,7 @@ class Libarchive < Formula
 
   on_linux do
     conflicts_with "cpio", because: "both install `cpio` binaries"
+    conflicts_with "gnu-tar", because: "both install `tar` binaries"
   end
 
   def install
