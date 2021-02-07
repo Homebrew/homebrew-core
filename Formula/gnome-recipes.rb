@@ -3,7 +3,7 @@ class GnomeRecipes < Formula
   homepage "https://wiki.gnome.org/Apps/Recipes"
   url "https://download.gnome.org/sources/gnome-recipes/2.0/gnome-recipes-2.0.2.tar.xz"
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
-  revision 14
+  revision 15
 
   bottle do
     sha256 arm64_big_sur: "c2e5d814490f07f330d62591b7848c5b988706c74feeac8deb7a207201235045"
@@ -19,10 +19,10 @@ class GnomeRecipes < Formula
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gnome-autoar"
-  depends_on "gnu-tar"
   depends_on "gspell"
   depends_on "gtk+3"
   depends_on "json-glib" # for goa
+  depends_on "libarchive"
   depends_on "libcanberra"
   depends_on "librest" # for goa
   depends_on "libsoup"
