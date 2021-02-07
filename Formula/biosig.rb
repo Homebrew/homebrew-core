@@ -4,6 +4,7 @@ class Biosig < Formula
   url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-2.1.2.src.tar.gz"
   sha256 "1b5bf62739faf3caef7cb7fbb14c7f1dea352caa548b08c7bb5adaaef2f4d1b4"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -17,7 +18,7 @@ class Biosig < Formula
   end
 
   depends_on "gawk" => :build
-  depends_on "gnu-tar" => :build
+  depends_on "libarchive" => :build
   depends_on "dcmtk"
   depends_on "libb64"
   depends_on "numpy"
