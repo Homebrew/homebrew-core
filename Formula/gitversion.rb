@@ -1,8 +1,8 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
-  url "https://github.com/GitTools/GitVersion/archive/5.6.4.tar.gz"
-  sha256 "c84f8ce2991b7963f1666a2f836b8adf7c5ab368f1623a9c2e901e559f9218a6"
+  url "https://github.com/GitTools/GitVersion/archive/5.6.5.tar.gz"
+  sha256 "d9fe27a78fa67ec57501ba5c4d79540a0673ab9fcf959cee1f1ac4d3ff8d51cd"
   license "MIT"
 
   bottle do
@@ -18,7 +18,7 @@ class Gitversion < Formula
            "--configuration", "Release",
            "--framework", "net#{Formula["dotnet"].version.major_minor}",
            "--output", "out",
-           "src/GitVersionExe/GitVersionExe.csproj"
+           "src/GitVersion.App/GitVersion.App.csproj"
 
     libexec.install Dir["out/*"]
 
