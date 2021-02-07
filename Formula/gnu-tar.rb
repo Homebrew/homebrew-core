@@ -21,6 +21,10 @@ class GnuTar < Formula
     depends_on "gettext" => :build
   end
 
+  on_linux do
+    conflicts_with "libarchive", because: "both install `tar` binaries"
+  end
+
   def install
     # Work around unremovable, nested dirs bug that affects lots of
     # GNU projects. See:
