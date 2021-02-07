@@ -1,8 +1,8 @@
 class HtRust < Formula
   desc "Yet another HTTPie clone"
   homepage "https://github.com/ducaale/ht"
-  url "https://github.com/ducaale/ht/archive/v0.4.0.tar.gz"
-  sha256 "5c7e6ff620b3206b395b9b839950dd5ccd62820855eb6b1e4d401ac32b42aa4e"
+  url "https://github.com/ducaale/ht/archive/v0.5.0.tar.gz"
+  sha256 "aa9b4d04000119deba929dc6a35ed40db34adafa85453cc86bbe158f9b029d32"
   license "MIT"
   head "https://github.com/ducaale/ht.git"
 
