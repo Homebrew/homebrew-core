@@ -36,7 +36,12 @@ class Dpkg < Formula
   def install
     # We need to specify a recent gnutar, otherwise various dpkg C programs will
     # use the system "tar", which will fail because it lacks certain switches.
-    ENV["TAR"] = Formula["gnu-tar"].opt_bin/"gtar"
+    on_macos do
+      ENV["TAR"] = Formula["gnu-tar"].opt_bin/"gtar"
+    end
+    on_linux do
+      ENV["TAR"] = Formula["gnu-tar"].opt_bin/"tar"
+    end
 
     # Since 1.18.24 dpkg mandates the use of GNU patch to prevent occurrences
     # of the CVE-2017-8283 vulnerability.
