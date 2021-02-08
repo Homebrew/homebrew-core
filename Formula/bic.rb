@@ -18,7 +18,7 @@ class Bic < Formula
     depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
     depends_on "bison" => :build # macOS bison is too outdated, build fails unless gnu bison is used
-    depends_on "libtool" => :build if build.head?
+    depends_on "libtool" => :build
 
     uses_from_macos "flex" => :build
   end
