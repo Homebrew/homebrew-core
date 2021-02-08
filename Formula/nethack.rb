@@ -9,9 +9,11 @@ class Nethack < Formula
   license "NGPL"
   head "https://github.com/NetHack/NetHack.git"
 
+  # The /download/ page loads the following page in an iframe and this contains
+  # links to version directories which contain the archive files.
   livecheck do
-    url :head
-    regex(/^NetHack[._-]v?(\d+(?:\.\d+)+)_Released?$/i)
+    url "https://www.nethack.org/common/dnldindex.html"
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
