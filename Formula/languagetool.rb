@@ -8,7 +8,8 @@ class Languagetool < Formula
   head "https://github.com/languagetool-org/languagetool.git"
 
   livecheck do
-    url :head
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
