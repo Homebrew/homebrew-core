@@ -138,7 +138,7 @@ class TclTk < Formula
 
     on_linux do
       # Fails with: no display name and no $DISPLAY environment variable
-      return if ENV["CI"]
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
     end
 
     test_itk = <<~EOS
