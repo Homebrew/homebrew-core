@@ -27,39 +27,4 @@ class CstoreFdw < Formula
     lib.install Dir["stage/**/lib/*"]
     (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
   end
-
-  test do
-    return if ENV["CI"]
-
-    pg_bin = Formula["postgresql"].opt_bin
-    pg_port = "55561"
-    system "#{pg_bin}/initdb", testpath/"test"
-    pid = fork do
-      exec("#{pg_bin}/postgres",
-           "-D", testpath/"test",
-           "-c", "shared_preload_libraries=cstore_fdw",
-           "-p", pg_port)
-    end
-
-    begin
-      sleep 2
-
-      cmds = ["CREATE EXTENSION cstore_fdw;",
-              "CREATE SERVER cstore_server FOREIGN data WRAPPER cstore_fdw;",
-              "CREATE FOREIGN TABLE T(x int) SERVER cstore_server OPTIONS(compression 'pglz');",
-              "INSERT INTO T(x) SELECT 42;"]
-
-      system "#{pg_bin}/createdb", "-p", pg_port, "test"
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", cmds[0]
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", cmds[1]
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", cmds[2]
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", cmds[3]
-
-      assert_equal "42", shell_output("#{pg_bin}/psql -p #{pg_port} -d test -AXtc" \
-                                      "'SELECT x from T;'").strip
-    ensure
-      Process.kill 9, pid
-      Process.wait pid
-    end
-  end
 end
