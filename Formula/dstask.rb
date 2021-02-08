@@ -32,6 +32,6 @@ class Dstask < Formula
     system bin/"dstask", "start", "1"
     output = shell_output("#{bin}/dstask show-active")
     assert_match "Brew the brew", output
-    system bin/"dstask", "done"
+    system bin/"dstask", "done", "1"
   end
 end
