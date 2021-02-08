@@ -29,23 +29,4 @@ class Pgroonga < Formula
     lib.install Dir["stage/**/lib/*"]
     (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
   end
-
-  test do
-    return if ENV["CI"]
-
-    pg_bin = Formula["postgresql"].opt_bin
-    pg_port = "55561"
-    system "#{pg_bin}/initdb", testpath/"test"
-    pid = fork { exec "#{pg_bin}/postgres", "-D", testpath/"test", "-p", pg_port }
-
-    begin
-      sleep 2
-      system "#{pg_bin}/createdb", "-p", pg_port
-      system "#{pg_bin}/psql", "-p", pg_port, "--command", "CREATE DATABASE test;"
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", "CREATE EXTENSION pgroonga;"
-    ensure
-      Process.kill 9, pid
-      Process.wait pid
-    end
-  end
 end
