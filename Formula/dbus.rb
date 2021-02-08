@@ -7,8 +7,8 @@ class Dbus < Formula
   sha256 "f77620140ecb4cdc67f37fb444f8a6bea70b5b6461f12f1cbe2cec60fa7de5fe"
 
   livecheck do
-    url :head
-    regex(/^dbus[._-]v?(\d+\.\d*?[02468](?:\.\d+)*)$/i)
+    url "https://dbus.freedesktop.org/releases/dbus/"
+    regex(/href=.*?dbus[._-]v?(\d+\.\d*?[02468](?:\.\d+)*)\.t/i)
   end
 
   bottle do
