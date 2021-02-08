@@ -6,8 +6,8 @@ class Metabase < Formula
   license "AGPL-3.0-only"
 
   livecheck do
-    url :head
-    strategy :github_latest
+    url "https://www.metabase.com/start/oss/jar.html"
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/metabase\.jar}i)
   end
 
   head do
