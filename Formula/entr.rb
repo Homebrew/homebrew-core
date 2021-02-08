@@ -1,14 +1,14 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
-  homepage "http://entrproject.org/"
-  url "http://entrproject.org/code/entr-4.7.tar.gz"
+  homepage "https://eradman.com/entrproject/"
+  url "https://eradman.com/entrproject/code/entr-4.7.tar.gz"
   sha256 "b6c1ab7644d83bb2a269dc74160867a3be0f5df116c7eb453c25053173534429"
   license "ISC"
   head "https://github.com/eradman/entr.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://eradman.com/entrproject/code/"
+    regex(/href=.*?entr[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
