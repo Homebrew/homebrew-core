@@ -118,10 +118,12 @@ class PerconaServer < Formula
   end
 
   def post_install
-    return if ENV["CI"]
+    # Make sure the var/mysql directory exists
+    (var/"mysql").mkpath
 
-    # Make sure the datadir exists
-    datadir.mkpath
+    # Don't initialize database, it clashes when testing other MySQL-like implementations.
+    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     unless (datadir/"mysql/user.frm").exist?
       ENV["TMPDIR"] = nil
       system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
