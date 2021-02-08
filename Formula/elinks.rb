@@ -6,8 +6,8 @@ class Elinks < Formula
   revision 3
 
   livecheck do
-    url :head
-    regex(/^elinks[._-]v?(\d+(?:\.\d+)+)$/i)
+    url "http://elinks.or.cz/download/"
+    regex(/href=.*?elinks[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
