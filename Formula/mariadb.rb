@@ -125,10 +125,12 @@ class Mariadb < Formula
   end
 
   def post_install
-    return if ENV["CI"]
-
     # Make sure the var/mysql directory exists
     (var/"mysql").mkpath
+
+    # Don't initialize database, it clashes when testing other MySQL-like implementations.
+    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     unless File.exist? "#{var}/mysql/mysql/user.frm"
       ENV["TMPDIR"] = nil
       system "#{bin}/mysql_install_db", "--verbose", "--user=#{ENV["USER"]}",
