@@ -5,7 +5,6 @@ class Purescript < Formula
   sha256 "701fac49de867ec01252b067185e8bbd1b72e4b96997044bac3cca91e3f8096a"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/purescript/purescript.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "3fd65800108e0e185468ca1779a8e6599e1834be1f9f1179da5d964221d82461"
@@ -13,13 +12,17 @@ class Purescript < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "a12832fe00786da347d0069578ff78556aa93890a28e5ae36497e3b4b7f68aab"
   end
 
+  head do
+    url "https://github.com/purescript/purescript.git"
+
+    depends_on "hpack" => :build
+  end
+
   depends_on "cabal-install" => :build
   depends_on "ghc@8.6" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
-
-  depends_on "hpack" => :build if build.head?
 
   def install
     system "hpack" if build.head?
