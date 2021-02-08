@@ -4,7 +4,6 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.10.14/sile-0.10.14.tar.xz"
   sha256 "255a1ebfd745e13a670e1a24fe34ef209b823819a19532d1a63cde6755340e80"
   license "MIT"
-  head "https://github.com/sile-typesetter/sile.git", shallow: false
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7aacf1722fd5edb35edbafed39a5135ee9dbfc614d5c2af6a78a10a4e72b58ae"
@@ -13,7 +12,9 @@ class Sile < Formula
     sha256               mojave:        "9da40bac62aa9a45c9f0c3b0bcd06de5c6f7da79240b69b21e13c7af52b9885f"
   end
 
-  if build.head?
+  head do
+    url "https://github.com/sile-typesetter/sile.git", shallow: false
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
