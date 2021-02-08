@@ -4,6 +4,7 @@ class Mockery < Formula
   url "https://github.com/vektra/mockery/archive/v2.6.0.tar.gz"
   sha256 "ce5eea62e9d130e3557c11016c306485ccd77919cf85d706a2556bce28d085ed"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/vektra/mockery.git"
 
   bottle do
@@ -16,14 +17,14 @@ class Mockery < Formula
   depends_on "go"
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X github.com/vektra/mockery/v2/pkg/config.SemVer=#{version}"
   end
 
   test do
     output = shell_output("#{bin}/mockery --keeptree 2>&1", 1)
-    assert_match "Starting mockery dry-run=false version=0.0.0-dev", output
+    assert_match "Starting mockery dry-run=false version=#{version}", output
 
     output = shell_output("#{bin}/mockery --all --dry-run 2>&1")
-    assert_match "INF Walking dry-run=true version=0.0.0-dev", output
+    assert_match "INF Walking dry-run=true version=#{version}", output
   end
 end
