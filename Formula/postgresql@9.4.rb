@@ -65,10 +65,12 @@ class PostgresqlAT94 < Formula
   end
 
   def post_install
-    return if ENV["CI"]
-
     (var/"log").mkpath
     postgresql_datadir.mkpath
+
+    # Don't initialize database, it clashes when testing other PostgreSQL versions.
+    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     system "#{bin}/initdb", postgresql_datadir unless pg_version_exists?
   end
 
@@ -130,9 +132,5 @@ class PostgresqlAT94 < Formula
       </dict>
       </plist>
     EOS
-  end
-
-  test do
-    system "#{bin}/initdb", testpath/"test" unless ENV["CI"]
   end
 end
