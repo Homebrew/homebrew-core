@@ -1,11 +1,11 @@
 class ArxLibertatis < Formula
   desc "Cross-platform, open source port of Arx Fatalis"
   homepage "https://arx-libertatis.org/"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 2
 
   stable do
-    url "https://arx-libertatis.org/files/arx-libertatis-1.1.2.tar.xz"
+    url "https://arx-libertatis.org/files/arx-libertatis-1.1.2/arx-libertatis-1.1.2.tar.xz"
     sha256 "82adb440a9c86673e74b84abd480cae968e1296d625b6d40c69ca35b35ed4e42"
 
     # Add a missing include to CMakeLists.txt
@@ -16,8 +16,8 @@ class ArxLibertatis < Formula
   end
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://arx-libertatis.org/files/"
+    regex(%r{href=["']?arx-libertatis[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
