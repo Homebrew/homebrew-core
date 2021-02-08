@@ -4,7 +4,6 @@ class Calcurse < Formula
   url "https://calcurse.org/files/calcurse-4.7.0.tar.gz"
   sha256 "ef6675966a53f41196006ce624ece222fe400da0563f4fed1ae0272ad45c8435"
   license "BSD-2-Clause"
-  head "https://git.calcurse.org/calcurse.git"
 
   livecheck do
     url "https://calcurse.org/downloads/"
@@ -19,13 +18,15 @@ class Calcurse < Formula
     sha256 high_sierra:   "02c93d56af71b2272798dea09ce629ba271bda4afaf7965f8fdc00a5a91774d7"
   end
 
-  depends_on "gettext"
+  head do
+    url "https://git.calcurse.org/calcurse.git"
 
-  if build.head?
     depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
+
+  depends_on "gettext"
 
   def install
     system "./autogen.sh" if build.head?
