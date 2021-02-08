@@ -1,8 +1,8 @@
 class Mandown < Formula
   desc "Man-page inspired Markdown viewer"
   homepage "https://github.com/Titor8115/mandown"
-  url "https://github.com/Titor8115/mandown/archive/v1.0.1.tar.gz"
-  sha256 "b014a44b27f921c12505ba4d8dba15487ca2b442764da645cd6d0fd607ef068c"
+  url "https://github.com/Titor8115/mandown/archive/v1.0.3.tar.gz"
+  sha256 "df92ca18315a7507ac93e2246d9ee2ad5363dcf4d266b57d5eb10b4123afa25c"
   license "MIT"
 
   bottle do
