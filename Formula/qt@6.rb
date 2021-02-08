@@ -5,6 +5,13 @@ class QtAT6 < Formula
   sha256 "d13cfac103cd80b216cd2f73d0211dd6b1a1de2516911c89ce9c5ed14d9631a8"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
+  head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   depends_on "cmake" => [:build, :test]
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
