@@ -1,8 +1,8 @@
 class Libplctag < Formula
   desc "Portable and simple API for accessing AB PLC data over Ethernet"
   homepage "https://github.com/libplctag/libplctag"
-  url "https://github.com/libplctag/libplctag/archive/v2.2.0.tar.gz"
-  sha256 "ba0ca955fd92ff1373d353d3112441e5436a6024c2d712f39e4b47c008d2d1c7"
+  url "https://github.com/libplctag/libplctag/archive/v2.2.1.tar.gz"
+  sha256 "7fa17a9bc82548daea5bc14e6d0e2aac45e684d96f866aa83bdfa7e0285174f6"
   license any_of: ["LGPL-2.0-or-later", "MPL-2.0"]
 
   livecheck do
