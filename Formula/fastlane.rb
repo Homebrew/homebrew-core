@@ -7,8 +7,8 @@ class Fastlane < Formula
   head "https://github.com/fastlane/fastlane.git"
 
   livecheck do
-    url :head
-    regex(/^([\d.]+)$/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
