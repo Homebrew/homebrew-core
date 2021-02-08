@@ -7,8 +7,8 @@ class Angband < Formula
   head "https://github.com/angband/angband.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url :homepage
+    regex(/href=.*?angband[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
