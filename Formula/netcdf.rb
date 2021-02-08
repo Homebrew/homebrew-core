@@ -9,8 +9,8 @@ class Netcdf < Formula
   head "https://github.com/Unidata/netcdf-c.git"
 
   livecheck do
-    url :head
-    regex(/^(?:netcdf-|v)?(\d+(?:\.\d+)+)$/i)
+    url "https://www.unidata.ucar.edu/downloads/netcdf/"
+    regex(/href=.*?netcdf-c[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
