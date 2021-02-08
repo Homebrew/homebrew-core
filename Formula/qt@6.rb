@@ -90,11 +90,9 @@ class QtAT6 < Formula
       include.install_symlink path => path.parent.basename(".framework")
     end
 
-    # FIXME: this step just moves `*.app` bundles into `libexec` and create link
-    libexec.mkpath
     Pathname.glob("#{bin}/*.app") do |app|
       mv app, libexec
-      bin.install_symlink "#{libexec/app.stem}.app/Contents/MacOS/#{app.stem}"
+      bin.write_exec_script "#{libexec/app.stem}.app/Contents/MacOS/#{app.stem}"
     end
   end
 
