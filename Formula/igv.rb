@@ -24,10 +24,7 @@ class Igv < Formula
   test do
     assert_match "Usage:", shell_output("#{bin}/igvtools")
     assert_match "org/broad/igv/ui/IGV.class", shell_output("#{Formula["openjdk"].bin}/jar tf #{libexec}/lib/igv.jar")
-    # Fails on Jenkins with Unhandled exception: java.awt.HeadlessException
-    unless ENV["CI"]
-      (testpath/"script").write "exit"
-      assert_match "Version", shell_output("#{bin}/igv -b script")
-    end
+    (testpath/"script").write "exit"
+    assert_match "Version", shell_output("#{bin}/igv -b script")
   end
 end
