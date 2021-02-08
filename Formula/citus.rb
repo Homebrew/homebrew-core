@@ -34,33 +34,4 @@ class Citus < Formula
     include.install Dir["stage/**/include/*"]
     (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
   end
-
-  test do
-    return if ENV["CI"]
-
-    pg_bin = Formula["postgresql"].opt_bin
-    pg_port = "55561"
-    system "#{pg_bin}/initdb", testpath/"test"
-    pid = fork do
-      exec("#{pg_bin}/postgres",
-           "-D", testpath/"test",
-           "-c", "shared_preload_libraries=citus",
-           "-p", pg_port)
-    end
-
-    begin
-      sleep 2
-
-      count_workers_query = "SELECT COUNT(*) FROM master_get_active_worker_nodes();"
-
-      system "#{pg_bin}/createdb", "-p", pg_port, "test"
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", "CREATE EXTENSION citus;"
-
-      assert_equal "0", shell_output("#{pg_bin}/psql -p #{pg_port} -d test -Atc" \
-                                     "'#{count_workers_query}'").strip
-    ensure
-      Process.kill 9, pid
-      Process.wait pid
-    end
-  end
 end
