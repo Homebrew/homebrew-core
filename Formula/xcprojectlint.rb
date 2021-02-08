@@ -20,7 +20,19 @@ class Xcprojectlint < Formula
         objects = {
           B4A1B4A825CF28FA00DF4293 = {isa = PBXGroup; children = (); sourceTree = "";};
           B4A1B4A925CF2DFF00DF4293 = {isa = PBXGroup; children = (B4A1B4A825CF28FA00DF4293); sourceTree = "";};
-          B4A1B47B25CF0DD400DF4293 = {isa = PBXProject; buildConfigurationList = 0; compatibilityVersion = ""; developmentRegion = 0; hasScannedForEncodings = 0; knownRegions = (); mainGroup = B4A1B4A925CF2DFF00DF4293; productRefGroup = B4A1B4A925CF2DFF00DF4293; projectDirPath = ""; projectRoot = ""; targets = ();};
+          B4A1B47B25CF0DD400DF4293 = {
+            isa = PBXProject;
+            buildConfigurationList = 0;
+            compatibilityVersion = "";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (en);
+            mainGroup = B4A1B4A925CF2DFF00DF4293;
+            productRefGroup = B4A1B4A925CF2DFF00DF4293;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = ();
+          };
         };
         rootObject = B4A1B47B25CF0DD400DF4293;
       }
@@ -33,7 +45,19 @@ class Xcprojectlint < Formula
       {
         objects = {
           B4A1B4A825CF28FA00DF4293 = {isa = PBXGroup; children = (); sourceTree = "";};
-          B4A1B47B25CF0DD400DF4293 = {isa = PBXProject; buildConfigurationList = 0; compatibilityVersion = ""; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (); mainGroup = B4A1B4A825CF28FA00DF4293; productRefGroup = B4A1B4A825CF28FA00DF4293; projectDirPath = ""; projectRoot = ""; targets = ();};
+          B4A1B47B25CF0DD400DF4293 = {
+            isa = PBXProject;
+            buildConfigurationList = 0;
+            compatibilityVersion = "";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            knownRegions = (en);
+            mainGroup = B4A1B4A825CF28FA00DF4293;
+            productRefGroup = B4A1B4A825CF28FA00DF4293;
+            projectDirPath = "";
+            projectRoot = "";
+            targets = ();
+          };
         };
         rootObject = B4A1B47B25CF0DD400DF4293;
       }
