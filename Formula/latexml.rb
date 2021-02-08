@@ -7,8 +7,8 @@ class Latexml < Formula
   head "https://github.com/brucemiller/LaTeXML.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://dlmf.nist.gov/LaTeXML/get.html"
+    regex(/href=.*?LaTeXML[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
