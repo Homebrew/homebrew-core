@@ -5,6 +5,11 @@ class Libphonenumber < Formula
   sha256 "ad061ac8e98fb78a731e1517531e1cad9ccd8f076c7cb37c8d8e587bfdabff13"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8e94ade3f7fa698e29d900b8dc8516bd6b9814db7ca469674a461399ee0b1fb5"
     sha256 cellar: :any, big_sur:       "dd83f808788ee05a84a704c297c050ef70eb85b1649ceada403b75300c9a5123"
