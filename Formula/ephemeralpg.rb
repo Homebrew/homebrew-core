@@ -23,10 +23,4 @@ class Ephemeralpg < Formula
     system "make"
     system "make", "PREFIX=#{prefix}", "MANPREFIX=#{man}", "install"
   end
-
-  test do
-    return if ENV["CI"]
-
-    system "#{bin}/pg_tmp", "selftest"
-  end
 end
