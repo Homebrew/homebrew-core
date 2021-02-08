@@ -21,8 +21,6 @@ class Log4cxx < Formula
   depends_on "apr-util"
 
   def install
-    ENV.O2 # Using -Os causes build failures on Snow Leopard.
-
     # Fixes build error with clang, old libtool scripts. cf. #12127
     # Reported upstream here: https://issues.apache.org/jira/browse/LOGCXX-396
     # Remove at: unknown, waiting for developer comments.
