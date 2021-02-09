@@ -19,6 +19,7 @@ class Telnet < Formula
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   conflicts_with "inetutils", because: "both install 'telnet' binaries"
 
