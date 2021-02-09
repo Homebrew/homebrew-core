@@ -13,6 +13,8 @@ class Pngpaste < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "eed393d2dbd516f60bdaa445df330a140853bee95cd49b0c3730345f57136676"
   end
 
+  depends_on :macos
+
   def install
     system "make", "all"
     bin.install "pngpaste"
