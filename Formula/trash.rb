@@ -15,6 +15,8 @@ class Trash < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "0ef5ea924ba8d01398686657a839ad270796f3f10eee86d6522980d32038df9a"
   end
 
+  depends_on :macos
+
   conflicts_with "macos-trash", because: "both install a `trash` binary"
   conflicts_with "trash-cli", because: "both install a `trash` binary"
 
