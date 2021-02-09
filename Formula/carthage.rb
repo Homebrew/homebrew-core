@@ -16,6 +16,7 @@ class Carthage < Formula
   end
 
   depends_on xcode: ["10.0", :build]
+  depends_on :macos
 
   def install
     system "make", "prefix_install", "PREFIX=#{prefix}"
