@@ -27,6 +27,13 @@ class WireguardGo < Formula
   end
 
   test do
-    assert_match "be utun", pipe_output("WG_PROCESS_FOREGROUND=1 #{bin}/wireguard-go notrealutun")
+    prog = "#{bin}/wireguard-go -f notrealutun 2>&1"
+    on_macos do
+      assert_match "be utun", pipe_output(prog)
+    end
+
+    on_linux do
+      assert_match "operation not permitted", pipe_output(prog)
+    end
   end
 end
