@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/0e/35/02480c0af1cdc810abe6cc2f5d301ef57ac7ee3da7bcfb6b69fc998d65ee/snakemake-5.32.0.tar.gz"
-  sha256 "793a6ccf54461078fd79849702a5338f5ace533bac32b2f4088e5b5da2f10567"
+  url "https://files.pythonhosted.org/packages/4b/c6/44a4ede22c827c23ec956061985a5a3b1d5bc66ec13909eae675148c9690/snakemake-5.32.1.tar.gz"
+  sha256 "63ed06bb3738f574f69a1f7ced486c3606850a8e307ff0551aed4ac46ba9ca3f"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
@@ -84,8 +84,8 @@ class Snakemake < Formula
   end
 
   resource "jupyter-core" do
-    url "https://files.pythonhosted.org/packages/46/54/aa5d2ec9aad97d696970c1f64f36fc82c14057734d3c8cfa2e0c79f114fb/jupyter_core-4.7.0.tar.gz"
-    sha256 "aa1f9496ab3abe72da4efe0daab0cb2233997914581f9a071e07498c6add8ed3"
+    url "https://files.pythonhosted.org/packages/24/9a/0ca76ccc95eeb3ee376c671e81bda2c61d148c7627443004d1ba0d085b80/jupyter_core-4.7.1.tar.gz"
+    sha256 "79025cb3225efcd36847d0840f3fc672c0abd7afd0de83ba8a1d3837619122b4"
   end
 
   resource "nbformat" do
@@ -114,8 +114,8 @@ class Snakemake < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "ratelimiter" do
@@ -134,8 +134,8 @@ class Snakemake < Formula
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/75/fb/2f594e5364f9c986b2c89eb662fc6067292cb3df2b88ae31c939b9138bb9/smmap-3.0.4.tar.gz"
-    sha256 "9c98bbd1f9786d22f14b3d4126894d56befb835ec90cef151af566c7e19b5d24"
+    url "https://files.pythonhosted.org/packages/2b/6f/d48bbed5aa971943759f4ede3f12dca40aa7faa44f22bad483de86780508/smmap-3.0.5.tar.gz"
+    sha256 "84c2751ef3072d4f6b2785ec7ee40244c6f45eb934d9e543e2c51f1bd3d54c50"
   end
 
   resource "toposort" do
@@ -149,8 +149,8 @@ class Snakemake < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
-    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
+    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
+    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
   end
 
   resource "wrapt" do
