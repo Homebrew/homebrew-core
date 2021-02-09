@@ -65,11 +65,14 @@ class CfrDecompiler < Formula
 
   test do
     fixture = <<~EOS
+      /*
+       * Decompiled with CFR #{version}.
+       */
       class T {
           T() {
           }
 
-          public static void main(String[] arrstring) {
+          public static void main(String[] stringArray) {
               System.out.println("Hello brew!");
           }
       }
