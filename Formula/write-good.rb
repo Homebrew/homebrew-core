@@ -3,8 +3,8 @@ require "language/node"
 class WriteGood < Formula
   desc "Naive linter for English prose"
   homepage "https://github.com/btford/write-good"
-  url "https://registry.npmjs.org/write-good/-/write-good-1.0.5.tgz"
-  sha256 "efffbfb63057ad214ff07957a5423b7e9fb75f4cae45ebf013554defe0bdb3e5"
+  url "https://registry.npmjs.org/write-good/-/write-good-1.0.6.tgz"
+  sha256 "cc63cf27c95db982aabcc9cd2fa59e55382589f6e75ee17f26ebea941f715351"
   license "MIT"
 
   bottle do
