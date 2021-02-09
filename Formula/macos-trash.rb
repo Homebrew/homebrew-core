@@ -13,6 +13,7 @@ class MacosTrash < Formula
   end
 
   depends_on xcode: ["12.0", :build]
+  depends_on :macos
 
   conflicts_with "trash", because: "both install a `trash` binary"
   conflicts_with "trash-cli", because: "both install a `trash` binary"
