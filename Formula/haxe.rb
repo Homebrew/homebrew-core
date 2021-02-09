@@ -2,8 +2,8 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      tag:      "4.1.5",
-      revision: "5e33a78aad9a6733f4aa3a4b99f7c14555523a36"
+      tag:      "4.2.0",
+      revision: "bfcbf809165b3b3df0bce4833bd90a7539f2ae56"
   license all_of: ["GPL-2.0-or-later", "MIT"]
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
