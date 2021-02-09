@@ -1,8 +1,8 @@
 class Inframap < Formula
   desc "Read your tfstate or HCL to generate a graph"
   homepage "https://github.com/cycloidio/inframap"
-  url "https://github.com/cycloidio/inframap/archive/v0.5.1.tar.gz"
-  sha256 "1384b4a1629d323508ec21905ebfc38b4cca85915c8f5665b27492d4f403ef1d"
+  url "https://github.com/cycloidio/inframap/archive/v0.5.2.tar.gz"
+  sha256 "0d549133f38d010a03dc2aacc4b8323eed8ae4f0832a257d649086eadd14fab2"
   license "MIT"
   head "https://github.com/cycloidio/inframap.git"
 
