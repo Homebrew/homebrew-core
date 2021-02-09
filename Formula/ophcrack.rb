@@ -4,6 +4,7 @@ class Ophcrack < Formula
   url "https://downloads.sourceforge.net/project/ophcrack/ophcrack/3.8.0/ophcrack-3.8.0.tar.bz2"
   mirror "https://deb.debian.org/debian/pool/main/o/ophcrack/ophcrack_3.8.0.orig.tar.bz2"
   sha256 "048a6df57983a3a5a31ac7c4ec12df16aa49e652a29676d93d4ef959d50aeee0"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
@@ -20,10 +21,16 @@ class Ophcrack < Formula
   uses_from_macos "expat"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-gui",
-                          "--with-libssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-debug
+      --disable-gui
+      --with-libssl=#{Formula["openssl@1.1"].opt_prefix}
+      --prefix=#{prefix}
+    ]
+    on_linux do
+      args << "--with-libexpat=#{Formula["expat"].opt_prefix}"
+    end
+    system "./configure", *args
     system "make", "install"
   end
 
