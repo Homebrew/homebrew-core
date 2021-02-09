@@ -3,8 +3,8 @@ class Linkerd < Formula
   homepage "https://linkerd.io"
 
   url "https://github.com/linkerd/linkerd2.git",
-      tag:      "stable-2.9.2",
-      revision: "d5e9d56ce431bdf5ec02e51461ec0cf4bfdd783c"
+      tag:      "stable-2.9.3",
+      revision: "f38ce611f03af8891e1e0d8604cdadabc388dce1"
   license "Apache-2.0"
 
   livecheck do
