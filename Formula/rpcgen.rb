@@ -21,6 +21,7 @@ class Rpcgen < Formula
   keg_only :provided_by_macos
 
   depends_on xcode: ["7.3", :build]
+  depends_on :macos
 
   def install
     xcodebuild "-project", "developer_cmds.xcodeproj",
