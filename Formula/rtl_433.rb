@@ -2,8 +2,8 @@ class Rtl433 < Formula
   desc "Program to decode radio transmissions from devices"
   homepage "https://github.com/merbanan/rtl_433"
   url "https://github.com/merbanan/rtl_433.git",
-    tag:      "20.11",
-    revision: "0bb4672b1afb716d107b3060afc2d80a2159dbef"
+      tag:      "20.11",
+      revision: "0bb4672b1afb716d107b3060afc2d80a2159dbef"
   license "GPL-2.0-or-later"
   head "https://github.com/merbanan/rtl_433.git"
 
