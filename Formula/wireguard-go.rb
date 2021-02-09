@@ -34,7 +34,7 @@ class WireguardGo < Formula
     end
 
     on_linux do
-      assert_match "operation not permitted", pipe_output(prog)
+      assert_match "Running this software on Linux is unnecessary", pipe_output(prog)
     end
   end
 end
