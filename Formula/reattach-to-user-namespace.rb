@@ -14,6 +14,8 @@ class ReattachToUserNamespace < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "68e1f00743690086fb23ce013767e0a669ef46807ee9f618fe9ea4a25c50d5c0"
   end
 
+  depends_on :macos
+
   def install
     system "make"
     bin.install "reattach-to-user-namespace"
