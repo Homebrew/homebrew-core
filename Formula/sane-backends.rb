@@ -36,6 +36,8 @@ class SaneBackends < Formula
   depends_on "net-snmp"
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxml2"
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
