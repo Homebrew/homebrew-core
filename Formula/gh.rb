@@ -5,6 +5,8 @@ class Gh < Formula
   sha256 "49c42a3b951b67e29bc66e054fedb90ac2519f7e1bfc5c367e82cb173e4bb056"
   license "MIT"
 
+  head "https://github.com/cli/cli.git", branch: "trunk"
+
   livecheck do
     url :stable
     strategy :github_latest
@@ -20,9 +22,12 @@ class Gh < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GH_VERSION"] = version.to_s
-    ENV["GO_LDFLAGS"] = "-s -w"
-    system "make", "bin/gh", "manpages"
+    with_env(
+      "GH_VERSION" => version.to_s,
+      "GO_LDFLAGS" => "-s -w -X main.updaterEnabled=cli/cli",
+    ) do
+      system "make", "bin/gh", "manpages"
+    end
     bin.install "bin/gh"
     man1.install Dir["share/man/man1/gh*.1"]
     (bash_completion/"gh").write `#{bin}/gh completion -s bash`
