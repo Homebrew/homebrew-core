@@ -14,6 +14,8 @@ class OsxCpuTemp < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d68a47b126eaee8f75d281785322877055187f89540eb2744b9cd4da15ca6a69"
   end
 
+  depends_on :macos
+
   def install
     system "make"
     bin.install "osx-cpu-temp"
