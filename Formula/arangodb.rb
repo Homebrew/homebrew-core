@@ -4,6 +4,7 @@ class Arangodb < Formula
   url "https://download.arangodb.com/Source/ArangoDB-3.7.7.tar.gz"
   sha256 "83ee8aeda753967043e3326843a55c5df5f2f9430f7a0a37da950be48e17265e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
   bottle do
@@ -24,8 +25,8 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-        tag:      "0.14.18",
-        revision: "79c60473bf243f2ea77c33f9cee032fd0696cde4"
+        tag:      "0.14.15-1",
+        revision: "fe064e0136f009f65ea767dec6203a0d5bc5117e"
   end
 
   def install
