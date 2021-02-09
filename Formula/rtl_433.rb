@@ -33,7 +33,7 @@ class Rtl433 < Formula
     resource("test_cu8").stage testpath
     resource("expected_json").stage testpath
 
-    expected_output = shell_output("cat #{testpath}/g001_433.92M_250k.json")
+    expected_output = (testpath/"g001_433.92M_250k.json").read
     rtl_433_output = shell_output("#{bin}/rtl_433 -c 0 -F json -r #{testpath}/g001_433.92M_250k.cu8")
 
     assert_equal rtl_433_output, expected_output
