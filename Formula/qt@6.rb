@@ -50,6 +50,7 @@ class QtAT6 < Formula
       -prefix #{HOMEBREW_PREFIX}
       -extprefix #{prefix}
 
+      -libexecdir share/qt/scripts
       -plugindir share/qt/plugins
       -qmldir share/qt/qml
       -docdir share/doc/qt
