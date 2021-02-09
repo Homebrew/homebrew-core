@@ -19,6 +19,7 @@ class PinentryMac < Formula
   depends_on xcode: :build
   depends_on "gettext"
   depends_on "libassuan"
+  depends_on :macos
 
   def install
     system "autoreconf", "-fiv"
