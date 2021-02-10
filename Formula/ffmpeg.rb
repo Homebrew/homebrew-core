@@ -70,6 +70,10 @@ class Ffmpeg < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "libxv"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -113,12 +117,16 @@ class Ffmpeg < Formula
       --enable-librtmp
       --enable-libspeex
       --enable-libsoxr
-      --enable-videotoolbox
       --enable-libzmq
       --enable-libzimg
       --disable-libjack
       --disable-indev=jack
     ]
+
+    on_macos do
+      # Needs corefoundation, coremedia, corevideo
+      args << "--enable-videotoolbox"
+    end
 
     system "./configure", *args
     system "make", "install"
