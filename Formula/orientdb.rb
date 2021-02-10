@@ -4,6 +4,7 @@ class Orientdb < Formula
   url "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.8/orientdb-3.1.8.zip"
   sha256 "026d3f34ba67d8b5ca805258fa80f2a7c2a23c753b1c185143809d6d541640df"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://orientdb.org/download"
@@ -83,7 +84,7 @@ class Orientdb < Formula
           <string>homebrew.mxcl.orientdb</string>
           <key>ProgramArguments</key>
           <array>
-            <string>/usr/local/opt/orientdb/libexec/bin/server.sh</string>
+            <string>#{HOMEBREW_PREFIX}/opt/orientdb/libexec/bin/server.sh</string>
           </array>
           <key>RunAtLoad</key>
           <true/>
