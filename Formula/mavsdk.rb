@@ -1,5 +1,5 @@
 class Mavsdk < Formula
-  desc "API and library for MAVLink compatible systems written in C++11"
+  desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
       tag:      "v0.37.0",
@@ -20,10 +20,15 @@ class Mavsdk < Formula
   depends_on "cmake" => :build
 
   def install
+    # Source build adapted from
+    # https://mavsdk.mavlink.io/develop/en/contributing/build.html
     system "cmake", *std_cmake_args,
                     "-Bbuild/default",
-                    "-DBUILD_BACKEND=ON",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DBUILD_MAVSDK_SERVER=ON",
+                    "-DBUILD_TESTS=OFF",
                     "-H."
+    system "cmake", "--build", "build/default"
     system "cmake", "--build", "build/default", "--target", "install"
   end
 
@@ -39,14 +44,14 @@ class Mavsdk < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", testpath/"test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++17", testpath/"test.cpp", "-o", "test",
                   "-I#{include}/mavsdk",
                   "-L#{lib}",
                   "-lmavsdk",
                   "-lmavsdk_info"
     system "./test"
 
-    assert_equal "Usage: backend_bin [-h | --help]",
+    assert_equal "Usage: #{bin}/mavsdk_server [-h | --help]",
                  shell_output("#{bin}/mavsdk_server --help").split("\n").first
   end
 end
