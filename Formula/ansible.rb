@@ -3,8 +3,8 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/a0/53/881aa200bd3edf2e25e865629443791a02b3f2c4a8d8eef05f8bab0bd8c5/ansible-2.10.6.tar.gz"
-  sha256 "ae97002e4fb1ed3de947428ff43906c76c66751fe104721cf6b25fa115dbbe8d"
+  url "https://files.pythonhosted.org/packages/ba/22/7b58a8ba8e43159dc5cb32d97dd50e2b70b016585dbb188e9f2b61dac1e2/ansible-2.10.7.tar.gz"
+  sha256 "9ff024500116d53c460cb09ea92e3c9404119f100d1d1ff0de69a9dafca561d5"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
@@ -16,6 +16,7 @@ class Ansible < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
@@ -58,15 +59,15 @@ class Ansible < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/70/44/404ec10dca553032900a65bcded8b8280cf7c64cc3b723324e2181bf93c9/pytz-2020.5.tar.gz"
-    sha256 "180befebb1927b16f6b57101720075a984c019ac16b1b7575673bea42c6c3da5"
+    url "https://files.pythonhosted.org/packages/b0/61/eddc6eb2c682ea6fd97a7e1018a6294be80dba08fa28e7a3570148b4612d/pytz-2021.1.tar.gz"
+    sha256 "83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da"
   end
   ### end
 
   ### extras for requests[security]
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
-    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
+    url "https://files.pythonhosted.org/packages/27/5a/007acee0243186123a55423d49cbb5c15cb02d76dd1b6a27659a894b13a2/cryptography-3.4.4.tar.gz"
+    sha256 "ee5e19f0856b6fbbdbab15c2787ca65d203801d2d65d0b8de6218f424206c848"
   end
 
   resource "idna" do
@@ -88,8 +89,8 @@ class Ansible < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/64/a7/45e11eebf2f15bf987c3bc11d37dcc838d9dc81250e67e4c5968f6008b6c/Jinja2-2.11.2.tar.gz"
-    sha256 "89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0"
+    url "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz"
+    sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
   end
 
   resource "MarkupSafe" do
@@ -138,13 +139,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/0c/ab/db17dca8a7af1e23446b6f816823f881d97bc389f4f5204e124230cf8a8a/boto3-1.16.60.tar.gz"
-    sha256 "10e8d9b18a8ae15677e850c7240140b9539635a03098f01dfdd75b2042d15862"
+    url "https://files.pythonhosted.org/packages/51/ab/2f0571fc563f0f62d419d101b827325f9ce8037b925b7180151f18ba05cb/boto3-1.17.5.tar.gz"
+    sha256 "d6aafb804fca2b67c65dda78ad8b4afed901e004071208b84c804d345ad9ebba"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5d/c4/5c9f3d055c4eeae5a4caf43fbd7f41faa61fe2700f6ade29cdaebdd17a73/botocore-1.19.60.tar.gz"
-    sha256 "423a1a9502bd7bc5db8c6e64f9374f64d8ac18e6b870278a9ff65f59d268cd58"
+    url "https://files.pythonhosted.org/packages/33/da/6614e38d4e8484a0c1c141a21a3365e38d7f698014f0688e78442e3d661d/botocore-1.20.5.tar.gz"
+    sha256 "04a1df759681f5f171accb354d863bfed0774d64a4e8ee35ff49835755660a4e"
   end
 
   resource "cachetools" do
@@ -173,8 +174,8 @@ class Ansible < Formula
   end
 
   resource "cmd2" do
-    url "https://files.pythonhosted.org/packages/c1/76/98f8767ddc8febfbd6367b2fcd391cd92087496d00e58ad99008e126035e/cmd2-1.4.0.tar.gz"
-    sha256 "e59fa932418603af4e046a96c8985812b05af8a73bfd9d7a386cd1b02c6ab687"
+    url "https://files.pythonhosted.org/packages/00/65/f580d23070a3f4eadaece9e4edcea002bc7fed639debc63c7b81a42fbe7f/cmd2-1.5.0.tar.gz"
+    sha256 "701a8c9975c4abc45e5d13906ab149f959f812869106347323a3f89ac0e82a62"
   end
 
   resource "colorama" do
@@ -213,13 +214,13 @@ class Ansible < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/b8/68/8a9eb6d41cbd7b65378761c7d3c29357951cc4d223e8e588c848d7ae55ac/google-auth-1.24.0.tar.gz"
-    sha256 "0b0e026b412a0ad096e753907559e4bdb180d9ba9f68dd9036164db4fdc4ad2e"
+    url "https://files.pythonhosted.org/packages/cf/8c/cb8431e8ac65d88fd5e5a834dad5add3700de03abacba45531e0326294d4/google-auth-1.25.0.tar.gz"
+    sha256 "514e39f4190ca972200ba33876da5a8857c5665f2b4ccc36c8b8ee21228aae80"
   end
 
   resource "iso8601" do
-    url "https://files.pythonhosted.org/packages/05/90/2d9927dc2d33192f58fe39d2d216313a8380625cd4b062efb93f1afd7a29/iso8601-0.1.13.tar.gz"
-    sha256 "f7dec22af52025d4526be94cc1303c7d8f5379b746a3f54a8c8446384392eeb1"
+    url "https://files.pythonhosted.org/packages/f9/ed/b97abc7877e5b253eef96a469f47d617b0ebcccc735405fa1a620c7ee833/iso8601-0.1.14.tar.gz"
+    sha256 "8aafd56fa0290496c5edbb13c311f78fa3a241f0853540da09d9363eae3ebd79"
   end
 
   resource "jmespath" do
@@ -348,8 +349,8 @@ class Ansible < Formula
   end
 
   resource "oslo.serialization" do
-    url "https://files.pythonhosted.org/packages/bb/9e/1a2a571ec7879dcd1fe3719255ecaf0ff97d8a84c5d72a6df6e4033be684/oslo.serialization-4.0.1.tar.gz"
-    sha256 "f84d3dca7ffbb86394e273094c674532b6144223eca8990a38836ba99728d53e"
+    url "https://files.pythonhosted.org/packages/0a/85/9af1feeff44ee56868145674e0c2e6654e8ff2241c5bc178bb9539065c3d/oslo.serialization-4.1.0.tar.gz"
+    sha256 "cecc7794df806c85cb70dbd6c2b3af19bc68047ad29e3c6442be90a0a4de5379"
   end
 
   resource "oslo.utils" do
@@ -358,8 +359,8 @@ class Ansible < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
-    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
+    url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
+    sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
   end
 
   resource "paramiko" do
