@@ -6,6 +6,11 @@ class Mlkit < Formula
   license "GPL-2.0"
   head "https://github.com/melsman/mlkit.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 big_sur:  "b70e43611b9fa05413c18b9856f132cc7fb679d6c0e82f3443a8e1bea8ba65ce"
     sha256 catalina: "60c0e8b1e5f24373a7215df2267b81f5b4e45764712cbf5e32feb5b2074227f9"
