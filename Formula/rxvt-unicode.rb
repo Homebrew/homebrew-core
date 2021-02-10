@@ -6,6 +6,11 @@ class RxvtUnicode < Formula
   license "GPL-3.0-only"
   revision 4
 
+  livecheck do
+    url "http://dist.schmorp.de/rxvt-unicode/"
+    regex(/href=.*?rxvt-unicode[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "13dca2d2c2ca7e160e54a6d839b48fb259b4ae719803c0374c186904f3f9ac0e"
     sha256 big_sur:       "db278d2c19f2b837f1fa44dfa4a72bac3ed8c8359a13732fb7db854ba1c6b450"
