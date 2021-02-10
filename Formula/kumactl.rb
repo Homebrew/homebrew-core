@@ -1,10 +1,9 @@
 class Kumactl < Formula
   desc "Kuma control plane command-line utility"
   homepage "https://kuma.io/"
-  url "https://github.com/kumahq/kuma/archive/1.0.6.tar.gz"
-  sha256 "3d93c7508174d456a1d8a50f64227d243fa1226f8116c3dac6c044b246698415"
+  url "https://github.com/kumahq/kuma/archive/1.0.7.tar.gz"
+  sha256 "eb010a00e9f3c0f70db425348b1a69b136dd6d3a863251a2ec2c92383dc17c5e"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6fbacebfb67fa9351a3bd17567406f3f306755695eacaa458facd0506b3fd3fa"
