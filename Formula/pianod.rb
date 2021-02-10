@@ -18,6 +18,11 @@ class Pianod < Formula
   depends_on "libao"
   depends_on "libgcrypt"
 
+  on_linux do
+    # pianod uses avfoundation on macOS, ffmpeg on Linux
+    depends_on "ffmpeg"
+  end
+
   def install
     ENV["OBJCXXFLAGS"] = "-std=c++11"
     system "./configure", "--disable-debug",
