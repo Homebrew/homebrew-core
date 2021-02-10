@@ -17,9 +17,9 @@ class IosDeploy < Formula
   depends_on xcode: :build
 
   def install
-    xcodebuild "-configuration", "Release", "SYMROOT=build"
+    xcodebuild "-configuration", "Release", "SYMROOT=build", "-arch", Hardware::CPU.arch
 
-    xcodebuild "test", "-scheme", "ios-deploy-tests", "-configuration", "Release", "SYMROOT=build"
+    xcodebuild "test", "-scheme", "ios-deploy-tests", "-configuration", "Release", "SYMROOT=build", "-arch", Hardware::CPU.arch
 
     bin.install "build/Release/ios-deploy"
   end
