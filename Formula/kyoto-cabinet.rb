@@ -14,6 +14,8 @@ class KyotoCabinet < Formula
     sha256 sierra:        "04ef198a6638dabdee27e881df9b16970eadc724f2f663a01edee7950b38b85a"
   end
 
+  uses_from_macos "zlib"
+
   patch :DATA
 
   def install
