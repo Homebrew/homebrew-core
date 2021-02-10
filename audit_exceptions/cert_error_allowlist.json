@@ -1,6 +1,8 @@
 {
   "gnuradio": "https://gnuradio.org/",
   "hashcat": "https://hashcat.net/hashcat/",
+  "libbladerf": "https://nuand.com/",
   "micropython": "https://www.micropython.org/",
+  "minio": "https://min.io",
   "monero": "https://www.getmonero.org/"
 }
