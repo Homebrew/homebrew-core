@@ -1,8 +1,8 @@
 class Cminpack < Formula
   desc "Solves nonlinear equations and nonlinear least squares problems"
   homepage "http://devernay.free.fr/hacks/cminpack/cminpack.html"
-  url "https://github.com/devernay/cminpack/archive/v1.3.7.tar.gz"
-  sha256 "b891f33ffcfb8b246bb6147a4da6308cdb2386ca42a99892ff9b2e884f8b0386"
+  url "https://github.com/devernay/cminpack/archive/v1.3.8.tar.gz"
+  sha256 "3ea7257914ad55eabc43a997b323ba0dfee0a9b010d648b6d5b0c96425102d0e"
   license "BSD-3-Clause"
   head "https://github.com/devernay/cminpack.git"
 
