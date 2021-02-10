@@ -13,6 +13,7 @@ class Instead < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "luajit-openresty"
   depends_on "sdl2"
   depends_on "sdl2_image"
