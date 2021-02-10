@@ -6,6 +6,11 @@ class Shntool < Formula
   sha256 "74302eac477ca08fb2b42b9f154cc870593aec8beab308676e4373a5e4ca2102"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "http://shnutils.freeshell.org/shntool/dist/src/"
+    regex(/href=.*?shntool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1dfa65178720559cebc5500eb9f32d4ca2606a4f1b6a94b9d175ceded8fae2f0"
