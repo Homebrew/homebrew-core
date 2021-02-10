@@ -25,6 +25,16 @@ class AnsibleLint < Formula
     depends_on "gmp"
   end
 
+  resource "ansible" do
+    url "https://files.pythonhosted.org/packages/ba/22/7b58a8ba8e43159dc5cb32d97dd50e2b70b016585dbb188e9f2b61dac1e2/ansible-2.10.7.tar.gz"
+    sha256 "9ff024500116d53c460cb09ea92e3c9404119f100d1d1ff0de69a9dafca561d5"
+  end
+
+  resource "ansible-base" do
+    url "https://files.pythonhosted.org/packages/bf/44/a75eec7928986a48e179769873f282496e007587e112c57d367c5e1abc1a/ansible-base-2.10.5.tar.gz"
+    sha256 "33ae323923b841f3d822f355380ce7c92610440362efeed67b4b39db41e555af"
+  end
+
   resource "bracex" do
     url "https://files.pythonhosted.org/packages/bb/80/7118945282845f8dc337c45c7d9d171a9f86d0c7650ac7e65d60995691d2/bracex-2.1.1.tar.gz"
     sha256 "01f715cd0ed7a622ec8b32322e715813f7574de531f09b70f6f3b2c10f682425"
@@ -43,6 +53,16 @@ class AnsibleLint < Formula
   resource "enrich" do
     url "https://files.pythonhosted.org/packages/47/2b/b453d52a5cd1409d859d67c6a530971095406aedc0c0589c1c6a5212f506/enrich-1.2.6.tar.gz"
     sha256 "0e99ff57d87f7b5def0ca79917e88fb9351aa0d52e228ee38bff7cd858315fe4"
+  end
+
+  resource "Jinja2" do
+    url "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz"
+    sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
+  end
+
+  resource "MarkupSafe" do
+    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
+    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
   end
 
   resource "packaging" do
