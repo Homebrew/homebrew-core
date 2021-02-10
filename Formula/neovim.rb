@@ -1,10 +1,17 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.4.4.tar.gz"
-  sha256 "2f76aac59363677f37592e853ab2c06151cca8830d4b3fe4675b4a52d41fc42c"
   license "Apache-2.0"
   revision 1
+
+  stable do
+    url "https://github.com/neovim/neovim/archive/v0.4.4.tar.gz"
+    sha256 "2f76aac59363677f37592e853ab2c06151cca8830d4b3fe4675b4a52d41fc42c"
+
+    # Patch for Apple Silicon. Backported from
+    # https://github.com/neovim/neovim/pull/12624
+    patch :DATA
+  end
 
   bottle do
     sha256 arm64_big_sur: "d682127e937b5ff1007cd18ad464d22e7029e6e22060fb9730383e6972365879"
@@ -54,10 +61,6 @@ class Neovim < Formula
     url "https://luarocks.org/manifests/kikito/inspect-3.1.1-0.src.rock"
     sha256 "ea1f347663cebb523e88622b1d6fe38126c79436da4dbf442674208aa14a8f4c"
   end
-
-  # Patch for Apple Silicon. Backported from
-  # https://github.com/neovim/neovim/pull/12624
-  patch :DATA
 
   def install
     resources.each do |r|
