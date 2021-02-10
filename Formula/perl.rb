@@ -37,6 +37,8 @@ class Perl < Formula
       -Duseshrplib
       -Duselargefiles
       -Dusethreads
+      -Dnoextensions=GDBM_File
+      -Dnoextensions=DB_File
     ]
     on_macos do
       args << "-Dsed=/usr/bin/sed"
