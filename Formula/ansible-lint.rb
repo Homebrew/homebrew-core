@@ -15,6 +15,7 @@ class AnsibleLint < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "ansible"
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
@@ -23,11 +24,6 @@ class AnsibleLint < Formula
 
   on_linux do
     depends_on "gmp"
-  end
-
-  resource "ansible" do
-    url "https://files.pythonhosted.org/packages/ba/22/7b58a8ba8e43159dc5cb32d97dd50e2b70b016585dbb188e9f2b61dac1e2/ansible-2.10.7.tar.gz"
-    sha256 "9ff024500116d53c460cb09ea92e3c9404119f100d1d1ff0de69a9dafca561d5"
   end
 
   resource "ansible-base" do
