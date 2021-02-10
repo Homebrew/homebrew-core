@@ -4,7 +4,7 @@ class Libtasn1 < Formula
   url "https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/libtasn1/libtasn1-4.16.0.tar.gz"
   sha256 "0e0fb0903839117cb6e3b56e68222771bebf22ad7fc2295a0ed7d576e8d4329d"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   revision 1
 
   bottle do
