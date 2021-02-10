@@ -8,6 +8,11 @@ class Asciidoc < Formula
   license "GPL-2.0-only"
   head "https://github.com/asciidoc/asciidoc-py3.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b1bcbcde0a7c320b6545b860c6970ba4fe3197fd9895bcd7213bc4e1d94e3fc8"
     sha256 cellar: :any_skip_relocation, big_sur:       "fdfe12fdf2042b563bc1a483ffa374af8a66e4cf0ba3016a391dc2fc21900543"
