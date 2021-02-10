@@ -24,7 +24,14 @@ class Istioctl < Formula
     ENV["BUILD_WITH_CONTAINER"] = "0"
 
     system "make", "gen-charts", "istioctl", "istioctl.completion"
-    cd "out/darwin_amd64" do
+    dirpath = nil
+    on_macos do
+      dirpath = "darwin_amd64"
+    end
+    on_linux do
+      dirpath = "linux_amd64"
+    end
+    cd "out/#{dirpath}" do
       bin.install "istioctl"
       bash_completion.install "release/istioctl.bash"
       zsh_completion.install "release/_istioctl"
