@@ -23,6 +23,7 @@ class Osm < Formula
   end
 
   test do
+    assert_match "Error: Could not list namespaces related to osm", shell_output("#{bin}/osm namespace list 2>&1", 1)
     assert_match "Version: v#{version};", shell_output("#{bin}/osm version 2>&1")
   end
 end
