@@ -4,7 +4,7 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v8.0.0.tar.bz2"
   sha256 "44c740ea6ab3924bc3aa169bad11ad3c5766c5c8459e3126d44eabb8735a5762"
   license "ZPL-2.1"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -88,6 +88,7 @@ class MingwW64 < Formula
         --with-mpfr=#{Formula["mpfr"].opt_prefix}
         --with-mpc=#{Formula["libmpc"].opt_prefix}
         --with-isl=#{Formula["isl"].opt_prefix}
+        --with-zstd=no
         --disable-multilib
         --disable-nls
         --enable-threads=posix
