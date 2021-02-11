@@ -2,16 +2,15 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.49.0-src.tar.gz"
-    sha256 "b50aefa8df1fdfc9bccafdbf37aee611c8dfe81bf5648d5f43699c50289dc779"
+    url "https://static.rust-lang.org/dist/rustc-1.50.0-src.tar.gz"
+    sha256 "95978f8d02bb6175ae3238930baf03563c240aedf9a70bebdc3eaa2a8c3c5a5e"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.50.0",
-          revision: "d00d64df9f803bf5bba8714ca498d8f9159d07f6"
+          tag:      "0.51.0",
+          revision: "f04e7fab73128592a4063983c302da788bdfaba5"
     end
   end
 
@@ -83,12 +82,6 @@ class Rust < Formula
       args << "--release-channel=nightly"
     else
       args << "--release-channel=stable"
-    end
-
-    if Hardware::CPU.arm?
-      # Fix for 1.49.0-beta, remove when the 2nd stable ARM version is released
-      inreplace "src/stage0.txt", "1.48.0", "1.49.0"
-      inreplace "src/stage0.txt", "2020-11-19", "2020-12-31"
     end
 
     system "./configure", *args
