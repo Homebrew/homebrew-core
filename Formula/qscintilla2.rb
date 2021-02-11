@@ -4,7 +4,7 @@ class Qscintilla2 < Formula
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.11.6/QScintilla-2.11.6.tar.gz"
   sha256 "e7346057db47d2fb384467fafccfcb13aa0741373c5d593bc72b55b2f0dd20a7"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.riverbankcomputing.com/software/qscintilla/download"
@@ -20,7 +20,7 @@ class Qscintilla2 < Formula
 
   depends_on "pyqt"
   depends_on "python@3.9"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sip"
 
   # Fix for rpath in library install name. Taken from
@@ -47,7 +47,8 @@ class Qscintilla2 < Formula
         s.gsub! "$$[QT_INSTALL_HEADERS]", include
       end
 
-      system "qmake", "qscintilla.pro", *args
+      qt5 = Formula["qt@5"].opt_prefix
+      system "#{qt5}/bin/qmake", "qscintilla.pro", *args
       system "make"
       system "make", "install"
     end
