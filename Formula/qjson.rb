@@ -4,7 +4,7 @@ class Qjson < Formula
   url "https://github.com/flavio/qjson/archive/0.9.0.tar.gz"
   sha256 "e812617477f3c2bb990561767a4cd8b1d3803a52018d4878da302529552610d4"
   license "LGPL-2.1"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c1801c1ef5510834f151d8fb998153c6b1c3e66cb169f007884e8086ba5b62d4"
@@ -18,7 +18,7 @@ class Qjson < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -35,8 +35,8 @@ class Qjson < Formula
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-I#{include}",
                     "-L#{lib}", "-lqjson-qt5",
-                    "-I#{Formula["qt"].opt_include}",
-                    "-F#{Formula["qt"].opt_lib}", "-framework", "QtCore"
+                    "-I#{Formula["qt@5"].opt_include}",
+                    "-F#{Formula["qt@5"].opt_lib}", "-framework", "QtCore"
     system "./test"
   end
 end
