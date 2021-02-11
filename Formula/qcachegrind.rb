@@ -4,6 +4,7 @@ class Qcachegrind < Formula
   url "https://download.kde.org/Attic/applications/19.08.3/src/kcachegrind-19.08.3.tar.xz"
   sha256 "8fc5e0643bb826b07cb5d283b8bd6fd5da4979f6125b43b1db3a9db60b02a36a"
   license "GPL-2.0-or-later"
+  revision 1
 
   # We don't match versions like 19.07.80 or 19.07.90 where the patch number
   # is 80+ (beta) or 90+ (RC), as these aren't stable releases.
@@ -21,13 +22,13 @@ class Qcachegrind < Formula
   end
 
   depends_on "graphviz"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
     spec << "-arm64" if Hardware::CPU.arm?
     cd "qcachegrind" do
-      system "#{Formula["qt"].opt_bin}/qmake", "-spec", spec,
+      system "#{Formula["qt@5"].opt_bin}/qmake", "-spec", spec,
                                                "-config", "release"
       system "make"
       prefix.install "qcachegrind.app"
