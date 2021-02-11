@@ -4,7 +4,7 @@ class Dspdfviewer < Formula
   url "https://github.com/dannyedel/dspdfviewer/archive/v1.15.1.tar.gz"
   sha256 "c5b6f8c93d732e65a27810286d49a4b1c6f777d725e26a207b14f6b792307b03"
   license "GPL-2.0"
-  revision 8
+  revision 9
   head "https://github.com/dannyedel/dspdfviewer.git"
 
   bottle do
@@ -29,7 +29,7 @@ class Dspdfviewer < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openjpeg"
-  depends_on "qt"
+  depends_on "qt@5"
 
   resource "poppler" do
     url "https://poppler.freedesktop.org/poppler-0.65.0.tar.xz"
