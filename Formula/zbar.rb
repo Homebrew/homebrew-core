@@ -32,6 +32,10 @@ class Zbar < Formula
   depends_on "ufraw"
   depends_on "xz"
 
+  on_linux do
+    depends_on "dbus"
+  end
+
   def install
     system "autoreconf", "-fvi"
 
