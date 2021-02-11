@@ -1,11 +1,10 @@
 class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.0.tar.bz2"
-  mirror "https://archive.apache.org/dist/subversion/subversion-1.14.0.tar.bz2"
-  sha256 "6ba8e218f9f97a83a799e58a3c6da1221d034b18d9d8cbbcb6ec52ab11722102"
+  url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.1.tar.bz2"
+  mirror "https://archive.apache.org/dist/subversion/subversion-1.14.1.tar.bz2"
+  sha256 "2c5da93c255d2e5569fa91d92457fdb65396b0666fad4fd59b22e154d986e1a9"
   license "Apache-2.0"
-  revision 7
 
   bottle do
     sha256 arm64_big_sur: "cbf0d587edf228480d7ff2f94bb850d96d30e2f03ed47fae7fed6e3efa2bfd43"
