@@ -19,7 +19,7 @@ class Qjackctl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "jack"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     ENV.cxx11
@@ -29,7 +29,7 @@ class Qjackctl < Formula
                           "--disable-xunique",
                           "--prefix=#{prefix}",
                           "--with-jack=#{Formula["jack"].opt_prefix}",
-                          "--with-qt=#{Formula["qt"].opt_prefix}"
+                          "--with-qt=#{Formula["qt@5"].opt_prefix}"
 
     system "make", "install"
     prefix.install bin/"qjackctl.app"
