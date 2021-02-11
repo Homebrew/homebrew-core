@@ -4,6 +4,7 @@ class Ioctl < Formula
   url "https://github.com/iotexproject/iotex-core/archive/v1.1.3.tar.gz"
   sha256 "1a9e50a5831d9543489187944b1fc73bdaf3ae87c9cbe8f46810f25a915d0e24"
   license "Apache-2.0"
+  version_scheme 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "a404957720d81eb86f3d6c987d9892784fae103fc2bd1d190f8aa012e4842fde"
