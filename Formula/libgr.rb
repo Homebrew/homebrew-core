@@ -4,6 +4,7 @@ class Libgr < Formula
   url "https://github.com/sciapp/gr/archive/v0.55.0.tar.gz"
   sha256 "070ca1cb0a54f90446e2cc0a0b331a112e0842e32a000bad2135e26ce09f5787"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "ac99069ce1dea838922beedb4a9bc6cc3c7e9aa2fc77b6e613aba07a7aa22283"
@@ -17,7 +18,7 @@ class Libgr < Formula
   depends_on "glfw"
   depends_on "libtiff"
   depends_on "qhull"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "zeromq"
 
   def install
