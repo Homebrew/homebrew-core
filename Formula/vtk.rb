@@ -32,7 +32,7 @@ class Vtk < Formula
   depends_on "pugixml"
   depends_on "pyqt"
   depends_on "python@3.9"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sqlite"
   depends_on "theora"
   depends_on "utf8cpp"
