@@ -5,6 +5,7 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-6.2.0.tar.xz"
   sha256 "7b721324cccb3eaeb4efb455508201ac8ccbd200f77106f52342f9ab7f022d1a"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "50a36fca58813ff8616c80706d4b00755e88c045ac56618624e2b64eee17fc22"
@@ -50,7 +51,7 @@ class Octave < Formula
   depends_on "qhull"
   depends_on "qrupdate"
   depends_on "qscintilla2"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "readline"
   depends_on "suite-sparse"
   depends_on "sundials"
@@ -74,10 +75,10 @@ class Octave < Formula
     ENV["QCOLLECTIONGENERATOR"] = "qhelpgenerator"
     # These "shouldn't" be necessary, but the build breaks without them.
     # https://savannah.gnu.org/bugs/?55883
-    ENV["QT_CPPFLAGS"]="-I#{Formula["qt"].opt_include}"
-    ENV.append "CPPFLAGS", "-I#{Formula["qt"].opt_include}"
-    ENV["QT_LDFLAGS"]="-F#{Formula["qt"].opt_lib}"
-    ENV.append "LDFLAGS", "-F#{Formula["qt"].opt_lib}"
+    ENV["QT_CPPFLAGS"]="-I#{Formula["qt@5"].opt_include}"
+    ENV.append "CPPFLAGS", "-I#{Formula["qt@5"].opt_include}"
+    ENV["QT_LDFLAGS"]="-F#{Formula["qt@5"].opt_lib}"
+    ENV.append "LDFLAGS", "-F#{Formula["qt@5"].opt_lib}"
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",
