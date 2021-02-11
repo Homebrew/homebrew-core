@@ -12,7 +12,10 @@ First time contributing to Homebrew? Read our [Code of Conduct](https://github.c
 ### To submit a version upgrade for the `foo` formula
 
 * check if the same upgrade has been already submitted by [searching the open pull requests for `foo`](https://github.com/Homebrew/homebrew-core/pulls?utf8=✓&q=is%3Apr+is%3Aopen+foo).
-* `brew bump-formula-pr --strict foo` with `--url=...` and `--sha256=...` or `--tag=...` and `--revision=...` arguments.
+* `brew bump-formula-pr --strict foo` with either:
+  * `--url=...` and `--sha256=...` 
+  * `--tag=...` and `--revision=...`
+  * `--version=...`
 
 ### To add a new formula for `foo` version `2.3.4` from `$URL`
 
