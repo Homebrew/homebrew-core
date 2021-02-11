@@ -8,6 +8,7 @@ class KdeKi18n < Formula
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.1-only", "LGPL-3.0-only"],
   ]
+  revision 1
   head "https://invent.kde.org/frameworks/ki18n.git"
 
   bottle do
@@ -22,7 +23,7 @@ class KdeKi18n < Formula
   depends_on "graphviz" => :build
   depends_on "kde-extra-cmake-modules" => [:build, :test]
   depends_on "gettext"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     args = std_cmake_args
@@ -56,7 +57,7 @@ class KdeKi18n < Formula
     cp_r (pkgshare/"autotests"), testpath
 
     args = std_cmake_args
-    args << "-DQt5_DIR=#{Formula["qt"].opt_prefix/"lib/cmake/Qt5"}"
+    args << "-DQt5_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5"}"
     args << "-DLibIntl_INCLUDE_DIRS=#{Formula["gettext"].include}"
     args << "-DLibIntl_LIBRARIES=#{Formula["gettext"].lib/"libintl.dylib"}"
 
