@@ -18,6 +18,7 @@ class Dash < Formula
   depends_on "automake" => :build
 
   def install
+    ENV["ac_cv_func_stat64"] = "no" if Hardware::CPU.arm?
     system "./autogen.sh" if build.head?
 
     system "./configure", "--prefix=#{prefix}",
