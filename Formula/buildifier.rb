@@ -16,8 +16,6 @@ class Buildifier < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
     commit = Utils.git_short_head
     ldflags = ["-X main.buildVersion=#{version}",
                "-X main.buildScmRevision=#{commit}"]
