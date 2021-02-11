@@ -9,6 +9,7 @@ class KdeKarchive < Formula
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.0-only", "LGPL-3.0-only"],
   ]
+  revision 1
   head "https://invent.kde.org/frameworks/karchive.git"
 
   bottle do
@@ -23,7 +24,7 @@ class KdeKarchive < Formula
   depends_on "graphviz" => :build
   depends_on "kde-extra-cmake-modules" => [:build, :test]
 
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "xz"
 
   uses_from_macos "bzip2"
@@ -43,8 +44,9 @@ class KdeKarchive < Formula
   end
 
   test do
+    ENV.delete "CPATH"
     args = std_cmake_args
-    args << "-DQt5Core_DIR=#{Formula["qt"].opt_prefix/"lib/cmake/Qt5Core"}"
+    args << "-DQt5Core_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5Core"}"
 
     %w[bzip2gzip
        helloworld
