@@ -27,6 +27,7 @@ class Siril < Formula
   depends_on "gsl"
   depends_on "gtk-mac-integration"
   depends_on "jpeg"
+  depends_on "json-glib"
   depends_on "libconfig"
   depends_on "libomp"
   depends_on "libraw"
