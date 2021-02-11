@@ -2,7 +2,7 @@ class Qtads < Formula
   desc "TADS multimedia interpreter"
   homepage "https://qtads.sourceforge.io/"
   license "GPL-3.0"
-  revision 1
+  revision 2
   head "https://github.com/realnc/qtads.git"
 
   stable do
@@ -53,7 +53,7 @@ class Qtads < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
   depends_on "sdl_sound"
@@ -64,7 +64,8 @@ class Qtads < Formula
       "INCLUDEPATH += src $$T2DIR $$T3DIR $$HTDIR",
       "INCLUDEPATH += src $$T2DIR $$T3DIR $$HTDIR #{sdl_sound_include}/SDL"
 
-    system "qmake", "DEFINES+=NO_STATIC_TEXTCODEC_PLUGINS"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "DEFINES+=NO_STATIC_TEXTCODEC_PLUGINS"
     system "make"
     prefix.install "QTads.app"
     bin.write_exec_script "#{prefix}/QTads.app/Contents/MacOS/QTads"
