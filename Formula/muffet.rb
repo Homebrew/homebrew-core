@@ -23,6 +23,7 @@ class Muffet < Formula
     assert_match "failed to fetch root page: lookup does.not.exist: no such host",
         shell_output("#{bin}/muffet https://does.not.exist 2>&1", 1)
 
-    system bin/"muffet", "https://httpbin.org/"
+    assert_match "https://httpbin.org/",
+        shell_output("#{bin}/muffet https://httpbin.org 2>&1", 1)
   end
 end
