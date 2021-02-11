@@ -7,8 +7,8 @@ class Ocp < Formula
   head "https://github.com/mywave82/opencubicplayer.git"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url :homepage
+    regex(/href=.*?ocp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
