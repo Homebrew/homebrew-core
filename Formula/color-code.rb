@@ -3,7 +3,7 @@ class ColorCode < Formula
   homepage "http://colorcode.laebisch.com/"
   url "http://colorcode.laebisch.com/download/ColorCode-0.8.5.tar.gz"
   sha256 "7c128db12af6ab11439eb710091b4a448100553a4d11d3a7c8dafdfbc57c1a85"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "efd44639662b77ac3216c32c7edfe71c184396daa9ed89cbac2e63411e2a0f90"
@@ -16,10 +16,11 @@ class ColorCode < Formula
     sha256 cellar: :any, yosemite:      "559f6c6ac094ff6d6e5f7157c3042ae819cd4a4233292c36dca21db85b152b90"
   end
 
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
-    system "qmake"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake"
     system "make"
     prefix.install "ColorCode.app"
     bin.write_exec_script "#{prefix}/ColorCode.app/Contents/MacOS/colorcode"
