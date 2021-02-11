@@ -4,6 +4,7 @@ class Pc6001vx < Formula
   url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.7.0_src.tar.gz"
   sha256 "8a735fa6769b1a268fc64c0ed92d7e27c5990b120f53ad50be255024db35b2b8"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/eighttails/PC6001VX.git"
 
   bottle do
@@ -15,7 +16,7 @@ class Pc6001vx < Formula
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
 
   def install
@@ -27,7 +28,8 @@ class Pc6001vx < Formula
     # Use libc++ explicitly, otherwise build fails
     ENV.append_to_cflags "-stdlib=libc++" if ENV.compiler == :clang
 
-    system "qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
     system "make"
     prefix.install "PC6001VX.app"
     bin.write_exec_script "#{prefix}/PC6001VX.app/Contents/MacOS/PC6001VX"
