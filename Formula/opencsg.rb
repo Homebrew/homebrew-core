@@ -3,7 +3,7 @@ class Opencsg < Formula
   homepage "http://www.opencsg.org"
   url "http://www.opencsg.org/OpenCSG-1.4.2.tar.gz"
   sha256 "d952ec5d3a2e46a30019c210963fcddff66813efc9c29603b72f9553adff4afb"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "441628c8cb74c7bf2eb12999c0d6befd2f94e11597c6707df86512eed2efefa2"
@@ -13,7 +13,7 @@ class Opencsg < Formula
     sha256 cellar: :any, high_sierra:   "67d059404b3a950b73ac4ab6096727c90f24fc1309871969c0d46a7df429de5b"
   end
 
-  depends_on "qt" => :build
+  depends_on "qt@5" => :build
   depends_on "glew"
 
   # This patch disabling building examples
@@ -23,7 +23,8 @@ class Opencsg < Formula
   end
 
   def install
-    system "qmake", "-r", "INSTALLDIR=#{prefix}",
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "-r", "INSTALLDIR=#{prefix}",
       "INCLUDEPATH+=#{Formula["glew"].opt_include}",
       "LIBS+=-L#{Formula["glew"].opt_lib} -lGLEW"
     system "make", "install"
