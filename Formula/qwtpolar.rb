@@ -3,7 +3,7 @@ class Qwtpolar < Formula
   homepage "https://qwtpolar.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/qwtpolar/qwtpolar/1.1.1/qwtpolar-1.1.1.tar.bz2"
   sha256 "6168baa9dbc8d527ae1ebf2631313291a1d545da268a05f4caa52ceadbe8b295"
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_big_sur: "9e69907710588144c7d42992d475bb4dee85b2c5d65f7516148139bee378b1b8"
@@ -14,7 +14,7 @@ class Qwtpolar < Formula
 
   depends_on xcode: :build
 
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "qwt"
 
   # Update designer plugin linking back to qwtpolar framework/lib after install
@@ -37,7 +37,8 @@ class Qwtpolar < Formula
     end
 
     ENV["QMAKEFEATURES"] = "#{Formula["qwt"].opt_prefix}/features"
-    system "qmake", "-config", "release"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "-config", "release"
     system "make"
     system "make", "install"
     pkgshare.install "examples"
@@ -58,7 +59,7 @@ class Qwtpolar < Formula
       s.gsub! "qwtPolarAddLibrary(qwtpolar)", "qwtPolarAddLibrary(qwtpolar)\nqwtPolarAddLibrary(qwt)"
     end
     cd "examples" do
-      system Formula["qt"].opt_bin/"qmake"
+      system Formula["qt@5"].opt_bin/"qmake"
       rm_rf "bin" # just in case
       system "make"
       assert_predicate Pathname.pwd/"bin/polardemo.app/Contents/MacOS/polardemo",
