@@ -4,7 +4,7 @@ class Gnuplot < Formula
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.1/gnuplot-5.4.1.tar.gz"
   sha256 "6b690485567eaeb938c26936e5e0681cf70c856d273cc2c45fabf64d8bc6590e"
   license "gnuplot"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -27,7 +27,7 @@ class Gnuplot < Formula
   depends_on "libcerf"
   depends_on "lua"
   depends_on "pango"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "readline"
 
   def install
