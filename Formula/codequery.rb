@@ -4,6 +4,7 @@ class Codequery < Formula
   url "https://github.com/ruben2020/codequery/archive/v0.24.0.tar.gz"
   sha256 "39afc909eae3b0b044cefbbb0e33d09e8198a3b157cf4175fceb5a22217fe801"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e878297e7d2e9199a0524a9de866b5d98c49746449bd34829cb2df1ad8062466"
@@ -13,7 +14,7 @@ class Codequery < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     args = std_cmake_args
