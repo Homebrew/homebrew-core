@@ -3,8 +3,8 @@ class Qwt < Formula
   homepage "https://qwt.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.6/qwt-6.1.6.tar.bz2"
   sha256 "99460d31c115ee4117b0175d885f47c2c590d784206f09815dc058fbe5ede1f6"
-
   license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "a3ebfd4004fec1a451a9af3764b92932ac03f9c0f62ecf2d2c38087a8968aaa3"
@@ -13,7 +13,7 @@ class Qwt < Formula
     sha256 mojave:        "6dffaa9d451b82e5bdd78ae6dea239b3f0e5338677085babe3b2185724b46580"
   end
 
-  depends_on "qt"
+  depends_on "qt@5"
 
   # Update designer plugin linking back to qwt framework/lib after install
   # See: https://sourceforge.net/p/qwt/patches/45/
@@ -37,7 +37,8 @@ class Qwt < Formula
     spec << "-arm64" if Hardware::CPU.arm?
     args << spec
 
-    system "qmake", *args
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", *args
     system "make"
     system "make", "install"
   end
@@ -53,10 +54,10 @@ class Qwt < Formula
     system ENV.cxx, "test.cpp", "-o", "out",
       "-std=c++11",
       "-framework", "qwt", "-framework", "QtCore",
-      "-F#{lib}", "-F#{Formula["qt"].opt_lib}",
+      "-F#{lib}", "-F#{Formula["qt@5"].opt_lib}",
       "-I#{lib}/qwt.framework/Headers",
-      "-I#{Formula["qt"].opt_lib}/QtCore.framework/Versions/5/Headers",
-      "-I#{Formula["qt"].opt_lib}/QtGui.framework/Versions/5/Headers"
+      "-I#{Formula["qt@5"].opt_lib}/QtCore.framework/Versions/5/Headers",
+      "-I#{Formula["qt@5"].opt_lib}/QtGui.framework/Versions/5/Headers"
     system "./out"
   end
 end
