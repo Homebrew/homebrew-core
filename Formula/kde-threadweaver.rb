@@ -4,6 +4,7 @@ class KdeThreadweaver < Formula
   url "https://download.kde.org/stable/frameworks/5.79/threadweaver-5.79.0.tar.xz"
   sha256 "297ca4454e9dc526af8033ee47932a63e3ef3d76868a75dfa66df0f7a04d5918"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://invent.kde.org/frameworks/threadweaver.git"
 
   bottle do
@@ -17,7 +18,7 @@ class KdeThreadweaver < Formula
   depends_on "doxygen" => :build
   depends_on "graphviz" => :build
   depends_on "kde-extra-cmake-modules" => [:build, :test]
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     args = std_cmake_args
@@ -33,7 +34,8 @@ class KdeThreadweaver < Formula
   end
 
   test do
-    qt5_arg = "-DQt5Core_DIR=#{Formula["qt"].opt_prefix/"lib/cmake/Qt5Core"}"
+    ENV.delete "CPATH"
+    qt5_arg = "-DQt5Core_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5Core"}"
     system "cmake", (pkgshare/"examples/HelloWorld"), *std_cmake_args, qt5_arg
     system "make"
 
