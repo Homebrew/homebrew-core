@@ -4,6 +4,7 @@ class Gammaray < Formula
   url "https://github.com/KDAB/GammaRay/releases/download/v2.11.2/gammaray-2.11.2.tar.gz"
   sha256 "bba4f21a2bc81ec8ab50dce5218c7a375b92d64253c690490a6fcb384c2ff9f3"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/KDAB/GammaRay.git"
 
   bottle do
@@ -16,7 +17,7 @@ class Gammaray < Formula
 
   depends_on "cmake" => :build
   depends_on "graphviz"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     # For Mountain Lion
