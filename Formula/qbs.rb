@@ -4,6 +4,7 @@ class Qbs < Formula
   url "https://download.qt.io/official_releases/qbs/1.18.0/qbs-src-1.18.0.tar.gz"
   sha256 "3d0211e021bea3e56c4d5a65c789d11543cc0b6e88f1bfe23c2f8ebf0f89f8d4"
   license :cannot_represent
+  revision 1
   head "git://code.qt.io/qbs/qbs.git"
 
   bottle do
@@ -14,10 +15,14 @@ class Qbs < Formula
     sha256 cellar: :any, mojave:        "9ebe2cac24aa15e5cfe8411e00286a8ee9fdfaa2de5851fa54036625deb775b4"
   end
 
-  depends_on "qt"
+  # https://www.qt.io/blog/2018/10/29/deprecation-of-qbs
+  deprecate! because: :deprecated_upstream
+
+  depends_on "qt@5"
 
   def install
-    system "qmake", "qbs.pro", "QBS_INSTALL_PREFIX=#{prefix}", "CONFIG+=qbs_disable_rpath"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "qbs.pro", "QBS_INSTALL_PREFIX=#{prefix}", "CONFIG+=qbs_disable_rpath"
     system "make"
     system "make", "install", "INSTALL_ROOT=/"
   end
