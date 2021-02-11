@@ -4,6 +4,7 @@ class KdeExtraCmakeModules < Formula
   url "https://download.kde.org/stable/frameworks/5.79/extra-cmake-modules-5.79.0.tar.xz"
   sha256 "b29602db99c566d88fa92106abe114bd57b7ffc6ca20773426f896ffde68bed8"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "MIT"]
+  revision 1
   head "https://invent.kde.org/frameworks/extra-cmake-modules.git"
 
   # We check the tags from the `head` repository because the latest stable
@@ -21,7 +22,7 @@ class KdeExtraCmakeModules < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "qt" => :build
+  depends_on "qt@5" => :build
   depends_on "sphinx-doc" => :build
 
   def install
