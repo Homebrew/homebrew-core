@@ -4,7 +4,7 @@ class Zurl < Formula
   url "https://dl.bintray.com/fanout/source/zurl-1.11.0.tar.bz2"
   sha256 "18aa3b077aefdba47cc46c5bca513ca2e20f2564715be743f70e4efa4fdccd7a"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2a1b3d58c7788be71b497f056d11a899a01718f903548a8460cb3986db47c4a8"
@@ -16,7 +16,7 @@ class Zurl < Formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :test
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "zeromq"
 
   uses_from_macos "curl"
