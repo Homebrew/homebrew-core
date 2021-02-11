@@ -4,6 +4,7 @@ class Icemon < Formula
   url "https://github.com/icecc/icemon/archive/v3.3.tar.gz"
   sha256 "3caf14731313c99967f6e4e11ff261b061e4e3d0c7ef7565e89b12e0307814ca"
   license "GPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a975fb1f42d8a4f3b854f435998ea86629f275bce32ec9d66d49554d3677cc8d"
@@ -18,7 +19,7 @@ class Icemon < Formula
   depends_on "sphinx-doc" => :build
   depends_on "icecream"
   depends_on "lzo"
-  depends_on "qt"
+  depends_on "qt@5"
 
   resource "ecm" do
     url "https://github.com/KDE/extra-cmake-modules/archive/v5.62.0.tar.gz"
