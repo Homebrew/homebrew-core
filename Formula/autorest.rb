@@ -3,8 +3,8 @@ require "language/node"
 class Autorest < Formula
   desc "Swagger (OpenAPI) Specification code generator"
   homepage "https://github.com/Azure/autorest"
-  url "https://registry.npmjs.org/autorest/-/autorest-3.0.6337.tgz"
-  sha256 "7e5b5e02b03599b799ce99254d6e0ca695e56eb53aa755b995a648eeb219cb6d"
+  url "https://registry.npmjs.org/autorest/-/autorest-3.0.6338.tgz"
+  sha256 "28c1fb3d51629ef2a5a2ac7598a306ca6b398af17853189148feee66baf6b015"
   license "MIT"
 
   bottle do
