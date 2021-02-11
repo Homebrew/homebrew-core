@@ -4,6 +4,7 @@ class Xpdf < Formula
   url "https://dl.xpdfreader.com/xpdf-4.03.tar.gz"
   sha256 "0fe4274374c330feaadcebb7bd7700cb91203e153b26aa95952f02bf130be846"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url "https://www.xpdfreader.com/download.html"
@@ -20,7 +21,7 @@ class Xpdf < Formula
   depends_on "cmake" => :build
   depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "qt"
+  depends_on "qt@5"
 
   conflicts_with "pdf2image", "pdftohtml", "poppler",
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
