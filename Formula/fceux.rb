@@ -5,6 +5,7 @@ class Fceux < Formula
       tag:      "fceux-2.3.0",
       revision: "65c5b0d2a1c08db75bb41340bfa5534578926944"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/TASVideos/fceux.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Fceux < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "minizip"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
 
   def install
