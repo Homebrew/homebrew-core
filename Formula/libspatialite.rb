@@ -1,10 +1,9 @@
 class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
-  url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.0.tar.gz"
-  mirror "https://ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.0.0.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.0.0.tar.gz"
-  sha256 "7b7fd70243f5a0b175696d87c46dde0ace030eacc27f39241c24bac5dfac6dac"
+  url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.1.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.0.1.tar.gz"
+  sha256 "eecbc94311c78012d059ebc0fae86ea5ef6eecb13303e6e82b3753c1b3409e98"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
