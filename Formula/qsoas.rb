@@ -1,14 +1,13 @@
 class Qsoas < Formula
   desc "Versatile software for data analysis"
-  homepage "http://bip.cnrs-mrs.fr/bip06/qsoas/"
-  url "http://bip.cnrs-mrs.fr/bip06/qsoas/downloads/qsoas-2.2.0.tar.gz"
-  sha256 "acefcbb4286a6e0bf96353f924115d04a77d241962ceda890508bca19ee3b4f6"
-  license "GPL-2.0"
-  revision 1
+  homepage "https://bip.cnrs.fr/groups/bip06/software/"
+  url "https://bip.cnrs.fr/wp-content/uploads/qsoas/qsoas-3.0.tar.gz"
+  sha256 "54b54f54363f69a9845b3e9aa4da7dae9ceb7bb0f3ed59ba92ffa3b408163850"
+  license "GPL-2.0-only"
 
   livecheck do
-    url "http://bip.cnrs-mrs.fr/bip06/qsoas/downloads.html"
-    regex(/href=.*?qsoas[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://github.com/fourmond/QSoas.git"
+    regex(/(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -20,18 +19,14 @@ class Qsoas < Formula
 
   depends_on "gsl"
   depends_on "mruby"
-  depends_on "qt"
-
-  patch do
-    url "https://github.com/fourmond/QSoas/compare/2.2.0...release.diff?full_index=1"
-    sha256 "06b122580b6da169730ded812290eb53e1a6ff36d6c20ab9930c3e50b7a79b60"
-  end
+  depends_on "qt@5"
 
   def install
     gsl = Formula["gsl"].opt_prefix
     mruby = Formula["mruby"].opt_prefix
+    qt5 = Formula["qt@5"].opt_prefix
 
-    system "qmake", "MRUBY_DIR=#{mruby}", "GSL_DIR=#{gsl}/include",
+    system "#{qt5}/bin/qmake", "MRUBY_DIR=#{mruby}", "GSL_DIR=#{gsl}/include",
                     "QMAKE_LFLAGS=-L#{mruby}/lib -L#{gsl}/lib"
     system "make"
 
