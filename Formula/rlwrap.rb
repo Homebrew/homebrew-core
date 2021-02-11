@@ -1,8 +1,8 @@
 class Rlwrap < Formula
   desc "Readline wrapper: adds readline support to tools that lack it"
   homepage "https://github.com/hanslub42/rlwrap"
-  url "https://github.com/hanslub42/rlwrap/archive/0.44.tar.gz"
-  sha256 "b1504d32a906d5ee6fa08139c35ab1f6a9237da6f7d0663d0b6f31cd0b1236dc"
+  url "https://github.com/hanslub42/rlwrap/archive/v0.45.tar.gz"
+  sha256 "780faa7330f306430aaf895984c936f451a8d35555145eff5451dc57b0c3ba8c"
   license "GPL-2.0-or-later"
   head "https://github.com/hanslub42/rlwrap.git"
 
