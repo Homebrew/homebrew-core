@@ -4,6 +4,7 @@ class Qca < Formula
   url "https://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz"
   sha256 "4697600237c4bc3a979e87d2cc80624f27b06280e635f5d90ec7dd4d2a9f606d"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://invent.kde.org/libraries/qca.git"
 
   livecheck do
@@ -26,7 +27,7 @@ class Qca < Formula
   depends_on "nss"
   depends_on "openssl@1.1"
   depends_on "pkcs11-helper"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     args = std_cmake_args
