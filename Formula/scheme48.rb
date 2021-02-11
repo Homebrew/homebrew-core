@@ -3,6 +3,7 @@ class Scheme48 < Formula
   homepage "https://www.s48.org/"
   url "https://s48.org/1.9.2/scheme48-1.9.2.tgz"
   sha256 "9c4921a90e95daee067cd2e9cc0ffe09e118f4da01c0c0198e577c4f47759df4"
+  license "BSD-3-Clause"
 
   bottle do
     rebuild 1
@@ -18,8 +19,6 @@ class Scheme48 < Formula
   end
 
   def install
-    ENV.O0 if ENV.compiler == :clang
-    ENV.deparallelize
     system "./configure", "--prefix=#{prefix}", "--enable-gc=bibop"
     system "make"
     system "make", "install"
