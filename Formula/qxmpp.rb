@@ -4,6 +4,7 @@ class Qxmpp < Formula
   url "https://github.com/qxmpp-project/qxmpp/archive/v1.3.1.tar.gz"
   sha256 "812e718a2dd762ec501a9012a1281b9b6c6d46ec38adbc6eec242309144e1c55"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:     "98e9f506c62ab3b25d0de4fff745309eb36f99230910e83f8258a4853b8c99f9"
@@ -14,7 +15,7 @@ class Qxmpp < Formula
 
   depends_on "cmake" => :build
   depends_on xcode: :build
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     mkdir "build" do
@@ -24,6 +25,7 @@ class Qxmpp < Formula
   end
 
   test do
+    ENV.delete "CPATH"
     (testpath/"test.pro").write <<~EOS
       TEMPLATE     = app
       CONFIG      += console
@@ -44,7 +46,7 @@ class Qxmpp < Formula
       }
     EOS
 
-    system "#{Formula["qt"].bin}/qmake", "test.pro"
+    system "#{Formula["qt@5"].bin}/qmake", "test.pro"
     system "make"
     assert_predicate testpath/"test", :exist?, "test output file does not exist!"
     system "./test"
