@@ -2,7 +2,7 @@ name: New issue for Reproducible Bug
 about: "If you're sure it's reproducible and not just your machine: submit an issue so we can investigate."
 labels: bug
 issue_body: false
-inputs:
+body:
   - type: markdown
     attributes:
       value: Please note we will close your issue without comment if you do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you from ever submitting issues to Homebrew again.
