@@ -10,7 +10,7 @@ class Mpw < Formula
 
   livecheck do
     url :head
-    regex(/^v?(\d+(?:\.\d+)+.?cli.?\d+)$/i)
+    regex(/^v?(\d+(?:\.\d+)+[._-]cli[._-]?\d+)$/i)
   end
 
   bottle do
