@@ -5,6 +5,7 @@ on:
       - "Formula/alsa-lib.rb"
       - "Formula/attr.rb"
       - "Formula/device-mapper.rb"
+      - "Formula/glibc.rb"
       - "Formula/libaio.rb"
       - "Formula/ladspa-sdk.rb"
       - "Formula/libbsd.rb"
