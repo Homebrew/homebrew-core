@@ -15,6 +15,12 @@ class Podman < Formula
   depends_on "go" => :build
   depends_on "go-md2man" => :build
 
+  # fix test, remove in next release
+  patch do
+    url "https://github.com/vvvvv/homebrew-core/commit/38da080.patch?full_index=1"
+    sha256 "1eac1be4366d20a102142de51e8d80e8258a878f02fa05806ec2b34a742ae5eb"
+  end
+
   def install
     system "make", "podman-remote-darwin"
     bin.install "bin/podman-remote-darwin" => "podman"
