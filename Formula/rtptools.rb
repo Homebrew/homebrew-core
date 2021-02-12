@@ -7,7 +7,8 @@ class Rtptools < Formula
   head "https://github.com/irtlab/rtptools.git"
 
   livecheck do
-    url :head
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
