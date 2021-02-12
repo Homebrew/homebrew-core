@@ -4,6 +4,7 @@ class Pyqt < Formula
   url "https://files.pythonhosted.org/packages/28/6c/640e3f5c734c296a7193079a86842a789edb7988dca39eab44579088a1d1/PyQt5-5.15.2.tar.gz"
   sha256 "372b08dc9321d1201e4690182697c5e7ffb2e0770e6b4a45519025134b12e4fc"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8ccb745e9c567b384ca31f8e3f4b4943240d44b6c51e8e49b38073eb2fd7a835"
@@ -13,7 +14,7 @@ class Pyqt < Formula
   end
 
   depends_on "python@3.9"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sip"
 
   resource "PyQt5-sip" do
@@ -30,7 +31,7 @@ class Pyqt < Formula
             "--sipdir=#{share}/sip/Qt5",
             # sip.h could not be found automatically
             "--sip-incdir=#{Formula["sip"].opt_include}",
-            "--qmake=#{Formula["qt"].bin}/qmake",
+            "--qmake=#{Formula["qt@5"].bin}/qmake",
             # Force deployment target to avoid libc++ issues
             "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
             "--designer-plugindir=#{pkgshare}/plugins",
