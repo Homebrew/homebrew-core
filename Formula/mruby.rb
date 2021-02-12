@@ -4,6 +4,7 @@ class Mruby < Formula
   url "https://github.com/mruby/mruby/archive/2.1.2.tar.gz"
   sha256 "4dc0017e36d15e81dc85953afb2a643ba2571574748db0d8ede002cefbba053b"
   license "MIT"
+  revision 1
   head "https://github.com/mruby/mruby.git"
 
   bottle do
@@ -19,6 +20,7 @@ class Mruby < Formula
   uses_from_macos "ruby"
 
   def install
+    inreplace "build_config.rb", /default/, "full-core"
     system "make"
 
     cd "build/host/" do
