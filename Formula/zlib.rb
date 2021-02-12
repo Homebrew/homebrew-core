@@ -8,8 +8,8 @@ class Zlib < Formula
   head "https://github.com/madler/zlib.git", branch: "develop"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url :homepage
+    regex(/href=.*?zlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
