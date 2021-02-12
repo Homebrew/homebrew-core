@@ -28,7 +28,6 @@ class Podman < Formula
 
   test do
     assert_match "podman version #{version}", shell_output("#{bin}/podman -v")
-    assert_match "Error: Cannot connect to the Podman socket",
-      shell_output("#{bin}/podman info 2>&1", 125),
+    assert_match "Error: Cannot connect to the Podman socket", shell_output("#{bin}/podman info 2>&1", 125)
   end
 end
