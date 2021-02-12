@@ -15,6 +15,9 @@
   "pdm": {
     "extra_packages": ["wheel"]
   },
+  "poetry": {
+    "extra_packages": ["importlib-metadata", "typing-extensions"]
+  },
   "salt": {
     "extra_packages": ["M2Crypto", "pygit2"]
   },
