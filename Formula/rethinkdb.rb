@@ -7,8 +7,8 @@ class Rethinkdb < Formula
   head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://download.rethinkdb.com/service/rest/repository/browse/raw/dist/"
+    regex(/href=.*?rethinkdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
