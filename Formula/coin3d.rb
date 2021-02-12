@@ -38,7 +38,7 @@ class Coin3d < Formula
   depends_on "ninja" => :build
   depends_on "swig" => :build
   depends_on "boost"
-  depends_on "pyside"
+  depends_on "pyside@2"
   depends_on "python@3.9"
 
   def install
@@ -83,6 +83,8 @@ class Coin3d < Formula
            "-o", "test"
     system "./test"
 
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.append_path "PYTHONPATH", "#{Formula["pyside@2"].opt_lib}/python#{xy}/site-packages"
     system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
       from pivy.sogui import SoGui
       assert SoGui.init("test") is not None
