@@ -1,8 +1,8 @@
 class PostgresqlAT11 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v11.10/postgresql-11.10.tar.bz2"
-  sha256 "13e6d2f80662fe463bc7718cdf0de6a9ec67fc78afcc7a3ae66b9ea19bb97899"
+  url "https://ftp.postgresql.org/pub/source/v11.11/postgresql-11.11.tar.bz2"
+  sha256 "40607b7fa15b7d63f5075a7277daf7b3412486aa5db3aedffdb7768b9298186c"
   license "PostgreSQL"
 
   livecheck do
