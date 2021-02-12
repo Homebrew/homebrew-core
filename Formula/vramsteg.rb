@@ -6,8 +6,8 @@ class Vramsteg < Formula
   head "https://github.com/GothenburgBitFactory/vramsteg.git", branch: "1.1.1"
 
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://gothenburgbitfactory.org"
+    regex(/href=.*?vramsteg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
