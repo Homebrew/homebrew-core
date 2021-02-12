@@ -7,11 +7,9 @@ class Tasksh < Formula
   revision 1
   head "https://github.com/GothenburgBitFactory/taskshell.git", branch: "1.3.0"
 
-  # We check the upstream Git repository tags because the first-party download
-  # page doesn't list tasksh releases.
   livecheck do
-    url :head
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://gothenburgbitfactory.org"
+    regex(/href=.*?tasksh[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
