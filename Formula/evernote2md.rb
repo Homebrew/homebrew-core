@@ -1,8 +1,8 @@
 class Evernote2md < Formula
   desc "Convert Evernote .enex file to Markdown"
   homepage "https://github.com/wormi4ok/evernote2md"
-  url "https://github.com/wormi4ok/evernote2md/archive/v0.14.0.tar.gz"
-  sha256 "9dcdd838ac6a260c4a96345f6e0927dd0254c01272023976a58ca714d61f49da"
+  url "https://github.com/wormi4ok/evernote2md/archive/v0.15.0.tar.gz"
+  sha256 "f909577900a1a39f0f139669d65e0cc6d0d85509f530f906cd428db457673af0"
   license "MIT"
 
   bottle do
