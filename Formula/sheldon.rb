@@ -1,8 +1,8 @@
 class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://rossmacarthur.github.io/sheldon"
-  url "https://github.com/rossmacarthur/sheldon/archive/0.6.0.tar.gz"
-  sha256 "5c04abd956634725e23a3a782fe0fb40a9fe1323ed07fcf8ff2a30ce59b83b59"
+  url "https://github.com/rossmacarthur/sheldon/archive/0.6.1.tar.gz"
+  sha256 "297b5ad75e7d5b44887ffe19ba6ee8a4ef13d884d4f7e8b482df9fc968ba5bce"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rossmacarthur/sheldon.git"
 
@@ -15,6 +15,7 @@ class Sheldon < Formula
   end
 
   depends_on "rust" => :build
+  depends_on "curl"
   depends_on "openssl@1.1"
 
   def install
