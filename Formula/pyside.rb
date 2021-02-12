@@ -1,13 +1,13 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2-src/pyside-setup-opensource-src-5.15.2.tar.xz"
-  sha256 "b306504b0b8037079a8eab772ee774b9e877a2d84bab2dbefbe4fa6f83941418"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.0.1-src/pyside-setup-opensource-src-6.0.1.tar.xz"
+  sha256 "baac59a71d5d8d28badd4b484b3722500a6616684f932f0652b33a5b5feaf365"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
-    url "https://download.qt.io/official_releases/QtForPython/pyside2/"
-    regex(%r{href=.*?PySide2[._-]v?(\d+(?:\.\d+)+)-src/}i)
+    url "https://download.qt.io/official_releases/QtForPython/pyside6/"
+    regex(%r{href=.*?PySide6[._-]v?(\d+(?:\.\d+)+)-src/}i)
   end
 
   bottle do
@@ -40,14 +40,14 @@ class Pyside < Formula
   end
 
   test do
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide2"
-    system Formula["python@3.9"].opt_bin/"python3", "-c", "import shiboken2"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide6"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import shiboken6"
 
+    # TODO: add modules `Position`, `Multimedia`and `WebEngineWidgets` when qt6.2 is released
+    # arm support will finish in qt6.1
     modules = %w[
       Core
       Gui
-      Location
-      Multimedia
       Network
       Quick
       Svg
@@ -55,11 +55,7 @@ class Pyside < Formula
       Xml
     ]
 
-    # QT web engine is currently not supported on Apple
-    # silicon. Re-enable it once it has been enabled in the qt.rb.
-    modules << "WebEngineWidgets" unless Hardware::CPU.arm?
-
-    modules.each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide2.Qt#{mod}" }
+    modules.each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide6.Qt#{mod}" }
 
     pyincludes = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --includes").chomp.split
     pylib = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --ldflags --embed").chomp.split
@@ -70,13 +66,13 @@ class Pyside < Formula
       int main()
       {
         Py_Initialize();
-        Shiboken::AutoDecRef module(Shiboken::Module::import("shiboken2"));
+        Shiboken::AutoDecRef module(Shiboken::Module::import("shiboken6"));
         assert(!module.isNull());
         return 0;
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp",
-           "-I#{include}/shiboken2", "-L#{lib}", "-lshiboken2.cpython-#{pyver}-darwin",
+           "-I#{include}/shiboken6", "-L#{lib}", "-lshiboken6.cpython-#{pyver}-darwin",
            *pyincludes, *pylib, "-o", "test"
     system "./test"
   end
