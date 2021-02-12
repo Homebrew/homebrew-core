@@ -4,6 +4,7 @@ class Fcl < Formula
   url "https://github.com/flexible-collision-library/fcl/archive/v0.6.1.tar.gz"
   sha256 "c8a68de8d35a4a5cd563411e7577c0dc2c626aba1eef288cb1ca88561f8d8019"
   license "BSD-3-Clause"
+  head "https://github.com/flexible-collision-library/fcl.git"
 
   bottle do
     sha256 big_sur:     "64e20a01b7a05f081b6b01ebe88722a0afec56514940130c0720e2ee5e5325df"
