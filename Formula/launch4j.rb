@@ -8,6 +8,8 @@ class Launch4j < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install Dir["*"] - ["src", "web"]
     bin.write_jar_script libexec/"launch4j.jar", "launch4j"
