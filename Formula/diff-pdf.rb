@@ -20,21 +20,7 @@ class DiffPdf < Formula
   depends_on "poppler"
   depends_on "wxmac"
 
-  # Fix build with recent cairo, remove in next release
-  # https://github.com/vslavik/diff-pdf/pull/69
-  patch do
-    url "https://github.com/vslavik/diff-pdf/commit/00fd9ab8.patch?full_index=1"
-    sha256 "62e37adf219f9b822f5a313367b41596873308eb3699fa1578486bfc4f10821c"
-  end
-
   def install
-    # Remove when patch is removed
-    touch "AUTHORS"
-    touch "NEWS"
-    touch "README"
-    touch "ChangeLog"
-    system "autoreconf", "-fiv"
-
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
