@@ -1,12 +1,12 @@
 class JenkinsLts < Formula
   desc "Extendable open-source CI server"
   homepage "https://jenkins.io/index.html#stable"
-  url "http://mirrors.jenkins.io/war-stable/2.263.4/jenkins.war"
+  url "https://get.jenkins.io/war-stable/2.263.4/jenkins.war"
   sha256 "1d4a7409784236a84478b76f3f2139939c0d7a3b4b2e53b1fcef400c14903ab6"
   license "MIT"
 
   livecheck do
-    url "http://mirrors.jenkins-ci.org/war-stable/"
+    url "https://get.jenkins.io/war-stable/"
     regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
