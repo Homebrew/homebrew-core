@@ -8,6 +8,8 @@ class Mpw < Formula
   revision 2
   head "https://gitlab.com/MasterPassword/MasterPassword.git"
 
+  # The first-party site doesn't seem to list version information, so it's
+  # necessary to check the tags from the `head` repository instead.
   livecheck do
     url :head
     regex(/^v?(\d+(?:\.\d+)+[._-]cli[._-]?\d+)$/i)
