@@ -4,6 +4,7 @@ class Ipbt < Formula
   url "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/ipbt-20210211.d4f9e48.tar.gz"
   version "20210211"
   sha256 "96b714497e7ee728729ac9127a4b7862345f6a223737a3e0bc422b76ff111854"
+  license "MIT"
 
   livecheck do
     url :homepage
