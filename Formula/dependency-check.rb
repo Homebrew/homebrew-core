@@ -1,8 +1,8 @@
 class DependencyCheck < Formula
   desc "OWASP dependency-check"
   homepage "https://owasp.org/www-project-dependency-check/"
-  url "https://github.com/jeremylong/DependencyCheck/releases/download/v6.1.0/dependency-check-6.1.0-release.zip"
-  sha256 "e94577e46d13ab0693263d825aa7af3ac411cafd43074466ce724a58d0ba0373"
+  url "https://github.com/jeremylong/DependencyCheck/releases/download/v6.1.1/dependency-check-6.1.1-release.zip"
+  sha256 "800d2909b4c4323a1a68d86847b21521f38020fdce330e009affe43297285e40"
   license "Apache-2.0"
 
   livecheck do
