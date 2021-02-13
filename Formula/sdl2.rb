@@ -19,7 +19,7 @@ class Sdl2 < Formula
   end
 
   head do
-    url "https://hg.libsdl.org/SDL", using: :hg
+    url "https://github.com/libsdl-org/SDL.git", using: :git
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
