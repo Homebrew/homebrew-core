@@ -21,7 +21,7 @@ class Ola < Formula
   depends_on "libmicrohttpd"
   depends_on "libusb"
   depends_on "numpy"
-  depends_on "protobuf@3.14"
+  depends_on "protobuf"
   depends_on "python@3.9"
 
   # remove in version 0.10.9
