@@ -1,10 +1,9 @@
 class Inetutils < Formula
   desc "GNU utilities for networking"
   homepage "https://www.gnu.org/software/inetutils/"
-  url "https://ftp.gnu.org/gnu/inetutils/inetutils-1.9.4.tar.xz"
-  mirror "https://ftpmirror.gnu.org/inetutils/inetutils-1.9.4.tar.xz"
-  sha256 "849d96f136effdef69548a940e3e0ec0624fc0c81265296987986a0dd36ded37"
-  revision 2
+  url "https://ftp.gnu.org/gnu/inetutils/inetutils-2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/inetutils/inetutils-2.0.tar.xz"
+  sha256 "e573d566e55393940099862e7f8994164a0ed12f5a86c3345380842bdc124722"
 
   bottle do
     rebuild 1
