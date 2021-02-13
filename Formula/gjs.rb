@@ -1,8 +1,8 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.66/gjs-1.66.1.tar.xz"
-  sha256 "8d4240455eff642c8bf6d9805077e33e0a60cb2ea13f77a55f7f30c29668344c"
+  url "https://download.gnome.org/sources/gjs/1.66/gjs-1.66.2.tar.xz"
+  sha256 "bd7f5f8b171277cc0bb9ee1754b0240b62f06a76b8b18c968cf471b34ab34e59"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
 
   bottle do
@@ -35,8 +35,8 @@ class Gjs < Formula
   end
 
   resource "mozjs78" do
-    url "https://archive.mozilla.org/pub/firefox/releases/78.2.0esr/source/firefox-78.2.0esr.source.tar.xz"
-    sha256 "965ccfcbb8c0aa97639911997c54be0fcf896fd388b03138952089af675ea918"
+    url "https://archive.mozilla.org/pub/firefox/releases/78.7.1esr/source/firefox-78.7.1esr.source.tar.xz"
+    sha256 "5042783e2cf94d21dd990d2083800f05bc32f8ba65532a715c7be3cb7716b837"
   end
 
   def install
@@ -59,11 +59,17 @@ class Gjs < Formula
     resource("mozjs78").stage do
       inreplace "build/moz.configure/toolchain.configure",
                 "sdk_max_version = Version('10.15.4')",
-                "sdk_max_version = Version('11.0')"
+                "sdk_max_version = Version('11.99')"
       inreplace "config/rules.mk",
                 "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ",
                 "-install_name #{lib}/$(SHARED_LIBRARY) "
       inreplace "old-configure", "-Wl,-executable_path,${DIST}/bin", ""
+
+      # Fix Big Sur build
+      # Backport of https://hg.mozilla.org/mozilla-central/rev/c991b4d04c08d6fdd8228d9cf98c1f9d3c24f9ac
+      inreplace "python/mozbuild/mozbuild/virtualenv.py",
+                "os.environ['MACOSX_DEPLOYMENT_TARGET'] = sysconfig_target",
+                "os.environ['MACOSX_DEPLOYMENT_TARGET'] = str(sysconfig_target)"
 
       mkdir("build") do
         xy = Language::Python.major_minor_version "python3"
