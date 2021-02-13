@@ -6,6 +6,8 @@ class Ghostscript < Formula
   license "AGPL-3.0-or-later"
   revision 1
 
+  # We check the tags from the `head` repository because the GitHub tags are
+  # formatted ambiguously, like `gs9533` (corresponding to version 9.53.3).
   livecheck do
     url :head
     regex(/^ghostpdl[._-]v?(\d+(?:\.\d+)+)$/i)
