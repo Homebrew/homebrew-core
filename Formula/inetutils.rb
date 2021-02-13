@@ -4,6 +4,7 @@ class Inetutils < Formula
   url "https://ftp.gnu.org/gnu/inetutils/inetutils-2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/inetutils/inetutils-2.0.tar.xz"
   sha256 "e573d566e55393940099862e7f8994164a0ed12f5a86c3345380842bdc124722"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
