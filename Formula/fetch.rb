@@ -23,6 +23,6 @@ class Fetch < Formula
     repo_url = "https://github.com/gruntwork-io/fetch"
 
     assert_match "Downloading release asset SHA256SUMS to SHA256SUMS",
-      shell_output("#{bin}/fetch --repo=\"#{repo_url}\" --tag=\"v0.3.10\" --release-asset=\"SHA256SUMS\" . 2>1&")
+      shell_output("#{bin}/fetch --repo=\"#{repo_url}\" --tag=\"v0.3.10\" --release-asset=\"SHA256SUMS\" . 2>&1")
   end
 end
