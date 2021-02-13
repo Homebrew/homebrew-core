@@ -1,8 +1,8 @@
 class Wtf < Formula
   desc "Translate common Internet acronyms"
   homepage "https://sourceforge.net/projects/bsdwtf/"
-  url "https://downloads.sourceforge.net/project/bsdwtf/wtf-20210130.tar.gz"
-  sha256 "8fe9bed118214c46ae46accebc419e78e462012fc5e6e75ce1ce2b6036de3a9d"
+  url "https://downloads.sourceforge.net/project/bsdwtf/wtf-20210212.tar.gz"
+  sha256 "684bf77efcebf9c707c614abbe2551d1272f8781722cea35ad23056e2e8692ca"
   license :public_domain
 
   livecheck do
