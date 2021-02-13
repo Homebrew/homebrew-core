@@ -3,7 +3,7 @@ class GnuGetopt < Formula
   homepage "https://github.com/karelzak/util-linux"
   url "https://www.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.2.tar.xz"
   sha256 "f7516ba9d8689343594356f0e5e1a5f0da34adfbc89023437735872bb5024c5f"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "191033a9ec2018a50c11257c78d9f30f58b1e5a5d9a1d0366374840c5c948db7"
