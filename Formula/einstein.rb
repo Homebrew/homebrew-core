@@ -26,7 +26,7 @@ class Einstein < Formula
   end
 
   def install
-    system "make"
+    system "make", "PREFIX=#{HOMEBREW_PREFIX}"
 
     bin.install "einstein"
     (pkgshare/"res").install "einstein.res"
