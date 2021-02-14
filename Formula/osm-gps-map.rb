@@ -1,10 +1,9 @@
 class OsmGpsMap < Formula
   desc "GTK+ library to embed OpenStreetMap maps"
   homepage "https://nzjrs.github.com/osm-gps-map/"
-  url "https://github.com/nzjrs/osm-gps-map/releases/download/1.1.0/osm-gps-map-1.1.0.tar.gz"
-  sha256 "8f2ff865ed9ed9786cc5373c37b341b876958416139d0065ebb785cf88d33586"
+  url "https://github.com/nzjrs/osm-gps-map/releases/download/1.2.0/osm-gps-map-1.2.0.tar.gz"
+  sha256 "ddec11449f37b5dffb4bca134d024623897c6140af1f9981a8acc512dbf6a7a5"
   license "GPL-2.0"
-  revision 5
 
   bottle do
     sha256 arm64_big_sur: "26630bf508c2b9bcacde4c4e40d9c3b393103d044dd0d15f34e3a34931e85d40"
