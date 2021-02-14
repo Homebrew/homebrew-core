@@ -3,10 +3,9 @@ class Mujs < Formula
   homepage "https://www.mujs.com/"
   # use tag not tarball so the version in the pkg-config file isn't blank
   url "https://github.com/ccxvii/mujs.git",
-      tag:      "1.0.9",
-      revision: "6871e5b41c07558b17340f985f2af39717d3ba77"
+      tag:      "1.1.0",
+      revision: "80e222d91d4438f111237873c7910b4c0eacb749"
   license "ISC"
-  revision 1
   head "https://github.com/ccxvii/mujs.git"
 
   bottle do
