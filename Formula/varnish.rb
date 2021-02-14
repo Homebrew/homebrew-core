@@ -1,7 +1,7 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-6.5.1.tgz"
+  url "https://varnish-cache.org/_downloads/e2a305a110260371a068ba3f22f10233/varnish-6.5.1.tgz"
   sha256 "11964c688f9852237c99c1e327d54dc487549ddb5f0f5aa7996e521333d7cdb5"
   license "BSD-2-Clause"
   revision 1
