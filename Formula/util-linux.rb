@@ -26,6 +26,9 @@ class UtilLinux < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  # fix `fatal error: 'sys/vfs.h' file not found`
+  patch :DATA
+
   # These binaries are already available in macOS
   def system_bins
     %w[
@@ -114,3 +117,39 @@ class UtilLinux < Formula
     assert_equal ["d#{perms}", owner, group, "usr"], out
   end
 end
+
+__END__
+diff --git a/lib/procutils.c b/lib/procutils.c
+index bf689ab..83b0836 100644
+--- a/lib/procutils.c
++++ b/lib/procutils.c
+@@ -13,7 +13,11 @@
+ #include <string.h>
+ #include <errno.h>
+ #include <sys/stat.h>
+-#include <sys/vfs.h>
++#ifdef __APPLE__
++#  include<sys/mount.h>
++#else
++#  include<sys/vfs.h>
++#endif
+ #include <sys/types.h>
+ #include <dirent.h>
+ #include <ctype.h>
+diff --git a/libmount/src/mountP.h b/libmount/src/mountP.h
+index d8ba0ab..e581620 100644
+--- a/libmount/src/mountP.h
++++ b/libmount/src/mountP.h
+@@ -19,7 +19,11 @@
+ #include <string.h>
+ #include <sys/stat.h>
+ #include <sys/types.h>
+-#include <sys/vfs.h>
++#ifdef __APPLE__
++#  include<sys/mount.h>
++#else
++#  include<sys/vfs.h>
++#endif
+ #include <unistd.h>
+ #include <stdio.h>
+ #include <stdarg.h>
