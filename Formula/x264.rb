@@ -7,7 +7,7 @@ class X264 < Formula
   stable do
     # the latest commit on the stable branch
     url "https://code.videolan.org/videolan/x264.git",
-        revision: "544c61f082194728d0391fb280a6e138ba320a96"
+        revision: "b86ae3c66f51ac9eab5ab7ad09a9d62e67961b8a"
     version "r3048"
   end
 
