@@ -16,7 +16,11 @@ class Tgui < Formula
 
   def install
     system "cmake", ".", *std_cmake_args,
-                    "-DTGUI_MISC_INSTALL_PREFIX=#{pkgshare}"
+                    "-DTGUI_MISC_INSTALL_PREFIX=#{pkgshare}",
+                    "-DTGUI_BUILD_FRAMEWORK=FALSE",
+                    "-DTGUI_BUILD_EXAMPLES=TRUE",
+                    "-DTGUI_BUILD_GUI_BUILDER=TRUE",
+                    "-DTGUI_BUILD_TESTS=TRUE"
     system "make", "install"
   end
 
