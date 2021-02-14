@@ -50,6 +50,7 @@ class Libtcod < Formula
     assert_equal "#{version}\n", `./version-c`
     (testpath/"version-cc.cc").write <<~EOS
       #include <libtcod/libtcod.hpp>
+      #include <iostream>
       int main()
       {
         std::cout << TCOD_STRVERSION << std::endl;
