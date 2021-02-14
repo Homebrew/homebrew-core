@@ -3,6 +3,7 @@ class Liblockfile < Formula
   homepage "https://tracker.debian.org/pkg/liblockfile"
   url "https://deb.debian.org/debian/pool/main/libl/liblockfile/liblockfile_1.17.orig.tar.gz"
   sha256 "6e937f3650afab4aac198f348b89b1ca42edceb17fb6bb0918f642143ccfd15e"
+  license "LGPL-2.0-or-later"
 
   bottle do
     sha256 arm64_big_sur: "41a9d79f95f938532b4320a29c5f5bf3d7229a6df3f06413112d903e23589078"
