@@ -4,6 +4,7 @@ class Sslyze < Formula
   desc "SSL scanner"
   homepage "https://github.com/nabla-c0d3/sslyze"
   license "AGPL-3.0-only"
+  revision 1
 
   stable do
     url "https://files.pythonhosted.org/packages/ca/3a/2d895ec7b0ce619dda1e05f3a6dd901c64be09f18c3007479f34316ac0c8/sslyze-4.0.2.tar.gz"
@@ -30,6 +31,7 @@ class Sslyze < Formula
   end
 
   depends_on "pipenv" => :build
+  depends_on "rust" => :build
   depends_on "libffi"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
@@ -40,8 +42,8 @@ class Sslyze < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/d4/85/38715448253404186029c575d559879912eb8a1c5d16ad9f25d35f7c4f4c/cryptography-3.3.2.tar.gz"
-    sha256 "5a60d3780149e13b7a6ff7ad6526b38846354d11a15e21068e57073e29e19bed"
+    url "https://files.pythonhosted.org/packages/60/6d/b32368327f600a12e59fb51a904fc6200dd7e65e953fd6fc6ae6468e3423/cryptography-3.4.5.tar.gz"
+    sha256 "4f6761a82b51fe02cda8f45af1c2f698a10f50003dc9c2572d8a49eda2e6d35b"
   end
 
   resource "pycparser" do
