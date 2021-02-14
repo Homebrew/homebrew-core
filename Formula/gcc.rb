@@ -14,7 +14,7 @@ class Gcc < Formula
     sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  revision 3
+  revision 4
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
@@ -105,10 +105,6 @@ class Gcc < Formula
       args << "--with-native-system-header-dir=/usr/include"
       args << "--with-sysroot=#{sdk}"
     end
-
-    # Mojave uses the Catalina SDK which causes issues like
-    # https://github.com/Homebrew/homebrew-core/issues/46393
-    ENV["ac_cv_func_aligned_alloc"] = "no" if MacOS.version == :mojave
 
     # Avoid reference to sed shim
     args << "SED=/usr/bin/sed"
