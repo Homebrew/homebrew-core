@@ -15,6 +15,8 @@ class Awk < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "202e81f1562d8b46d4b932f91c64ab58fc6017f6cdd2cc3f2a636038abc76fc0"
   end
 
+  uses_from_macos "bison"
+
   conflicts_with "gawk",
     because: "both install an `awk` executable"
 
