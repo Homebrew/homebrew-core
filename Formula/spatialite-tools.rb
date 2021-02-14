@@ -1,8 +1,8 @@
 class SpatialiteTools < Formula
   desc "CLI tools supporting SpatiaLite"
   homepage "https://www.gaia-gis.it/fossil/spatialite-tools/index"
-  url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-5.0.0.tar.gz"
-  sha256 "ad092d90ccb2c480f372d1e24b1e6ad9aa8a4bb750e094efdcc6c37edb6b6d32"
+  url "https://www.gaia-gis.it/gaia-sins/spatialite-tools-sources/spatialite-tools-5.0.1.tar.gz"
+  sha256 "9604c205e87f037789bc52302c66ccd1371c3e98c74e8ec4e29b0752de35171c"
   license "GPL-3.0-or-later"
 
   livecheck do
