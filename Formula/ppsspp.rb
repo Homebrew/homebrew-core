@@ -2,8 +2,8 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   url "https://github.com/hrydgard/ppsspp.git",
-      tag:      "v1.11.1",
-      revision: "d1c4b86e0a5cfa0880ed97f4a08ee2fa2fb01944"
+      tag:      "v1.11.2",
+      revision: "acd496b6c2e9340bf56faf0811863e0aa045107c"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
   head "https://github.com/hrydgard/ppsspp.git"
 
