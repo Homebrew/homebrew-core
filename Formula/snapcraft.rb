@@ -20,6 +20,7 @@ class Snapcraft < Formula
     sha256 cellar: :any, mojave:        "3e87c18435182ab3db5b2fa15d3007651f2e39be37211b7a37085f48555b691e"
   end
 
+  depends_on "gnupg"
   depends_on "libsodium"
   depends_on "libyaml"
   depends_on "lxc"
