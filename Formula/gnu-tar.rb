@@ -1,9 +1,9 @@
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
-  url "https://ftp.gnu.org/gnu/tar/tar-1.33.tar.gz"
-  mirror "https://ftpmirror.gnu.org/tar/tar-1.33.tar.gz"
-  sha256 "7c77c427e8cce274d46a6325d45a55b08e13e2d2d0c9e6c0860a6d2b9589ff0e"
+  url "https://ftp.gnu.org/gnu/tar/tar-1.34.tar.gz"
+  mirror "https://ftpmirror.gnu.org/tar/tar-1.34.tar.gz"
+  sha256 "03d908cf5768cfe6b7ad588c921c6ed21acabfb2b79b788d1330453507647aed"
   license "GPL-3.0-or-later"
 
   bottle do
