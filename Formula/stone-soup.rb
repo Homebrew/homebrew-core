@@ -3,7 +3,7 @@ class StoneSoup < Formula
   homepage "https://crawl.develz.org/"
   url "https://github.com/crawl/crawl/archive/0.26.1.tar.gz"
   sha256 "c8c6abbefa7f21383ea77cd017033050471e06c60ea4deebd033f5198bc39596"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://crawl.develz.org/download.htm"
