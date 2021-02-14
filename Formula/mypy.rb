@@ -7,6 +7,11 @@ class Mypy < Formula
   license "MIT"
   head "https://github.com/python/mypy.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "bb60227c0abf74657de3f527793816c2dda2e466c9882711d32108574cf85339"
     sha256 cellar: :any_skip_relocation, big_sur:       "c8ce5ece63124e9426eee5fdb666af203fb687ed85e42802da5256b9410f3f28"
