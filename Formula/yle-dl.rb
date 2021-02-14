@@ -14,6 +14,7 @@ class YleDl < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "8d0a5ec6abac52514d91ecb62fff845e6b12ed8988e1773ceb72c70c9b532dba"
   end
 
+  depends_on "ffmpeg"
   depends_on "python@3.9"
   depends_on "rtmpdump"
 
