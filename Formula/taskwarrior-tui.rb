@@ -24,12 +24,14 @@ class TaskwarriorTui < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    args = %w[
-      --standalone
-      --to=man
-    ]
-    system "pandoc", *args, "docs/taskwarrior-tui.1.md", "-o", "taskwarrior-tui.1"
-    man1.install "taskwarrior-tui.1"
+    unless Hardware::CPU.arm?
+      args = %w[
+        --standalone
+        --to=man
+      ]
+      system "pandoc", *args, "docs/taskwarrior-tui.1.md", "-o", "taskwarrior-tui.1"
+      man1.install "taskwarrior-tui.1"
+    end
   end
 
   test do
