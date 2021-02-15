@@ -17,8 +17,8 @@ class Arturo < Formula
   depends_on "mysql"
 
   def install
-    system "./build.sh"
-    bin.install "bin/arturo"
+    inreplace "install", "ROOT_DIR=\"$HOME/.arturo\"", "ROOT_DIR=\"#{prefix}\""
+    system "./install"
   end
 
   test do
