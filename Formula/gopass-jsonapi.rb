@@ -9,8 +9,7 @@ class GopassJsonapi < Formula
   depends_on "gopass"
 
   def install
-    ENV["GOBIN"] = bin
-    system "go", "install", "-ldflags", "-s -w -X main.version=#{version}", "./..."
+    system "go", *std_go_args, "-ldflags", "-s -w -X main.version=#{version}"
   end
 
   test do
