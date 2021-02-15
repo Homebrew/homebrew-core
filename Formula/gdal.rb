@@ -4,7 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.2.1/gdal-3.2.1.tar.xz"
   sha256 "6c588b58fcb63ff3f288eb9f02d76791c0955ba9210d98c3abd879c770ae28ea"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -26,9 +26,6 @@ class Gdal < Formula
   depends_on "pkg-config" => :build
 
   depends_on "cfitsio"
-  # Work around "Symbol not found: _curl_mime_addpart"
-  # due to mismatched SDK version in Mojave.
-  depends_on "curl" if MacOS.version == :mojave
   depends_on "epsilon"
   depends_on "expat"
   depends_on "freexl"
@@ -81,6 +78,7 @@ class Gdal < Formula
       "--with-pcraster=internal",
 
       # Homebrew backends
+      "--with-curl=/usr/bin/curl-config",
       "--with-expat=#{Formula["expat"].prefix}",
       "--with-freexl=#{Formula["freexl"].opt_prefix}",
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
@@ -141,14 +139,6 @@ class Gdal < Formula
       "--without-sde",
       "--without-sosi",
     ]
-
-    # Work around "Symbol not found: _curl_mime_addpart"
-    # due to mismatched SDK version in Mojave.
-    args << if MacOS.version == :mojave
-      "--with-curl=#{Formula["curl"].opt_prefix}/bin/curl-config"
-    else
-      "--with-curl=/usr/bin/curl-config"
-    end
 
     system "./configure", *args
     system "make"
