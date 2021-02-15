@@ -17,6 +17,7 @@ class Mavsdk < Formula
     sha256 cellar: :any, mojave:   "6ba8c322043d8c6110b85f7b98bc5f9dcbc48e7e1796ff0640f37c667d700036"
   end
 
+  depends_on "ccache" => :build
   depends_on "cmake" => :build
 
   def install
