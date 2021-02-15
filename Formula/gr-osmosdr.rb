@@ -6,7 +6,6 @@ class GrOsmosdr < Formula
   url "https://github.com/osmocom/gr-osmosdr/archive/v0.2.3.tar.gz"
   sha256 "11b1eb13725ced5ded9121a10aaf7bccf2430c5c69d020791408219968665b71"
   license "GPL-3.0-or-later"
-  head "https://github.com/osmocom/gr-osmosdr.git"
 
   bottle do
     sha256 big_sur:  "54c41d6a6ad6ff508d1a9fb3fcebf1d245ecd50eded905b9ca51f26fb6f4d01a"
@@ -14,11 +13,16 @@ class GrOsmosdr < Formula
     sha256 mojave:   "1316ec1150647972436f96a9d957b5c5b7889f6f962217b181e6185a939aa2e2"
   end
 
+  head do
+    url "https://github.com/osmocom/gr-osmosdr.git"
+
+    depends_on "pybind11" => :build
+  end
+
   # gr-osmosdr does not build with gnuradio 3.9+
   disable! date: "2021-01-17", because: :does_not_build
 
   depends_on "cmake" => :build
-  depends_on "pybind11" => :build
   depends_on "swig" => :build
   depends_on "airspy"
   depends_on "boost"
