@@ -40,7 +40,7 @@ class Nrpe < Formula
 
     inreplace "src/Makefile" do |s|
       s.gsub! "$(LIBEXECDIR)", "$(SBINDIR)"
-      s.gsub! "$(DESTDIR)/usr/local/sbin", "$(SBINDIR)"
+      s.gsub! "$(DESTDIR)#{HOMEBREW_PREFIX}/sbin", "$(SBINDIR)"
     end
 
     system "make", "all"
