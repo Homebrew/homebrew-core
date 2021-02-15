@@ -1,8 +1,8 @@
 class Rinetd < Formula
   desc "Internet TCP redirection server"
   homepage "https://github.com/samhocevar/rinetd"
-  url "https://github.com/samhocevar/rinetd/releases/download/v0.70/rinetd-0.70.tar.bz2"
-  sha256 "cefe9115c57fe5ec98d735f6421f30c461192e345a46ef644857b11fa6c5fccb"
+  url "https://github.com/samhocevar/rinetd/releases/download/v0.71/rinetd-0.71.tar.bz2"
+  sha256 "d0f511f072323f4f4150d01369694bc11253aa39cc6f49a438ef9ccb4c5f3fdd"
   license "GPL-2.0-or-later"
   # NOTE: Original (unversioned) tool is at https://github.com/boutell/rinetd
   #       Debian tracks the "samhocevar" fork so we follow suit
