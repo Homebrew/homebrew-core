@@ -3,7 +3,7 @@ class Taglib < Formula
   homepage "https://taglib.github.io/"
   url "https://taglib.github.io/releases/taglib-1.12.tar.gz"
   sha256 "7fccd07669a523b07a15bd24c8da1bbb92206cb19e9366c3692af3d79253b703"
-  license "LGPL-2.1"
+  license any_of: ["LGPL-3.0-only", "MPL-1.1"]
   head "https://github.com/taglib/taglib.git"
 
   bottle do
