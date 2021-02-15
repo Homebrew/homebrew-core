@@ -1,8 +1,8 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.19.4/cmake-3.19.4.tar.gz"
-  sha256 "7d0232b9f1c57e8de81f38071ef8203e6820fe7eec8ae46a1df125d88dbcc2e1"
+  url "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5.tar.gz"
+  sha256 "c432296eb5dec6d71eae15d140f6297d63df44e9ffe3e453628d1dc8fc4201ce"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
