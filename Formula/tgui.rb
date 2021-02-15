@@ -20,7 +20,7 @@ class Tgui < Formula
                     "-DTGUI_BUILD_FRAMEWORK=FALSE",
                     "-DTGUI_BUILD_EXAMPLES=TRUE",
                     "-DTGUI_BUILD_GUI_BUILDER=TRUE",
-                    "-DTGUI_BUILD_TESTS=TRUE"
+                    "-DTGUI_BUILD_TESTS=FALSE"
     system "make", "install"
   end
 
