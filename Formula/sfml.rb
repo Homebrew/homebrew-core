@@ -5,6 +5,7 @@ class Sfml < Formula
   url "https://www.sfml-dev.org/files/SFML-2.5.1-sources.zip"
   sha256 "bf1e0643acb92369b24572b703473af60bac82caf5af61e77c063b779471bb7f"
   license "Zlib"
+  revision 1
   head "https://github.com/SFML/SFML.git"
 
   bottle do
@@ -36,6 +37,7 @@ class Sfml < Formula
     rm_rf Dir["extlibs/*"] - ["extlibs/headers"]
 
     system "cmake", ".", *std_cmake_args,
+                         "-DCMAKE_INSTALL_RPATH=#{opt_lib}",
                          "-DSFML_MISC_INSTALL_PREFIX=#{share}/SFML",
                          "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
                          "-DSFML_BUILD_DOC=TRUE"
