@@ -3,7 +3,7 @@ class Ksync < Formula
   homepage "https://ksync.github.io/ksync/"
   url "https://github.com/ksync/ksync.git",
       tag:      "0.4.6",
-      revision: "a63f23dba397a540cca9cbde5001afa5cbd8b2ae"
+      revision: "bfb445b179a0405ab4a01b999010010406f425b7"
   license "Apache-2.0"
   head "https://github.com/ksync/ksync.git"
 
