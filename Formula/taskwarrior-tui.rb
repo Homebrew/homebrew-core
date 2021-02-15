@@ -18,7 +18,7 @@ class TaskwarriorTui < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "c3ab5d5d216088f3f1835f5ec5cdeb06be2c157e8fe2a8834f8034792c7a0a5e"
   end
 
-  depends_on "pandoc" => :build
+  depends_on "pandoc" => :build unless Hardware::CPU.arm?
   depends_on "rust" => :build
   depends_on "task"
 
