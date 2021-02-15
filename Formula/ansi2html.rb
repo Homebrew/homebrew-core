@@ -6,6 +6,8 @@ class Ansi2html < Formula
   sha256 "395be13d03adfccf30b8288555b91af0b2345925ed70b7a1eecca0fa72a9f538"
   license "LGPL-2.0-only"
 
+  bottle :unneeded
+
   depends_on "gawk"
 
   def install
