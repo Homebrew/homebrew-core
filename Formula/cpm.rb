@@ -140,6 +140,11 @@ class Cpm < Formula
     sha256 "aa74b0e3dc2d41cd63f62f853e521ffd76b8d823479a2619e22edb4049b4c0dc"
   end
 
+  resource "YAML::PP" do
+    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-0.026.tar.gz"
+    sha256 "4b858e671cf3e966ecc54408e8031740c2f28f87c294ee9679fb02e02d5a45eb"
+  end
+
   resource "local::lib" do
     url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/local-lib-2.000024.tar.gz"
     sha256 "2e9b917bd48a0615e42633b2a327494e04610d8f710765b9493d306cead98a05"
