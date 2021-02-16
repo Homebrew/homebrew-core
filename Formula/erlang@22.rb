@@ -2,8 +2,8 @@ class ErlangAT22 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-22.3.4.14.tar.gz"
-  sha256 "0d1e1f1acf542a98248e388b877d34eba92f367fdcc5ee3ebde557dee60ef551"
+  url "https://github.com/erlang/otp/archive/OTP-22.3.4.15.tar.gz"
+  sha256 "05d388ee252fd04a8e9e62f3ea7be3b45a19f698d978452933a21138a383e80d"
   license "Apache-2.0"
 
   livecheck do
@@ -21,6 +21,7 @@ class ErlangAT22 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on maximum_macos: [:catalina, :build]
   depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
