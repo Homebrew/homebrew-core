@@ -4,7 +4,7 @@ class Hdf5 < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
   sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.hdfgroup.org/downloads/hdf5/"
@@ -58,6 +58,82 @@ class Hdf5 < Formula
     inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
 
     system "make", "install"
+
+    # pkgconfig files are only built when using cmake to build hdf5
+    (lib/"pkgconfig/hdf5.pc").write <<~EOS
+      prefix=#{prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+      Name: hdf5
+      Description: HDF5 (Hierarchical Data Format 5) Software Library
+      Version: #{version}
+      Cflags: -I${includedir}
+      Libs: -L${libdir} -lhdf5
+      Requires:
+    EOS
+
+    (lib/"pkgconfig").install_symlink "hdf5.pc" => "hdf5-#{version}.pc"
+
+    (lib/"pkgconfig/hdf5_cpp.pc").write <<~EOS
+      prefix=#{prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+      Name: hdf5_cpp
+      Description: HDF5 (Hierarchical Data Format 5) Software Library
+      Version: #{version}
+      Cflags: -I${includedir}
+      Libs: -L${libdir} -lhdf5_cpp
+      Requires: hdf5
+    EOS
+
+    (lib/"pkgconfig").install_symlink "hdf5_cpp.pc" => "hdf5_cpp-#{version}.pc"
+
+    (lib/"pkgconfig/hdf5_hl.pc").write <<~EOS
+      prefix=#{prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+      Name: hdf5_hl
+      Description: HDF5 (Hierarchical Data Format 5) Software Library
+      Version: #{version}
+      Cflags: -I${includedir}
+      Libs: -L${libdir} -lhdf5_hl
+      Requires: hdf5
+    EOS
+
+    (lib/"pkgconfig").install_symlink "hdf5_hl.pc" => "hdf5_hl-#{version}.pc"
+
+    (lib/"pkgconfig/hdf5_hl_cpp.pc").write <<~EOS
+      prefix=#{prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+      Name: hdf5_hl_cpp
+      Description: HDF5 (Hierarchical Data Format 5) Software Library
+      Version: #{version}
+      Cflags: -I${includedir}
+      Libs: -L${libdir} -lhdf5_hl_cpp
+      Requires: hdf5_hl
+    EOS
+
+    (lib/"pkgconfig").install_symlink "hdf5_hl_cpp.pc" => "hdf5_hl_cpp-#{version}.pc"
+
+    (lib/"pkgconfig/hdf5_fortran.pc").write <<~EOS
+      prefix=#{prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
+      Name: hdf5_fortran
+      Description: HDF5 (Hierarchical Data Format 5) Software Library
+      Version: #{version}
+      Cflags: -I${includedir}
+      Libs: -L${libdir} -lhdf5_fortran
+      Requires: hdf5
+    EOS
+
+    (lib/"pkgconfig").install_symlink "hdf5_fortran.pc" => "hdf5_fortran-#{version}.pc"
   end
 
   test do
