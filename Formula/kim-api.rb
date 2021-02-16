@@ -4,7 +4,7 @@ class KimApi < Formula
   url "https://s3.openkim.org/kim-api/kim-api-2.2.1.txz"
   sha256 "1d5a12928f7e885ebe74759222091e48a7e46f77e98d9147e26638c955efbc8e"
   license "CDDL-1.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://openkim.org/kim-api/previous-versions/"
@@ -38,6 +38,7 @@ class KimApi < Formula
     args << "-DKIM_API_SYSTEM_SIMULATOR_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/simulator-models"
     # adjust zsh completion install
     args << "-DZSH_COMPLETION_COMPLETIONSDIR=#{zsh_completion}"
+    args << "-DBASH_COMPLETION_COMPLETIONSDIR=#{bash_completion}"
     system "cmake", ".", *args
     system "make"
     system "make", "docs"
