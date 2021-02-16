@@ -18,7 +18,7 @@ class V8 < Formula
     sha256 cellar: :any, mojave:        "d3c63e6c7a43fca28fbbcdcf6d4d4822026ef48e1a272cf951493863a6b218cd"
   end
 
-  depends_on "llvm" => :build if DevelopmentTools.clang_build_version < 1200 || Hardware::CPU.arm?
+  depends_on "llvm" => :build
   depends_on "ninja" => :build
 
   depends_on xcode: ["10.0", :build] # required by v8
@@ -96,17 +96,14 @@ class V8 < Formula
       is_component_build:           true,
       v8_use_external_startup_data: false,
       v8_enable_i18n_support:       true, # enables i18n support with icu
-      clang_base_path:              "\"/usr/\"", # uses system clang instead of Google clang
+      clang_base_path:              "\"#{Formula["llvm"].opt_prefix}\"", # uses Homebrew clang instead of Google clang
       clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
       use_custom_libcxx:            false, # uses system libc++ instead of Google's custom one
       treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
     }
 
-    # use clang from homebrew llvm formula for XCode 11- , because the system clang is too old for V8
-    if DevelopmentTools.clang_build_version < 1200 || Hardware::CPU.arm?
-      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
-      gn_args[:clang_base_path] = "\"#{Formula["llvm"].prefix}\""
-    end
+    # use clang from homebrew llvm formula, because the system clang is unreliable
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
 
     # Transform to args string
     gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
