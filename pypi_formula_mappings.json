@@ -8,6 +8,9 @@
   "ipython": {
     "extra_packages": ["ipykernel"]
   },
+  "fdroidserver": {
+      "extra_packages": ["wheel"]
+  },
   "molecule": false,
   "openstackclient": {
     "extra_packages": ["python-heatclient"]
