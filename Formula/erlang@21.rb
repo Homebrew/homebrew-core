@@ -22,7 +22,6 @@ class ErlangAT21 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on maximum_macos: [:catalina, :build]
   depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
@@ -51,6 +50,12 @@ class ErlangAT21 < Formula
   patch do
     url "https://github.com/erlang/otp/commit/388622e9b626039c1e403b4952c2c905af364a96.patch?full_index=1"
     sha256 "85d3611fc071f06d421b9c7fae00b656fde054586bf69551aec38930d4086780"
+  end
+
+  # Fix build on Big Sur (https://github.com/erlang/otp/pull/4524)
+  patch do
+    url "https://github.com/erlang/otp/commit/99fc87254e07fbd7bf4f9a02966a455846d5d017.patch?full_index=1"
+    sha256 "8a9b91f428f779e76d4ed85af1a079fd6b54bd9fc6d4d45fc2747f8a4fcac0cf"
   end
 
   def install
