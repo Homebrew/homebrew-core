@@ -4,6 +4,9 @@
   "cloudformation-cli": {
     "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin"]
   },
+  "charm-tools": {
+    "extra_packages": ["wheel"]
+  },
   "diffoscope": "diffoscope[cmdline]",
   "ipython": {
     "extra_packages": ["ipykernel"]
