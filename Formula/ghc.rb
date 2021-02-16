@@ -1,8 +1,8 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-src.tar.xz"
-  sha256 "ccdc8319549028a708d7163e2967382677b1a5a379ff94d948195b5cf46eb931"
+  url "https://downloads.haskell.org/~ghc/8.10.4/ghc-8.10.4-src.tar.xz"
+  sha256 "52af871b4e08550257d720c2944ac85727d0b948407cef1bebfe7508c224910e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -26,18 +26,18 @@ class Ghc < Formula
     sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
   end
 
-  # https://www.haskell.org/ghc/download_ghc_8_10_1.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_8_10_4.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
-      url "https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-x86_64-apple-darwin.tar.xz"
-      sha256 "2635f35d76e44e69afdfd37cae89d211975cc20f71f784363b72003e59f22015"
+      url "https://downloads.haskell.org/~ghc/8.10.4/ghc-8.10.4-x86_64-apple-darwin.tar.xz"
+      sha256 "725ecf6543e63b81a3581fb8c97afd21a08ae11bc0fa4f8ee25d45f0362ef6d5"
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/8.10.3/ghc-8.10.3-x86_64-deb9-linux.tar.xz"
-      sha256 "95e4aadea30701fe5ab84d15f757926d843ded7115e11c4cd827809ca830718d"
+      url "https://downloads.haskell.org/~ghc/8.10.4/ghc-8.10.4-x86_64-deb9-linux.tar.xz"
+      sha256 "5694200a5c38f22c142baf850b1d2f3784211d2ec9302e11693259a1ae8e38b7"
     end
   end
 
