@@ -6,7 +6,7 @@ class Rinetd < Formula
   license "GPL-2.0-or-later"
   # NOTE: Original (unversioned) tool is at https://github.com/boutell/rinetd
   #       Debian tracks the "samhocevar" fork so we follow suit
-  head "https://github.com/samhocevar/rinetd"
+  head "https://github.com/samhocevar/rinetd.git"
 
   livecheck do
     url :stable
@@ -27,7 +27,7 @@ class Rinetd < Formula
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{share}", "ac_cv_func_daemon=no"
 
     # Point hardcoded runtime paths inside of our prefix
-    inreplace "rinetd.h" do |s|
+    inreplace "src/rinetd.h" do |s|
       s.gsub! "/etc/rinetd.conf", "#{etc}/rinetd.conf"
       s.gsub! "/var/run/rinetd.pid", "#{var}/run/rinetd.pid"
     end
