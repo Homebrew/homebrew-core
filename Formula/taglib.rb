@@ -15,6 +15,8 @@ class Taglib < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "zlib"
+
   def install
     system "cmake", "-DWITH_MP4=ON", "-DWITH_ASF=ON", "-DBUILD_SHARED_LIBS=ON",
                     *std_cmake_args
