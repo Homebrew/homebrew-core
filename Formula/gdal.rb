@@ -55,6 +55,8 @@ class Gdal < Formula
   depends_on "xz" # get liblzma compression algorithm library from XZutils
   depends_on "zstd"
 
+  uses_from_macos "curl"
+
   on_linux do
     depends_on "bash-completion"
   end
@@ -78,7 +80,6 @@ class Gdal < Formula
       "--with-pcraster=internal",
 
       # Homebrew backends
-      "--with-curl=/usr/bin/curl-config",
       "--with-expat=#{Formula["expat"].prefix}",
       "--with-freexl=#{Formula["freexl"].opt_prefix}",
       "--with-geos=#{Formula["geos"].opt_prefix}/bin/geos-config",
@@ -139,6 +140,13 @@ class Gdal < Formula
       "--without-sde",
       "--without-sosi",
     ]
+
+    on_macos do
+      args << "--with-curl=/usr/bin/curl-config"
+    end
+    on_linux do
+      args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
+    end
 
     system "./configure", *args
     system "make"
