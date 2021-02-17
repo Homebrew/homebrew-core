@@ -4,6 +4,7 @@ class PostgresqlAT10 < Formula
   url "https://ftp.postgresql.org/pub/source/v10.16/postgresql-10.16.tar.bz2"
   sha256 "a35c718b1b6690e01c69626d467edb933784f8d1d6741e21fe6cce0738467bb3"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -32,6 +33,14 @@ class PostgresqlAT10 < Formula
 
   on_linux do
     depends_on "util-linux"
+  end
+
+  # Patch for `error: conflicting types for 'DefineCollation'`
+  # when built against icu4c 68.2. Adapted from
+  # https://svnweb.freebsd.org/ports/head/databases/postgresql10-server/files/patch-icu68?revision=553940&view=co
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a28787a7f9b4a33cf5036379236e5a57a36282bc/postgresql%4010/icu4c68-2.patch"
+    sha256 "8d625f31f176c256a9b8b5763e751091472d9f8a57e12bb7324c990777cf674c"
   end
 
   def install
