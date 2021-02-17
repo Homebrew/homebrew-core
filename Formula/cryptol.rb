@@ -4,6 +4,7 @@ class Cryptol < Formula
   url "https://hackage.haskell.org/package/cryptol-2.10.0/cryptol-2.10.0.tar.gz"
   sha256 "0bfa21d4766b9ad21ba16ee43b83854f25a84e7ca2b68a14cbe0006b4173ef63"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
@@ -19,6 +20,10 @@ class Cryptol < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  # Patch to fix build failure with incompatible version of libBF
+  # https://github.com/GaloisInc/cryptol/issues/1083
+  patch :DATA
+
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
@@ -33,3 +38,18 @@ class Cryptol < Formula
     assert_match expected, shell_output("#{bin}/cryptol -b helloworld.icry")
   end
 end
+
+__END__
+diff --git a/cryptol.cabal b/cryptol.cabal
+index 077e927..2a3cb8e 100644
+--- a/cryptol.cabal
++++ b/cryptol.cabal
+@@ -56,7 +56,7 @@ library
+                        GraphSCC          >= 1.0.4,
+                        heredoc           >= 0.2,
+                        integer-gmp       >= 1.0 && < 1.1,
+-                       libBF             >= 0.5.1,
++                       libBF             == 0.5.1,
+                        MemoTrie          >= 0.6 && < 0.7,
+                        monad-control     >= 1.0,
+                        monadLib          >= 3.7.2,
