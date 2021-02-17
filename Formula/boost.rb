@@ -5,7 +5,7 @@ class Boost < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/boost_1_75_0.tar.bz2"
   sha256 "953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb"
   license "BSL-1.0"
-  revision 1
+  revision 2
   head "https://github.com/boostorg/boost.git"
 
   livecheck do
