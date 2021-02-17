@@ -1,8 +1,8 @@
 class Pickle < Formula
   desc "PHP Extension installer"
   homepage "https://github.com/FriendsOfPHP/pickle"
-  url "https://github.com/FriendsOfPHP/pickle/releases/download/v0.7.0/pickle.phar"
-  sha256 "6eddfb9cbf4d08d0c9fffd96ddd3874a57cf0ff303c589512daafc195b8639dd"
+  url "https://github.com/FriendsOfPHP/pickle/releases/download/v0.7.1/pickle.phar"
+  sha256 "69bd6db9d9a2b795f1bf68dcba66e35be1b2dc82848c1a1a6ed9f9a1ef429dbe"
   license "BSD-3-Clause"
 
   bottle :unneeded
