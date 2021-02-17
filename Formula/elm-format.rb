@@ -16,6 +16,8 @@ class ElmFormat < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+  depends_on "gnu-tar" => :build
+  depends_on "pkg-config" => :build
 
   def build_elm_format_conf
     <<~EOS
@@ -27,6 +29,7 @@ class ElmFormat < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", Formula["gnu-tar"].opt_libexec/"gnubin"
     defaults = buildpath/"generated/Build_elm_format.hs"
     defaults.write(build_elm_format_conf)
 
