@@ -16,7 +16,7 @@ class GoAT111 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2019-09-03", because: :unsupported
+  disable! date: "2021-02-16", because: :unsupported
 
   depends_on arch: :x86_64
 
