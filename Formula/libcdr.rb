@@ -3,7 +3,7 @@ class Libcdr < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libcdr"
   url "https://dev-www.libreoffice.org/src/libcdr/libcdr-0.1.6.tar.xz"
   sha256 "01cd00b04a030977e544433c2d127c997205332cd9b8e35ec0ee17110da7f861"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -24,6 +24,13 @@ class Libcdr < Formula
   depends_on "icu4c"
   depends_on "librevenge"
   depends_on "little-cms2"
+
+  # Patch for `error: use of undeclared identifier 'TRUE'`
+  # when built against icu4c 68.1+
+  patch do
+    url "https://github.com/LibreOffice/libcdr/commit/bf3e7f3bbc414d4341cf1420c99293debf1bd894.patch?full_index=1"
+    sha256 "7009cef94c259d4e6f7c62214df4661507d89ac7b548db60ed7ab5e37c8e0dcc"
+  end
 
   def install
     ENV.cxx11
