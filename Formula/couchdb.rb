@@ -5,6 +5,7 @@ class Couchdb < Formula
   mirror "https://archive.apache.org/dist/couchdb/source/3.1.1/apache-couchdb-3.1.1.tar.gz"
   sha256 "8ffe766bba2ba39a7b49689a0732afacf69caffdf8e2d95447e82fb173c78ca3"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, catalina:    "8d192716d7cb1aabe1e0d556ee86717c11c9079e18699d718ffd3aa7c94d57ec"
@@ -85,7 +86,7 @@ class Couchdb < Formula
     fork do
       exec "#{bin}/couchdb -couch_ini #{testpath}/etc/default.ini #{testpath}/etc/local.ini"
     end
-    sleep 2
+    sleep 30
 
     output = JSON.parse shell_output("curl --silent localhost:#{port}")
     assert_equal "Welcome", output["couchdb"]
