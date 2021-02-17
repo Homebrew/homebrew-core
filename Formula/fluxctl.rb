@@ -21,9 +21,7 @@ class Fluxctl < Formula
   depends_on "go" => :build
 
   def install
-    cd buildpath/"cmd/fluxctl" do
-      system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", bin/"fluxctl"
-    end
+    system "go", "build", &std_go_args, "-ldflags", "-s -w -X main.version=#{version}", "./cmd/fluxctl"
   end
 
   test do
