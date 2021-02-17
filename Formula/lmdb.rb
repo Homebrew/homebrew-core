@@ -8,7 +8,7 @@ class Lmdb < Formula
   head "https://git.openldap.org/openldap/openldap.git", branch: "mdb.master"
 
   livecheck do
-    url :head
+    url :stable
     regex(/^LMDB[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
