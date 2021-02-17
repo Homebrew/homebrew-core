@@ -3,8 +3,8 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://files.pythonhosted.org/packages/9f/44/67b2c982a86a164ee540886d9efd08a131eea09844e9c05ce8a965052273/docker-compose-1.28.2.tar.gz"
-  sha256 "2f148b590414915d029dad7551f4cdf0b03a774dc9baa674480217236d260cc1"
+  url "https://files.pythonhosted.org/packages/1f/ce/5b133b6569c5acd66f541254220e616ca61628e905d7872be6323b1db1e1/docker-compose-1.28.3.tar.gz"
+  sha256 "78a48ef8ff4fed092261ecb1a60d9b28b7776e72ed6df591a900008039308b0f"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
@@ -41,8 +41,8 @@ class DockerCompose < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
-    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
   end
 
   resource "chardet" do
@@ -51,8 +51,8 @@ class DockerCompose < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
-    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
   end
 
   resource "distro" do
@@ -61,8 +61,8 @@ class DockerCompose < Formula
   end
 
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/0e/38/2fcfff66ca99b20eaed9a29f2be6400cb7407f80d35decc6331c3abf6351/docker-4.4.1.tar.gz"
-    sha256 "0604a74719d5d2de438753934b755bfcda6f62f49b8e4b30969a4b0a2a8a1220"
+    url "https://files.pythonhosted.org/packages/40/e4/452bd7c8ed133b00429d14a5b2729485380a12255bc6b6cbb3ad76440b4d/docker-4.4.2.tar.gz"
+    sha256 "67f33d4cf95182db631a17eef7d666d2c91f624c1d3fbc4df6009cb2f2a4c604"
   end
 
   resource "dockerpty" do
