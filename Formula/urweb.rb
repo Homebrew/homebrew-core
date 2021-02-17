@@ -3,7 +3,7 @@ class Urweb < Formula
   homepage "http://www.impredicative.com/ur/"
   url "https://github.com/urweb/urweb/releases/download/20200209/urweb-20200209.tar.gz"
   sha256 "ac3010c57f8d90f09f49dfcd6b2dc4d5da1cdbb41cbf12cb386e96e93ae30662"
-  revision 2
+  revision 3
 
   bottle do
     sha256 big_sur:     "651f89a41cbaf3b06d775d56d6da32b50d36a2850985e762819f89e6701c36e6"
@@ -19,6 +19,12 @@ class Urweb < Formula
   depends_on "gmp"
   depends_on "icu4c"
   depends_on "openssl@1.1"
+
+  # Patch to fix build for icu4c 68.2
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d7db3f02fe5dcd1f73c216efcb0bb79ac03a819f/urweb/icu4c68-2.patch"
+    sha256 "8ec1ec5bec95e9feece8ff4e9c0435ada0ba2edbe48439fb88af4d56adcf2b3e"
+  end
 
   def install
     args = %W[
