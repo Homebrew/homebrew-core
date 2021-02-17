@@ -4,6 +4,7 @@ class Harfbuzz < Formula
   url "https://github.com/harfbuzz/harfbuzz/archive/2.7.4.tar.gz"
   sha256 "daff8a4003ac420a8550760ed303ce33b310c8ea17b7f15b307d1969cabcebcb"
   license "MIT"
+  revision 1
   head "https://github.com/harfbuzz/harfbuzz.git"
 
   bottle do
