@@ -4,7 +4,7 @@ class Supertux < Formula
   url "https://github.com/SuperTux/supertux/releases/download/v0.6.2/SuperTux-v0.6.2-Source.tar.gz"
   sha256 "26a9e56ea2d284148849f3239177d777dda5b675a10ab2d76ee65854c91ff598"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/SuperTux/supertux.git"
 
   livecheck do
