@@ -4,6 +4,7 @@ class Tepl < Formula
   url "https://download.gnome.org/sources/tepl/5.0/tepl-5.0.1.tar.xz"
   sha256 "b1274967609f524484b38775fa9ecb296c6d6616aabd052f286339a289912804"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "b004d7cbc84ea585b4314dbe7e74c067d8afbe91e74e332f791e943cccb29ca7"
