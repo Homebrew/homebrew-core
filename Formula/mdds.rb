@@ -5,10 +5,6 @@ class Mdds < Formula
   sha256 "a66a2a8293a3abc6cd9baff7c236156e2666935cbfb69a15d64d38141638fecf"
   license "MIT"
 
-  livecheck do
-    url :head
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f4c421f18efdd519f3ca12a78295c2b1c5e36f6726369736e68ed07870e40a33"
     sha256 cellar: :any_skip_relocation, big_sur:       "59ebe66bdf74479076e8df76ba906f2bda539f819c778abaf608acbae04343f3"
