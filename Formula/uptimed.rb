@@ -61,6 +61,6 @@ class Uptimed < Formula
     system "#{sbin}/uptimed", "-t", "0"
     sleep 2
     output = shell_output("#{bin}/uprecords -s")
-    assert_match /->\s+\d+\s+\d+\w,\s+\d+:\d+:\d+\s+|.*/, output, "Uptime returned is invalid"
+    assert_match(/->\s+\d+\s+\d+\w,\s+\d+:\d+:\d+\s+|.*/, output, "Uptime returned is invalid")
   end
 end
