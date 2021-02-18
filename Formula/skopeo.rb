@@ -56,7 +56,7 @@ class Skopeo < Formula
 
     # https://github.com/Homebrew/homebrew-core/pull/47766
     # https://github.com/Homebrew/homebrew-core/pull/45834
-    assert_match /Invalid destination name test: Invalid image name .+, expected colon-separated transport:reference/,
-                 shell_output("#{bin}/skopeo copy docker://alpine test 2>&1", 1)
+    assert_match(/Invalid destination name test: Invalid image name .+, expected colon-separated transport:reference/,
+                 shell_output("#{bin}/skopeo copy docker://alpine test 2>&1", 1))
   end
 end
