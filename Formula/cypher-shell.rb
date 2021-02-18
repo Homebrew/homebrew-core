@@ -24,6 +24,6 @@ class CypherShell < Formula
 
   test do
     # The connection will fail and print the name of the host
-    assert_match /doesntexist/, shell_output("#{bin}/cypher-shell -a bolt://doesntexist 2>&1", 1)
+    assert_match "doesntexist", shell_output("#{bin}/cypher-shell -a bolt://doesntexist 2>&1", 1)
   end
 end
