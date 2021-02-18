@@ -24,13 +24,13 @@ class Bibclean < Formula
     inreplace "Makefile" do |s|
       # Insert `mkdir` statements before `scp` statements because `scp` in macOS
       # requires that the full path to the target already exist.
-      s.gsub! /[$][{]CP.*BIBCLEAN.*bindir.*BIBCLEAN[}]/,
-              "mkdir -p ${bindir} && ${CP} ${BIBCLEAN} ${bindir}/${BIBCLEAN}"
-      s.gsub! /[$][{]CP.*bibclean.*mandir.*bibclean.*manext[}]/,
-              "mkdir -p ${mandir} && ${CP} bibclean.man ${mandir}/bibclean.${manext}"
+      s.gsub!(/[$][{]CP.*BIBCLEAN.*bindir.*BIBCLEAN[}]/,
+              "mkdir -p ${bindir} && ${CP} ${BIBCLEAN} ${bindir}/${BIBCLEAN}")
+      s.gsub!(/[$][{]CP.*bibclean.*mandir.*bibclean.*manext[}]/,
+              "mkdir -p ${mandir} && ${CP} bibclean.man ${mandir}/bibclean.${manext}")
 
       # Correct `mandir` (man file path) in the Makefile.
-      s.gsub! /mandir.*prefix.*man.*man1/, "mandir = ${prefix}/share/man/man1"
+      s.gsub!(/mandir.*prefix.*man.*man1/, "mandir = ${prefix}/share/man/man1")
     end
 
     system "make", "all"
