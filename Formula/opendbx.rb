@@ -38,7 +38,7 @@ class Opendbx < Formula
       .quit
     EOS
 
-    assert_match /"Hello"/,
+    assert_match '"Hello"',
       shell_output("#{bin}/odbx-sql odbx-sql -h ./ -d test.sqlite3 -b sqlite3 < #{testpath}/test.sql")
   end
 end
