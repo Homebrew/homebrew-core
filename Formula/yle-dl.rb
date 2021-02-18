@@ -95,7 +95,7 @@ class YleDl < Formula
   end
 
   test do
-    assert_equal "Traileri: 3 minuuttia-2012-05-30T10:51\n",
-                 shell_output("#{bin}/yle-dl --showtitle https://areena.yle.fi/1-1570236")
+    output = shell_output("#{bin}/yle-dl --showtitle https://areena.yle.fi/1-1570236")
+    assert_equal "Traileri: 1 minuutti-2012-05-30T10:51\n", output
   end
 end
