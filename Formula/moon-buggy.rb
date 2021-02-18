@@ -32,6 +32,6 @@ class MoonBuggy < Formula
   end
 
   test do
-    assert_match /Moon-Buggy #{version}$/, shell_output("#{bin}/moon-buggy -V")
+    assert_match(/Moon-Buggy #{version}$/, shell_output("#{bin}/moon-buggy -V"))
   end
 end
