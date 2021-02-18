@@ -43,7 +43,7 @@ class Gping < Formula
       invalid: :replace,
       undef:   :replace,
       replace: "")
-    screenlog.gsub! /\e\[([;\d]+)?m/, ""
+    screenlog.gsub!(/\e\[([;\d]+)?m/, "")
 
     assert_match "google.com (", screenlog
   ensure
