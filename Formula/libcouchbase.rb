@@ -31,7 +31,7 @@ class Libcouchbase < Formula
   end
 
   test do
-    assert_match /LCB_ERR_CONNECTION_REFUSED/,
+    assert_match "LCB_ERR_CONNECTION_REFUSED",
       shell_output("#{bin}/cbc cat document_id -U couchbase://localhost:1 2>&1", 1).strip
   end
 end
