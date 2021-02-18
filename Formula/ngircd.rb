@@ -37,6 +37,6 @@ class Ngircd < Formula
 
   test do
     # Exits non-zero, so test version and match Author's name supplied.
-    assert_match /Alexander/, pipe_output("#{sbin}/ngircd -V 2>&1")
+    assert_match "Alexander", pipe_output("#{sbin}/ngircd -V 2>&1")
   end
 end
