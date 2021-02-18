@@ -17,7 +17,7 @@ class SpacemanDiff < Formula
 
   test do
     output = shell_output("#{bin}/spaceman-diff")
-    assert_match /USAGE/, output
+    assert_match "USAGE", output
 
     png = test_fixtures("test.png")
     system "script", "-q", "/dev/null", "#{bin}/spaceman-diff", png, "a190ba", "100644", png, "000000", "100644"
