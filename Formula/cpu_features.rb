@@ -21,12 +21,12 @@ class CpuFeatures < Formula
 
   test do
     output = shell_output(bin/"list_cpu_features")
-    assert_match /^arch\s*:/, output
-    assert_match /^brand\s*:/, output
-    assert_match /^family\s*:/, output
-    assert_match /^model\s*:/, output
-    assert_match /^stepping\s*:/, output
-    assert_match /^uarch\s*:/, output
-    assert_match /^flags\s*:/, output
+    assert_match(/^arch\s*:/, output)
+    assert_match(/^brand\s*:/, output)
+    assert_match(/^family\s*:/, output)
+    assert_match(/^model\s*:/, output)
+    assert_match(/^stepping\s*:/, output)
+    assert_match(/^uarch\s*:/, output)
+    assert_match(/^flags\s*:/, output)
   end
 end
