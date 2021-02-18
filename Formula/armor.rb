@@ -28,6 +28,6 @@ class Armor < Formula
       exec "#{bin}/armor --port #{port}"
     end
     sleep 1
-    assert_match /200 OK/, shell_output("curl -sI http://localhost:#{port}")
+    assert_match "200 OK", shell_output("curl -sI http://localhost:#{port}")
   end
 end
