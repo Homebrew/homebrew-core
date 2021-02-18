@@ -34,6 +34,6 @@ class Rcm < Formula
       	name = Test User
       	email = test@test.com
     EOS
-    assert_match /(Moving|Linking)\.\.\./x, shell_output("#{bin}/mkrc -v ~/.gitconfig")
+    assert_match(/(Moving|Linking)\.\.\./x, shell_output("#{bin}/mkrc -v ~/.gitconfig"))
   end
 end
