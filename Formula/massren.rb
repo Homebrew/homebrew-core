@@ -18,6 +18,7 @@ class Massren < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/laurent22/massren").install buildpath.children
     cd "src/github.com/laurent22/massren" do
       system "go", "build", "-o", bin/"massren"
