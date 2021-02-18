@@ -208,7 +208,7 @@ class AwsGoogleAuth < Formula
   end
 
   test do
-    assert_match /Invalid username or password/,
+    assert_match "Invalid username or password",
       shell_output("echo 'foobar' | #{bin}/aws-google-auth -u foo -I C01111111 -S 111111111111 2>&1", 1)
   end
 end
