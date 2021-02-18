@@ -5,6 +5,7 @@ class Krew < Formula
       tag:      "v0.4.0",
       revision: "8bebb56d7295f361db3780fa18bd9f2f995ed48f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kubernetes-sigs/krew.git"
 
   bottle do
@@ -25,8 +26,8 @@ class Krew < Formula
 
     ldflags = %W[
       -w
-      -X sigs.k8s.io/krew/pkg/version.gitCommit=#{Utils.git_short_head(length: 8)}
-      -X sigs.k8s.io/krew/pkg/version.gitTag=v#{version}
+      -X sigs.k8s.io/krew/internal/version.gitCommit=#{Utils.git_short_head(length: 8)}
+      -X sigs.k8s.io/krew/internal/version.gitTag=v#{version}
     ]
 
     system "go", "build", "-o", "build", "-tags", "netgo",
@@ -41,6 +42,7 @@ class Krew < Formula
     system "#{bin}/kubectl-krew", "version"
     system "#{bin}/kubectl-krew", "update"
     system "#{bin}/kubectl-krew", "install", "ctx"
+    assert_match "v#{version}", shell_output("#{bin}/kubectl-krew version")
     assert_predicate testpath/"bin/kubectl-ctx", :exist?
   end
 end
