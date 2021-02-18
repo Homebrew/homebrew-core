@@ -29,6 +29,6 @@ class Envchain < Formula
   end
 
   test do
-    assert_match /envchain version #{version}/, shell_output("#{bin}/envchain 2>&1", 2)
+    assert_match "envchain version #{version}", shell_output("#{bin}/envchain 2>&1", 2)
   end
 end
