@@ -34,14 +34,14 @@ class CargoEdit < Formula
       system bin/"cargo-add", "add", "-D", "just@0.8.3"
       manifest = (crate/"Cargo.toml").read
 
-      assert_match /clap = "2"/, manifest
-      assert_match /serde = "\d+(?:\.\d+)+"/, manifest
-      assert_match /just = "0.8.3"/, manifest
+      assert_match 'clap = "2"', manifest
+      assert_match(/serde = "\d+(?:\.\d+)+"/, manifest)
+      assert_match 'just = "0.8.3"', manifest
 
       system bin/"cargo-rm", "rm", "serde"
       manifest = (crate/"Cargo.toml").read
 
-      assert_not_match /serde/, manifest
+      assert_not_match(/serde/, manifest)
     end
   end
 end
