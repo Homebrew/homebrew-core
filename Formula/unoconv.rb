@@ -32,6 +32,6 @@ class Unoconv < Formula
   end
 
   test do
-    assert_match /office installation/, pipe_output("#{bin}/unoconv 2>&1")
+    assert_match "office installation", pipe_output("#{bin}/unoconv 2>&1")
   end
 end
