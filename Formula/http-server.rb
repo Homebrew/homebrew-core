@@ -31,7 +31,7 @@ class HttpServer < Formula
     end
     sleep 1
     output = shell_output("curl -sI http://localhost:#{port}")
-    assert_match /200 OK/m, output
+    assert_match "200 OK", output
   ensure
     Process.kill("HUP", pid)
   end
