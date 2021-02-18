@@ -34,6 +34,6 @@ class NestopiaUe < Formula
   end
 
   test do
-    assert_match /Nestopia UE #{version}$/, shell_output("#{bin}/nestopia --version")
+    assert_match(/Nestopia UE #{version}$/, shell_output("#{bin}/nestopia --version"))
   end
 end
