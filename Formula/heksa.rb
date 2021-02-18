@@ -28,8 +28,8 @@ class Heksa < Formula
     r, _w, pid = PTY.spawn("#{bin}/heksa -l 16 -f asc -o no #{test_fixtures("test.png")}")
 
     # remove ANSI colors
-    output = r.read.gsub /\e\[([;\d]+)?m/, ""
-    assert_match /^.PNG/, output
+    output = r.read.gsub(/\e\[([;\d]+)?m/, "")
+    assert_match(/^.PNG/, output)
 
     Process.wait(pid)
     assert_equal 0, $CHILD_STATUS.exitstatus
