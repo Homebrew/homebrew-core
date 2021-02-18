@@ -68,6 +68,6 @@ class Log4cxx < Formula
       log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-llog4cxx"
-    assert_match /ERROR.*Foo/, shell_output("./test", 1)
+    assert_match(/ERROR.*Foo/, shell_output("./test", 1))
   end
 end
