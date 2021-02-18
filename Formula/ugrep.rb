@@ -27,7 +27,7 @@ class Ugrep < Formula
 
   test do
     (testpath/"Hello.txt").write("Hello World!")
-    assert_match /Hello World!/, shell_output("#{bin}/ug 'Hello' '#{testpath}'").strip
-    assert_match /Hello World!/, shell_output("#{bin}/ugrep 'World' '#{testpath}'").strip
+    assert_match "Hello World!", shell_output("#{bin}/ug 'Hello' '#{testpath}'").strip
+    assert_match "Hello World!", shell_output("#{bin}/ugrep 'World' '#{testpath}'").strip
   end
 end
