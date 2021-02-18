@@ -60,6 +60,6 @@ class Composer < Formula
     EOS
 
     system "#{bin}/composer", "install"
-    assert_match /^HelloHomebrew$/, shell_output("php tests/test.php")
+    assert_match(/^HelloHomebrew$/, shell_output("php tests/test.php"))
   end
 end
