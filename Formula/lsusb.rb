@@ -22,6 +22,6 @@ class Lsusb < Formula
 
   test do
     output = shell_output("#{bin}/lsusb")
-    assert_match /^Bus [0-9]+ Device [0-9]+:/, output
+    assert_match(/^Bus [0-9]+ Device [0-9]+:/, output)
   end
 end
