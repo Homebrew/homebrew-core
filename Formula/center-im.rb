@@ -40,7 +40,7 @@ class CenterIm < Formula
   end
 
   test do
-    assert_match /trillian/, shell_output("#{bin}/cimconv")
+    assert_match "trillian", shell_output("#{bin}/cimconv")
   end
 end
 
