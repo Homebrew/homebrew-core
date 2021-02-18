@@ -33,7 +33,7 @@ class Dog < Formula
 
   test do
     output = shell_output("#{bin}/dog dns.google A --seconds --color=never")
-    assert_match /^A\s+dns\.google\.\s+\d+\s+8\.8\.4\.4/, output
-    assert_match /^A\s+dns\.google\.\s+\d+\s+8\.8\.8\.8/, output
+    assert_match(/^A\s+dns\.google\.\s+\d+\s+8\.8\.4\.4/, output)
+    assert_match(/^A\s+dns\.google\.\s+\d+\s+8\.8\.8\.8/, output)
   end
 end
