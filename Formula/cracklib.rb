@@ -46,6 +46,6 @@ class Cracklib < Formula
   end
 
   test do
-    assert_match /password: it is based on a dictionary word/, pipe_output("#{bin}/cracklib-check", "password", 0)
+    assert_match "password: it is based on a dictionary word", pipe_output("#{bin}/cracklib-check", "password", 0)
   end
 end
