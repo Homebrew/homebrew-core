@@ -68,6 +68,6 @@ class Libgeotiff < Formula
                    "-L#{Formula["libtiff"].opt_lib}", "-ltiff", "-o", "test"
     system "./test", "test.tif"
     output = shell_output("#{bin}/listgeo test.tif")
-    assert_match /GeogInvFlatteningGeoKey.*123.456/, output
+    assert_match(/GeogInvFlatteningGeoKey.*123.456/, output)
   end
 end
