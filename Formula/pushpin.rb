@@ -4,6 +4,7 @@ class Pushpin < Formula
   url "https://dl.bintray.com/fanout/source/pushpin-1.31.0.tar.bz2"
   sha256 "62504863297a8ec1833486affaff91fade7a970dd43b9c8c2add5944603481ac"
   license "AGPL-3.0-or-later"
+  revision 1
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Pushpin < Formula
   depends_on "condure"
   depends_on "mongrel2"
   depends_on "python@3.9"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "zeromq"
   depends_on "zurl"
 
