@@ -5,6 +5,7 @@ class Solr < Formula
   mirror "https://archive.apache.org/dist/lucene/solr/8.8.0/solr-8.8.0.tgz"
   sha256 "7318752d1d30fa2ef839eb3d2df0f2bdb2709d304aa4870b02b33b91e945b054"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
@@ -46,7 +47,7 @@ class Solr < Formula
             <string>start</string>
             <string>-f</string>
             <string>-s</string>
-            <string>/usr/local/var/lib/solr</string>
+            <string>#{HOMEBREW_PREFIX}/var/lib/solr</string>
           </array>
           <key>ServiceDescription</key>
           <string>#{name}</string>
