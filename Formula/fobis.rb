@@ -56,6 +56,6 @@ class Fobis < Formula
       end program
     EOS
     system "#{bin}/FoBiS.py", "build", "-compiler", "gnu"
-    assert_match /Hello FoBiS/, shell_output(testpath/"test-prog")
+    assert_match "Hello FoBiS", shell_output(testpath/"test-prog")
   end
 end
