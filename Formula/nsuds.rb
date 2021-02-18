@@ -36,6 +36,6 @@ class Nsuds < Formula
   end
 
   test do
-    assert_match /nsuds version #{version}$/, shell_output("#{bin}/nsuds -v")
+    assert_match(/nsuds version #{version}$/, shell_output("#{bin}/nsuds -v"))
   end
 end
