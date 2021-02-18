@@ -23,7 +23,7 @@ class Nq < Formula
 
   test do
     system "#{bin}/nq", "touch", "TEST"
-    assert_match /exited with status 0/, shell_output("#{bin}/fq -a")
+    assert_match "exited with status 0", shell_output("#{bin}/fq -a")
     assert_predicate testpath/"TEST", :exist?
   end
 end
