@@ -44,6 +44,6 @@ class Libtasn1 < Formula
       s 47
     EOS
     system "#{bin}/asn1Coding", "pkix.asn", "assign.asn1"
-    assert_match /Decoding: SUCCESS/, shell_output("#{bin}/asn1Decoding pkix.asn assign.out PKIX1.Dss-Sig-Value 2>&1")
+    assert_match "Decoding: SUCCESS", shell_output("#{bin}/asn1Decoding pkix.asn assign.out PKIX1.Dss-Sig-Value 2>&1")
   end
 end
