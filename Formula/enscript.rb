@@ -27,7 +27,7 @@ class Enscript < Formula
   end
 
   test do
-    assert_match /GNU Enscript #{Regexp.escape(version)}/,
+    assert_match "GNU Enscript #{Regexp.escape(version)}",
                  shell_output("#{bin}/enscript -V")
   end
 end
