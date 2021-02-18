@@ -16,7 +16,7 @@ class Pgtune < Formula
     # By default, pgtune searches for settings in the directory
     # where the script is being run from.
     inreplace "pgtune" do |s|
-      s.sub! /(parser\.add_option\('-S'.*default=).*,/, "\\1\"#{pkgshare}\","
+      s.sub!(/(parser\.add_option\('-S'.*default=).*,/, "\\1\"#{pkgshare}\",")
     end
     bin.install "pgtune"
     pkgshare.install Dir["pg_settings*"]
