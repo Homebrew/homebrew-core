@@ -35,7 +35,7 @@ class Algernon < Formula
     end
     sleep 20
     output = shell_output("curl -sIm3 -o- http://localhost:#{port}")
-    assert_match /200 OK.*Server: Algernon/m, output
+    assert_match(/200 OK.*Server: Algernon/m, output)
   ensure
     Process.kill("HUP", pid)
   end
