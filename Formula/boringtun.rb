@@ -25,6 +25,6 @@ class Boringtun < Formula
     shell_output("#{bin}/boringtun utun -v --log #{testpath}/boringtun.log", 1)
     assert_predicate testpath/"boringtun.log", :exist?
     boringtun_log = File.read(testpath/"boringtun.log")
-    assert_match /Success, daemonized/, boringtun_log.split("/n").first
+    assert_match "Success, daemonized", boringtun_log.split("/n").first
   end
 end
