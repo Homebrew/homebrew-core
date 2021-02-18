@@ -52,6 +52,6 @@ class Katago < Formula
 
   test do
     system "#{bin}/katago", "version"
-    assert_match /All tests passed$/, shell_output("#{bin}/katago runtests").strip
+    assert_match(/All tests passed$/, shell_output("#{bin}/katago runtests").strip)
   end
 end
