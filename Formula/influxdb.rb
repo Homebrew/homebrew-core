@@ -91,7 +91,7 @@ class Influxdb < Formula
       end
       sleep 6
       output = shell_output("curl -Is localhost:8086/ping")
-      assert_match /X-Influxdb-Version:/, output
+      assert_match "X-Influxdb-Version:", output
     ensure
       Process.kill("SIGTERM", pid)
       Process.wait(pid)
