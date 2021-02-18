@@ -27,7 +27,7 @@ class OsspUuid < Formula
     # pkg-config --cflags uuid returns the wrong directory since we override the
     # default, but uuid.pc.in does not use it
     inreplace "uuid.pc.in" do |s|
-      s.gsub! /^(exec_prefix)=\$\{prefix\}$/, '\1=@\1@'
+      s.gsub!(/^(exec_prefix)=\$\{prefix\}$/, '\1=@\1@')
       s.gsub! %r{^(includedir)=\$\{prefix\}/include$}, '\1=@\1@'
       s.gsub! %r{^(libdir)=\$\{exec_prefix\}/lib$}, '\1=@\1@'
     end
