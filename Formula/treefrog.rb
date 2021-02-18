@@ -1,10 +1,15 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "https://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.30.0.tar.gz"
-  sha256 "e91384f5ed6c14e0a0eccec5467425d598d58dfa4909cf7619bda0f85e6c6aee"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/v1.31.1.tar.gz"
+  sha256 "282197f1735f7766a804e1f06e29b45754e082db2eb596edcd929f8e308b2887"
   license "BSD-3-Clause"
   head "https://github.com/treefrogframework/treefrog-framework.git"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 big_sur:     "8af96d330e176d4cc0cc842ac4773ffb65259ab3e5bdab4d9c7130a185978c52"
@@ -13,9 +18,9 @@ class Treefrog < Formula
     sha256 high_sierra: "0c31aaf7a5199f8b409288fc3e5fd5d4e154b23e8be83354e1ed8e0fd4bb13ec"
   end
 
-  depends_on xcode: ["8.0", :build]
+  depends_on xcode: :build
   depends_on "mongo-c-driver"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc"
@@ -32,11 +37,12 @@ class Treefrog < Formula
   end
 
   test do
+    ENV.delete "CPATH"
     system bin/"tspawn", "new", "hello"
     assert_predicate testpath/"hello", :exist?
     cd "hello" do
       assert_predicate Pathname.pwd/"hello.pro", :exist?
-      system HOMEBREW_PREFIX/"opt/qt/bin/qmake"
+      system Formula["qt@5"].opt_bin/"qmake"
       assert_predicate Pathname.pwd/"Makefile", :exist?
       system "make"
       system bin/"treefrog", "-v"
