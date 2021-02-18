@@ -70,8 +70,8 @@ class Payara < Formula
   test do
     ENV["GLASSFISH_HOME"] = opt_libexec/"glassfish"
     output = shell_output("#{bin}/asadmin list-domains")
-    assert_match /^domain1 not running$/, output
-    assert_match /^production not running$/, output
-    assert_match /^Command list-domains executed successfully\.$/, output
+    assert_equal "domain1 not running", output
+    assert_equal "production not running", output
+    assert_equal "Command list-domains executed successfully.", output
   end
 end
