@@ -89,10 +89,10 @@ class TraefikAT1 < Formula
       end
       sleep 5
       cmd = "curl -sIm3 -XGET http://127.0.0.1:#{http_port}/"
-      assert_match /404 Not Found/m, shell_output(cmd)
+      assert_match "404 Not Found", shell_output(cmd)
       sleep 1
       cmd = "curl -sIm3 -XGET http://localhost:#{web_port}/dashboard/"
-      assert_match /200 OK/m, shell_output(cmd)
+      assert_match "200 OK", shell_output(cmd)
     ensure
       Process.kill(9, pid)
       Process.wait(pid)
