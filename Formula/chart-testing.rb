@@ -29,7 +29,7 @@ class ChartTesting < Formula
 
   test do
     assert_match "Lint and test", shell_output("#{bin}/ct --help")
-    assert_match /Version:\s+#{version}/, shell_output("#{bin}/ct version")
+    assert_match(/Version:\s+#{version}/, shell_output("#{bin}/ct version"))
 
     # Lint an empty Helm chart that we create with `helm create`
     system "helm", "create", "testchart"
