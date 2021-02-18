@@ -46,6 +46,6 @@ class Glpk < Formula
     system ENV.cc, pkgshare/"examples/sample.c",
                    "-L#{lib}", "-I#{include}",
                    "-lglpk", "-o", "test"
-    assert_match /OPTIMAL LP SOLUTION FOUND/, shell_output("./test")
+    assert_match "OPTIMAL LP SOLUTION FOUND", shell_output("./test")
   end
 end
