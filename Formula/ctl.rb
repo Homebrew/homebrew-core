@@ -43,6 +43,6 @@ class Ctl < Formula
   end
 
   test do
-    assert_match /transforms an image/, shell_output("#{bin}/ctlrender -help", 1)
+    assert_match "transforms an image", shell_output("#{bin}/ctlrender -help", 1)
   end
 end
