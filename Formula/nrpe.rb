@@ -88,7 +88,7 @@ class Nrpe < Formula
 
     begin
       output = shell_output("netstat -an")
-      assert_match /.*\*\.5666.*LISTEN/, output, "nrpe did not start"
+      assert_match(/.*\*\.5666.*LISTEN/, output, "nrpe did not start")
       pid_nrpe = shell_output("pgrep nrpe").to_i
     ensure
       Process.kill("SIGINT", pid_nrpe)
