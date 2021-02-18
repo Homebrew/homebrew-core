@@ -4,7 +4,7 @@ class Mlt < Formula
   url "https://github.com/mltframework/mlt/releases/download/v6.24.0/mlt-6.24.0.tar.gz"
   sha256 "3b977c5632329fca7634d0034162df6d5b79cde3256bac43e7ba8353acced61e"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
   head "https://github.com/mltframework/mlt.git"
 
   bottle do
@@ -24,7 +24,7 @@ class Mlt < Formula
   depends_on "libvorbis"
   depends_on "opencv@3"
   depends_on "pango"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
   depends_on "sox"
 
