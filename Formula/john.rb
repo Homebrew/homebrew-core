@@ -28,9 +28,9 @@ class John < Formula
 
   def install
     inreplace "src/params.h" do |s|
-      s.gsub! /#define JOHN_SYSTEMWIDE[[:space:]]*0/, "#define JOHN_SYSTEMWIDE 1"
-      s.gsub! /#define JOHN_SYSTEMWIDE_EXEC.*/, "#define JOHN_SYSTEMWIDE_EXEC \"#{pkgshare}\""
-      s.gsub! /#define JOHN_SYSTEMWIDE_HOME.*/, "#define JOHN_SYSTEMWIDE_HOME \"#{pkgshare}\""
+      s.gsub!(/#define JOHN_SYSTEMWIDE[[:space:]]*0/, "#define JOHN_SYSTEMWIDE 1")
+      s.gsub!(/#define JOHN_SYSTEMWIDE_EXEC.*/, "#define JOHN_SYSTEMWIDE_EXEC \"#{pkgshare}\"")
+      s.gsub!(/#define JOHN_SYSTEMWIDE_HOME.*/, "#define JOHN_SYSTEMWIDE_HOME \"#{pkgshare}\"")
     end
 
     ENV.deparallelize
@@ -55,6 +55,6 @@ class John < Formula
       root:$1$brew$dOoH2.7QsPufgT8T.pihw/:0:0:System Administrator:/var/root:/bin/sh
     EOS
     system "john", "--wordlist=#{pkgshare}/password.lst", "passwd"
-    assert_match /snoopy/, shell_output("john --show passwd")
+    assert_match(/snoopy/, shell_output("john --show passwd"))
   end
 end
