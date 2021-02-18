@@ -32,7 +32,7 @@ class Uniutils < Formula
 
   test do
     s = pipe_output("#{bin}/uniname", "ü")
-    assert_match /latin small letter u with diaeresis/i, s
+    assert_match "LATIN SMALL LETTER U WITH DIAERESIS", s
   end
 end
 
