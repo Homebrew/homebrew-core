@@ -26,6 +26,6 @@ class GnuGo < Formula
   end
 
   test do
-    assert_match /GNU Go #{version}$/, shell_output("#{bin}/gnugo --version")
+    assert_match(/GNU Go #{version}$/, shell_output("#{bin}/gnugo --version"))
   end
 end
