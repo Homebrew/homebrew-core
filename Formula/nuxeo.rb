@@ -20,9 +20,9 @@ class Nuxeo < Formula
       NUXEO_HOME: libexec.to_s, NUXEO_CONF: "#{etc}/nuxeo.conf"
 
     inreplace "#{libexec}/bin/nuxeo.conf" do |s|
-      s.gsub! /#nuxeo\.log\.dir.*/, "nuxeo.log.dir=#{var}/log/nuxeo"
-      s.gsub! /#nuxeo\.data\.dir.*/, "nuxeo.data.dir=#{var}/lib/nuxeo/data"
-      s.gsub! /#nuxeo\.pid\.dir.*/, "nuxeo.pid.dir=#{var}/run/nuxeo"
+      s.gsub!(/#nuxeo\.log\.dir.*/, "nuxeo.log.dir=#{var}/log/nuxeo")
+      s.gsub!(/#nuxeo\.data\.dir.*/, "nuxeo.data.dir=#{var}/lib/nuxeo/data")
+      s.gsub!(/#nuxeo\.pid\.dir.*/, "nuxeo.pid.dir=#{var}/run/nuxeo")
     end
     etc.install "#{libexec}/bin/nuxeo.conf"
   end
@@ -48,13 +48,13 @@ class Nuxeo < Formula
     # Copy configuration file to test path, due to some automatic writes on it.
     cp "#{etc}/nuxeo.conf", "#{testpath}/nuxeo.conf"
     inreplace "#{testpath}/nuxeo.conf" do |s|
-      s.gsub! /#{var}/, testpath
-      s.gsub! /#nuxeo\.tmp\.dir.*/, "nuxeo.tmp.dir=#{testpath}/tmp"
+      s.gsub! var.to_s, testpath
+      s.gsub!(/#nuxeo\.tmp\.dir.*/, "nuxeo.tmp.dir=#{testpath}/tmp")
     end
 
     ENV["NUXEO_CONF"] = "#{testpath}/nuxeo.conf"
 
     assert_match %r{#{testpath}/nuxeo\.conf}, shell_output("#{libexec}/bin/nuxeoctl config -q --get nuxeo.conf")
-    assert_match /#{libexec}/, shell_output("#{libexec}/bin/nuxeoctl config -q --get nuxeo.home")
+    assert_match libexec.to_s, shell_output("#{libexec}/bin/nuxeoctl config -q --get nuxeo.home")
   end
 end
