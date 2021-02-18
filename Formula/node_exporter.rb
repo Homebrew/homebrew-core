@@ -73,7 +73,7 @@ class NodeExporter < Formula
   end
 
   test do
-    assert_match /node_exporter/, shell_output("#{bin}/node_exporter --version 2>&1")
+    assert_match "node_exporter", shell_output("#{bin}/node_exporter --version 2>&1")
 
     fork { exec bin/"node_exporter" }
     sleep 2
