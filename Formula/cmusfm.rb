@@ -70,7 +70,7 @@ class Cmusfm < Formula
 
     assert_predicate cmusfm_cache, :exist?
     strings = shell_output "strings #{cmusfm_cache}"
-    assert_match /^#{test_artist}$/, strings
-    assert_match /^#{test_title}$/, strings
+    assert_match(/^#{test_artist}$/, strings)
+    assert_match(/^#{test_title}$/, strings)
   end
 end
