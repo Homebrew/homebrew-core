@@ -39,7 +39,7 @@ class So < Formula
     input.close
 
     # make sure it's the correct answer
-    assert_match /:wq/, File.read("output")
+    assert_match ":wq", File.read("output")
   ensure
     Process.kill("TERM", wait_thr.pid)
   end
