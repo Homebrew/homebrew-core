@@ -38,7 +38,7 @@ class Circleci < Formula
 
   test do
     # assert basic script execution
-    assert_match /#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip
+    assert_match(/#{version}\+.{7}/, shell_output("#{bin}/circleci version").strip)
     (testpath/".circleci.yml").write("{version: 2.1}")
     output = shell_output("#{bin}/circleci config pack #{testpath}/.circleci.yml")
     assert_match "version: 2.1", output
