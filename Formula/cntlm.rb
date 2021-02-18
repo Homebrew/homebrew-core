@@ -78,6 +78,6 @@ class Cntlm < Formula
       exec "#{bin}/cntlm -c #{testpath}/cntlm.conf -v"
     end
     sleep 2
-    assert_match /502 Parent proxy unreacheable/, shell_output("curl -s localhost:#{bind_port}")
+    assert_match "502 Parent proxy unreacheable", shell_output("curl -s localhost:#{bind_port}")
   end
 end
