@@ -61,6 +61,6 @@ class Cflow < Formula
       }
     EOS
 
-    assert_match /getpwuid()/, shell_output("#{bin}/cflow --main who_am_i #{testpath}/whoami.c")
+    assert_match "getpwuid()", shell_output("#{bin}/cflow --main who_am_i #{testpath}/whoami.c")
   end
 end
