@@ -41,7 +41,7 @@ class Cryptominisat < Formula
       -1 2 3 0
     EOS
     result = shell_output("#{bin}/cryptominisat5 simple.cnf", 20)
-    assert_match /s UNSATISFIABLE/, result
+    assert_match "s UNSATISFIABLE", result
 
     (testpath/"test.py").write <<~EOS
       import pycryptosat
