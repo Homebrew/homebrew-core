@@ -21,13 +21,13 @@ class Sleepwatcher < Formula
   def install
     # Adjust Makefile to build native binary only
     inreplace "sources/Makefile" do |s|
-      s.gsub! /^(CFLAGS)_PPC.*$/, "\\1 = #{ENV.cflags} -prebind"
-      s.gsub! /^(CFLAGS_I386|CFLAGS_X86_64)/, "#\\1"
+      s.gsub!(/^(CFLAGS)_PPC.*$/, "\\1 = #{ENV.cflags} -prebind")
+      s.gsub!(/^(CFLAGS_I386|CFLAGS_X86_64)/, "#\\1")
       s.change_make_var! "BINDIR", "$(PREFIX)/sbin"
       s.change_make_var! "MANDIR", "$(PREFIX)/share/man"
-      s.gsub! /^(.*?)CFLAGS_I386(.*?)[.]i386/, "\\1CFLAGS\\2"
-      s.gsub! /^(.*?CFLAGS_X86_64.*?[.]x86_64)/, "#\\1"
-      s.gsub! /^(\t(lipo|rm).*?[.](i386|x86_64))/, "#\\1"
+      s.gsub!(/^(.*?)CFLAGS_I386(.*?)[.]i386/, "\\1CFLAGS\\2")
+      s.gsub!(/^(.*?CFLAGS_X86_64.*?[.]x86_64)/, "#\\1")
+      s.gsub!(/^(\t(lipo|rm).*?[.](i386|x86_64))/, "#\\1")
       s.gsub! "-o root -g wheel", ""
     end
 
