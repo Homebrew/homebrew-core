@@ -37,6 +37,6 @@ class Newsboat < Formula
 
   test do
     (testpath/"urls.txt").write "https://github.com/blog/subscribe"
-    assert_match /newsboat - Exported Feeds/m, shell_output("LC_ALL=C #{bin}/newsboat -e -u urls.txt")
+    assert_match "newsboat - Exported Feeds", shell_output("LC_ALL=C #{bin}/newsboat -e -u urls.txt")
   end
 end
