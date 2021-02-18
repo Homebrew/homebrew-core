@@ -34,7 +34,7 @@ class Zenith < Formula
     r.winsize = [80, 43]
     sleep 1
     w.write "q"
-    assert_match /PID\s+USER\s+P\s+N\s+↓CPU%\s+MEM%/, r.read
+    assert_match(/PID\s+USER\s+P\s+N\s+↓CPU%\s+MEM%/, r.read)
   ensure
     Process.kill("TERM", pid)
   end
