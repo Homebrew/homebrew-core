@@ -40,6 +40,6 @@ class Abcl < Formula
 
   test do
     (testpath/"test.lisp").write "(print \"Homebrew\")\n(quit)"
-    assert_match /"Homebrew"$/, shell_output("#{bin}/abcl --load test.lisp").strip
+    assert_match(/"Homebrew"$/, shell_output("#{bin}/abcl --load test.lisp").strip)
   end
 end
