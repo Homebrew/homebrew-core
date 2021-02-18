@@ -32,7 +32,7 @@ class TidyHtml5 < Formula
 
   test do
     output = pipe_output(bin/"tidy -q", "<!doctype html><title></title>")
-    assert_match /^<!DOCTYPE html>/, output
-    assert_match /HTML Tidy for HTML5/, output
+    assert_match(/^<!DOCTYPE html>/, output)
+    assert_match "HTML Tidy for HTML5", output
   end
 end
