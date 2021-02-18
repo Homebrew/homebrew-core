@@ -23,6 +23,6 @@ class Polyglot < Formula
   end
 
   test do
-    assert_match /^PolyGlot \d\.\d\.[0-9a-z]+ by Fabien Letouzey/, shell_output("#{bin}/polyglot --help")
+    assert_match(/^PolyGlot \d\.\d\.[0-9a-z]+ by Fabien Letouzey/, shell_output("#{bin}/polyglot --help"))
   end
 end
