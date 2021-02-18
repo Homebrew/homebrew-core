@@ -47,7 +47,7 @@ class PetscComplex < Formula
     # This PETSc example prints several lines of output. The last line contains
     # an error norm, expected to be small.
     line = output.lines.last
-    assert_match /^Norm of error .+, Iterations/, line, "Unexpected output format"
+    assert_match(/^Norm of error .+, Iterations/, line, "Unexpected output format")
     error = line.split[3].to_f
     assert (error >= 0.0 && error < 1.0e-13), "Error norm too large"
   end
