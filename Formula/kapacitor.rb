@@ -83,7 +83,7 @@ class Kapacitor < Formula
     (testpath/"config.toml").write shell_output("#{bin}/kapacitord config")
 
     inreplace testpath/"config.toml" do |s|
-      s.gsub! /disable-subscriptions = false/, "disable-subscriptions = true"
+      s.gsub! "disable-subscriptions = false", "disable-subscriptions = true"
       s.gsub! %r{data_dir = "/.*/.kapacitor"}, "data_dir = \"#{testpath}/kapacitor\""
       s.gsub! %r{/.*/.kapacitor/replay}, "#{testpath}/kapacitor/replay"
       s.gsub! %r{/.*/.kapacitor/tasks}, "#{testpath}/kapacitor/tasks"
