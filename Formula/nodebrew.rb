@@ -28,6 +28,6 @@ class Nodebrew < Formula
   end
 
   test do
-    assert_match /v0.10.0/, shell_output("#{bin}/nodebrew ls-remote")
+    assert_match "v0.10.0", shell_output("#{bin}/nodebrew ls-remote")
   end
 end
