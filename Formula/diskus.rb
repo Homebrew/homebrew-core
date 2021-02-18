@@ -23,6 +23,6 @@ class Diskus < Formula
   test do
     (testpath/"test.txt").write("Hello World")
     output = shell_output("#{bin}/diskus #{testpath}/test.txt")
-    assert_match /4096/, output
+    assert_match "4096", output
   end
 end
