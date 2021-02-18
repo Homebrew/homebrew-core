@@ -44,6 +44,6 @@ class Cscope < Formula
     EOS
     (testpath/"cscope.files").write "./test.c\n"
     system "#{bin}/cscope", "-b", "-k"
-    assert_match /test\.c.*func/, shell_output("#{bin}/cscope -L1func")
+    assert_match(/test\.c.*func/, shell_output("#{bin}/cscope -L1func"))
   end
 end
