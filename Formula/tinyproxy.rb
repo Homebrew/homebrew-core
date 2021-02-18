@@ -80,7 +80,7 @@ class Tinyproxy < Formula
     sleep 2
 
     begin
-      assert_match /tinyproxy/, shell_output("curl localhost:#{port}")
+      assert_match "tinyproxy", shell_output("curl localhost:#{port}")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
