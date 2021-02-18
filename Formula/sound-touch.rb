@@ -30,6 +30,6 @@ class SoundTouch < Formula
   end
 
   test do
-    assert_match /SoundStretch v#{version} -/, shell_output("#{bin}/soundstretch 2>&1", 255)
+    assert_match "SoundStretch v#{version} -", shell_output("#{bin}/soundstretch 2>&1", 255)
   end
 end
