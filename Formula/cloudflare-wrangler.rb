@@ -20,6 +20,6 @@ class CloudflareWrangler < Formula
 
   test do
     output = shell_output("CF_API_TOKEN=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA #{bin}/wrangler whoami 2>&1", 1)
-    assert_match /Code 9109: (?:Invalid access token|Max auth failures reached)/, output
+    assert_match(/Code 9109: (?:Invalid access token|Max auth failures reached)/, output)
   end
 end
