@@ -25,6 +25,6 @@ class Svgo < Formula
   test do
     cp test_fixtures("test.svg"), testpath
     system bin/"svgo", "test.svg", "-o", "test.min.svg"
-    assert_match /^<svg /, (testpath/"test.min.svg").read
+    assert_match(/^<svg /, (testpath/"test.min.svg").read)
   end
 end
