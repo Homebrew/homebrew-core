@@ -8,8 +8,8 @@ class Terrahub < Formula
   license "MPL-2.0"
 
   livecheck do
-    url "https://github.com/tfxor/terrahub.git"
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://registry.npmjs.org/terrahub/latest"
+    regex(/"version":\s*?"([^"]+)"/i)
   end
 
   bottle do
