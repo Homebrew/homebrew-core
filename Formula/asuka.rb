@@ -42,8 +42,8 @@ class Asuka < Formula
     input.puts "exit"
 
     screenlog = (testpath/"screenlog.txt").read
-    assert_match /# Project Gemini/, screenlog
-    assert_match /Gemini is a new internet protocol/, screenlog
+    assert_match "# Project Gemini", screenlog
+    assert_match "Gemini is a new internet protocol", screenlog
   ensure
     Process.kill("TERM", wait_thr.pid)
   end
