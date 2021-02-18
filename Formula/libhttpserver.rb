@@ -49,6 +49,6 @@ class Libhttpserver < Formula
     fork { exec "./minimal_hello_world" }
     sleep 3 # grace time for server start
 
-    assert_match /Hello, World!/, shell_output("curl http://127.0.0.1:#{port}/hello")
+    assert_match "Hello, World!", shell_output("curl http://127.0.0.1:#{port}/hello")
   end
 end
