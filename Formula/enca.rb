@@ -26,7 +26,7 @@ class Enca < Formula
 
   test do
     enca = "#{bin}/enca --language=none"
-    assert_match /ASCII/, `#{enca} <<< 'Testing...'`
-    assert_match /UCS-2/, `#{enca} --convert-to=UTF-16 <<< 'Testing...' | #{enca}`
+    assert_match "ASCII", shell_output("#{enca} <<< 'Testing...'")
+    assert_match "UCS-2", shell_output("#{enca} --convert-to=UTF-16 <<< 'Testing...' | #{enca}")
   end
 end
