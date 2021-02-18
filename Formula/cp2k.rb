@@ -60,9 +60,9 @@ class Cp2k < Formula
 
     # CP2K configuration is done through editing of arch files
     inreplace Dir["arch/Darwin-IntelMacintosh-gfortran.*"].each do |s|
-      s.gsub! /DFLAGS *=/, "DFLAGS = -D__FFTW3"
-      s.gsub! /FCFLAGS *=/, "FCFLAGS = #{fcflags.join(" ")}"
-      s.gsub! /LIBS *=/, "LIBS = #{libs.join(" ")}"
+      s.gsub!(/DFLAGS *=/, "DFLAGS = -D__FFTW3")
+      s.gsub!(/FCFLAGS *=/, "FCFLAGS = #{fcflags.join(" ")}")
+      s.gsub!(/LIBS *=/, "LIBS = #{libs.join(" ")}")
     end
 
     # MPI versions link to scalapack
