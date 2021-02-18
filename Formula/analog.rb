@@ -41,6 +41,6 @@ class Analog < Formula
 
   test do
     output = pipe_output("#{bin}/analog #{pkgshare}/examples/logfile.log")
-    assert_match /(United Kingdom)/, output
+    assert_match "(United Kingdom)", output
   end
 end
