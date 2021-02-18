@@ -22,7 +22,7 @@ class BzrXmloutput < Formula
       msg = "my commit"
       system "bzr", "add", "test.txt"
       system "bzr", "commit", "-m", msg
-      assert_match /<message>.*#{msg}/, shell_output("bzr log --xml")
+      assert_match(/<message>.*#{msg}/, shell_output("bzr log --xml"))
     end
   end
 end
