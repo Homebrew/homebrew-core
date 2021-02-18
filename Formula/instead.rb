@@ -34,6 +34,6 @@ class Instead < Formula
   end
 
   test do
-    assert_match /INSTEAD #{version} /, shell_output("#{bin}/instead -h 2>&1")
+    assert_match "INSTEAD #{version} ", shell_output("#{bin}/instead -h 2>&1")
   end
 end
