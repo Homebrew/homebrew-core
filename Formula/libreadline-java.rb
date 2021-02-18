@@ -84,10 +84,10 @@ class LibreadlineJava < Formula
 
   # Testing libreadline-java (can we execute and exit libreadline without exceptions?)
   test do
-    assert /Exception/ !~ pipe_output(
+    assert(/Exception/ !~ pipe_output(
       "java -Djava.library.path=#{lib} -cp #{pkgshare}/libreadline-java.jar test.ReadlineTest",
       "exit",
-    )
+    ))
   end
 end
 
