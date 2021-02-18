@@ -4,6 +4,7 @@ class Qmmp < Formula
   url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.4.4.tar.bz2"
   sha256 "b1945956109fd9c7844ee5780142c0d24564b88327dc2f9a61d29386abcf9d54"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.4/"
 
   livecheck do
@@ -33,7 +34,7 @@ class Qmmp < Formula
   depends_on "musepack"
   depends_on "opus"
   depends_on "opusfile"
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "taglib"
 
   def install
