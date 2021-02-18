@@ -99,6 +99,6 @@ class Haxe < Formula
     EOS
     system "#{bin}/haxe", "-js", "out.js", "-main", "HelloWorld"
     _, stderr, = Open3.capture3("osascript -so -lJavaScript out.js")
-    assert_match /^Hello world!$/, stderr
+    assert_equal "Hello world!", stderr.strip
   end
 end
