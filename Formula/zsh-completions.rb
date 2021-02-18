@@ -39,6 +39,6 @@ class ZshCompletions < Formula
       autoload _ack
       which _ack
     EOS
-    assert_match /^_ack/, shell_output("/bin/zsh test.zsh")
+    assert_match(/^_ack/, shell_output("/bin/zsh test.zsh"))
   end
 end
