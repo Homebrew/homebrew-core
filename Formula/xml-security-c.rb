@@ -29,6 +29,6 @@ class XmlSecurityC < Formula
   end
 
   test do
-    assert_match /All tests passed/, pipe_output("#{bin}/xsec-xtest 2>&1")
+    assert_match "All tests passed", pipe_output("#{bin}/xsec-xtest 2>&1")
   end
 end
