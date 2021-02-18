@@ -46,8 +46,8 @@ class Nxengine < Formula
               /(mkdir)\((".+")/,
               "char dir[256]; strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\2); \\1(dir"
     inreplace "extract/extractfiles.cpp" do |s|
-      s.gsub! /char \*dir = strdup\((fname)\);/,
-             "char *dir = (char *)malloc(256); strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\1);"
+      s.gsub!(/char \*dir = strdup\((fname)\);/,
+             "char *dir = (char *)malloc(256); strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\1);")
       s.gsub! "strchr", "strrchr"
     end
 
