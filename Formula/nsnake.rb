@@ -25,6 +25,6 @@ class Nsnake < Formula
   end
 
   test do
-    assert_match /nsnake v#{version} /, shell_output("#{bin}/nsnake -v")
+    assert_match "nsnake v#{version} ", shell_output("#{bin}/nsnake -v")
   end
 end
