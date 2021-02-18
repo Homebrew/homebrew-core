@@ -52,7 +52,7 @@ class Octant < Formula
     fork do
       exec bin/"octant", "--kubeconfig", testpath/"config", "--disable-open-browser"
     end
-    sleep 2
+    sleep 5
 
     output = shell_output("curl -s http://localhost:7777")
     assert_match "<title>Octant</title>", output, "Octant did not start"
