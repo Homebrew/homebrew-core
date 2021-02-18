@@ -35,6 +35,6 @@ class Ocproxy < Formula
   end
 
   test do
-    assert_match /VPNFD.is.not.set/, shell_output("#{bin}/ocproxy 2>&1", 1)
+    assert_match(/VPNFD.is.not.set/, shell_output("#{bin}/ocproxy 2>&1", 1))
   end
 end
