@@ -17,6 +17,6 @@ class Jflex < Formula
 
   test do
     system bin/"jflex", "-d", testpath, pkgshare/"examples/cup-java/src/main/jflex/java.flex"
-    assert_match /public static void/, (testpath/"Scanner.java").read
+    assert_match "public static void", (testpath/"Scanner.java").read
   end
 end
