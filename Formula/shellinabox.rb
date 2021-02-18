@@ -41,7 +41,7 @@ class Shellinabox < Formula
       system bin/"shellinaboxd", "--port=#{port}", "--disable-ssl", "--localhost-only"
     end
     sleep 1
-    assert_match /ShellInABox - Make command line applications available as AJAX web applications/,
+    assert_match "ShellInABox - Make command line applications available as AJAX web applications",
                  shell_output("curl -s http://localhost:#{port}")
     Process.kill "TERM", pid
   end
