@@ -38,6 +38,6 @@ class Lout < Formula
       The quick brown fox jumps over the lazy dog.
       @End @Text
     EOS
-    assert_match /^\s+Blindtext\s+The quick brown fox.*\n+$/, shell_output("#{bin}/lout -p #{input}")
+    assert_match(/^\s+Blindtext\s+The quick brown fox.*\n+$/, shell_output("#{bin}/lout -p #{input}"))
   end
 end
