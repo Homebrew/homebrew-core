@@ -40,6 +40,6 @@ class Djbdns < Formula
 
   test do
     # Use example.com instead of localhost, because localhost does not resolve in all cases
-    assert_match /\d+\.\d+\.\d+\.\d+/, shell_output("#{bin}/dnsip example.com").chomp
+    assert_match(/\d+\.\d+\.\d+\.\d+/, shell_output("#{bin}/dnsip example.com").chomp)
   end
 end
