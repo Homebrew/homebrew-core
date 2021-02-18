@@ -17,7 +17,7 @@ class Fits < Formula
                     Dir["*.properties"]
 
     inreplace "fits-env.sh" do |s|
-      s.gsub! /^FITS_HOME=.*/, "FITS_HOME=#{libexec}"
+      s.gsub!(/^FITS_HOME=.*/, "FITS_HOME=#{libexec}")
       s.gsub! "${FITS_HOME}/lib", "#{libexec}/lib"
     end
 
