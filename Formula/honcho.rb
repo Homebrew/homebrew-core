@@ -29,6 +29,6 @@ class Honcho < Formula
   test do
     (testpath/"Procfile").write("talk: echo $MY_VAR")
     (testpath/".env").write("MY_VAR=hi")
-    assert_match /talk\.\d+ \| hi/, shell_output("#{bin}/honcho start")
+    assert_match(/talk\.\d+ \| hi/, shell_output("#{bin}/honcho start"))
   end
 end
