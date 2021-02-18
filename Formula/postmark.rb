@@ -30,6 +30,6 @@ class Postmark < Formula
     EOS
 
     output = pipe_output("#{bin}/postmark #{testpath}/config")
-    assert_match /(50 per second)/, output
+    assert_match "(50 per second)", output
   end
 end
