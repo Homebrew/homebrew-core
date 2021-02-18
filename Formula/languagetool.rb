@@ -46,6 +46,6 @@ class Languagetool < Formula
     (testpath/"test.txt").write <<~EOS
       Homebrew, the missing package manager for macOS.
     EOS
-    assert_match /Homebrew/, shell_output("#{bin}/languagetool -l en-US test.txt")
+    assert_match "Homebrew", shell_output("#{bin}/languagetool -l en-US test.txt")
   end
 end
