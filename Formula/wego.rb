@@ -46,6 +46,6 @@ class Wego < Formula
 
   test do
     ENV["WEGORC"] = testpath/".wegorc"
-    assert_match /No .*API key specified./, shell_output("#{bin}/wego 2>&1", 1)
+    assert_match(/No .*API key specified./, shell_output("#{bin}/wego 2>&1", 1))
   end
 end
