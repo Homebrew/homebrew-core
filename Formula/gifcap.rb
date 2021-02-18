@@ -15,6 +15,6 @@ class Gifcap < Formula
   end
 
   test do
-    assert_match /^usage: gifcap/, shell_output("#{bin}/gifcap --help").strip
+    assert_match(/^usage: gifcap/, shell_output("#{bin}/gifcap --help").strip)
   end
 end
