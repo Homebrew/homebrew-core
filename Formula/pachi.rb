@@ -50,6 +50,6 @@ class Pachi < Formula
   end
 
   test do
-    assert_match /^= [A-T][0-9]+$/, pipe_output("#{bin}/pachi", "genmove b\n", 0)
+    assert_match(/^= [A-T][0-9]+$/, pipe_output("#{bin}/pachi", "genmove b\n", 0))
   end
 end
