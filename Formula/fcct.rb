@@ -51,10 +51,10 @@ class Fcct < Formula
 
     system "#{bin}/fcct", "--strict", "--output=#{testpath}/example.ign", "#{testpath}/example.fcc"
     assert_predicate testpath/"example.ign", :exist?
-    assert_match /.*"sshAuthorizedKeys":\["ssh-rsa mykey"\].*/m, File.read(testpath/"example.ign").strip
+    assert_match(/.*"sshAuthorizedKeys":\["ssh-rsa mykey"\].*/m, File.read(testpath/"example.ign").strip)
 
     output = shell_output("#{bin}/fcct --strict #{testpath}/example.fcc")
-    assert_match /.*"sshAuthorizedKeys":\["ssh-rsa mykey"\].*/m, output.strip
+    assert_match(/.*"sshAuthorizedKeys":\["ssh-rsa mykey"\].*/m, output.strip)
 
     shell_output("#{bin}/fcct --strict --output=#{testpath}/broken.ign #{testpath}/broken.fcc", 1)
     refute_predicate testpath/"broken.ign", :exist?
