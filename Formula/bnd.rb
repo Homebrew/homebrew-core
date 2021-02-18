@@ -44,6 +44,6 @@ class Bnd < Formula
     EOS
 
     output = shell_output("#{bin}/bnd resolve resolve -b launch.bndrun")
-    assert_match /BUNDLES\s+#{test_bsn};version='\[#{test_version},#{test_version_next}\)'/, output
+    assert_match(/BUNDLES\s+#{test_bsn};version='\[#{test_version},#{test_version_next}\)'/, output)
   end
 end
