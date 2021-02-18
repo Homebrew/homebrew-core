@@ -23,6 +23,6 @@ class ChrubyFish < Formula
   end
 
   test do
-    assert_match /chruby-fish/, shell_output("fish -c '. #{share}/chruby/chruby.fish; chruby --version'")
+    assert_match "chruby-fish", shell_output("fish -c '. #{share}/chruby/chruby.fish; chruby --version'")
   end
 end
