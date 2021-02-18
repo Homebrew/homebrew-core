@@ -43,6 +43,6 @@ class Spotbugs < Formula
     system "#{Formula["openjdk"].bin}/javac", "HelloWorld.java"
     system "#{Formula["openjdk"].bin}/jar", "cvfe", "HelloWorld.jar", "HelloWorld", "HelloWorld.class"
     output = shell_output("#{bin}/spotbugs -textui HelloWorld.jar")
-    assert_match /M V EI.*\nM C UwF.*\n/, output
+    assert_match(/M V EI.*\nM C UwF.*\n/, output)
   end
 end
