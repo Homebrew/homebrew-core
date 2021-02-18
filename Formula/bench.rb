@@ -32,6 +32,6 @@ class Bench < Formula
   end
 
   test do
-    assert_match /time\s+[0-9.]+/, shell_output("#{bin}/bench pwd")
+    assert_match(/time\s+[0-9.]+/, shell_output("#{bin}/bench pwd"))
   end
 end
