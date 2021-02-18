@@ -86,6 +86,6 @@ class Khard < Formula
       N:Name;User
       END:VCARD
     EOS
-    assert_match /Address book: default/, shell_output("#{bin}/khard list user")
+    assert_match "Address book: default", shell_output("#{bin}/khard list user")
   end
 end
