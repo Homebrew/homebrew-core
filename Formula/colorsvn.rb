@@ -55,6 +55,6 @@ class Colorsvn < Formula
   end
 
   test do
-    assert_match /svn: E155007/, shell_output("#{bin}/colorsvn info 2>&1", 1)
+    assert_match "svn: E155007", shell_output("#{bin}/colorsvn info 2>&1", 1)
   end
 end
