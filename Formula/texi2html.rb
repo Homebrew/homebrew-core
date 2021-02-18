@@ -36,6 +36,6 @@ class Texi2html < Formula
       @bye
     EOS
     system "#{bin}/texi2html", "test.texinfo"
-    assert_match /Hello World!/, File.read("test.html")
+    assert_match "Hello World!", File.read("test.html")
   end
 end
