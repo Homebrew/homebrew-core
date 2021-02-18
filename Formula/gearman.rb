@@ -81,6 +81,6 @@ class Gearman < Formula
   end
 
   test do
-    assert_match /gearman\s*Error in usage/, shell_output("#{bin}/gearman --version 2>&1", 1)
+    assert_match(/gearman\s*Error in usage/, shell_output("#{bin}/gearman --version 2>&1", 1))
   end
 end
