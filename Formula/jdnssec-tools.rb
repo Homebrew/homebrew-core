@@ -39,7 +39,7 @@ class JdnssecTools < Formula
       6FjcP4Lbuds/44U7U8du224Q8jTrZ 57Yvj4VDQKc=)",
     )
 
-    assert_match /D4C3D5552B8679FAEEBC317E5F048B614B2E5F607DC57F1553182D49AB2179F7/,
+    assert_match "D4C3D5552B8679FAEEBC317E5F048B614B2E5F607DC57F1553182D49AB2179F7",
       shell_output("#{bin}/jdnssec-dstool -d 2 powerdns.com.key")
   end
 end
