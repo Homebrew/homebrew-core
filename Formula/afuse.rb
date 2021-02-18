@@ -31,6 +31,6 @@ class Afuse < Formula
   end
 
   test do
-    assert_match /OSXFUSE/, pipe_output("#{bin}/afuse --version 2>&1")
+    assert_match "OSXFUSE", pipe_output("#{bin}/afuse --version 2>&1")
   end
 end
