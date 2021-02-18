@@ -36,7 +36,7 @@ class LpSolve < Formula
     EOS
     output = shell_output("#{bin}/lp_solve test.lp")
     assert_match "Value of objective function: 6315.6250", output
-    assert_match /x\s+21\.875/, output
-    assert_match /y\s+53\.125/, output
+    assert_match(/x\s+21\.875/, output)
+    assert_match(/y\s+53\.125/, output)
   end
 end
