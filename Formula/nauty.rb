@@ -40,8 +40,8 @@ class Nauty < Formula
     out1 = shell_output("#{bin}/geng -ud1D7t 11 2>&1")
     out2 = shell_output("#{bin}/genrang -r3 114 100 | #{bin}/countg --nedDr -q")
 
-    assert_match /92779 graphs generated/, out1
-    assert_match /100 graphs : n=114; e=171; mindeg=3; maxdeg=3; regular/, out2
+    assert_match "92779 graphs generated", out1
+    assert_match "100 graphs : n=114; e=171; mindeg=3; maxdeg=3; regular", out2
 
     # test that the library is installed and linkable-against
     (testpath/"test.c").write <<~EOS
