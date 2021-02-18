@@ -369,14 +369,12 @@ class Jupyterlab < Formula
     assert_match "-F _jupyter",
       shell_output("source #{bash_completion}/jupyter && complete -p jupyter")
 
-    version_regexp = Regexp.quote(version.to_s)
-
     # Ensure that jupyter can load the jupyter lab package.
-    assert_match /^jupyter lab *: #{version_regexp}$/,
-      shell_output(bin/"jupyter --version")
+    assert_match(/^jupyter lab *: #{version}$/,
+      shell_output(bin/"jupyter --version"))
 
     # Ensure that jupyter-lab binary was installed by pip.
-    assert_match /^#{version_regexp}$/,
-      shell_output(bin/"jupyter-lab --version")
+    assert_equal version.to_s,
+      shell_output(bin/"jupyter-lab --version").strip
   end
 end
