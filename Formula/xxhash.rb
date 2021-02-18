@@ -25,6 +25,6 @@ class Xxhash < Formula
 
   test do
     (testpath/"leaflet.txt").write "No computer should be without one!"
-    assert_match /^67bc7cc242ebc50a/, shell_output("#{bin}/xxhsum leaflet.txt")
+    assert_match(/^67bc7cc242ebc50a/, shell_output("#{bin}/xxhsum leaflet.txt"))
   end
 end
