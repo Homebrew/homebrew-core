@@ -31,6 +31,6 @@ class Sk < Formula
   end
 
   test do
-    assert_match /.*world/, pipe_output("#{bin}/sk -f wld", "hello\nworld")
+    assert_match(/.*world/, pipe_output("#{bin}/sk -f wld", "hello\nworld"))
   end
 end
