@@ -53,15 +53,15 @@ class Hbase < Formula
       # upstream bugs for ipv6 incompatibility:
       # https://issues.apache.org/jira/browse/HADOOP-8568
       # https://issues.apache.org/jira/browse/HADOOP-3619
-      s.gsub! /^# export HBASE_OPTS$/,
-              "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\""
-      s.gsub! /^# export JAVA_HOME=.*/,
-              "export JAVA_HOME=\"${JAVA_HOME:-#{java_home}}\""
+      s.gsub!(/^# export HBASE_OPTS$/,
+              "export HBASE_OPTS=\"-Djava.net.preferIPv4Stack=true -XX:+UseConcMarkSweepGC\"")
+      s.gsub!(/^# export JAVA_HOME=.*/,
+              "export JAVA_HOME=\"${JAVA_HOME:-#{java_home}}\"")
 
       # Default `$HBASE_HOME/logs` is unsuitable as it would cause writes to the
       # formula's prefix. Provide a better default but still allow override.
-      s.gsub! /^# export HBASE_LOG_DIR=.*$/,
-              "export HBASE_LOG_DIR=\"${HBASE_LOG_DIR:-#{var}/log/hbase}\""
+      s.gsub!(/^# export HBASE_LOG_DIR=.*$/,
+              "export HBASE_LOG_DIR=\"${HBASE_LOG_DIR:-#{var}/log/hbase}\"")
     end
 
     # makes hbase usable out of the box
@@ -157,9 +157,9 @@ class Hbase < Formula
 
     cp_r (libexec/"conf"), testpath
     inreplace (testpath/"conf/hbase-site.xml") do |s|
-      s.gsub! /(hbase.rootdir.*)\n.*/, "\\1\n<value>file://#{testpath}/hbase</value>"
-      s.gsub! /(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>"
-      s.gsub! /(hbase.zookeeper.property.clientPort.*)\n.*/, "\\1\n<value>#{port}</value>"
+      s.gsub!(/(hbase.rootdir.*)\n.*/, "\\1\n<value>file://#{testpath}/hbase</value>")
+      s.gsub!(/(hbase.zookeeper.property.dataDir.*)\n.*/, "\\1\n<value>#{testpath}/zookeeper</value>")
+      s.gsub!(/(hbase.zookeeper.property.clientPort.*)\n.*/, "\\1\n<value>#{port}</value>")
     end
 
     ENV["HBASE_LOG_DIR"]  = testpath/"logs"
