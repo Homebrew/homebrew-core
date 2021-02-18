@@ -80,6 +80,6 @@ class Neo4j < Formula
     ENV["NEO4J_LOG"] = testpath/"libexec/data/log/neo4j.log"
     ENV["NEO4J_PIDFILE"] = testpath/"libexec/data/neo4j-service.pid"
     mkpath testpath/"libexec/data/log"
-    assert_match /Neo4j .*is not running/i, shell_output("#{bin}/neo4j status", 3)
+    assert_match(/Neo4j .*is not running/i, shell_output("#{bin}/neo4j status", 3))
   end
 end
