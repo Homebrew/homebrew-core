@@ -49,10 +49,10 @@ class Enigma < Formula
     system "./autogen.sh" if build.head?
 
     inreplace "configure" do |s|
-      s.gsub! /-framework (SDL(_(mixer|image|ttf))?)/, '-l\1'
+      s.gsub!(/-framework (SDL(_(mixer|image|ttf))?)/, '-l\1')
       s.gsub! %r{\$\{\w+//\\"/\}/lib(freetype|png|xerces-c)\.a}, '-l\1'
       s.gsub! %r{(LIBINTL)="\$\{with_libintl_prefix\}/lib/lib(intl)\.a"}, '\1=-l\2'
-      s.gsub! /^\s+LIBENET_CFLAGS\n.*LIBENET.*\n\s+LIBENET_LIBS\n.*LIBENET.*$/, ""
+      s.gsub!(/^\s+LIBENET_CFLAGS\n.*LIBENET.*\n\s+LIBENET_LIBS\n.*LIBENET.*$/, "")
     end
     inreplace "src/Makefile.in" do |s|
       s.gsub! %r{(cp -a /Library/Frameworks/.*)$}, 'echo \1'
