@@ -37,6 +37,6 @@ class Miller < Formula
       4,5,6
     EOS
     output = pipe_output("#{bin}/mlr --csvlite cut -f a test.csv")
-    assert_match /a\n1\n4\n/, output
+    assert_match "a\n1\n4\n", output
   end
 end
