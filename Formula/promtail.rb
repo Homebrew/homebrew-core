@@ -28,7 +28,7 @@ class Promtail < Formula
     cp etc/"promtail-local-config.yaml", testpath
     inreplace "promtail-local-config.yaml" do |s|
       s.gsub! "9080", port.to_s
-      s.gsub! /__path__: .+$/, "__path__: #{testpath}"
+      s.gsub!(/__path__: .+$/, "__path__: #{testpath}")
     end
 
     fork { exec bin/"promtail", "-config.file=promtail-local-config.yaml" }
