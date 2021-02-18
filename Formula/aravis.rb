@@ -44,6 +44,6 @@ class Aravis < Formula
 
   test do
     output = shell_output("gst-inspect-1.0 #{lib}/gstreamer-1.0/libgstaravis.#{version.major_minor}.dylib")
-    assert_match /Description *Aravis Video Source/, output
+    assert_match(/Description *Aravis Video Source/, output)
   end
 end
