@@ -78,9 +78,9 @@ class Vlmcsd < Formula
 
   test do
     output = shell_output("#{bin}/vlmcsd -V")
-    assert_match /vlmcsd/, output
+    assert_match "vlmcsd", output
     output = shell_output("#{bin}/vlmcs -V")
-    assert_match /vlmcs/, output
+    assert_match "vlmcs", output
     begin
       pid = fork do
         exec "#{bin}/vlmcsd", "-D"
@@ -89,7 +89,7 @@ class Vlmcsd < Formula
       # the running status of vlmcsd
       sleep 2
       output = shell_output("#{bin}/vlmcs")
-      assert_match /successful/, output
+      assert_match "successful", output
       sleep 2
     ensure
       Process.kill 9, pid
