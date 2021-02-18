@@ -25,7 +25,7 @@ class Bloaty < Formula
   end
 
   test do
-    assert_match /100\.0%\s+(\d\.)?\d+(M|K)i\s+100\.0%\s+(\d\.)?\d+(M|K)i\s+TOTAL/,
-                 shell_output("#{bin}/bloaty #{bin}/bloaty").lines.last
+    assert_match(/100\.0%\s+(\d\.)?\d+(M|K)i\s+100\.0%\s+(\d\.)?\d+(M|K)i\s+TOTAL/,
+                 shell_output("#{bin}/bloaty #{bin}/bloaty").lines.last)
   end
 end
