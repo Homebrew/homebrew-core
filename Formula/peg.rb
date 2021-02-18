@@ -36,6 +36,6 @@ class Peg < Formula
 
     system "#{bin}/peg", "-o", "username.c", "username.peg"
 
-    assert_match /yymatchString\(yy, "username"\)/, File.read("username.c")
+    assert_match 'yymatchString(yy, "username")', File.read("username.c")
   end
 end
