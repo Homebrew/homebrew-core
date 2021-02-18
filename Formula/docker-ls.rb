@@ -24,12 +24,12 @@ class DockerLs < Formula
   end
 
   test do
-    assert_match /\Wlatest\W/m, pipe_output("#{bin}/docker-ls tags \
+    assert_match(/\Wlatest\W/m, pipe_output("#{bin}/docker-ls tags \
       -r https://index.docker.io -u '' -p '' \
       --progress-indicator=false library/busybox \
-    ")
+    "))
 
-    assert_match /401/, pipe_output("#{bin}/docker-rm  \
+    assert_match "401", pipe_output("#{bin}/docker-rm  \
       -r https://index.docker.io -u foo -p bar library/busybox:latest 2<&1 \
     ")
   end
