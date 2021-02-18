@@ -19,8 +19,8 @@ class Libnsl < Formula
 
   def install
     inreplace "po/Makefile.in.in" do |s|
-      s.gsub! /GETTEXT_MACRO_VERSION =.*/,
-        "GETTEXT_MACRO_VERSION = #{Formula["gettext"].version.to_s[/(\d\.\d+)/, 1]}"
+      s.gsub!(/GETTEXT_MACRO_VERSION =.*/,
+        "GETTEXT_MACRO_VERSION = #{Formula["gettext"].version.to_s[/(\d\.\d+)/, 1]}")
     end
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
