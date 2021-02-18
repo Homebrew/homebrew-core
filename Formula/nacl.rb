@@ -25,7 +25,7 @@ class Nacl < Formula
     # build process and adds an unpredictable factor.
     inreplace "do" do |s|
       s.gsub! 'exec >"$top/log"', 'exec | tee "$top/log"'
-      s.gsub! /^shorthostname=`.*$/, "shorthostname=brew"
+      s.gsub!(/^shorthostname=`.*$/, "shorthostname=brew")
     end
 
     system "./do" # This takes a while since it builds *everything*
