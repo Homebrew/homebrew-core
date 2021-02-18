@@ -37,6 +37,6 @@ class Bltool < Formula
                          "--input", "test.edn",
                          "--output", "test.txt"
 
-    assert_match /12527736\s+360\s+unfinished\s+Assassin/, File.read("test.txt")
+    assert_match(/12527736\s+360\s+unfinished\s+Assassin/, File.read("test.txt"))
   end
 end
