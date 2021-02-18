@@ -23,6 +23,6 @@ class DroneCli < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/drone --version")
 
-    assert_match /manage logs/, shell_output("#{bin}/drone log 2>&1")
+    assert_match "manage logs", shell_output("#{bin}/drone log 2>&1")
   end
 end
