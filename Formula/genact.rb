@@ -20,6 +20,6 @@ class Genact < Formula
   end
 
   test do
-    assert_match /Available modules:/, shell_output("#{bin}/genact --list-modules")
+    assert_match "Available modules:", shell_output("#{bin}/genact --list-modules")
   end
 end
