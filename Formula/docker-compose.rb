@@ -15,6 +15,8 @@ class DockerCompose < Formula
     sha256 cellar: :any, mojave:        "8cb911e8ce3f82f81c7fde523269118c9986d2524fb7f6b45137636c7b9c418c"
   end
 
+  depends_on "rust" => :build
+
   depends_on "libyaml"
   depends_on "python@3.9"
 
