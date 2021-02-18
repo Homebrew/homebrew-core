@@ -42,6 +42,6 @@ class Cpputest < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-L#{lib}", "-lCppUTest", "-o", "test"
-    assert_match /OK \(1 tests/, shell_output("./test")
+    assert_match "OK (1 tests", shell_output("./test")
   end
 end
