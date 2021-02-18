@@ -13,13 +13,12 @@ class Wasmer < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "ca3bb35344bf5e3269e123842f622180939b3b240f0e98f1824ca79305212cae"
   end
 
-  depends_on "cmake" => :build
+  depends_on "llvm" => :build
   depends_on "rust" => :build
-  depends_on "wabt" => :build
 
   def install
     chdir "lib/cli" do
-      system "cargo", "install", "--features", "cranelift", *std_cargo_args
+      system "cargo", "install", "--features", "cranelift,llvm", *std_cargo_args
     end
   end
 
