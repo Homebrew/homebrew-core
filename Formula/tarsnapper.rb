@@ -54,6 +54,6 @@ class Tarsnapper < Formula
   end
 
   test do
-    assert_match /usage: tarsnapper/, shell_output("#{bin}/tarsnapper --help")
+    assert_match "usage: tarsnapper", shell_output("#{bin}/tarsnapper --help")
   end
 end
