@@ -41,6 +41,6 @@ class Spin < Formula
       }
     EOS
     output = shell_output("#{bin}/spin #{testpath}/test.pml")
-    assert_match /language is golang/, output
+    assert_match "language is golang", output
   end
 end
