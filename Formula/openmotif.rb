@@ -46,6 +46,6 @@ class Openmotif < Formula
   end
 
   test do
-    assert_match /no source file specified/, pipe_output("#{bin}/uil 2>&1")
+    assert_match "no source file specified", pipe_output("#{bin}/uil 2>&1")
   end
 end
