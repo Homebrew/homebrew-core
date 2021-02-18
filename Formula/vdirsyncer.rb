@@ -81,6 +81,6 @@ class Vdirsyncer < Formula
     (testpath/".contacts/b/foo/").mkpath
     system "#{bin}/vdirsyncer", "discover"
     system "#{bin}/vdirsyncer", "sync"
-    assert_match /Ö φ 風 ض/, (testpath/".contacts/b/foo/092a1e3b55.vcf").read
+    assert_match "Ö φ 風 ض", (testpath/".contacts/b/foo/092a1e3b55.vcf").read
   end
 end
