@@ -50,7 +50,7 @@ class Harbour < Formula
          return
     EOS
 
-    assert_match /Hello, world!/, shell_output("#{bin}/hbmk2 hello.prg -run")
+    assert_match "Hello, world!", shell_output("#{bin}/hbmk2 hello.prg -run")
   end
 end
 
