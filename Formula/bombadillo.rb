@@ -27,7 +27,7 @@ class Bombadillo < Formula
     r.winsize = [80, 43]
     sleep 1
     w.write "q"
-    assert_match /Bombadillo is a non-web browser/, r.read
+    assert_match "Bombadillo is a non-web browser", r.read
 
     status = PTY.check(pid)
     assert_not_nil status
