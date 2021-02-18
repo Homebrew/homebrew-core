@@ -39,7 +39,7 @@ class Jetty < Formula
     pid = fork { exec bin/"jetty", "start" }
     sleep 5 # grace time for server start
     begin
-      assert_match /Jetty running pid=\d+/, shell_output("#{bin}/jetty check")
+      assert_match(/Jetty running pid=\d+/, shell_output("#{bin}/jetty check"))
       assert_equal "Stopping Jetty: OK\n", shell_output("#{bin}/jetty stop")
     ensure
       Process.kill 9, pid
