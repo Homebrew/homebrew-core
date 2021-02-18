@@ -32,11 +32,11 @@ class Showkey < Formula
     require "expect"
 
     output = Utils.safe_popen_write("script", "-q", "/dev/null", bin/"showkey") do |pipe|
-      pipe.expect /interrupt .*? or quit .*? character\.\r?\n$/
+      pipe.expect(/interrupt .*? or quit .*? character\.\r?\n$/)
       pipe.write "Hello Homebrew!"
       sleep 1
       pipe.write "\cC\cD"
     end
-    assert_match /^Hello<SP>Homebrew!<CTL-D=EOT>/, output
+    assert_match(/^Hello<SP>Homebrew!<CTL-D=EOT>/, output)
   end
 end
