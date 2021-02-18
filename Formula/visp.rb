@@ -45,12 +45,12 @@ class Visp < Formula
 
     # Avoid superenv shim references
     inreplace "CMakeLists.txt" do |s|
-      s.sub! /CMake build tool:"\s+\${CMAKE_BUILD_TOOL}/,
-             "CMake build tool:            gmake\""
-      s.sub! /C\+\+ Compiler:"\s+\${VISP_COMPILER_STR}/,
-             "C++ Compiler:                clang++\""
-      s.sub! /C Compiler:"\s+\${CMAKE_C_COMPILER}/,
-             "C Compiler:                  clang\""
+      s.sub!(/CMake build tool:"\s+\${CMAKE_BUILD_TOOL}/,
+             "CMake build tool:            gmake\"")
+      s.sub!(/C\+\+ Compiler:"\s+\${VISP_COMPILER_STR}/,
+             "C++ Compiler:                clang++\"")
+      s.sub!(/C Compiler:"\s+\${CMAKE_C_COMPILER}/,
+             "C Compiler:                  clang\"")
     end
 
     system "cmake", ".", "-DBUILD_DEMOS=OFF",
