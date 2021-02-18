@@ -42,7 +42,7 @@ class Procmail < Formula
 
       please ignore
     EOS
-    assert_match /Subject: Test/, shell_output("#{bin}/formail -X 'Subject' < #{path}")
-    assert_match /please ignore/, shell_output("#{bin}/formail -I '' < #{path}")
+    assert_match "Subject: Test", shell_output("#{bin}/formail -X 'Subject' < #{path}")
+    assert_match "please ignore", shell_output("#{bin}/formail -I '' < #{path}")
   end
 end
