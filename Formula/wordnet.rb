@@ -40,6 +40,6 @@ class Wordnet < Formula
 
   test do
     output = pipe_output("#{bin}/wn homebrew -synsn")
-    assert_match /alcoholic beverage/, output
+    assert_match "alcoholic beverage", output
   end
 end
