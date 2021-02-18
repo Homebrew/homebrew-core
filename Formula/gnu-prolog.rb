@@ -36,6 +36,6 @@ class GnuProlog < Formula
       main :- write('Hello World!'), nl, halt.
     EOS
     system "#{bin}/gplc", "test.pl"
-    assert_match /Hello World!/, shell_output("./test")
+    assert_match "Hello World!", shell_output("./test")
   end
 end
