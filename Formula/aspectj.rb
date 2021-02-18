@@ -44,6 +44,6 @@ class Aspectj < Formula
     system bin/"ajc", "-outjar", "test.jar", "Test.java"
     system bin/"ajc", "-outjar", "testaspect.jar", "-outxml", "TestAspect.aj"
     output = shell_output("#{bin}/aj Test")
-    assert_match /Aspect Brew Test/, output
+    assert_match "Aspect Brew Test", output
   end
 end
