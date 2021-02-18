@@ -29,6 +29,6 @@ class Sz81 < Formula
   end
 
   test do
-    assert_match /sz81 #{version} -/, shell_output("#{bin}/sz81 -h", 1)
+    assert_match "sz81 #{version} -", shell_output("#{bin}/sz81 -h", 1)
   end
 end
