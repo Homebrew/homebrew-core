@@ -44,6 +44,6 @@ class MozGitTools < Formula
     (testpath/"myfile").write("my file")
     system "git", "add", "myfile"
     system "git", "commit", "-m", "test"
-    assert_match /master/, shell_output("#{bin}/git-branchname")
+    assert_match "master", shell_output("#{bin}/git-branchname")
   end
 end
