@@ -58,6 +58,6 @@ class Pympress < Formula
     # Version info contained in log file only if all dependencies loaded successfully
     assert_predicate testpath/"Library/Logs/pympress.log", :exist?
     output = (testpath/"Library/Logs/pympress.log").read
-    assert_match /^INFO:pympress.__main__:Pympress: #{version}\s*;/, output
+    assert_match(/^INFO:pympress.__main__:Pympress: #{version}\s*;/, output)
   end
 end
