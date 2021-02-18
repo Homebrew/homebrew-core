@@ -32,6 +32,6 @@ class Termcolor < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}"
-    assert_match /Hello Colorful World/, shell_output("./test")
+    assert_match "Hello Colorful World", shell_output("./test")
   end
 end
