@@ -27,7 +27,7 @@ class Diction < Formula
   test do
     file = "test.txt"
     (testpath/file).write "The quick brown fox jumps over the lazy dog."
-    assert_match /^.*35 characters.*9 words.*$/m, shell_output("#{bin}/style #{file}")
-    assert_match /No phrases in 1 sentence found./, shell_output("#{bin}/diction #{file}")
+    assert_match(/^.*35 characters.*9 words.*$/m, shell_output("#{bin}/style #{file}"))
+    assert_match "No phrases in 1 sentence found.", shell_output("#{bin}/diction #{file}")
   end
 end
