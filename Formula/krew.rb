@@ -5,7 +5,6 @@ class Krew < Formula
       tag:      "v0.4.1",
       revision: "ffa2933fba45e5577a45a944da1c14a1058d4fcb"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/kubernetes-sigs/krew.git"
 
   bottle do
