@@ -34,6 +34,6 @@ class Topgrade < Formula
 
     output = shell_output("#{bin}/topgrade -n --only brew_formula")
     assert_match "Dry running: #{HOMEBREW_PREFIX}/bin/brew upgrade", output
-    assert_not_match /\sSelf update\s/, output
+    assert_not_match(/\sSelf update\s/, output)
   end
 end
