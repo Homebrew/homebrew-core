@@ -31,6 +31,6 @@ class Libpcap < Formula
   end
 
   test do
-    assert_match /lpcap/, shell_output("#{bin}/pcap-config --libs")
+    assert_match "lpcap", shell_output("#{bin}/pcap-config --libs")
   end
 end
