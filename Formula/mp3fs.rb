@@ -32,7 +32,6 @@ class Mp3fs < Formula
   end
 
   test do
-    assert_match /mp3fs version: #{Regexp.escape(version)}/,
-                 shell_output("#{bin}/mp3fs -V")
+    assert_match "mp3fs version: #{version}", shell_output("#{bin}/mp3fs -V")
   end
 end
