@@ -35,7 +35,7 @@ class Fortio < Formula
       end
       sleep 2
       output = shell_output("#{bin}/fortio load http://localhost:#{port}/ 2>&1")
-      assert_match /^All\sdone/, output.lines.last
+      assert_match(/^All\sdone/, output.lines.last)
     ensure
       Process.kill("SIGTERM", pid)
     end
