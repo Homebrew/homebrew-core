@@ -72,6 +72,6 @@ class Kustomize < Formula
         type: LoadBalancer
     EOS
     output = shell_output("#{bin}/kustomize build #{testpath}")
-    assert_match /type:\s+"?LoadBalancer"?/, output
+    assert_match(/type:\s+"?LoadBalancer"?/, output)
   end
 end
