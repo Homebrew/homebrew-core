@@ -43,6 +43,6 @@ class Hatari < Formula
   end
 
   test do
-    assert_match /Hatari v#{version} -/, shell_output("#{bin}/hatari -v", 1)
+    assert_match "Hatari v#{version} -", shell_output("#{bin}/hatari -v", 1)
   end
 end
