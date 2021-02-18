@@ -34,7 +34,7 @@ class Jam < Formula
       }
     EOS
 
-    assert_match /Cc jamtest.o/, shell_output(bin/"jam").strip
+    assert_match "Cc jamtest.o", shell_output(bin/"jam")
     assert_equal "Jam Test", shell_output("./jamtest").strip
   end
 end
