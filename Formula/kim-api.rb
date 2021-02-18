@@ -25,7 +25,7 @@ class KimApi < Formula
   def install
     # change file(COPY) to configure_file() to avoid symlink issue; will be fixed in 2.2.2
     inreplace "cmake/items-macros.cmake.in" do |s|
-      s.gsub! /file\(COPY ([^ ]+) DESTINATION ([^ ]*)\)/, 'configure_file(\1 \2 COPYONLY)'
+      s.gsub!(/file\(COPY ([^ ]+) DESTINATION ([^ ]*)\)/, 'configure_file(\1 \2 COPYONLY)')
     end
     args = std_cmake_args
     # adjust compiler settings for package
