@@ -23,6 +23,6 @@ class GitTracker < Formula
 
   test do
     output = shell_output("#{bin}/git-tracker help")
-    assert_match /git-tracker \d+(\.\d+)* is installed\./, output
+    assert_match(/git-tracker \d+(\.\d+)* is installed\./, output)
   end
 end
