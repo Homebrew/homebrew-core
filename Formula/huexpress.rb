@@ -30,6 +30,6 @@ class Huexpress < Formula
   end
 
   test do
-    assert_match /Version #{version}$/, shell_output("#{bin}/huexpress -h", 1)
+    assert_match(/Version #{version}$/, shell_output("#{bin}/huexpress -h", 1))
   end
 end
