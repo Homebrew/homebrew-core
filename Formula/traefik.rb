@@ -77,10 +77,10 @@ class Traefik < Formula
       end
       sleep 5
       cmd_ui = "curl -sIm3 -XGET http://127.0.0.1:#{http_port}/"
-      assert_match /404 Not Found/m, shell_output(cmd_ui)
+      assert_match "404 Not Found", shell_output(cmd_ui)
       sleep 1
       cmd_ui = "curl -sIm3 -XGET http://127.0.0.1:#{ui_port}/dashboard/"
-      assert_match /200 OK/m, shell_output(cmd_ui)
+      assert_match "200 OK", shell_output(cmd_ui)
     ensure
       Process.kill(9, pid)
       Process.wait(pid)
