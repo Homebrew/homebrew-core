@@ -110,6 +110,6 @@ class Minidlna < Formula
     io.expect("debug: Initial file scan completed", 30)
     assert_predicate testpath/"minidlna.pid", :exist?
 
-    assert_match /MiniDLNA #{version}/, shell_output("curl localhost:#{port}")
+    assert_match "MiniDLNA #{version}", shell_output("curl localhost:#{port}")
   end
 end
