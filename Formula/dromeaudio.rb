@@ -34,7 +34,7 @@ class Dromeaudio < Formula
     #   AudioUnitSetProperty (for StreamFormat) failed
     #
     # Related PR: https://github.com/Homebrew/homebrew-core/pull/55292
-    assert_match /Usage: .*?DromeAudioPlayer <filename>/i,
-                 shell_output(bin/"DromeAudioPlayer 2>&1", 1)
+    assert_match(/Usage: .*?DromeAudioPlayer <filename>/i,
+                 shell_output(bin/"DromeAudioPlayer 2>&1", 1))
   end
 end
