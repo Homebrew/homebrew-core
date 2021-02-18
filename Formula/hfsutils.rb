@@ -26,7 +26,7 @@ class Hfsutils < Formula
     system "dd", "if=/dev/zero", "of=disk.hfs", "bs=1k", "count=800"
     system bin/"hformat", "-l", "Test Disk", "disk.hfs"
     output = shell_output("#{bin}/hmount disk.hfs")
-    assert_match /^Volume name is "Test Disk"$/, output
-    assert_match /^Volume has 803840 bytes free$/, output
+    assert_match(/^Volume name is "Test Disk"$/, output)
+    assert_match(/^Volume has 803840 bytes free$/, output)
   end
 end
