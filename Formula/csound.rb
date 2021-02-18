@@ -137,9 +137,9 @@ class Csound < Formula
     ENV["SADIR"] = frameworks/"CsoundLib64.framework/Versions/Current/samples"
 
     output = shell_output "#{bin}/csound test.orc test.sco 2>&1"
-    assert_match /^hello, world$/, output
-    assert_match /^rtaudio:/, output
-    assert_match /^rtmidi:/, output
+    assert_match(/^hello, world$/, output)
+    assert_match(/^rtaudio:/, output)
+    assert_match(/^rtmidi:/, output)
 
     assert_predicate testpath/"test.aif", :exist?
     assert_predicate testpath/"test.h5", :exist?
