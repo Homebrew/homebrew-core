@@ -32,6 +32,6 @@ class Jove < Formula
   end
 
   test do
-    assert_match /There's nothing to recover./, shell_output("#{lib}/jove/recover")
+    assert_match "There's nothing to recover.", shell_output("#{lib}/jove/recover")
   end
 end
