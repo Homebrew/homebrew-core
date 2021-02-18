@@ -23,6 +23,6 @@ class Nettoe < Formula
   end
 
   test do
-    assert_match /netToe #{version} /, shell_output("#{bin}/nettoe -v")
+    assert_match "netToe #{version} ", shell_output("#{bin}/nettoe -v")
   end
 end
