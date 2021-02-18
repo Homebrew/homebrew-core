@@ -23,7 +23,7 @@ class Foremost < Formula
     inreplace "Makefile" do |s|
       s.gsub! "/usr/", "#{prefix}/"
       s.change_make_var! "RAW_CC", ENV.cc
-      s.gsub! /^RAW_FLAGS =/, "RAW_FLAGS = #{ENV.cflags}"
+      s.gsub!(/^RAW_FLAGS =/, "RAW_FLAGS = #{ENV.cflags}")
     end
 
     system "make", "mac"
