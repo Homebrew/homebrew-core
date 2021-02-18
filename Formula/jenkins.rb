@@ -73,6 +73,6 @@ class Jenkins < Formula
     sleep 60
 
     output = shell_output("curl localhost:#{port}/")
-    assert_match /Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output
+    assert_match(/Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output)
   end
 end
