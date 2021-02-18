@@ -32,7 +32,7 @@ class LibcouchbaseAT2 < Formula
   end
 
   test do
-    assert_match /LCB_ECONNREFUSED/,
+    assert_match "LCB_ECONNREFUSED",
       shell_output("#{bin}/cbc cat document_id -U couchbase://localhost:1 2>&1", 1).strip
   end
 end
