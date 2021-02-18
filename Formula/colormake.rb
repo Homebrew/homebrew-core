@@ -28,6 +28,6 @@ class Colormake < Formula
 
   test do
     (testpath/"Makefile").write("all:\n\techo Hello World!\n")
-    assert_match /Hello World!/, shell_output("#{bin}/colormake")
+    assert_match "Hello World!", shell_output("#{bin}/colormake")
   end
 end
