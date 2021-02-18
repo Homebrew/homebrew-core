@@ -29,6 +29,6 @@ class Shmcat < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/shmcat --version")
+    assert_match version.to_s, shell_output("#{bin}/shmcat --version")
   end
 end
