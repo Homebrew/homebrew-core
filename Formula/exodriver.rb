@@ -27,6 +27,6 @@ class Exodriver < Formula
 
   test do
     output = shell_output("#{pkgshare}/testModbusFunctions")
-    assert_match /Result:\s+writeBuffer:/, output
+    assert_match(/Result:\s+writeBuffer:/, output)
   end
 end
