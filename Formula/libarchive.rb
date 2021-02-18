@@ -56,6 +56,6 @@ class Libarchive < Formula
   test do
     (testpath/"test").write("test")
     system bin/"bsdtar", "-czvf", "test.tar.gz", "test"
-    assert_match /test/, shell_output("#{bin}/bsdtar -xOzf test.tar.gz")
+    assert_match "test", shell_output("#{bin}/bsdtar -xOzf test.tar.gz")
   end
 end
