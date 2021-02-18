@@ -23,6 +23,6 @@ class Hexgui < Formula
   end
 
   test do
-    assert_match /^HexGui #{version} .*/, shell_output("#{bin}/hexgui -version").chomp
+    assert_match(/^HexGui #{version} .*/, shell_output("#{bin}/hexgui -version").chomp)
   end
 end
