@@ -26,6 +26,6 @@ class Pmccabe < Formula
   end
 
   test do
-    assert_match /pmccabe #{version}/, shell_output("#{bin}/pmccabe -V")
+    assert_match "pmccabe #{version}", shell_output("#{bin}/pmccabe -V")
   end
 end
