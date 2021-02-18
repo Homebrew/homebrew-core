@@ -25,8 +25,8 @@ class Jhiccup < Formula
     prefix.install "jHiccup.jar"
     prefix.install "jHiccupPlotter.xls"
     inreplace "#{bin}/jHiccup" do |s|
-      s.gsub! /^JHICCUP_JAR_FILE=.*$/,
-              "JHICCUP_JAR_FILE=#{prefix}/jHiccup.jar"
+      s.gsub!(/^JHICCUP_JAR_FILE=.*$/,
+              "JHICCUP_JAR_FILE=#{prefix}/jHiccup.jar")
     end
   end
 
