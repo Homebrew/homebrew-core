@@ -13,6 +13,6 @@ class Bar < Formula
   test do
     (testpath/"test1").write "pumpkin"
     (testpath/"test2").write "latte"
-    assert_match /latte/, shell_output("#{bin}/bar test1 test2")
+    assert_match "latte", shell_output("#{bin}/bar test1 test2")
   end
 end
