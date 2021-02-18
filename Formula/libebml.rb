@@ -1,8 +1,8 @@
 class Libebml < Formula
   desc "Sort of a sbinary version of XML"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libebml/libebml-1.4.1.tar.xz"
-  sha256 "6e94c669405061aa0d25a523b9f1bea8ac73536e37721a110b3372c7f8717032"
+  url "https://dl.matroska.org/downloads/libebml/libebml-1.4.2.tar.xz"
+  sha256 "41c7237ce05828fb220f62086018b080af4db4bb142f31bec0022c925889b9f2"
   license "LGPL-2.1-or-later"
   head "https://github.com/Matroska-Org/libebml.git"
 
