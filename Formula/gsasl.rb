@@ -23,6 +23,6 @@ class Gsasl < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/gsasl")
+    assert_match version.to_s, shell_output("#{bin}/gsasl")
   end
 end
