@@ -4,6 +4,7 @@ class Bazel < Formula
   url "https://github.com/bazelbuild/bazel/releases/download/4.0.0/bazel-4.0.0-dist.zip"
   sha256 "d350f80e70654932db252db380d2ec0144a00e86f8d9f2b4c799ffdb48e9cdd1"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "03d9bae72a88eb463ca7fc05edd799d2b33193982a31368e5ea347bbdbfe4468"
@@ -17,14 +18,6 @@ class Bazel < Formula
 
   uses_from_macos "zip"
 
-  # Fix compilation on macOS 10.14 Mojave
-  # Remove in the next release
-  # See https://github.com/bazelbuild/bazel/pull/12882
-  patch do
-    url "https://github.com/bazelbuild/bazel/commit/092b4c10fa2a2552dc3a98544d637c02ea2865c7.patch?full_index=1"
-    sha256 "273cf54bf4c0fe42fe8da959dc76fc1a3e768f3f3d4108bfd280728db022a308"
-  end
-
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
@@ -32,6 +25,7 @@ class Bazel < Formula
     # Force Bazel to use openjdk@11
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_libexec/"openjdk.jdk/Contents/Home"
     ENV["EXTRA_BAZEL_ARGS"] = "--host_javabase=@local_jdk//:jdk"
+    ENV["EXTRA_BAZEL_ARGS"] = "--features=-debug_prefix_map_pwd_is_dot"
 
     (buildpath/"sources").install buildpath.children
 
