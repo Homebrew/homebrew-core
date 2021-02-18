@@ -58,7 +58,7 @@ class MinimalRacket < Formula
 
   test do
     output = shell_output("#{bin}/racket -e '(displayln \"Hello Homebrew\")'")
-    assert_match /Hello Homebrew/, output
+    assert_match "Hello Homebrew", output
 
     # show that the config file isn't malformed
     output = shell_output("'#{bin}/raco' pkg config")
