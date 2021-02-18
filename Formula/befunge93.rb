@@ -23,6 +23,6 @@ class Befunge93 < Formula
 
   test do
     (testpath/"test.bf").write '"dlroW olleH" ,,,,,,,,,,, @'
-    assert_match /Hello World/, shell_output("#{bin}/bef test.bf")
+    assert_match "Hello World", shell_output("#{bin}/bef test.bf")
   end
 end
