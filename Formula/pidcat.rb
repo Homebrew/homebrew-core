@@ -15,6 +15,6 @@ class Pidcat < Formula
   end
 
   test do
-    assert_match /^usage: pidcat/, shell_output("#{bin}/pidcat --help").strip
+    assert_match(/^usage: pidcat/, shell_output("#{bin}/pidcat --help").strip)
   end
 end
