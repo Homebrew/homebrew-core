@@ -35,7 +35,7 @@ class Src < Formula
     require "pty"
     (testpath/"test.txt").write "foo"
     PTY.spawn("sh", "-c", "#{bin}/src commit -m hello test.txt; #{bin}/src status test.txt") do |r, _w, _pid|
-      assert_match /^=\s*test.txt/, r.read
+      assert_match(/^=\s*test.txt/, r.read)
     end
   end
 end
