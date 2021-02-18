@@ -47,6 +47,6 @@ class MathComp < Formula
 
     coqc = Formula["coq"].opt_bin/"coqc"
     cmd = "#{coqc} -R #{lib}/coq/user-contrib/mathcomp mathcomp testing.v"
-    assert_match /\Atest\s+: forall/, shell_output(cmd)
+    assert_match(/\Atest\s+: forall/, shell_output(cmd))
   end
 end
