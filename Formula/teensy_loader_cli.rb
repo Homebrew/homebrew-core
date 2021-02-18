@@ -27,6 +27,6 @@ class TeensyLoaderCli < Formula
 
   test do
     output = shell_output("#{bin}/teensy_loader_cli 2>&1", 1)
-    assert_match /Filename must be specified/, output
+    assert_match "Filename must be specified", output
   end
 end
