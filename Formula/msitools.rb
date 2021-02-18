@@ -40,7 +40,7 @@ class Msitools < Formula
 
   test do
     # wixl-heat: make an xml fragment
-    assert_match /<Fragment>/, pipe_output("#{bin}/wixl-heat --prefix test")
+    assert_match "<Fragment>", pipe_output("#{bin}/wixl-heat --prefix test")
 
     # wixl: build two installers
     1.upto(2) do |i|
@@ -82,7 +82,7 @@ class Msitools < Formula
     # msiinfo: show info for an installer
     out = `#{bin}/msiinfo suminfo installer1.msi`
     assert_equal 0, $CHILD_STATUS.exitstatus
-    assert_match /Author: BigCo/, out
+    assert_match(/Author: BigCo/, out)
 
     # msiextract: extract files from an installer
     mkdir "files"
