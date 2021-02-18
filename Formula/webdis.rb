@@ -20,7 +20,7 @@ class Webdis < Formula
 
     inreplace "webdis.prod.json" do |s|
       s.gsub! "/var/log/webdis.log", "#{var}/log/webdis.log"
-      s.gsub! /daemonize":\s*true/, "daemonize\":\tfalse"
+      s.gsub!(/daemonize":\s*true/, "daemonize\":\tfalse")
     end
 
     etc.install "webdis.json", "webdis.prod.json"
