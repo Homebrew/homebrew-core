@@ -4,6 +4,7 @@ class Djview4 < Formula
   url "https://downloads.sourceforge.net/project/djvu/DjView/4.12/djview-4.12.tar.gz"
   sha256 "5673c6a8b7e195b91a1720b24091915b8145de34879db1158bc936b100eaf3e3"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class Djview4 < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "djvulibre"
-  depends_on "qt"
+  depends_on "qt@5"
 
   def install
     system "autoreconf", "-fiv"
@@ -38,9 +39,14 @@ class Djview4 < Formula
     # Simply copy the application bundle where you want it.
     on_macos do
       prefix.install "src/djview.app"
+      bin.write_exec_script prefix/"djview.app/Contents/MacOS/djview"
     end
     on_linux do
       prefix.install "src/djview"
     end
+  end
+
+  test do
+    assert_predicate prefix/"djview.app", :exist?
   end
 end
