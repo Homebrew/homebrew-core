@@ -42,8 +42,8 @@ class F3d < Formula
     EOS
 
     f3d_out = shell_output("#{bin}/f3d --verbose --no-render --geometry-only #{testpath}/test.obj 2>&1").strip
-    assert_match /Loading.+obj/, f3d_out
-    assert_match /Number of points: 3/, f3d_out
-    assert_match /Number of polygons: 1/, f3d_out
+    assert_match(/Loading.+obj/, f3d_out)
+    assert_match "Number of points: 3", f3d_out
+    assert_match "Number of polygons: 1", f3d_out
   end
 end
