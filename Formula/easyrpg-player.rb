@@ -39,6 +39,6 @@ class EasyrpgPlayer < Formula
   end
 
   test do
-    assert_match /EasyRPG Player #{version}$/, shell_output("#{bin}/easyrpg-player -v")
+    assert_match(/EasyRPG Player #{version}$/, shell_output("#{bin}/easyrpg-player -v"))
   end
 end
