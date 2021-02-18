@@ -24,8 +24,8 @@ class Predictionio < Formula
     (bin/"pio").write_env_script libexec/"bin/pio", Language::Java.java_home_env("1.8")
 
     inreplace libexec/"conf/pio-env.sh" do |s|
-      s.gsub! /#\s*ES_CONF_DIR=.+$/, "ES_CONF_DIR=#{Formula["elasticsearch@6"].opt_prefix}/config"
-      s.gsub! /SPARK_HOME=.+$/, "SPARK_HOME=#{Formula["apache-spark"].opt_prefix}"
+      s.gsub!(/#\s*ES_CONF_DIR=.+$/, "ES_CONF_DIR=#{Formula["elasticsearch@6"].opt_prefix}/config")
+      s.gsub!(/SPARK_HOME=.+$/, "SPARK_HOME=#{Formula["apache-spark"].opt_prefix}")
     end
   end
 end
