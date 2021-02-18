@@ -15,6 +15,6 @@ class Vcsh < Formula
   end
 
   test do
-    assert_match /Initialized empty/, shell_output("#{bin}/vcsh init test").strip
+    assert_match "Initialized empty", shell_output("#{bin}/vcsh init test").strip
   end
 end
