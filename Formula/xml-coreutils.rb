@@ -30,6 +30,6 @@ class XmlCoreutils < Formula
     (testpath/"test.xml").write <<~EOS
       <hello>world!</hello>
     EOS
-    assert_match /0\s+1\s+1/, shell_output("#{bin}/xml-wc test.xml")
+    assert_match(/0\s+1\s+1/, shell_output("#{bin}/xml-wc test.xml"))
   end
 end
