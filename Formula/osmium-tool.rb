@@ -41,7 +41,7 @@ class OsmiumTool < Formula
       </osm>
     EOS
     output = shell_output("#{bin}/osmium fileinfo test.osm")
-    assert_match /Compression.+generator=handwritten/m, output
+    assert_match(/Compression.+generator=handwritten/m, output)
     system bin/"osmium", "tags-filter", "test.osm", "w/name=line", "-f", "osm"
   end
 end
