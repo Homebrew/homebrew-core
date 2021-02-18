@@ -48,7 +48,7 @@ class Bpytop < Formula
 
     log = (config/"error.log").read
     assert_match "bpytop version #{version} started with pid #{pid}", log
-    assert_not_match /ERROR:/, log
+    assert_not_match "ERROR:", log
   ensure
     Process.kill("TERM", pid)
   end
