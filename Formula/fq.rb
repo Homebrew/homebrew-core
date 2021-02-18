@@ -29,7 +29,7 @@ class Fq < Formula
     pid = fork { exec sbin/"fqd", "-D", "-c", testpath/"test.sqlite" }
     sleep 10
     begin
-      assert_match /Circonus Fq Operational Dashboard/, shell_output("curl 127.0.0.1:8765")
+      assert_match "Circonus Fq Operational Dashboard", shell_output("curl 127.0.0.1:8765")
     ensure
       Process.kill 9, pid
       Process.wait pid
