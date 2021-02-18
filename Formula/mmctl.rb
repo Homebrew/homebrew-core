@@ -40,8 +40,8 @@ class Mmctl < Formula
 
   test do
     output = pipe_output("#{bin}/mmctl help 2>&1")
-    assert_no_match /.*No such file or directory.*/, output
-    assert_no_match /.*command not found.*/, output
-    assert_match /.*mmctl \[command\].*/, output
+    assert_no_match(/.*No such file or directory.*/, output)
+    assert_no_match(/.*command not found.*/, output)
+    assert_match(/.*mmctl \[command\].*/, output)
   end
 end
