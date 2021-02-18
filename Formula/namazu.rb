@@ -39,6 +39,6 @@ class Namazu < Formula
 
     system bin/"mknmz", "-O", "idx", data_file
     search_result = shell_output("#{bin}/namazu -a Homebrew idx")
-    assert_match /#{data_file}/, search_result
+    assert_match data_file.to_s, search_result
   end
 end
