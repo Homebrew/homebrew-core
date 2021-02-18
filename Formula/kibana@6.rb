@@ -83,6 +83,6 @@ class KibanaAT6 < Formula
 
   test do
     ENV["BABEL_CACHE_PATH"] = testpath/".babelcache.json"
-    assert_match /#{version}/, shell_output("#{bin}/kibana -V")
+    assert_match version.to_s, shell_output("#{bin}/kibana -V")
   end
 end
