@@ -27,6 +27,6 @@ class Fribidi < Formula
       a _lsimple _RteST_o th_oat
     EOS
 
-    assert_match /a simple TSet that/, shell_output("#{bin}/fribidi --charset=CapRTL --test test.input")
+    assert_match "a simple TSet that", shell_output("#{bin}/fribidi --charset=CapRTL --test test.input")
   end
 end
