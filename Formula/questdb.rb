@@ -66,7 +66,7 @@ class Questdb < Formula
       sleep 30
       output = shell_output("curl -Is localhost:9000/index.html")
       sleep 4
-      assert_match /questDB/, output
+      assert_match "questDB", output
     ensure
       system "#{bin}/questdb", "stop"
     end
