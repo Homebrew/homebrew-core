@@ -44,7 +44,7 @@ class Gitui < Formula
       invalid: :replace,
       undef:   :replace,
       replace: "")
-    screenlog.gsub! /\e\[([;\d]+)?m/, ""
+    screenlog.gsub!(/\e\[([;\d]+)?m/, "")
     assert_match "Author: Stephan Dilly", screenlog
     assert_match "Date: 2020-06-15", screenlog
     assert_match "Sha: 9c2a31846c417d8775a346ceaf38e77b710d3aab", screenlog
