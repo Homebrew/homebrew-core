@@ -25,7 +25,7 @@ class Remind < Formula
     inreplace "configure", "sleep 1", "true"
     inreplace "src/init.c" do |s|
       s.gsub! "sleep(5);", ""
-      s.gsub! /rkrphgvba\(.\);/, ""
+      s.gsub!(/rkrphgvba\(.\);/, "")
     end
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
