@@ -86,7 +86,7 @@ class Ghostscript < Formula
 
   test do
     ps = test_fixtures("test.ps")
-    assert_match /Hello World!/, shell_output("#{bin}/ps2ascii #{ps}")
+    assert_match "Hello World!", shell_output("#{bin}/ps2ascii #{ps}")
   end
 end
 
