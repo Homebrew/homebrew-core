@@ -24,6 +24,6 @@ class Libcdio < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/cd-info -v", 1)
+    assert_match version.to_s, shell_output("#{bin}/cd-info -v", 1)
   end
 end
