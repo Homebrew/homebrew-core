@@ -1,8 +1,8 @@
 class Tendermint < Formula
   desc "BFT state machine replication for applications in any programming languages"
   homepage "https://tendermint.com/"
-  url "https://github.com/tendermint/tendermint/archive/v0.34.4.tar.gz"
-  sha256 "4521ed3ef5f2a1cc39bd06e95e57d9aa67959f4e1eae4d1b8f8a08e8604a4f7e"
+  url "https://github.com/tendermint/tendermint/archive/v0.34.7.tar.gz"
+  sha256 "93b7dff608f7486b8be87143f9ab50f06efbbdb30702004d7bd5dff99643e9f8"
   license "Apache-2.0"
   head "https://github.com/tendermint/tendermint.git"
 
