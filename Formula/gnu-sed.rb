@@ -55,14 +55,14 @@ class GnuSed < Formula
     (testpath/"test.txt").write "Hello world!"
     on_macos do
       system "#{bin}/gsed", "-i", "s/world/World/g", "test.txt"
-      assert_match /Hello World!/, File.read("test.txt")
+      assert_match "Hello World!", File.read("test.txt")
 
       system "#{opt_libexec}/gnubin/sed", "-i", "s/world/World/g", "test.txt"
-      assert_match /Hello World!/, File.read("test.txt")
+      assert_match "Hello World!", File.read("test.txt")
     end
     on_linux do
       system "#{bin}/sed", "-i", "s/world/World/g", "test.txt"
-      assert_match /Hello World!/, File.read("test.txt")
+      assert_match "Hello World!", File.read("test.txt")
     end
   end
 end
