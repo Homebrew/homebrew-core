@@ -30,7 +30,7 @@ class Pick < Formula
       w.write "foo\nbar\nbaz\n\x04"
       sleep 1
       w.write "\n"
-      assert_match /foo\r\nbar\r\nbaz\r\n\^D.*foo\r\n\z/, r.read
+      assert_match(/foo\r\nbar\r\nbaz\r\n\^D.*foo\r\n\z/, r.read)
     end
   end
 end
