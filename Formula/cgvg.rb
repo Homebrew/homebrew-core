@@ -25,6 +25,6 @@ class Cgvg < Formula
 
   test do
     (testpath/"test").write "Homebrew"
-    assert_match /1 Homebrew/, shell_output("#{bin}/cg Homebrew '#{testpath}/test'")
+    assert_match "1 Homebrew", shell_output("#{bin}/cg Homebrew '#{testpath}/test'")
   end
 end
