@@ -26,6 +26,6 @@ class Z80dasm < Formula
   test do
     path = testpath/"a.bin"
     path.binwrite [0xcd, 0x34, 0x12].pack("c*")
-    assert_match /call 01234h/, shell_output("#{bin}/z80dasm #{path}")
+    assert_match "call 01234h", shell_output("#{bin}/z80dasm #{path}")
   end
 end
