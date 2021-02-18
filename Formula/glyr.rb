@@ -28,6 +28,6 @@ class Glyr < Formula
   test do
     search = "--artist Beatles --title 'Eight Days A Week'"
     cmd = "#{bin}/glyrc lyrics --no-download #{search} -w stdout"
-    assert_match /love you all the time/i, pipe_output(cmd, nil, 0)
+    assert_match "Love you all the time", pipe_output(cmd, nil, 0)
   end
 end
