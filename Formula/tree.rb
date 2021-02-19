@@ -6,8 +6,8 @@ class Tree < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "http://mama.indstate.edu/users/ice/tree/src"
-    regex(/href=.*?tree[._-]v?(.*?)\.t/i)
+    url "http://mama.indstate.edu/users/ice/tree/src/"
+    regex(/href=.*?tree[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
