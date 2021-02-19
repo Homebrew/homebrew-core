@@ -1,10 +1,15 @@
 class MesalibGlw < Formula
   desc "Open-source implementation of the OpenGL specification"
   homepage "https://www.mesa3d.org"
-  url "https://mesa.freedesktop.org/archive/glw/glw-8.0.0.tar.bz2"
+  url "https://archive.mesa3d.org/glw/glw-8.0.0.tar.bz2"
   sha256 "2da1d06e825f073dcbad264aec7b45c649100e5bcde688ac3035b34c8dbc8597"
   license :cannot_represent
   revision 1
+
+  livecheck do
+    url "https://archive.mesa3d.org/glw/"
+    regex(/href=.*?glw[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "fed357436c36aa832c46cad896d75a9b3f0015658732af9cad3a18b19769ea72"
