@@ -17,6 +17,8 @@ class MysqlClientAT57 < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "libedit"
+
   def install
     # https://bugs.mysql.com/bug.php?id=87348
     # Fixes: "ADD_SUBDIRECTORY given source
