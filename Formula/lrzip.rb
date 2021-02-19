@@ -6,7 +6,7 @@ class Lrzip < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "http://ck.kolivas.org/apps/lrzip"
+    url "http://ck.kolivas.org/apps/lrzip/"
     regex(/href=.*?lrzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
