@@ -17,6 +17,7 @@ class Ahoy < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     bin_path = buildpath/"src/github.com/ahoy-cli/ahoy"
     bin_path.install Dir["*"]
     cd bin_path do
