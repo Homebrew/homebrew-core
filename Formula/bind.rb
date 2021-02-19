@@ -1,6 +1,6 @@
 class Bind < Formula
   desc "Implementation of the DNS protocols"
-  homepage "https://www.isc.org/downloads/bind/"
+  homepage "https://www.isc.org/bind/"
 
   # BIND releases with even minor version numbers (9.14.x, 9.16.x, etc) are
   # stable. Odd-numbered minor versions are for testing, and can be unstable
@@ -17,7 +17,7 @@ class Bind < Formula
   # BIND indicates stable releases with an even-numbered minor (e.g., x.2.x)
   # and the regex below only matches these versions.
   livecheck do
-    url "https://www.isc.org/downloads/"
+    url "https://www.isc.org/download/"
     regex(/href=.*?bind[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
   end
 
