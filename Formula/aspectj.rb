@@ -1,12 +1,12 @@
 class Aspectj < Formula
   desc "Aspect-oriented programming for Java"
-  homepage "https://eclipse.org/aspectj/"
+  homepage "https://www.eclipse.org/aspectj/"
   url "https://www.eclipse.org/downloads/download.php?r=1&file=/tools/aspectj/aspectj-1.9.6.jar"
   sha256 "afec62c03fe154adeecf9cd599ce033fff258d1d373a82511e5df54f79ab03e2"
   revision 1
 
   livecheck do
-    url "https://eclipse.org/aspectj/downloads.php"
+    url "https://www.eclipse.org/aspectj/downloads.php"
     regex(%r{Latest Stable Release.*?href=.*?/aspectj[._-]v?(\d+(?:\.\d+)+)\.jar}im)
   end
 
