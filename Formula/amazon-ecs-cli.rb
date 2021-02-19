@@ -17,6 +17,7 @@ class AmazonEcsCli < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/aws/amazon-ecs-cli").install buildpath.children
     cd "src/github.com/aws/amazon-ecs-cli" do
       system "make", "build"
