@@ -3,7 +3,7 @@ class Zbackup < Formula
   homepage "http://zbackup.org"
   url "https://github.com/zbackup/zbackup/archive/1.4.4.tar.gz"
   sha256 "efccccd2a045da91576c591968374379da1dc4ca2e3dec4d3f8f12628fa29a85"
-  revision 16
+  revision 17
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "dbbf40f7f4edf658918a7beaa2c0a6c77c010b7dd18f230bb0a584a8fadfb0fd"
