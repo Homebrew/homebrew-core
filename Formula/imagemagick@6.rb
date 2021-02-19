@@ -5,13 +5,13 @@ class ImagemagickAT6 < Formula
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
   url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.12-0.tar.xz"
-  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.12-0.tar.xz"
+  mirror "https://download.imagemagick.org/ImageMagick/download/releases/ImageMagick-6.9.12-0.tar.xz"
   sha256 "0e2a35c164c4e8ce43f24f3bdfeed0b795fe2ac8dfa7c9a8dfb477126c36ac2d"
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git"
 
   livecheck do
-    url "https://www.imagemagick.org/download/"
+    url "https://download.imagemagick.org/ImageMagick/download/"
     regex(/href=.*?ImageMagick[._-]v?(6(?:\.\d+)+(?:-\d+)?)\.t/i)
   end
 
