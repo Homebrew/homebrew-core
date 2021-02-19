@@ -7,9 +7,11 @@ class Qhull < Formula
   license "Qhull"
   head "https://github.com/qhull/qhull.git"
 
+  # It's necessary to match the version from the link text, as the filename
+  # only contains the year (`2020`), not a full version like `2020.2`.
   livecheck do
-    url :head
-    regex(/^v?(\d{4}(?:\.\d+)+)$/i)
+    url "http://www.qhull.org/download/"
+    regex(/href=.*?qhull[._-][^"' >]+?[._-]src[^>]*?\.t[^>]+?>[^<]*Qhull v?(\d+(?:\.\d+)*)/i)
   end
 
   bottle do
