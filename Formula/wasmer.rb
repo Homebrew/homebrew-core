@@ -14,8 +14,8 @@ class Wasmer < Formula
   end
 
   depends_on "llvm" => :build
-  depends_on "rust" => :build
   depends_on "libffi" => :build
+  depends_on "rust" => :build
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
