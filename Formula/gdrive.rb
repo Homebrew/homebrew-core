@@ -19,6 +19,7 @@ class Gdrive < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     dir = buildpath/"src/github.com/prasmussen/gdrive"
     dir.install buildpath.children
