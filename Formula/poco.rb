@@ -7,7 +7,7 @@ class Poco < Formula
   head "https://github.com/pocoproject/poco.git", branch: "develop"
 
   livecheck do
-    url "https://pocoproject.org/releases"
+    url "https://pocoproject.org/releases/"
     regex(%r{href=.*?poco[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
