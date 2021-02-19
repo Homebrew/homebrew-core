@@ -1,8 +1,8 @@
 class Openfst < Formula
   desc "Library for weighted finite-state transducers"
   homepage "http://www.openfst.org/twiki/bin/view/FST/WebHome"
-  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.0.tar.gz"
-  sha256 "9730f1934f60f1320e46af44826e954bc6f7a695946548005ac33c1821745440"
+  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.1.tar.gz"
+  sha256 "24fb53b72bb687e3fa8ee96c72a31ff2920d99b980a0a8f61dda426fca6713f0"
   license "Apache-2.0"
 
   livecheck do
