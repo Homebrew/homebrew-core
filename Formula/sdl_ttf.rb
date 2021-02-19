@@ -6,7 +6,7 @@ class SdlTtf < Formula
   revision 1
 
   livecheck do
-    url "https://www.libsdl.org/projects/SDL_ttf/release"
+    url "https://www.libsdl.org/projects/SDL_ttf/release/"
     regex(/href=.*?SDL_ttf[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
