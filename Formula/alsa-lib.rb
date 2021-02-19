@@ -6,7 +6,7 @@ class AlsaLib < Formula
   license "LGPL-2.1-or-later"
 
   livecheck do
-    url "https://www.alsa-project.org/files/pub/lib"
+    url "https://www.alsa-project.org/files/pub/lib/"
     regex(/href=.*?alsa-lib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
