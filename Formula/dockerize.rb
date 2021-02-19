@@ -17,6 +17,7 @@ class Dockerize < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/jwilder/dockerize").install buildpath.children
     ENV.append_path "PATH", buildpath/"bin"
     cd "src/github.com/jwilder/dockerize" do
