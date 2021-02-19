@@ -41,21 +41,39 @@ class Go < Formula
     end
   end
 
-  # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
+    # To compile Go, you need either:
+    # - an existing copy of the Go runtime
+    # - a C compiler and Go 1.4, the last version of Go that was written in C.
+    # Then, compile Go 1.4 using C, and use that version to compile the most
+    # recent Go sources.
+    #
+    # With any bootstrapping compiler, there is a trust problem - you can view
+    # and verify the source code, but if the compiler itself is backdoored, it
+    # could propagate the backdoor into the compiled object code. For more on
+    # this topic read "Reflections on Trusting Trust" by Ken Thompson.
+    #
+    # Verifying the compiler from scratch is slow and difficult, and Go 1.4
+    # no longer compiles on recent versions of Mac OS. We choose instead
+    # to trust the compiled objects available from golang.org (hosted at
+    # storage.googleapis.com).
+    #
+    # Once we have made that choice, there's no reason to continue using an
+    # older Go version to bootstrap.
     on_macos do
       if Hardware::CPU.arm?
-        url "https://storage.googleapis.com/golang/go1.16beta1.darwin-arm64.tar.gz"
-        sha256 "fd57f47987bb330fd9b438e7b4c8941b63c3807366602d99c1d99e0122ec62f1"
+        # Go 1.16 is the newest release that has support for ARM.
+        url "https://storage.googleapis.com/golang/go1.16rc1.darwin-arm64.tar.gz"
+        sha256 "f5e0fe8eddac93c79fc12c0d067fd7d119ec20facedb95029706f402334e34dd"
       else
-        url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-        sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+        url "https://storage.googleapis.com/golang/go1.15.8.darwin-amd64.tar.gz"
+        sha256 "7df8977d3befd2ec41479abed1c93aac93cb320dcbe4808950d28948911da854"
       end
     end
 
     on_linux do
-      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
-      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+      url "https://storage.googleapis.com/golang/go1.15.8.linux-amd64.tar.gz"
+      sha256 "d3379c32a90fdf9382166f8f48034c459a8cc433730bc9476d39d9082c94583b"
     end
   end
 
