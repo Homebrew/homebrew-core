@@ -6,7 +6,7 @@ class Sundials < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://computation.llnl.gov/projects/sundials/sundials-software"
+    url "https://computing.llnl.gov/projects/sundials/sundials-software"
     regex(/href=.*?sundials[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
