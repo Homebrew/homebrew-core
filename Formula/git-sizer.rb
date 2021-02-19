@@ -17,6 +17,7 @@ class GitSizer < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/github/git-sizer").install buildpath.children
     cd "src/github.com/github/git-sizer" do
       system "go", "build", "-o", bin/"git-sizer"
