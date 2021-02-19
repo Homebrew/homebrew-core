@@ -8,8 +8,8 @@ class Libxml2 < Formula
   revision 2
 
   livecheck do
-    url "http://xmlsoft.org/sources"
-    regex(/href=.*?libxml2[._-]v?([\d.]+\.[\d.]+\.[\d.]+)\.t/i)
+    url "http://xmlsoft.org/sources/"
+    regex(/href=.*?libxml2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
