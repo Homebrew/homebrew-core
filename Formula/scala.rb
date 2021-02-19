@@ -8,8 +8,8 @@ class Scala < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://www.scala-lang.org/files/archive"
-    regex(/href=.*?scala[._-]v?(\d+(?:\.\d+)+)(?:.final)?\.t/i)
+    url "https://www.scala-lang.org/files/archive/"
+    regex(/href=.*?scala[._-]v?(\d+(?:\.\d+)+)(?:[._-]final)?\.t/i)
   end
 
   bottle :unneeded
