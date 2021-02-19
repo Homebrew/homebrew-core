@@ -34,6 +34,7 @@ class Iftop < Formula
   end
 
   uses_from_macos "libpcap"
+  uses_from_macos "ncurses"
 
   def install
     system "./bootstrap" if build.head?
