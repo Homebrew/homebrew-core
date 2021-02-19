@@ -7,7 +7,7 @@ class SLang < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://www.jedsoft.org/releases/slang"
+    url "https://www.jedsoft.org/releases/slang/"
     regex(/href=.*?slang[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
