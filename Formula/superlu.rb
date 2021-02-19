@@ -4,6 +4,7 @@ class Superlu < Formula
   url "https://portal.nersc.gov/project/sparse/superlu/superlu_5.2.2.tar.gz"
   sha256 "470334a72ba637578e34057f46948495e601a5988a602604f5576367e606a28c"
   license "BSD-3-Clause-LBNL"
+  revision 1
 
   livecheck do
     url :homepage
@@ -25,6 +26,7 @@ class Superlu < Formula
     args = std_cmake_args + %W[
       -Denable_internal_blaslib=NO
       -DTPL_BLAS_LIBRARIES=#{Formula["openblas"].opt_lib}/#{shared_library("libopenblas")}
+      -DBUILD_SHARED_LIBS=YES
     ]
 
     mkdir "build" do
