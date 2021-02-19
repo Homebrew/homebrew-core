@@ -5,6 +5,22 @@ class Geant4 < Formula
   version "10.6.2"
   sha256 "ecdadbf846807af8baa071f38104fb0dcc24847c8475cd8397302e2aefa8f66f"
 
+  # This regex is a little looser than usual (i.e., not restricted to an `href`
+  # attribute) since the links on the download page are created using
+  # JavaScript and the filename is found in a string instead.
+  livecheck do
+    url "https://geant4.web.cern.ch/support/download"
+    regex(/["'].*?geant4[._-]v?(\d+(?:\.\d+)+(?:[._-]?p\d+)?)\.t/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map do |match|
+        # Convert versions from 10.06.p02 to 10.6.2 and 10.07 to 10.7.0
+        version_parts = match.first.split(".").map { |part| part.gsub(/\D/, "").to_i }
+        version_parts << 0 if version_parts.length == 2
+        version_parts.join(".")
+      end
+    end
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:     "170f4a4a3c7c730371e324e7f8e067a855247c1e7ed58f6313be95a55448b7ce"
     sha256 cellar: :any, catalina:    "ce3f0b6a5d075a00e48d38389348e2cc4c140bc88cccb9d44337b48aeb1cfb9e"
