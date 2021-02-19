@@ -6,8 +6,8 @@ class Composer < Formula
   license "MIT"
 
   livecheck do
-    url "https://github.com/composer/composer.git"
-    regex(/^[\d.]+$/i)
+    url "https://getcomposer.org/download/"
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/composer\.phar}i)
   end
 
   bottle :unneeded
