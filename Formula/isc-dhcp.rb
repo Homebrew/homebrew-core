@@ -1,12 +1,12 @@
 class IscDhcp < Formula
   desc "Production-grade DHCP solution"
-  homepage "https://www.isc.org/software/dhcp"
+  homepage "https://www.isc.org/dhcp"
   url "https://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz"
   sha256 "1a7ccd64a16e5e68f7b5e0f527fd07240a2892ea53fe245620f4f5f607004521"
   license "MPL-2.0"
 
   livecheck do
-    url "https://www.isc.org/downloads/"
+    url "https://www.isc.org/download/"
     regex(%r{href=.*?/dhcp[._-]v?(\d+(?:\.\d+)+(?:-P\d+)?)\.t}i)
   end
 
