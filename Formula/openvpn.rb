@@ -1,12 +1,12 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
-  homepage "https://openvpn.net/index.php/download/community-downloads.html"
+  homepage "https://openvpn.net/community/"
   url "https://swupdate.openvpn.org/community/releases/openvpn-2.5.0.tar.xz"
   mirror "https://build.openvpn.net/downloads/releases/openvpn-2.5.0.tar.xz"
   sha256 "029a426e44d656cb4e1189319c95fe6fc9864247724f5599d99df9c4c3478fbd"
 
   livecheck do
-    url :homepage
+    url "https://openvpn.net/community-downloads/"
     regex(/href=.*?openvpn[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
