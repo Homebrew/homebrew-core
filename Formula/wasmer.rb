@@ -13,8 +13,8 @@ class Wasmer < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "ca3bb35344bf5e3269e123842f622180939b3b240f0e98f1824ca79305212cae"
   end
 
-  depends_on "llvm" => :build
   depends_on "libffi" => :build
+  depends_on "llvm" => :build
   depends_on "rust" => :build
 
   uses_from_macos "ncurses"
