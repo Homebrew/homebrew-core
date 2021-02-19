@@ -3,9 +3,9 @@ class Spades < Formula
 
   desc "De novo genome sequence assembly"
   homepage "https://cab.spbu.ru/software/spades/"
-  url "https://cab.spbu.ru/files/release3.15.0/SPAdes-3.15.0.tar.gz"
-  mirror "https://github.com/ablab/spades/releases/download/v3.15.0/SPAdes-3.15.0.tar.gz"
-  sha256 "6719489fa4bed6dd96d78bdd4001a30806d5469170289085836711d1ffb8b28b"
+  url "https://cab.spbu.ru/files/release3.15.1/SPAdes-3.15.1.tar.gz"
+  mirror "https://github.com/ablab/spades/releases/download/v3.15.1/SPAdes-3.15.1.tar.gz"
+  sha256 "db0673745459ef3ca15b060bf9cff9aa1283823f8b3ed9e07b750d1d627d6249"
   license "GPL-2.0-only"
 
   livecheck do
