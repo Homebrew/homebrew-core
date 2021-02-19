@@ -2,13 +2,13 @@ class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://www.imagemagick.org/"
   url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.11-0.tar.xz"
-  mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.11-0.tar.xz"
+  mirror "https://download.imagemagick.org/ImageMagick/download/releases/ImageMagick-7.0.11-0.tar.xz"
   sha256 "ef49558c7d2648d3001306b1e65c542acab6476a24fcbd275beae6240576c0ac"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
   livecheck do
-    url "https://www.imagemagick.org/download/"
+    url "https://download.imagemagick.org/ImageMagick/download/"
     regex(/href=.*?ImageMagick[._-]v?(\d+(?:\.\d+)+-\d+)\.t/i)
   end
 
