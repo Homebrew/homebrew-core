@@ -33,6 +33,9 @@ class Avrdude < Formula
   depends_on "libhid"
   depends_on "libusb-compat"
 
+  uses_from_macos "bison"
+  uses_from_macos "flex"
+
   def install
     if build.head?
       inreplace "bootstrap", /libtoolize/, "glibtoolize"
