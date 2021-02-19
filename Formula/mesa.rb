@@ -3,10 +3,15 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-20.3.4.tar.xz"
+  url "https://archive.mesa3d.org/mesa-20.3.4.tar.xz"
   sha256 "dc21a987ec1ff45b278fe4b1419b1719f1968debbb80221480e44180849b4084"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
+
+  livecheck do
+    url "https://archive.mesa3d.org/"
+    regex(/href=.*?mesa[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "a3e65d929df4b5bcb70c71abb33140e6fbcc8192876042a443ae71ba134d9b03"
