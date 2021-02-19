@@ -15,6 +15,9 @@ class Gdrive < Formula
     sha256 "b03e82ba9bb723b7f6225607b3127b9d515f0d79271f76b375b74324aecfb057" => :sierra
   end
 
+  # See https://github.com/prasmussen/gdrive/commit/31d0829c180795d17e00b7a354fffe4d72be712b
+  deprecate! date: "2021-02-18", because: :unmaintained
+
   depends_on "go" => :build
 
   def install
