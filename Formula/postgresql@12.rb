@@ -187,7 +187,7 @@ class PostgresqlAT12 < Formula
     caveats
   end
 
-  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres@12 start"
+  plist_options manual: "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgresql@12 start"
 
   def plist
     <<~EOS
