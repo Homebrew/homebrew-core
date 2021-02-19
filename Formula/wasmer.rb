@@ -15,8 +15,13 @@ class Wasmer < Formula
 
   depends_on "llvm" => :build
   depends_on "rust" => :build
+  depends_on "libffi" => :build
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     chdir "lib/cli" do
       system "cargo", "install", "--features", "cranelift,llvm", *std_cargo_args
     end
