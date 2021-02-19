@@ -14,12 +14,6 @@ class Sha3sum < Formula
 
   depends_on "libkeccak"
 
-  # remove in next release
-  patch do
-    url "https://github.com/maandree/sha3sum/commit/d01c03c.patch?full_index=1"
-    sha256 "c958d05b67330291c3d14608d1566351e05f23cf3f4fb27186e5e99765ab7dd0"
-  end
-
   def install
     system "make", "install", "PREFIX=#{prefix}"
     inreplace "test", "./", "#{bin}/"
