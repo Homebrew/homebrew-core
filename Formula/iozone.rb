@@ -1,12 +1,12 @@
 class Iozone < Formula
   desc "File system benchmark tool"
-  homepage "http://www.iozone.org/"
-  url "http://www.iozone.org/src/current/iozone3_491.tgz"
+  homepage "https://www.iozone.org/"
+  url "https://www.iozone.org/src/current/iozone3_491.tgz"
   sha256 "057d310cc0c16fcb35ac6de25bee363d54503377cbd93a6122797f8277aab6f0"
   license :cannot_represent
 
   livecheck do
-    url "http://www.iozone.org/src/current"
+    url "https://www.iozone.org/src/current/"
     regex(/href=.*?iozone[._-]?v?(\d+(?:[._]\d+)+)\.t/i)
   end
 
