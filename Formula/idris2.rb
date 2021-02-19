@@ -13,8 +13,8 @@ class Idris2 < Formula
     sha256 cellar: :any, mojave:   "ab173b9e9ef6083e6ae2fe22f8a55892e80c064ec9b9838afa5b6488ae9a8529"
   end
 
-  depends_on "coreutils" => :build
   depends_on "chezscheme"
+  depends_on "coreutils"
 
   def install
     ENV.deparallelize
