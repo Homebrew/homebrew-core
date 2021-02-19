@@ -1,6 +1,6 @@
 class BerkeleyDb < Formula
   desc "High performance key/value database"
-  homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
+  homepage "https://www.oracle.com/database/technologies/related/berkeleydb.html"
   # Requires registration to download so we mirror it
   url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.32.tar.gz"
   mirror "https://fossies.org/linux/misc/db-18.1.32.tar.gz"
@@ -8,8 +8,7 @@ class BerkeleyDb < Formula
   revision 1
 
   livecheck do
-    url "https://www.oracle.com/technetwork/database/" \
-    "database-technologies/berkeleydb/downloads/index.html"
+    url "https://www.oracle.com/database/technologies/related/berkeleydb-downloads.html"
     regex(%r{href=.*?/berkeley-db/db[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
