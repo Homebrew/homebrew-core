@@ -5,6 +5,7 @@ class Wownero < Formula
       tag:      "v0.9.2.2",
       revision: "0e65b21328f88044009838ed963652effe13b5c4"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c6ae9f113bd94feddb7c7ca1253b63ad4cade092674ab507864b0a29b1e517e7"
