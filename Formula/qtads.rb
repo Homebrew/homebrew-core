@@ -33,9 +33,12 @@ class Qtads < Formula
     end
   end
 
+  # The first-party download page links to releases on GitHub, so we manually
+  # check that for now. If the formula is modified in the future to use a
+  # release from GitHub, this should be modified to use `url :stable`.
   livecheck do
     url :head
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
