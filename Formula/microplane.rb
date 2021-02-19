@@ -17,13 +17,14 @@ class Microplane < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
+    ldflags = "-s -w -X main.version=#{version}"
 
     dir = buildpath/"src/github.com/Clever/microplane"
     dir.install buildpath.children
     cd "src/github.com/Clever/microplane" do
-      system "make", "install_deps"
-      system "make", "build"
-      bin.install "bin/mp"
+      system "dep", "ensure", "-v", "-vendor-only"
+      system "go", "build", *std_go_args, "-ldflags", ldflags, "-o", bin/"mp"
     end
   end
 
