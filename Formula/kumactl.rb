@@ -14,12 +14,6 @@ class Kumactl < Formula
 
   depends_on "go" => :build
 
-  # Fix build on ARM, remove in next version
-  patch do
-    url "https://github.com/kumahq/kuma/commit/f96cfbc1cd61ddb14e9fb7ca3b47e13983981404.patch?full_index=1"
-    sha256 "3a75649e5c769a5b8303efe40983f8d865adab8a9201650fa7d210a35db22b11"
-  end
-
   def install
     srcpath = buildpath/"src/kuma.io/kuma"
     srcpath.install buildpath.children
