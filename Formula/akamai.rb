@@ -17,6 +17,7 @@ class Akamai < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
 
     srcpath = buildpath/"src/github.com/akamai/cli"
