@@ -15,6 +15,7 @@ class Bitrise < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     # Install bitrise
     bitrise_go_path = buildpath/"src/github.com/bitrise-io/bitrise"
