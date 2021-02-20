@@ -1,14 +1,14 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
-  homepage "https://www.fossil-scm.org/"
-  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.14.tar.gz"
+  homepage "https://www.fossil-scm.org/home/"
+  url "https://www.fossil-scm.org/home/uv/fossil-src-2.14.tar.gz"
   sha256 "b8d0c920196dd8ae29152fa7448e513a1fa7c588871b785e3fbfc07b42a05fb9"
   license "BSD-2-Clause"
   head "https://www.fossil-scm.org/", using: :fossil
 
   livecheck do
-    url "https://www.fossil-scm.org/index.html/uv/download.js"
-    regex(/"title": *?"Version (\d+(?:\.\d+)+)\s*?\(/i)
+    url "https://www.fossil-scm.org/home/uv/download.js"
+    regex(/"title":\s*?"Version (\d+(?:\.\d+)+)\s*?\(/i)
   end
 
   bottle do
