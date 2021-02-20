@@ -18,6 +18,7 @@ class Cql < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     ENV["CQLVERSION"] = "v#{version}"
     ENV["CGO_ENABLED"] = "1"
     mkdir_p "src/github.com/CovenantSQL"
