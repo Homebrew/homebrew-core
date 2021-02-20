@@ -1,8 +1,8 @@
 class Devdash < Formula
   desc "Highly Configurable Terminal Dashboard for Developers"
   homepage "https://thedevdash.com"
-  url "https://github.com/Phantas0s/devdash/archive/v0.4.1.tar.gz"
-  sha256 "801a4c9b316834589b472e87d2ed16a093b2e6031cb2724668c5ea61b28813c8"
+  url "https://github.com/Phantas0s/devdash/archive/v0.4.2.tar.gz"
+  sha256 "88aa71141a5642fde2f56e773702e027ce35ee2e3d3492ad4747779e549f7da9"
   license "Apache-2.0"
 
   bottle do
