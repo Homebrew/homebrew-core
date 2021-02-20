@@ -21,6 +21,8 @@ class Dockviz < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
+
     (buildpath/"src/github.com/justone/dockviz").install buildpath.children
     cd "src/github.com/justone/dockviz" do
       system "govendor", "sync"
