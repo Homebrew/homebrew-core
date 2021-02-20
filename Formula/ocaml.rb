@@ -33,8 +33,8 @@ class Ocaml < Formula
   pour_bottle? do
     # The ocaml compilers embed prefix information in weird ways that the default
     # brew detection doesn't find, and so needs to be explicitly blacklisted.
-    reason "The bottle needs to be installed into /usr/local."
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
+    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
   end
 
   def install
