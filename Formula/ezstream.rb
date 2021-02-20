@@ -1,8 +1,8 @@
 class Ezstream < Formula
   desc "Client for Icecast streaming servers"
   homepage "https://icecast.org/ezstream/"
-  url "https://downloads.xiph.org/releases/ezstream/ezstream-1.0.1.tar.gz"
-  sha256 "fc4bf494897a8b1cf75dceefb1eb22ebd36967e5c3b5ce2af9858dbb94cf1157"
+  url "https://downloads.xiph.org/releases/ezstream/ezstream-1.0.2.tar.gz"
+  sha256 "11de897f455a95ba58546bdcd40a95d3bda69866ec5f7879a83b024126c54c2a"
   license "GPL-2.0-only"
   head "https://gitlab.xiph.org/xiph/ezstream.git"
 
