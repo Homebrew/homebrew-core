@@ -5,8 +5,8 @@ class Gcc < Formula
     # Branch from the Darwin maintainer of GCC with Apple Silicon support,
     # located at https://github.com/iains/gcc-darwin-arm64 and
     # backported with his help to gcc-10 branch. Too big for a patch.
-    url "https://github.com/fxcoudert/gcc/archive/gcc-10-arm-20201228.tar.gz"
-    sha256 "dd5377a13f0ee4645bce1c18ed7327ea4ad5f8bd5c6a2a24eb299c647d3d43f4"
+    url "https://github.com/fxcoudert/gcc/archive/gcc-10-arm-20210220.tar.gz"
+    sha256 "53beed690e4e0355d972ad58917a11e01af1cfe67b2e7602ca1ef89c98417a67"
     version "10.2.0"
   else
     url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
