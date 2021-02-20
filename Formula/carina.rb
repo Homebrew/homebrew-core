@@ -17,7 +17,7 @@ class Carina < Formula
     sha256 cellar: :any_skip_relocation, yosemite:    "0706998cd1dc286030e20382ac69a96c744ec558784685f769aa4276966dcd12"
   end
 
-  deprecate! date: "2021-02-20", because: "getcarina.com is down and the repo is unmaintained"
+  disable! date: "2021-02-20", because: :unsupported
 
   depends_on "go" => :build
 
