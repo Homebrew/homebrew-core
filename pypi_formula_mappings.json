@@ -1,0 +1,34 @@
+{
+  "ansible": false,
+  "ansible@2.8": false,
+  "cloudformation-cli": {
+    "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin"]
+  },
+  "charm-tools": {
+    "extra_packages": ["wheel"]
+  },
+  "diffoscope": "diffoscope[cmdline]",
+  "ipython": {
+    "extra_packages": ["ipykernel"]
+  },
+  "fdroidserver": {
+      "extra_packages": ["wheel"]
+  },
+  "molecule": false,
+  "openstackclient": {
+    "extra_packages": ["python-heatclient"]
+  },
+  "pdm": {
+    "extra_packages": ["wheel"]
+  },
+  "poetry": {
+    "extra_packages": ["importlib-metadata", "typing-extensions"]
+  },
+  "salt": {
+    "extra_packages": ["M2Crypto", "pygit2"]
+  },
+  "xdot": {
+    "extra_packages": ["graphviz"]
+  },
+  "xonsh": "xonsh[ptk,pygments,proctitle]"
+}

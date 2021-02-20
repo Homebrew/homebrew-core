@@ -1,0 +1,10 @@
+{
+  "aws-sdk-cpp": 10,
+  "awscli@1": 10,
+  "balena-cli": 10,
+  "contentful-cli": 5,
+  "checkov": 15,
+  "gatsby-cli": 10,
+  "quicktype": 10,
+  "vim": 25
+}
