@@ -18,6 +18,7 @@ class Aptly < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     ENV["GOBIN"] = bin
     (buildpath/"src/github.com/aptly-dev/aptly").install buildpath.children
     cd "src/github.com/aptly-dev/aptly" do
