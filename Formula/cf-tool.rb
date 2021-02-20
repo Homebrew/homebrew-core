@@ -16,6 +16,7 @@ class CfTool < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/xalanq/cf-tool").install buildpath.children
     cd "src/github.com/xalanq/cf-tool" do
       system "go", "build", "-o", "cf", "-trimpath", "-ldflags", "-s -w", "cf.go"
