@@ -6,7 +6,7 @@ class Tcpflow < Formula
   license "GPL-3.0"
 
   livecheck do
-    url "http://downloads.digitalcorpora.org/downloads/tcpflow/"
+    url "https://downloads.digitalcorpora.org/downloads/tcpflow/"
     regex(/href=.*?tcpflow[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
