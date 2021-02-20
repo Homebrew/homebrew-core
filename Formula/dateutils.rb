@@ -30,6 +30,6 @@ class Dateutils < Formula
 
   test do
     output = shell_output("#{bin}/dconv 2012-03-04 -f \"%Y-%m-%c-%w\"").strip
-    assert_equal "2012-03-01-00", output
+    assert_equal "2012-03-01-07", output
   end
 end
