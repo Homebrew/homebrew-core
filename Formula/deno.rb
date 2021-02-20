@@ -23,7 +23,7 @@ class Deno < Formula
 
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "53d92014bf94c3893886470a1c7c1289f8818db0"
+        revision: "55ad154c961d8326315b1c8147f4e504cd95e9e6"
   end
 
   def install
