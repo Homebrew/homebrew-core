@@ -1,14 +1,12 @@
 class Bork < Formula
   desc "Bash-Operated Reconciling Kludge"
-  homepage "https://github.com/mattly/bork"
-  url "https://github.com/mattly/bork/archive/v0.11.1.tar.gz"
-  sha256 "4dabfca259cc529a19597c6f748f1492985ee2f6d7ac88cf70fa621b99f7a927"
+  homepage "https://github.com/skylarmacdonald/bork"
+  url "https://github.com/skylarmacdonald/bork/archive/v0.12.0.tar.gz"
+  sha256 "525f797a5ad01734d298852a038c2a2cb338ee9bb038c560bb20ecf142b1588b"
   license "Apache-2.0"
-  head "https://github.com/mattly/bork.git"
+  head "https://github.com/skylarmacdonald/bork.git"
 
   bottle :unneeded
-
-  deprecate! date: "2018-09-11", because: :repo_archived
 
   def install
     prefix.install %w[bin docs lib test types]
