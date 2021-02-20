@@ -4,7 +4,7 @@ class Libftdi < Formula
   url "https://www.intra2net.com/en/developer/libftdi/download/libftdi1-1.5.tar.bz2"
   sha256 "7c7091e9c86196148bd41177b4590dccb1510bfe6cea5bf7407ff194482eb049"
   license "LGPL-2.1-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.intra2net.com/en/developer/libftdi/download.php"
@@ -24,6 +24,13 @@ class Libftdi < Formula
   depends_on "boost"
   depends_on "confuse"
   depends_on "libusb"
+
+  # Patch to fix pkg-config flags issue. Homebrew/homebrew-core#71623
+  # http://developer.intra2net.com/git/?p=libftdi;a=commit;h=cdb28383402d248dbc6062f4391b038375c52385
+  patch do
+    url "http://developer.intra2net.com/git/?p=libftdi;a=patch;h=cdb28383402d248dbc6062f4391b038375c52385;hp=5c2c58e03ea999534e8cb64906c8ae8b15536c30"
+    sha256 "db4c3e558e0788db00dcec37929f7da2c4ad684791977445d8516cc3e134a3c4"
+  end
 
   def install
     mkdir "libftdi-build" do
