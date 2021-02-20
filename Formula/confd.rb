@@ -17,6 +17,7 @@ class Confd < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/kelseyhightower/confd").install buildpath.children
     cd "src/github.com/kelseyhightower/confd" do
       system "go", "install", "github.com/kelseyhightower/confd"
