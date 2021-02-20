@@ -29,9 +29,16 @@ class TerraformInventory < Formula
   end
 
   def install
-    system "go", "build", *std_go_args
-  end
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
+    
+    mkdir_p buildpath/"src/github.com/adammck/"
+    ln_sf buildpath, buildpath/"src/github.com/adammck/terraform-inventory"
+    Language::Go.stage_deps resources, buildpath/"src"
 
+    system "go", "build", "-o", bin/"terraform-inventory", "-ldflags", "-X main.build_version='#{version}'"
+  end
+  
   test do
     example = <<~EOS
       {
