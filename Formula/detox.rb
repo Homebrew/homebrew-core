@@ -1,8 +1,8 @@
 class Detox < Formula
   desc "Utility to replace problematic characters in filenames"
   homepage "https://detox.sourceforge.io/"
-  url "https://github.com/dharple/detox/archive/v1.4.0.tar.gz"
-  sha256 "9d201e4bf135e708e39bf4f46cfb2b8ce4ac6ceed54a2d87d30cca48b78af2a8"
+  url "https://github.com/dharple/detox/archive/v1.4.1.tar.gz"
+  sha256 "fd71aa31abc82b1ec8b7ce996cd70062939e9c165b106f395beced3706c5ea17"
   license "BSD-3-Clause"
 
   bottle do
