@@ -17,10 +17,13 @@ class Carina < Formula
     sha256 cellar: :any_skip_relocation, yosemite:    "0706998cd1dc286030e20382ac69a96c744ec558784685f769aa4276966dcd12"
   end
 
+  deprecate! date: "2021-02-20", because: "getcarina.com is down and the repo is unmaintained"
+
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     ENV.prepend_create_path "PATH", buildpath/"bin"
 
     carinapath = buildpath/"src/github.com/getcarina/carina"
