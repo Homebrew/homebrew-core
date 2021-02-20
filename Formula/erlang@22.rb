@@ -2,8 +2,8 @@ class ErlangAT22 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-22.3.4.15.tar.gz"
-  sha256 "05d388ee252fd04a8e9e62f3ea7be3b45a19f698d978452933a21138a383e80d"
+  url "https://github.com/erlang/otp/archive/OTP-22.3.4.16.tar.gz"
+  sha256 "92160456fde968208839663d9568a56964c8f0d6220ab57f6bdf078c4c26d854"
   license "Apache-2.0"
 
   livecheck do
@@ -22,7 +22,6 @@ class ErlangAT22 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "wxmac" # for GUI apps like observer
 
@@ -38,19 +37,6 @@ class ErlangAT22 < Formula
     url "https://www.erlang.org/download/otp_doc_html_22.3.tar.gz"
     mirror "https://fossies.org/linux/misc/otp_doc_html_22.3.tar.gz"
     sha256 "9b01c61f2898235e7f6643c66215d6419f8706c8fdd7c3e0123e68960a388c34"
-  end
-
-  # Fix build on Xcode 12
-  patch do
-    url "https://github.com/erlang/otp/commit/388622e9b626039c1e403b4952c2c905af364a96.patch?full_index=1"
-    sha256 "85d3611fc071f06d421b9c7fae00b656fde054586bf69551aec38930d4086780"
-  end
-
-  # Fix build on Big Sur
-  # https://github.com/erlang/otp/pull/4523
-  patch do
-    url "https://github.com/erlang/otp/commit/a0883306c4716dee0808aa80e60228f171de1317.patch?full_index=1"
-    sha256 "6d93477766c4903a68fde686965f00092f31b182499da61713bbf448f5f1fabc"
   end
 
   def install
