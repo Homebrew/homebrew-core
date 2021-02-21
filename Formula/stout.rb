@@ -13,10 +13,14 @@ class Stout < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "26554af96b6044316abecb1a2142e81b1aab8315bff941cbdad9b39fe143b74e"
   end
 
+  # https://github.com/cloudflare/Stout/issues/58
+  deprecate! date: "2021-02-21", because: :unmaintained
+
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     # Compatibility with newer Go.
     # Reported upstream, but the project is unmaintained.
