@@ -17,12 +17,6 @@ class CabalInstall < Formula
   depends_on "ghc"
   uses_from_macos "zlib"
 
-  # Update bootstrap dependencies to work with base-4.13.0.0
-  patch :p2 do
-    url "https://github.com/haskell/cabal/commit/b6f7ec5f3598f69288bddbdba352e246e337fb90.patch?full_index=1"
-    sha256 "f4c869e74968c5892cd1fa1001adf96eddcec73e03fb5cf70d3a0c0de08d9e4e"
-  end
-
   def install
     ENV.prepend_path "PATH", Formula["ghc@8.8"].bin
     cd "cabal-install" if build.head?
