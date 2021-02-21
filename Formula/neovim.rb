@@ -71,12 +71,6 @@ class Neovim < Formula
     ENV.prepend_path "LUA_CPATH", "#{buildpath}/deps-build/lib/lua/5.1/?.so"
     lua_path = "--lua-dir=#{Formula["luajit-openresty"].opt_prefix}"
 
-    cmake_compiler_args = []
-    on_macos do
-      cmake_compiler_args << "-DCMAKE_C_COMPILER=/usr/bin/clang"
-      cmake_compiler_args << "-DCMAKE_CXX_COMPILER=/usr/bin/clang++"
-    end
-
     cd "deps-build" do
       %w[
         mpack/mpack-1.0.8-0.rockspec
@@ -96,12 +90,13 @@ class Neovim < Formula
 
     mkdir "build" do
       cmake_args = std_cmake_args
-      cmake_args += cmake_compiler_args
       cmake_args += %W[
         -DLIBLUV_INCLUDE_DIR=#{Formula["luv"].opt_include}
         -DLIBLUV_LIBRARY=#{Formula["luv"].opt_lib}/libluv_a.a
       ]
       system "cmake", "..", *cmake_args
+      # Patch out references to Homebrew shims
+      inreplace "config/auto/versiondef.h", /#{HOMEBREW_LIBRARY}[^ ]+/o, ENV.cc
       system "make", "install"
     end
   end
