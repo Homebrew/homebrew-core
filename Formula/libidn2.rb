@@ -4,7 +4,7 @@ class Libidn2 < Formula
   url "https://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.3.0.tar.gz"
   sha256 "e1cb1db3d2e249a6a3eb6f0946777c2e892d5c5dc7bd91c74394fc3a01cab8b5"
-  license "GPL-2.0"
+  license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
     url :stable
