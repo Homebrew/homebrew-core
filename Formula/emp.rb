@@ -18,6 +18,7 @@ class Emp < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     (buildpath/"src/github.com/remind101/").mkpath
     ln_s buildpath, buildpath/"src/github.com/remind101/empire"
