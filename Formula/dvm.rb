@@ -17,6 +17,7 @@ class Dvm < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     (buildpath/"src/github.com/howtowhale/dvm").install buildpath.children
 
