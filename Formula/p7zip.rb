@@ -1,10 +1,9 @@
 class P7zip < Formula
   desc "7-Zip (high compression file archiver) implementation"
-  homepage "https://p7zip.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/p7zip/p7zip/16.02/p7zip_16.02_src_all.tar.bz2"
-  sha256 "5eb20ac0e2944f6cb9c2d51dd6c4518941c185347d4089ea89087ffdd6e2341f"
+  homepage "https://github.com/jinfeihan57/p7zip"
+  url "https://github.com/jinfeihan57/p7zip/archive/v17.03.tar.gz"
+  sha256 "bb4b9b21584c0e076e0b4b2705af0dbe7ac19d378aa7f09a79da33a5b3293187"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "672dff61eba151f9c1117a1486ef2908dc0d834c355ca31f359ac56dafc75e3d"
@@ -13,14 +12,8 @@ class P7zip < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "971a247c66fae4b54fdf169fdea79b79a85af6a8d6dc01a3119df014aa4316fe"
   end
 
-  # Fix security bugs and remove non-free RAR sources
-  patch do
-    url "https://deb.debian.org/debian/pool/main/p/p7zip/p7zip_16.02+dfsg-8.debian.tar.xz"
-    sha256 "01217dca1667af0de48935a51dc46aad442e6ebcac799d714101b7edf9651eb5"
-    apply "patches/01-makefile.patch",
-          "patches/12-CVE-2016-9296.patch",
-          "patches/13-CVE-2017-17969.patch"
-  end
+  # Remove non-free RAR sources
+  patch :DATA
 
   # Fix AES security bugs
   patch :p4 do
@@ -45,3 +38,32 @@ class P7zip < Formula
     assert_equal "hello world!\n", File.read(testpath/"out/foo.txt")
   end
 end
+
+__END__
+diff -u -r a/makefile b/makefile
+--- a/makefile	2021-02-21 14:27:14.000000000 +0800
++++ b/makefile	2021-02-21 14:27:31.000000000 +0800
+@@ -31,7 +31,6 @@
+ 	$(MAKE) -C CPP/7zip/UI/Client7z           depend
+ 	$(MAKE) -C CPP/7zip/UI/Console            depend
+ 	$(MAKE) -C CPP/7zip/Bundles/Format7zFree  depend
+-	$(MAKE) -C CPP/7zip/Compress/Rar          depend
+ 	$(MAKE) -C CPP/7zip/UI/GUI                depend
+ 	$(MAKE) -C CPP/7zip/UI/FileManager        depend
+ 
+@@ -42,7 +41,6 @@
+ common7z:common
+ 	$(MKDIR) bin/Codecs
+ 	$(MAKE) -C CPP/7zip/Bundles/Format7zFree all
+-	$(MAKE) -C CPP/7zip/Compress/Rar         all
+ 
+ lzham:common
+ 	$(MKDIR) bin/Codecs
+@@ -67,7 +65,6 @@
+ 	$(MAKE) -C CPP/7zip/UI/FileManager       clean
+ 	$(MAKE) -C CPP/7zip/UI/GUI               clean
+ 	$(MAKE) -C CPP/7zip/Bundles/Format7zFree clean
+-	$(MAKE) -C CPP/7zip/Compress/Rar         clean
+ 	$(MAKE) -C CPP/7zip/Compress/Lzham       clean
+ 	$(MAKE) -C CPP/7zip/Bundles/LzmaCon      clean2
+ 	$(MAKE) -C CPP/7zip/Bundles/AloneGCOV    clean
