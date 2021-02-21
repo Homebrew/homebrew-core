@@ -35,6 +35,7 @@ class DockerGen < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/jwilder/docker-gen").install buildpath.children
     Language::Go.stage_deps resources, buildpath/"src"
 
