@@ -18,6 +18,7 @@ class Gollum < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/trivago/gollum").install buildpath.children
     cd "src/github.com/trivago/gollum" do
       system "go", "build", "-o", bin/"gollum"
