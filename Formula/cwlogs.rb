@@ -12,12 +12,16 @@ class Cwlogs < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "d0e1bda71db260a905c5f88da3fce0074ab59576ef6c12948eeae2ae5faf6435"
   end
 
+  # https://github.com/segmentio/cwlogs/issues/37
+  deprecate! date: "2021-02-21", because: :unmaintained
+
   depends_on "go" => :build
   depends_on "govendor" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     ENV["CGO_ENABLED"] = "0"
+    ENV["GO111MODULE"] = "auto"
 
     path = buildpath/"src/github.com/segmentio/cwlogs"
     path.install Dir["{*,.git}"]
