@@ -1,10 +1,9 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.24.0/ldc-1.24.0-src.tar.gz"
-  sha256 "fd9561ade916e9279bdcc166cf0e4836449c24e695ab4470297882588adbba3c"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.25.0/ldc-1.25.0-src.tar.gz"
+  sha256 "6466441698f07ff00dfa7eadee1b9885df8698dbfd70bd9744bd1881ab466737"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/ldc-developers/ldc.git", shallow: false
 
   livecheck do
@@ -29,14 +28,9 @@ class Ldc < Formula
   end
 
   resource "ldc-bootstrap" do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.24.0/ldc2-1.24.0-osx-x86_64.tar.xz"
-    sha256 "91b74856982d4d5ede6e026f24e33887d931db11b286630554fc2ad0438cda44"
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.25.0/ldc2-1.25.0-osx-x86_64.tar.xz"
+    sha256 "ea22a76d2fa86a52ca9b24bca980ffc12db56fbf8ef9582c586da24f83eb58f5"
   end
-
-  # Add support for building against LLVM 11.1
-  # This is already merged upstream via https://github.com/ldc-developers/druntime/pull/195
-  # but it needs adjustments to apply against 1.24.0 tarball
-  patch :DATA
 
   def install
     ENV.cxx11
@@ -75,15 +69,3 @@ class Ldc < Formula
     assert_match "Hello, world!", shell_output("./test")
   end
 end
-
-__END__
---- ldc-1.24.0-src/runtime/druntime/src/ldc/intrinsics.di.ORIG	2021-02-19 00:16:52.000000000 +0000
-+++ ldc-1.24.0-src/runtime/druntime/src/ldc/intrinsics.di	2021-02-19 00:17:05.000000000 +0000
-@@ -26,6 +26,7 @@
- else version (LDC_LLVM_900)  enum LLVM_version =  900;
- else version (LDC_LLVM_1000) enum LLVM_version = 1000;
- else version (LDC_LLVM_1100) enum LLVM_version = 1100;
-+else version (LDC_LLVM_1101) enum LLVM_version = 1101;
- else static assert(false, "LDC LLVM version not supported");
- 
- enum LLVM_atleast(int major) = (LLVM_version >= major * 100);
