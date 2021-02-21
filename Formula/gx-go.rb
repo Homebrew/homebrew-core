@@ -175,6 +175,7 @@ class GxGo < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     mkdir_p "src/github.com/whyrusleeping"
     ln_s buildpath, "src/github.com/whyrusleeping/gx-go"
     Language::Go.stage_deps resources, buildpath/"src"
