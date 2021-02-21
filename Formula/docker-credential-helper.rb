@@ -18,6 +18,7 @@ class DockerCredentialHelper < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     dir = buildpath/"src/github.com/docker/docker-credential-helpers"
     dir.install buildpath.children - [buildpath/".brew_home"]
 
