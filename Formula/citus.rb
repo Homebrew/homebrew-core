@@ -13,6 +13,7 @@ class Citus < Formula
     sha256 cellar: :any, mojave:        "fa880201b2c78ed4884ba2188933b2acd1baa304f78ee7b4e8bcaebc6a44dea1"
   end
 
+  depends_on "lz4"
   depends_on "postgresql"
   depends_on "readline"
 
