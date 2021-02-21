@@ -3,7 +3,8 @@ class Lwtools < Formula
   homepage "http://www.lwtools.ca/"
   url "http://www.lwtools.ca/releases/lwtools/lwtools-4.18.tar.gz"
   sha256 "1f7837d4985f2f3db65bd7c1af05ab7fc779ca43c8bbe411a3042fd85f0c8151"
-
+  license GPL-3.0-only
+  
   livecheck do
     url "http://www.lwtools.ca/releases/lwtools/"
     regex(/href=.*?lwtools[._-]v?(\d+(?:\.\d+)+)\.t/i)
