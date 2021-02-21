@@ -21,6 +21,7 @@ class Snag < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     (buildpath/"src/github.com/Tonkpils/").mkpath
     ln_s buildpath, buildpath/"src/github.com/Tonkpils/snag"
