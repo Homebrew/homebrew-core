@@ -19,6 +19,7 @@ class DockerMachineDriverVmware < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     dir = buildpath/"src/github.com/machine-drivers/docker-machine-driver-vmware"
     dir.install buildpath.children
