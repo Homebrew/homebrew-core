@@ -18,6 +18,7 @@ class Fsql < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/kshvmdn/fsql").install buildpath.children
     system "go", "build", "-o", bin/"fsql", "github.com/kshvmdn/fsql/cmd/fsql"
   end
