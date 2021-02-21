@@ -17,6 +17,7 @@ class Devd < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/cortesi/devd").install buildpath.children
     cd "src/github.com/cortesi/devd" do
       system "go", "build", *std_go_args, "./cmd/devd"
