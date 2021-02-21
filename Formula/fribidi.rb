@@ -3,7 +3,7 @@ class Fribidi < Formula
   homepage "https://github.com/fribidi/fribidi"
   url "https://github.com/fribidi/fribidi/releases/download/v1.0.10/fribidi-1.0.10.tar.xz"
   sha256 "7f1c687c7831499bcacae5e8675945a39bacbad16ecaa945e9454a32df653c01"
-  license "LGPL-2.1"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "3a430c4eeb948c10595ffe163455f214f251bdb901f5846a0b67eb4f8aafdc71"
