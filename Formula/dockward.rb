@@ -53,6 +53,7 @@ class Dockward < Formula
   def install
     ENV["GOBIN"] = bin
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/abiosoft").mkpath
     ln_s buildpath, buildpath/"src/github.com/abiosoft/dockward"
     Language::Go.stage_deps resources, buildpath/"src"
