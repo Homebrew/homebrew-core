@@ -15,7 +15,7 @@ class Ocaml < Formula
   homepage "https://ocaml.org/"
   url "https://caml.inria.fr/pub/distrib/ocaml-4.10/ocaml-4.10.2.tar.xz"
   sha256 "96871461078282d5db022077d89bde25c85fb5e376612b44f8c37d4e84f000e3"
-  license "LGPL-2.1-only"
+  license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
   livecheck do
