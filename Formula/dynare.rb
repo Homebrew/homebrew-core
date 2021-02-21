@@ -4,6 +4,7 @@ class Dynare < Formula
   url "https://www.dynare.org/release/source/dynare-4.6.3.tar.xz"
   sha256 "1e346fc70a8ab47cad115ecb7116d98c920b366069a2491170661c51664352fd"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:  "df005aa6938aec51642ff692cc050d3a2308af6085521f62f471449281b1df8d"
