@@ -21,6 +21,7 @@ class Pup < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     dir = buildpath/"src/github.com/ericchiang/pup"
     dir.install buildpath.children
 
