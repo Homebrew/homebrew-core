@@ -38,7 +38,7 @@ class Lc0 < Formula
   end
 
   test do
-    assert_match(/^bestmove e2e4$/,
-      shell_output("lc0 benchmark --backend=blas --nodes=1 --num-positions=1"))
+    assert_match "Creating backend [blas]",
+      shell_output("lc0 benchmark --backend=blas --nodes=1 --num-positions=1 2>&1")
   end
 end
