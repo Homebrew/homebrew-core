@@ -1,8 +1,9 @@
 class Ledit < Formula
   desc "Line editor for interactive commands"
   homepage "http://pauillac.inria.fr/~ddr/ledit/"
-  url "http://pauillac.inria.fr/~ddr/ledit/distrib/src/ledit-2.04.tgz"
-  sha256 "484897016b001b6d64eb24e38a213177b230ebf8e0d9808a969b62f012e70ee4"
+  url "https://github.com/chetmurthy/ledit/archive/ledit-2-05.tar.gz"
+  version "2.05"
+  sha256 "493ee6eae47cc92f1bee5f3c04a2f7aaa0812e4bdf17e03b32776ab51421392c"
 
   livecheck do
     url :homepage
