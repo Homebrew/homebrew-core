@@ -21,6 +21,7 @@ class DockerMachineDriverVultr < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/janeczku/docker-machine-vultr").install buildpath.children
 
     cd "src/github.com/janeczku/docker-machine-vultr" do
