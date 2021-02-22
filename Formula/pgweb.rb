@@ -17,6 +17,7 @@ class Pgweb < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/sosedoff/pgweb").install buildpath.children
 
     cd "src/github.com/sosedoff/pgweb" do
