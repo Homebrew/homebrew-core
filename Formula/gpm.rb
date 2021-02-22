@@ -26,6 +26,7 @@ class Gpm < Formula
 
   test do
     ENV["GOPATH"] = testpath
+    ENV["GO111MODULE"] = "auto"
     (testpath/"Godeps").write("github.com/pote/gpm-testing-package v6.1")
     system bin/"gpm", "install"
     (testpath/"go_code.go").write <<~EOS
