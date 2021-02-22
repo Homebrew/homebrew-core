@@ -21,6 +21,7 @@ class Textql < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/dinedal/textql").install buildpath.children
 
     cd "src/github.com/dinedal/textql" do
