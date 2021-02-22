@@ -33,13 +33,6 @@ class Mariadb < Formula
   conflicts_with "mytop", because: "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
 
-  # Upstream fix for Apple Silicon, remove in next version
-  # https://github.com/MariaDB/server/pull/1743
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bc0c5033d15f4aa30ed6f4bf29e2ad61608f3299/mariadb/mariadb-10.5.8-apple-silicon.patch"
-    sha256 "30a3c608b25e25d2b98b4a3508f8c0be211f0e02ba919d2d2b50fa2d77744a52"
-  end
-
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
