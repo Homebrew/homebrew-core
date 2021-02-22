@@ -33,6 +33,12 @@ class ArgyllCms < Formula
     sha256 "fa86f5f21ed38bec6a20a79cefb78ef7254f6185ef33cac23e50bb1de87507a4"
   end
 
+  # Fixes a missing header, which is an error by default on arm64 but not x86_64
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f6ede0dff06c2d9e3383416dc57c5157704b6f3a/argyll-cms/unistd_import.diff"
+    sha256 "5ce1e66daf86bcd43a0d2a14181b5e04574757bcbf21c5f27b1f1d22f82a8a6e"
+  end
+
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
     # Reported 20 Aug 2017 to graeme AT argyllcms DOT com
