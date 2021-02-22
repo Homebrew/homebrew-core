@@ -16,6 +16,8 @@ class LaunchSocketServer < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
