@@ -18,6 +18,7 @@ class Qpm < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src").mkpath
     ln_s buildpath, "src/qpm.io"
     system "go", "build", "-o", "bin/qpm", "qpm.io/qpm"
