@@ -19,6 +19,7 @@ class SshVault < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/ssh-vault/ssh-vault").install buildpath.children
     cd "src/github.com/ssh-vault/ssh-vault" do
       system "dep", "ensure", "-vendor-only"
