@@ -39,6 +39,7 @@ class SyncGateway < Formula
                                          "--project-name", "sync_gateway",
                                          "--set-revision", Utils.git_head
     cd "build" do
+      ENV["GO111MODULE"] = "auto"
       mkdir "godeps"
       system "repo", "init", "-u", stable.url, "-m", "manifest/default.xml"
       cp manifest, ".repo/manifest.xml"
