@@ -16,6 +16,9 @@ class CartridgeCli < Formula
   depends_on "mage" => :build
 
   def install
+    # Remove this when upstream ships a go.sum
+    system "go", "mod", "download"
+
     system "mage", "build"
     bin.install "cartridge"
     system bin/"cartridge", "gen", "completion"
