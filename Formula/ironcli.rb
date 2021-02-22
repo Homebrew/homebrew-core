@@ -18,6 +18,7 @@ class Ironcli < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/iron-io/ironcli").install buildpath.children
     cd "src/github.com/iron-io/ironcli" do
       system "dep", "ensure", "-vendor-only"
