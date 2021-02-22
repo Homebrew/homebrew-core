@@ -36,6 +36,8 @@ class Sift < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
+
     (buildpath/"src/github.com/svent/sift").install buildpath.children
     Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/svent/sift" do
