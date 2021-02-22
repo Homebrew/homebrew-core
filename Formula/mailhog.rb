@@ -122,6 +122,7 @@ class Mailhog < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
+    ENV["GO111MODULE"] = "auto"
 
     path = buildpath/"src/github.com/mailhog/MailHog"
     path.install buildpath.children
