@@ -18,22 +18,11 @@ class Piknik < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "c1bb1b4632aca54d93490f53b9142f7f808abec1cd6761418df63f11abeb80fe"
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    ENV["GO111MODULE"] = "auto"
-    dir = buildpath/"src/github.com/jedisct1/"
-    dir.install Dir["*"]
-    ln_s buildpath/"src", dir
-    cd dir do
-      system "glide", "install"
-      system "go", "build", "-o", bin/"piknik", "."
-      (prefix/"etc/profile.d").install "zsh.aliases" => "piknik.sh"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
+    (prefix/"etc/profile.d").install "zsh.aliases" => "piknik.sh"
   end
 
   def caveats
