@@ -20,6 +20,17 @@ class Envoy < Formula
   depends_on "libtool" => :build
   depends_on "ninja" => :build
 
+  # Fix MarkupSafe hash error.
+  # Remove with the next release (if backported).
+  patch do
+    url "https://github.com/envoyproxy/envoy/commit/0d5b470097d5e3645759e43414db8a7104aafb2e.patch?full_index=1"
+    sha256 "47c350ef1a27cb23dfe69f19427d1db582b7ff7268d966bd65094054f453f960"
+  end
+  patch do
+    url "https://github.com/envoyproxy/envoy/commit/b1caeb356f9b36be86fe1e0c161f8813b0654dfc.patch?full_index=1"
+    sha256 "748a3664a3d89e91983fa3ad33ed6307649bcbd624335cc4d4b18ca299d9b8f2"
+  end
+
   def install
     args = %w[
       --curses=no
