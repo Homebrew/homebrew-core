@@ -3,8 +3,8 @@ class PythonAT39 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz"
   sha256 "3c2034c54f811448f516668dce09d24008a0716c3a794dd8639b5388cbde247d"
-  revision 1
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -65,12 +65,6 @@ class PythonAT39 < Formula
   link_overwrite "Frameworks/Python.framework/Resources"
   link_overwrite "Frameworks/Python.framework/Versions/Current"
 
-  # Link against libmpdec.so.3, update for mpdecimal.h symbol cleanup.
-  patch do
-    url "https://www.bytereef.org/contrib/decimal.diff"
-    sha256 "b0716ba88a4061dcc8c9bdd1acc57f62884000d1f959075090bf2c05ffa28bf3"
-  end
-
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/12/68/95515eaff788370246dac534830ea9ccb0758e921ac9e9041996026ecaf2/setuptools-53.0.0.tar.gz"
     sha256 "1b18ef17d74ba97ac9c0e4b4265f123f07a8ae85d9cd093949fa056d3eeeead5"
@@ -84,6 +78,12 @@ class PythonAT39 < Formula
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
     sha256 "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
+  end
+
+  # Link against libmpdec.so.3, update for mpdecimal.h symbol cleanup.
+  patch do
+    url "https://www.bytereef.org/contrib/decimal.diff"
+    sha256 "b0716ba88a4061dcc8c9bdd1acc57f62884000d1f959075090bf2c05ffa28bf3"
   end
 
   def lib_cellar
