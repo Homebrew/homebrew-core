@@ -6,6 +6,8 @@ class Bnd < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install "biz.aQute.bnd-#{version}.jar"
     bin.write_jar_script libexec/"biz.aQute.bnd-#{version}.jar", "bnd"
