@@ -17,6 +17,7 @@ class Jp < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     build_root = buildpath/"src/github.com/sgreben/jp"
     build_root.install Dir["*"]
     cd build_root do
