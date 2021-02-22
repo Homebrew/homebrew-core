@@ -17,6 +17,7 @@ class Gotags < Formula
   depends_on "go" => :build
 
   def install
+    ENV["GO111MODULE"] = "auto"
     system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"gotags"
     prefix.install_metafiles
   end
