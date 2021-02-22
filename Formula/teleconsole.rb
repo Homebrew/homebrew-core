@@ -64,6 +64,7 @@ class Teleconsole < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     mkdir_p buildpath/"src/github.com/gravitational"
     ln_s buildpath, buildpath/"src/github.com/gravitational/teleconsole"
     Language::Go.stage_deps resources, buildpath/"src"
