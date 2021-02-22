@@ -25,6 +25,7 @@ class TraefikAT1 < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/traefik/traefik").install buildpath.children
 
     cd "src/github.com/traefik/traefik" do
