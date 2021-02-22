@@ -20,6 +20,7 @@ class Leaps < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/jeffail/leaps").install buildpath.children
     cd "src/github.com/jeffail/leaps" do
       system "dep", "ensure", "-vendor-only"
