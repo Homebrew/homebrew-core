@@ -41,6 +41,7 @@ class Mpdviz < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     Language::Go.stage_deps resources, buildpath/"src"
 
     system "go", "build", "-o", "mpdviz"
