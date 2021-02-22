@@ -20,6 +20,7 @@ class Td < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/Swatto/td").install buildpath.children
     cd "src/github.com/Swatto/td" do
       system "go", "install"
