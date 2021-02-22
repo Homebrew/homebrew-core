@@ -5,6 +5,7 @@ class Kubebuilder < Formula
       tag:      "v2.3.2",
       revision: "5da27b892ae310e875c8719d94a5a04302c597d0"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kubernetes-sigs/kubebuilder.git"
 
   bottle do
@@ -18,12 +19,21 @@ class Kubebuilder < Formula
   depends_on "go"
 
   def install
-    system "make", "build"
-    bin.install "bin/kubebuilder"
+    goos = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOOS").chomp
+    goarch = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOARCH").chomp
+    ldflags = %W[
+      -X sigs.k8s.io/kubebuilder/v2/cmd/version.kubeBuilderVersion=#{version}
+      -X sigs.k8s.io/kubebuilder/v2/cmd/version.goos=#{goos}
+      -X sigs.k8s.io/kubebuilder/v2/cmd/version.goarch=#{goarch}
+      -X sigs.k8s.io/kubebuilder/v2/cmd/version.gitCommit=#{Utils.git_head}
+      -X sigs.k8s.io/kubebuilder/v2/cmd/version.buildDate=#{Time.now.iso8601}
+    ]
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "./cmd"
     prefix.install_metafiles
   end
 
   test do
+    assert_match "KubeBuilderVersion:\"#{version}\"", shell_output("#{bin}/kubebuilder version 2>&1")
     mkdir "test" do
       system "#{bin}/kubebuilder", "init",
         "--repo=github.com/example/example-repo", "--domain=example.com",
