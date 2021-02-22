@@ -56,6 +56,11 @@ class Packr < Formula
 
     system "go", "mod", "init", "example"
     system bin/"packr"
+    # Bypass `go get` check. Needed for go 1.16
+    touch "goget_packr.sh"
+    chmod 0755, "goget_packr.sh"
+    inreplace "goget_packr.sh", "", "go get github.com/gobuffalo/packr"
+    system "./goget_packr.sh"
     system "go", "build"
     system bin/"packr", "clean"
 
