@@ -3,6 +3,7 @@ class PythonAT39 < Formula
   homepage "https://www.python.org/"
   url "https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz"
   sha256 "3c2034c54f811448f516668dce09d24008a0716c3a794dd8639b5388cbde247d"
+  revision 1
   license "Python-2.0"
 
   livecheck do
@@ -32,6 +33,7 @@ class PythonAT39 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
+  depends_on "mpdecimal"
   depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "sqlite"
@@ -62,6 +64,12 @@ class PythonAT39 < Formula
   link_overwrite "Frameworks/Python.framework/Python"
   link_overwrite "Frameworks/Python.framework/Resources"
   link_overwrite "Frameworks/Python.framework/Versions/Current"
+
+  # Link against libmpdec.so.3, update for mpdecimal.h symbol cleanup.
+  patch do
+    url "https://www.bytereef.org/contrib/decimal.diff"
+    sha256 "b0716ba88a4061dcc8c9bdd1acc57f62884000d1f959075090bf2c05ffa28bf3"
+  end
 
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/12/68/95515eaff788370246dac534830ea9ccb0758e921ac9e9041996026ecaf2/setuptools-53.0.0.tar.gz"
@@ -117,6 +125,7 @@ class PythonAT39 < Formula
       --with-dbmliborder=gdbm:ndbm
       --enable-optimizations
       --with-lto
+      --with-system-libmpdec
     ]
 
     on_macos do
@@ -427,6 +436,7 @@ class PythonAT39 < Formula
 
     # Check if some other modules import. Then the linked libs are working.
     system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
+    system "#{bin}/python#{version.major_minor}", "-c", "import _decimal"
     system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
     on_macos do
       system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()"
