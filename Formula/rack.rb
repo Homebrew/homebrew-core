@@ -20,6 +20,7 @@ class Rack < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["TRAVIS_TAG"] = version
+    ENV["GO111MODULE"] = "auto"
 
     rackpath = buildpath/"src/github.com/rackspace/rack"
     rackpath.install Dir["{*,.??*}"]
