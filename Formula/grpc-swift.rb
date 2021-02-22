@@ -13,7 +13,7 @@ class GrpcSwift < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "0311e7d2eb0f1c5569fd51732dd7e9e917423bcad57e651d4d8a5c468168a55a"
   end
 
-  depends_on xcode: ["10.0", :build]
+  depends_on xcode: ["12.0", :build]
   depends_on "protobuf"
   depends_on "swift-protobuf"
 
