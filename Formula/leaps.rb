@@ -2,8 +2,8 @@ class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
   url "https://github.com/Jeffail/leaps.git",
-      tag:      "v0.9.0",
-      revision: "89d8ab9e9130238e56a0df283edbcd1115ec9225"
+      tag:      "v0.9.1",
+      revision: "66b39e5485921ee18b4b0456afa3758c20748e1f"
   license "MIT"
 
   bottle do
