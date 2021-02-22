@@ -29,7 +29,7 @@ class ArgyllCms < Formula
   # https://www.mikeash.com/pyblog/objc_msgsends-new-prototype.html
   # Submitted upstream: https://www.freelists.org/post/argyllcms/Patch-Fix-macOS-build-failures-from-obj-msgSend-definition-change
   patch do
-    url "https://www.freelists.org/archives/argyllcms/02-2020/bin7VecLntD2x.bin"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f6ede0dff06c2d9e3383416dc57c5157704b6f3a/argyll-cms/fix_objc_msgSend.diff"
     sha256 "fa86f5f21ed38bec6a20a79cefb78ef7254f6185ef33cac23e50bb1de87507a4"
   end
 
