@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.1.tar.xz"
-  sha256 "09fac242172cd8ec27f0739d8d192402c69417617091d8c6e974841568f37eed"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.2.tar.xz"
+  sha256 "f7516ba9d8689343594356f0e5e1a5f0da34adfbc89023437735872bb5024c5f"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -23,6 +23,12 @@ class UtilLinux < Formula
 
   keg_only "macOS provides the uuid.h header"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "gettext"
+
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -41,7 +47,17 @@ class UtilLinux < Formula
     ]
   end
 
+  # Fix build for MacOS
+  # Remove in the next release
+  # Also remove autoconf/automake/libtool/pkg-config dependencies and autogen.sh call
+  patch do
+    url "https://github.com/karelzak/util-linux/commit/71ba2792ab3f96b5f5d5d3b0a68d35ecfd0f93a2.patch?full_index=1"
+    sha256 "bc5188d3f41a7f248ba622f51c8ab8fed0e05355cbe20a5d3b02bbc274e2c7b4"
+  end
+
   def install
+    system "./autogen.sh"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
