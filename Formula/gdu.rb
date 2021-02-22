@@ -1,8 +1,8 @@
 class Gdu < Formula
   desc "Disk usage analyzer with console interface written in Go"
   homepage "https://github.com/dundee/gdu"
-  url "https://github.com/dundee/gdu/archive/v4.6.3.tar.gz"
-  sha256 "dbc4564394ba76f08525fcea8b71d69cf26868efb0ac6d55fdbe43f0b16617af"
+  url "https://github.com/dundee/gdu/archive/v4.6.4.tar.gz"
+  sha256 "059bd6b9bace2690e989deabf7bdaf29b193ce39a145617e60fcbbf0e9f40431"
   license "MIT"
 
   bottle do
@@ -22,9 +22,9 @@ class Gdu < Formula
 
     ldflags = %W[
       -s -w
-      -X 'github.com/dundee/gdu/build.Version=v#{version}'
-      -X 'github.com/dundee/gdu/build.Time=#{time}'
-      -X 'github.com/dundee/gdu/build.User=#{user}'
+      -X 'github.com/dundee/gdu/v4/build.Version=v#{version}'
+      -X 'github.com/dundee/gdu/v4/build.Time=#{time}'
+      -X 'github.com/dundee/gdu/v4/build.User=#{user}'
     ]
 
     system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
