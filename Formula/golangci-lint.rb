@@ -5,6 +5,7 @@ class GolangciLint < Formula
       tag:      "v1.37.1",
       revision: "b39dbcd694baddce38eff2cb2aa86d4e4cf06753"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/golangci/golangci-lint.git"
 
   bottle do
@@ -26,11 +27,14 @@ class GolangciLint < Formula
 
     system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/golangci-lint"
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/golangci-lint", "completion", "bash")
+    output = Utils.safe_popen_read("#{bin}/golangci-lint", "completion", "bash")
     (bash_completion/"golangci-lint").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/golangci-lint", "completion", "zsh")
-    (zsh_completion/"golangci-lint").write output
+    output = Utils.safe_popen_read("#{bin}/golangci-lint", "completion", "zsh")
+    (zsh_completion/"_golangci-lint").write output
+
+    output = Utils.safe_popen_read("#{bin}/golangci-lint", "completion", "fish")
+    (fish_completion/"golangci-lint.fish").write output
   end
 
   test do
