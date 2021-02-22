@@ -25,6 +25,7 @@ class SSearch < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     Language::Go.stage_deps resources, buildpath/"src"
     cd("src/github.com/FiloSottile/gvt") { system "go", "install" }
     (buildpath/"src/github.com/zquestz").mkpath
