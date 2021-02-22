@@ -46,6 +46,10 @@ class ArgyllCms < Formula
       inreplace "numlib/numsup.c", "CLOCK_MONOTONIC", "UNDEFINED_GIBBERISH"
     end
 
+    # These two inreplaces make sure /opt/homebrew can be found by the
+    # Jamfile, which otherwise fails to locate system libraries
+    inreplace "Jamtop", "/usr/include/x86_64-linux-gnu$(subd)", "#{HOMEBREW_PREFIX}/include$(subd)"
+    inreplace "Jamtop", "/usr/lib/x86_64-linux-gnu", "#{HOMEBREW_PREFIX}/lib"
     system "sh", "makeall.sh"
     system "./makeinstall.sh"
     rm "bin/License.txt"
