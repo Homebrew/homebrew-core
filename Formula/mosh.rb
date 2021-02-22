@@ -2,7 +2,7 @@ class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
   license "GPL-3.0"
-  revision 14
+  revision 15
 
   stable do
     url "https://mosh.org/mosh-1.3.2.tar.gz"
