@@ -5,7 +5,7 @@ class UserspaceRcu < Formula
   sha256 "4eefc11e4f6c212fc7d84d871e1cc139da0669a46ff3fda557a6fdd4d74ca67b"
 
   livecheck do
-    url "https://www.lttng.org/files/urcu/"
+    url "https://lttng.org/files/urcu/"
     regex(/href=.*?userspace-rcu[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
