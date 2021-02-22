@@ -17,6 +17,7 @@ class Modd < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/cortesi/modd").install buildpath.children
     cd "src/github.com/cortesi/modd" do
       system "go", "build", *std_go_args, "./cmd/modd"
