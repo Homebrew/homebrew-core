@@ -21,6 +21,8 @@ class Ccat < Formula
   conflicts_with "ccrypt", because: "both install `ccat` binaries"
 
   def install
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     system "./script/build"
     bin.install "ccat"
   end
