@@ -18,6 +18,7 @@ class Vert < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/Masterminds/vert").install buildpath.children
     cd "src/github.com/Masterminds/vert" do
       system "dep", "ensure", "-vendor-only"
