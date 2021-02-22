@@ -268,7 +268,7 @@ class CloudformationCli < Formula
       send -- "1\r"
 
       expect -exact "Enter the GO Import path"
-      send -- "\r"
+      send -- "example\r"
 
       expect -exact "Initialized a new project in"
       expect eof
