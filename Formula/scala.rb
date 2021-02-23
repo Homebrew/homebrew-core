@@ -1,10 +1,10 @@
 class Scala < Formula
   desc "JVM-based programming language"
   homepage "https://www.scala-lang.org/"
-  url "https://downloads.lightbend.com/scala/2.13.4/scala-2.13.4.tgz"
-  mirror "https://www.scala-lang.org/files/archive/scala-2.13.4.tgz"
-  mirror "https://downloads.typesafe.com/scala/2.13.4/scala-2.13.4.tgz"
-  sha256 "bc711cfba58fcad772de2719f13ac06415fe43f2d323ffb6b600a8d7ebb78caa"
+  url "https://downloads.lightbend.com/scala/2.13.5/scala-2.13.5.tgz"
+  mirror "https://www.scala-lang.org/files/archive/scala-2.13.5.tgz"
+  mirror "https://downloads.typesafe.com/scala/2.13.5/scala-2.13.5.tgz"
+  sha256 "ed2c21c11fc7bc3a85fd50471ac3c1c124e7d81db9a458a257514fdc0dcf05aa"
   license "Apache-2.0"
 
   livecheck do
