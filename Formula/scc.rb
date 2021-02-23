@@ -32,6 +32,11 @@ class Scc < Formula
       }
     EOS
 
-    assert_match "C,test.c,test.c,4,4,0,0,0,50\n", shell_output("#{bin}/scc -fcsv test.c")
+    expected_output = <<~EOS
+      Language,Lines,Code,Comments,Blanks,Complexity,Bytes
+      C,4,4,0,0,0,50
+    EOS
+
+    assert_match expected_output, shell_output("#{bin}/scc -fcsv test.c")
   end
 end
