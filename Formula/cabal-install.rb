@@ -1,11 +1,10 @@
 class CabalInstall < Formula
   desc "Command-line interface for Cabal and Hackage"
   homepage "https://www.haskell.org/cabal/"
-  url "https://hackage.haskell.org/package/cabal-install-3.2.0.0/cabal-install-3.2.0.0.tar.gz"
-  sha256 "a0555e895aaf17ca08453fde8b19af96725da8398e027aa43a49c1658a600cb0"
+  url "https://hackage.haskell.org/package/cabal-install-3.4.0.0/cabal-install-3.4.0.0.tar.gz"
+  sha256 "1980ef3fb30001ca8cf830c4cae1356f6065f4fea787c7786c7200754ba73e97"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/haskell/cabal.git", branch: "3.2"
+  head "https://github.com/haskell/cabal.git", branch: "3.4"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "e5cf4ef514f88918a5eb50b704b97cd5a335d9112b2458d19ba6ed2520e8da2c"
@@ -13,23 +12,21 @@ class CabalInstall < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "e9bdce7d81f4a3135f054da0cf596d23a22b3996f1264614e0a87a21c5b9be55"
   end
 
-  # cabal-install 3.2 needs to be bootstrapped with ghc 8.8
-  depends_on "ghc@8.8" => :build
   depends_on "ghc"
   uses_from_macos "zlib"
 
-  # Update bootstrap dependencies to work with base-4.13.0.0
-  patch :p2 do
-    url "https://github.com/haskell/cabal/commit/b6f7ec5f3598f69288bddbdba352e246e337fb90.patch?full_index=1"
-    sha256 "f4c869e74968c5892cd1fa1001adf96eddcec73e03fb5cf70d3a0c0de08d9e4e"
+  resource "bootstrap" do
+    url "https://downloads.haskell.org/~cabal/cabal-install-3.2.0.0/cabal-install-3.2.0.0-x86_64-apple-darwin17.7.0.tar.xz"
+    sha256 "9197c17d2ece0f934f5b33e323cfcaf486e4681952687bc3d249488ce3cbe0e9"
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["ghc@8.8"].bin
+    resource("bootstrap").stage buildpath
+    cabal = buildpath/"cabal"
     cd "cabal-install" if build.head?
 
-    system "sh", "bootstrap.sh", "--sandbox"
-    bin.install ".cabal-sandbox/bin/cabal"
+    system cabal, "v2-update"
+    system cabal, "v2-install", *std_cabal_v2_args
     bash_completion.install "bash-completion/cabal"
   end
 

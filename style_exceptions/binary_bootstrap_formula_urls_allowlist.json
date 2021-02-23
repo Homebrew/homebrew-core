@@ -1,4 +1,5 @@
 [
+  "cabal-install",
   "clozure-cl",
   "crystal",
   "fpc",
