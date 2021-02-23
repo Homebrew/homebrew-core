@@ -31,7 +31,8 @@ class Consul < Formula
     on_linux do
       ENV["XC_OS"] = "linux"
     end
-    ENV["XC_ARCH"] = "amd64"
+    cpu = Hardware::CPU.arm? ? "arm64" : "amd64"
+    ENV["XC_ARCH"] = cpu
     ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
     (buildpath/"src/github.com/hashicorp/consul").install contents
