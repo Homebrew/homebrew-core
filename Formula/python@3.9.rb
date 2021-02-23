@@ -110,6 +110,11 @@ class PythonAT39 < Formula
     ENV["PYTHONHOME"] = nil
     ENV["PYTHONPATH"] = nil
 
+    # Override the auto-detection in setup.py, which assumes a universal build.
+    if OS.mac?
+      ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"
+    end
+
     # The --enable-optimization and --with-lto flags diverge from what upstream
     # python does for their macOS binary releases. They have chosen not to apply
     # these flags because they want one build that will work across many macOS
