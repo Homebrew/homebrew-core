@@ -1,8 +1,8 @@
 class Skylighting < Formula
   desc "Flexible syntax highlighter using KDE XML syntax descriptions"
   homepage "https://github.com/jgm/skylighting"
-  url "https://github.com/jgm/skylighting/archive/0.10.2.tar.gz"
-  sha256 "a29dcafef8c421554239124fc56c82c01b3309da0b6ce9430bd8e35fcd2e5cf7"
+  url "https://github.com/jgm/skylighting/archive/0.10.3.tar.gz"
+  sha256 "60efaa3ffe5eddec6bd19ff67d29d76581e2469bec53bf31e67d6a40f81bebdc"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/skylighting.git"
 
