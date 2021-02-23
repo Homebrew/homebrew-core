@@ -1,8 +1,8 @@
 class Libolm < Formula
   desc "Implementation of the Double Ratchet cryptographic ratchet"
   homepage "https://gitlab.matrix.org/matrix-org/olm"
-  url "https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.1/olm-3.2.1.tar.gz"
-  sha256 "d947d9570345e68696668cb855f1a6a7141b7b89cbcc15a08b1fae18535c4c45"
+  url "https://gitlab.matrix.org/matrix-org/olm/-/archive/3.2.2/olm-3.2.2.tar.gz"
+  sha256 "fef6402ebc8a50bb1116eaf2c4de13ae91255d11ff1a7ceeca8a97a407e310f4"
   license "Apache-2.0"
 
   bottle do
