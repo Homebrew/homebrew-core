@@ -1,11 +1,11 @@
 class Ntl < Formula
   desc "C++ number theory library"
-  homepage "https://www.shoup.net/ntl"
-  url "https://www.shoup.net/ntl/ntl-11.4.3.tar.gz"
+  homepage "https://libntl.org"
+  url "https://libntl.org/ntl-11.4.3.tar.gz"
   sha256 "b7c1ccdc64840e6a24351eb4a1e68887d29974f03073a1941c906562c0b83ad2"
 
   livecheck do
-    url "https://www.shoup.net/ntl/download.html"
+    url "https://libntl.org/download.html"
     regex(/href=.*?ntl[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
