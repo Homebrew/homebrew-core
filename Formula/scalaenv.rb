@@ -1,8 +1,8 @@
 class Scalaenv < Formula
   desc "Command-line tool to manage Scala environments"
   homepage "https://github.com/scalaenv/scalaenv"
-  url "https://github.com/scalaenv/scalaenv/archive/version/0.1.8.tar.gz"
-  sha256 "daa785c04064df0e3e2e7b9581e0ee791b0adddd16bf6e8fbb8d4a2839cdc0b3"
+  url "https://github.com/scalaenv/scalaenv/archive/version/0.1.9.tar.gz"
+  sha256 "05db6e21c2270770082e27409bd6a7bfa8784dc7603387aa75a4c100f46df93d"
   license "MIT"
   head "https://github.com/scalaenv/scalaenv.git"
 
