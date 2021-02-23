@@ -16,9 +16,6 @@ class Soci < Formula
   depends_on "sqlite"
 
   def install
-    # NOTE: SOCI_TESTS disabled temporarily on macOS M1 machines as
-    # soci 4.0.1 relies on an older version of Catch which fails to
-    # detect macOS machines running on arm64 architecture
     args = std_cmake_args + %w[
       -DSOCI_TESTS:BOOL=OFF
       -DWITH_SQLITE3:BOOL=ON
