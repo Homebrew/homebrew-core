@@ -1,8 +1,8 @@
 class Grokj2k < Formula
   desc "JPEG 2000 Library"
   homepage "https://github.com/GrokImageCompression/grok"
-  url "https://github.com/GrokImageCompression/grok/archive/v8.0.0.tar.gz"
-  sha256 "53186179af96c2e2cd05bf11d326f5d90d6fffb84d79aa2895d21c7dde50f173"
+  url "https://github.com/GrokImageCompression/grok/archive/v8.0.1.tar.gz"
+  sha256 "a171f8ce21b61abc5000013ed6c5dffeacbedf6f1c556b3a55418dffa917c609"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git"
 
@@ -40,9 +40,9 @@ class Grokj2k < Formula
         const GRK_COLOR_SPACE color_space = GRK_CLRSPC_GRAY;
 
         grk_image *image;
-        image = grk_image_create(1, &cmptparm, color_space,false);
+        image = grk_image_new(1, &cmptparm, color_space,false);
 
-        grk_image_destroy(image);
+        grk_object_unref(&image->obj);
         return 0;
       }
     EOS
