@@ -4,8 +4,8 @@ class Minetest < Formula
   license "LGPL-2.1"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.3.0.tar.gz"
-    sha256 "65dc2049f24c93fa544500f310a61e289c1b8fa47bf60877b746a2c27a7238d6"
+    url "https://github.com/minetest/minetest/archive/5.4.0.tar.gz"
+    sha256 "6e9b299e156651be9bcf973a9232cff32215de31dfae5ea770a71d1757cab014"
 
     resource "minetest_game" do
       url "https://github.com/minetest/minetest_game/archive/5.3.0.tar.gz"
