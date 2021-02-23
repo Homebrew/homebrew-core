@@ -8,8 +8,6 @@ class Kubectx < Formula
 
   bottle :unneeded
 
-  depends_on "kubernetes-cli"
-
   def install
     bin.install "kubectx", "kubens"
 
