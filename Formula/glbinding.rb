@@ -26,10 +26,12 @@ class Glbinding < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <glbinding/gl/gl.h>
-      #include <glbinding/Binding.h>
+      #include <glbinding/glbinding.h>
+      #include <glbinding/getProcAddress.h>
+
       int main(void)
       {
-        glbinding::Binding::initialize();
+        glbinding::initialize(glbinding::getProcAddress);
       }
     EOS
     system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
