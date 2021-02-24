@@ -17,6 +17,11 @@ class Ksync < Formula
   depends_on "go" => :build
 
   def install
+    # Remove this when upstream provide working go.sum files
+    # (i.e. it builds without errors)
+    # https://github.com/ksync/ksync/issues/504
+    system "go", "mod", "tidy"
+
     project = "github.com/ksync/ksync"
     ldflags = %W[
       -w
