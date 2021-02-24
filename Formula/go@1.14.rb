@@ -19,6 +19,8 @@ class GoAT114 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2021-02-16", because: :unsupported
+
   depends_on arch: :x86_64
 
   resource "gotools" do
