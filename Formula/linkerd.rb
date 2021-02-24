@@ -4,7 +4,7 @@ class Linkerd < Formula
 
   url "https://github.com/linkerd/linkerd2.git",
       tag:      "stable-2.9.4",
-      revision: "20f023a8e6cafcabfc3617c345a214841d478a0d"
+      revision: "f9f385a89ff9765dfc100886537ee9e15efbc3cc"
   license "Apache-2.0"
 
   livecheck do
