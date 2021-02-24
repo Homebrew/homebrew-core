@@ -4,6 +4,7 @@ class Bond < Formula
   url "https://github.com/microsoft/bond/archive/9.0.4.tar.gz"
   sha256 "59392145dbe271c3f1fd4b784958a08cf5c9e38c1a769af007ce6ac7100daf01"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:  "b777ee788ae5d9ee234cc7dea3f671d4d8e50edafdd2b48ecd990c6643ffcacb"
@@ -12,7 +13,7 @@ class Bond < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
   depends_on "boost"
   depends_on "rapidjson"
