@@ -42,6 +42,7 @@ class Gdm < Formula
 
   test do
     ENV["GOPATH"] = testpath.realpath
+    ENV["GO111MODULE"] = "auto"
     assert_match version.to_s, shell_output("#{bin}/gdm version")
     assert_match testpath.realpath.to_s, shell_output("#{bin}/gdm save")
     system bin/"gdm", "restore"
