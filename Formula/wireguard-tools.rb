@@ -1,9 +1,9 @@
 class WireguardTools < Formula
   desc "Tools for the WireGuard secure network tunnel"
   homepage "https://www.wireguard.com/"
-  url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20200827.tar.xz"
-  sha256 "51bc85e33a5b3cf353786ae64b0f1216d7a871447f058b6137f793eb0f53b7fd"
-  license "GPL-2.0"
+  url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20210223.tar.xz"
+  sha256 "1f72da217044622d79e0bab57779e136a3df795e3761a3fc1dc0941a9055877c"
+  license "GPL-2.0-only"
   head "https://git.zx2c4.com/wireguard-tools.git"
 
   livecheck do
