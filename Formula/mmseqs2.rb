@@ -1,11 +1,10 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/12-113e3.tar.gz"
-  version "12-113e3"
-  sha256 "81fa0d77eab9d74b429567da00aa7ec2d46049537ce469595d7356b6d8b5458a"
+  url "https://github.com/soedinglab/MMseqs2/archive/13-45111.tar.gz"
+  version "13-45111"
+  sha256 "6444bb682ebf5ced54b2eda7a301fa3e933c2a28b7661f96ef5bdab1d53695a2"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/soedinglab/MMseqs2.git"
 
   bottle do
@@ -25,7 +24,7 @@ class Mmseqs2 < Formula
 
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
-        revision: "d53d8be3761ee625b0dcddda29b092bbd02244ef"
+        revision: "790eb1b49f460d6054d5b8a6a643b8543f166388"
   end
 
   resource "testdata" do
@@ -48,9 +47,6 @@ class Mmseqs2 < Formula
     args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
     args << "-DOpenMP_CXX_LIB_NAMES=omp"
     args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
-
-    # Fix SIMDe on AppleClang11, fixed upstream, remove in next release
-    args << "-DCMAKE_CXX_FLAGS=-DSIMDE_NO_CHECK_IMMEDIATE_CONSTANT=1" if DevelopmentTools.clang_build_version == 1100
 
     system "cmake", ".", *args
     system "make", "install"
