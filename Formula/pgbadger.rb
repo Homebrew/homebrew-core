@@ -1,16 +1,16 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
   homepage "https://pgbadger.darold.net/"
-  url "https://github.com/darold/pgbadger/archive/v11.4.tar.gz"
-  sha256 "b235b540fe4bbc7cf59274b82ad427022ea378812562bd2c350353c884ee0bfd"
+  url "https://github.com/darold/pgbadger/archive/v11.5.tar.gz"
+  sha256 "49ab18810a61353ebd7fee12b899ccb9adfd064be6099084670b945db5ff1186"
   license "PostgreSQL"
   head "https://github.com/darold/pgbadger.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4fdbd023b1c74fe88fc21499648fc1d1629e973ee2f302dd0fee99cfff02602f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a4e3aec248f7f8a4ca22d2d8f1d7081957d9563a08c1306b4f3e181b5b3f9731"
-    sha256 cellar: :any_skip_relocation, catalina:      "0fbecf1eeb0625fcb19d063caa0c5e81941ef36a8a634e2597a6fb13f0511836"
-    sha256 cellar: :any_skip_relocation, mojave:        "a7d21722b811c186a5908514f3b310a99983ecd4e8782f8698bab15610550edb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e746195e6003286f5ffc6e9af6445a3078d7e53b06351ba272e77efecda17041"
+    sha256 cellar: :any_skip_relocation, big_sur:       "47dd580296d42a158b6e11853790080a6ec9408ece3f69d66672050f89753a19"
+    sha256 cellar: :any_skip_relocation, catalina:      "751904911636d8e1e4c8714f6c41d0aa9b56b703fc78dd024e8df1b67807f977"
+    sha256 cellar: :any_skip_relocation, mojave:        "0684dc2d96a3e715f58050c0c05d037a185cced9d0a36d970d6e0f7feffe7d0a"
   end
 
   def install

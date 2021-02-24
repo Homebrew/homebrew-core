@@ -1,8 +1,8 @@
 class Glslang < Formula
   desc "OpenGL and OpenGL ES reference compiler for shading languages"
   homepage "https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/"
-  url "https://github.com/KhronosGroup/glslang/archive/11.1.0.tar.gz"
-  sha256 "a47f1f9ed17a1f53a074fef20787110ef49522c6de68b218db68d04a81d649c5"
+  url "https://github.com/KhronosGroup/glslang/archive/11.2.0.tar.gz"
+  sha256 "8ff2fcf9b054e4a4ef56fcd8a637322f827b2b176a592a618d63672ddb896e06"
   head "https://github.com/KhronosGroup/glslang.git"
 
   livecheck do
@@ -11,10 +11,10 @@ class Glslang < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6afc089ff212425bbb87c05ae07301428b3cedb6a3ebf14f5e6bc934bab8bd63"
-    sha256 cellar: :any_skip_relocation, big_sur:       "83498bc39db8c8c2498fed7c5e1288ca55ffd1054c6cf7133a7d7a9a3e8b09cb"
-    sha256 cellar: :any_skip_relocation, catalina:      "4a048bd36ed9c1f241e74706b3ff4b0bb8129393dc3d651c5509656265c44968"
-    sha256 cellar: :any_skip_relocation, mojave:        "5ec84ea223f671dfc3997a3eb23ee29aa7b2a2ecf23418c68e370aeb083fd0e9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f246a388c01f17db48ce3ce01ed422a015315fe989615e9264a2d4a9e64a89de"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b1a44f2c156be34a7cff90080be72ae1c4dac9e3ba9da3042234b0150f4b016f"
+    sha256 cellar: :any_skip_relocation, catalina:      "85bd75ea05d1538fe839d88b5a13295d5dafa731f4aca7714fd13188aaf532df"
+    sha256 cellar: :any_skip_relocation, mojave:        "95c1617386ff2a3ba3ddc76432a0daba9af91ed9fd4f18ac147d937160face5c"
   end
 
   depends_on "cmake" => :build

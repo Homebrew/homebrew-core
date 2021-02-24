@@ -1,39 +1,23 @@
 class Piknik < Formula
   desc "Copy/paste anything over the network"
   homepage "https://github.com/jedisct1/piknik"
-  url "https://github.com/jedisct1/piknik/archive/0.9.1.tar.gz"
-  sha256 "a682e16d937a5487eda5b0d0889ae114e228bd3c9beddd743cad40f1bad94448"
+  url "https://github.com/jedisct1/piknik/archive/0.10.1.tar.gz"
+  sha256 "9172acb424d864ba3563bbdb0cd2307815129027eec1a6ca04aee17da7f936c2"
   license "BSD-2-Clause"
   head "https://github.com/jedisct1/piknik.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aaaac7c574efbdc5e80448e4f2594f11169a10614b973535bac14bae0560cd64"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3b8097063683df3dafbe8f807abd626a348714e6a8a588be2bd4bc49ba83427c"
-    sha256 cellar: :any_skip_relocation, catalina:      "4c8bce52891ea6547f5644108b72300405c27e84e539fde0fa60c25e69db7a8e"
-    sha256 cellar: :any_skip_relocation, mojave:        "eee56739c24346b50d4fb7afa1285c87fbea135f3acd5fa90d1c2b9a81f84284"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "1209dc34580813c42b1075174e9f78e049f43449845c63aa3f033e761ecf0bd0"
-    sha256 cellar: :any_skip_relocation, sierra:        "fffe6c2329ae0840061a464162703ec7cd26649cd985d1ff4de37315059b9357"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "40b1bdb322e89f3c955519a3156f8ab9ed7aa3833f0887f1bb1ccf6224038de8"
-    sha256 cellar: :any_skip_relocation, yosemite:      "c1bb1b4632aca54d93490f53b9142f7f808abec1cd6761418df63f11abeb80fe"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b503df3a16dfdf25219a598da5ae3c17676ee2367c0db0837403a6f728e4fcb4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "48b98419184b858ff308f4ed96f0ff001f757524c38705337a25adfb960a85ea"
+    sha256 cellar: :any_skip_relocation, catalina:      "d454877b9f650eaa1fcd22ccad12c62a69d2ab21b48a16481d4be17067236233"
+    sha256 cellar: :any_skip_relocation, mojave:        "8afe990d9ff9828b6148928d27c9535fd31b7f8082db341cf962dfbf1e895b96"
   end
 
-  depends_on "glide" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    ENV["GO111MODULE"] = "auto"
-    dir = buildpath/"src/github.com/jedisct1/"
-    dir.install Dir["*"]
-    ln_s buildpath/"src", dir
-    cd dir do
-      system "glide", "install"
-      system "go", "build", "-o", bin/"piknik", "."
-      (prefix/"etc/profile.d").install "zsh.aliases" => "piknik.sh"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
+    (prefix/"etc/profile.d").install "zsh.aliases" => "piknik.sh"
   end
 
   def caveats

@@ -3,14 +3,14 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/7a/58/0f6169bec51f9bfae48ea3800a02b8e879493d3c5ea1fd2200d87e788cc5/jupyterlab-3.0.8.tar.gz"
-  sha256 "e2250dec8042bb824d9dd5381f38b2b34eff7f93bed693bd486b252abafddcbe"
+  url "https://files.pythonhosted.org/packages/a9/ee/f772213f2764cc122e4aafc9d80fb7ca4b6f4f52ad5ea8af55f8afa9482d/jupyterlab-3.0.9.tar.gz"
+  sha256 "70aa808a1adc06e35701500a0b1cd2f472ad55b8d890153cb8bdfbd30b279646"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "f973590dc9fac5ed19cac10cad574d2f8ab942fd2cb07d06c5128d01d42a16ce"
-    sha256 cellar: :any, catalina: "76d210fd021588a73281e90122527899a667da60a1da6c17c37d13ca6475dcf1"
-    sha256 cellar: :any, mojave:   "e6a2e1ce630a8e29732b042a27ba21b4da06e2657e509bacc341aa785ca9fd89"
+    sha256 cellar: :any, big_sur:  "0668ce00399494a951284a86fbef118be06e53918b449d58d6772d7fb4ca3f14"
+    sha256 cellar: :any, catalina: "8f1d8890fab104f745cf934a80b5c0f77fee1d0fce33d756318abaebb768a4d4"
+    sha256 cellar: :any, mojave:   "9cc9438e753d80cff253e497a16a0cac635b94ed8ac823afd352a20b6500d6fa"
   end
 
   depends_on "ipython"
@@ -87,8 +87,8 @@ class Jupyterlab < Formula
   end
 
   resource "ipykernel" do
-    url "https://files.pythonhosted.org/packages/5e/bf/a7184ba49ff503ca6328e5331d71e08ee446255009ef7b4bfd7e3adf60a5/ipykernel-5.4.3.tar.gz"
-    sha256 "697103d218e9a8828025af7986e033c89e0b36e2b6eb84a5bda4739b9a27f3cb"
+    url "https://files.pythonhosted.org/packages/98/3c/dd8f27be9d31570395f65bf325a33d5bc9d4d59e5cfbcfe611c6b5cd9074/ipykernel-5.5.0.tar.gz"
+    sha256 "98321abefdf0505fb3dc7601f60fc4087364d394bd8fad53107eb1adee9ff475"
   end
 
   resource "ipython" do
@@ -131,9 +131,14 @@ class Jupyterlab < Formula
     sha256 "79025cb3225efcd36847d0840f3fc672c0abd7afd0de83ba8a1d3837619122b4"
   end
 
+  resource "jupyter-packaging" do
+    url "https://files.pythonhosted.org/packages/5c/9f/3b332f2a21487026f9521c3fba6efedec77b09f80bffccbb925bba33fcb5/jupyter-packaging-0.7.12.tar.gz"
+    sha256 "b140325771881a7df7b7f2d14997b619063fe75ae756b9025852e4346000bbb8"
+  end
+
   resource "jupyter-server" do
-    url "https://files.pythonhosted.org/packages/da/e0/dab7f3a473e5bbe73f90f9e235cb2a154353dc3d2d4c04f8ddd96978c3fd/jupyter_server-1.3.0.tar.gz"
-    sha256 "b9d32d102df25f66ec3c1fe508c62cd0c856123452d973741da84fee4be01912"
+    url "https://files.pythonhosted.org/packages/1e/b7/507cdd40692b93305ab75306dc90dab0b96f54deac2d8c1efaeceeb8c4ab/jupyter_server-1.4.1.tar.gz"
+    sha256 "b0126f237f679533eec46244cfc66d61e3a1f8ec0fad2d47352fa19d3e754e47"
   end
 
   resource "jupyterlab-pygments" do
@@ -142,8 +147,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyterlab-server" do
-    url "https://files.pythonhosted.org/packages/91/3b/a43e9c9c8ba05e4b82253e99ae4afdeffaf3921f0ac662bf663c14aa50d3/jupyterlab_server-2.2.1.tar.gz"
-    sha256 "8b619ec5e13c2d1ac2e3a43a8147382f41fb17b425b50fa38b1cc84849c7bf94"
+    url "https://files.pythonhosted.org/packages/3d/e2/b4b1ed4d3da9ad8063ed5eb56d8bbfccff6e0eee10614a8a89ed4ea1393d/jupyterlab_server-2.3.0.tar.gz"
+    sha256 "e7a0245aa3de23a1803de2eff401e4ca4594538d9f59806134f30419a6d8b6a3"
   end
 
   resource "MarkupSafe" do

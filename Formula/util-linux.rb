@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.1.tar.xz"
-  sha256 "09fac242172cd8ec27f0739d8d192402c69417617091d8c6e974841568f37eed"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.2.tar.xz"
+  sha256 "f7516ba9d8689343594356f0e5e1a5f0da34adfbc89023437735872bb5024c5f"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -14,14 +14,19 @@ class UtilLinux < Formula
   ]
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "91a76aecae9e1fcdbd44614439c6eb379dcaf1c2e388403eb33d698b986cc587"
-    sha256 cellar: :any, big_sur:       "fc3327a2f46d034d163710b29b6b04fb44cabcb31102a2b099d9dbd73e302bce"
-    sha256 cellar: :any, catalina:      "01b6c26311161daafc8cf521d994810397810dd35881b0c0bd6bea3a2f0487c8"
-    sha256 cellar: :any, mojave:        "81c514e31f486717eb9466b81c4f499558f7b8c5cc80b178228abe1b6e52e27d"
+    sha256 arm64_big_sur: "ee66c2ac1dd664f78c065d015cd244dac3dff3e268b5633824a84dab03dbfd6f"
+    sha256 big_sur:       "7561a596823ebb61811d7bf34129d0cac9164e54aa3ae70f79865a4f454ac6b3"
+    sha256 catalina:      "7f27e259d7013acfe4d22e75c148735de6a7f4b301238be8376ca3a43f20ff73"
+    sha256 mojave:        "de7bfed47b70d497e2406b7813b966aad7a0436e6fd129d4e12f5df5757e3ef9"
   end
 
   keg_only "macOS provides the uuid.h header"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "gettext"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
@@ -41,7 +46,17 @@ class UtilLinux < Formula
     ]
   end
 
+  # Fix build for MacOS
+  # Remove in the next release
+  # Also remove autoconf/automake/libtool/pkg-config dependencies and autogen.sh call
+  patch do
+    url "https://github.com/karelzak/util-linux/commit/71ba2792ab3f96b5f5d5d3b0a68d35ecfd0f93a2.patch?full_index=1"
+    sha256 "bc5188d3f41a7f248ba622f51c8ab8fed0e05355cbe20a5d3b02bbc274e2c7b4"
+  end
+
   def install
+    system "./autogen.sh"
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",

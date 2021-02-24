@@ -1,8 +1,8 @@
 class Gtkmm4 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/4.0/gtkmm-4.0.0.tar.xz"
-  sha256 "3105adb76b738e4af5c0be7b1915f8e39de15474fcfdced9f5a59a2d9b52f83e"
+  url "https://download.gnome.org/sources/gtkmm/4.0/gtkmm-4.0.1.tar.xz"
+  sha256 "8973d9bc7848e02cb2051e05f3ee3a4baffe2feb4af4a5487f0e3132eec03884"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,11 +11,10 @@ class Gtkmm4 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "5393bb27125814b587b43c3bf448c4df9bf4423445135927fe050969297665fb"
-    sha256 cellar: :any, big_sur:       "a6cb635d097c0a9efc7715a2d6d73af7513b3ae03f88afb69377042902a31b09"
-    sha256 cellar: :any, catalina:      "eb185bc75e8189fbb6e5c3a6008931436d03bcb1cfe77f0b95088b4468dd3ba6"
-    sha256 cellar: :any, mojave:        "1df902710183ad22fe01dc9f665f8730704e4aeffd2d5e694c84a56d56d0faa9"
+    sha256 cellar: :any, arm64_big_sur: "7e7d3e54eacf6a13fdb2f9d6ee99ec13f9a6bd3d2c76d43743c9d585c557a09b"
+    sha256 cellar: :any, big_sur:       "0e4aa5b50896971c7567c5ef8eb395c06e41c25129bc227cdb845443bdac6d2b"
+    sha256 cellar: :any, catalina:      "89097bb4e438265d5069fc57d3ab212049ace024cd17e7df6c4729261039f79b"
+    sha256 cellar: :any, mojave:        "ea5386ba38bbc0538300b3bafd567580d9d4c17afe83c80ac3a304f0fa1e367b"
   end
 
   depends_on "meson" => :build

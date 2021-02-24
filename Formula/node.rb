@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v15.9.0/node-v15.9.0.tar.xz"
-  sha256 "bdd7961c003b4a2dbc8b54695dd1da2bf1f9b934aadb8fd4757e8e2fe437d8c3"
+  url "https://nodejs.org/dist/v15.10.0/node-v15.10.0.tar.xz"
+  sha256 "7748d8f15eabb5543f26fec8ca08e755044512fab1f6bd98d5ba403f276deec4"
   license "MIT"
   head "https://github.com/nodejs/node.git"
 
@@ -12,10 +12,10 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3402f62dbae75cf492d63fcbd254deb9474fd0255c5a666289ea62f441c8ae72"
-    sha256 cellar: :any, big_sur:       "57e0e914553645e58c14b259391299aa054ceeabe066a8c665514327a357b9f9"
-    sha256 cellar: :any, catalina:      "21199cdfca94188ef1ee03bf8e1069464c5e40ea98607443a63857725be79768"
-    sha256 cellar: :any, mojave:        "80c06d060dee0fe3cc9b64e102ab394b1e398bf347f635f4f9777dfc0f5a5e13"
+    sha256 cellar: :any, arm64_big_sur: "d0d224a7b7da8c04a570b997f3a31708dd29ea9dc7653fa06683173357cc95f8"
+    sha256 cellar: :any, big_sur:       "663ca4edd1340ebe54e76e5936aa7313465f22bcbed6b73fca6dabca6ed5c3db"
+    sha256 cellar: :any, catalina:      "64bddf479fc37bdbdd57b5faaf27591a2b908070fccf3db3143e890b723a8a49"
+    sha256 cellar: :any, mojave:        "bd00315693409dd36371d1e03d67cb88768d8da2609fa807f26fe5808f126053"
   end
 
   depends_on "pkg-config" => :build

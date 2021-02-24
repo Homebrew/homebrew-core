@@ -4,6 +4,7 @@ class Omniorb < Formula
   url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.2.4/omniORB-4.2.4.tar.bz2"
   sha256 "28c01cd0df76c1e81524ca369dc9e6e75f57dc70f30688c99c67926e4bdc7a6f"
   license "GPL-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,14 +12,14 @@ class Omniorb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b274a3754e87bbe47ea153406e7d0002722bf3a7fa5217ce1c29dd38a11ab610"
-    sha256 cellar: :any, big_sur:       "3cd63557c0b968eda172bdb244dd888fa63ffdda15603139be47f1615fd9c2f9"
-    sha256 cellar: :any, catalina:      "a467b416e7657794555b547ee7caf8f0395e67ecf7501b393d29c620598af535"
-    sha256 cellar: :any, mojave:        "cb9ddb09f1d53ac587cd9eb83e198757350d8d1432cfa8c3f091a3ab78f0c922"
-    sha256 cellar: :any, high_sierra:   "e7465503bce133c41d4f122107e22559a5e82785f0a3af7747da8ccc44975035"
+    sha256 cellar: :any, arm64_big_sur: "af99975268bf9395f8aa6b00521f5dde8e41434a2bc19ee45aa9abba372bad75"
+    sha256 cellar: :any, big_sur:       "625e7bb2ca70ac3a1e52d3cc8ef9b1614b498eb24b00cdc78736dcea7c40c9cf"
+    sha256 cellar: :any, catalina:      "e25345b167440b0a34a7399a267b487d0e8ffb24ccd5f9c2cbbf874b8a38e729"
+    sha256 cellar: :any, mojave:        "5c8d7b0adeca7c70af83d5b13acc4629e8329104562deaea9f329bf7345ad272"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.9"
 
   resource "bindings" do
     url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.2.4/omniORBpy-4.2.4.tar.bz2"
@@ -31,7 +32,7 @@ class Omniorb < Formula
     system "make", "install"
 
     resource("bindings").stage do
-      system "./configure", "--prefix=#{prefix}"
+      system "./configure", "--prefix=#{prefix}", "PYTHON=python3"
       system "make", "install"
     end
   end

@@ -5,13 +5,14 @@ class Zpaq < Formula
   version "7.15"
   sha256 "e85ec2529eb0ba22ceaeabd461e55357ef099b80f61c14f377b429ea3d49d418"
   license "Unlicense"
+  revision 1
   head "https://github.com/zpaq/zpaq.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:  "2a840dbf456e81e691300d615db206c1c046fe99746db13e41f972d6707c6a72"
-    sha256 cellar: :any_skip_relocation, catalina: "5ac8de4997136cd5496e5480ce72421881da11cf0548cacbd2ed62b7e85dc0e5"
-    sha256 cellar: :any_skip_relocation, mojave:   "572127bcc5ca3efba20c4f61c385dbf48873a241efd9349e0759d0ca14afb79d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "743d0714aa93446980dbb496709e64415234c335c8399e55054d1f85ac6b074a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2ca2aa378add42b28e3a4513e4176740e013ff9189b7d5d091c998c6ba8ec16f"
+    sha256 cellar: :any_skip_relocation, catalina:      "6bedfd3bff1fa1e98b6a41eedf02aa1f7600943f9081624fb9811e69fd3d9ffa"
+    sha256 cellar: :any_skip_relocation, mojave:        "6b9d7285117ab09ac91605b8d1b2b2d7b4c05874156968a398273a3d29254cc3"
   end
 
   resource "test" do
@@ -20,6 +21,9 @@ class Zpaq < Formula
   end
 
   def install
+    # When building on non-Intel this is supposed to be manually uncommented
+    # from the Makefile!  (It's also missing "-D" though)
+    inreplace "Makefile", "# CPPFLAGS+=NOJIT", "CPPFLAGS+=-DNOJIT" unless Hardware::CPU.intel?
     system "make"
     system "make", "check"
     system "make", "install", "PREFIX=#{prefix}"

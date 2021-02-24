@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.8/source/mariadb-10.5.8.tar.gz"
-  sha256 "eb4824f6f2c532cd3fc6a6bce7bf78ea7c6b949f8bdd07656b2c84344e757be8"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz"
+  sha256 "40ab19aeb8de141fdc188cf2251213c9e7351bee4d0cd29db704fae68d1068cf"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,11 +11,10 @@ class Mariadb < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 arm64_big_sur: "1e168542dc43d8c2d88153ee7bfcbbac167de161599a257ef82e8c2ebc094fd5"
-    sha256 big_sur:       "802d047b15b594c3170d90e355f44a6585cd5cd255788ee4922b6e757b216bd0"
-    sha256 catalina:      "abd58d85de7c08ed22f82331b09afe3f90bab796fc4bfe318a952826b7c1498e"
-    sha256 mojave:        "a0c0f4cb430cf7b462be33c94f34e840f6d0510b1c78c50e596bb36bf0536761"
+    sha256 arm64_big_sur: "f890f360f7d595dd0beaf6495d86248e97e9c450ee09c20ec99f231de97d22c9"
+    sha256 big_sur:       "a976c60a001d2dacd4a9106a667cdcc0292a78da794d39e81cf86944c4f8010b"
+    sha256 catalina:      "990603eb3ef9ed5228c31572c35bd4324e9c1c790286b1b850474b671becc386"
+    sha256 mojave:        "15b7c70995f293db109b71e125b069c5d3b675c08b196c31932574f7ffc42545"
   end
 
   depends_on "cmake" => :build
@@ -32,13 +31,6 @@ class Mariadb < Formula
     because: "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mytop", because: "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
-
-  # Upstream fix for Apple Silicon, remove in next version
-  # https://github.com/MariaDB/server/pull/1743
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/bc0c5033d15f4aa30ed6f4bf29e2ad61608f3299/mariadb/mariadb-10.5.8-apple-silicon.patch"
-    sha256 "30a3c608b25e25d2b98b4a3508f8c0be211f0e02ba919d2d2b50fa2d77744a52"
-  end
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server

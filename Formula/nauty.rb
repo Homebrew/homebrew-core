@@ -7,6 +7,7 @@ class Nauty < Formula
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6d7980d67e772addbc5220e4536a1193580253ae2a52fbc7182d12eb73573c6b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8714e05e1d050933e8571cca1c388a088d11170757fa5b1ae3fe5be7f490f6b5"
     sha256 cellar: :any_skip_relocation, catalina:      "5d118260b6fdabceb476c1421e4b4dd41d3027943b623ff7a4dc81baf6e284b9"
     sha256 cellar: :any_skip_relocation, mojave:        "2fa3783663f6e67d9a6e42c492c68412fdeeff7201d81e557b75927ff50b78f1"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a5333c52eecb023c23be9638ebd916606db43f8f7ef1d7ada4877ca00355d65a"

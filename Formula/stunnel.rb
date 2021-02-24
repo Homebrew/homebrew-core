@@ -1,8 +1,8 @@
 class Stunnel < Formula
   desc "SSL tunneling program"
   homepage "https://www.stunnel.org/"
-  url "https://www.stunnel.org/downloads/stunnel-5.57.tar.gz"
-  sha256 "af5ab973dde11807c38735b87bdd87563a47d2fa1c72a07929fcfce80a600fe1"
+  url "https://www.stunnel.org/downloads/stunnel-5.58.tar.gz"
+  sha256 "d4c14cc096577edca3f6a2a59c2f51869e35350b3988018ddf808c88e5973b79"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,12 +11,10 @@ class Stunnel < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "cfa8419f3a73ae10fbe7dec1b2d0235e4e0e458724adcc61322429c8b37ba69b"
-    sha256 cellar: :any, big_sur:       "df0539084eff628b24a2d41e69356e919cb764516d7bf4602f037f75a2617bf8"
-    sha256 cellar: :any, catalina:      "878eba096ca3019a14b911d5c4e98850ebd8e5339e9d6921fc9c641c5251405e"
-    sha256 cellar: :any, mojave:        "365dd14775cdcf6b7a4b9a92b9f2cfc9e2ab59534e250f30654e9d7a8c187015"
-    sha256 cellar: :any, high_sierra:   "e9f7507a85fb3b2951f770fd9a784a48a90a02263733d870142e23bf2334f706"
+    sha256 cellar: :any, arm64_big_sur: "47e3d1a9585e643d19bf40bbb20ecc5f7d42519d5975bb599e00fc09ca5b31e0"
+    sha256 cellar: :any, big_sur:       "d58e8c12d8876325031dba9bcd538a60180c43ac30cdc2d0710c0f4535ec1711"
+    sha256 cellar: :any, catalina:      "d80657bc44794018b06497504b5e5231f202cffa9123a29d962fa98d408853d3"
+    sha256 cellar: :any, mojave:        "d8054e955a2e33e8da6afb7ab9a770cf8745ff1741d408d718c27ab91598c588"
   end
 
   depends_on "openssl@1.1"
