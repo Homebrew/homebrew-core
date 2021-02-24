@@ -1,8 +1,8 @@
 class Phpmyadmin < Formula
   desc "Web interface for MySQL and MariaDB"
   homepage "https://www.phpmyadmin.net"
-  url "https://files.phpmyadmin.net/phpMyAdmin/5.0.4/phpMyAdmin-5.0.4-all-languages.tar.gz"
-  sha256 "fbb993b74a7c29ce2fcdb6b6be22b0b6c58bff8df3292ab42f6280871450c316"
+  url "https://files.phpmyadmin.net/phpMyAdmin/5.1.0/phpMyAdmin-5.1.0-all-languages.tar.gz"
+  sha256 "fec6996440009b29af82e031ea2c085766752732771289975af7573652ed4798"
 
   livecheck do
     url "https://www.phpmyadmin.net/files/"
