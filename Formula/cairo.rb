@@ -4,7 +4,7 @@ class Cairo < Formula
   url "https://cairographics.org/releases/cairo-1.16.0.tar.xz"
   sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
-  revision 4
+  revision 5
 
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"
@@ -30,17 +30,14 @@ class Cairo < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "libpng"
+  depends_on "libx11"
+  depends_on "libxcb"
+  depends_on "libxext"
+  depends_on "libxrender"
   depends_on "lzo"
   depends_on "pixman"
 
   uses_from_macos "zlib"
-
-  on_linux do
-    depends_on "libx11"
-    depends_on "libxcb"
-    depends_on "libxext"
-    depends_on "libxrender"
-  end
 
   # Avoid segfaults on Big Sur. Remove at version bump.
   # https://gitlab.freedesktop.org/cairo/cairo/-/issues/420
@@ -57,20 +54,13 @@ class Cairo < Formula
       --enable-svg
       --enable-tee
       --disable-valgrind
+      --enable-xcb
+      --enable-xlib
+      --enable-xlib-xrender
     ]
     on_macos do
       args += %w[
         --enable-quartz-image
-        --disable-xcb
-        --disable-xlib
-        --disable-xlib-xrender
-      ]
-    end
-    on_linux do
-      args += %w[
-        --enable-xcb
-        --enable-xlib
-        --enable-xlib-xrender
       ]
     end
 
