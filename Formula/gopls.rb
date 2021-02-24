@@ -30,7 +30,7 @@ class Gopls < Formula
     output = shell_output("#{bin}/gopls api-json")
     output = JSON.parse(output)
 
-    assert_equal "gopls.generate", output["Commands"][0]["Command"]
+    assert_equal "gopls.add_dependency", output["Commands"][0]["Command"]
     assert_equal "buildFlags", output["Options"]["User"][0]["Name"]
   end
 end
