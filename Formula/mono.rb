@@ -69,6 +69,12 @@ class Mono < Formula
         revision: "70bf6710473a2b6ffe363ea588f7b3ab87682a8d"
   end
 
+  # Temporary patch remove in the next mono release
+  patch do
+    url "https://github.com/mono/mono/commit/3070886a1c5e3e3026d1077e36e67bd5310e0faa.patch?full_index=1"
+    sha256 "b415d632ced09649f1a3c1b93ffce097f7c57dac843f16ec0c70dd93c9f64d52"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-silent-rules",
