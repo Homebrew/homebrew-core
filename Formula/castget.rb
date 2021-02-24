@@ -1,12 +1,12 @@
 class Castget < Formula
   desc "Command-line podcast and RSS enclosure downloader"
   homepage "https://castget.johndal.com/"
-  url "https://savannah.nongnu.org/download/castget/castget-2.0.1.tar.bz2"
+  url "https://download.savannah.gnu.org/releases/castget/castget-2.0.1.tar.bz2"
   sha256 "438b5f7ec7e31a45ed3756630fe447f42015acda53ec09202f48628726b5e875"
   license "LGPL-2.1-only"
 
   livecheck do
-    url "https://savannah.nongnu.org/download/castget/"
+    url "https://download.savannah.gnu.org/releases/castget/"
     regex(/href=.*?castget[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
