@@ -1,14 +1,14 @@
 class Termshark < Formula
   desc "Terminal UI for tshark, inspired by Wireshark"
   homepage "https://termshark.io"
-  url "https://github.com/gcla/termshark/archive/v2.0.3.tar.gz"
-  sha256 "c05a64f1e502d406cc149c6e8b92720ad6310aecd1dd206e05713fd8a2247a84"
+  url "https://github.com/gcla/termshark/archive/v2.2.0.tar.gz"
+  sha256 "deefdb0b65e5d5b97c305cf280770724542f8dd122502f616e394c62c91db0c4"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7b8b0fe96ff5a914f1de2545f9381465c1a8a6bff877e4c016ed54c6975c9825" => :catalina
-    sha256 "71a09e2a4e0af93d8e0dc4b57596dd66410db6c4846a53ab558920b22df0b451" => :mojave
-    sha256 "1feaeff8adfee9e3722bcb6c5d0da6dd26be45758423910338cafb504542f683" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "c596db102b072f39e1e61c41ac2d09d616f65bc4e3b7a8ca6d0648c8a93f9808"
+    sha256 cellar: :any_skip_relocation, catalina: "0422a97e0be00df3518156332b95051687c24b53fbff5946f814fd5c6f96f5da"
+    sha256 cellar: :any_skip_relocation, mojave:   "f0c8ee7fdb686c2bfc788bc661d0e190af1146ebcc0960365369ad764e0ce4d2"
   end
 
   depends_on "go" => :build
@@ -71,7 +71,7 @@ class Termshark < Formula
     system [
       "#{bin}/termshark -r #{HOMEBREW_TEMP}/termshark-test.pcap",
       " | grep 192.168.44.123",
-    ].join("")
+    ].join
 
     # Pretend to be a tty and run termshark with the temporary pcap. Queue up
     # 'q' and 'enter' to terminate.  Rely on the exit code of termshark, which
@@ -87,13 +87,13 @@ class Termshark < Formula
       "#{bin}/termshark -r #{HOMEBREW_TEMP}/termshark-test.pcap",
       "\\\"',pty,setsid,ctty > /dev/null",
     ]
-    system testcmds.join("")
+    system testcmds.join
 
     # "Scrape" the terminal UI for a specific IP address contained in the test
     # pcap. Since the output contains ansi terminal codes, use the -a flag to
     # grep to ensure it's not treated as binary input.
     testcmds[5] = "\\\"',pty,setsid,ctty | grep -a 192.168.44.123 > /dev/null"
-    system testcmds.join("")
+    system testcmds.join
 
     # Clean up.
     File.delete("#{HOMEBREW_TEMP}/termshark-test.pcap")

@@ -1,16 +1,17 @@
 class Gmt < Formula
   desc "Tools for manipulating and plotting geographic and Cartesian data"
-  homepage "https://www.generic-mapping-tools.org"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-6.0.0-src.tar.xz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.0.0-src.tar.xz"
-  mirror "https://fossies.org/linux/misc/GMT/gmt-6.0.0-src.tar.xz"
-  sha256 "8b91af18775a90968cdf369b659c289ded5b6cb2719c8c58294499ba2799b650"
-  revision 1
+  homepage "https://www.generic-mapping-tools.org/"
+  url "https://github.com/GenericMappingTools/gmt/releases/download/6.1.1/gmt-6.1.1-src.tar.xz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.1.1-src.tar.xz"
+  sha256 "d476cba999340648146ef53ab4a3f64858cbd2f5511cdec9f7f06f3fb7896625"
+  license "LGPL-3.0-or-later"
+  revision 3
+  head "https://github.com/GenericMappingTools/gmt.git"
 
   bottle do
-    sha256 "8756d488271e9a55f6f6010f9674152e71311e7a9d9d2e40c4027cd3372f596d" => :catalina
-    sha256 "dc07d4f188f50d0a829375556068627bd0498ff95c873bb2b3f347cb3a0ac74d" => :mojave
-    sha256 "05f8aca834ef27cf5d5fd4b81571578f22ed90f7f767c433dd6d5d66978fba71" => :high_sierra
+    sha256 big_sur:  "938fd4d45e539dad96b0f8f12cec5d2a791e55ced1c2e027bdb970aed2e44ecf"
+    sha256 catalina: "894136f2754d3677ef41ac95d9087771a98502c8988a6742ce6c16832b873a92"
+    sha256 mojave:   "5ec74190adc6306423223b377b20950c6343847c5620429b17aedf7dfdbe7327"
   end
 
   depends_on "cmake" => :build
@@ -20,28 +21,15 @@ class Gmt < Formula
   depends_on "pcre"
 
   resource "gshhg" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.7.tar.gz"
+    url "https://github.com/GenericMappingTools/gshhg-gmt/releases/download/2.3.7/gshhg-gmt-2.3.7.tar.gz"
     mirror "https://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "https://fossies.org/linux/misc/GMT/gshhg-gmt-2.3.7.tar.gz"
     sha256 "9bb1a956fca0718c083bef842e625797535a00ce81f175df08b042c2a92cfe7f"
   end
 
   resource "dcw" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.4.tar.gz"
+    url "https://github.com/GenericMappingTools/dcw-gmt/releases/download/1.1.4/dcw-gmt-1.1.4.tar.gz"
     mirror "https://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.4.tar.gz"
-    mirror "https://fossies.org/linux/misc/GMT/dcw-gmt-1.1.4.tar.gz"
     sha256 "8d47402abcd7f54a0f711365cd022e4eaea7da324edac83611ca035ea443aad3"
-  end
-
-  # The following two patches fix a problem in detecting locally installed
-  # html pages (https://github.com/GenericMappingTools/gmt/issues/1960).
-  # They must be removed when GMT 6.0.1 is released.
-  patch do
-    url "https://github.com/GenericMappingTools/gmt/commit/b65dc6ebe7eba396b57dbad59e85b7ba7e8e2908.patch?full_index=1"
-  end
-
-  patch do
-    url "https://github.com/GenericMappingTools/gmt/commit/daf646554a25cf1a4a94255b694afc43028f9696.patch?full_index=1"
   end
 
   def install
@@ -71,18 +59,20 @@ class Gmt < Formula
       system "cmake", "..", *args
       system "make", "install"
     end
+    inreplace bin/"gmt-config", "#{HOMEBREW_LIBRARY}/Homebrew/shims/mac/super/clang", "/usr/bin/clang"
   end
 
-  def caveats; <<~EOS
-    GMT needs Ghostscript for the 'psconvert' command to convert PostScript files
-    to other formats. To use 'psconvert', please 'brew install ghostscript'.
+  def caveats
+    <<~EOS
+      GMT needs Ghostscript for the 'psconvert' command to convert PostScript files
+      to other formats. To use 'psconvert', please 'brew install ghostscript'.
 
-    GMT needs FFmpeg for the 'movie' command to make movies in MP4 or WebM format.
-    If you need this feature, please 'brew install ffmpeg'.
+      GMT needs FFmpeg for the 'movie' command to make movies in MP4 or WebM format.
+      If you need this feature, please 'brew install ffmpeg'.
 
-    GMT needs GraphicsMagick for the 'movie' command to make animated GIFs.
-    If you need this feature, please 'brew install graphicsmagick'.
-  EOS
+      GMT needs GraphicsMagick for the 'movie' command to make animated GIFs.
+      If you need this feature, please 'brew install graphicsmagick'.
+    EOS
   end
 
   test do

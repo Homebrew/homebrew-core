@@ -5,16 +5,25 @@ class Libquvi < Formula
   sha256 "f5a2fb0571634483e8a957910f44e739f5a72eb9a1900bd10b453c49b8d5f49d"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libquvi[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    sha256 "6f98f88d5f98ef09c1aee13b24e89be731c79170b3bce5af1617a5309eade725" => :catalina
-    sha256 "4916926b6bc9b2180ec1cf06bb24bc76eb9d342c748b4e36ddc65ffad1933cbd" => :mojave
-    sha256 "bb5a4201afd814e87ee496b8cefbcf126f0245d7b3c600039e71e7b355115bf7" => :high_sierra
-    sha256 "9968d412860717f837082f0e9d225b741d8430a99a3d1c4e12b7a1cdc95cd456" => :sierra
-    sha256 "d91506a098fa564598b4aecbad97a2fa30728fafd8ad82bf8c4ff4bedb8d6c0a" => :el_capitan
+    sha256 arm64_big_sur: "167718e2a3981fdbfa9b34cddc3c94ed4e0c80f4cbe82749535cd7b7c644d9a5"
+    sha256 big_sur:       "bcabb1b6f7812088c7dce8c919e1200ebc8f726ada4e5dadbf813ae20ec35835"
+    sha256 catalina:      "6f98f88d5f98ef09c1aee13b24e89be731c79170b3bce5af1617a5309eade725"
+    sha256 mojave:        "4916926b6bc9b2180ec1cf06bb24bc76eb9d342c748b4e36ddc65ffad1933cbd"
+    sha256 high_sierra:   "bb5a4201afd814e87ee496b8cefbcf126f0245d7b3c600039e71e7b355115bf7"
+    sha256 sierra:        "9968d412860717f837082f0e9d225b741d8430a99a3d1c4e12b7a1cdc95cd456"
+    sha256 el_capitan:    "d91506a098fa564598b4aecbad97a2fa30728fafd8ad82bf8c4ff4bedb8d6c0a"
   end
 
   depends_on "pkg-config" => :build
   depends_on "lua@5.1"
+
+  uses_from_macos "curl"
 
   resource "scripts" do
     url "https://downloads.sourceforge.net/project/quvi/0.4/libquvi-scripts/libquvi-scripts-0.4.14.tar.xz"

@@ -1,27 +1,36 @@
 class Ezstream < Formula
   desc "Client for Icecast streaming servers"
   homepage "https://icecast.org/ezstream/"
-  url "https://downloads.xiph.org/releases/ezstream/ezstream-0.6.0.tar.gz"
-  sha256 "f86eb8163b470c3acbc182b42406f08313f85187bd9017afb8b79b02f03635c9"
+  url "https://downloads.xiph.org/releases/ezstream/ezstream-1.0.2.tar.gz"
+  sha256 "11de897f455a95ba58546bdcd40a95d3bda69866ec5f7879a83b024126c54c2a"
+  license "GPL-2.0-only"
+  head "https://gitlab.xiph.org/xiph/ezstream.git"
 
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "5e90210ab59dc2ff6a0a8a64b0153a59f9f63a37ec32c17d8eef21ba1112f447" => :catalina
-    sha256 "45d77ec44eb517437a2b0bf73b5fd30baafae77f37bc9eb4417956261f345fe4" => :mojave
-    sha256 "8dda7ec4014a1c4f13a3a17f7e243b9e7153c069f5c8cff1a20c7b2518d78be6" => :high_sierra
-    sha256 "eee3cc2ed988d5c0e131d9ba8f0aef0e7bb520311096a9719b914c0a1ca6ffe4" => :sierra
-    sha256 "365c26a87addf50359e65ccd98ce4244b61f7e9015a335ff47bf55a90b35ad19" => :el_capitan
-    sha256 "dfa4b2537b1ce6b0da0c4214ccedca664bdd2e69962fa6579d9c437b1ff94e92" => :yosemite
-    sha256 "04e3a89b8b1e91ce160ec94c981b71d8fb08d7be8fef3da3f1c33b29dc9e3f8c" => :mavericks
+  livecheck do
+    url "https://downloads.xiph.org/releases/ezstream/"
+    regex(/href=.*?ezstream[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "188838a38d3573fc77ffd5684e0e7759b24d550ffdd895243425e13c29e038c2"
+    sha256 cellar: :any, big_sur:       "fbfe1082559a1313ee3ff071ad35866fb20d5fb360fbfc634fbf85ac48c3e94d"
+    sha256 cellar: :any, catalina:      "2854c21def8d7e97747aeca5e856833d17780698739e581a192059c58f50ffa2"
+    sha256 cellar: :any, mojave:        "cfc4088a51cdcb0a586ee2a796d5a515d89007bebfae0f7bfd6b2a4c7a2c13f5"
+  end
+
+  depends_on "check" => :build
   depends_on "pkg-config" => :build
-  depends_on "libogg"
   depends_on "libshout"
-  depends_on "libvorbis"
-  depends_on "speex"
-  depends_on "theora"
+  depends_on "taglib"
+
+  uses_from_macos "libxml2"
+
+  # Work around issue with <sys/random.h> not including its dependencies
+  # https://gitlab.xiph.org/xiph/ezstream/-/issues/2270
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/fa36881/audio/ezstream/files/sys-types.patch"
+    sha256 "a5c39de970e1d43dc2dac84f4a0a82335112da6b86f9ea09be73d6e95ce4716c"
+  end
 
   def install
     system "./configure", "--disable-debug",

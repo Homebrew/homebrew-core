@@ -1,23 +1,23 @@
 class X8664ElfBinutils < Formula
-  desc "FSF Binutils for x86_64-elf cross development"
+  desc "GNU Binutils for x86_64-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.33.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.33.1.tar.gz"
-  sha256 "98aba5f673280451a09df3a8d8eddb3aa0c505ac183f1e2f9d00c67aa04c6f7d"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.36.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.1.tar.xz"
+  sha256 "e81d9edf373f193af428a0f256674aea62a9d74dfe93f65192d4eae030b0f3b0"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "18ea6dbe526c6c14961968ab697cfa44852f99716c57df5ee1f4c80eeae4e44e" => :catalina
-    sha256 "dc730e66867b76359b10193f959ed8c19cd28f5a84e702cc482a264b05909f7a" => :mojave
-    sha256 "77187bb70a15356d0580f95fa37cbbe872d80afe569f4aa34aabf54ee5c71ee6" => :high_sierra
+    sha256 arm64_big_sur: "a5584ba07f4f488096061f8f11c5d2fad72b87f42526aae902ba24b2dded7e13"
+    sha256 big_sur:       "98a1c41b67cda5c8552edf16e826aada8f29409da4477301db7ce861c6e93295"
+    sha256 catalina:      "0911b52c58f70ea3fd24861c10f22b1f65a8f3ee08ec4c57f90a47cc19f529af"
+    sha256 mojave:        "0b82544bb76a74993fa3a663b6ced46dd48e3f5afb61df97653cf46581f5c317"
   end
 
   def install
     system "./configure", "--target=x86_64-elf",
-                          "--enable-targets=all",
-                          "--enable-multilib",
-                          "--enable-64-bit-bfd",
-                          "--disable-werror",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--infodir=#{info}/x86_64-elf-binutils",
+                          "--disable-nls"
     system "make"
     system "make", "install"
   end
@@ -33,6 +33,7 @@ class X8664ElfBinutils < Formula
           int $0x80
     EOS
     system "#{bin}/x86_64-elf-as", "--64", "-o", "test-s.o", "test-s.s"
-    assert_match "file format elf64-x86-64", shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-s.o")
+    assert_match "file format elf64-x86-64",
+      shell_output("#{bin}/x86_64-elf-objdump -a test-s.o")
   end
 end

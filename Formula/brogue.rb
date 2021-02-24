@@ -2,17 +2,19 @@ class Brogue < Formula
   desc "Roguelike game"
   homepage "https://sites.google.com/site/broguegame/"
   # The OS X version doesn't contain a Makefile, so we
-  # need to download the Linux version
-  url "https://sites.google.com/site/broguegame/brogue-1.7.5-linux-amd64.tbz2"
+  # need to download the Linux version.  This is the
+  # file "brogue-1.7.5-linux-amd64.tbz2" inside their
+  # official google drive they distribute source from:
+  url "https://drive.google.com/u/0/uc?id=1ED_2nPubP-P0e_PHKYVzZF42M1Y9pUb4&export=download"
   version "1.7.5"
   sha256 "a74ff18139564c597d047cfb167f74ab1963dd8608b6fb2e034e7635d6170444"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "942d5ca5002a3df398ada3879071d924cf14487e6c4acace5a7645b0799cc679" => :catalina
-    sha256 "62d88540558c2f014403686898cf68d9a44c62e0095e285e77958b66e5c1ff3a" => :mojave
-    sha256 "864ae48cf80e2f1f3dc2a31a2ea4811177906eda30b11d12d5e3018ca4f1f3b8" => :high_sierra
-    sha256 "b5f6a25670f2eeb737bcde972b78801892971e2af4e3f7df1bbaa237eb4db50f" => :sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "065e96899c94736b5072b2f3aeb20a6f559f4d734730ff6bbc9bdd9d0f6eba3b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ba18162358c18f1f9bf064d49b3fcd7371f00f3aa3b6da129d169106b068aef7"
+    sha256 cellar: :any_skip_relocation, catalina:      "2f5111318faeb8c710f6100706900f7c38e29f8cb90b06181ac5d95c784e8adf"
+    sha256 cellar: :any_skip_relocation, mojave:        "c2171ad8115933295cde771bbe71e144d1c142c30224ada41aecbf70dcf3d239"
   end
 
   uses_from_macos "ncurses"
@@ -41,10 +43,11 @@ class Brogue < Formula
     libexec.install "bin/brogue", "bin/keymap"
   end
 
-  def caveats; <<~EOS
-    If you are upgrading from 1.7.2, you need to copy your highscores file:
-        cp #{HOMEBREW_PREFIX}/Cellar/#{name}/1.7.2/BrogueHighScores.txt #{var}/brogue/
-  EOS
+  def caveats
+    <<~EOS
+      If you are upgrading from 1.7.2, you need to copy your highscores file:
+          cp #{HOMEBREW_PREFIX}/Cellar/#{name}/1.7.2/BrogueHighScores.txt #{var}/brogue/
+    EOS
   end
 
   test do

@@ -3,13 +3,14 @@ class Kahip < Formula
   homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
   url "https://algo2.iti.kit.edu/schulz/software_releases/KaHIP_2.12.tar.gz"
   sha256 "b91abdbf9420e2691ed73cea999630e38dfaf0e03157c7a690a998564c652aac"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "970a6dbb933e2fae1f04cf06f73cbad53ebcecbee8c2434e2045d46d5cecd82b" => :catalina
-    sha256 "3c59b856d2b908f55fe555621a1ad866a1e4e2cbc1e07d13bda116d33d9f1ddc" => :mojave
-    sha256 "5872593fdd32749fc4d11bff597808732428137b869840f5db65e7ef408e393c" => :high_sierra
-    sha256 "cb925202435f91a405717bd7f5f162d54bdab0bccbdb87eaa817324d331211b0" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "2a3a941d05e8ac41cec5522f11fd835159ffb370452cf788adbcfe0d8c68d654"
+    sha256 cellar: :any, big_sur:       "5e9b5722965b55d3cfe41c64138da7d508f3677948783d10fa8bdc6cb14fd899"
+    sha256 cellar: :any, catalina:      "a05c9bfbd38225e3730e10756f1515d833f09f61eccd7745c55dd8b78690b790"
+    sha256 cellar: :any, mojave:        "57e35f0a81e0d22f9d8d4438994efcc30295e54865525ba89236f58647f66174"
+    sha256 cellar: :any, high_sierra:   "78fda0b177b22dc65d0d9b5116dc842aa023cb027afccd4c2f968f42ac55fada"
   end
 
   depends_on "cmake" => :build
@@ -17,8 +18,9 @@ class Kahip < Formula
   depends_on "open-mpi"
 
   def install
-    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{Formula["gcc"].version_suffix}"
-    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{Formula["gcc"].version_suffix}"
+    gcc_major_ver = Formula["gcc"].any_installed_version.major
+    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
+    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{gcc_major_ver}"
     mkdir "build" do
       system "cmake", *std_cmake_args, ".."
       system "make", "install"

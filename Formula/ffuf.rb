@@ -1,21 +1,21 @@
 class Ffuf < Formula
   desc "Fast web fuzzer written in Go"
   homepage "https://github.com/ffuf/ffuf"
-  url "https://github.com/ffuf/ffuf/archive/v0.12.tar.gz"
-  sha256 "8a80c043cce5c1125260240d42eb4cff36d45d81668840b6934cb771b050ce45"
+  url "https://github.com/ffuf/ffuf/archive/v1.2.1.tar.gz"
+  sha256 "ff474b21e192005a2df0f09f942b0370bdcb45d64ee35bd8782eb44a5c636e96"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1996d2b36b78dba79b0ad59921ee9652884323878c6f6e9d4978c0674a3cd5fb" => :catalina
-    sha256 "c43088744a86b48c2e3f2b11c872209fce85f618062097639b974447ba75d6a6" => :mojave
-    sha256 "73b2149c5c9674a693c95189dfc7418976f621e0c50bda75c78191930b2d30b5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa0eb6fbc38d98317bf5bae7ff15578d947fd08a94bcbc4ae46abc2824329ca3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fc742bf45e81e33b6729e7c8feb93e80c0d53fd9945d781d7011f026326ba084"
+    sha256 cellar: :any_skip_relocation, catalina:      "97de30d099d5ad9f26d8e56c7c8aed529fa12954b80fac9efdab42d7e2684c6f"
+    sha256 cellar: :any_skip_relocation, mojave:        "59efb524bd1557046e971712c83fe23ad970ae36d64f6b07d21c702183441192"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"ffuf"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do
@@ -28,6 +28,6 @@ class Ffuf < Formula
     EOS
 
     output = shell_output("#{bin}/ffuf -u https://example.org/FUZZ -w words.txt 2>&1")
-    assert_match %r{:: Progress: \[5\/5\].*Errors: 0 ::$}, output
+    assert_match %r{:: Progress: \[5/5\].*Errors: 0 ::$}, output
   end
 end

@@ -1,17 +1,15 @@
 class Minidlna < Formula
   desc "Media server software, compliant with DLNA/UPnP-AV clients"
   homepage "https://sourceforge.net/projects/minidlna/"
-  url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.2.1/minidlna-1.2.1.tar.gz"
-  sha256 "67388ba23ab0c7033557a32084804f796aa2a796db7bb2b770fb76ac2a742eec"
-  revision 1
+  url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.0/minidlna-1.3.0.tar.gz"
+  sha256 "47d9b06b4c48801a4c1112ec23d24782728b5495e95ec2195bbe5c81bc2d3c63"
+  license "GPL-2.0-only"
 
   bottle do
-    cellar :any
-    sha256 "8018faef1d11436216b0c945ba682f52ee37ae437413371f788ff833f88f4334" => :catalina
-    sha256 "e47addf7d21436e3b534b14024271d1d3355818f2e11a04da53a924f2acfe8e3" => :mojave
-    sha256 "ed1b022aaea8beed91a26b9907c8253da9c5c441fa52482ae0255571cd1744ad" => :high_sierra
-    sha256 "5145b3bae1ebb4add544bc8877668a5cea2e80a380a5a0beaba94a6e88cbf33c" => :sierra
-    sha256 "16fb753050582f030bcc16de31ccac3faa74f5ada3d1bed4d17895dd8628f772" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "e8123a9b2f7c100c538774cdb4114c0fdc44ea3a9a3a257e2f28db80a982c8ab"
+    sha256 cellar: :any, big_sur:       "3934b6e9bea9c3f74be9b163909eff0a6f697bdcd36c0fb5b8ac46793b7e362b"
+    sha256 cellar: :any, catalina:      "87538e0663825ec20c3d829db386fffeaf451df2f22f78845d92ff5dcad09a2e"
+    sha256 cellar: :any, mojave:        "f1dd29bb2e954ed3b842ad591f8673419b37c1d151add4dd91c05350cde0e51a"
   end
 
   head do
@@ -57,43 +55,46 @@ class Minidlna < Formula
     EOS
   end
 
-  plist_options :manual => "minidlna"
+  plist_options manual: "minidlna"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/minidlnad</string>
-          <string>-d</string>
-          <string>-f</string>
-          <string>#{ENV["HOME"]}/.config/minidlna/minidlna.conf</string>
-          <string>-P</string>
-          <string>#{ENV["HOME"]}/.config/minidlna/minidlna.pid</string>
-        </array>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Crashed</key>
-          <true/>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/minidlnad</string>
+            <string>-d</string>
+            <string>-f</string>
+            <string>#{ENV["HOME"]}/.config/minidlna/minidlna.conf</string>
+            <string>-P</string>
+            <string>#{ENV["HOME"]}/.config/minidlna/minidlna.pid</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>Crashed</key>
+            <true/>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>ProcessType</key>
+          <string>Background</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/minidlnad.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/minidlnad.log</string>
         </dict>
-        <key>ProcessType</key>
-        <string>Background</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/minidlnad.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/minidlnad.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do
+    require "expect"
+
     (testpath/".config/minidlna/media").mkpath
     (testpath/".config/minidlna/cache").mkpath
     (testpath/"minidlna.conf").write <<~EOS
@@ -103,14 +104,12 @@ class Minidlna < Formula
       log_dir=#{testpath}/.config/minidlna
     EOS
 
-    system sbin/"minidlnad", "-f", "minidlna.conf", "-p", "8081", "-P",
-                             testpath/"minidlna.pid"
-    sleep 2
+    port = free_port
 
-    begin
-      assert_match /MiniDLNA #{version}/, shell_output("curl localhost:8081")
-    ensure
-      Process.kill("SIGINT", File.read("minidlna.pid").to_i)
-    end
+    io = IO.popen("#{sbin}/minidlnad -d -f minidlna.conf -p #{port} -P #{testpath}/minidlna.pid", "r")
+    io.expect("debug: Initial file scan completed", 30)
+    assert_predicate testpath/"minidlna.pid", :exist?
+
+    assert_match "MiniDLNA #{version}", shell_output("curl localhost:#{port}")
   end
 end

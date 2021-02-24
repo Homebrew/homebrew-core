@@ -1,20 +1,27 @@
 class Tup < Formula
   desc "File-based build system"
   homepage "http://gittup.org/tup/"
-  url "https://github.com/gittup/tup/archive/v0.7.8.tar.gz"
-  sha256 "37baed2d12ef6ce66ce186dc5aa9bcf23098c35d3aee2dc25cb3177eee224b60"
+  url "https://github.com/gittup/tup/archive/v0.7.10.tar.gz"
+  sha256 "c80946bc772ae4a5170855e907c866dae5040620e81ee1a590223bdbdf65f0f8"
+  license "GPL-2.0-only"
   head "https://github.com/gittup/tup.git"
 
   bottle do
-    cellar :any
-    sha256 "76c67dc80a2317d0c03e98b90007b6ba0ee4350f0bfbfc6b923b21f7f41be587" => :catalina
-    sha256 "fe62bd2762c7ff15e628b6c241c8f6acd81d190c03136c6edce2fd76afafe9f0" => :mojave
-    sha256 "9a2e688be1a21af9fc0c2e9edb0e2a679eb7553356e59682037a760c6bd90b8d" => :high_sierra
-    sha256 "fc8a299e3ed77a756edbcb957343d1cc95594126f23514eea729649a7fcc6071" => :sierra
+    sha256 cellar: :any, catalina:    "48009935b0e38be19c1d8a0afbbeef75109a970a57327dad9ecf5929b64b7bf2"
+    sha256 cellar: :any, mojave:      "155b58771fa74a27b20d4e668324ae97ca4c0f8a150691b8ceecd786064dcae1"
+    sha256 cellar: :any, high_sierra: "78c5c8e96892dd07c467f7b86d3312689d33474e7e6a07d4c69905aa60941e10"
   end
 
   depends_on "pkg-config" => :build
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV["TUP_LABEL"] = version

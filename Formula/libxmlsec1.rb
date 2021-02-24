@@ -1,14 +1,21 @@
 class Libxmlsec1 < Formula
   desc "XML security library"
   homepage "https://www.aleksey.com/xmlsec/"
-  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.29.tar.gz"
-  sha256 "b1d1deba966019930f608d1f2b95c40ca3450f1393bcd3a3c001a8ba1d2839ab"
+  url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.31.tar.gz"
+  sha256 "9b10bc52cc31e4f76162e3975e50db26b71ab49c571d810b311ca626be5a0b26"
+  license "MIT"
+
+  livecheck do
+    url "https://www.aleksey.com/xmlsec/download/"
+    regex(/href=.*?xmlsec1[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "a088dc56791af25f57b43c6ef1e95bce4da78793d071d781ce4289ec8e343266" => :catalina
-    sha256 "d10ed21c6a9abd0fb2b97a29b4c3ff78346faa0bdb3d7b6149f736ac47716fd6" => :mojave
-    sha256 "f50347e52ba30d4a231af5060c9eda68eef945171306fd4433c5717b4c53e5dd" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "03549710a64505e61e3e185998a92df43b577bb494cce4ffab915301f149b19a"
+    sha256 cellar: :any, big_sur:       "af7411c43a003e9e77219c4b00857b0f99a75546426750ad0aff1e1e5b6cfa41"
+    sha256 cellar: :any, catalina:      "c802faa7f7b56c286aa82b9c5d2041b19513848c54cd8f8b2d55e62c810cd247"
+    sha256 cellar: :any, mojave:        "cde9ec0c2240211d002b575f17028ff43284c6f47fbe26ecf9fa131aa94a373c"
+    sha256 cellar: :any, high_sierra:   "bf6bdda2fb39e06e3db72e491fdb0327aab691b15cc8e47a1c5eb74828356d2b"
   end
 
   depends_on "pkg-config" => :build
@@ -16,6 +23,10 @@ class Libxmlsec1 < Formula
   depends_on "libgcrypt"
   depends_on "libxml2"
   depends_on "openssl@1.1"
+
+  on_macos do
+    depends_on xcode: :build
+  end
 
   # Add HOMEBREW_PREFIX/lib to dl load path
   patch :DATA

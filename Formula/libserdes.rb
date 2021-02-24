@@ -2,20 +2,21 @@ class Libserdes < Formula
   desc "Schema ser/deserializer lib for Avro + Confluent Schema Registry"
   homepage "https://github.com/confluentinc/libserdes"
   url "https://github.com/confluentinc/libserdes.git",
-    :tag      => "v5.3.1",
-    :revision => "b259d15f68dce65591700b0ccccb73311db1de3d"
+      tag:      "v6.1.0",
+      revision: "a50fed317403fdef64b95c061614a5148597f401"
+  license "Apache-2.0"
   head "https://github.com/confluentinc/libserdes.git"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "b67057508abef7929928eeb8971528d72d09a139e6a3c873d27c01b3fd205227" => :catalina
-    sha256 "0502e2247ba623241c2955b9a85114a621400b961765fa02135f806ba79c2c77" => :mojave
-    sha256 "d8f5c959838343a7368798b33cb741fbdbb8a67afbcb4d2acbc94e5098dc19f6" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "746d1435e2cf4a5c6b015adda46584eed5139c86bbcfb379abd76d48cfe65938"
+    sha256 cellar: :any, big_sur:       "10ed1c6062597c5a14399b0667e7e7404ec03011dc79a963614723cbfa406dd0"
+    sha256 cellar: :any, catalina:      "c46ac3c0b4832340e989b47eaea6823b443024976ae50bc8fc87984d31852415"
+    sha256 cellar: :any, mojave:        "ee2bb3f5661c65ea32a7712dd431af8c0d1a51f840f981238c3a058252ed672c"
   end
 
   depends_on "avro-c"
   depends_on "jansson"
+
   uses_from_macos "curl"
 
   def install

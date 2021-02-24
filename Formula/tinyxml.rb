@@ -5,14 +5,15 @@ class Tinyxml < Formula
   sha256 "15bdfdcec58a7da30adc87ac2b078e4417dbe5392f3afb719f9ba6d062645593"
 
   bottle do
-    cellar :any
-    sha256 "7cc1ada5d273bec9f50a1809a9989306ec9601a037c06b362cee321fbdc5c0a7" => :catalina
-    sha256 "c1fc1d7fa9e6934412294e921cde90bcfd107b68dbdddd9acf8cae4927190718" => :mojave
-    sha256 "ec0f83018a9ff93c11b6a8c92483056b2771359a14aedfb6dc46e1ab078ce9ac" => :high_sierra
-    sha256 "ef8c7bbbae6148e161b6f3369ede8bd3533a32847dc716000b46d26e6fb1c26c" => :sierra
-    sha256 "16e6052892b43e68c45f5122b6802e9bc32001dc9478dfcd89511a24544660e5" => :el_capitan
-    sha256 "4b1df9cb229b04f9968621a52737d96e86fcd6c2ad8904ae8a5c324347845f50" => :yosemite
-    sha256 "75f79bb5d502e7be74de20e1cd3e3dcdd4702b37ef7de53d9d9a546a51776b50" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "04fccb4076db86eb901b710f5d50b01ea6e6cec907979aed5eb5135c9654e16d"
+    sha256 cellar: :any, big_sur:       "e98aaca0d889c322b5e2294495e7613e656773fb5f605a6239d8b85949011b99"
+    sha256 cellar: :any, catalina:      "7cc1ada5d273bec9f50a1809a9989306ec9601a037c06b362cee321fbdc5c0a7"
+    sha256 cellar: :any, mojave:        "c1fc1d7fa9e6934412294e921cde90bcfd107b68dbdddd9acf8cae4927190718"
+    sha256 cellar: :any, high_sierra:   "ec0f83018a9ff93c11b6a8c92483056b2771359a14aedfb6dc46e1ab078ce9ac"
+    sha256 cellar: :any, sierra:        "ef8c7bbbae6148e161b6f3369ede8bd3533a32847dc716000b46d26e6fb1c26c"
+    sha256 cellar: :any, el_capitan:    "16e6052892b43e68c45f5122b6802e9bc32001dc9478dfcd89511a24544660e5"
+    sha256 cellar: :any, yosemite:      "4b1df9cb229b04f9968621a52737d96e86fcd6c2ad8904ae8a5c324347845f50"
+    sha256 cellar: :any, mavericks:     "75f79bb5d502e7be74de20e1cd3e3dcdd4702b37ef7de53d9d9a546a51776b50"
   end
 
   depends_on "cmake" => :build
@@ -24,12 +25,12 @@ class Tinyxml < Formula
   # The third patch adds a CMakeLists.txt file to build a shared library and provide an install target
   #   submitted upstream as https://sourceforge.net/p/tinyxml/patches/66/
   patch do
-    url "https://raw.githubusercontent.com/robotology/yarp/master/extern/tinyxml/patches/enforce-use-stl.patch"
+    url "https://raw.githubusercontent.com/robotology/yarp/59eedfbaa1069aa5f03a4a9980d984d59decd55c/extern/tinyxml/patches/enforce-use-stl.patch"
     sha256 "16a5b5e842eb0336be606131e5fb12a9165970f7bd943780ba09df2e1e8b29b1"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/robotology/yarp/master/extern/tinyxml/patches/entity-encoding.patch"
+    url "https://raw.githubusercontent.com/robotology/yarp/59eedfbaa1069aa5f03a4a9980d984d59decd55c/extern/tinyxml/patches/entity-encoding.patch"
     sha256 "c5128e03933cd2e22eb85554d58f615f4dbc9177bd144cae2913c0bd7b140c2b"
   end
 
@@ -44,18 +45,19 @@ class Tinyxml < Formula
     (lib+"pkgconfig/tinyxml.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{opt_prefix}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
 
-    Name: TinyXml
-    Description: Simple, small, C++ XML parser
-    Version: #{version}
-    Libs: -L${libdir} -ltinyxml
-    Cflags: -I${includedir}
-  EOS
+      Name: TinyXml
+      Description: Simple, small, C++ XML parser
+      Version: #{version}
+      Libs: -L${libdir} -ltinyxml
+      Cflags: -I${includedir}
+    EOS
   end
 
   test do

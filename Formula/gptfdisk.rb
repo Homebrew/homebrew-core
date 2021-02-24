@@ -1,19 +1,25 @@
 class Gptfdisk < Formula
   desc "Text-mode partitioning tools"
   homepage "https://www.rodsbooks.com/gdisk/"
-  url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.4/gptfdisk-1.0.4.tar.gz"
-  sha256 "b663391a6876f19a3cd901d862423a16e2b5ceaa2f4a3b9bb681e64b9c7ba78d"
+  url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.6/gptfdisk-1.0.6.tar.gz"
+  sha256 "ddc551d643a53f0bd4440345d3ae32c49b04a797e9c01036ea460b6bb4168ca8"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "a91c7b47e12c27c35353542ada7579b25119cdd0a2d95203e9141cca612b70be" => :catalina
-    sha256 "3f370d1a7e625f5d07e6c01ad4397ef9a736fe28558ef2f6d308521bc7b52100" => :mojave
-    sha256 "ece7354d9226677e040f8e755f16cf51f7d2fd32ef3d761ba797bc2e19ffceb9" => :high_sierra
-    sha256 "b21ce2f459eb281e2fe616c2f15908411b082d4a6c6e1952fa582768001dfa2b" => :sierra
-    sha256 "8af410758295279a4f75bf0d787d47066446b7e21f78b035a5a9e5134035706c" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "dfe0b4cbc0e2cb2118fb2fbbbcd3ad1d42ff9fad8c7ad785c7a27bfd8cc48c5f"
+    sha256 cellar: :any, big_sur:       "a3e4b6f68aba2aca20a6a197613e662af80a84a71765f7cdc9760ea495d00a86"
+    sha256 cellar: :any, catalina:      "b3fc1b140c2a2c4b713460483134620b61066d351a4bdd5a1adc5dfe9c53f1be"
+    sha256 cellar: :any, mojave:        "9d8b7f91e699513e4c6c42d4b8e56548f93d76d0e30da1d09b8f9725d49d0f15"
   end
 
   depends_on "popt"
+
+  uses_from_macos "ncurses"
+
+  # Fix Big Sur compilation issue with 1.0.5; the physical *.dylib files
+  # are no longer present directly on the filesystem, but the linker still
+  # knows what to do.
+  patch :DATA
 
   def install
     system "make", "-f", "Makefile.mac"
@@ -24,8 +30,23 @@ class Gptfdisk < Formula
   end
 
   test do
-    system "hdiutil", "create", "-size", "128k", "test.dmg"
-    output = shell_output("#{bin}/gdisk -l test.dmg")
-    assert_match "Found valid GPT with protective MBR", output
+    system "dd", "if=/dev/zero", "of=test.dmg", "bs=1m", "count=1"
+    assert_match "completed successfully", shell_output("#{bin}/sgdisk -o test.dmg")
+    assert_match "GUID", shell_output("#{bin}/sgdisk -p test.dmg")
+    assert_match "Found valid GPT with protective MBR", shell_output("#{bin}/gdisk -l test.dmg")
   end
 end
+
+__END__
+diff -ur a/Makefile.mac b/Makefile.mac
+--- a/Makefile.mac	2020-02-17 22:34:11.000000000 +0000
++++ b/Makefile.mac	2020-12-05 22:12:04.000000000 +0000
+@@ -21,7 +21,7 @@
+ #	$(CXX) $(LIB_OBJS) -L/usr/lib -licucore gpttext.o gdisk.o -o gdisk
+ 
+ cgdisk: $(LIB_OBJS) cgdisk.o gptcurses.o
+-	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o /usr/lib/libncurses.dylib $(LDFLAGS) $(FATBINFLAGS) -o cgdisk
++	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o -L/usr/lib -lncurses $(LDFLAGS) $(FATBINFLAGS) -o cgdisk
+ #	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o $(LDFLAGS) -licucore -lncurses -o cgdisk
+ 
+ sgdisk: $(LIB_OBJS) gptcl.o sgdisk.o

@@ -1,30 +1,51 @@
 class Frotz < Formula
   desc "Infocom-style interactive fiction player"
-  homepage "https://gitlab.com/DavidGriffith/frotz"
-  url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.50/frotz-2.50.tar.gz"
-  sha256 "0352dfc458fb5cc7a932c568bd86aabdde943bee25ea0cce58c46f8c893f554f"
+  homepage "https://661.org/proj/if/frotz/"
+  url "https://gitlab.com/DavidGriffith/frotz/-/archive/2.52/frotz-2.52.tar.bz2"
+  sha256 "7e81789d7958ef42426a3067855cb3dc8eda04a5aa80d2803e32dd9282452932"
+  license "GPL-2.0"
   head "https://gitlab.com/DavidGriffith/frotz.git"
 
   bottle do
-    sha256 "9e152d332b98fa59ac24f12c965b7b8130abf02157bed73c82a1d1379962409b" => :catalina
-    sha256 "d3c4e36ef1eb239daabf8aa4dc29bb8c0b6fada88d7f1924f561c0a0515d0b5d" => :mojave
-    sha256 "33ee071a81fb2fd18d4222659fb522115a9afa3e15228a5005df25713ac69b3e" => :high_sierra
+    sha256 arm64_big_sur: "221374559017427b4cce070f84cd46cc7f3e8aae5e8fa035c6bcec392f4a6f3d"
+    sha256 big_sur:       "9cf846f08395d4be4d09c14eee622ee583e74cce4551175dead61a2cd71b2110"
+    sha256 catalina:      "1ed32dda7751fc0fe562cded7e618b7e5d9717e0342520d001f21d2094aaf5e8"
+    sha256 mojave:        "c71a655ef6d2906e9d094c6383d0a5a2f69d8c6e1c52352159a1a639c9003cea"
+    sha256 high_sierra:   "aa55fbacadbb897b30ec469d0f652ad4674b1c844072d5e47f02d152d3da6b9c"
+  end
+
+  depends_on "pkg-config" => :build
+  depends_on "freetype"
+  depends_on "jpeg"
+  depends_on "libao"
+  depends_on "libmodplug"
+  depends_on "libpng"
+  depends_on "libsamplerate"
+  depends_on "libsndfile"
+  depends_on "libvorbis"
+  depends_on "sdl2"
+  depends_on "sdl2_mixer"
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  resource("testdata") do
+    url "https://gitlab.com/DavidGriffith/frotz/-/raw/master/src/test/etude/etude.z5"
+    sha256 "bfa2ef69f2f5ce3796b96f9b073676902e971aedb3ba690b8835bb1fb0daface"
   end
 
   def install
-    inreplace "Makefile" do |s|
-      s.change_make_var! "PREFIX", prefix
-      s.change_make_var! "MANDIR", man
-      s.change_make_var! "SYSCONFDIR", etc
-      s.change_make_var! "SOUND_TYPE", "none"
-      s.gsub! "        ", "	"
-    end
-
-    system "make", "frotz"
-    system "make", "install"
+    args = %W[PREFIX=#{prefix} MANDIR=#{man} SYSCONFDIR=#{etc}]
+    system "make", "all", *args
+    ENV.deparallelize # install has race condition
+    system "make", "install_all", *args
   end
 
   test do
-    assert_match "FROTZ", shell_output("#{bin}/frotz --version").strip
+    resource("testdata").stage do
+      assert_match "TerpEtude", shell_output("echo \".\" | #{bin}/dfrotz etude.z5")
+    end
+    assert_match "FROTZ", shell_output("#{bin}/frotz -v").strip
+    assert_match "FROTZ", shell_output("#{bin}/sfrotz -v").strip
   end
 end

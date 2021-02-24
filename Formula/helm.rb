@@ -1,42 +1,35 @@
 class Helm < Formula
-  desc "The Kubernetes package manager"
+  desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      :tag      => "v3.0.2",
-      :revision => "19e47ee3283ae98139d98460de796c1be1e3975f"
+      tag:      "v3.5.2",
+      revision: "167aac70832d3a384f65f9745335e9fb40169dc2"
+  license "Apache-2.0"
   head "https://github.com/helm/helm.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "63bac723db6c01086344a501271103c8b0eae117b13b9cb720efa31eb62285fe" => :catalina
-    sha256 "db27b9535d67a9de4f8e0667764d2d75c1917545a04fa0aa2dc6281123fdf90b" => :mojave
-    sha256 "18c358c890202edd6cd15ee8f59c015177b932fd536c6421cc7e68be35270a9b" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0bbe8d4d4fa8ab34e48962517fd16c78a2373e08b929243e13b76745afddcf75"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8f7fd5769848ce05848f8008b3b41cb2326829e861e2d9e22c8dadd09a26ac13"
+    sha256 cellar: :any_skip_relocation, catalina:      "1cb4e2c9f990414039240b8364cc5e1718cd85bc9ab1e4ed5e609ef931195fd9"
+    sha256 cellar: :any_skip_relocation, mojave:        "00ffb8f69d4d0e1f3bd876a38ab2c9444b93cac330a83051f0b9ed0cae098170"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    ENV["TARGETS"] = "darwin/amd64"
-    dir = buildpath/"src/helm.sh/helm"
-    dir.install buildpath.children - [buildpath/".brew_home"]
+    system "make", "build"
+    bin.install "bin/helm"
 
-    cd dir do
-      system "make", "build"
-
-      bin.install "bin/helm"
-      man1.install Dir["docs/man/man1/*"]
-
-      output = Utils.popen_read("SHELL=bash #{bin}/helm completion bash")
-      (bash_completion/"helm").write output
-
-      output = Utils.popen_read("SHELL=zsh #{bin}/helm completion zsh")
-      (zsh_completion/"_helm").write output
-
-      prefix.install_metafiles
+    mkdir "man1" do
+      system bin/"helm", "docs", "--type", "man"
+      man1.install Dir["*"]
     end
+
+    output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"helm", "completion", "bash")
+    (bash_completion/"helm").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"helm", "completion", "zsh")
+    (zsh_completion/"_helm").write output
   end
 
   test do
@@ -44,7 +37,9 @@ class Helm < Formula
     assert File.directory? "#{testpath}/foo/charts"
 
     version_output = shell_output("#{bin}/helm version 2>&1")
-    assert_match "GitTreeState:\"clean\"", version_output
-    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
+    assert_match "Version:\"v#{version}\"", version_output
+    if build.stable?
+      assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output
+    end
   end
 end

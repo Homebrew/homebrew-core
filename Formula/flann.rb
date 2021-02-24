@@ -1,20 +1,29 @@
 class Flann < Formula
   desc "Fast Library for Approximate Nearest Neighbors"
-  homepage "https://www.cs.ubc.ca/research/flann/"
+  homepage "https://github.com/mariusmuja/flann"
   url "https://github.com/mariusmuja/flann/archive/1.9.1.tar.gz"
   sha256 "b23b5f4e71139faa3bcb39e6bbcc76967fbaf308c4ee9d4f5bfbeceaa76cc5d3"
-  revision 7
+  license "BSD-3-Clause"
+  revision 10
 
   bottle do
-    cellar :any
-    sha256 "b65a92e8106dfea64ee1fedc42176635ec3ad242d495875628ca33f76560bb98" => :catalina
-    sha256 "d7a3870b59388e523bb964b92f0030e75823c84072a55dfdcbe676bd2b1b046f" => :mojave
-    sha256 "0dbf4ddcdab675609aa59e953052fde8e557212127ee0befad52fc5d92a561f0" => :high_sierra
-    sha256 "28479047aad4a062976572abf76feec33ed2b4a71373d2f9db1b7958d896ba71" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "1d8425ca4d79dcf978e9bb43e7b1a52480febf9b9deadc8b966ffa2d004b2971"
+    sha256 cellar: :any, big_sur:       "f6555dce8d62d9dde8da5ee6ea7a6efc1e9a80339060bb4b7af3fd1e7e845584"
+    sha256 cellar: :any, catalina:      "101ec3e673a5b69c5f6cf6c79af0fbfca3a00ef90b7a4dde0a4bad638a187d1a"
+    sha256 cellar: :any, mojave:        "ab351183f61258ac6fefd9f64677c4b917929674fb36eff89aa9d85c825dfef8"
   end
 
   depends_on "cmake" => :build
   depends_on "hdf5"
+
+  on_linux do
+    # Fix for Linux build: https://bugs.gentoo.org/652594
+    # Not yet fixed upstream: https://github.com/mariusmuja/flann/issues/369
+    patch do
+      url "https://raw.githubusercontent.com/buildroot/buildroot/0c469478f64d0ddaf72c0622a1830d855306d51c/package/flann/0001-src-cpp-fix-cmake-3.11-build.patch"
+      sha256 "aa181d0731d4e9a266f7fcaf5423e7a6b783f400cc040a3ef0fef77930ecf680"
+    end
+  end
 
   resource("dataset.dat") do
     url "https://www.cs.ubc.ca/research/flann/uploads/FLANN/datasets/dataset.dat"

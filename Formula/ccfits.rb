@@ -3,21 +3,30 @@ class Ccfits < Formula
   homepage "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/"
   url "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/CCfits-2.5.tar.gz"
   sha256 "938ecd25239e65f519b8d2b50702416edc723de5f0a5387cceea8c4004a44740"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "fb3837dfbbd911a58b7ebddcc070c4ce00a1831c6587d2f8d402173a05dc1215" => :catalina
-    sha256 "bfd31cbc94ceba181a2267253516f4d76d77679f21aaf36a75892b3dd4afd8a1" => :mojave
-    sha256 "450c0b713f2ec2bc9a1b6ba9c4a2905f2b818fa4d143cf4b93d0031e0f7f357f" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "957e2589c467c78c2e134476b0fe123d470a3e402e37ddef27965d706c1fdbe7"
+    sha256 cellar: :any, big_sur:       "c15ddcdce98436a8c8dfb72a43586d23061b7199953aec9b1b5a0a2c544eb1d0"
+    sha256 cellar: :any, catalina:      "bcf673522fe7245b6ca8c93139793acf10c0fb3e351de96cfd634e296a5be813"
+    sha256 cellar: :any, mojave:        "22aa452875d79f09825a87f9f3e384552e7fd92e5d954cd361a1b92cd9e52513"
+    sha256 cellar: :any, high_sierra:   "b527e857acac1d749786f44a06af0cfa5f19f34c568c5f21c65675fa04b97f26"
   end
 
   depends_on "cfitsio"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+    ]
+    on_linux do
+      # Remove references to brew's shims
+      args << "pfk_cxx_lib_path=/usr/bin/g++"
+    end
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
@@ -33,6 +42,6 @@ class Ccfits < Formula
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
                     "-L#{lib}", "-lCCfits"
-    assert_match /the answer is -11/, shell_output("./test")
+    assert_match "the answer is -11", shell_output("./test")
   end
 end

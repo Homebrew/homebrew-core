@@ -3,38 +3,23 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://github.com/translate/translate/archive/2.4.0.tar.gz"
-  sha256 "7f1d6a9566bb512fd88d51bd8bc920f42e379c91a4686761dbe89762f8a3a51d"
-  revision 1
+  url "https://files.pythonhosted.org/packages/3b/8e/ff64fa52bb085310f9f6534ba09a5833db93ca5c228f8c2b246ff4cd36d4/translate-toolkit-3.3.2.tar.gz"
+  sha256 "0795bd3c8668213199550ae4ed8938874083139ec1f8c473dcca1524a206b108"
+  license "GPL-2.0-or-later"
   head "https://github.com/translate/translate.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "83dbc6c6d4aedac2d2b08062e3d200c8d9f19d9e26097f4134b93cd6382c56f2" => :catalina
-    sha256 "442d94824f1b8dd243e92cb8843c6cc3a636ea8cc63ddfcdc160a08792c6d9cb" => :mojave
-    sha256 "a3d5b1ecbeb2bf56b8356aff63fc16276a5dcf0bffb500cdf1f775f272e05b89" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "09c6090129d3d27db017e00c11df44cce6e1c4c8143274997995fe58346be85f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ce3f37e2d6b801ed65ac7eb74aa52d646e7df48343766240d49539d38d47f952"
+    sha256 cellar: :any_skip_relocation, catalina:      "90b90e2a9cec920135e6d3211ab078df0bd576a1dc821b244cd65f31e2d8891e"
+    sha256 cellar: :any_skip_relocation, mojave:        "0ebd287bc19035a24805d37129eff3ce14061da83a88648e99a47d6d3505d19f"
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
-  resource "argparse" do
-    url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
-    sha256 "62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4"
-  end
-
-  resource "diff-match-patch" do
-    url "https://files.pythonhosted.org/packages/f0/2a/5ba07def0e9107d935aba62cf632afbd0f7c723a98af47ccbcab753d2452/diff-match-patch-20181111.tar.gz"
-    sha256 "a809a996d0f09b9bbd59e9bbd0b71eed8c807922512910e05cbd3f9480712ddb"
-  end
-
-  resource "Python-Levenshtein" do
-    url "https://files.pythonhosted.org/packages/42/a9/d1785c85ebf9b7dfacd08938dd028209c34a0ea3b1bcdb895208bd40a67d/python-Levenshtein-0.12.0.tar.gz"
-    sha256 "033a11de5e3d19ea25c9302d11224e1a1898fe5abd23c61c7c360c25195e3eb1"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
-    sha256 "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/db/f7/43fecb94d66959c1e23aa53d6161231dca0e93ec500224cf31b3c4073e37/lxml-4.6.2.tar.gz"
+    sha256 "cd11c7e8d21af997ee8079037fff88f16fda188a9776eb4b81c7e4c9c0a7d7fc"
   end
 
   def install
@@ -43,5 +28,6 @@ class TranslateToolkit < Formula
 
   test do
     system bin/"pretranslate", "-h"
+    system bin/"podebug", "-h"
   end
 end

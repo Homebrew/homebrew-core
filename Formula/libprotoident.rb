@@ -3,12 +3,19 @@ class Libprotoident < Formula
   homepage "https://research.wand.net.nz/software/libprotoident.php"
   url "https://research.wand.net.nz/software/libprotoident/libprotoident-2.0.13.tar.gz"
   sha256 "8ca7ccd95b3f23457c3f9eff480364565b553bbcab9b39969f964910738e5672"
+  revision 1
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?libprotoident[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "b7e8f79111dad699a0219ce88740ef153fc1152a8090499e07a8cb8b354805d5" => :mojave
-    sha256 "244ad5c441f10b9abe191108943b5d20601bfbb5ac3f245750230f3115472739" => :high_sierra
-    sha256 "8de3bb257a10fd3c492606b643c78e808a2d1248fcf8ebc00525f7d0b50bb66e" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "ca534b9c4ed21b9704262f4c334c7ff42453c803c876b819f48ea6b26a4941d2"
+    sha256 cellar: :any, big_sur:       "5150fd5fc726b744ffd474d2c9b6407014df45a2080cb034d82156c3f20c3d9b"
+    sha256 cellar: :any, catalina:      "f7bdcc25564854f28b3a0c308bcad5d17f71f186c05b8ab356752c9d0d11f31b"
+    sha256 cellar: :any, mojave:        "47e13c727609ab739bb59a74232870ba82ddb2ce8c4e5b145f3e92fc3383edd6"
+    sha256 cellar: :any, high_sierra:   "2be3c3bcd3b921e264a9bf8ff730d95af2d3a8aee252d849aba1b88d30d49892"
   end
 
   depends_on "libflowmanager"

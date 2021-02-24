@@ -1,14 +1,19 @@
 class Prometheus < Formula
   desc "Service monitoring system and time series database"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/prometheus/archive/v2.15.1.tar.gz"
-  sha256 "67590a51ad26ee6135d40b8df90f8b58d85ce890fc67e66d08bb8207db289a1e"
+  url "https://github.com/prometheus/prometheus/archive/v2.25.0.tar.gz"
+  sha256 "bb95b39870a1844483c0775c5122092b07006ae26f8961a881bebb7eafe52afa"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e488672bc0ac215a82721abe5d2d543e3d3d1610876e32764c920f302da678ae" => :catalina
-    sha256 "931ba33b9e6901d5b61c14cf238c59adc183749cabc226a66f442577c7f5f756" => :mojave
-    sha256 "fe988a26b80aef4c23dcefcb60cd50899107f82618a8dc7d2e6e6ee7c548750b" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "710f5ce18d58b4d50e8071d28a8036c0cc5567840af2fb5dc81165bfa237c92e"
+    sha256 cellar: :any_skip_relocation, catalina: "fe29a2cd28d1f08f8c7c0d12cf6284ab7c6f2268515d458dfee06ba20d76be51"
+    sha256 cellar: :any_skip_relocation, mojave:   "69dd17b94119cb0298e7a82f4b2f979585583adc83d4635164cb1074726f26c9"
   end
 
   depends_on "go" => :build
@@ -23,16 +28,19 @@ class Prometheus < Formula
     system "make", "build"
     bin.install %w[promtool prometheus]
     libexec.install %w[consoles console_libraries]
-  end
 
-  def post_install
-    (etc/"prometheus.args").write <<~EOS
+    (bin/"prometheus_brew_services").write <<~EOS
+      #!/bin/bash
+      exec #{bin}/prometheus $(<#{etc}/prometheus.args)
+    EOS
+
+    (buildpath/"prometheus.args").write <<~EOS
       --config.file #{etc}/prometheus.yml
       --web.listen-address=127.0.0.1:9090
       --storage.tsdb.path #{var}/prometheus
     EOS
 
-    (etc/"prometheus.yml").write <<~EOS
+    (buildpath/"prometheus.yml").write <<~EOS
       global:
         scrape_interval: 15s
 
@@ -41,43 +49,42 @@ class Prometheus < Formula
           static_configs:
           - targets: ["localhost:9090"]
     EOS
+    etc.install "prometheus.args", "prometheus.yml"
   end
 
-  def caveats; <<~EOS
-    When used with `brew services`, prometheus' configuration is stored as command line flags in:
-      #{etc}/prometheus.args
-
-    Configuration for prometheus is located in the #{etc}/prometheus.yml file.
-
-  EOS
+  def caveats
+    <<~EOS
+      When run from `brew services`, `prometheus` is run from
+      `prometheus_brew_services` and uses the flags in:
+         #{etc}/prometheus.args
+    EOS
   end
 
-  plist_options :manual => "prometheus"
+  plist_options manual: "prometheus --config.file=#{HOMEBREW_PREFIX}/etc/prometheus.yml"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>sh</string>
-          <string>-c</string>
-          <string>#{opt_bin}/prometheus $(&lt; #{etc}/prometheus.args)</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/prometheus.err.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/prometheus.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/prometheus_brew_services</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/prometheus.err.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/prometheus.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

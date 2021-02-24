@@ -1,21 +1,23 @@
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
-  url "https://github.com/technomancy/leiningen/archive/2.9.1.tar.gz"
-  sha256 "a4c239b407576f94e2fef5bfa107f0d3f97d0b19c253b08860d9609df4ab8b29"
+  url "https://github.com/technomancy/leiningen/archive/2.9.5.tar.gz"
+  sha256 "a29b45966e5cc1a37d5dc07fe436ed7cb172c88c53d44a049956ff53a096d43e"
+  license "EPL-1.0"
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "480cf69d0f2f9d43879b0768018ef323426d0cca145e00984d76890c2baaa919" => :catalina
-    sha256 "4b353034cd7bf4825ed9c5a340a20beed7382a8369f9ecd9f7da233e9b36a03a" => :mojave
-    sha256 "4b353034cd7bf4825ed9c5a340a20beed7382a8369f9ecd9f7da233e9b36a03a" => :high_sierra
-    sha256 "f7ebcf91cfac411472d2dfdee71f008bc2ad3d7289b342a98db0916e74b7f615" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5bd84d71583cc06ab837b857db70e16a8061abdb44c6855bd66fd06b021b88aa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f9aface1f4c962c0e00bf8300b33eb453734972dc11cc299c1ca0851de7b1940"
+    sha256 cellar: :any_skip_relocation, catalina:      "7c29f1583ec0deb5b873547b3d9366d9d90f00728dd24e52d2538d5131f0dedb"
+    sha256 cellar: :any_skip_relocation, mojave:        "c1df069aa1d80a6005c7536a88ecb28440c1a8d1e8b82314784f63f033002831"
   end
 
+  depends_on "openjdk"
+
   resource "jar" do
-    url "https://github.com/technomancy/leiningen/releases/download/2.9.1/leiningen-2.9.1-standalone.zip", :using => :nounzip
-    sha256 "ea7c831a4f5c38b6fc3926c6ad32d1d4b9b91bf830a715ecff5a70a18bda55f8"
+    url "https://github.com/technomancy/leiningen/releases/download/2.9.5/leiningen-2.9.5-standalone.zip", using: :nounzip
+    sha256 "df490c98bfe8d667bc5d83b80238528877234c285d0d48f61a4c8743c2db1eea"
   end
 
   def install
@@ -29,16 +31,19 @@ class Leiningen < Formula
       s.change_make_var! "LEIN_JAR", libexec/jar
     end
 
-    bin.install "bin/lein-pkg" => "lein"
+    (libexec/"bin").install "bin/lein-pkg" => "lein"
+    (libexec/"bin/lein").chmod 0755
+    (bin/"lein").write_env_script libexec/"bin/lein", Language::Java.overridable_java_home_env
     bash_completion.install "bash_completion.bash" => "lein-completion.bash"
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end
 
-  def caveats; <<~EOS
-    Dependencies will be installed to:
-      $HOME/.m2/repository
-    To play around with Clojure run `lein repl` or `lein help`.
-  EOS
+  def caveats
+    <<~EOS
+      Dependencies will be installed to:
+        $HOME/.m2/repository
+      To play around with Clojure run `lein repl` or `lein help`.
+    EOS
   end
 
   test do

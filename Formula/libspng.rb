@@ -1,15 +1,15 @@
 class Libspng < Formula
   desc "C library for reading and writing PNG format files"
   homepage "https://libspng.org/"
-  url "https://gitlab.com/randy408/libspng/uploads/3d980bac86c51368f40af2f1ac79a057/libspng-0.5.0.tar.xz"
-  sha256 "220a653802559943ae43fd48f03ba6ff3935a5243766d9ee5ff905240d4399a7"
+  url "https://github.com/randy408/libspng/archive/v0.6.2.tar.gz"
+  sha256 "eb7faa3871e7a8e4c1350ab298b513b859fcb4778d15aa780a79ff140bcdfaf3"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "05d22f51215ebc9b77e5155d7b7d209d50eefaa7b4d287634bd6d09922f05679" => :catalina
-    sha256 "c01b660f652c77917df28b6b651c00458822c0ccf1b1947be4c6f334bf414944" => :mojave
-    sha256 "c3da9d3ca4b66eec6a0ed1c5510444653935976d942b678bbeeeff9c3ef522c9" => :high_sierra
-    sha256 "0ca546539595f727222b1c5e21cd24735d2213f29e3ab3d344f269f2f11a084b" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "411793c20f2c46abda98b7bb47f87fe2bf42a4a05d1bb9fe5f87530a29f6975d"
+    sha256 cellar: :any, big_sur:       "51acd1d38d45bcc408d59f08e3294f3a01e0c9cbaa8b78df8f4b3aa79d78f60c"
+    sha256 cellar: :any, catalina:      "36b4b6258ffd843a84af75838b8adaa8add4c796966a3c2fab1ac1ba265be0f3"
+    sha256 cellar: :any, mojave:        "65b9687a22d5f1af662bae1823c2a1fc38fb9a0fdf19bf4b3cb0725352499c87"
   end
 
   depends_on "meson" => :build
@@ -18,7 +18,7 @@ class Libspng < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
@@ -29,7 +29,9 @@ class Libspng < Formula
     fixture = test_fixtures("test.png")
     cp pkgshare/"example.c", testpath/"example.c"
     system ENV.cc, "example.c", "-L#{lib}", "-I#{include}", "-lspng", "-o", "example"
+
     output = shell_output("./example #{fixture}")
-    assert_match "width: 8\nheight: 8\nbit depth: 1\ncolor type: 3 - indexed color\ncompression method: 0\nfilter method: 0\ninterlace method: 0", output
+    assert_match "width: 8\nheight: 8\nbit depth: 1\ncolor type: 3 - indexed color\n" \
+                 "compression method: 0\nfilter method: 0\ninterlace method: 0", output
   end
 end

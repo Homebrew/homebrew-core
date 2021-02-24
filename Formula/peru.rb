@@ -3,18 +3,19 @@ class Peru < Formula
 
   desc "Dependency retriever for version control and archives"
   homepage "https://github.com/buildinspace/peru"
-  url "https://files.pythonhosted.org/packages/14/ef/9226d6a47f34afacb241b3d8acf25e5cd958a17f7bdb9f24d3b284aa59e0/peru-1.2.0.tar.gz"
-  sha256 "5bcf70b49fd5a6b089a23d49d93fd6deb05bde560219704de53ae5e48cb49acb"
+  url "https://files.pythonhosted.org/packages/03/28/34c9ddb39e1e50db34b07a73af423978641b84f66ea437f6c40b03e5d5a5/peru-1.2.1.tar.gz"
+  sha256 "4d2f30c71343ae2692f403b465b04a97c110d4126a3fa59cb42b25243cb24064"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "021031ea720c6e741fc11ce1c647dda83d85eb6c5f6cb6841c0f1317e800dfeb" => :catalina
-    sha256 "eb1e744ad4162d35a84ea7e2eb53450bcad6acf803dc874093b96e3c81f85c3f" => :mojave
-    sha256 "785a37bcc0a2d972b62946d989226eb35d72896439c27c4ce8c34fa3c65b6e91" => :high_sierra
-    sha256 "2344e0f5c3f03c8aab73eec642082f4a5913cbda9370483689b1cc154648666d" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "171980304c1aa1545f2397ecc9adcedd3f84b533974265d243a88ba2ccd36de0"
+    sha256 cellar: :any, big_sur:       "b8d5f0915d0f6b7a0ce49ffc61a0503b809ac6c074d2057d2f1396ea0788de67"
+    sha256 cellar: :any, catalina:      "927f2ddcf69404fde76a587d8797eb6937d206b6f79ee05615bf55788f82dd6c"
+    sha256 cellar: :any, mojave:        "8d48227b9184a9f0f623a799a91179e1f24e456507b802c5e620594f7104e940"
   end
 
-  depends_on "python"
+  depends_on "libyaml"
+  depends_on "python@3.9"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -22,11 +23,16 @@ class Peru < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
-    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   def install
+    # Fix plugins (executed like an executable) looking for Python outside the virtualenv
+    Dir["peru/resources/plugins/**/*.py"].each do |f|
+      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.9"
+    end
+
     virtualenv_install_with_resources
   end
 

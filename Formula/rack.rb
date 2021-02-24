@@ -2,19 +2,18 @@ class Rack < Formula
   desc "CLI for Rackspace"
   homepage "https://github.com/rackspace/rack"
   url "https://github.com/rackspace/rack.git",
-      :tag      => "1.2",
-      :revision => "09c14b061f4a115c8f1ff07ae6be96d9b11e08df"
+      tag:      "1.2",
+      revision: "09c14b061f4a115c8f1ff07ae6be96d9b11e08df"
+  license "Apache-2.0"
   head "https://github.com/rackspace/rack.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b8922a208b3bf3dcbd2c51a42b0ec742625db9cba14ab17c532a711ead6aae0d" => :catalina
-    sha256 "61fb0f5cb11684e5fd0723d823fce0948fcafa862e031c3253c4ff36bb8830d6" => :mojave
-    sha256 "f5b447e509b01c080e73d8a275a60591e0a9b91d09d9aeff9aafe91b67538486" => :high_sierra
-    sha256 "9e77b25dce5ebddece476a84fa04b32d3c904f4a825db343b128a8b3b4a4f4fd" => :sierra
-    sha256 "7a17ae415465e10b0b5674218d5fb127c03782b5f49e741d8a84f94cde7c658a" => :el_capitan
-    sha256 "d49a8f87439a1584e1662a570c7a40611d6cf13064e37f3a66cb7e1feaaa5719" => :yosemite
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3da24ffbc52e301b97902eee71ecddbbb16c6df508a9241a4a9ed2dc7eed0652"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8f5f2eac4a06a9295875d213a31505f9b8e66e96b16814176582e3fd5a0a223e"
+    sha256 cellar: :any_skip_relocation, catalina:      "8cf224e3f734308bef6c0ef3cd9aa3a63aa4fdedd9ee626e2ee91099affc83c2"
+    sha256 cellar: :any_skip_relocation, mojave:        "a50004c910fc4cbb34404fabf20bfcab87dcf6d7ce510a96c72fecbdc8d458cc"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5e33e2bc51e9cf346ed59eabbef5849a170619be2a7b034b19d71a1a25a72fcb"
   end
 
   depends_on "go" => :build
@@ -22,6 +21,7 @@ class Rack < Formula
   def install
     ENV["GOPATH"] = buildpath
     ENV["TRAVIS_TAG"] = version
+    ENV["GO111MODULE"] = "auto"
 
     rackpath = buildpath/"src/github.com/rackspace/rack"
     rackpath.install Dir["{*,.??*}"]
@@ -31,7 +31,7 @@ class Rack < Formula
       # deciding whether to add a = or not on the ldflags, as mandated
       # by Go 1.7+.
       # https://github.com/rackspace/rack/issues/446
-      inreplace "script/build", "go1.5", Utils.popen_read("go version")[/go1\.\d/]
+      inreplace "script/build", "go1.5", Utils.safe_popen_read("go", "version")[/go1\.\d/]
 
       ln_s "internal", "vendor"
       system "script/build", "rack"

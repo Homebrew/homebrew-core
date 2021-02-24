@@ -1,27 +1,29 @@
 class NodeAT10 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v10.18.0/node-v10.18.0.tar.gz"
-  sha256 "f9c8785c5d5ba0e5412dada04a89ab3fe32531423c47232217aad79757a769e7"
+  url "https://nodejs.org/dist/v10.24.0/node-v10.24.0.tar.xz"
+  sha256 "158273af66f891b2fca90aec7336c42f7574f467affad02c14e80ca163cb3acc"
+  license "MIT"
+
+  livecheck do
+    url "https://nodejs.org/dist/"
+    regex(%r{href=["']?v?(10(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "746db5aa0ab377654adb006f3c277d9600c0912b152e6631f7e333e91b21d8c0" => :catalina
-    sha256 "d1cde5705eace30f5ce7dd1a0b34a7ed384226c1719fcdc61c2d25f9ec7235fa" => :mojave
-    sha256 "74d18435626938278d525688a566b63631a5fe35e7007680b9da4a8e6ad765e0" => :high_sierra
+    sha256 cellar: :any, big_sur:  "7eb171d84bdc69d54a1237b3921eb2acbf82988a77b28756d05992a4a5780446"
+    sha256 cellar: :any, catalina: "174bc01220552fb89a437c89b0a3e27a41b5b1d2a62e0d31cc37bdd8f6bf382f"
+    sha256 cellar: :any, mojave:   "b9cd28ffb76ada2d6d6a6089f4b806c554e449520ab5c654f748d041c2df2220"
   end
 
   keg_only :versioned_formula
 
+  deprecate! date: "2021-04-30", because: :unsupported
+
   depends_on "pkg-config" => :build
   depends_on "icu4c"
-  uses_from_macos "python@2" => :build
-
-  # Fixes detecting Apple clang 11.
-  patch do
-    url "https://github.com/nodejs/node/commit/1f143b8625c2985b4317a40f279232f562417077.patch?full_index=1"
-    sha256 "12d8af6647e9a5d81f68f610ad0ed17075bf14718f4d484788baac37a0d3f842"
-  end
+  depends_on :macos # Due to Python 2 (Will not work with Python 3 without extensive patching)
+  # Node 10 will be EOL April 2021
 
   def install
     system "./configure", "--prefix=#{prefix}", "--with-intl=system-icu"

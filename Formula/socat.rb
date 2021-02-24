@@ -1,23 +1,24 @@
 class Socat < Formula
-  desc "netcat on steroids"
+  desc "SOcket CAT: netcat on steroids"
   homepage "http://www.dest-unreach.org/socat/"
-  url "http://www.dest-unreach.org/socat/download/socat-1.7.3.3.tar.gz"
-  sha256 "8cc0eaee73e646001c64adaab3e496ed20d4d729aaaf939df2a761e99c674372"
-  revision 1
+  url "http://www.dest-unreach.org/socat/download/socat-1.7.4.1.tar.gz"
+  sha256 "0c7e635070af1b9037fd96869fc45eacf9845cb54547681de9d885044538736d"
+  license "GPL-2.0"
+
+  livecheck do
+    url "http://www.dest-unreach.org/socat/download/"
+    regex(/href=.*?socat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "d59da60bfab8d0c13ae081e6fcfc4c95148b4304b4ca373ec22e1a28272473de" => :catalina
-    sha256 "9cd58f9c9f906e36325423daa512cc1c2194e9e86f7011905891403a6e8fb82a" => :mojave
-    sha256 "e3c00c79b9f326c9cc46116e11a9281ef42bc0b9c1d3ce271cbbfbcf22933c01" => :high_sierra
-    sha256 "55324b293c9c94e3550efd38c06f3bd0ba58a20d46fba44d9b444f6f372e8fd6" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "1d355658a55eb44cb6ffe1fa8dc140883359467080e13be0d4237cf181c05dc0"
+    sha256 cellar: :any, big_sur:       "2249d3b3852d95fc683e27292e26967b0e3a13d60e59a99181445f941a343a32"
+    sha256 cellar: :any, catalina:      "f2a0d0d0bca542cb0f4b700d42dc244e82b8da9be2d5aff8d98b8a7fef77c9fe"
+    sha256 cellar: :any, mojave:        "531f3ea55671c8d01165c3a314b24cef873c51442a1729fe2e9ce14ff908aebb"
   end
 
   depends_on "openssl@1.1"
   depends_on "readline"
-
-  # patch for type conflict, sent upstream
-  patch :p0, :DATA
 
   def install
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
@@ -29,16 +30,3 @@ class Socat < Formula
     assert_match "HTTP/1.0", output.lines.first
   end
 end
-
-__END__
---- xio-termios.h	2019-05-11 09:10:55.000000000 +0900
-+++ xio-termios.h	2019-05-11 09:11:13.000000000 +0900
-@@ -148,7 +148,7 @@
- extern int xiotermios_value(int fd, int word, tcflag_t mask, tcflag_t value);
- extern int xiotermios_char(int fd, int n, unsigned char c);
- #ifdef HAVE_TERMIOS_ISPEED
--extern int xiotermios_speed(int fd, int n, unsigned int speed);
-+extern int xiotermios_speed(int fd, int n, speed_t speed);
- #endif
- extern int xiotermios_spec(int fd, int optcode);
- extern int xiotermios_flush(int fd);

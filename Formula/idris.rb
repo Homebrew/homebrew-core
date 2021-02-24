@@ -1,29 +1,26 @@
-require "language/haskell"
-
 class Idris < Formula
-  include Language::Haskell::Cabal
-
   desc "Pure functional programming language with dependent types"
   homepage "https://www.idris-lang.org/"
-  url "https://github.com/idris-lang/Idris-dev/archive/v1.3.2.tar.gz"
-  sha256 "48429b8ed80980f9a4d38c29e51fcbb51ea511640806cd3cb7752bfdbb4644d2"
+  url "https://github.com/idris-lang/Idris-dev/archive/v1.3.3.tar.gz"
+  sha256 "ad693614cc61a92bf51a33f5dc74f90b2eba91fd89064ec0580525e220556113"
+  license "BSD-3-Clause"
   head "https://github.com/idris-lang/Idris-dev.git"
 
   bottle do
-    sha256 "2b3108c6e19675138e12ea5a3056c5d29d3abba503367333070fd68c94cd9253" => :mojave
-    sha256 "8dba0d753d7f4abc9e5289cc3247be93ae7f3bd2f3f630b02f9b1dbe7b23c240" => :high_sierra
-    sha256 "1830f2619e1497e8fff33ad94d23704410e52fbaf5a8b6062e2053f939961477" => :sierra
+    rebuild 1
+    sha256 big_sur:  "cbae5a36e3912cbefc10acc8f6295bf313b8532bbe6eb2a53b2427d68772952e"
+    sha256 catalina: "df17f5104195ea42a489ef6392a3c4ad5f94de7442f38352cdbef31d4abc3799"
+    sha256 mojave:   "ba0945d4c86053b525067f4f1fa8781d72903b4f40522edd7b0e15fd62e7ba4a"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
   depends_on "pkg-config" => :build
+  depends_on "ghc@8.8"
   depends_on "libffi"
 
   def install
-    args = ["-f", "FFI"]
-    args << "-f" << "release" if build.stable?
-    install_cabal_package *args
+    system "cabal", "v2-update"
+    system "cabal", "--storedir=#{libexec}", "v2-install", *std_cabal_v2_args
   end
 
   test do

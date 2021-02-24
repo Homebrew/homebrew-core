@@ -1,15 +1,20 @@
 class Libhdhomerun < Formula
   desc "C library for controlling SiliconDust HDHomeRun TV tuners"
   homepage "https://www.silicondust.com/support/linux/"
-  url "https://download.silicondust.com/hdhomerun/libhdhomerun_20190621.tgz"
-  sha256 "9a60f663b00de5f820bdb85806662e25f22da248b14942e33a8b43a0331f855a"
+  url "https://download.silicondust.com/hdhomerun/libhdhomerun_20210210.tgz"
+  sha256 "b996389aa6f124a6d9dc1e75ec749e86d06102e2b3e7359d57163d4cc6e633f8"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?libhdhomerun[._-]v?(\d{6,8})\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "5716a80e73a3d25e11141cb13126a3e36b373fc2a744bb66082fb5b89e629957" => :catalina
-    sha256 "9a82dc21efebb0bafb6313e4f29f6aaa3a142347fd5e5e7ba7350433e2531722" => :mojave
-    sha256 "f3a120a52ef9e9399395c6a4a91098b73ea8e4a8889e21b4646283011534fea8" => :high_sierra
-    sha256 "47d1adc4fcbf5218c074d27a8db604a4f2ab4e5f3d5f14e023497e9cad5b49b4" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "448fc727d716aac2001deb79ac3a0a224b35f87f9dbd1f405b5b0f01be5dea35"
+    sha256 cellar: :any, big_sur:       "51bdad683da9c0ad2bb62861fe17558e76fdf811587bec2202c4b3bb25d5b125"
+    sha256 cellar: :any, catalina:      "de8bf4fd6b240720fcb4b659dc204125d7fd6269843ab7e42583fb7e4a2910ef"
+    sha256 cellar: :any, mojave:        "ebe04832479909f66e0f61f5dbc191593936d3362aace2978427366b46b28db9"
   end
 
   def install
@@ -22,6 +27,6 @@ class Libhdhomerun < Formula
   test do
     # Devices may be found or not found, with differing return codes
     discover = pipe_output("#{bin}/hdhomerun_config discover")
-    assert_match /no devices found|hdhomerun device|found at/, discover
+    assert_match(/no devices found|hdhomerun device|found at/, discover)
   end
 end

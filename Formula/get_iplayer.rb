@@ -1,21 +1,90 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/v3.24.tar.gz"
-  sha256 "d861a002ce40689a5c8d5e5f5b8e261b8c42fed87645d04ff72dd542f58a883e"
-  head "https://github.com/get-iplayer/get_iplayer.git", :branch => "develop"
+  url "https://github.com/get-iplayer/get_iplayer/archive/v3.27.tar.gz"
+  sha256 "2577ea7ab5dca4a0cdb27854eb945d35f36a594d9d766b14a8304b3f1e7fc6d6"
+  license "GPL-3.0"
+  head "https://github.com/get-iplayer/get_iplayer.git", branch: "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d34ae270c9139aebcf176e7c6671cc838fe9b50b49fa1ee1c818f5d618c721c1" => :catalina
-    sha256 "6643cc486c2bf11db3a7440ad5cd3e844bc9300229f951286bd1ec577ef225e6" => :mojave
-    sha256 "9fb60cab0e9fa40714958f85108f23de3761e7b59b60f7efadf2c3988ec40044" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "316d77e70cbf81e41a2ff460a868ae5864eedf9c5a76b8ec42f520f73233b659"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bbc950186acaa0afb086ad9b8207e7aaa0ee20223a6dd0bc511ce1dab8e706af"
+    sha256 cellar: :any_skip_relocation, catalina:      "126aaeae1f023ba9975c614627a10403f843d320f071edb5cccd5ebe9922ea49"
+    sha256 cellar: :any_skip_relocation, mojave:        "5abba49ca77ad3f725984003a9f1054d7ad98cb2a63e0e10b4f7418bbc77129c"
   end
 
   depends_on "atomicparsley"
   depends_on "ffmpeg"
-  depends_on :macos => :yosemite
+
   uses_from_macos "libxml2"
+  uses_from_macos "perl"
+
+  on_linux do
+    resource "Try-Tiny" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz"
+      sha256 "da5bd0d5c903519bbf10bb9ba0cb7bcac0563882bcfe4503aee3fb143eddef6b"
+    end
+
+    resource "Path:Class" do
+      url "https://cpan.metacpan.org/authors/id/K/KW/KWILLIAMS/Path-Class-0.33.tar.gz"
+      sha256 "cd8cc6a68e2099eeb6099df6af83b4585eb0ddf6c77490d6fa97eadb09d0c677"
+    end
+
+    resource "Net::HTTP" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/Net-HTTP-6.18.tar.gz"
+      sha256 "7e42df2db7adce3e0eb4f78b88c450f453f5380f120fd5411232e03374ba951c"
+    end
+
+    resource "Net::SSLeay" do
+      url "https://cpan.metacpan.org/authors/id/C/CH/CHRISN/Net-SSLeay-1.88.tar.gz"
+      sha256 "2000da483c8471a0b61e06959e92a6fca7b9e40586d5c828de977d3d2081cfdd"
+    end
+
+    resource "HTML::Entities" do
+      url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTML-Parser-3.72.tar.gz"
+      sha256 "ec28c7e1d9e67c45eca197077f7cdc41ead1bb4c538c7f02a3296a4bb92f608b"
+    end
+
+    resource "HTTP::Cookies" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Cookies-6.04.tar.gz"
+      sha256 "0cc7f079079dcad8293fea36875ef58dd1bfd75ce1a6c244cd73ed9523eb13d4"
+    end
+
+    resource "HTTP::Date" do
+      url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/HTTP-Date-6.02.tar.gz"
+      sha256 "e8b9941da0f9f0c9c01068401a5e81341f0e3707d1c754f8e11f42a7e629e333"
+    end
+
+    resource "HTML::Headers" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz"
+      sha256 "d060d170d388b694c58c14f4d13ed908a2807f0e581146cef45726641d809112"
+    end
+
+    resource "LWP::ConnCache" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.20.tar.gz"
+      sha256 "3cf4d1bdade592fc9dd7710403255ef2eebb075b7365cbe52fcdfc579d79b2b0"
+    end
+
+    resource "LWP::Protocol::https" do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/LWP-Protocol-https-6.07.tar.gz"
+      sha256 "522cc946cf84a1776304a5737a54b8822ec9e79b264d0ba0722a70473dbfb9e7"
+    end
+
+    resource "URI" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/URI-1.74.tar.gz"
+      sha256 "a9c254f45f89cb1dd946b689dfe433095404532a4543bdaab0b71ce0fdcdd53d"
+    end
+
+    resource "XML-LibXML" do
+      url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0132.tar.gz"
+      sha256 "721452e3103ca188f5968ab06d5ba29fe8e00e49f4767790882095050312d476"
+    end
+
+    resource "XML::SAX::Exception" do
+      url "https://cpan.metacpan.org/authors/id/K/KH/KHAMPTON/XML-SAX-Base-1.02.tar.gz"
+      sha256 "c541861df7e70f83950afedf2058148aa9d4bd733929a869829c97833ad1600b"
+    end
+  end
 
   resource "IO::Socket::IP" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/IO-Socket-IP-0.39.tar.gz"
@@ -54,12 +123,12 @@ class GetIplayer < Formula
     end
 
     bin.install "get_iplayer", "get_iplayer.cgi"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
     man1.install "get_iplayer.1"
   end
 
   test do
-    output = shell_output("\"#{bin}/get_iplayer\" --refresh --refresh-include=\"BBC None\" --quiet dontshowanymatches 2>&1")
+    output = shell_output("\"#{bin}/get_iplayer\" -f --refresh-include=\"BBC None\" -q dontshowanymatches 2>&1")
     assert_match "get_iplayer #{pkg_version}-homebrew", output, "Unexpected version"
     assert_match "INFO: 0 matching programmes", output, "Unexpected output"
     assert_match "INFO: Indexing tv programmes (concurrent)", output,

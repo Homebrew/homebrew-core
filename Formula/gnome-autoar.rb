@@ -1,14 +1,15 @@
 class GnomeAutoar < Formula
   desc "GNOME library for archive handling"
   homepage "https://github.com/GNOME/gnome-autoar"
-  url "https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.4.tar.xz"
-  sha256 "0a34c377f8841abbf4c29bc848b301fbd8e4e20c03d7318c777c58432033657a"
+  url "https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.0.tar.xz"
+  sha256 "f2c112c0120cca2bf5a82c5b0ac8cba90ce10d21fec78f50a3bc513fdd64586b"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any
-    sha256 "e98e396441864f69d9866921363bbff8fe3a0e6e7048e9fcebfa98d0f8e3100c" => :catalina
-    sha256 "8f87552420faa2d64fee8cf655a15c58eb988bba92284b00e4fcb3cf2f10ce82" => :mojave
-    sha256 "bc17062bdb3f3b299c5122ffd887ff872d22f9d3021faed94db07da9687d096c" => :high_sierra
+    sha256 arm64_big_sur: "c6e08f12eb6dfd6bc180807ac90df1442265256c2ebbb67a111fa09873d0d59b"
+    sha256 big_sur:       "ed23a1cc6375962d89c85e43d72064197ff70d8ecaffe4d09560a154fe45603d"
+    sha256 catalina:      "94f0f34bc7dc823d9b094ffc7d4bc59fb383f02a4f149564c3708bb06676a3ea"
+    sha256 mojave:        "aface7d5ba3f2d50a2072d138c7dca23bbff86e9eb1c5ffeb6cdcc7cac7fc4ef"
   end
 
   depends_on "pkg-config" => :build

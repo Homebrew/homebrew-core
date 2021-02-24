@@ -1,19 +1,27 @@
 class LittleCms2 < Formula
   desc "Color management engine supporting ICC profiles"
-  homepage "http://www.littlecms.com/"
-  # Ensure release is announced on http://www.littlecms.com/download.html
-  url "https://downloads.sourceforge.net/project/lcms/lcms/2.9/lcms2-2.9.tar.gz"
-  sha256 "48c6fdf98396fa245ed86e622028caf49b96fa22f3e5734f853f806fbc8e7d20"
+  homepage "https://www.littlecms.com/"
+  # Ensure release is announced at https://www.littlecms.com/categories/releases/
+  # (or https://www.littlecms.com/blog/)
+  url "https://downloads.sourceforge.net/project/lcms/lcms/2.12/lcms2-2.12.tar.gz"
+  sha256 "18663985e864100455ac3e507625c438c3710354d85e5cbb7cd4043e11fe10f5"
+  license "MIT"
   version_scheme 1
 
+  # The Little CMS website has been redesigned and there's no longer a
+  # "Download" page we can check for releases. As of writing this, checking the
+  # "Releases" blog posts seems to be our best option and we just have to hope
+  # that the post URLs, headings, etc. maintain a consistent format.
+  livecheck do
+    url "https://www.littlecms.com/categories/releases/"
+    regex(%r{href=.*lcms2[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "fc3b420e222a614a0f5b9fb91af41117ea1290ff19ea73dfc5e1b2021289b1b1" => :catalina
-    sha256 "1c69f212b9754cbc1700e822ceb659103cb692afe2e26366c9ae9eb9e3fc612d" => :mojave
-    sha256 "c232c3e514ef478c4fab797dab8db675045eae3611043063d338c256f4ecb941" => :high_sierra
-    sha256 "a0ce195a712977870d9ddc414c0c5cd1b373d4e04b7130b80d00f911d04fe5b4" => :sierra
-    sha256 "fa72bb1ce13889405ee93519be86ff1cede056d8c74e1d1671cca52013762ec0" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "83c79aaa225d6363154151a6b1099bb23ee0c7c1ffed35cb4682b993e047f4a0"
+    sha256 cellar: :any, big_sur:       "70eaa9b280425731f7dcf104e75d4ae1e6a90421e1a741e0fe82859361c8ae84"
+    sha256 cellar: :any, catalina:      "0f782fa69d2e12e9c1765df4ae1b7bd87143402aa1840d483092f3b74f89ae19"
+    sha256 cellar: :any, mojave:        "69af639323557bdd2c09fdaf354d9830441014f98609609146a8c836c752ac10"
   end
 
   depends_on "jpeg"

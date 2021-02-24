@@ -3,21 +3,23 @@ class AppscaleTools < Formula
   homepage "https://github.com/AppScale/appscale-tools"
   url "https://github.com/AppScale/appscale-tools/archive/3.5.3.tar.gz"
   sha256 "ae3f373626d5d88d38cf17fef8bd5faaf92234bc6421d5f5c49cf5788acbe93a"
+  license "Apache-2.0"
   revision 3
   head "https://github.com/AppScale/appscale-tools.git"
 
   bottle do
-    cellar :any
-    sha256 "dc2f20c3743a21aa5f06b3068faadf0f00c5da34728ca55af936439213b9f7ad" => :catalina
-    sha256 "eb5e13b06c11ecb6a29eb79e0bcd474ee8320c5ce4d223427809b03f899aebbf" => :mojave
-    sha256 "70e89498336894ae025118e51e418528d8d73da9b1e2786559b6bcbe6055f55b" => :high_sierra
+    sha256 cellar: :any, big_sur:     "69c1aff6adfd929cdce565af76c67dd20e95bf6be18a2aae4f3c69cb1c498bec"
+    sha256 cellar: :any, catalina:    "dc2f20c3743a21aa5f06b3068faadf0f00c5da34728ca55af936439213b9f7ad"
+    sha256 cellar: :any, mojave:      "eb5e13b06c11ecb6a29eb79e0bcd474ee8320c5ce4d223427809b03f899aebbf"
+    sha256 cellar: :any, high_sierra: "70e89498336894ae025118e51e418528d8d73da9b1e2786559b6bcbe6055f55b"
   end
 
   depends_on "libyaml"
+  depends_on :macos # Due to Python 2 (Uses SOAPPy, which does not support Python 3)
   depends_on "openssl@1.1"
-  depends_on "ssh-copy-id"
-  # Uses SOAPPy, which does not support Python 3
-  uses_from_macos "python@2" # does not support Python 3
+
+  uses_from_macos "libffi"
+  uses_from_macos "ssh-copy-id"
 
   resource "retrying" do
     url "https://files.pythonhosted.org/packages/44/ef/beae4b4ef80902f22e3af073397f079c96969c69b2c7d52a57ea9ae61c9d/retrying-1.3.3.tar.gz"
@@ -314,6 +316,20 @@ class AppscaleTools < Formula
     sha256 "91ee3949a3a613cac037ddde0b16b17062e248376b11491436e49d5ddc75ff9b"
   end
 
+  resource "secretstorage" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/a5/a5/0830cfe34a4cfd0d1c3c8b614ede1edb2aaf999091ac8548dd19cb352e79/SecretStorage-2.3.1.tar.gz"
+      sha256 "3af65c87765323e6f64c83575b05393f9e003431959c9395d1791d51497f29b6"
+    end
+  end
+
+  resource "pyparsing" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
+      sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
+    end
+  end
+
   def install
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
     resources.each do |r|
@@ -330,7 +346,7 @@ class AppscaleTools < Formula
     touch site_packages/"appscale/__init__.py"
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

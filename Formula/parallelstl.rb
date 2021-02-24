@@ -1,15 +1,28 @@
 class Parallelstl < Formula
   desc "C++ standard library algorithms with support for execution policies"
   homepage "https://github.com/intel/parallelstl"
-  url "https://github.com/intel/parallelstl/archive/20190522.tar.gz"
-  sha256 "37a83f26299c66a9988e85f06149487cfb2d69fb41568c64b7ad7c7903bcaac1"
+  url "https://github.com/intel/parallelstl/archive/20201111.tar.gz"
+  sha256 "c5ca7e0a618df8d28087be2e23ae38713ab1bcff0107562b935fbb5ba072fbf6"
+  # Apache License Version 2.0 with LLVM exceptions
+  license "Apache-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "944b95b0b94389d981d71def6dd11e676c911c578b680b08c5a176937877a5ac"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a5f7b936a95bd0c34f5dac2deb1d642fdaaaca6a5fef2fa72879a82ceb4e3f84"
+    sha256 cellar: :any_skip_relocation, catalina:      "90737db9c682cbb31c250745bf089fd4f3d72fca3980dad138472c1d6ef8a5ae"
+    sha256 cellar: :any_skip_relocation, mojave:        "c0eb967346b81fa899a348dcc51c5cec898add7384134006bf2335f349b9be4a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4e0f682ecd6e591ab1a6d71e4579409485a1a63bbcc1b6d22738eda43e1fd762"
+  end
 
+  depends_on "cmake" => :build
   depends_on "tbb"
 
   def install
-    include.install Dir["include/*"]
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
+    prefix.install "stdlib"
   end
 
   test do
@@ -28,7 +41,7 @@ class Parallelstl < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "-L#{Formula["tbb"].opt_lib}", "-ltbb",
-                    "-I#{include}", "test.cpp", "-o", "test"
+                    "-I#{prefix}/stdlib", "-I#{include}", "test.cpp", "-o", "test"
     system "./test"
   end
 end

@@ -1,14 +1,22 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library with Python bindings"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_2/libtorrent-rasterbar-1.2.2.tar.gz"
-  sha256 "e579261d7f0acbe82e9b4ce703cb721627cb8075023f8a26405992f489bc6202"
+  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1.2.10/libtorrent-rasterbar-1.2.10.tar.gz"
+  sha256 "d0dd30bdc3926587c4241f4068d8e39628a6c1f9f6cf53195f0e9bc90017befb"
+  license "BSD-3-Clause"
+  revision 1
+
+  livecheck do
+    url :stable
+    regex(/^libtorrent[._-]v?(\d+(?:[-_.]\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "38fd07ec02a159f140fd6adae4d4798b4a6941edff752047066def05c1313cf1" => :catalina
-    sha256 "7ff39b50964775cdc6add363e5f51c5d4220953cb7815f31935f4efbf3ab8829" => :mojave
-    sha256 "f64fa26332381e8ab3d402a44e65aacb24397f9558692bb8695ee8df612fd116" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "566168949b3c30d457469e9e1a6ee366aef3e8a3f72191b36cfcd87033834b28"
+    sha256 cellar: :any, big_sur:       "92d140b497497ac2edc980534ff710ff50b99e967c2a01fe0c952c51a0bf3aeb"
+    sha256 cellar: :any, catalina:      "2b5460c509171200053dbb6d0eb45b71737695239beff530d63c55265c89fec5"
+    sha256 cellar: :any, mojave:        "593dae5994fb2e71c44f0150196d8cb719872b15e6212a8d669b1ed43c4f8f90"
+    sha256 cellar: :any, high_sierra:   "9f140786725e1a24971d5d3a99ff77cb35ec713f6fb6fd871b40633d4a322ea3"
   end
 
   head do
@@ -22,9 +30,12 @@ class LibtorrentRasterbar < Formula
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.9"
+
+  conflicts_with "libtorrent-rakshasa", because: "they both use the same libname"
 
   def install
+    pyver = Language::Python.major_minor_version(Formula["python@3.9"].bin/"python3").to_s.delete(".")
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -33,8 +44,10 @@ class LibtorrentRasterbar < Formula
       --enable-encryption
       --enable-python-binding
       --with-boost=#{Formula["boost"].opt_prefix}
-      --with-boost-python=boost_python37-mt
+      --with-boost-python=boost_python#{pyver}-mt
       PYTHON=python3
+      PYTHON_EXTRA_LIBS=#{`#{Formula["python@3.9"].opt_bin}/python3-config --libs --embed`.chomp}
+      PYTHON_EXTRA_LDFLAGS=#{`#{Formula["python@3.9"].opt_bin}/python3-config --ldflags`.chomp}
     ]
 
     if build.head?
@@ -44,6 +57,8 @@ class LibtorrentRasterbar < Formula
     end
 
     system "make", "install"
+
+    rm Dir["examples/Makefile*"]
     libexec.install "examples"
   end
 

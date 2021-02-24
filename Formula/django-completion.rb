@@ -1,9 +1,15 @@
 class DjangoCompletion < Formula
   desc "Bash completion for Django"
-  homepage "https://github.com/django/django"
-  url "https://github.com/django/django/archive/3.0.2.tar.gz"
-  sha256 "ca316b1179a16931ed872ce970aabefcf3d41fe0d4b1a8e1301ec59e1e0ab45b"
+  homepage "https://www.djangoproject.com/"
+  url "https://github.com/django/django/archive/3.1.7.tar.gz"
+  sha256 "64032293737c5bb00b77d8e1b9e4010919f35fd4627927f964c2db98f40f8330"
+  license "BSD-3-Clause"
   head "https://github.com/django/django.git"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle :unneeded
 

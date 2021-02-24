@@ -1,16 +1,19 @@
 class VorbisTools < Formula
   desc "Ogg Vorbis CODEC tools"
   homepage "https://github.com/xiph/vorbis-tools"
-  url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz"
-  sha256 "a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc"
-  revision 2
+  url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz"
+  sha256 "db7774ec2bf2c939b139452183669be84fda5774d6400fc57fde37f77624f0b0"
+
+  livecheck do
+    url "https://downloads.xiph.org/releases/vorbis/"
+    regex(/href=.*?vorbis-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "71a81bbeec2d79ddd7f39858cf66a450fac9d542824c30a064298229d6637594" => :catalina
-    sha256 "c3e402519ad170a0a37d80d394d8afbe905985784f8ea5d93fcc84a4486a9977" => :mojave
-    sha256 "e929c31331ffcb58d21cb086184ed747185dd8d0f4b7ee1b98134cabe44490bc" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "f6c6cc107f9c88f063f506dbf312602c4e9e61c80b5100aa77c6a3c7247eb7ee"
+    sha256 cellar: :any, big_sur:       "eabf92d09b16e16586caf87136e246da3acad99e772b763323c4b2dd05aa6d23"
+    sha256 cellar: :any, catalina:      "1d5caa7c22505a85eaa0a67930047b7d17786401b9c3376b67647502d4b056b5"
+    sha256 cellar: :any, mojave:        "469c4ff8079bd5a47d4aad1d06981660e6968facc25e542e54e505495261d8f1"
   end
 
   depends_on "pkg-config" => :build
@@ -19,11 +22,9 @@ class VorbisTools < Formula
   depends_on "libogg"
   depends_on "libvorbis"
 
-  def install
-    # Fix `brew linkage --test` "Missing libraries: /usr/lib/libnetwork.dylib"
-    # Prevent bogus linkage to the libnetwork.tbd in Xcode 7's SDK
-    ENV.delete("SDKROOT") if MacOS.version == :yosemite
+  uses_from_macos "curl"
 
+  def install
     args = %W[
       --disable-debug
       --disable-dependency-tracking

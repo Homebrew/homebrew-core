@@ -1,23 +1,25 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.18/newsboat-2.18.tar.xz"
-  sha256 "f23932c0226ec3f69eac7668da444e73175048498e15e9d773451648b2cba4b0"
+  url "https://newsboat.org/releases/2.22.1/newsboat-2.22.1.tar.xz"
+  sha256 "8920f41cc53776b67c0e85ad1696b0967f6ac248f3b8913d977942c15d75e690"
+  license "MIT"
   head "https://github.com/newsboat/newsboat.git"
 
   bottle do
-    sha256 "3ebdaac8a35ae290af7adffe737bec71f1ca4d96d58acc352a6d926eab3dc1ed" => :catalina
-    sha256 "3b5461262a95b3c29cd7fce17c0c7db2116dccdcbb9bdd4e9e912b5890279737" => :mojave
-    sha256 "9e3ce4ad4a7230aa6356651c7dca731d56366bba7ba42e73eeb8d3dfdbf8ca45" => :high_sierra
+    sha256 arm64_big_sur: "e9fcc698d8778d553246fb3d1bf53976818e59376c56e3c28bdc041f34526a6c"
+    sha256 big_sur:       "5f662f131861dd00d6f25122f7f790e6db3a6a8769406ef5740b55f061f8ec24"
+    sha256 catalina:      "180667d4eb94c77f4fbc43e542b823fccbd91b020e341a5fa132d4789d105c49"
+    sha256 mojave:        "bbf2e67497c2c4985401be6d13effd2794ed2619e2a2cbdb014e30f98faa3830"
   end
 
-  depends_on "asciidoc" => :build
-  depends_on "docbook-xsl" => :build
+  depends_on "asciidoctor" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "gettext"
   depends_on "json-c"
   depends_on "libstfl"
+
   uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -35,6 +37,6 @@ class Newsboat < Formula
 
   test do
     (testpath/"urls.txt").write "https://github.com/blog/subscribe"
-    assert_match /newsboat - Exported Feeds/m, shell_output("LC_ALL=C #{bin}/newsboat -e -u urls.txt")
+    assert_match "newsboat - Exported Feeds", shell_output("LC_ALL=C #{bin}/newsboat -e -u urls.txt")
   end
 end

@@ -1,22 +1,26 @@
 class Hiredis < Formula
   desc "Minimalistic client for Redis"
   homepage "https://github.com/redis/hiredis"
-  url "https://github.com/redis/hiredis/archive/v0.14.0.tar.gz"
-  sha256 "042f965e182b80693015839a9d0278ae73fae5d5d09d8bf6d0e6a39a8c4393bd"
+  url "https://github.com/redis/hiredis/archive/v1.0.0.tar.gz"
+  sha256 "2a0b5fe5119ec973a0c1966bfc4bd7ed39dbce1cb6d749064af9121fe971936f"
+  license "BSD-3-Clause"
   head "https://github.com/redis/hiredis.git"
 
   bottle do
-    cellar :any
-    sha256 "e19f4ea25971bd484ecbcf1bfd6a1556cf99dff7619f4312cef0fb1caf5b656a" => :catalina
-    sha256 "b4ad73060273cc312df323beb4657426ed554b6fa436381e68c5b37fc64dd471" => :mojave
-    sha256 "f4ac0116806f6a754175e1ceadca0ddafaf1d70fdd5bc0af0604cb82483040e3" => :high_sierra
-    sha256 "df1316285bbf8325a8e9dcc2f8cd472905354cba2b1562cf0dd75e268b596f5c" => :sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "447cf4bd4a60d02edd7cf1795b22dae71206bef09e6232ac6fb7de11b7c5176d"
+    sha256 cellar: :any, big_sur:       "b6938bbdfbc95f2fb3affb4bde281a7369b0b36cae2372f5a875edf2b67bc7f4"
+    sha256 cellar: :any, catalina:      "e09527a6443e56cf0b813b7dba4d06fb483dbfb5989af127740593d04d8dd27d"
+    sha256 cellar: :any, mojave:        "076e913a91757728f99f184b99dc5ad2367d963a7cc470fc699dcfda1dea1af9"
+  end
+
+  # remove in next release
+  patch do
+    url "https://github.com/redis/hiredis/commit/8d86cb4.patch?full_index=1"
+    sha256 "2f1b20defbd882c220e2c2d88da8dae970b7fbd6445363303b2ae7b75263f0ff"
   end
 
   def install
-    # Architecture isn't detected correctly on 32bit Snow Leopard without help
-    ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}"
-
     system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "examples"
   end

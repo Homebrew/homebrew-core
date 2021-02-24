@@ -1,14 +1,16 @@
 class Thrift < Formula
   desc "Framework for scalable cross-language services development"
   homepage "https://thrift.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=/thrift/0.13.0/thrift-0.13.0.tar.gz"
-  sha256 "7ad348b88033af46ce49148097afe354d513c1fca7c607b59c33ebb6064b5179"
+  url "https://www.apache.org/dyn/closer.lua?path=thrift/0.14.0/thrift-0.14.0.tar.gz"
+  mirror "https://archive.apache.org/dist/thrift/0.14.0/thrift-0.14.0.tar.gz"
+  sha256 "8dcb64f63126522e1a3fd65bf6e5839bc3d3f1e13eb514ce0c2057c9b898ff71"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "3a6dccee60ca25d75f99245cc46a7d84351c87c654b77837c3370c5247c80c49" => :catalina
-    sha256 "385c454b28a354be187de75d67c0133bca17cd1341f1e1abd10cba368e29a80d" => :mojave
-    sha256 "cb82d3f651ae5cb00a37713a050127a746358320e579d2fe55e08c4b9cd139bd" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "3eb24126da5db23fd34bfd466de7fc1ac5007aad0b733d0382024bfee13bd3ad"
+    sha256 cellar: :any, big_sur:       "04f6c25fd0d50182ba07a301af0e1665a6dde9088e9b0c9021850d3371ff80cb"
+    sha256 cellar: :any, catalina:      "7d38c3d24b260bbba6908132fb65a75083f8395881b56d64510972cb9edae513"
+    sha256 cellar: :any, mojave:        "09f0659c65f5ef81ca8d9787ce2defb877eb324528d4841991c78adc82b09f59"
   end
 
   head do
@@ -21,7 +23,7 @@ class Thrift < Formula
   end
 
   depends_on "bison" => :build
-  depends_on "boost"
+  depends_on "boost" => [:build, :test]
   depends_on "openssl@1.1"
 
   def install
@@ -58,6 +60,17 @@ class Thrift < Formula
   end
 
   test do
-    system "#{bin}/thrift", "--version"
+    (testpath/"test.thrift").write <<~'EOS'
+      service MultiplicationService {
+        i32 multiply(1:i32 x, 2:i32 y),
+      }
+    EOS
+
+    system "#{bin}/thrift", "-r", "--gen", "cpp", "test.thrift"
+
+    system ENV.cxx, "-std=c++11", "gen-cpp/MultiplicationService.cpp",
+      "gen-cpp/MultiplicationService_server.skeleton.cpp",
+      "-I#{include}/include",
+      "-L#{lib}", "-lthrift"
   end
 end

@@ -1,15 +1,21 @@
 class Nmh < Formula
-  desc "The new version of the MH mail handler"
+  desc "New version of the MH mail handler"
   homepage "https://www.nongnu.org/nmh/"
   url "https://download.savannah.gnu.org/releases/nmh/nmh-1.7.1.tar.gz"
   sha256 "f1fb94bbf7d95fcd43277c7cfda55633a047187f57afc6c1bb9321852bd07c11"
   revision 1
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/nmh/"
+    regex(/href=.*?nmh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "5ed10257c9024848ec26fc4c80e1ddbbba3cca6199b83cf62fbbdc9a1970e404" => :catalina
-    sha256 "9c53df993c2f8f0dd45dea112d082d7cfc67efd34e58be2f62d95bfb44d3c9b7" => :mojave
-    sha256 "f46c5ca5a87081a9a8f7f454e0cb36de543dff666ac0ba8e1bcb867a2f7e7763" => :high_sierra
-    sha256 "8b70320e7046fc756ba490a44d5f7923a0e45db4f645dc02f80c19823eefa823" => :sierra
+    rebuild 1
+    sha256 arm64_big_sur: "8424c60947db61aa2902836e12ac551c49c0783f3ab74746a57beff8f8361026"
+    sha256 big_sur:       "7dcce1935d412880d7484d77230a8446fc917dbc6bd8288df51e92c0a1a8106c"
+    sha256 catalina:      "891c5b5a3353772b1f450968c6a5aa25f22131cf567a32891694161af64e513e"
+    sha256 mojave:        "404bb9d70fbae0d224bc8c4e1e29c1e3f950df5ffac8e4f9a2805bb9d4a9c9f3"
   end
 
   head do

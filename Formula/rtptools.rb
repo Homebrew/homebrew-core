@@ -1,18 +1,29 @@
 class Rtptools < Formula
   desc "Set of tools for processing RTP data"
-  homepage "http://www.cs.columbia.edu/irt/software/rtptools/"
-  url "http://www.cs.columbia.edu/irt/software/rtptools/download/rtptools-1.22.tar.gz"
-  sha256 "2c76b2a423fb943820c91194372133a44cbdc456ebf69c51616ec50eeb068c28"
+  homepage "https://web.archive.org/web/20190924020700/www.cs.columbia.edu/irt/software/rtptools/"
+  url "https://github.com/irtlab/rtptools/archive/1.22.tar.gz"
+  sha256 "ac6641558200f5689234989e28ed3c44ead23757ccf2381c8878933f9c2523e0"
+  license "BSD-3-Clause"
+  head "https://github.com/irtlab/rtptools.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "62a46aec907b497ca92c8a07731cf56b3a2b986850acbcb203aa87e94e945abe" => :catalina
-    sha256 "51fe1b7831b60ee5ca438c11f72094149dbee5f96209a965997209fd6ac95742" => :mojave
-    sha256 "e96df17dfe878ecb9e87a938579a21d514e31dbf8e5e6b743264dac23e42501c" => :high_sierra
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a760c9b142e55aba7732406eeb2603c49b9b7514e02bd01bc245d0661772bf20"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a9f1e8f18d40ba8b435f619de132a5fbc00e0ef84d5a1e10378700e0f3ce417b"
+    sha256 cellar: :any_skip_relocation, catalina:      "59fa4c8c53c3430c6bb47b82c752eef710f692ad3fb1bd3ab82c108524aabe00"
+    sha256 cellar: :any_skip_relocation, mojave:        "eb8412186a92c44426b2f4c4bef7adcffb308afd4bb036a2dd9d1a0d184b504e"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
+    system "autoreconf", "--verbose", "--install", "--force"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"

@@ -5,17 +5,19 @@ class Proselint < Formula
   homepage "http://proselint.com"
   url "https://files.pythonhosted.org/packages/42/ff/8e7ad0108b8faffdf2ec7d170b4a8a3c9bc91f5077debf5381ef14702588/proselint-0.10.2.tar.gz"
   sha256 "3a87eb393056d1bc77d898e4bcf8998f50e9ad84f7b9ff7cf2720509ac8ef904"
-  revision 2
+  license "BSD-3-Clause"
+  revision 4
   head "https://github.com/amperser/proselint.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "934c3ea516ed2186a6154d86a44df7114fda4d0f44ba4812ed5de1e94ed8fb40" => :catalina
-    sha256 "db7413fb635e0af1e1d89a734ea74a44c313c8aed7a6ecad84ee533c17d3d276" => :mojave
-    sha256 "c1269a4a9d18ca7f66bcea841cb482afa7fec49188dfaaa388085da9a915e0f2" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d961c92da82a689bc3dd26ee643b1b46c02e05586d49866c1bd0502782d7a1d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "15d139af2022e52914ad7ee102d3acbbbbf00b0406bd147bb5509765b5cbd3f5"
+    sha256 cellar: :any_skip_relocation, catalina:      "2f0a8c853ee9b4c7fb31f867d6371a36147772510a1af3431ccdcc272fbaac24"
+    sha256 cellar: :any_skip_relocation, mojave:        "d410f307de6c9f59b5964b141e52d33318a0de5e871c5b8ed7663a5fbff2f279"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "787e948c2466df6ec0b3f8933702badc907bc08e34ca8b357c1568ad134dbd29"
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"

@@ -1,15 +1,20 @@
 class Dtc < Formula
   desc "Device tree compiler"
   homepage "https://www.devicetree.org/"
-  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.5.1.tar.xz"
-  sha256 "660b74039690fc37013660544d09191834efb58503c73c555c5513ba75ab031f"
+  url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.6.0.tar.xz"
+  sha256 "10503b0217e1b07933e29e8d347a00015b2431bea5f59afe0bed3af30340c82d"
+
+  livecheck do
+    url "https://mirrors.edge.kernel.org/pub/software/utils/dtc/"
+    regex(/href=.*?dtc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "ef6c457347e0d05b02d4f6cf95e271337901bd771275b28cb07834bc7eae7a70" => :catalina
-    sha256 "f81433bf0b0c539aa98320607475535cc095241a66eedb9706ab46057c5916a4" => :mojave
-    sha256 "a9157293d39e028781397ad121a386d7c3fc61f217f95f0834326e5c0cd591eb" => :high_sierra
-    sha256 "166f31f4093b82f486f74c752e2541e1bdd27399744cce5c0b4a65f36dd1a5de" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "d83175100dcc9a15426e6bd6de5e31a8d6ca3c7cb24c8ff4cc3bfdce9cf25ffd"
+    sha256 cellar: :any, big_sur:       "94b85edc6eca271107edecfa0b2f76b0d98b6bd41ea556c1c1ba150966d940bf"
+    sha256 cellar: :any, catalina:      "3cbdb48bb892f6cce39b9cc381f60a9ad8a785ad3582a4f324be8ec4caed7423"
+    sha256 cellar: :any, mojave:        "d80813f17abce4b20eb1e656919e9a5ee9d4fd10613b144c61217f3f1febf55c"
+    sha256 cellar: :any, high_sierra:   "00273c1cc191558075437f3e1938977cbc22cc84c58bb6b8920acc672d25b85d"
   end
 
   depends_on "pkg-config" => :build

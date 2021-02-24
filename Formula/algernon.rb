@@ -1,41 +1,41 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon.git",
-      :tag      => "1.12.5",
-      :revision => "206912d922bb8ab96e23708d1cf222d572741ebe"
+  url "https://github.com/xyproto/algernon/archive/1.12.12.tar.gz"
+  sha256 "6127eb975da960fd8aa7732c82f3b5e62d14ea763801778552bdbeec28846bf7"
+  license "MIT"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fa5efc4b459178262db04e6cf12f24ebdc7540eae749e8b86b4d01e4b74a856b" => :mojave
-    sha256 "01ffdc4770c149a2be689b33235eff7838352ad20d11f1ff1c2c9c0a40f3fc24" => :high_sierra
-    sha256 "abeffa6872984c9c33550a267379c79ae2e4fe3f1370fa67391c6ca3040bf3e4" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d6ba614c6586b6d582e06b863298ea48256dd6e6b4e96cb009b663cf6198afe1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4cf045c65143ce6cd0b8eac6014609840a8ea8a524cbf1b1fc01a324300fa36a"
+    sha256 cellar: :any_skip_relocation, catalina:      "5cb0074f58de14fd079892387ed83de4636faf52ef0081714b7c1f0f9b7469c5"
+    sha256 cellar: :any_skip_relocation, mojave:        "0fd0ffd941bb3399a63e38c20d9a3606fb390ae3b76e79fa055fbd77a71939ac"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/xyproto/algernon").install buildpath.children
-    cd "src/github.com/xyproto/algernon" do
-      system "go", "build", "-o", "algernon"
+    system "go", "build", *std_go_args, "-mod=vendor"
 
-      bin.install "desktop/mdview"
-      bin.install "algernon"
-      prefix.install_metafiles
-    end
+    bin.install "desktop/mdview"
   end
 
   test do
+    port = free_port
     pid = fork do
       exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
-                              "--addr", ":45678"
+                              "--addr", ":#{port}"
     end
     sleep 20
-    output = shell_output("curl -sIm3 -o- http://localhost:45678")
-    assert_match /200 OK.*Server: Algernon/m, output
+    output = shell_output("curl -sIm3 -o- http://localhost:#{port}")
+    assert_match(/200 OK.*Server: Algernon/m, output)
   ensure
     Process.kill("HUP", pid)
   end

@@ -1,13 +1,15 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://github.com/git-lfs/git-lfs"
-  url "https://github.com/git-lfs/git-lfs/releases/download/v2.9.2/git-lfs-v2.9.2.tar.gz"
-  sha256 "77358e12545415a6716b1e0228540f0e90619f1738dfe114cd3e5c30d43ffffd"
+  url "https://github.com/git-lfs/git-lfs/releases/download/v2.13.2/git-lfs-v2.13.2.tar.gz"
+  sha256 "782e6275df9ca370730945112e16a0b8c64b9819f0b61fae52ba1ebbc8dce2d5"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "584207acb926949f5c093d87d06e3e9deda2c78640041120d431f17bb5dad4c3" => :mojave
-    sha256 "b24483f15a987597f2b905b40882f3f89c69e478c01c434310d16c1145b161dd" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5cb96b8109d4a8bcc43469b6d8d6a5bfe57346dcbb2c70dec0491870a37d7cec"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8515eb49b4b28ba9297e6a7dbecdda0a81f7b58addc83b939b369c8114dc5529"
+    sha256 cellar: :any_skip_relocation, catalina:      "6270f8027d8e1edbd9c0742a7e35fdcaafce8a606241f0176519bdee78b2e955"
+    sha256 cellar: :any_skip_relocation, mojave:        "ecccceff1d45c2966f308246b76a4cb67ca4ccb3cf7ccbb73a3b12ae5c1ec246"
   end
 
   depends_on "go" => :build
@@ -33,15 +35,16 @@ class GitLfs < Formula
     end
   end
 
-  def caveats; <<~EOS
-    Update your git config to finish installation:
+  def caveats
+    <<~EOS
+      Update your git config to finish installation:
 
-      # Update global git config
-      $ git lfs install
+        # Update global git config
+        $ git lfs install
 
-      # Update system git config
-      $ git lfs install --system
-  EOS
+        # Update system git config
+        $ git lfs install --system
+    EOS
   end
 
   test do

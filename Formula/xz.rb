@@ -3,17 +3,22 @@
 class Xz < Formula
   desc "General-purpose data compression with high compression ratio"
   homepage "https://tukaani.org/xz/"
-  url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.4.tar.gz"
-  mirror "https://tukaani.org/xz/xz-5.2.4.tar.gz"
-  sha256 "b512f3b726d3b37b6dc4c8570e137b9311e7552e8ccbab4d39d47ce5f4177145"
+  url "https://downloads.sourceforge.net/project/lzmautils/xz-5.2.5.tar.gz"
+  mirror "https://tukaani.org/xz/xz-5.2.5.tar.gz"
+  sha256 "f6f4910fd033078738bd82bfba4f49219d03b17eb0794eb91efbae419f4aba10"
+  license all_of: [
+    :public_domain,
+    "LGPL-2.1-or-later",
+    "GPL-2.0-or-later",
+    "GPL-3.0-or-later",
+  ]
 
   bottle do
-    cellar :any
-    sha256 "5aa90b77d5e772dacd38146bbb7ff2fa43f210e3779def2c0f16cbdae8589aa3" => :catalina
-    sha256 "010667293df282c8bceede3bcd36953dd57c56cef608d09a5b50694ab7d4b96b" => :mojave
-    sha256 "e7be50f4ee00e35887f3957263334eb3baba59e8c061919060f9259351be6880" => :high_sierra
-    sha256 "bcc71ee69e2c43bf56b9c9ece5a53dc3439652f355620a25b020f794cd447fb7" => :sierra
-    sha256 "974aae83ba7ceb62040c5bf02b1fb277a919212714c8da2a4c5eb3d1d119a465" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "c84206005787304416ed81094bd3a0cdd2ae8eb62649db5a3a44fa14b276d09f"
+    sha256 cellar: :any, big_sur:       "4fbd4a9e3eb49c27e83bd125b0e76d386c0e12ae1139d4dc9e31841fb8880a35"
+    sha256 cellar: :any, catalina:      "2dcc8e0121c934d1e34ffdb37fcd70f0f7b5c2f4755f2f7cbcf360e9e54cb43b"
+    sha256 cellar: :any, mojave:        "44483961b5d2b535b0ece1936c9d40b4bc7d9c7281646cca0fb476291ab9d4dc"
+    sha256 cellar: :any, high_sierra:   "1491b2b20c40c3cb0b990f520768d7e876e4ab4a7dc1da9994d0150da34ba5c6"
   end
 
   def install

@@ -1,18 +1,20 @@
 class Xpa < Formula
   desc "Seamless communication between Unix programs"
   homepage "https://hea-www.harvard.edu/RD/xpa/"
-  url "https://github.com/ericmandel/xpa/archive/v2.1.19.tar.gz"
-  sha256 "44f1059009a7afe12029b808212393e352b3fa61701615350752ecf6c802ea48"
+  url "https://github.com/ericmandel/xpa/archive/2.1.20.tar.gz"
+  sha256 "854af367c0f4ffe7a65cb4da854a624e20af3c529f88187b50b22b68f024786a"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bb91619a16950257bd0d38e4a31efb591d28f49d7f8abaa258f2320b85f66839" => :catalina
-    sha256 "5472c2f6a21a42fef5af1719fcc7948277950e740c6dbabf0046218748c63387" => :mojave
-    sha256 "c0dc2dc017c17f0add29646c011602af1ce4ac208cf03b80674f2fa480f89ac9" => :high_sierra
-    sha256 "40cf0e2dc27c94926ab77537d28efad269499956a08b8a7792c05958adfe77b0" => :sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6b22cf494e2ca55efce9a08463ddd9ef4044af0a479689aa5ab610e40465fc93"
+    sha256 cellar: :any_skip_relocation, big_sur:       "025fa588033850451ca384e0274dd96d29c6e9e1331fd09aa82aad0bb2289af5"
+    sha256 cellar: :any_skip_relocation, catalina:      "223dc44eba3ff66b59c26e53e9d0ab14c63d57e2f76786bae9fdb7a2be5bbdac"
+    sha256 cellar: :any_skip_relocation, mojave:        "6ba46da9e3de8719db32f1f577fb6943be03a58f8c6472ef7f9b398d0fea9743"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "686a14717f6ae1b2af6230c3568622f9a480f8884cfee0924ffbecbee8b33db9"
   end
 
-  depends_on :x11
+  depends_on "libxt" => :build
 
   def install
     system "./configure", "--disable-debug",

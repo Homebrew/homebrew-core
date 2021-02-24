@@ -1,14 +1,16 @@
 class RangeV3 < Formula
   desc "Experimental range library for C++14/17/20"
   homepage "https://ericniebler.github.io/range-v3/"
-  url "https://github.com/ericniebler/range-v3/archive/0.10.0.tar.gz"
-  sha256 "5a1cd44e7315d0e8dcb1eee4df6802221456a9d1dbeac53da02ac7bd4ea150cd"
+  url "https://github.com/ericniebler/range-v3/archive/0.11.0.tar.gz"
+  sha256 "376376615dbba43d3bef75aa590931431ecb49eb36d07bb726a19f680c75e20c"
+  license "BSL-1.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "765e3422e15f7c6e2c3b4d7aacfdfea919ddcad18cde592a481f2eb5e3fe537d" => :catalina
-    sha256 "765e3422e15f7c6e2c3b4d7aacfdfea919ddcad18cde592a481f2eb5e3fe537d" => :mojave
-    sha256 "765e3422e15f7c6e2c3b4d7aacfdfea919ddcad18cde592a481f2eb5e3fe537d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2500d54ef2231b737505f3cad48f4a3ffb996b3941b8cbee4f8e2b1a44692aec"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f22133b9d6ec765bef17f0ad8a81796ceafff1067954eb46a019b63e6aaa4f91"
+    sha256 cellar: :any_skip_relocation, catalina:      "bffbe0872b344db9b7838d3a63b10e95df57385d26bfaeffc4da5a3d940893c6"
+    sha256 cellar: :any_skip_relocation, mojave:        "bffbe0872b344db9b7838d3a63b10e95df57385d26bfaeffc4da5a3d940893c6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "bffbe0872b344db9b7838d3a63b10e95df57385d26bfaeffc4da5a3d940893c6"
   end
 
   depends_on "cmake" => :build

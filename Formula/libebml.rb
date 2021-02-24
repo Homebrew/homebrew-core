@@ -1,15 +1,16 @@
 class Libebml < Formula
   desc "Sort of a sbinary version of XML"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libebml/libebml-1.3.10.tar.xz"
-  sha256 "c6a792f4127b8059bc446fb32391e6633811f45748d7d7ba873d7028362f5e3e"
+  url "https://dl.matroska.org/downloads/libebml/libebml-1.4.2.tar.xz"
+  sha256 "41c7237ce05828fb220f62086018b080af4db4bb142f31bec0022c925889b9f2"
+  license "LGPL-2.1-or-later"
   head "https://github.com/Matroska-Org/libebml.git"
 
   bottle do
-    cellar :any
-    sha256 "ab827d4f47936ff0ac3333ca38843a5171b8bd0211ac4c1f81f7a1ba6c4d3a6c" => :catalina
-    sha256 "c6b199ff5aa3980d1a296f2e3d2ec50149f3ffcca2748ecd4a31e62b470e50c3" => :mojave
-    sha256 "01cec2d9346a4e154d5d92327756212527b5e3b4980882b916ca05bc0aad41d7" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "fce6d01b12243501223e4e9294528b8eab1818815b18e4ffe777fd14cec0e525"
+    sha256 cellar: :any, big_sur:       "de4edaae6d3f42a388be996f448b582262e39e923acc9ccef881a20ffa817d38"
+    sha256 cellar: :any, catalina:      "20a71bb0c2babdc04f179dc77c7a03c2f2f2031e7d8d87fbf9d3c41ee831addc"
+    sha256 cellar: :any, mojave:        "c3c91dc9f86978012a06f299115bc088e5ea0af6aec2e915d0f8338c4c0edd03"
   end
 
   depends_on "cmake" => :build

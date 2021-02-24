@@ -1,14 +1,15 @@
 class Nift < Formula
   desc "Cross-platform open source framework for managing and generating websites"
   homepage "https://nift.cc/"
-  url "https://github.com/nifty-site-manager/nsm/archive/v2.0.tar.gz"
-  sha256 "86736893617433e84c1adc1a664ef94ebca53eec77028c3bb5c8b1a10d8a4d1e"
+  url "https://github.com/nifty-site-manager/nsm/archive/v2.3.10.tar.gz"
+  sha256 "ef4410d423fca8dfb67a349a188a0a46bec67f7eb0157d146ae2fbb28f2f2295"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8353be0cfb0213a0f9dcbabca8218f8cff2821e4ed3c71c93cdca2bb9910cad0" => :catalina
-    sha256 "f7aad455365dadd4886778ee0cfa72457934be7fa53c3ac59bbfaf7915611a07" => :mojave
-    sha256 "8264a8f07d65370fad356c6ae0e792f449b4fa5e39b83072b3fb2904041c8348" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "fd954d10e59e79bdeea45897fc6691cd7f06497c4398ec0f1f7adae62869fc01"
+    sha256 cellar: :any_skip_relocation, catalina:    "f08a936baa0f3e81ec0aa8343fb4970c39a7c73b308bad8df4e21fd665320ade"
+    sha256 cellar: :any_skip_relocation, mojave:      "56e8f7ea837fbff3d3a887bd57134364c55f352c0c4e9a5bf38301dbb7e4bdda"
+    sha256 cellar: :any_skip_relocation, high_sierra: "ad7c89b1c61ba4659dff5fb3b021b3283f253e158ed72830b0598afdc33198c8"
   end
 
   def install
@@ -18,8 +19,8 @@ class Nift < Formula
 
   test do
     mkdir "empty" do
-      system "#{bin}/nsm", "init-html"
-      assert_predicate testpath/"empty/site/index.html", :exist?
+      system "#{bin}/nsm", "init", ".html"
+      assert_predicate testpath/"empty/output/index.html", :exist?
     end
   end
 end

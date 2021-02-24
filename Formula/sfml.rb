@@ -4,14 +4,15 @@ class Sfml < Formula
   homepage "https://www.sfml-dev.org/"
   url "https://www.sfml-dev.org/files/SFML-2.5.1-sources.zip"
   sha256 "bf1e0643acb92369b24572b703473af60bac82caf5af61e77c063b779471bb7f"
+  license "Zlib"
+  revision 1
   head "https://github.com/SFML/SFML.git"
 
   bottle do
-    cellar :any
-    sha256 "b94077b2fc05c84af837de5bdf0681c1538c07b320b40155dd7f81cff809d37c" => :catalina
-    sha256 "3f4dd43eb91902d4c4f7558d965b372ace9b1227185c55db5172a7f599593caa" => :mojave
-    sha256 "72544adffb4dea8194163d44f16588c2c85ab795ba02eb7b93a9d687f2958383" => :high_sierra
-    sha256 "ab58d3643f256258efe63d74689bfb4eae7dd012665552e61eb6bb749af08f77" => :sierra
+    sha256 arm64_big_sur: "4ea8183ad7187a6c2f29522d61ff2446f034484fe4341c81c12c2b4fa727e661"
+    sha256 big_sur:       "3acd05aacb9f9f8e87d99ecbaab09d976a7f151d822d6950e4d13697f0297443"
+    sha256 catalina:      "cdc8de4d6d5b63dd4334a33cc6c6f2f57e3686a5305d22b89579748237ac4d67"
+    sha256 mojave:        "311051956872de3bb215c1f4c0bc618157fbfb495f92acc7552b8efb76cf4fe3"
   end
 
   depends_on "cmake" => :build
@@ -34,6 +35,7 @@ class Sfml < Formula
     rm_rf Dir["extlibs/*"] - ["extlibs/headers"]
 
     system "cmake", ".", *std_cmake_args,
+                         "-DCMAKE_INSTALL_RPATH=#{opt_lib}",
                          "-DSFML_MISC_INSTALL_PREFIX=#{share}/SFML",
                          "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
                          "-DSFML_BUILD_DOC=TRUE"

@@ -1,19 +1,33 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/12/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v12.1/postgresql-12.1.tar.bz2"
-  sha256 "a09bf3abbaf6763980d0f8acbb943b7629a8b20073de18d867aecdb7988483ed"
-  revision 1
+  url "https://ftp.postgresql.org/pub/source/v13.2/postgresql-13.2.tar.bz2"
+  sha256 "5fd7fcd08db86f5b2aed28fcfaf9ae0aca8e9428561ac547764c2a2b0f41adfc"
+  license "PostgreSQL"
+
+  livecheck do
+    url "https://ftp.postgresql.org/pub/source/?C=M&O=A"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    sha256 "7091cf8b116e4320adb38a78a7cfe09676db01c6ab20775039352bcc7627cccb" => :catalina
-    sha256 "c391659b1be8ed18885421e23cf5a0b33f04b389d6c3b41aad5dfa43c38f9641" => :mojave
-    sha256 "47317a41104e4cef411027fc5fcead51b5901ea7ed0b07ab3ad6a582767486b4" => :high_sierra
+    sha256 arm64_big_sur: "be102bcef1030289e73fe3643c9fd575471df27f4b958e1155abb7a76f21107c"
+    sha256 big_sur:       "eae0a60decded85f7b0af6c880f81d746fc0f0e285eba091b75763e63da946ca"
+    sha256 catalina:      "9bf464e2cd8c0c8b07ba1ed8e203427103921ba051fb0db4965c880b0d085339"
+    sha256 mojave:        "51f2ac5acb1e614e6bc005fb2e975040bf72937f4ac1c70edcaeec3a0d396621"
   end
 
   keg_only "conflicts with postgres formula"
 
+  # GSSAPI provided by Kerberos.framework crashes when forked.
+  # See https://github.com/Homebrew/homebrew-core/issues/47494.
+  depends_on "krb5"
+
   depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     system "./configure", "--disable-debug",

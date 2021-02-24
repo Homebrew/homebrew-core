@@ -1,14 +1,15 @@
 class X8664ElfGcc < Formula
-  desc "The GNU compiler collection for x86_64-elf"
+  desc "GNU compiler collection for x86_64-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
-  sha256 "ea6ef08f121239da5695f76c9b33637a118dcf63e24164422231917fa61fb206"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+  sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
 
   bottle do
-    sha256 "08e58deea0e230490676590c0094dd4c27586d6ef1a5dfdfa808be46508ac81e" => :catalina
-    sha256 "eee7d6ac62924a8322ba09687aee4f10f48f32a2caf5497cad3bf67dadfe6e9b" => :mojave
-    sha256 "f00c75602affbe7012f22524633b0df235667ab65f91c9bad51ca874305620de" => :high_sierra
+    sha256 big_sur:     "5ea6b9319ee06ff6e914f97e1af1243e5ec820a22ea3d33e7decae2effd228b5"
+    sha256 catalina:    "fabfa58ff9baa00f65192dac31f63133e8c98b1b2bf4ef49ba451f6331ed2cc2"
+    sha256 mojave:      "6775f752210fe04754eca0de749d7243e436da6a24118660faca5bbf62eedb16"
+    sha256 high_sierra: "ef83d1c3909cc2d7b42d5dca74909c548f653d34a55d141f8d5402992214d622"
   end
 
   depends_on "gmp"
@@ -19,19 +20,22 @@ class X8664ElfGcc < Formula
   def install
     mkdir "x86_64-elf-gcc-build" do
       system "../configure", "--target=x86_64-elf",
-                             "--enable-targets=all",
-                             "--enable-multilib",
                              "--prefix=#{prefix}",
+                             "--infodir=#{info}/x86_64-elf-gcc",
+                             "--disable-nls",
                              "--without-isl",
-                             "--disable-werror",
                              "--without-headers",
                              "--with-as=#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-as",
                              "--with-ld=#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-ld",
-                             "--enable-languages=c,c++"
+                             "--enable-languages=c,c++",
+                             "SED=/usr/bin/sed"
       system "make", "all-gcc"
       system "make", "install-gcc"
       system "make", "all-target-libgcc"
       system "make", "install-target-libgcc"
+
+      # FSF-related man pages may conflict with native gcc
+      (share/"man/man7").rmtree
     end
   end
 
@@ -45,6 +49,7 @@ class X8664ElfGcc < Formula
       }
     EOS
     system "#{bin}/x86_64-elf-gcc", "-c", "-o", "test-c.o", "test-c.c"
-    assert_match "file format elf64-x86-64", shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-c.o")
+    assert_match "file format elf64-x86-64",
+      shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-c.o")
   end
 end

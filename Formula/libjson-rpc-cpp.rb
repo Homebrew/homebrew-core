@@ -1,17 +1,18 @@
 class LibjsonRpcCpp < Formula
   desc "C++ framework for json-rpc"
   homepage "https://github.com/cinemast/libjson-rpc-cpp"
-  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.2.0.tar.gz"
-  sha256 "485556bd27bd546c025d9f9a2f53e89b4460bf820fd5de847ede2539f7440091"
+  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.3.0.tar.gz"
+  sha256 "cf132ad9697b034f22ff37d12a1f1c6f2647ec2236701de5e76f6036ab664156"
+  license "MIT"
   revision 2
   head "https://github.com/cinemast/libjson-rpc-cpp.git"
 
   bottle do
-    cellar :any
-    sha256 "d1466807a98b3ffbf6a2b538961e66c95ac3474460a98284583e4c0da058a7d3" => :catalina
-    sha256 "93aabc3290ac1f6f62783c97820a298f32bb6d2eb174eef66ebd26198c8e7f85" => :mojave
-    sha256 "3488b2b28b4b275aea373f5adf4bee029f21e1f59a6e4707b6b51c216d814db5" => :high_sierra
-    sha256 "dfb299c3e6d21e1e2966b61f53e43a462f1daf6beed1245054ed7dc43c26582c" => :sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "0fdc2ac320638aff5068d94d4115182edebd6f705a4d705924abcfb26d4b602a"
+    sha256 cellar: :any, big_sur:       "96c5a539ae83af10f043b89d47dd4e433089a658c3676a9533716e3e04edb440"
+    sha256 cellar: :any, catalina:      "451b43048c296d53ea5ca91c6894cbc638710cfc6006426ebc536f143d8c1f04"
+    sha256 cellar: :any, mojave:        "88c6224dddcb78a2662b1fdecaae8944132fc7b3aec8b0b69b78b73134b52342"
   end
 
   depends_on "cmake" => :build
@@ -20,8 +21,16 @@ class LibjsonRpcCpp < Formula
   depends_on "jsoncpp"
   depends_on "libmicrohttpd"
 
+  uses_from_macos "curl"
+
+  # Fix for https://github.com/cinemast/libjson-rpc-cpp/issues/298
+  patch do
+    url "https://github.com/cinemast/libjson-rpc-cpp/commit/fa163678134aced775651558f91a006791e26ef8.patch?full_index=1"
+    sha256 "80a8cdfa40aba3dc71fbab77b0137f7f03bb9c969b9845e68f83181b4d8550f6"
+  end
+
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DCOMPILE_EXAMPLES=OFF", "-DCOMPILE_TESTS=OFF"
     system "make"
     system "make", "install"
   end

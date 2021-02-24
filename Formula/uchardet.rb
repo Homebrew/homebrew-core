@@ -1,19 +1,16 @@
 class Uchardet < Formula
   desc "Encoding detector library"
   homepage "https://www.freedesktop.org/wiki/Software/uchardet/"
-  url "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.6.tar.xz"
-  sha256 "8351328cdfbcb2432e63938721dd781eb8c11ebc56e3a89d0f84576b96002c61"
-  head "https://anongit.freedesktop.org/git/uchardet/uchardet.git"
+  url "https://www.freedesktop.org/software/uchardet/releases/uchardet-0.0.7.tar.xz"
+  sha256 "3fc79408ae1d84b406922fa9319ce005631c95ca0f34b205fad867e8b30e45b1"
+  head "https://gitlab.freedesktop.org/uchardet/uchardet.git"
 
   bottle do
-    cellar :any
-    sha256 "83fd5ae3ce1597de3b2847f979fbc92fc5b95489c48637efcb3afab5620d2426" => :catalina
-    sha256 "d276b3607abe2ed5e2922cda3572d09192c60f13bf18d6d84cee24c12d700bcf" => :mojave
-    sha256 "c0416fb559e8c10f1cca21a0b0162d462cc02019d8abbce3712f64261b1ce8fe" => :high_sierra
-    sha256 "dce2d199e163858a10f27f9d94d232b8df5d38507098b629356ee5154d4f182c" => :sierra
-    sha256 "998232b6d034c090680202ca6d48a9af4924f091f3b597e4aa318f87fdf29bb8" => :el_capitan
-    sha256 "ab930a4e2c217362dc7e05940cc6449d024f18c5014847ff9428facef02316c7" => :yosemite
-    sha256 "c02f20920ac97596ab425b057275372a77c80c7d523191f2e5ab78c636d6827f" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "33989aa08f1ffc6f71f536c2a3cb28aabcc774e90da2aa40db110048f4b38238"
+    sha256 cellar: :any, big_sur:       "f5125cd193034470e278536d8b5d2498e99ddbd5c2853e214fe24fe845cc56d7"
+    sha256 cellar: :any, catalina:      "34bd4791834a762da961de136a3cad253800a98deea2d1dededf8efb465f215d"
+    sha256 cellar: :any, mojave:        "a254139ee777de77d5907dfeb47d4306f2e5e5f0b3775edfedcbf1fcf217fdbe"
+    sha256 cellar: :any, high_sierra:   "a89237dd88e4190826ce6fb4a8a625711636db7d6c4ba10d5ddd56d37347e868"
   end
 
   depends_on "cmake" => :build

@@ -1,13 +1,15 @@
 class Atlantis < Formula
   desc "Terraform Pull Request Automation tool"
   homepage "https://www.runatlantis.io/"
-  url "https://github.com/runatlantis/atlantis/archive/v0.10.2.tar.gz"
-  sha256 "a4590c181e759a2bb692e1b89552a02996cb366fca6f5f3298fff973a2e4a291"
+  url "https://github.com/runatlantis/atlantis/archive/v0.16.1.tar.gz"
+  sha256 "23828bba56e6ae372b35668ab7a1055ecdd37076391760801f4436f4c9a33680"
+  license "Apache-2.0"
+  head "https://github.com/runatlantis/atlantis.git"
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ee357fdb4fd86ae1b82255fa8fa1d55d51bd7fd4a5bafbf36fef04442c0946be" => :catalina
-    sha256 "b4d357f53b25fd4fc503edf532a8f6ab30cc7455cf3953c02d9c96ee21dbdc8b" => :mojave
-    sha256 "8c44712f5de5dee007a5e64049c7079d795e7741cb0c8c7a225bd6cda6add5be" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "ba03abca37b8286e5362d347fbc8589c40181edb38f9b62b5ce792845c89231f"
+    sha256 cellar: :any_skip_relocation, catalina: "b28d79960d9d5723f4839c8b41049862a7e399d19774c669e2d1b144d35076a9"
+    sha256 cellar: :any_skip_relocation, mojave:   "97bd297603b845ba27b2d87a24ec2191b6b1ac419fd297ff480d51517ac65f6f"
   end
 
   depends_on "go" => :build
@@ -19,14 +21,14 @@ class Atlantis < Formula
 
   test do
     system bin/"atlantis", "version"
-    port = 4141
+    port = free_port
     loglevel = "info"
     gh_args = "--gh-user INVALID --gh-token INVALID --gh-webhook-secret INVALID --repo-whitelist INVALID"
     command = bin/"atlantis server --atlantis-url http://invalid/ --port #{port} #{gh_args} --log-level #{loglevel}"
     pid = Process.spawn(command)
     system "sleep", "5"
     output = `curl -vk# 'http://localhost:#{port}/' 2>&1`
-    assert_match %r{HTTP\/1.1 200 OK}m, output
+    assert_match %r{HTTP/1.1 200 OK}m, output
     assert_match "atlantis", output
     Process.kill("TERM", pid)
   end

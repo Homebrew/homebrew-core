@@ -1,18 +1,31 @@
 class Lammps < Formula
   desc "Molecular Dynamics Simulator"
   homepage "https://lammps.sandia.gov/"
-  url "https://lammps.sandia.gov/tars/lammps-7Aug19.tar.gz"
+  url "https://github.com/lammps/lammps/archive/stable_29Oct2020.tar.gz"
   # lammps releases are named after their release date. We transform it to
   # YYYY-MM-DD (year-month-day) so that we get a sane version numbering.
   # We only track stable releases as announced on the LAMMPS homepage.
-  version "2019-08-07"
-  sha256 "4e8342b97441deb76c2fddd8a4fd23beb718cb0910779d98e334026391ed3961"
+  version "2020-10-29"
+  sha256 "759705e16c1fedd6aa6e07d028cc0c78d73c76b76736668420946a74050c3726"
+  license "GPL-2.0-only"
+
+  # The `strategy` block below is used to massage upstream tags into the
+  # YYYY-MM-DD format we use in the `version`. This is necessary for livecheck
+  # to be able to do proper `Version` comparison.
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/tag/stable[._-](\d{1,2}\w+\d{2,4})["' >]}i)
+    strategy :github_latest do |page, regex|
+      date_str = page[regex, 1]
+      date_str.present? ? Date.parse(date_str).to_s : []
+    end
+  end
 
   bottle do
-    sha256 "604056c80bb3b36f0a1644388bff26f2bcdc3e2f2541247e9a7ce941b20e9bcc" => :catalina
-    sha256 "e14fbf9e68b16804c9d86f525e92190010c580c479263eaf194ff1e23dd877b1" => :mojave
-    sha256 "eebae98d9606af15a5281f07843ea41aeb94974a52f0023e9734aab3db430406" => :high_sierra
-    sha256 "cd52cb03b501cb8d65f0dcf8baf3857dc13e2a2206016ef559bf5ff3eba31e1d" => :sierra
+    sha256 arm64_big_sur: "cd8e88f101776028e6859211611d5f581f7020b3e806f53e98b831ab3d0eb9f5"
+    sha256 big_sur:       "9bd87a2b72f291229de3d436f8fc7b0706ab5fc245587936943284287457d1c0"
+    sha256 catalina:      "4cb389466954f5fdafc8a05a06eff9c8a17886b69e2ea6cc38c55cf3912980d0"
+    sha256 mojave:        "e1ef047d6c3155e5a8bb704a5f141beb7427194c61e6d16885610bdfd20ecf5c"
   end
 
   depends_on "pkg-config" => :build
@@ -24,14 +37,18 @@ class Lammps < Formula
   depends_on "open-mpi"
 
   def install
+    ENV.cxx11
+
+    # Disable some packages for which we do not have dependencies, that are
+    # deprecated or require too much configuration.
+    disabled_packages = %w[gpu kokkos latte mscg message mpiio poems python voronoi]
+
     %w[serial mpi].each do |variant|
       cd "src" do
         system "make", "clean-all"
         system "make", "yes-standard"
 
-        # Disable some packages for which we do not have dependencies, that are
-        # deprecated or require too much configuration.
-        %w[gpu kokkos latte mscg message mpiio poems voronoi].each do |package|
+        disabled_packages.each do |package|
           system "make", "no-#{package}"
         end
 

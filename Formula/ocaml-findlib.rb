@@ -3,16 +3,24 @@ class OcamlFindlib < Formula
   homepage "http://projects.camlcity.org/projects/findlib.html"
   url "http://download.camlcity.org/download/findlib-1.8.1.tar.gz"
   sha256 "8e85cfa57e8745715432df3116697c8f41cb24b5ec16d1d5acd25e0196d34303"
-  revision 1
+  revision 3
+
+  livecheck do
+    url "http://download.camlcity.org/download/"
+    regex(/href=.*?findlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "2a3c79c6edf1956bf90c7884e6ee6cdf09ccc55ca8786c5c788b66e158ad5e70" => :catalina
-    sha256 "cf2039ac10218c3ba103ae2755493607643a60d0b56c4328ce064e8c72d7f86d" => :mojave
-    sha256 "edd8dbf4b6366bd6c046a34747c8926bbc6e91b1b38fd50efaf3d13de9134ecb" => :high_sierra
+    sha256 arm64_big_sur: "d8b36f14f73e5d2122029e86b3d2e057097fba83d52771e7203f315b84a0ad37"
+    sha256 big_sur:       "d0049172eb8e73000a7f085348dc8c2d89c891a67ade6a46b61acd7c9a330da8"
+    sha256 catalina:      "ba498040816b2b5b00ed84a96107119a99a52a0815b86ace5e5708f807be1ddb"
+    sha256 mojave:        "b9af770177876ae3ffff6cca808a7ea72866a0bfe3b92a987878629fc42b3eff"
+    sha256 high_sierra:   "a412ed75fa6bd7180846f2305eea5d2a4170bb41535c26fb047fbbd2b0adef8a"
   end
 
   depends_on "ocaml"
+
+  uses_from_macos "m4" => :build
 
   def install
     system "./configure", "-bindir", bin,

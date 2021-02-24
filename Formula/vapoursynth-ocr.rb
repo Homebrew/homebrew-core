@@ -1,15 +1,16 @@
 class VapoursynthOcr < Formula
   desc "VapourSynth filters - Tesseract OCR filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R48.tar.gz"
-  sha256 "3e98d134e16af894cf7040e4383e4ef753cafede34d5d77c42a2bb89790c50a8"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R52.tar.gz"
+  sha256 "4d5dc7950f4357da695d29708bc98013bc3e0bd72fc5d697f8c91ce3c4a4b2ac"
+  license "ISC"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
-    cellar :any
-    sha256 "c894f8d87246e2c0589b928f628ee7298af63e753ccb280ed80c1513773d569e" => :catalina
-    sha256 "7ab0e793a388da6609c1857b8b16479952e1765f3fd3133dc82184cc0700a048" => :mojave
-    sha256 "d1df199256931db3d1a1bc84c60496b2f4426aa9a5567556ca12dbcb31ee91a4" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "3b6b3405284238de9480db45bafd9a3e73ef6eddc8d23b6de1e629e67dd49bf9"
+    sha256 cellar: :any, big_sur:       "823ad4d448f1ee19d8ba111a6e36a4ac3f1b0064cea6e3ab6e30c0a8f15c6a91"
+    sha256 cellar: :any, catalina:      "ace9bfac33026748bfe2a1465d9a58b597bd85f001153ce3952760889e9aff74"
+    sha256 cellar: :any, mojave:        "268aed99192b8df1d673a6a64a0de4d8289c7a2316b19ed429b330ee3eb110b1"
   end
 
   depends_on "autoconf" => :build
@@ -17,7 +18,6 @@ class VapoursynthOcr < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-
   depends_on "tesseract"
   depends_on "vapoursynth"
 
@@ -39,8 +39,8 @@ class VapoursynthOcr < Formula
   end
 
   test do
-    py3 = Language::Python.major_minor_version "python3"
-    ENV.prepend_path "PYTHONPATH", lib/"python#{py3}/site-packages"
-    system "python3", "-c", "from vapoursynth import core; core.ocr"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "from vapoursynth import core; core.ocr"
   end
 end

@@ -1,19 +1,22 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/2.3.2.tar.gz"
-  sha256 "d07ebc1a2214d5fb7de3714e2b0ee7db5e1cb7d155bf88a134d141d1eb4995c2"
-  head "https://github.com/MiniZinc/libminizinc.git", :branch => "develop"
+  url "https://github.com/MiniZinc/libminizinc/archive/2.5.3.tar.gz"
+  sha256 "07982723009fcb50ae190bf17277e8c91e6279f319521f571d253ba27e2c2b1b"
+  license "MPL-2.0"
+  head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cdcacd5a4ca033867a061448461bc5a740c9f860e6adb16a6b9baa5c1a2f360c" => :catalina
-    sha256 "4f879b71bc2a436e141b0391a95c9b59ad0f8b6547e3c22d54095af820cb9c01" => :mojave
-    sha256 "2d5e0d69ea0d4622e665a80a2dfa76e8b01903d22bdce2362c6b58eea023c4b3" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "d3e7df985149ff4c1b12782a94b0ccfb5d862dd3e186e6c934d6e9d70dc21c3e"
+    sha256 cellar: :any, big_sur:       "1c54e2022738c39dd339bec62ba9d933b5b44fc07587c51361492cdfd5a961db"
+    sha256 cellar: :any, catalina:      "2ee5718af0ff50473754355384284e29162d2dff60c7b433d312c9cef0e21ff0"
+    sha256 cellar: :any, mojave:        "9d2af2903a893c0dadeddecbdbbdd2fb55fac3b1f37364881b4648fd90c037b2"
   end
 
   depends_on "cmake" => :build
-  depends_on :arch => :x86_64
+  depends_on "cbc"
+  depends_on "gecode"
 
   def install
     mkdir "build" do
@@ -23,6 +26,18 @@ class Minizinc < Formula
   end
 
   test do
-    system bin/"mzn2doc", share/"minizinc/std/all_different.mzn"
+    (testpath/"satisfy.mzn").write <<~EOS
+      array[1..2] of var bool: x;
+      constraint x[1] xor x[2];
+      solve satisfy;
+    EOS
+    assert_match "----------", shell_output("#{bin}/minizinc --solver gecode_presolver satisfy.mzn").strip
+
+    (testpath/"optimise.mzn").write <<~EOS
+      array[1..2] of var 1..3: x;
+      constraint x[1] < x[2];
+      solve maximize sum(x);
+    EOS
+    assert_match "==========", shell_output("#{bin}/minizinc --solver cbc optimise.mzn").strip
   end
 end

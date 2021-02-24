@@ -2,23 +2,26 @@ class ProtobufAT37 < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
   url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.7.1",
-      :revision => "6973c3a5041636c1d8dc5f7f6c8c1f3c15bc63d6"
+      tag:      "v3.7.1",
+      revision: "6973c3a5041636c1d8dc5f7f6c8c1f3c15bc63d6"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "de40ff1011be89e49ac1baf9a973349d7ec26b3a3ae0f94defe7230d07099ca5" => :mojave
-    sha256 "cfe4d90579043bd7b4c4844c7a0154a936aada8cf173a78725d1e574547dd290" => :high_sierra
-    sha256 "df1240601237fe2ae9b40be83c340e7527ab0e442727e4b47afe9468eeb357a7" => :sierra
+    sha256 cellar: :any, mojave:      "de40ff1011be89e49ac1baf9a973349d7ec26b3a3ae0f94defe7230d07099ca5"
+    sha256 cellar: :any, high_sierra: "cfe4d90579043bd7b4c4844c7a0154a936aada8cf173a78725d1e574547dd290"
+    sha256 cellar: :any, sierra:      "df1240601237fe2ae9b40be83c340e7527ab0e442727e4b47afe9468eeb357a7"
   end
 
   keg_only :versioned_formula
 
+  # https://github.com/Homebrew/homebrew-core/pull/54471#issuecomment-627430555
+  disable! date: "2020-05-09", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "python" => [:build, :test]
+  depends_on "python@3.7" => [:build, :test]
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
@@ -40,7 +43,8 @@ class ProtobufAT37 < Formula
     system "make", "install"
 
     # Install editor support and examples
-    doc.install "editors", "examples"
+    pkgshare.install "editors/proto.vim", "examples"
+    elisp.install "editors/protobuf-mode.el"
 
     ENV.append_to_cflags "-I#{include}"
     ENV.append_to_cflags "-L#{lib}"

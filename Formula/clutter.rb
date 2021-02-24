@@ -1,16 +1,16 @@
 class Clutter < Formula
   desc "Generic high-level canvas library"
   homepage "https://wiki.gnome.org/Projects/Clutter"
-  url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.2.tar.xz"
-  sha256 "e7233314983055e9018f94f56882e29e7fc34d8d35de030789fdcd9b2d0e2e56"
-  revision 2
+  url "https://download.gnome.org/sources/clutter/1.26/clutter-1.26.4.tar.xz"
+  sha256 "8b48fac159843f556d0a6be3dbfc6b083fc6d9c58a20a49a6b4919ab4263c4e6"
+  license "LGPL-2.1"
 
   bottle do
-    rebuild 1
-    sha256 "a686f9b7d22b956a7ea438dac3cecff061a54281f2ae8b2c9a5a53b98e6609f9" => :catalina
-    sha256 "d0db7076ac2f6b676018c9a92123de1099c7900d56039922cdc89e2389a9031d" => :mojave
-    sha256 "3f628a4d8a13d6703f770323cac942541eafa9418507b3cd7466f0918bedce8b" => :high_sierra
-    sha256 "ee8780db0d069682fd246a88bff1695f42c02f4900fa6eb8a8e3ce986a0674bc" => :sierra
+    sha256 arm64_big_sur: "050dd98a11765590759dc9bfa5e289b50af4374b9deb126959c348057fc81642"
+    sha256 big_sur:       "b6a60fc6c91f4e0a206e75c3fe5672215eb9460304202c4bfe1a4c7402ce9bd4"
+    sha256 catalina:      "ccec39ce9c941de753798e466b8cfc2a69612319d8b5a422f6e4bde49db305b1"
+    sha256 mojave:        "43da6f50107059a3c9b215e77d29724f9e71a17fd89f5e72a200cd021e32f471"
+    sha256 high_sierra:   "2a1f93e956dbfc9dc4f3c47dd8923b224ed155f3b8dbf32df74f365a65052bbb"
   end
 
   depends_on "gobject-introspection" => :build

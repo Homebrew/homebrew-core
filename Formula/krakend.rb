@@ -1,14 +1,16 @@
 class Krakend < Formula
   desc "Ultra-High performance API Gateway built in Go"
   homepage "https://www.krakend.io/"
-  url "https://github.com/devopsfaith/krakend-ce/archive/1.0.0.tar.gz"
-  sha256 "7626cb961c820e4b3b851a4cbd6d5d976288216891591c1be3a0c21d32477199"
+  url "https://github.com/devopsfaith/krakend-ce/archive/v1.2.0.tar.gz"
+  sha256 "81203b45d25fd76781c7e344571eca3c8714b52d22759b5eed74cbe7f769001b"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2169f9552692bdf17a81705929f8d4fda02a61d409107d7a06820ed96c1b5315" => :catalina
-    sha256 "f2af9a4f455794c0ed9ab63fb85da708b8f76f2aff154c6c6cdb204589ac80a0" => :mojave
-    sha256 "431731a0c27ed6a2dc4b6ef0be3bb73c97153bfd8190d9c62a7cb4a88cf12cc2" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8635e8251306a2098e5cfe633903baa9961341054435f67a2245bda7b2478383"
+    sha256 cellar: :any_skip_relocation, big_sur:       "42a7b1b931569c4471d5709dacb6f3ccf8a597090641df5af3cb550eaa58b0d6"
+    sha256 cellar: :any_skip_relocation, catalina:      "8fd55d4d43cf4d9294ada079435fe6e33c6e6544497bce5f518b450cb7516e08"
+    sha256 cellar: :any_skip_relocation, mojave:        "8ed61a823f052964f202e2d0c9e782de02b1f42dc156cadd111f1dc0a9d2824e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "70fde3f0d25235a1c53a094b7b180074996912eb76490bb989dd9a6106d8c1da"
   end
 
   depends_on "go" => :build
@@ -36,7 +38,8 @@ class Krakend < Formula
         }
       }
     EOS
-    assert_match "Unsupported version", shell_output("#{bin}/krakend check -c krakend_unsupported_version.json 2>&1", 1)
+    assert_match "Unsupported version",
+      shell_output("#{bin}/krakend check -c krakend_unsupported_version.json 2>&1", 1)
 
     (testpath/"krakend_bad_file.json").write <<~EOS
       {
@@ -44,7 +47,8 @@ class Krakend < Formula
         "bad": file
       }
     EOS
-    assert_match "ERROR", shell_output("#{bin}/krakend check -c krakend_bad_file.json 2>&1", 1)
+    assert_match "ERROR",
+      shell_output("#{bin}/krakend check -c krakend_bad_file.json 2>&1", 1)
 
     (testpath/"krakend.json").write <<~EOS
       {
@@ -94,6 +98,7 @@ class Krakend < Formula
         ]
       }
     EOS
-    assert_match "OK", shell_output("#{bin}/krakend check -c krakend.json 2>&1")
+    assert_match "OK",
+      shell_output("#{bin}/krakend check -c krakend.json 2>&1")
   end
 end

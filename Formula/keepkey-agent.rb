@@ -5,16 +5,18 @@ class KeepkeyAgent < Formula
   homepage "https://github.com/romanz/trezor-agent"
   url "https://files.pythonhosted.org/packages/65/72/4bf47a7bc8dc93d2ac21672a0db4bc58a78ec5cee3c4bcebd0b4092a9110/keepkey_agent-0.9.0.tar.gz"
   sha256 "47c85de0c2ffb53c5d7bd2f4d2230146a416e82511259fad05119c4ef74be70c"
-  revision 2
+  license "LGPL-3.0"
+  revision 4
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "87c1e88b122c66019f24a0c21cc0a6a2b01803129279a4e8ae2e13ab5641b9d8" => :catalina
-    sha256 "6b75efd2438d4486e182a5f269575f42cccdf967adef0899836cd9eb8da9c6c4" => :mojave
-    sha256 "1eaef62aac81c53d99bbcf743151301de5bcfdb6c37bf15732757c9cc3c82eba" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfd630395342344277c614e67fb6bf28aae72314987efb7cbb2a6bf23cc019e1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3cf82088797d4ae0b693d840d59cabbaa07dfbad5e997ad500a0245b9c534413"
+    sha256 cellar: :any_skip_relocation, catalina:      "6e0175e5f051ad05cbb26fcc2975632e1ffb8373e08c1235b4d7cd61f7cc1cf8"
+    sha256 cellar: :any_skip_relocation, mojave:        "27e81313d7690b317eb8f9a11a413c7b1529d2272bcbcf70b8263b41a406b0f8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "572d3d43c959597434419201e1ab260cafea2e7e7a9f3f07cfd6d2a1d20ab7d3"
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "backports.shutil_which" do
     url "https://files.pythonhosted.org/packages/dd/ea/715dc80584207a0ff4a693a73b03c65f087d8ad30842832b9866fe18cb2f/backports.shutil_which-3.5.1.tar.gz"

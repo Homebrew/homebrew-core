@@ -3,12 +3,14 @@ class Gdl < Formula
   homepage "https://developer.gnome.org/gdl/"
   url "https://download.gnome.org/sources/gdl/3.34/gdl-3.34.0.tar.xz"
   sha256 "858b30f0cdce4c4cb3e8365a7d54ce57c388beff38ea583be5449bc78dda8d02"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "72213f48c641e747ee4e5f57d99f5f6b58281def3979fd9bbd4b10d43fac94f1" => :catalina
-    sha256 "be37ffff8627cd687027fa38bc67e1e19dac530caeff7c6e26a1d4c58cb7219b" => :mojave
-    sha256 "0d014a840abbe39750efa407a6a9bc49b542dd875e07eb541cf234307f41b276" => :high_sierra
+    sha256 arm64_big_sur: "ef295dc3cfd05bf245b94552e008acc047e03e2806e93374879e7881b5c94871"
+    sha256 big_sur:       "30164281abee8e2047138cddc735d9a9e1ec520f673d468a601b6cfbc988cdd3"
+    sha256 catalina:      "5acba250d8c77d17be5ff312bf11d6aa33cb609c4c351b2a1cd1bf565e73e81a"
+    sha256 mojave:        "2e2e04543eaf7ee02a791433fbab570d3b5f44651cec8dd56a40a519c2a38d24"
+    sha256 high_sierra:   "abd9360935baecd914847697e5a21e7b7d91b94c0d5878509921cdb2ba72799c"
   end
 
   depends_on "gobject-introspection" => :build

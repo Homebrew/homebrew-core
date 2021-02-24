@@ -1,17 +1,30 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.13.src.tar.gz"
-  sha256 "49294270aa64e8c04182369212cd919f3b3e0e47601b1f935f038c761c265bc9"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.15.src.tar.gz"
+  sha256 "2bd6f2ae0d76e4a9412f468a5fa1af93d5f20bb66b9e7bf73479c31d789ac2e2"
+  license "NCSA"
+  revision 2
+
+  # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
+  # version scheme like `Clang+LLVM 3.5` (25 November 2014). The current
+  # versions are like: `include-what-you-use 0.15 (aka Clang+LLVM 11)`
+  # (21 November 2020).
+  livecheck do
+    url "https://include-what-you-use.org/downloads/"
+    regex(/href=.*?include-what-you-use[._-]v?((?!3\.[345])\d+(?:\.\d+)+)[._-]src\.t/i)
+  end
 
   bottle do
-    sha256 "94a1fa82e1a198f0e7548cb7b4895303b52432eb83836ce84896cc5af6bd3340" => :catalina
-    sha256 "0f91606b7d834d1969dea394674eafdd87c6ecbffb327a77c0d63c16574e89af" => :mojave
-    sha256 "b7dbc7e9f3504f1902b9f63de1c802812729c2ae395c4d85b0dab5a10835bd60" => :high_sierra
+    sha256 arm64_big_sur: "fc7068fdbc7a9e0bbf2100e5e1dc94ed3bb64a24b4d81386d04ee26639d2a5a0"
+    sha256 big_sur:       "e6df8a20b09f7477fb736af76854189bd98ac7191847d133b1bf63d227897337"
+    sha256 catalina:      "7d8ba990e1bc2ddc345b603bcc7000c5267896bfd16266d1f84633b5bd3a77bf"
+    sha256 mojave:        "8b36ee59b687530695baf9c766010b1356b3f09b6caba4a6750cf8ecd328b36e"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" # include-what-you-use 0.13 is compatible with llvm 9.0
+  depends_on "llvm" # include-what-you-use 0.15 is compatible with llvm 11.0
+
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -23,6 +36,7 @@ class IncludeWhatYouUse < Formula
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_PREFIX=#{libexec}
       -DCMAKE_PREFIX_PATH=#{Formula["llvm"].opt_lib}
+      -DCMAKE_CXX_FLAGS=-std=gnu++14
     ]
 
     mkdir "build" do

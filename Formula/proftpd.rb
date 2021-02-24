@@ -1,15 +1,27 @@
 class Proftpd < Formula
   desc "Highly configurable GPL-licensed FTP server software"
   homepage "http://www.proftpd.org/"
-  url "ftp://ftp.proftpd.org/distrib/source/proftpd-1.3.6b.tar.gz"
-  mirror "https://fossies.org/linux/misc/proftpd-1.3.6b.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.6b.tar.gz"
-  sha256 "fe5baf6c469a2b0b7f0e2611561b6fd5414300e32a76b96adb2ccfe05b5efb60"
+  url "https://github.com/proftpd/proftpd/archive/v1.3.7a.tar.gz"
+  mirror "https://fossies.org/linux/misc/proftpd-1.3.7a.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/proftpd/proftpd-1.3.7a.tar.gz"
+  sha256 "8b7bbf9757988935352d9dec5ebf96b6a1e6b63a6cdac2e93202ac6c42c4cd96"
+  license "GPL-2.0"
+
+  # Proftpd uses an incrementing letter after the numeric version for
+  # maintenance releases. Versions like `1.2.3a` and `1.2.3b` are not alpha and
+  # beta respectively. Prerelease versions use a format like `1.2.3rc1`.
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
+  end
 
   bottle do
-    sha256 "deb508061dfb34bf77c92a5435cdb42bbb8a9b3084098ba39dcbfc53f013b56b" => :catalina
-    sha256 "9abb9e0ec3f51055f7c2becadc0ba6bc911b886f32228a04c8564c51d36fc055" => :mojave
-    sha256 "82ddf96573296e08144d4418b7aa85dfd1540150fa6c5f732a928c4147099dba" => :high_sierra
+    sha256 arm64_big_sur: "2913d2fbadf8d1c65d1512b78480adf7398afaf8099f876e69cc6da54169aab8"
+    sha256 big_sur:       "a8ec8266a93ac34dde37fd36889e0d956e39fc6aca8efd57a0adef0f40db813e"
+    sha256 catalina:      "b30ef0c9ea4f2642cb98e863c51ef8b337605ca5d9a3df8d2d9995ac00c6e9be"
+    sha256 mojave:        "2f529091ef2c1e07ca1db9ec0a974f639530cca275e2f3ebbd910b42a3cb5f12"
+    sha256 high_sierra:   "af399e07592ed468d356963c8a2b27318476dd422499ba0148d1579e4d80cd69"
   end
 
   def install
@@ -26,34 +38,35 @@ class Proftpd < Formula
     system "make", "INSTALL_USER=#{install_user}", "INSTALL_GROUP=#{install_group}", "install"
   end
 
-  plist_options :manual => "proftpd"
+  plist_options manual: "proftpd"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/proftpd</string>
-        </array>
-        <key>UserName</key>
-        <string>root</string>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/proftpd</string>
+          </array>
+          <key>UserName</key>
+          <string>root</string>
+          <key>WorkingDirectory</key>
+          <string>#{HOMEBREW_PREFIX}</string>
+          <key>StandardErrorPath</key>
+          <string>/dev/null</string>
+          <key>StandardOutPath</key>
+          <string>/dev/null</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

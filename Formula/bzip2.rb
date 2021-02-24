@@ -3,13 +3,20 @@ class Bzip2 < Formula
   homepage "https://sourceware.org/bzip2/"
   url "https://sourceware.org/pub/bzip2/bzip2-1.0.8.tar.gz"
   sha256 "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"
+  license "bzip2-1.0.6"
+
+  livecheck do
+    url "https://sourceware.org/pub/bzip2/"
+    regex(/href=.*?bzip2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b4fd6d4e72285e422d385623273ccd7967f4a3f475335cd49aa61e22c3e7d3d6" => :catalina
-    sha256 "b8683b824f4cc702d06031c3762ba079e8bc1ea27413f6d08f10e93c539d89fd" => :mojave
-    sha256 "c7f2266c2d354c706de5163c23bb7b7204f1f15a85027ea486877a0c5d253336" => :high_sierra
-    sha256 "1f11350ccb9a3bd1dd250b5e440d68a5ea65408d4b91f9eae2aa7628e899b7c5" => :sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "34bcbd41ffc141ea961a31b2109637a18628768a4af1856b9ecb3f80fed587b7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e3809e379c13b3af3e18e3533f54e7bdee1c630cfce6143816be859321afa020"
+    sha256 cellar: :any_skip_relocation, catalina:      "78421d5891328cb96cce8ff6a6c20ce5930a4a74fd1b24b05ef02cd92117c5fd"
+    sha256 cellar: :any_skip_relocation, mojave:        "313e48f4528c1d8042a9cd4c77bd69047dedd7eda2bd350650a902e1ff549a38"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a3eedbcb61a66d3a1286685db878e19c1de90605626d1d988705f66a5aa66673"
   end
 
   keg_only :provided_by_macos
@@ -18,6 +25,15 @@ class Bzip2 < Formula
     inreplace "Makefile", "$(PREFIX)/man", "$(PREFIX)/share/man"
 
     system "make", "install", "PREFIX=#{prefix}"
+
+    on_linux do
+      # Install shared libraries
+      system "make", "-f", "Makefile-libbz2_so", "clean"
+      system "make", "-f", "Makefile-libbz2_so"
+      lib.install "libbz2.so.#{version}", "libbz2.so.#{version.major_minor}"
+      lib.install_symlink "libbz2.so.#{version}" => "libbz2.so.#{version.major}"
+      lib.install_symlink "libbz2.so.#{version}" => "libbz2.so"
+    end
   end
 
   test do

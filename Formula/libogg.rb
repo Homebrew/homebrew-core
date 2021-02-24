@@ -1,6 +1,7 @@
 class Libogg < Formula
   desc "Ogg Bitstream Library"
   homepage "https://www.xiph.org/ogg/"
+  license "BSD-3-Clause"
 
   stable do
     url "https://downloads.xiph.org/releases/ogg/libogg-1.3.4.tar.gz"
@@ -14,15 +15,16 @@ class Libogg < Formula
   end
 
   bottle do
-    cellar :any
-    sha256 "0a03b8a7307aeac70762fd4ee9837fff4ed523c34063a6aec52c5cf34c54695f" => :catalina
-    sha256 "57278622c3550ef4cfe1a14aa885daacaac50e3571d4e8f2d6a6e5e9416b8e88" => :mojave
-    sha256 "7883d41539869a4db165825e6f37c74dbd082fe0e839992aae8c2f9b09d55bea" => :high_sierra
-    sha256 "ba70b9105ecf35ebc6df91306eb62708c7557c2aafdb1799fd7e7424b133c237" => :sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "9c217f3aa8ea00c0536a8b90df566aeb32fb4ffee56f85b94d9eb6f6ae68f21b"
+    sha256 cellar: :any, big_sur:       "47c3224ac25b17a201e234f8fabcb9249b7d1587e69c63e025578c5a6d448ab3"
+    sha256 cellar: :any, catalina:      "b95bbf935f48878bd96d1c0e6557a017aa18cb17a080bc3ef9308b6415c278ef"
+    sha256 cellar: :any, mojave:        "3cc7656859154f6eb98d3ddbe4b74c810b505e2162af1357b3ed6b70cad35125"
+    sha256 cellar: :any, high_sierra:   "95f271ec181f6b999674636272a3414db4242eabd0a0b0572cfa0f1f324f5ef8"
   end
 
   head do
-    url "https://git.xiph.org/ogg.git"
+    url "https://gitlab.xiph.org/xiph/ogg.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -1,16 +1,17 @@
 class Innoextract < Formula
   desc "Tool to unpack installers created by Inno Setup"
   homepage "https://constexpr.org/innoextract/"
-  url "https://constexpr.org/innoextract/files/innoextract-1.7.tar.gz"
-  sha256 "c1efb732f2bc3a80065c5f51a0d4ea6027aebf528c609d3f336aea2055d2f0a4"
+  url "https://constexpr.org/innoextract/files/innoextract-1.9.tar.gz"
+  sha256 "6344a69fc1ed847d4ed3e272e0da5998948c6b828cb7af39c6321aba6cf88126"
+  license "Zlib"
   head "https://github.com/dscharrer/innoextract.git"
 
   bottle do
-    cellar :any
-    sha256 "5830af5a88bb0556f417c8138932d8e0a05f037cc69948ec2fa1b78ca69ca1f3" => :mojave
-    sha256 "335b723497138e18a8b9b6545c646a72cf4fabfd45aef47959b1a3c37043aab8" => :high_sierra
-    sha256 "d0945359761fca563e0a2c42f8283db4d35edfb6c43f9de1865c43a43bd08573" => :sierra
-    sha256 "e4df8d0d57062480392e178596d0fba27121af745ba5651a88fd1059330d7129" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "0b3f7137df6e506c374ac8ffbed6cba4724beb4a14e59b0db0b8259d3ea6ccc7"
+    sha256 cellar: :any, big_sur:       "3b94866e12023ad789180061c250d340be0ca879730453e268d712026558fffb"
+    sha256 cellar: :any, catalina:      "d929af92d772abc9d2e243044250bf536d1703c2d2b124ad26a65989ecba8bce"
+    sha256 cellar: :any, mojave:        "c65b57194a8adccdb33db63b0061fbcf94d1e8a1b4b62a441d94ae99c7512adb"
+    sha256 cellar: :any, high_sierra:   "83b502512cbdce3329d67f2e4a9784e77632c0f8b672854fef5561e542214e3c"
   end
 
   depends_on "cmake" => :build
@@ -18,8 +19,11 @@ class Innoextract < Formula
   depends_on "xz"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do

@@ -1,18 +1,23 @@
 class Aalib < Formula
   desc "Portable ASCII art graphics library"
   homepage "https://aa-project.sourceforge.io/aalib/"
-  url "https://downloads.sourceforge.net/aa-project/aalib-1.4rc5.tar.gz"
+  url "https://downloads.sourceforge.net/project/aa-project/aa-lib/1.4rc5/aalib-1.4rc5.tar.gz"
   sha256 "fbddda9230cf6ee2a4f5706b4b11e2190ae45f5eda1f0409dc4f99b35e0a70ee"
-  revision 1
+  license "GPL-2.0-or-later"
+  revision 2
+
+  # The latest version in the formula is a release candidate, so we have to
+  # allow matching of unstable versions.
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/aalib[._-]v?(\d+(?:\.\d+)+.*?)\.t}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "306da4a8cb39ef81eed8b81a7d1c1c7bd47405d8270d036dde9c07c630fa4ea3" => :catalina
-    sha256 "a19ebbf86362d9a90900dd0b4013ebed778cd8681c0b3ed122c8bbaa04b11cbe" => :mojave
-    sha256 "b2c5467ff9182645676381967b8dc89878f88900b19bed34ef432fd3257aa2a0" => :high_sierra
-    sha256 "2c2d05720ca991422e4c27e3f770c29024c5197871cba67404f4e72a3cfaf002" => :sierra
-    sha256 "9b3f19e5da28fb682aeb1fe40f1747d1b532490dd50262978aaefcb7afbc8804" => :el_capitan
-    sha256 "9e08dd4e3545b05353f3158e4e756c20a301bef295b72183e1fd5fb1d6d8e897" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "031eac9658cb6878fea6b53e232e0b3f294b81953dd1803bd808c26c5b1a934a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fb1df93a418c2ae4b7c358d19b58afc0ad73d9d1e6f22b92aa5d5f086cb48a70"
+    sha256 cellar: :any_skip_relocation, catalina:      "d83c1b827ca16ae5450356db32fe1b27e910a27bbe2b074a9b4c22fe310bc5b7"
+    sha256 cellar: :any_skip_relocation, mojave:        "46feeea3fc331a6982fa1960645e1851d3f395f36fbd99cbf92a7406030d9511"
   end
 
   # Fix malloc/stdlib issue on macOS
@@ -23,7 +28,6 @@ class Aalib < Formula
   end
 
   def install
-    ENV.ncurses_define
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

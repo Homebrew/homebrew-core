@@ -3,6 +3,7 @@ class KubePs1 < Formula
   homepage "https://github.com/jonmosco/kube-ps1"
   url "https://github.com/jonmosco/kube-ps1/archive/v0.7.0.tar.gz"
   sha256 "f5ccaf6537e944db5b9cf40d3f01cf99732dce5adaaaf840780aa38b1b030471"
+  license "Apache-2.0"
   head "https://github.com/jonmosco/kube-ps1.git"
 
   bottle :unneeded
@@ -13,11 +14,12 @@ class KubePs1 < Formula
     share.install "kube-ps1.sh"
   end
 
-  def caveats; <<~EOS
-    Make sure kube-ps1 is loaded from your ~/.zshrc and/or ~/.bashrc:
-      source "#{opt_share}/kube-ps1.sh"
-      PS1='$(kube_ps1)'$PS1
-  EOS
+  def caveats
+    <<~EOS
+      Make sure kube-ps1 is loaded from your ~/.zshrc and/or ~/.bashrc:
+        source "#{opt_share}/kube-ps1.sh"
+        PS1='$(kube_ps1)'$PS1
+    EOS
   end
 
   test do

@@ -1,14 +1,15 @@
 class Inadyn < Formula
   desc "Dynamic DNS client with IPv4, IPv6, and SSL/TLS support"
   homepage "https://troglobit.com/projects/inadyn/"
-  url "https://github.com/troglobit/inadyn/releases/download/v2.5/inadyn-2.5.tar.gz"
-  sha256 "f7faf0be4f0b4bfa1acc811189a9ed0a58bc367e48ea31c283920a2ef27cdc40"
+  url "https://github.com/troglobit/inadyn/releases/download/v2.8.1/inadyn-2.8.1.tar.xz"
+  sha256 "1185a9fb165bfc5f5b5f66f0dd8a695c9bd78d4b20cd162273eeea77f2d2e685"
+  license all_of: ["GPL-2.0-or-later", "ISC", "MIT"]
 
   bottle do
-    sha256 "3f03070bad5247eab88623753d6c4c3f60c197cc7c629324afbaefaf0d9d8560" => :catalina
-    sha256 "6e74812d53caa2ae34d2c571e7e2a0575de36aeec1504c0c840ce7e5cdf7e1b0" => :mojave
-    sha256 "870e29d1856c85414d2566d2d5a9d39de1c2aa6846c6c9c3647c29ea4be588b8" => :high_sierra
-    sha256 "d2ee8d33a5069f120081ea1c70ecd600bc516e7e0b09658d3196f1df6e40029a" => :sierra
+    sha256 arm64_big_sur: "3459e2119123af5cceab755c044952c6399e80bf0efb67ae2c5a5c268b618341"
+    sha256 big_sur:       "5046bd4f55ab963fdfa8bb8edd46454b2bf5b8e0e5f7ae8b1ba6f6d4b81251ee"
+    sha256 catalina:      "e0a601e59fecb91b7932eabfaf7b276a45cadb2233ca2fbde1e71e17240a96a4"
+    sha256 mojave:        "5f26612509b04128a4cc7d73c4a47520a7c72e3575de255f9b579c6a94255f0b"
   end
 
   depends_on "autoconf" => :build
@@ -18,12 +19,6 @@ class Inadyn < Formula
   depends_on "confuse"
   depends_on "gnutls"
   depends_on "pkg-config"
-
-  # Fix for Sierra with v2.5, remove in next version
-  patch do
-    url "https://github.com/troglobit/inadyn/commit/57bdcc0321b49ee68397c70140d9895655edb06f.diff?full_index=1"
-    sha256 "6d24c3822e7017a471583f5424421d83e6e426b464ca7521db943ecec580eea5"
-  end
 
   def install
     mkdir_p buildpath/"inadyn/m4"

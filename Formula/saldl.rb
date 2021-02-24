@@ -3,15 +3,17 @@ class Saldl < Formula
   homepage "https://saldl.github.io/"
   url "https://github.com/saldl/saldl/archive/v40.tar.gz"
   sha256 "1cb7950848517fb82ec39561bf36c8cbc0a0caf8fa85355a5b76cac0281346ce"
+  license "AGPL-3.0"
   revision 1
-  head "https://github.com/saldl/saldl.git", :shallow => false
+  head "https://github.com/saldl/saldl.git", shallow: false
 
   bottle do
-    cellar :any
-    sha256 "2b377713f93e2cd853b9ef6a31a881215cffe3a35416309af31a13648cbf6f7d" => :catalina
-    sha256 "7fd875e38f9506d4ca5cca0e14815cea29ba40bf61385f53f93c8a587d5b50d3" => :mojave
-    sha256 "1c2f3b014669b8a19a1f3be6f654d8c438e62d5ed64e2c72b4f54a33e0f67b88" => :high_sierra
-    sha256 "7fbb71dbced4c48d0586f5f58fd4d64b87b39f4e3f78ad1188f11edb7c4af9a5" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "b1c1dda8876efb75dde244cd94a70fcb3246b1d8d8818d2d5d83521e5bb4eb96"
+    sha256 cellar: :any, big_sur:       "98f348fdc98c856bce1374e98a0ec917584d2e760af3140429b7e49bcbef5912"
+    sha256 cellar: :any, catalina:      "2b377713f93e2cd853b9ef6a31a881215cffe3a35416309af31a13648cbf6f7d"
+    sha256 cellar: :any, mojave:        "7fd875e38f9506d4ca5cca0e14815cea29ba40bf61385f53f93c8a587d5b50d3"
+    sha256 cellar: :any, high_sierra:   "1c2f3b014669b8a19a1f3be6f654d8c438e62d5ed64e2c72b4f54a33e0f67b88"
+    sha256 cellar: :any, sierra:        "7fbb71dbced4c48d0586f5f58fd4d64b87b39f4e3f78ad1188f11edb7c4af9a5"
   end
 
   depends_on "asciidoc" => :build

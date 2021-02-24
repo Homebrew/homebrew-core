@@ -4,11 +4,19 @@ class Gerbv < Formula
   # 2.6.1 is the latest official stable release but it is very buggy and incomplete
   url "https://downloads.sourceforge.net/project/gerbv/gerbv/gerbv-2.7.0/gerbv-2.7.0.tar.gz"
   sha256 "c5ee808c4230ce6be3ad10ab63c547098386d43022704de25ddb9378e62053b4"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+    regex(%r{/gerbv/gerbv[._-]v?(\d+(?:\.\d+)+)/}i)
+  end
 
   bottle do
-    sha256 "eb27af6bcb6cfc6203297f617d88851e656c5b72fae84b10593429158d1861d6" => :catalina
-    sha256 "5995b2ff9b132c129e9e2ca08eb205c58883f63e22eec11c4c53e24ec6dfd4e3" => :mojave
-    sha256 "246a26e96d930c979db7bdb533807c71418ac0ad5c74bd12749d0c08b903e409" => :high_sierra
+    sha256 arm64_big_sur: "4b51c047b7ce52537ab152f477fed3fe4ba6b2218cd5445258e672f54acc8c0f"
+    sha256 big_sur:       "529a2d42b7018cb8edc81eb32e2572c936670c1088bd7934d627d8f358b1eefc"
+    sha256 catalina:      "eb27af6bcb6cfc6203297f617d88851e656c5b72fae84b10593429158d1861d6"
+    sha256 mojave:        "5995b2ff9b132c129e9e2ca08eb205c58883f63e22eec11c4c53e24ec6dfd4e3"
+    sha256 high_sierra:   "246a26e96d930c979db7bdb533807c71418ac0ad5c74bd12749d0c08b903e409"
   end
 
   depends_on "pkg-config" => :build

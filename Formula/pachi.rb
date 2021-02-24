@@ -1,18 +1,17 @@
 class Pachi < Formula
   desc "Software for the Board Game of Go/Weiqi/Baduk"
   homepage "https://pachi.or.cz/"
-  url "https://github.com/pasky/pachi/archive/pachi-12.40.tar.gz"
-  sha256 "f523d23aa855f78a171df334b9712bca540d3ef4ef69b7306b84e4c35446d097"
+  url "https://github.com/pasky/pachi/archive/pachi-12.60.tar.gz"
+  sha256 "3c05cf4fe5206ba4cbe0e0026ec3225232261b44e9e05e45f76193b4b31ff8e9"
+  license "GPL-2.0"
   head "https://github.com/pasky/pachi.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "68178d442f276e166ee301a8e92531c9dc13e338af3f1cf7ec645287a015cef1" => :catalina
-    sha256 "eb9d538220d7b2e18242db23ef2ab568d4e139b57c6d4ee1ac1f0b63a2c58f50" => :mojave
-    sha256 "f8e699003d58a6b8da8401ba6ed75228448b7922c0de6f1fc23db655cd61e2f0" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "71f7bf11f6d68a8768468e4494cdc0785f484a5ccd7713cfc4327f049e79e80a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d14dec70d5fedd0d7ba63b05f175b06b12c40e1da71d24da64712ce63858dae1"
+    sha256 cellar: :any_skip_relocation, catalina:      "9a2adc64bf7dbfbaf9e3d9ff940d6c5bcb0e4040160ed62f57751ec87281132e"
+    sha256 cellar: :any_skip_relocation, mojave:        "c88f24dd1e7a267848eab540dc2b0961962825ab6e7088fc24b335159dacf31c"
   end
-
-  fails_with :clang if MacOS.version == :mavericks
 
   resource "patterns" do
     url "https://sainet-dist.s3.amazonaws.com/pachi_patterns.zip"
@@ -28,9 +27,6 @@ class Pachi < Formula
     ENV["MAC"] = "1"
     ENV["DOUBLE_FLOATING"] = "1"
 
-    # Work around Xcode 11 clang bug
-    inreplace "Makefile", "CFLAGS       :=", "CFLAGS := -fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # https://github.com/pasky/pachi/issues/78
     inreplace "Makefile", "build.h: .git/HEAD .git/index", "build.h:"
     inreplace "Makefile", "DCNN=1", "DCNN=0"
@@ -42,17 +38,18 @@ class Pachi < Formula
     pkgshare.install resource("book")
   end
 
-  def caveats; <<~EOS
-    This formula also downloads additional data, such as opening books
-    and pattern files. They are stored in #{opt_pkgshare}.
+  def caveats
+    <<~EOS
+      This formula also downloads additional data, such as opening books
+      and pattern files. They are stored in #{opt_pkgshare}.
 
-    At present, pachi cannot be pointed to external files, so make sure
-    to set the working directory to #{opt_pkgshare} if you want pachi
-    to take advantage of these additional files.
-  EOS
+      At present, pachi cannot be pointed to external files, so make sure
+      to set the working directory to #{opt_pkgshare} if you want pachi
+      to take advantage of these additional files.
+    EOS
   end
 
   test do
-    assert_match /^= [A-T][0-9]+$/, pipe_output("#{bin}/pachi", "genmove b\n", 0)
+    assert_match(/^= [A-T][0-9]+$/, pipe_output("#{bin}/pachi", "genmove b\n", 0))
   end
 end

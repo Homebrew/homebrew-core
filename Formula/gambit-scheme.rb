@@ -1,14 +1,22 @@
 class GambitScheme < Formula
-  desc "Gambit Scheme is an implementation of the Scheme Language"
+  desc "Implementation of the Scheme Language"
   homepage "https://github.com/gambit/gambit"
   url "https://github.com/gambit/gambit/archive/v4.9.3.tar.gz"
   sha256 "a5e4e5c66a99b6039fa7ee3741ac80f3f6c4cff47dc9e0ff1692ae73e13751ca"
-  revision 1
+  license "Apache-2.0"
+  revision 2
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "5e10d73020823bad8ca4b5aec00391fcd06d200756084ddd86ecaf12082608be" => :mojave
-    sha256 "397dc40ff05f988c80c438c804ad344ad8033eef845c3f36f50b5cb3d67178f9" => :high_sierra
-    sha256 "cca0083994c00b4d8199330c6292359e7361eec9def7e6c3fcb0a0dd4d155acf" => :sierra
+    sha256 arm64_big_sur: "9abbafcba2c1205b675204642a58527262586625b99a2ae8a32d3b50076a87ef"
+    sha256 big_sur:       "88dfbed920720584cea9ac1500cc59a7d6df69532e38728314594466bdf8a7a8"
+    sha256 catalina:      "cc4d0841423822b27fd424f7eba3a0482f01266ef61c25ec4b1d49d211d6c50e"
+    sha256 mojave:        "9fc086d950cb20c99d1d24947a0599fab72525c8a2dbd2d448f94791a5a8f481"
+    sha256 high_sierra:   "8af81a5c228d029402bc150331cb03dc0695eeee8dd5a58ce497a7a49a19fa47"
   end
 
   depends_on "openssl@1.1"
@@ -23,12 +31,20 @@ class GambitScheme < Formula
     ]
 
     system "./configure", *args
+
+    # Fixed in gambit HEAD, but they haven't cut a release
+    inreplace "config.status" do |s|
+      s.gsub! %r{/usr/local/opt/openssl(?!@1\.1)}, "/usr/local/opt/openssl@1.1"
+    end
+    system "./config.status"
+
     system "make"
     ENV.deparallelize
     system "make", "install"
   end
 
   test do
-    assert_equal "0123456789", shell_output("#{prefix}/current/bin/gsi -e \"(for-each write '(0 1 2 3 4 5 6 7 8 9))\"")
+    assert_equal "0123456789",
+      shell_output("#{prefix}/current/bin/gsi -e \"(for-each write '(0 1 2 3 4 5 6 7 8 9))\"")
   end
 end

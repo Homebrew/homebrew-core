@@ -8,36 +8,38 @@ class TerraformProvisionerAnsible < Formula
   head "https://github.com/jonmorehouse/terraform-provisioner-ansible.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "664cff934260d219317c5b875a34d7d9e223f7b0ad3d979943a9d33c7bc6928e" => :catalina
-    sha256 "47e33e69955c8da7284077ca6ff8b412433a73955f0df91d477ead370e3b99cd" => :mojave
-    sha256 "9c5773e4d576ae2f7e28438587b42170a33a6767c13805ed7ef372ad102bc139" => :high_sierra
-    sha256 "a56474f71703f7d660a17ed6faf039e98ccf50d32ce82b2c92fcc907f012ad78" => :sierra
-    sha256 "2b96de2a84016f1637fd428d40fcdcf16c960e795ce9307c2fb58672be2d21c0" => :el_capitan
-    sha256 "2b9f182b17571e29b4b6767db5974e39d3b5e2e5e1bb87b83b6cf1f28f855a10" => :yosemite
+    sha256 cellar: :any_skip_relocation, catalina:    "664cff934260d219317c5b875a34d7d9e223f7b0ad3d979943a9d33c7bc6928e"
+    sha256 cellar: :any_skip_relocation, mojave:      "47e33e69955c8da7284077ca6ff8b412433a73955f0df91d477ead370e3b99cd"
+    sha256 cellar: :any_skip_relocation, high_sierra: "9c5773e4d576ae2f7e28438587b42170a33a6767c13805ed7ef372ad102bc139"
+    sha256 cellar: :any_skip_relocation, sierra:      "a56474f71703f7d660a17ed6faf039e98ccf50d32ce82b2c92fcc907f012ad78"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "2b96de2a84016f1637fd428d40fcdcf16c960e795ce9307c2fb58672be2d21c0"
+    sha256 cellar: :any_skip_relocation, yosemite:    "2b9f182b17571e29b4b6767db5974e39d3b5e2e5e1bb87b83b6cf1f28f855a10"
   end
+
+  # https://github.com/jonmorehouse/terraform-provisioner-ansible/issues/41
+  disable! date: "2020-08-02", because: :no_license
 
   depends_on "go" => :build
   depends_on "terraform"
 
   go_resource "github.com/hashicorp/terraform" do
     url "https://github.com/hashicorp/terraform.git",
-        :revision => "fa6a83ebdc323f2b415779786e102e69ddbf9a48"
+        revision: "fa6a83ebdc323f2b415779786e102e69ddbf9a48"
   end
 
   go_resource "github.com/mitchellh/mapstructure" do
     url "https://github.com/mitchellh/mapstructure.git",
-        :revision => "f3009df150dadf309fdee4a54ed65c124afad715"
+        revision: "f3009df150dadf309fdee4a54ed65c124afad715"
   end
 
   go_resource "github.com/mitchellh/go-homedir" do
     url "https://github.com/mitchellh/go-homedir.git",
-        :revision => "756f7b183b7ab78acdbbee5c7f392838ed459dda"
+        revision: "756f7b183b7ab78acdbbee5c7f392838ed459dda"
   end
 
   go_resource "github.com/mitchellh/go-linereader" do
     url "https://github.com/mitchellh/go-linereader.git",
-        :revision => "07bab5fdd9580500aea6ada0e09df4aa28e68abd"
+        revision: "07bab5fdd9580500aea6ada0e09df4aa28e68abd"
   end
 
   def install

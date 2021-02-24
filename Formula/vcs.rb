@@ -1,16 +1,20 @@
 class Vcs < Formula
   desc "Creates video contact sheets (previews) of videos"
   homepage "https://p.outlyer.net/vcs/"
-  url "https://p.outlyer.net/vcs/files/vcs-1.13.2.tar.gz"
-  sha256 "fc2a2b3994d5ffb5d87fb3dceaa5f6855aca7a89c58533b12fd11b8fb5b623af"
+  url "https://p.outlyer.net/files/vcs/vcs-1.13.4.tar.gz"
+  sha256 "dc1d6145e10eeed61d16c3591cfe3496a6ac392c9c2f7c2393cbdb0cf248544b"
+  revision 3
+
+  livecheck do
+    url "https://p.outlyer.net/files/vcs/?C=M&O=D"
+    regex(/href=.*?vcs[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 2
-    sha256 "761c580c6fda988dc80fa4c8bb258d66e73686ff97e412db9a07887c8aa5b9a8" => :catalina
-    sha256 "e515c6075a49bce03427fc1daf665796567e42c2e8c7e3b71a97159cb9152161" => :mojave
-    sha256 "d9b28e21e6a073749b6420104ba6ea6966c3d4833a69d6dbc60683a14564b82a" => :high_sierra
-    sha256 "d9b28e21e6a073749b6420104ba6ea6966c3d4833a69d6dbc60683a14564b82a" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5a12b2c51afec7626a44463cd9145bf47819e8561f05194f2f17ea8eec0459c9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f13c9ce9291572d343bb3411e059601aa71fc4776138f13d33941653aab4dfb4"
+    sha256 cellar: :any_skip_relocation, catalina:      "3ae09912577433e9aee40da787b21b278d2e4d625454e6a554a10dfd71a3cb82"
+    sha256 cellar: :any_skip_relocation, mojave:        "2100a37453706602e0bd5941c7fb343cf64659493b27889957bad498934c6daf"
   end
 
   depends_on "ffmpeg"

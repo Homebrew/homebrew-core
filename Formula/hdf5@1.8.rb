@@ -1,16 +1,18 @@
 class Hdf5AT18 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.21/src/hdf5-1.8.21.tar.bz2"
-  sha256 "e5b1b1dee44a64b795a91c3321ab7196d9e0871fe50d42969761794e3899f40d"
-  revision 1
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.22/src/hdf5-1.8.22.tar.bz2"
+  sha256 "0ac77e1c22bce5bbbdb337bd7f97aeb5ef43c727a84ccb6d683d092eb57ebd8e"
+
+  livecheck do
+    url "https://support.hdfgroup.org/ftp/HDF5/current18/src/"
+    regex(/href=.*?hdf5[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "0c2c48212b24bc407e6ee83a640dcc35348eed417d7ca0f8742701af4f6975b1" => :catalina
-    sha256 "1485cae9d86cf8858cbad57558e7fe5c87092df6558cf89781daf10abad1af5f" => :mojave
-    sha256 "ec5ff75dd845f8718f816e2729ede6cb163866e86c16a9a206eea7a243846f94" => :high_sierra
-    sha256 "3830625c54aa43948efd6bf23a84caee2be2427bf1345183b7b08075c32e7d3d" => :sierra
+    sha256 cellar: :any, big_sur:  "e48732946d17c335fa5a76755f84740bb28871fff41776dbe283952f5729fc24"
+    sha256 cellar: :any, catalina: "b5143d69b2ef67f5811e24bbefc2b762b4bd65355c7bd572a2b8bae449d5e295"
+    sha256 cellar: :any, mojave:   "f2669a1ae176f1ffd9f408ad0e66d42a864fb921e1750ca100d83f54c3c5ad31"
   end
 
   keg_only :versioned_formula
@@ -22,12 +24,17 @@ class Hdf5AT18 < Formula
   depends_on "szip"
 
   def install
-    inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/misc/h5cc.in],
-      "${libdir}/libhdf5.settings", "#{pkgshare}/libhdf5.settings"
+    inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
+      "${libdir}/libhdf5.settings",
+      "#{pkgshare}/libhdf5.settings"
 
     inreplace "src/Makefile.am", "settingsdir=$(libdir)", "settingsdir=#{pkgshare}"
 
     system "autoreconf", "-fiv"
+
+    # necessary to avoid compiler paths that include shims directory being used
+    ENV["CC"] = "/usr/bin/cc"
+    ENV["CXX"] = "/usr/bin/c++"
 
     args = %W[
       --disable-dependency-tracking

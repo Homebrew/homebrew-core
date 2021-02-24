@@ -1,22 +1,33 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
-  homepage "https://sourceforge.net/projects/opencubicplayer/"
-  url "https://downloads.sourceforge.net/project/opencubicplayer/ocp-0.1.21/ocp-0.1.21.tar.bz2"
-  sha256 "d88eeaed42902813869911e888971ab5acd86a56d03df0821b376f2ce11230bf"
+  homepage "https://stian.cubic.org/project-ocp.php"
+  url "https://stian.cubic.org/ocp/ocp-0.2.2.tar.xz"
+  sha256 "afd07a6ae2af4733eb06e516cb607276ee084d1d30aa1cf0c3fd6e62f1d3a144"
+  license "GPL-2.0-or-later"
+  head "https://github.com/mywave82/opencubicplayer.git"
 
-  bottle do
-    sha256 "0013bfd8ad47785121a86258607c5643f0cf21f961b6d3dbc43d9a2b8f984571" => :catalina
-    sha256 "e07892e27e711cfaafd3a7ba2bc2a86bfe8fbc5438cc443e11a1033486a567fb" => :mojave
-    sha256 "93017205557b9629a506023b466400c12b4333b6d99ce48b83d53ceb02b538b5" => :high_sierra
-    sha256 "5566054299b2a05716a3234c7c3d0acee15b4077360c89ec815b6162bee89319" => :sierra
-    sha256 "4bd576f3d75594928348d30b3b3436cdeebba844be8a8ba65251eb1731de437e" => :el_capitan
-    sha256 "e6b941f5aa2508a9628487cf40a186188f1dbf986a9a5ab2a824c57a03d45055" => :yosemite
-    sha256 "d2a095ce47bdea35fad3f6f7ffac500ccc4dc8dd149a9c1dbbae2bbf92809886" => :mavericks
+  livecheck do
+    url :homepage
+    regex(/href=.*?ocp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_big_sur: "a26bc2cdded0a238a1fbe376be1c7ccd755b28352bc918b05fcb726b64347f3a"
+    sha256 big_sur:       "3aa881d279e6b72656bd08b9394b3ca5eeddc78b91529735ebbc59a3fad91c33"
+    sha256 catalina:      "ea5ae27e76002683c28eefae03de9d5867d88eb8b6491e4d28b736937fc871a5"
+    sha256 mojave:        "f7ea663318cf0f5a221b53bbc080094fe5931760d3cde229f44dc95f3aa8eba9"
+  end
+
+  depends_on "pkg-config" => :build
+  depends_on "xa" => :build
   depends_on "flac"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     ENV.deparallelize
@@ -25,8 +36,14 @@ class Ocp < Formula
       --prefix=#{prefix}
       --without-x11
       --without-sdl
+      --without-sdl2
       --without-desktop_file_install
     ]
+
+    # Workaround for bad compiler version check: https://github.com/mywave82/opencubicplayer/issues/30
+    inreplace "configure",
+              "2.95.[2-9]|2.95.[2-9][-].*|3.[0-9]|3.[0-9].[0-9]|3.[0-9]|3.[0-9].[0-9]-*|4.*|5.*|6.*|7*|8*|9*|10*",
+              "[1-9]*"
 
     system "./configure", *args
     system "make"

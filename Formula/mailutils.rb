@@ -1,34 +1,22 @@
 class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "https://mailutils.org/"
-  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.7.tar.gz"
-  sha256 "e95920d23b5ded11479d2aded795e7f8f94e02c88e05198e9093f23b45eb04fa"
+  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.12.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.12.tar.gz"
+  sha256 "fd918e4bb71b308328eee5ef109396dbc84738013d79866b500e65726cb82505"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "f769b017c69909513663983b0b18b782e2f523a57e27f7e856b831f433305449" => :catalina
-    sha256 "be6e0c786604ac1cd9ad074ab3d957fce8aa875b04f171bf01173da5669b03f6" => :mojave
-    sha256 "b0a45ec764015639c065186fe1074300035f0a3d2458162048899222fbf32652" => :high_sierra
-    sha256 "8555d63a0d240ffd3948076f266aa3b88c2197e2becab0f463918facb8501f2f" => :sierra
+    sha256 arm64_big_sur: "4f56ee5963a199cbf16e7418f8eb656a1396cee297de7dc708ff3f37f1733a69"
+    sha256 big_sur:       "e341518e551aed3c4ffb4b3fa72ea6725834fdc6fab187218b31eaf11b7e3e47"
+    sha256 catalina:      "710553bf2b8f3946adf42cbe918df0d6bc83fe93d9a6134a863e95e73c1b009b"
+    sha256 mojave:        "fdc180f3df9812370849499c0946d548910a97c5c2a1875f6796916a5b341d2a"
   end
 
   depends_on "gnutls"
   depends_on "gsasl"
   depends_on "libtool"
   depends_on "readline"
-
-  # Patch to fix build error:
-  #
-  #   duplicate symbol _status in:
-  #       .libs/dotmail.o
-  #       .libs/message.o
-  #   ld: 2 duplicate symbols for architecture x86_64
-  #
-  # Patch has been accepted upstream, remove on next release
-  patch do
-    url "https://git.savannah.gnu.org/cgit/mailutils.git/patch/?id=b696daa86b51a38841e4c39bce0a46eaac2f1db4"
-    sha256 "919c89d05ae88c33ff715b14fd47733960eb8f633835f3ca6f1867995a51e5a5"
-  end
 
   def install
     system "./configure", "--disable-mh",

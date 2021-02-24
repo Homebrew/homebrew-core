@@ -1,35 +1,37 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
-  homepage "https://dystroy.org/broot"
-  url "https://github.com/Canop/broot/archive/v0.10.3.tar.gz"
-  sha256 "6e0ddb89d3b533bcbf7f8f0b874c480f3421f5fa7780a0487f26b44438fda0e5"
+  homepage "https://dystroy.org/broot/"
+  url "https://github.com/Canop/broot/archive/v1.2.4.tar.gz"
+  sha256 "c0122bffb9fb92f4050a5216a27b0c86b58194e33a62b19e1e3128171b1fde05"
+  license "MIT"
   head "https://github.com/Canop/broot.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d6fa0d431eb939baf3260c436c37a273e68fc0ca26ae3a320f6d5df84171d50b" => :catalina
-    sha256 "86eea9278e02f9888e1bc5c80342579620a696cc50d1aebe54416b1f98cc0b94" => :mojave
-    sha256 "242b5c4c68e6db4ec8624f80b610607f69f17d729ec2b990f8af7caa1e86e6b1" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ab0410c31bd630ef4120236fb3ee43ad868387b6e3f35561da2b03ab852c6367"
+    sha256 cellar: :any_skip_relocation, big_sur:       "407497deb4d27d5008421c3d096606f24f0e137c00f78d590766d528b8191df3"
+    sha256 cellar: :any_skip_relocation, catalina:      "1c0f1978be42f422ee84f084530588a291568e6744d01dc60b8574b1db75465f"
+    sha256 cellar: :any_skip_relocation, mojave:        "87a851ebb2c87e706766df9a084ea8bd85e911020617186b6251621e29e90571"
   end
 
   depends_on "rust" => :build
 
+  uses_from_macos "zlib"
+
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
+    assert_match "A tree explorer and a customizable launcher", shell_output("#{bin}/broot --help 2>&1")
+
     require "pty"
-
-    %w[a b c].each { |f| (testpath/"root"/f).write("") }
-    PTY.spawn("#{bin}/broot", "--cmd", ":pt", "--no-style", "--out", "#{testpath}/output.txt", testpath/"root") do |r, _w, _pid|
-      r.read
-
-      assert_match <<~EOS, (testpath/"output.txt").read.gsub(/\r\n?/, "\n")
-        ├──a
-        ├──b
-        └──c
-      EOS
+    require "io/console"
+    PTY.spawn(bin/"broot", "--cmd", ":pt", "--no-style", "--out", testpath/"output.txt", err: :out) do |r, w, pid|
+      r.winsize = [20, 80] # broot dependency termimad requires width > 2
+      w.write "n\r"
+      assert_match "New Configuration file written in", r.read
+      Process.wait(pid)
     end
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

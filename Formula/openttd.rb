@@ -1,16 +1,21 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://proxy.binaries.openttd.org/openttd-releases/1.9.2/openttd-1.9.2-source.tar.xz"
-  sha256 "f9ff8c255145a1dd617798a9413179cc740a0cc91709455990880a15eeb7564a"
+  url "https://cdn.openttd.org/openttd-releases/1.10.3/openttd-1.10.3-source.tar.xz"
+  sha256 "c11601ef547eb1f6d4f9a035bd19e0a760b47872ce7d9b4117aaa45ac377b53b"
+  license "GPL-2.0"
   head "https://github.com/OpenTTD/OpenTTD.git"
 
+  livecheck do
+    url :homepage
+    regex(/Download stable \((\d+(\.\d+)+)\)/i)
+  end
+
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "5257e2533ce2e76334b8262b9f2e565420d462e08855c29f1c6a63e76998a00d" => :catalina
-    sha256 "14851bf281a3cdda6bb754cb4b6442507ec4ba9512d0d7339fdc091e199a5899" => :mojave
-    sha256 "ebcab33997053d2aceeffba777e6e78c5d8d677d1e122e2b478a2c3226a9a4ce" => :high_sierra
+    sha256 cellar: :any, big_sur:     "406f8ff7bf25785ecb8dc062ceabc1ddf33ff8e24b745adb6c7886b17fb74e43"
+    sha256 cellar: :any, catalina:    "7958e9cf2b4ee62147a364893c4e2388f7a8e9ab95b2cd54fed6715da60c5be6"
+    sha256 cellar: :any, mojave:      "e8a6fba720e5ec6ef08f5255fe47a86b271b7f3f45ea8e2a13fd3b277f6eb754"
+    sha256 cellar: :any, high_sierra: "853c329ff51f9ef5403b581911790ba6179bea0cb274b58fb08ac8af0b5aa361"
   end
 
   depends_on "pkg-config" => :build
@@ -18,17 +23,17 @@ class Openttd < Formula
   depends_on "xz"
 
   resource "opengfx" do
-    url "https://binaries.openttd.org/extra/opengfx/0.5.5/opengfx-0.5.5-all.zip"
-    sha256 "c648d56c41641f04e48873d83f13f089135909cc55342a91ed27c5c1683f0dfe"
+    url "https://cdn.openttd.org/opengfx-releases/0.6.0/opengfx-0.6.0-all.zip"
+    sha256 "d419c0f5f22131de15f66ebefde464df3b34eb10e0645fe218c59cbc26c20774"
   end
 
   resource "opensfx" do
-    url "https://binaries.openttd.org/extra/opensfx/0.2.3/opensfx-0.2.3-all.zip"
+    url "https://cdn.openttd.org/opensfx-releases/0.2.3/opensfx-0.2.3-all.zip"
     sha256 "6831b651b3dc8b494026f7277989a1d757961b67c17b75d3c2e097451f75af02"
   end
 
   resource "openmsx" do
-    url "https://binaries.openttd.org/extra/openmsx/0.3.1/openmsx-0.3.1-all.zip"
+    url "https://cdn.openttd.org/openmsx-releases/0.3.1/openmsx-0.3.1-all.zip"
     sha256 "92e293ae89f13ad679f43185e83fb81fb8cad47fe63f4af3d3d9f955130460f5"
   end
 
@@ -53,6 +58,6 @@ class Openttd < Formula
   end
 
   test do
-    assert_match /OpenTTD #{version}\n/, shell_output("#{bin}/openttd -h")
+    assert_match "OpenTTD #{version}\n", shell_output("#{bin}/openttd -h")
   end
 end

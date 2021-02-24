@@ -3,22 +3,24 @@ class Awk < Formula
   homepage "https://www.cs.princeton.edu/~bwk/btl.mirror/"
   url "https://github.com/onetrueawk/awk/archive/20180827.tar.gz"
   sha256 "c9232d23410c715234d0c26131a43ae6087462e999a61f038f1790598ce4807f"
+  # https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#Standard_ML_of_New_Jersey_Variant
+  license "MIT"
   head "https://github.com/onetrueawk/awk.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2920fef8c3a7f5c3e45480b002968a860b0fbe36408cd0c0f1edb94a9b3c67b5" => :catalina
-    sha256 "da17e7e893d2a2fb4ab267fb9ead8785ef9417dead77d6c84204d2151330bf47" => :mojave
-    sha256 "3e7c18b44cd1f1783a28c34edbc2215a2b975021ec42ccaa0f792243d3cb320b" => :high_sierra
-    sha256 "2c55499ad7ed357a30d643430dd00d426fd3cfa2f5705c772f5a3dd8c8cd020c" => :sierra
-    sha256 "a844637c334c68f7d7079a1ef6bc45c4df242c93cf6ed891b6d551269518c9c7" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "09cf1fe371a924c163732e19310f635953ae3f4909a9c3baa9db4ea4d850d905"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a73059712fb0cc9a57389f72596ca5c52978ad54bf9dce04baedbf653b154022"
+    sha256 cellar: :any_skip_relocation, catalina:      "681acac2c4bac4b8f275f640abf46e5391216d800ff34ad8c57c8d116674fae6"
+    sha256 cellar: :any_skip_relocation, mojave:        "202e81f1562d8b46d4b932f91c64ab58fc6017f6cdd2cc3f2a636038abc76fc0"
   end
 
+  uses_from_macos "bison"
+
   conflicts_with "gawk",
-    :because => "both install awk executables."
+    because: "both install an `awk` executable"
 
   def install
-    ENV.O3 # Docs recommend higher optimization
     ENV.deparallelize
     # the yacc command the makefile uses results in build failures:
     # /usr/bin/bison: missing operand after `awkgram.y'

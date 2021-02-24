@@ -2,21 +2,25 @@ class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
   url "https://github.com/dmlc/xgboost.git",
-      :tag      => "v0.90",
-      :revision => "515f5f5c4779ff5361dcd796e22d55937e1048ea"
+      tag:      "v1.3.3",
+      revision: "000292ce6d99ed658f6f9aebabc6e9b330696e7e"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "c1f4c85c24798e3e64d0c3b4312eadb89bd0c1ae057058d450bf1414c12b8925" => :catalina
-    sha256 "280fe55391f3b02fd7424afbcda34bbd861175567fe7b6b8fc4e45514bc12914" => :mojave
-    sha256 "f419cdc75ffc06ca1f2247474317b782031f019fa66bc7e2cba668dfc5761c9c" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "b5365cde699802720656bfa80f19f09f49825fd0f3156a7ce6c5a4cd5ccaf84d"
+    sha256 cellar: :any, big_sur:       "42a3ec388bf05959fbd05c6b918cad2fba99a2a1812e9916e7ae9cd92dfb7af8"
+    sha256 cellar: :any, catalina:      "b27e1a0394848b9840c09198bda4cae9bc57314ce833082f701336c434bbd4c8"
+    sha256 cellar: :any, mojave:        "2a65f86dc8a2d9576c64a94f2296c481880482739d80dca988abf6a96e1ccf34"
   end
 
   depends_on "cmake" => :build
+  depends_on "libomp"
+  depends_on "numpy"
+  depends_on "scipy"
 
   def install
     mkdir "build" do
-      system "cmake", *std_cmake_args, "-DUSE_OPENMP=0", ".."
+      system "cmake", *std_cmake_args, ".."
       system "make"
       system "make", "install"
     end
@@ -26,7 +30,7 @@ class Xgboost < Formula
   test do
     cp_r (pkgshare/"demo"), testpath
     cd "demo/data" do
-      cp "../binary_classification/mushroom.conf", "."
+      cp "../CLI/binary_classification/mushroom.conf", "."
       system "#{bin}/xgboost", "mushroom.conf"
     end
   end

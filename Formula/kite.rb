@@ -1,16 +1,23 @@
 class Kite < Formula
   desc "Programming language designed to minimize programmer experience"
-  homepage "http://www.kite-language.org/"
+  homepage "https://web.archive.org/web/20200217045713/http://www.kite-language.org/"
   url "http://www.kite-language.org/files/kite-1.0.4.tar.gz"
   sha256 "8f97e777c3ea8cb22fa1236758df3c479bba98be3deb4483ae9aff4cd39c01d5"
-  revision 2
+  license "BSD-3-Clause"
+  revision 3
+
+  livecheck do
+    url "http://www.kite-language.org/files/"
+    regex(/href=.*?kite[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "b55449bb1c1b6a3f190926a44dcf090479a190bad3389372157137b46c1e20ca" => :mojave
-    sha256 "3b293d215be3d011ec9110b6b3f8fad331f36eb8a4062cafa7c0601315454bfc" => :high_sierra
-    sha256 "5f090153489b27969c99e30a3be64e747da75738d9377f830a717bd856df3a72" => :sierra
-    sha256 "0c4b034731a0b3fa2f492f1a435122e78bdda3508d778507de3679c353894ad8" => :el_capitan
+    sha256 cellar: :any, big_sur:  "e42d72077eab99bf9765a87691d809c953ab94bd36c65b1dd51a6f681a3962fe"
+    sha256 cellar: :any, catalina: "34c4f01c0b9290e11773e9bd9f971bdefd47dba7d2bd9023aed4fb0b50738184"
+    sha256 cellar: :any, mojave:   "45a37540be7705e4daca4716415228a99a6ad77ec46d4916834cce0f71f7f08c"
   end
+
+  deprecate! date: "2021-02-12", because: :unmaintained
 
   depends_on "bdw-gc"
 
@@ -36,7 +43,7 @@ __END__
  #endif
  
  #ifdef HAVE_GC_H
-+#if GC_VERSION_MAJOR >= 7 && GC_VERSION_MINOR >= 2
++#if (GC_VERSION_MAJOR > 7) || (GC_VERSION_MAJOR == 7 && GC_VERSION_MINOR >= 2)
 +    ret->old_proc = GC_get_warn_proc();
 +    GC_set_warn_proc ((GC_warn_proc)kite_ignore_gc_warnings);
 +#else

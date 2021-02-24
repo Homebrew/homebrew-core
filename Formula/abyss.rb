@@ -1,14 +1,21 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
-  homepage "https://www.bcgsc.ca/resources/gsc-software-centre"
-  url "https://github.com/bcgsc/abyss/releases/download/2.2.3/abyss-2.2.3.tar.gz"
-  sha256 "ac7679ececbdd89cc050998eae31fa5f8bf7cdab6a0c05eb5eb1e3867c7e75cb"
+  homepage "https://www.bcgsc.ca/resources/software/abyss"
+  url "https://github.com/bcgsc/abyss/releases/download/2.2.5/abyss-2.2.5.tar.gz"
+  sha256 "38e886f455074c76b32dd549e94cc345f46cb1d33ab11ad3e8e1f5214fc65521"
+  license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any
-    sha256 "fe5e65727d390f31e0e847e30da9a6b931c7b1b5f3c0a4e6459b5aa0f4eb0ad9" => :catalina
-    sha256 "d982f22bbc71a21271eb01441f4189366e91bfb3dc8c9718df09307eb89bf11e" => :mojave
-    sha256 "482a9754933a932ca3d8860de7f753b72a1a344ddaf40104849ba999218d86a8" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "4f653f5b026d1ed8c2b0ced4f47a13bf13cbef542ca1c14d9ef4a9ac2feca90b"
+    sha256 cellar: :any, big_sur:       "9fe0e2f711647eda6cfc6f4dc8ff0259f6fa96534fa1bfa9f895cfc2b62830b6"
+    sha256 cellar: :any, catalina:      "521a584ab5f11e69de3b4b2362bdcf89cf3b541b32694c30eec6e71d334c8232"
+    sha256 cellar: :any, mojave:        "8c473ad4f6d9c3b786069c1d933d1ee8e72fb117f1ddbef65b0696163cf34292"
+    sha256 cellar: :any, high_sierra:   "7fbea49ff3c1cdf2867ceac467be40d16a37cf104ef7fcd478faf0cfdd726eea"
   end
 
   head do

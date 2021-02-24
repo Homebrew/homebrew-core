@@ -1,15 +1,16 @@
 class Libgeotiff < Formula
   desc "Library and tools for dealing with GeoTIFF"
-  homepage "https://geotiff.osgeo.org/"
-  url "https://github.com/OSGeo/libgeotiff/releases/download/1.5.1/libgeotiff-1.5.1.tar.gz"
-  sha256 "f9e99733c170d11052f562bcd2c7cb4de53ed405f7acdde4f16195cd3ead612c"
+  homepage "https://github.com/OSGeo/libgeotiff"
+  url "https://github.com/OSGeo/libgeotiff/releases/download/1.6.0/libgeotiff-1.6.0.tar.gz"
+  sha256 "9311017e5284cffb86f2c7b7a9df1fb5ebcdc61c30468fb2e6bca36e4272ebca"
+  license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "f833648eceb8cb0070df9188fab7bb6211323bea2ea9eaa202385d8af02ee705" => :catalina
-    sha256 "5feecdec004c5bc749dbc16c4dda70382b001ad1e64ab7035086cfb425abf231" => :mojave
-    sha256 "f34254f5d27c0b074d1b74dc4c73baeb8c042b4126a0e7283b7e11911e0e0e0c" => :high_sierra
-    sha256 "b8f77860ec5528e75e3c74991ec06885a65dd0fab8d9b153a2742c8696e7e43b" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "a670b1daf400c747f5993a97888a8910a126a6e4668ddf3aa78e4f259db9246b"
+    sha256 cellar: :any, big_sur:       "06ba6dd5e945ac1491a2838df004efdfbe5bf8d1c5e1a1d0df4084689c08002f"
+    sha256 cellar: :any, catalina:      "181da2f2a3860b23ee95eded5a9f5600f34e2ee016e76a7fbede959e565d0ca8"
+    sha256 cellar: :any, mojave:        "7311abe41270eb90f91b69e84eab0528be0b76a11cc43ce0e2aca1529da585fe"
+    sha256 cellar: :any, high_sierra:   "b52ce34a76c3510314e840753610d5d423cd0689d5b93d3d41e7c119ba67d09b"
   end
 
   head do
@@ -67,6 +68,6 @@ class Libgeotiff < Formula
                    "-L#{Formula["libtiff"].opt_lib}", "-ltiff", "-o", "test"
     system "./test", "test.tif"
     output = shell_output("#{bin}/listgeo test.tif")
-    assert_match /GeogInvFlatteningGeoKey.*123.456/, output
+    assert_match(/GeogInvFlatteningGeoKey.*123.456/, output)
   end
 end

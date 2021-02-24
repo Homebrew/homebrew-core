@@ -1,15 +1,15 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.15.1/logrotate-3.15.1.tar.xz"
-  sha256 "491fec9e89f1372f02a0ab66579aa2e9d63cac5178dfa672c204c88e693a908b"
+  url "https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz"
+  sha256 "841f81bf09d0014e4a2e11af166bb33fcd8429cc0c2d4a7d3d9ceb3858cfccc5"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "95f2d314052e8c01a227231483b649186f9c6b1e489c0c14f83864420f8825bb" => :catalina
-    sha256 "19923834d4fb0303cfda1825d5bdf0916cd7bd6bd094a76036b5d6f2e3a2f0e0" => :mojave
-    sha256 "d01fb02bceeccb6d21e7db2ccdffc49edd21f61553c1d4e5684eb4e63c8523d1" => :high_sierra
-    sha256 "bb2de9bc3d629bce8f0e49a145a0cfde09e3f41b8fb59a1cb846641505edb6c6" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "4302035ee1c9162e650852b38ad0b384cb3ad2f7e74a97ff72f57e2d50d5848e"
+    sha256 cellar: :any, big_sur:       "8074cf8252a19b7be06a4600ab49b38c16b6ac884ca58744c1afc489cc04eac9"
+    sha256 cellar: :any, catalina:      "a8a48494c6d57c20ac9ff7b38d0ca2ed41ec16640928f0f4c83bfb18ea744908"
+    sha256 cellar: :any, mojave:        "c970d6bce04d119e0ba69d925b5230d61fa71b92d51792744d9590a9cb8ead18"
   end
 
   depends_on "popt"
@@ -27,32 +27,33 @@ class Logrotate < Formula
     (etc/"logrotate.d").mkpath
   end
 
-  plist_options :manual => "logrotate"
+  plist_options manual: "logrotate"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/logrotate</string>
-          <string>#{etc}/logrotate.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <false/>
-        <key>StartCalendarInterval</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Hour</key>
-          <integer>6</integer>
-          <key>Minute</key>
-          <integer>25</integer>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{sbin}/logrotate</string>
+            <string>#{etc}/logrotate.conf</string>
+          </array>
+          <key>RunAtLoad</key>
+          <false/>
+          <key>StartCalendarInterval</key>
+          <dict>
+            <key>Hour</key>
+            <integer>6</integer>
+            <key>Minute</key>
+            <integer>25</integer>
+          </dict>
         </dict>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

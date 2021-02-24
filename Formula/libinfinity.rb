@@ -3,14 +3,20 @@ class Libinfinity < Formula
   homepage "https://gobby.github.io"
   url "http://releases.0x539.de/libinfinity/libinfinity-0.6.8.tar.gz"
   sha256 "0c4e7e0e5cb6ad5df4dbe19568de37b100a13e61475cf9d4e0f2a68fcdd2d45b"
+  license "LGPL-2.1"
   revision 2
 
   bottle do
-    sha256 "4d367978cb9ee0612c37947080939b3006c5bb7972673cc2c6175242c5809c28" => :catalina
-    sha256 "8c9bdd8c7cfb58b1f8c9ce451881c620d574ac749ff0f40e4efa87c0faebba26" => :mojave
-    sha256 "ea90d469694a6da2dd087ceb5f77fc9294b0ce7cee678d135ad466c3a1ae636d" => :high_sierra
-    sha256 "6dd59d33bdc050e1e61d5a7a6efa79a83c0130c237f04c678f7e8fe6a455e4df" => :sierra
+    sha256 catalina:    "4d367978cb9ee0612c37947080939b3006c5bb7972673cc2c6175242c5809c28"
+    sha256 mojave:      "8c9bdd8c7cfb58b1f8c9ce451881c620d574ac749ff0f40e4efa87c0faebba26"
+    sha256 high_sierra: "ea90d469694a6da2dd087ceb5f77fc9294b0ce7cee678d135ad466c3a1ae636d"
+    sha256 sierra:      "6dd59d33bdc050e1e61d5a7a6efa79a83c0130c237f04c678f7e8fe6a455e4df"
   end
+
+  # libinfinity is only used by gobby
+  # latest 0.7.1 does not work with gobby 0.5.0 due to open issue, https://github.com/gobby/gobby/issues/143
+  # gobby is disabled per #57501
+  disable! date: "2020-07-06", because: "is only used by gobby (which has been disabled)"
 
   depends_on "pkg-config" => :build
   depends_on "glib"
@@ -69,9 +75,11 @@ class Libinfinity < Formula
       -lgsasl
       -lgthread-2.0
       -linfinity-0.6
-      -lintl
       -lxml2
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

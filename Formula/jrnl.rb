@@ -3,67 +3,119 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://github.com/maebert/jrnl/archive/1.9.8.tar.gz"
-  sha256 "ec9dcf01f67a2329218fcd090b56042379937b269ddbd8c0c64097636f012e63"
-  revision 2
+  url "https://files.pythonhosted.org/packages/42/03/23da43bd2d7e3bfb9492ed27815dbbb7ece978bf440ac31df734d5480412/jrnl-2.7.tar.gz"
+  sha256 "7eacdee43675cc2b9ac091e5a843ccbd334d83d8802c7097bd71d0f2b0d3ba58"
+  license "GPL-3.0-only"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "301107739e5da8fac38d89c0624e6d87bcaeec6751d278004965e4839ad998c0" => :catalina
-    sha256 "5f4f5070cbfee1148d56f06c2cd43a38c23b747b073d31b2d6d31739503cf30d" => :mojave
-    sha256 "99c76e93bf71e5ccd6ae14ddb7469de07c82e16b9784e6c5c7686039e3260dea" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "61c9d11c1bb47b070876ca61df5f0b0fa15fb67ca5b818cacb47bd2dd6c6869f"
+    sha256 cellar: :any, big_sur:       "4e448410c5aaeb2956c40164885b44acbf490654b167e070d71994f801686846"
+    sha256 cellar: :any, catalina:      "98e893542a7b48585a5a1a6a5fd01f6d13e43043142c8e195d3e712f64d00647"
+    sha256 cellar: :any, mojave:        "c216cd7f0bc5d2fc62aa327aa7ea474cc2e7c2c313ab722994201c0f7a997775"
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
-  resource "entrypoints" do
-    url "https://files.pythonhosted.org/packages/27/e8/607697e6ab8a961fc0b141a97ea4ce72cd9c9e264adeb0669f6d194aa626/entrypoints-0.2.3.tar.gz"
-    sha256 "d2d587dde06f99545fb13a383d2cd336a8ff1f359c5839ce3a64c917d10c029f"
+  uses_from_macos "expect" => :test
+
+  on_linux do
+    depends_on "pkg-config" => :build
   end
 
-  resource "future" do
-    url "https://files.pythonhosted.org/packages/00/2b/8d082ddfed935f3608cc61140df6dcbf0edea1bc3ab52fb6c29ae3e81e85/future-0.16.0.tar.gz"
-    sha256 "e39ced1ab767b5936646cedba8bcce582398233d6a627067d4c6a454c90cfedb"
+  resource "ansiwrap" do
+    url "https://files.pythonhosted.org/packages/7c/45/2616341cfcace37d4619d5106a85fcc24f2170d1a161bc5f7fdb81772fbc/ansiwrap-0.8.4.zip"
+    sha256 "ca0c740734cde59bf919f8ff2c386f74f9a369818cdc60efe94893d01ea8d9b7"
+  end
+
+  resource "asteval" do
+    url "https://files.pythonhosted.org/packages/4f/d5/ce490afa6f6ab1bb97ffd66a80bfb032d22407fc215d60b21ca174e25c51/asteval-0.9.21.tar.gz"
+    sha256 "ee14ba2211cda1c76114e3e7b552cdd57e940309203d5f4106e6d6f2c2346a2e"
+  end
+
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+  end
+
+  resource "colorama" do
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+  end
+
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
+    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/7c/c0/4f48b2b1ff9eec624624142e9be28a6c91b494fd1513df4ef7544da3886c/keyring-15.1.0.tar.gz"
-    sha256 "6232b972dfbd44fd9bd649242dbf17f616988b152d4268f9ca1dcc704b467381"
-  end
-
-  resource "keyrings.alt" do
-    url "https://files.pythonhosted.org/packages/3d/94/5953839c03457054707cc72466af7728c0588ca0398d7cab3af40c624393/keyrings.alt-3.1.tar.gz"
-    sha256 "b59c86b67b9027a86e841a49efc41025bcc3b1b0308629617b66b7011e52db5a"
+    url "https://files.pythonhosted.org/packages/19/c7/e1a9c556745518c9c3d46613c10a968757b16e29341ec8e0815fd07e0f93/keyring-21.8.0.tar.gz"
+    sha256 "1746d3ac913d449a090caf11e9e4af00e26c3f7f7e81027872192b2398b98675"
   end
 
   resource "parsedatetime" do
-    url "https://files.pythonhosted.org/packages/e3/b3/02385db13f1f25f04ad7895f35e9fe3960a4b9d53112775a6f7d63f264b6/parsedatetime-2.4.tar.gz"
-    sha256 "3d817c58fb9570d1eec1dd46fa9448cd644eeed4fb612684b02dfda3a79cb84b"
+    url "https://files.pythonhosted.org/packages/a8/20/cb587f6672dbe585d101f590c3871d16e7aec5a576a1694997a3777312ac/parsedatetime-2.6.tar.gz"
+    sha256 "4cb368fbb18a0b7231f4d76119165451c8d2e35951455dfee97c62a87b04d455"
   end
 
-  resource "pycrypto" do
-    url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
-    sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/a0/b0/a4e3241d2dee665fea11baec21389aec6886655cd4db7647ddf96c3fad15/python-dateutil-2.7.3.tar.gz"
-    sha256 "e27001de32f627c22380a688bcc43ce83504a7bc5da472209b4c70f02829f0b8"
+    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
+    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/ca/a9/62f96decb1e309d6300ebe7eee9acfd7bccaeedd693794437005b9067b44/pytz-2018.5.tar.gz"
-    sha256 "ffb9ef1de172603304d9d2819af6f5ece76f2e85ec10692a524dd876e72bf277"
+    url "https://files.pythonhosted.org/packages/70/44/404ec10dca553032900a65bcded8b8280cf7c64cc3b723324e2181bf93c9/pytz-2020.5.tar.gz"
+    sha256 "180befebb1927b16f6b57101720075a984c019ac16b1b7575673bea42c6c3da5"
+  end
+
+  resource "pyxdg" do
+    url "https://files.pythonhosted.org/packages/6f/2e/2251b5ae2f003d865beef79c8fcd517e907ed6a69f58c32403cec3eba9b2/pyxdg-0.27.tar.gz"
+    sha256 "80bd93aae5ed82435f20462ea0208fb198d8eec262e831ee06ce9ddb6b91c5a5"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+  end
+
+  resource "textwrap3" do
+    url "https://files.pythonhosted.org/packages/4d/02/cef645d4558411b51700e3f56cefd88f05f05ec1b8fa39a3142963f5fcd2/textwrap3-0.9.2.zip"
+    sha256 "5008eeebdb236f6303dcd68f18b856d355f6197511d952ba74bc75e40e0c3414"
   end
 
   resource "tzlocal" do
-    url "https://files.pythonhosted.org/packages/cb/89/e3687d3ed99bc882793f82634e9824e62499fdfdc4b1ae39e211c5b05017/tzlocal-1.5.1.tar.gz"
-    sha256 "4ebeb848845ac898da6519b9b31879cf13b6626f7184c496037b818e238f2c4e"
+    url "https://files.pythonhosted.org/packages/ce/73/99e4cc30db6b21cba6c3b3b80cffc472cc5a0feaf79c290f01f1ac460710/tzlocal-2.1.tar.gz"
+    sha256 "643c97c5294aedc737780a49d9df30889321cbe1204eac2c2ec6134035a92e44"
+  end
+
+  resource "asn1crypto" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/9f/3d/8beae739ed8c1c8f00ceac0ab6b0e97299b42da869e24cf82851b27a9123/asn1crypto-1.3.0.tar.gz"
+      sha256 "5a215cb8dc12f892244e3a113fe05397ee23c5c4ca7a69cd6e69811755efc42d"
+    end
+  end
+
+  resource "jeepney" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/74/24/9b720cc6b2a73c908896a0ed64cb49780dcfbf4964e23a725aa6323f4452/jeepney-0.4.3.tar.gz"
+      sha256 "3479b861cc2b6407de5188695fa1a8d57e5072d7059322469b62628869b8e36e"
+    end
+  end
+
+  resource "secretstorage" do
+    on_linux do
+      url "https://files.pythonhosted.org/packages/fd/9f/36197c75d9a09b1ab63f56cb985af6cd858ca3fc41fd9cd890ce69bae5b9/SecretStorage-3.1.2.tar.gz"
+      sha256 "15da8a989b65498e29be338b3b279965f1b8f09b9668bd8010da183024c8bff6"
+    end
   end
 
   def install
@@ -71,24 +123,66 @@ class Jrnl < Formula
   end
 
   test do
-    (testpath/"write_journal.sh").write <<~EOS
+    (testpath/"tests.sh").write <<~EOS
       #!/usr/bin/expect -f
-      set timeout -1
-      spawn #{bin}/jrnl today: Wrote this fancy test.
-      expect -exact "Path to your journal file (leave blank for ~/journal.txt):"
-      send -- "#{testpath}/journal\n"
-      expect -exact "Enter password for journal (leave blank for no encryption): "
-      send -- "Homebrew\n"
-      expect "Do you want to store the password in your keychain?"
-      send -- "N\n"
-      expect -exact "Journal will be encrypted."
-      expect "Entry added to default journal"
-      expect eof
-    EOS
-    chmod 0755, testpath/"write_journal.sh"
 
-    system "./write_journal.sh"
-    assert_predicate testpath/"journal", :exist?
-    assert_predicate testpath/".jrnl_config", :exist?
+      set timeout 3
+      match_max 100000
+
+      # Write the journal
+      spawn "#{bin}/jrnl" "This is the fanciest test in the world."
+
+      expect {
+        "/.local/share/jrnl/journal.txt" { send -- "#{testpath}/test.txt\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        "You can always change this later" { send -- "n\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        eof { exit }
+        timeout { exit 1 }
+      }
+
+      # Read the journal
+      spawn "#{bin}/jrnl" -1
+
+      expect {
+        "This is the fanciest test in the world." { exit }
+        timeout { exit 1 }
+        eof { exit 1 }
+      }
+
+      # Encrypt the journal
+      spawn "#{bin}/jrnl" --encrypt
+
+      expect {
+        -exact "Enter password for new journal: " { send -- "homebrew\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        -exact "Enter password again: " { send -- "homebrew\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        -exact "Do you want to store the password in your keychain? \[Y/n\] " { send -- "n\r" }
+        timeout { exit 1 }
+      }
+
+      expect {
+        -re "Journal encrypted to .*/test.txt." { exit }
+        timeout { exit 1 }
+        eof { exit 1 }
+      }
+    EOS
+
+    system "expect", "./tests.sh"
+    assert_predicate testpath/".config/jrnl/jrnl.yaml", :exist?
+    assert_predicate testpath/"test.txt", :exist?
   end
 end

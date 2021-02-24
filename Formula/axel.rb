@@ -1,15 +1,16 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/eribertomota/axel"
-  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.6/axel-2.17.6.tar.gz"
-  sha256 "15be4803789d8a3b0aa7ea9629a21ea56ff46ea5d8b484004a00826d4ffcbd00"
+  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.10/axel-2.17.10.tar.xz"
+  sha256 "46eb4f10a11c4e50320ae6a034ef03ffe59dc11c3c6542a9867a3e4dc0c4b44e"
+  license "GPL-2.0-or-later"
   head "https://github.com/eribertomota/axel.git"
 
   bottle do
-    cellar :any
-    sha256 "acf292cb3e442dba912aa49f6ca641c2863099f649fc52293ea288a6f8dd8f89" => :catalina
-    sha256 "07593f73d611d773ee8155c1f26a165ba06f2a716d15a243a4add77983cf3253" => :mojave
-    sha256 "c6564d7d46b9201beae836dc36fa6d3b465b51d4c1f7283d498c22145472d6bb" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "43a36bca363fd2a2700dbaca686de5d92793ae79b1813e26e6ba1965e9d0acc7"
+    sha256 cellar: :any, big_sur:       "94b9f93614705dab7c202df271f9bb1bcd30b4e1170f4ab4b160378e8e5c3a2f"
+    sha256 cellar: :any, catalina:      "32832dd93a31589c7f98e510a2edc54e918ee6bab8eab18f4f4a1b953030f3f1"
+    sha256 cellar: :any, mojave:        "2df5f78ceaccbdede61b29a191c514a5b86dfb3ab1fd5057506377299d9f8c65"
   end
 
   depends_on "autoconf" => :build
@@ -20,11 +21,6 @@ class Axel < Formula
   depends_on "openssl@1.1"
 
   def install
-    # Fixes the macOS build by esuring some _POSIX_C_SOURCE
-    # features are available:
-    # https://github.com/axel-download-accelerator/axel/pull/196
-    ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"

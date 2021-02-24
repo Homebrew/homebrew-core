@@ -1,21 +1,27 @@
 class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
-  url "https://github.com/cheat/cheat.git",
-    :tag      => "3.2.2",
-    :revision => "f47b75edc0ef011d8955b1e2c522a74c8b6143e5"
+  url "https://github.com/cheat/cheat/archive/4.2.0.tar.gz"
+  sha256 "23c3c30fe1ad63916718eef534dcef22c0ae607695f74860180304c5cde3ea49"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b02352aed34fe7f2ba8a119677bb24164e1fe2ca4479f3221abdd34f864b2297" => :catalina
-    sha256 "d9fd5fd5aa32cda93946533d76e250a46bb3a880b3174282d8977ff27048388e" => :mojave
-    sha256 "a49311e865e5b7c6d8e3718fd4f0ecf07d245008e68e2bda376482c731b98c30" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0616a7b0ce9a9fd33919390fb29f042eb997d3462917514b283385a9f05fe977"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dbfd6636a4b40dd7b94a400c7888f45ddd87427e855b00dc8119dd7200c49b14"
+    sha256 cellar: :any_skip_relocation, catalina:      "74c8c4a8fc13f0484628ed56dc6d54507f605d271faf844683119f6f46adfa2a"
+    sha256 cellar: :any_skip_relocation, mojave:        "540de221f3d25e9aaa697a078c51f36964d219a565701e06ed5492a02b6d876d"
   end
 
   depends_on "go" => :build
 
+  conflicts_with "bash-snippets", because: "both install a `cheat` executable"
+
   def install
     system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
+
+    bash_completion.install "scripts/cheat.bash"
+    fish_completion.install "scripts/cheat.fish"
+    zsh_completion.install "scripts/cheat.zsh"
   end
 
   test do
@@ -23,7 +29,5 @@ class Cheat < Formula
 
     output = shell_output("#{bin}/cheat --init 2>&1")
     assert_match "editor: vim", output
-
-    assert_match "could not locate config file", shell_output("#{bin}/cheat tar 2>&1", 1)
   end
 end

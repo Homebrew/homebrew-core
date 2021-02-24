@@ -1,24 +1,28 @@
 class Navi < Formula
   desc "Interactive cheatsheet tool for the command-line"
   homepage "https://github.com/denisidoro/navi"
-  url "https://github.com/denisidoro/navi/archive/v0.17.0.tar.gz"
-  sha256 "6de54da35cd6491c8a516efa78f0c866abc6eb2d81347d7faf6b905aeb443c95"
+  url "https://github.com/denisidoro/navi/archive/v2.14.0.tar.gz"
+  sha256 "544c01e9d10dfcdcdded7758411e90d69e9b4734dfda1c0908359a72ba7b2bee"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9b632acac9a218b9240665efcbb65004cefc66f756a56b834896d36edb581538" => :catalina
-    sha256 "9b632acac9a218b9240665efcbb65004cefc66f756a56b834896d36edb581538" => :mojave
-    sha256 "9b632acac9a218b9240665efcbb65004cefc66f756a56b834896d36edb581538" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d4d7330da91c8993867b2c2443cad374b07d063a1ea4587e404fe6b99705f83b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "85d58e075944fcde015a3e45ed06668e64d72cd0b49afd5e719877da83863392"
+    sha256 cellar: :any_skip_relocation, catalina:      "2aa8fa7b3e54b886bcdec48fc5985ec0ad5f839f60e3ceeee385ba440277106b"
+    sha256 cellar: :any_skip_relocation, mojave:        "b03eabbab9d70619bbbef6a6b97cf86f46cf6f64f3dca444ea7da818813693cb"
   end
 
+  depends_on "rust" => :build
   depends_on "fzf"
 
   def install
-    libexec.install Dir["*"]
-    bin.write_exec_script(libexec/"navi")
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    assert_equal version, shell_output("#{bin}/navi --version")
+    assert_match "navi " + version, shell_output("#{bin}/navi --version")
+    (testpath/"cheats/test.cheat").write "% test\n\n# foo\necho bar\n\n# lorem\necho ipsum\n"
+    assert_match "bar",
+        shell_output("export RUST_BACKTRACE=1; #{bin}/navi --path #{testpath}/cheats --query foo --best-match")
   end
 end

@@ -1,34 +1,27 @@
 class Ponyc < Formula
   desc "Object-oriented, actor-model, capabilities-secure programming language"
   homepage "https://www.ponylang.org/"
-  url "https://github.com/ponylang/ponyc/archive/0.33.1.tar.gz"
-  sha256 "1c7e90e0779f153527dbbbdcd1e409a6d4e1a6ec627000798c1b22f1fcd44d4c"
-  head "https://github.com/ponylang/ponyc.git"
+  url "https://github.com/ponylang/ponyc.git",
+      tag:      "0.38.3",
+      revision: "d23bb4e549a9ec8f29aa66f7e9e495371033a424"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "eebd0878d40d29f3577dd5e64f2378af43ee2ff6c0efd50b7e4556ed7b076c6f" => :catalina
-    sha256 "9b0c6de10107c3a893cb2988e7229fc45b72f834240631cc7e5d8357e31b1e99" => :mojave
-    sha256 "6439adc43264925cbf10937d095d8097adb3193b5d3dc06a0b15b367b940d313" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "de86e286b66786a1a15ea3ce8e6bd23a5b227fc9928ae6e6e3a498216f0002d8"
+    sha256 cellar: :any_skip_relocation, catalina: "b719919818567d4e2e84841dc091539c1341aa9645507af67b729b91a5c5e260"
+    sha256 cellar: :any_skip_relocation, mojave:   "76ed9cf292056eb0a65758c5949435bff36522e987f316701cadbd0a13971787"
   end
 
-  # https://github.com/ponylang/ponyc/issues/1274
-  # https://github.com/Homebrew/homebrew-core/issues/5346
-  pour_bottle? do
-    reason <<~EOS
-      The bottle requires Xcode/CLT 8.0 or later to work properly.
-    EOS
-    satisfy { DevelopmentTools.clang_build_version >= 800 }
-  end
-
-  depends_on "llvm@7"
-  depends_on :macos => :yosemite
+  depends_on "cmake" => :build
 
   def install
     ENV.cxx11
-    ENV["LLVM_CONFIG"] = "#{Formula["llvm@7"].opt_bin}/llvm-config"
-    system "make", "install", "verbose=1", "config=release",
-           "ponydir=#{prefix}", "prefix="
+
+    ENV["MAKEFLAGS"] = "build_flags=-j#{ENV.make_jobs}"
+    system "make", "libs"
+    system "make", "configure"
+    system "make", "build"
+    system "make", "install", "DESTDIR=#{prefix}"
   end
 
   test do

@@ -3,16 +3,22 @@ class Oclgrind < Formula
   homepage "https://github.com/jrprice/Oclgrind"
   url "https://github.com/jrprice/Oclgrind/archive/v19.10.tar.gz"
   sha256 "f9a8f22cb9f6d88670f2578c46ba0d728ba8eaee5c481c2811129dc157c43dc0"
+  license "BSD-3-Clause"
+  revision 3
+
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "0d74b5823ac1dd31da92034fba356f9c24d3027ef19df6c384865a39549351fa" => :catalina
-    sha256 "f5d9efa96fa4f225f91cd84ed02fe91df8566621045be58ff4db368ede6cccbe" => :mojave
-    sha256 "3288de0030946fd7d61b8a7c91d20daa8c18f80abd224255c70ab47254c64086" => :high_sierra
+    sha256 cellar: :any, catalina:    "1fd792bb90fa78dd58cc2d7ffe824084b80caf2211363096b14a3d9a6f3411c9"
+    sha256 cellar: :any, mojave:      "f6728b30db78fa358b2136d4c1e51dbcafa79b4a9ddbf3a601f28c01e0e26805"
+    sha256 cellar: :any, high_sierra: "fe3d0a3798f2ac0092e8469a6f824bdfb29b0fb92f0d3b3fa0edeb8875f54ee6"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@9"
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -20,7 +26,7 @@ class Oclgrind < Formula
   end
 
   test do
-    (testpath/"rot13.c").write <<~EOS
+    (testpath/"rot13.c").write <<~'EOS'
       #include <stdio.h>
       #include <string.h>
 
@@ -92,6 +98,19 @@ class Oclgrind < Formula
                 1, srcptr, &srcsize, &error);
         error=clBuildProgram(prog, 0, NULL, "", NULL, NULL);
 
+        if (error == CL_BUILD_PROGRAM_FAILURE) {
+          size_t logsize;
+          clGetProgramBuildInfo(prog, device, CL_PROGRAM_BUILD_LOG, 0, NULL, &logsize);
+
+          char *log=(char *)malloc(logsize);
+          clGetProgramBuildInfo(prog, device, CL_PROGRAM_BUILD_LOG, logsize, log, NULL);
+
+          fprintf(stderr, "%s\n", log);
+          free(log);
+
+          return 1;
+        }
+
         cl_mem mem1, mem2;
         mem1=clCreateBuffer(context, CL_MEM_READ_ONLY, worksize, NULL, &error);
         mem2=clCreateBuffer(context, CL_MEM_WRITE_ONLY, worksize, NULL, &error);
@@ -112,7 +131,9 @@ class Oclgrind < Formula
         puts(buf2);
       }
     EOS
+
     system ENV.cc, "rot13.c", "-o", "rot13", "-framework", "OpenCL"
-    assert_equal "Hello, World!", pipe_output([bin/"oclgrind", "./rot13"], "", 0).chomp
+    output = shell_output("#{bin}/oclgrind ./rot13 2>&1").chomp
+    assert_equal "Hello, World!", output
   end
 end

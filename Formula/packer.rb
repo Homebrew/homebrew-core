@@ -2,28 +2,26 @@ class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag      => "v1.5.1",
-      :revision => "324581ac9ce8d1e0558b33eea9d4f9d6d5a16002"
+      tag:      "v1.7.0",
+      revision: "7ea4a779af7194caee3b497d584564cb849cd378"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/packer.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "b677568879c147832d4b3257ceb8c2be85b9734dd8d32f023ac555c5033b9184" => :catalina
-    sha256 "3c31fa5d294cea8b70fff1509e99622a445459fade8af68a2e22af6bb324b2bf" => :mojave
-    sha256 "98c5d43324077d4aff6ed91e5ee2f2587d15ea81db625856e1d5862f693eb980" => :high_sierra
+  livecheck do
+    url "https://releases.hashicorp.com/packer/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  depends_on "coreutils" => :build
+  bottle do
+    sha256 cellar: :any_skip_relocation, big_sur:  "5caf98db141b6dad0b142a34eb291d40514ff83191fa96b5e9881c4a373090ed"
+    sha256 cellar: :any_skip_relocation, catalina: "f4d4e61f679f56fab341ce4fab5750018c54b65945e73b328dea6cd60e668264"
+    sha256 cellar: :any_skip_relocation, mojave:   "edc4db3f424721c4681ba93ae9df4f844df5a6fab40d5eea9ec417f1c2c7c2d8"
+  end
+
   depends_on "go" => :build
 
   def install
-    (buildpath/"bin").mkpath
-    if build.head?
-      system "make", "bin"
-    else
-      system "make", "releasebin"
-    end
-    bin.install buildpath/"bin/packer"
+    system "go", "build", *std_go_args
     zsh_completion.install "contrib/zsh-completion/_packer"
     prefix.install_metafiles
   end

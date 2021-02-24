@@ -1,34 +1,36 @@
 class Davix < Formula
   desc "Library and tools for advanced file I/O with HTTP-based protocols"
-  homepage "https://dmc.web.cern.ch/projects/davix/home"
-  url "https://github.com/cern-fts/davix.git",
-      :tag      => "R_0_7_5",
-      :revision => "4b04a98027ff5ce94e18e3b110420f1ff912a32c"
-  version "0.7.5"
+  homepage "https://github.com/cern-fts/davix"
+  url "https://github.com/cern-fts/davix/releases/download/R_0_7_6/davix-0.7.6.tar.gz"
+  sha256 "a2e7fdff29f7ba247a3bcdb08ab1db6d6ed745de2d3971b46526986caf360673"
+  license "LGPL-2.1"
   head "https://github.com/cern-fts/davix.git"
 
   bottle do
-    cellar :any
-    rebuild 2
-    sha256 "c7733777751e64c0a1218cb957fb615301f959b83ce834467740d4e97514aa92" => :catalina
-    sha256 "c7921fa562e5a856e3bf71297498c42a27bcd3f8d4f2fd6a8fda5c9945171767" => :mojave
-    sha256 "6ce2b3be5a9fcdb7d06c137984aa04bbc93061b9fd4ceca91ccc2fe4928f526c" => :high_sierra
-    sha256 "cdbcbf1856a6c668125c7109d021352103404c018ef06537ef06d348dbe55985" => :sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "29e62d295cee33757abdf95ee7cb4c3aa5b180419e6687bf9347a6a121cab134"
+    sha256 cellar: :any, big_sur:       "9e554eb91c81f79781ea0890dd7309fe94010b32787a465f2368a8c0cd9129f9"
+    sha256 cellar: :any, catalina:      "e96a673e5adb6b0856928002be86673db1ba3efd3b8b06d5f87b8793d99698bb"
+    sha256 cellar: :any, mojave:        "1c863a82c559b2cb4def7b425339edbb5cb31847d21ae886f92e8616bd8af497"
+    sha256 cellar: :any, high_sierra:   "41917fcf64168c8f229fe025d77807e2adf7298e2bdfcb2c4b582e9d116faf4b"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "openssl@1.1"
 
-  def install
-    ENV.libcxx
+  uses_from_macos "libxml2"
 
-    cp "release.cmake", "version.cmake"
+  on_linux do
+    depends_on "util-linux"
+  end
+
+  def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/davix-get", "https://www.google.com"
+    system "#{bin}/davix-get", "https://brew.sh"
   end
 end

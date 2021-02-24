@@ -1,29 +1,39 @@
 class Rclone < Formula
   desc "Rsync for cloud storage"
   homepage "https://rclone.org/"
-  url "https://github.com/rclone/rclone/archive/v1.50.2.tar.gz"
-  sha256 "86401e3d3db2c98df3103dd3e787ac9cea5ba2570c89063e57f17d87231a305c"
+  url "https://github.com/rclone/rclone/archive/v1.54.0.tar.gz"
+  sha256 "483d0731e3fbcdff33934784a8d39706f07358c5c8eec9136ba31458f775958e"
+  license "MIT"
   head "https://github.com/rclone/rclone.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0cd8efaea2e5e739553841b46a97bad74a19e4b44e473083582f3fa47090bb1d" => :catalina
-    sha256 "c0263a49d6b0dd7510c0c7329d25a26d9dec656be2fd756417c66d80d10fcfb8" => :mojave
-    sha256 "a72cd7c30dac6313289a9c152cda77859756fe15ee17a268c2f69dea8eb3ce8c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "520efd2c8538f0a7e3ba7f6e07c8d877242ad307779426b033a88ab299e1727d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a8b1273b078ef2c44332a3392d781132bd747713035ead1f8191826ba8205859"
+    sha256 cellar: :any_skip_relocation, catalina:      "6abdfcb2c466314bc3da7a5d9c71096ca78b48fd0851107f29e6fcfe9a46ff1a"
+    sha256 cellar: :any_skip_relocation, mojave:        "8b173e5e4e6665b5e00c9a40ff435e3c2224fe5e2f4bfb736679a564d90c6921"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = HOMEBREW_CACHE/"go_cache"
-    mkdir_p buildpath/"src/github.com/rclone/"
-    ln_s buildpath, buildpath/"src/github.com/rclone/rclone"
-    system "go", "build", "-o", bin/"rclone"
+    args = *std_go_args
+    on_macos do
+      args += ["-tags", "brew"]
+    end
+    system "go", "build",
+      "-ldflags", "-s -X github.com/rclone/rclone/fs.Version=v#{version}",
+      *args
     man1.install "rclone.1"
     system bin/"rclone", "genautocomplete", "bash", "rclone.bash"
     system bin/"rclone", "genautocomplete", "zsh", "_rclone"
     bash_completion.install "rclone.bash" => "rclone"
     zsh_completion.install "_rclone"
+  end
+
+  def caveats
+    <<~EOS
+      Homebrew's installation does not include the `mount` subcommand on MacOS.
+    EOS
   end
 
   test do

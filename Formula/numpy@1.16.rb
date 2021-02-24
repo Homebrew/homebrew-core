@@ -1,24 +1,26 @@
 class NumpyAT116 < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/d3/4b/f9f4b96c0b1ba43d28a5bdc4b64f0b9d3fbcf31313a51bc766942866a7c7/numpy-1.16.4.zip"
-  sha256 "7242be12a58fec245ee9734e625964b97cf7e3f2f7d016603f9e56660ce479c7"
+  url "https://github.com/numpy/numpy/releases/download/v1.16.6/numpy-1.16.6.zip"
+  sha256 "e5cf3fdf13401885e8eea8170624ec96225e2174eb0c611c6f26dd33b489e3ff"
+  license "BSD-3-Clause"
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "6c80a9d89e01c944f4142c95f7239d796c9e0a4915c395e99a30d8b221c89280" => :catalina
-    sha256 "eae10fb059b9246e2e106572c0534b33fe5848380b945fb2afe90600b0dc5cb1" => :mojave
-    sha256 "d7713fb06785ea6dc8ff901858b7c5155f4ca5624d4c5d380b58c1f254ac6268" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "b2d618920646238a8711dba0c021600ea1153a50490ba3e379107fb3f96d0e77"
+    sha256 cellar: :any, big_sur:       "0b95667bfd54232190975066a1e70a0770b84d37129c3fcda418bbba34926c88"
+    sha256 cellar: :any, catalina:      "fff9f604e35a06cc3197cc818a851d037f6d8f30df04fc7640144966bfb15c91"
+    sha256 cellar: :any, mojave:        "0d6a4439397cf4c684b6e01fb7038ed9b9943582d5ef15f080503755330ca615"
+    sha256 cellar: :any, high_sierra:   "ed8d4fa6634bea85689ae4d5e316e9a3546469e44358aba6a9f73183fdcb4272"
   end
 
   depends_on "gcc" => :build # for gfortran
+  depends_on :macos # Due to Python 2
   depends_on "openblas"
-  uses_from_macos "python@2"
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/a5/1f/c7c5450c60a90ce058b47ecf60bb5be2bfe46f952ed1d3b95d1d677588be/Cython-0.29.13.tar.gz"
-    sha256 "c29d069a4a30f472482343c866f7486731ad638ef9af92bfe5fca9c7323d638e"
+    url "https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz"
+    sha256 "60d859e1efa5cc80436d58aecd3718ff2e74b987db0518376046adedba97ac30"
   end
 
   resource "nose" do

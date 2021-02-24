@@ -1,13 +1,19 @@
 class ApacheDrill < Formula
   desc "Schema-free SQL Query Engine for Hadoop, NoSQL and Cloud Storage"
   homepage "https://drill.apache.org"
-  url "https://www.apache.org/dyn/closer.cgi?path=drill/drill-1.16.0/apache-drill-1.16.0.tar.gz"
-  mirror "https://archive.apache.org/dist/drill/drill-1.16.0/apache-drill-1.16.0.tar.gz"
-  sha256 "fd195d2b38f393459b37d8f13ac1f36cdbe38495eabb08252da38e3544e87839"
+  url "https://www.apache.org/dyn/closer.lua?path=drill/drill-1.18.0/apache-drill-1.18.0.tar.gz"
+  mirror "https://archive.apache.org/dist/drill/drill-1.18.0/apache-drill-1.18.0.tar.gz"
+  sha256 "e58fc1bed0fe3a0ef101a0705404e887af3f79beaccde8b225e884c06d336597"
+  license "Apache-2.0"
+
+  livecheck do
+    url "https://drill.apache.org/download/"
+    regex(/href=.*?apache-drill[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle :unneeded
 
-  depends_on :java => "1.8"
+  depends_on "openjdk@8"
 
   def install
     libexec.install Dir["*"]

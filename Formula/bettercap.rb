@@ -1,14 +1,14 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/v2.26.1.tar.gz"
-  sha256 "75530015ee27e5ba05faff0295486ca85489ecd9de3161ca398a9b577522c578"
+  url "https://github.com/bettercap/bettercap/archive/v2.29.tar.gz"
+  sha256 "c414be98a48d9f279460b325dddaef8479132a1470c6f305790d79e04dac1297"
+  license "GPL-3.0-only"
 
   bottle do
-    cellar :any
-    sha256 "91a85e1c0118e7d5c31b9a1f8fd9ad3b4fca7a57722910099460e84f14f4b553" => :catalina
-    sha256 "241b85a1ce777e9fe9e8d8408afd46fc613c4cf691c1be3c3dbc35e8bde215b0" => :mojave
-    sha256 "dceaab3973b28c4cc88629a4a192d0da1d6ce2ed602260d5dda83e75132295a9" => :high_sierra
+    sha256 cellar: :any, big_sur:  "6de77638b77e9b826cd2085147a5c312156d578f3376f2e0cc3397be9a48e7bd"
+    sha256 cellar: :any, catalina: "8e7ccb9e8da1c79916eec5b77c2c55141bd13943d022ffee7cdbf13ee1e9640f"
+    sha256 cellar: :any, mojave:   "4b59d7b9b41bcd5ee77ca8dc5ecb00c4ba158910dc30c2083c5e4dee6b994e1d"
   end
 
   depends_on "dep" => :build
@@ -16,24 +16,25 @@ class Bettercap < Formula
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
-  def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/bettercap/bettercap").install buildpath.children
+  uses_from_macos "libpcap"
 
-    cd "src/github.com/bettercap/bettercap" do
-      system "make", "build"
-      bin.install "bettercap"
-      prefix.install_metafiles
-    end
+  on_linux do
+    depends_on "libnetfilter-queue"
   end
 
-  def caveats; <<~EOS
-    bettercap requires root privileges so you will need to run `sudo bettercap`.
-    You should be certain that you trust any software you grant root privileges.
-  EOS
+  def install
+    system "make", "build"
+    bin.install "bettercap"
+  end
+
+  def caveats
+    <<~EOS
+      bettercap requires root privileges so you will need to run `sudo bettercap`.
+      You should be certain that you trust any software you grant root privileges.
+    EOS
   end
 
   test do
-    assert_match "bettercap", shell_output("#{bin}/bettercap -help 2>&1", 2)
+    assert_match "Operation not permitted", shell_output("#{bin}/bettercap 2>&1", 1)
   end
 end

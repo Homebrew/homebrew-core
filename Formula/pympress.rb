@@ -3,22 +3,24 @@ class Pympress < Formula
 
   desc "Simple and powerful dual-screen PDF reader designed for presentations"
   homepage "https://github.com/Cimbali/pympress/"
-  url "https://files.pythonhosted.org/packages/35/03/4e655064b30b5717cfed53da88eda098971728fe4c8c94b1599833edbc66/pympress-1.5.1.tar.gz"
-  sha256 "8ea3808f31c9ae4152bdcf09632e1fece943d91fc3c974c4c3497ce1984e6d9c"
+  url "https://files.pythonhosted.org/packages/92/80/c63ad7748e877dfeb5d7d756c1bdd4c2657e5a857814b4d6edf96d44678c/pympress-1.5.3.tar.gz"
+  sha256 "d8c10c286d1de2210c19a3e752542b61c8bcc592c48553f7c7043e943a87d05d"
+  license "GPL-2.0"
+  revision 2
   head "https://github.com/Cimbali/pympress.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5f192402254be05dd85c5037153a3444854b429f2ec0118efac6eff445d3a175" => :catalina
-    sha256 "dad94bfa749bfeceb9b3bece78cb176fec098c9bbe5513e9e1772f6d9463a82f" => :mojave
-    sha256 "d7f9cbeaa860b3a40bd69688b7e4ec1ddd707c10cc3ea5c74423d79aed6431c1" => :high_sierra
+    sha256 cellar: :any, big_sur:  "0dace778ed9f1ac2939f6b4c1305a629c4fc256d8768b9658196e90f0819e84e"
+    sha256 cellar: :any, catalina: "d730fa081be30bd9dd49fa5f08cf8aa39ac31842fbb8b86423c1bc28db8b616c"
+    sha256 cellar: :any, mojave:   "88b035ea21bd93571a1920bd94c1bc293ee68ffbc63237dbe8f9da0958323bae"
   end
 
   depends_on "gobject-introspection"
   depends_on "gtk+3"
+  depends_on "libyaml"
   depends_on "poppler"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.9"
 
   resource "argh" do
     url "https://files.pythonhosted.org/packages/e3/75/1183b5d1663a66aebb2c184e0398724b624cecd4f4b679cb6e25de97ed15/argh-0.26.2.tar.gz"
@@ -56,6 +58,6 @@ class Pympress < Formula
     # Version info contained in log file only if all dependencies loaded successfully
     assert_predicate testpath/"Library/Logs/pympress.log", :exist?
     output = (testpath/"Library/Logs/pympress.log").read
-    assert_match /^INFO:pympress.__main__:Pympress: #{version}\s*;/, output
+    assert_match(/^INFO:pympress.__main__:Pympress: #{version}\s*;/, output)
   end
 end

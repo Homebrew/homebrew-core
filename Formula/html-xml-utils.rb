@@ -1,14 +1,21 @@
 class HtmlXmlUtils < Formula
   desc "Tools for manipulating HTML and XML files"
   homepage "https://www.w3.org/Tools/HTML-XML-utils/"
-  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.8.tar.gz"
-  sha256 "9ab41c9277efc699603d062c10740c6e528fdb9ac35014db4e07f16ad8700d5d"
+  url "https://www.w3.org/Tools/HTML-XML-utils/html-xml-utils-7.9.tar.gz"
+  sha256 "d86ac96ea660316bef814c17b2a96d54cdf91c69e59614459865c2bfdaee433f"
+  license "W3C"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?html-xml-utils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "28e913a33a61be2662a9aeedb18afd3e61f7ff31f533221e2382fc16845984a2" => :catalina
-    sha256 "8e290495b957bc609598e4a2e6fb26512011e0c433a5058d807d86e406a406ab" => :mojave
-    sha256 "2aa00ada9b366c012d149ff28c99d0054a7b166d2088700482e6118e16580358" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1ced37ea6d241aadbad55e5119bedc0f7cbaf6ea3d11b9ee98f6f7bb9a4f3d1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "df00f5b0bb8b3abe68d158e4995507e7e5beb4d4a3cae89d55c5739c81b7bf62"
+    sha256 cellar: :any_skip_relocation, catalina:      "ef675b85f70efc449e2f64e28dae04434ea984214a1c3c4e92d78c8d21975878"
+    sha256 cellar: :any_skip_relocation, mojave:        "b35399870d1a81ee93bfa03fcf191148ddd8775280b038ee3c0fc55b71a9fcb4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4ec7374987c3ab57fdc4b33596e934e62b37c437c6114b190fdf026029f6329c"
   end
 
   def install

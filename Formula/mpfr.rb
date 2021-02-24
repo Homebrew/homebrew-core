@@ -1,25 +1,22 @@
 class Mpfr < Formula
   desc "C library for multiple-precision floating-point computations"
   homepage "https://www.mpfr.org/"
-  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.0.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.0.2.tar.xz"
-  sha256 "1d3be708604eae0e42d578ba93b390c2a145f17743a744d8f3f8c2ad5855a38a"
+  url "https://ftp.gnu.org/gnu/mpfr/mpfr-4.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/mpfr/mpfr-4.1.0.tar.xz"
+  sha256 "0c98a3f1732ff6ca4ea690552079da9c597872d30e96ec28414ee23c95558a7f"
+  license "GPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "140d29bfee0c8cf356fbb5391465f781df559e6076988de3ea8bcfd812f3c5bd" => :catalina
-    sha256 "cfce7ab866e98360c9364cd924da620ae7936d3a224d686aacc209c2107d19aa" => :mojave
-    sha256 "bf5d21e7e8e549f7e8d07791a90f44a487f4c7151897b7c64d02928b5bd73520" => :high_sierra
-    sha256 "4fb1860a481e24c70eefc8e5782030612840f1bb8f50586ca76a4c6c53629deb" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "9df11560dd3650ffae35c134cef6e0e91aad0e862f5c8895c568b828cf0598d5"
+    sha256 cellar: :any, big_sur:       "1e8eb0326f62d3461d420d98af6fc088daca481cae89fd77a75b420d2e76d776"
+    sha256 cellar: :any, catalina:      "5fcf57834f58c18761c6c7b0eb961eb7f9fc54325b5361bf3a17c4dee6ebc08a"
+    sha256 cellar: :any, mojave:        "93c0d2ca093819f125300002cd34c1d1b4dfb7a1403729205861bec21388ff12"
+    sha256 cellar: :any, high_sierra:   "77581a1df66fb1ef55ffb19777d08b0b60fbc3d2d7ad491a8aceb3a6a4bf7ffd"
   end
 
   depends_on "gmp"
 
   def install
-    # Work around macOS Catalina / Xcode 11 code generation bug
-    # (test failure t-toom53, due to wrong code in mpn/toom53_mul.o)
-    ENV.append_to_cflags "-fno-stack-check"
-
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
                           "--disable-silent-rules"
     system "make"

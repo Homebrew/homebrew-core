@@ -1,17 +1,17 @@
 class SubversionAT18 < Formula
   desc "Version control system"
   homepage "https://subversion.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.8.19.tar.bz2"
+  url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.8.19.tar.bz2"
   mirror "https://archive.apache.org/dist/subversion/subversion-1.8.19.tar.bz2"
   sha256 "56e869b0db59519867f7077849c9c0962c599974f1412ea235eab7f98c20e6be"
+  license "Apache-2.0"
   revision 1
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "d471619f345885cff74ff22c7c1783ff31d2a979471f8b55dba9851fd7872fdc" => :catalina
-    sha256 "f1ddeb0830e05709298f49b05131297e079a20cdf115a57d84e8c336b2c97aca" => :mojave
-    sha256 "4f5837d367ff776070c2d0a1a20a17a14fb56ec5296a00969c5fd5914888da02" => :sierra
+    sha256 cellar: :any, catalina: "d471619f345885cff74ff22c7c1783ff31d2a979471f8b55dba9851fd7872fdc"
+    sha256 cellar: :any, mojave:   "f1ddeb0830e05709298f49b05131297e079a20cdf115a57d84e8c336b2c97aca"
+    sha256 cellar: :any, sierra:   "4f5837d367ff776070c2d0a1a20a17a14fb56ec5296a00969c5fd5914888da02"
   end
 
   keg_only :versioned_formula
@@ -24,7 +24,7 @@ class SubversionAT18 < Formula
   depends_on "sqlite" # build against Homebrew version for consistency
 
   resource "serf" do
-    url "https://www.apache.org/dyn/closer.cgi?path=serf/serf-1.3.9.tar.bz2"
+    url "https://www.apache.org/dyn/closer.lua?path=serf/serf-1.3.9.tar.bz2"
     mirror "https://archive.apache.org/dist/serf/serf-1.3.9.tar.bz2"
     sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
   end
@@ -65,18 +65,6 @@ class SubversionAT18 < Formula
       system "scons", "install"
     end
 
-    if build.include? "unicode-path"
-      raise <<~EOS
-        The --unicode-path patch is not supported on Subversion 1.8.
-
-        Upgrading from a 1.7 version built with this patch is not supported.
-
-        You should stay on 1.7, install 1.7 from homebrew-versions, or
-          brew rm subversion && brew install subversion
-        to build a new version of 1.8 without this patch.
-      EOS
-    end
-
     # Use existing system zlib
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
@@ -112,10 +100,11 @@ class SubversionAT18 < Formula
     system "make", "install-tools"
   end
 
-  def caveats; <<~EOS
-    svntools have been installed to:
-      #{opt_libexec}
-  EOS
+  def caveats
+    <<~EOS
+      svntools have been installed to:
+        #{opt_libexec}
+    EOS
   end
 
   test do

@@ -1,46 +1,49 @@
 class Pyside < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.13.2-src/pyside-setup-opensource-src-5.13.2.tar.xz"
-  sha256 "3e255d64df08880d0281ebe86009d5ea45f24332b308954d967c33995f75e543"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.2-src/pyside-setup-opensource-src-5.15.2.tar.xz"
+  sha256 "b306504b0b8037079a8eab772ee774b9e877a2d84bab2dbefbe4fa6f83941418"
+  license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
+
+  livecheck do
+    url "https://download.qt.io/official_releases/QtForPython/pyside2/"
+    regex(%r{href=.*?PySide2[._-]v?(\d+(?:\.\d+)+)-src/}i)
+  end
 
   bottle do
-    sha256 "fea86f39d15b29aac8ed23fda31d69eb46a63f76b8a70da89b64f4398a97f32a" => :catalina
-    sha256 "0a121ff7a1f1cdf1801f327fbedbf520939e73d417adba0e077513d0660a9148" => :mojave
-    sha256 "df3df6b24b051d6132a87cdb09b5a40e6aee86248665c9c35ecdf71af1432ce6" => :high_sierra
+    rebuild 2
+    sha256 arm64_big_sur: "9d5453546a594dd0e7873628e5b39d712e5c233bcd5c30300ebca69bba5234b8"
+    sha256 big_sur:       "de6776cd9bf4d54feaee3c83acec3de9aae517ac35297c4beb7c0d23e8a99d8a"
+    sha256 catalina:      "179300a978bc575037dac68319cd1db18cdb4755382c7d2c46e8372a78276de3"
+    sha256 mojave:        "17d79dc60d1f3fe413bc874f4f82535f7bfe9739af107525291cc4c5b5a5db06"
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm" => :build
-  depends_on "python"
+  depends_on "ninja" => :build
+  depends_on "llvm"
+  depends_on "python@3.9"
   depends_on "qt"
 
   def install
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
 
-    args = %W[
-      --ignore-git
-      --parallel=#{ENV.make_jobs}
-      --install-scripts #{bin}
+    args = std_cmake_args + %W[
+      -GNinja
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python#{xy}
+      -DCMAKE_INSTALL_RPATH=#{lib}
     ]
 
-    xy = Language::Python.major_minor_version "python3"
-
-    system "python3", *Language::Python.setup_install_args(prefix),
-           "--install-lib", lib/"python#{xy}/site-packages", *args,
-           "--build-type=shiboken2"
-
-    system "python3", *Language::Python.setup_install_args(prefix),
-           "--install-lib", lib/"python#{xy}/site-packages", *args,
-           "--build-type=pyside2"
-
-    lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/PySide2/*.dylib")
-    lib.install_symlink Dir.glob(lib/"python#{xy}/site-packages/shiboken2/*.dylib")
+    mkdir "build" do
+      system "cmake", *args, ".."
+      system "ninja", "install"
+    end
   end
 
   test do
-    system "python3", "-c", "import PySide2"
-    %w[
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide2"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import shiboken2"
+
+    modules = %w[
       Core
       Gui
       Location
@@ -48,9 +51,33 @@ class Pyside < Formula
       Network
       Quick
       Svg
-      WebEngineWidgets
       Widgets
       Xml
-    ].each { |mod| system "python3", "-c", "import PySide2.Qt#{mod}" }
+    ]
+
+    # QT web engine is currently not supported on Apple
+    # silicon. Re-enable it once it has been enabled in the qt.rb.
+    modules << "WebEngineWidgets" unless Hardware::CPU.arm?
+
+    modules.each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PySide2.Qt#{mod}" }
+
+    pyincludes = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --includes").chomp.split
+    pylib = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --ldflags --embed").chomp.split
+    pyver = Language::Python.major_minor_version(Formula["python@3.9"].opt_bin/"python3").to_s.delete(".")
+
+    (testpath/"test.cpp").write <<~EOS
+      #include <shiboken.h>
+      int main()
+      {
+        Py_Initialize();
+        Shiboken::AutoDecRef module(Shiboken::Module::import("shiboken2"));
+        assert(!module.isNull());
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "-std=c++11", "test.cpp",
+           "-I#{include}/shiboken2", "-L#{lib}", "-lshiboken2.cpython-#{pyver}-darwin",
+           *pyincludes, *pylib, "-o", "test"
+    system "./test"
   end
 end

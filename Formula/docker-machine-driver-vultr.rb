@@ -3,16 +3,18 @@ class DockerMachineDriverVultr < Formula
   homepage "https://github.com/janeczku/docker-machine-vultr"
   url "https://github.com/janeczku/docker-machine-vultr/archive/v1.4.0.tar.gz"
   sha256 "f69b1b33c7c73bea4ab1980fbf59b7ba546221d31229d03749edee24a1e7e8b5"
+  license "MIT"
   head "https://github.com/janeczku/docker-machine-vultr.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "5bf083ff423d2ca45f4593c6abeecd57f097f51d17fea884eb0a245060b410a1" => :catalina
-    sha256 "8c6a8d5fa979b04816723a10af5f4150228a6e20425defb443061e375020a948" => :mojave
-    sha256 "62f227cf1a4c854fc311024d892a40e71a061576a051818126a469f2213400ca" => :high_sierra
-    sha256 "7af4e94255b4b0ffe451c7f73355adee8ca6fcc4e8a38ba7157acee1a3ba1409" => :sierra
-    sha256 "50ae18bed6b26893049da20e16dbbcaaabbde2078df7fd6c9be6ce2e42f4f77a" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "53bbef8c94f0a9dbe4aabb21ad4573b66e3aac1991730cbc4c4624650918b7a6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f97e13c520424fdb1f5f445fa9defde64a487654dab45cae55925edb5ae49aa0"
+    sha256 cellar: :any_skip_relocation, catalina:      "5bf083ff423d2ca45f4593c6abeecd57f097f51d17fea884eb0a245060b410a1"
+    sha256 cellar: :any_skip_relocation, mojave:        "8c6a8d5fa979b04816723a10af5f4150228a6e20425defb443061e375020a948"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "62f227cf1a4c854fc311024d892a40e71a061576a051818126a469f2213400ca"
+    sha256 cellar: :any_skip_relocation, sierra:        "7af4e94255b4b0ffe451c7f73355adee8ca6fcc4e8a38ba7157acee1a3ba1409"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "50ae18bed6b26893049da20e16dbbcaaabbde2078df7fd6c9be6ce2e42f4f77a"
   end
 
   depends_on "go" => :build
@@ -20,6 +22,7 @@ class DockerMachineDriverVultr < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/janeczku/docker-machine-vultr").install buildpath.children
 
     cd "src/github.com/janeczku/docker-machine-vultr" do

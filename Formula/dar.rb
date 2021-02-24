@@ -1,22 +1,25 @@
 class Dar < Formula
   desc "Backup directory tree and files"
   homepage "http://dar.linux.free.fr/doc/index.html"
-  url "https://downloads.sourceforge.net/project/dar/dar/2.5.16/dar-2.5.16.tar.gz"
-  sha256 "e957c97101a17dc91dca00078457f225d2fa375d0db0ead7a64035378d4fc33b"
+  url "https://downloads.sourceforge.net/project/dar/dar/2.6.13/dar-2.6.13.tar.gz"
+  sha256 "3fea9ff9e55fb9827e17a080de7d1a2605b82c2320c0dec969071efefdbfd097"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/dar[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "6d643ec441c9ed7da176da5ce56413c918b7cad23d5ae6cd995766698461aa26" => :catalina
-    sha256 "3009db4f526f3657c3008475df42b5e1759ad9964c513f541de3c3c05e971ffb" => :mojave
-    sha256 "b872b6741e38ea818e1836fd218733331219c15acfb84a638dc213eec8925f6e" => :high_sierra
-    sha256 "263659de5c6418cadae4d2bbe71c4b45c14d7d5e91ae1fa62a8e2c7e8b3a2fd5" => :sierra
+    sha256 cellar: :any, big_sur:     "7a7fc7d0cc33e3997ad565ce07648ed50e10b29195c56ab13de3963e5a22271f"
+    sha256 cellar: :any, catalina:    "e3c5b475201e6916f344653c86357a54cdd5bf081a6b5ecc72e1f8cea67bbb8d"
+    sha256 cellar: :any, mojave:      "3297d386d1572cf82676d96809cea6b54a4338c1a51213c6c059c81206b98c5b"
+    sha256 cellar: :any, high_sierra: "7f44bc4ac5e17f47705f8a338517432690dadcf6e6f9e7cce502624d4849c6ca"
   end
 
   depends_on "upx" => :build
   depends_on "libgcrypt"
   depends_on "lzo"
-  depends_on :macos => :el_capitan # needs thread-local storage
 
   def install
     ENV.cxx11
@@ -24,7 +27,6 @@ class Dar < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--disable-build-html",
                           "--disable-dar-static",
-                          "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-libxz-linking",
                           "--enable-mode=64"

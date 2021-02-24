@@ -1,14 +1,16 @@
 class Highlight < Formula
   desc "Convert source code to formatted text with syntax highlighting"
   homepage "http://www.andre-simon.de/doku/highlight/en/highlight.php"
-  url "http://www.andre-simon.de/zip/highlight-3.54.tar.bz2"
-  sha256 "8a50a85e94061b53085c6ad8cf110039217dbdd411ab846f9ff934bec7ecd6d0"
+  url "http://www.andre-simon.de/zip/highlight-3.61.tar.bz2"
+  sha256 "b3d0b1fafffd01d45a96e8ac0e981d18814e7482df3f9e0b499c6be9e0d1a970"
+  license "GPL-3.0-or-later"
   head "https://gitlab.com/saalen/highlight.git"
 
   bottle do
-    sha256 "c02c61dfc4aee5d36e7567fba45f05552bab5e26a99d7b39693149ade95d3c7f" => :catalina
-    sha256 "a0f9bcef112645b17cfc3b71379a4d0da12c6e1341a3690fb23f3721002db317" => :mojave
-    sha256 "b917103aa86aa45d780a1118e8058daafab9ae749fac1a18cbc8000080056bd7" => :high_sierra
+    sha256 arm64_big_sur: "03766e3933b3fd02d4ef399053750d27019f935f70116cd13d9c1f532c902a72"
+    sha256 big_sur:       "9a7c7481b761f6e679d1d23fa43096ed0f7634e4fd8d6819212cb16d5c92da99"
+    sha256 catalina:      "574afc4567ba334842f54e3b1383f887b85787acdfd7ed00236d4226ea7ea239"
+    sha256 mojave:        "8700ff1859f02d5453d3ceac994424f531d76f21f965557b043cecc1d07bf9e4"
   end
 
   depends_on "boost" => :build

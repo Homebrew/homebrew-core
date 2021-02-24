@@ -1,15 +1,20 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "https://zeromq.org/"
-  url "https://github.com/zeromq/libzmq/releases/download/v4.3.2/zeromq-4.3.2.tar.gz"
-  sha256 "ebd7b5c830d6428956b67a0454a7f8cbed1de74b3b01e5c33c5378e22740f763"
+  url "https://github.com/zeromq/libzmq/releases/download/v4.3.4/zeromq-4.3.4.tar.gz"
+  sha256 "c593001a89f5a85dd2ddf564805deb860e02471171b3f204944857336295c3e5"
+  license "LGPL-3.0-or-later" => { with: "LGPL-3.0-linking-exception" }
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "c1b7ef404ebaf2a6dbfbe3912495d0120f952cfa12be44ed19581f4cbbc8e699" => :catalina
-    sha256 "f128049b3857d2b3be7fe355441b2dae455ccc5dae2d64e9d7e9d3abd5f014d5" => :mojave
-    sha256 "11b7d1bf3457a32c1c94716bef3f899106125e772939acb1ad6b0ae308dff863" => :high_sierra
-    sha256 "3de5d5f7d5d686855aadee66616516590fe8b73b5250d259144a1575a95802e8" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "eb0ee61f9c1e894c9ad5e55a5a8bc0b3859d56fab57179f82e3e41df6ca4b9f5"
+    sha256 cellar: :any, big_sur:       "579862174f4ce6883fe9871e52d0d4306c8daa67ecc7b5ab94c6174e29bb54bb"
+    sha256 cellar: :any, catalina:      "64bdc5d8d6cc656f1a086157bdbe565f658996f93e8d65af2ad222d80b23aa08"
+    sha256 cellar: :any, mojave:        "ee58ce5abf154406908cbc5104126d543ff47d62ae90319b4b7227726adb885b"
   end
 
   head do
@@ -24,6 +29,8 @@ class Zeromq < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "xmlto" => :build
 
+  depends_on "libsodium"
+
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
     if MacOS.version == :high_sierra
@@ -37,7 +44,7 @@ class Zeromq < Formula
     # https://github.com/Homebrew/homebrew-core/pull/35940#issuecomment-454177261
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "--with-libsodium"
     system "make"
     system "make", "install"
   end

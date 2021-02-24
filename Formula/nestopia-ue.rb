@@ -1,16 +1,17 @@
 class NestopiaUe < Formula
-  desc "Nestopia UE (Undead Edition): NES emulator"
+  desc "NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
-  url "https://downloads.sourceforge.net/project/nestopiaue/1.49/nestopia-1.49.tgz"
-  sha256 "653e6a39376b883196a32926691aef0071cc881d3256d2f0394c248a010560ba"
-  head "https://github.com/rdanbrook/nestopia.git"
+  url "https://github.com/0ldsk00l/nestopia/archive/1.50.tar.gz"
+  sha256 "f0274f8b033852007c67237897c69725b811c0df8a6d0120f39c23e990662aae"
+  license "GPL-2.0"
+  head "https://github.com/0ldsk00l/nestopia.git"
 
   bottle do
-    sha256 "64ca845207bcc0dbb8b9163aed6b60956f50dd707bd705850a11694566c8762a" => :catalina
-    sha256 "8c13d064015561a0707b4f47989d193527773af0021cbae1120b53d6a688ad20" => :mojave
-    sha256 "2be015b071a5d17bd3a28aa2348949eeb91659c94efa12226adff66e8934356d" => :high_sierra
-    sha256 "148a7754f387640b112f447327d23322e9d43b938d7aba9a584c311850fc284c" => :sierra
-    sha256 "43b5dd65950c2bf19aebbb77f307e96933557597379b83023fd3914a26d4666c" => :el_capitan
+    sha256 arm64_big_sur: "21dd1ec76826e208b26d981ebfafbef95d8c2f4a00330cd7556bc366e5bc7745"
+    sha256 big_sur:       "d6a31de30e416aaa7cb365b22c35555947fa4967d3f0d7b334694e63e70c08a8"
+    sha256 catalina:      "19acd9260a874dec614062d0362a5936a0d9322e9fe66f0f8426d0dec67a6dd6"
+    sha256 mojave:        "e41a57949e9ebeffd1fa72de619da0dc2bbc813adf1b83922a0151362a9b9f04"
+    sha256 high_sierra:   "dc7632deb424cbfd112350aa1ddad0d1b0715cce9ebfda0bbbd8e77640cea044"
   end
 
   depends_on "autoconf" => :build
@@ -33,6 +34,6 @@ class NestopiaUe < Formula
   end
 
   test do
-    assert_match /Nestopia UE #{version}$/, shell_output("#{bin}/nestopia --version")
+    assert_match(/Nestopia UE #{version}$/, shell_output("#{bin}/nestopia --version"))
   end
 end

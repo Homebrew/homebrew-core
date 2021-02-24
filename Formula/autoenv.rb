@@ -3,6 +3,7 @@ class Autoenv < Formula
   homepage "https://github.com/kennethreitz/autoenv"
   url "https://github.com/kennethreitz/autoenv/archive/v0.2.1.tar.gz"
   sha256 "d10ee4d916a11a664453e60864294fec221c353f8ad798aa0aa6a2d2c5d5b318"
+  license "MIT"
   head "https://github.com/kennethreitz/autoenv.git"
 
   bottle :unneeded
@@ -11,10 +12,11 @@ class Autoenv < Formula
     prefix.install "activate.sh"
   end
 
-  def caveats; <<~EOS
-    To finish the installation, source activate.sh in your shell:
-      source #{opt_prefix}/activate.sh
-  EOS
+  def caveats
+    <<~EOS
+      To finish the installation, source activate.sh in your shell:
+        source #{opt_prefix}/activate.sh
+    EOS
   end
 
   test do

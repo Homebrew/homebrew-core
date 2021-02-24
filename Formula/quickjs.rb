@@ -1,13 +1,16 @@
 class Quickjs < Formula
   desc "Small and embeddable JavaScript engine"
   homepage "https://bellard.org/quickjs/"
-  url "https://bellard.org/quickjs/quickjs-2019-10-27.tar.xz"
-  sha256 "51cdca4eb7851d2eb8b28d442dfaa36213920171a0cf0ebc046802369434a176"
+  url "https://bellard.org/quickjs/quickjs-2020-11-08.tar.xz"
+  sha256 "2e9d63dab390a95ed365238f21d8e9069187f7ed195782027f0ab311bb64187b"
+  license "MIT"
 
   bottle do
-    sha256 "a8e771d888b7e3f540cbff0a9de250a86c591d4979ce0b92aaa0fa861a88eefd" => :catalina
-    sha256 "83c8e56fb121b974a608a6364d8805a7b2e5aa685f2ee2e68a3374eb08885945" => :mojave
-    sha256 "9447184b11119f128e4a24284a08e2fc6598bd7b49f461025270711b0dfd117a" => :high_sierra
+    sha256 arm64_big_sur: "29e5de752f621c3c40a18d0616b766fe30a1961d829a975adca2ee1f00e48cc9"
+    sha256 big_sur:       "207638559af40db48e5656b490f27aede6882af7dc2cd8721c25d907d54e1fb3"
+    sha256 catalina:      "b88f53813926176757beb784b812e17e53522de98e078ae97c385d349a13818c"
+    sha256 mojave:        "93f6dc2c5dfd6ac8250b5595a242a5d2892a6a09b4f5999c029ce5bf0e1bb951"
+    sha256 high_sierra:   "dfdee7a1285ce8648695c388f8fce766e2113bcd6b11ebd5ba4f21baf988c0fd"
   end
 
   def install
@@ -16,7 +19,7 @@ class Quickjs < Formula
 
   test do
     output = shell_output("#{bin}/qjs --eval 'const js=\"JS\"; console.log(`Q${js}${(7 + 35)}`);'").strip
-    assert_match /^QJS42/, output
+    assert_match(/^QJS42/, output)
 
     path = testpath/"test.js"
     path.write "console.log('hello');"

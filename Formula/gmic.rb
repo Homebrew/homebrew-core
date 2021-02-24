@@ -1,16 +1,21 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_2.8.1.tar.gz"
-  sha256 "1a2b4c75c428201e52e920bd07e6c04118ae294cb89fce3c1c4ef386421b2a7a"
-  revision 1
+  url "https://gmic.eu/files/source/gmic_2.9.6.tar.gz"
+  sha256 "d22fe8515af16dcd050d09a0bc7127ec29f4795ce732a0c6c3eaf839356bc11a"
+  license "CECILL-2.1"
   head "https://github.com/dtschump/gmic.git"
 
+  livecheck do
+    url "https://gmic.eu/files/source/"
+    regex(/href=.*?gmic[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "8c84dd3859b104dda7b701de6ac595c11b23ab34fd99f90dca3a4ded80a8ba34" => :catalina
-    sha256 "dc8d5647e0bfadbfeb6e8cbec7a6bfbff5442987a5d0c4b492398860370312b6" => :mojave
-    sha256 "1f50e9f137f3f50219799b5db1416f2464e6b161e69bd17cedb25c0bdbe9957f" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "bd18f4f2e8557ca15a3934979359a475c18480beb84efbff3da7a57be0de71e6"
+    sha256 cellar: :any, big_sur:       "1949476d0f283e41c00bf4f13a149ddaf4937fa55d009cd0ac1516e7658b5cbd"
+    sha256 cellar: :any, catalina:      "41cbbf00a1243f39d8d04aecde7c03fae52e8b5ea6bba4ed1a7cef2f75ca5dad"
+    sha256 cellar: :any, mojave:        "9ba5b0bdd609d95dd3bb2387316ea6bcc913f05baad6189cc32388ecc4544a59"
   end
 
   depends_on "cmake" => :build

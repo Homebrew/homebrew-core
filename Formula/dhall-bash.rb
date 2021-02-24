@@ -1,26 +1,23 @@
-require "language/haskell"
-
 class DhallBash < Formula
-  include Language::Haskell::Cabal
-
   desc "Compile Dhall to Bash"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-bash"
-  url "https://hackage.haskell.org/package/dhall-bash-1.0.25/dhall-bash-1.0.25.tar.gz"
-  sha256 "63cbe958fde5d743c8ff2684f227838263bda263877d7146e0011b20a1e8ae2f"
+  url "https://hackage.haskell.org/package/dhall-bash-1.0.36/dhall-bash-1.0.36.tar.gz"
+  sha256 "806729f2570a2b7b21ea6b22ae3d59068ace7ac680e8b67a5294dd40652fe441"
+  license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1416acab7e130daddf5fee412e74c146477d9b721f280b380d809176d7591f7e" => :catalina
-    sha256 "785bd86f1d6aac31852827b08263d7d4148272b4b4f0fae6f7c314cefddb7edc" => :mojave
-    sha256 "22ce8a22b5706585d65dca81dda7aa1ece47144193c1067d34258db4142b23cf" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "ff169b03989ee4be306ae22c8ea13c27c4cbbbfc7788a1a8f7cb235b5c542d41"
+    sha256 cellar: :any_skip_relocation, catalina: "9b77b50a8b7e5f4c4120bfce5c8707f6a79ffe7b22dbaae333f9abf8a9615e91"
+    sha256 cellar: :any_skip_relocation, mojave:   "fa95bd94241e6deb34609f4d00a837a6b38bb3274add886c0df85b52c00d9e73"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do

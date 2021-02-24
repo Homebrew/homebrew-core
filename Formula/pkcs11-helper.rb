@@ -1,17 +1,22 @@
 class Pkcs11Helper < Formula
   desc "Library to simplify the interaction with PKCS#11"
   homepage "https://github.com/OpenSC/OpenSC/wiki/pkcs11-helper"
-  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.25.1/pkcs11-helper-1.25.1.tar.bz2"
-  sha256 "10dd8a1dbcf41ece051fdc3e9642b8c8111fe2c524cb966c0870ef3413c75a77"
-  revision 1
+  url "https://github.com/OpenSC/pkcs11-helper/releases/download/pkcs11-helper-1.27/pkcs11-helper-1.27.0.tar.bz2"
+  sha256 "653730f0c561bbf5941754c0783976113589b2dc64a0661c908dc878bfa4e58b"
+  license any_of: ["BSD-3-Clause", "GPL-2.0-or-later"]
   head "https://github.com/OpenSC/pkcs11-helper.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/pkcs11-helper[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "7bfe86fac0370ae0e6e10f9b5dff360e6aef757aa23f9484d4027be8a7490b25" => :catalina
-    sha256 "c1f7cd0ecece3f42d6e26888f4bc2dadbf8276f5ddbbafc566515abb19494a9f" => :mojave
-    sha256 "847249ed020552d1cd72935407e19b47d1b421e6d2c61761587af9598ac84afb" => :high_sierra
-    sha256 "7e4e2e52985c686dbd0cde59940c59741129694adddfbd64308f5fccfc35e055" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "79eaec51f13a0bda941703a652f790a2306233428878fd9c2beaca7fcbdb9422"
+    sha256 cellar: :any, big_sur:       "84c49ac08cc1c9f222742d7aa3bd628b32673d2376efbe7059fc8d355ff540ad"
+    sha256 cellar: :any, catalina:      "5cdee7e99d40242d5026b2fbb448f7390e272bb610f8f7a125ab599941c73a06"
+    sha256 cellar: :any, mojave:        "3bc3ca9909c0cc67a51ab579ed498dbc9c9dc2842d572b5adc4c715405f78ada"
   end
 
   depends_on "autoconf" => :build

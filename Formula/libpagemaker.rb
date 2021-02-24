@@ -3,14 +3,21 @@ class Libpagemaker < Formula
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libpagemaker"
   url "https://dev-www.libreoffice.org/src/libpagemaker/libpagemaker-0.0.4.tar.xz"
   sha256 "66adacd705a7d19895e08eac46d1e851332adf2e736c566bef1164e7a442519d"
+  license "MPL-2.0"
+
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libpagemaker[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "9759e3d26a09e7b99bbf3c49f05bfa7724334b639245f5791d9bada9df977d68" => :catalina
-    sha256 "05fafc8fea710cc53cd310192364d72b9458114b5404fdff8f6adbff2f9175bf" => :mojave
-    sha256 "db0f93e5cf4cb6dfe4810b7cb8240db5c2c439a717d09def2f6163e3db6984c6" => :high_sierra
-    sha256 "0809994f61c8cd34e4edca3496273f293d314e89da5e8ec2a3df280cf436ba37" => :sierra
-    sha256 "10c23ab2759830f22ff8080cd4da18252fb719445bd651ab4664e785682c100a" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "e95a8d6dca9411adefbeb5bebd6e34112f0deec1ec9fe0d8f9bea5502f2a7a37"
+    sha256 cellar: :any, big_sur:       "ccdd8cd950304039a111f5ee80658b809c040d83f6321701384bc96dc596b569"
+    sha256 cellar: :any, catalina:      "9759e3d26a09e7b99bbf3c49f05bfa7724334b639245f5791d9bada9df977d68"
+    sha256 cellar: :any, mojave:        "05fafc8fea710cc53cd310192364d72b9458114b5404fdff8f6adbff2f9175bf"
+    sha256 cellar: :any, high_sierra:   "db0f93e5cf4cb6dfe4810b7cb8240db5c2c439a717d09def2f6163e3db6984c6"
+    sha256 cellar: :any, sierra:        "0809994f61c8cd34e4edca3496273f293d314e89da5e8ec2a3df280cf436ba37"
+    sha256 cellar: :any, el_capitan:    "10c23ab2759830f22ff8080cd4da18252fb719445bd651ab4664e785682c100a"
   end
 
   depends_on "boost" => :build

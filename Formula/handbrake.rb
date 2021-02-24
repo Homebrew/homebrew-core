@@ -1,15 +1,16 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
-  url "https://download.handbrake.fr/releases/1.3.0/HandBrake-1.3.0-source.tar.bz2"
-  sha256 "a9a82eb5ca04a793705b3d7d11cefa29946694eeb13b40161446aaca35b31d96"
+  url "https://github.com/HandBrake/HandBrake/releases/download/1.3.3/HandBrake-1.3.3-source.tar.bz2"
+  sha256 "218a37d95f48b5e7cf285363d3ab16c314d97627a7a710cab3758902ae877f85"
+  license "GPL-2.0"
+  revision 1
   head "https://github.com/HandBrake/HandBrake.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "534166801eb1c879babba506733d839e563bad09a5420b0b9d7b0ccc741d2a30" => :catalina
-    sha256 "58a3e271b88e38cd986eda9ec3f87e4807c4bb782c72134420115891e6b77adb" => :mojave
+    sha256 cellar: :any_skip_relocation, big_sur:  "5bb8e03dae1aa55d317425c029259de5b89b488f4a701d06baa2c3a1d1f7e98c"
+    sha256 cellar: :any_skip_relocation, catalina: "ab4f6d98eb86afd4c71f74310867a8e919c827ea44c5aea52d56c9de33884ac8"
+    sha256 cellar: :any_skip_relocation, mojave:   "7dd630c2fb5ea87ab59bd0e3c161b8091906484d7c286438cea86faaef2961cb"
   end
 
   depends_on "autoconf" => :build
@@ -20,11 +21,12 @@ class Handbrake < Formula
   depends_on "nasm" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
-  depends_on :xcode => ["10.3", :build]
+  depends_on "python@3.9" => :build
+  depends_on xcode: ["10.3", :build]
   depends_on "yasm" => :build
 
   def install
+    inreplace "contrib/ffmpeg/module.defs", "$(FFMPEG.GCC.gcc)", "cc"
     system "./configure", "--prefix=#{prefix}",
                           "--disable-xcode",
                           "--disable-gtk"

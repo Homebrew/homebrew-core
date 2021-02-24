@@ -1,27 +1,37 @@
 class YubicoPivTool < Formula
   desc "Command-line tool for the YubiKey PIV application"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-1.7.0.tar.gz"
-  sha256 "b428527e4031453a637128077983e782e9fea25df98e95e0fc27819b2e82fd7f"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.2.0.tar.gz"
+  sha256 "74cb2e03c7137c0dd529f35a230b4a598121cb71b10d7e55b91fd0cdefcac457"
+  license "BSD-2-Clause"
+
+  livecheck do
+    url "https://developers.yubico.com/yubico-piv-tool/Releases/"
+    regex(/href=.*?yubico-piv-tool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "9e370aff78e01f8f0ded41fd2b2cde9ec6e56b338638699d8fa5695219878fb3" => :catalina
-    sha256 "3f2eed436a541be3d2237fbd67c46c80187b70e20ec025e5d218765486f57ac3" => :mojave
-    sha256 "bb089bf8da6abf4c048c2173039d7587df31437eb01d52ac9f254286fe38ec9a" => :high_sierra
-    sha256 "7af412bcd780062bb35eae49852dd16bb46cae272543e0a0f3375d3380fd52b4" => :sierra
+    sha256 arm64_big_sur: "a4819de1638f828cbd2e9c5e50f9830a91ed578fb42ae2fbb073d5bc66fbb38c"
+    sha256 big_sur:       "446b3d63b270dd3bdd27adec31503c02553a0e0d4fb2610082e392e85061d528"
+    sha256 catalina:      "72474492baf278c59ec478cb24f2c8730ff9f59f0e1963a473a6d7ad94df4e12"
+    sha256 mojave:        "395ffe7d667fab0964b4544bb9cc4476ddcbc77eedce706c3f4c5fa4524d0e14"
   end
 
   depends_on "check" => :build
+  depends_on "cmake" => :build
+  depends_on "gengetopt" => :build
+  depends_on "help2man" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "check"
   depends_on "openssl@1.1"
+  depends_on "pcsc-lite"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_C_FLAGS=-I#{Formula["pcsc-lite"].opt_include}/PCSC"
+      system "make", "install"
+    end
   end
 
   test do

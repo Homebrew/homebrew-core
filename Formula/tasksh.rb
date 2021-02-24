@@ -1,21 +1,31 @@
 class Tasksh < Formula
   desc "Shell wrapper for Taskwarrior commands"
-  homepage "https://tasktools.org/projects/tasksh.html"
+  homepage "https://gothenburgbitfactory.org/projects/tasksh.html"
   url "https://taskwarrior.org/download/tasksh-1.2.0.tar.gz"
   sha256 "6e42f949bfd7fbdde4870af0e7b923114cc96c4344f82d9d924e984629e21ffd"
-  head "https://github.com/GothenburgBitFactory/taskshell.git", :branch => "1.3.0"
+  license "MIT"
+  revision 1
+  head "https://github.com/GothenburgBitFactory/taskshell.git", branch: "1.3.0"
+
+  livecheck do
+    url "https://gothenburgbitfactory.org"
+    regex(/href=.*?tasksh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "db065e61ef2e605a1987012eaf4c0f10b648a98da3d143b9a02e1c22d51216f7" => :catalina
-    sha256 "c766ebd317962a04a3d78a4fbcc202085a27e0d15f63debf095f84a9a97d6306" => :mojave
-    sha256 "17f99be8d0aea4c43877fbfb121b7989047f04650ccffa85e948859e8ee51e0b" => :high_sierra
-    sha256 "fd1b333c777401c53d5ddc8aaf52150a2a15fea4230a91d457d9d99ce2819ee7" => :sierra
-    sha256 "d695adcf10582123053612d98ed4bf988b22c50919598bf167bc2e62db142352" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "590c43b791080cc6ca56cef896c9e75a8ca77915b061a1d0a711a0489e69ab63"
+    sha256 cellar: :any, big_sur:       "987789014e770fb3b4b1d4500321877c457ba2a1dde2fc9925762dfb0d7da541"
+    sha256 cellar: :any, catalina:      "68a13aa8ea81fd1fe7c2c5e9eadd3850fe21265b34c4cf2f1cf7e7ede3caeaee"
+    sha256 cellar: :any, mojave:        "a2178acd290abac6dc8c024b48304c05660616639c7de1c7b35eb166ae8345dc"
   end
 
   depends_on "cmake" => :build
   depends_on "task"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args

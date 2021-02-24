@@ -1,20 +1,23 @@
 class Grin < Formula
   desc "Minimal implementation of the Mimblewimble protocol"
   homepage "https://grin.mw/"
-  url "https://github.com/mimblewimble/grin/archive/v2.1.1.tar.gz"
-  sha256 "189d45cb08fd19a60d0b1a7e592e527235a7db4da7cb6b0f017f36a643374e18"
+  url "https://github.com/mimblewimble/grin/archive/v5.0.1.tar.gz"
+  sha256 "cfa60340f941fef8fd80ff7f2db62659ce2a581163603f921a5c401f70fd4f9d"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5e47755a4c84467215c30717440af6de9e7dde7f303e4096966f9220769eb0dd" => :catalina
-    sha256 "c4f5424a3554bbdc6ee95761a58c18b16cbb8d8a8601d516d12d9ba5439e366a" => :mojave
-    sha256 "86a2b05e7b3a45b695d0556a50c18bcbe0cbd4197cbebc094280053f7a5dd28d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "23508e8aeb1f492d02cab86a37ee13a01b7c91e51ba9f99915bb290168aa65e3"
+    sha256 cellar: :any_skip_relocation, catalina: "614b5706b1411d4fe034892ebd04757c8130dce05c839bb49c530ef35aff7c18"
+    sha256 cellar: :any_skip_relocation, mojave:   "367c827e429afa3bff4c03f2c272d8e6b18346eda070994afe32230a6f3f59da"
   end
 
+  depends_on "llvm" => :build # for libclang
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
+
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

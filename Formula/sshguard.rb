@@ -1,16 +1,16 @@
 class Sshguard < Formula
   desc "Protect from brute force attacks against SSH"
   homepage "https://www.sshguard.net/"
-  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.4.0/sshguard-2.4.0.tar.gz"
-  sha256 "065ca4091b3a96802714b560dbbc3d9f0e67574e99e2b6e8857aa1027d17d6c0"
+  url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.4.1/sshguard-2.4.1.tar.gz"
+  sha256 "875d02e6e67dced614790ed5e36aef1160edea940f353a79306cbb1852af3c67"
   version_scheme 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "033c09dbb290b68e8b33ce6709fba3b8764342af4b1ddac8d91b4e63973caea0" => :catalina
-    sha256 "63af5b9fe223253a1798e8500475af1675c8a36d987628b9e195a5da33bad252" => :mojave
-    sha256 "54bb8831aaf7de0a2ba0ee3780e34a76dd67e90d3db8bcf5e3496ec78e4d5b56" => :high_sierra
-    sha256 "94c8ecf69111d23d51cc2e61ecfc0438dd9006236340e659ed094b8d7e3fd699" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24aa4cab661aa1ecdf1c2f20e80de6cd7bc90ec928a7d251dbd0d45b0983e0b1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9a11ca09ad3478fbd84a62c21e94c4f9997fedd210fd3ac271a8abb9fc006267"
+    sha256 cellar: :any_skip_relocation, catalina:      "77cd7948bbc56730642e7698416d00b8313cb1273919d762f55d6054c1631e25"
+    sha256 cellar: :any_skip_relocation, mojave:        "6b817c8751e409999328cdf22aba24701af0ab9c02d1d9c652285dacaa4968bd"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0f006d36404600cb1053df6073142d394cbe166525ab37cb62a4a8c56b7f369f"
   end
 
   head do
@@ -31,11 +31,11 @@ class Sshguard < Formula
     inreplace man8/"sshguard.8", "%PREFIX%/etc/", "#{etc}/"
     cp "examples/sshguard.conf.sample", "examples/sshguard.conf"
     inreplace "examples/sshguard.conf" do |s|
-      s.gsub! /^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-pf\""
+      s.gsub!(/^#BACKEND=.*$/, "BACKEND=\"#{opt_libexec}/sshg-fw-pf\"")
       if MacOS.version >= :sierra
         s.gsub! %r{^#LOGREADER="/usr/bin/log}, "LOGREADER=\"/usr/bin/log"
       else
-        s.gsub! /^#FILES.*$/, "FILES=/var/log/system.log"
+        s.gsub!(/^#FILES.*$/, "FILES=/var/log/system.log")
       end
     end
     etc.install "examples/sshguard.conf"
@@ -53,26 +53,27 @@ class Sshguard < Formula
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>KeepAlive</key>
-      <true/>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/sshguard</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>KeepAlive</key>
+        <true/>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/sshguard</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

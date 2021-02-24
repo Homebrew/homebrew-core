@@ -3,15 +3,15 @@ class CrosstoolNg < Formula
   homepage "https://crosstool-ng.github.io/"
   url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.24.0.tar.xz"
   sha256 "804ced838ea7fe3fac1e82f0061269de940c82b05d0de672e7d424af98f22d2d"
-  revision 1
+  license "GPL-2.0-only"
+  revision 2
   head "https://github.com/crosstool-ng/crosstool-ng.git"
 
   bottle do
-    cellar :any
-    sha256 "733a1e37563ffd06a187fdad312bb03e1eca1467832771b57141b4542b81464a" => :catalina
-    sha256 "f95cc7d4b3bfcc8584d89c5dfa11d39e246c36ca2d707b108d5330fe24ac41c7" => :mojave
-    sha256 "c7f30be654aece34ce9e7cf5fc08f745cad233ff11ad1fd81826d9344a22345b" => :high_sierra
-    sha256 "b4d034ebac32df3affdd139f4c49804b74216bf372a9831c01693220d442a39a" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "6b511659323ff03bd405c20e8591cacb55dbb081fe8f2416666228d9ed4cf1a8"
+    sha256 cellar: :any, big_sur:       "179cfc5008cbff1c21aba36ba14a9fb76e927035bf2554cdd0761382d70e58ca"
+    sha256 cellar: :any, catalina:      "77abb4c65e4eeabbc3300464367462c9342b6b4a6aa2342d6f92c6a682f91dd9"
+    sha256 cellar: :any, mojave:        "897d58874abdcf5dd4b7e606e8996f16255a996f53df29ff9dfcc2774ca5ef22"
   end
 
   depends_on "help2man" => :build
@@ -30,17 +30,22 @@ class CrosstoolNg < Formula
   depends_on "lzip"
   depends_on "m4"
   depends_on "make"
-  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
+  depends_on "ncurses"
+  depends_on "python@3.9"
   depends_on "xz"
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "gperf" => :build
+  uses_from_macos "texinfo" => :build
+  uses_from_macos "unzip" => :build
+
   def install
-    if build.head?
-      system "./bootstrap"
-    end
+    system "./bootstrap" if build.head?
 
     ENV["BISON"] = "#{Formula["bison"].opt_bin}/bison"
     ENV["M4"] = "#{Formula["m4"].opt_bin}/m4"
     ENV["MAKE"] = "#{Formula["make"].opt_bin}/gmake"
+    ENV["PYTHON"] = "#{Formula["python@3.9"].opt_bin}/python3"
     ENV.append "LDFLAGS", "-lintl"
 
     system "./configure", "--prefix=#{prefix}"

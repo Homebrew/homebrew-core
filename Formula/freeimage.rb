@@ -4,14 +4,15 @@ class Freeimage < Formula
   url "https://downloads.sourceforge.net/project/freeimage/Source%20Distribution/3.18.0/FreeImage3180.zip"
   version "3.18.0"
   sha256 "f41379682f9ada94ea7b34fe86bf9ee00935a3147be41b6569c9605a53e438fd"
+  license "FreeImage"
+  head "https://svn.code.sf.net/p/freeimage/svn/FreeImage/trunk/"
 
   bottle do
-    cellar :any
-    sha256 "dd2d5bf49573e8285829a3d8e35b2c3932b7308731f3c07a663f90aac853c2cc" => :catalina
-    sha256 "a7b9b40dfcbd8f1ce76d67fb537b5be968f01fbdf85f246e449d6a4477551a0a" => :mojave
-    sha256 "f3372b5ce748afa7c99da67a593c3e1f112b5aa4b28b36da6a17ee4428158c68" => :high_sierra
-    sha256 "24423414222aa7c629f53aadeef266a1e7f3aa50e4138f4a876eadaba634d6c6" => :sierra
-    sha256 "cf6a38a128929d3202ffbca5443ee07268d2de2360126353449b698e56830e15" => :el_capitan
+    rebuild 3
+    sha256 cellar: :any, arm64_big_sur: "02080c0a6c32413b1e85f6e1393559426b77f0a7e5dcfda406617bc6e46a13e0"
+    sha256 cellar: :any, big_sur:       "948feca0476789f7061b3a0502aaa7820366a309ebad1abd73ff6b7a0c242402"
+    sha256 cellar: :any, catalina:      "fabc22f3effecdb629ea6585e005aa09b9d3c3cf73fa0e3021370550e6f8832e"
+    sha256 cellar: :any, mojave:        "f9b3f364e75ce8f0d61be663ef022d88a9b401d2d675599949ff9b19fbf39bc0"
   end
 
   patch do
@@ -20,6 +21,10 @@ class Freeimage < Formula
   end
 
   def install
+    # Temporary workaround for ARM. Upstream tracking issue:
+    # https://sourceforge.net/p/freeimage/bugs/325/
+    # https://sourceforge.net/p/freeimage/discussion/36111/thread/cc4cd71c6e/
+    ENV["CFLAGS"] = "-O3 -fPIC -fexceptions -fvisibility=hidden -DPNG_ARM_NEON_OPT=0" if Hardware::CPU.arm?
     system "make", "-f", "Makefile.gnu"
     system "make", "-f", "Makefile.gnu", "install", "PREFIX=#{prefix}"
     system "make", "-f", "Makefile.fip"
@@ -28,6 +33,7 @@ class Freeimage < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <stdlib.h>
       #include <FreeImage.h>
       int main() {
          FreeImage_Initialise(0);

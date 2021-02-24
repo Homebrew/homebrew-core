@@ -1,16 +1,19 @@
 class Ledit < Formula
   desc "Line editor for interactive commands"
   homepage "http://pauillac.inria.fr/~ddr/ledit/"
-  url "http://pauillac.inria.fr/~ddr/ledit/distrib/src/ledit-2.04.tgz"
-  sha256 "484897016b001b6d64eb24e38a213177b230ebf8e0d9808a969b62f012e70ee4"
+  url "https://github.com/chetmurthy/ledit/archive/ledit-2-05.tar.gz"
+  version "2.05"
+  sha256 "493ee6eae47cc92f1bee5f3c04a2f7aaa0812e4bdf17e03b32776ab51421392c"
+
+  livecheck do
+    url :homepage
+    regex(/current .*? is v?(\d+(?:\.\d+)+) /i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "084768158bc35e6f6eb496d0adea9253cbbb18738c8ef03318a079fef179fc80" => :catalina
-    sha256 "10b506580124bb9ac062675ae72d70d95b73ee67483d6968b8628b7a01cd6653" => :mojave
-    sha256 "55df7d80dfcfb5c04274f9a33a5fc03a4a1b9b2b1fb4f3b08c0cef83759c74a3" => :high_sierra
-    sha256 "b7e2b19079d843f9704572bf21de6251e7a6619d809ce230e22be5440517ab57" => :sierra
-    sha256 "952162580a2542b7038b2702b8a2ed9223e519ca703b221daf054566723ecd59" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:  "2d404ace597c8a7062fbe96e15e9e7d1226ec5ca97e0c8981062c77fef10b4eb"
+    sha256 cellar: :any_skip_relocation, catalina: "158141ebf4edc253de428b8789d77eae0b19fdd4d8002e9910cf4c2486a12bb6"
+    sha256 cellar: :any_skip_relocation, mojave:   "463dd47cebd8510a630e39008b001e52659f64f1bcda7503bdc8a0f28e55adfc"
   end
 
   depends_on "camlp5"

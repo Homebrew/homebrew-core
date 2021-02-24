@@ -1,14 +1,15 @@
 class Ship < Formula
   desc "Reducing the overhead of maintaining 3rd-party applications in Kubernetes"
   homepage "https://www.replicated.com/ship"
-  url "https://github.com/replicatedhq/ship/archive/v0.52.0.tar.gz"
-  sha256 "37622f1671947b038b7061341bfadbaa44e16bb9c59748cce57d2a68fb8f0d54"
+  url "https://github.com/replicatedhq/ship/archive/v0.55.0.tar.gz"
+  sha256 "39cc74fdd884e49301474acafba74128b1a083bbd7e11e349ab6c5da26be8fef"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ba825cf549364ca482c8eef8121fdb3bfd8daef2c62af6dc143d7a2c87ed8c4d" => :catalina
-    sha256 "81ed6e65806188a66840a9bc8dc4181cc7be8c250ce0aad701d9e4f8090382a8" => :mojave
-    sha256 "5f5c45fb4dcf35d1b5b1d8dbcf37dbbe3d9a1cd50b723b56df65288d007ab65d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "17b2f10424c9728a9bbc19bef3af5d9fab3b350fa2aa2620fced62056065f651"
+    sha256 cellar: :any_skip_relocation, big_sur:       "87de3fe44a1b8d881b0cf6be5f74c6261dc8b38deb85e7edb48a0b1ac9d73805"
+    sha256 cellar: :any_skip_relocation, catalina:      "7395a181b4bb2581d17a9a45fd054f5f1c15fe1a43a85f559316aea65e2da66e"
+    sha256 cellar: :any_skip_relocation, mojave:        "740a9cd2f1eef9bf09cb029827f5c4fabbc84dd14ee68babf065f85cceee0f12"
   end
 
   depends_on "go" => :build
@@ -16,13 +17,12 @@ class Ship < Formula
   depends_on "yarn" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    srcpath = buildpath/"src/github.com/replicatedhq/ship"
-    srcpath.install buildpath.children
-    srcpath.cd do
-      system "make", "VERSION=#{version}", "build-minimal"
-      bin.install "bin/ship"
-    end
+    # Needed for `go-bindata-assetfs`, it is downloaded at build time via `go get`
+    ENV["GOBIN"] = buildpath/"bin"
+    ENV.prepend_path "PATH", ENV["GOBIN"]
+
+    system "make", "VERSION=#{version}", "build-minimal"
+    bin.install "bin/ship"
   end
 
   test do

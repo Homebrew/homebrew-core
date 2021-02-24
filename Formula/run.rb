@@ -1,14 +1,16 @@
 class Run < Formula
   desc "Easily manage and invoke small scripts and wrappers"
   homepage "https://github.com/TekWizely/run"
-  url "https://github.com/TekWizely/run/archive/v0.6.5.tar.gz"
-  sha256 "5878541e8e29026bf352f78283424217dbf7322a8282cac13b87aa04644e1b58"
+  url "https://github.com/TekWizely/run/archive/v0.7.2.tar.gz"
+  sha256 "c542b523c67e3cd2ca05a8e2f92cca607181a68518b2568a68b76ed9f700d6e0"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ca616a915230cf04423546409354267e4abc5082f1b8fd27e0fe77e5db4a6a7d" => :catalina
-    sha256 "ca616a915230cf04423546409354267e4abc5082f1b8fd27e0fe77e5db4a6a7d" => :mojave
-    sha256 "ca616a915230cf04423546409354267e4abc5082f1b8fd27e0fe77e5db4a6a7d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "32fff2fd9c8b242912438be13118185afaa20bccad7bb134788ffcc07b66791d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0beed1b3bd5d70f9a8a270a7996d0f309f2cab7cf622556b5d833f8311b8cf7a"
+    sha256 cellar: :any_skip_relocation, catalina:      "4a2329ae36f59ed71c1b6364828c465a27f92506cd77e9a7c8217def3e2b7c9e"
+    sha256 cellar: :any_skip_relocation, mojave:        "4a2329ae36f59ed71c1b6364828c465a27f92506cd77e9a7c8217def3e2b7c9e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4a2329ae36f59ed71c1b6364828c465a27f92506cd77e9a7c8217def3e2b7c9e"
   end
 
   depends_on "go" => :build

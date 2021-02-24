@@ -1,20 +1,30 @@
 class Augustus < Formula
   desc "Predict genes in eukaryotic genomic sequences"
-  homepage "http://bioinf.uni-greifswald.de/augustus/"
+  homepage "https://bioinf.uni-greifswald.de/augustus/"
   url "https://github.com/Gaius-Augustus/Augustus/releases/download/v3.3.3/augustus-3.3.3.tar.gz"
   sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
+  license "Artistic-1.0"
+  revision 1
   head "https://github.com/Gaius-Augustus/Augustus.git"
 
+  livecheck do
+    url "https://bioinf.uni-greifswald.de/augustus/binaries/"
+    regex(/href=.*?augustus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "397da54388ec9d56ee891b021fe313e0e4cfa2e46e80ef177ddd6d24723abec3" => :catalina
-    sha256 "67298cd2aa811dfa953f8d0c9019df12fe2f7aec6cd35ebf1cf27e38fb39e858" => :mojave
-    sha256 "030d9fced4d6863a77e5058f145e2d13560ef0b9aedd1cb01e96c593c9e3cbc6" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "03665ee18df08813482e9ad6b91ff670ea332f828f6a0873ceef68dc0d574048"
+    sha256 cellar: :any, big_sur:       "95ce85b389842f3b394dad647c2917ca16609acfdbb6e9b1f949250ac7beb84a"
+    sha256 cellar: :any, catalina:      "9e6fc1d57f48cf314fa418059a9d619a8451d7e65ed8234225e52f311673cf6d"
+    sha256 cellar: :any, mojave:        "476eeca3de3f98c4e539cee89078a3f37f667ae7f47ef375115439154bc23e3c"
+    sha256 cellar: :any, high_sierra:   "b5077e94d1ee68864ed0d89bfc892ad80dcd37b89e149b23733bd9280d54771b"
   end
 
   depends_on "boost" => :build
   depends_on "bamtools"
   depends_on "gcc"
+
+  uses_from_macos "zlib"
 
   def install
     # Avoid "fatal error: 'sam.h' file not found" by not building bam2wig
@@ -38,14 +48,15 @@ class Augustus < Formula
     # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
     # See also https://github.com/Gaius-Augustus/Augustus/issues/64
     cd "src" do
-      with_env("HOMEBREW_CC" => "gcc-9") do
+      gcc_major_ver = Formula["gcc"].any_installed_version.major
+      with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
         system "make"
       end
     end
 
     system "make"
     system "make", "install", "INSTALLDIR=#{prefix}"
-    bin.env_script_all_files libexec/"bin", :AUGUSTUS_CONFIG_PATH => prefix/"config"
+    bin.env_script_all_files libexec/"bin", AUGUSTUS_CONFIG_PATH: prefix/"config"
     pkgshare.install "examples"
   end
 

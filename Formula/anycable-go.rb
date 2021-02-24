@@ -1,29 +1,46 @@
 class AnycableGo < Formula
-  desc "Anycable Go WebSocket Server"
+  desc "WebSocket server with action cable protocol"
   homepage "https://github.com/anycable/anycable-go"
-  url "https://github.com/anycable/anycable-go/archive/v0.6.4.tar.gz"
-  sha256 "dbcfccdedc7d28d2d70e12a6c2aff77be28a65dcaa27386d3b65465849fff162"
+  url "https://github.com/anycable/anycable-go/archive/v1.0.3.tar.gz"
+  sha256 "8aa780b0ee5bf527fe211585aba2441a9cd5b72e58f353e3d4f76286262bf33a"
+  license "MIT"
+  head "https://github.com/anycable/anycable-go.git"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "7b15a2340fa1fb7ecf97079a1cedbdef0c1f1cf7379f847e70b3f44f08b141e0" => :catalina
-    sha256 "12e069a770ebdd191bc1d6ffbe5de94242e5d54c1e4d8b46600d133fc4d92871" => :mojave
-    sha256 "0ca4a9b558458aa15fbf81ff5aeabff78102fb6031a5c8295b65c2d9f6c558df" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ee40011c6d573f3f567adeec8098428d602580fec188af1191027380b0017989"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4fad3cde32a0582f7c67e5b1c1cf042b26440550adbea601b8e47a8391628763"
+    sha256 cellar: :any_skip_relocation, catalina:      "c9524a91cef04b327a268ed84a95bde54adaf82b82527bb3e086382c81fc6798"
+    sha256 cellar: :any_skip_relocation, mojave:        "3ca5d2a4a546fda4da5e840ef21f80494bcc0fd1df3890040cb63fcfc59911eb"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", "-trimpath", "-o", "#{bin}/anycable-go", "-v", "github.com/anycable/anycable-go/cmd/anycable-go"
+    ldflags = %w[
+      -s -w
+    ]
+    ldflags << if build.head?
+      "-X github.com/anycable/anycable-go/utils.sha=#{version.commit}"
+    else
+      "-X github.com/anycable/anycable-go/utils.version=#{version}"
+    end
+
+    system "go", "build", "-mod=vendor", "-ldflags", ldflags.join(" "), *std_go_args,
+                          "-v", "github.com/anycable/anycable-go/cmd/anycable-go"
   end
 
   test do
+    port = free_port
     pid = fork do
-      exec "#{bin}/anycable-go"
+      exec "#{bin}/anycable-go --port=#{port}"
     end
     sleep 1
-    output = shell_output("curl -sI http://localhost:8080/health")
+    output = shell_output("curl -sI http://localhost:#{port}/health")
     assert_match(/200 OK/m, output)
   ensure
     Process.kill("HUP", pid)

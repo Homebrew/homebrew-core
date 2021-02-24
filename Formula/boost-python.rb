@@ -1,18 +1,23 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
-  sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
+  url "https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
+  sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
+  license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    cellar :any
-    sha256 "c15c8bf03d5ca454c93782648f700c1149c164bec8334561ef3727eee0f0435a" => :catalina
-    sha256 "12e538b3468eff6e1afe41cbe595a389473ad37972fbc1ea69a5abc37ead890e" => :mojave
-    sha256 "d0ff391db5f8864d6025e654708a84629aba54d59bdf7b366a6eb7cdca808918" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any, big_sur:  "773bf09629cf60599cb4118827d40b81ef792efbe24796ac5a756e4c173ba889"
+    sha256 cellar: :any, catalina: "6fb5b45ffb117fa0a996a24f6ccf8041685ebbe65b8a5cea26d92028eeff09e4"
+    sha256 cellar: :any, mojave:   "f17e33b10753adb4d49cd1d9daf46ba28552953e53069025b84393cb5db89223"
   end
 
+  deprecate! date: "2020-01-01", because: "uses Python 2, which is no longer supported"
+
   depends_on "boost"
+  depends_on :macos # Due to Python 2
 
   def install
     # "layout" should be synchronized with boost
@@ -28,9 +33,7 @@ class BoostPython < Formula
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
     args << "cxxflags=-std=c++14"
-    if ENV.compiler == :clang
-      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-    end
+    args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     pyver = Language::Python.major_minor_version "python"
 
@@ -49,12 +52,13 @@ class BoostPython < Formula
     doc.install Dir["libs/python/doc/*"]
   end
 
-  def caveats; <<~EOS
-    This formula provides Boost.Python for Python 2. Due to a
-    collision with boost-python3, the CMake Config files are not
-    available. Please use -DBoost_NO_BOOST_CMAKE=ON when building
-    with CMake or switch to Python 3.
-  EOS
+  def caveats
+    <<~EOS
+      This formula provides Boost.Python for Python 2. Due to a
+      collision with boost-python3, the CMake Config files are not
+      available. Please use -DBoost_NO_BOOST_CMAKE=ON when building
+      with CMake or switch to Python 3.
+    EOS
   end
 
   test do
@@ -70,8 +74,8 @@ class BoostPython < Formula
     EOS
 
     pyprefix = `python-config --prefix`.chomp
-    pyincludes = Utils.popen_read("python-config --includes").chomp.split(" ")
-    pylib = Utils.popen_read("python-config --ldflags").chomp.split(" ")
+    pyincludes = Utils.popen_read("python-config", "--includes").chomp.split
+    pylib = Utils.popen_read("python-config", "--ldflags").chomp.split
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
                     "-o", "hello.so", "-I#{pyprefix}/include/python2.7",

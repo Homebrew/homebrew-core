@@ -1,26 +1,33 @@
 class Onefetch < Formula
   desc "Git repository summary on your terminal"
   homepage "https://github.com/o2sh/onefetch"
-  url "https://github.com/o2sh/onefetch/archive/v2.1.0.tar.gz"
-  sha256 "54c7b543b39cf22bac2505c792d7fbba75bfdbe1a19900879b439dc65c75c414"
+  url "https://github.com/o2sh/onefetch/archive/v2.9.1.tar.gz"
+  sha256 "33ac8e019e5b7412fec3c7593843e0c3780ca473498c31e36cbe95371fff943b"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b77c8972bc84e19b9be005f8e39501534ee80dad87e8f0d3b510f3772d470c48" => :catalina
-    sha256 "e700489820122dd35495bf62bce935f0d3ce7af771f6477dc535b8575973391a" => :mojave
-    sha256 "1a46c6c38c0042838d1ab7a696a4c22e104ee2fecf83a4191fe851a8a3eb2856" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0a11932b3795555ff253f46390d64d6926c9603883929c8b5dcc07ed5dfd7f9e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "460853143bb40faf7de7d49c64616d4eeea29b0de22e9c153f31af3f7c1605db"
+    sha256 cellar: :any_skip_relocation, catalina:      "0e9069d562ca1b387472e961493b8cc6f962bfa81d8de3cc86f06bc40bcd4d85"
+    sha256 cellar: :any_skip_relocation, mojave:        "1a6342771b768a51b042f1978b360a374cec75ac4ed2a9dd7317db6aff552127"
   end
 
   depends_on "rust" => :build
 
+  uses_from_macos "zlib"
+
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
     system "#{bin}/onefetch", "--help"
     assert_match "onefetch " + version.to_s, shell_output("#{bin}/onefetch -V").chomp
-    system "git init && echo \"puts 'Hello, world'\" > main.rb && git add main.rb && git commit -m \"First commit\""
-    assert_match /Language:.*Ruby/, shell_output("#{bin}/onefetch").chomp
+
+    system "git init"
+    system "git", "config", "user.name", "BrewTestBot"
+    system "git", "config", "user.email", "BrewTestBot@test.com"
+    system "echo \"puts 'Hello, world'\" > main.rb && git add main.rb && git commit -m \"First commit\""
+    assert_match(/Language:.*Ruby/, shell_output("#{bin}/onefetch").chomp)
   end
 end

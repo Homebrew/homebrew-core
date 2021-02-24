@@ -1,23 +1,30 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "https://www.aquamaniac.de/"
-  url "https://www.aquamaniac.de/rdm/attachments/download/108/gwenhywfar-4.20.2.tar.gz"
-  sha256 "0f4fd92351c8a11f053aa482fc5c459499db3dc78dd8bb469e878890ef3d3270"
+  url "https://www.aquamaniac.de/rdm/attachments/download/352/gwenhywfar-5.5.1.tar.gz"
+  sha256 "70daec07a13fb02db83cd4e29f32086794cdef73ad8ae523d64cfa3c1faffe17"
+  license "LGPL-2.1-or-later"
 
-  bottle do
-    sha256 "ec5063e1ac5176d5b43f03adea1cc550f98a74ad2148fd18aff41db918ebdb17" => :catalina
-    sha256 "43fbdfc140f948cac62e00c6468b310856797b3bd732e8e7db2dee4983ec2787" => :mojave
-    sha256 "b14e191f6863b0bd133367cd1e5e22a0785550edbf3637930b5d16ec2a83ecd9" => :high_sierra
-    sha256 "a006e0b29c726b480bcdcfc40192d776c7ce2e8e44196122d7aabf3884857c5f" => :sierra
+  livecheck do
+    url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/files"
+    regex(/href=.*?gwenhywfar[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "pkg-config" => :build
+  bottle do
+    sha256 arm64_big_sur: "2597b3ba0c568ed03b04abf4efe934a1605de3c2c1191fd455aa8cacf7dd14a9"
+    sha256 big_sur:       "2d6b9bf3240a9f942f6bd19e68063bbaa362ebde36e5fd366c86754d81e3167c"
+    sha256 catalina:      "3adaabf47068a95e705f81b591d7925b6d44c051db1861c53c76901bde44475c"
+    sha256 mojave:        "1439d26ec6d62bfe1da89457eb782c2ef1b4b1a2d6a9de99dee9ae3c5bce290c"
+  end
+
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
   depends_on "openssl@1.1"
+  depends_on "pkg-config" # gwenhywfar-config needs pkg-config for execution
 
   def install
+    inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
     system "autoreconf", "-fiv" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -36,7 +43,7 @@ class Gwenhywfar < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}/gwenhywfar4", "-L#{lib}", "-lgwenhywfar", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}/gwenhywfar5", "-L#{lib}", "-lgwenhywfar", "-o", "test"
     system "./test"
   end
 end

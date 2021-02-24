@@ -3,13 +3,20 @@ class Ffe < Formula
   homepage "https://ff-extractor.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ff-extractor/ff-extractor/0.3.9/ffe-0.3.9.tar.gz"
   sha256 "78bab8fa1068a62600c3de153122b8fc9252080ddbc521f71b938b5dbd9afb0d"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ffe[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "59d1950fc3b1ed9baccaa08b100a4768e1a5dd21895623d1bbb99077218426fb" => :catalina
-    sha256 "845ba501eb75d9f3d0466e95700c5b04511a3908dd2fa8b0a3dd06e611a937c4" => :mojave
-    sha256 "3415f4fa4e7407929bfc62ac70c663a48669d39a38375524319851cf396abacb" => :high_sierra
-    sha256 "e454fbfb4ac9947f7e7222e7af911cc89a502bee98ab41301f2fe5ecf1f4b8a9" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8da74f0791f419b2a1baf163f191f1c50c1f8d838af55f4f09195f88f938ace5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e8b62e3707553ca422a0540b72959fabc49093c27935967ac4fbd94cce594b3d"
+    sha256 cellar: :any_skip_relocation, catalina:      "59d1950fc3b1ed9baccaa08b100a4768e1a5dd21895623d1bbb99077218426fb"
+    sha256 cellar: :any_skip_relocation, mojave:        "845ba501eb75d9f3d0466e95700c5b04511a3908dd2fa8b0a3dd06e611a937c4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3415f4fa4e7407929bfc62ac70c663a48669d39a38375524319851cf396abacb"
+    sha256 cellar: :any_skip_relocation, sierra:        "e454fbfb4ac9947f7e7222e7af911cc89a502bee98ab41301f2fe5ecf1f4b8a9"
   end
 
   def install

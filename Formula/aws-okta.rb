@@ -1,22 +1,26 @@
 class AwsOkta < Formula
   desc "Authenticate with AWS using your Okta credentials"
   homepage "https://github.com/segmentio/aws-okta"
-  url "https://github.com/segmentio/aws-okta/archive/v0.27.0.tar.gz"
-  sha256 "e78813870d970dd3710d42d0993f8c437dedc6d888c3e72606e745abecdb6308"
+  url "https://github.com/segmentio/aws-okta/archive/v1.0.11.tar.gz"
+  sha256 "444a84cd9c81097a7c462f806605193c5676879133255cfa0f610b7d14756b65"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "df6a64ab1b0222ac556838148ee26dc509b4b9e7e562940fe481b52edd97c913" => :catalina
-    sha256 "54de6445f3afddf77a59a4078d7381fd614fc80ef6e5fbc63e2d3de777af0517" => :mojave
-    sha256 "ff1c50c64e064d16731dd30cf672999148ff98fdae81f85ea8c4c05eebf1a30f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6de4fd8fa42cddba3a914ed99123469230646bc2ac2598ff40fd0d0c9bf51efe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "178f359eaabc71c8a677f89e1acb35fe73ae35ba4010a06876bdb630b66878b2"
+    sha256 cellar: :any_skip_relocation, catalina:      "2edc4ebb817ff4f0a3188a0c0eea6416ce2a83a6d9b5cc5b3969034ee65e27ca"
+    sha256 cellar: :any_skip_relocation, mojave:        "910418c2dd89b78a7d665cdd8082d9941de433c6c8db800ce0515dfb6c1eb25b"
   end
 
   depends_on "go" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libusb"
+  end
+
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.Version=#{version}", "-trimpath", "-o", bin/"aws-okta"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.Version=#{version}"
   end
 
   test do

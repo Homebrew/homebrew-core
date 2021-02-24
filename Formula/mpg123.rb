@@ -1,27 +1,39 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://downloads.sourceforge.net/project/mpg123/mpg123/1.25.13/mpg123-1.25.13.tar.bz2"
-  sha256 "90306848359c793fd43b9906e52201df18775742dc3c81c06ab67a806509890a"
+  url "https://www.mpg123.de/download/mpg123-1.26.4.tar.bz2"
+  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.26.4/mpg123-1.26.4.tar.bz2"
+  sha256 "081991540df7a666b29049ad870f293cfa28863b36488ab4d58ceaa7b5846454"
+  license "LGPL-2.1-only"
+
+  livecheck do
+    url "https://www.mpg123.de/download/"
+    regex(/href=.*?mpg123[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "231bff62192a6c109c7eeafd4deb90b967197f0656a5aa6ff23360540b2ea3e2" => :catalina
-    sha256 "853131e5b67225d5018b5574c9073dafee53d7fd8b326f164bad02b835ceee92" => :mojave
-    sha256 "fc7974c5e52d1c85e0345e359371fc7b1b2b102e2b2b4b4107a5a761ce06c5f4" => :high_sierra
+    rebuild 1
+    sha256 arm64_big_sur: "0bc1e129314c8f53f34ff804b6cb868ead8e223fe74e11fbef4ffcc969c2771e"
+    sha256 big_sur:       "2ebc5eab8199c9cc750504cde6f6fe739ba596f5129b59c79d51fb0d4d54b113"
+    sha256 catalina:      "0b9132c429c02b726597beeb217ce2f69ba63e1edf6bbff96652e080ba6f10a7"
+    sha256 mojave:        "5027b3751482e62a72c8a5514c728ae8ae1f4aaf34c46a9264a64fc11883c16b"
   end
 
   def install
-    # Work around Xcode 11 clang bug
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-default-audio=coreaudio
       --with-module-suffix=.so
-      --with-cpu=x86-64
     ]
+
+    args << if Hardware::CPU.arm?
+      "--with-cpu=aarch64"
+    else
+      "--with-cpu=x86-64"
+    end
+
     system "./configure", *args
     system "make", "install"
   end

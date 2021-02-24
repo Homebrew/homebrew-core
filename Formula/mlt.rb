@@ -1,35 +1,49 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/archive/v6.18.0.tar.gz"
-  sha256 "9ea6775300b9f997460f5d6adde1ea41e525ecfd30a70b987e13800e4c387ddb"
+  url "https://github.com/mltframework/mlt/releases/download/v6.24.0/mlt-6.24.0.tar.gz"
+  sha256 "3b977c5632329fca7634d0034162df6d5b79cde3256bac43e7ba8353acced61e"
+  license "LGPL-2.1-only"
+  revision 1
+  head "https://github.com/mltframework/mlt.git"
 
   bottle do
-    sha256 "a5edb6d726441d05ea1c7f1db7f49739ce6f4305e6227b3a0a5a8d7757f2a092" => :catalina
-    sha256 "ecd5481375de9153bac1acd8a6811639d5bab2afb30fdf4b801db8c334a8eec0" => :mojave
-    sha256 "16921107de0a40396aa5105174989890acee5f4853f6ca6d6de3f045d80177d1" => :high_sierra
+    sha256 big_sur:  "e11526070c750b8d4d27a3e7e7e61c74fb17c4bc95624f001876f2d2336bfd37"
+    sha256 catalina: "b25a49d0d108710e0defe0f8fa8662c5799140bbe0f56810ad9b9ff1652e1f1b"
+    sha256 mojave:   "0e14497ab767e5cb89bcc1b8a2f03fe80010dcc275b02c584f4cd6020def3163"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
+  depends_on "fftw"
   depends_on "frei0r"
+  depends_on "gdk-pixbuf"
   depends_on "libdv"
+  depends_on "libexif"
   depends_on "libsamplerate"
   depends_on "libvorbis"
-  depends_on "sdl"
+  depends_on "opencv@3"
+  depends_on "pango"
+  depends_on "qt"
+  depends_on "sdl2"
   depends_on "sox"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-jackrack",
-                          "--disable-swfdec",
-                          "--disable-gtk",
-                          "--enable-gpl"
+    args = ["--prefix=#{prefix}",
+            "--disable-jackrack",
+            "--disable-swfdec",
+            "--disable-sdl",
+            "--enable-motion_est",
+            "--enable-gpl",
+            "--enable-gpl3",
+            "--enable-opencv"]
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/melt", "-version"
+    assert_match "help", shell_output("#{bin}/melt -help")
   end
 end

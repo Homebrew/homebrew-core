@@ -1,14 +1,16 @@
 class OpenSceneGraph < Formula
   desc "3D graphics toolkit"
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
-  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.4.tar.gz"
-  sha256 "81394d1b484c631028b85d21c5535280c21bbd911cb058e8746c87e93e7b9d33"
+  url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.5.tar.gz"
+  sha256 "aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12"
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
-    sha256 "37cc7954c600e2fe0f65f572b688de6baaf412a7953cf3c53960fa3033a849a1" => :catalina
-    sha256 "9eb6303b01ad351b61d80b93e2448065820592042954dfa13bc8177943863b6c" => :mojave
-    sha256 "fb185cfd6505823c2f6fd7c4832c16eec1ae075a9173a24ff5c21aebb86bd537" => :high_sierra
+    sha256 arm64_big_sur: "9a11319c94de36501730bd964da993853f111d9c5f4410dc31c2e7c6a0330d11"
+    sha256 big_sur:       "95b41df9411f5d26f4607b8ccdd2fa750ce6b7be88bb38906a48cc61eec20ff8"
+    sha256 catalina:      "a5af0114a8096d9bdc63682eb7a913b1a72b6f0d6cc20f526c0734b8111b7499"
+    sha256 mojave:        "35070bb7f3ac7460d14df196d7d0e9110fbdf84e61fa10b0ed2613d697310aa0"
+    sha256 high_sierra:   "9bbb98357b02428b90ffd8eadb5da85afcc2360aee2c8de8820fbed241f94a1d"
   end
 
   depends_on "cmake" => :build
@@ -27,9 +29,7 @@ class OpenSceneGraph < Formula
   def install
     # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
     # "error: expected function body after function declarator" on 10.12
-    if MacOS.version == :sierra || MacOS.version == :el_capitan
-      ENV["SDKROOT"] = MacOS.sdk_path
-    end
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
     args = std_cmake_args + %w[
       -DBUILD_DOCUMENTATION=ON

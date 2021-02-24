@@ -3,17 +3,20 @@ class Io < Formula
   homepage "http://iolanguage.com/"
   url "https://github.com/IoLanguage/io/archive/2017.09.06.tar.gz"
   sha256 "9ac5cd94bbca65c989cd254be58a3a716f4e4f16480f0dc81070457aa353c217"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/IoLanguage/io.git"
 
   bottle do
-    sha256 "c4c862d20a8e4ddb1e6e588414a9e23ae2a17baa490e3beb621614aca7a8ca87" => :catalina
-    sha256 "48c37d6f30d8b01d391e7f4ef777b5087425d89a9df0077414769a59333db420" => :mojave
-    sha256 "a061482b97c1ada8eea9d658f13fe0cfbfa223d97762b51611c4cab2de4c0273" => :high_sierra
+    sha256 big_sur:     "fae9b76e33ac8a9f4dd4f3c2335b13b003c2bdc01b81c4a2efbf5d7435c51e15"
+    sha256 catalina:    "c4c862d20a8e4ddb1e6e588414a9e23ae2a17baa490e3beb621614aca7a8ca87"
+    sha256 mojave:      "48c37d6f30d8b01d391e7f4ef777b5087425d89a9df0077414769a59333db420"
+    sha256 high_sierra: "a061482b97c1ada8eea9d658f13fe0cfbfa223d97762b51611c4cab2de4c0273"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+
   uses_from_macos "libxml2"
 
   def install

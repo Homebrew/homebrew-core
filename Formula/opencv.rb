@@ -1,13 +1,21 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.2.0.tar.gz"
-  sha256 "9ccb2192d7e8c03c58fee07051364d94ed7599363f3b0dce1c5e6cc11c1bb0ec"
+  url "https://github.com/opencv/opencv/archive/4.5.1.tar.gz"
+  sha256 "e27fe5b168918ab60d58d7ace2bd82dd14a4d0bd1d3ae182952c2113f5637513"
+  license "Apache-2.0"
+  revision 2
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "f53dd07aea7163aff1d30ec9cd6b4d2a49db5362e5845b690284b4f0574f09db" => :catalina
-    sha256 "081a75f753ede6ec73bb27135838fee1b9f15660663cae350e2f37a988498529" => :mojave
-    sha256 "4c6deb39336b29bf1bb3f8acd5adbb26a8dc9ac8b56beb991bd720e6ce0b6966" => :high_sierra
+    sha256 arm64_big_sur: "9aecef9793ab1e4f97a2303c3d7e8110eae2218811243dafd1a6c9a542ba32ad"
+    sha256 big_sur:       "09d965708d97b2252846ad28fbd6a87720efdfd887c0e14fb89a8627ebc74d90"
+    sha256 catalina:      "c551de54ea263f94421a42bea6824196abc713fa454d0b8a841818466263e080"
+    sha256 mojave:        "6b73888dbf72ce08f35eba87abd2d988986315b9e9aeaf8270793636e3bacbf3"
   end
 
   depends_on "cmake" => :build
@@ -21,13 +29,17 @@ class Opencv < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "numpy"
+  depends_on "openblas"
   depends_on "openexr"
-  depends_on "python"
+  depends_on "protobuf"
+  depends_on "python@3.9"
   depends_on "tbb"
+  depends_on "vtk"
+  depends_on "webp"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.2.0.tar.gz"
-    sha256 "8a6b5661611d89baa59a26eb7ccf4abb3e55d73f99bb52d8f7c32265c8a43020"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.1.tar.gz"
+    sha256 "12c3b1ddd0b8c1a7da5b743590a288df0934e5cef243e036ca290c2e45e425f5"
   end
 
   def install
@@ -35,22 +47,23 @@ class Opencv < Formula
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
+    # Avoid Accelerate.framework
+    ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
+
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-
-    py3_config = `python3-config --configdir`.chomp
-    py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
-    py3_version = Language::Python.major_minor_version "python3"
 
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
-      -DBUILD_JPEG=ON
+      -DBUILD_JPEG=OFF
       -DBUILD_OPENEXR=OFF
       -DBUILD_PERF_TESTS=OFF
       -DBUILD_PNG=OFF
+      -DBUILD_PROTOBUF=OFF
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
+      -DBUILD_WEBP=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
@@ -58,6 +71,7 @@ class Opencv < Formula
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
       -DOPENCV_GENERATE_PKGCONFIG=ON
+      -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
@@ -69,37 +83,28 @@ class Opencv < Formula
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
       -DWITH_TBB=ON
-      -DWITH_VTK=OFF
+      -DWITH_VTK=ON
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON3_EXECUTABLE=#{which "python3"}
-      -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
-      -DPYTHON3_INCLUDE_DIR=#{py3_include}
+      -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
 
-    # The compiler on older Mac OS cannot build some OpenCV files using AVX2
-    # extensions, failing with errors such as
-    # "error: use of undeclared identifier '_mm256_cvtps_ph'"
-    # Work around this by not trying to build AVX2 code.
-    if MacOS.version <= :yosemite
-      args << "-DCPU_DISPATCH=SSE4_1,SSE4_2,AVX"
-    end
-
-    args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
-    unless MacOS.version.requires_sse42?
-      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF"
+    if Hardware::CPU.intel?
+      args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
+      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
     end
 
     mkdir "build" do
       system "cmake", "..", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       system "make", "install"
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       lib.install Dir["lib/*.a"]
       lib.install Dir["3rdparty/**/*.a"]
-      rm lib/"libIlmImf.a"
     end
   end
 
@@ -116,7 +121,7 @@ class Opencv < Formula
                     "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    output = shell_output("python3 -c 'import cv2; print(cv2.__version__)'")
+    output = shell_output(Formula["python@3.9"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end

@@ -2,31 +2,27 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      :tag      => "v3.11.1",
-      :revision => "6c04a83961025c39f50fb7c22d8d6d100c425514"
+      tag:      "v3.18.0",
+      revision: "5d65da3dc6943cb0d7909ad2865ce8224caf1cd9"
+  license "Apache-2.0"
+  head "https://github.com/projectcalico/calicoctl.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a71b6903e8f3e335dee4d8d213cbe581944fe11a5c1b579c694654ae76ba2c77" => :catalina
-    sha256 "eaa4ff648279776c26f7a8b85f80075a77db8c145bd288a2a834bfc593163502" => :mojave
-    sha256 "21ba7e939dc75d10260c72ccbbe23bb00dfe979007dcafe04200e4ea8b1048d4" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "960730dc92b9e23bcbb84e17e427d533e461b0cbdd676b744f95f3e01c52fbba"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7a994ece9f2edb9b55cea66e93f972d8ffdd764922b51699dd213f9fc926a8a9"
+    sha256 cellar: :any_skip_relocation, catalina:      "c62191885f6f41e599abfae8aaa553605c98998111081d950aaafcedbe7512c6"
+    sha256 cellar: :any_skip_relocation, mojave:        "454e373cd11cd91339fb6d3dbad4ae9383f4a92f6656f42778464d31bd114464"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    dir = buildpath/"src/github.com/projectcalico/calicoctl"
-    dir.install buildpath.children
-
-    cd dir do
-      commands = "github.com/projectcalico/calicoctl/calicoctl/commands"
-      ldflags = "-X #{commands}.VERSION=#{stable.specs[:tag]} -X #{commands}.GIT_REVISION=#{stable.specs[:revision][0, 8]} -s -w"
-      system "go", "build", "-v", "-o", "dist/calicoctl-darwin-amd64", "-ldflags", ldflags, "calicoctl/calicoctl.go"
-      bin.install "dist/calicoctl-darwin-amd64" => "calicoctl"
-      prefix.install_metafiles
-    end
+    commands = "github.com/projectcalico/calicoctl/v3/calicoctl/commands"
+    system "go", "build", *std_go_args,
+                          "-ldflags", "-X #{commands}.VERSION=#{version} " \
+                                      "-X #{commands}.GIT_REVISION=#{Utils.git_short_head} " \
+                                      "-s -w",
+                          "calicoctl/calicoctl.go"
   end
 
   test do

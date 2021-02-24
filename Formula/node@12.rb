@@ -1,25 +1,31 @@
 class NodeAT12 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v12.14.0/node-v12.14.0.tar.gz"
-  sha256 "5c1939867228f3845c808ef84a89c8ee93cc35f857bf7587ecee1b5a6d9da67b"
+  url "https://nodejs.org/dist/v12.21.0/node-v12.21.0.tar.gz"
+  sha256 "36e862555bebc04b13f7afebf4472c4dd7ebf4c891f9d6746ec545a4f099d05e"
+  license "MIT"
+
+  livecheck do
+    url "https://nodejs.org/dist/"
+    regex(%r{href=["']?v?(12(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "7166a754812aecb38c4eaa806d6fef437d3f616bfa954cadc7a2859af0214c1e" => :catalina
-    sha256 "b26d20e7f67b35f3b30a20b4b16cb8c4f7881bde49363920efa6f9b9b3e5546e" => :mojave
-    sha256 "6f3b5363899eae42c103113168dedd53d4dc928401dba9ee7e520d41b5209c92" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "da8693abc82d544ec119db2b221300ce794598d8a89243a4c381fee9dd9c2e78"
+    sha256 cellar: :any, big_sur:       "1030ffdbb8b7cc1fffe2fced713da444916419faa8add24b197294103012b30b"
+    sha256 cellar: :any, catalina:      "ad191d41b35d0352b87c45caf3356711f03baf264c0255f1af83eec79b7fdabd"
+    sha256 cellar: :any, mojave:        "8ead1d063a410a200ed5eb396bcc5851b9ad76bcae59d161e4466b2a7e98633a"
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
+  depends_on "python@3.9" => :build
   depends_on "icu4c"
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = Formula["python"].opt_bin/"python3"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
     system "make", "install"

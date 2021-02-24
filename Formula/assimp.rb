@@ -1,41 +1,27 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
-  homepage "http://www.assimp.org"
-  url "https://github.com/assimp/assimp/archive/v5.0.0.tar.gz"
-  sha256 "b0110a91650d6bb4000e3d5c2185bf77b0ff0a2e7a284bc2c4af81b33988b63c"
+  homepage "https://www.assimp.org/"
+  url "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz"
+  sha256 "11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc"
+  license :cannot_represent
   head "https://github.com/assimp/assimp.git"
 
   bottle do
-    cellar :any
-    sha256 "fe46160da97212c37c91e5798d70c8d0ff25bb551034919f54bfca92eb740eb3" => :catalina
-    sha256 "de688cc4a769519596543c4fcb6c6da9811dc98bd9fe068d358337361d7ad558" => :mojave
-    sha256 "05192d6a70b625792264ceca37da758e1a3ffeab95551968a4df53635eb0d1a3" => :high_sierra
+    rebuild 1
+    sha256 arm64_big_sur: "987d2ce0acc2fbfd488f82ce67c0eb47845f8b0a832cbae8c7d1a2090e81ada3"
+    sha256 big_sur:       "1a4511b5f06aa0e9d579b72af3aa4dd0d43b93860d17dfacfab586ca2947d1be"
+    sha256 catalina:      "28224c17d5d250055b39990a54de9e744f30b59950ed12d2a08ff0192d029c0c"
+    sha256 mojave:        "85dc308dfd468a6dd66978d890106b777829b7b4a04970c395c04aa832ad4931"
   end
 
-  depends_on "boost" => :build
   depends_on "cmake" => :build
+
   uses_from_macos "zlib"
-
-  # Fix "unzip.c:150:11: error: unknown type name 'z_crc_t'"
-  # Upstream PR from 12 Dec 2017 "unzip: fix build with older zlib"
-  if MacOS.version <= :el_capitan
-    patch do
-      url "https://github.com/assimp/assimp/pull/1634.patch?full_index=1"
-      sha256 "79b93f785ee141dc2f56d557b2b8ee290eed0afc7dd373ad84715c6c9aa23460"
-    end
-  end
-
-  # Fix CMake error "The imported target "assimp::assimp" references the file
-  # "/usr/local/lib/libassimp.dylib.5""
-  # Upstream PR from 11 Nov 2019 "Fix shared lib name on macOS"
-  patch do
-    url "https://github.com/assimp/assimp/pull/2765.patch?full_index=1"
-    sha256 "4c8102fea4af720f65d420aa883d60e6ed0f9eb8309938793e82de69d11a23dc"
-  end
 
   def install
     args = std_cmake_args
     args << "-DASSIMP_BUILD_TESTS=OFF"
+    args << "-DCMAKE_INSTALL_RPATH=#{lib}"
     system "cmake", *args
     system "make", "install"
   end

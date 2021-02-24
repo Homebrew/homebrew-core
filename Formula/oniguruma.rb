@@ -1,15 +1,22 @@
 class Oniguruma < Formula
   desc "Regular expressions library"
   homepage "https://github.com/kkos/oniguruma/"
-  url "https://github.com/kkos/oniguruma/releases/download/v6.9.4/onig-6.9.4.tar.gz"
-  sha256 "4669d22ff7e0992a7e93e116161cac9c0949cd8960d1c562982026726f0e6d53"
+  url "https://github.com/kkos/oniguruma/releases/download/v6.9.6/onig-6.9.6.tar.gz"
+  sha256 "bd0faeb887f748193282848d01ec2dad8943b5dfcb8dc03ed52dcc963549e819"
+  license "BSD-2-Clause"
   head "https://github.com/kkos/oniguruma.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-](?:mark|rev)\d+)?)$/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "05e25bc53db0cf338a7f765da76c66260972d6b4e259be415bc17807a8b60fe9" => :catalina
-    sha256 "ab2bb92e40e17569c54dda0ed3b3a0fc6f98be761107fba918754af75817de6f" => :mojave
-    sha256 "1a97b801983a8929de40bcc829d50e3f37413dbb7076370e203deff76dad4357" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "dc2264a1fd09eb555ff2591d212af8e9cb5071ca529104dd17746af6306e79d0"
+    sha256 cellar: :any, big_sur:       "505599ad17e21360a58a89db2133115b5aa109cdebd5d284bec2bc25cfee5062"
+    sha256 cellar: :any, catalina:      "e40a40789488ed0f0a98e5aec3336bfa04f87b7983e139524fbbc1b192ea71ac"
+    sha256 cellar: :any, mojave:        "98d43005ae967cba150b66abfe0c76163f7072ecb80eb573612284a706d6e5c1"
+    sha256 cellar: :any, high_sierra:   "737284ca190ac20d86a070bccf720194342f617e60690781eefae867230a2f58"
   end
 
   depends_on "autoconf" => :build

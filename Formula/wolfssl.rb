@@ -1,17 +1,23 @@
 class Wolfssl < Formula
   desc "Embedded SSL Library written in C"
-  homepage "https://www.wolfssl.com/wolfSSL/Home.html"
+  homepage "https://www.wolfssl.com"
   url "https://github.com/wolfSSL/wolfssl.git",
-      :tag      => "v4.3.0-stable",
-      :revision => "3f13b49fa318fbd3216d7da36d942e7c276d3413"
-  sha256 "4e15f494604e41725499f8b708798f8ddc2fcaa8f39b4369bcd000b3cab482d8"
+      tag:      "v4.7.0-stable",
+      revision: "830de9a9fb99e30f9ac9caa0a7f7bba29c3b4863"
+  license "GPL-2.0-or-later"
   head "https://github.com/wolfSSL/wolfssl.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)[._-]stable["' >]}i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "640adc750bb5f9bbb83c4750255a8451f3800911feb29f4b40bc9c05d6496a87" => :catalina
-    sha256 "45cb9c47a12a04ba87b263063b0c9d5ef41df63c23b9e0c2c71fefdc6419ce67" => :mojave
-    sha256 "d517858cb06ac4acfb74cf89957a51f3bfc80ffa49eba97406e81b7030f3190e" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "d3c1a0238f4bff3d6bbe97c95f28c0b48eba899acc86fdf780611f26ccb5f790"
+    sha256 cellar: :any, big_sur:       "d01ee339331c0c96fe0512667e879a442790e5c9af2a7629a8458a43901c1b9d"
+    sha256 cellar: :any, catalina:      "4bc15cd6d682ab0319e44bb002e33277e749764b13c1333d0c2f61fee8599eb0"
+    sha256 cellar: :any, mojave:        "495873f14e34b81d5d4e56b131b70678f1445495de50dc8fc897463b16e3652a"
   end
 
   depends_on "autoconf" => :build
@@ -19,10 +25,6 @@ class Wolfssl < Formula
   depends_on "libtool" => :build
 
   def install
-    # https://github.com/Homebrew/homebrew-core/pull/1046
-    # https://github.com/Homebrew/brew/pull/251
-    ENV.delete("SDKROOT")
-
     args = %W[
       --disable-silent-rules
       --disable-dependency-tracking
@@ -78,7 +80,7 @@ class Wolfssl < Formula
     ]
 
     # Extra flag is stated as a needed for the Mac platform.
-    # https://wolfssl.com/wolfSSL/Docs-wolfssl-manual-2-building-wolfssl.html
+    # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
     # Also, only applies if fastmath is enabled.
     ENV.append_to_cflags "-mdynamic-no-pic"
 

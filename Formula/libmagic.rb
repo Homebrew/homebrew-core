@@ -1,14 +1,23 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "https://astron.com/pub/file/file-5.38.tar.gz"
-  sha256 "593c2ffc2ab349c5aea0f55fedfe4d681737b6b62376a9b3ad1e77b2cc19fa34"
+  url "https://astron.com/pub/file/file-5.39.tar.gz"
+  sha256 "f05d286a76d9556243d0cb05814929c2ecf3a5ba07963f8f70bfaaa70517fad1"
+
+  livecheck do
+    url "https://astron.com/pub/file/"
+    regex(/href=.*?file[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "b62d63057eeb729667d6155b5d79da97742d5656d9995359f6d945b6109ce2ef" => :catalina
-    sha256 "0b6136c04b93fbec36326c88f7443e66d9faa209dedab7346f2b6ba015cd1ffe" => :mojave
-    sha256 "8bf0dd3733907457d0102dd8e6e28ddaea304cd7eb59e5e559145f50046dd784" => :high_sierra
+    sha256 arm64_big_sur: "e588a1adec77deda36340e9cce3375fde9ffcdabcd79ba86a429dbd14ea542fe"
+    sha256 big_sur:       "2a09f46305a9457a2bfae1069cbf8f6a473d77f69a6370e67f67c0decc96ca0a"
+    sha256 catalina:      "90b17cb74e853804227abdd32c6810ff535fb98e8862f946c49860b697faece0"
+    sha256 mojave:        "f32eb14fbef470d28a041ddefec932e8d96870b4a13dbac3f61d8c6de6e50f29"
+    sha256 high_sierra:   "110d2db0b588dc5a379124d024b228e8ee8aae58c95a6a0510e68dc36426a86a"
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -39,7 +48,7 @@ class Libmagic < Formula
           puts(magic_file(cookie, argv[1]));
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmagic", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmagic", "-o", "test"
     cp test_fixtures("test.png"), "test.png"
     assert_equal "image/png", shell_output("./test test.png").chomp
   end

@@ -4,11 +4,19 @@ class Libidn2 < Formula
   url "https://ftp.gnu.org/gnu/libidn/libidn2-2.3.0.tar.gz"
   mirror "https://ftpmirror.gnu.org/libidn/libidn2-2.3.0.tar.gz"
   sha256 "e1cb1db3d2e249a6a3eb6f0946777c2e892d5c5dc7bd91c74394fc3a01cab8b5"
+  license any_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
+
+  livecheck do
+    url :stable
+    regex(/href=.*?libidn2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "0908585cca518a83f101b2edc0417a26a4b4fc8b76e393c6f6672de6e595c914" => :catalina
-    sha256 "d56e7ff347b0a4c2c433cd44564dfef74c9f1b237ef913307e152314677e1360" => :mojave
-    sha256 "4530dd74cbd31c49b0f499eda0f9ea29ec7ff6ae00f9aff3974247365d1fb21e" => :high_sierra
+    sha256 arm64_big_sur: "eb8e6de157329d032c3d3343b15b75896c4bb3aa8bec3fd11055757ddb467827"
+    sha256 big_sur:       "65523d89d65893a402f9f2641793314d5c18f5ba115400ef6ad372b8c177ebd9"
+    sha256 catalina:      "0908585cca518a83f101b2edc0417a26a4b4fc8b76e393c6f6672de6e595c914"
+    sha256 mojave:        "d56e7ff347b0a4c2c433cd44564dfef74c9f1b237ef913307e152314677e1360"
+    sha256 high_sierra:   "4530dd74cbd31c49b0f499eda0f9ea29ec7ff6ae00f9aff3974247365d1fb21e"
   end
 
   head do

@@ -1,24 +1,29 @@
 class Dps8m < Formula
   desc "Simulator for the Multics dps-8/m mainframe"
-  homepage "https://ringzero.wikidot.com"
-  url "https://downloads.sourceforge.net/project/dps8m/Release%201.0/source.tgz"
-  version "1.0"
-  sha256 "51088dd91de888b918644c431eec22318640d28eb3050d9c01cd072aa7cca3c7"
-  head "https://github.com/charlesUnixPro/dps8m.git"
+  homepage "https://ringzero.wikidot.com/"
+  url "https://gitlab.com/dps8m/dps8m/-/archive/R2.0/dps8m-R2.0.tar.gz"
+  sha256 "bb0106d0419afd75bc615006bd9e3f1ff93e12649346feb19820b73c92d06f0d"
+  head "https://gitlab.com/dps8m/dps8m.git"
+
+  livecheck do
+    url :stable
+    regex(/^R?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "32b101a68045897e808ab00e2d963b820bc6ab6acab96bdec6ef5752230eb952" => :catalina
-    sha256 "b238a69a4da50c3b951981e5b3c6e4683aeea100acbd0dacf449e723422c649d" => :mojave
-    sha256 "0c436100ea3f71f5e7fcb2a39ca6d6e08a4981b661117e6e8d18685df3c8d040" => :high_sierra
-    sha256 "eab4df90e0f3573923e9baab97f0685d793a5ae200f167be8f99fc1ec957b60a" => :sierra
-    sha256 "f079087bc567e575f5c7d83890d84cf872a58a3707fb08467b4eda2b6a10ccd7" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "7b6df2db14bb9e099eb1b2003c0ba410e62d4bd81046e425f6db437894938e0c"
+    sha256 cellar: :any, big_sur:       "a8f615026cb8660c2d7684387b17d1f39e9b93c547a18adf125a88610d5466d8"
+    sha256 cellar: :any, catalina:      "d9d967a0c7dad0b63ea6327102cb5d83345ff6b0bcdbf754398c1a5cdb0b0916"
+    sha256 cellar: :any, mojave:        "2c148e6bcd3a83e91b6b327d285bcfbb6490a3f7d8f08c4d904a6b907fbe61cf"
+    sha256 cellar: :any, high_sierra:   "600be3242396b61b2e807ed850cd65fc30a4676993c44c5171488954be496ce4"
   end
 
   depends_on "libuv"
 
+  uses_from_macos "expect" => :test
+
   def install
-    # Reported 23 Jul 2017 "make dosn't create bin directory"
+    # Reported 23 Jul 2017 "make doesn't create bin directory"
     # See https://sourceforge.net/p/dps8m/mailman/message/35960505/
     bin.mkpath
 
@@ -28,11 +33,12 @@ class Dps8m < Formula
   test do
     (testpath/"test.exp").write <<~EOS
       spawn #{bin}/dps8
-      set timeout 5
+      set timeout 30
       expect {
         timeout { exit 1 }
         "sim>"
       }
+      set timeout 10
       send "help\r"
       expect {
         timeout { exit 2 }

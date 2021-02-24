@@ -1,4 +1,4 @@
-# Note: Mutt has a large number of non-upstream patches available for
+# NOTE: Mutt has a large number of non-upstream patches available for
 # it, some of which conflict with each other. These patches are also
 # not kept up-to-date when new versions of mutt (occasionally) come
 # out.
@@ -10,13 +10,15 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-1.13.1.tar.gz"
-  sha256 "1fb5951292e57428974d1fd8e60ae83292743f74e440efea3659ae83593e875d"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-2.0.5.tar.gz"
+  sha256 "e21d5aec0d3110f89d390929e56a38794a94f5843120d9ff59b21da78fd0004d"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "b3b954e5c91b73db93521fc7354f644f62b15b91ab72af96739af456b4e183f6" => :catalina
-    sha256 "e3a4fff34be701f8a26d60a2b9b06be8e1b510af50a54b4c2b94ffdd0ac241cc" => :mojave
-    sha256 "fe3a4c4035a56796032cf4e0e1bdd271c3b80adbe4795b3dc1fd388c3385e985" => :high_sierra
+    sha256 arm64_big_sur: "a32a3bcde99e16e0b16162fe404f5abc11602435ecf1cc00fb11dad1b36ef77b"
+    sha256 big_sur:       "0c0b14055a9fc4642b056e08ef4efd7fdb60502f1f1bcb1fa3f6a09db75345e4"
+    sha256 catalina:      "4a17ba5b145010cffadd61078a1f76868b8f877ec50ff12bea5556a6c377f30b"
+    sha256 mojave:        "c68e78ed55fa03921ba839b0b15cd25ecc53b6955f6a691450ec206b9142b73a"
   end
 
   head do
@@ -33,8 +35,13 @@ class Mutt < Formula
   depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "krb5"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   conflicts_with "tin",
-    :because => "both install mmdf.5 and mbox.5 man pages"
+    because: "both install mmdf.5 and mbox.5 man pages"
 
   def install
     user_in_mail_group = Etc.getgrnam("mail").mem.include?(ENV["USER"])
@@ -63,24 +70,23 @@ class Mutt < Formula
     # This permits the `mutt_dotlock` file to be installed under a group
     # that isn't `mail`.
     # https://github.com/Homebrew/homebrew/issues/45400
-    unless user_in_mail_group
-      inreplace "Makefile", /^DOTLOCK_GROUP =.*$/, "DOTLOCK_GROUP = #{effective_group}"
-    end
+    inreplace "Makefile", /^DOTLOCK_GROUP =.*$/, "DOTLOCK_GROUP = #{effective_group}" unless user_in_mail_group
 
     system "make", "install"
     doc.install resource("html") if build.head?
   end
 
-  def caveats; <<~EOS
-    mutt_dotlock(1) has been installed, but does not have the permissions lock
-    spool files in /var/mail. To grant the necessary permissions, run
+  def caveats
+    <<~EOS
+      mutt_dotlock(1) has been installed, but does not have the permissions to lock
+      spool files in /var/mail. To grant the necessary permissions, run
 
-      sudo chgrp mail #{bin}/mutt_dotlock
-      sudo chmod g+s #{bin}/mutt_dotlock
+        sudo chgrp mail #{bin}/mutt_dotlock
+        sudo chmod g+s #{bin}/mutt_dotlock
 
-    Alternatively, you may configure `spoolfile` in your .muttrc to a file inside
-    your home directory.
-  EOS
+      Alternatively, you may configure `spoolfile` in your .muttrc to a file inside
+      your home directory.
+    EOS
   end
 
   test do

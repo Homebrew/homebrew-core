@@ -1,13 +1,15 @@
 class Trader < Formula
   desc "Star Traders"
   homepage "https://www.zap.org.au/projects/trader/"
-  url "https://ftp.zap.org.au/pub/trader/unix/trader-7.13.tar.xz"
-  sha256 "0d2b51134166b0f436dc6423e2ce378b1df929a9de141c002f3da86af18bb262"
+  url "https://ftp.zap.org.au/pub/trader/unix/trader-7.16.tar.xz"
+  sha256 "7fced3adfe61099679cec67dd7d7187314b0f6d4378a4aece1a1b5eab9f81ef2"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "f0265ff875601e4d5f9ecc1a4a8bdb903f7399b8cd93a137a17b0f9c78f052ec" => :catalina
-    sha256 "656ff27724a844d0059f37977628b5828768ad86a557ae7442365005cbaf535f" => :mojave
-    sha256 "6312d15659ff81b39cc0c03a3aff850ea94e112086d6b39a02287f1bf49ad46b" => :high_sierra
+    sha256 arm64_big_sur: "04f065f3b4f8cc435bc4cd005efac64d3c106538b5f3261a70dba73ffb34d57b"
+    sha256 big_sur:       "cacf85ddfc82657267a51c2a6159b0b5f4f5f26029bc32a5cdf895e433578158"
+    sha256 catalina:      "f88445380e3d80b13e99a9c8c657609941a3f696be2e5039521b1d0a847f03c6"
+    sha256 mojave:        "55412b011ce76032c044f0a5839ee05f8b26ecd45471f79b1862a91c2fdc0011"
   end
 
   depends_on "pkg-config" => :build

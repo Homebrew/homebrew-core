@@ -2,15 +2,16 @@ class Shogun < Formula
   desc "Large scale machine learning toolbox"
   homepage "https://www.shogun-toolbox.org/"
   url "https://github.com/shogun-toolbox/shogun.git",
-      :tag      => "shogun_6.1.4",
-      :revision => "ab274e7ab6bf24dd598c1daf1e626cb686d6e1cc"
-  sha256 "57169dc8c05b216771c567b2ee2988f14488dd13f7d191ebc9d0703bead4c9e6"
-  revision 3
+      tag:      "shogun_6.1.4",
+      revision: "ab274e7ab6bf24dd598c1daf1e626cb686d6e1cc"
+  license "BSD-3-Clause"
+  revision 9
 
   bottle do
-    sha256 "affaea43f1e4ed4d0102675079a1334fa5dca7f836842e4d10a7f64b0c969860" => :catalina
-    sha256 "5362818881e0f42095759525a346d59c49a0f8420916abd8ed03fd9884b5da36" => :mojave
-    sha256 "070a2ee1245e3ed473b928efecf401a6365fde05755e81251d3f63840f285c88" => :high_sierra
+    sha256 arm64_big_sur: "eae00812c3eed017f7c1050f5e7e61204e1e7265b035df950421eec5b2a8aa6f"
+    sha256 big_sur:       "49ac9da60471784899b9b0196fa61a4c39207a394390c6378aa277353ea04a8f"
+    sha256 catalina:      "fe1fc1cf9ba0258878ca5de58d0cae01316c251aba845dccc9d9c3210ee7662d"
+    sha256 mojave:        "9ca5f6e9705d9774ef7954e40af5ad47dbc0434b1dc51e2bff2823add0445052"
   end
 
   depends_on "cmake" => :build

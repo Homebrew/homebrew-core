@@ -1,28 +1,21 @@
 class Terragrunt < Formula
   desc "Thin wrapper for Terraform e.g. for locking state"
-  homepage "https://github.com/gruntwork-io/terragrunt"
-  url "https://github.com/gruntwork-io/terragrunt.git",
-    :tag      => "v0.21.10",
-    :revision => "7f563c6fe3abe41764aff642f01edc180288a9af"
+  homepage "https://terragrunt.gruntwork.io/"
+  url "https://github.com/gruntwork-io/terragrunt/archive/v0.28.7.tar.gz"
+  sha256 "e84d4ade9ffbc1ca9e0a2b9cf594915a9515d331cfcc65f78b6c36b0cb3b53cc"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "116e39aae20dfdfb04844d9bdfb680130dc34c005d46bdc5b835d2c29cfc2556" => :catalina
-    sha256 "dbef2c3c3549dda6e25ea84670025bc598158adc54e81e044d099a028aa7c0e0" => :mojave
-    sha256 "194c374e2da8517e0144fde32f2d8061f3bce805bd7b868b7dddb5d0ac0d1ff5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "148b28e641e7764cbde59b8a8fd280a577826408f87c0cd8730efd49c5695793"
+    sha256 cellar: :any_skip_relocation, catalina: "3d3e94d1849b25e056b4d509137b7b1ceacb048005607e1316aabb1f8c5e9a55"
+    sha256 cellar: :any_skip_relocation, mojave:   "372f50a8985ab33529a03e9d942735be7c50fac8b0a3957b184c473478820a8a"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
   depends_on "terraform"
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/gruntwork-io/terragrunt").install buildpath.children
-    cd "src/github.com/gruntwork-io/terragrunt" do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-o", bin/"terragrunt", "-ldflags", "-X main.VERSION=v#{version}"
-    end
+    system "go", "build", "-ldflags", "-s -w -X main.VERSION=v#{version}", *std_go_args
   end
 
   test do

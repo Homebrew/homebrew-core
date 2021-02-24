@@ -3,23 +3,23 @@ class Cmark < Formula
   homepage "https://commonmark.org/"
   url "https://github.com/commonmark/cmark/archive/0.29.0.tar.gz"
   sha256 "2558ace3cbeff85610de3bda32858f722b359acdadf0c4691851865bb84924a6"
+  license "BSD-2-Clause"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "d7bf29e64f91198441f39325653aa12ab7d4bbeb458a337146039717394cce2e" => :catalina
-    sha256 "8687e5aeca18f2c952c5f475569ad90f077d49c3e45477cad0babd68b040a6cb" => :mojave
-    sha256 "81e1fe130cae57abb515a8916140b3b2718f4f9ae778fe059d454d51cc24e1b3" => :high_sierra
-    sha256 "ffe7ff1b15e9d7283253129feb78db9d9ccd72f39388a33331fbe8d0fb7445a4" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "ca089ca505933fd9e99555cbb8674994e622300a772a602edc31b670cabd6a50"
+    sha256 cellar: :any, big_sur:       "ebd4950efccf01f8289486df7fa7ccb4af6fa851f3780d8684089015ca312fe4"
+    sha256 cellar: :any, catalina:      "bac8513461f194c42c622ad7ec947e29c12ad297e7d8a484e1fbe85ebc34e68b"
+    sha256 cellar: :any, mojave:        "1a539a85b286c90328c6369631229e479129587b2fe7787dc023d983b9773788"
+    sha256 cellar: :any, high_sierra:   "08672a685877aab6625cb400fc56b73cc370f0006eb9b0befbd7e6a11569ceae"
   end
 
   depends_on "cmake" => :build
-  depends_on "python" => :build
+  depends_on "python@3.9" => :build
 
   def install
     mkdir "build" do
       system "cmake", "..", "-DCMAKE_INSTALL_LIBDIR=lib", *std_cmake_args
-      system "make"
-      system "make", "test"
       system "make", "install"
     end
   end

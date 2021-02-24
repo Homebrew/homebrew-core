@@ -4,6 +4,7 @@ class SpringLoaded < Formula
   url "https://repo.spring.io/simple/libs-release-local/org/springframework/springloaded/1.2.6.RELEASE/springloaded-1.2.6.RELEASE.jar"
   version "1.2.6"
   sha256 "6edd6ffb3fd82c3eee95f5588465f1ab3a94fc5fff65b6e3a262f6de5323d203"
+  license "Apache-2.0"
 
   bottle :unneeded
 

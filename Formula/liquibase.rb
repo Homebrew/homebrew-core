@@ -1,24 +1,28 @@
 class Liquibase < Formula
   desc "Library for database change tracking"
   homepage "https://www.liquibase.org/"
-  url "https://github.com/liquibase/liquibase/releases/download/v3.8.4/liquibase-3.8.4.tar.gz"
-  sha256 "d74cd6962b92e8af7f6efd1e0ea58cbf2d0be7a889a24fc86de2441619b30db1"
+  url "https://github.com/liquibase/liquibase/releases/download/v4.3.1/liquibase-4.3.1.tar.gz"
+  sha256 "84e7a60cb7e48e33d7404aca28220c97c73910f65ee340751e535fbe0ec864a5"
+  license "Apache-2.0"
 
   bottle :unneeded
+
+  depends_on "openjdk"
 
   def install
     rm_f Dir["*.bat"]
     chmod 0755, "liquibase"
     prefix.install_metafiles
     libexec.install Dir["*"]
-    bin.install_symlink libexec/"liquibase"
+    (bin/"liquibase").write_env_script libexec/"liquibase", JAVA_HOME: Formula["openjdk"].opt_prefix
     (libexec/"lib").install_symlink Dir["#{libexec}/sdk/lib-sdk/slf4j*"]
   end
 
-  def caveats; <<~EOS
-    You should set the environment variable LIQUIBASE_HOME to
-      #{opt_libexec}
-  EOS
+  def caveats
+    <<~EOS
+      You should set the environment variable LIQUIBASE_HOME to
+        #{opt_libexec}
+    EOS
   end
 
   test do

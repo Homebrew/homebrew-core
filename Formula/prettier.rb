@@ -3,15 +3,16 @@ require "language/node"
 class Prettier < Formula
   desc "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML"
   homepage "https://prettier.io/"
-  url "https://registry.npmjs.org/prettier/-/prettier-1.19.1.tgz"
-  sha256 "c766f70d74c9340bdb6a834993634d27e4bedac7e0193e10a969ce155ab8bf1d"
+  url "https://registry.npmjs.org/prettier/-/prettier-2.2.1.tgz"
+  sha256 "8a1c8e42a692691469bd57b6a44369f0c4e661ff5b6527b30e5598517b06d238"
+  license "MIT"
   head "https://github.com/prettier/prettier.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b34674ddb5f4b8147b7add4ca22976db710f9edeef052596483a77083154ace2" => :catalina
-    sha256 "f26889cffbc46955b27166275c89e2f8a9921d067981b4764cc82ee7f39b3be0" => :mojave
-    sha256 "a617f0a98181130c1b5ee288b218b2f27dbe6acd0445e0f0598fd05419b061f5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d9b64844714a25d33344ae68af32131f6c0eaa883bb02072d868d047de98b36a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cc0490eacc3a11e2f4b20ee9e56d85df64c7f95cee6811539b73e21b94417561"
+    sha256 cellar: :any_skip_relocation, catalina:      "6f6364f7a63a4eab3f1cc1fd51a7fd3c3c62fb0a17c1ffd5d583b294cc435558"
+    sha256 cellar: :any_skip_relocation, mojave:        "617d2fdfe6caf2cb7fb83621e6e7da49dd477a8d9672305d1ccd4a0aa9100338"
   end
 
   depends_on "node"

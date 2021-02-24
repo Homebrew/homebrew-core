@@ -1,20 +1,22 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.32/file-roller-3.32.3.tar.xz"
-  sha256 "be111fb877dc1eb487ec5d6e2b72ba5defe1ab8033a6a6b9b9044a2a7787e22a"
+  url "https://download.gnome.org/sources/file-roller/3.38/file-roller-3.38.0.tar.xz"
+  sha256 "723d1c6e567d35dad5eeeaeb86b8d18705658ee73e0b3b97ea16adc7a4dc331a"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "e858c664fbc54e0d9852f5ffcf02b3728706a1a2b1556f48a657bb852edadf11" => :catalina
-    sha256 "62ee2117ab1cbecf2e14d67643fc46cc49523cb6c3dfa9528f0e5bb52dd03c28" => :mojave
-    sha256 "a12f186d41652b69905d08857a6d7047dca80f821df1d7941a10d11d37787b3d" => :high_sierra
+    sha256 arm64_big_sur: "48e094d70bf4efb02ca607e581c257d78f7da62b287c0293ca141472c70f3e05"
+    sha256 big_sur:       "5f93b042a4c184676715979ee56beac1eac0d4cf371d314e4746968d5bc163d3"
+    sha256 catalina:      "0bfabe3ee4fcb30fc9b85f98c2c241b625238856c5d9af9fa325cb29bab27de2"
+    sha256 mojave:        "fae6eecff0f93c8c033754829e7f8260b3308e9e6f838c80c494aeb6a9b7f9e0"
+    sha256 high_sierra:   "78680c1e5096d8769a9f780c72f0ac3ecc009660085ce8cc29065fd07c1f0e71"
   end
 
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
@@ -29,7 +31,7 @@ class FileRoller < Formula
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = ""
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dpackagekit=false", ".."
+      system "meson", *std_meson_args, "-Dpackagekit=false", ".."
       system "ninja"
       system "ninja", "install"
     end

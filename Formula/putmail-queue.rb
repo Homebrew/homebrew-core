@@ -1,8 +1,13 @@
 class PutmailQueue < Formula
-  desc "Putmail queue package"
+  desc "Queue package for putmail"
   homepage "https://putmail.sourceforge.io"
   url "https://downloads.sourceforge.net/project/putmail/putmail-queue/0.2/putmail-queue-0.2.tar.bz2"
   sha256 "09349ad26345783e061bfe4ad7586fbbbc5d1cc48e45faa9ba9f667104f9447c"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/putmail-queue[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle :unneeded
 

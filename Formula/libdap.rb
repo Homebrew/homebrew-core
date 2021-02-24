@@ -1,15 +1,20 @@
 class Libdap < Formula
   desc "Framework for scientific data networking"
   homepage "https://www.opendap.org/"
-  url "https://www.opendap.org/pub/source/libdap-3.20.4.tar.gz"
-  sha256 "b16812c6ea3b01e5a02a54285af94a7dd57db929a6e92b964d642534f48b8474"
-  revision 1
+  url "https://www.opendap.org/pub/source/libdap-3.20.7.tar.gz"
+  sha256 "6856813d0b29e70a36e8a53e9cf20ad680d21d615952263e9c6586704539e78c"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url "https://www.opendap.org/pub/source/"
+    regex(/href=.*?libdap[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "885ab8323b0791007c05f597cc88adf2df0456588a80cfc164d312d4cfaa3d31" => :catalina
-    sha256 "264911ff0609114fb283ff064eae32fca1cb652d4e51c38ba14bdeab20a358fe" => :mojave
-    sha256 "d3b7cad46e5ece64f04065bb47fe27528ec1c3845588a0ddb3d8c50fb29948ad" => :high_sierra
-    sha256 "33da2c630d4bd6eba319e3cfafc4e9095bb8f236bd65f14a845ff797f3fe140b" => :sierra
+    sha256 arm64_big_sur: "232beef8fecad3beed966204d1bf42622e637492fc161801ff1c352ae429ce4b"
+    sha256 big_sur:       "660a8cd6c01ce10d30ec4dda70912cefe949b3aa5b56756c14cba5120b0f579e"
+    sha256 catalina:      "7664a9d567e5c0304ce2430cb93d02fd3431ef480105170c130327cb09da014e"
+    sha256 mojave:        "ab8664fda0c8a71409c54315011992d397315c15a5842f83771f7c30d2eafa8c"
   end
 
   head do
@@ -24,6 +29,13 @@ class Libdap < Formula
   depends_on "pkg-config" => :build
   depends_on "libxml2"
   depends_on "openssl@1.1"
+
+  uses_from_macos "flex" => :build
+  uses_from_macos "curl"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
     args = %W[

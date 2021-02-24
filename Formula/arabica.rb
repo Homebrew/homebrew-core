@@ -1,26 +1,35 @@
 class Arabica < Formula
   desc "XML toolkit written in C++"
-  homepage "https://www.jezuk.co.uk/cgi-bin/view/arabica"
-  url "https://github.com/jezhiggins/arabica/archive/2016-January.tar.gz"
-  version "20160214"
-  sha256 "addcbd13a6f814a8c692cff5d4d13491f0b12378d0ee45bdd6801aba21f9f2ae"
+  homepage "https://www.jezuk.co.uk/tags/arabica.html"
+  url "https://github.com/jezhiggins/arabica/archive/2020-April.tar.gz"
+  version "20200425"
+  sha256 "b00c7b8afd2c3f17b5a22171248136ecadf0223b598fd9631c23f875a5ce87fe"
+  license "BSD-3-Clause"
   head "https://github.com/jezhiggins/arabica.git"
 
+  # The `strategy` block below is used to generate a version from the datetime
+  # of the "latest" release on GitHub, so it will match the formula `version`.
+  livecheck do
+    url :stable
+    regex(/datetime=["']?(\d{4}-\d{2}-\d{2})T/i)
+    strategy :github_latest do |page, regex|
+      page.scan(regex).map { |match| match&.first&.gsub(/\D/, "") }
+    end
+  end
+
   bottle do
-    cellar :any
-    sha256 "0397bc0d3f70d76ad381cc9b7325a83b471ea19812311bb7619675f7c3f54c91" => :catalina
-    sha256 "448e31922f8c9b913ca5ca450599bfd631ed9781007cb7ff64fe69f14014cc27" => :mojave
-    sha256 "0d3da860ba0b953abb9f70665cc73620ae2b0cd0570dacb55bfe8954ae0d58e7" => :high_sierra
-    sha256 "6a08cb5b8af8d2034569451ad499260acebc610ab390383b20398fc10a6fb115" => :sierra
-    sha256 "185edd120b5759f25d1e69b9f24840eef6a404b1001c90e684546e359cf75928" => :el_capitan
-    sha256 "1882f30edf8da8d98df603a6006c3dce96e21941e4266103366930b3e5a922c2" => :yosemite
-    sha256 "5d247d4d5819106404bc7091e3b6141b4d298c77636bee39bfc524a3c5481e7f" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "6875acb418a0c10026c5356fe927a7c91a1825d8b314599ee1a64a309f30ed77"
+    sha256 cellar: :any, big_sur:       "c1a63f10d7451ba663ad8d974a69d83091be30730ca962a2fbd0e36b95ab16d2"
+    sha256 cellar: :any, catalina:      "4fbf676c46941de213b095ab74f0b4973e5984c2bbaa7679757b0db4b369480a"
+    sha256 cellar: :any, mojave:        "acc299016dbd644658880e9fa29af6d3f0b9f8e226b16ccd3fcaea8dae23febf"
+    sha256 cellar: :any, high_sierra:   "62920d4f26c2da71c6abf60c90c1322457e340df8142d7133a9ee1f7c2b46745"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "boost"
+
   uses_from_macos "expat"
 
   def install

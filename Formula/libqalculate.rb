@@ -1,13 +1,16 @@
 class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/libqalculate/releases/download/v3.6.0/libqalculate-3.6.0.tar.gz"
-  sha256 "66b38ed6460f0cd6a1b16ba4145c0396c995939da0ed78f15736f8cd794969b2"
+  # NOTE: Please keep these values in sync with qalculate-gtk.rb when updating.
+  url "https://github.com/Qalculate/libqalculate/releases/download/v3.17.0/libqalculate-3.17.0.tar.gz"
+  sha256 "7ea06b140b9238b44473e07b60e1e8cb5271e45b80cbdc27e7eb2e6f82c2ec8c"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "cf553625f296d92c57fa554e650672963bf814669dfecb312051434b76a8d296" => :catalina
-    sha256 "6bab97aaa9c7bdac31e6194f48d2c53c9ef1eddca6bccf76c3c6ce50ed79cf60" => :mojave
-    sha256 "9ec296234bb5423e62f6c471bf61ed251707f83f2010da920de155794608a59a" => :high_sierra
+    sha256 arm64_big_sur: "e9027b4237595ee1e3aacfa3c9691ddaadcc25bfbd59d375f972d343fbb82d45"
+    sha256 big_sur:       "14219ac079ba0c4783ec04e3a32fb6673b69311ae5a34e5373db524e9c168713"
+    sha256 catalina:      "074a8032235918dfbfd8c4831a9ca3836f8303103163c74ac5d6e59d11228fc5"
+    sha256 mojave:        "75ee085e93362f7f3656c099f2f2696f4b7583098e17222e3d20ee8b4aeadd8d"
   end
 
   depends_on "intltool" => :build
@@ -16,12 +19,6 @@ class Libqalculate < Formula
   depends_on "gnuplot"
   depends_on "mpfr"
   depends_on "readline"
-
-  # Fixed for next version: https://github.com/Qalculate/libqalculate/issues/167
-  patch do
-    url "https://github.com/Qalculate/libqalculate/commit/6f1aae9c.diff?full_index=1"
-    sha256 "3df223259f3925345ed0ebe40a659bbd146f940f54972ff45852d8959a50f62b"
-  end
 
   def install
     ENV.cxx11

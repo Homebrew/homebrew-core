@@ -1,13 +1,15 @@
 class Pnetcdf < Formula
   desc "Parallel netCDF library for scientific data using the OpenMPI library"
   homepage "https://parallel-netcdf.github.io/index.html"
-  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.11.2.tar.gz"
-  sha256 "d2c18601b364c35b5acb0a0b46cd6e14cae456e0eb854e5c789cf65f3cd6a2a7"
+  url "https://parallel-netcdf.github.io/Release/pnetcdf-1.12.2.tar.gz"
+  sha256 "3ef1411875b07955f519a5b03278c31e566976357ddfc74c2493a1076e7d7c74"
+  license "NetCDF"
 
   bottle do
-    sha256 "239d0fd91972dfae7429806a40f286deecaa7e4ce960c7aa7ccecc6e99fe97c0" => :catalina
-    sha256 "73b60ef9536af78adbe654dcc49da037b27cc8ce373f36543c6da1b1a1bbaaa9" => :mojave
-    sha256 "f03941617d9d7260497e1f89079eb7ca4c98fbd36d5bfcfa62d298e6790d6350" => :high_sierra
+    sha256 arm64_big_sur: "050d7d04413ccbc8b015ff662dabfa5abd051e116270437125987d2378037663"
+    sha256 big_sur:       "85211030d47c598d6ff4de8af6c063194d82cfd030c3799ffe61d0ea775fee91"
+    sha256 catalina:      "850305bbe69b1ada59f7cc8628d12471819e720dbd41f873d269ff12ff7a9f86"
+    sha256 mojave:        "7313cd18dde083b4cb5bee094a43e1138ab70f97f33e762c8d97d64d916143eb"
   end
 
   depends_on "gcc"
@@ -19,6 +21,13 @@ class Pnetcdf < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--enable-shared"
+
+    cd "src/utils" do
+      # Avoid references to Homebrew shims
+      inreplace ["pnetcdf-config", "pnetcdf_version/Makefile"], "#{HOMEBREW_SHIMS_PATH}/mac/super/",
+                                                                "/usr/bin/"
+    end
+
     system "make", "install"
   end
 

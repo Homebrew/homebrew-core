@@ -1,26 +1,37 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/4.2/tepl-4.2.1.tar.xz"
-  sha256 "f31ce335fa69061e5ab8653842c5d9c763641abbe323cc2374c273fc240d2b6e"
+  url "https://download.gnome.org/sources/tepl/5.0/tepl-5.0.1.tar.xz"
+  sha256 "b1274967609f524484b38775fa9ecb296c6d6616aabd052f286339a289912804"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 "86c7525cced9bbbb7d610b4234319c971adfa2956a40b30627d73d5a1f7d6abe" => :catalina
-    sha256 "f30d1359092aa7182961a00250f8b04f84efc5fbf9050382ab08a2b0e40e3079" => :mojave
-    sha256 "3a3eb85ed75ecc8c8b416d1eaab1c158201d4291854d182fd9ab9c1ed4a307aa" => :high_sierra
+    sha256 arm64_big_sur: "b004d7cbc84ea585b4314dbe7e74c067d8afbe91e74e332f791e943cccb29ca7"
+    sha256 big_sur:       "6c38d94b1b6229fc7d19d0e69f8ef120ce4240d37a92be886aeab5e34975b0b2"
+    sha256 catalina:      "675eed4ccdb966979a976569153b4fc9e7523f33e745bf4af6816c57c110f753"
+    sha256 mojave:        "d2f9ce09157721d7c2b6b989c999b286e26e6cd626c98d8dd110cf5465091891"
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "amtk"
   depends_on "gtksourceview4"
   depends_on "uchardet"
 
+  # Submitted upstream at https://gitlab.gnome.org/GNOME/tepl/-/merge_requests/8
+  patch do
+    url "https://gitlab.gnome.org/GNOME/tepl/-/commit/a8075b0685764d1243762e569fc636fa4673d244.patch"
+    sha256 "cf4966f9975026ad349eac05980bdbc6cdfc2ed581b04c099ed892777db0767c"
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
@@ -65,7 +76,7 @@ class Tepl < Formula
       -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/tepl-4
+      -I#{include}/tepl-#{version.major}
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
@@ -92,7 +103,7 @@ class Tepl < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -ltepl-4
+      -ltepl-5
       -lgtk-3
       -lgtksourceview-4.0
       -lintl

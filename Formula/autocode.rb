@@ -5,17 +5,19 @@ class Autocode < Formula
   homepage "https://autocode.readme.io/"
   url "https://registry.npmjs.org/autocode/-/autocode-1.3.1.tgz"
   sha256 "952364766e645d4ddae30f9d6cc106fdb74d05afc4028066f75eeeb17c4b0247"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "451224479d19854f4f802b0ec63077080df91196917ad14d16e4a2308f247527" => :catalina
-    sha256 "44742d0ccc3af3f27590445dbf2e89dffd8e684ff81521b5dc421449507879cd" => :mojave
-    sha256 "a11f1fbbbf04052b9885a00abc88e7539a6c1992e35a62c6776df7ea32daf890" => :high_sierra
-    sha256 "f369819b2f33327071a68455a14f66855286c7614977f06704f21c38e2df5f89" => :sierra
-    sha256 "c321c73e1662332392c5949467c544e18db30849019555086ad14eeb097656d2" => :el_capitan
-    sha256 "a0b7c969db9e2870e818587c7d832bbe0bb187cbc01346b85bb81a6097a9e015" => :yosemite
-    sha256 "04effb5aecdd48e2a3c38435079424fd83f08dff206096f9807ff7c4ccd68b93" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "780c41a7ada390dbefa61b56497f4cf53f9a5db0094b38c7064f9a4c21177fff"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ddfc5b923a862daf2c1489d942e83f03dc99fdb3dcb2b7eebd67e92582174867"
+    sha256 cellar: :any_skip_relocation, catalina:      "451224479d19854f4f802b0ec63077080df91196917ad14d16e4a2308f247527"
+    sha256 cellar: :any_skip_relocation, mojave:        "44742d0ccc3af3f27590445dbf2e89dffd8e684ff81521b5dc421449507879cd"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a11f1fbbbf04052b9885a00abc88e7539a6c1992e35a62c6776df7ea32daf890"
+    sha256 cellar: :any_skip_relocation, sierra:        "f369819b2f33327071a68455a14f66855286c7614977f06704f21c38e2df5f89"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "c321c73e1662332392c5949467c544e18db30849019555086ad14eeb097656d2"
+    sha256 cellar: :any_skip_relocation, yosemite:      "a0b7c969db9e2870e818587c7d832bbe0bb187cbc01346b85bb81a6097a9e015"
+    sha256 cellar: :any_skip_relocation, mavericks:     "04effb5aecdd48e2a3c38435079424fd83f08dff206096f9807ff7c4ccd68b93"
   end
 
   depends_on "node"

@@ -1,17 +1,19 @@
 class XalanC < Formula
   desc "XSLT processor"
   homepage "https://xalan.apache.org/xalan-c/"
-  url "https://www.apache.org/dyn/closer.cgi?path=xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
+  mirror "https://archive.apache.org/dist/xalan/xalan-c/sources/xalan_c-1.11-src.tar.gz"
   sha256 "4f5e7f75733d72e30a2165f9fdb9371831cf6ff0d1997b1fb64cdd5dc2126a28"
+  license "Apache-2.0"
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "6a6ac96e65ef391d660c295f6c3a5c349f11cfa0604a6d5111bc88fd0a017304" => :catalina
-    sha256 "5b00fab72d4db7db40495ff5331e6cd9539b30f21d6b1357d9dcc2e7275421ae" => :mojave
-    sha256 "24ddfd8ff41dbe54a5570db2a004247f92ef4bc1c897554ea83dfe7c138a172f" => :high_sierra
-    sha256 "dfe6413a8d4cba234c105d0936a671a34742d2ac0103db863a644bf78538c28c" => :sierra
-    sha256 "0b99ebef6e23b1c0d1e67d4ed8130130ad5c7b6af03f43ea9248c2d78e19a5cc" => :el_capitan
+    sha256 cellar: :any, big_sur:     "13f549b9f924f4729458c3e78bf8c11d15c399aa2d73bccf574b18c2cdb3e110"
+    sha256 cellar: :any, catalina:    "6a6ac96e65ef391d660c295f6c3a5c349f11cfa0604a6d5111bc88fd0a017304"
+    sha256 cellar: :any, mojave:      "5b00fab72d4db7db40495ff5331e6cd9539b30f21d6b1357d9dcc2e7275421ae"
+    sha256 cellar: :any, high_sierra: "24ddfd8ff41dbe54a5570db2a004247f92ef4bc1c897554ea83dfe7c138a172f"
+    sha256 cellar: :any, sierra:      "dfe6413a8d4cba234c105d0936a671a34742d2ac0103db863a644bf78538c28c"
+    sha256 cellar: :any, el_capitan:  "0b99ebef6e23b1c0d1e67d4ed8130130ad5c7b6af03f43ea9248c2d78e19a5cc"
   end
 
   depends_on "xerces-c"
@@ -19,12 +21,12 @@ class XalanC < Formula
   # Fix segfault. See https://issues.apache.org/jira/browse/XALANC-751
   # Build with char16_t casts.  See https://issues.apache.org/jira/browse/XALANC-773
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xalan-c/xerces-char16.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/71f4b091e4c4939c3fa95981298580a827788e6f/xalan-c/xerces-char16.patch"
     sha256 "ebd4ded1f6ee002351e082dee1dcd5887809b94c6263bbe4e8e5599f56774ebf"
   end
 
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xalan-c/locator-system-id.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/71f4b091e4c4939c3fa95981298580a827788e6f/xalan-c/locator-system-id.patch"
     sha256 "7c317c6b99cb5fb44da700e954e6b3e8c5eda07bef667f74a42b0099d038d767"
   end
 

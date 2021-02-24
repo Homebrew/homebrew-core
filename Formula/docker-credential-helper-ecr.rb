@@ -2,15 +2,20 @@ class DockerCredentialHelperEcr < Formula
   desc "Docker Credential Helper for Amazon ECR"
   homepage "https://github.com/awslabs/amazon-ecr-credential-helper"
   url "https://github.com/awslabs/amazon-ecr-credential-helper.git",
-      :tag      => "v0.3.1",
-      :revision => "b4a1707cec17b0533a5b9e9004ef4b59bcd0ca95"
+      tag:      "v0.5.0",
+      revision: "b19192b6522b2da02d14ec394c331f3b1a70efe2"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d68ac6324b9c68ba85b2626b074656f73aad6fd11b94605dc59c1313c5f20819" => :catalina
-    sha256 "9342cc38595b09bff7c3fa711a503c60acef3ad443619d4d9176658842ce532d" => :mojave
-    sha256 "a442aff2201f14467267465a3d472b1e4d91fe84393608d31a5339edb5d35c34" => :high_sierra
-    sha256 "cd102bb19025f0123e153f40579c613ae063e81f14f4540129249853fafe5a3b" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f76feceea1f591784fb2bb273950336675228c1d9e04d91af48d9bc6b700ddb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "822e7f36e21c109c0228fd53858781f872a4176a712b591a775c38769edc5189"
+    sha256 cellar: :any_skip_relocation, catalina:      "8506b1954205b0ccc6622738219606deb595da298797455442f5e7590886a1d8"
+    sha256 cellar: :any_skip_relocation, mojave:        "ade7af932bef1787cd560cb2befcd2ce9dcaa4ee694cac37dbf4a86265186667"
   end
 
   depends_on "go" => :build

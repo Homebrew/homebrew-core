@@ -1,14 +1,16 @@
 class Adios2 < Formula
   desc "Next generation of ADIOS developed in the Exascale Computing Program"
   homepage "https://adios2.readthedocs.io"
-  url "https://github.com/ornladios/ADIOS2/archive/v2.5.0.tar.gz"
-  sha256 "7c8ff3bf5441dd662806df9650c56a669359cb0185ea232ecb3578de7b065329"
-  head "https://github.com/ornladios/ADIOS2.git", :branch => "master"
+  url "https://github.com/ornladios/ADIOS2/archive/v2.7.1.tar.gz"
+  sha256 "c8e237fd51f49d8a62a0660db12b72ea5067512aa7970f3fcf80b70e3f87ca3e"
+  license "Apache-2.0"
+  head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   bottle do
-    sha256 "a9c783f0c9457e0fc3e71e37b629d05b83e57b0077fd1fea7aeafff34d098aec" => :catalina
-    sha256 "ffa4fee30d8d4fce1129fb91a210525fa0d299560b74780cf5311eac05869944" => :mojave
-    sha256 "ef64afa3db6349347d1bacbd672d3314fc481f57523b2270d88f439a8d8fa6f5" => :high_sierra
+    sha256 arm64_big_sur: "45f03b63524dd098dc18e621e21542a5431a5d3858c3e65f97c769a508c3e88c"
+    sha256 big_sur:       "ca61ed8e82057e3b952b2125800e1b8b3c42c2ecac2abcc53461d27e987af6cc"
+    sha256 catalina:      "191c4f460c24c7c49c77f6df9140278ad81ba408de2790cb54b1b8f67bad298b"
+    sha256 mojave:        "9fad0bbce1586a831472610367548ac4007d12ae9510b3bc10bc374cb54c2abe"
   end
 
   depends_on "cmake" => :build
@@ -19,24 +21,24 @@ class Adios2 < Formula
   depends_on "mpi4py"
   depends_on "numpy"
   depends_on "open-mpi"
-  depends_on "python"
+  depends_on "python@3.9"
   depends_on "zeromq"
   uses_from_macos "bzip2"
 
-  # HighSierra build issue with JSON support, fix already in post-2.5.0 master
-  # reference: https://github.com/ornladios/ADIOS2/pull/1805
-  patch do
-    url "https://github.com/ornladios/ADIOS2/pull/1805.patch?full_index=1"
-    sha256 "6760801cfddc48c6df158295e58d007c8b07abb82a1e79ee89c5a1e3e955d2c1"
-  end
-
   def install
+    # fix `include/adios2/common/ADIOSConfig.h` file audit failure
+    inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|
+      s.gsub! ": @CMAKE_C_COMPILER@", ": /usr/bin/clang"
+      s.gsub! ": @CMAKE_CXX_COMPILER@", ": /usr/bin/clang++"
+    end
+
     args = std_cmake_args + %W[
       -DADIOS2_USE_Blosc=ON
       -DADIOS2_USE_BZip2=ON
       -DADIOS2_USE_DataSpaces=OFF
       -DADIOS2_USE_Fortran=ON
       -DADIOS2_USE_HDF5=OFF
+      -DADIOS2_USE_IME=OFF
       -DADIOS2_USE_MGARD=OFF
       -DADIOS2_USE_MPI=ON
       -DADIOS2_USE_PNG=ON
@@ -49,7 +51,7 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_FLEX=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
-      -DPYTHON_EXECUTABLE:FILEPATH=#{Formula["python"].opt_bin}/python3
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
     ]
@@ -71,11 +73,8 @@ class Adios2 < Formula
     system "./a.out"
     assert_predicate testpath/"myVector_cpp.bp", :exist?
 
-    system "#{Formula["python"].opt_bin}/python3",
-           "-c", "import adios2"
-
-    system "#{Formula["python"].opt_bin}/python3",
-           (pkgshare/"test/helloBPWriter.py")
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import adios2"
+    system Formula["python@3.9"].opt_bin/"python3", (pkgshare/"test/helloBPWriter.py")
     assert_predicate testpath/"npArray.bp", :exist?
   end
 end

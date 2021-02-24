@@ -2,22 +2,41 @@ class ParquetTools < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
   url "https://github.com/apache/parquet-mr.git",
-      :tag      => "apache-parquet-1.10.0",
-      :revision => "031a6654009e3b82020012a18434c582bd74c73a"
+      tag:      "apache-parquet-1.11.1",
+      revision: "765bd5cd7fdef2af1cecd0755000694b992bfadd"
+  license "Apache-2.0"
+  revision 1
   head "https://github.com/apache/parquet-mr.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "663df850056a24973c7a164823fe859efdd8b1b84bc5b622f12f2922bcad5eb8" => :catalina
-    sha256 "80bbeb4f549cb06c1195fbd4b9170a428cf435678a579d1437d9b7f5fc0399da" => :mojave
-    sha256 "727a15da8f38f3a9accf1b5850e98c12a6b783d97014826442421eb2b25a1006" => :high_sierra
-    sha256 "9d0889dcab15c776d2878796562ec41a8e4baf539996e51714180138cb005c15" => :sierra
-    sha256 "5847b83a96097c31497caf966d3d28185b16912bb4017bfbc4a2dd284b3c350d" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d9b85d31e4b7d62fe66178eb6e1c16f1ef21672cdefee382492eee1a30cc5934"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1c92af57c5d3e5df830feb8143737a6bddbe986169a80b6457fbd725c7509d06"
+    sha256 cellar: :any_skip_relocation, catalina:      "9a8d696b41cd9b0c06a79aefeab6f1c8dd3124dec409390563adc2a2976e3a9b"
+    sha256 cellar: :any_skip_relocation, mojave:        "90f8b4dc30bb841afe9a1e1654d95a4e7fe6fd3338196ea7c82e503c8a88b1d8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3fba4dc621d0ddb6e8cb648dba43398d98e37e0f954130353f368b6f849e6f06"
   end
 
   depends_on "maven" => :build
+  depends_on "openjdk"
+
+  # This file generated with `red-parquet` gem:
+  #   Arrow::Table.new("values" => ["foo", "Homebrew", "bar"]).save("homebrew.parquet")
+  resource("test-parquet") do
+    url "https://gist.github.com/bayandin/2144b5fc6052153c1a33fd2679d50d95/raw/7d793910a1afd75ee4677f8c327491f7bdd2256b/homebrew.parquet"
+    sha256 "5caf572cb0df5ce9d6893609de82d2369b42c3c81c611847b6f921d912040118"
+  end
+
+  # based on https://github.com/apache/parquet-mr/pull/809
+  patch do
+    url "https://github.com/apache/parquet-mr/commit/b6d07ae0744ba47aa9a8868ef2d7cbb232a60b22.patch?full_index=1"
+    sha256 "200999012f743454cd525572bf848cd48b26051916a2d468474823a0aa2ccf61"
+  end
 
   def install
+    # Mimic changes from https://github.com/apache/parquet-mr/pull/826
+    # See https://issues.apache.org/jira/browse/PARQUET-1923
+    inreplace "pom.xml", "<hadoop.version>2.7.3</hadoop.version>", "<hadoop.version>2.10.1</hadoop.version>"
+
     cd "parquet-tools" do
       system "mvn", "clean", "package", "-Plocal"
       libexec.install "target/parquet-tools-#{version}.jar"
@@ -26,6 +45,10 @@ class ParquetTools < Formula
   end
 
   test do
-    system "#{bin}/parquet-tools", "cat", "-h"
+    resource("test-parquet").stage(testpath)
+    system "#{bin}/parquet-tools", "cat", testpath/"homebrew.parquet"
+
+    output = shell_output("#{bin}/parquet-tools cat #{testpath}/homebrew.parquet")
+    assert_match "values = Homebrew", output
   end
 end

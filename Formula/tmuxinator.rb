@@ -1,19 +1,23 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/v1.1.3.tar.gz"
-  sha256 "84fdc5fff0d76e415cfd165e79cb21682f9dc68e58a771dbe968099956609568"
+  url "https://github.com/tmuxinator/tmuxinator/archive/v2.0.2.tar.gz"
+  sha256 "2e473fc56f9491f682ec115b62c07b29bbfb79b2e5bb0cc33ea3c5e008e6f852"
+  license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bb4389494ccfc00cc1d8d8cf715992a6ba840caf3514585d93746a28bc93fa85" => :catalina
-    sha256 "7d575e145d4894e8cb3811aa26186a8a9038556ce7e8588c24abcab400bdcdff" => :mojave
-    sha256 "2b8723d4a35e4a70d6de828b29a5652677e57ef4ec359c545b5d9e5f2976d8a7" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "afc36c0b2e025de0cc5ca6849de580f380405b6cfb1bcec099d95664da4e5ffd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c57d9e47b03552d52d480ad94123e9530db0e81c9e660bb516795dbf107eaf09"
+    sha256 cellar: :any_skip_relocation, catalina:      "afce6d81dd916ad941dc78336f249330279970d3dbcf40c41a4153ed17189bd1"
+    sha256 cellar: :any_skip_relocation, mojave:        "651de3698fd15d6088e7c60d75c2c0d5fe07304f015585b618e9b6db2db1295a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "59ae8d30dd41a1404d0da34d94efa6cf2146efe7a1c1cc69e72745770324f66c"
   end
 
   depends_on "ruby"
   depends_on "tmux"
+
+  conflicts_with "tmuxinator-completion", because: "the tmuxinator formula includes completion"
 
   resource "erubis" do
     url "https://rubygems.org/downloads/erubis-2.7.0.gem"
@@ -21,8 +25,8 @@ class Tmuxinator < Formula
   end
 
   resource "thor" do
-    url "https://rubygems.org/downloads/thor-0.20.3.gem"
-    sha256 "49bc217fe28f6af34c6e60b003e3405c27595a55689077d82e9e61d4d3b519fa"
+    url "https://rubygems.org/downloads/thor-1.0.1.gem"
+    sha256 "7572061e3cbe6feee57828670e6a25a66dd397f05c1f8515d49f770a7d9d70f5"
   end
 
   resource "xdg" do
@@ -41,7 +45,7 @@ class Tmuxinator < Formula
     system "gem", "build", "tmuxinator.gemspec"
     system "gem", "install", "--ignore-dependencies", "tmuxinator-#{version}.gem"
     bin.install libexec/"bin/tmuxinator"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
 
     bash_completion.install "completion/tmuxinator.bash" => "tmuxinator"
     zsh_completion.install "completion/tmuxinator.zsh" => "_tmuxinator"

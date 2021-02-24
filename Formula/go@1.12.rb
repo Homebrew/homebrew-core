@@ -1,30 +1,41 @@
 class GoAT112 < Formula
   desc "Go programming environment (1.12)"
   homepage "https://golang.org"
-  url "https://dl.google.com/go/go1.12.14.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.12.14.src.tar.gz"
-  sha256 "39dbf05f7e2ffcb19b08f07d53dcc96feadeb1987fef9e279e7ff0c598213064"
+  url "https://dl.google.com/go/go1.12.17.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.12.17.src.tar.gz"
+  sha256 "de878218c43aa3c3bad54c1c52d95e3b0e5d336e1285c647383e775541a28b25"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "c60db01a6810400103380418d7ae2b6838e7393a500bef9bcec160137b9ff34a" => :catalina
-    sha256 "d45abd6325b9f4449eebfa4594728e1f885a1b0e81be684dced9d474125b2693" => :mojave
-    sha256 "db0b608109b9e6a30760bd8fab61c554f458ca0e44a0c6b1347882f30ba24e60" => :high_sierra
+    rebuild 1
+    sha256 big_sur:     "981dab2b0af4a0ed5a36bb9ed31f109852cfefed5db8a10aa4624113536d0bbf"
+    sha256 catalina:    "44d6c83a39c231cae86af05b3689cb2ec03be389562c1cc5e84a9f68ed09af80"
+    sha256 mojave:      "dc3b90a9ba13c31928c92227957d530656bab53d5ca3a35bfab02038118a964e"
+    sha256 high_sierra: "e42c02a42a4d2df97cba11e80729e8439e7476745548bd7ee23d72858c22a3f1"
   end
 
   keg_only :versioned_formula
 
-  depends_on :macos => :yosemite
+  disable! date: "2021-02-16", because: :unsupported
+
+  depends_on arch: :x86_64
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.12"
+        branch: "release-branch.go1.12"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.
   resource "gobootstrap" do
-    url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
-    version "1.7"
-    sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    on_macos do
+      url "https://storage.googleapis.com/golang/go1.7.darwin-amd64.tar.gz"
+      sha256 "51d905e0b43b3d0ed41aaf23e19001ab4bc3f96c3ca134b48f7892485fc52961"
+    end
+
+    on_linux do
+      url "https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz"
+      sha256 "702ad90f705365227e902b42d91dd1a40e48ca7f67a2f4b2fd052aaa4295cd95"
+    end
   end
 
   def install
@@ -33,7 +44,6 @@ class GoAT112 < Formula
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
-      ENV["GOOS"]         = "darwin"
       system "./make.bash", "--no-clean"
     end
 

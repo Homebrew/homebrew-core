@@ -1,34 +1,34 @@
 class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "https://www.minetest.net/"
+  license "LGPL-2.1"
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.1.0.tar.gz"
-    sha256 "ca53975eecf6a39383040658f41d697c8d7f8d5fe9176460f564979c73b53906"
-
-    # This patch is already merged in master and it should be removed when new version of mintest is released
-    patch do
-      url "https://github.com/minetest/minetest/pull/9064.patch?full_index=1"
-      sha256 "78c5148ae5260bf2220ca18849c698e92c93e1c92b8f287135b293457c9ab6cd"
-    end
+    url "https://github.com/minetest/minetest/archive/5.4.0.tar.gz"
+    sha256 "6e9b299e156651be9bcf973a9232cff32215de31dfae5ea770a71d1757cab014"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/5.1.0.tar.gz"
-      sha256 "f165fac0081bf4797cf9094282cc25034b2347b3ea94e6bb8d9329c5ee63f41b"
+      url "https://github.com/minetest/minetest_game/archive/5.3.0.tar.gz"
+      sha256 "06c6c1d4b97af211dd0fa518a3e68a205f594e9816a4b2477e48d4d21d278e2d"
     end
   end
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 "e6774d4217375c164de190acccfbc208ca7c9e5a491b0584450090ea7d393b65" => :catalina
-    sha256 "656842e7896dcc6458522201d9a6ec2ccd6f09daf249a1145387122c52af74bb" => :mojave
-    sha256 "cebe39a206ec1d950d8c3e77b94d2b8e4f1953350d9b0ae5ece220de082f531c" => :high_sierra
+    sha256 cellar: :any, big_sur:  "30d1427e3fafef0ede68549e111e9dbd9dcc78fb285c7c86803de2dab4c3c59d"
+    sha256               catalina: "6b1f0ecc8f9565d6bf578af5c7dd567de2ae32bc522836dc88a6079ac5b65bcf"
+    sha256               mojave:   "984fd05bd70577902fa1fb1d7c3cc0528ecfea99eb37fadb014ac24b62db25e4"
   end
 
   head do
     url "https://github.com/minetest/minetest.git"
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game.git", :branch => "master"
+      url "https://github.com/minetest/minetest_game.git", branch: "master"
     end
   end
 
@@ -44,8 +44,8 @@ class Minetest < Formula
   def install
     (buildpath/"games/minetest_game").install resource("minetest_game")
 
-    args = std_cmake_args - %w[-DCMAKE_BUILD_TYPE=None]
-    args << "-DCMAKE_BUILD_TYPE=Release" << "-DBUILD_CLIENT=1" << "-DBUILD_SERVER=0"
+    args = std_cmake_args
+    args << "-DBUILD_CLIENT=1" << "-DBUILD_SERVER=0"
     args << "-DENABLE_FREETYPE=1" << "-DCMAKE_EXE_LINKER_FLAGS='-L#{Formula["freetype"].opt_lib}'"
     args << "-DENABLE_GETTEXT=1" << "-DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}"
 
@@ -62,7 +62,11 @@ class Minetest < Formula
       to create those folders first).
 
       If you would like to start the Minetest server from a terminal, run
-      "/Applications/minetest.app/Contents/MacOS/minetest --server".
+      "#{prefix}/minetest.app/Contents/MacOS/minetest --server".
     EOS
+  end
+
+  test do
+    system "#{prefix}/minetest.app/Contents/MacOS/minetest", "--version"
   end
 end

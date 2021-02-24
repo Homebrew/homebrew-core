@@ -2,15 +2,16 @@ class SwitchLanPlay < Formula
   desc "Make you and your friends play games like in a LAN"
   homepage "https://github.com/spacemeowx2/switch-lan-play"
   url "https://github.com/spacemeowx2/switch-lan-play.git",
-    :tag      => "v0.1.0",
-    :revision => "eda2c4dcb1db7948fcc0ae5d129fc4b8f4369ca2"
+      tag:      "v0.2.3",
+      revision: "c0c663e3fdc95d6d6e8ab401caa2bfb5b5872e00"
+  license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a04c4d8d196c9777c5cf03fab67cb5dc94b5f2890396ed38559ff1147182fab6" => :catalina
-    sha256 "be0f9d8661c0c8ce72abcc42dcd67a2e34bcd23fdd3cee01bf2a7f60690d2146" => :mojave
-    sha256 "aed551064a4fca5c96d1059020d0cde04c49f72d5b90ee29280137e8f26f93a7" => :high_sierra
-    sha256 "fa6f336a8bd322bfb4bfe9bf47f0705fdf37658719eb3c03252e5532ed71c554" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ae86854d36264397768367d7ce69466967e303b5047828a6720c6574101a24b8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "520620d6ae69e98a169edda5ed47b0ebb496a843eedacda867b1eb52b14c007e"
+    sha256 cellar: :any_skip_relocation, catalina:      "caa1992416c8eae4c281af3166238bb2bf8104c1d91d7dc37a2abd8715712ccc"
+    sha256 cellar: :any_skip_relocation, mojave:        "62da027220b8d01270c8459cec638744ed06eac2ec046ccff56729b7f126eacf"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "41a10e6d0ce45410763c4774afa4286a8c633ac60348c0d0963e33cbef855c1d"
   end
 
   depends_on "cmake" => :build

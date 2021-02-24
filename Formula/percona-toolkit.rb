@@ -1,52 +1,83 @@
+require "language/perl"
+
 class PerconaToolkit < Formula
-  desc "Percona Toolkit for MySQL"
+  include Language::Perl::Shebang
+
+  desc "Command-line tools for MySQL, MariaDB and system tasks"
   homepage "https://www.percona.com/software/percona-toolkit/"
-  url "https://www.percona.com/downloads/percona-toolkit/3.0.13/source/tarball/percona-toolkit-3.0.13.tar.gz"
-  sha256 "21f68d1c5204a9cad7be716fd1e53f0fe6ff7d995292b56dbc7c55e3979432b1"
-  revision 2
-  head "lp:percona-toolkit", :using => :bzr
+  url "https://www.percona.com/downloads/percona-toolkit/3.3.0/source/tarball/percona-toolkit-3.3.0.tar.gz"
+  sha256 "0a71e3bfa1eec7c9d8941080d2852d4d4354c2c1fe303f2f28f6352627549d16"
+  license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
+  head "lp:percona-toolkit", using: :bzr
+
+  livecheck do
+    url "https://www.percona.com/downloads/percona-toolkit/LATEST/"
+    regex(%r{value=.*?percona-toolkit/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "e4039124f5a501670a7d625f4af2621c0075673dbe462fbffe955ac5367c15af" => :catalina
-    sha256 "b257017efc776a066319c4c855731c9354f2da80a6a5d884d29b9705f5acc5dd" => :mojave
-    sha256 "581f9d4c2f5cbc87f69c77b8707900122f22370dd4699c857d8225c8a1030ddf" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "f9a61f98a776a1e43d6019f7624ef1e989e1f7d02003ea50c1347cf8f1e051a9"
+    sha256 cellar: :any, big_sur:       "51840e9c331c1c8268cd2a7e0369a61077994597473fde314e0ebfa57f6ab1d8"
+    sha256 cellar: :any, catalina:      "83b295ee83a59f0bd55db724ee8b9525c62107fe2155cb834f12158d22867f32"
+    sha256 cellar: :any, mojave:        "383bce5fcca7a6b1c3cb7263e149594ea5db49058e7a0fbfe5190e1edd5e97fa"
   end
 
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
+  uses_from_macos "perl"
+
+  # Should be installed before DBD::mysql
+  resource "Devel::CheckLib" do
+    url "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.14.tar.gz"
+    sha256 "f21c5e299ad3ce0fdc0cb0f41378dca85a70e8d6c9a7599f0e56a957200ec294"
+  end
+
   # In Mojave, this is not part of the system Perl anymore
   if MacOS.version >= :mojave
     resource "DBI" do
-      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.642.tar.gz"
-      sha256 "3f2025023a56286cebd15cb495e36ccd9b456c3cc229bf2ce1f69e9ebfc27f5d"
+      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
+      sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
     end
   end
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
-    sha256 "6165652ec959d05b97f5413fa3dff014b78a44cf6de21ae87283b28378daf1f7"
+    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-4.050.tar.gz"
+    sha256 "4f48541ff15a0a7405f76adc10f81627c33996fbf56c95c26c094444c0928d78"
   end
 
   resource "JSON" do
-    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.00.tar.gz"
-    sha256 "c4da1f1075878604b7b1f085ff3963e1073ed1c603c3bc9f0b0591e3831a1068"
+    url "https://cpan.metacpan.org/authors/id/I/IS/ISHIGAKI/JSON-4.02.tar.gz"
+    sha256 "444a88755a89ffa2a5424ab4ed1d11dca61808ebef57e81243424619a9e8627c"
   end
 
   def install
+    ENV.prepend_create_path "PERL5LIB", buildpath/"build_deps/lib/perl5"
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    build_only_deps = %w[Devel::CheckLib]
     resources.each do |r|
       r.stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+        install_base = if build_only_deps.include? r.name
+          buildpath/"build_deps"
+        else
+          libexec
+        end
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{install_base}"
         system "make", "install"
       end
     end
 
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
-    system "make", "test", "install"
+    system "make", "install"
     share.install prefix/"man"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+
+    # Disable dynamic selection of perl which may cause segfault when an
+    # incompatible perl is picked up.
+    # https://github.com/Homebrew/homebrew-core/issues/4936
+    bin.find { |f| rewrite_shebang detected_perl_shebang, f }
+
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

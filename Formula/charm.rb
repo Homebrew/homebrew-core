@@ -1,58 +1,26 @@
-require "language/go"
-
 class Charm < Formula
   desc "Tool for managing Juju Charms"
   homepage "https://github.com/juju/charmstore-client"
-  url "https://github.com/juju/charmstore-client/archive/v2.4.0.tar.gz"
-  sha256 "02f5b9c5211467353dbcf9589ecf70d6e7debf16e3a8b85fa870084525466731"
+  url "https://github.com/juju/charmstore-client/archive/v2.5.2.tar.gz"
+  sha256 "3dd52c9a463bc09bedb3a07eb0977711aec77611b9c0d7f40cd366a66aa2ca03"
+  license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8fceac06a83052ab1a67a5845ebc910438105e543677756c774c05b3a03a81c8" => :mojave
-    sha256 "0b0552a903e6a0a29fbf38c1d2110263df22fd5a12599e36cd60b22bc1dab71e" => :high_sierra
-    sha256 "1e3250586c714b629398dc02cd1b8168fe0cfe70a8a067d700b8b425f16d2ffa" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "406f7bc14f44bd5462dde85da36d37cf5218ba7db06f7e27121ca2cc504d4eb8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6c5e1f0af81ab86774fe87eb7c793c390386cc45b255348dc6467ad030f740d8"
+    sha256 cellar: :any_skip_relocation, catalina:      "2cfca124d8f2bdc973797c2a290b36f87e4d8d4d39e7ebb4358b552e12ac89eb"
+    sha256 cellar: :any_skip_relocation, mojave:        "a50370e9787fc797efc1b7c0dcc45fff5fd2ee02fea66e2d7db5d132c2153665"
   end
 
-  depends_on "bazaar" => :build
   depends_on "go" => :build
 
-  go_resource "github.com/kisielk/gotool" do
-    url "https://github.com/kisielk/gotool.git",
-        :revision => "80517062f582ea3340cd4baf70e86d539ae7d84d"
-  end
-
-  go_resource "github.com/pelletier/go-toml" do
-    url "https://github.com/pelletier/go-toml.git",
-        :revision => "603baefff989777996bf283da430d693e78eba3a"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://go.googlesource.com/tools.git",
-        :revision => "fd2d2c45eb2dff7b87eab4303a1016b4dbf95e81"
-  end
-
-  go_resource "github.com/rogpeppe/godeps" do
-    url "https://github.com/rogpeppe/godeps.git",
-        :revision => "404a7e748cd352bb0d7449dedc645546eebbfc6e"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/juju/charmstore-client"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-    cd("src/github.com/rogpeppe/godeps") { system "go", "install" }
-
-    cd dir do
-      system "godeps", "-x", "-u", "dependencies.tsv"
-      system "go", "build", "github.com/juju/charmstore-client/cmd/charm"
-      bin.install "charm"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "./cmd/charm"
   end
 
   test do
-    system "#{bin}/charm"
+    assert_match "show-plan           - show plan details", shell_output("#{bin}/charm 2>&1")
+
+    assert_match "ERROR missing plan url", shell_output("#{bin}/charm show-plan 2>&1", 2)
   end
 end

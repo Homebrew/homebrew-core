@@ -1,16 +1,20 @@
 class Diffstat < Formula
   desc "Produce graph of changes introduced by a diff file"
   homepage "https://invisible-island.net/diffstat/"
-  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.62.tgz"
-  mirror "https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.62.orig.tar.gz"
-  sha256 "7f09183644ed77a156b15346bbad4e89c93543e140add9dab18747e30522591f"
+  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.64.tgz"
+  sha256 "b8aee38d9d2e1d05926e6b55810a9d2c2dd407f24d6a267387563a4436e3f7fc"
+  license "MIT-CMU"
+
+  livecheck do
+    url "https://invisible-mirror.net/archives/diffstat/"
+    regex(/href=.*?diffstat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6501d14bb3ff32347b902fcd6af24714fd88928e9ec2b4685821ccc2828160bc" => :catalina
-    sha256 "f2ddd2775174056c48eab541d32b99cfd2cc586e0227c4f2eec4b15bf5ce7128" => :mojave
-    sha256 "ac1e5199d1776d52adc03842b378da475f1db1282150ed9ce22c365a5b0cf7dd" => :high_sierra
-    sha256 "c6f9fd47c9736faf0cfb2f3e0ab6490e3974b4dca06d36f4bf01967c56aa1c14" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ca28eac2743d6dea9f9128b51ac0107d627f64cc421033538468930f291f3fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6deaecbddb668e6a0beeadf19f80bede5756279949b872bd15ec2bdae432ed77"
+    sha256 cellar: :any_skip_relocation, catalina:      "9d8296df829318dce8e829eef894867a74d3f18d438de98309b0c3fe02e065cf"
+    sha256 cellar: :any_skip_relocation, mojave:        "5b035ed0d84aa480965b56e0a8db59ebbb947dee3379297a3f05f88dcd610d81"
   end
 
   def install
@@ -31,7 +35,7 @@ class Diffstat < Formula
       -  version '1.58'
       -  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
       +  url 'https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
-      +  sha256 '7f09183644ed77a156b15346bbad4e89c93543e140add9dab18747e30522591f'
+      +  sha256 'b8aee38d9d2e1d05926e6b55810a9d2c2dd407f24d6a267387563a4436e3f7fc'
     EOS
     output = shell_output("#{bin}/diffstat diff.diff")
     assert_match "2 insertions(+), 3 deletions(-)", output

@@ -1,25 +1,42 @@
 class Re2 < Formula
   desc "Alternative to backtracking PCRE-style regular expression engines"
   homepage "https://github.com/google/re2"
-  url "https://github.com/google/re2/archive/2020-01-01.tar.gz"
-  version "20200101"
-  sha256 "7509a34636b7dd2966f7a34440cee1153983fd61a4bf8f759a4f7781b9ceebaf"
+  url "https://github.com/google/re2/archive/2021-02-02.tar.gz"
+  version "20210202"
+  sha256 "1396ab50c06c1a8885fb68bf49a5ecfd989163015fd96699a180d6414937f33f"
+  license "BSD-3-Clause"
   head "https://github.com/google/re2.git"
 
-  bottle do
-    cellar :any
-    sha256 "eebe26247a98e443c02f2b9cfddbbd5fd5e49435f005db530ba645baa86f6331" => :catalina
-    sha256 "620e2e371b663ba08f8db374ab07152bd075b7cea1cd8a54dcf8f1552a4d6d67" => :mojave
-    sha256 "ddd0f9c9099379cdcfb95917da515918e767eee56cce4b779d663ff8efc1c468" => :high_sierra
+  # The `strategy` block below is used to massage upstream tags into the
+  # YYYYMMDD format used in the `version`. This is necessary for livecheck
+  # to be able to do proper `Version` comparison.
+  livecheck do
+    url :stable
+    regex(/^(\d{2,4}-\d{2}-\d{2})$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub(/\D/, "") }.compact
+    end
   end
+
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "d5d10c0775f70740b3c6500824d18e01f5b29c5ed98291ee52b53107db6f6a8d"
+    sha256 cellar: :any, big_sur:       "65a30882f68414d1a9d5b08f6f452a0091460bcc062962789e9585652de04164"
+    sha256 cellar: :any, catalina:      "de7bad8a1ea4cf5b8ab0b32463160321aed137e4864d0c81e7b298cf4f8a8164"
+    sha256 cellar: :any, mojave:        "7d98093a112270677f4f5a76cedfd2432af1464f3c69c4cf5f8d554997f49513"
+  end
+
+  depends_on "cmake" => :build
 
   def install
     ENV.cxx11
 
-    system "make", "install", "prefix=#{prefix}"
-    MachO::Tools.change_dylib_id("#{lib}/libre2.0.0.0.dylib", "#{lib}/libre2.0.dylib")
-    lib.install_symlink "libre2.0.0.0.dylib" => "libre2.0.dylib"
-    lib.install_symlink "libre2.0.0.0.dylib" => "libre2.dylib"
+    # Run this for pkg-config files
+    system "make", "common-install", "prefix=#{prefix}"
+
+    # Run this for the rest of the install
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON", "-DRE2_BUILD_TESTING=OFF", *std_cmake_args
+    system "make"
+    system "make", "install"
   end
 
   test do

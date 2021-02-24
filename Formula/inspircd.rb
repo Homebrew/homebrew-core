@@ -1,14 +1,20 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
   homepage "https://www.inspircd.org/"
-  url "https://github.com/inspircd/inspircd/archive/v2.0.27.tar.gz"
-  sha256 "6bc1956bd6a7d2d463c646f1563c99cb507f2f214e51d6ac9c70906ac27aae73"
+  url "https://github.com/inspircd/inspircd/archive/v3.8.1.tar.gz"
+  sha256 "2068ca42f39b382e1f74b650230e02690ffbca58c4f3aed075a6dd72e381b44b"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://github.com/inspircd/inspircd.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "8d0b4455f893654aa729369b74ffed990fc554fd9b6d4902fdf1b8ee66e44c5e" => :catalina
-    sha256 "de7c0627908828d4ec8b317cbf174f043598b38c1916fa64dab5c8b76411ac2d" => :mojave
-    sha256 "679569e694341552a1cc4d50240ebbd28f77850f0adfc482d0e3ddc1a7736495" => :high_sierra
-    sha256 "45b3a6258e87954cb82f98d97ca87d54f4063a06f5b8cdff645ba0be4bf994bb" => :sierra
+    sha256 arm64_big_sur: "704e9f33f97071ca2673b7d4e80b068cea5c48e7958bffefd701ac7f44c540f0"
+    sha256 big_sur:       "aab78f20c01a81d9b8c5a153e5ba9d629e74d9156d0e0c077e266d18e97228b5"
+    sha256 catalina:      "9eb14778f35342c7e9ca7b6e17db90ad0ec763da02318b8d4ff15c3b70232504"
+    sha256 mojave:        "35d846f23095493edd191b76aa873176fe4dfda4d8fad99fb8a17a556f8b29fc"
   end
 
   depends_on "pkg-config" => :build
@@ -17,16 +23,12 @@ class Inspircd < Formula
   skip_clean "logs"
 
   def install
-    system "./configure", "--enable-extras=m_ldapauth.cpp,m_ldapoper.cpp"
-    system "./configure", "--prefix=#{prefix}", "--with-cc=#{ENV.cc}"
+    system "./configure", "--enable-extras=ldap"
+    system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
-  def post_install
-    inreplace "#{prefix}/org.inspircd.plist", "ircdaemon", ENV["USER"]
-  end
-
   test do
-    system "#{bin}/inspircd", "--version"
+    assert_match("ERROR: Cannot open config file", shell_output("#{bin}/inspircd", 2))
   end
 end

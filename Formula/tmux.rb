@@ -1,14 +1,23 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
-  url "https://github.com/tmux/tmux/releases/download/3.0a/tmux-3.0a.tar.gz"
-  sha256 "4ad1df28b4afa969e59c08061b45082fdc49ff512f30fc8e43217d7b0e5f8db9"
+  url "https://github.com/tmux/tmux/releases/download/3.1c/tmux-3.1c.tar.gz"
+  sha256 "918f7220447bef33a1902d4faff05317afd9db4ae1c9971bef5c787ac6c88386"
+  license "ISC"
+  revision 1
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+[a-z]?)["' >]}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "3d29caf7e2b87c9f1af575b4ec10af3e29c5de6979a8bd884153d9e8e1b69f20" => :catalina
-    sha256 "6cfd3987dcda2901a3ed423138db7782ea88a993e1409c4ebb9d647b1c007e8a" => :mojave
-    sha256 "c7c42853ca6a3a5ad6ab6544defee14e450643f5ace274b9cf00d348e8525993" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "b24cedca1ea1e8e343e5faf6acb509e3df2b3d91b6dcb2934b2c697d8d5b6b07"
+    sha256 cellar: :any, big_sur:       "6f9b667c08719ca7a164c571740d510236d55c922058b1d71fb38f66163a394e"
+    sha256 cellar: :any, catalina:      "e1148f3043ef1e77e942bc654e6b3867f40401b0ba93e6d44a460467c51e0a3b"
+    sha256 cellar: :any, mojave:        "3ba85f3524acbf5e1fb04135fa9b7f2bbdd5d3c8ed94189685be50ca19722bbe"
+    sha256 cellar: :any, high_sierra:   "ec5fcbdc337221efdbf3f21121fb087b998dd7d3bf6dd5bb72e352d9c9463a57"
   end
 
   head do
@@ -23,19 +32,25 @@ class Tmux < Formula
   depends_on "libevent"
   depends_on "ncurses"
 
+  # Old versions of macOS libc disagree with utf8proc character widths.
+  # https://github.com/tmux/tmux/issues/2223
+  depends_on "utf8proc" if MacOS.version >= :high_sierra
+
   resource "completion" do
-    url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/homebrew_1.0.0/completions/tmux"
-    sha256 "05e79fc1ecb27637dc9d6a52c315b8f207cf010cdcee9928805525076c9020ae"
+    url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/f5d53239f7658f8e8fbaf02535cc369009c436d6/completions/tmux"
+    sha256 "b5f7bbd78f9790026bbff16fc6e3fe4070d067f58f943e156bd1a8c3c99f6a6f"
   end
 
   def install
     system "sh", "autogen.sh" if build.head?
 
     args = %W[
-      --disable-Dependency-tracking
+      --disable-dependency-tracking
       --prefix=#{prefix}
       --sysconfdir=#{etc}
     ]
+
+    args << "--enable-utf8proc" if MacOS.version >= :high_sierra
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args
@@ -46,10 +61,11 @@ class Tmux < Formula
     bash_completion.install resource("completion")
   end
 
-  def caveats; <<~EOS
-    Example configuration has been installed to:
-      #{opt_pkgshare}
-  EOS
+  def caveats
+    <<~EOS
+      Example configuration has been installed to:
+        #{opt_pkgshare}
+    EOS
   end
 
   test do

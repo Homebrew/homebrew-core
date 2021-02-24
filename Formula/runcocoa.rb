@@ -15,7 +15,8 @@ class Runcocoa < Formula
   test do
     string = "Hello world!"
 
-    objc_code = "[[NSFileHandle fileHandleWithStandardOutput] writeData:[@\"#{string}\" dataUsingEncoding:NSNEXTSTEPStringEncoding]]"
+    objc_code = "[[NSFileHandle fileHandleWithStandardOutput] " \
+                "writeData:[@\"#{string}\" dataUsingEncoding:NSNEXTSTEPStringEncoding]]"
     objc_output = pipe_output("#{bin}/runcocoa", objc_code, 0)
     assert_match string, objc_output
 

@@ -1,38 +1,43 @@
 class Pipx < Formula
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://github.com/pipxproject/pipx"
-  url "https://files.pythonhosted.org/packages/e1/50/cd0e61f43733f4179d26f73f270323b7c18d138c2511b042759df26d40af/pipx-0.14.0.0.tar.gz"
-  sha256 "33c6e2f48c8b5b9e79cb5d61d3887562ecdbc2bf2e63818ca419a88d94359bc8"
+  url "https://files.pythonhosted.org/packages/29/06/20d904aa0fac35f5f06c098aa9d3fcaa031dc33ae25a711d3fbc23ca23be/pipx-0.16.0.0.tar.gz"
+  sha256 "ec9d63753f34eb2dde5597ecdfe23df61749104485eead42937abec4dc4f4598"
+  license "MIT"
   head "https://github.com/pipxproject/pipx.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "01ade526faaacf1f64533df42087b33257ca968cef92a1bcec9bb6813ff6410d" => :catalina
-    sha256 "aab4c9f0d670fcf25beed5694c6bf1553d2e05600c03a6e8c6d45a13852057d0" => :mojave
-    sha256 "aab4c9f0d670fcf25beed5694c6bf1553d2e05600c03a6e8c6d45a13852057d0" => :high_sierra
-    sha256 "f46718a0df991e8e66df8917f3109db22794975ce1af136f97710ade12697f42" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7175a21e5bf6045390b320c5eb5e88351bd7b3ac56fd7406390d45ac69876c59"
+    sha256 cellar: :any_skip_relocation, big_sur:       "07c91b1e0ba3aaf7e285b21b2535c8c6a8d5adbf9558d119ec0c8538ea7477b1"
+    sha256 cellar: :any_skip_relocation, catalina:      "80b40dd15aba425da48c79134bd2d4cd52cefbb19fe7caec4d8c61b2d9fffe50"
+    sha256 cellar: :any_skip_relocation, mojave:        "beaba00c300b58c6208375b34e95890515c77842508fb3b8e92ac16076e4001f"
   end
 
-  depends_on "python"
+  depends_on "python@3.9"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/9c/c5/4009a381ba46f8424832b6fa9a6d8c79b2089a0170beb434280d293a5b5c/argcomplete-1.10.0.tar.gz"
-    sha256 "45836de8cc63d2f6e06b898cef1e4ce1e9907d246ec77ac8e64f23f153d6bec1"
+    url "https://files.pythonhosted.org/packages/cb/53/d2e3d11726367351b00c8f078a96dacb7f57aef2aca0d3b6c437afc56b55/argcomplete-1.12.2.tar.gz"
+    sha256 "de0e1282330940d52ea92a80fea2e4b9e0da1932aaa570f84d268939d1897b04"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/f8/5c/f60e9d8a1e77005f664b76ff8aeaee5bc05d0a91798afd7f53fc998dbc47/Click-7.0.tar.gz"
-    sha256 "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"
+    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
+    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
   end
 
-  resource "distro" do
-    url "https://files.pythonhosted.org/packages/ca/e3/78443d739d7efeea86cbbe0216511d29b2f5ca8dbf51a6f2898432738987/distro-1.4.0.tar.gz"
-    sha256 "362dde65d846d23baee4b5c058c8586f219b5a54be1cf5fc6ff55c4578392f57"
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
+    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   resource "userpath" do
-    url "https://files.pythonhosted.org/packages/32/92/4abff0a80d028a306e00bf82f8b21ff18d9ad8199b6d179da3521edf83af/userpath-1.2.0.tar.gz"
-    sha256 "10fa2a90c61546f188989680a9b7510888b976f5d18503ad4482c8f919e783cb"
+    url "https://files.pythonhosted.org/packages/86/2b/0a443e7978ea0f6bc1baece1de35545fa12f6d9fc5451aa90529db41db70/userpath-1.4.1.tar.gz"
+    sha256 "211544ea02d8715fdc06f429cf66cd18c9877a31751d966d6de11b24faaed255"
   end
 
   def install
@@ -46,7 +51,9 @@ class Pipx < Formula
     end
 
     system "python3", *Language::Python.setup_install_args(libexec)
-    (bin/"pipx").write_env_script(libexec/"bin/pipx", :PYTHONPATH => ENV["PYTHONPATH"])
+    (bin/"pipx").write_env_script(libexec/"bin/pipx", PYTHONPATH: ENV["PYTHONPATH"])
+    (bin/"register-python-argcomplete").write_env_script(libexec/"bin/register-python-argcomplete",
+      PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

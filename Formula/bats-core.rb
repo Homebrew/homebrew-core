@@ -1,12 +1,15 @@
 class BatsCore < Formula
   desc "Bash Automated Testing System"
   homepage "https://github.com/bats-core/bats-core"
-  url "https://github.com/bats-core/bats-core/archive/v1.1.0.tar.gz"
-  sha256 "855d8b8bed466bc505e61123d12885500ef6fcdb317ace1b668087364717ea82"
+  url "https://github.com/bats-core/bats-core/archive/v1.2.1.tar.gz"
+  sha256 "91c49b1fe6f0656c46491929ed728f8dfa9a96df0cce294963e8c6082bff87a2"
+  license "MIT"
 
   bottle :unneeded
 
-  conflicts_with "bats", :because => "both install `bats` executables"
+  depends_on "coreutils"
+
+  conflicts_with "bats", because: "both install `bats` executables"
 
   def install
     system "./install.sh", prefix

@@ -1,34 +1,42 @@
 class Libgdata < Formula
   desc "GLib-based library for accessing online service APIs"
   homepage "https://wiki.gnome.org/Projects/libgdata"
-  url "https://download.gnome.org/sources/libgdata/0.16/libgdata-0.16.1.tar.xz"
-  sha256 "8740e071ecb2ae0d2a4b9f180d2ae5fdf9dc4c41e7ff9dc7e057f62442800827"
-  revision 2
+  url "https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.0.tar.xz"
+  sha256 "f0c20112fa5372b62c01256f268aef5131a161dfc23868f393ecf7b8b3752580"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 "3a231d1efc876f659a3ac123ac14a5e89632d5ac27f1a48c1ed31654e70f31c6" => :catalina
-    sha256 "7f94b356b1893b2c1870be3d5798af1a04eb405ef1ae0800293fd98b573df52f" => :mojave
-    sha256 "e6d45d94b108ab0eb008ae03a751fab8c32690d31728ec1886ef8978aef1d53a" => :high_sierra
-    sha256 "e71114ddb9b3944980a83d92c5b8521a79d52b9719746126aa0865a4986b146a" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "413a354df3ae8ea57c10b586e51dae29e58a62b1ab31f7f39a3604d368f31f9f"
+    sha256 cellar: :any, big_sur:       "ef65e8ecd410c9f9123922def6c7ccff264f235965e292fc3eab6bf6be93349f"
+    sha256 cellar: :any, catalina:      "1e7c809fca23a4ce3f61177749f6fd814bbe2f465caa8dada1f6b6c6f8be2c50"
+    sha256 cellar: :any, mojave:        "d09ac23f65b3bc9a63c22cb45d7a7742a70fc11af0fcedcee39f2c643f3cd4e1"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
+  depends_on "gtk+3"
   depends_on "json-glib"
   depends_on "liboauth"
   depends_on "libsoup"
 
-  # submitted upstream as https://bugzilla.gnome.org/show_bug.cgi?id=754821
-  patch :DATA
-
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-gnome",
-                          "--disable-tests"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args,
+        "-Dintrospection=true",
+        "-Doauth1=enabled",
+        "-Dalways_build_tests=false",
+        "-Dvapi=true",
+        "-Dgtk=enabled",
+        "-Dgoa=disabled",
+        "-Dgnome=disabled",
+        ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -74,28 +82,3 @@ class Libgdata < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/gdata/gdata.symbols b/gdata/gdata.symbols
-index bba24ec..c80a642 100644
---- a/gdata/gdata.symbols
-+++ b/gdata/gdata.symbols
-@@ -966,9 +966,6 @@ gdata_documents_entry_get_quota_used
- gdata_documents_service_copy_document
- gdata_documents_service_copy_document_async
- gdata_documents_service_copy_document_finish
--gdata_goa_authorizer_get_type
--gdata_goa_authorizer_new
--gdata_goa_authorizer_get_goa_object
- gdata_documents_document_get_thumbnail_uri
- gdata_tasks_task_get_type
- gdata_tasks_task_new
-@@ -1089,8 +1086,6 @@ gdata_freebase_topic_value_is_image
- gdata_freebase_topic_result_get_type
- gdata_freebase_topic_result_new
- gdata_freebase_topic_result_dup_object
--gdata_freebase_result_error_get_type
--gdata_freebase_result_error_quark
- gdata_freebase_result_get_type
- gdata_freebase_result_new
- gdata_freebase_result_dup_variant

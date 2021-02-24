@@ -1,26 +1,32 @@
-require "language/haskell"
-
 class PandocCiteproc < Formula
-  include Language::Haskell::Cabal
-
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.16.4.1/pandoc-citeproc-0.16.4.1.tar.gz"
-  sha256 "bd726878595ca66376c9536addc81a19bbab8f3517d41aa72165582dd0336dc9"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.17.0.2/pandoc-citeproc-0.17.0.2.tar.gz"
+  sha256 "0b8846ca37547004a6a165ff7f47f58a07f783b01da32c8bf5740272fe37e1f2"
+  license "BSD-3-Clause"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
-    sha256 "3c18487d0f6c846276e10d519e27db8256e5e966f65f56fa4bbe81143b672fc9" => :catalina
-    sha256 "b22213dfd417e4cf807730c6521d06c57b7e4f152d55c8a5df2440a8b0dc1ec3" => :mojave
-    sha256 "0d72f1dcded6b07bd40344bb2f19f6a3fb8136ed55fe0da1bad1222460283578" => :high_sierra
+    sha256 catalina:    "518ed9646d3a165b413a4222d87d5148130891fc2505f2e71e20e05507131992"
+    sha256 mojave:      "fbbe846a5843e8e0de7d7bafa3ff3af2600c4fbb8ee2e50a05286ac02de52f6e"
+    sha256 high_sierra: "dfd25614701ee6cfdbe4ec0d6e67a9e54f6c08ded7f8b3de65f1db621fdc72dc"
   end
 
+  # https://github.com/jgm/pandoc-citeproc/commit/473378e588c40a6c3cb3b24330431b89cf4f81b4
+  # This package is no longer maintained.
+  # Pandoc now uses the [citeproc](https://github.com/jgm/citeproc)
+  # library, and no external filter is needed.
+  disable! date: "2020-10-09", because: :deprecated_upstream
+
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
   depends_on "pandoc"
 
+  uses_from_macos "unzip" => :build
+
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do

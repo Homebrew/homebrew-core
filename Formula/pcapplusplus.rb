@@ -1,18 +1,32 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://pcapplusplus.github.io"
-  url "https://github.com/seladb/PcapPlusPlus/archive/v19.12.tar.gz"
-  sha256 "9bebe2972a6678b8fb80f93b92a3caf9babae346137f2171e6941f35b56f88bb"
+  url "https://github.com/seladb/PcapPlusPlus/archive/v20.08.tar.gz"
+  sha256 "b35150a8517d3e5d5d8d1514126e4e8e4688f0941916af4256214c013c06ff50"
+  license "Unlicense"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7b028a7ef2438fc52a831baaeaa5475282a4ac811b17464304d0a4b77d9f031b" => :catalina
-    sha256 "712589c7198116011221a502c0cb158bf5b901ae06cb6a51ba7e523fb413ba48" => :mojave
-    sha256 "23854dd42a6afc6abcc8056f3661309c394496292470fb15b76ab211f38b965b" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fb22355c98d5c62862816ed1ed211986cef53c1bfc3debe1eaee2a19c7249d6d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a85939e3b64f246eb7b4c7d0e0c8ec7eac3a108c17b33af1328d6c54a30dfeb0"
+    sha256 cellar: :any_skip_relocation, catalina:      "d0f032c98d420d3b340e5b6421877e5c89dcf31e74b2dbb6fbed33bd153ab6be"
+    sha256 cellar: :any_skip_relocation, mojave:        "30ad1d79f76c841448e3e76bd25c9ddeae2c0ba543d11fbd621799f8da81077f"
   end
 
   def install
     system "./configure-mac_os_x.sh", "--install-dir", prefix
+
+    # Fix OS/X build issue in v20.08 which inclues <in.h> whether it exists or not,
+    # can be removed next release:
+    inreplace %w[Examples/DnsSpoofing/main.cpp
+                 Examples/HttpAnalyzer/main.cpp
+                 Examples/IPDefragUtil/main.cpp
+                 Examples/IPFragUtil/main.cpp
+                 Examples/IcmpFileTransfer/Common.cpp
+                 Examples/IcmpFileTransfer/IcmpFileTransfer-catcher.cpp
+                 Examples/IcmpFileTransfer/IcmpFileTransfer-pitcher.cpp
+                 Examples/PcapSplitter/IPPortSplitters.h
+                 Examples/SSLAnalyzer/main.cpp], "#include <in.h>", "#include <netinet/in.h>"
 
     # library requires to run 'make all' and
     # 'make install' in two separate commands.

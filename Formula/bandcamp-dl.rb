@@ -3,20 +3,37 @@ class BandcampDl < Formula
 
   desc "Simple python script to download Bandcamp albums"
   homepage "https://github.com/iheanyi/bandcamp-dl"
-  url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
-  version "0.0.8-12"
-  sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
-  revision 2
+  license "Unlicense"
+  revision 6
   head "https://github.com/iheanyi/bandcamp-dl.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "fe3d57c5f55bfa6ffda246483c8b5bbd52c26ab870822587a72e6c3b0f76e04e" => :catalina
-    sha256 "6ad6b1d51e051049a4a48d095ebaf7235cfa028101b981885a2a142c08ebedb6" => :mojave
-    sha256 "4976e998158abd58da8af58a171ce4cfe942700ba149aa3541d21dd6ca318543" => :high_sierra
+  stable do
+    url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
+    sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
+    version "0.0.8-12"
+    # upstream hotfix, https://github.com/iheanyi/bandcamp-dl/pull/167
+    # remove this in next release
+    patch do
+      url "https://github.com/iheanyi/bandcamp-dl/commit/3d3a524af27bac761bd2f8766c6f4951776c6c60.patch?full_index=1"
+      sha256 "f776b23beb1149d2449c2187bbdc3843933d063a79254a354bfc69ce4d644091"
+    end
+
+    # fix script matching https://github.com/iheanyi/bandcamp-dl/pull/171
+    patch do
+      url "https://github.com/iheanyi/bandcamp-dl/commit/08c450385efe847e4f8ece1dc95034e69aaeaed0.patch?full_index=1"
+      sha256 "64808a6334994d847d0c5bdcfd49cfd6dbb4376c8c8d3fd4304b85f892d3915f"
+    end
   end
 
-  depends_on "python@3.8"
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "add76c38806f7f310dd34946916d70cb4db029c4ef3694cc64592deb9921dc2b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d0e19f971b88b0ff7e673f453e0d88913f82e4f8d1c4accda8321092fceb68bc"
+    sha256 cellar: :any_skip_relocation, catalina:      "ee51b1cdb255665578251bd7081ae2a01abcca24d48d72eed076b9a8794af58c"
+    sha256 cellar: :any_skip_relocation, mojave:        "d416f44eae62f3a83be9ea4312cb244581772df264c9c8156165dde038144f56"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f1d7e4a182af86854f3218cf6812fa7975d922a0ee3e8c3b5c9ee16741b0eb1c"
+  end
+
+  depends_on "python@3.9"
 
   resource "Unidecode" do
     url "https://files.pythonhosted.org/packages/9d/36/49d0ee152b6a1631f03a541532c6201942430060aa97fe011cf01a2cce64/Unidecode-1.0.22.tar.gz"

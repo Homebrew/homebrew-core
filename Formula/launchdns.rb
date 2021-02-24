@@ -3,18 +3,15 @@ class Launchdns < Formula
   homepage "https://github.com/josh/launchdns"
   url "https://github.com/josh/launchdns/archive/v1.0.4.tar.gz"
   sha256 "60f6010659407e3d148c021c88e1c1ce0924de320e99a5c58b21c8aece3888aa"
-  revision 1
+  license "MIT"
+  revision 2
   head "https://github.com/josh/launchdns.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cfa7f2fc765e5f4137df7fbb3f212cb1a3822edeecc095a2e5c75901e82526e8" => :catalina
-    sha256 "1572081e53a9b2234321ac9f4bb4f48507bbafcd781f29549907e7ded4873526" => :mojave
-    sha256 "9379f60efc2a0984c79a3b59dab5093ca3fdaad89a8f697a7623abda15801293" => :high_sierra
-    sha256 "ced5d6c6bdb3074c29dd65b244fc4325cc4799820d7dd38c6dedf04c2555f3cb" => :sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "7b3d512057f002e8392874c78e3c24526b18af0c67627f7621b14abe43f1b627"
+    sha256 cellar: :any_skip_relocation, catalina: "aa1aff83c3216221621ab07183258d6eac3b4662c7c22da75b4cee95465656eb"
+    sha256 cellar: :any_skip_relocation, mojave:   "7e0a8422dce7c3af9dbc5f6a5d2c5ccd0ee77cac87c5e011af82e44402b9a216"
   end
-
-  depends_on :macos => :yosemite
 
   def install
     ENV["PREFIX"] = prefix
@@ -24,40 +21,41 @@ class Launchdns < Formula
     (prefix/"etc/resolver/localhost").write("nameserver 127.0.0.1\nport 55353\n")
   end
 
-  plist_options :manual => "launchdns"
+  plist_options manual: "launchdns"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/launchdns</string>
-          <string>--socket=Listeners</string>
-          <string>--timeout=30</string>
-        </array>
-        <key>Sockets</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Listeners</key>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/launchdns</string>
+            <string>--socket=Listeners</string>
+            <string>--timeout=30</string>
+          </array>
+          <key>Sockets</key>
           <dict>
-            <key>SockType</key>
-            <string>dgram</string>
-            <key>SockNodeName</key>
-            <string>127.0.0.1</string>
-            <key>SockServiceName</key>
-            <string>55353</string>
+            <key>Listeners</key>
+            <dict>
+              <key>SockType</key>
+              <string>dgram</string>
+              <key>SockNodeName</key>
+              <string>127.0.0.1</string>
+              <key>SockServiceName</key>
+              <string>55353</string>
+            </dict>
           </dict>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/launchdns.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/launchdns.log</string>
         </dict>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/launchdns.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/launchdns.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do

@@ -1,18 +1,25 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
-  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-13.0.tar.xz"
-  sha256 "961b23ca1acfd28f2bc87414c27bb40e12436efcf2158d29721b1e89f3f28057"
+  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz"
+  sha256 "75d3f7742c1ae449049a4c88900e454b8b350ecaa8c544f3488a2562a9ff66f1"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+
+  # The regex here avoids x.99 releases, as they're pre-release versions.
+  livecheck do
+    url :stable
+    regex(/href=["']?pulseaudio[._-]v?((?!\d+\.9\d+)\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "a638afdb2e14989110a52ab860804ec0c005461d80398b736a641a678371bc3d" => :catalina
-    sha256 "819cb5b8dd86715db2285f647b1742611dd2a802447aea637f05adae33a6056b" => :mojave
-    sha256 "a5c5442b2118b9e3e3b2cbd8a8a700a121e9264b11c7096a3b3c42ce780a7a0b" => :high_sierra
-    sha256 "bc42617a58074e5631eae20559f6a043ee87c8dcfd9944ac45b47467a3cdca66" => :sierra
+    sha256 arm64_big_sur: "efcbf144da932e05394e9768bf27dfa1908dbb17f4b7c52f49e56c791dd51860"
+    sha256 big_sur:       "79684acaac85e9b1b7de55fc7659844d9508c6264faa0aac311e0d8eaf4056b0"
+    sha256 catalina:      "e1c181ae27f945ceee403e2e2ec80f44aebd52ac44b8e63140c1c9d2083a643b"
+    sha256 mojave:        "ae0d2ec72fc10a895c7efc330174abef08458576ed847fb4547301a2d8cc147e"
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/pulseaudio/pulseaudio.git"
+    url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -27,6 +34,10 @@ class Pulseaudio < Formula
   depends_on "libtool"
   depends_on "openssl@1.1"
   depends_on "speexdsp"
+
+  uses_from_macos "perl" => :build
+  uses_from_macos "expat"
+  uses_from_macos "m4"
 
   def install
     args = %W[
@@ -50,32 +61,33 @@ class Pulseaudio < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "pulseaudio"
+  plist_options manual: "pulseaudio"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/pulseaudio</string>
-        <string>--exit-idle-time=-1</string>
-        <string>--verbose</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <true/>
-      <key>StandardErrorPath</key>
-      <string>#{var}/log/#{name}.log</string>
-      <key>StandardOutPath</key>
-      <string>#{var}/log/#{name}.log</string>
-    </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/pulseaudio</string>
+          <string>--exit-idle-time=-1</string>
+          <string>--verbose</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/#{name}.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/#{name}.log</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

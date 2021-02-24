@@ -1,15 +1,16 @@
 class Kind < Formula
   desc "Run local Kubernetes cluster in Docker"
   homepage "https://kind.sigs.k8s.io/"
-  url "https://github.com/kubernetes-sigs/kind/archive/v0.6.1.tar.gz"
-  sha256 "93d40643b2fe352d494cfebdc089e9e924ac0f9e1241ae07644aff549e6788b9"
+  url "https://github.com/kubernetes-sigs/kind/archive/v0.10.0.tar.gz"
+  sha256 "9ede2b77b451417e36a208cc5183a21f0420f7b6a6230146ba7d76ab34b99bc7"
+  license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kind.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a27a7b739d4de87af3eaa80784cf17128bb843d392004ac569b26e4d7d1531cb" => :catalina
-    sha256 "0dd0b6740ee5ed21707e85effb654d9d804f3dc3df3d976c54c581e581466ee6" => :mojave
-    sha256 "950c7f642a7763d35411cd31814a3f8f382d2b0f0ae5b83f4602953ae6f84fb9" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b233d91a8d967dd1c2e0b1cda5abfc9c18d67d7062d74193d6bbb3247726227"
+    sha256 cellar: :any_skip_relocation, big_sur:       "21dd92a2adc3dc568e6b6b29a17f85227cf938bd93709ee1817f40f9e1c9a2fb"
+    sha256 cellar: :any_skip_relocation, catalina:      "88fc4241b464cfec95189c325d2d28eecb0b04aeb1d7e56f9d04a7cd82f7ebd5"
+    sha256 cellar: :any_skip_relocation, mojave:        "0e920ee972ce05f98aaddf4a7bc4b591df4fdd19dc95db508dfaa763499ff118"
   end
 
   depends_on "go" => :build
@@ -19,12 +20,16 @@ class Kind < Formula
     prefix.install_metafiles
 
     # Install bash completion
-    output = Utils.popen_read("#{bin}/kind completion bash")
+    output = Utils.safe_popen_read("#{bin}/kind", "completion", "bash")
     (bash_completion/"kind").write output
 
     # Install zsh completion
-    output = Utils.popen_read("#{bin}/kind completion zsh")
+    output = Utils.safe_popen_read("#{bin}/kind", "completion", "zsh")
     (zsh_completion/"_kind").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read("#{bin}/kind", "completion", "fish")
+    (fish_completion/"kind.fish").write output
   end
 
   test do

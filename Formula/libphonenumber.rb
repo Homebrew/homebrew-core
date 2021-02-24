@@ -1,33 +1,32 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
-  url "https://github.com/google/libphonenumber/archive/v8.11.1.tar.gz"
-  sha256 "43d5b8bff0ae603a63fb7deb5cbb541556e50ac58f6447b55963923e20de6ff5"
+  url "https://github.com/google/libphonenumber/archive/v8.12.18.tar.gz"
+  sha256 "280fb7ff1a7019c825e33bb8540524873f60ac8f26dda4ad66106802034da60f"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any
-    sha256 "a92293f5052f4b02937cad2fbeececa63143b3c194d7cd41df8540c91a2fc67e" => :catalina
-    sha256 "a844543f549f4afab48a0ec064d47948839e43bdcd9b72cc3bf763ef758fb5ec" => :mojave
-    sha256 "6d175a0d4ff48d0fcbc5b1d1f51de7f41590bfa66e983189669243496fb16b5e" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "f08f4950f7f5f5513a41fe585ad396e6261e8cca3f6133efdd7aec87e315dd9f"
+    sha256 cellar: :any, big_sur:       "7a63401519aa04496e5599291a087cea587623692dbbe897c8c5d1fbc5c56b60"
+    sha256 cellar: :any, catalina:      "546b7580196e6be5562cf90506210813824712177609a6c4565584edb9639138"
+    sha256 cellar: :any, mojave:        "8a0c831bfed920277d141512fbd2d94e3984a934df34e464aa219097de0e299d"
   end
 
   depends_on "cmake" => :build
+  depends_on "googletest" => :build
   depends_on "boost"
   depends_on "icu4c"
-  depends_on :java => "1.7+"
   depends_on "protobuf"
   depends_on "re2"
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
-    sha256 "9bf1fe5182a604b4135edc1a425ae356c9ad15e9b23f9f12a02e80184c3a249c"
-  end
-
   def install
     ENV.cxx11
-    (buildpath/"gtest").install resource("gtest")
-    system "cmake", "cpp", "-DGTEST_SOURCE_DIR=gtest/googletest",
-                           "-DGTEST_INCLUDE_DIR=gtest/googletest/include",
+    system "cmake", "cpp", "-DGTEST_INCLUDE_DIR=#{Formula["googletest"].include}",
                            *std_cmake_args
     system "make", "install"
   end

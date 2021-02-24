@@ -2,24 +2,27 @@ class Kubeseal < Formula
   desc "Kubernetes controller and tool for one-way encrypted Secrets"
   homepage "https://github.com/bitnami-labs/sealed-secrets"
   url "https://github.com/bitnami-labs/sealed-secrets.git",
-      :tag      => "v0.9.6",
-      :revision => "138ae73c8c5198057ddcbadb773cb2e483541924"
-  sha256 "753f9084a0bf5dfccfe84dff036e87b899a3be921c1d33a497a4b44ac582f00d"
+      tag:      "v0.15.0",
+      revision: "b7a8397e47a8048ae17a089a3dc7ac0e65b89613"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0d59c9c63adbf23a420782bf0b3619c8eed1436ecc5219596428802a49ca87c3" => :catalina
-    sha256 "88285e09848c4c25667f93a22350e6f2dbbc541a90c908b5d902b1c1ffe438f8" => :mojave
-    sha256 "951987ec408bebddd17893f2be25614915bebe7aa592d4fd6c33359bbac79d2e" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b2b04769887b909071e2f02b63e218731e7b1255a5357c4c456688ab27b62fd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e98da4889c647805e7463902f07853e89a0349abe6bd37e7cf428a5cee47c5bd"
+    sha256 cellar: :any_skip_relocation, catalina:      "ee40961cf27306ed94cb040ad881fd19b07dce624d3a031bdf24122cf41243bd"
+    sha256 cellar: :any_skip_relocation, mojave:        "6913e64b44f9851c656e1789c2118c2038e3dc73f5ce74af381f212f7f33a90d"
   end
 
   depends_on "go" => :build
 
   def install
-    cd buildpath do
-      system "make", "kubeseal"
-      bin.install "kubeseal"
-    end
+    system "make", "kubeseal", "DIRTY="
+    bin.install "kubeseal"
   end
 
   test do

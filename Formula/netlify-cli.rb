@@ -3,18 +3,21 @@ require "language/node"
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-2.25.0.tgz"
-  sha256 "9a1facc8011262a632819c36f6542c341997abf0a5365c5fd38aaea66c59763e"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-3.8.4.tgz"
+  sha256 "e0f283e91e2e7e9f75ca3b4f8a8cb16ec0f314d2ecc5a4c13d3078402919f9c4"
+  license "MIT"
   head "https://github.com/netlify/cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "686d0eb536d5b92144cdb23d0ada9b79870743b2b871ba23bd5623ebaf0e366c" => :catalina
-    sha256 "29914124bb8bdf7eaea2fce6e05a84db62d65cf6520cf75f40cfbd4295fdb00f" => :mojave
-    sha256 "ac69f2f1755de83f7ff072b1c7914d5fa30838875a0a018b0007d1a787b20962" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a9f2cc240b6c6db527ff7cc833ce5213cf7c9205c26c98f5af2d30991c57b18"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6e70012c7bd598db9cb72c8b60f0b4e28bbedc512bcd31294b19e4094ba6eefe"
+    sha256 cellar: :any_skip_relocation, catalina:      "44805f53342abd2c2ba090d5723b863eef78360db194b247aed5ecbc3d8c86c7"
+    sha256 cellar: :any_skip_relocation, mojave:        "b6ab474d9a85c82dad072c58ce06591a2ac46e8064f5e1047b6fe766b1b1eca7"
   end
 
   depends_on "node"
+
+  uses_from_macos "expect" => :test
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)

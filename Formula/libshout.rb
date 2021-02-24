@@ -1,15 +1,20 @@
 class Libshout < Formula
   desc "Data and connectivity library for the icecast server"
   homepage "https://icecast.org/"
-  url "https://downloads.xiph.org/releases/libshout/libshout-2.4.3.tar.gz"
-  sha256 "0d8af55d1141bf90710bcd41a768c9cc5adb251502a0af1dd22c8da215d40dfe"
+  url "https://downloads.xiph.org/releases/libshout/libshout-2.4.5.tar.gz"
+  sha256 "d9e568668a673994ebe3f1eb5f2bee06e3236a5db92b8d0c487e1c0f886a6890"
+  license "LGPL-2.0-or-later"
+
+  livecheck do
+    url "https://ftp.osuosl.org/pub/xiph/releases/libshout/"
+    regex(/href=.*?libshout[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "c0a0c87887e331d2f4b174d956e974bae44d427f282024f6a7b36910da7dbe05" => :catalina
-    sha256 "14144ef978dbceb4b858ebeb667be83721ba4b3742fd0e0743ab76a9b2f99095" => :mojave
-    sha256 "f9fef02da35d628c601f24726fa2d748f350692d4bf4c196d28bd08b0f4786eb" => :high_sierra
-    sha256 "1d246580781a0bf5240363da62a476499a16948935f1b0693d05660ccd5aa9de" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "f1490d2569813b44c082e8e040d0fa89dfbc01e7b85b73a52c37a26415cfc794"
+    sha256 cellar: :any, big_sur:       "2af4498af2e733f0362fc204309d0d1aba893e8ebc66c8c65882c9a73f829d3a"
+    sha256 cellar: :any, catalina:      "a791567ecf1d73d8f04d643d9698201348c671a118a78f8689b2b558dc10a026"
+    sha256 cellar: :any, mojave:        "dc69a84a8e5089f8e8af3e567db1cad3eb0b126ca800c83e371097fa78c1dcdf"
   end
 
   depends_on "pkg-config" => :build

@@ -2,15 +2,16 @@ class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
   url "https://github.com/OJ/gobuster.git",
-      :tag      => "v3.0.1",
-      :revision => "9ef3642d170d71fd79093c0aa0c23b6f2a4c1c64"
+      tag:      "v3.1.0",
+      revision: "f5051ed456dc158649bb8bf407889ab0978bf1ba"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d6616ba0e64ee406559414e2c6325f46b0ddc16fc20dde42cad3e3fc7d3df223" => :catalina
-    sha256 "068251847cb8be7e495f093d86468eec1d6459f9a4daa0ba6b7936b49cc14735" => :mojave
-    sha256 "98d0266e847077f64dbff9bac8db93e0d3044425efc4992374be23ddb94d7d3d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e6e7f65fbed3896cb3b63eefddd16de3b621a8d72b205d24b8f7abd21379f87e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8342b115722243f5c108de8ecdb5aefd20ae5deb884e48732c80595c24897f0d"
+    sha256 cellar: :any_skip_relocation, catalina:      "f8f36299b36b59006637dcc7d062614eb209ba82a31f5a67fce789c4d6ef9562"
+    sha256 cellar: :any_skip_relocation, mojave:        "16912d38db06501d02cdab6066d1da01129779d958ce142c40018cce30328fc4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "341ce02f5e99ba1bf9cee8d6cbdd150a6e36d8b0fd811ded7a2da8933d877f9a"
   end
 
   depends_on "go" => :build

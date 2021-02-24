@@ -2,43 +2,43 @@ class ErlangAT20 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-20.3.8.24.tar.gz"
-  sha256 "588e34a89f9ea8ebc3bda0918e4e1f4f7366888278f5e7ece60f6f1fa42aef60"
+  url "https://github.com/erlang/otp/archive/OTP-20.3.8.26.tar.gz"
+  sha256 "dce78b60938a48b887317e5222cff946fd4af36666153ab2f0f022aa91755813"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "ccdc86633693f2dec689584d3104cd50d32b43ca6367ec464750740c886e8ff1" => :catalina
-    sha256 "4decc33224ae2cadf809ce5b11f6ca456fdd97cd9daec9174a8c15011e9dd34f" => :mojave
-    sha256 "5a2ee8713cf03b0c9ee0671dc842599f7f1782e324bc8fd1313d28a8c55ccfd2" => :high_sierra
+    sha256 cellar: :any, catalina:    "130019a8e459654a92e7267b60932867c8c27957d5bd5b791e358407e6d2755b"
+    sha256 cellar: :any, mojave:      "5e1003bf97321f4cf5cd57b062b752c2d92bcbb457ab5e992309790b7827fd1f"
+    sha256 cellar: :any, high_sierra: "a401feb22927ecc0e649f3f2f7aeba331725b6390985f826ed5639d59732ee6a"
   end
 
   keg_only :versioned_formula
 
+  # Deprecated with OTP-23 release (https://erlang.org/pipermail/erlang-questions/2020-July/099747.html)
+  disable! date: "2020-05-13", because: :unmaintained
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "wxmac"
 
+  uses_from_macos "m4" => :build
+
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_20.3.tar.gz"
-    mirror "https://fossies.org/linux/misc/legacy/otp_doc_man_20.3.tar.gz"
     sha256 "17e0b2f94f11576a12526614a906ecad629b8804c25e6c18523f7c4346607112"
   end
 
   resource "html" do
     url "https://www.erlang.org/download/otp_doc_html_20.3.tar.gz"
-    mirror "https://fossies.org/linux/misc/legacy/otp_doc_html_20.3.tar.gz"
     sha256 "8099b62e9fa24b3f90eaeda151fa23ae729c8297e7d3fd8adaca865b35a3125d"
   end
 
   def install
-    # Work around Xcode 11 clang bug
-    # https://bitbucket.org/multicoreware/x265/issues/514/wrong-code-generated-on-macos-1015
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # Unset these so that building wx, kernel, compiler and
-    # other modules doesn't fail with an unintelligable error.
+    # other modules doesn't fail with an unintelligible error.
     %w[LIBS FLAGS AFLAGS ZFLAGS].each { |k| ENV.delete("ERL_#{k}") }
 
     # Do this if building from a checkout to generate configure
@@ -58,10 +58,12 @@ class ErlangAT20 < Formula
       --enable-wx
       --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
       --without-javac
-      --enable-darwin-64bit
     ]
 
-    args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    on_macos do
+      args << "--enable-darwin-64bit"
+      args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
+    end
 
     system "./configure", *args
     system "make"
@@ -71,12 +73,13 @@ class ErlangAT20 < Formula
     doc.install resource("html")
   end
 
-  def caveats; <<~EOS
-    Man pages can be found in:
-      #{opt_lib}/erlang/man
+  def caveats
+    <<~EOS
+      Man pages can be found in:
+        #{opt_lib}/erlang/man
 
-    Access them with `erl -man`, or add this directory to MANPATH.
-  EOS
+      Access them with `erl -man`, or add this directory to MANPATH.
+    EOS
   end
 
   test do

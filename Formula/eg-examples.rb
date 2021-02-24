@@ -3,18 +3,18 @@ class EgExamples < Formula
 
   desc "Useful examples at the command-line"
   homepage "https://github.com/srsudar/eg"
-  url "https://files.pythonhosted.org/packages/a6/93/38075713a7968a9e8484e894f604f99a68e443e0f9db0ed48063b1241969/eg-1.1.1.tar.gz"
-  sha256 "3faa5fb453d8ba113975a1f31e37ace94867539ba9d46a40af4cea90028a04e4"
-  revision 1
+  url "https://files.pythonhosted.org/packages/8b/b7/88e0333b9a3633ec686246b5f1c1ee4cad27246ab5206b511fd5127e506f/eg-1.2.1.tar.gz"
+  sha256 "e3608ec0b05fffa0faec0b01baeb85c128e0b3c836477063ee507077a2b2dc0c"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a8453abcc4cc4cc2919b78e1649ac3640279d8f9fe0e44f9db083b3d3f4aa9f1" => :catalina
-    sha256 "330a1d604b7889bedc72b8fb2d73a8c42ef1cea5234ade62a7db094debb6d9a1" => :mojave
-    sha256 "d5f28b0a7c13377e6cc43ff4f13d2beadfea46b471bb2b52721d60e904d78189" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3c3fb055e2133a02b36bf18841ff7cd10d6d769ef77d255ddf07e8485362c256"
+    sha256 cellar: :any_skip_relocation, big_sur:       "348688d0ce1a2c1825d2e84a35f61d2cc4db44e648c338be7459133fe8f5d7c7"
+    sha256 cellar: :any_skip_relocation, catalina:      "4f49955a6032186f8e9013a5c9b458584436873586b7f2363653e0c079531675"
+    sha256 cellar: :any_skip_relocation, mojave:        "0232745391eb98aad737439b0c85ba93d599fef62e906032c9da19df89b916d3"
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources

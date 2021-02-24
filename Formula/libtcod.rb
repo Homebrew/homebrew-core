@@ -1,36 +1,62 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://bitbucket.org/libtcod/libtcod/get/1.8.2.tar.bz2"
-  sha256 "a33aa463e78b6df327d2aceae875edad8dba7a9e5ea0f1299c486b99f4bed31c"
+  url "https://github.com/libtcod/libtcod/archive/1.16.1.tar.gz"
+  sha256 "06bd0282182d8dd74c52520919d93b955cdd1a347298a4e6bb250d761f20857a"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "6fab34197cacd706fb4b33c822d9827a2812201d8c1c662effcfb3779a48b83c" => :catalina
-    sha256 "4ed64942b836e3bbfe50fa3eb97eeb66acd4d0d1aa7fe253126c2b5b6353d6c8" => :mojave
-    sha256 "961e7dee0e97894c62d382e6ab2454d14cb77a7a3d20ead0fbd965b825957ca4" => :high_sierra
-    sha256 "cf96ee73d811071c9ee411e884d9cd8276f1dcbbd121d9d42284ead55a1dcb6b" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "ba06f3dd667ff7fa42b0d371fbdfac6bccb6c92fc3dab0cfc7831880a53b17e4"
+    sha256 cellar: :any, big_sur:       "7f98fcc75ff378df37d7585451395e835a87da246adeec1c30fb1fe451d65e9a"
+    sha256 cellar: :any, catalina:      "c235b93eb4727f5305442c6391a8aaf63a6ab3d52bf8793fa9adde6ce0487c22"
+    sha256 cellar: :any, mojave:        "d993800aa1dc0e254872564db202229119f4167ff2631b0eaf13d502f1c986cc"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
   depends_on "sdl2"
 
-  conflicts_with "libzip", "minizip2",
-    :because => "libtcod, libzip and minizip2 install a `zip.h` header"
-
   def install
-    cd "build/autotools" do
+    cd "buildsys/autotools" do
       system "autoreconf", "-fiv"
       system "./configure"
       system "make"
       lib.install Dir[".libs/*{.a,.dylib}"]
     end
-    include.install Dir["include/*"]
+    Dir.chdir("src") do
+      Dir.glob("libtcod/**/*.{h,hpp}") do |f|
+        (include/File.dirname(f)).install f
+      end
+    end
     # don't yet know what this is for
     libexec.install "data"
+  end
+
+  test do
+    (testpath/"version-c.c").write <<~EOS
+      #include <libtcod/libtcod.h>
+      #include <stdio.h>
+      int main()
+      {
+        puts(TCOD_STRVERSION);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-ltcod", "version-c.c", "-o", "version-c"
+    assert_equal "#{version}\n", `./version-c`
+    (testpath/"version-cc.cc").write <<~EOS
+      #include <libtcod/libtcod.hpp>
+      #include <iostream>
+      int main()
+      {
+        std::cout << TCOD_STRVERSION << std::endl;
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "-std=c++14", "-I#{include}", "-L#{lib}", "-ltcod", "version-cc.cc", "-o", "version-cc"
+    assert_equal "#{version}\n", `./version-cc`
   end
 end

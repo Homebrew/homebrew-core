@@ -1,16 +1,19 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
-  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.5.4.tar.xz"
-  sha256 "d1e1084f73085a4c12036174d7a69e15570bf13c62ee0ff7f8723e7b7e54274d"
+  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.5.8.tar.xz"
+  sha256 "cd9e7bad3b6968182bfcc311e22be3aec9a974397377d748845147884ce07547"
+  license "GPL-2.0-or-later"
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
-    cellar :any
-    sha256 "2496636025f7d389e2fe9820f8e100526b7ceba3c6ec6d692e9ff12d1fa88fba" => :catalina
-    sha256 "73e5083c6a4d0307d634bbf21ce5ceafb2f8f691af37242ac3f82218637fcd1c" => :mojave
-    sha256 "a41565ba5b0ec4acd8f8c8e676cd83e3191649cf42aaeccc09ff55ef5f3f4e3a" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "7929a883bd68f11f716cfcb23479a4d4bce9187ea1d0c3521aa08702352cddb9"
+    sha256 cellar: :any, big_sur:       "7cae3b5c25d64da91303a6f54110d571eeaabafecaae2341b4717a9be9b0a3ae"
+    sha256 cellar: :any, catalina:      "8829fbca0176db80e9b242a91a512cb6d3e45fb9f7872110673de3ff44b97684"
+    sha256 cellar: :any, mojave:        "9e961538d4264696764c92244c2d6de3e42a4ff6330a74de133cfb2f669adb89"
   end
+
+  keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
   depends_on "libidn2"
@@ -22,12 +25,6 @@ class Whois < Formula
     bin.install "whois"
     man1.install "whois.1"
     man5.install "whois.conf.5"
-  end
-
-  def caveats; <<~EOS
-    Debian whois has been installed as `whois` and may shadow the
-    system binary of the same name.
-  EOS
   end
 
   test do

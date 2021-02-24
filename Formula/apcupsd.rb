@@ -3,14 +3,19 @@ class Apcupsd < Formula
   homepage "http://www.apcupsd.org"
   url "https://downloads.sourceforge.net/project/apcupsd/apcupsd%20-%20Stable/3.14.14/apcupsd-3.14.14.tar.gz"
   sha256 "db7748559b6b4c3784f9856561ef6ac6199ef7bd019b3edcd7e0a647bf8f9867"
+  license "GPL-2.0-only" # a few files have "or later", but most do not
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/apcupsd%20-%20Stable/[^/]+/apcupsd[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "d81a4973871bd62f3c638f4710c375fedd96ee92e57448d28247368705ae2576" => :catalina
-    sha256 "2308c0cbde96d244e535e9fae11c501a49dc4aafa33fc1475b9285a3246e581e" => :mojave
-    sha256 "beee3be60fc8aafbd2a8fdb215ec8f0d531cc6750d00fd176039a0e5d8ee0d1e" => :high_sierra
-    sha256 "8cf3f4840ec564f859fa0b02eda9aec274180de519b512e28e19a31b6eab583c" => :sierra
-    sha256 "d000cc771fde79714b634a49b31afd207d6a26b76924c586e0af9fa80f539db5" => :el_capitan
+    rebuild 4
+    sha256 arm64_big_sur: "891644e5123fc8fd644cf88809642334f07093f7dae656c3f65d276e90a2b6bf"
+    sha256 big_sur:       "1c425f1d6db43a760e4d068ae8ef193c3ca32a3157564989ba1a6aa2ce44a2c7"
+    sha256 catalina:      "7636fe8d43fde7368817c64dc8f689526f48d2a958532e3fdd3f05db3deb4c5e"
+    sha256 mojave:        "7c87a398311314a0f789cabb5956932962800297e2ba4890f07ac60c13cc3f68"
   end
 
   depends_on "gd"
@@ -28,7 +33,7 @@ class Apcupsd < Formula
 
     cd "platforms/darwin" do
       # Install launch daemon and kernel extension to subdirectories of `prefix`.
-      inreplace "Makefile", "/Library/LaunchDaemons", "#{prefix}/Library/LaunchDaemons"
+      inreplace "Makefile", "/Library/LaunchDaemons", "#{lib}/Library/LaunchDaemons"
       inreplace "Makefile", "/System/Library/Extensions", kext_prefix
 
       # Use appropriate paths for launch daemon and launch script.
@@ -43,13 +48,16 @@ class Apcupsd < Formula
                           "--sbindir=#{sbin}",
                           "--sysconfdir=#{sysconfdir}",
                           "--enable-cgi", "--with-cgi-bin=#{sysconfdir}",
-                          "--enable-usb", "--enable-modbus-usb"
+                          "--enable-usb", "--enable-modbus-usb",
+                          # Detecting the lack of gethostname_r() goes
+                          # wrong on Xcode 12:
+                          "ac_cv_func_which_gethostbyname_r=no"
 
     system "make", "install"
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       For #{name} to be able to communicate with UPSes connected via USB,
       the kernel extension must be installed by the root user:
 
@@ -57,23 +65,15 @@ class Apcupsd < Formula
         sudo chown -R root:wheel /System/Library/Extensions/ApcupsdDummy.kext
         sudo touch /System/Library/Extensions/
 
-    EOS
-
-    if MacOS.version >= :el_capitan
-      s += <<~EOS
         Note: On OS X El Capitan and above, the kernel extension currently
         does not work as expected.
 
         You will have to unplug and plug the USB cable back in after each
         reboot in order for #{name} to be able to connect to the UPS.
 
-      EOS
-    end
-
-    s += <<~EOS
       To load #{name} at startup, activate the included Launch Daemon:
 
-        sudo cp #{prefix}/Library/LaunchDaemons/org.apcupsd.apcupsd.plist /Library/LaunchDaemons
+        sudo cp #{prefix}/lib/Library/LaunchDaemons/org.apcupsd.apcupsd.plist /Library/LaunchDaemons
         sudo chmod 644 /Library/LaunchDaemons/org.apcupsd.apcupsd.plist
         sudo launchctl load -w /Library/LaunchDaemons/org.apcupsd.apcupsd.plist
 
@@ -83,12 +83,10 @@ class Apcupsd < Formula
         sudo launchctl unload -w /Library/LaunchDaemons/org.apcupsd.apcupsd.plist
         sudo rm /Library/LaunchDaemons/org.apcupsd.apcupsd.plist
     EOS
-
-    s
   end
 
   test do
     system "#{sbin}/apcupsd", "--version"
-    assert_match /usage/, shell_output("#{sbin}/apctest --help", 1)
+    assert_match "usage", shell_output("#{sbin}/apctest --help", 1)
   end
 end

@@ -1,15 +1,15 @@
 class Fn < Formula
   desc "Command-line tool for the fn project"
   homepage "https://fnproject.io"
-  url "https://github.com/fnproject/cli/archive/0.5.91.tar.gz"
-  sha256 "66f470d50fdb43b33bba1ec2c82d773adc109baadf417e7673bb4098f975fbd8"
+  url "https://github.com/fnproject/cli/archive/0.6.1.tar.gz"
+  sha256 "31c35c8e73bcd45368c3d390297fb4fc076ccf819711d15a52a6fe21a2dd5f0f"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "a1b85cd457cdd8313464d2fe0c1de2958eb395f8002caf4eae1a2ba7fb2a1074" => :catalina
-    sha256 "9ac868d2ad2671618f32077b6390e6f4d90c05af74d1b52ba9f683d968235d1f" => :mojave
-    sha256 "7bcd165245b02a75a00645661996f75622d445bbff5ffe257bfd66686d85a9b8" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d6ce96f1b90a20005b7676a71e9cca0219b9b10eb0141962b7862a16c90bf33"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e493bdbe2d7f61000f4d92602789fd47850eb2c5f27be805888202880e81699b"
+    sha256 cellar: :any_skip_relocation, catalina:      "deca08e83d8ff598ca73c0ef3fcf396f6ad20ec936c10bd0e2032595a0106d55"
+    sha256 cellar: :any_skip_relocation, mojave:        "0bf5ce388e4c03334fec85b0b9733d9b270d38c8650223b591805c4bb3950b84"
   end
 
   depends_on "go" => :build
@@ -20,17 +20,18 @@ class Fn < Formula
   end
 
   test do
-    require "socket"
     assert_match version.to_s, shell_output("#{bin}/fn --version")
     system "#{bin}/fn", "init", "--runtime", "go", "--name", "myfunc"
     assert_predicate testpath/"func.go", :exist?, "expected file func.go doesn't exist"
     assert_predicate testpath/"func.yaml", :exist?, "expected file func.yaml doesn't exist"
-    server = TCPServer.new("localhost", 0)
-    port = server.addr[1]
+    port = free_port
+    server = TCPServer.new("localhost", port)
     pid = fork do
       loop do
         socket = server.accept
-        response = '{"id":"01CQNY9PADNG8G00GZJ000000A","name":"myapp","created_at":"2018-09-18T08:56:08.269Z","updated_at":"2018-09-18T08:56:08.269Z"}'
+        response =
+          '{"id":"01CQNY9PADNG8G00GZJ000000A","name":"myapp",' \
+           '"created_at":"2018-09-18T08:56:08.269Z","updated_at":"2018-09-18T08:56:08.269Z"}'
         socket.print "HTTP/1.1 200 OK\r\n" \
                     "Content-Length: #{response.bytesize}\r\n" \
                     "Connection: close\r\n"

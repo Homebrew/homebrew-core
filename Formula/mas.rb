@@ -2,19 +2,24 @@ class Mas < Formula
   desc "Mac App Store command-line interface"
   homepage "https://github.com/mas-cli/mas"
   url "https://github.com/mas-cli/mas.git",
-      :tag      => "v1.6.3",
-      :revision => "3ac7e51b9e9fdd33f7caf7c77bebf09bf0cce44b"
+      tag:      "v1.8.0",
+      revision: "9eaf57a5de836ce5e5435a8df14da4aa1b7d7444"
+  license "MIT"
   head "https://github.com/mas-cli/mas.git"
 
   bottle do
-    cellar :any
-    sha256 "2069b8c1c1a64c2fb91cc1c25ab9c9890c61f2182224b9e0605a35a151bb85bd" => :catalina
-    sha256 "3dd5a50b551a37c164c31375cc8498ba870e29e50086bd5c4c294bc26708a6d2" => :mojave
-    sha256 "a0d1e45203448c08420c3eab2d40ef957fd22c8e40fbeb067bc7bffe4f08dfe2" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "ef2ed904d1283722af006811471484cb1c9c73b255a766b5c0c65ecd1654c8d8"
+    sha256 cellar: :any, big_sur:       "dc98d69cfa94467e046b443c088a6097fe0ce0d2935e37046815fa3a984a0ca4"
+    sha256 cellar: :any, catalina:      "2e7ffedf674543f98c2b95868b6a23db208cb2e6a3ec1ddbb3553ddab0cf9a68"
   end
 
   depends_on "carthage" => :build
-  depends_on :xcode => ["10.1", :build]
+  depends_on :macos
+  if Hardware::CPU.arm?
+    depends_on xcode: ["12.2", :build]
+  else
+    depends_on xcode: ["11.4", :build]
+  end
 
   def install
     # Working around build issues in dependencies
@@ -27,8 +32,8 @@ class Mas < Formula
     EOS
     ENV["XCODE_XCCONFIG_FILE"] = xcconfig
 
-    # Only build necessary dependencies (Commandant, Result)
-    system "carthage", "bootstrap", "--platform", "macOS", "Commandant", "Result"
+    # Only build necessary dependencies
+    system "carthage", "bootstrap", "--platform", "macOS", "Commandant"
     system "script/install", prefix
 
     bash_completion.install "contrib/completion/mas-completion.bash" => "mas"

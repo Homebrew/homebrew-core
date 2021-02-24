@@ -3,22 +3,33 @@ class Appledoc < Formula
   homepage "http://appledoc.gentlebytes.com/"
   url "https://github.com/tomaz/appledoc/archive/2.2.1.tar.gz"
   sha256 "0ec881f667dfe70d565b7f1328e9ad4eebc8699ee6dcd381f3bd0ccbf35c0337"
+  license "Apache-2.0"
   head "https://github.com/tomaz/appledoc.git"
 
-  bottle do
-    sha256 "2964d5f269086c396b9ffef15c52f2af29b9bb61b7b208b62ab9dcc95d86c649" => :mojave
-    sha256 "53e67d5fb1067078a1fde8cc17c5836313d6303a9fe03b9df4d0727fb89974ca" => :high_sierra
-    sha256 "2d986524eff2914b52f2336ab19dfd8bf21fb98a278e47690355c0cce525a06b" => :sierra
-    sha256 "c723bec6cdeb0eb067d7c67cee472f20a6f1935e1bbd6b0a3aa0ec7f77fea583" => :el_capitan
-    sha256 "ada12050d25be7a3c9920b1b4e2aa8d8a1efa7d59d9e67325f4e83dab14d0f59" => :yosemite
-    sha256 "dede0bad06c61e56350c5fc812e1c507d3b2e0b73b6d062eedfe8e47f39b74fb" => :mavericks
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on :xcode => :build
+  bottle do
+    rebuild 3
+    sha256 big_sur:  "a44c317d4c80798c24e3c9b72b622dd037e3c73f47c21e8fce200958322e14f6"
+    sha256 catalina: "d4808573e4dd15de060e90374e77e43b1df1926cad45bec5331381d7dff1d1f3"
+    sha256 mojave:   "a2530c73cfaa02a2a40be2b823d8c2115ce5fe8d0a59c765829aad55bf3e7c33"
+  end
+
+  # Includes prebuild Library/*.a files (Intel-only)
+  # so it does not build fully from source
+  disable! date: "2020-12-31", because: :does_not_build
+
+  depends_on xcode: :build
+  depends_on arch: :x86_64
+  depends_on :macos
 
   def install
     xcodebuild "-project", "appledoc.xcodeproj",
                "-target", "appledoc",
+               "-arch", "x86_64",
                "-configuration", "Release",
                "clean", "install",
                "SYMROOT=build",
@@ -53,9 +64,11 @@ class Appledoc < Formula
     system bin/"appledoc", "--project-name", "Test",
                            "--project-company", "Homebrew",
                            "--create-html",
-                           "--no-install-docset",
+                           # docset tools were removed in Xcode 9.3:
+                           #   https://github.com/tomaz/appledoc/issues/628
+                           # ...so --no-create-docset is essentially required
+                           "--no-create-docset",
                            "--keep-intermediate-files",
-                           "--docset-install-path", testpath,
                            "--output", testpath,
                            testpath/"test.h"
   end

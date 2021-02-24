@@ -1,45 +1,37 @@
 class Percol < Formula
+  include Language::Python::Virtualenv
+
   desc "Interactive grep tool"
   homepage "https://github.com/mooz/percol"
-  url "https://github.com/mooz/percol/archive/v0.2.1.tar.gz"
-  sha256 "75056ba1fe190ae4c728e68df963c0e7d19bfe5a85649e51ae4193d4011042f9"
-  revision 1
+  url "https://files.pythonhosted.org/packages/50/ea/282b2df42d6be8d4292206ea9169742951c39374af43ae0d6f9fff0af599/percol-0.2.1.tar.gz"
+  sha256 "7a649c6fae61635519d12a6bcacc742241aad1bff3230baef2cedd693ed9cfe8"
+  license "MIT"
+  revision 3
   head "https://github.com/mooz/percol.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c9e13bc103fe32c8d78de04f547fd2be75d0564657e1f6e1f54bca846fc10ab7" => :catalina
-    sha256 "43a0d42c2184fcc78ee6cb187c0bd4167133debe35be81d724bd3b2a26848de3" => :mojave
-    sha256 "dee76bc835dadd9f37058c6ef642eddca4278d5f5d0995b72bdb0c5fa4d537a4" => :high_sierra
-    sha256 "dee76bc835dadd9f37058c6ef642eddca4278d5f5d0995b72bdb0c5fa4d537a4" => :sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "12ac8e4fb2d128105a336fb66f03e5c4b2138f3e2d0008f3caeb5b9361286d83"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a1d437af31e6c2c6b2fcb7fa5b6d7a81c1cc5014e647bf803618f1421d7b53c2"
+    sha256 cellar: :any_skip_relocation, catalina:      "3ff2691bdcf6ec23e6a6714322591e95361e0d257672f85bbf0549dd9d3819e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "5bb5d60ccdc9296979b17f056377fc73c9d970580654e342e89b0f7e2a23154c"
   end
 
-  depends_on "python"
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
-  end
+  depends_on "python@3.9"
+  uses_from_macos "expect" => :test
 
   resource "cmigemo" do
     url "https://files.pythonhosted.org/packages/2f/e4/374df50b655e36139334046f898469bf5e2d7600e1e638f29baf05b14b72/cmigemo-0.1.6.tar.gz"
     sha256 "7313aa3007f67600b066e04a4805e444563d151341deb330135b4dcdf6444626"
   end
 
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+  end
+
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

@@ -1,32 +1,33 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/6.16.tar.gz"
-  sha256 "1f20f2781862560ddf3203dfb0e6fcf248a68bf92aefbeafb9d2a629c4767c02"
+  url "https://github.com/cesanta/mongoose/archive/7.1.tar.gz"
+  sha256 "f099bf7223c527e1a0b7fc8888136a3992e8b5c7123839639213b9483bb4f95b"
+  license "GPL-2.0-only"
 
   bottle do
-    cellar :any
-    sha256 "f9cf735cf2fe8035d9f9395484dc882e4d3cc7c14ee4acd6d95f0f4bdef5e0ed" => :catalina
-    sha256 "954e9e0e047a954e67757ccb281ee8d5ef8b318a299337c4d9a63bb033ddc2dc" => :mojave
-    sha256 "b1802f5b9c7417ce3e90d9eae088591c10ecf75e9c17d70a57192a640b7d189a" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "87374bf95a515e72a2dee8aeb0a9b4d60c42397e7bcd1bb12ed527165f992cfc"
+    sha256 cellar: :any, big_sur:       "8a91713981f4927eb9723d2b5a6b4262185c8e4cf4fe9c02bf7c6f49d7fcab80"
+    sha256 cellar: :any, catalina:      "4f7959dac7c0258f3de40d371b166dca99b077e2856a16bbd4baab7b34527990"
+    sha256 cellar: :any, mojave:        "b6613ccdbe10010e0ddc4bc9a2b0edc169ac7a6f7e9bda4b5f471ccc4efa8fe2"
   end
 
   depends_on "openssl@1.1"
 
-  conflicts_with "suite-sparse", :because => "suite-sparse vendors libmongoose.dylib"
+  conflicts_with "suite-sparse", because: "suite-sparse vendors libmongoose.dylib"
 
   def install
     # No Makefile but is an expectation upstream of binary creation
     # https://github.com/cesanta/mongoose/issues/326
-    cd "examples/simplest_web_server" do
-      system "make"
-      bin.install "simplest_web_server" => "mongoose"
+    cd "examples/http-server" do
+      system "make", "mongoose_mac", "PROG=mongoose_mac"
+      bin.install "mongoose_mac" => "mongoose"
     end
 
     system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib"
     include.install "mongoose.h"
     lib.install "libmongoose.dylib"
-    pkgshare.install "examples", "jni"
+    pkgshare.install "examples"
     doc.install Dir["docs/*"]
   end
 

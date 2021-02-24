@@ -1,19 +1,25 @@
 class Nasm < Formula
   desc "Netwide Assembler (NASM) is an 80x86 assembler"
   homepage "https://www.nasm.us/"
-  url "https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/nasm-2.14.02.tar.xz"
-  sha256 "e24ade3e928f7253aa8c14aa44726d1edf3f98643f87c9d72ec1df44b26be8f5"
+  url "https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.xz"
+  sha256 "3caf6729c1073bf96629b57cee31eeb54f4f8129b01902c73428836550b30a3f"
+  license "BSD-2-Clause"
+
+  livecheck do
+    url "https://www.nasm.us/pub/nasm/releasebuilds/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2c07dbee044266696866676d76d446a07099505294271c12f342b241067eb604" => :catalina
-    sha256 "77a183895137e0f95d897d33399235a58f1f23c99bac7f041d58baeb6f32e3b9" => :mojave
-    sha256 "b8d720e9008f58bbeddee14a8fa4841a8913c3d61d46872b37f7736d03a06218" => :high_sierra
-    sha256 "1d5283c366d958a1b7efdc22983fe313e0bd2a26268e585ced9f284f50ed270b" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e3fb019ffdfcd4ce6b418adbe3d1d1d0e1e232a7de3b62fc4872c2401543cb3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cc45793ac9f3fedd01dd08bbbf766137a40bf22e18c43742498b0a542aa319e8"
+    sha256 cellar: :any_skip_relocation, catalina:      "1875e67160bac1675dd505d66a6b78469767d2dfe8baab2652409f91ac0549ef"
+    sha256 cellar: :any_skip_relocation, mojave:        "4b3614f857264edfa9aeab961c523b3910cdef0ceccaf9957888b477c1c512f4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8f8c181994b1f05bf425a4034f76d6973c9e1a85ecb64af7f67d47556f23a0d6"
   end
 
   head do
-    url "https://repo.or.cz/nasm.git"
+    url "https://github.com/netwide-assembler/nasm.git"
     depends_on "asciidoc" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build

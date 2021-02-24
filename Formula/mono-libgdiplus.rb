@@ -1,15 +1,16 @@
 class MonoLibgdiplus < Formula
   desc "GDI+-compatible API on non-Windows operating systems"
   homepage "https://www.mono-project.com/docs/gui/libgdiplus/"
-  url "https://github.com/mono/libgdiplus/archive/6.0.4.tar.gz"
-  sha256 "9a5e3f98018116f99361520348e9713cd05680c231d689a83d87acfaf237d3a8"
+  url "https://github.com/mono/libgdiplus/archive/6.0.5.tar.gz"
+  sha256 "1fd034f4b636214cc24e94c563cd10b3f3444d9f0660927b60e63fd4131d97fa"
+  license "MIT"
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "2b2a77eb692e4383bcd370c67952a4da8000d79ac75c9bf9b4c02a5db291291a" => :catalina
-    sha256 "aa006fa3746f4d6ecd7fa1b004adb5bf5061bcda97320d105eddf841f3c9087e" => :mojave
-    sha256 "de806803fb54ffefa1fa627eadb5c7e627082ae3b4c8fb8554e0aa243cb412d3" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "1ffc07c204c2dfb3caad9695283676bb2793da4f95889d09fa2a976c2699720b"
+    sha256 cellar: :any, big_sur:       "251d2f8b3f0aefe6678a1e34288cdcdc160410dc4b3b555d08cf58d01f9c37a0"
+    sha256 cellar: :any, catalina:      "d72a67f877199f82b096a47a19b071414581fed3160f62942dcbe21804fb29b7"
+    sha256 cellar: :any, mojave:        "c865c0d6aac91e8293d951a1c7d278bc8d64cba7babab1dc60f9fc198b6649fd"
   end
 
   depends_on "autoconf" => :build
@@ -26,7 +27,16 @@ class MonoLibgdiplus < Formula
   depends_on "libexif"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "pango"
   depends_on "pixman"
+
+  # Remove at next version bump.
+  # Upstream PR: https://github.com/mono/libgdiplus/pull/605.
+  # Without this patch, it requires pango 1.43 or lower (current available version is 1.48).
+  patch do
+    url "https://github.com/mono/libgdiplus/commit/8f42e17e92c562cc243844b8a004cd03144b1384.patch?full_index=1"
+    sha256 "b38823891ea201588c1edf29f931a0d353a155d7fac36f114482bbe608c5a1c9"
+  end
 
   def install
     system "autoreconf", "-fiv"

@@ -1,41 +1,36 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v0.12.18.tar.gz"
-  sha256 "1253a870ba2c1d9a873f6bfcaa2e4450573fd06177705f0faeb451157e1dde8b"
+  url "https://github.com/hashicorp/terraform/archive/v0.14.7.tar.gz"
+  sha256 "8d411d067d35660f7e2622dacb5be87e108929321b6732c6770ec89ebe07231d"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git"
 
+  livecheck do
+    url "https://releases.hashicorp.com/terraform/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4e2570054d1ba391f3d6afbc436c674e141c0cda3fa263296ff53de15bb906f5" => :catalina
-    sha256 "cb5c53c5e4359c44f6463b08bff382cd1c5efb0c095e61815a197bfde4877ad5" => :mojave
-    sha256 "3a005e9c9a485df647c43c142287f37eb090470a3b8b7c42c2e40558e4c34e67" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "e8c27c9aafd1742d15066ca175b47a74451628426f8ab718946821e21b773ca4"
+    sha256 cellar: :any_skip_relocation, catalina: "11c046443572c73446007f4c4eb146f978c06ac6edb080935a8f272bee7514b8"
+    sha256 cellar: :any_skip_relocation, mojave:   "fc77affe5f26ad1b8710e8f656b25f59e3ec1d7c5c356300f06d969b16c9c7b8"
   end
 
   depends_on "go" => :build
-  depends_on "gox" => :build
 
-  conflicts_with "tfenv", :because => "tfenv symlinks terraform binaries"
+  conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV.prepend_create_path "PATH", buildpath/"bin"
+    # v0.6.12 - source contains tests which fail if these environment variables are set locally.
+    ENV.delete "AWS_ACCESS_KEY"
+    ENV.delete "AWS_SECRET_KEY"
 
-    dir = buildpath/"src/github.com/hashicorp/terraform"
-    dir.install buildpath.children - [buildpath/".brew_home"]
+    # resolves issues fetching providers while on a VPN that uses /etc/resolv.conf
+    # https://github.com/hashicorp/terraform/issues/26532#issuecomment-720570774
+    ENV["CGO_ENABLED"] = "1"
 
-    cd dir do
-      # v0.6.12 - source contains tests which fail if these environment variables are set locally.
-      ENV.delete "AWS_ACCESS_KEY"
-      ENV.delete "AWS_SECRET_KEY"
-
-      ENV["XC_OS"] = "darwin"
-      ENV["XC_ARCH"] = "amd64"
-      system "make", "tools", "bin"
-
-      bin.install "pkg/darwin_amd64/terraform"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do

@@ -4,11 +4,17 @@ class Giflib < Formula
   url "https://downloads.sourceforge.net/project/giflib/giflib-5.2.1.tar.gz"
   sha256 "31da5562f44c5f15d63340a09a4fd62b48c45620cd302f77a6d9acf0077879bd"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/giflib[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "ad97d175fa77f7afb4a1c215538d8ae9eff30435de7feaa6a5d2e29fca7fef4d" => :catalina
-    sha256 "42d2f8a6e9dbf9d4c22a2e64581c7170cc7dcb2a0e66df383efc67b7bc96238d" => :mojave
-    sha256 "e1a30a20ad93cd9ec003027d7fba43a7e04ced0bff4156614818cccfc9dec6c9" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "e9a78b55a43f68f2552f845fff27d1c247ed865b1dd653f4c8ab259594411f86"
+    sha256 cellar: :any, big_sur:       "dc23500f50d599c4dbfcea0107b643bef41538c2f5fd162b049f82d21e3d32d5"
+    sha256 cellar: :any, catalina:      "ad97d175fa77f7afb4a1c215538d8ae9eff30435de7feaa6a5d2e29fca7fef4d"
+    sha256 cellar: :any, mojave:        "42d2f8a6e9dbf9d4c22a2e64581c7170cc7dcb2a0e66df383efc67b7bc96238d"
+    sha256 cellar: :any, high_sierra:   "e1a30a20ad93cd9ec003027d7fba43a7e04ced0bff4156614818cccfc9dec6c9"
   end
 
   # Upstream has stripped out the previous autotools-based build system and their

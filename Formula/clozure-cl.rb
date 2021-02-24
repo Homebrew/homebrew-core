@@ -1,47 +1,93 @@
 class ClozureCl < Formula
   desc "Common Lisp implementation with a long history"
   homepage "https://ccl.clozure.com"
-  url "https://github.com/Clozure/ccl/archive/v1.11.6.tar.gz"
-  sha256 "6a496d35e05dc3e6e7637884552b1f14c82296525546f28337b222e4c3d7d50b"
+  url "https://github.com/Clozure/ccl/archive/v1.12.tar.gz"
+  sha256 "774a06b4fb6dc4b51dfb26da8e1cc809c605e7706c12180805d1be6f2885bd52"
+  license "Apache-2.0"
   head "https://github.com/Clozure/ccl.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "8725b08fc19b2330d25b78d56d06564b01f8c70ec09763a5a6823db05b81d928" => :mojave
-    sha256 "06426d4b5d6f5875734eac8d6bac1e1a99e37b6ca26696d458274eb36b23e8b0" => :high_sierra
-    sha256 "f4bbb8190f307cfc272e80879e88c51e1ca8bf9382fcf93b0cc628e7169fe522" => :sierra
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on :xcode => :build
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:  "8d92feb08987fc74fb3a105f94ec0e8664b587a31fa7077b95d1f3d5c86f6a7d"
+    sha256 cellar: :any_skip_relocation, catalina: "c3fbe11dec5f77264369a8b95a774599e5247771f4df475faeed1e589cf1033d"
+  end
+
+  depends_on xcode: :build
+  depends_on macos: :catalina # The GNU assembler frontend which ships macOS 10.14 is incompatible with clozure-ccl: https://github.com/Clozure/ccl/issues/271
+
+  # Patch to build heap image with linker shipped with Big Sur.  Remove for next version.
+  on_macos do
+    if MacOS.version >= :catalina
+      patch do
+        url "https://github.com/Clozure/ccl/commit/553c0f25f38b2b0d5922ca7b4f62f09eb85ace1c.patch?full_index=1"
+        sha256 "deb9e35df75d82c1694fec569a246388485fb64ab7bae3addff6ff3650160b04"
+      end
+    end
+  end
+
+  on_linux do
+    depends_on "m4"
+  end
 
   resource "bootstrap" do
-    url "https://github.com/Clozure/ccl/releases/download/v1.11.5/ccl-1.11.5-darwinx86.tar.gz"
-    sha256 "5adbea3d8b4a2e29af30d141f781c6613844f468c0ccfa11bae908c3e9641939"
+    on_macos do
+      url "https://github.com/Clozure/ccl/releases/download/v1.12/darwinx86.tar.gz"
+      sha256 "9434fb5ebc01fc923625ad56726fdd217009e2d3c107cfa3c5435cb7692ba7ca"
+    end
+
+    on_linux do
+      url "https://github.com/Clozure/ccl/releases/download/v1.12/linuxx86.tar.gz"
+      sha256 "7fbdb04fb1b19f0307c517aa5ee329cb4a21ecc0a43afd1b77531e4594638796"
+    end
   end
 
   def install
     tmpdir = Pathname.new(Dir.mktmpdir)
     tmpdir.install resource("bootstrap")
-    buildpath.install tmpdir/"dx86cl64.image"
-    buildpath.install tmpdir/"darwin-x86-headers64"
-    cd "lisp-kernel/darwinx8664" do
-      system "make"
+
+    on_macos do
+      buildpath.install tmpdir/"dx86cl64.image"
+      buildpath.install tmpdir/"darwin-x86-headers64"
+      cd "lisp-kernel/darwinx8664" do
+        system "make"
+      end
+    end
+
+    on_linux do
+      buildpath.install tmpdir/"lx86cl64"
+      buildpath.install tmpdir/"lx86cl64.image"
+      buildpath.install tmpdir/"x86-headers64"
     end
 
     ENV["CCL_DEFAULT_DIRECTORY"] = buildpath
 
-    system "./dx86cl64", "-n", "-l", "lib/x8664env.lisp",
-                         "-e", "(ccl:xload-level-0)",
-                         "-e", "(ccl:compile-ccl)",
-                         "-e", "(quit)"
-    (buildpath/"image").write('(ccl:save-application "dx86cl64.image")\n(quit)\n')
-    system "cat image | ./dx86cl64 -n --image-name x86-boot64.image"
+    on_macos do
+      system "./dx86cl64", "-n", "-l", "lib/x8664env.lisp",
+            "-e", "(ccl:xload-level-0)",
+            "-e", "(ccl:compile-ccl)",
+            "-e", "(quit)"
+      (buildpath/"image").write('(ccl:save-application "dx86cl64.image")\n(quit)\n')
+      system "cat image | ./dx86cl64 -n --image-name x86-boot64.image"
+    end
+
+    on_linux do
+      system "./lx86cl64", "-n", "-l", "lib/x8664env.lisp",
+            "-e", "(ccl:rebuild-ccl :full t)",
+            "-e", "(quit)"
+      (buildpath/"image").write('(ccl:save-application "lx86cl64.image")\n(quit)\n')
+      system "cat image | ./lx86cl64 -n --image-name x86-boot64"
+    end
 
     prefix.install "doc/README"
     doc.install Dir["doc/*"]
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/scripts/ccl64"]
-    bin.env_script_all_files(libexec/"bin", :CCL_DEFAULT_DIRECTORY => libexec)
+    bin.env_script_all_files(libexec/"bin", CCL_DEFAULT_DIRECTORY: libexec)
   end
 
   test do

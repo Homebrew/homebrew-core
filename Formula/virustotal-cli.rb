@@ -1,36 +1,28 @@
 class VirustotalCli < Formula
   desc "Command-line interface for VirusTotal"
   homepage "https://github.com/VirusTotal/vt-cli"
-  url "https://github.com/VirusTotal/vt-cli/archive/0.7.0.tar.gz"
-  sha256 "39a566be0e2ee1102c0bd9d3ddefa4a0e423c9ffe02962d4a48897a875312c95"
+  url "https://github.com/VirusTotal/vt-cli/archive/0.9.0.tar.gz"
+  sha256 "ec418c60697d03fd859bbf3a36abe4f30d59111651e3065de6cd581040a19027"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "36fcf039fa5264b8841ba3ba954816031cb1b6ac42aacd26b1e5791b643fae30" => :catalina
-    sha256 "be3fd19af1b5004ccf95ef0996fa387b88e7bfa30ca651dd69b94700fb92dcec" => :mojave
-    sha256 "118eaafec3d20e709091266c786d5121b27e0d1c8d8ded2f5c21c77046b571d5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b486134db1e1ac2fd514acda293401f9d030438dc2f9147ed75339f769ebf506"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8b5f87a46607d5b5e8c668e1be2bfbe0fbdb9abbf2fb8e13e600d48581792f48"
+    sha256 cellar: :any_skip_relocation, catalina:      "fd824d9358daebc505953828fa412e7833552862619a33bd5d859bac106c037d"
+    sha256 cellar: :any_skip_relocation, mojave:        "e3b47ef62dfbb66079fea6d2b49b5cc9a07ec180cf459393c57b6377b8068a34"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    repo = "github.com/VirusTotal/vt-cli"
-    (buildpath/"src/#{repo}").install buildpath.children
+    system "go", "build", "-ldflags",
+            "-X cmd.Version=#{version}",
+            "-o", bin/"vt", "./vt/main.go"
 
-    cd "src/#{repo}" do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-ldflags",
-             "-X #{repo}/cmd.Version=#{version}",
-             "-o", bin/"vt", "./vt/main.go"
-      prefix.install_metafiles
-    end
-
-    output = Utils.popen_read("#{bin}/vt completion bash")
+    output = Utils.safe_popen_read("#{bin}/vt", "completion", "bash")
     (bash_completion/"vt").write output
 
-    output = Utils.popen_read("#{bin}/vt completion zsh")
+    output = Utils.safe_popen_read("#{bin}/vt", "completion", "zsh")
     (zsh_completion/"_vt").write output
   end
 

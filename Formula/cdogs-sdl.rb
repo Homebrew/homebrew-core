@@ -1,19 +1,27 @@
 class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
-  url "https://github.com/cxong/cdogs-sdl/archive/0.6.9.tar.gz"
-  sha256 "6f81f528cb6fcc6f72ad67627dc22baeac05d7acec512fee5830224cd06cf9ba"
+  url "https://github.com/cxong/cdogs-sdl/archive/0.10.2.tar.gz"
+  sha256 "3ab6036e65c83e98156317aebb3cd6013c8e25081fa8547007a25d299657f93d"
+  license "GPL-2.0-or-later"
   head "https://github.com/cxong/cdogs-sdl.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 "6fb64eabb3777469eae01c7a106ae23a476207acc464dce439ee0df32113f559" => :catalina
-    sha256 "0d9364354ce369be43114c059c8ae55fdc9a9f77534463f919cb3fc491f63c79" => :mojave
-    sha256 "fa1acdcace9940b7e633d21f42159ff72aa55095d995f8331fba40b4aa85f31e" => :high_sierra
-    sha256 "811a7269fa69ba5fde0a15486e019c91f0d6b81afc644d7ed782f1d7e144917e" => :sierra
+    sha256 arm64_big_sur: "4f2edb88b56c462e440ec9a7a28878b110512d9afafa2be8f69d2726df9d63c7"
+    sha256 big_sur:       "b5f985db36af5e627bf39534f1b12773ca83caf96b26965adea3824a7e939313"
+    sha256 catalina:      "2b0bc41a233dd6843ccdcf95badf04472e1e728d5bc36bd606aad7c5c1c3701a"
+    sha256 mojave:        "a344081267233c5d78d4e03ce5eb8c1a3410da4e229a9b3758b61f7480cce693"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "protobuf" => :build
+  depends_on "python@3.9"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
@@ -29,10 +37,13 @@ class CdogsSdl < Formula
   end
 
   test do
-    server = fork do
-      system "#{bin}/cdogs-sdl"
+    pid = fork do
+      exec bin/"cdogs-sdl"
     end
-    sleep 5
-    Process.kill("TERM", server)
+    sleep 7
+    assert_predicate testpath/".config/cdogs-sdl",
+                     :exist?, "User config directory should exist"
+  ensure
+    Process.kill("TERM", pid)
   end
 end

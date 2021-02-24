@@ -2,35 +2,19 @@ class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
   url "https://github.com/elastic/beats.git",
-      :tag      => "v6.8.5",
-      :revision => "22b590e4e8dbb91bdcfe8689e59dcb04447eeef6"
-  revision 1
+      tag:      "v7.11.1",
+      revision: "9b2fecb327a29fe8d0477074d8a2e42a3fabbc4b"
+  license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "09e1dc845a3f118cb43994e16d9e9646b907c479688070104ea0af636df84c4f" => :catalina
-    sha256 "4a8d39c4a22f8fe45bd5e9fe3f9a3f12902c149c450e8060ba4dd727b3ad4193" => :mojave
-    sha256 "b7ea5ae1e8784382ae7c5e346f896795803d0f9ca2d98fa7acdb58f687a81025" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "1fd89c5e94e8e297e47967bdf2beb6348975f9698dfcd09dbfaeadc9c02d6101"
+    sha256 cellar: :any_skip_relocation, catalina: "0ff3aa4f90b9f5ef35d7d61098adaa111bd6e4892bce1dcc573ae79bdb07515d"
+    sha256 cellar: :any_skip_relocation, mojave:   "400d1e257fee397b6225b398e314f5c85922a3232bb865f2a856f13c7907f652"
   end
 
   depends_on "go" => :build
-  # https://github.com/elastic/beats/pull/14798
-  uses_from_macos "python@2" => :build # does not support Python 3
-
-  # Newer virtualenvs are not compatible with Python 2.7.10 on high sierra, use an old version
-  resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/d4/0c/9840c08189e030873387a73b90ada981885010dd9aea134d6de30cd24cb8/virtualenv-15.1.0.tar.gz"
-    sha256 "02f8102c2436bb03b3ee6dede1919d1dac8a427541652e5ec95171ec8adbc93a"
-  end
-
-  # Patch required to build against go 1.11 (Can be removed with v7.0.0)
-  # partially backport of https://github.com/elastic/beats/commit/8d8eaf34a6cb5f3b4565bf40ca0dc9681efea93c
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a0f8cdc0/auditbeat/go1.11.diff"
-    sha256 "8a00cb0265b6e2de3bc76f14f2ee4f1a5355dad490f3db9288d968b3e95ae0eb"
-  end
+  depends_on "python@3.9" => :build
 
   def install
     # remove non open source files
@@ -38,25 +22,17 @@ class Auditbeat < Formula
 
     ENV["GOPATH"] = buildpath
     (buildpath/"src/github.com/elastic/beats").install buildpath.children
-
-    ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
-
-    resource("virtualenv").stage do
-      system "python", *Language::Python.setup_install_args(buildpath/"vendor")
-    end
-
-    ENV.prepend_path "PATH", buildpath/"vendor/bin" # for virtualenv
     ENV.prepend_path "PATH", buildpath/"bin" # for mage (build tool)
 
     cd "src/github.com/elastic/beats/auditbeat" do
       # don't build docs because it would fail creating the combined OSS/x-pack
       # docs and we aren't installing them anyway
-      inreplace "magefile.go", "mage.GenerateModuleIncludeListGo, Docs)",
-                               "mage.GenerateModuleIncludeListGo)"
+      inreplace "magefile.go", "devtools.GenerateModuleIncludeListGo, Docs)",
+                               "devtools.GenerateModuleIncludeListGo)"
 
       system "make", "mage"
       # prevent downloading binary wheels during python setup
-      system "make", "PIP_INSTALL_COMMANDS=--no-binary :all", "python-env"
+      system "make", "PIP_INSTALL_PARAMS=--no-binary :all", "python-env"
       system "mage", "-v", "build"
       system "mage", "-v", "update"
 
@@ -83,23 +59,24 @@ class Auditbeat < Formula
     (var/"log/auditbeat").mkpath
   end
 
-  plist_options :manual => "auditbeat"
+  plist_options manual: "auditbeat"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_bin}/auditbeat</string>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>Program</key>
+          <string>#{opt_bin}/auditbeat</string>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
@@ -113,21 +90,15 @@ class Auditbeat < Formula
         path: "#{testpath}/auditbeat"
         filename: auditbeat
     EOS
-    pid = fork do
+    fork do
       exec "#{bin}/auditbeat", "-path.config", testpath/"config", "-path.data", testpath/"data"
     end
     sleep 5
-
-    begin
-      touch testpath/"files/touch"
-      sleep 30
-      s = IO.readlines(testpath/"auditbeat/auditbeat").last(1)[0]
-      assert_match "\"action\":\[\"created\"\]", s
-      realdirpath = File.realdirpath(testpath)
-      assert_match "\"path\":\"#{realdirpath}/files/touch\"", s
-    ensure
-      Process.kill "SIGINT", pid
-      Process.wait pid
-    end
+    touch testpath/"files/touch"
+    sleep 30
+    s = IO.readlines(testpath/"auditbeat/auditbeat").last(1)[0]
+    assert_match(/"action":\["(initial_scan|created)"\]/, s)
+    realdirpath = File.realdirpath(testpath)
+    assert_match "\"path\":\"#{realdirpath}/files/touch\"", s
   end
 end

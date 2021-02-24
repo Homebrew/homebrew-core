@@ -1,23 +1,25 @@
 class GnuCobol < Formula
   desc "Implements much of the COBOL 85 and COBOL 2002 standards"
-  homepage "https://sourceforge.net/projects/open-cobol/"
-  url "https://downloads.sourceforge.net/project/open-cobol/gnu-cobol/2.2/gnucobol-2.2.tar.xz"
-  sha256 "dc18fc45c269debfe86a4bbe20a7250983cba6238ea1917e135df5926cd024a0"
-  revision 1
+  homepage "https://sourceforge.net/projects/gnucobol/"
+  url "https://downloads.sourceforge.net/project/gnucobol/gnucobol/3.1/gnucobol-3.1.2.tar.xz"
+  sha256 "597005d71fd7d65b90cbe42bbfecd5a9ec0445388639404662e70d53ddf22574"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/gnucobol[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "34522d58a12226af76cdcfec829945ef26face03a1b028e94d9cba90b106ad87" => :catalina
-    sha256 "504014842e719e925712356bb311815d358486517cd5391d679730c1c079162f" => :mojave
-    sha256 "3f1a9e81a977db52d0884546897928f6d2d903aa730298bf8ab5d75846afe20a" => :high_sierra
-    sha256 "047bbc915d20c25913075b9a71b0bb4fedb0576c262c4a7084890ee6a608e4a0" => :sierra
-    sha256 "ad0bd9c0dceccde4ee7685152ba2bdd7d1c878d284e9e57f6fc46180522b250c" => :el_capitan
+    rebuild 1
+    sha256 arm64_big_sur: "56a9a4dedd7cac8608aa2c570d6e3c77647cc5a15235413eef2fc5ff7f4c698e"
+    sha256 big_sur:       "bc73094fd113c6dc58c3cc475c78c8ec4dac1d9459895ab8ba23ff8f1974df34"
+    sha256 catalina:      "ed671ad5c7cabc4992d399cdc02a5bdda5ead3d273d307dcff68eaa9204f3447"
+    sha256 mojave:        "d0c71a8b125011452f7e47411ba743021a6d0edeb477a267fc905abd81b1a561"
   end
 
   depends_on "berkeley-db"
   depends_on "gmp"
-
-  conflicts_with "open-cobol",
-    :because => "both install `cob-config`, `cobc` and `cobcrun` binaries"
 
   def install
     # both environment variables are needed to be set

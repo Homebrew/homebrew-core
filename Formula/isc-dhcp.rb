@@ -1,15 +1,21 @@
 class IscDhcp < Formula
   desc "Production-grade DHCP solution"
-  homepage "https://www.isc.org/software/dhcp"
-  url "https://ftp.isc.org/isc/dhcp/4.4.1/dhcp-4.4.1.tar.gz"
-  sha256 "2a22508922ab367b4af4664a0472dc220cc9603482cf3c16d9aff14f3a76b608"
+  homepage "https://www.isc.org/dhcp"
+  url "https://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz"
+  sha256 "1a7ccd64a16e5e68f7b5e0f527fd07240a2892ea53fe245620f4f5f607004521"
+  license "MPL-2.0"
+
+  livecheck do
+    url "https://www.isc.org/download/"
+    regex(%r{href=.*?/dhcp[._-]v?(\d+(?:\.\d+)+(?:-P\d+)?)\.t}i)
+  end
 
   bottle do
-    sha256 "d210dbeb3f76fbad9f2023b80f18090e513a41f62b14ce4e60017cc3209c5193" => :catalina
-    sha256 "d9961821503dd2dbd1e81001cdc58125e92d1c33ecd1d46d834a64ebc59e27d2" => :mojave
-    sha256 "eea8d134e6003550ee99f8e7d81d2869fa0eb73f1986e06073561c630ed2966c" => :high_sierra
-    sha256 "461dd0ba33e5d16684db8a65f757cd3e0a1c6e9a5d5ba657a20819ab6acc3ff4" => :sierra
-    sha256 "ae9ef8eb1f904486ec7267b381d9703608fb7d7420b5e9c05bbae1c9e725085f" => :el_capitan
+    sha256 arm64_big_sur: "57e20694baa6af4bc0858faca8d937ac50629a9e9d34d35c367ee154511cfe4c"
+    sha256 big_sur:       "d5e8627307133d4039211383156348ffdd1c343e2d4246f024e773e69531ed64"
+    sha256 catalina:      "26591c29130891dfe5a7ebe686c800bda76fdf5113885a801c3a30730a119130"
+    sha256 mojave:        "0d61b17cc0bbac751ded99a66948e880c64fe6ba47a8d1613c470ee6c4e54fec"
+    sha256 high_sierra:   "b0894db278d509c8615da4df71e26bce91daf300bba6380095f291bd2daa642c"
   end
 
   def install
@@ -73,25 +79,26 @@ class IscDhcp < Formula
     (prefix+"homebrew.mxcl.dhcpd6.plist").chmod 0644
   end
 
-  def caveats; <<~EOS
-    This install of dhcpd expects config files to be in #{etc}.
-    All state files (leases and pids) are stored in #{var}/dhcpd.
+  def caveats
+    <<~EOS
+      This install of dhcpd expects config files to be in #{etc}.
+      All state files (leases and pids) are stored in #{var}/dhcpd.
 
-    Dhcpd needs to run as root since it listens on privileged ports.
+      Dhcpd needs to run as root since it listens on privileged ports.
 
-    There are two plists because a single dhcpd process may do either
-    DHCPv4 or DHCPv6 but not both. Use one or both as needed.
+      There are two plists because a single dhcpd process may do either
+      DHCPv4 or DHCPv6 but not both. Use one or both as needed.
 
-    Note that you must create the appropriate config files before starting
-    the services or dhcpd will refuse to run.
-      DHCPv4: #{etc}/dhcpd.conf
-      DHCPv6: #{etc}/dhcpd6.conf
+      Note that you must create the appropriate config files before starting
+      the services or dhcpd will refuse to run.
+        DHCPv4: #{etc}/dhcpd.conf
+        DHCPv6: #{etc}/dhcpd6.conf
 
-    Sample config files may be found in #{etc}.
-  EOS
+      Sample config files may be found in #{etc}.
+    EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
     <<~EOS

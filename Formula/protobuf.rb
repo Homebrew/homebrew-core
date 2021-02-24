@@ -1,26 +1,46 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf.git",
-      :tag      => "v3.11.2",
-      :revision => "fe1790ca0df67173702f70d5646b82f48f412b99"
-  head "https://github.com/protocolbuffers/protobuf.git"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.14.0/protobuf-all-3.14.0.tar.gz"
+  sha256 "6dd0f6b20094910fbb7f1f7908688df01af2d4f6c5c21331b9f636048674aebf"
+  license "BSD-3-Clause"
 
-  bottle do
-    cellar :any
-    sha256 "3fdda0c68757e397a80cf6d87ffb1f6570f459c368a1288c316e932687c5a98f" => :catalina
-    sha256 "c2c8d923c866867eec44813a8264684bd6deb5fc98fc0ca257eaf1dea34ba183" => :mojave
-    sha256 "a772a6c0dc4a95ae6a2cc200664995ef2749d08da8e0965c9b18e932cd5ff19c" => :high_sierra
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "python" => [:build, :test]
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "67c2e767fbab9efc667ea729cfd08d081a1d3d7e93d7a86f68f8bd4a26ca5e8f"
+    sha256 cellar: :any, big_sur:       "b06e8c4247465d7773a359eeeaa39385e564fefab77dbbb245ac928eea334ce9"
+    sha256 cellar: :any, catalina:      "8d53111626404e2b4f27718127a313dceea600a74a4d38ffe0870812d8f57eb4"
+    sha256 cellar: :any, mojave:        "0070627fe9b8c1818e54480c272cc00fa71bd5bd944b04d37ebe2e31604cb9c9"
+  end
+
+  head do
+    url "https://github.com/protocolbuffers/protobuf.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  depends_on "python@3.9" => [:build, :test]
+
+  conflicts_with "percona-server", "percona-xtrabackup",
+    because: "both install libprotobuf(-lite) libraries"
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
-    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+  end
+
+  # Fix build on Big Sur, remove in next version
+  # https://github.com/protocolbuffers/protobuf/pull/8126
+  patch do
+    url "https://github.com/atomiix/protobuf/commit/d065bd6910a0784232dbbbfd3e5806922d69c622.patch?full_index=1"
+    sha256 "5433b6247127f9ca622b15c9f669efbaac830fa717ed6220081bc1fc3c735f91"
   end
 
   def install
@@ -30,7 +50,7 @@ class Protobuf < Formula
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11
 
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
@@ -38,20 +58,21 @@ class Protobuf < Formula
     system "make", "install"
 
     # Install editor support and examples
-    doc.install "editors", "examples"
+    pkgshare.install "editors/proto.vim", "examples"
+    elisp.install "editors/protobuf-mode.el"
 
     ENV.append_to_cflags "-I#{include}"
     ENV.append_to_cflags "-L#{lib}"
 
     resource("six").stage do
-      system "python3", *Language::Python.setup_install_args(libexec)
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     end
     chdir "python" do
-      system "python3", *Language::Python.setup_install_args(libexec),
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec),
                         "--cpp_implementation"
     end
 
-    version = Language::Python.major_minor_version "python3"
+    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     site_packages = "lib/python#{version}/site-packages"
     pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
     (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
@@ -70,6 +91,6 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system "python3", "-c", "import google.protobuf"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import google.protobuf"
   end
 end

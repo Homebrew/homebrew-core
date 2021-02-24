@@ -1,14 +1,21 @@
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
-  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.5.tar.bz2"
-  sha256 "108ec26b71539a0697eff97498c31a26a10278892649584531732a0df0472abf"
+  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.6.tar.bz2"
+  sha256 "a1738ca7df64cd34e75a0ada3110e70ed495260fda813bc9d8722b521fc6fee0"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?REminiscence[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "fb9ac602c0bf9afe43287302a18e9a47d3cc27f2ef894fbfce60a90594e750ad" => :catalina
-    sha256 "165e1694ef3880e68eecb99e1288fc7aa3d31d54cd15240757aa60292c479bda" => :mojave
-    sha256 "b991cb2fbd838085444fe0267b352b9cce450892aa0982e3a5166ce2bfcc0cff" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "b29f5b37b68bbdf1d9e5b0b067d572e4b75cf0bd487c131248cf9f1de062b238"
+    sha256 cellar: :any, big_sur:       "154c213b923be7d8ba32f9b6b39d08da52c8c4528c747616928bb4a32f7f4f78"
+    sha256 cellar: :any, catalina:      "a587449c5846115b5bb4100e1ec50af6256e48bc770c35dad4985850ab8e1b3c"
+    sha256 cellar: :any, mojave:        "a1a752e53d40822409ea80a273b38d307e6e6afdfc52d856dee8e8dcc6ae32d8"
+    sha256 cellar: :any, high_sierra:   "537b631728a9b8e322cc835d20b3d8bac832c5c14ebc0bdedde43fe0b607bcd2"
   end
 
   depends_on "autoconf" => :build
@@ -19,9 +26,11 @@ class Reminiscence < Formula
   depends_on "libogg"
   depends_on "sdl2"
 
+  uses_from_macos "zlib"
+
   resource "tremor" do
-    url "https://git.xiph.org/tremor.git",
-        :revision => "7c30a66346199f3f09017a09567c6c8a3a0eedc8"
+    url "https://gitlab.xiph.org/xiph/tremor.git",
+        revision: "7c30a66346199f3f09017a09567c6c8a3a0eedc8"
   end
 
   def install
@@ -31,12 +40,6 @@ class Reminiscence < Formula
                              "--prefix=#{libexec}",
                              "--disable-static"
       system "make", "install"
-    end
-
-    # fix for files missing from archive, reported upstream via email
-    inreplace "Makefile" do |s|
-      s.gsub! "-DUSE_STATIC_SCALER", ""
-      s.gsub! "SCALERS :=", "#SCALERS :="
     end
 
     ENV.prepend "CPPFLAGS", "-I#{libexec}/include"

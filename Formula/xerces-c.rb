@@ -1,30 +1,33 @@
 class XercesC < Formula
   desc "Validating XML parser"
   homepage "https://xerces.apache.org/xerces-c/"
-  url "https://www.apache.org/dyn/closer.cgi?path=xerces/c/3/sources/xerces-c-3.2.2.tar.gz"
-  sha256 "dd6191f8aa256d3b4686b64b0544eea2b450d98b4254996ffdfe630e0c610413"
+  url "https://www.apache.org/dyn/closer.lua?path=xerces/c/3/sources/xerces-c-3.2.3.tar.gz"
+  mirror "https://archive.apache.org/dist/xerces/c/3/sources/xerces-c-3.2.3.tar.gz"
+  sha256 "fb96fc49b1fb892d1e64e53a6ada8accf6f0e6d30ce0937956ec68d39bd72c7e"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "8bcc9b20b0b3df89ec53900e0b3b09ea1bbc3159b4cffc4b8ef4f62413621924" => :catalina
-    sha256 "fab62b22422c24b0218cae42f7f81ad736db316d9bde4218272cdf7b174c313f" => :mojave
-    sha256 "e62fba2c06fd03edf0491b54f753d10c4ca9e73e97c24389b749e655f9199b50" => :high_sierra
-    sha256 "8390cdf10fcc8b65a1f295eacf8b3fec34776d18219b8a8ce565592ee3b03372" => :sierra
+    sha256 arm64_big_sur: "482e14a0ff78e66b3f701a744411b2144479f69a7d4b876def7723d4683ae81a"
+    sha256 big_sur:       "9707a1e03e5d7b38851d080b2248103ce1780b0ae76d8ad1579187b2178700c0"
+    sha256 catalina:      "3591a0891b6796e46eb12c7ba5fdac497e96e624eae13f0596a3cc58e64d3f29"
+    sha256 mojave:        "3ae5c637d059994fb5549ecd066a16f690a8974dd9284161fa5aa84854b4b9c3"
   end
 
   depends_on "cmake" => :build
+
+  uses_from_macos "curl"
 
   def install
     ENV.cxx11
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{lib}"
       system "make"
       system "ctest", "-V"
       system "make", "install"
       system "make", "clean"
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{lib}"
       system "make"
       lib.install Dir["src/*.a"]
     end

@@ -1,15 +1,20 @@
 class Librealsense < Formula
   desc "Intel RealSense D400 series and SR300 capture"
   homepage "https://github.com/IntelRealSense/librealsense"
-  url "https://github.com/IntelRealSense/librealsense/archive/v2.30.1.tar.gz"
-  sha256 "379c2b8248b1f550222dcf0fbfb1d77037014a7d8e3ae9265d599b3d3f177c11"
+  url "https://github.com/IntelRealSense/librealsense/archive/v2.42.0.tar.gz"
+  sha256 "bcf8094cc8e2c72bf99e7fef22a334424e4d7bfd9fcaa8c52309eba665b14248"
+  license "Apache-2.0"
   head "https://github.com/IntelRealSense/librealsense.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any
-    sha256 "f1e09f226e1580f648f825ebe78911d54a565683649afc8dfbfdee30e8f10956" => :catalina
-    sha256 "17e9d36f4e7b0b4fb245dbf29f13295d2ee1d97f96b7ce4c08fc828ebfc639e1" => :mojave
-    sha256 "938e52912ddf7ff5546547d9e37af48db8093a13c0f7b7fe962231d0eefdb3e6" => :high_sierra
+    sha256 cellar: :any, big_sur:  "93a88d4c763eb4fd5bb1e589c5f8ae8fa140f1bc902b0ef5794857a4f8ca1061"
+    sha256 cellar: :any, catalina: "04fe5fffebab683c2f2864678a643227683f8bfa5a419f0df8c96e2deeb419b5"
+    sha256 cellar: :any, mojave:   "d19bfc833f65e43791388cc24b09ff5e581aaf72c74eee3385a2dc7dab25a663"
   end
 
   depends_on "cmake" => :build

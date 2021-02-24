@@ -2,21 +2,24 @@ class Qpm < Formula
   desc "Package manager for Qt applications"
   homepage "https://www.qpm.io"
   url "https://github.com/Cutehacks/qpm.git",
-      :tag      => "v0.11.0",
-      :revision => "fc340f20ddcfe7e09f046fd22d2af582ff0cd4ef"
+      tag:      "v0.11.0",
+      revision: "fc340f20ddcfe7e09f046fd22d2af582ff0cd4ef"
+  license "Artistic-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4ef0d236caf32a763f7c6dc717a47d23a99d2058617ed6ac151bc8b8a75fb881" => :mojave
-    sha256 "af6f724ef7820ce62453edcd72f39b9c283554aa5bb2be091d37f48935fe7f5e" => :high_sierra
-    sha256 "5c57c74e4079c59241e96b16f6236346efb4e358953f4c1edba359aa21d0d10c" => :sierra
-    sha256 "316bf8d4802e252fe6ff20a1b1dec582968a0f5a34fde5001b6a92f7ad30dfa9" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9b0932dcd3977d04fab01619bc01e76d69b3194f1827be9e19f544587d5d53ca"
+    sha256 cellar: :any_skip_relocation, big_sur:       "545f5e5f8e982649cf4977920de2c00b6da7c547ef694e7070b39e0a9408415a"
+    sha256 cellar: :any_skip_relocation, catalina:      "5d5edc32931995dfa82429a1d8708e700de70208f36767808a433c1e9bb2ffb2"
+    sha256 cellar: :any_skip_relocation, mojave:        "f8208ec60e2af6e9d1da2caa0ad1b48b5b027955c2daa51860fa1606b8c5acef"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8c9d0dde0b7a4292f8fa04337805755ac16ce1aab08710463323afec2f73d551"
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src").mkpath
     ln_s buildpath, "src/qpm.io"
     system "go", "build", "-o", "bin/qpm", "qpm.io/qpm"

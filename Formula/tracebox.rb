@@ -1,43 +1,48 @@
 class Tracebox < Formula
   desc "Middlebox detection tool"
-  homepage "https://www.tracebox.org/"
+  homepage "https://www.github.com/tracebox/tracebox"
   url "https://github.com/tracebox/tracebox.git",
-      :tag      => "v0.4.4",
-      :revision => "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
-  revision 1
+      tag:      "v0.4.4",
+      revision: "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
+  license "GPL-2.0-only"
+  revision 3
   head "https://github.com/tracebox/tracebox.git"
 
   bottle do
-    cellar :any
-    sha256 "0e22b5bc6204f1c344f83d8ec69a95bd61b7ab6365c619dfa5dcb53df04c576a" => :mojave
-    sha256 "e3e8333e7674ff8829df657bd759353fecc45c6d982afbc33cf35774a6ec23ec" => :high_sierra
-    sha256 "52a3ff0ecd8903cee1be17802dfe0624dc89858088354132496a241ea4207561" => :sierra
-    sha256 "2c0b3b4bb42d38aafdb702f3b7a5e514588ce75dd5dc459368d40273332b3a7d" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, big_sur:  "b972c4ea4a3c130bb45f8b9a97441ea3e9b7aae20de0c1c33d5e1a19596825c1"
+    sha256 cellar: :any, catalina: "cf183ba6385036080157a7dc032453e4c28bde55a2ebf4830e8b990b3c83e1c8"
+    sha256 cellar: :any, mojave:   "ba193e6a2a415a8fefd90890daaa21a19c3bdabeb14504699a558207affdc216"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "json-c"
+  depends_on "libpcap"
   depends_on "lua"
 
   def install
+    ENV.append_to_cflags "-I#{Formula["libpcap"].opt_include}"
+    ENV.append "LIBS", "-L#{Formula["libpcap"].opt_lib} -lpcap"
     ENV.libcxx
     system "autoreconf", "--install"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--with-libpcap=yes",
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Tracebox requires superuser privileges e.g. run with sudo.
+  def caveats
+    <<~EOS
+      Tracebox requires superuser privileges e.g. run with sudo.
 
-    You should be certain that you trust any software you are executing with
-    elevated privileges.
-  EOS
+      You should be certain that you trust any software you are executing with
+      elevated privileges.
+    EOS
   end
 
   test do

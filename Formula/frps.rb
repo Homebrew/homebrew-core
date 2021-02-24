@@ -2,77 +2,67 @@ class Frps < Formula
   desc "Server app of fast reverse proxy to expose a local server to the internet"
   homepage "https://github.com/fatedier/frp"
   url "https://github.com/fatedier/frp.git",
-      :tag      => "v0.31.0",
-      :revision => "30c246c48889140402943f5aebb04c89b031c708"
+      tag:      "v0.35.1",
+      revision: "3bf1eb85659ee49aff28dfb70e537b1f54b84365"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "48fe9cfff7c55e20f58ce65894a853e77cef37be8edde8a0ce5f1ab7ace96b17" => :catalina
-    sha256 "556c3fff583e1a5e349b0e00d26dea3bdfc203cac9d1369655bdd5f97390cc68" => :mojave
-    sha256 "52766ec337b68162874a0e71949b85e114be9b45f0db861a8d97d684f6ffb699" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bf36d3f6f1e1c871f2df1f8abbc5d5ef0f7e8247752fbe6ff377fd5918dd2272"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dae1eded5cefc7233d05a52703bfc5ef9c70a2023980960a1514665bfdfd7e10"
+    sha256 cellar: :any_skip_relocation, catalina:      "59cf1fb891b1126a981bbf01ee2be2a9e960cc588503d6df5c1d1420b3ac3614"
+    sha256 cellar: :any_skip_relocation, mojave:        "22451bb38ca33a41d6a8afa493faa6b9f8a74c50685a9d0c661f662621263401"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    contents = Dir["{*,.git,.gitignore}"]
-    (buildpath/"src/github.com/fatedier/frp").install contents
-
     (buildpath/"bin").mkpath
     (etc/"frp").mkpath
 
-    cd "src/github.com/fatedier/frp" do
-      system "make", "frps"
-      bin.install "bin/frps"
-      etc.install "conf/frps.ini" => "frp/frps.ini"
-      etc.install "conf/frps_full.ini" => "frp/frps_full.ini"
-      prefix.install_metafiles
-    end
+    system "make", "frps"
+    bin.install "bin/frps"
+    etc.install "conf/frps.ini" => "frp/frps.ini"
+    etc.install "conf/frps_full.ini" => "frp/frps_full.ini"
   end
 
-  plist_options :manual => "frps -c #{HOMEBREW_PREFIX}/etc/frp/frps.ini"
+  plist_options manual: "frps -c #{HOMEBREW_PREFIX}/etc/frp/frps.ini"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/frps</string>
-          <string>-c</string>
-          <string>#{etc}/frp/frps.ini</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/frps.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/frps.log</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>KeepAlive</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/frps</string>
+            <string>-c</string>
+            <string>#{etc}/frp/frps.ini</string>
+          </array>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/frps.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/frps.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
-    system bin/"frps", "-v"
+    assert_match version.to_s, shell_output("#{bin}/frps -v")
     assert_match "Flags", shell_output("#{bin}/frps --help")
 
-    begin
-      read, write = IO.pipe
-      pid = fork do
-        exec bin/"frps", :out => write
-      end
-      sleep 3
-
-      output = read.gets
-      assert_match "frps tcp listen on", output
-    ensure
-      Process.kill(9, pid)
-      Process.wait(pid)
+    read, write = IO.pipe
+    fork do
+      exec bin/"frps", out: write
     end
+    sleep 3
+
+    output = read.gets
+    assert_match "frps uses command line arguments for config", output
   end
 end

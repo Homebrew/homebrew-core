@@ -1,25 +1,26 @@
 class Wartremover < Formula
   desc "Flexible Scala code linting tool"
   homepage "https://github.com/wartremover/wartremover"
-  url "https://github.com/wartremover/wartremover/archive/v2.4.3.tar.gz"
-  sha256 "b1680e3e7e82968182220e07558b56bb060ee0c43e08eb1c31a4fbd8b6ffefa6"
+  url "https://github.com/wartremover/wartremover/archive/v2.4.13.tar.gz"
+  sha256 "d8fb123dc4f9327adf17e4a59c6004e6eece840725175968049d6d9f3b3e545e"
+  license "Apache-2.0"
   head "https://github.com/wartremover/wartremover.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1072a005bc1a6592f8b78e7a96d7ea6406da61027a7fbd6d58e16f226d956879" => :catalina
-    sha256 "fa992ea76ca474f2a1897713eb0a1a850f2b28927aee118bac82fa69d99a10bb" => :mojave
-    sha256 "be2e41e936d7a5f78f1d242f958d4a6cd4c563a52fd599c8be0adb619eed4828" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "4917537fc324d707919f8fffbce15b779a9a85a5534d9800bcaa2928a5d4ab47"
+    sha256 cellar: :any_skip_relocation, catalina:    "3cf1ce30e281fc782c0463c14b6770ff3901a882284942438fb060dd2ebb1120"
+    sha256 cellar: :any_skip_relocation, mojave:      "c50a74a7a86bf484bfdb8efcf66a41526b80ebc511af0353093006c2e220a0cc"
+    sha256 cellar: :any_skip_relocation, high_sierra: "ed0dbc9e416d425b93070435d5c17620aa81642f9f1b7bca4c76cf4a36b5cdf0"
   end
 
   depends_on "sbt" => :build
-  depends_on :java => "1.8"
+  depends_on "openjdk@8"
 
   def install
-    system "./sbt", "-sbt-jar", Formula["sbt"].opt_libexec/"bin/sbt-launch.jar",
+    system "sbt", "-sbt-jar", Formula["sbt"].opt_libexec/"bin/sbt-launch.jar",
                     "core/assembly"
     libexec.install "wartremover-assembly.jar"
-    bin.write_jar_script libexec/"wartremover-assembly.jar", "wartremover", :java_version => "1.8"
+    bin.write_jar_script libexec/"wartremover-assembly.jar", "wartremover", java_version: "1.8"
   end
 
   test do

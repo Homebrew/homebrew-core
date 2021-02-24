@@ -3,14 +3,22 @@ class GnupgPkcs11Scd < Formula
   homepage "https://gnupg-pkcs11.sourceforge.io"
   url "https://github.com/alonbl/gnupg-pkcs11-scd/releases/download/gnupg-pkcs11-scd-0.9.2/gnupg-pkcs11-scd-0.9.2.tar.bz2"
   sha256 "fddd798f8b5f9f960d2a7f6961b00ef7b49b00e8bf069c113a4d42b5e44fd0d5"
+  license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/gnupg-pkcs11-scd[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "78f09618378fd89be78ff9e10af2e1d33ac5dc06fcca6474994662434b7b3dc1" => :catalina
-    sha256 "78537d1ee3285a604aae1d683db56da1b9ec76bf71262ff234e758efda63f885" => :mojave
-    sha256 "1f4264ac76b36c453a3c5a000d1b1269f331e88420efc5591274ccbb8dc8b85c" => :high_sierra
-    sha256 "83748a14d87233e8a2cf4744d0353c01176536b5cd9e1b317f741f824416453f" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "f7d8c8919b4411b11a53c503ae03db90ac561332c3cdb97da4d57ef9165aa352"
+    sha256 cellar: :any, big_sur:       "039a425a56fce6b9495361e626925b46a5c6569ef0bed3512ff12da6148ab221"
+    sha256 cellar: :any, catalina:      "78f09618378fd89be78ff9e10af2e1d33ac5dc06fcca6474994662434b7b3dc1"
+    sha256 cellar: :any, mojave:        "78537d1ee3285a604aae1d683db56da1b9ec76bf71262ff234e758efda63f885"
+    sha256 cellar: :any, high_sierra:   "1f4264ac76b36c453a3c5a000d1b1269f331e88420efc5591274ccbb8dc8b85c"
+    sha256 cellar: :any, sierra:        "83748a14d87233e8a2cf4744d0353c01176536b5cd9e1b317f741f824416453f"
   end
 
   depends_on "autoconf" => :build

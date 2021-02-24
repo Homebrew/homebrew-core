@@ -1,14 +1,16 @@
 class Pdf2json < Formula
   desc "PDF to JSON and XML converter"
   homepage "https://github.com/flexpaper/pdf2json"
-  url "https://github.com/flexpaper/pdf2json/archive/0.70.tar.gz"
-  sha256 "65d7c273c3dc003470ee61a429274b3612a0ee995e75dc32ad8dbdc9d03fbad1"
+  url "https://github.com/flexpaper/pdf2json/archive/0.71.tar.gz"
+  sha256 "54878473a2afb568caf2da11d6804cabe0abe505da77584a3f8f52bcd37d9c55"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ffcee90aedfc094b2339da1ea20d13533944e3cb504c83bf14c5a35e3c8fc6d3" => :catalina
-    sha256 "43e67dfa77c38eb32a4ae1b079c565752e567598596d8adaaa7d4f464eee7696" => :mojave
-    sha256 "82d6e789d9a698b1eca23ed91ef3ecc3a67db1faa4a1f530f2f1452484d8ca8b" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e648062e7a117f95679cd30c63773085ba2712752450f0b422be8f2fd4d66050"
+    sha256 cellar: :any_skip_relocation, big_sur:       "20fe898333fa761b942ee5b0f2d41e47660389a250f5c8604ff1ed22788d9581"
+    sha256 cellar: :any_skip_relocation, catalina:      "035c69de85f1cad569ff743faef796a88b9f9a706be802bf111a83505858b366"
+    sha256 cellar: :any_skip_relocation, mojave:        "abf950838b700f50ff4279501533176cb5a1929fb0b88c8ccf94b07ac362c66d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4bee4b8c61362c64d72a3f011f8c5ef223c5e80d269e442a18472adc42e108e9"
   end
 
   def install

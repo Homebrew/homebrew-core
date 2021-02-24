@@ -1,16 +1,20 @@
 class Virtualpg < Formula
   desc "Loadable dynamic extension for SQLite and SpatiaLite"
   homepage "https://www.gaia-gis.it/fossil/virtualpg/index"
-  url "https://www.gaia-gis.it/gaia-sins/virtualpg-1.0.2.tar.gz"
-  sha256 "37abd56b2899c90b355e50d843ba019af540b83e7af1da110a766f041abb514e"
+  url "https://www.gaia-gis.it/gaia-sins/virtualpg-2.0.1.tar.gz"
+  sha256 "be2aebeb8c9ff274382085f51d422e823858bca4f6bc2fa909816464c6a1e08b"
+  license "MPL-1.1"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?virtualpg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "62178e004321740f4ce9ff06a9650085a8ff73f5b09594c11377c5a8b26f7b7b" => :catalina
-    sha256 "11f87cc36cdd1bc00799f4d877b7c25c6ffae17c32322041831cec002d927c8d" => :mojave
-    sha256 "2e7d844424706349b16cbbf1f7ab6fd257703ed8de3347277090c75cadb491b8" => :high_sierra
-    sha256 "1d61bc6b83f9584e6a787b614f475177fe98472bc6fa697c1a6695dfe6f65701" => :sierra
-    sha256 "47b8d302bde32565c4b1a627041fda8df645b4349d3eb5ff250b266309d47271" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "1d87321f13aec1d9ca1b75a9d3a3750f427910aead760d88d94ed4c9fd63e72b"
+    sha256 cellar: :any, big_sur:       "b0753a8f3cca894abd6c422479062ed242e6a780c497b94d7a5596009508f678"
+    sha256 cellar: :any, catalina:      "68282c2258b52c72bad812eddadef2f9ce0c34e4011ceb43522ec1e2b21bbc4f"
+    sha256 cellar: :any, mojave:        "5e14713d8a04acecf93faf9c387f0fcff32b8f5b39ee208b98355d638d60f92a"
   end
 
   depends_on "libspatialite"
@@ -22,8 +26,8 @@ class Virtualpg < Formula
     # See: https://groups.google.com/forum/#!topic/spatialite-users/EqJAB8FYRdI
     # needs upstream fixes in both SQLite and libtool
     inreplace "configure",
-    "shrext_cmds='`test .$module = .yes && echo .so || echo .dylib`'",
-    "shrext_cmds='.dylib'"
+              "shrext_cmds='`test .$module = .yes && echo .so || echo .dylib`'",
+              "shrext_cmds='.dylib'"
 
     system "./configure", "--enable-shared=yes",
                           "--disable-dependency-tracking",

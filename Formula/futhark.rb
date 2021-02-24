@@ -1,36 +1,29 @@
-require "language/haskell"
-
 class Futhark < Formula
-  include Language::Haskell::Cabal
-
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  url "https://github.com/diku-dk/futhark/archive/v0.13.2.tar.gz"
-  sha256 "51b1c4bf3cac469dabbf66955049480273411cf5eb50da235f0a4c96cffe2b8e"
+  url "https://github.com/diku-dk/futhark/archive/v0.18.6.tar.gz"
+  sha256 "18160d818b4d829f3be8e44c91321ebf2a57966c12e36297b4f7fc843e1ebf9d"
+  license "ISC"
   head "https://github.com/diku-dk/futhark.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ebc6081107afb474297808dc8b632fa237a0e0a8580232077f04409a6561b0c9" => :catalina
-    sha256 "ab8c1168033238ab7ca0ed6ae5855a18943472ac6d69a564ba335428628c9bb3" => :mojave
-    sha256 "2644ffab0014bb6967fe0bc2d4f55bbcb1b7f4f888234420d68f6c9e83027d10" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "78ff19cb1a0401b22b4cce9826e2eac73422522d12a0d020048a08cfbec90450"
+    sha256 cellar: :any_skip_relocation, catalina: "9e65d0b791aa78acc70703204979d5568709902d58d41e894ef4e03c5a67d01b"
+    sha256 cellar: :any_skip_relocation, mojave:   "2442eb9b0daf821cd775413a3d94a55e2e799f640fa87d32e6b6708a743a81d1"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "hpack" => :build
   depends_on "sphinx-doc" => :build
 
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def install
-    # Futhark provides a cabal.project.freeze for pinning Cabal
-    # dependencies, but this is only picked up by "v2" builds, and
-    # as of this writing, Homebrew still does sandboxed "v1" builds.
-    # Fortunately, the file formats seem to be compatible.
-    mv "cabal.project.freeze", "cabal.config"
-
-    system "hpack"
-
-    install_cabal_package :using => ["alex", "happy"]
+    system "cabal", "v2-update"
+    # Remove the `--constraint` flag at version bump
+    # see https://github.com/ddssff/listlike/issues/8#issuecomment-748985462 for detail
+    system "cabal", "v2-install", *std_cabal_v2_args, "--constraint=bytestring==0.10.10.1"
 
     system "make", "-C", "docs", "man"
     man1.install Dir["docs/_build/man/*.1"]

@@ -1,6 +1,7 @@
 class Audiofile < Formula
   desc "Reads and writes many common audio file formats"
   homepage "https://audiofile.68k.org/"
+  license "LGPL-2.1"
   revision 1
 
   stable do
@@ -17,11 +18,12 @@ class Audiofile < Formula
   end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "86f668b5e2ddbbbb8c156a3145382431865936ba8e54469a565101e9b28de3a4" => :catalina
-    sha256 "b3f405c20f331ae6ded75f702bd68e45994c3c81eaf23abf650233859a830769" => :mojave
-    sha256 "daf0e362bb9e6c4fb3e6e04b0309a975d94893e5240bf394038693b9b1a2a024" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "7d21073f62480d59fd0c48a8b1709fec138136d158edd393b4923f18b19e5e2b"
+    sha256 cellar: :any, big_sur:       "c5c43335ee45d57ae38dd1a8c762f7a9e288529942b356be9a1165d886fbacb4"
+    sha256 cellar: :any, catalina:      "86f668b5e2ddbbbb8c156a3145382431865936ba8e54469a565101e9b28de3a4"
+    sha256 cellar: :any, mojave:        "b3f405c20f331ae6ded75f702bd68e45994c3c81eaf23abf650233859a830769"
+    sha256 cellar: :any, high_sierra:   "daf0e362bb9e6c4fb3e6e04b0309a975d94893e5240bf394038693b9b1a2a024"
   end
 
   head do
@@ -30,6 +32,15 @@ class Audiofile < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
+  resource "aiff" do
+    url "http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/AIFF/Samples/CCRMA/wood24.aiff"
+    sha256 "a87279e3a101162f6ab0d4f70df78594d613e16b80e6257cf19c5fc957a375f9"
   end
 
   # These have all been reported upstream but beside
@@ -72,8 +83,12 @@ class Audiofile < Formula
   end
 
   test do
-    inn  = "/System/Library/Sounds/Glass.aiff"
-    out  = "Glass.wav"
+    resource("aiff").stage do
+      mv "wood24.aiff", testpath/"test.aiff"
+    end
+
+    inn  = testpath/"test.aiff"
+    out  = "test.wav"
 
     system bin/"sfconvert", inn, out, "format", "wave"
     system bin/"sfinfo", "--short", "--reporterror", out

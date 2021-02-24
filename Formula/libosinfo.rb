@@ -1,13 +1,20 @@
 class Libosinfo < Formula
-  desc "The Operating System information database"
+  desc "Operating System information database"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/libosinfo-1.7.1.tar.xz"
-  sha256 "bb26106ad4a9f8523f81b332d2aedb717cdcb0500b3f68ba7c6ff945c4d627e9"
+  url "https://releases.pagure.org/libosinfo/libosinfo-1.9.0.tar.xz"
+  sha256 "b4f3418154ef3f43d9420827294916aea1827021afc06e1644fc56951830a359"
+  license "LGPL-2.0-or-later"
+
+  livecheck do
+    url "https://releases.pagure.org/libosinfo/?C=M&O=D"
+    regex(/href=.*?libosinfo[._-]v?([\d.]+)\.t/i)
+  end
 
   bottle do
-    sha256 "e067499ce7ea69830ea63755751426063e6e1f4b74b09ec9bb35c7ddf825bf25" => :catalina
-    sha256 "a138545c508f69286a5e9b86fc945f95b79eb625de270dc19a853f3d5ab4638c" => :mojave
-    sha256 "594fbfda840d8bd4169da48d5f6cd5076329ec9b0a21d0ebafe96a0732a00cca" => :high_sierra
+    sha256 arm64_big_sur: "628d18923f168d2ed454a5a6c3aacc9408f2f009046cee2c84ac7a872b66e428"
+    sha256 big_sur:       "c1eeea184883a96849938c8b71908bb8e5ebc4985c9b958f9671205a11199928"
+    sha256 catalina:      "c6423c62d06368ee03080aafaabefced7ddfd6c014c00ffddfab738e8aa76fad"
+    sha256 mojave:        "a0ecd6371b9940ee2c73b818cbeb1df7a001c4a4dea0508df2e4e2e885412881"
   end
 
   depends_on "gobject-introspection" => :build
@@ -19,20 +26,43 @@ class Libosinfo < Formula
   depends_on "glib"
   depends_on "libsoup"
   depends_on "libxml2"
+  depends_on "usb.ids"
+
+  resource "pci.ids" do
+    url "https://raw.githubusercontent.com/pciutils/pciids/7906a7b1f2d046072fe5fed27236381cff4c5624/pci.ids"
+    sha256 "255229b8b37474c949736bc4a048a721e31180bb8dae9d8f210e64af51089fe8"
+  end
 
   def install
+    (share/"misc").install resource("pci.ids")
+
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Denable-gtk-doc=false", ".."
+      flags = %W[
+        -Denable-gtk-doc=false
+        -Dwith-pci-ids-path=#{share/"misc/pci.ids"}
+        -Dwith-usb-ids-path=#{Formula["usb.ids"].opt_share/"misc/usb.ids"}
+        -Dsysconfdir=#{etc}
+      ]
+      system "meson", *std_meson_args, *flags, ".."
       system "ninja", "install", "-v"
     end
+    (share/"osinfo/.keep").write ""
   end
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
       #include <osinfo/osinfo.h>
 
       int main(int argc, char *argv[]) {
+        GError *err = NULL;
         OsinfoPlatformList *list = osinfo_platformlist_new();
+        OsinfoLoader *loader = osinfo_loader_new();
+        osinfo_loader_process_system_path(loader, &err);
+        if (err != NULL) {
+          fprintf(stderr, "%s", err->message);
+          return 1;
+        }
         return 0;
       }
     EOS
@@ -52,5 +82,6 @@ class Libosinfo < Formula
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
+    system bin/"osinfo-query", "device"
   end
 end

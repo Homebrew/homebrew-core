@@ -1,30 +1,54 @@
 class Bear < Formula
+  include Language::Python::Shebang
+
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/2.4.2.tar.gz"
-  sha256 "e80c0d622a8192a1ec0c0efa139e5767c6c4b1defe1c75fc99cf680c6d1816c0"
+  url "https://github.com/rizsotto/Bear/archive/3.0.8.tar.gz"
+  sha256 "663ef2fcf359e1efb20831fae3901a3edbbb906dd0bc5e62af92e353651c5cec"
+  license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
-    cellar :any
-    sha256 "95726dc7ffc8bd4df3f976d0c3cdbbadf1509c755de876d855cbb21e625fe6cb" => :catalina
-    sha256 "fd0d8a9cb6c5182d128bce82ed98c72c5960a12c927d30100f8fbb9834af6ef4" => :mojave
-    sha256 "55dd8a9e37ef3f78dfa13f963cf1c7f82db6c026f449cce1dd1da47123b2a49e" => :high_sierra
+    sha256 arm64_big_sur: "49686042c04a454e6aa528f3dcc376e7be802f355be967783720c230a606f653"
+    sha256 big_sur:       "0e7b02bc9abb0ba580436d557da3b3c08d0d0a47bbf814bf2f66f212d475c6c5"
+    sha256 catalina:      "91c662e862fbd2430c52767712f9391605c585680a6af3d0836e8b2caa895f06"
   end
 
   depends_on "cmake" => :build
-  depends_on "python"
+  depends_on "pkg-config" => :build
+  depends_on "fmt"
+  depends_on "grpc"
+  depends_on macos: :catalina
+  depends_on "nlohmann-json"
+  depends_on "python@3.9"
+  depends_on "spdlog"
+  depends_on "sqlite"
 
   def install
-    args = std_cmake_args + %W[
-      -DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3
+    args = std_cmake_args + %w[
+      -DENABLE_UNIT_TESTS=OFF
+      -DENABLE_FUNC_TESTS=OFF
     ]
-    system "cmake", ".", *args
-    system "make", "install"
+
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make", "all"
+      system "make", "install"
+    end
+
+    rewrite_shebang detected_python_shebang, bin/"bear"
   end
 
   test do
-    system "#{bin}/bear", "true"
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      int main() {
+        printf("hello, world!\\n");
+        return 0;
+      }
+    EOS
+    system "#{bin}/bear", "--", "clang", "test.c"
     assert_predicate testpath/"compile_commands.json", :exist?
   end
 end

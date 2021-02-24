@@ -5,11 +5,18 @@ class Fltk < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.5.tar.gz"
   sha256 "8729b2a055f38c1636ba20f749de0853384c1d3e9d1a6b8d4d1305143e115702"
 
+  livecheck do
+    url "https://www.fltk.org/software.php"
+    regex(/href=.*?fltk[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)-source\.t/i)
+  end
+
   bottle do
-    sha256 "d0ff3728a8da506e399b094b0e2a94ffef5a32805308d73fd2fb5fd0e402c88b" => :catalina
-    sha256 "3ea6ccc2fec9151f3ed0f20761794b9fe0477d168dbc4e83ba88b3f3d16c530b" => :mojave
-    sha256 "6edac0b91f19783376ec95c84819405a6f029d7d2bf8ac636d421682fc064e34" => :high_sierra
-    sha256 "e2bd28a348c8fbf948f2400d3df29ba786a2ca9cc3f87b3727477fb49ebf57f0" => :sierra
+    sha256 arm64_big_sur: "b93b7b3bea5d4d231c4d4c6041d9184a7711a02426b91339480b268a3ffe2bf7"
+    sha256 big_sur:       "a4f58ab4ac8e0b54a89caccc30f6ff453d845621f3287218f4a4953ae3eca6da"
+    sha256 catalina:      "d0ff3728a8da506e399b094b0e2a94ffef5a32805308d73fd2fb5fd0e402c88b"
+    sha256 mojave:        "3ea6ccc2fec9151f3ed0f20761794b9fe0477d168dbc4e83ba88b3f3d16c530b"
+    sha256 high_sierra:   "6edac0b91f19783376ec95c84819405a6f029d7d2bf8ac636d421682fc064e34"
+    sha256 sierra:        "e2bd28a348c8fbf948f2400d3df29ba786a2ca9cc3f87b3727477fb49ebf57f0"
   end
 
   depends_on "jpeg"

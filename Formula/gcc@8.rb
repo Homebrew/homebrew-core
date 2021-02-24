@@ -1,15 +1,20 @@
 class GccAT8 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.3.0/gcc-8.3.0.tar.xz"
-  sha256 "64baadfe6cc0f4947a84cb12d7f0dfaf45bb58b7e92461639596c21e02d97d2c"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-8.4.0/gcc-8.4.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.4.0/gcc-8.4.0.tar.xz"
+  sha256 "e30a6e52d10e1f27ed55104ad233c30bd1e99cfb5ff98ab022dc941edd1b2dd4"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?gcc[._-]v?(8(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+  end
+
   bottle do
-    sha256 "b410ceed5dd0e68839a663792c0744c7669cae633f200d4be690b6df0f955169" => :catalina
-    sha256 "db70df625d79fc4eb3cff8a4669173c216a0a3c38b3718899713b3c682ded0ee" => :mojave
-    sha256 "3c3c877cc99a599ad73695b6745ea05a096fb081c4c18070c30c7d5fa08dc532" => :high_sierra
+    sha256 big_sur:  "f8d2856e05a7b6e6eed981bdc4ea722a93594a6cdaa8f5529910eb11f6103d01"
+    sha256 catalina: "adbc2af7732229438dcc29decaa1c1e25292c39ba21aaf1bd49453f1a8d7bfa9"
+    sha256 mojave:   "1be90ef0660203d2f578a6bd66fdb6f24c99e47ea1f785e738287e34f5d4a123"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -19,6 +24,7 @@ class GccAT8 < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
+  depends_on arch: :x86_64
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
@@ -27,21 +33,11 @@ class GccAT8 < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
-  # This should be removed in the next release of GCC if fixed by Apple; this is an xcode bug,
-  # but this patch is a work around committed to GCC trunk
-  if MacOS::Xcode.version >= "10.2"
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/gcc/8.3.0-xcode-bug-_Atomic-fix.patch"
-      sha256 "33ee92bf678586357ee8ab9d2faddf807e671ad37b97afdd102d5d153d03ca84"
-    end
-  end
-
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    version_suffix = version.to_s.slice(/\d/)
+    version_suffix = version.major.to_s
 
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run so pretend we have an outdated makeinfo
@@ -54,11 +50,10 @@ class GccAT8 < Formula
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
 
-    osmajor = `uname -r`.split(".").first
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
     args = %W[
-      --build=x86_64-apple-darwin#{osmajor}
+      --build=x86_64-apple-darwin#{OS.kernel_version.major}
       --prefix=#{prefix}
       --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
@@ -71,27 +66,27 @@ class GccAT8 < Formula
       --with-isl=#{Formula["isl"].opt_prefix}
       --with-system-zlib
       --with-pkgversion=#{pkgversion}
-      --with-bugurl=https://github.com/Homebrew/homebrew-core/issues
+      --with-bugurl=#{tap.issues_url}
     ]
 
     # Xcode 10 dropped 32-bit support
     args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+
+    # System headers may not be in /usr/include
+    sdk = MacOS.sdk_path_if_needed
+    if sdk
+      args << "--with-native-system-header-dir=/usr/include"
+      args << "--with-sysroot=#{sdk}"
+    end
+
+    # Avoid reference to sed shim
+    args << "SED=/usr/bin/sed"
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      if !MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{MacOS.sdk_path}"
-      elsif MacOS.version >= :mojave
-        # System headers are no longer located in /usr/include
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=/Library/Developer/CommandLineTools/SDKs/MacOSX#{MacOS.version}.sdk"
-      end
-
       system "../configure", *args
 
       # Use -headerpad_max_install_names in the build,
@@ -125,7 +120,7 @@ class GccAT8 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/gcc-8", "-o", "hello-c", "hello-c.c"
+    system "#{bin}/gcc-#{version.major}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
 
     (testpath/"hello-cc.cc").write <<~EOS
@@ -136,7 +131,7 @@ class GccAT8 < Formula
         return 0;
       }
     EOS
-    system "#{bin}/g++-8", "-o", "hello-cc", "hello-cc.cc"
+    system "#{bin}/g++-#{version.major}", "-o", "hello-cc", "hello-cc.cc"
     assert_equal "Hello, world!\n", `./hello-cc`
 
     (testpath/"test.f90").write <<~EOS
@@ -150,7 +145,7 @@ class GccAT8 < Formula
       write(*,"(A)") "Done"
       end
     EOS
-    system "#{bin}/gfortran-8", "-o", "test", "test.f90"
+    system "#{bin}/gfortran-#{version.major}", "-o", "test", "test.f90"
     assert_equal "Done\n", `./test`
   end
 end

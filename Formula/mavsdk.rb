@@ -2,23 +2,27 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++11"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-    :tag      => "v0.22.0",
-    :revision => "164e5fe719608898b009364dbd870846d5163bfc"
+      tag:      "v0.35.0",
+      revision: "0a556e5bf418937dceef9c45a2ba75f2d36f62fe"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "502efdf39843aa6c52174d55597d0c79ba0869ce08294cad731d4aa721327fef" => :catalina
-    sha256 "13815dcd09df20a9dd8dab702bb1887b45ffc1a3090ad054db3f4e30d107db6d" => :mojave
-    sha256 "7274d048bd1cff800d01e3a4af1b42a7843b9e1798243d304fe57b916adf69cd" => :high_sierra
+    sha256 cellar: :any, big_sur:  "16e3e80a65b84f409ee3631881277e8a5a471a114b3d678a57cb54dcf1d94e0e"
+    sha256 cellar: :any, catalina: "d5da90b3f15d68022aa5e2b10f834017691cee5670da5bdd70d9a8d8bbb26423"
+    sha256 cellar: :any, mojave:   "6ba8c322043d8c6110b85f7b98bc5f9dcbc48e7e1796ff0640f37c667d700036"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-Bbuild/default",
+    system "cmake", *std_cmake_args,
+                    "-Bbuild/default",
                     "-DBUILD_BACKEND=ON",
-                    "-DCMAKE_BUILD_TYPE=Release",
-                    "-DCMAKE_INSTALL_PREFIX=#{prefix}",
                     "-H."
     system "cmake", "--build", "build/default", "--target", "install"
   end

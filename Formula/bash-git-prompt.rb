@@ -3,6 +3,7 @@ class BashGitPrompt < Formula
   homepage "https://github.com/magicmonty/bash-git-prompt"
   url "https://github.com/magicmonty/bash-git-prompt/archive/2.7.1.tar.gz"
   sha256 "5e5fc6f5133b65760fede8050d4c3bc8edb8e78bc7ce26c16db442aa94b8a709"
+  license "BSD-2-Clause"
   head "https://github.com/magicmonty/bash-git-prompt.git"
 
   bottle :unneeded
@@ -16,13 +17,14 @@ class BashGitPrompt < Formula
     doc.install "README.md"
   end
 
-  def caveats; <<~EOS
-    You should add the following to your .bashrc (or .bash_profile):
-      if [ -f "#{opt_share}/gitprompt.sh" ]; then
-        __GIT_PROMPT_DIR="#{opt_share}"
-        source "#{opt_share}/gitprompt.sh"
-      fi
-  EOS
+  def caveats
+    <<~EOS
+      You should add the following to your .bashrc (or .bash_profile):
+        if [ -f "#{opt_share}/gitprompt.sh" ]; then
+          __GIT_PROMPT_DIR="#{opt_share}"
+          source "#{opt_share}/gitprompt.sh"
+        fi
+    EOS
   end
 
   test do

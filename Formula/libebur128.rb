@@ -1,16 +1,15 @@
 class Libebur128 < Formula
   desc "Library implementing the EBU R128 loudness standard"
   homepage "https://github.com/jiixyj/libebur128"
-  url "https://github.com/jiixyj/libebur128/archive/v1.2.4.tar.gz"
-  sha256 "2ee41a3a5ae3891601ae975d5ec2642b997d276ef647cf5c5b363b6127f7add8"
+  url "https://github.com/jiixyj/libebur128/archive/v1.2.6.tar.gz"
+  sha256 "baa7fc293a3d4651e244d8022ad03ab797ca3c2ad8442c43199afe8059faa613"
+  license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "f9bb6bf89d6a32835102ab859e88ab118812ea7920ab1e4416f7ff7f9b2692a6" => :catalina
-    sha256 "c51ca6f8e17f7558f35f4c156e7baba1e2658d475dc09eea1b2695e1b1771d42" => :mojave
-    sha256 "68c4f6d13808ad4d55d0a0f48384e9872286b6041a06f8c3984ccb96083fcbee" => :high_sierra
-    sha256 "d4611c0f7becaf4fbdc34089ddaae18e8017ed6dec859adf4fdadb528f989ae4" => :sierra
-    sha256 "3fbb561a893cd7e0858ad25e424e66f70a53023865b33d3519fb1fa62ab35bec" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "99450597a660d645800d8d0488b657efee8d7ff9b886a80f964fe3394c8a2552"
+    sha256 cellar: :any, big_sur:       "43567ee920b45921fb0d7787f40d3274ff42360c3048df470aee33be902694e7"
+    sha256 cellar: :any, catalina:      "a9612342890303e8859ee23c7ce8d154f1d3eb134158322aa4ca0968d471281a"
+    sha256 cellar: :any, mojave:        "ebe29eb9b5918eabf720410feb2ac711f5b062458e1d3129ffd29fb7da0f66b5"
   end
 
   depends_on "cmake" => :build

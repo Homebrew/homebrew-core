@@ -5,10 +5,12 @@ class GtkVnc < Formula
   sha256 "a81a1f1a79ad4618027628ffac27d3391524c063d9411c7a36a5ec3380e6c080"
 
   bottle do
-    sha256 "f6e79e525133ea8c72d4be4b0719299141a8b206b9f547fd27b882b06a817f01" => :catalina
-    sha256 "1e932ef0f54e09e9cf107c6ef386ff49e1b1cfd107eca77e4d1c5569da71909d" => :mojave
-    sha256 "efb82f38076361165896bbf906881331c349082464fa8fc0b6b81f4c58b52f0a" => :high_sierra
-    sha256 "c244ffda67d3e559172ba2b9e2b1015011733630232c203f733f259d8a6dd485" => :sierra
+    sha256 arm64_big_sur: "c4d93c7478a2c290005613240d088189785560435f8c4aa3031ec5af6c1196a3"
+    sha256 big_sur:       "959cf4a7bac1fee4f17fd571222b6bff7a3aa6b172b3abcc7af3088cd927b699"
+    sha256 catalina:      "f6e79e525133ea8c72d4be4b0719299141a8b206b9f547fd27b882b06a817f01"
+    sha256 mojave:        "1e932ef0f54e09e9cf107c6ef386ff49e1b1cfd107eca77e4d1c5569da71909d"
+    sha256 high_sierra:   "efb82f38076361165896bbf906881331c349082464fa8fc0b6b81f4c58b52f0a"
+    sha256 sierra:        "c244ffda67d3e559172ba2b9e2b1015011733630232c203f733f259d8a6dd485"
   end
 
   depends_on "gettext" => :build
@@ -25,7 +27,7 @@ class GtkVnc < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dwith-vala=false", ".."
+      system "meson", *std_meson_args, "-Dwith-vala=false", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end

@@ -4,20 +4,21 @@ class Theora < Formula
   url "https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2"
   sha256 "b6ae1ee2fa3d42ac489287d3ec34c5885730b1296f0801ae577a35193d3affbc"
 
+  livecheck do
+    url "https://www.theora.org/downloads/"
+    regex(/href=.*?libtheora[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    cellar :any
-    rebuild 2
-    sha256 "463a4a0e66b05ba6e485dedb4a3ce7f9e1f3da92f68c3cdc717fb9ecc9d8808c" => :catalina
-    sha256 "0423b3f4858072285691307877ef1899e62e67b67fad2f871e7937d7db572836" => :mojave
-    sha256 "8398d6af4942b4201329dffe526d91223ed2f03d39b99c59f16b58907b26b2d2" => :high_sierra
-    sha256 "899a793d64a16ea5a18bfe984c8a97966b6c027c258abb026b7d77443849eeca" => :sierra
-    sha256 "03b63a91812185120355da8292b40a2afd8377dcd8e3825eb9cbc217a3f4bc79" => :el_capitan
-    sha256 "ab9dd77803ec6885cb9701859de9b1b8ff6b85cb7cef24400dec6adb4b8c6378" => :yosemite
-    sha256 "58be26743e23be63aee48186bfa9cd8a982de957efb040a6ab3030aa62753977" => :mavericks
+    rebuild 4
+    sha256 cellar: :any, arm64_big_sur: "1e5271cb88e3dad8eb5f06460e7f3f2cec0129679c7f7fb4f84db1d09664b827"
+    sha256 cellar: :any, big_sur:       "7ba57255df2c2f4563767031c6b9ead9a93883217644e9e64b5523e26d7b1088"
+    sha256 cellar: :any, catalina:      "1fcbd50039f580bd85554af2d831c28f83613b5d26969f577f7fe87b3c55db67"
+    sha256 cellar: :any, mojave:        "6fdb09d75fc6e64b266a185e711c2964e803d8f10c0d40ccb8d572c536c24d3a"
   end
 
   head do
-    url "https://git.xiph.org/theora.git"
+    url "https://gitlab.xiph.org/xiph/theora.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -58,7 +59,7 @@ class Theora < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-ltheora", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-ltheora", "-o", "test"
     system "./test"
   end
 end

@@ -1,29 +1,25 @@
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
-  url "https://github.com/pressly/goose/archive/v2.3.0.tar.gz"
-  sha256 "f19ec6ef1bae596e013a40c300d7f28ba91f71f6f7d6d0f13d03feaf4ab1ac43"
+  url "https://github.com/pressly/goose/archive/v2.7.0.tar.gz"
+  sha256 "ce4115e3184d0929a90c5e4215d303aa5243e8d49f8576154396098f0c6536fd"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0090a7bdb8ffc8831426d49aa138ebd4a608bdc3366cf37e8fd0a441db1e8a53" => :catalina
-    sha256 "1143891d26f430acacc6b47128d0eaa520508925dc0f1d594685c997d77b5e38" => :mojave
-    sha256 "c98cdc85daea46b8439109211194ede9342ff76c296f830f9225872c28877baa" => :high_sierra
-    sha256 "a5c492e34e3351d3efb87b0e5f3e2571741e6efad35f794e3de64f39a8cd464f" => :sierra
-    sha256 "720376f84dc67566d55a27325771ce36e5ed523f2d7eba20a0982022b37a3b85" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b9bfd06826a5bc66bcf6616632476c3535f26a9cd5d5955415db1f3b48e9100b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "87864462e22abc1dcf9b949c7b9b1106b0e4327fa5aabe94e514a29eeee66a10"
+    sha256 cellar: :any_skip_relocation, catalina:      "3838102fe4c61d9dec9d5147f247e1856ec134ebe4a5eb07d12aacf99513a1d9"
+    sha256 cellar: :any_skip_relocation, mojave:        "9b4be2cab4a2053e9142af56eeb15c3c91e8fd810f64a073dadf4911c4a59543"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/pressly/goose").install buildpath.children
-    cd "src/github.com/pressly/goose" do
-      system "dep", "ensure"
-      system "go", "build", "-o", bin/"goose", ".../cmd/goose"
-      prefix.install_metafiles
-    end
+    # raise a quesiton about this setup, https://github.com/pressly/goose/issues/238
+    mv "_go.mod", "go.mod"
+    mv "_go.sum", "go.sum"
+
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/goose"
   end
 
   test do

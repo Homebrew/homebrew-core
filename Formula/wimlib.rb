@@ -1,20 +1,27 @@
 class Wimlib < Formula
   desc "Library to create, extract, and modify Windows Imaging files"
   homepage "https://wimlib.net/"
-  url "https://wimlib.net/downloads/wimlib-1.13.1.tar.gz"
-  sha256 "47f4bc645c1b6ee15068d406a90bb38aec816354e140291ccb01e536f2cdaf5f"
+  url "https://wimlib.net/downloads/wimlib-1.13.3.tar.gz"
+  sha256 "8a0741d07d9314735b040cea6168f6daf1ac1c72d350d703f286b118135dfa7e"
+  license "GPL-3.0-or-later"
+  revision 1
+
+  livecheck do
+    url "https://wimlib.net/downloads/"
+    regex(/href=.*?wimlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "ea449f8e0aeea806e5925974a0a3f8a04ac256a5a44edc858272a57c5f88814d" => :catalina
-    sha256 "7969f20ce9f26b7435b4242fb241c2527848581469be0cad09a3f5de77b11a05" => :mojave
-    sha256 "33a3397f536e339ca4177d3639b55e223040883af9d5afbbb47cc3e9b1bb87e9" => :high_sierra
-    sha256 "66a39e7eaa96a26f988a0c6eba0ad614ca449b0bb5688ebd70830f8863da5244" => :sierra
+    sha256               arm64_big_sur: "a2ff0fc910f2cd3925474e7f7ea700d1f4dd9df724df1c634a47e733752393cf"
+    sha256 cellar: :any, big_sur:       "2e0597a2e987116627df9c6d3a7cb7aed0bd8ed507f5f13b530df685a9e0fe9b"
+    sha256 cellar: :any, catalina:      "51512426e7836eb9a204f036993ef023bf260129fadde73761c1ff487cfa2518"
+    sha256 cellar: :any, mojave:        "479dd4c3bb4eade0c59f92c776aab3bcceba107f6ed7e65ab1ba6006dce1823e"
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
+
   uses_from_macos "libxml2"
 
   def install
@@ -35,8 +42,14 @@ class Wimlib < Formula
   test do
     # make a directory containing a dummy 1M file
     mkdir("foo")
-    system "dd", "if=/dev/random", "of=foo/bar", "bs=1m", "count=1"
-
+    size = nil
+    on_macos do
+      size = "1m"
+    end
+    on_linux do
+      size = "1M"
+    end
+    system "dd", "if=/dev/random", "of=foo/bar", "bs=#{size}", "count=1"
     # capture an image
     ENV.append "WIMLIB_IMAGEX_USE_UTF8", "1"
     system "#{bin}/wimcapture", "foo", "bar.wim"

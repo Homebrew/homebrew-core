@@ -3,13 +3,13 @@ class Zbackup < Formula
   homepage "http://zbackup.org"
   url "https://github.com/zbackup/zbackup/archive/1.4.4.tar.gz"
   sha256 "efccccd2a045da91576c591968374379da1dc4ca2e3dec4d3f8f12628fa29a85"
-  revision 13
+  revision 16
 
   bottle do
-    cellar :any
-    sha256 "452f94dd18b72f5e1ed63a87bc3218c7d522910d0f4d49a80ea0cf92cd7ca492" => :catalina
-    sha256 "c4fd2df974342ae963ceb62cffa2bd3868b067286e960b907be0916bfbff8557" => :mojave
-    sha256 "375f0d891c8711b74b468cbc91dcf796ee2807dbfd8a2c153d9c0d3ab54ba6bd" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "dbbf40f7f4edf658918a7beaa2c0a6c77c010b7dd18f230bb0a584a8fadfb0fd"
+    sha256 cellar: :any, big_sur:       "8463384c48b1fc5d96166d15b2e9a29ac42a0d27cb7c82a4076686b7f94a812f"
+    sha256 cellar: :any, catalina:      "8fd3d32ae8d088580aad9508af9e2a6cf6460b798bbf8a80ee1f9274ad164915"
+    sha256 cellar: :any, mojave:        "1601c36693ddea9f1c5426a6f9f772d1e9b09a1a8750b307ac68eb5727525692"
   end
 
   depends_on "cmake" => :build
@@ -18,15 +18,17 @@ class Zbackup < Formula
   depends_on "protobuf"
   depends_on "xz" # get liblzma compression algorithm library from XZutils
 
+  uses_from_macos "zlib"
+
   # These fixes are upstream and can be removed in version 1.5+
   patch do
-    url "https://github.com/zbackup/zbackup/commit/7e6adda6b1df9c7b955fc06be28fe6ed7d8125a2.diff?full_index=1"
-    sha256 "b33b3693fff6fa89b40a02c8c14f73e2e270e2c5e5f0e27ccb038b0d2fb304d4"
+    url "https://github.com/zbackup/zbackup/commit/7e6adda6b1df9c7b955fc06be28fe6ed7d8125a2.patch?full_index=1"
+    sha256 "a41acc7be1dee8c8f14e0fb73b6c4a39ae2d458ef8879553202f4ff917629f95"
   end
 
   patch do
-    url "https://github.com/zbackup/zbackup/commit/f4ff7bd8ec63b924a49acbf3a4f9cf194148ce18.diff?full_index=1"
-    sha256 "060491c216a145d34a8fd3385b138630718579404e1a2ec2adea284a52699672"
+    url "https://github.com/zbackup/zbackup/commit/f4ff7bd8ec63b924a49acbf3a4f9cf194148ce18.patch?full_index=1"
+    sha256 "ae296da66ed2899ca9b06da61b2ed2d2407051e322bd961c72cf35fd9d6a330e"
   end
 
   def install

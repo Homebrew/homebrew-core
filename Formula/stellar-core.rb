@@ -1,17 +1,16 @@
 class StellarCore < Formula
-  desc "The backbone of the Stellar (XLM) network"
+  desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      :tag      => "v12.1.0",
-      :revision => "8afe57913a08deffa247d7b5f837e0b28a54b864"
-  revision 1
+      tag:      "v15.3.0",
+      revision: "6b99ef893c7f13f22c7c72a7f66ea912aeb4ad73"
+  license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git"
 
   bottle do
-    cellar :any
-    sha256 "80d5d3074c6d8acd381119d26c84afa286b6930b22eb1646866441f4ce9d5b97" => :catalina
-    sha256 "ebdfca363f2e1fa339bed6f5117b944f6b8e1d5f51dc4e0e441837207e212521" => :mojave
-    sha256 "266c266b48419e47794760e7825edc7cbbdd8e5f2a6b76179a929076828911b1" => :high_sierra
+    sha256 cellar: :any, big_sur:  "35e9457b2e517326f149db3c0608d08a37f1bd906fa0dd5a18d1f754bb420027"
+    sha256 cellar: :any, catalina: "7b0f57cf2aa959f7841e9c7ba74998843701b72c79e91dd48dd33450320610dc"
+    sha256 cellar: :any, mojave:   "f897d9e2d87b5fcbc7b1140e87649a3849b6fe7a3ff4ceec4f3dc8ec8687cb4c"
   end
 
   depends_on "autoconf" => :build
@@ -24,6 +23,9 @@ class StellarCore < Formula
   depends_on "libpqxx"
   depends_on "libsodium"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-debug",
@@ -35,6 +37,8 @@ class StellarCore < Formula
   end
 
   test do
-    system "#{bin}/stellar-core", "test", "'[bucket],[crypto],[herder],[upgrades],[accountsubentriescount],[bucketlistconsistent],[cacheisconsistent],[fs]'"
+    system "#{bin}/stellar-core", "test",
+      "'[bucket],[crypto],[herder],[upgrades],[accountsubentriescount]," \
+      "[bucketlistconsistent],[cacheisconsistent],[fs]'"
   end
 end

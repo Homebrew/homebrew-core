@@ -3,14 +3,21 @@ class Tarsnap < Formula
   homepage "https://www.tarsnap.com/"
   url "https://www.tarsnap.com/download/tarsnap-autoconf-1.0.39.tgz"
   sha256 "5613218b2a1060c730b6c4a14c2b34ce33898dd19b38fb9ea0858c5517e42082"
+  license "0BSD"
   revision 1
 
+  livecheck do
+    url "https://www.tarsnap.com/download/"
+    regex(/href=.*?tarsnap-autoconf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "afa6ebfefbc93faf12ac6576f26edb0b68c6a47cc65b893d590ea1efd4301fb4" => :catalina
-    sha256 "c6c97cd8e16ba02f7997d1d269373dca82d4a3d188b89dc3532c8149e277bd02" => :mojave
-    sha256 "847aae76230beaedfa23ea0a0f375864a8af6063c8539634637ab218a425540d" => :high_sierra
-    sha256 "dbf1a477d46c723a3cebb6b1001771bf51956035ea3369b5e2451c091cad5930" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "879ca63de6f2c293dd325fe0cf7a7284cf5603bf5efcc6fc5159ddb676d1163d"
+    sha256 cellar: :any, big_sur:       "db0fceeaf2b93d4d7588ef1b3c0ac69080595e4fd05311fb3d61ccb95c9f9ae0"
+    sha256 cellar: :any, catalina:      "afa6ebfefbc93faf12ac6576f26edb0b68c6a47cc65b893d590ea1efd4301fb4"
+    sha256 cellar: :any, mojave:        "c6c97cd8e16ba02f7997d1d269373dca82d4a3d188b89dc3532c8149e277bd02"
+    sha256 cellar: :any, high_sierra:   "847aae76230beaedfa23ea0a0f375864a8af6063c8539634637ab218a425540d"
+    sha256 cellar: :any, sierra:        "dbf1a477d46c723a3cebb6b1001771bf51956035ea3369b5e2451c091cad5930"
   end
 
   head do

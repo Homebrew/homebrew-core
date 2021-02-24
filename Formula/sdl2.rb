@@ -1,37 +1,44 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
+  url "https://libsdl.org/release/SDL2-2.0.14.tar.gz"
+  sha256 "d8215b571a581be1332d2106f8036fcb03d12a70bae01e20f424976d275432bc"
+  license "Zlib"
+  revision 1
 
-  stable do
-    url "https://libsdl.org/release/SDL2-2.0.10.tar.gz"
-    sha256 "b4656c13a1f0d0023ae2f4a9cf08ec92fffb464e0f24238337784159b8b91d57"
+  livecheck do
+    url "https://www.libsdl.org/download-2.0.php"
+    regex(/SDL2[._-]v?(\d+(?:\.\d+)*)/i)
   end
 
   bottle do
-    cellar :any
-    sha256 "dc47470e4dc13c7a0cf48330da2d4938695a5b60bf9d6ef31218f32a803ab48c" => :catalina
-    sha256 "ede7f2495e32fd7f1a1bee57db35542066993f7ad4d24bb4c2078a68b0856dfb" => :mojave
-    sha256 "e8e7c8484eaa791d312f9d77f626faad344f90db74bb93423ed2fc234c5f52a6" => :high_sierra
-    sha256 "67961a420c2a8632822f60f61710b95b1173b8b1c2ae05b5f92e4c9892cdc5b7" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "2ae70b6025c4e241400643f2686c8e288d50e3f04311e63d8a1f8180ed4afb07"
+    sha256 cellar: :any, big_sur:       "ccde7145d4334d9274f9588e6b841bf3749729682e1d25f590bdcf7994dfdd89"
+    sha256 cellar: :any, catalina:      "d6ae3300160c5bb495b78a5c5c0fc995f9e797e9cdd4b04ef77d59d45d2d694d"
+    sha256 cellar: :any, mojave:        "4f3988fb3af0f370bc1648d6eb1d6573fd37381df0f3b9ee0874a49d6a7dec2e"
   end
 
   head do
-    url "https://hg.libsdl.org/SDL", :using => :hg
+    url "https://github.com/libsdl-org/SDL.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
-    # we have to do this because most build scripts assume that all sdl modules
+    # we have to do this because most build scripts assume that all SDL modules
     # are installed to the same prefix. Consequently SDL stuff cannot be
     # keg-only but I doubt that will be needed.
     inreplace %w[sdl2.pc.in sdl2-config.in], "@prefix@", HOMEBREW_PREFIX
 
-    system "./autogen.sh" if build.head? || build.devel?
+    system "./autogen.sh" if build.head?
 
-    args = %W[--prefix=#{prefix} --without-x]
+    args = %W[--prefix=#{prefix} --without-x --enable-hidapi]
     system "./configure", *args
     system "make", "install"
   end

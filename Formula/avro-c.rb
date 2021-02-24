@@ -1,14 +1,16 @@
 class AvroC < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=avro/avro-1.9.1/c/avro-c-1.9.1.tar.gz"
-  sha256 "7df7bc1e13ce7180f0438ed05ab6642b5b2b6df91f30b927b470e25a78e04642"
+  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.10.1/c/avro-c-1.10.1.tar.gz"
+  mirror "https://archive.apache.org/dist/avro/avro-1.10.1/c/avro-c-1.10.1.tar.gz"
+  sha256 "5313dcb6d240b919f218a80a8b9b58f7a3eb501ff177b0dedc1c0595d0ee916d"
+  license "Apache-2.0"
 
   bottle do
-    sha256 "46eed9b02091bc06e0a1007beed901d6fe8f19366e86e4544103e4f7f43a2e28" => :catalina
-    sha256 "35aa07886a5188fc42edf2c4dd473857420f9e2ab8b981c4ebd08fabbbe32455" => :mojave
-    sha256 "4ab18f360192adcd9900308820cb06b706d12b997a07b7f2fa6bf1366a91c477" => :high_sierra
-    sha256 "0e24c43c6b2d1c356fdb135f0d94afaaf1274c922f7e58abf4c51581925da572" => :sierra
+    sha256 arm64_big_sur: "e4cd6b302cfadbcd1f445c8957fd616b5f2fdc6730ca64ab3c825cd81a9d8dc5"
+    sha256 big_sur:       "c99913941625740c45fd76a1fa8a69750f585375c0559af04284d8bed2cab872"
+    sha256 catalina:      "2b10e0adb725faf050ecc7c3ffccec6f9a003714ccd76d544b0d644253d2626f"
+    sha256 mojave:        "0fc00159098c04997d2537f79283517497f01a8100a4a3cba8ac09099844a80f"
   end
 
   depends_on "cmake" => :build
@@ -16,6 +18,7 @@ class AvroC < Formula
   depends_on "jansson"
   depends_on "snappy"
   depends_on "xz"
+
   uses_from_macos "zlib"
 
   def install

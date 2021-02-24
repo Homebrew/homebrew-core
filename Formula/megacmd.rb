@@ -3,25 +3,21 @@ class Megacmd < Formula
   homepage "https://github.com/t3rm1n4l/megacmd"
   url "https://github.com/t3rm1n4l/megacmd/archive/0.016.tar.gz"
   sha256 "def4cda692860c85529c8de9b0bdb8624a30f57d265f7e70994fc212e5da7e40"
+  license "MIT"
   head "https://github.com/t3rm1n4l/megacmd.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "80a5775ff5e5fe1e958cc6345a2d53f13e37bf366c7f4c8f3033f218851de813" => :catalina
-    sha256 "e7612192a4ac2e79363d8441f7d0f007c319a5aafd8e4f56e805335cbfa72d21" => :mojave
-    sha256 "02e75c7bbada7c3b3a230f3395448ec1dfb8598e7053ac6ad6a2b0b2f264d9ad" => :high_sierra
-    sha256 "8f60fb2783c1481f086e401e7cbfb2ada3a6e82a35e6d2e1a24643a7c7d8453f" => :sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b0cc423d7d44f74416233d1890e003d8d1a92b32c4f281885e89dbda52031218"
+    sha256 cellar: :any_skip_relocation, big_sur:       "005012522f9d83387047d28fc1f4870b27090496d333a5ace382fd3b2b380850"
+    sha256 cellar: :any_skip_relocation, catalina:      "5e3e9a0dcacef7fcac245b621b8eee36cc9dc974b46ba1006769f1dbf781b01c"
+    sha256 cellar: :any_skip_relocation, mojave:        "a24988b1613d43a55748a6516f3d0ac15b13a533b92c201200d0c0998c4dbeb1"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/t3rm1n4l/megacmd").install buildpath.children
-    cd "src/github.com/t3rm1n4l/megacmd" do
-      system "go", "build", "-o", bin/"megacmd"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do

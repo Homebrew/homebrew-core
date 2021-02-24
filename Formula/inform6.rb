@@ -1,17 +1,16 @@
 class Inform6 < Formula
   desc "Design system for interactive fiction"
   homepage "https://inform-fiction.org/inform6.html"
-  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/old/inform-6.33-6.12.1.tar.gz"
-  version "6.33-6.12.1"
-  sha256 "9170d6a0283aa65e1205621e89f78d674c8df978ee9c0b1c67f8b1aea4722a77"
-  revision 1
+  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.34-6.12.4-1.tar.gz"
+  version "6.34-6.12.4-1"
+  sha256 "8cc1983c7bbed7f23fcf3cd549fe8dc10b1a506b95129c35e9f61d2e79b85295"
+  license "Artistic-2.0"
   head "https://gitlab.com/DavidGriffith/inform6unix.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "451af7c99925f78d66fff29b745b6607710b3e03282ba498a82277d00cd49d9c" => :catalina
-    sha256 "b423cc4b764b8ffda3d2f95aa2ec0a1f917455ca7fbb2969dd6aecdf818ed3c5" => :mojave
-    sha256 "0755c9d4c5994a6f4ebe4c74f8bb1e93665de66ae65c89c85120396edc85550d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "a4b3d047e0686c3104ce51b8780b12202c6c3b9486ce3e386e1ac5e7acbe8944"
+    sha256 cellar: :any_skip_relocation, catalina: "4fa26f001f5e273bca4b561f2e7c3783d55fb7ab69f3bb098f109f72a789cc95"
+    sha256 cellar: :any_skip_relocation, mojave:   "0c0de1e012507b4450e610d93e25497f13fef4c11f5d47dfdcd76cf7755f2c46"
   end
 
   resource "Adventureland.inf" do
@@ -20,6 +19,9 @@ class Inform6 < Formula
   end
 
   def install
+    # Disable parallel build until release with https://gitlab.com/DavidGriffith/inform6unix/-/commit/dab07d5c83a42e1c52e4058d6a31a8137f54b59c
+    # ships; see https://gitlab.com/DavidGriffith/inform6unix/-/issues/26
+    ENV.deparallelize
     system "make", "PREFIX=#{prefix}", "MAN_PREFIX=#{man}", "install"
   end
 

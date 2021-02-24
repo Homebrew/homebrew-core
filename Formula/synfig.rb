@@ -1,15 +1,22 @@
 class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.2.2/source/synfig-1.2.2.tar.gz"
-  sha256 "5f5f7b33483041165f9a63fe4d95eb815971c7444569e574206f6964e83cc2ef"
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.0/source/synfig-1.4.0.tar.gz"
+  mirror "https://github.com/synfig/synfig/releases/download/v1.4.0/synfig-1.4.0.tar.gz"
+  sha256 "7f36d57eba9dc959e1deae89e6908585a08db7f2d9399915a46a9eff33080c9c"
+  license "GPL-3.0-or-later"
   revision 2
   head "https://svn.code.sf.net/p/synfig/code/"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/synfig[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    sha256 "8c23d2d8dc22af0f7a5957753f109b540b6e975a98381b93cffc61162740c47f" => :mojave
-    sha256 "3de1f07e71b1ce87ddb9e1e7d9a9bc85efdadc630f7aabbaed55554a2d8d1bcc" => :high_sierra
-    sha256 "1a62720c482cf4e45a545d5d895192e8aeed43855d9c80cdd3781409282c5ae7" => :sierra
+    sha256 big_sur:  "4929fa6d59d28d1a63ec725f6a11b5b27f828706d9d2548fa900fc5c2ac5fda1"
+    sha256 catalina: "45b2b11cbe0d6457530d59cc32dd6fa41dd788462577caef9036c75911e0a99e"
+    sha256 mojave:   "1b1702081c0fb7276fba94dd473d1eee8cf17e74c0b4cf85612963396d1d65c8"
   end
 
   depends_on "intltool" => :build
@@ -41,6 +48,7 @@ class Synfig < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
+      #include <stddef.h>
       #include <synfig/version.h>
       int main(int argc, char *argv[])
       {
@@ -55,7 +63,7 @@ class Synfig < Formula
     freetype = Formula["freetype"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    glibmm = Formula["glibmm"]
+    glibmm = Formula["glibmm@2.66"]
     libpng = Formula["libpng"]
     libsigcxx = Formula["libsigc++@2"]
     libxmlxx = Formula["libxml++"]

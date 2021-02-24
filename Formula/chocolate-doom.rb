@@ -1,16 +1,21 @@
 class ChocolateDoom < Formula
   desc "Accurate source port of Doom"
   homepage "https://www.chocolate-doom.org/"
-  url "https://www.chocolate-doom.org/downloads/3.0.0/chocolate-doom-3.0.0.tar.gz"
-  sha256 "73aea623930c7d18a7a778eea391e1ddfbe90ad1ac40a91b380afca4b0e1dab8"
+  url "https://www.chocolate-doom.org/downloads/3.0.1/chocolate-doom-3.0.1.tar.gz"
+  sha256 "d435d6177423491d60be706da9f07d3ab4fabf3e077ec2a3fc216e394fcfc8c7"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://www.chocolate-doom.org/downloads/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "f60860b5f508bb3a2e1123745e48de6ac4cc2e10864c8a7438c57458122e3407" => :catalina
-    sha256 "795d7fce11f480361f5112d4fc63c7d091e97071edca114287eb0b06218426a9" => :mojave
-    sha256 "af7016b2d60ca7dd02d91287994633b2674436587464e824294dc930566ffef1" => :high_sierra
-    sha256 "837b44e4c36513df3d615d02ce986119049e1188c975343476d84380e43b0a19" => :sierra
-    sha256 "a853675774b68249fd1aedc56a7c796fbc3177f7b64fbff666d21efd4c711611" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "2ec976b70085d5774860143fa03bc8c46493383faf512c61eba9eb0ab3985942"
+    sha256 cellar: :any, big_sur:       "229f40caf921ce47bf5683f360473a783f281d2261be52758804c5203bc5df1b"
+    sha256 cellar: :any, catalina:      "91f8a622d0299afd99d6eb4768184100addb0d1a804683aa6486548ed5a14d8d"
+    sha256 cellar: :any, mojave:        "9090cd83e434977b523647ea125b5de78ca8c2b434f1933a606200999e137a30"
+    sha256 cellar: :any, high_sierra:   "c4799300dc6c4b10d68e0764cb57eec612fbe3d07a2ce7eeb0cf6bc60905a687"
   end
 
   head do
@@ -38,14 +43,15 @@ class ChocolateDoom < Formula
     (share/"icons").rmtree
   end
 
-  def caveats; <<~EOS
-    Note that this formula only installs a Doom game engine, and no
-    actual levels. The original Doom levels are still under copyright,
-    so you can copy them over and play them if you already own them.
-    Otherwise, there are tons of free levels available online.
-    Try starting here:
-      #{homepage}
-  EOS
+  def caveats
+    <<~EOS
+      Note that this formula only installs a Doom game engine, and no
+      actual levels. The original Doom levels are still under copyright,
+      so you can copy them over and play them if you already own them.
+      Otherwise, there are tons of free levels available online.
+      Try starting here:
+        #{homepage}
+    EOS
   end
 
   test do

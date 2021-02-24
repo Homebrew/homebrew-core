@@ -6,11 +6,13 @@ class Dbxml < Formula
   revision 3
 
   bottle do
-    sha256 "59c12069d26a6be4f542d4c7869841c2bd71e8cb08a1c809d559818fb1cb156a" => :catalina
-    sha256 "b525b9d21d149d533aeb62a169becfe1e140f143d34291d0a8fddf2ada41a018" => :mojave
-    sha256 "1886b654f152fc03a6a6e781ca94e5ca3a08f7f190bc1168326bf46b337c02e9" => :high_sierra
-    sha256 "2a350300c31d639d46e9fafc16747d5cbe1897035acf1c365f795127535693b3" => :sierra
-    sha256 "e2c82383d79f243654a0bbebdfb141334bbf683c6925b5a8f3ce0d1568024fec" => :el_capitan
+    sha256 arm64_big_sur: "04e8d59d289cdfeded395a021516b357e5bb63eed09e49aca28ed262c8c31128"
+    sha256 big_sur:       "e53e40e0184768fdac585276000c0224a04cfa9284ce94be1ab80380d2b79965"
+    sha256 catalina:      "59c12069d26a6be4f542d4c7869841c2bd71e8cb08a1c809d559818fb1cb156a"
+    sha256 mojave:        "b525b9d21d149d533aeb62a169becfe1e140f143d34291d0a8fddf2ada41a018"
+    sha256 high_sierra:   "1886b654f152fc03a6a6e781ca94e5ca3a08f7f190bc1168326bf46b337c02e9"
+    sha256 sierra:        "2a350300c31d639d46e9fafc16747d5cbe1897035acf1c365f795127535693b3"
+    sha256 el_capitan:    "e2c82383d79f243654a0bbebdfb141334bbf683c6925b5a8f3ce0d1568024fec"
   end
 
   depends_on "berkeley-db"
@@ -19,7 +21,7 @@ class Dbxml < Formula
 
   # No public bug tracker or mailing list to submit this to, unfortunately.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/dbxml/c%2B%2B11.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4d337833ef2e10c1f06a72170f22b1cafe2b6a78/dbxml/c%2B%2B11.patch"
     sha256 "98d518934072d86c15780f10ceee493ca34bba5bc788fd9db1981a78234b0dc4"
   end
 

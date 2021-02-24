@@ -5,22 +5,25 @@ class Volatility < Formula
   homepage "https://github.com/volatilityfoundation/volatility"
   url "https://github.com/volatilityfoundation/volatility/archive/2.6.1.tar.gz"
   sha256 "a8dfdbdb2aaa0885387b709b821bb8250e698086fb32015bc2896ea55f359058"
+  license "GPL-2.0"
   revision 2
   head "https://github.com/volatilityfoundation/volatility.git"
 
   bottle do
-    cellar :any
-    sha256 "f41ce1f3f70a5bb1eab7efac3d74ace7dad7bdf581bcb16b7a09d34e27e38d50" => :catalina
-    sha256 "5bcfa94349a26dc291af274bcf3427851ed2654e36781d05e3774018ee8f7781" => :mojave
-    sha256 "0d156b81c472080d117d567167d7a6d294376bab6d3c4751b4ca343a25fefa3d" => :high_sierra
+    sha256 cellar: :any, catalina:    "f41ce1f3f70a5bb1eab7efac3d74ace7dad7bdf581bcb16b7a09d34e27e38d50"
+    sha256 cellar: :any, mojave:      "5bcfa94349a26dc291af274bcf3427851ed2654e36781d05e3774018ee8f7781"
+    sha256 cellar: :any, high_sierra: "0d156b81c472080d117d567167d7a6d294376bab6d3c4751b4ca343a25fefa3d"
   end
 
   depends_on "freetype"
   depends_on "jpeg"
-  depends_on "yara"
-  # Python 3 support will come with volatility 3
+  depends_on :macos # Due to Python 2 (Python 3 support will come with volatility 3)
   # https://github.com/volatilityfoundation/volatility3
-  uses_from_macos "python@2"
+  depends_on "yara"
+
+  on_linux do
+    depends_on "gmp"
+  end
 
   resource "distorm3" do
     url "https://files.pythonhosted.org/packages/2c/e3/84a3a99904c368daa1de5e85a6e9cc07189e7f66cb1338a9ebf93fa051bd/distorm3-3.4.1.tar.gz"

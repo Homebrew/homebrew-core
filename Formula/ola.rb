@@ -1,15 +1,15 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.7/ola-0.10.7.tar.gz"
-  sha256 "8a65242d95e0622a3553df498e0db323a13e99eeb1accc63a8a2ca8913ab31a0"
-  revision 3
+  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz"
+  sha256 "102aa3114562a2a71dbf7f77d2a0fb9fc47acc35d6248a70b6e831365ca71b13"
+  license "GPL-2.0"
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
-    sha256 "c79b3dbe1896a6b78241401fbef0383d11259a67119d59cc6f8da4244e931c4c" => :catalina
-    sha256 "7bfdb6292c1902de7307dc331948ea6de67e54ff38ebb0377dd75cebc4a8be94" => :mojave
-    sha256 "ccbca5c750d2726eef78b4aa34a20c0c9f88f9b8a9f2840d6e6f12654de0e340" => :high_sierra
+    sha256 big_sur:  "01d3fbbad1714ae2f0ac902e9770798abd9d18db6412a664ddc528071c64ef4d"
+    sha256 catalina: "4ac72f24e812e7c3c59fb5bef66b9e33757df3231e1c8de4c428126ad1f52dec"
+    sha256 mojave:   "4b897250e2d6f1ca338ca42f420dd4edb00171e6d3c59ef776bd32e9dfe00412"
   end
 
   depends_on "autoconf" => :build
@@ -21,17 +21,18 @@ class Ola < Formula
   depends_on "libusb"
   depends_on "numpy"
   depends_on "protobuf@3.6"
-  depends_on "python"
+  depends_on "python@3.9"
 
-  # remove in version 0.11
+  # remove in version 0.10.9
   patch do
-    url "https://raw.githubusercontent.com/macports/macports-ports/89b697d200c7112839e8f2472cd2ff8dfa6509de/net/ola/files/patch-protobuf3.diff"
-    sha256 "bbbcb5952b0bdcd01083cef92b72a747d3adbe7ca9e50d865a0c69ae31a8fb4a"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/add0354bf13253a4cc89e151438a630314df0efa/ola/protobuf3.diff"
+    sha256 "e06ffef1610c3b09807212d113138dae8bdc7fc8400843c25c396fa486594ebf"
   end
 
   def install
-    protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python3.7/site-packages/homebrew-protobuf.pth"
-    (buildpath/".brew_home/Library/Python/3.7/lib/python/site-packages").install_symlink protobuf_pth
+    xy = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
+    protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
+    (buildpath/".brew_home/Library/Python/#{xy}/lib/python/site-packages").install_symlink protobuf_pth
 
     args = %W[
       --disable-fatal-warnings
@@ -43,7 +44,7 @@ class Ola < Formula
       --enable-rdm-tests
     ]
 
-    ENV["PYTHON"] = "python3"
+    ENV["PYTHON"] = Formula["python@3.9"].bin/"python3"
     system "autoreconf", "-fvi"
     system "./configure", *args
     system "make", "install"

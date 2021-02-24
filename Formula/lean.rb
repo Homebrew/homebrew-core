@@ -1,21 +1,29 @@
 class Lean < Formula
   desc "Theorem prover"
-  homepage "https://leanprover.github.io/"
-  url "https://github.com/leanprover/lean/archive/v3.4.2.tar.gz"
-  sha256 "ec4488be8473577666f38dec81123d0f7b26476139d3caa2e175a571f6c00d87"
-  head "https://github.com/leanprover/lean.git"
+  homepage "https://leanprover-community.github.io/"
+  url "https://github.com/leanprover-community/lean/archive/v3.23.0.tar.gz"
+  sha256 "f77831bf3f31cbc4b4dbe44e1b84252624d138045ddb03d3575db8998e71f540"
+  license "Apache-2.0"
+  head "https://github.com/leanprover-community/lean.git"
+
+  # The Lean 3 repository (https://github.com/leanprover/lean/) is archived
+  # and there won't be any new releases. Lean 4 is being developed but is still
+  # a work in progress: https://github.com/leanprover/lean4
+  livecheck do
+    skip "Lean 3 is archived; add a new check once Lean 4 is stable"
+  end
 
   bottle do
-    cellar :any
-    sha256 "93067a139b696eec75222a9f14209b1221576281f52238dec585d11f7a39a1c0" => :catalina
-    sha256 "a4e42293767b2c39d46ededd68ccdbae0deddc8280a8d5a0004390091e91acd4" => :mojave
-    sha256 "31506dc58b1108625510415a551fea963739898ad675d8cb3023af6e3922e109" => :high_sierra
-    sha256 "a5df8afdccd0db40f4a9c8184d9197a8a66a47b2c2bbf7451e05976b13274025" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "d3b7ae42577682c4d6ac355017eef314203a8a6351200194a95d9b8c12c7f246"
+    sha256 cellar: :any, big_sur:       "d1e11b32de65b73b9c83b938f6a24fb5d2663cc59bab361aacccce9b4cd93910"
+    sha256 cellar: :any, catalina:      "438c40c670dde56863fcb935ebfa8fc9e51d47920464a9d61aef2f44538fbfa5"
+    sha256 cellar: :any, mojave:        "5a963186f2c97e72a086e8f8283469a2d601789fe5598a3d5afb1402f1593ed0"
   end
 
   depends_on "cmake" => :build
   depends_on "gmp"
   depends_on "jemalloc"
+  depends_on macos: :mojave
 
   def install
     mkdir "src/build" do

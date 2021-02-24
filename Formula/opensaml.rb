@@ -1,16 +1,20 @@
 class Opensaml < Formula
   desc "Library for Security Assertion Markup Language"
   homepage "https://wiki.shibboleth.net/confluence/display/OpenSAML/Home"
-  url "https://shibboleth.net/downloads/c++-opensaml/3.0.1/opensaml-3.0.1.tar.bz2"
-  sha256 "80c1672929e3bfc3233e5a995517bc678c479ad925f0cdf9cacffaa7c786cc29"
-  revision 1
+  url "https://shibboleth.net/downloads/c++-opensaml/3.2.0/opensaml-3.2.0.tar.bz2"
+  sha256 "8c3ba09febcb622f930731f8766e57b3c154987e8807380a4228fbf90e6e1441"
+  license "Apache-2.0"
+
+  livecheck do
+    url "https://shibboleth.net/downloads/c++-opensaml/latest/"
+    regex(/href=.*?opensaml[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "0bfd4a039784847c3b10f2de52af7649f3865cd34332a7bd59f5dc27af605d7e" => :catalina
-    sha256 "d40be78eca03a3ea7ef790bef6df3997ad672628cd7d34d13f84354367181a44" => :mojave
-    sha256 "5f3ef1f46ab0bdda5319b1806a176ea7a7be99d91f818da112459e479ab942f0" => :high_sierra
-    sha256 "93662e4d596b29a1f1aed2db97a7b78ffc34111987ce2d94850aacefe54d3e9b" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "28d745aaa6bc776ee02233852c46e2aeb4aceb7bebb18544616636afeb61867a"
+    sha256 cellar: :any, big_sur:       "220a34c0915da2d3641b88d96615138e7a5341d4e21cfa654300a6ccab16651d"
+    sha256 cellar: :any, catalina:      "09eb04c9b5475a70c1cd95e13e349c30c650433a0908fb078cf99f7126c4c4c5"
+    sha256 cellar: :any, mojave:        "24938a715d29e9db821774514452b5b1289ce243c5a48c1a492286234ed8c945"
   end
 
   depends_on "pkg-config" => :build

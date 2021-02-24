@@ -4,21 +4,23 @@ class Afsctool < Formula
   url "https://dl.bintray.com/homebrew/mirror/afsctool-1.6.4.zip"
   mirror "https://docs.google.com/uc?export=download&id=0BwQlnXqL939ZQjBQNEhRQUo0aUk"
   sha256 "bb6a84370526af6ec1cee2c1a7199134806e691d1093f4aef060df080cd3866d"
+  license "GPL-3.0"
   revision 2
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 2
-    sha256 "f418e15be4bafdcb1a85e14c3148c8d4af1b300bd6ed3e4a30eca3725459ac48" => :catalina
-    sha256 "15c264a828ed98a42cc5ac68869c16b8306f73effe108e50bb1f731574311c51" => :mojave
-    sha256 "72e92414d524b82ec1d8381ad50f55bd330f1109a5e10bca4235300fee557caf" => :high_sierra
-    sha256 "96437b04a2974c215979550d3d70b4c8e3f609e76954ca41059c6f246da452ee" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "01af9a80d59e870a48adcbf1eb0cba0a3dd0a4013df397114c4c0f21f16e3916"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e7d401a4f723f58ad588e5b2fb5b19c6d76e7faed0385d0b3eef59d1f933e1ee"
+    sha256 cellar: :any_skip_relocation, catalina:      "f418e15be4bafdcb1a85e14c3148c8d4af1b300bd6ed3e4a30eca3725459ac48"
+    sha256 cellar: :any_skip_relocation, mojave:        "15c264a828ed98a42cc5ac68869c16b8306f73effe108e50bb1f731574311c51"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "72e92414d524b82ec1d8381ad50f55bd330f1109a5e10bca4235300fee557caf"
+    sha256 cellar: :any_skip_relocation, sierra:        "96437b04a2974c215979550d3d70b4c8e3f609e76954ca41059c6f246da452ee"
   end
 
   # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017
   patch :p2 do
-    url "https://github.com/vfx01j/afsctool/commit/26293a3809c9ad1db5f9bff9dffaefb8e201a089.diff?full_index=1"
-    sha256 "a541526679eb5d2471b3f257dab6103300d950f7b2f9d49bbfeb9f27dfc48542"
+    url "https://github.com/vfx01j/afsctool/commit/26293a3809c9ad1db5f9bff9dffaefb8e201a089.patch?full_index=1"
+    sha256 "69ec72b2d6f89b53e93c7bacef1916ea4cf815e4b3e7ab4ee8010c31de1d4e66"
   end
 
   # Fixes High Sierra "Expecting f_type of 17 or 23. f_type is 24" issue

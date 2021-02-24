@@ -4,23 +4,35 @@ class Vdirsyncer < Formula
   desc "Synchronize calendars and contacts"
   homepage "https://github.com/pimutils/vdirsyncer"
   url "https://github.com/pimutils/vdirsyncer.git",
-      :tag      => "0.16.7",
-      :revision => "dcf5f701b7b5c21a8f4e8c80243db3e0baff1313"
+      tag:      "0.16.8",
+      revision: "b5dd0929d009b7b07f72903dd6fb82815f45bdd8"
+  revision 2
   head "https://github.com/pimutils/vdirsyncer.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "37dd9ebb3b0a3c41efa99f6e39e37dfac0c0ba3f22555ab64d02546a69bf8d6a" => :catalina
-    sha256 "2c40f6ad53b8a558ed7503b5fe2413ae86850ea74f6ab41b560c3019185719fc" => :mojave
-    sha256 "89f7e1832a262681843b223527d96c5f6a587ded3b2884df9a87204c463f1911" => :high_sierra
-    sha256 "57510d02d159de632f3fdb98d7de88aba5ea01d375b4f096d6d367c976e355bc" => :sierra
-    sha256 "81eaa19b3cbc91007a0a5cfe9979cca1f207b2ac2a72b87aabca41ae019838f7" => :el_capitan
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on "python"
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a516d7f9f4a99067fe1908faf3cd09849ad0164bfb56a05e11b249c10b13123e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f1ede11a17630f2ea0da1ec356015fa454b62d9e5eebf17ad38e89021c6cc739"
+    sha256 cellar: :any_skip_relocation, catalina:      "d87dd5b19a013e2099aa915c02caea1bf5ba5bce1ed9fdb1c599900da98f1574"
+    sha256 cellar: :any_skip_relocation, mojave:        "999dcfe149cd6cb2a072006159ce83e680e2da30431d28b380a0dd3549b59d98"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b48980fb7b1f225d07e847ab50b2a6c6e6bdca56386f902982163d7cfb11f6e7"
+  end
+
+  depends_on "python@3.9"
+
+  # from https://github.com/pimutils/vdirsyncer/pull/830
+  # remove in next release
+  patch do
+    url "https://github.com/pimutils/vdirsyncer/commit/7577fa21177442aacc2d86640ef28cebf1c4aaef.patch?full_index=1"
+    sha256 "3fe0b07e6a1f5210a51af4240e54ee2fe32936680f7ae518e40424531b657844"
+  end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
+    venv = virtualenv_create(libexec, "python3.9")
     system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
                               "--ignore-installed", "requests-oauthlib",
                               buildpath
@@ -69,6 +81,6 @@ class Vdirsyncer < Formula
     (testpath/".contacts/b/foo/").mkpath
     system "#{bin}/vdirsyncer", "discover"
     system "#{bin}/vdirsyncer", "sync"
-    assert_match /Ö φ 風 ض/, (testpath/".contacts/b/foo/092a1e3b55.vcf").read
+    assert_match "Ö φ 風 ض", (testpath/".contacts/b/foo/092a1e3b55.vcf").read
   end
 end

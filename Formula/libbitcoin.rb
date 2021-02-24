@@ -3,13 +3,14 @@ class Libbitcoin < Formula
   homepage "https://github.com/libbitcoin/libbitcoin-system"
   url "https://github.com/libbitcoin/libbitcoin-system/archive/v3.6.0.tar.gz"
   sha256 "5bcc4c31b53acbc9c0d151ace95d684909db4bf946f8d724f76c711934c6775c"
-  revision 3
+  license "AGPL-3.0"
+  revision 6
 
   bottle do
-    cellar :any
-    sha256 "8ee84fd2c1ca6f36b5e064af6c131e692a2478f66f90dc950547d06594083b12" => :catalina
-    sha256 "f80a081ef5f8ad92941279e4ac5483b5f68897f6a5f8d3367b8d65603663e82b" => :mojave
-    sha256 "a5f18c5a179363df523c5aeb9d7cc8f3d2c9f7fa06e3092a37d80b95bf9edd94" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "ffa7dcb602fe16966e0a6b0814cbe7640a851aa783b0c34a8f0fc596fb654d66"
+    sha256 cellar: :any, big_sur:       "e082921a7292db532b49c3fe2ff70df87c90f7ac2e9b5e51fe3b4bb0c7461c19"
+    sha256 cellar: :any, catalina:      "98865b9471e441a3d3ee30c38c568b546bf338700953ab9a784daed2775ea7d7"
+    sha256 cellar: :any, mojave:        "d0a5c4652789897e610767855d1bb27923df8735084f1dd7820a0e6c435737c7"
   end
 
   depends_on "autoconf" => :build
@@ -42,6 +43,7 @@ class Libbitcoin < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
+                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
                           "--with-png",
                           "--with-qrencode"
     system "make", "install"

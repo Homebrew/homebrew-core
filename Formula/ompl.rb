@@ -1,29 +1,44 @@
 class Ompl < Formula
   desc "Open Motion Planning Library consists of many motion planning algorithms"
   homepage "https://ompl.kavrakilab.org/"
-  url "https://bitbucket.org/ompl/ompl/downloads/ompl-1.4.2-Source.tar.gz"
-  sha256 "03d5a661061928ced63bb945055579061665634ef217559b1f47fef842e1fa85"
+  url "https://github.com/ompl/ompl/archive/1.5.2.tar.gz"
+  sha256 "db1665dd2163697437ef155668fdde6101109e064a2d1a04148e45b3747d5f98"
+  license "BSD-3-Clause"
+  head "https://github.com/ompl/ompl.git"
+
+  # We check the first-party download page because the "latest" GitHub release
+  # isn't a reliable indicator of the latest version on this repository.
+  livecheck do
+    url "https://ompl.kavrakilab.org/download.html"
+    regex(%r{href=.*?/ompl/ompl/archive/v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "9402582e9dba3b47fb91bd36dec50086fd36effaf4cf5734c44c4d71362729eb" => :catalina
-    sha256 "14033d9549ebd3086e84cd058ab2df19e90acfc6c1e3c1b4d62f4a6b8c8058d6" => :mojave
-    sha256 "961b2a574fdf47d8fd0e74e9755bfb3009147807a316869fa2444d61f9b4123f" => :high_sierra
+    sha256 arm64_big_sur: "214c8032cd621e44527cacc9af0800312e95922f7d79e58a94c93a09977638de"
+    sha256 big_sur:       "aab42d95974b15167f1a240f853283eed81a928877822a0aa8ee67664f1992e6"
+    sha256 catalina:      "6b0190b615a9929cd74f03e97ff62efdca225ce9c7afc171ed3f5be31f2a8afd"
+    sha256 mojave:        "b7d94176b089fc5959b6accb2da9390f94ab1863902f0f189bd542566815578c"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "eigen"
-
-  # fix for Boost 1.71
-  patch do
-    url "https://github.com/ompl/ompl/commit/962961fb.diff?full_index=1"
-    sha256 "56adf06b5bdc12823c04e96e764618c48a912fd01422138f15cc578f2464177a"
-  end
+  depends_on "flann"
+  depends_on "ode"
 
   def install
     ENV.cxx11
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + %w[
+      -DOMPL_REGISTRATION=OFF
+      -DOMPL_BUILD_DEMOS=OFF
+      -DOMPL_BUILD_TESTS=OFF
+      -DOMPL_BUILD_PYBINDINGS=OFF
+      -DOMPL_BUILD_PYTESTS=OFF
+      -DCMAKE_DISABLE_FIND_PACKAGE_spot=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_Triangle=ON
+    ]
+    system "cmake", ".", *args
     system "make", "install"
   end
 
@@ -39,7 +54,7 @@ class Ompl < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lompl", "-o", "test"
+    system ENV.cxx, "test.cpp", "-I#{include}/ompl-1.5", "-L#{lib}", "-lompl", "-o", "test"
     system "./test"
   end
 end

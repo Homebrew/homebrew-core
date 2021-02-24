@@ -1,19 +1,22 @@
 class Opam < Formula
-  desc "The OCaml package manager"
+  desc "OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.0.5/opam-full-2.0.5.tar.gz"
-  sha256 "776c7e64d6e24c2ef1efd1e6a71d36e007645efae94eaf860c05c1929effc76f"
+  url "https://github.com/ocaml/opam/releases/download/2.0.8/opam-full-2.0.8.tar.gz"
+  sha256 "7b9d29233d9633ef50ba766df2e39112b15cd05c1c6fedf80bcb548debcdd9bd"
+  license "LGPL-2.1"
   head "https://github.com/ocaml/opam.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2eaa945aa00834374c7170da065b5d2c15a5df25130bb9b336fb17097f7000cd" => :catalina
-    sha256 "73d4d1936a7862127e77efa45a07af5e4b49ed00227e9455671ca2a87a32875c" => :mojave
-    sha256 "8799c5a87853dba2a74a3cbc58a7ecb39197ade8372726d044f617ca6bf55a33" => :high_sierra
-    sha256 "2e81e914a8259d6f97e808d4def682154d45545efc6efc67c2c344dc5e97e1d8" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "83fedf7b107a1cc3ea02a3782e3d830feeec7b8482a8e015707af65c0bb94ac9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d34e0dcbfa4302960a8f813d4e06c113e24beff31d2fbf8e55e470c5b51ecc0b"
+    sha256 cellar: :any_skip_relocation, catalina:      "882bf7f9d3f94fbbc2d5f08019456f533e0a71fd58c0a02650aa5781faefca9a"
+    sha256 cellar: :any_skip_relocation, mojave:        "e091ed13ebfa241890e0489cdc2645d66c9c189f618466cf8f7576751b381726"
   end
 
   depends_on "ocaml" => [:build, :test]
+  depends_on "gpatch"
+
+  uses_from_macos "unzip"
 
   def install
     ENV.deparallelize
@@ -21,19 +24,19 @@ class Opam < Formula
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "lib-ext"
     system "make"
-    system "make", "man"
     system "make", "install"
 
-    bash_completion.install "src/state/shellscripts/complete.sh"
+    bash_completion.install "src/state/shellscripts/complete.sh" => "opam"
     zsh_completion.install "src/state/shellscripts/complete.zsh" => "_opam"
   end
 
-  def caveats; <<~EOS
-    OPAM uses ~/.opam by default for its package database, so you need to
-    initialize it first by running:
+  def caveats
+    <<~EOS
+      OPAM uses ~/.opam by default for its package database, so you need to
+      initialize it first by running:
 
-    $ opam init
-  EOS
+      $ opam init
+    EOS
   end
 
   test do

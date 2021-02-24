@@ -2,24 +2,22 @@ class Flake8 < Formula
   include Language::Python::Virtualenv
 
   desc "Lint your Python code for style and logical errors"
-  homepage "http://flake8.pycqa.org/"
-  url "https://gitlab.com/pycqa/flake8/-/archive/3.7.9/flake8-3.7.9.tar.bz2"
-  sha256 "2fd4dfaaeb507e1bb5a598f76e61eca50d27930e550c215f73ed2e5454681c1e"
-  head "https://gitlab.com/PyCQA/flake8.git", :shallow => false
+  homepage "https://flake8.pycqa.org/"
+  url "https://files.pythonhosted.org/packages/71/6a/b3341ef7e7f3585add027d876a7d9837cdfe3320b6c6b5fd0cddfa9ceeac/flake8-3.8.4.tar.gz"
+  sha256 "aadae8761ec651813c24be05c6f7b4680857ef6afaae4651a4eccaef97ce6c3b"
+  license "MIT"
+  revision 1
+  head "https://gitlab.com/PyCQA/flake8.git", shallow: false
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "64ed289bb60f923957b6ba6a9462e89903e2444ac40baa88b9d5c855d970eb27" => :catalina
-    sha256 "0ea49e473833c6bd7fa8d00a8962f59a0dfb853d9237b5961b31a233d3996082" => :mojave
-    sha256 "0d1162d279110a265420fe2f93f04f330e2ac47fdf410368ae1ba260749cb661" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "919c2b7426270504f2cad10d6652336476d3cea402880c5de2653cf2ec21587b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1897e2a2000df43795e4a1b1de0fecb1e0141e0abce4c0b8df3c6ebad065f8c0"
+    sha256 cellar: :any_skip_relocation, catalina:      "136faaf5ecc55423194ac71a9eba7b1b03e694b0f7d4552c7c3d02cc3a7b1377"
+    sha256 cellar: :any_skip_relocation, mojave:        "77329693f9aaf1267a46c1fad72ccb976ccf9995767c256cf89458d36e27f663"
   end
 
-  depends_on "python"
-
-  resource "entrypoints" do
-    url "https://files.pythonhosted.org/packages/b4/ef/063484f1f9ba3081e920ec9972c96664e2edb9fdc3d8669b0e3b8fc0ad7c/entrypoints-0.3.tar.gz"
-    sha256 "c70dd71abe5a8c85e55e12c19bd91ccfeec11a6e99044204511f9ed547d48451"
-  end
+  depends_on "python@3.9"
 
   resource "mccabe" do
     url "https://files.pythonhosted.org/packages/06/18/fa675aa501e11d6d6ca0ae73a101b2f3571a565e0f7d38e062eec18a91ee/mccabe-0.6.1.tar.gz"
@@ -27,35 +25,29 @@ class Flake8 < Formula
   end
 
   resource "pycodestyle" do
-    url "https://files.pythonhosted.org/packages/1c/d1/41294da5915f4cae7f4b388cea6c2cd0d6cd53039788635f6875dfe8c72f/pycodestyle-2.5.0.tar.gz"
-    sha256 "e40a936c9a450ad81df37f549d676d127b1b66000a6c500caa2b085bc0ca976c"
+    url "https://files.pythonhosted.org/packages/bb/82/0df047a5347d607be504ad5faa255caa7919562962b934f9372b157e8a70/pycodestyle-2.6.0.tar.gz"
+    sha256 "c58a7d2815e0e8d7972bf1803331fb0152f867bd89adf8a01dfd55085434192e"
   end
 
   resource "pyflakes" do
-    url "https://files.pythonhosted.org/packages/52/64/87303747635c2988fcaef18af54bfdec925b6ea3b80bcd28aaca5ba41c9e/pyflakes-2.1.1.tar.gz"
-    sha256 "d976835886f8c5b31d47970ed689944a0262b5f3afa00a5a7b4dc81e5449f8a2"
+    url "https://files.pythonhosted.org/packages/f1/e2/e02fc89959619590eec0c35f366902535ade2728479fc3082c8af8840013/pyflakes-2.2.0.tar.gz"
+    sha256 "35b2d75ee967ea93b55750aa9edbbf72813e06a66ba54438df2cfac9e3c27fc8"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3")
-    resource("entrypoints").stage do
-      # Without removing this file, `pip` will ignore the `setup.py` file and
-      # attempt to download the [`flit`](https://github.com/takluyver/flit)
-      # build system.
-      rm_f "pyproject.toml"
-      venv.pip_install Pathname.pwd
-    end
-    (resources.map(&:name).to_set - ["entrypoints"]).each do |r|
-      venv.pip_install resource(r)
-    end
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3"
-    # flake8 version 3.7.8 will fail this test with `E203` warnings.
-    # Adding `E203` to the list of ignores makes the test pass.
-    # Remove the customized ignore list once the problem is fixed upstream.
-    system "#{bin}/flake8", "#{libexec}/lib/python#{xy}/site-packages/flake8", "--ignore=E121,E123,E126,E226,E24,E704,W503,W504,E203"
+    (testpath/"test-bad.py").write <<~EOS
+      print ("Hello World!")
+    EOS
+
+    (testpath/"test-good.py").write <<~EOS
+      print("Hello World!")
+    EOS
+
+    assert_match "E211", shell_output("#{bin}/flake8 test-bad.py", 1)
+    assert_empty shell_output("#{bin}/flake8 test-good.py")
   end
 end

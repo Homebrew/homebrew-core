@@ -1,33 +1,41 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.15.0-source.tar.xz"
-  sha256 "565036cf7f140139c3033f0934b72e1885ac7e881994b7919e15d7bee3f8ac4e"
+  url "https://mupdf.com/downloads/archive/mupdf-1.18.0-source.tar.xz"
+  sha256 "592d4f6c0fba41bb954eb1a41616661b62b134d5b383e33bd45a081af5d4a59a"
+  license "AGPL-3.0-or-later"
   revision 1
   head "https://git.ghostscript.com/mupdf.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "979ee218ac557ae601028796e2aa660af24f0bc69dcdf3b4da54bd52542dc55b" => :catalina
-    sha256 "b1957abbb7174d8fad50192dc935b559207d3fb0daa480f41a7c0e862ffc2478" => :mojave
-    sha256 "e4d59258d07575e2d4e6c041bb6ace980891cdbd08b8238849d721c9c6ec2195" => :high_sierra
+  livecheck do
+    url "https://mupdf.com/downloads/archive/"
+    regex(/href=.*?mupdf[._-]v?(\d+(?:\.\d+)+)-source\.t/i)
   end
 
-  depends_on "openssl@1.1"
-  depends_on :x11
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "c28c062952a8a22084a7f59f3eb3378a8286d924263b0da073f6152870a21bf9"
+    sha256 cellar: :any, big_sur:       "aaa1bc3c7a6e77bca62d9b4f6d1b7225cea461d8d28471df79b9ee11e81d9ecc"
+    sha256 cellar: :any, catalina:      "b656ec4a7c2cbb3b55b52678e5129bbeb27215c793cd6e3876d40a51d293bd84"
+    sha256 cellar: :any, mojave:        "5b06c1203b68608f64d082b83db659a46d98a849d79530bfa83f28adb970e17e"
+    sha256 cellar: :any, high_sierra:   "32dc7277f5dce0762c695ecf15f3ec745ec7767afec09f6acefc4aea86386873"
+  end
+
+  depends_on "pkg-config" => :build
+  depends_on "freeglut"
+  depends_on "mesa"
 
   conflicts_with "mupdf-tools",
-    :because => "mupdf and mupdf-tools install the same binaries."
+    because: "mupdf and mupdf-tools install the same binaries"
 
   def install
-    # Work around Xcode 11 clang bug
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
+    glut_cflags = `pkg-config --cflags glut gl`.chomp
+    glut_libs = `pkg-config --libs glut gl`.chomp
     system "make", "install",
            "build=release",
            "verbose=yes",
            "CC=#{ENV.cc}",
+           "SYS_GLUT_CFLAGS=#{glut_cflags}",
+           "SYS_GLUT_LIBS=#{glut_libs}",
            "prefix=#{prefix}"
 
     # Symlink `mutool` as `mudraw` (a popular shortcut for `mutool draw`).

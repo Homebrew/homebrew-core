@@ -1,25 +1,30 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.3.tar.gz"
-  sha256 "7cbfac83684a7434499f165e784a7a7bb5b89140717537067d7b969eccc111eb"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.5.tar.gz"
+  sha256 "36bf45591a95e6ee7216153d45d8eca05ff00c1da35608f0c400e6ddc8049da9"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any
-    sha256 "3fdec454548d572b2f8524b326570a404c227e546ec4040d302ddb46f7949f07" => :catalina
-    sha256 "6a0804cfa9537a78d77b4c0304fb8ade3238795c3b152ddf2b5f86f05c770205" => :mojave
-    sha256 "5eced597ad649064bb8386c1b5a19e43f4774ae56587f280eb988fd10cd2d9a1" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "9f6864341db930e3fec14ee0e108e2c71d268441d6890c76f57e873475daaf99"
+    sha256 cellar: :any, big_sur:       "3a61df370da3e0ee676eaabe0470a0bc75296dc0dd3d4a62bd02e7a84829a50a"
+    sha256 cellar: :any, catalina:      "ce6660264a1b883917ca7437e173ec954d5b552f9f1fcbda82ae3a8594668dd4"
+    sha256 cellar: :any, mojave:        "d1b6db2cd443c0cf57990bea3651fefeca93e22a6542657967617560e483e78a"
   end
 
   depends_on "lmdb"
   depends_on "mcpp"
 
   def install
-    ENV.O2 # Os causes performance issues
-
     args = [
       "prefix=#{prefix}",
       "V=1",
+      "USR_DIR_INSTALL=yes", # ensure slice and man files are installed to share
       "MCPP_HOME=#{Formula["mcpp"].opt_prefix}",
       "LMDB_HOME=#{Formula["lmdb"].opt_prefix}",
       "CONFIGS=shared cpp11-shared xcodesdk cpp11-xcodesdk",
@@ -35,13 +40,14 @@ class Ice < Formula
     end
   end
 
-  def caveats; <<~EOS
-    slice2py, slice2js and slice2rb were installed in:
+  def caveats
+    <<~EOS
+      slice2py, slice2js and slice2rb were installed in:
 
-      #{opt_libexec}/bin
+        #{opt_libexec}/bin
 
-    You may wish to add this directory to your PATH.
-  EOS
+      You may wish to add this directory to your PATH.
+    EOS
   end
 
   test do

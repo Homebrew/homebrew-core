@@ -1,16 +1,16 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
-  homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.31.0.tar.gz"
-  sha256 "ab041ea5d1965a33d4e03ea87718b8922ba4e54abb46c71cf9e040edef2556c0"
-  head "https://github.com/libuv/libuv.git", :branch => "v1.x"
+  homepage "https://libuv.org"
+  url "https://github.com/libuv/libuv/archive/v1.41.0.tar.gz"
+  sha256 "6cfeb5f4bab271462b4a2cc77d4ecec847fdbdc26b72019c27ae21509e6f94fa"
+  license "MIT"
+  head "https://github.com/libuv/libuv.git", branch: "v1.x"
 
   bottle do
-    cellar :any
-    sha256 "3202b80f4a93cedcc30ed1193c192e9cf6ebfdf9db41347ff8e9690a05ea6e45" => :catalina
-    sha256 "d99c68a335354839700616c87cdfea6635025965be5728a974ec866838d403ae" => :mojave
-    sha256 "d0afcf32eac5aeb43fbc8711a590127d1cb54343f85ade53c7bb0083608041f4" => :high_sierra
-    sha256 "e86931a805793e222336c213a45c2fd0633123271ebaa3b69995053fe4803d15" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "25ba3f6a09c7fa6c6dd3aeda7842aa95e05d3377788938ef59e71d1c504e2826"
+    sha256 cellar: :any, big_sur:       "74240126a16d9be316c69535e61fd1c000428b89b6e5a8f72198dc1ce86ddc99"
+    sha256 cellar: :any, catalina:      "fec3670ca2dcbe641c1351c806fa3f66f7e7054dc4d42c683d80c0dcfddf0131"
+    sha256 cellar: :any, mojave:        "452550de9576d4bea5258ec6e40f345b72819f2fad1b96f2c4a71d9481c16310"
   end
 
   depends_on "autoconf" => :build

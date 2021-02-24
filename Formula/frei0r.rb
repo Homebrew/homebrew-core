@@ -3,12 +3,19 @@ class Frei0r < Formula
   homepage "https://frei0r.dyne.org/"
   url "https://files.dyne.org/frei0r/releases/frei0r-plugins-1.7.0.tar.gz"
   sha256 "1b1ff8f0f9bc23eed724e94e9a7c1d8f0244bfe33424bb4fe68e6460c088523a"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://files.dyne.org/frei0r/releases/"
+    regex(/href=.*?frei0r-plugins[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5076041b5f3d76b94866ab2b97ad34523ee40cfa314e6f7d2bf460ce304de872" => :catalina
-    sha256 "5e23b93a7ff4a2ee64c5a969b17bf6a52329e6da17c0612b46aa2ceec3fb5b39" => :mojave
-    sha256 "a6a4648e1ff6263616f532a4648e1eb56e68d510d04e768becb2caf5ca961e3a" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "284401af98f9f86f7f4aa8dd2a2cd7ccd22841decc2065d730b9811cc683cd3d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cafe9dbba970e60d275480465cf7f87b7847063fb2113e7fd862947de0735865"
+    sha256 cellar: :any_skip_relocation, catalina:      "5076041b5f3d76b94866ab2b97ad34523ee40cfa314e6f7d2bf460ce304de872"
+    sha256 cellar: :any_skip_relocation, mojave:        "5e23b93a7ff4a2ee64c5a969b17bf6a52329e6da17c0612b46aa2ceec3fb5b39"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a6a4648e1ff6263616f532a4648e1eb56e68d510d04e768becb2caf5ca961e3a"
   end
 
   depends_on "cmake" => :build

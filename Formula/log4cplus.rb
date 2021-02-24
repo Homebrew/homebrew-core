@@ -1,15 +1,20 @@
 class Log4cplus < Formula
   desc "Logging Framework for C++"
   homepage "https://sourceforge.net/p/log4cplus/wiki/Home/"
-  url "https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/2.0.4/log4cplus-2.0.4.tar.xz"
-  sha256 "faf15f3651e2d0f9f9cf2c1bfcb38ec4962f22f4a671410453a27c0976da5e36"
+  url "https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/2.0.6/log4cplus-2.0.6.tar.xz"
+  sha256 "73519a5e47c40cf375aa6cd28a703b01908b5dcd3f4cb4290db2fef237c8180c"
+  license all_of: ["Apache-2.0", "BSD-2-Clause"]
+
+  livecheck do
+    url :stable
+    regex(/url=.*?log4cplus-stable.*?log4cplus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "d64da534eb5d7e5b677eaa92044390c676aa59b253784ffe33507f372b55df50" => :catalina
-    sha256 "8bb0963c5de1a5b6d9f08fbfa7f3a268f96784985d986ce1d016d835fdcda4d9" => :mojave
-    sha256 "59a4c0794e2f300ecbe9e3dddd852af5feb5797cd3d223b810b808032aa9a605" => :high_sierra
-    sha256 "3e00ce73b731f28bd3b1d86895a2b2e5c06cf3354730b638bef2d46cfc238b7b" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "6b39cf87d24dccbbcd063c7d3cc21b3392c9676f2fd5c7ea7a3b2b98a294385a"
+    sha256 cellar: :any, big_sur:       "3c50bcc0856327c8224074fc5f11d62e4f9033209aad12ceacd64010e1a51a80"
+    sha256 cellar: :any, catalina:      "462843dd835da767dd0b422bdbe2f601db45b5fd8dbe1fcc8cdf99291592a9cd"
+    sha256 cellar: :any, mojave:        "dffec0954dd25101569d672c5b07b454c80f3ee8ab4ab4cdb1d5c224395fb412"
   end
 
   def install

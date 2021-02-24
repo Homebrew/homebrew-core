@@ -1,30 +1,27 @@
 class Rpcgen < Formula
   desc "Protocol Compiler"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/developer_cmds/developer_cmds-63.tar.gz"
-  sha256 "d4bc4a4b1045377f814da08fba8b7bfcd515ef1faec12bbb694de7defe9a5c0d"
+  url "https://opensource.apple.com/tarballs/developer_cmds/developer_cmds-66.tar.gz"
+  sha256 "99d6c4ef4f32593df937a42d50400c17054247e875ab8cfb3bf0f2de19a90860"
+  # Sun-RPC license issue, https://github.com/spdx/license-list-XML/issues/906
+
+  livecheck do
+    url "https://opensource.apple.com/tarballs/developer_cmds/"
+    regex(/href=.*?developer_cmds[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bff5b2c16c8f161b4828d4f1cd6fe7353b63cb12bec8f4646716199b7f2fb522" => :catalina
-    sha256 "e4c588689133af91de553a2a586cdaaebe27fc49c274ae1e2c7c889dc836a327" => :mojave
-    sha256 "53ca92eda3bb7eb7f81aa70794ca1b5c16deaba84fe7ad41aaca11f32ebb8988" => :high_sierra
-    sha256 "0d3a08d255ccbb538b0e818155e079ff74c65965d6effd67fd74775b837bdddb" => :sierra
-    sha256 "75acb2995dda96d42faf6a3f83b1b30c9d0a6502ac1b031f92567282a1c67f69" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e4b76a3f59923370fd526a8d0d7c2d045e24c0fd3bc8a90520a75a0600b2b42"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8168bcd5de6cb890aae1bd5deb67f732c193f6729606632d7ece185c10dd3b75"
+    sha256 cellar: :any_skip_relocation, catalina:      "4d9702a8541f7db461c81f761bd446167473d0b7ad9590370fbbd9cb775442d4"
+    sha256 cellar: :any_skip_relocation, mojave:        "6bc4a8c391b448681db323c894b07a57a22a8e4d67015f0b9be7f1cff876d23a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2a4a7cf95e773ee5a2721cc90832031c6d5bb6dffefd575233acccca0d446631"
   end
 
   keg_only :provided_by_macos
 
-  depends_on :xcode => ["7.3", :build]
-
-  # Add support for parsing 'hyper' and 'quad' types, as per RFC4506.
-  # https://github.com/openbsd/src/commit/26f19e833517620fd866d2ef3b1ea76ece6924c5
-  # https://github.com/freebsd/freebsd/commit/15a1e09c3d41cb01afc70a2ea4d20c5a0d09348a
-  # Reported to Apple 13 Dec 2016 rdar://29644450
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/rpcgen/63.patch"
-    sha256 "d687d74e1780ec512c6dacf5cb767650efa515a556106400294393f5f06cf1db"
-  end
+  depends_on xcode: ["7.3", :build]
+  depends_on :macos
 
   def install
     xcodebuild "-project", "developer_cmds.xcodeproj",

@@ -1,14 +1,20 @@
 class Sord < Formula
   desc "C library for storing RDF data in memory"
   homepage "https://drobilla.net/software/sord/"
-  url "https://download.drobilla.net/sord-0.16.4.tar.bz2"
-  sha256 "b15998f4e7ad958201346009477d6696e90ee5d3e9aff25e7e9be074372690d7"
+  url "https://download.drobilla.net/sord-0.16.8.tar.bz2"
+  sha256 "7c289d2eaabf82fa6ac219107ce632d704672dcfb966e1a7ff0bbc4ce93f5e14"
+  license "ISC"
+
+  livecheck do
+    url "https://download.drobilla.net"
+    regex(/href=.*?sord[._-]v?(\d+.\d+.\d+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "8c1546cb6310b54955a6c0e4aa8a7a64a989ee4917bd299da9abf7bb8837461b" => :catalina
-    sha256 "3e7948f1de2a394508f2c8c8a251eb5aacc72ff81d3c226e0a6ef886989baa0e" => :mojave
-    sha256 "05c4c8862795925b5135e57a6bb2e3a532b1a462a1832273eab15dc09459698e" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "ec9d443ac5fc598d0718dd33a9c19fc8f2d2f38975512ce79acabd2d5e509fd7"
+    sha256 cellar: :any, big_sur:       "30fed8a7b4747de9ed632640e1b2aa326e0c5bb71030d0924b934d820fe87ef5"
+    sha256 cellar: :any, catalina:      "e0ca8e8fd6e2ba8ccec9cb75c8bb2f1d1fe09ba8ebce886f78eed4c87343ab93"
+    sha256 cellar: :any, mojave:        "2d69dca2635bf0808ce19d65e6a795d1591b5f197b2cc703fa9fa084d81d6c2f"
   end
 
   depends_on "pkg-config" => :build

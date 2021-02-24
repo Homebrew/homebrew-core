@@ -3,19 +3,19 @@ class AntlrAT2 < Formula
   homepage "https://www.antlr2.org/"
   url "https://www.antlr2.org/download/antlr-2.7.7.tar.gz"
   sha256 "853aeb021aef7586bda29e74a6b03006bcb565a755c86b66032d8ec31b67dbb9"
-  revision 1
+  license "ANTLR-PD"
+  revision 4
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cb387dca2bd1e2fb74d7353aaaa9ccf74a958df52f2a852fa520c3ccf43427c5" => :catalina
-    sha256 "9be9c82eba1b6b803c75114ed55947692693785566c59dca392b8bbae6b8aa19" => :mojave
-    sha256 "8befbeeb644d45a1a8edfebc99035b965dfc95a9d5adfa7227428905168062d4" => :high_sierra
-    sha256 "76d763e8d8097435e98239935255d6679e174245b5443f4f87decf4198793444" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "130f56b4182f57e74a535c97948667ff1b1e13bd821562ef573d048676db1e3f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cc27645bb089a3ffc38aeeb4dcc7c5352d93472ac31d7e9853b0b5b90a695e64"
+    sha256 cellar: :any_skip_relocation, catalina:      "b3a7378ef4a657176107a37a6d5661b9eb3750f7407ebe081200aa8b45d6d480"
+    sha256 cellar: :any_skip_relocation, mojave:        "5642de8d8012c11705b3199f5daf8758d8029333ae9eb4ab113e80069e49ef57"
   end
 
   keg_only :versioned_formula
 
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     # C Sharp is explicitly disabled because the antlr configure script will
@@ -26,12 +26,13 @@ class AntlrAT2 < Formula
     system "make"
 
     libexec.install "antlr.jar"
+    rm Dir["lib/cpp/antlr/Makefile*"]
     include.install "lib/cpp/antlr"
     lib.install "lib/cpp/src/libantlr.a"
 
     (bin/"antlr").write <<~EOS
       #!/bin/sh
-      java -classpath #{libexec}/antlr.jar antlr.Tool "$@"
+      exec "#{Formula["openjdk"].opt_bin}/java" -classpath "#{libexec}/antlr.jar" antlr.Tool "$@"
     EOS
   end
 

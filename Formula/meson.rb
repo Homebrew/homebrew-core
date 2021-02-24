@@ -1,27 +1,28 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/0.52.1/meson-0.52.1.tar.gz"
-  sha256 "0c277472e49950a5537e3de3e60c57b80dbf425788470a1a8ed27446128fc035"
+  url "https://github.com/mesonbuild/meson/releases/download/0.57.1/meson-0.57.1.tar.gz"
+  sha256 "72e1c782ba9bda204f4a1ed57f98d027d7b6eb9414c723eebbd6ec7f1955c8a6"
+  license "Apache-2.0"
   head "https://github.com/mesonbuild/meson.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b10cf0e32247a056c6c2f6ef7a4897d1677784dc8acb41bb2ce67423dddaa983" => :catalina
-    sha256 "b10cf0e32247a056c6c2f6ef7a4897d1677784dc8acb41bb2ce67423dddaa983" => :mojave
-    sha256 "b10cf0e32247a056c6c2f6ef7a4897d1677784dc8acb41bb2ce67423dddaa983" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "27cfeb861038b0c1928e2301bc3caf6dc4ed26bc7b353d796cd546b97099894b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f798ac28df81a00f561310c0586952a41634536953e31e8b313aadf54de7a975"
+    sha256 cellar: :any_skip_relocation, catalina:      "617a2f8071127e097fe39d2cbeb92fbd2074ed0f38a9883f84e0ddc1449726da"
+    sha256 cellar: :any_skip_relocation, mojave:        "eb3e4ffa73b41573c7c09a2ea44deefa4a8bcc512e1e5d0ebcac8d45f0c1bb77"
   end
 
   depends_on "ninja"
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
-    version = Language::Python.major_minor_version("python3")
+    version = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
     ENV["PYTHONPATH"] = lib/"python#{version}/site-packages"
 
-    system "python3", *Language::Python.setup_install_args(prefix)
+    system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
 
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do

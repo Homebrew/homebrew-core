@@ -1,33 +1,23 @@
 class Terrahelp < Formula
   desc "Tool providing extra functionality for Terraform"
   homepage "https://github.com/opencredo/terrahelp"
-  url "https://github.com/opencredo/terrahelp/archive/v0.7.3.tar.gz"
-  sha256 "e0d281092e399804e7fcb7636c45af2709e5b69609af07c6b8929ac793afe7d9"
+  url "https://github.com/opencredo/terrahelp/archive/v0.7.4.tar.gz"
+  sha256 "2d70b6471bfb4b9c8ff3bb12050ecedca8d39830fa221bf8c319a1b6144ee6e5"
+  license "Apache-2.0"
   head "https://github.com/opencredo/terrahelp.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "27b3df54ff8a7eadd2d0eefaae0036da26e0c0c5cdeb917b9b278c1d5346e1c6" => :catalina
-    sha256 "9277377d2e0970ff628d0a0bfd8d67d701c588b0357c5b38bca24d70d0b102de" => :mojave
-    sha256 "5c44b6ad3f3616681ed6408eb2c28f8e4e2e3e7a81a1694f464ea6507b5a531f" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "be14ceca5a50701b09d86ccf224def6bc98f9151847240068d3667c6e62a47a5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58044fae3de9a59f2420d65923e6d2619b91d026e45a1a6629699b11f9afa5be"
+    sha256 cellar: :any_skip_relocation, catalina:      "e8edbc804fa080128c6fdad4182eae24e3679c846bb03cfc7c71b56bba1e983a"
+    sha256 cellar: :any_skip_relocation, mojave:        "7ba4bc44de9efe372c14e80ecb0eeed2f6b634fb1e49fa66768db616200206b8"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-
-    dir = buildpath/"src/github.com/opencredo/terrahelp"
-    dir.install buildpath.children
-
-    cd dir do
-      ENV["GOOS"] = "darwin"
-      ENV["GOARCH"] = "amd64"
-
-      system "go", "build", "-mod=vendor", "-o", "dist/darwin/amd64/terrahelp"
-      bin.install "dist/darwin/amd64/terrahelp"
-    end
+    system "go", "build", *std_go_args, "-mod=vendor"
   end
 
   test do
@@ -56,6 +46,6 @@ class Terrahelp < Formula
     output = shell_output("cat #{tf_output} \| #{bin}/terrahelp mask --tfvars #{tf_vars}").strip
 
     assert_match("vars.msg1: \"******\"", output, "expecting sensitive value to be masked")
-    assert_not_match(/sensitive\-value\-1\-AK#%DJGHS\*G/, output, "not expecting sensitive value to be presentt")
+    assert_not_match(/sensitive-value-1-AK#%DJGHS\*G/, output, "not expecting sensitive value to be presentt")
   end
 end

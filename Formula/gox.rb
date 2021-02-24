@@ -3,21 +3,22 @@ class Gox < Formula
   homepage "https://github.com/mitchellh/gox"
   url "https://github.com/mitchellh/gox/archive/v1.0.1.tar.gz"
   sha256 "25aab55a4ba75653931be2a2b95e29216b54bd8fecc7931bd416efe49a388229"
+  license "MPL-2.0"
   head "https://github.com/mitchellh/gox.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6693416aef377d44385c25eb786d25f963258c0895491beedbf6039d7c84c06d" => :catalina
-    sha256 "008ec56acef96c3ad3117bcde87f1998fcf4ef9c93f82ae363ed6ac39914a95d" => :mojave
-    sha256 "c2d77e6fadb6c7585a5df89eb91aaf1f41f6b88829e1a647efb4ebbc70277b3b" => :high_sierra
-    sha256 "1d48879bdbbd84d2406aeaf5f052c51ed2f0b8f9484508ad6085bf537be6f5f6" => :sierra
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "943375b71098b9de0d440507638f5e514cd09ec8a4b99d628f2a7d687786f3a9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0a1967d492f5b586399d6fa9fa0b9f461e1178563625c1ea23e62fefbf384d36"
+    sha256 cellar: :any_skip_relocation, catalina:      "3cd12726dcdcf4e41a87d00825f7e5a915252e12c13dfe7a88efecba63a2dc6d"
+    sha256 cellar: :any_skip_relocation, mojave:        "79355b0248170797677b7e202fb6a071fc59fa087eef025c3aa4868e65edd6be"
   end
 
   depends_on "go"
 
   resource "iochan" do
     url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
+        revision: "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
   end
 
   # This resource is for the test so doesn't really need to be updated.
@@ -27,17 +28,12 @@ class Gox < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/mitchellh/gox").install buildpath.children
-    (buildpath/"src/github.com/mitchellh/iochan").install resource("iochan")
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "build", "-o", bin/"gox"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
   end
 
   test do
     ENV["GOPATH"] = testpath
+    ENV["GO111MODULE"] = "auto"
     (testpath/"src/github.com/ericchiang/pup").install resource("pup")
     cd "src/github.com/ericchiang/pup" do
       output = shell_output("#{bin}/gox -arch amd64 -os darwin -os freebsd")

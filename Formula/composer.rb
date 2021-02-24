@@ -1,8 +1,14 @@
 class Composer < Formula
   desc "Dependency Manager for PHP"
   homepage "https://getcomposer.org/"
-  url "https://getcomposer.org/download/1.9.1/composer.phar"
-  sha256 "1f210b9037fcf82670d75892dfc44400f13fe9ada7af9e787f93e50e3b764111"
+  url "https://getcomposer.org/download/2.0.11/composer.phar"
+  sha256 "eabf2917072096a94679193762501319e621e2b369a4a1256b2c27f4e6984477"
+  license "MIT"
+
+  livecheck do
+    url "https://getcomposer.org/download/"
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/composer\.phar}i)
+  end
 
   bottle :unneeded
 
@@ -54,6 +60,6 @@ class Composer < Formula
     EOS
 
     system "#{bin}/composer", "install"
-    assert_match /^HelloHomebrew$/, shell_output("php tests/test.php")
+    assert_match(/^HelloHomebrew$/, shell_output("php tests/test.php"))
   end
 end

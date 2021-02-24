@@ -1,15 +1,24 @@
 class Libtasn1 < Formula
   desc "ASN.1 structure parser library"
   homepage "https://www.gnu.org/software/libtasn1/"
-  url "https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.15.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libtasn1/libtasn1-4.15.0.tar.gz"
-  sha256 "dd77509fe8f5304deafbca654dc7f0ea57f5841f41ba530cff9a5bf71382739e"
+  url "https://ftp.gnu.org/gnu/libtasn1/libtasn1-4.16.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libtasn1/libtasn1-4.16.0.tar.gz"
+  sha256 "0e0fb0903839117cb6e3b56e68222771bebf22ad7fc2295a0ed7d576e8d4329d"
+  license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "f1988371a72d252ecf69f2c39d61a8ad01cb49dd84ea716f00e38a2a74ff5ee0" => :catalina
-    sha256 "2e13d55178c6a4c057dbef42599700d06d7ef4192500b9254ff5cd99d5a07167" => :mojave
-    sha256 "1cf05b98fcb012d92efad23aaf68ba67e9edd7e15813f2b8826878d15b1ba189" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "a5a79346194afa5a466d36f07aee16700be211a92e6cbddd522fb252dd6b1b5b"
+    sha256 cellar: :any, big_sur:       "367dc37e3bcb626de815129016cb106aa39ca8c2e8c3c9c5904b8da763b10e9f"
+    sha256 cellar: :any, catalina:      "09f4b0b626425f10665ff506c2dca70101ae9062b284b956197d7e88c91d952c"
+    sha256 cellar: :any, mojave:        "384a48716bc3b0fa7122c2fbd3a1ab4a93087acee7191710fa5bbbfa31e0f24f"
+  end
+
+  # Remove the patch when the issue is resolved:
+  # https://gitlab.com/gnutls/libtasn1/-/issues/30
+  patch do
+    url "https://gitlab.com/gnutls/libtasn1/-/commit/088c9f3e946cb8a15867f6f09f0ef503a7551961.patch"
+    sha256 "0791ee7d9e0f231018956a0a5eac80165ede1ec7732490d7d8bea7dc83022d3a"
   end
 
   def install
@@ -35,6 +44,6 @@ class Libtasn1 < Formula
       s 47
     EOS
     system "#{bin}/asn1Coding", "pkix.asn", "assign.asn1"
-    assert_match /Decoding: SUCCESS/, shell_output("#{bin}/asn1Decoding pkix.asn assign.out PKIX1.Dss-Sig-Value 2>&1")
+    assert_match "Decoding: SUCCESS", shell_output("#{bin}/asn1Decoding pkix.asn assign.out PKIX1.Dss-Sig-Value 2>&1")
   end
 end

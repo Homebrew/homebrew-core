@@ -6,12 +6,13 @@ class Web100clt < Formula
   revision 1
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "6674131c694ef7d4b8f0bc6fe8342ddc6e015b180efcf1f9452366cfb5eaf2d9" => :catalina
-    sha256 "d0657f34a029afff0189246744dd03d276ea9091e61b6dd208aea81b7e58cf36" => :mojave
-    sha256 "d6d8ecf4d6e7aa7da29fab7d2fe58db4c6da2da60b777be22d12854c15ea0887" => :high_sierra
-    sha256 "a6c81629d7e8171694cc14ebd5a1fc2280f23643be442f1103ac5a84403e344a" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "e6fb064b785043092357a6ca59164fad4ddb9be375f84b466a307b6af724d994"
+    sha256 cellar: :any, big_sur:       "d4872b871f3d043038fc48d815196f2207203afb5df034b942c6488c83520501"
+    sha256 cellar: :any, catalina:      "6674131c694ef7d4b8f0bc6fe8342ddc6e015b180efcf1f9452366cfb5eaf2d9"
+    sha256 cellar: :any, mojave:        "d0657f34a029afff0189246744dd03d276ea9091e61b6dd208aea81b7e58cf36"
+    sha256 cellar: :any, high_sierra:   "d6d8ecf4d6e7aa7da29fab7d2fe58db4c6da2da60b777be22d12854c15ea0887"
+    sha256 cellar: :any, sierra:        "a6c81629d7e8171694cc14ebd5a1fc2280f23643be442f1103ac5a84403e344a"
   end
 
   depends_on "i2util"

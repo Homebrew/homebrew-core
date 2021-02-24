@@ -3,30 +3,23 @@ class LibtensorflowAT1 < Formula
 
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/v1.15.0.tar.gz"
-  sha256 "a5d49c00a175a61da7431a9b289747d62339be9cf37600330ad63b611f7f5dc9"
+  url "https://github.com/tensorflow/tensorflow/archive/v1.15.5.tar.gz"
+  sha256 "4c4d23e311093ded2d2e287b18d7c45b07b5984ab88a1d2f91f8f13c886123db"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "c7806a8ba774deabf5f2ca02a99d75591a2e3be9c724c9a4c7a64ad86ab673be" => :catalina
-    sha256 "c7806a8ba774deabf5f2ca02a99d75591a2e3be9c724c9a4c7a64ad86ab673be" => :mojave
-    sha256 "51879b87cb76bbe54a6e85ab13a30f5a02477c204426a75b11cf9ae9713b6a39" => :high_sierra
+    sha256 cellar: :any, big_sur:  "8f1c80ebe024b29fb7d6695fa41de75e84d21948535a6459f3dd11b8e5a2165f"
+    sha256 cellar: :any, catalina: "28bac51bae550468948151ffa7fa62d38cce9eee19522f045b1f40b4885f9625"
+    sha256 cellar: :any, mojave:   "aefd6a0dbaae05e710a8372fa6ca3e6d731b9ee455ca99f898141d7f627303eb"
   end
 
   keg_only :versioned_formula
 
   depends_on "bazel" => :build
-  depends_on :java => ["1.8", :build]
-  depends_on "python" => :build
+  depends_on "python@3.9" => :build
 
   def install
-    venv_root = "#{buildpath}/venv"
-    virtualenv_create(venv_root, "python3")
-
-    cmd = Language::Java.java_home_cmd("1.8")
-    ENV["JAVA_HOME"] = Utils.popen_read(cmd).chomp
-
-    ENV["PYTHON_BIN_PATH"] = "#{venv_root}/bin/python"
+    ENV["PYTHON_BIN_PATH"] = Formula["python@3.9"].opt_bin/"python3"
     ENV["CC_OPT_FLAGS"] = "-march=native"
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
@@ -52,7 +45,8 @@ class LibtensorflowAT1 < Formula
     bazel_compatibility_flags = %w[
       --noincompatible_remove_legacy_whole_archive
     ]
-    system "bazel", "build", "--jobs", ENV.make_jobs, "--compilation_mode=opt", "--copt=-march=native", *bazel_compatibility_flags, "tensorflow:libtensorflow.so"
+    system "bazel", "build", "--jobs", ENV.make_jobs, "--compilation_mode=opt",
+                    "--copt=-march=native", *bazel_compatibility_flags, "tensorflow:libtensorflow.so"
     lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
     (include/"tensorflow/c").install %w[
       tensorflow/c/c_api.h

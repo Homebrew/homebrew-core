@@ -1,39 +1,35 @@
 class Convox < Formula
-  desc "Command-line interface for the Rack PaaS on AWS"
+  desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/rack/archive/20191216210003.tar.gz"
-  sha256 "35955a9d79fcc7738442b295cc3df1e3859f80e1f0a6885ef666d8ba3adf0502"
+  url "https://github.com/convox/convox/archive/3.0.45.tar.gz"
+  sha256 "3647585b31b092aa3c3c7243d3eefb2e83c4593a782a8904dec165f454e24f6a"
+  license "Apache-2.0"
+  version_scheme 1
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2254c33e4edf03ba11df61b2e3a26b08dccec39aa3570bd3274dfac33e0c6025" => :catalina
-    sha256 "a1eefdcd2606c56551f035c5da86d1a857d2c5ab5d1a71d7a783ced8e8c1dc62" => :mojave
-    sha256 "286490a117e211cf2ad3b5385ca352d30e1331c067d6279d9509a7b4280606ae" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5c5484e46e8ba32c0babe936c951fecab00171b55d8dca49ff920b853529960"
+    sha256 cellar: :any_skip_relocation, big_sur:       "46c750d57369ba9176f837d83674253af263658acf216880e1038b98f4303504"
+    sha256 cellar: :any_skip_relocation, catalina:      "606a7cc3e37e5007e37eae7e6d2f10add0cbf1f272f6158560e01796b1fd2c18"
+    sha256 cellar: :any_skip_relocation, mojave:        "2b0e40402da441ecc00a803aa71c8bac1ee05ef2ca101b4fc9f60cd4e763c847"
   end
 
   depends_on "go" => :build
 
-  resource "packr" do
-    url "https://github.com/gobuffalo/packr/archive/v2.0.1.tar.gz"
-    sha256 "cc0488e99faeda4cf56631666175335e1cce021746972ce84b8a3083aa88622f"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
+    ldflags = %W[
+      -X main.version=#{version}
+    ].join(" ")
 
-    (buildpath/"src/github.com/convox/rack").install Dir["*"]
-
-    resource("packr").stage { system "go", "install", "./packr" }
-    cd buildpath/"src/github.com/convox/rack" do
-      system buildpath/"bin/packr"
-    end
-
-    system "go", "build", "-ldflags=-X main.version=#{version}",
-           "-o", bin/"convox", "-v", "github.com/convox/rack/cmd/convox"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args, "-mod=vendor", "-ldflags", ldflags, "./cmd/convox"
   end
 
   test do
-    system bin/"convox"
+    assert_equal "Authenticating with localhost... ERROR: invalid login\n",
+      shell_output("#{bin}/convox login -t invalid localhost 2>&1", 1)
   end
 end

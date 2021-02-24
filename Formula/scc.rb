@@ -1,22 +1,26 @@
 class Scc < Formula
   desc "Fast and accurate code counter with complexity and COCOMO estimates"
   homepage "https://github.com/boyter/scc/"
-  url "https://github.com/boyter/scc/archive/v2.10.1.tar.gz"
-  sha256 "98a09aeeb3e6727b1663e8d9f8ac9bb53303928634fd3761464f34de4b382970"
+  url "https://github.com/boyter/scc/archive/v3.0.0.tar.gz"
+  sha256 "01b903e27add5180f5000b649ce6e5088fa2112e080bfca1d61b1832a84a0645"
+  license any_of: ["MIT", "Unlicense"]
+
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c84250a5d2de756215dfda44f51b8c41c733120b0faea9a486fe575b8334c4d2" => :catalina
-    sha256 "f20385f625dac231aa4b35e516740d7859761d66c42e7afbb3ff32a9919553c7" => :mojave
-    sha256 "aad78487cd872af15c5379d3b7c54aa16fa37c5d009b6392db1b7fa23268e5b4" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3c4d0faf74445889e647a4366f428dfada194b66be43bcae45e8493b21d02187"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e55821dfc18b02de3be5dec72881c65085ffa0b5a446179b86a151db5780577c"
+    sha256 cellar: :any_skip_relocation, catalina:      "8f425e7b1f10563d69e459bb5ce07e5cf87512c4eb0923acb2618e0b0f1184f8"
+    sha256 cellar: :any_skip_relocation, mojave:        "81f89e5d3ba8358b052378b2c68bab24ade5d75ec8561b2e2b16b7de065c8d56"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/boyter/scc/").install Dir["*"]
-    system "go", "build", "-o", "#{bin}/scc", "-v", "github.com/boyter/scc/"
+    system "go", "build", *std_go_args
   end
 
   test do
@@ -27,6 +31,11 @@ class Scc < Formula
       }
     EOS
 
-    assert_match "C,test.c,test.c,4,4,0,0,0\n", shell_output("#{bin}/scc -fcsv test.c")
+    expected_output = <<~EOS
+      Language,Lines,Code,Comments,Blanks,Complexity,Bytes
+      C,4,4,0,0,0,50
+    EOS
+
+    assert_match expected_output, shell_output("#{bin}/scc -fcsv test.c")
   end
 end

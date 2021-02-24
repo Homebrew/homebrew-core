@@ -1,15 +1,26 @@
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20190901.1791406.tar.gz"
-  version "20190901"
-  sha256 "e6116e9cbe461a9da08b25d897efc41d159ea6366a0500b9905d791c0d2be129"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20200901.9910e5b.tar.gz"
+  version "20200901"
+  sha256 "bada3eb5766c5bb804572b257b588362f8357bb38ec229561cca5f3c43501127"
+  license "MIT"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?spigot[._-]v?(\d+)(?:\.[\da-z]+)?\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "52686686bfb7b326d07195c5bc273dcbc6573cc3cf35a97ca4f2dc56217b9e4f" => :catalina
-    sha256 "e6a746565b55b5b0bf6f376264f76feba718fc7eb884a2a37c539fb98f8cbf74" => :mojave
-    sha256 "2894874b355e762ad27549a2476ea2c01ad4582608de97d1c790737fe496ab0f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c99b3b16920a75e920aacde3bc43c48367cc99f5d8a8552bd0c9434fae43954c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7906077fdbe6ebbcabd2f3127513a5f9d99a1f147bb19347ecc211e3d4612b93"
+    sha256 cellar: :any_skip_relocation, catalina:      "c0f39e9c1b93310f7a4c02a8c1be709dfd4f2dc83e32498b07a9deb4b30aaa32"
+    sha256 cellar: :any_skip_relocation, mojave:        "5c612e702e1610bcdbbc1f5c121017eb0b49b62c4f4f07b8dd3833fb8dfba550"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "885c712c8e738092e669b36cdbeadb354057bf8eb3f9af572a2716e61bab1d8c"
+  end
+
+  on_linux do
+    depends_on "gmp"
   end
 
   def install

@@ -1,22 +1,30 @@
 class Libfixbuf < Formula
   desc "Implements the IPFIX Protocol as a C library"
   homepage "https://tools.netsa.cert.org/fixbuf/"
-  url "https://tools.netsa.cert.org/releases/libfixbuf-2.3.1.tar.gz"
-  sha256 "2ba7877c5b09c120a20eb320d5d9e2ac93520c8308624eac3064aaece239bad3"
-  revision 1
+  url "https://tools.netsa.cert.org/releases/libfixbuf-2.4.1.tar.gz"
+  sha256 "8c535d48120b08df1731de709f2dbd2ba8bce568ad64cac34826102caf594d84"
+  license "LGPL-3.0-only"
+
+  livecheck do
+    url "https://tools.netsa.cert.org/fixbuf/download.html"
+    regex(%r{releases/libfixbuf[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "835aeb4089c8add19f4c9c56be373559f15c7c5134bc555988cab4244c9f9ca4" => :catalina
-    sha256 "72d1509d9b0bea98eb09e2fd2aaaff75a2a8bddbef035ee5c244578ccf247832" => :mojave
-    sha256 "a7bd2c731284fd783a6b1cc74efc0d7b3e3668b6b02afc33ce307aba8a2b3845" => :high_sierra
-    sha256 "cd6ba9552c12bfb738591876977a2470c6132c3fa649d542f9a9a064ffa64488" => :sierra
+    sha256 arm64_big_sur: "d29c4e4bd8a1d13508214f781306188fe89e78579747aea4ab1166a9d33a4402"
+    sha256 big_sur:       "1cafffbb92c6bba1c328d01d1c00fa4ed1191a93eec966a6a3dce31219ef0d05"
+    sha256 catalina:      "4e7eb768bb5499147e8c630e4620c356abba37fff0c54d69daf8fe2c9f752771"
+    sha256 mojave:        "576d20e23954424a4132ed8b1dd9387f78ce0cf3b401d1fa1ed0d436016a3713"
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "glib"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make"

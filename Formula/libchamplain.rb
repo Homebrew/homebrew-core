@@ -3,12 +3,15 @@ class Libchamplain < Formula
   homepage "https://wiki.gnome.org/Projects/libchamplain"
   url "https://download.gnome.org/sources/libchamplain/0.12/libchamplain-0.12.20.tar.xz"
   sha256 "0232b4bfcd130a1c5bda7b6aec266bf2d06e701e8093df1886f1e26bc1ba3066"
+  license "LGPL-2.1"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "b6be73601f13ea2e273909b9946071e1904ef379d1b001366f347d78b5a8643c" => :catalina
-    sha256 "9722cf78615bca8249d01e0df046ac75cfa056afe66fdf88eadbb4cc442a9665" => :mojave
-    sha256 "0ab75bc1d716f572c0eeef649f8bbdd390e87debb519faa6e350d02646139b09" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "0d8f75014270cd171c9d059fe9aa9583c5ac7f8d4156d69cf685789218ab8246"
+    sha256 cellar: :any, big_sur:       "b4d05a54fce8efb6482e4dabe54fe8ff184253045c70d76e50b6679915f591fb"
+    sha256 cellar: :any, catalina:      "cb5f211f8fa37e711a6e8888e4dfc873599defae9bad26f2d4310d798d0df98f"
+    sha256 cellar: :any, mojave:        "451b57e103a89cbd80b18fe98012f5ff2a56de6ef0fbca9d0b2e49279c0f06dd"
+    sha256 cellar: :any, high_sierra:   "139ae58e12b28abeeeddedebd802c5183761048c3745f3cb042458f2be3f9602"
   end
 
   depends_on "gnome-common" => :build
@@ -23,7 +26,7 @@ class Libchamplain < Formula
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Ddocs=false", ".."
+      system "meson", *std_meson_args, "-Ddocs=false", ".."
       system "ninja"
       system "ninja", "install"
     end

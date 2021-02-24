@@ -1,23 +1,26 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://developer.mozilla.org/docs/Mozilla/Projects/NSPR"
-  url "https://archive.mozilla.org/pub/nspr/releases/v4.24/src/nspr-4.24.tar.gz"
-  sha256 "90a59a0df6a11528749647fe18401cc7e03881e3e63c309f8c520ce06dd413d0"
+  url "https://archive.mozilla.org/pub/nspr/releases/v4.29/src/nspr-4.29.tar.gz"
+  sha256 "22286bdb8059d74632cc7c2865c139e63953ecfb33bf4362ab58827e86e92582"
+  license "MPL-2.0"
+
+  livecheck do
+    url "https://ftp.mozilla.org/pub/nspr/releases/"
+    regex(/v(\d+(?:\.\d+)*)/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "f98f2c3c4a5bbc2e43a2f7ed2cb653206d79827df2a39884395330aef9c5bfb2" => :catalina
-    sha256 "bbec910100b9e29bf7581e0bef0a7ed977b7a8ebad092b92ba1105ead69002e8" => :mojave
-    sha256 "657ed5c99f276bda1c48d6f8be34d5561f1c1579277a7fe4534aee95a2d97ec2" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "c02e2a44ebd1f681e356062d94af3a7682c212156ec99b7d193f5ff0cd77735b"
+    sha256 cellar: :any, big_sur:       "853f1762fc3372f776f66ead09a8f45b7d03de583b5d70a2c11140eafb899897"
+    sha256 cellar: :any, catalina:      "c47dc31bf73d954e1d4629a92cff5f2e5801573fa9cc1caab7c9ea3b0fb68566"
+    sha256 cellar: :any, mojave:        "5b87579476cdbb34be47c9579125183f9ff29373e9b25e94d419b02995e6ae29"
+    sha256 cellar: :any, high_sierra:   "1b3e41e52e1dc0131ca2ae486d099fb91e7e983355d8dd4ae18ff47a8547fe1e"
   end
 
   def install
     ENV.deparallelize
     cd "nspr" do
-      # Fixes a bug with linking against CoreFoundation, needed to work with SpiderMonkey
-      # See: https://openradar.appspot.com/7209349
-      inreplace "pr/src/Makefile.in", "-framework CoreServices -framework CoreFoundation", ""
-
       args = %W[
         --disable-debug
         --prefix=#{prefix}

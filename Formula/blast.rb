@@ -1,20 +1,33 @@
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
-  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.9.0/ncbi-blast-2.9.0+-src.tar.gz"
-  version "2.9.0"
-  sha256 "a390cc2d7a09422759fc178db84de9def822cbe485916bbb2ec0d215dacdc257"
+  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.11.0/ncbi-blast-2.11.0+-src.tar.gz"
+  version "2.11.0"
+  sha256 "d88e1858ae7ce553545a795a2120e657a799a6d334f2a07ef0330cc3e74e1954"
+  license :public_domain
+
+  livecheck do
+    url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    sha256 "9fef86c970bdc8556a479920bffd3d33a57c0ce7bdcad4c44f2469e116f940aa" => :catalina
-    sha256 "e07f0dafa79bd72359cf467ba8cf8e51d76665c1571128dc7cc5d7857c5b92d8" => :mojave
-    sha256 "3de6646d96d9fdbf6b76fdf57a14612c8eebbfa1327f0d42e0402b516b6298ec" => :high_sierra
-    sha256 "57f2e2f9c65aa5364eb72a9bbdf6948a30af2975a53445a4b43203f56395da7c" => :sierra
+    sha256 big_sur:     "8d32e53882b58c2ffec36a76764929759536cf72c5104337c599be08f8772aa0"
+    sha256 catalina:    "b682885e3ef53795f010e04a55ebc607e82105b24d441f0354dda4fa2ce56b41"
+    sha256 mojave:      "0d98042978cd28ea16e9e89f4b4f2ff318c67e662a11a9b9bf130d810ee1eb3f"
+    sha256 high_sierra: "5899dbfbdd65d6274b03eb0ed576d87a7bfc18a3d9a5b588fe30edddb554ce24"
   end
 
   depends_on "lmdb"
 
-  conflicts_with "proj", :because => "both install a `libproj.a` library"
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libarchive" => :build
+  end
+
+  conflicts_with "proj", because: "both install a `libproj.a` library"
 
   def install
     cd "c++" do
@@ -34,11 +47,22 @@ class Blast < Formula
   end
 
   test do
+    output = shell_output("#{bin}/update_blastdb.pl --showall")
+    assert_match "nt", output
+
     (testpath/"test.fasta").write <<~EOS
       >U00096.2:1-70
       AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC
     EOS
     output = shell_output("#{bin}/blastn -query test.fasta -subject test.fasta")
     assert_match "Identities = 70/70", output
+
+    # Create BLAST database
+    output = shell_output("#{bin}/makeblastdb -in test.fasta -out testdb -dbtype nucl")
+    assert_match "Adding sequences from FASTA", output
+
+    # Check newly created BLAST database
+    output = shell_output("#{bin}/blastdbcmd -info -db testdb")
+    assert_match "Database: test", output
   end
 end

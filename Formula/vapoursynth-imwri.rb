@@ -1,15 +1,17 @@
 class VapoursynthImwri < Formula
   desc "VapourSynth filters - ImageMagick HDRI writer/reader"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R48.tar.gz"
-  sha256 "3e98d134e16af894cf7040e4383e4ef753cafede34d5d77c42a2bb89790c50a8"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R52.tar.gz"
+  sha256 "4d5dc7950f4357da695d29708bc98013bc3e0bd72fc5d697f8c91ce3c4a4b2ac"
+  license "LGPL-2.1-or-later"
+  revision 2
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
-    cellar :any
-    sha256 "4e7d54dff9c16d7065706c1a45e234345b02843318cb350647c3d062c1702fdc" => :catalina
-    sha256 "34dffc0e96bd5ee14577c227aa76ae5f41db46837e5172e361d6e48522a83c0e" => :mojave
-    sha256 "7da1b0a97f2f2766b850927bf8e55db18d7ced470be6e47cc2df9d8f139847ee" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "20b6a0b07a2e4cbb8fe60a87a839f43f466514b2c5dc9198424774edec57f7e0"
+    sha256 cellar: :any, big_sur:       "11991f437ab02ddd68dec46cde3ecc78d79db72773486c4858b72151fc8c2cf3"
+    sha256 cellar: :any, catalina:      "6530be1c73bf93d1ab1d52f338d36fc1a18471a8f9f779cd8b3d74bed667b08b"
+    sha256 cellar: :any, mojave:        "88087c485608b4c72cf17bbc6b6be447be06e895caea683a6e1c49fae7bc61e4"
   end
 
   depends_on "autoconf" => :build
@@ -17,7 +19,6 @@ class VapoursynthImwri < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-
   depends_on "imagemagick"
   depends_on "vapoursynth"
 
@@ -39,8 +40,8 @@ class VapoursynthImwri < Formula
   end
 
   test do
-    py3 = Language::Python.major_minor_version "python3"
-    ENV.prepend_path "PYTHONPATH", lib/"python#{py3}/site-packages"
-    system "python3", "-c", "from vapoursynth import core; core.imwri"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "from vapoursynth import core; core.imwri"
   end
 end

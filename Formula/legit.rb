@@ -3,19 +3,21 @@ class Legit < Formula
 
   desc "Command-line interface for Git, optimized for workflow simplicity"
   homepage "https://frostming.github.io/legit/"
-  url "https://files.pythonhosted.org/packages/6b/65/819f84ef3caa4743c834122acb897df29167f6178c9c095d7896f2181387/legit-1.1.0.tar.gz"
-  sha256 "25bd3809d657c9b0bd45a6a230dc7f58a56e6e068159d471ffeadb0cf4677b4d"
+  url "https://files.pythonhosted.org/packages/cb/e4/8cc5904c486241bf2edc4dd84f357fa96686dc85f48eedb835af65f821bf/legit-1.2.0.post0.tar.gz"
+  sha256 "949396b68029a8af405ab20c901902341ef6bd55c7fec6dab71141d63d406b11"
+  license "BSD-3-Clause"
   revision 1
-  head "https://github.com/frostming/legit.git", :branch => "master"
+  head "https://github.com/frostming/legit.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e7f856fc9b5006de204b039de012c60154d4393b17fe6a16942f9a2f2fe1547d" => :catalina
-    sha256 "5c64d0307fdf5efe81b5ad0795e67a9674b8725e99407716d7073bb71f60cbc0" => :mojave
-    sha256 "2c34a9958b93118ccf0190ab9450689a9983de54556d6eb58fd24db1b2b74faf" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b991a34a3b1731bcd71a09aecf6b974b0b2fcb3a8fd42c3d34e7b553f840b640"
+    sha256 cellar: :any_skip_relocation, big_sur:       "73161b2eb5a55db6d984dbf1b1aae96072419b500672bf6d58c0352e840cbc73"
+    sha256 cellar: :any_skip_relocation, catalina:      "3564e73b3de899626951b43275564ad6435816d0ad540c3f6c7941c89f6c6b60"
+    sha256 cellar: :any_skip_relocation, mojave:        "175045954b783f943c2e8b27d5df01d0a8bf21034439f7f9abd99cc8ced744e3"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b4a46a53103b33f06eefdee01e64f87839b28c41288f96388a7f5e311234115e"
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"

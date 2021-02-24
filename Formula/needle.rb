@@ -2,24 +2,35 @@ class Needle < Formula
   desc "Compile-time safe Swift dependency injection framework with real code"
   homepage "https://github.com/uber/needle"
   url "https://github.com/uber/needle.git",
-      :tag      => "v0.11.0",
-      :revision => "c7bdc2b94877e70d30fa8c05505672074f297144"
+      tag:      "v0.17.1",
+      revision: "3ac31475379b5a6c18a31436c15d072189e8f5f1"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d7b4102e80a103f7578d5220d89691350de90341ba9fa06980026d874d295393" => :catalina
-    sha256 "f3d9fb6053eeb5d55f434a12e891a81e9eea06bfc51715dbba3276c03ebfb448" => :mojave
-    sha256 "b3a85d1dc8c443a13ef9f901c2f77a80ed88105d6db2a5aacbe236c9741d5f22" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "b66f209a2d40070653cc38d2910ffb0c2810ceaf4fb9daa39dbab3b46d185ad3"
+    sha256 cellar: :any, big_sur:       "d1b4c382f90fb980a40f4d04c7fb4f6c7afb9024b453731dbaf2a24cc974fd76"
+    sha256 cellar: :any, catalina:      "3d62dba1647de4fb3d967bf42435eb4009d3eedc760d3d69e87ba9be17315681"
   end
 
-  depends_on :xcode => ["10.0", :build]
-  depends_on :xcode => "6.0"
+  depends_on xcode: ["12.2", :build]
 
   def install
     system "make", "install", "BINARY_FOLDER_PREFIX=#{prefix}"
+    bin.install "./Generator/bin/needle"
+    libexec.install "./Generator/bin/lib_InternalSwiftSyntaxParser.dylib"
   end
 
   test do
+    (testpath/"Test.swift").write <<~EOS
+      import Foundation
+
+      protocol ChildDependency: Dependency {}
+      class Child: Component<ChildDependency> {}
+
+      let child = Child(parent: self)
+    EOS
+
+    assert_match "Root\n", shell_output("#{bin}/needle print-dependency-tree #{testpath}/Test.swift")
     assert_match version.to_s, shell_output("#{bin}/needle version")
   end
 end

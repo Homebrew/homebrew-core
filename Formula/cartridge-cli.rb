@@ -1,24 +1,30 @@
 class CartridgeCli < Formula
   desc "Tarantool Cartridge command-line utility"
   homepage "https://tarantool.org/"
-  url "https://github.com/tarantool/cartridge-cli/archive/1.2.0.tar.gz"
-  sha256 "4668f84a779eb8f6ddfcafaf4c727899ef2fe31622e8999317c512b685bd1c31"
-  head "https://github.com/tarantool/cartridge-cli.git"
+  url "https://github.com/tarantool/cartridge-cli.git",
+      tag:      "2.6.0",
+      revision: "6d409e4a0139238441420f7fc58453cb21488035"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a4790082a90287ce8911c60c2dc9fb7a2d60dcddcd4da17f94779332c4028958" => :catalina
-    sha256 "a4790082a90287ce8911c60c2dc9fb7a2d60dcddcd4da17f94779332c4028958" => :mojave
-    sha256 "a4790082a90287ce8911c60c2dc9fb7a2d60dcddcd4da17f94779332c4028958" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "875c19e2fcb15d07b7ce167d6657af81e7137c5b80c77b33533792a307e06dce"
+    sha256 cellar: :any_skip_relocation, catalina: "361e9cfc5f12e0980f3ac052603c9dca0c52e62ed4c70e01b3b07faf554b5924"
+    sha256 cellar: :any_skip_relocation, mojave:   "8e2ec16a6bed6b6762530ebf34ee9084b33417f56f975a5270e35b115bca8107"
   end
 
-  depends_on "cmake" => :build
-  depends_on "tarantool"
+  depends_on "go" => :build
+  depends_on "mage" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DVERSION=#{version}"
-    system "make"
-    system "make", "install"
+    # Remove this when upstream ships a go.sum
+    system "go", "mod", "download"
+
+    system "mage", "build"
+    bin.install "cartridge"
+    system bin/"cartridge", "gen", "completion"
+
+    bash_completion.install "completion/bash/cartridge"
+    zsh_completion.install "completion/zsh/_cartridge"
   end
 
   test do

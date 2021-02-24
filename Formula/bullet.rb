@@ -1,32 +1,28 @@
 class Bullet < Formula
   desc "Physics SDK"
   homepage "https://bulletphysics.org/"
-  revision 1
+  url "https://github.com/bulletphysics/bullet3/archive/3.08.tar.gz"
+  sha256 "05826c104b842bcdd1339b86894cb44c84ac2525ac296689d34b38a14bbba0dd"
+  license "Zlib"
+  revision 2
   head "https://github.com/bulletphysics/bullet3.git"
 
-  stable do
-    url "https://github.com/bulletphysics/bullet3/archive/2.88.tar.gz"
-    sha256 "21c135775527754fc2929db1db5144e92ad0218ae72840a9f162acb467a7bbf9"
-
-    # Fix Xcode 11 compile errors
-    patch do
-      url "https://github.com/bulletphysics/bullet3/commit/7638b7c5a659dceb4e580ae87d4d60b00847ef94.patch?full_index=1"
-      sha256 "2b08ff21dce85562bd6ff24ae6b71ed55de84b24a0a74d1e8323b7a0f783f528"
-    end
-  end
-
   bottle do
-    sha256 "2871bb63205a9fb0f9911422729628339be0fa84b903063a8ca39abda15e6f4b" => :catalina
-    sha256 "41b2dfaa33c18ec6875999a4112e9214b1e956cb8b4e86052fd80aa7127a3612" => :mojave
-    sha256 "c9b07e0e13f21cdd31cd71c32b4a5c7cca5bd181867a8a1c5bc95b5e261f3bdd" => :high_sierra
+    sha256 arm64_big_sur: "a5a64a05831e6387debb1f54dbfa9609478444e131562f5a5f7be09fbd434b33"
+    sha256 big_sur:       "cbf1daed6725c676797fb40910049ffcff8e2c28f52614f9da5392585c4b07ef"
+    sha256 catalina:      "8beddcd17b7277b00526201a97d1057fe9881ce62a9a60faf4b73dcc054393fd"
+    sha256 mojave:        "c11bec4ded6cac76461e6f8ae18342770a812c3bc5d5e574924b0840a35a9e14"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
 
   def install
     args = std_cmake_args + %W[
-      -DBUILD_BULLET2_DEMOS=OFF
-      -DBUILD_PYBULLET=OFF
+      -DBUILD_PYBULLET=ON
+      -DBUILD_PYBULLET_NUMPY=ON
+      -DBT_USE_EGL=ON
       -DBUILD_UNIT_TESTS=OFF
       -DCMAKE_INSTALL_RPATH=#{lib}
       -DINSTALL_EXTRA_LIBS=ON

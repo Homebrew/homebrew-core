@@ -1,16 +1,30 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
-  url "https://gitlab.com/sane-project/backends/uploads/9e718daff347826f4cfe21126c8d5091/sane-backends-1.0.28.tar.gz"
-  sha256 "31260f3f72d82ac1661c62c5a4468410b89fb2b4a811dabbfcc0350c1346de03"
-  revision 1
-  head "https://gitlab.com/sane-project/backends.git"
+  url "https://gitlab.com/sane-project/backends/uploads/104f09c07d35519cc8e72e604f11643f/sane-backends-1.0.32.tar.gz"
+  sha256 "3a28c237c0a72767086202379f6dc92dbb63ec08dfbab22312cba80e238bb114"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "07216e961a590f3d9a00b43cae10b132ed5008309a410db93d68aa4dca824888" => :catalina
-    sha256 "132822ae224a20672067f3c5017abe7d7b00af43bea92dbe051cc62a94f03a72" => :mojave
-    sha256 "99eabfb87281a6a88c00d9b9c52da3bcbfe430b0f66088c6ea5a5d4e0caad170" => :high_sierra
-    sha256 "1c8dd4cbc1bec193f3bca14d19d79a513b7336f276ce0f373088391d38621173" => :sierra
+    sha256 arm64_big_sur: "1ebc21e81f57ecb00c64799e448dff7606c8bea5a66123169af37bed634083ac"
+    sha256 big_sur:       "bcdbaa5208359537721be14fbf2420ff07c573d62a480cb0fbafd5cb0be4334b"
+    sha256 catalina:      "077644bb297e1e9e232d67ade77ef46bb8df7745a48444129e0b996d8fa2bec9"
+    sha256 mojave:        "d7a6d9cb0ef356bef081454e6ee551d0975be4444ce77d048b625b9f44460ed2"
+  end
+
+  head do
+    url "https://gitlab.com/sane-project/backends.git"
+
+    depends_on "autoconf" => :build
+    depends_on "autoconf-archive" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
@@ -21,11 +35,10 @@ class SaneBackends < Formula
   depends_on "net-snmp"
   depends_on "openssl@1.1"
 
-  def install
-    # malloc lives in malloc/malloc.h instead of just malloc.h on macOS.
-    # Merge request opened upstream: https://gitlab.com/sane-project/backends/merge_requests/90
-    inreplace "backend/ricoh2_buffer.c", "#include <malloc.h>", "#include <malloc/malloc.h>"
+  uses_from_macos "libxml2"
 
+  def install
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}",

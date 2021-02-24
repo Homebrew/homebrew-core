@@ -1,21 +1,23 @@
 class Rhash < Formula
   desc "Utility for computing and verifying hash sums of files"
   homepage "https://sourceforge.net/projects/rhash/"
-  url "https://downloads.sourceforge.net/project/rhash/rhash/1.3.9/rhash-1.3.9-src.tar.gz"
-  sha256 "42b1006f998adb189b1f316bf1a60e3171da047a85c4aaded2d0d26c1476c9f6"
+  url "https://downloads.sourceforge.net/project/rhash/rhash/1.4.1/rhash-1.4.1-src.tar.gz"
+  sha256 "430c812733e69b78f07ce30a05db69563450e41e217ae618507a4ce2e144a297"
+  license "0BSD"
   head "https://github.com/rhash/RHash.git"
 
   bottle do
-    sha256 "fc4f0d1311c5481c4b53bd1a05644531a986eb501aa1e853131125573cbd0d6a" => :catalina
-    sha256 "cb70f24905e35fca8812456e91f34d24aa71c54f05bb72c04c4b94610564ab37" => :mojave
-    sha256 "557acccf2751cbfdd83e6e8e2ec2c6cf5f87a90f0c7a0be9b3d99de0d2f0f6b6" => :high_sierra
+    sha256 arm64_big_sur: "8eb637a12522739222253513a13aa3fafdc9ab586987f5648290349543017aca"
+    sha256 big_sur:       "6f7648fc30e68060747fb9be6480be57c7b30680e429b619f34ead13b9cc80d6"
+    sha256 catalina:      "108986af36d715a05223344f3f338c04b0ce5aa6d6cf0c26776be015adaef36a"
+    sha256 mojave:        "87ac3199498088f7d465dafefc6f014e10b4692ed3997895bbf1eb288dce8cdd"
   end
 
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    lib.install "librhash/librhash.dylib"
+    lib.install "librhash/#{shared_library("librhash")}"
     system "make", "-C", "librhash", "install-lib-headers"
   end
 

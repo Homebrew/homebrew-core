@@ -1,14 +1,14 @@
 class Cafeobj < Formula
   desc "New generation algebraic specification and programming language"
   homepage "https://cafeobj.org/"
-  url "https://cafeobj.org/files/1.5.9/cafeobj-1.5.9.tar.gz"
-  sha256 "a4085e9ee060a8a0a22cb7c522c17aa1ccadb5bdce8f90085e08ded3794498d4"
+  url "https://cafeobj.org/files/1.6.0/cafeobj-1.6.0.tar.gz"
+  sha256 "ab97d3cf22d8556524c86540cbb11d4e2eb1ba38cb0198eb068a4493b745d560"
+  revision 2
 
   bottle do
-    sha256 "d70c24f9be1cc6818b31442a8356cff23198712e67357def96a628ff43efb40b" => :catalina
-    sha256 "94db8f954bca7bcea9d83bc36391ab7a5902c9a1b555a6c6aeac5ecdfa9edded" => :mojave
-    sha256 "658c55bc4a10ca2b355bf37720bf28b2ae7757b7b259b80f7fef2aa87ab372af" => :high_sierra
-    sha256 "a74c31e2e157724e11707f96cddfcf35ce56641f84c72f5ba854652afc5f6399" => :sierra
+    sha256 big_sur:  "724109123713a037126847a07fe06e4fa134d3e28aff72ae72de7f8f4fa77576"
+    sha256 catalina: "7e5281633b3f18239282905a748c61b702b2d059daf559fd52187aa6d079e79c"
+    sha256 mojave:   "1a875e6c86c2d15862f0b64ee9bb90077bff62748d3c2d91f201527ea78886ac"
   end
 
   depends_on "sbcl"

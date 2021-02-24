@@ -1,17 +1,17 @@
 require "language/node"
 
 class Ungit < Formula
-  desc "The easiest way to use git. On any platform. Anywhere"
+  desc "Easiest way to use Git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
-  url "https://registry.npmjs.org/ungit/-/ungit-1.5.1.tgz"
-  sha256 "8f045f6f606e3e89a8a053f86c9d403ba85df8d047e85a31a321fcce99cd9dee"
-  revision 1
+  url "https://registry.npmjs.org/ungit/-/ungit-1.5.15.tgz"
+  sha256 "5c49e6e02f7ebd5280648ce483fd882f343d32a9c55d4df4eebf0e55e8e116e7"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "287bc7f94ff856dba56f6faf19700b3a973b28b9034796f378afe2e86c1429ad" => :catalina
-    sha256 "2a8f82d9cb0e4be0f550b4239a6d9c927f2ea5be0a82fe3f3e79b244c624e1aa" => :mojave
-    sha256 "d3379a71b3f4a89bb335b33fbe08f1b3618fdcc659d0e735227f9c73236a3946" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8debb4cf923826e272d4380975a847058bc48f81481deaabb5c4c1136f91170b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cf2eb7938bb22d7248562aa729129ab51582164f80e0f7664a8ea9f292099b8d"
+    sha256 cellar: :any_skip_relocation, catalina:      "a9b97a9899218d53bf8df215e63d26ddad4abea4a99d3f18e4508fd71f161223"
+    sha256 cellar: :any_skip_relocation, mojave:        "fc1c5fb8dddb5b385036f962fe237d9de9a2f8ceb843f517f07a0067d87d034b"
   end
 
   depends_on "node"
@@ -22,22 +22,13 @@ class Ungit < Formula
   end
 
   test do
-    server = TCPServer.new(0)
-    port = server.addr[1]
-    server.close
+    port = free_port
 
-    ppid = fork do
-      exec bin/"ungit", "--no-launchBrowser", "--port=#{port}", "--autoShutdownTimeout=6000"
+    fork do
+      exec bin/"ungit", "--no-launchBrowser", "--port=#{port}"
     end
-    sleep 5
+    sleep 8
+
     assert_includes shell_output("curl -s 127.0.0.1:#{port}/"), "<title>ungit</title>"
-  ensure
-    if ppid
-      Process.kill("TERM", ppid)
-      # ensure that there are no spawned child processes left
-      child_p = shell_output("ps -o pid,ppid").scan(/^(\d+)\s+#{ppid}\s*$/).map { |p| p[0].to_i }
-      child_p.each { |pid| Process.kill("TERM", pid) }
-      Process.wait(ppid)
-    end
   end
 end

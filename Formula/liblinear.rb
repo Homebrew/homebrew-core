@@ -1,22 +1,28 @@
 class Liblinear < Formula
   desc "Library for large linear classification"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/liblinear/"
-  url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.30.tar.gz"
-  sha256 "881c7039c6cf93119c781fb56263de91617b3eca8c3951f2c19a3797de95c6ac"
+  url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.42.tar.gz"
+  sha256 "cf44f13809f506be10c8434fdbf4d4f7a3c6f8da9e93b6e03fb8a80a8e9c938d"
+  license "BSD-3-Clause"
   head "https://github.com/cjlin1/liblinear.git"
 
+  livecheck do
+    url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/"
+    regex(/href=.*?liblinear[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "e232d6644b55148f5fef3e478006dbd85b9b834299f7c97bee6313806204685a" => :catalina
-    sha256 "1ab5662ee30a21a4c83b180d62553e886043b56fc094b66501588b965ecac3ce" => :mojave
-    sha256 "bb1f3367533f79366c2e40b31f5e14fc0831537789e28da3aec5e7210b898c10" => :high_sierra
-    sha256 "8ea77b137e26d69cddd966a8d95da70ae4366b8bf0c673307e1579bc4f9b791a" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "3d10c6424ded069cf0642018690d5e87725ca7ad6ca0b762e00446c6d05718b9"
+    sha256 cellar: :any, big_sur:       "6afbe67a6cb651a0ac829b421c2a4e7f875b7eb41ceb7a8acfe24c8be2203114"
+    sha256 cellar: :any, catalina:      "b1ff692bb0430cc95e14ef736a8b1730afa826887648f91835869181922a2136"
+    sha256 cellar: :any, mojave:        "9481d9d47bea60aff197812d668bb3fef9702e1922da016bc5c6d8bde7f32c08"
+    sha256 cellar: :any, high_sierra:   "0ed1af625144027e73642a9b2eff35593a086692ef1abea5af6ab85ab3869abd"
   end
 
   # Fix sonames
   patch :p0 do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/941ec0ad/liblinear/patch-Makefile.diff"
-    sha256 "ffb5206f0a6c15832574ec77863cda12eb2012e0f052bacebfe1ad722d31ea22"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/b1dbde5b1d7c/liblinear/patch-Makefile.diff"
+    sha256 "b7cd43329264ed0568f27e305841aa24817dccc71e5ff3c384eef9ac6aa6620a"
   end
 
   def install

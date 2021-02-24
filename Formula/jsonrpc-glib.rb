@@ -1,29 +1,29 @@
 class JsonrpcGlib < Formula
   desc "GNOME library to communicate with JSON-RPC based peers"
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
-  url "https://download.gnome.org/sources/jsonrpc-glib/3.34/jsonrpc-glib-3.34.0.tar.xz"
-  sha256 "d1ceb24b503e49e7bfe6e44630c03abc65f2d047a68271eb62e332b13be90548"
+  url "https://download.gnome.org/sources/jsonrpc-glib/3.38/jsonrpc-glib-3.38.0.tar.xz"
+  sha256 "dc5f1914a91152b70fa8fc9a11ede13148ab4af644db27a36632388c927a8a82"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any
-    sha256 "1c302e75c1276b6fac906158727353657f8a6a353ec9a395ecbae99a5025dd18" => :catalina
-    sha256 "42081e5890e3bfe1be1d29bc08d2ca9376d9e2493c0a7f1828497e59ffa8cc54" => :mojave
-    sha256 "7fc3931e31121ca0f83710193591bc1ffe2fed9c9300aedead32db047b39e940" => :high_sierra
-    sha256 "b47f0d67cfe99c39b1d789aabcc4e19384afc7477273687b46e359064f79fa32" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "06160c00773beabdcff9556c7b3cc1149b281e693807adb50afa5004999482d1"
+    sha256 cellar: :any, big_sur:       "922f8e0d4df5ea8c43e188ca633694d0665046c2a364c62348c32e22309f2b5b"
+    sha256 cellar: :any, catalina:      "5dcab8d9974c1bd60c225d8ce2976fd20c0cedcaf2d537a57f42fe80aec20ece"
+    sha256 cellar: :any, mojave:        "3a7318d1a9d0bee9a6b234494236778205d9dcbfb20622dbbda6c3007b3f8858"
+    sha256 cellar: :any, high_sierra:   "fc193951d9001132ec4fe5ee59fccae34ee8249bf51b386a52924056a0d2f333"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "json-glib"
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", "-Dwith_vapi=true", ".."
+      system "meson", *std_meson_args, "-Dwith_vapi=true", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
@@ -58,12 +58,14 @@ class JsonrpcGlib < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -ljson-glib-1.0
       -ljsonrpc-glib-1.0
-      -Wl,-framework
-      -Wl,CoreFoundation
     ]
+    on_macos do
+      flags << "-lintl"
+      flags << "-Wl,-framework"
+      flags << "-Wl,CoreFoundation"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

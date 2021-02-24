@@ -1,26 +1,31 @@
 class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/glibmm/2.62/glibmm-2.62.0.tar.xz"
-  sha256 "36659f13cc73282392d1305858f3bbca46fbd1ce2f078cc9db8b9f79b2e93cfe"
+  url "https://download.gnome.org/sources/glibmm/2.68/glibmm-2.68.0.tar.xz"
+  sha256 "c1f38573191dceed85a05600888cf4cf4695941f339715bd67d51c2416f4f375"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any
-    sha256 "9dd137d8cee10a3604a20c0c5318db7e9fb68e49328727d4b712589c8293d1a7" => :catalina
-    sha256 "161bab6c21bb5137f9c4603b0f6873cc3a8b30bfbfcdf49bb30812d070ebdfb1" => :mojave
-    sha256 "df7fe42bb76f0b9ca5b9e17a1dfde4419d8c99a92e11a3c1237be1d9e6795449" => :high_sierra
-    sha256 "f658b7bdcf4888b849b06d10c0c9686a8f624ceefec5579921f265f561d0076f" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "ad82e21e43601e8804150bea12157afa6c38201a441d97a91521ecea93bbfc13"
+    sha256 cellar: :any, big_sur:       "59b86d3d2fe4f28e8a19ba0f5faf0174f7829bb46ae3b04f06bdcf5f3c24935b"
+    sha256 cellar: :any, catalina:      "f4d4326c91b4c573e07a832a0b204bd5a8bc75da331e87f18c044e1397951bc2"
+    sha256 cellar: :any, mojave:        "ff82b1c3e7e8467ac8cd91f01cd97ca2bb4329861b2dd99bda0be89954f730b6"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "libsigc++@2"
+  depends_on "libsigc++"
 
   def install
     ENV.cxx11
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -35,26 +40,28 @@ class Glibmm < Formula
     EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    libsigcxx = Formula["libsigc++@2"]
+    libsigcxx = Formula["libsigc++"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/glibmm-2.4
-      -I#{libsigcxx.opt_include}/sigc++-2.0
-      -I#{libsigcxx.opt_lib}/sigc++-2.0/include
-      -I#{lib}/glibmm-2.4/include
+      -I#{include}/glibmm-2.68
+      -I#{libsigcxx.opt_include}/sigc++-3.0
+      -I#{libsigcxx.opt_lib}/sigc++-3.0/include
+      -I#{lib}/glibmm-2.68/include
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
       -L#{libsigcxx.opt_lib}
       -L#{lib}
       -lglib-2.0
-      -lglibmm-2.4
+      -lglibmm-2.68
       -lgobject-2.0
-      -lintl
-      -lsigc-2.0
+      -lsigc-3.0
     ]
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+    on_macos do
+      flags << "-lintl"
+    end
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
     system "./test"
   end
 end

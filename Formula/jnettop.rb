@@ -5,19 +5,27 @@ class Jnettop < Formula
   sha256 "a005d6fa775a85ff9ee91386e25505d8bdd93bc65033f1928327c98f5e099a62"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/jnettop[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "d519f88b031322183f9cfd7303f9d139aecd807037f5d5043997acb2d3324cab" => :catalina
-    sha256 "902b1e9e69c982a84e38b09e2f0b15bc84af94028fb32138fd769efffbc6ddbc" => :mojave
-    sha256 "944957cbac7c457d3c4ee130e8ac457ebf0f2387c7231fa2b85ead897cc77e8a" => :high_sierra
-    sha256 "190334e1019dc9957918164f3fe920607f735edcba3a24296cc634fdd4a70e54" => :sierra
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "1f1f3c5e26f7fc52b331300926a4aa93e1081b31cc20cb533f9b0791477cc101"
+    sha256 cellar: :any, big_sur:       "1a077d39b05adcb4ba5a5e777e6ff054ad3b910876ff3d49172057f050e8b39c"
+    sha256 cellar: :any, catalina:      "13d9effd79e9b18faa659af615a7b68c7a940adf5eaee5e30806553e1a237f0f"
+    sha256 cellar: :any, mojave:        "5b4a91804760ca7e39c76cbd16cd7612ed002d429f8996004e1da49d92839c1a"
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
 
   def install
+    # Work around "-Werror,-Wimplicit-function-declaration" issues with
+    # configure scripts on Xcode 12:
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

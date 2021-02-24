@@ -3,22 +3,26 @@ require "language/node"
 class Jhipster < Formula
   desc "Generate, develop and deploy Spring Boot + Angular/React applications"
   homepage "https://www.jhipster.tech/"
-  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-6.6.0.tgz"
-  sha256 "5b8a66a5b8a2503dcec9302ea0d6151f08b0962e7652b50867defbb95a3c975c"
+  url "https://registry.npmjs.org/generator-jhipster/-/generator-jhipster-6.10.5.tgz"
+  sha256 "3d6ac98e1e777f9f7a33a21a01f4f181a8d9252acb46003a0e850fb8c62bc918"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2ca32c43b06bc75f89c6158977704e0bb6dc0e22525313680c4f7c102b8b20f1" => :catalina
-    sha256 "21c3bb63f656d16b5ad18c127476f95c6c75595d41dd7d1be8f2e5b48c7b6b3d" => :mojave
-    sha256 "c93c20e1f2c84877115cfc210a5d77daa17182326f1747772d324ce2911b2793" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b0c8ea8fefe09ce1202c0643a25b94a337a2848f777f630d39461ebf33c95bd8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "02bd1b4b163a00a08af7c15e49b60cf141903cf235c75f89daafe083fa07d4ef"
+    sha256 cellar: :any_skip_relocation, catalina:      "4ca44dc77bab71951af8df0ecd0c2ff4c42ced99da51489eb762dd5811930105"
+    sha256 cellar: :any_skip_relocation, mojave:        "dc57fc139d909b7da4f0c9a0d3fd8f13aadbd1b41daa4036377f8ce236d5aad9"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "faf1d7553a95d40e7a7efb0115c811633f4b436eee9776eab9a41de70df47e20"
   end
 
-  depends_on :java => "1.8+"
   depends_on "node"
+  depends_on "openjdk"
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do

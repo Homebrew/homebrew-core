@@ -1,22 +1,41 @@
 class Less < Formula
   desc "Pager program similar to more"
   homepage "http://www.greenwoodsoftware.com/less/index.html"
-  url "https://ftp.gnu.org/gnu/less/less-530.tar.gz"
-  mirror "https://ftpmirror.gnu.org/less/less-530.tar.gz"
-  sha256 "503f91ab0af4846f34f0444ab71c4b286123f0044a4964f1ae781486c617f2e2"
-  revision 1
+  license "GPL-3.0-or-later"
 
-  bottle do
-    cellar :any
-    sha256 "e9c850a28846a39541fd76e5159071527e8db94258a809da968cf69e42277d48" => :catalina
-    sha256 "f005662a0d661c28540163078807f4b518a6e6a2e8c86a5a0a0993eb6c4c4ad5" => :mojave
-    sha256 "f9896f9b0e0fb82dcbafd312a93d05061a2aa6f451592b30ca833dbdfb2b38c0" => :high_sierra
-    sha256 "a123eef24eeb7839ed0b7a3b0d53d17402c72576554fecaad81743e550b49107" => :sierra
+  stable do
+    url "http://www.greenwoodsoftware.com/less/less-563.tar.gz"
+    sha256 "ce5b6d2b9fc4442d7a07c93ab128d2dff2ce09a1d4f2d055b95cf28dd0dc9a9a"
+
+    # Fix build with Xcode 12 as it no longer allows implicit function declarations
+    # See https://github.com/gwsw/less/issues/91
+    patch :DATA
   end
 
+  livecheck do
+    url :homepage
+    regex(/less[._-]v?(\d+).+?released.+?general use/i)
+  end
+
+  bottle do
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "c7bc35b8debbb322fc3bdd644ba526eeec3ab8d5f982c76442995a763c77c739"
+    sha256 cellar: :any, big_sur:       "431d227c11a0d52bb4d4392244615933d9f04265f36faedc93f5406226d38076"
+    sha256 cellar: :any, catalina:      "491fc7dc78848cd91c85c4a6a1ff5457166c0ad83dda9f05145489c2aa2828eb"
+    sha256 cellar: :any, mojave:        "d03e895349d8503cea9c8da326015298bf64d80796ab9ee62138a4a072e4559f"
+  end
+
+  head do
+    url "https://github.com/gwsw/less.git"
+    depends_on "autoconf" => :build
+    uses_from_macos "perl" => :build
+  end
+
+  depends_on "ncurses"
   depends_on "pcre"
 
   def install
+    system "make", "-f", "Makefile.aut", "dist" if build.head?
     system "./configure", "--prefix=#{prefix}", "--with-regex=pcre"
     system "make", "install"
   end
@@ -25,3 +44,21 @@ class Less < Formula
     system "#{bin}/lesskey", "-V"
   end
 end
+__END__
+diff --git a/configure b/configure
+index 0ce6db1..eac7ca0 100755
+--- a/configure
++++ b/configure
+@@ -4104,11 +4104,11 @@ if test "x$TERMLIBS" = x; then
+     TERMLIBS="-lncurses"
+     SAVE_LIBS=$LIBS
+     LIBS="$LIBS $TERMLIBS"
+     cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+-
++#include <termcap.h>
+ int
+ main ()
+ {
+ tgetent(0,0); tgetflag(0); tgetnum(0); tgetstr(0,0);
+   ;

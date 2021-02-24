@@ -1,15 +1,21 @@
 class Libopenmpt < Formula
   desc "Software library to decode tracked music files"
   homepage "https://lib.openmpt.org/libopenmpt/"
-  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.4.10+release.autotools.tar.gz"
-  version "0.4.10"
-  sha256 "6a2804d5491eaa90e4b2d7fb5d68e436113e8c8fd164fc705547bcb23a8f258a"
+  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.5+release.autotools.tar.gz"
+  version "0.5.5"
+  sha256 "f1e01483ebf1a680d9ec030c9af20f5f2a5ac0f1e0642c18bd5593cfaa9ceb6b"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url "https://lib.openmpt.org/files/libopenmpt/src/"
+    regex(/href=.*?libopenmpt[._-]v?(\d+(?:\.\d+)+)\+release\.autotools\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "11940fb1b2afac44b1f7c18eb1f313a4c97abd59c81af40ee076fda1c6580b43" => :catalina
-    sha256 "c8702f4b8a0a4f1385725a93edf495f269f02d665374b99b9c721fbb1f660a48" => :mojave
-    sha256 "914c4183efdccd7c4af6906122398e8b8df3918dd34a6c13f96a323a1852ab21" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "b41a555aca663ae452190910fd2c5fbee37588b864ad64ecea0471dbefd60690"
+    sha256 cellar: :any, big_sur:       "9cff46a437ec6052a185659845f023d58e6ed0746b8795e302e2c19ede3ef495"
+    sha256 cellar: :any, catalina:      "7aa35598ce904e38740c90f9c61b2c51b03868229502224e7d36cc680ea85851"
+    sha256 cellar: :any, mojave:        "faf5143021862bc64b2be69a40407fa30e0a609fc4851ae3fcea056e9a72cddd"
   end
 
   depends_on "pkg-config" => :build

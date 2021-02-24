@@ -1,24 +1,27 @@
 class Wtfutil < Formula
-  desc "The personal information dashboard for your terminal"
+  desc "Personal information dashboard for your terminal"
   homepage "https://wtfutil.com"
   url "https://github.com/wtfutil/wtf.git",
-    :tag      => "v0.25.0",
-    :revision => "5291a31afd9a525342ab62896423a00e06f3811f"
+      tag:      "v0.35.0",
+      revision: "4b8b735a462e6fefa8e73dc36d68b89eb8986c12"
+  license "MPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "115fae9641bcc212efe42d3c802522891b75770035f0796fb1b12a6fa5a4dafb" => :catalina
-    sha256 "a68a5f3dfe0cab3ed3097b3fe236760496a5615b35ac7d5dcc1fd4c4a0d600ee" => :mojave
-    sha256 "5750ceac539222b235943f796a89c6da90836cf767f332e7db7fc2da3a942d60" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f4c122267e04735a6529555cc70d14d3161e941509c54f552a11f6210c2f510"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d51620e6cf86db673ce46f663d332e113f06470b3ba276965ae779891b5c2437"
+    sha256 cellar: :any_skip_relocation, catalina:      "7858804dd5d4555868d15c9fd83d150b980f611cff4731fc7ea004e505a44806"
+    sha256 cellar: :any_skip_relocation, mojave:        "f3dcb23b05d19acdcd2f1511a193ceab69e45e18beb2a3c88c242dc9922459ea"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPROXY"] = "https://gocenter.io"
-    ldflags=["-s -w -X main.version=#{version}",
-             "-X main.date=#{Time.now.iso8601}"]
-    system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"wtfutil"
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+      -X main.date=#{Time.now.iso8601}
+    ]
+    system "go", "build", "-trimpath", "-ldflags", ldflags.join(" "), "-o", bin/"wtfutil"
   end
 
   test do

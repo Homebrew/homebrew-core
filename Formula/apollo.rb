@@ -1,21 +1,25 @@
 class Apollo < Formula
   desc "Multi-protocol messaging broker based on ActiveMQ"
-  homepage "https://activemq.apache.org/apollo"
-  url "https://archive.apache.org/dist/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz"
+  homepage "https://activemq.apache.org/"
+  url "https://www.apache.org/dyn/closer.lua?path=activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz"
+  mirror "https://archive.apache.org/dist/activemq/activemq-apollo/1.7.1/apache-apollo-1.7.1-unix-distro.tar.gz"
   sha256 "74577339a1843995a5128d14c68b21fb8f229d80d8ce1341dd3134f250ab689d"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "500fd9f2ec123176fbf34fd1ecf3a71e5211c513fb4559959b94c0a767c54628" => :catalina
-    sha256 "0bea2c3db30793391d982ff0d6233e11b93df47a34fe253c8daf8dc6f0fe05fd" => :mojave
-    sha256 "48b09eb2c2be0ed37a27b6b4d6835c5db6d80c877ea10e46296ddd17f8e646ba" => :high_sierra
-    sha256 "1d4d6ac835aa8f72d8fb3084780e215986737c6609dff27a552730f2df9f5fc7" => :sierra
-    sha256 "1521942c30bd7443a79d944c384391cea0944089a0242b89f31c2c2e4dda1e81" => :el_capitan
-    sha256 "1521942c30bd7443a79d944c384391cea0944089a0242b89f31c2c2e4dda1e81" => :yosemite
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "305849117548586243e45c96c3b55660c9635d7efa24a727f66bc256a892df86"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b4ecc23c2aa054e69b8de5531d80315b5ed2746ea7cd438e66317bc666903a8b"
+    sha256 cellar: :any_skip_relocation, catalina:      "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd"
+    sha256 cellar: :any_skip_relocation, mojave:        "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "81b2a6a1110da6cf58c6725eb6e2c331668fa39d01644e0a754a2eb9241fdccd"
   end
 
-  depends_on :java => "1.7+"
+  # https://github.com/apache/activemq-apollo/commit/049d68bf3f94cdf62ded5426d3cad4ef3e3c56ca
+  deprecate! date: "2019-03-11", because: :deprecated_upstream
+
+  depends_on "openjdk"
 
   # https://www.oracle.com/technetwork/database/berkeleydb/overview/index-093405.html
   resource "bdb-je" do
@@ -37,38 +41,40 @@ class Apollo < Formula
     (libexec/"lib").install resource("bdb-je")
     (libexec/"lib").install resource("mqtt")
 
-    (bin/"apollo").write_env_script libexec/"bin/apollo", Language::Java.java_home_env
+    (bin/"apollo").write_env_script libexec/"bin/apollo", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
-  def caveats; <<~EOS
-    To create the broker:
+  def caveats
+    <<~EOS
+      To create the broker:
         #{bin}/apollo create #{var}/apollo
-  EOS
+    EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
+  plist_options manual: "#{HOMEBREW_PREFIX}/var/apollo/bin/apollo-broker run"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{var}/apollo/bin/apollo-broker</string>
-          <string>run</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}/apollo</string>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{var}/apollo/bin/apollo-broker</string>
+            <string>run</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}/apollo</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

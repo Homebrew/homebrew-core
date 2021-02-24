@@ -2,26 +2,35 @@ class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
   url "https://github.com/hashicorp/consul.git",
-      :tag      => "v1.6.2",
-      :revision => "1200f25eabc75368484a78698e75f1e61b6ed010"
-  head "https://github.com/hashicorp/consul.git",
-       :shallow => false
+      tag:      "v1.9.3",
+      revision: "f55da93061e8f696ed94ae2b3c18ec412049f9af"
+  license "MPL-2.0"
+  head "https://github.com/hashicorp/consul.git", shallow: false
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "32643f0e02d5a1671be58ecc6038214ffbd60742cdcc70b83a6a72c9f419898b" => :catalina
-    sha256 "ffc918f234d61990e4762992d8e337e73d839a64e4c43f9e2fc8bb1d512aca3e" => :mojave
-    sha256 "c9c3305b87e39ffd0b4ae5a31a8b3fd6e811aa3a1314b93a252390ce3edd0bba" => :high_sierra
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "go@1.12" => :build
+  bottle do
+    sha256 cellar: :any_skip_relocation, big_sur:  "10fcf297158cee309525e15ded0cdce0b5fc695f93f776797df7c5855a9fe6ed"
+    sha256 cellar: :any_skip_relocation, catalina: "95df1d24f79344a5b28ced7474f7e009974230f661e2219338ab8b83b0d7d7d2"
+    sha256 cellar: :any_skip_relocation, mojave:   "fb67b8a32db1a09a21217c0a7063eaec9a5b97a414d360ab637b555a06258eee"
+  end
+
+  depends_on "go" => :build
   depends_on "gox" => :build
 
-  def install
-    # Avoid running `go get`
-    inreplace "GNUmakefile", "go get -u -v $(GOTOOLS)", ""
+  uses_from_macos "zip" => :build
 
-    ENV["XC_OS"] = "darwin"
+  def install
+    # Specificy the OS, else all platforms will be built
+    on_macos do
+      ENV["XC_OS"] = "darwin"
+    end
+    on_linux do
+      ENV["XC_OS"] = "linux"
+    end
     ENV["XC_ARCH"] = "amd64"
     ENV["GOPATH"] = buildpath
     contents = Dir["{*,.git,.gitignore}"]
@@ -36,46 +45,66 @@ class Consul < Formula
     end
   end
 
-  plist_options :manual => "consul agent -dev -advertise 127.0.0.1"
+  plist_options manual: "consul agent -dev -bind 127.0.0.1"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/consul</string>
+            <string>agent</string>
+            <string>-dev</string>
+            <string>-bind</string>
+            <string>127.0.0.1</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/consul.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/consul.log</string>
         </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/consul</string>
-          <string>agent</string>
-          <string>-dev</string>
-          <string>-advertise</string>
-          <string>127.0.0.1</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/consul.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/consul.log</string>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do
+    http_port = free_port
     fork do
-      exec "#{bin}/consul", "agent", "-data-dir", "."
+      # most ports must be free, but are irrelevant to this test
+      system(
+        "#{bin}/consul",
+        "agent",
+        "-dev",
+        "-bind", "127.0.0.1",
+        "-dns-port", "-1",
+        "-grpc-port", "-1",
+        "-http-port", http_port,
+        "-serf-lan-port", free_port,
+        "-serf-wan-port", free_port,
+        "-server-port", free_port
+      )
     end
+
+    # wait for startup
     sleep 3
-    system "#{bin}/consul", "leave"
+
+    k = "brew-formula-test"
+    v = "value"
+    system "#{bin}/consul", "kv", "put", "-http-addr", "127.0.0.1:#{http_port}", k, v
+    assert_equal v, shell_output("#{bin}/consul kv get -http-addr 127.0.0.1:#{http_port} #{k}").chomp
   end
 end

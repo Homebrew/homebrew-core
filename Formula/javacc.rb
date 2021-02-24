@@ -1,28 +1,36 @@
 class Javacc < Formula
   desc "Parser generator for use with Java applications"
   homepage "https://javacc.org/"
-  url "https://github.com/javacc/javacc/archive/7.0.5.tar.gz"
-  sha256 "d1502f8a7ed607de17427a1f33e490a33b0c2d5612879e812126bf95e7ed11f4"
+  url "https://github.com/javacc/javacc/archive/javacc-7.0.10.tar.gz"
+  sha256 "656cb9aaed498bcfa5faae40aa8d006760d5431c276fda5bb46cff4225d7c3cc"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/javacc[._-]v?(\d+(?:\.\d+)+)["' >]}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9c275d1d13bdf1ca8a1055b7eebd36b965900df3e437212f088b81c1cbc1cd45" => :catalina
-    sha256 "9ff7ba84bb480e5cd6e7e345a862c53388a3c6ae9ebd9a2fcdae39acb19522d4" => :mojave
-    sha256 "d0f91587db34aeb3f695cc36ced30032515dc33e88fd41dc7623e4ad396c74d7" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a3acf2460346b3e8fb8fccdff9098574002e3fd927633bf6135a0ab0dd400ce"
+    sha256 cellar: :any_skip_relocation, big_sur:       "81fa6c9cfa14578b76e7baa27ef7ac27ad0038558f4d372ecac6486f2eadc35a"
+    sha256 cellar: :any_skip_relocation, catalina:      "54792663583f44565206d4728237a9452859c162cea1e9c7ff782bf33daf6d99"
+    sha256 cellar: :any_skip_relocation, mojave:        "f954f391fb286509601a18d87042c3f6d218a7b57414e719cd37786723d71106"
   end
 
   depends_on "ant" => :build
-  depends_on :java
+  depends_on "openjdk"
 
   def install
     system "ant"
-    (libexec/"lib").install "target/javacc-#{version}.jar"
-    doc.install Dir["docs/*"]
+    libexec.install "target/javacc.jar"
+    doc.install Dir["www/doc/*"]
     (share/"examples").install Dir["examples/*"]
     %w[javacc jjdoc jjtree].each do |script|
       (bin/script).write <<~SH
         #!/bin/bash
-        exec java -classpath #{libexec/"lib/javacc-#{version}.jar"} #{script} "$@"
+        export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
+        exec "${JAVA_HOME}/bin/java" -classpath '#{libexec}/javacc.jar' #{script} "$@"
       SH
     end
   end

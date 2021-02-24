@@ -1,24 +1,36 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2.tar.gz"
-  sha256 "8c09786ec60ca2be354c29829072c38113de9184f29928eb9da8446a5f2ce6a9"
+  url "https://github.com/Kitware/CMake/releases/download/v3.19.5/cmake-3.19.5.tar.gz"
+  sha256 "c432296eb5dec6d71eae15d140f6297d63df44e9ffe3e453628d1dc8fc4201ce"
+  license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7b7d0cc5ceba524f0bea36285ab0cf5e23afc79b71633018ae504c22a32eaf0a" => :catalina
-    sha256 "58f068ef5e78c096258330bcc02855b3de3e36100e62802d70a471845575fc1c" => :mojave
-    sha256 "06a94d5dc873a08f122993a8fdbf6432798ff7c771754e932976a1a804d313e4" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c242c56b2cfc3053a1b277eaa1d5fd6cf1e50c469fd5c5091d9bf7b475bbffb5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a682d329ab579365215c7f409810e10b199df02d8856a760d472d4fb7c30bb42"
+    sha256 cellar: :any_skip_relocation, catalina:      "4f33e84c319f1ded3f2c3b26e57c9727b3842b1a44863054c83158203ad52e75"
+    sha256 cellar: :any_skip_relocation, mojave:        "375c91283a2b18b80c99b9e93c8344fe9351d39b87927e89449bbcbb1ca2c10b"
   end
 
   depends_on "sphinx-doc" => :build
+
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   # The completions were removed because of problems with system bash
 
   # The `with-qt` GUI option was removed due to circular dependencies if
   # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
-  # For the GUI application please instead use `brew cask install cmake`.
+  # For the GUI application please instead use `brew install --cask cmake`.
 
   def install
     args = %W[
@@ -31,20 +43,19 @@ class Cmake < Formula
       --sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
       --sphinx-html
       --sphinx-man
-      --system-zlib
-      --system-bzip2
-      --system-curl
     ]
+    on_macos do
+      args += %w[
+        --system-zlib
+        --system-bzip2
+        --system-curl
+      ]
+    end
 
-    # There is an existing issue around macOS & Python locale setting
-    # See https://bugs.python.org/issue18378#msg215215 for explanation
-    ENV["LC_ALL"] = "en_US.UTF-8"
-
-    system "./bootstrap", *args, "--", "-DCMAKE_BUILD_TYPE=Release"
+    system "./bootstrap", *args, "--", *std_cmake_args,
+                                       "-DCMake_INSTALL_EMACS_DIR=#{elisp}"
     system "make"
     system "make", "install"
-
-    elisp.install "Auxiliary/cmake-mode.el"
   end
 
   test do

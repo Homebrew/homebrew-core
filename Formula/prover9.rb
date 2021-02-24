@@ -4,12 +4,14 @@ class Prover9 < Formula
   url "https://www.cs.unm.edu/~mccune/prover9/download/LADR-2009-11A.tar.gz"
   version "2009-11A"
   sha256 "c32bed5807000c0b7161c276e50d9ca0af0cb248df2c1affb2f6fc02471b51d0"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1f637c295f07ddf31eedf6bcc73b957584da4d55cb92c7bfea3264d6c3780d1b" => :catalina
-    sha256 "5ae1f642fa781841fc843a548b5327cf1dfb8d8c4fbe5ea83ddffef004282d57" => :mojave
-    sha256 "055cf6646dd19effa87d7b9fa8e820c24710a023bcefc98c35604205530ab2c3" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3d5bf0492b97661c22bc8077463c7f577971e1a6f2db5a70f0bb86337c8de02f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a81af1adbb27059709ec9bd9afd30e7819fbd750ea18736c079640058e9ca5b0"
+    sha256 cellar: :any_skip_relocation, catalina:      "1f637c295f07ddf31eedf6bcc73b957584da4d55cb92c7bfea3264d6c3780d1b"
+    sha256 cellar: :any_skip_relocation, mojave:        "5ae1f642fa781841fc843a548b5327cf1dfb8d8c4fbe5ea83ddffef004282d57"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "055cf6646dd19effa87d7b9fa8e820c24710a023bcefc98c35604205530ab2c3"
   end
 
   def install

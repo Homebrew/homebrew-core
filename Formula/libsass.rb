@@ -2,15 +2,22 @@ class Libsass < Formula
   desc "C implementation of a Sass compiler"
   homepage "https://github.com/sass/libsass"
   url "https://github.com/sass/libsass.git",
-      :tag      => "3.6.3",
-      :revision => "e1c16e09b4a953757a15149deaaf28a3fd81dc97"
+      tag:      "3.6.4",
+      revision: "8d312a1c91bb7dd22883ebdfc829003f75a82396"
+  license "MIT"
   head "https://github.com/sass/libsass.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any
-    sha256 "46b9f957e1d18c73f947fa0cc4781f44170b4cd2d22239a734de193226aca4ba" => :catalina
-    sha256 "a0bc84200cee703a591163b014c732b45bcebf6670826644f398284ff2322c94" => :mojave
-    sha256 "4b7132b36dcfdb7ee79a54f87b5a95120c5ff8fd726f938890556b40b61edf95" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "2b1ac6cc0910f5e738fda693c8981289c465d891f061fb13765ed0a8330fb67f"
+    sha256 cellar: :any, big_sur:       "4c85f5604989fa56a518e2e0fecd1d05e7046e4ea383998710ab5b51e1c83c7c"
+    sha256 cellar: :any, catalina:      "a674d8155125a1659499c689b2c3ecc4d37c8196667a93b4463f65dfa77a686c"
+    sha256 cellar: :any, mojave:        "45e5e4f4eb76253127712dcef15df520064db0bd712e3fea9f349fa6ebee79a5"
+    sha256 cellar: :any, high_sierra:   "85722d303754f2d6d07c4c704cf81c9aa827473f7d6130c66d90da984862c47d"
   end
 
   depends_on "autoconf" => :build

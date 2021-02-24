@@ -1,17 +1,20 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://www.snort.org/downloads/snort/snort-2.9.12.tar.gz"
-  mirror "https://distfiles.macports.org/snort/snort-2.9.12.tar.gz"
-  sha256 "7b02e11987c6cb4f6d79d72799ca9ad2b4bd59cc1d96bb7d6c91549f990d99d0"
-  revision 1
+  url "https://www.snort.org/downloads/snort/snort-2.9.17.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort-2.9.17.tar.gz"
+  sha256 "c3b234c3922a09b0368b847ddb8d1fa371b741f032f42aa9ab53d67b428dc648"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://www.snort.org/downloads"
+    regex(/href=.*?snort[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    rebuild 2
-    sha256 "21333e3b46c2a9e9b64661a891a0d16558c888d9b260b1a713a7583d98e8999c" => :catalina
-    sha256 "a900ea0646b89f1152f16dd0e86df4a5f8bd8de73269653bc4b6629110467bc0" => :mojave
-    sha256 "a69f95c8452769835680ea5410db5c853749539758ebdb7aa38ed5ec1dde2a02" => :high_sierra
+    sha256 cellar: :any, big_sur:  "2f7c1e51120e447ac63e19b0f6629e1603c64e223caba26002d7b954cacf6906"
+    sha256 cellar: :any, catalina: "928d091a72cfe6f943b8f9f13e905f988d7ca89189206066c8d0165b2d71ca15"
+    sha256 cellar: :any, mojave:   "2a337db5b70c66b8538b54fab50562467ad6b247e2f1bd818871f2cc647b29e1"
   end
 
   depends_on "pkg-config" => :build
@@ -22,6 +25,10 @@ class Snort < Formula
   depends_on "nghttp2"
   depends_on "openssl@1.1"
   depends_on "pcre"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "xz"
 
   def install
     openssl = Formula["openssl@1.1"]
@@ -51,16 +58,20 @@ class Snort < Formula
     system "./configure", *args
     system "make", "install"
 
+    # Currently configuration files in etc have strange permissions which causes postinstall to fail
+    # Reported to upstream: https://lists.snort.org/pipermail/snort-devel/2020-April/011466.html
+    (buildpath/"etc").children.each { |f| chmod 0644, f }
     rm Dir[buildpath/"etc/Makefile*"]
-    (etc/"snort").install Dir[buildpath/"etc/*"]
+    (etc/"snort").install (buildpath/"etc").children
   end
 
-  def caveats; <<~EOS
-    For snort to be functional, you need to update the permissions for /dev/bpf*
-    so that they can be read by non-root users.  This can be done manually using:
-        sudo chmod o+r /dev/bpf*
-    or you could create a startup item to do this for you.
-  EOS
+  def caveats
+    <<~EOS
+      For snort to be functional, you need to update the permissions for /dev/bpf*
+      so that they can be read by non-root users.  This can be done manually using:
+          sudo chmod o+r /dev/bpf*
+      or you could create a startup item to do this for you.
+    EOS
   end
 
   test do

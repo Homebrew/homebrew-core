@@ -3,18 +3,24 @@ class Mogenerator < Formula
   homepage "https://rentzsch.github.io/mogenerator/"
   url "https://github.com/rentzsch/mogenerator/archive/1.32.tar.gz"
   sha256 "4fa660a19934d94d7ef35626d68ada9912d925416395a6bf4497bd7df35d7a8b"
+  license "MIT"
   head "https://github.com/rentzsch/mogenerator.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ee338f12698ed624689a19d0d65bf7a7b471b1e70319757923c1f8e7feb3e597" => :catalina
-    sha256 "634c78c86eef97f5d9feb531b3864469806b672e0ca5dff6cd00762b76f3084c" => :mojave
-    sha256 "5e477fee1c770d7b4b676c1627017727a925aafd81fd38c30037691a4b624ebf" => :high_sierra
-    sha256 "aadafc4a282f98739d296f105f24c94666c90417f92c05644fd965dbb42aa37d" => :sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "51aec3a49207ae357af26a5407494bc88d98027ba06293736b2888ece7b1d71c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "415e0e160574b7b16dff3d0395a7e156894675191c911d09cddf59e1d916571b"
+    sha256 cellar: :any_skip_relocation, catalina:      "d62cad0cc94a7b05286fb2a8a2f8e4a4cc3a9b46efa9a391aa9fcb00c381e85e"
+    sha256 cellar: :any_skip_relocation, mojave:        "dcb658659b696e44f13e382f553c92199a7ab0be48ff69f33a35ef98ee8a09ac"
   end
 
-  depends_on :xcode => :build
-  depends_on :macos => :yosemite
+  depends_on xcode: :build
+
+  # https://github.com/rentzsch/mogenerator/pull/390
+  patch do
+    url "https://github.com/rentzsch/mogenerator/commit/20d9cce6df8380160cac0ce07687688076fddf3d.patch?full_index=1"
+    sha256 "de700f06c32cc0d4fbcb1cdd91e9e97a55931bc047841985d5c0905e65b5e5b0"
+  end
 
   def install
     xcodebuild "-target", "mogenerator", "-configuration", "Release", "SYMROOT=symroot", "OBJROOT=objroot"

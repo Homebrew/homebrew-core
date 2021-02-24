@@ -1,19 +1,20 @@
 class Minisign < Formula
   desc "Sign files & verify signatures. Works with signify in OpenBSD"
   homepage "https://jedisct1.github.io/minisign/"
-  url "https://github.com/jedisct1/minisign/archive/0.8.tar.gz"
-  sha256 "130eb5246076bc7ec42f13495a601382e566bb6733430d40a68de5e43a7f1082"
+  url "https://github.com/jedisct1/minisign/archive/0.9.tar.gz"
+  sha256 "caa4b3dd314e065c6f387b2713f7603673e39a8a0b1a76f96ef6c9a5b845da0f"
+  license "ISC"
 
   bottle do
-    cellar :any
-    sha256 "f4f2ead633dca744121338c3fc79e964348fa6d97d5361267df6d4ecbe9a6643" => :catalina
-    sha256 "b2862f35643f396fafff03c76697b2d25b8907bd14b4dc4c31c913b60ab88c82" => :mojave
-    sha256 "6826fa79c308cc321871704d79baab4deb71e916c00656c0b6cc656042889103" => :high_sierra
-    sha256 "bb3f8c4d58e195960606e1f155775da72ba7c019d9dd72b818ed7d232bf4e22c" => :sierra
-    sha256 "2884120953aeac755a39365d5905ece08b90b1bfd9568677cd1ed45046fe8491" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "5e915e427db3117320aff459d67438ac7bf94cf3e37291ca02a1d6b83f2fa827"
+    sha256 cellar: :any, big_sur:       "9c86c4043d4ebadd47e6ba606b80dcf0611f302dd11d6f8f56b9c4c1f1d3bfe9"
+    sha256 cellar: :any, catalina:      "42a044324786df52bcb3334eb3c07b3c3ac65414af72c17c73ccb0fb081507ab"
+    sha256 cellar: :any, mojave:        "fc5d9762d710f500978ac0d09b0fbf6fcf3745c4b018313fe9d3ae5679e1f37e"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "libsodium"
 
   def install

@@ -1,37 +1,39 @@
 class Superlu < Formula
   desc "Solve large, sparse nonsymmetric systems of equations"
-  homepage "https://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
-  url "https://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_5.2.1.tar.gz"
-  sha256 "28fb66d6107ee66248d5cf508c79de03d0621852a0ddeba7301801d3d859f463"
-  revision 4
+  homepage "https://portal.nersc.gov/project/sparse/superlu/"
+  url "https://portal.nersc.gov/project/sparse/superlu/superlu_5.2.2.tar.gz"
+  sha256 "470334a72ba637578e34057f46948495e601a5988a602604f5576367e606a28c"
+  license "BSD-3-Clause-LBNL"
+  revision 1
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "c8cf07d7ce9841af6f5ff93f3bab779c385e0c6f84ac1c5a49d6c16ac2275120" => :catalina
-    sha256 "d47a98b1d94b041aa93835c10e024f2e3bb4f6535f1dd5c142343e5cf395e785" => :mojave
-    sha256 "5e02b75c1053a83ae4d07e3450d1cff929b825e2296327cbae038ace4d077e3a" => :high_sierra
-    sha256 "f2038e0b4edb755631cc4f9b42dc362996d8161fa9aad306a412c7e8ff39d9f8" => :sierra
+  livecheck do
+    url :homepage
+    regex(/href=.*?superlu[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_big_sur: "70e9312167959d574969c9853b78f8c862ecd9e4350d1e37e8bb0529764d7cb7"
+    sha256 big_sur:       "31635c3e8dc6dbd1401509c09812d28063c1e2de9ba0f6b234bedb88be9488d3"
+    sha256 catalina:      "9d40cab963df57b12521fe8150b19f37a8b969c8f4c6a0454767fdda0719c298"
+    sha256 mojave:        "ad6d7e6dab5b4f937fb99468d53d93f1d6eb28b095f95c809d99104d766e38ef"
+  end
+
+  depends_on "cmake" => :build
   depends_on "gcc"
   depends_on "openblas"
 
   def install
-    ENV.deparallelize
-    cp "MAKE_INC/make.mac-x", "./make.inc"
+    args = std_cmake_args + %W[
+      -Denable_internal_blaslib=NO
+      -DTPL_BLAS_LIBRARIES=#{Formula["openblas"].opt_lib}/#{shared_library("libopenblas")}
+      -DBUILD_SHARED_LIBS=YES
+    ]
 
-    args = ["SuperLUroot=#{buildpath}",
-            "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a",
-            "CC=#{ENV.cc}",
-            "BLASLIB=-L#{Formula["openblas"].opt_lib} -lopenblas"]
-
-    system "make", "lib", *args
-    cd "EXAMPLE" do
-      system "make", *args
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make"
+      system "make", "install"
     end
-    lib.install Dir["lib/*"]
-    (include/"superlu").install Dir["SRC/*.h"]
-    doc.install Dir["Doc/*"]
 
     # Source and data for test
     pkgshare.install "EXAMPLE/dlinsol.c"

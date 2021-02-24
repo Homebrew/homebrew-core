@@ -3,20 +3,23 @@ class Cql < Formula
   homepage "https://covenantsql.io"
   url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.8.0.tar.gz"
   sha256 "fc63d9bc296b037c8a8fd1984bc6e4156d0c73d9948dfa8654a954f904ad1f4a"
+  license "Apache-2.0"
   head "https://github.com/CovenantSQL/CovenantSQL.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "6910f358939ba05d8db050688abe4d6df42ce12801949e8be7f49743023d572f" => :catalina
-    sha256 "dd644eb78e0c68e04fcde376481d12ab7d5a0cfddcd844fe3529d8129fec262b" => :mojave
-    sha256 "623599aba9f2a656f5ee530dd367b0741b6b1e7a3e564c629adf29b5ef3a290e" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b6446d50149ecd5016e5a2e22f1a912a75743b98e36f032236f2c9bab8a52b67"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f8c84bc3df9fd6eb3252f38ef53af69f2b8e4d6ee4af6c40ddbd1ddb642cf9f3"
+    sha256 cellar: :any_skip_relocation, catalina:      "6910f358939ba05d8db050688abe4d6df42ce12801949e8be7f49743023d572f"
+    sha256 cellar: :any_skip_relocation, mojave:        "dd644eb78e0c68e04fcde376481d12ab7d5a0cfddcd844fe3529d8129fec262b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "623599aba9f2a656f5ee530dd367b0741b6b1e7a3e564c629adf29b5ef3a290e"
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     ENV["CQLVERSION"] = "v#{version}"
     ENV["CGO_ENABLED"] = "1"
     mkdir_p "src/github.com/CovenantSQL"

@@ -1,18 +1,19 @@
 class Ed < Formula
   desc "Classic UNIX line editor"
   homepage "https://www.gnu.org/software/ed/ed.html"
-  url "https://ftp.gnu.org/gnu/ed/ed-1.15.tar.lz"
-  mirror "https://ftpmirror.gnu.org/ed/ed-1.15.tar.lz"
-  sha256 "ad4489c0ad7a108c514262da28e6c2a426946fb408a3977ef1ed34308bdfd174"
+  url "https://ftp.gnu.org/gnu/ed/ed-1.17.tar.lz"
+  mirror "https://ftpmirror.gnu.org/ed/ed-1.17.tar.lz"
+  sha256 "71de39883c25b6fab44add80635382a10c9bf154515b94729f4a6529ddcc5e54"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "2977274fd722f25c7ff48bcec676bbd5441a541290eecc0fadd612b912a402e6" => :catalina
-    sha256 "5e928abc1cb9805d5af7c20862dd34158fce16a40b081e7fbf2d0831eee4823e" => :mojave
-    sha256 "f0c6117b99056bb8d56538e31cf2ba6213d3f4f3eb6527dc566636eb9cd07595" => :high_sierra
-    sha256 "04e745994129682e6d11caa6ce047a76da39c448403d4723fce2560c3603faef" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c564d371bbcdfbbe568291254d591c12d220b23a502944aa68d3a890d4f73e3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "57c700308a2ae32fb9a161f33665e040432a0bce4eafc746ece9c1a515b4097d"
+    sha256 cellar: :any_skip_relocation, catalina:      "7ed89b34fe7b4120255d4a6bd493a924c07c3ad31f3e8099a81ef526dc60b704"
+    sha256 cellar: :any_skip_relocation, mojave:        "2de3bede199b9f95bb617315e8eb8c8e30276dfcda7f17836c9fcc2dc5253580"
   end
+
+  keg_only :provided_by_macos
 
   def install
     ENV.deparallelize
@@ -29,12 +30,13 @@ class Ed < Formula
     libexec.install_symlink "gnuman" => "man"
   end
 
-  def caveats; <<~EOS
-    All commands have been installed with the prefix "g".
-    If you need to use these commands with their normal names, you
-    can add a "gnubin" directory to your PATH from your bashrc like:
-      PATH="#{opt_libexec}/gnubin:$PATH"
-  EOS
+  def caveats
+    <<~EOS
+      All commands have been installed with the prefix "g".
+      If you need to use these commands with their normal names, you
+      can add a "gnubin" directory to your PATH from your bashrc like:
+        PATH="#{opt_libexec}/gnubin:$PATH"
+    EOS
   end
 
   test do

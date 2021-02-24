@@ -2,28 +2,28 @@ class ConsulTemplate < Formula
   desc "Generic template rendering and notifications with Consul"
   homepage "https://github.com/hashicorp/consul-template"
   url "https://github.com/hashicorp/consul-template.git",
-      :tag      => "v0.23.0",
-      :revision => "521adf1df1b6640fddc06462c21c645f054f55b4"
+      tag:      "v0.25.2",
+      revision: "870905de57f085588c3b718b779d8550aefc5dcf"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/consul-template.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "a2dde0ecc076871dbdc3a776757d66bf0bc93f7355cc19626f63564a9b3aafbc" => :catalina
-    sha256 "c2562a2cad6e348b7627204a9ac5eb93ae14b04c03f1d7ef82006db2c06cbeb5" => :mojave
-    sha256 "e651674c59039ed989f07461b4d6953410b373d40d3a7c1cb5fbbb51b6671ab8" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "544c3c24e47bc1bca4d2596e47e648f03ff4817386d9c23b5ebe70c145efa982"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e4a3b5b3ca203f027b52a4b42be5b5cce56bfa9f062ba4742dabd4863e3d3fb8"
+    sha256 cellar: :any_skip_relocation, catalina:      "53ecc8ea5c9da1cab8105850feeb3d07dc3a2f82d656a113c3fdf47f4d296c61"
+    sha256 cellar: :any_skip_relocation, mojave:        "8d40ff085b204ad666540946e7104c1e9d7e371a8e92aacb2569c8377a649edf"
   end
 
   depends_on "go" => :build
 
   def install
     project = "github.com/hashicorp/consul-template"
-    commit = Utils.popen_read("git rev-parse --short HEAD").chomp
-    ldflags = ["-s", "-w",
-               "-X #{project}/version.Name=consul-template",
-               "-X #{project}/version.GitCommit=#{commit}"]
-    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
-           "-o", bin/"consul-template"
+    ldflags = %W[
+      -s -w
+      -X #{project}/version.Name=consul-template
+      -X #{project}/version.GitCommit=#{Utils.git_short_head}
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args
     prefix.install_metafiles
   end
 

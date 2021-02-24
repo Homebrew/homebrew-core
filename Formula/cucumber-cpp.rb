@@ -3,17 +3,19 @@ class CucumberCpp < Formula
   homepage "https://cucumber.io"
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.5.tar.gz"
   sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
-  revision 5
+  license "MIT"
+  revision 8
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "647928a1ca3316d5d7c46f1022b616f88c21fa9fab3ca147e8944a92377e2d67" => :catalina
-    sha256 "1913b19a2c3c876ae0ec6cf46bed0ea144cb97ab025b769472d9371c267e3764" => :mojave
-    sha256 "8d325d95cdd4a3dabcee3f9fe3184585dc5ddbae623033d157847a4ceca2bd45" => :high_sierra
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d8e4ee459e5958caea72acc108997caadf550d9a4436b4f8e27623a79befd2bd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "530841b3b6fe59be5a5ea5fdb4fd3fea2acdf69945b20fc8aa8bf9a7c3d625aa"
+    sha256 cellar: :any_skip_relocation, catalina:      "c7ef7cd101beced9c438b3186da6993b5732f2098c7d7e03735d01687ec7655e"
+    sha256 cellar: :any_skip_relocation, mojave:        "754750a86eb2236fca926fcae27d58976798d7f817e97cc5263673be3dbce3ea"
   end
 
   depends_on "cmake" => :build
-  depends_on "ruby" => :test if MacOS.version <= :sierra
+  depends_on "ruby" => :test
   depends_on "boost"
 
   def install
@@ -30,16 +32,11 @@ class CucumberCpp < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["ruby"].opt_bin
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
-    if MacOS.version >= :mojave && MacOS::CLT.installed?
-      ENV.delete("CPATH")
-      ENV["SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
-    elsif MacOS.version == :high_sierra
-      ENV.delete("CPATH")
-      ENV.delete("SDKROOT")
-    end
-    system "gem", "install", "cucumber", "-v", "3.0.0"
+
+    system "gem", "install", "cucumber", "-v", "5.2.0"
 
     (testpath/"features/test.feature").write <<~EOS
       Feature: Test
@@ -78,7 +75,7 @@ class CucumberCpp < Formula
         1 scenario \(1 passed\)
         3 steps \(3 passed\)
       EOS
-      assert_match expected, shell_output(testpath/"bin/cucumber")
+      assert_match expected, shell_output("#{testpath}/bin/cucumber --publish-quiet")
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)

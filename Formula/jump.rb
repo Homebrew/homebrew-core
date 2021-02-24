@@ -1,16 +1,16 @@
 class Jump < Formula
   desc "Helps you navigate your file system faster by learning your habits"
   homepage "https://github.com/gsamokovarov/jump"
-  url "https://github.com/gsamokovarov/jump/archive/v0.23.0.tar.gz"
-  sha256 "decb93cdccf0aff1ed9ab503af320aaa723998178f1d62331e6966726e6487d2"
+  url "https://github.com/gsamokovarov/jump/archive/v0.40.0.tar.gz"
+  sha256 "f005f843fc65b7be1d4159da7d4c220eef0229ecec9935c6ac23e4963eef645e"
+  license "MIT"
   head "https://github.com/gsamokovarov/jump.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "953aefe18f668dd77d0dfdfb8a068a5b9df541a923b619fc886efa3a812bf883" => :catalina
-    sha256 "8f278ac52e247254c19a2a7a3a5c3ae1972c61266600080b4c47b3dfc118066a" => :mojave
-    sha256 "05b7f315b38908f1f936ccfae5fcb026294c0daaaafbd9c6cda885ca43b3b9eb" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "526a1422ba30c6b9aa0451a7a4ffb1b19f49bb624e73b036c201ef5f2c762cfa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "82d744d63ad1485d1ef5afa534d9f1526339e217b86ba38f7e4e54afb3c7d439"
+    sha256 cellar: :any_skip_relocation, catalina:      "a89cde1a3dd5671412c35dd53603349c1b76fa474be9349231c895e8e3c71b48"
+    sha256 cellar: :any_skip_relocation, mojave:        "a877dfb7b7a806bb3637555125e91605c3e8834f53ca9d0d900693349d5f35f1"
   end
 
   depends_on "go" => :build

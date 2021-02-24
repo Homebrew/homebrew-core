@@ -3,14 +3,15 @@ require "language/node"
 class WebtorrentCli < Formula
   desc "Command-line streaming torrent client"
   homepage "https://webtorrent.io/"
-  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.0.4.tgz"
-  sha256 "5102f46937056db4e1268bc9ce6244435d0b3fab2dc5973911ecf5db4e372b8d"
+  url "https://registry.npmjs.org/webtorrent-cli/-/webtorrent-cli-3.2.1.tgz"
+  sha256 "0e2222d593069c1d10c20e7954426c7b70a5c7c2d38a2ae8310c232a03e730c6"
+  license "MIT"
 
   bottle do
-    sha256 "e2c73414925c70265f2b60fc20aabaa24ad8513fdfa1db350fd52216283c1976" => :catalina
-    sha256 "feb8ebedf0ae71e606138a3aade95976433bbf97066a45bbb77b7667b7940ecd" => :mojave
-    sha256 "f8ce4a50913b23cf1f8d587d7fc51fbb071a6fb44d34be6b005a47d6cc20f435" => :high_sierra
-    sha256 "01b1f9ab124ec3310f09f202d98fdc03a4a8a4fc969a5304da464faadf04bf5e" => :sierra
+    sha256 arm64_big_sur: "1917b69a1707715ba84f5996a6aeb0657396fa519e9f4779a7c9d0286f258dc3"
+    sha256 big_sur:       "3dd729e08d336c0beabb3a61334fdf730727abb79c1ee36d9459d7237fc27ce1"
+    sha256 catalina:      "224cc9e37aff1c57337f28354eb9a0e56271740d1a1c7b58da4b00a432bc0dfe"
+    sha256 mojave:        "c2d991caef7824c847786f66bfc7127caa0db131dd114b472858921110355d0c"
   end
 
   depends_on "node"
@@ -28,7 +29,7 @@ class WebtorrentCli < Formula
       &tr=https://tracker.archlinux.org:443/announce
     EOS
 
-    assert_equal <<~EOS.chomp, shell_output("#{bin}/webtorrent info '#{magnet_uri}'")
+    expected_output_raw = <<~EOS
       {
         "xt": "urn:btih:9eae210fe47a073f991c83561e75d439887be3f3",
         "dn": "archlinux-2017.02.01-x86_64.iso",
@@ -45,5 +46,10 @@ class WebtorrentCli < Formula
         "urlList": []
       }
     EOS
+    expected_json = JSON.parse(expected_output_raw)
+    actual_output_raw = shell_output("#{bin}/webtorrent info '#{magnet_uri}'")
+    actual_json = JSON.parse(actual_output_raw)
+    assert_equal expected_json["tr"].to_set, actual_json["tr"].to_set
+    assert_equal expected_json["announce"].to_set, actual_json["announce"].to_set
   end
 end

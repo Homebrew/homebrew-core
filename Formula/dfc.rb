@@ -3,14 +3,16 @@ class Dfc < Formula
   homepage "https://projects.gw-computing.net/projects/dfc"
   url "https://projects.gw-computing.net/attachments/download/615/dfc-3.1.1.tar.gz"
   sha256 "962466e77407dd5be715a41ffc50a54fce758a78831546f03a6bb282e8692e54"
+  license "BSD-3-Clause"
   revision 1
   head "https://github.com/Rolinh/dfc.git"
 
   bottle do
-    sha256 "315767ea4838836254830a63f2b10c34faae0ae1f0757c7e6212832da409dc15" => :catalina
-    sha256 "1a313424cdf9c4eecd2f9c343f8218da48bec1cf1da3585038e0b0d7742d5247" => :mojave
-    sha256 "6729cbd05c951477c251e240afc01f6a1cc4ab04441f653194388a6dcf048d13" => :high_sierra
-    sha256 "158a1dc96381a8c13a38aa6682120c5f6985ee2a71bf511eba5b99c32d6ab9e4" => :sierra
+    rebuild 1
+    sha256 arm64_big_sur: "6f2d7350e0c7e1c905718b6dcf282367bc846bbd51538a9a525f681dda03be61"
+    sha256 big_sur:       "a89714cadb5ca91708c9f0c0f37266726517418e0ee592003c1cff38cc7599b1"
+    sha256 catalina:      "cefa6f0f5e96a815ebbee4d4618dc927f88052f4137d52c31d21688fac211aa8"
+    sha256 mojave:        "93406a46f6e08d861ddbc5ea7f4ce910629f33090c39eeb827f05444d61fe466"
   end
 
   depends_on "cmake" => :build

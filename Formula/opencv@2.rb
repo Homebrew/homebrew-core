@@ -3,15 +3,21 @@ class OpencvAT2 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
   sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
-  revision 6
+  license "BSD-3-Clause"
+  revision 11
 
   bottle do
-    sha256 "b68bad6fab8c8537c24993081e11f062edd43faa2ad9278e8f365f36042c16fb" => :catalina
-    sha256 "e3a170fef544fcb995f5c4c7b5299230a9d988af25e90fe111536158ff6547b6" => :mojave
-    sha256 "68108126c697cb6782b52e875a5435296c86321e26d6f2a39faa470cd8a8aced" => :high_sierra
+    rebuild 1
+    sha256 arm64_big_sur: "b922e9b3ec3db807a32450bcbca07e300d63c6b4c3d5670fd7274e10cca597be"
+    sha256 big_sur:       "115b11655bf2cc24b77186531be0f5a001c87bebbba4b9eadfff6e9d9df4c5bb"
+    sha256 catalina:      "cec589da16fc90825ef984f9fe5439e3c76a51d95c56eceadccbe133974e3b68"
+    sha256 mojave:        "c1f177ad25d49a2d3fd626592201a151c3153bb3a3cd8d4d333a654afd2f5ec8"
   end
 
   keg_only :versioned_formula
+
+  # https://www.slideshare.net/EugeneKhvedchenya/opencv-30-latest-news-and-the-roadmap
+  deprecate! date: "2015-02-01", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -20,11 +26,12 @@ class OpencvAT2 < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on :macos # Due to Python 2
   depends_on "numpy@1.16"
   depends_on "openexr"
-  uses_from_macos "python@2"
 
   def install
+    ENV.cxx11
     jpeg = Formula["jpeg"]
 
     args = std_cmake_args + %W[
@@ -61,12 +68,12 @@ class OpencvAT2 < Formula
     # https://github.com/Homebrew/homebrew-science/issues/2302
     args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
 
-    if MacOS.version.requires_sse42?
-      args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON"
-    end
+    args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON" \
+      if Hardware::CPU.intel? && MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       system "make", "install"
     end

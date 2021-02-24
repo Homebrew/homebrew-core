@@ -1,37 +1,31 @@
 class Websocketd < Formula
   desc "WebSockets the Unix way"
   homepage "http://websocketd.com"
-  url "https://github.com/joewalnes/websocketd/archive/v0.3.1.tar.gz"
-  sha256 "323700908ca7fe7b69cb2cc492b4746c4cd3449e49fbab15a4b3a5eccf8757f4"
+  url "https://github.com/joewalnes/websocketd/archive/v0.4.1.tar.gz"
+  sha256 "6b8fe0fad586d794e002340ee597059b2cfc734ba7579933263aef4743138fe5"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "614c1bb4d3fdd65e452d7af66d5cac5e397ff452d2b023dbd1261e632ec346e9" => :catalina
-    sha256 "a0ad536184c0f12c3c65710be453e810eda0ffa3b0109a56f69b364c05439703" => :mojave
-    sha256 "a2b5e17e00e1c74b52cf0d44ba802bc6e0eb450e950530cedd7cef38e83437ca" => :high_sierra
-    sha256 "5200608539895835b8faa52b886fe9181c23e94c560c4ef9f2f6afe842de3626" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d9e5282df6737a6870a2a750570ab79909fb4463411797b0bf5d20cb269162d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cbdc36c8c64cb2b0f1f149242a4c82e5d3eebff521e45bdfc88aa7dced9d2440"
+    sha256 cellar: :any_skip_relocation, catalina:      "944c9e728f5f1a7ba098207a0acf50b1e19209010c9d87c8cdd18758ec9c71b2"
+    sha256 cellar: :any_skip_relocation, mojave:        "28f0108f697e146faec81782988e8fd8bd7162b11e7703578f752f7a51f2b6db"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    src = buildpath/"src/github.com/joewalnes/websocketd"
-    src.install buildpath.children
-    src.cd do
-      system "go", "build", "-ldflags", "-X main.version=#{version}", "-o", bin/"websocketd"
-      man1.install "release/websocketd.man" => "websocketd.1"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-X main.version=#{version}", *std_go_args
+    man1.install "release/websocketd.man" => "websocketd.1"
   end
 
   test do
-    pid = Process.fork { exec "#{bin}/websocketd", "--port=8080", "echo", "ok" }
+    port = free_port
+    pid = Process.fork { exec "#{bin}/websocketd", "--port=#{port}", "echo", "ok" }
     sleep 2
 
     begin
-      assert_equal("404 page not found\n", shell_output("curl -s http://localhost:8080"))
+      assert_equal("404 page not found\n", shell_output("curl -s http://localhost:#{port}"))
     ensure
       Process.kill 9, pid
       Process.wait pid

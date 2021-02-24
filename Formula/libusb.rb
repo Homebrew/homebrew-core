@@ -1,15 +1,20 @@
 class Libusb < Formula
   desc "Library for USB device access"
   homepage "https://libusb.info/"
-  url "https://github.com/libusb/libusb/releases/download/v1.0.23/libusb-1.0.23.tar.bz2"
-  sha256 "db11c06e958a82dac52cf3c65cb4dd2c3f339c8a988665110e0d24d19312ad8d"
+  url "https://github.com/libusb/libusb/releases/download/v1.0.24/libusb-1.0.24.tar.bz2"
+  sha256 "7efd2685f7b327326dcfb85cee426d9b871fd70e22caa15bb68d595ce2a2b12a"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any
-    sha256 "52d3e0d6005ea2fdff5d2c28b972e33f84885f7b1ff9ede3a5603b4f7c332a3e" => :catalina
-    sha256 "31b858cce5431f2298524d4e676191477f1e67ee7dd09d02b356cd1219a53c5a" => :mojave
-    sha256 "790457dfed646369ee40a2cf1a67f47bc61dbae123b8a4c4937296ae640ffa30" => :high_sierra
-    sha256 "600db569dd82dda3e492e53c8023093d003836329b614cea8064ab68d20aca0d" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "1c40f64450705461a5373c3d54257e646d39914d44bffaf9d957bbe063db2129"
+    sha256 cellar: :any, big_sur:       "74e0067e968ddbea31e070885ae86bc1db5c66fd157588e84576e653e62894c8"
+    sha256 cellar: :any, catalina:      "034ae259f17afb5894860cdb1786fd6d391359e8d221c0f765eceed6210b60df"
+    sha256 cellar: :any, mojave:        "1318e1155192bdaf7d159562849ee8f73cb0f59b0cb77c142f8be99056ba9d9e"
   end
 
   head do
@@ -26,7 +31,7 @@ class Libusb < Formula
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"
-    pkgshare.install "examples"
+    (pkgshare/"examples").install Dir["examples/*"] - Dir["examples/Makefile*"]
   end
 
   test do

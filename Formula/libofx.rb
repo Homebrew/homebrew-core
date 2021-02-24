@@ -1,14 +1,20 @@
 class Libofx < Formula
   desc "Library to support OFX command responses"
   homepage "https://libofx.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/libofx/libofx/libofx-0.9.14.tar.gz"
-  sha256 "b82757bfa15b27c02fb39dfd017cdfe5af51a063ba15afe495dd1b7367ff290a"
+  url "https://downloads.sourceforge.net/project/libofx/libofx/libofx-0.10.1.tar.gz"
+  sha256 "3bcc2c86b23dc11315a8ce0c9f20cc504fdc6147ea3a0385cb3e05768279c64d"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libofx[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "95cee3bf5da4fcb5eaeb73a4970632d2786b0f12b3b97a0e919c4d29336d8c08" => :catalina
-    sha256 "f04974342f8b883cb1248e27ff12dfd347d5e6c201852ed0d816ed4852c5be86" => :mojave
-    sha256 "591595de707127624906cafcb8d1271a6d907f4a3cbe2311c93bff53a969937a" => :high_sierra
+    sha256 arm64_big_sur: "861b8fb76b2bd4298a963658ecc0ead117f9af3bea1d3b332c23eb61ee39e419"
+    sha256 big_sur:       "0fda24cb66fe8af710eb7b23690d2ae07f58d7ae2fe7cbccfd8545e046bc2a4d"
+    sha256 catalina:      "1ab29be73aad351a947facf5885936680c931750033c1cc591482c51668efea2"
+    sha256 mojave:        "a50a4ac4ab568bcbea83c3769b3cb7fd63bfa0f38511295de0fa9a1eb87c8526"
   end
 
   depends_on "open-sp"

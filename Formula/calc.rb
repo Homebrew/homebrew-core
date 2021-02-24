@@ -1,15 +1,15 @@
 class Calc < Formula
   desc "Arbitrary precision calculator"
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
-  url "https://downloads.sourceforge.net/project/calc/calc/2.12.7.1/calc-2.12.7.1.tar.bz2"
-  sha256 "eb1dc5dd680019e30264109167e20539fe9ac869049d8b1639781a51d1dea84c"
-  revision 1
+  url "https://downloads.sourceforge.net/project/calc/calc/2.12.8.2/calc-2.12.8.2.tar.bz2"
+  sha256 "c8a7b83c04a6eea587fe762ff01b586e2f66df13e9034499d361da863f03242f"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 "d78863a41409a2e3eaee0b8e4c5eb21a84ee28f1c3f8a27545d6e1f3fe3ae213" => :catalina
-    sha256 "1b4e5456d4965f8b74c120590070f74896c1fca85c8aa30354ffe519c1755600" => :mojave
-    sha256 "7614247fc707caf03a96e302ab2e1324f6a3609cfd1cdd7c6389bca77511ff18" => :high_sierra
-    sha256 "c31e4ac4a08ff6f1803cfcbe2d90a2634737ed69f4c38538f7ba77fc6a3e6728" => :sierra
+    sha256 arm64_big_sur: "2ed9ab87b102f1729dc58994affb84f6fa67caeb964cf4639ed79c671bc87b02"
+    sha256 big_sur:       "a0a583b1ee62e8bcf1309dab84f0a3942868c8fbbf6d960bc601bb51b666518e"
+    sha256 catalina:      "95af9febbfae1d4053bcc14ef9a89c57601a0f44245b06e8cfb7ec9ab79ee3be"
+    sha256 mojave:        "0e01ee7002ebddde2f52ac6202033e54bde01501f4cf30cea19a053b28cd7b7d"
   end
 
   depends_on "readline"
@@ -20,17 +20,21 @@ class Calc < Formula
     ENV["EXTRA_CFLAGS"] = ENV.cflags
     ENV["EXTRA_LDFLAGS"] = ENV.ldflags
 
-    readline = Formula["readline"]
+    args = [
+      "BINDIR=#{bin}",
+      "LIBDIR=#{lib}",
+      "MANDIR=#{man1}",
+      "CALC_INCDIR=#{include}/calc",
+      "CALC_SHAREDIR=#{pkgshare}",
+      "USE_READLINE=-DUSE_READLINE",
+      "READLINE_LIB=-L#{Formula["readline"].opt_lib} -lreadline",
+      "READLINE_EXTRAS=-lhistory -lncurses",
+    ]
+    on_macos do
+      args << "INCDIR=#{MacOS.sdk_path}/usr/include"
+    end
+    system "make", "install", *args
 
-    system "make", "install", "INCDIR=#{MacOS.sdk_path}/usr/include",
-                              "BINDIR=#{bin}",
-                              "LIBDIR=#{lib}",
-                              "MANDIR=#{man1}",
-                              "CALC_INCDIR=#{include}/calc",
-                              "CALC_SHAREDIR=#{pkgshare}",
-                              "USE_READLINE=-DUSE_READLINE",
-                              "READLINE_LIB=-L#{readline.opt_lib} -lreadline",
-                              "READLINE_EXTRAS=-lhistory -lncurses"
     libexec.install "#{bin}/cscript"
   end
 

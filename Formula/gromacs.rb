@@ -1,32 +1,39 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
-  homepage "http://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2019.3.tar.gz"
-  sha256 "4211a598bf3b7aca2b14ad991448947da9032566f13239b1a05a2d4824357573"
+  homepage "https://www.gromacs.org/"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2021.tar.gz"
+  sha256 "efa78ab8409b0f5bf0fbca174fb8fbcf012815326b5c71a9d7c385cde9a8f87b"
+
+  livecheck do
+    url "https://ftp.gromacs.org/pub/gromacs/"
+    regex(/href=.*?gromacs[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    sha256 "6b5ebbac12d72bce693c4fa1c424cdc884afefa4ba11264922be52c2974f69fe" => :catalina
-    sha256 "6f423386809bbdb219b41c619b8a7b241e36e7a4881c155cd6deecb78fe2edfa" => :mojave
-    sha256 "582b641126dcc98177587a85a0a75d953c51ae981976a895e243b33fe6e3e089" => :high_sierra
-    sha256 "08c431f5f67fe71aaf24fdd501ba0d6e2816b273b18a08fa00079a0eeac6d948" => :sierra
+    sha256 arm64_big_sur: "217825d39e125e97af17405a9617386bea4db7efdb6a7698cb86b0972212f9f9"
+    sha256 big_sur:       "6e77d33e5f9daa524601bdb6c298758290b42be4fb481f102161a33acad07df8"
+    sha256 catalina:      "231561edcfb1afb096727fdac62a2ccb72e1d54e1adf015e77cd4aa93ad16bd5"
+    sha256 mojave:        "e34650e543535f254bbe425a5d44f0d7f903b987d1011f8624c976767d91872f"
   end
 
   depends_on "cmake" => :build
   depends_on "fftw"
   depends_on "gcc" # for OpenMP
+  depends_on "openblas"
 
   def install
     # Non-executable GMXRC files should be installed in DATADIR
     inreplace "scripts/CMakeLists.txt", "CMAKE_INSTALL_BINDIR",
                                         "CMAKE_INSTALL_DATADIR"
-    # fix an error on detecting CPU. see https://redmine.gromacs.org/issues/2927
-    inreplace "cmake/gmxDetectCpu.cmake",
-              "\"${GCC_INLINE_ASM_DEFINE} -I${PROJECT_SOURCE_DIR}/src -DGMX_CPUINFO_STANDALONE ${GMX_STDLIB_CXX_FLAGS} -DGMX_TARGET_X86=${GMX_TARGET_X86_VALUE}\")",
-              "${GCC_INLINE_ASM_DEFINE} -I${PROJECT_SOURCE_DIR}/src -DGMX_CPUINFO_STANDALONE ${GMX_STDLIB_CXX_FLAGS} -DGMX_TARGET_X86=${GMX_TARGET_X86_VALUE})"
 
-    args = std_cmake_args + %w[
-      -DCMAKE_C_COMPILER=gcc-9
-      -DCMAKE_CXX_COMPILER=g++-9
+    # Avoid superenv shim reference
+    inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein", "@CMAKE_LINKER@",
+                                                             "/usr/bin/ld"
+
+    gcc_major_ver = Formula["gcc"].any_installed_version.major
+    args = std_cmake_args + %W[
+      -DCMAKE_C_COMPILER=gcc-#{gcc_major_ver}
+      -DCMAKE_CXX_COMPILER=g++-#{gcc_major_ver}
     ]
 
     mkdir "build" do
@@ -40,10 +47,11 @@ class Gromacs < Formula
     zsh_completion.install "build/scripts/GMXRC.zsh" => "_gromacs"
   end
 
-  def caveats; <<~EOS
-    GMXRC and other scripts installed to:
-      #{HOMEBREW_PREFIX}/share/gromacs
-  EOS
+  def caveats
+    <<~EOS
+      GMXRC and other scripts installed to:
+        #{HOMEBREW_PREFIX}/share/gromacs
+    EOS
   end
 
   test do

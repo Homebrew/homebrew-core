@@ -1,16 +1,16 @@
 class Gearman < Formula
   desc "Application framework to farm out work to other machines or processes"
   homepage "http://gearman.org/"
-  url "https://github.com/gearman/gearmand/releases/download/1.1.18/gearmand-1.1.18.tar.gz"
-  sha256 "d789fa24996075a64c5af5fd2adef10b13f77d71f7d44edd68db482b349c962c"
-  revision 2
+  url "https://github.com/gearman/gearmand/releases/download/1.1.19.1/gearmand-1.1.19.1.tar.gz"
+  sha256 "8ea6e0d16a0c924e6a65caea8a7cd49d3840b9256d440d991de4266447166bfb"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "9e977587b557bccdca254803b5dd1cf5f1570ef604b1465e3918109f7d4ea47d" => :catalina
-    sha256 "d0226cfe46fee9b0535bf3dfea5863b6e5ec1c0cf66eddccbbd454fd73528b88" => :mojave
-    sha256 "2d4db5d0d036abffa27ad4784070085930931c7d99a21e9fb0540df1b8925138" => :high_sierra
-    sha256 "526eabfea887f09b568c7b791fa0e73b272802b166f6ed2fc928f0fd0c4a8fc5" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "6e3d3504ff3a5d4fb152ec03975aacea300cfca0875c8370c6dcb7bbcbc9ccda"
+    sha256 cellar: :any, big_sur:       "1a700a2938db5507f0f2b81c58988d563c5ad41eeb892bc31f1f4c918a882930"
+    sha256 cellar: :any, catalina:      "3a1a4bc57288dea7905134d9290c88a04273f7cc6361646694324e3bc9eb42d3"
+    sha256 cellar: :any, mojave:        "582d1de464569352536501e2aa832a9bc540220eae335b682411ecadffbfe198"
+    sha256 cellar: :any, high_sierra:   "8664f5b9c91ef99190cb70000758aa3d50f68afcad01d2e8cac234adf6a5424c"
   end
 
   depends_on "pkg-config" => :build
@@ -60,26 +60,27 @@ class Gearman < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "gearmand -d"
+  plist_options manual: "gearmand -d"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_sbin}/gearmand</string>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>Program</key>
+          <string>#{opt_sbin}/gearmand</string>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
-    assert_match /gearman\s*Error in usage/, shell_output("#{bin}/gearman --version 2>&1", 1)
+    assert_match(/gearman\s*Error in usage/, shell_output("#{bin}/gearman --version 2>&1", 1))
   end
 end

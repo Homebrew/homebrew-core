@@ -1,7 +1,8 @@
 class Luajit < Formula
   desc "Just-In-Time Compiler (JIT) for the Lua programming language"
   homepage "https://luajit.org/luajit.html"
-  head "https://luajit.org/git/luajit-2.0.git", :branch => "v2.1"
+  license "MIT"
+  head "https://luajit.org/git/luajit-2.0.git", branch: "v2.1"
 
   stable do
     url "https://luajit.org/download/LuaJIT-2.0.5.tar.gz"
@@ -12,12 +13,16 @@ class Luajit < Formula
     patch :DATA
   end
 
+  livecheck do
+    url "https://luajit.org/download.html"
+    regex(/class="downname">LuaJIT[._-]v?([\d.]+)</i)
+  end
+
   bottle do
-    cellar :any
-    rebuild 3
-    sha256 "907d7fbbd3be370fac28341bf902a551c1d07dd929b9379bb19e30ccaf0bdef6" => :catalina
-    sha256 "a127723ca4997acaa45e3b548eeb43f06ada464f2f59d518c4d68a89d9cfe6cf" => :mojave
-    sha256 "afd383c796b7d3d7826a6a72acea41ecf57cf183ae84d590a777fb6a71166e80" => :high_sierra
+    rebuild 4
+    sha256 cellar: :any, big_sur:  "b3d7fd95cf9b72f89bc95cbc86e19786e9353b353c409e19b721d9ac98c9216b"
+    sha256 cellar: :any, catalina: "0a37eaa5b05ab2e30fcdbfb0355265404b7030655344d79394f9b957df4f317d"
+    sha256 cellar: :any, mojave:   "0b6cad395e49805dfa9b3dc70fd775c416d997ea4774ee8453e87deeaf5fdffa"
   end
 
   def install
@@ -29,14 +34,9 @@ class Luajit < Formula
       f.change_make_var! "CCOPT_x86", ""
     end
 
-    # Xcode 11 fix
-    ENV.append_to_cflags "-fno-stack-check" if DevelopmentTools.clang_build_version >= 1010
-
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-
-    ENV.O2 # Respect the developer's choice.
 
     args = %W[PREFIX=#{prefix}]
 
@@ -45,6 +45,10 @@ class Luajit < Formula
 
     system "make", "amalg", *args
     system "make", "install", *args
+
+    # Unstable branch doesn't install symlink for luajit.
+    # This breaks tools like `luarock` who requires the `luajit` bin to be present.
+    bin.install_symlink Dir[bin/"luajit-*"].first => "luajit" if build.head?
 
     # LuaJIT doesn't automatically symlink unversioned libraries:
     # https://github.com/Homebrew/homebrew/issues/45854.

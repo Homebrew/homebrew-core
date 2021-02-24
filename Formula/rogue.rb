@@ -3,19 +3,24 @@ class Rogue < Formula
   # Historical homepage: https://web.archive.org/web/20160604020207/rogue.rogueforge.net/
   homepage "https://sourceforge.net/projects/roguelike/"
   url "https://src.fedoraproject.org/repo/pkgs/rogue/rogue5.4.4-src.tar.gz/033288f46444b06814c81ea69d96e075/rogue5.4.4-src.tar.gz"
-  version "5.4.4"
   sha256 "7d37a61fc098bda0e6fac30799da347294067e8e079e4b40d6c781468e08e8a1"
 
+  livecheck do
+    url "https://src.fedoraproject.org/repo/pkgs/rogue/"
+    regex(/href=.*?rogue-?v?(\d+(?:\.\d+)+)(?:-src)?\.t/i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d1837a65589cfc24e6ff05f585e4cb9991e06cecbccf119688cc95fd60dd1dc9" => :catalina
-    sha256 "fe9135c4e75abf4298cc231e0372ff8088fa57450fbd8c718e8a0fb8ac3ed723" => :mojave
-    sha256 "a65be75ef53988084ebe86a523e5fbda23205a2e5843b9015bfda312ade8e6f2" => :high_sierra
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1cfeb02e30c14d89cf9d831c553a06eb17a6d6d27734c215e3ee7e72ab0c7c76"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c6e8bb630a966cd8885e378242f9175ffd8327e26ec1ed679016302b437a5156"
+    sha256 cellar: :any_skip_relocation, catalina:      "c576555f6857ff3ec7f0b2e39625d3c1f86989315b735a5e27d9416c095e5efc"
+    sha256 cellar: :any_skip_relocation, mojave:        "7a7a380bb29967b8e795aa2407e8f205752b93952082491e20fff84394819294"
   end
 
   def install
-    ENV.ncurses_define
+    # Fix main.c:241:11: error: incomplete definition of type 'struct _win_st'
+    ENV.append "CPPFLAGS", "-DNCURSES_OPAQUE=0"
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

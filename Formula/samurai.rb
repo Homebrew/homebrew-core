@@ -1,15 +1,16 @@
 class Samurai < Formula
   desc "Ninja-compatible build tool written in C"
   homepage "https://github.com/michaelforney/samurai"
-  url "https://github.com/michaelforney/samurai/releases/download/1.0/samurai-1.0.tar.gz"
-  sha256 "55c73da66b5b8af8b6e26e74b55b3a9f06b763547fe6d0a6206dae68274a1438"
+  url "https://github.com/michaelforney/samurai/releases/download/1.2/samurai-1.2.tar.gz"
+  sha256 "3b8cf51548dfc49b7efe035e191ff5e1963ebc4fe8f6064a5eefc5343eaf78a5"
+  license "Apache-2.0"
   head "https://github.com/michaelforney/samurai.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6a997a0a4b6ccb973e67437051da34f472e94b44a7a92ca4bb0ce118b8c6b16a" => :catalina
-    sha256 "7ad83e96a4948e1f70db355263278685739241bc2dfd2aa4bb653f4375d4d6ee" => :mojave
-    sha256 "2844980fc09ec69501ef2868b2805ad411abd559bd30e9e998b08a94cb5d415c" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "04ca3c9aada344360216791324e673db86948a3eaa2e82a541cb1fd28647b1bf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5e3819fa6eb240e781c236528297422575c6c2ae9aa4e38e6ddc7dbac0e25339"
+    sha256 cellar: :any_skip_relocation, catalina:      "35e183246e80cfe5a6f9b11b12cd2e0c3a754da15b8fb7550b5716de9e219e8d"
+    sha256 cellar: :any_skip_relocation, mojave:        "ef652224d51e64d4e83f921a3870cd9cb4d7dbc315156cb68dd01d30d2d34414"
   end
 
   def install

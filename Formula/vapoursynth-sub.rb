@@ -1,15 +1,18 @@
 class VapoursynthSub < Formula
   desc "VapourSynth filters - Subtitling filter"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R48.tar.gz"
-  sha256 "3e98d134e16af894cf7040e4383e4ef753cafede34d5d77c42a2bb89790c50a8"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R52.tar.gz"
+  sha256 "4d5dc7950f4357da695d29708bc98013bc3e0bd72fc5d697f8c91ce3c4a4b2ac"
+  license "ISC"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
-    cellar :any
-    sha256 "9e4629c90fa4d444cb4fd21b62ca9455378551e88f74312f153a6d8da5e93e92" => :catalina
-    sha256 "4d9002ee7df4d4e652f4712f23b949c731ae15e26c266610c9ab46716ca02d59" => :mojave
-    sha256 "ce15ff4951abbb44aabf88da25439eaf6d581cede6c22b548780433c0ff8c074" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "f839dc3e4798aed76186c3b120196fc1a68bc834cbbbb400431e4c508ed3323e"
+    sha256 cellar: :any, big_sur:       "f35a87fae9d63140f78a33f901599cbd86590bb2da555af4f3e3340d9dfda48c"
+    sha256 cellar: :any, catalina:      "502317a7a2b4c831d2ae2e581db7f58bf214baf86fa016245c4a279a3041f287"
+    sha256 cellar: :any, mojave:        "ec16cf11157f1adf26cbf9b0439f7d7cc9504d345b68714c14f148cde27795f5"
   end
 
   depends_on "autoconf" => :build
@@ -17,7 +20,6 @@ class VapoursynthSub < Formula
   depends_on "libtool" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-
   depends_on "ffmpeg"
   depends_on "libass"
   depends_on "vapoursynth"
@@ -40,8 +42,8 @@ class VapoursynthSub < Formula
   end
 
   test do
-    py3 = Language::Python.major_minor_version "python3"
-    ENV.prepend_path "PYTHONPATH", lib/"python#{py3}/site-packages"
-    system "python3", "-c", "from vapoursynth import core; core.sub"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "from vapoursynth import core; core.sub"
   end
 end

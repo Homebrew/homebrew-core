@@ -3,13 +3,14 @@ class DmtxUtils < Formula
   homepage "https://github.com/dmtx/dmtx-utils"
   url "https://github.com/dmtx/dmtx-utils/archive/v0.7.6.tar.gz"
   sha256 "0d396ec14f32a8cf9e08369a4122a16aa2e5fa1675e02218f16f1ab777ea2a28"
-  revision 1
+  license "LGPL-2.1"
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "b769c72ede0c30f8d66fa831a0228e1896a59bee2c1edb833cc983ffad647ff3" => :catalina
-    sha256 "2aa5a9010d8aa229b81b7b571739131420a33643814b93d23de55547ac7c0202" => :mojave
-    sha256 "dc6b4de991219302c6cc12f6bfc4ef867469f76278f77e0b7bed41e07e27f598" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "4c76806a80dcc2dead871d4a765bbdc37dc0ea00846fb0b3d41ad5f97009b1fe"
+    sha256 cellar: :any, big_sur:       "4116701fe2a23629a0b5c2b928995eb1c1fe7b6d7ca99edc40e8cd04bbcbb4d0"
+    sha256 cellar: :any, catalina:      "69af0e060f133fd09e64cd81096ed8c920471882bce587ba8f8e061a23fbe786"
+    sha256 cellar: :any, mojave:        "77379df5387a1fc39f908644865e451a938272853f54f8640b6b379fa1d872d3"
   end
 
   depends_on "autoconf" => :build

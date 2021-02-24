@@ -3,13 +3,19 @@ class Mplayer < Formula
   homepage "https://mplayerhq.hu/"
   url "https://mplayerhq.hu/MPlayer/releases/MPlayer-1.4.tar.xz"
   sha256 "82596ed558478d28248c7bc3828eb09e6948c099bbd76bb7ee745a0e3275b548"
+  license all_of: ["GPL-2.0-only", "GPL-2.0-or-later"]
+  revision 2
+
+  livecheck do
+    url "https://mplayerhq.hu/MPlayer/releases/"
+    regex(/href=.*?MPlayer[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "d46c9afd22fbdda5423877d2583732e6c88ee9bd52b26c8b79ea8e90c9af7d59" => :catalina
-    sha256 "72da2446b0077085121da3cc3437a3e07d0bd2136529dd7dfba79d05bca1b405" => :mojave
-    sha256 "11c01635f619e3aa77a85cd095be0b302d2b25fdd4362f47340c93122a113775" => :high_sierra
-    sha256 "225e2628b4edf16a4ffea768e03587a8cc1c3f67544c92cb3fb8f3332feee51d" => :sierra
+    rebuild 1
+    sha256 cellar: :any, big_sur:  "7482460cff2275c11a9a0249bd77b018a211d926cc2fde68912e1063b2769dbd"
+    sha256 cellar: :any, catalina: "cbbbc082ba6ceb67c119d97a4ecce0c2af5f7e19668e4361093e761cd981a6a6"
+    sha256 cellar: :any, mojave:   "2ee069c78251cc7e45bd3c1b6bd5941e927b01f43af5f6deeb4fcdd744dbc52b"
   end
 
   head do
@@ -39,6 +45,7 @@ class Mplayer < Formula
       --disable-x11
       --enable-caca
       --enable-freetype
+      --disable-libbs2b
     ]
     system "./configure", *args
     system "make"

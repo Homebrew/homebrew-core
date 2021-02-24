@@ -2,37 +2,30 @@ class Serf < Formula
   desc "Service orchestration and management tool"
   homepage "https://serfdom.io/"
   url "https://github.com/hashicorp/serf.git",
-      :tag      => "v0.8.5",
-      :revision => "1d3fdf93bbe5002c5023da50402368a817488691"
+      tag:      "v0.9.5",
+      revision: "7faa1b06262f70780c3c35ac25a4c96d754f06f3"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/serf.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9afe67fdeaf09ae3a801c700c25148e86da33f036d92f5260ce085fe95d4ac57" => :catalina
-    sha256 "591a05d111d305a1a20bf9e7971f5475206b737504aec9a72d0e7c64d86a4efb" => :mojave
-    sha256 "7cf67630dd3839a5e59eb92997c4cc9034bce06dbc72f1b75cf4e36a2b3cfe60" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ebda6b1a139cb8b900799676be12c0993bbd894b1869577739a0ef2a4682d38"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5ae109c95ab044f550a3e20702eb165d014d618198a7fbf280f9731cc02f9e1b"
+    sha256 cellar: :any_skip_relocation, catalina:      "9fa6ba9a73d743e404c84088e64ef860dcf3f8e0bc0fbeb74a39437440c0dc72"
+    sha256 cellar: :any_skip_relocation, mojave:        "2bcfffa14b7a86099e6dc3574f1dcece4d125b72f32d8fad6be943a63380da75"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "78b0abfda4b9f41da7df720f79e93346ad524450e801c3528706232d012cbadc"
   end
 
   depends_on "go" => :build
-  depends_on "govendor" => :build
-  depends_on "gox" => :build
+
+  uses_from_macos "zip" => :build
 
   def install
-    contents = Dir["*"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/hashicorp/serf").install contents
+    ldflags = %W[
+      -X github.com/hashicorp/serf/version.Version=#{version}
+      -X github.com/hashicorp/serf/version.VersionPrerelease=
+    ].join(" ")
 
-    ENV["GOPATH"] = gopath
-    ENV["XC_ARCH"] = "amd64"
-    ENV["XC_OS"] = "darwin"
-
-    (gopath/"bin").mkpath
-
-    cd gopath/"src/github.com/hashicorp/serf" do
-      system "make", "bin"
-      bin.install "bin/serf"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/serf"
   end
 
   test do
@@ -40,7 +33,7 @@ class Serf < Formula
       exec "#{bin}/serf", "agent"
     end
     sleep 1
-    assert_match /:7946.*alive$/, shell_output("#{bin}/serf members")
+    assert_match(/:7946.*alive$/, shell_output("#{bin}/serf members"))
   ensure
     system "#{bin}/serf", "leave"
     Process.kill "SIGINT", pid

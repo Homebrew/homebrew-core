@@ -1,13 +1,16 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
   homepage "https://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/v1.10.1.tar.gz"
-  sha256 "19fcc80d7d35dd58115262e53cac87d8903180261d94c2a6b0c19224f50b58c4"
+  url "https://github.com/TigerVNC/tigervnc/archive/v1.11.0.tar.gz"
+  sha256 "3648eca472a92a4e8fe55b27cd397b1bf16bad0b24a3a1988661f44553f5e2c3"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "c8dbfcd58649b918a6929d550d20237b8b19e32cbd27b8854e3780beb1eea22f" => :catalina
-    sha256 "adc432e2afc2a1896802ab884bf1a5c8c6d8a54123190a4e5448f5d6f3e220a4" => :mojave
-    sha256 "5601b259800423214cf921d139a1516fec0f25102a840013fdad3a794a62b5e2" => :high_sierra
+    sha256 arm64_big_sur: "d4e19469518f0167a6abf40625c3c21df88bff1b2ca19bb6feac1c4a5a077cd2"
+    sha256 big_sur:       "ae46d4c867f0f761368e22c80daa9e0805c15f7fc5855bf32d37575c36168367"
+    sha256 catalina:      "b9a09483c45610c81dd29fc20a41b4fa8120e1353f736bb637732d4788e4bb28"
+    sha256 mojave:        "c90bdf1ac012129c5d4caecd3e5acf2d110ca8cd68a8bcff6de07373149424db"
+    sha256 high_sierra:   "2370d829c67ca1df886e47aca162c68034e138a10a93b846c31f1c927d84c435"
   end
 
   depends_on "cmake" => :build
@@ -15,13 +18,27 @@ class TigerVnc < Formula
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "jpeg-turbo"
-  depends_on :x11
+  depends_on "pixman"
+
+  on_linux do
+    depends_on "libx11"
+    depends_on "libxcursor"
+    depends_on "libxdamage"
+    depends_on "libxext"
+    depends_on "libxfixes"
+    depends_on "libxft"
+    depends_on "libxi"
+    depends_on "libxinerama"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxtst"
+  end
 
   def install
     turbo = Formula["jpeg-turbo"]
     args = std_cmake_args + %W[
       -DJPEG_INCLUDE_DIR=#{turbo.include}
-      -DJPEG_LIBRARY=#{turbo.lib}/libjpeg.dylib
+      -DJPEG_LIBRARY=#{turbo.lib}/#{shared_library("libjpeg")}
       .
     ]
     system "cmake", *args

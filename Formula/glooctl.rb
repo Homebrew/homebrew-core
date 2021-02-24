@@ -2,30 +2,23 @@ class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo/latest/"
   url "https://github.com/solo-io/gloo.git",
-      :tag      => "v1.3.0",
-      :revision => "6002921c48a901d6f4cca9ab801400b231088cfc"
+      tag:      "v1.6.8",
+      revision: "80f33d4555b3e3aa671ec5b60caf193dad3e22c7"
+  license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e59c860fe4a818a6547ee529bac390e0970c84f041bbeddcbdba1830111f34c5" => :catalina
-    sha256 "ce4827031f0ef884f0ae50450195e15b51fae3e8af3341a4d35c16884d1cb60b" => :mojave
-    sha256 "ef4ef27f00830982defa16206543b14bda2a8ae991f41612b1c5d77ca9e6b936" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7a369cd1c66660a2d038564e11ec885f91103f24ae7020bfb44f9c6c0456cf0c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4d671307f94535b31551eb7d3e8e9a1708a54a711e708a132143164bfebf47a2"
+    sha256 cellar: :any_skip_relocation, catalina:      "dc65997a34e7bcdc0ed290ea38eb6fb235f47c9999714139c061109e2c4adaaf"
+    sha256 cellar: :any_skip_relocation, mojave:        "b203cc6ae12463b416d0dbc5fecef8813de934140633dfac0ca192d97143edbf"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/solo-io/gloo"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-
-    cd dir do
-      system "dep", "ensure", "-vendor-only"
-      system "make", "glooctl", "TAGGED_VERSION=v#{version}"
-      bin.install "_output/glooctl"
-    end
+    system "make", "glooctl", "TAGGED_VERSION=v#{version}"
+    bin.install "_output/glooctl"
   end
 
   test do
@@ -40,6 +33,6 @@ class Glooctl < Formula
 
     # Should error out as it needs access to a Kubernetes cluster to operate correctly
     status_output = shell_output("#{bin}/glooctl get proxy 2>&1", 1)
-    assert_match "failed to create proxy client", status_output
+    assert_match "failed to create kube client", status_output
   end
 end

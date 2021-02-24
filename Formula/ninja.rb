@@ -1,25 +1,28 @@
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
   homepage "https://ninja-build.org/"
-  url "https://github.com/ninja-build/ninja/archive/v1.9.0.tar.gz"
-  sha256 "5d7ec75828f8d3fd1a0c2f31b5b0cea780cdfe1031359228c428c1a48bfcd5b9"
+  url "https://github.com/ninja-build/ninja/archive/v1.10.2.tar.gz"
+  sha256 "ce35865411f0490368a8fc383f29071de6690cbadc27704734978221f25e2bed"
+  license "Apache-2.0"
   head "https://github.com/ninja-build/ninja.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "9cfd9fe284e4c4eda7bda2a7a5c3970b22775df472a57e7aafea12a36b69357f" => :catalina
-    sha256 "d3f825237b23175d46ed02f492df8297968f3ce45f328362f167caf962323c98" => :mojave
-    sha256 "c6057431959eb3117f5eca1bb62d2403d189f3091f2cacaef89c9696b2ecec39" => :high_sierra
-    sha256 "dc8bba938426720e0f4f2158b882f331737059919cf46ff59fcb786261b8ea8c" => :sierra
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  def install
-    system "python", "configure.py", "--bootstrap"
+  bottle do
+    sha256 arm64_big_sur: "8be5a50d0bfe6bae6f920def1273bc0da888a5eef7304303888b1a5929bd517e"
+    sha256 big_sur:       "e5e8174fb4bce324cfb42226d46ce1433f34866f0c06ce930a3bbdb40cadd395"
+    sha256 catalina:      "5eb553057f7595f0c607b100ac263ab5834a057b11e8aca512555f5129f6d544"
+    sha256 mojave:        "8d7775944ef67e3f8884bff5ea0013a80c4811be8c268fdd9b37cc377eb9ec1b"
+  end
 
-    # Quickly test the build
-    system "./configure.py"
-    system "./ninja", "ninja_test"
-    system "./ninja_test", "--gtest_filter=-SubprocessTest.SetWithLots"
+  depends_on "python@3.9"
+
+  def install
+    py = Formula["python@3.9"].opt_bin/"python3"
+    system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=#{py}"
 
     bin.install "ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
@@ -36,5 +39,11 @@ class Ninja < Formula
       build foo.o: cc foo.c
     EOS
     system bin/"ninja", "-t", "targets"
+    port = free_port
+    fork do
+      exec bin/"ninja", "-t", "browse", "--port=#{port}", "--no-browser", "foo.o"
+    end
+    sleep 2
+    assert_match "foo.c", shell_output("curl -s http://localhost:#{port}?foo.o")
   end
 end

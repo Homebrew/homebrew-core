@@ -1,29 +1,33 @@
 class Sxiv < Formula
   desc "Simple X Image Viewer"
   homepage "https://github.com/muennich/sxiv"
-  url "https://github.com/muennich/sxiv/archive/v25.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/s/sxiv/sxiv_25.orig.tar.gz"
-  sha256 "16d1aca1a179e1c0875844efe2e51cfa396a4403467c389f7e9221a733ae5e26"
+  url "https://github.com/muennich/sxiv/archive/v26.tar.gz"
+  sha256 "a382ad57734243818e828ba161fc0357b48d8f3a7f8c29cac183492b46b58949"
+  license "GPL-2.0-or-later"
   revision 1
   head "https://github.com/muennich/sxiv.git"
 
   bottle do
-    cellar :any
-    sha256 "4fc8ef0f71f9cc26c8d685915c12f34147941f57a0d5cef118d0bc681907b5a4" => :catalina
-    sha256 "14d41d161fe07716d411db619a508bbdf6ba8f679dbcedbe349545a2e199bc5e" => :mojave
-    sha256 "f34e137e297f708018be69bdb6c355a9f86ff9fc0cf630560a7922c2224e71b4" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "11aff8aaab1a32a0694672b802f9399d5002f1871329054671273a2d919b4d5d"
+    sha256 cellar: :any, big_sur:       "0fbf88dbb8f6744d36254023302ea2c88521bd4b8b8172eff00c7dfe2bfd4495"
+    sha256 cellar: :any, catalina:      "caafa51424cd97f030b9156aeba0ba64f6ab5821197453136a240c7ca38869d9"
+    sha256 cellar: :any, mojave:        "14b4f8a7137ea1ff12dde1d0a8cda063227e48d77ba75d93ecbde6193584d2cf"
+    sha256 cellar: :any, high_sierra:   "b8f60f5b9bb6987f0042ac485eb0d4c5c5c3cdc4ea4c32fc13def537e51d39dc"
   end
 
   depends_on "giflib"
   depends_on "imlib2"
   depends_on "libexif"
-  depends_on :x11
+  depends_on "libx11"
+  depends_on "libxft"
 
   def install
-    system "make", "PREFIX=#{prefix}", "AUTORELOAD=nop", "CPPFLAGS=-I/opt/X11/include", "LDFLAGS=-L/opt/X11/lib", "LDLIBS=-lpthread", "install"
+    system "make", "PREFIX=#{prefix}", "AUTORELOAD=nop",
+                   "CPPFLAGS=-I#{Formula["freetype2"].opt_include}/freetype2",
+                   "LDLIBS=-lpthread", "install"
   end
 
   test do
-    system "#{bin}/sxiv", "-v"
+    assert_match "Error opening X display", shell_output("DISPLAY= #{bin}/sxiv #{test_fixtures("test.png")} 2>&1", 1)
   end
 end

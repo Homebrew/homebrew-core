@@ -1,19 +1,24 @@
 class Dwarfutils < Formula
   desc "Dump and produce DWARF debug information in ELF objects"
   homepage "https://www.prevanders.net/dwarf.html"
-  url "https://www.prevanders.net/libdwarf-20180809.tar.gz"
-  sha256 "63e5947fbd8f342240d25bed2081251f8ec5428ee09e24dfad3b6956168bc400"
+  url "https://www.prevanders.net/libdwarf-20201201.tar.gz"
+  sha256 "62db1028dfd8fd877d01ae75873ac1fe311437012ef48a0ac4157189e1e9b2c9"
+  license all_of: ["BSD-2-Clause", "LGPL-2.1-or-later", "GPL-2.0-or-later"]
+
+  livecheck do
+    url :homepage
+    regex(%r{href=(?:["']?|.*?/)libdwarf[._-]v?(\d{6,8})\.t}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "576775907c6b337e738942d0f0151a7fc8be7b9e5291f4e595d563b8655d4880" => :catalina
-    sha256 "8887f39199612129dcf7af5afc5bd473be806c74fd862ff2e76f3a5c06103f58" => :mojave
-    sha256 "b31bc53474ac561e418ef6c81add9ccb8e885f8f744493971fae29fddc887f45" => :high_sierra
-    sha256 "f2909fb054f392f80318f7d621124c6bd5aee4e8637ad2d26f350d8b645ec5ef" => :sierra
+    sha256 cellar: :any_skip_relocation, big_sur:  "4b7bb9ec7ab16bc1f7621484fb36af441cb9fd9e749cda79996915cf7bc22372"
+    sha256 cellar: :any_skip_relocation, catalina: "5e63608b1a3ac55a066255d09d57d07105c7adcecbcddfe65fb45738f4480460"
+    sha256 cellar: :any_skip_relocation, mojave:   "a511dac8825fed2348399e8390170b53e7232b19247f42f59c5bd67ae24af5b4"
   end
 
   depends_on "libelf" => :build
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure"
@@ -52,7 +57,7 @@ class Dwarfutils < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-I#{include}", "-ldwarf", "test.c", "-o", "test"
+    system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-ldwarf", "-o", "test"
     system "./test"
   end
 end

@@ -3,14 +3,21 @@ class Jailkit < Formula
   homepage "https://olivier.sessink.nl/jailkit/"
   url "https://olivier.sessink.nl/jailkit/jailkit-2.21.tar.bz2"
   sha256 "db3bb090a4fffdef59b5eafd594478d576cacf84306f9929d0dfbed090cf3687"
+  revision 1
 
   bottle do
-    sha256 "b0980932e53c18886c0106fd50a6101fc77754fcfb536bf218fd6845f7e91309" => :catalina
-    sha256 "1aae3a9499ec0553b45b48003e43c55e1facd7b56d94cc4ff9cb639496b7fa05" => :mojave
-    sha256 "25e55b2cc8572ad043c97ad2b86e08f93ef1a69c6fb66d1bf1630c4c5092bdfc" => :high_sierra
+    sha256 arm64_big_sur: "9b1811caafbdea42e49b14308f79e70faccbb3f38402184f974e52026c220a57"
+    sha256 big_sur:       "58761380572c700e95ae78a62c76fecb897a390837d38748651622b5762c8681"
+    sha256 catalina:      "488323402cd9c3487e515ebe4ed8b4e056188af3d125ee063a1056c58c1c61a4"
+    sha256 mojave:        "6aeb6044ff3ba537d8575fea45053da11764549b72d545df3b962b6a6d3ee68c"
+    sha256 high_sierra:   "7ab554fa425961fe843c0533b360b5f0eb7dcc39ed707e6f757e0c4e328d930c"
   end
 
+  depends_on "python@3.9"
+
   def install
+    ENV["PYTHONINTERPRETER"] = Formula["python@3.9"].opt_bin/"python3"
+
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
   end

@@ -1,0 +1,19 @@
+[
+  "beecrypt",
+  "ccrypt",
+  "git",
+  "gmp",
+  "gnupg",
+  "gnupg@1.4",
+  "google-sparsehash",
+  "jemalloc",
+  "jpeg-turbo",
+  "mpfr",
+  "nettle",
+  "open-mpi",
+  "openssl@1.1",
+  "pcre",
+  "protobuf",
+  "wolfssl",
+  "xz"
+]

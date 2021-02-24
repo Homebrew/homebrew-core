@@ -1,21 +1,26 @@
 class Ncurses < Formula
   desc "Text-based UI library"
   homepage "https://www.gnu.org/software/ncurses/"
-  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.1.tar.gz"
-  sha256 "aa057eeeb4a14d470101eff4597d5833dcef5965331be3528c08d99cebaa0d17"
+  url "https://ftp.gnu.org/gnu/ncurses/ncurses-6.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/ncurses/ncurses-6.2.tar.gz"
+  sha256 "30306e0c76e0f9f1f0de987cf1c82a5c21e1ce6568b9227f7da5b71cbea86c9d"
+  license "MIT"
 
   bottle do
-    sha256 "61853d5641a03a19db9936c6b56844d39fbbd6eaa6cb6b1e268f9ebc1e58cf8e" => :catalina
-    sha256 "01e031f6bb1513edcb26d78a15dc5e85969c42e9dc40ae3cbc3535982658abc0" => :mojave
-    sha256 "bc5a61af5553ac748657e276ffcd604fca3d74db0b10855b9e4163ae45f7cb72" => :high_sierra
-    sha256 "8c1b3ae226520b5c14f61c52935eceb04717d8174382d137a169718f50f67910" => :sierra
-    sha256 "5e3d98b211de89b9c750d627bdd66e42bf1fa77ad1528e4db8a4de33ed419c28" => :el_capitan
+    sha256 arm64_big_sur: "111ab64b5ffbe5aebe18096a2ff95e8e8f6426955799181db8338677e8f853e4"
+    sha256 big_sur:       "b34b4aa433f23405c6104bf810836eed2686f11c660b8668a7af86f99be2329f"
+    sha256 catalina:      "eae51ad3391edafe3d6c649ba44f607ee1464b4b5d9ee48770e9817ee5f0ccdd"
+    sha256 mojave:        "1771e0ce821cf8cbe38d0ce8d1843fd559532923222edc5dbf5b31fcf24fed90"
+    sha256 high_sierra:   "4648be8457b081026d3da80f290abaf3fbfdcb49d62914861a63fc706f9adabe"
   end
 
   keg_only :provided_by_macos
 
   depends_on "pkg-config" => :build
+
+  on_linux do
+    depends_on "gpatch" => :build
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -34,20 +39,37 @@ class Ncurses < Formula
   end
 
   def make_libncurses_symlinks
-    major = version.to_s.split(".")[0]
+    major = version.major
 
     %w[form menu ncurses panel].each do |name|
-      lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"
-      lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.#{major}.dylib"
+      on_macos do
+        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.dylib"
+        lib.install_symlink "lib#{name}w.#{major}.dylib" => "lib#{name}.#{major}.dylib"
+      end
+      on_linux do
+        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so"
+        lib.install_symlink "lib#{name}w.so.#{major}" => "lib#{name}.so.#{major}"
+      end
       lib.install_symlink "lib#{name}w.a" => "lib#{name}.a"
       lib.install_symlink "lib#{name}w_g.a" => "lib#{name}_g.a"
     end
 
     lib.install_symlink "libncurses++w.a" => "libncurses++.a"
     lib.install_symlink "libncurses.a" => "libcurses.a"
-    lib.install_symlink "libncurses.dylib" => "libcurses.dylib"
+    lib.install_symlink shared_library("libncurses") => shared_library("libcurses")
+    on_linux do
+      # libtermcap and libtinfo are provided by ncurses and have the
+      # same api. Help some older packages to find these dependencies.
+      # https://bugs.centos.org/view.php?id=11423
+      # https://bugs.launchpad.net/ubuntu/+source/ncurses/+bug/259139
+      lib.install_symlink "libncurses.so" => "libtermcap.so"
+      lib.install_symlink "libncurses.so" => "libtinfo.so"
+    end
 
     (lib/"pkgconfig").install_symlink "ncursesw.pc" => "ncurses.pc"
+    (lib/"pkgconfig").install_symlink "formw.pc" => "form.pc"
+    (lib/"pkgconfig").install_symlink "menuw.pc" => "menu.pc"
+    (lib/"pkgconfig").install_symlink "panelw.pc" => "panel.pc"
 
     bin.install_symlink "ncursesw#{major}-config" => "ncurses#{major}-config"
 

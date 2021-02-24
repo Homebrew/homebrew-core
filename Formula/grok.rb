@@ -3,15 +3,22 @@ class Grok < Formula
   homepage "https://github.com/jordansissel/grok"
   url "https://github.com/jordansissel/grok/archive/v0.9.2.tar.gz"
   sha256 "40edbdba488ff9145832c7adb04b27630ca2617384fbef2af014d0e5a76ef636"
+  license "BSD-2-Clause"
   revision 2
   head "https://github.com/jordansissel/grok.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+\.\d{6,8}(\.\d+)*)$/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "8e3f44420143e731799d52290c9823a42a1833c4bc51906af59d4cd7c284f391" => :catalina
-    sha256 "b78cf21dd67826d14d99188e631ff1c431913744d91089c4cefd9b3c9e9d9a46" => :mojave
-    sha256 "41889afb55bfcf1d8b41eda76ef2272d29225f4cc4a5690bd409198417d7cf98" => :high_sierra
-    sha256 "32dc46849684918dad9ca9005ca43b092de84b16a0837049146948379301b1fa" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "172f626c4eb3d62d2f7b7dcd2c94a4890cc69a835ae3f33ddcb7b74762e4c52e"
+    sha256 cellar: :any, big_sur:       "02386bec2f8e4ac68e44c67c33a2a296457a8f055fbf0f177a78137b63a030ce"
+    sha256 cellar: :any, catalina:      "8e3f44420143e731799d52290c9823a42a1833c4bc51906af59d4cd7c284f391"
+    sha256 cellar: :any, mojave:        "b78cf21dd67826d14d99188e631ff1c431913744d91089c4cefd9b3c9e9d9a46"
+    sha256 cellar: :any, high_sierra:   "41889afb55bfcf1d8b41eda76ef2272d29225f4cc4a5690bd409198417d7cf98"
+    sha256 cellar: :any, sierra:        "32dc46849684918dad9ca9005ca43b092de84b16a0837049146948379301b1fa"
   end
 
   depends_on "libevent"

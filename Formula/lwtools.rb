@@ -1,20 +1,25 @@
 class Lwtools < Formula
   desc "Cross-development tools for Motorola 6809 and Hitachi 6309"
-  homepage "http://lwtools.projects.l-w.ca/"
-  url "http://lwtools.projects.l-w.ca/releases/lwtools/lwtools-4.17.tar.gz"
-  sha256 "a93ab316ca0176901822873dba4bc286d3a5cf86e6a853d3edb7a51ecc96a91c"
+  homepage "http://www.lwtools.ca/"
+  url "http://www.lwtools.ca/releases/lwtools/lwtools-4.18.tar.gz"
+  sha256 "1f7837d4985f2f3db65bd7c1af05ab7fc779ca43c8bbe411a3042fd85f0c8151"
+  license "GPL-3.0-only"
+
+  livecheck do
+    url "http://www.lwtools.ca/releases/lwtools/"
+    regex(/href=.*?lwtools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1ce602bff92ea48cca7732b218e999350d62a3f76d7c69c3e73573da2139d662" => :catalina
-    sha256 "3cfae9c3afc0a2fa0d8fdf48c88cb504056f35702f45a4afe5070ceb408d4919" => :mojave
-    sha256 "8c0c67d34661986431d9fdb2fe5b6315a0da6b4ec9b4eac139868bfa1ee18069" => :high_sierra
-    sha256 "d4f5b062ba3fbd7c7d3115c6f6451fdaa4daf331e0e7f0641580df19dc3c65e4" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b69e842ed193a65a877890c6a25cf80b610b0ba9c63403721e69713894168203"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f8c0301704cd912e73419d49ac9d277b57d46cfa5dc7019c74bf12944a88dc75"
+    sha256 cellar: :any_skip_relocation, catalina:      "412734981bb998d93accd7f4401ff21c6f9e2b33028c39c9e80e7651e19bed79"
+    sha256 cellar: :any_skip_relocation, mojave:        "3f7c5497c74bb6f616e243d5d8f61d0f7365c6949148f558397d8798dda5bdd9"
   end
 
   def install
     system "make"
-    system "make", "install", "INSTALLDIR=#{bin}"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do

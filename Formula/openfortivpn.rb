@@ -1,13 +1,15 @@
 class Openfortivpn < Formula
   desc "Open Fortinet client for PPP+SSL VPN tunnel services"
   homepage "https://github.com/adrienverge/openfortivpn"
-  url "https://github.com/adrienverge/openfortivpn/archive/v1.11.0.tar.gz"
-  sha256 "95db77566376f4504547b6407b249f007f2edf63b85ffe999436a999569645b6"
+  url "https://github.com/adrienverge/openfortivpn/archive/v1.16.0.tar.gz"
+  sha256 "599b1e159a03be557242aa0e693bb7ddbadf2a4a2b3ffcf77dc15459fe7f6cd6"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "2a967fdaa6aa44291d6b4976fe2238c6b5436803bbff0c734d9100ae32d40935" => :catalina
-    sha256 "6d11c5dc29ac39a519eae8e8dceade4f60225336c3d76a3a8be2f66e4b7cb1bf" => :mojave
-    sha256 "9bb2e93944b6b3c1a85a8e9ba26f15994d32541367432acb1061f971e26322c7" => :high_sierra
+    sha256 arm64_big_sur: "fe329fa78d439d21525954fcfe7e4b5181d818314fb198bfb43302a6935c7b4f"
+    sha256 big_sur:       "2b8aa8b10b0df068e05972daf48054f3a05716a7d5936824f87ef59f90492bf3"
+    sha256 catalina:      "2461050389b1e6ca991b92ca1baed5efa4f913f4dfaf4b356083d4c6a7a2a0b4"
+    sha256 mojave:        "f70377cd7929889951bce6216b25e5429aba924d111be44a1c24904a46adcd91"
   end
 
   depends_on "autoconf" => :build
@@ -19,7 +21,8 @@ class Openfortivpn < Formula
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}/openfortivpn"
     system "make", "install"
   end
   test do

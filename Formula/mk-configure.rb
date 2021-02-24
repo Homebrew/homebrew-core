@@ -1,15 +1,19 @@
 class MkConfigure < Formula
   desc "Lightweight replacement for GNU autotools"
   homepage "https://github.com/cheusov/mk-configure"
-  url "https://downloads.sourceforge.net/project/mk-configure/mk-configure/mk-configure-0.32.0/mk-configure-0.32.0.tar.gz"
-  sha256 "43e5a8ffd68bca510cabc07c10e8d45223859ca34c7dffd29deab5046c7aa2d5"
+  url "https://downloads.sourceforge.net/project/mk-configure/mk-configure/mk-configure-0.36.0/mk-configure-0.36.0.tar.gz"
+  sha256 "a7becc4411dc2b137110b1543c6067b3db11db6baa4a6b303916605f0f2d55ea"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/mk-configure[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "211fa03580498d11d9086e21fb9908b1c48d606487874aca7dc1876ca9d6c41c" => :catalina
-    sha256 "3c6dde9e73c409690bc2e5dee76c0509c8ae0d7fd34bf155e3f63297f9af9e9b" => :mojave
-    sha256 "3c6dde9e73c409690bc2e5dee76c0509c8ae0d7fd34bf155e3f63297f9af9e9b" => :high_sierra
-    sha256 "f8a80216317e5d7e3ed3c412114b1ee58b2250a2c019bf99ca25686cb7d07547" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8c03a1f64dbd6b63382f83c4f881a419c4347fd5d817862918974a293ac0be16"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7d9ceb180bbc7fa3d57f51c537f1c0e2de03b21386222293bf8352ab7bf7bf6a"
+    sha256 cellar: :any_skip_relocation, catalina:      "129f2ade79cb9123a937d7161edb971f8939df544c4a559b319a17dce8428ddd"
+    sha256 cellar: :any_skip_relocation, mojave:        "edf53a9eff012505917554bc4fc313981285fecafdb89b787dcff990f0439a02"
   end
 
   depends_on "bmake"

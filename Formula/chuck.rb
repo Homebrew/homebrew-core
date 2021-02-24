@@ -1,26 +1,34 @@
 class Chuck < Formula
   desc "Concurrent, on-the-fly audio programming language"
   homepage "https://chuck.cs.princeton.edu/"
-  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.0.0.tgz"
-  sha256 "2caee332b8d48e2fddad0f8a0a1811b6cf4c5afab73ae8a17b85ec759cce27ac"
+  url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.0.1.tgz"
+  mirror "http://chuck.stanford.edu/release/files/chuck-1.4.0.1.tgz"
+  sha256 "11a20c34b385e132bf43d5ae6a562c652f631828cc6b1562a4c029bc9a850ed4"
+  license "GPL-2.0-or-later"
+  head "https://github.com/ccrma/chuck.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "d90f8ede5a2afc3ca4b1274da3f73abf25e5c834f64701bf48ddcbc4decf51ca" => :catalina
-    sha256 "3dea1fba4982d2770ccfb10c90363a1a1342281900814dc9d617a41b758bc479" => :mojave
-    sha256 "8b3feed2d5a3773ee2479a05af8628e83a5fb8e355f3e269202c72fa7ff80258" => :high_sierra
-    sha256 "17e8770cd31f86a3cb890bca8c648a2e7321511130016b47b67b08eaceeab2b9" => :sierra
+  livecheck do
+    url "https://chuck.cs.princeton.edu/release/files/"
+    regex(/href=.*?chuck[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on :xcode => :build
+  bottle do
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f22a34388deb237f78a2197aede95396de6b15f629c92969b75f326f004ee815"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0d7d491edff5d042134f2930bc4d66ed6c2a00f727ef3b9db26970b8f68a9c41"
+    sha256 cellar: :any_skip_relocation, catalina:      "dda91ec418bd79160d2e9167e5096f9a81075558fcf8943e509c355c5e827e98"
+    sha256 cellar: :any_skip_relocation, mojave:        "524a64579b8132a18d7a0ad9edd200a623ac954a72663b4ac229958e7a64541e"
+  end
+
+  depends_on xcode: :build
+
+  # Big Sur compile fix https://github.com/ccrma/chuck/pull/158
+  patch do
+    url "https://github.com/ccrma/chuck/commit/51f8dfa2a6d0cf2fc8f39760cae8a754ccdaaee5.patch?full_index=1"
+    sha256 "f3853d6d107fe7ccd235ef5e02eb396f58ce55bb9e7ac7bd4043146af9d08536"
+  end
 
   def install
-    # Support for newer macOS versions
-    inreplace "src/core/makefile.x/makefile.osx",
-              "10\\.(6|7|8|9|10|11|12|13)",
-              "10\\.(6|7|8|9|10|11|12|1[0-9])"
-
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
     pkgshare.install "examples"

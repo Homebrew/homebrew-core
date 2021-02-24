@@ -1,16 +1,16 @@
 class Sk < Formula
   desc "Fuzzy Finder in rust!"
   homepage "https://github.com/lotabout/skim"
-  url "https://github.com/lotabout/skim/archive/v0.6.9.tar.gz"
-  sha256 "74a22471bca35e4c07f59c89e3332e08bb968ad734e74846505d5033a4915e47"
+  url "https://github.com/lotabout/skim/archive/v0.9.4.tar.gz"
+  sha256 "5ec639c34c7657be4f7f990e9ad0d8d0a7a979eba68daa7c100126ce06702a1b"
+  license "MIT"
   head "https://github.com/lotabout/skim.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "6ab938630527bafcf9e606c6064a7c1a71d914e5c17d7c85d3087eddb4dd0969" => :catalina
-    sha256 "2d365a27765394204114b255530137af6f9a7827ad4229489a6a7610fa77faad" => :mojave
-    sha256 "aa524091bad3ee151541200db321417bf674800fc32f7a4779fb381a5adaf575" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1bd497fc73a90ccca27cc9bff110d394f65148839c25265d017fc384fddd9c55"
+    sha256 cellar: :any_skip_relocation, big_sur:       "61c1157e45e27f80c0aa1807416b82562540d72d6e1132912f59fc9fd0d51c86"
+    sha256 cellar: :any_skip_relocation, catalina:      "e1b6019d494e2750d305e5366b51129720126c51931928681da48ba89293a46b"
+    sha256 cellar: :any_skip_relocation, mojave:        "05483c56866808ff11d9054ccfde8b7c8bfea652d3aff1f353cddca5e4451d4f"
   end
 
   depends_on "rust" => :build
@@ -18,11 +18,12 @@ class Sk < Formula
   def install
     (buildpath/"src/github.com/lotabout").mkpath
     ln_s buildpath, buildpath/"src/github.com/lotabout/skim"
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "."
+    system "cargo", "install", *std_cargo_args
 
     pkgshare.install "install"
     bash_completion.install "shell/key-bindings.bash"
     bash_completion.install "shell/completion.bash"
+    fish_completion.install "shell/key-bindings.fish" => "skim.fish"
     zsh_completion.install "shell/key-bindings.zsh"
     zsh_completion.install "shell/completion.zsh"
     man1.install "man/man1/sk.1", "man/man1/sk-tmux.1"
@@ -30,6 +31,6 @@ class Sk < Formula
   end
 
   test do
-    assert_match /.*world/, pipe_output("#{bin}/sk -f wld", "hello\nworld")
+    assert_match(/.*world/, pipe_output("#{bin}/sk -f wld", "hello\nworld"))
   end
 end

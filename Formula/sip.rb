@@ -1,21 +1,29 @@
 class Sip < Formula
   desc "Tool to create Python bindings for C and C++ libraries"
   homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz"
-  sha256 "04cc2f87ac97e8718d8e1ef036e3ec26050ab44c21f9277618d5b67432fcbfd6"
-  head "https://www.riverbankcomputing.com/hg/sip", :using => :hg
+  url "https://www.riverbankcomputing.com/static/Downloads/sip/4.19.24/sip-4.19.24.tar.gz"
+  sha256 "edcd3790bb01938191eef0f6117de0bf56d1136626c0ddb678f3a558d62e41e5"
+  license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  revision 1
+  head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "eae3d43737dcc1d551e21550a8907e4865885f258549bfe20a329846af38a200" => :catalina
-    sha256 "d06982c72e687ca3549241083f08bc49b9f3802567a8eee06614c1116e5cc11e" => :mojave
-    sha256 "68f805ae7c8dfcc9c59ef0c4aaaf15485aef98a532b4c13cda559525acd974dd" => :high_sierra
+  livecheck do
+    url "https://riverbankcomputing.com/software/sip/download"
+    regex(/href=.*?sip[._-]v?(\d+(\.\d+)+)\.t/i)
   end
 
-  depends_on "python"
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "000960d8619e5dba18a9e5585e6eac8b9123977c448ea08024bf8fcab777d000"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8325e469dc8c267c526034ce3ea3bc014c3f66dc05471e0af81bef9725cdb671"
+    sha256 cellar: :any_skip_relocation, catalina:      "20c9e0745b80d218317e81bb81227b513c59d84524ad6cf44439d446cb289616"
+    sha256 cellar: :any_skip_relocation, mojave:        "5a64babc3b0e9058fce2b9963ef8193d6b8437de1d8119e43966b4ad42092590"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c555ded74a09732751261cfe7cd243ceb69bed86f489df8a80cc4e6a5819220c"
+  end
+
+  depends_on "python@3.9"
 
   def install
-    ENV.prepend_path "PATH", Formula["python"].opt_libexec/"bin"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_bin
     ENV.delete("SDKROOT") # Avoid picking up /Application/Xcode.app paths
 
     if build.head?

@@ -1,37 +1,76 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
-  url "https://github.com/grpc/grpc/archive/v1.26.0.tar.gz"
-  sha256 "2fcb7f1ab160d6fd3aaade64520be3e5446fc4c6fa7ba6581afdc4e26094bd81"
+  url "https://github.com/grpc/grpc.git",
+      tag:      "v1.36.0",
+      revision: "736e3758351ced3cd842bad3ba4e2540f01bbc48",
+      shallow:  false
+  license "Apache-2.0"
   head "https://github.com/grpc/grpc.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 "c4f5de2b38f129f859c67eaa6c1b1b0dfa9420a1ba09002a02028c02d9ebb114" => :catalina
-    sha256 "8978cd949cd6a1043aa7266eb4524b199581d1cda3c8ef1f82208dba3bdf894b" => :mojave
-    sha256 "01778edd57f6f09df820caf0e3955d2d27f224bb2188d60de622e6288cd6f40c" => :high_sierra
+    sha256 arm64_big_sur: "b299f7b8be14c07a616887aee95d31ab76e6038fb03e6fad5131d1e326d7833e"
+    sha256 big_sur:       "448f34c2344d584187c0fa2c0460d5a8a626a0ecac3b25c0c0ad018d70398906"
+    sha256 catalina:      "1ec5bd64007c2ce57404e932ed2b378ba02aa0184e8d28133fbbf6b2732d39a0"
+    sha256 mojave:        "9094b70903b63272622ad14c231c7bd9b0903d077b51d24b3158a9b826c5a62d"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :test
+  depends_on "abseil"
   depends_on "c-ares"
-  depends_on "gflags"
   depends_on "openssl@1.1"
   depends_on "protobuf"
+  depends_on "re2"
 
-  resource "gtest" do
-    url "https://github.com/google/googletest/archive/release-1.8.1.tar.gz"
-    sha256 "9bf1fe5182a604b4135edc1a425ae356c9ad15e9b23f9f12a02e80184c3a249c"
-  end
+  uses_from_macos "zlib"
 
   def install
-    system "make", "install", "prefix=#{prefix}"
+    mkdir "cmake/build" do
+      args = %W[
+        ../..
+        -DCMAKE_CXX_STANDARD=17
+        -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
+        -DCMAKE_INSTALL_RPATH=#{lib}
+        -DBUILD_SHARED_LIBS=ON
+        -DgRPC_BUILD_TESTS=OFF
+        -DgRPC_INSTALL=ON
+        -DgRPC_ABSL_PROVIDER=package
+        -DgRPC_CARES_PROVIDER=package
+        -DgRPC_PROTOBUF_PROVIDER=package
+        -DgRPC_SSL_PROVIDER=package
+        -DgRPC_ZLIB_PROVIDER=package
+        -DgRPC_RE2_PROVIDER=package
+      ] + std_cmake_args
 
-    system "make", "install-plugins", "prefix=#{prefix}"
+      system "cmake", *args
+      system "make", "install"
 
-    (buildpath/"third_party/googletest").install resource("gtest")
-    system "make", "grpc_cli", "prefix=#{prefix}"
-    bin.install "bins/opt/grpc_cli"
+      # grpc_cli does not build correctly with a non-/usr/local prefix.
+      # Reported upstream at https://github.com/grpc/grpc/issues/25176
+      # When removing the `unless` block, make sure to do the same for
+      # the test block.
+      unless Hardware::CPU.arm?
+        args = %W[
+          ../..
+          -DCMAKE_INSTALL_RPATH=#{lib}
+          -DBUILD_SHARED_LIBS=ON
+          -DgRPC_BUILD_TESTS=ON
+        ] + std_cmake_args
+        system "cmake", *args
+        system "make", "grpc_cli"
+        bin.install "grpc_cli"
+        lib.install Dir[shared_library("libgrpc++_test_config", "*")]
+      end
+    end
   end
 
   test do
@@ -43,7 +82,13 @@ class Grpc < Formula
         return GRPC_STATUS_OK;
       }
     EOS
-    system ENV.cc, "test.cpp", "-I#{include}", "-L#{lib}", "-lgrpc", "-o", "test"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
+    pkg_config_flags = shell_output("pkg-config --cflags --libs libcares protobuf re2 grpc++").chomp.split
+    system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *pkg_config_flags, "-o", "test"
     system "./test"
+    unless Hardware::CPU.arm?
+      output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
+      assert_match "Received an error when querying services endpoint.", output
+    end
   end
 end

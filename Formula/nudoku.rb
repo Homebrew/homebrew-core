@@ -1,26 +1,24 @@
 class Nudoku < Formula
-  desc "ncurses based sudoku game"
+  desc "Ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  url "https://github.com/jubalh/nudoku/archive/1.0.0.tar.gz"
-  sha256 "80fb9996c28642920951c20cfd5ca6e370d75240255bc6f11067ae68b6e44eca"
+  url "https://github.com/jubalh/nudoku/archive/2.1.0.tar.gz"
+  sha256 "eeff7f3adea5bfe7b88bf7683d68e9a597aabd1442d1621f21760c746400b924"
+  license "GPL-3.0-or-later"
+  head "https://github.com/jubalh/nudoku.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "849d95cd3bcad09b584a0b692cd7982a31f3e455ec47bc888e13309650cfacb3" => :catalina
-    sha256 "d82e9887a876b3762c2f676c95e36fbf5b98bc4306f584618397c0fb30c97f46" => :mojave
-    sha256 "b6a14adadee0fb01f92397a5fdc31189492468e3d87875bed408ca41824d09b4" => :high_sierra
-    sha256 "d4cea1e1c0f97655feb301910aa70c65a223959ba39a8493f31ca1a614eec175" => :sierra
-    sha256 "8f4cd53a9cd87ac8b9b1b48a986329708134608e3ff4423e8f449e1a6c81d6f1" => :el_capitan
-  end
-
-  head do
-    url "https://github.com/jubalh/nudoku.git"
-
-    depends_on "gettext" => :build
+    sha256 arm64_big_sur: "daa1278f79f9fdf5cd8780ba68d3bf89982728c1ddf636f89475e89b14bd9c64"
+    sha256 big_sur:       "ec43523a92bb16fadd4ab7fe3f9189cb13849fc3919bf4525b9074a471453745"
+    sha256 catalina:      "e6aa92aabc32164b2cc69d55d4a243f6aafdd6d6a109a40339d6546548153174"
+    sha256 mojave:        "3afc049f852d205bff4b674e751fb1db83d73ab82ba15e5f38a1ba9c33ffd2e5"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "gettext"
+
+  uses_from_macos "ncurses"
 
   def install
     system "autoreconf", "-fiv"

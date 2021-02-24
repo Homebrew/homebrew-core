@@ -1,28 +1,30 @@
 class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
+  license "GPL-3.0-only"
+  revision 1
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/3.8.1.tar.gz"
-    sha256 "1dbd6600d3f86c0553f38a98439837ef6cc39bf0cec2511fe755ab6939651378"
+    url "https://github.com/ntop/ntopng/archive/4.2.tar.gz"
+    sha256 "c7ce8d0c7b4251aef276038ec3324530312fe232d38d7ad99de21575dc888e8b"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI/archive/3.0.tar.gz"
-      sha256 "69fb8003f00e9b9be3d06925398e15a83ac517cd155b6768f5f0e9342471c164"
+      url "https://github.com/ntop/nDPI/archive/3.4.tar.gz"
+      sha256 "dc9b291c7fde94edb45fb0f222e0d93c93f8d6d37f4efba20ebd9c655bfcedf9"
     end
   end
 
   bottle do
-    sha256 "8873e29f3d1884c8ef73a4908a942c66b5f12eb4587843742831fd41cb45d33b" => :catalina
-    sha256 "f046d1443aa95c5cd34dc6666560211bea5456b7adeba71559997baa4d809822" => :mojave
-    sha256 "b70730c924903d018a4c870c4813d36c6bac0cad0e5f439b6c8aaf4202083cf1" => :high_sierra
+    sha256 big_sur:  "9ed198be1700ad11126a1cb91851be862da39e5a546cf22be6bfcaf1ad73a2b4"
+    sha256 catalina: "d471e223fc0de4f2bbd993e5ed1691b9f4b1618b60dd22d1d4bce44b5bb500af"
+    sha256 mojave:   "3cb2eb698b63537009d7c94fb5a5192ac9c0645934477057d2a135842b02479e"
   end
 
   head do
-    url "https://github.com/ntop/ntopng.git", :branch => "dev"
+    url "https://github.com/ntop/ntopng.git", branch: "dev"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI.git", :branch => "dev"
+      url "https://github.com/ntop/nDPI.git", branch: "dev"
     end
   end
 
@@ -31,12 +33,12 @@ class Ntopng < Formula
   depends_on "gnutls" => :build
   depends_on "json-glib" => :build
   depends_on "libtool" => :build
+  depends_on "lua" => :build
   depends_on "pkg-config" => :build
   depends_on "zeromq" => :build
   depends_on "geoip"
   depends_on "json-c"
   depends_on "libmaxminddb"
-  depends_on "lua"
   depends_on "mysql-client"
   depends_on "redis"
   depends_on "rrdtool"
@@ -54,6 +56,19 @@ class Ntopng < Formula
   end
 
   test do
-    system "#{bin}/ntopng", "-V"
+    redis_port = free_port
+    redis_bin = Formula["redis"].bin
+    fork do
+      exec redis_bin/"redis-server", "--port", redis_port.to_s
+    end
+    sleep 3
+
+    mkdir testpath/"ntopng"
+    fork do
+      exec bin/"ntopng", "-i", test_fixtures("test.pcap"), "-d", testpath/"ntopng", "-r", "localhost:#{redis_port}"
+    end
+    sleep 15
+
+    assert_match "list", shell_output("#{redis_bin}/redis-cli -p #{redis_port} TYPE ntopng.trace")
   end
 end

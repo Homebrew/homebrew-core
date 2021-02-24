@@ -1,20 +1,21 @@
 class Binutils < Formula
   desc "GNU binary tools for native development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.33.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.33.1.tar.gz"
-  sha256 "98aba5f673280451a09df3a8d8eddb3aa0c505ac183f1e2f9d00c67aa04c6f7d"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.36.1.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.1.tar.xz"
+  sha256 "e81d9edf373f193af428a0f256674aea62a9d74dfe93f65192d4eae030b0f3b0"
+  license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
 
   bottle do
-    sha256 "c9043b4615a1462646f0af1296fdc4ec70fc654fb7daff77f9c4e73373d1b312" => :catalina
-    sha256 "c97046dc6f519c176addcd4ed37afddc0553e7eebf8b30fbd5a5b64487b9cdc4" => :mojave
-    sha256 "021367441684b194be93d5be015930e1507a6a2d7c7201d3815740a052f0b87a" => :high_sierra
+    sha256 arm64_big_sur: "f0c23d8672a107f94bb46eec9cae654b1a9abf663e6d25ec82467f0dfa45dff1"
+    sha256 big_sur:       "993ab1e0149a47224c4e7063be178ff5d551b2ea6d2a79805f03ca40cd5f1279"
+    sha256 catalina:      "d3112607a4820d58df8d1fc0fd3ac998ba9ba8563245e72c9e197c50b333748c"
+    sha256 mojave:        "06de25d200fd389ee4157a278abe261e20c18f8f6ad28d9519a4a4001b5b027e"
   end
 
-  uses_from_macos "zlib"
+  keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"
 
-  keg_only :provided_by_macos,
-           "because Apple provides the same tools and binutils is poorly supported on macOS"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-debug",
@@ -27,11 +28,23 @@ class Binutils < Formula
                           "--enable-interwork",
                           "--enable-multilib",
                           "--enable-64-bit-bfd",
-                          "--enable-targets=all"
+                          "--enable-gold",
+                          "--enable-plugins",
+                          "--enable-targets=all",
+                          "--with-system-zlib",
+                          "--disable-nls"
     system "make"
     system "make", "install"
-    Dir["#{bin}/*"].each do |f|
-      bin.install_symlink f => "g" + File.basename(f)
+    bin.install_symlink "ld.gold" => "gold"
+    on_macos do
+      Dir["#{bin}/*"].each do |f|
+        bin.install_symlink f => "g" + File.basename(f)
+      end
+    end
+
+    on_linux do
+      # Reduce the size of the bottle.
+      system "strip", *Dir[bin/"*", lib/"*.a"]
     end
   end
 

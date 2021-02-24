@@ -1,17 +1,22 @@
 class Neon < Formula
   desc "HTTP and WebDAV client library with a C interface"
-  homepage "https://web.archive.org/web/webdav.org/neon/"
-  url "https://mirrorservice.org/sites/distfiles.macports.org/neon/neon-0.30.2.tar.gz"
-  mirror "https://fossies.org/linux/www/neon-0.30.2.tar.gz"
-  sha256 "db0bd8cdec329b48f53a6f00199c92d5ba40b0f015b153718d1b15d3d967fbca"
-  revision 1
+  homepage "https://notroj.github.io/neon/"
+  url "https://notroj.github.io/neon/neon-0.31.2.tar.gz"
+  mirror "https://fossies.org/linux/www/neon-0.31.2.tar.gz"
+  sha256 "cf1ee3ac27a215814a9c80803fcee4f0ede8466ebead40267a9bd115e16a8678"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?neon[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "d87da64331ca21f48fa61b518e701654781008d46c5ca33840a34c41dda4a9e2" => :catalina
-    sha256 "4c264a2164f7bb4f080a701b4fcc31c2bba54031ad574f25c33931abf7f205f0" => :mojave
-    sha256 "96799d3568d37f8c2da6333d4bccaa23fa13e75d6ef1e75f993f18c53e525306" => :high_sierra
-    sha256 "5f173cc83a291cb756046e94f09eb4031d5ec316988a757a6b5e2a92c310037d" => :sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "59508df4cea7739d669187e923c1e3ceac1b3e65cbfbe6c1e5d38ef37bb65382"
+    sha256 cellar: :any, big_sur:       "2257aace79050e66bd7c2de052d7506a0fdfbc62ba9b84ff2f87da6396aa22da"
+    sha256 cellar: :any, catalina:      "08c046a121125fb4a2ec4e84035586aa46086aa07a0bbeb2f189ed7e597a6d67"
+    sha256 cellar: :any, mojave:        "20d474191273a8210f05ecb6ed300d6aa92ffccd6cc45d3ef1f12d8d58d5fee9"
+    sha256 cellar: :any, high_sierra:   "0bc378496a9a3c82f30909210acdd3ead44594dba78741797edabbec2b9481e8"
   end
 
   depends_on "pkg-config" => :build
@@ -24,6 +29,9 @@ class Neon < Formula
   patch :DATA
 
   def install
+    # Work around configure issues with Xcode 12
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--enable-shared",

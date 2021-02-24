@@ -1,15 +1,16 @@
 class Tdlib < Formula
   desc "Cross-platform library for building Telegram clients"
   homepage "https://core.telegram.org/tdlib"
-  url "https://github.com/tdlib/td/archive/v1.5.0.tar.gz"
-  sha256 "ecd30f0261eebbdaa68741bc7e2120fa492c129cb62e2773ab95cc2a789db60e"
+  url "https://github.com/tdlib/td/archive/v1.7.0.tar.gz"
+  sha256 "3daaf419f1738b7e0ac0e8a08f07e01a1faaf51175a59c0b113c15e30c69e173"
+  license "BSL-1.0"
+  head "https://github.com/tdlib/td.git"
 
   bottle do
-    cellar :any
-    sha256 "99bba47b0129e9654b18c60386e138c33f71454aa662886c9366a043b7802528" => :catalina
-    sha256 "9be0460254a6d1c705c48703fa4acd66ced464e3966d29cde49b82738806ce5b" => :mojave
-    sha256 "7d3964bf0288801a360288458d604ab60ed414393d77d674913e93156fa3cb55" => :high_sierra
-    sha256 "891c74200c0053cef624e5521b4ec576cd2c133e41433fd16ea42dac0b6672d0" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "15d07ea3abe99c9c65e1e74fa43aa6c2be758e84dc5f8657ef68fc47d8540a36"
+    sha256 cellar: :any, big_sur:       "79dc39f41a2ad6d8272887c0564f043e9c362b1073ba2ceeb338f50e717c97dc"
+    sha256 cellar: :any, catalina:      "fc606ff0b78fd6ad52f0449dfd1380e646b4de63ff36756546838b783a088ca2"
+    sha256 cellar: :any, mojave:        "007b08aced0aa457830daaade4299c979ee97db6b420bdfe5d0e6bdd416925c6"
   end
 
   depends_on "cmake" => :build

@@ -1,25 +1,29 @@
 class Cataclysm < Formula
   desc "Fork/variant of Cataclysm Roguelike"
   homepage "https://github.com/CleverRaven/Cataclysm-DDA"
-  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.D.tar.gz"
-  version "0.D"
-  sha256 "6cc97b3e1e466b8585e8433a6d6010931e9a073f6ec060113161b38052d82882"
-  revision 1
+  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.E-3.tar.gz"
+  version "0.E-3"
+  sha256 "21ac5226a996ac465842f188cadea8815eae7309fe38cf8d94de2f8ac97cd820"
+  license "CC-BY-SA-3.0"
   head "https://github.com/CleverRaven/Cataclysm-DDA.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "7b91e03feeb2a2d9fcce1ffecdfc96e19d2fef80e88f8b3374dd76c9ad4c7194" => :catalina
-    sha256 "24454f33d052b39afe8dbe1e82498e939754f45c8b370385485070b2efbed20c" => :mojave
-    sha256 "f885e61b707330bf1346e215156a22956b3da5016e645ba3ef5d00829aac984a" => :high_sierra
-    sha256 "f96c3b668439311126dc8064d0b3590aebb6e21ecd5bcba01303e78dca9c4a7c" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "aacc35c573fa5f841054e73d76c1c954086a990f5821372ab0716652d4b7ee7a"
+    sha256 cellar: :any, big_sur:       "0e93a967d9e4e01129912388ef9b9b0de954d25088ee65c05a6fea80aca7acbb"
+    sha256 cellar: :any, catalina:      "c81600f8324c60d92121e5134fbb26a1212375c5e0c017363cceb473e0ef10e7"
+    sha256 cellar: :any, mojave:        "2a3c5ef376aaeb2ee93ddbf3b6ebbb1997056411d48369454283b9518a4da345"
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "lua" unless build.head?
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
@@ -39,13 +43,11 @@ class Cataclysm < Formula
     ]
 
     args << "CLANG=1" if ENV.compiler == :clang
-    args << "LUA=1" if build.stable?
 
     system "make", *args
 
     # no make install, so we have to do it ourselves
     libexec.install "cataclysm-tiles", "data", "gfx"
-    libexec.install "lua" if build.stable?
 
     inreplace "cataclysm-launcher" do |s|
       s.change_make_var! "DIR", libexec
@@ -58,19 +60,18 @@ class Cataclysm < Formula
     user_config_dir = testpath/"Library/Application Support/Cataclysm/"
     user_config_dir.mkpath
 
-    # run cataclysm for 5 seconds
-    game = fork do
-      system bin/"cataclysm"
+    # run cataclysm for 7 seconds
+    pid = fork do
+      exec bin/"cataclysm"
     end
-
-    sleep 5
-    Process.kill("HUP", game)
-
+    sleep 30
     assert_predicate user_config_dir/"config",
                      :exist?, "User config directory should exist"
     assert_predicate user_config_dir/"templates",
                      :exist?, "User template directory should exist"
     assert_predicate user_config_dir/"save",
                      :exist?, "User save directory should exist"
+  ensure
+    Process.kill("TERM", pid)
   end
 end

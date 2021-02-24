@@ -5,13 +5,11 @@ class Einstein < Formula
   sha256 "0f2d1c7d46d36f27a856b98cd4bbb95813970c8e803444772be7bd9bec45a548"
 
   bottle do
-    cellar :any
-    sha256 "54ce5ebd0b06256ecdda309bc0a0b500a0bf29411021fb5525dd647b923c3354" => :catalina
-    sha256 "1430c04b154114c5ada29708033872f75a1c1ca361d997747aac748806d0182d" => :mojave
-    sha256 "faa76a6c3363ec2c5f814940560db5fb52d8d7af89149dae7bbdf14967c51e3a" => :high_sierra
-    sha256 "b2f4290bc28e3dd1c528b7c58fa363f8e5832c00283fa79f2f9243d8e5a02c4c" => :sierra
-    sha256 "d0424faaf640750ab3ff8e8e24216a93227b9ff40d33405e3a55a7bdf14d1a36" => :el_capitan
-    sha256 "e884bcdb8f1644707fceb03a8d7732a528495e9655216eff42336c64fdd90179" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "68cfd59e5ded3c4b91f81edf0e3b2d0c99822025b6828cc710216d5923bb49b2"
+    sha256 cellar: :any, big_sur:       "a3e0ddd14989c54fb03fe46c3f1b4ab37b8f2c882add23348041d19036d3fde3"
+    sha256 cellar: :any, catalina:      "7407f84e2b5f164daba38e36654bc0254b3b9094e4e499e1346a4d94943b38de"
+    sha256 cellar: :any, mojave:        "df8d532f00641727e29c50e3fc47ea52c9e8c1d1e98909922267bd71dad5d1a3"
   end
 
   depends_on "sdl"
@@ -25,7 +23,7 @@ class Einstein < Formula
   end
 
   def install
-    system "make"
+    system "make", "PREFIX=#{HOMEBREW_PREFIX}"
 
     bin.install "einstein"
     (pkgshare/"res").install "einstein.res"

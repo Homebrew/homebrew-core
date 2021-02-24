@@ -1,18 +1,20 @@
 class Tmx < Formula
   desc "Portable C library to load tiled maps in your games"
   homepage "https://github.com/baylej/tmx"
-  url "https://github.com/baylej/tmx/archive/tmx_1.0.0.tar.gz"
-  sha256 "ba184b722a838a97f514fb7822c1243dbb7be8535b006ef1c5b9f928e295519b"
+  url "https://github.com/baylej/tmx/archive/tmx_1.4.0.tar.gz"
+  sha256 "5ab52e72976141260edd1b15ea34e1626c0f4ba9b8d2afe7f4d68b51fc9fedf7"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "846228b02676e378a400f4ca3b4d2ac343faf222c34e654cef66e4e8b3aa8f6c" => :catalina
-    sha256 "e84b8ed8574cbd3c67fca475d1172fc7e51a7a6707ea0d5e109f79479b655c27" => :mojave
-    sha256 "a0583aec000dcda5738acc799591da7a8495c81bfffa0ee988428191f6840d47" => :high_sierra
-    sha256 "591bf5f7712d4406b505c52dc62949b793961a944f0e38b1336a3333d16b0161" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "770cdb601ea6b496a29832960cb5fd79626a99f55f01c635985aa921f3e5f31d"
+    sha256 cellar: :any, big_sur:       "91e9846b6d59e0694918753e357736c229c2a70d8021fdbaa2eb506e5be746c2"
+    sha256 cellar: :any, catalina:      "1013715fdb263f6d6985c9145a5dbc05d2e41ba6c4aa28af766f0bc82a87f2c5"
+    sha256 cellar: :any, mojave:        "060eab2a5090afed9dfbf6ca716a2867b956be2222e6a623a5b98774bf06ef6e"
   end
 
   depends_on "cmake" => :build
+
+  uses_from_macos "libxml2"
 
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=on", *std_cmake_args
@@ -38,19 +40,18 @@ class Tmx < Formula
     EOS
     (testpath/"test.c").write <<-EOS
       #include <tmx.h>
-      #include <tsx.h>
 
       int main(void) {
         tmx_map *map = tmx_load("test.tmx");
         tmx_map_free(map);
 
-        tmx_tileset_manager *ts_mgr = tmx_make_tileset_manager();
-        tmx_free_tileset_manager(ts_mgr);
+        tmx_resource_manager *rc_mgr = tmx_make_resource_manager();
+        tmx_free_resource_manager(rc_mgr);
 
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "#{lib}/libtmx.dylib", "-lz", "-lxml2", "-o", "test"
+    system ENV.cc, "test.c", "#{lib}/#{shared_library("libtmx")}", "-lz", "-lxml2", "-o", "test"
     system "./test"
   end
 end

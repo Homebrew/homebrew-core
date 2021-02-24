@@ -1,15 +1,21 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
-  homepage "https://github.com/rednex/rgbds"
-  url "https://github.com/rednex/rgbds/archive/v0.3.9.tar.gz"
-  sha256 "218d5456807f390fd80276f418fdd884c9077aa9d8ab1784819e5fd62d524587"
-  head "https://github.com/rednex/rgbds.git"
+  homepage "https://rgbds.gbdev.io"
+  url "https://github.com/gbdev/rgbds/archive/v0.4.2.tar.gz"
+  sha256 "2579cbd6cc47bc944038d17ec3af640e2782c67fdffe7093e6083430543c9780"
+  license "MIT"
+  head "https://github.com/gbdev/rgbds.git"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any
-    sha256 "d86c28d1967d8e083b2e7df6242d9cfb478d999b043791e24c1b00fdbb27d20f" => :catalina
-    sha256 "d7d532c845f927504f24ba9426fa04a8f63c883a10feddddbb2c58a7d7f9d65d" => :mojave
-    sha256 "b39350c4b40fc65a10dbdcd6577577bf639aec9ba386443e0b94062a82b9ed7f" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "683197419321366aa097980b0c982698fca0082c72ddafc09f0679404c322e9d"
+    sha256 cellar: :any, big_sur:       "6c4d8fece0d52778f3d939832bfcb46f3e339248228ed166f7e604339c1b2833"
+    sha256 cellar: :any, catalina:      "4ffdbfb56810ee5ab1d54c647fe5a232954b78b024b2ecbcc3ff009f48d38f8e"
+    sha256 cellar: :any, mojave:        "a61753b345b81f0378916971fdf7629744556fe6d3c04c85afdec27669641e48"
   end
 
   depends_on "pkg-config" => :build
@@ -20,15 +26,11 @@ class Rgbds < Formula
   end
 
   test do
+    # https://github.com/rednex/rgbds/blob/HEAD/test/asm/assert-const.asm
     (testpath/"source.asm").write <<~EOS
-      SECTION "Org $100",HOME[$100]
-      nop
-      jp begin
-      begin:
-        ld sp, $ffff
-        ld a, $1
-        ld b, a
-        add a, b
+      SECTION "rgbasm passing asserts", ROM0[0]
+        db 0
+        assert @
     EOS
     system "#{bin}/rgbasm", "source.asm"
   end

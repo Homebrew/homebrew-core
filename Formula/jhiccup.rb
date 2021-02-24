@@ -4,6 +4,11 @@ class Jhiccup < Formula
   url "https://www.azul.com/files/jHiccup-2.0.10-dist.zip"
   sha256 "7bb1145d211d140b4f81184df7eb9cea90f56720ad7504fac43c0c398f38a7d8"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?jHiccup[._-]v?(\d+(?:\.\d+)+)-dist\.zip/i)
+  end
+
   bottle :unneeded
 
   def install
@@ -20,8 +25,8 @@ class Jhiccup < Formula
     prefix.install "jHiccup.jar"
     prefix.install "jHiccupPlotter.xls"
     inreplace "#{bin}/jHiccup" do |s|
-      s.gsub! /^JHICCUP_JAR_FILE=.*$/,
-              "JHICCUP_JAR_FILE=#{prefix}/jHiccup.jar"
+      s.gsub!(/^JHICCUP_JAR_FILE=.*$/,
+              "JHICCUP_JAR_FILE=#{prefix}/jHiccup.jar")
     end
   end
 

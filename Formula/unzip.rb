@@ -6,15 +6,24 @@ class Unzip < Formula
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
   revision 6
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?(?:%20)?v?(\d+(?:\.\d+)+)/unzip\d+\.t}i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "178cea56554b0e6b74856203340554c7615c6ed2e122059c78370e35c896f0ce" => :catalina
-    sha256 "f0b95f2d5c664f45686f3aa318384906014ed28939da28020d12138f025aaeb6" => :mojave
-    sha256 "6dd7d0862f5a8b954dd94b3c91378209e0086eec7c5be367af0d8c330bc099da" => :high_sierra
-    sha256 "f4d59c04a44f93a30a23ec403784c73f9c06db9b72f3277679f66b1870a94331" => :sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f3dbb31f91250acb556aeb07b609decb690828cf1563ab6c63215217340c6fe9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2debed84387df5fd3430165b2e37046c73c141b2a7aedecfb3eb2ed06561556e"
+    sha256 cellar: :any_skip_relocation, catalina:      "1fac8de0e83c5a91feb1fa6e007397be17918761345f900c0244ade19fea806c"
+    sha256 cellar: :any_skip_relocation, mojave:        "908d05001d2692e21753508aae8cca95d588dcebc4f852f3a42e0b0b1e2df9d4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "96e47f47a3c6b10d59d69f614b7c63ae0aeea1e553018ee398b1b5405d22a7f5"
   end
 
   keg_only :provided_by_macos
+
+  uses_from_macos "zip" => :test
+  uses_from_macos "bzip2"
 
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/buster/unzip
@@ -50,13 +59,17 @@ class Unzip < Formula
   end
 
   def install
-    system "make", "-f", "unix/Makefile",
-      "CC=#{ENV.cc}",
-      "LOC=-DLARGE_FILE_SUPPORT",
-      "D_USE_BZ2=-DUSE_BZIP2",
-      "L_BZ2=-lbz2",
-      "macosx",
-      "LFLAGS1=-liconv"
+    args = %W[
+      CC=#{ENV.cc}
+      LOC=-DLARGE_FILE_SUPPORT
+      D_USE_BZ2=-DUSE_BZIP2
+      L_BZ2=-lbz2
+      macosx
+    ]
+    on_macos do
+      args << "LFLAGS1=-liconv"
+    end
+    system "make", "-f", "unix/Makefile", *args
     system "make", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
   end
 
@@ -65,7 +78,12 @@ class Unzip < Formula
     (testpath/"test2").write "Bonjour!"
     (testpath/"test3").write "Hej!"
 
-    system "/usr/bin/zip", "test.zip", "test1", "test2", "test3"
+    on_macos do
+      system "/usr/bin/zip", "test.zip", "test1", "test2", "test3"
+    end
+    on_linux do
+      system Formula["zip"].bin/"zip", "test.zip", "test1", "test2", "test3"
+    end
     %w[test1 test2 test3].each do |f|
       rm f
       refute_predicate testpath/f, :exist?, "Text files should have been removed!"

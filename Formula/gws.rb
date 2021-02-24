@@ -3,6 +3,7 @@ class Gws < Formula
   homepage "https://streakycobra.github.io/gws/"
   url "https://github.com/StreakyCobra/gws/archive/0.2.0.tar.gz"
   sha256 "f92b7693179c2522c57edd578abdb90b08f6e2075ed27abd4af56c1283deab1a"
+  license "MIT"
 
   bottle :unneeded
 

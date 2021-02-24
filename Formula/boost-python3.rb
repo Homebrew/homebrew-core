@@ -1,20 +1,31 @@
 class BoostPython3 < Formula
   desc "C++ library for C++/Python3 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.72.0/source/boost_1_72_0.tar.bz2"
-  sha256 "59c9b274bc451cf91a9ba1dd2c7fdcaf5d60b1b3aa83f2c9fa143417cc660722"
+  url "https://dl.bintray.com/boostorg/release/1.75.0/source/boost_1_75_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_75_0.tar.bz2"
+  sha256 "953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb"
+  license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    cellar :any
-    sha256 "ce20b29ffbf51137476d5bce459731fd2eb9bd0f5a3a9b1758a6c2cb52b0826d" => :catalina
-    sha256 "a89c855389dba45e976613c0a818d5a1d9042f5627c27a57d825136538f95543" => :mojave
-    sha256 "ff1323cf64f2604a274486bc822bf5790f8e8eaac6b2e44e5bdabda3ecb8c661" => :high_sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "2737924fe270f67d7b6ed9913a30e18f084b5ce2590041d70d6523206f55e437"
+    sha256 cellar: :any, big_sur:       "7015c83ae4726838a1e67900ed201578949afd195ccdd6eb13fd7336794155e6"
+    sha256 cellar: :any, catalina:      "2daea9e8951e79d78ea85e4e5abd11c749ae5f6dea889a7357648f04328de0dd"
+    sha256 cellar: :any, mojave:        "96dfc26b8b8a3a1090eb883f2f555cdacbb9425b6a9a9627e46c38759ff32257"
   end
 
   depends_on "numpy" => :build
   depends_on "boost"
-  depends_on "python"
+  depends_on "python@3.9"
+
+  # Fix build system issues on Apple silicon. This change has aleady
+  # been merged upstream, remove this patch once it lands in a release.
+  patch do
+    url "https://github.com/boostorg/build/commit/456be0b7ecca065fbccf380c2f51e0985e608ba0.patch?full_index=1"
+    sha256 "e7a78145452fc145ea5d6e5f61e72df7dcab3a6eebb2cade6b4cfae815687f3a"
+    directory "tools/build"
+  end
 
   def install
     # "layout" should be synchronized with boost
@@ -31,24 +42,22 @@ class BoostPython3 < Formula
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
     args << "cxxflags=-std=c++14"
-    if ENV.compiler == :clang
-      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-    end
+    args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     # disable python detection in bootstrap.sh; it guesses the wrong include
     # directory for Python 3 headers, so we configure python manually in
     # user-config.jam below.
     inreplace "bootstrap.sh", "using python", "#using python"
 
-    pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python3"].opt_frameworks/"Python.framework/Versions/#{pyver}"
+    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
 
     # Force boost to compile with the desired compiler
     (buildpath/"user-config.jam").write <<~EOS
       using darwin : : #{ENV.cxx} ;
       using python : #{pyver}
                    : python3
-                   : #{py_prefix}/include/python#{pyver}m
+                   : #{py_prefix}/include/python#{pyver}
                    : #{py_prefix}/lib ;
     EOS
 
@@ -81,9 +90,9 @@ class BoostPython3 < Formula
       }
     EOS
 
-    pyincludes = Utils.popen_read("python3-config --includes").chomp.split(" ")
-    pylib = Utils.popen_read("python3-config --ldflags").chomp.split(" ")
-    pyver = Language::Python.major_minor_version("python3").to_s.delete(".")
+    pyincludes = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --includes").chomp.split
+    pylib = shell_output("#{Formula["python@3.9"].opt_bin}/python3-config --ldflags --embed").chomp.split
+    pyver = Language::Python.major_minor_version(Formula["python@3.9"].opt_bin/"python3").to_s.delete(".")
 
     system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python#{pyver}", "-o",
            "hello.so", *pyincludes, *pylib
@@ -92,6 +101,6 @@ class BoostPython3 < Formula
       import hello
       print(hello.greet())
     EOS
-    assert_match "Hello, world!", pipe_output("python3", output, 0)
+    assert_match "Hello, world!", pipe_output(Formula["python@3.9"].opt_bin/"python3", output, 0)
   end
 end

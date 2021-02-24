@@ -1,29 +1,33 @@
 class Ecl < Formula
   desc "Embeddable Common Lisp"
   homepage "https://common-lisp.net/project/ecl/"
-  url "https://common-lisp.net/project/ecl/static/files/release/ecl-16.1.3.tgz"
-  sha256 "76a585c616e8fa83a6b7209325a309da5bc0ca68e0658f396f49955638111254"
-  revision 3
-  head "https://gitlab.com/embeddable-common-lisp/ecl.git"
+  url "https://common-lisp.net/project/ecl/static/files/release/ecl-21.2.1.tgz"
+  sha256 "b15a75dcf84b8f62e68720ccab1393f9611c078fcd3afdd639a1086cad010900"
+  license "LGPL-2.1-or-later"
+  head "https://gitlab.com/embeddable-common-lisp/ecl.git", branch: "develop"
 
   bottle do
-    sha256 "489b7db6f0b46b5a72de59d80806e73bdf5feb163477e31d47bfdf91e6d53ba2" => :catalina
-    sha256 "a3f198cdd7ef1c869670f8c40e46846c0aa4d02702f3569688878c08dae77187" => :mojave
-    sha256 "9afd54b532ae1f1ee3d62b32323007cc736def18f7dde363b19ee9cbf67364fa" => :high_sierra
-    sha256 "c4a7bf602fd2ce4a265cee2944cc0aa57829f9b2d965c1c54da4a905ee8cdf41" => :sierra
-    sha256 "2c27794e63438b4e4cb0aaaf8924d6586f2774c29f06b01429d569fec742e55d" => :el_capitan
+    sha256 arm64_big_sur: "847322265172ae8fe032c0a0ce7aa49a97fc5d7b65b67747b75e328567938d08"
+    sha256 big_sur:       "5df2258cb07a0f70a7e5d664f691d843fd5cae916009dbbc1ee0f6867c3dff48"
+    sha256 catalina:      "5286a86476c459ce1694d50363a885be2869df62bf632c532755eb51fe9fdbc5"
+    sha256 mojave:        "db02128ab8feb220552e2dad2f565283c44b64b688e2e467ecfbe68e4dce6bef"
   end
 
+  depends_on "texinfo" => :build # Apple's is too old
   depends_on "bdw-gc"
   depends_on "gmp"
   depends_on "libffi"
 
   def install
     ENV.deparallelize
+
     system "./configure", "--prefix=#{prefix}",
                           "--enable-threads=yes",
                           "--enable-boehm=system",
-                          "--enable-gmp=system"
+                          "--enable-gmp=system",
+                          "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}",
+                          "--with-libffi-prefix=#{Formula["libffi"].opt_prefix}",
+                          "--with-libgc-prefix=#{Formula["bdw-gc"].opt_prefix}"
     system "make"
     system "make", "install"
   end

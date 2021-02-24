@@ -1,16 +1,22 @@
 class CernNdiff < Formula
   desc "Numerical diff tool"
-  # Note: ndiff is a sub-project of Mad-X at the moment..
+  # NOTE: ndiff is a sub-project of Mad-X at the moment..
   homepage "https://mad.web.cern.ch/mad/"
-  url "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/5.05.01.tar.gz"
-  sha256 "0634b14bd00234ef44d37e47a884d4031fd1a2062475553198e83923a7c918e5"
+  url "https://github.com/MethodicalAcceleratorDesign/MAD-X/archive/5.06.01.tar.gz"
+  sha256 "cd2cd9f12463530950dab1c9a26730bb7c38f378c13afb7223fb9501c71a84be"
   head "https://github.com/MethodicalAcceleratorDesign/MAD-X.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bb7ec4fd2605658c5d2ff764a6dc867c1322c673d6aad93acf9e269237a34907" => :catalina
-    sha256 "77bdb65653b6d4ab9fd1b2f7b5f4af951fce1f50cd5403b3d30eeafdfd85c20a" => :mojave
-    sha256 "66b88d2c6cf4f38ad0a3277175c83d99597ffdde3165905c9bcec285a6befd4d" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "41ade2330d98fa812fe2e1e89751a8054ab9e9cc4cd9d173f5d9aee55796f3f1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6cf0cf2abed2d829e8e4f03ef88cbb3f225e42334091bb41bbbce269f7828eb7"
+    sha256 cellar: :any_skip_relocation, catalina:      "2c91f51a18d6d7aaa821c6f7e43d624289ef2d12144a35f9eeb995fbf7263d0a"
+    sha256 cellar: :any_skip_relocation, mojave:        "3398977b827a2f82dac08a2ec7d7b5289e61189bc7747ff2ab77a8f9ef9e23e1"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "87aae51415565cadb2dffdae5dff93b472039b4f1ad90462b282e6fb7c855e76"
   end
 
   depends_on "cmake" => :build

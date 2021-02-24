@@ -1,17 +1,21 @@
 class Masscan < Formula
   desc "TCP port scanner, scans entire Internet in under 5 minutes"
   homepage "https://github.com/robertdavidgraham/masscan/"
-  url "https://github.com/robertdavidgraham/masscan/archive/1.0.5.tar.gz"
-  sha256 "a0686929888674892f464014806444d26ded56838d45035221ff88ee9f6ead73"
+  url "https://github.com/robertdavidgraham/masscan/archive/1.3.2.tar.gz"
+  sha256 "0363e82c07e6ceee68a2da48acd0b2807391ead9a396cf9c70b53a2a901e3d5f"
+  license "AGPL-3.0-only"
   head "https://github.com/robertdavidgraham/masscan.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "480e77a29b46bf529743f0d4e21a8e69d55e41d19bbb4e3b1665d329c8b3e94f" => :catalina
-    sha256 "6de3b12cbe718062781ee5bddad15a3f4835dafe77210f3ecba59d4e11e733e3" => :mojave
-    sha256 "20a6281fb4adb9aec9fd7bddf8da30bc2ae8f5bec6daa5b468444916859017fd" => :high_sierra
-    sha256 "729b4ce06557da726edbf7e6e570ed1ff96ca3e0bc42d9399f9ed96aa48ef2a2" => :sierra
-    sha256 "9aa4359e82e1b467f24d7e813ee8919dbc5cf32a182fd6eafcadc015bcd97955" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b99bf991011be4ee7d76fe43aa000159f0665b888a0cbc7c4d528d102a3daa67"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8d21dd16d333a573d7146d13c31dea07df5c72fcfe137af338e6f7722b393dbe"
+    sha256 cellar: :any_skip_relocation, catalina:      "a77ea3fd36501d9a0d0398e585f1d30fd64163ca378e6af9660601a10e1ddce3"
+    sha256 cellar: :any_skip_relocation, mojave:        "19def74a8381541e80c530a5f0599bc92f067ac3e211ecc173afbbb0aee72752"
   end
 
   def install
@@ -26,6 +30,6 @@ class Masscan < Formula
   end
 
   test do
-    assert_match(/adapter =/, `#{bin}/masscan --echo | head -n 6 | tail -n 1`)
+    assert_match "ports =", shell_output("#{bin}/masscan --echo")
   end
 end

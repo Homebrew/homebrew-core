@@ -1,30 +1,35 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://trac.osgeo.org/geos"
-  url "https://download.osgeo.org/geos/geos-3.8.0.tar.bz2"
-  sha256 "99114c3dc95df31757f44d2afde73e61b9f742f0b683fd1894cbbee05dda62d5"
+  url "https://download.osgeo.org/geos/geos-3.9.1.tar.bz2"
+  sha256 "7e630507dcac9dc07565d249a26f06a15c9f5b0c52dd29129a0e3d381d7e382a"
+  license "LGPL-2.1"
+
+  livecheck do
+    url "https://download.osgeo.org/geos/"
+    regex(/href=.*?geos[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "796dd5584ab4d12a520fc6b4425d2b85ad3979d114a14925b51d021e8379b263" => :catalina
-    sha256 "dbc37cb1275dd952d81063c99a6850866b00872fafee3891dbb38626ed6a5cef" => :mojave
-    sha256 "ddc40581ddb90eb111a4d745508aba760dfdae7adc533c517c1b27759009c4c0" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "55162eaa549fb0b551ddbd6fa2e7e25da1f9c4cf9772ed62d077f0f8bf03ecbe"
+    sha256 cellar: :any, big_sur:       "763727a2a096dd9a5ba2735672f2ff2ee58c7c1efd8b2db8d79dc2e5e6989cbe"
+    sha256 cellar: :any, catalina:      "6ebbc7afe80b38660e33be4b95a47654d0d4dc067b13076f1b88d06c52dd717a"
+    sha256 cellar: :any, mojave:        "ff5f29ff0856fdc987c5338a066ddbaa2eb3e231ff1a87bc7c166be73dcac892"
   end
 
   depends_on "swig" => :build
-  depends_on "python"
+  depends_on "python@3.9"
 
   def install
-    # https://trac.osgeo.org/geos/ticket/771
-    inreplace "configure" do |s|
-      s.gsub! /PYTHON_CPPFLAGS=.*/, %Q(PYTHON_CPPFLAGS="#{`python3-config --includes`.strip}")
-      s.gsub! /PYTHON_LDFLAGS=.*/, 'PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup"'
-    end
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-python
+      PYTHON=#{Formula["python@3.9"].opt_bin}/python3
+    ]
+    args << "--disable-inline" if Hardware::CPU.arm?
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-python",
-                          "PYTHON=#{Formula["python"].opt_bin}/python3"
+    system "./configure", *args
     system "make", "install"
   end
 

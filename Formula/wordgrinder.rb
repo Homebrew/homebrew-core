@@ -1,21 +1,28 @@
 class Wordgrinder < Formula
   desc "Unicode-aware word processor that runs in a terminal"
   homepage "https://cowlark.com/wordgrinder"
-  url "https://github.com/davidgiven/wordgrinder/archive/0.7.2.tar.gz"
-  sha256 "4e1bc659403f98479fe8619655f901c8c03eb87743374548b4d20a41d31d1dff"
+  url "https://github.com/davidgiven/wordgrinder/archive/0.8.tar.gz"
+  sha256 "856cbed2b4ccd5127f61c4997a30e642d414247970f69932f25b4b5a81b18d3f"
+  license "MIT"
+  revision 1
   head "https://github.com/davidgiven/wordgrinder.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "05750b2dadc537994d4701005d565782d2afdecfbe1bf1f118f76290255a3946" => :catalina
-    sha256 "572bd029f459c15af9a2d27a471e31594d1d9c2387b6ec66f9a890df1db13e55" => :mojave
-    sha256 "19855507ccd289049c30aad466a66de742b9d58a98247b9f9d223e140a81ff69" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "370093b3705f72a5d6b87bacd2e64e229f3d6ac82e52e92fe147c037d65f210b"
+    sha256 cellar: :any, big_sur:       "d2cb8d569e0a7a02abae8deb32adf8a564042cfd6cddaeef4bc1dc16ab05e53b"
+    sha256 cellar: :any, catalina:      "e084da6193fd984ac541e7c21044f80927b60b85ab69512d3824255be1c54d17"
+    sha256 cellar: :any, mojave:        "143c53429552e244089211458fc42bcdbb79171d5f98ae17db9c7175208c8ae4"
   end
 
+  depends_on "lua" => :build
   depends_on "ninja" => :build
-  depends_on "lua"
+  depends_on "pkg-config" => :build
+  depends_on "ncurses"
+
+  uses_from_macos "zlib"
 
   def install
+    ENV["CURSES_PACKAGE"] = "ncursesw"
     system "make", "OBJDIR=#{buildpath}/wg-build"
     bin.install "bin/wordgrinder-builtin-curses-release" => "wordgrinder"
     man1.install "bin/wordgrinder.1"

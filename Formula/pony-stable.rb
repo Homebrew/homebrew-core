@@ -1,17 +1,21 @@
 class PonyStable < Formula
   desc "Dependency manager for the Pony language"
   homepage "https://github.com/ponylang/pony-stable"
-  url "https://github.com/ponylang/pony-stable/archive/0.2.1.tar.gz"
-  sha256 "1335d7b3457421b8913f19c17da76d2d6b9ad17288dfb5fdcf2af9fd93193890"
+  url "https://github.com/ponylang/pony-stable/archive/0.2.2.tar.gz"
+  sha256 "8fca5f0f600e695d648200a7492c5d8cea82581f4e4e138f0bb621911d9e4c13"
+  license "BSD-2-Clause"
   head "https://github.com/ponylang/pony-stable.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ac8a8ee51543c3529f4d6d0d385c93602b146a7d62a9e7012c4d61bb374f9f78" => :catalina
-    sha256 "7da637b58849f22f8ff032854b405eb5a7c32ea3603b524146e4cf24f67ded1c" => :mojave
-    sha256 "a81295a6570890eb1b6ae816a80d58ffa8960858efbd4744a8ec7bd22986eadc" => :high_sierra
-    sha256 "7e6c0e27461f443549eeaad7430ccee0fc8b833acf5c9658255de4d5dcd52b21" => :sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "6989c2d99d5b71bbabcc3728f218c195c06ab03363a54a1e8493cb7715d518f5"
+    sha256 cellar: :any_skip_relocation, catalina:    "1375ab1923d90e07e05071bad1effb66aef547bd6d9fd98a40afbdb65596471e"
+    sha256 cellar: :any_skip_relocation, mojave:      "1375ab1923d90e07e05071bad1effb66aef547bd6d9fd98a40afbdb65596471e"
+    sha256 cellar: :any_skip_relocation, high_sierra: "caf0c823ba581ab0e669d0372c06d1cb74262f05334814a5f49370659aa030d1"
   end
+
+  # "Stable is no longer being developed. It's been replaced by Corral
+  # (https://github.com/ponylang/corral)."
+  deprecate! date: "2020-05-12", because: :repo_archived
 
   depends_on "ponyc"
 

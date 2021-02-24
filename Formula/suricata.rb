@@ -1,13 +1,20 @@
 class Suricata < Formula
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata-ids.org/"
-  url "https://www.openinfosecfoundation.org/download/suricata-5.0.1.tar.gz"
-  sha256 "90073666225c43b4127be83946ca4dab9eddb8885c2dfe8cd8004e08a8058b0c"
+  url "https://www.openinfosecfoundation.org/download/suricata-6.0.1.tar.gz"
+  sha256 "e7a1798fe59c1d213f752feefbf8bb54168f9fa56235cf3380347c696ecdb1ae"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://suricata-ids.org/download/"
+    regex(/href=.*?suricata[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "6b716162347e716d436699717519e5720a5797b5975cd6586deaa769d329ffcc" => :catalina
-    sha256 "3b0fd80ac5e85f93b25059a371324a799aa476f2a84ecb543db89a60b85fcb6d" => :mojave
-    sha256 "1da6b1e94986331627d18aee15605254b449a1447732649635cbc023bd475363" => :high_sierra
+    sha256 arm64_big_sur: "6befcabe08c389432b3c85b21fce1807b4738777ca887a55973a10cfcb89ef14"
+    sha256 big_sur:       "cd52148789f69cc1a7de96263331bb83bfef1d1700b1f4ae0b4b30713126c9c7"
+    sha256 catalina:      "3cebeba7f69d0a43cfc8198158418ef3b5b059dc7095705a111451b386378ec1"
+    sha256 mojave:        "c12d4452106bb1a388dc7785117f052dba38a162b9c2df973d1286c37e05ab51"
   end
 
   depends_on "pkg-config" => :build
@@ -20,7 +27,7 @@ class Suricata < Formula
   depends_on "nspr"
   depends_on "nss"
   depends_on "pcre"
-  depends_on "python"
+  depends_on "python@3.9"
 
   resource "argparse" do
     url "https://files.pythonhosted.org/packages/18/dd/e617cfc3f6210ae183374cd9f6a26b20514bbb5a792af97949c5aacddf0f/argparse-1.4.0.tar.gz"
@@ -28,8 +35,8 @@ class Suricata < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/8d/c9/e5be955a117a1ac548cdd31e37e8fd7b02ce987f9655f5c7563c656d5dcb/PyYAML-5.2.tar.gz"
-    sha256 "c0ee8eca2c582d29c3c2ec6e2c4f703d1b7f1fb10bc72317355a746057e7346c"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   resource "simplejson" do
@@ -38,11 +45,12 @@ class Suricata < Formula
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
+    python3 = Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     resources.each do |r|
       r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+        system python3, *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
@@ -68,7 +76,7 @@ class Suricata < Formula
     system "./configure", *args
     system "make", "install-full"
 
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
 
     # Leave the magic-file: prefix in otherwise it overrides a commented out line rather than intended line.
     inreplace etc/"suricata/suricata.yaml", %r{magic-file: /.+/magic}, "magic-file: #{libmagic.opt_share}/misc/magic"

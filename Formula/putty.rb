@@ -1,14 +1,15 @@
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/putty/"
-  url "https://the.earth.li/~sgtatham/putty/0.73/putty-0.73.tar.gz"
-  sha256 "3db0b5403fb41aecd3aa506611366650d927650b6eb3d839ad4dcc782519df1c"
+  url "https://the.earth.li/~sgtatham/putty/0.74/putty-0.74.tar.gz"
+  sha256 "ddd5d388e51dd9e6e294005b30037f6ae802239a44c9dc9808c779e6d11b847d"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "37ba26e6b965281083a75044df48335b9dd4eb06c2d3893af3c904ce73df633f" => :catalina
-    sha256 "765e7d374a8f98b1d336e5120fd9e9e07cddd75c0f9ac68fe9bdbde577193620" => :mojave
-    sha256 "cdba0d03e5de13733fcf62307656adba84d872ae5b97cdde77034ef97de5e63f" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0595c24581bb65f29d125f18abd5a5671194114a6f93c9dec43f06470c6ff1d5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c15a7253a5548f318e45e619e831475ddfb59f314e286b99c9f03164830233f2"
+    sha256 cellar: :any_skip_relocation, catalina:      "d5e454c08c5d06394527aa7141a332eb721097068f25deff3b4affa847837178"
+    sha256 cellar: :any_skip_relocation, mojave:        "5f9844fc7464fefd987780b3579a33b2ca37673be56c2a8249c312a19e20faea"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "6621f31a41a8eedbbb2fda99a0548deed80d432216469105bac8084df66dbcbf"
   end
 
   head do
@@ -21,7 +22,9 @@ class Putty < Formula
 
   depends_on "pkg-config" => :build
 
-  conflicts_with "pssh", :because => "both install `pscp` binaries"
+  uses_from_macos "expect" => :test
+
+  conflicts_with "pssh", because: "both install `pscp` binaries"
 
   def install
     if build.head?

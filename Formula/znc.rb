@@ -1,13 +1,17 @@
 class Znc < Formula
   desc "Advanced IRC bouncer"
   homepage "https://wiki.znc.in/ZNC"
-  url "https://znc.in/releases/archive/znc-1.7.5.tar.gz"
-  sha256 "a8941e1385c8654287a4428018d93459482e9d5eeedf86bef7b020ddc5f24721"
+  url "https://znc.in/releases/archive/znc-1.8.2.tar.gz"
+  sha256 "ff238aae3f2ae0e44e683c4aee17dc8e4fdd261ca9379d83b48a7d422488de0d"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 "4bc43bf605d281484dbc34a779da628960df63ece897aa4d216ab6a7fc728b10" => :catalina
-    sha256 "a0f33bcd73035f1c117ce51bbc9f1fd528b615a48a6f4783b64a26f3a02738e5" => :mojave
-    sha256 "c708bb54d28e9780bfea6babc05f861b66fdbf1ac18e03ce9dfc19d9cc45052d" => :high_sierra
+    sha256 arm64_big_sur: "a4fb4117aeb8ffc30b301d9f030b4c7b52103fbd79c6b69e336bd5ce966f7e3a"
+    sha256 big_sur:       "3ee6a7b433414a20d4497d267711ae787f1f0c985e89f40352ae0e8db8fd7a6e"
+    sha256 catalina:      "0968a0d12ce30428023911e4074b276b1d5e80f689fabf5cdb4ff72a3f57e721"
+    sha256 mojave:        "476fe82c16953d5e0645f59128e8dd86cb1cba86bb798a483d2b3ef394b8e28e"
+    sha256 high_sierra:   "512c83a43b82c84dc773a603e3ccc21f1f315fd8bcef1e259cc4a50c46359e2e"
   end
 
   head do
@@ -21,7 +25,9 @@ class Znc < Formula
   depends_on "pkg-config" => :build
   depends_on "icu4c"
   depends_on "openssl@1.1"
-  depends_on "python"
+  depends_on "python@3.9"
+
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11
@@ -31,36 +37,42 @@ class Znc < Formula
     ENV.append "CXXFLAGS", "-std=c++11"
     ENV.append "CXXFLAGS", "-stdlib=libc++" if ENV.compiler == :clang
 
+    on_linux do
+      ENV.append "CXXFLAGS", "-I#{Formula["zlib"].opt_include}"
+      ENV.append "LIBS", "-L#{Formula["zlib"].opt_lib}"
+    end
+
     system "./autogen.sh" if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-python"
     system "make", "install"
   end
 
-  plist_options :manual => "znc --foreground"
+  plist_options manual: "znc --foreground"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/znc</string>
-          <string>--foreground</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/znc.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/znc.log</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StartInterval</key>
-        <integer>300</integer>
-      </dict>
-    </plist>
-  EOS
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/znc</string>
+            <string>--foreground</string>
+          </array>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/znc.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/znc.log</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StartInterval</key>
+          <integer>300</integer>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

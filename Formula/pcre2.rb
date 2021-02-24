@@ -1,25 +1,40 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
-  url "https://ftp.pcre.org/pub/pcre/pcre2-10.34.tar.bz2"
-  sha256 "74c473ffaba9e13db6951fd146e0143fe9887852ce73406a03277af1d9b798ca"
+  url "https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2"
+  sha256 "a9ef39278113542968c7c73a31cfcb81aca1faa64690f400b907e8ab6b4a665c"
+  license "BSD-3-Clause"
   head "svn://vcs.exim.org/pcre2/code/trunk"
 
-  bottle do
-    cellar :any
-    sha256 "af3bf030a455daf0a560f8d9e433f7a803d7150933895699f311d661c33b9729" => :catalina
-    sha256 "9bc0815c6c4c584ef16e93e5ecf37aa786303d88f9321274a29b4f60876d583f" => :mojave
-    sha256 "494acfae91394df3c48b2bdb13d46b5a540e401c54be9f7c10234e6001fba678" => :high_sierra
+  livecheck do
+    url "https://ftp.pcre.org/pub/pcre/"
+    regex(/href=.*?pcre2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "8160558f322198cb735708ca993a683594d6f9dc83112cc26a378be466133edc"
+    sha256 cellar: :any, big_sur:       "b2edbffaf229fc490843e83b43c4e12feab906fc34270d928c59cac74c6f4536"
+    sha256 cellar: :any, catalina:      "d14484c7e5d4a74112474288bb2b2edff55be51a42fd65dd02d046d24ebb6cd7"
+    sha256 cellar: :any, mojave:        "2b16cf051af3ba797d12818e209ddbcafcd007e9af6474c0a642d388e299be90"
+  end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-pcre2-16",
-                          "--enable-pcre2-32",
-                          "--enable-pcre2grep-libz",
-                          "--enable-pcre2grep-libbz2",
-                          "--enable-jit"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-pcre2-16
+      --enable-pcre2-32
+      --enable-pcre2grep-libz
+      --enable-pcre2grep-libbz2
+    ]
+
+    # JIT not currently supported for Apple Silicon
+    args << "--enable-jit" unless Hardware::CPU.arm?
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end

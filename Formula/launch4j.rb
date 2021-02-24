@@ -1,11 +1,14 @@
 class Launch4j < Formula
   desc "Cross-platform Java executable wrapper"
   homepage "https://launch4j.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/launch4j/launch4j-3/3.12/launch4j-3.12-macosx-x86.tgz"
-  version "3.12"
-  sha256 "754e557036ff4a469b4a24443c809113f85b9a0689a5ffdcf35a8a6e986c458f"
+  url "https://downloads.sourceforge.net/project/launch4j/launch4j-3/3.13/launch4j-3.13-macosx-x86.tgz"
+  version "3.13"
+  sha256 "df232427bd5a4d1674e2e66232127954d18de21d10417ee8e11534d9a914bd0d"
+  license all_of: ["BSD-3-Clause", "MIT"]
 
   bottle :unneeded
+
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"] - ["src", "web"]

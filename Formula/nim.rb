@@ -1,22 +1,25 @@
 class Nim < Formula
   desc "Statically typed compiled systems programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-1.0.4.tar.xz"
-  sha256 "89841545a14475911bb84616bcd5a1b93a3268e1a6a0089f54642e405eeaaee0"
+  url "https://nim-lang.org/download/nim-1.4.4.tar.xz"
+  sha256 "6d73729def143f72fc2491ca937a9cab86d2a8243bd845a5d1403169ad20660e"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "57e5c77f086a481fdd4419b35772c87ba26d7f49771ff684cd15ff59060944cd" => :catalina
-    sha256 "16195369dfc2300edd6e58fb50b97964eff155bf139e8fd1ab09c58222488eeb" => :mojave
-    sha256 "788b92daa9614b0a5a60b8cae441651a691774fa3a08b804d1bcc7b07a2d4384" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "20805260d0f0717fd9eae775c879d1527e8f793b8a7701b739628a7c26e91889"
+    sha256 cellar: :any_skip_relocation, big_sur:       "91d277b8e9cc51f55a82e7b2e6abd48623d0ef8e5e82fcb46f72407f5aaf1de8"
+    sha256 cellar: :any_skip_relocation, catalina:      "037d54470df4c702cfa6054c0fd731d437472fa4cc2e547e0a48b49b687d2227"
+    sha256 cellar: :any_skip_relocation, mojave:        "4688d98b7f3819d9f3f994630f676c80873a7e8356bb858a0edf67d13b1bd7fd"
   end
 
   head do
-    url "https://github.com/nim-lang/Nim.git", :branch => "devel"
+    url "https://github.com/nim-lang/Nim.git", branch: "devel"
     resource "csources" do
       url "https://github.com/nim-lang/csources.git"
     end
   end
+
+  depends_on "help2man" => :build
 
   def install
     if build.head?
@@ -36,10 +39,15 @@ class Nim < Formula
     system "./koch", "geninstall"
     system "/bin/sh", "install.sh", prefix
 
+    system "help2man", "bin/nim", "-o", "nim.1", "-N"
+    man1.install "nim.1"
+
     target = prefix/"nim/bin"
     bin.install_symlink target/"nim"
     tools = %w[nimble nimgrep nimpretty nimsuggest]
     tools.each do |t|
+      system "help2man", buildpath/"bin"/t, "-o", "#{t}.1", "-N"
+      man1.install "#{t}.1"
       target.install buildpath/"bin"/t
       bin.install_symlink target/t
     end

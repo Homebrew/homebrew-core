@@ -1,15 +1,16 @@
 class Dict < Formula
   desc "Dictionary Server Protocol (RFC2229) client"
   homepage "http://www.dict.org/"
-  url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.12.1/dictd-1.12.1.tar.gz"
-  sha256 "a237f6ecdc854ab10de5145ed42eaa2d9b6d51ffdc495f7daee59b05cc363656"
-  revision 1
+  url "https://downloads.sourceforge.net/project/dict/dictd/dictd-1.13.0/dictd-1.13.0.tar.gz"
+  sha256 "eeba51af77e87bb1b166c6bc469aad463632d40fb2bdd65e6675288d8e1a81e4"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "e9b8fcd267281afc7144d63d38b6540a21dd3fb47a1fb0875b69b9162cb4c977" => :mojave
-    sha256 "5a386048d25567d5c913fc46ca926d8f1f8abb152c00eb9c448552594a590bd4" => :high_sierra
-    sha256 "5b4f21f0abaf403bc6599d5cf05dc0c9f0dedbc5d520940b5c5fccb3dc69326b" => :sierra
-    sha256 "899c97bb0af187edb16eb91e516403f12977dc00293c5b86a6a3f6aeafb74ac8" => :el_capitan
+    rebuild 1
+    sha256 arm64_big_sur: "8e18fd5f8791cb97d71d38bce9e2190fab100fe578c70d2d8be17e2726e46931"
+    sha256 big_sur:       "e6067e6141c67f672e798f885b2ae679e3e6246864891498d3146ae95935e04d"
+    sha256 catalina:      "51af859a4f115e88b032dfdedb3c1a854af3c5daa19a97d4e796251dfa60ed4f"
+    sha256 mojave:        "707b10a71cd00d48d591d44654147ac419a217e59c32702593fa6d8a27374f6b"
   end
 
   depends_on "libtool" => :build

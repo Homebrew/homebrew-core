@@ -1,15 +1,15 @@
 class TesseractLang < Formula
   desc "Enables extra languages support for Tesseract"
   homepage "https://github.com/tesseract-ocr/tessdata_fast/"
-  url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.0.0.tar.gz"
-  sha256 "f1b71e97f27bafffb6a730ee66fd9dc021afc38f318fdc80a464a84a519227fe"
+  url "https://github.com/tesseract-ocr/tessdata_fast/archive/4.1.0.tar.gz"
+  sha256 "d0e3bb6f3b4e75748680524a1d116f2bfb145618f8ceed55b279d15098a530f9"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5cfe25847d5eaa4983c7b5ae2b6973bd036ce7363b4332cc66e1ab1b8d41a0d5" => :catalina
-    sha256 "631211ef37fcafa9a3fac6a7cd6ca94aaeca83ae28543716a7aaa9cf1072d414" => :mojave
-    sha256 "631211ef37fcafa9a3fac6a7cd6ca94aaeca83ae28543716a7aaa9cf1072d414" => :high_sierra
-    sha256 "4c69eedd24721f0e47a645ae20a08bf8c8083f805615c7b46a73406a9f593cb1" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3ce8f09d799cc3483cfba6c3a238b10271507c9e309828521b1f86325a2f79b0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7a4a2646cf813ffa6778f4b110d98666144d2b44dde177f66a663de313f781bb"
+    sha256 cellar: :any_skip_relocation, catalina:      "93f7d390e6f209f2f452a181a832d0d88e21b7afc171515cf9eeb3a9ba500ffd"
+    sha256 cellar: :any_skip_relocation, mojave:        "28d91c5d2a8efc9f33d5ccc4d8eb76bf0c6649f604d1f9a52e06c3b8e3a2daef"
   end
 
   depends_on "tesseract"

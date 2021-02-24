@@ -2,33 +2,27 @@ class Virgil < Formula
   desc "CLI tool to manage your Virgil account and applications"
   homepage "https://github.com/VirgilSecurity/virgil-cli"
   url "https://github.com/VirgilSecurity/virgil-cli.git",
-     :tag      => "v5.1.7",
-     :revision => "bb86ae1102725e51c85d79bf6babc424be04126d"
+     tag:      "v5.2.9",
+     revision: "604e4339d100c9cd133f4730ba0efbd599321ecb"
+  license "BSD-3-Clause"
   head "https://github.com/VirgilSecurity/virgil-cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "67c790483db72b2771c097dce90c5e937f7f5095821afba455b1708c798fedaf" => :catalina
-    sha256 "efc28f3cd0fe03f72646c069442a44b3b17e785dfbc2a4c5018f922303f74ed1" => :mojave
-    sha256 "ab03a53e7f602341811f1ce6af9ff6b41ccf84ca879f59916fe4f59ff3baca64" => :high_sierra
+    sha256 cellar: :any_skip_relocation, big_sur:     "e9ce86f5569a014b80c43e5bdf3d16aed3fc81c3e6fe4841e0b649f6d07542d3"
+    sha256 cellar: :any_skip_relocation, catalina:    "841082fa11c796ba0045d4ced3cead342fba308b049f07db4a0bd3309acc08c7"
+    sha256 cellar: :any_skip_relocation, mojave:      "d115016c280fbfe9381b56d0e08b9a69b4dc62042bb73424c243ea3f73280cd9"
+    sha256 cellar: :any_skip_relocation, high_sierra: "f7b6c179875ab30f849e3cbba53c8aeed7af4c569b69d4b112c2d749e5c38ea4"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/VirgilSecurity/virgil-cli"
-    dir.install buildpath.children - [buildpath/".brew_home"]
-    cd dir do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-o", "virgil"
-      bin.install "virgil"
-    end
+    system "make"
+    bin.install "virgil"
   end
 
   test do
-    result = shell_output "#{bin}/virgil pure keygen"
-    assert_match /SK.1./, result
+    result = shell_output "#{bin}/virgil purekit keygen"
+    assert_match "SK.1.", result
   end
 end

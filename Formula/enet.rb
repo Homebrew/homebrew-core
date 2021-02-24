@@ -1,19 +1,40 @@
 class Enet < Formula
   desc "Provides a network communication layer on top of UDP"
   homepage "http://enet.bespin.org"
-  url "http://enet.bespin.org/download/enet-1.3.14.tar.gz"
-  sha256 "98f6f57aab0a424469619ed3047728f0d3901ce8f0dea919c11e7966d807e870"
+  url "http://enet.bespin.org/download/enet-1.3.17.tar.gz"
+  sha256 "a38f0f194555d558533b8b15c0c478e946310022d0ec7b34334e19e4574dcedc"
+  license "MIT"
+  head "https://github.com/lsalzman/enet.git"
 
   bottle do
-    cellar :any
-    sha256 "fd907590e904f76351db367069a3d28bec7ab9cb946f66a01c22102e8c9bd951" => :catalina
-    sha256 "3813772ea57875407a2f949e2aaa3d9330a25e443efc231bd6aeb6b6af213001" => :mojave
-    sha256 "25754aa22b0d3862dc2b0d355452c040022af50a99af5f98b39e46151aca43e1" => :high_sierra
-    sha256 "d7a0e4e8189f600db8f657aa46622b20ec5dd67facf06dd370d8185ff4714b27" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "b2ef2e83fc0f527691e8352d39241277ab742569cc5278a357a53b19a42e700d"
+    sha256 cellar: :any, big_sur:       "bb861ad42df5152ac53708cdee14a599ff5e09a06cf3d438e88f7bc6b84590db"
+    sha256 cellar: :any, catalina:      "557052d4c6fb7e8c4329270730bd97b032f279c2cfafaa6ebbd32f7ff7e076bf"
+    sha256 cellar: :any, mojave:        "7df13b64c909df3368a91094abaaab1563f66ebcb276af0d318408977af08d2f"
+    sha256 cellar: :any, high_sierra:   "6fbf495f25b1df30003129b77167df08d26fbb576fa61a3f17ff7eba366bdd2a"
   end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <enet/enet.h>
+      #include <stdio.h>
+
+      int main (int argc, char ** argv)
+      {
+        if (enet_initialize () != 0)
+        {
+          fprintf (stderr, "An error occurred while initializing ENet.\\n");
+          return EXIT_FAILURE;
+        }
+        atexit (enet_deinitialize);
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lenet", "-o", "test"
+    system testpath/"test"
   end
 end

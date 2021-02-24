@@ -1,37 +1,36 @@
 class Cfssl < Formula
   desc "CloudFlare's PKI toolkit"
   homepage "https://cfssl.org/"
-  url "https://github.com/cloudflare/cfssl/archive/v1.4.1.tar.gz"
-  sha256 "c8a86ef10cbb0c168f3b597db15b31f98b170edb7958f7154edeb29aee41315e"
+  url "https://github.com/cloudflare/cfssl/archive/v1.5.0.tar.gz"
+  sha256 "5267164b18aa99a844e05adceaf4f62d1b96dcd326a9132098d65c515c180a91"
+  license "BSD-2-Clause"
   head "https://github.com/cloudflare/cfssl.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e26a083603f36d8ae31b26284f2f4bd477118726645c6f68412f4b00e18eea22" => :catalina
-    sha256 "9041675a2cb1d9dcc4112e18e4e3e94789ab65c91702065cc39f374d9b16d287" => :mojave
-    sha256 "cbf790046b8df80103a42e3e78da7b0be8941efcb9dd9e61e9742685624eddc1" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fba750edd7173d33b8ae318b9fc4ec45509e3064dcb9f4d81f0dc2b5bd5ad08e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0c28baffc2249f7f5ca27dff92318106267840a7ace3237e5de88cdaf30ee758"
+    sha256 cellar: :any_skip_relocation, catalina:      "eba10fa745e0b84e9ecf812313125f3ce6178b9c4053ba1d5ce81214f34316f7"
+    sha256 cellar: :any_skip_relocation, mojave:        "cb0a2266d3f11b5d4462c824dbc9bbc7f0893bf24f4eb92025809d2ce36f3549"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "37abc780b685c1aeee3771b5a66771bea66fdb9b49c7aea80d9a0b96a479a10c"
   end
 
   depends_on "go" => :build
   depends_on "libtool"
 
   def install
-    ENV["GOPATH"] = buildpath
-    cfsslpath = buildpath/"src/github.com/cloudflare/cfssl"
-    cfsslpath.install Dir["{*,.git}"]
-    ldflags = "-X github.com/cloudflare/cfssl/cli/version.version=#{version}"
-    cd "src/github.com/cloudflare/cfssl" do
-      system "go", "build", "-o", "#{bin}/cfssl", "-ldflags", ldflags, "cmd/cfssl/cfssl.go"
-      system "go", "build", "-o", "#{bin}/cfssljson", "-ldflags", ldflags, "cmd/cfssljson/cfssljson.go"
-      system "go", "build", "-o", "#{bin}/cfsslmkbundle", "cmd/mkbundle/mkbundle.go"
-    end
+    ldflags = ["-s", "-w",
+               "-X github.com/cloudflare/cfssl/cli/version.version=#{version}"]
+
+    system "go", "build", "-o", "#{bin}/cfssl", "-ldflags", ldflags, "cmd/cfssl/cfssl.go"
+    system "go", "build", "-o", "#{bin}/cfssljson", "-ldflags", ldflags, "cmd/cfssljson/cfssljson.go"
+    system "go", "build", "-o", "#{bin}/cfsslmkbundle", "cmd/mkbundle/mkbundle.go"
   end
 
-  def caveats; <<~EOS
-    `mkbundle` has been installed as `cfsslmkbundle` to avoid conflict
-    with Mono and other tools that ship the same executable.
-  EOS
+  def caveats
+    <<~EOS
+      `mkbundle` has been installed as `cfsslmkbundle` to avoid conflict
+      with Mono and other tools that ship the same executable.
+    EOS
   end
 
   test do

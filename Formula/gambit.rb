@@ -1,16 +1,16 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "http://www.gambit-project.org"
-  url "https://github.com/gambitproject/gambit/archive/v15.1.1.tar.gz"
-  sha256 "fb4dce2f386e46bbfc72cb75471f43716535937c96ad5a730cad22f97c6a65e6"
+  url "https://github.com/gambitproject/gambit/archive/v16.0.1.tar.gz"
+  sha256 "56bb86fd17575827919194e275320a5dd498708fd8bb3b20845243d492c10fef"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "85c73c5372aa6bba15f651f9b0b5b3e5eaa790c83ba19159de8a0e8bca0e60fc" => :catalina
-    sha256 "697370ba59d7b4a8e7f35e5bbfc3535ed6fef6d0a80a39e9e0583e7496865fbf" => :mojave
-    sha256 "8419c4b938c3ee82df324d4e4fbc0de03302a973ebeb82b917c90be04fa10569" => :high_sierra
-    sha256 "1d0324bc5c27cfe5660be48a8d2e7c9d01ac342e5d3ee1ee6d89f30b9c149afa" => :sierra
-    sha256 "86626efb984f8bb90daca5421cfdb2cbb2b9669ac26b271d0381219e1374e1b2" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "45b7d50d9ab796456c5688aabcffa048f39c5d8698e914f2c9d4d308d1f795a9"
+    sha256 cellar: :any, big_sur:       "e5b2c33a83a81fedeaf73e1e62186864a52031c6046fb7a69f2d5a0e44d881f4"
+    sha256 cellar: :any, catalina:      "05ab5f78b317c4128110507c07b8eb94914361624248defae542008d9a9d62d5"
+    sha256 cellar: :any, mojave:        "74b93be01bbbdd562b00977b6d3f442c0edcfde923ab973c1c62b61e9afd33ad"
   end
 
   depends_on "autoconf" => :build
@@ -24,6 +24,8 @@ class Gambit < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    # Sanitise references to Homebrew shims
+    rm Dir["contrib/**/Makefile*"]
     pkgshare.install "contrib"
   end
 

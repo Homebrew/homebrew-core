@@ -3,13 +3,14 @@ class Libccd < Formula
   homepage "http://libccd.danfis.cz/"
   url "https://github.com/danfis/libccd/archive/v2.1.tar.gz"
   sha256 "542b6c47f522d581fbf39e51df32c7d1256ac0c626e7c2b41f1040d4b9d50d1e"
+  license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "d243743b0d6962d55961bdda60fe8ea32bb738dea0509930d5d4114db2d52013" => :catalina
-    sha256 "05c8005ed028e5d5ca250aba9f3c69ece3af5766d91c68fa50fbcf78d139849d" => :mojave
-    sha256 "3b0a74f46d98cc57ddbff8c4f37227e8c5f528905037f346bf17104ba17b71f7" => :high_sierra
-    sha256 "63e2b6149dea77e8ece7a88f7f5f941d9606e9843bc46e4a48853858f6b4a7b3" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "69d8c269bc6c5f60d141eaebe6bdff9cf333f789c4d3b72cd69b1e61edff3ea3"
+    sha256 cellar: :any, big_sur:       "8257a7f8ab8f5eca8fced2e881b96a68202c08ce94a4aa169d1d80149b61eb0f"
+    sha256 cellar: :any, catalina:      "caa0aba8d2ba740998b54c73d3ab038747ac984e4d27797b9f768195a487dc4e"
+    sha256 cellar: :any, mojave:        "47c19c5f277ecc9016ef1e62a3ce1a0c4aafd1c91e6893fb4f251183ebd505ec"
   end
 
   depends_on "cmake" => :build

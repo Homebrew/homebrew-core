@@ -1,15 +1,19 @@
 class Spin < Formula
-  desc "The efficient verification tool of multi-threaded software"
+  desc "Efficient verification tool of multi-threaded software"
   homepage "https://spinroot.com/spin/whatispin.html"
-  url "https://github.com/nimble-code/Spin/archive/version-6.5.1.tar.gz"
-  sha256 "39a244763ee5dec8789f5461773249da82f05c53cc221636283366149284d14f"
+  url "https://github.com/nimble-code/Spin/archive/version-6.5.2.tar.gz"
+  sha256 "e46a3bd308c4cd213cc466a8aaecfd5cedc02241190f3cb9a1d1b87e5f37080a"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "aac939af6d78428b1a1bfcfddc2be77d93e566f1e6cce56b4ce5d102c22b6454" => :catalina
-    sha256 "f189251ba154016bfc17dbc62f28499e29a62a9cc9ffc8339671bb7038f5754c" => :mojave
-    sha256 "4069015b154f32290ae3e5ba29c1b520319e04c43977622ca836111c18d74bb1" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f8951592f6d019eafb6466a4e991c7437d13a699af047bbbbfd0bc4fdcb82bf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d49e61e18c0c65108a64d3e0c91addbd011b3fff90434509958ebfe33b14c6cd"
+    sha256 cellar: :any_skip_relocation, catalina:      "6432ab186b64f64851fa0f60dae53c13b6c9bfbc6195c41abc08f1ddfd824bf6"
+    sha256 cellar: :any_skip_relocation, mojave:        "eae932021ba8a15f713dd60ca2a29267f5df53a832895c5ab1a342d2568c6f45"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3ffbbe34633fa0e177bd25343b3bbd35d706988ab04c4a617fff530cf3dc542a"
   end
+
+  uses_from_macos "bison" => :build
 
   def install
     cd "Src" do
@@ -37,6 +41,6 @@ class Spin < Formula
       }
     EOS
     output = shell_output("#{bin}/spin #{testpath}/test.pml")
-    assert_match /language is golang/, output
+    assert_match "language is golang", output
   end
 end

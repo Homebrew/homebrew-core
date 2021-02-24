@@ -1,15 +1,22 @@
 class Recoverjpeg < Formula
   desc "Tool to recover JPEG images from a file system image"
-  homepage "https://www.rfc1149.net/devel/recoverjpeg.html"
-  url "https://www.rfc1149.net/download/recoverjpeg/recoverjpeg-2.6.3.tar.gz"
+  homepage "https://rfc1149.net/devel/recoverjpeg.html"
+  url "https://rfc1149.net/download/recoverjpeg/recoverjpeg-2.6.3.tar.gz"
   sha256 "db996231e3680bfaf8ed77b60e4027c665ec4b271648c71b00b76d8a627f3201"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://rfc1149.net/download/recoverjpeg/"
+    regex(/href=.*?recoverjpeg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7b9e6cc406462435f7efc7bf6686205f29beba8bc5f481c6bf754a53d37f9411" => :catalina
-    sha256 "89bd9fe522bc64508a3c2925edda2a3ae3cfc32e7ff59f7e70eb1069352129b2" => :mojave
-    sha256 "ce460e293cc4c4c5bf3650cf9860e7b06654017473c414dc88c1df9d82e8466e" => :high_sierra
-    sha256 "453b0d2c88be1b885407e38900ab0303481e9957ed5c160cb8e6456b6a2f81c2" => :sierra
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "68e1a85a85e46ac4b90b093c36f9e461e6566351518b76891ebd3283b95fa8c2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bd56d3048f05834faf5181f4372fe49a8ef3895c291fe0ca2a434a416e305495"
+    sha256 cellar: :any_skip_relocation, catalina:      "87b3d9adf8b59d91350b7e655a78b68525caaaad0a614c5b7e1b6097d29cf6d9"
+    sha256 cellar: :any_skip_relocation, mojave:        "0f424efc21d5e07c2cdce7a870e28ee1aea42ac8f65f12eb5a845895c49ed958"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5366edde2383098f7ee4ac866d0d2ff528efbf63af934dd469c3b8e6739678ed"
   end
 
   def install

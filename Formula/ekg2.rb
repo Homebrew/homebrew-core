@@ -4,13 +4,21 @@ class Ekg2 < Formula
   url "https://src.fedoraproject.org/lookaside/extras/ekg2/ekg2-0.3.1.tar.gz/68fc05b432c34622df6561eaabef5a40/ekg2-0.3.1.tar.gz"
   mirror "https://web.archive.org/web/20161227025528/pl.ekg2.org/ekg2-0.3.1.tar.gz"
   sha256 "6ad360f8ca788d4f5baff226200f56922031ceda1ce0814e650fa4d877099c63"
+  license "GPL-2.0"
   revision 4
 
+  livecheck do
+    url :homepage
+    regex(/^ekg2[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 "e17ea1385008892e80e0d5e0d44e510f6ac30e5d86423b55c61465eccd348d36" => :catalina
-    sha256 "78778e95338d2a0a61f7d4773716d927534d24e4d5867a04038401427b07c855" => :mojave
-    sha256 "f946e56a032b9526280745e6e57f8bc42a18d12fa9ced783f5515eb600bcdf0b" => :high_sierra
-    sha256 "35f01a57bbceb1a79abfa8b035e3135d0c821bbca22a63b273e32159e517813f" => :sierra
+    sha256 arm64_big_sur: "e1ca8c485b595b3d8a0edcd59699c99d280a14d3aa7bfd7646c6d966f903101f"
+    sha256 big_sur:       "2f095607ab5e5bdbf0ca515983aeff44e4a2480d97fb460d19c63babd875bd05"
+    sha256 catalina:      "e17ea1385008892e80e0d5e0d44e510f6ac30e5d86423b55c61465eccd348d36"
+    sha256 mojave:        "78778e95338d2a0a61f7d4773716d927534d24e4d5867a04038401427b07c855"
+    sha256 high_sierra:   "f946e56a032b9526280745e6e57f8bc42a18d12fa9ced783f5515eb600bcdf0b"
+    sha256 sierra:        "35f01a57bbceb1a79abfa8b035e3135d0c821bbca22a63b273e32159e517813f"
   end
 
   depends_on "pkg-config" => :build
@@ -26,8 +34,8 @@ class Ekg2 < Formula
 
   # Upstream commit, fix build against OpenSSL 1.1
   patch do
-    url "https://github.com/ekg2/ekg2/commit/f05815.diff?full_index=1"
-    sha256 "5a27388497fd4537833807a0ba064af17fa13d7dd55abec6b185f499d148de1a"
+    url "https://github.com/ekg2/ekg2/commit/f05815.patch?full_index=1"
+    sha256 "207639edc5e6576c8a67301c63f0b28814d9885f0d4fca5d9d9fc465f4427cd7"
   end
 
   def install

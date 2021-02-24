@@ -6,11 +6,12 @@ class Reop < Formula
   sha256 "fa8ae058c51efec5bde39fab15b4275e6394d9ab1dd2190ffdba3cf9983fdcac"
 
   bottle do
-    cellar :any
-    sha256 "9a871be9b2fa42aa2d9e5035712733c4b764c4eb7497958389018f0451a16cd6" => :catalina
-    sha256 "ef7c8dc250f93b18a84fc4b22006f1b5c59b34bf5d3fd3caa07da03184a0cf61" => :mojave
-    sha256 "e0f5cdb5c8b3af4919afa8b442eba703dec9ef9f5b7a25cbe56440e6c646d3b2" => :high_sierra
-    sha256 "1fdb2fd33a36c6cc57971c3399e2536ee2548acfde8761f0536cee33b2f61354" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "2f19ce5ab996a6d2cf7e5152160f0f0298e3c19eed633a9c52c0d548b2be0017"
+    sha256 cellar: :any, big_sur:       "125c56793715854faa4c1785f48e119a364ea3fb3239ea7edc4d885b6071099f"
+    sha256 cellar: :any, catalina:      "9a871be9b2fa42aa2d9e5035712733c4b764c4eb7497958389018f0451a16cd6"
+    sha256 cellar: :any, mojave:        "ef7c8dc250f93b18a84fc4b22006f1b5c59b34bf5d3fd3caa07da03184a0cf61"
+    sha256 cellar: :any, high_sierra:   "e0f5cdb5c8b3af4919afa8b442eba703dec9ef9f5b7a25cbe56440e6c646d3b2"
+    sha256 cellar: :any, sierra:        "1fdb2fd33a36c6cc57971c3399e2536ee2548acfde8761f0536cee33b2f61354"
   end
 
   depends_on "libsodium"

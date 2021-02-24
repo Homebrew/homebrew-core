@@ -1,16 +1,18 @@
 require "language/node"
 
 class AtomistCli < Formula
-  desc "The Atomist CLI"
+  desc "Unified command-line tool for interacting with Atomist services"
   homepage "https://github.com/atomist/cli#readme"
-  url "https://registry.npmjs.org/@atomist/cli/-/@atomist/cli-1.8.0.tgz"
+  url "https://registry.npmjs.org/@atomist/cli/-/cli-1.8.0.tgz"
   sha256 "64bcc7484fa2f1b7172984c278ae928450149fb02b750f79454b1a6683d17f62"
+  license "Apache-2.0"
 
   bottle do
-    sha256 "9682c4b3bcc11581ade4335bf5c4d4b4d2c1fbd141f8677aee8b399d5573ab0a" => :catalina
-    sha256 "a1f611e6f70a5dbdf886c6cf0a2aec9d6024a12e2e768e1f0230087babe7b3d6" => :mojave
-    sha256 "f109033a8fa80bcf777e053dfae07b84fd134c40d1ed356dbedddfad1e7b85f8" => :high_sierra
-    sha256 "314c7129a7b8f2e37ab46324dba4423c8c7712b99f1bd8f0dd5eb5904d9d3e3e" => :sierra
+    rebuild 1
+    sha256 arm64_big_sur: "aa7a1df34f9d6914158696305ef167f422ac4571137e01483e00bc4f637c251c"
+    sha256 big_sur:       "6dd88e8522cd4cf5d53b17f796aef1eca9cbe1c602c00c892d2f30eb73db0d39"
+    sha256 catalina:      "c622ee3ba1742b49887892d30cead992cb34f4f28e68626b03b20a73bd88ba9d"
+    sha256 mojave:        "d5f0927cbfcf78438a0affe17488467727659c5caf9de3a65f9ed565bd23529c"
   end
 
   depends_on "node"

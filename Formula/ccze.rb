@@ -3,17 +3,24 @@ class Ccze < Formula
   homepage "https://packages.debian.org/wheezy/ccze"
   url "https://deb.debian.org/debian/pool/main/c/ccze/ccze_0.2.1.orig.tar.gz"
   sha256 "8263a11183fd356a033b6572958d5a6bb56bfd2dba801ed0bff276cfae528aa3"
+  license "GPL-2.0"
   revision 1
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "8db7bc8c44c05aa107468a5f0b6e3d56a7072f698d85337cb97efa537b20d424" => :catalina
-    sha256 "22a65a5daecfba0918a535040b81a7ba75a01b9421742c6de80e28bc88721fc5" => :mojave
-    sha256 "506875e8cc54203395a7aad87f8e1d4eebaa0ecc55095556e0f27c214b9fd23f" => :high_sierra
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "b518785dfd98c9b08ae78f31fb72047d2fd26a8c3e96ceccdceaf6ba27dab97c"
+    sha256 cellar: :any, big_sur:       "c371f991787765a9ac035987d594b478a4a4bfcd1a1581990c3a86edfcdb5067"
+    sha256 cellar: :any, catalina:      "1d7fe7ec73840e77d3f76f6f9d38757e4ab62d9d6a951e6d9ccf83782f73a29a"
+    sha256 cellar: :any, mojave:        "f748556612ca69454aec71083d8cedbb3def5091c9663c7df046c597fe26048f"
+    sha256 cellar: :any, high_sierra:   "fdc8abe565f7cec57dd3461d6840e2676c556fa54eaccada60df4958310ff8a7"
   end
 
+  # query via the last repo status change `https://api.github.com/repos/madhouse/ccze`
+  deprecate! date: "2020-05-24", because: :repo_archived
+
   depends_on "pcre"
+
+  uses_from_macos "ncurses"
 
   def install
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=823334

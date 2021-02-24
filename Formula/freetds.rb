@@ -1,15 +1,20 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "https://www.freetds.org/"
-  url "https://www.freetds.org/files/stable/freetds-1.1.15.tar.gz"
-  sha256 "ebeb9060bcfe54f13ab0fbf8cb72ac95cc6cefbe728a30247516d55334d66a03"
-  revision 1
+  url "https://www.freetds.org/files/stable/freetds-1.2.18.tar.gz"
+  sha256 "a02c27802da15a3ade85bbaab6197713cd286f036409af9bba2ab4c63bdf57c3"
+  license "LGPL-2.0-or-later"
+
+  livecheck do
+    url "https://www.freetds.org/files/stable/"
+    regex(/href=.*?freetds[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "ca2629c55d6d380a36ab7a05e49e79d2e5299f2cb7d9b98ee029b0e57d1b0d3f" => :catalina
-    sha256 "a0753a85a5b04ecde98ff9ed9a02cc2ae9c3d4dc20a697239288743e61429a6f" => :mojave
-    sha256 "aa66ed44901cd2c3685691de001d2bd18a123934602c08c99750c6dce379eb38" => :high_sierra
-    sha256 "a2e9e4956517f29a2dee0f5902dac9463c6eb12da23c8d7d57a024f27ffea4b1" => :sierra
+    sha256 arm64_big_sur: "52a717a13ff3fb2541c2dd1ff55448f9201712acf875f740282b5ebf3c207128"
+    sha256 big_sur:       "e1915b8ec9a59b5146e50310e778c4cc247df3d12bdfbd41fd1601abc68d4a5b"
+    sha256 catalina:      "d50d6963a87b72230cdd9c30e17a05baf73970b26d2ef031e9496181bb41afad"
+    sha256 mojave:        "fce5977a4c8d363777846b434747d5dd6207e00273769e31354d090ed35d9a00"
   end
 
   head do
@@ -24,7 +29,10 @@ class Freetds < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "unixodbc"
-  uses_from_macos "readline"
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     args = %W[

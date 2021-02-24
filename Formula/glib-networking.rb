@@ -1,23 +1,28 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
-  homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.62/glib-networking-2.62.2.tar.xz"
-  sha256 "0644b8dc042bab8c9d2892aee5716513280c8773dbef43a038149f24cae15544"
+  homepage "https://gitlab.gnome.org/GNOME/glib-networking"
+  url "https://download.gnome.org/sources/glib-networking/2.66/glib-networking-2.66.0.tar.xz"
+  sha256 "c5d7be2437fdd196eebfb70c4517b96d3ba7ec13bd496318b8f02dea383e0099"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any
-    sha256 "81ecbaeb6d3fff3839280d691de59b8aac6bcd5ec4d8d3fbf7bc3cdbc40cb9ef" => :catalina
-    sha256 "c47a90d947d6e4ca48ccfe468107aa454bb1b80ab3047711abe0ff1be913b345" => :mojave
-    sha256 "b13917cc21b6ceb0d867ace7ffd1cd568f31bdf71471665d0da1683cf3ac2375" => :high_sierra
+    sha256 arm64_big_sur: "690e87b8d6f0cb80419854c589bf0f2390bfa9acf6578d226901c69398dc9155"
+    sha256 big_sur:       "903584edc9d9e84945330f226909f445cd701fbc346649b4248556b44632a0df"
+    sha256 catalina:      "e2ad1f907ee4b6697715ae89f8a245ee3e8c595e593370de575c56d201e23656"
+    sha256 mojave:        "0d2e04f7e844cca91d4be25058731c10607377887e2f0325d1694ebb4d5caf48"
+    sha256 high_sierra:   "dcaf3c0d0a77658721b7fee6522a4719a529f48fbb0f572d66f752e6cf1b5dec"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python" => :build
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gsettings-desktop-schemas"
+
+  on_linux do
+    depends_on "libidn"
+  end
 
   link_overwrite "lib/gio/modules"
 
@@ -26,7 +31,7 @@ class GlibNetworking < Formula
     ENV["DESTDIR"] = "/"
 
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}",
+      system "meson", *std_meson_args,
                       "-Dlibproxy=disabled",
                       "-Dopenssl=disabled",
                       "-Dgnome_proxy=disabled",

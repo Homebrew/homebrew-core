@@ -1,16 +1,20 @@
 class Batik < Formula
   desc "Java-based toolkit for SVG images"
   homepage "https://xmlgraphics.apache.org/batik/"
-  url "https://www.apache.org/dist/xmlgraphics/batik/binaries/batik-bin-1.12.tar.gz"
-  sha256 "9d185a73db6b6fafb11c8c3edc6936de766d08606497e493126ba751585051f0"
+  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/batik/binaries/batik-bin-1.14.tar.gz"
+  mirror "https://archive.apache.org/dist/xmlgraphics/batik/binaries/batik-bin-1.14.tar.gz"
+  sha256 "0f4eaa81be70752e406a19f39c39c018848f09963f08fa8974640547052c4618"
+  license "Apache-2.0"
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install "lib", Dir["*.jar"]
-    bin.write_jar_script libexec/"batik-rasterizer-#{version}.jar", "batik-rasterizer"
-    bin.write_jar_script libexec/"batik-#{version}.jar", "batik"
-    bin.write_jar_script libexec/"batik-ttf2svg-#{version}.jar", "batik-ttf2svg"
+    Dir[libexec/"*.jar"].each do |f|
+      bin.write_jar_script f, File.basename(f, "-#{version}.jar")
+    end
   end
 
   test do

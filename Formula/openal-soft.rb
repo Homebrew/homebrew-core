@@ -1,24 +1,25 @@
 class OpenalSoft < Formula
   desc "Implementation of the OpenAL 3D audio API"
   homepage "https://openal-soft.org/"
-  url "https://openal-soft.org/openal-releases/openal-soft-1.20.0.tar.bz2"
-  sha256 "c089497922b454baf96d5e4bbc1a114cf75c56b44801edc48b9b82ab5ed1e60e"
+  url "https://openal-soft.org/openal-releases/openal-soft-1.21.1.tar.bz2"
+  sha256 "c8ad767e9a3230df66756a21cc8ebf218a9d47288f2514014832204e666af5d8"
+  license "LGPL-2.0-or-later"
   head "https://github.com/kcat/openal-soft.git"
 
   bottle do
-    cellar :any
-    sha256 "c4015ea65c1201e6aceae1cab1adb1eaf383d5fd814d5a752e2c0d5370ea8049" => :catalina
-    sha256 "cdcc313243d0469df2d0742c70abfbcb7b3473f15c9cacb33e131baa241b6e71" => :mojave
-    sha256 "8172415cd85b7341b8316b55465cafd06e29d1edf7d9c91b58ca761520e06d64" => :high_sierra
+    sha256 cellar: :any, arm64_big_sur: "7e15f3c0087f0bce3c5bcad1efd612ffb83327b3cd25702ffc474f6513307d73"
+    sha256 cellar: :any, big_sur:       "275cde0ac6442628e8edbba58a7ff291adc797bcb88ed4b76649a11bf17eb09c"
+    sha256 cellar: :any, catalina:      "242237bdf9b18a852b185da7b479133af60693403cf2503e517461f5bb579012"
+    sha256 cellar: :any, mojave:        "da2ec851e3d934085169047429e299bf86c0919a742c0bceac21dd716134ea67"
   end
 
-  keg_only :provided_by_macos, "macOS provides OpenAL.framework"
+  keg_only :shadowed_by_macos, "macOS provides OpenAL.framework"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
   def install
-    # Please don't reenable example building. See:
+    # Please don't re-enable example building. See:
     # https://github.com/Homebrew/homebrew/issues/38274
     args = std_cmake_args + %w[
       -DALSOFT_BACKEND_PORTAUDIO=OFF

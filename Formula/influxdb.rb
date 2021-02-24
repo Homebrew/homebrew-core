@@ -1,89 +1,80 @@
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb.git",
-      :tag      => "v1.7.9",
-      :revision => "23bc63d43a8dc05f53afa46e3526ebb5578f3d88"
+  url "https://github.com/influxdata/influxdb/archive/v1.8.4.tar.gz"
+  sha256 "9f2c135c8f9f50ca469196e6b4e575e26f1a338538788e71b664212e03b4df7b"
+  license "MIT"
   head "https://github.com/influxdata/influxdb.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "43172c67fa138aaed080a19dca1311ad8b4beccc0b70bce8bf10703328806f10" => :catalina
-    sha256 "68d9383fb468504f40c8d9992cae8f4ec8dbda502ca4073f0249daa6cfde9a87" => :mojave
-    sha256 "fd216a7b67395f3a7ab19affcc51a3dcb71e978f5295daeda871933601dfe6be" => :high_sierra
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on "dep" => :build
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0a14b0bb22f27de27b072abf29ab014cc9723e2871904700471f78e6d9f6f030"
+    sha256 cellar: :any_skip_relocation, big_sur:       "09ed45e33953ab84c6f5b8a862da62135164a10926c81186ba5587a7f65a0041"
+    sha256 cellar: :any_skip_relocation, catalina:      "6d88fe5e33124a220eb70d8e140fdb213b13d465560ef04a8bc3a9b992d1dd94"
+    sha256 cellar: :any_skip_relocation, mojave:        "ad332849b3ab8d6a07e58a06a2164ccc207652797f55e396f3845081a006a121"
+  end
+
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    influxdb_path = buildpath/"src/github.com/influxdata/influxdb"
-    influxdb_path.install Dir["*"]
-    revision = `git rev-parse HEAD`.strip
-    version = `git describe --tags`.strip
+    ENV["GOBIN"] = buildpath
 
-    cd influxdb_path do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "install",
-             "-ldflags", "-X main.version=#{version} -X main.commit=#{revision} -X main.branch=master",
-             "./..."
-    end
+    system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
+    bin.install %w[influxd influx influx_tsm influx_stress influx_inspect]
 
-    inreplace influxdb_path/"etc/config.sample.toml" do |s|
+    etc.install "etc/config.sample.toml" => "influxdb.conf"
+    inreplace etc/"influxdb.conf" do |s|
       s.gsub! "/var/lib/influxdb/data", "#{var}/influxdb/data"
       s.gsub! "/var/lib/influxdb/meta", "#{var}/influxdb/meta"
       s.gsub! "/var/lib/influxdb/wal", "#{var}/influxdb/wal"
     end
-
-    bin.install "bin/influxd"
-    bin.install "bin/influx"
-    bin.install "bin/influx_tsm"
-    bin.install "bin/influx_stress"
-    bin.install "bin/influx_inspect"
-    etc.install influxdb_path/"etc/config.sample.toml" => "influxdb.conf"
 
     (var/"influxdb/data").mkpath
     (var/"influxdb/meta").mkpath
     (var/"influxdb/wal").mkpath
   end
 
-  plist_options :manual => "influxd -config #{HOMEBREW_PREFIX}/etc/influxdb.conf"
+  plist_options manual: "influxd -config #{HOMEBREW_PREFIX}/etc/influxdb.conf"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/influxd</string>
+            <string>-config</string>
+            <string>#{HOMEBREW_PREFIX}/etc/influxdb.conf</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/influxdb.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/influxdb.log</string>
+          <key>SoftResourceLimits</key>
+          <dict>
+            <key>NumberOfFiles</key>
+            <integer>10240</integer>
+          </dict>
         </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/influxd</string>
-          <string>-config</string>
-          <string>#{HOMEBREW_PREFIX}/etc/influxdb.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/influxdb.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/influxdb.log</string>
-        <key>SoftResourceLimits</key>
-        <dict>
-          <key>NumberOfFiles</key>
-          <integer>10240</integer>
-        </dict>
-      </dict>
-    </plist>
-  EOS
+      </plist>
+    EOS
   end
 
   test do
@@ -100,9 +91,9 @@ class Influxdb < Formula
       end
       sleep 6
       output = shell_output("curl -Is localhost:8086/ping")
-      assert_match /X-Influxdb-Version:/, output
+      assert_match "X-Influxdb-Version:", output
     ensure
-      Process.kill("SIGINT", pid)
+      Process.kill("SIGTERM", pid)
       Process.wait(pid)
     end
   end

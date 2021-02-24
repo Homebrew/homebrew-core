@@ -1,31 +1,52 @@
 class NetSnmp < Formula
   desc "Implements SNMP v1, v2c, and v3, using IPv4 and IPv6"
   homepage "http://www.net-snmp.org/"
-  url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.8/net-snmp-5.8.tar.gz"
-  sha256 "b2fc3500840ebe532734c4786b0da4ef0a5f67e51ef4c86b3345d697e4976adf"
-  revision 1
+  url "https://downloads.sourceforge.net/project/net-snmp/net-snmp/5.9/net-snmp-5.9.tar.gz"
+  sha256 "04303a66f85d6d8b16d3cc53bde50428877c82ab524e17591dfceaeb94df6071"
+  license "Net-SNMP"
+  head "https://github.com/net-snmp/net-snmp.git"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/net-snmp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "365760ffedb84e252289adc26a17365b62de654b3cff95952b6eff2ff90df7db" => :catalina
-    sha256 "efd1bcbd0e99fc29571de33c64fd1494db705a114778800d8181a27424a24421" => :mojave
-    sha256 "f5774ae4c5cc7f5a7fe5eb9eaa60f35842af5f6c2c184444428cc2e412f040fb" => :high_sierra
-    sha256 "1b1ea4f4456b6fc36c501398852b2e9979791387f38993129382b75782176f97" => :sierra
+    rebuild 2
+    sha256 arm64_big_sur: "546fe0a8e74e43d8e8ba6d5526a73096aa7e4e92b9f66d910b6146206753e556"
+    sha256 big_sur:       "f76220e8e7bffba146b3886d46d61dca81e947d2d77937e8c756b1f6f242526d"
+    sha256 catalina:      "04210e391fad9e36b9fe9945e4a8b6436263e64aaf24ac0069202c6581c8d624"
+    sha256 mojave:        "1ac45c38fa251f876c70073ef1757c0a3b7659fb8f2ce7f5ec41af2febb1cac9"
   end
 
   keg_only :provided_by_macos
 
   depends_on "openssl@1.1"
 
+  # Fix "make install" bug with 5.9
+  patch do
+    url "https://github.com/net-snmp/net-snmp/commit/52d4a465dcd92db004c34c1ad6a86fe36726e61b.patch?full_index=1"
+    sha256 "669185758aa3a4815f4bbbe533795c4b6969c0c80c573f8c8abfa86911c57492"
+  end
+
+  # Clean up some Xcode 12 issues with ./configure
+  patch do
+    url "https://github.com/net-snmp/net-snmp/commit/a7c8c26c48c954a19bca5fdc6ba285396610d7aa.patch?full_index=1"
+    sha256 "8ccc46a3c15d145e5034c0749f3c0e7bd11eca451809ae7f2312dab459e07cec"
+  end
+
+  # Apple Silicon support
+  # https://github.com/net-snmp/net-snmp/issues/228
+  if Hardware::CPU.arm?
+    patch do
+      url "https://github.com/net-snmp/net-snmp/commit/bcc654e7.patch?full_index=1"
+      sha256 "b5e35ef021e1962bd2fbf675f05eb43cc75bd7d417687d736a4c4b508a9eed47"
+    end
+  end
+
   def install
-    # https://sourceforge.net/p/net-snmp/bugs/2504/
-    # I suspect upstream will fix this in the first post-Mojave release but
-    # if it's not fixed in that release this should be reported upstream.
-    (buildpath/"include/net-snmp/system/darwin18.h").write <<~EOS
-      #include <net-snmp/system/darwin17.h>
-    EOS
-    (buildpath/"include/net-snmp/system/darwin19.h").write <<~EOS
-      #include <net-snmp/system/darwin17.h>
-    EOS
+    # Workaround https://github.com/net-snmp/net-snmp/issues/226 in 5.9:
+    inreplace "agent/mibgroup/mibII/icmp.h", "darwin10", "darwin"
 
     args = %W[
       --disable-debugging

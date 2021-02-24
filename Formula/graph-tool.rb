@@ -3,28 +3,38 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-2.29.tar.bz2"
-  sha256 "6c0c4336bed6e2f79c91ace6d6914145ee03d0bd5025473b5918aec2b0657f7a"
-  revision 2
+  url "https://downloads.skewed.de/graph-tool/graph-tool-2.37.tar.bz2"
+  sha256 "df472a0debb683d2f58243945bb9fd525dfdac9ee0b1e9e70f054cff49235170"
+  license "LGPL-3.0"
 
-  bottle do
-    sha256 "84f12c9ac465871e7b8755df75fa2640d26298f0847a95290e51ed55186551b8" => :catalina
-    sha256 "54fd468bfbcb4f1d5bb143d1b64c8e76f7334229b49f985c3d3207aab30bd309" => :mojave
+  livecheck do
+    url "https://downloads.skewed.de/graph-tool/"
+    regex(/href=.*?graph-tool[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_big_sur: "69579dc0987782c91a1d41af09bfe8fb2bcf62fc81090195d3cf532041ab35e1"
+    sha256 big_sur:       "8edad8f578e7c6b9a8a0c3cf9b521471c1bf7c0a71709dc1150e414def4d8dab"
+    sha256 catalina:      "5f37c6b03cdb754495bc6d54cb1f5d691a9d4caf53a7bc51f2ddabc1984dc3cf"
+    sha256 mojave:        "7da1c5cc5ef61975d4f61f4c6dd01c7e44b917e5b745b6031be4988fa334b71c"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "boost-python3"
-  depends_on "cairomm"
+  depends_on "cairomm@1.14"
   depends_on "cgal"
   depends_on "google-sparsehash"
   depends_on "gtk+3"
   depends_on "librsvg"
-  depends_on :macos => :mojave # for C++17
+  depends_on macos: :mojave # for C++17
   depends_on "numpy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python"
+  depends_on "python@3.9"
   depends_on "scipy"
 
   resource "Cycler" do
@@ -62,16 +72,15 @@ class GraphTool < Formula
     sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
-  # Fix ForwardIterator error
-  # Remove when next version releases
-  patch do
-    url "https://git.skewed.de/count0/graph-tool/commit/ab7952170aa4a5022e9cbe6b19483c6303a24f02.diff"
-    sha256 "f03072db108d69aaadaf41ae433501d517cc4a02d4108f37de99d81480ea3a94"
+  resource "zstandard" do
+    url "https://files.pythonhosted.org/packages/1b/a7/97b157508923ec0c2d27cdc23003cb096fa50ae38ded6e54adcbca3dca35/zstandard-0.14.0.tar.gz"
+    sha256 "9052398da52e8702cf9929999c8986b0f68b18c793e309cd8dff5cb7863d7652"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    venv = virtualenv_create(libexec, "python3")
+    system "autoreconf", "-fiv"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
 
     resources.each do |r|
       venv.pip_install_and_link r
@@ -85,6 +94,8 @@ class GraphTool < Formula
       PYTHON_LIBS=-undefined\ dynamic_lookup
       --with-python-module-path=#{lib}/python#{xy}/site-packages
       --with-boost-python=boost_python#{xy.to_s.delete(".")}-mt
+      --with-boost-libdir=#{HOMEBREW_PREFIX}/opt/boost/lib
+      --with-boost-coroutine=boost_coroutine-mt
     ]
     args << "--with-expat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
 
@@ -106,6 +117,6 @@ class GraphTool < Formula
       assert g.num_edges() == 1
       assert g.num_vertices() == 2
     EOS
-    system "python3", "test.py"
+    system Formula["python@3.9"].opt_bin/"python3", "test.py"
   end
 end

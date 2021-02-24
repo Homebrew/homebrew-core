@@ -1,24 +1,26 @@
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
-  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.0.tar.gz"
-  sha256 "10e0754b034ce84c5783e494ddb5772265bc8b1cfaa1a13871521881c869b4b4"
+  url "https://github.com/GoogleCloudPlatform/berglas/archive/v0.5.3.tar.gz"
+  sha256 "cc4608a63813ae8322b21219723bab37edd91a8fcd7ce9810876f4d688eaa1dc"
+  license "Apache-2.0"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "305e848eb3a7b671b10996b7b145ee8a41d46165c825450399497a920a92e759" => :catalina
-    sha256 "f7df64d6b12b4fe6fa458aa9d9b5d979589c5e0da9a0cf0e545c59d732734806" => :mojave
-    sha256 "e86deac6d0854b9dcdac69df25b5ce838c0ec9adf918c5855c457ff6a9975e95" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f09b033edff11fcd8c1c3116ebe4d6bffe398985bd03210a92142cb7f6d1b7dd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "911eb1ca9babcea29286f8ee235a6f785a34dea9d43ac44684663a487eb3d775"
+    sha256 cellar: :any_skip_relocation, catalina:      "2c7a65e0e04b84106700c9228739c4e1f8e7939b66f5770819db0c044ed3b60f"
+    sha256 cellar: :any_skip_relocation, mojave:        "3ba9898e75191e458e9da01dcbe835aefd82b167e7a2af2ab02a1fdfbbd7f8f8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "63db59c2436d167b2c6315ed23ad9e3e2d814d37b3e0460d4ac53c7608f99dbf"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-o", bin/"berglas"
+    system "go", "build", *std_go_args
   end
 
   test do
-    assert_match "#{version}\n", shell_output("#{bin}/berglas --version 2>&1")
     out = shell_output("#{bin}/berglas list homebrewtest 2>&1", 61)
     assert_match "could not find default credentials.", out
   end

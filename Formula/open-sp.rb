@@ -5,21 +5,26 @@ class OpenSp < Formula
   sha256 "57f4898498a368918b0d49c826aa434bb5b703d2c3b169beb348016ab25617ce"
 
   bottle do
-    rebuild 4
-    sha256 "ed66b34bcf33e9b7908ec466dd66db245b1a2556c2778705d14c99f73f5038f0" => :catalina
-    sha256 "0c34e7815d7b7f654210102518787bf4c07e6ef811bae5167967747a99b762ab" => :mojave
-    sha256 "41deb89bf8fd39c9d99eb171039a949fba4e82eb86d674d2584ae70a0e3ecc73" => :high_sierra
-    sha256 "77f282ed97f428763c7952365353a6b915ff3315d7808db73a51e785961e989c" => :sierra
-    sha256 "03629f243a1598b2b26fc07f8b747c77b62efe88ce435d8e018167140d22b86e" => :el_capitan
+    rebuild 5
+    sha256 cellar: :any, arm64_big_sur: "032676f1cd5c4bc0c1368cdf08bfe9a8b6df8f2c26ee4367c4a1285ab4fadc3a"
+    sha256 cellar: :any, big_sur:       "50109cdb514313693454259ba30f90f550618d48a1cc71df55ed04343d0cf641"
+    sha256 cellar: :any, catalina:      "1b2c18d6cdcd99d387770eaa14a773bb3edec5b22984ac75f3b07a181916f18f"
+    sha256 cellar: :any, mojave:        "47a3595b023164a54f73009f5d0a1bd092355f7c5b357cb86e1ec781b101bcb8"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "docbook" => :build
   depends_on "ghostscript" => :build
+  depends_on "libtool" => :build
   depends_on "xmlto" => :build
+  depends_on "gettext"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
+    # The included ./configure file is too old to work with Xcode 12
+    system "autoreconf", "--verbose", "--install", "--force"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",

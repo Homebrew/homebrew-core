@@ -1,19 +1,25 @@
 class Latex2rtf < Formula
   desc "Translate LaTeX to RTF"
   homepage "https://latex2rtf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/latex2rtf/latex2rtf-unix/2.3.17/latex2rtf-2.3.17.tar.gz"
-  sha256 "19f3763177d8ea7735511438de269b78c24ccbfafcd71d7a47aabc20b9ea05a8"
+  url "https://downloads.sourceforge.net/project/latex2rtf/latex2rtf-unix/2.3.18/latex2rtf-2.3.18a.tar.gz"
+  sha256 "338ba2e83360f41ded96a0ceb132db9beaaf15018b36101be2bae8bb239017d9"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/latex2rtf/files/latex2rtf-unix/[^/]+/latex2rtf[._-](\d+(?:[-.]\d+)+[a-z]?)\.t}i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "84975e89aedc24682a0ddd4f487cbbfa49f9b5e5b676acbc19a75a2344573875" => :catalina
-    sha256 "9a7eef875235eddd166ed39af0f86cc60a46951815dc062096404d13766b500c" => :mojave
-    sha256 "bac08529740f87a4ebb10a643d8b5186cf10b43da780cc5fcf572466a83c917d" => :high_sierra
-    sha256 "4f33f12349062b0efd27ea745934daf7d2530188f0dfe9b86df7d9647c54c208" => :sierra
+    sha256 arm64_big_sur: "29b2cd9987d2362995534aed209cf84ff93cb307de474bbe2ff16c5e94bfc9cb"
+    sha256 big_sur:       "fedf28c8cd7113f639a32776b9b55bbbae3ccfa7aa15e142d08004d39cf56d23"
+    sha256 catalina:      "a4f536a8f9a6001fe955727e7d9473b5294daf416b422dab70b489067dad35f3"
+    sha256 mojave:        "e57496652dd135bddb2d28f88d96e6207b69551f040ac4436cb6d043557e90c3"
   end
 
   def install
-    inreplace "Makefile", "cp -p doc/latex2rtf.html $(DESTDIR)$(SUPPORTDIR)", "cp -p doc/web/* $(DESTDIR)$(SUPPORTDIR)"
+    inreplace "Makefile", "cp -p doc/latex2rtf.html $(DESTDIR)$(SUPPORTDIR)",
+                          "cp -p doc/web/* $(DESTDIR)$(SUPPORTDIR)"
     system "make", "DESTDIR=",
                    "BINDIR=#{bin}",
                    "MANDIR=#{man1}",

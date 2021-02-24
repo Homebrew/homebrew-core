@@ -1,17 +1,20 @@
 class Libsndfile < Formula
   desc "C library for files containing sampled sound"
-  homepage "http://www.mega-nerd.com/libsndfile/"
-  url "http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz"
-  sha256 "1ff33929f042fa333aed1e8923aa628c3ee9e1eb85512686c55092d1e5a9dfa9"
+  homepage "https://libsndfile.github.io/libsndfile/"
+  url "https://github.com/libsndfile/libsndfile/releases/download/1.0.31/libsndfile-1.0.31.tar.bz2"
+  sha256 "a8cfb1c09ea6e90eff4ca87322d4168cdbe5035cb48717b40bf77e751cc02163"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any
-    sha256 "6399523ef99f5c9ea4adcb8ce4af9406c32673deab4beba7114b32162a9b3c54" => :catalina
-    sha256 "e7cb1a29d931a1637ec84a5ba6b71d37801dc0bb4eab38051df19755cb048667" => :mojave
-    sha256 "d06bf0bf936cde67857ac3d3599944d2050ea8dc6237bad8b4c27ef86ac2eb3c" => :high_sierra
-    sha256 "4e4bde6464cfbefcf7f2a9001af0ea34c6273b466ffa71ac953b2bb41eb619ec" => :sierra
-    sha256 "49d17fa55815680936b529b7bbb8e5cf180c98722c7f8b45d763bfe2d1f0a5de" => :el_capitan
-    sha256 "9df59790751d64c7f61682233a733030de9e6406682f3a15e30e708103930038" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "8e2fc3b0df09a21840f8643f644bd3a0bb3c3551d21f600b344f6b316d3ef44d"
+    sha256 cellar: :any, big_sur:       "a4a734e58220fc8615d86e4563e9a874447d568151b366aa94391dfe07c4e0fb"
+    sha256 cellar: :any, catalina:      "671a3cc9c7dafd89cbaffeccf4de826262c144184bf5779320c236e87e7636cc"
+    sha256 cellar: :any, mojave:        "8b2876610f9188e8125f636e85bcbd525343b216c6d0787954e78b88dfe8f101"
   end
 
   depends_on "autoconf" => :build
@@ -21,6 +24,7 @@ class Libsndfile < Formula
   depends_on "flac"
   depends_on "libogg"
   depends_on "libvorbis"
+  depends_on "opus"
 
   def install
     system "autoreconf", "-fvi"

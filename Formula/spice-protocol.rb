@@ -1,21 +1,32 @@
 class SpiceProtocol < Formula
   desc "Headers for SPICE protocol"
   homepage "https://www.spice-space.org/"
-  url "https://www.spice-space.org/download/releases/spice-protocol-0.14.0.tar.bz2"
-  sha256 "b6a4aa1ca32668790b45a494bbd000e9d05797b391d5a5d4b91adf1118216eac"
+  url "https://www.spice-space.org/download/releases/spice-protocol-0.14.3.tar.xz"
+  sha256 "f986e5bc2a1598532c4897f889afb0df9257ac21c160c083703ae7c8de99487a"
+  license "BSD-3-Clause"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "d01a1bbb28cf04e4d311dc70319a24bc20d190c67942ee015f9fd414bb693897" => :catalina
-    sha256 "58938d9e32325c87b6b1f9d32cfe3129c5aa15de719f48aa69e83b1ab1e9af06" => :mojave
-    sha256 "58938d9e32325c87b6b1f9d32cfe3129c5aa15de719f48aa69e83b1ab1e9af06" => :high_sierra
-    sha256 "f24ec0961c7927c406ff0e86ee78be7c94f7269e0ff0d3c0839136fa43cf03e2" => :sierra
+  livecheck do
+    url "https://www.spice-space.org/download/releases/"
+    regex(/href=.*?spice-protocol[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd26340728c429bf9986173e7bc5c8096158e14a03b52c19357b6d1e7eb4ffb5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1f1d09e0fdcd095c950b1f1568133b15dd8cd7c752463cdfaf6ff9343895b8d3"
+    sha256 cellar: :any_skip_relocation, catalina:      "c1e7d23c49491707d0113d45759756a55fb479ed0cdc6c0d3ec55d68a58a61cd"
+    sha256 cellar: :any_skip_relocation, mojave:        "c65655047ff18f1b00ec71a24469409c4483f0be190fdc2735470730cdf95b17"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "86145a5c7d8c109671fb9277ac07c56c8f8475c0854b2e2123a3beabd2626f06"
+  end
+
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+
   def install
-    system "./configure", "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dwith-docs=false", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

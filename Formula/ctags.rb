@@ -1,10 +1,11 @@
 class Ctags < Formula
   desc "Reimplementation of ctags(1)"
   homepage "https://ctags.sourceforge.io/"
-  revision 1
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 2
 
   stable do
-    url "https://downloads.sourceforge.net/ctags/ctags-5.8.tar.gz"
+    url "https://downloads.sourceforge.net/project/ctags/ctags/5.8/ctags-5.8.tar.gz"
     sha256 "0e44b45dcabe969e0bbbb11e30c246f81abe5d32012db37395eb57d66e9e99c7"
 
     # also fixes https://sourceforge.net/p/ctags/bugs/312/
@@ -15,12 +16,16 @@ class Ctags < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ctags[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    rebuild 2
-    sha256 "0f9bebdadd76a7ec818b904d6266eae183e869bf6f83302d836b93fc50a03714" => :catalina
-    sha256 "da05bcfc8536c7e627dbea17e67997b45388706ba9bb84e521682c0358cf18b5" => :mojave
-    sha256 "169b9d458f2db04d609c86c36e9d9dd4ee2474b7c472a1a11c766454e4bba1a4" => :high_sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e8ee6051008e73c999dbc8476221f220ef87fdf9cbc409a308df6a956e114e6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9986b3f6897b60cbdf5d73b4ad819d2d30726043dc0d665b77ba2def399a60b4"
+    sha256 cellar: :any_skip_relocation, catalina:      "2292b70a7b744c2238507417e40c2dc7273c6d919c9fe037bf668cf00863ad92"
+    sha256 cellar: :any_skip_relocation, mojave:        "238b65e5e1614f1d24fd88b6741c04d1cf48fd5f5d247cdbcd1f82d5796197d5"
   end
 
   head do
@@ -39,6 +44,9 @@ class Ctags < Formula
       system "autoheader"
       system "autoconf"
     end
+
+    # Work around configure issues with Xcode 12
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
     system "./configure", "--prefix=#{prefix}",
                           "--enable-macro-patterns",
                           "--mandir=#{man}",
@@ -72,6 +80,7 @@ class Ctags < Formula
       }
     EOS
     system "#{bin}/ctags", "-R", "."
-    assert_match /func.*test\.c/, File.read("tags")
+    assert_match(/func.*test\.c/, File.read("tags"))
+    assert_match "+regex", shell_output("ctags --version")
   end
 end

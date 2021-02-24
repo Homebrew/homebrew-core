@@ -1,16 +1,17 @@
 class Unyaffs < Formula
   desc "Extract files from a YAFFS2 filesystem image"
-  homepage "https://git.bernhard-ehlers.de/ehlers/unyaffs/"
-  url "https://git.bernhard-ehlers.de/ehlers/unyaffs/archive/0.9.7.tar.gz"
-  sha256 "17489fb07051d228ede6ed35c9138e25f81085492804104a8f52c51a1bd6750d"
-  head "https://git.bernhard-ehlers.de/ehlers/unyaffs.git"
+  homepage "https://git.b-ehlers.de/ehlers/unyaffs/"
+  url "https://git.b-ehlers.de/ehlers/unyaffs/archive/0.9.7.tar.gz"
+  sha256 "792d18c3866910e25026aaa9dcfdec4b67bca7453ce5b2474d1ce8e9d31b2c69"
+  license "GPL-2.0-only"
+  head "https://git.b-ehlers.de/ehlers/unyaffs.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ae6292113c0b5103b71e25c0bf935d2f526ae76b276c0b09fbee62071a2fd8ee" => :catalina
-    sha256 "93a015d1f905f0a90a6238ca3131fb20a97e9d51ffc588a28fc3a11f53a3396e" => :mojave
-    sha256 "ef326db142d70f8292a035cc015bdab8b6c777764451f359515b78b5fd4f0735" => :high_sierra
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5516a71d691f78f1efb0d7f12f2a8ab2b4500ad2a9c1e1ccd5ace316111a1a1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "54982f10cb8c866e7370886765744c109f3566717f7af6f397e8a83a7ca65520"
+    sha256 cellar: :any_skip_relocation, catalina:      "0319fb2b8ee918808e30a0bb5deef42abaf7d4afe35cff538b4ed513f06de16e"
+    sha256 cellar: :any_skip_relocation, mojave:        "1c3b921af84a9fee0bb8faf7d420ff2a3d6e6a4e42aeec235d8587a8ccd5da61"
   end
 
   def install

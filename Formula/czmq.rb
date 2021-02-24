@@ -3,13 +3,14 @@ class Czmq < Formula
   homepage "http://czmq.zeromq.org/"
   url "https://github.com/zeromq/czmq/releases/download/v4.2.0/czmq-4.2.0.tar.gz"
   sha256 "cfab29c2b3cc8a845749758a51e1dd5f5160c1ef57e2a41ea96e4c2dcc8feceb"
+  license "MPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "c461e7f219ce378867918141470c871871c9e0aec437ceb52cc858f61811aece" => :catalina
-    sha256 "19b9f2b1d8d73f7314d0534f22bacd8bc02b39b2a985a07fc8e40365583fc45e" => :mojave
-    sha256 "a1afab02e1ff88b48e2bd92900a701745e18fb05ca700d5c2635fa4c986010f8" => :high_sierra
-    sha256 "d64960ca3558f8a571a51095b9c0e41b1eb8c535e2efc0882ea20c44a41b5563" => :sierra
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "f8b5ef84a357ca7fbd03d2a0a5fc5f5714cf28dc5321479f0dc715c348df75c9"
+    sha256 cellar: :any, big_sur:       "b457eb58a8684ba745af98d60a4207aef695bb33531206f2f7c0287523cd9a2a"
+    sha256 cellar: :any, catalina:      "c20bd8fd5e9c223824b1b50e829fb6c1ff1096951b20379f5f070b300d7e67d8"
+    sha256 cellar: :any, mojave:        "e64d0f79d6a05b5648695e3d06331bb34e8b85ae5920f429f3b44b7eee23cf5e"
   end
 
   head do
@@ -23,7 +24,18 @@ class Czmq < Formula
   depends_on "asciidoc" => :build
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
+  depends_on :macos # Due to Python 2
   depends_on "zeromq"
+
+  # These two patches together fix https://github.com/zeromq/czmq/issues/2125
+  patch do
+    url "https://github.com/zeromq/czmq/commit/ace06a41da51b1196eef411669343cdf7e8665e2.patch?full_index=1"
+    sha256 "d5e8ed6d96ba63ebb8128032cc4ffef2cbd49b9af9692ad60b89bb3bcf6b2b4c"
+  end
+  patch do
+    url "https://github.com/zeromq/czmq/commit/0c7cac3be12707225d03888a6047e5133d926751.patch?full_index=1"
+    sha256 "62e6b211018a837ad1b8aed82c14740b87c13509e4a444a9cfeb5a50188eaf5e"
+  end
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

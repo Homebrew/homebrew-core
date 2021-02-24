@@ -3,21 +3,23 @@ class Md5deep < Formula
   homepage "https://github.com/jessek/hashdeep"
   url "https://github.com/jessek/hashdeep/archive/release-4.4.tar.gz"
   sha256 "dbda8ab42a9c788d4566adcae980d022d8c3d52ee732f1cbfa126c551c8fcc46"
+  license "GPL-2.0"
+  revision 1
   head "https://github.com/jessek/hashdeep.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d97c8bf86272ad4201cb2050196185f420dc78579266dee86e7f1ac4a7f7eeb7" => :catalina
-    sha256 "48fe3167c6211f51af6d8c1e39062438a7385e1b136078fbc0215170842ecbbe" => :mojave
-    sha256 "5f5636f7731398f775d757cb4ae913762f725d4d7bd3060a2640c155207d7a2a" => :high_sierra
-    sha256 "4ee90230c25f9872541d3f895fbe010765dd2e5449e56a0987e3652f89014916" => :sierra
-    sha256 "986dad46d2945aac775eb625e41b0236f2413b3924244d5e9aba445994c38687" => :el_capitan
-    sha256 "227b8b8e4f4dd71972cd02062faefef90515b44ef5c3ce55f5c665cf679a26d1" => :yosemite
-    sha256 "1bacd45d420975ff8b90d633e361b54c7f6a14776a41f175313360d31fb03ba4" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5d910e7454fa350663a1955628c254b7acf813dd7b3aaec162a7be2c002197f0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d53f71333428c98de807b2ed6be18fcfd62d473d9994e19db7c7a8db390cac95"
+    sha256 cellar: :any_skip_relocation, catalina:      "3156ba425284d497cdc5377c1d5d7659fe741811c5b1a390a2dd45f98bf0a19a"
+    sha256 cellar: :any_skip_relocation, mojave:        "c9e915e46aec5d2ec5460d6b8d73cd7f21b615b8882ab7eef3bbea6c25a8821e"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+
+  # Fix compilation error due to very old GNU config scripts in source repo
+  # reported upstream at https://github.com/jessek/hashdeep/issues/400
+  patch :DATA if Hardware::CPU.arm?
 
   # Fix compilation error due to pointer comparison
   if MacOS.version >= :sierra
@@ -40,3 +42,19 @@ class Md5deep < Formula
     shell_output("#{bin}/sha1deep -b testfile.txt").strip
   end
 end
+
+__END__
+diff --git a/config.guess b/config.guess
+index cc726cd..37d7e9d 100755
+--- a/config.guess
++++ b/config.guess
+@@ -1130,6 +1130,9 @@ EOF
+     *:Rhapsody:*:*)
+ 	echo ${UNAME_MACHINE}-apple-rhapsody${UNAME_RELEASE}
+ 	exit 0 ;;
++	arm64:Darwin:*:*)
++	echo arm-apple-darwin"$UNAME_RELEASE"
++	exit ;;
+     *:Darwin:*:*)
+ 	case `uname -p` in
+ 	    *86) UNAME_PROCESSOR=i686 ;;
