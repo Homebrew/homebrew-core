@@ -1,8 +1,8 @@
 class Celero < Formula
   desc "C++ Benchmark Authoring Library/Framework"
   homepage "https://github.com/DigitalInBlue/Celero"
-  url "https://github.com/DigitalInBlue/Celero/archive/v2.6.0.tar.gz"
-  sha256 "a5b72da254f81d42369382ba3157229b6b32ebbb670a22b185f80db95535e66e"
+  url "https://github.com/DigitalInBlue/Celero/archive/v2.7.0.tar.gz"
+  sha256 "4a72fe65dec6c9f36e981daaacba52e36fe3b14be19877f421c5507537c7c0ba"
   license "Apache-2.0"
 
   bottle do
