@@ -19,19 +19,26 @@ class Tfsec < Formula
 
   depends_on "go" => :build
 
-  resource "testfile" do
-    url "https://raw.githubusercontent.com/tfsec/tfsec/2d9b76a/example/brew-validate.tf"
-    sha256 "3ef5c46e81e9f0b42578fd8ddce959145cd043f87fd621a12140e99681f1128a"
-  end
-
   def install
     system "scripts/install.sh", "v#{version}"
     bin.install "tfsec"
   end
 
   test do
-    resource("testfile").stage do
-      assert_match "No problems detected!", shell_output("#{bin}/tfsec .")
-    end
+    (testpath/"good/brew-validate.tf").write <<~EOS
+      resource "aws_alb_listener" "my-alb-listener" {
+        port     = "443"
+        protocol = "HTTPS"
+      }
+    EOS
+    (testpath/"bad/brew-validate.tf").write <<~EOS
+      }
+    EOS
+
+    good_output = shell_output("#{bin}/tfsec #{testpath}/good")
+    assert_match "No problems detected!", good_output
+    assert_no_match(/WARNING/, good_output)
+    bad_output = shell_output("#{bin}/tfsec #{testpath}/bad 2>&1")
+    assert_match "WARNING", bad_output
   end
 end
