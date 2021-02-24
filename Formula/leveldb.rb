@@ -18,13 +18,18 @@ class Leveldb < Formula
   depends_on "snappy"
 
   def install
+    args = *std_cmake_args + %w[
+      -DLEVELDB_BUILD_TESTS=OFF
+      -DLEVELDB_BUILD_BENCHMARKS=OFF
+    ]
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
       system "make", "install"
       bin.install "leveldbutil"
 
       system "make", "clean"
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=OFF"
       system "make"
       lib.install "libleveldb.a"
     end
