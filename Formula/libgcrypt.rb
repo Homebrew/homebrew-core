@@ -7,7 +7,7 @@ class Libgcrypt < Formula
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/libgcrypt/"
-    regex(/libgcrypt[._-]v?(\d+\.\d+\.\d+)/i)
+    regex(/href=.*?libgcrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
