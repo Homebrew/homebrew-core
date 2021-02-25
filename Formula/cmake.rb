@@ -6,9 +6,11 @@ class Cmake < Formula
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
+  # The "latest" release on GitHub has been an unstable version before, so we
+  # check the Git tags instead.
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
