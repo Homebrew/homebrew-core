@@ -4,6 +4,7 @@ class Eccodes < Formula
   url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.20.0-Source.tar.gz"
   sha256 "207a3d7966e75d85920569b55a19824673e8cd0b50db4c4dac2d3d52eacd7985"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://software.ecmwf.int/wiki/display/ECC/Releases"
@@ -32,7 +33,8 @@ class Eccodes < Formula
 
     mkdir "build" do
       system "cmake", "..", "-DENABLE_NETCDF=ON", "-DENABLE_PNG=ON",
-                            "-DENABLE_PYTHON=OFF", *std_cmake_args
+                            "-DENABLE_PYTHON=OFF", "-DENABLE_ECCODES_THREADS=ON",
+                             *std_cmake_args
       system "make", "install"
     end
 
