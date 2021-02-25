@@ -12,20 +12,10 @@ class Microplane < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "9adc70ddbc6fa4e70e1b006d33222de211caa09d58773e70d449e974482ddfc5"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    ldflags = "-s -w -X main.version=#{version}"
-
-    dir = buildpath/"src/github.com/Clever/microplane"
-    dir.install buildpath.children
-    cd "src/github.com/Clever/microplane" do
-      system "dep", "ensure", "-v", "-vendor-only"
-      system "go", "build", *std_go_args, "-ldflags", ldflags, "-o", bin/"mp"
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.version=#{version}", "-o", bin/"mp"
   end
 
   test do
