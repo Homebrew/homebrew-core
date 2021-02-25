@@ -5,9 +5,7 @@ class CrispyDoom < Formula
   sha256 "0b6bac20816d057692e4f5c15dbbb27cc49e404e821f774e2b16ce997a6f3fe1"
   license "GPL-2.0-only"
 
-  head do
-    url "https://github.com/fabiangreffrath/crispy-doom"
-  end
+  head "https://github.com/fabiangreffrath/crispy-doom"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -27,17 +25,13 @@ class CrispyDoom < Formula
     system "make", "install", "execgamesdir=#{bin}"
   end
 
-  def caveats
-    <<~EOS
-      Note that this formula only installs a Doom game engine, and no
-      actual levels. The original Doom levels are still under copyright,
-      so you can copy them over and play them if you already own them.
-      Otherwise, there are tons of free levels available online.
-      Try starting here: https://www.chocolate-doom.org/
-    EOS
-  end
-
   test do
-    assert_match "Crispy Doom #{version}", shell_output("#{bin}/crispy-doom -nogui", 255)
+    testdata = <<~EOS
+      Inavlid IWAD file
+    EOS
+    (testpath/"test_invalid.wad").write testdata
+
+    expected_output = "Wad file test_invalid.wad doesn't have IWAD or PWAD id"
+    assert_match expected_output, shell_output("#{bin}/crispy-doom -nogui -iwad test_invalid.wad 2>&1", 255)
   end
 end
