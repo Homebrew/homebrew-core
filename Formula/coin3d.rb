@@ -15,7 +15,7 @@ class Coin3d < Formula
 
   livecheck do
     url :stable
-    regex(/^Coin-(\d+\.\d+\.\d+)$/i)
+    regex(/^Coin[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
