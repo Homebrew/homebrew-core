@@ -39,8 +39,8 @@ class Llvm < Formula
   end
 
   livecheck do
-    url :homepage
-    regex(/LLVM (\d+.\d+.\d+)/i)
+    url :stable
+    regex(/^llvmorg[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
