@@ -21,6 +21,7 @@ class QpidProton < Formula
     mkdir "build" do
       system "cmake", "..", "-DBUILD_BINDINGS=",
                          "-DLIB_INSTALL_DIR=#{lib}",
+                         "-DBUILD_TESTING=OFF",
                          "-Dproactor=libuv",
                          *std_cmake_args
       system "make", "install"
