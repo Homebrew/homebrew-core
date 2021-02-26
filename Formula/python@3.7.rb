@@ -96,7 +96,7 @@ class PythonAT37 < Formula
 
     # Override the auto-detection in setup.py, which assumes a universal build.
     on_macos do
-      ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"
+      ENV["PYTHON_DECIMAL_WITH_MACHINE"] = "x64"
     end
 
     xy = (buildpath/"configure.ac").read.slice(/PYTHON_VERSION, (3\.\d)/, 1)
