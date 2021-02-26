@@ -16,11 +16,7 @@ class Vultr < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/JamesClonk").mkpath
-    ln_s buildpath, buildpath/"src/github.com/JamesClonk/vultr"
-    system "go", "build", "-o", bin/"vultr"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do
