@@ -4,7 +4,7 @@ class PythonAT37 < Formula
   url "https://www.python.org/ftp/python/3.7.10/Python-3.7.10.tar.xz"
   sha256 "f8d82e7572c86ec9d55c8627aae5040124fd2203af400c383c821b980306ee6b"
   license "Python-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -33,6 +33,7 @@ class PythonAT37 < Formula
   depends_on "pkg-config" => :build
   depends_on arch: :x86_64
   depends_on "gdbm"
+  depends_on "mpdecimal"
   depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "sqlite"
@@ -81,11 +82,22 @@ class PythonAT37 < Formula
     sha256 "486188ac1a4af4565de5ad54949939bb69bffc006297e8eac9339f19d7d7492b"
   end
 
+  # Link against libmpdec.so.3, update for mpdecimal.h symbol cleanup.
+  patch do
+    url "https://www.bytereef.org/contrib/decimal-3.7.diff"
+    sha256 "aa9a3002420079a7d2c6033d80b49038d490984a9ddb3d1195bb48ca7fb4a1f0"
+  end
+
   def install
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
     ENV["PYTHONHOME"] = nil
     ENV["PYTHONPATH"] = nil
+
+    # Override the auto-detection in setup.py, which assumes a universal build.
+    on_macos do
+      ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"
+    end
 
     xy = (buildpath/"configure.ac").read.slice(/PYTHON_VERSION, (3\.\d)/, 1)
     lib_cellar = prefix/"Frameworks/Python.framework/Versions/#{xy}/lib/python#{xy}"
@@ -100,6 +112,7 @@ class PythonAT37 < Formula
       --without-ensurepip
       --with-dtrace
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-system-libmpdec
     ]
 
     args << "--without-gcc" if ENV.compiler == :clang
@@ -343,6 +356,7 @@ class PythonAT37 < Formula
     # Reenable unconditionnaly once Apple fixes the Tcl/Tk issue
     system "#{bin}/python#{xy}", "-c", "import tkinter; root = tkinter.Tk()" if MacOS.full_version < "11.1"
 
+    system "#{bin}/python#{xy}", "-c", "import _decimal"
     system "#{bin}/python#{xy}", "-c", "import _gdbm"
     system "#{bin}/python#{xy}", "-c", "import zlib"
     system bin/"pip3", "list", "--format=columns"
