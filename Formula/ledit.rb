@@ -4,10 +4,14 @@ class Ledit < Formula
   url "https://github.com/chetmurthy/ledit/archive/ledit-2-05.tar.gz"
   version "2.05"
   sha256 "493ee6eae47cc92f1bee5f3c04a2f7aaa0812e4bdf17e03b32776ab51421392c"
+  license "BSD-3-Clause"
 
   livecheck do
-    url :homepage
-    regex(/current .*? is v?(\d+(?:\.\d+)+) /i)
+    url :stable
+    regex(/^ledit[._-]v?(\d+(?:[.-]\d+)+)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub("-", ".") }.compact
+    end
   end
 
   bottle do
