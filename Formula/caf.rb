@@ -21,10 +21,9 @@ class Caf < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--build-static",
-                          "--no-examples",
-                          "--no-unit-tests",
-                          "--no-opencl"
+                          "--disable-shared-libs",
+                          "--disable-examples",
+                          "--disable-testing"
     system "make", "--directory=build", "install"
   end
 
@@ -41,7 +40,7 @@ class Caf < Formula
       }
       CAF_MAIN()
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
     system "./test"
   end
 end
