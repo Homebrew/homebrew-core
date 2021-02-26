@@ -2,10 +2,10 @@ class BerkeleyDb < Formula
   desc "High performance key/value database"
   homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
   # Requires registration to download so we mirror it
-  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.32.tar.gz"
-  mirror "https://fossies.org/linux/misc/db-18.1.32.tar.gz"
-  sha256 "fa1fe7de9ba91ad472c25d026f931802597c29f28ae951960685cde487c8d654"
-  revision 1
+  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.40.tar.gz"
+  mirror "https://fossies.org/linux/misc/db-18.1.40.tar.gz"
+  sha256 "0cecb2ef0c67b166de93732769abdeba0555086d51de1090df325e18ee8da9c8"
+  license "AGPL-3.0-only"
 
   livecheck do
     url "https://www.oracle.com/technetwork/database/" \
@@ -32,6 +32,7 @@ class BerkeleyDb < Formula
     # the system berkeley db 1.x
     args = %W[
       --disable-debug
+      --disable-static
       --prefix=#{prefix}
       --mandir=#{man}
       --enable-cxx
@@ -45,11 +46,10 @@ class BerkeleyDb < Formula
     # BerkeleyDB requires you to build everything from the build_unix subdirectory
     cd "build_unix" do
       system "../dist/configure", *args
-      system "make", "install"
+      system "make", "install", "DOCLIST=license"
 
-      # use the standard docs location
-      doc.parent.mkpath
-      mv prefix/"docs", doc
+      # delete docs dir because it is huge
+      rm_rf prefix/"docs"
     end
   end
 
