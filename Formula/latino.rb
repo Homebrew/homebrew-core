@@ -5,8 +5,9 @@ class Latino < Formula
   sha256 "28118a047265394ad9a5fcb2c76895d08af4b43a5886f52afce98a0f8cdc86fe"
   license "MIT"
   head "https://github.com/lenguaje-latino/Latino.git"
+
   depends_on "cmake" => :build
-  depends_on "make" => :build
+
   def install
     mv "logo/Latino-logo.png", "logo/desktop.png"
     system "cmake", ".", *std_cmake_args
