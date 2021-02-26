@@ -5,6 +5,7 @@ class Monero < Formula
       tag:      "v0.17.1.9",
       revision: "8fef32e45c80aec41f25be9d1d8fb75adc883c64"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "926d66ff23fb78d43351a0424d57a6f21056886f13a459e4109fb3d132f29c5b"
