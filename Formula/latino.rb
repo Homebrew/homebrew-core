@@ -16,7 +16,13 @@ class Latino < Formula
   end
   test do
     (testpath/"test1.lat").write "poner('hola mundo')"
-    (testpath/"test2.lat").write "i=0\nrepetir\n\tponer(i)\n\ti++\nhasta(i>=10)"
+    (testpath/"test2.lat").write <<~EOS
+      i=0
+      repetir
+        poner(i)
+        i++
+      hasta(i>=10)
+    EOS
     output = shell_output("#{bin}/latino test1.lat")
     assert_equal "hola mundo", output.chomp
     output2 = shell_output("#{bin}/latino test2.lat")
