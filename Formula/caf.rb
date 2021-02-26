@@ -21,7 +21,6 @@ class Caf < Formula
 
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-shared-libs",
                           "--disable-examples",
                           "--disable-testing"
     system "make", "--directory=build", "install"
