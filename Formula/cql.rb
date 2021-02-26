@@ -1,8 +1,8 @@
 class Cql < Formula
   desc "Decentralized SQL database with blockchain features"
   homepage "https://covenantsql.io"
-  url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.8.0.tar.gz"
-  sha256 "fc63d9bc296b037c8a8fd1984bc6e4156d0c73d9948dfa8654a954f904ad1f4a"
+  url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.8.1.tar.gz"
+  sha256 "73abb65106e5045208aa4a7cda56bc7c17ba377557ae47d60dad39a63f9c88a6"
   license "Apache-2.0"
   head "https://github.com/CovenantSQL/CovenantSQL.git"
 
