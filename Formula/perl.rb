@@ -4,6 +4,7 @@ class Perl < Formula
   url "https://www.cpan.org/src/5.0/perl-5.32.1.tar.xz"
   sha256 "57cc47c735c8300a8ce2fa0643507b44c4ae59012bfdad0121313db639e02309"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
+  revision 1
   head "https://github.com/perl/perl5.git", branch: "blead"
 
   livecheck do
@@ -18,6 +19,9 @@ class Perl < Formula
     sha256 catalina:      "2777e9490753ec7d79129663a1102d25148076bfd1788044e8adac4a02086cbc"
     sha256 mojave:        "bb71c5e9bb3c1c734d7c2a91ada60ce054096c97b1a619f4c3df2a1f1e828981"
   end
+
+  depends_on "berkeley-db"
+  depends_on "gdbm"
 
   uses_from_macos "expat"
 
@@ -38,8 +42,6 @@ class Perl < Formula
       -Duseshrplib
       -Duselargefiles
       -Dusethreads
-      -Dnoextensions=GDBM_File
-      -Dnoextensions=DB_File
     ]
     on_macos do
       args << "-Dsed=/usr/bin/sed"
