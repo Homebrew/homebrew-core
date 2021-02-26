@@ -3,7 +3,8 @@ class OcamlFindlib < Formula
   homepage "http://projects.camlcity.org/projects/findlib.html"
   url "http://download.camlcity.org/download/findlib-1.8.1.tar.gz"
   sha256 "8e85cfa57e8745715432df3116697c8f41cb24b5ec16d1d5acd25e0196d34303"
-  revision 3
+  license "MIT"
+  revision 4
 
   livecheck do
     url "http://download.camlcity.org/download/"
@@ -23,15 +24,20 @@ class OcamlFindlib < Formula
   uses_from_macos "m4" => :build
 
   def install
+    # Specify HOMEBREW_PREFIX here so those are the values baked into the compile,
+    # rather than the Cellar
     system "./configure", "-bindir", bin,
                           "-mandir", man,
-                          "-sitelib", lib/"ocaml",
+                          "-sitelib", HOMEBREW_PREFIX/"lib/ocaml",
                           "-config", etc/"findlib.conf",
-                          "-no-topfind"
+                          "-no-camlp4"
+
     system "make", "all"
     system "make", "opt"
-    inreplace "findlib.conf", prefix, HOMEBREW_PREFIX
-    system "make", "install"
+
+    # Override the above paths for the install step only
+    system "make", "install", "OCAML_SITELIB=#{lib}/ocaml",
+                              "OCAML_CORE_STDLIB=#{lib}/ocaml"
 
     # Avoid conflict with ocaml-num package
     rm_rf Dir[lib/"ocaml/num", lib/"ocaml/num-top"]
