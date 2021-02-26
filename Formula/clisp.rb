@@ -1,19 +1,15 @@
 class Clisp < Formula
   desc "GNU CLISP, a Common Lisp implementation"
   homepage "https://clisp.sourceforge.io/"
-  revision 2
+  license "GPL-2.0-or-later"
 
   stable do
-    url "https://ftp.gnu.org/gnu/clisp/release/2.49/clisp-2.49.tar.bz2"
-    mirror "https://ftpmirror.gnu.org/clisp/release/2.49/clisp-2.49.tar.bz2"
-    sha256 "8132ff353afaa70e6b19367a25ae3d5a43627279c25647c220641fed00f8e890"
+    url "https://alpha.gnu.org/gnu/clisp/clisp-2.49.92.tar.bz2"
+    sha256 "bd443a94aa9b02da4c4abbcecfc04ffff1919c0a8b0e7e35649b86198cd6bb89"
 
+    # Fix build on ARM.
+    # Remove once https://gitlab.com/gnu-clisp/clisp/-/commit/39b68a14d9a1fcde8a357c088c7317b19ff598ad is released.
     patch :DATA
-
-    patch :p0 do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e2cc7c1/clisp/patch-src_lispbibl_d.diff"
-      sha256 "fd4e8a0327e04c224fb14ad6094741034d14cb45da5b56a2f3e7c930f84fd9a0"
-    end
   end
 
   livecheck do
@@ -71,16 +67,13 @@ class Clisp < Formula
 end
 
 __END__
-diff --git a/src/stream.d b/src/stream.d
-index 5345ed6..cf14e29 100644
---- a/src/stream.d
-+++ b/src/stream.d
-@@ -3994,7 +3994,7 @@ global object iconv_range (object encoding, uintL start, uintL end, uintL maxint
- nonreturning_function(extern, error_unencodable, (object encoding, chart ch));
-
- /* Avoid annoying warning caused by a wrongly standardized iconv() prototype. */
--#ifdef GNU_LIBICONV
-+#if defined(GNU_LIBICONV) && !defined(__APPLE_CC__)
-   #undef iconv
-   #define iconv(cd,inbuf,inbytesleft,outbuf,outbytesleft) \
-     libiconv(cd,(ICONV_CONST char **)(inbuf),inbytesleft,outbuf,outbytesleft)
+--- a/src/gllib/vma-iter.c
++++ b/src/gllib/vma-iter.c
+@@ -1327,7 +1327,7 @@
+          In 64-bit processes, we could use vm_region_64 or mach_vm_region.
+          I choose vm_region_64 because it uses the same types as vm_region,
+          resulting in less conditional code.  */
+-# if defined __ppc64__ || defined __x86_64__
++# if defined __aarch64__ || defined __ppc64__ || defined __x86_64__
+       struct vm_region_basic_info_64 info;
+       mach_msg_type_number_t info_count = VM_REGION_BASIC_INFO_COUNT_64;
