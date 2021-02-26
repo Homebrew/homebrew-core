@@ -5,7 +5,7 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-3.0.0/apache-arrow-3.0.0.tar.gz"
   sha256 "73c2cc3be537aa1f3fd9490cfec185714168c9bfd599d23e287ab0cc0558e27a"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/apache/arrow.git"
 
   bottle do
@@ -31,6 +31,13 @@ class ApacheArrow < Formula
   depends_on "snappy"
   depends_on "thrift"
   depends_on "zstd"
+
+  # Remove in next version
+  # https://github.com/apache/arrow/pull/9542
+  patch do
+    url "https://github.com/apache/arrow/commit/06c795c948b594c16d3a48289519ce036a285aad.patch?full_index=1"
+    sha256 "732845543b67289d1d462ebf6e87117ac72104047c6747e189a76d09840bc23f"
+  end
 
   def install
     # link against system libc++ instead of llvm provided libc++
