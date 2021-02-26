@@ -45,6 +45,7 @@ class OrTools < Formula
            "-I#{include}", "-L#{lib}", "-lortools",
            "-L#{Formula["gflags"].opt_lib}", "-lgflags",
            "-L#{Formula["glog"].opt_lib}", "-lglog",
+           "-L#{Formula["abseil"].opt_lib}", "-labsl_time",
            pkgshare/"simple_lp_program.cc", "-o", "simple_lp_program"
     system "./simple_lp_program"
     # Routing Solver
