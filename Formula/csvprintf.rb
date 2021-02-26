@@ -2,7 +2,7 @@ class Csvprintf < Formula
   desc "Command-line utility for parsing CSV files"
   homepage "https://github.com/archiecobbs/csvprintf"
   url "https://github.com/archiecobbs/csvprintf/archive/1.1.0.tar.gz"
-  sha256 "14b04fffd524423b55ca6a00e7ead5d7f411f15c58e39f202711a559677216aa"
+  sha256 "a64e48a81a4416f47c224a67b9554c93763429e25e4b15e0d23f3067bd6a0ffc"
   license "Apache-2.0"
 
   bottle do
