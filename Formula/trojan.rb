@@ -20,7 +20,7 @@ class Trojan < Formula
     system "cmake", ".",
                     "-DMYSQL_INCLUDE_DIR=#{Formula["mysql-client"].opt_include}/mysql",
                     "-DMYSQL_LIBRARY_DIR=#{Formula["mysql-client"].opt_lib}",
-                    *std_cmake_args 
+                    *std_cmake_args
     system "make", "install"
   end
 
@@ -60,17 +60,12 @@ class Trojan < Formula
         }
       }
     EOS
-    server = fork { exec bin/"trojan", "-c", testpath/"server.json" }
-    client = fork { exec bin/"trojan", "-c", testpath/"client.json" }
+    fork { exec bin/"trojan", "-c", testpath/"server.json" }
+    fork { exec bin/"trojan", "-c", testpath/"client.json" }
     sleep 3
-    begin
-      system "curl", "--socks5", "127.0.0.1:#{local_port}", "github.com"
-    ensure
-      Process.kill 9, server
-      Process.wait server
-      Process.kill 9, client
-      Process.wait client
-    end
+
+    output = shell_output "curl", "--socks5", "127.0.0.1:#{local_port}", "https://github.com"
+    assert_match "Where the world builds software", output
   end
 end
 
