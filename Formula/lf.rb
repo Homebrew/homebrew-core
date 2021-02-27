@@ -1,8 +1,8 @@
 class Lf < Formula
   desc "Terminal file manager"
   homepage "https://godoc.org/github.com/gokcehan/lf"
-  url "https://github.com/gokcehan/lf/archive/r20.tar.gz"
-  sha256 "b0d755e255d48229c14b7ec5f86788c6fc96df1f6859f677b313fd9deb856398"
+  url "https://github.com/gokcehan/lf/archive/r21.tar.gz"
+  sha256 "088510cc1f86084c02353d55e56a8c44576b5dbfc37327daabaa86ae6b287a20"
   license "MIT"
 
   bottle do
