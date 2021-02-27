@@ -4,8 +4,8 @@ class Dmd < Formula
   license "BSL-1.0"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.095.0.tar.gz"
-    sha256 "d8b54cdd885b86e2cc30ccb4ccc6923940b3bd79183b499889b86d34dd22621b"
+    url "https://github.com/dlang/dmd/archive/v2.095.1.tar.gz"
+    sha256 "ccffae555faf97ccc0c4dbedc338e2121135fe57fc51cfe95ba10c95c8743cc3"
 
     resource "druntime" do
       url "https://github.com/dlang/druntime/archive/v2.095.0.tar.gz"
