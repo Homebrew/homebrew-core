@@ -42,5 +42,6 @@ class ShadowsocksRust < Formula
       Process.wait server
       Process.kill 9, client
       Process.wait client
+    end
   end
 end
