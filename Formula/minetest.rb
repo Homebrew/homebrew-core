@@ -6,10 +6,12 @@ class Minetest < Formula
   stable do
     url "https://github.com/minetest/minetest/archive/5.4.0.tar.gz"
     sha256 "6e9b299e156651be9bcf973a9232cff32215de31dfae5ea770a71d1757cab014"
+    # When updating, check the following URL as the resource below might also need to be updated:
+    # https://github.com/minetest/minetest_game/releases
 
     resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game/archive/5.3.0.tar.gz"
-      sha256 "06c6c1d4b97af211dd0fa518a3e68a205f594e9816a4b2477e48d4d21d278e2d"
+      url "https://github.com/minetest/minetest_game/archive/5.4.0.tar.gz"
+      sha256 "520d2056085ec11e8806cf5a8f928537797d27a86704770bf408c113ea9881cb"
     end
   end
 
