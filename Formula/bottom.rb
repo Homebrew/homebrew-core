@@ -4,6 +4,12 @@ class Bottom < Formula
   url "https://github.com/ClementTsang/bottom/archive/0.5.7.tar.gz"
   sha256 "49e01a2930d913dba2a1329389faddb4b3971a6b0c08f7482d2759475d5cc27c"
   license "MIT"
+  head "https://github.com/ClementTsang/bottom.git"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   depends_on "rust" => :build
 
