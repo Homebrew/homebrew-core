@@ -30,7 +30,7 @@ class Trojan < Formula
     key = testpath/"key.pem"
     cert = testpath/"cert.pem"
 
-    system "yes '' | openssl req -x509 -newkey rsa:2048 -keyout #{key} -out #{cert} -days 1 -nodes"
+    system "yes ab | openssl req -x509 -newkey rsa:2048 -keyout #{key} -out #{cert} -days 1 -nodes"
 
     (testpath/"server.json").write <<~EOS
       {
