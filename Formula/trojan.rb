@@ -3,7 +3,7 @@ class Trojan < Formula
   homepage "https://github.com/trojan-gfw/trojan"
   url "https://github.com/trojan-gfw/trojan/archive/v1.16.0.tar.gz"
   sha256 "86cdb2685bb03a63b62ce06545c41189952f1ec4a0cd9147450312ed70956cbc"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
   head "https://github.com/trojan-gfw/trojan.git"
 
   livecheck do
