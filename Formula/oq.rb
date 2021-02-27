@@ -1,10 +1,9 @@
 class Oq < Formula
   desc "Performant, and portable jq wrapper to support formats other than JSON"
   homepage "https://blacksmoke16.github.io/oq"
-  url "https://github.com/Blacksmoke16/oq/archive/v1.1.2.tar.gz"
-  sha256 "1bd940a72af556a4e685086ca0d3a363d71e3cfedeffb36f865f38d44386f94a"
+  url "https://github.com/Blacksmoke16/oq/archive/v1.2.0.tar.gz"
+  sha256 "15ce979f51045370624e5e50b38ac2eb106a00d5ce9ebf9f04c7fda4a5679826"
   license "MIT"
-  revision 1
 
   bottle do
     rebuild 1
@@ -14,6 +13,8 @@ class Oq < Formula
   end
 
   depends_on "crystal" => :build
+
+  depends_on "bdw-gc"
   depends_on "jq"
   depends_on "libevent"
   depends_on "libyaml"
