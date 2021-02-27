@@ -10,7 +10,7 @@ class Bottom < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    target_dir = `ls #{buildpath}/target/release/build/bottom-*/out/btm.bash | head -n1 | xargs dirname`
+    target_dir = `ls #{buildpath}/target/release/build/bottom-*/out/btm.bash | head -n1 | xargs dirname`.strip
     bash_completion.install "#{target_dir}/btm.bash" => "btm"
     zsh_completion.install  "#{target_dir}/_btm"     => "_btm"
     fish_completion.install "#{target_dir}/btm.fish" => "btm.fish"
