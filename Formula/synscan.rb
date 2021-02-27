@@ -22,7 +22,12 @@ class Synscan < Formula
     ENV.append "LIBS", "-L#{Formula["libpcap"].opt_lib} -lpcap"
     system "./configure", "--prefix=#{prefix}",
                           "--with-libpcap=yes"
-    system "make", "macos"
+    on_macos do
+      system "make", "macos"
+    end
+    on_linux do
+      system "make", "linux"
+    end
     system "make", "install"
   end
 
