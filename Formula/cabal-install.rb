@@ -12,6 +12,8 @@ class CabalInstall < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "7b0fdd86bd545b19defa1b89e98f31aff6d3b7519b98cd76f52c1641b50a92ad"
   end
 
+  # cabal-install 3.4 needs to be bootstrapped with ghc 8.10
+  depends_on "ghc@8.10" => :build
   depends_on "ghc"
   uses_from_macos "zlib"
 
@@ -27,6 +29,7 @@ class CabalInstall < Formula
   end
 
   def install
+    ENV.prepend_path "PATH", Formula["ghc@8.10"].opt_bin
     resource("bootstrap").stage buildpath
     cabal = buildpath/"cabal"
     cd "cabal-install" if build.head?
