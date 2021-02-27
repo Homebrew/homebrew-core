@@ -23,12 +23,6 @@ class Xray < Formula
     sha256 "ef9c30bacc6989a0b9fae6043dcef1ec15af96c01eddfa1f1d1ad93d14864f81"
   end
 
-  # https://github.com/XTLS/Xray-core/pull/312
-  patch do
-    url "https://github.com/XTLS/Xray-core/commit/5e976a49b5c07df4232143f3e0ad9b2bb8c8b8da.patch?full_index=1"
-    sha256 "33b4273964022e3c569a58e19051963fd3727b2193de57b19ffdfe943e4a9ae5"
-  end
-
   def install
     ldflags = "-s -w -buildid="
     system "go", "build", *std_go_args,
