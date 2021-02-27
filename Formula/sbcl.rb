@@ -1,10 +1,14 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.11/sbcl-2.0.11-source.tar.bz2"
-  sha256 "87d2aa53cef092119a1c8b2f3de48d209375a674c3b60e08596838013bd7971d"
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
   head "https://git.code.sf.net/p/sbcl/sbcl.git", shallow: false
+
+  stable do
+    url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.11/sbcl-2.0.11-source.tar.bz2"
+    sha256 "87d2aa53cef092119a1c8b2f3de48d209375a674c3b60e08596838013bd7971d"
+    depends_on arch: :x86_64
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "e6a0d4ba798d435a261e93062461a15801a42af1cab9344cdeab824b00112318"
@@ -12,21 +16,9 @@ class Sbcl < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "a8eadb8a7b8a092995d0f29f4b68cf5450c070dd41bdf3f9f15e4907b516d48b"
   end
 
-  depends_on arch: :x86_64
+  depends_on "ecl" => :build
 
   uses_from_macos "zlib"
-
-  # Current binary versions are listed at https://sbcl.sourceforge.io/platform-table.html
-  resource "bootstrap64" do
-    on_macos do
-      url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.2.11/sbcl-1.2.11-x86-64-darwin-binary.tar.bz2"
-      sha256 "057d3a1c033fb53deee994c0135110636a04f92d2f88919679864214f77d0452"
-    end
-    on_linux do
-      url "https://downloads.sourceforge.net/project/sbcl/sbcl/1.3.3/sbcl-1.3.3-x86-64-linux-binary.tar.bz2"
-      sha256 "e8b1730c42e4a702f9b4437d9842e91cb680b7246f88118c7443d7753e61da65"
-    end
-  end
 
   def install
     # Remove non-ASCII values from environment as they cause build failures
@@ -37,12 +29,7 @@ class Sbcl < Formula
       ascii_val =~ /[\x80-\xff]/n
     end
 
-    tmpdir = Pathname.new(Dir.mktmpdir)
-    resource("bootstrap64").unpack tmpdir
-
-    command = "#{tmpdir}/src/runtime/sbcl"
-    core = "#{tmpdir}/output/sbcl.core"
-    xc_cmdline = "#{command} --core #{core} --disable-debugger --no-userinit --no-sysinit"
+    xc_cmdline = "ecl --norc"
 
     args = [
       "--prefix=#{prefix}",
