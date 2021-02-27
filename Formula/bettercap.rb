@@ -4,6 +4,7 @@ class Bettercap < Formula
   url "https://github.com/bettercap/bettercap/archive/v2.29.tar.gz"
   sha256 "c414be98a48d9f279460b325dddaef8479132a1470c6f305790d79e04dac1297"
   license "GPL-3.0-only"
+  head "https://github.com/bettercap/bettercap.git"
 
   bottle do
     sha256 cellar: :any, big_sur:  "6de77638b77e9b826cd2085147a5c312156d578f3376f2e0cc3397be9a48e7bd"
@@ -11,7 +12,6 @@ class Bettercap < Formula
     sha256 cellar: :any, mojave:   "4b59d7b9b41bcd5ee77ca8dc5ecb00c4ba158910dc30c2083c5e4dee6b994e1d"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
