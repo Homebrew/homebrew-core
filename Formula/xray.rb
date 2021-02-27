@@ -3,7 +3,7 @@ class Xray < Formula
   homepage "https://xtls.github.io/"
   url "https://github.com/XTLS/Xray-core/archive/v1.3.0.tar.gz"
   sha256 "1125af4411655abf47913af14a22fd7e2b13371e3566cc03676207519b0fe407"
-  license all_of: ["MIT", "CC-BY-SA-4.0"]
+  license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
   head "https://github.com/XTLS/Xray-core.git"
 
   livecheck do
