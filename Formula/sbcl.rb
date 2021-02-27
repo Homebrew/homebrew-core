@@ -4,7 +4,7 @@ class Sbcl < Formula
   url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.0.11/sbcl-2.0.11-source.tar.bz2"
   sha256 "87d2aa53cef092119a1c8b2f3de48d209375a674c3b60e08596838013bd7971d"
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
-  head "https://git.code.sf.net/p/sbcl/sbcl", shallow: false
+  head "https://git.code.sf.net/p/sbcl/sbcl", using: :git, shallow: false
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "e6a0d4ba798d435a261e93062461a15801a42af1cab9344cdeab824b00112318"
