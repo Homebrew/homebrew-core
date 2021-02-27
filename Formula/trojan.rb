@@ -64,7 +64,7 @@ class Trojan < Formula
     fork { exec bin/"trojan", "-c", testpath/"client.json" }
     sleep 3
 
-    output = shell_output "curl", "--socks5", "127.0.0.1:#{local_port}", "https://github.com"
+    output = shell_output "curl --socks5 127.0.0.1:#{local_port} https://github.com"
     assert_match "Where the world builds software", output
   end
 end
