@@ -68,4 +68,3 @@ class Trojan < Formula
     assert_match "Where the world builds software", output
   end
 end
-
