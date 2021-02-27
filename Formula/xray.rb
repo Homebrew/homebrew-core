@@ -25,7 +25,7 @@ class Xray < Formula
 
   # https://github.com/XTLS/Xray-core/pull/312
   patch do
-    url "https://github.com/XTLS/Xray-core/pull/312/commits/5e976a49b5c07df4232143f3e0ad9b2bb8c8b8da.patch?full_index=1"
+    url "https://github.com/XTLS/Xray-core/commit/5e976a49b5c07df4232143f3e0ad9b2bb8c8b8da.patch?full_index=1"
     sha256 "33b4273964022e3c569a58e19051963fd3727b2193de57b19ffdfe943e4a9ae5"
   end
 
