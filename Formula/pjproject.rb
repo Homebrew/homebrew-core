@@ -29,7 +29,12 @@ class Pjproject < Formula
     system "make", "install"
 
     arch = Utils.safe_popen_read("uname", "-m").chomp
-    bin.install "pjsip-apps/bin/pjsua-#{arch}-apple-darwin#{OS.kernel_version}" => "pjsua"
+    on_macos do
+      bin.install "pjsip-apps/bin/pjsua-#{arch}-apple-darwin#{OS.kernel_version}" => "pjsua"
+    end
+    on_linux do
+      bin.install "pjsip-apps/bin/pjsua-#{arch}-unknown-linux-gnu" => "pjsua"
+    end
   end
 
   test do
