@@ -1,13 +1,13 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.10.4/ghc-8.10.4-src.tar.xz"
-  sha256 "52af871b4e08550257d720c2944ac85727d0b948407cef1bebfe7508c224910e"
+  url "https://downloads.haskell.org/~ghc/9.0.1/ghc-9.0.1-src.tar.xz"
+  sha256 "a5230314e4065f9fcc371dfe519748fd85c825b279abf72a24e09b83578a35f9"
   license "BSD-3-Clause"
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
-    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(8(?:\.\d+)+)\s*?</i)
+    regex(/href=.*?download[._-]ghc[._-][^"' >]+?\.html[^>]*?>\s*?v?(\d+(?:\.\d+)+)\s*?</i)
   end
 
   bottle do
@@ -19,25 +19,18 @@ class Ghc < Formula
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
 
-  resource "gmp" do
-    url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
-    mirror "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gmp/gmp-6.2.1.tar.xz"
-    sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
-  end
-
-  # https://www.haskell.org/ghc/download_ghc_8_10_4.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_9_0_1.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
-      url "https://downloads.haskell.org/~ghc/8.10.4/ghc-8.10.4-x86_64-apple-darwin.tar.xz"
-      sha256 "725ecf6543e63b81a3581fb8c97afd21a08ae11bc0fa4f8ee25d45f0362ef6d5"
+      url "https://downloads.haskell.org/~ghc/9.0.1/ghc-9.0.1-x86_64-apple-darwin.tar.xz"
+      sha256 "122d60509147d0117779d275f0215bde2ff63a64cda9d88f149432d0cae71b22"
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/8.10.4/ghc-8.10.4-x86_64-deb9-linux.tar.xz"
-      sha256 "5694200a5c38f22c142baf850b1d2f3784211d2ec9302e11693259a1ae8e38b7"
+      url "https://downloads.haskell.org/~ghc/9.0.1/ghc-9.0.1-x86_64-deb9-linux.tar.xz"
+      sha256 "4ca6252492f59fe589029fadca4b6f922d6a9f0ff39d19a2bd9886fde4e183d5"
     end
   end
 
@@ -46,32 +39,16 @@ class Ghc < Formula
     ENV["LD"] = "ld"
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
-    # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
-    # executables link to Homebrew's GMP.
-    gmp = libexec/"integer-gmp"
-
-    # GMP *does not* use PIC by default without shared libs so --with-pic
-    # is mandatory or else you'll get "illegal text relocs" errors.
-    resource("gmp").stage do
-      system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{OS.kernel_version.major}"
-      system "make"
-      system "make", "install"
-    end
-
-    args = ["--with-gmp-includes=#{gmp}/include",
-            "--with-gmp-libraries=#{gmp}/lib"]
-
     resource("binary").stage do
       binary = buildpath/"binary"
 
-      system "./configure", "--prefix=#{binary}", *args
+      system "./configure", "--prefix=#{binary}"
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
     end
 
-    system "./configure", "--prefix=#{prefix}", *args
+    system "./configure", "--prefix=#{prefix}"
     system "make"
 
     ENV.deparallelize { system "make", "install" }
