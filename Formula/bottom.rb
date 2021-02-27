@@ -25,11 +25,9 @@ class Bottom < Formula
   test do
     (testpath/"toml_mismatch_type.toml").write <<~EOS
       [flags]
-      temperature_type = "k"
-      temperature_type = "f"
-      temperature_type = "c"
+      basic = "test"
     EOS
-    output = shell_output "#{bin}/btm -C #{testpath}/toml_mismatch_type.toml"
+    output = shell_output "#{bin}/btm -C #{testpath}/toml_mismatch_type.toml 2>&1", 1
 
     assert_match "invalid type", output
   end
