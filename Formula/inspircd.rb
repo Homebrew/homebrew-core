@@ -1,8 +1,8 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
   homepage "https://www.inspircd.org/"
-  url "https://github.com/inspircd/inspircd/archive/v3.8.1.tar.gz"
-  sha256 "2068ca42f39b382e1f74b650230e02690ffbca58c4f3aed075a6dd72e381b44b"
+  url "https://github.com/inspircd/inspircd/archive/v3.9.0.tar.gz"
+  sha256 "5bda0fc3d41908cda4580de39d62e8be4840da45f31e072cfca337b838add567"
   license "GPL-2.0-only"
 
   livecheck do
