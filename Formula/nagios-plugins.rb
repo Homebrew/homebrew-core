@@ -8,7 +8,7 @@ class NagiosPlugins < Formula
 
   livecheck do
     url "https://nagios-plugins.org/download/"
-    regex(/href=.*?nagios-plugins[._-]v?([\d.]+)\.t/i)
+    regex(/href=.*?nagios-plugins[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
