@@ -2,6 +2,7 @@ class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
+  revision 1
   head "https://git.code.sf.net/p/sbcl/sbcl.git", shallow: false
 
   stable do
