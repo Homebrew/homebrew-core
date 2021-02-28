@@ -12,7 +12,7 @@ class Popt < Formula
   # shouldn't encounter problems with this method.
   livecheck do
     url :homepage
-    regex(/^(?:popt[._-])?v?(\d+(?:[._-]\d+)+)(?:-release)?$/i)
+    regex(/^(?:popt[._-])?v?(\d+(?:[._]\d+)+)(?:[._-]release)?$/i)
   end
 
   bottle do
