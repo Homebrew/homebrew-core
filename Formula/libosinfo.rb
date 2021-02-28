@@ -7,7 +7,7 @@ class Libosinfo < Formula
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
-    regex(/href=.*?libosinfo[._-]v?([\d.]+)\.t/i)
+    regex(/href=.*?libosinfo[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
