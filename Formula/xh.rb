@@ -4,6 +4,7 @@ class Xh < Formula
   url "https://github.com/ducaale/xh/archive/v0.8.0.tar.gz"
   sha256 "73525bc3973d60be48ce1e4ff3d948bd44fab54450064ff431a9f31acdf468d4"
   license "MIT"
+  revision 1
   head "https://github.com/ducaale/xh.git"
 
   bottle do
@@ -17,6 +18,12 @@ class Xh < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    bin.install_symlink bin/"xh" => "xhs"
+
+    man1.install "doc/xh.1"
+    bash_completion.install "completions/xh.bash"
+    fish_completion.install "completions/xh.fish"
+    zsh_completion.install "completions/_xh"
   end
 
   test do
