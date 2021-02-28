@@ -7,7 +7,7 @@ class Rtf2latex2e < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/rtf2latex2e[._-]v?(\d+(?:[._-]\d+)+)\.t}i)
+    regex(%r{url=.*?/rtf2latex2e[._-]v?(\d+(?:[.-]\d+)+)\.t}i)
   end
 
   bottle do
