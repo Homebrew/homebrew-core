@@ -25,11 +25,6 @@ class Zabbix < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
-  def brewed_or_shipped(db_config)
-    brewed_db_config = "#{HOMEBREW_PREFIX}/bin/#{db_config}"
-    (File.exist?(brewed_db_config) && brewed_db_config) || which(db_config)
-  end
-
   def install
     args = %W[
       --disable-dependency-tracking
