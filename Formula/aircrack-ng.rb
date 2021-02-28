@@ -3,7 +3,7 @@ class AircrackNg < Formula
   homepage "https://aircrack-ng.org/"
   url "https://download.aircrack-ng.org/aircrack-ng-1.6.tar.gz"
   sha256 "4f0bfd486efc6ea7229f7fbc54340ff8b2094a0d73e9f617e0a39f878999a247"
-  license "GPL-2.0-only"
+  license all_of: ["GPL-2.0-or-later", "BSD-3-Clause", "OpenSSL"]
 
   livecheck do
     url :homepage
