@@ -27,7 +27,7 @@ class Rinetd < Formula
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{share}", "ac_cv_func_daemon=no"
 
     # Point hardcoded runtime paths inside of our prefix
-    inreplace "rinetd.h" do |s|
+    inreplace "src/rinetd.h" do |s|
       s.gsub! "/etc/rinetd.conf", "#{etc}/rinetd.conf"
       s.gsub! "/var/run/rinetd.pid", "#{var}/run/rinetd.pid"
     end
