@@ -7,7 +7,7 @@ class Libvirt < Formula
 
   livecheck do
     url "https://libvirt.org/sources/"
-    regex(/href=.*?libvirt[._-]v?([\d.]+)\.t/i)
+    regex(/href=.*?libvirt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
