@@ -4,6 +4,7 @@ class PetscComplex < Formula
   url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.14.4.tar.gz"
   sha256 "b030969816e02c251a6d010c07a90b69ade44932f9ddfac3090ff5e95ab97d5c"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "3e66975df40271cbca7259ff5c4909cb9dd626d2c41d37b92b2d7f4bc468f336"
