@@ -7,7 +7,7 @@ class Lzo < Formula
 
   livecheck do
     url "https://www.oberhumer.com/opensource/lzo/download/"
-    regex(/href=.*?lzo[._-]v?([\d.]+)\./i)
+    regex(/href=.*?lzo[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
