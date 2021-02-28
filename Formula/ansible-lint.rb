@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/ad/c3/a20ea998c93502754629e1a7517ab0a69d3caf3ad5523c762c2fefa5e40d/ansible-lint-5.0.0.tar.gz"
-  sha256 "9c9ef05d361c374097206d1df200ab01c9cd3feef42b55898b90b0a09fee88d4"
+  url "https://files.pythonhosted.org/packages/b7/ee/0c6768a0887220c72c503da8c2e1b6483942537d342ff3e38bba7d973d5e/ansible-lint-5.0.2.tar.gz"
+  sha256 "be0b7f2aa368cd33da38dfc8d7d4b26c166ea3b6db9770eeab97530533258f8e"
   license "MIT"
 
   bottle do
@@ -27,13 +27,18 @@ class AnsibleLint < Formula
   end
 
   resource "ansible-base" do
-    url "https://files.pythonhosted.org/packages/bf/44/a75eec7928986a48e179769873f282496e007587e112c57d367c5e1abc1a/ansible-base-2.10.5.tar.gz"
-    sha256 "33ae323923b841f3d822f355380ce7c92610440362efeed67b4b39db41e555af"
+    url "https://files.pythonhosted.org/packages/83/f9/19c0f3c5bc555f08ee24122dfda7dc4968f966971817c2c3a07df6972c14/ansible-base-2.10.6.tar.gz"
+    sha256 "c6b3bc3dc83ee510357cb7afc8c557c05ce38f6b40e9bc9dab13551b2944dfd4"
   end
 
   resource "bracex" do
     url "https://files.pythonhosted.org/packages/bb/80/7118945282845f8dc337c45c7d9d171a9f86d0c7650ac7e65d60995691d2/bracex-2.1.1.tar.gz"
     sha256 "01f715cd0ed7a622ec8b32322e715813f7574de531f09b70f6f3b2c10f682425"
+  end
+
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
   end
 
   resource "colorama" do
@@ -44,6 +49,11 @@ class AnsibleLint < Formula
   resource "commonmark" do
     url "https://files.pythonhosted.org/packages/60/48/a60f593447e8f0894ebb7f6e6c1f25dafc5e89c5879fdc9360ae93ff83f0/commonmark-0.9.1.tar.gz"
     sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
+  end
+
+  resource "cryptography" do
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
   end
 
   resource "enrich" do
@@ -66,9 +76,14 @@ class AnsibleLint < Formula
     sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
   end
 
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+  end
+
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e1/86/8059180e8217299079d8719c6e23d674aadaba0b1939e25e0cc15dcf075b/Pygments-2.7.4.tar.gz"
-    sha256 "df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"
+    url "https://files.pythonhosted.org/packages/19/d0/dec5604a275b19b0ebd2b9c43730ce39549c8cd8602043eaf40c541a7256/Pygments-2.8.0.tar.gz"
+    sha256 "37a13ba168a02ac54cc5891a42b1caec333e59b66addb7fa633ea8a6d73445c0"
   end
 
   resource "pyparsing" do
@@ -82,8 +97,8 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/8c/65/8743a4b98585dbebf943aa8d8d30421606b492decfde9b8ffc3d5812a791/rich-9.10.0.tar.gz"
-    sha256 "e0f2db62a52536ee32f6f584a47536465872cae2b94887cf1f080fb9eaa13eb2"
+    url "https://files.pythonhosted.org/packages/23/4d/85d622a12208a1fb09540554f812e867db983d4aa7fddf763cf26d9407f5/rich-9.12.2.tar.gz"
+    sha256 "493b4288273aa46475230733358696457e5df9215c898b164a324b7d9d694e88"
   end
 
   resource "ruamel.yaml" do
@@ -97,8 +112,8 @@ class AnsibleLint < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/51/14/cc689686ea37e37aa5693160203f3e89e210541b190173234e3443f2f6d5/wcmatch-8.1.tar.gz"
-    sha256 "4b2f5758d845d2cb391529f892201916cbb1c2ce10a447c7b7a57a2f4bb5647e"
+    url "https://files.pythonhosted.org/packages/7b/40/30ff854a371615543baf352a0d1358c9b1a5c34050ffb4acee81337d1eca/wcmatch-8.1.1.tar.gz"
+    sha256 "7ba09191f9582e82d864829bdfbab02df46e26a46a304e57c7fe5652f07f297a"
   end
 
   def install
