@@ -1,9 +1,26 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.0.tar.bz2"
-  sha256 "73866fb77090819b6a8c85cb8539638d37d6877455825b74e289d647a39fd5b5"
   license "BSD-3-Clause"
+
+  stable do
+    url "https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.0.tar.bz2"
+    sha256 "73866fb77090819b6a8c85cb8539638d37d6877455825b74e289d647a39fd5b5"
+
+    if Hardware::CPU.arm?
+      # Dependencies needed for patch. Remove at next release.
+      depends_on "autoconf" => :build
+      depends_on "automake" => :build
+      depends_on "libtool" => :build
+
+      # Patch to fix ARM build. Remove at next release.
+      # https://github.com/open-mpi/ompi/pull/8421
+      patch do
+        url "https://github.com/open-mpi/ompi/commit/4779d8e079314ffd4556e3cb3289fecd07646cc5.patch?full_index=1"
+        sha256 "0553ffcc813919ee06937156073fc18ef6b55fa58201a9cba5168f35f7040c66"
+      end
+    end
+  end
 
   livecheck do
     url :homepage
@@ -20,14 +37,6 @@ class OpenMpi < Formula
 
   head do
     url "https://github.com/open-mpi/ompi.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
-  # Regenerate for Big Sur due to configure issues
-  # https://github.com/open-mpi/ompi/issues/8218
-  if MacOS.version >= :big_sur
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -73,13 +82,14 @@ class OpenMpi < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --enable-ipv6
-      --enable-mca-no-build=reachable-netlink
+      --enable-mca-no-build=op-avx,reachable-netlink
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
 
-    system "./autogen.pl", "--force" if build.head? || MacOS.version >= :big_sur
+    # Remove ` || Hardware::CPU.arm?` in the next release
+    system "./autogen.pl", "--force" if build.head? || Hardware::CPU.arm?
     system "./configure", *args
     system "make", "all"
     system "make", "check"
