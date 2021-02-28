@@ -7,7 +7,7 @@ class Websocat < Formula
 
   livecheck do
     url :stable
-    regex(/v([\d.]+$)/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
