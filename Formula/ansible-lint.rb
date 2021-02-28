@@ -15,6 +15,7 @@ class AnsibleLint < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "ansible"
   depends_on "libyaml"
   depends_on "openssl@1.1"
