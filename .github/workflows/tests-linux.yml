@@ -1,4 +1,4 @@
-name: GitHub Actions CI
+name: GitHub Actions CI - Linux
 on:
   pull_request:
     paths:
