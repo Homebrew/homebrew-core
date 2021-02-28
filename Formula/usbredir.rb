@@ -7,7 +7,7 @@ class Usbredir < Formula
 
   livecheck do
     url "https://www.spice-space.org/download/usbredir/"
-    regex(/href=.*?usbredir[._-]v?([\d.]+)\.t/i)
+    regex(/href=.*?usbredir[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
