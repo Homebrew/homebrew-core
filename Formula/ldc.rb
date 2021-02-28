@@ -1,8 +1,8 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.25.0/ldc-1.25.0-src.tar.gz"
-  sha256 "6466441698f07ff00dfa7eadee1b9885df8698dbfd70bd9744bd1881ab466737"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.25.1/ldc-1.25.1-src.tar.gz"
+  sha256 "0e3716fe9927be91264d1fde5c41071026f6c44262735e9ebda538089b612d40"
   license "BSD-3-Clause"
   head "https://github.com/ldc-developers/ldc.git", shallow: false
 
@@ -28,17 +28,17 @@ class Ldc < Formula
   resource "ldc-bootstrap" do
     on_macos do
       if Hardware::CPU.intel?
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.25.0/ldc2-1.25.0-osx-x86_64.tar.xz"
-        sha256 "ea22a76d2fa86a52ca9b24bca980ffc12db56fbf8ef9582c586da24f83eb58f5"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.25.1/ldc2-1.25.1-osx-x86_64.tar.xz"
+        sha256 "ebf4ad51959e5845cb56a8b860b6619f44022186b06c28f0942272f5eb3d54c4"
       else
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.25.0/ldc2-1.25.0-osx-arm64.tar.xz"
-        sha256 "3bfc74bf2d30c1015a0dce2e59278c871f9c8492aa6d06fa7b940d61ffbb0c2c"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.25.1/ldc2-1.25.1-osx-arm64.tar.xz"
+        sha256 "bb39aa145f74ff033423f06d43dbc26f9d650fe3794764bc938abef4bf1ca7f5"
       end
     end
 
     on_linux do
-      url "https://github.com/ldc-developers/ldc/releases/download/v1.25.0/ldc2-1.25.0-linux-x86_64.tar.xz"
-      sha256 "b1f838ed1765b08a6bc9cde266f135eceb4bc1e877670e837ae349620a6e1fea"
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.25.1/ldc2-1.25.1-linux-x86_64.tar.xz"
+      sha256 "d059c853db0313d9cdbc6c5c0f021b60e150f19ae68b4c53251ad0292767c095"
     end
   end
 
