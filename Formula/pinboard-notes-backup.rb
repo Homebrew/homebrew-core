@@ -3,7 +3,7 @@ class PinboardNotesBackup < Formula
   homepage "https://github.com/bdesham/pinboard-notes-backup"
   url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.5.1.tar.gz"
   sha256 "8fbe3bb48a8ef959e3f6e8758878182a569cbd6bb23c40c27f8a5b8053c81264"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/bdesham/pinboard-notes-backup.git"
 
   bottle do
