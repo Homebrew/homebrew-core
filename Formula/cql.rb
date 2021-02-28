@@ -18,18 +18,15 @@ class Cql < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
     ENV["CQLVERSION"] = "v#{version}"
     ENV["CGO_ENABLED"] = "1"
-    mkdir_p "src/github.com/CovenantSQL"
-    ldflags = "-X main.version=v#{version} " \
+
+    ldflags = "-s -w -X main.version=v#{version} " \
       "-X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C " \
       "-X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y"
-    ln_s buildpath, "src/github.com/CovenantSQL/CovenantSQL"
-    system "go", "build", "-tags", "sqlite_omit_load_extension",
-      "-ldflags", ldflags, "-o", "bin/cql", "github.com/CovenantSQL/CovenantSQL/cmd/cql"
-    bin.install "bin/cql"
+    system "go", "build", *std_go_args, "-tags", "sqlite_omit_load_extension",
+      "-ldflags", ldflags, "github.com/CovenantSQL/CovenantSQL/cmd/cql"
+
     bash_completion.install "bin/completion/cql-completion.bash"
     zsh_completion.install "bin/completion/_cql"
   end
