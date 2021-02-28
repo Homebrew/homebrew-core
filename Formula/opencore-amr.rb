@@ -7,7 +7,7 @@ class OpencoreAmr < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/opencore-amr[._-]v?([\d.]+)\.t}i)
+    regex(%r{url=.*?/opencore-amr[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
