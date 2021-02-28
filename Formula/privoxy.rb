@@ -73,7 +73,8 @@ class Privoxy < Formula
     begin
       server = IO.popen("#{sbin}/privoxy --no-daemon #{testpath}/config")
       sleep 1
-      assert_match "200 OK", shell_output("/usr/bin/curl -I -x #{bind_address} https://github.com")
+      assert_match "HTTP/1.1 200 Connection established",
+                   shell_output("/usr/bin/curl -I -x #{bind_address} https://github.com")
     ensure
       Process.kill("SIGINT", server.pid)
       Process.wait(server.pid)
