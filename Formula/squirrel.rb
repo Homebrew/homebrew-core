@@ -8,7 +8,7 @@ class Squirrel < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/squirrel[._-]v?(\d+(?:[-_]\d+)+).stable\.t}i)
+    regex(%r{url=.*?/squirrel[._-]v?(\d+(?:[_-]\d+)+)[._-]stable\.t}i)
   end
 
   bottle do
