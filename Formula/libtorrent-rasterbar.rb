@@ -8,7 +8,7 @@ class LibtorrentRasterbar < Formula
 
   livecheck do
     url :stable
-    regex(/^libtorrent[._-]v?(\d+(?:[-_.]\d+)+)$/i)
+    regex(/^libtorrent[._-]v?(\d+(?:[._]\d+)+)$/i)
   end
 
   bottle do
