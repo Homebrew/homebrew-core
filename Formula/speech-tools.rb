@@ -8,7 +8,7 @@ class SpeechTools < Formula
 
   livecheck do
     url "http://festvox.org/packed/festival/?C=M&O=D"
-    regex(%r{href=.*?(\d+(?:\.\d+)+)/?["' >]}i)
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
