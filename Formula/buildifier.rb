@@ -1,9 +1,8 @@
 class Buildifier < Formula
   desc "Format bazel BUILD files with a standard convention"
   homepage "https://github.com/bazelbuild/buildtools"
-  url "https://github.com/bazelbuild/buildtools.git",
-      tag:      "3.5.0",
-      revision: "10384511ce98d864faf064a8ed54cdf31b98ac04"
+  url "https://github.com/bazelbuild/buildtools/archive/4.0.1.tar.gz"
+  sha256 "c28eef4d30ba1a195c6837acf6c75a4034981f5b4002dda3c5aa6e48ce023cf1"
   license "Apache-2.0"
 
   bottle do
@@ -13,13 +12,10 @@ class Buildifier < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "5b54427b4bd78b0b3dccfd66b8003a52aab3b4d1a7683586b66d6a6c835c0b4b"
   end
 
-  disable! date: "2021-02-17", because: :does_not_build
-
-  depends_on "bazelisk" => :build
+  depends_on "go" => :build
 
   def install
-    system "bazelisk", "build", "--config=release", "buildifier:buildifier"
-    bin.install "bazel-bin/buildifier/darwin_amd64_stripped/buildifier"
+    system "go", "build", *std_go_args, "./buildifier"
   end
 
   test do
