@@ -1,8 +1,8 @@
 class Duckscript < Formula
   desc "Simple, extendable and embeddable scripting language"
   homepage "https://sagiegurari.github.io/duckscript"
-  url "https://github.com/sagiegurari/duckscript/archive/0.7.2.tar.gz"
-  sha256 "c7640e8232f65ac208b0a0bc21d9b4b695087a3de96e94dd23c47bd37650b884"
+  url "https://github.com/sagiegurari/duckscript/archive/0.7.3.tar.gz"
+  sha256 "b0e8295123a55fe341cd2ba7e92edcbedbbfc7c93be0a01bf783e3a7ed1caef4"
   license "Apache-2.0"
   head "https://github.com/sagiegurari/duckscript.git"
 
