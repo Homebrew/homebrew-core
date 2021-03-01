@@ -1,11 +1,10 @@
 class Mesos < Formula
   desc "Apache cluster manager"
   homepage "https://mesos.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=mesos/1.10.0/mesos-1.10.0.tar.gz"
-  mirror "https://archive.apache.org/dist/mesos/1.10.0/mesos-1.10.0.tar.gz"
-  sha256 "f4b9e8a1e9f905334adf4d349a2ed33a4cfa43278381cd34fb4fc7e9df9e12a1"
+  url "https://www.apache.org/dyn/closer.lua?path=mesos/1.11.0/mesos-1.11.0.tar.gz"
+  mirror "https://archive.apache.org/dist/mesos/1.11.0/mesos-1.11.0.tar.gz"
+  sha256 "ce08cb648a21502a4a0c45d240a596d9ac860fcaf717f9a3dc986da9d406fe34"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 catalina:    "9b16abfb73c36bfd2b8a8f7648968730afb3fb30066b8886ddfb1dc287122f5c"
@@ -85,6 +84,13 @@ class Mesos < Formula
               native_patch
 
     ENV.cxx11
+
+    # macOS no longer provides JavaVM.framework. Fix broken configure script
+    # that assumes this framework exists for JNI linking.
+    ENV["JAVA_CPPFLAGS"] = "-I#{Formula["openjdk@8"].include}"
+    ENV["JAVA_HOME"] = Language::Java.java_home("1.8")
+    ENV["JAVA_TEST_LDFLAGS"] = "-L#{ENV["JAVA_HOME"]}/jre/lib/server -ljvm"
+    inreplace "configure", "-framework JavaVM", ENV["JAVA_TEST_LDFLAGS"]
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-debug",
