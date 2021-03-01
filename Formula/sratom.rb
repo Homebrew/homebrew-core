@@ -7,7 +7,7 @@ class Sratom < Formula
 
   livecheck do
     url "https://download.drobilla.net"
-    regex(/href=.*?sratom[._-]v?(\d+.\d+.\d+)\.t/i)
+    regex(/href=.*?sratom[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
