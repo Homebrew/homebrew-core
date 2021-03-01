@@ -4,6 +4,7 @@ class Openvpn < Formula
   url "https://swupdate.openvpn.org/community/releases/openvpn-2.5.1.tar.xz"
   mirror "https://build.openvpn.net/downloads/releases/openvpn-2.5.1.tar.xz"
   sha256 "40930489c837c05f6153f38e1ebaec244431ef1a034e4846ff732d71d59ff194"
+  license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
     url "https://openvpn.net/community-downloads/"
