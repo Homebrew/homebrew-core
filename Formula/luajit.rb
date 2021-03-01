@@ -15,7 +15,7 @@ class Luajit < Formula
 
   livecheck do
     url "https://luajit.org/download.html"
-    regex(/class="downname">LuaJIT[._-]v?([\d.]+)</i)
+    regex(/href=.*?LuaJIT[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
