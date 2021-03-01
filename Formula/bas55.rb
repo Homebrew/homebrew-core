@@ -13,6 +13,11 @@ class Bas55 < Formula
   end
 
   test do
-    system "#{bin}/bas55", "--version"
+    (testpath/"hello.bas").write <<~EOS
+      10 PRINT "HELLO, WORLD"
+      20 END
+    EOS
+
+    assert_equal "HELLO, WORLD\n", shell_output("#{bin}/bas55 hello.bas")
   end
 end
