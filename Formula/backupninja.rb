@@ -4,7 +4,7 @@ class Backupninja < Formula
   url "https://sourcearchive.raspbian.org/main/b/backupninja/backupninja_1.2.1.orig.tar.gz"
   mirror "https://debian.ethz.ch/ubuntu/ubuntu/pool/universe/b/backupninja/backupninja_1.2.1.orig.tar.gz"
   sha256 "833277d36993ddf684b164b581a504b38bbcff16221e416428c90aaf63ed85d4"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://sourcearchive.raspbian.org/main/b/backupninja/"
