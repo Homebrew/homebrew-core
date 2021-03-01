@@ -11,7 +11,6 @@ class Step < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "08667ef973111774657604dceecbfadc72afd5aaf18fe1295ac7068415a0d4c6"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   resource "certificates" do
