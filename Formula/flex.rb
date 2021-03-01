@@ -4,7 +4,7 @@ class Flex < Formula
   url "https://github.com/westes/flex/releases/download/v2.6.4/flex-2.6.4.tar.gz"
   sha256 "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_big_sur: "5067cf61a1b9e5fba26590a01f0a1464c7fefa5450c3d3c673acb237b45a9c3c"
@@ -47,6 +47,7 @@ class Flex < Formula
                           "--enable-shared",
                           "--prefix=#{prefix}"
     system "make", "install"
+    bin.install_symlink "flex" => "lex"
   end
 
   test do
