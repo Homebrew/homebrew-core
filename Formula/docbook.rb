@@ -8,7 +8,7 @@ class Docbook < Formula
 
   livecheck do
     url "https://docbook.org/xml/"
-    regex(%r{href=.*?(\d+(?:\.\d+)+)/?["' >]}i)
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
