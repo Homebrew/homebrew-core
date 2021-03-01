@@ -1,9 +1,9 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.1.2/fish-3.1.2.tar.gz"
-  sha256 "d5b927203b5ca95da16f514969e2a91a537b2f75bec9b21a584c4cd1c7aa74ed"
-  license "GPL-2.0"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.2.0/fish-3.2.0.tar.xz"
+  sha256 "4f0293ed9f6a6b77e47d41efabe62f3319e86efc8bf83cc58733044fbc6f9211"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
@@ -30,12 +30,6 @@ class Fish < Formula
   uses_from_macos "ncurses"
 
   def install
-    # Disable code signing in cmake, so we can codesign ourselves in brew
-    # Backport of https://github.com/fish-shell/fish-shell/issues/6952
-    # See https://github.com/fish-shell/fish-shell/issues/7467
-    # Remove in 3.2.0
-    inreplace "CMakeLists.txt", "CODESIGN_ON_MAC(${target})", "" if build.stable?
-
     # In Homebrew's 'superenv' sed's path will be incompatible, so
     # the correct path is passed into configure here.
     args = %W[
