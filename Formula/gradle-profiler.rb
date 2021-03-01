@@ -7,12 +7,22 @@ class GradleProfiler < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  # gradle currently does not support Java 16
+  if Hardware::CPU.arm?
+    depends_on "openjdk@11"
+  else
+    depends_on "openjdk"
+  end
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin lib]
-    (bin/"gradle-profiler").write_env_script libexec/"bin/gradle-profiler", Language::Java.overridable_java_home_env
+    env = if Hardware::CPU.arm?
+      Language::Java.overridable_java_home_env("11")
+    else
+      Language::Java.overridable_java_home_env
+    end
+    (bin/"gradle-profiler").write_env_script libexec/"bin/gradle-profiler", env
   end
 
   test do
