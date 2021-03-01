@@ -14,6 +14,7 @@ class Jrnl < Formula
     sha256 cellar: :any, mojave:        "c216cd7f0bc5d2fc62aa327aa7ea474cc2e7c2c313ab722994201c0f7a997775"
   end
 
+  depends_on "rust" => :build
   depends_on "python@3.9"
 
   uses_from_macos "expect" => :test
