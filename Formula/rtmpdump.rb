@@ -10,7 +10,7 @@ class Rtmpdump < Formula
 
   livecheck do
     url "https://cdn-aws.deb.debian.org/debian/pool/main/r/rtmpdump/"
-    regex(/href=.*?rtmpdump[._-]v?(\d.\d\+\d*).*.orig\.t/i)
+    regex(/href=.*?rtmpdump[._-]v?(\d+(?:[.+]\d+)+)[^"' >]*?\.orig\.t/i)
   end
 
   bottle do
