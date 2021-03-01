@@ -7,7 +7,7 @@ class Libomp < Formula
 
   livecheck do
     url "https://llvm.org/"
-    regex(/LLVM (\d+.\d+.\d+)/i)
+    regex(/LLVM (\d+\.\d+\.\d+)/i)
   end
 
   bottle do
