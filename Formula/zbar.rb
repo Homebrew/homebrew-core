@@ -1,10 +1,9 @@
 class Zbar < Formula
   desc "Suite of barcodes-reading tools"
   homepage "https://github.com/mchehab/zbar"
-  url "https://github.com/mchehab/zbar/archive/0.23.1.tar.gz"
-  sha256 "297439f8859089d2248f55ab95b2a90bba35687975365385c87364c77fdb19f3"
+  url "https://github.com/mchehab/zbar/archive/0.23.92.tar.gz"
+  sha256 "dffc16695cb6e42fa318a4946fd42866c0f5ab735f7eaf450b108d1c3a19b4ba"
   license "LGPL-2.1-only"
-  revision 12
   head "https://github.com/mchehab/zbar.git"
 
   livecheck do
