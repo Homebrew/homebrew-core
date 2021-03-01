@@ -5,9 +5,13 @@ class MinimalRacket < Formula
   sha256 "ef1a2dc5af4e68938a12f5fc25d1a9b3a0344e133da9c4d79132e23ac116493c"
   license any_of: ["MIT", "Apache-2.0"]
 
+  # File links on the download page are created using JavaScript, so we parse
+  # the filename from a string in an object. We match the version from the
+  # "Unix Source + built packages" option, as the `racket-minimal` archive is
+  # only found on the release page for a given version (e.g., `/releases/8.0/`).
   livecheck do
-    url "https://download.racket-lang.org/all-versions.html"
-    regex(/>Version ([\d.]+)/i)
+    url "https://download.racket-lang.org/"
+    regex(/["'][^"']*?racket(?:-minimal)?[._-]v?(\d+(?:\.\d+)+)-src-builtpkgs\.t/i)
   end
 
   bottle do
