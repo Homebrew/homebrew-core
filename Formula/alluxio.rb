@@ -7,7 +7,7 @@ class Alluxio < Formula
 
   livecheck do
     url "https://downloads.alluxio.io/downloads/files/"
-    regex(%r{href=.*?(\d+(?:\.\d+)+)/?["' >]}i)
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle :unneeded
