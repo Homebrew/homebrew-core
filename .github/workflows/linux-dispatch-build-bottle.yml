@@ -1,11 +1,8 @@
-name: Dispatch build bottle
+name: Dispatch build bottle (Linux)
 
 on:
   workflow_dispatch:
     inputs:
-      macos:
-        description: macOS version
-        required: true
       formula:
         description: Formula name
         required: true
@@ -20,66 +17,56 @@ env:
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_GITHUB_ACTIONS: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
-  HOMEBREW_CHANGE_ARCH_TO_ARM: 1
 
 jobs:
   bottle:
-    runs-on: ${{github.event.inputs.macos}}
-    timeout-minutes: 4320
-    env:
-      PATH: '/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
-      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
-      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/ubuntu16.04:master
     steps:
       - name: ${{github.event.inputs.formula}}
         id: print_details
         run: |
           echo sender=${{github.event.sender.login}}
           echo formula=${{github.event.inputs.formula}}
-          echo version=${{github.event.inputs.macos}}
           echo issue=${{github.event.inputs.issue}}
           echo upload=${{github.event.inputs.upload}}
 
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-
-      - run: brew test-bot --only-cleanup-before
-
-      - run: brew test-bot --only-setup
+      - name: Setup git
+        uses: Homebrew/actions/git-user-config@master
 
       - name: Run brew test-bot --only-formulae
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
-          mkdir bottles
-          cd bottles
+          mkdir ~/bottles
+          cd ~/bottles
           brew test-bot --keep-old --only-formulae ${{github.event.inputs.formula}}
 
       - name: Output brew test-bot --only-formulae failures
         if: always()
         run: |
-          cat bottles/steps_output.txt
-          rm bottles/steps_output.txt
+          cat ~/bottles/steps_output.txt
+          rm ~/bottles/steps_output.txt
 
       - name: Upload logs
         if: failure()
         uses: actions/upload-artifact@main
         with:
           name: logs
-          path: bottles/logs
+          path: ~/bottles/logs
 
       - name: Delete logs and home
         if: always()
         run: |
-          rm -rvf bottles/logs
-          rm -rvf bottles/home
+          rm -rvf ~/bottles/logs
+          rm -rvf ~/bottles/home
 
       - name: Count bottles
         id: bottles
         if: always()
         run: |
-          cd bottles
+          cd ~/bottles
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
           echo "::set-output name=count::$count"
@@ -89,14 +76,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: bottles
-          path: bottles
-
-      - run: brew test-bot --only-cleanup-after
-        if: always()
-
-      - name: Post Cleanup
-        if: always()
-        run: rm -rvf bottles
+          path: ~/bottles
 
       - name: Post comment on failure
         if: ${{!success() && github.event.inputs.issue > 0}}
@@ -119,7 +99,6 @@ jobs:
         run: |
           echo sender=${{github.event.sender.login}}
           echo formula=${{github.event.inputs.formula}}
-          echo version=${{github.event.inputs.macos}}
           echo issue=${{github.event.inputs.issue}}
           echo upload=${{github.event.inputs.upload}}
 
