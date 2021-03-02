@@ -8,7 +8,7 @@ class PostgresqlAT12 < Formula
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(12(?:\.\d+)*)/?["' >]}i)
+    regex(%r{href=["']?v?(12(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
