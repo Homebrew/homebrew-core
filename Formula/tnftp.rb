@@ -6,7 +6,7 @@ class Tnftp < Formula
 
   livecheck do
     url :homepage
-    regex(/href=.*?tnftp[._-]v?(\d+)\.t/i)
+    regex(/href=.*?tnftp[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
   bottle do
