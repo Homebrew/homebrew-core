@@ -6,7 +6,7 @@ class ExVi < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/ex[._-]v?(\d+)\.t}i)
+    regex(%r{url=.*?/ex[._-]v?(\d+(?:\.\d+)*)\.t}i)
   end
 
   bottle do
