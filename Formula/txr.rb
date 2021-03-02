@@ -7,7 +7,7 @@ class Txr < Formula
 
   livecheck do
     url "http://www.kylheku.com/cgit/txr"
-    regex(/href=.*?txr[._-]v?(\d+)\.t/i)
+    regex(/href=.*?txr[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
   bottle do
