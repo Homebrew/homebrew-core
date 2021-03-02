@@ -1,10 +1,9 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://www.sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.14/sile-0.10.14.tar.xz"
-  sha256 "255a1ebfd745e13a670e1a24fe34ef209b823819a19532d1a63cde6755340e80"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.10.15/sile-0.10.15.tar.xz"
+  sha256 "49b55730effd473c64a8955a903e48f61c51dd7bb862e6d5481193218d1e3c5c"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "40f32ab1907e28f043b6b08d2b19ea50fb931a79b966ede69bc741ce867d9ade"
@@ -192,10 +191,10 @@ class Sile < Formula
 
     (libexec/"bin").install bin/"sile"
     (bin/"sile").write <<~EOS
-      #!/bin/bash
+      #!/usr/bin/env sh
       export LUA_PATH="#{ENV["LUA_PATH"]};;"
       export LUA_CPATH="#{ENV["LUA_CPATH"]};;"
-      "#{libexec}/bin/sile" "$@"
+      exec "#{libexec}/bin/sile" "$@"
     EOS
   end
 
