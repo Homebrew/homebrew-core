@@ -6,7 +6,7 @@ class Faac < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/faac[._-]v?(\d+(?:\.\d+)*)\.t}i)
+    regex(%r{url=.*?/faac[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
