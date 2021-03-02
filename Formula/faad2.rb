@@ -6,7 +6,7 @@ class Faad2 < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/faad2[._-]v?(\d+(?:\.\d+)*)\.t}i)
+    regex(%r{url=.*?/faad2[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
