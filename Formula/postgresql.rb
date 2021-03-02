@@ -9,7 +9,7 @@ class Postgresql < Formula
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
-    regex(%r{href=["']?v?(\d+(?:\.\d+)*)/?["' >]}i)
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
