@@ -8,7 +8,7 @@ class Portmidi < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/portmidi-src[._-]v?(\d+)\.}i)
+    regex(%r{url=.*?/portmidi-src[._-]v?(\d+(?:\.\d+)*)\.}i)
   end
 
   bottle do
