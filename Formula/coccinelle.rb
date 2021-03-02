@@ -4,7 +4,7 @@ class Coccinelle < Formula
   url "https://github.com/coccinelle/coccinelle.git",
       tag:      "1.1.0",
       revision: "e84d3ddc7d4131b7e7e70c29d49eca09d35fabb6"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/coccinelle/coccinelle.git"
 
   livecheck do
