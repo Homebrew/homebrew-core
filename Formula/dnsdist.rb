@@ -7,7 +7,7 @@ class Dnsdist < Formula
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
-    regex(/href=.*?dnsdist[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    regex(/href=.*?dnsdist[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
