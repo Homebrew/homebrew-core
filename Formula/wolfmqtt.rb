@@ -13,14 +13,9 @@ class Wolfmqtt < Formula
     sha256 cellar: :any, high_sierra:   "3e2a29fd675291511f203d094e235461483a7a0d8135b286c94900dd9e25f963"
   end
 
-  head do
-    url "https://github.com/wolfSSL/wolfMQTT.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "wolfssl"
 
   def install
@@ -38,7 +33,7 @@ class Wolfmqtt < Formula
       --enable-sn
     ]
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", *args
     system "make"
     system "make", "install"
