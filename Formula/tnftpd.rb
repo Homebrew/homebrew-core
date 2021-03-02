@@ -6,7 +6,7 @@ class Tnftpd < Formula
 
   livecheck do
     url :homepage
-    regex(/href=.*?tnftpd[._-]v?(\d+)\.t/i)
+    regex(/href=.*?tnftpd[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
   bottle do
