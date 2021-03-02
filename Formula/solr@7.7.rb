@@ -12,7 +12,7 @@ class SolrAT77 < Formula
   # https://lucene.apache.org/solr/downloads.html#about-versions-and-support
   livecheck do
     url "https://lucene.apache.org/solr/downloads.html"
-    regex(/href=.*?solr[._-]v?(7(?:\.\d+)*)\.t/i)
+    regex(/href=.*?solr[._-]v?(7(?:\.\d+)+)\.t/i)
   end
 
   bottle :unneeded
