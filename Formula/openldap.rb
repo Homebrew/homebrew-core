@@ -7,7 +7,7 @@ class Openldap < Formula
 
   livecheck do
     url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/"
-    regex(/href=.*?openldap[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    regex(/href=.*?openldap[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
