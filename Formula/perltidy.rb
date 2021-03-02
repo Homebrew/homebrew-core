@@ -7,7 +7,7 @@ class Perltidy < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/Perl-Tidy[._-]v?(\d+)\.t}i)
+    regex(%r{url=.*?/Perl-Tidy[._-]v?(\d+(?:\.\d+)*)\.t}i)
   end
 
   bottle do
