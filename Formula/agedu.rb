@@ -8,7 +8,7 @@ class Agedu < Formula
 
   livecheck do
     url :homepage
-    regex(/href=.*?agedu[._-]v?(\d+)(?:\.[\da-z]+)?\.t/i)
+    regex(/href=.*?agedu[._-]v?(\d+(?:\.\d+)*)(?:[._-][\da-z]+)?\.t/i)
   end
 
   bottle do
