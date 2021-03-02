@@ -31,7 +31,7 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python@3.9"
+  depends_on "python@3.9" => [:build, :test]
   depends_on "readline"
 
   uses_from_macos "zlib"
