@@ -7,7 +7,7 @@ class Getmail < Formula
 
   livecheck do
     url :homepage
-    regex(/href=.*?getmail[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    regex(/href=.*?getmail[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
