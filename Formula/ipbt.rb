@@ -8,7 +8,7 @@ class Ipbt < Formula
 
   livecheck do
     url :homepage
-    regex(/href=.*?ipbt[._-]v?(\d+)(?:\.[\da-z]+)?\.t/i)
+    regex(/href=.*?ipbt[._-]v?(\d+(?:\.\d+)*)(?:[._-][\da-z]+)?\.t/i)
   end
 
   bottle do
