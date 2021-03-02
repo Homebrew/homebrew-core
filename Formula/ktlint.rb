@@ -7,7 +7,7 @@ class Ktlint < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     libexec.install "ktlint"
