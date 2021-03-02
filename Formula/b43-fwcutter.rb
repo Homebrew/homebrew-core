@@ -8,7 +8,7 @@ class B43Fwcutter < Formula
 
   livecheck do
     url "https://bues.ch/b43/fwcutter/"
-    regex(/href=.*?b43-fwcutter[._-]v?(\d+)\.t/i)
+    regex(/href=.*?b43-fwcutter[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
   bottle do
