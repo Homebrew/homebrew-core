@@ -5,8 +5,8 @@ class VowpalWabbit < Formula
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
       tag:      "8.9.2",
       revision: "88442026750858c1dea9218dc0666fbbb5ae6520"
-  head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
   license "BSD-3-Clause"
+  head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
   bottle do
     sha256 cellar: :any, big_sur:     "4d54fdab146d4124696d312560093d004295b454e53596e20b697ab7cab3c368"
