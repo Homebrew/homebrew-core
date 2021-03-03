@@ -1,9 +1,9 @@
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://podofo.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/podofo/podofo/0.9.6/podofo-0.9.6.tar.gz"
-  sha256 "e9163650955ab8e4b9532e7aa43b841bac45701f7b0f9b793a98c8ca3ef14072"
-  revision 2
+  url "https://downloads.sourceforge.net/project/podofo/podofo/0.9.7/podofo-0.9.7.tar.gz"
+  sha256 "7cf2e716daaef89647c54ffcd08940492fd40c385ef040ce7529396bfadc1eb8"
+  head "svn://svn.code.sf.net/p/podofo/code/podofo/trunk"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "153f700bd2adc92e7fb10e6b2b89ebb4242a655fb0c19b9ccfe8363c71543729"
@@ -23,12 +23,7 @@ class Podofo < Formula
   depends_on "libtiff"
   depends_on "openssl@1.1"
 
-  # Upstream commit to fix cmake 3.12.0 build issue, remove in >= 0.9.7
-  # https://sourceforge.net/p/podofo/tickets/24/
-  patch :p0 do
-    url "https://sourceforge.net/p/podofo/tickets/24/attachment/podofo-cmake-3.12.patch"
-    sha256 "33e8bd8b57cc04884528d64c80624a852f61c8918b6fe320d26ca7d4905bdd54"
-  end
+  patch :DATA
 
   def install
     args = std_cmake_args + %W[
@@ -52,3 +47,19 @@ class Podofo < Formula
     assert_match "500 x 800 pts", shell_output("#{bin}/podofopdfinfo test.pdf")
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c42b590..c6d92fa 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -37,6 +37,9 @@ if(POLICY CMP0033)
+ CMAKE_POLICY(SET CMP0033 NEW) # https://cmake.org/cmake/help/v3.0/policy/CMP0033.html
+ endif()
+ 
++set(CMAKE_CXX_STANDARD 11)
++set(CXX_STANDARD_REQUIRED ON)
++
+ # Load modules from our source tree too
+ SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
+ 
