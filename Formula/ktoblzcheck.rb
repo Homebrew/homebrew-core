@@ -22,7 +22,7 @@ class Ktoblzcheck < Formula
   depends_on "python@3.9"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
     system "make"
     system "make", "install"
   end
