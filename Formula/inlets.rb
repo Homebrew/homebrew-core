@@ -94,12 +94,12 @@ class Inlets < Formula
 
       client_pid = fork do
         # Starting inlets client
-        exec "#{bin}/inlets client --remote localhost:#{remote_port} " \
-             "--upstream localhost:#{upstream_port} --token #{secret_token}"
+        exec "#{bin}/inlets client --url ws://localhost:#{remote_port} " \
+             "--upstream localhost:#{upstream_port} --token #{secret_token} --insecure"
       end
 
       sleep 3 # Waiting for inlets websocket tunnel
-      assert_match mock_response, shell_output("curl -s http://localhost:#{remote_port}/inlets-test")
+      assert_match mock_response, shell_output("curl -s localhost:#{remote_port}/inlets-test")
     ensure
       cleanup("Mock Server", mock_upstream_server_pid)
       cleanup("Inlets Server", server_pid)
