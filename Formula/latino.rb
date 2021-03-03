@@ -14,6 +14,7 @@ class Latino < Formula
     system "make"
     system "make", "install"
   end
+
   test do
     (testpath/"test1.lat").write "poner('hola mundo')"
     (testpath/"test2.lat").write <<~EOS
