@@ -17,6 +17,7 @@ class Comby < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
+  depends_on "libev"
   depends_on "pcre"
 
   uses_from_macos "m4"
