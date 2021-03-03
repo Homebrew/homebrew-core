@@ -4,6 +4,7 @@ class Poppler < Formula
   url "https://poppler.freedesktop.org/poppler-21.03.0.tar.xz"
   sha256 "fd51ead4aac1d2f4684fa6e7b0ec06f0233ed21667e720a4e817e4455dd63d27"
   license "GPL-2.0-only"
+  revision 1
   head "https://gitlab.freedesktop.org/poppler/poppler.git"
 
   livecheck do
@@ -32,7 +33,7 @@ class Poppler < Formula
   depends_on "little-cms2"
   depends_on "nss"
   depends_on "openjpeg"
-  depends_on "qt"
+  depends_on "qt@5"
 
   uses_from_macos "gperf" => :build
   uses_from_macos "curl"
@@ -52,8 +53,8 @@ class Poppler < Formula
       -DBUILD_GTK_TESTS=OFF
       -DENABLE_CMS=lcms2
       -DENABLE_GLIB=ON
-      -DENABLE_QT5=OFF
-      -DENABLE_QT6=ON
+      -DENABLE_QT5=ON
+      -DENABLE_QT6=OFF
       -DENABLE_UNSTABLE_API_ABI_HEADERS=ON
       -DWITH_GObjectIntrospection=ON
     ]
@@ -74,7 +75,7 @@ class Poppler < Formula
     [
       "#{lib}/libpoppler-cpp.dylib",
       "#{lib}/libpoppler-glib.dylib",
-      "#{lib}/libpoppler-qt6.dylib",
+      "#{lib}/libpoppler-qt5.dylib",
       *Dir["#{bin}/*"],
     ].each do |f|
       macho = MachO.open(f)
