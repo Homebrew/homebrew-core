@@ -6,6 +6,7 @@ class Erlang < Formula
   sha256 "5bc6b31b36b949bf06e84d51986311fc1d2ace5e717aae3186dc057d4838445d"
   license "Apache-2.0"
   head "https://github.com/erlang/otp.git"
+  revision 1
 
   livecheck do
     url :stable

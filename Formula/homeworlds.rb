@@ -5,6 +5,7 @@ class Homeworlds < Formula
       revision: "917cd7e7e6d0a5cdfcc56cd69b41e3e80b671cde"
   version "20141022"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4a024da7560148c9d94c347226e325968fd087c09610ee14757c618eaf6d52f1"
