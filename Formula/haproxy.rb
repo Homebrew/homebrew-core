@@ -3,6 +3,7 @@ class Haproxy < Formula
   homepage "https://www.haproxy.org/"
   url "https://www.haproxy.org/download/2.3/src/haproxy-2.3.6.tar.gz"
   sha256 "6d4620e5da1d93ed75f229011216db81d5097b68bf175e309f2fab2890bba036"
+  license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
     url :homepage
