@@ -23,8 +23,6 @@ class Podofo < Formula
   depends_on "libtiff"
   depends_on "openssl@1.1"
 
-  patch :DATA
-
   def install
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
@@ -34,6 +32,12 @@ class Podofo < Formula
       -DPODOFO_BUILD_SHARED:BOOL=ON
       -DFREETYPE_INCLUDE_DIR_FT2BUILD=#{Formula["freetype"].opt_include}/freetype2
       -DFREETYPE_INCLUDE_DIR_FTHEADER=#{Formula["freetype"].opt_include}/freetype2/config/
+    ]
+    # C++ standard settings may be implemented upstream in which case the below will not be necessary.
+    # See https://sourceforge.net/p/podofo/tickets/121/
+    args += %w[
+      -DCMAKE_CXX_STANDARD=11
+      -DCMAKE_CXX_STANDARD_REQUIRED=ON
     ]
 
     mkdir "build" do
@@ -47,19 +51,3 @@ class Podofo < Formula
     assert_match "500 x 800 pts", shell_output("#{bin}/podofopdfinfo test.pdf")
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index c42b590..c6d92fa 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -37,6 +37,9 @@ if(POLICY CMP0033)
- CMAKE_POLICY(SET CMP0033 NEW) # https://cmake.org/cmake/help/v3.0/policy/CMP0033.html
- endif()
- 
-+set(CMAKE_CXX_STANDARD 11)
-+set(CXX_STANDARD_REQUIRED ON)
-+
- # Load modules from our source tree too
- SET(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
- 
