@@ -6,7 +6,7 @@ class Petsc < Formula
   license "BSD-2-Clause"
 
   livecheck do
-    url "https://www.mcs.anl.gov/petsc/download/index.html"
+    url "https://www.mcs.anl.gov/petsc/download/"
     regex(/href=.*?petsc-lite[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
