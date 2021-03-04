@@ -4,7 +4,7 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256 arm64_big_sur: "69b118e23e20257c52369dbb88e3a1a30c4dea1ee4891aee79e123627a9ccad2"
@@ -25,7 +25,7 @@ class VtkAT82 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "netcdf"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
   depends_on "qt@5"
 
