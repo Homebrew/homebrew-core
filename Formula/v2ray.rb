@@ -4,8 +4,8 @@ class V2ray < Formula
   url "https://github.com/v2fly/v2ray-core/archive/v4.34.0.tar.gz"
   sha256 "b250f569cb0369f394f63184e748f1df0c90500feb8a1bf2276257c4c8b81bee"
   license all_of: ["MIT", "CC-BY-SA-4.0"]
-  head "https://github.com/v2fly/v2ray-core.git"
   revision 1
+  head "https://github.com/v2fly/v2ray-core.git"
 
   livecheck do
     url :stable
@@ -33,7 +33,7 @@ class V2ray < Formula
   def install
     ldflags = "-s -w -buildid="
     execpath = libexec/name
-    system "go", "build", "-trimpath", "-o", execpath,
+    system "go", "build", *std_go_args, "-o", execpath,
                  "-ldflags", ldflags,
                  "./main"
     system "go", "build", *std_go_args,
