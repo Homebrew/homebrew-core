@@ -22,21 +22,10 @@ class Okteto < Formula
   end
 
   test do
+    assert_match "okteto version #{version}", shell_output("#{bin}/okteto version")
+
     touch "test.rb"
-    system "echo | okteto init --overwrite --file test.yml"
-    expected = <<~EOS
-      name: #{Pathname.getwd.basename}
-      autocreate: true
-      image: okteto/ruby:2
-      command: bash
-      sync:
-      - .:/usr/src/app
-      forward:
-      - 1234:1234
-      - 8080:8080
-      persistentVolume: {}
-    EOS
-    got = File.read("test.yml")
-    assert_equal expected, got
+    assert_match "error accessing you kubeconfig file: invalid configuration",
+      shell_output("echo | #{bin}/okteto init --overwrite --file test.yml 2>&1", 1)
   end
 end
