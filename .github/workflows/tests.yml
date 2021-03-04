@@ -16,7 +16,7 @@ jobs:
       run-tests: ${{ steps.check-labels.outputs.result }}
       skip-arm-tests: ${{ steps.check-arm-labels.outputs.result }}
     env:
-      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+      HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
     - name: Set up Homebrew
       id: set-up-homebrew
