@@ -6,6 +6,8 @@ class GitTf < Formula
 
   bottle :unneeded
 
+  deprecate! date: "2021-03-04", because: :unsupported
+
   def install
     libexec.install "git-tf"
     libexec.install "lib"
