@@ -1,9 +1,10 @@
 class CKermit < Formula
   desc "Scriptable network and serial communication for UNIX and VMS"
-  homepage "http://www.kermitproject.org/"
-  url "http://www.kermitproject.org/ftp/kermit/archives/cku302.tar.gz"
+  homepage "https://www.kermitproject.org/"
+  url "https://www.kermitproject.org/ftp/kermit/archives/cku302.tar.gz"
   version "9.0.302"
   sha256 "0d5f2cd12bdab9401b4c836854ebbf241675051875557783c332a6a40dac0711"
+  license "BSD-3-Clause"
 
   livecheck do
     url "http://www.kermitproject.org/ck90.html"
