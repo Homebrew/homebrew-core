@@ -15,6 +15,9 @@ class Ooniprobe < Formula
   depends_on "go" => :build
 
   def install
+    # fetch resources
+    system "go", "run", "./internal/cmd/getresources"
+
     system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/ooniprobe"
     (var/"ooniprobe").mkpath
   end
