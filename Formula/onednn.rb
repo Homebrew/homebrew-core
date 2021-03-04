@@ -17,6 +17,12 @@ class Onednn < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
 
+  # remove in next release
+  patch do
+    url "https://github.com/oneapi-src/oneDNN/pull/1001.patch?full_index=1"
+    sha256 "03d8e37ee0a8b458a408fe30cafbbc93d83a8e4e5488b405cffa27a6f343afa6"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make"
