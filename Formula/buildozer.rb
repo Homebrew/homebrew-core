@@ -5,6 +5,11 @@ class Buildozer < Formula
   sha256 "c28eef4d30ba1a195c6837acf6c75a4034981f5b4002dda3c5aa6e48ce023cf1"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6e6fbe3529f8024adcfb4a07a878d24290e0005bdb139a370f955750311470c6"
     sha256 cellar: :any_skip_relocation, big_sur:       "a4d0c0665fff008552b629d97d0194a47e272e110fa01843fc95042163ae8d53"
