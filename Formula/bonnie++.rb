@@ -1,8 +1,9 @@
 class Bonniexx < Formula
   desc "Benchmark suite for file systems and hard drives"
   homepage "https://www.coker.com.au/bonnie++/"
-  url "https://www.coker.com.au/bonnie++/bonnie++-1.98.tgz"
-  sha256 "6e0bcbc08b78856fd998dd7bcb352d4615a99c26c2dc83d5b8345b102bad0b04"
+  url "https://www.coker.com.au/bonnie++/bonnie++-2.00a.tgz"
+  sha256 "a8d33bbd81bc7eb559ce5bf6e584b9b53faea39ccfb4ae92e58f27257e468f0e"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://www.coker.com.au/bonnie++/experimental/"
