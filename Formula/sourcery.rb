@@ -1,8 +1,8 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code"
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/1.3.0.tar.gz"
-  sha256 "3e35434f604ede2a4e792ccb7d89e4fd25b68d16bc86d48be149fbeb3c373fd6"
+  url "https://github.com/krzysztofzablocki/Sourcery/archive/1.3.1.tar.gz"
+  sha256 "44152bd6b46943b80415c4679c3beddf923f2863e015dc13c533f6137ecda6b4"
   license "MIT"
   head "https://github.com/krzysztofzablocki/Sourcery.git"
 
@@ -13,10 +13,12 @@ class Sourcery < Formula
   end
 
   depends_on xcode: "12.0"
+  uses_from_macos "ruby" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
-    bin.install ".build/release/sourcery"
+    system "rake", "build"
+    bin.install "cli/bin/sourcery"
+    lib.install Dir["cli/lib/*.dylib"]
   end
 
   test do
