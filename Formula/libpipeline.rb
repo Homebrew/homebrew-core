@@ -28,7 +28,7 @@ class Libpipeline < Formula
         return pipeline_run(p);
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lpipeline", "test.c", "-o", "test"
+    system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-lpipeline", "-o", "test"
     assert_match "Hello world", shell_output("./test")
   end
 end
