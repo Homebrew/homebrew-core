@@ -3,6 +3,7 @@ class Modules < Formula
   homepage "https://modules.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.7.0/modules-4.7.0.tar.bz2"
   sha256 "68099b98f075c669af3a6eb638b75a2feefc8dd7f778bcae3f5504ded9c1b2ca"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
