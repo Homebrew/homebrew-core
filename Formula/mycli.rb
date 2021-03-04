@@ -14,6 +14,7 @@ class Mycli < Formula
     sha256 cellar: :any, mojave:        "807d55e715987b991454200aa6ec5e767cbce84df2701972186e0e0a9c4abddc"
   end
 
+  depends_on "rust" => :build
   depends_on "openssl@1.1"
   depends_on "python@3.9"
 
