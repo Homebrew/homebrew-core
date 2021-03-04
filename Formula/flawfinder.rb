@@ -2,8 +2,8 @@ class Flawfinder < Formula
   include Language::Python::Shebang
 
   desc "Examines code and reports possible security weaknesses"
-  homepage "https://www.dwheeler.com/flawfinder/"
-  url "https://www.dwheeler.com/flawfinder/flawfinder-2.0.15.tar.gz"
+  homepage "https://dwheeler.com/flawfinder/"
+  url "https://dwheeler.com/flawfinder/flawfinder-2.0.15.tar.gz"
   sha256 "0a65cf93b1d380669476e576abbb04ea0766a557ce2bf75d9e71f387fcd74406"
   license "GPL-2.0-or-later"
   head "https://github.com/david-a-wheeler/flawfinder.git"
