@@ -25,16 +25,19 @@ class Xray < Formula
 
   def install
     ldflags = "-s -w -buildid="
-    system "go", "build", *std_go_args,
+    execpath = libexec/name
+    system "go", "build", "-trimpath", "-o", execpath,
                  "-ldflags", ldflags,
                  "./main"
+    (bin/"xray").write_env_script execpath,
+      XRAY_LOCATION_ASSET: pkgshare
 
     resource("geoip").stage do
-      bin.install "geoip.dat"
+      pkgshare.install "geoip.dat"
     end
 
     resource("geosite").stage do
-      bin.install "dlc.dat" => "geosite.dat"
+      pkgshare.install "dlc.dat" => "geosite.dat"
     end
   end
 
