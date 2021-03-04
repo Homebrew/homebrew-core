@@ -4,6 +4,7 @@ class GitCola < Formula
   url "https://github.com/git-cola/git-cola/archive/v3.9.tar.gz"
   sha256 "66b62f479ad141322351d62aff76e4882719d08f8f29b35f97d30f355391a54e"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
@@ -14,7 +15,7 @@ class GitCola < Formula
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
 
   uses_from_macos "rsync"
