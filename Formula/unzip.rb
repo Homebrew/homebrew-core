@@ -4,7 +4,8 @@ class Unzip < Formula
   url "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
   version "6.0"
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
-  revision 6
+  license "Info-ZIP"
+  revision 7
 
   livecheck do
     url :stable
@@ -28,8 +29,8 @@ class Unzip < Formula
   # Upstream is unmaintained so we use the Debian patchset:
   # https://packages.debian.org/buster/unzip
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-25.debian.tar.xz"
-    sha256 "0783e4d11d755cb43904e3f59a60dbb92ee9c6b08ac54d86bc61f9848216f37b"
+    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-26.debian.tar.xz"
+    sha256 "88cb7c0f1fd13252b662dfd224b64b352f9e75cd86389557fcb23fa6d2638599"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch
       patches/02-this-is-debian-unzip.patch
@@ -55,6 +56,9 @@ class Unzip < Formula
       patches/22-cve-2019-13232-fix-bug-in-undefer-input.patch
       patches/23-cve-2019-13232-zip-bomb-with-overlapped-entries.patch
       patches/24-cve-2019-13232-do-not-raise-alert-for-misplaced-central-directory.patch
+      patches/25-cve-2019-13232-fix-bug-in-uzbunzip2.patch
+      patches/26-cve-2019-13232-fix-bug-in-uzinflate.patch
+      patches/27-zipgrep-avoid-test-errors.patch
     ]
   end
 
