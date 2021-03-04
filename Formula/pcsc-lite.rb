@@ -3,6 +3,7 @@ class PcscLite < Formula
   homepage "https://pcsclite.apdu.fr/"
   url "https://pcsclite.apdu.fr/files/pcsc-lite-1.9.1.tar.bz2"
   sha256 "73c4789b7876a833a70f493cda21655dfe85689d9b7e29701c243276e55e683a"
+  license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "ISC"]
 
   livecheck do
     url "https://pcsclite.apdu.fr/files/"
