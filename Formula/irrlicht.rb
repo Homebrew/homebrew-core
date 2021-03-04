@@ -21,30 +21,65 @@ class Irrlicht < Formula
 
   depends_on xcode: :build
 
+  on_linux do
+    depends_on "libx11"
+    depends_on "libxxf86vm"
+    depends_on "mesa"
+  end
+
   def install
-    # Fix "error: cannot initialize a parameter of type
-    # 'id<NSApplicationDelegate> _Nullable' with an rvalue of type
-    # 'id<NSFileManagerDelegate>'"
-    # Reported 5 Oct 2016 https://irrlicht.sourceforge.io/forum/viewtopic.php?f=7&t=51562
-    inreplace "source/Irrlicht/MacOSX/CIrrDeviceMacOSX.mm",
-      "[NSApp setDelegate:(id<NSFileManagerDelegate>)",
-      "[NSApp setDelegate:(id<NSApplicationDelegate>)"
+    on_macos do
+      # Fix "error: cannot initialize a parameter of type
+      # 'id<NSApplicationDelegate> _Nullable' with an rvalue of type
+      # 'id<NSFileManagerDelegate>'"
+      # Reported 5 Oct 2016 https://irrlicht.sourceforge.io/forum/viewtopic.php?f=7&t=51562
+      inreplace "source/Irrlicht/MacOSX/CIrrDeviceMacOSX.mm",
+        "[NSApp setDelegate:(id<NSFileManagerDelegate>)",
+        "[NSApp setDelegate:(id<NSApplicationDelegate>)"
 
-    # Fix "error: ZLIB_VERNUM != PNG_ZLIB_VERNUM" on Mojave (picking up system zlib)
-    # Reported 21 Oct 2018 https://sourceforge.net/p/irrlicht/bugs/442/
-    inreplace "source/Irrlicht/libpng/pngpriv.h",
-      "#  error ZLIB_VERNUM != PNG_ZLIB_VERNUM \\",
-      "#  warning ZLIB_VERNUM != PNG_ZLIB_VERNUM \\"
+      # Fix "error: ZLIB_VERNUM != PNG_ZLIB_VERNUM" on Mojave (picking up system zlib)
+      # Reported 21 Oct 2018 https://sourceforge.net/p/irrlicht/bugs/442/
+      inreplace "source/Irrlicht/libpng/pngpriv.h",
+        "#  error ZLIB_VERNUM != PNG_ZLIB_VERNUM \\",
+        "#  warning ZLIB_VERNUM != PNG_ZLIB_VERNUM \\"
 
-    xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",
-               "-configuration", "Release",
-               "-target", "libIrrlicht.a",
-               "SYMROOT=build"
-    lib.install "source/Irrlicht/MacOSX/build/Release/libIrrlicht.a"
-    include.install "include" => "irrlicht"
+      xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",
+                 "-configuration", "Release",
+                 "-target", "libIrrlicht.a",
+                 "SYMROOT=build"
+      lib.install "source/Irrlicht/MacOSX/build/Release/libIrrlicht.a"
+      include.install "include" => "irrlicht"
+    end
+
+    on_linux do
+      cd "source/Irrlicht" do
+        inreplace "Makefile" do |s|
+          s.gsub! "/usr/X11R6/lib$(LIBSELECT)", Formula["libx11"].opt_lib
+          s.gsub! "/usr/X11R6/include", Formula["libx11"].opt_include
+        end
+        ENV.append "LDFLAGS", "-L#{Formula["mesa"].opt_lib}"
+        ENV.append "LDFLAGS", "-L#{Formula["libxxf86vm"].opt_lib}"
+        ENV.append "CXXFLAGS", "-I#{Formula["libxxf86vm"].opt_include}"
+        system "make", "sharedlib", "NDEBUG=1"
+        system "make", "install", "INSTALL_DIR=#{lib}"
+        system "make", "clean"
+        system "make", "staticlib", "NDEBUG=1"
+      end
+      lib.install "lib/Linux/libIrrlicht.a"
+    end
+
+    on_linux do
+      (pkgshare/"examples").install "examples/01.HelloWorld"
+    end
   end
 
   test do
-    assert_match "x86_64", shell_output("lipo -info #{lib}/libIrrlicht.a")
+    on_macos do
+      assert_match "x86_64", shell_output("lipo -info #{lib}/libIrrlicht.a")
+    end
+    on_linux do
+      cp_r Dir["#{pkgshare}/examples/01.HelloWorld/*"], testpath
+      system ENV.cxx, "-I#{include}/irrlicht", "-L#{lib}", "-lIrrlicht", "main.cpp", "-o", "hello"
+    end
   end
 end
