@@ -3,8 +3,8 @@ class Gmsh < Formula
   homepage "https://gmsh.info/"
   url "https://gmsh.info/src/gmsh-4.8.0-source.tgz"
   sha256 "2587783c4b02963f9d8afb717c9954caefa463ea2e0a12e1659307e6a0d7ea6b"
-  head "https://gitlab.onelab.info/gmsh/gmsh.git"
   license "GPL-2.0-or-later"
+  head "https://gitlab.onelab.info/gmsh/gmsh.git"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "1806d59ab4b8c2b1c1bd6d71b784f7c2765367bce51d5049d00aa28695f9c6d0"
