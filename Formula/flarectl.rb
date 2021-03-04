@@ -21,6 +21,6 @@ class Flarectl < Formula
 
   test do
     ENV["CF_API_TOKEN"] = "invalid"
-    assert_match "Invalid format for Authorization header", shell_output("#{bin}/flarectl u i", 1)
+    assert_match "HTTP status 400: Invalid request headers (6003)", shell_output("#{bin}/flarectl u i", 1)
   end
 end
