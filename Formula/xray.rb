@@ -30,11 +30,11 @@ class Xray < Formula
                  "./main"
 
     resource("geoip").stage do
-      pkgshare.install "geoip.dat"
+      bin.install "geoip.dat"
     end
 
     resource("geosite").stage do
-      pkgshare.install "dlc.dat" => "geosite.dat"
+      bin.install "dlc.dat" => "geosite.dat"
     end
   end
 
