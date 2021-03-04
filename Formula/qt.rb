@@ -1,12 +1,8 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.0/6.0.1/single/qt-everywhere-src-6.0.1.tar.xz"
-  mirror "http://mirror.bit.edu.cn/qtproject/official_releases/qt/6.0/6.0.1/single/qt-everywhere-src-6.0.1.tar.xz"
-  mirror "http://ftp.jaist.ac.jp/pub/qtproject/official_releases/qt/6.0/6.0.1/single/qt-everywhere-src-6.0.1.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/official_releases/qt/6.0/6.0.1/single/qt-everywhere-src-6.0.1.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/official_releases/qt/6.0/6.0.1/single/qt-everywhere-src-6.0.1.tar.xz"
-  sha256 "d13cfac103cd80b216cd2f73d0211dd6b1a1de2516911c89ce9c5ed14d9631a8"
+  url "https://download.qt.io/official_releases/qt/6.0/6.0.2/single/qt-everywhere-src-6.0.2.tar.xz"
+  sha256 "67a076640647783b95a907d2231e4f34cec69be5ed338c1c1b33124cadf10bdf"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
@@ -53,30 +49,18 @@ class Qt < Formula
   uses_from_macos "zlib"
 
   resource "qtimageformats" do
-    url "https://download.qt.io/official_releases/additional_libraries/qtimageformats/6.0/6.0.1/qtimageformats-everywhere-src-6.0.1.tar.xz"
-    mirror "http://mirror.bit.edu.cn/qtproject/official_releases/additional_libraries/qtimageformats/6.0/6.0.1/qtimageformats-everywhere-src-6.0.1.tar.xz"
-    mirror "http://ftp.jaist.ac.jp/pub/qtproject/official_releases/additional_libraries/qtimageformats/6.0/6.0.1/qtimageformats-everywhere-src-6.0.1.tar.xz"
-    mirror "https://mirrors.dotsrc.org/qtproject/official_releases/additional_libraries/qtimageformats/6.0/6.0.1/qtimageformats-everywhere-src-6.0.1.tar.xz"
-    mirror "https://mirrors.ocf.berkeley.edu/qt/official_releases/additional_libraries/qtimageformats/6.0/6.0.1/qtimageformats-everywhere-src-6.0.1.tar.xz"
-    sha256 "27a9d6e85dcd56ad981ef2aac27844e782f8cce0598f83283e6fbbd2a3810105"
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qtimageformats-everywhere-src-6.0.2.tar.xz"
+    sha256 "b0379ba6bbefbc48ed3ef8a1d8812531bd671362f74e0cffa6adf67bb1139206"
   end
 
   resource "qt3d" do
-    url "https://download.qt.io/official_releases/additional_libraries/qt3d/6.0/6.0.1/qt3d-everywhere-src-6.0.1.tar.xz"
-    mirror "http://mirror.bit.edu.cn/qtproject/official_releases/additional_libraries/qt3d/6.0/6.0.1/qt3d-everywhere-src-6.0.1.tar.xz"
-    mirror "http://ftp.jaist.ac.jp/pub/qtproject/official_releases/additional_libraries/qt3d/6.0/6.0.1/qt3d-everywhere-src-6.0.1.tar.xz"
-    mirror "https://mirrors.dotsrc.org/qtproject/official_releases/additional_libraries/qt3d/6.0/6.0.1/qt3d-everywhere-src-6.0.1.tar.xz"
-    mirror "https://mirrors.ocf.berkeley.edu/qt/official_releases/additional_libraries/qt3d/6.0/6.0.1/qt3d-everywhere-src-6.0.1.tar.xz"
-    sha256 "1234c6904ad13894fb1a798a5540317d241b5cbded70e980e929f477bc060f34"
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qt3d-everywhere-src-6.0.2.tar.xz"
+    sha256 "ff6434da878062aea612a9d7323bd615c2f232c4462c26323f1a5511aac6db89"
   end
 
   resource "qtnetworkauth" do
-    url "https://download.qt.io/official_releases/additional_libraries/qtnetworkauth/6.0/6.0.1/qtnetworkauth-everywhere-src-6.0.1.tar.xz"
-    mirror "http://mirror.bit.edu.cn/qtproject/official_releases/additional_libraries/qtnetworkauth/6.0/6.0.1/qtnetworkauth-everywhere-src-6.0.1.tar.xz"
-    mirror "http://ftp.jaist.ac.jp/pub/qtproject/official_releases/additional_libraries/qtnetworkauth/6.0/6.0.1/qtnetworkauth-everywhere-src-6.0.1.tar.xz"
-    mirror "https://mirrors.dotsrc.org/qtproject/official_releases/additional_libraries/qtnetworkauth/6.0/6.0.1/qtnetworkauth-everywhere-src-6.0.1.tar.xz"
-    mirror "https://mirrors.ocf.berkeley.edu/qt/official_releases/additional_libraries/qtnetworkauth/6.0/6.0.1/qtnetworkauth-everywhere-src-6.0.1.tar.xz"
-    sha256 "7f348acedb24e7c33927bd475b87b3c0c9901122f2e11f8c8209de4497e36122"
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qtnetworkauth-everywhere-src-6.0.2.tar.xz"
+    sha256 "05b66ef42f3e6bf4cf5f36744db8483f9a57dbc7bd9ecc9ba81e7ca99b0a37e6"
   end
 
   def install
@@ -92,6 +76,7 @@ class Qt < Formula
       -plugindir share/qt/plugins
       -qmldir share/qt/qml
       -docdir share/doc/qt
+      -translationdir share/qt/translations
       -examplesdir share/qt/examples
       -testsdir share/qt/tests
 
@@ -108,7 +93,6 @@ class Qt < Formula
 
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
       -DINSTALL_DESCRIPTIONSDIR=share/qt/modules
-      -DINSTALL_TRANSLATIONSDIR=share/qt/translations
 
       -DFEATURE_pkg_config=ON
       -DFEATURE_qt3d_system_assimp=ON
