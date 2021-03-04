@@ -3,8 +3,8 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "https://www.mycli.net/"
-  url "https://files.pythonhosted.org/packages/27/92/8a603a803a123f970947605f29e601985559af8df97baeb2b6c9c8d47e14/mycli-1.23.2.tar.gz"
-  sha256 "6ae19b140bf02d1eda0c286181e3593d93cd189a3e6fd4384c50da3ab994db32"
+  url "https://files.pythonhosted.org/packages/24/94/b171e47b39420ebdf8d5f6dd13063785cd86e3d8b29b493fe1ebfcf7af4f/mycli-1.24.1.tar.gz"
+  sha256 "748d98be3da5948f5394c15bb37e628d8785b86aa84e8bd9c9187e20b84d3266"
   license "BSD-3-Clause"
 
   bottle do
@@ -23,8 +23,8 @@ class Mycli < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
-    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
   end
 
   resource "cli-helpers" do
@@ -43,13 +43,23 @@ class Mycli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
-    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
+  end
+
+  resource "importlib-resources" do
+    url "https://files.pythonhosted.org/packages/32/36/a380aecd01d0db4a73f95167906a1f99afdffb965b3cd5e634e124e45436/importlib_resources-5.1.1.tar.gz"
+    sha256 "563c5579cd40a7d5c6256ea6519b510152b6968103ab540b9771a50093a09056"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/4f/18/77e8da1f8342f561c7fccb5701398200bd7c9b1227ee15ad370086bc71d8/prompt_toolkit-3.0.10.tar.gz"
-    sha256 "b8b3d0bde65da350290c46a8f54f336b3cbf5464a4ac11239668d986852e79d5"
+    url "https://files.pythonhosted.org/packages/b1/32/2a6b734dc25b249467bfc1d844b077a252ea393d1b90733f4e899aa56506/prompt_toolkit-3.0.16.tar.gz"
+    sha256 "0fa02fa80363844a4ab4b8d6891f62dd0645ba672723130423ca4037b80c1974"
+  end
+
+  resource "pyaes" do
+    url "https://files.pythonhosted.org/packages/44/66/2c17bae31c906613795711fc78045c285048168919ace2220daa372c7d72/pyaes-1.6.1.tar.gz"
+    sha256 "02c1b1405c38d3c370b085fb952dd8bea3fadcee6411ad99f312cc129c536d8f"
   end
 
   resource "pycparser" do
@@ -58,8 +68,8 @@ class Mycli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e1/86/8059180e8217299079d8719c6e23d674aadaba0b1939e25e0cc15dcf075b/Pygments-2.7.4.tar.gz"
-    sha256 "df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"
+    url "https://files.pythonhosted.org/packages/19/d0/dec5604a275b19b0ebd2b9c43730ce39549c8cd8602043eaf40c541a7256/Pygments-2.8.0.tar.gz"
+    sha256 "37a13ba168a02ac54cc5891a42b1caec333e59b66addb7fa633ea8a6d73445c0"
   end
 
   resource "PyMySQL" do
@@ -68,8 +78,8 @@ class Mycli < Formula
   end
 
   resource "pyperclip" do
-    url "https://files.pythonhosted.org/packages/6f/4c/0b1d507ad7e8bc31d690d04b4f475e74c2002d060f7994ce8c09612df707/pyperclip-1.8.1.tar.gz"
-    sha256 "9abef1e79ce635eb62309ecae02dfb5a3eb952fa7d6dce09c1aef063f81424d3"
+    url "https://files.pythonhosted.org/packages/a7/2c/4c64579f847bd5d539803c8b909e54ba087a79d01bb3aba433a95879a6c5/pyperclip-1.8.2.tar.gz"
+    sha256 "105254a8b04934f0bc84e9c24eb360a591aaf6535c9def5f29d92af107a9bf57"
   end
 
   resource "six" do
@@ -83,8 +93,8 @@ class Mycli < Formula
   end
 
   resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
+    url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
+    sha256 "eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"
   end
 
   resource "terminaltables" do
