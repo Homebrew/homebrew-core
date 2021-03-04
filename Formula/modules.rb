@@ -3,6 +3,7 @@ class Modules < Formula
   homepage "https://modules.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/modules/Modules/modules-4.7.0/modules-4.7.0.tar.bz2"
   sha256 "68099b98f075c669af3a6eb638b75a2feefc8dd7f778bcae3f5504ded9c1b2ca"
+  revision 1
 
   livecheck do
     url :stable
@@ -15,11 +16,13 @@ class Modules < Formula
     sha256 cellar: :any, mojave:   "aa32c14b7dd52792cbe7272aa4951745a80ad44e441bf0a85e4aab9f4643a9f4"
   end
 
+  depends_on "tcl-tk"
+
   def install
     args = %W[
       --prefix=#{prefix}
       --datarootdir=#{share}
-      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
+      --with-tcl=#{Formula["tcl-tk"].opt_lib}
       --without-x
     ]
     system "./configure", *args
