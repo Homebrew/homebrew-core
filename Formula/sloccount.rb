@@ -1,9 +1,9 @@
 class Sloccount < Formula
   desc "Count lines of code in many languages"
-  homepage "https://www.dwheeler.com/sloccount/"
-  url "https://www.dwheeler.com/sloccount/sloccount-2.26.tar.gz"
+  homepage "https://dwheeler.com/sloccount/"
+  url "https://dwheeler.com/sloccount/sloccount-2.26.tar.gz"
   sha256 "fa7fa2bbf2f627dd2d0fdb958bd8ec4527231254c120a8b4322405d8a4e3d12b"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
