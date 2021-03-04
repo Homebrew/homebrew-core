@@ -4,7 +4,7 @@ class Carla < Formula
   url "https://github.com/falkTX/Carla/archive/v2.2.0.tar.gz"
   sha256 "4bf08511257db88979eccc002f10c153ff2a14f5143291c2be39cadd69ce10e1"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/falkTX/Carla.git"
 
   livecheck do
@@ -22,7 +22,7 @@ class Carla < Formula
   depends_on "fluid-synth"
   depends_on "liblo"
   depends_on "libmagic"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
 
   def install
