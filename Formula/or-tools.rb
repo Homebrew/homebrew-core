@@ -1,10 +1,9 @@
 class OrTools < Formula
   desc "Google's Operations Research tools"
   homepage "https://developers.google.com/optimization/"
-  url "https://github.com/google/or-tools/archive/v8.1.tar.gz"
-  sha256 "beb9fe379977033151045d0815d26c628ad99d74d68b9f3b707578492723731e"
+  url "https://github.com/google/or-tools/archive/v8.2.tar.gz"
+  sha256 "cf40715fa5cfeee88e2c8f5583465182c8dedf60b4eb7c4a967b32ff61ac4302"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/google/or-tools.git"
 
   livecheck do
@@ -25,8 +24,6 @@ class OrTools < Formula
   depends_on "cgl"
   depends_on "clp"
   depends_on "coinutils"
-  depends_on "gflags"
-  depends_on "glog"
   depends_on "osi"
   depends_on "protobuf"
 
@@ -44,23 +41,17 @@ class OrTools < Formula
     # Linear Solver & Glop Solver
     system ENV.cxx, "-std=c++17",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["gflags"].opt_lib}", "-lgflags",
-           "-L#{Formula["glog"].opt_lib}", "-lglog",
            "-L#{Formula["abseil"].opt_lib}", "-labsl_time",
            pkgshare/"simple_lp_program.cc", "-o", "simple_lp_program"
     system "./simple_lp_program"
     # Routing Solver
     system ENV.cxx, "-std=c++17",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["gflags"].opt_lib}", "-lgflags",
-           "-L#{Formula["glog"].opt_lib}", "-lglog",
            pkgshare/"simple_routing_program.cc", "-o", "simple_routing_program"
     system "./simple_routing_program"
     # Sat Solver
     system ENV.cxx, "-std=c++17",
            "-I#{include}", "-L#{lib}", "-lortools",
-           "-L#{Formula["gflags"].opt_lib}", "-lgflags",
-           "-L#{Formula["glog"].opt_lib}", "-lglog",
            pkgshare/"simple_sat_program.cc", "-o", "simple_sat_program"
     system "./simple_sat_program"
   end
