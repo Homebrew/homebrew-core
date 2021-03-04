@@ -1,9 +1,9 @@
 class Xidel < Formula
   desc "XPath/XQuery 3.0, JSONiq interpreter to extract data from HTML/XML/JSON"
-  homepage "http://www.videlibri.de/xidel.html"
+  homepage "https://www.videlibri.de/xidel.html"
   url "https://github.com/benibela/xidel/releases/download/Xidel_0.9.8/xidel-0.9.8.src.tar.gz"
   sha256 "72b5b1a2fc44a0a61831e268c45bc6a6c28e3533b5445151bfbdeaf1562af39c"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
