@@ -4,6 +4,7 @@ class Urh < Formula
   url "https://files.pythonhosted.org/packages/ea/ec/f091b8dd7636c1999a0cef0d6d0c5fe011e12e9a4c1809526bfa58c39197/urh-2.9.1.tar.gz"
   sha256 "b93df6f8c67bbb1c08d4b837aa3783f6fa79d2bd69cb725744f9e01bd81aefe2"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/jopohl/urh.git"
 
   bottle do
@@ -17,7 +18,7 @@ class Urh < Formula
   depends_on "cython"
   depends_on "hackrf"
   depends_on "numpy"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
 
   resource "psutil" do
