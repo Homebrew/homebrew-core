@@ -47,15 +47,17 @@ class Fontforge < Formula
   end
 
   def caveats
-    <<~EOS
-      This formula only installs the command line utilities.
+    on_macos do
+      <<~EOS
+        This formula only installs the command line utilities.
 
-      FontForge.app can be downloaded directly from the website:
-        https://fontforge.github.io
+        FontForge.app can be downloaded directly from the website:
+          https://fontforge.github.io
 
-      Alternatively, install with Homebrew Cask:
-        brew install --cask fontforge
-    EOS
+        Alternatively, install with Homebrew Cask:
+          brew install --cask fontforge
+      EOS
+    end
   end
 
   test do
