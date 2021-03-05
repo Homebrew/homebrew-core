@@ -5,6 +5,7 @@ class Findutils < Formula
   mirror "https://ftpmirror.gnu.org/findutils/findutils-4.8.0.tar.xz"
   sha256 "57127b7e97d91282c6ace556378d5455a9509898297e46e10443016ea1387164"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "39ffd40141c1d583f89ffe0c091a76cba9f4ebdbe3035c007e45b37774eb5b84"
@@ -44,15 +45,6 @@ class Findutils < Formula
     system "make", "install"
 
     on_macos do
-      # https://savannah.gnu.org/bugs/index.php?46846
-      # https://github.com/Homebrew/homebrew/issues/47791
-      (libexec/"bin").install bin/"gupdatedb"
-      (bin/"gupdatedb").write <<~EOS
-        #!/bin/sh
-        export LC_ALL='C'
-        exec "#{libexec}/bin/gupdatedb" "$@"
-      EOS
-
       [[prefix, bin], [share, man/"*"]].each do |base, path|
         Dir[path/"g*"].each do |p|
           f = Pathname.new(p)
@@ -70,12 +62,14 @@ class Findutils < Formula
   end
 
   def caveats
-    <<~EOS
-      All commands have been installed with the prefix "g".
-      If you need to use these commands with their normal names, you
-      can add a "gnubin" directory to your PATH from your bashrc like:
-        PATH="#{opt_libexec}/gnubin:$PATH"
-    EOS
+    on_macos do
+      <<~EOS
+        All commands have been installed with the prefix "g".
+        If you need to use these commands with their normal names, you
+        can add a "gnubin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
   end
 
   test do
