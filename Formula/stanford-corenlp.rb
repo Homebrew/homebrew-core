@@ -16,7 +16,7 @@ class StanfordCorenlp < Formula
 
   test do
     (testpath/"test.txt").write("Stanford is a university, founded in 1891.")
-    system "#{bin}/corenlp.sh", "-annotators tokenize,ssplit,pos", "-file test.txt"
-    assert_predicate (testpath/"test.txt.xml"), :exist?
+    system "#{bin}/corenlp.sh", "-annotators tokenize,ssplit,pos", "-file test.txt", "-outputFormat json"
+    assert_predicate (testpath/"test.txt.json"), :exist?
   end
 end
