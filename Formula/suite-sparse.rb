@@ -3,6 +3,14 @@ class SuiteSparse < Formula
   homepage "https://people.engr.tamu.edu/davis/suitesparse.html"
   url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v5.9.0.tar.gz"
   sha256 "7bdd4811f1cf0767c5fdb5e435817fdadee50b0acdb598f4882ae7b8291a7f24"
+  license all_of: [
+    "BSD-3-Clause",
+    "LGPL-2.1-or-later",
+    "GPL-2.0-or-later",
+    "Apache-2.0",
+    "GPL-3.0-only",
+    any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
+  ]
 
   livecheck do
     url :stable
