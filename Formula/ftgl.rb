@@ -23,17 +23,31 @@ class Ftgl < Formula
 
   depends_on "freetype"
 
+  on_linux do
+    depends_on "mesa-glu"
+  end
+
   def install
     # If doxygen is installed, the docs may still fail to build.
     # So we disable building docs.
     inreplace "configure", "set dummy doxygen;", "set dummy no_doxygen;"
 
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-freetypetest",
-                          # Skip building the example program by failing to find GLUT (MacPorts)
-                          "--with-glut-inc=/dev/null",
-                          "--with-glut-lib=/dev/null"
+    # Skip building the example program by failing to find GLUT (MacPorts)
+    # by setting --with-glut-inc and --with-glut-lib
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --disable-freetypetest
+      --with-glut-inc=/dev/null
+      --with-glut-lib=/dev/null
+    ]
+
+    on_linux do
+      args << "--with-gl-inc=#{Formula["mesa-glu"].opt_include}"
+    end
+
+    system "./configure", *args
 
     system "make", "install"
   end
