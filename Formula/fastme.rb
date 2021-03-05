@@ -13,7 +13,9 @@ class Fastme < Formula
     sha256 cellar: :any, high_sierra:   "25cf8eb54ef7416842036f83c99eebb5a5881267d642f4a2c84c94fb5892a511"
   end
 
-  depends_on "gcc"
+  on_macos do
+    depends_on "gcc"
+  end
 
   fails_with :clang # no OpenMP support
 
