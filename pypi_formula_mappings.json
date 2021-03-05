@@ -4,6 +4,7 @@
       "extra_packages": ["ansible-base"]
   },
   "ansible@2.8": false,
+  "buku": "buku[server]",
   "cloudformation-cli": {
     "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin"]
   },
