@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/26/5c/1593cebdd2b9d3bbc8434015cb8bed6814ad6828963da925217c3a65906c/ocrmypdf-11.7.0.tar.gz"
-  sha256 "5c386fcf2c0f2635533c2bad0edcd2d455f667a134d180dc61cbb3d4d5f0c8e2"
+  url "https://files.pythonhosted.org/packages/09/8c/6ff143d243a8e7456c7d8e03812c8f8ae91141f0e337f50a0e8c4914c890/ocrmypdf-11.7.1.tar.gz"
+  sha256 "a403699d54d63ff32ebc117ce5dde4d3c870ab69d5ef3e63c24ef12bc7b9b7e9"
   license "MPL-2.0"
 
   bottle do
@@ -74,13 +74,13 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/04/ce/19464e144e3eb750ca224ed0997cf3472d106d8fadef0fe07a8e1dc67d27/pikepdf-2.6.0.tar.gz"
-    sha256 "42277afc386f1dd312dedf94e2230ab238a947f77514ccd67ac046b025af76f8"
+    url "https://files.pythonhosted.org/packages/1c/3e/bd47fffb71e4084dc9562326ab5b3030663a21eed3de914541fed8d94486/pikepdf-2.8.0.tar.gz"
+    sha256 "74ff96fddd21cd4c0830eb549137ea9eccbdbff8cef4f684322b9afb8e42ccb5"
   end
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/73/59/3192bb3bc554ccbd678bdb32993928cb566dccf32f65dac65ac7e89eb311/Pillow-8.1.0.tar.gz"
-    sha256 "887668e792b7edbfb1d3c9d8b5d8c859269a0f0eba4dda562adb95500f60dbba"
+    url "https://files.pythonhosted.org/packages/a6/24/1346f8c70dae5daf58e22435a1f1f4696682b4f85321eb4d18ca1d81c0c2/Pillow-8.1.1.tar.gz"
+    sha256 "f6fc18f9c9c7959bf58e6faf801d14fafb6d4717faaf6f79a68c8bb2a13dcf20"
   end
 
   resource "pluggy" do
@@ -94,8 +94,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/87/42/770d5815606aebb808344c9d90f96f95474b7d87047fba68fc282639db2c/reportlab-3.5.59.tar.gz"
-    sha256 "a755cca2dcf023130b03bb671670301a992157d5c3151d838c0b68ef89894536"
+    url "https://files.pythonhosted.org/packages/d2/11/3e4468c0a4731b0fb995da194d08866bf3c92b7e3e05d28d4b0941529810/reportlab-3.5.62.tar.gz"
+    sha256 "8c15beaafa8bb116a19e6ae11bbc06e212be12ee25b39135aa37ad75bf2e0f30"
   end
 
   resource "sortedcontainers" do
