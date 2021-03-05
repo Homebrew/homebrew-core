@@ -22,9 +22,12 @@ class Augustus < Formula
 
   depends_on "boost" => :build
   depends_on "bamtools"
-  depends_on "gcc"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gcc"
+  end
 
   def install
     # Avoid "fatal error: 'sam.h' file not found" by not building bam2wig
@@ -44,12 +47,17 @@ class Augustus < Formula
     # Compile executables for macOS. Tarball ships with executables for Linux.
     system "make", "clean"
 
-    # Clang breaks proteinprofile on macOS. This issue has been first reported
-    # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
-    # See also https://github.com/Gaius-Augustus/Augustus/issues/64
     cd "src" do
-      gcc_major_ver = Formula["gcc"].any_installed_version.major
-      with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
+      on_macos do
+        # Clang breaks proteinprofile on macOS. This issue has been first reported
+        # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
+        # See also https://github.com/Gaius-Augustus/Augustus/issues/64
+        gcc_major_ver = Formula["gcc"].any_installed_version.major
+        with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
+          system "make"
+        end
+      end
+      on_linux do
         system "make"
       end
     end
