@@ -2,7 +2,6 @@ class StanfordCorenlp < Formula
   desc "Java suite of core NLP tools"
   homepage "https://stanfordnlp.github.io/CoreNLP/"
   url "https://nlp.stanford.edu/software/stanford-corenlp-4.2.0.zip"
-  version "4.2.0"
   sha256 "984aff1c431311a7dd5b4f0cb3bec4f5ba81da37aecc0d020b270571aafc5385"
   revision 1
 
