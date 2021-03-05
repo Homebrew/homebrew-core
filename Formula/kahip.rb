@@ -14,13 +14,19 @@ class Kahip < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
   depends_on "open-mpi"
 
+  on_macos do
+    depends_on "gcc"
+  end
+
   def install
-    gcc_major_ver = Formula["gcc"].any_installed_version.major
-    ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
-    ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{gcc_major_ver}"
+    on_macos do
+      gcc_major_ver = Formula["gcc"].any_installed_version.major
+      ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
+      ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{gcc_major_ver}"
+    end
+
     mkdir "build" do
       system "cmake", *std_cmake_args, ".."
       system "make", "install"
