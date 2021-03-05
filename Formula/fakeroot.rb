@@ -16,6 +16,10 @@ class Fakeroot < Formula
     sha256 cellar: :any, high_sierra: "df9be392f3579464893be013744b5aa40a7e4e91e01155bd1547e4104d381640"
   end
 
+  on_linux do
+    depends_on "libcap"
+  end
+
   # Compile is broken. https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=766649
   # Patches submitted upstream on 24/10/2014, but no reply from maintainer thus far.
   patch do
