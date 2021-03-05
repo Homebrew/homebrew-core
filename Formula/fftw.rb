@@ -17,8 +17,11 @@ class Fftw < Formula
     sha256 cellar: :any, mojave:        "ad960c339268de67c1d6086b0d205336d1f61a86db8fd7528b98e0d8acf98df5"
   end
 
-  depends_on "gcc"
   depends_on "open-mpi"
+
+  on_macos do
+    depends_on "gcc"
+  end
 
   fails_with :clang
 
