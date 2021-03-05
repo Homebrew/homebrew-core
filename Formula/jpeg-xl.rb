@@ -1,8 +1,8 @@
 class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
-  url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.3.2/jpeg-xl-v0.3.2.tar.bz2"
-  sha256 "1fd4d187e94e213ce69167700f0f58f62e2eb5d1d5550bc3878838005162ad5a"
+  url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.3.3/jpeg-xl-v0.3.3.tar.bz2"
+  sha256 "a71dd1a148212976ffe4881f395eb0de171fca2f01ed44d16002add6dc667ec2"
   license "Apache-2.0"
 
   bottle do
@@ -26,7 +26,7 @@ class JpegXl < Formula
   # https://gitlab.com/wg1/jpeg-xl/-/blob/v#{version}/deps.sh
   resource "highway" do
     url "https://github.com/google/highway.git",
-        revision: "a72b33809d98bd1a8fa961953f0f63f454c7f593"
+        revision: "946a1b40233438a1b0363598a6deaa1628a01003"
   end
 
   resource "lodepng" do
