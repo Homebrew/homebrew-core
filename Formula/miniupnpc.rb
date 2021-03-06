@@ -3,6 +3,7 @@ class Miniupnpc < Formula
   homepage "https://miniupnp.tuxfamily.org"
   url "http://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.2.2.tar.gz"
   sha256 "888fb0976ba61518276fe1eda988589c700a3f2a69d71089260d75562afd3687"
+  license "BSD-3-Clause"
 
   # We only match versions with only a major/minor since versions like 2.1 are
   # stable and versions like 2.1.20191224 are unstable/development releases.
