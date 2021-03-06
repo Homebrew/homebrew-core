@@ -18,10 +18,7 @@ class Fsql < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/kshvmdn/fsql").install buildpath.children
-    system "go", "build", "-o", bin/"fsql", "github.com/kshvmdn/fsql/cmd/fsql"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/fsql"
   end
 
   test do
