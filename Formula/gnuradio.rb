@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/releases/download/v3.9.0.0/gnuradio-3.9.0.0.tar.xz"
   sha256 "0a2622933c96a4b22405c7656b8af0db32762834317ec2b90bff0a0a5a4f75cb"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
@@ -25,6 +25,7 @@ class Gnuradio < Formula
   depends_on "gmp"
   depends_on "gsl"
   depends_on "gtk+3"
+  depends_on "jack"
   depends_on "log4cpp"
   depends_on "numpy"
   depends_on "portaudio"
@@ -81,7 +82,6 @@ class Gnuradio < Formula
 
   def install
     ENV.cxx11
-    ENV.prepend_path "PATH", Formula["qt"].opt_bin.to_s
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
@@ -110,8 +110,8 @@ class Gnuradio < Formula
       -DPYTHON_VERSION_MAJOR=3
       -DQWT_LIBRARIES=#{Formula["qwt"].lib}/qwt.framework/qwt
       -DQWT_INCLUDE_DIRS=#{Formula["qwt"].lib}/qwt.framework/Headers
-      -DCMAKE_PREFIX_PATH=#{Formula["qt"].opt_lib}
-      -DQT_BINARY_DIR=#{Formula["qt"].opt_bin}
+      -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
+      -DQT_BINARY_DIR=#{Formula["qt@5"].opt_bin}
       -DENABLE_TESTING=OFF
       -DENABLE_INTERNAL_VOLK=OFF
     ]
