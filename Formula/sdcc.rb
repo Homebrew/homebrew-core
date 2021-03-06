@@ -3,7 +3,8 @@ class Sdcc < Formula
   homepage "https://sdcc.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/sdcc/sdcc/4.0.0/sdcc-src-4.0.0.tar.bz2"
   sha256 "489180806fc20a3911ba4cf5ccaf1875b68910d7aed3f401bbd0695b0bef4e10"
-  license "GPL-2.0"
+  license all_of: ["GPL-2.0-only", "GPL-3.0-only", :public_domain, "Zlib"]
+  revision 1
   head "https://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
 
   livecheck do
@@ -23,6 +24,11 @@ class Sdcc < Formula
   depends_on "automake" => :build
   depends_on "boost"
   depends_on "gputils"
+  depends_on "readline"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "texinfo" => :build
 
   def install
     system "./configure", "--prefix=#{prefix}"
@@ -32,6 +38,12 @@ class Sdcc < Formula
   end
 
   test do
-    system "#{bin}/sdcc", "-v"
+    (testpath/"test.c").write <<~EOS
+      int main() {
+        return 0;
+      }
+    EOS
+    system "#{bin}/sdcc", "-mz80", "#{testpath}/test.c"
+    assert_predicate testpath/"test.ihx", :exist?
   end
 end
