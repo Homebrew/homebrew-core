@@ -4,8 +4,8 @@ class Cake < Formula
   # once we ship version 1.0.0, which is likely going to be our next release.
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/releases/download/v1.0.0/Cake-bin-net461-v1.0.0.zip"
-  sha256 "dc00c687d01a6001b2508ce5b16f405888598dfddeacb184e49a3051cb4710b8"
+  url "https://github.com/cake-build/cake/releases/download/v1.1.0/Cake-bin-net461-v1.1.0.zip"
+  sha256 "e556aaf3675728ce349569bd19b32492c36a9d9ad97acf3e1e007bab8f6eddfa"
   license "MIT"
 
   bottle :unneeded
