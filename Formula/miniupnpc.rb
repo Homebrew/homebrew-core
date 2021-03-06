@@ -1,8 +1,8 @@
 class Miniupnpc < Formula
   desc "UPnP IGD client library and daemon"
   homepage "https://miniupnp.tuxfamily.org"
-  url "https://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.1.tar.gz"
-  sha256 "e19fb5e01ea5a707e2a8cb96f537fbd9f3a913d53d804a3265e3aeab3d2064c6"
+  url "http://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.2.2.tar.gz"
+  sha256 "888fb0976ba61518276fe1eda988589c700a3f2a69d71089260d75562afd3687"
 
   # We only match versions with only a major/minor since versions like 2.1 are
   # stable and versions like 2.1.20191224 are unstable/development releases.
