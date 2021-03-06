@@ -3,8 +3,9 @@ class Argocd < Formula
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-cd.git",
       tag:      "v1.8.7",
-      revision: "a97230859344f8906502763743717d7ad7339c55"
+      revision: "eb3d1fb84b9b77cdffd70b14c4f949f1c64a9416"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7b3f291d83c24a290aac7ae024f1c7f99d4a9ceaa7bd91979ebc31aaf8763b18"
