@@ -9,7 +9,7 @@ class Miniupnpc < Formula
   # stable and versions like 2.1.20191224 are unstable/development releases.
   livecheck do
     url "https://miniupnp.tuxfamily.org/files/"
-    regex(/href=.*?miniupnpc[._-]v?(\d+\.\d+)\.t/i)
+    regex(/href=.*?miniupnpc[._-]v?(\d+\.\d+(?>.\d{1,7})*)\.t/i)
   end
 
   bottle do
