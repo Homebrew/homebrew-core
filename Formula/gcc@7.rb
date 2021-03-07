@@ -78,9 +78,6 @@ class GccAT7 < Formula
       args << "--with-sysroot=#{sdk}"
     end
 
-    # Avoid reference to sed shim
-    args << "SED=/usr/bin/sed"
-
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
