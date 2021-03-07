@@ -4,6 +4,7 @@ class Broot < Formula
   url "https://github.com/Canop/broot/archive/v1.2.7.tar.gz"
   sha256 "7e592f79e5fd6766bcaa67e6635f2fc2f7ad08dfa9410c6713f7e06609856812"
   license "MIT"
+  revision 1
   head "https://github.com/Canop/broot.git"
 
   bottle do
@@ -19,6 +20,23 @@ class Broot < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    # Replace man page "#version" and "#date" based on logic in release.sh
+    inreplace "man/page" do |s|
+      s.gsub! "#version", version
+      s.gsub! "#date", Time.now.utc.strftime("%Y/%m/%d")
+    end
+    man1.install "man/page" => "broot.1"
+
+    # Completion scripts are generated in the crate's build directory,
+    # which includes a fingerprint hash. Try to locate it first
+    out_dir = Dir["target/release/build/broot-*/out"].first
+    bash_completion.install "#{out_dir}/broot.bash"
+    bash_completion.install "#{out_dir}/br.bash"
+    fish_completion.install "#{out_dir}/broot.fish"
+    fish_completion.install "#{out_dir}/br.fish"
+    zsh_completion.install "#{out_dir}/_broot"
+    zsh_completion.install "#{out_dir}/_br"
   end
 
   test do
