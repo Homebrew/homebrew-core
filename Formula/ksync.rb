@@ -28,7 +28,7 @@ class Ksync < Formula
       -w
       -X #{project}/pkg/ksync.GitCommit=#{Utils.git_short_head}
       -X #{project}/pkg/ksync.GitTag=#{version}
-      -X #{project}/pkg/ksync.BuildDate=#{Utils.safe_popen_read("date", "+%Y%m%dT%H%M%S").chomp}
+      -X #{project}/pkg/ksync.BuildDate=#{Time.now.utc.rfc3339(9)}
       -X #{project}/pkg/ksync.VersionString=Homebrew
       -X #{project}/pkg/ksync.GoVersion=go#{Formula["go"].version}
     ]
