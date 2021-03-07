@@ -28,12 +28,6 @@ class Quilt < Formula
       "--prefix=#{prefix}",
       "--without-getopt",
     ]
-    on_macos do
-      args << "--with-sed=#{HOMEBREW_PREFIX}/bin/gsed"
-    end
-    on_linux do
-      args << "--with-sed=#{HOMEBREW_PREFIX}/bin/sed"
-    end
     system "./configure", *args
 
     system "make"
