@@ -1,8 +1,8 @@
 class Dune < Formula
   desc "Composable build system for OCaml"
   homepage "https://dune.build/"
-  url "https://github.com/ocaml/dune/releases/download/2.8.2/dune-2.8.2.tbz"
-  sha256 "e2c4e8230f7c96236503fd75f22bdbc263639971bf104509e446855ded35ae1e"
+  url "https://github.com/ocaml/dune/releases/download/2.8.4/dune-2.8.4.tbz"
+  sha256 "4e6420177584aabdc3b7b37aee3026b094b82bf5d7ed175344a68e321f72e8ac"
   license "MIT"
   head "https://github.com/ocaml/dune.git"
 
@@ -16,9 +16,10 @@ class Dune < Formula
   depends_on "ocaml" => [:build, :test]
 
   def install
-    system "ocaml", "bootstrap.ml"
-    system "./dune.exe", "build", "-p", "dune", "--profile", "dune-bootstrap"
-    bin.install "_build/default/bin/dune.exe" => "dune"
+    system "make", "release"
+    system "make", "PREFIX=#{prefix}", "install"
+    share.install prefix/"man"
+    elisp.install Dir[share/"emacs/site-lisp/*"]
   end
 
   test do
