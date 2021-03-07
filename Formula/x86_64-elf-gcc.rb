@@ -27,8 +27,7 @@ class X8664ElfGcc < Formula
                              "--without-headers",
                              "--with-as=#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-as",
                              "--with-ld=#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-ld",
-                             "--enable-languages=c,c++",
-                             "SED=/usr/bin/sed"
+                             "--enable-languages=c,c++"
       system "make", "all-gcc"
       system "make", "install-gcc"
       system "make", "all-target-libgcc"
