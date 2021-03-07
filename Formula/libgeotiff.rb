@@ -4,6 +4,7 @@ class Libgeotiff < Formula
   url "https://github.com/OSGeo/libgeotiff/releases/download/1.6.0/libgeotiff-1.6.0.tar.gz"
   sha256 "9311017e5284cffb86f2c7b7a9df1fb5ebcdc61c30468fb2e6bca36e4272ebca"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a670b1daf400c747f5993a97888a8910a126a6e4668ddf3aa78e4f259db9246b"
@@ -23,7 +24,7 @@ class Libgeotiff < Formula
 
   depends_on "jpeg"
   depends_on "libtiff"
-  depends_on "proj"
+  depends_on "proj@7"
 
   def install
     system "./autogen.sh" if build.head?
