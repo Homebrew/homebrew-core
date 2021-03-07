@@ -8,8 +8,7 @@ class Stockfish < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/(?:sf[._-])?v?(\d+(?:\.\d+)*)["' >]}i)
+    regex(/^sf[._-]v?(\d+(?:\.\d+)*)$/i)
   end
 
   bottle do
