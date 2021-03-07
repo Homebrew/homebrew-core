@@ -27,11 +27,11 @@ class Zeek < Formula
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
-                      "-DDISABLE_PYTHON_BINDINGS=on",
-                      "-DBROKER_DISABLE_TESTS=on",
-                      "-DBUILD_SHARED_LIBS=on",
-                      "-DINSTALL_AUX_TOOLS=on",
-                      "-DINSTALL_ZEEKCTL=on",
+                      "-DDISABLE_PYTHON_BINDINGS=true",
+                      "-DBROKER_DISABLE_TESTS=true",
+                      "-DBUILD_SHARED_LIBS=true",
+                      "-DINSTALL_AUX_TOOLS=true",
+                      "-DINSTALL_ZEEKCTL=true",
                       "-DCAF_ROOT_DIR=#{Formula["caf"].opt_prefix}",
                       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
                       "-DZEEK_ETC_INSTALL_DIR=#{etc}",
