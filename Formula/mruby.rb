@@ -18,7 +18,12 @@ class Mruby < Formula
   uses_from_macos "ruby"
 
   def install
-    inreplace "build_config.rb", /default/, "full-core"
+    cp "build_config/default.rb", buildpath/"homebrew.rb"
+    inreplace buildpath/"homebrew.rb",
+      "conf.gembox 'default'",
+      "conf.gembox 'full-core'"
+    ENV["MRUBY_CONFIG"] = buildpath/"homebrew.rb"
+
     system "make"
 
     cd "build/host/" do
