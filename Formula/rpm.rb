@@ -57,7 +57,6 @@ class Rpm < Formula
                           "--with-vendor=homebrew",
                           # Don't allow superenv shims to be saved into lib/rpm/macros
                           "__MAKE=/usr/bin/make",
-                          "__SED=/usr/bin/sed",
                           "__GIT=/usr/bin/git",
                           "__LD=/usr/bin/ld"
     system "make", "install"
