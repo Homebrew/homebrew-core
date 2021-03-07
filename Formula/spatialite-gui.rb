@@ -3,8 +3,8 @@ class SpatialiteGui < Formula
   homepage "https://www.gaia-gis.it/fossil/spatialite_gui/index"
   url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-1.7.1.tar.gz"
   sha256 "cb9cb1ede7f83a5fc5f52c83437e556ab9cb54d6ace3c545d31b317fd36f05e4"
-  license "GPL-3.0"
-  revision 6
+  license "GPL-3.0-or-later"
+  revision 7
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/"
@@ -24,7 +24,7 @@ class SpatialiteGui < Formula
   depends_on "geos"
   depends_on "libgaiagraphics"
   depends_on "libspatialite"
-  depends_on "proj"
+  depends_on "proj@7"
   depends_on "sqlite"
   depends_on "wxmac"
 
@@ -37,9 +37,12 @@ class SpatialiteGui < Formula
     # Link flags for sqlite don't seem to get passed to make, which
     # causes builds to fatally error out on linking.
     # https://github.com/Homebrew/homebrew/issues/44003
+    #
+    # spatialite-gui uses `proj` (instead of `proj@7`) if installed
     sqlite = Formula["sqlite"]
-    ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
-    ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
+    proj = Formula["proj@7"]
+    ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3 -L#{proj.opt_lib}"
+    ENV.prepend "CFLAGS", "-I#{sqlite.opt_include} -I#{proj.opt_include}"
 
     # Use Proj 6.0.0 compatibility headers
     # https://www.gaia-gis.it/fossil/spatialite_gui/tktview?name=8349866db6
