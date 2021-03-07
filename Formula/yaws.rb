@@ -34,8 +34,7 @@ class Yaws < Formula
     system "autoreconf", "-fvi"
     system "./configure", "--prefix=#{prefix}",
                           # Ensure pam headers are found on Xcode-only installs
-                          "--with-extrainclude=#{MacOS.sdk_path}/usr/include/security",
-                          "SED=/usr/bin/sed"
+                          "--with-extrainclude=#{MacOS.sdk_path}/usr/include/security"
     system "make", "install", "WARNINGS_AS_ERRORS="
 
     cd "applications/yapp" do
