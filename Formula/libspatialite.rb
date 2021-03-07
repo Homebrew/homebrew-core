@@ -6,6 +6,7 @@ class Libspatialite < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.0.1.tar.gz"
   sha256 "eecbc94311c78012d059ebc0fae86ea5ef6eecb13303e6e82b3753c1b3409e98"
   license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/"
@@ -32,7 +33,7 @@ class Libspatialite < Formula
   depends_on "librttopo"
   depends_on "libxml2"
   depends_on "minizip"
-  depends_on "proj"
+  depends_on "proj@7"
   depends_on "sqlite"
 
   def install
