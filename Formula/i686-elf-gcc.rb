@@ -28,8 +28,7 @@ class I686ElfGcc < Formula
                              "--without-headers",
                              "--with-as=#{Formula["i686-elf-binutils"].bin}/i686-elf-as",
                              "--with-ld=#{Formula["i686-elf-binutils"].bin}/i686-elf-ld",
-                             "--enable-languages=c,c++",
-                             "SED=/usr/bin/sed"
+                             "--enable-languages=c,c++"
       system "make", "all-gcc"
       system "make", "install-gcc"
       system "make", "all-target-libgcc"
