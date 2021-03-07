@@ -33,7 +33,6 @@ class Sleuthkit < Formula
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
     ENV["ANT_FOUND"]=Formula["ant"].opt_bin/"ant"
-    ENV["SED"]="/usr/bin/sed"
     ENV.append_to_cflags "-DNDEBUG"
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
