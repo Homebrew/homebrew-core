@@ -74,13 +74,13 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/1c/3e/bd47fffb71e4084dc9562326ab5b3030663a21eed3de914541fed8d94486/pikepdf-2.8.0.tar.gz"
-    sha256 "74ff96fddd21cd4c0830eb549137ea9eccbdbff8cef4f684322b9afb8e42ccb5"
+    url "https://files.pythonhosted.org/packages/d2/44/b3b5d49a41a0793d3621c0614e07028b9640c49e744f80b46a4fe17bb946/pikepdf-2.8.0.post1.tar.gz"
+    sha256 "f742acfd2c41ceff0ade2dec8ddc4875ce0a75f51f5e943b56f4d741ab54b122"
   end
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/a6/24/1346f8c70dae5daf58e22435a1f1f4696682b4f85321eb4d18ca1d81c0c2/Pillow-8.1.1.tar.gz"
-    sha256 "f6fc18f9c9c7959bf58e6faf801d14fafb6d4717faaf6f79a68c8bb2a13dcf20"
+    url "https://files.pythonhosted.org/packages/60/f0/dd2eb7911f948bf529f58f0c7931f6f6466f711bd6f1d81a69dc4edd4e2a/Pillow-8.1.2.tar.gz"
+    sha256 "b07c660e014852d98a00a91adfbe25033898a9d90a8f39beb2437d22a203fc44"
   end
 
   resource "pluggy" do
@@ -94,8 +94,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/d2/11/3e4468c0a4731b0fb995da194d08866bf3c92b7e3e05d28d4b0941529810/reportlab-3.5.62.tar.gz"
-    sha256 "8c15beaafa8bb116a19e6ae11bbc06e212be12ee25b39135aa37ad75bf2e0f30"
+    url "https://files.pythonhosted.org/packages/6f/72/f5b6bd34e3caf60406adf1c99c91045b8b148ce377d9ecec5e682659b192/reportlab-3.5.63.tar.gz"
+    sha256 "6abe1f858a1df75e66023205f5f70c80db57dafbff5085f9374ea81a28594830"
   end
 
   resource "sortedcontainers" do
@@ -104,8 +104,8 @@ class Ocrmypdf < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/b1/43/5fbcc228769304f437f412b98be988121afff58245105ad4fdad7f8c1526/tqdm-4.58.0.tar.gz"
-    sha256 "c23ac707e8e8aabb825e4d91f8e17247f9cc14b0d64dd9e97be0781e9e525bba"
+    url "https://files.pythonhosted.org/packages/ef/58/60cc1e9af5714d1b86062f6dc00c5dd6973c902da6259f930b9c6e7a3430/tqdm-4.59.0.tar.gz"
+    sha256 "d666ae29164da3e517fcf125e41d4fe96e5bb375cd87ff9763f6b38b5592fe33"
   end
 
   def install
