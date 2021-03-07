@@ -25,7 +25,7 @@ class Gcal < Formula
   end
 
   test do
-    date = shell_output("date +%Y")
-    assert_match date, shell_output("#{bin}/gcal")
+    date = Time.now.year
+    assert_match date.to_s, shell_output("#{bin}/gcal")
   end
 end
