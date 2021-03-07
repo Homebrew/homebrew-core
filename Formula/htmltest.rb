@@ -16,7 +16,7 @@ class Htmltest < Formula
 
   def install
     ldflags = %W[
-      -X main.date=#{Utils.safe_popen_read("date", "-u", "+%Y-%m-%dT%H:%M:%SZ")}
+      -X main.date=#{Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")}
       -X main.version=#{version}
     ].join(" ")
     system "go", "build", *std_go_args, "-ldflags", ldflags
