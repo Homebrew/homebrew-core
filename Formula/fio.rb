@@ -3,7 +3,7 @@ class Fio < Formula
   homepage "https://github.com/axboe/fio"
   url "https://github.com/axboe/fio/archive/fio-3.25.tar.gz"
   sha256 "d8157676bc78a50f3ac82ffc6f80ffc3bba93cbd892fc4882533159a0cdbc1e8"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "92ab29de16f4c30e39280b99cba069ed03c948b98a2f929acdcab01c35f9cd16"
