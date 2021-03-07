@@ -46,7 +46,6 @@ class R < Formula
       "--with-aqua",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
-      "SED=/usr/bin/sed", # don't remember Homebrew's sed shim
       "--disable-java",
     ]
 
