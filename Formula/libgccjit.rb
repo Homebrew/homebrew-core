@@ -71,9 +71,6 @@ class Libgccjit < Formula
       args << "--with-sysroot=#{sdk}"
     end
 
-    # Avoid reference to sed shim
-    args << "SED=/usr/bin/sed"
-
     # Use -headerpad_max_install_names in the build,
     # otherwise updated load commands won't fit in the Mach-O header.
     # This is needed because `gcc` avoids the superenv shim.
