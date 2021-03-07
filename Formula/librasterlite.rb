@@ -3,7 +3,7 @@ class Librasterlite < Formula
   homepage "https://www.gaia-gis.it/fossil/librasterlite/index"
   url "https://www.gaia-gis.it/gaia-sins/librasterlite-sources/librasterlite-1.1g.tar.gz"
   sha256 "0a8dceb75f8dec2b7bd678266e0ffd5210d7c33e3d01b247e9e92fa730eebcb3"
-  revision 7
+  revision 8
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "19919f543a85e1890dfaee593945ce9427d71ac10c7f02b5895a2654981f1d91"
