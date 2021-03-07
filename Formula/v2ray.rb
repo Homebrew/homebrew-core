@@ -84,6 +84,13 @@ class V2ray < Formula
               ],
               "outboundTag": "direct",
               "type": "field"
+            },
+            {
+              "domains": [
+                "geosite:private"
+              ],
+              "outboundTag": "direct",
+              "type": "field"
             }
           ]
         }
