@@ -42,10 +42,6 @@ class Perl < Formula
       -Duselargefiles
       -Dusethreads
     ]
-    on_macos do
-      args << "-Dsed=/usr/bin/sed"
-    end
-
     args << "-Dusedevel" if build.head?
 
     system "./Configure", *args
