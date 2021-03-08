@@ -79,10 +79,12 @@ class Wolfssl < Formula
       --enable-fasthugemath
     ]
 
-    # Extra flag is stated as a needed for the Mac platform.
-    # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
-    # Also, only applies if fastmath is enabled.
-    ENV.append_to_cflags "-mdynamic-no-pic"
+    on_macos do
+      # Extra flag is stated as a needed for the Mac platform.
+      # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
+      # Also, only applies if fastmath is enabled.
+      ENV.append_to_cflags "-mdynamic-no-pic"
+    end
 
     system "./autogen.sh"
     system "./configure", *args
