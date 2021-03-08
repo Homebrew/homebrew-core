@@ -7,7 +7,7 @@ class Aescrypt < Formula
 
   livecheck do
     url :homepage
-    regex(/aescrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?aescrypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
