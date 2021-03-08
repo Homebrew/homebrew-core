@@ -36,7 +36,7 @@ jobs:
 
     - name: Check .github/workflows/tests-linux.yml formulae coverage
       run: |
-        FILES=$(grep -oE 'Formula/[a-z0-9_\.\-]+' .github/workflows/tests-linux.yml)
+        FILES=$(grep -oE 'Formula/[a-z0-9_\.\-]+' .github/workflows/linux-pr-tests.yml)
         for FILE in $FILES; do
           if [ ! -f "$FILE" ]; then
             echo ".github/workflows/tests-linux.yml is testing a non existing file: $FILE"
