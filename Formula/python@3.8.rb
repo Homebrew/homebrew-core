@@ -390,7 +390,9 @@ class PythonAT38 < Formula
     system "#{bin}/python#{version.major_minor}", "-c", "import _decimal"
     system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
     system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
-    system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()"
+    on_macos do
+      system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()"
+    end
 
     system bin/"pip3", "list", "--format=columns"
 
