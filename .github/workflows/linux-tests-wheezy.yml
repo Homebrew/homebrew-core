@@ -1,4 +1,4 @@
-name: Wheezy CI
+name: GitHub Actions CI (Linux Wheezy)
 on:
   pull_request:
     paths:

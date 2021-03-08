@@ -34,16 +34,6 @@ jobs:
 
     - run: brew test-bot --only-tap-syntax
 
-    - name: Check .github/workflows/tests-linux.yml formulae coverage
-      run: |
-        FILES=$(grep -oE 'Formula/[a-z0-9_\.\-]+' .github/workflows/linux-pr-tests.yml)
-        for FILE in $FILES; do
-          if [ ! -f "$FILE" ]; then
-            echo ".github/workflows/tests-linux.yml is testing a non existing file: $FILE"
-            exit 1
-          fi
-        done
-
     - name: Check for CI-syntax-only label
       id: check-labels
       uses: actions/github-script@v3

@@ -1,0 +1,139 @@
+name: GitHub Actions CI (Linux)
+on:
+  pull_request:
+    paths-ignore:
+      # Slow running processes that will be built on the self-hosted runner
+      - "Formula/bison.rb"
+      - "Formula/bzip2.rb"
+      - "Formula/curl.rb"
+      - "Formula/expat.rb"
+      - "Formula/flex.rb"
+      - "Formula/libffi.rb"
+      - "Formula/libxml2.rb"
+      - "Formula/libxslt.rb"
+      - "Formula/libx11.rb"
+      - "Formula/m4.rb"
+      - "Formula/ncurses.rb"
+      - "Formula/perl.rb"
+      - "Formula/python@3.9.rb"
+      - "Formula/sqlite.rb"
+      - "Formula/zlib.rb"
+      # Will be built in the linux-tests-wheezy workflow
+      - "Formula/patchelf.rb"
+      - "Formula/binutils.rb"
+jobs:
+  check_labels_linux:
+    runs-on: ubuntu-latest
+    outputs:
+      run-tests: ${{ steps.check-labels.outputs.result }}
+      skip-linux-tests: ${{ steps.check-linux-labels.outputs.result }}
+    steps:
+      - name: Check for CI-syntax-only label
+        id: check-labels
+        uses: actions/github-script@v3
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: { labels: labels } } = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            })
+            if (!labels.map(label => label.name).includes('CI-syntax-only')) {
+              console.log('No CI-syntax-only label found. Running tests.')
+              return true
+            }
+            console.log('CI-syntax-only label found. Skipping tests.')
+
+      - name: Check for CI-force-linux label
+        id: check-linux-labels
+        uses: actions/github-script@v3
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: { labels: labels } } = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            })
+            if (!labels.map(label => label.name).includes('CI-force-linux')) {
+              console.log('No CI-force-linux label found.')
+              return true
+            }
+            console.log('CI-force-linux label found.')
+
+  tests_linux:
+    needs: check_labels_linux
+    if: github.event_name == 'pull_request' && needs.check_labels_linux.outputs.run-tests
+    runs-on: ubuntu-latest
+    container:
+      image: homebrew/ubuntu16.04:master
+    env:
+      HOMEBREW_CORE_GIT_REMOTE: ${{github.event.repository.html_url}}
+      HOMEBREW_BOTTLE_DOMAIN: https://homebrew.bintray.com/
+    steps:
+      - name: Check whether Linux tests will be forced
+        if: needs.tap_syntax.outputs.skip-linux-tests
+        run: echo 'HOMEBREW_REQUIRE_BOTTLED_LINUX=1' >> $GITHUB_ENV
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Run brew test-bot --only-formulae
+         run: |
+           mkdir ~/bottles
+           cd ~/bottles
+           brew test-bot --only-formulae
+
+      - name: Output brew test-bot --only-formulae failures
+        if: always()
+        run: |
+          cat ~/bottles/steps_output.txt
+          rm ~/bottles/steps_output.txt
+
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@main
+        with:
+          name: logs (Linux)
+          path: ~/bottles/logs
+
+      - name: Delete logs and home
+        if: always()
+        run: |
+          rm -rvf ~/bottles/logs
+          rm -rvf ~/bottles/home
+
+      - name: Count bottles
+        id: bottles
+        if: always()
+        run: |
+          cd ~/bottles
+          count=$(ls *.json | wc -l | xargs echo -n)
+          echo "$count bottles"
+          echo "::set-output name=count::$count"
+          failures=$(ls failed/*.json | wc -l | xargs echo -n)
+          echo "$failures failed bottles"
+          echo "::set-output name=failures::$failures"
+
+      - name: Upload failed bottles
+        if: always() && steps.bottles.outputs.failures > 0
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles linux
+          path: ~/bottles/failed
+
+      # Must be run before the `Upload bottles` step so that failed
+      # bottles are not included in the `bottles` artifact.
+      - name: Delete failed bottles
+        if: always()
+        run: rm -rvf ~/bottles/failed
+
+      - name: Upload bottles
+        if: always() && steps.bottles.outputs.count > 0
+        uses: actions/upload-artifact@main
+        with:
+          name: bottles
+          path: ~/bottles
