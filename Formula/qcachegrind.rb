@@ -10,7 +10,7 @@ class Qcachegrind < Formula
   # is 80+ (beta) or 90+ (RC), as these aren't stable releases.
   livecheck do
     url "https://download.kde.org/Attic/applications/"
-    regex(%r{href=.*?v?(\d+\.\d+\.(?:(?!8\d|9\d)\d+)(?:\.\d+)*)/?["' >]}i)
+    regex(%r{href=.*?v?(\d+\.\d+\.(?:(?![89]\d)\d+)(?:\.\d+)*)/?["' >]}i)
   end
 
   bottle do
