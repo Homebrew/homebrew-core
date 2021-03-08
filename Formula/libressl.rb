@@ -46,27 +46,29 @@ class Libressl < Formula
   end
 
   def post_install
-    keychains = %w[
-      /System/Library/Keychains/SystemRootCertificates.keychain
-    ]
+    on_macos do
+      keychains = %w[
+        /System/Library/Keychains/SystemRootCertificates.keychain
+      ]
 
-    certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
+      certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
+      certs = certs_list.scan(
+        /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
+      )
 
-    valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
-        openssl_io.write(cert)
-        openssl_io.close_write
+      valid_certs = certs.select do |cert|
+        IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
+          openssl_io.write(cert)
+          openssl_io.close_write
+        end
+
+        $CHILD_STATUS.success?
       end
 
-      $CHILD_STATUS.success?
+      # LibreSSL install a default pem - We prefer to use macOS for consistency.
+      rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
+      (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
     end
-
-    # LibreSSL install a default pem - We prefer to use macOS for consistency.
-    rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
-    (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
   def caveats
