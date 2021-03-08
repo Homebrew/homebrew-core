@@ -4,7 +4,7 @@ class Libtommath < Formula
   url "https://github.com/libtom/libtommath/releases/download/v1.2.0/ltm-1.2.0.tar.xz"
   sha256 "b7c75eecf680219484055fcedd686064409254ae44bc31a96c5032843c0e18b1"
   license "Unlicense"
-  revision 1
+  revision 2
   head "https://github.com/libtom/libtommath.git"
 
   bottle do
@@ -14,6 +14,8 @@ class Libtommath < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "9832ceb97e387a519d6ae9b66bb3a7066c1d112d947667527a5edfcc692e4983"
     sha256 cellar: :any_skip_relocation, high_sierra:   "26e39af069485ef58c3517fb765db3a5e8dba0f253aac3d0d5968ff2a35e595b"
   end
+
+  depends_on "libtool" => :build
 
   # Fixes mp_set_double being missing on macOS.
   # This is needed by some dependents in homebrew-core.
@@ -28,10 +30,8 @@ class Libtommath < Formula
   def install
     ENV["DESTDIR"] = prefix
 
-    system "make"
-    system "make", "test_standalone"
-    include.install Dir["tommath*.h"]
-    lib.install "libtommath.a"
+    system "make", "-f", "makefile.shared", "install"
+    system "make", "test"
     pkgshare.install "test"
   end
 
