@@ -1,8 +1,8 @@
 class Xh < Formula
   desc "Yet another HTTPie clone"
   homepage "https://github.com/ducaale/xh"
-  url "https://github.com/ducaale/xh/archive/v0.8.1.tar.gz"
-  sha256 "fecafc61e612b53bab1ab5c935154e9b96190b0882ff6e6245aaa35b479f305a"
+  url "https://github.com/ducaale/xh/archive/v0.9.0.tar.gz"
+  sha256 "b9a9386b552f527796f088b5d38effba8fd01c1dcb457cfd5bbfef23ec8c424f"
   license "MIT"
   head "https://github.com/ducaale/xh.git"
 
