@@ -15,11 +15,10 @@ class Ykman < Formula
     sha256 cellar: :any, mojave:        "bd8606fe932c56e86dbfe1ee4c920626e807bdc3e06e2f4a579ce32d39d14c6c"
   end
 
+  depends_on "rust" => :build
   depends_on "swig" => :build
-  depends_on "libusb"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
-  depends_on "ykpers"
 
   uses_from_macos "libffi"
 
@@ -51,11 +50,6 @@ class Ykman < Formula
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
-  end
-
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/98/cd/cbc9c152daba9b5de6094a185c66f1c6eb91c507f378bb7cad83d623ea88/pyOpenSSL-20.0.1.tar.gz"
-    sha256 "4c231c759543ba02560fcd2480c48dcec4dae34c9da7d3747c508227e0624b51"
   end
 
   resource "pyscard" do
