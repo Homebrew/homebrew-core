@@ -61,6 +61,13 @@ class Xray < Formula
               ],
               "outboundTag": "direct",
               "type": "field"
+            },
+            {
+              "domains": [
+                "geosite:private"
+              ],
+              "outboundTag": "direct",
+              "type": "field"
             }
           ]
         }
