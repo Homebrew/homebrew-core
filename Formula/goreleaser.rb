@@ -5,6 +5,7 @@ class Goreleaser < Formula
       tag:      "v0.159.0",
       revision: "c1f9be42e43221793c76ae2b919c3283c0ab6e29"
   license "MIT"
+  revision 1
   head "https://github.com/goreleaser/goreleaser.git"
 
   bottle do
@@ -20,6 +21,16 @@ class Goreleaser < Formula
     system "go", "build", "-ldflags",
              "-s -w -X main.version=#{version} -X main.commit=#{Utils.git_head} -X main.builtBy=homebrew",
              *std_go_args
+
+    # Install shell completions
+    output = Utils.safe_popen_read("#{bin}/goreleaser", "completion", "bash")
+    (bash_completion/"goreleaser").write output
+
+    output = Utils.safe_popen_read("#{bin}/goreleaser", "completion", "zsh")
+    (zsh_completion/"_goreleaser").write output
+
+    output = Utils.safe_popen_read("#{bin}/goreleaser", "completion", "fish")
+    (fish_completion/"goreleaser.fish").write output
   end
 
   test do
