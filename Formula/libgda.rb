@@ -1,8 +1,8 @@
 class Libgda < Formula
   desc "Provides unified data access to the GNOME project"
   homepage "https://www.gnome-db.org/"
-  url "https://download.gnome.org/sources/libgda/5.2/libgda-5.2.10.tar.xz"
-  sha256 "6f6cdf7b8053f553b907e0c88a6064eb48cf2751852eb24323dcf027792334c8"
+  url "https://download.gnome.org/sources/libgda/6.0/libgda-6.0.0.tar.xz"
+  sha256 "995f4b420e666da5c8bac9faf55e7aedbe3789c525d634720a53be3ccf27a670"
   license "GPL-2.0-or-later"
 
   bottle do
