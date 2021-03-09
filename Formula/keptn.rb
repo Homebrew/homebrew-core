@@ -35,7 +35,7 @@ class Keptn < Formula
     r, _w, pid = PTY.spawn("#{bin}/keptn status", err: :out)
     begin
       Timeout.timeout(5) do
-        assert_match "CLI is not authenticated against any Keptn cluster.", r.gets.chomp
+        assert_match "Warning: could not open KUBECONFIG file", r.gets.chomp
         Process.wait pid
         assert_equal 0, $CHILD_STATUS.exitstatus
       end
