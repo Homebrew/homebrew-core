@@ -4,6 +4,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.31.4.tar.xz"
   sha256 "8661b66567660fd630af10c4647c30327fdd1b34a988cab80d614328a5b74f55"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
   livecheck do
@@ -27,7 +28,8 @@ class Notmuch < Formula
   depends_on "python@3.9"
   depends_on "talloc"
   depends_on "xapian"
-  depends_on "zlib"
+
+  uses_from_macos "zlib", since: :sierra
 
   def install
     args = %W[
