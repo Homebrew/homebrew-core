@@ -5,8 +5,8 @@ class PerconaXtrabackup < Formula
   sha256 "064fe405f8c1f94edd9300756bdf979eae0a41c5cad15762caabfe24f5332eac"
 
   livecheck do
-    url "https://github.com/percona/percona-xtrabackup.git"
-    regex(/^percona-xtrabackup[._-]v?(\d+(?:\.\d+)+)$/i)
+    url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
+    regex(/value=.*?Percona-XtraBackup[._-]v?(\d+(?:\.\d+)+-\d+)["' >]/i)
   end
 
   bottle do
