@@ -21,6 +21,10 @@ class Spotifyd < Formula
   depends_on "rust" => :build
   depends_on "dbus"
 
+  on_linux do
+    depends_on "alsa-lib"
+  end
+
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
     system "cargo", "install", "--no-default-features",
