@@ -26,8 +26,6 @@ class Botan < Formula
     args = %W[
       --prefix=#{prefix}
       --docdir=share/doc
-      --cc=#{ENV.compiler}
-      --os=darwin
       --with-zlib
       --with-bzip2
       --with-sqlite3
