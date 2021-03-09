@@ -4,7 +4,7 @@ class KyotoTycoon < Formula
   url "https://fallabs.com/kyototycoon/pkg/kyototycoon-0.9.56.tar.gz"
   sha256 "553e4ea83237d9153cc5e17881092cefe0b224687f7ebcc406b061b2f31c75c6"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 arm64_big_sur: "ec2db363d2e03749d1d738ba77750e86c77b8362725767661b46a54ba88e6a6f"
@@ -16,7 +16,8 @@ class KyotoTycoon < Formula
   depends_on "lua" => :build
   depends_on "pkg-config" => :build
   depends_on "kyoto-cabinet"
-  depends_on "zlib"
+
+  uses_from_macos "zlib"
 
   # Build patch (submitted upstream)
   patch do
