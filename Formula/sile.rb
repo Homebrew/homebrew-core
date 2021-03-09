@@ -4,6 +4,7 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.10.15/sile-0.10.15.tar.xz"
   sha256 "49b55730effd473c64a8955a903e48f61c51dd7bb862e6d5481193218d1e3c5c"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6e4cb6f0234094a58c5acee287639c91aaf6c78a64bc71f9bb98d30f4b6af5fc"
@@ -29,7 +30,8 @@ class Sile < Formula
   depends_on "libpng"
   depends_on "lua"
   depends_on "openssl@1.1"
-  depends_on "zlib"
+
+  uses_from_macos "zlib"
 
   resource "bit32" do
     url "https://github.com/keplerproject/lua-compat-5.3/archive/v0.10.tar.gz"
@@ -153,9 +155,14 @@ class Sile < Formula
             s.gsub! ", <= 5.3", ""
           end
 
+          zlib_dir = Formula["zlib"].opt_prefix
+          on_macos do
+            zlib_dir = "#{MacOS.sdk_path_if_needed}/usr"
+          end
+
           system "luarocks", "make",
                              "#{r.name}-#{r.version}-1.rockspec",
-                             "ZLIB_DIR=#{Formula["zlib"].opt_prefix}",
+                             "ZLIB_DIR=#{zlib_dir}",
                              "--tree=#{luapath}",
                              "--lua-dir=#{luaprefix}"
         when "luaexpat"
