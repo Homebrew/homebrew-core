@@ -6,7 +6,7 @@ class AnsibleAT29 < Formula
   url "https://files.pythonhosted.org/packages/f0/03/4547c6afee926b842a288b12036a7bddce4f7f661b6797414eaee6ac2ccc/ansible-2.9.17.tar.gz"
   sha256 "d78b46d647d91dd478ba7f43baf36ffa27f9a5992b826b16a6cc15cf993f19dc"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   # The newest PyPI release won't be a 2.9.x version, so we match versions from
   # the links in the "Release History" section.
@@ -25,6 +25,7 @@ class AnsibleAT29 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
@@ -74,8 +75,8 @@ class AnsibleAT29 < Formula
 
   ### extras for requests[security]
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
-    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
   end
 
   resource "idna" do
