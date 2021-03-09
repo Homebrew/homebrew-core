@@ -23,6 +23,7 @@ class Fdroidserver < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.9"
   depends_on "s3cmd"
+  depends_on "tcl-tk"
   depends_on "webp"
 
   uses_from_macos "libxml2"
@@ -30,8 +31,8 @@ class Fdroidserver < Formula
   uses_from_macos "zlib"
 
   resource "androguard" do
-    url "https://files.pythonhosted.org/packages/39/95/884ef512913b128d7ec111e11fdd20646610ad4b9a09949b9e1256432409/androguard-3.4.0a1.tar.gz"
-    sha256 "2bdd9583321b14bbc0c5bd92fd330f0efe7fb6abe1f334b658ded5f93849e898"
+    url "https://files.pythonhosted.org/packages/83/78/0f44e8f0fd10493b3118d79d60599c93e5a2cd378d83054014600a620cba/androguard-3.3.5.tar.gz"
+    sha256 "f0655ca3a5add74c550951e79bd0bebbd1c5b239178393d30d8db0bd3202cda2"
   end
 
   resource "apache-libcloud" do
@@ -167,11 +168,6 @@ class Fdroidserver < Formula
   resource "networkx" do
     url "https://files.pythonhosted.org/packages/ef/d0/f706a9e5814a42c544fa1b2876fc33e5d17e1f2c92a5361776632c4f41ab/networkx-2.5.tar.gz"
     sha256 "7978955423fbc9639c10498878be59caf99b44dc304c2286162fd24b458c1602"
-  end
-
-  resource "numpy" do
-    url "https://files.pythonhosted.org/packages/d2/48/f445be426ccd9b2fb64155ac6730c7212358882e589cd3717477d739d9ff/numpy-1.20.1.zip"
-    sha256 "3bc63486a870294683980d76ec1e3efc786295ae00128f9ea38e2c6e74d5a60a"
   end
 
   resource "oauthlib" do
@@ -349,9 +345,6 @@ class Fdroidserver < Formula
 
       # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
       ENV.delete "SDKROOT"
-      unless MacOS::CLT.installed?
-        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
-      end
       venv.pip_install Pathname.pwd
     end
 
@@ -369,8 +362,9 @@ class Fdroidserver < Formula
     end
 
     venv.pip_install resource("cffi") # or bcrypt fails to build
+    venv.pip_install resource("wheel") # or kiwisolver fails to build
 
-    res = resources.map(&:name).to_set - %w[cffi lxml Pillow ptyprocess]
+    res = resources.map(&:name).to_set - %w[cffi lxml Pillow ptyprocess wheel]
 
     res.each do |r|
       venv.pip_install resource(r)
