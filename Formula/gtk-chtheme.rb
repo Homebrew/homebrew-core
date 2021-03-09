@@ -3,14 +3,15 @@ class GtkChtheme < Formula
   homepage "http://plasmasturm.org/code/gtk-chtheme/"
   url "http://plasmasturm.org/code/gtk-chtheme/gtk-chtheme-0.3.1.tar.bz2"
   sha256 "26f4b6dd60c220d20d612ca840b6beb18b59d139078be72c7b1efefc447df844"
-  revision 1
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "0c228f7f5b8cfcc95556443db4acea3bd763b99a30a9108bd0eb68ad228838ca" => :high_sierra
-    sha256 "913c9417ea21ecebdaeefb0329178d0304530310e4cfe64bf8831da5510bad4b" => :sierra
-    sha256 "dc5fb21e189707e3bbc2bea4ac6e8d2091961bae4ea5c593ad2ff7272c5709e6" => :el_capitan
-    sha256 "bdda9f20a50734e3ed0802fd12062160dfa378c47a09affb7a4716b892e70afe" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "8db79039412079abddb969b631131eb3a85f4e90edbcda84bffe4505e55f44b7"
+    sha256 cellar: :any, big_sur:       "b6255d461ea8c2ce6606170fdfc3d0564cc7d83ad5feeb7243c6dac01a7ba9e1"
+    sha256 cellar: :any, catalina:      "6294abe2d8ad07c52cc78c6fd156fba145340c163d4be7d103ce91ef84d2911b"
+    sha256 cellar: :any, mojave:        "54438d348c8534071e384f17ce9e9e5e784ec9732b64249a996372360edb5f9a"
+    sha256 cellar: :any, high_sierra:   "5e3ddc7b15e6d35d857815932e80b39f0abf804c8526cc798f0b3d3d66fe0338"
+    sha256 cellar: :any, sierra:        "5af49da12ab0e1799377eb160cff68283b7a24e0149135603d35810e6c0d7e55"
   end
 
   depends_on "pkg-config" => :build

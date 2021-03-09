@@ -1,24 +1,33 @@
 class Mogenerator < Formula
-  desc "Generate Objective-C code for Core Data custom classes"
+  desc "Generate Objective-C & Swift classes from your Core Data model"
   homepage "https://rentzsch.github.io/mogenerator/"
-  url "https://github.com/rentzsch/mogenerator/archive/1.31.tar.gz"
-  sha256 "aab49260799a1bb58d1c3240f227db0a5ce18fb54bda72f45d07c8c8b375061f"
-
+  url "https://github.com/rentzsch/mogenerator/archive/1.32.tar.gz"
+  sha256 "4fa660a19934d94d7ef35626d68ada9912d925416395a6bf4497bd7df35d7a8b"
+  license "MIT"
   head "https://github.com/rentzsch/mogenerator.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b5313f7dd8eeb5b379f6c64615104c23250b97c7c05de779427a29c573464f32" => :high_sierra
-    sha256 "19c0ec0b7f39deec9c99f4ede5ae1538acad0b3768db7b0557e15660efb41789" => :sierra
-    sha256 "eb94c192bb659183c72f970f1230948ce875ed49b53f0e7bb540660e7dae2353" => :el_capitan
-    sha256 "ceedcaabd71b51758c0b03e4b14be0f228e030af83651ad6f774c08d5910123b" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "51aec3a49207ae357af26a5407494bc88d98027ba06293736b2888ece7b1d71c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "415e0e160574b7b16dff3d0395a7e156894675191c911d09cddf59e1d916571b"
+    sha256 cellar: :any_skip_relocation, catalina:      "d62cad0cc94a7b05286fb2a8a2f8e4a4cc3a9b46efa9a391aa9fcb00c381e85e"
+    sha256 cellar: :any_skip_relocation, mojave:        "dcb658659b696e44f13e382f553c92199a7ab0be48ff69f33a35ef98ee8a09ac"
   end
 
-  depends_on :xcode => :build
-  depends_on :macos => :yosemite
+  depends_on xcode: :build
+
+  # https://github.com/rentzsch/mogenerator/pull/390
+  patch do
+    url "https://github.com/rentzsch/mogenerator/commit/20d9cce6df8380160cac0ce07687688076fddf3d.patch?full_index=1"
+    sha256 "de700f06c32cc0d4fbcb1cdd91e9e97a55931bc047841985d5c0905e65b5e5b0"
+  end
 
   def install
     xcodebuild "-target", "mogenerator", "-configuration", "Release", "SYMROOT=symroot", "OBJROOT=objroot"
     bin.install "symroot/Release/mogenerator"
+  end
+
+  test do
+    system "#{bin}/mogenerator", "--version"
   end
 end

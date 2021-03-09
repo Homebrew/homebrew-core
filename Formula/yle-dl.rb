@@ -1,110 +1,101 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://github.com/aajanki/yle-dl/archive/2.28.tar.gz"
-  sha256 "0dd37a5dc1a6b0f8dc5ef98ef3aaeadf66888950ced37edbfb37bf1c66014df3"
+  url "https://github.com/aajanki/yle-dl/archive/20210212.tar.gz"
+  sha256 "0b2a8a7034d2181bc714769d35c258343d2c9761244877c75c20d8ef21befb6e"
+  license "GPL-3.0-or-later"
   head "https://github.com/aajanki/yle-dl.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b8a6bc9fac308ef94cd0a2e66f623b878685b48a2caca260223f1e4a641149d5" => :high_sierra
-    sha256 "b7980ca02700d40451030ad9f704da35ca6e780c3cd474fd5acc944dd4245a72" => :sierra
-    sha256 "1ff77e42706106ad5bbf845d8235f2c9ecdcdf10941b3f1add1622d5206194da" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3b8ac46199354be222977452d9327ba4048d08996baa54d937ec08f69ddb0101"
+    sha256 cellar: :any_skip_relocation, big_sur:       "905a9aff686575a766d3ed1cf62d4ad94fabdaae39954d0c32e30b5fbbae13a1"
+    sha256 cellar: :any_skip_relocation, catalina:      "b42f24c8afd188c850cac2708ccd27d7ca3c2d4edbd4cd381305ea565c64558b"
+    sha256 cellar: :any_skip_relocation, mojave:        "3c91fca5131d9fed6faff0a54e809999369f44318eafa990ddec5355dc140299"
   end
 
+  depends_on "ffmpeg"
+  depends_on "python@3.9"
   depends_on "rtmpdump"
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "homebrew/php/php70-mcrypt" => :optional
-  depends_on "homebrew/php/php56-mcrypt" => :optional
-  depends_on "homebrew/php/php55-mcrypt" => :optional
-  depends_on "homebrew/php/php54-mcrypt" => :optional
-  depends_on "homebrew/php/php53-mcrypt" => :optional
+
+  uses_from_macos "libxslt"
+
+  # `Cannot import name "Feature" from "setuptools" in version 46.0.0`, and lock setuptools to v45.0.0
+  # https://github.com/pypa/setuptools/issues/2017#issuecomment-605354361
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/fd/76/3c7f726ed5c582019937f178d7478ce62716b7e8263344f1684cbe11ab3e/setuptools-45.0.0.zip"
+    sha256 "c46d9c8f2289535457d36c676b541ca78f7dcb736b97d02f50d17f7f15b583cc"
+  end
 
   resource "AdobeHDS.php" do
     # NOTE: yle-dl always installs the HEAD version of AdobeHDS.php. We use a specific commit.
     # Check if there are bugfixes at https://github.com/K-S-V/Scripts/commits/master/AdobeHDS.php
-    url "https://raw.githubusercontent.com/K-S-V/Scripts/3a9b748f957a921c5f846b3ebc7c99bb8255d2e0/AdobeHDS.php"
-    sha256 "45adf9b03dc991fcf6a44bb4cf62dd3777bf69647f1a98290e160a2bf89ebc2d"
+    url "https://raw.githubusercontent.com/K-S-V/Scripts/7fea932cb012cba8c203d5b46b891167b0f609a6/AdobeHDS.php"
+    sha256 "b79e8a4c8544953c39b79a622049c4deced57354adb9697e8c73420c12547229"
+  end
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
+    sha256 "832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
-  resource "defusedxml" do
-    url "https://files.pythonhosted.org/packages/74/ba/4ba4e89e21b5a2e267d80736ea674609a0a33cc4435a6d748ef04f1f9374/defusedxml-0.5.0.tar.gz"
-    sha256 "24d7f2f94f7f3cb6061acb215685e5125fbcdc40a857eff9de22518820b0a4f4"
+  resource "ConfigArgParse" do
+    url "https://files.pythonhosted.org/packages/bb/79/3045743bb26ca2e44a1d317c37395462bfed82dbbd38e69a3280b63696ce/ConfigArgParse-1.2.3.tar.gz"
+    sha256 "edd17be986d5c1ba2e307150b8e5f5107aba125f3574dddd02c85d5cdcfd37dc"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/89/dc/ec07a5adf6afb02ad4f5f7e1f7e1a2fc0e3d88ce4fe233ed4b3dabd07cbd/lxml-4.1.0.tar.gz"
-    sha256 "be3aaeb5f468a49f523f16736ccff7d82af2b4b303292ba3d052b5b28f3fbe47"
-  end
-
-  resource "PyAMF" do
-    url "https://files.pythonhosted.org/packages/a0/06/43976c0e3951b9bf7ba0d7d614a8e3e024eb5a1c6acecc9073b81c94fb52/PyAMF-0.8.0.tar.gz"
-    sha256 "0455d68983e3ee49f82721132074877428d58acec52f19697a88c03b5fba74e4"
-  end
-
-  resource "pycrypto" do
-    url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
-    sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+    url "https://files.pythonhosted.org/packages/db/f7/43fecb94d66959c1e23aa53d6161231dca0e93ec500224cf31b3c4073e37/lxml-4.6.2.tar.gz"
+    sha256 "cd11c7e8d21af997ee8079037fff88f16fda188a9776eb4b81c7e4c9c0a7d7fc"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
-    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
-    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
+    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
   end
 
   def install
     # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
     (resources - [resource("AdobeHDS.php")]).each do |r|
       r.stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
+        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
       end
     end
 
     resource("AdobeHDS.php").stage(pkgshare)
 
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-  end
-
-  def caveats; <<~EOS
-    yle-dl requires the mcrypt PHP module which you can either install manually or install
-    mcrypt from the PHP homebrew tap. You can also install yle-dl with one of optional dependencies
-    which to automatically tap the php tap and download mcrypt module for you.
-
-      brew info yle-dl
-
-    for further info.
-    EOS
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   test do
-    assert_equal "Traileri: 3 minuuttia-2012-05-30T10:51:00+03:00\n",
-                 shell_output("#{bin}/yle-dl --showtitle https://areena.yle.fi/1-1570236")
+    output = shell_output("#{bin}/yle-dl --showtitle https://areena.yle.fi/1-1570236")
+    assert_equal "Traileri: 1 minuutti-2012-05-30T10:51\n", output
   end
 end

@@ -3,24 +3,34 @@ class Gforth < Formula
   homepage "https://www.gnu.org/software/gforth/"
   url "https://www.complang.tuwien.ac.at/forth/gforth/gforth-0.7.3.tar.gz"
   sha256 "2f62f2233bf022c23d01c920b1556aa13eab168e3236b13352ac5e9f18542bb0"
+  revision 2
 
   bottle do
-    sha256 "a8696af411ccf1d3d94263442bb33f8692725acc96648d4b88410ef61f7c09b1" => :high_sierra
-    sha256 "81f11da165dd91b2c8f4e030e053bce1a5d474be544f03d0199b18207156c1e7" => :sierra
-    sha256 "942bca40ed6b1c85d4d5a3faf5c2742a48251e5cf36414965140f595ee758d04" => :el_capitan
-    sha256 "20f29be370717f9ce22e224dd4f509c69fc557ff921d622b2525ea7e25bf9f0c" => :yosemite
-    sha256 "d72074880ae4ab11e656645d0d9ab52630640fbb0df713c03fee1a6b8cd84ffa" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "ec3ed9b4ad030059db1e9cdcd43b1151ba0e8ec10dc40c47ff216f3ba87692fa"
+    sha256 cellar: :any, big_sur:       "bb4ac1848dbc2ed28dd2aa7f1dbd44161e10f11f30e4aa0ec255cbda16e5bc4d"
+    sha256 cellar: :any, catalina:      "e9063c35a2df4513ecb8c1aae8c02273c3da22487d90071db416c0b2b9bf1668"
+    sha256 cellar: :any, mojave:        "25fd07e36c780229c02e3243b7aa71c3b3b2744e1626409f6321ad2d99c67471"
+    sha256 cellar: :any, high_sierra:   "c5f42bd1b46307d521ccd626d7a5a4b030c48dd1788d4d580efb2d8aaa6d04bc"
   end
 
-  depends_on "libtool" => :run
+  depends_on "emacs" => :build
   depends_on "libffi"
+  depends_on "libtool"
   depends_on "pcre"
 
   def install
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
     cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}"
-    system "make" # Separate build steps.
-    system "make", "install"
+    system "make", "EMACS=#{Formula["emacs"].opt_bin}/emacs"
+    elisp.mkpath
+    system "make", "install", "emacssitelispdir=#{elisp}"
+
+    elisp.install "gforth.elc"
+  end
+
+  test do
+    assert_equal "2 ", shell_output("#{bin}/gforth -e '1 1 + . bye'")
   end
 end

@@ -3,19 +3,21 @@ class Httping < Formula
   homepage "https://www.vanheusden.com/httping/"
   url "https://www.vanheusden.com/httping/httping-2.5.tgz"
   sha256 "3e895a0a6d7bd79de25a255a1376d4da88eb09c34efdd0476ab5a907e75bfaf8"
+  license "GPL-2.0"
+  revision 2
   head "https://github.com/flok99/httping.git"
 
   bottle do
-    cellar :any
-    sha256 "99b687e9e7cbadbb3e1774e89538395e7630152631fa90471d6f784927759c4c" => :high_sierra
-    sha256 "b209aa24927ed620ce6a7e676c7358ca94d17ec456c8b7b49b72b1aec57c44ed" => :sierra
-    sha256 "f283d8cde06988fa6117d7cb1e008ae480851e8f4e9ba60fd8f429864499f983" => :el_capitan
-    sha256 "c4784fc08f239a6fd0f778657fe11509f445ee889f6d6b305c30c533be25f35c" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "2061528a8b8a03b6d8276af007c617b8a4937e06c7b871dd729664f50f47eef2"
+    sha256 cellar: :any, big_sur:       "b7d049b495d38844fcf2eb479a02c6472aef31d9b516536677a024634febf356"
+    sha256 cellar: :any, catalina:      "9432f93eec676aad685be06819da5649ec071f6542302d077ccf5d0623b9b567"
+    sha256 cellar: :any, mojave:        "2314efd3b919b759290b7ead8dea99c50b11860f7aadb8fd4f9c7e0e7cc92e5e"
+    sha256 cellar: :any, high_sierra:   "8df0f98d479c72a20ca2b353a06c9c1bf071cceed53774c737f41caf27238fc1"
+    sha256 cellar: :any, sierra:        "9d0b6368e6fa4e2b4fb618c7ba3893a5b3b47471b366305026ee75b44d6ce91e"
   end
 
   depends_on "gettext"
-  depends_on "openssl"
-  depends_on "fftw" => :optional
+  depends_on "openssl@1.1"
 
   def install
     # Reported upstream, see: https://github.com/Homebrew/homebrew/pull/28653
@@ -26,10 +28,6 @@ class Httping < Formula
   end
 
   test do
-    if MacOS.version >= :el_capitan
-      system bin/"httping", "-c", "2", "-g", "https://brew.sh/"
-    else
-      system bin/"httping", "-c", "2", "-g", "http://brew.sh/"
-    end
+    system bin/"httping", "-c", "2", "-g", "https://brew.sh/"
   end
 end

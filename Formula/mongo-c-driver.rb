@@ -1,39 +1,34 @@
 class MongoCDriver < Formula
   desc "C driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-c-driver"
-  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.8.2/mongo-c-driver-1.8.2.tar.gz"
-  sha256 "2929e415b157c48e867e9d7eda4a11920e8f8763f33af5fbcdb4f4fe316f7c5e"
+  url "https://github.com/mongodb/mongo-c-driver/releases/download/1.17.4/mongo-c-driver-1.17.4.tar.gz"
+  sha256 "9ec8fe7fb54d636886fa823460658ccf660e3d82520d10810fb7c9d302ac974f"
+  license "Apache-2.0"
+  head "https://github.com/mongodb/mongo-c-driver.git"
 
   bottle do
-    cellar :any
-    sha256 "9c896249ee52da312cc93701e3300c443ebfcba677d8c5e66c342bca60a8d59d" => :high_sierra
-    sha256 "fd9146397d64769dfa092ba74fb33aa0777844208976347086b6b7a32cdf3947" => :sierra
-    sha256 "1d9049f23d648961f79596aab5fc51bf59f11b1f02915e4973fa1b1691e3d9a7" => :el_capitan
+    sha256 arm64_big_sur: "45c1f1d31d63c3ea4bee65f5c6a56d871fef8c91eac8d2018e49226175f5bad0"
+    sha256 big_sur:       "3ac6fad5ce56f4052ec8e0817aadefdd69caba8fb53479ca42227e04b681ee3b"
+    sha256 catalina:      "47387c38d9b91dfb46d5257f64f8292f53acbb6f5fa17ca34ad3a44d236f1ae3"
+    sha256 mojave:        "c3328d3c7dcae9408a29f9b4976d3cdeae255ce8ddfdd43df711706c53c0d6d0"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   def install
-    system "autoreconf", "-fiv"
-
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --enable-man-pages
-      --with-libbson=bundled
-      --enable-ssl=darwin
-    ]
-
-    system "./configure", *args
+    cmake_args = std_cmake_args
+    cmake_args << "-DBUILD_VERSION=1.18.0-pre" if build.head?
+    cmake_args << "-DCMAKE_INSTALL_RPATH=#{lib}"
+    inreplace "src/libmongoc/src/mongoc/mongoc-config.h.in", "@MONGOC_CC@", ENV.cc
+    system "cmake", ".", *cmake_args
     system "make", "install"
     (pkgshare/"libbson").install "src/libbson/examples"
-    (pkgshare/"mongoc").install "examples"
+    (pkgshare/"libmongoc").install "src/libmongoc/examples"
   end
 
   test do
@@ -42,7 +37,7 @@ class MongoCDriver < Formula
     (testpath/"test.json").write('{"name": "test"}')
     assert_match "\u0000test\u0000", shell_output("./test test.json")
 
-    system ENV.cc, "-o", "test", pkgshare/"mongoc/examples/mongoc-ping.c",
+    system ENV.cc, "-o", "test", pkgshare/"libmongoc/examples/mongoc-ping.c",
       "-I#{include}/libmongoc-1.0", "-I#{include}/libbson-1.0",
       "-L#{lib}", "-lmongoc-1.0", "-lbson-1.0"
     assert_match "No suitable servers", shell_output("./test mongodb://0.0.0.0 2>&1", 3)

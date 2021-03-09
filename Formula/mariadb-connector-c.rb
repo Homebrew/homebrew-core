@@ -1,27 +1,37 @@
 class MariadbConnectorC < Formula
   desc "MariaDB database connector for C applications"
   homepage "https://downloads.mariadb.org/connector-c/"
-  url "https://downloads.mariadb.org/f/connector-c-2.2.2/mariadb-connector-c-2.2.2-src.tar.gz"
-  sha256 "93f56ad9f08bbaf0da8ef03bc96f7093c426ae40dede60575d485e1b99e6406b"
+  url "https://downloads.mariadb.org/f/connector-c-3.1.12/mariadb-connector-c-3.1.12-src.tar.gz"
+  mirror "https://fossies.org/linux/misc/mariadb-connector-c-3.1.12-src.tar.gz"
+  sha256 "2f5ae14708b4813e4ff6857d152c22e6fc0e551c9fa743c1ef81a68e3254fe63"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/mariadb-corporation/mariadb-connector-c.git"
+
+  livecheck do
+    url "https://downloads.mariadb.org/connector-c/+releases/"
+    regex(%r{href=.*?connector-c/v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    sha256 "d569c9bbc70e38697625aaf1ff939689b1b7189d2fcf890546a72dc0e4d8f4c8" => :high_sierra
-    sha256 "2efc882d3518dc6932d711b62d5d65a6b2151f7e44d2e6a15917ca4f1d3ce897" => :sierra
-    sha256 "fe5606d7c8ac822398f01f2b2b9045c8d6b3a46df8b862e1fe151aa17619d3b2" => :el_capitan
-    sha256 "6b5b743616a46585a9bfe1505a94addccf24802090094a9dcd791852bf8d566c" => :yosemite
-    sha256 "14f9440a48d0035a8e77ff8e7b260b50c89326453041ec77d0cc38febbf4f5cc" => :mavericks
+    sha256 arm64_big_sur: "578958505453c5d918388702108e6bbb9d4f86367ebf12cb08d1c1de03486aae"
+    sha256 big_sur:       "477ccf03090ae5e1ab301c93c4f07ceae1769e3c186858e3194cf311f803f03d"
+    sha256 catalina:      "1edcf6c7a0ffe45dd91c6377c423bdb0c96081a84b83eab17027fcfb085901f7"
+    sha256 mojave:        "3bccbdb436920b3254539bf7cab469bf3200999aca0e043891e56bf3f45889c7"
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
-  conflicts_with "mysql", "mariadb", "percona-server",
-                 :because => "both install plugins"
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
+  conflicts_with "mariadb", because: "both install `mariadb_config`"
 
   def install
     args = std_cmake_args
     args << "-DWITH_OPENSSL=On"
-    args << "-DOPENSSL_INCLUDE_DIR=#{Formula["openssl"].opt_include}"
+    args << "-DWITH_EXTERNAL_ZLIB=On"
+    args << "-DOPENSSL_INCLUDE_DIR=#{Formula["openssl@1.1"].opt_include}"
     args << "-DCOMPILATION_COMMENT=Homebrew"
 
     system "cmake", ".", *args

@@ -1,31 +1,40 @@
 class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
-  homepage "https://gortool.com"
+  homepage "https://goreplay.org"
   url "https://github.com/buger/goreplay.git",
-      :tag => "v0.16.1",
-      :revision => "652e589e2b71d5dfa4d2a70431d21b108a5e471e"
+      tag:      "v1.2.0",
+      revision: "2b73ea1f0ceee50bd96f705e23af3885f990daa3"
+  license "LGPL-3.0"
   head "https://github.com/buger/goreplay.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "204f649341531e36b220221f6dd76b3b637ea4880720111cddda6bb5224be5ed" => :high_sierra
-    sha256 "78689bec0668532515a42e5274733ad296998e0e623bdbd3bbd66d2d0fb8f1e7" => :sierra
-    sha256 "dd3721a8686fb9e08074a6787d2bbefc5d3f3a585b99e52f40734a4516564754" => :el_capitan
-    sha256 "5263cd24fee9bae85eb69aafe887865642e039236e810339f84aa546e6d444d7" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5cb3c8f00af6a0ef7a8d1c24c4de59563c85bc51bb8a9f878ad4c283aa1954b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b02c8cacea6257c1faf97f6c3a686f09fc1519e54cbd80713b19c95b9c03ced2"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a2c7715c47fa3fb9ba70494b1bf20a4216cabb09d909702f86d810a07c58f17"
+    sha256 cellar: :any_skip_relocation, mojave:        "347fab444ceaee3d2dae0f23cedcd924267bbbba95a099ad5602ba3051fd5c1f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0e07f5bf90d57b9bd1b0ccb961e6ee240fd8346a923c45d075b66cd7c4714a63"
   end
 
   depends_on "go" => :build
 
+  uses_from_macos "libpcap"
+
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/buger/goreplay").install buildpath.children
-    cd "src/github.com/buger/goreplay" do
-      system "go", "build", "-o", bin/"gor", "-ldflags", "-X main.VERSION=#{version}"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-X main.VERSION=#{version}", *std_go_args
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/gor", 1)
+    test_port = free_port
+    fork do
+      exec bin/"gor", "file-server", ":#{test_port}"
+    end
+
+    sleep 2
+    system "nc", "-z", "localhost", test_port
   end
 end

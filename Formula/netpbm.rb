@@ -3,31 +3,39 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  if MacOS.version >= :sierra
-    url "https://svn.code.sf.net/p/netpbm/code/stable", :revision => 3094
-  else
-    url "http://svn.code.sf.net/p/netpbm/code/stable", :revision => 3094
-  end
-  version "10.73.17"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4037"
+  version "10.86.19"
+  license "GPL-3.0-or-later"
   version_scheme 1
-
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
-  bottle do
-    cellar :any
-    sha256 "1c99ab33a5dee99e88a0f39873821bc1b8957cd729b98dc93fca3effc0d73402" => :high_sierra
-    sha256 "c4b338e2880e744a9dabdb6956264ea96f15da55596120d3599568698d9f7018" => :sierra
-    sha256 "bbdd407034a3fa7d842477a8fd9f7bea468508842aa5e2a4474e5b54de81cf0f" => :el_capitan
+  livecheck do
+    url "https://sourceforge.net/p/netpbm/code/HEAD/tree/stable/"
+    strategy :page_match
+    regex(/Release v?(\d+(?:\.\d+)+)/i)
   end
 
-  depends_on "libtiff"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "e666c13ca2255e45c8f522b172ccb78c1f41643368a773f9c4eb759dc26dda98"
+    sha256 cellar: :any, big_sur:       "37c05996e6da2e033b0ba5afc174ee28bf41a3d6a9e7436645f0370692b4cc34"
+    sha256 cellar: :any, catalina:      "0ce9cd466f391416cd581fb5b817f02253c2789eac2f588a53a9176f83122b55"
+    sha256 cellar: :any, mojave:        "ffd299c8a347ee3263f070a0f39a11131bfb23e60647a749b943b6e4d26fd27c"
+  end
+
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "libtiff"
 
-  conflicts_with "jbigkit", :because => "both install `pbm.5` and `pgm.5` files"
+  uses_from_macos "flex" => :build
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   def install
+    # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
+    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
+
     cp "config.mk.in", "config.mk"
 
     inreplace "config.mk" do |s|
@@ -56,18 +64,13 @@ class Netpbm < Formula
       end
 
       prefix.install %w[bin include lib misc]
-      # do man pages explicitly; otherwise a junk file is installed in man/web
-      man1.install Dir["man/man1/*.1"]
-      man5.install Dir["man/man5/*.5"]
-      lib.install Dir["link/*.a"], Dir["link/*.dylib"]
+      lib.install Dir["staticlink/*.a"], Dir["sharedlink/*.dylib"]
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
-
-    (bin/"doc.url").unlink
   end
 
   test do
-    fwrite = Utils.popen_read("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam")
+    fwrite = shell_output("#{bin}/pngtopam #{test_fixtures("test.png")} -alphapam")
     (testpath/"test.pam").write fwrite
     system "#{bin}/pamdice", "test.pam", "-outstem", testpath/"testing"
     assert_predicate testpath/"testing_0_0.", :exist?

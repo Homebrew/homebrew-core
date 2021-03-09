@@ -1,6 +1,7 @@
 class Wrangler < Formula
   desc "Refactoring tool for Erlang with emacs and Eclipse integration"
   homepage "https://www.cs.kent.ac.uk/projects/wrangler/Wrangler/"
+  revision 3
   head "https://github.com/RefactoringTools/wrangler.git"
 
   stable do
@@ -9,20 +10,26 @@ class Wrangler < Formula
 
     # upstream commit "Fix -spec's to compile in Erlang/OTP 19"
     patch do
-      url "https://github.com/RefactoringTools/wrangler/commit/d81b888f.patch?full_index=1"
-      sha256 "19f99f7ec8b70ec78ed59cbc0ba203d050ae09b7ed524d0ca06ad77d23564ba3"
+      url "https://github.com/RefactoringTools/wrangler/commit/d81b888fd200dda17d341ec457d6786ef912b25d.patch?full_index=1"
+      sha256 "b7911206315c32ee08fc89776015cf5b26c97b6cb4f6eff0b73dcf2d583cfe31"
+    end
+
+    # upstream commit "fixes to make wrangler compile with R21"
+    patch do
+      url "https://github.com/RefactoringTools/wrangler/commit/1149d6150eb92dcfefb91445179e7566952e184f.patch?full_index=1"
+      sha256 "e84cba2ead98f47a16d9bb50182bbf3edf3ea27afefa36b78adc5afdf4aeabd5"
     end
   end
 
   bottle do
-    sha256 "8203501c2afc2e702b0b164bd750a8fe8ea16c4cb42032e08af265165c279f93" => :high_sierra
-    sha256 "89663c4a49437fdd27f2446d829e1ef7c9ae4452280f8d087d71c3a89e5c319f" => :sierra
-    sha256 "dfa0d430822b57df1c044ab395d347c81311346aaa102e4097e05c7c42f38b32" => :el_capitan
-    sha256 "45df8699e1ba28596cfe6395a321b56213aa5cfd6545ea0a5bafcce39e9574dd" => :yosemite
-    sha256 "6296e18bc0641ba1b20becdb16f4aabc500069999a2a23c487cd98d8309855c2" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5a38558160ce09e6bc4aa970a96190778f36cabbc45e8ad477980f22b34e5e1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "709fa007e8e40d82cf7a73b79c55fcefbaf24f5d6bd8eb9cf5a4ad0168a2bcff"
+    sha256 cellar: :any_skip_relocation, catalina:      "8d67285352be09f209dba8e1fe678bb9e88a77c74e5178687f890cf5ba19c8ca"
+    sha256 cellar: :any_skip_relocation, mojave:        "1f122b48da35f344074d239e3d23fcf3d66e309dd0425062547d080bd3285a12"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b3aa1c943b1de15308be2cf7ac540daa95b4a843788a662fcdf34ed30e2ec29d"
   end
 
-  depends_on "erlang"
+  depends_on "erlang@22"
 
   def install
     system "./configure", "--prefix=#{prefix}"

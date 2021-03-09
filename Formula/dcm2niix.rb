@@ -1,18 +1,23 @@
 class Dcm2niix < Formula
   desc "DICOM to NIfTI converter"
   homepage "https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage"
-  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20171017.tar.gz"
-  sha256 "9b121cf37c6103f29e91b2ee1badeafde79323b65173b122bff4d9f2f24daec0"
+  url "https://github.com/rordenlab/dcm2niix/archive/v1.0.20201102.tar.gz"
+  sha256 "61afc206b2d8aca4351e181f43410eb35d3d437ea42c9f27c635732fe7869c8f"
+  license "BSD-3-Clause"
+  version_scheme 1
   head "https://github.com/rordenlab/dcm2niix.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "c993f1495499f3eaa47fc348de5a12019199b2cc8a5d375b996c429fcb308840" => :high_sierra
-    sha256 "2d0411ecffcb56bbb339eecd8a193986f4fff2960a93a49ceb0167001eb403f0" => :sierra
-    sha256 "a1bf7d9932006710ae2c8aaf77c3517a25f13f3e9141d09549c816d95df85678" => :el_capitan
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  option "with-batch"
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:  "c8aa22013787e0bf4a0d564a0fcd1d34db2ef483cc887d8333d5426aadaca1a4"
+    sha256 cellar: :any_skip_relocation, catalina: "59d511d48dc49ff674c1183f34663125712c806db531e72ba3264bf436086104"
+    sha256 cellar: :any_skip_relocation, mojave:   "3f90d3eea9e28a0b0e050a4a14cbe61372dc4ade311fc57d5de367f99e4ba1b1"
+  end
 
   depends_on "cmake" => :build
 
@@ -22,9 +27,7 @@ class Dcm2niix < Formula
   end
 
   def install
-    args = std_cmake_args
-    args << "-DBATCH_VERSION=ON" if build.with? "batch"
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 

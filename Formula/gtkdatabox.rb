@@ -1,15 +1,16 @@
 class Gtkdatabox < Formula
   desc "Widget for live display of large amounts of changing data"
   homepage "https://sourceforge.net/projects/gtkdatabox/"
-  url "https://downloads.sourceforge.net/project/gtkdatabox/gtkdatabox/0.9.3.0/gtkdatabox-0.9.3.0.tar.gz"
-  sha256 "1f426b525c31a9ba8bf2b61084b7aef89eaed11f8d0b2a54bde467da16692ff2"
+  url "https://downloads.sourceforge.net/project/gtkdatabox/gtkdatabox/0.9.3.1/gtkdatabox-0.9.3.1.tar.gz"
+  sha256 "d04938d969d5458bd0df1b4fa22f647fb2eeeef75555a71f967e6c039fb4bde5"
+  license "LGPL-2.1"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "b75b6701d5d94ce047235f1957a7be2a5f3c08ec1ed1eae8c6b6981c9d13add0" => :high_sierra
-    sha256 "f58cf9bd17de4573596172b6ea10c4b2892f75c8dd597f5c98d74e30f21aacc6" => :sierra
-    sha256 "eed0f8e816ec34ae1995e14f6596aeee02cb51f2b8f12a90715431de8847ca8f" => :el_capitan
-    sha256 "f18139540018b72756a5ed3c89cd67e4235d75aa61bd15a7b86825441f4d33cd" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "6159b963d83a085b13210a728e559a4f9fdb1a54f6887ed198792772d0c9c222"
+    sha256 cellar: :any, big_sur:       "0653f694493bb5cda05df1dde2b340014e5c51e46d7f0c9351092cbc9c9d45fa"
+    sha256 cellar: :any, catalina:      "5bbfa821a847ebaad507380489df974dd82fd7ed99fef8966cd8e27549671fe4"
+    sha256 cellar: :any, mojave:        "af155aeb3a3df37027681ffb4873d0ab87263a34e1268d8b87e45f76c6824750"
   end
 
   depends_on "pkg-config" => :build
@@ -38,6 +39,7 @@ class Gtkdatabox < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -52,6 +54,7 @@ class Gtkdatabox < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0

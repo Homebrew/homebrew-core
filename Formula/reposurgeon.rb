@@ -2,38 +2,27 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      :tag => "3.42",
-      :revision => "885502d6c8bebd4efcf680babb28d7bc4e464a2f"
+      tag:      "4.21",
+      revision: "4412cb406172786f9983a3f94a60deded2181831"
+  license "BSD-2-Clause"
   head "https://gitlab.com/esr/reposurgeon.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "bd78fba0b4fc9a47fb10e089b9775c45e9d65bbe9cfbeb1eb975f9a8181c13ce" => :high_sierra
-    sha256 "c854e5ad35c59bd1c717f8f232f7e581b2423d80836541156255f44f0de6aecb" => :sierra
-    sha256 "38730f4bde6958779efb2f19096f45579920d18e926eedc9adc55311d9b05efa" => :el_capitan
-    sha256 "0aaefd3b688bdcfda7a3b53c485c97d5a7bcd50138dd84b9626da15aa07cfe38" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "28136d0965dbdc82293114f1a15f77e98263b4513d440bdb819307e4c8c9742f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5217ed6bdd4c3d325136b99e8ae2dfa29fe4ef51db98c6ef137437a4bf950512"
+    sha256 cellar: :any_skip_relocation, catalina:      "7ca53ec30c1131eadd40988a29c021c00205d88bf93dcf5d21f836414909cfc0"
+    sha256 cellar: :any_skip_relocation, mojave:        "ebab05fa08478c10feff4cf4e8a8b69e1e02293444eeb6d07cc37980933877ce"
   end
 
-  option "without-cython", "Build without cython (faster compile)"
-
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "asciidoc" => :build
-  depends_on "xmlto" => :build
-  depends_on "cython" => [:build, :recommended]
+  depends_on "asciidoctor" => :build
+  depends_on "go" => :build
+  depends_on "git" # requires >= 2.19.2
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    system "make"
     system "make", "install", "prefix=#{prefix}"
     elisp.install "reposurgeon-mode.el"
-
-    if build.with? "cython"
-      pyincludes = Utils.popen_read("python-config --cflags").chomp
-      pylib = Utils.popen_read("python-config --ldflags").chomp
-      system "make", "install-cyreposurgeon", "prefix=#{prefix}",
-                     "CYTHON=#{Formula["cython"].opt_bin}/cython",
-                     "pyinclude=#{pyincludes}", "pylib=#{pylib}"
-    end
   end
 
   test do
@@ -41,7 +30,7 @@ class Reposurgeon < Formula
       [user]
         name = Real Person
         email = notacat@hotmail.cat
-      EOS
+    EOS
     system "git", "init"
     system "git", "commit", "--allow-empty", "--message", "brewing"
 

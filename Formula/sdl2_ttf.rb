@@ -1,21 +1,27 @@
 class Sdl2Ttf < Formula
   desc "Library for using TrueType fonts in SDL applications"
   homepage "https://www.libsdl.org/projects/SDL_ttf/"
-  url "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.14.tar.gz"
-  sha256 "34db5e20bcf64e7071fe9ae25acaa7d72bdc4f11ab3ce59acc768ab62fe39276"
+  url "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz"
+  sha256 "a9eceb1ad88c1f1545cd7bd28e7cbc0b2c14191d40238f531a15b01b1b22cd33"
+  head "https://hg.libsdl.org/SDL_ttf", using: :hg
+
+  livecheck do
+    url :homepage
+    regex(/SDL2_ttf[._-]v?(\d+(?:\.\d+)*)/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "a132a5656ba547e19361adab1e49ed84c2d3e379496058e8b39ebc676c77e2cc" => :high_sierra
-    sha256 "6420d0ad3f91d4683441a23323e347fa3116a5e484d810d896ac7a484a599e82" => :sierra
-    sha256 "29e62db1a48f1cd9142c04d4a734298f30c8924b32eaa914a6aaef574d4a6f01" => :el_capitan
-    sha256 "557067e99848b4b8a61c805eeb545c6ec66184b7fc2718dc3dd50bd551b0b324" => :yosemite
-    sha256 "3b2dafa7edea6a2173c9ae17bb6a1cc5137a9004ffc44b6443bc885456adbb1b" => :mavericks
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "e1eebedabe4c9625e852feeb68abdfac5c2f55767d70d81e708f74f84dc41e8c"
+    sha256 cellar: :any, big_sur:       "f69eb853fb10f18eb9791c024ec12bad7cc95e65322934dddc35de4eff3019b9"
+    sha256 cellar: :any, catalina:      "413959be382ea92bd59af9a29e5909d40db69c571447e2f0dec821cbff612d80"
+    sha256 cellar: :any, mojave:        "74582129be8cfea5e556efa95411f9fc2eebf111c7b4f9affc80a7e05fa19cd9"
+    sha256 cellar: :any, high_sierra:   "1867ff73485eaa12fc00def01be8e388443ac6c226065218bb435558fdb8bb22"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
   depends_on "freetype"
+  depends_on "sdl2"
 
   def install
     inreplace "SDL2_ttf.pc.in", "@prefix@", HOMEBREW_PREFIX
@@ -23,5 +29,20 @@ class Sdl2Ttf < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <SDL2/SDL_ttf.h>
+
+      int main()
+      {
+          int success = TTF_Init();
+          TTF_Quit();
+          return success;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lsdl2_ttf", "test.c", "-o", "test"
+    system "./test"
   end
 end

@@ -1,44 +1,34 @@
 class LibbitcoinBlockchain < Formula
   desc "Bitcoin Blockchain Library"
   homepage "https://github.com/libbitcoin/libbitcoin-blockchain"
-  url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.3.0.tar.gz"
-  sha256 "c97762f37e30b0d41b5f9d70499dbf9ca70096924410e98a15781e4cb5c39966"
+  url "https://github.com/libbitcoin/libbitcoin-blockchain/archive/v3.6.0.tar.gz"
+  sha256 "18c52ebda4148ab9e6dec62ee8c2d7826b60868f82710f21e40ff0131bc659e0"
+  license "AGPL-3.0"
   revision 1
 
   bottle do
-    sha256 "ac5a21d4105ccef391341699da7ce3f63630bb65dde7384ebabba0271be2935f" => :high_sierra
-    sha256 "1ebd9eebbca6273bfdf5fade9b8ac192a62bc648d510600bd00c97417b7b7b61" => :sierra
-    sha256 "dd97f3c44fb97d33d79efa1e784c34837260b94a859e7b777a247399ec2efd0e" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "b6c7eba40fc345969eda3c9c0aee34b4f2b460cece3e9c1110a9cc9d3ed4ad72"
+    sha256 cellar: :any, big_sur:       "d68b78c0430f3610f43395bcf12633ab7fc037f3bc874b83fd456fa6a3cb38a6"
+    sha256 cellar: :any, catalina:      "40ef8e8935d75f1c894852305b586fc922425467b6955813c2327d0ac901005f"
+    sha256 cellar: :any, mojave:        "ce1a34b80aa5d9c404c27c2282bf1e654b48999e74e4facc4dff70bf8087a514"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libbitcoin"
+  depends_on "libbitcoin-consensus"
   depends_on "libbitcoin-database"
-
-  resource "libbitcoin-consensus" do
-    url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.3.0.tar.gz"
-    sha256 "ae581f7c42a52fb6f4a233300f76f2a2d03a22eee6d4bfe22b233e9b52f029b4"
-  end
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
-    resource("libbitcoin-consensus").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make", "install"
-    end
 
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
     system "make", "install"
   end
 
@@ -54,11 +44,11 @@ class LibbitcoinBlockchain < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp",
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
                     "-I#{libexec}/include",
-                    "-L#{lib}", "-L#{libexec}/lib",
-                    "-lbitcoin", "-lbitcoin-blockchain", "-lboost_system",
-                    "-o", "test"
+                    "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
+                    "-L#{lib}", "-L#{libexec}/lib", "-lbitcoin-blockchain",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
     system "./test"
   end
 end

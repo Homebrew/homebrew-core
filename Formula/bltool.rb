@@ -3,6 +3,7 @@ class Bltool < Formula
   homepage "https://github.com/ToxicFrog/bltool"
   url "https://github.com/ToxicFrog/bltool/releases/download/v0.2.4/bltool-0.2.4.zip"
   sha256 "5bef751aac7140f8a705b29edd35a7bfa9f87c36039d84d4001f16a307b64ef6"
+  license "Apache-2.0"
 
   head do
     url "https://github.com/ToxicFrog/bltool.git"
@@ -36,6 +37,6 @@ class Bltool < Formula
                          "--input", "test.edn",
                          "--output", "test.txt"
 
-    assert_match /12527736\s+360\s+unfinished\s+Assassin/, File.read("test.txt")
+    assert_match(/12527736\s+360\s+unfinished\s+Assassin/, File.read("test.txt"))
   end
 end

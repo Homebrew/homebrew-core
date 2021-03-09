@@ -1,23 +1,30 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.45.tgz"
-  mirror "https://gpl.savoirfairelinux.net/pub/mirrors/openldap/openldap-release/openldap-2.4.45.tgz"
-  sha256 "cdd6cffdebcd95161a73305ec13fc7a78e9707b46ca9f84fb897cd5626df3824"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.4.57.tgz"
+  sha256 "c7ba47e1e6ecb5b436f3d43281df57abeffa99262141aec822628bc220f6b45a"
+  license "OLDAP-2.8"
 
-  bottle do
-    sha256 "de441b2b17c16c76cc8883b4d3222f79985dc60013729a679a6917ce857a2682" => :high_sierra
-    sha256 "809a58277010241b76cb9474b303d55540ae71c59ef401ece495f6b5ab57949c" => :sierra
-    sha256 "645727db7cc901fa3493c66c06e55ecce778846961874deff6b1a4687aa04b35" => :el_capitan
-    sha256 "ea5d0a84b570b85c6711a5c99dd12f2ba6811c7b3515ddd1b1d1761490a8fa81" => :yosemite
+  livecheck do
+    url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/"
+    regex(/href=.*?openldap[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  keg_only :provided_by_osx
+  bottle do
+    sha256 arm64_big_sur: "a54e8979251114f78f1edb64668a6aaca413653e7c648b8a5cc13c675a710c42"
+    sha256 big_sur:       "7d305b33a411e3d20524b79e69ebb355b14e9514a10371f1426b450c4166ae97"
+    sha256 catalina:      "1fcdd72cf7619ea2c79055357f8e1a600e4758d04f2233160381316bf64b0659"
+    sha256 mojave:        "6eb20ddb58b95eb2e7523cd5e61dfcd01f7210dacba0659374f60bc0e94a2aec"
+  end
 
-  option "with-sssvlv", "Enable server side sorting and virtual list view"
+  keg_only :provided_by_macos
 
-  depends_on "berkeley-db@4" => :optional
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "groff" => :build
+    depends_on "util-linux"
+  end
 
   def install
     args = %W[
@@ -27,11 +34,13 @@ class Openldap < Formula
       --localstatedir=#{var}
       --enable-accesslog
       --enable-auditlog
+      --enable-bdb=no
       --enable-constraint
       --enable-dds
       --enable-deref
       --enable-dyngroup
       --enable-dynlist
+      --enable-hdb=no
       --enable-memberof
       --enable-ppolicy
       --enable-proxycache
@@ -43,12 +52,9 @@ class Openldap < Formula
       --enable-valsort
     ]
 
-    args << "--enable-bdb=no" << "--enable-hdb=no" if build.without? "berkeley-db@4"
-    args << "--enable-sssvlv=yes" if build.with? "sssvlv"
-
     system "./configure", *args
     system "make", "install"
-    (var+"run").mkpath
+    (var/"run").mkpath
 
     # https://github.com/Homebrew/homebrew-dupes/pull/452
     chmod 0755, Dir[etc/"openldap/*"]

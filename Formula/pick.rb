@@ -1,25 +1,36 @@
 class Pick < Formula
   desc "Utility to choose one option from a set of choices"
-  homepage "https://github.com/calleerlandsson/pick"
-  url "https://github.com/calleerlandsson/pick/releases/download/v2.0.0/pick-2.0.0.tar.gz"
-  sha256 "0e87141b9cca7c31d4d77c87a7c0582e316f40f9076444c7c6e87a791f1ae80b"
+  homepage "https://github.com/mptre/pick"
+  url "https://github.com/mptre/pick/releases/download/v4.0.0/pick-4.0.0.tar.gz"
+  sha256 "de768fd566fd4c7f7b630144c8120b779a61a8cd35898f0db42ba8af5131edca"
+  license "MIT"
+  head "https://github.com/mptre/pick.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "031300bf0b980a312fd1030fbcceb10c425511e8b3e904649d4ea5b055c065e5" => :high_sierra
-    sha256 "26311a99440c4610cb4c80cadb73c66d0680ff8943de83eee200bd40869aaef9" => :sierra
-    sha256 "9d861efcf16ede16963643921f58e4f38a8bf2903b20c51533ce98f691750977" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "032d06aa754000e281f773bb857266efc79e1762e8f689617778a19e17505688"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c8da7b41b502c8c72b90fd41bf1570e840198fa6678cc5efca8a1c26a8d5557f"
+    sha256 cellar: :any_skip_relocation, catalina:      "754879e53b48743051bb1571bb4b6180a415ac36af8deaf335f5c193326d232f"
+    sha256 cellar: :any_skip_relocation, mojave:        "55596e8ab28fd4fc36d064f6395c38ce51314bcc0d2f2f3862515a683bc92182"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0fc521881c760d4f9e4f8625795716e0e1c0e1ed1522ccb5efd055313b2729bc"
   end
 
+  uses_from_macos "ncurses"
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "check"
+    ENV["PREFIX"] = prefix
+    ENV["MANDIR"] = man
+    system "./configure"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/pick", "-v"
+    require "pty"
+    ENV["TERM"] = "xterm"
+    PTY.spawn(bin/"pick") do |r, w, _pid|
+      w.write "foo\nbar\nbaz\n\x04"
+      sleep 1
+      w.write "\n"
+      assert_match(/foo\r\nbar\r\nbaz\r\n\^D.*foo\r\n\z/, r.read)
+    end
   end
 end

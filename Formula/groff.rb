@@ -1,57 +1,39 @@
 class Groff < Formula
   desc "GNU troff text-formatting system"
   homepage "https://www.gnu.org/software/groff/"
-  url "https://ftp.gnu.org/gnu/groff/groff-1.22.3.tar.gz"
-  mirror "https://ftpmirror.gnu.org/groff/groff-1.22.3.tar.gz"
-  sha256 "3a48a9d6c97750bfbd535feeb5be0111db6406ddb7bb79fc680809cda6d828a5"
+  url "https://ftp.gnu.org/gnu/groff/groff-1.22.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/groff/groff-1.22.4.tar.gz"
+  sha256 "e78e7b4cb7dec310849004fa88847c44701e8d133b5d4c13057d876c1bad0293"
+  license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 "fc636952c14127c45b4846e6a7fea45710514ecaf6282dc24094029393f38f10" => :high_sierra
-    sha256 "bc116f66735a0b9113319e2fa8fc52172ce7e34dbfb7683f79664093ee119432" => :sierra
-    sha256 "7a83070643f180e6e2644a4631a24ee908f80158e43166d7d9fabd1f60d039ca" => :el_capitan
-    sha256 "55da66201119dd58fa96bbdb94a421d40fc6daba86bbc10ab6abc33763be17df" => :yosemite
+    sha256 arm64_big_sur: "f273750ee87dd64d4ae3ec08f3f6ac83a5e15eb0c2e08f9ebaf488bf9a739f96"
+    sha256 big_sur:       "1e46ef402875ec8cc1bc1fc05b748607822ed6c2a58508dc83d3f0c8cf7f5c4e"
+    sha256 catalina:      "623edd28279abd071901f92502fd3a388aaf4357113f26b37ee715a9d11d05ab"
+    sha256 mojave:        "4fed5ee8032eb7957bd964b0eb873f8954a4d427f0c602284992daca52e7cb6d"
   end
 
-  option "with-gropdf", "Enable PDF output support"
-  option "with-grohtml", "Enable HTML output support (implies --with-gropdf)"
-  option "with-gpresent", "Install macros for the presentations document format"
+  depends_on "pkg-config" => :build
+  depends_on "ghostscript"
+  depends_on "netpbm"
+  depends_on "psutils"
+  depends_on "uchardet"
 
-  if build.with? "grohtml"
-    depends_on "ghostscript"
-    depends_on "netpbm"
-    depends_on "psutils"
-  elsif build.with? "gropdf"
-    depends_on "ghostscript"
+  uses_from_macos "libiconv"
+  uses_from_macos "perl"
+
+  # See https://savannah.gnu.org/bugs/index.php?59276
+  # Fixed in 1.23.0
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8059b3027a4aa68d8f42e1281cc3a81449ca0010/groff/1.22.4.patch"
+    sha256 "aaea94b65169357a9a2c6e8f71dea35c87eed3e8f49aaa27003cd0893b54f7c4"
   end
-
-  resource "gpresent" do
-    url "https://staff.fnwi.uva.nl/b.diertens/useful/gpresent/gpresent-2.3.tar.gz"
-    sha256 "a76b9b939f8107d53d7a3c9c1f403a3af23868c1e6b2e609ef70b30d12d70c51"
-  end
-
-  patch :DATA # fix parallel build, https://savannah.gnu.org/bugs/index.php?43581
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--without-x"
+    system "./configure", "--prefix=#{prefix}", "--without-x", "--with-uchardet"
     system "make" # Separate steps required
     system "make", "install"
-
-    if build.with? "gpresent"
-      resource("gpresent").stage do
-        (pkgshare/"site-tmac").install Dir["*.tmac"]
-        (pkgshare/"examples").install Dir["*.rof", "*.pdf"]
-        man7.install Dir["*.7"]
-        man1.install Dir["*.1"]
-        bin.install "presentps"
-      end
-    end
-  end
-
-  def caveats
-    <<~EOS
-      Attempting to use PDF or HTML output support without using --with-gropdf or
-      --with-grohtml may result in errors.
-    EOS
   end
 
   test do
@@ -59,18 +41,3 @@ class Groff < Formula
       pipe_output("#{bin}/groff -a", "homebrew\n")
   end
 end
-
-__END__
-diff --git a/Makefile.in b/Makefile.in
-index bc156ce..70c6f85 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -896,6 +896,8 @@ $(GNULIBDIRS): FORCE
-	  $(MAKE) ACLOCAL=: AUTOCONF=: AUTOHEADER=: AUTOMAKE=: $(do) ;; \
-	esac
-
-+$(SHPROGDIRS): $(PROGDEPDIRS)
-+
- $(OTHERDIRS): $(PROGDEPDIRS) $(CCPROGDIRS) $(CPROGDIRS) $(SHPROGDIRS)
-
- $(INCDIRS) $(PROGDEPDIRS) $(SHPROGDIRS) $(OTHERDIRS): FORCE

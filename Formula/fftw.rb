@@ -1,39 +1,45 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
   homepage "http://www.fftw.org"
-  url "http://fftw.org/fftw-3.3.6-pl2.tar.gz"
-  version "3.3.6-pl2"
-  sha256 "a5de35c5c824a78a058ca54278c706cdf3d4abba1c56b63531c2cb05f5d57da2"
+  url "http://fftw.org/fftw-3.3.9.tar.gz"
+  sha256 "bf2c7ce40b04ae811af714deb512510cc2c17b9ab9d6ddcf49fe4487eea7af3d"
+  license all_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
 
-  bottle do
-    cellar :any
-    sha256 "76ec18439c8fc1bee47919205e68cf0cb5d6d30dd27f58eb2d6964d5501eb199" => :high_sierra
-    sha256 "293e6d290a437b18e0a1563622ca1e6bb3efc0574de8db461dc7066281fcf8e4" => :sierra
-    sha256 "3b0c6440faf90169571c67ef1f6532db743adfb64ccb41e5786eaffc2a2d925f" => :el_capitan
-    sha256 "c650cf7a95ab5d2935b726a692e6f08f7f93281e24d1e44536bac0d34b440ff3" => :yosemite
+  livecheck do
+    url "http://fftw.org/"
+    regex(%r{latest official release.*? <b>v?(\d+(?:\.\d+)+)</b>}i)
   end
 
-  option "with-fortran", "Enable Fortran bindings"
-  option "with-mpi", "Enable MPI parallel transforms"
-  option "with-openmp", "Enable OpenMP parallel transforms"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "06e4feb4413ac678d1dc9e8017fe86fd4a40ef114fca52d5145be2a4f182249b"
+    sha256 cellar: :any, big_sur:       "ef292d79d65468ae63a095477d2ab12e562b2f3920d75e820152a0fc93a9b6a1"
+    sha256 cellar: :any, catalina:      "cdf77b713ee891041ed9ea057bca05439b086a5d640fe95e6021326b4aebf95b"
+    sha256 cellar: :any, mojave:        "ad960c339268de67c1d6086b0d205336d1f61a86db8fd7528b98e0d8acf98df5"
+  end
 
-  depends_on :fortran => :optional
-  depends_on :mpi => [:cc, :optional]
-  needs :openmp if build.with? "openmp"
+  depends_on "open-mpi"
+
+  on_macos do
+    depends_on "gcc"
+  end
+
+  fails_with :clang
 
   def install
-    args = ["--enable-shared",
-            "--disable-debug",
-            "--prefix=#{prefix}",
-            "--enable-threads",
-            "--disable-dependency-tracking"]
-    simd_args = ["--enable-sse2"]
-    simd_args << "--enable-avx" if ENV.compiler == :clang && Hardware::CPU.avx? && !build.bottle?
-    simd_args << "--enable-avx2" if ENV.compiler == :clang && Hardware::CPU.avx2? && !build.bottle?
+    args = [
+      "--enable-shared",
+      "--disable-debug",
+      "--prefix=#{prefix}",
+      "--enable-threads",
+      "--disable-dependency-tracking",
+      "--enable-mpi",
+      "--enable-openmp",
+    ]
 
-    args << "--disable-fortran" if build.without? "fortran"
-    args << "--enable-mpi" if build.with? "mpi"
-    args << "--enable-openmp" if build.with? "openmp"
+    # FFTW supports runtime detection of CPU capabilities, so it is safe to
+    # use with --enable-avx and the code will still run on all CPUs
+    simd_args = []
+    simd_args << "--enable-sse2" << "--enable-avx" if Hardware::CPU.intel?
 
     # single precision
     # enable-sse2, enable-avx and enable-avx2 work for both single and double precision
@@ -77,7 +83,7 @@ class Fftw < Formula
       }
     EOS
 
-    system ENV.cc, "-o", "fftw", "fftw.c", "-L#{lib}", "-lfftw3", *ENV.cflags.to_s.split
+    system ENV.cc, "-o", "fftw", "fftw.c", "-L#{lib}", "-lfftw3"
     system "./fftw"
   end
 end

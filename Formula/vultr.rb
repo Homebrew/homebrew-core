@@ -1,40 +1,22 @@
-require "language/go"
-
 class Vultr < Formula
   desc "Command-line tool for Vultr"
   homepage "https://jamesclonk.github.io/vultr"
-  url "https://github.com/JamesClonk/vultr/archive/1.13.0.tar.gz"
-  sha256 "9cb5936ba70f958ab4e53a23da0ef7ea5b11de8ebaf194082c3f758779d49650"
+  url "https://github.com/JamesClonk/vultr/archive/v2.0.3.tar.gz"
+  sha256 "6529d521a7fa006808cd07331f31256e91773ec7e1a0c7839cd14884034fb185"
+  license "MIT"
   head "https://github.com/JamesClonk/vultr.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "68afe7d76e46923de67f5fe6b7391ff08d0c310937db2e54c04392f19f526dcf" => :high_sierra
-    sha256 "05a2602609fd20151e9ab712cd823239e125a5915e5e72f14afa9641a61dc673" => :sierra
-    sha256 "0f8ed829f501fad2a7f05e26cfbe7d8b32e3a5df4647021dbe8a9eed16bde438" => :el_capitan
-    sha256 "b2bf0d14a74da9e561510fd75694063c8d50ca253b6411940be4ce82a3d2e4ee" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d0d5bffa07a97813ca4eece9a0e396d8a0c76fdd738d5041ad5d82385cb05dda"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e7a764a5516eaf4923bd134a85f2a6a9c4f2b9537ff7b585e8a32a6581975cab"
+    sha256 cellar: :any_skip_relocation, catalina:      "b3fb6e155013b41bd2b48202e70ef0236be3e24b3f87cf1f1234e7a09e2e7e97"
+    sha256 cellar: :any_skip_relocation, mojave:        "7348b1e615d088dc03781613b17b7187827e9cc98e743fa472c617876f6a543a"
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
-  depends_on "gdm" => :build
-
-  go_resource "github.com/jawher/mow.cli" do
-    url "https://github.com/jawher/mow.cli.git",
-        :revision => "d3ffbc2f98b83e09dc8efd55ecec75eb5fd656ec"
-  end
-
-  go_resource "github.com/juju/ratelimit" do
-    url "https://github.com/juju/ratelimit.git",
-        :revision => "acf38b000a03e4ab89e40f20f1e548f4e6ac7f72"
-  end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/JamesClonk").mkpath
-    ln_s buildpath, buildpath/"src/github.com/JamesClonk/vultr"
-    Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "-o", bin/"vultr"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do

@@ -1,19 +1,17 @@
 class MavenAT32 < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz"
   sha256 "8c190264bdf591ff9f1268dc0ad940a2726f9e958e367716a09b8aaa7e74a755"
+  license "Apache-2.0"
+  revision 1
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "1168aa8865a130bd89fa502a88397aee160cf864c526ab86d089e8676edc387a" => :high_sierra
-    sha256 "a29e76e46f1ba51fca6a76e3895ac347824a0c37fca5854d9a1aa2831f0e0510" => :sierra
-    sha256 "963e0b933d75dfb2fb4189da9ff20796bbab4dc8f1318ecc7964dc99fab9e9df" => :el_capitan
-    sha256 "963e0b933d75dfb2fb4189da9ff20796bbab4dc8f1318ecc7964dc99fab9e9df" => :yosemite
-  end
+  bottle :unneeded
 
-  depends_on :java
+  keg_only :versioned_formula
+
+  depends_on "openjdk"
 
   def install
     # Remove windows files
@@ -29,8 +27,10 @@ class MavenAT32 < Formula
     # file will be found relative to it
     Pathname.glob("#{libexec}/bin/*") do |file|
       next if file.directory?
+
       basename = file.basename
       next if basename.to_s == "m2.conf"
+
       (bin/basename).write_env_script file, Language::Java.overridable_java_home_env
     end
   end

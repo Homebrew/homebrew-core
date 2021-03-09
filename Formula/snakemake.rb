@@ -1,83 +1,175 @@
 class Snakemake < Formula
+  include Language::Python::Virtualenv
+
   desc "Pythonic workflow system"
-  homepage "https://bitbucket.org/snakemake/snakemake/wiki/Home"
-  url "https://files.pythonhosted.org/packages/fa/b7/d9bf8592c7cce420b3f95b403e1daecbcc3b2cbb0677a59b2da45fe38953/snakemake-4.3.1.tar.gz"
-  sha256 "b819501fa583789708c5aa1ecd7645b2ab5522dd96f309c4b7ef60b318abf588"
-  head "https://bitbucket.org/snakemake/snakemake.git"
+  homepage "https://snakemake.readthedocs.io/"
+  url "https://files.pythonhosted.org/packages/57/ff/c1db979f1510204ef8fa67ce46c8398f8ac72598f1c08e90cf3e4df900f5/snakemake-6.0.3.tar.gz"
+  sha256 "d8aa057a77e17044561151c37fb7bffa0f9c2d9c6410707ff7fd3187797ea01f"
+  license "MIT"
+  head "https://github.com/snakemake/snakemake.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8bdebdcb3e1f0d3d081be95591b762aff8d9bd3fffac58e535dc169cfcf12950" => :high_sierra
-    sha256 "7387565f79e0819b1cd9e034e453413be5a2102bf1059d2d81637064ac39c949" => :sierra
-    sha256 "165eba0a8b3813ee9cfff4d642af007d1efaab55712880b4351742f98bc828cc" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7b66b3d3d6034f77a9414803021af6d8ab678300b6e9ea955f80bcbaa65754ba"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6a5f468cf11f7f5fcc2c6c0a94199cf49cfcc709ed9783a46add73a9918894fb"
+    sha256 cellar: :any_skip_relocation, catalina:      "7d344a635b958a3c2625105a246b6f87231f9ed8d3ae24adba0e745379c0b06c"
+    sha256 cellar: :any_skip_relocation, mojave:        "b17f42ed3939e1c0f923309c47bebc86a0a4d5c3278dd6038cfe9962da6b9235"
   end
 
-  depends_on :python3
+  depends_on "cbc"
+  depends_on "python@3.9"
+
+  resource "amply" do
+    url "https://files.pythonhosted.org/packages/1c/52/f44d55940bd1c07818c3d45a04a3fe98bb1fb6f7ed3cf2c82b7e6c8467f3/amply-0.1.4.tar.gz"
+    sha256 "cb12dcb49d16b168c02be128a1527ecde50211e4bd94af76ff4e67707f5a2d38"
+  end
 
   resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
-    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+    url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
+    sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
+  end
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
+    sha256 "832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
-    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "ConfigArgParse" do
-    url "https://files.pythonhosted.org/packages/17/8d/4a41f11b0971017c7001f118be8003da8f7b96b010c66cd792b76658d1e1/ConfigArgParse-0.12.0.tar.gz"
-    sha256 "28cd7d67669651f2a4518367838c49539457504584a139709b2b8f6c208ef339"
+    url "https://files.pythonhosted.org/packages/3f/75/ca907906cd6c4c7097a037f7adaee36b3f32a08b66baed51b86d1fcc6398/ConfigArgParse-1.3.tar.gz"
+    sha256 "0428b975ab6c48bb101ccb732e1b5cb616296e28268e032aa806f32b647a1cc1"
+  end
+
+  resource "datrie" do
+    url "https://files.pythonhosted.org/packages/9d/fe/db74bd405d515f06657f11ad529878fd389576dca4812bea6f98d9b31574/datrie-0.8.2.tar.gz"
+    sha256 "525b08f638d5cf6115df6ccd818e5a01298cd230b2dac91c8ff2e6499d18765d"
+  end
+
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz"
+    sha256 "c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"
+  end
+
+  resource "filelock" do
+    url "https://files.pythonhosted.org/packages/14/ec/6ee2168387ce0154632f856d5cc5592328e9cf93127c5c9aeca92c8c16cb/filelock-3.0.12.tar.gz"
+    sha256 "18d82244ee114f543149c66a6e0c14e9c4f8a1044b5cdaadd0f82159d6a6ff59"
+  end
+
+  resource "gitdb" do
+    url "https://files.pythonhosted.org/packages/d1/05/eaf2ac564344030d8b3ce870b116d7bb559020163e80d9aa4a3d75f3e820/gitdb-4.0.5.tar.gz"
+    sha256 "c9e1f2d0db7ddb9a704c2a0217be31214e91a4fe1dea1efad19ae42ba0c285c9"
+  end
+
+  resource "GitPython" do
+    url "https://files.pythonhosted.org/packages/5f/f2/ea3242d97695451ab1521775a85253e002942d2c8f4519ae1172c0f5f979/GitPython-3.1.14.tar.gz"
+    sha256 "be27633e7509e58391f10207cd32b2a6cf5b908f92d9cd30da2e514e1137af61"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
+  end
+
+  resource "ipython_genutils" do
+    url "https://files.pythonhosted.org/packages/e8/69/fbeffffc05236398ebfcfb512b6d2511c622871dca1746361006da310399/ipython_genutils-0.2.0.tar.gz"
+    sha256 "eb2e116e75ecef9d4d228fdc66af54269afa26ab4463042e33785b887c628ba8"
+  end
+
+  resource "jsonschema" do
+    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
+    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
+  end
+
+  resource "jupyter-core" do
+    url "https://files.pythonhosted.org/packages/24/9a/0ca76ccc95eeb3ee376c671e81bda2c61d148c7627443004d1ba0d085b80/jupyter_core-4.7.1.tar.gz"
+    sha256 "79025cb3225efcd36847d0840f3fc672c0abd7afd0de83ba8a1d3837619122b4"
+  end
+
+  resource "nbformat" do
+    url "https://files.pythonhosted.org/packages/4e/4d/36023eaabe8ec48635178558015d14572835c24adbf7c3cd1107b748317b/nbformat-5.1.2.tar.gz"
+    sha256 "1d223e64a18bfa7cdf2db2e9ba8a818312fc2a0701d2e910b58df66809385a56"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
+    sha256 "0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"
+  end
+
+  resource "PuLP" do
+    url "https://files.pythonhosted.org/packages/4d/44/10b21fb51c4b394f8876cbd7831bd1f152c5cec81d70f099250dd30f3704/PuLP-2.4.tar.gz"
+    sha256 "b2aff10989b3692e3a59301a0cb0acddeb25dcea378f8804c86007075eae55b5"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+  end
+
+  resource "pyrsistent" do
+    url "https://files.pythonhosted.org/packages/4d/70/fd441df751ba8b620e03fd2d2d9ca902103119616f0f6cc42e6405035062/pyrsistent-0.17.3.tar.gz"
+    sha256 "2e636185d9eb976a18a8a8e96efce62f2905fea90041958d8cc2a189756ebf3e"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "ratelimiter" do
-    url "https://files.pythonhosted.org/packages/29/92/20d7b661892a19680887fdd2c410a4e3bd51c90a1940dd406e46072ceb94/ratelimiter-1.2.0.tar.gz"
-    sha256 "f724b256264afdeab0225ec174728b0f8af1afd1cc122463150daf226b411fb6"
+    url "https://files.pythonhosted.org/packages/5b/e0/b36010bddcf91444ff51179c076e4a09c513674a56758d7cfea4f6520e29/ratelimiter-1.2.0.post0.tar.gz"
+    sha256 "5c395dcabdbbde2e5178ef3f89b568a3066454a6ddc223b76473dac22f89b4f7"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
-    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+  end
+
+  resource "smart-open" do
+    url "https://files.pythonhosted.org/packages/c3/ff/f8ac652bc62fc78a35b0201d922e43da63e3469a6eab1d71776af6dd7844/smart_open-4.2.0.tar.gz"
+    sha256 "d9f5a0f173ccb9bbae528db5a3804f57145815774f77ef755b9b0f3b4b2a9dcb"
+  end
+
+  resource "smmap" do
+    url "https://files.pythonhosted.org/packages/2b/6f/d48bbed5aa971943759f4ede3f12dca40aa7faa44f22bad483de86780508/smmap-3.0.5.tar.gz"
+    sha256 "84c2751ef3072d4f6b2785ec7ee40244c6f45eb934d9e543e2c51f1bd3d54c50"
+  end
+
+  resource "toposort" do
+    url "https://files.pythonhosted.org/packages/b5/15/a657e32bddf72f69691aa0223df918b5f372eeee709cf8da9be134eac020/toposort-1.6.tar.gz"
+    sha256 "a7428f56ef844f5055bb9e9e44b343983773ae6dce0fe5b101e08e27ffbd50ac"
+  end
+
+  resource "traitlets" do
+    url "https://files.pythonhosted.org/packages/b8/24/e6dfe45ecfc4c2b0d6774565e631dc1b9e50de2c3536625d377963d56cae/traitlets-5.0.5.tar.gz"
+    sha256 "178f4ce988f69189f7e523337a3e11d91c786ded9360174a3d9ca83e79bc5396"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
-    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
+    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/a0/47/66897906448185fcb77fc3c2b1bc20ed0ecca81a0f2f88eda3fc5a34fc3d/wrapt-1.10.11.tar.gz"
-    sha256 "d4d560d479f2c21e1b5443bbd15fe7ec4b37fe7e53d335d3b9b0a7b1226fe3c6"
+    url "https://files.pythonhosted.org/packages/82/f7/e43cefbe88c5fd371f4cf0cf5eb3feccd07515af9fd6cf7dbf1d1793a797/wrapt-1.12.1.tar.gz"
+    sha256 "b62ffa81fb85f4332a4f609cab4ac40709470da05643a082ec1eb88e6d9b97d7"
   end
 
   def install
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do
@@ -88,6 +180,8 @@ class Snakemake < Formula
           shell:
                "touch {output}"
     EOS
-    system "#{bin}/snakemake"
+    test_output = shell_output("#{bin}/snakemake --cores 1 -s #{testpath}/Snakefile 2>&1")
+    assert_predicate testpath/"test.out", :exist?
+    assert_match "Building DAG of jobs...", test_output
   end
 end

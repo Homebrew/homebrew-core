@@ -3,39 +3,47 @@ class Supervisor < Formula
 
   desc "Process Control System"
   homepage "http://supervisord.org/"
-  url "https://github.com/Supervisor/supervisor/archive/3.3.3.tar.gz"
-  sha256 "cb835ee21a755d32396f5ccb40daa4ce8bb4a24d92f8bf3f25d3a76ba2fb0bc3"
+  url "https://files.pythonhosted.org/packages/d3/7f/c780b7471ba0ff4548967a9f7a8b0bfce222c3a496c3dfad0164172222b0/supervisor-4.2.2.tar.gz"
+  sha256 "5b2b8882ec8a3c3733cce6965cc098b6d80b417f21229ab90b18fe551d619f90"
+  license :cannot_represent
+  head "https://github.com/Supervisor/supervisor.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f6f7aff7531170eb3fcf54066dfd485a2e0e4fe13323a881fa21193a74db9277" => :high_sierra
-    sha256 "ca6e0a9584230313a3e9080600b3dcb60b669a1122619c14096dd65308b5fec4" => :sierra
-    sha256 "67c6110abfcc4b9a53a4143bad1fe12259a41c7fee96400e15e231c4cfd21aa3" => :el_capitan
-    sha256 "4070b89b70cbdb2c9a68214fb4bc03f8b8363e33c9f7fde8b782f6f057d87e57" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "603f334021212060950606136062b072b5a4a36c43c3f6f71000ad090b4ed347"
+    sha256 cellar: :any_skip_relocation, big_sur:       "43bd0271e2b89771f2af347f4e60e6abe001efc55f6425a4d61c7a310398d969"
+    sha256 cellar: :any_skip_relocation, catalina:      "f3a0ae431a6d7c1212eccfdd5b279a37e813b1dd5db7b61ada3e79e1b60e0029"
+    sha256 cellar: :any_skip_relocation, mojave:        "f0fec35c90ad11cef40d70ba02e5ae1ffe846f0849c0555a38d5970e7ab29acc"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-
-  resource "meld3" do
-    url "https://files.pythonhosted.org/packages/45/a0/317c6422b26c12fe0161e936fc35f36552069ba8e6f7ecbd99bbffe32a5f/meld3-1.0.2.tar.gz"
-    sha256 "f7b754a0fde7a4429b2ebe49409db240b5699385a572501bb0d5627d299f9558"
-  end
+  depends_on "python@3.9"
 
   def install
     inreplace buildpath/"supervisor/skel/sample.conf" do |s|
       s.gsub! %r{/tmp/supervisor\.sock}, var/"run/supervisor.sock"
       s.gsub! %r{/tmp/supervisord\.log}, var/"log/supervisord.log"
       s.gsub! %r{/tmp/supervisord\.pid}, var/"run/supervisord.pid"
-      s.gsub! /^;\[include\]$/, "[include]"
+      s.gsub!(/^;\[include\]$/, "[include]")
       s.gsub! %r{^;files = relative/directory/\*\.ini$}, "files = #{etc}/supervisor.d/*.ini"
     end
 
     virtualenv_install_with_resources
 
-    etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.ini"
+    etc.install buildpath/"supervisor/skel/sample.conf" => "supervisord.conf"
   end
 
-  plist_options :manual => "supervisord -c #{HOMEBREW_PREFIX}/etc/supervisord.ini"
+  def post_install
+    (var/"run").mkpath
+    (var/"log").mkpath
+    conf_warn = <<~EOS
+      The default location for supervisor's config file is now:
+        #{etc}/supervisord.conf
+      Please move your config file to this location and restart supervisor.
+    EOS
+    old_conf = etc/"supervisord.ini"
+    opoo conf_warn if old_conf.exist?
+  end
+
+  plist_options manual: "supervisord"
 
   def plist
     <<~EOS
@@ -54,17 +62,12 @@ class Supervisor < Formula
           <array>
             <string>#{opt_bin}/supervisord</string>
             <string>-c</string>
-            <string>#{etc}/supervisord.ini</string>
+            <string>#{etc}/supervisord.conf</string>
             <string>--nodaemon</string>
           </array>
         </dict>
       </plist>
     EOS
-  end
-
-  def post_install
-    (var/"run").mkpath
-    (var/"log").mkpath
   end
 
   test do

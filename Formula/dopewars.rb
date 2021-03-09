@@ -1,22 +1,25 @@
 class Dopewars < Formula
   desc 'Free rewrite of a game originally based on "Drug Wars"'
   homepage "https://dopewars.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.5.12/dopewars-1.5.12.tar.gz"
-  sha256 "23059dcdea96c6072b148ee21d76237ef3535e5be90b3b2d8239d150feee0c19"
+  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.6.1/dopewars-1.6.1.tar.gz"
+  sha256 "83127903a61d81cda251a022f9df150d11e27bdd040e858c09c57927cc0edea6"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "86b78c8cee8505ad3bde0e2d52bf45a60ac388735c034a1450d3be1117937749" => :high_sierra
-    sha256 "2cd2bcd5c69422ea725622831b054ce4d75656f085e7e919d2a5a055fed30037" => :sierra
-    sha256 "019168fe18bb28f596bad5858bfd782473800920d9bb5cf71ce94ac90c4fcf5d" => :el_capitan
-    sha256 "282643cc528cca8f01101c4f908e07889585c07d60b2da31fde88b41a07c1c2c" => :yosemite
+    sha256 arm64_big_sur: "490e166c6e7a12f93f51271b80aca3d3e6471089e51f77ba30db1ebce1861dcd"
+    sha256 big_sur:       "390ce7a719041ebf745d790ea872db927cb587cfc91ddab183472fe2ceecec43"
+    sha256 catalina:      "85d6516b31e2bd45f92d2e2c18f773ec2b2990b25da82155454274e8c65eaa3d"
+    sha256 mojave:        "abe0910c15903b12be25d3b00f4544f39d10b894c5b773468b7b52e3c403893b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
 
+  uses_from_macos "curl"
+
   def install
     inreplace "src/Makefile.in", "$(dopewars_DEPENDENCIES)", ""
-    inreplace "ltmain.sh", "need_relink=yes", "need_relink=no"
+    inreplace "auxbuild/ltmain.sh", "need_relink=yes", "need_relink=no"
     inreplace "src/plugins/Makefile.in", "LIBADD =", "LIBADD = -module -avoid-version"
     system "./configure", "--disable-gui-client",
                           "--disable-gui-server",

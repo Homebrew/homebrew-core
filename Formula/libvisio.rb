@@ -1,22 +1,27 @@
 class Libvisio < Formula
   desc "Interpret and import Visio diagrams"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libvisio"
-  url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.6.tar.xz"
-  sha256 "fe1002d3671d53c09bc65e47ec948ec7b67e6fb112ed1cd10966e211a8bb50f9"
-  revision 1
+  url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.7.tar.xz"
+  sha256 "8faf8df870cb27b09a787a1959d6c646faa44d0d8ab151883df408b7166bea4c"
+  revision 3
 
-  bottle do
-    cellar :any
-    sha256 "17f11d128edd7cd4c891155e183aaaae11f7615e7a0c0517a11417be75473815" => :high_sierra
-    sha256 "7243a91d92e2c29815349a5edbd421e0ad243ebc1560ccc6d039e81f6721bddf" => :sierra
-    sha256 "a25ae26dd779dfc84429b7c37ea0345cb07edb6f12236430fb5b64d3e1712924" => :el_capitan
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libvisio[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "pkg-config" => :build
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "acad0df1dc6b2c642e3de22fa7081cc636f61adfb672399bdcf7488ce6347c94"
+    sha256 cellar: :any, big_sur:       "a21f9f794732dc80cdb1b2bdc20a45239df014b2ca90eb39c88dd3f2c03dd873"
+    sha256 cellar: :any, catalina:      "4ce15c2036192d7a558935d1722775b7f5e1949fb923096584ce76e78cdb77d6"
+    sha256 cellar: :any, mojave:        "b0528215e9046a6e83e9763343ad7311667cfbc7c8852a6ddc2edaf977f7099e"
+  end
+
   depends_on "cppunit" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "librevenge"
   depends_on "icu4c"
+  depends_on "librevenge"
 
   def install
     # Needed for Boost 1.59.0 compatibility.

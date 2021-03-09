@@ -1,6 +1,8 @@
 class HasteClient < Formula
   desc "CLI client for haste-server"
   homepage "https://hastebin.com/"
+  license "MIT"
+  revision 5
   head "https://github.com/seejohnrun/haste-client.git"
 
   stable do
@@ -16,18 +18,26 @@ class HasteClient < Formula
   end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b7b70e6a090bc14e4ec5bb634f7b30778d92a555e421181840139a32a8a7e056" => :high_sierra
-    sha256 "821e18033eebddc3a0ef8ae93ff675aa1407addaff6b228639a17351acd27da8" => :sierra
-    sha256 "3189295fb6df33a604a3f1bb8a556853fcdfc7a66bcf7183f3bc6a95305155bf" => :el_capitan
-    sha256 "6feb00bfc1cf9387929d554acf24c92df081584396a072c9cfb265cbbe8b0e54" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "46460dfe45de7b60b0d9c164f605983e912a42e6bb9278b7e278c1774a041b78"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cc90f925bb8d3c217849d04d57ba540cfd1859a555ae78fb89a3d500c61c5e4a"
+    sha256 cellar: :any_skip_relocation, catalina:      "d7b5efc8934cbfb2534db7db7b8418142472f980b8f4165c317ab51cc4f14824"
+    sha256 cellar: :any_skip_relocation, mojave:        "c38551ce841f7a3cd825e1ae20b774836aba13fe6e129c1539eadde9b9e64a02"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a97b7aaf38ec730bffa45ffc073ccf4921b4e5714069a21bf63e682a9d21527e"
+    sha256 cellar: :any_skip_relocation, sierra:        "746af59be7c010e6e13b67d1f98766c0237061eabca601e5f0cad935e1c648bf"
   end
 
-  depends_on :ruby => "2.3"
+  depends_on "ruby" if MacOS.version <= :sierra
 
   resource "faraday" do
     url "https://rubygems.org/gems/faraday-0.12.2.gem"
     sha256 "6299046a78613ce330b67060e648a132ba7cca4f0ea769bc1d2bbcb22a23ec94"
+  end
+
+  if MacOS.version <= :sierra
+    resource "json" do
+      url "https://rubygems.org/gems/json-2.1.0.gem"
+      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
+    end
   end
 
   resource "multipart-post" do
@@ -38,14 +48,14 @@ class HasteClient < Formula
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      r.verify_download_integrity(r.fetch)
+      r.fetch
       system "gem", "install", r.cached_download, "--no-document",
              "--install-dir", libexec
     end
     system "gem", "build", "haste.gemspec"
     system "gem", "install", "--ignore-dependencies", "haste-#{version}.gem"
     bin.install libexec/"bin/haste"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do

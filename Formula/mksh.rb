@@ -1,30 +1,28 @@
 class Mksh < Formula
   desc "MirBSD Korn Shell"
   homepage "https://www.mirbsd.org/mksh.htm"
-  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R56b.tgz"
-  mirror "https://dl.bintray.com/homebrew/mirror/mksh-56b.tgz"
-  version "56b"
-  sha256 "40ec744eec256583e4e18907cde22af57c980286f535df47326fed07e48c9a7f"
+  url "https://www.mirbsd.org/MirOS/dist/mir/mksh/mksh-R59c.tgz"
+  mirror "https://pub.allbsd.org/MirOS/dist/mir/mksh/mksh-R59c.tgz"
+  version "59c"
+  sha256 "77ae1665a337f1c48c61d6b961db3e52119b38e58884d1c89684af31f87bc506"
+
+  livecheck do
+    url "https://www.mirbsd.org/MirOS/dist/mir/mksh/"
+    regex(/href=.*?mksh-R?(\d+[a-z]?)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6098461be38111921ac20b4079fbf526e902335551db5390a36444cb35c1433c" => :high_sierra
-    sha256 "92b1f35f5311b97ed642b740a3f27b06b87b602004d75c401d342ad4f1622b8f" => :sierra
-    sha256 "869c03bacc72c9d7d56f9a1371bef7072df1d39213cf6cc23b924cb7056d7853" => :el_capitan
-    sha256 "f60810eeec945b44fccf6b64943666d0c4aab9fe0d0cd94c37cda411073ccc29" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4e5b153d2643f455c5be25fa8f751eed863393b454abc3df8bb9b145799152e0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "879b0a3185d7cb75235a3204cba1b66e7353b77458b63deef3c7635e75f52ba4"
+    sha256 cellar: :any_skip_relocation, catalina:      "ab6ffddb634219464c5993a9109a051fa728f217b7c89daa95d5b85748127bf5"
+    sha256 cellar: :any_skip_relocation, mojave:        "354bd63fa78b08ba32eec9478a1ac6ee48276e529c3d37321808be3c5b3b3050"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "82f9d2a32196df99bc9b2a21e1a062bfc99c263a9a0ee522831d12dce3fd5b5e"
   end
 
   def install
-    system "sh", "./Build.sh", "-r", "-c", (ENV.compiler == :clang) ? "lto" : "combine"
+    system "sh", "./Build.sh", "-r"
     bin.install "mksh"
     man1.install "mksh.1"
-  end
-
-  def caveats; <<~EOS
-    To allow using mksh as a login shell, run this as root:
-        echo #{HOMEBREW_PREFIX}/bin/mksh >> /etc/shells
-    Then, any user may run `chsh` to change their shell.
-    EOS
   end
 
   test do

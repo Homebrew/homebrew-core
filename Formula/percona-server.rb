@@ -1,41 +1,44 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-5.7/Percona-Server-5.7.18-16/source/tarball/percona-server-5.7.18-16.tar.gz"
-  sha256 "dc80833354675956fe90e01316fcd46b17cd23a8f17d9f30b9ef18e1a9bd2ae1"
+  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.22-13/source/tarball/percona-server-8.0.22-13.tar.gz"
+  sha256 "614249dc7790e82cabf22fdb20492be7ec5b8e98550f662204a17e0e8797cc9a"
 
-  bottle do
-    rebuild 1
-    sha256 "2097446d4eca29f7dc394ecf7901ec8f9b4718befad3fa6ea1b53087fe3e4828" => :high_sierra
-    sha256 "55aa5b068374099a81d9084336c8cf6700005f7372a2a8c7d822a25b4e92b486" => :sierra
-    sha256 "5e66b8808a6f611813fdb9e3b02e79855ff0445630853501647220beac5cb4ab" => :el_capitan
-    sha256 "988440a2b796abff37d0fbb69dd03a537e6be9ebce83da5adb4131794ea7f242" => :yosemite
+  livecheck do
+    url "https://www.percona.com/downloads/Percona-Server-LATEST/"
+    regex(/value=.*?Percona-Server[._-]v?(\d+(?:\.\d+)+-\d+)["' >]/i)
   end
 
-  option "with-test", "Build with unit tests"
-  option "with-embedded", "Build the embedded server"
-  option "with-local-infile", "Build with local infile loading support"
+  bottle do
+    sha256 arm64_big_sur: "6fc23e2340c93784c2b12e712688ef293a81693becb500c742bd7182f08b5429"
+    sha256 big_sur:       "1279dd11e7a27faa7617a517b7ff44a7260d2a2591555c436a326017bd978b83"
+    sha256 catalina:      "290a88ceec94ecd8b6d830df04ec27482887b92b8dc12ae9df491afd6afeb141"
+    sha256 mojave:        "feb100bec9928591c10367c22cf0c041ec317d12377ff3eeb4d8f0eb23bbb39f"
+  end
 
-  deprecated_option "enable-local-infile" => "with-local-infile"
-  deprecated_option "with-tests" => "with-test"
+  pour_bottle? do
+    reason "The bottle needs a var/mysql datadir (yours is var/percona)."
+    satisfy { datadir == var/"mysql" }
+  end
 
   depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+  depends_on "protobuf"
 
-  conflicts_with "mysql-connector-c",
-    :because => "both install `mysql_config`"
+  conflicts_with "mariadb", "mysql",
+    because: "percona, mariadb, and mysql install the same binaries"
 
-  conflicts_with "mariadb", "mysql", "mysql-cluster",
-    :because => "percona, mariadb, and mysql install the same binaries."
-  conflicts_with "mysql-connector-c",
-    :because => "both install MySQL client libraries"
-  conflicts_with "mariadb-connector-c",
-    :because => "both install plugins"
+  # https://bugs.mysql.com/bug.php?id=86711
+  # https://github.com/Homebrew/homebrew-core/pull/20538
+  fails_with :clang do
+    build 800
+    cause "Wrong inlining with Clang 8.0, see MySQL Bug #86711"
+  end
 
+  # https://github.com/percona/percona-server/blob/Percona-Server-#{version}/cmake/boost.cmake
   resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
-    sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
+    url "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2"
+    sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
   end
 
   # Where the database files should be located. Existing installs have them
@@ -45,84 +48,68 @@ class PerconaServer < Formula
     @datadir ||= (var/"percona").directory? ? var/"percona" : var/"mysql"
   end
 
-  pour_bottle? do
-    reason "The bottle needs a var/mysql datadir (yours is var/percona)."
-    satisfy { datadir == var/"mysql" }
-  end
-
-  # Fix C++ build failure due to Xcode 9 being very strict
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://github.com/percona/percona-server/pull/1925.patch?full_index=1"
-      sha256 "126ed7762ab94a4b2afdaa8a09d35d5e25dfd7cd5452cf51b4db90144e737e6e"
-    end
-  end
-
   def install
-    # Don't hard-code the libtool path. See:
-    # https://github.com/Homebrew/homebrew/issues/20185
-    inreplace "cmake/libutils.cmake",
-      "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
-      "COMMAND libtool -static -o ${TARGET_LOCATION}"
-
-    args = std_cmake_args + %W[
-      -DMYSQL_DATADIR=#{datadir}
-      -DINSTALL_PLUGINDIR=lib/plugin
-      -DSYSCONFDIR=#{etc}
-      -DINSTALL_MANDIR=#{man}
-      -DINSTALL_DOCDIR=#{doc}
-      -DINSTALL_INFODIR=#{info}
-      -DINSTALL_INCLUDEDIR=include/mysql
-      -DINSTALL_MYSQLSHAREDIR=#{share.basename}/mysql
-      -DWITH_SSL=yes
-      -DDEFAULT_CHARSET=utf8
-      -DDEFAULT_COLLATION=utf8_general_ci
+    # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
+    args = %W[
+      -DFORCE_INSOURCE_BUILD=1
       -DCOMPILATION_COMMENT=Homebrew
+      -DDEFAULT_CHARSET=utf8mb4
+      -DDEFAULT_COLLATION=utf8mb4_0900_ai_ci
+      -DINSTALL_DOCDIR=share/doc/#{name}
+      -DINSTALL_INCLUDEDIR=include/mysql
+      -DINSTALL_INFODIR=share/info
+      -DINSTALL_MANDIR=share/man
+      -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DINSTALL_PLUGINDIR=lib/percona-server/plugin
+      -DMYSQL_DATADIR=#{datadir}
+      -DSYSCONFDIR=#{etc}
+      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_UNIT_TESTS=OFF
+      -DWITH_EMBEDDED_SERVER=ON
+      -DENABLED_LOCAL_INFILE=1
+      -DWITH_INNODB_MEMCACHED=ON
       -DWITH_EDITLINE=system
+      -DWITH_PROTOBUF=system
     ]
-
-    # PAM plugin is Linux-only at the moment
-    args.concat %w[
-      -DWITHOUT_AUTH_PAM=1
-      -DWITHOUT_AUTH_PAM_COMPAT=1
-      -DWITHOUT_DIALOG=1
-    ]
-
-    # TokuDB is broken on MacOsX
-    # https://bugs.launchpad.net/percona-server/+bug/1531446
-    args.concat %w[-DWITHOUT_TOKUDB=1]
 
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
     # version check in place to ensure it only builds against expected release.
     # This is problematic when Boost releases don't align with MySQL releases.
-    (buildpath/"boost_1_59_0").install resource("boost")
-    args << "-DWITH_BOOST=#{buildpath}/boost_1_59_0"
+    (buildpath/"boost").install resource("boost")
+    args << "-DWITH_BOOST=#{buildpath}/boost"
 
-    # To enable unit testing at build, we need to download the unit testing suite
-    if build.with? "test"
-      args << "-DENABLE_DOWNLOADS=ON"
-    else
-      args << "-DWITH_UNIT_TESTS=OFF"
-    end
+    # Percona MyRocks does not compile on macOS
+    # https://bugs.launchpad.net/percona-server/+bug/1741639
+    args.concat %w[-DWITHOUT_ROCKSDB=1]
 
-    # Build the embedded server
-    args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
+    # TokuDB does not compile on macOS
+    # https://bugs.launchpad.net/percona-server/+bug/1531446
+    args.concat %w[-DWITHOUT_TOKUDB=1]
 
-    # Build with InnoDB Memcached plugin
-    args << "-DWITH_INNODB_MEMCACHED=ON" if build.with? "memcached"
-
-    # Build with local infile loading support
-    args << "-DENABLED_LOCAL_INFILE=1" if build.with? "local-infile"
-
-    system "cmake", *args
+    system "cmake", ".", *std_cmake_args, *args
     system "make"
     system "make", "install"
 
+    (prefix/"mysql-test").cd do
+      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+    end
+
+    on_macos do
+      # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
+      rm lib/"libssl.dylib"
+      rm lib/"libssl.1.1.dylib"
+      rm lib/"libcrypto.1.1.dylib"
+      rm lib/"libcrypto.dylib"
+    end
+
+    # Remove the tests directory
+    rm_rf prefix/"mysql-test"
+
     # Don't create databases inside of the prefix!
     # See: https://github.com/Homebrew/homebrew/issues/4975
-    rm_rf prefix+"data"
+    rm_rf prefix/"data"
 
-    # Fix up the control script and link into bin
+    # Fix up the control script and link into bin.
     inreplace "#{prefix}/support-files/mysql.server",
               /^(PATH=".*)(")/,
               "\\1:#{HOMEBREW_PREFIX}/bin\\2"
@@ -138,69 +125,76 @@ class PerconaServer < Formula
     etc.install "my.cnf"
   end
 
-  def caveats; <<~EOS
-    A "/etc/my.cnf" from another install may interfere with a Homebrew-built
-    server starting up correctly.
+  def post_install
+    # Make sure the var/mysql directory exists
+    (var/"mysql").mkpath
 
-    MySQL is configured to only allow connections from localhost by default
+    # Don't initialize database, it clashes when testing other MySQL-like implementations.
+    return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    To connect:
-        mysql -uroot
-
-    To initialize the data directory:
-        mysqld --initialize --datadir=#{datadir} --user=#{ENV["USER"]}
-    EOS
+    unless (datadir/"mysql/user.frm").exist?
+      ENV["TMPDIR"] = nil
+      system bin/"mysqld", "--initialize-insecure", "--user=#{ENV["USER"]}",
+        "--basedir=#{prefix}", "--datadir=#{datadir}", "--tmpdir=/tmp"
+    end
   end
 
-  plist_options :manual => "mysql.server start"
+  def caveats
+    s = <<~EOS
+      We've installed your MySQL database without a root password. To secure it run:
+          mysql_secure_installation
+      MySQL is configured to only allow connections from localhost by default
+      To connect run:
+          mysql -uroot
+    EOS
+    if (my_cnf = ["/etc/my.cnf", "/etc/mysql/my.cnf"].find { |x| File.exist? x })
+      s += <<~EOS
+        A "#{my_cnf}" from another install may interfere with a Homebrew-built
+        server starting up correctly.
+      EOS
+    end
+    s
+  end
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>Program</key>
-      <string>#{opt_bin}/mysqld_safe</string>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-    </dict>
-    </plist>
+  plist_options manual: "mysql.server start"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/mysqld_safe</string>
+          <string>--datadir=#{datadir}</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{datadir}</string>
+      </dict>
+      </plist>
     EOS
   end
 
   test do
-    begin
-      (testpath/"mysql_test.sql").write <<~EOS
-        CREATE DATABASE `mysql_test`;
-        USE `mysql_test`;
-        CREATE TABLE `mysql_test`.`test` (
-        `id` BIGINT(21) UNSIGNED NOT NULL AUTO_INCREMENT,
-        `name` VARCHAR(127) NOT NULL COMMENT '42',
-        PRIMARY KEY (`id`),
-        KEY `name` (`name`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
-        INSERT INTO `mysql_test`.`test` VALUES (NULL, '42');
-        SELECT * FROM `mysql_test`.`test` WHERE `name` = '42';
-        DELETE FROM `mysql_test`.`test` WHERE `name` = '42';
-        DROP TABLE `mysql_test`.`test`;
-        DROP DATABASE `mysql_test`;
-      EOS
-      # mysql throws error if any file exists in the data directory
-      system "#{bin}/mysqld", "--log-error-verbosity=3", "--initialize-insecure", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}"
-      pid = fork do
-        exec "#{opt_bin}/mysqld_safe", "--datadir=#{testpath}/mysql", "--user=#{ENV["USER"]}", "--bind-address=127.0.0.1", "--port=3307", "--socket=#{testpath}/mysql.sock"
-      end
-      sleep 3
-      system "#{bin}/mysql", "--verbose", "--host=127.0.0.1", "--port=3307", "--user=root", "--execute=source #{testpath/"mysql_test.sql"}"
-    ensure
-      system "#{bin}/mysqladmin", "shutdown", "--user=root", "--host=127.0.0.1", "--port=3307"
-      Process.wait pid
+    (testpath/"mysql").mkpath
+    (testpath/"tmp").mkpath
+    system bin/"mysqld", "--no-defaults", "--initialize-insecure", "--user=#{ENV["USER"]}",
+      "--basedir=#{prefix}", "--datadir=#{testpath}/mysql", "--tmpdir=#{testpath}/tmp"
+    port = free_port
+    fork do
+      system "#{bin}/mysqld", "--no-defaults", "--user=#{ENV["USER"]}",
+        "--datadir=#{testpath}/mysql", "--port=#{port}", "--tmpdir=#{testpath}/tmp"
     end
+    sleep 5
+    assert_match "information_schema",
+      shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
+    system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end

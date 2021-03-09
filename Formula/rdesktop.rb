@@ -1,43 +1,36 @@
 class Rdesktop < Formula
   desc "UNIX client for connecting to Windows Remote Desktop Services"
-  homepage "http://www.rdesktop.org/"
-  url "https://downloads.sourceforge.net/project/rdesktop/rdesktop/1.8.3/rdesktop-1.8.3.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/r/rdesktop/rdesktop_1.8.3.orig.tar.gz"
-  sha256 "88b20156b34eff5f1b453f7c724e0a3ff9370a599e69c01dc2bf0b5e650eece4"
+  homepage "https://github.com/rdesktop/rdesktop"
+  url "https://github.com/rdesktop/rdesktop/releases/download/v1.9.0/rdesktop-1.9.0.tar.gz"
+  sha256 "473c2f312391379960efe41caad37852c59312bc8f100f9b5f26609ab5704288"
+  license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
-    sha256 "7a70e9cd3c541121b9ae55eabb7036f34c3818a952ab5104365bd6437ebb9420" => :high_sierra
-    sha256 "2a09f53bccef981e542de0c2a3066ccb6e438fe0c11341281cb2803ce09f7bb8" => :sierra
-    sha256 "46b1a3070669d5f0e2f1e70e387ae4a3c7d956a0991378138ab5de39e6be3b9e" => :el_capitan
-    sha256 "923ab34a5daaab70f97aa23c8cebc91cba3a776584d35444eadf123050471d5f" => :yosemite
+    sha256 big_sur:     "60d5a72e5a55cace788d0a28241b9080fbf039c25fd91eb3bf91a95a8e8e4a89"
+    sha256 catalina:    "8b22a2d1f52ff40334a16fc4614bc2f2c9e50386f0732e8e4478f68c7008f961"
+    sha256 mojave:      "91b95a137be4361dee7d8bf2e442fa75eaf159469c09e238a127aa1186534638"
+    sha256 high_sierra: "84ca9f1d74ad63108e320f2cae63a2afdfafd3995aa2d37837d551cc5dda8688"
   end
 
-  option "with-smartcard", "Build with Smart Card Support"
+  deprecate! date: "2020-11-12", because: :unmaintained
 
-  depends_on "openssl"
-  depends_on :x11
-
-  # Note: The patch below is meant to remove the reference to the
-  # undefined symbol SCARD_CTL_CODE. Since we are compiling with
-  # --disable-smartcard (by default), we don't need it anyway (and it should
-  # probably have been #ifdefed in the original code).
-  # upstream bug report: https://sourceforge.net/p/rdesktop/bugs/352/
-  patch :DATA
+  depends_on "pkg-config" => :build
+  depends_on "gnutls"
+  depends_on "libao"
+  depends_on "libtasn1"
+  depends_on "libx11"
+  depends_on "libxcursor"
+  depends_on "libxrandr"
+  depends_on "nettle"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --disable-credssp
-      --with-openssl=#{Formula["openssl"].opt_prefix}
-      --x-includes=#{MacOS::X11.include}
-      --x-libraries=#{MacOS::X11.lib}
+      --enable-smartcard
+      --with-sound=libao
     ]
-
-    if build.with? "smartcard"
-      args << "--enable-smartcard"
-    else
-      args << "--disable-smartcard"
-    end
 
     system "./configure", *args
     system "make", "install"
@@ -47,26 +40,3 @@ class Rdesktop < Formula
     assert_match version.to_s, shell_output("#{bin}/rdesktop -help 2>&1", 64)
   end
 end
-
-__END__
-diff --git a/scard.c b/scard.c
-index caa0745..5521ee9 100644
---- a/scard.c
-+++ b/scard.c
-@@ -2152,7 +2152,6 @@ TS_SCardControl(STREAM in, STREAM out)
-	{
-		/* Translate to local encoding */
-		dwControlCode = (dwControlCode & 0x3ffc) >> 2;
--		dwControlCode = SCARD_CTL_CODE(dwControlCode);
-	}
-	else
-	{
-@@ -2198,7 +2197,7 @@ TS_SCardControl(STREAM in, STREAM out)
-	}
-
- #ifdef PCSCLITE_VERSION_NUMBER
--	if (dwControlCode == SCARD_CTL_CODE(3400))
-+	if (0)
-	{
-		int i;
-		SERVER_DWORD cc;

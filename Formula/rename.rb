@@ -1,20 +1,20 @@
 class Rename < Formula
   desc "Perl-powered file rename script with many helpful built-ins"
   homepage "http://plasmasturm.org/code/rename"
-  url "https://github.com/ap/rename/archive/v1.600.tar.gz"
-  sha256 "538fa908c9c2c4e7a08899edb6ddb47f7cbeb9b1a1d04e003d3c19b56fcc7f88"
-
+  url "https://github.com/ap/rename/archive/v1.601.tar.gz"
+  sha256 "e8fd67b662b9deddfb6a19853652306f8694d7959dfac15538a9b67339c87af4"
   head "https://github.com/ap/rename.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "131f754e5ea1245b32b79acca0f77ef5749973ed8326d5aac196a4c7f14efecf" => :high_sierra
-    sha256 "9c92c253b431d5c821048a32309aebb2e7453e2121ae7661f7afcbd74479078c" => :sierra
-    sha256 "29ee5c40a54dc5d1e7a157e28c19790120cd71ac5b072aa8bc1a07fdb4ad5dae" => :el_capitan
-    sha256 "2ed1a6afa1543ca67c85763ac9cc23e40bb85d359234e2d4af0fe79db8439a89" => :yosemite
-    sha256 "70f3263cbca5dbda0b477bf9838fdf4447c101ee89cd7f72fe2105657892431c" => :mavericks
-    sha256 "c632dad8b0ddc1853db87eb88a408ee352a79a95a68f5574a0c2ba6512cf02ce" => :mountain_lion
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "44f30a8e1f8b7e3c5f3a194285a2dac494389e837c490d8d8d7137c939fa4ee3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "099d8a8cf234a34790ab0004433c3c83f74ef353ad030f2be14086758d5e3b89"
+    sha256 cellar: :any_skip_relocation, catalina:      "494aba9267348e401431cbcb1193df1c1138fda69d66aaa3c7ee229be51277fd"
+    sha256 cellar: :any_skip_relocation, mojave:        "13c919a8edd4935b7e5462a172b8336c0425a627f76fd3aa72c652c35ea233cc"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "86b4b8a450b749f6fd84d86334d2d9f3a1c57fa3832f6e69d602369b4c6e5300"
+    sha256 cellar: :any_skip_relocation, sierra:        "ed4a9403e533b143f8f1ee307035b28c995a13970c64ed7646719e12688ec7a0"
   end
+
+  conflicts_with "util-linux", because: "both install `rename` binaries"
 
   def install
     system "pod2man", "rename", "rename.1"

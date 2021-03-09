@@ -1,29 +1,31 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.2.tar.gz"
-  sha256 "6ba9f66540ea58fc2c17f175265f9ed76d74a8432eeac1182b74ebf4f2cd3414"
+  url "https://tar.goaccess.io/goaccess-1.4.6.tar.gz"
+  sha256 "1d0f27c3382b3fb834b6cc419389a87e100d874a71e343403cd19eb5491c72d0"
+  license "MIT"
   head "https://github.com/allinurl/goaccess.git"
 
-  bottle do
-    rebuild 1
-    sha256 "33833da9143c81fab96a7bf19452f54e94d32952f86d4a5e110c77e9854deaf9" => :high_sierra
-    sha256 "7b794bcc28f24f010682e2e18d0c480cdf9d75d07b50964944f3b3fd6428972a" => :sierra
-    sha256 "272e53e58e3fcd8c894285d1a90a3288edde0959a3f049bff24a6ed9180dbc3c" => :el_capitan
-    sha256 "af9801407d647456b2421673aeefdc5d1bd00446d912126c8bc662cfad437937" => :yosemite
+  livecheck do
+    url "https://goaccess.io/download"
+    regex(/href=.*?goaccess[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option "with-libmaxminddb", "Enable IP location information using enhanced GeoIP2 databases"
-
-  deprecated_option "enable-geoip" => "with-libmaxminddb"
-  deprecated_option "with-geoip" => "with-libmaxminddb"
+  bottle do
+    sha256 arm64_big_sur: "28622dba228f979a25f0e35e6926b359f6bb5cc0ad3f3383baeec7190fb6b86c"
+    sha256 big_sur:       "5415410ba76a1fae2b27883ecdc5b734a306d87cb251eee2cb6cc09548b1676e"
+    sha256 catalina:      "24c96e15f8b60ea0ff6a8b7f140f186c0c6e75f39d7cade67c23722e16a7c66f"
+    sha256 mojave:        "22143fbfcc714d039ea14dcbb9aeb1ea35cc375b9dce5ef22e53c7580723cc6a"
+  end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libmaxminddb" => :optional
+  depends_on "gettext"
+  depends_on "libmaxminddb"
   depends_on "tokyo-cabinet"
 
   def install
+    ENV.append_path "PATH", Formula["gettext"].bin
     system "autoreconf", "-vfi"
 
     args = %W[
@@ -32,21 +34,25 @@ class Goaccess < Formula
       --prefix=#{prefix}
       --enable-utf8
       --enable-tcb=btree
+      --enable-geoip=mmdb
+      --with-libintl-prefix=#{Formula["gettext"].opt_prefix}
     ]
-
-    args << "--enable-geoip=mmdb" if build.with? "libmaxminddb"
 
     system "./configure", *args
     system "make", "install"
   end
 
   test do
-    (testpath/"access.log").write <<~EOS
-      127.0.0.1 - - [04/May/2015:15:48:17 +0200] "GET / HTTP/1.1" 200 612 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36"
-    EOS
+    (testpath/"access.log").write \
+      '127.0.0.1 - - [04/May/2015:15:48:17 +0200] "GET / HTTP/1.1" 200 612 "-" ' \
+      '"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) ' \
+      'AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36"'
 
-    output = shell_output("#{bin}/goaccess --time-format=%T --date-format=%d/%b/%Y --log-format='%h %^[%d:%t %^] \"%r\" %s %b \"%R\" \"%u\"' -f access.log -o json 2>/dev/null")
+    output = shell_output \
+      "#{bin}/goaccess --time-format=%T --date-format=%d/%b/%Y " \
+      "--log-format='%h %^[%d:%t %^] \"%r\" %s %b \"%R\" \"%u\"' " \
+      "-f access.log -o json 2>/dev/null"
 
-    assert_equal "Chrome", JSON.parse(output)["browsers"]["data"][0]["data"]
+    assert_equal "Chrome", JSON.parse(output)["browsers"]["data"].first["data"]
   end
 end

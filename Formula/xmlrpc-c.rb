@@ -1,15 +1,15 @@
 class XmlrpcC < Formula
   desc "Lightweight RPC library (based on XML and HTTP)"
   homepage "https://xmlrpc-c.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.39.12/xmlrpc-c-1.39.12.tgz"
-  sha256 "d830f3264a832dfe09f629cc64036acfd08121692526d0fabe090f7ff881ce08"
+  url "https://downloads.sourceforge.net/project/xmlrpc-c/Xmlrpc-c%20Super%20Stable/1.51.07/xmlrpc-c-1.51.07.tgz"
+  sha256 "84d20ae33f927582f821d61c0b9194aefbf1d7924590a13fa9da5ae1698aded9"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "c6c39ccd6891e1e9ce07f153a2e16d843cc8c5a0ec9eace09c84a34543115933" => :high_sierra
-    sha256 "19784c94e65b73ea524331452a28458eaa29b78419955805226a50f1632ce6d1" => :sierra
-    sha256 "503a064edf4638c671b6377d91045c7f0990203b9b8d6f873d84415c8c98b614" => :el_capitan
-    sha256 "6fb643c4bc7e7fdef6c276f533eedafe77d325fd505218bdbd8244af5577db31" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "d2f823ee08ce4b5cf1db9b3c7df182b213c4e4757e89207de1147def940544be"
+    sha256 cellar: :any, big_sur:       "a270cdb18af53d135dc5b46e772ebde0b0174aa4edcb334a3522ee79b7301f8b"
+    sha256 cellar: :any, catalina:      "8f2f988116b29088d76766843fa5d2eafc2f33d919990baeb31f67fd9b8c0b53"
+    sha256 cellar: :any, mojave:        "b058d27a7d2a0ba5a265186a5c4bcb26c9a9a0c9d4a60e639b30a72a2d4a7169"
   end
 
   def install

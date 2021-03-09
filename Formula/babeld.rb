@@ -1,20 +1,32 @@
 class Babeld < Formula
   desc "Loop-avoiding distance-vector routing protocol"
-  homepage "https://www.irif.univ-paris-diderot.fr/~jch/software/babel/"
-  url "https://www.irif.univ-paris-diderot.fr/~jch/software/files/babeld-1.8.0.tar.gz"
-  sha256 "11a8b1224fb82aa1a0b7060cd7af488c22102384acc4ea46bf192c2db69a526c"
+  homepage "https://www.irif.fr/~jch/software/babel/"
+  url "https://www.irif.fr/~jch/software/files/babeld-1.9.2.tar.gz"
+  sha256 "154f00e0a8bf35d6ea9028886c3dc5c3c342dd1a367df55ef29a547b75867f07"
+  license "MIT"
   head "https://github.com/jech/babeld.git"
 
+  livecheck do
+    url "https://www.irif.fr/~jch/software/files/"
+    regex(/href=.*?babeld[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dab41722a62b7983230dfb88928bb438ff87080fe2ceed17c9ddb459b726052e" => :high_sierra
-    sha256 "d384ced16e50c28eabac680e1b7f95b7863d6d6a8cced97e96c783b3a6860a23" => :sierra
-    sha256 "52fe6dc33f81bce43054f00386b19a56f3bb9c153920dfba2236a239df84e5ab" => :el_capitan
-    sha256 "be20af1a2505f188d4a5e32a3793542db187d9ec8ed85a33909616e59d775f4e" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6a56133eedc55610cbd65c8862584e2a109702e6f6c3619c58bcc99a41c99da1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a7bb20a1f278ab2acc151622894d0e96ee81e9a9a0e53c1ecc9565f5906ed172"
+    sha256 cellar: :any_skip_relocation, catalina:      "1e311a15868154bf204fe2d9d19ed1db24c830fcf9cfaa32cf1255d7ed35b108"
+    sha256 cellar: :any_skip_relocation, mojave:        "1ddbacdd3433b008c2ad86e582ab2376cf0bab93b7939bb9f47d6e1e1fd06ad3"
   end
 
   def install
-    system "make", "LDLIBS=''"
+    on_macos do
+      # LDLIBS='' fixes: ld: library not found for -lrt
+      system "make", "LDLIBS=''"
+    end
+    on_linux do
+      system "make"
+    end
     system "make", "install", "PREFIX=#{prefix}"
   end
 

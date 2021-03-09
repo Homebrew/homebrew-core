@@ -1,29 +1,30 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/w/whois/whois_5.2.18.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/w/whois/whois_5.2.18.tar.xz"
-  sha256 "c35d0d26aff37107c244a8ad54fd42e497ec0b90f76309e9beb7078b827c97d5"
+  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.5.8.tar.xz"
+  sha256 "cd9e7bad3b6968182bfcc311e22be3aec9a974397377d748845147884ce07547"
+  license "GPL-2.0-or-later"
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "efbf2c5eae16825f831095a2589b59e7a485aa8a2e786052c4b94bbffb0e1356" => :high_sierra
-    sha256 "532e5b0a21d134aa714abbf1f80835e1256e037901540026579c395e0c515c72" => :sierra
-    sha256 "cf7bca8cc4c6275a3753794c42b5fe916535d25e9a4465c81616984636a3cb37" => :el_capitan
-    sha256 "73b75963251f3c420d2d24972447d015028dc3d1f872a2b335f5aea8f4b0977c" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "7929a883bd68f11f716cfcb23479a4d4bce9187ea1d0c3521aa08702352cddb9"
+    sha256 cellar: :any, big_sur:       "7cae3b5c25d64da91303a6f54110d571eeaabafecaae2341b4717a9be9b0a3ae"
+    sha256 cellar: :any, catalina:      "8829fbca0176db80e9b242a91a512cb6d3e45fb9f7872110673de3ff44b97684"
+    sha256 cellar: :any, mojave:        "9e961538d4264696764c92244c2d6de3e42a4ff6330a74de133cfb2f669adb89"
   end
+
+  keg_only :provided_by_macos
+
+  depends_on "pkg-config" => :build
+  depends_on "libidn2"
 
   def install
-    system "make", "whois", "HAVE_ICONV=1", "whois_LDADD+=-liconv"
+    ENV.append "LDFLAGS", "-L/usr/lib -liconv"
+
+    system "make", "whois", "HAVE_ICONV=1"
     bin.install "whois"
     man1.install "whois.1"
-  end
-
-  def caveats; <<~EOS
-    Debian whois has been installed as `whois` and may shadow the
-    system binary of the same name.
-    EOS
+    man5.install "whois.conf.5"
   end
 
   test do

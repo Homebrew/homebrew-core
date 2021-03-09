@@ -3,42 +3,43 @@ class Pdf2htmlex < Formula
   homepage "https://coolwanglu.github.io/pdf2htmlEX/"
   url "https://github.com/coolwanglu/pdf2htmlEX/archive/v0.14.6.tar.gz"
   sha256 "320ac2e1c2ea4a2972970f52809d90073ee00a6c42ef6d9833fb48436222f0e5"
-  revision 18
-
+  license "GPL-3.0-or-later"
+  revision 24
   head "https://github.com/coolwanglu/pdf2htmlEX.git"
 
   bottle do
-    sha256 "bd53ac2f15173498b425a66603573288fda7e8804e223f68f5fd6db1b82a43bc" => :high_sierra
-    sha256 "f09f3c1649dd2283d89bc6f040aa15c620316599c145d152ed2aff63fc2f5e3d" => :sierra
-    sha256 "e766e0617296e5a2c75fc013f738507af6841f08d7394b6565126393b0ca951f" => :el_capitan
-    sha256 "b15b6922ff4cfa967333f408f58581ae62073069a64d5296bfdb4beb8ed03c68" => :yosemite
+    sha256 arm64_big_sur: "8c29d3c811e6e6580644620a76848458db39181b996cc15e4df2589c8de40e27"
+    sha256 big_sur:       "7cb1691e750ce40dfc9dbb9e9faba3138158c31e3221335acd3d4f25eb7bf3c3"
+    sha256 catalina:      "76c5b16da33231ee6d269f95c5b9b3f0f06b9f5d5634e003d55e6ad5e123a387"
+    sha256 mojave:        "0cf6aa3cd87e96aab2fc58b618f8a9127edec88a624bd6cf2f5816fd575c0a50"
+    sha256 high_sierra:   "8a55a7cd0d373d223162ee92bc6f02c269b4f17fe987471ba3388ea257cf870f"
   end
 
-  depends_on :macos => :lion
+  deprecate! date: "2016-12-12", because: :repo_archived
+
+  depends_on "autoconf" => :build # for fontforge
+  depends_on "automake" => :build # for fontforge
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "cairo" # for fontforge
+  depends_on "freetype" # for fontforge
+  depends_on "gettext" # for fontforge
+  depends_on "giflib" # for fontforge
+  depends_on "glib" # for fontforge
   depends_on "gnu-getopt"
-  depends_on "openjpeg" # for poppler
-  depends_on "ttfautohint"
+  depends_on "jpeg" # for fontforge
+  depends_on "libpng" # for fontforge
+  depends_on "libtiff" # for fontforge
+  depends_on "libtool" # for fontforge
 
-  # Fontforge dependencies
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :run
-  depends_on "cairo"
-  depends_on "freetype"
-  depends_on "gettext"
-  depends_on "giflib"
-  depends_on "glib"
-  depends_on "jpeg"
-  depends_on "libpng"
-  depends_on "libtiff"
-  depends_on "pango"
+  depends_on "openjpeg" # for poppler
+  depends_on "pango" # for fontforge
+  depends_on "ttfautohint"
 
   # Pdf2htmlex use an outdated, customised Fontforge installation.
   # See https://github.com/coolwanglu/pdf2htmlEX/wiki/Building
   resource "fontforge" do
-    url "https://github.com/coolwanglu/fontforge.git", :branch => "pdf2htmlEX"
+    url "https://github.com/coolwanglu/fontforge.git", branch: "pdf2htmlEX"
   end
 
   # Upstream issue "poppler 0.59.0 incompatibility"
@@ -54,24 +55,23 @@ class Pdf2htmlex < Formula
   end
 
   def install
-    ENV.cxx11 if MacOS.version < :mavericks
-
     resource("fontforge").stage do
       # Fix for incomplete giflib 5 support, see
       # https://github.com/coolwanglu/pdf2htmlEX/issues/713
       inreplace "gutils/gimagereadgif.c", "DGifCloseFile(gif)", "DGifCloseFile(gif, NULL)"
 
-      # Fix linker error; see: https://trac.macports.org/ticket/25012
-      ENV.append "LDFLAGS", "-lintl"
-
-      # Reset ARCHFLAGS to match how we build
-      ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
+      on_macos do
+        # Fix linker error; see: https://trac.macports.org/ticket/25012
+        ENV.append "LDFLAGS", "-lintl"
+      end
 
       system "./autogen.sh"
       system "./configure", "--prefix=#{libexec}/fontforge",
                             "--without-libzmq",
                             "--without-x",
                             "--without-iconv",
+                            "--without-libspiro",
+                            "--without-libuninameslist",
                             "--disable-python-scripting",
                             "--disable-python-extension"
       system "make"
@@ -82,8 +82,6 @@ class Pdf2htmlex < Formula
     ENV.prepend_path "PATH", "#{libexec}/fontforge/bin"
 
     resource("poppler").stage do
-      ENV["LIBOPENJPEG_CFLAGS"] = "-I#{Formula["openjpeg"].opt_include}/openjpeg-2.2"
-
       inreplace "poppler.pc.in", "Cflags: -I${includedir}/poppler",
                                  "Cflags: -I${includedir}/poppler -I${includedir}"
 

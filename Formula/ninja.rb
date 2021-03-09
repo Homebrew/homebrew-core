@@ -1,35 +1,28 @@
 class Ninja < Formula
   desc "Small build system for use with gyp or CMake"
   homepage "https://ninja-build.org/"
-  url "https://github.com/ninja-build/ninja/archive/v1.8.2.tar.gz"
-  sha256 "86b8700c3d0880c2b44c2ff67ce42774aaf8c28cbf57725cb881569288c1c6f4"
+  url "https://github.com/ninja-build/ninja/archive/v1.10.2.tar.gz"
+  sha256 "ce35865411f0490368a8fc383f29071de6690cbadc27704734978221f25e2bed"
+  license "Apache-2.0"
   head "https://github.com/ninja-build/ninja.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "eeba4fff08b3ed4b308250fb650f7d06630acd18465900ba0e27cecfe925a6cc" => :high_sierra
-    sha256 "90ecf90948f0fa65c82011d79338d7c5ca2a4d0cb7cb8dc3892243f749fbe2eb" => :sierra
-    sha256 "675165ce642fa811e1a0a363be0ba66a7b907d46056f89fd20938aa33e7d59f7" => :el_capitan
+    sha256 arm64_big_sur: "8be5a50d0bfe6bae6f920def1273bc0da888a5eef7304303888b1a5929bd517e"
+    sha256 big_sur:       "e5e8174fb4bce324cfb42226d46ce1433f34866f0c06ce930a3bbdb40cadd395"
+    sha256 catalina:      "5eb553057f7595f0c607b100ac263ab5834a057b11e8aca512555f5129f6d544"
+    sha256 mojave:        "8d7775944ef67e3f8884bff5ea0013a80c4811be8c268fdd9b37cc377eb9ec1b"
   end
 
-  option "without-test", "Don't run build-time tests"
-
-  deprecated_option "without-tests" => "without-test"
-
-  resource "gtest" do
-    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googletest/gtest-1.7.0.zip"
-    sha256 "247ca18dd83f53deb1328be17e4b1be31514cedfc1e3424f672bf11fd7e0d60d"
-  end
+  depends_on "python@3.9"
 
   def install
-    system "python", "configure.py", "--bootstrap"
-
-    if build.with? "test"
-      (buildpath/"gtest").install resource("gtest")
-      system "./configure.py", "--with-gtest=gtest"
-      system "./ninja", "ninja_test"
-      system "./ninja_test", "--gtest_filter=-SubprocessTest.SetWithLots"
-    end
+    py = Formula["python@3.9"].opt_bin/"python3"
+    system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=#{py}"
 
     bin.install "ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
@@ -46,5 +39,11 @@ class Ninja < Formula
       build foo.o: cc foo.c
     EOS
     system bin/"ninja", "-t", "targets"
+    port = free_port
+    fork do
+      exec bin/"ninja", "-t", "browse", "--port=#{port}", "--no-browser", "foo.o"
+    end
+    sleep 2
+    assert_match "foo.c", shell_output("curl -s http://localhost:#{port}?foo.o")
   end
 end

@@ -1,31 +1,33 @@
 class Sfcgal < Formula
   desc "C++ wrapper library around CGAL"
   homepage "http://sfcgal.org/"
-  url "https://github.com/Oslandia/SFCGAL/archive/v1.3.2.tar.gz"
-  sha256 "1ae0ce1c38c728b5c98adcf490135b32ab646cf5c023653fb5394f43a34f808a"
+  url "https://gitlab.com/Oslandia/SFCGAL/-/archive/v1.3.9/SFCGAL-v1.3.9.tar.gz"
+  sha256 "2451cb6df24853c7e59173eec0068e3263ab625fcf61add4624f8bf8366ae4e3"
+  license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 "f768925d0f01d8c8ea0c131a886d9ffb10677d90e86591f6d3a71adfc136975e" => :high_sierra
-    sha256 "ab1b173aa969908975b426e0e1b6e743c18f3e9da19007b0b7e1833b92969bd7" => :sierra
-    sha256 "0348fd098cfb8a0d2ce913fa256178c63c47216415507a962c5999a5c62853ac" => :el_capitan
+    rebuild 1
+    sha256 arm64_big_sur: "ccef404f840195d1f22cc5915ce243009cd15f7d488419f6092afca25a1ac549"
+    sha256 big_sur:       "a84e1882800689fe3312cf3b93f179a5e34539151ef558468976003ae97d2692"
+    sha256 catalina:      "059645e8217cd404f6ae60c7fc3c9dcc98c6b0d64aa1756cf5ee2ebbe6d5c509"
+    sha256 mojave:        "8180bd969a152778f3eedd4149c517ea88d5f22efe1955d418e551808a405992"
   end
 
-  option :cxx11
-
   depends_on "cmake" => :build
+  depends_on "boost"
+  depends_on "cgal"
+  depends_on "gmp"
   depends_on "mpfr"
-  if build.cxx11?
-    depends_on "boost" => "c++11"
-    depends_on "cgal" => "c++11"
-    depends_on "gmp" => "c++11"
-  else
-    depends_on "boost"
-    depends_on "cgal"
-    depends_on "gmp"
+
+  # Build against boost >= 1.75
+  # https://gitlab.com/Oslandia/SFCGAL/-/issues/238
+  patch do
+    url "https://gitlab.com/Oslandia/SFCGAL/-/commit/d07ed747e7f06acb22d5891ece789b331cff14c5.patch"
+    sha256 "158b68643ff4de03aed064d1e494dd7e27acf86da3ae8949fddd78d5b73d6d73"
   end
 
   def install
-    ENV.cxx11 if build.cxx11?
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end

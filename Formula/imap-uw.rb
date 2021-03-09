@@ -2,30 +2,45 @@ class ImapUw < Formula
   # imap-uw is unmaintained software; the author has passed away and there is
   # no active successor project.
   desc "University of Washington IMAP toolkit"
-  homepage "https://www.washington.edu/imap/"
-  url "ftp://ftp.cac.washington.edu/imap/imap-2007f.tar.gz"
-  mirror "http://ftp.ntua.gr/pub/net/mail/imap/imap-2007f.tar.gz"
+  homepage "https://web.archive.org/web/20191028114408/https://www.washington.edu/imap/"
+  url "https://mirrorservice.org/sites/ftp.cac.washington.edu/imap/imap-2007f.tar.gz"
+  mirror "https://fossies.org/linux/misc/old/imap-2007f.tar.gz"
   sha256 "53e15a2b5c1bc80161d42e9f69792a3fa18332b7b771910131004eb520004a28"
+  revision 1
 
-  bottle do
-    cellar :any
-    sha256 "b051874130e8c65f442ff4fdb9875ec981da9f73e24ba0e1577bb23f4c379d8d" => :high_sierra
-    sha256 "714de61f534fb8f9264183a96b527868ffee4e568f10b2ad5c283276896ffa2f" => :sierra
-    sha256 "2b9f5cbd682299610f20f1fda87c5d5c63b378ec071be2ed4889276bed53f0b4" => :el_capitan
-    sha256 "001a10201375e639d4dbb4c8cba174ef02b19b89ba8e71ce2e2182610b6f120d" => :yosemite
-    sha256 "f91d54e0b6f2f5c0ba371e68298dafe178ecd4ac23222dd0de982ba95643ded4" => :mavericks
-    sha256 "d5788fa0de07892dca5a7867bd3edb3cf822ce85f4e3993b01c7a3d9a8ecb0d3" => :mountain_lion
+  livecheck do
+    skip "Not maintained"
   end
 
-  depends_on "openssl"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "c2f21ac938fd8cad640bb7c5ffc7f9fbc74d783485483914554742f0c1fe0cd8"
+    sha256 cellar: :any, big_sur:       "fe7f15381a9216ce51e4b2e89c9243bc15569948c896ce122e561bde9e85d327"
+    sha256 cellar: :any, catalina:      "df3de76ba2934218f8f484f2d7e6c760956ba52eecacdb1b623d0b54d872165f"
+    sha256 cellar: :any, mojave:        "19d971ab778840ba44c24c3eef1316d1c65e6e0b6e1540933ad051c77ee745e0"
+    sha256 cellar: :any, sierra:        "8c1c4d2cbbd6df372f258d7cc95b040db4f3c759c8928cfbde7c54da4fa6a426"
+  end
+
+  depends_on "openssl@1.1"
+
+  # Two patches below are from Debian, to fix OpenSSL 1.1 compatibility
+  # https://salsa.debian.org/holmgren/uw-imap/tree/master/debian/patches
+  patch do
+    url "https://salsa.debian.org/holmgren/uw-imap/raw/master/debian/patches/1006_openssl1.1_autoverify.patch"
+    sha256 "7c41c4aec4f25546c998593a09386bbb1d6c526ba7d6f65e3f55a17c20644d0a"
+  end
+
+  patch do
+    url "https://salsa.debian.org/holmgren/uw-imap/raw/master/debian/patches/2014_openssl1.1.1_sni.patch"
+    sha256 "9db45ba5462292acd04793ac9fa856e332b37506f1e0991960136dff170a2cd3"
+  end
 
   def install
     ENV.deparallelize
     inreplace "Makefile" do |s|
       s.gsub! "SSLINCLUDE=/usr/include/openssl",
-              "SSLINCLUDE=#{Formula["openssl"].opt_include}/openssl"
+              "SSLINCLUDE=#{Formula["openssl@1.1"].opt_include}/openssl"
       s.gsub! "SSLLIB=/usr/lib",
-              "SSLLIB=#{Formula["openssl"].opt_lib}"
+              "SSLLIB=#{Formula["openssl@1.1"].opt_lib}"
       s.gsub! "-DMAC_OSX_KLUDGE=1", ""
     end
     inreplace "src/osdep/unix/ssl_unix.c", "#include <x509v3.h>\n#include <ssl.h>",

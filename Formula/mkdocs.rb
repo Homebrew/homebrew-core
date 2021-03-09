@@ -2,72 +2,75 @@ class Mkdocs < Formula
   include Language::Python::Virtualenv
 
   desc "Project documentation with Markdown"
-  homepage "http://www.mkdocs.org/"
-  url "https://github.com/mkdocs/mkdocs/archive/0.17.2.tar.gz"
-  sha256 "619a86ede2fbfe602afc5d3b6913ea5dd496c1c1e8897a136b9599ed01bebae3"
+  homepage "https://www.mkdocs.org/"
+  url "https://files.pythonhosted.org/packages/78/a3/ec98a4eab53b7adf435df6c17765e1d7b603e1487ad6ab7c824d5488bf5c/mkdocs-1.1.2.tar.gz"
+  sha256 "f0b61e5402b99d7789efa032c7a74c90a20220a9c81749da06dbfbcbd52ffb39"
+  license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cc303848e3dfc04fc9be1da3a1949402b2243b9abdf00895da1b18e17517fd7c" => :high_sierra
-    sha256 "c2d477efcad2a49e24206155563106e307a343d81b8443d4a9111a181a208d23" => :sierra
-    sha256 "174c6745bae10532bd5e03c01ffa26da9119fb6ea0cb81cac7e02a1a7a1b022e" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "83bca122681942a19f62221116cccb1f86bda80fcac623b6a6e9c30deb841998"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c632678896672c74e404e891f8ed7c94fbbef5d73c38397f0f77398ea98d8162"
+    sha256 cellar: :any_skip_relocation, catalina:      "13c230e5bf220b7263cbf1313da9cf65bae3c00e3be2539578393ace54aa9b28"
+    sha256 cellar: :any_skip_relocation, mojave:        "638c33971c1a7ee2c005e7904ed055b6ed73cc93fadab1366192a6e909bafe0c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "98ef5fb680e42e9ac1e49a27c4583959496f68df2be46f61ed33752ff27fae87"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-
-  resource "backports_abc" do
-    url "https://files.pythonhosted.org/packages/68/3c/1317a9113c377d1e33711ca8de1e80afbaf4a3c950dd0edfaf61f9bfe6d8/backports_abc-0.5.tar.gz"
-    sha256 "033be54514a03e255df75c5aee8f9e672f663f93abb723444caec8fe43437bde"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
-    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
-  end
+  depends_on "python@3.9"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
-    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+    url "https://files.pythonhosted.org/packages/4e/ab/5d6bc3b697154018ef196f5b17d958fac3854e2efbc39ea07a284d4a6a9b/click-7.1.1.tar.gz"
+    sha256 "8a18b4ea89d8820c5d0c7da8a64b2c324b4dabb695804dbfea19b9be9d88c0cc"
+  end
+
+  resource "future" do
+    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
+    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/56/e6/332789f295cf22308386cf5bbd1f4e00ed11484299c5d7383378cf48ba47/Jinja2-2.10.tar.gz"
-    sha256 "f84be1bb0040caca4cea721fcbbbbd61f9be9464ca236387158b0feea01914a4"
+    url "https://files.pythonhosted.org/packages/d8/03/e491f423379ea14bb3a02a5238507f7d446de639b623187bccc111fbecdf/Jinja2-2.11.1.tar.gz"
+    sha256 "93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250"
   end
 
   resource "livereload" do
-    url "https://files.pythonhosted.org/packages/e9/2e/c4972828cf526a2e5f5571d647fb2740df68f17e8084a9a1092f4d209f4c/livereload-2.5.1.tar.gz"
-    sha256 "422de10d7ea9467a1ba27cbaffa84c74b809d96fb1598d9de4b9b676adf35e2c"
+    url "https://files.pythonhosted.org/packages/27/26/85ba3851d2e4905be7d2d41082adca833182bb1d7de9dfc7f623383d36e1/livereload-2.6.1.tar.gz"
+    sha256 "89254f78d7529d7ea0a3417d224c34287ebfe266b05e67e51facaf82c27f0f66"
+  end
+
+  resource "lunr" do
+    url "https://files.pythonhosted.org/packages/ad/c0/431b92d6707a4bf7692ea76bcfb00aa0f1db737cd3daf4b4f6a85e2b9d6c/lunr-0.5.8.tar.gz"
+    sha256 "c4fb063b98eff775dd638b3df380008ae85e6cb1d1a24d1cd81a10ef6391c26e"
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/29/82/dfe242bcfd9eec0e7bf93a80a8f8d8515a95b980c44f5c0b45606397a423/Markdown-2.6.9.tar.gz"
-    sha256 "73af797238b95768b3a9b6fe6270e250e5c09d988b8e5b223fd5efa4e06faf81"
+    url "https://files.pythonhosted.org/packages/98/79/ce6984767cb9478e6818bd0994283db55c423d733cc62a88a3ffb8581e11/Markdown-3.2.1.tar.gz"
+    sha256 "90fee683eeabe1a92e149f7ba74e5ccdc81cd397bd6c516d93a8da0ef90b6902"
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/4d/de/32d741db316d8fdb7680822dd37001ef7a448255de9699ab4bfcbdf4172b/MarkupSafe-1.0.tar.gz"
-    sha256 "a6be69091dac236ea9c6bc7d012beab42010fa914c459791d627dad4910eb665"
+    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
+    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
+  end
+
+  resource "nltk" do
+    url "https://files.pythonhosted.org/packages/f6/1d/d925cfb4f324ede997f6d47bea4d9babba51b49e87a767c170b77005889d/nltk-3.4.5.zip"
+    sha256 "bed45551259aa2101381bbdd5df37d44ca2669c5c3dad72439fa459b29137d94"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
-  end
-
-  resource "singledispatch" do
-    url "https://files.pythonhosted.org/packages/d9/e9/513ad8dc17210db12cb14f2d4d190d618fb87dd38814203ea71c87ba5b68/singledispatch-3.4.0.3.tar.gz"
-    sha256 "5b06af87df13818d14f08a028e42f566640aef80805c3b50c5056b086e3c2b9c"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/fa/14/52e2072197dd0e63589e875ebf5984c91a027121262aa08f71a49b958359/tornado-4.5.2.tar.gz"
-    sha256 "1fb8e494cd46c674d86fac5885a3ff87b0e283937a47d74eb3c02a48c9e89ad0"
+    url "https://files.pythonhosted.org/packages/95/84/119a46d494f008969bf0c775cb2c6b3579d3c4cc1bb1b41a022aa93ee242/tornado-6.0.4.tar.gz"
+    sha256 "0fe2d45ba43b00a41cd73f8be321a44936dc1aba233dee979f17a042b83eb6dc"
   end
 
   def install
@@ -78,7 +81,7 @@ class Mkdocs < Formula
     # build a very simple site that uses the "readthedocs" theme.
     (testpath/"mkdocs.yml").write <<~EOS
       site_name: MkLorum
-      pages:
+      nav:
         - Home: index.md
       theme: readthedocs
     EOS

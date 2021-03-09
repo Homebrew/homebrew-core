@@ -1,40 +1,52 @@
 class Libsigcxx < Formula
   desc "Callback framework for C++"
-  homepage "https://libsigc.sourceforge.io"
-  url "https://download.gnome.org/sources/libsigc++/2.10/libsigc++-2.10.0.tar.xz"
-  sha256 "f843d6346260bfcb4426259e314512b99e296e8ca241d771d21ac64f28298d81"
+  homepage "https://libsigcplusplus.github.io/libsigcplusplus/"
+  url "https://download.gnome.org/sources/libsigc++/3.0/libsigc++-3.0.6.tar.xz"
+  sha256 "b70edcf4611651c54a426e109b17196e1fa17da090592a5000e2d134c03ac5ce"
+  license "LGPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "90fd6c21c7a1d78b2efd494942e578a942acd6c38a7b3d758d05130df44ce3be" => :high_sierra
-    sha256 "58af260cf09d48886e9e6c8d85d81979ebdaba4abcfa0bbc4a3a9ab3f78dd929" => :sierra
-    sha256 "21124a48471cafc82ee203113e368db1b667e4dc6111e66f624af986c88d72ef" => :el_capitan
-    sha256 "3441b2001c4e0aa51dae34d36a95db87a580229a6e68ae45f668b3d572a8f9cc" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "34fc45a5a4a36a592f6cb4b1671e65fddea15b3df12dd114359a5ca3101f3665"
+    sha256 cellar: :any, big_sur:       "eea9483112f22c255c7b783333a5a48b90e2fb0747ad00f0ed4b37275481b93a"
+    sha256 cellar: :any, catalina:      "5f7d8b6e6043bcab63f7f5675746f4d94f447cde8a48513c9db7b36b5a527e05"
+    sha256 cellar: :any, mojave:        "6f3562f317a110489a2df296f8b8b3cb8bc37295b6aa5d306a5c0078f7fdb7cc"
   end
 
-  needs :cxx11
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+
+  depends_on macos: :high_sierra # needs C++17
 
   def install
     ENV.cxx11
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
-    system "make"
-    system "make", "check"
-    system "make", "install"
+
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
   test do
     (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <string>
       #include <sigc++/sigc++.h>
 
-      void somefunction(int arg) {}
+      void on_print(const std::string& str) {
+        std::cout << str;
+      }
 
-      int main(int argc, char *argv[])
-      {
-         sigc::slot<void, int> sl = sigc::ptr_fun(&somefunction);
-         return 0;
+      int main(int argc, char *argv[]) {
+        sigc::signal<void(const std::string&)> signal_print;
+
+        signal_print.connect(sigc::ptr_fun(&on_print));
+
+        signal_print.emit("hello world\\n");
+        return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp",
-                   "-L#{lib}", "-lsigc-2.0", "-I#{include}/sigc++-2.0", "-I#{lib}/sigc++-2.0/include", "-o", "test"
-    system "./test"
+    system ENV.cxx, "-std=c++17", "test.cpp",
+                   "-L#{lib}", "-lsigc-3.0", "-I#{include}/sigc++-3.0", "-I#{lib}/sigc++-3.0/include", "-o", "test"
+    assert_match "hello world", shell_output("./test")
   end
 end

@@ -1,12 +1,19 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "https://www.scala-sbt.org/"
-  url "https://github.com/sbt/sbt/releases/download/v1.0.4/sbt-1.0.4.tgz"
-  sha256 "813776f81b1dfa990fba11cd6d0120df3467bee00742b115f282a0e8e254e23f"
+  url "https://github.com/sbt/sbt/releases/download/v1.4.8/sbt-1.4.8.tgz"
+  mirror "https://sbt-downloads.cdnedge.bluemix.net/releases/v1.4.8/sbt-1.4.8.tgz"
+  sha256 "59722dbda3d6d1d7ec7dc3e21d61a2e80023030a4243823eeeadd77ed9c5a39d"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     inreplace "bin/sbt" do |s|
@@ -14,31 +21,26 @@ class Sbt < Formula
       s.gsub! "/etc/sbt/sbtopts", "#{etc}/sbtopts"
     end
 
-    libexec.install "bin", "lib"
+    libexec.install "bin"
     etc.install "conf/sbtopts"
 
-    (bin/"sbt").write <<~EOS
-      #!/bin/sh
-      if [ -f "$HOME/.sbtconfig" ]; then
-        echo "Use of ~/.sbtconfig is deprecated, please migrate global settings to #{etc}/sbtopts" >&2
-        . "$HOME/.sbtconfig"
-      fi
-      exec "#{libexec}/bin/sbt" "$@"
-    EOS
+    (bin/"sbt").write_env_script libexec/"bin/sbt", Language::Java.overridable_java_home_env
+    (bin/"sbtn").write_env_script libexec/"bin/sbtn-x86_64-apple-darwin", Language::Java.overridable_java_home_env
   end
 
-  def caveats;  <<~EOS
-    You can use $SBT_OPTS to pass additional JVM options to SBT:
-       SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
-
-    This formula uses the standard Lightbend sbt launcher script.
-    Project specific options should be placed in .sbtopts in the root of your project.
-    Global settings should be placed in #{etc}/sbtopts
+  def caveats
+    <<~EOS
+      You can use $SBT_OPTS to pass additional JVM options to sbt.
+      Project specific options should be placed in .sbtopts in the root of your project.
+      Global settings should be placed in #{etc}/sbtopts
     EOS
   end
 
   test do
     ENV.append "_JAVA_OPTIONS", "-Dsbt.log.noformat=true"
-    assert_match "[info] #{version}", shell_output("#{bin}/sbt sbtVersion")
+    system("#{bin}/sbt", "--sbt-create", "about")
+    assert_match version.to_s, shell_output("#{bin}/sbt sbtVersion")
+    system "#{bin}/sbtn", "about"
+    system "#{bin}/sbtn", "shutdown"
   end
 end

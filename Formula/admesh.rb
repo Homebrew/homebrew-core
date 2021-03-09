@@ -1,15 +1,16 @@
 class Admesh < Formula
   desc "Processes triangulated solid meshes"
   homepage "https://github.com/admesh/admesh"
-  url "https://github.com/admesh/admesh/releases/download/v0.98.3/admesh-0.98.3.tar.gz"
-  sha256 "b349c835383b6648fd159e528a530fdcb31aed95024d7a294280ac8096ec7624"
+  url "https://github.com/admesh/admesh/releases/download/v0.98.4/admesh-0.98.4.tar.gz"
+  sha256 "1c441591f2223034fed2fe536cf73e996062cac840423c3abe5342f898a819bb"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "bc978ecef1c37b4c2155c5327bc47908024fb4568f222bb5dd4b90af7e12a09b" => :high_sierra
-    sha256 "3de4fbc48e0d5ca620bb5fa9cb20d18065fa00fa0c007109473bd495e17686d1" => :sierra
-    sha256 "a2de7016b2356c0e2e860c80999bd27edd9967fb85069ed33c60b9dcd35f725b" => :el_capitan
-    sha256 "3f3db422de01a8e239d7ef6027d0264d3857feac781ef739072b6ec0d50894a0" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "ee008a3dc86478020116d2289fc6d78dfc44d87a95b7c12c6777e8ed6b053242"
+    sha256 cellar: :any, big_sur:       "e6f9a80ab0ef52a4027a6aa4cf1709f2088f0f9f51918d3f0361febe3c61a84d"
+    sha256 cellar: :any, catalina:      "d877dfc78d057e2124d06b4826e9044b2686f19de3e84fbab1cd19c07524e6df"
+    sha256 cellar: :any, mojave:        "86f1775a6dbca0e6309cdfed9fb83d068873f5e8183204f02cc871d013290f62"
+    sha256 cellar: :any, high_sierra:   "2f0fd4e6cda35b4e14f6c8ba627ad7d22ee93507875b6943ea5677c857c4ab36"
   end
 
   def install

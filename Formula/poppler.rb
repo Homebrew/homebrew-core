@@ -1,81 +1,85 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-0.62.0.tar.xz"
-  sha256 "5b9a73dfd4d6f61d165ada1e4f0abd2d420494bf9d0b1c15d0db3f7b83a729c6"
+  url "https://poppler.freedesktop.org/poppler-21.03.0.tar.xz"
+  sha256 "fd51ead4aac1d2f4684fa6e7b0ec06f0233ed21667e720a4e817e4455dd63d27"
+  license "GPL-2.0-only"
+  revision 1
+  head "https://gitlab.freedesktop.org/poppler/poppler.git"
 
-  bottle do
-    sha256 "e7ef8133d2a55b7b9d060e1bb39e85daa421805315b78cdaac2eb74e6ee7e50b" => :high_sierra
-    sha256 "67553e08dc541aa5db51e480b768a289095cf236279fe46defb4061783967bf8" => :sierra
-    sha256 "3797b24ecd422d96b7418c942c26937dd14af4e4e0b135c15cb1164a109ab5af" => :el_capitan
+  livecheck do
+    url :homepage
+    regex(/href=.*?poppler[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option "with-qt", "Build Qt5 backend"
-  option "with-little-cms2", "Use color management system"
-
-  deprecated_option "with-qt4" => "with-qt"
-  deprecated_option "with-qt5" => "with-qt"
-  deprecated_option "with-lcms2" => "with-little-cms2"
+  bottle do
+    sha256 arm64_big_sur: "90b6ef0d795977a282db75c4a5caed550d16f88ef41d6e290b3ede2d10e25d0e"
+    sha256 big_sur:       "437360eb64c1bbbe8b403f9a89d8bbbb46daeb5c9e3e94315efbc74605c0eac0"
+    sha256 catalina:      "551f5398999e8de473adaf26e9cba9a07871cfe3f488778cae3cdaffd25ba7db"
+    sha256 mojave:        "d672b3810ad4f8ef2fef83ac3ab9b28e6ea9487090a0f5796579c90aba5ee156"
+  end
 
   depends_on "cmake" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gobject-introspection"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "little-cms2"
+  depends_on "nss"
   depends_on "openjpeg"
-  depends_on "qt" => :optional
-  depends_on "little-cms2" => :optional
+  depends_on "qt@5"
+
+  uses_from_macos "gperf" => :build
+  uses_from_macos "curl"
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",
-    :because => "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
+    because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
-    url "https://poppler.freedesktop.org/poppler-data-0.4.8.tar.gz"
-    sha256 "1096a18161f263cccdc6d8a2eb5548c41ff8fcf9a3609243f1b6296abdf72872"
+    url "https://poppler.freedesktop.org/poppler-data-0.4.10.tar.gz"
+    sha256 "6e2fcef66ec8c44625f94292ccf8af9f1d918b410d5aa69c274ce67387967b30"
   end
 
-  needs :cxx11 if build.with?("qt") || MacOS.version < :mavericks
-
   def install
-    ENV.cxx11 if build.with?("qt") || MacOS.version < :mavericks
+    ENV.cxx11
 
     args = std_cmake_args + %w[
-      -DENABLE_XPDF_HEADERS=ON
-      -DENABLE_GLIB=ON
       -DBUILD_GTK_TESTS=OFF
+      -DENABLE_CMS=lcms2
+      -DENABLE_GLIB=ON
+      -DENABLE_QT5=ON
+      -DENABLE_QT6=OFF
+      -DENABLE_UNSTABLE_API_ABI_HEADERS=ON
       -DWITH_GObjectIntrospection=ON
-      -DENABLE_QT4=OFF
     ]
-
-    if build.with? "qt"
-      args << "-DENABLE_QT5=ON"
-    else
-      args << "-DENABLE_QT5=OFF"
-    end
-
-    if build.with? "little-cms2"
-      args << "-DENABLE_CMS=lcms2"
-    else
-      args << "-DENABLE_CMS=none"
-    end
 
     system "cmake", ".", *args
     system "make", "install"
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=OFF", *args
+    system "make"
+    lib.install "libpoppler.a"
+    lib.install "cpp/libpoppler-cpp.a"
+    lib.install "glib/libpoppler-glib.a"
     resource("font-data").stage do
       system "make", "install", "prefix=#{prefix}"
     end
 
     libpoppler = (lib/"libpoppler.dylib").readlink
-    ["#{lib}/libpoppler-cpp.dylib", "#{lib}/libpoppler-glib.dylib",
-     *Dir["#{bin}/*"]].each do |f|
+    [
+      "#{lib}/libpoppler-cpp.dylib",
+      "#{lib}/libpoppler-glib.dylib",
+      "#{lib}/libpoppler-qt5.dylib",
+      *Dir["#{bin}/*"],
+    ].each do |f|
       macho = MachO.open(f)
-      macho.change_dylib("@rpath/#{libpoppler}", "#{lib}/#{libpoppler}")
+      macho.change_dylib("@rpath/#{libpoppler}", "#{opt_lib}/#{libpoppler}")
       macho.write!
     end
   end

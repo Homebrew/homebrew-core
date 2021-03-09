@@ -1,25 +1,31 @@
 class ProtobufSwift < Formula
   desc "Implementation of Protocol Buffers in Swift"
   homepage "https://github.com/alexeyxo/protobuf-swift"
-  url "https://github.com/alexeyxo/protobuf-swift/archive/4.0.1.tar.gz"
-  sha256 "098434ab76cc489c92100c0352d4476259737ed925d2c98d267848e7c8be80aa"
+  url "https://github.com/alexeyxo/protobuf-swift/archive/4.0.6.tar.gz"
+  sha256 "598d9e459b4ac74bfbcf22857c7e8fda8f5219c10caac0aa18aea7d8710cce22"
+  license "Apache-2.0"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "77b09439860f53d4899c8df8a27e004f57ec900266f04afe25ebbf2d86daddbf" => :high_sierra
-    sha256 "10edd63a5c5a366884365ea2d0f4dcf4e8f39f099348989e6e61c71ee98cb08f" => :sierra
-    sha256 "b044fd727cfa69e55d34e050d7be4798c8b54bff5494244a2cafb43b216ac107" => :el_capitan
+    sha256 cellar: :any, mojave:      "25b96487d0f0d21de51d379e8d81e2dcc9eaf0252e779c9b340de0d089918f26"
+    sha256 cellar: :any, high_sierra: "33f57aa9d49598a5101de975b92507964493da967b7a3738e91a64dd8a663180"
+    sha256 cellar: :any, sierra:      "42327634f717f0f9276d61af56df6a4595eea57f17d779f405703fdecae55bed"
   end
+
+  # https://github.com/Homebrew/homebrew-core/pull/54471#issuecomment-627430555
+  disable! date: "2020-05-10", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "protobuf"
+  depends_on "protobuf@3.7"
 
   conflicts_with "swift-protobuf",
-    :because => "both install `protoc-gen-swift` binaries"
+    because: "both install `protoc-gen-swift` binaries"
 
   def install
+    ENV.cxx11
+
     system "protoc", "-Iplugin/compiler",
                      "plugin/compiler/google/protobuf/descriptor.proto",
                      "plugin/compiler/google/protobuf/swift-descriptor.proto",

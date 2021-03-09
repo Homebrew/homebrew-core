@@ -1,18 +1,21 @@
 class GlibOpenssl < Formula
   desc "OpenSSL GIO module for glib"
   homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.6.tar.xz"
-  sha256 "1703a1da93911cf7f386e5fd9f82b803a150448e257db749166c0c3a1b5d3880"
+  url "https://download.gnome.org/sources/glib-openssl/2.50/glib-openssl-2.50.8.tar.xz"
+  sha256 "869f08e4e9a719c1df411c2fb5554400f6b24a9db0cb94c4359db8dad18d185f"
+  revision 3
 
   bottle do
-    sha256 "f7152e43e3d84f770c55918ffb70dc0905600d8272f21b6d22922feb6c57eb11" => :high_sierra
-    sha256 "5bc4f9b2ab920bb23b63d0eccc4eff7dc3658679c05c9d90fe48835841c29d2d" => :sierra
-    sha256 "10caa120aee05bd9b9a078e21b547dc360dc9931c9712b1293d2ef1a29f5e64d" => :el_capitan
+    sha256 arm64_big_sur: "3ff9db75ad58b19fe3b0c364cc0d8e1c7e570e6edd3eab8e7145f50ecdb2d237"
+    sha256 big_sur:       "3ed8dc7e291495db26d893b673e7c665972569efa1fdbe0a3cf1ae39c1c2da50"
+    sha256 catalina:      "d3e3d452515afbf8ab39555e7c9e4add50f28aa89252321bee6ca021c7cb88a9"
+    sha256 mojave:        "10b207a9c340bc6710e1df7f47ef4a0dba5a941c0cdb3330255718cf1884276c"
+    sha256 high_sierra:   "04107ac3e021e4dd11feb50a3ac4024f3c73dd2b805f171ccfc22c1d7e3a665e"
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Install files to `lib` instead of `HOMEBREW_PREFIX/lib`.
@@ -21,7 +24,7 @@ class GlibOpenssl < Formula
                           "--disable-silent-rules",
                           "--disable-static",
                           "--prefix=#{prefix}",
-                          "--with-ca-certificates=#{etc}/openssl/cert.pem"
+                          "--with-ca-certificates=#{Formula["openssl@1.1"].pkgetc}/cert.pem"
     system "make", "install"
 
     # Delete the cache, will regenerate it in post_install
@@ -33,7 +36,7 @@ class GlibOpenssl < Formula
   end
 
   test do
-    (testpath/"gtls-test.c").write <<-EOS.undent
+    (testpath/"gtls-test.c").write <<~EOS
       #include <gio/gio.h>
       #include <string.h>
       int main (int argc, char *argv[])
@@ -60,8 +63,10 @@ class GlibOpenssl < Formula
       -lgio-2.0
       -lgobject-2.0
       -lglib-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "gtls-test.c", "-o", "gtls-test", *flags
     system "./gtls-test"
   end

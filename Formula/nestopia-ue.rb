@@ -1,31 +1,39 @@
 class NestopiaUe < Formula
-  desc "Nestopia UE (Undead Edition): NES emulator"
+  desc "NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
-  url "https://downloads.sourceforge.net/project/nestopiaue/1.48/nestopia-1.48.tgz"
-  sha256 "e8a0f93569bc764427ec90cdee658ddef209601b4f4d3cfb4360563609b4a122"
-  head "https://github.com/rdanbrook/nestopia.git"
+  url "https://github.com/0ldsk00l/nestopia/archive/1.50.tar.gz"
+  sha256 "f0274f8b033852007c67237897c69725b811c0df8a6d0120f39c23e990662aae"
+  license "GPL-2.0"
+  head "https://github.com/0ldsk00l/nestopia.git"
 
   bottle do
-    sha256 "3d3340bf96768b1a0df348c5c980eaaa31b41e4317727177499c881e694b0f91" => :high_sierra
-    sha256 "9f66bf2e5c42ba743d4967d5b3cb9f4993a265a619dfd71de74478273a0b1f38" => :sierra
-    sha256 "1e319cdecfa2dbe1779b124cd4d758921d64128b0ccb06f1aab8a1d23a428fe9" => :el_capitan
-    sha256 "f3dda418bd311d3c4fd4856fb8464dedac1fa1051864497b365bc42cb683d59d" => :yosemite
+    sha256 arm64_big_sur: "21dd1ec76826e208b26d981ebfafbef95d8c2f4a00330cd7556bc366e5bc7745"
+    sha256 big_sur:       "d6a31de30e416aaa7cb365b22c35555947fa4967d3f0d7b334694e63e70c08a8"
+    sha256 catalina:      "19acd9260a874dec614062d0362a5936a0d9322e9fe66f0f8426d0dec67a6dd6"
+    sha256 mojave:        "e41a57949e9ebeffd1fa72de619da0dc2bbc813adf1b83922a0151362a9b9f04"
+    sha256 high_sierra:   "dc7632deb424cbfd112350aa1ddad0d1b0715cce9ebfda0bbbd8e77640cea044"
   end
 
-  depends_on "cmake" => :build
+  depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
   depends_on "libao"
   depends_on "libarchive"
   depends_on "libepoxy"
+  depends_on "sdl2"
 
   def install
-    cp "README.md", "README.unix"
-    system "cmake", ".", "-DCMAKE_INSTALL_DATAROOTDIR=#{pkgshare}", *std_cmake_args
+    system "autoreconf", "-fiv"
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--datarootdir=#{pkgshare}"
     system "make", "install"
   end
 
   test do
-    assert_match /Nestopia UE #{version}$/, shell_output("#{bin}/nestopia --version")
+    assert_match(/Nestopia UE #{version}$/, shell_output("#{bin}/nestopia --version"))
   end
 end

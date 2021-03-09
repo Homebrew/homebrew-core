@@ -1,19 +1,25 @@
 class Libedit < Formula
   desc "BSD-style licensed readline alternative"
   homepage "https://thrysoee.dk/editline/"
-  url "https://thrysoee.dk/editline/libedit-20170329-3.1.tar.gz"
-  version "20170329-3.1"
-  sha256 "91f2d90fbd2a048ff6dad7131d9a39e690fd8a8fd982a353f1333dd4017dd4be"
+  url "https://thrysoee.dk/editline/libedit-20210216-3.1.tar.gz"
+  version "20210216-3.1"
+  sha256 "2283f741d2aab935c8c52c04b57bf952d02c2c02e651172f8ac811f77b1fc77a"
 
-  bottle do
-    cellar :any
-    sha256 "537d74532e5778f106e87e682169c7ebfc3acd6624286d3ded9e79262bafc4d4" => :high_sierra
-    sha256 "1bac371537a7a38d1193bcbe80170b5a2d592f568c5d7f6f8e01fd2fada68a3f" => :sierra
-    sha256 "3015b4190af4a5ddf26739884dde6ebb289cc16187958213d904551a51777013" => :el_capitan
-    sha256 "45a9c2abf6fb9cd0c8cdcbad8a708e00879aef224b573069cc21cdb6e42e109b" => :yosemite
+  livecheck do
+    url :homepage
+    regex(/href=.*?libedit[._-]v?(\d{4,}-\d+(?:\.\d+)+)\.t/i)
   end
 
-  keg_only :provided_by_osx
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "4d147b3faf124f55ff09117d8882ba96b605c29939c238083c13ad750d2749f2"
+    sha256 cellar: :any, big_sur:       "c56ab224f48f895bcd3220fbb6c0b05d625d5e720785abab4c10f28ff8af1837"
+    sha256 cellar: :any, catalina:      "6991169e0e1908adbcbdc1a578a27a47f237f9a1497bac29cfffa65055b0c9c7"
+    sha256 cellar: :any, mojave:        "a5ba27ac97b4033f4277624712038bdae55865258b74bc2302c3c810218204a4"
+  end
+
+  keg_only :provided_by_macos
+
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--disable-dependency-tracking",

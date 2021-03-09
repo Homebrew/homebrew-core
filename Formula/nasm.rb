@@ -1,20 +1,28 @@
 class Nasm < Formula
   desc "Netwide Assembler (NASM) is an 80x86 assembler"
-  homepage "http://www.nasm.us/"
-  url "http://www.nasm.us/pub/nasm/releasebuilds/2.13.02/nasm-2.13.02.tar.xz"
-  sha256 "8ac3235f49a6838ff7a8d7ef7c19a4430d0deecc0c2d3e3e237b5e9f53291757"
+  homepage "https://www.nasm.us/"
+  url "https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.xz"
+  sha256 "3caf6729c1073bf96629b57cee31eeb54f4f8129b01902c73428836550b30a3f"
+  license "BSD-2-Clause"
+
+  livecheck do
+    url "https://www.nasm.us/pub/nasm/releasebuilds/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c85b863a69d578d3939543ba336fa09361ba69ef41352702dee297044299ee2e" => :high_sierra
-    sha256 "7707dec14dd94ac8a0890b98d2f98364cf2e87463456a470925cb1173f67906c" => :sierra
-    sha256 "52af51190b40798a1e2a8413a3130a4392f089c8973d18afcca0bd365d894071" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e3fb019ffdfcd4ce6b418adbe3d1d1d0e1e232a7de3b62fc4872c2401543cb3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cc45793ac9f3fedd01dd08bbbf766137a40bf22e18c43742498b0a542aa319e8"
+    sha256 cellar: :any_skip_relocation, catalina:      "1875e67160bac1675dd505d66a6b78469767d2dfe8baab2652409f91ac0549ef"
+    sha256 cellar: :any_skip_relocation, mojave:        "4b3614f857264edfa9aeab961c523b3910cdef0ceccaf9957888b477c1c512f4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8f8c181994b1f05bf425a4034f76d6973c9e1a85ecb64af7f67d47556f23a0d6"
   end
 
   head do
-    url "http://repo.or.cz/nasm.git"
-    depends_on "autoconf" => :build
+    url "https://github.com/netwide-assembler/nasm.git"
     depends_on "asciidoc" => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "xmlto" => :build
   end
 
@@ -27,7 +35,7 @@ class Nasm < Formula
   end
 
   test do
-    (testpath/"foo.s").write <<-EOS
+    (testpath/"foo.s").write <<~EOS
       mov eax, 0
       mov ebx, 0
       int 0x80

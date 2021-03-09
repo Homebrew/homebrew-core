@@ -1,15 +1,16 @@
 class Glpk < Formula
   desc "Library for Linear and Mixed-Integer Programming"
   homepage "https://www.gnu.org/software/glpk/"
-  url "https://ftp.gnu.org/gnu/glpk/glpk-4.64.tar.gz"
-  mirror "https://ftpmirror.gnu.org/glpk/glpk-4.64.tar.gz"
-  sha256 "539267f40ea3e09c3b76a31c8747f559e8a097ec0cda8f1a3778eec3e4c3cc24"
+  url "https://ftp.gnu.org/gnu/glpk/glpk-5.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/glpk/glpk-5.0.tar.gz"
+  sha256 "4a1013eebb50f728fc601bdd833b0b2870333c3b3e5a816eeba921d95bec6f15"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "0edf15d46002b9c704114574f134755b711fcc334478c7858ca5c1a7825cf22e" => :high_sierra
-    sha256 "01862dd45d86c83f65c57a8b3e8e26dc8ce9dc865a6d5606db7f560792c0ecbe" => :sierra
-    sha256 "e9e737b3c9dbeb639f1e6dd7d43fad8589d4df9a1407b6448c8f56ddbe0eded8" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "e05ebe154868c3ae41e25c6d2bff72596275dc93c74a4f6f1a88c15a553a9bf2"
+    sha256 cellar: :any, big_sur:       "3f577566f72aa88262e78c5df12974f25f76ebca6632f8e9ccecf7b5ff222d2b"
+    sha256 cellar: :any, catalina:      "dd6461053c93e0fc37577251f83a17de325efe8382805f5bc883c8a3a018e74b"
+    sha256 cellar: :any, mojave:        "2fbd223a7089b352aa9a6e424660aec34edbcaa8fbac7665fe7a9cab2b3f7aac"
   end
 
   depends_on "gmp"
@@ -19,6 +20,13 @@ class Glpk < Formula
                           "--disable-dependency-tracking",
                           "--with-gmp"
     system "make", "install"
+
+    # Sanitise references to Homebrew shims
+    rm "examples/Makefile"
+    rm "examples/glpsol"
+
+    # Install the examples so we can easily write a meaningful test
+    pkgshare.install "examples"
   end
 
   test do
@@ -34,5 +42,10 @@ class Glpk < Formula
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lglpk", "-o", "test"
     assert_match version.to_s, shell_output("./test")
+
+    system ENV.cc, pkgshare/"examples/sample.c",
+                   "-L#{lib}", "-I#{include}",
+                   "-lglpk", "-o", "test"
+    assert_match "OPTIMAL LP SOLUTION FOUND", shell_output("./test")
   end
 end

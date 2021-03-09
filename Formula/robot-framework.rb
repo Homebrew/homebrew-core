@@ -2,148 +2,91 @@ class RobotFramework < Formula
   include Language::Python::Virtualenv
 
   desc "Open source test framework for acceptance testing"
-  homepage "http://robotframework.org/"
-  url "https://github.com/robotframework/robotframework/archive/3.0.2.tar.gz"
-  sha256 "84824464de14648ee596a0f18a0ad24bff22045d958420a5df0c98f78cefef0e"
-  revision 1
-
+  homepage "https://robotframework.org/"
+  url "https://files.pythonhosted.org/packages/48/d3/b657f083893dfa1d88d94feb5bfdca66ba6f2861f46e3bd58a0ac1af286a/robotframework-3.2.2.zip"
+  sha256 "a0786a916d0572bd9d6afe26e95c6021e3df5dcafa0ece6b302e36366e58c24e"
+  license "Apache-2.0"
+  revision 3
   head "https://github.com/robotframework/robotframework.git"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "84a08120a66f25b0d2aeb0b53b991278c55572413131e8fb54992117a01f99f6" => :high_sierra
-    sha256 "f6001d4e500a979fb456480bca3149e9ac3284d5e305fd986dd26b72a2431b08" => :sierra
-    sha256 "007a3d727f7eb3ea5f4562990c2401d36c2040002cf2ecaee1a1878f66851ab0" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "aa67bce52b6c4a04919d3ad4a0e99f8875ca054f9d7cd3c2699dab998205b1ae"
+    sha256 cellar: :any, big_sur:       "de8036161c9ea308ab4022f699dab41ab5e4a3fc0f05816a9a75c9d37ba4bd94"
+    sha256 cellar: :any, catalina:      "5c0e80ea9815eb3703cb31ff6e60cb096efd2d48dc4f0d8e6712b0d03e2946d9"
+    sha256 cellar: :any, mojave:        "8552582ce7a5388ce61502c09561947a6667cadf02ad9cf6390abcb02f54e3a6"
   end
 
-  depends_on :x11
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+  depends_on "python@3.9"
 
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
-    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
-  end
-
-  resource "asn1crypto" do
-    url "https://files.pythonhosted.org/packages/ce/39/17e90c2efacc4060915f7d1f9b8d2a5b20e54e46233bdf3092e68193407d/asn1crypto-0.21.1.tar.gz"
-    sha256 "4e6d7b22814d680114a439faafeccb9402a78095fb23bf0b25f9404c6938a017"
+  resource "bcrypt" do
+    url "https://files.pythonhosted.org/packages/fa/aa/025a3ab62469b5167bc397837c9ffc486c42a97ef12ceaa6699d8f5a5416/bcrypt-3.1.7.tar.gz"
+    sha256 "0b0069c752ec14172c5f78208f1863d7ad6755a6fae6fe76ec2c80d13be41e42"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/4e/32/4070bdf32812c89eb635c80880a5caa2e0189aa7999994c265577e5154f3/cffi-1.11.0.tar.gz"
-    sha256 "5f4ff33371c6969b39b293d9771ee91e81d26f9129be093ca1b7be357fcefd15"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9c/1a/0fc8cffb04582f9ffca61b15b0681cf2e8588438e55f61403eb9880bd8e0/cryptography-2.0.3.tar.gz"
-    sha256 "d04bb2425086c3fe86f7bc48915290b13e798497839fbb18ab7f6dffcf98cc3a"
-  end
-
-  resource "decorator" do
-    url "https://files.pythonhosted.org/packages/cc/ac/5a16f1fc0506ff72fcc8fd4e858e3a1c231f224ab79bb7c4c9b2094cc570/decorator-4.0.11.tar.gz"
-    sha256 "953d6bf082b100f43229cf547f4f97f97e970f5ad645ee7601d55ff87afdfe76"
-  end
-
-  resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/f9/e5/99ebb176e47f150ac115ffeda5fedb6a3dbb3c00c74a59fd84ddf12f5857/ecdsa-0.13.tar.gz"
-    sha256 "64cf1ee26d1cde3c73c6d7d107f835fed7c6a2904aef9eac223d57ad800c43fa"
-  end
-
-  resource "enum34" do
-    url "https://files.pythonhosted.org/packages/bf/3e/31d502c25302814a7c2f1d3959d2a3b3f78e509002ba91aea64993936876/enum34-1.1.6.tar.gz"
-    sha256 "8ad8c4783bf61ded74527bffb48ed9b54166685e4230386a9ed9b1279e2df5b1"
-  end
-
-  resource "idna" do
-    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
-    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
-  end
-
-  resource "ipaddress" do
-    url "https://files.pythonhosted.org/packages/4e/13/774faf38b445d0b3a844b65747175b2e0500164b7c28d78e34987a5bfe06/ipaddress-1.0.18.tar.gz"
-    sha256 "5d8534c8e185f2d8a1fda1ef73f2c8f4b23264e8e30063feeb9511d492a413e1"
-  end
-
-  resource "kerberos" do
-    url "https://files.pythonhosted.org/packages/46/73/1e7520780a50c9470aeba2b3c020981201c8662b618fb2889a3e3dc2aeed/kerberos-1.2.5.tar.gz"
-    sha256 "b32ae66b1da2938a2ae68f83d67ce41b5c5e3b6c731407104cd209ba426dadfe"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
-    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
+    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
+    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/64/79/5e8baeedb6baf1d5879efa8cd012f801efc232e56a068550ba00d7e82625/paramiko-2.1.2.tar.gz"
-    sha256 "5fae49bed35e2e3d45c4f7b0db2d38b9ca626312d91119b3991d0ecf8125e310"
-  end
-
-  resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0c/d6/b1fe519846a21614fa4f8233361574eddb223e0bc36b182140d916acfb3b/pyOpenSSL-16.2.0.tar.gz"
-    sha256 "7779a3bbb74e79db234af6a08775568c6769b5821faecf6e2f4143edb227516e"
-  end
-
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
-    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
+    url "https://files.pythonhosted.org/packages/ac/15/4351003352e11300b9f44a13576bff52dcdc6e4a911129c07447bda0a358/paramiko-2.7.1.tar.gz"
+    sha256 "920492895db8013f6cc0179293147f830b8c7b21fdfc839b6bad760c27459d9f"
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/be/64/1bb257ffb17d01f4a38d7ce686809a736837ad4371bcc5c42ba7a715c3ac/pycparser-2.17.tar.gz"
-    sha256 "0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6"
+    url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
+    sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
   end
 
-  resource "pycrypto" do
-    url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
-    sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
-  end
-
-  resource "pykerberos" do
-    url "https://files.pythonhosted.org/packages/bf/64/dd86215662d7df0f4f35632849e3576646fe29416deb7766ee00e09bdad3/pykerberos-1.1.14.tar.gz"
-    sha256 "60f84e1b606d58cc457b186914c195072ebebf5d5a05e75c0136541808e06523"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
-    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
-  end
-
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
-    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
-  end
-
-  resource "requests-kerberos" do
-    url "https://files.pythonhosted.org/packages/f4/ad/f102020a3cbe7e229cf2f8dd298f378fe1180c3539d8872c00b13d5a7f7a/requests-kerberos-0.11.0.tar.gz"
-    sha256 "ae734f71f46a7b205a74fb90e160c7ba4cc4e0dff2d4f3129cf74806b51b94ba"
+  resource "PyNaCl" do
+    url "https://files.pythonhosted.org/packages/61/ab/2ac6dea8489fa713e2b4c6c5b549cc962dd4a842b5998d9e80cf8440b7cd/PyNaCl-1.3.0.tar.gz"
+    sha256 "0c6100edd16fefd1557da078c7a31e7b7d7a52ce39fdca2bec29d4f7b6e7600c"
   end
 
   resource "robotframework-archivelibrary" do
-    url "https://files.pythonhosted.org/packages/49/04/4ae79825aede567f27652663dfa441b1bf5b918c8e6e17d0c327ce10962c/robotframework-archivelibrary-0.3.2.tar.gz"
-    sha256 "a9b2db827209f53fac77cb5f98b04e655e0933dd607d63da37765e44ebb374f2"
+    url "https://files.pythonhosted.org/packages/29/b6/bf5bd38d5764f6afaf17b0debef580aee9bfbd63ad77a0e215389691fdfb/robotframework-archivelibrary-0.4.0.tar.gz"
+    sha256 "d18dd05a9d43decef1352a9a7601522639e4e6f02a084692b6392603c5f6c063"
   end
 
   resource "robotframework-selenium2library" do
-    url "https://files.pythonhosted.org/packages/0a/d4/5bd64ce78d66e1a4d69457a12c90887cd468dc4de94709e35d12abe3c2ed/robotframework-selenium2library-1.8.0.tar.gz"
-    sha256 "2cb983b3237a6f63842c2c800f35c77a76db88623751054644c50f7a3698c0f9"
+    url "https://files.pythonhosted.org/packages/c4/7d/3c07081e7f0f1844aa21fd239a0139db4da5a8dc219d1e81cb004ba1f4e2/robotframework-selenium2library-3.0.0.tar.gz"
+    sha256 "2a8e942b0788b16ded253039008b34d2b46199283461b294f0f41a579c70fda7"
+  end
+
+  resource "robotframework-seleniumlibrary" do
+    url "https://files.pythonhosted.org/packages/ee/8b/1365ae004235bed3d0787bf98651b2e4416b07e8aa6cd5f8dcaa7fe1dd14/robotframework-seleniumlibrary-4.3.0.tar.gz"
+    sha256 "b4a3a58d3c240a2004d7436e4806b5de669db329cd6fd264f45b65943c5140c4"
   end
 
   resource "robotframework-sshlibrary" do
-    url "https://files.pythonhosted.org/packages/6e/6c/137995fe4bf8e4bd55f2712923d0acdb07eab6cdc2758d06e01b08345f77/robotframework-sshlibrary-2.1.3.tar.gz"
-    sha256 "ab1daa49d38934ad57433500c1e177b4f3b3a16f5218a687a6061014343dabcb"
+    url "https://files.pythonhosted.org/packages/5e/a3/25010fc4a2c126e1b5dcd1d08d55653aba819509c42d210e4dfbc2f1e844/robotframework-sshlibrary-3.4.0.tar.gz"
+    sha256 "21fa0183776e6061366f517765db479aaa634b707f3dd9d90ef6972adae6a755"
+  end
+
+  resource "scp" do
+    url "https://files.pythonhosted.org/packages/05/e0/ac4169e773e12a08d941ca3c006cb8c91bee9d6d80328a15af850b5e7480/scp-0.13.2.tar.gz"
+    sha256 "ef9d6e67c0331485d3db146bf9ee9baff8a48f3eb0e6c08276a8584b13bf34b3"
   end
 
   resource "selenium" do
-    url "https://files.pythonhosted.org/packages/6e/b6/a0881686c3e2eb09d7e5ba79b197325a88d786317a4e742dc6a9f5029c7a/selenium-3.3.0.tar.gz"
-    sha256 "43ec925d704928f7a34cb8615354a55a6666b952db2041112473f41e815fb6ab"
+    url "https://files.pythonhosted.org/packages/ed/9c/9030520bf6ff0b4c98988448a93c04fcbd5b13cd9520074d8ed53569ccfe/selenium-3.141.0.tar.gz"
+    sha256 "deaf32b60ad91a4611b98d8002757f29e6f2c2d5fcaf202e1c9ad06d6772300d"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   def install
@@ -151,7 +94,7 @@ class RobotFramework < Formula
   end
 
   test do
-    (testpath/"HelloWorld.txt").write <<~EOS
+    (testpath/"HelloWorld.robot").write <<~EOS
       *** Settings ***
       Library         HelloWorld.py
 
@@ -162,8 +105,8 @@ class RobotFramework < Formula
 
     (testpath/"HelloWorld.py").write <<~EOS
       def hello_world():
-          print "HELLO WORLD!"
+          print("HELLO WORLD!")
     EOS
-    system bin/"pybot", testpath/"HelloWorld.txt"
+    system bin/"robot", testpath/"HelloWorld.robot"
   end
 end

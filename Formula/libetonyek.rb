@@ -1,20 +1,31 @@
 class Libetonyek < Formula
   desc "Interpret and import Apple Keynote presentations"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
-  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.7.tar.xz"
-  sha256 "69dbe10d4426d52f09060d489f8eb90dfa1df592e82eb0698d9dbaf38cc734ac"
+  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.9.tar.xz"
+  sha256 "e61677e8799ce6e55b25afc11aa5339113f6a49cff031f336e32fa58635b1a4a"
+  revision 1
 
-  bottle do
-    sha256 "8cb44e63040162663d2145200a902bd4da40907a1e3ad630a43ce4a55f00f5ad" => :high_sierra
-    sha256 "77ce685537dc1bce0600e3c795699fd90004c0c38fc6735243028c7bc167070f" => :sierra
-    sha256 "385b7f6fbc971b66cb7b60aaaed207eee6a4f8f76af27dcff8104aff03320739" => :el_capitan
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libetonyek[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "pkg-config" => :build
+  bottle do
+    rebuild 1
+    sha256 arm64_big_sur: "ebe89d1aa295f4581376bf47a37884f02a1f4da97568a7968baaeba69421de45"
+    sha256 big_sur:       "e08c335554a42a123047a08050f1599eed8ac43e45bc264d2ebdbab181a6a64c"
+    sha256 catalina:      "fe426f3577057ac3a73b9527b01124e5f916872b505f12e8224674d72a700c5b"
+    sha256 mojave:        "b51d5847f87fba35e67703d248f0552a4e03eb6fc4e35ba5a180f41fec68fdeb"
+    sha256 high_sierra:   "d86fef6a245db1b767d8965362eae4782af35b2c2b14e819ae7d436790f909cd"
+  end
+
   depends_on "boost" => :build
+  depends_on "glm" => :build
+  depends_on "mdds" => :build
+  depends_on "pkg-config" => :build
   depends_on "librevenge"
-  depends_on "glm"
-  depends_on "mdds"
+
+  uses_from_macos "libxml2"
 
   resource "liblangtag" do
     url "https://bitbucket.org/tagoh/liblangtag/downloads/liblangtag-0.6.2.tar.bz2"
@@ -36,7 +47,7 @@ class Libetonyek < Formula
                           "--disable-werror",
                           "--disable-tests",
                           "--prefix=#{prefix}",
-                          "--with-mdds=1.2"
+                          "--with-mdds=1.5"
     system "make", "install"
   end
 

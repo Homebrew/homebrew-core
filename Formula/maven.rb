@@ -1,18 +1,17 @@
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-
-  stable do
-    url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz"
-    mirror "https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz"
-    sha256 "707b1f6e390a65bde4af4cdaf2a24d45fc19a6ded00fff02e91626e3e42ceaff"
-  end
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
+  sha256 "26ad91d751b3a9a53087aefa743f4e16a17741d3915b219cf74112bf87a438c5"
+  license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
 
-  conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
+  conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
 
   def install
     # Remove windows files
@@ -27,8 +26,10 @@ class Maven < Formula
     # file will be found relative to it
     Pathname.glob("#{libexec}/bin/*") do |file|
       next if file.directory?
+
       basename = file.basename
       next if basename.to_s == "m2.conf"
+
       (bin/basename).write_env_script file, Language::Java.overridable_java_home_env
     end
   end

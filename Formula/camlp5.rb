@@ -1,34 +1,41 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/rel703.tar.gz"
-  version "7.03"
-  sha256 "c13d0a957a8e70627e1900ca25243b5e8da042bbda9eaa9e7d06955c0e3df21a"
-  revision 1
-  head "https://gforge.inria.fr/anonscm/git/camlp5/camlp5.git"
+  url "https://github.com/camlp5/camlp5/archive/rel8.00.tar.gz"
+  sha256 "906d5325798cd0985a634e9b6b5c76c6810f3f3b8e98b80a7c30b899082c2332"
+  license "BSD-3-Clause"
+  head "https://github.com/camlp5/camlp5.git"
 
-  bottle do
-    sha256 "c2159630c54f7bad58b9417eb0c92514cac1d950afc0e3143c5ee3212cff3baf" => :high_sierra
-    sha256 "fbea5b4bc60b78bad1ecab18750fc45e7105f09274c7493c393ac38005ecc4fb" => :sierra
-    sha256 "16cced0fbb0ccbd4eabecaca68f9dd9a121cea46b917c9eca061d782823471c6" => :el_capitan
+  livecheck do
+    url :homepage
+    regex(%r{The current distributed version is <b>v?(\d+(?:\.\d+)+)</b>}i)
   end
 
-  deprecated_option "strict" => "with-strict"
-  option "with-strict", "Compile in strict mode (not recommended)"
+  bottle do
+    sha256 arm64_big_sur: "c63da0050857853010307c7c20ea8642dcee10d4e574a1e0fc9b58517f31f597"
+    sha256 big_sur:       "f848f21e1d3fdead2126c51499a35412f3fe42248a6b639d88a8183affe14050"
+    sha256 catalina:      "625b0c1b99bc64c224e257419529172a0b84e762d80b330153d61abbeebd67d6"
+    sha256 mojave:        "bb908676387d9d1b8d87a5948a1d12b36ca46868802cd6b32f9f7fa2d970a3db"
+  end
 
   depends_on "ocaml"
 
   def install
-    args = ["--prefix", prefix, "--mandir", man]
-    args << "--transitional" if build.without? "strict"
-
-    system "./configure", *args
+    system "./configure", "--prefix", prefix, "--mandir", man
     system "make", "world.opt"
     system "make", "install"
+    (lib/"ocaml/camlp5").install "etc/META"
   end
 
   test do
+    ocaml = Formula["ocaml"]
     (testpath/"hi.ml").write "print_endline \"Hi!\";;"
-    assert_equal "let _ = print_endline \"Hi!\"", shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo #{lib}/ocaml/camlp5/pr_o.cmo hi.ml")
+    assert_equal "let _ = print_endline \"Hi!\"",
+      # The purpose of linking with the file "bigarray.cma" is to ensure that the
+      # ocaml files are in sync with the camlp5 files.  If camlp5 has been
+      # compiled with an older version of the ocaml compiler, then an error
+      # "interface mismatch" will occur.
+      shell_output("#{bin}/camlp5 #{lib}/ocaml/camlp5/pa_o.cmo #{lib}/ocaml/camlp5/pr_o.cmo " \
+                   "#{ocaml.opt_lib}/ocaml/bigarray.cma hi.ml")
   end
 end

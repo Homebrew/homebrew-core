@@ -1,32 +1,35 @@
 class OcamlNum < Formula
   desc "OCaml legacy Num library for arbitrary-precision arithmetic"
   homepage "https://github.com/ocaml/num"
-  url "https://github.com/ocaml/num/archive/v1.1.tar.gz"
-  sha256 "04ac85f6465b9b2bf99e814ddc798a25bcadb3cca2667b74c1af02b6356893f6"
+  url "https://github.com/ocaml/num/archive/v1.4.tar.gz"
+  sha256 "015088b68e717b04c07997920e33c53219711dfaf36d1196d02313f48ea00f24"
+  license "LGPL-2.1"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "91fe9987b76ad40318368ab127bbdb82c74c176ccba723a3fe5ebd3a13fb5523" => :high_sierra
-    sha256 "d73e9d1b6601fcdbcede7c74cc0326897ebcbd566860f6ae796be0f215d6ce97" => :sierra
-    sha256 "c114181c1020d48f475ac78a78c29cc7a9c24baa68d8527170708d0f54439425" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "fc2e933047de0f32e0802f2233202c076098e1c18669a2bfb266ae1ddf357e74"
+    sha256 cellar: :any, big_sur:       "ec4da1895770f1bb0e657493bb65737632927c5888bf3b5f203277a6c47495df"
+    sha256 cellar: :any, catalina:      "b0c05329d5a13be31143dffb145210d52644775185d3545490519aac7ec72a90"
+    sha256 cellar: :any, mojave:        "d8a6415aab44a93f0c1985f2a4ef0bbc8f69f8ec1dbf69965a4c13f9d7ebe075"
   end
 
+  depends_on "ocaml-findlib" => :build
   depends_on "ocaml"
 
   def install
+    ENV["OCAMLFIND_DESTDIR"] = lib/"ocaml"
+
     (lib/"ocaml").mkpath
     cp Formula["ocaml"].opt_lib/"ocaml/Makefile.config", lib/"ocaml"
 
     # install in #{lib}/ocaml not #{HOMEBREW_PREFIX}/lib/ocaml
-    inreplace lib/"ocaml/Makefile.config", /^PREFIX=#{HOMEBREW_PREFIX}$/,
-                                           "PREFIX=#{prefix}"
+    inreplace lib/"ocaml/Makefile.config" do |s|
+      s.change_make_var! "prefix", prefix
+    end
 
     system "make"
-
     (lib/"ocaml/stublibs").mkpath # `make install` assumes this directory exists
-
-    # Set OCAMLFIND to echo to avoid an unnecessary dependency
-    system "make", "install", "OCAMLFIND=echo", "STDLIBDIR=#{lib}/ocaml"
+    system "make", "install", "STDLIBDIR=#{lib}/ocaml"
 
     pkgshare.install "test"
 

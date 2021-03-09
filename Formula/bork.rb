@@ -1,10 +1,11 @@
 class Bork < Formula
-  desc "Bash DSL for config management"
-  homepage "https://github.com/mattly/bork"
-  url "https://github.com/mattly/bork/archive/v0.10.0.tar.gz"
-  sha256 "c06433ee2879b89e116a940c1549089e41e6e07da9bc1241a305bc72c14a9494"
+  desc "Bash-Operated Reconciling Kludge"
+  homepage "https://github.com/skylarmacdonald/bork"
+  url "https://github.com/skylarmacdonald/bork/archive/v0.12.0.tar.gz"
+  sha256 "525f797a5ad01734d298852a038c2a2cb338ee9bb038c560bb20ecf142b1588b"
+  license "Apache-2.0"
+  head "https://github.com/skylarmacdonald/bork.git"
 
-  head "https://github.com/mattly/bork.git"
   bottle :unneeded
 
   def install

@@ -1,38 +1,43 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-0.9.9.tar.gz"
-  sha256 "5e9e08f500d21376631cbc9f8e19a4b167cd38eb2d8fd9e660b8e80507f802db"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.8.tar.gz"
+  sha256 "98d200e76e30f6262c4a4493148c1840827898329146a57a34f8f0f928ca3def"
+  license "ISC"
 
-  bottle do
-    sha256 "81025c4772690791e2dc89fb7504ee0291b87e70cf756db2b291f2d456e54321" => :high_sierra
-    sha256 "5b841afd2f111884900614bc6e933a197f3bd5b0822699b320482191debce43e" => :sierra
-    sha256 "cc07be2c740f9a9fa8ff493de2956b5443f095517c2eb962af72c6a89066a595" => :el_capitan
+  livecheck do
+    url "https://github.com/vincentbernat/lldpd.git"
   end
 
-  option "with-snmp", "Build SNMP subagent support"
+  bottle do
+    sha256 arm64_big_sur: "015c4c0324661d90e06436a348dfc37af918e7bbea32ee63e2db58469a5a230e"
+    sha256 big_sur:       "9c55269d6b7bac30bd47b0733056f87c4aa7e38a44b55b806aae7ef3cc270ffc"
+    sha256 catalina:      "9c82d5c9c454ce3cd453b379e31bd79922ebe5e0b7377c6e845cb039ca3fddf1"
+    sha256 mojave:        "2f35d49b7ca199a2980f08816bc055cfec43f29b0c2c55a05cb55dcc72b9ccea"
+  end
 
   depends_on "pkg-config" => :build
-  depends_on "readline"
   depends_on "libevent"
-  depends_on "net-snmp" if build.with? "snmp"
+  depends_on "readline"
+
+  uses_from_macos "libxml2"
 
   def install
     readline = Formula["readline"]
-    args = [
-      "--prefix=#{prefix}",
-      "--sysconfdir=#{etc}",
-      "--localstatedir=#{var}",
-      "--with-xml",
-      "--with-readline",
-      "--with-privsep-chroot=/var/empty",
-      "--with-privsep-user=nobody",
-      "--with-privsep-group=nogroup",
-      "--with-launchddaemonsdir=no",
-      "CPPFLAGS=-I#{readline.include} -DRONLY=1",
-      "LDFLAGS=-L#{readline.lib}",
+    args = %W[
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --localstatedir=#{var}
+      --with-launchddaemonsdir=no
+      --with-privsep-chroot=/var/empty
+      --with-privsep-group=nogroup
+      --with-privsep-user=nobody
+      --with-readline
+      --with-xml
+      --without-snmp
+      CPPFLAGS=-I#{readline.include}\ -DRONLY=1
+      LDFLAGS=-L#{readline.lib}
     ]
-    args << (build.with?("snmp") ? "--with-snmp" : "--without-snmp")
 
     system "./configure", *args
     system "make"
@@ -43,11 +48,9 @@ class Lldpd < Formula
     (var/"run").mkpath
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
   def plist
-    additional_args = ""
-    additional_args += "<string>-x</string>" if build.with? "snmp"
     <<~EOS
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -58,7 +61,6 @@ class Lldpd < Formula
         <key>ProgramArguments</key>
         <array>
           <string>#{opt_sbin}/lldpd</string>
-          #{additional_args}
         </array>
         <key>RunAtLoad</key><true/>
         <key>KeepAlive</key><true/>

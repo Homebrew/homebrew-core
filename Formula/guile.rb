@@ -1,15 +1,16 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftp.gnu.org/gnu/guile/guile-2.2.2.tar.xz"
-  mirror "https://ftpmirror.gnu.org/guile/guile-2.2.2.tar.xz"
-  sha256 "1c91a46197fb1adeba4fd62a25efcf3621c6450be166d7a7062ef6ca7e11f5ab"
+  url "https://ftp.gnu.org/gnu/guile/guile-3.0.5.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.5.tar.xz"
+  sha256 "2d76fb023d2366126a5fac04704f9bd843846b80cccba6da5d752318b03350f1"
+  license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 "6c3f5a6df5527562e75c1c9e95dd4e1b0b55ea2d07ab18008ac18cf59492285c" => :high_sierra
-    sha256 "f99bf6e5381bcb8c0a77d1eeee51f5a3a10094771cba1e06c6036c66dfcc0181" => :sierra
-    sha256 "894296e0f264fb2e9b093dfd2798363ef8ece41e5d92ba9544f65f5690c9c662" => :el_capitan
-    sha256 "dd1dbd7d3c0f9c5be7ae5177e7024739026886e9422704b2e561c5ed25f11052" => :yosemite
+    sha256 arm64_big_sur: "ce524aaa55b2a6200e4ba4a05b3d40e726eef82750767bbdebf2243c9c766ee9"
+    sha256 big_sur:       "ce8a02da2f7a50ee2df21ace1dac3b8335855907ec31224cea3ea5f89d82c463"
+    sha256 catalina:      "18a97a127b757c021f8f3b7257306cac30efd055d1bde8cee88874d62b72d8b0"
+    sha256 mojave:        "1775232d131525bf77530ab194a4688e1a14804669267ef22b6d78ab3e088b70"
   end
 
   head do
@@ -18,27 +19,36 @@ class Guile < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
+    uses_from_macos "flex" => :build
   end
 
-  depends_on "pkg-config" => :run # guile-config is a wrapper around pkg-config.
-  depends_on "libtool" => :run
-  depends_on "libffi"
-  depends_on "libunistring"
+  depends_on "gnu-sed" => :build
   depends_on "bdw-gc"
   depends_on "gmp"
+  depends_on "libffi"
+  depends_on "libtool"
+  depends_on "libunistring"
+  depends_on "pkg-config" # guile-config is a wrapper around pkg-config.
   depends_on "readline"
 
-  fails_with :clang do
-    build 211
-    cause "Segfaults during compilation"
-  end
+  uses_from_macos "gperf"
 
   def install
+    # Avoid superenv shim
+    inreplace "meta/guile-config.in", "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+
     system "./autogen.sh" unless build.stable?
+
+    # Disable JIT on Apple Silicon, as it is not yet supported
+    # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=44505
+    extra_args = []
+    extra_args << "--enable-jit=no" if Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-libreadline-prefix=#{Formula["readline"].opt_prefix}",
-                          "--with-libgmp-prefix=#{Formula["gmp"].opt_prefix}"
+                          "--with-libgmp-prefix=#{Formula["gmp"].opt_prefix}",
+                          *extra_args
     system "make", "install"
 
     # A really messed up workaround required on macOS --mkhl
@@ -46,7 +56,37 @@ class Guile < Formula
       lib.install_symlink dylib.basename => "#{dylib.basename(".dylib")}.so"
     end
 
+    # This is either a solid argument for guile including options for
+    # --with-xyz-prefix= for libffi and bdw-gc or a solid argument for
+    # Homebrew automatically removing Cellar paths from .pc files in favour
+    # of opt_prefix usage everywhere.
+    inreplace lib/"pkgconfig/guile-3.0.pc" do |s|
+      s.gsub! Formula["bdw-gc"].prefix.realpath, Formula["bdw-gc"].opt_prefix
+      s.gsub! Formula["libffi"].prefix.realpath, Formula["libffi"].opt_prefix
+    end
+
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.scm"]
+  end
+
+  def post_install
+    # Create directories so installed modules can create links inside.
+    (HOMEBREW_PREFIX/"lib/guile/3.0/site-ccache").mkpath
+    (HOMEBREW_PREFIX/"lib/guile/3.0/extensions").mkpath
+    (HOMEBREW_PREFIX/"share/guile/site/3.0").mkpath
+  end
+
+  def caveats
+    <<~EOS
+      Guile libraries can now be installed here:
+          Source files: #{HOMEBREW_PREFIX}/share/guile/site/3.0
+        Compiled files: #{HOMEBREW_PREFIX}/lib/guile/3.0/site-ccache
+            Extensions: #{HOMEBREW_PREFIX}/lib/guile/3.0/extensions
+
+      Add the following to your .bashrc or equivalent:
+        export GUILE_LOAD_PATH="#{HOMEBREW_PREFIX}/share/guile/site/3.0"
+        export GUILE_LOAD_COMPILED_PATH="#{HOMEBREW_PREFIX}/lib/guile/3.0/site-ccache"
+        export GUILE_SYSTEM_EXTENSIONS_PATH="#{HOMEBREW_PREFIX}/lib/guile/3.0/extensions"
+    EOS
   end
 
   test do

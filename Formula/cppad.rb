@@ -1,31 +1,41 @@
 class Cppad < Formula
   desc "Differentiation of C++ Algorithms"
   homepage "https://www.coin-or.org/CppAD"
-  url "https://www.coin-or.org/download/source/CppAD/cppad-20171128.epl.tgz"
-  version "20171128"
-  sha256 "36f9a4b6c16d720c20547c0a896c0b89fd5f05641dba34274257a1700f85d13b"
+  # Stable versions have numbers of the form 201x0000.y
+  url "https://github.com/coin-or/CppAD/archive/20210000.6.tar.gz"
+  sha256 "50fc45128d74dcf74bffa71f896c7adf38a205d18a4ff4a8bc20b64185714b91"
+  license "EPL-2.0"
+  version_scheme 1
   head "https://github.com/coin-or/CppAD.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fc98f4e5c03cc3855f3a4f223fc2fd692602e006e6829c70a6cd1a1fac011016" => :high_sierra
-    sha256 "fc98f4e5c03cc3855f3a4f223fc2fd692602e006e6829c70a6cd1a1fac011016" => :sierra
-    sha256 "fc98f4e5c03cc3855f3a4f223fc2fd692602e006e6829c70a6cd1a1fac011016" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "8a7a1f1f68d98a89d466c02096464d8092be04507be2382b34a568733c97dd78"
+    sha256 cellar: :any, big_sur:       "557acdd155bb802f9e9c2a4eec1dd3e269874f8d9cd371127608c0f6b7e6ec6b"
+    sha256 cellar: :any, catalina:      "82e4a9a298f22f5ab0499df641591ddae39cb710dfe6e78ee8a2f52d5dd7f700"
+    sha256 cellar: :any, mojave:        "7a413468750c211a29ccc4d48b911aa36d620ea91aa1be1ec155d520375f0445"
   end
 
   depends_on "cmake" => :build
 
   def install
+    ENV.cxx11
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                       "-Dcppad_prefix=#{prefix}"
       system "make", "install"
     end
+
     pkgshare.install "example"
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
+    (testpath/"test.cpp").write <<~EOS
       #include <cassert>
       #include <cppad/utility/thread_alloc.hpp>
 
@@ -37,7 +47,7 @@ class Cppad < Formula
       }
     EOS
 
-    system ENV.cxx, "#{pkgshare}/example/general/acos.cpp", "-I#{include}",
+    system ENV.cxx, "#{pkgshare}/example/general/acos.cpp", "-std=c++11", "-I#{include}",
                     "test.cpp", "-o", "test"
     system "./test"
   end

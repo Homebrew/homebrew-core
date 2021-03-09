@@ -1,35 +1,29 @@
 class Nzbget < Formula
   desc "Binary newsgrabber for nzb files"
   homepage "https://nzbget.net/"
-  url "https://github.com/nzbget/nzbget/releases/download/v19.1/nzbget-19.1-src.tar.gz"
-  sha256 "06df42356ac2d63bbc9f7861abe9c3216df56fa06802e09e8a50b05f4ad95ce6"
-  head "https://github.com/nzbget/nzbget.git", :branch => "develop"
+  url "https://github.com/nzbget/nzbget/releases/download/v21.0/nzbget-21.0-src.tar.gz"
+  sha256 "65a5d58eb8f301e62cf086b72212cbf91de72316ffc19182ae45119ddd058d53"
+  license "GPL-2.0-or-later"
+  revision 1
+  head "https://github.com/nzbget/nzbget.git", branch: "develop"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "0f508d759d085ea42af708598eba3d2f589614f6025f8ca160b93c6170d5576b" => :high_sierra
-    sha256 "b2b460f1f4a850d282b3faa56a0cdc66d7d9f2072e34528fe1fc875f615e3705" => :sierra
-    sha256 "3aa8bd8510dbde22143fa6d9637d664951c4a48758c840548dcee0ce48f3b95f" => :el_capitan
-    sha256 "f9731421aa1289d62d9f30691c3e643e8548eb066d55c72511ad74d994e826e7" => :yosemite
+    rebuild 1
+    sha256 big_sur:  "0e6628877593d52315c0390d9c92dfef1673806ff99eb4bb76ab7c0ceb9ef13f"
+    sha256 catalina: "ecf6a149b5f521f683f5d2fda434b5dc74191a5bae5e0c0f0879c4c6fbe60510"
+    sha256 mojave:   "c61cd9afc8d82e05e1a755552de7f056147023fc1569c51567b9b3f1739c9979"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
-  depends_on "gcc" if MacOS.version <= :mavericks
+  depends_on "openssl@1.1"
 
-  needs :cxx11
-
-  fails_with :clang do
-    build 600
-    cause "No compiler with C++14 support was found"
-  end
-
-  fails_with :clang do
-    build 500
-    cause <<~EOS
-      Clang older than 5.1 requires flexible array members to be POD types.
-      More recent versions require only that they be trivially destructible.
-    EOS
-  end
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
 
   def install
     ENV.cxx11
@@ -57,28 +51,40 @@ class Nzbget < Formula
     etc.install "nzbget.conf"
   end
 
-  plist_options :manual => "nzbget"
+  plist_options manual: "nzbget"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/nzbget</string>
-        <string>-s</string>
-        <string>-o</string>
-        <string>OutputMode=Log</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <true/>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>PATH</key>
+          <string>#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        </dict>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/nzbget</string>
+          <string>-c</string>
+          <string>#{HOMEBREW_PREFIX}/etc/nzbget.conf</string>
+          <string>-s</string>
+          <string>-o</string>
+          <string>OutputMode=Log</string>
+          <string>-o</string>
+          <string>ConfigTemplate=#{HOMEBREW_PREFIX}/opt/nzbget/share/nzbget/nzbget.conf</string>
+          <string>-o</string>
+          <string>WebDir=#{HOMEBREW_PREFIX}/opt/nzbget/share/nzbget/webui</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+      </plist>
     EOS
   end
 

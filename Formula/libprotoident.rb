@@ -1,18 +1,25 @@
 class Libprotoident < Formula
   desc "Performs application layer protocol identification for flows"
   homepage "https://research.wand.net.nz/software/libprotoident.php"
-  url "https://research.wand.net.nz/software/libprotoident/libprotoident-2.0.12.tar.gz"
-  sha256 "c09aba4882837c7f9ebf4ad153b637a9a7cbd5a2b4b398e10ddb63e74f270fac"
+  url "https://research.wand.net.nz/software/libprotoident/libprotoident-2.0.13.tar.gz"
+  sha256 "8ca7ccd95b3f23457c3f9eff480364565b553bbcab9b39969f964910738e5672"
+  revision 1
 
-  bottle do
-    cellar :any
-    sha256 "48a4b98343c8a875dc429c11f0e65b2d4afbd66e631aa390deb71eca16dfc55d" => :high_sierra
-    sha256 "e353b002c9c3180965daadadf13273ab2f74fc6ec4701ba99a8231aaf4e9e3e0" => :sierra
-    sha256 "9a631567b1642854a7d8572f047cf4e02fff34bae11c43e7d91dbf16c0529a3b" => :el_capitan
+  livecheck do
+    url :homepage
+    regex(/href=.*?libprotoident[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "libtrace"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "ca534b9c4ed21b9704262f4c334c7ff42453c803c876b819f48ea6b26a4941d2"
+    sha256 cellar: :any, big_sur:       "5150fd5fc726b744ffd474d2c9b6407014df45a2080cb034d82156c3f20c3d9b"
+    sha256 cellar: :any, catalina:      "f7bdcc25564854f28b3a0c308bcad5d17f71f186c05b8ab356752c9d0d11f31b"
+    sha256 cellar: :any, mojave:        "47e13c727609ab739bb59a74232870ba82ddb2ce8c4e5b145f3e92fc3383edd6"
+    sha256 cellar: :any, high_sierra:   "2be3c3bcd3b921e264a9bf8ff730d95af2d3a8aee252d849aba1b88d30d49892"
+  end
+
   depends_on "libflowmanager"
+  depends_on "libtrace"
 
   def install
     system "./configure", "--disable-dependency-tracking",

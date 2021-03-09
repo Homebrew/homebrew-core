@@ -1,30 +1,30 @@
 class ThePlatinumSearcher < Formula
   desc "Multi-platform code-search similar to ack and ag"
   homepage "https://github.com/monochromegane/the_platinum_searcher"
-  url "https://github.com/monochromegane/the_platinum_searcher/archive/v2.1.5.tar.gz"
-  sha256 "dfed3b92f35501d063a2c646d5dfd51f2ee12cee53dd9e1d04a6c7710b71050f"
+  url "https://github.com/monochromegane/the_platinum_searcher/archive/v2.2.0.tar.gz"
+  sha256 "3d5412208644b13723b2b7ca4af0870d25c654e3a76feee846164c51b88240b0"
+  license "MIT"
   head "https://github.com/monochromegane/the_platinum_searcher.git"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "1df209ab319d3dda7050c4f9d63138712bba558193a08cf9bfb39bc06a7af3e4" => :high_sierra
-    sha256 "bbba09f3a7c2c6af71c778d64a363297c3d4f3f01d99a076d6cf709fc65ac85d" => :sierra
-    sha256 "f3eb248d0506445f80e1ed80ea52e255551612dbcf8e425024ad4dd4b94b849f" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f3097b2d88f4b8479ecb3e3439f6688656fc1c5e20f18a4c300edf9ea953874"
+    sha256 cellar: :any_skip_relocation, big_sur:       "63cc973af4c1fc612acb86c7a928f1680f84db7edfae52f374b95925c00761dc"
+    sha256 cellar: :any_skip_relocation, catalina:      "79066cac44fd6cd21b8feadc9737045f98846832f15bd2a2e1fdaae3a8165e6d"
+    sha256 cellar: :any_skip_relocation, mojave:        "6b7fb2ff2ca2b5a0d264a7733a59eb0e1b68e211d15a261f6bbcab5664bb6ff7"
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
+
+  # Patch to remove godep dependency. Remove when this is merged into release:
+  # https://github.com/monochromegane/the_platinum_searcher/pull/211
+  patch do
+    url "https://github.com/monochromegane/the_platinum_searcher/commit/763f368fe26fa44a12e1a37598185322aa30ba8f.patch?full_index=1"
+    sha256 "2ee0f53065663f22f3c44b30c5804e37b8cb49200a30c4513b9ef668441dd543"
+  end
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/monochromegane/the_platinum_searcher"
-    dir.install buildpath.children
-    cd dir do
-      system "godep", "restore"
-      system "go", "build", "-o", bin/"pt", ".../cmd/pt"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-o", bin/"pt", "./cmd/pt"
   end
 
   test do

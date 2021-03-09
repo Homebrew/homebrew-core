@@ -4,13 +4,23 @@ class Gabedit < Formula
   url "https://downloads.sourceforge.net/project/gabedit/gabedit/Gabedit250/GabeditSrc250.tar.gz"
   version "2.5.0"
   sha256 "45cdde213a09294bbf2df5f324ea11fc4c4045b3f9d58e4d67979e6f071c7689"
+  revision 2
+
+  # Consider switching back to checking SourceForge releases once we can alter
+  # the matched version from `250` to `2.5.0`.
+  livecheck do
+    url "https://sites.google.com/site/allouchear/Home/gabedit/download"
+    regex(/current stable version of gabedit is v?(\d+(?:\.\d+)+)/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "5c4b24ec80ff5e567a7b50e4a2c62aad0d70009179534363bc8be60c66cc3484" => :high_sierra
-    sha256 "22d5d4524dae2675c9184b322c6554331112fd799d1a8466b9e9d6338ada7ca5" => :sierra
-    sha256 "2e8e35a860589f035a40ddde03bfabc6908308ec5fac3fcefeb1e0a8a5a0f053" => :el_capitan
-    sha256 "3dcde0ef2c31cc12898b477370d571d2091d8f2a1c858e8deb71a4fa8b52bf09" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "0ee75766dad966a60b38b8a7f5abf71a134e808192c60bc41d55f847cafd4579"
+    sha256 cellar: :any, big_sur:       "ec85ca37b2fce63ac9064364a740fef98389adb8729a6cdb1d2b969c8faff151"
+    sha256 cellar: :any, catalina:      "af6b9870f2b34921313f3f38329a507e450462bf74055880f8c572e153c78932"
+    sha256 cellar: :any, mojave:        "c8bd86798356203a2e554310149b51299c2221827a030fd74763c9237996fc9f"
+    sha256 cellar: :any, high_sierra:   "83b205bd7a01eb782a9346f048c3c2e217ba4dc425f620853a4da066563e6b5c"
+    sha256 cellar: :any, sierra:        "72d3d9bda815ffda49197241c46139686fbc0a4b2c9aeab2dce258573e5ea17b"
   end
 
   depends_on "pkg-config" => :build

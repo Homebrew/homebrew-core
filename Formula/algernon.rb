@@ -1,45 +1,42 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
-  homepage "http://algernon.roboticoverlords.org/"
-  url "https://github.com/xyproto/algernon.git",
-      :tag => "1.6",
-      :revision => "9281665f4106b6c8938904f7ea1ff5386116ca22"
-  sha256 "f1627ed11e84890befbf244828aff7a56a17157f721b445804e18b5461e3b8f3"
+  homepage "https://algernon.roboticoverlords.org/"
+  url "https://github.com/xyproto/algernon/archive/1.12.12.tar.gz"
+  sha256 "6127eb975da960fd8aa7732c82f3b5e62d14ea763801778552bdbeec28846bf7"
+  license "MIT"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "75251e63866d6e338b1a81ee6d5d007e9f4f6f80801cabe80a918be7cea976b7" => :high_sierra
-    sha256 "1435aa8e578bc70ef7847ae191747e75140d04150b1cbf6d2f9f318f326e7453" => :sierra
-    sha256 "b2a1778124b34030e3bf5aaf4f9356f8a07b4d0db9841a4cadd1b70e4e380fad" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d6ba614c6586b6d582e06b863298ea48256dd6e6b4e96cb009b663cf6198afe1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4cf045c65143ce6cd0b8eac6014609840a8ea8a524cbf1b1fc01a324300fa36a"
+    sha256 cellar: :any_skip_relocation, catalina:      "5cb0074f58de14fd079892387ed83de4636faf52ef0081714b7c1f0f9b7469c5"
+    sha256 cellar: :any_skip_relocation, mojave:        "0fd0ffd941bb3399a63e38c20d9a3606fb390ae3b76e79fa055fbd77a71939ac"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/xyproto/algernon").install buildpath.children
-    cd "src/github.com/xyproto/algernon" do
-      system "go", "build", "-o", "algernon"
+    system "go", "build", *std_go_args, "-mod=vendor"
 
-      bin.install "desktop/mdview"
-      bin.install "algernon"
-      prefix.install_metafiles
-    end
+    bin.install "desktop/mdview"
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "my.db",
-                                "--addr", ":45678"
-      end
-      sleep 20
-      output = shell_output("curl -sIm3 -o- http://localhost:45678")
-      assert_match /200 OK.*Server: Algernon/m, output
-    ensure
-      Process.kill("HUP", pid)
+    port = free_port
+    pid = fork do
+      exec "#{bin}/algernon", "-s", "-q", "--httponly", "--boltdb", "tmp.db",
+                              "--addr", ":#{port}"
     end
+    sleep 20
+    output = shell_output("curl -sIm3 -o- http://localhost:#{port}")
+    assert_match(/200 OK.*Server: Algernon/m, output)
+  ensure
+    Process.kill("HUP", pid)
   end
 end

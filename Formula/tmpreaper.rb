@@ -1,19 +1,17 @@
 class Tmpreaper < Formula
   desc "Clean up files in directories based on their age"
   homepage "https://packages.debian.org/sid/tmpreaper"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/t/tmpreaper/tmpreaper_1.6.13+nmu1.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/t/tmpreaper/tmpreaper_1.6.13+nmu1.tar.gz"
-  version "1.6.13_nmu1"
-  sha256 "c88f05b5d995b9544edb7aaf36ac5ce55c6fac2a4c21444e5dba655ad310b738"
+  url "https://old-releases.ubuntu.com/ubuntu/pool/universe/t/tmpreaper/tmpreaper_1.6.14.tar.gz"
+  mirror "https://fossies.org/linux/misc/tmpreaper_1.6.14.tar.gz"
+  sha256 "4acb93745ceb8b8c5941313bbba78ceb2af0c3914f1afea0e0ae1f7950d6bdae"
+  license "GPL-2.0-only"
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "be0cf74a352a88dc2c6f616ad1bd695e37ff0736826f20007a1727e48ce16b84" => :high_sierra
-    sha256 "44d3eb40f2c063642d57ccd7d65460901e7240abda5bda8b54721d77f731d755" => :sierra
-    sha256 "e9992640d7c0e139caef8ccb130af90548f6435b3789b61c8c873f619e55ade9" => :el_capitan
-    sha256 "a027f222a96bde98ae5f3e271d990871884a89fab8578066cc6b1cdb3a01aa2c" => :yosemite
-    sha256 "31519a6cd52a36c1eb9f5a65b67b6f893d3a9f3c9d4601051cc6f33061bc8bf5" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c05f46196469020a65a07a6a8baeb270268ce8c8b917ee304a7c791a70ead0de"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3cc58bad3b6929386bb6e21e7d68156fc99fed84a80d56b4de22a92759b81179"
+    sha256 cellar: :any_skip_relocation, catalina:      "29ebae2263adcd7765e873802308c380b1419fef6fb1f78064c3245c5b7d5f04"
+    sha256 cellar: :any_skip_relocation, mojave:        "2e526cb2d2a7e7e2fa82becbee314478158aec96a6c5a2963072cc8e1092f42c"
   end
 
   def install

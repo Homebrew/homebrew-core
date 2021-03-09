@@ -1,22 +1,28 @@
 class Spatialindex < Formula
   desc "General framework for developing spatial indices"
-  homepage "https://libspatialindex.github.io"
-  url "http://download.osgeo.org/libspatialindex/spatialindex-src-1.8.5.tar.gz"
-  sha256 "7caa46a2cb9b40960f7bc82c3de60fa14f8f3e000b02561b36cbf2cfe6a9bfef"
+  homepage "https://libspatialindex.org/"
+  url "https://github.com/libspatialindex/libspatialindex/releases/download/1.9.3/spatialindex-src-1.9.3.tar.bz2"
+  sha256 "4a529431cfa80443ab4dcd45a4b25aebbabe1c0ce2fa1665039c80e999dcc50a"
+  # `LGPL-2.0` to `MIT` for 1.8.0+ releases
+  license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "76e41dc6e6ccb457cb2db3d6806461e065784bf161864ed4276c8041724ce995" => :high_sierra
-    sha256 "6c60b7939a2220b10e04cc5e47a6672935697a13accc1284bb90b401b866044c" => :sierra
-    sha256 "34d1e02dd4133ed67a8a4c299044e277e1e9cfc982962c50c44c751723eb85cb" => :el_capitan
-    sha256 "907f40e614218622fd9fecc0a542adcdf768446a198ef4cc972b30a7eb5e6cd3" => :yosemite
-    sha256 "33e053a03ea77bc87c3aab4f8319461baab56824e3c933cb09398e6df1b542ba" => :mavericks
-    sha256 "401c416f243996ac4f6bca61a871aec7fb8811f8aef6073dfc62c64dfe2650f7" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "5786e51306b202e51c9a81b4bc6c7b593027c8e88b777d142e486bf012eebe34"
+    sha256 cellar: :any, big_sur:       "49ef8e79ee6c7348b438d2b174effd66a2a7136a12c58645a0a37a5c22740ce3"
+    sha256 cellar: :any, catalina:      "fbcbfaf6510137f3168a0dc57cbac8c8b1435094b1ede9d35a30fa6ccaea28f4"
+    sha256 cellar: :any, mojave:        "a5cbdfb3acddb053e596fc56e7653559581923e48ed6815503fffc47c7a16660"
+    sha256 cellar: :any, high_sierra:   "cace27981cc1e5143a48e8b700d6823dff9d8049140683e0e536c476894ede91"
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--disable-debug", "--prefix=#{prefix}"
-    system "make", "install"
+    ENV.cxx11
+
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
@@ -56,7 +62,7 @@ class Spatialindex < Formula
 
           id_type id = 1;
 
-          tree->insertData(data.size() + 1, reinterpret_cast<const byte*>(data.c_str()), r, id);
+          tree->insertData(data.size() + 1, reinterpret_cast<const unsigned char*>(data.c_str()), r, id);
 
           /* ensure that (2, 2) is in that box */
           double qplow[2] = { 2.0, 2.0 };
@@ -69,7 +75,7 @@ class Spatialindex < Formula
           return (q_vis.matches.size() == 1) ? 0 : 1;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lspatialindex", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lspatialindex", "-o", "test"
     system "./test"
   end
 end

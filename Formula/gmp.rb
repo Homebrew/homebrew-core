@@ -1,32 +1,47 @@
 class Gmp < Formula
   desc "GNU multiple precision arithmetic library"
   homepage "https://gmplib.org/"
-  url "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
-  mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
-  sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
-  revision 1
+  url "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
+  mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
+  sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
+  license any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"]
 
-  bottle do
-    cellar :any
-    sha256 "eadb377c507f5d04e8d47861fa76471be6c09dc54991540e125ee1cbc04fecd6" => :high_sierra
-    sha256 "90715336080bd2deb92bd74361f50d91fe288d18e4c18a70a8253add6aa13200" => :sierra
-    sha256 "0e0c340b4c09a4f00daf45890e8f36afa03d251a8ed3bba6ae4876149914b420" => :el_capitan
+  livecheck do
+    url "https://gmplib.org/download/gmp/"
+    regex(/href=.*?gmp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option :cxx11
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "ff4ad8d068ba4c14d146abb454991b6c4f246796ec2538593dc5f04ca7593eec"
+    sha256 cellar: :any, big_sur:       "6a44705536f25c4b9f8547d44d129ae3b3657755039966ad2b86b821e187c32c"
+    sha256 cellar: :any, catalina:      "35e9f82d80708ae8dea2d6b0646dcd86d692321b96effaa76b7fad4d6cffa5be"
+    sha256 cellar: :any, mojave:        "00fb998dc2abbd09ee9f2ad733ae1adc185924fb01be8814e69a57ef750b1a32"
+    sha256 cellar: :any, high_sierra:   "54191ce7fa888df64b9c52870531ac0ce2e8cbd40a7c4cdec74cb2c4a421af97"
+  end
+
+  uses_from_macos "m4" => :build
 
   def install
-    ENV.cxx11 if build.cxx11?
-    args = %W[--prefix=#{prefix} --enable-cxx]
-    args << "--build=core2-apple-darwin#{`uname -r`.to_i}" if build.bottle?
-    system "./configure", "--disable-static", *args
+    args = std_configure_args
+    args << "--enable-cxx"
+
+    # Enable --with-pic to avoid linking issues with the static library
+    args << "--with-pic"
+
+    on_macos do
+      cpu = Hardware::CPU.arm? ? "aarch64" : Hardware.oldest_cpu
+      args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
+    end
+
+    on_linux do
+      args << "--build=core2-linux-gnu"
+      args << "ABI=32" if Hardware::CPU.is_32_bit?
+    end
+
+    system "./configure", *args
     system "make"
     system "make", "check"
     system "make", "install"
-    system "make", "clean"
-    system "./configure", "--disable-shared", "--disable-assembly", *args
-    system "make"
-    lib.install Dir[".libs/*.a"]
   end
 
   test do
@@ -44,7 +59,12 @@ class Gmp < Formula
         return 0;
       }
     EOS
+
     system ENV.cc, "test.c", "-L#{lib}", "-lgmp", "-o", "test"
+    system "./test"
+
+    # Test the static library to catch potential linking issues
+    system ENV.cc, "test.c", "#{lib}/libgmp.a", "-o", "test"
     system "./test"
   end
 end

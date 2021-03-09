@@ -1,41 +1,44 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
-  url "https://github.com/Z3Prover/z3/archive/z3-4.5.0.tar.gz"
-  sha256 "aeae1d239c5e06ac183be7dd853775b84698db1265cb2258e5918a28372d4a0c"
+  url "https://github.com/Z3Prover/z3/archive/z3-4.8.10.tar.gz"
+  sha256 "12cce6392b613d3133909ce7f93985d2470f0d00138837de06cf7eb2992886b4"
+  license "MIT"
   head "https://github.com/Z3Prover/z3.git"
 
-  bottle do
-    cellar :any
-    sha256 "e93213ff9ec5a601e26a1a7c55dfd483bad1021c12582b199a8a1443ca7124e9" => :high_sierra
-    sha256 "0f1f3d3de36a046161950aa09e2dc42e1d49deccdd12acaf1ebbb472b2250ad1" => :sierra
-    sha256 "4646641c96b2369b11cd87d6cc81debf675f078fee3e0a296c8d0a0b4ce738f5" => :el_capitan
-    sha256 "72feb2352c0f9d5fbbf22ae83443520bff85acd6448898a5d89ba3fe42c61566" => :yosemite
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/z3[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
-  option "without-python", "Build without python 2 support"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "05119bd5f8a125823a9809ec6cc5bed54b426a7778832f3022b91edbde24b2d6"
+    sha256 cellar: :any, big_sur:       "2b644db19e5e4b40ab46040c845141cf484ed7a61a4405e26a2e7ee849e7fc8e"
+    sha256 cellar: :any, catalina:      "97099b1c125112e2a7b783dc7a568e34e1b43b8bce16fc6bb5697c7fd69da514"
+    sha256 cellar: :any, mojave:        "c16751c07a66eb9aaeaa0d2aa1b59182ac3ee37dfcd475286260637d69260e42"
+  end
+
+  # Has Python bindings but are supplementary to the main library
+  # which does not need Python.
+  depends_on "python@3.9" => :build
 
   def install
-    if build.without?("python3") && build.without?("python")
-      odie "z3: --with-python3 must be specified when using --without-python"
+    python3 = Formula["python@3.9"].opt_bin/"python3"
+    xy = Language::Python.major_minor_version python3
+    system python3, "scripts/mk_make.py",
+                     "--prefix=#{prefix}",
+                     "--python",
+                     "--pypkgdir=#{lib}/python#{xy}/site-packages",
+                     "--staticlib"
+
+    cd "build" do
+      system "make"
+      system "make", "install"
     end
 
-    Language::Python.each_python(build) do |python, version|
-      system python, "scripts/mk_make.py", "--prefix=#{prefix}", "--python", "--pypkgdir=#{lib}/python#{version}/site-packages", "--staticlib"
-      cd "build" do
-        system "make"
-        system "make", "install"
-      end
-    end
-
-    # qprofdiff is not yet part of the source release (it will be as soon as a
-    # version is released after 4.5.0), so we only include it in HEAD builds
-    if build.head?
-      system "make", "-C", "contrib/qprofdiff"
-      bin.install "contrib/qprofdiff/qprofdiff"
-    end
+    system "make", "-C", "contrib/qprofdiff"
+    bin.install "contrib/qprofdiff/qprofdiff"
 
     pkgshare.install "examples"
   end

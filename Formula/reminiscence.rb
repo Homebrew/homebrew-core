@@ -1,14 +1,21 @@
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
-  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.3.4.tar.bz2"
-  sha256 "d389fe2fc4ec151dc072aac98c94333972c0cd37d9109994bc845167074e3913"
+  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.6.tar.bz2"
+  sha256 "a1738ca7df64cd34e75a0ada3110e70ed495260fda813bc9d8722b521fc6fee0"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?REminiscence[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "002eb378f1f32e0360b6c87ac9cf9f3448d1fb4645aaa16b5ef2dbaf50d551f9" => :high_sierra
-    sha256 "db8a0cde02a3b4300ad14c5ae68a8c948eb36b42b1f5e9044563d98cd47176ae" => :sierra
-    sha256 "72fc5d199d3ebe848911fbe02eeafa64d3d3b38f063e997e4a5176ef02bca81b" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "b29f5b37b68bbdf1d9e5b0b067d572e4b75cf0bd487c131248cf9f1de062b238"
+    sha256 cellar: :any, big_sur:       "154c213b923be7d8ba32f9b6b39d08da52c8c4528c747616928bb4a32f7f4f78"
+    sha256 cellar: :any, catalina:      "a587449c5846115b5bb4100e1ec50af6256e48bc770c35dad4985850ab8e1b3c"
+    sha256 cellar: :any, mojave:        "a1a752e53d40822409ea80a273b38d307e6e6afdfc52d856dee8e8dcc6ae32d8"
+    sha256 cellar: :any, high_sierra:   "537b631728a9b8e322cc835d20b3d8bac832c5c14ebc0bdedde43fe0b607bcd2"
   end
 
   depends_on "autoconf" => :build
@@ -19,18 +26,19 @@ class Reminiscence < Formula
   depends_on "libogg"
   depends_on "sdl2"
 
+  uses_from_macos "zlib"
+
   resource "tremor" do
-    url "https://git.xiph.org/tremor.git",
-        :revision => "b56ffce0c0773ec5ca04c466bc00b1bbcaf65aef"
+    url "https://gitlab.xiph.org/xiph/tremor.git",
+        revision: "7c30a66346199f3f09017a09567c6c8a3a0eedc8"
   end
 
   def install
     resource("tremor").stage do
-      system "autoreconf", "-fiv"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}",
-                            "--disable-static"
+      system "./autogen.sh", "--disable-dependency-tracking",
+                             "--disable-silent-rules",
+                             "--prefix=#{libexec}",
+                             "--disable-static"
       system "make", "install"
     end
 

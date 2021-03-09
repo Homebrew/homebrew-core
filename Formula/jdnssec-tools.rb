@@ -1,24 +1,31 @@
 class JdnssecTools < Formula
   desc "Java command-line tools for DNSSEC"
-  homepage "https://www.verisignlabs.com/jdnssec-tools/"
-  url "https://www.verisignlabs.com/dnssec-tools/packages/jdnssec-tools-0.13.tar.gz"
-  sha256 "95b1feb4d21c8bef08bf3e591c734bb066a0878b22a1de7c3c110cf2ee52352d"
-
+  homepage "https://github.com/dblacka/jdnssec-tools"
+  url "https://github.com/dblacka/jdnssec-tools/releases/download/v0.15/jdnssec-tools-0.15.tar.gz"
+  sha256 "1d4905652639b8b23084366eb2e2b33d5f534bf29fbf9b4becbf9e29f9b39fdf"
+  license "LGPL-2.1"
+  revision 1
   head "https://github.com/dblacka/jdnssec-tools.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "410115bfea6c2107754902e990fcc5a365a9330fe72035627843ccc12426d559" => :high_sierra
-    sha256 "4a39d75830447d4399772906dac12fb9444c8ddaef618874dbb8db06bf7aa288" => :sierra
-    sha256 "0b48a68553a1d76d38efe6557d7bc52662a3b361f5f07a44c128d5e15be4622c" => :el_capitan
-    sha256 "0b48a68553a1d76d38efe6557d7bc52662a3b361f5f07a44c128d5e15be4622c" => :yosemite
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on :java
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24738bb6c20a997b7cf23b1dd63e559d339fd1765998c5d65974b9f21775b5d7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4341a864f01748c3009213510cc983ef29e354c0e486f14c3fd453ad55ac6802"
+    sha256 cellar: :any_skip_relocation, catalina:      "c12eafadb12264e88ef14fe4e93cdb41f0afccbb24b8cff892e8747d8ad2d73b"
+    sha256 cellar: :any_skip_relocation, mojave:        "c12eafadb12264e88ef14fe4e93cdb41f0afccbb24b8cff892e8747d8ad2d73b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c12eafadb12264e88ef14fe4e93cdb41f0afccbb24b8cff892e8747d8ad2d73b"
+  end
+
+  depends_on "openjdk"
 
   def install
     inreplace Dir["bin/*"], /basedir=.*/, "basedir=#{libexec}"
     bin.install Dir["bin/*"]
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
     (libexec/"lib").install Dir["lib/*"]
   end
 
@@ -32,7 +39,7 @@ class JdnssecTools < Formula
       6FjcP4Lbuds/44U7U8du224Q8jTrZ 57Yvj4VDQKc=)",
     )
 
-    assert_match /D4C3D5552B8679FAEEBC317E5F048B614B2E5F607DC57F1553182D49AB2179F7/,
+    assert_match "D4C3D5552B8679FAEEBC317E5F048B614B2E5F607DC57F1553182D49AB2179F7",
       shell_output("#{bin}/jdnssec-dstool -d 2 powerdns.com.key")
   end
 end

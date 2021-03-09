@@ -1,17 +1,17 @@
 class Gengetopt < Formula
   desc "Generate C code to parse command-line arguments via getopt_long"
   homepage "https://www.gnu.org/software/gengetopt/"
-  url "https://ftp.gnu.org/gnu/gengetopt/gengetopt-2.22.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gengetopt/gengetopt-2.22.6.tar.gz"
-  sha256 "30b05a88604d71ef2a42a2ef26cd26df242b41f5b011ad03083143a31d9b01f7"
+  url "https://ftp.gnu.org/gnu/gengetopt/gengetopt-2.23.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gengetopt/gengetopt-2.23.tar.xz"
+  sha256 "b941aec9011864978dd7fdeb052b1943535824169d2aa2b0e7eae9ab807584ac"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "dce4c1fd06b1a70d2aece23379ae49dd24ccc9b2059a428774484d7bdbde2a3a" => :high_sierra
-    sha256 "2ce885fcf985bb56f993894cff3cbf94067b55dc9d59ba63d63cfdfcb4ea6e5d" => :sierra
-    sha256 "b551e59fe1e883d0c5e06ddb441777d3c07a60a9305fa08eaedcfd326f55ef26" => :el_capitan
-    sha256 "74b81ccbfb9811f2f5a91218685f2fa19bef0c0970458fa2d2e07b3ea72bd5ef" => :yosemite
-    sha256 "55332e9f5e24e737976f0212776ddc0d6609bed62eaef4ac80884eaa5171ef76" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0d869a2ffa87824b4e5854df92e2f60f652fe4e5e20d188207bf6171d7d18f84"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f57ffafddb271d729ec0c07bdc564fc1bf0a52ee9b060cde1c5c8da3dbe3f515"
+    sha256 cellar: :any_skip_relocation, catalina:      "7134042a80bb314db08216b1de2d293b5925ab729ba87649fdab4dc6298256f4"
+    sha256 cellar: :any_skip_relocation, mojave:        "2ae5eeef439a6abc4d1f65965e1bafa9ac5ad0620cb4ef5e9444a4b2dbef1872"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "00f2578e7697c01d060a422e1be0ce8f4c6d23b365967ff7b5501d5cd6306dd1"
+    sha256 cellar: :any_skip_relocation, sierra:        "57acd0ca20988a1b4f0f16383edb985549597b8a5266316e3a314b7775bab3c0"
   end
 
   def install

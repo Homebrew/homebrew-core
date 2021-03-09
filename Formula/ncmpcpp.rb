@@ -1,41 +1,33 @@
 class Ncmpcpp < Formula
   desc "Ncurses-based client for the Music Player Daemon"
   homepage "https://rybczak.net/ncmpcpp/"
-  url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.8.1.tar.bz2"
-  sha256 "4df9570a1db4ba2dc9b759aab88b283c00806fb5d2bce5f5d27a2eb10e6888ff"
+  url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.2.tar.bz2"
+  sha256 "faabf6157c8cb1b24a059af276e162fa9f9a3b9cd3810c43b9128860c9383a1b"
+  license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "0029a13f9a772b2c3d59591fc3b15a84011010e9e3445db76aefb3b9d7106830" => :high_sierra
-    sha256 "b447e5f526698e394a813ab1c5fbc406d2ac820022809b0dd799cadcf4bd4f34" => :sierra
-    sha256 "924ec5570c0848bb34eb2b6f43b92b88c81e1dce49ed0e1ccc764f6de04394d8" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "7223d508aab61a09ae0ce9f9f5bd4730af2acdb7b0fecb767eccc6d1ab03bb94"
+    sha256 cellar: :any, big_sur:       "786065df881f656cdfa90f5ef332ec56e460076a667b00eb82603c0437ea4905"
+    sha256 cellar: :any, catalina:      "0fa5c45f694cd1a04b42ecc0b9cb9ee71d99ff5eef6d6328c5b1c324708ef7b2"
+    sha256 cellar: :any, mojave:        "63b20423b99998513c269391fb75e604accb48c8fec70a8666443c2a316ab831"
   end
 
   head do
-    url "https://github.com/arybczak/ncmpcpp.git"
+    url "https://github.com/ncmpcpp/ncmpcpp.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  deprecated_option "outputs" => "with-outputs"
-  deprecated_option "visualizer" => "with-visualizer"
-  deprecated_option "clock" => "with-clock"
-
-  option "with-outputs", "Compile with mpd outputs control"
-  option "with-visualizer", "Compile with built-in visualizer"
-  option "with-clock", "Compile with optional clock tab"
-
   depends_on "pkg-config" => :build
   depends_on "boost"
+  depends_on "fftw"
   depends_on "libmpdclient"
   depends_on "ncurses"
   depends_on "readline"
   depends_on "taglib"
-  depends_on "fftw" if build.with? "visualizer"
-
-  needs :cxx11
 
   def install
     ENV.cxx11
@@ -43,17 +35,16 @@ class Ncmpcpp < Formula
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
 
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--with-taglib",
-      "--with-curl",
-      "--enable-unicode",
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-clock
+      --enable-outputs
+      --enable-unicode
+      --enable-visualizer
+      --with-curl
+      --with-taglib
     ]
-
-    args << "--enable-outputs" if build.with? "outputs"
-    args << "--enable-visualizer" if build.with? "visualizer"
-    args << "--enable-clock" if build.with? "clock"
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

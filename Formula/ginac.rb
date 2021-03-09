@@ -1,18 +1,20 @@
 class Ginac < Formula
   desc "Not a Computer algebra system"
   homepage "https://www.ginac.de/"
-  url "https://www.ginac.de/ginac-1.7.2.tar.bz2"
-  sha256 "24b75b61c5cb272534e35b3f2cfd64f053b28aee7402af4b0e569ec4de21d8b7"
+  url "https://www.ginac.de/ginac-1.8.0.tar.bz2"
+  sha256 "44b4404a897dd7719233c44f3c73bc15695e12b58d3676cb57c90ddcddf72b51"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "24b91c576cb96f43c0dc64d59b65c58a8727e1414685890b38956c4ce9dad680" => :high_sierra
-    sha256 "f0d4538f1192bcc7cd609e430b821204286ba927fbddd95c0fb916309fac7734" => :sierra
-    sha256 "299fa1acfa8338209289e3e622c3ebeb8faa873b9c04537247bf78b24293e2b3" => :el_capitan
-    sha256 "ac20716d581c5e0e5db6326c1a4f3ef9528ecc3c50dbc6bb3c46e9df32e0b888" => :yosemite
+    sha256 cellar: :any, big_sur:     "84f3dc97d9ee0ccabd1ff0c950b0c83859a95cd06c9de5a8a9aae9d472ebd7c7"
+    sha256 cellar: :any, catalina:    "9af774101ed69e14f7e060a85cd4a5edab1ecdda620e0e139085d09707dd2e6f"
+    sha256 cellar: :any, mojave:      "0671c4d1eea685f41fec545a143423c06c2e05758f9eb30f6c3678651d6531dd"
+    sha256 cellar: :any, high_sierra: "9a11a9e1cf35094644e185c45860c58d1c21472cc839a061376eb1f79caf2373"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cln"
+  depends_on "python@3.9"
   depends_on "readline"
 
   def install

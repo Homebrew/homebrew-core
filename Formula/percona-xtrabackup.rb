@@ -1,80 +1,127 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/XtraBackup/Percona-XtraBackup-2.4.8/source/tarball/percona-xtrabackup-2.4.8.tar.gz"
-  sha256 "66a9cb73ce03c8a0b125998d464190288cb400cc6c22a766798ed4b24cceab91"
+  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.22-15/source/tarball/percona-xtrabackup-8.0.22-15.tar.gz"
+  sha256 "064fe405f8c1f94edd9300756bdf979eae0a41c5cad15762caabfe24f5332eac"
+
+  livecheck do
+    url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
+    regex(/value=.*?Percona-XtraBackup[._-]v?(\d+(?:\.\d+)+-\d+)["' >]/i)
+  end
 
   bottle do
-    sha256 "6f0220b37e6f98774fa56f2caa84288a4a75fd148397426583f18104aafe1afe" => :sierra
-    sha256 "ad9ade2be884a20935abe3339102bd790ef2629b99da1da8cf33a375a4fab8d0" => :el_capitan
-    sha256 "516832c2921f915955e07cf4833b58e90ee2dad822a5594688a969de347ba5fb" => :yosemite
+    sha256 arm64_big_sur: "8b66f0ee901d903d322b9e95243f0a8ddca7357b4d4882d36be54019117cb0d1"
+    sha256 big_sur:       "e5cfb19cf48aea96afc5dbaf68f80d2004df87be382acb33deeaeacaa1318ea1"
+    sha256 catalina:      "4cbadb373a159de39d5f3a2d23397488602b915d5b2b9e68bf48afe5381ff6c0"
+    sha256 mojave:        "92e81f48bdf16cdc9d30f58265d67a9b5814ad29da723dc8dc3ae1c37f66b92d"
   end
-
-  option "without-docs", "Build without man pages (which requires python-sphinx)"
-  option "without-mysql", "Build without bundled Perl DBD::mysql module, to use the database of your choice."
 
   depends_on "cmake" => :build
-  depends_on "sphinx-doc" => :build if build.with? "docs"
-  depends_on :mysql => :recommended
+  depends_on "sphinx-doc" => :build
   depends_on "libev"
   depends_on "libgcrypt"
-  depends_on "openssl"
+  depends_on "mysql-client"
+  depends_on "openssl@1.1"
+  depends_on "protobuf"
 
-  resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.043.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.043.tar.gz"
-    sha256 "629f865e8317f52602b2f2efd2b688002903d2e4bbcba5427cb6188b043d6f99"
+  uses_from_macos "perl"
+
+  # Should be installed before DBD::mysql
+  resource "Devel::CheckLib" do
+    url "https://cpan.metacpan.org/authors/id/M/MA/MATTN/Devel-CheckLib-1.14.tar.gz"
+    sha256 "f21c5e299ad3ce0fdc0cb0f41378dca85a70e8d6c9a7599f0e56a957200ec294"
   end
 
+  # In Mojave, this is not part of the system Perl anymore
+  if MacOS.version >= :mojave
+    resource "DBI" do
+      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
+      sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
+    end
+  end
+
+  resource "DBD::mysql" do
+    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-4.050.tar.gz"
+    sha256 "4f48541ff15a0a7405f76adc10f81627c33996fbf56c95c26c094444c0928d78"
+  end
+
+  # https://github.com/percona/percona-xtrabackup/blob/percona-xtrabackup-#{version}/cmake/boost.cmake
   resource "boost" do
-    url "https://downloads.sourceforge.net/project/boost/boost/1.59.0/boost_1_59_0.tar.bz2"
-    sha256 "727a932322d94287b62abb1bd2d41723eec4356a7728909e38adb65ca25241ca"
+    url "https://dl.bintray.com/boostorg/release/1.73.0/source/boost_1_73_0.tar.bz2"
+    sha256 "4eb3b8d442b426dc35346235c8733b5ae35ba431690e38c6a8263dce9fcbb402"
   end
 
   def install
-    cmake_args = %w[
+    cmake_args = %W[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
+      -DINSTALL_PLUGINDIR=lib/percona-xtrabackup/plugin
+      -DINSTALL_MANDIR=share/man
+      -DWITH_MAN_PAGES=ON
+      -DINSTALL_MYSQLTESTDIR=
+      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_PROTOBUF=system
     ]
 
-    if build.with? "docs"
-      cmake_args.concat %w[
-        -DWITH_MAN_PAGES=ON
-        -DINSTALL_MANDIR=share/man
-      ]
+    # macOS has this value empty by default.
+    # See https://bugs.python.org/issue18378#msg215215
+    ENV["LC_ALL"] = "en_US.UTF-8"
 
-      # OSX has this value empty by default.
-      # See https://bugs.python.org/issue18378#msg215215
-      ENV["LC_ALL"] = "en_US.UTF-8"
-    else
-      cmake_args << "-DWITH_MAN_PAGES=OFF"
-    end
-
-    # 1.59.0 specifically required. Detailed in cmake/boost.cmake
-    (buildpath/"boost_1_59_0").install resource("boost")
-    cmake_args << "-DWITH_BOOST=#{buildpath}/boost_1_59_0"
+    (buildpath/"boost").install resource("boost")
+    cmake_args << "-DWITH_BOOST=#{buildpath}/boost"
 
     cmake_args.concat std_cmake_args
 
-    system "cmake", *cmake_args
-    system "make"
-    system "make", "install"
+    # Remove conflicting manpages
+    rm (Dir["man/*"] - ["man/CMakeLists.txt"])
 
-    share.install "share/man" if build.with? "docs"
+    mkdir "build" do
+      system "cmake", "..", *cmake_args
+      system "make"
+      system "make", "install"
+    end
 
-    rm_rf prefix/"xtrabackup-test" # Remove unnecessary files
+    # remove conflicting library that is already installed by mysql
+    rm lib/"libmysqlservices.a"
 
-    if build.with? "mysql"
-      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-      resource("DBD::mysql").stage do
+    on_macos do
+      # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
+      rm lib/"libssl.dylib"
+      rm lib/"libssl.1.1.dylib"
+      rm lib/"libcrypto.1.1.dylib"
+      rm lib/"libcrypto.dylib"
+    end
+
+    ENV.prepend_create_path "PERL5LIB", buildpath/"build_deps/lib/perl5"
+
+    resource("Devel::CheckLib").stage do
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/build_deps"
+      system "make", "install"
+    end
+
+    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+    # In Mojave, this is not part of the system Perl anymore
+    if MacOS.version >= :mojave
+      resource("DBI").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "install"
       end
-      bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
     end
+
+    resource("DBD::mysql").stage do
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "make", "install"
+    end
+
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: libexec/"lib/perl5")
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/xtrabackup --version 2>&1")
+
+    mkdir "backup"
+    output = shell_output("#{bin}/xtrabackup --target-dir=backup --backup 2>&1", 1)
+    assert_match "Failed to connect to MySQL server", output
   end
 end

@@ -1,30 +1,21 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
-  head "https://bitbucket.org/eigen/eigen", :using => :hg
-
-  stable do
-    url "https://bitbucket.org/eigen/eigen/get/3.3.4.tar.bz2"
-    sha256 "dd254beb0bafc695d0f62ae1a222ff85b52dbaa3a16f76e781dce22d0d20a4a6"
-
-    # Fix "CMake Error: CMAKE_Fortran_COMPILER not set, after EnableLanguage"
-    # Upstream commit from 20 Jun 2017 "Make sure CMAKE_Fortran_COMPILER is set
-    # before checking for Fortran functions"
-    patch do
-      url "https://bitbucket.org/eigen/eigen/commits/dbab66d00651bf050d1426334a39b627abe7216e/raw"
-      sha256 "04b679525437f2a7672ed51ef864cf7ddffa61ce2025035d2355bc065d962823"
-    end
-  end
+  url "https://gitlab.com/libeigen/eigen/-/archive/3.3.9/eigen-3.3.9.tar.gz"
+  sha256 "7985975b787340124786f092b3a07d594b2e9cd53bbfe5f3d9b1daee7d55f56f"
+  license "MPL-2.0"
+  head "https://gitlab.com/libeigen/eigen.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4cc2b76353629941ff0098928d331e1620c5e27e5d55f337deae8b35f8af1b97" => :high_sierra
-    sha256 "73b77dbad9910ff34a3b3dfe24db8c9e84b0bf0dc6e2ea8ebd9cb663083fa9e1" => :sierra
-    sha256 "8bd6a07c4625266bd8631f636b317b19916611308e7f9eeec5f5b8b847327ef9" => :el_capitan
-    sha256 "8bd6a07c4625266bd8631f636b317b19916611308e7f9eeec5f5b8b847327ef9" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e03d900e18903478875f1c354ee169373be0fdc49996da784e4a55f7b3c3594a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c3305d00c64e0bd6f53e45858b92be3d72827c02b2e2f71d4edd01f1efaa1080"
+    sha256 cellar: :any_skip_relocation, catalina:      "172a99d2e904ece3409ae56304beb77ff638313e52b7f1eb00ce58d8a11a3a68"
+    sha256 cellar: :any_skip_relocation, mojave:        "dada92aa488d06af18fbf589a46c490a5b9090ae75d0027d5dae109ddad792e5"
   end
 
   depends_on "cmake" => :build
+
+  conflicts_with "freeling", because: "freeling ships its own copy of eigen"
 
   def install
     mkdir "eigen-build" do

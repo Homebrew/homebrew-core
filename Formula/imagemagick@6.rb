@@ -4,114 +4,68 @@ class ImagemagickAT6 < Formula
   # Please always keep the Homebrew mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick%406-6.9.9-25.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-6.9.9-25.tar.xz"
-  sha256 "5d78b1b50c6d71aee9d5aba8d2c2d1f26b739d432a0cfef5afb8316a45e58771"
+  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-6.9.12-3.tar.xz"
+  mirror "https://www.imagemagick.org/download/releases/ImageMagick-6.9.12-3.tar.xz"
+  sha256 "b9bf05a49f878713d96bc9c88d21414adaf2a542125530e2dee8a07128ef8ed1"
+  license "ImageMagick"
+  head "https://github.com/imagemagick/imagemagick6.git"
+
+  livecheck do
+    url "https://download.imagemagick.org/ImageMagick/download/"
+    regex(/href=.*?ImageMagick[._-]v?(6(?:\.\d+)+(?:-\d+)?)\.t/i)
+  end
 
   bottle do
-    sha256 "c1021489bbb0ceb2be826897f354760cdd27a148df08c24c675ec0d0aeeeec4c" => :high_sierra
-    sha256 "b32ec53078e3e70bad96c3e3f24aa0451fe97d51a399145aff2f24b6dcc9a89b" => :sierra
-    sha256 "ea6025fc87d03f97a70fd801635f6b0977ede70766a7ada6d907f813f6be342d" => :el_capitan
+    sha256 arm64_big_sur: "c086c50654f423114fab9143bd0796a0f8e9bdddfeb76388f8f3235c3d7103f3"
+    sha256 big_sur:       "6f78526fcb973435691e4cb448bda102351e96ab86e8abc0e623d59d032d2894"
+    sha256 catalina:      "65e46157781b3d4117c213040ae4c690f43096f092ac3bf445f7ae617d5cc764"
+    sha256 mojave:        "dae91937b1bfea921fdffd570d6d0deacc3bb295ee579537cd6890e1869452db"
   end
 
   keg_only :versioned_formula
 
-  option "with-fftw", "Compile with FFTW support"
-  option "with-hdri", "Compile with HDRI support"
-  option "with-opencl", "Compile with OpenCL support"
-  option "with-openmp", "Compile with OpenMP support"
-  option "with-perl", "Compile with PerlMagick"
-  option "without-magick-plus-plus", "disable build/install of Magick++"
-  option "without-modules", "Disable support for dynamically loadable modules"
-  option "without-threads", "Disable threads support"
-  option "with-zero-configuration", "Disables depending on XML configuration files"
-
-  deprecated_option "enable-hdri" => "with-hdri"
-  deprecated_option "with-jp2" => "with-openjpeg"
-
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+
+  depends_on "freetype"
+  depends_on "ghostscript"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "libtool"
+  depends_on "little-cms2"
+  depends_on "openjpeg"
+  depends_on "webp"
   depends_on "xz"
-
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "freetype" => :recommended
-
-  depends_on "fontconfig" => :optional
-  depends_on "little-cms" => :optional
-  depends_on "little-cms2" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "liblqr" => :optional
-  depends_on "openexr" => :optional
-  depends_on "ghostscript" => :optional
-  depends_on "webp" => :optional
-  depends_on "openjpeg" => :optional
-  depends_on "fftw" => :optional
-  depends_on "pango" => :optional
-  depends_on :perl => ["5.5", :optional]
-
-  needs :openmp if build.with? "openmp"
 
   skip_clean :la
 
   def install
+    # Avoid references to shim
+    inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+
     args = %W[
-      --disable-osx-universal-binary
+      --enable-osx-universal-binary=no
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-silent-rules
+      --disable-opencl
+      --disable-openmp
       --enable-shared
       --enable-static
+      --with-freetype=yes
+      --with-modules
+      --with-webp=yes
+      --with-openjp2
+      --with-gslib
+      --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --without-fftw
+      --without-pango
+      --without-x
+      --without-wmf
     ]
 
-    if build.without? "modules"
-      args << "--without-modules"
-    else
-      args << "--with-modules"
-    end
-
-    if build.with? "opencl"
-      args << "--enable-opencl"
-    else
-      args << "--disable-opencl"
-    end
-
-    if build.with? "openmp"
-      args << "--enable-openmp"
-    else
-      args << "--disable-openmp"
-    end
-
-    if build.with? "webp"
-      args << "--with-webp=yes"
-    else
-      args << "--without-webp"
-    end
-
-    if build.with? "openjpeg"
-      args << "--with-openjp2"
-    else
-      args << "--without-openjp2"
-    end
-
-    args << "--without-gslib" if build.without? "ghostscript"
-    args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
-    args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
-    args << "--enable-hdri=yes" if build.with? "hdri"
-    args << "--without-fftw" if build.without? "fftw"
-    args << "--without-pango" if build.without? "pango"
-    args << "--without-threads" if build.without? "threads"
-    args << "--with-rsvg" if build.with? "librsvg"
-    args << "--without-x" if build.without? "x11"
-    args << "--with-fontconfig=yes" if build.with? "fontconfig"
-    args << "--with-freetype=yes" if build.with? "freetype"
-    args << "--enable-zero-configuration" if build.with? "zero-configuration"
-
     # versioned stuff in main tree is pointless for us
-    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
+    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
     system "make", "install"
   end

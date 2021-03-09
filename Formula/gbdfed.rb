@@ -3,15 +3,15 @@ class Gbdfed < Formula
   homepage "http://sofia.nmsu.edu/~mleisher/Software/gbdfed/"
   url "http://sofia.nmsu.edu/~mleisher/Software/gbdfed/gbdfed-1.6.tar.gz"
   sha256 "8042575d23a55a3c38192e67fcb5eafd8f7aa8d723012c374acb2e0a36022943"
-  revision 1
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "125b21d0eca30c556f5ca99a1b4cc7da9474e40bcbf7c8531f796e895726e999" => :high_sierra
-    sha256 "59f48f1bb6eca29530d74775ae09f845409f0b39416a866c8b9adcd7832819ea" => :sierra
-    sha256 "9362dbaf834be1657f7984de06acfcc00ec29779b4c03738ad16731c5d91f41d" => :el_capitan
-    sha256 "b511b3b460e70022e9dcb4750a042a9e488114173641859f04bb589363bb4fd0" => :yosemite
-    sha256 "86762c5a866cf55625e323266661af05e66c37e18c1320d644a7627eee8ca416" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "636d528318fa5e5fc90bdc61665ca3e3dc220a5c034bb478bedda854017de83d"
+    sha256 cellar: :any, big_sur:       "0c060efda560aa9ab6addc8087cad336ca01f420b280f0e41b2460f4d74b06aa"
+    sha256 cellar: :any, catalina:      "ac131ff87dd812928b3f8136d5ce364370ab0a8ded3ffdf2fbf2a38e58998494"
+    sha256 cellar: :any, mojave:        "00b2376a043f6e90d777bc9e5805d84da21c046f446c4dcd649b482a01cbc6cf"
+    sha256 cellar: :any, high_sierra:   "945fc3ffa7573224e7a387e6dec353ca7f3b46829f3e3728774a97c26fb0923a"
+    sha256 cellar: :any, sierra:        "e32f2b72805a1dbe768f85e33ea10c0b603789f9101b21e0fbc750ab077a12e5"
   end
 
   depends_on "pkg-config" => :build

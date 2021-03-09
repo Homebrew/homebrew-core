@@ -1,21 +1,17 @@
-require "language/haskell"
-
 class GitAnnex < Formula
-  include Language::Haskell::Cabal
-
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-6.20171124/git-annex-6.20171124.tar.gz"
-  sha256 "e772cf5925130954b9f41a93b5bc34d5761b30236d3f2e9f2d5c87cb812ed518"
+  url "https://hackage.haskell.org/package/git-annex-8.20210223/git-annex-8.20210223.tar.gz"
+  sha256 "62a09f98c96dd2a66605aaf6b7f00573a33997f3ef568ffb0d2dc17609719d1f"
+  license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
+                   "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/"
 
   bottle do
-    sha256 "b53b48333a1bbf67bfdd40f6dd3a1d6073f2affc0fb573ff682a33641eca425d" => :high_sierra
-    sha256 "ab2877253e5094cace6f34781be999d67295d4e942a43f02a34d1e233cc62df3" => :sierra
-    sha256 "58527e50ce77fe3ca2e8b54540f406cf8e326ab4164b3e891be330d6d07025fb" => :el_capitan
+    sha256 cellar: :any, big_sur:  "213349caefa7c1093e6b69ca5d959a7d1c6f0d1bda959178ca5b86c29fe7badf"
+    sha256 cellar: :any, catalina: "db295e4116fdb99672266988fa16f1ac3e443fd7cff2c08cf02b336a04afab8c"
+    sha256 cellar: :any, mojave:   "1e9d3ec0891268697b2c913a80435c9160e93ab9e82f8e139c8287e738851db8"
   end
-
-  option "with-git-union-merge", "Build the git-union-merge tool"
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
@@ -23,19 +19,37 @@ class GitAnnex < Formula
   depends_on "gsasl"
   depends_on "libmagic"
   depends_on "quvi"
-  depends_on "xdot" => :recommended
 
   def install
-    install_cabal_package :using => ["alex", "happy", "c2hs"],
-                          :flags => ["s3", "webapp"] do
-      # this can be made the default behavior again once git-union-merge builds properly when bottling
-      if build.with? "git-union-merge"
-        system "make", "git-union-merge", "PREFIX=#{prefix}"
-        bin.install "git-union-merge"
-        system "make", "git-union-merge.1", "PREFIX=#{prefix}"
-      end
-    end
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args,
+                    "--flags=+S3"
     bin.install_symlink "git-annex" => "git-annex-shell"
+  end
+
+  plist_options manual: "git annex assistant --autostart"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/git-annex</string>
+            <string>assistant</string>
+            <string>--autostart</string>
+          </array>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
@@ -48,9 +62,14 @@ class GitAnnex < Formula
     system "git", "annex", "init"
     (testpath/"Hello.txt").write "Hello!"
     assert !File.symlink?("Hello.txt")
-    assert_match "add Hello.txt ok", shell_output("git annex add .")
+    assert_match(/^add Hello.txt.*ok.*\(recording state in git\.\.\.\)/m, shell_output("git annex add ."))
     system "git", "commit", "-a", "-m", "Initial Commit"
     assert File.symlink?("Hello.txt")
+
+    # make sure the various remotes were built
+    assert_match shell_output("git annex version | grep 'remote types:'").chomp,
+                 "remote types: git gcrypt p2p S3 bup directory rsync web bittorrent " \
+                 "webdav adb tahoe glacier ddar git-lfs httpalso borg hook external"
 
     # The steps below are necessary to ensure the directory cleanly deletes.
     # git-annex guards files in a way that isn't entirely friendly of automatically

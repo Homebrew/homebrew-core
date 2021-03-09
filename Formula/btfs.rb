@@ -1,22 +1,30 @@
 class Btfs < Formula
   desc "BitTorrent filesystem based on FUSE"
   homepage "https://github.com/johang/btfs"
-  url "https://github.com/johang/btfs/archive/v2.18.tar.gz"
-  sha256 "faccec8715ed2dd2193ae4e026c1735ff354bba635b9bb60d2642e2895aa5674"
+  url "https://github.com/johang/btfs/archive/v2.22.tar.gz"
+  sha256 "03ebfffd7cbd91e2113d0c43d8d129ad7851753c287c326416ecf622789c4a8d"
+  license "GPL-3.0-only"
   head "https://github.com/johang/btfs.git"
 
   bottle do
-    cellar :any
-    sha256 "2eedcda32260752e93139eeb949b8ce4100839ab1502c3243ed51b67eb496463" => :high_sierra
-    sha256 "0709114aa5da5de99d8c745680ba14a3b8edec6b422828d10a541c03478fe2a5" => :sierra
-    sha256 "5613f37b2291a400c017c28ab67bdb25c21df0afefee98f7c8b00ab374bb2a79" => :el_capitan
+    sha256 cellar: :any, catalina:    "d5b103b5b9004549a555352be373c2160bcd5b9f6a8e7e8b030cbf113ae76fcd"
+    sha256 cellar: :any, mojave:      "bb550107105c612e2c9b81478b352d053f5b8ac8658377e0d40e4ee1109519fc"
+    sha256 cellar: :any, high_sierra: "934b8849eaecd08113b01e222c9583f9293100889f3f40f8452a476a6491e0d0"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on :osxfuse
   depends_on "libtorrent-rasterbar"
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV.cxx11

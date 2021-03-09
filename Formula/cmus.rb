@@ -1,38 +1,32 @@
 class Cmus < Formula
   desc "Music player with an ncurses based interface"
   homepage "https://cmus.github.io/"
-  url "https://github.com/cmus/cmus/archive/v2.7.1.tar.gz"
-  sha256 "8179a7a843d257ddb585f4c65599844bc0e516fe85e97f6f87a7ceade4eb5165"
-  revision 2
+  url "https://github.com/cmus/cmus/archive/v2.9.1.tar.gz"
+  sha256 "6fb799cae60db9324f03922bbb2e322107fd386ab429c0271996985294e2ef44"
+  license "GPL-2.0-or-later"
   head "https://github.com/cmus/cmus.git"
 
   bottle do
-    sha256 "7bd5e8f8d29efe7840caefc7f455a8e61bf02b467991a133a0b76cf89e8584fe" => :high_sierra
-    sha256 "48171d7e6cd31ec1451a14c1c5275249f872c68c493910b39b1fa1d49eda04ad" => :sierra
-    sha256 "deeed1d9ef93f0a8263b18a08239cab7a22983afe4278310f9944b79ab3df560" => :el_capitan
-    sha256 "150534ed291aeb39a6c1a84a6efa6f1e4b518c0e3eae4e18efac9a5496e826af" => :yosemite
-  end
-
-  devel do
-    url "https://github.com/cmus/cmus/archive/v2.8.0-rc0.tar.gz"
-    sha256 "b594087f16053f4db49e89d72b1c6dbb12e221373e806e62b3e97c327de1dac9"
+    sha256 arm64_big_sur: "ecccaccd592e7f937d93e0baf6c839d022bfd0142fb4c1ba1fb737bc5320cb8d"
+    sha256 big_sur:       "39c4a5d3220e312651d65e83987f9deb6671a15229a268c050edbfe43ea259b2"
+    sha256 catalina:      "b08d0e0bde83d0dd8bffdbb68e93c0a56675460ac5c7d89c0f734c8e9ef75cca"
+    sha256 mojave:        "068793d374ba393662864da1a542a1bf036508bbd02ee9ac17249694ec93f5d2"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libao"
-  depends_on "mad"
+  depends_on "faad2"
+  depends_on "ffmpeg"
+  depends_on "flac"
+  depends_on "libcue"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "faad2"
-  depends_on "flac"
+  depends_on "mad"
   depends_on "mp4v2"
-  depends_on "libcue"
-  depends_on "ffmpeg" => :optional
-  depends_on "opusfile" => :optional
-  depends_on "jack" => :optional
+  depends_on "opusfile"
 
   def install
-    system "./configure", "prefix=#{prefix}", "mandir=#{man}"
+    system "./configure", "prefix=#{prefix}", "mandir=#{man}",
+                          "CONFIG_WAVPACK=n", "CONFIG_MPC=n"
     system "make", "install"
   end
 

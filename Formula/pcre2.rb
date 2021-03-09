@@ -1,27 +1,40 @@
 class Pcre2 < Formula
   desc "Perl compatible regular expressions library with a new API"
   homepage "https://www.pcre.org/"
-  url "https://ftp.pcre.org/pub/pcre/pcre2-10.30.tar.bz2"
-  sha256 "90bd41c605d30e3745771eb81928d779f158081a51b2f314bbcc1f73de5773db"
-
+  url "https://ftp.pcre.org/pub/pcre/pcre2-10.36.tar.bz2"
+  sha256 "a9ef39278113542968c7c73a31cfcb81aca1faa64690f400b907e8ab6b4a665c"
+  license "BSD-3-Clause"
   head "svn://vcs.exim.org/pcre2/code/trunk"
 
-  bottle do
-    cellar :any
-    sha256 "018f7eba7db9d2807e624b8c3e243d369714a6eb84f498917c4f4988a0fa19b0" => :high_sierra
-    sha256 "1ff0a7fa5c45bebb4c3ea138a5cea73a83a7663ed9bcf2636bb9177af6dee9e9" => :sierra
-    sha256 "15b40ba0f293ebea4a0108db7436a301523bac14e16997d20acd778e94bb3545" => :el_capitan
-    sha256 "0ec2d3f9b5e01424bf13a06a4e55894ed708eee2015fa43ce0755953c5afd885" => :yosemite
+  livecheck do
+    url "https://ftp.pcre.org/pub/pcre/"
+    regex(/href=.*?pcre2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "8160558f322198cb735708ca993a683594d6f9dc83112cc26a378be466133edc"
+    sha256 cellar: :any, big_sur:       "b2edbffaf229fc490843e83b43c4e12feab906fc34270d928c59cac74c6f4536"
+    sha256 cellar: :any, catalina:      "d14484c7e5d4a74112474288bb2b2edff55be51a42fd65dd02d046d24ebb6cd7"
+    sha256 cellar: :any, mojave:        "2b16cf051af3ba797d12818e209ddbcafcd007e9af6474c0a642d388e299be90"
+  end
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-pcre2-16",
-                          "--enable-pcre2-32",
-                          "--enable-pcre2grep-libz",
-                          "--enable-pcre2grep-libbz2",
-                          "--enable-jit"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-pcre2-16
+      --enable-pcre2-32
+      --enable-pcre2grep-libz
+      --enable-pcre2grep-libbz2
+    ]
+
+    # JIT not currently supported for Apple Silicon
+    args << "--enable-jit" unless Hardware::CPU.arm?
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end

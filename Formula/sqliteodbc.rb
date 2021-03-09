@@ -1,23 +1,35 @@
 class Sqliteodbc < Formula
-  desc "SQLite ODBC driver"
-  homepage "http://www.ch-werner.de/sqliteodbc/"
-  url "http://www.ch-werner.de/sqliteodbc/sqliteodbc-0.9995.tar.gz"
-  sha256 "73deed973ff525195a225699e9a8a24eb42f8242f49871ef196168a5600a1acb"
+  desc "ODBC driver for SQLite"
+  homepage "https://ch-werner.homepage.t-online.de/sqliteodbc/"
+  url "https://ch-werner.homepage.t-online.de/sqliteodbc/sqliteodbc-0.9998.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/sqliteodbc-0.9998.tar.gz"
+  sha256 "fabcbec73f98d1a34911636c02c29fc64147d27516b142e8e132c68c05a6065b"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?sqliteodbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "873d91d7cd66ad93b6c9197372ea6e8c6829f2c1e944771244fe4a06c92d9177" => :high_sierra
-    sha256 "3b50601a3dd200c8706dc421b7d4ec26bdcd316d5165100ca6d87533fb35ecf1" => :sierra
-    sha256 "2ab8fb2d6cd9bf40121b4c92c88d34001be074a3d7a41e4d14bf897b35868e77" => :el_capitan
-    sha256 "3a05177887821c6ed86053bcc54795ca7968eb541a9fc689c6b0952c88ed88b8" => :yosemite
+    sha256 cellar: :any, big_sur:     "5f98876aef9733997e750451ee0e3db30cc2bd1f371aa690f08d7e4038f11958"
+    sha256 cellar: :any, catalina:    "d0105cc73d44561e636923adb520710cdd7e0db835c6b31f151fe8a66a1b4fcc"
+    sha256 cellar: :any, mojave:      "6499af774d13212bf19dfdbd14c18feadf516a5d6afbd2ebe7718d99db1723eb"
+    sha256 cellar: :any, high_sierra: "6220e24f32b5b26c5c983c9f9fb1aaa6aba7c13cad44a7500ecb72c7d7723a80"
   end
 
   depends_on "sqlite"
   depends_on "unixodbc"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
+
   def install
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
     lib.mkdir
-    system "./configure", "--prefix=#{prefix}", "--with-odbc=#{Formula["unixodbc"].opt_prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-odbc=#{Formula["unixodbc"].opt_prefix}",
+                          "--with-sqlite3=#{Formula["sqlite"].opt_prefix}"
     system "make"
     system "make", "install"
     lib.install_symlink "#{lib}/libsqlite3odbc.dylib" => "libsqlite3odbc.so"

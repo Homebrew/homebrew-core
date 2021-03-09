@@ -1,33 +1,24 @@
-class LsofDownloadStrategy < CurlDownloadStrategy
-  def stage
-    super
-    safe_system "/usr/bin/tar", "xf", "#{name}_#{version}_src.tar"
-    cd "#{name}_#{version}_src"
-  end
-end
-
 class Lsof < Formula
   desc "Utility to list open files"
   homepage "https://people.freebsd.org/~abe/"
-  url "https://mirrorservice.org/sites/lsof.itap.purdue.edu/pub/tools/unix/lsof/lsof_4.89.tar.bz2",
-    :using => LsofDownloadStrategy
-  sha256 "81ac2fc5fdc944793baf41a14002b6deb5a29096b387744e28f8c30a360a3718"
+  url "https://github.com/lsof-org/lsof/archive/4.94.0.tar.gz"
+  sha256 "a9865eeb581c3abaac7426962ddb112ecfd86a5ae93086eb4581ce100f8fa8f4"
+  license "Zlib"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "553ae69481b898fa1125b5d9d97c51cf49c4c31f11e1fe5d33a86c415a845e8d" => :high_sierra
-    sha256 "2312dceb501fa6d9301fa506370784456937404ac43381354457ce63d99ccd56" => :sierra
-    sha256 "fb14a3aef899327098b92d6d2c283e8978fc34d55b42019b8a54338abe8d4853" => :el_capitan
-    sha256 "8a63b65f74b992e4a70ac3e18a7e4b810a73e183b13086b40f30286256e646e0" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3202f83509eefa73603b865ea4aca0433bbbf69d30f43d229a5ee256d1977424"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7dbab0c2a35d97381ed52fa32e1507c0fe83bc405fc40c4d00c79e12c79cffe4"
+    sha256 cellar: :any_skip_relocation, catalina:      "58d2ee9a7484541a7280f5a139f2d0454b494f54bca3b9f10273e036d8071bde"
+    sha256 cellar: :any_skip_relocation, mojave:        "9eb185a83e641bd8bd90fab3a8cde572b23ebb1ce269a8832fb85a66c5037318"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "268fe15ecc8d9e4dd4f2f45737c921e54a5aa999f15ab6b724b9bd34deeef8d1"
   end
 
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c3acbb8/lsof/lsof-489-darwin-compile-fix.patch"
-    sha256 "997d8c147070987350fc12078ce83cd6e9e159f757944879d7e4da374c030755"
-  end
+  keg_only :provided_by_macos
 
   def install
     ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
+    ENV["LSOF_CC"] = ENV.cc
+    ENV["LSOF_CCV"] = ENV.cxx
 
     # Source hardcodes full header paths at /usr/include
     inreplace %w[
@@ -37,10 +28,12 @@ class Lsof < Formula
     ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
 
     mv "00README", "README"
-    system "./Configure", "-n", `uname -s`.chomp.downcase
+    system "./Configure", "-n", "darwin"
+
     system "make"
     bin.install "lsof"
     man8.install "lsof.8"
+    prefix.install_metafiles
   end
 
   test do

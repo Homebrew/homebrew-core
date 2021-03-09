@@ -1,16 +1,16 @@
 class Uptimed < Formula
   desc "Utility to track your highest uptimes"
   homepage "https://github.com/rpodgorny/uptimed/"
-  url "https://github.com/rpodgorny/uptimed/archive/v0.4.0.tar.gz"
-  sha256 "26891965bb499065e34072cecd3eb8087102b1c05f530c8fe8504a07c722f9bf"
+  url "https://github.com/rpodgorny/uptimed/archive/v0.4.3.tar.gz"
+  sha256 "11add61c39cb2a50f604266104c5ceb291ab830939ed7c84659c309be1e1e715"
+  license "GPL-2.0-only"
 
   bottle do
-    sha256 "0cf4e158be10141b759d7cb0edcea6ead489b64e625751dc3df5f8a5b49f3916" => :high_sierra
-    sha256 "35abda91e2e732e28a6e967e421d9e571678c17725149098dd8543c632f8ca0d" => :sierra
-    sha256 "1aa7991db96ff3cb2a2d2e9a62177a724380068ddd5f37501fc0cfa9e87bb0d2" => :el_capitan
-    sha256 "cd0bd1b637357439872b01eeb3b32e10c111dd630b711bbd0ea7488f66c68a64" => :yosemite
-    sha256 "3ce223958f06002df59fc9738b539832a9198a9f574b86f8ceab3c4f38936d6c" => :mavericks
-    sha256 "ad260249020068e03bf37c944db598799ed08d57f485ae78d7831c3f9f027cf2" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "8efbddfdb0eef471f4d0f50a55cf791d422d918d1a4f10b68e8383f7408caa08"
+    sha256 cellar: :any, big_sur:       "fc45435953f14fc7a182884dfa4e2672213c71675c9e73fb6a3799a140e66caa"
+    sha256 cellar: :any, catalina:      "1e20c4955ff14a05da57be77e08e163e164e41995411c21aeaa5a5bf3919fb7c"
+    sha256 cellar: :any, mojave:        "d5d96957debd223a243d71dc0d9858d19179c94841f6640822b1db841c0bfd48"
+    sha256 cellar: :any, high_sierra:   "8585595184bf697772b292e123f63c97513e242c7d04194c9e1990d60fcef571"
   end
 
   depends_on "autoconf" => :build
@@ -29,30 +29,31 @@ class Uptimed < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "uptimed"
+  plist_options manual: "uptimed"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>WorkingDirectory</key>
-        <string>#{opt_prefix}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/uptimed</string>
-          <string>-f</string>
-          <string>-p</string>
-          <string>#{var}/run/uptimed.pid</string>
-        </array>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>WorkingDirectory</key>
+          <string>#{opt_prefix}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/uptimed</string>
+            <string>-f</string>
+            <string>-p</string>
+            <string>#{var}/run/uptimed.pid</string>
+          </array>
+        </dict>
+      </plist>
     EOS
   end
 
@@ -60,6 +61,6 @@ class Uptimed < Formula
     system "#{sbin}/uptimed", "-t", "0"
     sleep 2
     output = shell_output("#{bin}/uprecords -s")
-    assert_match /->\s+\d+\s+\d+\w,\s+\d+:\d+:\d+\s+|.*/, output, "Uptime returned is invalid"
+    assert_match(/->\s+\d+\s+\d+\w,\s+\d+:\d+:\d+\s+|.*/, output, "Uptime returned is invalid")
   end
 end

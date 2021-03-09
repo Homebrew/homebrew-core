@@ -1,110 +1,142 @@
-# Track Chrome stable.
-# https://omahaproxy.appspot.com/
 class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
-  url "https://github.com/v8/v8-git-mirror/archive/5.1.281.47.tar.gz"
-  sha256 "63c9933227d6912689ea6bc012eea6a1fabaf526ac04bc245d9381e3ea238bf6"
+  # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
+  url "https://github.com/v8/v8/archive/8.9.255.20.tar.gz"
+  sha256 "8081813a99a78941134de1491512d4b80ba0756e017069149bceb8eb357cdf3d"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url "https://omahaproxy.appspot.com/all.json?os=mac&channel=stable"
+    regex(/"v8_version": "v?(\d+(?:\.\d+)+)"/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "179a8442510eb0a022ea6823cd6a76044c14c4fe18415710cac3d746d432020e" => :high_sierra
-    sha256 "8106efc14371982af11a66d8db533dc0589bc240950e0e445467cf6ce8871393" => :sierra
-    sha256 "487f2ca72096ee27d13533a6dad2d472a92ba40ef518a45226f19e94d4a79242" => :el_capitan
-    sha256 "dc9af3e08eda8a4acd1ff3c6b47a4c5170a92dbab7d2d79958a14d8aa42eefac" => :yosemite
-    sha256 "7bcd1bbd66c11305eeea0c36ca472de8a639f511abe0909c8815b1208dbce7b6" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "96314008550f62d3cdf99744fd862a5fbfc631ea2a52694152e0efba88b5de58"
+    sha256 cellar: :any, big_sur:       "83602cc93d59351c0365e7c8650d0b09fd251c3ebf4f77c648233200e8ef7f44"
+    sha256 cellar: :any, catalina:      "1eae1b0bc93dfe83d8f9437417ec32c0ac90a2beb184c5b3076ab5234d2d1536"
+    sha256 cellar: :any, mojave:        "26672c3f328d0e9ffc5f8a7a553f5b7b98bcfea22aa1831f49125d42635bbd53"
   end
 
-  option "with-readline", "Use readline instead of libedit"
+  depends_on "llvm" => :build
+  depends_on "ninja" => :build
 
-  # not building on Snow Leopard:
-  # https://github.com/Homebrew/homebrew/issues/21426
-  depends_on :macos => :lion
+  depends_on xcode: ["10.0", :build] # required by v8
 
-  depends_on :python => :build # gyp doesn't run under 2.6 or lower
-  depends_on "readline" => :optional
-
-  needs :cxx11
-
-  # Update from "DEPS" file in tarball.
-  # Note that we don't require the "test" DEPS because we don't run the tests.
-  resource "gyp" do
-    url "https://chromium.googlesource.com/external/gyp.git",
-        :revision => "4ec6c4e3a94bd04a6da2858163d40b2429b8aad1"
+  # Look up the correct resource revisions in the DEP file of the specific releases tag
+  # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/8.9.255.20/DEPS#L50
+  resource "gn" do
+    url "https://gn.googlesource.com/gn.git",
+        revision: "595e3be7c8381d4eeefce62a63ec12bae9ce5140"
   end
 
-  resource "icu" do
+  # e.g.: https://github.com/v8/v8/blob/8.9.255.20/DEPS#L91 for the revision of build for v8 8.9.255.20
+  resource "v8/build" do
+    url "https://chromium.googlesource.com/chromium/src/build.git",
+        revision: "d5995537211ebc4d1bc37f215c25fa3781ba9d6e"
+  end
+
+  resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        :revision => "c291cde264469b20ca969ce8832088acb21e0c48"
+        revision: "899e18383fd732b47e6978db2b960a1b2a80179b"
   end
 
-  resource "buildtools" do
-    url "https://chromium.googlesource.com/chromium/buildtools.git",
-        :revision => "80b5126f91be4eb359248d28696746ef09d5be67"
-  end
-
-  resource "common" do
+  resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        :revision => "c8c8665c2deaf1cc749d9f8e153256d4f67bf1b8"
+        revision: "eb94f1c7aa96207f469008f29989a43feb2718f8"
   end
 
-  resource "swarming_client" do
-    url "https://chromium.googlesource.com/external/swarming.client.git",
-        :revision => "df6e95e7669883c8fe9ef956c69a544154701a49"
-  end
-
-  resource "gtest" do
+  resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        :revision => "6f8a66431cb592dad629028a50b3dd418a408c87"
+        revision: "1b0cdaae57c046c87fb99cb4f69c312a7e794adb"
   end
 
-  resource "gmock" do
-    url "https://chromium.googlesource.com/external/googlemock.git",
-        :revision => "0421b6f358139f02e102c9c332ce19a33faf75be"
+  resource "v8/third_party/jinja2" do
+    url "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git",
+        revision: "11b6b3e5971d760bd2d310f77643f55a818a6d25"
   end
 
-  resource "clang" do
-    url "https://chromium.googlesource.com/chromium/src/tools/clang.git",
-        :revision => "faee82e064e04e5cbf60cc7327e7a81d2a4557ad"
+  resource "v8/third_party/markupsafe" do
+    url "https://chromium.googlesource.com/chromium/src/third_party/markupsafe.git",
+        revision: "0944e71f4b2cb9a871bcbe353f95e889b64a611a"
+  end
+
+  resource "v8/third_party/zlib" do
+    url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
+        revision: "2c183c9f93a328bfb3121284da13cf89a0f7e64a"
   end
 
   def install
-    # Bully GYP into correctly linking with c++11
-    ENV.cxx11
-    ENV["GYP_DEFINES"] = "clang=1 mac_deployment_target=#{MacOS.version}"
-    # https://code.google.com/p/v8/issues/detail?id=4511#c3
-    ENV.append "GYP_DEFINES", "v8_use_external_startup_data=0"
+    (buildpath/"build").install resource("v8/build")
+    (buildpath/"third_party/jinja2").install resource("v8/third_party/jinja2")
+    (buildpath/"third_party/markupsafe").install resource("v8/third_party/markupsafe")
+    (buildpath/"third_party/googletest/src").install resource("v8/third_party/googletest/src")
+    (buildpath/"base/trace_event/common").install resource("v8/base/trace_event/common")
+    (buildpath/"third_party/icu").install resource("v8/third_party/icu")
+    (buildpath/"third_party/zlib").install resource("v8/third_party/zlib")
 
-    # fix up libv8.dylib install_name
-    # https://github.com/Homebrew/homebrew/issues/36571
-    # https://code.google.com/p/v8/issues/detail?id=3871
-    inreplace "tools/gyp/v8.gyp",
-              "'OTHER_LDFLAGS': ['-dynamiclib', '-all_load']",
-              "\\0, 'DYLIB_INSTALL_NAME_BASE': '#{opt_lib}'"
-
-    (buildpath/"build/gyp").install resource("gyp")
-    (buildpath/"third_party/icu").install resource("icu")
-    (buildpath/"buildtools").install resource("buildtools")
-    (buildpath/"base/trace_event/common").install resource("common")
-    (buildpath/"tools/swarming_client").install resource("swarming_client")
-    (buildpath/"testing/gtest").install resource("gtest")
-    (buildpath/"testing/gmock").install resource("gmock")
-    (buildpath/"tools/clang").install resource("clang")
-
-    system "make", "native", "library=shared", "snapshot=on",
-                   "console=readline", "i18nsupport=off",
-                   "strictaliasing=off"
-
-    include.install Dir["include/*"]
-
-    cd "out/native" do
-      rm ["libgmock.a", "libgtest.a"]
-      lib.install Dir["lib*"]
-      bin.install "d8", "mksnapshot", "process", "shell" => "v8"
+    # Build gn from source and add it to the PATH
+    (buildpath/"gn").install resource("gn")
+    cd "gn" do
+      system "python", "build/gen.py"
+      system "ninja", "-C", "out/", "gn"
     end
+    ENV.prepend_path "PATH", buildpath/"gn/out"
+
+    # create gclient_args.gni
+    (buildpath/"build/config/gclient_args.gni").write <<~EOS
+      declare_args() {
+        checkout_google_benchmark = false
+      }
+    EOS
+
+    # setup gn args
+    gn_args = {
+      is_debug:                     false,
+      is_component_build:           true,
+      v8_use_external_startup_data: false,
+      v8_enable_i18n_support:       true, # enables i18n support with icu
+      clang_base_path:              "\"#{Formula["llvm"].opt_prefix}\"", # uses Homebrew clang instead of Google clang
+      clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
+      use_custom_libcxx:            false, # uses system libc++ instead of Google's custom one
+      treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
+    }
+
+    # use clang from homebrew llvm formula, because the system clang is unreliable
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
+
+    # Transform to args string
+    gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
+
+    # Build with gn + ninja
+    system "gn", "gen", "--args=#{gn_args_string}", "out.gn"
+    system "ninja", "-j", ENV.make_jobs, "-C", "out.gn", "-v", "d8"
+
+    # Install all the things
+    (libexec/"include").install Dir["include/*"]
+    libexec.install Dir["out.gn/lib*.dylib", "out.gn/d8", "out.gn/icudtl.dat"]
+    bin.write_exec_script libexec/"d8"
   end
 
   test do
-    assert_equal "Hello World!", pipe_output("#{bin}/v8 -e 'print(\"Hello World!\")'").chomp
+    assert_equal "Hello World!", shell_output("#{bin}/d8 -e 'print(\"Hello World!\");'").chomp
+    t = "#{bin}/d8 -e 'print(new Intl.DateTimeFormat(\"en-US\").format(new Date(\"2012-12-20T03:00:00\")));'"
+    assert_match %r{12/\d{2}/2012}, shell_output(t).chomp
+
+    (testpath/"test.cpp").write <<~EOS
+      #include <libplatform/libplatform.h>
+      #include <v8.h>
+      int main(){
+        static std::unique_ptr<v8::Platform> platform = v8::platform::NewDefaultPlatform();
+        v8::V8::InitializePlatform(platform.get());
+        v8::V8::Initialize();
+        return 0;
+      }
+    EOS
+
+    # link against installed libc++
+    system ENV.cxx, "-std=c++14", "test.cpp",
+      "-I#{libexec}/include",
+      "-L#{libexec}", "-lv8", "-lv8_libplatform"
   end
 end

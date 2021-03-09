@@ -1,16 +1,16 @@
 class Pdfsandwich < Formula
   desc "Generate sandwich OCR PDFs from scanned file"
   homepage "http://www.tobias-elze.de/pdfsandwich/"
-  url "https://downloads.sourceforge.net/project/pdfsandwich/pdfsandwich%200.1.6/pdfsandwich-0.1.6.tar.bz2"
-  sha256 "96831eb191bcd43e730dcce169d5c14b47bba0b6cd5152a8703e3b573013a2a2"
+  url "https://downloads.sourceforge.net/project/pdfsandwich/pdfsandwich%200.1.7/pdfsandwich-0.1.7.tar.bz2"
+  sha256 "9795ffea84b9b6b501f38d49a4620cf0469ddf15aac31bac6dbdc9ec1716fa39"
+  revision 4
   head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "b1496789548ad2a0335a22ca7e6ca3995bd8c664783126b8b83fd192f4f9f7c5" => :high_sierra
-    sha256 "1192a119a2190852ba71ed21e4144a9610be8f52bddb3dfaf6fde9f2c5348567" => :sierra
-    sha256 "b04ebe1a431fe29bbdd5ac1d0885ea9b1d58fff020d097f4edb245756b276f95" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d03e5564d606b37f3b2aaa2dc68837ca023e87c455c9543836a854ec7728c4f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "eed36d608adf9c4c6a7bcfa2f8d51fc7d7db6b9625d8dd87420b0a49432ed099"
+    sha256 cellar: :any_skip_relocation, catalina:      "e45ad2480a96ef2ff2ee1a0a561004510d3d3f2b61117fce51d2995b5a004b34"
+    sha256 cellar: :any_skip_relocation, mojave:        "dd4a617ef7bb8bb83cb9da94556537624bcf188789846e978ccb25926fcd7027"
   end
 
   depends_on "gawk" => :build
@@ -28,7 +28,7 @@ class Pdfsandwich < Formula
                           "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    bin.env_script_all_files(libexec/"bin", :PATH => "#{Formula["poppler"].opt_bin}:$PATH")
+    bin.env_script_all_files(libexec/"bin", PATH: "#{Formula["poppler"].opt_bin}:$PATH")
   end
 
   test do

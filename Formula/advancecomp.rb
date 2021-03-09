@@ -1,20 +1,26 @@
 class Advancecomp < Formula
   desc "Recompression utilities for .PNG, .MNG, .ZIP, and .GZ files"
-  homepage "http://www.advancemame.it/comp-readme.html"
-  url "https://github.com/amadvance/advancecomp/archive/v2.0.tar.gz"
-  sha256 "caa63332cd141db17988eb89c662cf76bdde72f60d4de7cb0fe8c7e51eb40eb7"
+  homepage "https://www.advancemame.it/comp-readme.html"
+  url "https://github.com/amadvance/advancecomp/releases/download/v2.1/advancecomp-2.1.tar.gz"
+  sha256 "3ac0875e86a8517011976f04107186d5c60d434954078bc502ee731480933eb8"
+  license "GPL-3.0"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0fe41182dbed3eba095f1262b22ab9e032020c9b1c4c6d603f7d0ff4b1c84f59" => :high_sierra
-    sha256 "91ccc9deafc27709e679cde5ce72a1d5086d765710495958bbdfc695a074511f" => :sierra
-    sha256 "0b376386378fd8bea0864f6b5bb06abe38a7e4f1dfb6e22632a69c299c8238b1" => :el_capitan
-    sha256 "1ee325f6dc47b3c17963372e31591442d6f977b8e20776a09f71cf7503e3bc5d" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4316c90600aecfa083b3ed1047a433fb649e14cb67d5eca420030bf504bcd524"
+    sha256 cellar: :any_skip_relocation, big_sur:       "abda672de18fdc778a01f0aafa1bf2a9108fd1df2662afff7f849dafafa855d4"
+    sha256 cellar: :any_skip_relocation, catalina:      "fccdb14eb1a620c824c08e748db390d788ad797c30654cb6434205fb16c78784"
+    sha256 cellar: :any_skip_relocation, mojave:        "798de4490c97283280259ffc1dc39159bd0ded85edb47f3212ad5ec9a174289e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "fdb2a72157445c33a462388f05580489c427f4f0d2a3d4cdc1b7867ef69e7e53"
+    sha256 cellar: :any_skip_relocation, sierra:        "4ef3590e26c5ac96d64dc985b035ec7055f215c84d31dfb09542d958f6ec4e77"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     system "autoreconf", "-fiv"
@@ -25,6 +31,11 @@ class Advancecomp < Formula
 
   test do
     system bin/"advdef", "--version"
-    system bin/"advpng", "--version"
+
+    cp test_fixtures("test.png"), "test.png"
+    system bin/"advpng", "--recompress", "--shrink-fast", "test.png"
+
+    version_string = shell_output("#{bin}/advpng --version")
+    assert_includes version_string, "advancecomp v#{version}"
   end
 end

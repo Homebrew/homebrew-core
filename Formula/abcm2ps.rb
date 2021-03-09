@@ -1,20 +1,20 @@
 class Abcm2ps < Formula
   desc "ABC music notation software"
   homepage "http://moinejf.free.fr"
-  url "https://github.com/leesavide/abcm2ps/archive/v8.13.17.tar.gz"
-  sha256 "639755b7760ddb3f293ab686b23ff7d5937df13f1c388d08e34ceaee319249e9"
+  url "https://github.com/leesavide/abcm2ps/archive/v8.14.11.tar.gz"
+  sha256 "e3b538d62face623619be46b9f7b7520c113fbb1b634073e1162d526adbf3f3b"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "4cc941a6caa74f2b2c0f7e816a657cbda6abaa6d9d8e20cb7bc36ffcc13dcbe5" => :high_sierra
-    sha256 "0555a472b5890f8e8b94c006a1a0a3bce5d071cbf1980cb8bbbeee2ec493c712" => :sierra
-    sha256 "bafc1ac9344bfc05ab4574addb4010e9089854792863873f08e60944347cad70" => :el_capitan
+    sha256 arm64_big_sur: "5a56794cc9fa9e49f3c8850f94ef7f1954832cfb6a0df0444b534e63b77962ba"
+    sha256 big_sur:       "576ceb67099499b4456a08434a9638a792eee8d12df2db9d957c80a48fb004e3"
+    sha256 catalina:      "294a1b897cd3224cfb9c03053c9a7826c9e7cdbe07065ff17f5f9a9f1608a0f8"
+    sha256 mojave:        "5bbc737b7c7b864e6490431cab5359b6193b75faa23ac6d5b5a1d78eda906b1c"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "pango" => :optional
 
   def install
-    chmod 0755, "configure" # remove for > 8.13.15
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end

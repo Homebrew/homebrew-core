@@ -1,28 +1,29 @@
 class Graphene < Formula
   desc "Thin layer of graphic data types"
   homepage "https://ebassi.github.io/graphene/"
-  url "https://download.gnome.org/sources/graphene/1.6/graphene-1.6.0.tar.xz"
-  sha256 "c3a9910f8dd298c1459d1f3c699ddf2e7440f9e561bfcbef59ae784400e27b5d"
+  url "https://download.gnome.org/sources/graphene/1.10/graphene-1.10.2.tar.xz"
+  sha256 "e97de8208f1aac4f913d4fa71ab73a7034e807186feb2abe55876e51c425a7f6"
 
   bottle do
-    sha256 "8bd3cbebbd244603447606001998454111ba5592686329550b109bb08c055eb6" => :high_sierra
-    sha256 "26643b04ec0aa93a3fbc0560f0cc99a24a1894ed94a2d1b48a8a70612ef5f891" => :sierra
-    sha256 "ef1e66271b468a48bc6fc18de2bdbdc40c87bdbc51d319f8af0509b107af537c" => :el_capitan
-    sha256 "437949adfe70b32ae7145f853b3b133b21aa3df25f5cd5fc52c8f13ef931d094" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "ed93a2b7f3830d38f82bece133afa43636e1cb90b3342c222909229260e63716"
+    sha256 cellar: :any, big_sur:       "0e6af428f089a813408d7edc7a5196372a1ee8dd3ed13f7edbf4acfb1f62407a"
+    sha256 cellar: :any, catalina:      "d8519d2811ee796969121cd0b087fb7a5e96c2952c69bb2dfe206f3efc299e31"
+    sha256 cellar: :any, mojave:        "0e7e238034cfcd390b8bd0e49bd6ba3c23dcdbff7c9a1cea5e626b34a3381acb"
+    sha256 cellar: :any, high_sierra:   "7bcd5ab83e1509ddeec6b710ba2a69c99bb92438344694423b1c886346fd44c2"
   end
 
+  depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "gobject-introspection"
-  depends_on "python3"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make"
-    system "make", "check"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

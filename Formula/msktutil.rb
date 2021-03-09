@@ -1,15 +1,17 @@
 class Msktutil < Formula
   desc "Active Directory keytab management"
   homepage "https://sourceforge.net/projects/msktutil/"
-  url "https://downloads.sourceforge.net/project/msktutil/msktutil-1.0.tar.bz2"
-  sha256 "6e59d4bf41b8c75d573037c19ed29567a55f67ae5fe8c81e037b4f8c7327b642"
+  url "https://downloads.sourceforge.net/project/msktutil/msktutil-1.1.tar.bz2"
+  sha256 "56bf4af8f74d8be6a8d94b90a527acf1508cd58212886fcfe54daa9799dcaf6f"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cba1afff1683efb3d6f6d500047c10691b0f46c904f404d8fbfdbed08200cc54" => :high_sierra
-    sha256 "3bf390f92696706f4f6241230024c9bdb13c78c05c9f81faffc356cbcb4ed443" => :sierra
-    sha256 "190a11fe9d63b99fe2982a79d83bd7ba59f4c7ef104ce860eb9ae48acb56335b" => :el_capitan
-    sha256 "c88bffcb5bacc334333d1bf614005ce65acb4d40e8c73f249313762e017ee8bb" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b30da17f59ba235a55d146e7af8e5c704105a4947f6cc8136764db2664ca67c1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7792cda91c0fe3c5bb4858d5af90cc897fa193c0609a44be276da8397bc97549"
+    sha256 cellar: :any_skip_relocation, catalina:      "aa3eeff895b2de1989222a0da68b9bfd1f82a84e1aa09e060f96a018c51c9f1d"
+    sha256 cellar: :any_skip_relocation, mojave:        "c81aaec915e611272f5c74d5a4ee7b14d9e7342d7bc2639f45dd90b0f3fc639b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8f3695f42884ee17bc1b701ee968c60e5ff115c17b9514986c7dd499b8e229c2"
+    sha256 cellar: :any_skip_relocation, sierra:        "05fc6f711b6109052fa1a795bf88063490e5c2ed73bcf2f2168610c77e996d88"
   end
 
   def install

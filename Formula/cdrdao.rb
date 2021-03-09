@@ -1,22 +1,25 @@
 class Cdrdao < Formula
   desc "Record CDs in Disk-At-Once mode"
   homepage "https://cdrdao.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cdrdao/cdrdao/1.2.3/cdrdao-1.2.3.tar.bz2"
-  sha256 "8193cb8fa6998ac362c55807e89ad0b3c63edc6b01afaeb3d5042519527fb75e"
+  url "https://downloads.sourceforge.net/project/cdrdao/cdrdao-1.2.4.tar.bz2"
+  sha256 "358d9cb83370ceaecdc60564cbf14c2ea2636eac60a966e2461c011ba09853b4"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "8aee176ebd5256556f352e900ab2ccee3772ef81daf04fe4b31348243fe55feb" => :high_sierra
-    sha256 "69c67458aa6f7f0e843a1760606336433e68735c3d1030a463dd7a3c7692e79a" => :sierra
-    sha256 "bf776ba977bbafbe32c21ae77174cc18a0af3639dd25d845d5f2a18b50b12555" => :el_capitan
-    sha256 "2f0ce2699c25a6586d2532a17a46e6643a94ddbf9da5e77f9aaf326da1a0b692" => :yosemite
-    sha256 "01e1dde5119c810802b5abfcbc30da6e02b35bb721cbfff83604f1e5aebd22e7" => :mavericks
+    sha256 arm64_big_sur: "29b520f278e11f6742704d93aa391c44dc5cb386f04610fefb07a787fbcf0595"
+    sha256 big_sur:       "1a2440998c344f7b1df9d01d6e3079f86fbc79e8827c440883fda7f8e12aa2fd"
+    sha256 catalina:      "81acc38e0a51134c0eeebf20e76dcee4e80eabfac72f0ec890e448271a96792c"
+    sha256 mojave:        "f8894deccbd18e7d5362ace73618666d9a79b233cea5dc6af367ab9e257332e0"
+    sha256 high_sierra:   "1efaa356872419da65763a5e28faf262b79f5a37e2eb83c06c22e9846bae188f"
+    sha256 sierra:        "cd0c72a2c84f084e4f5fe28df185e9154409645138e55502ffb9c4075ae4dfea"
+    sha256 el_capitan:    "d49e947354162d163937e801fd00468823b16d8462e179f6cfe20a84eb19ffb5"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "lame"
   depends_on "libao"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "lame"
 
   # first patch fixes build problems under 10.6
   # see https://sourceforge.net/p/cdrdao/patches/23/

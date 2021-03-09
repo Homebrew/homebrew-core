@@ -1,18 +1,22 @@
 class Autossh < Formula
   desc "Automatically restart SSH sessions and tunnels"
-  homepage "http://www.harding.motd.ca/autossh/"
-  url "http://www.harding.motd.ca/autossh/autossh-1.4e.tgz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/a/autossh/autossh_1.4e.orig.tar.gz"
-  sha256 "9e8e10a59d7619176f4b986e256f776097a364d1be012781ea52e08d04679156"
+  homepage "https://www.harding.motd.ca/autossh/"
+  url "https://www.harding.motd.ca/autossh/autossh-1.4g.tgz"
+  mirror "https://deb.debian.org/debian/pool/main/a/autossh/autossh_1.4g.orig.tar.gz"
+  sha256 "5fc3cee3361ca1615af862364c480593171d0c54ec156de79fc421e31ae21277"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?autossh[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "4840d0f94cc2f432c5aa1460b7e4d4773c704b9692753f1882f8b25c4db853e5" => :high_sierra
-    sha256 "aa82735df29eb9635d27b75e1b6aef72ca2014cea20370f2640f13257ce2069e" => :sierra
-    sha256 "9eb45f4246ed8db8cf639772bb252cedca944b480e7b8bedeeff4e96635a7a97" => :el_capitan
-    sha256 "5926ad9cc35738f1fc5eebc8dd68770a0cc62f8a1c5344cc01547c246821e7c1" => :yosemite
-    sha256 "4c86bc07f832f9ffeffc6542ecd102925fdebb363cfc354903cba2e9faa7900c" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c96653d1f3146ed3d7a2fea7127bae950f5b0766885385983e1ac086eda5dd43"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f9a7e07af1ad3391c1bd209b32dd92370bc93afb47c0a65499be89990ef471fe"
+    sha256 cellar: :any_skip_relocation, catalina:      "48e2beb06564ae4715df08b98577b10d01a25750e720b188b863ea8f195278ef"
+    sha256 cellar: :any_skip_relocation, mojave:        "2674ee43690b5d99490a0979359fdefa52033650b935547a6353de726f916275"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f88fcb32499fff8aa2899c85fc39dc6678ebed2849791a4312d427d9073b6b98"
+    sha256 cellar: :any_skip_relocation, sierra:        "78d258f52bc14a2539da8c6d3ce69db5c062bb70e95130d9f22113720f853c67"
   end
 
   patch :DATA

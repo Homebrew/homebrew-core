@@ -1,51 +1,36 @@
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
   homepage "https://www.libjpeg-turbo.org/"
-  url "https://downloads.sourceforge.net/project/libjpeg-turbo/1.5.2/libjpeg-turbo-1.5.2.tar.gz"
-  sha256 "9098943b270388727ae61de82adec73cf9f0dbb240b3bc8b172595ebf405b528"
+  url "https://downloads.sourceforge.net/project/libjpeg-turbo/2.0.6/libjpeg-turbo-2.0.6.tar.gz"
+  sha256 "d74b92ac33b0e3657123ddcf6728788c90dc84dcb6a52013d758af3c4af481bb"
+  license "IJG"
+  head "https://github.com/libjpeg-turbo/libjpeg-turbo.git"
 
   bottle do
-    cellar :any
-    sha256 "8c95c24c19a4f7c80be4a7d226b69235011b04ba638f7b16d1f8908f17e41962" => :high_sierra
-    sha256 "21f8159b00dadb55d54ac116fad05609c037232247de5a4a68cbecaf6370efa8" => :sierra
-    sha256 "467f1bf4bdc4b6cda9a9dde47eafe13270183c6c1d8dfa13d6149d1f1ae02ca8" => :el_capitan
-  end
-
-  head do
-    url "https://github.com/libjpeg-turbo/libjpeg-turbo.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
+    rebuild 1
+    sha256 arm64_big_sur: "ed33cdd98575680b68055415bc8416e4ff84cb5a458e65924027ef1726e37261"
+    sha256 big_sur:       "81e58cf5666e9adc810f1fd7b5ab6a9b45a66d65c7d36d73c94430e1432e9971"
+    sha256 catalina:      "30d3f9a97040a6070c5bf183e4ae5e2f7f7cb1a233a0c987e5cb67f82939c4ad"
+    sha256 mojave:        "4b087792a6794f715924c735882adb54314da0e2927cd810b0449e0ac061f095"
   end
 
   keg_only "libjpeg-turbo is not linked to prevent conflicts with the standard libjpeg"
 
-  option "without-test", "Skip build-time checks (Not Recommended)"
-
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "nasm" => :build
 
   def install
-    cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --with-jpeg8
-      --mandir=#{man}
-    ]
-
-    system "autoreconf", "-fvi" if build.head?
-    system "./configure", *args
+    args = std_cmake_args - %w[-DCMAKE_INSTALL_LIBDIR=lib]
+    system "cmake", ".", "-DWITH_JPEG8=1",
+                         "-DCMAKE_INSTALL_LIBDIR=#{lib}",
+                         *args
     system "make"
-    system "make", "test" if build.with? "test"
-    ENV.deparallelize # Stops a race condition error: file exists
+    system "make", "test"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/jpegtran", "-crop", "1x1",
-                              "-transpose", "-perfect",
-                              "-outfile", "out.jpg",
-                              test_fixtures("test.jpg")
+    system "#{bin}/jpegtran", "-crop", "1x1", "-transpose", "-perfect",
+                              "-outfile", "out.jpg", test_fixtures("test.jpg")
   end
 end

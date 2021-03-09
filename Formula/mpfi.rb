@@ -1,16 +1,18 @@
 class Mpfi < Formula
   desc "Multiple precision interval arithmetic library"
   homepage "https://perso.ens-lyon.fr/nathalie.revol/software.html"
-  url "https://gforge.inria.fr/frs/download.php/30130/mpfi-1.5.1.tar.gz"
-  sha256 "ea2725c6f38ddd8f3677c9b0ce8da8f52fe69e34aa85c01fb98074dc4e3458bc"
+  url "https://gforge.inria.fr/frs/download.php/file/37331/mpfi-1.5.3.tar.bz2"
+  sha256 "2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f"
+  license "GPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "8240e74f03f35c775a467df6749c71a348832c81139de0f18b3777d10ec065bd" => :high_sierra
-    sha256 "ef61011bac358bf0434a1a9a5dfb47003c20586557590b1d8732d2baf9fab16b" => :sierra
-    sha256 "9a36493cb162a66182b8792297db5b6cf32d75f9235252e215a2a6c196223f63" => :el_capitan
-    sha256 "6b202dd6c288c0a2f8025050a515a9f258e4adb7d244e98514e0b3adb5636a02" => :yosemite
-    sha256 "d9aaac81a9898a308063e9c2b3154a320f2ea2eb2c5c02bdf33b09a8227606c7" => :mavericks
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "294ebea233e52a6a0153e535a031e3bbea8bd4b36c4323c9d715512d77defc41"
+    sha256 cellar: :any, big_sur:       "fa207c29103a5e5d770b7235edf6b8c40b301ba8fbd19856c1793f787b9b1dfc"
+    sha256 cellar: :any, catalina:      "950fb479ad3748345f0410a7ce02d70527d9757d0c20ea1ed73d8f3f4e1c512c"
+    sha256 cellar: :any, mojave:        "55d8819c0310e6b8bc66742f7ab5881b9b552a9c60eaf940595ed08e8a320a56"
+    sha256 cellar: :any, high_sierra:   "d4464bdbbb2861861fa92e471f75e1b658e7c5f5814028a6c57f74c76092b013"
+    sha256 cellar: :any, sierra:        "50d3b78c1ef6837198a0320dbbe0852ad524f83bc2e12460bfbdc188bd1da76a"
   end
 
   depends_on "gmp"
@@ -35,7 +37,11 @@ class Mpfi < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-lgmp", "-lmpfr", "-L#{lib}", "-lmpfi", "-o", "test"
+
+    system ENV.cc, "test.c", "-o", "test",
+                   "-L#{lib}", "-lmpfi",
+                   "-L#{Formula["mpfr"].lib}", "-lmpfr",
+                   "-L#{Formula["gmp"].lib}", "-lgmp"
     system "./test"
   end
 end

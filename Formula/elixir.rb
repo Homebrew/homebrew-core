@@ -1,42 +1,19 @@
-class Erlang18Requirement < Requirement
-  fatal true
-  default_formula "erlang"
-
-  satisfy do
-    erl = which("erl")
-    next unless erl
-    `#{erl} -noshell -eval 'io:fwrite("~s", [erlang:system_info(otp_release) >= "18"])' -s erlang halt | grep -q '^true'`
-    next unless $CHILD_STATUS.exitstatus.zero?
-    erl
-  end
-
-  def message; <<~EOS
-    Erlang 18+ is required to install.
-
-    You can install this with:
-      brew install erlang
-
-    Or you can use an official installer from:
-      https://www.erlang.org/
-    EOS
-  end
-end
-
 class Elixir < Formula
   desc "Functional metaprogramming aware language built on Erlang VM"
   homepage "https://elixir-lang.org/"
-  url "https://github.com/elixir-lang/elixir/archive/v1.5.2.tar.gz"
-  sha256 "7317b7a9d3b5bef2b5cd56de738f2b37fd4111e24efbe71a3e39bea1b702ff6c"
-
+  url "https://github.com/elixir-lang/elixir/archive/v1.11.3.tar.gz"
+  sha256 "d961305e893f4fe1a177fa00233762c34598bc62ff88b32dcee8af27e36f0564"
+  license "Apache-2.0"
   head "https://github.com/elixir-lang/elixir.git"
 
   bottle do
-    sha256 "a73f29068edcfc35fd5adae518eb563594bf154368b0ebcda8fe24d0c8844b74" => :high_sierra
-    sha256 "2e2bc323b22c0618d324fd0fd0ecb41d10eb2a0f8c157b9dce161db9ef708321" => :sierra
-    sha256 "a74d9912c1ef658626a400d37a8df162d1f6e0d8337a80963dc289289931920f" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dc94bf65bccb57f6794c8bb081faa5914cc7184a6ecf71c8ce904cb91331445a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a06541e028cdd23af796aacb0c4217828a4066eb9239f414250937dd7d7775e8"
+    sha256 cellar: :any_skip_relocation, catalina:      "e0ff8e34210c0c1bc477b225b2cf3edfcafa82d2a1dcf071d1da49a51758003a"
+    sha256 cellar: :any_skip_relocation, mojave:        "dfcaa759c90179c486044fbf04e6300b2c7588e9d5169fa050fafe618415dec3"
   end
 
-  depends_on Erlang18Requirement
+  depends_on "erlang"
 
   def install
     system "make"
@@ -46,6 +23,8 @@ class Elixir < Formula
       app = File.basename(File.dirname(path))
       (lib/app).install path
     end
+
+    system "make", "install_man", "PREFIX=#{prefix}"
   end
 
   test do

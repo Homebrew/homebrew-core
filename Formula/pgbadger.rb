@@ -1,17 +1,16 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
-  homepage "https://dalibo.github.io/pgbadger/"
-  url "https://github.com/dalibo/pgbadger/archive/v9.2.tar.gz"
-  sha256 "2107466309a409fb9e40f11bb77cac1f9ba7910d5328e7b2e08eb7a1c6d760ec"
-
-  head "https://github.com/dalibo/pgbadger.git"
+  homepage "https://pgbadger.darold.net/"
+  url "https://github.com/darold/pgbadger/archive/v11.5.tar.gz"
+  sha256 "49ab18810a61353ebd7fee12b899ccb9adfd064be6099084670b945db5ff1186"
+  license "PostgreSQL"
+  head "https://github.com/darold/pgbadger.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a481b5c37d9517b2329493447798188e722f354a4d0309dbecc505f1b0e9bbdf" => :high_sierra
-    sha256 "d67b1d85810ffbcd8b638b44cbcce14744e6aff9f72f2e3085047897f3cad0d3" => :sierra
-    sha256 "d67b1d85810ffbcd8b638b44cbcce14744e6aff9f72f2e3085047897f3cad0d3" => :el_capitan
-    sha256 "d67b1d85810ffbcd8b638b44cbcce14744e6aff9f72f2e3085047897f3cad0d3" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e746195e6003286f5ffc6e9af6445a3078d7e53b06351ba272e77efecda17041"
+    sha256 cellar: :any_skip_relocation, big_sur:       "47dd580296d42a158b6e11853790080a6ec9408ece3f69d66672050f89753a19"
+    sha256 cellar: :any_skip_relocation, catalina:      "751904911636d8e1e4c8714f6c41d0aa9b56b703fc78dd024e8df1b67807f977"
+    sha256 cellar: :any_skip_relocation, mojave:        "0684dc2d96a3e715f58050c0c05d037a185cced9d0a36d970d6e0f7feffe7d0a"
   end
 
   def install
@@ -23,22 +22,23 @@ class Pgbadger < Formula
     man1.install "usr/local/share/man/man1/pgbadger.1p"
   end
 
-  def caveats; <<~EOS
-    You must configure your PostgreSQL server before using pgBadger.
-    Edit postgresql.conf (in #{var}/postgres if you use Homebrew's
-    PostgreSQL), set the following parameters, and restart PostgreSQL:
+  def caveats
+    <<~EOS
+      You must configure your PostgreSQL server before using pgBadger.
+      Edit postgresql.conf (in #{var}/postgres if you use Homebrew's
+      PostgreSQL), set the following parameters, and restart PostgreSQL:
 
-      log_destination = 'stderr'
-      log_line_prefix = '%t [%p]: [%l-1] user=%u,db=%d '
-      log_statement = 'none'
-      log_duration = off
-      log_min_duration_statement = 0
-      log_checkpoints = on
-      log_connections = on
-      log_disconnections = on
-      log_lock_waits = on
-      log_temp_files = 0
-      lc_messages = 'C'
+        log_destination = 'stderr'
+        log_line_prefix = '%t [%p]: [%l-1] user=%u,db=%d '
+        log_statement = 'none'
+        log_duration = off
+        log_min_duration_statement = 0
+        log_checkpoints = on
+        log_connections = on
+        log_disconnections = on
+        log_lock_waits = on
+        log_temp_files = 0
+        lc_messages = 'C'
     EOS
   end
 

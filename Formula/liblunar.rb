@@ -3,34 +3,25 @@ class Liblunar < Formula
   homepage "https://code.google.com/archive/p/liblunar/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/liblunar/liblunar-2.2.5.tar.gz"
   sha256 "c24a7cd3ccbf7ab739d752a437f1879f62b975b95abcf9eb9e1dd623982bc167"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 "e564dbc819eff0246e3594ec3b4434e5ba1b4790bfa3f5d13c326eff019cc136" => :high_sierra
-    sha256 "79b9281fa40694eeac3076ef886c8c6c8c3d2a118c538a59b9cb925cbd5775c6" => :sierra
-    sha256 "df420ea75e5e22b18dcd1fd49eac3478cd8bae3ec6e3b40d02afe7e253e0354b" => :el_capitan
-    sha256 "0964777ae7bbc24c64cab3a1197b5dfa123a08d7e320b4829b9f0a3d1a3cb6be" => :yosemite
-    sha256 "9c4abb431abb5c60d1a9beba72f8139255f64d19a02e1994345531c948c72c3d" => :mavericks
-    sha256 "66a40eb29dedc1cecc5947e5837e221a233273b130361eecb3488d51eede35be" => :mountain_lion
+    sha256 arm64_big_sur: "aa7c3b3099b3de258c3080a38afb8bedf0c55d4239c38462ebe66ef6df51d24b"
+    sha256 big_sur:       "6ab90c80d7dba5da9f6c5fc702849a6a0c49745832ac67bac0acfac24f745547"
+    sha256 catalina:      "916da6f9232b56ff4ba94c1e3aa5457ca6a3a36ad19f91f63cf69fe6503ea7ea"
+    sha256 mojave:        "b19be815304a6afc676a11269ca2c520a03e4aed778c4dee20aea063bca69ca8"
+    sha256 high_sierra:   "ce86d50db89030c02c88df1b639fabc9e3c4657e2d954c07b56d4b1cf2bafdf3"
+    sha256 sierra:        "29252d2fbfdfb582d46a728bd8272767dfa532eb90fedbb67a4b2116749dc657"
   end
 
-  option "with-python", "Build python bindings using pygobject"
-
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
-  depends_on "glib"
+  depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "vala" => :optional
-  depends_on :python => :optional
-  depends_on "pygobject" if build.with? "python"
+  depends_on "glib"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-    args << "--disable-python" if build.without? "python"
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 end

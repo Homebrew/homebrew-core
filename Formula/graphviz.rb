@@ -1,99 +1,60 @@
 class Graphviz < Formula
   desc "Graph visualization software from AT&T and Bell Labs"
-  homepage "https://graphviz.org/"
-  url "https://graphviz.org/pub/graphviz/stable/SOURCES/graphviz-2.40.1.tar.gz"
-  sha256 "ca5218fade0204d59947126c38439f432853543b0818d9d728c589dfe7f3a421"
+  homepage "https://www.graphviz.org/"
+  url "https://gitlab.com/graphviz/graphviz.git",
+      tag:      "2.46.1",
+      revision: "5156ae3ff298dd18dcebd6b7cf4c11f5d23d03fc"
+  license "EPL-1.0"
   version_scheme 1
+  head "https://gitlab.com/graphviz/graphviz.git"
 
   bottle do
-    rebuild 1
-    sha256 "b592ce51c2a929c3da82e96ec856571ebfc54cf4dac90c2924cd3845078d7082" => :high_sierra
-    sha256 "41b5811054f03978db12525919540fe41e073fb2c20e899247ed9c2a191f7a66" => :sierra
-    sha256 "cab27f92a59d543e2f2c1494c28c7563a4c2d7e0dce4c4fbc22587db91cafc5b" => :el_capitan
-    sha256 "6bd4c01e724cfc965871e1aad9a4fb2a6afef90a1e254d81e2fe33a997f50aaa" => :yosemite
+    sha256 arm64_big_sur: "0a5b42c04e033935915b1655155bbf5920d5c85ba03c0ae0c8cffcf9fb290333"
+    sha256 big_sur:       "e5c6de435b4890fe00d961e7d28b2c1ba8f7e2999937e56e24947350444dccbc"
+    sha256 catalina:      "ba5fd51f1c318e395ecbd4749e4a6ac54b759e835e62c77918aaece37da90c04"
+    sha256 mojave:        "fa46b3b5df53615e1c2f81f2060fa2cb2a556f90bd75d6b86f39f16932106985"
   end
 
-  head do
-    url "https://github.com/ellson/graphviz.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
-  option "with-bindings", "Build Perl/Python/Ruby/etc. bindings"
-  option "with-pango", "Build with Pango/Cairo for alternate PDF output"
-  option "with-app", "Build GraphViz.app (requires full XCode install)"
-  option "with-gts", "Build with GNU GTS support (required by prism)"
-
-  deprecated_option "with-x" => "with-x11"
-  deprecated_option "with-pangocairo" => "with-pango"
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "bison" => :build
   depends_on "pkg-config" => :build
-  depends_on :xcode => :build if build.with? "app"
-  depends_on "libtool" => :run
-  depends_on "pango" => :optional
-  depends_on "gts" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "freetype" => :optional
-  depends_on :x11 => :optional
   depends_on "gd"
+  depends_on "gts"
   depends_on "libpng"
+  depends_on "librsvg"
+  depends_on "libtool"
+  depends_on "pango"
 
-  if build.with? "bindings"
-    depends_on "swig" => :build
-    depends_on :python
-    depends_on :java
-    depends_on "ruby"
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "byacc" => :build
+    depends_on "ghostscript" => :build
   end
 
   def install
-    # Only needed when using superenv, which causes qfrexp and qldexp to be
-    # falsely detected as available. The problem is triggered by
-    #   args << "-#{ENV["HOMEBREW_OPTIMIZATION_LEVEL"]}"
-    # during argument refurbishment of cflags.
-    # https://github.com/Homebrew/brew/blob/ab060c9/Library/Homebrew/shims/super/cc#L241
-    # https://github.com/Homebrew/legacy-homebrew/issues/14566
-    # Alternative fixes include using stdenv or using "xcrun make"
-    inreplace "lib/sfio/features/sfio", "lib qfrexp\nlib qldexp\n", ""
-
-    if build.with? "bindings"
-      # the ruby pkg-config file is version specific
-      inreplace "configure" do |s|
-        s.gsub! "ruby-1.9", "ruby-#{Formula["ruby"].stable.version.to_f}"
-        s.gsub! "if test `$SWIG -php7 2>&1", "if test `$SWIG -php0 2>&1"
-      end
-    end
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --without-qt
-      --with-quartz
       --disable-php
+      --disable-swig
+      --with-quartz
+      --without-freetype2
+      --without-gdk
+      --without-gdk-pixbuf
+      --without-gtk
+      --without-poppler
+      --without-qt
+      --without-x
+      --with-gts
     ]
-    args << "--with-gts" if build.with? "gts"
-    args << "--disable-swig" if build.without? "bindings"
-    args << "--without-pangocairo" if build.without? "pango"
-    args << "--without-freetype2" if build.without? "freetype"
-    args << "--without-x" if build.without? "x11"
-    args << "--without-rsvg" if build.without? "librsvg"
 
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    system "./autogen.sh"
+    system "./configure", *args
+    system "make"
     system "make", "install"
-
-    if build.with? "app"
-      cd "macosx" do
-        xcodebuild "SDKROOT=#{MacOS.sdk_path}", "-configuration", "Release", "SYMROOT=build", "PREFIX=#{prefix}",
-                   "ONLY_ACTIVE_ARCH=YES", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
-      end
-      prefix.install "macosx/build/Release/Graphviz.app"
-    end
 
     (bin/"gvmap.sh").unlink
   end

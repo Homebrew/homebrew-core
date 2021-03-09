@@ -1,29 +1,32 @@
 class Glide < Formula
   desc "Simplified Go project management, dependency management, and vendoring"
   homepage "https://github.com/Masterminds/glide"
-  url "https://github.com/Masterminds/glide/archive/v0.13.1.tar.gz"
-  sha256 "84c4e365c9f76a3c8978018d34b4331b0c999332f628fc2064aa79a5a64ffc90"
-
+  url "https://github.com/Masterminds/glide/archive/v0.13.3.tar.gz"
+  sha256 "817dad2f25303d835789c889bf2fac5e141ad2442b9f75da7b164650f0de3fee"
+  license "MIT"
   head "https://github.com/Masterminds/glide.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "caf9796752ea6c302aad5ccb6d2d415961e338743ad93a849c012654f1826057" => :high_sierra
-    sha256 "31aa6f3b39c0a101dd94e9dda1a7d76fa6d22d8865effa0e96ae5d61d799233e" => :sierra
-    sha256 "9a400081061df8e2cbd82463b763e20e2029df47f750a8622ba6e3e81f21fa66" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "77ff52f69bde39ac4ba11eec08cc4c7ef5fab166ab801f513486d0a62e448ead"
+    sha256 cellar: :any_skip_relocation, big_sur:       "33a39604d9007bf46e92a0a9131a59c15162dce6ace8b498a91110bc7d316f43"
+    sha256 cellar: :any_skip_relocation, catalina:      "014fc42198c07253f844ea7b20b1a9378b08cfb445e548b307c6fb131bd44565"
+    sha256 cellar: :any_skip_relocation, mojave:        "7f4be1018eba40d85aca555364a09f97a18d8e09c71e6bb42e6ca1a2c0866865"
   end
+
+  # See: https://github.com/Masterminds/glide/commit/c64b14592409a83052f7735a01d203ff1bab0983
+  deprecate! date: "2021-01-02", because: :deprecated_upstream
 
   depends_on "go"
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     glidepath = buildpath/"src/github.com/Masterminds/glide"
     glidepath.install buildpath.children
 
     cd glidepath do
-      system "go", "build", "-o", "glide", "-ldflags", "-X main.version=#{version}"
-      bin.install "glide"
-      prefix.install_metafiles
+      system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}"
     end
   end
 

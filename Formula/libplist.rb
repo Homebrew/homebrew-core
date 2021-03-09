@@ -1,31 +1,26 @@
 class Libplist < Formula
   desc "Library for Apple Binary- and XML-Property Lists"
-  homepage "http://www.libimobiledevice.org/"
-  url "http://www.libimobiledevice.org/downloads/libplist-2.0.0.tar.bz2"
-  sha256 "3a7e9694c2d9a85174ba1fa92417cfabaea7f6d19631e544948dc7e17e82f602"
+  homepage "https://www.libimobiledevice.org/"
+  url "https://github.com/libimobiledevice/libplist/archive/2.2.0.tar.gz"
+  sha256 "7e654bdd5d8b96f03240227ed09057377f06ebad08e1c37d0cfa2abe6ba0cee2"
+  license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "af4e7e2fe8cc73190aecccdfb918db0aed2c4e2397b8d6d86a7e5dbec1fcf767" => :high_sierra
-    sha256 "da5d4dedb8a981298f8c67bf116b92dd178ed834208f6fb7a0a55987ff8cfc95" => :sierra
-    sha256 "34e757ae78d7a84a8fdee4fe158409f9ebd690c477400eb836fc2ed88c1353e9" => :el_capitan
-    sha256 "8279838cdf74669ce421a35ccd416f5fb6c2a33dc24515ef160086b15a88b883" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "ed9c2d665d5700c91f099bd433a38ba904b63eef4d3cdc47bd0f6b0229ac689a"
+    sha256 cellar: :any, big_sur:       "1ac05ef69cc02f4663fbb1c3d6d6e964c70a5ba0743d7e9e242da06864a63a70"
+    sha256 cellar: :any, catalina:      "20faf60d286c8ceed790a9b6e34245acf7bafacc7fcbcb390d6b62e194b323e6"
+    sha256 cellar: :any, mojave:        "768453f8710ec1c3e074ad0ebc7723da88c2b8575e5de6962ca6f1d4a85cb61d"
+    sha256 cellar: :any, high_sierra:   "02291f2f28099a73de8fa37b49962fe575a434be63af356cceff9200c6d73f37"
   end
 
   head do
     url "https://git.sukimashita.com/libplist.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
   end
 
-  option "without-cython", "Skip building Cython Python bindings"
-
-  deprecated_option "with-python" => "without-cython"
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "cython" => [:build, :recommended]
 
   def install
     ENV.deparallelize
@@ -34,11 +29,11 @@ class Libplist < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --without-cython
     ]
-    args << "--without-cython" if build.without? "cython"
 
-    system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./autogen.sh", *args
+    system "make"
     system "make", "install", "PYTHON_LDFLAGS=-undefined dynamic_lookup"
   end
 

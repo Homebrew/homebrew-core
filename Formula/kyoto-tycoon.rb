@@ -1,49 +1,62 @@
 class KyotoTycoon < Formula
   desc "Database server with interface to Kyoto Cabinet"
-  homepage "http://fallabs.com/kyototycoon/"
-  url "http://fallabs.com/kyototycoon/pkg/kyototycoon-0.9.56.tar.gz"
+  homepage "https://fallabs.com/kyototycoon/"
+  url "https://fallabs.com/kyototycoon/pkg/kyototycoon-0.9.56.tar.gz"
   sha256 "553e4ea83237d9153cc5e17881092cefe0b224687f7ebcc406b061b2f31c75c6"
-  revision 2
+  license "GPL-3.0-or-later"
+  revision 4
 
   bottle do
-    sha256 "7be4c6e507a1d8a1d526c82c11dd41b150806211c48388ab9a0dd790875fff79" => :high_sierra
-    sha256 "55a2e33c172afca9880553097beef413abce0c2f913c0ca1aa20ff5873732d14" => :sierra
-    sha256 "33d857c99b29a62a42965ebd5639990cdbfeb3584adee249caff81ab0cdf4328" => :el_capitan
+    sha256 arm64_big_sur: "ec2db363d2e03749d1d738ba77750e86c77b8362725767661b46a54ba88e6a6f"
+    sha256 big_sur:       "6718c70e1a6f9095077180661a2fb9649e3c7f36847738ef900bd5565cefb4af"
+    sha256 catalina:      "fb28428ef7f62c2ac86f78e00101ca58940fe875d4c4a0df5cada4cca8dce7a6"
+    sha256 mojave:        "2272eabbc069a844c838aaa501285b475037ebe8a76e1bf1f41ab36974bc035d"
   end
 
-  depends_on "lua" => :recommended
+  depends_on "lua" => :build
+  depends_on "pkg-config" => :build
   depends_on "kyoto-cabinet"
+  depends_on "zlib"
 
-  patch :DATA if MacOS.version >= :mavericks
+  # Build patch (submitted upstream)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/955ce09/kyoto-tycoon/0.9.56.patch"
+    sha256 "7a5efe02a38e3f5c96fd5faa81d91bdd2c1d2ffeb8c3af52878af4a2eab3d830"
+  end
+
+  # Homebrew-specific patch to support testing with ephemeral ports (submitted upstream)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9925c07/kyoto-tycoon/ephemeral-ports.patch"
+    sha256 "736603b28e9e7562837d0f376d89c549f74a76d31658bf7d84b57c5e66512672"
+  end
 
   def install
-    # Locate kyoto-cabinet for non-/usr/local builds
-    cabinet = Formula["kyoto-cabinet"].opt_prefix
-    args = ["--prefix=#{prefix}", "--with-kc=#{cabinet}"]
-
-    if build.with? "lua"
-      lua = Formula["lua"].opt_prefix
-      args << "--with-lua=#{lua}"
-    else
-      args << "--enable-lua"
-    end
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-kc=#{Formula["kyoto-cabinet"].opt_prefix}",
+                          "--with-lua=#{Formula["lua"].opt_prefix}"
     system "make"
     system "make", "install"
   end
+
+  test do
+    (testpath/"test.lua").write <<~EOS
+      kt = __kyototycoon__
+      db = kt.db
+      -- echo back the input data as the output data
+      function echo(inmap, outmap)
+         for key, value in pairs(inmap) do
+            outmap[key] = value
+         end
+         return kt.RVSUCCESS
+      end
+    EOS
+    port = free_port
+
+    fork do
+      exec bin/"ktserver", "-port", port.to_s, "-scr", testpath/"test.lua"
+    end
+    sleep 5
+
+    assert_match "Homebrew\tCool", shell_output("#{bin}/ktremotemgr script -port #{port} echo Homebrew Cool 2>&1")
+  end
 end
-
-
-__END__
---- a/ktdbext.h  2013-11-08 09:34:53.000000000 -0500
-+++ b/ktdbext.h  2013-11-08 09:35:00.000000000 -0500
-@@ -271,7 +271,7 @@
-       if (!logf("prepare", "started to open temporary databases under %s", tmppath.c_str()))
-         err = true;
-       stime = kc::time();
--      uint32_t pid = getpid() & kc::UINT16MAX;
-+      uint32_t pid = kc::getpid() & kc::UINT16MAX;
-       uint32_t tid = kc::Thread::hash() & kc::UINT16MAX;
-       uint32_t ts = kc::time() * 1000;
-       for (size_t i = 0; i < dbnum_; i++) {

@@ -1,18 +1,26 @@
-# Note that odd release numbers indicate unstable releases.
-# Please only submit PRs for [x.x.even] version numbers:
+# NOTE: Odd release numbers indicate unstable releases.
+# Please only submit PRs for [x.even.x] version numbers:
 # https://github.com/djcb/mu/commit/23f4a64bdcdee3f9956a39b9a5a4fd0c5c2370ba
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/0.9.18/mu-0.9.18.tar.gz"
-  sha256 "6559ec888d53f8e03b87b67148a73f52fe086477cb10e43f3fc13ed7f717e809"
-  revision 1
+  url "https://github.com/djcb/mu/archive/1.4.15.tar.gz"
+  sha256 "e19900a68b6d26d2e01bf002b8ffaa97916239eca4d7104b7bc57db0add406b2"
+  license "GPL-3.0-or-later"
+
+  # We restrict matching to versions with an even-numbered minor version number,
+  # as an odd-numbered minor version number indicates a development version:
+  # https://github.com/djcb/mu/commit/23f4a64bdcdee3f9956a39b9a5a4fd0c5c2370ba
+  livecheck do
+    url :stable
+    regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
+  end
 
   bottle do
-    sha256 "9fe39b0fd5eab4d52915b9a93cb2e499fb35aacbb2be5f2a342596d8d47fb6ce" => :high_sierra
-    sha256 "a38652c9dfce2d6fb774b55b547dec424d46325d480d986061647f7fbe4fc9c9" => :sierra
-    sha256 "292581f0d256a20d26aa2f49e39961cd8212fb041f3e89546830a17e677ae436" => :el_capitan
-    sha256 "807173ae614afee3cd3b577d1653ad78629f564ce0d6e443b55752f8303efc20" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "d7a73a634d7b10e4c1bad9879d5f2b17bdaf1261ed8bfcf231c8a45a4ac7bd3e"
+    sha256 cellar: :any, big_sur:       "156897a7a8054b5d6621bfb8dead7bedf0479e8bf30e8bbd705f35e2bfbf6654"
+    sha256 cellar: :any, catalina:      "2352f980cdc3e560e3901cf91f0163b8f9c4fad08b935646c38abc3cc076f6ba"
+    sha256 cellar: :any, mojave:        "2543a69a0ea5f7c8aeca43e71f6c79bca8332fb2fa5d449c766a7f74462eb6e8"
   end
 
   head do
@@ -23,44 +31,24 @@ class Mu < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "emacs" => :build
+  depends_on "libgpg-error" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libgpg-error" => :build
   depends_on "gettext"
   depends_on "glib"
+  depends_on "gmime"
   depends_on "xapian"
-  depends_on :emacs => ["23", :optional]
 
-  # Currently requires gmime 2.6.x
-  resource "gmime" do
-    url "https://download.gnome.org/sources/gmime/2.6/gmime-2.6.23.tar.xz"
-    sha256 "7149686a71ca42a1390869b6074815106b061aaeaaa8f2ef8c12c191d9a79f6a"
-  end
+  uses_from_macos "texinfo" => :build
 
   def install
-    resource("gmime").stage do
-      system "./configure", "--prefix=#{prefix}/gmime", "--disable-introspection"
-      system "make", "install"
-      ENV.append_path "PKG_CONFIG_PATH", "#{prefix}/gmime/lib/pkgconfig"
-    end
-
-    # Explicitly tell the build not to include emacs support as the version
-    # shipped by default with macOS is too old.
-    ENV["EMACS"] = "no" if build.without? "emacs"
-
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-lispdir=#{elisp}"
     system "make"
     system "make", "install"
-  end
-
-  def caveats; <<~EOS
-    Existing mu users are recommended to run the following after upgrading:
-
-      mu index --rebuild
-    EOS
   end
 
   # Regression test for:
@@ -89,17 +77,17 @@ class Mu < Formula
       This used to happen outdoors. It was more fun then.
     EOS
 
-    system "#{bin}/mu", "index",
-                        "--muhome",
-                        testpath,
-                        "--maildir=#{testpath}"
+    system "#{bin}/mu", "init", "--muhome=#{testpath}", "--maildir=#{testpath}"
+    system "#{bin}/mu", "index", "--muhome=#{testpath}"
 
-    mu_find = "#{bin}/mu find --muhome #{testpath} "
+    mu_find = "#{bin}/mu find --muhome=#{testpath} "
     find_message = "#{mu_find} msgid:2222222222@example.com"
     find_message_and_related = "#{mu_find} --include-related msgid:2222222222@example.com"
 
     assert_equal 1, shell_output(find_message).lines.count
-    assert_equal 2, shell_output(find_message_and_related).lines.count,
-                 "You tripped over https://github.com/djcb/mu/issues/380\n\t--related doesn't work. Everything else should"
+    assert_equal 2, shell_output(find_message_and_related).lines.count, <<~EOS
+      You tripped over https://github.com/djcb/mu/issues/380
+        --related doesn't work. Everything else should
+    EOS
   end
 end

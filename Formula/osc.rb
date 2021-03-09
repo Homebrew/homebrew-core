@@ -1,69 +1,42 @@
 class Osc < Formula
   include Language::Python::Virtualenv
 
-  desc "The command-line interface to work with an Open Build Service"
-  homepage "https://github.com/openSUSE/osc"
-  url "https://github.com/openSUSE/osc/archive/0.162.1.tar.gz"
-  sha256 "529d627bf10117f43f52f6e6db09e9663474ae984b7be93cae9a686b52bd932c"
+  desc "Command-line interface to work with an Open Build Service"
+  homepage "https://openbuildservice.org"
+  url "https://github.com/openSUSE/osc/archive/0.172.0.tar.gz"
+  sha256 "bd4d8c5e081064524972a3f6844798143cc1a0aa3df41f84ee93ec59444e9d8b"
+  license "GPL-2.0-or-later"
   head "https://github.com/openSUSE/osc.git"
 
   bottle do
-    cellar :any
-    sha256 "5a6ceb89aa5c491bd61e53107dd9b28f10c8393791158f5b8ecf034dbdbc7d6d" => :high_sierra
-    sha256 "0ca18dc46293ce26f11e46bfc18670dc036b7c692608a93b2ab306c80bbaa695" => :sierra
-    sha256 "043bdca5680a6bf33dc77a570263e1745c1d245f44dddd3b41381b652422bfa7" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "2031fc5819080a21b135068bc14f85cbb9fd6f1974ffedf214480df511e6e4d4"
+    sha256 cellar: :any, big_sur:       "4d481afd08224785009b0679d26ad2970f87bb27bb547fee9bcdd0bcfec6a85d"
+    sha256 cellar: :any, catalina:      "91728d2288f373343410be0d60848aab70baeacb2d18b6c6eb5c93ff8291c8d9"
+    sha256 cellar: :any, mojave:        "0358596adc5d92f5bf0a3f519f5c1dd611110b23f823532e06288ddffa0631cf"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
   depends_on "swig" => :build
-  depends_on "openssl" # For M2Crypto
+  depends_on "openssl@1.1"
+  depends_on "python@3.9"
 
-  resource "pycurl" do
-    url "https://files.pythonhosted.org/packages/12/3f/557356b60d8e59a1cce62ffc07ecc03e4f8a202c86adae34d895826281fb/pycurl-7.43.0.tar.gz"
-    sha256 "aa975c19b79b6aa6c0518c0cc2ae33528900478f0b500531dbcdbf05beec584c"
-  end
+  uses_from_macos "curl"
 
-  resource "urlgrabber" do
-    url "https://files.pythonhosted.org/packages/29/1a/f509987826e17369c52a80a07b257cc0de3d7864a303175f2634c8bcb3e3/urlgrabber-3.10.2.tar.gz"
-    sha256 "05b7164403d49b37fe00f7ac8401e56b00d0568ac45ee15d5f0610ac293c3070"
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
+    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/01/bd/a41491718f9e2bebab015c42b5be7071c6695acfa301e3fc0480bfd6a15b/M2Crypto-0.27.0.tar.gz"
-    sha256 "82317459d653322d6b37f122ce916dc91ddcd9d1b814847497ac796c4549dd68"
-  end
-
-  resource "typing" do
-    url "https://files.pythonhosted.org/packages/ca/38/16ba8d542e609997fdcd0214628421c971f8c395084085354b11ff4ac9c3/typing-3.6.2.tar.gz"
-    sha256 "d514bd84b284dd3e844f0305ac07511f097e325171f6cc4a20878d11ad771849"
+    url "https://files.pythonhosted.org/packages/ff/df/84609ed874b5e6fcd3061a517bf4b6e4d0301f553baf9fa37bef2b509797/M2Crypto-0.36.0.tar.gz"
+    sha256 "1542c18e3ee5c01db5031d0b594677536963e3f54ecdf5315aeecb3a595b4dc1"
   end
 
   def install
-    # avoid pycurl error about compile-time and link-time curl version mismatch
-    ENV.delete "SDKROOT"
+    openssl = Formula["openssl@1.1"]
+    ENV["SWIG_FEATURES"] = "-I#{openssl.opt_include}"
 
-    venv = virtualenv_create(libexec)
-    venv.pip_install resources.reject { |r| r.name == "M2Crypto" || r.name == "pycurl" }
-
-    resource("M2Crypto").stage do
-      inreplace "setup.py" do |s|
-        s.gsub! "self.openssl = '/usr'",
-                "self.openssl = '#{Formula["openssl"].opt_prefix}'"
-        s.gsub! "platform.system() == \"Linux\"",
-                "platform.system() == \"Darwin\" or \\0"
-      end
-      venv.pip_install "."
-    end
-
-    # avoid error about libcurl link-time and compile-time ssl backend mismatch
-    resource("pycurl").stage do
-      system libexec/"bin/pip", "install",
-             "--install-option=--libcurl-dll=/usr/lib/libcurl.dylib", "-v",
-             "--no-binary", ":all:", "--ignore-installed", "."
-    end
-
-    inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{etc}/openssl/cert.pem'"
-    venv.pip_install_and_link buildpath
+    inreplace "osc/conf.py", "'/etc/ssl/certs'", "'#{openssl.pkgetc}/cert.pem'"
+    virtualenv_install_with_resources
     mv bin/"osc-wrapper.py", bin/"osc"
   end
 

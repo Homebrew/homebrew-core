@@ -1,35 +1,31 @@
 class Opencoarrays < Formula
   desc "Open-source coarray Fortran ABI, API, and compiler wrapper"
-  homepage "http://opencoarrays.org"
-  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/1.9.3/OpenCoarrays-1.9.3.tar.gz"
-  sha256 "58502575c74ca079611abab1cf184b26076cb19a478113ce04a0f2cf1a607b45"
+  homepage "http://www.opencoarrays.org"
+  url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.9.2/OpenCoarrays-2.9.2.tar.gz"
+  sha256 "6c200ca49808c75b0a2dfa984304643613b6bc77cc0044bee093f9afe03698f7"
+  license "BSD-3-Clause"
   head "https://github.com/sourceryinstitute/opencoarrays.git"
 
   bottle do
-    cellar :any
-    sha256 "0b3c41477130ef24703e1a5bee9ea5f2cda98ef9a7f9bda4bfa8f6ef31ed5e09" => :high_sierra
-    sha256 "2942b86101f1f15f1e8a558c78806eb128434faf25051f4afdc3dd4067a9ef4d" => :sierra
-    sha256 "54a04a4d7859e2fe5b3a7d7be8b14b0ae6cae9b8ee284192dd20e2cf7380c178" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "ae408eed3714792c3f7f725971ed131da9ae17606179431c6070bf5617a9644a"
+    sha256 cellar: :any, big_sur:       "c9c5f9e2866851c6d991a636e146e5847632000228f2dff63e8ea64cb6cea621"
+    sha256 cellar: :any, catalina:      "fadee1f47dc7c188886973395667274bd8c5af6e095cc1e6a427758f7d5ed931"
+    sha256 cellar: :any, mojave:        "fd57ea0d2ce0624a7bece27b2b9022d809c9665d899eed7c4840270909514e9c"
   end
 
-  option "without-test", "Skip build time tests (not recommended)"
-
-  depends_on "gcc"
-  depends_on :fortran
-  depends_on :mpi => :cc
   depends_on "cmake" => :build
+  depends_on "gcc"
+  depends_on "open-mpi"
 
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
-      system "ctest", "--output-on-failure", "--schedule-random" if build.with? "test"
       system "make", "install"
     end
   end
 
   test do
-    ENV.fortran
     (testpath/"tally.f90").write <<~EOS
       program main
         use iso_c_binding, only : c_int
@@ -51,6 +47,6 @@ class Opencoarrays < Formula
       end program
     EOS
     system "#{bin}/caf", "tally.f90", "-o", "tally"
-    system "#{bin}/cafrun", "-np", "3", "./tally"
+    system "#{bin}/cafrun", "-np", "3", "--oversubscribe", "./tally"
   end
 end

@@ -1,19 +1,37 @@
 class Ncview < Formula
   desc "Visual browser for netCDF format files"
-  homepage "http://meteora.ucsd.edu/~pierce/ncview_home_page.html"
-  url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.7.tar.gz"
-  sha256 "a14c2dddac0fc78dad9e4e7e35e2119562589738f4ded55ff6e0eca04d682c82"
-  revision 5
+  homepage "https://cirrus.ucsd.edu/ncview/"
+  url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.8.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/ncview-2.1.8.tar.gz"
+  sha256 "e8badc507b9b774801288d1c2d59eb79ab31b004df4858d0674ed0d87dfc91be"
+  license "GPL-3.0-only"
+  revision 4
 
-  bottle do
-    sha256 "bd2df1b3290bf6fc03543fecf727698064f858329b62d7665f516bff8e094067" => :high_sierra
-    sha256 "df920fc488f54f8f128f635c42c618fed9cf82beaed5e99087b44397e3770066" => :sierra
-    sha256 "65e303f36bc95f74adcac5eac2c6f11a3d474ad1babd573016576c8467320214" => :el_capitan
+  # The stable archive in the formula is fetched over FTP and the website for
+  # the software hasn't been updated to list the latest release (it has been
+  # years now). We're checking Debian for now because it's potentially better
+  # than having no check at all.
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/n/ncview/"
+    regex(/href=.*?ncview[._-]v?(\d+(?:\.\d+)+)(?:\+ds)?\.orig\.t/i)
   end
 
+  bottle do
+    rebuild 1
+    sha256 arm64_big_sur: "0c7b273ab3f81d8dece1035fb0170542287492dad9573dd2c9bd4726b9ac82cb"
+    sha256 big_sur:       "62940cf53207de388e665e1d1376e48c684af71732422fff53c5ab660be55648"
+    sha256 catalina:      "cd138ec52b70136fc6593d390a384490921b5cdfea173396e776f10f2fbc8466"
+    sha256 mojave:        "17d275efffcb75749da6a8ad011fcc675e2db41b57fd1948e4a7951a1495aa08"
+  end
+
+  depends_on "libice"
+  depends_on "libpng"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxaw"
+  depends_on "libxt"
   depends_on "netcdf"
   depends_on "udunits"
-  depends_on :x11
 
   def install
     # Bypass compiler check (which fails due to netcdf's nc-config being
@@ -30,6 +48,6 @@ class Ncview < Formula
 
   test do
     assert_match "Ncview #{version}",
-                 shell_output("#{bin}/ncview -c 2>&1", 1)
+                 shell_output("DISPLAY= #{bin}/ncview -c 2>&1", 1)
   end
 end

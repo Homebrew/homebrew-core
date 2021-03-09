@@ -3,26 +3,44 @@ class Libfreefare < Formula
   homepage "https://github.com/nfc-tools/libfreefare"
   url "https://github.com/nfc-tools/libfreefare/releases/download/libfreefare-0.4.0/libfreefare-0.4.0.tar.bz2"
   sha256 "bfa31d14a99a1247f5ed49195d6373de512e3eb75bf1627658b40cf7f876bc64"
-  revision 1
+  license "LGPL-3.0"
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "6c2de11e9321e8ed3bb09dd15ab5f383c9d0208e5902545c5e69f18071b78b58" => :high_sierra
-    sha256 "03d3fffd9c4cf59b2a5a735e2b32262a7bbe1dde56e7ebf6d0e9f71eff8def87" => :sierra
-    sha256 "3314a682b1c0443f3e924bdc4a3294de0d3d979860224f72b74531701915f914" => :el_capitan
-    sha256 "673490a072b9154050596a7f189c9f49f4c4b314fecfc2acf8c851716fbd6de7" => :yosemite
-    sha256 "d4e5f965c145948da6a9dd8edb7e6475b3fa0504ac06a0885ce391f94a3edffa" => :mavericks
-    sha256 "83eb9ce57c62b8c08c912452642ea75cfb5377ded85073cd3c7d709d38ccc5f5" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "c66fe7ad412745ebd9c10784f9ef7de563a5c1ef7582a72915ad7b50324a65c5"
+    sha256 cellar: :any, big_sur:       "bcc9bf9b7c9ee53de79b4784264c0923587b48933d2a6c1f57730fd359f8646d"
+    sha256 cellar: :any, catalina:      "5019ddb58b52c0ef766c331273c73ca4a374e87d5288d7357cd7e965150b43c4"
+    sha256 cellar: :any, mojave:        "a039acfcd35d2763313e47dd0175474975ffdecba60f6c6af714f7b0f0630144"
+    sha256 cellar: :any, high_sierra:   "5ae1a6b59880a6ae25ce53cfe9727be4cdf5a9cd5fe28c06f7bbc0e3d1342939"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libnfc"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+
+  # Upstream commit for endianness-related functions, fixes
+  # https://github.com/nfc-tools/libfreefare/issues/55
+  patch do
+    url "https://github.com/nfc-tools/libfreefare/commit/358df775.patch?full_index=1"
+    sha256 "20d592c11e559d0a5f02f7ed56da370e39439feebd971be11b064d58ea85777f"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <freefare.h>
+      int main() {
+        mifare_desfire_aid_new(0);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-L#{lib}", "-lfreefare", "-o", "test"
+    system "./test"
   end
 end

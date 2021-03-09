@@ -1,14 +1,16 @@
 class Juise < Formula
   desc "JUNOS user interface scripting environment"
   homepage "https://github.com/Juniper/juise/wiki"
-  url "https://github.com/Juniper/juise/releases/download/0.8.0/juise-0.8.0.tar.gz"
-  sha256 "eea1f6da0f24f6d86abd083bd193b953870fbfc8dab5d11e2a125c2f3ea1c83a"
+  url "https://github.com/Juniper/juise/releases/download/0.9.0/juise-0.9.0.tar.gz"
+  sha256 "7eb7985944b7322fe290f4e5a080a4018ed84bf576e23b8a32e3f94eb13f4c27"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "5a19782f9698e150c163163697f2252401d9056e264790d8c5b346c5ad04d8b2" => :high_sierra
-    sha256 "5fad744e6dea03435e27a673e2652160dd7c5e9543993454f1df57f1132c4ebf" => :sierra
-    sha256 "cdb84f723d8178bcebdf8d29161c18b4fd847c18e98c50bdab62981afb22df4c" => :el_capitan
-    sha256 "a45ee7ce8991f0ec54d22c7be9d101d835f12465038ab0451824f123a2b644d7" => :yosemite
+    sha256 arm64_big_sur: "27e5253d1f9c4097ce65306fab5689df20dfcb66b7e99b11e746c133317f8b48"
+    sha256 big_sur:       "956422c77715dd1009711ce4e3766511edf8ce146057506e5a7154eacdf4ff62"
+    sha256 catalina:      "fdc8151a4937275308e7d353b0f42007e5a371a58551c2609351ac9ae0647bbb"
+    sha256 mojave:        "7895026372337e9a86c906b364f5a3bda3c217e6def31b6e51ada8ab14c9334b"
+    sha256 high_sierra:   "6c4e884c63521014cd059e59372130ea70a06067769aaaf79497cb1f6877c41a"
   end
 
   head do

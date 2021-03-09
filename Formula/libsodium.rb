@@ -1,22 +1,30 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
-  homepage "https://github.com/jedisct1/libsodium/"
-  url "https://github.com/jedisct1/libsodium/releases/download/1.0.15/libsodium-1.0.15.tar.gz"
-  sha256 "fb6a9e879a2f674592e4328c5d9f79f082405ee4bb05cb6e679b90afe9e178f4"
+  homepage "https://libsodium.org/"
+  url "https://download.libsodium.org/libsodium/releases/libsodium-1.0.18.tar.gz"
+  sha256 "6f504490b342a4f8a4c4a02fc9b866cbef8622d5df4e5452b46be121e46636c1"
+  license "ISC"
+  revision 1
+
+  livecheck do
+    url "https://download.libsodium.org/libsodium/releases/"
+    regex(/href=.*?libsodium[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "b2faf056b42788bfbedeee32166c3aa9c3d382f9dadf306100b6ef0d0342a64a" => :high_sierra
-    sha256 "decfe8fd1c593c8b202c99a4dc3dc21e25adf39c9cb1e8de792c7801cef66d67" => :sierra
-    sha256 "59597f646d332373e951a7b1ff6ebd4b88898016555494f27e5f195a1bed16d2" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "ab7029c599665005a9c9ec9e72c74bf4d543fd7a995d9af9cfe9e6c10de79177"
+    sha256 cellar: :any, big_sur:       "5afc5678e30a174c1e46f1e905124f2619e6d9815ac776836090c0bff85631d6"
+    sha256 cellar: :any, catalina:      "db372521cd0b1861a5b578bee22426f3a1f4f7cb3c382be1f842da4715dc65bd"
+    sha256 cellar: :any, mojave:        "55245bfcf6654b0914d3f7459b99a08c54ef2560587bf583a1c1aff4cfc81f28"
+    sha256 cellar: :any, high_sierra:   "fc972755eb60f4221d7b32e58fc0f94e99b913fefefc84c4c76dc4bca1c5c445"
   end
 
   head do
     url "https://github.com/jedisct1/libsodium.git"
 
-    depends_on "libtool" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   def install

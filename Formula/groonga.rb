@@ -1,13 +1,20 @@
 class Groonga < Formula
   desc "Fulltext search engine and column store"
-  homepage "http://groonga.org/"
-  url "https://packages.groonga.org/source/groonga/groonga-7.0.9.tar.gz"
-  sha256 "2de0ca7eb522dfe67506a551acc9881b8b6c24c84a6149a59b21d3a6cd19256b"
+  homepage "https://groonga.org/"
+  url "https://packages.groonga.org/source/groonga/groonga-11.0.0.tar.gz"
+  sha256 "92040015ae0eaef7e6b3fb6b8da32b5d42d8cbb9d5fa7b262cfa72640ab77036"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :homepage
+    regex(%r{>v?(\d+(?:\.\d+)+)</a> is the latest release}i)
+  end
 
   bottle do
-    sha256 "32b6e052ed8e8c64fa7dd4c330e61b8bf4b7ad6acdf1a802d4d4cfa6c82965b7" => :high_sierra
-    sha256 "d4ab2718c89b1933b5a46a79fd577a7762c7fb39b77bf8d360a23bc0609c89db" => :sierra
-    sha256 "c070d9b0ce41d943032bd80f878f0159b9385b5a086b44f891dbcf8b68bdcc1b" => :el_capitan
+    sha256 arm64_big_sur: "a13ea21d2bda53f4a21af0beea01a655ee96f375e4c7b2debe46f09382493fde"
+    sha256 big_sur:       "dc6597d2ebfe1227fa22b2fe648cd34078856b580ce4bcf2cf1ecc754c32fe9a"
+    sha256 catalina:      "d0a0807d3d57dc0fb4653dc318efc816737e423bd803836a211034abbe1a755c"
+    sha256 mojave:        "56459e3a9174b5a4ff6ae1ff7a55f62d28e4bc6157698542e33b48cc841d2b02"
   end
 
   head do
@@ -17,72 +24,36 @@ class Groonga < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-glib", "With benchmark program for developer use"
-  option "with-zeromq", "With suggest plugin for suggesting"
-  option "with-stemmer", "Build with libstemmer support"
-
-  deprecated_option "enable-benchmark" => "with-glib"
-  deprecated_option "with-benchmark" => "with-glib"
-  deprecated_option "with-suggest-plugin" => "with-zeromq"
-
   depends_on "pkg-config" => :build
-  depends_on "pcre"
+  depends_on "mecab"
+  depends_on "mecab-ipadic"
   depends_on "msgpack"
-  depends_on "openssl"
-  depends_on "glib" => :optional
-  depends_on "lz4" => :optional
-  depends_on "mecab" => :optional
-  depends_on "mecab-ipadic" if build.with? "mecab"
-  depends_on "zeromq" => :optional
-  depends_on "libevent" if build.with? "zeromq"
-  depends_on "zstd" => :optional
+  depends_on "openssl@1.1"
+  depends_on "pcre"
 
-  resource "groonga-normalizer-mysql" do
-    url "https://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.1.tar.gz"
-    sha256 "bc83d1e5e0f32d4b95e219cb940a7e3f61f0f743abd3bd47c2d436a34e503870"
-  end
-
-  resource "stemmer" do
-    url "https://github.com/snowballstem/snowball.git",
-        :revision => "5137019d68befd633ce8b1cd48065f41e77ed43e"
+  on_linux do
+    depends_on "glib"
   end
 
   link_overwrite "lib/groonga/plugins/normalizers/"
   link_overwrite "share/doc/groonga-normalizer-mysql/"
   link_overwrite "lib/pkgconfig/groonga-normalizer-mysql.pc"
 
+  resource "groonga-normalizer-mysql" do
+    url "https://packages.groonga.org/source/groonga-normalizer-mysql/groonga-normalizer-mysql-1.1.4.tar.gz"
+    sha256 "084a74742ba7cf396c617354fa58d691b0c22e1c5d1ddfc3722123d7161fcd96"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
-      --with-zlib
-      --with-ssl
+      --disable-zeromq
       --enable-mruby
+      --with-ssl
+      --with-zlib
+      --without-libstemmer
+      --with-mecab
     ]
-
-    if build.with? "zeromq"
-      args << "--enable-zeromq"
-    else
-      args << "--disable-zeromq"
-    end
-
-    if build.with? "stemmer"
-      resource("stemmer").stage do
-        system "make", "dist_libstemmer_c"
-        system "tar", "xzf", "dist/libstemmer_c.tgz", "-C", buildpath
-        Dir.chdir buildpath.join("libstemmer_c")
-        system "make"
-        mkdir "lib"
-        mv "libstemmer.o", "lib/libstemmer.a"
-        args << "--with-libstemmer=#{Dir.pwd}"
-      end
-    else
-      args << "--without-libstemmer"
-    end
-
-    args << "--enable-benchmark" if build.with? "glib"
-    args << "--with-mecab" if build.with? "mecab"
-    args << "--with-lz4" if build.with? "lz4"
-    args << "--with-zstd" if build.with? "zstd"
 
     if build.head?
       args << "--with-ruby"

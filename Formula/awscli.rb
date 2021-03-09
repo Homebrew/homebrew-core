@@ -3,28 +3,33 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  # awscli should only be updated every 10 releases on multiples of 10
-  url "https://github.com/aws/aws-cli/archive/1.11.190.tar.gz"
-  sha256 "bccbe4ff7e0ea708accceb3f0e1977235b03690ce943806d517d79d32fde2858"
-  head "https://github.com/aws/aws-cli.git", :branch => "develop"
+  url "https://github.com/aws/aws-cli/archive/2.1.29.tar.gz"
+  sha256 "0e37c4d0eb34c840cd21e317a2f702898f8cce156108c219a60e89d841258d3b"
+  license "Apache-2.0"
+  head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "86fcc6e5d24840eafdbfd84a9565d934d5bbefff22d6a135bbd628b0d0766646" => :high_sierra
-    sha256 "af421343ecec6c6f71f82472ca7e588837c53a91f1e7994e2912096cbc8f2a68" => :sierra
-    sha256 "bb8c0fbf0c65910a76ce4e1d30d85b1087aa7ac6b0adde7fe320d27e65cb34c5" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "c8b7f66ae6369cf55d7eadf2f5c5742e17ab4b029459858d638976091ce84fa3"
+    sha256               big_sur:       "a6c3ee672aae034258d6a74eda82d1e7488f102d6d211d9a67c5bea8a337bb35"
+    sha256               catalina:      "474f0e94474926a765b3e0909d0c0c96d027fab3c14381dbee39fbc1c4f65084"
+    sha256               mojave:        "6b9a0316aab07b072a8ff35a17250d05dfb1febdd1bb79f568e2b9bda8e17139"
   end
 
-  # Some AWS APIs require TLS1.2, which system Python doesn't have before High
-  # Sierra
-  depends_on :python3
+  depends_on "python@3.9"
+
+  uses_from_macos "groff"
+
+  on_linux do
+    depends_on "libyaml"
+  end
 
   def install
     venv = virtualenv_create(libexec, "python3")
-    system libexec/"bin/pip", "install", "-v", "--no-binary", ":all:",
+    system libexec/"bin/pip", "install", "-v", "-r", "requirements.txt",
                               "--ignore-installed", buildpath
     system libexec/"bin/pip", "uninstall", "-y", "awscli"
     venv.pip_install_and_link buildpath
+    system libexec/"bin/pip", "uninstall", "-y", "pyinstaller"
     pkgshare.install "awscli/examples"
 
     rm Dir["#{bin}/{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}"]
@@ -38,15 +43,20 @@ class Awscli < Formula
         if [[ -f $e ]]; then source $e; fi
       }
     EOS
+
+    system libexec/"bin/python3", "scripts/gen-ac-index", "--include-builtin-index"
   end
 
-  def caveats; <<~EOS
-    The "examples" directory has been installed to:
-      #{HOMEBREW_PREFIX}/share/awscli/examples
+  def caveats
+    <<~EOS
+      The "examples" directory has been installed to:
+        #{HOMEBREW_PREFIX}/share/awscli/examples
     EOS
   end
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
+    assert_include Dir["#{libexec}/lib/python3.9/site-packages/awscli/data/*"],
+                   "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
   end
 end

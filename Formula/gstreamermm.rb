@@ -3,20 +3,19 @@ class Gstreamermm < Formula
   homepage "https://gstreamer.freedesktop.org/bindings/cplusplus.html"
   url "https://download.gnome.org/sources/gstreamermm/1.10/gstreamermm-1.10.0.tar.xz"
   sha256 "be58fe9ef7d7e392568ec85e80a84f4730adbf91fb0355ff7d7c616675ea8d60"
+  revision 6
 
   bottle do
-    cellar :any
-    sha256 "9f8558e19dbfb73e4798553896b4aba609b3990e1a9395dc46b018f3cba2e0b6" => :high_sierra
-    sha256 "45ae532af36e771995390ce1816f3e4be0096e19cbcb21ad355e4365c079087e" => :sierra
-    sha256 "c7d02b368a880e259aba9216001b460edda0a4ce418dc027cafc260ab4a55772" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "ccfdabeca639a0c10260c232dc8f4a24af5fc7b4b8c9e5befee65be29314dbb1"
+    sha256 cellar: :any, big_sur:       "2b46f0bc113d6125e1823d24365a8c4c664576de16db5ad3ce2e2a0157b1f99a"
+    sha256 cellar: :any, catalina:      "f65023da1c10400540a04a1bb422f42342406d013e89a1344a04778283824eb8"
+    sha256 cellar: :any, mojave:        "d5cbb27b618ded15a4b8dd132195307927a03358a88575e4934d7b0da0148e75"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "gstreamer"
-  depends_on "glibmm"
+  depends_on "glibmm@2.66"
   depends_on "gst-plugins-base"
-
-  needs :cxx11
+  depends_on "gstreamer"
 
   def install
     ENV.cxx11
@@ -38,10 +37,10 @@ class Gstreamermm < Formula
     EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    glibmm = Formula["glibmm"]
+    glibmm = Formula["glibmm@2.66"]
     gst_plugins_base = Formula["gst-plugins-base"]
     gstreamer = Formula["gstreamer"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
@@ -85,9 +84,11 @@ class Gstreamermm < Formula
       -lgstsdp-1.0
       -lgsttag-1.0
       -lgstvideo-1.0
-      -lintl
       -lsigc-2.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end

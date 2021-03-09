@@ -1,33 +1,26 @@
 class Ant < Formula
   desc "Java build tool"
   homepage "https://ant.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=ant/binaries/apache-ant-1.10.1-bin.tar.xz"
-  sha256 "51dd6b4ec740013dc5ad71812ce5d727a9956aa3a56de7164c76cbd70d015d79"
+  url "https://www.apache.org/dyn/closer.lua?path=ant/binaries/apache-ant-1.10.9-bin.tar.xz"
+  mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.9-bin.tar.xz"
+  sha256 "42f12ea7dc854b69aac0bd05c5767252dddd297888503e69b8aae0a1dc791cf5"
+  license "Apache-2.0"
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "3f2d0b309804add26321af31b17162daf3e923b8799100e987272b18ee2c53c9" => :high_sierra
-    sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :sierra
-    sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :el_capitan
-    sha256 "50070b39168c9da1a5375a19fb1073f2a15b3a640e5433d10625eb9e170b4178" => :yosemite
-  end
+  bottle :unneeded
 
-  keg_only :provided_by_osx if MacOS.version < :mavericks
-
-  option "with-ivy", "Install ivy dependency manager"
-  option "with-bcel", "Install Byte Code Engineering Library"
-
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   resource "ivy" do
-    url "https://www.apache.org/dyn/closer.cgi?path=ant/ivy/2.4.0/apache-ivy-2.4.0-bin.tar.gz"
-    sha256 "7a3d13a80b69d71608191463dfc2a74fff8ef638ce0208e70d54d28ba9785ee9"
+    url "https://www.apache.org/dyn/closer.lua?path=ant/ivy/2.5.0/apache-ivy-2.5.0-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/ant/ivy/2.5.0/apache-ivy-2.5.0-bin.tar.gz"
+    sha256 "3855a5769b5dbeafa9fb6a00f130467fd0f89da684a0b33a91e3dc5dae2715c7"
   end
 
   resource "bcel" do
-    url "https://search.maven.org/remotecontent?filepath=org/apache/bcel/bcel/6.0/bcel-6.0.jar"
-    sha256 "7eb80fdb30034dda26ba109a1b76af8dae0782c8cd27db32f1775086482d5bd0"
+    url "https://www.apache.org/dyn/closer.lua?path=commons/bcel/binaries/bcel-6.5.0-bin.tar.gz"
+    mirror "https://archive.apache.org/dist/commons/bcel/binaries/bcel-6.5.0-bin.tar.gz"
+    sha256 "023114972b8a2c267f832eab9349b6b475e8c6df559f207e33324877cf17fa30"
   end
 
   def install
@@ -36,18 +29,16 @@ class Ant < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
     rm bin/"ant"
     (bin/"ant").write <<~EOS
-      #!/bin/sh
-      #{libexec}/bin/ant -lib #{HOMEBREW_PREFIX}/share/ant "$@"
+      #!/bin/bash
+      JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}" exec "#{libexec}/bin/ant" -lib #{HOMEBREW_PREFIX}/share/ant "$@"
     EOS
-    if build.with? "ivy"
-      resource("ivy").stage do
-        (libexec/"lib").install Dir["ivy-*.jar"]
-      end
+
+    resource("ivy").stage do
+      (libexec/"lib").install Dir["ivy-*.jar"]
     end
-    if build.with? "bcel"
-      resource("bcel").stage do
-        (libexec/"lib").install Dir["bcel-*.jar"]
-      end
+
+    resource("bcel").stage do
+      (libexec/"lib").install "bcel-#{resource("bcel").version}.jar"
     end
   end
 

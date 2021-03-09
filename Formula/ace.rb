@@ -1,15 +1,20 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "http://download.dre.vanderbilt.edu/previous_versions/ACE-6.4.5.tar.bz2"
-  sha256 "004198f7a07fc2938986399d654547ff3811936b16202fdab59b3beb365dd82f"
+  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-7_0_0/ACE-7.0.0.tar.bz2"
+  sha256 "18067a5a546b56428a4c6ad6572e7da1201886b59cbe390cba2ddaf245053007"
+  license "DOC"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/ACE(?:%2B[A-Z]+)*?[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "8e546261101509e7b600f2cdf73451b606cc32bfecfe64d661f893bae6c1d756" => :high_sierra
-    sha256 "a3ec66c4a8f0aa33bf8079240a0eecf510455fece517bf6f4f2f07f2c1f8d1f1" => :sierra
-    sha256 "aa558003a97c0909a44adda0a0563a22e1a6bb6c560c15a656c545c19deb6701" => :el_capitan
-    sha256 "6fd93f3a1aecfa2861526ba41ff2998ca791e2668decffae36c2fa01db61b032" => :yosemite
+    sha256 cellar: :any, big_sur:  "8d5842334724e12e37e34afb93c42a14f1baa9bc49d2643c573b201534e72a30"
+    sha256 cellar: :any, catalina: "72e9b7ecba3c88f74b8d0e4f4b1cce66cc80614f56bbd2941fc0a2aab97f6c7e"
+    sha256 cellar: :any, mojave:   "2635c73c42b1d550183a9dd7f4e26037287c0d4e75664bbb12f04395003ee8aa"
   end
 
   def install
@@ -17,6 +22,7 @@ class Ace < Formula
     ln_sf "platform_macosx.GNU", "include/makeinclude/platform_macros.GNU"
 
     # Set up the environment the way ACE expects during build.
+    ENV.cxx11
     ENV["ACE_ROOT"] = buildpath
     ENV["DYLD_LIBRARY_PATH"] = "#{buildpath}/lib"
 

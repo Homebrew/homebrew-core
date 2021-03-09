@@ -2,14 +2,27 @@ class Braid < Formula
   desc "Simple tool to help track vendor branches in a Git repository"
   homepage "https://cristibalan.github.io/braid/"
   url "https://github.com/cristibalan/braid.git",
-      :tag => "v1.0.21",
-      :revision => "8d953288babe6bf320a390113cbca0f314607272"
+      tag:      "v1.1.3",
+      revision: "74bde1426c2a2713f8a56a879e5ff2e1e4213ad8"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "07319212d43a5d37b0823b3a1e9a55bf722a49eacd1d93b73e04ec0965311f24" => :high_sierra
-    sha256 "f012bdbb9b0fdcc93ba7d985178e9ca1df05e96eebb873c98435c37ad7b27fae" => :sierra
-    sha256 "8fa89a95797a0e4f360c548716526e2bece4be8fcd394c109bfb3e82883cdb79" => :el_capitan
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "680fa799b8d8b2f7f77574f7a62e489096cb174d77728a1b88f4a84e94b77d47"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0383392403f7924a8bbd09c08dfc0b28e4c147b98a21a66b63bf9a16ffca49f1"
+    sha256 cellar: :any_skip_relocation, catalina:      "1bbb75422a511aec7e439e350d4d428ed900ad9b78a3979d691430836c92a62a"
+    sha256 cellar: :any_skip_relocation, mojave:        "5e62988e4e3c52890e699afc017e62e24d42ff49560d6c41e425c2649096d28b"
+  end
+
+  depends_on "ruby" if MacOS.version <= :sierra
+
+  on_linux do
+    depends_on "ruby"
+
+    resource "json" do
+      url "https://rubygems.org/gems/json-2.1.0.gem"
+      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
+    end
   end
 
   resource "arrayfields" do
@@ -20,6 +33,13 @@ class Braid < Formula
   resource "chronic" do
     url "https://rubygems.org/gems/chronic-0.10.2.gem"
     sha256 "766f2fcce6ac3cc152249ed0f2b827770d3e517e2e87c5fba7ed74f4889d2dc3"
+  end
+
+  if MacOS.version <= :sierra
+    resource "json" do
+      url "https://rubygems.org/gems/json-2.1.0.gem"
+      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
+    end
   end
 
   resource "fattr" do
@@ -37,22 +57,17 @@ class Braid < Formula
     sha256 "153a6f384515b14085805f5839d318f9d3c9dab676f341340fa4300150373cbc"
   end
 
-  resource "open4" do
-    url "https://rubygems.org/gems/open4-1.3.4.gem"
-    sha256 "a1df037310624ecc1ea1d81264b11c83e96d0c3c1c6043108d37d396dcd0f4b1"
-  end
-
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
-      r.verify_download_integrity(r.fetch)
+      r.fetch
       system "gem", "install", r.cached_download, "--ignore-dependencies",
              "--no-document", "--install-dir", libexec
     end
     system "gem", "build", "braid.gemspec"
     system "gem", "install", "--ignore-dependencies", "braid-#{version}.gem"
     bin.install libexec/"bin/braid"
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
+    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
   test do

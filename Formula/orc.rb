@@ -1,21 +1,31 @@
 class Orc < Formula
   desc "Oil Runtime Compiler (ORC)"
-  homepage "https://cgit.freedesktop.org/gstreamer/orc/"
-  url "https://gstreamer.freedesktop.org/src/orc/orc-0.4.28.tar.xz"
-  sha256 "bfcd7c6563b05672386c4eedfc4c0d4a0a12b4b4775b74ec6deb88fc2bcd83ce"
+  homepage "https://gstreamer.freedesktop.org/projects/orc.html"
+  url "https://gstreamer.freedesktop.org/src/orc/orc-0.4.32.tar.xz"
+  sha256 "a66e3d8f2b7e65178d786a01ef61f2a0a0b4d0b8370de7ce134ba73da4af18f0"
 
-  bottle do
-    cellar :any
-    sha256 "bc08fab45dc2650b71950bff090bb09e64595778f3810bca442775b7973a43dd" => :high_sierra
-    sha256 "6eafe23ac5c17b765ca6f59eb65c52d782d2858bbca7a4f374b77258dedb828f" => :sierra
-    sha256 "c640dd001774b981101cbc223c51e31aafb35a6b8bc2e2fc3fc2c15dbfe3fbae" => :el_capitan
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/orc/"
+    regex(/href=.*?orc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "657bdaa5b945e5071ae862066b4f703750890b106facb3528c9e649beada7c30"
+    sha256 cellar: :any, big_sur:       "7c5d9d6caf789828006ff7d604eb81a247c8d9ff6004c524978452a252dd8162"
+    sha256 cellar: :any, catalina:      "df8ed6c8e2d13c9425174f38a6ff60d291cc3febababa670ebe74b21fe56ceab"
+    sha256 cellar: :any, mojave:        "8b11d82f1c1e51fe41d4b7cf1a905f72bdb977ce2acc0eafcf2ba6b89f06d58c"
+    sha256 cellar: :any, high_sierra:   "d347537787016fa19c7653a9912e0c11d134f10e96a75bc0f5bb28e221e012d8"
+  end
+
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-gtk-doc"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dgtk_doc=disabled", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

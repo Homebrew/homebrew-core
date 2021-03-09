@@ -1,24 +1,30 @@
 class Libxc < Formula
   desc "Library of exchange and correlation functionals for codes"
-  homepage "http://octopus-code.org/wiki/Libxc"
-  url "http://www.tddft.org/programs/octopus/down.php?file=libxc/3.0.1/libxc-3.0.1.tar.gz"
-  sha256 "836692f2ab60ec3aca0cca105ed5d0baa7d182be07cc9d0daa7b80ee1362caf7"
+  homepage "https://tddft.org/programs/libxc/"
+  url "https://gitlab.com/libxc/libxc/-/archive/4.3.4/libxc-4.3.4.tar.bz2"
+  sha256 "0efe8b33d151de8787e33c4ba8e2161ffb9da978753f3bd12c5c0a018e7d3ef5"
+  license "MPL-2.0"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "486f2f22de676ceaf711a7203de362038d7f5aa1908bef486bb25fe2bb9a1948" => :high_sierra
-    sha256 "79cfab56e69b107c8bc616ef1348d7ab1ea969a5283001abd79c689159f51e68" => :sierra
-    sha256 "6618cfcb1cd1a7d69991e97fbc1cda0d67b0dc1f99232057cc0cac9895e031e6" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "418bb8ff673392e6d4a74a3563dac777162e3b8b99c1c780ea9c9ab642057f76"
+    sha256 cellar: :any, big_sur:       "2aaa3faf0271abb1b3c6b6ea33c7e8c5d7a89ced2717531da71729ea2e77fd24"
+    sha256 cellar: :any, catalina:      "77bb1192676ef031b3254e36f443b48163c2e6926afc959feaa84b4952a5b642"
+    sha256 cellar: :any, mojave:        "069042e1d8511e2025e289cb3daec98728304df3a7521aced7103581686d74c8"
+    sha256 cellar: :any, high_sierra:   "e84708fbaa5746ef8d25b57d34a5127501096ffacaa448b17d5b87ad4e81ae0b"
   end
 
-  depends_on :fortran
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "gcc" # for gfortran
 
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}",
                           "--enable-shared",
-                          "FCCPP=#{ENV.fc} -E -x c",
-                          "CC=#{ENV.cc}",
-                          "CFLAGS=-pipe"
+                          "FCCPP=gfortran -E -x c",
+                          "CC=#{ENV.cc}"
     system "make", "install"
   end
 
@@ -33,7 +39,7 @@ class Libxc < Formula
         printf(\"%d.%d.%d\", major, minor, micro);
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lxc", "-I#{include}", "-o", "ctest"
+    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-lm", "-lxc", "-o", "ctest"
     system "./ctest"
 
     (testpath/"test.f90").write <<~EOS
@@ -42,8 +48,8 @@ class Libxc < Formula
         use xc_f90_lib_m
       end program lxctest
     EOS
-    ENV.fortran
-    system ENV.fc, "test.f90", "-L#{lib}", "-lxc", "-I#{include}", "-o", "ftest"
+    system "gfortran", "test.f90", "-L#{lib}", "-lxc", "-I#{include}",
+                       "-o", "ftest"
     system "./ftest"
   end
 end

@@ -1,29 +1,34 @@
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
-  homepage "https://github.com/moul/advanced-ssh-config"
-  url "https://github.com/moul/advanced-ssh-config/archive/v2.7.0.tar.gz"
-  sha256 "b57bc5923e4422f7f2e6fd2a0234fb2c7ce1d07ffdfe21a9179f8ee361d19da3"
-  head "https://github.com/moul/advanced-ssh-config.git"
+  homepage "https://manfred.life/assh"
+  url "https://github.com/moul/assh/archive/v2.11.3.tar.gz"
+  sha256 "da95db33f72ad2531124b0de42074ba61ac1eebdad90bac90c68d1b02aa51354"
+  license "MIT"
+  head "https://github.com/moul/assh.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8806717c2c661b8460f208030f2902c91ad24972fcfc337e62f94032c9df96fa" => :high_sierra
-    sha256 "8858022552599fa0af8807b6bdb760c2011884f904f46a3015efc7bedcbecda7" => :sierra
-    sha256 "319f943c77bfd0fd1b6ecebd0bc052e5d11f28d4ae9f6d33ad4f2ccf823c3c2e" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0860549309f01ea758615ab322bffc4599bc18e57122f7cbaf307bd3ea97a5ef"
+    sha256 cellar: :any_skip_relocation, big_sur:       "38f180a404deea504c730e59c9c4fa867f7af1c01558d64a891cd2803bf7777b"
+    sha256 cellar: :any_skip_relocation, catalina:      "486b60df723e01996d1654b53ff9ee8ff46d02500290ceb35a42a1aa8fdf22f6"
+    sha256 cellar: :any_skip_relocation, mojave:        "0432605530886e05a3bae571cc33c0ae4043e8f7616fa7245d6d352bf54e2a6b"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/moul/advanced-ssh-config").install Dir["*"]
-    cd "src/github.com/moul/advanced-ssh-config/cmd/assh" do
-      system "go", "build", "-o", bin/"assh"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/assh --version")
+    assh_config = testpath/"assh.yml"
+    assh_config.write <<~EOS
+      hosts:
+        hosta:
+          Hostname: 127.0.0.1
+      asshknownhostfile: /dev/null
+    EOS
+
+    output = "hosta assh ping statistics"
+    assert_match output, shell_output("#{bin}/assh --config #{assh_config} ping -c 4 hosta 2>&1")
   end
 end

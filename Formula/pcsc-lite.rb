@@ -1,25 +1,34 @@
 class PcscLite < Formula
   desc "Middleware to access a smart card using SCard API"
-  homepage "https://pcsclite.alioth.debian.org"
-  url "https://alioth.debian.org/frs/download.php/file/4216/pcsc-lite-1.8.21.tar.bz2"
-  sha256 "fe3365eb7d4ce0fe891e2b6d6248351c287435ca502103f1f1431b1710e513ad"
+  homepage "https://pcsclite.apdu.fr/"
+  url "https://pcsclite.apdu.fr/files/pcsc-lite-1.9.1.tar.bz2"
+  sha256 "73c4789b7876a833a70f493cda21655dfe85689d9b7e29701c243276e55e683a"
+  license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "ISC"]
 
-  bottle do
-    sha256 "294e8028aa33a7727525438c3893390de5a3c89aa7b4da75f5e63d1bb7a8a942" => :high_sierra
-    sha256 "29a9723a96c8bd3c3710463f84cac31595637dfac9b59689ed57c3d275262908" => :sierra
-    sha256 "26c1637f5205fb382bbbee1fc7b4cfb3e38271909fc0952017b87263660b1c91" => :el_capitan
-    sha256 "30a3b6f12235d167fa7a7f5ece357a87445857698180d4b650a6f01b2199826a" => :yosemite
+  livecheck do
+    url "https://pcsclite.apdu.fr/files/"
+    regex(/href=.*?pcsc-lite[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  keg_only :provided_by_osx,
-    "pcsc-lite interferes with detection of macOS's PCSC.framework"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "41493aaf4724a8d9dcdc0d201adfb0ff106f0fda64cd0c61cb2a7a6cadfda542"
+    sha256 cellar: :any, big_sur:       "738ed819f64c346f2761678b8ca2e39eb9043d92d6d4fd365f6b0650097e225a"
+    sha256 cellar: :any, catalina:      "a4da98096949c1944ed1754fb4d34eb65573c88b86c0d24401f783459e1240e9"
+    sha256 cellar: :any, mojave:        "46aee062069037df86dc1064a2cdced328a21dce899bc15429ffe2b6151dacf3"
+  end
+
+  keg_only :shadowed_by_macos, "macOS provides PCSC.framework"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
-                          "--with-systemdsystemunitdir=no"
+                          "--disable-libsystemd"
     system "make", "install"
   end
 

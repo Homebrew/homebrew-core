@@ -1,28 +1,28 @@
 class Imageworsener < Formula
   desc "Utility and library for image scaling and processing"
-  homepage "http://entropymine.com/imageworsener/"
-  url "http://entropymine.com/imageworsener/imageworsener-1.3.2.tar.gz"
-  sha256 "0946f8e82eaf4c51b7f3f2624eef89bfdf73b7c5b04d23aae8d3fbe01cca3ea2"
-  revision 1
+  homepage "https://entropymine.com/imageworsener/"
+  url "https://entropymine.com/imageworsener/imageworsener-1.3.3.tar.gz"
+  sha256 "7c4b6e5f3da333e336f014805c441bc08aded652dd9dde2abd40be33b1aa3e25"
+  license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "1b8964b45f496d8e35c4dc72f2c26b51fa47d301fcd951f109e5062b9dbac13d" => :high_sierra
-    sha256 "e3da0b7bd45f393eb8dd514473a956f7954a6b1e7d5af7e5382b67b9a21d1510" => :sierra
-    sha256 "4bf452a3350cf9121ba3bd7dff9f63bc83bcda4c5e4be194cb1e8cd521a0a0b2" => :el_capitan
-    sha256 "3770deb61aade00b379e422691f4e2b4d13559b5493dd54bc13265b556df1a76" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "aacd92bafc82b48324943219b9354ca99cef3e36c31f2ad82b12253d15cbd071"
+    sha256 cellar: :any, big_sur:       "3391e73af0da2054295db408889f460025d789d6088162dd92ce67229fdfb564"
+    sha256 cellar: :any, catalina:      "fd72a318b2e8b398544d23b384cc4070f181537816647a16129dbbb3628dcc4e"
+    sha256 cellar: :any, mojave:        "b5e6ce352f0e698cf10452d273ae0e61f50554565f77010de4e62a6fdddd911f"
+    sha256 cellar: :any, high_sierra:   "2332dd0ecedf78344ee5fbd3d00abb0eccc7b28b7e8609c9a18e8e6ab81669de"
+    sha256 cellar: :any, sierra:        "847f3211aba4095e280d589a87698234b7cd6e3ec77a6a50cf578a3fa6d0236e"
   end
 
   head do
     url "https://github.com/jsummers/imageworsener.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  depends_on "libpng" => :recommended
-  depends_on "jpeg" => :recommended
-  depends_on "webp" => :optional
+  depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     if build.head?
@@ -30,15 +30,8 @@ class Imageworsener < Formula
       system "./scripts/autogen.sh"
     end
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-    args << "--without-png" if build.without? "libpng"
-    args << "--without-jpeg" if build.without? "jpeg"
-    args << "--without-webp" if build.without? "webp"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}", "--without-webp"
     system "make", "install"
     pkgshare.install "tests"
   end

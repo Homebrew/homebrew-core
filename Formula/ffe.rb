@@ -1,23 +1,24 @@
 class Ffe < Formula
   desc "Parse flat file structures and print them in different formats"
   homepage "https://ff-extractor.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ff-extractor/ff-extractor/0.3.7-1/ffe-0.3.7-1.tar.gz"
-  sha256 "0266e65778b4e69ae65c5dad43577767612f0afe13dc8c3e2cd3c49f7c869689"
+  url "https://downloads.sourceforge.net/project/ff-extractor/0.3.9a/0.3.9a.tar.gz"
+  version "0.3.9a"
+  sha256 "3f3433c6e8714f9756826279e249bcf7f7ab8c45b5686003764e44f63eb225e7"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ffe[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ccecbf9c6595344a6988ed708a38bb18d8d754d5e948e9e9a0d8fd2b933e1eec" => :high_sierra
-    sha256 "9471c2e19149beb552d0f7b724b6f6f140b2f2dd26d180f8293d6e95a704907f" => :sierra
-    sha256 "a85474d61e83b870dd30b1df63b16eb28cc87f18c74d4484e49f5719b2ebad43" => :el_capitan
-    sha256 "df84e69d719b76fd4c9dd6d7462c2dabcad331454dd20f64ba55ab0a0a7ba03d" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0fc8ca59fce53552b827be4e9bfdc9c263c8087961245704277be10915fb6d20"
+    sha256 cellar: :any_skip_relocation, big_sur:       "96ed6ad86d89e339ff49c9ed615ca5e44dd1aa67b534b0644ae09accb31f4d80"
+    sha256 cellar: :any_skip_relocation, catalina:      "f702acaeb2f1c1c8681b67e7725827b5a33b46a9f11c6138682b715c0a652798"
+    sha256 cellar: :any_skip_relocation, mojave:        "50a6933b42632612de08af50fead023d23c04593ecb323749f950b05df9f034e"
   end
 
   def install
-    # Work around build failure "ffe.c:326:23: error: non-void function
-    # 'update_anon_info' should return a value [-Wreturn-type]"
-    # Reported 7 Feb 2017 to tjsa@iki.fi
-    ENV.append_to_cflags "-Wno-return-type"
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

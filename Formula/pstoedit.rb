@@ -1,48 +1,27 @@
 class Pstoedit < Formula
   desc "Convert PostScript and PDF files to editable vector graphics"
   homepage "http://www.pstoedit.net/"
-  url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.70/pstoedit-3.70.tar.gz"
-  sha256 "06b86113f7847cbcfd4e0623921a8763143bbcaef9f9098e6def650d1ff8138c"
-  revision 2
+  url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.75/pstoedit-3.75.tar.gz"
+  sha256 "b7b5d8510b40a5b148f7751268712fcfd0c1ed2bb46f359f655b6fcdc53364cf"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "319234b9126aeb338850b4d9bb2db68da75bee8d2025894726897976b5e4633a" => :high_sierra
-    sha256 "085860d9480d7d9558697d403f6628466a8fdfe52f568f21793568d1c71747f2" => :sierra
-    sha256 "ee6634e964c7687c5614c9e4358737154ab6f29d53a104416bdc1509b33e6930" => :el_capitan
-    sha256 "6330be58259fcfa74062eb1ebfa5eced31aea86ae5f1ce6b2bf49e2f544b3d73" => :yosemite
+    sha256 arm64_big_sur: "62d09abcd35a1d933545c501578d9583978eac45569bb7b3702f6fd1b5cbea9a"
+    sha256 big_sur:       "1eb7bdc1ab76c8ae40450b686b1948f3e037ca871d7c505657489d501e073a5a"
+    sha256 catalina:      "f048d902c088f0625c0c9e18d84b159493775b40e742812b040e7b517900260a"
+    sha256 mojave:        "1f3ec91e58d95e08081694b43e031ed83f13a73cecff15c55c532268282b0ad1"
+    sha256 high_sierra:   "22710dd8997d40cec3492c40960a9966b80b386bdbd3fed46515c66bb25053d7"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "plotutils"
   depends_on "ghostscript"
   depends_on "imagemagick"
-  depends_on "xz" if MacOS.version < :mavericks
-
-  # Fix for pstoedit search for plugins, thereby restoring formats that
-  # worked in 3.62 but now don't in 3.70, including PIC, DXF, FIG, and
-  # many others.
-  #
-  # This patch has been submitted upstream; see:
-  # https://sourceforge.net/p/pstoedit/bugs/19/
-  #
-  # Taken from:
-  # https://build.opensuse.org/package/view_file/openSUSE:Factory/pstoedit/pstoedit-pkglibdir.patch?expand=1
-  #
-  # This patch changes the behavior of "make install" so that:
-  # * If common/plugindir is defined, it checks only that directory.
-  # * It swaps the check order: First checks whether PSTOEDITLIBDIR exists. If
-  #   it exists, it skips blind attempts to find plugins.
-  # As PSTOEDITLIBDIR is always defined by makefile, the blind fallback will
-  # be attempted only in obscure environments.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fa1823b/pstoedit/3.70.patch"
-    sha256 "9af1bbc9db97f5d5dc92816e5c5fdd5f98904f64d1ab0dd6fcdcde1fd8606ce6"
-  end
+  depends_on "plotutils"
 
   def install
-    ENV.deparallelize
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    ENV.cxx11
+
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
 

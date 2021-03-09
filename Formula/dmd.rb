@@ -1,31 +1,32 @@
 class Dmd < Formula
   desc "D programming language compiler for macOS"
   homepage "https://dlang.org/"
+  license "BSL-1.0"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.077.1.tar.gz"
-    sha256 "3860e70c931c7022713f0f3699b6d27d2b118fc39e77231c5431f89ddb9594b3"
+    url "https://github.com/dlang/dmd/archive/v2.095.1.tar.gz"
+    sha256 "ccffae555faf97ccc0c4dbedc338e2121135fe57fc51cfe95ba10c95c8743cc3"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.077.1.tar.gz"
-      sha256 "43481247c0d854334be2f3584920273141459f89c4d4240c3b188ba943708614"
+      url "https://github.com/dlang/druntime/archive/v2.095.1.tar.gz"
+      sha256 "f5e4ff5d98f875595c039cbb3d1886cb5f1ab835b98e5a28704995b8c82a24cd"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.077.1.tar.gz"
-      sha256 "737a20371cc125e76c5dc0566a5f33db45ab67001ee2a4f8a8e12813fc0a8136"
+      url "https://github.com/dlang/phobos/archive/v2.095.1.tar.gz"
+      sha256 "7abc1ed3b014d68f24fe0fb2550654ca65ca7db171402d063c0ba119d1567369"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.077.1.tar.gz"
-      sha256 "07d7cfe05344354ab2c6c298d89915998acd2c209ca4165d1f3f9a9dc7191c31"
+      url "https://github.com/dlang/tools/archive/v2.095.1.tar.gz"
+      sha256 "227deb424b82d11eb65a27800df377dc5e9f1b8b496a23df4c28a85a24580d77"
     end
   end
 
   bottle do
-    sha256 "c72315803f907434aad293305fcb8da4166e59a71cc7c052d8e666be313c9204" => :high_sierra
-    sha256 "2337bb684190307760fef486fd137fb27993237a37ca7c246b2398323af6c563" => :sierra
-    sha256 "fb1043d5f1533affbd20b21373654fabb06de3d8a4c8e8616573b5282bd349b6" => :el_capitan
+    sha256 big_sur:  "35b1c5bbd6e60e59cd468071d48b9d75a9de1734c3b1090a4cd0d9b1eb59d984"
+    sha256 catalina: "e3f00a4729cf637eac841cf9d7c6905d758392b1b23c953e9d3fdb388dbedc77"
+    sha256 mojave:   "83134d266a7a69b996c9c2aa6096d42abbc3c38dc0ef21e1fc6e80faff5f3676"
   end
 
   head do
@@ -44,19 +45,37 @@ class Dmd < Formula
     end
   end
 
+  depends_on arch: :x86_64
+
+  uses_from_macos "unzip" => :build
+  uses_from_macos "xz" => :build
+
   def install
-    make_args = ["INSTALL_DIR=#{prefix}", "MODEL=#{Hardware::CPU.bits}", "-f", "posix.mak"]
+    # DMD defaults to v2.088.0 to bootstrap as of DMD 2.090.0
+    # On MacOS Catalina, a version < 2.087.1 would not work due to TLS related symbols missing
 
-    system "make", "SYSCONFDIR=#{etc}", "TARGET_CPU=X86", "AUTO_BOOTSTRAP=1", "RELEASE=1", *make_args
+    make_args = %W[
+      INSTALL_DIR=#{prefix}
+      MODEL=64
+      BUILD=release
+      -f posix.mak
+    ]
 
-    bin.install "src/dmd"
-    prefix.install "samples"
-    man.install Dir["docs/man/*"]
+    dmd_make_args = %W[
+      SYSCONFDIR=#{etc}
+      TARGET_CPU=X86
+      AUTO_BOOTSTRAP=1
+      ENABLE_RELEASE=1
+    ]
+
+    system "make", *dmd_make_args, *make_args
 
     make_args.unshift "DMD_DIR=#{buildpath}", "DRUNTIME_PATH=#{buildpath}/druntime", "PHOBOS_PATH=#{buildpath}/phobos"
+
     (buildpath/"druntime").install resource("druntime")
-    (buildpath/"phobos").install resource("phobos")
     system "make", "-C", "druntime", *make_args
+
+    (buildpath/"phobos").install resource("phobos")
     system "make", "-C", "phobos", "VERSION=#{buildpath}/VERSION", *make_args
 
     resource("tools").stage do
@@ -64,9 +83,18 @@ class Dmd < Formula
       system "make", "install", *make_args
     end
 
+    on_macos do
+      bin.install "generated/osx/release/64/dmd"
+    end
+    on_linux do
+      bin.install "generated/linux/release/64/dmd"
+    end
+    pkgshare.install "samples"
+    man.install Dir["docs/man/*"]
+
     (include/"dlang/dmd").install Dir["druntime/import/*"]
     cp_r ["phobos/std", "phobos/etc"], include/"dlang/dmd"
-    lib.install Dir["druntime/lib/*", "phobos/**/libphobos2.a"]
+    lib.install Dir["druntime/**/libdruntime.*", "phobos/**/libphobos2.*"]
 
     (buildpath/"dmd.conf").write <<~EOS
       [Environment]
@@ -97,7 +125,7 @@ class Dmd < Formula
   end
 
   test do
-    system bin/"dmd", prefix/"samples/hello.d"
+    system bin/"dmd", pkgshare/"samples/hello.d"
     system "./hello"
   end
 end

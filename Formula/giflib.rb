@@ -1,23 +1,36 @@
 class Giflib < Formula
   desc "Library and utilities for processing GIFs"
   homepage "https://giflib.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/giflib/giflib-5.1.4.tar.bz2"
-  sha256 "df27ec3ff24671f80b29e6ab1c4971059c14ac3db95406884fc26574631ba8d5"
+  url "https://downloads.sourceforge.net/project/giflib/giflib-5.2.1.tar.gz"
+  sha256 "31da5562f44c5f15d63340a09a4fd62b48c45620cd302f77a6d9acf0077879bd"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/giflib[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "250915de5db6a37044cb2341299d1099a3d6530f8cccd5101f37751ae3aece5c" => :high_sierra
-    sha256 "8562233fdcf07c8d1bc8b0a00654c8e344293afa6fa874b11132d3531e1feca2" => :sierra
-    sha256 "36dc6bff0a8c5f9569ba2427a5d935388f93efa7701c80727fa4c8e2103860f6" => :el_capitan
-    sha256 "b24a3b1647c0d8184415ee392a5b7f2e6b5046d4aed0ed1b901098b2ac83a9a0" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "e9a78b55a43f68f2552f845fff27d1c247ed865b1dd653f4c8ab259594411f86"
+    sha256 cellar: :any, big_sur:       "dc23500f50d599c4dbfcea0107b643bef41538c2f5fd162b049f82d21e3d32d5"
+    sha256 cellar: :any, catalina:      "ad97d175fa77f7afb4a1c215538d8ae9eff30435de7feaa6a5d2e29fca7fef4d"
+    sha256 cellar: :any, mojave:        "42d2f8a6e9dbf9d4c22a2e64581c7170cc7dcb2a0e66df383efc67b7bc96238d"
+    sha256 cellar: :any, high_sierra:   "e1a30a20ad93cd9ec003027d7fba43a7e04ced0bff4156614818cccfc9dec6c9"
+  end
+
+  # Upstream has stripped out the previous autotools-based build system and their
+  # Makefile doesn't work on macOS. See https://sourceforge.net/p/giflib/bugs/133/
+  patch :p0 do
+    url "https://sourceforge.net/p/giflib/bugs/_discuss/thread/4e811ad29b/c323/attachment/Makefile.patch"
+    sha256 "a94e7bdd8840a31cecacc301684dfdbf7b98773ad824aeaab611fabfdc513036"
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
-    system "make", "install"
+    system "make", "all"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
-    assert_match /Screen Size - Width = 1, Height = 1/, shell_output("#{bin}/giftext #{test_fixtures("test.gif")}")
+    output = shell_output("#{bin}/giftext #{test_fixtures("test.gif")}")
+    assert_match "Screen Size - Width = 1, Height = 1", output
   end
 end

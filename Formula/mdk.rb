@@ -1,24 +1,30 @@
 class Mdk < Formula
   desc "GNU MIX development kit"
   homepage "https://www.gnu.org/software/mdk/mdk.html"
-  url "https://ftp.gnu.org/gnu/mdk/v1.2.9/mdk-1.2.9.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mdk/v1.2.9/mdk-1.2.9.tar.gz"
-  sha256 "6c265ddd7436925208513b155e7955e5a88c158cddda72c32714ccf5f3e74430"
-  revision 2
+  url "https://ftp.gnu.org/gnu/mdk/v1.3.0/mdk-1.3.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mdk/v1.3.0/mdk-1.3.0.tar.gz"
+  sha256 "8b1e5dd7f47b738cb966ef717be92a501494d9ba6d87038f09e8fa29101b132e"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    sha256 "3149e4276b92054e213d00700eefa677f89046b8eac0c604d81a98901f9a996a" => :high_sierra
-    sha256 "f294500b0cce468da3b3420eed199ce6f7e50a6adfd582089a1d1f36080c4fbb" => :sierra
-    sha256 "2f7d0012a3a4ccb69e4ca500e16f5059642ddebc79bbac2df08dd73385d8e9e9" => :el_capitan
-    sha256 "264586d3518f0a1a5641c979471acf23860119d407c8efef608ae69e559a42cd" => :yosemite
+    sha256 arm64_big_sur: "82feea4dde50c9990493575153eba005943911de642cfe855881f162739b36d8"
+    sha256 big_sur:       "305422ac29e1cb04827277976b3c2e7fe678a00cd2a648739d00684c9c1f3a78"
+    sha256 catalina:      "bd29f7cd3b52987492d17a4cfa9a51712bbacda1f738454cfb942596392fe9f7"
+    sha256 mojave:        "51c33dc12bf9277cd0d60d55a34236a1ab8d9577c9fbe296a8d893962e391d6a"
+    sha256 high_sierra:   "e8bd4f2623b6e6e55cc2ccf30339a39f14cc1b499d155b6c33144fdf0bf76745"
   end
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gtk+"
-  depends_on "libglade"
-  depends_on "glib"
+  depends_on "adwaita-icon-theme"
   depends_on "flex"
+  depends_on "glib"
+  depends_on "gtk+3"
   depends_on "guile"
   depends_on "readline"
 

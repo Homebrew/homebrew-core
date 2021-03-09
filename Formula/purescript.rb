@@ -1,39 +1,32 @@
-require "language/haskell"
-
 class Purescript < Formula
-  include Language::Haskell::Cabal
-
   desc "Strongly typed programming language that compiles to JavaScript"
-  homepage "http://www.purescript.org"
-  url "https://github.com/purescript/purescript/archive/v0.11.7.tar.gz"
-  sha256 "56b715acc4b92a5e389f7ec5244c9306769a515e1da2696d9c2c89e318adc9f9"
-  head "https://github.com/purescript/purescript.git"
+  homepage "https://www.purescript.org/"
+  url "https://hackage.haskell.org/package/purescript-0.14.0/purescript-0.14.0.tar.gz"
+  sha256 "606ea389095c6f7fcea35f13594a2b56462a76942d9ceb5a94de191a924766af"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b1e281b76d895e1791902765491a35ed2524cff90ecb99a72a190b1e0f387b77" => :high_sierra
-    sha256 "01c8ec5708e23689a7e47a2cea0a3130cdcc4cce3b621c3b4c6b3653a1481617" => :sierra
-    sha256 "ee0a11eb6bfd302a27653c074a0d237b5bdf570579394b94fe21ee0638a8e0ef" => :el_capitan
+    sha256 cellar: :any_skip_relocation, catalina: "acc7ee0fc127b4d7e7fdcd4bccb83461b4c09e03236c43217d120dcc83275920"
+    sha256 cellar: :any_skip_relocation, mojave:   "a8e180565f3214a371f552b4e83420182710040fa7c8fcf85a62f007799dc45a"
+  end
+
+  head do
+    url "https://github.com/purescript/purescript.git"
+
+    depends_on "hpack" => :build
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.6" => :build
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
-    inreplace (buildpath/"scripts").children, /^purs /, "#{bin}/purs "
-    bin.install (buildpath/"scripts").children
+    system "hpack" if build.head?
 
-    cabal_sandbox do
-      if build.head?
-        cabal_install "hpack"
-        system "./.cabal-sandbox/bin/hpack"
-      else
-        system "cabal", "get", "purescript-#{version}"
-        mv "purescript-#{version}/purescript.cabal", "."
-      end
-
-      install_cabal_package "-f release", :using => ["alex", "happy"]
-    end
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", "-frelease", *std_cabal_v2_args
   end
 
   test do
@@ -45,7 +38,7 @@ class Purescript < Formula
       main :: Int
       main = 1
     EOS
-    system bin/"psc", test_module_path, "-o", test_target_path
+    system bin/"purs", "compile", test_module_path, "-o", test_target_path
     assert_predicate test_target_path, :exist?
   end
 end

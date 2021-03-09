@@ -1,36 +1,35 @@
 class Giflossy < Formula
   desc "Lossy LZW compression, reduces GIF file sizes by 30-50%"
   homepage "https://pornel.net/lossygif"
-  url "https://github.com/pornel/giflossy/archive/lossy/1.82.1.tar.gz"
-  sha256 "a0d048f0c2274c81532a988d2f3ea16c3f1cbb6878f13deeb425d34826e4ed23"
-  head "https://github.com/pornel/giflossy.git"
+  url "https://github.com/kornelski/giflossy/archive/1.91.tar.gz"
+  sha256 "b97f6aadf163ff5dd96ad1695738ad3d5aa7f1658baed8665c42882f11d9ab22"
+  license "GPL-2.0-only"
+  head "https://github.com/kornelski/giflossy.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "56c413383c1f4978f1820086aca1d6f61a3b0b89d8df9ec946320d5aeb4a7868" => :high_sierra
-    sha256 "3cf3c0757688012aad91066611bf6851f26b6ca246e6014a43da7abeca1f6b77" => :sierra
-    sha256 "b1003fafaa5c7bbdf956a7ac4f8c0c06abf4c583b922bf67e1eacb1498db0b16" => :el_capitan
-    sha256 "2c4d49abc644aa4e98eaaae86002c7153bf9e3990186e730d9ebb3ff4ceb0b22" => :yosemite
-    sha256 "96c42819acabd42287e2e032f10969e9ac08bfb28848626ac0df4f926f116a99" => :mavericks
-    sha256 "1e71bcca774a3f01d8ede50d6040d06c2f25df7e6e3635efab4c5daf06f2bcb1" => :mountain_lion
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "860d0bb8cd391ad3d2309613c18a5f4f80d1b12e1156a28eb81c2bf7a0f460b8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ad63a534a7e83c162d536cb43c421a78b089ca9921e89ed598c8ae13fe7adb1f"
+    sha256 cellar: :any_skip_relocation, catalina:      "de5ae53cff723bbb5cbe11028d088f028053ebc70a14b6497dd7f5f9ca9651b4"
+    sha256 cellar: :any_skip_relocation, mojave:        "02eeb9a6b44178fdf1df803346dceedda853c7245cd51a1a6166290a73fb51f4"
   end
 
-  option "with-x11", "Install gifview"
+  # "This project has now been officially merged upstream into Gifsicle, so
+  # please use that": https://github.com/kohler/gifsicle
+  deprecate! date: "2019-05-27", because: :repo_archived
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :x11 => :optional
 
   conflicts_with "gifsicle",
-    :because => "both install an `gifsicle` binary"
+    because: "both install an `gifsicle` binary"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --disable-gifview
     ]
-
-    args << "--disable-gifview" if build.without? "x11"
 
     system "autoreconf", "-fvi"
     system "./configure", *args

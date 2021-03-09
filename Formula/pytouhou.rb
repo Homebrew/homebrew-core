@@ -1,79 +1,63 @@
 class Pytouhou < Formula
   desc "Libre implementation of Touhou 6 engine"
   homepage "https://pytouhou.linkmauve.fr/"
-  url "https://hg.linkmauve.fr/touhou", :revision => "5270c34b4c00", :using => :hg
+  url "https://hg.linkmauve.fr/touhou", revision: "5270c34b4c00", using: :hg
   version "634"
-  head "https://hg.linkmauve.fr/touhou", :using => :hg
+  revision 8
+  head "https://hg.linkmauve.fr/touhou", using: :hg
 
   bottle do
-    cellar :any
-    sha256 "9218e33b590a64c35bf1f68226fb74f526163d88ac32bb4488d9db32e82bf57d" => :high_sierra
-    sha256 "fd255fcb879ea6dfcf7cd7d4c5b379b42fdf3612caa48e33ee724df9211ce0eb" => :sierra
-    sha256 "0b14b271443ce5833a8377c00cca5a697d49696cb030faf8eb868bb6543281b1" => :el_capitan
-    sha256 "89644eff0f65c4200f563324a6d0a8b9531889ff302b1020cbe9e75147e02df1" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "3a8cd72d8c0a67a8846d8c27a33bd7e3474827f44100b404dfbd71476a053a4c"
+    sha256 cellar: :any, big_sur:       "f6cc4df128378963b11dad010097ffc897e195f578afd1cedf83869280748272"
+    sha256 cellar: :any, catalina:      "68aa26a6209130a0bf44da6716964fcd97cd667daae9c3a600b6a19c33d91951"
+    sha256 cellar: :any, mojave:        "7ef160097cf7d38842b5ad88403f6c410a9e90e93f4942df3b3019d8d4b9d514"
   end
 
-  option "with-demo", "Install demo version of Touhou 6"
-
-  depends_on :python3
   depends_on "pkg-config" => :build
+  depends_on "glfw"
+  depends_on "gtk+3"
   depends_on "libepoxy"
+  depends_on "py3cairo"
+  depends_on "pygobject3"
+  depends_on "python@3.9"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
-  depends_on "gtk+3" => :recommended
-  if build.with? "gtk+3"
-    depends_on "py3cairo" # FIXME: didn't get picked up by pygobject3 below
-    depends_on "pygobject3" => "with-python3"
-  end
 
   resource "Cython" do
-    url "https://files.pythonhosted.org/packages/b7/67/7e2a817f9e9c773ee3995c1e15204f5d01c8da71882016cac10342ef031b/Cython-0.25.2.tar.gz"
-    sha256 "f141d1f9c27a07b5a93f7dc5339472067e2d7140d1c5a9e20112a5665ca60306"
+    url "https://files.pythonhosted.org/packages/a5/1f/c7c5450c60a90ce058b47ecf60bb5be2bfe46f952ed1d3b95d1d677588be/Cython-0.29.13.tar.gz"
+    sha256 "c29d069a4a30f472482343c866f7486731ad638ef9af92bfe5fca9c7323d638e"
   end
 
-  resource "demo" do
-    url "http://www16.big.or.jp/~zun/data/soft/kouma_tr013.lzh"
-    sha256 "77ea64ade20ae7d890a4b0b1623673780c34dd2aa48bf2410603ade626440a8b"
-  end
+  # Fix for parallel cythonize
+  # It just put setup call in `if __name__ == '__main__'` block
+  patch :p0, :DATA
 
   def install
-    pyver = Language::Python.major_minor_version "python3"
+    pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{pyver}/site-packages"
     resource("Cython").stage do
-      system "python3", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     # hg can't determine revision number (no .hg on the stage)
     inreplace "setup.py", /(version)=.+,$/, "\\1='#{version}',"
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{pyver}/site-packages"
-    system "python3", *Language::Python.setup_install_args(libexec)
-
-    if build.with? "demo"
-      resource("demo").stage do
-        (pkgshare/"game").install Dir["東方紅魔郷　体験版/*"]
-      end
-    end
+    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
 
     # Set default game path to pkgshare
     inreplace "#{libexec}/bin/pytouhou", /('path'): '\.'/, "\\1: '#{pkgshare}/game'"
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       The default path for the game data is:
         #{pkgshare}/game
     EOS
-    if build.with? "demo"
-      s += <<~EOS
-        Demo version of Touhou 6 has been installed.
-      EOS
-    end
-    s
   end
 
   test do
@@ -81,3 +65,61 @@ class Pytouhou < Formula
     system "#{bin}/pytouhou", "--help"
   end
 end
+
+__END__
+--- setup.py	2019-10-21 08:55:06.000000000 +0100
++++ setup.py	2019-10-21 08:56:15.000000000 +0100
+@@ -172,29 +172,29 @@
+ if not os.path.exists(temp_data_dir):
+     os.symlink(os.path.join(current_dir, 'data'), temp_data_dir)
+
++if __name__ == '__main__':
++    setup(name='PyTouhou',
++        version=check_output(['hg', 'heads', '.', '-T', '{rev}']).decode(),
++        author='Thibaut Girka',
++        author_email='thib@sitedethib.com',
++        url='http://pytouhou.linkmauve.fr/',
++        license='GPLv3',
++        py_modules=py_modules,
++        ext_modules=cythonize(ext_modules, nthreads=nthreads, annotate=debug,
++                                language_level=3,
++                                compiler_directives={'infer_types': True,
++                                                    'infer_types.verbose': debug,
++                                                    'profile': debug},
++                                compile_time_env={'MAX_TEXTURES': 128,
++                                                'MAX_ELEMENTS': 640 * 4 * 3,
++                                                'MAX_SOUNDS': 26,
++                                                'USE_OPENGL': use_opengl}),
++        scripts=['scripts/pytouhou'] + (['scripts/anmviewer'] if anmviewer else []),
++        packages=['pytouhou'],
++        package_data={'pytouhou': ['data/menu.glade']},
++        **extra)
+
+-setup(name='PyTouhou',
+-      version=check_output(['hg', 'heads', '.', '-T', '{rev}']).decode(),
+-      author='Thibaut Girka',
+-      author_email='thib@sitedethib.com',
+-      url='http://pytouhou.linkmauve.fr/',
+-      license='GPLv3',
+-      py_modules=py_modules,
+-      ext_modules=cythonize(ext_modules, nthreads=nthreads, annotate=debug,
+-                            language_level=3,
+-                            compiler_directives={'infer_types': True,
+-                                                 'infer_types.verbose': debug,
+-                                                 'profile': debug},
+-                            compile_time_env={'MAX_TEXTURES': 128,
+-                                              'MAX_ELEMENTS': 640 * 4 * 3,
+-                                              'MAX_SOUNDS': 26,
+-                                              'USE_OPENGL': use_opengl}),
+-      scripts=['scripts/pytouhou'] + (['scripts/anmviewer'] if anmviewer else []),
+-      packages=['pytouhou'],
+-      package_data={'pytouhou': ['data/menu.glade']},
+-      **extra)
+
+-
+-# Remove the link afterwards
+-if os.path.exists(temp_data_dir):
+-    os.unlink(temp_data_dir)
++    # Remove the link afterwards
++    if os.path.exists(temp_data_dir):
++        os.unlink(temp_data_dir)

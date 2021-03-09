@@ -3,14 +3,14 @@ class Libdbi < Formula
   homepage "https://libdbi.sourceforge.io"
   url "https://downloads.sourceforge.net/project/libdbi/libdbi/libdbi-0.9.0/libdbi-0.9.0.tar.gz"
   sha256 "dafb6cdca524c628df832b6dd0bf8fabceb103248edb21762c02d3068fca4503"
+  license "LGPL-2.1"
 
   bottle do
-    sha256 "bfbfbb4a406e11bc76f0bb590923fe2c9c5ecb8eee2ad59c115bf5d8fe9fc83b" => :high_sierra
-    sha256 "56bc34833d44be61b26fda170fd8c2eea6242d6cfc780869d9456dcee6fb9e41" => :sierra
-    sha256 "80593f395134244612e570445f7dafaede45632025f25a079d2978ea8ceced93" => :el_capitan
-    sha256 "fdc8341304e7a5b08f8baa86019c0b75d9bea99b7461f1eafc32f906a446b49a" => :yosemite
-    sha256 "105af923e45a1deb810224f39ecd138442943dfef193636414bf1394982c01ea" => :mavericks
-    sha256 "44c30231f8c33cb67eae20b8078528c743e180bf549b940cf20598a551b46b6b" => :mountain_lion
+    rebuild 1
+    sha256 cellar: :any, big_sur:     "af53bebb0b59917b87468a5cc52b168c01e40b83c5eff987ffa2655c9e64ac3b"
+    sha256 cellar: :any, catalina:    "ce66e90000681c5f9174c3698ac4ceefd5d1be6ca4ffa574053f0705217c6837"
+    sha256 cellar: :any, mojave:      "3aff10515535dc3f99dfa56644229daba74f719838d3e580754b3bbdc3c0429d"
+    sha256 cellar: :any, high_sierra: "eb3d8474601267d835b74b5a29944dc6d987486745dcfd17389be3a44b2c0175"
   end
 
   def install

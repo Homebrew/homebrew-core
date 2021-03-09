@@ -1,48 +1,66 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
-  homepage "http://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.3/gegl-0.3.24.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/g/gegl/gegl_0.3.24.orig.tar.bz2"
-  sha256 "1aa08bc262d864b067a3dee0782947d2a89807b645cb9d886776b90214939d74"
+  homepage "https://www.gegl.org/"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.28.tar.xz"
+  sha256 "1d110d8577d54cca3b34239315bd37c57ccb27dd4355655074a2d2b3fd897900"
+  license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
+  head "https://gitlab.gnome.org/GNOME/gegl.git"
+
+  livecheck do
+    url "https://download.gimp.org/pub/gegl/0.4/"
+    regex(/href=.*?gegl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "12db26344712a0bc9df10f7b584eebcdaeb8589ffee9e6ab7b5c39e523cde68a" => :high_sierra
-    sha256 "abd9fde58a58fa18b83d0c60a8f38f8c1dd765d82acf378ba36b763b891b23c2" => :sierra
-    sha256 "4051493519440251255e67859701f96287f2649fb81f3bed9a0660f1062df6ff" => :el_capitan
+    sha256 arm64_big_sur: "4bac67fd6373cdfa8b8d733146b66ec8d8250133468bef537188486c8f6a29d4"
+    sha256 big_sur:       "859bd53d054e26fcfa4dd3aa9a66a7d6c5227df0e86c4c4b7ee4f2941b04b13c"
+    sha256 catalina:      "e9e37ccb4f1704c03acad379e62c33fb022edb93340d34f75c07e965b5396f39"
+    sha256 mojave:        "eb0a0d104a4654a73ab1a4c109afbe4f2b4c10f340d9df7b54e5f175446df455"
   end
 
-  head do
-    # Use the Github mirror because official git unreliable.
-    url "https://github.com/GNOME/gegl.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
-  depends_on "intltool" => :build
+  depends_on "glib" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "babl"
   depends_on "gettext"
   depends_on "glib"
+  depends_on "jpeg"
   depends_on "json-glib"
   depends_on "libpng"
-  depends_on "jpeg"
-  depends_on "cairo" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "lua" => :optional
-  depends_on "pango" => :optional
-  depends_on "sdl" => :optional
 
-  conflicts_with "coreutils", :because => "both install `gcut` binaries"
+  on_linux do
+    depends_on "cairo"
+  end
+
+  conflicts_with "coreutils", because: "both install `gcut` binaries"
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-docs"
-    system "make", "install"
+    args = std_meson_args + %w[
+      -Dwith-docs=false
+      -Dwith-cairo=false
+      -Dwith-jasper=false
+      -Dwith-umfpack=false
+      -Dwith-libspiro=false
+      --force-fallback-for=libnsgif,poly2tri-c
+    ]
+
+    ### Temporary Fix ###
+    # Temporary fix for a meson bug
+    # Upstream appears to still be deciding on a permanent fix
+    # See: https://gitlab.gnome.org/GNOME/gegl/-/issues/214
+    inreplace "subprojects/poly2tri-c/meson.build",
+      "libpoly2tri_c = static_library('poly2tri-c',",
+      "libpoly2tri_c = static_library('poly2tri-c', 'EMPTYFILE.c',"
+    touch "subprojects/poly2tri-c/EMPTYFILE.c"
+    ### END Temporary Fix ###
+
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
@@ -55,7 +73,7 @@ class Gegl < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}/gegl-0.3", "-L#{lib}", "-lgegl-0.3",
+    system ENV.cc, "-I#{include}/gegl-0.4", "-L#{lib}", "-lgegl-0.4",
            "-I#{Formula["babl"].opt_include}/babl-0.1",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",

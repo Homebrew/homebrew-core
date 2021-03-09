@@ -1,24 +1,29 @@
 class Libb2 < Formula
   desc "Secure hashing function"
   homepage "https://blake2.net/"
-  url "https://blake2.net/libb2-0.97.tar.gz"
-  sha256 "7829c7309347650239c76af7f15d9391af2587b38f0a65c250104a2efef99051"
+  url "https://github.com/BLAKE2/libb2/releases/download/v0.98.1/libb2-0.98.1.tar.gz"
+  sha256 "53626fddce753c454a3fea581cbbc7fe9bbcf0bc70416d48fdbbf5d87ef6c72e"
+  license "CC0-1.0"
 
   bottle do
-    cellar :any
-    sha256 "cb51df210ccd4a438ff13825e59e149250f88651ee048d39b0326c41cd5b8231" => :high_sierra
-    sha256 "27a5a741334238556009be1ddbe67fd88401a9b8a73da929304f86744c989372" => :sierra
-    sha256 "6c70feb4b8eb42361fc4b626e164317a7f46d977896e928007954f2c9ca3ee80" => :el_capitan
-    sha256 "4c604799e388530022494535a551c06bf08baba5d6d37fd5622f9fe50773b860" => :yosemite
-    sha256 "513444d15673a2bba2b8042522db8fc68e25154955d18cb8eff6b8bb9bb4503f" => :mavericks
-    sha256 "686a12f6cd03b3ed92c4f900f8a75a0467fd33c9b703678b06ad1060773b16b5" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "7713b483f3474a3531c5830bbc8de7ad1903989e55e5da3ff5bfd85e87c5c045"
+    sha256 cellar: :any, big_sur:       "7e21b980288ef9449cb44a4b2d33a0d0772b0482165c9ee5f12d42b71b357bc0"
+    sha256 cellar: :any, catalina:      "fb9f331b6c556a09558cf8098c3934f3f9196c3076e2511fd6ed816439fb8936"
+    sha256 cellar: :any, mojave:        "bbd333a0a89e6a38445aba0170b14b516edad300c30d6f4239b66a130c446959"
+    sha256 cellar: :any, high_sierra:   "6e9156db268cea377f7050c4e9ebf1ee3065fef76a11c40e03e700a23b1bef36"
+    sha256 cellar: :any, sierra:        "9b909b878c01b5bb3284ba4d0937352e0df54b27e491fa796dfb6d3e67f989a1"
   end
 
   def install
+    # SSE detection is broken on arm64 macos
+    # https://github.com/BLAKE2/libb2/issues/36
+    extra_args = []
+    extra_args << "--enable-fat" unless Hardware::CPU.arm?
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--enable-fat",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          *extra_args
     system "make", "install"
   end
 

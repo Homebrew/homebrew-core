@@ -3,16 +3,19 @@ class Lib3ds < Formula
   homepage "https://code.google.com/archive/p/lib3ds/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/lib3ds/lib3ds-1.3.0.zip"
   sha256 "f5b00c302955a67fa5fb1f2d3f2583767cdc61fdbc6fd843c0c7c9d95c5629e3"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "1c6d7e3a2e800cf8fc9f6050032f28eec15bcc7c617622d58ba502c9c1afa740" => :high_sierra
-    sha256 "4338a4f81ccc33ad78b30f051085594606b74fe5f7773e197a36f08e0b8967ba" => :sierra
-    sha256 "e5810afd47dd88fb769e6ef62ef558b4ee4e643d4f5ae3fddb019257642b3375" => :el_capitan
-    sha256 "33f5b51953a8d4a583c7d5d6a7796ffaaccf8bf6a303fac300bfdb76dcd0ad60" => :yosemite
-    sha256 "3faa2167b32ab4fba667c2fc1d1131411fc3765c7e32a220b16aa62ee433d930" => :mavericks
-    sha256 "d508b861035a3e6a91e90f3bcd89fd43c50ed6d07f365a75061f83d4af863379" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "2959476e3f2e5a95ca23aa6a9fc4b11f9e8ca202e460d6b00ce2906f043c8936"
+    sha256 cellar: :any, big_sur:       "175e42127a596271ed3347b35eeb8088d684b1b46f6efa4d1bbb8d8ef9776605"
+    sha256 cellar: :any, catalina:      "0a5a1fdac0c459e011ef64556c872fdc61678ccc7e06d507239d03729a0a8613"
+    sha256 cellar: :any, mojave:        "61004e5169608ab48287024f45c10f9f95eebd3117edce42cf3a3bf509b93166"
+    sha256 cellar: :any, high_sierra:   "1c6d7e3a2e800cf8fc9f6050032f28eec15bcc7c617622d58ba502c9c1afa740"
+    sha256 cellar: :any, sierra:        "4338a4f81ccc33ad78b30f051085594606b74fe5f7773e197a36f08e0b8967ba"
+    sha256 cellar: :any, el_capitan:    "e5810afd47dd88fb769e6ef62ef558b4ee4e643d4f5ae3fddb019257642b3375"
+    sha256 cellar: :any, yosemite:      "33f5b51953a8d4a583c7d5d6a7796ffaaccf8bf6a303fac300bfdb76dcd0ad60"
+    sha256 cellar: :any, mavericks:     "3faa2167b32ab4fba667c2fc1d1131411fc3765c7e32a220b16aa62ee433d930"
   end
 
   def install

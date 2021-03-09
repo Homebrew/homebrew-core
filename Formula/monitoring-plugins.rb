@@ -1,31 +1,27 @@
 class MonitoringPlugins < Formula
   desc "Plugins for nagios compatible monitoring systems"
   homepage "https://www.monitoring-plugins.org"
-  url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.2.tar.gz"
-  sha256 "296a538f00a9cbef7f528ff2d43af357a44b384dc98a32389a675b62a6dd3665"
+  url "https://www.monitoring-plugins.org/download/monitoring-plugins-2.3.tar.gz"
+  sha256 "3fd96efaa751c7646fe3ba25f9714859a204176a155d12fe0ee420e39e90f56c"
 
   bottle do
-    sha256 "39310e6fcfee83275afc1ceab922e4f2a8c72306bf54af49aed986c658175a82" => :high_sierra
-    sha256 "426c87771bcb45bbc92755ea4b05ee213863423554c8bb21b9e2fdfd5e32e959" => :sierra
-    sha256 "d531079a00f1dae22309918b9fbbd3250873b5869001f14af1d221d5bb7b021b" => :el_capitan
-    sha256 "b3d0549fc51c3948743b16eb5bc52a0a7f8af6cf6ad6c05b3056fa947661a6da" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "e96b7ab01d8202e55df025b8570d42d338241b828ede6c2f4eda0f9681fe0b1b"
+    sha256 cellar: :any, big_sur:       "2affcbde085b468167dbc0806e2b328b2ce8e155e08369e4df0d968e2568723d"
+    sha256 cellar: :any, catalina:      "918135f3648b566cfa9908d0fbbd65079d0a3c0c8794167aebe43aa2dd739fe7"
+    sha256 cellar: :any, mojave:        "c98c17126372176090c58eef202309972dc44f1d34be28ffc96c30a37d3f3217"
   end
 
-  depends_on "openssl"
-  depends_on "postgresql" => :optional
-  depends_on :mysql => :optional
+  depends_on "openssl@1.1"
 
-  conflicts_with "nagios-plugins", :because => "nagios-plugins ships their plugins to the same folder."
+  conflicts_with "nagios-plugins", because: "both install their plugins to the same folder"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{libexec}
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
-
-    args << "--with-pgsql=#{Formula["postgresql"].opt_prefix}" if build.with? "postgresql"
 
     system "./configure", *args
     system "make", "install"
@@ -41,6 +37,6 @@ class MonitoringPlugins < Formula
 
   test do
     output = shell_output("#{sbin}/check_dns -H 8.8.8.8 -t 3")
-    assert_match "google-public-dns", output
+    assert_match "DNS OK", output
   end
 end

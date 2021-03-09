@@ -1,28 +1,32 @@
-require "language/haskell"
-
 class PandocCiteproc < Formula
-  include Language::Haskell::Cabal
-
   desc "Library and executable for using citeproc with pandoc"
   homepage "https://github.com/jgm/pandoc-citeproc"
-  url "https://hackage.haskell.org/package/pandoc-citeproc-0.12.1/pandoc-citeproc-0.12.1.tar.gz"
-  sha256 "7f12b25b0cf2f7c1ffe376d54113b6a85da0548d7b73e52e6d66f5daf65fc2ac"
+  url "https://hackage.haskell.org/package/pandoc-citeproc-0.17.0.2/pandoc-citeproc-0.17.0.2.tar.gz"
+  sha256 "0b8846ca37547004a6a165ff7f47f58a07f783b01da32c8bf5740272fe37e1f2"
+  license "BSD-3-Clause"
   head "https://github.com/jgm/pandoc-citeproc.git"
 
   bottle do
-    sha256 "2e867de685323674fc29c26364fb189a4914a1b40260bb22c864248bc1594b65" => :high_sierra
-    sha256 "75a3ddc5d87b6c713d5cafe5bb6b537394e7cfa893291ead98bc20baa92ce13a" => :sierra
-    sha256 "f35d0cad18119c0c392da4742153cd9e30295f9be1ba3193b9f71d6613567baf" => :el_capitan
+    sha256 catalina:    "518ed9646d3a165b413a4222d87d5148130891fc2505f2e71e20e05507131992"
+    sha256 mojave:      "fbbe846a5843e8e0de7d7bafa3ff3af2600c4fbb8ee2e50a05286ac02de52f6e"
+    sha256 high_sierra: "dfd25614701ee6cfdbe4ec0d6e67a9e54f6c08ded7f8b3de65f1db621fdc72dc"
   end
 
+  # https://github.com/jgm/pandoc-citeproc/commit/473378e588c40a6c3cb3b24330431b89cf4f81b4
+  # This package is no longer maintained.
+  # Pandoc now uses the [citeproc](https://github.com/jgm/citeproc)
+  # library, and no external filter is needed.
+  disable! date: "2020-10-09", because: :deprecated_upstream
+
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@8.8" => :build
   depends_on "pandoc"
 
+  uses_from_macos "unzip" => :build
+
   def install
-    args = []
-    args << "--constraint=cryptonite -support_aesni" if MacOS.version <= :lion
-    install_cabal_package *args
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
@@ -44,7 +48,7 @@ class PandocCiteproc < Formula
         - family: Doe
           given: John
         issued:
-        - year: '2005'
+        - year: 2005
         title: First book
         publisher: Cambridge University Press
         publisher-place: Cambridge

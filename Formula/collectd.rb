@@ -1,44 +1,34 @@
 class Collectd < Formula
   desc "Statistics collection and monitoring daemon"
   homepage "https://collectd.org/"
-  url "https://collectd.org/files/collectd-5.8.0.tar.bz2"
-  sha256 "b06ff476bbf05533cb97ae6749262cc3c76c9969f032bd8496690084ddeb15c9"
+  url "https://collectd.org/files/collectd-5.12.0.tar.bz2"
+  sha256 "5bae043042c19c31f77eb8464e56a01a5454e0b39fa07cf7ad0f1bfc9c3a09d6"
+  license "MIT"
 
   bottle do
-    sha256 "c228054cab6171395cf7fc0aae7baa020743514a41dd374e668d4d9440675e7f" => :high_sierra
-    sha256 "e49db6c81c43d172e13ced53c61175afb5bcd3f14121e501c4a111267ad014ae" => :sierra
-    sha256 "5bad0992c7a9022f3b083a8d127d6cd7aa9f024b4aec6f5edc21a8dac3115324" => :el_capitan
+    sha256 arm64_big_sur: "ae24e993f2be3d7618d2e7fa44862e7874c5b6d10a9891ae26767ec050f36f43"
+    sha256 big_sur:       "e4de278042d172443ddee7f7260ef14022a9e9632b8c4d212c27f76ef1eb184c"
+    sha256 catalina:      "ea61777a4d32690b2a1ddd53081f0888f7c83066cc9e0e5482f604e61c981fd9"
+    sha256 mojave:        "9efc5c99db4239be93afbad141938c697cc36c1442e117d92960a5265cfc57cf"
+    sha256 high_sierra:   "850edf925fa233181c03c7157cf6c89fca53906f930c511febd283358242f688"
   end
 
   head do
     url "https://github.com/collectd/collectd.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
-
-  option "with-java", "Enable Java support"
-  option "with-python", "Enable Python support"
-  option "with-riemann-client", "Enable write_riemann support"
-  option "with-debug", "Enable debug support"
-
-  deprecated_option "java" => "with-java"
-  deprecated_option "debug" => "with-debug"
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
-  depends_on "riemann-client" => :optional
-  depends_on :java => :optional
-  depends_on :python => :optional
+  depends_on "libgcrypt"
+  depends_on "libtool"
   depends_on "net-snmp"
+  depends_on "riemann-client"
 
-  fails_with :clang do
-    build 318
-    cause <<~EOS
-      Clang interacts poorly with the collectd-bundled libltdl,
-      causing configure to fail.
-    EOS
-  end
+  uses_from_macos "bison"
+  uses_from_macos "flex"
+  uses_from_macos "perl"
 
   def install
     args = %W[
@@ -46,44 +36,42 @@ class Collectd < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --localstatedir=#{var}
+      --disable-java
+      --enable-write_riemann
     ]
-
-    args << "--disable-java" if build.without? "java"
-    args << "--enable-python" if build.with? "python"
-    args << "--enable-write_riemann" if build.with? "riemann-client"
-    args << "--enable-debug" if build.with? "debug"
 
     system "./build.sh" if build.head?
     system "./configure", *args
     system "make", "install"
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/collectd -f -C #{HOMEBREW_PREFIX}/etc/collectd.conf"
+  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/collectd -f -C #{HOMEBREW_PREFIX}/etc/collectd.conf"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/collectd</string>
-          <string>-f</string>
-          <string>-C</string>
-          <string>#{etc}/collectd.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/collectd.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/collectd.log</string>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{sbin}/collectd</string>
+            <string>-f</string>
+            <string>-C</string>
+            <string>#{etc}/collectd.conf</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/collectd.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/collectd.log</string>
+        </dict>
+      </plist>
     EOS
   end
 

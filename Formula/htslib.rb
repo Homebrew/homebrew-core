@@ -1,21 +1,31 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
-  homepage "http://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.6/htslib-1.6.tar.bz2"
-  sha256 "9588be8be0c2390a87b7952d644e7a88bead2991b3468371347965f2e0504ccb"
-  revision 1
+  homepage "https://www.htslib.org/"
+  url "https://github.com/samtools/htslib/releases/download/1.11/htslib-1.11.tar.bz2"
+  sha256 "cffadd9baa6fce27b8fe0b01a462b489f06a5433dfe92121f667f40f632538d7"
+  license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any
-    sha256 "15c9481d899d77e7d7eeb5c2d2cac09930fef9b28409ec9ea3ab57ec9cc70e87" => :high_sierra
-    sha256 "35a9e6c69ed762ee9d5ba2966a484f3a13557dbf23ef897fee6ba7d6f9db5659" => :sierra
-    sha256 "5fe4d1a962dd98c9c0497fa88da33f493fdec868a25e531def7c5506424571d0" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "064702cff6bf08fcde27f3315ee3f252d4ab402cec419165bc9c3a29b0ff88f1"
+    sha256 cellar: :any, big_sur:       "041b57665a510b5f997378bf3e3ce77c514dd3d926bb657b8ed51c5d3d12428d"
+    sha256 cellar: :any, catalina:      "f28d03e151afa13f70ed32382fe39dfbd519b94684bffc1351e38c928156f678"
+    sha256 cellar: :any, mojave:        "e32ece4437430fb982ab295b6efaa9bed569dd5a661adcf1bc4240b48ae72914"
+    sha256 cellar: :any, high_sierra:   "b0fd73dc104edc3fc591a998ce27fe99e8086873b0ac29775532374213225a1f"
   end
 
   depends_on "xz"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--enable-libcurl"
     system "make", "install"
     pkgshare.install "test"
   end

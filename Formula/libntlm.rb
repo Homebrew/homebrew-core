@@ -1,23 +1,36 @@
 class Libntlm < Formula
   desc "Implements Microsoft's NTLM authentication"
-  homepage "http://www.nongnu.org/libntlm/"
-  url "http://www.nongnu.org/libntlm/releases/libntlm-1.4.tar.gz"
-  sha256 "8415d75e31d3135dc7062787eaf4119b984d50f86f0d004b964cdc18a3182589"
+  homepage "https://www.nongnu.org/libntlm/"
+  url "https://www.nongnu.org/libntlm/releases/libntlm-1.6.tar.gz"
+  sha256 "f2376b87b06d8755aa3498bb1226083fdb1d2cf4460c3982b05a9aa0b51d6821"
+  license "LGPL-2.1"
+
+  livecheck do
+    url "https://www.nongnu.org/libntlm/releases/"
+    regex(/href=.*?libntlm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "16f8a36b728098991792d9a1f83090997db76123545250e09953b8607a943885" => :high_sierra
-    sha256 "3ecf99f8e70bbbcdef3a6ce5f6fb6c887ed2a85421faf1af0b59ac7d87ae3d7d" => :sierra
-    sha256 "c8da369479c9e222ee9e89af8da7991bed067ee3a1e496220226c9adc883d4a2" => :el_capitan
-    sha256 "605133351d91c2a3f0f2899deef01b6536143ffe804495fb19b6e134511e2a8c" => :yosemite
-    sha256 "800b5d2108aa693a47f6559797ef1c6fb3c906ecd35607e57eb96ad10cd7c78b" => :mavericks
-    sha256 "9f44dc14df7fdcb4657bb9ccae97c2df5e23977025ee202cfe2f615ed7ee9597" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "0b3b553a37a15dd0ffd396e8d07b295197e39f8f4e8670dc49a5ae214ded1cc1"
+    sha256 cellar: :any, big_sur:       "c8662388829c4cacb52f1c948b8ae2ba19ad8c28ef53cda651b0e5cf8c0529fe"
+    sha256 cellar: :any, catalina:      "7e34bd216191b40a86075d825c98c929d4f61842be989b605caba169ac68c999"
+    sha256 cellar: :any, mojave:        "a7de6d5c400b83a6f5e18423d396321aa45fb1a12dd1577df04389a7379e743a"
+    sha256 cellar: :any, high_sierra:   "e9b9b29b0f54e3349be1fad6f281d7ed0b972deaab07a0febe2ab75a73028ea5"
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    pkgshare.install "config.h", "test_ntlm.c", "test.txt", "gl/byteswap.h", "gl/md4.c", "gl/md4.h"
+  end
+
+  test do
+    cp pkgshare.children, testpath
+    system ENV.cc, "test_ntlm.c", "md4.c", "-I#{testpath}", "-L#{lib}", "-lntlm",
+                   "-DNTLM_SRCDIR=\"#{testpath}\"", "-o", "test_ntlm"
+    system "./test_ntlm"
   end
 end

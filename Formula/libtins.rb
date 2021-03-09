@@ -1,30 +1,29 @@
 class Libtins < Formula
   desc "C++ network packet sniffing and crafting library"
   homepage "https://libtins.github.io/"
-  url "https://github.com/mfontanini/libtins/archive/v4.0.tar.gz"
-  sha256 "2a758d1bed51760bbd57fcaa00610534e0cc3a6d55d91983724e5f46739d66b8"
+  url "https://github.com/mfontanini/libtins/archive/v4.3.tar.gz"
+  sha256 "c70bce5a41a27258bf0e3ad535d8238fb747d909a4b87ea14620f25dd65828fd"
+  license "BSD-2-Clause"
   head "https://github.com/mfontanini/libtins.git"
 
   bottle do
-    cellar :any
-    sha256 "54376ef52c7368bdf496274148185c317d5afd99d11504aece81ca4468a2140a" => :high_sierra
-    sha256 "fc4ff68bca0257330b92d22c2219066ec3f6a7fe3561649b088c9846ef7cf03e" => :sierra
-    sha256 "0989cb076d13ab1d40a0a581ab56f0891a469de25219677a1f9323b89e728f2d" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "67015c4202420ae239e94a7c1df5be67af65f5a717a965f581202557df639e04"
+    sha256 cellar: :any, big_sur:       "fbde141533f922dd195e69f432fef3d8fc3fa3234de841ae832e1513427ca528"
+    sha256 cellar: :any, catalina:      "698edf1fd2794c4bf81e1debcddadf1fcad906f98cde53c7240705578ec3a584"
+    sha256 cellar: :any, mojave:        "0cc57b006a581a0da50ef3b365f1cbd292e9ae054a552751cc7af3d93860ebce"
+    sha256 cellar: :any, high_sierra:   "0a15741675e5c3f65f98fd89a25f0a1167294b95ba596620b63a45ad71dedea8"
   end
 
-  option :cxx11
-
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
-    ENV.cxx11 if build.cxx11?
-    args = std_cmake_args
-    args << "-DLIBTINS_ENABLE_CXX11=1" if build.cxx11?
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
     doc.install "examples"
+
+    # Clean up the build file garbage that has been installed.
+    rm_r Dir["#{share}/doc/libtins/**/CMakeFiles/"]
   end
 
   test do

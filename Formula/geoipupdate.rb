@@ -1,35 +1,34 @@
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
-  url "https://github.com/maxmind/geoipupdate/releases/download/v2.5.0/geoipupdate-2.5.0.tar.gz"
-  sha256 "5119fd0e338cd083e886228b26679c64bcbaade8a815be092aecf865a610ab26"
+  url "https://github.com/maxmind/geoipupdate/archive/v4.6.0.tar.gz"
+  sha256 "e64c3cb6f2c999e11e8401814305cbd7676c9d78a0131e06ed9dd950606dffcd"
+  license "Apache-2.0"
+  head "https://github.com/maxmind/geoipupdate.git"
 
   bottle do
-    sha256 "22feb6fb330b62c077482b443ac637c2fa3f60626b4113d815fc0fd85a255ee2" => :high_sierra
-    sha256 "d28503bce47a42732d54cece163675f6c6169539327a95bb8d4bbdfd16aa9e35" => :sierra
-    sha256 "ab7981329380d9bf0fee2efe0bfed2a1745cc3ecf681356ba21a02cd6604acf2" => :el_capitan
+    sha256 big_sur:  "6a0f2f009d4fc1a5c6411b35744b96320ace0d4b48757a180333c5ce433cc14c"
+    sha256 catalina: "f087a38875f9f4b148d47b6b67d6959defb5d8793dc1066d9f8c0d3d70a3733e"
+    sha256 mojave:   "de01c4e97786dcd289ebf526cbf113d7ebc5e947e8297fb21df5c4fa44bd378d"
   end
 
-  head do
-    url "https://github.com/maxmind/geoipupdate.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "go" => :build
+  depends_on "pandoc" => :build
+
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
 
   def install
-    system "./bootstrap" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--datadir=#{var}",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}"
-    system "make", "install"
+    system "make", "CONFFILE=#{etc}/GeoIP.conf", "DATADIR=#{var}/GeoIP", "VERSION=#{version} (homebrew)"
+
+    bin.install  "build/geoipupdate"
+    etc.install  "build/GeoIP.conf"
+    man1.install "build/geoipupdate.1"
+    man5.install "build/GeoIP.conf.5"
   end
 
   def post_install
     (var/"GeoIP").mkpath
-    system bin/"geoipupdate", "-v"
   end
 
   test do

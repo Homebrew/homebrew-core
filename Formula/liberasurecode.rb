@@ -1,20 +1,24 @@
 class Liberasurecode < Formula
   desc "Erasure Code API library written in C with pluggable backends"
   homepage "https://github.com/openstack/liberasurecode"
-  url "https://github.com/openstack/liberasurecode/archive/1.5.0.tar.gz"
-  sha256 "713272e81e67f308c21fc6aad417f79b30fb1e7f2338293fa0eaadcc53611909"
+  url "https://github.com/openstack/liberasurecode/archive/1.6.2.tar.gz"
+  sha256 "f11752f41e652e62d0feb095a118a8fe1b5d43910d3d31a0de99b789070d7788"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "f70d7dd6bbada77684cce1346b36c22b2784839326c4d5a2406e9f6b78d23502" => :high_sierra
-    sha256 "0d9e4bb728b35cbd6694b7756b961a2c22d716a1fa5eeb31fec86aeb323c8420" => :sierra
-    sha256 "879c7118175fdd3e23700137fb249b89362b957ec1c47cf25723bac32eeb305f" => :el_capitan
+    sha256 cellar: :any, catalina:    "0252ffca75211c217bee75061bb6a62dc2982334b66d95fbfcdc2e686480d1fb"
+    sha256 cellar: :any, mojave:      "0073290d5c19d629b70f6e4be0677931f625e07e79d2dacea25b333f7d820933"
+    sha256 cellar: :any, high_sierra: "2f0bb8a2f295cff0ba42097db3f31103f2f10637faa66ba2028bc746934b58d0"
   end
+
+  disable! date: "2020-12-08", because: "Depends on gf-complete which has been disabled"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "jerasure"
+
+  uses_from_macos "zlib"
 
   def install
     system "./autogen.sh"
@@ -51,7 +55,8 @@ class Liberasurecode < Formula
           exit(0);
       }
     EOS
-    system ENV.cxx, "liberasurecode-test.cpp", "-L#{lib}", "-lerasurecode", "-I#{include}/liberasurecode", "-o", "liberasurecode-test"
+    system ENV.cxx, "liberasurecode-test.cpp", "-L#{lib}", "-lerasurecode",
+                    "-I#{include}/liberasurecode", "-o", "liberasurecode-test"
     system "./liberasurecode-test"
   end
 end

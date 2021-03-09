@@ -1,28 +1,25 @@
 class Simh < Formula
   desc "Portable, multi-system simulator"
   homepage "http://simh.trailing-edge.com/"
-  url "http://simh.trailing-edge.com/sources/simhv39-0.zip"
-  version "3.9-0"
-  sha256 "e49b259b66ad6311ca9066dee3d3693cd915106a6938a52ed685cdbada8eda3b"
-
+  url "https://github.com/simh/simh/archive/v3.11-1.tar.gz"
+  version "3.11.1"
+  sha256 "c8a2fc62bfa9369f75935950512a4cac204fd813ce6a9a222b2c6a76503befdb"
+  license "MIT"
   head "https://github.com/simh/simh.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "48f8dbc43fbcec170807bc4a0730ace70fd6e99c0619ecb26897e32d3bd3f03b" => :high_sierra
-    sha256 "5b766137d34b8728a8a2ae3357c6c14063e2aabf3fa4e1107118764f05bc7cb0" => :sierra
-    sha256 "38663141007d531b100b6408f27e1f8c3a43d3ec3cb5dc3b0086ac257077ea3f" => :el_capitan
-    sha256 "0aa3e73267250ed3e466465f78d8bc4f286a7bb825c454dae5587af2023a313b" => :yosemite
-    sha256 "e9043ec0dc68a5660a20fe270488dbfbf8741a77aae8dace61441fc348e74234" => :mavericks
+  # At the time this check was added, the "latest" release on GitHub was several
+  # versions behind the actual latest version, so we check the Git tags instead.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:-\d+)?)$/i)
   end
 
-  # After 3.9-0 the project moves to https://github.com/simh/simh
-  # It doesn't actually fail, but the makefile queries llvm-gcc -v --help a lot
-  # to determine what flags to throw.  It is simply not designed for clang.
-  # Remove at the next revision that will support clang (see github site).
-  fails_with :clang do
-    build 421
-    cause "The program is closely tied to gcc & llvm-gcc in this revision."
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7b8d2337069cae3c5cf8d4f521a5c3c9cb8f9385a12986f6cf8378f41854abf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b7bb7258d1375fa027baeaa09a28b158bb0795f8044caf67fb251c9d35abd6e4"
+    sha256 cellar: :any_skip_relocation, catalina:      "790feb234cf193ae6de2c076ad10024e5d9bd6d301020392a79cffc7ff6ccb15"
+    sha256 cellar: :any_skip_relocation, mojave:        "76246ba12f6771a031a092ccbc67f0f6fbe8dacda0e5c1e41bbaa8d4a7918680"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "77ac8e9ea8a1589d4caa38f2cc9f21de2f4e66a836d316117926378080d09124"
   end
 
   def install

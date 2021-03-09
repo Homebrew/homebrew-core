@@ -1,48 +1,66 @@
 class Aide < Formula
   desc "File and directory integrity checker"
-  homepage "https://aide.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/aide/aide/0.16/aide-0.16.tar.gz"
-  sha256 "a81c53a131c4fd130b169b3a26ac35386a2f6e1e014f12807524cc273ed97345"
+  homepage "https://aide.github.io/"
+  url "https://github.com/aide/aide/releases/download/v0.17.3/aide-0.17.3.tar.gz"
+  sha256 "a2eb1883cafaad056fbe43ee1e8ae09fd36caa30a0bc8edfea5d47bd67c464f8"
+  license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 "c9429f028f2627c8ae1b76737b26741cecc4c18507139b02bcc6c487bc5e15a7" => :high_sierra
-    sha256 "71d151f2f389cbbc5884eff30261d0691d020c0983411962c1ba42927d0ae052" => :sierra
-    sha256 "2860850684659f15f8d5dc01127a7a9f2bfc21f773d99c4a8897585b4542723d" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "bc933e63d10ab2fdd5d974c32c3f0898f37bf9d95f3e74129eae1b860bc785c8"
+    sha256 cellar: :any, big_sur:       "39d24815ba23cd86b3a31c18e7e27b6c4a231dfbfb9e6fb035efec84a68b1ccf"
+    sha256 cellar: :any, catalina:      "b765af2fe87ab4494ddb51680f9fa151cf7d91b853d1a6bc5f1c1c0e14eda155"
+    sha256 cellar: :any, mojave:        "a24aedaabc8dfa8341e7713e43c994db019fb12747a497ac735a7864079cedb0"
   end
 
   head do
-    url "https://git.code.sf.net/p/aide/code.git"
-    depends_on "automake" => :build
+    url "https://github.com/aide/aide.git"
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
+  depends_on "pkg-config" => :build
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "pcre"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "curl"
+
   def install
+    # use sdk's strnstr instead
+    ENV.append_to_cflags "-DHAVE_STRNSTR"
+
     system "sh", "./autogen.sh" if build.head?
 
-    system "./configure", "--disable-lfs",
-                          "--disable-static",
-                          "--with-curl",
-                          "--with-zlib",
-                          "--sysconfdir=#{etc}",
-                          "--prefix=#{prefix}"
+    args = %W[
+      --disable-lfs
+      --disable-static
+      --with-zlib
+      --sysconfdir=#{etc}
+      --prefix=#{prefix}
+    ]
+    on_macos do
+      args << "--with-curl"
+    end
+    on_linux do
+      args << "--with-curl=" + Formula["curl"].prefix
+    end
+
+    system "./configure", *args
 
     system "make", "install"
   end
 
   test do
     (testpath/"aide.conf").write <<~EOS
-      database = file:/var/lib/aide/aide.db
+      database_in = file:/var/lib/aide/aide.db
       database_out = file:/var/lib/aide/aide.db.new
       database_new = file:/var/lib/aide/aide.db.new
       gzip_dbout = yes
-      summarize_changes = yes
-      grouped = yes
-      verbose = 7
+      report_summarize_changes = yes
+      report_grouped = yes
+      log_level = info
       database_attrs = sha256
       /etc p+i+u+g+sha256
     EOS

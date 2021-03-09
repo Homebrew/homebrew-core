@@ -1,16 +1,17 @@
 class Openh264 < Formula
   desc "H.264 codec from Cisco"
-  homepage "http://www.openh264.org"
-  url "https://github.com/cisco/openh264/archive/v1.7.0.tar.gz"
-  sha256 "9c07c38d7de00046c9c52b12c76a2af7648b70d05bd5460c8b67f6895738653f"
+  homepage "https://www.openh264.org/"
+  url "https://github.com/cisco/openh264/archive/v2.1.1.tar.gz"
+  sha256 "af173e90fce65f80722fa894e1af0d6b07572292e76de7b65273df4c0a8be678"
+  license "BSD-2-Clause"
   head "https://github.com/cisco/openh264.git"
 
   bottle do
-    cellar :any
-    sha256 "140ea346ab069463ad1c4c588d12636413d4459a0f5c30a891b1cec7273cdf06" => :high_sierra
-    sha256 "d3daaa5995cb2ad25fb3a4e0a9e99de2c4ca5c98f3da4f455b5e58d04aa3e6b2" => :sierra
-    sha256 "1b9c6a03cd9dfe776d1de7c23e1b210f25bbeb1b99e4a12d1f4b8a354498a3ab" => :el_capitan
-    sha256 "28303efdce99fbcc37ee2045398ea060170e6690936acfb8c2f4bb1378dac079" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "548fde2cb583ccc88f96e931787b758c309100a6386cfd2bf9e4173cc1d99601"
+    sha256 cellar: :any, big_sur:       "8025149092f1d95f870524cb04786fa08f3f67e1e60e259b675ba2a03b38949a"
+    sha256 cellar: :any, catalina:      "40bbd156c791be70467bebecb927745edc9b54dd46aa2c4a317562a4cf1dce8e"
+    sha256 cellar: :any, mojave:        "952ae4b5cafae14722588046032ee363b7b027178aa30ec450e4ee916b85eb4b"
+    sha256 cellar: :any, high_sierra:   "de7a5593d7a401e606b44d88347e83651508538d2461e4510b024f41b8b0f42e"
   end
 
   depends_on "nasm" => :build

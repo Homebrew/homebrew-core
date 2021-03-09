@@ -5,34 +5,24 @@ class Solid < Formula
   sha256 "4acfa20266f0aa5722732794f8e93d7bb446e467719c947a3ca583f197923af0"
 
   bottle do
-    cellar :any
-    sha256 "010d867aa6dfba7ae6ff9b5aa1a504285d45ccd9b682d512f70bc79cde208f8a" => :high_sierra
-    sha256 "a79692fbc3d3c150bedef4cbb5455ca175f9534703da91bc27abaac157f1414d" => :sierra
-    sha256 "217b3ce0111e94edfbbae5f82c07d3a8c129e7c5733a7707eb592b80eeb94a75" => :el_capitan
-    sha256 "e54bf158f4e91171c55d5514abe6fd36ca358e39e8271985f446be4002b6a5e7" => :yosemite
-    sha256 "b22bde511d5fa7a1112ef122fa70e5260ac6491bdfd3f8eeb19848b5b769621d" => :mavericks
-    sha256 "db9bd9a409bc447657f759852aa02feb0bc19cd84c552b9c16dfed130c2a3829" => :mountain_lion
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "879e065025b32017efe1cc1d1fc640f003803dd2031141452fa707a288964100"
+    sha256 cellar: :any, big_sur:       "537224e4f932680b3ee2e885b3f1215904be16731281284095b543a5ddbe42b1"
+    sha256 cellar: :any, catalina:      "f5b7baa17975ec35c118f8744fa852d51c07d03b96d707de8ee3e65c19755e9a"
+    sha256 cellar: :any, mojave:        "8c7fd219da510e1821b50069ffbcc3025bee102a1ada47fe4b3f9464507fb1bc"
+    sha256 cellar: :any, high_sierra:   "30954dffe6674f98523b3cb299f909aefbe554b70000cd777df75c326edf80d0"
+    sha256 cellar: :any, sierra:        "2836475cd2195c3906950c2a62ed618302e3f57ba4c348a82b737fcb0956fc07"
   end
-
-  deprecated_option "enable-doubles" => "with-doubles"
-  deprecated_option "enable-tracer" => "with-tracer"
-
-  option "with-doubles", "Use internal double precision floats"
-  option "with-tracer", "Use rounding error tracer"
 
   # This patch fixes a broken build on clang-600.0.56.
   # Was reported to bugs@dtecta.com (since it also applies to solid-3.5.6)
   patch :DATA
 
   def install
-    args = ["--disable-dependency-tracking",
-            "--disable-debug",
-            "--prefix=#{prefix}",
-            "--infodir=#{info}"]
-    args << "--enable-doubles" if build.with? "doubles"
-    args << "--enable-tracer" if build.with? "tracer"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-debug",
+                          "--prefix=#{prefix}",
+                          "--infodir=#{info}"
 
     # exclude the examples from compiling!
     # the examples do not compile because the include statements

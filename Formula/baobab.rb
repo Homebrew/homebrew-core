@@ -1,32 +1,34 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
-  url "https://download.gnome.org/sources/baobab/3.26/baobab-3.26.1.tar.xz"
-  sha256 "7a59ab5945f5d90725231b10d85a1893403f56660b1627c111d2b4eeb1ef787e"
+  url "https://download.gnome.org/sources/baobab/3.38/baobab-3.38.0.tar.xz"
+  sha256 "048468147860816b97f15d50b3c84e9acf0539c1441cfeb63703d112e8728329"
 
   bottle do
-    sha256 "79af97969e50a395e46f26764ac1301c604b7eaea79dc55ca6e97d0e80892709" => :high_sierra
-    sha256 "9ac8b22b290f7fd9f27d186f9d830179ab8f872fac8a997f29b01b0cf8a14786" => :sierra
-    sha256 "ba775ce84312519ee0da57407c63eaa29157de455ecd2cfca9bb9349ad09ba34" => :el_capitan
+    sha256 arm64_big_sur: "900fff026ec24002744ec2f9836c55614f5d9a775cb562d38fcd883871ea69b0"
+    sha256 big_sur:       "4a9d7b940b8d32bea12f03e4dde9c834a1efd60bcae26bc8dfce82784dee1183"
+    sha256 catalina:      "433a0bd533b88a32c6a860776c1979a9d4face3db73d7011cef2f444bcbc033b"
+    sha256 mojave:        "b1043ff9f9bd7edb169a955fe4eaccc521dcf95a448d3a52aed4b79a8eb982f9"
+    sha256 high_sierra:   "9768e9d8d1f4fdcc0a0fbb5936183c1f0bff547e34fc9814f38698e0e3da2f55"
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "libxml2" => :build
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "vala" => :build
+  depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
-    system "make", "install"
+    # stop meson_post_install.py from doing what needs to be done in the post_install step
+    ENV["DESTDIR"] = "/"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   def post_install

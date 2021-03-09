@@ -3,32 +3,20 @@ class Cabocha < Formula
   homepage "https://taku910.github.io/cabocha/"
   # Files are listed in https://drive.google.com/drive/folders/0B4y35FiV1wh7cGRCUUJHVTNJRnM
   url "https://dl.bintray.com/homebrew/mirror/cabocha-0.69.tar.bz2"
-  mirror "http://netbsd3.cs.columbia.edu/pub/pkgsrc/distfiles/cabocha-20160909/cabocha-0.69.tar.bz2"
+  mirror "https://mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/cabocha-20160909/cabocha-0.69.tar.bz2"
   sha256 "9db896d7f9d83fc3ae34908b788ae514ae19531eb89052e25f061232f6165992"
 
   bottle do
-    sha256 "beafa5ccf84633bed67d405f22ac8e570d2dc2fe0e10fccf8c11076639c672ae" => :high_sierra
-    sha256 "27bd41bab80ab64fb32e5bc8b568864b874f0dec16817d38c37abd3c7582c694" => :sierra
-    sha256 "bf3ed6bc9333b43919264913c40a86997a7601a83abf6dcfa1dfe14745b3fc7c" => :el_capitan
-    sha256 "fe97decdca655899faffd6356bb8ddbb52d4949222690835374c3aeb9a65cdb2" => :yosemite
-    sha256 "794df46e362f3146b2bab17ba132978609954b0ba0a51ffa4d6d4e8845548764" => :mavericks
-    sha256 "b1aaf6623ac7332459c795ebd992ed92224b0d0b9e20fb57dd0313fbeea7647c" => :mountain_lion
+    rebuild 1
+    sha256 arm64_big_sur: "6db92d4bc14b2b1045601758c9ad2d528fda7ce0029316a2b296c63c4953c54d"
+    sha256 big_sur:       "1dd5c1474946aaab675326323c8f7e3d101687b50d5542464558f54a8c477cc8"
+    sha256 catalina:      "0cf6edea1fa69790984c762aaff33bcea3d6cf5206e06cf489c53e8644cbc9a4"
+    sha256 mojave:        "34825bb06bd8cbdb2fe082471044168cccdafc7414eac37eb6550f8a12e0dbe2"
   end
-
-  option "with-charset=", "choose default charset: EUC-JP, CP932, UTF8"
-  option "with-posset=", "choose default posset: IPA, JUMAN, UNIDIC"
-
-  deprecated_option "charset=" => "with-charset="
-  deprecated_option "posset=" => "with-posset="
 
   depends_on "crf++"
   depends_on "mecab"
-
-  # To see which dictionaries are available, run:
-  #     ls `mecab-config --libs-only-L`/mecab/dic/
-  depends_on "mecab-ipadic" => :recommended
-  depends_on "mecab-jumandic" => :optional
-  depends_on "mecab-unidic" => :optional
+  depends_on "mecab-ipadic"
 
   def install
     ENV["LIBS"] = "-liconv"
@@ -38,14 +26,11 @@ class Cabocha < Formula
       s.change_make_var! "CXXFLAGS", ENV.cflags
     end
 
-    charset = ARGV.value("with-charset") || "UTF8"
-    posset = ARGV.value("with-posset") || "IPA"
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --with-charset=#{charset}
-      --with-posset=#{posset}
+      --with-charset=UTF8
+      --with-posset=IPA
     ]
 
     system "./configure", *args

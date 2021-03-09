@@ -1,23 +1,36 @@
 class Oniguruma < Formula
   desc "Regular expressions library"
   homepage "https://github.com/kkos/oniguruma/"
-  url "https://github.com/kkos/oniguruma/releases/download/v6.6.1/onig-6.6.1.tar.gz"
-  sha256 "8f9731f9e48666236a1678e2b4ead69be682eefba3983a714b6b57cf5ee14372"
+  url "https://github.com/kkos/oniguruma/releases/download/v6.9.6/onig-6.9.6.tar.gz"
+  sha256 "bd0faeb887f748193282848d01ec2dad8943b5dfcb8dc03ed52dcc963549e819"
+  license "BSD-2-Clause"
+  head "https://github.com/kkos/oniguruma.git"
 
-  bottle do
-    cellar :any
-    sha256 "a8c7f05b57a3e2af9d3128493bbdd728065dc85f46f3dee755230a632738939d" => :high_sierra
-    sha256 "04434c6981d707f34b7dfe8b6d224d079cc8c2e2f1b1a7898f4a8d5c8b9c1255" => :sierra
-    sha256 "a427aa562f87e2d3d0081e757993340fe150c4240c64f23376ecb1910c17c7a9" => :el_capitan
-    sha256 "ff7a92976e22cde9cb1be7d8010d5ea617d6e024a6dbc430c43b170ab5d6bbe8" => :yosemite
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-](?:mark|rev)\d+)?)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "dc2264a1fd09eb555ff2591d212af8e9cb5071ca529104dd17746af6306e79d0"
+    sha256 cellar: :any, big_sur:       "505599ad17e21360a58a89db2133115b5aa109cdebd5d284bec2bc25cfee5062"
+    sha256 cellar: :any, catalina:      "e40a40789488ed0f0a98e5aec3336bfa04f87b7983e139524fbbc1b192ea71ac"
+    sha256 cellar: :any, mojave:        "98d43005ae967cba150b66abfe0c76163f7072ecb80eb573612284a706d6e5c1"
+    sha256 cellar: :any, high_sierra:   "737284ca190ac20d86a070bccf720194342f617e60690781eefae867230a2f58"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   def install
+    system "autoreconf", "-vfi"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "make"
     system "make", "install"
   end
 
   test do
-    assert_match /#{prefix}/, shell_output("#{bin}/onig-config --prefix")
+    assert_match(/#{prefix}/, shell_output("#{bin}/onig-config --prefix"))
   end
 end

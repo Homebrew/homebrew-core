@@ -1,15 +1,22 @@
 class Timelimit < Formula
   desc "Limit a process's absolute execution time"
   homepage "https://devel.ringlet.net/sysutils/timelimit/"
-  url "https://devel.ringlet.net/files/sys/timelimit/timelimit-1.8.1.tar.gz"
-  sha256 "7043d9ff1ec9650f7f50118529a4cea129720ea9d1035d986cb77e6358c7179d"
+  url "https://devel.ringlet.net/files/sys/timelimit/timelimit-1.9.0.tar.gz"
+  sha256 "34185bbfe807a912f352f4e2f634c9c3781810b376c4bba947a2381611e7d72c"
+
+  livecheck do
+    url :homepage
+    regex(/latest release is .*?timelimit[._-]v?(\d+(?:\.\d+)+)</i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6754c1851d0530a70c035b15a53b7286c018191e744befdb03ddbb086a97e537" => :high_sierra
-    sha256 "5085abbf18bc1e2f4aa65651feeebb7e5704de5e2712d82a32c854ba7438273e" => :sierra
-    sha256 "dbd4adf91b29d800a9d84be457279ab0465185c951491015c50e0e6a086ca908" => :el_capitan
-    sha256 "6ae0fbb95e2011aa3511ab5bc95a476f1de4216d972e93f312e8bebf8abbef3f" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f890d907623dd9b857710b9d7eb1d3256ba0ba7f620576a28313522343b648f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6660e64fd509f5e3b58a1ce3b6e8dffbdc4cbb35eedefca5b133e5bd3009f378"
+    sha256 cellar: :any_skip_relocation, catalina:      "5a4d896430260125864a8b8e22aabf172e36c8f8942faece7db8d502c568a690"
+    sha256 cellar: :any_skip_relocation, mojave:        "4b868a4ee5bd9e424e6ea4aa36fc828d6efd3f07b1d72063bbdb5a0c59baa276"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "872dbbd21820c6d08513f29bc0c024f8584c7d7b7b6b4b436553414d08fd6950"
+    sha256 cellar: :any_skip_relocation, sierra:        "5fdeeb6ef9c0306f7195187b8068bc4f84de79d6f6716977a262ce26abb3b1db"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "d36206d7c4ba1431fb592ad9335e9ae3bea8b983245cec1e65cc24318088bd86"
   end
 
   def install

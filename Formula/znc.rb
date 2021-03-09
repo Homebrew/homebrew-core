@@ -1,14 +1,16 @@
 class Znc < Formula
   desc "Advanced IRC bouncer"
   homepage "https://wiki.znc.in/ZNC"
-  url "https://znc.in/releases/archive/znc-1.6.5.tar.gz"
-  sha256 "2f0225d49c53a01f8d94feea4619a6fe92857792bb3401a4eb1edd65f0342aca"
+  url "https://znc.in/releases/archive/znc-1.8.2.tar.gz"
+  sha256 "ff238aae3f2ae0e44e683c4aee17dc8e4fdd261ca9379d83b48a7d422488de0d"
+  license "Apache-2.0"
+  revision 2
 
   bottle do
-    sha256 "282e0fddf7f3e13d891b92ca31b2fc3d9f216ffd8771550cc4551d3e21b3b547" => :high_sierra
-    sha256 "c1d6ddcd9078631bcd94484f3796e95f32bf9e7b8d0886d9e2802b955b624cbf" => :sierra
-    sha256 "fe47b2288ee78acd11b5d4dc5a4a43a255153a211775875975f458cfc370c7a9" => :el_capitan
-    sha256 "61a0afcfcb021a7005d59f6d0a352fe27f05a6b2617eadb4482172d673666a67" => :yosemite
+    sha256 arm64_big_sur: "18345054b7781bf24544da8e0518b47b690b758072b779d92e08c5293a6ef49a"
+    sha256 big_sur:       "2efca6c0d0c2de07b12406e0a9fe31210b3bacd025d99488cfeda148d64bbe1f"
+    sha256 catalina:      "2b4458ad2b2625a49bb18a18b057c19a4d71803d86220947830eb67a0b7399ca"
+    sha256 mojave:        "2d13c5d62b773e03f9dc5c376a0c90a0c14fe32e87c6ed88653fb77c5cdce390"
   end
 
   head do
@@ -19,18 +21,12 @@ class Znc < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-debug", "Compile ZNC with debug support"
-  option "with-icu4c", "Build with icu4c for charset support"
-  option "with-python3", "Build with mod_python support, allowing Python ZNC modules"
-
-  deprecated_option "enable-debug" => "with-debug"
-
   depends_on "pkg-config" => :build
-  depends_on "openssl"
-  depends_on "icu4c" => :optional
-  depends_on :python3 => :optional
+  depends_on "icu4c"
+  depends_on "openssl@1.1"
+  depends_on "python@3.9"
 
-  needs :cxx11
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11
@@ -40,39 +36,41 @@ class Znc < Formula
     ENV.append "CXXFLAGS", "-std=c++11"
     ENV.append "CXXFLAGS", "-stdlib=libc++" if ENV.compiler == :clang
 
-    args = ["--prefix=#{prefix}"]
-    args << "--enable-debug" if build.with? "debug"
-    args << "--enable-python" if build.with? "python3"
+    on_linux do
+      ENV.append "CXXFLAGS", "-I#{Formula["zlib"].opt_include}"
+      ENV.append "LIBS", "-L#{Formula["zlib"].opt_lib}"
+    end
 
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--enable-python"
     system "make", "install"
   end
 
-  plist_options :manual => "znc --foreground"
+  plist_options manual: "znc --foreground"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/znc</string>
-          <string>--foreground</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/znc.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/znc.log</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StartInterval</key>
-        <integer>300</integer>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/znc</string>
+            <string>--foreground</string>
+          </array>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/znc.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/znc.log</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StartInterval</key>
+          <integer>300</integer>
+        </dict>
+      </plist>
     EOS
   end
 

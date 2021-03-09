@@ -1,22 +1,22 @@
 class GnomeAutoar < Formula
   desc "GNOME library for archive handling"
   homepage "https://github.com/GNOME/gnome-autoar"
-  url "https://download.gnome.org/sources/gnome-autoar/0.2/gnome-autoar-0.2.2.tar.xz"
-  sha256 "e1fe2c06eed30305c38bf0939c72b0e51b4716658e2663a0cf4a4bf57874ca62"
+  url "https://download.gnome.org/sources/gnome-autoar/0.3/gnome-autoar-0.3.0.tar.xz"
+  sha256 "f2c112c0120cca2bf5a82c5b0ac8cba90ce10d21fec78f50a3bc513fdd64586b"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 "30caedf2c55df01b4150be42ab971e5ef798c3d7d057058ce61dc38f924833a5" => :high_sierra
-    sha256 "ea737743690c568c3aedba7ca5807c319abcb9549d6fd41bb708ebd2ee4b17c1" => :sierra
-    sha256 "6e9d51dec3fa8330f6584a735403da1f98ac9c0e917e89f4a2aec42174f5acd6" => :el_capitan
-    sha256 "925174b30b4a5577720f30d5b1d04450e5f0c515505f589f2df3188ab36ae227" => :yosemite
+    sha256 arm64_big_sur: "c6e08f12eb6dfd6bc180807ac90df1442265256c2ebbb67a111fa09873d0d59b"
+    sha256 big_sur:       "ed23a1cc6375962d89c85e43d72064197ff70d8ecaffe4d09560a154fe45603d"
+    sha256 catalina:      "94f0f34bc7dc823d9b094ffc7d4bc59fb383f02a4f149564c3708bb06676a3ea"
+    sha256 mojave:        "aface7d5ba3f2d50a2072d138c7dca23bbff86e9eb1c5ffeb6cdcc7cac7fc4ef"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libarchive"
   depends_on "gtk+3"
+  depends_on "libarchive"
 
   def install
-    ENV.delete "SDKROOT"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

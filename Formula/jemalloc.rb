@@ -1,22 +1,32 @@
 class Jemalloc < Formula
-  desc "malloc implementation emphasizing fragmentation avoidance"
+  desc "Implementation of malloc emphasizing fragmentation avoidance"
   homepage "http://jemalloc.net/"
-  url "https://github.com/jemalloc/jemalloc/releases/download/5.0.1/jemalloc-5.0.1.tar.bz2"
-  sha256 "4814781d395b0ef093b21a08e8e6e0bd3dab8762f9935bbfb71679b0dea7c3e9"
+  url "https://github.com/jemalloc/jemalloc/releases/download/5.2.1/jemalloc-5.2.1.tar.bz2"
+  sha256 "34330e5ce276099e2e8950d9335db5a875689a4c6a56751ef3b1d8c537f887f6"
+  license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "4046a803c804dac204126e10acd158e5a996c5bc8117917979ff495a5e07fcb3" => :high_sierra
-    sha256 "0ae7f33eda0547fd2eacad3f84c3c7cc6ebfb76ea02e8a4bac542ba60ba6ef07" => :sierra
-    sha256 "1e49d486784c64dccee6e43d61ecb201adf6ac8b5cc02465ac9ea5b492a56d01" => :el_capitan
-    sha256 "49a8f071338b3ec42cd89280681c338ad2e1d242a389e65f63f64e60257c5733" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "724ab5947e53f571b9fed9e776a1ba22b1d71fe27ce5775553d70e990ef9dc63"
+    sha256 cellar: :any, big_sur:       "7797788be2da677a8343ac6199e2f180c2e6b627c0b9abc9da133fbc34e86678"
+    sha256 cellar: :any, catalina:      "b1b211e5bead798c236d478dd74310a97a7b59470f607b608c07222648b08bf5"
+    sha256 cellar: :any, mojave:        "d3f6f85e74b08c8c97448e289734df484f884af35cd10ce9d9db43cf721fbf94"
+    sha256 cellar: :any, high_sierra:   "8080c98844153da08346431fe0a0592f6f718cb7a17525f9ffb909c395bc0b6d"
   end
 
   head do
-    url "https://github.com/jemalloc/jemalloc.git"
+    url "https://github.com/jemalloc/jemalloc.git", branch: "dev"
 
     depends_on "autoconf" => :build
     depends_on "docbook-xsl" => :build
+  end
+
+  # Fixes an issue where jemalloc's types conflict with the system
+  # types, preventing their use. Merged upstream.
+  # https://github.com/jemalloc/jemalloc/commit/3b4a03b92b2e415415a08f0150fdb9eeb659cd52
+  patch do
+    url "https://github.com/Homebrew/formula-patches/raw/d3d5ad2b5683c1a435a185eec9c593749c7ca41a/jemalloc/fix_nothrow_type.patch"
+    sha256 "d79f5c8767695059ff541f291db3fbc57c9b67299dc129848dd365c2f51b214a"
   end
 
   def install

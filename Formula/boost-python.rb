@@ -1,75 +1,64 @@
 class BoostPython < Formula
-  desc "C++ library for C++/Python interoperability"
+  desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
-  sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
+  url "https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
+  sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
+  license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    cellar :any
-    sha256 "8377ee93d0bb678b2c69e9f2956607b4c04e4c226a780be60b452ac2d7e02de7" => :high_sierra
-    sha256 "d811c19f1eef548746972475d98f68f431f62af075a9c9e984911f6cb45ebb75" => :sierra
-    sha256 "37b52bcae4be5fb7db46487e494bc8c3da0ddbe2dab2e7f20ffba4e7eb3827e4" => :el_capitan
-    sha256 "28e1853e51af2f853dfd84135a62215c3d3142126742648f1e76434f218756dc" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, big_sur:  "773bf09629cf60599cb4118827d40b81ef792efbe24796ac5a756e4c173ba889"
+    sha256 cellar: :any, catalina: "6fb5b45ffb117fa0a996a24f6ccf8041685ebbe65b8a5cea26d92028eeff09e4"
+    sha256 cellar: :any, mojave:   "f17e33b10753adb4d49cd1d9daf46ba28552953e53069025b84393cb5db89223"
   end
 
-  option :cxx11
-  option "without-python", "Build without python 2 support"
+  deprecate! date: "2020-01-01", because: "uses Python 2, which is no longer supported"
 
-  depends_on :python3 => :optional
   depends_on "boost"
+  depends_on :macos # Due to Python 2
 
   def install
     # "layout" should be synchronized with boost
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged",
-            "--user-config=user-config.jam",
-            "threading=multi,single",
-            "link=shared,static"]
+    args = %W[
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged-1.66
+      install
+      threading=multi,single
+      link=shared,static
+    ]
 
-    # Build in C++11 mode if boost was built in C++11 mode.
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    elsif Tab.for_name("boost").cxx11?
-      odie "boost was built in C++11 mode so boost-python must be built with --c++11."
-    end
+    # Boost is using "clang++ -x c" to select C compiler which breaks C++14
+    # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
+    args << "cxxflags=-std=c++14"
+    args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
-    # disable python detection in bootstrap.sh; it guesses the wrong include directory
-    # for Python 3 headers, so we configure python manually in user-config.jam below.
-    inreplace "bootstrap.sh", "using python", "#using python"
+    pyver = Language::Python.major_minor_version "python"
 
-    Language::Python.each_python(build) do |python, version|
-      py_prefix = `#{python} -c "from __future__ import print_function; import sys; print(sys.prefix)"`.strip
-      py_include = `#{python} -c "from __future__ import print_function; import distutils.sysconfig; print(distutils.sysconfig.get_python_inc(True))"`.strip
-      open("user-config.jam", "w") do |file|
-        # Force boost to compile with the desired compiler
-        file.write "using darwin : : #{ENV.cxx} ;\n"
-        file.write <<~EOS
-          using python : #{version}
-                       : #{python}
-                       : #{py_include}
-                       : #{py_prefix}/lib ;
-        EOS
-      end
+    system "./bootstrap.sh", "--prefix=#{prefix}", "--libdir=#{lib}",
+                             "--with-libraries=python", "--with-python=python"
 
-      system "./bootstrap.sh", "--prefix=#{prefix}", "--libdir=#{lib}", "--with-libraries=python",
-                               "--with-python=#{python}", "--with-python-root=#{py_prefix}"
+    system "./b2", "--build-dir=build-python",
+                   "--stagedir=stage-python",
+                   "--libdir=install-python/lib",
+                   "--prefix=install-python",
+                   "python=#{pyver}",
+                   *args
 
-      system "./b2", "--build-dir=build-#{python}", "--stagedir=stage-#{python}",
-                     "python=#{version}", *args
-    end
-
-    lib.install Dir["stage-python3/lib/*py*"] if build.with?("python3")
-    lib.install Dir["stage-python/lib/*py*"] if build.with?("python")
+    lib.install Dir["install-python/lib/*.*"]
+    lib.install Dir["stage-python/lib/*py*"]
     doc.install Dir["libs/python/doc/*"]
+  end
+
+  def caveats
+    <<~EOS
+      This formula provides Boost.Python for Python 2. Due to a
+      collision with boost-python3, the CMake Config files are not
+      available. Please use -DBoost_NO_BOOST_CMAKE=ON when building
+      with CMake or switch to Python 3.
+    EOS
   end
 
   test do
@@ -83,12 +72,20 @@ class BoostPython < Formula
         boost::python::def("greet", greet);
       }
     EOS
-    Language::Python.each_python(build) do |python, _|
-      pyflags = (`#{python}-config --includes`.strip + " " +
-                 `#{python}-config --ldflags`.strip).split(" ")
-      system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_#{python}", "-o", "hello.so", *pyflags
-      output = `#{python} -c "from __future__ import print_function; import hello; print(hello.greet())"`
-      assert_match "Hello, world!", output
-    end
+
+    pyprefix = `python-config --prefix`.chomp
+    pyincludes = Utils.popen_read("python-config", "--includes").chomp.split
+    pylib = Utils.popen_read("python-config", "--ldflags").chomp.split
+
+    system ENV.cxx, "-shared", "hello.cpp", "-L#{lib}", "-lboost_python27",
+                    "-o", "hello.so", "-I#{pyprefix}/include/python2.7",
+                    *pyincludes, *pylib
+
+    output = <<~EOS
+      from __future__ import print_function
+      import hello
+      print(hello.greet())
+    EOS
+    assert_match "Hello, world!", pipe_output("python", output, 0)
   end
 end

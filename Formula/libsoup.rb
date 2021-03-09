@@ -1,48 +1,50 @@
 class Libsoup < Formula
   desc "HTTP client/server library for GNOME"
-  homepage "https://live.gnome.org/LibSoup"
-  url "https://download.gnome.org/sources/libsoup/2.60/libsoup-2.60.2.tar.xz"
-  sha256 "7263cfe18872e2e652c196f5667e514616d9c97c861dfca82a65a55f45f0da01"
+  homepage "https://wiki.gnome.org/Projects/libsoup"
+  url "https://download.gnome.org/sources/libsoup/2.72/libsoup-2.72.0.tar.xz"
+  sha256 "170c3f8446b0f65f8e4b93603349172b1085fb8917c181d10962f02bb85f5387"
+  license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 "12b9c97a71c3b27aa84c191054b0175c628785095762e493f9577204b36629a3" => :high_sierra
-    sha256 "4a846aa24e2b3f2b5049544098aa2de8109e3b9479c5e04ce23ff1c8067321ba" => :sierra
-    sha256 "521eb03c23feaa00e3c409fe47f111e5bb5968250db5027968d919bb5d5e1cec" => :el_capitan
+    sha256 arm64_big_sur: "4ba31ecd333f8be6a5cb4eed23715fce9b478d79345bf51b88e172a2db0fb496"
+    sha256 big_sur:       "b135c1b3cf8a49f15afdb9d7c354b9175de2561c20a3e4ef8b91a8234f81fbe3"
+    sha256 catalina:      "b7f09cfabd4ef0210d181e54e74f2cff33518df0c81bc9e27764454e54cb6243"
+    sha256 mojave:        "14a5f08043cacb9f68a9f5d48e0175397c81184621fbcbec871aa764241509a6"
+    sha256 high_sierra:   "78a481740fc494934fdbafbd25f8c7141f57cd61d1ff713682fe3a5a4b91b840"
   end
 
+  depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
-  depends_on "sqlite"
-  depends_on "gobject-introspection"
+  depends_on "libpsl"
   depends_on "vala"
 
+  uses_from_macos "krb5"
+  uses_from_macos "libxml2"
+
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --disable-tls-check
-      --enable-introspection=yes
-    ]
-
-    # ensures that the vala files remain within the keg
-    inreplace "libsoup/Makefile.in",
-              "VAPIDIR = @VAPIDIR@",
-              "VAPIDIR = @datadir@/vala/vapi"
-
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
+    # if this test start failing, the problem might very well be in glib-networking instead of libsoup
     (testpath/"test.c").write <<~EOS
       #include <libsoup/soup.h>
 
       int main(int argc, char *argv[]) {
-        guint version = soup_get_major_version();
+        SoupMessage *msg = soup_message_new("GET", "https://brew.sh");
+        SoupSession *session = soup_session_new();
+        soup_session_send_message(session, msg); // blocks
+        g_assert_true(SOUP_STATUS_IS_SUCCESSFUL(msg->status_code));
+        g_object_unref(msg);
+        g_object_unref(session);
         return 0;
       }
     EOS

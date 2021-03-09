@@ -1,16 +1,20 @@
 class Socat < Formula
-  desc "netcat on steroids"
+  desc "SOcket CAT: netcat on steroids"
   homepage "http://www.dest-unreach.org/socat/"
-  url "http://www.dest-unreach.org/socat/download/socat-1.7.3.2.tar.gz"
-  sha256 "ce3efc17e3e544876ebce7cd6c85b3c279fda057b2857fcaaf67b9ab8bdaf034"
-  revision 1
+  url "http://www.dest-unreach.org/socat/download/socat-1.7.4.1.tar.gz"
+  sha256 "0c7e635070af1b9037fd96869fc45eacf9845cb54547681de9d885044538736d"
+  license "GPL-2.0"
+
+  livecheck do
+    url "http://www.dest-unreach.org/socat/download/"
+    regex(/href=.*?socat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "5a62a721c43d859b1ff8b77dc4da563fcffdba4089f4656cdfdb802a35542075" => :high_sierra
-    sha256 "c8996f731d2c595a356b0b793568aee72543c249506b4a34ad782d8f0e5fa129" => :sierra
-    sha256 "f8e75c8fb5e902928b25c27fd25279a922fa050e5f2bd329eef18e062e24481a" => :el_capitan
-    sha256 "a5c5b28d9fbf0f52ab0d69dc7cbe44f23a58876e32791b69275d96a15703d3e9" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "1d355658a55eb44cb6ffe1fa8dc140883359467080e13be0d4237cf181c05dc0"
+    sha256 cellar: :any, big_sur:       "2249d3b3852d95fc683e27292e26967b0e3a13d60e59a99181445f941a343a32"
+    sha256 cellar: :any, catalina:      "f2a0d0d0bca542cb0f4b700d42dc244e82b8da9be2d5aff8d98b8a7fef77c9fe"
+    sha256 cellar: :any, mojave:        "531f3ea55671c8d01165c3a314b24cef873c51442a1729fe2e9ce14ff908aebb"
   end
 
   depends_on "openssl@1.1"

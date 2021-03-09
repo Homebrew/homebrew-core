@@ -1,18 +1,23 @@
 class OpencvAT2 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/2.4.13.4.tar.gz"
-  sha256 "f8abf1fcc2da3bb1deac8776f07b8390f871372e2a44dc355c765dd379194481"
+  url "https://github.com/opencv/opencv/archive/2.4.13.7.tar.gz"
+  sha256 "192d903588ae2cdceab3d7dc5a5636b023132c8369f184ca89ccec0312ae33d0"
+  license "BSD-3-Clause"
+  revision 11
 
   bottle do
-    sha256 "5604daf2cbb63923b5bcfed984a797bbe48bf915b7272c8588429ed8bf7c65bf" => :high_sierra
-    sha256 "a6c8afdcf22606be32b1c0d30a6c1f4e1b9534c029646f583e30efdd7087d898" => :sierra
-    sha256 "b52943718bb79e438d4c0cf695c59b27a17358672553f27182a614a4fe950b3e" => :el_capitan
+    rebuild 1
+    sha256 arm64_big_sur: "b922e9b3ec3db807a32450bcbca07e300d63c6b4c3d5670fd7274e10cca597be"
+    sha256 big_sur:       "115b11655bf2cc24b77186531be0f5a001c87bebbba4b9eadfff6e9d9df4c5bb"
+    sha256 catalina:      "cec589da16fc90825ef984f9fe5439e3c76a51d95c56eceadccbe133974e3b68"
+    sha256 mojave:        "c1f177ad25d49a2d3fd626592201a151c3153bb3a3cd8d4d333a654afd2f5ec8"
   end
 
   keg_only :versioned_formula
 
-  option "without-python", "Build without python2 support"
+  # https://www.slideshare.net/EugeneKhvedchenya/opencv-30-latest-news-and-the-roadmap
+  deprecate! date: "2015-02-01", because: :unsupported
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -21,11 +26,12 @@ class OpencvAT2 < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on :macos # Due to Python 2
+  depends_on "numpy@1.16"
   depends_on "openexr"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on "numpy" if build.with? "python"
 
   def install
+    ENV.cxx11
     jpeg = Formula["jpeg"]
 
     args = std_cmake_args + %W[
@@ -39,6 +45,7 @@ class OpencvAT2 < Formula
       -DBUILD_TIFF=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_java=OFF
+      -DBUILD_opencv_python=ON
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
       -DWITH_FFMPEG=ON
@@ -49,30 +56,24 @@ class OpencvAT2 < Formula
       -DWITH_TBB=OFF
       -DJPEG_INCLUDE_DIR=#{jpeg.opt_include}
       -DJPEG_LIBRARY=#{jpeg.opt_lib}/libjpeg.dylib
+      -DENABLE_SSSE3=ON
     ]
 
-    args << "-DBUILD_opencv_python=" + (build.with?("python") ? "ON" : "OFF")
+    py_prefix = `python-config --prefix`.chomp
+    py_lib = "#{py_prefix}/lib"
+    args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.dylib"
+    args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7"
 
-    if build.with? "python"
-      py_prefix = `python-config --prefix`.chomp
-      py_lib = "#{py_prefix}/lib"
-      args << "-DPYTHON_LIBRARY=#{py_lib}/libpython2.7.dylib"
-      args << "-DPYTHON_INCLUDE_DIR=#{py_prefix}/include/python2.7"
+    # Make sure find_program locates system Python
+    # https://github.com/Homebrew/homebrew-science/issues/2302
+    args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
 
-      # Make sure find_program locates system Python
-      # https://github.com/Homebrew/homebrew-science/issues/2302
-      args << "-DCMAKE_PREFIX_PATH=#{py_prefix}"
-    end
-
-    if ENV.compiler == :clang && !build.bottle?
-      args << "-DENABLE_SSSE3=ON" if Hardware::CPU.ssse3?
-      args << "-DENABLE_SSE41=ON" if Hardware::CPU.sse4?
-      args << "-DENABLE_SSE42=ON" if Hardware::CPU.sse4_2?
-      args << "-DENABLE_AVX=ON" if Hardware::CPU.avx?
-    end
+    args << "-DENABLE_SSE41=ON" << "-DENABLE_SSE42=ON" \
+      if Hardware::CPU.intel? && MacOS.version.requires_sse42?
 
     mkdir "build" do
       system "cmake", "..", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       system "make", "install"
     end
@@ -91,7 +92,7 @@ class OpencvAT2 < Formula
     assert_equal version.to_s, shell_output("./test").strip
 
     ENV["PYTHONPATH"] = lib/"python2.7/site-packages"
-    assert_match version.to_s,
-                 shell_output("python -c 'import cv2; print(cv2.__version__)'")
+    output = shell_output("python2.7 -c 'import cv2; print(cv2.__version__)'")
+    assert_match version.to_s, output
   end
 end

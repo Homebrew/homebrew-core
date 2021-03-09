@@ -1,18 +1,20 @@
 class ReattachToUserNamespace < Formula
   desc "Reattach process (e.g., tmux) to background"
   homepage "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard"
-  url "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/archive/v2.6.tar.gz"
-  sha256 "80f5640a53823e39f87cc78a7567f38dd3f440f9c721e4929fde77dae6b71eb5"
-
+  url "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard/archive/v2.9.tar.gz"
+  sha256 "e4df00ead6b267a027a4ea35032bcfa114d91e709b1986ec0cbaee6825cec436"
+  license "BSD-2-Clause"
   head "https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8ced8c1497d56fc6b4c4d85d55ed38cd5c9785ca304083c4c72271776a9c8cba" => :high_sierra
-    sha256 "e03dead8ceeaead3e996b30275f9b76ee912f47110037405a3504d94352eeca1" => :sierra
-    sha256 "32e211dc568925e01d410ba4bef4a508d529ee553e9bf2f4d10564d11fb9e550" => :el_capitan
-    sha256 "7e2cfb5efe7a03dd9cbf230034996caaf2206da05f2e5f771b9f289416907e45" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebbf92257744971b555e6f1abb0205b5ee09986b47168d94f235b302974536b9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8b715171e1c8ce8f86cddc241340a7a6f4f263e770d912894cf580790f8d8aa4"
+    sha256 cellar: :any_skip_relocation, catalina:      "8ab11a5fa7512f5d7ef8fe62a5275325f3721e13fde2b0831d1f615e8820c341"
+    sha256 cellar: :any_skip_relocation, mojave:        "b277145d5bfbc6997bc7d8ebe203e9d93adf8d1aa2f0f1c76152212ee6a23403"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "68e1f00743690086fb23ce013767e0a669ef46807ee9f618fe9ea4a25c50d5c0"
   end
+
+  depends_on :macos
 
   def install
     system "make"

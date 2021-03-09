@@ -1,27 +1,36 @@
 class Pass < Formula
   desc "Password manager"
   homepage "https://www.passwordstore.org/"
-  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.1.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/p/password-store/password-store_1.7.1.orig.tar.xz"
-  sha256 "f6d2199593398aaefeaa55e21daddfb7f1073e9e096af6d887126141e99d9869"
+  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.3.tar.xz"
+  sha256 "2b6c65846ebace9a15a118503dcd31b6440949a30d3b5291dfb5b1615b99a3f4"
+  license "GPL-2.0"
+  head "https://git.zx2c4.com/password-store.git"
 
-  head "https://git.zx2c4.com/password-store", :using => :git
-
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "8a66e0a2f89e7d36cd58dcb925a22c8c41cb549f4bb01e3adda394c45ae9ef5a" => :high_sierra
-    sha256 "cde7a0225dbcd62b9cc9d8e5e8d9ed8e0534bbe590cb3cc974cc31a8177defdd" => :sierra
-    sha256 "692b37f152b5bad4d841323c7938b8d1f94c858026d7ad941b7a270ee9503705" => :el_capitan
-    sha256 "692b37f152b5bad4d841323c7938b8d1f94c858026d7ad941b7a270ee9503705" => :yosemite
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "05fce35468aa6e21cc355dcc0712d14e697e46714a3118a832c223bb8cee3365"
+    sha256 cellar: :any_skip_relocation, big_sur:       "57fb3a87752b1c26bd0bba8710787a1b522f0feeb445d02241aefce9df4f2965"
+    sha256 cellar: :any_skip_relocation, catalina:      "8130755986b8124ead30b7444bbab1f5b12b5481ddf914a310e221fdda736eb3"
+    sha256 cellar: :any_skip_relocation, mojave:        "8130755986b8124ead30b7444bbab1f5b12b5481ddf914a310e221fdda736eb3"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8130755986b8124ead30b7444bbab1f5b12b5481ddf914a310e221fdda736eb3"
+  end
+
+  depends_on "gnu-getopt"
+  depends_on "gnupg"
   depends_on "qrencode"
   depends_on "tree"
-  depends_on "gnu-getopt"
-  depends_on :gpg => :run
 
   def install
-    system "make", "PREFIX=#{prefix}", "WITH_ALLCOMP=yes", "BASHCOMPDIR=#{bash_completion}", "ZSHCOMPDIR=#{zsh_completion}", "FISHCOMPDIR=#{fish_completion}", "install"
+    system "make", "PREFIX=#{prefix}", "WITH_ALLCOMP=yes", "BASHCOMPDIR=#{bash_completion}",
+                   "ZSHCOMPDIR=#{zsh_completion}", "FISHCOMPDIR=#{fish_completion}", "install"
+    inreplace "#{bin}/pass",
+              /^SYSTEM_EXTENSION_DIR=.*$/,
+              "SYSTEM_EXTENSION_DIR=\"#{HOMEBREW_PREFIX}/lib/password-store/extensions\""
     elisp.install "contrib/emacs/password-store.el"
     pkgshare.install "contrib"
   end

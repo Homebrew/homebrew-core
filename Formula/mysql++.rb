@@ -1,26 +1,27 @@
 class Mysqlxx < Formula
   desc "C++ wrapper for MySQL's C API"
   homepage "https://tangentsoft.com/mysqlpp/home"
-  url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.2.3.tar.gz"
-  sha256 "c804c38fe229caab62a48a6d0a5cb279460da319562f41a16ad2f0a0f55b6941"
+  url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.2.5.tar.gz"
+  sha256 "839cfbf71d50a04057970b8c31f4609901f5d3936eaa86dab3ede4905c4db7a8"
+  license "LGPL-2.1-or-later"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "e896760f31b977fce886b2f9eb67ee70fa93491752ac48744458bfa74b5c1f35" => :high_sierra
-    sha256 "44549b6b92ecf8288923b6111a67c3dcf16f5ba0a0ca47f4fd38a31b99545452" => :sierra
-    sha256 "1f0e3bc7e6e25924bb95113ee0cbd7c99402dc51744682258b3548c756431239" => :el_capitan
-    sha256 "f9837534007c15fdf73e607ddc58c1d5c0d1d20ff2de7e2d1dea20716b823cc9" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "84187bd98edc4c965935f5cbd38572bbc01c755bd8fa31808571c66ccd6fe589"
+    sha256 cellar: :any, big_sur:       "8217141b2c7f02ee63c256b20bac582b8dcfca969b3bc1658cbe3a234e5eff98"
+    sha256 cellar: :any, catalina:      "b7e5c1ede992e84fc7200d5216b2643cd8a3e5839a3b8610640c67d6ad675a12"
+    sha256 cellar: :any, mojave:        "6eebecae2b6b3f1b4144c0e731ab8774eb9ed4f918369b6593c55d88258dd07e"
   end
 
-  depends_on :mysql
+  depends_on "mysql-client"
 
   def install
-    mysql_include_dir = Utils.popen_read("mysql_config --variable=pkgincludedir")
+    mysql = Formula["mysql-client"]
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-field-limit=40",
-                          "--with-mysql-lib=#{HOMEBREW_PREFIX}/lib",
-                          "--with-mysql-include=#{mysql_include_dir}"
+                          "--with-mysql-lib=#{mysql.opt_lib}",
+                          "--with-mysql-include=#{mysql.opt_include}/mysql"
     system "make", "install"
   end
 
@@ -35,7 +36,7 @@ class Mysqlxx < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", Utils.popen_read("mysql_config --include").chomp,
+    system ENV.cxx, "test.cpp", "-I#{Formula["mysql-client"].opt_include}/mysql",
                     "-L#{lib}", "-lmysqlpp", "-o", "test"
     system "./test", "-u", "foo", "-p", "bar"
   end

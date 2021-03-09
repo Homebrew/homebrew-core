@@ -1,34 +1,24 @@
 class Libebml < Formula
   desc "Sort of a sbinary version of XML"
   homepage "https://www.matroska.org/"
-  url "https://dl.matroska.org/downloads/libebml/libebml-1.3.5.tar.xz"
-  mirror "https://www.bunkus.org/videotools/mkvtoolnix/sources/libebml-1.3.5.tar.xz"
-  sha256 "d818413f60742c2f036ba6f582c5e0320d12bffec1b0fc0fc17a398b6f04aa00"
+  url "https://dl.matroska.org/downloads/libebml/libebml-1.4.2.tar.xz"
+  sha256 "41c7237ce05828fb220f62086018b080af4db4bb142f31bec0022c925889b9f2"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/Matroska-Org/libebml.git"
 
   bottle do
-    cellar :any
-    sha256 "7d69a43858af582acc49663e2e464ce6e361b99e33f58ea8fcd605df02f60128" => :high_sierra
-    sha256 "72ea79b1b694d3ba054af56ed8aef46957e9ca2cb71642a0c9576121d1333e48" => :sierra
-    sha256 "07ee02f2d332d60c9377117e47471f44ef7843de0f162acd067fe732f4d23c1d" => :el_capitan
-    sha256 "c2d4a00cc8e80a2969fa14cb71a84f0e3e26342402c77fdbc641b2e48fec851e" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "fce6d01b12243501223e4e9294528b8eab1818815b18e4ffe777fd14cec0e525"
+    sha256 cellar: :any, big_sur:       "de4edaae6d3f42a388be996f448b582262e39e923acc9ccef881a20ffa817d38"
+    sha256 cellar: :any, catalina:      "20a71bb0c2babdc04f179dc77c7a03c2f2f2031e7d8d87fbf9d3c41ee831addc"
+    sha256 cellar: :any, mojave:        "c3c91dc9f86978012a06f299115bc088e5ea0af6aec2e915d0f8338c4c0edd03"
   end
 
-  head do
-    url "https://github.com/Matroska-Org/libebml.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
-  option :cxx11
+  depends_on "cmake" => :build
 
   def install
-    ENV.cxx11 if build.cxx11?
-    system "autoreconf", "-fi" if build.head?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+      system "make", "install"
+    end
   end
 end

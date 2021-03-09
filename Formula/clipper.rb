@@ -1,56 +1,57 @@
 class Clipper < Formula
   desc "Share macOS clipboard with tmux and other local and remote apps"
   homepage "https://wincent.com/products/clipper"
-  url "https://github.com/wincent/clipper/archive/0.4.2.tar.gz"
-  sha256 "e707e5f9295dd793755007fdcadae63073b91e949f115d01b1a6cc6b4642cd6d"
+  url "https://github.com/wincent/clipper/archive/2.0.0.tar.gz"
+  sha256 "9c9fa0b198d11513777d40c88e2529b2f2f84d7045a500be5946976a5cdcfe83"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9e717b8e050d6ad0d0ba59d57d4e22d38d4e6357fb549af25bb5646064a0f7bc" => :high_sierra
-    sha256 "44d377b4219cc3d1077ae3d1b78c3fd161242f3aff440adcde904610c5ff89f2" => :sierra
-    sha256 "2bc9dc475bb45718699290b6359424e68e316cb8ec40fb38fd2f68b5c8872f0b" => :el_capitan
-    sha256 "314db80566c87edfead4c85aa203ff17ab427cc7aa1f45766fb0def3588a5c74" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a114dd1e41872b63ca5ced700ee503aa4eb87f0add568e3dc1ad9e10cca9459b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3322412e9d0979650ad863bf42ba473c4eaabf06f48ef6d1053cf3fbc89dfc8a"
+    sha256 cellar: :any_skip_relocation, catalina:      "6e16549f9930f652364f727cf42ea04608d92f172e7916c85900c3b6feb98df0"
+    sha256 cellar: :any_skip_relocation, mojave:        "2216327dbb3a341f14db9d2da767749d00e460917bcf1098665948e24eeb2e8b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a2230d8cb54b244b82ea5f5c47cebabe2f63a6b9dc1b98d47cd4a0fcd4eb743f"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    system "go", "build", "clipper.go"
-    bin.install "clipper"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"clipper", "clipper.go"
   end
 
-  plist_options :manual => "clipper"
+  plist_options manual: "clipper"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>KeepAlive</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/clipper</string>
-      </array>
-      <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
       <dict>
-        <key>LANG</key>
-        <string>en_US.UTF-8</string>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/clipper</string>
+        </array>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>LANG</key>
+          <string>en_US.UTF-8</string>
+        </dict>
       </dict>
-    </dict>
-    </plist>
+      </plist>
     EOS
   end
 
   test do
-    TEST_DATA = "a simple string! to test clipper, with söme spéciål characters!! 🐎\n".freeze
+    test_data = "a simple string! to test clipper, with söme spéciål characters!! 🐎\n".freeze
 
     cmd = [opt_bin/"clipper", "-a", testpath/"clipper.sock", "-l", testpath/"clipper.log"].freeze
     ohai cmd.join " "
@@ -60,10 +61,10 @@ class Clipper < Formula
       sleep 0.5 # Give it a moment to launch and create its socket.
       begin
         sock = UNIXSocket.new testpath/"clipper.sock"
-        assert_equal TEST_DATA.bytesize, sock.sendmsg(TEST_DATA)
+        assert_equal test_data.bytesize, sock.sendmsg(test_data)
         sock.close
         sleep 0.5
-        assert_equal TEST_DATA, `LANG=en_US.UTF-8 pbpaste`
+        assert_equal test_data, `LANG=en_US.UTF-8 pbpaste`
       ensure
         Process.kill "TERM", clipper.pid
       end

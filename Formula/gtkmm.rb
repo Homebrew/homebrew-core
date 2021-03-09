@@ -3,25 +3,29 @@ class Gtkmm < Formula
   homepage "https://www.gtkmm.org/"
   url "https://download.gnome.org/sources/gtkmm/2.24/gtkmm-2.24.5.tar.xz"
   sha256 "0680a53b7bf90b4e4bf444d1d89e6df41c777e0bacc96e9c09fc4dd2f5fe6b72"
+  license "LGPL-2.1-or-later"
+  revision 8
+
+  livecheck do
+    url :stable
+    regex(/gtkmm[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "caf234cdf906a4bec9d7cf58de598f5517268385ad905944c8dca38cea830cc5" => :high_sierra
-    sha256 "bf4238b76b945811435126e2fae15390aec21f1bb2365102a69bd5e82c40d868" => :sierra
-    sha256 "52e16536cb24b6714de19939b7d81e7458af9e3bf2fc186784615234ee61f3d5" => :el_capitan
-    sha256 "96d116f0764c6cc537a3ec4b068422714e1e491f732239166f6ee6ed210e4607" => :yosemite
-    sha256 "e6e38009b081330074bed4a673bb63bab16ca84a56e348b42944cf44d29e4b71" => :mavericks
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "ae2cb84a696c040281a8131961c755865f4ba96ef223e77cf8e5a8d02b88edb8"
+    sha256 cellar: :any, big_sur:       "cf3e818aadeda99afd5c51cdfd8ae950bdf56ce16c090d78f23e5a80631f6f13"
+    sha256 cellar: :any, catalina:      "bc967efcc4b25a56a79089c73db15a7fc61d5d83a62bd5c899777f7169f2e437"
+    sha256 cellar: :any, mojave:        "1ed0b8b0445bcb223f2d20112004ead1c8b5d598f9e0012180831e069375b6f6"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glibmm"
+  depends_on "atkmm@2.28"
+  depends_on "cairomm@1.14"
+  depends_on "glibmm@2.66"
   depends_on "gtk+"
-  depends_on "libsigc++"
-  depends_on "pangomm"
-  depends_on "atkmm"
-  depends_on "cairomm"
-
-  needs :cxx11
+  depends_on "libsigc++@2"
+  depends_on "pangomm@2.46"
 
   def install
     ENV.cxx11
@@ -39,24 +43,26 @@ class Gtkmm < Formula
       }
     EOS
     atk = Formula["atk"]
-    atkmm = Formula["atkmm"]
+    atkmm = Formula["atkmm@2.28"]
     cairo = Formula["cairo"]
-    cairomm = Formula["cairomm"]
+    cairomm = Formula["cairomm@1.14"]
     fontconfig = Formula["fontconfig"]
     freetype = Formula["freetype"]
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    glibmm = Formula["glibmm"]
+    glibmm = Formula["glibmm@2.66"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++"]
+    libsigcxx = Formula["libsigc++@2"]
     pango = Formula["pango"]
-    pangomm = Formula["pangomm"]
+    pangomm = Formula["pangomm@2.46"]
     pixman = Formula["pixman"]
     flags = %W[
       -I#{atk.opt_include}/atk-1.0
       -I#{atkmm.opt_include}/atkmm-1.6
+      -I#{atkmm.opt_lib}/atkmm-1.6/include
       -I#{cairo.opt_include}/cairo
       -I#{cairomm.opt_include}/cairomm-1.0
       -I#{cairomm.opt_lib}/cairomm-1.0/include
@@ -73,6 +79,7 @@ class Gtkmm < Formula
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_include}/gtk-unix-print-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gdkmm-2.4
       -I#{include}/gtkmm-2.4
       -I#{libpng.opt_include}/libpng16
@@ -112,12 +119,14 @@ class Gtkmm < Formula
       -lgobject-2.0
       -lgtk-quartz-2.0
       -lgtkmm-2.4
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lpangomm-1.4
       -lsigc-2.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end

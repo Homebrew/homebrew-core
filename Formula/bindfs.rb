@@ -1,14 +1,14 @@
 class Bindfs < Formula
   desc "FUSE file system for mounting to another location"
   homepage "https://bindfs.org/"
-  url "https://bindfs.org/downloads/bindfs-1.13.9.tar.gz"
-  sha256 "acfa2ca9d604f4147c42758ccbb4a429855df26768dfe70521ba5d7a0596f8b5"
+  url "https://bindfs.org/downloads/bindfs-1.14.8.tar.gz"
+  sha256 "e5ca5aff55204b993a025a77c3f8c0e2ee901ba8059d71bea11de2cc685ec497"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "7af619973ac822cd21215f60f29b8468f61b6104158830e172be8231e773b05c" => :high_sierra
-    sha256 "89f82a2b44e1b8861c917e9f5a3479edc0136ba20a48fe5e1b7597514219b5e5" => :sierra
-    sha256 "be32d6c5fd45382418c52c28ee9722486d71b23cb8dffa42ecf1179442518c0f" => :el_capitan
+    sha256 cellar: :any, catalina:    "bf4fb90d788651299973a3f48300824ae6b4ec4ce1441dd94d544180f54379bd"
+    sha256 cellar: :any, mojave:      "cc9d4950a1b74a27307bac429892fd85ad439f5707f53a66e800a39b23a32fdf"
+    sha256 cellar: :any, high_sierra: "50df08ee8d3cc6f141d8488341f12c32ce478f02dfb8016f533bfeababfe4537"
   end
 
   head do
@@ -19,7 +19,15 @@ class Bindfs < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     args = %W[

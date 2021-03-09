@@ -1,27 +1,28 @@
 class Tmate < Formula
   desc "Instant terminal sharing"
   homepage "https://tmate.io/"
-  url "https://github.com/tmate-io/tmate/archive/2.2.1.tar.gz"
-  sha256 "d9c2ac59f42e65aac5f500f0548ea8056fd79c9c5285e5af324d833e2a84c305"
-  revision 3
-
+  url "https://github.com/tmate-io/tmate/archive/2.4.0.tar.gz"
+  sha256 "62b61eb12ab394012c861f6b48ba0bc04ac8765abca13bdde5a4d9105cb16138"
+  license "ISC"
   head "https://github.com/tmate-io/tmate.git"
 
   bottle do
-    cellar :any
-    sha256 "d2c18c43ddcc8ce25d01353d58d9b93f38fe066a2250cdfd99f70b9f4f724c36" => :high_sierra
-    sha256 "6fcea69412c5d4f42017af3912a1d95c8d9c3284784c82fa88b98c679c955e16" => :sierra
-    sha256 "55baab86d5d34769fede15c104f4db817718c2398a7ab03e765c543059f5b049" => :el_capitan
-    sha256 "a1d0188c1829d71c17b6b29c2a71299dfc37ba65d1f05f5cf8e655afbea08a51" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "d92025cef2400ab0fcb0f8efa5866e180fff73486db2e73f4e77b5d1afba5d97"
+    sha256 cellar: :any, big_sur:       "215c8724caffc137265dc5fa565bed563b5bd8d046b0e54addcf1628d60a9268"
+    sha256 cellar: :any, catalina:      "a278bcb401068bed2434ec48bfb059a86d793a6daa4877574ac0ed7168cb1ebc"
+    sha256 cellar: :any, mojave:        "7e5158460b898422b4c6e84390d0e8446e2ad52789a30f9942288c5c32acc8a1"
+    sha256 cellar: :any, high_sierra:   "0f4f06d0ab7715adc7f6d33cf7d3c08fd057e7f038a666b360ac4ad6a3449ad9"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "libssh"
   depends_on "msgpack"
+
+  uses_from_macos "ncurses"
 
   def install
     system "sh", "autogen.sh"

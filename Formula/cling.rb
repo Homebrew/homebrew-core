@@ -1,28 +1,35 @@
 class Cling < Formula
-  desc "The cling C++ interpreter"
+  desc "C++ interpreter"
   homepage "https://root.cern.ch/cling"
-  url "http://root.cern.ch/git/cling.git",
-      :tag => "v0.5",
-      :revision => "0f1d6d24d4417fc02b73589c8b1d813e92de1c3f"
+  url "https://github.com/root-project/cling.git",
+      tag:      "v0.7",
+      revision: "70163975eee5a76b45a1ca4016bfafebc9b57e07"
+  license any_of: ["LGPL-2.1-only", "NCSA"]
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "db1bf4e905c6b787b63b50c03a43028b71a00110b5008b48ee01a24400efbdb9" => :high_sierra
-    sha256 "83fd0ba864ef3261b3ab6e58647d44036029298dd55408ac0527c4953259e024" => :sierra
-    sha256 "4f327b0cab15cfc5f77c1ae77651861af5855c1b324d55175246f24d9d2743e5" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "7c100296feb4998222916d3d3f98f22d1584031ec2115c83c562b53bb4025c91"
+    sha256 cellar: :any, big_sur:       "4f7e4ff0e73858b0fc8f3f3ea004f3118da82108a6087ebdb21973116ff58cee"
+    sha256 cellar: :any, catalina:      "743a41e996097da4d0d309839045c081dee5e2ec94ccb4839413003f632ffb98"
+    sha256 cellar: :any, mojave:        "ccc594737e7a0b777ad5360566a0fa13f0584c6cdb0b4023ed0ff59ebac30112"
   end
 
   depends_on "cmake" => :build
 
   resource "clang" do
     url "http://root.cern.ch/git/clang.git",
-        :tag => "cling-patches-r302975",
-        :revision => "1f8b137c7eb06ed8e321649ef7e3f3e7a96f361c"
+        tag:      "cling-v0.7",
+        revision: "354b25b5d915ff3b1946479ad07f3f2768ea1621"
   end
 
   resource "llvm" do
     url "http://root.cern.ch/git/llvm.git",
-        :tag => "cling-patches-r302975",
-        :revision => "2a34248cb945d63ded5ee55128e68efd7e5b87c8"
+        tag:      "cling-v0.6",
+        revision: "e0b472e46eb5861570497c2b9efabf96f2d4a485"
   end
 
   def install
@@ -30,9 +37,12 @@ class Cling < Formula
     (buildpath/"src/tools/cling").install buildpath.children - [buildpath/"src"]
     (buildpath/"src/tools/clang").install resource("clang")
     mkdir "build" do
-      system "cmake", *std_cmake_args, "../src"
+      system "cmake", *std_cmake_args, "../src",
+                      "-DCMAKE_INSTALL_PREFIX=#{libexec}",
+                      "-DCLING_CXX_PATH=clang++"
       system "make", "install"
     end
+    bin.install_symlink libexec/"bin/cling"
     prefix.install_metafiles buildpath/"src/tools/cling"
   end
 

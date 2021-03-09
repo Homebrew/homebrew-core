@@ -3,23 +3,29 @@ class St < Formula
   homepage "https://github.com/nferraz/st"
   url "https://github.com/nferraz/st/archive/v1.1.4.tar.gz"
   sha256 "c02a16f67e4c357690a5438319843149fd700c223128f9ffebecab2849c58bb8"
+  license "MIT"
+  revision 1
+  head "https://github.com/nferraz/st.git"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "24ec6966ca1cc95f214570c0063deb7b87e3d662449618e0db62e1867f3135d1" => :high_sierra
-    sha256 "55e719bafc7c95b7a52111c55d1df8845237a723370bc69ab099321cc555ec0d" => :sierra
-    sha256 "4c8d388a914a238851b44beff95a1e75523c406e5731d3e894dcda324c260a82" => :el_capitan
-    sha256 "05b683f39a6b30d377d4217e5145369053014f8f66b6dd103fb2ee2219aa4225" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b20ec315e5d16adc7acdfbcdcfffd91859a39bcfc5e76e9a152da3dac178c4d3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b852dedd2a66d7f03314cf510cf9d94e55c3437a7d23ac0bf7b1742b2d635dda"
+    sha256 cellar: :any_skip_relocation, catalina:      "47e88ee3a995fb7f0dc9a5900a378c254c5be13ebfeee44474be9649992d4a5f"
+    sha256 cellar: :any_skip_relocation, mojave:        "a405a6128674652c728e7af64d751388b6ecea693d780efc2ebcfa62ec8e0f6a"
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5/site_perl/"
+    ENV.prepend_create_path "PERL5LIB", lib/"perl5/"
 
-    system "perl", "Makefile.PL", "PREFIX=#{libexec}"
+    system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}", "INSTALLSITEMAN1DIR=#{man1}", "INSTALLSITEMAN3DIR=#{man3}"
     system "make", "install"
 
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", :PERL5LIB => ENV["PERL5LIB"]
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
   end
 
   test do

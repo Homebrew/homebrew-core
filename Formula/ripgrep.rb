@@ -1,28 +1,37 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher"
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/0.7.1.tar.gz"
-  sha256 "e010693637acebb409f3dba7caf59ef093d1894a33b14015041b8d43547665f5"
+  url "https://github.com/BurntSushi/ripgrep/archive/12.1.1.tar.gz"
+  sha256 "2513338d61a5c12c8fea18a0387b3e0651079ef9b31f306050b1f0aaa926271e"
+  license "Unlicense"
   head "https://github.com/BurntSushi/ripgrep.git"
 
-  bottle do
-    sha256 "141f4a372665a161550835842cf967511cbad95487913fd28bb3fd87868c3755" => :high_sierra
-    sha256 "5d41c5d4322357b2d39e00d24c37f4dec08fb3b4f2cd7d5dfd944627871646d4" => :sierra
-    sha256 "8e183fb5763d350ae070756d3ff07e852ec624f6294d6657c067165328f7c6a5" => :el_capitan
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "e0147ba489a8d96e33fc8be7e2172c632075d5d31a4f6267c3606e463280e0e3"
+    sha256 cellar: :any, big_sur:       "0ca7397f9a0ccef6cbb8ff0fd8fb18c6fe86219abaef350e3d7ef248d07440fd"
+    sha256 cellar: :any, catalina:      "60460d422253113af3ed60332104f309638942821c655332211a6bc2213c472c"
+    sha256 cellar: :any, mojave:        "de4b18789f5d9bc4aaa4d906501200ae4ece7a1971dd1b86e2b2d0a2c8e0d764"
+    sha256 cellar: :any, high_sierra:   "cfea5335bf4eccfb7cd1d93bec234d96bd49dce8d593ea966687f777909ba291"
+  end
+
+  depends_on "asciidoctor" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "pcre2"
 
   def install
-    system "cargo", "build", "--release"
+    system "cargo", "install", "--features", "pcre2", *std_cargo_args
 
-    bin.install "target/release/rg"
-    man1.install "doc/rg.1"
-
-    # Completion scripts are generated in the crate's build directory, which
-    # includes a fingerprint hash. Try to locate it first
+    # Completion scripts and manpage are generated in the crate's build
+    # directory, which includes a fingerprint hash. Try to locate it first
     out_dir = Dir["target/release/build/ripgrep-*/out"].first
-    bash_completion.install "#{out_dir}/rg.bash-completion"
+    man1.install "#{out_dir}/rg.1"
+    bash_completion.install "#{out_dir}/rg.bash"
     fish_completion.install "#{out_dir}/rg.fish"
     zsh_completion.install "complete/_rg"
   end

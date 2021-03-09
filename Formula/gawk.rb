@@ -1,27 +1,38 @@
 class Gawk < Formula
   desc "GNU awk utility"
   homepage "https://www.gnu.org/software/gawk/"
-  url "https://ftp.gnu.org/gnu/gawk/gawk-4.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gawk/gawk-4.2.0.tar.xz"
-  sha256 "d4f3cd31c001fd0ed52832d4fbfbdfeaa38ad541c182f80ff8fdf87324a6a9f2"
+  url "https://ftp.gnu.org/gnu/gawk/gawk-5.1.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gawk/gawk-5.1.0.tar.xz"
+  sha256 "cf5fea4ac5665fd5171af4716baab2effc76306a9572988d5ba1078f196382bd"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "8f594a72cd1f11264f1a5df92f0318ab4ef3fe1772ca157f1b8a27d2be79dd26" => :high_sierra
-    sha256 "604603592f400a332898ec34e8e0efc4abd636b6983540f20b5d693531c64d8e" => :sierra
-    sha256 "ddb688892a4ba768a8d0d21c6a643c6a0efe327e35f1a19b0064a42ab228b033" => :el_capitan
+    sha256 arm64_big_sur: "9b31b5843e7f156d5af09afb14b9fdbe359ece800222c9fe3fe23a77621491a6"
+    sha256 big_sur:       "8ff8108740004ede9c938b8bb42d2768d532d9ac8ee492250bbd23c8dfbef0cb"
+    sha256 catalina:      "581b48f781104f0c3233edc30c47628f4eec8c2f1f2e191151f367ce26ec538a"
+    sha256 mojave:        "ddbb56c56d66f375147769a27301e2ffd099abdc07f5dfc16389af22028e185b"
+    sha256 high_sierra:   "eac1b8c97c682c32a1b6c589818aa8ffb8f09630258ed6f215c882368540713e"
   end
 
+  depends_on "gettext"
   depends_on "mpfr"
   depends_on "readline"
+
+  conflicts_with "awk",
+    because: "both install an `awk` executable"
 
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-libsigsegv-prefix"
+
     system "make"
     system "make", "check"
     system "make", "install"
+
+    (libexec/"gnubin").install_symlink bin/"gawk" => "awk"
+    (libexec/"gnuman/man1").install_symlink man1/"gawk.1" => "awk.1"
   end
 
   test do

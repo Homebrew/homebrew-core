@@ -1,24 +1,26 @@
 class Hamlib < Formula
   desc "Ham radio control libraries"
-  homepage "https://hamlib.sourceforge.io"
-  url "http://pkgs.fedoraproject.org/repo/pkgs/hamlib/hamlib-1.2.15.3.tar.gz/3cad8987e995a00e5e9d360e2be0eb43/hamlib-1.2.15.3.tar.gz"
-  sha256 "a2ca4549e4fd99d6e5600e354ebcb57502611aa63c6921c1b8a825289833f75e"
+  homepage "http://www.hamlib.org/"
+  url "https://github.com/Hamlib/Hamlib/releases/download/4.1/hamlib-4.1.tar.gz"
+  sha256 "b4d4b9467104d1f316c044d002c4c8e62b9f792cbb55558073bd963203b32342"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/hamlib/hamlib.git"
 
   bottle do
-    rebuild 1
-    sha256 "60e67d17ef2573f5022e5bc85e70c0ca3bb42d273b9b079b465b5ec6108dffe7" => :high_sierra
-    sha256 "66d07ea64a912f95f989638124fe14658bfed6d34b609b50ce33691f06fae0ed" => :sierra
-    sha256 "d4e86dbc6d9bf5e0b4a1c1bce2471e90becf05b19b1c595952c94b3bda91e0db" => :el_capitan
-    sha256 "31a75a43cf17a17d35ee0c57048522e73de7c69f43279b45c766a903b5239372" => :yosemite
-    sha256 "6d9dd131db4baa70355822033257f822e029aa167b6c43643419bd75ef06395a" => :mavericks
-    sha256 "0e78439f806f68ae1ae36fa3e5315d13cbabf6da714571eec9816945a90b2985" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "69ca3e44a728006591fbfd52e8941f630b60a5f78491f5c7a7b00e73d5c09d3a"
+    sha256 cellar: :any, big_sur:       "9ceda629c590e4f94150d19b65d41ad60692c36e95a15f3a402a7b77b77264ec"
+    sha256 cellar: :any, catalina:      "8438ca728e483627d35c770a76a07d814336e469619e1b7f9baa3f8a3659d0cf"
+    sha256 cellar: :any, mojave:        "af9e82439e617309d3d5f979347d0ffd5c3b65768ffc5f93f8031fd74ee71178"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+  depends_on "libtool"
   depends_on "libusb-compat"
 
   def install
+    system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

@@ -1,44 +1,29 @@
 class Glfw < Formula
   desc "Multi-platform library for OpenGL applications"
-  homepage "http://www.glfw.org/"
-  url "https://github.com/glfw/glfw/archive/3.2.1.tar.gz"
-  sha256 "e10f0de1384d75e6fc210c53e91843f6110d6c4f3afbfb588130713c2f9d8fe8"
-
+  homepage "https://www.glfw.org/"
+  url "https://github.com/glfw/glfw/archive/3.3.3.tar.gz"
+  sha256 "aa9922b55a464d5bab58fcbe5a619f517d54e3dc122361c116de573670006a7a"
+  license "Zlib"
   head "https://github.com/glfw/glfw.git"
 
   bottle do
-    cellar :any
-    sha256 "dd4e0a7ec81510315f7f3a443c09f682ff95b6edd59f1f1e507d656aabe86b41" => :high_sierra
-    sha256 "c19bbe78ab9d7d376b2cd265389348e4ad4572b9881bb1048b05d3eb4bc67762" => :sierra
-    sha256 "874e364604c386252a1d639f24c8d2333bc4715c67acd77109c291d724509538" => :el_capitan
-    sha256 "ecfc037c61cedd936d230880dd052691e8c07c4f10c3c95ccde4d8bc4e3f5e35" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "9f64dee7187b644ba98c6009890a5761d575516a10e055de2c75bb7c88e1ffdb"
+    sha256 cellar: :any, big_sur:       "68cf1e73ab3d2f826847607a07b7204a317c696ff635d0789d35b52df3dfe8dd"
+    sha256 cellar: :any, catalina:      "8d87eeccf2a8376c8e29fbc46f0d47e02738b5f999ab8aeacdd148d53c6d15bc"
+    sha256 cellar: :any, mojave:        "f2fe8dcb33b5dd0a53d5d05fe609bf270206c51e37d7a996bbb2a2089b6de2fd"
   end
 
-  option "without-shared-library", "Build static library only (defaults to building dylib only)"
-  option "with-examples", "Build examples"
-  option "with-test", "Build test programs"
-
   depends_on "cmake" => :build
-
-  deprecated_option "build-examples" => "with-examples"
-  deprecated_option "static" => "without-shared-library"
-  deprecated_option "build-tests" => "with-test"
-  deprecated_option "with-tests" => "with-test"
 
   def install
     args = std_cmake_args + %w[
       -DGLFW_USE_CHDIR=TRUE
       -DGLFW_USE_MENUBAR=TRUE
+      -DBUILD_SHARED_LIBS=TRUE
     ]
-    args << "-DBUILD_SHARED_LIBS=TRUE" if build.with? "shared-library"
-    args << "-DGLFW_BUILD_EXAMPLES=TRUE" if build.with? "examples"
-    args << "-DGLFW_BUILD_TESTS=TRUE" if build.with? "test"
-    args << "."
 
-    system "cmake", *args
+    system "cmake", *args, "."
     system "make", "install"
-    libexec.install Dir["examples/*"] if build.with? "examples"
-    libexec.install Dir["tests/*"] if build.with? "test"
   end
 
   test do
@@ -55,16 +40,8 @@ class Glfw < Formula
       }
     EOS
 
-    if build.with? "shared-library"
-      system ENV.cc, "test.c", "-o", "test",
-             "-I#{include}", "-L#{lib}", "-lglfw"
-    else
-      system ENV.cc, "test.c", "-o", "test",
-             "-I#{include}", "-L#{lib}", "-lglfw3",
-             "-framework", "IOKit",
-             "-framework", "CoreVideo",
-             "-framework", "AppKit"
-    end
+    system ENV.cc, "test.c", "-o", "test",
+                   "-I#{include}", "-L#{lib}", "-lglfw"
     system "./test"
   end
 end

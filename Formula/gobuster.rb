@@ -1,41 +1,36 @@
-require "language/go"
-
 class Gobuster < Formula
   desc "Directory/file & DNS busting tool written in Go"
   homepage "https://github.com/OJ/gobuster"
-  url "https://github.com/OJ/gobuster/archive/v1.3.tar.gz"
-  sha256 "606a8b760bc498f9605423b4ef3b093fbb07fead5877a0da81b1c92d8af3ebbb"
-  head "https://github.com/OJ/gobuster.git"
+  url "https://github.com/OJ/gobuster.git",
+      tag:      "v3.1.0",
+      revision: "f5051ed456dc158649bb8bf407889ab0978bf1ba"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d1270beae977e7d29193fa09e684188a1122cc1ccea46419a2035c53ebd0d8ee" => :high_sierra
-    sha256 "7da053cb4f0a73f55dc0cfaeea6628422e214e29c76a3f82c6ebe58faa2fe659" => :sierra
-    sha256 "2499eb9e86e59b87640cc93fe8270be64cb1b5ce2a7e5a8d5a0bdcf69e68f054" => :el_capitan
-    sha256 "4d781dd4d6bf9b3217d5d197b987583392ba8b6a4abc539720360041779889aa" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e6e7f65fbed3896cb3b63eefddd16de3b621a8d72b205d24b8f7abd21379f87e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8342b115722243f5c108de8ecdb5aefd20ae5deb884e48732c80595c24897f0d"
+    sha256 cellar: :any_skip_relocation, catalina:      "f8f36299b36b59006637dcc7d062614eb209ba82a31f5a67fce789c4d6ef9562"
+    sha256 cellar: :any_skip_relocation, mojave:        "16912d38db06501d02cdab6066d1da01129779d958ce142c40018cce30328fc4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "341ce02f5e99ba1bf9cee8d6cbdd150a6e36d8b0fd811ded7a2da8933d877f9a"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/satori/go.uuid" do
-    url "https://github.com/satori/go.uuid.git",
-        :revision => "b061729afc07e77a8aa4fad0a2fd840958f1942a"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://go.googlesource.com/crypto.git",
-        :revision => "40541ccb1c6e64c947ed6f606b8a6cb4b67d7436"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/OJ").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/OJ/gobuster"
-    Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "-o", bin/"gobuster"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"gobuster"
+    prefix.install_metafiles
   end
 
   test do
-    assert_match(/\[!\] WordList \(-w\): Must be specified/, shell_output("#{bin}/gobuster -q"))
+    (testpath/"words.txt").write <<~EOS
+      dog
+      cat
+      horse
+      snake
+      ape
+    EOS
+
+    output = shell_output("#{bin}/gobuster dir -u https://buffered.io -w words.txt 2>&1")
+    assert_match "Finished", output
   end
 end

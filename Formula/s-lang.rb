@@ -1,20 +1,30 @@
 class SLang < Formula
   desc "Library for creating multi-platform software"
   homepage "https://www.jedsoft.org/slang/"
-  url "https://www.jedsoft.org/releases/slang/slang-2.3.1a.tar.bz2"
-  mirror "http://pkgs.fedoraproject.org/repo/pkgs/slang/slang-2.3.1a.tar.bz2/sha512/e7236a189081ebcbaf4e7f0506671226a4d46aede8826e1a558f1a2f57bcbe3ad58eadeabe2df99cd3d8bacb4c93749996bcbce4f51d338fc9396e0f945933e7/slang-2.3.1a.tar.bz2"
-  sha256 "54f0c3007fde918039c058965dffdfd6c5aec0bad0f4227192cc486021f08c36"
+  url "https://www.jedsoft.org/releases/slang/slang-2.3.2.tar.bz2"
+  mirror "https://src.fedoraproject.org/repo/pkgs/slang/slang-2.3.2.tar.bz2/sha512/35cdfe8af66dac62ee89cca60fa87ddbd02cae63b30d5c0e3786e77b1893c45697ace4ac7e82d9832b8a9ac342560bc35997674846c5022341481013e76f74b5/slang-2.3.2.tar.bz2"
+  sha256 "fc9e3b0fc4f67c3c1f6d43c90c16a5c42d117b8e28457c5b46831b8b5d3ae31a"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://www.jedsoft.org/releases/slang/"
+    regex(/href=.*?slang[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "ffe303b001b8d560961a6d5112978cc6419ac1795202fb5da0a40b7ae99728c0" => :high_sierra
-    sha256 "aa8fa7cfaaa44eac118cd9f365ecc81a9a16c41637add489d10416f4a4169d9e" => :sierra
-    sha256 "c3dfe3de137e3ab1d26da0b20bd7e9fffae181f3ba9fbf159cf04b8e92707b38" => :el_capitan
-    sha256 "d96458487649104eeaf01ff36dbd9fd4142130bfbc71f47490e69f532fbf3ffa" => :yosemite
+    sha256 arm64_big_sur: "6edfb9a9ded33b0e5d96c83a0e9c5728be728588427aeff1d964b1191233ff45"
+    sha256 big_sur:       "517b401933d5e4359b6ad212914b54ff5d6d28ce345b63f0f712838cf97f8925"
+    sha256 catalina:      "4753499f91b8d6ad4f17865ba850eb5f170aff6460441655c75838b759b2ff9d"
+    sha256 mojave:        "05a3437702d5793c9bcac94151e8614878ca36cb1074ab330708021e59845346"
+    sha256 high_sierra:   "52884a38833f21110f2ed22960f8f96ed5e3878fda45def8b67450e643ccfc97"
+    sha256 sierra:        "e317f0ed56871fe293943faedfa44e6c744afb5a0187b7c81e201ce6921b0634"
   end
 
   depends_on "libpng"
-  depends_on "pcre" => :optional
-  depends_on "oniguruma" => :optional
+
+  on_linux do
+    depends_on "pcre"
+  end
 
   def install
     png = Formula["libpng"]

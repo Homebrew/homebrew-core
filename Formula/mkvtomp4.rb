@@ -1,33 +1,31 @@
 class Mkvtomp4 < Formula
+  include Language::Python::Virtualenv
+
   desc "Convert mkv files to mp4"
   homepage "https://github.com/gavinbeatty/mkvtomp4/"
-  url "https://github.com/gavinbeatty/mkvtomp4/archive/mkvtomp4-v1.3.tar.gz"
-  sha256 "cc644b9c0947cf948c1b0f7bbf132514c6f809074ceed9edf6277a8a1b81c87a"
-  revision 1
+  url "https://files.pythonhosted.org/packages/89/27/7367092f0d5530207e049afc76b167998dca2478a5c004018cf07e8a5653/mkvtomp4-2.0.tar.gz"
+  sha256 "8514aa744963ea682e6a5c4b3cfab14c03346bfc78194c3cdc8b3a6317902f12"
+  license "MIT"
+  revision 2
+  head "https://github.com/gavinbeatty/mkvtomp4.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2efab72b382b03ac47c70b1878587afafdd8de2b7361d96f98e837692d5b4ca4" => :high_sierra
-    sha256 "4c085a7e2cbfada2a722dc1d676fab80dacc1f490c14d2a2aff10a4fa60f5225" => :sierra
-    sha256 "f7610334538d3e3df8cfeab0a5cd7d9a44acfb141212b4852e340064657e50a8" => :el_capitan
-    sha256 "7ae6b5351e551f6f04811cc5b963fd67adc18132f9b4dc91fc07886f05b0d10f" => :yosemite
-    sha256 "3346ab8be87d01200616db3887ed05d0d6693d2003ca4c3d5530c439ef732544" => :mavericks
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "76e2587009f31923054390bd434b37f0fbf898088a79832b00a5ea6331066ae6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7122210c51f74465371eb6a92b3d1dd80a27f68f08335dce119b3aeffb9c00cc"
+    sha256 cellar: :any_skip_relocation, catalina:      "a4c3cdb9f62d23b6f66827f9fa646c377d60f9d0e5b3dad81eb6c5a67d2798ac"
+    sha256 cellar: :any_skip_relocation, mojave:        "d7ba96f07d2a82d2c5e2d5cce1b80836abdebe0a990f238c763c06aec305ad0a"
   end
 
+  depends_on "ffmpeg"
   depends_on "gpac"
-  depends_on "ffmpeg" => :recommended
   depends_on "mkvtoolnix"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@3.9"
 
   def install
-    ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", lib+"python2.7/site-packages"
-
-    system "make"
-    system "python", "setup.py", "install", "--prefix=#{prefix}"
-
-    bin.install "mkvtomp4.py" => "mkvtomp4"
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
+    bin.install_symlink bin/"mkvtomp4.py" => "mkvtomp4"
+    prefix.install libexec/"share"
   end
 
   test do

@@ -1,44 +1,45 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  revision 1
+  url "https://github.com/opencv/opencv/archive/4.5.1.tar.gz"
+  sha256 "e27fe5b168918ab60d58d7ace2bd82dd14a4d0bd1d3ae182952c2113f5637513"
+  license "Apache-2.0"
+  revision 3
 
-  stable do
-    url "https://github.com/opencv/opencv/archive/3.3.1.tar.gz"
-    sha256 "5dca3bb0d661af311e25a72b04a7e4c22c47c1aa86eb73e70063cd378a2aa6ee"
-
-    # Upstream commit 8 Nov 2017 "cmake: fix pkg-config generation for MacOSX"
-    patch do
-      url "https://github.com/opencv/opencv/commit/a0e1def83bd.patch?full_index=1"
-      sha256 "dbefbf198877320ee744bebc23b621f21484d0689e8218d8c1a661bc5c850975"
-    end
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 "2630c2fd1da17ddcb66cfc443d274f42d1e5ae22689f168d4c643f1d43d54470" => :high_sierra
-    sha256 "68b6d2312f1593fa82033504eaf58aed90a9038a21096e5a275c16e861f1f2fe" => :sierra
-    sha256 "5f36f3c1d5790bfac52dfeb131798d5bf0a0ed4aed8f8523223b502515b76339" => :el_capitan
+    sha256 arm64_big_sur: "08183e5e5d48cc0ad40050a65ddd86c70bde41435c339ab06ef887f26754e58a"
+    sha256 big_sur:       "6ea488911c616643554ed7a5611c598369820dde4d6fdbc1c3d0ebf76b877ceb"
+    sha256 catalina:      "fba82ab6b60fbb0b892808bb8be6a17ff7805d9e9647705b4c0c656dd2f6a11e"
+    sha256 mojave:        "8a4e0c37ab0cc35a53e31d2ae265a2e5c8d22799d0c88ca582f5e6ed9da515d6"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "ceres-solver"
   depends_on "eigen"
   depends_on "ffmpeg"
+  depends_on "glog"
+  depends_on "harfbuzz"
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openexr"
-  depends_on :python
-  depends_on :python3
   depends_on "numpy"
+  depends_on "openblas"
+  depends_on "openexr"
+  depends_on "protobuf"
+  depends_on "python@3.9"
   depends_on "tbb"
-
-  needs :cxx11
+  depends_on "vtk"
+  depends_on "webp"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.3.1.tar.gz"
-    sha256 "6f3ce148dc6e147496f0dbec1c99e917e13bf138f5a8ccfc3765f5c2372bd331"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.1.tar.gz"
+    sha256 "12c3b1ddd0b8c1a7da5b743590a288df0934e5cef243e036ca290c2e45e425f5"
   end
 
   def install
@@ -46,29 +47,31 @@ class Opencv < Formula
 
     resource("contrib").stage buildpath/"opencv_contrib"
 
+    # Avoid Accelerate.framework
+    ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
+
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-
-    py_prefix = `python-config --prefix`.chomp
-    py_lib = "#{py_prefix}/lib"
-
-    py3_config = `python3-config --configdir`.chomp
-    py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
-    py3_version = Language::Python.major_minor_version "python3"
 
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
-      -DBUILD_JPEG=ON
+      -DBUILD_JPEG=OFF
       -DBUILD_OPENEXR=OFF
       -DBUILD_PERF_TESTS=OFF
       -DBUILD_PNG=OFF
+      -DBUILD_PROTOBUF=OFF
       -DBUILD_TESTS=OFF
       -DBUILD_TIFF=OFF
+      -DBUILD_WEBP=OFF
       -DBUILD_ZLIB=OFF
+      -DBUILD_opencv_hdf=OFF
       -DBUILD_opencv_java=OFF
+      -DBUILD_opencv_text=ON
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
+      -DOPENCV_GENERATE_PKGCONFIG=ON
+      -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
@@ -80,44 +83,45 @@ class Opencv < Formula
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
       -DWITH_TBB=ON
-      -DWITH_VTK=OFF
-      -DBUILD_opencv_python2=ON
+      -DWITH_VTK=ON
+      -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
-      -DPYTHON2_EXECUTABLE=#{which "python"}
-      -DPYTHON2_LIBRARY=#{py_lib}/libpython2.7.dylib
-      -DPYTHON2_INCLUDE_DIR=#{py_prefix}/include/python2.7
-      -DPYTHON3_EXECUTABLE=#{which "python3"}
-      -DPYTHON3_LIBRARY=#{py3_config}/libpython#{py3_version}.dylib
-      -DPYTHON3_INCLUDE_DIR=#{py3_include}
+      -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
 
-    if build.bottle?
-      args += %w[-DENABLE_SSE41=OFF -DENABLE_SSE42=OFF -DENABLE_AVX=OFF
-                 -DENABLE_AVX2=OFF]
+    if Hardware::CPU.intel?
+      args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
+      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
     end
 
     mkdir "build" do
       system "cmake", "..", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
       system "make"
       system "make", "install"
+      system "make", "clean"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+      system "make"
+      lib.install Dir["lib/*.a"]
+      lib.install Dir["3rdparty/**/*.a"]
     end
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <opencv/cv.h>
+      #include <opencv2/opencv.hpp>
       #include <iostream>
       int main() {
         std::cout << CV_VERSION << std::endl;
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}/opencv4",
+                    "-o", "test"
     assert_equal `./test`.strip, version.to_s
 
-    ["python", "python3"].each do |python|
-      output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
-      assert_equal version.to_s, output.chomp
-    end
+    output = shell_output(Formula["python@3.9"].opt_bin/"python3 -c 'import cv2; print(cv2.__version__)'")
+    assert_equal version.to_s, output.chomp
   end
 end

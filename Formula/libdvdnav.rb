@@ -1,21 +1,20 @@
 class Libdvdnav < Formula
   desc "DVD navigation library"
-  homepage "https://dvdnav.mplayerhq.hu/"
-  url "https://download.videolan.org/pub/videolan/libdvdnav/5.0.3/libdvdnav-5.0.3.tar.bz2"
-  sha256 "5097023e3d2b36944c763f1df707ee06b19dc639b2b68fb30113a5f2cbf60b6d"
+  homepage "https://www.videolan.org/developers/libdvdnav.html"
+  url "https://download.videolan.org/pub/videolan/libdvdnav/6.1.0/libdvdnav-6.1.0.tar.bz2"
+  sha256 "f697b15ea9f75e9f36bdf6ec3726308169f154e2b1e99865d0bbe823720cee5b"
+  revision 1
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "1bd89882fa99076707b90813ed49cbe3f6f98d433313d0a96309e04f2d5ded01" => :high_sierra
-    sha256 "b0846c330986045065d777e5d61260c36663d8d3e01a82c3c78250e2354391bf" => :sierra
-    sha256 "c154d3b9579441836cac120264fcc61212347fdb39c9e52a95d22bb10bd5ec59" => :el_capitan
-    sha256 "eba1770d502af4fb840ed14fd26e0da38641b1a4d6f7dbe04388fe57e17cf8e2" => :yosemite
-    sha256 "c808f52803ee2b8d9644121d9d5a6016e4974cc91d4be54422d7c46be7276031" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "8ac6345b54ddac3d399fc3fa22911f1127b3d6130cd223c59158c075e990a00c"
+    sha256 cellar: :any, big_sur:       "c95ff0063f69997b0041d1bc4fd31a517eeb131a9bf92f549feb7fc07606ea23"
+    sha256 cellar: :any, catalina:      "e20bd00c923e4e837a1eac6f89933377afd17957be74a175734d7896efceb27a"
+    sha256 cellar: :any, mojave:        "6c13d8aa2220232e9a0e5317371bd52909ec55b0bb08ed7b591612b60814dc7a"
+    sha256 cellar: :any, high_sierra:   "a9c90f8109ce908ffc4fc0b6972ff4869638de8f52787bedd2c471ce457e1edf"
   end
 
   head do
-    url "https://git.videolan.org/git/libdvdnav.git"
+    url "https://code.videolan.org/videolan/libdvdnav.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

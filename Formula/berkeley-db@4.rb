@@ -1,25 +1,31 @@
 class BerkeleyDbAT4 < Formula
   desc "High performance key/value database"
-  homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
-  url "http://download.oracle.com/berkeley-db/db-4.8.30.tar.gz"
+  homepage "https://www.oracle.com/database/technologies/related/berkeleydb.html"
+  url "https://download.oracle.com/berkeley-db/db-4.8.30.tar.gz"
   sha256 "e0491a07cdb21fb9aa82773bbbedaeb7639cbd0e7f96147ab46141e0045db72a"
+  license "Sleepycat"
 
   bottle do
-    cellar :any
-    sha256 "4dc428a3759e372e9be2be0b0b61c80815d4479dfe7f0364a6968042cc7011af" => :high_sierra
-    sha256 "d1352d9ea6085984a1ecd512babf3158416fe5b56b98aee3cd209c98ffb1f520" => :sierra
-    sha256 "ae348346b2c4bd39db740b0992cdad4f30d681a005cce8e20fbfa5d0059e4548" => :el_capitan
-    sha256 "b220bd9ce6ad809639dbbdd31abdce4a136ccf3f11b5ca6d3cc8c1c9d0fe8dfe" => :yosemite
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "4cc3d7123506a695892eb450c704ae6a2f26fd865dcab7bb9290431c5ed4add5"
+    sha256 cellar: :any, big_sur:       "8a95577ecc798d7dd61b100d282c3b667eb278b3d719a41331db2cc57e0843c1"
+    sha256 cellar: :any, catalina:      "3ef8ec895927523c7a7c2c8c18af534ed00abd9b0d35664a3464595906adcee4"
+    sha256 cellar: :any, mojave:        "06af286b14463aec20a0bc9560a6c4081fb392325a8bb8403dd7f02ac4076711"
   end
 
   keg_only :versioned_formula
 
-  # Fix build under Xcode 4.6
-  patch :DATA
+  # Fix build with recent clang
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4c55b1/berkeley-db%404/clang.diff"
+    sha256 "86111b0965762f2c2611b302e4a95ac8df46ad24925bbb95a1961542a1542e40"
+  end
 
   def install
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
+    # Work around issues ./configure has with Xcode 12
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     args = %W[
       --disable-debug
@@ -71,27 +77,3 @@ class BerkeleyDbAT4 < Formula
     assert_predicate testpath/"test.db", :exist?
   end
 end
-
-__END__
-diff --git a/dbinc/atomic.h b/dbinc/atomic.h
-index 0034dcc..50b8b74 100644
---- a/dbinc/atomic.h
-+++ b/dbinc/atomic.h
-@@ -144,7 +144,7 @@ typedef LONG volatile *interlocked_val;
- #define	atomic_inc(env, p)	__atomic_inc(p)
- #define	atomic_dec(env, p)	__atomic_dec(p)
- #define	atomic_compare_exchange(env, p, o, n)	\
--	__atomic_compare_exchange((p), (o), (n))
-+	__atomic_compare_exchange_db((p), (o), (n))
- static inline int __atomic_inc(db_atomic_t *p)
- {
-	int	temp;
-@@ -176,7 +176,7 @@ static inline int __atomic_dec(db_atomic_t *p)
-  * http://gcc.gnu.org/onlinedocs/gcc-4.1.0/gcc/Atomic-Builtins.html
-  * which configure could be changed to use.
-  */
--static inline int __atomic_compare_exchange(
-+static inline int __atomic_compare_exchange_db(
-	db_atomic_t *p, atomic_value_t oldval, atomic_value_t newval)
- {
-	atomic_value_t was;

@@ -3,28 +3,30 @@ class Watson < Formula
 
   desc "Command-line tool to track (your) time"
   homepage "https://tailordev.github.io/Watson/"
-  url "https://files.pythonhosted.org/packages/37/49/f1ee677017cd8343d5ef3a6c5c449f4763d26f4ba5cb3aa1b38769133ee7/td-watson-1.5.2.tar.gz"
-  sha256 "6e03d44a9278807fe5245e9ed0943f13ffb88e11249a02655c84cb86260b27c8"
+  url "https://files.pythonhosted.org/packages/d3/1c/b2e928b12a320ee098da477b50ee9dd1d5054b9501f63fae670767bee279/td-watson-1.10.0.tar.gz"
+  sha256 "f223bc0cd03a4baeb0b149032731edda9c6fc0c04ff61d819c6f542f01957369"
+  license "MIT"
+  revision 1
   head "https://github.com/TailorDev/Watson.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6d0a2d0c27ba00f699f5ed3305104ee98b5a62a0e24ed235fa4386ee7d147786" => :high_sierra
-    sha256 "b73f589ea7a6c88f8e75b44b0c5dfe39d43a6e2bf7e8f04ac865706fb2b605c1" => :sierra
-    sha256 "a88d5581565c2bcc025fff52006286146d2bd1326c6dc382a7cfb160ca30b947" => :el_capitan
-    sha256 "6b2461f85332a77ec5bd22abccd83fe1a8e13d3c9ac0a0ee8e1dd1a0d7e1382c" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bbacc9c9851817a475dffab977b811aae3e458ec44764cc913c6e5e7a695a0cf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1bcccec3931eb5ba2ae34d3d43ba2862d80c12974e34e1fb86fcc30f03cbde08"
+    sha256 cellar: :any_skip_relocation, catalina:      "66987a4358988a3de67d3f1d95c14f396d43d417f566b7e4747939374abfa011"
+    sha256 cellar: :any_skip_relocation, mojave:        "ab7d7da5d7c96d4838fc631b648ab627fdd998909e34aa20d35723afb87f94d1"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2dd361ff58ad7182aff12325fa5399afb667cee4d7a0d49beeb9c0cc5e906e39"
   end
 
-  depends_on :python
+  depends_on "python@3.9"
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/54/db/76459c4dd3561bbe682619a5c576ff30c42e37c2e01900ed30a501957150/arrow-0.10.0.tar.gz"
-    sha256 "805906f09445afc1f0fc80187db8fe07670e3b25cdafa09b8d8ac264a8c0c722"
+    url "https://files.pythonhosted.org/packages/3f/e5/ddd9d095abbd249c2a610e6676c806a5f156c943677b30c2904f4c18f1b9/arrow-0.15.7.tar.gz"
+    sha256 "3f1a92b25bbee5f80cc8f6bdecfeade9028219229137c559c37335b4f574a292"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/20/d0/3f7a84b0c5b89e94abbd073a5f00c7176089f526edb056686751d5064cbd/certifi-2017.7.27.1.tar.gz"
-    sha256 "40523d2efb60523e113b44602298f0960e900388cf3bb6043f645cf57ea9e3f5"
+    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
+    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "chardet" do
@@ -33,33 +35,38 @@ class Watson < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
-    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
+    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
+  end
+
+  resource "click-didyoumean" do
+    url "https://files.pythonhosted.org/packages/9f/79/d265d783dd022541b744d002745d9e55d84c04a41930e35d8795934f6526/click-didyoumean-0.0.3.tar.gz"
+    sha256 "112229485c9704ff51362fe34b2d4f0b12fc71cc20f6d2b3afabed4b8bfa6aeb"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
-    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
+    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/07/2e/81fdfdfac91cf3cb2518fb149ac67caf0e081b485eab68e9aee63396f7e8/requests-2.18.2.tar.gz"
-    sha256 "5b26fcc5e72757a867e4d562333f841eddcef93548908a1bb1a9207260618da9"
+    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
+    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
-    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
+    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
   end
 
   def install

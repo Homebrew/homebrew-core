@@ -1,43 +1,28 @@
 class Apib < Formula
   desc "HTTP performance-testing tool"
   homepage "https://github.com/apigee/apib"
-  url "https://github.com/apigee/apib/archive/APIB_1_0.tar.gz"
-  sha256 "1592e55c01f2f9bc8085b39f09c49cd7b786b6fb6d02441ca665eef262e7b87e"
-  revision 1
-
+  url "https://github.com/apigee/apib/archive/APIB_1_2_1.tar.gz"
+  sha256 "e47f639aa6ffc14a2e5b03bf95e8b0edc390fa0bb2594a521f779d6e17afc14c"
+  license "Apache-2.0"
   head "https://github.com/apigee/apib.git"
 
   bottle do
-    cellar :any
-    sha256 "3ceaeadbdbd7c70211b7774ab76cff8e4d5176d4f04e4f1984043ec16002c4ec" => :high_sierra
-    sha256 "f0443f15ef97284cefe199c11f7cbb14d6b41e48c5d13d6a372e9d47c1410573" => :sierra
-    sha256 "cc30447ff51239eb2334d85b2f3faf0842b21ff882d8a4edb2e99155cb1dab76" => :el_capitan
-    sha256 "9cd200dbdb251c5d50e7fa2307a6252aa295a4a7ac0e594d0774ad1d2631215c" => :yosemite
-    sha256 "b14202356551d0b33446c99d38c4ed0f1d4893aa8e203fd04b6923db18ff40c1" => :mavericks
-    sha256 "c538b9389b1849704720383f03fb2fe4eaf145ecd01d7dca5fd08d95e0e961ba" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "6c066e87db949d59e554c6c9b9e7657d249171dee7a2d3b7bc53b54f36daa762"
+    sha256 cellar: :any, big_sur:       "24b8a6e851fe6e262765131c025e8dddada1c740ed7f3aa978d4fbc3bec939c1"
+    sha256 cellar: :any, catalina:      "b925a48cd3a9047184b5373e4718e4142117a487467cea95be9f43f6c9951712"
+    sha256 cellar: :any, mojave:        "fd1f74b58c7a51240d463c8ec1203bce33677409aca81ba0ffba9ea718471433"
+    sha256 cellar: :any, high_sierra:   "aee416aff5715b96b81cfeda0be036a2510ffe760187e396c143a64bae2c25c2"
   end
 
-  depends_on "apr"
-  depends_on "openssl"
+  depends_on "cmake" => :build
+  depends_on "libev"
+  depends_on "openssl@1.1"
 
   def install
-    # Upstream hardcodes finding apr in /usr/include. When CLT is not present
-    # we need to fix this so our apr requirement works.
-    # https://github.com/apigee/apib/issues/11
-    unless MacOS::CLT.installed?
-      inreplace "configure" do |s|
-        s.gsub! "/usr/include/apr-1.0", "#{Formula["apr"].opt_libexec}/include/apr-1"
-        s.gsub! "/usr/include/apr-1", "#{Formula["apr"].opt_libexec}/include/apr-1"
-      end
-      ENV.append "LDFLAGS", "-L#{Formula["apr-util"].opt_libexec}/lib"
-      ENV.append "LDFLAGS", "-L#{Formula["apr"].opt_libexec}/lib"
-      ENV.append "CFLAGS", "-I#{Formula["apr"].opt_libexec}/include/apr-1"
-      ENV.append "CFLAGS", "-I#{Formula["apr-util"].opt_libexec}/include/apr-1"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "apib", "apibmon"
 
-    system "./configure", "--prefix=#{prefix}"
-    system "make"
-    bin.install "apib", "apibmon"
+    bin.install "apib/apib", "apib/apibmon"
   end
 
   test do

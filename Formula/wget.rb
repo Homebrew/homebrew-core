@@ -1,14 +1,15 @@
 class Wget < Formula
   desc "Internet file retriever"
   homepage "https://www.gnu.org/software/wget/"
-  url "https://ftp.gnu.org/gnu/wget/wget-1.19.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/wget/wget-1.19.2.tar.gz"
-  sha256 "4f4a673b6d466efa50fbfba796bd84a46ae24e370fa562ede5b21ab53c11a920"
+  url "https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz"
+  sha256 "59ba0bdade9ad135eda581ae4e59a7a9f25e3a4bde6a5419632b31906120e26e"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "4f6896bbed75ea89f04d849357390b32e7462b86c8a3063dca85c9f5f7db1aaa" => :high_sierra
-    sha256 "d8b3ae9836eed0145615ca95132e76784a93c0f4a1f43a5b4f4af49b712d3020" => :sierra
-    sha256 "ab41d6f569535c4a19a64ea3f03f477818d66e56a86f8b9e1631311f5a4cca44" => :el_capitan
+    sha256 arm64_big_sur: "e9034fc9062d5d28972135be031876672aff18fa945ce37e9c2ee1e2c4287f3a"
+    sha256 big_sur:       "e6ea2a50b8196206f7072360e713535bb16fb786c8b5fe23cab05757e0f67b13"
+    sha256 catalina:      "88116cb28d6b85e441d1bb9df0a1454b84f8b9d0e8817a5bee0f228acc59e75a"
+    sha256 mojave:        "ae4e6f1dc4ecaf2bbed7700e8d64cdc671bf9d6c085ba335f119861fd15956fe"
   end
 
   head do
@@ -20,32 +21,25 @@ class Wget < Formula
     depends_on "gettext"
   end
 
-  deprecated_option "enable-debug" => "with-debug"
-
-  option "with-debug", "Build with debug support"
-
   depends_on "pkg-config" => :build
-  depends_on "pod2man" => :build if MacOS.version <= :snow_leopard
+  depends_on "libidn2"
   depends_on "openssl@1.1"
-  depends_on "pcre" => :optional
-  depends_on "libmetalink" => :optional
-  depends_on "gpgme" => :optional
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}
-      --with-ssl=openssl
-      --with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}
-    ]
-
-    args << "--disable-debug" if build.without? "debug"
-    args << "--disable-pcre" if build.without? "pcre"
-    args << "--with-metalink" if build.with? "libmetalink"
-    args << "--with-gpgme-prefix=#{Formula["gpgme"].opt_prefix}" if build.with? "gpgme"
-
-    system "./bootstrap" if build.head?
-    system "./configure", *args
+    system "./bootstrap", "--skip-po" if build.head?
+    system "./configure", "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
+                          "--with-ssl=openssl",
+                          "--with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--disable-debug",
+                          "--disable-pcre",
+                          "--disable-pcre2",
+                          "--without-libpsl",
+                          "--without-included-regex"
     system "make", "install"
   end
 

@@ -1,22 +1,19 @@
-require "language/haskell"
-
 class HopenpgpTools < Formula
-  include Language::Haskell::Cabal
-
   desc "Command-line tools for OpenPGP-related operations"
   homepage "https://hackage.haskell.org/package/hopenpgp-tools"
-  url "https://hackage.haskell.org/package/hopenpgp-tools/hopenpgp-tools-0.19.5.tar.gz"
-  sha256 "e0630a90c0565923b4244eb1df5ba034bcc8a7d092854d197cf47c783bd566f9"
-  head "https://anonscm.debian.org/git/users/clint/hopenpgp-tools.git"
+  url "https://hackage.haskell.org/package/hopenpgp-tools-0.23.6/hopenpgp-tools-0.23.6.tar.gz"
+  sha256 "3df2f26a8e1c2be92c54b1b347474464a23d213a7982dd4afb8c88c6b6325042"
+  license "AGPL-3.0-or-later"
+  head "https://salsa.debian.org/clint/hOpenPGP.git"
 
   bottle do
-    sha256 "4a6735e79e482ba28deaf8b579029761bfd332e5bc3656dd3391eb8c546f96d3" => :high_sierra
-    sha256 "1ee1f29b5af38aaff4ffc5288bb7a23d78be4bf560d7f6456b915c8218ad6b2a" => :sierra
-    sha256 "2fd337bf48fce294194500b584ffcb62fdf564661bb176a2508588a2adbba965" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:  "2055a599363bac4729fdb4313373b505fc2172a38061c84b5088ba1ca2785a3b"
+    sha256 cellar: :any_skip_relocation, catalina: "dfe8f2f9e6aa6b58482f94a6735323aaf3d25815bec18efed443a93d57b02b4b"
+    sha256 cellar: :any_skip_relocation, mojave:   "6264bd67ac890655b532d0c9e65afcc830d3197cf8bd3669166561a1686e8837"
   end
 
-  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.6" => :build
   depends_on "pkg-config" => :build
   depends_on "nettle"
 
@@ -26,14 +23,8 @@ class HopenpgpTools < Formula
   end
 
   def install
-    # Reported 7 Oct 2017 to clint AT debian DOT org
-    # RE: happy, see https://github.com/simonmar/happy/issues/94
-    # RE: graphviz, see https://github.com/haskell-infra/hackage-trustees/issues/114
-    (buildpath/"cabal.config").write <<~EOS
-      constraints: happy<1.19.6, graphviz >= 2999.17.0.0
-    EOS
-
-    install_cabal_package :using => ["alex", "happy"]
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do

@@ -1,54 +1,52 @@
 class Leptonica < Formula
   desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
-  url "https://github.com/DanBloomberg/leptonica/releases/download/1.74.4/leptonica-1.74.4.tar.gz"
-  mirror "http://www.leptonica.org/source/leptonica-1.74.4.tar.gz"
-  sha256 "29c35426a416bf454413c6fec24c24a0b633e26144a17e98351b6dffaa4a833b"
-  revision 1
+  url "http://www.leptonica.org/source/leptonica-1.80.0.tar.gz"
+  sha256 "ec9c46c2aefbb960fb6a6b7f800fe39de48343437b6ce08e30a8d9688ed14ba4"
+  license "BSD-2-Clause"
 
-  bottle do
-    cellar :any
-    sha256 "003dce941c5eb1d0faf314fae1fd4501f023e29b0b73ddb20a72ff807a48aa7c" => :high_sierra
-    sha256 "824ca9ea9a3c6a0908f576288cf392244e0cab32835a3b01c8d125c8195ae476" => :sierra
-    sha256 "e567de6c8cb4caabe45b61e314fa482e8792bc1c3719755760ee55a694096716" => :el_capitan
-    sha256 "b1b8d75b21f7512dabd7cf665dbda4977bf1b34cc61bdc0daa23748a9c072208" => :yosemite
+  livecheck do
+    url "http://www.leptonica.org/download.html"
+    regex(/href=.*?leptonica[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "libpng" => :recommended
-  depends_on "jpeg" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "giflib" => :optional
-  depends_on "openjpeg" => :optional
-  depends_on "webp" => :optional
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "2d7db56dad646ed732585242e50716dd3152882d16811f72a86de11ea651e0d8"
+    sha256 cellar: :any, big_sur:       "7cdcfbb0616b884ace6657b1a009f874ac249bf7c38e08ec8b43217584968e64"
+    sha256 cellar: :any, catalina:      "2772ab6d50bb48132db5bf6d2d7b4086058635c060392dc375b23769513ebca7"
+    sha256 cellar: :any, mojave:        "b6503796ec87ac555bb4c5278aa3c8bf6b5ef3c88d66da9a040c04e0cafdcade"
+    sha256 cellar: :any, high_sierra:   "01c2fe703b082f830fffec5f1d21d50d41c1c30967cb74e1bc0b744dcb72d50d"
+  end
+
   depends_on "pkg-config" => :build
+  depends_on "giflib"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "openjpeg"
+  depends_on "webp"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --with-libwebp
+      --with-libopenjpeg
     ]
-
-    %w[libpng jpeg libtiff giflib].each do |dep|
-      args << "--without-#{dep}" if build.without?(dep)
-    end
-    %w[openjpeg webp].each do |dep|
-      args << "--with-lib#{dep}" if build.with?(dep)
-      args << "--without-lib#{dep}" if build.without?(dep)
-    end
 
     system "./configure", *args
     system "make", "install"
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
-    #include <iostream>
-    #include <leptonica/allheaders.h>
+    (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
+      #include <leptonica/allheaders.h>
 
-    int main(int argc, char **argv) {
-        std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
-        return 0;
-    }
+      int main(int argc, char **argv) {
+          std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
+          return 0;
+      }
     EOS
 
     flags = ["-I#{include}/leptonica"] + ENV.cflags.to_s.split

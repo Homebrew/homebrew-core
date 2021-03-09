@@ -1,15 +1,18 @@
 class Boxes < Formula
   desc "Draw boxes around text"
-  homepage "http://boxes.thomasjensen.com/"
-  url "https://github.com/ascii-boxes/boxes/archive/v1.2.tar.gz"
-  sha256 "ba237f6d4936bdace133d5f370674fd4c63bf0d767999a104bada6460c5d1913"
+  homepage "https://boxes.thomasjensen.com/"
+  url "https://github.com/ascii-boxes/boxes/archive/v1.3.tar.gz"
+  sha256 "cbb46b3b0ef2c016f9ebcebea5acf6c2bfec39dfb6696dc8f4427a3f844cd567"
+  license "GPL-2.0"
   head "https://github.com/ascii-boxes/boxes.git"
 
   bottle do
-    sha256 "6823ac1ae744b9c1c39dedd056674b39200990de61d3035962a7da5221a57ec2" => :high_sierra
-    sha256 "ebb5d353fb518ceb79ad3f52c0e53e867c5fc7bef1577cdca712ce91e522af56" => :sierra
-    sha256 "6f0a27e8bad4e4294bf4b4f82d1774eaf987cc7e8e6486f3204619ab84f01b13" => :el_capitan
-    sha256 "ae79b8cff43636d551a7f3e34dd74c5d6c15c526c79b6a9ad6b0fb2d3b60c0e0" => :yosemite
+    sha256 arm64_big_sur: "86b71a2dc84252884cfdf5d49a3ac2c74f6353df0988ff82a91f94f73ae0e0a9"
+    sha256 big_sur:       "ac4cba99372fa9c4a07d429769561c51492b244868c6694c3bd09cb872883d31"
+    sha256 catalina:      "48a3b6d9b8c23a3ab1f366f6f085361cc8db8cd341dfe9474665d87c4c23bbf8"
+    sha256 mojave:        "84b135ad528536233546dbf8d36e0be4a21a89050910e45a4f8e2796c99b7c3f"
+    sha256 high_sierra:   "ca1c4e0e76f03ee4a60789f30093d2eee3794ff54b989da1a8a3ae555228f081"
+    sha256 sierra:        "d31462128d1f55cd3014ae942b4620f1ec4d06e72e8a47cae5ef56afcf65e791"
   end
 
   def install

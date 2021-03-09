@@ -1,34 +1,35 @@
 class Harbour < Formula
   desc "Portable, xBase-compatible programming language and environment"
   homepage "https://harbour.github.io"
-
+  license "GPL-2.0"
   head "https://github.com/harbour/core.git"
 
   # Missing a header that was deprecated by libcurl @ version 7.12.0 and
   # deleted sometime after Harbour 3.0.0 release.
   stable do
     patch :DATA
-    url "https://downloads.sourceforge.net/harbour-project/source/3.0.0/harbour-3.0.0.tar.bz2"
+    url "https://downloads.sourceforge.net/project/harbour-project/source/3.0.0/harbour-3.0.0.tar.bz2"
     sha256 "4e99c0c96c681b40c7e586be18523e33db24baea68eb4e394989a3b7a6b5eaad"
   end
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/harbour[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "3b7edfe9c3878bbfe632cca9abc40a4b109b420b7ab856b90ce44fbc05624f85" => :high_sierra
-    sha256 "815dacae2d2ac3d7e9c16d158a42e3bc500758f6d30fc5d0eedec8ae88b1bf26" => :sierra
-    sha256 "21c3269b41d9b8ea334949334febed047c7ffd4fc9ca7e0686ba6a472929a2b8" => :el_capitan
-    sha256 "5677878ce808eb51cf130212724d1959def64d45c6812cb99ec0ceef100ea4f8" => :yosemite
-    sha256 "ed55f20628aa2c34adccb0530a9b8f477572bc8acc0d9ff3d5374fe68384c753" => :mavericks
-    sha256 "8b6384af586eeec66714a8c55e5e6efb26909053958897b64c7cdad2459965e0" => :mountain_lion
+    rebuild 2
+    sha256 cellar: :any, catalina:    "a782b441606f27f4c2b4708faa78b980b675c5e1e4b8a3d9ab4f2df7f6df8b0a"
+    sha256 cellar: :any, mojave:      "38063770c90226c48e9d73c6789a015141ac0db6478d075fe18f5d8718e2472d"
+    sha256 cellar: :any, high_sierra: "efcb46128115bea60eab289f581c4bed82fa846af095055feee116cbf90ed9ac"
+    sha256 cellar: :any, sierra:      "ddf71a29c41a874b1d6e787d07f8f66d284ac2bbc24c7a77c1dedfe8d243c76a"
   end
 
   depends_on "pcre"
-  depends_on :x11 => :optional
 
   def install
     ENV["HB_INSTALL_PREFIX"] = prefix
-    ENV["HB_WITH_X11"] = "no" if build.without? "x11"
+    ENV["HB_WITH_X11"] = "no"
 
     ENV.deparallelize
 
@@ -49,7 +50,7 @@ class Harbour < Formula
          return
     EOS
 
-    assert_match /Hello, world!/, shell_output("#{bin}/hbmk2 hello.prg -run")
+    assert_match "Hello, world!", shell_output("#{bin}/hbmk2 hello.prg -run")
   end
 end
 

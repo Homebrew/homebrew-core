@@ -1,21 +1,32 @@
 class Clingo < Formula
   desc "ASP system to ground and solve logic programs"
   homepage "https://potassco.org/"
-  url "https://github.com/potassco/clingo/archive/v5.2.2.tar.gz"
-  sha256 "da1ef8142e75c5a6f23c9403b90d4f40b9f862969ba71e2aaee9a257d058bfcf"
+  url "https://github.com/potassco/clingo/archive/v5.4.1.tar.gz"
+  sha256 "ac6606388abfe2482167ce8fd4eb0737ef6abeeb35a9d3ac3016c6f715bfee02"
+  license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    rebuild 1
-    sha256 "c6d1544f386880a1c16c81f56fddc3bef9efccda62d624dc646e6e785a236301" => :high_sierra
-    sha256 "69df2be35e41efc97550deef3f12a66210a77838b4238e9046edf2aab9a38a25" => :sierra
-    sha256 "7c9b87455116a0538ff4e8de9a2366a7ae7cb0020ef9c8a38450a72efd4903ce" => :el_capitan
+    sha256 arm64_big_sur: "b32ff9822ef258cf9eb034e7777ab748a57ae0c41d8dff7eddf1631dfb1acf6b"
+    sha256 big_sur:       "6f4b60fa6d911b4740a30b6ccfa4d4014afb3b854027353ec59ad6e93e706ef4"
+    sha256 catalina:      "a009c8c0bfd4a47c515d94ad7d779a906e1ca8a69a99b5361d44314b750920ef"
+    sha256 mojave:        "c13ee502b4f99f4f8b9164a020262fdac0d557eb1527f932b798886efbacd012"
+  end
+
+  head do
+    url "https://github.com/potassco/clingo.git"
+    depends_on "bison" => :build
+    depends_on "re2c" => :build
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on :python if MacOS.version <= :snow_leopard
-
-  needs :cxx14
+  depends_on "lua"
+  depends_on "python@3.9"
 
   # This formula replaced the clasp & gringo formulae.
   # https://github.com/Homebrew/homebrew-core/pull/20281
@@ -29,12 +40,15 @@ class Clingo < Formula
     system "cmake", ".", "-DCLINGO_BUILD_WITH_PYTHON=ON",
                          "-DCLINGO_BUILD_PY_SHARED=ON",
                          "-DPYCLINGO_USE_INSTALL_PREFIX=ON",
-                         "-DCLINGO_BUILD_WITH_LUA=OFF",
+                         "-DPYCLINGO_USER_INSTALL=OFF",
+                         "-DCLINGO_BUILD_WITH_LUA=ON",
+                         "-DPython_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
+                         "-DPYCLINGO_DYNAMIC_LOOKUP=OFF",
                          *std_cmake_args
     system "make", "install"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/clingo --version")
+    assert_match "clingo version", shell_output("#{bin}/clingo --version")
   end
 end

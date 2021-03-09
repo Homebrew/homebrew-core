@@ -1,39 +1,28 @@
 class RabbitmqC < Formula
-  desc "RabbitMQ C client"
+  desc "C AMQP client library for RabbitMQ"
   homepage "https://github.com/alanxz/rabbitmq-c"
-  url "https://github.com/alanxz/rabbitmq-c/archive/v0.8.0.tar.gz"
-  sha256 "d8ed9dcb49903d83d79d7b227da35ef68c60e5e0b08d0fc1fb4e4dc577b8802b"
+  url "https://github.com/alanxz/rabbitmq-c/archive/v0.10.0.tar.gz"
+  sha256 "6455efbaebad8891c59f274a852b75b5cc51f4d669dfc78d2ae7e6cc97fcd8c0"
+  license "MIT"
   head "https://github.com/alanxz/rabbitmq-c.git"
 
   bottle do
-    cellar :any
-    sha256 "fe5c4ef74c41a2361ad4d3496fbc33a1deb84048ce0bc9ba552a3dc533d59638" => :high_sierra
-    sha256 "12a6f5822603bec5de04cbc2dae324bbd1cc48f81d641d3403143bcfad680915" => :sierra
-    sha256 "eb9a25f5371072c0f4833c7f4554f2b5e53b7e2b5ea10e33230cad8b6c9affe4" => :el_capitan
-    sha256 "c0775f463db385d302b4d73d6403842ce16654c2f7a2618e6c0d1aa7c0590a14" => :yosemite
-    sha256 "f4e4d641af6559ee49beec28a7620af68e643ac26429c5f031953e8d79c8b0b6" => :mavericks
+    sha256               arm64_big_sur: "ca5405b2852bfbecbe4e8145e688df1ffb4c97e2147e81684dc949b336dc8649"
+    sha256 cellar: :any, big_sur:       "f76f526ae3c37b8f686cbd796d2fc9f1ec6210e0ae2f8986260efa834b99c9f3"
+    sha256 cellar: :any, catalina:      "6434a9100eeadfcd57d35fd31d1863d75b71ec163a3a1be29076c217712bda55"
+    sha256 cellar: :any, mojave:        "5f99c633ece8efad2ef2085955b22d0558d8fc2dedcac67b3ba8b58a2640c2c3"
+    sha256 cellar: :any, high_sierra:   "53d883744a185e5daab18c8bd18fd70fed56dd009cc507356f128663947c2453"
   end
 
-  option "without-tools", "Build without command-line tools"
-
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "popt" if build.with? "tools"
-  depends_on "openssl"
+  depends_on "pkg-config" => :build
+  depends_on "openssl@1.1"
+  depends_on "popt"
 
   def install
-    args = std_cmake_args
-    args << "-DBUILD_EXAMPLES=OFF"
-    args << "-DBUILD_TESTS=OFF"
-    args << "-DBUILD_API_DOCS=OFF"
-
-    if build.with? "tools"
-      args << "-DBUILD_TOOLS=ON"
-    else
-      args << "-DBUILD_TOOLS=OFF"
-    end
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DBUILD_EXAMPLES=OFF",
+                         "-DBUILD_TESTS=OFF", "-DBUILD_API_DOCS=OFF",
+                         "-DBUILD_TOOLS=ON", "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
     system "make", "install"
   end
 

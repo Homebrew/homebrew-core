@@ -1,63 +1,38 @@
 class GccAT5 < Formula
-  def arch
-    if Hardware::CPU.type == :intel
-      if MacOS.prefer_64_bit?
-        "x86_64"
-      else
-        "i686"
-      end
-    elsif Hardware::CPU.type == :ppc
-      if MacOS.prefer_64_bit?
-        "powerpc64"
-      else
-        "powerpc"
-      end
-    end
-  end
-
-  def osmajor
-    `uname -r`.chomp
-  end
-
-  desc "The GNU Compiler Collection"
+  desc "GNU Compiler Collection"
   homepage "https://gcc.gnu.org/"
   url "https://ftp.gnu.org/gnu/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-5.5.0/gcc-5.5.0.tar.xz"
   sha256 "530cea139d82fe542b358961130c69cfde8b3d14556370b65823d2f91f0ced87"
+  revision 6
 
-  bottle do
-    sha256 "a411a491634b24b7e64346a64e3cd9bb53b75e658be632424905baedd3a047f2" => :high_sierra
-    sha256 "e1cbecfb6538a069ea916674fa73de7083592f6956160819cf3f924a3ef98cdf" => :sierra
-    sha256 "3710334428af9f7c749ca23cd64e2009673f52231a93d04457a02b6162732a72" => :el_capitan
+  livecheck do
+    url :stable
+    regex(%r{href=.*?gcc[._-]v?(5(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
-  # GCC's Go compiler is not currently supported on Mac OS X.
-  # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
-  option "with-java", "Build the gcj compiler"
-  option "with-all-languages", "Enable all compilers and languages, except Ada"
-  option "with-nls", "Build with native language support (localization)"
-  option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
-  option "with-jit", "Build the jit compiler"
-  option "without-fortran", "Build without the gfortran compiler"
-
-  depends_on "gmp"
-  depends_on "libmpc"
-  depends_on "mpfr"
-  depends_on "isl@0.14"
-  depends_on "ecj" if build.with?("java") || build.with?("all-languages")
+  bottle do
+    sha256 high_sierra: "dcc9059b725fd7c87842287bbedf60a28745417652d42a300dcd944e15986f36"
+  end
 
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
-  def pour_bottle?
-    MacOS::CLT.installed?
+  pour_bottle? do
+    reason "The bottle needs the Xcode CLT to be installed."
+    satisfy { MacOS::CLT.installed? }
   end
+
+  depends_on maximum_macos: [:high_sierra, :build]
+
+  depends_on "gmp"
+  depends_on "isl@0.18"
+  depends_on "libmpc"
+  depends_on "mpfr"
+
+  uses_from_macos "zlib"
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
-
-  # Fix for libgccjit.so linkage on Darwin.
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
-  patch :DATA
 
   # Fix build with Xcode 9
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=82091
@@ -68,25 +43,34 @@ class GccAT5 < Formula
     end
   end
 
+  # Fix Apple headers, otherwise they trigger a build failure in libsanitizer
+  # GCC bug report: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=83531
+  # Apple radar 36176941
+  if MacOS.version == :high_sierra
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/413cfac6/gcc%405/10.13_headers.patch"
+      sha256 "94aaec20c8c7bfd3c41ef8fb7725bd524b1c0392d11a411742303a3465d18d09"
+    end
+  end
+
+  # Patch for Xcode bug, taken from https://gcc.gnu.org/bugzilla/show_bug.cgi?id=89864#c43
+  # This should be removed in the next release of GCC if fixed by apple; this is an xcode bug,
+  # but this patch is a work around committed to GCC trunk
+  if MacOS::Xcode.version >= "10.2"
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/91d57ebe88e17255965fa88b53541335ef16f64a/gcc%405/gcc5-xcode10.2.patch"
+      sha256 "6834bec30c54ab1cae645679e908713102f376ea0fc2ee993b3c19995832fe56"
+    end
+  end
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
 
-    if build.with? "all-languages"
-      # Everything but Ada, which requires a pre-existing GCC Ada compiler
-      # (gnat) to bootstrap. GCC 4.6.0 add go as a language option, but it is
-      # currently only compilable on Linux.
-      languages = %w[c c++ fortran java objc obj-c++ jit]
-    else
-      # C, C++, ObjC compilers are always built
-      languages = %w[c c++ objc obj-c++]
+    # C, C++, ObjC and Fortran compilers are always built
+    languages = %w[c c++ fortran objc obj-c++]
 
-      languages << "fortran" if build.with? "fortran"
-      languages << "java" if build.with? "java"
-      languages << "jit" if build.with? "jit"
-    end
-
-    version_suffix = version.to_s.slice(/\d/)
+    version_suffix = version.major.to_s
 
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run so pretend we have an outdated makeinfo
@@ -94,7 +78,7 @@ class GccAT5 < Formula
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
     args = [
-      "--build=#{arch}-apple-darwin#{osmajor}",
+      "--build=x86_64-apple-darwin#{OS.kernel_version}",
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
@@ -103,7 +87,7 @@ class GccAT5 < Formula
       "--with-gmp=#{Formula["gmp"].opt_prefix}",
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--with-isl=#{Formula["isl@0.14"].opt_prefix}",
+      "--with-isl=#{Formula["isl@0.18"].opt_prefix}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
@@ -113,48 +97,29 @@ class GccAT5 < Formula
       # A no-op unless --HEAD is built because in head warnings will
       # raise errors. But still a good idea to include.
       "--disable-werror",
+      "--disable-nls",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
-      "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
+      "--with-bugurl=#{tap.issues_url}",
+      "--enable-multilib",
     ]
 
-    args << "--disable-nls" if build.without? "nls"
-
-    if build.with?("java") || build.with?("all-languages")
-      args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
+    # System headers may not be in /usr/include
+    sdk = MacOS.sdk_path_if_needed
+    if sdk
+      args << "--with-native-system-header-dir=/usr/include"
+      args << "--with-sysroot=#{sdk}"
     end
 
-    if MacOS.prefer_64_bit?
-      args << "--enable-multilib"
-    else
-      args << "--disable-multilib"
-    end
-
-    args << "--enable-host-shared" if build.with?("jit") || build.with?("all-languages")
+    # Avoid reference to sed shim
+    args << "SED=/usr/bin/sed"
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      unless MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path.
-        # "native-system-headers" will be appended
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{MacOS.sdk_path}"
-      end
-
       system "../configure", *args
-
-      if build.with? "profiled-build"
-        # Takes longer to build, may bug out. Provided for those who want to
-        # optimise all the way to 11.
-        system "make", "profiledbootstrap"
-      else
-        system "make", "bootstrap"
-      end
-
-      # At this point `make check` could be invoked to run the testsuite. The
-      # deja-gnu and autogen formulae must be installed in order to do this.
+      system "make", "bootstrap"
       system "make", "install"
     end
 
@@ -181,21 +146,7 @@ class GccAT5 < Formula
         return 0;
       }
     EOS
-    system bin/"gcc-5", "-o", "hello-c", "hello-c.c"
+    system bin/"gcc-#{version.major}", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
   end
 end
-
-__END__
---- a/gcc/jit/Make-lang.in	2015-02-03 17:19:58.000000000 +0000
-+++ b/gcc/jit/Make-lang.in	2015-04-08 22:08:24.000000000 +0100
-@@ -85,8 +85,7 @@
-	     $(jit_OBJS) libbackend.a libcommon-target.a libcommon.a \
-	     $(CPPLIB) $(LIBDECNUMBER) $(LIBS) $(BACKENDLIBS) \
-	     $(EXTRA_GCC_OBJS) \
--	     -Wl,--version-script=$(srcdir)/jit/libgccjit.map \
--	     -Wl,-soname,$(LIBGCCJIT_SONAME)
-+	     -Wl,-install_name,$(LIBGCCJIT_SONAME)
-
- $(LIBGCCJIT_SONAME_SYMLINK): $(LIBGCCJIT_FILENAME)
-	ln -sf $(LIBGCCJIT_FILENAME) $(LIBGCCJIT_SONAME_SYMLINK)

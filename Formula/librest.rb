@@ -3,17 +3,20 @@ class Librest < Formula
   homepage "https://wiki.gnome.org/Projects/Librest"
   url "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz"
   sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
+  revision 3
 
   bottle do
-    sha256 "9051b6736cc74cc7cf4869d80be7573b13361f33464f89eb88bccae86d22c1e9" => :high_sierra
-    sha256 "a799cab80624c9a4ad497725f13889608fee9f22030a85add84bd246a79a1693" => :sierra
-    sha256 "a2499387aa86673e5c7a04c88df26ca47f7b3498687c40b32dbcf14619084899" => :el_capitan
+    sha256 arm64_big_sur: "a565482a9685164d288df713142f23b91dda71fc9c694ea0c613c64320e4aa0a"
+    sha256 big_sur:       "366b341df1c40a648f2847b5f1c13efccfaeb4c3c9610c30fe7e5b3087d07186"
+    sha256 catalina:      "fb2e698cdf400c3f413a707132acd9b55139e2aa26da2f405f5eaebeace6573b"
+    sha256 mojave:        "dbaf452ac76dbc63e161ffc086aac7f6409614ca573c20fe02bd2e87d473e5b2"
+    sha256 high_sierra:   "5ab2748f8103ff622b6615f6427f21c7f9313b227824bd91429aa6f4c5c9c982"
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libsoup"
-  depends_on "gobject-introspection"
 
   def install
     system "./configure", "--disable-dependency-tracking",

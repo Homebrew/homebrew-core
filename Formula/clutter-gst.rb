@@ -1,21 +1,26 @@
 class ClutterGst < Formula
   desc "ClutterMedia interface using GStreamer for video and audio"
   homepage "https://developer.gnome.org/clutter-gst/"
-  url "https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.24.tar.xz"
-  sha256 "e9f1c87d8f4c47062e952fb8008704f8942cf2d6f290688f3f7d13e83578cc6c"
+  url "https://download.gnome.org/sources/clutter-gst/3.0/clutter-gst-3.0.27.tar.xz"
+  sha256 "fe69bd6c659d24ab30da3f091eb91cd1970026d431179b0724f13791e8ad9f9d"
+  revision 1
 
   bottle do
-    sha256 "4751b85cf45b43953c0831ab0a6baee8ab555f28b07824ba9826cc9ebb5a4af2" => :high_sierra
-    sha256 "01ee56b08e394349a122c49946723ae3160fd929e69433ec217b147ef669772e" => :sierra
-    sha256 "076425aafd980be4f68320ab5b9ea0168c4b46669a8ec4780483bda559c042ca" => :el_capitan
-    sha256 "9a2970791ee1915aca45d49e265fdf7a4ff1730b5a371eda3b6c9e352141e13b" => :yosemite
+    rebuild 1
+    sha256 arm64_big_sur: "bd23c3da4a8e9c35bb93bb043967defead1d749e15d912006f48b51cd1e467d4"
+    sha256 big_sur:       "e9d8f94e727561a95238da6366eb59589e9342edc8fd0a0eb6af86ce91aa9ef4"
+    sha256 catalina:      "9e5e48bdf08599d63be7a75eabac3221ce4b1799fcf51d857d37336345393c16"
+    sha256 mojave:        "3c4dcfd6b9b95d1f0a96e33d23060225c322224e21e4501c8e2b5a6ef32a9ebe"
+    sha256 high_sierra:   "b60c1d84cf2f4e9cf931d10ce759d4b21f08a7a2288dd81cbab78854d3a767a2"
+    sha256 sierra:        "fb997fb8ac4fcafd52690d64c12dfcd7776630ce717521c7cc0ce7d44ae3b8f7"
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
   depends_on "clutter"
-  depends_on "gstreamer"
-  depends_on "gst-plugins-base"
   depends_on "gdk-pixbuf"
+  depends_on "gst-plugins-base"
+  depends_on "gstreamer"
 
   def install
     args = %W[
@@ -26,10 +31,6 @@ class ClutterGst < Formula
       --disable-silent-rules
       --disable-gtk-doc-html
     ]
-
-    # the source code requires gdk-pixbuf but configure doesn't look for it
-    ENV.append "CFLAGS", `pkg-config --cflags gdk-pixbuf-2.0`.chomp
-    ENV.append "LIBS", `pkg-config --libs gdk-pixbuf-2.0`.chomp
 
     system "./configure", *args
     system "make", "install"
@@ -55,6 +56,7 @@ class ClutterGst < Formula
     glib = Formula["glib"]
     gst_plugins_base = Formula["gst-plugins-base"]
     gstreamer = Formula["gstreamer"]
+    harfbuzz = Formula["harfbuzz"]
     json_glib = Formula["json-glib"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -73,6 +75,7 @@ class ClutterGst < Formula
       -I#{gst_plugins_base.opt_include}/gstreamer-1.0
       -I#{gstreamer.opt_include}/gstreamer-1.0
       -I#{gstreamer.opt_lib}/gstreamer-1.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/clutter-gst-3.0
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libpng.opt_include}/libpng16

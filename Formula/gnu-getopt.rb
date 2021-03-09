@@ -1,29 +1,29 @@
 class GnuGetopt < Formula
-  desc "Command-line option parsing library"
-  homepage "http://software.frodo.looijaard.name/getopt/"
-  url "http://frodo.looijaard.name/system/files/software/getopt/getopt-1.1.6.tar.gz"
-  sha256 "d0bf1dc642a993e7388a1cddfb9409bed375c21d5278056ccca3a0acd09dc5fe"
+  desc "Command-line option parsing utility"
+  homepage "https://github.com/karelzak/util-linux"
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.36/util-linux-2.36.2.tar.xz"
+  sha256 "f7516ba9d8689343594356f0e5e1a5f0da34adfbc89023437735872bb5024c5f"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "5dc8b07eb3425e5b57d7deb4dea187fc992ef358c9c053d3a2dc230d748b4252" => :high_sierra
-    sha256 "05391b0dd0876ead74b18a4c5bb9c7db996586bf6918bd014db534027fd9ae2a" => :sierra
-    sha256 "5e9e87fe18c5681e80f1cf940fed275ed895831304326bc5e7be6fb6e53e8594" => :el_capitan
-    sha256 "f8dbbec03aaaeb1bc774d9bf606701901cc9a8ad15cecc5473567e51845057e6" => :yosemite
-    sha256 "27938c615808c8e4ff2eacac0a4059c76dee5518a5c8bbfb304b24b70736b429" => :mavericks
-    sha256 "88a02cd609a91253e9b996a1fcb1e8837161673e413fe792e5d05aa3ff9a94cf" => :mountain_lion
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ae1263956351e0cc6482a31d4950008804c2a1bd72567d06759fcf81884271c0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ca1fed65658b4bc72775636b6cb21e30dd0ff3e0521b80eda2ed37119f89838d"
+    sha256 cellar: :any_skip_relocation, catalina:      "e923cad6e80e57326467d08fecdda7150bb3a6a05c8d1d1b33dac1ef54b19e70"
+    sha256 cellar: :any_skip_relocation, mojave:        "9418bd6b173a0af13f89d10487129b7bfcd5690eb58fb3a1e253f5eadf03acdc"
   end
 
-  keg_only :provided_by_osx
-
-  depends_on "gettext"
+  keg_only :provided_by_macos
 
   def install
-    inreplace "Makefile" do |s|
-      gettext = Formula["gettext"]
-      s.change_make_var! "CPPFLAGS", "\\1 -I#{gettext.include}"
-      s.change_make_var! "LDFLAGS", "\\1 -L#{gettext.lib} -lintl"
-    end
-    system "make", "prefix=#{prefix}", "mandir=#{man}", "install"
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
+
+    system "make", "getopt"
+
+    bin.install "getopt"
+    man1.install "misc-utils/getopt.1"
+    bash_completion.install "bash-completion/getopt"
   end
 
   test do

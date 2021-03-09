@@ -1,16 +1,17 @@
 class Snappy < Formula
   desc "Compression/decompression library aiming for high speed"
   homepage "https://google.github.io/snappy/"
-  url "https://github.com/google/snappy/archive/1.1.7.tar.gz"
-  sha256 "3dfa02e873ff51a11ee02b9ca391807f0c8ea0529a4924afa645fbf97163f9d4"
+  url "https://github.com/google/snappy/archive/1.1.8.tar.gz"
+  sha256 "16b677f07832a612b0836178db7f374e414f94657c138e6993cbfc5dcc58651f"
+  license "BSD-3-Clause"
   head "https://github.com/google/snappy.git"
 
   bottle do
-    cellar :any
-    sha256 "27823a31c48fadd654671a82aedaa79695d4cd69ce52860ee58a217a03e63d06" => :high_sierra
-    sha256 "76e10c7f7dcb0aa2618ea961cc8201b5700e0ef6144139728586d9c2d45d91b7" => :sierra
-    sha256 "5ee06fbe8742f3bb428f2bf789b2645a1c727ca68e69a0647cb67d9d906b888e" => :el_capitan
-    sha256 "d8bd1af11a95ab58eacfc3c504ac623702b71d03317b300496fce6ecaee620c0" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "f6d2b583adf7f67e01d6399acfd8960929df9ffeb8fb8a93e4570af4da9b799f"
+    sha256 cellar: :any, big_sur:       "b3ebf378db9b345341fc4695d1c6834433bd729a471d60b4f34306823312c464"
+    sha256 cellar: :any, catalina:      "b15a258346dc93bd5c6900a405ccb2e9e02ebfeb5b16607b340cc6a5a021eba3"
+    sha256 cellar: :any, mojave:        "e996c3b0dfac02c8cdd06d849db47e853800389ff7d18fa66526d7d51d305589"
+    sha256 cellar: :any, high_sierra:   "77276307037cc20bf44c86fef60b1745c1d8f84d6f963332535b34868f5fc2b4"
   end
 
   depends_on "cmake" => :build
@@ -43,7 +44,7 @@ class Snappy < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lsnappy", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lsnappy", "-o", "test"
     system "./test"
   end
 end

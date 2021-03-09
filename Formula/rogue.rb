@@ -2,19 +2,25 @@ class Rogue < Formula
   desc "Dungeon crawling video game"
   # Historical homepage: https://web.archive.org/web/20160604020207/rogue.rogueforge.net/
   homepage "https://sourceforge.net/projects/roguelike/"
-  url "http://pkgs.fedoraproject.org/repo/pkgs/rogue/rogue5.4.4-src.tar.gz/033288f46444b06814c81ea69d96e075/rogue5.4.4-src.tar.gz"
-  version "5.4.4"
+  url "https://src.fedoraproject.org/repo/pkgs/rogue/rogue5.4.4-src.tar.gz/033288f46444b06814c81ea69d96e075/rogue5.4.4-src.tar.gz"
   sha256 "7d37a61fc098bda0e6fac30799da347294067e8e079e4b40d6c781468e08e8a1"
 
+  livecheck do
+    url "https://src.fedoraproject.org/repo/pkgs/rogue/"
+    regex(/href=.*?rogue-?v?(\d+(?:\.\d+)+)(?:-src)?\.t/i)
+  end
+
   bottle do
-    sha256 "004f3700d269910925bdbdd3edbdb6737deaf3edbf8b4d891810e38b71e3f7b6" => :high_sierra
-    sha256 "0caa3e02fb718c2c282f98eaaff70ef3b9e78f9f52897e18f17b09a1d0e0ce2b" => :sierra
-    sha256 "5a751dbc338983c191661bae45dd34337b25feaa37c090e239f10b263b0d8674" => :el_capitan
-    sha256 "2bbbf8931223f690edf2ae41308dc4a332a00072609480e54c3b96eada07d1f5" => :yosemite
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1cfeb02e30c14d89cf9d831c553a06eb17a6d6d27734c215e3ee7e72ab0c7c76"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c6e8bb630a966cd8885e378242f9175ffd8327e26ec1ed679016302b437a5156"
+    sha256 cellar: :any_skip_relocation, catalina:      "c576555f6857ff3ec7f0b2e39625d3c1f86989315b735a5e27d9416c095e5efc"
+    sha256 cellar: :any_skip_relocation, mojave:        "7a7a380bb29967b8e795aa2407e8f205752b93952082491e20fff84394819294"
   end
 
   def install
-    ENV.ncurses_define
+    # Fix main.c:241:11: error: incomplete definition of type 'struct _win_st'
+    ENV.append "CPPFLAGS", "-DNCURSES_OPAQUE=0"
 
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

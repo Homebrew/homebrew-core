@@ -1,16 +1,16 @@
 class OpenJtalk < Formula
   desc "Japanese text-to-speech system"
   homepage "https://open-jtalk.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.10/open_jtalk-1.10.tar.gz"
-  sha256 "5b77ee729e546ca6a22d0b08cda0923fb4225fa782b26c2511b66cc644c14b7d"
-  revision 1
+  url "https://downloads.sourceforge.net/project/open-jtalk/Open%20JTalk/open_jtalk-1.11/open_jtalk-1.11.tar.gz"
+  sha256 "20fdc6aeb6c757866034abc175820573db43e4284707c866fcd02c8ec18de71f"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6acdf89723494c61c4118b157b283b2eb9579846b34b6168908132750a4f99c8" => :high_sierra
-    sha256 "a472664a3ab3edb6fe9198aeecfc8c4881cf62298c09eec9dce78ad04a591f5c" => :sierra
-    sha256 "1f688549f09842e4513ee93386e747fc5b819239a808c0b6de08e74f41619f37" => :el_capitan
-    sha256 "ebcd63c3814851c22a8e536791a8ece8fd7b77a9dd77856b0aec705eab82e0b0" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c0e84db4a3e1d2a336eb2da7f1060845f35ac1db68be727e524dcbfdb2f785ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b68172f2ccf166ea5e1b46c1908714386cfb24dcafa374a1ab172faa4844cc9a"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a251febe3197994355ab780ce02aa45264c7d148b0f1b0dfd1a80a7f7aa9937"
+    sha256 cellar: :any_skip_relocation, mojave:        "bed36f972fe3dc3d5f286eff5c1b1605a1bcfae6cc755b7b2aee57fc497f7913"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "cd50656bb81db4528b82b844c773440d6cdfec63e545a64002a473da05a7eb18"
+    sha256 cellar: :any_skip_relocation, sierra:        "b015d173b77980d0da3a8eedad02fdff95ac919c790917ba9cb197db91207235"
   end
 
   resource "hts_engine API" do
@@ -24,8 +24,8 @@ class OpenJtalk < Formula
   end
 
   resource "mei" do
-    url "https://downloads.sourceforge.net/project/mmdagent/MMDAgent_Example/MMDAgent_Example-1.7/MMDAgent_Example-1.7.zip"
-    sha256 "5b560e8c23c5acaf67688e6e25788db2c0bb230aff0635b7c75a82a87c7f6dba"
+    url "https://downloads.sourceforge.net/project/mmdagent/MMDAgent_Example/MMDAgent_Example-1.8/MMDAgent_Example-1.8.zip"
+    sha256 "f702f2109a07dca103c7b9a5123a25c6dda038f0d7fcc899ff0281d07e873a63"
   end
 
   def install
@@ -38,12 +38,6 @@ class OpenJtalk < Formula
                           "--with-hts-engine-library-path=#{lib}",
                           "--with-charset=UTF-8",
                           "--prefix=#{prefix}"
-
-    if MacOS.version <= :mavericks
-      inreplace "config.status", "-finput-charset=UTF-8 -fexec-charset=UTF-8", ""
-      # https://sourceforge.net/p/open-jtalk/mailman/message/33404251/
-    end
-
     system "make", "install"
 
     resource("voice").stage do

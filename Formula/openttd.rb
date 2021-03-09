@@ -1,42 +1,40 @@
 class Openttd < Formula
   desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://binaries.openttd.org/releases/1.7.1/openttd-1.7.1-source.tar.xz"
-  sha256 "61190952a98d494d3fd62e395dd6c359609914d0ba8fe80eaeb585b7d62a1b36"
+  url "https://cdn.openttd.org/openttd-releases/1.10.3/openttd-1.10.3-source.tar.xz"
+  sha256 "c11601ef547eb1f6d4f9a035bd19e0a760b47872ce7d9b4117aaa45ac377b53b"
+  license "GPL-2.0"
+  head "https://github.com/OpenTTD/OpenTTD.git"
 
-  head "https://git.openttd.org/openttd/trunk.git"
-
-  bottle do
-    rebuild 1
-    sha256 "aa8a324b0400fab12eb52c8980d613d4630aa722314483742be46be5969e8285" => :high_sierra
-    sha256 "3878a83345e59f8dc1994bd11c48d7e9b3307b9ef1c6228d0de3884ad5532ef5" => :sierra
-    sha256 "51addb9fbdde6f2c6c76d80c13526626e501dfffdcdc97f3997773e8f55c12a8" => :el_capitan
+  livecheck do
+    url :homepage
+    regex(/Download stable \((\d+(\.\d+)+)\)/i)
   end
 
+  bottle do
+    sha256 cellar: :any, big_sur:     "406f8ff7bf25785ecb8dc062ceabc1ddf33ff8e24b745adb6c7886b17fb74e43"
+    sha256 cellar: :any, catalina:    "7958e9cf2b4ee62147a364893c4e2388f7a8e9ab95b2cd54fed6715da60c5be6"
+    sha256 cellar: :any, mojave:      "e8a6fba720e5ec6ef08f5255fe47a86b271b7f3f45ea8e2a13fd3b277f6eb754"
+    sha256 cellar: :any, high_sierra: "853c329ff51f9ef5403b581911790ba6179bea0cb274b58fb08ac8af0b5aa361"
+  end
+
+  depends_on "pkg-config" => :build
   depends_on "lzo"
   depends_on "xz"
-  depends_on "pkg-config" => :build
 
   resource "opengfx" do
-    url "https://bundles.openttdcoop.org/opengfx/releases/0.5.4/opengfx-0.5.4.zip"
-    sha256 "3d136d776906dbe8b5df1434cb9a68d1249511a3c4cfaca55cc24cc0028ae078"
+    url "https://cdn.openttd.org/opengfx-releases/0.6.0/opengfx-0.6.0-all.zip"
+    sha256 "d419c0f5f22131de15f66ebefde464df3b34eb10e0645fe218c59cbc26c20774"
   end
 
   resource "opensfx" do
-    url "https://bundles.openttdcoop.org/opensfx/releases/0.2.3/opensfx-0.2.3.zip"
-    sha256 "3574745ac0c138bae53b56972591db8d778ad9faffd51deae37a48a563e71662"
+    url "https://cdn.openttd.org/opensfx-releases/0.2.3/opensfx-0.2.3-all.zip"
+    sha256 "6831b651b3dc8b494026f7277989a1d757961b67c17b75d3c2e097451f75af02"
   end
 
   resource "openmsx" do
-    url "https://bundles.openttdcoop.org/openmsx/releases/0.3.1/openmsx-0.3.1.zip"
+    url "https://cdn.openttd.org/openmsx-releases/0.3.1/openmsx-0.3.1-all.zip"
     sha256 "92e293ae89f13ad679f43185e83fb81fb8cad47fe63f4af3d3d9f955130460f5"
-  end
-
-  # Fix pre-existing bug triggering Xcode 9 build error
-  # Upstream commit, remove when 1.8 is released
-  patch do
-    url "https://git.openttd.org/?p=trunk.git;a=commitdiff_plain;h=2f7ac7c41f46dfc0d16d963ea5c6de2f8d144971"
-    sha256 "a2681e6ac7ccb2be2d591090198f343d1744484d7093e1e9866325cceecc8748"
   end
 
   def install
@@ -60,6 +58,6 @@ class Openttd < Formula
   end
 
   test do
-    assert_match /OpenTTD #{version}\n/, shell_output("#{bin}/openttd -h")
+    assert_match "OpenTTD #{version}\n", shell_output("#{bin}/openttd -h")
   end
 end

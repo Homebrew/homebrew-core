@@ -1,26 +1,32 @@
 class Pazpar2 < Formula
   desc "Metasearching middleware webservice"
   homepage "https://www.indexdata.com/pazpar2"
-  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.13.0.tar.gz"
-  sha256 "06adfbb0e215ae37bdbf7ddc173ba619359213c893d059e7a2203e91ac877f45"
-  revision 1
+  url "http://ftp.indexdata.dk/pub/pazpar2/pazpar2-1.14.0.tar.gz"
+  sha256 "3b0012450c66d6932009ac0decb72436690cc939af33e2ad96c0fec85863d13d"
+  license "GPL-2.0"
+  revision 3
+
+  livecheck do
+    url "http://ftp.indexdata.dk/pub/pazpar2/"
+    regex(/href=.*?pazpar2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "b2740e5f06aa0d25fc91b336a0cc000eacdbdbaae19d9f9a49bfd551182da8fe" => :high_sierra
-    sha256 "dada3e42b697e83a96aa6cdbe2aacad8774dde262ada11905e14a99cdfb19c14" => :sierra
-    sha256 "0bd5abbbb2903b793a178dabc517604acf36a532095fd6beae2cbf0f3c376fe8" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "60db540ce6032e173dad803d41cb870309b6459f7e61ee051305be90100df997"
+    sha256 cellar: :any, big_sur:       "a03f03e415910f4a4d2f0a69d1c132ad41c09581f9986f828f370a013169d05d"
+    sha256 cellar: :any, catalina:      "61a154c49f39f4b85c9e6a90b26f7240bf1345d04982bfd7a6b8d7fca47ae5a6"
+    sha256 cellar: :any, mojave:        "12269d35c8cc99cef098c71cb7d19ea42f594619915eff41dd3a0b5f43613f91"
   end
 
   head do
     url "https://github.com/indexdata/pazpar2.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
-  depends_on "icu4c" => :recommended
+  depends_on "icu4c"
   depends_on "yaz"
 
   def install

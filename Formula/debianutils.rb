@@ -1,15 +1,21 @@
 class Debianutils < Formula
   desc "Miscellaneous utilities specific to Debian"
   homepage "https://packages.debian.org/sid/debianutils"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/debianutils/debianutils_4.8.3.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/debianutils/debianutils_4.8.3.tar.xz"
-  sha256 "7102246d1c35260ed7f0458a9886acf655c379d14908415574494cdea45e28fb"
+  url "https://deb.debian.org/debian/pool/main/d/debianutils/debianutils_4.11.2.tar.xz"
+  sha256 "3b680e81709b740387335fac8f8806d71611dcf60874e1a792e862e48a1650de"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://packages.qa.debian.org/d/debianutils.html"
+    regex(/href=.*?debianutils[._-]v?(\d+(?:.\d+)+).dsc/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e69ed2b8db267b01c61f0e792c2276f2f3cb92c31e5fdb4d6fedcd189756b999" => :high_sierra
-    sha256 "3e1bef16feab858fc42c7f2062551e3124c5bb437e0c4da7d2d5427a03fd6177" => :sierra
-    sha256 "a04d91df71d97539e30d53850f38f18fa6e72795ab88ca0d0d27568739b77228" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d85a9b994fc1a8feee952fcdc7f745801fb1e39fdc733ea76f69c22dd7636fef"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6c099d05496a2f897a037aa8b20944faa62254b5486838a29f9735c696e7cb73"
+    sha256 cellar: :any_skip_relocation, catalina:      "b6a3110aa8113eb30d7b3dd71ac194d476969322e2a184172c8da9923c497c19"
+    sha256 cellar: :any_skip_relocation, mojave:        "5d50261564a4696a8f9d0eed99ffa0ed8eebc8344a0365d5c9b4083a54d3b6de"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "be68111406f254d184ffecf06a181df3000525e05b18f9b072c4cdd0ef30b3c1"
   end
 
   def install

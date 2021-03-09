@@ -1,16 +1,22 @@
 class PgpoolIi < Formula
   desc "PostgreSQL connection pool server"
   homepage "https://www.pgpool.net/mediawiki/index.php/Main_Page"
-  url "https://www.pgpool.net/download.php?f=pgpool-II-3.6.7.tar.gz"
-  sha256 "09cfe2cb36b9171d4a987a8b100e298e46d6a369c1b61d9e1a47d442ce16e249"
+  url "https://www.pgpool.net/mediawiki/images/pgpool-II-4.2.2.tar.gz"
+  sha256 "99f264fc953d2a9d1b454f62d0991ef3a0004825ebcc95f9fd9bb7cbe1783ba1"
 
-  bottle do
-    sha256 "003329039ed94efc5ed99c2ff9c903323fe1061c7d545c791f62836ea1e94bd6" => :high_sierra
-    sha256 "ab710a008b3a1692f0773a15bd2a979f31588e64a0647536d273c529b1d700fb" => :sierra
-    sha256 "c1590bcbf5b65e0b4f4f0438fbc5f86e5c6c876d971443ade09bdbeeeab05eed" => :el_capitan
+  livecheck do
+    url "https://www.pgpool.net/mediawiki/index.php/Downloads"
+    regex(/href=.*?pgpool-II[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on :postgresql
+  bottle do
+    sha256 arm64_big_sur: "2547d738d4d5ef11a881a175e5ae7cb70ff4d99f52c8f71fe03cb198608d96a0"
+    sha256 big_sur:       "79b4f7f5bdc76ca9aeedea952b13bf49b63c7258fa18e7e2551fb62969060140"
+    sha256 catalina:      "da66c1f679aa1eabf98246210c3428cfc956c61ebf0ca14652efb3fe7d3e6df8"
+    sha256 mojave:        "41f43474dbf1daac87ad3b0d71b050884687909a01fd7fb252d6aed6efa40794"
+  end
+
+  depends_on "postgresql"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",

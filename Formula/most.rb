@@ -1,18 +1,22 @@
 class Most < Formula
   desc "Powerful paging program"
   homepage "https://www.jedsoft.org/most/"
-  url "https://www.jedsoft.org/releases/most/most-5.0.0a.tar.bz2"
-  sha256 "94cb5a2e71b6b9063116f4398a002a757e59cd1499f1019dde8874f408485aa9"
-
+  url "https://www.jedsoft.org/releases/most/most-5.1.0.tar.gz"
+  sha256 "db805d1ffad3e85890802061ac8c90e3c89e25afb184a794e03715a3ed190501"
   head "git://git.jedsoft.org/git/most.git"
 
+  livecheck do
+    url "https://www.jedsoft.org/releases/most/"
+    regex(/href=.*?most[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "90678b6798fb5eaadf38359fc8f1652fb8dbe3c96c58113742a0727a3d3fb51c" => :high_sierra
-    sha256 "33ff883a9327d71e8d8eaffeb7e12e224ac1e04f06bd3d940317e7d9c431145b" => :sierra
-    sha256 "9e645b60950d18dea0b58c95b0525992cb55bbddc5cdc664dce11e94b552e568" => :el_capitan
-    sha256 "7b2828c656ba7ef31fc03d5570f8d6701f365fd4a96252bcdfae66b266713bc3" => :yosemite
-    sha256 "f7d99563678653a673eddee924ca90f76819eed8a25a47780762571f35187241" => :mavericks
-    sha256 "a5e6342f6f4046aa9f47b588734a4f0ad614aa3c461a83fe61a4d4f2666e792b" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "fd73f2437d47c7c7eeee75514321666ed2a8d72f996a67b46e6822dc73a32155"
+    sha256 cellar: :any, big_sur:       "dc824da94e802ecb474eaccd9f3d89b37288846250dfeded7d065ccc43cd208d"
+    sha256 cellar: :any, catalina:      "2971d721787d978c1855827c1f2cb6143ee0d1efabdfe1caa50bda981865a24d"
+    sha256 cellar: :any, mojave:        "aa9766e4fa0be084108b370c639060b7a27e5ff8eb90c649cbc643160659932f"
+    sha256 cellar: :any, high_sierra:   "192ccb3fe86ae7766bd1aadb8e92d8bc7a28cb666fffe52d0750c6c2a4450657"
+    sha256 cellar: :any, sierra:        "9a9d74a50ade82af787d47e5f6514df01a47b5159dc1521d93c470ce8554743e"
   end
 
   depends_on "s-lang"

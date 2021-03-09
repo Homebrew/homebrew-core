@@ -1,49 +1,51 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
-  homepage "https://www.bunkus.org/videotools/mkvtoolnix/"
-  url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-18.0.0.tar.xz"
-  sha256 "b8282d6d279caa86038721d2a49471d1dd25a465ee1a779ee9c2a99bc8ff972f"
+  homepage "https://mkvtoolnix.download/"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-53.0.0.tar.xz"
+  sha256 "8dfd66278c81e6f1df0fd84aad30ce2b4cf7a2ad4336924f01f1879f9d1e4cd6"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://mkvtoolnix.download/sources/"
+    regex(/href=.*?mkvtoolnix[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "de777359b55b4467f54570f40ee143e6575e5049163c74ed1c383f25c570b5d9" => :high_sierra
-    sha256 "64a0975c2cbbe26b1b012073a3f312e45e0bb90fefbdf944075af122edcfa181" => :sierra
-    sha256 "eac1ed9b45eb5020f7a0d662c71671bb8aa2adade63cd0ff2cc319c5c4661a16" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "3a9e5699a395a9e2a5823885fa3337c74dccb13b545195a1010075a7587e5a03"
+    sha256 cellar: :any, big_sur:       "712880637df3730d2c49390de8fc3be9053b2e093a06e8d5dcd43ba7c1d79547"
+    sha256 cellar: :any, catalina:      "8139fcc6b846f6f4b317bd4ac393a3ef15e72446a0f6a0f12b65daddff04cd76"
+    sha256 cellar: :any, mojave:        "a633f4d8d7438fdc876fc2dfba0ef20037d43391e63e509df833d34ef169d812"
   end
 
   head do
-    url "https://github.com/mbunkus/mkvtoolnix.git"
-    depends_on "automake" => :build
+    url "https://gitlab.com/mbunkus/mkvtoolnix.git", branch: "main"
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  option "with-qt", "Build with Qt GUI"
-
-  deprecated_option "with-qt5" => "with-qt"
-
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
-  depends_on "pugixml" => :build
-  depends_on :ruby => ["1.9", :build]
   depends_on "boost"
+  depends_on "flac"
+  depends_on "fmt"
+  depends_on "gettext"
   depends_on "libebml"
+  depends_on "libmagic"
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "flac" => :recommended
-  depends_on "libmagic" => :recommended
-  depends_on "qt" => :optional
-  depends_on "gettext" => :optional
+  depends_on macos: :mojave # C++17
+  depends_on "pcre2"
+  depends_on "pugixml"
 
-  needs :cxx11
+  uses_from_macos "libxslt" => :build
+  uses_from_macos "ruby" => :build
 
   def install
     ENV.cxx11
 
-    features = %w[libogg libvorbis libebml libmatroska]
-    features << "flac" if build.with? "flac"
-    features << "libmagic" if build.with? "libmagic"
-
+    features = %w[flac libebml libmagic libmatroska libogg libvorbis]
     extra_includes = ""
     extra_libs = ""
     features.each do |feature|
@@ -53,30 +55,14 @@ class Mkvtoolnix < Formula
     extra_includes.chop!
     extra_libs.chop!
 
-    args = %W[
-      --disable-debug
-      --prefix=#{prefix}
-      --with-boost=#{Formula["boost"].opt_prefix}
-      --with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl
-      --with-extra-includes=#{extra_includes}
-      --with-extra-libs=#{extra_libs}
-    ]
-
-    if build.with?("qt")
-      qt = Formula["qt"]
-
-      args << "--with-moc=#{qt.opt_bin}/moc"
-      args << "--with-uic=#{qt.opt_bin}/uic"
-      args << "--with-rcc=#{qt.opt_bin}/rcc"
-      args << "--enable-qt"
-    else
-      args << "--disable-qt"
-    end
-
     system "./autogen.sh" if build.head?
-
-    system "./configure", *args
-
+    system "./configure", "--disable-debug",
+                          "--prefix=#{prefix}",
+                          "--with-boost=#{Formula["boost"].opt_prefix}",
+                          "--with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
+                          "--with-extra-includes=#{extra_includes}",
+                          "--with-extra-libs=#{extra_libs}",
+                          "--disable-qt"
     system "rake", "-j#{ENV.make_jobs}"
     system "rake", "install"
   end

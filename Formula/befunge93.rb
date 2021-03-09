@@ -1,18 +1,19 @@
 class Befunge93 < Formula
   desc "Esoteric programming language"
-  homepage "https://catseye.tc/node/Befunge-93.html"
-  url "https://catseye.tc/distfiles/befunge-93-2.23-2015.0101.zip"
-  version "2.23-2015.0101"
-  sha256 "7ca6509b9d25627f90b9ff81da896a8ab54853e87a5be918d79cf425bcb8246e"
+  homepage "https://catseye.tc/article/Languages.md#befunge-93"
+  url "https://catseye.tc/distfiles/befunge-93-2.25.zip"
+  version "2.25"
+  sha256 "93a11fbc98d559f2bf9d862b9ffd2932cbe7193236036169812eb8e72fd69b19"
+  license "BSD-3-Clause"
   head "https://github.com/catseye/Befunge-93.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "90ce43353a46615332cf3a4228786f986ea93cac15dba1aeb79684e4f084afe4" => :high_sierra
-    sha256 "0b2b344570f71b3fa702675b2305b96632fde0a8da44085a15b15fe72863f66a" => :sierra
-    sha256 "fcebeb62391bd6e3eef571123af573766666ce9c40f139c889cc350bf6410d8b" => :el_capitan
-    sha256 "825c5d86e93d7cf0ecc2f3f16f626c27e658f1d4792bd6e74092b11f815097d7" => :yosemite
-    sha256 "a4f6102ac80c19ef969e7b2bbe70bdfd4f192df08d455b2b6162ce16e3616564" => :mavericks
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "05324749e9d37d4bdf4b6737ddcc2f48489755c60a38752f4cf8dc51e1b93085"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bba6c29ce6655061c2f0323b1ee778c275e0bc18f850158274a03af1ea666fc6"
+    sha256 cellar: :any_skip_relocation, catalina:      "190fa82b0fef31f096a102f3b33205112cb206f578813f7ac78f78617c7d73d3"
+    sha256 cellar: :any_skip_relocation, mojave:        "23dd470caf59b04ffb652e46061760701269a8a79ce93c3afd71318da000112d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c8a1e2085413dd0da3036462eeffed2f01198da92f128f4951c0885bf69a0149"
   end
 
   def install
@@ -22,6 +23,6 @@ class Befunge93 < Formula
 
   test do
     (testpath/"test.bf").write '"dlroW olleH" ,,,,,,,,,,, @'
-    assert_match /Hello World/, shell_output("#{bin}/bef test.bf")
+    assert_match "Hello World", shell_output("#{bin}/bef test.bf")
   end
 end

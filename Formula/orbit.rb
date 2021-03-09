@@ -1,17 +1,22 @@
 class Orbit < Formula
   desc "CORBA 2.4-compliant object request broker (ORB)"
-  homepage "https://projects.gnome.org/ORBit2"
+  homepage "https://web.archive.org/web/20191222075841/projects-old.gnome.org/ORBit2/"
   url "https://download.gnome.org/sources/ORBit2/2.14/ORBit2-2.14.19.tar.bz2"
   sha256 "55c900a905482992730f575f3eef34d50bda717c197c97c08fa5a6eafd857550"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.0-only"]
+  revision 1
+  head "https://gitlab.gnome.org/Archive/orbit2.git"
 
   bottle do
-    sha256 "4d44dbf8d5a6dcfabcbf71a0f42fb0a3f961cd7beae541f3dd657789065269c2" => :high_sierra
-    sha256 "a267317818996e273fdd78837bc6e18709f273a31c21ca7dae7f09d1c634637f" => :sierra
-    sha256 "11bb24fb06daef1ccea017470e23e56706c24265a4f7551a14d99e4f88121781" => :el_capitan
-    sha256 "adf8c93736bee9ceede9f65ae9e4d6d10529a085315ec522bfd661a7b6fcd94a" => :yosemite
-    sha256 "ae04763dcb6ea680fba27e49b01235d65204cd9240a871b429095fa414fda4fb" => :mavericks
-    sha256 "9f987a2d8be82cf391d2903872cfe20ce304cbc91fbe638820c41b00a3ecb4cc" => :mountain_lion
+    rebuild 3
+    sha256 arm64_big_sur: "42435b23e00c8227cd80af182e39c4f24ea2bd6e50b01c0df0cd171a92ba4c02"
+    sha256 big_sur:       "d39f55257c7d7eff2ecb9bb03c596a23d53abf2c081b87bf06f1b93415dda0b4"
+    sha256 catalina:      "3108db04a65e53b067b29f700b1360e90badde53e891555f341fabe7c5dd5fe4"
+    sha256 mojave:        "638d7bc192d39014137dfe3508e935b0b129b78e1f6971c1342e8ed1a52b2900"
   end
+
+  # GNOME 2.19 deprecated Orbit2 in 2007; now even their webpage for it is gone as of 2020
+  deprecate! date: "2020-12-25", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "glib"
@@ -29,12 +34,13 @@ class Orbit < Formula
   end
 
   def install
+    ENV.deparallelize
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/orbit2-config --prefix --version")
+    assert_match version.to_s, shell_output("#{bin}/orbit2-config --prefix --version")
   end
 end

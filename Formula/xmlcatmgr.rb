@@ -5,11 +5,12 @@ class Xmlcatmgr < Formula
   sha256 "ea1142b6aef40fbd624fc3e2130cf10cf081b5fa88e5229c92b8f515779d6fdc"
 
   bottle do
-    sha256 "c21d6a7e434563de3235dd7045e51933568428eefc2fa6d959e8040413c5bab0" => :high_sierra
-    sha256 "ed6376a26e59f66eccad7e0db6e0d111c8d93697fbee1e748e8c18e53035b4f2" => :sierra
-    sha256 "b55ae55a25d8ddc6ed88b2c7cb0c5aa77588ecd668684a592632a1addd5de22e" => :el_capitan
-    sha256 "4515f7fa360ed92348a6325f26645609110f18eb74111b1bd9d2717ee7600f2f" => :yosemite
-    sha256 "3e09fe17a25bca20447863f19093209824871f2bb3635a0ab1fc9dcbb7d94967" => :mavericks
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "27cda943918a3d692517e971f92a8e855d6b93c84eaf0646baff75a9f1f16c63"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cf19153b0ce232b3fe88cd0d2288a4d94056b3092a8c64483fec2634dc821605"
+    sha256 cellar: :any_skip_relocation, catalina:      "ae788970290574145fa3ca20e389469f1a8582c8b604a50e3e506b7ffcb9faa4"
+    sha256 cellar: :any_skip_relocation, mojave:        "eb8b0acfdaed325cce3e6b7befb53a675f9f7f6dc8aa5d058b4ebecea2d50e53"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "bbb201365fe9f89dc036d97e7bcb05d5b299e32f2ad427266f1d73934fd03cb4"
   end
 
   def install
@@ -18,5 +19,9 @@ class Xmlcatmgr < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/xmlcatmgr", "-v"
   end
 end

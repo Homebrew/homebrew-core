@@ -1,21 +1,21 @@
 class GitStandup < Formula
   desc "Git extension to generate reports for standup meetings"
   homepage "https://github.com/kamranahmedse/git-standup"
-  url "https://github.com/kamranahmedse/git-standup/archive/2.1.8.tar.gz"
-  sha256 "25b002f1df34ecc31c0a254ee95bf077dd4285a3d428a48e5d4821c289795800"
+  url "https://github.com/kamranahmedse/git-standup/archive/2.3.2.tar.gz"
+  sha256 "48d5aaa3c585037c950fa99dd5be8a7e9af959aacacde9fe94143e4e0bfcd6ba"
+  license "MIT"
   head "https://github.com/kamranahmedse/git-standup.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "51a88b45f96516d5950e1abc797504198817b7c12c7e3a50fc1f454b1d831630" => :high_sierra
-    sha256 "15ba95a266e75f91c131ac4ba97c8c1f2b8eee5f84e6bf3f8ae4b6c31d4e0046" => :sierra
-    sha256 "8da88a1d4e590d8e2ec6bef3f34c2f88817c89b1473cde291b8ee6c79be6cdef" => :el_capitan
-    sha256 "ab3b98ecf47de06d1d5093257bf63675495a5f57d2e94e1ae53757b933736c02" => :yosemite
-    sha256 "641e5f5e5dbd1761c88603a5c93d40c2b6b4c93d32ffdd1619acf6db8b14f464" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "70ed7f5656e81453300e666c3db4c883ee9ef1f88206833b8eeb6b578fb56966"
+    sha256 cellar: :any_skip_relocation, big_sur:       "39e65939c0bfd35248200c980400b99e72d4cf2054487d63c72c7e6b7268d3b0"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a75c65615d92237a59492ac00867d12ab4a23865d85d5cb464d9deb1f6d8ee8"
+    sha256 cellar: :any_skip_relocation, mojave:        "0a75c65615d92237a59492ac00867d12ab4a23865d85d5cb464d9deb1f6d8ee8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0a75c65615d92237a59492ac00867d12ab4a23865d85d5cb464d9deb1f6d8ee8"
   end
 
   def install
-    system "make", "install", "prefix=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do

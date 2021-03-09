@@ -1,22 +1,27 @@
 class Dcraw < Formula
   desc "Digital camera RAW photo decoding software"
-  homepage "https://www.cybercom.net/~dcoffin/dcraw/"
-  url "https://www.cybercom.net/~dcoffin/dcraw/archive/dcraw-9.27.0.tar.gz"
-  mirror "https://distfiles.macports.org/dcraw/dcraw-9.27.0.tar.gz"
-  mirror "https://mirror.csclub.uwaterloo.ca/MacPorts/mpdistfiles/dcraw/dcraw-9.27.0.tar.gz"
-  sha256 "c1d8cc4f19752a3d3aaab1fceb712ea85b912aa25f1f33f68c69cd42ef987099"
-  revision 2
+  homepage "https://www.dechifro.org/dcraw/"
+  url "https://www.dechifro.org/dcraw/archive/dcraw-9.28.0.tar.gz"
+  mirror "https://mirrorservice.org/sites/distfiles.macports.org/dcraw/dcraw-9.28.0.tar.gz"
+  sha256 "2890c3da2642cd44c5f3bfed2c9b2c1db83da5cec09cc17e0fa72e17541fb4b9"
 
-  bottle do
-    cellar :any
-    sha256 "52d2965cf0fc6d8786ee075e568218f6a21a3d29bfdbb6c3554e24a3a10ec5e4" => :high_sierra
-    sha256 "7f61c315a5c6820b3d4aeb1d79cb53d7f4f1fa9a99d3a2dc6143dbd6482fd23a" => :sierra
-    sha256 "94815d5ba879494311ba80c943549d7a2326fe3e5c6b54411af081d3e417a435" => :el_capitan
-    sha256 "d976fa7133006d6aa32393f257c21294be073dc6f570968fa647e3ae229eb0b5" => :yosemite
+  livecheck do
+    url "https://distfiles.macports.org/dcraw/"
+    regex(/href=.*?dcraw[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "jpeg"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "743f571022d74442fa2d81309c916ff665114303a4e916d1b9a970c50ddb71e3"
+    sha256 cellar: :any, big_sur:       "fc0e1b6d2ac47be836929a68ee33d693bb2e455c4ecdd1dee7beafb3a5c123c6"
+    sha256 cellar: :any, catalina:      "df26056a9b3374154b499b4dbdee4a1417a58a15cffe22ac40f095747ee1f8a7"
+    sha256 cellar: :any, mojave:        "4673710b946c4fa3eb47d0b693b380e8abb636202ce86e0e13372a8539141bd8"
+    sha256 cellar: :any, high_sierra:   "21f31347e500f314a1f2e6fe03f0d6009b25fa5bd9f1f339b0fe77fc38050e81"
+    sha256 cellar: :any, sierra:        "dc99d6de1166a3f4fa66d23b798dad9a58e0fac24f72c02ab38ea32e74b30a9e"
+    sha256 cellar: :any, el_capitan:    "022f85e8da7b4cd8c68d7251d39bf3084ec28a15cb859d9cfe49bd439e312466"
+  end
+
   depends_on "jasper"
+  depends_on "jpeg"
   depends_on "little-cms2"
 
   def install

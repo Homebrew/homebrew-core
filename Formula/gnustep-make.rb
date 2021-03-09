@@ -1,15 +1,21 @@
 class GnustepMake < Formula
   desc "Basic GNUstep Makefiles"
   homepage "http://gnustep.org"
-  url "http://ftpmain.gnustep.org/pub/gnustep/core/gnustep-make-2.7.0.tar.gz"
-  sha256 "90a01cbfb68aafe01c4cc4123121ebd2da0e1e2076795b5682f0833fddf311ce"
+  url "http://ftpmain.gnustep.org/pub/gnustep/core/gnustep-make-2.8.0.tar.gz"
+  sha256 "9fce2942dd945c103df37d668dd5fff650b23351b25a650428f6f59133f5ca5d"
+  license "GPL-3.0"
+
+  livecheck do
+    url "http://ftpmain.gnustep.org/pub/gnustep/core/"
+    regex(/href=.*?gnustep-make[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2f9b5760d28e77b0ffc8f51f9adc639ea69f97f3105da2c21cae90d08132b53e" => :high_sierra
-    sha256 "7a2905ce98897c3f74f4802b66f27105c095f078074a874335f2286bec1957db" => :sierra
-    sha256 "a7fc1782bf06e382a4f240f648e55d09a2294202b7f2a7bedf506823acb67fa4" => :el_capitan
-    sha256 "5e005875a2b2b9edd967edcedf14ee4e927312d7e97878ea14d509e10e25186b" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dc1e65ba40d7093f887784411861c2ce6056e3a1bbdfffa9f73c7d6255505129"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5b8f96f0d47226cb8f00646acced66850754540352da1b6b682b9a07f80d4b90"
+    sha256 cellar: :any_skip_relocation, catalina:      "0112f9b5cc350a2e8efc7eff2ea1b3e0b13e62877ce02592eac34052b33de00f"
+    sha256 cellar: :any_skip_relocation, mojave:        "4025644721c7902db42e5f63a1d8980056b809bdab7237289b92381e82492cca"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ff2edab383602c3449f074284f992567b0d072a3a442be898be21da0d484d3c3"
   end
 
   def install

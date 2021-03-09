@@ -1,38 +1,33 @@
 class Atomicparsley < Formula
   desc "MPEG-4 command-line tool"
-  homepage "https://bitbucket.org/wez/atomicparsley/overview/"
-  url "https://bitbucket.org/dinkypumpkin/atomicparsley/downloads/atomicparsley-0.9.6.tar.bz2"
-  sha256 "49187a5215520be4f732977657b88b2cf9203998299f238067ce38f948941562"
-  head "https://bitbucket.org/wez/atomicparsley", :using => :hg
+  homepage "https://github.com/wez/atomicparsley"
+  url "https://github.com/wez/atomicparsley/archive/20210124.204813.840499f.tar.gz"
+  version "20210124.204813.840499f"
+  sha256 "21e6eb6791b63ba1d06c6ffa9cf40ee81cec80da944e8a29c6dbd11d9de50b28"
+  license "GPL-2.0-or-later"
+  version_scheme 1
+  head "https://github.com/wez/atomicparsley.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ea4399b0ed2025590068deda729e9c566094cda9a9e38149e116d97fc6d034d4" => :high_sierra
-    sha256 "345eb5a19de38e476a0b39627ea243efdfc9a7a7dd980e5e51e4db74599c3f20" => :sierra
-    sha256 "b43ba5577c7e8b2dd9b4852a5d6652e1600a460584096646f38b69b7d103cee9" => :el_capitan
-    sha256 "b1825326c53079bd37a098cf100ae29d2b2763c985be0f2592ba89f10b914eb3" => :yosemite
-    sha256 "8797e94e5a1083d41fd9843a94362a714a48430918ed95fa9d7f37b31e0ba1e9" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d29de64c9e04de41b6bf897d6ad8e578c0ed19e555604089ba144b9695c2f6e6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "470db93186b6c976ca728327ea33934436953150b57f63ac906c8dd20b6b41f5"
+    sha256 cellar: :any_skip_relocation, catalina:      "55ac0fe11e2d88b0a4f1168e31b303c7da596504ce81c22cc9c734666cf50a9e"
+    sha256 cellar: :any_skip_relocation, mojave:        "6636633b195ddb728a805a00dff40e99691857dc41e89ada45fc8506b4ecaa29"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-
-  # Fix Xcode 9 pointer warnings
-  # https://bitbucket.org/wez/atomicparsley/issues/52/xcode-9-build-failure
-  if DevelopmentTools.clang_build_version >= 900
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/ac8624c36e/atomicparsley/xcode9.patch"
-      sha256 "15b87be1800760920ac696a93131cab1c0f35ce4c400697bb8b0648765767e5f"
-    end
-  end
+  depends_on "cmake" => :build
+  uses_from_macos "zlib"
 
   def install
-    system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-debug",
-                          "--disable-universal"
-    system "make", "install"
+    system "cmake", ".", *std_cmake_args
+    system "cmake", "--build", ".", "--config", "Release"
+    bin.install "AtomicParsley"
+  end
+
+  test do
+    cp test_fixtures("test.m4a"), testpath/"file.m4a"
+    system "#{bin}/AtomicParsley", testpath/"file.m4a", "--artist", "Homebrew", "--overWrite"
+    output = shell_output("#{bin}/AtomicParsley file.m4a --textdata")
+    assert_match "Homebrew", output
   end
 end

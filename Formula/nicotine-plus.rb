@@ -1,51 +1,35 @@
 class NicotinePlus < Formula
   include Language::Python::Virtualenv
 
-  desc "Graphical client for the SoulSeek peer-to-peer system"
-  homepage "https://www.nicotine-plus.org/"
-  url "https://github.com/Nicotine-Plus/nicotine-plus/archive/1.4.1.tar.gz"
-  sha256 "1b38ef196d981e4eb96fa990cc463143289784f988f559c4400b1d461497b7d6"
+  desc "Graphical client for the Soulseek file sharing network"
+  homepage "https://nicotine-plus.github.io/nicotine-plus/"
+  url "https://files.pythonhosted.org/packages/f1/e6/818eb82e9cfe93dcdd769bfe111869a971fb94c2ca7fedbfd44236f9c676/nicotine-plus-3.0.0.tar.gz"
+  sha256 "814d7b8c9a07d211a0b36b21a5b075f38db3840aaae26dd2acd42ac90b71cc60"
+  license "GPL-3.0-or-later"
   head "https://github.com/Nicotine-Plus/nicotine-plus.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "73e16deee0243324179c00aeca11081de205f546423d4b6ed9fea63fef714faa" => :high_sierra
-    sha256 "ec2e9aafc0d57642a4ab6555be5793aa47b87587cb44ee9e6999db17efb00606" => :sierra
-    sha256 "52a83f042b67882b63eab539f98180b6b9e95e5c7bc29ed76648195d95f89304" => :el_capitan
-    sha256 "0e73dda61bb19d51bafec22e6e269f0df5e9aa85722dc4af194850099a63f8b5" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "640070846033d7888c8e1f317dc32651a753054f0ae12cf9c1bd4fd6e6eb7db9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8993703de6edb67c8a589351cc80bef9d71ef442121a50eedc4ae04af94f08e6"
+    sha256 cellar: :any_skip_relocation, catalina:      "4aabd1510048c5478cc61d007724eed18d6cd1900cdaccf4d1a265ba0769f5f8"
+    sha256 cellar: :any_skip_relocation, mojave:        "47381e0a67386bb8bb7603929ba539301f2167cf95ee3274dbb08bf53fc26ea3"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "gtk+"
-  depends_on "pygtk"
-  depends_on "geoip" => :recommended
-  depends_on "miniupnpc" => :recommended
-
-  resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/14/d5/51f49f345d4490a9a6a04677ab136f78e4e0c64ed142e48b4ed818c13c96/mutagen-1.37.tar.gz"
-    sha256 "539553d3f1ffd890c74f64b819750aef0316933d162c09798c9e7eaf334ae760"
-  end
-
-  resource "python-geoip" do
-    url "https://files.pythonhosted.org/packages/7c/65/cb04188154f7626e897d55f04c2542ba4205352f158cd925d314ad1998ef/python-geoip-1.2.tar.gz"
-    sha256 "b7b11dab42bffba56943b3199e3441f41cea145244d215844ecb6de3d5fb2df5"
-  end
-
-  resource "miniupnpc" do
-    url "https://files.pythonhosted.org/packages/55/90/e987e28ed29b571f315afea7d317b6bf4a551e37386b344190cffec60e72/miniupnpc-1.9.tar.gz"
-    sha256 "498b35c5443e8de566f3a4de4bceae28fbf6e08ed59afb5ffd516d0bb718bca6"
-  end
+  depends_on "adwaita-icon-theme"
+  depends_on "gtk+3"
+  depends_on "pygobject3"
+  depends_on "python@3.9"
 
   def install
-    venv = virtualenv_create(libexec)
-    venv.pip_install "mutagen"
-    venv.pip_install "miniupnpc" if build.with? "miniupnpc"
-    venv.pip_install "python-geoip" if build.with? "geoip"
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
   end
 
   test do
-    system "#{bin}/nicotine", "--version"
-    system "#{bin}/nicotine", "--help"
+    assert_match version.to_s, shell_output("#{bin}/nicotine -v")
+    pid = fork do
+      exec bin/"nicotine", "-s"
+    end
+    sleep 3
+    Process.kill("TERM", pid)
   end
 end

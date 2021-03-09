@@ -1,48 +1,35 @@
 class Dar < Formula
   desc "Backup directory tree and files"
   homepage "http://dar.linux.free.fr/doc/index.html"
-  url "https://downloads.sourceforge.net/project/dar/dar/2.5.13/dar-2.5.13.tar.gz"
-  sha256 "729119784f86197542c2b3786a956b46384e2a85fc22a5e39d93d7c16969c6cf"
+  url "https://downloads.sourceforge.net/project/dar/dar/2.6.13/dar-2.6.13.tar.gz"
+  sha256 "3fea9ff9e55fb9827e17a080de7d1a2605b82c2320c0dec969071efefdbfd097"
+  license "GPL-2.0-or-later"
 
-  bottle do
-    sha256 "2646d4bc7a2845dcfd1651c41894580cfc214e4d4e5aef60028ee0d782b5ec6e" => :high_sierra
-    sha256 "1d6cdd62de131427ec5a5663493ed6421366dadb2a408c42ed6fabcee7baa6b7" => :sierra
-    sha256 "deb3c49f3ba8642440c9d30514d6b9ecda6860fff7d16f9b058e76ccfbb6d699" => :el_capitan
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/dar[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  option "with-doxygen", "build libdar API documentation and html man page"
-  option "with-libgcrypt", "enable strong encryption support"
-  option "with-lzo", "enable lzo compression support"
-  option "with-upx", "make executables compressed at installation time"
+  bottle do
+    sha256 cellar: :any, big_sur:     "7a7fc7d0cc33e3997ad565ce07648ed50e10b29195c56ab13de3963e5a22271f"
+    sha256 cellar: :any, catalina:    "e3c5b475201e6916f344653c86357a54cdd5bf081a6b5ecc72e1f8cea67bbb8d"
+    sha256 cellar: :any, mojave:      "3297d386d1572cf82676d96809cea6b54a4338c1a51213c6c059c81206b98c5b"
+    sha256 cellar: :any, high_sierra: "7f44bc4ac5e17f47705f8a338517432690dadcf6e6f9e7cce502624d4849c6ca"
+  end
 
-  deprecated_option "with-docs" => "with-doxygen"
-
-  depends_on :macos => :el_capitan # needs thread-local storage
-  depends_on "doxygen" => [:build, :optional]
-  depends_on "upx" => [:build, :optional]
-  depends_on "libgcrypt" => :optional
-  depends_on "lzo" => :optional
-  depends_on "xz" => :optional
-
-  needs :cxx11
+  depends_on "upx" => :build
+  depends_on "libgcrypt"
+  depends_on "lzo"
 
   def install
     ENV.cxx11
 
-    args = %W[
-      --enable-mode=64
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-dar-static
-      --prefix=#{prefix}
-    ]
-    args << "--disable-build-html" if build.without? "doxygen"
-    args << "--disable-upx" if build.without? "upx"
-    args << "--disable-libgcrypt-linking" if build.without? "libgcrypt"
-    args << "--disable-liblzo2-linking" if build.without? "lzo"
-    args << "--disable-libxz-linking" if build.without? "xz"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-build-html",
+                          "--disable-dar-static",
+                          "--disable-dependency-tracking",
+                          "--disable-libxz-linking",
+                          "--enable-mode=64"
     system "make", "install"
   end
 

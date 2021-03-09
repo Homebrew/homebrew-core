@@ -1,25 +1,30 @@
 class Libcoap < Formula
   desc "Lightweight application-protocol for resource-constrained devices"
   homepage "https://github.com/obgm/libcoap"
-  url "https://github.com/obgm/libcoap/archive/v4.1.2.tar.gz"
-  sha256 "f7e26dc232c177336474a14487771037a8fb32e311f5ccd076a00dc04b6d7b7a"
+  url "https://github.com/obgm/libcoap/archive/v4.2.1.tar.gz"
+  sha256 "29a0394a265d3febee41e5e2dc03d34292a0aede37f5f80334e529ac0dab2321"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "0c6f38dbbdca258949c72b8eb9439e72c9f8cdb473de80fc4b2d5996a89d80b5" => :high_sierra
-    sha256 "f9577ef79f4c1a7a257d04004cb64802879787bb5b5657a7aa54ab24ee102c20" => :sierra
-    sha256 "a8b3fe01f85e8d9345dbe4ceddda24abd244f1b4055abcfef36e73b26e14ae86" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "d8f66e021f0ed8d227696e8e37d97085a77624aaa391fdd63f4f00326a101289"
+    sha256 cellar: :any, big_sur:       "f57bd53021361886f6928bbb0156dd642bd39dbdd459e5a69951560e4cc47050"
+    sha256 cellar: :any, catalina:      "344f2a098d9f1767d50135fbf4ae3bdf893a079ebf8a54f248811673fa437e39"
+    sha256 cellar: :any, mojave:        "012f1efcb1655479c531df4db98eb481d83971751edffb99b4ca8c50592cd27c"
+    sha256 cellar: :any, high_sierra:   "a68df19a4ca87c677173c14b534848592bb35e46a715ca066bcd114f8c735236"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "doxygen" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "openssl@1.1" if MacOS.version <= :sierra
 
   def install
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",
-                          "--disable-examples"
+                          "--disable-examples",
+                          "--disable-manpages"
     system "make"
     system "make", "install"
   end

@@ -1,16 +1,17 @@
 class Ccextractor < Formula
   desc "Free, GPL licensed closed caption tool"
   homepage "https://www.ccextractor.org/"
-  url "https://downloads.sourceforge.net/project/ccextractor/ccextractor/0.85/ccextractor-src-nowin.0.85.zip"
-  sha256 "2ac21c6483e206a796d26d6adb7e969eb038a97ead9e2b2a7ee91b8b08c6882e"
+  url "https://github.com/CCExtractor/ccextractor/archive/v0.88.tar.gz"
+  sha256 "e0bfad4c7cf5d8a05305107ab53829a33b209446aaec515d5c51b72392b1eda7"
+  license "GPL-2.0"
   head "https://github.com/ccextractor/ccextractor.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "35b445f24dd0be2979fb9cdb47eda8c45489aaa746d6efeb866a1e8d2329a272" => :high_sierra
-    sha256 "708daa50fd6cd54bac11b8bb8f55b54b0999b180313538fa7bc3c346b4240c2e" => :sierra
-    sha256 "c9b725b4f4680f534e6924fe0b2b68aa77b25ff14a4118d49bc60bdfaa286287" => :el_capitan
-    sha256 "03f774c0122cad214d35afe8fbfdb450ca1713601858b07d783c8ade9757c44e" => :yosemite
+    sha256 cellar: :any_skip_relocation, big_sur:     "d728849547605c278baea4db869d73a585f79504923b0456819155f1b15a739d"
+    sha256 cellar: :any_skip_relocation, catalina:    "aaba08da14a3266a7b60bcd232c24d121ba9aa1741e768f54e77fd09f6c67fcc"
+    sha256 cellar: :any_skip_relocation, mojave:      "87a9b43c6ac20b2dc270cc35b1da0df4a92758bc722882407dcacbacb7e806d7"
+    sha256 cellar: :any_skip_relocation, high_sierra: "35be2be5fd71b1784b85a7bd5ba7ccf35f987fd6ed0548df7864cd686e28c5c0"
+    sha256 cellar: :any_skip_relocation, sierra:      "9c78ad6dd2f3c02ef7ca508af88114f8deffa691cf3a546e6ca09ed279b80758"
   end
 
   def install

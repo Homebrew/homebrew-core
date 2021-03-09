@@ -1,14 +1,22 @@
 class Qtfaststart < Formula
   desc "Utility for Quicktime files"
   homepage "https://libav.org/"
-  url "https://libav.org/releases/libav-12.2.tar.gz"
-  sha256 "49c3ccda32458192c00ab25b30f4d1a6a4772b83458cbbf3a25b210d0688f55c"
+  url "https://libav.org/releases/libav-12.3.tar.gz"
+  sha256 "115b659022dd387f662e26fbc5bc0cc14ec18daa100003ffd34f4da0479b272e"
+  license "LGPL-2.1"
+
+  livecheck do
+    url "https://libav.org/releases/"
+    regex(/href=.*?libav[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e6cb881b5847a3dda9f56a2b244c6c6123b13e28b41c91dbcd1bc4afd6fcd773" => :high_sierra
-    sha256 "8848267a2ab440f0c428baa9347351cf54d57221ae5f7d83db2c24623a7263e4" => :sierra
-    sha256 "892c2705b879a778794892e3655da5f2f747c4061ea919372e8e35b0470135a2" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9190e060b5e58f6e294576e87607b43e6f9f6399ae350ba48fb3f522a511c0c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c9360f4a62eed02d2f5d7879ad4e3c4f6fd250536b3562b228e40d0d3c6c9a70"
+    sha256 cellar: :any_skip_relocation, catalina:      "abce3f470e0a8b62acd78aa2c58114a3e5b64d7b2117d8ffbaadc23c4eee186e"
+    sha256 cellar: :any_skip_relocation, mojave:        "2fac027c66defdafcbaee5b346fd5c5e6c11b5e9a267de40d604b8e837f5d2c4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "073794a6af64b0fe9f2bc22480b4c605f9497c5ae9087d26fa8e51bdc0230b00"
   end
 
   resource "mov" do

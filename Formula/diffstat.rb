@@ -1,17 +1,20 @@
 class Diffstat < Formula
   desc "Produce graph of changes introduced by a diff file"
   homepage "https://invisible-island.net/diffstat/"
-  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.61.tgz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz"
-  sha256 "25359e0c27183f997b36c9202583b5dc2df390c20e22a92606af4bf7856a55ee"
+  url "https://invisible-mirror.net/archives/diffstat/diffstat-1.64.tgz"
+  sha256 "b8aee38d9d2e1d05926e6b55810a9d2c2dd407f24d6a267387563a4436e3f7fc"
+  license "MIT-CMU"
+
+  livecheck do
+    url "https://invisible-mirror.net/archives/diffstat/"
+    regex(/href=.*?diffstat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "19e885ba26c8b1d9df6e1577a8a419946e9c0e8f1e19223fef5d5b988125c22a" => :high_sierra
-    sha256 "30255ba9338a70f51fb80f44cc3993b98e44bd7946f5b598252f9a7d1c6800e9" => :sierra
-    sha256 "4b383a964ff74029f6555162d7548e11c1fe8a9f2295671484419c8e32016ede" => :el_capitan
-    sha256 "fb1b7c5b2802e7f13afcf58bd694eec31577c76ec9e32bbdef8254d08ca9866f" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ca28eac2743d6dea9f9128b51ac0107d627f64cc421033538468930f291f3fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6deaecbddb668e6a0beeadf19f80bede5756279949b872bd15ec2bdae432ed77"
+    sha256 cellar: :any_skip_relocation, catalina:      "9d8296df829318dce8e829eef894867a74d3f18d438de98309b0c3fe02e065cf"
+    sha256 cellar: :any_skip_relocation, mojave:        "5b035ed0d84aa480965b56e0a8db59ebbb947dee3379297a3f05f88dcd610d81"
   end
 
   def install
@@ -28,17 +31,13 @@ class Diffstat < Formula
       --- a/diffstat.rb
       +++ b/diffstat.rb
       @@ -2,9 +2,8 @@
-      -  url 'https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.58.orig.tar.gz'
+      -  url 'https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.58.orig.tar.gz'
       -  version '1.58'
       -  sha256 'fad5135199c3b9aea132c5d45874248f4ce0ff35f61abb8d03c3b90258713793'
-      +  url 'https://mirrors.kernel.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
-      +  sha256 '25359e0c27183f997b36c9202583b5dc2df390c20e22a92606af4bf7856a55ee'
+      +  url 'https://deb.debian.org/debian/pool/main/d/diffstat/diffstat_1.61.orig.tar.gz'
+      +  sha256 'b8aee38d9d2e1d05926e6b55810a9d2c2dd407f24d6a267387563a4436e3f7fc'
     EOS
-    output = `#{bin}/diffstat diff.diff`
-    diff = <<-EOS
- diffstat.rb |    5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-    EOS
-    assert_equal diff, output
+    output = shell_output("#{bin}/diffstat diff.diff")
+    assert_match "2 insertions(+), 3 deletions(-)", output
   end
 end

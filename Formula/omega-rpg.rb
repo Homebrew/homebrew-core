@@ -1,15 +1,22 @@
 class OmegaRpg < Formula
-  desc "The classic Roguelike game"
+  desc "Classic Roguelike game"
   homepage "http://www.alcyone.com/max/projects/omega/"
   url "http://www.alcyone.com/binaries/omega/omega-0.80.2-src.tar.gz"
   sha256 "60164319de90b8b5cae14f2133a080d5273e5de3d11c39df080a22bbb2886104"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/latest.*?>v?(\d+(?:\.\d+)+)</i)
+  end
+
   bottle do
-    sha256 "f4a5911b81f9919e68c5bd35f8e3d13240045b09e57b622f4766e747bb3e6a03" => :high_sierra
-    sha256 "06008f528a9ac14c6b7e1f9be84a5e76a4ad4df234344e7e13eaedb108ce4b04" => :sierra
-    sha256 "d46db018d9c54c5a0460f46763a218b6bff1bf277aca19fe91b17965dac3a367" => :el_capitan
-    sha256 "1b5b760d814cf07c4d9daa8dbcbcccfc38038dbab140ed182ad514bad07fe932" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "38000e1217562bc9cf2db49e0eb16aa4e7b5648010539fc5c9bb0608f3e1fc20"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cc9ea79ad3baebccf29fa3e16fe023a05564ca2f4c8c9f67bf45c3f0d471993e"
+    sha256 cellar: :any_skip_relocation, catalina:      "4ab6747f5c291b26c9ba5b750d98ee6368f42dc35039bf23b2e401a318fb87f6"
+    sha256 cellar: :any_skip_relocation, mojave:        "8161e569d07cae64b550fa2f2e795171ca82b65b283cf1e45056b61d12fa71f5"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0b08d090868aa2b1da56645e74ea87d6a15043c473aba35e56f3fbf2e4b4f4d4"
   end
 
   def install

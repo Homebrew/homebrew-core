@@ -1,21 +1,30 @@
 class WireguardTools < Formula
   desc "Tools for the WireGuard secure network tunnel"
-  homepage "https://www.wireguard.io/"
-  # Please only update version when the tools have been modified/updated,
-  # since the Linux module aspect isn't of utility for us.
-  url "https://git.zx2c4.com/WireGuard/snapshot/WireGuard-0.0.20171127.tar.xz"
-  sha256 "5e0a93cccce70e5758ddebaaa94d3df74cb664f592895efbd43dc6171ee5b25b"
-  head "https://git.zx2c4.com/WireGuard", :using => :git
+  homepage "https://www.wireguard.com/"
+  url "https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20210223.tar.xz"
+  sha256 "1f72da217044622d79e0bab57779e136a3df795e3761a3fc1dc0941a9055877c"
+  license "GPL-2.0-only"
+  head "https://git.zx2c4.com/wireguard-tools.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "b29209edb086202846cfe37ff33a6f1651d475a5260f6656682292c8b8f4d363" => :high_sierra
-    sha256 "dbbb925bb5efba5dcb5592a41c5139e1ddb7dce434df42c2e3e2fbfefc27908f" => :sierra
-    sha256 "4a082964646366fdd18e1a116a29e4def80a3bf5c2d284c6a4d846717d944f12" => :el_capitan
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3528b50affb6bb5a991a4d3389e1c215a2e9cd9a1591c65eedade9253f1f5ead"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58f2cfaeb9053557487a81d32db19af9610ab7084183fa9dae645e6bc06818bb"
+    sha256 cellar: :any_skip_relocation, catalina:      "a4e4e92ad654b6f90345337fe1b52543c2f9714cf0e1ca9b3e9a05cc636637d4"
+    sha256 cellar: :any_skip_relocation, mojave:        "c23c30b23e792e4e7c888c3ac0cb6e9ae85b09ac2722c51fe867280f802ead13"
+  end
+
+  depends_on "bash"
+  depends_on "wireguard-go"
+
   def install
-    system "make", "BASHCOMPDIR=#{bash_completion}", "WITH_BASHCOMPLETION=yes", "WITH_WGQUICK=no", "WITH_SYSTEMDUNITS=no", "PREFIX=#{prefix}", "-C", "src/tools", "install"
+    system "make", "BASHCOMPDIR=#{bash_completion}", "WITH_BASHCOMPLETION=yes", "WITH_WGQUICK=yes",
+                   "WITH_SYSTEMDUNITS=no", "PREFIX=#{prefix}", "SYSCONFDIR=#{prefix}/etc",
+                   "-C", "src", "install"
   end
 
   test do

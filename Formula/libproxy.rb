@@ -1,35 +1,31 @@
 class Libproxy < Formula
   desc "Library that provides automatic proxy configuration management"
   homepage "https://libproxy.github.io/libproxy/"
-  url "https://github.com/libproxy/libproxy/archive/0.4.15.tar.gz"
-  sha256 "18f58b0a0043b6881774187427ead158d310127fc46a1c668ad6d207fb28b4e0"
+  url "https://github.com/libproxy/libproxy/archive/0.4.17.tar.gz"
+  sha256 "88c624711412665515e2800a7e564aabb5b3ee781b9820eca9168035b0de60a9"
+  license "LGPL-2.1-or-later"
   head "https://github.com/libproxy/libproxy.git"
 
   bottle do
-    sha256 "e2ca77c5398273eb7fd3645eed6f2f393bb78d3cb8f1cbbe66530be6fdc2d92d" => :high_sierra
-    sha256 "2da6c1c16c4d821a03f3af0095e8c083650d8236b2a9a08cb5af1b2b235658a7" => :sierra
-    sha256 "2afb8712e1a562617d7ab8fcd1436290e83f65dd636e1927761d2e9e914879cc" => :el_capitan
-    sha256 "af63072e26e2dd635ff04988d1dbb68e4f83d966aad935a6071072fe22508f15" => :yosemite
+    sha256 arm64_big_sur: "aa72de0f8f5be2c730d84f20308df804c156e61ff321de0a4b63ba5623517ab7"
+    sha256 big_sur:       "d094201c939cfab859da673186809a6c7a24b9a216829b862a1bb53059309d4c"
+    sha256 catalina:      "c847a5adafa14e2614351edc46fdf1f8884908912845a9e425ce30925bb55e32"
+    sha256 mojave:        "5f6f14d95746e1b4c3328f23c7d9018e7e6a1fab70eba1255276ad89c0c405e5"
   end
 
   depends_on "cmake" => :build
-  # Non-fatally fails to build against system Perl, so stick to Homebrew's here.
-  depends_on "perl" => :optional
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@3.9"
+
+  uses_from_macos "perl"
 
   def install
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     args = std_cmake_args + %W[
       ..
-      -DPYTHON2_SITEPKG_DIR=#{lib}/python2.7/site-packages
-      -DWITH_PYTHON3=OFF
+      -DPYTHON3_SITEPKG_DIR=#{lib}/python#{xy}/site-packages
+      -DWITH_PERL=OFF
+      -DWITH_PYTHON2=OFF
     ]
-
-    if build.with? "perl"
-      args << "-DPX_PERL_ARCH=#{lib}/perl5/site_perl"
-      args << "-DPERL_LINK_LIBPERL=YES"
-    else
-      args << "-DWITH_PERL=OFF"
-    end
 
     mkdir "build" do
       system "cmake", *args

@@ -3,19 +3,21 @@ class Ssed < Formula
   homepage "https://sed.sourceforge.io/grabbag/ssed/"
   url "https://sed.sourceforge.io/grabbag/ssed/sed-3.62.tar.gz"
   sha256 "af7ff67e052efabf3fd07d967161c39db0480adc7c01f5100a1996fec60b8ec4"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "0cc13b472591ed0dab6bcb69f8c08e89cc217342c655355982b44e07a5f7318c" => :high_sierra
-    sha256 "0834fb44e8acc946a9a7030b4313295777c3c9d8808f67c24daaaa2ce6c6a2ed" => :sierra
-    sha256 "6c8c5a5547c7c97e59f1f7284083f46d5e61e7ab80ac08ebdfeec4a4b4e95fbb" => :el_capitan
-    sha256 "7e313ca41f3a8e37bc91ab4a9d8c7acbf508cd7a89ac605df7cee3adcf108510" => :yosemite
-    sha256 "448b2fdfee6f84c3d72fdf29d5ccd042027a9850ea16d75b5f4ee576d8cbadcc" => :mavericks
-    sha256 "793435451341ea1e475bde0d46745ba233df28c5ed4bd86f7761a2fad3568fba" => :mountain_lion
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b6c860af3e99b067b867a53b1b7135918cf1ff10e27b744a4157c2134b866f5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8ead33fc5954cd35bdff6291cec76e4ee2d6011d0f4d7025e832c9fa2514c31b"
+    sha256 cellar: :any_skip_relocation, catalina:      "69a3bbba8a87299f96f1b51c612d3335d1114ffb0bc6aa186c6f3e87335767e6"
+    sha256 cellar: :any_skip_relocation, mojave:        "b3b9297ad7ac202de1403508682aaf1dbb187fe3ab1f4c6cc9bee7b7a69ab1d9"
   end
 
-  conflicts_with "gnu-sed", :because => "both install share/info/sed.info"
+  conflicts_with "gnu-sed", because: "both install share/info/sed.info"
 
   def install
+    # CFLAGS adjustment is needed to build on Xcode 12
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",

@@ -1,19 +1,27 @@
 class CdogsSdl < Formula
   desc "Classic overhead run-and-gun game"
   homepage "https://cxong.github.io/cdogs-sdl/"
-  url "https://github.com/cxong/cdogs-sdl/archive/0.6.2.tar.gz"
-  sha256 "d6f421c760b15b706bdfc79ed8d18802dc2e8efeefabb69a31679c9b51f328ab"
+  url "https://github.com/cxong/cdogs-sdl/archive/0.10.2.tar.gz"
+  sha256 "3ab6036e65c83e98156317aebb3cd6013c8e25081fa8547007a25d299657f93d"
+  license "GPL-2.0-or-later"
   head "https://github.com/cxong/cdogs-sdl.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 "aabf4faff2a2da410e14079a9520ea715106a294edf8748edad7bf480cedd605" => :high_sierra
-    sha256 "b612f4fdf5d7f15e2ff88a5045437d1d411e254e6cda143d3256870bc5b2a30c" => :sierra
-    sha256 "c154d6101f4b903488527a604b570e28703a19854da31d56e082444fe5dda1a5" => :el_capitan
-    sha256 "535668e2f4619dde88da207249a2bbaaecd34d0972ce6f87947868518d7a6a54" => :yosemite
+    sha256 arm64_big_sur: "4f2edb88b56c462e440ec9a7a28878b110512d9afafa2be8f69d2726df9d63c7"
+    sha256 big_sur:       "b5f985db36af5e627bf39534f1b12773ca83caf96b26965adea3824a7e939313"
+    sha256 catalina:      "2b0bc41a233dd6843ccdcf95badf04472e1e728d5bc36bd606aad7c5c1c3701a"
+    sha256 mojave:        "a344081267233c5d78d4e03ce5eb8c1a3410da4e229a9b3758b61f7480cce693"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "protobuf" => :build
+  depends_on "python@3.9"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
@@ -23,17 +31,19 @@ class CdogsSdl < Formula
     args << "-DCDOGS_DATA_DIR=#{pkgshare}/"
     system "cmake", ".", *args
     system "make"
-    prefix.install "src/cdogs-sdl.app"
-    bin.write_exec_script "#{prefix}/cdogs-sdl.app/Contents/MacOS/cdogs-sdl"
+    bin.install %w[src/cdogs-sdl src/cdogs-sdl-editor]
     pkgshare.install %w[data dogfights graphics missions music sounds]
     doc.install Dir["doc/*"]
   end
 
   test do
-    server = fork do
-      system "#{bin}/cdogs-sdl"
+    pid = fork do
+      exec bin/"cdogs-sdl"
     end
-    sleep 5
-    Process.kill("TERM", server)
+    sleep 7
+    assert_predicate testpath/".config/cdogs-sdl",
+                     :exist?, "User config directory should exist"
+  ensure
+    Process.kill("TERM", pid)
   end
 end

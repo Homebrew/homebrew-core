@@ -1,15 +1,22 @@
 class Fifechan < Formula
   desc "C++ GUI library designed for games"
   homepage "https://fifengine.github.io/fifechan/"
-  url "https://github.com/fifengine/fifechan/archive/0.1.4.tar.gz"
-  sha256 "a93b015b5852b8fe2a0a2a6891d3de2cacb196732f670e081d7b7966f9ed1b87"
-  revision 1
+  url "https://github.com/fifengine/fifechan/archive/0.1.5.tar.gz"
+  sha256 "29be5ff4b379e2fc4f88ef7d8bc172342130dd3e77a3061f64c8a75efe4eba73"
+  license "LGPL-2.1"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "b3f6cd4d4da46b31b05065e92c0aa8159e809e4d6e9a17cb8f8a3d9abdf4a76a" => :high_sierra
-    sha256 "357c467807ac368322803f4774441a8679983715efbe7ab2b89b22bbc4c03f1c" => :sierra
-    sha256 "a12266c07e0109b9ad91c8747a25a2a0bb9469db382718f037d5a01175c8bad5" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "73f4cff07f6b17373b6c3c94734aa26de09a5cf6c9ec25e92b35d66c605ba728"
+    sha256 cellar: :any, big_sur:       "9803b9f51bc0c0d368baaf0dfcf1bd1694426b1ed0fee2e247835b49fa62f3ec"
+    sha256 cellar: :any, catalina:      "c0594d877411b0a33f2a37d0d3e2ca38a3d3dfd47797bf89aef9579bd2095dda"
+    sha256 cellar: :any, mojave:        "93491cce22fd712b86ec6f7af129107a596f2e736181354417c4d48c0c40b919"
+    sha256 cellar: :any, high_sierra:   "725c25c62dd609dd58d19c25b484398e9e68f19a9cb7aa3c1d1877b53ed9615a"
   end
 
   depends_on "cmake" => :build
@@ -26,15 +33,15 @@ class Fifechan < Formula
   end
 
   test do
-    (testpath/"fifechan_test.cpp").write <<-EOS
-    #include <fifechan.hpp>
-    int main(int n, char** c) {
-      fcn::Container* mContainer = new fcn::Container();
-      if (mContainer == nullptr) {
-        return 1;
+    (testpath/"fifechan_test.cpp").write <<~EOS
+      #include <fifechan.hpp>
+      int main(int n, char** c) {
+        fcn::Container* mContainer = new fcn::Container();
+        if (mContainer == nullptr) {
+          return 1;
+        }
+        return 0;
       }
-      return 0;
-    }
     EOS
 
     system ENV.cxx, "-I#{include}", "-L#{lib}", "-lfifechan", "-o", "fifechan_test", "fifechan_test.cpp"

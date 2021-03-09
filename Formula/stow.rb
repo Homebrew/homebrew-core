@@ -1,17 +1,18 @@
 class Stow < Formula
   desc "Organize software neatly under a single directory tree (e.g. /usr/local)"
   homepage "https://www.gnu.org/software/stow/"
-  url "https://ftp.gnu.org/gnu/stow/stow-2.2.2.tar.gz"
-  mirror "https://ftpmirror.gnu.org/stow/stow-2.2.2.tar.gz"
-  sha256 "e2f77649301b215b9adbc2f074523bedebad366812690b9dc94457af5cf273df"
+  url "https://ftp.gnu.org/gnu/stow/stow-2.3.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/stow/stow-2.3.1.tar.gz"
+  sha256 "09d5d99671b78537fd9b2c0b39a5e9761a7a0e979f6fdb7eabfa58ee45f03d4b"
+  license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e530cfa129ccce32a3a593c9ab09ea5c2976bef981d8ea3dc5af9f65e301e78a" => :high_sierra
-    sha256 "93dc759da363883c6cbf581f957ed0c23abac5563de1680cb11721adc425dedc" => :sierra
-    sha256 "0bf0a55711d83b08953a2de183d20cec481029dc95e9ea2ebd5049bf13ea8e1b" => :el_capitan
-    sha256 "4062d438086c6f9e407db818d318ef9d857f7c909bd4730edfc174573f5958d4" => :yosemite
-    sha256 "1f8ca6143dacc3cebb3551606b51a982b287c3b2f371010c7b10ca82ce89a393" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f6dc9f73ac8ef55caa0f8204c893bf41dcdffbae22b39d95a85eee5c99507b55"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e2a4d5cae000bcb2a5464f618b0c1fb174f4c90f66793411ff3c3bdda0438083"
+    sha256 cellar: :any_skip_relocation, catalina:      "c99a90dc5e3db8ebcb017df044723fb4e6cce7fb94aa24cf46c8d2c0665bf9a0"
+    sha256 cellar: :any_skip_relocation, mojave:        "409987564f7779d6a1db75f64e54c4713ecd9b9e006abac931f8e8d645bdac92"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "409987564f7779d6a1db75f64e54c4713ecd9b9e006abac931f8e8d645bdac92"
+    sha256 cellar: :any_skip_relocation, sierra:        "cbc7a61940a343aff46fdb6190dc26a359d26c9c468c05b1dbde2484a066ceb6"
   end
 
   def install

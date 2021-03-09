@@ -1,38 +1,35 @@
 class Pdfgrep < Formula
   desc "Search PDFs for strings matching a regular expression"
   homepage "https://pdfgrep.org/"
-  url "https://pdfgrep.org/download/pdfgrep-2.0.1.tar.gz"
-  sha256 "0370d744b3072d47383dbed2cb9c8b0b64b83c084da5a8961f8d4bc7669e941e"
-  revision 2
+  url "https://pdfgrep.org/download/pdfgrep-2.1.2.tar.gz"
+  sha256 "0ef3dca1d749323f08112ffe68e6f4eb7bc25f56f90a2e933db477261b082aba"
+  license "GPL-2.0"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "0873df814e1b896293b34fd31ef0d2428baf4c0d40f32c75dc6bdc1a4dd26bf0" => :high_sierra
-    sha256 "aa16e8cdc5729e82525f972bdc26bb563d347d5afa4fa18ab2409a8acba625f2" => :sierra
-    sha256 "d72885d69d7cb69270d78ccf163e2040b2d695ecf1b8f8b82824d5207b88b8a2" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "94f4fd04704afb89692d9b9a187e2d2e01e17ef272c0852be55e8db64227021f"
+    sha256 cellar: :any, big_sur:       "b7260612ff09a200376d68241d4cb99a396b2be3fcc5820dd3600e1acb067c16"
+    sha256 cellar: :any, catalina:      "0b1ba715232cf515e73c09a988fb3fed2e645ef478645dda96bcc19a86d7f1ef"
+    sha256 cellar: :any, mojave:        "a34785b9b7b1cffd728cf48efe6ce7281fed47db331f0bea36fc8fd016ac8fa2"
   end
 
   head do
     url "https://gitlab.com/pdfgrep/pdfgrep.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
     depends_on "asciidoc" => :build
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
+  depends_on "pcre"
   depends_on "poppler"
-  depends_on "pcre" => :optional
-
-  needs :cxx11
 
   def install
     ENV.cxx11
     system "./autogen.sh" if build.head?
 
-    args = %W[--disable-dependency-tracking --prefix=#{prefix}]
-    args << "--without-libpcre" if build.without? "pcre"
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
 
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make", "install"

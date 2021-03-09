@@ -1,15 +1,21 @@
 class Bgpdump < Formula
   desc "C library for analyzing MRT/Zebra/Quagga dump files"
-  homepage "https://bitbucket.org/ripencc/bgpdump/wiki/Home"
-  url "https://bitbucket.org/ripencc/bgpdump/get/1.5.0.tar.gz"
-  sha256 "47534112b427b8107ae0fd52437927de25f5cfe0ef98eba6e08df441ae5f05c5"
+  homepage "https://github.com/RIPE-NCC/bgpdump/wiki"
+  url "https://github.com/RIPE-NCC/bgpdump/archive/v1.6.2.tar.gz"
+  sha256 "415692c173a84c48b1e927a6423a4f8fd3e6359bc3008c06b7702fe143a76223"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://github.com/RIPE-NCC/bgpdump.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "2ed0b9633e3ca02f0bc7ccc828488135aae5184d05e9dab6c27f29e1c7ade18b" => :high_sierra
-    sha256 "3abf1e40a8259d4bc10240547dee890a07eab6945f0c713eb3581461ad025884" => :sierra
-    sha256 "ba9a99d87eca4aa356d506e5b6e14eb25bc5f47c8001114f82519b9dfbedf88e" => :el_capitan
-    sha256 "ce81cb3942f040ea14406d3c2369e531605033b6173c36eada757f372c8d81f7" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "547aa3e0a48f992ab4475b4f4b9203d46700fbde8588528382a7fc730157235c"
+    sha256 cellar: :any, big_sur:       "30a4765bc4c7decdb628df132d66bc675da867c5ed9631beac87dd99bce53713"
+    sha256 cellar: :any, catalina:      "f7c93574ccb3a6eaa05910009e26068f99f14082df78d3b2b0b84166488657e5"
+    sha256 cellar: :any, mojave:        "271ccd88799103255a673c6eafba9ec39320a8eb1a5a80bc8eef25ec508c31a6"
+    sha256 cellar: :any, high_sierra:   "441599b105e925cf6875f3e1d1a380cf94ec1069b214872173cd08736cd8671c"
   end
 
   depends_on "autoconf" => :build
@@ -21,7 +27,6 @@ class Bgpdump < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 

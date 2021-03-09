@@ -1,25 +1,31 @@
 class Wrk < Formula
   desc "HTTP benchmarking tool"
   homepage "https://github.com/wg/wrk"
-  url "https://github.com/wg/wrk/archive/4.0.2.tar.gz"
-  sha256 "a4a6ad6727733023771163e7250189a9a23e6253b5e5025191baa6092d5a26fb"
+  url "https://github.com/wg/wrk/archive/4.1.0.tar.gz"
+  sha256 "6fa1020494de8c337913fd139d7aa1acb9a020de6f7eb9190753aa4b1e74271e"
   head "https://github.com/wg/wrk.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "bfdacb9166139fd8338afd4c3c0e3c6f2023e9be9e49391b363f6d87144844ca" => :high_sierra
-    sha256 "a72ee4121793cf744582d5adcbe3911013606ce6d9fb9b4686d363f96147d616" => :sierra
-    sha256 "9dffba88a5ca3dfb25ea4be55bd45c9c4e3964543d4ea4485cb21fdba7f3c18c" => :el_capitan
-    sha256 "0d8d195984217da0cc6e734e2f2c876cacbad02b18fe2b3b22a77d3e356104f0" => :yosemite
-    sha256 "be9f47bac642704c6575810875dfd86bcdacdceb799c11a13bdab4d4f14965ab" => :mavericks
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, big_sur:     "39f3b454a93381e9350a3650745039deec765bff1f72eb7b6f3d449f1cabed3a"
+    sha256 cellar: :any_skip_relocation, catalina:    "9efb9a6a4f0dcd7298e048b750b1c6b3606d15d59ce7ce859663ef65925ee69f"
+    sha256 cellar: :any_skip_relocation, mojave:      "65f16f71cfb120d12f0f993044db92b767c728274aa046917bee7ad4deacfd3e"
+    sha256 cellar: :any_skip_relocation, high_sierra: "ccc1cc4303847b70f940b765a9229476e7018328fbf202c02a00d9a13c63919e"
+    sha256 cellar: :any_skip_relocation, sierra:      "82fd1323ac999e23107dcd1cdae9635ff047afd15532f42f8cb4e82dad0db257"
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
-  conflicts_with "wrk-trello", :because => "both install `wrk` binaries"
+  on_linux do
+    depends_on "makedepend" => :build
+    depends_on "pkg-config" => :build
+  end
+
+  conflicts_with "wrk-trello", because: "both install `wrk` binaries"
 
   def install
     ENV.deparallelize
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
     system "make"
     bin.install "wrk"
   end

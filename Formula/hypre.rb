@@ -1,34 +1,30 @@
 class Hypre < Formula
   desc "Library featuring parallel multigrid methods for grid problems"
-  homepage "https://computation.llnl.gov/casc/hypre/software.html"
-  url "https://computation.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods/download/hypre-2.11.2.tar.gz"
-  sha256 "25b6c1226411593f71bb5cf3891431afaa8c3fd487bdfe4faeeb55c6fdfb269e"
-  revision 1
-  head "https://github.com/LLNL/hypre.git"
+  homepage "https://computing.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods"
+  url "https://github.com/hypre-space/hypre/archive/v2.20.0.tar.gz"
+  sha256 "5be77b28ddf945c92cde4b52a272d16fb5e9a7dc05e714fc5765948cba802c01"
+  license any_of: ["MIT", "Apache-2.0"]
+  head "https://github.com/hypre-space/hypre.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "e0d1c37af0624bd9c7638bd1288c9cc523160ceabeecceb7534bed6bdf0248df" => :high_sierra
-    sha256 "bc90328c270fde57f6c1966ef076f095455d5297c4a996db79f44cd4e7258e11" => :sierra
-    sha256 "302d24880cb100ea35d51961c01992fb4acc151f88a760703443928c5739ea9f" => :el_capitan
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "veclibfort"
-  depends_on :fortran
-  depends_on :mpi => [:cc, :cxx, :f90, :f77]
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ddd013fddcdc9ecd901dabe5ac558a457152e661e1f4a20310d24609be07d667"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5f2247c3fee3495c13111221ed6eb37b7b154ae40a301aded68028cf767ec757"
+    sha256 cellar: :any_skip_relocation, catalina:      "9d732247f823113d50fd5d5e144541ad92dfab1f8df05298426bea24743e693b"
+    sha256 cellar: :any_skip_relocation, mojave:        "ecba86de35962ede83358e77986f65ac66e3632c8b255b91fde2b986c10d8c80"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0c88309a25471939828ac8e9f8851b0a83bb9b2a11103837a12291a59351a520"
+  end
+
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
 
   def install
     cd "src" do
-      ENV["CC"] = ENV["MPICC"]
-      ENV["CXX"] = ENV["MPICXX"]
-
       system "./configure", "--prefix=#{prefix}",
-                            "--with-blas=yes",
-                            "--with-blas-libs=blas cblas",
-                            "--with-blas-lib-dirs=/usr/lib",
-                            "--with-lapack=yes",
-                            "--with-lapack-libs=lapack clapack f77lapack",
-                            "--with-lapack-lib-dirs=/usr/lib",
                             "--with-MPI",
                             "--enable-bigint"
       system "make", "install"
@@ -36,7 +32,7 @@ class Hypre < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<-EOS
+    (testpath/"test.cpp").write <<~EOS
       #include "HYPRE_struct_ls.h"
       int main(int argc, char* argv[]) {
         HYPRE_StructGrid grid;

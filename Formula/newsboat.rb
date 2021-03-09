@@ -1,36 +1,42 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://github.com/newsboat/newsboat/archive/r2.10.1.tar.gz"
-  sha256 "82d5e3e2a6dab845aac0bf72580f46c2756375d49214905a627284e5bc32e327"
+  url "https://newsboat.org/releases/2.22.1/newsboat-2.22.1.tar.xz"
+  sha256 "8920f41cc53776b67c0e85ad1696b0967f6ac248f3b8913d977942c15d75e690"
+  license "MIT"
+  head "https://github.com/newsboat/newsboat.git"
 
   bottle do
-    sha256 "9dcbf0d0a026bc0c0667ce52698365f2f172e1222334657a4327c1101304b8ff" => :high_sierra
-    sha256 "2094f90b7a64c045e408973420cec64805f4ec517a9397f5850d35d9c013151e" => :sierra
-    sha256 "9af1f9da45dcb359481827c3e61e2aef3e21c253b29d436962369b8816be25cc" => :el_capitan
+    sha256 arm64_big_sur: "e9fcc698d8778d553246fb3d1bf53976818e59376c56e3c28bdc041f34526a6c"
+    sha256 big_sur:       "5f662f131861dd00d6f25122f7f790e6db3a6a8769406ef5740b55f061f8ec24"
+    sha256 catalina:      "180667d4eb94c77f4fbc43e542b823fccbd91b020e341a5fa132d4789d105c49"
+    sha256 mojave:        "bbf2e67497c2c4985401be6d13effd2794ed2619e2a2cbdb014e30f98faa3830"
   end
 
-  head do
-    url "https://github.com/newsboat/newsboat.git"
-
-    depends_on "asciidoc" => :build
-    depends_on "docbook-xsl" => :build
-  end
-
+  depends_on "asciidoctor" => :build
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "gettext"
   depends_on "json-c"
   depends_on "libstfl"
 
-  needs :cxx11
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   def install
-    ENV["XML_CATALOG_FILES"] = "/usr/local/etc/xml/catalog" if build.head?
+    gettext = Formula["gettext"]
+
+    ENV["GETTEXT_BIN_DIR"] = gettext.opt_bin.to_s
+    ENV["GETTEXT_LIB_DIR"] = gettext.lib.to_s
+    ENV["GETTEXT_INCLUDE_DIR"] = gettext.include.to_s
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
     system "make", "install", "prefix=#{prefix}"
   end
 
   test do
     (testpath/"urls.txt").write "https://github.com/blog/subscribe"
-    assert_match /newsboat - Exported Feeds/m, shell_output("LC_ALL=C #{bin}/newsboat -e -u urls.txt")
+    assert_match "newsboat - Exported Feeds", shell_output("LC_ALL=C #{bin}/newsboat -e -u urls.txt")
   end
 end

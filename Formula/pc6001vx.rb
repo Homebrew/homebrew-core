@@ -1,21 +1,23 @@
 class Pc6001vx < Formula
   desc "PC-6001 emulator"
-  homepage "http://eighttails.seesaa.net/"
-  url "http://eighttails.up.seesaa.net/bin/PC6001VX_2.31.1_src.tar.gz"
-  sha256 "eb00ab18ce6f165bc86e1355dc330a9a5129dc155176622e0ee000f9706682b3"
+  homepage "https://eighttails.seesaa.net/"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.7.0_src.tar.gz"
+  sha256 "8a735fa6769b1a268fc64c0ed92d7e27c5990b120f53ad50be255024db35b2b8"
+  license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/eighttails/PC6001VX.git"
 
   bottle do
-    cellar :any
-    sha256 "4a4d77fa8ede4197f2b28c7d065e59e119cd99f515867fdc9540ebe3bed01d8d" => :high_sierra
-    sha256 "83f39f11e2a2f169c35c009df6951120eac59cc6320b4dc05b553b768c9eb9c4" => :sierra
-    sha256 "1c480ada4c50ee19cf41dafa981fe57b019ed0eddca3ddb56d3157154ad5ee93" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "aee07f4792310c51d12c85a460ec600468169c9b584c47f56b1980ef1ad2ab25"
+    sha256 cellar: :any, big_sur:       "955a851714857a6316552a47e4456f1767c0031da42eb639f3bd256881f19633"
+    sha256 cellar: :any, catalina:      "26437cbcb26ef046a957c42c6a3a2ba1c35ddd35680efb1c9bbeecdf628574ab"
+    sha256 cellar: :any, mojave:        "84e0986b4d0db0802f75ed155e18b2fcf8305707ad031696179a51d28c2ff7b5"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qt"
-  depends_on "sdl2"
   depends_on "ffmpeg"
+  depends_on "qt@5"
+  depends_on "sdl2"
 
   def install
     # Need to explicitly set up include directories
@@ -26,12 +28,8 @@ class Pc6001vx < Formula
     # Use libc++ explicitly, otherwise build fails
     ENV.append_to_cflags "-stdlib=libc++" if ENV.compiler == :clang
 
-    # Unix scope in the QT project file includes MacOS, always enabling x11 and x11widgets
-    # As a workaround, remove 'macx' from the unix scope in this instance
-    inreplace "PC6001VX.pro", "\#Configuration for UNIX variants\nunix {",
-                              "\#Configuration for UNIX variants\nunix:!macx {"
-
-    system "qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
     system "make"
     prefix.install "PC6001VX.app"
     bin.write_exec_script "#{prefix}/PC6001VX.app/Contents/MacOS/PC6001VX"

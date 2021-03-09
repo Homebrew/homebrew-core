@@ -1,105 +1,77 @@
-require "language/go"
-
 class GitlabRunner < Formula
-  desc "The official GitLab CI runner written in Go"
+  desc "Official GitLab CI runner"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      :tag => "v10.2.0",
-      :revision => "0a75cdd19694787682d38143b3aaf11d641c3117"
+      tag:      "v13.9.0",
+      revision: "2ebc4dc45bd6065afa304a5bfdb846334981529e"
+  license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 "8b75fa67c1a6ecd46c54a284542bcd13f1df90d5f9004f9e93db4adadd524cc8" => :high_sierra
-    sha256 "571cf540bf92dcbfa9b3f8888112a31afcbfaa3daaa96804a969b6a28ce564a8" => :sierra
-    sha256 "f9a1b2ec1f749204c43edfa635d4848cb7bcccf3bce9ceca99f0da51fdaeb4e2" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f33d6880cae9fbed3b58162ccf1016ac1a5759412fd108fc5c4f544a45dfca66"
+    sha256 cellar: :any_skip_relocation, big_sur:       "572eb3014382b91d4475fc8ef88aa359d8f24d66c290b2a74e084be4ae8826d2"
+    sha256 cellar: :any_skip_relocation, catalina:      "539d16ba765ed9a15cbd9575cfc00e59fa63394514b9d7d12458c6363cff5478"
+    sha256 cellar: :any_skip_relocation, mojave:        "b584ec47826383ebf7d7743409fe222c990d5613a6dbd0bb600047d5886ca335"
   end
 
   depends_on "go" => :build
-  depends_on "docker" => :recommended
-
-  go_resource "github.com/jteeuwen/go-bindata" do
-    url "https://github.com/jteeuwen/go-bindata.git",
-        :revision => "a0ff2567cfb70903282db057e799fd826784d41d"
-  end
-
-  resource "prebuilt-x86_64.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.2.0/docker/prebuilt-x86_64.tar.xz",
-        :using => :nounzip
-    version "10.2.0"
-    sha256 "e6cee7f8dfc400088ecf8be594705994b1b61e3fbb96e85a3d72473313fc3ea4"
-  end
-
-  resource "prebuilt-arm.tar.xz" do
-    url "https://gitlab-runner-downloads.s3.amazonaws.com/v10.2.0/docker/prebuilt-arm.tar.xz",
-        :using => :nounzip
-    version "10.2.0"
-    sha256 "d6ea9e81bd20c5cf785f534f9061d76ca9452323cea8d52739bfe8c99dd36ef7"
-  end
 
   def install
-    ENV["GOPATH"] = buildpath
     dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-runner"
     dir.install buildpath.children
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/jteeuwen/go-bindata/go-bindata" do
-      system "go", "install"
-    end
 
     cd dir do
-      Pathname.pwd.install resource("prebuilt-x86_64.tar.xz"),
-                           resource("prebuilt-arm.tar.xz")
-      system "go-bindata", "-pkg", "docker", "-nocompress", "-nomemcopy",
-                           "-nometadata", "-o",
-                           "#{dir}/executors/docker/bindata.go",
-                           "prebuilt-x86_64.tar.xz",
-                           "prebuilt-arm.tar.xz"
-
       proj = "gitlab.com/gitlab-org/gitlab-runner"
-      commit = Utils.popen_read("git", "rev-parse", "--short", "HEAD").chomp
-      branch = version.to_s.split(".")[0..1].join("-") + "-stable"
-      built = Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")
       system "go", "build", "-ldflags", <<~EOS
         -X #{proj}/common.NAME=gitlab-runner
         -X #{proj}/common.VERSION=#{version}
-        -X #{proj}/common.REVISION=#{commit}
-        -X #{proj}/common.BRANCH=#{branch}
-        -X #{proj}/common.BUILT=#{built}
+        -X #{proj}/common.REVISION=#{Utils.git_short_head(length: 8)}
+        -X #{proj}/common.BRANCH=#{version.major}-#{version.minor}-stable
+        -X #{proj}/common.BUILT=#{Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")}
       EOS
 
       bin.install "gitlab-runner"
-      prefix.install_metafiles
     end
   end
 
-  plist_options :manual => "gitlab-runner start"
+  plist_options manual: "gitlab-runner start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>SessionCreate</key><false/>
-        <key>KeepAlive</key><true/>
-        <key>RunAtLoad</key><true/>
-        <key>Disabled</key><false/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/gitlab-runner</string>
-          <string>run</string>
-          <string>--working-directory</string>
-          <string>#{ENV["HOME"]}</string>
-          <string>--config</string>
-          <string>#{ENV["HOME"]}/.gitlab-runner/config.toml</string>
-          <string>--service</string>
-          <string>gitlab-runner</string>
-          <string>--syslog</string>
-        </array>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>SessionCreate</key><false/>
+          <key>KeepAlive</key><true/>
+          <key>RunAtLoad</key><true/>
+          <key>Disabled</key><false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/gitlab-runner</string>
+            <string>run</string>
+            <string>--working-directory</string>
+            <string>#{ENV["HOME"]}</string>
+            <string>--config</string>
+            <string>#{ENV["HOME"]}/.gitlab-runner/config.toml</string>
+            <string>--service</string>
+            <string>gitlab-runner</string>
+            <string>--syslog</string>
+          </array>
+          <key>EnvironmentVariables</key>
+            <dict>
+              <key>PATH</key>
+              <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+          </dict>
+        </dict>
+      </plist>
     EOS
   end
 

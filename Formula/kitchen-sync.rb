@@ -1,35 +1,42 @@
 class KitchenSync < Formula
   desc "Fast efficiently sync database without dumping & reloading"
   homepage "https://github.com/willbryant/kitchen_sync"
-  url "https://github.com/willbryant/kitchen_sync/archive/0.99.1.tar.gz"
-  sha256 "895b710f10e9399ce8e49efe1b24ca925b4a62510d817a0e4b60e11c4cefcaf6"
+  url "https://github.com/willbryant/kitchen_sync/archive/v2.10.tar.gz"
+  sha256 "98d2024df192571b7a5b4c21f0522d7d7187ac2a1411051e4594f3a66ebfa1af"
+  license "MIT"
   head "https://github.com/willbryant/kitchen_sync.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "08b95b15bfb7d4f5b6bd8afb05115fda8451945404f53491c6ac2663843b2a7f" => :high_sierra
-    sha256 "41a60924a8f3132dd1d011bc25cb2a91ac7d28cf3b0843b69b5cb60f0db068e3" => :sierra
-    sha256 "3f491f2fea093c3b1b1faa38a9803702857f41f7e65628f5e8b88134570a4fe4" => :el_capitan
+    sha256 cellar: :any, big_sur:     "4d319227763ecb2d8b01adafa821a806c91963e366ea4341a92a850429fb6115"
+    sha256 cellar: :any, catalina:    "6b5366aa8413f25ff8985cb7d195723a78c9c42bc4af1eb50b9980e1694e605e"
+    sha256 cellar: :any, mojave:      "900f81a4a99ad8b1aef571d8c1d20de1edf102dbd9d202832c6f96a09b6f4454"
+    sha256 cellar: :any, high_sierra: "80e91aab20f98adb5265fe24d39cbc4b8a10d66d2ec6663ad7ec294206554eb2"
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
-  depends_on "boost"
-  depends_on "yaml-cpp" => ((MacOS.version <= :mountain_lion) ? "c++11" : [])
-
-  depends_on :mysql => :recommended
-  depends_on :postgresql => :optional
-
-  needs :cxx11
+  depends_on "libpq"
+  depends_on "mysql-client"
 
   def install
-    ENV.cxx11
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".",
+                    "-DMySQL_INCLUDE_DIR=#{Formula["mysql-client"].opt_include}/mysql",
+                    "-DMySQL_LIBRARY_DIR=#{Formula["mysql-client"].opt_lib}",
+                    "-DPostgreSQL_INCLUDE_DIR=#{Formula["libpq"].opt_include}",
+                    "-DPostgreSQL_LIBRARY_DIR=#{Formula["libpq"].opt_lib}",
+                    *std_cmake_args
+
     system "make", "install"
   end
 
   test do
-    output = shell_output("#{bin}/ks --from a://b/ --to c://d/ 2>&1")
-    assert_match "Finished Kitchen Syncing", output
+    output = shell_output("#{bin}/ks --from mysql://b/ --to mysql://d/ 2>&1", 1)
+
+    assert_match "Unknown MySQL server host", output
+    assert_match "Kitchen Syncing failed.", output
   end
 end

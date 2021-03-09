@@ -3,17 +3,19 @@ require "language/node"
 class Insect < Formula
   desc "High precision scientific calculator with support for physical units"
   homepage "https://insect.sh/"
-  url "https://registry.npmjs.org/insect/-/insect-5.0.0.tgz"
-  sha256 "dcd4030a46a189885c4b1a192eae5e288f49c61436609fc8a0375d5e8ae5ee19"
+  url "https://registry.npmjs.org/insect/-/insect-5.6.0.tgz"
+  sha256 "e971a797c49b1b2aac8a29ad2b7696b80b7f9da2d302ddc3e1a46b195f4edfd0"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "150801ee2a294e0dc6d875bb1c251084f201934a8e7edb4c8cd703dc0be305af" => :high_sierra
-    sha256 "85ec8ee95c28e34ce1fffea11f6d127325e287ca846f9ab3f9f50f15dbfe635c" => :sierra
-    sha256 "5f063d4b5c7b31738bc0f7c6789a9a8ea4e91bb2981d4326ea3224690a4d66c5" => :el_capitan
-    sha256 "b2e300f21233fd253f3fc51bea665d23750cad12de32c7f1730ca3841c7b1455" => :yosemite
+    sha256 cellar: :any_skip_relocation, catalina:    "30d7f0f2e26a504fafc8444b90e243680186c1d10c5ef05e505bb712a3d2d543"
+    sha256 cellar: :any_skip_relocation, mojave:      "b0d541a0e1a22cd63cd3a5ade24de85b9630e1b5d12154063c001d4d21fa81f4"
+    sha256 cellar: :any_skip_relocation, high_sierra: "0604c43c2cb219d817eb9129ee501dff2f1d206c8da539eb062c88ba4ed6518d"
   end
 
+  depends_on "psc-package" => :build
+  depends_on "pulp" => :build
+  depends_on "purescript" => :build
   depends_on "node"
 
   def install

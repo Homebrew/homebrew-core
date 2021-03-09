@@ -1,15 +1,16 @@
 class Libbitcoin < Formula
   desc "Bitcoin Cross-Platform C++ Development Toolkit"
-  homepage "https://libbitcoin.org/"
-  url "https://github.com/libbitcoin/libbitcoin/archive/v3.3.0.tar.gz"
-  sha256 "391913a73615afcb42c6a7c4736f23888cfc999a899fc38395ddcbd560251d94"
-  revision 4
+  homepage "https://github.com/libbitcoin/libbitcoin-system"
+  url "https://github.com/libbitcoin/libbitcoin-system/archive/v3.6.0.tar.gz"
+  sha256 "5bcc4c31b53acbc9c0d151ace95d684909db4bf946f8d724f76c711934c6775c"
+  license "AGPL-3.0"
+  revision 6
 
   bottle do
-    cellar :any
-    sha256 "c824bd50f96cf55e751f9f0735b35509b0c37167277df22f8d98b246c38124c4" => :high_sierra
-    sha256 "889c3811c26837bd2c90585d93a4a5050926f017641b43710c675899f1ebaa16" => :sierra
-    sha256 "fd225da66b5908773a0f715f3aa35c838e807795ca2bdde5e0e53d9e99c3ab58" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "ffa7dcb602fe16966e0a6b0814cbe7640a851aa783b0c34a8f0fc596fb654d66"
+    sha256 cellar: :any, big_sur:       "e082921a7292db532b49c3fe2ff70df87c90f7ac2e9b5e51fe3b4bb0c7461c19"
+    sha256 cellar: :any, catalina:      "98865b9471e441a3d3ee30c38c568b546bf338700953ab9a784daed2775ea7d7"
+    sha256 cellar: :any, mojave:        "d0a5c4652789897e610767855d1bb27923df8735084f1dd7820a0e6c435737c7"
   end
 
   depends_on "autoconf" => :build
@@ -42,6 +43,7 @@ class Libbitcoin < Formula
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
+                          "--with-boost-libdir=#{Formula["boost"].opt_lib}",
                           "--with-png",
                           "--with-qrencode"
     system "make", "install"
@@ -56,12 +58,13 @@ class Libbitcoin < Formula
         const auto& input = tx.inputs().front();
         const auto script = input.script().to_data(false);
         std::string message(script.begin() + sizeof(uint64_t), script.end());
-        bc::cout << message << std::endl;
+        std::cout << message << std::endl;
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}",
-                    "-lbitcoin", "-lboost_system", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lbitcoin",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+                    "-o", "test"
     system "./test"
   end
 end

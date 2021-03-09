@@ -1,42 +1,24 @@
-require "language/go"
-
 class Aurora < Formula
   desc "Beanstalkd queue server console"
   homepage "https://xuri.me/aurora"
-  url "https://github.com/xuri/aurora/archive/2.1.tar.gz"
-  sha256 "921f137e269c3abc4c352822cb73cc6edff69434d4685c8aabc24978e951e800"
+  url "https://github.com/xuri/aurora/archive/2.2.tar.gz"
+  sha256 "90ac08b7c960aa24ee0c8e60759e398ef205f5b48c2293dd81d9c2f17b24ca42"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "64a70dcfd939245ccd64cee3f91c26374616eede20583e0a7e43314188d6e648" => :high_sierra
-    sha256 "d2af9495df0060035181a1991a9e29a8723336b312ac794e4b9a716cc38ce58e" => :sierra
-    sha256 "f0361aa58cf382e6daafb4cfd13dad45d398e4d6edff5cccd813efc165df199b" => :el_capitan
-    sha256 "150614c06c473e101d34f65f0e4114581df8d9808a3ec36df9425c9fd5246c4d" => :yosemite
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "798b63da7188da92582ffde96fed8f3407add006f2db88a610cb4aacda1c5b89"
+    sha256 cellar: :any_skip_relocation, big_sur:       "714b7116c80107b6ffb0f5b8abba41ae5aa88708fe688e61144ca3a636b7fc4f"
+    sha256 cellar: :any_skip_relocation, catalina:      "f3b45006b5b5c6f15166d11d1a740fb14f3b22c1d64b3b64397ed2958e9c882d"
+    sha256 cellar: :any_skip_relocation, mojave:        "21abebb582fbac2ebb400328b455c890206f78ae0910f75ded8019bfc6a40c1f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "e3e9b06b4b9053afb4b75b48d90555d00fcc8404309d8b2b2b336538810746cb"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/BurntSushi/toml" do
-    url "https://github.com/BurntSushi/toml.git",
-        :revision => "a368813c5e648fee92e5f6c30e3944ff9d5e8895"
-  end
-
-  go_resource "github.com/rakyll/statik" do
-    url "https://github.com/rakyll/statik.git",
-        :revision => "89fe3459b5c829c32e89bdff9c43f18aad728f2f"
-  end
-
-  go_resource "github.com/xuri/aurora" do
-    url "https://github.com/xuri/aurora.git",
-        :revision => "ba6eea49d8e2ba665613b570b1532ac9fbfcfbbb"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
-    (buildpath/"src/github.com/xuri").mkpath
-    ln_s buildpath, "src/github.com/xuri/aurora"
-    system "go", "build", "-o", bin/"aurora"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"aurora"
+    prefix.install_metafiles
   end
 
   test do

@@ -1,20 +1,25 @@
 class SstpClient < Formula
   desc "SSTP (Microsofts Remote Access Solution for PPP over SSL) client"
   homepage "https://sstp-client.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/1.0.11/sstp-client-1.0.11.tar.gz"
-  sha256 "1b851b504030ed5522ced431217a5c700b35e8bb72d6f5b40b006c7becb8fb20"
-  revision 1
+  url "https://downloads.sourceforge.net/project/sstp-client/sstp-client/sstp-client-1.0.14.tar.gz"
+  sha256 "e0eccae251ab7264cabbabf3ec8d45ef981187684c9ef34613bf5f70affe10e7"
+  license "GPL-2.0"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/sstp-client[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "c9e1c4a81489bff6db3bfab2bb94bd5d5effd520794d1e034badebabe52b708d" => :high_sierra
-    sha256 "1e635598256413113dabafeb7c29670c15ddef72ec7f838045c701beb360d12e" => :sierra
-    sha256 "f26f09f558a834f4f63ccc8dafc551aca7776c64aefb166995dd24e37a14f325" => :el_capitan
-    sha256 "696a8f7752dd97d1118b878710fc27c59a95fdc84bbc1f444dc91b9709d51351" => :yosemite
+    sha256 arm64_big_sur: "a67f8784f0a716ed85a181bd5010b9f5ca700f0f44a107dcaf78560ba349e876"
+    sha256 big_sur:       "82b2a0b491752d77b6d47a0a4fc1cffe0656e0a04a5e49f2a6802f9b302378c0"
+    sha256 catalina:      "014b4af9e8f774591bb335fc49b2f010bf54cade6149dc0367cabee0a604f5f9"
+    sha256 mojave:        "060f97c76ca3086fc58ab20be2dad388a1299e4731f4571bca9d807f168d788e"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -28,11 +33,12 @@ class SstpClient < Formula
     (var/"run/sstpc").mkpath
   end
 
-  def caveats; <<~EOS
-    sstpc reads PPP configuration options from /etc/ppp/options. If this file
-    does not exist yet, type the following command to create it:
+  def caveats
+    <<~EOS
+      sstpc reads PPP configuration options from /etc/ppp/options. If this file
+      does not exist yet, type the following command to create it:
 
-    sudo touch /etc/ppp/options
+      sudo touch /etc/ppp/options
     EOS
   end
 

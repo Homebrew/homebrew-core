@@ -3,21 +3,24 @@ class Scrollkeeper < Formula
   homepage "https://scrollkeeper.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/scrollkeeper/scrollkeeper/0.3.14/scrollkeeper-0.3.14.tar.gz"
   sha256 "4a0bd3c3a2c5eca6caf2133a504036665485d3d729a16fc60e013e1b58e7ddad"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "1b52ea53b42082614d8663a847db551dd0a793ea4e8b22b2c89f35c020d5c932" => :high_sierra
-    sha256 "d1722082c68c3a2910fafd049b8f469a91e29586798b1b7ffc6cdb5b4e1b8f2d" => :sierra
-    sha256 "fe0171c12bd61b59032a0914fd2279ca91132a714993d2dddd0f2641d8cb8142" => :el_capitan
-    sha256 "ca1090d4daf705fc9bddc18b303ed1bf511ebd1173bcb48b17f5e47daab74351" => :yosemite
-    sha256 "7e302cb0c50b34bf47cceefa2c79a8b565b06e7d850ea07f10992598c2058773" => :mavericks
+    sha256 arm64_big_sur: "88e96878a9f7cef658edaf418c55f7c9e6904aead82bd3102384cbdfb342a400"
+    sha256 big_sur:       "0cdfc1e87fe8d2281867eb923dfce700906894f6593a763fe79f4afc936f2ad2"
+    sha256 catalina:      "9bd348638b9e3492db3549c7ac0756975ca2c57303ec58685bb3e6694fff1dd1"
+    sha256 mojave:        "0d7cbee6e25a46848d7c387ba07c4ee110ae2256953d2e5addd26f68e21c645d"
+    sha256 high_sierra:   "efa4637b9d1b3942192dca6fb4602ef72ec6b285ba424c087d290c8feb5e2c5b"
   end
 
-  depends_on "gettext"
   depends_on "docbook"
+  depends_on "gettext"
+
+  uses_from_macos "libxslt"
+  uses_from_macos "perl"
 
   conflicts_with "rarian",
-    :because => "scrollkeeper and rarian install the same binaries."
+    because: "scrollkeeper and rarian install the same binaries"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"

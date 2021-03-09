@@ -1,19 +1,20 @@
 class Libmxml < Formula
   desc "Mini-XML library"
   homepage "https://michaelrsweet.github.io/mxml/"
-  url "https://github.com/michaelrsweet/mxml/releases/download/v2.11/mxml-2.11.tar.gz"
-  sha256 "aaf68aac637dd06ba73ae5bb0537a3c4e89ca86f8c09a2d806a1f5b937e2ba8f"
-
+  url "https://github.com/michaelrsweet/mxml/releases/download/v3.2/mxml-3.2.tar.gz"
+  sha256 "b894f6c64964f2e77902564c17ba00f5d077a7a24054e7c1937903b0bd42c974"
+  license "Apache-2.0"
   head "https://github.com/michaelrsweet/mxml.git"
 
   bottle do
-    cellar :any
-    sha256 "3ab68ae639d1b5f78b756d689c66303a0e1f2d2bb34a417ce374d01fb6a5b176" => :high_sierra
-    sha256 "03b417fb39a0293c2dad5fe18ddf36e7692e93cd35338d32013394cc6f1d34a7" => :sierra
-    sha256 "f33aab3398c00853fad6045acef1184c16fa6fa6bb5525ccaef45cd74460ee41" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "c83d4a6556c0da6f962e37b07874d22a90c388751fc0b46db669ea2603d4b5bb"
+    sha256 cellar: :any, big_sur:       "70c41d09f15c8de8f93df010b73fe51211d262a86c69a25c0ea1028440267c01"
+    sha256 cellar: :any, catalina:      "680142115002908ad936e6cc27b507056d10b91a4c6d5ca250480090be71e21b"
+    sha256 cellar: :any, mojave:        "a8d373d3bef6a43d40ef8aed433257fbdc6ba7566b454565dcdeeb3b21290edc"
+    sha256 cellar: :any, high_sierra:   "6717fbc8fb911a1a3b076c1cb1d80ab9ea010456810d14995346973543cdc2f4"
   end
 
-  depends_on :xcode => :build # for docsetutil
+  depends_on xcode: :build # for docsetutil
 
   def install
     system "./configure", "--disable-debug",
@@ -25,11 +26,26 @@ class Libmxml < Formula
 
   test do
     (testpath/"test.c").write <<~EOS
-      int testfunc(char *string)
+      #include <mxml.h>
+
+      int main()
       {
-        return string ? string[0] : 0;
+        FILE *fp;
+        mxml_node_t *tree;
+
+        fp = fopen("test.xml", "r");
+        tree = mxmlLoadFile(NULL, fp, MXML_OPAQUE_CALLBACK);
+        fclose(fp);
       }
     EOS
-    assert_match /testfunc/, shell_output("#{bin}/mxmldoc test.c")
+
+    (testpath/"test.xml").write <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <test>
+        <text>I'm an XML document.</text>
+      </test>
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmxml", "-o", "test"
+    system "./test"
   end
 end

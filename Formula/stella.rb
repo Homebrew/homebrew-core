@@ -1,34 +1,35 @@
 class Stella < Formula
   desc "Atari 2600 VCS emulator"
   homepage "https://stella-emu.github.io/"
-  url "https://github.com/stella-emu/stella/releases/download/5.0.2/stella-5.0.2-src.tar.xz"
-  sha256 "74ee708b68340b65519a04a22c61921cdcf69a1d308600c212414b28e9e689ac"
+  url "https://github.com/stella-emu/stella/releases/download/6.5.2/stella-6.5.2-src.tar.xz"
+  sha256 "dc2709d1501d33d9ec82cfeeedd6097993f3e2b117dde62092f2e604ba30bf99"
+  license "GPL-2.0-or-later"
   head "https://github.com/stella-emu/stella.git"
 
   bottle do
-    cellar :any
-    sha256 "d785be494c19b1254ae8d36173e03155cfe7ddb5904811a846b6d5b36e57f8cd" => :high_sierra
-    sha256 "a5f27dadb73bac03b216c87bec7e4de593aadfdeaa6e1058d0a5c457d16a1071" => :sierra
-    sha256 "443b004f1f0cf445b66a28a253a423f2f02ca32729a828ff2fb0ccc414a914f4" => :el_capitan
-    sha256 "1f53b58fc29ced3dd2390191760481af1ecdf822653ff02b2e5a0ce5420f4ace" => :yosemite
+    sha256 cellar: :any, big_sur:  "a470ccd8535c906aae5aa63c595fae6946d4145afcf75eb626216c7822a52484"
+    sha256 cellar: :any, catalina: "19242437c7f91e204b162f8eb542fd76ab6cd4facb62904ecd4f5187ff88da8f"
+    sha256 cellar: :any, mojave:   "b566cac3954c8b1c773845d3c55a23fc4f720ad41c16d51f4ec18eeddb58965a"
   end
 
-  depends_on :xcode => :build
-  depends_on "sdl2"
+  depends_on xcode: :build
   depends_on "libpng"
+  depends_on "sdl2"
+
+  uses_from_macos "zlib"
 
   def install
     sdl2 = Formula["sdl2"]
     libpng = Formula["libpng"]
-    cd "src/macosx" do
+    cd "src/macos" do
       inreplace "stella.xcodeproj/project.pbxproj" do |s|
-        s.gsub! %r{(\w{24} \/\* SDL2\.framework)}, '//\1'
-        s.gsub! %r{(\w{24} \/\* png)}, '//\1'
-        s.gsub! /(HEADER_SEARCH_PATHS) = \(/,
-                "\\1 = (#{sdl2.opt_include}/SDL2, #{libpng.opt_include},"
-        s.gsub! /(LIBRARY_SEARCH_PATHS) = ("\$\(LIBRARY_SEARCH_PATHS\)");/,
-                "\\1 = (#{sdl2.opt_lib}, #{libpng.opt_lib}, \\2);"
-        s.gsub! /(OTHER_LDFLAGS) = "((-\w+)*)"/, '\1 = "-lSDL2 -lpng \2"'
+        s.gsub! %r{(\w{24} /\* SDL2\.framework)}, '//\1'
+        s.gsub! %r{(\w{24} /\* png)}, '//\1'
+        s.gsub!(/(HEADER_SEARCH_PATHS) = \(/,
+                "\\1 = (#{sdl2.opt_include}/SDL2, #{libpng.opt_include},")
+        s.gsub!(/(LIBRARY_SEARCH_PATHS) = ("\$\(LIBRARY_SEARCH_PATHS\)");/,
+                "\\1 = (#{sdl2.opt_lib}, #{libpng.opt_lib}, \\2);")
+        s.gsub!(/(OTHER_LDFLAGS) = "((-\w+)*)"/, '\1 = "-lSDL2 -lpng \2"')
       end
       xcodebuild "SYMROOT=build"
       prefix.install "build/Release/Stella.app"
@@ -37,6 +38,6 @@ class Stella < Formula
   end
 
   test do
-    assert_match /Stella version #{version}/, shell_output("#{bin}/Stella -help").strip
+    assert_match "Stella version #{version}", shell_output("#{bin}/Stella -help").strip
   end
 end

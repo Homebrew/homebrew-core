@@ -1,31 +1,37 @@
 class Xmount < Formula
   desc "Convert between multiple input & output disk image types"
   homepage "https://www.pinguin.lu/xmount/"
-  url "https://code.pinguin.lu/diffusion/XMOUNT/xmount.git",
-      :tag => "v0.7.5",
-      :revision => "432ae6609af67f457e812378e6d2c7a1aacce777"
+  url "https://files.pinguin.lu/xmount-0.7.6.tar.gz"
+  sha256 "76e544cd55edc2dae32c42a38a04e11336f4985e1d59cec9dd41e9f9af9b0008"
+  revision 2
 
   bottle do
-    sha256 "d26964f9d08df973bd5719a76f981a830fecf78f41a755db702d961fed7f4c91" => :high_sierra
-    sha256 "a7c90944e8790ce74164a68f484c07ce5231902a9ce0c81b7dea9ddbbbf47dc8" => :sierra
-    sha256 "4aef49b3ed42bec95ff2c2922940a28b9c1be0b1bb04f28f37be1e01e1808120" => :el_capitan
-    sha256 "2fd1e5caf50d64243c5151b016754acbe115d42150eb9a5ad26176e604fbb2e2" => :yosemite
+    rebuild 1
+    sha256 catalina:    "55de429679b12e85dcfb854d4add045363a287c172b7b77765591d7d1d89324c"
+    sha256 mojave:      "ae937d5fdba6c278bef72a4f87d62a6dafc2f78ad642ee6995bc228743ed37cd"
+    sha256 high_sierra: "a4436c7060d9b84abfa6450c7156cd994f42c130eebf1281e21319d6e5c00415"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "afflib"
   depends_on "libewf"
-  depends_on "openssl"
-  depends_on :osxfuse
+  depends_on "openssl@1.1"
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl"].opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["openssl@1.1"].opt_lib/"pkgconfig"
 
-    Dir.chdir "trunk" do
-      system "cmake", ".", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do

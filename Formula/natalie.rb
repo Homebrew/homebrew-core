@@ -1,27 +1,32 @@
 class Natalie < Formula
   desc "Storyboard Code Generator (for Swift)"
   homepage "https://github.com/krzyzanowskim/Natalie"
-  url "https://github.com/krzyzanowskim/Natalie/archive/0.6.5.tar.gz"
-  sha256 "ea0586e07ad4aaeea557fdd6bc8a874b206259568c4d9a74932dac7bce00acc6"
+  url "https://github.com/krzyzanowskim/Natalie/archive/0.7.0.tar.gz"
+  sha256 "f7959915595495ce922b2b6987368118fa28ba7d13ac3961fd513ec8dfdb21c8"
+  license "MIT"
+  revision 1
   head "https://github.com/krzyzanowskim/Natalie.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c2b7df54c0844ed33993ba110556bb3547423fd8d22b5034af29f65ba7eade15" => :high_sierra
-    sha256 "6e101ed8ac70707b8366665bea49d98c9095d9a8f91b3736a772d968c4045ed8" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "df7c39d8bcb8d60b095d9b9b90207042791d994f22a53c97e709aa16768a9b28"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6e745ce1d0a34e0887319f32d39ae10e7ae34475fcb9a54916569f7672074b22"
+    sha256 cellar: :any_skip_relocation, catalina:      "218ec8bb0ac3ac4de7a6fa8489f3ad7013b1beb051a7c0e74a6e37ade79eee6c"
+    sha256 cellar: :any_skip_relocation, mojave:        "9dcc093fc648175eb165aec20413246ace7427d0d3c4a9884d37cfad9a851dca"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "dd51e00a1969ffdd478e954bed48bedd1c5a9813b67931aa146711f49cb58223"
   end
 
-  depends_on :xcode => ["9.0", :build]
+  deprecate! date: "2020-09-08", because: :repo_archived
+
+  depends_on xcode: ["9.4", :build]
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
-           "-static-stdlib"
+    system "swift", "build", "--disable-sandbox", "-c", "release", "--static-swift-stdlib"
     bin.install ".build/release/natalie"
     share.install "NatalieExample"
   end
 
   test do
-    generated_code = Utils.popen_read("#{bin}/natalie #{share}/NatalieExample")
+    generated_code = shell_output("#{bin}/natalie #{share}/NatalieExample")
     assert generated_code.lines.count > 1, "Natalie failed to generate code!"
   end
 end

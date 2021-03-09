@@ -1,26 +1,27 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
-  homepage "http://www.assimp.org"
-  url "https://github.com/assimp/assimp/archive/v4.0.1.tar.gz"
-  sha256 "60080d8ab4daaab309f65b3cffd99f19eb1af8d05623fff469b9b652818e286e"
+  homepage "https://www.assimp.org/"
+  url "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz"
+  sha256 "11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc"
+  license :cannot_represent
   head "https://github.com/assimp/assimp.git"
 
   bottle do
-    cellar :any
-    sha256 "b0294e10f4fc379675306800c3c638d35a7a749ee4474952a1982312c42690b9" => :high_sierra
-    sha256 "d604ce94fedd5b30a5ae53d22e1573ba01b9295ddf6b52b008bd33c0a7f3b105" => :sierra
-    sha256 "aa26fee8bb1be4488b5f16d29c78fbfb7a74fb5b69895ce62baf6184d11c38d9" => :el_capitan
-    sha256 "68cf888a4c7119388707022099a16daac509a791b52c1617cca53509049812a1" => :yosemite
+    rebuild 1
+    sha256 arm64_big_sur: "987d2ce0acc2fbfd488f82ce67c0eb47845f8b0a832cbae8c7d1a2090e81ada3"
+    sha256 big_sur:       "1a4511b5f06aa0e9d579b72af3aa4dd0d43b93860d17dfacfab586ca2947d1be"
+    sha256 catalina:      "28224c17d5d250055b39990a54de9e744f30b59950ed12d2a08ff0192d029c0c"
+    sha256 mojave:        "85dc308dfd468a6dd66978d890106b777829b7b4a04970c395c04aa832ad4931"
   end
 
-  option "without-boost", "Compile without thread safe logging or multithreaded computation if boost isn't installed"
-
   depends_on "cmake" => :build
-  depends_on "boost" => [:recommended, :build]
+
+  uses_from_macos "zlib"
 
   def install
     args = std_cmake_args
     args << "-DASSIMP_BUILD_TESTS=OFF"
+    args << "-DCMAKE_INSTALL_RPATH=#{lib}"
     system "cmake", *args
     system "make", "install"
   end
@@ -34,7 +35,7 @@ class Assimp < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cpp", "-L#{lib}", "-lassimp", "-o", "test"
+    system ENV.cc, "-std=c++11", "test.cpp", "-L#{lib}", "-lassimp", "-o", "test"
     system "./test"
 
     # Application test.

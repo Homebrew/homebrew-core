@@ -3,18 +3,20 @@ class Nanomsgxx < Formula
   homepage "https://achille-roussel.github.io/nanomsgxx/doc/nanomsgxx.7.html"
   url "https://github.com/achille-roussel/nanomsgxx/archive/0.2.tar.gz"
   sha256 "116ad531b512d60ea75ef21f55fd9d31c00b172775548958e5e7d4edaeeedbaa"
-  revision 1
+  license "MIT"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "b35ef1c194aea9a8b1c59495dadec535d748ad21003843caf1d520743d4e6a88" => :high_sierra
-    sha256 "31944634bba1c194586658fd0d7ab9bc5c2564f334a9fbbea3d1af57dc43ef55" => :sierra
-    sha256 "e70ca4633486bd83259989bf62041e5e140401fbecc7bb4e855375229b016312" => :el_capitan
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "e60ddc9b8115ed727673f40c00a2c6fd25b6b60337786d376d4f348b99095be9"
+    sha256 cellar: :any, big_sur:       "a6eba6de285e05c979bc694c6aec53b51ccb764bd5578af5fe484fa1f198efde"
+    sha256 cellar: :any, catalina:      "3c094b3df14d706b6824d0f0e4ec90e2d6aace65e8f7fe484b38fc51b2fe298f"
+    sha256 cellar: :any, mojave:        "b4e9a2d42d4307ef122c71288afed6662f0db91be922c73324abe6e5a2b08735"
+    sha256 cellar: :any, high_sierra:   "c48e210289abc4d384fc1139d4565616bb04fbced6f6fae9a6817f2c710ba118"
   end
 
   depends_on "pkg-config" => :build
-  depends_on :python => :build if MacOS.version <= :snow_leopard
-
+  depends_on :macos # Due to Python 2
   depends_on "nanomsg"
 
   def install

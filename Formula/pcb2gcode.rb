@@ -1,32 +1,37 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/releases/download/v1.3.2/pcb2gcode-1.3.2.tar.gz"
-  sha256 "c4135cd3981c4a5d6baffa81b7f8e890ae29776107b0d1938b744a8dfebdbc63"
-  revision 2
+  url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.3.0.tar.gz"
+  sha256 "49cc566b4b4ec00a3c847e3d4dc75bc91584bec07bcc77dcfad1f6129c6f6a0d"
+  license "GPL-3.0-or-later"
+  head "https://github.com/pcb2gcode/pcb2gcode.git"
 
   bottle do
-    cellar :any
-    sha256 "cb1dd175729534cc8629db3a2ca577106cba0cbec844b436d07bbba429ac47da" => :high_sierra
-    sha256 "1e5aa984afb12cebb770c670f29554e7f447804c1997babf225cbae55e86b8ab" => :sierra
-    sha256 "76e311cada9b598a7f47d88969a75995d18689f4b9f8066ea93153ba0a72cf51" => :el_capitan
-    sha256 "76b51585b0b780305de0060e7614c6c35f3e738682dafb4e10092624eb03ef89" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "b2913d5e7cd0249a9deced42f32460d53ce041cf722ef596006d52a0ad589e00"
+    sha256 cellar: :any, big_sur:       "2bc5b19eac04e1e705a59e90c797f0bdd942f5d8014e85fce5230ec802db2a76"
+    sha256 cellar: :any, catalina:      "cfbd3a15f30408288d3e7597e1e81a56940a107f5b9b6bc1274bb7b3edb87a1d"
+    sha256 cellar: :any, mojave:        "d29249c9fa2980d6ad5fea05b27e6255a8893be1cacb146606e2cab1b21dd4ed"
   end
 
-  head do
-    url "https://github.com/pcb2gcode/pcb2gcode.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
+  # Release 2.0.0 doesn't include an autoreconfed tarball
+  # glibmm, gtkmm and librsvg are used only in unittests,
+  # and are therefore not needed at runtime.
+  depends_on "atkmm@2.28" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "cairomm@1.14" => :build
+  depends_on "glibmm@2.66" => :build
+  depends_on "gtkmm" => :build
+  depends_on "librsvg" => :build
+  depends_on "libsigc++@2" => :build
+  depends_on "libtool" => :build
+  depends_on "pangomm@2.46" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "gtkmm"
   depends_on "gerbv"
 
   def install
-    system "autoreconf", "-fvi" if build.head?
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
@@ -80,7 +85,6 @@ class Pcb2gcode < Formula
       M30
     EOS
     (testpath/"millproject").write <<~EOS
-      dpi=500
       metric=true
       zchange=10
       zsafe=5
@@ -98,7 +102,6 @@ class Pcb2gcode < Formula
       cut-speed=10000
       cutter-diameter=3
       fill-outline=true
-      outline-width=0.15
       zbridges=-0.6
       zcut=-2.5
       al-front=true

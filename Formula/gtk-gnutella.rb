@@ -1,13 +1,16 @@
 class GtkGnutella < Formula
   desc "Share files in a peer-to-peer (P2P) network"
   homepage "https://gtk-gnutella.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.1.13/gtk-gnutella-1.1.13.tar.xz"
-  sha256 "2126cd08941ba0847c06f1034c5e2a9428b67b2fd1685c0e3ab878cb0179f647"
+  url "https://downloads.sourceforge.net/project/gtk-gnutella/gtk-gnutella/1.2.0/gtk-gnutella-1.2.0.tar.xz"
+  sha256 "9608f28706f75423ac6b0d8f260506f1cf0f345a6f04de7cac1232b2504d94c9"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "417164f40527b51744bfd3517e6a315a8f9ba5783fed7c34d0e4d159851a0d1f" => :high_sierra
-    sha256 "eefc6bab168821260727a382a006c9c03fed094954f9ae599a89d54e807c64c8" => :sierra
-    sha256 "47c5f05d62fa9b7e914d95fd2a38587c483297a78c656e53d35bfb74a94735d5" => :el_capitan
+    sha256 arm64_big_sur: "0c52c25d2374166f992060c2975b920cd37d4a258de01e391102765c286009fb"
+    sha256 big_sur:       "65fe3df74ec576a933c4aa3576b7cf387e09f1d1757b45e835a1daa326dd4df4"
+    sha256 catalina:      "88c016e26d7b8d48bb7f1be67c5b84fadc6af0c58f3d258928f3d7a62c4d7e57"
+    sha256 mojave:        "573fef65f5e1766416cfd94f715e2bffe39c6adf3108232d0f80fe76b0711348"
+    sha256 high_sierra:   "c270c4e7d01b10b80a0dac8fc0b91981769c77186f975c5d1ba69a772aae6470"
   end
 
   depends_on "pkg-config" => :build
@@ -16,7 +19,7 @@ class GtkGnutella < Formula
   def install
     ENV.deparallelize
 
-    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
       inreplace "Configure", "ret = clock_gettime(CLOCK_REALTIME, &tp);",
                              "ret = undefinedgibberish(CLOCK_REALTIME, &tp);"
     end

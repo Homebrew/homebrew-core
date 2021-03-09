@@ -3,17 +3,25 @@ class Dieharder < Formula
   homepage "https://www.phy.duke.edu/~rgb/General/dieharder.php"
   url "https://www.phy.duke.edu/~rgb/General/dieharder/dieharder-3.31.1.tgz"
   sha256 "6cff0ff8394c553549ac7433359ccfc955fb26794260314620dfa5e4cd4b727f"
-  revision 2
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "f1f36b404203561f04b05aef3bce6f483980eee5ee8898b1f535ccade28ef369" => :high_sierra
-    sha256 "758c782ab9ba74df2bf493296435eafc24b97fdda7493485bf367f4afd7a50e7" => :sierra
-    sha256 "7adbcdbabc0c75df4394b7934dc5d8b33ef325ebf58a082e061fc333b0f82b1d" => :el_capitan
-    sha256 "c401b110311adafced06a2e5dc61b1ae2d159cfdf749b9b8835b791487facd33" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "e0650468410dbd840acddb2cebc9e28e7bdd0293d5c442abb8c95d50c8524735"
+    sha256 cellar: :any, big_sur:       "24603f6e3c5376e294cdcd0d94cc045e48dec3402fd69a3b927ec1291f7b5c26"
+    sha256 cellar: :any, catalina:      "3f53c783d640819b446cbf91c3293d47aa0b0c334a630d25f2c5b5b514aeb844"
+    sha256 cellar: :any, mojave:        "b7b1bdbb6f105e4286320ad067689d8e3f7a2c7821a53382ebc2007b47d06dc9"
+    sha256 cellar: :any, high_sierra:   "341bdf1e0fce90d69db4e6749ec3ee3b8c5903559e365a19e9f5a8ba2723d403"
+    sha256 cellar: :any, sierra:        "8a40fb61aef5230ad77b3b851a6e8b6d575ff2adaa747c3b73a75cd203197945"
   end
 
   depends_on "gsl"
+
+  on_linux do
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/b5dfa6f2b9c5d44cb4bab93ace2e0d7d58465fb0/dieharder/dieharder-linux.patch"
+      sha256 "8c0ab2425c8a315471f809d5ecaebd061985f24019886cba7f856e5aaf72112b"
+    end
+  end
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-shared"

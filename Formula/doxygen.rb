@@ -1,53 +1,27 @@
 class Doxygen < Formula
   desc "Generate documentation for several programming languages"
-  homepage "http://www.doxygen.org/"
-  revision 1
+  homepage "https://www.doxygen.org/"
+  url "https://doxygen.nl/files/doxygen-1.9.1.src.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.9.1/doxygen-1.9.1.src.tar.gz"
+  sha256 "67aeae1be4e1565519898f46f1f7092f1973cce8a767e93101ee0111717091d1"
+  license "GPL-2.0-only"
   head "https://github.com/doxygen/doxygen.git"
 
-  stable do
-    url "https://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.src.tar.gz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/d/doxygen/doxygen_1.8.13.orig.tar.gz"
-    sha256 "af667887bd7a87dc0dbf9ac8d86c96b552dfb8ca9c790ed1cbffaa6131573f6b"
-
-    # Remove for > 1.8.13
-    # "Bug 776791 - [1.8.13 Regression] Segfault building the breathe docs"
-    # Upstream PR from 4 Jan 2017 https://github.com/doxygen/doxygen/pull/555
-    patch do
-      url "https://github.com/doxygen/doxygen/commit/0f02761a158a5e9ddbd5801682482af8986dbc35.patch?full_index=1"
-      sha256 "6705eb83b419ad9a696290c624b8ff363ff39b94b250008d0ef36200254c2a08"
-    end
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "c5173aa74ee4c609a11ce80ecf26588dc5f682356c382fe833960f91e386476e" => :high_sierra
-    sha256 "a5e7436a64a38db42f85d8f48c683423288933d61e7607b82883388c73a8a724" => :sierra
-    sha256 "d42d176ead71b9276a1f55d13936132fd51627ceec4ab309de3abb79def891a1" => :el_capitan
-    sha256 "215437e6278729e060526ada23b9e2c75eb93028269c4613610b9391b8976c81" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b5b2de93ac8703785860bfaf3e14f3268a07dc29bac9def13172785bcac7c5f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b8e1ea1bb601d8cc7cd7cf66b67a544e9e5534c2793cee5ac90bef5d076ad1e5"
+    sha256 cellar: :any_skip_relocation, catalina:      "10e13f7bf6977bee6487366b3fc1dc55b4c191d5d505cb816997838504b3e0a4"
+    sha256 cellar: :any_skip_relocation, mojave:        "0422adc9bfa6e1558cdcca24f8f4266f0927cf4c10fe3e245fe8e3017a7717b5"
   end
 
-  option "with-graphviz", "Build with dot command support from Graphviz."
-  option "with-qt", "Build GUI frontend with Qt support."
-  option "with-llvm", "Build with libclang support."
-
-  deprecated_option "with-dot" => "with-graphviz"
-  deprecated_option "with-doxywizard" => "with-qt"
-  deprecated_option "with-libclang" => "with-llvm"
-  deprecated_option "with-qt5" => "with-qt"
-
+  depends_on "bison" => :build
   depends_on "cmake" => :build
-  depends_on "graphviz" => :optional
-  depends_on "qt" => :optional
-  depends_on "llvm" => :optional
+
+  uses_from_macos "flex" => :build
 
   def install
-    args = std_cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET:STRING=#{MacOS.version}"
-    args << "-Dbuild_wizard=ON" if build.with? "qt"
-    args << "-Duse_libclang=ON -DLLVM_CONFIG=#{Formula["llvm"].opt_bin}/llvm-config" if build.with? "llvm"
-
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args
       system "make"
     end
     bin.install Dir["build/bin/*"]

@@ -1,16 +1,17 @@
 class Gtkglext < Formula
   desc "OpenGL extension to GTK+"
-  homepage "https://projects.gnome.org/gtkglext/"
+  homepage "https://developer.gnome.org/gtkglext/stable/"
   url "https://download.gnome.org/sources/gtkglext/1.2/gtkglext-1.2.0.tar.gz"
   sha256 "e5073f3c6b816e7fa67d359d9745a5bb5de94a628ac85f624c992925a46844f9"
-  revision 2
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "273c2ef65c3757736c30a0179c051fe293da12e11d1c26e735d9d0968c8a6296" => :high_sierra
-    sha256 "06c59b81c678523054566cb101bac3170fed61c74e1a8beadd25e32ea62de4e2" => :sierra
-    sha256 "1bfd5206621c55215c249f86971be17f9de6385ff08141a53797931e621e507c" => :el_capitan
-    sha256 "bbc371cd59e3955e3bf31f37df5dfe56e977c3552d01596f0e93f252d80430e0" => :yosemite
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "0e7132d3e408cb5d9bbff6e8f6e93bc6460ebbb4f3e6f365d8cb331edee9435a"
+    sha256 cellar: :any, big_sur:       "b367a1ac2118e2bf146d4efd53f5c7b3870b1f0e123ebfc072edf3e1c7eee8d6"
+    sha256 cellar: :any, catalina:      "34d57545ff116ecf21f8e6f8695a6a20ac8f1fe90439be0f166420d4623b0050"
+    sha256 cellar: :any, mojave:        "aa701707e57b30e6bba5e9f4b28993e7393d43f471994a46572daaee6d678a55"
+    sha256 cellar: :any, high_sierra:   "6862527d7b86b6940a38f9fb189085d80b6ea67ee80adc2794e550999e8cc86c"
   end
 
   depends_on "pkg-config" => :build
@@ -69,6 +70,11 @@ class Gtkglext < Formula
     sha256 "0d112b417d6c51022e31701037aa49ea50f270d3a34c263599ac0ef64c2f6743"
   end
 
+  patch :p0 do
+    url "https://trac.macports.org/raw-attachment/ticket/56260/patch-index-gdkglshapes-osx.diff"
+    sha256 "699ddd676b12a6c087e3b0a7064cc9ef391eac3d84c531b661948bf1699ebcc5"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
@@ -94,6 +100,7 @@ class Gtkglext < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx = Formula["gtk+"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -108,6 +115,7 @@ class Gtkglext < Formula
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx.opt_include}/gtk-2.0
       -I#{gtkx.opt_lib}/gtk-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtkglext-1.0
       -I#{libpng.opt_include}/libpng16
       -I#{lib}/gtkglext-1.0/include

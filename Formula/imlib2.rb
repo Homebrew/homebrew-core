@@ -1,36 +1,34 @@
 class Imlib2 < Formula
   desc "Image loading and rendering library"
   homepage "https://sourceforge.net/projects/enlightenment/"
-  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.4.10/imlib2-1.4.10.tar.bz2"
-  sha256 "3f698cd285cbbfc251c1d6405f249b99fafffafa5e0a5ecf0ca7ae49bbc0a272"
-  revision 1
+  url "https://downloads.sourceforge.net/project/enlightenment/imlib2-src/1.7.1/imlib2-1.7.1.tar.bz2"
+  sha256 "033a6a639dcbc8e03f65ff05e57068e7346d50ee2f2fff304bb9095a1b2bc407"
+  license "Imlib2"
 
   bottle do
-    rebuild 1
-    sha256 "b4ca64f45e433cfa1779ed0a8616f2b8130d63b8e15796dea55ff390cbeaff46" => :high_sierra
-    sha256 "8ee074fbc1fa4ec9b48151518cc4dcfaf02ad15a9001288f636d94684e7172a1" => :sierra
-    sha256 "139bf652a1e3b056f9100d33adeab3a576cd87cc86e7d7566cf1acadd8638fda" => :el_capitan
-    sha256 "c817b22453401f614d195af1009aaa3a94d0e5c08db2d4ef34cf76a1c74720b5" => :yosemite
+    sha256 arm64_big_sur: "9455235701eb3e7228e8189f99b79c94c3034372d475c7c0ced4468418adafbb"
+    sha256 big_sur:       "d2af1ccb06b90d94c4a6e0502f722880a2947d126735c0e6e15bb2ec4600955d"
+    sha256 catalina:      "530114570c89b19a5b4383adca9168f85ae033ba75627f794c557bd5bb5179f6"
+    sha256 mojave:        "4e65ec5a0c3474e47a93b3c25048247c1062c62a5a92a2525842226c4ed238bb"
   end
-
-  deprecated_option "without-x" => "without-x11"
 
   depends_on "pkg-config" => :build
   depends_on "freetype"
-  depends_on "libpng" => :recommended
-  depends_on "jpeg" => :recommended
-  depends_on "giflib" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "libid3tag" => :optional
-  depends_on :x11 => :recommended
+  depends_on "giflib"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "libx11"
+  depends_on "libxcb"
+  depends_on "libxext"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --enable-amd64=no
+      --without-id3
     ]
-    args << "--without-x" if build.without? "x11"
 
     system "./configure", *args
     system "make", "install"

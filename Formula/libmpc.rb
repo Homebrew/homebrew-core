@@ -1,17 +1,17 @@
 class Libmpc < Formula
   desc "C library for the arithmetic of high precision complex numbers"
-  homepage "http://multiprecision.org"
-  url "https://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz"
-  mirror "http://multiprecision.org/mpc/download/mpc-1.0.3.tar.gz"
-  sha256 "617decc6ea09889fb08ede330917a00b16809b8db88c29c31bfbb49cbf88ecc3"
-  revision 1
+  homepage "http://www.multiprecision.org/mpc/"
+  url "https://ftp.gnu.org/gnu/mpc/mpc-1.2.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mpc/mpc-1.2.1.tar.gz"
+  sha256 "17503d2c395dfcf106b622dc142683c1199431d095367c6aacba6eec30340459"
+  license "LGPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "94016748ba9688fa05324d6bd1a0fbfc5e4924a4715d9611cfde464f85bb25cd" => :high_sierra
-    sha256 "16ddbf6cf6c187a58f932cc907cf9c545b5a7f056282d5c01df849db7490e53e" => :sierra
-    sha256 "5527bea12285c11434ba29cd94de47d693ac5f9400d9e1ab161907604dcecfb4" => :el_capitan
-    sha256 "fa1789c2694894febb26850ef356689e7bfc19251f6f84f77b65c2ba677fb2a1" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "6a93bd78c1b55f8b29e11fd1e9c68c6c305ffe74aa5b978ba93189b6d84d1451"
+    sha256 cellar: :any, big_sur:       "754667644cc287cd9691fd3215df260aa971562b5a7b6ca65e29b2e15ea1e656"
+    sha256 cellar: :any, catalina:      "8c037df4b551058d00351676dc2c5ec395bd69c88545fac9ccfd0749dadb8ee2"
+    sha256 cellar: :any, mojave:        "c229b6def61f4acc41b4b159d93dbc63a5c77f87f61623c9f7c5399da440cc4f"
+    sha256 cellar: :any, high_sierra:   "939f0ad01d809356e33bdc70a8a8483eb1b021fd5f3723d0e61a2698af00f01b"
   end
 
   depends_on "gmp"

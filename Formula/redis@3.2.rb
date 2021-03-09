@@ -1,31 +1,23 @@
 class RedisAT32 < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "http://download.redis.io/releases/redis-3.2.11.tar.gz"
-  sha256 "31ae927cab09f90c9ca5954aab7aeecc3bb4da6087d3d12ba0a929ceb54081b5"
-  head "https://github.com/antirez/redis.git", :branch => "3.2"
+  url "https://download.redis.io/releases/redis-3.2.13.tar.gz"
+  sha256 "862979c9853fdb1d275d9eb9077f34621596fec1843e3e7f2e2f09ce09a387ba"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c2b89b227eacd40e8f3d0ad2f8b01509a1f182252e1b91b36a5256a40649b70c" => :high_sierra
-    sha256 "78f7a36a2e4ac2bf8d5efdb70e9ac84eb50d9e6ce815d8c4d25e1268ce67aa5a" => :sierra
-    sha256 "a73d084f4aef70d0f7c614317c66cb9ca55614ccb2363f62af59276d431ee3e0" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:     "d016b698688c41f3a1157f61aaa44e4686cab2806ba8bb6b09a2d1f46eed255c"
+    sha256 cellar: :any_skip_relocation, catalina:    "e557bee10881f773cfb59d593a874f628b4f7d7239acea2d9cfc1ab394619fba"
+    sha256 cellar: :any_skip_relocation, mojave:      "b61b4867149efc9201c51c984a55edcd0809e8a045b372c4bbf00c3b119afea4"
+    sha256 cellar: :any_skip_relocation, high_sierra: "78a359ac74a02868ba481ae740d1d5046a89fc2e07020ddee6c73e491a162247"
   end
 
   keg_only :versioned_formula
 
-  option "with-jemalloc", "Select jemalloc as memory allocator when building Redis"
+  deprecate! date: "2020-04-30", because: :versioned_formula
 
   def install
-    # Architecture isn't detected correctly on 32bit Snow Leopard without help
-    ENV["OBJARCH"] = "-arch #{MacOS.preferred_arch}"
-
-    args = %W[
-      PREFIX=#{prefix}
-      CC=#{ENV.cc}
-    ]
-    args << "MALLOC=jemalloc" if build.with? "jemalloc"
-    system "make", "install", *args
+    system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}"
 
     %w[run db/redis log].each { |p| (var/p).mkpath }
 
@@ -40,36 +32,37 @@ class RedisAT32 < Formula
     etc.install "sentinel.conf" => "redis-sentinel.conf"
   end
 
-  plist_options :manual => "redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/redis@3.2/bin/redis-server #{HOMEBREW_PREFIX}/etc/redis.conf"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/redis-server</string>
+            <string>#{etc}/redis.conf</string>
+            <string>--daemonize no</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/redis.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/redis.log</string>
         </dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/redis-server</string>
-          <string>#{etc}/redis.conf</string>
-          <string>--daemonize no</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/redis.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/redis.log</string>
-      </dict>
-    </plist>
+      </plist>
     EOS
   end
 

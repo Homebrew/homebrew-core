@@ -1,17 +1,17 @@
 class Gmt < Formula
-  desc "Tools for processing and displaying xy and xyz datasets"
-  homepage "https://gmt.soest.hawaii.edu/"
-  url "ftp://ftp.soest.hawaii.edu/gmt/gmt-5.4.2-src.tar.xz"
-  mirror "http://gd.tuwien.ac.at/pub/gmt/gmt-5.4.2-src.tar.xz"
-  mirror "http://ftp.iris.washington.edu/pub/gmt/gmt-5.4.2-src.tar.xz"
-  mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gmt-5.4.2-src.tar.xz"
-  sha256 "ddcd63094aeda5a60f541626ed7ab4a78538d52dea24ba915f168e4606e587f5"
-  revision 1
+  desc "Tools for manipulating and plotting geographic and Cartesian data"
+  homepage "https://www.generic-mapping-tools.org/"
+  url "https://github.com/GenericMappingTools/gmt/releases/download/6.1.1/gmt-6.1.1-src.tar.xz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.1.1-src.tar.xz"
+  sha256 "d476cba999340648146ef53ab4a3f64858cbd2f5511cdec9f7f06f3fb7896625"
+  license "LGPL-3.0-or-later"
+  revision 3
+  head "https://github.com/GenericMappingTools/gmt.git"
 
   bottle do
-    sha256 "4b04dea31bebdcfd82673de995e037f852397258a90852622aee8a917aa3a03d" => :high_sierra
-    sha256 "fbd37a8573c3935b9404db3fea2260c654f787740755ddba3d88afde3553271c" => :sierra
-    sha256 "d05657c555e8e1f3dab2bd57de31a016dd3a5d9e6059c3b1fd123081e0d584ef" => :el_capitan
+    sha256 big_sur:  "938fd4d45e539dad96b0f8f12cec5d2a791e55ced1c2e027bdb970aed2e44ecf"
+    sha256 catalina: "894136f2754d3677ef41ac95d9087771a98502c8988a6742ce6c16832b873a92"
+    sha256 mojave:   "5ec74190adc6306423223b377b20950c6343847c5620429b17aedf7dfdbe7327"
   end
 
   depends_on "cmake" => :build
@@ -21,29 +21,26 @@ class Gmt < Formula
   depends_on "pcre"
 
   resource "gshhg" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "http://gd.tuwien.ac.at/pub/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "http://ftp.iris.washington.edu/pub/gmt/gshhg-gmt-2.3.7.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/gshhg-gmt-2.3.7.tar.gz"
+    url "https://github.com/GenericMappingTools/gshhg-gmt/releases/download/2.3.7/gshhg-gmt-2.3.7.tar.gz"
+    mirror "https://mirrors.ustc.edu.cn/gmt/gshhg-gmt-2.3.7.tar.gz"
     sha256 "9bb1a956fca0718c083bef842e625797535a00ce81f175df08b042c2a92cfe7f"
   end
 
   resource "dcw" do
-    url "ftp://ftp.soest.hawaii.edu/gmt/dcw-gmt-1.1.2.tar.gz"
-    mirror "http://gd.tuwien.ac.at/pub/gmt/dcw-gmt-1.1.2.tar.gz"
-    mirror "http://ftp.iris.washington.edu/pub/gmt/dcw-gmt-1.1.2.tar.gz"
-    mirror "ftp://ftp.star.nesdis.noaa.gov/pub/sod/lsa/gmt/dcw-gmt-1.1.2.tar.gz"
-    sha256 "f719054f8d657e7b10b5182d4c15bc7f38ef7483ed05cdaa9f94ab1a0008bfb6"
+    url "https://github.com/GenericMappingTools/dcw-gmt/releases/download/1.1.4/dcw-gmt-1.1.4.tar.gz"
+    mirror "https://mirrors.ustc.edu.cn/gmt/dcw-gmt-1.1.4.tar.gz"
+    sha256 "8d47402abcd7f54a0f711365cd022e4eaea7da324edac83611ca035ea443aad3"
   end
 
   def install
     (buildpath/"gshhg").install resource("gshhg")
     (buildpath/"dcw").install resource("dcw")
 
+    # GMT_DOCDIR and GMT_MANDIR must be relative paths
     args = std_cmake_args.concat %W[
       -DCMAKE_INSTALL_PREFIX=#{prefix}
-      -DGMT_DOCDIR=#{share}/doc/gmt
-      -DGMT_MANDIR=#{man}
+      -DGMT_DOCDIR=share/doc/gmt
+      -DGMT_MANDIR=share/man
       -DGSHHG_ROOT=#{buildpath}/gshhg
       -DCOPY_GSHHG:BOOL=TRUE
       -DDCW_ROOT=#{buildpath}/dcw
@@ -53,7 +50,7 @@ class Gmt < Formula
       -DNETCDF_ROOT=#{Formula["netcdf"].opt_prefix}
       -DPCRE_ROOT=#{Formula["pcre"].opt_prefix}
       -DFLOCK:BOOL=TRUE
-      -DGMT_INSTALL_MODULE_LINKS:BOOL=TRUE
+      -DGMT_INSTALL_MODULE_LINKS:BOOL=FALSE
       -DGMT_INSTALL_TRADITIONAL_FOLDERNAMES:BOOL=FALSE
       -DLICENSE_RESTRICTED:BOOL=FALSE
     ]
@@ -62,10 +59,24 @@ class Gmt < Formula
       system "cmake", "..", *args
       system "make", "install"
     end
+    inreplace bin/"gmt-config", "#{HOMEBREW_LIBRARY}/Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+  end
+
+  def caveats
+    <<~EOS
+      GMT needs Ghostscript for the 'psconvert' command to convert PostScript files
+      to other formats. To use 'psconvert', please 'brew install ghostscript'.
+
+      GMT needs FFmpeg for the 'movie' command to make movies in MP4 or WebM format.
+      If you need this feature, please 'brew install ffmpeg'.
+
+      GMT needs GraphicsMagick for the 'movie' command to make animated GIFs.
+      If you need this feature, please 'brew install graphicsmagick'.
+    EOS
   end
 
   test do
-    system "#{bin}/pscoast -R0/360/-70/70 -Jm1.2e-2i -Ba60f30/a30f15 -Dc -G240 -W1/0 -P > test.ps"
+    system "#{bin}/gmt pscoast -R0/360/-70/70 -Jm1.2e-2i -Ba60f30/a30f15 -Dc -G240 -W1/0 -P > test.ps"
     assert_predicate testpath/"test.ps", :exist?
   end
 end

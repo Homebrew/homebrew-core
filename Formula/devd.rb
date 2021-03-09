@@ -1,53 +1,40 @@
-require "language/go"
-
 class Devd < Formula
   desc "Local webserver for developers"
   homepage "https://github.com/cortesi/devd"
-  url "https://github.com/cortesi/devd/archive/v0.7.tar.gz"
-  sha256 "c1d2f102e017da92bf6c333ba90c305eb90085aec342a69e7a7889b3b685da96"
+  url "https://github.com/cortesi/devd/archive/v0.9.tar.gz"
+  sha256 "5aee062c49ffba1e596713c0c32d88340360744f57619f95809d01c59bff071f"
+  license "MIT"
   head "https://github.com/cortesi/devd.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f7b83cf2ebbaa2431692dff379a6847aa9035537f8ab5809ba4b724d7bdc408b" => :high_sierra
-    sha256 "dbb234b88eb380412693ab3cbb6af17a02332cef0792115e105cd6cf082468e1" => :sierra
-    sha256 "00fbd50456eff0ef1af172402f79863b1ce968136edcb961e38a520e171d4195" => :el_capitan
-    sha256 "77c15338932c82b878d738d79a227054c63cbb32c428e9c85c43a13c91436152" => :yosemite
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "84be8385183d30ad91445a33da1d1d4fc30e9e74f225abeafce8993df3cfcf59"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9dad47b2a2c803d6ddf5a4153359a2d8e9188f37f745e964fed2a56159731597"
+    sha256 cellar: :any_skip_relocation, catalina:      "89f6654470b9ef03bd42046e147f0ae372c607428f7bb934b5474f76ff397e3c"
+    sha256 cellar: :any_skip_relocation, mojave:        "8806190656fd2634dadf577e7df5957b5bcaca434585f10f2a82197d8e59f03a"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/cortesi/moddwatch" do
-    url "https://github.com/cortesi/moddwatch.git",
-        :revision => "a149019f9ed6f16033de28f66d8c1247593a0104"
-  end
-
-  go_resource "github.com/cortesi/termlog" do
-    url "https://github.com/cortesi/termlog.git",
-        :revision => "2ed14eb6ce62ec5bcc3fd25885a1d13d53f34fd1"
-  end
-
   def install
-    ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/cortesi/devd").install buildpath.children
-    Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/cortesi/devd" do
-      system "go", "build", "-o", bin/"devd", ".../cmd/devd"
-      prefix.install_metafiles
+      system "go", "build", *std_go_args, "./cmd/devd"
     end
   end
 
   test do
-    begin
-      io = IO.popen("#{bin}/devd #{testpath}")
-      sleep 2
-    ensure
-      Process.kill("SIGINT", io.pid)
-      Process.wait(io.pid)
-    end
+    (testpath/"www/example.txt").write <<~EOS
+      Hello World!
+    EOS
 
-    assert_match "Listening on http://devd.io", io.read
+    port = free_port
+    fork { exec "#{bin}/devd", "--port=#{port}", "#{testpath}/www" }
+    sleep 2
+
+    output = shell_output("curl --silent 127.0.0.1:#{port}/example.txt")
+    assert_equal "Hello World!\n", output
   end
 end

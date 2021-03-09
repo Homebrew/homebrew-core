@@ -1,27 +1,27 @@
 class CmarkGfm < Formula
   desc "C implementation of GitHub Flavored Markdown"
-  homepage "https://github.com/github/cmark"
-  url "https://github.com/github/cmark/archive/0.28.0.gfm.11.tar.gz"
-  version "0.28.0.gfm.11"
-  sha256 "a95ee221c3f6d718bbb38bede95f05f05e07827f8f3c29ed6cb09ddb7d05c2cd"
+  homepage "https://github.com/github/cmark-gfm"
+  url "https://github.com/github/cmark-gfm/archive/0.29.0.gfm.0.tar.gz"
+  version "0.29.0.gfm.0"
+  sha256 "6a94aeaa59a583fadcbf28de81dea8641b3f56d935dda5b2447a3c8df6c95fea"
+  license "BSD-2-Clause"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "6e1cd497358abd69b92614d872503f03ceaa695dcaaafa532b9238a0a3d54c84" => :high_sierra
-    sha256 "5d1fde1c85b5943daa7fd82b64d936e346aff200126df9ce51fdfc7958a0eba3" => :sierra
-    sha256 "f5ea53570cbe88230ecd4afa5679c1e3567c0c8280d3e1748fdd2c9ef4164f34" => :el_capitan
+    sha256 cellar: :any, big_sur:     "3e26c1d17fc758db9384e87ae0fb9c14bf72131e907999f3df7e92e82db9f740"
+    sha256 cellar: :any, catalina:    "f7d1e82fce11d59440842e86065a21ec244b85159e091528dca7e004a32615ba"
+    sha256 cellar: :any, mojave:      "e203ca97951abc32dc20dede8c504df44a6972f8cb03df7a0e597bc7caeb20f5"
+    sha256 cellar: :any, high_sierra: "461d5443abc76191e65b3df9f2448072107e31211017e38bbb461842b523ee43"
   end
 
   depends_on "cmake" => :build
-  depends_on :python3 => :build
+  depends_on "python@3.9" => :build
 
-  conflicts_with "cmark", :because => "both install a `cmark.h` header"
+  conflicts_with "cmark", because: "both install a `cmark.h` header"
 
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "test"
       system "make", "install"
     end
   end

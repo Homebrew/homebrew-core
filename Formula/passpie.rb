@@ -3,20 +3,23 @@ class Passpie < Formula
 
   desc "Manage login credentials from the terminal"
   homepage "https://github.com/marcwebbie/passpie"
-  url "https://files.pythonhosted.org/packages/7a/e5/f808549a4ae369ed1d97795e6039085d38ec4244aa953fac3cb870c66fbc/passpie-1.6.0.tar.gz"
-  sha256 "8d4371b89d02469d7f2cc4e79480f6f1c80dde81da33d2968c9a212d704a2213"
+  url "https://files.pythonhosted.org/packages/c8/2e/db84fa9d33c9361024343411875835143dc7b73eb3320b41c4f543b40ad6/passpie-1.6.1.tar.gz"
+  sha256 "eec50eabb9f4c9abd9a1d89794f86afe3956e1ba9f6c831d04b164fd4fc0ad02"
+  license "MIT"
+  revision 1
   head "https://github.com/marcwebbie/passpie.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "089cfe7bd2908d169253c19fce56f306d3505faf601b9c93e01fe28094de9fd6" => :high_sierra
-    sha256 "50f942dcce1aa20d7a5167c454cb903050f2fa01442426564ff7e532c658d91a" => :sierra
-    sha256 "fc100e320f2714dc99e95a694250eb5d6a66fa87b8ab77e7cde1a20de25b03b2" => :el_capitan
-    sha256 "e4e295b7e25bf48f1664bd0e1023c1e5fda8e2b2044b4e742f2f54730c8e267b" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "2bea6978498b4a19b59ba269d158c833d31ee75c10528f34ceb4eaa7ffe2293f"
+    sha256 cellar: :any, big_sur:       "e8550b5e5a4caa3515b9e726beeb3a571a98db40e3fc2731fc0a4460fe929a61"
+    sha256 cellar: :any, catalina:      "29a24482b5c955a6d14b7a285d6937c04ab89a53f110c8343221d2ccef2cb508"
+    sha256 cellar: :any, mojave:        "9f524fdab59188aab2b53fe7c3e5084ecdc27149dd742abffdfb13af074ba0ee"
+    sha256 cellar: :any, high_sierra:   "acac2254266a3c741c15e28403482e67517d447dc4a4c0411934ec93ab902945"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on :gpg
+  depends_on "gnupg"
+  depends_on "libyaml"
+  depends_on "python@3.8"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/7a/00/c14926d8232b36b08218067bcd5853caefb4737cda3f0a47437151344792/click-6.6.tar.gz"
@@ -24,8 +27,8 @@ class Passpie < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/75/5e/b84feba55e20f8da46ead76f14a3943c8cb722d40360702b2365b91dec00/PyYAML-3.11.tar.gz"
-    sha256 "c36c938a872e5ff494938b33b14aaa156cb439ec67548fcab3535bb78b0846e8"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
   end
 
   resource "rstr" do
@@ -44,6 +47,9 @@ class Passpie < Formula
   end
 
   def install
+    # PyYAML 3.11 cannot be compiled on Python 3.7+
+    inreplace "setup.py", "PyYAML==3.11", "PyYAML==3.13"
+
     virtualenv_install_with_resources
   end
 

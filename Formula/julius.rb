@@ -1,30 +1,20 @@
 class Julius < Formula
   desc "Two-pass large vocabulary continuous speech recognition engine"
   homepage "https://github.com/julius-speech/julius"
-  url "https://github.com/julius-speech/julius/archive/v4.4.2.1.tar.gz"
-  sha256 "784730d63bcd9e9e2ee814ba8f79eef2679ec096300e96400e91f6778757567f"
+  url "https://github.com/julius-speech/julius/archive/v4.6.tar.gz"
+  sha256 "74447d7adb3bd119adae7915ba9422b7da553556f979ac4ee53a262d94d47b47"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "913f7e63304c528b80f7fbef8163e3910c126fd4a4482a01106359d08510ae2b" => :high_sierra
-    sha256 "c337a9f5efba5180d03ee10427e38516c12a488e8e58869570ced6c0e7480f89" => :sierra
-    sha256 "9f5572a2ada2fdfdc38698b22efbbb523006c208fc3eb90346849fc658be5dd1" => :el_capitan
+    sha256 cellar: :any, big_sur:     "4b8251857584f844fe5469a0283a773428383053f8d80eaeff885b745578aa1d"
+    sha256 cellar: :any, catalina:    "b06b9ca71df4cccff10e36a4a75a55f7d5bdb009f4dba9f940044da6ba0c258d"
+    sha256 cellar: :any, mojave:      "041d7a3185850375ef67148a74ab9513e9a4eb6de05deeb3595f3941c41010d6"
+    sha256 cellar: :any, high_sierra: "d699dbf645c69f795421569e21c9d676e0db534a8d72fabfb721d5864e391549"
   end
 
   depends_on "libsndfile"
 
-  # Upstream PR from 9 Sep 2017 "ensure pkgconfig directory exists during
-  # installation"
-  patch do
-    url "https://github.com/julius-speech/julius/pull/73.patch?full_index=1"
-    sha256 "b1d2d233a7f04f0b8f1123e1de731afd618b996d1f458ea8f53b01c547864831"
-  end
-
   def install
-    # Upstream issue "4.4.2.1 parallelized build fails"
-    # Reported 10 Sep 2017 https://github.com/julius-speech/julius/issues/74
-    ENV.deparallelize
-
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

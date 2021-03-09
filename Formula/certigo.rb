@@ -1,15 +1,18 @@
 class Certigo < Formula
   desc "Utility to examine and validate certificates in a variety of formats"
   homepage "https://github.com/square/certigo"
-  url "https://github.com/square/certigo/archive/v1.9.2.tar.gz"
-  sha256 "e1f2d673a686767176a3d634ab2c8cc360f0b48727175fb2a5123d416bdbe689"
+  url "https://github.com/square/certigo/archive/v1.12.1.tar.gz"
+  sha256 "800bdfa10ffc7f6313397220d02769e88ed5dae001224c9f0199383dcb63eaec"
+  license "Apache-2.0"
   head "https://github.com/square/certigo.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ce4aee69ddab21eea2dc30c49911e60752b83bd6f311b9df32a1253c23d0a01a" => :high_sierra
-    sha256 "f217275b6e97200423a283ff79b15236b27dbca6dcda86f42111b626e64618a2" => :sierra
-    sha256 "cc687e18364d3985df8df95684b703fefcd3fecec1bbbdc0efca40b9d3e225c9" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9761910b65d0cd920c2f78f3cc3a3231461b15f24f3467d70599bd1398368654"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c2f92814d6ab9339a0e5cf6d1489d92577f9fb422538d3a374c5e24ac7e78459"
+    sha256 cellar: :any_skip_relocation, catalina:      "9cb3d249c87ed65409a4e4a0e7841bbb8ab9192dea06df8f78f28f0fcbec4550"
+    sha256 cellar: :any_skip_relocation, mojave:        "85d39ea2806bbd5ea750486132343d2dc36d5cc37ac0048d4561c40d20826fde"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "0ec7c22fe619af5e5178f4387f2731909ff02d4379ec62784f3625d2a63c358c"
   end
 
   depends_on "go" => :build
@@ -17,6 +20,14 @@ class Certigo < Formula
   def install
     system "./build"
     bin.install "bin/certigo"
+
+    # Install bash completion
+    output = Utils.safe_popen_read("#{bin}/certigo", "--completion-script-bash")
+    (bash_completion/"certigo").write output
+
+    # Install zsh completion
+    output = Utils.safe_popen_read("#{bin}/certigo", "--completion-script-zsh")
+    (zsh_completion/"_certigo").write output
   end
 
   test do

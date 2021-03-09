@@ -1,39 +1,33 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://trac.osgeo.org/geos"
-  url "http://download.osgeo.org/geos/geos-3.6.2.tar.bz2"
-  sha256 "045a13df84d605a866602f6020fc6cbf8bf4c42fb50de237a08926e1d7d7652a"
+  url "https://download.osgeo.org/geos/geos-3.9.1.tar.bz2"
+  sha256 "7e630507dcac9dc07565d249a26f06a15c9f5b0c52dd29129a0e3d381d7e382a"
+  license "LGPL-2.1"
 
-  bottle do
-    cellar :any
-    sha256 "bd35ebbcc9d142b0ee4d1f1837520cd0e195e13e3ea1804c5cfd1cc99d660b9b" => :high_sierra
-    sha256 "a435dcf855256300793f56c3d0af6597f39958bde52adc29d07736f897b40c1b" => :sierra
-    sha256 "8fa4f17ee4b0f8c52bdb155f4264043f12245858e413975cfea4355d569db207" => :el_capitan
-    sha256 "5966c5ecea54189c67a3ffb5856176f4bb070ca72b3c3628ad7b76fb67e35de8" => :yosemite
+  livecheck do
+    url "https://download.osgeo.org/geos/"
+    regex(/href=.*?geos[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option :cxx11
-  option "without-python", "Do not build the Python extension"
-  option "with-ruby", "Build the ruby extension"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "55162eaa549fb0b551ddbd6fa2e7e25da1f9c4cf9772ed62d077f0f8bf03ecbe"
+    sha256 cellar: :any, big_sur:       "763727a2a096dd9a5ba2735672f2ff2ee58c7c1efd8b2db8d79dc2e5e6989cbe"
+    sha256 cellar: :any, catalina:      "6ebbc7afe80b38660e33be4b95a47654d0d4dc067b13076f1b88d06c52dd717a"
+    sha256 cellar: :any, mojave:        "ff5f29ff0856fdc987c5338a066ddbaa2eb3e231ff1a87bc7c166be73dcac892"
+  end
 
-  depends_on "swig" => :build if build.with?("python") || build.with?("ruby")
+  depends_on "swig" => :build
+  depends_on "python@3.9"
 
   def install
-    ENV.cxx11 if build.cxx11?
-
-    # https://trac.osgeo.org/geos/ticket/771
-    inreplace "configure" do |s|
-      s.gsub! /PYTHON_CPPFLAGS=.*/, %Q(PYTHON_CPPFLAGS="#{`python-config --includes`.strip}")
-      s.gsub! /PYTHON_LDFLAGS=.*/, 'PYTHON_LDFLAGS="-Wl,-undefined,dynamic_lookup"'
-    end
-
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --enable-python
+      PYTHON=#{Formula["python@3.9"].opt_bin}/python3
     ]
-
-    args << "--enable-python" if build.with?("python")
-    args << "--enable-ruby" if build.with?("ruby")
+    args << "--disable-inline" if Hardware::CPU.arm?
 
     system "./configure", *args
     system "make", "install"

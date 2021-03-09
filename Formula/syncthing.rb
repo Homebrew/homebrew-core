@@ -1,68 +1,72 @@
 class Syncthing < Formula
   desc "Open source continuous file synchronization application"
   homepage "https://syncthing.net/"
-  url "https://github.com/syncthing/syncthing.git",
-      :tag => "v0.14.41",
-      :revision => "99b00b6a5e723f7b8214273d694d4ffc7a609bbc"
-  head "https://github.com/syncthing/syncthing.git"
+  url "https://github.com/syncthing/syncthing/archive/v1.14.0.tar.gz"
+  sha256 "ab34f328fdca5a1a334af844787e72e6a80988830a5223d82a915efe038433ec"
+  license "MPL-2.0"
+  head "https://github.com/syncthing/syncthing.git", branch: "main"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "03473fac00e74e9936e019999b946fc68ea12ae8649ae2280d2a00fc5881796c" => :high_sierra
-    sha256 "4b32c91d179dce88b51cd1c0d0f3c358d773e40af5e8c60a4a214cdba4b70622" => :sierra
-    sha256 "5918acbbec8c36c597cf4c6875ab1b0c38f97dae8c19625bc3a44f6a1b41e80e" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "68c432762e6c944436156a4a6e5030d0c4404129df1336732772b8517a6fb0bf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3669bca08e3a6166bfd443ace1954ddc0b3fcba29154a9cab9e5bc927a762274"
+    sha256 cellar: :any_skip_relocation, catalina:      "dea720b306548ac56883f8403bb1773974bf62107ee8431d390290073e122fe9"
+    sha256 cellar: :any_skip_relocation, mojave:        "a5634372c54dac12632134c75b1fa83f9a2f59f1dfc3c9d4b78f09552c05e87f"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/syncthing/syncthing").install buildpath.children
-    ENV.append_path "PATH", buildpath/"bin"
-    cd buildpath/"src/github.com/syncthing/syncthing" do
-      system "./build.sh", "noupgrade"
-      bin.install "syncthing"
-      man1.install Dir["man/*.1"]
-      man5.install Dir["man/*.5"]
-      man7.install Dir["man/*.7"]
-      prefix.install_metafiles
-    end
+    build_version = build.head? ? "v0.0.0-#{version}" : "v#{version}"
+    system "go", "run", "build.go", "--version", build_version, "--no-upgrade", "tar"
+    bin.install "syncthing"
+
+    man1.install Dir["man/*.1"]
+    man5.install Dir["man/*.5"]
+    man7.install Dir["man/*.7"]
   end
 
-  plist_options :manual => "syncthing"
+  plist_options manual: "syncthing"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/syncthing</string>
-          <string>-no-browser</string>
-          <string>-no-restart</string>
-        </array>
-        <key>KeepAlive</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-          <key>Crashed</key>
-          <true/>
-          <key>SuccessfulExit</key>
-          <false/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/syncthing</string>
+            <string>-no-browser</string>
+            <string>-no-restart</string>
+          </array>
+          <key>KeepAlive</key>
+          <dict>
+            <key>Crashed</key>
+            <true/>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>ProcessType</key>
+          <string>Background</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/syncthing.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/syncthing.log</string>
         </dict>
-        <key>ProcessType</key>
-        <string>Background</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/syncthing.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/syncthing.log</string>
-      </dict>
-    </plist>
+      </plist>
     EOS
   end
 
   test do
+    build_version = build.head? ? "v0.0.0-#{version}" : "v#{version}"
+    assert_match "syncthing #{build_version} ", shell_output("#{bin}/syncthing --version")
     system bin/"syncthing", "-generate", "./"
   end
 end

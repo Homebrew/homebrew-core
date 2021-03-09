@@ -1,44 +1,32 @@
 class Sqlcipher < Formula
   desc "SQLite extension providing 256-bit AES encryption"
-  homepage "http://sqlcipher.net"
-  url "https://github.com/sqlcipher/sqlcipher/archive/v3.4.1.tar.gz"
-  sha256 "4172cc6e5a79d36e178d36bd5cc467a938e08368952659bcd95eccbaf0fa4ad4"
-  revision 2
-
+  homepage "https://www.zetetic.net/sqlcipher/"
+  url "https://github.com/sqlcipher/sqlcipher/archive/v4.4.3.tar.gz"
+  sha256 "b8df69b998c042ce7f8a99f07cf11f45dfebe51110ef92de95f1728358853133"
+  license "BSD-3-Clause"
   head "https://github.com/sqlcipher/sqlcipher.git"
 
   bottle do
-    cellar :any
-    sha256 "0179493d2ae3349781310155fe73cf5c9a971e85a5b8e4551a6b366ad3003048" => :high_sierra
-    sha256 "c4dfe2030b5524da4908575dbe7da65fa5401bbd8eebfec17b59429974782e69" => :sierra
-    sha256 "8d56730a47c29d85dcb982ab24211dbf368b3832bd496263d5c2dc82d9f2ef7a" => :el_capitan
-    sha256 "e59688acf58ae684192badd200a355ad70621641d3342c96a9af3518c15c1317" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "2395b5999cde9cd6c8f53dd595a2827d8e2bdef8b801879b753378728a3cc94f"
+    sha256 cellar: :any, big_sur:       "97328f386addff936379b66ae032b3341cc6f047b7453e1a837cdc8a00b06653"
+    sha256 cellar: :any, catalina:      "826fa6703434de743eec33ca60db392fe772ace12e4eb3720c106d675c3edc70"
+    sha256 cellar: :any, mojave:        "123c63643cec4a0503993ba6f9a124a5f781db317c311103da82d91a895808e9"
   end
 
-  option "with-fts", "Build with full-text search enabled"
-
-  depends_on "openssl"
-
-  # Upstream SQLite patch for CVE-2017-10989
-  patch :p0 do
-    url "https://sqlite.org/src/vpatch?from=0db20efe201736b3&to=66de6f4a9504ec26"
-    sha256 "41d0570cbf80429e556e612acd5eeddcff0e586264a6bcb80bd5a27abc9159a2"
-  end
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
       --prefix=#{prefix}
       --enable-tempstore=yes
-      --with-crypto-lib=#{Formula["openssl"].opt_prefix}
+      --with-crypto-lib=#{Formula["openssl@1.1"].opt_prefix}
       --enable-load-extension
       --disable-tcl
     ]
 
-    if build.with?("fts")
-      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5"
-    else
-      args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1"
-    end
+    # Build with full-text search enabled
+    args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 " \
+                   "-DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_COLUMN_METADATA"
 
     system "./configure", *args
     system "make"

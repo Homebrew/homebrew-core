@@ -1,26 +1,31 @@
 class Gocr < Formula
   desc "Optical Character Recognition (OCR), converts images back to text"
-  homepage "https://jocr.sourceforge.io/"
-  url "https://www-e.uni-magdeburg.de/jschulen/ocr/gocr-0.50.tar.gz"
-  sha256 "bc261244f887419cba6d962ec1ad58eefd77176885093c4a43061e7fd565f5b5"
+  homepage "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/"
+  url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/gocr-0.52.tar.gz"
+  sha256 "df906463105f5f4273becc2404570f187d4ea52bd5769d33a7a8661a747b8686"
+  revision 1
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "eb3148c555bda4196603d07612992d2de8b0d4698e674d70e8ce8c328a924042" => :high_sierra
-    sha256 "0e3df7c5f1304de66cb85b98b12612ed99e43177b37c02605892b02c947f0ef0" => :sierra
-    sha256 "3b3a0351d949f3f798dc973e0f31a283b8df3f73d1c7f251c7f15229ceb2fb20" => :el_capitan
-    sha256 "94207525e139ef275415f46ff50baab26fef6a2ba52ca71a6a00aa3035ced71c" => :yosemite
-    sha256 "467ce3a1411e022f44b60691bf71bf8a7b86ba234b21dad23cc1f2b258d92e9b" => :mavericks
+  livecheck do
+    url "https://wasd.urz.uni-magdeburg.de/jschulen/ocr/download.html"
+    regex(%r{href=(?:["']?|.*?/)gocr[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  option "with-lib", "Install library and headers"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "a3639ecb89f70562106db696e43f8ccdbe770b812ba2cdc695637b5f8e8dba7f"
+    sha256 cellar: :any, big_sur:       "e2fecccba7638297e89075dd8a21bf64d124a9f4f341f2437411abadf90b1f33"
+    sha256 cellar: :any, catalina:      "d0408f223b941c6d81c0edd843ab5916475a4ea4b94892b548da6403e4c3af2a"
+    sha256 cellar: :any, mojave:        "d173d60e8d8f139b4e7e310b84d1bfc56e406eb026c51beba9d4b2facaac3ae1"
+    sha256 cellar: :any, high_sierra:   "2a5cfa5a815706b2ecb11658ad9132bba21de5304e4541118d8d061a5bb7779a"
+  end
 
-  depends_on "netpbm" => :optional
-  depends_on "jpeg" => :optional
+  depends_on "jpeg"
+  depends_on "netpbm"
 
   # Edit makefile to install libs per developer documentation
-  patch :DATA if build.with? "lib"
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/gocr/0.50.patch"
+    sha256 "0ed4338c3233a8d1d165f687d6cbe6eee3d393628cdf711a4f8f06b5edc7c4dc"
+  end
 
   def install
     system "./configure", "--disable-debug",
@@ -32,79 +37,11 @@ class Gocr < Formula
       s.change_make_var! "mandir", "/share/man"
     end
 
-    system "make", "libs" if build.with? "lib"
+    system "make", "libs"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/gocr", "-h"
+    system "#{bin}/gocr", "--help"
   end
 end
-
-__END__
-diff --git a/src/Makefile.in b/src/Makefile.in
-index bf4181f..883fec2
---- a/src/Makefile.in
-+++ b/src/Makefile.in
-@@ -10,7 +10,7 @@ PROGRAM = gocr$(EXEEXT)
- PGMASCLIB = Pgm2asc
- #LIBPGMASCLIB = lib$(PGMASCLIB).a
- # ToDo: need a better pgm2asc.h for lib users 
--#INCLUDEFILES = gocr.h
-+INCLUDEFILES = pgm2asc.h output.h list.h unicode.h gocr.h pnm.h
- # avoid german compiler messages
- LANG=C
- 
-@@ -39,8 +39,8 @@ LIBOBJS=pgm2asc.o \
- #VPATH = @srcdir@
- bindir = @bindir@
- #  lib removed for simplification
--#libdir = @libdir@
--#includedir = @includedir@
-+libdir = @libdir@
-+includedir = /include/gocr
- 
- CC=@CC@
- # lib removed for simplification
-@@ -89,7 +89,8 @@ $(PROGRAM): $(LIBOBJS) gocr.o
- 	$(CC) -o $@ $(LDFLAGS) gocr.o $(LIBOBJS) $(LIBS)
- 	# if test -r $(PROGRAM); then cp $@ ../bin; fi
- 
--libs: lib$(PGMASCLIB).a lib$(PGMASCLIB).@PACKAGE_VERSION@.so
-+#libs: lib$(PGMASCLIB).a lib$(PGMASCLIB).@PACKAGE_VERSION@.so
-+libs: lib$(PGMASCLIB).a
- 
- #lib$(PGMASCLIB).@PACKAGE_VERSION@.so: $(LIBOBJS)
- #	$(CC) -fPIC -shared -Wl,-h$@ -o $@ $(LIBOBJS)
-@@ -109,17 +110,17 @@ $(LIBOBJS): Makefile
- # PHONY = don't look at file clean, -rm = start rm and ignore errors
- .PHONY : clean proper install uninstall
- install: all
--	#$(INSTALL) -d $(DESTDIR)$(bindir) $(DESTDIR)$(libdir) $(DESTDIR)$(includedir)
--	$(INSTALL) -d $(DESTDIR)$(bindir)
-+	$(INSTALL) -d $(DESTDIR)$(bindir) $(DESTDIR)$(libdir) $(DESTDIR)$(includedir)
-+	#$(INSTALL) -d $(DESTDIR)$(bindir)
- 	$(INSTALL) $(PROGRAM) $(DESTDIR)$(bindir)
- 	$(INSTALL) ../bin/gocr.tcl   $(DESTDIR)$(bindir)  # better X11/bin?
- 	if test -f lib$(PGMASCLIB).a; then\
- 	 $(INSTALL) lib$(PGMASCLIB).a $(DESTDIR)$(libdir);\
- 	 $(INSTALL) lib$(PGMASCLIB).@PACKAGE_VERSION@.so $(DESTDIR)$(libdir);\
- 	 $(INSTALL) lib$(PGMASCLIB).so $(DESTDIR)$(libdir);\
-+	 $(INSTALL) $(INCLUDEFILES) $(DESTDIR)$(includedir);\
-+	 $(INSTALL) ../include/config.h $(DESTDIR)$(includedir);\
- 	fi
--	# ToDo: not sure that the link will be installed correctly
--	#$(INSTALL) $(INCLUDEFILES) $(DESTDIR)$(includedir)
- 
- # directories are not removed
- uninstall:
-@@ -129,7 +130,8 @@ uninstall:
- 	-rm -f $(DESTDIR)$(libdir)/lib$(PGMASCLIB).@PACKAGE_VERSION@.so
- 	-rm -f $(DESTDIR)$(libdir)/lib$(PGMASCLIB).so
- 	# ToDo: set to old version.so ?
--	#for X in $(INCLUDEFILES); do rm -f $(DESTDIR)$(includedir)/$$X; done
-+	for X in $(INCLUDEFILES); do rm -f $(DESTDIR)$(includedir)/$$X; done
-+	-rm -f $(DESTDIR)$(includedir)/config.h
- 
- clean:
- 	-rm -f *.o *~

@@ -1,41 +1,50 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/3.26/gitg-3.26.0.tar.xz"
-  sha256 "26730d437d6a30d6e341b9e8da99d2134dce4b96022c195609f45062f82b54d5"
+  url "https://download.gnome.org/sources/gitg/3.32/gitg-3.32.1.tar.xz"
+  sha256 "24a4aabf8a42aa2e783e1fb5996ebb3c2a82a01b9689269f1329517ef124ef5a"
+  revision 6
 
   bottle do
-    rebuild 1
-    sha256 "6008b01e3422683cef31cdd74c9899bc789ca27e61644fbc1f0ac8cc42221d1c" => :high_sierra
-    sha256 "c1092dcb629bed409b7947ff10cbb62d65896c05b9e8ff23d21e0e88d22f053b" => :sierra
-    sha256 "e172c547253eeba68f651f7ea81779d79c233e6bdb8a0c38b0612a9f96e9ba9b" => :el_capitan
+    sha256 big_sur:  "b2451ec4e4ef9126af4cb262d58d03beda0a06fcad12c9200f206af46b277bd2"
+    sha256 catalina: "6f9af292508a1a80622bc544f2aa182a46b63345ed8c9dc89e3034a9e2a2178d"
+    sha256 mojave:   "c771ecd10a224156e0810d46d3834421c548a75080d6d239d30b714875a21065"
   end
 
+  depends_on "intltool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "intltool" => :build
-  depends_on "gtksourceview3"
+  depends_on "adwaita-icon-theme"
   depends_on "gobject-introspection"
-  depends_on "libgit2"
-  depends_on "libgit2-glib"
-  depends_on "gsettings-desktop-schemas"
-  depends_on "libgee"
-  depends_on "json-glib"
-  depends_on "libsecret"
-  depends_on "libpeas"
-  depends_on "libsoup"
+  depends_on "gtk+3"
+  depends_on "gtksourceview3"
   depends_on "gtkspell3"
   depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
+  depends_on "libdazzle"
+  depends_on "libgee"
+  depends_on "libgit2"
+  depends_on "libgit2-glib"
+  depends_on "libpeas"
+  depends_on "libsecret"
+  depends_on "libsoup"
+
+  # Fix libgitg compile on macOS from https://gitlab.gnome.org/GNOME/gitg/-/merge_requests/142
+  # Remove for next version
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gitg/-/commit/67f5cd6925e8bf1e4c7e5b65fe9370c2cdd1d273.patch"
+    sha256 "e81c59f77aceb8c1ae3914ffebf24f5a0287bd2cf9511996eb8a3f4282e8542d"
+  end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile",
-                          "--disable-python"
-    system "make", "install"
+    ENV["DESTDIR"] = "/"
+
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dpython=false", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   def post_install
@@ -68,7 +77,7 @@ class Gitg < Formula
     libepoxy = Formula["libepoxy"]
     libffi = Formula["libffi"]
     libgee = Formula["libgee"]
-    libgit2 = Formula["libgit2-glib"].opt_libexec/"libgit2"
+    libgit2 = Formula["libgit2"]
     libgit2_glib = Formula["libgit2-glib"]
     libpng = Formula["libpng"]
     libsoup = Formula["libsoup"]
@@ -107,7 +116,7 @@ class Gitg < Formula
       -L#{gobject_introspection.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{libgee.opt_lib}
-      -L#{libgit2}/lib
+      -L#{libgit2.opt_lib}
       -L#{libgit2_glib.opt_lib}
       -L#{libsoup.opt_lib}
       -L#{lib}

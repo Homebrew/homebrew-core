@@ -1,20 +1,28 @@
 class Wimlib < Formula
   desc "Library to create, extract, and modify Windows Imaging files"
   homepage "https://wimlib.net/"
-  url "https://wimlib.net/downloads/wimlib-1.12.0.tar.gz"
-  sha256 "852cf59d682a91974f715f09fa98cab621b740226adcfea7a42360be0f86464f"
+  url "https://wimlib.net/downloads/wimlib-1.13.3.tar.gz"
+  sha256 "8a0741d07d9314735b040cea6168f6daf1ac1c72d350d703f286b118135dfa7e"
+  license "GPL-3.0-or-later"
+  revision 1
+
+  livecheck do
+    url "https://wimlib.net/downloads/"
+    regex(/href=.*?wimlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "bf98257d6f32313b3a57713ae6b2ad7c3f72ddd5b1e1ed609436fb337ba51d63" => :high_sierra
-    sha256 "32a00c25f98932b84ac5304df29eb5f6edea0a2fc3a2b33ee83938e92c488549" => :sierra
-    sha256 "6a2b65020b31dbda4499bffbe773e5596dbc130d6f91ee84c9a7c532dd858594" => :el_capitan
-    sha256 "c26d19bd6a6994fae60000f329d136c991b6a1172141c6c047792175a2c79439" => :yosemite
+    rebuild 1
+    sha256               arm64_big_sur: "a2ff0fc910f2cd3925474e7f7ea700d1f4dd9df724df1c634a47e733752393cf"
+    sha256 cellar: :any, big_sur:       "2e0597a2e987116627df9c6d3a7cb7aed0bd8ed507f5f13b530df685a9e0fe9b"
+    sha256 cellar: :any, catalina:      "51512426e7836eb9a204f036993ef023bf260129fadde73761c1ff487cfa2518"
+    sha256 cellar: :any, mojave:        "479dd4c3bb4eade0c59f92c776aab3bcceba107f6ed7e65ab1ba6006dce1823e"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "homebrew/fuse/ntfs-3g" => :optional
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "libxml2"
 
   def install
     # fuse requires librt, unavailable on OSX
@@ -22,11 +30,10 @@ class Wimlib < Formula
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
-      --without-fuse
       --prefix=#{prefix}
+      --without-fuse
+      --without-ntfs-3g
     ]
-
-    args << "--without-ntfs-3g" if build.without? "ntfs-3g"
 
     system "./configure", *args
     system "make", "install"
@@ -35,8 +42,14 @@ class Wimlib < Formula
   test do
     # make a directory containing a dummy 1M file
     mkdir("foo")
-    system "dd", "if=/dev/random", "of=foo/bar", "bs=1m", "count=1"
-
+    size = nil
+    on_macos do
+      size = "1m"
+    end
+    on_linux do
+      size = "1M"
+    end
+    system "dd", "if=/dev/random", "of=foo/bar", "bs=#{size}", "count=1"
     # capture an image
     ENV.append "WIMLIB_IMAGEX_USE_UTF8", "1"
     system "#{bin}/wimcapture", "foo", "bar.wim"

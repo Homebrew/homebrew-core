@@ -1,24 +1,34 @@
 class Lynx < Formula
   desc "Text-based web browser"
   homepage "https://invisible-island.net/lynx/"
-  url "https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.8rel.2.tar.bz2"
-  version "2.8.8rel.2"
-  sha256 "6980e75cf0d677fd52c116e2e0dfd3884e360970c88c8356a114338500d5bee7"
+  url "https://invisible-mirror.net/archives/lynx/tarballs/lynx2.8.9rel.1.tar.bz2"
+  version "2.8.9rel.1"
+  sha256 "387f193d7792f9cfada14c60b0e5c0bff18f227d9257a39483e14fa1aaf79595"
+  license "GPL-2.0"
   revision 1
 
-  bottle do
-    rebuild 1
-    sha256 "979236f9bc2b53908e398e1faa452da5cfad2677b99e64d8bd5a5de7d5d1c86a" => :high_sierra
-    sha256 "bea7cf10aa6df403d9c421ef1e91d7af9b07bb2c2c41b71a36e975ca6d4b9bc2" => :sierra
-    sha256 "1b0f14f892c930a2140a853edd308edc7545b0e2baa1637e77b925209476fe96" => :el_capitan
-    sha256 "41ddd45e917af411f20cebf679459490cb412a1f94b662a7f1e9f8cc9f9f394f" => :mavericks
-    sha256 "a12c691f38002046a7a71c84df76f0f70e95c92a879663e50793dde1611c4834" => :mountain_lion
-    sha256 "8ae76d02829b7d9d0daf1a43d57ef765e9bbc0002511ae71fc977262df3f652d" => :lion
+  livecheck do
+    url "https://invisible-mirror.net/archives/lynx/tarballs/?C=M&O=D"
+    regex(/href=.*?lynx[._-]?v?(\d+(?:\.\d+)+(?:rel\.?\d+))\.t/i)
   end
 
-  depends_on "openssl"
+  bottle do
+    sha256 arm64_big_sur: "c79e9528464e79e45a7ece951ffaa5304e988f294234172ccb59b3cb9f0a2fec"
+    sha256 big_sur:       "a3b88b08c22efa2c898573395a253e1ddcb3fb90888ef963c00f9e5b69cd1aa1"
+    sha256 catalina:      "b7b36f0697736fc1744026c18968bec4d5c1433356678e853d734406f9dc3612"
+    sha256 mojave:        "3b4c3a636d19106a2fea571889a4159fd49b82fbd2694c206d4851b15281fddd"
+    sha256 high_sierra:   "68eb083eff0962b83dc121e9194d430d4e9c2eb7d559cb998ba992da9b566479"
+    sha256 sierra:        "b8ee13323a4e8760f21a82da3b579d3373e282398ff7efe56c7ec8ae9cb0d064"
+  end
+
+  depends_on "openssl@1.1"
+
+  uses_from_macos "ncurses"
 
   def install
+    # Using --with-screen=ncurses to due to behaviour change in Big Sur
+    # https://github.com/Homebrew/homebrew-core/pull/58019
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
@@ -26,8 +36,10 @@ class Lynx < Formula
                           "--enable-default-colors",
                           "--with-zlib",
                           "--with-bzlib",
-                          "--with-ssl=#{Formula["openssl"].opt_prefix}",
-                          "--enable-ipv6"
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--enable-ipv6",
+                          "--with-screen=ncurses",
+                          "--disable-config-info"
     system "make", "install"
   end
 

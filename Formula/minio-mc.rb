@@ -1,47 +1,46 @@
 class MinioMc < Formula
-  desc "ls, cp, mkdir, diff and rsync for filesystems and object storage"
+  desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-    :tag => "RELEASE.2017-10-14T00-51-16Z",
-    :revision => "785e14a725357b39e22b74483cd202e7effa6195"
-  version "20171014005116"
+      tag:      "RELEASE.2021-02-19T05-34-40Z",
+      revision: "b3c692d6eb496ee5719f279b96883aabd91e9213"
+  version "20210219053440"
+  license "Apache-2.0"
+  head "https://github.com/minio/mc.git"
+
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/tag/(?:RELEASE[._-]?)?([\d\-TZ]+)["' >]}i)
+    strategy :github_latest do |page, regex|
+      page.scan(regex).map { |match| match&.first&.gsub(/\D/, "") }
+    end
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5983a02a9c34db60616bbd25da656e0acbd6e47292c3a2c6013f5bdb0e73d98f" => :high_sierra
-    sha256 "2b073dbbbca2c99b1f61e6f3dc5c3cf4ef3353e6395c3ea5ffa273e7f501b809" => :sierra
-    sha256 "ea3b570ee90d88d0aca6bdfb99486eaa559a9e3cae541ce9f868c8a21d97e873" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4cafcc6a8dcfba05ebcb572ffebaddc477cb075db1259fedac5f2c03303fd7b6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b3b9bf30be936a05ea50fa04d06861cfc04bba6c3f6cfbb943958d9a1439aeae"
+    sha256 cellar: :any_skip_relocation, catalina:      "ec9831679aaf37e35a8429d692d7c16a82f94530ead2566615c0a8213bd3576d"
+    sha256 cellar: :any_skip_relocation, mojave:        "dfdc73bd87522f919bcd45b1dcda2b91541cda7ff5cb529c0e6643f98bb3ec89"
   end
 
   depends_on "go" => :build
 
-  conflicts_with "midnight-commander", :because => "Both install a `mc` binary"
+  conflicts_with "midnight-commander", because: "both install an `mc` binary"
 
   def install
-    ENV["GOPATH"] = buildpath
+    if build.head?
+      system "go", "build", "-trimpath", "-o", bin/"mc"
+    else
+      minio_release = `git tag --points-at HEAD`.chomp
+      minio_version = minio_release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)-(\d+)-(\d+)Z/, 'T\1:\2:\3Z')
+      proj = "github.com/minio/mc"
 
-    clipath = buildpath/"src/github.com/minio/mc"
-    clipath.install Dir["*"]
-
-    cd clipath do
-      if build.head?
-        system "go", "build", "-o", buildpath/"mc"
-      else
-        minio_release = `git tag --points-at HEAD`.chomp
-        minio_version = minio_release.gsub(/RELEASE\./, "").chomp.gsub(/T(\d+)\-(\d+)\-(\d+)Z/, 'T\1:\2:\3Z')
-        minio_commit = `git rev-parse HEAD`.chomp
-        proj = "github.com/minio/mc"
-
-        system "go", "build", "-o", buildpath/"mc", "-ldflags", <<~EOS
-          -X #{proj}/cmd.Version=#{minio_version}
-          -X #{proj}/cmd.ReleaseTag=#{minio_release}
-          -X #{proj}/cmd.CommitID=#{minio_commit}
-        EOS
-      end
+      system "go", "build", "-trimpath", "-o", bin/"mc", "-ldflags", <<~EOS
+        -X #{proj}/cmd.Version=#{minio_version}
+        -X #{proj}/cmd.ReleaseTag=#{minio_release}
+        -X #{proj}/cmd.CommitID=#{Utils.git_head}
+      EOS
     end
-
-    bin.install buildpath/"mc"
-    prefix.install_metafiles
   end
 
   test do

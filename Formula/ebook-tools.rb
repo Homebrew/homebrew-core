@@ -3,14 +3,16 @@ class EbookTools < Formula
   homepage "https://sourceforge.net/projects/ebook-tools/"
   url "https://downloads.sourceforge.net/project/ebook-tools/ebook-tools/0.2.2/ebook-tools-0.2.2.tar.gz"
   sha256 "cbc35996e911144fa62925366ad6a6212d6af2588f1e39075954973bbee627ae"
-  revision 2
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "0ded91b65a0089ca96619fbdf39c1f55ffe18b1b6786077162b2f7d89602fc7a" => :high_sierra
-    sha256 "c6e286e88e063821bec84c5d7589e24da162568abee86c7a14a3c49a47fdcfee" => :sierra
-    sha256 "3da2cbaf77b390a4c5fdc216483e15ce38d87c151e6365fbc9f9a4b1c501d7b1" => :el_capitan
-    sha256 "0d90d2e7ff07b4dc30f40fe769f9e8805b8dee163f44ecc9d7a529064d37c70d" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "22676305647bc9cad4335aba2d28d27cbee0db6092901cf1682fff9c833c92bd"
+    sha256 cellar: :any, big_sur:       "e9c49bae08503eaf6e213454bd4f5ce58ead342ef192798c6d7d9c04fb6c2918"
+    sha256 cellar: :any, catalina:      "65d014f4c91fec7b0d156a751b1e3b409574f3606264f8ae9ccab0a1db0f564f"
+    sha256 cellar: :any, mojave:        "93400da1ecc27f229a5ae3b1d49f47f1779e148912c39bcd3955499b0eec84e5"
+    sha256 cellar: :any, high_sierra:   "fce5577098322a2b4f6fd73a4a18077f77100adf1f15d9a494594e416354d1cc"
+    sha256 cellar: :any, sierra:        "cc01e2bcdd26e6e9b0852e604f2bd56c31bde00ff42eb73fca45d2661fbab159"
+    sha256 cellar: :any, el_capitan:    "aa76cbdcef93ac7d4af39b9cbcb1b841fa08f2dd11cf7542c5fa4f4ae365b0cc"
   end
 
   depends_on "cmake" => :build

@@ -1,38 +1,42 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v0.26.0.tar.gz"
-  sha256 "6a62393e0ceb37d02fe0d5707713f504e7acac9006ef33da1e88960bd78b6eac"
+  url "https://github.com/libgit2/libgit2/archive/v1.1.0.tar.gz"
+  sha256 "41a6d5d740fd608674c7db8685685f45535323e73e784062cf000a633d420d1e"
+  license "GPL-2.0-only"
   head "https://github.com/libgit2/libgit2.git"
 
-  bottle do
-    sha256 "2858f330bff072c20375d4882042123022e81237f0f3ca8382c9e3a017f514d6" => :high_sierra
-    sha256 "1cb3dac0dfc74a62e40e061c3046ce938b8c28fe0fea15e398cc4862178aa940" => :sierra
-    sha256 "8705a0cc5f73017412ce12fd87677e9b6e14781d82b6f845a64ffe84e24ecb2f" => :el_capitan
-    sha256 "f44d62f41114ee8ecba3298986cf9da5cf4b6cb44a64a9a64dd0c316938712d1" => :yosemite
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on "pkg-config" => :build
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "cc3c73fe59d8250e417e5bb0e401095fbb3686576302f0e54c9a97dd0c412ed7"
+    sha256 cellar: :any, big_sur:       "8f441c63c8c7737c0278b0537f095c84f0eacf80ff8231df57b5be92474884c2"
+    sha256 cellar: :any, catalina:      "55559e477a533a5682da7853f03149000cce14371ed7b0ffc5ceaff285b6348b"
+    sha256 cellar: :any, mojave:        "0bb2d00f1e5b6133df5792c06fd726ad15a9364e184d05653bde6b6c1d5095ae"
+  end
+
   depends_on "cmake" => :build
-  depends_on "libssh2" => :recommended
-  depends_on "openssl" if MacOS.version <= :lion # Uses SecureTransport on >10.7
+  depends_on "pkg-config" => :build
+  depends_on "libssh2"
 
   def install
     args = std_cmake_args
     args << "-DBUILD_EXAMPLES=YES"
     args << "-DBUILD_CLAR=NO" # Don't build tests.
-    args << "-DUSE_SSH=NO" if build.without? "libssh2"
 
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install"
       cd "examples" do
-        (pkgshare/"examples").install "add", "blame", "cat-file", "cgit2",
-                                      "describe", "diff", "for-each-ref",
-                                      "general", "init", "log", "remote",
-                                      "rev-list", "rev-parse", "showindex",
-                                      "status", "tag"
+        (pkgshare/"examples").install "lg2"
       end
+      system "make", "clean"
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
+      system "make"
+      lib.install "libgit2.a"
     end
   end
 

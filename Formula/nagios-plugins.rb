@@ -1,32 +1,39 @@
 class NagiosPlugins < Formula
   desc "Plugins for the nagios network monitoring system"
   homepage "https://www.nagios-plugins.org/"
-  url "https://www.nagios-plugins.org/download/nagios-plugins-2.2.1.tar.gz"
-  sha256 "647c0ba4583d891c965fc29b77c4ccfeccc21f409fdf259cb8af52cb39c21e18"
+  url "https://www.nagios-plugins.org/download/nagios-plugins-2.3.3.tar.gz"
+  sha256 "07859071632ded58c5135d613438137022232da75f8bdc1687f3f75da2fe597f"
+  license "GPL-3.0"
+  head "https://github.com/nagios-plugins/nagios-plugins.git"
 
-  bottle do
-    sha256 "d8f55e381e65df1be3113923dc351fac227ae17b6334a9d2c939cf346434eca9" => :high_sierra
-    sha256 "f88a0ce6fd30f875cc9654f3989b0728d2bd230e09bec994cdb8c2461a7f2166" => :sierra
-    sha256 "d9920741a2e4322d7c9fd55a87f3d7bf56f4abfa3a49f0fc9adcf408f891775a" => :el_capitan
-    sha256 "1fcf4d4934fe7f7793fb78d13f17f948d46a19600e02881b22695f736f327e65" => :yosemite
+  livecheck do
+    url "https://nagios-plugins.org/download/"
+    regex(/href=.*?nagios-plugins[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "openssl"
-  depends_on "postgresql" => :optional
-  depends_on :mysql => :optional
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "c1668e45b54d3654123117a0a7c365cb8f456fd5c9128e571c1553abbefb5b1f"
+    sha256 cellar: :any, big_sur:       "af8499231b3f5728465e53f3f3dc8b7dd02172afa118b5c7607a11d69994566d"
+    sha256 cellar: :any, catalina:      "b90c6f268ed5a5310a797855d87730f016c5d5077fa7b131c929aee042a1ee6c"
+    sha256 cellar: :any, mojave:        "9dc95d628b0ca0e63df426e933f2be374442fa6ea3c6db0ea24ffb5967d098b1"
+    sha256 cellar: :any, high_sierra:   "873811a29453153cd0ace61f92be73ae33b4a5bec1a4ece13baf128b32250e6e"
+  end
 
-  conflicts_with "monitoring-plugins", :because => "monitoring-plugins ships their plugins to the same folder."
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "openssl@1.1"
+
+  conflicts_with "monitoring-plugins", because: "both install their plugins to the same folder"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{libexec}
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    args << "--with-pgsql=#{Formula["postgresql"].opt_prefix}" if build.with? "postgresql"
-
+    system "./tools/setup" if build.head?
     system "./configure", *args
     system "make", "install"
     sbin.write_exec_script Dir["#{libexec}/sbin/*"]
@@ -40,7 +47,7 @@ class NagiosPlugins < Formula
   end
 
   test do
-    output = shell_output("#{sbin}/check_dns -H 8.8.8.8 -t 3")
-    assert_match "google-public-dns", output
+    output = shell_output("#{sbin}/check_dns -H brew.sh -s 8.8.8.8 -t 3")
+    assert_match "DNS OK", output
   end
 end

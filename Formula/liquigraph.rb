@@ -1,28 +1,30 @@
 class Liquigraph < Formula
   desc "Migration runner for Neo4j"
-  homepage "http://www.liquigraph.org"
-  url "https://github.com/fbiville/liquigraph/archive/liquigraph-3.0.1.tar.gz"
-  sha256 "7a57093f1a1229ada017a8e9fb1cbffa8ffc0dd132032e4670ef246a861707fe"
-  head "https://github.com/fbiville/liquigraph.git"
+  homepage "https://www.liquigraph.org/"
+  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.2.tar.gz"
+  sha256 "60d17bb39e7c070a99f4669516cae0c1b0939700127758a9e500e210943f0cca"
+  license "Apache-2.0"
+  head "https://github.com/liquigraph/liquigraph.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1149b6d58e0cd42ba4fb226cd2faf9bef01c847c28307d25d379841a06a24d9c" => :high_sierra
-    sha256 "ee6482ffed0bc44bde7872809206eb94a7d2be36bf16458c3d25d699e82637ea" => :sierra
-    sha256 "b9977e94e803b3c9b5686e3a77707c3658142b78d7389c653117c88aa4afb560" => :el_capitan
-    sha256 "1414e187544b115f58805ecbb4ad4beb84f9620ef9b29c104c5ab2577b1de6e5" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bf45c4112732a17a867a17a18cc1ad77d71dbebfdca84f00843bd9526c4d6ed2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1fa0da0d2e5c22f63faed17097c320d4a639c4d3855385f541cf948aa6a5a61b"
+    sha256 cellar: :any_skip_relocation, catalina:      "33d7c1bae094524db782c9b3d3b0f37b4353f772529ab143b456c6271e262059"
+    sha256 cellar: :any_skip_relocation, mojave:        "3a6ed6c8c176e1ffa0e3faef3cd1ed0025663dc23fd2d839372a9766e26fd2b7"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d8c4ae157ed9d5ea8aad53d9b07784c21e41a4ac5a7756f0dacb9f526e809405"
   end
 
   depends_on "maven" => :build
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
-    system "mvn", "-q", "clean", "package", "-DskipTests"
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    system "mvn", "-B", "-q", "-am", "-pl", "liquigraph-cli", "clean", "package", "-DskipTests"
     (buildpath/"binaries").mkpath
     system "tar", "xzf", "liquigraph-cli/target/liquigraph-cli-bin.tar.gz", "-C", "binaries"
-    libexec.install "binaries/liquigraph-cli/liquigraph.sh" => "liquigraph"
+    libexec.install "binaries/liquigraph-cli/liquigraph.sh"
     libexec.install "binaries/liquigraph-cli/liquigraph-cli.jar"
-    bin.install_symlink libexec/"liquigraph"
+    (bin/"liquigraph").write_env_script libexec/"liquigraph.sh", JAVA_HOME: "${JAVA_HOME:-#{ENV["JAVA_HOME"]}}"
   end
 
   test do
@@ -42,6 +44,6 @@ class Liquigraph < Formula
 
     jdbc = "jdbc:neo4j:http://#{failing_hostname}:7474/"
     output = shell_output("#{bin}/liquigraph -c #{changelog.realpath} -g #{jdbc} 2>&1", 1)
-    assert_match "UnknownHostException: #{failing_hostname}", output
+    assert_match "Exception: #{failing_hostname}", output
   end
 end

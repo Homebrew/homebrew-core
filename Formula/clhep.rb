@@ -1,36 +1,35 @@
 class Clhep < Formula
   desc "Class Library for High Energy Physics"
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
-  url "https://proj-clhep.web.cern.ch/proj-clhep/DISTRIBUTION/tarFiles/clhep-2.4.0.0.tgz"
-  sha256 "5e5cf284323898b4c807db6e684d65d379ade65fe0e93f7b10456890a6dee8cc"
+  url "https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.4.1.tgz"
+  sha256 "4b73da8414ab1eea67d0236c930c318ca90e6e0b27049bcb8899893bfb3efc21"
+  license "GPL-3.0"
+
+  livecheck do
+    url :homepage
+    regex(%r{atest release.*?<b>v?(\d+(?:\.\d+)+)</b>}im)
+  end
 
   bottle do
-    cellar :any
-    sha256 "72c875560e99c39792098fbf5bc0beb54dcb3cc4cac18e5db743ee96dd956524" => :high_sierra
-    sha256 "352becea36eac3099edb9d23e3ecfc6dee198b4c4c20c0e27399a7870c6e3327" => :sierra
-    sha256 "b6fc60f006eff93d7ef57e9e8b7c8e5e44e1bc671280f5e849fa0a1c4057f91c" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "24c6facf14eefac92963f4b425c5f6dfad87a842800bebe498e667a1937785c8"
+    sha256 cellar: :any, big_sur:       "3c59064e70ce4f773eca8b61700172d792015c6810a2215482a5e23bfae61dc1"
+    sha256 cellar: :any, catalina:      "30f5e03723c8a244f9e1472f2b284d0b5f59f212051818d4432b1095c0d31daa"
+    sha256 cellar: :any, mojave:        "0203c0953444969756f5465e98f1d5e98bc8975b35b786f2f551cec3a0915b10"
   end
 
   head do
     url "https://gitlab.cern.ch/CLHEP/CLHEP.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "cmake" => :build
 
   def install
-    # CLHEP is super fussy and doesn't allow source tree builds
-    dir = Dir.mktmpdir
-    cd dir do
-      args = std_cmake_args
-      if build.stable?
-        args << buildpath/"CLHEP"
-      else
-        args << buildpath
-      end
-      system "cmake", *args
+    mv (buildpath/"CLHEP").children, buildpath if build.stable?
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end
@@ -48,7 +47,7 @@ class Clhep < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-L#{lib}", "-lCLHEP", "-I#{include}/CLHEP",
+    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lCLHEP", "-I#{include}/CLHEP",
            testpath/"test.cpp", "-o", "test"
     assert_equal "r: 3.74166 phi: 1.10715 cos(theta): 0.801784",
                  shell_output("./test").chomp

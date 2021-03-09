@@ -1,34 +1,40 @@
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
-  url "https://xkbcommon.org/download/libxkbcommon-0.7.2.tar.xz"
-  sha256 "28a4dc2735863bec2dba238de07fcdff28c5dd2300ae9dfdb47282206cd9b9d8"
+  url "https://xkbcommon.org/download/libxkbcommon-1.0.3.tar.xz"
+  sha256 "a2202f851e072b84e64a395212cbd976ee18a8ee602008b0bad02a13247dbc52"
+  license "MIT"
+  revision 1
+  head "https://github.com/xkbcommon/libxkbcommon.git"
 
   bottle do
-    sha256 "28d51647f3b5abec404ccff46ff0ccb204a83899fa98b3372f2a385d1f75cc33" => :high_sierra
-    sha256 "0100185bea1d4c6a8e49ae49c5ef55f62b8632a93ecaf37c947357406ddee22b" => :sierra
-    sha256 "aa6f65c02240f22518bfc908063cc1f49962d1de06ef7c49cf1f9bcf03f5f814" => :el_capitan
-    sha256 "7e003f5129969f4f3af726469343eebf26e64683521f1c0cf9cde830304a69d0" => :yosemite
+    sha256 arm64_big_sur: "0641f9d91a998367985625f2ab546db32dbb66f4e1a08ce04a317a1d8398182f"
+    sha256 big_sur:       "64680f75763d17483d95ab7e60beb5190a04aa9c7586a938b35b4a15bbee479d"
+    sha256 catalina:      "e2c1dfba1e87800617b98cb440e15ca8d20fdec63c3591719ea8f74f8723727f"
+    sha256 mojave:        "c341c13c34ded7f977c5c93e723abb647845f86f18e1880252a958854c375b4e"
   end
 
-  head do
-    url "https://github.com/xkbcommon/libxkbcommon.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
-  depends_on :x11
   depends_on "bison" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "libx11"
+  depends_on "libxcb"
+  depends_on "xkeyboardconfig"
+
+  uses_from_macos "libxml2"
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    args = %W[
+      -Denable-wayland=false
+      -Denable-docs=false
+      -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/xkb
+      -Dx-locale-root=#{HOMEBREW_PREFIX}/share/X11/locale
+    ]
+    mkdir "build" do
+      system "meson", *std_meson_args, *args, ".."
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

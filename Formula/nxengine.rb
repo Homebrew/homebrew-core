@@ -4,12 +4,15 @@ class Nxengine < Formula
   url "https://nxengine.sourceforge.io/dl/nx-src-1006.tar.bz2"
   version "1.0.0.6"
   sha256 "cf9cbf15dfdfdc9936720a714876bb1524afbd2931e3eaa4c89984a40b21ad68"
+  license "GPL-3.0"
 
   bottle do
-    sha256 "32b384c1e7fdd33ecf71ccf88641096ca191402cce0c0ec4866575502ced50b3" => :high_sierra
-    sha256 "6f24e86f6bf1b4a41b9938a99feafffc83469561031d16d5160543e0bf24e251" => :sierra
-    sha256 "2002c715a6f1d169ac67eedef28c924392abc9f3a4620913d96992b6a0ae6e85" => :el_capitan
-    sha256 "c7990df854be6f704eee378d7f149a87fdb8519ff6272711fe875be3b74e6c9c" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "b96f120f2d8959f859b74cb26e0c3a1d9bc028ba0434b44a0a942712b77bb92b"
+    sha256 cellar: :any, big_sur:       "00d86c8f78ae03404f10738b4e7a278dad0d9749efa3ca10be4cd6fb675cb8f8"
+    sha256 cellar: :any, catalina:      "9184041001a3035713542230c9e4a536491919ff0459cc79f294366ab20719a5"
+    sha256 cellar: :any, mojave:        "69ef501ebc7a488fc46b4546b91288c7b8dc1cfdadb2bc1ee73611dd062f38e5"
+    sha256 cellar: :any, high_sierra:   "79eece70c7ab5ddb92c8c711a609b996456ff5b7c6c8a008166a351e6889797f"
   end
 
   depends_on "sdl"
@@ -30,12 +33,21 @@ class Nxengine < Formula
       s.gsub! "htole16", "OSSwapHostToLittleInt16"
     end
     # Use var/nxengine for extracted data files, without messing current directory
-    inreplace "graphics/font.cpp", /(fontfile) = "(\w+\.(bmp|ttf))"/, "\\1 = \"#{var}/nxengine/\\2\""
-    inreplace "platform.cpp", /(return .*fopen)\((fname), mode\);/, "char fn[256]; strcpy(fn, \"#{var}/nxengine/\"); strcat(fn, \\2); \\1(fn, mode);"
-    inreplace "graphics/nxsurface.cpp", /(image = SDL_LoadBMP)\((pbm_name)\);/, "char fn[256]; strcpy(fn, \"#{var}/nxengine/\"); strcat(fn, \\2); \\1(fn);"
-    inreplace "extract/extractpxt.cpp", /(mkdir)\((\".+\")/, "char dir[256]; strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\2); \\1(dir"
+    inreplace "graphics/font.cpp",
+              /(fontfile) = "(\w+\.(bmp|ttf))"/,
+              "\\1 = \"#{var}/nxengine/\\2\""
+    inreplace "platform.cpp",
+              /(return .*fopen)\((fname), mode\);/,
+              "char fn[256]; strcpy(fn, \"#{var}/nxengine/\"); strcat(fn, \\2); \\1(fn, mode);"
+    inreplace "graphics/nxsurface.cpp",
+              /(image = SDL_LoadBMP)\((pbm_name)\);/,
+              "char fn[256]; strcpy(fn, \"#{var}/nxengine/\"); strcat(fn, \\2); \\1(fn);"
+    inreplace "extract/extractpxt.cpp",
+              /(mkdir)\((".+")/,
+              "char dir[256]; strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\2); \\1(dir"
     inreplace "extract/extractfiles.cpp" do |s|
-      s.gsub! /char \*dir = strdup\((fname)\);/, "char *dir = (char *)malloc(256); strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\1);"
+      s.gsub!(/char \*dir = strdup\((fname)\);/,
+             "char *dir = (char *)malloc(256); strcpy(dir, \"#{var}/nxengine/\"); strcat(dir, \\1);")
       s.gsub! "strchr", "strrchr"
     end
 
@@ -55,9 +67,10 @@ class Nxengine < Formula
     ln_sf "/Library/Fonts/Courier New.ttf", "#{var}/nxengine/font.ttf"
   end
 
-  def caveats; <<~EOS
-    When the game runs first time, it will extract data files into the following directory:
-      #{var}/nxengine
+  def caveats
+    <<~EOS
+      When the game runs first time, it will extract data files into the following directory:
+        #{var}/nxengine
     EOS
   end
 end

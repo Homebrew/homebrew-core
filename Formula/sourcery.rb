@@ -1,56 +1,28 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code"
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/0.9.0.tar.gz"
-  sha256 "02f8c0fda5adfdc33938e00db0f90410079eb79cb9c7f2895742184911c8f338"
+  url "https://github.com/krzysztofzablocki/Sourcery/archive/1.3.2.tar.gz"
+  sha256 "e0445528cff1d11bbe65d2b8a3388a01aa7732f2fce49e3e0099aed6f2192c98"
+  license "MIT"
   head "https://github.com/krzysztofzablocki/Sourcery.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ebab65610598ac601484a76a378951d6d2081b5296691b617af728ab26dd55df" => :high_sierra
-    sha256 "65ef899d25716768b5be04bcaf2c0d0761f8d6a17225069c8521a1cfe6450d1a" => :sierra
+    sha256 cellar: :any, arm64_big_sur: "f6186fac3f0b111e58a47057c391dae0e47f6d1fd28757177933122fcb2412f4"
+    sha256 cellar: :any, big_sur:       "6013f5e37a095e05826d2d445421e2e6c1c4a2047f82f3234171c9272f6e9690"
+    sha256 cellar: :any, catalina:      "02fcd591f3b7acb4481603aa442d22049aa1215c46b9b0506b59bc4fc416c24a"
   end
 
-  depends_on :xcode => ["6.0", :run]
-  depends_on :xcode => ["8.3", :build]
+  depends_on xcode: "12.0"
+  uses_from_macos "ruby" => :build
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
-           "-static-stdlib"
-    bin.install ".build/release/sourcery"
-    lib.install Dir[".build/release/*.dylib"]
+    system "rake", "build"
+    bin.install "cli/bin/sourcery"
+    lib.install Dir["cli/lib/*.dylib"]
   end
 
   test do
-    # Tests are temporarily disabled because of sandbox issues,
-    # as Sourcery tries to write to ~/Library/Caches/Sourcery
-    # See https://github.com/krzysztofzablocki/Sourcery/pull/133
-    #
-    # Remove this test once the PR has been merged and been tagged with a release
+    # Regular functionality requires a non-sandboxed environment, so we can only test version/help here.
     assert_match version.to_s, shell_output("#{bin}/sourcery --version").chomp
-
-    # Re-enable these tests when the issue has been closed
-    #
-    # (testpath/"Test.swift").write <<-TEST_SWIFT
-    # enum One { }
-    # enum Two { }
-    # TEST_SWIFT
-    #
-    # (testpath/"Test.stencil").write <<-TEST_STENCIL
-    # // Found {{ types.all.count }} Types
-    # // {% for type in types.all %}{{ type.name }}, {% endfor %}
-    # TEST_STENCIL
-
-    # system "#{bin}/sourcery", testpath/"Test.swift", testpath/"Test.stencil", testpath/"Generated.swift"
-
-    # expected = <<-GENERATED_SWIFT
-    # // Generated using Sourcery 0.5.3 - https://github.com/krzysztofzablocki/Sourcery
-    # // DO NOT EDIT
-    #
-    #
-    # // Found 2 Types
-    # // One, Two,
-    # GENERATED_SWIFT
-    # assert_match expected, (testpath/"Generated.swift").read, "sourcery generation failed"
   end
 end

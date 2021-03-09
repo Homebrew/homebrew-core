@@ -1,36 +1,43 @@
 class Blitz < Formula
-  desc "C++ class library for scientific computing"
-  homepage "https://blitz.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/blitz/blitz/Blitz++%200.10/blitz-0.10.tar.gz"
-  sha256 "804ef0e6911d43642a2ea1894e47c6007e4c185c866a7d68bad1e4c8ac4e6f94"
+  desc "Multi-dimensional array library for C++"
+  homepage "https://github.com/blitzpp/blitz/wiki"
+  url "https://github.com/blitzpp/blitz/archive/1.0.2.tar.gz"
+  sha256 "500db9c3b2617e1f03d0e548977aec10d36811ba1c43bb5ef250c0e3853ae1c2"
+  license "Artistic-2.0"
+  head "https://github.com/blitzpp/blitz.git"
 
   bottle do
-    cellar :any
-    sha256 "4c1910cab6c8b254aa71326a1504935c023258cf8e0c9724cfba0989d1f8a1ee" => :high_sierra
-    sha256 "93ec8092122febb4110ce1da374ee5272c6270b7e83fe5da29da4e7f1f1fea6f" => :sierra
-    sha256 "dda71ed3f79b926b50f988a931794674908884a411c19b2899ab2a0996a8b71a" => :el_capitan
-    sha256 "eabd24b7c07c2f99b181770faacd72bab5c55149fb3d9fb846b2baaaa4faede5" => :yosemite
-    sha256 "4baf2939ff5cbe7e0e83944ed8984da49573eafedf826761b4c4fecd954e2592" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "0b04264665a05ca8b018a1f9b8e7452297d675b5bb5b50f49af2dd5176de462e"
+    sha256 cellar: :any, big_sur:       "eaf888ad2387b3aabccdc8ba82104b942dfa91b058b335449a7bdeb26213ce7d"
+    sha256 cellar: :any, catalina:      "2bfa3e5a52f0f51e9e02c84f10f804093b7080c158b3376f330dd51c0f9e3d23"
+    sha256 cellar: :any, mojave:        "a06052c039592fe7b41face9c72d715ba0602456a9df07a40a472d3ceba02c00"
+    sha256 cellar: :any, high_sierra:   "79901f790ea3583942a72ababfba3dc6569169f228b0428c047da52f1f99c02d"
   end
 
-  head do
-    url "https://github.com/blitzpp/blitz.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "autoreconf", "-fi" if build.head?
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "lib"
+      system "make", "install"
+    end
+  end
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--infodir=#{info}",
-                          "--enable-shared",
-                          "--disable-doxygen",
-                          "--disable-dot",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+  test do
+    (testpath/"testfile.cpp").write <<~EOS
+      #include <blitz/array.h>
+      #include <cstdlib>
+      using namespace blitz;
+      int main(){
+        Array<float,2> A(3,1);
+        A = 17, 2, 97;
+        cout << "A = " << A << endl;
+        return 0;}
+    EOS
+    system ENV.cxx, "testfile.cpp", "-o", "testfile"
+    output = shell_output("./testfile")
+    var = "/A\ =\ \(0,2\)\ x\ \(0,0\)\n\[\ 17\ \n\ \ 2\ \n\ \ 97\ \]\n\n/"
+    assert_match output, var
   end
 end

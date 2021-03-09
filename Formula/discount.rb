@@ -1,22 +1,29 @@
 class Discount < Formula
   desc "C implementation of Markdown"
-  homepage "http://www.pell.portland.or.us/~orc/Code/discount/"
-  url "http://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.2.tar.bz2"
-  sha256 "ec7916731e3ef8516336333f8b7aa9e2af51e57c0017b1e03fa43f1ba6978f64"
+  homepage "https://www.pell.portland.or.us/~orc/Code/discount/"
+  url "https://www.pell.portland.or.us/~orc/Code/discount/discount-2.2.7.tar.bz2"
+  sha256 "b1262be5d7b04f3c4e2cee3a0937369b12786af18f65f599f334eefbc0ee9508"
+  license "BSD-3-Clause"
+  head "https://github.com/Orc/discount.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "f4eee2ff259e99506e5498f389b0149418c58cf07e82567364164eef37c93e0d" => :high_sierra
-    sha256 "76eb602335c8e25e5cac3e5ba71427adfd77e4668cded01e9293bff24f959e0a" => :sierra
-    sha256 "a8487f5efbecb0cc21542be3e923a1bd2553bdae3cda589a60f9e59e46e64e73" => :el_capitan
-    sha256 "bb20915dd830cdf2c6b996af682227d7c5529d99e31fef8048e7fff513dea257" => :yosemite
+  # We check the upstream GitHub repository because the homepage doesn't always
+  # update to list the latest version in a timely manner. As of writing, the
+  # homepage has been showing an older version for months, so it doesn't seem
+  # like a reliable source for the latest version information, unfortunately.
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  option "with-fenced-code", "Enable Pandoc-style fenced code blocks."
-  option "with-shared", "Install shared library"
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6eb8a216722f471eb6475f13e7f02a079069667d9c428b93275a7424aaea9a75"
+    sha256 cellar: :any_skip_relocation, big_sur:       "013c9e0bedb1a10f099e3b9a0c521c7e2f287602ae101284fc8d5bcbe76abfbf"
+    sha256 cellar: :any_skip_relocation, catalina:      "dcec657eb504394b83d9d949f3e33463733a4410681d38826040aaf9084f8ed5"
+    sha256 cellar: :any_skip_relocation, mojave:        "a5848add43adaee78666b9fc29de442944066e6bcbf7d547b68346dfa665c65f"
+  end
 
-  conflicts_with "markdown", :because => "both install `markdown` binaries"
-  conflicts_with "multimarkdown", :because => "both install `markdown` binaries"
+  conflicts_with "markdown", because: "both install `markdown` binaries"
+  conflicts_with "multimarkdown", because: "both install `markdown` binaries"
 
   def install
     args = %W[
@@ -27,8 +34,6 @@ class Discount < Formula
       --enable-pandoc-header
       --enable-superscript
     ]
-    args << "--with-fenced-code" if build.with? "fenced-code"
-    args << "--shared" if build.with? "shared"
     system "./configure.sh", *args
     bin.mkpath
     lib.mkpath

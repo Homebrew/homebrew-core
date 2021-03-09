@@ -2,35 +2,43 @@ class Unar < Formula
   desc "Command-line unarchiving tools supporting multiple formats"
   homepage "https://unarchiver.c3.cx/commandline"
   url "https://wakaba.c3.cx/releases/TheUnarchiver/unar1.10.1_src.zip"
-  version "1.10.1"
   sha256 "40967014a505b7a27864c49dc3b5d30b98ae4e6d4873783b2ef9ef9215fd092b"
+  license "LGPL-2.1-or-later"
 
-  head "https://bitbucket.org/WAHa_06x36/theunarchiver", :using => :hg
-
-  bottle do
-    cellar :any
-    sha256 "c4f9c710265918eaa77a7f046601bd947c9ed75a2281e4aaf43789e29fe345fb" => :high_sierra
-    sha256 "bd712f6dc4a543d4af936e85d0fcceadc32c2a0ca3c7db11bf484515f2ddd8da" => :sierra
-    sha256 "90f8103e17eedfa6825268488c425e050e24ad703919e8aa63bfbd4c03fcf44f" => :el_capitan
-    sha256 "b337f36dc2ec53be49d52ceee23924670319c819b259e39c76fe57720bfb1659" => :yosemite
-    sha256 "dab9604cafaab887741e0d6511f88e7ca66ad556ee86a41f4b1896ec558d9650" => :mavericks
+  livecheck do
+    url "https://wakaba.c3.cx/releases/TheUnarchiver/"
+    regex(/unarv?(\d+(?:\.\d+)+)_src/i)
   end
 
-  depends_on :xcode => :build
+  bottle do
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "bac059a80b30bd4ab2290e31bff0e93f933ddb6631252d6e1fab50b8f3c1736d"
+    sha256 cellar: :any, big_sur:       "7b7680e174418478cb59d65815d7fb0799888247013eee04fc1bd88c43d3d49e"
+    sha256 cellar: :any, catalina:      "366fc5e1d3587148e089214a91cd23a96eae1b0aefebcd2e9813b1cc2f6593c2"
+    sha256 cellar: :any, mojave:        "7bc711ae9affa86d2bc6b29df427dbc900afa6f18bcf13dc4fcf0518f0a50ffa"
+    sha256 cellar: :any, high_sierra:   "311cdc91d8897b3ebe20ea6b9e62bb2e4bc4bc15c9d2f321567cd010031df78a"
+  end
+
+  depends_on xcode: :build
+
+  # Fix build for Xcode 10 but remove libstdc++.6.dylib and linking libc++.dylib instead
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a94f6f/unar/xcode10.diff"
+    sha256 "d4ac4abe6f6bcc2175efab6be615432b5a8093f8bfc99fba21552bc820b29703"
+  end
 
   def install
     # ZIP for 1.10.1 additionally contains a `__MACOSX` directory, preventing
-    # stripping of the first path component during extraction of the archive.
+    # stripping of the first path component during extraction of the archive
     mv Dir["The Unarchiver/*"], "."
 
     # Build XADMaster.framework, unar and lsar
-    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-alltargets", "-configuration", "Release", "clean"
-    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "XADMaster", "SYMROOT=../", "-configuration", "Release"
-    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "unar", "SYMROOT=../", "-configuration", "Release"
-    xcodebuild "-project", "./XADMaster/XADMaster.xcodeproj", "-target", "lsar", "SYMROOT=../", "-configuration", "Release"
+    %w[XADMaster unar lsar].each do |target|
+      xcodebuild "-target", target, "-project", "./XADMaster/XADMaster.xcodeproj", "SYMROOT=..",
+                 "-configuration", "Release", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    end
 
     bin.install "./Release/unar", "./Release/lsar"
-
     lib.install "./Release/libXADMaster.a"
     frameworks.install "./Release/XADMaster.framework"
     (include/"libXADMaster").install_symlink Dir["#{frameworks}/XADMaster.framework/Headers/*"]

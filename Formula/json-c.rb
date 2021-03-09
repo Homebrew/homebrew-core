@@ -1,33 +1,32 @@
 class JsonC < Formula
   desc "JSON parser for C"
   homepage "https://github.com/json-c/json-c/wiki"
-  url "https://github.com/json-c/json-c/archive/json-c-0.12.1-20160607.tar.gz"
-  version "0.12.1"
-  sha256 "989e09b99ded277a0a651cd18b81fcb76885fea08769d7a21b6da39fb8a34816"
+  url "https://github.com/json-c/json-c/archive/json-c-0.15-20200726.tar.gz"
+  version "0.15"
+  sha256 "4ba9a090a42cf1e12b84c64e4464bb6fb893666841d5843cc5bef90774028882"
+  license "MIT"
+  head "https://github.com/json-c/json-c.git"
+
+  livecheck do
+    url :stable
+    regex(/^json-c[._-](\d+(?:\.\d+)+)(?:[._-]\d{6,8})?$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "b8f06e2b22f08912346e318cb293cc988a3fa3fe3de7ea2e3c84b2b52357ee6f" => :high_sierra
-    sha256 "2ce9b90873fa07bcb526c7b9aea55e58af52d88402e891227a5927a41d525ef5" => :sierra
-    sha256 "6055bdc414153c7928fa30f215e8354510d9610cb3b75c75def3e6850b48e11f" => :el_capitan
-    sha256 "4e6850e0b1627f622b64ae270883df999ab986046b1d4f9f0ca446fbd24a729b" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "cfe16365846be7c8bbbab9cf5eaea4edc861f2174b37b9cc520d6dd0023c23d8"
+    sha256 cellar: :any, big_sur:       "11990ad17649041f31c96e7c383e9eb6a8e1cd7491c0ff9a8ee89ab66d2a11ba"
+    sha256 cellar: :any, catalina:      "60d15ece3fb1fdc8722785de8243c2261222f674e998509375522a1de75497ea"
+    sha256 cellar: :any, mojave:        "6ab7f776315184769ed74115f614996401eae4577c36144ba4cdd1d41427d0cf"
+    sha256 cellar: :any, high_sierra:   "a211a34a52b452386cf6e23f8f27cc9d088e64d2793bae7a4b3a7a069d31a88a"
   end
 
-  head do
-    url "https://github.com/json-c/json-c.git"
-
-    depends_on "libtool" => :build
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-  end
+  depends_on "cmake" => :build
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    ENV.deparallelize
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
@@ -43,7 +42,7 @@ class JsonC < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-ljson-c", "test.c", "-o", "test"
+    system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-ljson-c", "-o", "test"
     assert_equal '{ "key": "value" }', shell_output("./test").chomp
   end
 end

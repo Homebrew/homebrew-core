@@ -1,38 +1,24 @@
 class Recode < Formula
   desc "Convert character set (charsets)"
-  homepage "https://github.com/pinard/Recode"
-  url "https://github.com/pinard/Recode/archive/v3.7-beta2.tar.gz"
-  sha256 "72c3c0abcfe2887b83a8f27853a9df75d7e94a9ebacb152892cc4f25108e2144"
+  homepage "https://github.com/rrthomas/recode"
+  url "https://github.com/rrthomas/recode/releases/download/v3.7.8/recode-3.7.8.tar.gz"
+  sha256 "4fb75cacc7b80fda7147ea02580eafd2b4493461fb75159e9a49561d3e10cfa7"
+  license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 "ca77219ffb6960de21caf333f31faa43de430a0e9f784624324a7c0581ce567d" => :high_sierra
-    sha256 "15572a6826a49109bd64fd9b50eace8259a7563f9e6ffdbf5112ed742a256c79" => :sierra
-    sha256 "1aaa7262ed6614a56e2bc17ac4b518903b62eb582d6aeab45f7845b38dee224e" => :el_capitan
-    sha256 "8518f350264f5cdadfb26c49487f82f9c159307f26d10230daf415d1495607f4" => :yosemite
-    sha256 "81fb3b36d647c6dd83f9fb65bf657b73b65d551a16dcd7e9552ff70f5a1394dc" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "c116a7d29975a1649b79f96067de047149050454d11fb09146066e617fadd13f"
+    sha256 cellar: :any, big_sur:       "6d53af7b188693ffa022df92beea56d3963482c8206d1608e25d47ca5bd88848"
+    sha256 cellar: :any, catalina:      "367ab01690803d0270de4734faf1ef5175c2e3df7528b9f64bdcc0c1a78f1668"
+    sha256 cellar: :any, mojave:        "34d0491040e447e2a0cbe304d021ea82be00040a7c5533ac82e43907771636b1"
   end
 
   depends_on "libtool" => :build
+  depends_on "python@3.9" => :build
   depends_on "gettext"
 
   def install
-    # Missing symbol errors without these.
-    ENV.append "LDFLAGS", "-liconv"
-    ENV.append "LDFLAGS", "-lintl"
-
-    # Fixed upstream in 2008 but no releases since. Patched by Debian also.
-    # https://github.com/pinard/Recode/commit/a34dfd2257f412dff59f2ad7f714.
-    inreplace "src/recodext.h", "bool ignore : 2;", "bool ignore : 1;"
-
-    cp Dir["#{Formula["libtool"].opt_pkgshare}/*/config.{guess,sub}"], buildpath
-
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--without-included-gettext",
-                          "--prefix=#{prefix}",
-                          "--infodir=#{info}",
-                          "--mandir=#{man}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
   end
 

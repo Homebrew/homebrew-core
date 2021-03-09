@@ -1,22 +1,28 @@
 class Morse < Formula
-  desc "Morse-code training program and QSO generator"
+  desc "QSO generator and morse code trainer"
   homepage "http://www.catb.org/~esr/morse/"
   url "http://www.catb.org/~esr/morse/morse-2.5.tar.gz"
   sha256 "476d1e8e95bb173b1aadc755db18f7e7a73eda35426944e1abd57c20307d4987"
+  license "BSD-2-Clause"
+  revision 2
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fb58a8af73002f98fe7ff1274c1712eb4bf0cab8b08640d2836fc6951c5cb2e9" => :high_sierra
-    sha256 "d779902b961e9ebbfa41b0906d8d41357232fd4da83a393e112cde87f5bcdcaa" => :sierra
-    sha256 "491a1ea5455d058af9adb607e0e49d95b94e52f0068cd5fb197c1ea71666b524" => :el_capitan
-    sha256 "c89c45cdc2ff59d6ac327188c484659c769fe94a07e5e1f38f4d568f0b1a943d" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "cb06d8049d00c1b52a2c6538ea10918a7623541df2304c1f9c154e042fde868d"
+    sha256 cellar: :any, big_sur:       "a956bb32257136228025435a70344d3322b621be1c932e1f61be3fbc1db3b000"
+    sha256 cellar: :any, catalina:      "f489bcc53ec31f5473e2116bd8d4f6867e15501cc8400e9992d1949331d18dee"
+    sha256 cellar: :any, mojave:        "e696b87957c0215da2e9f600f66460c341b4141b4ef86096dd78d9000a5ceafe"
   end
 
-  depends_on :x11
+  depends_on "pkg-config" => :build
+  depends_on "pulseaudio"
 
   def install
-    system "make", "all", "DEVICE=X11"
-    bin.install "morse"
-    man1.install "morse.1"
+    system "make", "all"
+    bin.install %w[morse QSO]
+    man1.install %w[morse.1 QSO.1]
+  end
+
+  test do
+    assert_match "Could not initialize audio", shell_output("#{bin}/morse -- 2>&1", 1)
   end
 end

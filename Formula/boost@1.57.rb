@@ -3,98 +3,62 @@ class BoostAT157 < Formula
   homepage "https://www.boost.org"
   url "https://downloads.sourceforge.net/project/boost/boost/1.57.0/boost_1_57_0.tar.bz2"
   sha256 "910c8c022a33ccec7f088bd65d4f14b466588dda94ba2124e78b8c57db264967"
+  license "BSL-1.0"
 
   bottle do
-    cellar :any
-    sha256 "a9eab1fbd081d88a4ee1d8102a038784b46ef98d77f11943793f8445341871ae" => :high_sierra
-    sha256 "2a5722e316d528b2ee1b290c2bda772c19c426f32c8bcb6609c250d68c59d6cb" => :sierra
-    sha256 "1c2b58d63f0d0f24a07cb60653cf1e674b78f4529c5e7b89ea4208d4db8fb494" => :el_capitan
-    sha256 "993b2b875755b7a1b0b7bbb97269545705fa3b30df3e4a03868c0e53a1dc7599" => :yosemite
+    sha256 cellar: :any, catalina:    "1023f6d97a7feec1c4f4d48fece91f3943f1cb3fb55cf909b0cf919742fc8e1b"
+    sha256 cellar: :any, mojave:      "662ca2c70c493d0ad0715f93daedf518dfda501bc55de18bc6f393f2e541c075"
+    sha256 cellar: :any, high_sierra: "a9eab1fbd081d88a4ee1d8102a038784b46ef98d77f11943793f8445341871ae"
+    sha256 cellar: :any, sierra:      "2a5722e316d528b2ee1b290c2bda772c19c426f32c8bcb6609c250d68c59d6cb"
+    sha256 cellar: :any, el_capitan:  "1c2b58d63f0d0f24a07cb60653cf1e674b78f4529c5e7b89ea4208d4db8fb494"
+    sha256 cellar: :any, yosemite:    "993b2b875755b7a1b0b7bbb97269545705fa3b30df3e4a03868c0e53a1dc7599"
   end
 
   keg_only :versioned_formula
 
-  option "with-icu4c", "Build regexp engine with icu support"
-  option "without-single", "Disable building single-threading variant"
-  option "without-static", "Disable building static library variant"
-  option "with-mpi", "Build with MPI support"
-  option :cxx11
+  disable! date: "2020-09-01", because: :versioned_formula
 
-  if build.cxx11?
-    depends_on "icu4c" => [:optional, "c++11"]
-    depends_on "open-mpi" => "c++11" if build.with? "mpi"
-  else
-    depends_on "icu4c" => :optional
-    depends_on :mpi => [:cc, :cxx, :optional]
+  # Fix build on Xcode 11.4
+  patch do
+    url "https://github.com/boostorg/build/commit/b3a59d265929a213f02a451bb63cea75d668a4d9.patch?full_index=1"
+    sha256 "04a4df38ed9c5a4346fbb50ae4ccc948a1440328beac03cb3586c8e2e241be08"
+    directory "tools/build"
   end
 
-  needs :cxx11 if build.cxx11?
-
   def install
-    # https://svn.boost.org/trac/boost/ticket/8841
-    if build.with?("mpi") && build.with?("single")
-      raise <<~EOS
-        Building MPI support for both single and multi-threaded flavors
-        is not supported.  Please use "--with-mpi" together with
-        "--without-single".
-      EOS
-    end
-
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
       file.write "using darwin : : #{ENV.cxx} ;\n"
-      file.write "using mpi ;\n" if build.with? "mpi"
     end
 
     # libdir should be set by --prefix but isn't
-    bootstrap_args = ["--prefix=#{prefix}", "--libdir=#{lib}"]
-
-    if build.with? "icu4c"
-      icu4c_prefix = Formula["icu4c"].opt_prefix
-      bootstrap_args << "--with-icu=#{icu4c_prefix}"
-    else
-      bootstrap_args << "--without-icu"
-    end
+    bootstrap_args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}"
+      --without-icu
+    ]
 
     # Handle libraries that will not be built.
-    without_libraries = ["python"]
+    without_libraries = ["python", "mpi"]
 
     # Boost.Log cannot be built using Apple GCC at the moment. Disabled
     # on such systems.
     without_libraries << "log" if ENV.compiler == :gcc
-    without_libraries << "mpi" if build.without? "mpi"
 
     bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"
 
     # layout should be synchronized with boost-python
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged",
-            "--user-config=user-config.jam",
-            "install"]
-
-    if build.with? "single"
-      args << "threading=multi,single"
-    else
-      args << "threading=multi"
-    end
-
-    if build.with? "static"
-      args << "link=shared,static"
-    else
-      args << "link=shared"
-    end
-
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    end
+    args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged
+      --user-config=user-config.jam
+      install
+      link=shared,static
+      threading=multi,single
+    ]
 
     system "./bootstrap.sh", *bootstrap_args
     system "./b2", "headers"

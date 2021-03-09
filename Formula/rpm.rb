@@ -1,33 +1,46 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
-  homepage "http://www.rpm.org/"
-  url "http://ftp.rpm.org/releases/rpm-4.14.x/rpm-4.14.0.tar.bz2"
-  sha256 "06a0ad54600d3c42e42e02701697a8857dc4b639f6476edefffa714d9f496314"
-  revision 1
+  homepage "https://rpm.org/"
+  url "http://ftp.rpm.org/releases/rpm-4.16.x/rpm-4.16.1.2.tar.bz2"
+  mirror "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.16.x/rpm-4.16.1.2.tar.bz2"
+  sha256 "8357329ceefc92c41687988b22198b26f74a12a9a68ac00728f934a5c4b4cacc"
+  license "GPL-2.0-only"
   version_scheme 1
 
-  bottle do
-    sha256 "3352d66eee4f6bb9f10b9003c1800e7caa9f82dc4fc341b5d66584bfc84db63f" => :high_sierra
-    sha256 "846ed9634a64472a13948e1f14d156f57f2b7aa0628733afdd38b403f66aea92" => :sierra
-    sha256 "685be758e9ccc3dcbd54d0a2a14c75d7d64529b7e36421a58189d0bab70f57f2" => :el_capitan
+  livecheck do
+    url "https://github.com/rpm-software-management/rpm.git"
+    regex(/rpm[._-]v?(\d+(?:\.\d+)+)-release/i)
   end
 
-  depends_on "pkg-config" => :run
+  bottle do
+    sha256 big_sur:  "92fc083ce834a3ac5600b1acec267db2877c57d41a22057aa3bd5bc2924e9ac0"
+    sha256 catalina: "a30f423573c7209e08c2d4ec57b4a545c710549e61b300b041f7720c9c600c05"
+    sha256 mojave:   "96d7d9c474f2efb780ec64a28ee112640be8a37af6246f9f2fb01bfd5dc14280"
+  end
+
   depends_on "berkeley-db"
   depends_on "gettext"
   depends_on "libarchive"
   depends_on "libmagic"
-  depends_on "lua@5.1"
+  depends_on "libomp"
+  depends_on "lua"
   depends_on "openssl@1.1"
+  depends_on "pkg-config"
   depends_on "popt"
   depends_on "xz"
   depends_on "zstd"
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua@5.1"].opt_libexec/"lib/pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["lua"].opt_libexec/"lib/pkgconfig"
+    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+    ENV.append "LDFLAGS", "-lomp"
 
     # only rpm should go into HOMEBREW_CELLAR, not rpms built
     inreplace ["macros.in", "platform.in"], "@prefix@", HOMEBREW_PREFIX
+
+    # ensure that pkg-config binary is found for dep generators
+    inreplace "scripts/pkgconfigdeps.sh",
+              "/usr/bin/pkg-config", Formula["pkg-config"].opt_bin/"pkg-config"
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -41,7 +54,12 @@ class Rpm < Formula
                           "--with-external-db",
                           "--with-crypto=openssl",
                           "--without-apidocs",
-                          "--with-vendor=homebrew"
+                          "--with-vendor=homebrew",
+                          # Don't allow superenv shims to be saved into lib/rpm/macros
+                          "__MAKE=/usr/bin/make",
+                          "__SED=/usr/bin/sed",
+                          "__GIT=/usr/bin/git",
+                          "__LD=/usr/bin/ld"
     system "make", "install"
   end
 
@@ -49,8 +67,7 @@ class Rpm < Formula
     (var/"lib/rpm").mkpath
 
     # Attempt to fix expected location of GPG to a sane default.
-    gnupg = Gpg.executable || HOMEBREW_PREFIX/"bin/gpg"
-    inreplace lib/"rpm/macros", "/usr/bin/gpg2", gnupg
+    inreplace lib/"rpm/macros", "/usr/bin/gpg2", HOMEBREW_PREFIX/"bin/gpg"
   end
 
   def test_spec
@@ -86,9 +103,10 @@ class Rpm < Formula
 
   test do
     (testpath/"rpmbuild").mkpath
+
     (testpath/".rpmmacros").write <<~EOS
       %_topdir		#{testpath}/rpmbuild
-      %_tmppath		%{_topdir}/tmp
+      %_tmppath		%\{_topdir}/tmp
     EOS
 
     system "#{bin}/rpm", "-vv", "-qa", "--dbpath=#{testpath}/var/lib/rpm"

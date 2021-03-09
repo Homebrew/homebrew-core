@@ -1,20 +1,25 @@
 class GitCrypt < Formula
   desc "Enable transparent encryption/decryption of files in a git repo"
   homepage "https://www.agwa.name/projects/git-crypt/"
-  url "https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.5.0.tar.gz"
-  sha256 "0a8f92c0a0a125bf768d0c054d947ca4e4b8d6556454b0e7e87fb907ee17cf06"
+  url "https://www.agwa.name/projects/git-crypt/downloads/git-crypt-0.6.0.tar.gz"
+  sha256 "6d30fcd99442d50f4b3c8d554067ff1d980cdf9f3120ee774131172dba98fd6f"
+  revision 1
 
-  bottle do
-    cellar :any
-    sha256 "f9c8fe4eb10891bb2afcda6e6f1639cd59c3579c2a52e0c5127e1dd649c3954e" => :high_sierra
-    sha256 "8d7f6640e34881ae40a2e949b7755eb9faa711399c37b86892df359b1a368bb2" => :sierra
-    sha256 "ed93687aa2996d6171f9090062f24453028c7d9d97e9842a0fee7aee57648979" => :el_capitan
-    sha256 "ce33f2d01af41259b6ea9be1e849000bdd08413b1f109268ea65709644d455eb" => :yosemite
-    sha256 "2cedd573983fe7ec7387e76f9ffd0ba351e71e19e3382f7365209d1aad0f7e3f" => :mavericks
-    sha256 "1bba33a973b90d39140a64193bcdab63b34c3b4f379850ee41ee155325173f4f" => :mountain_lion
+  livecheck do
+    url :homepage
+    regex(/href=.*?git-crypt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "openssl"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "b30c2ac4ab305cc72b8be7253b7bf3dcca3487a579ebf00e21da793d4afc8bd4"
+    sha256 cellar: :any, big_sur:       "7567932a504ce3c08a087f9d3d020f5ca8307f41fe2a16a843e7df862120abc9"
+    sha256 cellar: :any, catalina:      "f38bb645c3eff62cfb43802199370d85e4785fcf10c063e4d7453e032788bcba"
+    sha256 cellar: :any, mojave:        "89d2058a4dd5afc565696707c8e93621fd644f9ab303fe378727ae999783d156"
+    sha256 cellar: :any, high_sierra:   "0d2cf3c93ab2ca4059163f8da8a3ab845b566b13debf5e1b43a734dc86138a18"
+    sha256 cellar: :any, sierra:        "6b2c2773e5c327282d461f5d49600928ae97d432e5f4d8b7acfcaaa6e6d1ef68"
+  end
+
+  depends_on "openssl@1.1"
 
   def install
     system "make"

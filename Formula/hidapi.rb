@@ -1,29 +1,16 @@
 class Hidapi < Formula
   desc "Library for communicating with USB and Bluetooth HID devices"
-  homepage "https://github.com/signal11/hidapi"
-  url "https://github.com/signal11/hidapi/archive/hidapi-0.8.0-rc1.tar.gz"
-  sha256 "3c147200bf48a04c1e927cd81589c5ddceff61e6dac137a605f6ac9793f4af61"
-  head "https://github.com/signal11/hidapi.git"
-
-  # This patch addresses a bug discovered in the HidApi IOHidManager back-end
-  # that is being used with Macs.
-  # The bug was dramatically changing the behaviour of the function
-  # "hid_get_feature_report". As a consequence, many applications working
-  # with HidApi were not behaving correctly on OSX.
-  # pull request on Hidapi's repo: https://github.com/signal11/hidapi/pull/219
-  patch do
-    url "https://github.com/signal11/hidapi/pull/219.patch?full_index=1"
-    sha256 "c0ff6eb370d6b875c06d72724a1a12fa0bafcbd64b2610014abc50a516760240"
-  end
+  homepage "https://github.com/libusb/hidapi"
+  url "https://github.com/libusb/hidapi/archive/hidapi-0.10.1.tar.gz"
+  sha256 "f71dd8a1f46979c17ee521bc2117573872bbf040f8a4750e492271fc141f2644"
+  license :cannot_represent
+  head "https://github.com/libusb/hidapi.git"
 
   bottle do
-    cellar :any
-    rebuild 2
-    sha256 "c534434485aeac388fa1ab7223264ceb9915c4c8aa3815895939d9d6c2fd13b0" => :high_sierra
-    sha256 "2c16239b99b23f5fee3992391f8450a317b3c421d61efd248ad69c063cb7ffef" => :sierra
-    sha256 "cea4750ae62177a9b399b43d463eec41852161f691a148b03d7b7f91789932fc" => :el_capitan
-    sha256 "06daf7b3080f0c87c46b3f69c869ce3b88de5ce1187db2435cd8e3a1db2e9871" => :yosemite
-    sha256 "6821097f8a0bb55df7697aa26fc7bea3e79914e76932eb69e03b4346a22309dc" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "b9a374fd0f191883bb75c4b881d24e569d547675d4cedbe3339c7aa6c3fe60b3"
+    sha256 cellar: :any, big_sur:       "98f2859ea147e9c92e4925f0887062c8b6f5177eb98a1012b95d3b788cb58ea5"
+    sha256 cellar: :any, catalina:      "9287809ecfeaeb3c89b1f9bf8babb31a8971b41c4a9795922ab774bfcc66559d"
+    sha256 cellar: :any, mojave:        "e9c2bec30d5d1e9e0f9f91c43510071ba17234cd968b33f161c56cbee23a4d8d"
   end
 
   depends_on "autoconf" => :build

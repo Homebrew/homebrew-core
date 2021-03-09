@@ -1,16 +1,22 @@
 class Libestr < Formula
   desc "C library for string handling (and a bit more)"
-  homepage "http://libestr.adiscon.com"
-  url "http://libestr.adiscon.com/files/download/libestr-0.1.10.tar.gz"
-  sha256 "bd655e126e750edd18544b88eb1568d200a424a0c23f665eb14bbece07ac703c"
+  homepage "https://libestr.adiscon.com/"
+  url "https://libestr.adiscon.com/files/download/libestr-0.1.11.tar.gz"
+  sha256 "46632b2785ff4a231dcf241eeb0dcb5fc0c7d4da8ee49cf5687722cdbe8b2024"
+  license "LGPL-2.1"
+
+  livecheck do
+    url "https://libestr.adiscon.com/download/"
+    regex(/href=.*?libestr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "0413d6b2e350cf0b96ac51277aea7cc138ce848b81091e7172c4cbbb6efd1102" => :high_sierra
-    sha256 "180b2620f9ba546d062835b15753236a616ecd53fa01bacb07bf6368d4825b64" => :sierra
-    sha256 "a95f0ed48b7a7879128ea8b7d1dfac5d6c736ee504d88a65155c040eff6ea134" => :el_capitan
-    sha256 "b6378b804c98be7a85e665f7f98035446941720f2ae9de94cd1cfedd607a5e10" => :yosemite
-    sha256 "5215ffe64cf57a7c95561588e8e117983419fece70fbc3c61d26099a249cf098" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "20863614b37a81431737f276b1273bf542e374a323b9a1e486af7775e659d688"
+    sha256 cellar: :any, big_sur:       "11fa154962682f47b57b2dac7ceee697b5cf57c21e56d3c713f6e5a646d318da"
+    sha256 cellar: :any, catalina:      "f539c76e3acdd0a93def55a0e82ecf45c53de65dc6dc18fd123efe815d8a65cd"
+    sha256 cellar: :any, mojave:        "543dcd541a69d52d5d1d21d51d0cf57c1617cc177f743c2dfea8ea3d548b93e8"
+    sha256 cellar: :any, high_sierra:   "7f17c5dbb6534afe6b37ae1d1f994d3387cd8527d6aaa768604837ac681eee59"
+    sha256 cellar: :any, sierra:        "5ff130cf6aa42842636dd90b7a8e7e60adbb289682bd915c98937b032c38fc54"
   end
 
   depends_on "pkg-config" => :build

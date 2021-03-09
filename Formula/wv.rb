@@ -3,20 +3,22 @@ class Wv < Formula
   homepage "https://wvware.sourceforge.io/"
   url "https://abisource.com/downloads/wv/1.2.9/wv-1.2.9.tar.gz"
   sha256 "4c730d3b325c0785450dd3a043eeb53e1518598c4f41f155558385dd2635c19d"
+  revision 1
 
   bottle do
-    sha256 "66081b31ef3906844afa215ad038f80b353bd49bb36f075c0fd5ce4951cd68cd" => :high_sierra
-    sha256 "b9ae25d64690436f441057dfa9aa3789deed460c743b3444642eefff761c76f5" => :sierra
-    sha256 "9b9e70a5e3bb7e6d29c5af4eed803a7fcbe31df03deafaf35cba1cfc949f35fa" => :el_capitan
-    sha256 "9924b96a1c67c774976b40de2083717a833d4dcaf801fba100f98677af01051c" => :yosemite
-    sha256 "5076c41e62ea86c638b482904ca0e30cffb2cbd3eb3acfe7b105cb4b28766838" => :mavericks
+    sha256 arm64_big_sur: "36bac1865cab3a50dafdf0477bb914d6c9df08c386b5586951f6681e5d5f73ad"
+    sha256 big_sur:       "6e6499eca2f6ab68a58a4a0548ac4954eec052d20558dc1bd834cc4bb030e0cc"
+    sha256 catalina:      "c617efb5a72bf2dbca4a3c85fdb59460ce6aaaf21b1f1db1e89f53ac3fc07224"
+    sha256 mojave:        "e3b62df7fad6fefbd233abc45ede4f9705b447df51433e0129a82d98dc321811"
+    sha256 high_sierra:   "470ecfe6b84e931d4c4363b8274a04d42b2e2c3b6c5f50bc12b55a7fda6f5acb"
+    sha256 sierra:        "7df867080d9b2edb57780c5f971a4a22d01c301aff70c1af7a6ce13385828908"
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "libgsf"
-  depends_on "libwmf"
   depends_on "libpng"
+  depends_on "libwmf"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

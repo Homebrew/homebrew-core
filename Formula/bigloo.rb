@@ -1,33 +1,29 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3a.tar.gz"
-  version "4.3a"
-  sha256 "3ca5c28d6eab6132b981eb6a8cc921d73b5cbcc22d3a32312d52f83d8dc62c0f"
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3e.tar.gz"
+  version "4.3e"
+  sha256 "43363cb968c57925f402117ff8ec4b47189e2747b02350805a34fa617d9f618a"
+  revision 1
 
-  bottle do
-    sha256 "d8cc153227a4cf654d69e617754351d01b1e8a7648e0566f1f09d590e29a6077" => :high_sierra
-    sha256 "b6e3d1c848387656e4ac1fd29e3253a33027d0016fb59f698c9c0ceee7d6eeca" => :sierra
-    sha256 "c1d07d96de7ec2377b02b9103d5d64cbaa80f2a19605e6da9cc99115e0757976" => :el_capitan
-    sha256 "4df885d857ae5a8bec050edb9e010b61cdcdcfefee21f48209df9f8b7a1dd60c" => :yosemite
+  livecheck do
+    url "https://www-sop.inria.fr/indes/fp/Bigloo/download.html"
+    regex(/bigloo-latest\.t.+?\(([^)]+?)\)/i)
   end
 
-  option "with-jvm", "Enable JVM support"
+  bottle do
+    sha256 catalina:    "06c2d3728e778db36954a6fca8ecc8cb663d90122a884cfb0fc96ce1de36663a"
+    sha256 mojave:      "5de69de8a1afee85a7b6af5d024c80ff3ceb7acc8e391c20fd24398122cfad9a"
+    sha256 high_sierra: "26a5f98ee71f7794ced067f64a695f040ef271413ac58b0e0cbfa883ab44ee73"
+    sha256 sierra:      "2844e66dfeecc9cfe4ad85558f2d2be450b5aea3acad7461402e9fcb7fb5bbdd"
+  end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
-  depends_on "openssl"
-  depends_on "gmp" => :recommended
-
-  fails_with :clang do
-    build 500
-    cause <<~EOS
-      objs/obj_u/Ieee/dtoa.c:262:79504: fatal error: parser
-      recursion limit reached, program too complex
-    EOS
-  end
+  depends_on "gmp"
+  depends_on "openssl@1.1"
 
   def install
     args = %W[
@@ -42,15 +38,20 @@ class Bigloo < Formula
       --disable-alsa
       --disable-mpg123
       --disable-flac
+      --disable-srfi27
+      --jvm=yes
     ]
 
-    args << "--jvm=yes" if build.with? "jvm"
-    args << "--no-gmp" if build.without? "gmp"
-
-    # SRFI 27 is 32-bit only
-    args << "--disable-srfi27" if MacOS.prefer_64_bit?
-
     system "./configure", *args
+
+    # bigloo seems to either miss installing these dependencies, or maybe
+    # do it out of order with where they're used.
+    cd "libunistring" do
+      system "make", "install"
+    end
+    cd "pcre" do
+      system "make", "install"
+    end
 
     system "make"
     system "make", "install"

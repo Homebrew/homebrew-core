@@ -3,24 +3,26 @@ class JujuWait < Formula
 
   desc "Juju plugin for waiting for deployments to settle"
   homepage "https://launchpad.net/juju-wait"
-  url "https://pypi.python.org/packages/96/82/6b1b566b75f668605469d9af220bed0104bd4dc12c66160771b32f3aab58/juju-wait-2.5.0.tar.gz"
-  sha256 "05354b87e65b19a67176e470b4edf2588ae3ec301576b4a5214bc698c420671e"
+  url "https://files.pythonhosted.org/packages/0c/2b/f4bd0138f941e4ba321298663de3f1c8d9368b75671b17aa1b8d41a154dc/juju-wait-2.8.4.tar.gz"
+  sha256 "9e84739056e371ab41ee59086313bf357684bc97aae8308716c8fe3f19df99be"
+  license "GPL-3.0-only"
+  revision 1
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "17703a8fca9d4706d855d771822044a4f04cd803ce764417707b855cfef3f67d" => :high_sierra
-    sha256 "14d7675bfaa400e2b070d3154b3b9c6fc2770d758616a3dd0226fb55d156c595" => :sierra
-    sha256 "20b5b1bca90eaddac10a42671993d860c2edecdf805262fd6564267544298baa" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "e6b5a2374dcc6b496d184050039dcb233fdc695219518949ccb7b9d65ca98ef6"
+    sha256 cellar: :any, big_sur:       "6e73b48dd92446f5cb69ec22117b9907aeff53ea52524fc5a2a095425430e5a3"
+    sha256 cellar: :any, catalina:      "82f581e595e843682782737000c28646f59ce7ceda2572a094c616aeddf26709"
+    sha256 cellar: :any, mojave:        "3d09fe21c6290f6a055cae35c06e4cdd7682111b295eea2551430df1f618b3d0"
+    sha256 cellar: :any, high_sierra:   "5d6a6e8f8fe65ec7f7e0b132b75d85d3b918ec850f9f9b8d0f5742ab6d37f552"
   end
 
-  depends_on :python3
-  depends_on "libyaml"
   depends_on "juju"
+  depends_on "libyaml"
+  depends_on "python@3.9"
 
-  resource "pyyaml" do
-    url "https://pypi.python.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   def install
@@ -28,7 +30,7 @@ class JujuWait < Formula
   end
 
   test do
-    # Note: Testing this plugin requires a Juju environment that's in the
+    # NOTE: Testing this plugin requires a Juju environment that's in the
     # process of deploying big software. This plugin relies on those application
     # statuses to determine if an environment is completely deployed or not.
     system "#{bin}/juju-wait", "--version"

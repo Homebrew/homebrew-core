@@ -1,39 +1,45 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
-  homepage "http://www.aqbanking.de/"
-  url "https://www.aquamaniac.de/sites/download/download.php?package=01&release=206&file=01&dummy=gwenhywfar-4.18.0.tar.gz"
-  sha256 "6915bba42d8b7f0213cee186a944296e5e5e97cdbde5b539a924261af03086ca"
+  homepage "https://www.aquamaniac.de/"
+  url "https://www.aquamaniac.de/rdm/attachments/download/364/gwenhywfar-5.6.0.tar.gz"
+  sha256 "57af46920991290372752164f9a7518b222f99bca2ef39c77deab57d14914bc7"
+  license "LGPL-2.1-or-later"
+  revision 1
 
-  bottle do
-    sha256 "3a20a0d8d35bcc1fd39a1def1da4caa00a6ab57724b796cd7a45ddb5b6c9bc33" => :high_sierra
-    sha256 "7eaedffb5b5dcee09131803d95d461f6cc87220ae3aa7294bc861da92d6870bd" => :sierra
-    sha256 "e5510dc740fe9f2cf1f191c23d09ce413c7163d5ff9486b34b49d28d14f60bf0" => :el_capitan
-    sha256 "534810125470167a96b204c418c170b4313fe653902a92908e5f1b619565e47e" => :yosemite
+  livecheck do
+    url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/files"
+    regex(/href=.*?gwenhywfar[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option "without-cocoa", "Build without cocoa support"
-  option "with-test", "Run build-time check"
+  bottle do
+    sha256 arm64_big_sur: "cf4318174789a6da02beeb0ae8b2182bc17b14fea0de4ba4ec1d4e2574fefb7d"
+    sha256 big_sur:       "f172c3d2c81e2f75f851a34629baa9c90c389a42e22458dc3352a8368245ef9b"
+    sha256 catalina:      "a04f53d938325ee504611552f46fc606118b54ffcd3b1e8edb67f5f61d3b75fe"
+    sha256 mojave:        "4f83d9bc727e95b68c89a736cb95a7b5f5b0c4c75822cf6043b575d63420002c"
+  end
 
-  deprecated_option "with-check" => "with-test"
-
-  depends_on "pkg-config" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "cmake" => :test
   depends_on "gettext"
   depends_on "gnutls"
-  depends_on "openssl"
   depends_on "libgcrypt"
-  depends_on "gtk+" => :optional
+  depends_on "openssl@1.1"
+  depends_on "pkg-config" # gwenhywfar-config needs pkg-config for execution
+  depends_on "qt@5"
+
+  patch do # fixes out-of-tree builds, can be removed with 5.6.1+ release. https://www.aquamaniac.de/rdm/issues/232
+    url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/repository/revisions/b953672c5f668c2ed3960607e6e25651a2cc98db/diff/m4/ax_have_qt.m4?format=diff"
+    sha256 "da7c1ddce2b8d1f19293d43b0db8449a4e45b79801101e866aa42f212f750ecd"
+  end
 
   def install
-    guis = []
-    guis << "gtk2" if build.with? "gtk+"
-    guis << "cocoa" if build.with? "cocoa"
-
-    system "autoreconf", "-fiv" if build.head?
+    inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
+    system "autoreconf", "-fiv" # needed because of the patch. Otherwise only needed for head build (if build.head?)
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-guis=#{guis.join(" ")}"
-    system "make", "check" if build.with? "test"
+                          "--with-guis=cocoa cpp qt5"
     system "make", "install"
   end
 
@@ -47,7 +53,33 @@ class Gwenhywfar < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}/gwenhywfar4", "-L#{lib}", "-lgwenhywfar", "-o", "test"
-    system "./test"
+    system ENV.cc, "test.c", "-I#{include}/gwenhywfar5", "-L#{lib}", "-lgwenhywfar", "-o", "test_c"
+    system "./test_c"
+
+    system ENV.cxx, "test.c", "-I#{include}/gwenhywfar5", "-L#{lib}", "-lgwenhywfar", "-o", "test_cpp"
+    system "./test_cpp"
+
+    (testpath/"CMakeLists.txt").write <<~EOS
+      project(test_gwen)
+
+      find_package(Qt5 REQUIRED Core Widgets)
+      find_package(gwenhywfar REQUIRED)
+      find_package(gwengui-cpp REQUIRED)
+      find_package(gwengui-qt5 REQUIRED)
+
+      add_executable(${PROJECT_NAME} test.c)
+
+      target_link_libraries(${PROJECT_NAME} PUBLIC
+                      gwenhywfar::core
+                      gwenhywfar::gui-cpp
+                      gwenhywfar::gui-qt5
+      )
+    EOS
+
+    args = std_cmake_args
+    args << "-DQt5_DIR=#{Formula["qt@5"].opt_prefix/"lib/cmake/Qt5"}"
+
+    system "cmake", testpath.to_s, *args
+    system "make"
   end
 end

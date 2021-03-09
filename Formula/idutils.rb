@@ -4,15 +4,19 @@ class Idutils < Formula
   url "https://ftp.gnu.org/gnu/idutils/idutils-4.6.tar.xz"
   mirror "https://ftpmirror.gnu.org/idutils/idutils-4.6.tar.xz"
   sha256 "8181f43a4fb62f6f0ccf3b84dbe9bec71ecabd6dfdcf49c6b5584521c888aac2"
+  license "GPL-3.0"
   revision 1
 
   bottle do
-    sha256 "f91b3e43aae6bb6d645a5900920364f34baae6e124b9d11f3f58a230b60d47af" => :high_sierra
-    sha256 "8a3edf99858c93dda9dc51ee15efd75b9a4fd89f828c6663470ea113a814e305" => :sierra
-    sha256 "49456db30e93abd2633ac358bf2e1d1e4f25b53871caecac766af9ab8d1a46b5" => :el_capitan
+    rebuild 1
+    sha256 arm64_big_sur: "226783d59f2f9d0d57462e16af1985c475af17ade456463c3c576804646adfe9"
+    sha256 big_sur:       "566c400425874363c736ef591555cadffe7a09875ae5d1e07cbd1c224effbd4d"
+    sha256 catalina:      "5df54c76ae786e54f6994c1c65821adaa746c8a6b1aecbafbe3cd9f4f77f7c62"
+    sha256 mojave:        "b48a4caf24a1eba916f1932c85970294e56a0559603a8289fe732c124fbf0811"
+    sha256 high_sierra:   "95f118aa56026de98d148bccc5a807d609a2bfc54749e1d9051a5dce80f603ef"
   end
 
-  conflicts_with "coreutils", :because => "both install `gid` and `gid.1`"
+  conflicts_with "coreutils", because: "both install `gid` and `gid.1`"
 
   if MacOS.version >= :high_sierra
     patch :p0 do
@@ -37,7 +41,7 @@ class Idutils < Formula
   end
 
   test do
-    system bin/"mkid", "/usr/include"
+    system bin/"mkid", "#{MacOS.sdk_path}/usr/include"
     system bin/"lid", "FILE"
   end
 end

@@ -1,17 +1,17 @@
 class Btparse < Formula
   desc "BibTeX utility libraries"
-  homepage "https://www.gerg.ca/software/btOOL/"
-  url "https://www.gerg.ca/software/btOOL/btparse-0.34.tar.gz"
-  sha256 "e8e2b6ae5de85d1c6f0dc52e8210aec51faebeee6a6ddc9bd975b110cec62698"
+  homepage "https://metacpan.org/pod/distribution/Text-BibTeX/btparse/doc/btparse.pod"
+  url "https://cpan.metacpan.org/authors/id/A/AM/AMBS/btparse/btparse-0.35.tar.gz"
+  sha256 "631bf1b79dfd4c83377b416a12c349fe88ee37448dc82e41424b2f364a99477b"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "217d4a3998eb3848424a13783333a0440fa78f77943bfe4d1a4b06d5d406b4f5" => :high_sierra
-    sha256 "02d9860c4b80590a96b5053cc9b6bfc7646fd204cef602c766665a53382ed116" => :sierra
-    sha256 "52b3216a39c5eab22adf83c51843c18789e680bf9bca531a29c2e76c01d00371" => :el_capitan
-    sha256 "a8488a0a2601b386d3f53d736d776d7a119d2910841959354cff91b9dec9d59f" => :yosemite
-    sha256 "987a65ea6cbd04b6cb70d3f9f64791a1a69d5c69d446c6c712f463957435d0fb" => :mavericks
-    sha256 "5ace9431c847dbe4a4d3f04045069eb51a036e9b5a2dce65ccdba7baf165540f" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "d69e49048e5366097bd7fe06b5ab9e40e3e97602896c613706559ab2c7aa4295"
+    sha256 cellar: :any, big_sur:       "6080f2a4c252d49a4b265807ce77c290bd881b5339b7b2c19c5efc8a7f40b871"
+    sha256 cellar: :any, catalina:      "6ce6b4e17c2559540007f3e15e38ee5f4eff1cc5dd6782e87089abf824a94e90"
+    sha256 cellar: :any, mojave:        "d69b814282b1205eb311f2b8f1f2d0077e2adeef72c2a010084eec34ffef7b71"
+    sha256 cellar: :any, high_sierra:   "92fe826bfbaed8583343dbae8d2cf51d6161658e8ecd44a4bf7a308ab1f06d61"
+    sha256 cellar: :any, sierra:        "b31041f88e5253fd880d38190b4828f8c9cee34f141352d5c3b70b33e18d824f"
   end
 
   def install

@@ -1,68 +1,51 @@
 class Ola < Formula
   desc "Open Lighting Architecture for lighting control information"
   homepage "https://www.openlighting.org/ola/"
-  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.5/ola-0.10.5.tar.gz"
-  sha256 "e9dfdcf4d0cd270e4cfcb2dbe661d610a521386bfa49b18243c25462692d0283"
+  url "https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz"
+  sha256 "102aa3114562a2a71dbf7f77d2a0fb9fc47acc35d6248a70b6e831365ca71b13"
+  license "GPL-2.0"
+  head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
-    sha256 "9144c2e40e6ae25bcee43ba61a2097158a805a78e4ea24cdef3657bf4a7d4b34" => :high_sierra
-    sha256 "73750ce1129ba0be3c94fd0e98834b1166fe746d3de7c3ae21a548e99659c50d" => :sierra
-    sha256 "2e1711ae0bcd168816015439de578751a1edfdf032df1be17dfc170f0364bdf5" => :el_capitan
-    sha256 "3ac33da0156083da563b70ce0157ff456ec557ace574ed45f7c5c06c1757eb7f" => :yosemite
+    sha256 big_sur:  "01d3fbbad1714ae2f0ac902e9770798abd9d18db6412a664ddc528071c64ef4d"
+    sha256 catalina: "4ac72f24e812e7c3c59fb5bef66b9e33757df3231e1c8de4c428126ad1f52dec"
+    sha256 mojave:   "4b897250e2d6f1ca338ca42f420dd4edb00171e6d3c59ef776bd32e9dfe00412"
   end
 
-  head do
-    url "https://github.com/OpenLightingProject/ola.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
-  option "with-libftdi", "Install FTDI USB plugin for OLA."
-  option "with-rdm-tests", "Install RDM Tests for OLA."
-  deprecated_option "with-ftdi" => "with-libftdi"
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "liblo"
   depends_on "libmicrohttpd"
-  depends_on "ossp-uuid"
-  depends_on "protobuf@3.1"
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "liblo" => :recommended
-  depends_on "libusb" => :recommended
-  depends_on "doxygen" => :optional
-  depends_on "libftdi" => :optional
-  depends_on "libftdi0" if build.with? "libftdi"
+  depends_on "libusb"
+  depends_on "numpy"
+  depends_on "protobuf@3.6"
+  depends_on "python@3.9"
 
-  resource "protobuf-c" do
-    url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.2.1/protobuf-c-1.2.1.tar.gz"
-    sha256 "846eb4846f19598affdc349d817a8c4c0c68fd940303e6934725c889f16f00bd"
+  # remove in version 0.10.9
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/add0354bf13253a4cc89e151438a630314df0efa/ola/protobuf3.diff"
+    sha256 "e06ffef1610c3b09807212d113138dae8bdc7fc8400843c25c396fa486594ebf"
   end
 
   def install
-    resource("protobuf-c").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--prefix=#{buildpath}/vendor/protobuf-c"
-      system "make", "install"
-    end
-    ENV.prepend_path "PKG_CONFIG_PATH", buildpath/"vendor/protobuf-c/lib/pkgconfig"
-
-    protobuf_pth = Formula["protobuf@3.1"].opt_lib/"python2.7/site-packages/homebrew-protobuf.pth"
-    (buildpath/".brew_home/Library/Python/2.7/lib/python/site-packages").install_symlink protobuf_pth
+    xy = Language::Python.major_minor_version Formula["python@3.9"].bin/"python3"
+    protobuf_pth = Formula["protobuf@3.6"].opt_lib/"python#{xy}/site-packages/homebrew-protobuf.pth"
+    (buildpath/".brew_home/Library/Python/#{xy}/lib/python/site-packages").install_symlink protobuf_pth
 
     args = %W[
       --disable-fatal-warnings
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --enable-python-libs
       --disable-unittests
+      --enable-python-libs
+      --enable-rdm-tests
     ]
 
-    args << "--enable-rdm-tests" if build.with? "rdm-tests"
-    args << "--enable-doxygen-man" if build.with? "doxygen"
-
-    system "autoreconf", "-fvi" if build.head?
+    ENV["PYTHON"] = Formula["python@3.9"].bin/"python3"
+    system "autoreconf", "-fvi"
     system "./configure", *args
     system "make", "install"
   end

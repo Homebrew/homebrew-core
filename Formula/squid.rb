@@ -1,32 +1,38 @@
 class Squid < Formula
   desc "Advanced proxy caching server for HTTP, HTTPS, FTP, and Gopher"
   homepage "http://www.squid-cache.org/"
-  url "http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.27.tar.xz"
-  sha256 "5ddb4367f2dc635921f9ca7a59d8b87edb0412fa203d1543393ac3c7f9fef0ec"
+  url "http://www.squid-cache.org/Versions/v4/squid-4.14.tar.xz"
+  sha256 "f1097daa6434897c159bc100978b51347c0339041610845d0afa128151729ffc"
+  license "GPL-2.0"
+
+  livecheck do
+    url "http://www.squid-cache.org/Versions/v4/"
+    regex(/href=.*?squid[._-]v?(\d+(?:\.\d+)+)-RELEASENOTES\.html/i)
+  end
 
   bottle do
-    sha256 "83fe784f48d6e179eeab4b5bd5a0b0e48196da897d4cc48da0903d16e32612bc" => :high_sierra
-    sha256 "72cb505a330571e0b9c246a05ff2fc053e3b77df1ce7c01ecb4b5e0d5ecb36b9" => :sierra
-    sha256 "a6ceac5be681efa27778955cf30a8c042fef597c2340f8988a68b26f81b70585" => :el_capitan
-    sha256 "24582461236da90743f2d2af2a4147b0d5d6825e4dae2b187e763340db14e6a3" => :yosemite
+    sha256 arm64_big_sur: "422162362d423a8cb0ab116731da03eedad5991cb36c64304a3462971d2f90bf"
+    sha256 big_sur:       "8e0aaa487fd37fa2da664d23bfd1a199f3b774908f1b35ec9efc842ff4ac3574"
+    sha256 catalina:      "858bb9791ae9e3a6d6bb7fadb46ac8fa6cfc16f946a1d6cbe6ecce4cdc8077b5"
+    sha256 mojave:        "1c726f0f574c9b5a0d74afa54b4436d0f97486ad7bddb426fad5235fdda16396"
   end
 
   head do
-    url "lp:squid", :using => :bzr
+    url "lp:squid", using: :bzr
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # https://stackoverflow.com/questions/20910109/building-squid-cache-on-os-x-mavericks
     ENV.append "LDFLAGS", "-lresolv"
 
     # For --disable-eui, see:
-    # http://squid-web-proxy-cache.1019090.n4.nabble.com/ERROR-ARP-MAC-EUI-operations-not-supported-on-this-operating-system-td4659335.html
+    # http://www.squid-cache.org/mail-archive/squid-users/201304/0040.html
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -50,38 +56,46 @@ class Squid < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "squid"
+  plist_options manual: "squid"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>KeepAlive</key>
-      <true/>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/squid</string>
-        <string>-N</string>
-        <string>-d 1</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}</string>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>KeepAlive</key>
+        <true/>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/squid</string>
+          <string>-N</string>
+          <string>-d 1</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
+        <string>#{var}</string>
+      </dict>
+      </plist>
     EOS
   end
 
   test do
-    # This test should start squid and then check it runs correctly.
-    # However currently dies under the sandbox and "Current Directory"
-    # seems to be set hard on HOMEBREW_PREFIX/var/cache/squid.
-    # https://github.com/Homebrew/homebrew/pull/44348#issuecomment-143477353
-    # If you can fix this, please submit a PR. Thank you!
     assert_match version.to_s, shell_output("#{sbin}/squid -v")
+
+    pid = fork do
+      exec "#{sbin}/squid"
+    end
+    sleep 2
+
+    begin
+      system "#{sbin}/squid", "-k", "check"
+    ensure
+      exec "#{sbin}/squid -k interrupt"
+      Process.wait(pid)
+    end
   end
 end

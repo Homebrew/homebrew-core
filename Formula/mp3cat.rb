@@ -1,17 +1,17 @@
 class Mp3cat < Formula
   desc "Reads and writes mp3 files"
-  homepage "http://tomclegg.net/mp3cat"
-  url "http://tomclegg.net/software/mp3cat-0.4.tar.gz"
-  sha256 "fd2b0d58018f5117bd1e22298c899bef5e6af61a0c540186d16d2bf516d6849a"
+  homepage "https://tomclegg.ca/mp3cat"
+  url "https://github.com/tomclegg/mp3cat/archive/0.5.tar.gz"
+  sha256 "b1ec915c09c7e1c0ff48f54844db273505bc0157163bed7b2940792dca8ff951"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f958c3e6b1dccfad12daec5c0692af405cd97342871ac76615a542ba17ee2de3" => :high_sierra
-    sha256 "4ae83c8ee5219135c9ca52b16b8e103b8c9f67c12cdf60e6584353f39276ed7c" => :sierra
-    sha256 "c582f29c5c3c05697e4805b75209dbab5797d6a3c62de5b4d21972250bc8d2e9" => :el_capitan
-    sha256 "a70d1a1a379c4813f57c32284f13348e36302a61d0c933c2a4fb19342c43be1f" => :yosemite
-    sha256 "43053bea923c17bd7a31532cdcaedfcb3681a04aa1b0b66e33defc41c7e00629" => :mavericks
-    sha256 "bffd0a1ea0cb5ce1eb39c4147686702f060dd25e949385009946835be9826b8d" => :mountain_lion
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5b602f2c0aafa37b863446069097523612ae44f2a14c4e49f179445a4b0edd5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2cb3c8420e4858acf5edd529ce7d68c79d03f3d463c45460d9209308daa292db"
+    sha256 cellar: :any_skip_relocation, catalina:      "07766f0495aa6c8566d8594a64f5004d1ad56f7e522f90cc1dcaf58001e7d2ab"
+    sha256 cellar: :any_skip_relocation, mojave:        "e075f29990e6b5222d3e82ed27de698bed42257097e9bd59f0d60f64ea7ae46b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "91152cced755097c42117c72e71f3db9023716e2e9befd1e8a6630fd225e3cea"
+    sha256 cellar: :any_skip_relocation, sierra:        "3954ad75806e1948a4e69efb74fb2e86a4920c7e6b61537ca48f696289ca998a"
   end
 
   def install

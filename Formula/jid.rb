@@ -1,67 +1,24 @@
-require "language/go"
-
 class Jid < Formula
   desc "Json incremental digger"
   homepage "https://github.com/simeji/jid"
-  url "https://github.com/simeji/jid/archive/0.7.2.tar.gz"
-  sha256 "a16932049fb617fd7490742fcd3b5f131873309a12d97adbaf41a882cd1b99d1"
+  url "https://github.com/simeji/jid/archive/v0.7.6.tar.gz"
+  sha256 "0912050b3be3760804afaf7ecd6b42bfe79e7160066587fbc0afa5324b03fb48"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b6de24c980241a14be660440dc9aba403841f5cae50c5aa973bce92ebd1c2081" => :high_sierra
-    sha256 "59624c107014497a6596ce33a6344c1456731a2784ffb4e92bf0075ddda16ffa" => :sierra
-    sha256 "a77b38789f565878c3dd89b031693fcb35ed60404172a4fb3702b6e0f69f76e5" => :el_capitan
-    sha256 "baf231928a3d2c899f3c7ebdfae167cca4b00623def455fb4eca4b0c6ecc7f71" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "37f25dc38d57a971fb609224c33802bfa4213b58d825b188a67eb653af1c9e2f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "703bee89d514891dec82186680f2ee9837b1599721c3d68405fd4c72d015a811"
+    sha256 cellar: :any_skip_relocation, catalina:      "0b45fe9c59facbc6b2bbacf4b52927934b09d6e2050ad3a5b5a32434a4bd4751"
+    sha256 cellar: :any_skip_relocation, mojave:        "2980bf16f4376b7bdfc27e0e6bbe45d9e1f8aca8a143f6f7b6fd939eb6892617"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d429ac5400fd67dcee12e5fe962e84f535858c7ecb3235ee01f8a54dc44e7a9e"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/bitly/go-simplejson" do
-    url "https://github.com/bitly/go-simplejson.git",
-        :revision => "aabad6e819789e569bd6aabf444c935aa9ba1e44"
-  end
-
-  go_resource "github.com/fatih/color" do
-    url "https://github.com/fatih/color.git",
-        :revision => "42c364ba490082e4815b5222728711b3440603eb"
-  end
-
-  go_resource "github.com/mattn/go-colorable" do
-    url "https://github.com/mattn/go-colorable.git",
-        :revision => "d228849504861217f796da67fae4f6e347643f15"
-  end
-
-  go_resource "github.com/mattn/go-isatty" do
-    url "https://github.com/mattn/go-isatty.git",
-        :revision => "30a891c33c7cde7b02a981314b4228ec99380cca"
-  end
-
-  go_resource "github.com/mattn/go-runewidth" do
-    url "https://github.com/mattn/go-runewidth.git",
-        :revision => "737072b4e32b7a5018b4a7125da8d12de90e8045"
-  end
-
-  go_resource "github.com/nsf/termbox-go" do
-    url "https://github.com/nsf/termbox-go.git",
-        :revision => "abe82ce5fb7a42fbd6784a5ceb71aff977e09ed8"
-  end
-
-  go_resource "github.com/nwidger/jsoncolor" do
-    url "https://github.com/nwidger/jsoncolor.git",
-        :revision => "0192e84d44af834c3a90c8a17bf670483b91ad5a"
-  end
-
-  go_resource "github.com/pkg/errors" do
-    url "https://github.com/pkg/errors.git",
-        :revision => "248dadf4e9068a0b3e79f02ed0a610d935de5302"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/simeji").mkpath
-    ln_sf buildpath, buildpath/"src/github.com/simeji/jid"
-    Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "-o", bin/"jid", "cmd/jid/jid.go"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"jid", "cmd/jid/jid.go"
+    prefix.install_metafiles
   end
 
   test do

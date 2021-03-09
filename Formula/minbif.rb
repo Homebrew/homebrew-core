@@ -1,37 +1,28 @@
 class Minbif < Formula
   desc "IRC-to-other-IM-networks gateway using Pidgin library"
-  homepage "https://symlink.me/projects/minbif/wiki/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/minbif/minbif_1.0.5+git20150505.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/minbif/minbif_1.0.5+git20150505.orig.tar.gz"
+  homepage "https://web.archive.org/web/20180831190920/https://symlink.me/projects/minbif/wiki/"
+  url "https://deb.debian.org/debian/pool/main/m/minbif/minbif_1.0.5+git20150505.orig.tar.gz"
   version "1.0.5-20150505"
   sha256 "4e264fce518a0281de9fc3d44450677c5fa91097a0597ef7a0d2a688ee66d40b"
-  revision 1
+  license "GPL-2.0-only"
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "645208299622c8d182d71635448c3c7370c232cd9c3ecaf77a633d6eb8b7a42f" => :high_sierra
-    sha256 "a7e4aa9c3213c3740bbc7c9f6e9d02f6a7905e038bb147127f1c99c87830ed36" => :sierra
-    sha256 "a2975f09ebf6254df989164f832f80e7bf9e7d65a6c160375ffff6512c2b10bd" => :el_capitan
-    sha256 "78a992db3b47f3ecaf331d3f81d5920f99b611f2dec1f8cafa5b1d318bb87abc" => :yosemite
-    sha256 "a2affd1a3d8691f4f794a7d20b4d45b03c0ef79f9253d4d4bb0fdda79e5fe30d" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "fe93338a9056edd1860252df688c5924ec0b5846455a4b171360495c9a9f05fb"
+    sha256 cellar: :any, big_sur:       "32991355535b355a589e921c72aba99a161d7b3a8dd83dd3e971d5bb9929afab"
+    sha256 cellar: :any, catalina:      "57dc630a96ec93b8168d569cc1ff0152f381ca52c10d2b6b7bffc1d91cbc14a2"
+    sha256 cellar: :any, mojave:        "479cfbb3b59f2c0c05b0553188ae2497ee313b02e5850172bb7055231def61b8"
+    sha256 cellar: :any, sierra:        "5b8a0fd609cda94163f95c7d0b6620c143b3ff127178d37a57b76493231c73cc"
   end
 
-  option "with-pam", "Build with PAM support, patching for OSX PAM headers"
+  deprecate! date: "2020-12-29", because: :unmaintained
 
-  deprecated_option "pam" => "with-pam"
-
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "glib"
+  depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "pidgin"
+  depends_on "glib"
   depends_on "gnutls"
-  depends_on "imlib2" => :optional
-  depends_on "libcaca" => :optional
-
-  # Problem:  Apple doesn't have <security/pam_misc.h> so don't ask for it.
-  # Reported: https://symlink.me/issues/917
-  patch :DATA if build.with? "pam"
+  depends_on "pidgin"
 
   def install
     inreplace "minbif.conf" do |s|
@@ -39,28 +30,25 @@ class Minbif < Formula
       s.gsub! "motd = /etc", "motd = #{etc}"
     end
 
-    args = %W[
-      PREFIX=#{prefix}
-      ENABLE_MINBIF=ON
-      ENABLE_PLUGIN=ON
-      ENABLE_VIDEO=OFF
-      ENABLE_TLS=ON
-    ]
-    args << "ENABLE_IMLIB=" + (build.with?("imlib2") ? "ON" : "OFF")
-    args << "ENABLE_CACA=" + (build.with?("libcaca") ? "ON" : "OFF")
-    args << "ENABLE_PAM=" + (build.with?("pam") ? "ON" : "OFF")
-
-    system "make", *args
+    system "make", "PREFIX=#{prefix}",
+                   "ENABLE_CACA=OFF",
+                   "ENABLE_IMLIB=OFF",
+                   "ENABLE_MINBIF=ON",
+                   "ENABLE_PAM=OFF",
+                   "ENABLE_PLUGIN=ON",
+                   "ENABLE_TLS=ON",
+                   "ENABLE_VIDEO=OFF"
     system "make", "install"
 
     (var/"lib/minbif/users").mkpath
   end
 
-  def caveats; <<~EOS
-    Minbif must be passed its config as first argument:
-        minbif #{etc}/minbif/minbif.conf
+  def caveats
+    <<~EOS
+      Minbif must be passed its config as first argument:
+          minbif #{etc}/minbif/minbif.conf
 
-    Learn more about minbif: https://symlink.me/projects/minbif/wiki/Quick_start
+      Learn more about minbif: https://web.archive.org/web/20160714124330/https://symlink.me/projects/minbif/wiki/Quick_start
     EOS
   end
 
@@ -68,18 +56,3 @@ class Minbif < Formula
     system "#{bin}/minbif", "--version"
   end
 end
-
-__END__
---- a/src/im/auth_pam.h	2012-05-14 02:44:27.000000000 -0700
-+++ b/src/im/auth_pam.h	2012-10-12 10:16:47.000000000 -0700
-@@ -21,7 +21,10 @@
-
- #include "auth.h"
- #include <security/pam_appl.h>
-+
-+#ifndef __APPLE__
- #include <security/pam_misc.h>
-+#endif
-
- struct _pam_conv_func_data {
-	bool update;

@@ -1,12 +1,13 @@
 class Blackbox < Formula
   desc "Safely store secrets in Git/Mercurial/Subversion"
   homepage "https://github.com/StackExchange/blackbox"
-  url "https://github.com/StackExchange/blackbox/archive/v1.20170611.tar.gz"
-  sha256 "dcdc7a9b7c9fd7144c90baa5f48041af434ed4c8f77c8e41f1017789a2f9c017"
+  url "https://github.com/StackExchange/blackbox/archive/v2.0.0.tar.gz"
+  sha256 "0a8fee39dc46436472528ea3a5743c42ebefc068519545fe6fca57041f42deae"
+  license "MIT"
 
   bottle :unneeded
 
-  depends_on :gpg => :run
+  depends_on "gnupg"
 
   def install
     libexec.install Dir["bin/*"]

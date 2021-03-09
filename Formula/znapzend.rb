@@ -1,23 +1,66 @@
 class Znapzend < Formula
   desc "ZFS backup with remote capabilities and mbuffer integration"
-  homepage "http://www.znapzend.org"
-  url "https://github.com/oetiker/znapzend/releases/download/v0.17.0/znapzend-0.17.0.tar.gz"
-  sha256 "f1fb2090d3e1dc3f5c090def9537ee5308d2b0c88cf97f1c22e14114499fdf48"
+  homepage "https://www.znapzend.org/"
+  url "https://github.com/oetiker/znapzend/releases/download/v0.20.0/znapzend-0.20.0.tar.gz"
+  sha256 "c0a1ab9df5d6c4936560b5f8f08d393d4e99313da190fa404cd8ee5df420a7ca"
+  head "https://github.com/oetiker/znapzend.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c45731738fb108265f45b306fddbe092abd87cc3142cd0865da0232e0fc5f66f" => :high_sierra
-    sha256 "eb53a6be8ea72b0a38ad708117680607438f5a6be8bfbd343372c2504fed6c3f" => :sierra
-    sha256 "f9dfe88cd397e098035ef459ca50f3221f94438eb60cd0f39fe146958bc930f9" => :el_capitan
-    sha256 "0e39422d2f6fd57fd26a23b137e98f09fcb97b43c0d9d980b0fda26012e469e3" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b2b88cca83d22ee9484aebd5f2643d4c9d40b8156ad75c86d480d6c14b30d40e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5f33411823e939c59d7c9b117f042654dc4b6eac4a9d7a0fa20c4f8df0d21385"
+    sha256 cellar: :any_skip_relocation, catalina:      "37b73cba5b7ed887b1e72175d3c601c08e449ed3bbcaa87668641704477889d1"
+    sha256 cellar: :any_skip_relocation, mojave:        "9a508c6a3fb15609b3552ce38369b16664f08515f635bd8a3dc92ed79d17d381"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "18e1269f3ab2964382c1cc7578fa8785ee7ba1412a1c247861d76accde2a6cc5"
   end
-
-  depends_on "perl" if MacOS.version <= :mavericks
 
   def install
     system "./configure", "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  def post_install
+    (var/"log/znapzend").mkpath
+    (var/"run/znapzend").mkpath
+  end
+
+  plist_options startup: true, manual: "sudo znapzend --daemonize"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>EnvironmentVariables</key>
+          <dict>
+            <key>PATH</key>
+            <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:#{HOMEBREW_PREFIX}/bin</string>
+          </dict>
+          <key>KeepAlive</key>
+          <true/>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/znapzend</string>
+            <string>--connectTimeout=120</string>
+            <string>--logto=#{var}/log/znapzend/znapzend.log</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/znapzend/znapzend.err.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/znapzend/znapzend.out.log</string>
+          <key>ThrottleInterval</key>
+          <integer>30</integer>
+          <key>WorkingDirectory</key>
+          <string>#{var}/run/znapzend</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

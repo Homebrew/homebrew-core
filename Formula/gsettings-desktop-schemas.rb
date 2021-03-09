@@ -1,32 +1,34 @@
 class GsettingsDesktopSchemas < Formula
   desc "GSettings schemas for desktop components"
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
-  url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.24/gsettings-desktop-schemas-3.24.1.tar.xz"
-  sha256 "76a3fa309f9de6074d66848987214f0b128124ba7184c958c15ac78a8ac7eea7"
+  url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.38/gsettings-desktop-schemas-3.38.0.tar.xz"
+  sha256 "5704c8266004b296036671f223c705dc046aa694a1b1abb87c67e7d2747a8c67"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6852bd372272eb28017382189011107af8563211a86ef4e8f9b686cef440fc66" => :high_sierra
-    sha256 "e4f5ab8d16e84e09cf10439b7f827d80b403efe598e3b05d593b745d1d5675fa" => :sierra
-    sha256 "e4f5ab8d16e84e09cf10439b7f827d80b403efe598e3b05d593b745d1d5675fa" => :el_capitan
-    sha256 "e4f5ab8d16e84e09cf10439b7f827d80b403efe598e3b05d593b745d1d5675fa" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a19a6b6a472566b10ceee4ee1d91c498097cd4e55ed56bfb875cf99e2223cc35"
+    sha256 cellar: :any_skip_relocation, big_sur:       "abb92dac931cdbbe96c43137c3df3173b41c86565c1053a5578e4b36312de480"
+    sha256 cellar: :any_skip_relocation, catalina:      "0bcc0f743e141beb151ad2b400c40a4d30e317d1080437e359095fb53da3c8e4"
+    sha256 cellar: :any_skip_relocation, mojave:        "dd69129d87fd0b0c435b29b19e2ac9cea2d1a72d557aed9b3db1202afb49578d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "63a1370fe1e1e58eabb9e608cb992a8391e2ba11c0940899d4c37c3c43088ff2"
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "gettext"
-  depends_on "libffi"
-  depends_on "python" if MacOS.version <= :mavericks
+
+  uses_from_macos "expat"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile",
-                          "--enable-introspection=yes"
-    system "make", "install"
+    ENV["DESTDIR"] = "/"
+
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   def post_install

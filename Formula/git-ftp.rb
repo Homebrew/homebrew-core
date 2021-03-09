@@ -1,25 +1,27 @@
 class GitFtp < Formula
   desc "Git-powered FTP client"
   homepage "https://git-ftp.github.io/"
-  url "https://github.com/git-ftp/git-ftp/archive/1.4.0.tar.gz"
-  sha256 "080e9385a9470d70a5a2a569c6e7db814902ffed873a77bec9d0084bcbc3e054"
-  revision 3
-  head "https://github.com/git-ftp/git-ftp.git", :branch => "develop"
+  url "https://github.com/git-ftp/git-ftp/archive/1.6.0.tar.gz"
+  sha256 "088b58d66c420e5eddc51327caec8dcbe8bddae557c308aa739231ed0490db01"
+  license "GPL-3.0"
+  head "https://github.com/git-ftp/git-ftp.git", branch: "develop"
 
   bottle do
-    cellar :any
-    sha256 "1b204b572ece0c781babed606ed137e25b5d1ed37988ca6f6a1c9c9ef4d7343a" => :high_sierra
-    sha256 "62c93c15a1979e23eba20dd8a265b428c043f2a9d4c0c47370ff943b01b8a433" => :sierra
-    sha256 "98d5acff82c7a3bff144f2d3110b8c9538390afc31562357a5118d068b059f33" => :el_capitan
+    sha256 cellar: :any, big_sur:     "2e3d8573c71ae26fdac0d0d8952e625b5a14d90118a6a413604eac8c3a6f6eb6"
+    sha256 cellar: :any, catalina:    "0a61ca11e69370dfecfd3c82d6d03aeec377bf9db660658403556ea71b84bae0"
+    sha256 cellar: :any, mojave:      "f878c4015697794bb8b2c3f034a167b750d3871c0d320d903536128f01880ca2"
+    sha256 cellar: :any, high_sierra: "63c8b94fd89eb635d8c2056efdf933de45dca7fdb04793b620750f8b338fbb88"
   end
 
   depends_on "pandoc" => :build
   depends_on "libssh2"
 
+  uses_from_macos "zlib"
+
   resource "curl" do
-    url "https://curl.haxx.se/download/curl-7.57.0.tar.bz2"
-    mirror "http://curl.askapache.com/download/curl-7.57.0.tar.bz2"
-    sha256 "c92fe31a348eae079121b73884065e600c533493eb50f1f6cee9c48a3f454826"
+    url "https://curl.haxx.se/download/curl-7.69.0.tar.bz2"
+    mirror "https://curl.askapache.com/download/curl-7.69.0.tar.bz2"
+    sha256 "668d451108a7316cff040b23c79bc766e7ed84122074e44f662b8982f2e76739"
   end
 
   def install
@@ -28,14 +30,15 @@ class GitFtp < Formula
                             "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{libexec}",
+                            "--disable-ares",
                             "--with-darwinssl",
+                            "--with-libssh2",
+                            "--without-brotli",
                             "--without-ca-bundle",
                             "--without-ca-path",
-                            "--with-libssh2",
-                            "--without-libmetalink",
                             "--without-gssapi",
-                            "--without-librtmp",
-                            "--disable-ares"
+                            "--without-libmetalink",
+                            "--without-librtmp"
       system "make", "install"
     end
 
@@ -43,7 +46,7 @@ class GitFtp < Formula
     system "make", "-C", "man", "man"
     man1.install "man/git-ftp.1"
     (libexec/"bin").install bin/"git-ftp"
-    (bin/"git-ftp").write_env_script(libexec/"bin/git-ftp", :PATH => "#{libexec}/bin:$PATH")
+    (bin/"git-ftp").write_env_script(libexec/"bin/git-ftp", PATH: "#{libexec}/bin:$PATH")
   end
 
   test do

@@ -1,23 +1,20 @@
 class Libcds < Formula
   desc "C++ library of Concurrent Data Structures"
   homepage "https://libcds.sourceforge.io/doc/cds-api/index.html"
-  url "https://github.com/khizmax/libcds/archive/v2.3.1.tar.gz"
-  sha256 "3754718beafc973fa6a7af9fbb43a4c3d031de86ab793cd439b897e2747e95bc"
+  url "https://github.com/khizmax/libcds/archive/v2.3.3.tar.gz"
+  sha256 "f090380ecd6b63a3c2b2f0bdb27260de2ccb22486ef7f47cc1175b70c6e4e388"
+  license "BSL-1.0"
 
   bottle do
-    cellar :any
-    sha256 "316f5b50f424b1a2dec276d788bc1439329f38ea09c2fc75da47f4384af96efc" => :high_sierra
-    sha256 "e2835b0a3b41618da31392fc35e62556e5e1bac35248b126e830fccde5817109" => :sierra
-    sha256 "587c4a2874cf3484591fba7a31654486b9d76d264e02e7b5e38e81bec507df30" => :el_capitan
-    sha256 "3a179bcaf925ea852fe737b899ab97941c7ca11709e9afda9c97524739ee7a30" => :yosemite
+    sha256 cellar: :any, big_sur:     "8933bb8f315e15e385985ba2ddd4b1ebecbcce970fa434afb8648d1d95b34e5d"
+    sha256 cellar: :any, catalina:    "d2ac7fe9c424707b1a2698fabed2a81645bb4f79f9fb943a279aee1cfc5d38d9"
+    sha256 cellar: :any, mojave:      "ed2baad62fe26da2891255221ee90a8d69f84214431dce923dd7c55aafa39668"
+    sha256 cellar: :any, high_sierra: "9723b22f7a6e84ef208226241ed3b19dd02b4c9aed9c01284f55bd9b825e216e"
+    sha256 cellar: :any, sierra:      "fdc30046c9f96c04d7c52d43e948d2e238fb93eee5514101a0dd0ca4de3f2b32"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
-  if DevelopmentTools.clang_build_version < 800
-    depends_on "gcc"
-    fails_with :clang
-  end
 
   def install
     system "cmake", ".", *std_cmake_args

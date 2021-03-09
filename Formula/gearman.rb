@@ -1,80 +1,57 @@
 class Gearman < Formula
   desc "Application framework to farm out work to other machines or processes"
   homepage "http://gearman.org/"
-  url "https://github.com/gearman/gearmand/releases/download/1.1.17/gearmand-1.1.17.tar.gz"
-  sha256 "f9fa59d60c0ad03b449942c6fe24abe09456056852fae89a05052fa25c113c0f"
+  url "https://github.com/gearman/gearmand/releases/download/1.1.19.1/gearmand-1.1.19.1.tar.gz"
+  sha256 "8ea6e0d16a0c924e6a65caea8a7cd49d3840b9256d440d991de4266447166bfb"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "91bbdfb493befa2b4f45c68b43182dc2df36af5a72b0c28e4dd97adcdc9eb3ed" => :high_sierra
-    sha256 "529a37d7f9648ed0371529bab74b12173ca3ead3c9d6bd4e193f2097c0a9fe83" => :sierra
-    sha256 "8f70079e03761e0711231a5ca77f450e490bfeb4e668e4be9c8ce6de2ef52fee" => :el_capitan
-    sha256 "12616febecef3a1a5951296bf3f7efa30637688318713969c74931b95f01313f" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "6e3d3504ff3a5d4fb152ec03975aacea300cfca0875c8370c6dcb7bbcbc9ccda"
+    sha256 cellar: :any, big_sur:       "1a700a2938db5507f0f2b81c58988d563c5ad41eeb892bc31f1f4c918a882930"
+    sha256 cellar: :any, catalina:      "3a1a4bc57288dea7905134d9290c88a04273f7cc6361646694324e3bc9eb42d3"
+    sha256 cellar: :any, mojave:        "582d1de464569352536501e2aa832a9bc540220eae335b682411ecadffbfe198"
+    sha256 cellar: :any, high_sierra:   "8664f5b9c91ef99190cb70000758aa3d50f68afcad01d2e8cac234adf6a5424c"
   end
-
-  option "with-mysql", "Compile with MySQL persistent queue enabled"
-  option "with-postgresql", "Compile with Postgresql persistent queue enabled"
-
-  # https://github.com/Homebrew/homebrew/issues/33246
-  patch :DATA
 
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "boost"
   depends_on "libevent"
-  depends_on "libpqxx" if build.with? "postgresql"
-  depends_on :mysql => :optional
-  depends_on :postgresql => :optional
-  depends_on "hiredis" => :optional
-  depends_on "libmemcached" => :optional
-  depends_on "openssl" => :optional
-  depends_on "wolfssl" => :optional
-  depends_on "tokyo-cabinet" => :optional
+  depends_on "libmemcached"
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
-    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+    if MacOS.version == :high_sierra
+      ENV.delete("HOMEBREW_SDKROOT")
+      ENV.delete("SDKROOT")
+    end
 
     # https://bugs.launchpad.net/gearmand/+bug/1368926
     Dir["tests/**/*.cc", "libtest/main.cc"].each do |test_file|
-      next unless /std::unique_ptr/ =~ File.read(test_file)
+      next unless /std::unique_ptr/.match?(File.read(test_file))
+
       inreplace test_file, "std::unique_ptr", "std::auto_ptr"
     end
 
-    args = [
-      "--prefix=#{prefix}",
-      "--localstatedir=#{var}",
-      "--disable-silent-rules",
-      "--disable-dependency-tracking",
-      "--disable-libdrizzle",
-      "--with-boost=#{Formula["boost"].opt_prefix}",
-      "--with-sqlite3",
+    args = %W[
+      --prefix=#{prefix}
+      --localstatedir=#{var}
+      --disable-silent-rules
+      --disable-dependency-tracking
+      --disable-cyassl
+      --disable-hiredis
+      --disable-libdrizzle
+      --disable-libpq
+      --disable-libtokyocabinet
+      --disable-ssl
+      --enable-libmemcached
+      --with-boost=#{Formula["boost"].opt_prefix}
+      --with-memcached=#{Formula["memcached"].opt_bin}/memcached
+      --with-sqlite3
+      --without-mysql
+      --without-postgresql
     ]
-
-    if build.with? "cyassl"
-      args << "--enable-ssl" << "--enable-cyassl"
-    elsif build.with? "openssl"
-      args << "--enable-ssl" << "--with-openssl=#{Formula["openssl"].opt_prefix}" << "--disable-cyassl"
-    else
-      args << "--disable-ssl" << "--disable-cyassl"
-    end
-
-    if build.with? "postgresql"
-      args << "--enable-libpq" << "--with-postgresql=#{Formula["postgresql"].opt_bin}/pg_config"
-    else
-      args << "--disable-libpq" << "--without-postgresql"
-    end
-
-    if build.with? "libmemcached"
-      args << "--enable-libmemcached" << "--with-memcached=#{Formula["memcached"].opt_bin}/memcached"
-    else
-      args << "--disable-libmemcached" << "--without-memcached"
-    end
-
-    args << "--disable-libtokyocabinet" if build.without? "tokyo-cabinet"
-
-    args << (build.with?("mysql") ? "--with-mysql=#{Formula["mysql"].opt_bin}/mysql_config" : "--without-mysql")
-    args << (build.with?("hiredis") ? "--enable-hiredis" : "--disable-hiredis")
 
     ENV.append_to_cflags "-DHAVE_HTONLL"
 
@@ -83,47 +60,27 @@ class Gearman < Formula
     system "make", "install"
   end
 
-  plist_options :manual => "gearmand -d"
+  plist_options manual: "gearmand -d"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-    "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>Program</key>
-        <string>#{opt_sbin}/gearmand</string>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
+      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>Program</key>
+          <string>#{opt_sbin}/gearmand</string>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
     EOS
   end
 
   test do
-    assert_match /gearman\s*Error in usage/, shell_output("#{bin}/gearman --version 2>&1", 1)
+    assert_match(/gearman\s*Error in usage/, shell_output("#{bin}/gearman --version 2>&1", 1))
   end
 end
-
-__END__
-diff --git a/libgearman/byteorder.cc b/libgearman/byteorder.cc
-index 674fed9..b2e2182 100644
---- a/libgearman/byteorder.cc
-+++ b/libgearman/byteorder.cc
-@@ -65,6 +65,8 @@ static inline uint64_t swap64(uint64_t in)
- }
- #endif
- 
-+#ifndef HAVE_HTONLL
-+
- uint64_t ntohll(uint64_t value)
- {
-   return swap64(value);
-@@ -74,3 +76,5 @@ uint64_t htonll(uint64_t value)
- {
-   return swap64(value);
- }
-+
-+#endif

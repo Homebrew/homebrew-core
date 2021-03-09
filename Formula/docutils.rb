@@ -3,16 +3,19 @@ class Docutils < Formula
 
   desc "Text processing system for reStructuredText"
   homepage "https://docutils.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/docutils/docutils/0.14/docutils-0.14.tar.gz"
-  sha256 "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+  url "https://downloads.sourceforge.net/project/docutils/docutils/0.16/docutils-0.16.tar.gz"
+  sha256 "7d4e999cca74a52611773a42912088078363a30912e8822f7a3d38043b767573"
+  revision 2
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e54f0dadb8de1059b925dd9f59ff605a04486ddc075459b63bf01b706891aaeb" => :high_sierra
-    sha256 "c48f799c313e8c8008ced95c907c902284c289e7f1212ef96d8770f28dd56a01" => :sierra
-    sha256 "823debb7f2b27abbd6e4deb33bcc6cf322c2f79d4b976262b852d95fad36c3dd" => :el_capitan
-    sha256 "53e168f1335e9198d4948b2d89c434097b8878c835efeb2c6f0f116353212702" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bf6ed6207b7aa3f030661e670e69a561af961c6ed3f920489997454c137480b4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5a05e748f77245ccca711d5363d498b4c5c656fed6600bd3b011aa38b3d579fc"
+    sha256 cellar: :any_skip_relocation, catalina:      "b29e292e287170881f5e88d0e05fa41420515081126e486332d9036c8024f9ef"
+    sha256 cellar: :any_skip_relocation, mojave:        "8fe38011ae417e9f2476fdadc5a3c96558fa4f6ce7c86ac3961a71b9b35ecfbc"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "771eee4e347d10e5e9722e2c74f99c31e4c712aa06d422bd1c03903b2bba7b97"
   end
+
+  depends_on "python@3.9"
 
   def install
     virtualenv_install_with_resources

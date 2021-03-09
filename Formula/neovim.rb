@@ -1,37 +1,66 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
-  url "https://github.com/neovim/neovim/archive/v0.2.2.tar.gz"
-  sha256 "a838ee07cc9a2ef8ade1b31a2a4f2d5e9339e244ade68e64556c1f4b40ccc5ed"
-  head "https://github.com/neovim/neovim.git"
+  license "Apache-2.0"
+  revision 1
+
+  stable do
+    url "https://github.com/neovim/neovim/archive/v0.4.4.tar.gz"
+    sha256 "2f76aac59363677f37592e853ab2c06151cca8830d4b3fe4675b4a52d41fc42c"
+
+    # Patch for Apple Silicon. Backported from
+    # https://github.com/neovim/neovim/pull/12624
+    patch :DATA
+  end
 
   bottle do
-    sha256 "5511bf90172647f7b0eda6587a5b1e43cee22401bed32a40344f9205d32be48e" => :high_sierra
-    sha256 "e05a7844a25e252ca9460331cc4522eeda7c213124306324cbbd4fb9e45b10b3" => :sierra
-    sha256 "d5d62f862a89868655f9d0ab12a8742e4ec605a96a7c44a7e23cfe2961fb5542" => :el_capitan
+    rebuild 1
+    sha256 arm64_big_sur: "306ef84a70624fa5924d04b0fe949e16433bc7f0a5bab86af368b780926a86a8"
+    sha256 big_sur:       "3a958561859b4f526a729d0efd7030eb57580ba7dc97decff586de6b2c48f804"
+    sha256 catalina:      "c5f97d4a2740a93137452feba2640a401f3bea83bc3b5b5fc2235a043f05cce8"
+    sha256 mojave:        "3646015b633d5c5044f3a27ee64c0a10c11a6554f0de2f0989e7e77b11d11c2c"
+  end
+
+  head do
+    url "https://github.com/neovim/neovim.git"
+    depends_on "tree-sitter"
   end
 
   depends_on "cmake" => :build
-  depends_on "lua@5.1" => :build
+  depends_on "luarocks" => :build
+  depends_on "luv" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
-  depends_on "jemalloc"
   depends_on "libtermkey"
   depends_on "libuv"
   depends_on "libvterm"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "msgpack"
   depends_on "unibilium"
-  depends_on :python if MacOS.version <= :snow_leopard
 
-  resource "lpeg" do
-    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.1-1.src.rock", :using => :nounzip
-    sha256 "149be31e0155c4694f77ea7264d9b398dd134eca0d00ff03358d91a6cfb2ea9d"
+  uses_from_macos "gperf" => :build
+  uses_from_macos "unzip" => :build
+
+  on_linux do
+    depends_on "libnsl"
   end
 
+  # Keep resources updated according to:
+  # https://github.com/neovim/neovim/blob/v#{version}/third-party/CMakeLists.txt
+
   resource "mpack" do
-    url "https://luarocks.org/manifests/tarruda/mpack-1.0.6-0.src.rock", :using => :nounzip
-    sha256 "9068d9d3f407c72a7ea18bc270b0fa90aad60a2f3099fa23d5902dd71ea4cd5f"
+    url "https://github.com/libmpack/libmpack-lua/releases/download/1.0.8/libmpack-lua-1.0.8.tar.gz"
+    sha256 "ed6b1b4bbdb56f26241397c1e168a6b1672f284989303b150f7ea8d39d1bc9e9"
+  end
+
+  resource "lpeg" do
+    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.2-1.src.rock"
+    sha256 "e0d0d687897f06588558168eeb1902ac41a11edd1b58f1aa61b99d0ea0abbfbc"
+  end
+
+  resource "inspect" do
+    url "https://luarocks.org/manifests/kikito/inspect-3.1.1-0.src.rock"
+    sha256 "ea1f347663cebb523e88622b1d6fe38126c79436da4dbf442674208aa14a8f4c"
   end
 
   def install
@@ -41,16 +70,34 @@ class Neovim < Formula
 
     ENV.prepend_path "LUA_PATH", "#{buildpath}/deps-build/share/lua/5.1/?.lua"
     ENV.prepend_path "LUA_CPATH", "#{buildpath}/deps-build/lib/lua/5.1/?.so"
+    lua_path = "--lua-dir=#{Formula["luajit-openresty"].opt_prefix}"
 
     cd "deps-build" do
-      system "luarocks-5.1", "build", "build/src/lpeg/lpeg-1.0.1-1.src.rock", "--tree=."
-      system "luarocks-5.1", "build", "build/src/mpack/mpack-1.0.6-0.src.rock", "--tree=."
-      system "cmake", "../third-party", "-DUSE_BUNDLED=OFF", *std_cmake_args
-      system "make"
+      %w[
+        mpack/mpack-1.0.8-0.rockspec
+        lpeg/lpeg-1.0.2-1.src.rock
+        inspect/inspect-3.1.1-0.src.rock
+      ].each do |rock|
+        dir, rock = rock.split("/")
+        cd "build/src/#{dir}" do
+          output = Utils.safe_popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{buildpath}/deps-build")
+          unpack_dir = output.split("\n")[-2]
+          cd unpack_dir do
+            system "luarocks", "make", lua_path, "--tree=#{buildpath}/deps-build"
+          end
+        end
+      end
     end
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      cmake_args = std_cmake_args
+      cmake_args += %W[
+        -DLIBLUV_INCLUDE_DIR=#{Formula["luv"].opt_include}
+        -DLIBLUV_LIBRARY=#{Formula["luv"].opt_lib}/libluv_a.a
+      ]
+      system "cmake", "..", *cmake_args
+      # Patch out references to Homebrew shims
+      inreplace "config/auto/versiondef.h", /#{HOMEBREW_LIBRARY}[^ ]+/o, ENV.cc
       system "make", "install"
     end
   end
@@ -62,3 +109,26 @@ class Neovim < Formula
     assert_equal "Hello World from Neovim!!", (testpath/"test.txt").read.chomp
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6b3a8dc..f3370e3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -358,16 +358,6 @@ if(CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
+   add_definitions(-D_GNU_SOURCE)
+ endif()
+ 
+-if(CMAKE_SYSTEM_NAME STREQUAL "Darwin" AND CMAKE_SIZEOF_VOID_P EQUAL 8)
+-  # Required for luajit.
+-  set(CMAKE_EXE_LINKER_FLAGS
+-    "${CMAKE_EXE_LINKER_FLAGS} -pagezero_size 10000 -image_base 100000000")
+-  set(CMAKE_SHARED_LINKER_FLAGS
+-    "${CMAKE_SHARED_LINKER_FLAGS} -image_base 100000000")
+-  set(CMAKE_MODULE_LINKER_FLAGS
+-    "${CMAKE_MODULE_LINKER_FLAGS} -image_base 100000000")
+-endif()
+-
+ include_directories("${PROJECT_BINARY_DIR}/config")
+ include_directories("${PROJECT_SOURCE_DIR}/src")
+ 

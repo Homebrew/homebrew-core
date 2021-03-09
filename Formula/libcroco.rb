@@ -1,20 +1,24 @@
 class Libcroco < Formula
   desc "CSS parsing and manipulation toolkit for GNOME"
-  homepage "http://www.linuxfromscratch.org/blfs/view/svn/general/libcroco.html"
-  url "https://download.gnome.org/sources/libcroco/0.6/libcroco-0.6.12.tar.xz"
-  sha256 "ddc4b5546c9fb4280a5017e2707fbd4839034ed1aba5b7d4372212f34f84f860"
+  homepage "https://gitlab.gnome.org/GNOME/libcroco"
+  url "https://download.gnome.org/sources/libcroco/0.6/libcroco-0.6.13.tar.xz"
+  sha256 "767ec234ae7aa684695b3a735548224888132e063f92db585759b422570621d4"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "0bf41b44e72e39031c1ece76c12b20dc8bc566931c87baa484787c478f5fe4b7" => :high_sierra
-    sha256 "26530657c9133fb47b9749889603507bc493cb85e4a61818014a1939e3cbd692" => :sierra
-    sha256 "2e8e7dfb8acc4e79089f3409a4a4772ec0b243e1e773070d4e8323acb939e668" => :el_capitan
-    sha256 "46e3c7e47448859863644d50ac6d940a19a1bfd7f5a99d4d753e4e3885654767" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "d6cced1a48822aac65fbb995159f26ed0552217d125969bcae4bd61bdf223407"
+    sha256 cellar: :any, big_sur:       "001998f7977aa0e07aa26ab431422e56b2de76dcb7b75dee392f0d0f3674197a"
+    sha256 cellar: :any, catalina:      "bc64de8725726ae0188ec23dc9946759565f06e45d3eb10e510d5d42d0888e28"
+    sha256 cellar: :any, mojave:        "edf97f493296bfe01b2a8cfe156f1e8052e181bed6ea34cabaf18ed59ef28b17"
+    sha256 cellar: :any, high_sierra:   "f6e7d7d608dfcf6e57eaad77eef3cca27c15db0746e102f6dc33cccdd5a8a7bc"
+    sha256 cellar: :any, sierra:        "a95e3733bd72b789cc9a3cb9dfc9a92153939b984c4d1d47b8aa806e99e99552"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "glib"
+
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-dependency-tracking",

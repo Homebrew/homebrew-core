@@ -1,32 +1,34 @@
 class Qcli < Formula
   desc "Report audiovisual metrics via libavfilter"
   homepage "https://bavc.org/preserve-media/preservation-tools"
-  url "https://github.com/bavc/qctools/archive/v0.9.tar.gz"
-  sha256 "19ef4be054ebfca70a07043afea20bcca241ba08d70a47acda837ead849aff03"
-  revision 1
+  url "https://github.com/bavc/qctools/archive/v1.2.tar.gz"
+  sha256 "d648a5fb6076c6367e4eac320018ccbd1eddcb2160ce175b361b46fcf0d4a710"
+  license "GPL-3.0-or-later"
+  revision 2
   head "https://github.com/bavc/qctools.git"
 
   bottle do
-    cellar :any
-    sha256 "85c4d9c01c16fb9a23a1e673c5738a153c1c1ecccaf2329d07fe99352cb5ae57" => :high_sierra
-    sha256 "4e57855a7745eeefe34ce80e3bfcf01c861b15c51d79c5c58817fc65ff6ebb02" => :sierra
-    sha256 "67a2fefb5891000c32e01c3e161762a905afc18e22b36c7cc0e7f4b5b4bb3440" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "cef087971d3749ecf47034171457c2cc838dad1298f5f7606a524b4c86f9d2f3"
+    sha256 cellar: :any, big_sur:       "227a1bf258d07d729f5060e75c512b708bf6fa816e40adc9d4126dafd3fabbdf"
+    sha256 cellar: :any, catalina:      "b4822c9f864d0fe3b0a0d1e81efaef5daaad3e3f7efd3d520a0ebb711181622d"
+    sha256 cellar: :any, mojave:        "39f76c5605152c55bc40454dfbf2ec895af7d2a359c88692bbe0c49388c0a478"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qwt"
-  depends_on "qt"
   depends_on "ffmpeg"
+  depends_on "qt@5"
+  depends_on "qwt"
 
   def install
+    qt5 = Formula["qt@5"].opt_prefix
     ENV["QCTOOLS_USE_BREW"]="true"
 
     cd "Project/QtCreator/qctools-lib" do
-      system "qmake", "qctools-lib.pro"
+      system "#{qt5}/bin/qmake", "qctools-lib.pro"
       system "make"
     end
     cd "Project/QtCreator/qctools-cli" do
-      system "qmake", "qctools-cli.pro"
+      system "#{qt5}/bin/qmake", "qctools-cli.pro"
       system "make"
       bin.install "qcli"
     end

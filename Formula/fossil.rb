@@ -1,42 +1,39 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
-  homepage "https://www.fossil-scm.org/"
-  url "https://www.fossil-scm.org/index.html/uv/fossil-src-2.4.tar.gz"
-  sha256 "d23498b6ae8894d18d7b73b8312c7514eda9ef91cf9f96c4c38429316919ad29"
+  homepage "https://www.fossil-scm.org/home/"
+  url "https://www.fossil-scm.org/home/uv/fossil-src-2.14.tar.gz"
+  sha256 "b8d0c920196dd8ae29152fa7448e513a1fa7c588871b785e3fbfc07b42a05fb9"
+  license "BSD-2-Clause"
+  head "https://www.fossil-scm.org/", using: :fossil
 
-  head "https://www.fossil-scm.org/", :using => :fossil
-
-  bottle do
-    cellar :any
-    sha256 "e03c1769b10b9f8686fe3c83556ad4312370f25a5367bd99eeddf2d2578cb32a" => :high_sierra
-    sha256 "41a2bbfb08e60fd6bb03cddf1367abf9404d1fbba34f19d758b160ce2c8b8215" => :sierra
-    sha256 "e3dc23ba2409c3382f72232fa895bf6fbca046d39c164018e28b058d304bb843" => :el_capitan
+  livecheck do
+    url "https://www.fossil-scm.org/home/uv/download.js"
+    regex(/"title":\s*?"Version (\d+(?:\.\d+)+)\s*?\(/i)
   end
 
-  option "without-json", "Build without 'json' command support"
-  option "without-tcl", "Build without the tcl-th1 command bridge"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "d0ac7394862b01c94118282bc7fe014ecc004818d0bdb5d7ad62ead3a4f8c789"
+    sha256 cellar: :any, big_sur:       "47b62a05daf6fc12735cc10ac3d661a058df73c918c0d425c8a06b5d33ceae40"
+    sha256 cellar: :any, catalina:      "514265081557287157fad22327aed27e937229caa445a5ea363c7edee0ada162"
+    sha256 cellar: :any, mojave:        "a2c6c8c85d54a253ac499ea88402b397562db29e4f1d21d6103728921ff50335"
+  end
 
-  depends_on "openssl"
-  depends_on :osxfuse => :optional
+  depends_on "openssl@1.1"
+  uses_from_macos "zlib"
 
   def install
     args = [
       # fix a build issue, recommended by upstream on the mailing-list:
       # https://permalink.gmane.org/gmane.comp.version-control.fossil-scm.user/22444
       "--with-tcl-private-stubs=1",
+      "--json",
+      "--disable-fusefs",
     ]
-    args << "--json" if build.with? "json"
 
-    if MacOS::CLT.installed? && build.with?("tcl")
-      args << "--with-tcl"
+    args << if MacOS.sdk_path_if_needed
+      "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     else
-      args << "--with-tcl-stubs"
-    end
-
-    if build.with? "osxfuse"
-      ENV.prepend "CFLAGS", "-I/usr/local/include/osxfuse"
-    else
-      args << "--disable-fusefs"
+      "--with-tcl-stubs"
     end
 
     system "./configure", *args

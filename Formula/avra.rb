@@ -1,37 +1,23 @@
 class Avra < Formula
-  desc "Assember for the Atmel AVR microcontroller family"
-  homepage "https://avra.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/avra/1.3.0/avra-1.3.0.tar.bz2"
-  sha256 "a62cbf8662caf9cc4e75da6c634efce402778639202a65eb2d149002c1049712"
-  revision 1
+  desc "Assembler for the Atmel AVR microcontroller family"
+  homepage "https://github.com/hsoft/avra"
+  url "https://github.com/hsoft/avra/archive/1.4.2.tar.gz"
+  sha256 "cc56837be973d1a102dc6936a0b7235a1d716c0f7cd053bf77e0620577cff986"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0c4ac95218144b45bfed147a584707c8f2b8f0ec7c75b2ac4fdfae5592029b92" => :high_sierra
-    sha256 "2fd31c2a27b2ef237a6c9e33d7b378682dcba6b79131717f6c97264999b85658" => :sierra
-    sha256 "a53990c229653465948d9d66fc972e695591cddf6529c25ad834fed7fbd7267d" => :el_capitan
-    sha256 "1fd6d746309dbdf2811ba8d461188ec63e93363a34546a3af7ad9b4f47c75ffc" => :yosemite
-  end
-
-  # Crashes with 'abort trap 6' unless this fix is applied.
-  # See: https://sourceforge.net/p/avra/patches/16/
-  patch do
-    url "https://gist.githubusercontent.com/adammck/7e4a14f7dd4cc58eea8afa99d1ad9f5d/raw/5cdbfe5ac310a12cae6671502697737d56827b05/avra-fix-osx.patch"
-    sha256 "03493058c351cfce0764a8c2e63c2a7b691601dd836c760048fe47ddb9e91682"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "22a03e978b90b0c87a7a7d15f63975880a8bad314c2592bf107b7bcb3d5fe5c6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b1b6077185e775675dfd538ee67fab94c5e24219dd8cd76b1dbc962748572513"
+    sha256 cellar: :any_skip_relocation, catalina:      "752edb7e9140387d4b763229ff05cdf973056a70c5a4799b63cce83c2ff18be5"
+    sha256 cellar: :any_skip_relocation, mojave:        "cedf5547712134c47d3659e1cddde7d506643448eca98fb428734165fbb5afc7"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f380ed5ddc18ece7b83f4c32290f56dfcc8a27065cc1a39423debfc482d369d2"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
 
   def install
-    # build fails if these don't exist
-    touch "NEWS"
-    touch "ChangeLog"
-    cd "src" do
-      system "./bootstrap"
-      system "./configure", "--prefix=#{prefix}"
-      system "make", "install"
-    end
+    system "make", "install", "PREFIX=#{prefix}", "OS=osx"
     pkgshare.install Dir["includes/*"]
   end
 

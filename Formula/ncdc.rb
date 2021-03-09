@@ -1,42 +1,35 @@
 class Ncdc < Formula
   desc "NCurses direct connect"
   homepage "https://dev.yorhel.nl/ncdc"
-  url "https://dev.yorhel.nl/download/ncdc-1.20.tar.gz"
-  sha256 "8a998857df6289b6bd44287fc06f705b662098189f2a8fe95b1a5fbc703b9631"
+  url "https://dev.yorhel.nl/download/ncdc-1.22.1.tar.gz"
+  sha256 "d15fd378aa345f423e59a38691c668f69b516cd4b8afbbcdc446007740c3afad"
+  license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "8c9d1049ef2493d21aba8eb961e98de27b187de8b7cbd18181a26e7889a2e030" => :high_sierra
-    sha256 "1e882285c9367191a63d62cea2f539b22f9d209593649d6f3fb6c7a472cc2eaa" => :sierra
-    sha256 "05b153207799eae9250516bfd51b41e0069f94155d727ec69a016db96bdfa349" => :el_capitan
-    sha256 "8655d4cda874055cadc3c02f1a1929385f1d8e08e7f5b7fa0a6a8971321aeee8" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "7dfeff7bcbd463dd11bcc08b52114a445cacfae8ca7f0f6c8fae65c9e4b19d4a"
+    sha256 cellar: :any, big_sur:       "f0ea06824da1588311108a37cd60eb32692383a062c0d59f7c366f870692ca1f"
+    sha256 cellar: :any, catalina:      "2f074f7eb6aa1a1d0024e1f900315cb4bd056ad711c0f504acb160714e07597a"
+    sha256 cellar: :any, mojave:        "4490571bb2101e00e3edc39ab25baf75a63dfd9617381ae0f102a274a2fbf622"
+    sha256 cellar: :any, high_sierra:   "bd143dd032839762597253796c562607e43c654c128d4f4162fd382fd660dbfd"
+    sha256 cellar: :any, sierra:        "59f5011b9c39b78c75a2bf5d93ae398a16660852a3b8fd8ed3a3389ea463fbf7"
   end
 
   head do
-    url "https://g.blicky.net/ncdc.git", :shallow => false
+    url "https://g.blicky.net/ncdc.git", shallow: false
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
-  option "with-geoip", "Build with geoip support"
-
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "sqlite"
   depends_on "gnutls"
-  depends_on "geoip" => :optional
+  depends_on "ncurses"
+  depends_on "sqlite"
 
   def install
     system "autoreconf", "-ivf" if build.head?
-
-    args = [
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-    ]
-    args << "--with-geoip" if build.with? "geoip"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
 

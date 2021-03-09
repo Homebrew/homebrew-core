@@ -1,27 +1,23 @@
 class Bison < Formula
   desc "Parser generator"
   homepage "https://www.gnu.org/software/bison/"
-  url "https://ftp.gnu.org/gnu/bison/bison-3.0.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/bison/bison-3.0.4.tar.gz"
-  sha256 "b67fd2daae7a64b5ba862c66c07c1addb9e6b1b05c5f2049392cfd8a2172952e"
-  revision 1
+  # X.Y.9Z are beta releases that sometimes get accidentally uploaded to the release FTP
+  url "https://ftp.gnu.org/gnu/bison/bison-3.7.5.tar.xz"
+  mirror "https://ftpmirror.gnu.org/bison/bison-3.7.5.tar.xz"
+  sha256 "e8c53bc5bc396d636622d0f25e31ca92fd53f00b09629f13ef540d564a6b31ab"
+  license "GPL-3.0-or-later"
+  version_scheme 1
 
   bottle do
-    sha256 "5701d6ce4222aac2a510772d6755777bb6162599c5c9169e11781f08fbcebca2" => :high_sierra
-    sha256 "790d7ebb2aba8bc5db4efcc19e6e8c89bdf39163ec20168b9f238807b4dc7fa3" => :sierra
-    sha256 "ad8ea27a2a19efa903bbd094bffdc5f80e5e5fc641a31c3649a3a23110b5d455" => :el_capitan
+    sha256 arm64_big_sur: "7717d17b5ebca46f673d4ba2eb5626c7a726c3e6203db10d0bf21185356841b6"
+    sha256 big_sur:       "b0f383e37c2e1e4bb14b654b07e96e8da7a01bd19b4c41cd5d2d88198dabff90"
+    sha256 catalina:      "b4128068b3902c2f98a3a3d25d19ff63daf61449dfb21146d5b117a34b38a4ef"
+    sha256 mojave:        "c9e6a12dd08f5a956d67e18294d49bc50803bc58decd4a0fb234e0606042e0fa"
   end
 
-  keg_only :provided_by_osx, "some formulae require a newer version of bison"
+  keg_only :provided_by_macos
 
-  # Fix crash from usage of %n in dynamic format strings on High Sierra
-  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-  if MacOS.version >= :high_sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/14451f57e89/devel/bison/files/secure_snprintf.patch"
-      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
-    end
-  end
+  uses_from_macos "m4"
 
   def install
     system "./configure", "--disable-dependency-tracking",

@@ -1,25 +1,32 @@
-require "language/haskell"
-
 class Hadolint < Formula
-  include Language::Haskell::Cabal
-
   desc "Smarter Dockerfile linter to validate best practices"
-  homepage "http://hadolint.lukasmartinelli.ch/"
-  url "https://github.com/lukasmartinelli/hadolint/archive/v1.2.3.tar.gz"
-  sha256 "03a342fcb65d86b20ae1728d107344da36ceab87e7e846cb2f802924aa218aac"
+  homepage "https://github.com/hadolint/hadolint"
+  url "https://github.com/hadolint/hadolint/archive/v1.23.0.tar.gz"
+  sha256 "4de7041e2bd8d41e7067f84af34d9266f2b2955c78ada3065ba9ea88c6ba0c5a"
+  license "GPL-3.0-only"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "61393af8a04e698208a9b055811be04d216e50843888343e00d4b5a5da099e01" => :high_sierra
-    sha256 "a951547c4fd61d291494592319d9030a18602dca4627384d7ca4c88bb508fa26" => :sierra
-    sha256 "c4c7695838ced29657ee3e342a5daccfc45148e284c87bdd0ac10713a3cf6f83" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:  "b1c8f84a503573878f54555eb078267fca55f264fda86623ced0978d802ea9f9"
+    sha256 cellar: :any_skip_relocation, catalina: "5e7a1bedb379a03f47feac56d9e618a92c2d7127c93d6f2c19fa3241ab8c438c"
+    sha256 cellar: :any_skip_relocation, mojave:   "aa26d65c5fec4c688e6f313e0179547b2f0d96b289b28dbd7134a02d5ca33ba5"
   end
 
   depends_on "ghc" => :build
-  depends_on "cabal-install" => :build
+  depends_on "haskell-stack" => :build
+
+  uses_from_macos "xz"
+
+  on_linux do
+    depends_on "gmp"
+  end
 
   def install
-    install_cabal_package
+    # Let `stack` handle its own parallelization
+    jobs = ENV.make_jobs
+    ENV.deparallelize
+
+    system "stack", "-j#{jobs}", "build"
+    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
   end
 
   test do

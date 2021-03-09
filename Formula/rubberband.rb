@@ -1,40 +1,47 @@
 class Rubberband < Formula
   desc "Audio time stretcher tool and library"
-  homepage "http://breakfastquay.com/rubberband/"
-  head "https://bitbucket.org/breakfastquay/rubberband/", :using => :hg
+  homepage "https://breakfastquay.com/rubberband/"
+  url "https://breakfastquay.com/files/releases/rubberband-1.9.0.tar.bz2"
+  sha256 "4f5b9509364ea876b4052fc390c079a3ad4ab63a2683aad09662fb905c2dc026"
+  license "GPL-2.0-or-later"
+  head "https://hg.sr.ht/~breakfastquay/rubberband", using: :hg
 
-  stable do
-    url "http://code.breakfastquay.com/attachments/download/34/rubberband-1.8.1.tar.bz2"
-    sha256 "ff0c63b0b5ce41f937a8a3bc560f27918c5fe0b90c6bc1cb70829b86ada82b75"
-
-    # replace vecLib.h by Accelerate.h
-    # already fixed in upstream:
-    # https://bitbucket.org/breakfastquay/rubberband/commits/cb02b7ed1500f0c06c0ffd196921c812dbcf6888
-    # https://bitbucket.org/breakfastquay/rubberband/commits/9e32f693c6122b656a0df63bc77e6a96d6ba213d
-    patch :p1 do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/1fd51a983/rubberband/rubberband-1.8.1-yosemite.diff"
-      sha256 "7686dd9d05fddbcbdf4015071676ac37ecad5c7594cc06470440a18da17c71cd"
-    end
+  livecheck do
+    url :homepage
+    regex(/Rubber Band Library v?(\d+(?:\.\d+)+) released/i)
   end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "b05e8e38194a9b067ccfa2df621d4f36b7d4bb24b0fb61bd2dc430b5bf5b7ddc" => :high_sierra
-    sha256 "fd0d92643b23e338992204be763362480ffd8ee54c407908bf0dcd589d066b68" => :sierra
-    sha256 "ec6ec212a0173ba661601b2fb5ae1dace5dab1100688d3b5c9a460796eae705b" => :el_capitan
-    sha256 "6a62c8da1d779672bf0ef276656b2dfa5edf885e704a875c606a27b9aea863fe" => :yosemite
-    sha256 "5ca9579f1b84a3a843e5b52654f41b25e4c02fdc5df05a0966c6d8627843dac4" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "b7436d1a91b540cc384f15f3c4416f229635c5412b5939ae0037ceb8158bf451"
+    sha256 cellar: :any, big_sur:       "f5b7d05107fadeca115e0ab09130178ede93fb6f0e18c7b392bdd77e3587b966"
+    sha256 cellar: :any, catalina:      "4598d98fb8994cd6545f5858a38beae10b43968317b53ec0916542d95355f27c"
+    sha256 cellar: :any, mojave:        "487182397781621580ecb07f51d301d84b46c6f2f8458880cb8213044f5181cb"
+    sha256 cellar: :any, high_sierra:   "15082ba72d1f88258739752b4f4a8094d5f931fac1d69aa64d8bf25ecb21648d"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libsamplerate"
   depends_on "libsndfile"
 
+  on_linux do
+    depends_on "fftw"
+    depends_on "ladspa-sdk"
+    depends_on "openjdk"
+    depends_on "vamp-plugin-sdk"
+  end
+
   def install
-    system "make", "-f", "Makefile.osx"
+    # Pass OPTFLAGS and ARCHFLAGS to avoid Intel-specific flags
+    system "make", "-f", "Makefile.osx",
+                   "OPTFLAGS='-DNDEBUG -ffast-math -O3 -ftree-vectorize'",
+                   "ARCHFLAGS="
+
+    # HACK: Manual install because "make install" is broken
+    # https://github.com/Homebrew/homebrew-core/issues/28660
     bin.install "bin/rubberband"
-    lib.install "lib/librubberband.dylib"
+    lib.install "lib/librubberband.dylib" => "librubberband.2.1.1.dylib"
+    lib.install_symlink lib/"librubberband.2.1.1.dylib" => "librubberband.2.dylib"
+    lib.install_symlink lib/"librubberband.2.1.1.dylib" => "librubberband.dylib"
     include.install "rubberband"
 
     cp "rubberband.pc.in", "rubberband.pc"

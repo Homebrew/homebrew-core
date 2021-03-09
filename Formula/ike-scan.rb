@@ -1,35 +1,38 @@
 class IkeScan < Formula
   desc "Discover and fingerprint IKE hosts"
   homepage "https://github.com/royhills/ike-scan"
-  url "https://github.com/royhills/ike-scan/releases/download/1.9/ike-scan-1.9.tar.gz"
-  sha256 "05d15c7172034935d1e46b01dacf1101a293ae0d06c0e14025a4507656f1a7b6"
+  url "https://github.com/royhills/ike-scan/archive/1.9.4.tar.gz"
+  sha256 "2865014185c129ac443beb7bf80f3c5eb93adb504cd307c5b6709199abf7c121"
+  license "GPL-3.0-or-later"
   revision 1
 
+  head "https://github.com/royhills/ike-scan.git"
+
   bottle do
-    sha256 "a6497e65e3fd817d9f55e8a92999ea94e80ae8a68e7c7d1aaf00264482f617f2" => :high_sierra
-    sha256 "36d4250aba9099fefd630e3a585f4dc035ccb43d53d3270fc41bb08e92242a49" => :sierra
-    sha256 "65df0ddc049fadf6c9deb605442092026ec1c4ef5a6358a63ed96928085ac155" => :el_capitan
-    sha256 "70276baa029ee6c1a451175e3254cc74754fd5de83fe748d17ba4fcf0586349a" => :yosemite
-    sha256 "a0967f6ce6e9903068149c9b379926a25b315c3bdb9aca451f28b0d9cc744abd" => :mavericks
-    sha256 "2281b3d5f1f590e69e435a39c1032872db80439411ea74410a58243096645668" => :mountain_lion
+    rebuild 1
+    sha256 arm64_big_sur: "80591b7e93871241c3a15afa6c7be4df8df8f2c8fb1b6cc1a54be3a3c93645b3"
+    sha256 big_sur:       "9f721c4e99f22ccbf204f54c78a6b4ff7bef621dc4590673240b5a31dab268ef"
+    sha256 catalina:      "a06543751eec6b9d198c3826ea62743a0ee12a4479bf28efb41209a0edea19be"
+    sha256 mojave:        "acc102b6014ee8216274afb3a0b10460c71f0059a7aeca732dfad848c7dd2846"
   end
 
-  head do
-    url "https://github.com/royhills/ike-scan.git"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "openssl@1.1"
 
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
+  # Fix Xcode 12 build: https://github.com/royhills/ike-scan/pull/32
+  patch do
+    url "https://github.com/royhills/ike-scan/commit/c9ef0569443b03fda5339911acb8056a73c952de.patch?full_index=1"
+    sha256 "890a60984c7e09570fe0b3a061dc2219bb793586bdf49ebd5dd338b3690ce52a"
   end
-
-  depends_on "openssl"
 
   def install
-    system "autoreconf", "-fvi" if build.head?
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 

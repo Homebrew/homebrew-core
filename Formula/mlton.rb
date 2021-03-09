@@ -1,35 +1,42 @@
 class Mlton < Formula
   desc "Whole-program, optimizing compiler for Standard ML"
   homepage "http://mlton.org"
+  url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117.src.tgz"
+  version "20210117"
+  sha256 "ec7a5a54deb39c7c0fa746d17767752154e9cb94dbcf3d15b795083b3f0f154b"
+  license "HPND"
+  version_scheme 1
   head "https://github.com/MLton/mlton.git"
 
-  stable do
-    url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715.src.tgz"
-    version "20130715"
-    sha256 "215857ad11d44f8d94c27f75e74017aa44b2c9703304bcec9e38c20433143d6c"
-
-    # Configure GMP location via Makefile (https://github.com/MLton/mlton/pull/136)
-    patch do
-      url "https://github.com/MLton/mlton/commit/6e79342cdcf2e15193d95fcd3a46d164b783aed4.diff?full_index=1"
-      sha256 "7da7f0daf398fcb5b2c51db85721bd0d1979314f1b897a4eec4324f2a6d1b363"
-    end
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/mlton[._-]v?(\d+(?:\.\d+)*(?:-\d+)?)[._-]src\.t}i)
   end
 
   bottle do
-    cellar :any
-    sha256 "33373d7c0a3798f61df7617d896e5a57adad6c0fd5b0183acc55ce1fc6db1f76" => :high_sierra
-    sha256 "cc534218ef56b8debc2c391821753433303698c3299a663ff0cac9af03f71ac5" => :sierra
-    sha256 "97656e7b1533886252d034c4a6ac0391d386369598f36a72a0033df8bc54a339" => :el_capitan
-    sha256 "96fb444b34e8a605445567482a480fb59be749f5f57f46bc704f44b4763f26ae" => :yosemite
-    sha256 "fb9c2fbc7e1e0e975ef79a061d17d56b8300da5a60c4b347e6726966c30f8fc3" => :mavericks
+    sha256 cellar: :any, big_sur:  "be6a6d599390e1182ab91f99c8e4cbeb20ed10cbd472d7a7fda790cbb9e60b88"
+    sha256 cellar: :any, catalina: "9690c5e07e46081d3f771797ea92f8ddef37fb79e3104263794f8c7473170f18"
+    sha256 cellar: :any, mojave:   "e6fdecbf689992c25e1429e2f33d5cd66c5bdee500ec1fe07759ac8d53593fdf"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gmp"
 
   # The corresponding upstream binary release used to bootstrap.
   resource "bootstrap" do
-    url "https://downloads.sourceforge.net/project/mlton/mlton/20130715/mlton-20130715-3.amd64-darwin.gmp-static.tgz"
-    sha256 "7e865cd3d1e48ade3de9b7532a31e94af050ee45f38a2bc87b7b2c45ab91e8e1"
+    on_macos do
+      # https://github.com/Homebrew/homebrew-core/pull/58438#issuecomment-665375929
+      # new `mlton-20210117-1.amd64-darwin-17.7.gmp-static.tgz` artifact
+      # used here for bootstrapping all homebrew versions
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117-1.amd64-darwin-19.6.gmp-static.tgz"
+      sha256 "5bea9f60136ea6847890c5f4e45d7126a32ef14fd46a2303cab875ca95c8cd76"
+    end
+
+    on_linux do
+      url "https://downloads.sourceforge.net/project/mlton/mlton/20210117/mlton-20210117-1.amd64-linux.tgz"
+      sha256 "25876b075e95b0e70677bd5eeebb791a871629376044f358b908678b8f9b605d"
+    end
   end
 
   def install
@@ -37,7 +44,7 @@ class Mlton < Formula
     bootstrap = buildpath/"bootstrap"
     resource("bootstrap").stage do
       args = %W[
-        WITH_GMP=#{Formula["gmp"].opt_prefix}
+        WITH_GMP_DIR=#{Formula["gmp"].opt_prefix}
         PREFIX=#{bootstrap}
         MAN_PREFIX_EXTRA=/share
       ]
@@ -48,13 +55,13 @@ class Mlton < Formula
     # Support parallel builds (https://github.com/MLton/mlton/issues/132)
     ENV.deparallelize
     args = %W[
-      WITH_GMP=#{Formula["gmp"].opt_prefix}
+      WITH_GMP_DIR=#{Formula["gmp"].opt_prefix}
       DESTDIR=
       PREFIX=#{prefix}
       MAN_PREFIX_EXTRA=/share
     ]
-    system "make", *(args + ["all-no-docs"])
-    system "make", *(args + ["install-no-docs"])
+    system "make", *(args + ["all"])
+    system "make", *(args + ["install"])
   end
 
   test do

@@ -1,14 +1,20 @@
 class Clinfo < Formula
   desc "Print information about OpenCL platforms and devices"
   homepage "https://github.com/Oblomov/clinfo"
-  url "https://github.com/Oblomov/clinfo/archive/2.2.17.10.25.tar.gz"
-  sha256 "23cab774915eea6730582abfc449ac57dc10f2ce7b39293e56166ed500383862"
+  url "https://github.com/Oblomov/clinfo/archive/3.0.21.02.21.tar.gz"
+  sha256 "e52f5c374a10364999d57a1be30219b47fb0b4f090e418f2ca19a0c037c1e694"
+  license "CC0-1.0"
+  head "https://github.com/Oblomov/clinfo.git"
+
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "301063822ff72ea7885216b4172b0b5ee2fbc4ac6a28e5adf00a9b6f532f4a71" => :high_sierra
-    sha256 "782a4194425daa821c116f21641d0de02a7af6d58f978fa0d6d94296f3b11fc8" => :sierra
-    sha256 "16f633430d1c10d5c07dc6b24577263e2b7b08a27435a1c8446bb8aca99a352c" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:  "cb20a0053dd57a483815485e804884ba93cafde11b2d265285a7ad0b49fd3705"
+    sha256 cellar: :any_skip_relocation, catalina: "fe9953456ce92ca4701c040d4971be611671ab058c4743802c4721a5313e2bf1"
+    sha256 cellar: :any_skip_relocation, mojave:   "6165806150adf656308b999a1fac88effdf0fe5128b39d21c4faa0cda9b3c491"
   end
 
   def install
@@ -16,6 +22,6 @@ class Clinfo < Formula
   end
 
   test do
-    assert_match /Device Type +CPU/, shell_output(bin/"clinfo")
+    assert_match(/Device Type +CPU/, shell_output(bin/"clinfo"))
   end
 end

@@ -1,42 +1,36 @@
 class Psqlodbc < Formula
   desc "Official PostgreSQL ODBC driver"
   homepage "https://odbc.postgresql.org"
-  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-10.00.0000.tar.gz"
-  sha256 "74a3670d3f608f0fa61265b748f19dd4a975cda18ddfb502217cfff9cae7d562"
+  url "https://ftp.postgresql.org/pub/odbc/versions/src/psqlodbc-13.00.0000.tar.gz"
+  sha256 "4f156931b44d78401abfc2b72e512147a02b836677f8aac610b812f12e08910d"
+
+  livecheck do
+    url "https://ftp.postgresql.org/pub/odbc/versions/src/"
+    regex(/href=.*?psqlodbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "19018de925f884c2cc09f6c83f57d8617dfbc058ae04e4a077ff7c408ee42ef2" => :high_sierra
-    sha256 "257fbe1e9149dc8f61f374ba3af4773a7872b3a5deab3de499411e432d5b2775" => :sierra
-    sha256 "81eb56bbd0a47c475f1441aa757135e1b3ae668dee66ac0c10cd76e1de1c6273" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "fc5b844285d44f184e3c8e15f6837dd72c8633f884903c467534d59aa82dadbe"
+    sha256 cellar: :any, big_sur:       "dc00104df170c4a7d76b5a6ee00e721f8bdbff6b7d5d06c2002d60c883de5c75"
+    sha256 cellar: :any, catalina:      "3a8dbc9d7c56020a5d775fb8275599cdcea33456546f371cdabf9822e0778669"
+    sha256 cellar: :any, mojave:        "b2278560b6a308742d65a4b956736c6c597ceb8d94f757a7d178623b5711328b"
   end
 
   head do
     url "https://git.postgresql.org/git/psqlodbc.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  depends_on "openssl"
-  depends_on :postgresql
-  depends_on "unixodbc" => :recommended
-  depends_on "libiodbc" => :optional
+  depends_on "openssl@1.1"
+  depends_on "postgresql"
+  depends_on "unixodbc"
 
   def install
-    if build.with?("libiodbc") && build.with?("unixodbc")
-      odie "psqlodbc: --without-unixodbc must be specified when using --with-libiodbc"
-    end
-
-    args = %W[
-      --prefix=#{prefix}
-    ]
-
-    args << "--with-iodbc=#{Formula["libiodbc"].opt_prefix}" if build.with?("libiodbc")
-    args << "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}" if build.with?("unixodbc")
-
     system "./bootstrap" if build.head?
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-unixodbc=#{Formula["unixodbc"].opt_prefix}"
     system "make"
     system "make", "install"
   end

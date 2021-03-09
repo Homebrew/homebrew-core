@@ -1,27 +1,22 @@
 class Newlisp < Formula
   desc "Lisp-like, general-purpose scripting language"
   homepage "http://www.newlisp.org/"
-  url "http://www.newlisp.org/downloads/newlisp-10.7.1.tgz"
-  sha256 "2e300c8bed365a564d284bf3ad6c49e036256e7fc3f469ebda0b45e6e196a7cc"
+  url "http://www.newlisp.org/downloads/newlisp-10.7.5.tgz"
+  sha256 "dc2d0ff651c2b275bc4af3af8ba59851a6fb6e1eaddc20ae75fb60b1e90126ec"
 
   bottle do
-    sha256 "c8b7b1204c175e91cf29f9783fab02e70692de90007cc5a393cfe0345b9d669f" => :high_sierra
-    sha256 "d3d16b3e31f7c47b467a94dc502385b38d4f137afce726a996576c685c557231" => :sierra
-    sha256 "8ec256c413e06d36004f36658abb28e9c71528b46496e46cfc65aab247df58ed" => :el_capitan
-    sha256 "4993d9b9cb6b081d9b0790fbd9095af3f68f82afbaccc09d187399585bebd1b5" => :yosemite
+    sha256 arm64_big_sur: "24b3c02002fa7c832d9a817c552b19bd520ae06f82ab526b8e993ae0a3d77d99"
+    sha256 big_sur:       "509f6892a0eabf53cebe424f2f2163ded090b7942e8fe8e43047f43781b0535e"
+    sha256 catalina:      "62fd116459d24ab0db976221fb16fd83a7a7db5447298bcc7f8b0dbf9a55f91f"
+    sha256 mojave:        "179146b49c20011f3da4dbdb9b66a6ed66d5dd9f15d07aeca9b8717219a62eeb"
+    sha256 high_sierra:   "5a0d4085a0e7fc364b3165be7e92a9dfeb2f4882e1971663ac74c70348a5c4a4"
   end
 
-  depends_on "readline" => :recommended
+  depends_on "readline"
 
   def install
     # Required to use our configuration
     ENV.append_to_cflags "-DNEWCONFIG -c"
-
-    # fix the prefix in a source file
-    inreplace "guiserver/newlisp-edit.lsp" do |s|
-      s.gsub! "#!/usr/local/bin/newlisp", "#!/usr/bin/env newlisp"
-      s.gsub! "/usr/local/bin/newlisp", "#{opt_bin}/newlisp"
-    end
 
     system "./configure-alt", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make"
@@ -29,15 +24,16 @@ class Newlisp < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    If you have brew in a custom prefix, the included examples
-    will need to be be pointed to your newlisp executable.
+  def caveats
+    <<~EOS
+      If you have brew in a custom prefix, the included examples
+      will need to be be pointed to your newlisp executable.
     EOS
   end
 
   test do
     path = testpath/"test.lsp"
-    path.write <<-EOS
+    path.write <<~EOS
       (println "hello")
       (exit 0)
     EOS

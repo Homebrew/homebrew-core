@@ -1,8 +1,9 @@
 class Wgetpaste < Formula
   desc "Automate pasting to a number of pastebin services"
-  homepage "http://wgetpaste.zlin.dk/"
-  url "http://wgetpaste.zlin.dk/wgetpaste-2.28.tar.bz2"
-  sha256 "538d38bab491544bdf6f05f7a38f83d4c3dfee77de7759cb6b9be1ebfdd609c2"
+  homepage "https://wgetpaste.zlin.dk/"
+  url "https://wgetpaste.zlin.dk/wgetpaste-2.30.tar.bz2"
+  sha256 "e3ec35f1ff49f2204864e3b4d784f6c032cdddb62cadf69263900c67a4896592"
+  license "MIT"
 
   bottle :unneeded
 

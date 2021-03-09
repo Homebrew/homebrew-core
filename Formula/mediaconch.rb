@@ -1,21 +1,26 @@
 class Mediaconch < Formula
   desc "Conformance checker and technical metadata reporter"
   homepage "https://mediaarea.net/MediaConch"
-  url "https://mediaarea.net/download/binary/mediaconch/17.11/MediaConch_CLI_17.11_GNU_FromSource.tar.bz2"
-  version "17.11"
-  sha256 "2bca86f6281231d0432c7630b6b42480b0d445089d343abf85f92f278b62d9d0"
+  url "https://mediaarea.net/download/binary/mediaconch/18.03.2/MediaConch_CLI_18.03.2_GNU_FromSource.tar.bz2"
+  sha256 "8f8f31f1c3eb55449799ebb2031ef373934a0a9826ce6c2b2bdd32dacbf5ec4c"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "8e7000926ba5af153e7f1426b83c80e13c187b3ce76f92601b69114d3917ec9c" => :high_sierra
-    sha256 "dff233768b0a79dfc3a5affd64828ddadefd1d38bad1012e66d7f1d9793149d2" => :sierra
-    sha256 "5bdc739addde0af6dade0401a2533c22658154de075613ed4c26301eadb78401" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "2bc516280f29cda43dcda638a0a5dd586a34fc52beb724bd97f382825d347d7a"
+    sha256 cellar: :any, big_sur:       "1ab9e887a8787b4b3655df4f9b01214da00ef466da186db7dca1ae646bb09b3d"
+    sha256 cellar: :any, catalina:      "41a49bbafbffc220f140d8e466f1507757cbe552f8de4ca306217affbf1e6dd5"
+    sha256 cellar: :any, mojave:        "9d59b85fecc5d5caba622fe57358caab23c8ea904954a137b99e66dd4f7fedec"
+    sha256 cellar: :any, high_sierra:   "d59cfb9ac07ffb7eacc4c7970c38676a3909f0966481b99c745735bf87db7b8e"
+    sha256 cellar: :any, sierra:        "fdb3934174a68121357c21d4f0800e8bbbaa6a296f3386ab52e5298fde96a6b6"
   end
 
   depends_on "pkg-config" => :build
   depends_on "jansson"
   depends_on "libevent"
   depends_on "sqlite"
+
+  uses_from_macos "curl"
+  uses_from_macos "libxslt"
 
   def install
     cd "ZenLib/Project/GNU/Library" do

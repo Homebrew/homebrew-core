@@ -1,34 +1,30 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "https://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_14_0/openmsx-0.14.0.tar.gz"
-  sha256 "eb9ae4c8420c30b69e9a05edfa8c606762b7a6bf3e55d36bfb457c2400f6a7b9"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_0_15_0/openmsx-0.15.0.tar.gz"
+  sha256 "93f209d8fed2e04e62526469bb6bb431b82ea4d07ecdc45dab2b8cc4ca21d62a"
+  license "GPL-2.0"
+  revision 1
   head "https://github.com/openMSX/openMSX.git"
 
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "1fe237fb4200b9f0574de19da59434ba04df35320d3cae9f285a17d7c3f73222" => :high_sierra
-    sha256 "14b2a737d35b8725ac2eff3e4ec02f1eef45542c7795e902d704cbdaf76c1857" => :sierra
-    sha256 "0789729f06a73ae5acd2a04df373f839a2ac7d14e5679a380f7a485a777124ff" => :el_capitan
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/RELEASE[._-]v?(\d+(?:[._]\d+)+)["' >]}i)
   end
 
-  deprecated_option "without-opengl" => "without-glew"
+  bottle do
+    sha256 cellar: :any, big_sur:     "891284f2b5294dee367eb2db61f34f7940d2dd4ba26bcfa5e287a58b6419d019"
+    sha256 cellar: :any, catalina:    "10c3e39c22efbd11e11b352f8fabfcea03633088cb16fe24611ed631325ed05c"
+    sha256 cellar: :any, mojave:      "ed24d06d8f8913236fa619f0d92396e2a2a8d2f40afb5e56c609ecdf332b4ca4"
+    sha256 cellar: :any, high_sierra: "86fff1a90fff96cb0398184ef7ebdeb804edda4c9d34ee5e7278159df64b10e3"
+  end
 
-  option "without-glew", "Disable OpenGL post-processing renderer"
-  option "with-laserdisc", "Enable Laserdisc support"
-
+  depends_on "freetype"
+  depends_on "glew"
+  depends_on "libpng"
   depends_on "sdl"
   depends_on "sdl_ttf"
-  depends_on "freetype"
-  depends_on "libpng"
-  depends_on "glew" => :recommended
-
-  if build.with? "laserdisc"
-    depends_on "libogg"
-    depends_on "libvorbis"
-    depends_on "theora"
-  end
 
   def install
     # Fixes a clang crash; this is an LLVM/Apple bug, not an openmsx bug
@@ -41,7 +37,7 @@ class Openmsx < Formula
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
     inreplace "build/libraries.py" do |s|
-      s.gsub! /\((distroRoot), \)/, "(\\1, '/usr', '#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework')"
+      s.gsub!(/\((distroRoot), \)/, "(\\1, '/usr', '#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework')")
       s.gsub! "lib/tcl", "."
     end
 

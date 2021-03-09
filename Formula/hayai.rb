@@ -1,17 +1,18 @@
 class Hayai < Formula
   desc "C++ benchmarking framework inspired by the googletest framework"
-  homepage "http://nickbruun.dk/2012/02/07/easy-cpp-benchmarking"
-  url "https://github.com/nickbruun/hayai/archive/v1.0.1.tar.gz"
-  sha256 "40798cb3a7b5fcd4e0be65f9358dad4efeef7c4ebe8319327d99a2b8e5dcea4c"
+  homepage "https://bruun.co/2012/02/07/easy-cpp-benchmarking"
+  url "https://github.com/nickbruun/hayai/archive/v1.0.2.tar.gz"
+  sha256 "e30e69b107361c132c831a2c8b2040ea51225bb9ed50675b51099435b8cd6594"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c550c08ecfe22536b4df37afced589676ebb4d7ecce244694b9f83033d5f2cf1" => :high_sierra
-    sha256 "c2f93072aaa7edc1a2dde8180b7e5a962b96fe11c5662fc7c7fb1c469f25589d" => :sierra
-    sha256 "b4a9c42fe38dd8d5595a899e650504909e6614beb8b8c0c3b4462a647d2ac214" => :el_capitan
-    sha256 "cbbb73a1219f53aab9ab1d13c18f6916d2e48404533100803deab22aee94ce6d" => :yosemite
-    sha256 "97bb918ab865fc2d6e1b49ddaa395d37c2c530b9665c9027aebcfe7752449078" => :mavericks
-    sha256 "c4a5a5879b6d5482f19d6acec3fe38c1c7fbc8b33a212ad76a0c7fd9de35dd87" => :mountain_lion
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "41ba5eb3f260d738729a866e1951d9caf2830eacb918944da50ab0761a4b4f56"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2ced5bfcd90e829400f4d8f92c5069d1af7b7bb913a0a3dd089f6ef41d89c86d"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a63325782e38d9ea125ec2948604856a2d0a95a89607bbe3eb8730ca5034009"
+    sha256 cellar: :any_skip_relocation, mojave:        "083c25ed21eb21a54f72ea2957b47e6444278aaa996143c2788e434fb19eaf0c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c28fb50fbaed6281dafa6b8ec7b2cafc45fe3255bcc57a6678dbac5da67e4dca"
+    sha256 cellar: :any_skip_relocation, sierra:        "d2702e169ba0c8a8b79f3df6f83fc2268b95b0b0d2c2c4d11387ea99011800f4"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "0a9089377b36a1f719966add1fcd01780e27e250db062affb818236e9b8161c6"
   end
 
   depends_on "cmake" => :build

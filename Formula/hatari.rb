@@ -1,33 +1,39 @@
 class Hatari < Formula
   desc "Atari ST/STE/TT/Falcon emulator"
   homepage "https://hatari.tuxfamily.org"
-  url "https://download.tuxfamily.org/hatari/2.0.0/hatari-2.0.0.tar.bz2"
-  sha256 "52a447a59b6979d55d1525f3c4a21ec013e4371354d6683ede71546c5e6da577"
-  head "https://hg.tuxfamily.org/mercurialroot/hatari/hatari", :using => :hg, :branch => "default"
+  url "https://download.tuxfamily.org/hatari/2.3.1/hatari-2.3.1.tar.bz2"
+  sha256 "44a2f62ca995e38d9e0874806956f0b9c3cc84ea89e0169a63849b63cd3b64bd"
+  license "GPL-2.0-or-later"
+  head "https://git.tuxfamily.org/hatari/hatari.git"
+
+  livecheck do
+    url "https://download.tuxfamily.org/hatari/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "b865990d4e0da26e1e72040392f3d7808b3798682caedb4dd596c768c66436b3" => :high_sierra
-    sha256 "1a0dfc82688af52fb70c34a7b9f2b9cf81cbd5ca7c085f9130843b2af252c5af" => :sierra
-    sha256 "1fbd64ae48dfb33320c46ddb3d245aa5f1da00338cc5c08d4eefe7dacd649265" => :el_capitan
-    sha256 "5a46ec43c7564381a9716c58d5be431c897efc1a2b36a8b2797ee7db9b572061" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "8606d3d0c17b73205030593e2b2a3cd0ea1a87fbcb7998b2d84bba14e67957f1"
+    sha256 cellar: :any, big_sur:       "485738be593ab647a5543878cf748d4602f9123b053fef63672f31a271009700"
+    sha256 cellar: :any, catalina:      "9137d6022e24772be5ef1af60ecd2fc9441a690cea63cd9509b3c9619a88d303"
+    sha256 cellar: :any, mojave:        "c88fc0f38bb911d3d7ef419a176118bfa3de9f3e9db4b1ab8c3d1644fe75c039"
   end
 
   depends_on "cmake" => :build
   depends_on "libpng"
-  depends_on "sdl2"
   depends_on "portaudio"
+  depends_on "python@3.9"
+  depends_on "sdl2"
 
   # Download EmuTOS ROM image
   resource "emutos" do
-    url "https://downloads.sourceforge.net/project/emutos/emutos/0.9.6/emutos-512k-0.9.6.zip"
-    sha256 "2c7d57cac6792d0c7e921f9655f224b039402283dd24c894b085c7b6e9a053a6"
+    url "https://downloads.sourceforge.net/project/emutos/emutos/1.0.1/emutos-512k-1.0.1.zip"
+    sha256 "96c698aa0fc0f51ecdb0f8b53484df9de273215467b5de3f44d245821dff795e"
   end
 
   def install
     # Set .app bundle destination
     inreplace "src/CMakeLists.txt", "/Applications", prefix
-    system "cmake", *std_cmake_args
+    system "cmake", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3"
     system "make"
     prefix.install "src/Hatari.app"
     bin.write_exec_script "#{prefix}/Hatari.app/Contents/MacOS/hatari"
@@ -37,6 +43,6 @@ class Hatari < Formula
   end
 
   test do
-    assert_match /Hatari v#{version} -/, shell_output("#{bin}/hatari -v", 1)
+    assert_match "Hatari v#{version} -", shell_output("#{bin}/hatari -v", 1)
   end
 end

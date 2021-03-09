@@ -1,100 +1,159 @@
+require "language/node"
+
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
-  homepage "https://kripken.github.io/emscripten-site/"
+  homepage "https://emscripten.org/"
+  url "https://github.com/emscripten-core/emscripten/archive/2.0.15.tar.gz"
+  sha256 "a71aaae08b36f5c730e5a6bd3ff88affbc5bf7c937029aab258cc0916d9ce895"
+  license all_of: [
+    "Apache-2.0", # binaryen
+    "Apache-2.0" => { with: "LLVM-exception" }, # llvm
+    any_of: ["MIT", "NCSA"], # emscripten
+  ]
+  head "https://github.com/emscripten-core/emscripten.git"
 
-  stable do
-    url "https://github.com/kripken/emscripten/archive/1.37.24.tar.gz"
-    sha256 "f0bea0b044887aa6c188cbf31dfe6d2a5ada7702370782bea6d1ba038f787a47"
-
-    resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp/archive/1.37.24.tar.gz"
-      sha256 "c7d5715b88c8e93409382b2f278b7a49332ba058dd45a4d22c631e2327d317c6"
-    end
-
-    resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang/archive/1.37.24.tar.gz"
-      sha256 "d19a6a48a084df02b5a8d0b648344526d689ee1bd7d57064cfbc198840c4ba04"
-    end
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any
-    sha256 "92bc99835446e7d2e6d24809bfd8d3deaeac3d3b2147d0049e27aa3ab2d3375b" => :high_sierra
-    sha256 "b99b30b498864fb5e146ad378b1563e2f1d7a96157bcd1c620242d26f54fe19b" => :sierra
-    sha256 "6fce19d41629a0de4225e837b8805219831a372cf11fe1464c8187b6cf31b5d1" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "3620637d068dc763d045c7a03679b83c335cbbecab0d492f51d17d73b44b18b0"
+    sha256 cellar: :any, big_sur:       "1bd58c270b767ddba737ad50f89def3d4ab497a8457adbea556a60180cf4c75c"
+    sha256 cellar: :any, catalina:      "8158293c11f8c5ed78afb764319f5d43b6ccc28879f556a2059db3042c825fc5"
+    sha256 cellar: :any, mojave:        "3eb65cf88ad607acddee00ce23ed46da5849ea5ad33fc26f1783e130691f7f59"
   end
 
-  head do
-    url "https://github.com/kripken/emscripten.git", :branch => "master"
-
-    resource "fastcomp" do
-      url "https://github.com/kripken/emscripten-fastcomp.git", :branch => "master"
-    end
-
-    resource "fastcomp-clang" do
-      url "https://github.com/kripken/emscripten-fastcomp-clang.git", :branch => "master"
-    end
-  end
-
-  needs :cxx11
-
-  depends_on :python if MacOS.version <= :snow_leopard
   depends_on "cmake" => :build
   depends_on "node"
-  depends_on "closure-compiler" => :optional
+  depends_on "python@3.9"
   depends_on "yuicompressor"
+
+  # Use emscripten's recommended binaryen revision to avoid build failures.
+  # See llvm resource below for instructions on how to update this.
+  resource "binaryen" do
+    url "https://github.com/WebAssembly/binaryen.git",
+        revision: "89b8af006bc56cb4bf68f12a80b1cfe8e7a353d4"
+  end
+
+  # emscripten needs argument '-fignore-exceptions', which is only available in llvm >= 12
+  # To find the correct llvm revision, find a corresponding commit at:
+  # https://github.com/emscripten-core/emsdk/blob/master/emscripten-releases-tags.txt
+  # Then take this commit and go to:
+  # https://chromium.googlesource.com/emscripten-releases/+/<commit>/DEPS
+  # Then use the listed llvm_project_revision for the resource below.
+  resource "llvm" do
+    url "https://github.com/llvm/llvm-project.git",
+        revision: "1c5f08312874717caf5d94729d825c32845773ec"
+  end
 
   def install
     ENV.cxx11
-    # OSX doesn't provide a "python2" binary so use "python" instead.
-    python2_shebangs = `grep --recursive --files-with-matches ^#!/usr/bin/.*python2$ #{buildpath}`
-    python2_shebang_files = python2_shebangs.lines.sort.uniq
-    python2_shebang_files.map! { |f| Pathname(f.chomp) }
-    python2_shebang_files.reject! &:symlink?
-    inreplace python2_shebang_files, %r{^(#!/usr/bin/.*python)2$}, "\\1"
 
     # All files from the repository are required as emscripten is a collection
     # of scripts which need to be installed in the same layout as in the Git
     # repository.
     libexec.install Dir["*"]
 
-    (buildpath/"fastcomp").install resource("fastcomp")
-    (buildpath/"fastcomp/tools/clang").install resource("fastcomp-clang")
+    # emscripten needs an llvm build with the following executables:
+    # https://github.com/emscripten-core/emscripten/blob/#{version}/docs/packaging.md#dependencies
+    resource("llvm").stage do
+      projects = %w[
+        clang
+        lld
+      ]
 
-    cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
-    cmake_args = [
-      "-DCMAKE_BUILD_TYPE=Release",
-      "-DCMAKE_INSTALL_PREFIX=#{libexec}/llvm",
-      "-DLLVM_TARGETS_TO_BUILD='X86;JSBackend'",
-      "-DLLVM_INCLUDE_EXAMPLES=OFF",
-      "-DLLVM_INCLUDE_TESTS=OFF",
-      "-DCLANG_INCLUDE_TESTS=OFF",
-      "-DOCAMLFIND=/usr/bin/false",
-      "-DGO_EXECUTABLE=/usr/bin/false",
-    ]
+      targets = %w[
+        host
+        WebAssembly
+      ]
 
-    mkdir "fastcomp/build" do
-      system "cmake", "..", *cmake_args
-      system "make"
+      llvmpath = Pathname.pwd/"llvm"
+
+      # Apple's libstdc++ is too old to build LLVM
+      ENV.libcxx if ENV.compiler == :clang
+
+      # compiler-rt has some iOS simulator features that require i386 symbols
+      # I'm assuming the rest of clang needs support too for 32-bit compilation
+      # to work correctly, but if not, perhaps universal binaries could be
+      # limited to compiler-rt. llvm makes this somewhat easier because compiler-rt
+      # can almost be treated as an entirely different build from llvm.
+      ENV.permit_arch_flags
+
+      args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
+        -DCMAKE_INSTALL_PREFIX=#{libexec}/llvm
+        -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
+        -DLLVM_TARGETS_TO_BUILD=#{targets.join(";")}
+        -DLLVM_LINK_LLVM_DYLIB=ON
+        -DLLVM_BUILD_LLVM_DYLIB=ON
+        -DLLVM_INCLUDE_EXAMPLES=OFF
+        -DLLVM_INCLUDE_TESTS=OFF
+        -DLLVM_INSTALL_UTILS=OFF
+      ]
+
+      sdk = MacOS.sdk_path_if_needed
+      args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
+
+      if MacOS.version == :mojave && MacOS::CLT.installed?
+        # Mojave CLT linker via software update is older than Xcode.
+        # Use it to retain compatibility.
+        args << "-DCMAKE_LINKER=/Library/Developer/CommandLineTools/usr/bin/ld"
+      end
+
+      mkdir llvmpath/"build" do
+        # We can use `make` and `make install` here, but prefer these commands
+        # for consistency with the llvm formula.
+        system "cmake", "-G", "Unix Makefiles", "..", *args
+        system "cmake", "--build", "."
+        system "cmake", "--build", ".", "--target", "install"
+      end
+    end
+
+    resource("binaryen").stage do
+      args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
+        -DCMAKE_INSTALL_PREFIX=#{libexec}/binaryen
+      ]
+
+      system "cmake", ".", *args
       system "make", "install"
+    end
+
+    cd libexec do
+      system "npm", "install", *Language::Node.local_npm_install_args
+      rm_f "node_modules/ws/builderror.log" # Avoid references to Homebrew shims
     end
 
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
        emranlib emrun emscons].each do |emscript|
-      bin.install_symlink libexec/emscript
+      (bin/emscript).write_env_script libexec/emscript, PYTHON: Formula["python@3.9"].opt_bin/"python3"
     end
   end
 
-  def caveats; <<~EOS
-    Manually set LLVM_ROOT to
-      #{opt_libexec}/llvm/bin
-    and comment out BINARYEN_ROOT
-    in ~/.emscripten after running `emcc` for the first time.
-    EOS
+  def post_install
+    system bin/"emcc", "--check"
+    if File.exist?(libexec/".emscripten") && !File.exist?(libexec/".homebrew")
+      touch libexec/".homebrew"
+      inreplace "#{libexec}/.emscripten" do |s|
+        s.gsub!(/^(LLVM_ROOT.*)/, "#\\1\nLLVM_ROOT = \"#{opt_libexec}/llvm/bin\"\\2")
+        s.gsub!(/^(BINARYEN_ROOT.*)/, "#\\1\nBINARYEN_ROOT = \"#{opt_libexec}/binaryen\"\\2")
+      end
+    end
   end
 
   test do
-    system bin/"emcc"
-    assert_predicate testpath/".emscripten", :exist?, "Failed to create sample config"
+    # Fixes "Unsupported architecture" Xcode prepocessor error
+    ENV.delete "CPATH"
+
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      int main()
+      {
+        printf("Hello World!");
+        return 0;
+      }
+    EOS
+
+    system bin/"emcc", "test.c", "-o", "test.js", "-s", "NO_EXIT_RUNTIME=0"
+    assert_equal "Hello World!", shell_output("node test.js").chomp
   end
 end

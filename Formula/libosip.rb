@@ -1,21 +1,44 @@
 class Libosip < Formula
   desc "Implementation of the eXosip2 stack"
   homepage "https://www.gnu.org/software/osip/"
-  url "https://ftp.gnu.org/gnu/osip/libosip2-5.0.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/osip/libosip2-5.0.0.tar.gz"
-  sha256 "18a13c954f7297978e7bf1a0cdadde7c531e519d61a045dae304e054f3b2df03"
+  url "https://ftp.gnu.org/gnu/osip/libosip2-5.2.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/osip/libosip2-5.2.0.tar.gz"
+  sha256 "4fb48b2ea568bb41c6244b0df2bb7175849ca93e84be53ceb268fdf9351bb375"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :stable
+    regex(/href=.*?libosip2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "6a92bcb59772b46d9eba4e340f01cd798f54fcf521a6f6e09011c4f89c44d863" => :high_sierra
-    sha256 "a6f031a29e43ee5af71d20f9c9b86bc138ad55a1c41faef1f2f852b5595912a8" => :sierra
-    sha256 "b0a4712e735be9c798ba7f9233db9339a09dc70b69c88c318fc14662972f5511" => :el_capitan
-    sha256 "01816d798919670ccce2726b59aa1752d4f6ef2a3e74df5e9141882c778e1f37" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "768aa5e4a093d9117ca588d4b7796b3a31c6ba88a463f8647dd3698b70e2a951"
+    sha256 cellar: :any, big_sur:       "8f5c5fdfede2252824de6af7f2119dc78a95533c79ca0862d986c98bb3015f6f"
+    sha256 cellar: :any, catalina:      "c23d056597896c51c2f364b06b7843c2998931429cefaa5413aa05e57fedef9c"
+    sha256 cellar: :any, mojave:        "d1f91870b64ffd2b286d76ee44af1f1f7bd94749141110cbfd5de8d327a72e40"
+    sha256 cellar: :any, high_sierra:   "d1241b9bbcbacff0a2823b3d1a96ebeb36bc3176b8f18542b9a1cf595900c94f"
   end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <sys/time.h>
+      #include <osip2/osip.h>
+
+      int main() {
+          osip_t *osip;
+          int i = osip_init(&osip);
+          if (i != 0)
+            return -1;
+          return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-losip2", "-o", "test"
+    system "./test"
   end
 end

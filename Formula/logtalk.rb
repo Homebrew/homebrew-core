@@ -1,28 +1,23 @@
 class Logtalk < Formula
-  desc "Object-oriented logic programming language"
-  homepage "http://logtalk.org"
-  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3130stable.tar.gz"
-  version "3.13.0"
-  sha256 "8fd66df7c0ec1682121fb0e0f4e5eb2296caa3663b093c166b88c252737734d3"
+  desc "Declarative object-oriented logic programming language"
+  homepage "https://logtalk.org/"
+  url "https://github.com/LogtalkDotOrg/logtalk3/archive/lgt3440stable.tar.gz"
+  version "3.44.0"
+  sha256 "429088a4fea3fae3832946f12bdff5e24a1d99a55f07b1669ea99b54096a93fa"
+  license "Apache-2.0"
+
+  livecheck do
+    url "https://logtalk.org/download.html"
+    regex(/Latest stable version:.*?v?(\d+(?:\.\d+)+)/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "612c3649aadc5c9fbf6b4793c785e7e67d567df3e2a917034db44b4c55b673e1" => :high_sierra
-    sha256 "e572ad9e4e49ea055ef6bb76a55b81a282cbdbb0c0d236ca22ee9ef1da1f9163" => :sierra
-    sha256 "89acc8982d080f8cf7b91604b57061fa90c2bfb577c908da23b725923ee372f8" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:  "de48173164253eefda8b44b924baecbe5e4d5b51e4d2955be6d2d26b5e58c420"
+    sha256 cellar: :any_skip_relocation, catalina: "7b641c19f7f9178b4343984b300061e457a2ce691a39eda545c4213f85efe993"
+    sha256 cellar: :any_skip_relocation, mojave:   "dd5e07179762b093c6279d04f51dbddd63d850df3c40dda7647f365ac0aa0e9c"
   end
 
-  option "with-swi-prolog", "Build using SWI Prolog as backend"
-  option "with-gnu-prolog", "Build using GNU Prolog as backend (Default)"
-
-  deprecated_option "swi-prolog" => "with-swi-prolog"
-  deprecated_option "gnu-prolog" => "with-gnu-prolog"
-
-  if build.with? "swi-prolog"
-    depends_on "swi-prolog"
-  else
-    depends_on "gnu-prolog"
-  end
+  depends_on "gnu-prolog"
 
   def install
     cd("scripts") { system "./install.sh", "-p", prefix }

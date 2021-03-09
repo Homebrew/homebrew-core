@@ -1,16 +1,17 @@
 class Neatvi < Formula
-  desc "ex/vi clone for editing bidirectional uft-8 text"
-  homepage "http://repo.or.cz/w/neatvi.git"
-  url "http://repo.or.cz/neatvi.git",
-    :tag => "06", :revision => "5ed4bbc7f12686bb480ab8b2b05c94e12b1c71d8"
-
-  head "http://repo.or.cz/neatvi.git"
+  desc "Clone of ex/vi for editing bidirectional utf-8 text"
+  homepage "https://repo.or.cz/neatvi.git"
+  url "https://repo.or.cz/neatvi.git",
+      tag:      "08",
+      revision: "49e4029728927afb1a22864698be10cf445413aa"
+  head "https://repo.or.cz/neatvi.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2e34d03e212479064e86e8d1024447badeb61a54205f1fda24f9b6633e22afe7" => :high_sierra
-    sha256 "339a7880dea5f7ff0e290bc890f95719da7e5ba4b64a7205760c8f6cf64e10a2" => :sierra
-    sha256 "c773025ad559bb25cc095a7e1efc8950424a4cd86ff81ee4b0093a0e2e3c3c84" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a49881c62f05798cf8016e0e6dfb3e00a368c86d338e9ddb332f3f0917e12706"
+    sha256 cellar: :any_skip_relocation, big_sur:       "369536734eff4dea2a061a45b61060b9b91400599c2b5149cc56ec889b0c14a5"
+    sha256 cellar: :any_skip_relocation, catalina:      "c2c83bfb47a438d99fb7086a756292a4442dfb1d7eebd0314132814201cd944e"
+    sha256 cellar: :any_skip_relocation, mojave:        "240fb8ec097a95ed3bb86f02f6f3fbd074b671529055009835eb95c6f2dccc6d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "4244c126297140059a43449c435407de2d041486bc56ea44bd2d324649304818"
   end
 
   def install

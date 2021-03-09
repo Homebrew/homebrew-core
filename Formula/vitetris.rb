@@ -1,22 +1,24 @@
 class Vitetris < Formula
   desc "Terminal-based Tetris clone"
-  homepage "http://www.victornils.net/tetris/"
-  url "http://www.victornils.net/tetris/vitetris-0.57.tar.gz"
-  sha256 "0c9fa6c8b16e2f8968f65e16a87f1bcd39b827d510c6efb0771f0400ab91cdc2"
+  homepage "https://www.victornils.net/tetris/"
+  url "https://github.com/vicgeralds/vitetris/archive/v0.59.1.tar.gz"
+  sha256 "699443df03c8d4bf2051838c1015da72039bbbdd0ab0eede891c59c840bdf58d"
+  license "BSD-2-Clause"
+  head "https://github.com/vicgeralds/vitetris.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1a01bb4e1ac4a04e4cd139683a0593c3ad2aadca28c8c7ed7b2ca1881400ffac" => :high_sierra
-    sha256 "817866938f1d4df2dcbb69166e187ec4a5d2f61cff83d50725f5112e773c5f34" => :sierra
-    sha256 "d3d2d0c8a86995742c790418cd4e11bbf46d0ea4efa6b8bd5f372a3df7f9ea2b" => :el_capitan
-    sha256 "3ce0392ac4a01daeb72ae626eba038f32d4b3acd0ecb3695f0ec57376e1a4039" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ab846d19502cc5c5aea07435f491a2e7e73f84b37bae0d40e79dffed69a8e6b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1fa572cc6545ae0b7dffcabbab5d15f256c29d0a7d8f8af1bfef4371bf31401c"
+    sha256 cellar: :any_skip_relocation, catalina:      "9b92a065c5c65480ac9fbe8b3414e3c8c467ba6decbe72054a269f18b77e4280"
+    sha256 cellar: :any_skip_relocation, mojave:        "4ff25a3259becb2c40b2f025f30de8fcd269123352764c9d313dfbd2ece6d04f"
   end
 
-  # remove a 'strip' option not supported on OS X and root options for
-  # 'install'
-  patch :DATA
-
   def install
+    # remove a 'strip' option not supported on OS X and root options for
+    # 'install'
+    inreplace "Makefile", "-strip --strip-all $(PROGNAME)", "-strip $(PROGNAME)"
+
     system "./configure", "--prefix=#{prefix}", "--without-xlib"
     system "make", "install"
   end
@@ -25,24 +27,3 @@ class Vitetris < Formula
     system "#{bin}/tetris", "-hiscore"
   end
 end
-__END__
---- a/Makefile  2013-10-07 11:57:18.000000000 +0200
-+++ b/Makefile  2013-10-07 11:57:29.000000000 +0200
-@@ -5,7 +5,7 @@
- # Uncomment to change the default.  (Only used in Unix-like systems.)
- #HISCORE_FILENAME = /var/games/vitetris-hiscores
-
--INSTALL = install -oroot -groot
-+INSTALL = install
-
- default: build
-	@echo Done.
-@@ -18,7 +18,7 @@
-  cd src; $(MAKE) tetris
-	mv -f src/tetris$(EXE) $(PROGNAME)
-	@echo stripping symbols to reduce program size:
--	-strip --strip-all $(PROGNAME)
-+	-strip $(PROGNAME)
-
- gameserver: src/netw/gameserver.c
-	cd src/netw; $(MAKE) gameserver

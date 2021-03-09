@@ -1,19 +1,20 @@
 class Mpop < Formula
   desc "POP3 client"
-  homepage "https://mpop.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/mpop/mpop/1.2.6/mpop-1.2.6.tar.xz"
-  sha256 "9fec7a9dd08fc0f04bf6178bc651b036d1fe0e46903146f38a8d182887e9315c"
+  homepage "https://marlam.de/mpop/"
+  url "https://marlam.de/mpop/releases/mpop-1.4.12.tar.xz"
+  sha256 "5f6355b52d9c360619623a40c66c1a5571e393b43fe58375c0de35429ac3480a"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "bfb202f660cc7e79f8e58ba853ca3afe1ae4d205cb84301401bdc035336849bd" => :high_sierra
-    sha256 "09f173b7d63bedd36901aef8243c8544d3b937d825084396ba1f999f6d029944" => :sierra
-    sha256 "883ed0da7dab681c86709fa7f6dec1528ea579fcfe889bbb87e6834cac9617e3" => :el_capitan
-    sha256 "a15f133e343b6a315c9236f4a5def960936f4e9a326efc30c438fdf2fd46c2a2" => :yosemite
+    rebuild 1
+    sha256 arm64_big_sur: "3aaad5f552e6c7b1dc2826e17fde83b873f63d540607a83edf8f0d9466dd4be3"
+    sha256 big_sur:       "6e1d0e59df73534ec28952b1a00fc490335959c5da636306ba3f2224f1f5d995"
+    sha256 catalina:      "8fa53695d0f74cb8575a6eb1b3582ef2e06814c1540c8c3ad20be5f9667f617e"
+    sha256 mojave:        "8c30103713ed7538025b297aaf50fd072dfdfe3fe803ee0712f8d06dddb094f3"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "gnutls"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"

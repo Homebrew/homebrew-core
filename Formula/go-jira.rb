@@ -1,27 +1,23 @@
 class GoJira < Formula
   desc "Simple jira command-line client in Go"
-  homepage "https://github.com/Netflix-Skunkworks/go-jira"
-  url "https://github.com/Netflix-Skunkworks/go-jira/archive/v1.0.14.tar.gz"
-  sha256 "34cb45af19985474b8d9079c1f551f4892bfbe64073a5a8f89333ca3603e4639"
+  homepage "https://github.com/go-jira/jira"
+  url "https://github.com/go-jira/jira/archive/v1.0.27.tar.gz"
+  sha256 "c5bcf7b61300b67a8f4e42ab60e462204130c352050e8551b1c23ab2ecafefc7"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "146cdcca1cfcf0c950fea209100769aa9832bee22c924cb21f8da1e13433b1f1" => :high_sierra
-    sha256 "f5710f28a79317fcbe98eb3bb6674e78d957811e4517266b09dd3375915dc03f" => :sierra
-    sha256 "3c97af966b4ef4dd2ef1df1f7982120785ecc2ab5b3b58148b2913a0de7e5ad1" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b1352079509d72281e76344ebe41a0704b97a0c116151fb7536a2bb6b26d2bf1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "40fd5a4ecfcb1f7a296651f59f28829e760a1ef69f884766b5262abf972663d6"
+    sha256 cellar: :any_skip_relocation, catalina:      "82a05966c4af4b6200507909bc37eaef905f96d69d1c790ae655e35741ca058c"
+    sha256 cellar: :any_skip_relocation, mojave:        "32dbd901f35e80fce61a466811dfa5261e543bdb15da855973506e1964c21497"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "94372ad76c9857929142891482451672c615a03a32ea310ffcc993b89ad889ff"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/gopkg.in/Netflix-Skunkworks/go-jira.v1"
-    dir.install buildpath.children
-
-    cd dir do
-      system "go", "build", "-o", bin/"jira", "-ldflags", "-w -s", "cmd/jira/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"jira", "cmd/jira/main.go"
+    prefix.install_metafiles
   end
 
   test do
@@ -29,11 +25,10 @@ class GoJira < Formula
     template_dir = testpath/".jira.d/templates/"
 
     files = Dir.entries(template_dir)
-    # not an exhaustive list, see https://github.com/Netflix-Skunkworks/go-jira/blob/4d74554300fa7e5e660cc935a92e89f8b71012ea/jiracli/templates.go#L239
+    # not an exhaustive list, see https://github.com/go-jira/jira/blob/4d74554300fa7e5e660cc935a92e89f8b71012ea/jiracli/templates.go#L239
     expected_templates = %w[comment components create edit issuetypes list view worklog debug]
 
     assert_equal([], expected_templates - files)
-    debug = open(template_dir + "debug")
-    assert_equal("{{ . | toJson}}\n", debug.read)
+    assert_equal("{{ . | toJson}}\n", IO.read("#{template_dir}/debug"))
   end
 end

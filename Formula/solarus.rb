@@ -1,41 +1,38 @@
 class Solarus < Formula
   desc "Action-RPG game engine"
-  homepage "http://www.solarus-games.org/"
-  head "https://github.com/christopho/solarus.git"
-
-  stable do
-    url "http://www.solarus-games.org/downloads/solarus/solarus-1.5.3-src.tar.gz"
-    sha256 "7608f3bdc7baef36e95db5e4fa4c8c5be0a3f436c50c53ab72d70a92aa44cc1c"
-
-    # Upstream patch for build issue, remove in next version
-    # https://github.com/solarus-games/solarus/issues/1084
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e6a26f3d/solarus/config.patch"
-      sha256 "7bb5c39dd97eca215a22a28dffe23dfac364252f7ff8221e5d76ae40d037be76"
-    end
-  end
+  homepage "https://www.solarus-games.org/"
+  url "https://gitlab.com/solarus-games/solarus.git",
+      tag:      "v1.6.4",
+      revision: "6d2a11ddd1d07d21695ab7304c3ddd462fd37c26"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "b03dd0139fb3496f90a23c2847b42908e63366c37f92ad8b219f23bada2c4422" => :high_sierra
-    sha256 "03b09b647d7d940febe3405420b127567922251f493c15e96945b808a11a041d" => :sierra
-    sha256 "270c69a61d8bbc33033b4ca18bc669fabbba1e58c7ad67dcd5cb1150f039160a" => :el_capitan
+    sha256 cellar: :any, big_sur:     "80970673e8217a282440a21de4e4db8fa4435f9743e94c74f300fa55f2963014"
+    sha256 cellar: :any, catalina:    "23c646e9a69c966e0f2930ac225661dab3d8b97fbb9e34c12cb49cdfe1e56d67"
+    sha256 cellar: :any, mojave:      "6d02a298994633961ed83feb34471cf743059aa9daf90d9b5153f2613337e8d2"
+    sha256 cellar: :any, high_sierra: "dedfe91badd887dfdcf0e0d55b662fde86890c1f8e287dddd224b29b0339f4b9"
   end
 
   depends_on "cmake" => :build
+  depends_on "glm"
+  depends_on "libmodplug"
+  depends_on "libogg"
+  depends_on "libvorbis"
+  depends_on "luajit"
+  depends_on "physfs"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_ttf"
-  depends_on "libvorbis"
-  depends_on "libogg"
-  depends_on "libmodplug"
-  depends_on "physfs"
-  depends_on "luajit"
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DSOLARUS_GUI=OFF", *std_cmake_args
+      ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
+      ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
+      system "cmake", "..",
+                      "-DSOLARUS_GUI=OFF",
+                      "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
+                      "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",
+                      *std_cmake_args
       system "make", "install"
     end
   end

@@ -1,14 +1,15 @@
 class Liblockfile < Formula
   desc "Library providing functions to lock standard mailboxes"
   homepage "https://tracker.debian.org/pkg/liblockfile"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/libl/liblockfile/liblockfile_1.14.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libl/liblockfile/liblockfile_1.14.orig.tar.gz"
-  sha256 "ab40d4a3e8cbc204f7e87fea637a4e4ddf9a1149aaa0a723a4267febd0b1d060"
+  url "https://deb.debian.org/debian/pool/main/libl/liblockfile/liblockfile_1.17.orig.tar.gz"
+  sha256 "6e937f3650afab4aac198f348b89b1ca42edceb17fb6bb0918f642143ccfd15e"
+  license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 "49db28fa47ee7012be39fbb8ab03948c050a95525808aa27ad2f8521ff8fadc6" => :high_sierra
-    sha256 "45b9f5fee9e1a0efa2439027cd72d5bc6fede1ec9391a46d0a9eb024e675b31c" => :sierra
-    sha256 "f6ca20b97a651114986b485e950859e733a08384bd9ea08ef12eb8cd29f2e697" => :el_capitan
+    sha256 arm64_big_sur: "41a9d79f95f938532b4320a29c5f5bf3d7229a6df3f06413112d903e23589078"
+    sha256 big_sur:       "d13b1ce9f35885e1b05c9bd436e8edd0fc1b0dc7475219773655cb69bafcfbb3"
+    sha256 catalina:      "a923faddb180ea86f1038424613c3191bf5212fc44e25548284f5a0525e1b5e9"
+    sha256 mojave:        "143542d504f3f37df987e6f2c4291c2966cdb9ac15a6fd581155a4079758575e"
   end
 
   def install

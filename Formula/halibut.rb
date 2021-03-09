@@ -3,15 +3,15 @@ class Halibut < Formula
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/halibut/"
   url "https://www.chiark.greenend.org.uk/~sgtatham/halibut/halibut-1.2/halibut-1.2.tar.gz"
   sha256 "1aedfb6240f27190c36a390fcac9ce732edbdbaa31c85ee675b994e2b083163f"
-
   head "https://git.tartarus.org/simon/halibut.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "34dd7c9fb1fe023d33b61be5bc56c0497a1854b9bbf68cc80facf61ecee68190" => :high_sierra
-    sha256 "68325d87dfa9989331273f70ab5edb19c9ca825316df64cc860edaa43a5d9ce5" => :sierra
-    sha256 "7f10669422a452000a9150206e8e675dc5b0b180d0cc95d02436dd566a6974f1" => :el_capitan
-    sha256 "6aad05089e904d5695aac53b6eac97e08b0e28b0e1b5d0dc70ea91864543558f" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bbe2900f2e05ece4838ae138e287192fce7c97ed648994f15b19c91304e26154"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2f3dc434449de2f5d18bb5019dc62a966cba2981eb88d59d77d34b2049e44f2d"
+    sha256 cellar: :any_skip_relocation, catalina:      "e9bd74c1ab130f4abc824906bf1f73f910032a4c7c0938798f7fbab2f1346020"
+    sha256 cellar: :any_skip_relocation, mojave:        "05f0236c180aeab690979615812fb72642e7cdeaccb35ebb865a53aadb35e7c6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "fe74b9670ae0d996a17de4a70a140365d057a83a643125dcbd16b33dacad9f6a"
   end
 
   def install

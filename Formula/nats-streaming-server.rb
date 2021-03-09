@@ -1,44 +1,43 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/v0.6.0.tar.gz"
-  sha256 "a2dff9bb9f886713b8ec6d7bfa8f6120736c5cf7adf0e0c50e62e7ff582562b0"
+  url "https://github.com/nats-io/nats-streaming-server/archive/v0.21.1.tar.gz"
+  sha256 "69dc0d80d4e494f63b8110cfbd779c3c58f4e4af2c27eb87b8cc8599e43859c9"
+  license "Apache-2.0"
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "125d29c207ce93d55ff3a03a9b512143485c792f4e13494ff900eb9eb0ce06c5" => :high_sierra
-    sha256 "d84494c63743a824fa2e5395bf622b96fea3bb549133fc0c189f5e499ad1580a" => :sierra
-    sha256 "c147354eb9d5a8ed9bf287db9d9979cc985611978f00bb4950f9cde976a06116" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9bea1d42813ee990f4911c5913bd7737760942e9edc2cbf6acbdad42905c6432"
+    sha256 cellar: :any_skip_relocation, big_sur:       "57861dee4e2a16812e996a3514b0181f287b25cc07444a12e35e045a1a37c80e"
+    sha256 cellar: :any_skip_relocation, catalina:      "b5b5fcfb985941aa21d1fe9fac9a8817e02a512aef118b7e9f41a783f3c600dc"
+    sha256 cellar: :any_skip_relocation, mojave:        "6c4ca896ea015a1ebd530a00a6f99e23d5364693a5c23eb6309e7c341b83fdac"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    mkdir_p "src/github.com/nats-io"
-    ln_s buildpath, "src/github.com/nats-io/nats-streaming-server"
-    buildfile = buildpath/"src/github.com/nats-io/nats-streaming-server/nats-streaming-server.go"
-    system "go", "build", "-v", "-o", bin/"nats-streaming-server", buildfile
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"nats-streaming-server"
+    prefix.install_metafiles
   end
 
-  plist_options :manual => "nats-streaming-server"
+  plist_options manual: "nats-streaming-server"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/nats-streaming-server</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/nats-streaming-server</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
     EOS
   end
 

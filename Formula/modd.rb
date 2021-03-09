@@ -1,41 +1,27 @@
-require "language/go"
-
 class Modd < Formula
   desc "Flexible tool for responding to filesystem changes"
   homepage "https://github.com/cortesi/modd"
-  url "https://github.com/cortesi/modd/archive/v0.5.tar.gz"
-  sha256 "784e8d542f0266a68d32e920b18e2d690402cf31305314b967186e12ce12099a"
+  url "https://github.com/cortesi/modd/archive/v0.8.tar.gz"
+  sha256 "04e9bacf5a73cddea9455f591700f452d2465001ccc0c8e6f37d27b8b376b6e0"
+  license "MIT"
   head "https://github.com/cortesi/modd.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "44dded2d206255b1865b33569f413e305a28a91bb3af6c3b29e26ca4726a0e42" => :high_sierra
-    sha256 "1102b677003a7d0f2b2af3b9da58dcea26af6d86f655ca6c1ae416947173a2e3" => :sierra
-    sha256 "bb7190f3c846327c782f719c5c592104fcdb1598586d6ad13cda57c5b72468df" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dc3e926bb7282bd2019350646a48ec7fe88f1fb65e41156d250f3c969e7245ed"
+    sha256 cellar: :any_skip_relocation, big_sur:       "87423ac35521b65b0d45d6d7a1b0589bbfa57a14b62e3b9dcbb4e1e2a6e2f874"
+    sha256 cellar: :any_skip_relocation, catalina:      "0657ac604def86ff2bfac4797944290d0fc4afabee8855506901437d2870ce61"
+    sha256 cellar: :any_skip_relocation, mojave:        "c7a4a376466ad627e747c4054e6398fa4a8637e5542c2cf496740ea2b0db79ff"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/cortesi/moddwatch" do
-    url "https://github.com/cortesi/moddwatch.git",
-        :revision => "a149019f9ed6f16033de28f66d8c1247593a0104"
-  end
-
-  go_resource "github.com/cortesi/termlog" do
-    url "https://github.com/cortesi/termlog.git",
-        :revision => "2ed14eb6ce62ec5bcc3fd25885a1d13d53f34fd1"
-  end
-
   def install
-    ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
     ENV["GOPATH"] = buildpath
-    ENV["GOBIN"] = bin
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/cortesi/modd").install buildpath.children
-    Language::Go.stage_deps resources, buildpath/"src"
     cd "src/github.com/cortesi/modd" do
-      system "go", "install", ".../cmd/modd"
-      prefix.install_metafiles
+      system "go", "build", *std_go_args, "./cmd/modd"
     end
   end
 

@@ -3,13 +3,15 @@ class Takt < Formula
   homepage "https://takt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/takt/takt-0.310-src.tar.gz"
   sha256 "eb2947eb49ef84b6b3644f9cf6f1ea204283016c4abcd1f7c57b24b896cc638f"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "09ab01c470d00703ee02751fb70ddc91e3a625466e98fde9aaaf041654287574" => :high_sierra
-    sha256 "d69f489e47d47dba63edc7defeb8829272093e47fea263ba54054f21557131e4" => :sierra
-    sha256 "7862cdfe9f54eba4d4263558669d852a6a87d01be3d1f5ad56439e5bfc893b64" => :el_capitan
-    sha256 "46f0c0e3b50840d54601615db699ff0e77a3a891e3928a013939f94ecf66b78b" => :yosemite
+    sha256 arm64_big_sur: "910a1325ce07065c113c1efd53e8295a10b8db613ef6fa1e5bfda1abc8fa922d"
+    sha256 big_sur:       "fd9dec43c0d9d5634d3bf23f8c6112090429d279243c5c0acd4dbfff8025fdbc"
+    sha256 catalina:      "b5f6d5891f4955b26be88358c37199d9f9b1ebd66eaaa519ccbcfddbfa615780"
+    sha256 mojave:        "c45509b2d6828c514a0397f9c57284f7c4efcca766deddc762ef69cac715d3df"
+    sha256 high_sierra:   "d90177e40185259de89cc259c5cfde419f65161c52571dfeccb18fe52ffeab8f"
+    sha256 sierra:        "d0fd3808c9d7266cd16de123c0f8cc434d594b63b6e2d7d67425f155f1c9d582"
   end
 
   depends_on "readline"

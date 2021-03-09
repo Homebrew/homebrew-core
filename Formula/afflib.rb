@@ -1,35 +1,42 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.16.tar.gz"
-  sha256 "9c0522941a24a3aafa027e510c6add5ca9f4defd2d859da3e0b536ad11b6bf72"
+  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.19.tar.gz"
+  sha256 "d358b07153dd08df3f35376bab0202c6103808686bab5e8486c78a18b24e2665"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "7a5a2cdf54e81089aeda288185c13dd947af90dab3c32f5ce3017d5251f8ea28" => :high_sierra
-    sha256 "0a69dea1576c68720739308a0aa66e83c24de8e6b88303f0d3fe371db2f932d4" => :sierra
-    sha256 "923868f49a8245403e9e2207780d3a9234e29ea12d9861a671fe5675e1fea046" => :el_capitan
-    sha256 "bbebd8159a1a187405374c9fd34a9fad999c44c9c4af60d7c763b97f99f95ae6" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "4ebc86660cab0964031b14ee14a710a8d83222389ba9e263463f7b7610582b3b"
+    sha256 cellar: :any, big_sur:       "045dd01683d3c1411e493d72a8b4bcd6e71113386f330254252e5876d702429f"
+    sha256 cellar: :any, catalina:      "63075bb1473d3342521c6e29fd1c8c628114cef274ec8b7cc572d46068f19f4a"
+    sha256 cellar: :any, mojave:        "9a50d803eedfeb45425b1f7a0452e8f7072d87c2b7b5b488dfca6222a18440c6"
+    sha256 cellar: :any, high_sierra:   "9367940cd2b04b6a244b00ba0970ab20b23393604689ee45b5b5b2b5274e752c"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on :osxfuse => :optional
+  depends_on "openssl@1.1"
+  depends_on "python@3.9"
+
+  uses_from_macos "curl"
+  uses_from_macos "expat"
+
+  # Fix for Python 3.9, remove in next version
+  patch do
+    url "https://github.com/sshock/AFFLIBv3/commit/aeb444da.patch?full_index=1"
+    sha256 "90cbb0b55a6e273df986b306d20e0cfb77a263cb85e272e01f1b0d8ee8bd37a0"
+  end
 
   def install
-    args = ["--enable-s3", "--enable-python"]
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
-    if build.with? "osxfuse"
-      ENV.append "CPPFLAGS", "-I/usr/local/include/osxfuse"
-      ENV.append "LDFLAGS", "-L/usr/local/lib"
-      args << "--enable-fuse"
-    else
-      args << "--disable-fuse"
-    end
+    args = %w[
+      --enable-s3
+      --enable-python
+      --disable-fuse
+    ]
 
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",

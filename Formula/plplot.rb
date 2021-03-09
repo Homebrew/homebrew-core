@@ -1,30 +1,31 @@
 class Plplot < Formula
   desc "Cross-platform software package for creating scientific plots"
   homepage "https://plplot.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/plplot/plplot/5.13.0%20Source/plplot-5.13.0.tar.gz"
-  sha256 "ec36bbee8b03d9d1c98f8fd88f7dc3415560e559b53eb1aa991c2dcf61b25d2b"
+  url "https://downloads.sourceforge.net/project/plplot/plplot/5.15.0%20Source/plplot-5.15.0.tar.gz"
+  sha256 "b92de4d8f626a9b20c84fc94f4f6a9976edd76e33fb1eae44f6804bdcc628c7b"
+  revision 2
 
   bottle do
-    sha256 "d916ee384f86257d3584a27b42d0b164afd4667c23388f2eb243f5dde846e226" => :high_sierra
-    sha256 "bfc8004765fbb0ea7378951e1cbf21e1512eba73528f219bbb85acc5fef9a85d" => :sierra
-    sha256 "44fffbf81d69eb34c0746a646b2bab7d13c8c8aacab816d800e9d44ccb96762d" => :el_capitan
-    sha256 "ac125db322d3a35450b1ff0e8f4c8ceb6221e0ab8a339887d2d3177dff3b3dbe" => :yosemite
+    rebuild 1
+    sha256 arm64_big_sur: "1f9f1b0eb13535a59cd938e43ad1b190e08bbe5ebab222673421d41fd442cedc"
+    sha256 big_sur:       "54b7f57eb347cd104a27d199b7a5bca36f01be5c0f5c837290c9efc19429d7bb"
+    sha256 catalina:      "57046a10346c01ff487b1da3623ad21daf5452be29b2adfef0845db9e5f4a185"
+    sha256 mojave:        "e89a7f7b82e127c5980077b96423c1a40f534bca789818ef4fc95f0b67dee34a"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "freetype"
-  depends_on "libtool" => :run
+  depends_on "gcc" # for gfortran
   depends_on "pango"
-  depends_on :fortran
-  depends_on :java => :optional
-  depends_on :x11 => :optional
 
   def install
     args = std_cmake_args + %w[
+      -DPL_HAVE_QHULL=OFF
       -DENABLE_ada=OFF
       -DENABLE_d=OFF
+      -DENABLE_octave=OFF
       -DENABLE_qt=OFF
       -DENABLE_lua=OFF
       -DENABLE_tk=OFF
@@ -33,14 +34,36 @@ class Plplot < Formula
       -DPLD_xcairo=OFF
       -DPLD_wxwidgets=OFF
       -DENABLE_wxwidgets=OFF
+      -DENABLE_DYNDRIVERS=OFF
+      -DENABLE_java=OFF
+      -DPLD_xwin=OFF
     ]
-    args << "-DENABLE_java=OFF" if build.without? "java"
-    args << "-DPLD_xwin=OFF" if build.without? "x11"
+
+    # std_cmake_args tries to set CMAKE_INSTALL_LIBDIR to a prefix-relative
+    # directory, but plplot's cmake scripts don't like that
+    args.map! { |x| x.start_with?("-DCMAKE_INSTALL_LIBDIR=") ? "-DCMAKE_INSTALL_LIBDIR=#{lib}" : x }
+
+    # Also make sure it already exists:
+    lib.mkdir
 
     mkdir "plplot-build" do
       system "cmake", "..", *args
       system "make"
+      # These example files end up with references to the Homebrew build
+      # shims unless we tweak them:
+      inreplace "examples/c/Makefile.examples", %r{^CC = .*/}, "CC = "
+      inreplace "examples/c++/Makefile.examples", %r{^CXX = .*/}, "CXX = "
       system "make", "install"
+    end
+
+    # fix rpaths
+    cd (lib.to_s) do
+      Dir["*.dylib"].select { |f| File.ftype(f) == "file" }.each do |f|
+        MachO::Tools.dylibs(f).select { |d| d.start_with?("@rpath") }.each do |d|
+          d_new = d.sub("@rpath", opt_lib.to_s)
+          MachO::Tools.change_install_name(f, d, d_new)
+        end
+      end
     end
   end
 
@@ -55,7 +78,7 @@ class Plplot < Formula
       }
     EOS
     system ENV.cc, "test.c", "-o", "test", "-I#{include}/plplot", "-L#{lib}",
-                   "-lcsirocsa", "-lltdl", "-lm", "-lplplot", "-lqsastime"
+                   "-lcsirocsa", "-lm", "-lplplot", "-lqsastime"
     system "./test"
   end
 end

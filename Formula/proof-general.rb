@@ -3,19 +3,22 @@ class ProofGeneral < Formula
   homepage "https://proofgeneral.github.io"
   url "https://github.com/ProofGeneral/PG/archive/v4.4.tar.gz"
   sha256 "1ba236d81768a87afa0287f49d4b2223097bc61d180468cbd997d46ab6132e7e"
-  revision 1
+  license "GPL-2.0"
+  revision 2
   head "https://github.com/ProofGeneral/PG.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a9c3dca4c71aae78779bcf34fc98b914cee3d000dfbe18aaa29ec6f6c9f00af6" => :high_sierra
-    sha256 "3873ed2362ff17d7cc51fc5910bddb57f1fd23a294fe5747c4bc7b143c0b71d2" => :sierra
-    sha256 "2ceb9862d81f46f6ba815b58a1683ce8af5a95b6db0f4c1bfde488156c56ce62" => :el_capitan
-    sha256 "2ceb9862d81f46f6ba815b58a1683ce8af5a95b6db0f4c1bfde488156c56ce62" => :yosemite
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "89bdd53f3c8afd028343bbb03ce2311cdeeab93924b96817b1b408117adc60fd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4fbcb27cb3b5bbdc7fba3cf07ca70953ab66cdd7749c85b06097d272cc31a630"
+    sha256 cellar: :any_skip_relocation, catalina:      "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd"
+    sha256 cellar: :any_skip_relocation, mojave:        "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ccc115760830d046c9e53277a571f451eb251c9b10c09589c627f146f4a9a4dd"
   end
 
   depends_on "texi2html" => :build
-  depends_on :emacs => "22.3"
+  depends_on "texinfo" => :build
+  depends_on "emacs"
 
   def install
     ENV.deparallelize # Otherwise lisp compilation can result in 0-byte files
@@ -38,8 +41,9 @@ class ProofGeneral < Formula
     doc.install "doc/ProofGeneral", "doc/PG-adapting"
   end
 
-  def caveats; <<~EOS
-    HTML documentation is available in: #{HOMEBREW_PREFIX}/share/doc/proof-general
+  def caveats
+    <<~EOS
+      HTML documentation is available in: #{HOMEBREW_PREFIX}/share/doc/proof-general
     EOS
   end
 

@@ -1,30 +1,60 @@
 class Icecast < Formula
   desc "Streaming MP3 audio server"
-  homepage "http://www.icecast.org/"
-  url "https://downloads.xiph.org/releases/icecast/icecast-2.4.3.tar.gz"
-  sha256 "c85ca48c765d61007573ee1406a797ae6cb31fb5961a42e7f1c87adb45ddc592"
+  homepage "https://icecast.org/"
+  url "https://downloads.xiph.org/releases/icecast/icecast-2.4.4.tar.gz"
+  sha256 "49b5979f9f614140b6a38046154203ee28218d8fc549888596a683ad604e4d44"
+  revision 1
+
+  livecheck do
+    url "https://downloads.xiph.org/releases/icecast/"
+    regex(/href=.*?icecast[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "da71d730b60e2dd85a9be89974ec9e7418ae594644bc4652e4ee273cb3739dd6" => :high_sierra
-    sha256 "f3660f43ecaab1b126d38916d1bbb4644f395301130e05f80855c3923729fa5a" => :sierra
-    sha256 "6904fc3c70e67be98bd73a0cd362f7ae7960b0a8beab1cd924ab84ae42a782a3" => :el_capitan
-    sha256 "bfaa0aaec3dec64fdd933bf21913cdfa5883acdc79b58f542072eefb29f12fbf" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "596b1545aab7c712d069851a2f1b5fa0937d8f429fa9a6590363b172d9d27b2e"
+    sha256 cellar: :any, big_sur:       "170c2fefda083f993451d4a6ccd6349ab6742ed3581c9610730cf88ae7083fb1"
+    sha256 cellar: :any, catalina:      "824f7d295c28fbdb17da3015b4e4d6ca76be536f6bf81e98d5312dd7b9a095cd"
+    sha256 cellar: :any, mojave:        "3fb3b8c1e995a9c39a56ecd91a42cc0187f3bb2541c1abb4d0b7fc922da9cb95"
+    sha256 cellar: :any, high_sierra:   "a498fdc056b3afbb14b3138586f5dca3b0c1bae523c909c0b9383d5c5f4b02ca"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libogg" => :optional
-  depends_on "theora" => :optional
-  depends_on "speex"  => :optional
-  depends_on "openssl"
   depends_on "libvorbis"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "curl"
+  uses_from_macos "libxslt"
 
   def install
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--sysconfdir=#{etc}",
+                          "--localstatedir=#{var}"
     system "make", "install"
+  end
 
-    (prefix+"var/log/icecast").mkpath
-    touch prefix+"var/log/icecast/error.log"
+  def post_install
+    (var/"log/icecast").mkpath
+    touch var/"log/icecast/access.log"
+    touch var/"log/icecast/error.log"
+  end
+
+  test do
+    port = free_port
+
+    cp etc/"icecast.xml", testpath/"icecast.xml"
+    inreplace testpath/"icecast.xml", "<port>8000</port>", "<port>#{port}</port>"
+
+    pid = fork do
+      exec "icecast", "-c", testpath/"icecast.xml", "2>", "/dev/null"
+    end
+    sleep 3
+
+    begin
+      assert_match "icestats", shell_output("curl localhost:#{port}/status-json.xsl")
+    ensure
+      Process.kill "TERM", pid
+      Process.wait pid
+    end
   end
 end

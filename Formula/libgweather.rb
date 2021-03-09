@@ -1,34 +1,34 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.26/libgweather-3.26.1.tar.xz"
-  sha256 "fca78470b345bce948e0333cab0a7c52c32562fc4a75de37061248a64e8fc4b8"
+  url "https://download.gnome.org/sources/libgweather/3.36/libgweather-3.36.1.tar.xz"
+  sha256 "de2709f0ee233b20116d5fa9861d406071798c4aa37830ca25f5ef2c0083e450"
+  revision 2
 
   bottle do
-    sha256 "07ccd0c7376e8b3df7f535d8a2a38bfa4912442957c787099d87cb7fbbc3140e" => :high_sierra
-    sha256 "f70cfbb5fe2c7c26d74af33487f6a259069449e3d65f1e52c37fbcb4f3af1763" => :sierra
-    sha256 "136de1236c9cec9d180e90bfcdc07778e07609737c48417eb50e0d8a6a36a130" => :el_capitan
+    sha256 arm64_big_sur: "ea89b381f0cb180a44a1ab0d106693a8874fb785221cc6840092da07ed4960ec"
+    sha256 big_sur:       "fbed23f116de31b6c729671e719bb88246ed66007f779fef5289be3519de3223"
+    sha256 catalina:      "46c6e704f4d42d0032888a87cd2d0ce2fd2ce0a9b8027123976857d242c1b0f3"
+    sha256 mojave:        "b8db1057908c9723c708b919330b9a58cdbdb9e6a6c7b053242fb8c965171eff"
+    sha256 high_sierra:   "267bff5a8951012a4df193baed3816552028de9c44ae26d977e932a75a655d88"
   end
 
+  depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
-  depends_on "gtk+3"
   depends_on "geocode-glib"
+  depends_on "gtk+3"
   depends_on "libsoup"
-  depends_on "gobject-introspection"
-  depends_on "vala" => :optional
 
   def install
-    # ensures that the vala files remain within the keg
-    inreplace "libgweather/Makefile.in",
-              "VAPIGEN_VAPIDIR = @VAPIGEN_VAPIDIR@",
-              "VAPIGEN_VAPIDIR = @datadir@/vala/vapi"
+    ENV["DESTDIR"] = "/"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   def post_install
@@ -53,6 +53,7 @@ class Libgweather < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     libsoup = Formula["libsoup"]
@@ -69,6 +70,7 @@ class Libgweather < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libgweather-3.0
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16

@@ -1,16 +1,22 @@
 class Smpeg < Formula
   desc "SDL MPEG Player Library"
   homepage "https://icculus.org/smpeg/"
-  url "svn://svn.icculus.org/smpeg/tags/release_0_4_5/", :revision => "399"
+  url "svn://svn.icculus.org/smpeg/tags/release_0_4_5/", revision: "399"
+
+  livecheck do
+    url "https://svn.icculus.org/smpeg/tags/"
+    regex(%r{href=.*?release[._-]v?([01](?:[._]\d+)+)/}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "ff2e2fa327d7bfb2f5a0d370e912865b7936248dda469d1df3a1a31b4bd26924" => :high_sierra
-    sha256 "7c4a228fa509d8f55b14ecf64e9c2eecc7a025c1143d983b4bb0efe379699143" => :sierra
-    sha256 "a3259cfd8367ab200203429135ada050db88f8fafc58bf601a6ab0539c4292ed" => :el_capitan
-    sha256 "b205e203c6942fcf32e16696eeca2e38416b226e9f737ad6b53e21a3130e7fc8" => :yosemite
-    sha256 "9230641a8af9ce9c7da7102ea957a764d22185981e123604f81f2260a9f75dcb" => :mavericks
-    sha256 "0923b3aae2d9854152ccd50b94a838e590e482d93a2cee4ed010c9810e7dabd7" => :mountain_lion
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "1078558dafa6125c781a6b50242fc8def024f36dc3d8f4c1ae719c05779f12c2"
+    sha256 cellar: :any, big_sur:       "1b667d8cc8548a25b1a5c16e706f9fba9a0a4a3380c1674ba64444abb3d18837"
+    sha256 cellar: :any, catalina:      "929cb2fe89f7525acbf38a269bde8aaf07f7b2d406007ee9df2d21051a0ccba6"
+    sha256 cellar: :any, mojave:        "6e826bd49ceb171cc36877c0498d8ccfc3c614f39b684728e0c307b69942d58c"
+    sha256 cellar: :any, high_sierra:   "2779c8aba2aed376076e53fc9e2e694e8b5fabca0096ae91eed786b73ef3704f"
+    sha256 cellar: :any, sierra:        "9ac1a1c83a9861b8762ab711d709e67bf020204fb1c1b5907b244d83ced4ab2c"
+    sha256 cellar: :any, el_capitan:    "a4bf36f39959150e1f0cd83c8f58761ce59acdee50f591a1f695665b7517728a"
   end
 
   depends_on "autoconf" => :build
@@ -18,7 +24,6 @@ class Smpeg < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sdl"
-  depends_on "gtk+" => :optional
 
   def install
     args = %W[
@@ -26,16 +31,11 @@ class Smpeg < Formula
       --with-sdl-prefix=#{Formula["sdl"].opt_prefix}
       --disable-dependency-tracking
       --disable-debug
+      --disable-gtk-player
+      --disable-gtktest
+      --disable-opengl-player
       --disable-sdltest
     ]
-
-    if build.without? "gtk"
-      args << "--disable-gtk-player"
-      args << "--disable-gtktest"
-    end
-
-    # Skip glmovie to avoid OpenGL error
-    args << "--disable-opengl-player"
 
     system "./autogen.sh"
     system "./configure", *args
@@ -44,7 +44,8 @@ class Smpeg < Formula
     chmod 0755, "./install-sh"
     system "make", "install"
 
-    rm_f "#{man1}/gtv.1" if build.without? "gtk"
+    # Not present since we do not build with gtk+
+    rm_f "#{man1}/gtv.1"
   end
 
   test do

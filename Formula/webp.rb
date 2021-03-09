@@ -1,14 +1,15 @@
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
-  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-0.6.1.tar.gz"
-  sha256 "06503c782d9f151baa325591c3579c68ed700ffc62d4f5a32feead0ff017d8ab"
+  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.2.0.tar.gz"
+  sha256 "2fc8bbde9f97f2ab403c0224fb9ca62b2e6852cbc519e91ceaa7c153ffd88a0c"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "f42744b43febbc4a5d8cac83c87c0aee99c5c1cf7306beb9ed1811be702b318b" => :high_sierra
-    sha256 "d4c014af0a6786cad79a22c9310b36704682df1fddb7f34bf887aaea27fdd531" => :sierra
-    sha256 "ac9503f2951034f2cad4dec141c11d564580a622d916c152788a4e3f3116b0ba" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "dd6e09db88a5d8a1317ea461fafe7e6e3e92e0ef4885c2e8a6a70a1a44d00a91"
+    sha256 cellar: :any, big_sur:       "1099da9d890c863542eb14e0de9f82b20ffbd9b869da33230f76adc8fa70579c"
+    sha256 cellar: :any, catalina:      "dc30946a7cf3bee45f279a2886d54d7b5c3d7253ba4e0728d49341d26573ed14"
+    sha256 cellar: :any, mojave:        "31d671e9218539c8b2671b14b8c5f09b58b6d711469dd13da729fa33f61fddb0"
   end
 
   head do
@@ -18,23 +19,19 @@ class Webp < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "jpeg"
   depends_on "libpng"
-  depends_on "jpeg" => :recommended
-  depends_on "libtiff" => :optional
-  depends_on "giflib" => :optional
+  depends_on "libtiff"
 
   def install
-    args = [
-      "--disable-dependency-tracking",
-      "--disable-gl",
-      "--enable-libwebpmux",
-      "--enable-libwebpdemux",
-      "--enable-libwebpdecoder",
-      "--prefix=#{prefix}",
-    ]
-    args << "--disable-gif" if build.without? "giflib"
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-gif",
+                          "--disable-gl",
+                          "--enable-libwebpdecoder",
+                          "--enable-libwebpdemux",
+                          "--enable-libwebpmux"
     system "make", "install"
   end
 

@@ -1,74 +1,64 @@
-class RRequirement < Requirement
-  fatal true
-
-  satisfy { which("r") }
-
-  def message; <<~EOS
-    R not found. The R integration module requires R.
-    Do one of the following:
-    - install R
-    -- run brew install r or brew cask install r-app
-    - remove the --with-r option
-    EOS
-  end
-end
-
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Jul2017-SP2/MonetDB-11.27.9.tar.xz"
-  sha256 "21b60aacb55894334d167d6c82ea43320b0cc116414d451d64c54bba8b32d1ed"
+  url "https://www.monetdb.org/downloads/sources/Oct2020-SP3/MonetDB-11.39.13.tar.xz"
+  sha256 "c629f8e8080c93e4cc87e7f6e23e995d4ae560294b133866ee45d7a98d54d9af"
+  license "MPL-2.0"
+  head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
   bottle do
-    sha256 "d5d26fa59961d0c9d869fe84b8acfc76ec794a50e12b7558646cf63121f0d1b4" => :high_sierra
-    sha256 "8a2dd3fd20b34cd20a367b281ef9feacb048ab54b6e29a41e45ceb13377ee649" => :sierra
-    sha256 "09d0e6e755dc22b8c095413cb3dafbe9d52a9077248f0a2e5558c2850aeccab6" => :el_capitan
+    sha256 arm64_big_sur: "9ccb9b0e293542899b7b2e8b542301dd4b436f5d504cce68ea1c7390c2d1b475"
+    sha256 big_sur:       "6fcd9e767b822fb50fdc2f041eb232a479752fbf8411c636541de5080307aebe"
+    sha256 catalina:      "ed365cf35a40ad89c411cd90fa9abad3f04a51f46259c28b2e1078d98748f874"
+    sha256 mojave:        "337755e9e8ab3abbe89766aeae85ba2d6238f03b89439a08d45fabe91761506c"
   end
 
-  head do
-    url "https://dev.monetdb.org/hg/MonetDB", :using => :hg
-
-    depends_on "libtool" => :build
-    depends_on "gettext" => :build
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-  end
-
-  option "with-java", "Build the JDBC driver"
-  option "with-ruby", "Build the Ruby driver"
-  option "with-r", "Build the R integration module"
-
-  depends_on RRequirement => :optional
-
+  depends_on "bison" => :build  # macOS bison is too old
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on :ant => :build
-  depends_on "libatomic_ops" => [:build, :recommended]
+  depends_on "python@3.9" => :build
+  depends_on "lz4"
+  depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "readline" # Compilation fails with libedit.
-  depends_on "openssl"
-
-  depends_on "unixodbc" => :optional # Build the ODBC driver
-  depends_on "geos" => :optional # Build the GEOM module
-  depends_on "gsl" => :optional
-  depends_on "cfitsio" => :optional
-  depends_on "homebrew/php/libsphinxclient" => :optional
+  depends_on "readline" # Compilation fails with libedit
+  depends_on "xz"
 
   def install
-    ENV["M4DIRS"] = "#{Formula["gettext"].opt_share}/aclocal" if build.head?
-    system "./bootstrap" if build.head?
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args,
+                      "-DRELEASE_VERSION=ON",
+                      "-DASSERT=OFF",
+                      "-DSTRICT=OFF",
+                      "-DTESTING=OFF",
+                      "-DFITS=OFF",
+                      "-DGEOM=OFF",
+                      "-DNETCDF=OFF",
+                      "-DODBC=OFF",
+                      "-DPY3INTEGRATION=OFF",
+                      "-DRINTEGRATION=OFF",
+                      "-DSHP=OFF",
+                      "-DWITH_BZ2=ON",
+                      "-DWITH_CMOCKA=OFF",
+                      "-DWITH_CURL=ON",
+                      "-DWITH_LZ4=ON",
+                      "-DWITH_LZMA=ON",
+                      "-DWITH_PCRE=ON",
+                      "-DWITH_PROJ=OFF",
+                      "-DWITH_SNAPPY=OFF",
+                      "-DWITH_XML2=ON",
+                      "-DWITH_ZLIB=ON",
+                      "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
+                      "-DREADLINE_ROOT=#{Formula["readline"].opt_prefix}"
+      # remove reference to shims directory from compilation/linking info
+      inreplace "tools/mserver/monet_version.c", %r{"/[^ ]*/}, "\""
+      system "cmake", "--build", "."
+      system "cmake", "--build", ".", "--target", "install"
+    end
+  end
 
-    args = ["--prefix=#{prefix}",
-            "--enable-debug=no",
-            "--enable-assert=no",
-            "--enable-optimize=yes",
-            "--enable-testing=no",
-            "--with-readline=#{Formula["readline"].opt_prefix}"]
-
-    args << "--with-java=no" if build.without? "java"
-    args << "--with-rubygem=no" if build.without? "ruby"
-    args << "--disable-rintegration" if build.without? "r"
-
-    system "./configure", *args
-    system "make", "install"
+  test do
+    # assert_match "Usage", shell_output("#{bin}/mclient --help 2>&1")
+    system("#{bin}/monetdbd", "create", "#{testpath}/dbfarm")
+    assert_predicate testpath/"dbfarm", :exist?
   end
 end

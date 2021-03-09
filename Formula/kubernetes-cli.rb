@@ -2,49 +2,46 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      :tag => "v1.8.4",
-      :revision => "9befc2b8928a9426501d3bf62f72849d5cbcd5a3"
+      tag:      "v1.20.4",
+      revision: "e87da0bd6e03ec3fea7933c4b5263d151aafd07c"
+  license "Apache-2.0"
   head "https://github.com/kubernetes/kubernetes.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "298bb2bf24d7a4b3b573d148768377ef023ba0d17cf89ae3a8d993a4bd0e4e13" => :high_sierra
-    sha256 "2e2be7d7f93f4c603d6bd62cf2d4cc167fb4c9a478879a6e6876a231594d35d4" => :sierra
-    sha256 "f8fb1fc04dcd62a1c419419befcf1e039ef6ecea413522a52d8da95c871a24a1" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:  "afb2863bbea76a02a679f613a8dff63014c7abee3ca10db76911a40d5512e2c4"
+    sha256 cellar: :any_skip_relocation, catalina: "26cd1aaba450b81ae1f0536433f06ecd001be015b1d4cd2ee84ac0745176a505"
+    sha256 cellar: :any_skip_relocation, mojave:   "20e9bc152b7e468fb2cc298934eac84fa606cf222d629deed4b6ad105eea3e90"
   end
 
   depends_on "go" => :build
 
+  uses_from_macos "rsync" => :build
+
   def install
-    ENV["GOPATH"] = buildpath
-    arch = MacOS.prefer_64_bit? ? "amd64" : "x86"
-    dir = buildpath/"src/k8s.io/kubernetes"
-    dir.install buildpath.children - [buildpath/".brew_home"]
+    # Don't dirty the git tree
+    rm_rf ".brew_home"
 
-    cd dir do
-      # Race condition still exists in OSX Yosemite
-      # Filed issue: https://github.com/kubernetes/kubernetes/issues/34635
-      ENV.deparallelize { system "make", "generated_files" }
+    # Make binary
+    system "make", "WHAT=cmd/kubectl"
+    bin.install "_output/bin/kubectl"
 
-      # Make binary
-      system "make", "kubectl"
-      bin.install "_output/local/bin/darwin/#{arch}/kubectl"
+    # Install bash completion
+    output = Utils.safe_popen_read("#{bin}/kubectl", "completion", "bash")
+    (bash_completion/"kubectl").write output
 
-      # Install bash completion
-      output = Utils.popen_read("#{bin}/kubectl completion bash")
-      (bash_completion/"kubectl").write output
+    # Install zsh completion
+    output = Utils.safe_popen_read("#{bin}/kubectl", "completion", "zsh")
+    (zsh_completion/"_kubectl").write output
 
-      # Install zsh completion
-      output = Utils.popen_read("#{bin}/kubectl completion zsh")
-      (zsh_completion/"_kubectl").write output
-
-      prefix.install_metafiles
-
-      # Install man pages
-      # Leave this step for the end as this dirties the git tree
-      system "hack/generate-docs.sh"
-      man1.install Dir["docs/man/man1/*.1"]
-    end
+    # Install man pages
+    # Leave this step for the end as this dirties the git tree
+    system "hack/generate-docs.sh"
+    man1.install Dir["docs/man/man1/*.1"]
   end
 
   test do
@@ -53,6 +50,10 @@ class KubernetesCli < Formula
 
     version_output = shell_output("#{bin}/kubectl version --client 2>&1")
     assert_match "GitTreeState:\"clean\"", version_output
-    assert_match stable.instance_variable_get(:@resource).instance_variable_get(:@specs)[:revision], version_output if build.stable?
+    if build.stable?
+      assert_match stable.instance_variable_get(:@resource)
+                         .instance_variable_get(:@specs)[:revision],
+                   version_output
+    end
   end
 end

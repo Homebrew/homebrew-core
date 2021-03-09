@@ -1,28 +1,33 @@
 class Qrupdate < Formula
   desc "Fast updates of QR and Cholesky decompositions"
   homepage "https://sourceforge.net/projects/qrupdate/"
-  url "https://downloads.sourceforge.net/qrupdate/qrupdate-1.1.2.tar.gz"
+  url "https://downloads.sourceforge.net/project/qrupdate/qrupdate/1.2/qrupdate-1.1.2.tar.gz"
   sha256 "e2a1c711dc8ebc418e21195833814cb2f84b878b90a2774365f0166402308e08"
-  revision 6
+  revision 13
 
-  bottle do
-    cellar :any
-    sha256 "cc98f58515cad95967f6ef0ec7e7dd6b7a00b0365f465c05d04c8b2d3908dd96" => :high_sierra
-    sha256 "6ed6531659001d949538c70ccfc4380b7cfaa4cae7be40947baba1cce596c005" => :sierra
-    sha256 "00f285ea5819d6dc6b5000c835b9b12da725c5a4c7e8049368581e7071fa087d" => :el_capitan
-    sha256 "773cb82bd7665e6948ca0a3d9dae7d2bcaf79c384b219a6bc1de5b0451e1d876" => :yosemite
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/qrupdate[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  depends_on :fortran
-  depends_on "veclibfort"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "e26cc2899b7f69b43b9a57cea00ca70939a8c365ea061f5feeace93aaeb70aab"
+    sha256 cellar: :any, big_sur:       "cc5d921131b7471c662a209f190100aa2918f2fef055c65f4cb9ba2e2c958c61"
+    sha256 cellar: :any, catalina:      "2b2464b06d3f39c68826319d7cf6f860e7fb4a90377ab5a70609e87c9706ffba"
+    sha256 cellar: :any, mojave:        "f8979b51f613030bbafd0241c918457d26b4f7074ad4e43d50668d20b0ca87be"
+    sha256 cellar: :any, high_sierra:   "85065f6d6e3362e53fd66118e11a4727faad0cbf01e5c2e8985bee2382123295"
+  end
+
+  depends_on "gcc" # for gfortran
+  depends_on "openblas"
 
   def install
     # Parallel compilation not supported. Reported on 2017-07-21 at
     # https://sourceforge.net/p/qrupdate/discussion/905477/thread/d8f9c7e5/
     ENV.deparallelize
 
-    system "make", "lib", "solib", "FC=#{ENV.fc}",
-                   "BLAS=-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+    system "make", "lib", "solib",
+                   "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas"
 
     # Confuses "make install" on case-insensitive filesystems
     rm "INSTALL"
@@ -37,9 +42,10 @@ class Qrupdate < Formula
   end
 
   test do
-    ENV.fortran
-    system ENV.fc, "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
-                   "-L#{lib}", "-lqrupdate", "-lvecLibFort"
+    system "gfortran", "-o", "test", pkgshare/"tch1dn.f", pkgshare/"utils.f",
+                       "-fallow-argument-mismatch",
+                       "-L#{lib}", "-lqrupdate",
+                       "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
     assert_match "PASSED   4     FAILED   0", shell_output("./test")
   end
 end

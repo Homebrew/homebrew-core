@@ -1,22 +1,29 @@
 class Fwknop < Formula
   desc "Single Packet Authorization and Port Knocking"
   homepage "https://www.cipherdyne.org/fwknop/"
-  url "https://github.com/mrash/fwknop/archive/2.6.9.tar.gz"
-  sha256 "0a8de8d3e2073ad08f5834d39def6c33fd035809cfddbea252174e7dc06a5a51"
-  revision 1
+  url "https://github.com/mrash/fwknop/archive/2.6.10.tar.gz"
+  sha256 "a7c465ba84261f32c6468c99d5512f1111e1bf4701477f75b024bf60b3e4d235"
+  license "GPL-2.0-or-later"
   head "https://github.com/mrash/fwknop.git"
 
-  bottle do
-    sha256 "c11e8a78305e3e1dbad6f0c42d657b3edcd1bfafae957467cb380f64c0c22fbf" => :high_sierra
-    sha256 "0390ca5157954b4164b4a8a44cb2eb5597dd7484f5d695f8de9dc49b72b91100" => :sierra
-    sha256 "2f8d98dd236580ebd7f6cca2403e53db8acd511342b74c8ef9842fd2c85607bc" => :el_capitan
-    sha256 "d90d2292079429ba8165998ddec8ab6232391ce45ac477d7134109d8de5a0fc9" => :yosemite
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "automake" => :build
+  bottle do
+    sha256 arm64_big_sur: "74003c23c04e207543afa2e957df46dc72b3067c8d9100503546d828007c14a8"
+    sha256 big_sur:       "61ec8e446a6dbae400dcf40a8db9e066a8d64937bf82e84ee1c1e5a86d163934"
+    sha256 catalina:      "3a4ff22b7de484deb6473ffdad63d3e927290925af925b5dbf1b868648824493"
+    sha256 mojave:        "2e56267215274c15f322335f86aa92b671f5600cbfd2275949cef03ec47d390e"
+    sha256 high_sierra:   "a36cd65fe358a6b156b2b5276bcdf629b2d777ac8a803e7cd40ee9e3c75512e4"
+    sha256 sierra:        "7472ea129bbb0d5a1187d08e4a9770d66d480a9bc284a62db11f6dec90b770cf"
+    sha256 el_capitan:    "ec59a9d13d78f441a695776767038fb830acc4cdbfe28b30cc41ec2b7ea76f1f"
+  end
+
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "wget" => :optional
   depends_on "gpgme"
 
   def install

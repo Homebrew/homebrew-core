@@ -1,30 +1,37 @@
 class Exercism < Formula
   desc "Command-line tool to interact with exercism.io"
-  homepage "http://cli.exercism.io"
-  url "https://github.com/exercism/cli/archive/v2.4.1.tar.gz"
-  sha256 "47d6fe998e4c8f900b249f427292b3c268addfddccd1ebc6ce07ca0d7e390622"
+  homepage "https://exercism.io/cli/"
+  url "https://github.com/exercism/cli/archive/v3.0.13.tar.gz"
+  sha256 "ecc27f272792bc8909d14f11dd08f0d2e9bde4cc663b3769e00eab6e65328a9f"
+  license "MIT"
   head "https://github.com/exercism/cli.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c10051bcade77a4396dd4624b7d9ef513a2e2b08b4500cc11c8ea8275e34cd33" => :high_sierra
-    sha256 "a36d2e4e48bf887cb1b8fa9369e0cec990721a73aa49b702d27ce47aba58bcb7" => :sierra
-    sha256 "f3a0eda8fc9aab0217da024264686d1486d700e0773a73234b201ff59bdc8ced" => :el_capitan
-    sha256 "919a7febefd72157e0c25e81e6f9d34bd88904ecc5e372bcd4c45c1e907016f0" => :yosemite
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b67c57c567b36681731de3a6fa14fcc163aba8d063432dc3fd4fe9866ba7dfb4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2b67328f03633996542bda37f25a7cf84e74732445cb89e64d2e3ae1fdf07b9e"
+    sha256 cellar: :any_skip_relocation, catalina:      "9a4080f7e35f37dc4eb15e733692314cec32cba7e0f76e8f58eb99850f708cb1"
+    sha256 cellar: :any_skip_relocation, mojave:        "7319920cfd6779984dfabbecdf3e15a37603f6bfbecfc1121bfa2a044fb8ed17"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b094a8441575b02f312f04760589f94d9f2b1d76330c07a67f7d07a40ad561a9"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/exercism/cli").install buildpath.children
-    cd "src/github.com/exercism/cli" do
-      system "go", "build", "-o", bin/"exercism", "exercism/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"exercism", "exercism/main.go"
+    prefix.install_metafiles
+
+    bash_completion.install "shell/exercism_completion.bash"
+    zsh_completion.install "shell/exercism_completion.zsh" => "_exercism"
+    fish_completion.install "shell/exercism.fish"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/exercism --version")
+    assert_match version.to_s, shell_output("#{bin}/exercism version")
   end
 end

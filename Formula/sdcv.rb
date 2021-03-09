@@ -1,26 +1,25 @@
 class Sdcv < Formula
   desc "StarDict Console Version"
   homepage "https://dushistov.github.io/sdcv/"
-  url "https://github.com/Dushistov/sdcv/archive/v0.5.2.tar.gz"
-  sha256 "ec08dc084a0748d5a89df01a20bbf294f09b0366295cd418000f15d2e043c4f7"
+  url "https://github.com/Dushistov/sdcv/archive/v0.5.3.tar.gz"
+  sha256 "75fb95b1607fdd2fb9f7795d3432d295904614150575ae539202f680499803c9"
+  license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/Dushistov/sdcv.git"
 
   bottle do
-    sha256 "e6308c18ac35af9482344e8144a1adbfdc1acf6ca49aa590f1a8ee4d456f4694" => :high_sierra
-    sha256 "e095b55dc837c81a8a5cd003579ed26cdfd20b2263b0ddca3adba1bdbf89390d" => :sierra
-    sha256 "43faef6640e9a8a01c78ea7816828966e42fd2aa6a110d947a72e0c930b0ee50" => :el_capitan
-    sha256 "f50d16cbcc92cc9bdfdea0aed25e10f8403f877f7a44830de420246eb2a4dfe7" => :yosemite
+    sha256 arm64_big_sur: "201982a36d116f80314330dc00ac78c98cf4e7cfe8803addecf8f5fad2ec15d2"
+    sha256 big_sur:       "15fa01158f88b31fb8f6d18e8e8e3c76492c0693fefee8245f25ac3913041bb0"
+    sha256 catalina:      "4831ddd61d8b9e9b7024cfc898d4e7e4c89207276ac2a4bc5b22911294d3e8b6"
+    sha256 mojave:        "98f5f41515dc5b1dbf8ca9bb7f47990c9c5852a8f5e56a93da303fcb024ef411"
+    sha256 high_sierra:   "9e95490034c0b964cf617e05361ac7128a5e5e886ea38dcc4f14b64468c328ac"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "readline"
-
-  # see: https://github.com/Homebrew/homebrew/issues/26321
-  needs :cxx11
 
   def install
     mkdir "build" do

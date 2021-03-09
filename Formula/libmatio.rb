@@ -1,14 +1,16 @@
 class Libmatio < Formula
   desc "C library for reading and writing MATLAB MAT files"
   homepage "https://matio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.11/matio-1.5.11.tar.gz"
-  sha256 "0ccced0c55c9c2cdc21348b7e16447843402d729ffaadd6135767faad7c9cf0b"
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.19/matio-1.5.19.tar.gz"
+  sha256 "a4fa4d248b0414fc72f3d6155f710c470d5628d3c31af834f8d5ccf06b60286f"
+  license "BSD-2-Clause"
 
   bottle do
-    cellar :any
-    sha256 "532117e692497b68749dc0dc396d1099f7339ee8bb252cf29d4f9292cfe4e9ae" => :high_sierra
-    sha256 "b98585e1162ee51929f2ba589eaa23e34d1cb42b98b93bb89780cf0e6b877535" => :sierra
-    sha256 "405ebd987019e5793a269ae1ebb9a2da15b51f6b04bf72dd32105ef368b3a889" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "c2ce5f216e9fa77fd0d328504a4d339e1061b5e1c8800d7a1d741ac65c50a3ab"
+    sha256 cellar: :any, big_sur:       "6581c5cc3897753a78031740d10ccc534e9d0e8bde17d7c97d578b0b034d0475"
+    sha256 cellar: :any, catalina:      "ceb9363a18078ce2c25154d230a359ec3ce3db0cea9c2aaea3cfd41119806363"
+    sha256 cellar: :any, mojave:        "f015d539a7c798899a45b3a35d2795bc64aef3856b2ef5ef08fba6cf21295e25"
+    sha256 cellar: :any, high_sierra:   "41b16e1b850d33c612c474b2780b27396ba83da81f875a869014e5232d1f06da"
   end
 
   depends_on "hdf5"
@@ -36,11 +38,28 @@ class Libmatio < Formula
     (testpath/"mat.c").write <<~'EOS'
       #include <stdlib.h>
       #include <matio.h>
+
+      size_t dims[2] = {5, 5};
+      double data[25] = {0.0, };
+      mat_t *mat;
+      matvar_t *matvar;
+
       int main(int argc, char **argv) {
-        mat_t *matfp;
-        if (!(matfp = Mat_Open(argv[1], MAT_ACC_RDONLY)))
+        if (!(mat = Mat_Open(argv[1], MAT_ACC_RDONLY)))
           abort();
-        Mat_Close(matfp);
+        Mat_Close(mat);
+
+        mat = Mat_CreateVer("test_writenan.mat", NULL, MAT_FT_DEFAULT);
+        if (mat) {
+          matvar = Mat_VarCreate("foo", MAT_C_DOUBLE, MAT_T_DOUBLE, 2,
+                                 dims, data, MAT_F_DONT_COPY_DATA);
+          Mat_VarWrite(mat, matvar, MAT_COMPRESSION_NONE);
+          Mat_VarFree(matvar);
+          Mat_Close(mat);
+        } else {
+          abort();
+        }
+        mat = Mat_CreateVer("foo", NULL, MAT_FT_MAT73);
         return EXIT_SUCCESS;
       }
     EOS

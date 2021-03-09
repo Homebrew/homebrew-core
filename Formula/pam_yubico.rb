@@ -1,14 +1,22 @@
 class PamYubico < Formula
   desc "Yubico pluggable authentication module"
   homepage "https://developers.yubico.com/yubico-pam/"
-  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.24.tar.gz"
-  sha256 "0326ff676e2b32ed1dda7fb5f1358a22d629d71caad8f8db52138bbf3e95e82d"
+  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.26.tar.gz"
+  sha256 "2de96495963fefd72b98243952ca5d5ec513e702c596e54bc667ef6b5e252966"
+  license "BSD-2-Clause"
+  revision 1
+
+  livecheck do
+    url "https://developers.yubico.com/yubico-pam/Releases/"
+    regex(/href=.*?pam_yubico[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "960ffd825e0d8ecf9c75ef3c958a88903e6aeb713b7d11e9093fc1a821eefb01" => :high_sierra
-    sha256 "68098087eb87639f10607c030e58b7cf7ae86a8a95ff863a17ca1e7cfa2ca5b0" => :sierra
-    sha256 "ce01a964d539a569478c9dd882a9652354d9d7ab35d935df9aa543eb31716b58" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "e4d52181c23e4dbb74d4a6a37c63bbaf13103bedc4e2b069951d70eaca3059e7"
+    sha256 cellar: :any, big_sur:       "2b18722e8124e7925ebaa30f675b6053cf62cc40b297be22b5a3cfbddc208e46"
+    sha256 cellar: :any, catalina:      "6e4eb4afca28e15098998d561b21ab65930ab57898fcf26ed0ba657263d2f130"
+    sha256 cellar: :any, mojave:        "3679137d1149195219a4cc36154356f8d749b757d47ec7ab75850ae9eace84e8"
+    sha256 cellar: :any, high_sierra:   "a321eb909c66465f67e0a25e9e38df33cc2d76c6e9ac9c834cb7ba17b247597f"
   end
 
   depends_on "pkg-config" => :build

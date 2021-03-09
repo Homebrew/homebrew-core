@@ -1,33 +1,38 @@
 class FsUae < Formula
   desc "Amiga emulator"
   homepage "https://fs-uae.net/"
-  url "https://fs-uae.net/stable/2.8.3/fs-uae-2.8.3.tar.gz"
-  sha256 "e2d5414d07c8bd5b740716471183bc5516bec0ae2989449c3026374dc4b86292"
+  url "https://fs-uae.net/stable/3.0.5/fs-uae-3.0.5.tar.gz"
+  sha256 "f26ec42e03cf1a7b53b6ce0d9845aa45bbf472089b5ec046b3eb784ec6859fe3"
+  license "GPL-2.0"
+  revision 1
+
+  livecheck do
+    url "https://fs-uae.net/download"
+    regex(/href=.*?fs-uae[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "c3248540860a5d3829087227e5e1145bf37727339c6b697441e35748253b2232" => :high_sierra
-    sha256 "1bbdae6cb275764ebddbbb535095ec51677ce6566877961a60ed2e1b1d2f6471" => :sierra
-    sha256 "7437962981be6a10ba6952a07746f0c9e8e165e1e6e647b2cf5fd9042ee89669" => :el_capitan
-    sha256 "c0a2ef6dc723d726e70df915d5a0a8db200743290715acf80ea8fe0d3a344c65" => :yosemite
+    sha256 cellar: :any, big_sur:     "37e9318b578ea42dbfa769ecc23bfa7bf91a25417a6145db56d415fafece7dd2"
+    sha256 cellar: :any, catalina:    "ab0fdecdc3ee1e4ed70baf7a57bc46d92b85b684c97d680c9fbfab5b280a7da4"
+    sha256 cellar: :any, mojave:      "223c490857dc42ec051f68531fbcc2ceffd142cd8f56b4b18a0d1c2134c6fb03"
+    sha256 cellar: :any, high_sierra: "61bfc89218feb2fb4ae2da82e68d4d81dcb40d7ce6003d0a5d39f675b6327f11"
   end
 
   head do
     url "https://github.com/FrodeSolheim/fs-uae.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
-  depends_on "sdl2"
-  depends_on "libpng"
-  depends_on "libmpeg2"
-  depends_on "glib"
-  depends_on "gettext"
   depends_on "freetype"
+  depends_on "gettext"
   depends_on "glew"
-  depends_on "openal-soft" if MacOS.version <= :mavericks
+  depends_on "glib"
+  depends_on "libmpeg2"
+  depends_on "libpng"
+  depends_on "sdl2"
 
   def install
     system "./bootstrap" if build.head?
@@ -39,7 +44,7 @@ class FsUae < Formula
     system "make"
     system "make", "install"
 
-    # Remove unncessary files
+    # Remove unnecessary files
     (share/"applications").rmtree
     (share/"icons").rmtree
     (share/"mime").rmtree

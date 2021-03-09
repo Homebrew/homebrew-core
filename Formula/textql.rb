@@ -1,35 +1,37 @@
-require "language/go"
-
 class Textql < Formula
   desc "Executes SQL across text files"
   homepage "https://github.com/dinedal/textql"
   url "https://github.com/dinedal/textql/archive/2.0.3.tar.gz"
   sha256 "1fc4e7db5748938c31fe650e882aec4088d9123d46284c6a6f0ed6e8ea487e48"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ca2c7ba2e7d3b423cef6af90f705588346a365b226c6763fbd2041204426d645" => :high_sierra
-    sha256 "c64e983a2230ae263258bb4bea4d9382efed77fa6934d1c32ae41304193b7b85" => :sierra
-    sha256 "f958e30ce6df17f9dabddbb5a6a4af0d9d7690844983cfae8eb864ec2bdf0913" => :el_capitan
-    sha256 "aed185329089c37638d1cf3aec6dbcf51180772f6f62d6b8fc74de733e664d6c" => :yosemite
-    sha256 "5d31dc62316f04fea50b4fa1e75230e80a8c2c749c33e1f22aa74b26f26074f8" => :mavericks
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd027344a17ef0bc236b638e442fbe257a82e9504f050021750884c486db3371"
+    sha256 cellar: :any_skip_relocation, big_sur:       "84bb8f0f712da5618c74b46f86afffa5da7ade72a68e508e3037d590206f28f6"
+    sha256 cellar: :any_skip_relocation, catalina:      "d33d111039e957631d3a77cd35413707b47e684638a2571e3719a17c0173b55d"
+    sha256 cellar: :any_skip_relocation, mojave:        "b6d4fd5ee0a2d1758651f91c35e6bd40a832f0d997ec2a120268bfde03a48cfb"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "38cbf8cacc0dd7e29831c8c7fe9f0437473c164bee549defb8744d6ca3e53fcb"
+    sha256 cellar: :any_skip_relocation, sierra:        "f7bcfcacbd0b3076037e4715dabd1d925ef52ec66a3018d7a0124d091a7711c5"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "9950b83cf4d7bf59d3bf54711a845ddcf27f31dd004150acce3b8011ca2874a5"
   end
 
+  depends_on "glide" => :build
   depends_on "go" => :build
 
-  go_resource "github.com/mattn/go-sqlite3" do
-    url "https://github.com/mattn/go-sqlite3.git",
-        :revision => "8897bf145272af4dd0305518cfb725a5b6d0541c"
-  end
-
   def install
-    (buildpath/"src/github.com/dinedal/textql").install "inputs", "outputs", "storage", "sqlparser", "util", "textql"
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
+    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
+    ENV["GO111MODULE"] = "auto"
+    (buildpath/"src/github.com/dinedal/textql").install buildpath.children
 
-    system "go", "build", "-ldflags", "-X main.VERSION=2.0.3",
-      "-o", "#{bin}/textql", "#{buildpath}/src/github.com/dinedal/textql/textql/main.go"
-    man1.install "man/textql.1"
+    cd "src/github.com/dinedal/textql" do
+      system "glide", "install"
+      system "go", "build", "-ldflags", "-X main.VERSION=#{version}",
+             "-o", bin/"textql", "./textql"
+      man1.install "man/textql.1"
+      prefix.install_metafiles
+    end
   end
 
   test do

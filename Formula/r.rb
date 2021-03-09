@@ -1,69 +1,57 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.rstudio.com/src/base/R-3/R-3.4.3.tar.gz"
-  sha256 "7a3cb831de5b4151e1f890113ed207527b7d4b16df9ec6b35e0964170007f426"
+  url "https://cran.r-project.org/src/base/R-4/R-4.0.4.tar.gz"
+  sha256 "523f27d69744a08c8f0bd5e1e6c3d89a4db29ed983388ba70963a3cd3a4a802e"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://cran.rstudio.com/banner.shtml"
+    regex(%r{href=(?:["']?|.*?/)R[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "5980c32c37d78545b85a745af26688c4b9b38748086597e9476d19782cab9200" => :high_sierra
-    sha256 "7362e6983438c23dd79cd5461836111da9c404c1b328be87226a0e55102cd070" => :sierra
-    sha256 "c8c3f89cba5a1bbc383ddacfba6b9dcdebe576fa9112dd30bacf390b8f67768a" => :el_capitan
+    sha256 arm64_big_sur: "850201a102aa7b0ae7865b32ed27b1f252e968d93aa663929abc475394a2d21b"
+    sha256 big_sur:       "1bf6b564592e5908384a43a78b8039a9077d2953cccb8ec7cff3aeb11961596f"
+    sha256 catalina:      "9ac4f83c55c651d5dfb22f1b9bca3f90ac60494b226a55bb74085a454dcd8027"
+    sha256 mojave:        "0a7797f9411a5339be8caf9e7efb0ceb283002916156e1f8a36b4ada02d60d4f"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "gcc" # for gfortran
   depends_on "gettext"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "pcre"
+  depends_on "openblas"
+  depends_on "pcre2"
   depends_on "readline"
+  depends_on "tcl-tk"
   depends_on "xz"
-  depends_on :fortran
-  depends_on "openblas" => :optional
-  depends_on :java => :optional
 
   # needed to preserve executable permissions on files without shebangs
-  skip_clean "lib/R/bin"
-
-  resource "gss" do
-    url "https://cloud.r-project.org/src/contrib/gss_2.1-7.tar.gz", :using => :nounzip
-    mirror "https://mirror.las.iastate.edu/CRAN/src/contrib/gss_2.1-7.tar.gz"
-    sha256 "0405bb5e4c4d60b466335e5da07be4f9570045a24aed09e7bc0640e1a00f3adb"
-  end
+  skip_clean "lib/R/bin", "lib/R/doc"
 
   def install
-    # Fix dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? &&
-       MacOS::Xcode.version >= "8.0"
-      ENV["ac_cv_have_decl_clock_gettime"] = "no"
-    end
+    # BLAS detection fails with Xcode 12 due to missing prototype
+    # https://bugs.r-project.org/bugzilla/show_bug.cgi?id=18024
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
       "--without-cairo",
       "--without-x",
+      "--with-tcl-config=#{Formula["tcl-tk"].opt_lib}/tclConfig.sh",
+      "--with-tk-config=#{Formula["tcl-tk"].opt_lib}/tkConfig.sh",
       "--with-aqua",
-      "--with-lapack",
+      "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
       "SED=/usr/bin/sed", # don't remember Homebrew's sed shim
+      "--disable-java",
     ]
 
-    if build.with? "openblas"
-      args << "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas"
-      ENV.append "LDFLAGS", "-L#{Formula["openblas"].opt_lib}"
-    else
-      args << "--with-blas=-framework Accelerate"
-      ENV.append_to_cflags "-D__ACCELERATE__" if ENV.compiler != :clang
-    end
-
-    if build.with? "java"
-      args << "--enable-java"
-    else
-      args << "--disable-java"
-    end
-
     # Help CRAN packages find gettext and readline
-    ["gettext", "readline"].each do |f|
+    ["gettext", "readline", "xz"].each do |f|
       ENV.append "CPPFLAGS", "-I#{Formula[f].opt_include}"
       ENV.append "LDFLAGS", "-L#{Formula[f].opt_lib}"
     end
@@ -109,9 +97,10 @@ class R < Formula
   test do
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
     assert_equal ".dylib", shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
+    assert_equal "[1] \"aqua\"",
+                 shell_output("#{bin}/Rscript -e 'library(tcltk)' -e 'tclvalue(.Tcl(\"tk windowingsystem\"))'").chomp
 
-    testpath.install resource("gss")
-    system bin/"R", "CMD", "INSTALL", "--library=.", Dir["gss*"].first
+    system bin/"Rscript", "-e", "install.packages('gss', '.', 'https://cloud.r-project.org')"
     assert_predicate testpath/"gss/libs/gss.so", :exist?,
                      "Failed to install gss package"
   end

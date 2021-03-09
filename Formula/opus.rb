@@ -1,33 +1,36 @@
 class Opus < Formula
   desc "Audio codec"
   homepage "https://www.opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/opus-1.2.1.tar.gz"
-  sha256 "cfafd339ccd9c5ef8d6ab15d7e1a412c054bf4cb4ecbbbcc78c12ef2def70732"
+  url "https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz"
+  sha256 "65b58e1e25b2a114157014736a3d9dfeaad8d41be1c8179866f144a2fb44ff9d"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url "https://archive.mozilla.org/pub/opus/"
+    regex(%r{href=(?:["']?|.*?/)opus[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "34e45eb4ca4159316fc5a10ad33758d1f2b8d44d0b7fe3032d049771b946ef16" => :high_sierra
-    sha256 "ff986676ae53fdfb7b2af18c896be5d284a3e7b51ad0a94b8fa5a651dcc74201" => :sierra
-    sha256 "9db3f7606381e0f60477f18c70cdf4bbf68c948ae9c6ead7a5bd6aa62aeab63b" => :el_capitan
-    sha256 "adf030f2d3fa1260acb54515ced82474a626d6d2ad015ea3ace404a79e09f1c4" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "e278b9182301daf80621269defffede5d134765b2c907cb921fff44d00ea9fe7"
+    sha256 cellar: :any, big_sur:       "cffbcfe03bf3d0e6a9b9b301dc0ea71974ab6f49e1ab66dd7895679367ecf156"
+    sha256 cellar: :any, catalina:      "5cb191f66da0ef2b8d03985c79cb18a59506aaba8a01cc0b1a821c293e88d576"
+    sha256 cellar: :any, mojave:        "21fa4c22a63bccc5e188dabb9c85af63a57d19582c4f616716bccb063e2befec"
+    sha256 cellar: :any, high_sierra:   "8b45ac09baae56bdc2c7ee224d5a1ae68efb826a9aec2220e0b27e8ce633b8aa"
   end
 
   head do
-    url "https://git.xiph.org/opus.git"
+    url "https://gitlab.xiph.org/xiph/opus.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  option "with-custom-modes", "Enable custom-modes for opus see https://www.opus-codec.org/docs/opus_api-1.1.3/group__opus__custom.html"
-
   def install
-    args = ["--disable-dependency-tracking", "--disable-doc", "--prefix=#{prefix}"]
-    args << "--enable-custom-modes" if build.with? "custom-modes"
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-doc", "--prefix=#{prefix}"
     system "make", "install"
   end
 

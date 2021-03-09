@@ -1,30 +1,26 @@
 class Pixz < Formula
   desc "Parallel, indexed, xz compressor"
   homepage "https://github.com/vasi/pixz"
-  url "https://github.com/vasi/pixz/releases/download/v1.0.6/pixz-1.0.6.tar.gz"
-  sha256 "c54a406dddc6c2226779aeb4b5d5b5649c1d3787b39794fbae218f7535a1af63"
-
+  url "https://github.com/vasi/pixz/releases/download/v1.0.7/pixz-1.0.7.tar.gz"
+  sha256 "d1b6de1c0399e54cbd18321b8091bbffef6d209ec136d4466f398689f62c3b5f"
+  license "BSD-2-Clause"
   head "https://github.com/vasi/pixz.git"
 
   bottle do
-    cellar :any
-    sha256 "1a568e90c1299d85a31b89227c2d54b9de28b791e0365ab2a15d55c30ca47de6" => :high_sierra
-    sha256 "10381873315179d3bf741657a09589b8fec8347d948e604b64e1cac430ad86d1" => :sierra
-    sha256 "5e9e759698f203e6cc9cc369014bb86236ae83135f66659faaf8e024c727a5b4" => :el_capitan
-    sha256 "f3409a92f9943e02c500d52b552810b6c75132288c969f2aff58d0c93dd4ceca" => :yosemite
-    sha256 "8a7d9c9017d273bb234520e560893bff827e0e43d7b83fde9783031d46b0b0f3" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "ad1f4bab403a28e5828c010167bfe1f70eebbc1ef28385e1079115b5460ed40a"
+    sha256 cellar: :any, big_sur:       "5952ff127c4ffd61ec9196cc556e9b3e0a60c2edc35663c078e8eb556d7652a0"
+    sha256 cellar: :any, catalina:      "fa271c0bbea97dccf10ae82803746f86ff67bfbd3a3fdc0c9786a6a6afb7f46d"
+    sha256 cellar: :any, mojave:        "55562f5c1bc151210be9c85db0ecb3c4544a809793ea9330bc3b6d212b394778"
+    sha256 cellar: :any, high_sierra:   "6df8ca6e7449ed6b76174ce16f7ed3433ca28afba82776630dbd31bc6a8fac17"
   end
 
-  option "with-docs", "Build man pages using asciidoc and DocBook"
-
+  depends_on "asciidoc" => :build
+  depends_on "docbook" => :build
   depends_on "pkg-config" => :build
   depends_on "libarchive"
   depends_on "xz"
 
-  if build.with? "docs"
-    depends_on "asciidoc" => :build
-    depends_on "docbook" => :build
-  end
+  uses_from_macos "libxslt"
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
@@ -32,11 +28,9 @@ class Pixz < Formula
     system "make"
     system "make", "install"
 
-    if build.with? "docs"
-      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-      system "a2x", "--doctype", "manpage", "--format", "manpage", "src/pixz.1.asciidoc"
-      man1.install "src/pixz.1"
-    end
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    system "a2x", "--doctype", "manpage", "--format", "manpage", "src/pixz.1.asciidoc"
+    man1.install "src/pixz.1"
   end
 
   test do

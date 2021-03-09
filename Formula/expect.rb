@@ -1,27 +1,27 @@
 class Expect < Formula
   desc "Program that can automate interactive applications"
   homepage "https://expect.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/expect/Expect/5.45.3/expect5.45.3.tar.gz"
-  sha256 "c520717b7195944a69ce1492ec82ca0ac3f3baf060804e6c5ee6d505ea512be9"
+  url "https://downloads.sourceforge.net/project/expect/Expect/5.45.4/expect5.45.4.tar.gz"
+  sha256 "49a7da83b0bdd9f46d04a04deec19c7767bb9a323e40c4781f89caf760b92c34"
 
-  bottle do
-    sha256 "c5abbb16dfe9ff703c9eaf1cebe29a1d1611d3ccd12313525a9a08c0c195c0d0" => :high_sierra
-    sha256 "410e1257189d177984dcaabdb5b92aad29aacf7f9ad16d314cf472131d2f329e" => :sierra
-    sha256 "862a30f66b267ae389da407174844ee311b0ef4a971e53654f1378da393b5cea" => :el_capitan
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/expect-?v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  option "with-threads", "Build with multithreading support"
-  option "with-brewed-tk", "Use Homebrew's Tk (has Cocoa and threads support)"
-
-  deprecated_option "enable-threads" => "with-threads"
-
-  depends_on "tcl-tk" if build.with? "brewed-tk"
+  bottle do
+    rebuild 2
+    sha256 big_sur:  "cbdcb67794f77d6de69084d2f89da417ebdc02eb679e362cc1c2be1dd607806f"
+    sha256 catalina: "1a859db0c9e4cdc49a3c2a318aa61a9c716114df8a08884c68be517e08b75af9"
+    sha256 mojave:   "838aaa69a38886e750f07b4fc3f3e9d3b27bb135b7b25ae69e212dcb4ad2c978"
+  end
 
   # Autotools are introduced here to regenerate configure script. Remove
   # if the patch has been applied in newer releases.
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  uses_from_macos "tcl-tk"
 
   def install
     args = %W[
@@ -29,16 +29,17 @@ class Expect < Formula
       --exec-prefix=#{prefix}
       --mandir=#{man}
       --enable-shared
+      --enable-64bit
+      --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
     ]
-    args << "--enable-threads" if build.with? "threads"
-    args << "--enable-64bit" if MacOS.prefer_64_bit?
 
-    if build.with? "brewed-tk"
-      args << "--with-tcl=#{Formula["tcl-tk"].opt_prefix}/lib"
-    else
-      ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
-      args << "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-    end
+    ENV.prepend "CFLAGS",
+      "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework/Versions/8.5/Headers/tcl-private"
+
+    # Temporarily workaround build issues with building 5.45.4 using Xcode 12.
+    # Upstream bug (with more complicated fix) is here:
+    #   https://core.tcl-lang.org/expect/tktview/0d5b33c00e5b4bbedb835498b0360d7115e832a0
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     # Regenerate configure script. Remove after patch applied in newer
     # releases.

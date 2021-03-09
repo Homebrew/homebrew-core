@@ -1,31 +1,41 @@
 class Libhttpseverywhere < Formula
   desc "Bring HTTPSEverywhere to desktop apps"
   homepage "https://github.com/gnome/libhttpseverywhere"
-  url "https://download.gnome.org/sources/libhttpseverywhere/0.6/libhttpseverywhere-0.6.4.tar.xz"
-  sha256 "01511684bb2e416c7045794544c53f07b78a729124662ad95610e000087db3a1"
+  url "https://download.gnome.org/sources/libhttpseverywhere/0.8/libhttpseverywhere-0.8.3.tar.xz"
+  sha256 "1c006f5633842a2b131c1cf644ab929556fc27968a60da55c00955bd4934b6ca"
+  license "LGPL-3.0-or-later"
+  revision 4
 
   bottle do
-    cellar :any
-    sha256 "731e9c32b67b8dde6375cfb585cafcf14bf93ab820227e8e33d2b120084a7a19" => :high_sierra
-    sha256 "67e5de2c3ecfe7bbc339dd7e7dbe70e02f932d46a433663d154971165c78bdbb" => :sierra
-    sha256 "a46a76dfcbdc6517eb27cfab8f11a1ae92b1be6f891b00b766aad388c5b86042" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "006bf3748d65067509e5b2e6d506f3b0a9a52c5eaab54780850b70b7f82ff249"
+    sha256 cellar: :any, big_sur:       "459d83997d7d69966ddee1e7a94e8583b4de8570ee1a796273a64a3d7845b8cd"
+    sha256 cellar: :any, catalina:      "c8cc1d294949af9676e54f9a32c4dbe782dfc5d103f92bbee68acd2ccb5ff728"
+    sha256 cellar: :any, mojave:        "2835c48e21e0a96730893f96319736e55d29d8b224fcc0915e319bcbc3b521c2"
+    sha256 cellar: :any, high_sierra:   "9c7c9397a0ebe56b82ffa6d8daeb9e645e94d14ed4fd25aedbe313c603e0b9b5"
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "vala" => :build
   depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "glib"
   depends_on "json-glib"
-  depends_on "libsoup"
-  depends_on "libgee"
   depends_on "libarchive"
+  depends_on "libgee"
+  depends_on "libsoup"
+
+  # see https://gitlab.gnome.org/GNOME/libhttpseverywhere/issues/1
+  # remove when next version is released
+  patch do
+    url "https://gitlab.gnome.org/GNOME/libhttpseverywhere/commit/6da08ef1ade9ea267cecf14dd5cb2c3e6e5e50cb.patch"
+    sha256 "511c5aa10f466e879e04e794e09716de6bb18413bd23a72cffb323be5a982919"
+  end
 
   def install
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
-      system "ninja", "test"
       system "ninja", "install"
     end
   end
@@ -52,7 +62,7 @@ class Libhttpseverywhere < Formula
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/httpseverywhere-0.6
+      -I#{include}/httpseverywhere-0.8
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{libarchive.opt_include}
       -I#{libgee.opt_include}/gee-0.8
@@ -71,7 +81,7 @@ class Libhttpseverywhere < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lhttpseverywhere-0.6
+      -lhttpseverywhere-0.8
       -lintl
       -ljson-glib-1.0
       -lsoup-2.4

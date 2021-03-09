@@ -1,27 +1,24 @@
 class Jump < Formula
   desc "Helps you navigate your file system faster by learning your habits"
   homepage "https://github.com/gsamokovarov/jump"
-  url "https://github.com/gsamokovarov/jump/archive/v0.13.0.tar.gz"
-  sha256 "15d1bbeff680781dfd67857c8e3e5272b306602be5fd7c08484ed10636b77b4c"
+  url "https://github.com/gsamokovarov/jump/archive/v0.40.0.tar.gz"
+  sha256 "f005f843fc65b7be1d4159da7d4c220eef0229ecec9935c6ac23e4963eef645e"
+  license "MIT"
   head "https://github.com/gsamokovarov/jump.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "df2993124ca8f2eab3739f59040993a27c6ac634c9ac3899cb77022c076be1ca" => :high_sierra
-    sha256 "5d0ff67b1a1bb2fdd122c7f3dfca711e06bfed309e1326c7e3dc1449aa7fa1b5" => :sierra
-    sha256 "16f4049d86aab91e8588fae8aa0e80f13269f771d5a3a2962ec7856eedd1a8b0" => :el_capitan
-    sha256 "d0b66701e81ed141719935171c6e52325191a73545f8d808fe082cbc2c1613ca" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "526a1422ba30c6b9aa0451a7a4ffb1b19f49bb624e73b036c201ef5f2c762cfa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "82d744d63ad1485d1ef5afa534d9f1526339e217b86ba38f7e4e54afb3c7d439"
+    sha256 cellar: :any_skip_relocation, catalina:      "a89cde1a3dd5671412c35dd53603349c1b76fa474be9349231c895e8e3c71b48"
+    sha256 cellar: :any_skip_relocation, mojave:        "a877dfb7b7a806bb3637555125e91605c3e8834f53ca9d0d900693349d5f35f1"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/gsamokovarov").mkpath
-    ln_s buildpath, buildpath/"src/github.com/gsamokovarov/jump"
-
-    system "go", "build", "-o", "#{bin}/jump"
+    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", "#{bin}/jump"
     man1.install "man/jump.1"
+    man1.install "man/j.1"
   end
 
   test do

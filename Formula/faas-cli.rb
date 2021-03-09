@@ -1,34 +1,37 @@
 class FaasCli < Formula
   desc "CLI for templating and/or deploying FaaS functions"
-  homepage "http://docs.get-faas.com/"
+  homepage "https://www.openfaas.com/"
   url "https://github.com/openfaas/faas-cli.git",
-      :tag => "0.5.1",
-      :revision => "d1d38e9b2d5600a3485442b75641bf73b566313b"
+      tag:      "0.13.6",
+      revision: "6b5e7a14a598527063c7c05fb4187739b6eb6d38"
+  license "MIT"
+  head "https://github.com/openfaas/faas-cli.git"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fb551bfa0db0374198b07387b6ecbe1278ae12c6012cbb2389da687f343824e6" => :high_sierra
-    sha256 "d3cd94acd089f7ab4a2d301363841bffbd34d7338b7912e187420ea1551f5503" => :sierra
-    sha256 "39218f56765ec45c8288807b97d2fe4c78106d4159abca5d4d8f5958a400ded1" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "84f5b5e6ffb0d4c685e015f72cf0167616873d37186d9483c372c65c2dde9232"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5aca9417e0d30b91227504796f05ee29b5dfd06eaed231d82370653f527e6532"
+    sha256 cellar: :any_skip_relocation, catalina:      "723c6ba6da5ee6061e2ddac21893e7802bbc63382ff3b84439155429e2b1a9f2"
+    sha256 cellar: :any_skip_relocation, mojave:        "7711834078bd3455e264fb518ca7aeb1fd1493ac7e91de312d16a48d37a4180a"
   end
 
   depends_on "go" => :build
 
   def install
     ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/openfaas/faas-cli").install buildpath.children
-    cd "src/github.com/openfaas/faas-cli" do
-      project = "github.com/openfaas/faas-cli"
-      commit = Utils.popen_read("git", "rev-parse", "HEAD").chomp
-      system "go", "build", "-ldflags",
-             "-s -w -X #{project}/version.GitCommit=#{commit}", "-a",
-             "-installsuffix", "cgo", "-o", bin/"faas-cli"
-      bin.install_symlink "faas-cli" => "faas"
-      pkgshare.install "template"
-      prefix.install_metafiles
-    end
+    ENV["XC_ARCH"] = "amd64"
+    project = "github.com/openfaas/faas-cli"
+    ldflags = %W[
+      -s -w
+      -X #{project}/version.GitCommit=#{Utils.git_head}
+      -X #{project}/version.Version=#{version}
+    ]
+    system "go", "build", "-ldflags", ldflags.join(" "), "-a", "-installsuffix", "cgo", "-o", bin/"faas-cli"
+    bin.install_symlink "faas-cli" => "faas"
   end
 
   test do
@@ -51,8 +54,8 @@ class FaasCli < Formula
 
     (testpath/"test.yml").write <<~EOS
       provider:
-        name: faas
-        gateway: http://localhost:#{port}
+        name: openfaas
+        gateway: https://localhost:#{port}
         network: "func_functions"
 
       functions:
@@ -62,35 +65,20 @@ class FaasCli < Formula
           image: dummy_image
     EOS
 
-    expected = <<~EOS
-      Deploying: dummy_function.
-      Removing old function.
-      Deployed.
-      URL: http://localhost:#{port}/function/dummy_function
-
-      200 OK
-    EOS
-
     begin
-      cp_r pkgshare/"template", testpath
-
-      output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output
-
-      rm_rf "template"
-
-      output = shell_output("#{bin}/faas-cli deploy -yaml test.yml 2>&1", 1)
-      assert_match "Stat ./template/python/template.yml", output
+      output = shell_output("#{bin}/faas-cli deploy --tls-no-verify -yaml test.yml 2>&1", 1)
+      assert_match "stat ./template/python/template.yml", output
 
       assert_match "ruby", shell_output("#{bin}/faas-cli template pull 2>&1")
       assert_match "node", shell_output("#{bin}/faas-cli new --list")
 
-      output = shell_output("#{bin}/faas-cli deploy -yaml test.yml")
-      assert_equal expected, output
+      output = shell_output("#{bin}/faas-cli deploy --tls-no-verify -yaml test.yml", 1)
+      assert_match "Deploying: dummy_function.", output
 
-      stable_resource = stable.instance_variable_get(:@resource)
-      commit = stable_resource.instance_variable_get(:@specs)[:revision]
-      assert_match commit, shell_output("#{bin}/faas-cli version")
+      commit_regex = /[a-f0-9]{40}/
+      faas_cli_version = shell_output("#{bin}/faas-cli version")
+      assert_match commit_regex, faas_cli_version
+      assert_match version.to_s, faas_cli_version
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

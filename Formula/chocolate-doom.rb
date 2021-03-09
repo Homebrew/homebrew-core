@@ -1,29 +1,36 @@
 class ChocolateDoom < Formula
   desc "Accurate source port of Doom"
   homepage "https://www.chocolate-doom.org/"
-  url "https://www.chocolate-doom.org/downloads/2.3.0/chocolate-doom-2.3.0.tar.gz"
-  sha256 "3e6d1a82ac5c8b025a9695ce1e47d0dc6ed142ebb1129b1e4a70e2740f79150c"
+  url "https://www.chocolate-doom.org/downloads/3.0.1/chocolate-doom-3.0.1.tar.gz"
+  sha256 "d435d6177423491d60be706da9f07d3ab4fabf3e077ec2a3fc216e394fcfc8c7"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://www.chocolate-doom.org/downloads/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "a7938d0bfbe6e213a7ca0c464e867ce491015a0862fbda46858ca0ede1b6d41f" => :high_sierra
-    sha256 "b0573351b617c4947aa6865119add2521c779adf1afbc7f9e3af476f46f25315" => :sierra
-    sha256 "c9cb2efe87e1f7ab038198506d07eb306059cef3b13e8022c7442901a6516a34" => :el_capitan
-    sha256 "eec9121c06d749dfa8a7b53784e9570d1ff3c0c1f0e69a47b30de2290fc777dc" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "2ec976b70085d5774860143fa03bc8c46493383faf512c61eba9eb0ab3985942"
+    sha256 cellar: :any, big_sur:       "229f40caf921ce47bf5683f360473a783f281d2261be52758804c5203bc5df1b"
+    sha256 cellar: :any, catalina:      "91f8a622d0299afd99d6eb4768184100addb0d1a804683aa6486548ed5a14d8d"
+    sha256 cellar: :any, mojave:        "9090cd83e434977b523647ea125b5de78ca8c2b434f1933a606200999e137a30"
+    sha256 cellar: :any, high_sierra:   "c4799300dc6c4b10d68e0764cb57eec612fbe3d07a2ce7eeb0cf6bc60905a687"
   end
 
   head do
     url "https://github.com/chocolate-doom/chocolate-doom.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
-  depends_on "sdl"
-  depends_on "sdl_net"
-  depends_on "sdl_mixer"
-  depends_on "libsamplerate" => :recommended
-  depends_on "libpng" => :recommended
+  depends_on "pkg-config" => :build
+  depends_on "libpng"
+  depends_on "libsamplerate"
+  depends_on "sdl2"
+  depends_on "sdl2_mixer"
+  depends_on "sdl2_net"
 
   def install
     system "./autogen.sh" if build.head?
@@ -36,13 +43,18 @@ class ChocolateDoom < Formula
     (share/"icons").rmtree
   end
 
-  def caveats; <<~EOS
-    Note that this formula only installs a Doom game engine, and no
-    actual levels. The original Doom levels are still under copyright,
-    so you can copy them over and play them if you already own them.
-    Otherwise, there are tons of free levels available online.
-    Try starting here:
-      #{homepage}
+  def caveats
+    <<~EOS
+      Note that this formula only installs a Doom game engine, and no
+      actual levels. The original Doom levels are still under copyright,
+      so you can copy them over and play them if you already own them.
+      Otherwise, there are tons of free levels available online.
+      Try starting here:
+        #{homepage}
     EOS
+  end
+
+  test do
+    assert_match "Chocolate Doom #{version}", shell_output("#{bin}/chocolate-doom -nogui", 255)
   end
 end

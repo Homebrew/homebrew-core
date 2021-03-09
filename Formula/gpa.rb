@@ -1,17 +1,24 @@
 class Gpa < Formula
   desc "Graphical user interface for the GnuPG"
   homepage "https://www.gnupg.org/related_software/gpa/"
-  url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.9.10.tar.bz2"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/g/gpa/gpa_0.9.10.orig.tar.bz2"
-  sha256 "c3b9cc36fd9916e83524930f99df13b1d5f601f4c0168cb9f5d81422e282b727"
+  url "https://gnupg.org/ftp/gcrypt/gpa/gpa-0.10.0.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/g/gpa/gpa_0.10.0.orig.tar.bz2"
+  sha256 "95dbabe75fa5c8dc47e3acf2df7a51cee096051e5a842b4c9b6d61e40a6177b1"
+  revision 2
 
-  bottle do
-    sha256 "0f3c6b1ab260f768ca9337ae2c0f0a38daa896c1a1b76e6f19a0186911211ee8" => :high_sierra
-    sha256 "858ba357b188c140d61ba5570b0237a827b0a3bea3d4a87ac7e9aaa95e397230" => :sierra
-    sha256 "91271433b3ff2c4de071f2dc9fc1dacdc9957b6d4075211d913d61f7d2c02ed4" => :el_capitan
-    sha256 "fb0e954550a5a90a492afc6f31c13a4d96a4a5b462228a46ccbf133e62e7497b" => :yosemite
+  livecheck do
+    url "https://gnupg.org/ftp/gcrypt/gpa/"
+    regex(/href=.*?gpa[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_big_sur: "77f73e7161f535ed00a02c8df2f5818dad8574a0ff52f339949b1030a0bd7454"
+    sha256 big_sur:       "b4476f76bdd1e9b7acb836a49cb7e216726d277d04d24ce1b5c2d3d7e392adf0"
+    sha256 catalina:      "c598e546d83f042d3de1011bff926a839c34e56c06a4c9cc6dbab25ff9c19df6"
+    sha256 mojave:        "14eace8606e49fe9d3d2fa39a9f79fbbaca7cff7d78c0cb7027033f92133fa04"
+  end
+
+  depends_on "pkg-config" => :build
   depends_on "desktop-file-utils"
   depends_on "gpgme"
   depends_on "gtk+"

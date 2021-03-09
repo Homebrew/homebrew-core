@@ -3,15 +3,15 @@ class Ps2eps < Formula
   homepage "https://www.tm.uka.de/~bless/ps2eps"
   url "https://www.tm.uka.de/~bless/ps2eps-1.68.tar.gz"
   sha256 "b08f12eed88965d1891261fb70e87c7e3a3f3172ebc31bdb7994a7ce854dd925"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4e0d89ac5be6cb6357d84988a1adc26e6667f4e9cdd8047071d0204cbecee58e" => :high_sierra
-    sha256 "55396ec4ff00cfc85c4e34f1f7b872834264d8640677cd430c16b10fe67f2fa9" => :sierra
-    sha256 "a651d45a267206348a36d213620790b0951e5343070d8613548b80066ec5a584" => :el_capitan
-    sha256 "99b3838d2a7135d8794e4f48e428bd8afc0f18db8998f071c74faa449591ad7f" => :yosemite
-    sha256 "01fbee92f6a8534a4618bb94b9d21913f203b42f7abe41023c7c2b2f68775880" => :mavericks
-    sha256 "4671a8ae732598cbf5c006b7cf6f9924455a8f61dcc660733e14104707974c27" => :mountain_lion
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ea18a4202cff91c750204e88f180d1f0d66a8a13fcece97ad2f8c0c618ea656"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a361baca3d793d245d06ac35fa86151f5f4947bde9968db541d16744b2c9708f"
+    sha256 cellar: :any_skip_relocation, catalina:      "77353530f3a9a9f4b3776087336b18f76186373f97efeb56f0d2d55e726198f4"
+    sha256 cellar: :any_skip_relocation, mojave:        "2d77404809045015e8de81dc40e5ac200fcdeab46cb04df65d6e3e50d1b9490e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d7f3f76cc2ef7b221c099811059dc7901feeb86eea6aad5fffe4dfc50448b80a"
+    sha256 cellar: :any_skip_relocation, sierra:        "eb9e2a32e389d61270e196d45bccf6ce78720ee5104487d16e4e906ec888c8d4"
   end
 
   depends_on "ghostscript"
@@ -22,7 +22,7 @@ class Ps2eps < Formula
     (libexec/"bin").install "bin/ps2eps"
     (bin/"ps2eps").write <<~EOS
       #!/bin/sh
-      perl -S #{libexec}/bin/ps2eps $*
+      perl -S #{libexec}/bin/ps2eps \"$@\"
     EOS
     share.install "doc/man"
     doc.install "doc/pdf", "doc/html"

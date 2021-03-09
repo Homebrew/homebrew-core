@@ -1,20 +1,27 @@
 class Libwps < Formula
   desc "Library to import files in MS Works format"
   homepage "https://libwps.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/libwps/libwps/libwps-0.4.8/libwps-0.4.8.tar.xz"
-  sha256 "e478e825ef33f6a434a19ff902c5469c9da7acc866ea0d8ab610a8b2aa94177e"
+  url "https://downloads.sourceforge.net/project/libwps/libwps/libwps-0.4.12/libwps-0.4.12.tar.xz"
+  sha256 "e21afb52a06d03b774c5a8c72679687ab64891b91ce0c3bdf2d3e97231534edb"
+  license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
-  bottle do
-    cellar :any
-    sha256 "b08c28a05de4a8b4b4ee4cc369506edc734b887c3889f1dc229aa7b1ac9a2fa9" => :high_sierra
-    sha256 "56b08bd7d8b0dc043ca0bb20db5ba9efd4e03230001fc0c4c3217ef1a1c5ee49" => :sierra
-    sha256 "38807433700d4de6975e85b45ea2e795c012cdc96810ef2d49b1cf5e7eddcb4b" => :el_capitan
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libwps(?:/|[._-])v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  depends_on "pkg-config" => :build
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "0259e5d1fa798cec14c2680bbcf4ffa4791f2089840e9f27951900066f3f54bd"
+    sha256 cellar: :any, big_sur:       "b90de41ccfbd2b12fa25c90985a9a526f42f38ffba22839583d8d8dca7680f57"
+    sha256 cellar: :any, catalina:      "df168fef776884800b6e739e914ca328b2ed2011fb2f7c650a95ffb410669ff9"
+    sha256 cellar: :any, mojave:        "6858e4fc67b746fa2f392c717eab3abf2af4826e7499489b4da45d98b9539b24"
+    sha256 cellar: :any, high_sierra:   "cfba7b4a80156e0783277ea263ee303ecc2194b1a1147493e9b8e6ccafb3885d"
+  end
+
   depends_on "boost" => :build
-  depends_on "libwpd"
+  depends_on "pkg-config" => :build
   depends_on "librevenge"
+  depends_on "libwpd"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

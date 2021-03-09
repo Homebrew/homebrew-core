@@ -1,46 +1,52 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/release_003_010_002_000.tar.gz"
-  sha256 "7f96d00ed8a1458b31add31291fae66afc1fed47e1dffd886dffa71a8281fabe"
+  url "https://github.com/EttusResearch/uhd/archive/v4.0.0.0.tar.gz"
+  sha256 "4f3513c43edf0178391ed5755266864532716b8b503bcfb9a983ae6256c51b14"
+  license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
   revision 1
   head "https://github.com/EttusResearch/uhd.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 "aa08fa06aebb4e3bf05a17d20af2e3cce53e7f31a746a5e89428fd1f0febf83d" => :high_sierra
-    sha256 "eaa1134c0ec3f29780e8f391233dc6e147a5fc90848bce46b8f82326fc832728" => :sierra
-    sha256 "9896625583be332fe6ba6a8b898d027e8b42e533308eb88e1a361ed48c14120e" => :el_capitan
-    sha256 "362332407e28fef3bb1e53b358d1d011d1ef4e9ba81681dd70bef91bba7752b0" => :yosemite
+    sha256 arm64_big_sur: "098213c91123486b73640dea181811f24089b910dc4b06dc416f6893890a545a"
+    sha256 big_sur:       "082d0aa874d4fe5c14f5fb095c387b73a03d7b178f28223735cd0b65720686fe"
+    sha256 catalina:      "ce3eb00e862e1d0799b0f6c36b890aa7ce8e224e4a1c37e90b0ad22edc5d3a8e"
+    sha256 mojave:        "52ba3ba2fa2b05eef1811a34285bcb54ae49cdb81e6a9441114cd0f5106830aa"
   end
 
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "libusb"
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "doxygen" => [:build, :optional]
-  depends_on "gpsd" => :optional
+  depends_on "python@3.9"
 
   resource "Mako" do
-    url "https://files.pythonhosted.org/packages/eb/f3/67579bb486517c0d49547f9697e36582cd19dafb5df9e687ed8e22de57fa/Mako-1.0.7.tar.gz"
-    sha256 "4e02fde57bd4abb5ec400181e4c314f56ac3e49ba4fb8b0d50bba18cb27d25ae"
+    url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
+    sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
 
     resource("Mako").stage do
-      system "python", *Language::Python.setup_install_args(libexec/"vendor")
+      system Formula["python@3.9"].opt_bin/"python3",
+             *Language::Python.setup_install_args(libexec/"vendor")
     end
 
     mkdir "host/build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DENABLE_TESTS=OFF"
       system "make"
-      system "make", "test"
       system "make", "install"
     end
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/uhd_find_devices --help", 1).chomp
+    assert_match version.to_s, shell_output("#{bin}/uhd_config_info --version")
   end
 end

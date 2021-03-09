@@ -1,20 +1,23 @@
 class GitSecret < Formula
   desc "Bash-tool to store the private data inside a git repo"
   homepage "https://sobolevn.github.io/git-secret/"
-  url "https://github.com/sobolevn/git-secret/archive/v0.2.2.tar.gz"
-  sha256 "a4672c2d5eca7b5c3b27388060609307b851edc7f7b653e1d21e3e0b328f43f4"
+  license "MIT"
   head "https://github.com/sobolevn/git-secret.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ba66a3517a2b7a8e6384c852e67ac8c5cd250baa3dbfa6685be203f27b87b1d3" => :high_sierra
-    sha256 "835b7d59e90d17230c9038c2024aa9199feb63a35c45eb50bbe5e2d2730a486c" => :sierra
-    sha256 "a6df88bc4820b9796721fa0bbf5d12e9618fdc2084a4618811458462c4ee2b23" => :el_capitan
-    sha256 "a6df88bc4820b9796721fa0bbf5d12e9618fdc2084a4618811458462c4ee2b23" => :yosemite
+  stable do
+    url "https://github.com/sobolevn/git-secret/archive/v0.3.3.tar.gz"
+    sha256 "d8c19a5cbd174e95484a4233605985dd3b060a8a83d14d41c3bad1d534c6ab39"
   end
 
-  depends_on :gpg => :recommended
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ec659e8eeebebff9eede384309558a94117185e9274699225da85762df656552"
+    sha256 cellar: :any_skip_relocation, big_sur:       "798cb8d91b23ac5ad8f8c4b2b74ddb2b531b4f6e3302d846f99f673b46558889"
+    sha256 cellar: :any_skip_relocation, catalina:      "5680327a70bdc617206c09148e3c7107b10c1069fb31ef705369399c5ce09f8c"
+    sha256 cellar: :any_skip_relocation, mojave:        "39e2b5c3a4310bd28780e90d36f9a1efeff8f7397364306747416c3cef8faeba"
+  end
+
+  depends_on "gawk"
+  depends_on "gnupg"
 
   def install
     system "make", "build"
@@ -40,7 +43,7 @@ class GitSecret < Formula
       system "git", "secret", "init"
       assert_match "testing@foo.bar added", shell_output("git secret tell -m")
       (testpath/"shh.txt").write "Top Secret"
-      (testpath/".gitignore").write "shh.txt"
+      (testpath/".gitignore").append_lines "shh.txt"
       system "git", "secret", "add", "shh.txt"
       system "git", "secret", "hide"
       assert_predicate testpath/"shh.txt.secret", :exist?

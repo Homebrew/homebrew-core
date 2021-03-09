@@ -1,37 +1,41 @@
 class EasyTag < Formula
   desc "Application for viewing and editing audio file tags"
   homepage "https://projects.gnome.org/easytag"
-  url "https://download.gnome.org//sources/easytag/2.4/easytag-2.4.3.tar.xz"
+  url "https://download.gnome.org/sources/easytag/2.4/easytag-2.4.3.tar.xz"
   sha256 "fc51ee92a705e3c5979dff1655f7496effb68b98f1ada0547e8cbbc033b67dd5"
+  revision 5
 
   bottle do
-    rebuild 1
-    sha256 "bbb4d7b86a05ac2e2d0a1ba275e2fbf828a5a6943203c2dbb077d29675f49268" => :high_sierra
-    sha256 "b479d94cdf71aec5b56376397509f3438180d8ac4ba479788b64e3f97b8eda6f" => :sierra
-    sha256 "fc36c67da169f09015acc7e91fc2256cc5abaf1ec5539bc382d30fc76f423045" => :el_capitan
+    sha256 arm64_big_sur: "d710681540b59898e8eb6560a5970ba0862d726f47b4ea2f2deda97d199ca619"
+    sha256 big_sur:       "0f5db8b133620eeea75819572f9bb644ad42c0608ca72a1e0972fa87e791eab8"
+    sha256 catalina:      "cf6e6683991f2aaf8072b3ff0ab1c645ecf189ca009787ed179022d65d8111e4"
+    sha256 mojave:        "bc97c0feed958d5af987bf691e669e4e358d06f072568e5c68eb746a852a7bdb"
+    sha256 high_sierra:   "7e95b30ce2c317eb3ced35ae007d3396e4f3e0dfada0a88914695341ecd03c83"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
+  depends_on "adwaita-icon-theme"
+  depends_on "flac"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
   depends_on "id3lib"
   depends_on "libid3tag"
-  depends_on "taglib"
-
-  depends_on "libvorbis"
-  depends_on "flac"
   depends_on "libogg"
+  depends_on "libvorbis"
   depends_on "speex"
+  depends_on "taglib"
   depends_on "wavpack"
 
   # disable gtk-update-icon-cache
   patch :DATA
 
   def install
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-schemas-compile"

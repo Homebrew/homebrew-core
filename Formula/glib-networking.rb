@@ -1,39 +1,44 @@
 class GlibNetworking < Formula
   desc "Network related modules for glib"
-  homepage "https://launchpad.net/glib-networking"
-  url "https://download.gnome.org/sources/glib-networking/2.54/glib-networking-2.54.1.tar.xz"
-  sha256 "eaa787b653015a0de31c928e9a17eb57b4ce23c8cf6f277afaec0d685335012f"
+  homepage "https://gitlab.gnome.org/GNOME/glib-networking"
+  url "https://download.gnome.org/sources/glib-networking/2.66/glib-networking-2.66.0.tar.xz"
+  sha256 "c5d7be2437fdd196eebfb70c4517b96d3ba7ec13bd496318b8f02dea383e0099"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 "656488bcc70e2347d705dfc32ef38952088c8d7a2279766e139c19485c5d87aa" => :high_sierra
-    sha256 "7afca55538868826fd196e670de31a16740efb44490f1633c57d49ac1ac3c7c3" => :sierra
-    sha256 "4ef4b72f13a2f5c83e63c7594b2a643ca93f5f141b90554a70bc7f8532af5070" => :el_capitan
+    sha256 arm64_big_sur: "690e87b8d6f0cb80419854c589bf0f2390bfa9acf6578d226901c69398dc9155"
+    sha256 big_sur:       "903584edc9d9e84945330f226909f445cd701fbc346649b4248556b44632a0df"
+    sha256 catalina:      "e2ad1f907ee4b6697715ae89f8a245ee3e8c595e593370de575c56d201e23656"
+    sha256 mojave:        "0d2e04f7e844cca91d4be25058731c10607377887e2f0325d1694ebb4d5caf48"
+    sha256 high_sierra:   "dcaf3c0d0a77658721b7fee6522a4719a529f48fbb0f572d66f752e6cf1b5dec"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
-  depends_on "gettext"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gsettings-desktop-schemas"
 
+  on_linux do
+    depends_on "libidn"
+  end
+
   link_overwrite "lib/gio/modules"
 
   def install
-    # Install files to `lib` instead of `HOMEBREW_PREFIX/lib`.
-    inreplace "configure", "$($PKG_CONFIG --variable giomoduledir gio-2.0)", lib/"gio/modules"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-ca-certificates=#{etc}/openssl/cert.pem",
-                          # Remove when p11-kit >= 0.20.7 builds on OSX
-                          # see https://github.com/Homebrew/homebrew/issues/36323
-                          # and https://bugs.freedesktop.org/show_bug.cgi?id=91602
-                          "--without-pkcs11"
-    system "make", "install"
+    # stop meson_post_install.py from doing what needs to be done in the post_install step
+    ENV["DESTDIR"] = "/"
 
-    # Delete the cache, will regenerate it in post_install
-    rm lib/"gio/modules/giomodule.cache"
+    mkdir "build" do
+      system "meson", *std_meson_args,
+                      "-Dlibproxy=disabled",
+                      "-Dopenssl=disabled",
+                      "-Dgnome_proxy=disabled",
+                      ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   def post_install

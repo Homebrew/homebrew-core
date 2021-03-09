@@ -1,28 +1,33 @@
 class Sleepwatcher < Formula
   desc "Monitors sleep, wakeup, and idleness of a Mac"
-  homepage "http://www.bernhard-baehr.de/"
-  url "http://www.bernhard-baehr.de/sleepwatcher_2.2.tgz"
-  sha256 "c04ac1c49e2b5785ed5d5c375854c9c0b9e959affa46adab57985e4123e8b6be"
+  homepage "https://www.bernhard-baehr.de/"
+  url "https://www.bernhard-baehr.de/sleepwatcher_2.2.1.tgz"
+  sha256 "4bf1656702167871141fbc119a844d1363d89994e1a67027f0e773023ae9643e"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?sleepwatcher[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f9683fbee55fd410cd2650b2e12a01a322e316ceaf39484e5faa4ca3bec25ea3" => :high_sierra
-    sha256 "b9ebee67696518e4d79efee6e8d564de9b6ccc67fbfea07f68b264b8c6a2a80a" => :sierra
-    sha256 "d1abbc5f4752f77a01b1dfbadf831f58affc245137535d030992bd5cd3b1dd9c" => :el_capitan
-    sha256 "e4e3d7f9802dcf14431334c3187108c554c5315b3e34bc03dcb76e8f181158f5" => :yosemite
-    sha256 "b59893325808df64d3944f9aef6c66f6420d16cba36a2a1934bb8260bc27fe2f" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "172bfc7d967f6abbbe0770db635dd39d1d908a7aa1d3ab27cdd147acc793ca2a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "67579f4fdfb784d9769430c59e7b1deeca98324b6758e23be1ffb223c44cc183"
+    sha256 cellar: :any_skip_relocation, catalina:      "45c9c42ac76f9e9f85b0dbc2cb2251fe74448322196ac0ba10b93c416121db2a"
+    sha256 cellar: :any_skip_relocation, mojave:        "eb160c23f9d92aed8d4bdfa24607a5bb343ad65dd487cb7a8570ac479bd05dd7"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "2c050aa5845cdf24b06f17bc1b4191941e4cf57cf1092f17fe35fe0e7f28159a"
+    sha256 cellar: :any_skip_relocation, sierra:        "0cecea617ee9334f717a2e2e0424b944dedcc7cd403776c1cf6ff67352b96f4c"
   end
 
   def install
     # Adjust Makefile to build native binary only
     inreplace "sources/Makefile" do |s|
-      s.gsub! /^(CFLAGS)_PPC.*$/, "\\1 = #{ENV.cflags} -prebind"
-      s.gsub! /^(CFLAGS_X86)/, "#\\1"
+      s.gsub!(/^(CFLAGS)_PPC.*$/, "\\1 = #{ENV.cflags} -prebind")
+      s.gsub!(/^(CFLAGS_I386|CFLAGS_X86_64)/, "#\\1")
       s.change_make_var! "BINDIR", "$(PREFIX)/sbin"
       s.change_make_var! "MANDIR", "$(PREFIX)/share/man"
-      s.gsub! /^(.*?)CFLAGS_PPC(.*?)[.]ppc/, "\\1CFLAGS\\2"
-      s.gsub! /^(.*?CFLAGS_X86.*?[.]x86)/, "#\\1"
-      s.gsub! /^(\t(lipo|rm).*?[.](ppc|x86))/, "#\\1"
+      s.gsub!(/^(.*?)CFLAGS_I386(.*?)[.]i386/, "\\1CFLAGS\\2")
+      s.gsub!(/^(.*?CFLAGS_X86_64.*?[.]x86_64)/, "#\\1")
+      s.gsub!(/^(\t(lipo|rm).*?[.](i386|x86_64))/, "#\\1")
       s.gsub! "-o root -g wheel", ""
     end
 
@@ -44,18 +49,19 @@ class Sleepwatcher < Formula
     prefix.install Dir["config/*.plist"]
   end
 
-  def caveats; <<~EOS
-    For SleepWatcher to work, you will need to read the following:
+  def caveats
+    <<~EOS
+      For SleepWatcher to work, you will need to read the following:
 
-      #{prefix}/ReadMe.rtf
+        #{prefix}/ReadMe.rtf
 
-    Ignore information about installing the binary and man page,
-    but read information regarding setup of the launchd files which
-    are installed here:
+      Ignore information about installing the binary and man page,
+      but read information regarding setup of the launchd files which
+      are installed here:
 
-      #{Dir["#{prefix}/*.plist"].join("\n      ")}
+        #{Dir["#{prefix}/*.plist"].join("\n      ")}
 
-    These are the examples provided by the author.
+      These are the examples provided by the author.
     EOS
   end
 end

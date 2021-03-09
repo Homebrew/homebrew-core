@@ -1,16 +1,17 @@
 class GameMusicEmu < Formula
   desc "Videogame music file emulator collection"
   homepage "https://bitbucket.org/mpyne/game-music-emu"
-  url "https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.1.tar.bz2"
-  sha256 "dc11bea098072d540d4d52dfb252e76fc3d3af67ee2807da48fbd8dbda3fd321"
+  url "https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.3.tar.xz"
+  sha256 "aba34e53ef0ec6a34b58b84e28bf8cfbccee6585cebca25333604c35db3e051d"
+  revision 2
   head "https://bitbucket.org/mpyne/game-music-emu.git"
 
   bottle do
-    cellar :any
-    sha256 "5a5d6931476c23ab2542af2206e13486ada649b4e5a02ea9e07325bf9bfd64e1" => :high_sierra
-    sha256 "2f6a1e59526c952ae8c231adcf71f928bec5c11d35760d4d7def6a3c2477339b" => :sierra
-    sha256 "706653420e17c230ae1763da921c8ab08ace7f2db42dfbfd983746074e26b12d" => :el_capitan
-    sha256 "b9bba2cd313e782b126cd934acfab5ee801b55d887d6360c6f36c9843dec1c41" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "e83fbee26086cc93f7d2eed7d3b93f00a0a0c9eb9d59abf3aba91216fe89d3d8"
+    sha256 cellar: :any, big_sur:       "a0abdc4c5ae05ea22ad3627a1a717ed8a1a137065188b995858c0f301dfda640"
+    sha256 cellar: :any, catalina:      "ee658e16c3d9d0061b0b930ca387a1cb2fa6b6b50d23c9f6f4ae7799ddb6f46d"
+    sha256 cellar: :any, mojave:        "754ab0c8bc0a6de76adcb56a59913c930196e8e44154958081c093fb7763edad"
+    sha256 cellar: :any, high_sierra:   "596497823bb1ebb30f20fa01c8656bb15544c12fad5d67c4de165f9ef3122e68"
   end
 
   depends_on "cmake" => :build

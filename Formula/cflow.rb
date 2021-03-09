@@ -1,17 +1,18 @@
 class Cflow < Formula
   desc "Generate call graphs from C code"
   homepage "https://www.gnu.org/software/cflow/"
-  url "https://ftp.gnu.org/gnu/cflow/cflow-1.5.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/cflow/cflow-1.5.tar.bz2"
-  sha256 "6fe40a106a9ffd6a5489938b939d4301c04fa28a09596294b4f787abca1c037b"
+  url "https://ftp.gnu.org/gnu/cflow/cflow-1.6.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/cflow/cflow-1.6.tar.bz2"
+  sha256 "34487b4116e9b7ecde142b24480ce036887921ed5defb2958068bb069c1fedd7"
+  license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d97871418bd311cd914ac0b7dbcf900d599ea706c8bb91d20cf9c63406c3d066" => :high_sierra
-    sha256 "40efaa5c5298d6aa3ca2bce884ede21d21cb59df94eee0bc121a588dcb58257b" => :sierra
-    sha256 "4bde642d869a9ea7347ad91bdb87a0de3c93f3766e8b74bb6e74a763278724c3" => :el_capitan
-    sha256 "ae1fcbcfbf28417dfcc4836f32446ece545e9fceee61f34617d6364a2dd106e0" => :yosemite
-    sha256 "b50f226680f8b0e3acaea2e09781cd6d7b03bdf1191fe338658d9aacef448a9f" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d0b017a7e277a9ba4d337df8318c0e9154c235329a846151d8be03bdef75c58e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b131f52fdaf1658378dbcc134be8c2d713e2e1d66002df05ef8d1ccfcac132e8"
+    sha256 cellar: :any_skip_relocation, catalina:      "a8b7329845d3c42a17efc7af96025a1a2839ae129afd7126e977d0a245853f45"
+    sha256 cellar: :any_skip_relocation, mojave:        "a96f9cf3cb35851c27ed602f6a05489da2d64e75ab6daccecc3e23156d9fe968"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "50a816924cb91e1c4055923285ea3ceb0d815b4641477906ae5f6abdae337d52"
+    sha256 cellar: :any_skip_relocation, sierra:        "5e88f5310c34255947032f24227cf779aa8a42fe595f585605e814f001f4a151"
   end
 
   def install
@@ -60,6 +61,6 @@ class Cflow < Formula
       }
     EOS
 
-    assert_match /getpwuid()/, shell_output("#{bin}/cflow --main who_am_i #{testpath}/whoami.c")
+    assert_match "getpwuid()", shell_output("#{bin}/cflow --main who_am_i #{testpath}/whoami.c")
   end
 end

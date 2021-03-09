@@ -1,21 +1,31 @@
 class Libnfc < Formula
   desc "Low level NFC SDK and Programmers API"
-  homepage "http://nfc-tools.org"
-  url "https://bintray.com/artifact/download/nfc-tools/sources/libnfc-1.7.1.tar.bz2"
-  sha256 "945e74d8e27683f9b8a6f6e529557b305d120df347a960a6a7ead6cb388f4072"
+  homepage "https://github.com/nfc-tools/libnfc"
+  url "https://github.com/nfc-tools/libnfc/releases/download/libnfc-1.8.0/libnfc-1.8.0.tar.bz2"
+  sha256 "6d9ad31c86408711f0a60f05b1933101c7497683c2e0d8917d1611a3feba3dd5"
+  license "LGPL-3.0"
 
   bottle do
-    sha256 "6123f4b6cba07ac11b327e378b9b774fca3609cec3e7ef58d6dcb6f6270dc36e" => :high_sierra
-    sha256 "18ebd76ab92ace056da2f014b3bbfb872d152ff6dc5d66ae274c7bd67474defa" => :sierra
-    sha256 "792064362ef2b224a15190b6fcf97066c7a1d47a3bee13495134aafb067cc11d" => :el_capitan
-    sha256 "3f2e7a57fca1f12b4b938c6136036f889562540e6c6a8e5188cd32fabd927a9c" => :yosemite
-    sha256 "cabb3f773d92c2cd95af437d6f4c567529229b26b82d568af1c89ec50b674f59" => :mavericks
+    sha256 arm64_big_sur: "6e97d8892b2129437513be8a21fccf7e3c6a23b14dd28e3d43aea1fce9b97ed7"
+    sha256 big_sur:       "566a81b623abfb5d68480274b59b13c44fc098cd1d8cbf59dc112295a58a363c"
+    sha256 catalina:      "6659f67e40774cdb8e95548c03542bbc123ccabc0f4a6160504c03e43fa43c26"
+    sha256 mojave:        "9bc90c84f89408a8960289a668af7ad9b7b17d34a02996b83ec960c5cbefafeb"
+    sha256 high_sierra:   "8e6abd4d61ef9aff76ef25b092806b95614c07a9e46a0e13ca6e915271454a92"
+  end
+
+  head do
+    url "https://github.com/nfc-tools/libnfc.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "libusb-compat"
 
   def install
+    system "autoreconf", "-vfi" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--enable-serial-autoprobe",
                           "--with-drivers=all"

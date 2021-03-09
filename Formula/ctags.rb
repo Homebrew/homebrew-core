@@ -1,10 +1,11 @@
 class Ctags < Formula
   desc "Reimplementation of ctags(1)"
   homepage "https://ctags.sourceforge.io/"
-  revision 1
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 2
 
   stable do
-    url "https://downloads.sourceforge.net/ctags/ctags-5.8.tar.gz"
+    url "https://downloads.sourceforge.net/project/ctags/ctags/5.8/ctags-5.8.tar.gz"
     sha256 "0e44b45dcabe969e0bbbb11e30c246f81abe5d32012db37395eb57d66e9e99c7"
 
     # also fixes https://sourceforge.net/p/ctags/bugs/312/
@@ -15,11 +16,16 @@ class Ctags < Formula
     end
   end
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ctags[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
-    rebuild 1
-    sha256 "497e0220e354a9ec7e0735d3ba68a27892f1f69973d6992e36667ea197a236bc" => :high_sierra
-    sha256 "56bc233d09bc3591ad1f3a9c5282f9f9cf0729b0d5a0ee001d4ea6f68f2b0ab7" => :sierra
-    sha256 "a17ee0cd08909484aeeca9177b356e14655d5f75ecaa4b36a3bd2e2248d8ac91" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8e8ee6051008e73c999dbc8476221f220ef87fdf9cbc409a308df6a956e114e6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9986b3f6897b60cbdf5d73b4ad819d2d30726043dc0d665b77ba2def399a60b4"
+    sha256 cellar: :any_skip_relocation, catalina:      "2292b70a7b744c2238507417e40c2dc7273c6d919c9fe037bf668cf00863ad92"
+    sha256 cellar: :any_skip_relocation, mojave:        "238b65e5e1614f1d24fd88b6741c04d1cf48fd5f5d247cdbcd1f82d5796197d5"
   end
 
   head do
@@ -28,13 +34,19 @@ class Ctags < Formula
   end
 
   # fixes https://sourceforge.net/p/ctags/bugs/312/
-  patch :p2, :DATA
+  patch :p2 do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/ctags/5.8.patch"
+    sha256 "9b5b04d2b30d27abe71094b4b9236d60482059e479aefec799f0e5ace0f153cb"
+  end
 
   def install
     if build.head?
       system "autoheader"
       system "autoconf"
     end
+
+    # Work around configure issues with Xcode 12
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
     system "./configure", "--prefix=#{prefix}",
                           "--enable-macro-patterns",
                           "--mandir=#{man}",
@@ -48,11 +60,6 @@ class Ctags < Formula
       emacs provides an executable `ctags` that would conflict with the
       executable of the same name that ctags provides. To prevent this,
       Homebrew removes the emacs `ctags` and its manpage before linking.
-
-      However, if you install emacs with the `--keep-ctags` option, then
-      the `ctags` emacs provides will not be removed. In that case, you
-      won't be able to install ctags successfully. It will build but not
-      link.
     EOS
   end
 
@@ -73,44 +80,7 @@ class Ctags < Formula
       }
     EOS
     system "#{bin}/ctags", "-R", "."
-    assert_match /func.*test\.c/, File.read("tags")
+    assert_match(/func.*test\.c/, File.read("tags"))
+    assert_match "+regex", shell_output("ctags --version")
   end
 end
-
-__END__
-diff -ur a/ctags-5.8/read.c b/ctags-5.8/read.c
---- a/ctags-5.8/read.c	2009-07-04 17:29:02.000000000 +1200
-+++ b/ctags-5.8/read.c	2012-11-04 16:19:27.000000000 +1300
-@@ -18,7 +18,6 @@
- #include <string.h>
- #include <ctype.h>
- 
--#define FILE_WRITE
- #include "read.h"
- #include "debug.h"
- #include "entry.h"
-diff -ur a/ctags-5.8/read.h b/ctags-5.8/read.h
---- a/ctags-5.8/read.h	2008-04-30 13:45:57.000000000 +1200
-+++ b/ctags-5.8/read.h	2012-11-04 16:19:18.000000000 +1300
-@@ -11,12 +11,6 @@
- #ifndef _READ_H
- #define _READ_H
- 
--#if defined(FILE_WRITE) || defined(VAXC)
--# define CONST_FILE
--#else
--# define CONST_FILE const
--#endif
--
- /*
- *   INCLUDE FILES
- */
-@@ -95,7 +89,7 @@
- /*
- *   GLOBAL VARIABLES
- */
--extern CONST_FILE inputFile File;
-+extern inputFile File;
- 
- /*
- *   FUNCTION PROTOTYPES

@@ -3,14 +3,15 @@ class Pms < Formula
   homepage "https://pms.sourceforge.io"
   url "https://downloads.sourceforge.net/project/pms/pms/0.42/pms-0.42.tar.bz2"
   sha256 "96bf942b08cba10ee891a63eeccad307fd082ef3bd20be879f189e1959e775a6"
+  revision 1
 
   bottle do
-    sha256 "6a7b2229b39104ec96032e9e893514fa8a61b18a52106729332c22d8aba8a065" => :high_sierra
-    sha256 "8d96a7dafe25504a4bf927b94119265f6dfd0459aaaed9d1867601aa24ed8728" => :sierra
-    sha256 "65b6bfe7e5eca6e7f073e4f9c3fc7c46df538c91010059781369bacbc628256b" => :el_capitan
-    sha256 "4093093ca7be2f6aaee5f50d3185323df4fcea2ed389f29615a1b79fb3648be4" => :yosemite
-    sha256 "2f7dd91d357ac34393e55d7de6ffca2b21a64adfa084a6b6dd5c5aa43caed170" => :mavericks
-    sha256 "772bff39de0b88e164b5f14b22ed4fa22c274468d07d735318284fee5157d6c1" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "c119951216c45f24ff265bb5046631b6cbd5730300b8f4d441e7ac2be1363fcd"
+    sha256 cellar: :any, big_sur:       "61b7be3d89ec3436b9e14733936d31564c6989bccb05cb675e529383ba799924"
+    sha256 cellar: :any, catalina:      "de929bc53474adfa2a300f8954e0597489f88c22a29661e85c66d1ea8cc619ff"
+    sha256 cellar: :any, mojave:        "0c43ee20313b6616c6ececb9c906da12720b035862a894a3f9dd11984c640b30"
+    sha256 cellar: :any, high_sierra:   "f01d2f4db91f6b6bcf35f86c7a0d2b0fbed17941d9556fe0ba71e855c7667638"
+    sha256 cellar: :any, sierra:        "fa90afc92fc9d1e57a9a0a74dc63d3ec5ba92f1430caf5cad8fa54362b0da298"
   end
 
   depends_on "pkg-config" => :build

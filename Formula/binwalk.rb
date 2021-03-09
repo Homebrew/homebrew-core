@@ -1,57 +1,81 @@
 class Binwalk < Formula
-  desc "Searches a binary image for embedded files and executable code"
-  homepage "https://github.com/devttys0/binwalk"
-  url "https://github.com/devttys0/binwalk/archive/v2.1.1.tar.gz"
-  sha256 "1b70a5b03489d29f60fef18008a2164974234874faab48a4f47ec53d461d284a"
+  include Language::Python::Virtualenv
 
+  desc "Searches a binary image for embedded files and executable code"
+  homepage "https://github.com/ReFirmLabs/binwalk"
+  url "https://github.com/ReFirmLabs/binwalk/archive/v2.2.0.tar.gz"
+  sha256 "f5495f0e4c5575023d593f7c087c367675df6aeb7f4d9a2966e49763924daa27"
+  license "MIT"
   revision 3
-  head "https://github.com/devttys0/binwalk.git"
+  head "https://github.com/ReFirmLabs/binwalk.git"
 
   bottle do
-    sha256 "e737be262d3980463c1b587496df34295532a0548586b86c06077bb033f25d08" => :high_sierra
-    sha256 "7ea9cbc89c26df4a50a13b882a077311c123b4b86a5343a5187c896d7a5d747e" => :sierra
-    sha256 "d34e3ebcb6aa8fefd6d2807f5c47b5a7708200201a14bd66022cbdab20c9aeaa" => :el_capitan
-    sha256 "aca94d246fb634eb189b1146bd999d6777996283fde07f1d943112af7cbff802" => :yosemite
+    sha256 cellar: :any, big_sur:  "b1e5dd1e7292c12e45849813f43a4b57e2f853096ea411f3b9f3668d210d7b18"
+    sha256 cellar: :any, catalina: "35b8be77b69cf292e94d6acc1a84f4ff91bcee2cf5cfb98dacd3b15dea1b7a33"
+    sha256 cellar: :any, mojave:   "f1e6fbd62185d6d102752c0d4eb3f430851c1fe820cae4877c7b45b7869a4e6e"
   end
 
-  option "with-capstone", "Enable disasm options via capstone"
-
+  depends_on "pkg-config" => :build
   depends_on "swig" => :build
-  depends_on :fortran
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "freetype"
+  depends_on "libpng"
   depends_on "p7zip"
+  depends_on "python@3.9"
   depends_on "ssdeep"
   depends_on "xz"
 
-  resource "numpy" do
-    url "https://pypi.python.org/packages/source/n/numpy/numpy-1.10.2.tar.gz"
-    sha256 "23a3befdf955db4d616f8bb77b324680a80a323e0c42a7e8d7388ef578d8ffa9"
-  end
-
-  resource "scipy" do
-    url "https://downloads.sourceforge.net/project/scipy/scipy/0.16.1/scipy-0.16.1.tar.gz"
-    sha256 "ecd1efbb1c038accb0516151d1e6679809c6010288765eb5da6051550bf52260"
-  end
-
   resource "capstone" do
-    url "https://files.pythonhosted.org/packages/44/3f/2ae09118f1c890b98e7b87ff1ce3d3a36e8e72ddac74ddcf0bbe8f005210/capstone-3.0.5rc2.tar.gz"
-    sha256 "c67a4e14d04b29126f6ae2a4aeb773acf96cc6705e1fa7bd9af1798fa928022a"
+    url "https://files.pythonhosted.org/packages/2a/a2/026cc921a6ac7e4fcd0c2ba740edce4c37c56af63a79e570bebaf3bd7c50/capstone-4.0.1.tar.gz"
+    sha256 "5857accc0de1e769b0ec0a0ca985715bfa96e5a66a2ebb3aaed43a8e3655377f"
+  end
+
+  resource "Cycler" do
+    url "https://files.pythonhosted.org/packages/c2/4b/137dea450d6e1e3d474e1d873cd1d4f7d3beed7e0dc973b06e8e10d32488/cycler-0.10.0.tar.gz"
+    sha256 "cd7b2d1018258d7247a71425e9f26463dfb444d411c39569972f4ce586b0c9d8"
+  end
+
+  resource "wheel" do
+    url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
+    sha256 "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
+  end
+
+  resource "kiwisolver" do
+    url "https://files.pythonhosted.org/packages/62/b8/db619d97819afb52a3ff5ff6ad3f7de408cc83a8ec2dfb31a1731c0a97c2/kiwisolver-1.2.0.tar.gz"
+    sha256 "247800260cd38160c362d211dcaf4ed0f7816afb5efe56544748b21d6ad6d17f"
+  end
+
+  resource "matplotlib" do
+    url "https://files.pythonhosted.org/packages/4a/30/eb8e7dd8e3609f05c6920fa82f189302c832e5a0f6667aa96f952056bc0c/matplotlib-3.2.1.tar.gz"
+    sha256 "ffe2f9cdcea1086fc414e82f42271ecf1976700b8edd16ca9d376189c6d93aee"
+  end
+
+  resource "numpy" do
+    url "https://files.pythonhosted.org/packages/84/1e/ff467ac56bfeaea51d4a2e72d315c1fe440b20192fea7e460f0f248acac8/numpy-1.18.2.zip"
+    sha256 "e7894793e6e8540dbeac77c87b489e331947813511108ae097f1715c018b8f3d"
+  end
+
+  resource "pycrypto" do
+    url "https://files.pythonhosted.org/packages/60/db/645aa9af249f059cc3a368b118de33889219e0362141e75d4eaf6f80f163/pycrypto-2.6.1.tar.gz"
+    sha256 "f2ce1e989b272cfcb677616763e0a2e7ec659effa67a88aa92b3a65528f60a3c"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+  end
+
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
+    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python2.7/site-packages"
-    res = %w[numpy scipy]
-    res += %w[capstone] if build.with? "capstone"
-    res.each do |r|
-      resource(r).stage do
-        system "python", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

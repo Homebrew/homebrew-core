@@ -1,26 +1,22 @@
 class KyotoCabinet < Formula
   desc "Library of routines for managing a database"
-  homepage "http://fallabs.com/kyotocabinet/"
-  url "http://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.76.tar.gz"
-  sha256 "812a2d3f29c351db4c6f1ff29d94d7135f9e601d7cc1872ec1d7eed381d0d23c"
+  homepage "https://fallabs.com/kyotocabinet/"
+  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.77.tar.gz"
+  sha256 "56899329384cc6f0f1f8aa3f1b41001071ca99c1d79225086a7f3575c0209de6"
+  license "GPL-3.0"
 
   bottle do
-    sha256 "2ba12ca100464a78f42b5b9d3540d99e26458d8bcac0bb9a530858b5bc49bc0a" => :high_sierra
-    sha256 "24d4adf0747bebe9c3d90c509290bb630531f5184793d1866cd8ea7a39a1adce" => :sierra
-    sha256 "c4b2e78762b188a19b3c6c2aec1733c59b03fd69d23aa2ae41ba8e756704c795" => :el_capitan
-    sha256 "149125dc24b899ac4d6dd48a11aebb2ac092252b8e9cccac6472d3713062f914" => :yosemite
-    sha256 "bfed1b4b4aa5e742c89f9aa0ba83375ad4ff1d5daaf0e060260d16df4024582d" => :mavericks
+    sha256 arm64_big_sur: "1ca68b35195efd332074aeee92585a14d4dd1b4f54e1d5b398c3b74429c00329"
+    sha256 big_sur:       "d378396d5ea0974ddcd3fa105618bfb826da0f5280b2310a64d85f7bb570cf91"
+    sha256 catalina:      "444a9c86b36b081cc9ad31ef68d8c4e03f0861b9f0603a7fe5c99780cdab3926"
+    sha256 mojave:        "ddd2f1b0f1985ad81b04b29dbd54f95c5f7c88f7427b559e9f298a6473a820b0"
+    sha256 high_sierra:   "e4b99c22b5aebf85986e5c172ec61768833708acbb04318335f6641bea1f77ef"
+    sha256 sierra:        "04ef198a6638dabdee27e881df9b16970eadc724f2f663a01edee7950b38b85a"
   end
 
-  fails_with :clang do
-    build 421
-    cause <<~EOS
-      Kyoto-cabinet relies on GCC atomic intrinsics, but Clang does not
-      implement them for non-integer types.
-    EOS
-  end
+  uses_from_macos "zlib"
 
-  patch :DATA if MacOS.version >= :mavericks
+  patch :DATA
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"

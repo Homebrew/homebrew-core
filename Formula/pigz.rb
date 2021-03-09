@@ -1,22 +1,28 @@
 class Pigz < Formula
   desc "Parallel gzip"
   homepage "https://zlib.net/pigz/"
-  url "https://zlib.net/pigz/pigz-2.3.4.tar.gz"
-  sha256 "6f031fa40bc15b1d80d502ff91f83ba14f4b079e886bfb83221374f7bf5c8f9a"
-  revision 1
+  url "https://zlib.net/pigz/pigz-2.6.tar.gz"
+  sha256 "2eed7b0d7449d1d70903f2a62cd6005d262eb3a8c9e98687bc8cbb5809db2a7d"
+  license "Zlib"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?pigz[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ff33231b4dd499d05a5877892a6aaee2c1d17e93305d636e5fc53f62b26d8e57" => :high_sierra
-    sha256 "2ad2349af7453fc09c0cd5980d78c10ca20749cf35f9ffc8ea48a2a0d3db90f0" => :sierra
-    sha256 "c494bc1ad2f378cf4f2d1f3d9fba9b78a0258d179cda10d6cc12c5e5e3a51acf" => :el_capitan
-    sha256 "dfc83c38b9be8396eeb854fe8b045b9657e693665aad508164b65569fc78f491" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "487e4803119cf79952f0604f7c22f400299412210e771d1a5312f75b19903751"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6ed76215af752e06d11b176c3c169a55f76cf2010c01e67e62f7543081137b5e"
+    sha256 cellar: :any_skip_relocation, catalina:      "c1e5284c99ef13e0401035597901b5b63d19bbb642fd7206d648193c89d0e6e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "0d382426d9bf386f21f8412317b58d05fcaf6ada17b260a1b6e95e8f2e955cf4"
   end
+
+  uses_from_macos "zlib"
 
   def install
     # Fix dyld: lazy symbol binding failed: Symbol not found: _deflatePending
     # Reported 8 Dec 2016 to madler at alumni.caltech.edu
-    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
+    if MacOS.version == :el_capitan && MacOS::Xcode.version >= "8.0"
       inreplace "pigz.c", "ZLIB_VERNUM >= 0x1260", "ZLIB_VERNUM >= 0x9999"
     end
 

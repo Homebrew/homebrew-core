@@ -1,15 +1,17 @@
 class Zsh < Formula
   desc "UNIX shell (command interpreter)"
   homepage "https://www.zsh.org/"
-  url "https://downloads.sourceforge.net/project/zsh/zsh/5.4.2/zsh-5.4.2.tar.gz"
-  mirror "https://www.zsh.org/pub/zsh-5.4.2.tar.gz"
-  sha256 "957bcdb2c57f64c02f673693ea5a7518ef24b6557aeb3a4ce222cefa6d74acc9"
+  url "https://downloads.sourceforge.net/project/zsh/zsh/5.8/zsh-5.8.tar.xz"
+  mirror "https://www.zsh.org/pub/zsh-5.8.tar.xz"
+  sha256 "dcc4b54cc5565670a65581760261c163d720991f0d06486da61f8d839b52de27"
   revision 1
 
   bottle do
-    sha256 "5bb5aecd8c5341fbb670489f1c1388ce02561bae2c5ba6d3e80f5d3911f81abf" => :high_sierra
-    sha256 "e12f51411a259c9392384f4bc552dac0980ce2004f4f7560d3dfabe6ad36a1eb" => :sierra
-    sha256 "28db7180a903334df90161bc33fd975ae289a13b6102ad1ef228d28dca04e58e" => :el_capitan
+    sha256 arm64_big_sur: "01ae59e3ea21dd7691120aec89552e4f4c10c6489a24b9cc23256129e3cbe7b6"
+    sha256 big_sur:       "a93717bcbb1a41829ac7549f7dea0e2be4bb11985be734f03801150338d6b8e6"
+    sha256 catalina:      "aaf19f69f79ac2ef80ff31d3b2f0017f400bf40022f8626d5ae046990961a5f5"
+    sha256 mojave:        "a40a54e4b686eb75f04e7dcc57391245a4f6b08a39825f7f6ebc9f76ebcbff46"
+    sha256 high_sierra:   "edfbc09a9571fadf351e0f94e545a88aa33763518a3330c0bae497a6a259d63f"
   end
 
   head do
@@ -17,51 +19,42 @@ class Zsh < Formula
     depends_on "autoconf" => :build
   end
 
-  option "without-etcdir", "Disable the reading of Zsh rc files in /etc"
-  option "with-unicode9", "Build with Unicode 9 character width support"
-
-  deprecated_option "disable-etcdir" => "without-etcdir"
-
-  depends_on "gdbm"
+  depends_on "ncurses"
   depends_on "pcre"
 
   resource "htmldoc" do
-    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.4.2/zsh-5.4.2-doc.tar.xz"
-    mirror "https://www.zsh.org/pub/zsh-5.4.2-doc.tar.xz"
-    sha256 "5229cc93ebe637a07deb5b386b705c37a50f4adfef788b3c0f6647741df4f6bd"
+    url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.8/zsh-5.8-doc.tar.xz"
+    mirror "https://www.zsh.org/pub/zsh-5.8-doc.tar.xz"
+    sha256 "9b4e939593cb5a76564d2be2e2bfbb6242509c0c56fd9ba52f5dba6cf06fdcc4"
   end
 
   def install
+    # Work around configure issues with Xcode 12
+    # https://www.zsh.org/mla/workers/2020/index.html
+    # https://github.com/Homebrew/homebrew-core/issues/64921
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "Util/preconfig" if build.head?
 
-    args = %W[
-      --prefix=#{prefix}
-      --enable-fndir=#{pkgshare}/functions
-      --enable-scriptdir=#{pkgshare}/scripts
-      --enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions
-      --enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts
-      --enable-runhelpdir=#{pkgshare}/help
-      --enable-cap
-      --enable-maildir-support
-      --enable-multibyte
-      --enable-pcre
-      --enable-zsh-secure-free
-      --with-tcsetpgrp
-    ]
-
-    args << "--enable-unicode9" if build.with? "unicode9"
-
-    if build.without? "etcdir"
-      args << "--disable-etcdir"
-    else
-      args << "--enable-etcdir=/etc"
-    end
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+           "--enable-fndir=#{pkgshare}/functions",
+           "--enable-scriptdir=#{pkgshare}/scripts",
+           "--enable-site-fndir=#{HOMEBREW_PREFIX}/share/zsh/site-functions",
+           "--enable-site-scriptdir=#{HOMEBREW_PREFIX}/share/zsh/site-scripts",
+           "--enable-runhelpdir=#{pkgshare}/help",
+           "--enable-cap",
+           "--enable-maildir-support",
+           "--enable-multibyte",
+           "--enable-pcre",
+           "--enable-zsh-secure-free",
+           "--enable-unicode9",
+           "--enable-etcdir=/etc",
+           "--with-tcsetpgrp",
+           "DL_EXT=bundle"
 
     # Do not version installation directories.
     inreplace ["Makefile", "Src/Makefile"],
-      "$(libdir)/$(tzsh)/$(VERSION)", "$(libdir)"
+              "$(libdir)/$(tzsh)/$(VERSION)", "$(libdir)"
 
     if build.head?
       # disable target install.man, because the required yodl comes neither with macOS nor Homebrew

@@ -1,28 +1,28 @@
 class C14Cli < Formula
   desc "Manage your Online C14 archives from the command-line"
-  homepage "https://github.com/online-net/c14-cli"
-  url "https://github.com/online-net/c14-cli/archive/0.1.tar.gz"
-  sha256 "27f02f3146c2d239c44fe0cf3eb1a161d8bdb420145f13b8485c85d3892fd8f9"
-  head "https://github.com/online-net/c14-cli.git"
+  homepage "https://github.com/scaleway/c14-cli"
+  url "https://github.com/scaleway/c14-cli/archive/v0.5.0.tar.gz"
+  sha256 "b93960ee3ba516a91df9f81cf9b258858f8b5da6238d44a339966a5636643cb2"
+  license "MIT"
+  head "https://github.com/scaleway/c14-cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2da7668ade8257bf730b6d0a8c1da37469694779651289c198e8eac913cfebcf" => :high_sierra
-    sha256 "5f933f312db20563688f11a278981c87e6771f16f7c3f3bccb29301b12e46bb6" => :sierra
-    sha256 "94aa82618c853ee2f011e265e2131bce73e3cda2fcc2abacb4c64e2ebb325996" => :el_capitan
-    sha256 "010ccda715de1b29406ee14d7439c33b17fc5741aa5c96439d01f2ce30f2431a" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "46d65ade1ad6406be53f136729cbeca6892dd53f6958dfd7417e3773ac9d2041"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ad34da8ecf1f0563fb208247b904bc64c11ff98c681dc87744ea32e9093b5d19"
+    sha256 cellar: :any_skip_relocation, catalina:      "137f585fd6aef342e9ac97ce6ffe819d30641727e7f9d621fa6d0124afeb46f5"
+    sha256 cellar: :any_skip_relocation, mojave:        "245dc470e7883100e9b8d3dd229a5fbf2e0960993c7432be11e31ba7ef887f71"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "6b3262c0d209f01dd93a491c541ee7f9fedca9f6ff03203487394e0e4f5cdecf"
   end
+
+  # "C14 Classic has been discontinued"
+  deprecate! date: "2020-12-01", because: :repo_archived
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GOBIN"] = buildpath
-    (buildpath/"src/github.com/online-net/c14-cli").install Dir["*"]
-
-    system "go", "build", "-ldflags",
-           "-X  github.com/online-net/c14-cli/pkg/version.GITCOMMIT=homebrew",
-           "-o", bin/"c14", "github.com/online-net/c14-cli/cmd/c14/"
+    system "go", "build", "-trimpath", "-o", bin/"c14",
+           "-ldflags", "-X github.com/online-net/c14-cli/pkg/version.GITCOMMIT=homebrew",
+           "./cmd/c14/"
   end
 
   test do

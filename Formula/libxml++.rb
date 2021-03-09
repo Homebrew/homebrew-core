@@ -1,27 +1,37 @@
 class Libxmlxx < Formula
   desc "C++ wrapper for libxml"
-  homepage "https://libxmlplusplus.sourceforge.io"
-  url "https://download.gnome.org/sources/libxml++/2.40/libxml++-2.40.1.tar.xz"
-  sha256 "4ad4abdd3258874f61c2e2a41d08e9930677976d303653cd1670d3e9f35463e9"
+  homepage "https://libxmlplusplus.sourceforge.io/"
+  url "https://download.gnome.org/sources/libxml++/2.42/libxml++-2.42.0.tar.xz"
+  sha256 "3d032aede98a033eb5e815b4bfa9fa7b4e745268e6fd1ce8b1d0f70bcaf4736d"
+  license "LGPL-2.1-or-later"
+  revision 2
 
-  bottle do
-    cellar :any
-    sha256 "fe685746299e61bd0c20760f3f8ddeb8fb48de99211dc3fde96946620a1e77b6" => :high_sierra
-    sha256 "bb44b6bae21b4c6a0b2edfd675582a570e4ed63b71e6e08252a0dcd57b65834c" => :sierra
-    sha256 "9bcaa205d33dbb8d44851e5f6c41ab95b322125cfd56215c55ce3abd0ac0b00e" => :el_capitan
-    sha256 "53f18b1f5fe05dc545a8629292a498615ffd0c546c9fab98e5152be284081cbe" => :yosemite
-    sha256 "8d120ff026529306553a82ca53c73747ee106b96ceb904d7cca54b807b32c4ff" => :mavericks
+  livecheck do
+    url :stable
+    regex(/libxml\+\+[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "glibmm"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "a9dc7eb652f1c83152920bae6d930f8692d443fe180eb77fcaa4e2cd33661a7d"
+    sha256 cellar: :any, big_sur:       "2fb9806be122c23fdb9968dc3cafcec7b52afb60e6e496c5d1597843b8a4b54a"
+    sha256 cellar: :any, catalina:      "8f9f3bdd2d4208725f0f76a602bc9e78d593becc10858b51d6c724e7ba1e7cfe"
+    sha256 cellar: :any, mojave:        "5fb122370076e5963c2be7c455d867e4e36a306b86cbb100433a266a1b621767"
+  end
 
-  needs :cxx11
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+  depends_on "glibmm@2.66"
+
+  uses_from_macos "libxml2"
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -31,7 +41,7 @@ class Libxmlxx < Formula
       int main(int argc, char *argv[])
       {
          xmlpp::Document document;
-         document.set_internal_subset("homebrew", "", "http://www.brew.sh/xml/test.dtd");
+         document.set_internal_subset("homebrew", "", "https://www.brew.sh/xml/test.dtd");
          xmlpp::Element *rootnode = document.create_root_node("homebrew");
          return 0;
       }
@@ -39,8 +49,8 @@ class Libxmlxx < Formula
     ENV.libxml2
     gettext = Formula["gettext"]
     glib = Formula["glib"]
-    glibmm = Formula["glibmm"]
-    libsigcxx = Formula["libsigc++"]
+    glibmm = Formula["glibmm@2.66"]
+    libsigcxx = Formula["libsigc++@2"]
     flags = %W[
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
@@ -59,11 +69,13 @@ class Libxmlxx < Formula
       -lglib-2.0
       -lglibmm-2.4
       -lgobject-2.0
-      -lintl
       -lsigc-2.0
       -lxml++-2.6
       -lxml2
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
   end

@@ -1,14 +1,18 @@
 class Cake < Formula
+  # As discussed with chenrui333 in this PR: https://github.com/Homebrew/homebrew-core/pull/55500#issuecomment-636390974
+  # Cake uses the pre-release setting on all releases.  This will change
+  # once we ship version 1.0.0, which is likely going to be our next release.
   desc "Cross platform build automation system with a C# DSL"
   homepage "https://cakebuild.net/"
-  url "https://github.com/cake-build/cake/releases/download/v0.23.0/Cake-bin-net461-v0.23.0.zip"
-  sha256 "1ad334de4188e6dd320a8501dd0d76f5efc8f2f4e83a562fb3f309a298f39a4a"
+  url "https://github.com/cake-build/cake/releases/download/v1.1.0/Cake-bin-net461-v1.1.0.zip"
+  sha256 "e556aaf3675728ce349569bd19b32492c36a9d9ad97acf3e1e007bab8f6eddfa"
+  license "MIT"
 
   bottle :unneeded
 
-  depends_on "mono" => :recommended
+  depends_on "mono"
 
-  conflicts_with "coffeescript", :because => "both install `cake` binaries"
+  conflicts_with "coffeescript", because: "both install `cake` binaries"
 
   def install
     libexec.install Dir["*.dll"]

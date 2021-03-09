@@ -1,35 +1,39 @@
 class Avfs < Formula
   desc "Virtual file system that facilitates looking inside archives"
   homepage "https://avf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/avf/avfs/1.0.5/avfs-1.0.5.tar.bz2"
-  sha256 "e5ce6b1f4193c37148b1b8a021f4f3d05e88f725cf11b16b95a58e8fdae50176"
+  url "https://downloads.sourceforge.net/project/avf/avfs/1.1.3/avfs-1.1.3.tar.bz2"
+  sha256 "4f4ec1e8c0d5da94949e3dab7500ee29fa3e0dda723daf8e7d60e5f3ce4450df"
 
   bottle do
-    sha256 "18dd2a2958a2a07b74309e3ec832dcc4c99de70b73e5d5b263be8833cc820ebb" => :high_sierra
-    sha256 "23a05f6de2db30b39d4ce575afe7feca996439857798628645f258085b6dbda5" => :sierra
+    sha256 catalina:    "6f496a30b6bd1c8eba1005e4bc0da26b53353effab3f447cf8d43a669ad7a6b5"
+    sha256 mojave:      "1e75ce4753a0d9a9af12e4a718537a9e2398fd535413b72505dd126a33610fe6"
+    sha256 high_sierra: "690fbe0161f0c5ce4ec737e67624b54bfcd7825efa8b554e1773691365dcd6ed"
   end
 
   depends_on "pkg-config" => :build
-  depends_on :macos => :sierra # needs clock_gettime
-  depends_on "xz" => :recommended # Upstream recommends building with lzma support.
-  depends_on "openssl" => :optional
-  depends_on :osxfuse
+  depends_on macos: :sierra # needs clock_gettime
+  depends_on "openssl@1.1"
+  depends_on "xz"
 
-  # Fix scripts to work on Mac OS X.
-  # Nothing the patch fixes has been changed in 1.0.2, so still necessary.
-  patch :DATA
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
-    args = [
-      "--prefix=#{prefix}",
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--enable-fuse",
-      "--enable-library",
+    args = %W[
+      --prefix=#{prefix}
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --enable-fuse
+      --enable-library
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
-
-    args << "--with-ssl=#{Formula["openssl"].opt_prefix}" if build.with? "openssl"
 
     system "./configure", *args
     system "make", "install"
@@ -39,36 +43,3 @@ class Avfs < Formula
     system bin/"avfsd", "--version"
   end
 end
-
-__END__
-diff --git i/scripts/mountavfs w/scripts/mountavfs
-index 5722dcd..a35e633 100755
---- i/scripts/mountavfs
-+++ w/scripts/mountavfs
-@@ -14,7 +14,7 @@ else
-     MntDir=${HOME}/.avfs
- fi
-
--grep -qE "avfsd ${MntDir}" /proc/mounts || {
-+grep -qE "avfsd.*${MntDir}" < <(mount) || {
-    if [ ! -e "$MntDir" ]; then
-       mkdir -p "$MntDir"
-    fi
-diff --git i/scripts/umountavfs w/scripts/umountavfs
-index 09dc629..a242c21 100644
---- i/scripts/umountavfs
-+++ w/scripts/umountavfs
-@@ -14,11 +14,11 @@ else
-     MntDir="${HOME}/.avfs"
- fi
-
--grep -qE "${MntDir}.*avfsd" /proc/mounts && {
-+grep -qE "avfsd.*${MntDir}" < <(mount) && {
-    echo unMounting AVFS on $MntDir...
-    if type -p fusermount > /dev/null 2>&1 ; then
-       fusermount -u -z "$MntDir"
-    else
--      umount -l "$MntDir"
-+      umount "$MntDir"
-    fi
- }

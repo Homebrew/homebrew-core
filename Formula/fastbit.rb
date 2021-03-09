@@ -1,43 +1,50 @@
 class Fastbit < Formula
   desc "Open-source data processing library in NoSQL spirit"
   homepage "https://sdm.lbl.gov/fastbit/"
-  url "https://codeforge.lbl.gov/frs/download.php/416/fastbit-2.0.2.tar.gz"
-  sha256 "a9d6254fcc32da6b91bf00285c7820869950bed25d74c993da49e1336fd381b4"
-  head "https://codeforge.lbl.gov/anonscm/fastbit/trunk",
-       :using => :svn
+  url "https://code.lbl.gov/frs/download.php/file/426/fastbit-2.0.3.tar.gz"
+  sha256 "1ddb16d33d869894f8d8cd745cd3198974aabebca68fa2b83eb44d22339466ec"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "8ddbbfacf64944c202e98960f7d7a2bed3115d6184dd642842712bb2d12bba3a" => :sierra
-    sha256 "2805a5e4739ab396077fad99782174b25def6d0c8ce3d3728ed39fed2160f286" => :el_capitan
-    sha256 "33aa7e0a593b07b6d1615200b06ccd6eecd742beac345bd94b262f1b386d3591" => :yosemite
-    sha256 "f2da8bed14e66f334f870cec65c678961f925d519bddefc74ef806b493346833" => :mavericks
-    sha256 "d62226b902928b479e2835848a8eafdcd52557cb4249c59bd15cc1bd23d1e67e" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "09dc75c92fa358be93b38636c4e747d0768af669e396b07854975684bdba8494"
+    sha256 cellar: :any, big_sur:       "ce5bd1a75d14f7f11b2bdcb9cf63aebc63f3c722dd4a39380e50d2c8489b2347"
+    sha256 cellar: :any, catalina:      "31e723c0610621033859357ab2a6dc373cf955847ab5c3dcf32696d260fa0de3"
+    sha256 cellar: :any, mojave:        "0f9a32fe10c3e5c6e2826009f247bc55064ad5612dcda9724cda203c8b18e00e"
+    sha256 cellar: :any, high_sierra:   "a7d7330e664e04191fe183050b588e4d3ad13aa101553f8f6965deb708c96d72"
   end
 
-  depends_on :java
-  needs :cxx11
+  depends_on "openjdk"
 
-  conflicts_with "iniparser", :because => "Both install `include/dictionary.h`"
+  conflicts_with "iniparser", because: "both install `include/dictionary.h`"
+
+  # Fix compilation with Xcode 9, reported by email on 2018-03-13
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/fe9d4e5/fastbit/xcode9.patch"
+    sha256 "e1198caf262a125d2216d70cfec80ebe98d122760ffa5d99d34fc33646445390"
+  end
 
   def install
     ENV.cxx11
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-java=#{Formula["openjdk"].opt_prefix}"
     system "make", "install"
     libexec.install lib/"fastbitjni.jar"
-    bin.write_jar_script libexec/"fastbitjni.jar", "fastbitjni"
+    (bin/"fastbitjni").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar '#{libexec}/fastbitjni.jar' "$@"
+    EOS
   end
 
   test do
     assert_equal prefix.to_s,
                  shell_output("#{bin}/fastbit-config --prefix").chomp
-    (testpath/"test.csv").write <<-EOS
+    (testpath/"test.csv").write <<~EOS
       Potter,Harry
       Granger,Hermione
       Weasley,Ron
-     EOS
+    EOS
     system bin/"ardea", "-d", testpath,
            "-m", "a:t,b:t", "-t", testpath/"test.csv"
   end

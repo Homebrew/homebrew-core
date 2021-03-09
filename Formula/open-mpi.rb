@@ -1,62 +1,102 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
-  url "https://www.open-mpi.org/software/ompi/v3.0/downloads/openmpi-3.0.0.tar.bz2"
-  sha256 "f699bff21db0125d8cccfe79518b77641cd83628725a1e1ed3e45633496a82d7"
+  license "BSD-3-Clause"
+
+  stable do
+    url "https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.0.tar.bz2"
+    sha256 "73866fb77090819b6a8c85cb8539638d37d6877455825b74e289d647a39fd5b5"
+
+    if Hardware::CPU.arm?
+      # Dependencies needed for patch. Remove at next release.
+      depends_on "autoconf" => :build
+      depends_on "automake" => :build
+      depends_on "libtool" => :build
+
+      # Patch to fix ARM build. Remove at next release.
+      # https://github.com/open-mpi/ompi/pull/8421
+      patch do
+        url "https://github.com/open-mpi/ompi/commit/4779d8e079314ffd4556e3cb3289fecd07646cc5.patch?full_index=1"
+        sha256 "0553ffcc813919ee06937156073fc18ef6b55fa58201a9cba5168f35f7040c66"
+      end
+    end
+  end
+
+  livecheck do
+    url :homepage
+    regex(/MPI v?(\d+(?:\.\d+)+) release/i)
+  end
 
   bottle do
-    sha256 "f1a885c11086fa6a2ead5ec91d88a9bf6234f8ad4ccc2730a9b4798c70c8d1b5" => :high_sierra
-    sha256 "ca5c002fe4bd9d08b6598274c56ac65b9518425d7b2d50ad6410b496a20cf0c1" => :sierra
-    sha256 "561310a7cf0e2102ce6de33540c897dfeca806484e92915a5c2f020605b43fd1" => :el_capitan
+    sha256 arm64_big_sur: "1a32070a050b640c3340fa373646616e24c08bb766a48ccc9c3acd96a17f2cad"
+    sha256 big_sur:       "cd22187eefe00b41be67b2abb748d0a1423034263dd6c0675d09bf800362f2f8"
+    sha256 catalina:      "66dc67fc6a8541ef9f8fc4fc67086ab792b229defc2723101fb55fcecb2bf563"
+    sha256 mojave:        "646305d4e1973750c88d0f08b7242517959143b632a08336b5f10195b8a8caed"
   end
 
   head do
     url "https://github.com/open-mpi/ompi.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  option "with-mpi-thread-multiple", "Enable MPI_THREAD_MULTIPLE"
-  option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
-  option :cxx11
-
-  deprecated_option "disable-fortran" => "without-fortran"
-  deprecated_option "enable-mpi-thread-multiple" => "with-mpi-thread-multiple"
-
-  depends_on :fortran => :recommended
-  depends_on :java => :optional
+  depends_on "gcc"
+  depends_on "hwloc"
   depends_on "libevent"
 
-  conflicts_with "mpich", :because => "both install mpi__ compiler wrappers"
-  conflicts_with "lcdf-typetools", :because => "both install same set of binaries."
+  conflicts_with "mpich", because: "both install MPI compiler wrappers"
 
   def install
-    ENV.cxx11 if build.cxx11?
+    if MacOS.version == :big_sur
+      # Fix for current GCC on Big Sur, which does not like 11 as version value
+      # (reported at https://github.com/iains/gcc-darwin-arm64/issues/31#issuecomment-750343944)
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = "11.0"
+    else
+      # Otherwise libmpi_usempi_ignore_tkr gets built as a static library
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    end
+
+    # Avoid references to the Homebrew shims directory
+    %w[
+      ompi/tools/ompi_info/param.c
+      orte/tools/orte-info/param.c
+      oshmem/tools/oshmem_info/param.c
+      opal/mca/pmix/pmix3x/pmix/src/tools/pmix_info/support.c
+    ].each do |fname|
+      inreplace fname, /(OPAL|PMIX)_CC_ABSOLUTE/, "\"#{ENV.cc}\""
+    end
+
+    %w[
+      ompi/tools/ompi_info/param.c
+      oshmem/tools/oshmem_info/param.c
+    ].each do |fname|
+      inreplace fname, "OMPI_CXX_ABSOLUTE", "\"#{ENV.cxx}\""
+    end
+
+    ENV.cxx11
 
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-silent-rules
       --enable-ipv6
+      --enable-mca-no-build=op-avx,reachable-netlink
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
-    args << "--disable-mpi-fortran" if build.without? "fortran"
-    args << "--enable-mpi-thread-multiple" if build.with? "mpi-thread-multiple"
-    args << "--enable-mpi-java" if build.with? "java"
-    args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
 
-    system "./autogen.pl" if build.head?
+    # Remove ` || Hardware::CPU.arm?` in the next release
+    system "./autogen.pl", "--force" if build.head? || Hardware::CPU.arm?
     system "./configure", *args
     system "make", "all"
     system "make", "check"
     system "make", "install"
 
-    # If Fortran bindings were built, there will be stray `.mod` files
-    # (Fortran header) in `lib` that need to be moved to `include`.
-    include.install Dir["#{lib}/*.mod"] if build.with? "fortran"
+    # Fortran bindings install stray `.mod` files (Fortran modules) in `lib`
+    # that need to be moved to `include`.
+    include.install Dir["#{lib}/*.mod"]
   end
 
   test do
@@ -79,7 +119,7 @@ class OpenMpi < Formula
     EOS
     system bin/"mpicc", "hello.c", "-o", "hello"
     system "./hello"
-    system bin/"mpirun", "-np", "4", "./hello"
+    system bin/"mpirun", "./hello"
     (testpath/"hellof.f90").write <<~EOS
       program hello
       include 'mpif.h'
@@ -93,6 +133,6 @@ class OpenMpi < Formula
     EOS
     system bin/"mpif90", "hellof.f90", "-o", "hellof"
     system "./hellof"
-    system bin/"mpirun", "-np", "4", "./hellof"
+    system bin/"mpirun", "./hellof"
   end
 end

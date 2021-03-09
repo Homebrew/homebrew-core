@@ -1,19 +1,29 @@
 class JingTrang < Formula
   desc "Schema validation and conversion based on RELAX NG"
   homepage "http://www.thaiopensource.com/relaxng/"
-  url "https://github.com/relaxng/jing-trang/archive/V20151127.tar.gz"
-  sha256 "04cdf589abc5651d40f44fbc3415cb094672cb3c977770b2d9f6ea33e6d8932b"
+  url "https://github.com/relaxng/jing-trang.git",
+      tag:      "V20181222",
+      revision: "a3ec4cd650f48ec00189578f314fbe94893cd92d"
+  license "BSD-3-Clause"
+  revision 1
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0a3f51890fe283b8408e95ecad3b5a6b0d9708fc73b4b6427cb333d08d8b4464"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fbfaf15a1309a394ba34f78a6fd28062e56c05d0f118061031cb84a1f0cd2695"
+    sha256 cellar: :any_skip_relocation, catalina:      "1448a797ce37ead9d47b398a2c96af6da95acecf60532fd9edc302a1468308a3"
+    sha256 cellar: :any_skip_relocation, mojave:        "10424ca3b36b8219a58894bb23a29ce3abf67feb4a18e7f03a3daf2c328d459b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "7d7c7ba57430d123a9b53e8f4f9e7427d1ab2c1fb0b37149572cd4dc5eb1ddeb"
+  end
 
-  depends_on :ant => :build
-  depends_on :java => "1.6+"
+  depends_on "ant" => :build
+  depends_on "openjdk@11"
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     system "./ant", "jar"
     libexec.install Dir["*"]
-    bin.write_jar_script libexec/"build/jing.jar", "jing"
-    bin.write_jar_script libexec/"build/trang.jar", "trang"
+    bin.write_jar_script libexec/"build/jing.jar", "jing", java_version: "11"
+    bin.write_jar_script libexec/"build/trang.jar", "trang", java_version: "11"
   end
 
   test do

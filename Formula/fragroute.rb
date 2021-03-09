@@ -4,17 +4,26 @@ class Fragroute < Formula
   url "https://www.monkey.org/~dugsong/fragroute/fragroute-1.2.tar.gz"
   mirror "https://mirrorservice.org/sites/ftp.wiretapped.net/pub/security/packet-construction/fragroute-1.2.tar.gz"
   sha256 "6899a61ecacba3bb400a65b51b3c0f76d4e591dbf976fba0389434a29efc2003"
-  revision 1
+  license "BSD-3-Clause"
+  revision 2
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?fragroute[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "65ea82f265aeb3018b59f1c24630ad2e88fc8d3c678579f4e83be4f339005450" => :high_sierra
-    sha256 "54e5062ef504ba660fa5bbc67a562c7fd9a80fbca511cf37c10ca65d135cefe7" => :sierra
-    sha256 "d9a4634cf2e7759caed69fee95f5f0044e4365cbaaf308a2f5abddfa46f4bec1" => :el_capitan
-    sha256 "7c1fc2c4a43e91a22b2e999d071424c5b57243820e2293cc4106e4b68ded0323" => :yosemite
+    rebuild 2
+    sha256 arm64_big_sur: "35adad42ecbe16056a06708e7d0a3af1b9611aa3cfc1b1dc8cede40ee6f3f69d"
+    sha256 big_sur:       "6d9bc388969f3798ca6ff4bc6e4cf5ecbc03f995b5f21268ae57fd49a69ec1c2"
+    sha256 catalina:      "1427f299e84d0b1662a3492dc9c69cd46776265dc8b76488752b19eee1126ba6"
+    sha256 mojave:        "2e4c49a602719693ed6a285aab60158a489d0f6592920b37a41e7ee933959ea6"
   end
 
   depends_on "libdnet"
   depends_on "libevent"
+
+  uses_from_macos "libpcap"
 
   patch :p0 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/2f5cab626/fragroute/configure.patch"
@@ -32,6 +41,10 @@ class Fragroute < Formula
   end
 
   def install
+    # pcaputil.h defines a "pcap_open()" helper function, but that name
+    # conflicts with an unrelated function in newer versions of libpcap
+    inreplace %w[pcaputil.h pcaputil.c tun-loop.c fragtest.c], /pcap_open\b/, "pcap_open_device_named"
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -41,7 +54,7 @@ class Fragroute < Formula
       --with-libdnet=#{Formula["libdnet"].opt_prefix}
     ]
 
-    args << "--with-libpcap=#{MacOS.sdk_path}/usr" unless MacOS::CLT.installed?
+    args << "--with-libpcap=#{MacOS.sdk_path}/usr" if !MacOS::CLT.installed? || MacOS.version != :sierra
 
     system "./configure", *args
     system "make", "install"

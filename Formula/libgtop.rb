@@ -1,21 +1,27 @@
 class Libgtop < Formula
   desc "Library for portably obtaining information about processes"
   homepage "https://library.gnome.org/devel/libgtop/stable/"
-  url "https://download.gnome.org/sources/libgtop/2.36/libgtop-2.36.0.tar.xz"
-  sha256 "13bfe34c150b2b00b03df4732e8c7ccfae09ab15897ee4f4ebf0d16b0f3ba12b"
+  url "https://download.gnome.org/sources/libgtop/2.40/libgtop-2.40.0.tar.xz"
+  sha256 "78f3274c0c79c434c03655c1b35edf7b95ec0421430897fb1345a98a265ed2d4"
+  revision 1
 
   bottle do
-    sha256 "47d5cfb321c62629e60f963b93d1bbcbe28443bb0f373a7b19622fb78c77403b" => :high_sierra
-    sha256 "c7197f1afe98c3ee5e5b6ab1e7c7ed629c08b1f37d17312ab01c06fda637c718" => :sierra
-    sha256 "1aa4cdb2dfdf236eb3b9802d88cade9bb30c9358af5ddf6710e313a0b19b0e29" => :el_capitan
-    sha256 "68166fd2c7020a59d0a6f4bdc6820c5f461fa813b30e6de14c9728149e619d0d" => :yosemite
+    rebuild 2
+    sha256 arm64_big_sur: "1b03ee2aee7281a673eff7004f5141e4077e0dfbd2e1ce31a9590fb1f3fc221c"
+    sha256 big_sur:       "e749a43ebcc150fba221570873bb6df8765eedd1719ad7080dbbb84b809b477d"
+    sha256 catalina:      "9946efd963f1911a13a57d684d9b441ce804777711cfb88fc48fdcf55e6ba620"
+    sha256 mojave:        "9a219f60e6ad45d0c4c01e3477789ea27a54595fdc16751f3b964d4cfb56fc3a"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gobject-introspection"
+
+  on_linux do
+    depends_on "libxau"
+  end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
@@ -45,8 +51,10 @@ class Libgtop < Formula
       -L#{lib}
       -lglib-2.0
       -lgtop-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

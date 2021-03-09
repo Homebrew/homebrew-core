@@ -1,16 +1,23 @@
 class Tcsh < Formula
   desc "Enhanced, fully compatible version of the Berkeley C shell"
-  homepage "http://www.tcsh.org/"
-  url "ftp://ftp.astron.com/pub/tcsh/tcsh-6.20.00.tar.gz"
-  mirror "http://ftp.funet.fi/pub/mirrors/ftp.astron.com/pub/tcsh/tcsh-6.20.00.tar.gz"
-  sha256 "b89de7064ab54dac454a266cfe5d8bf66940cb5ed048d0c30674ea62e7ecef9d"
+  homepage "https://www.tcsh.org/"
+  url "https://astron.com/pub/tcsh/tcsh-6.22.03.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.22.03.tar.gz"
+  sha256 "be2cfd653d2a0c7f506d2dd14c12324ba749bd484037be6df44a3973f52262b7"
+
+  livecheck do
+    url "https://astron.com/pub/tcsh/"
+    regex(/href=.*?tcsh[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "7a37ce9d651ee573cfd079ef0743089ddd4929817827296972b41f8af74158bd" => :high_sierra
-    sha256 "3a59ccfdab60133b8854d528465882a3a8aaaa874f70ef1e4a0deee2f06802c6" => :sierra
-    sha256 "d43bbcefe883ba5bd0dc998e5c4e6e9afcd35bacc780864fdcfe5a560002d7d1" => :el_capitan
-    sha256 "ecbd811718e22c579434568185a8ea87d78d420c251913f84da8093f61d1b408" => :yosemite
+    sha256 arm64_big_sur: "4984599cbefc72104b17434f89aa257e0b2de09605a53ac66e9d07e4804b344d"
+    sha256 big_sur:       "e572fcc4259db31e54c25ccf22d736637cfce0801f038691b86d5d68847d6603"
+    sha256 catalina:      "2feecc5bd032b40e4673125431957d89a37a54aac8d4e0b5849fd9fa33aa7bfa"
+    sha256 mojave:        "1a278f9965f6b362035623cf793afee82e0039277f61f06f32499f7bdf0ec0ad"
   end
+
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"

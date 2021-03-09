@@ -1,46 +1,35 @@
 class Itstool < Formula
   desc "Make XML documents translatable through PO files"
   homepage "http://itstool.org/"
-  revision 1
-
-  stable do
-    url "http://files.itstool.org/itstool/itstool-2.0.4.tar.bz2"
-    sha256 "97c208b51da33e0b553e830b92655f8deb9132f8fbe9a646771f95c33226eb60"
-
-    # Upstream commit from 25 Oct 2017 "Be more careful about libxml2 memory management"
-    # See https://github.com/itstool/itstool/issues/17
-    patch do
-      url "https://github.com/itstool/itstool/commit/9b84c00.patch?full_index=1"
-      sha256 "c33f44affc27604c6a91a8ae2e992273bf588c228e635ea46d958e2c3046e9ca"
-    end
-  end
+  url "https://github.com/itstool/itstool/archive/2.0.6.tar.gz"
+  sha256 "bda0b08e9a1db885c9d7d1545535e9814dd8931d5b8dd5ab4a47bd769d0130c6"
+  license "GPL-3.0"
+  revision 2
+  head "https://github.com/itstool/itstool.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9dc3edc35150bd1701f9107b2248a5b275d1842447aa58f77341c4af8e478d7e" => :high_sierra
-    sha256 "9dc3edc35150bd1701f9107b2248a5b275d1842447aa58f77341c4af8e478d7e" => :sierra
-    sha256 "9dc3edc35150bd1701f9107b2248a5b275d1842447aa58f77341c4af8e478d7e" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebdfd10f93422be39bb585681691ebe51e50c627b9bb2ea2b4129ef94c00d932"
+    sha256 cellar: :any_skip_relocation, big_sur:       "81eaa38336a86c12673ffc93418fdbcc7244cd8be71c9a2c07864e0a19994ea5"
+    sha256 cellar: :any_skip_relocation, catalina:      "f860a74756beaab039bffa02a4c8b8258f1a54a692532f4a1e57d0b4431c7ab9"
+    sha256 cellar: :any_skip_relocation, mojave:        "d3b26ca21d37e4e0eb6e7318571a69aa021034bc69936749e8891213c16465c9"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "1ee274a6df78727bfcba1221ea16b5c2fa55819c66e2de9168c7915fd3238508"
   end
 
-  head do
-    url "https://github.com/itstool/itstool.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
-
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libxml2"
+  depends_on "python@3.9"
 
   def install
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python#{xy}/site-packages"
 
-    system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{libexec}"
+    system "./autogen.sh", "--prefix=#{libexec}",
+                           "PYTHON=#{Formula["python@3.9"].opt_bin}/python3"
     system "make", "install"
 
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
     pkgshare.install_symlink libexec/"share/itstool/its"
     man1.install_symlink libexec/"share/man/man1/itstool.1"
   end

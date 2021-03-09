@@ -1,61 +1,65 @@
 class Thefuck < Formula
   include Language::Python::Virtualenv
 
-  desc "Programatically correct mistyped console commands"
+  desc "Programmatically correct mistyped console commands"
   homepage "https://github.com/nvbn/thefuck"
-  url "https://files.pythonhosted.org/packages/ec/20/3f136313c27ea36ba38d31818b9f0a1a4656668fc6747b3bfa04f3debc98/thefuck-3.25.tar.gz"
-  sha256 "70cbe6295d2d2d371a395619216d38eb1666e4b3c3b1a24f67d11b88e65fea78"
+  url "https://files.pythonhosted.org/packages/46/ed/11176f81a85876f4016c18907d6e085862df464a76628b91b3e91f080c7e/thefuck-3.30.tar.gz"
+  sha256 "32b41db4360a810d8e761e80fe09868ce634476ee1829e26869d49484b7a95cc"
+  license "MIT"
+  revision 1
   head "https://github.com/nvbn/thefuck.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "081d1d9cf18435961fb62648a1f4fc841e0bc27611f67302ffe11c5576b8d8f3" => :high_sierra
-    sha256 "4f91f880f0050c2301cae9019fa67ee53d367d7fdfafbe6bac11c05bc86289b1" => :sierra
-    sha256 "f222599a8bd17a176d6c77263c604b371e16094c8c5c12517510dcb713cba0b3" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3bc7586bc2ff253689bfe24ff35af100c6659605dddaefbec92cec29e2a25389"
+    sha256 cellar: :any_skip_relocation, big_sur:       "00fb2bb9fbd724cf47c75e99ffc44a356587cd34d423feefe21ec1b57f954133"
+    sha256 cellar: :any_skip_relocation, catalina:      "7f8ecd031ae58cc414d695058d7332b4b93c8e2959cf5114c82609d5676b24a7"
+    sha256 cellar: :any_skip_relocation, mojave:        "b7ff0b5553c12c27d3311d557604b708e0e4ea0c315b03198f354667b057a1c8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "e2d94b4c4d959f39370227a2a029956f85b5ef6e739bb0b55969ca2b0c034bb5"
   end
 
-  depends_on :python3
+  depends_on "python@3.9"
 
   resource "colorama" do
-    url "https://files.pythonhosted.org/packages/e6/76/257b53926889e2835355d74fec73d82662100135293e17d382e2b74d1669/colorama-0.3.9.tar.gz"
-    sha256 "48eb22f4f8461b1df5734a074b57042430fb06e1d61bd1e11b078c0fe6d7a1f1"
+    url "https://files.pythonhosted.org/packages/82/75/f2a4c0c94c85e2693c229142eb448840fba0f9230111faa889d1f541d12d/colorama-0.4.3.tar.gz"
+    sha256 "e96da0d330793e2cb9485e9ddfd918d456036c7149416295932478192f4436a1"
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/bb/e0/f6e41e9091e130bf16d4437dabbac3993908e4d6485ecbc985ef1352db94/decorator-4.1.2.tar.gz"
-    sha256 "7cb64d38cb8002971710c8899fbdfb859a23a364b7c99dab19d1f719c2ba16b5"
+    url "https://files.pythonhosted.org/packages/da/93/84fa12f2dc341f8cf5f022ee09e109961055749df2d0c75c5f98746cfe6c/decorator-4.4.2.tar.gz"
+    sha256 "e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/fe/17/0f0bf5792b2dfe6003efc5175c76225f7d3426f88e2bf8d360cfab870cd8/psutil-5.4.1.tar.gz"
-    sha256 "42e2de159e3c987435cb3b47d6f37035db190a1499f3af714ba7af5c379b6ba2"
+    url "https://files.pythonhosted.org/packages/c4/b8/3512f0e93e0db23a71d82485ba256071ebef99b227351f0f5540f744af41/psutil-5.7.0.tar.gz"
+    sha256 "685ec16ca14d079455892f25bd124df26ff9137664af445563c1bd36629b5e0e"
   end
 
   resource "pyte" do
-    url "https://files.pythonhosted.org/packages/d2/1c/f65766736e40916b9a27c6cd582313e78092501b68284d44a1b014f30230/pyte-0.7.0.tar.gz"
-    sha256 "873acb47b624b9f30e9c54fab9c06a53be3b6bfa4b3d863ab30f55e93724c5aa"
+    url "https://files.pythonhosted.org/packages/66/37/6fed89b484c8012a0343117f085c92df8447a18af4966d25599861cd5aa0/pyte-0.8.0.tar.gz"
+    sha256 "7e71d03e972d6f262cbe8704ff70039855f05ee6f7ad9d7129df9c977b5a88c5"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
+    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/55/11/e4a2bb08bb450fdbd42cc709dd40de4ed2c472cf0ccb9e64af22279c5495/wcwidth-0.1.7.tar.gz"
-    sha256 "3df37372226d6e63e1b1e1eda15c594bca98a22d33a23832a90998faa96bc65e"
+    url "https://files.pythonhosted.org/packages/5e/33/92333eb80be0c96385dee338f30b53e24a8b415d5785e225d789b3f90feb/wcwidth-0.1.8.tar.gz"
+    sha256 "f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8"
   end
 
   def install
     virtualenv_install_with_resources
   end
 
-  def caveats; <<~EOS
-    Add the following to your .bash_profile, .bashrc or .zshrc:
+  def caveats
+    <<~EOS
+      Add the following to your .bash_profile, .bashrc or .zshrc:
 
-      eval $(thefuck --alias)
+        eval $(thefuck --alias)
 
-    For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
+      For other shells, check https://github.com/nvbn/thefuck/wiki/Shell-aliases
     EOS
   end
 

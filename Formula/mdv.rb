@@ -3,18 +3,19 @@ class Mdv < Formula
 
   desc "Styled terminal markdown viewer"
   homepage "https://github.com/axiros/terminal_markdown_viewer"
-  url "https://github.com/axiros/terminal_markdown_viewer/archive/1.6.3.tar.gz"
-  sha256 "58dbdf8c051a2d7f8c00e4dc13c655c335cbc2bc96851dd0388d73a21c4507b6"
+  url "https://files.pythonhosted.org/packages/70/6d/831e188f8079c9793eac4f62ae55d04a93d90979fd2d8271113687605380/mdv-1.7.4.tar.gz"
+  sha256 "1534f477c85d580352c82141436f6fdba79d329af8a5ee7e329fea14424a660d"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "94a95cabd6f75d33d7d91d5b4304a77a0a068ff6abb15d36b92565ba966eef7c" => :high_sierra
-    sha256 "85fe18363a3c8b9f56526a6cf0d2bde2eb212cbb80ba8f1175a646c749f50ced" => :sierra
-    sha256 "5c371c8a9313f7cd8104d23978217916b2991d02da9605b2798d9d292b15f118" => :el_capitan
-    sha256 "d2ac3612660964bc8a33780f50c076ce884094735b3f1cc3686ac606c154af13" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "81ef8f08570dbd4af753403e58d266fa2e4b440db92fb9b4506a92e9bd6de100"
+    sha256 cellar: :any_skip_relocation, big_sur:       "04e3e87af387732342c4674feeb11b493090eb6504d4c6797b57f41bbf9a90a8"
+    sha256 cellar: :any_skip_relocation, catalina:      "ba336eac38af86dd98d74dbba06226d13b0bc8af719e1e40a863f9f394da4de8"
+    sha256 cellar: :any_skip_relocation, mojave:        "ecb421e63e0278668ae2d570c8095186cb3e4695c5ba9891f20d16c2ba3c6e6c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3b9847a65d7c9820148cd848687efdb598193cc76abb031c1f71841bad2ec60d"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@3.8"
 
   resource "docopt" do
     url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
@@ -32,8 +33,13 @@ class Mdv < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/9e/a3/1d13970c3f36777c583f136c136f804d70f500168edc1edea6daa7200769/PyYAML-3.13.tar.gz"
+    sha256 "3ef3092145e9b70e3ddd2c7ad59bdd0252a94dfe3949721633e41344de00a6bf"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
+    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
   end
 
   def install

@@ -1,46 +1,51 @@
 class PerlAT518 < Formula
   desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
-  url "https://www.cpan.org/src/5.0/perl-5.18.2.tar.gz"
-  sha256 "7cbed5ef11900e8f68041215eea0de5e443d53393f84c41d5c9c69c150a4982f"
+  url "https://www.cpan.org/src/5.0/perl-5.18.4.tar.gz"
+  sha256 "01a4e11a9a34616396c4a77b3cef51f76a297e1a2c2c490ae6138bf0351eb29f"
+  license "Artistic-1.0-Perl"
+  revision 1
+
+  livecheck do
+    url "https://www.cpan.org/src/5.0/"
+    regex(/href=.*?perl[._-]v?(5\.18(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "a20858d7f5ff6099f3b6afd23f5a2d8664ab0a341034699086f5d2ef16780a0a" => :high_sierra
-    sha256 "bd7cec940fcec85651d37e00c6f3b073c4f0e7c6dc82d8836276947a504dd169" => :sierra
-    sha256 "5ea15144192fc50417125abb4735272d95a0ae7602b99deaca7e316b3cce3dd8" => :el_capitan
-    sha256 "dd567491e3d46487ec5657ec381a991164205c043798973c949498ead69e5519" => :yosemite
+    sha256 arm64_big_sur: "6c250f7fbbb0cbc997ad0068b88802f5d097f3b3a635d5c64d7267c3ab39340f"
+    sha256 big_sur:       "6a0597d8cea75db2fecaf1e807777b2f55b3fcdad4721630bc1e5c062a9ec8a0"
+    sha256 catalina:      "45b388773570fd4ef892caa7a0bb0312fd05dfcb3f73245a03eed16bf9187cc9"
+    sha256 mojave:        "3e80537039afd47db55b42a09f34c2b1e6fc2a24581c16d09d76b5ad85997ed6"
+    sha256 high_sierra:   "4ebffdb24ede27bf2fb4f844c87f4adc962942d399c6762b3c6cf90b929fa50a"
   end
 
   keg_only :versioned_formula
 
-  option "with-dtrace", "Build with DTrace probes"
-  option "with-test", "Build and run the test suite"
-
-  deprecated_option "use-dtrace" => "with-dtrace"
-  deprecated_option "with-tests" => "with-test"
-
   def install
-    args = [
-      "-des",
-      "-Dprefix=#{prefix}",
-      "-Dman1dir=#{man1}",
-      "-Dman3dir=#{man3}",
-      "-Duseshrplib",
-      "-Duselargefiles",
-      "-Dusethreads",
-    ]
+    ENV.deparallelize if MacOS.version >= :catalina
 
-    args << "-Dusedtrace" if build.with? "dtrace"
+    args = %W[
+      -des
+      -Dprefix=#{prefix}
+      -Dman1dir=#{man1}
+      -Dman3dir=#{man3}
+      -Duseshrplib
+      -Duselargefiles
+      -Dusethreads
+    ]
+    on_macos do
+      args << "-Dsed=/usr/bin/sed"
+    end
 
     system "./Configure", *args
     system "make"
-    system "make", "test" if build.with? "tests"
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    By default Perl installs modules in your HOME dir. If this is an issue run:
-      #{bin}/cpan o conf init
+  def caveats
+    <<~EOS
+      By default Perl installs modules in your HOME dir. If this is an issue run:
+        #{bin}/cpan o conf init
     EOS
   end
 

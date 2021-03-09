@@ -1,47 +1,22 @@
-require "language/go"
-
 class Jvgrep < Formula
   desc "Grep for Japanese users of Vim"
   homepage "https://github.com/mattn/jvgrep"
-  url "https://github.com/mattn/jvgrep/archive/v5.4.tar.gz"
-  sha256 "42094336b769db7dbc731f0c146c606ee3f6435c038db53c9b67793edb3c5be0"
+  url "https://github.com/mattn/jvgrep/archive/v5.8.9.tar.gz"
+  sha256 "37e1b9aa4571f98a102b4f7322d7f581c608c0fcd50542dfaa7af742184fb1dc"
+  license "MIT"
   head "https://github.com/mattn/jvgrep.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "63c6e04a64fbeca0dc6d6a3089f9ee5a508ac868d7ec491160a73c4e093b4652" => :high_sierra
-    sha256 "542343fb7812777bfe00c0199bf6c7810276d6826e4b2bb7ebf0adcf85d01400" => :sierra
-    sha256 "c1f8cac9998ec76a48434cabc029f413145c5b97669bbea8a344f52d27388f6a" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9f22b7d0972294f7d6d1dec7f88628df527656aad3e3f5331da3b16d78928cb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d7d7ed4778bab36afa71a8b06b5a42b5d4178bb3bd08c94a90e9f099af5ea92e"
+    sha256 cellar: :any_skip_relocation, catalina:      "da1235bed154594ddbda2614b02a42cefe359aeb02835bd99cce97642aa83df7"
+    sha256 cellar: :any_skip_relocation, mojave:        "dde02ed909386bfbbd045fb7c6109544a7e7f3f047b0add74d2ace9ff1fa5d62"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/mattn/go-colorable" do
-    url "https://github.com/mattn/go-colorable.git",
-        :revision => "ad5389df28cdac544c99bd7b9161a0b5b6ca9d1b"
-  end
-
-  go_resource "github.com/mattn/go-isatty" do
-    url "https://github.com/mattn/go-isatty.git",
-        :revision => "fc9e8d8ef48496124e79ae0df75490096eccf6fe"
-  end
-
-  go_resource "golang.org/x/net" do
-    url "https://go.googlesource.com/net.git",
-        :revision => "8351a756f30f1297fe94bbf4b767ec589c6ea6d0"
-  end
-
-  go_resource "golang.org/x/text" do
-    url "https://go.googlesource.com/text.git",
-        :revision => "1cbadb444a806fd9430d14ad08967ed91da4fa0a"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/mattn"
-    ln_s buildpath, buildpath/"src/github.com/mattn/jvgrep"
-    Language::Go.stage_deps resources, buildpath/"src"
-    system "go", "build", "-o", bin/"jvgrep"
+    system "go", "build", *std_go_args
   end
 
   test do

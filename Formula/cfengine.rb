@@ -1,32 +1,31 @@
 class Cfengine < Formula
   desc "Help manage and understand IT infrastructure"
   homepage "https://cfengine.com/"
-  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.10.1.tar.gz"
-  sha256 "0abb7e91d667a4f339b61e105dc66c583fa98e0217c6fc7fcf8a73300badca98"
+  url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.17.0.tar.gz"
+  sha256 "b7def98c2bdf491839a6dfb85ac48c670136cf331984b6c4063551ed3daf1420"
 
-  bottle do
-    sha256 "2f3f54145ff6fc4b6e7892de3d0895e3ffb353f35953a1c2ae943ab0802b916c" => :high_sierra
-    sha256 "c20e03c47ec3c2d5e580dbef1b60cdab5619aab548b92904e1fc3f4e20308b74" => :sierra
-    sha256 "3146afa8ef4e2c5cedc7861dece69a9dc51f4fb4724b724363a616a600b6045f" => :el_capitan
-    sha256 "a3a2527726612948e9ca8e6f82ef5bd6d21c53780b8c618db2c0455b0aa7e19c" => :yosemite
+  livecheck do
+    url "https://cfengine.com/release-data/community/releases.json"
+    regex(/"version": ?"(\d+(?:\.\d+)+)"/i)
   end
 
-  depends_on "libxml2" if MacOS.version < :mountain_lion
-  depends_on "pcre"
+  bottle do
+    sha256 arm64_big_sur: "dcbfc690677dad4edb4054a38aa93297520fc9a5047979e232f8c3cc443f02d3"
+    sha256 big_sur:       "67bdde882244562579842da22d9e1a50708caeda776cfc2039f23abae34cd79b"
+    sha256 catalina:      "0fffe31906626805cb526bfec833c96cb5fce1055bf4403e95e3df6cfb378e39"
+    sha256 mojave:        "5547175a2bffb5013ca52344b3f2ecf58ec17ddf61e8ed7e482edb65c0ed03c5"
+  end
+
   depends_on "lmdb"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+  depends_on "pcre"
 
   resource "masterfiles" do
-    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.10.1.tar.gz"
-    sha256 "c4b0ff856d9af1cc62559b0ca4a7d39548442b13167a294637ed65cd5a811900"
+    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.17.0.tar.gz"
+    sha256 "03a67dda0dfa8bc060c65e9ae8c6c4e7bf29711aeee5c62ed45dfa570513aa57"
   end
 
   def install
-    # Fix "typedef redefinition with different types"
-    if DevelopmentTools.clang_build_version >= 800
-      ENV["ac_cv_type_clockid_t"] = "yes"
-    end
-
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-workdir=#{var}/cfengine",

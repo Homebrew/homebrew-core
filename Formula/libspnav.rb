@@ -4,19 +4,22 @@ class Libspnav < Formula
   url "https://downloads.sourceforge.net/project/spacenav/spacenav%20library%20%28SDK%29/libspnav%200.2.3/libspnav-0.2.3.tar.gz"
   sha256 "7ae4d7bb7f6a5dda28b487891e01accc856311440f582299760dace6ee5f1f93"
 
-  bottle do
-    cellar :any
-    sha256 "d61c3082aef6a700ad02d553304add7bb6bb2541236a97cf0a571dcc88f67d16" => :high_sierra
-    sha256 "55cf0552148451302bb50c04a843d8d3834ca95a38c79bf5270f20ac49f82d41" => :sierra
-    sha256 "48685db33ebe4acb821b33dbd609f95d03c47bd6c316b08f1bc1110d86271643" => :el_capitan
-    sha256 "87bf93469bb14eef1a24de81cd521f6a62363a6aa7c04a319f3f18905de039b1" => :yosemite
-    sha256 "f425659deb611eacb94f2245f0c8f8235aa0169a422874f2aa2c32f8d207b84a" => :mavericks
-    sha256 "0d0a4943d1eee96936b7ccf0a200d353a3fd35bbf67d46695e0e4e41d498df16" => :mountain_lion
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libspnav[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  option "with-x11", "Enable support for sending mouse events through the x11 protocol"
-
-  depends_on :x11 => :optional
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "421df09aff21f173833bb55fd801f83a8cdfb06855c27d02fcc1e0a22cf79991"
+    sha256 cellar: :any, big_sur:       "8260c77f747105cff878f66c1c622d9138cb8040c3423b87f5fdfd85ae0a4698"
+    sha256 cellar: :any, catalina:      "9d7234296b1bdb5c4dd0f1aa5855cca877d2eba7fa83812c34438e7cf401a3cf"
+    sha256 cellar: :any, mojave:        "a428a0b1037ff3dfd5a7ba2463f6ca96717e69be734627d8d7abd079f17fb7d5"
+    sha256 cellar: :any, high_sierra:   "d61c3082aef6a700ad02d553304add7bb6bb2541236a97cf0a571dcc88f67d16"
+    sha256 cellar: :any, sierra:        "55cf0552148451302bb50c04a843d8d3834ca95a38c79bf5270f20ac49f82d41"
+    sha256 cellar: :any, el_capitan:    "48685db33ebe4acb821b33dbd609f95d03c47bd6c316b08f1bc1110d86271643"
+    sha256 cellar: :any, yosemite:      "87bf93469bb14eef1a24de81cd521f6a62363a6aa7c04a319f3f18905de039b1"
+    sha256 cellar: :any, mavericks:     "f425659deb611eacb94f2245f0c8f8235aa0169a422874f2aa2c32f8d207b84a"
+  end
 
   def install
     args = %W[
@@ -24,9 +27,8 @@ class Libspnav < Formula
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
+      --disable-x11
     ]
-
-    args << "--disable-x11" if build.without? "x11"
 
     system "./configure", *args
     system "make", "install"

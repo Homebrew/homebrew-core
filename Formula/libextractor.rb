@@ -1,21 +1,23 @@
 class Libextractor < Formula
   desc "Library to extract meta data from files"
   homepage "https://www.gnu.org/software/libextractor/"
-  url "https://ftp.gnu.org/gnu/libextractor/libextractor-1.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libextractor/libextractor-1.6.tar.gz"
-  sha256 "26d4adca2e381d2a0c8b3037ec85e094ac5d40485623794466cfc176f5bbf69d"
+  url "https://ftp.gnu.org/gnu/libextractor/libextractor-1.11.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libextractor/libextractor-1.11.tar.gz"
+  sha256 "16f633ab8746a38547c4a1da3f4591192b0825ad83c4336f0575b85843d8bd8f"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "d547400beebeae3290adfa6d63add9b9c722d4dd65533e77a4be0b8bf315b8c5" => :high_sierra
-    sha256 "af73939dbc95fb9f2ed2bfcbf8217cff2b07a9f0716cfedbaaa57c03321f3d16" => :sierra
-    sha256 "10267b6dd613e42a5335b2ed4b06f47319cfbfcee2a4455f32fe216d9cbd630d" => :el_capitan
+    sha256 arm64_big_sur: "46684b1a7a45edf4a8febdff6138463abd97cde89520824575f476f2d500f576"
+    sha256 big_sur:       "c79547c7f5d513ede389034b436fce8a68898827dcbe814540b700286f0ad76b"
+    sha256 catalina:      "ecd3a409a45003e3800c0c4e266a991ea7b2b2291e624d5e596f618a8ffbda84"
+    sha256 mojave:        "82cfeb01761e5f1878e12a816b225cf8c769c0f8f63e0624fa873bc3994c598b"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
-  depends_on "iso-codes" => :optional
+  depends_on "libtool"
 
-  conflicts_with "pkcrack", :because => "both install `extract` binaries"
+  conflicts_with "csound", because: "both install `extract` binaries"
+  conflicts_with "pkcrack", because: "both install `extract` binaries"
 
   def install
     ENV.deparallelize
@@ -28,6 +30,6 @@ class Libextractor < Formula
 
   test do
     fixture = test_fixtures("test.png")
-    assert_match /Keywords for file/, shell_output("#{bin}/extract #{fixture}")
+    assert_match "Keywords for file", shell_output("#{bin}/extract #{fixture}")
   end
 end

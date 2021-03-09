@@ -1,35 +1,37 @@
 class Blastem < Formula
   desc "Fast and accurate Genesis emulator"
   homepage "https://www.retrodev.com/blastem/"
-  url "https://www.retrodev.com/repos/blastem/archive/1ffa7891b4ec.tar.gz"
-  version "0.4.1"
-  sha256 "f9a15d2e381c7eb6f55f12b0d00f3d2779b0b29bea99b422484d6ada250655ba"
+  url "https://www.retrodev.com/repos/blastem/archive/v0.6.2.tar.gz"
+  sha256 "d460632eff7e2753a0048f6bd18e97b9d7c415580c358365ff35ac64af30a452"
+  license "GPL-3.0-or-later"
   revision 1
-  head "https://www.retrodev.com/repos/blastem", :using => :hg
+  head "https://www.retrodev.com/repos/blastem", using: :hg
 
   bottle do
-    cellar :any
-    sha256 "86142831b5e0f7ec52b7c99d14eb224c53e5a554b415f1792f0c005eb607e1ae" => :high_sierra
-    sha256 "2e048cbac4f4acb8b98580376552778c3381b4b76244bffcd63f8d750433bfd1" => :sierra
-    sha256 "d3a42007ab6a2cf184c4b0f9309c352a828b0baee8394d92622121dcd9f663a6" => :el_capitan
-    sha256 "80fdc3f0a77c9f0e23c676f3ee42d632e81641649390604ae726b42c3d88b249" => :yosemite
+    sha256 cellar: :any, big_sur:     "003bbd7d1f5f9d81fb471d1fff692951c9400a8bf2f1511f0d83c9bea9cb8e63"
+    sha256 cellar: :any, catalina:    "7b9652bffa8c28d6f23e1ad88534b5f2bbd49a916566650c3090366a556f11b2"
+    sha256 cellar: :any, mojave:      "9972096dbef1b35d3d98894c77575a4fce7c674660498e0877b95fe22383f1eb"
+    sha256 cellar: :any, high_sierra: "74e39ac321fe48f06927b3ac455a382f14342c007b06b083860175edca1e0062"
   end
 
   depends_on "freetype" => :build
+  depends_on "gettext" => :build
   depends_on "jpeg" => :build
-  depends_on "libpng" => :build # for xcftools
+  depends_on "libpng" => :build
+  depends_on "openjpeg" => :build
   depends_on "pkg-config" => :build
   depends_on "glew"
+  depends_on :macos # Due to Python 2
   depends_on "sdl2"
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/8d/80/eca7a2d1a3c2dafb960f32f844d570de988e609f5fd17de92e1cf6a01b0a/Pillow-4.0.0.tar.gz"
-    sha256 "ee26d2d7e7e300f76ba7b796014c04011394d0c4a5ed9a288264a3e443abca50"
+    url "https://files.pythonhosted.org/packages/b3/d0/a20d8440b71adfbf133452d4f6e0fe80de2df7c2578c9b498fb812083383/Pillow-6.2.2.tar.gz"
+    sha256 "db9ff0c251ed066d367f53b64827cc9e18ccea001b986d08c265e53625dab950"
   end
 
   resource "vasm" do
-    url "http://server.owl.de/~frank/tags/vasm1_7e.tar.gz"
-    sha256 "2878c9c62bd7b33379111a66649f6de7f9267568946c097ffb7c08f0acd0df92"
+    url "http://phoenix.owl.de/tags/vasm1_8i.tar.gz"
+    sha256 "9ae0b37bca11cae5cf00e4d47e7225737bdaec4028e4db2a501b4eca7df8639d"
   end
 
   resource "xcftools" do
@@ -40,23 +42,28 @@ class Blastem < Formula
   def install
     ENV.prepend_create_path "PYTHONPATH", buildpath/"vendor/lib/python2.7/site-packages"
 
-    unless MacOS::CLT.installed?
+    if MacOS.sdk_path_if_needed
       ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
       ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi" # libffi
     end
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
-        sdkprefix = MacOS::CLT.installed? ? "" : MacOS.sdk_path
-        s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
-        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
-        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
+        sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
+        s.gsub! "ZLIB_ROOT = None",
+          "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        s.gsub! "JPEG_ROOT = None",
+          "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
+        s.gsub! "FREETYPE_ROOT = None",
+          "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
       end
 
       begin
         # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
         saved_sdkroot = ENV.delete "SDKROOT"
-        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" unless MacOS::CLT.installed?
+        unless MacOS::CLT.installed?
+          ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
+        end
         system "python", *Language::Python.setup_install_args(buildpath/"vendor")
       ensure
         ENV["SDKROOT"] = saved_sdkroot
@@ -75,12 +82,11 @@ class Blastem < Formula
       # https://anonscm.debian.org/cgit/collab-maint/xcftools.git/commit/?id=c40088b82c6a788792aae4068ddc8458de313a9b
       inreplace "xcf2png.c", /png_(voidp|error_ptr)_NULL/, "NULL"
 
-      system "./configure"
+      system "./configure", "LIBS=-lintl"
 
       # Avoid `touch` error from empty MANLINGUAS when building without NLS
-      ENV.deparallelize
       touch "manpo/manpages.pot"
-      system "make", "manpo/manpages.pot"
+      ENV.deparallelize { system "make", "manpo/manpages.pot" }
       touch "manpo/manpages.pot"
       system "make"
       (buildpath/"tool").install "xcf2png"

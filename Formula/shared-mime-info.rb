@@ -1,50 +1,68 @@
 class SharedMimeInfo < Formula
   desc "Database of common MIME types"
   homepage "https://wiki.freedesktop.org/www/Software/shared-mime-info"
-  url "https://freedesktop.org/~hadess/shared-mime-info-1.9.tar.xz"
-  sha256 "5c0133ec4e228e41bdf52f726d271a2d821499c2ab97afd3aa3d6cf43efcdc83"
+  url "https://gitlab.freedesktop.org/xdg/shared-mime-info/uploads/0ee50652091363ab0d17e335e5e74fbe/shared-mime-info-2.1.tar.xz"
+  sha256 "b2d40cfcdd84e835d0f2c9107b3f3e77e9cf912f858171fe779946da634e8563"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://gitlab.freedesktop.org/api/v4/projects/1205/releases"
+    regex(/shared-mime-info v?(\d+(?:\.\d+)+)/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "d9874846a89ac41dcc2b95f1c35c4d566ae02ae287b213500c02acd141a9c0bf" => :high_sierra
-    sha256 "a20f07e05094e370bb70ed36eeb1f570a466d8b4b12267659b99bc382cb995cf" => :sierra
-    sha256 "4c81754ed0ea158e77f4f2de100515c4fc4f6f3204e3bf8baf95f8b37f0d7a29" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "c2c98a7a02e1b23f5c7f7baafe0e4b04f22a7b1a6df73912a7450ea73c162819"
+    sha256 cellar: :any, big_sur:       "4857d9f38c0f3cbf23984d60c4ec6280d84b457123d34b9c01e96f3deb8b0bb2"
+    sha256 cellar: :any, catalina:      "8cb87ae2f3014998ecebab2d8c37ac9ff364f1164417420c4d8778a38ca17d29"
+    sha256 cellar: :any, mojave:        "786d1c053d03676c985de3a7c15d764b69626f5d12e7e36e4048055bdc36413c"
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/xdg/shared-mime-info.git"
-    depends_on "automake" => :build
+    url "https://gitlab.freedesktop.org/xdg/shared-mime-info.git"
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "intltool" => :build
   end
 
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "itstool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
+  depends_on "xmlto"
+
+  uses_from_macos "libxml2"
 
   def install
+    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     # Disable the post-install update-mimedb due to crash
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --disable-update-mimedb
-    ]
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+      pkgshare.install share/"mime/packages"
+      rmdir share/"mime"
     end
-    system "make", "install"
-    pkgshare.install share/"mime/packages"
-    rmdir share/"mime"
   end
 
   def post_install
-    ln_sf HOMEBREW_PREFIX/"share/mime", share/"mime"
-    (HOMEBREW_PREFIX/"share/mime/packages").mkpath
-    cp (pkgshare/"packages").children, HOMEBREW_PREFIX/"share/mime/packages"
-    system bin/"update-mime-database", HOMEBREW_PREFIX/"share/mime"
+    global_mime = HOMEBREW_PREFIX/"share/mime"
+    cellar_mime = share/"mime"
+
+    # Remove bad links created by old libheif postinstall
+    rm_rf global_mime if global_mime.symlink?
+
+    if !cellar_mime.exist? || !cellar_mime.symlink?
+      rm_rf cellar_mime
+      ln_sf global_mime, cellar_mime
+    end
+
+    (global_mime/"packages").mkpath
+    cp (pkgshare/"packages").children, global_mime/"packages"
+
+    system bin/"update-mime-database", global_mime
   end
 
   test do

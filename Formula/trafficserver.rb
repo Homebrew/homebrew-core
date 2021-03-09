@@ -1,15 +1,14 @@
 class Trafficserver < Formula
   desc "HTTP/1.1 compliant caching proxy server"
   homepage "https://trafficserver.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=trafficserver/trafficserver-7.1.1.tar.bz2"
-  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-7.1.1.tar.bz2"
-  sha256 "2c7ec32ef1460a76e5ee0e7caf95e9b6ca6b7c9612f135d280171bb2166ded36"
+  url "https://www.apache.org/dyn/closer.lua?path=trafficserver/trafficserver-8.1.0.tar.bz2"
+  mirror "https://archive.apache.org/dist/trafficserver/trafficserver-8.1.0.tar.bz2"
+  sha256 "01bcc5d5cc58d5368366e193b6091e2d6af000badc19be3c49db7aa96955bbe2"
+  license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 "84555aa82d766a0ad65891591f308f660c25ce17ab390c32d434e3cb3b70ecb6" => :high_sierra
-    sha256 "a0bfb2d4b4ae2cbf45633290daa870c3aa67a3df301482536c7c7c1dad34043f" => :sierra
-    sha256 "9a9515884155903c8300357012cd54d0c424e5f26d1090efee079c79341d3444" => :el_capitan
+    sha256 catalina: "d490c5c8fae027a4a6ffcd205b375625e37d3a2f99bb060a5989b33499145a72"
+    sha256 mojave:   "cc6df9c477581b56ce70bb909456a48041f6230b7a432ae1365ed60dd2019904"
   end
 
   head do
@@ -18,35 +17,35 @@ class Trafficserver < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool"  => :build
+
+    fails_with :clang do
+      build 800
+      cause "needs C++17"
+    end
   end
 
-  option "with-experimental-plugins", "Enable experimental plugins"
-
-  depends_on "openssl"
+  depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
+  depends_on "openssl@1.1"
   depends_on "pcre"
 
-  needs :cxx11
-
   def install
-    ENV.cxx11
+    ENV.cxx11 if build.stable?
 
-    # Needed for OpenSSL headers
-    if MacOS.version <= :lion
-      ENV.append_to_cflags "-Wno-deprecated-declarations"
-    end
+    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
+    # is not set then it's forced to 10.4, which breaks compile on Mojave.
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
 
     args = %W[
       --prefix=#{prefix}
       --mandir=#{man}
       --localstatedir=#{var}
       --sysconfdir=#{etc}/trafficserver
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
       --with-group=admin
       --disable-silent-rules
+      --enable-experimental-plugins
     ]
-
-    args << "--enable-experimental-plugins" if build.with? "experimental-plugins"
 
     system "autoreconf", "-fvi" if build.head?
     system "./configure", *args

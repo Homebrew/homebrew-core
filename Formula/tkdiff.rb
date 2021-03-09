@@ -1,8 +1,15 @@
 class Tkdiff < Formula
   desc "Graphical side by side diff utility"
   homepage "https://tkdiff.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/tkdiff/tkdiff/4.2/tkdiff-4.2.tar.gz"
-  sha256 "734bb417184c10072eb64e8d274245338e41b7fdeff661b5ef30e89f3e3aa357"
+  url "https://downloads.sourceforge.net/project/tkdiff/tkdiff/5.1/tkdiff-5-1.zip"
+  version "5.1"
+  sha256 "016569ac1e10b4bfd7c6ce34fece75ee486577580087666dcbb8c36fd7eee87a"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/tkdiff/v?(\d+(?:\.\d+)+)/[^"]+?\.zip}i)
+  end
 
   bottle :unneeded
 

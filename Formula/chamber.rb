@@ -1,34 +1,29 @@
 class Chamber < Formula
   desc "CLI for managing secrets through AWS SSM Parameter Store"
   homepage "https://github.com/segmentio/chamber"
-  url "https://github.com/segmentio/chamber/archive/v1.13.0.tar.gz"
-  sha256 "72ae7b29a000750be5dd5e72658a912eba69d61d8b9055752e9720a2b2cdfaae"
+  url "https://github.com/segmentio/chamber/archive/v2.9.1.tar.gz"
+  sha256 "184f5fe1e7a6892434d8a3f12f200f3b0fb2d77699de07e9f0a09a38f3a8297c"
+  license "MIT"
   head "https://github.com/segmentio/chamber.git"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+(?:-ci\d)?)["' >]}i)
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "07dbefd4249bee3fc6b47167fea6a8f542d526a260e219dcfecaa9665d2f1c2a" => :high_sierra
-    sha256 "f5c42ea2733b1130bbb933295855bfe313cd14b5440687a40a047a3f17e2d800" => :sierra
-    sha256 "e18f6cb06328115214cede8fd618c3e49d767fe6a18ed77a7246d14398cd6a21" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "487000d226226ddd1f020448fcdd47b4cdd292ee2fd08d24841e04f42bb14516"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f98f49f41294353f97828a2a70b5ea06fb3ec1f4bda4b73326bc579d50824504"
+    sha256 cellar: :any_skip_relocation, catalina:      "fca35a9b426e21b6e11eced77d39737127ad6f74612de786093caaae8d7a49c3"
+    sha256 cellar: :any_skip_relocation, mojave:        "147cd21071aab8dd7a305d2071afe5ad55b80879e48178b5274c9b5bce0ec41b"
   end
 
   depends_on "go" => :build
-  depends_on "govendor" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = "amd64"
-    ENV["CGO_ENABLED"] = "0"
-
-    path = buildpath/"src/github.com/segmentio/chamber"
-    path.install Dir["{*,.git}"]
-
-    cd buildpath/"src/github.com/segmentio/chamber" do
-      system "govendor", "sync"
-      system "go", "build", "-o", bin/"chamber"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-ldflags", "-s -w -X main.Version=v#{version}", "-trimpath", "-o", bin/"chamber"
+    prefix.install_metafiles
   end
 
   test do

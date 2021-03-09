@@ -3,16 +3,22 @@ class Taskd < Formula
   homepage "https://taskwarrior.org/docs/taskserver/setup.html"
   url "https://taskwarrior.org/download/taskd-1.1.0.tar.gz"
   sha256 "7b8488e687971ae56729ff4e2e5209ff8806cf8cd57718bfd7e521be130621b4"
+  license "MIT"
   revision 1
+  head "https://github.com/GothenburgBitFactory/taskserver.git"
 
-  head "https://git.tasktools.org/scm/tm/taskd.git"
+  livecheck do
+    url "https://taskwarrior.org/download/"
+    regex(/href=.*?taskd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "53ea3abeff00da4d69f53d089416c1e003bae625decbc44412b8ff51b9ccf302" => :high_sierra
-    sha256 "93b3a449cc983885491a01511275b3b4b8ff6cc624aa4326a9e268d4a28ff4af" => :sierra
-    sha256 "d7806f456a540d6052928f6e1c9fcd5e89f0d1b3c5496d552e187b117fc94b24" => :el_capitan
-    sha256 "2c1a95a98ea309c776ab0f210fd8a9297bc866e25b2ee7ba0301d6f8df531a2a" => :yosemite
-    sha256 "a83899074cf81fcf6737546f9f572db6ce1a8762af943e7663fe14760fd5ef77" => :mavericks
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "538ccd42a9ccb36722a35116bb1652217eeb33813683e14d194a3a8aab33bf35"
+    sha256 cellar: :any, big_sur:       "842ffc8f10936b3803281743196d37571057656ccfcd019364b8c5114ddc36cd"
+    sha256 cellar: :any, catalina:      "88580976ecb71d4f74d814ff06c88c2082565fee61c7ff8e7f506bce19b460d4"
+    sha256 cellar: :any, mojave:        "225bedd463f0344572ec985bbb49693dc0b6d5c095c87a5157bcfc437317c1d7"
+    sha256 cellar: :any, high_sierra:   "f9737943f0b2877414bf8c0d957a88d79010334a145be6420fd93f64b9569cb3"
   end
 
   depends_on "cmake" => :build

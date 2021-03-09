@@ -3,17 +3,22 @@ class Pacparser < Formula
   homepage "https://github.com/pacparser/pacparser"
   url "https://github.com/pacparser/pacparser/archive/1.3.7.tar.gz"
   sha256 "575c5d8096b4c842b2af852bbb8bcfde96170b28b49f33249dbe2057a8beea13"
+  license "LGPL-3.0-or-later"
   head "https://github.com/pacparser/pacparser.git"
 
   bottle do
-    cellar :any
-    sha256 "2edae05d7acea79c4a395cb9052244101cb78f15c92bbcf7235eacbcd6d09d53" => :high_sierra
-    sha256 "38db6b19b4cec0c237b6c9e11b67db9514b58e12e5dad0edc97e9919e57f71b3" => :sierra
-    sha256 "7cd235305c7701181eb78c7b35683e88bb9fb14172f4c1ff7028b3fd5b480cf9" => :el_capitan
-    sha256 "3d2092ad71629a2c71d5b88138d0ea7443247d7cd89414ef46a9cab7898b250c" => :yosemite
+    rebuild 3
+    sha256 cellar: :any, arm64_big_sur: "1999482c32deaa8c6b9a38800b6dbc4f6d18076177f6a8a0dad49c21c4327781"
+    sha256 cellar: :any, big_sur:       "55ce66921189d2ba41d3cf58f7548237442c5387372b8cc4bab891cf1ed7766f"
+    sha256 cellar: :any, catalina:      "ca13d2507c9c6616bc6c3604c19a7f6f1652bb3b3c1fed3168c4d832a10b0174"
+    sha256 cellar: :any, mojave:        "3544e7aed8d310d3407997f46b8b51cbbc2b1d962f90535175baff72301e375e"
   end
 
-  depends_on "python" => :optional
+  # Fix build for MacOS 11.1
+  patch do
+    url "https://github.com/manugarg/pacparser/commit/28afea85c7578d033132f3817b62d3bb707cc3a3.patch?full_index=1"
+    sha256 "52fc5b276caf6e95a3ae4ac21e75c9751daaf429f344fdc6b62c85de4aa40d48"
+  end
 
   def install
     # Disable parallel build due to upstream concurrency issue.
@@ -21,12 +26,7 @@ class Pacparser < Formula
     ENV.deparallelize
     ENV["VERSION"] = version
     Dir.chdir "src"
-    system "make", "install",
-           "PREFIX=#{prefix}"
-    if build.with? "python"
-      system "make", "install-pymod",
-             "EXTRA_ARGS=\"--prefix=#{prefix}\""
-    end
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
@@ -35,9 +35,9 @@ class Pacparser < Formula
       function FindProxyForURL(url, host) {
 
         if ((isPlainHostName(host) ||
-            dnsDomainIs(host, ".manugarg.com")) &&
-            !localHostOrDomainIs(host, "www.manugarg.com"))
-          return "plainhost/.manugarg.com";
+            dnsDomainIs(host, ".example.edu")) &&
+            !localHostOrDomainIs(host, "www.example.edu"))
+          return "plainhost/.example.edu";
 
         // Return externaldomain if host matches .*\.externaldomain\.example
         if (/.*\.externaldomain\.example/.test(host))
@@ -79,11 +79,11 @@ class Pacparser < Formula
       },
       {
         "cmd" => "-u http://host1",
-        "res" => "plainhost/.manugarg.com",
+        "res" => "plainhost/.example.edu",
       },
       {
-        "cmd" => "-u http://www1.manugarg.com",
-        "res" => "plainhost/.manugarg.com",
+        "cmd" => "-u http://www1.example.edu",
+        "res" => "plainhost/.example.edu",
       },
       {
         "cmd" => "-u http://manugarg.externaldomain.example",

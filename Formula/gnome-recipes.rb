@@ -3,34 +3,33 @@ class GnomeRecipes < Formula
   homepage "https://wiki.gnome.org/Apps/Recipes"
   url "https://download.gnome.org/sources/gnome-recipes/2.0/gnome-recipes-2.0.2.tar.xz"
   sha256 "1be9d2fcb7404a97aa029d2409880643f15071c37039247a6a4320e7478cd5fb"
+  revision 15
 
   bottle do
-    sha256 "d12eae382de2c19e36015a5defffe57b810aa8bd8d5ece7c6b3120dc7e5e65f9" => :high_sierra
-    sha256 "89a2e3bfdb1f6ef70ddad45dc10df10db7ab8deb03e00b6a85315799e2da7fbf" => :sierra
-    sha256 "d452387c55b8392ed3a25cdee7bd087f039409f464ce540f066f2bea246447f3" => :el_capitan
+    sha256 arm64_big_sur: "a383ac85885a09d8c959af00fda8ab9fd6599b4347ce26929b6ed67bf9735e05"
+    sha256 big_sur:       "c0ad5482453faf871b12613b8d6a6e9c2ae5762ed14513ff96e941645822feb6"
+    sha256 catalina:      "57c8af5693a567947ea106732c61bcb30e867118dddc79c17856a0b226ee93da"
+    sha256 mojave:        "4c3c1df208cdb1114858b1760fa0db2f606c9c5d999d2cfee9a483a519681cde"
   end
 
+  depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "itstool" => :build
-  depends_on :python3 => :build
-  depends_on "gtk+3"
   depends_on "adwaita-icon-theme"
-  depends_on "libcanberra"
   depends_on "gnome-autoar"
   depends_on "gspell"
+  depends_on "gtk+3"
+  depends_on "json-glib" # for goa
+  depends_on "libarchive"
+  depends_on "libcanberra"
+  depends_on "librest" # for goa
   depends_on "libsoup"
-  depends_on "gnu-tar"
-
-  # dependencies for goa
-  depends_on "intltool" => :build
-  depends_on "json-glib"
-  depends_on "librest"
+  depends_on "libxml2"
 
   resource "goa" do
-    url "https://download.gnome.org/sources/gnome-online-accounts/3.26/gnome-online-accounts-3.26.1.tar.xz"
-    sha256 "603c110405cb89a01497a69967f10e3f3f36add3dc175b062ec4c5ed4485621b"
+    url "https://download.gnome.org/sources/gnome-online-accounts/3.30/gnome-online-accounts-3.30.2.tar.xz"
+    sha256 "05c7e588c884a4145db376880303588f74b76d1fa11afbeccb74c6eff36b2fdc"
   end
 
   def install
@@ -51,7 +50,7 @@ class GnomeRecipes < Formula
     ENV["DESTDIR"] = ""
     ENV.delete "PYTHONPATH"
     mkdir "build" do
-      system "meson", "--prefix=#{prefix}", ".."
+      system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end

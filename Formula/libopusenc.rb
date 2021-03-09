@@ -1,18 +1,21 @@
 class Libopusenc < Formula
   desc "Convenience libraray for creating .opus files"
   homepage "https://opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/libopusenc-0.1.1.tar.gz"
-  sha256 "02e6e0b14cbbe0569d948a46420f9c9a81d93bba32dc576a4007cbf96da68ef3"
+  url "https://archive.mozilla.org/pub/opus/libopusenc-0.2.1.tar.gz"
+  sha256 "8298db61a8d3d63e41c1a80705baa8ce9ff3f50452ea7ec1c19a564fe106cbb9"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "6a9ff9eacc72069a2d16951445772dbd60ab0fe4347ab6c385e8cc42c6b94ee5" => :high_sierra
-    sha256 "611eace04f91c6f8685eb27e60c5bcd4f3f5edfe9904e267a476cce882016884" => :sierra
-    sha256 "9a957d7797f3e346e6aa85a85f96e463dd10c75e5ab3e32e32ee25952874a50f" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "f8d28846ea6d21358ef7768f94241a0f94327d4edcdd5223be2da96c2f0d6841"
+    sha256 cellar: :any, big_sur:       "48157970f8bebbd7ad54d099531397cb3d81797e7715ed5523865d7d1b19df8b"
+    sha256 cellar: :any, catalina:      "593106e48c86436fd1908c79f1ef54f206bb37f0983ccb3901190cebe6e78cea"
+    sha256 cellar: :any, mojave:        "96a05dd8d0071fb38ed14f4f5b64af576baee3719a16fc8fc331ddfa1a4d65ec"
+    sha256 cellar: :any, high_sierra:   "e5cfb0433abe565b11351f9d6ec3fb44852a8aeb99ef8f6710ee9d899eb97ab3"
   end
 
   head do
-    url "https://git.xiph.org/libopusenc.git"
+    url "https://gitlab.xiph.org/xiph/libopusenc.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

@@ -1,32 +1,31 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
-  url "https://pocoproject.org/releases/poco-1.8.0.1/poco-1.8.0.1-all.tar.gz"
-  sha256 "cb891540b44b74e844fd0787c796f2699a894dba690329660e29b57efb8f80dd"
+  url "https://pocoproject.org/releases/poco-1.10.1/poco-1.10.1-all.tar.gz"
+  sha256 "7f5931e0bb06bc2880a0f3867053a2fddf6c0d3e5dd96342a665460301fc34ca"
+  license "BSL-1.0"
+  head "https://github.com/pocoproject/poco.git", branch: "develop"
 
-  head "https://github.com/pocoproject/poco.git", :branch => "develop"
-
-  bottle do
-    cellar :any
-    sha256 "5154731a48afc8b970d0dc52e9272836252b51266765477c24230985599126e9" => :high_sierra
-    sha256 "1ea293049af7dc129c8c71bb1b56b7371980d2aa40e5399bccefd5b13a368b36" => :sierra
-    sha256 "f749b99a69824b8733d709af6d64b0d440ff93cab67e2927bf840c439c6af85f" => :el_capitan
+  livecheck do
+    url "https://pocoproject.org/releases/"
+    regex(%r{href=.*?poco[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  option "with-static", "Build static libraries (instead of shared)"
+  bottle do
+    sha256 cellar: :any, big_sur:     "a2483cf9eaff5857285e2ec3cc4086f74a7edfb240815e75bca7ba153861f1c5"
+    sha256 cellar: :any, catalina:    "0755dff1346ea80aa6202ce3e8269c608960abd4bf0a4566e56075cc99364b57"
+    sha256 cellar: :any, mojave:      "7abccb2c17823c6dda9dee9e5918fa28ef846d8095252681c83c47bbb674f5c8"
+    sha256 cellar: :any, high_sierra: "70cea3a570e187c3e70a8dbbe1ad2e43be1c159d0d9118c1bfc1a8cc6441e2a4"
+  end
 
-  depends_on "openssl"
   depends_on "cmake" => :build
+  depends_on "openssl@1.1"
 
   def install
-    ENV.cxx11
-
-    args = std_cmake_args
-    args << "-DENABLE_DATA_MYSQL=OFF" << "-DENABLE_DATA_ODBC=OFF"
-    args << "-DPOCO_STATIC=ON" if build.with? "static"
-
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args,
+                            "-DENABLE_DATA_MYSQL=OFF",
+                            "-DENABLE_DATA_ODBC=OFF"
       system "make", "install"
     end
   end

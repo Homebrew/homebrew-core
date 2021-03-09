@@ -1,26 +1,31 @@
 class Clojure < Formula
-  desc "The Clojure Programming Language"
+  desc "Dynamic, general-purpose programming language"
   homepage "https://clojure.org"
-  url "https://download.clojure.org/install/clojure-scripts-1.8.0.193.tar.gz"
-  sha256 "82e671b252362e1bdff2d5ffc8b5ef758df29f4b6503b41a79ee646c8c2651e1"
+  url "https://download.clojure.org/install/clojure-tools-1.10.2.796.tar.gz"
+  sha256 "af8feacb8f4ad3135c10b7cd60b996c230f2d133f10dd1549e6beeb79577da7b"
+  license "EPL-1.0"
+  version_scheme 1
 
-  devel do
-    url "https://download.clojure.org/install/clojure-scripts-1.9.0-RC2.263.tar.gz"
-    sha256 "62ec95e45d78548cc3b7ecd81dee6a697f81a86768c996a2c199af1664083a86"
-    version "1.9.0-RC2.263"
+  livecheck do
+    url "https://raw.githubusercontent.com/clojure/homebrew-tools/master/Formula/clojure.rb"
+    regex(/url ".*?clojure-tools-v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
   depends_on "rlwrap"
+
+  uses_from_macos "ruby" => :build
 
   def install
     system "./install.sh", prefix
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
   end
 
   test do
-    system("#{bin}/clj -e nil")
+    ENV["TERM"] = "xterm"
+    system("#{bin}/clj", "-e", "nil")
     %w[clojure clj].each do |clj|
       assert_equal "2", shell_output("#{bin}/#{clj} -e \"(+ 1 1)\"").strip
     end

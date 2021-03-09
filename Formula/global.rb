@@ -1,19 +1,19 @@
 class Global < Formula
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.5.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.5.7.tar.gz"
-  sha256 "d9c08fa524f9499b54241cb2d72f8a7df01453b6d5e012a63784ded08e3acd32"
+  url "https://ftp.gnu.org/gnu/global/global-6.6.4.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.4.tar.gz"
+  sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
+  revision 1
 
   bottle do
-    sha256 "19706df6e1e9494e3c5f69a8eda4cd04a01e793fadefa17ac7ed949a8c250232" => :high_sierra
-    sha256 "cc5c5987a2bc21c05092e15b5d793c10ab71c532eb6e4d938b7688129f653483" => :sierra
-    sha256 "899dd6664ab239fd6a3d4d01066c216644d06716c3359227e76f6da7f49525d7" => :el_capitan
-    sha256 "f9f1c4729c8f5aaaae72e0b2becc6a082d48d779201119fc0633a5b4d51daa17" => :yosemite
+    sha256 catalina:    "748524c4b316196e41e0f54df683117c61f7dfdbab1c3e641c36ae4eed7f1013"
+    sha256 mojave:      "848b4e78c1f507bc4356b285164368641125194e730accf46c540af5806a600f"
+    sha256 high_sierra: "ba9cdd8c988ca4aff95538b8d30cb9f97c99dd6f5e91e296db121c8b53459cf0"
   end
 
   head do
-    url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", :using => :cvs
+    url ":pserver:anonymous:@cvs.savannah.gnu.org:/sources/global", using: :cvs
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -23,48 +23,41 @@ class Global < Formula
     depends_on "libtool" => :build
   end
 
-  option "with-ctags", "Enable Exuberant Ctags as a plug-in parser"
-  option "with-pygments", "Enable Pygments as a plug-in parser (should enable exuberant-ctags too)"
-  option "with-sqlite3", "Use SQLite3 API instead of BSD/DB API for making tag files"
+  depends_on "ctags"
+  depends_on "python@3.8"
 
-  deprecated_option "with-exuberant-ctags" => "with-ctags"
+  uses_from_macos "ncurses"
 
-  depends_on "ctags" => :optional
+  on_linux do
+    depends_on "libtool" => :build
+  end
 
   skip_clean "lib/gtags"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
-    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
+    url "https://files.pythonhosted.org/packages/cb/9f/27d4844ac5bf158a33900dbad7985951e2910397998e85712da03ce125f0/Pygments-2.5.2.tar.gz"
+    sha256 "98c8aa5a9f778fcd1026a17361ddaf7330d1b7c62ae97c3bb0ae73e0b9b6b0fe"
   end
 
   def install
     system "sh", "reconf.sh" if build.head?
 
+    xy = Language::Python.major_minor_version "python3"
+    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
+    pygments_args = %W[build install --prefix=#{libexec}]
+    resource("Pygments").stage { system "python3", "setup.py", *pygments_args }
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --with-exuberant-ctags=#{Formula["ctags"].opt_bin}/ctags
     ]
-
-    args << "--with-sqlite3" if build.with? "sqlite3"
-
-    if build.with? "ctags"
-      args << "--with-exuberant-ctags=#{Formula["ctags"].opt_bin}/ctags"
-    end
-
-    if build.with? "pygments"
-      ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-      pygments_args = %W[build install --prefix=#{libexec}]
-      resource("Pygments").stage { system "python", "setup.py", *pygments_args }
-    end
 
     system "./configure", *args
     system "make", "install"
 
-    if build.with? "pygments"
-      bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
-    end
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
 
     etc.install "gtags.conf"
 
@@ -79,53 +72,35 @@ class Global < Formula
       int c2func (void) { return 0; }
       void cfunc (void) {int cvar = c2func(); }")
     EOS
-    if build.with?("pygments") || build.with?("ctags")
-      (testpath/"test.py").write <<-EOS
-        def py2func ():
-             return 0
-        def pyfunc ():
-             pyvar = py2func()
-      EOS
-    end
-    if build.with? "pygments"
-      assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=pygments .")
-      if build.with? "ctags"
-        assert_match "test.c", shell_output("#{bin}/global -d cfunc")
-        assert_match "test.c", shell_output("#{bin}/global -d c2func")
-        assert_match "test.c", shell_output("#{bin}/global -r c2func")
-        assert_match "test.py", shell_output("#{bin}/global -d pyfunc")
-        assert_match "test.py", shell_output("#{bin}/global -d py2func")
-        assert_match "test.py", shell_output("#{bin}/global -r py2func")
-      else
-        # Everything is a symbol in this case
-        assert_match "test.c", shell_output("#{bin}/global -s cfunc")
-        assert_match "test.c", shell_output("#{bin}/global -s c2func")
-        assert_match "test.py", shell_output("#{bin}/global -s pyfunc")
-        assert_match "test.py", shell_output("#{bin}/global -s py2func")
-      end
-      assert_match "test.c", shell_output("#{bin}/global -s cvar")
-      assert_match "test.py", shell_output("#{bin}/global -s pyvar")
-    end
-    if build.with? "ctags"
-      assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=exuberant-ctags .")
-      # ctags only yields definitions
-      assert_match "test.c", shell_output("#{bin}/global -d cfunc   # passes")
-      assert_match "test.c", shell_output("#{bin}/global -d c2func  # passes")
-      assert_match "test.py", shell_output("#{bin}/global -d pyfunc  # passes")
-      assert_match "test.py", shell_output("#{bin}/global -d py2func # passes")
-      assert_no_match(/test\.c/, shell_output("#{bin}/global -r c2func  # correctly fails"))
-      assert_no_match(/test\.c/, shell_output("#{bin}/global -s cvar    # correctly fails"))
-      assert_no_match(/test\.py/, shell_output("#{bin}/global -r py2func # correctly fails"))
-      assert_no_match(/test\.py/, shell_output("#{bin}/global -s pyvar   # correctly fails"))
-    end
-    if build.with? "sqlite3"
-      assert shell_output("#{bin}/gtags --sqlite3 --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=default .")
-      assert_match "test.c", shell_output("#{bin}/global -d cfunc")
-      assert_match "test.c", shell_output("#{bin}/global -d c2func")
-      assert_match "test.c", shell_output("#{bin}/global -r c2func")
-      assert_match "test.c", shell_output("#{bin}/global -s cvar")
-    end
-    # C should work with default parser for any build
+    (testpath/"test.py").write <<~EOS
+      def py2func ():
+           return 0
+      def pyfunc ():
+           pyvar = py2func()
+    EOS
+
+    assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=pygments .")
+    assert_match "test.c", shell_output("#{bin}/global -d cfunc")
+    assert_match "test.c", shell_output("#{bin}/global -d c2func")
+    assert_match "test.c", shell_output("#{bin}/global -r c2func")
+    assert_match "test.py", shell_output("#{bin}/global -d pyfunc")
+    assert_match "test.py", shell_output("#{bin}/global -d py2func")
+    assert_match "test.py", shell_output("#{bin}/global -r py2func")
+    assert_match "test.c", shell_output("#{bin}/global -s cvar")
+    assert_match "test.py", shell_output("#{bin}/global -s pyvar")
+
+    assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=exuberant-ctags .")
+    # ctags only yields definitions
+    assert_match "test.c", shell_output("#{bin}/global -d cfunc   # passes")
+    assert_match "test.c", shell_output("#{bin}/global -d c2func  # passes")
+    assert_match "test.py", shell_output("#{bin}/global -d pyfunc  # passes")
+    assert_match "test.py", shell_output("#{bin}/global -d py2func # passes")
+    assert_no_match(/test\.c/, shell_output("#{bin}/global -r c2func  # correctly fails"))
+    assert_no_match(/test\.c/, shell_output("#{bin}/global -s cvar    # correctly fails"))
+    assert_no_match(/test\.py/, shell_output("#{bin}/global -r py2func # correctly fails"))
+    assert_no_match(/test\.py/, shell_output("#{bin}/global -s pyvar   # correctly fails"))
+
+    # Test the default parser
     assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=default .")
     assert_match "test.c", shell_output("#{bin}/global -d cfunc")
     assert_match "test.c", shell_output("#{bin}/global -d c2func")

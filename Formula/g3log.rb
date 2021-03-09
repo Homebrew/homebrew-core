@@ -1,27 +1,22 @@
 class G3log < Formula
   desc "Asynchronous, 'crash safe', logger that is easy to use"
   homepage "https://github.com/KjellKod/g3log"
-  url "https://github.com/KjellKod/g3log/archive/1.3.tar.gz"
-  sha256 "b8be9ac9d888c241e1042103cd530a49baeef2853c0ab4b6dc696dad930b8784"
+  url "https://github.com/KjellKod/g3log/archive/1.3.4.tar.gz"
+  sha256 "2fe8815e5f5afec6b49bdfedfba1e86b8e58a5dc89fd97f4868fb7f3141aed19"
+  license "Unlicense"
 
   bottle do
-    cellar :any
-    sha256 "1262d978d45803ff690c0a6e95f0538bccb3ed87ee4febd215890a832890d12c" => :high_sierra
-    sha256 "87285fa811530d34278991500e717df84afb880f2f39fce92f1ca2f2bd43d369" => :sierra
-    sha256 "1a37f872ebf9eca41fd4bb8bc41a2799f32f3ead33cf9c423cf633d6485a2cc7" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "d6ab9b85de4f0bc70d278210ac4a89c2780b4a271dc474fdd2a4ac16933a3d38"
+    sha256 cellar: :any, big_sur:       "5e24eda970bf16a1d737e0112ef7e86651c6cdd29b14b6dd4beec2faf9f9d292"
+    sha256 cellar: :any, catalina:      "3325a5a22c63c02f6c3a7d9b35f533e579f369ff2871f7152d0ca4994bb049d3"
+    sha256 cellar: :any, mojave:        "f44e98ef652573827da51288539acb1122af634b79f61f8ec2687b7b5184e971"
   end
 
-  depends_on :macos => :el_capitan # needs thread-local storage
   depends_on "cmake" => :build
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make"
-
-    # No install target yet: https://github.com/KjellKod/g3log/issues/49
-    include.install "src/g3log"
-    lib.install "libg3logger.a", "libg3logger.dylib"
-    MachO::Tools.change_dylib_id("#{lib}/libg3logger.dylib", "#{lib}/libg3logger.dylib")
+    system "make", "install"
   end
 
   test do
@@ -38,7 +33,7 @@ class G3log < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lg3logger", "-o", "test"
+    system ENV.cxx, "-std=c++14", "test.cpp", "-L#{lib}", "-lg3log", "-o", "test"
     system "./test"
     Dir.glob(testpath/"test.g3log.*.log").any?
   end

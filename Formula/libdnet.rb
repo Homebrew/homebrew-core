@@ -1,21 +1,22 @@
 class Libdnet < Formula
   desc "Portable low-level networking library"
-  homepage "https://github.com/dugsong/libdnet"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/libdnet/libdnet-1.12.tgz"
-  sha256 "83b33039787cf99990e977cef7f18a5d5e7aaffc4505548a83d31bd3515eb026"
+  homepage "https://github.com/ofalk/libdnet"
+  url "https://github.com/ofalk/libdnet/archive/libdnet-1.14.tar.gz"
+  sha256 "592599c54a57102a177270f3a2caabda2c2ac7768b977d7458feba97da923dfe"
+  license "BSD-3-Clause"
 
-  bottle do
-    cellar :any
-    rebuild 2
-    sha256 "668c5bef84573868ed3510e414b2d3d8cc092e2776f97e0a0d559e4568ff1db2" => :high_sierra
-    sha256 "bfd53f9a4303380ecab6902b181f82a4f229650663443889e1183f4b865d8761" => :sierra
-    sha256 "dc34f5bfbe3385420d7fd482029a3acc3c8328ee145a4fe2fc806f6de22e77f4" => :el_capitan
-    sha256 "09996ef2a4fce855bd5302996000f5ab49fd28d3e6bf6f0d82d3f11d495baef1" => :yosemite
-    sha256 "1b425f04354f60b2c9de0b6e031d50f626d3cda0dc50c892b163107a6eecacb9" => :mavericks
-    sha256 "c8fda878e8ff2a87a3b521ca26a5ebb0d4b9eb82868a92149c723c4bf21f5b79" => :mountain_lion
+  livecheck do
+    url :homepage
+    regex(/^libdnet[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  option "without-python", "Build without python support"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "54a55ad8719e269c07cbef8a5c61924e2431a5a5c88cce4148dbeffede79a353"
+    sha256 cellar: :any, big_sur:       "8e5f269aa55ecbf1a5f6855ef355696159b6155ea338cfb1e3b3b4ae8409bb72"
+    sha256 cellar: :any, catalina:      "f8c9ace5eb112c484f50da7624df13c551b14114ece91a155ce2394b30e264b7"
+    sha256 cellar: :any, mojave:        "1e967ac6c5b9c70f72efba9082844c755dba2d62054a4c4dfbd5629da3cb0b76"
+    sha256 cellar: :any, high_sierra:   "fd53de5c1830dcdb52ecba97cf0c9c6afccf44037e6df6f64ef1d163d6c6adff"
+  end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -26,13 +27,13 @@ class Libdnet < Formula
     ENV.append_path "ACLOCAL_PATH", "config"
     system "autoreconf", "-ivf"
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --mandir=#{man}
-    ]
-    args << "--with-python" if build.with? "python"
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--mandir=#{man}"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/dnet-config", "--version"
   end
 end

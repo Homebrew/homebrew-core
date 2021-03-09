@@ -1,41 +1,32 @@
 class JsonFortran < Formula
   desc "Fortran 2008 JSON API"
   homepage "https://github.com/jacobwilliams/json-fortran"
-  url "https://github.com/jacobwilliams/json-fortran/archive/6.1.0.tar.gz"
-  sha256 "95afb978ada157a19aeb45fb234ed8f4abf2a76749d212d77a31972cc47b8b3e"
+  url "https://github.com/jacobwilliams/json-fortran/archive/8.2.1.tar.gz"
+  sha256 "428fb2e708cce3a29f9bbc84ce63f112a2eb44fd1b0d2a88d83c86583ca83ed4"
+  license "BSD-3-Clause"
   head "https://github.com/jacobwilliams/json-fortran.git"
 
   bottle do
-    cellar :any
-    sha256 "a8e18e7ba3a42aad008d82dcf07ee28ff98dd5ae4ad65ae40f66366abd7306db" => :high_sierra
-    sha256 "726642a811b3dd925bc4458e8c1e18d248d231b981e0460e3cc6df3ff2499902" => :sierra
-    sha256 "55d550a6d1f3cdb6206b1cd8e0778df370958658fd6b3a637565e50e95dbfff2" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "7ac0a95d90734c8288c8cb423e3c4c6664e817993a7e426ca27c3806e3726c1a"
+    sha256 cellar: :any, big_sur:       "af1867b20867ccea69da9d21eeb7ec2649b76dbdffc092da138bbe23e4bb1801"
+    sha256 cellar: :any, catalina:      "d2d543adde373aa91e71598e3cde564ab0607ef2545a4d5873784c505e1b3dcd"
+    sha256 cellar: :any, mojave:        "68883cd0e3b1ec90239ca124711ba48d4c50f284384248088038ac0545504218"
   end
 
-  option "with-unicode-support", "Build json-fortran to support unicode text in json objects and files"
-  option "without-test", "Skip running build-time tests (not recommended)"
-  option "without-docs", "Do not build and install FORD generated documentation for json-fortran"
-
-  deprecated_option "without-robodoc" => "without-docs"
-
-  depends_on "ford" => :build if build.with? "docs"
   depends_on "cmake" => :build
-  depends_on :fortran
+  depends_on "ford" => :build
+  depends_on "gcc" # for gfortran
 
   def install
     mkdir "build" do
-      args = std_cmake_args
-      args << "-DUSE_GNU_INSTALL_CONVENTION:BOOL=TRUE" # Use more GNU/Homebrew-like install layout
-      args << "-DENABLE_UNICODE:BOOL=TRUE" if build.with? "unicode-support"
-      args << "-DSKIP_DOC_GEN:BOOL=TRUE" if build.without? "docs"
-      system "cmake", "..", *args
-      system "make", "check" if build.with? "test"
+      system "cmake", "..", *std_cmake_args,
+                            "-DUSE_GNU_INSTALL_CONVENTION:BOOL=TRUE",
+                            "-DENABLE_UNICODE:BOOL=TRUE"
       system "make", "install"
     end
   end
 
   test do
-    ENV.fortran
     (testpath/"json_test.f90").write <<~EOS
       program example
       use json_module, RK => json_RK
@@ -53,7 +44,8 @@ class JsonFortran < Formula
       if (json%failed()) error stop 'error'
       end program example
     EOS
-    system ENV.fc, "-ojson_test", "-ljsonfortran", "-I#{HOMEBREW_PREFIX}/include", testpath/"json_test.f90"
-    system "./json_test"
+    system "gfortran", "-o", "test", "json_test.f90", "-I#{include}",
+                       "-L#{lib}", "-ljsonfortran"
+    system "./test"
   end
 end

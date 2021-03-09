@@ -1,40 +1,32 @@
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers"
-  homepage "https://github.com/wercker/stern"
-  url "https://github.com/wercker/stern/archive/1.5.1.tar.gz"
-  sha256 "f7a9afcbfd9d9ce2d7e933ac5390e55e900ad2c2cbcab4afcac2a1f4dc2210e4"
-
-  head "https://github.com/wercker/stern.git",
-    :shallow => false
+  homepage "https://github.com/stern/stern"
+  url "https://github.com/stern/stern/archive/v1.14.0.tar.gz"
+  sha256 "f166462dd2b0fb8227dfd1d15c4e718b0917a5d5bb33aeb609affa8e7ac41b4f"
+  license "Apache-2.0"
+  head "https://github.com/stern/stern.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "348f89e4731e9fe018dbdb2b241e9456424c059be847377f9f0b6d86ea73c31b" => :high_sierra
-    sha256 "84069ad767e638e916c00f13231a2f47170b79619e4cab1315aa85ceb7535fe4" => :sierra
-    sha256 "8212fa765da479b688496e1bb69a5d16510aef99acbe8403007f557cb6f52449" => :el_capitan
-    sha256 "7d57ea2096a2755619e99e75f0180307132663bb8e5fd9e5f3272cadb50ebe01" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ad7f54e3f5c49ba3c5eab05551f842e290b96e4676419c7acbab58d95aaa3568"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0225880bdaa1f3630b3fb831d475ebc482e3514d754443fe38af617b270045e9"
+    sha256 cellar: :any_skip_relocation, catalina:      "73be86e5bc19770e69ee6da080e4f8d3958befcb5be8453959a00c32bf59ca47"
+    sha256 cellar: :any_skip_relocation, mojave:        "206c253d4adb59390f4fa21d112b85839c0ef3a4b72672d9c440ffb4a08e1d44"
   end
 
   depends_on "go" => :build
-  depends_on "govendor" => :build
 
   def install
-    contents = Dir["{*,.git,.gitignore}"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/wercker/stern").install contents
+    system "go", "build", "-ldflags", "-s -w -X github.com/stern/stern/cmd.version=#{version}", *std_go_args
 
-    ENV["GOPATH"] = gopath
-    ENV.prepend_create_path "PATH", gopath/"bin"
+    # Install shell completion
+    output = Utils.safe_popen_read("#{bin}/stern", "--completion=bash")
+    (bash_completion/"stern").write output
 
-    cd gopath/"src/github.com/wercker/stern" do
-      system "govendor", "sync"
-      system "go", "build", "-o", "bin/stern"
-      bin.install "bin/stern"
-      prefix.install_metafiles
-    end
+    output = Utils.safe_popen_read("#{bin}/stern", "--completion=zsh")
+    (zsh_completion/"_stern").write output
   end
 
   test do
-    system "#{bin}/stern", "--version"
+    assert_match "version: #{version}", shell_output("#{bin}/stern --version")
   end
 end

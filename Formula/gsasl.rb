@@ -1,22 +1,19 @@
 class Gsasl < Formula
   desc "SASL library command-line interface"
   homepage "https://www.gnu.org/software/gsasl/"
-  url "https://ftp.gnu.org/gnu/gsasl/gsasl-1.8.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gsasl/gsasl-1.8.0.tar.gz"
-  sha256 "310262d1ded082d1ceefc52d6dad265c1decae8d84e12b5947d9b1dd193191e5"
+  url "https://ftp.gnu.org/gnu/gsasl/gsasl-1.10.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gsasl/gsasl-1.10.0.tar.gz"
+  sha256 "85bcbd8ee6095ade7870263a28ebcb8832f541ea7393975494926015c07568d3"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    rebuild 2
-    sha256 "0cac4a51f7ebbeb960744f0a48374b8800403fd773935f123810038da1d2d316" => :high_sierra
-    sha256 "f37b1e2171acd1ed587c75827854750f2be04302147fb3fc05672c3e3cfe42f0" => :sierra
-    sha256 "8dbca0c2938ab3b5077fe7ed572437a0f724e479a7f102d9c40f959b1483f09d" => :el_capitan
-    sha256 "afc44c1161ffa2ae09bee4a82c25e626562d950ae092356fba204789e4b4752e" => :yosemite
-    sha256 "df498ac7247b3f54bdc9720249fa4a1cee72bf8c5011d06889d8ecdebaff1aaa" => :mavericks
-    sha256 "5585b8bddf849b2b4b3f67da253c97556bfa526b8345006595cdefddf3385dd5" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "29fe198c3ae4c00a487b94cb8e711cb1c293c3a28bd0fb21f6f56e18cf1c1e5e"
+    sha256 cellar: :any, big_sur:       "42ef3c24427817c75c74804f31cd0d039a9900c8da5f96dbf9ab7b76e2563168"
+    sha256 cellar: :any, catalina:      "6f7aa6d0a2276a8d3434f2c16cfd7f60d85fbb4204194dcf6a678b7bb8c4e0f2"
+    sha256 cellar: :any, mojave:        "f9518412c5a6f631a78ef1ed3ed8989914446f2be1bad0de786ad82dc4c190e1"
   end
 
-  depends_on "libntlm" => :optional
+  depends_on "libgcrypt"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -26,6 +23,6 @@ class Gsasl < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/gsasl")
+    assert_match version.to_s, shell_output("#{bin}/gsasl")
   end
 end

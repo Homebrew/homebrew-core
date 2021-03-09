@@ -1,25 +1,25 @@
 class Argon2 < Formula
   desc "Password hashing library and CLI utility"
   homepage "https://github.com/P-H-C/phc-winner-argon2"
-  url "https://github.com/P-H-C/phc-winner-argon2/archive/20161029.tar.gz"
-  sha256 "fe0049728b946b58b94cc6db89b34e2d050c62325d16316a534d2bedd78cd5e7"
+  url "https://github.com/P-H-C/phc-winner-argon2/archive/20190702.tar.gz"
+  sha256 "daf972a89577f8772602bf2eb38b6a3dd3d922bf5724d45e7f9589b5e830442c"
+  license "Apache-2.0"
+  revision 1
   head "https://github.com/P-H-C/phc-winner-argon2.git"
 
   bottle do
-    cellar :any
-    sha256 "1951f9c13ad0cf83c8921ad2662f794fe7021c9e34f811e1ebeb0b0b2ffc6d12" => :high_sierra
-    sha256 "8e260f3bd916421d547c4405f73ec7a8c285d5b8f855208be06706346073ecf8" => :sierra
-    sha256 "2dbc464288bf64cf431b33a633ba6977e596af562396925751fc646a6ff4b09f" => :el_capitan
-    sha256 "b2d1d802814ab1c1e235119d16efdc095dd90aeb3948d0a306019a2a665dba90" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "192f3381abe337df8af214cf4dccef2cbfaa9c88df489b5cf9276cea9f8c6080"
+    sha256 cellar: :any, big_sur:       "a9dd363964a2a633ace13aff04e4c5eac7e720d44faf377456de55396647ff13"
+    sha256 cellar: :any, catalina:      "f8e550c8597728bb9edc5a548497fd7b1219203932cd0f93ecc97a4fbf0bdad8"
+    sha256 cellar: :any, mojave:        "a76192a41826619fc399e7f6de5e6cb1c8a5fbe6bea4f2c1554daa830fa0e296"
+    sha256 cellar: :any, high_sierra:   "830016982e60870f50b3f6fc9a215d8cc4bda6061595f4883f7c11ab19ecba39"
+    sha256 cellar: :any, sierra:        "21889ac6ed40c792f1b372b5aa0d6b3be1be86577a4c1b06b08569124d2d0da2"
   end
 
   def install
-    system "make"
+    system "make", "PREFIX=#{prefix}", "ARGON2_VERSION=#{version}"
     system "make", "test"
-    bin.install "argon2"
-    lib.install "libargon2.dylib", "libargon2.a"
-    include.install "include/argon2.h"
-    man1.install "man/argon2.1"
+    system "make", "install", "PREFIX=#{prefix}", "ARGON2_VERSION=#{version}"
     doc.install "argon2-specs.pdf"
   end
 

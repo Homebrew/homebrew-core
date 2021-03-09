@@ -1,24 +1,37 @@
 class Stout < Formula
   desc "Reliable static website deploy tool"
-  homepage "http://stout.is"
-  url "https://github.com/EagerIO/Stout/archive/v1.3.1.tar.gz"
-  sha256 "455e238e238bf79f58d2e5a41f5ac582361c71a7eec72f45554f1c8f64de7006"
+  homepage "https://github.com/cloudflare/Stout"
+  url "https://github.com/cloudflare/Stout/archive/v1.3.2.tar.gz"
+  sha256 "33aa533beda7181d5efdcfb9fadcc568f58c1f7e27a4902adf1a6807c4875c99"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e2774d1b1ea912934176fe6e68a3b7577239da41bbd15b1a71712a54f315a221" => :high_sierra
-    sha256 "144aac3cb78b98bf773b19e63e7eb3598261ab264e30b6d39ee3c8fdb9442cf9" => :sierra
-    sha256 "74dac56156c250fef9de8ebae64a1d6ae7b93c068a43f602a4debdc1b23a3945" => :el_capitan
-    sha256 "bc065cf4232169432ce91ea22c456c6891f00a386055c795131dc82572f5a3ae" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a8daaa0e22c67dd5988d21cbad74601d3c6bfe2320cabc4236d7ed4444befd2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4f91bfefe5af79d0d5ff602956834ec6b20ff8fa55c1152ec37086a2129389c1"
+    sha256 cellar: :any_skip_relocation, catalina:      "95406589caa2074808e99e54b755c2ea7b73fdd3ac8528c1a7f124895f3c1be5"
+    sha256 cellar: :any_skip_relocation, mojave:        "7d90dec0fbc23cfc58b56261957818a0fb1af5c77086b1979b77ea1196484a25"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "cfff658fcb5319cd6a5053c645a9679d3db94e9dff4fbe91ae488ca31658a1fc"
+    sha256 cellar: :any_skip_relocation, sierra:        "26554af96b6044316abecb1a2142e81b1aab8315bff941cbdad9b39fe143b74e"
   end
+
+  # https://github.com/cloudflare/Stout/issues/58
+  deprecate! date: "2021-02-21", because: :unmaintained
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/eagerio"
-    ln_s buildpath, buildpath/"src/github.com/eagerio/stout"
-    system "go", "build", "-o", bin/"stout", "-v", "github.com/eagerio/stout/src"
+    ENV["GO111MODULE"] = "auto"
+
+    # Compatibility with newer Go.
+    # Reported upstream, but the project is unmaintained.
+    mkdir_p buildpath/"vendor/github.com/sspencer"
+    ln_s buildpath/"vendor/github.com/zackbloom/go-ini", buildpath/"vendor/github.com/sspencer/go-ini"
+
+    mkdir_p buildpath/"src/github.com/cloudflare"
+    ln_s buildpath, buildpath/"src/github.com/cloudflare/stout"
+
+    system "go", "build", "-o", bin/"stout", "-v", "github.com/cloudflare/stout/src"
   end
 
   test do

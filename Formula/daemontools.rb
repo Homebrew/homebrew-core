@@ -3,25 +3,72 @@ class Daemontools < Formula
   homepage "https://cr.yp.to/daemontools.html"
   url "https://cr.yp.to/daemontools/daemontools-0.76.tar.gz"
   sha256 "a55535012b2be7a52dcd9eccabb9a198b13be50d0384143bd3b32b8710df4c1f"
+  revision 1
+
+  livecheck do
+    url "https://cr.yp.to/daemontools/install.html"
+    regex(/href=.*?daemontools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "cebf7701d22d86554ef428f853183cf3eff1de9af5dbd5eaada2154fe20594a3" => :high_sierra
-    sha256 "70a81dd6720df74647f233ea5ae6222a2b101ed1b13d92784c84570c24b2b3f3" => :sierra
-    sha256 "64afdd71688797e0bfef29f8db63a82a13b514e30b52b32180c17f9d895fa07c" => :el_capitan
-    sha256 "4a8fe9b0e5038230c90f2a38b40f3d66d103c18969e28ce5465499bbd78ec867" => :yosemite
-    sha256 "75757ef94d879092ea4b82dd36c17336fb6a85eb1d5980e3f01c7bf2a140ec1b" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4970abde6563bd8fa9cae9478b81d241ce0ad0c4d1504aa84269c55ccb45a499"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2de015542410e14eb8e17bb9affc37f19fc81e7005e4bec60ecd64c13629b02a"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a39db96c9e2926beea8224ca844264d4ddec3b6561d5dfc019f3ecfd7cc86fe"
+    sha256 cellar: :any_skip_relocation, mojave:        "6516ee63288eab3eab3ee418ce070d711f483a5f6ebc147cb7039a9404bbaa0a"
   end
 
   def install
     cd "daemontools-#{version}" do
+      inreplace ["package/run", "src/svscanboot.sh"] do |s|
+        s.gsub! "/service", "#{etc}/service"
+      end
+
       system "package/compile"
       bin.install Dir["command/*"]
     end
   end
 
+  def post_install
+    (etc/"service").mkpath
+
+    Pathname.glob("/service/*") do |original|
+      target = "#{etc}/service/#{original.basename}"
+      ln_s original, target unless File.exist?(target)
+    end
+  end
+
+  def caveats
+    <<~EOS
+      Services are stored in:
+        #{etc}/service/
+    EOS
+  end
+
+  plist_options startup: true
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/svscanboot</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+      </dict>
+      </plist>
+    EOS
+  end
+
   test do
-    assert_match /Homebrew/, shell_output("#{bin}/softlimit -t 1 echo 'Homebrew'")
+    assert_match "Homebrew", shell_output("#{bin}/softlimit -t 1 echo 'Homebrew'")
   end
 end

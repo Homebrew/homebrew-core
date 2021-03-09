@@ -1,20 +1,21 @@
 class Iniparser < Formula
   desc "Library for parsing ini files"
   homepage "http://ndevilla.free.fr/iniparser/"
-  url "http://ndevilla.free.fr/iniparser/iniparser-3.1.tar.gz"
-  sha256 "aedf23881b834519aea5e861b2400606d211da049cd59d3cfb4568e0d9eff5c5"
+  url "https://github.com/ndevilla/iniparser/archive/v4.1.tar.gz"
+  sha256 "960daa800dd31d70ba1bacf3ea2d22e8ddfc2906534bf328319495966443f3ae"
+  license "MIT"
   head "https://github.com/ndevilla/iniparser.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2cd01e81f1feacfafa6e116d366e519f9b44fef85ab683799cf32947e8606e61" => :high_sierra
-    sha256 "6b6e99eb6ea00278e708518ca32a9660edd40b1d4b730accb8040e1fe24d3de2" => :sierra
-    sha256 "0278cf54ff7cf350232559892ada560905b6b736ce96ed1c16550bee5bfad682" => :el_capitan
-    sha256 "c31e24f968cd204eef07f40dab70174df9ac9d6d130af13b2943e8a9df00acfe" => :yosemite
-    sha256 "7e211ecdcd55d267ab0921a15cf27b739b7a1af62160ac8b62dd456119c1a5d0" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3b8550dc64594120847c937c9b1a4e10f6c81622de2610fd0d7818bb35b7f45a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0c46428d183d6cee7f196c7a2a5ba81eebf078900c2825b7c9d3186eb91391b8"
+    sha256 cellar: :any_skip_relocation, catalina:      "bcda9d9c41e5ecf09a748eae0c6054c92ce858df53d835e5454310ea4f731a8c"
+    sha256 cellar: :any_skip_relocation, mojave:        "69dde8e886645f5b89f83f36835c18449afe7f6c4f119d466d7f204e994952c7"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "cec20d33114e7a5811acb41f9f9a36a411ffd2eebb7d537167b9b541b03fff8d"
+    sha256 cellar: :any_skip_relocation, sierra:        "7ad8eb3b8a66c08b78d2d9d3db18bd50e842d1c5962600ad0c9c8244d296dea8"
   end
 
-  conflicts_with "fastbit", :because => "Both install `include/dictionary.h`"
+  conflicts_with "fastbit", because: "both install `include/dictionary.h`"
 
   def install
     # Only make the *.a file; the *.so target is useless (and fails).

@@ -1,30 +1,28 @@
 class Libmicrohttpd < Formula
   desc "Light HTTP/1.1 server library"
   homepage "https://www.gnu.org/software/libmicrohttpd/"
-  url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.57.tar.gz"
-  mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.57.tar.gz"
-  sha256 "dec1a76487d7e48ad74b468a888bfda1c05731f185ff950f1e363ca9d39caf4e"
+  url "https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-0.9.72.tar.gz"
+  mirror "https://ftpmirror.gnu.org/libmicrohttpd/libmicrohttpd-0.9.72.tar.gz"
+  sha256 "0ae825f8e0d7f41201fd44a0df1cf454c1cb0bc50fe9d59c26552260264c2ff8"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    cellar :any
-    sha256 "a7235a945870b368f0d00a4e5127a341b06f7aae918f684eb36085d02976134d" => :high_sierra
-    sha256 "2d5c159bfca44baa79770c6482284d84340ac11730ec6301d913698e2b2321ed" => :sierra
-    sha256 "4cc1dd3468dd6abd47c8cff012f69a25d63cc39851780cf6f20c9922fdc78dde" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "a5964ebfc90189dd2657f81e258b62de76a90f7d77d8db258c786a59baa33a3b"
+    sha256 cellar: :any, big_sur:       "a74d346f3af66b65561190baf344807b926bceee07ab46fdfa4ccec67671085e"
+    sha256 cellar: :any, catalina:      "2d6f224e3262bf015d7d98faa9c60aa8098937d7940795eeaad5b57c5a410b75"
+    sha256 cellar: :any, mojave:        "66441caeadac2391b9a3fbf9001a9ef5bfa7cc47eab016da0e972aa3b0fcdbb8"
   end
 
-  option "with-ssl", "Enable SSL support"
-
-  if build.with? "ssl"
-    depends_on "libgcrypt"
-    depends_on "gnutls"
-  end
+  depends_on "gnutls"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
+                          "--enable-https",
                           "--prefix=#{prefix}"
     system "make", "install"
-    pkgshare.install "doc/examples"
+    (pkgshare/"examples").install Dir.glob("doc/examples/*.c")
   end
 
   test do
@@ -33,6 +31,6 @@ class Libmicrohttpd < Formula
       "return 0",
       "printf(\"daemon %p\", daemon) ; return 0"
     system ENV.cc, "-o", "foo", "simplepost.c", "-I#{include}", "-L#{lib}", "-lmicrohttpd"
-    assert_match /daemon 0x[0-9a-f]+[1-9a-f]+/, pipe_output("./foo")
+    assert_match(/daemon 0x[0-9a-f]+[1-9a-f]+/, pipe_output("./foo"))
   end
 end

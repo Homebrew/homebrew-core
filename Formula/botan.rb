@@ -1,33 +1,24 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-2.3.0.tgz"
-  sha256 "39f970fee5986a4c3e425030aef50ac284da18596c004d1a9cce7688c4e6d47c"
+  url "https://botan.randombit.net/releases/Botan-2.17.3.tar.xz"
+  sha256 "79123b654445a4abba486e09a431788545c708237382a3e765664c9f55b03b88"
+  license "BSD-2-Clause"
   head "https://github.com/randombit/botan.git"
 
   bottle do
-    sha256 "2c20b3c39fb0be0a165edaca579c643688ee3c985fe70380b738242650f6acf6" => :high_sierra
-    sha256 "a0700e24788e9d267e8af25792865fdaa24bd99425122c7bd0158fcd7156779e" => :sierra
-    sha256 "7c5621270316444d975d6da333a9b867734e2c67a4b044df621e4bbeb3ce330b" => :el_capitan
+    sha256 arm64_big_sur: "eb4bfb2daf7cc0dffd1e545b1b474d22ee183ae41e508ad32511c4a691caac97"
+    sha256 big_sur:       "347cf202acade4b9f59a4fdb6eb3558556fff55629d10fdd38d728071783fb3c"
+    sha256 catalina:      "6a66ebc16aef639262f951c7ec0df47002b704dab8736128be69cc9aeefe73ff"
+    sha256 mojave:        "60143efcc59467a036924c1518a38a5b0d1497b4fe2c3f4d9d7894f0cecda50a"
   end
-
-  option "with-debug", "Enable debug build of Botan"
-
-  deprecated_option "enable-debug" => "with-debug"
 
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "python@3.9"
+  depends_on "sqlite"
 
-  needs :cxx11
-
-  # Fix build failure "error: no type named 'free' in namespace 'std'"
-  # Upstream PR from 3 Oct 2017 "Add missing cstdlib include to openssl_rsa.cpp"
-  if DevelopmentTools.clang_build_version < 900
-    patch do
-      url "https://github.com/randombit/botan/pull/1233.patch?full_index=1"
-      sha256 "5ac83570d650d06cedb75e85a08287e5c62055dd1f159cede8a9b4b34b280600"
-    end
-  end
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
   def install
     ENV.cxx11
@@ -35,25 +26,19 @@ class Botan < Formula
     args = %W[
       --prefix=#{prefix}
       --docdir=share/doc
-      --cpu=#{MacOS.preferred_arch}
-      --cc=#{ENV.compiler}
-      --os=darwin
-      --with-openssl
       --with-zlib
       --with-bzip2
+      --with-sqlite3
+      --with-python-versions=3.9
     ]
 
-    args << "--enable-debug" if build.with? "debug"
-
     system "./configure.py", *args
-    # A hack to force them use our CFLAGS. MACH_OPT is empty in the Makefile
-    # but used for each call to cc/ld.
-    system "make", "install", "MACH_OPT=#{ENV.cflags}"
+    system "make", "install"
   end
 
   test do
     (testpath/"test.txt").write "Homebrew"
-    (testpath/"testout.txt").write Utils.popen_read("#{bin}/botan base64_enc test.txt")
+    (testpath/"testout.txt").write shell_output("#{bin}/botan base64_enc test.txt")
     assert_match "Homebrew", shell_output("#{bin}/botan base64_dec testout.txt")
   end
 end

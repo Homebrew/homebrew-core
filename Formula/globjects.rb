@@ -1,24 +1,23 @@
 class Globjects < Formula
   desc "C++ library strictly wrapping OpenGL objects"
   homepage "https://github.com/cginternals/globjects"
-  url "https://github.com/cginternals/globjects/archive/v1.0.0.tar.gz"
-  sha256 "640fbbf6cb1f8f011beabea53bc34f5a6c5a7b1c6e2f2f6963f73cafbe9ee4d4"
-  revision 1
+  url "https://github.com/cginternals/globjects/archive/v1.1.0.tar.gz"
+  sha256 "68fa218c1478c09b555e44f2209a066b28be025312e0bab6e3a0b142a01ebbc6"
+  license "MIT"
   head "https://github.com/cginternals/globjects.git"
 
   bottle do
-    cellar :any
-    sha256 "2221e3ce78a91c1b24babb6bd228a223232009d337796589dcc6438bff8d1151" => :high_sierra
-    sha256 "120730ab24fd8acf2caa89eb48564e1cdee2c5773cacca04fa633b9cfa4a46a1" => :sierra
-    sha256 "5896b4d2ea3dea176c8291a39db31762b89256478f9bf14374d55e20b017c4fc" => :el_capitan
-    sha256 "813da817fbf45546bbe0cfe9d3beb2e0d4138bf9e5d09a7114e3a825db916d40" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "97b76d2b662c4f123604d312b442d2b59d606a3cc1e3e4f10cbe2dd3cc8b6f62"
+    sha256 cellar: :any, big_sur:       "7a47a09787bf617fa6616f2cd88567b12b5d5c5d0a29225688908ed8c8b2c88d"
+    sha256 cellar: :any, catalina:      "8093cb17f6c1ba5ce345d3a89f0a2330cbdbb88100ad241be0dd8611a6ad52d9"
+    sha256 cellar: :any, mojave:        "9bbf36b86602a7b0c7bf66bb911e200e4f7b94f05c304afb261781edebf119ce"
+    sha256 cellar: :any, high_sierra:   "baae740c033bc384454f81c0abba246f935765ec7decf408777d318d60cbe565"
+    sha256 cellar: :any, sierra:        "dacabb07360fa768e54e9436f071a6ac2a56d0fc9da0d72b491fb8a645f48c33"
   end
 
   depends_on "cmake" => :build
-  depends_on "glm"
   depends_on "glbinding"
-
-  needs :cxx11
+  depends_on "glm"
 
   def install
     ENV.cxx11
@@ -33,10 +32,11 @@ class Globjects < Formula
       {
         globjects::init();
       }
-      EOS
+    EOS
     system ENV.cxx, "-o", "test", "test.cpp", "-std=c++11", "-stdlib=libc++",
            "-I#{include}/globjects", "-I#{Formula["glm"].include}/glm", "-I#{lib}/globjects",
-           "-L#{lib}", "-lglobjects", "-lglbinding", *ENV.cflags.to_s.split
+           "-L#{lib}", "-L#{Formula["glbinding"].opt_lib}",
+           "-lglobjects", "-lglbinding", *ENV.cflags.to_s.split
     system "./test"
   end
 end

@@ -1,14 +1,17 @@
 class Artifactory < Formula
   desc "Manages binaries"
   homepage "https://www.jfrog.com/artifactory/"
-  url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-5.6.0.zip"
-  sha256 "24273376882b60be28f303e5b9c32679763d34f2f8086d27afe89c3af72fc15e"
+  url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.23.13.zip"
+  sha256 "0889c11b768a4b1a6bfb6939280c24e5bd22b36bc3438481b0b420443eb5f379"
+  license "AGPL-3.0-or-later"
+  livecheck do
+    url "https://dl.bintray.com/jfrog/artifactory/"
+    regex(/href=.*?jfrog-artifactory-oss[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
 
   bottle :unneeded
 
-  option "with-low-heap", "Run artifactory with low Java memory options. Useful for development machines. Do not use in production."
-
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     # Remove Windows binaries
@@ -20,19 +23,14 @@ class Artifactory < Formula
       'export ARTIFACTORY_HOME="$(cd "$(dirname "${artBinDir}")" && pwd)"',
       "export ARTIFACTORY_HOME=#{libexec}"
 
-    if build.with? "low-heap"
-      # Reduce memory consumption for non production use
-      inreplace "bin/artifactory.default",
-        "-server -Xms512m -Xmx2g",
-        "-Xms128m -Xmx768m"
-    end
-
     libexec.install Dir["*"]
 
     # Launch Script
-    bin.install_symlink libexec/"bin/artifactory.sh"
+    bin.install libexec/"bin/artifactory.sh"
     # Memory Options
-    bin.install_symlink libexec/"bin/artifactory.default"
+    bin.install libexec/"bin/artifactory.default"
+
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   def post_install
@@ -45,27 +43,28 @@ class Artifactory < Formula
     libexec.install_symlink data => "data"
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/artifactory/libexec/bin/artifactory.sh"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/artifactory/libexec/bin/artifactory.sh"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>com.jfrog.artifactory</string>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>com.jfrog.artifactory</string>
 
-        <key>WorkingDirectory</key>
-        <string>#{libexec}</string>
+          <key>WorkingDirectory</key>
+          <string>#{libexec}</string>
 
-        <key>Program</key>
-        <string>#{bin}/artifactory.sh</string>
+          <key>Program</key>
+          <string>#{bin}/artifactory.sh</string>
 
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-    </plist>
-  EOS
+          <key>KeepAlive</key>
+          <true/>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do

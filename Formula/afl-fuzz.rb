@@ -1,18 +1,27 @@
 class AflFuzz < Formula
   desc "American fuzzy lop: Security-oriented fuzzer"
-  homepage "http://lcamtuf.coredump.cx/afl/"
-  url "http://lcamtuf.coredump.cx/afl/releases/afl-2.52b.tgz"
-  sha256 "43614b4b91c014d39ef086c5cc84ff5f068010c264c2c05bf199df60898ce045"
+  homepage "https://github.com/google/AFL"
+  url "https://github.com/google/AFL/archive/v2.57b.tar.gz"
+  version "2.57b"
+  sha256 "6f05a6515c07abe49f6f292bd13c96004cc1e016bda0c3cc9c2769dd43f163ee"
+  license "Apache-2.0"
+  revision 1
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+b?)$/i)
+  end
 
   bottle do
-    sha256 "4cd6b08ecfe35a62136b7a52222c59e055b80aef599404e29c7c9b8bf4f8fd50" => :high_sierra
-    sha256 "b45ff3036dddc75cf64689b3f2660938834f393256315ed33ba72ed1924c695e" => :sierra
-    sha256 "ef5e7c2e25020bf2d468c81ced4fdd9014dbdc0bb523f5acd8d91d8badc97d59" => :el_capitan
+    sha256 big_sur:     "9a6b82b91f72a781d576a0b79b43869577c2f2c16d8d7e56a8c0830f8f7aa11e"
+    sha256 catalina:    "9d9406abfd60163bea04281f6f3746a4f1a1c138c980fa28ace79869b1097052"
+    sha256 mojave:      "7c539dbcb692e99baa85a2edbb11f2945d7bc820d14a454a99594ba3e5321638"
+    sha256 high_sierra: "8e64a9a77f39a8803058381cc80396a4ca7e5104c212d5ef1bd3d9513f9753ab"
   end
 
   def install
-    system "make", "PREFIX=#{prefix}"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "PREFIX=#{prefix}", "AFL_NO_X86=1"
+    system "make", "install", "PREFIX=#{prefix}", "AFL_NO_X86=1"
   end
 
   test do

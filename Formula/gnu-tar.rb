@@ -1,26 +1,28 @@
 class GnuTar < Formula
   desc "GNU version of the tar archiving utility"
   homepage "https://www.gnu.org/software/tar/"
-  url "https://ftp.gnu.org/gnu/tar/tar-1.29.tar.gz"
-  mirror "https://ftpmirror.gnu.org/tar/tar-1.29.tar.gz"
-  sha256 "cae466e6e58c7292355e7080248f244db3a4cf755f33f4fa25ca7f9a7ed09af0"
-  revision 1
+  url "https://ftp.gnu.org/gnu/tar/tar-1.34.tar.gz"
+  mirror "https://ftpmirror.gnu.org/tar/tar-1.34.tar.gz"
+  sha256 "03d908cf5768cfe6b7ad588c921c6ed21acabfb2b79b788d1330453507647aed"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 "20f2d3cad911cb885ac3760daa283d5fd709e570f8a97486e91a6f41a49183c8" => :high_sierra
-    sha256 "d87139778146e9fe39f5db5dcf020c51a5a8ed7528987e31ecd2a2a36ab239e2" => :sierra
-    sha256 "ba2d4a54ae4abf2520b816d19373ed0a8bd0bb0e894b271d98ee1c7eba51af16" => :el_capitan
-    sha256 "cb0a9258bfeb0530540af1748b37a4fe79cf07ec5848e7bce48c47d51289bdb7" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "660e573b78965f1d3fa9f8f7f78a72d38f7f26f77ca66e9f72fec26fe9be6c3a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a6ab3eb4a49d609f5f1dde43710b847fd827ebc03195aee052c7aeb528aa9bcc"
+    sha256 cellar: :any_skip_relocation, catalina:      "53b9fc4011ca3ca3e669aa96a95a5394ef45138b9b2d52c76c3a17fceb432229"
+    sha256 cellar: :any_skip_relocation, mojave:        "c4f9fcc7bdbb2bc5591a6650cf3bbfc1aa791e85f6d299f165a9466c235c83ae"
   end
 
-  option "with-default-names", "Do not prepend 'g' to the binary"
+  head do
+    url "https://git.savannah.gnu.org/git/tar.git"
 
-  # CVE-2016-6321
-  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=842339
-  # https://sintonen.fi/advisories/tar-extract-pathname-bypass.txt
-  patch do
-    url "https://sources.debian.net/data/main/t/tar/1.29b-1.1/debian/patches/When-extracting-skip-.-members.patch"
-    sha256 "6b1371b9abd391e1654f7d730aae9c4dee703a867276b1e8a9ef97a2a906b7cf"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "gettext" => :build
+  end
+
+  on_linux do
+    conflicts_with "libarchive", because: "both install `tar` binaries"
   end
 
   def install
@@ -32,41 +34,50 @@ class GnuTar < Formula
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
     ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
-    args = ["--prefix=#{prefix}", "--mandir=#{man}"]
-    args << "--program-prefix=g" if build.without? "default-names"
+    args = %W[
+      --prefix=#{prefix}
+      --mandir=#{man}
+    ]
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
+    system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
 
-    # Symlink the executable into libexec/gnubin as "tar"
-    if build.without? "default-names"
+    on_macos do
+      # Symlink the executable into libexec/gnubin as "tar"
       (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
       (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
     end
+
+    libexec.install_symlink "gnuman" => "man"
   end
 
   def caveats
-    if build.without? "default-names" then <<~EOS
-      gnu-tar has been installed as "gtar".
+    on_macos do
+      <<~EOS
+        GNU "tar" has been installed as "gtar".
+        If you need to use it as "tar", you can add a "gnubin" directory
+        to your PATH from your bashrc like:
 
-      If you really need to use it as "tar", you can add a "gnubin" directory
-      to your PATH from your bashrc like:
-
-          PATH="#{opt_libexec}/gnubin:$PATH"
-
-      Additionally, you can access their man pages with normal names if you add
-      the "gnuman" directory to your MANPATH from your bashrc as well:
-
-          MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-
+            PATH="#{opt_libexec}/gnubin:$PATH"
       EOS
     end
   end
 
   test do
-    tar = build.with?("default-names") ? bin/"tar" : bin/"gtar"
     (testpath/"test").write("test")
-    system tar, "-czvf", "test.tar.gz", "test"
-    assert_match /test/, shell_output("#{tar} -xOzf test.tar.gz")
+    on_macos do
+      system bin/"gtar", "-czvf", "test.tar.gz", "test"
+      assert_match "test", shell_output("#{bin}/gtar -xOzf test.tar.gz")
+      assert_match "test", shell_output("#{opt_libexec}/gnubin/tar -xOzf test.tar.gz")
+    end
+
+    on_linux do
+      system bin/"tar", "-czvf", "test.tar.gz", "test"
+      assert_match "test", shell_output("#{bin}/tar -xOzf test.tar.gz")
+    end
   end
 end

@@ -1,42 +1,36 @@
 class Mtools < Formula
   desc "Tools for manipulating MSDOS files"
   homepage "https://www.gnu.org/software/mtools/"
-  url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.18.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.18.tar.gz"
-  sha256 "30d408d039b4cedcd04fbf824c89b0ff85dcbb6f71f13d2d8d65abb3f58cacc3"
+  url "https://ftp.gnu.org/gnu/mtools/mtools-4.0.26.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mtools/mtools-4.0.26.tar.gz"
+  sha256 "b1adb6973d52b3b70b16047e682f96ef1b669d6b16894c9056a55f407e71cd0f"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
-    sha256 "6f51a942eb679aabcad3e9a14ee2afe687421d7837aba20f4f69ca3a296acedb" => :high_sierra
-    sha256 "9038497db92b296b077c375fb23c56faccd1879877c13088cd5e4c9f17ceaeab" => :sierra
-    sha256 "29b49f7ac62634261b8e9de9ecd1459d0a9d298a525dbe09091aa8e015b72e7a" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f7feca5219b2fa6f2581dc20b999198be1097061f7b77bea59f6b2ab047b6a12"
+    sha256 cellar: :any_skip_relocation, big_sur:       "281355686b0b2bfdbdc3803337c0fed0e7ef5c5d9ac44aa229e05b44cb0179c5"
+    sha256 cellar: :any_skip_relocation, catalina:      "f09aeaeda06fb25debe92e4681e81c78f2d1611664575048e06d7068ec25c168"
+    sha256 cellar: :any_skip_relocation, mojave:        "cb7083728d1588a8b0b39ec229a73e935d89e82e285410f1e3fd2b5f0ff5016d"
   end
 
-  depends_on :x11 => :optional
+  conflicts_with "multimarkdown", because: "both install `mmd` binaries"
 
-  conflicts_with "multimarkdown", :because => "both install `mmd` binaries"
+  # 4.0.25 doesn't include the proper osx locale headers.
+  patch :DATA
 
   def install
-    # Prevents errors such as "mainloop.c:89:15: error: expected ')'"
-    # Upstream issue https://lists.gnu.org/archive/html/info-mtools/2014-02/msg00000.html
-    if ENV.cc == "clang"
-      inreplace "sysincludes.h",
-        "#  define UNUSED(x) x __attribute__ ((unused));x",
-        "#  define UNUSED(x) x"
-    end
-
     args = %W[
       LIBS=-liconv
       --disable-debug
       --prefix=#{prefix}
       --sysconfdir=#{etc}
+      --without-x
     ]
 
-    if build.with? "x11"
-      args << "--with-x"
-    else
-      args << "--without-x"
-    end
+    # The mtools configure script incorrectly detects stat64. This forces it off
+    # to fix build errors on Apple Silicon. See stat(6) and pv.rb.
+    ENV["ac_cv_func_stat64"] = "no" if Hardware::CPU.arm?
 
     system "./configure", *args
     system "make"
@@ -45,6 +39,21 @@ class Mtools < Formula
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/mtools --version")
+    assert_match version.to_s, shell_output("#{bin}/mtools --version")
   end
 end
+
+__END__
+diff --git a/sysincludes.h b/sysincludes.h
+index 056218e..ba3677b 100644
+--- a/sysincludes.h
++++ b/sysincludes.h
+@@ -279,6 +279,8 @@ extern int errno;
+ #include <pwd.h>
+ #endif
+ 
++#include <xlocale.h>
++#include <strings.h>
+ 
+ #ifdef HAVE_STRING_H
+ # include <string.h>

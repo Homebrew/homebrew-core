@@ -1,22 +1,21 @@
 class Bowtie2 < Formula
   desc "Fast and sensitive gapped read aligner"
-  homepage "https://bowtie-bio.sourceforge.io/"
-  url "https://github.com/BenLangmead/bowtie2/archive/v2.3.3.1.tar.gz"
-  sha256 "8b9c0b9c595ebcddcac5feaf6acb44b2294d6deb91de107596ecad242a1a58e9"
+  homepage "https://bowtie-bio.sourceforge.io/bowtie2/"
+  url "https://github.com/BenLangmead/bowtie2/archive/v2.4.2.tar.gz"
+  sha256 "ea33a1562faf759b21b3a905e20b87a3524ac4e53af8cd723d9a9f31ee159c8a"
+  license "GPL-3.0"
 
   bottle do
-    sha256 "fa4f67c2361205d54698e9a87f2a586d95ae8c34aa50c98bb72c3d522903333f" => :high_sierra
-    sha256 "b57f2ec643d75111a7f1078d656e376e24bd871fe04ca32fa63cfb2b292bdacd" => :sierra
-    sha256 "8455b5498446476972e353ca55b31e8acbd141c696cc8562edcc16a0d4235584" => :el_capitan
+    sha256 cellar: :any, big_sur:     "5c80e63961045e5f2fa1df91a8d6b16d4c50c68db3cc8cba861c7235403e0119"
+    sha256 cellar: :any, catalina:    "1fad17bb5fbdcbb626dcbdd236b41e7a0731099fe1960938aba01b6c1bf36d99"
+    sha256 cellar: :any, mojave:      "c3dd293bb8d6045279ba6673cba40efed562e26746c62b032d174c9fa72b049e"
+    sha256 cellar: :any, high_sierra: "622aa5c50e75a72811b6f843bda9685d71d6a764af887641252226f7174ce4b6"
   end
 
   depends_on "tbb"
 
   def install
-    tbb = Formula["tbb"]
-    system "make", "install", "WITH_TBB=1", "prefix=#{prefix}",
-           "EXTRA_FLAGS=-L #{tbb.opt_lib}", "INC=-I #{tbb.opt_include}"
-
+    system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "example", "scripts"
   end
 

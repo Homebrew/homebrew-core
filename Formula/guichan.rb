@@ -5,15 +5,16 @@ class Guichan < Formula
   sha256 "eedf206eae5201eaae027b133226d0793ab9a287bfd74c5f82c7681e3684eeab"
 
   bottle do
-    cellar :any
-    sha256 "ecbd02d365bc8c1dbc1bd2ad8beae89876f34b0082926dd8a465591df04e6ab7" => :high_sierra
-    sha256 "3815959a2b29e0d92e8f8e47fb09528c13adff1756df3acf72792092e1e13ef0" => :sierra
-    sha256 "ceccf2469c60c0ee7c06d3b7af0a8a43080d857c959dabcb30c74da908318a34" => :el_capitan
-    sha256 "472e8b2c7e04d74d2704481e2bb12d228773de400975ecf53c07bbc2823a0ea7" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "47af711b34d25f8d017492378a77a6ad97ae54b15541272341c742bd9b557b64"
+    sha256 cellar: :any, big_sur:       "d5218365358651743a5afd691b0d95103c97287d675c5355ad248b206d197efc"
+    sha256 cellar: :any, catalina:      "fcc36306d344d47e3151ee1447e00b590cf2d079397f4302301dd7a5fca4bb6f"
+    sha256 cellar: :any, mojave:        "20887eab0782fcd2eb3e922b1f388831057b0faaeab519e98590118853c48e3c"
+    sha256 cellar: :any, high_sierra:   "c685850224a216a61b5d0fb96aeb56935deb2187f2781bac7e64668e93baf3ab"
+    sha256 cellar: :any, sierra:        "d98d6bdc213bca6d4d6fbf904e91f45dd678996ae5522b194805e3bd098c87fb"
   end
 
   depends_on "sdl_image"
-  # "with-allegro" requires allegero-config. But that is no longer supplied from ver. 4.9.
 
   resource "fixedfont.bmp" do
     url "https://guichan.sourceforge.io/oldsite/images/fixedfont.bmp"
@@ -157,9 +158,16 @@ class Guichan < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "helloworld.cpp", ENV.cppflags, "-I#{HOMEBREW_PREFIX}/include/SDL",
-        "-L#{Formula["SDL"].opt_lib}", "-framework", "Foundation", "-framework", "CoreGraphics", "-framework", "Cocoa",
-        "-lSDL", "-lSDLmain", "-lSDL_image", "-L#{lib}", "-lguichan", "-lguichan_sdl", "-lobjc", "-lc++", "-o", "helloworld"
+    system ENV.cc, "helloworld.cpp", ENV.cppflags,
+                   "-I#{HOMEBREW_PREFIX}/include/SDL",
+                   "-L#{Formula["sdl"].opt_lib}",
+                   "-L#{Formula["sdl_image"].opt_lib}",
+                   "-framework", "Foundation",
+                   "-framework", "CoreGraphics",
+                   "-framework", "Cocoa",
+                   "-lSDL", "-lSDLmain", "-lSDL_image",
+                   "-L#{lib}", "-lguichan", "-lguichan_sdl",
+                   "-lobjc", "-lc++", "-o", "helloworld"
     helloworld = fork do
       system testpath/"helloworld"
     end

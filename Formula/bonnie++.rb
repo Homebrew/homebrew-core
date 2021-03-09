@@ -1,17 +1,20 @@
 class Bonniexx < Formula
   desc "Benchmark suite for file systems and hard drives"
   homepage "https://www.coker.com.au/bonnie++/"
-  url "https://www.coker.com.au/bonnie++/bonnie++-1.97.3.tgz"
-  mirror "https://fossies.org/linux/privat/bonnie++-1.97.3.tgz"
-  sha256 "e27b386ae0dc054fa7b530aab6bdead7aea6337a864d1f982bc9ebacb320746e"
-  revision 1
+  url "https://www.coker.com.au/bonnie++/bonnie++-2.00a.tgz"
+  sha256 "a8d33bbd81bc7eb559ce5bf6e584b9b53faea39ccfb4ae92e58f27257e468f0e"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://doc.coker.com.au/projects/bonnie/"
+    regex(/href=.*?bonnie\+\+[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2039ecd2ab2e7a9cef39e603558aa792942f50e27b5ee3054bd39a66a2ba30a3" => :high_sierra
-    sha256 "3141753fc2d81aba9129baa76946cb4f2c4cef7ca634c30d86a4b284bfe6480a" => :sierra
-    sha256 "fd00a22a9744919520bdfd22f01e2ad07d409fbf76a3470b3a9a4c94f06901ed" => :el_capitan
-    sha256 "0607ae5fac5e62bdfd04b48a524277768145f7ab7f07e2d2f71b6c4b6b40f9eb" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "902ceb61db37a6795eee8d7941a44633faa38bcd9c2a4b952bf837bab0ee6d59"
+    sha256 cellar: :any_skip_relocation, big_sur:       "75e1876579c6638c1e4c0509af5c76950ae379b034e6a051d091593cb08c1ddd"
+    sha256 cellar: :any_skip_relocation, catalina:      "83df0761686086ae64a3c08433613908d9c39d85daa7f81011b5bd70d2d5eb3d"
+    sha256 cellar: :any_skip_relocation, mojave:        "c503806d5f1ad449a6943275fa93a3930fbbd7cd63b31ee873590d0219ded5b9"
   end
 
   # Remove the #ifdef _LARGEFILE64_SOURCE macros which not only prohibits the
@@ -19,8 +22,8 @@ class Bonniexx < Formula
   # also incorrectly tests for it in the first place. The ideal fix would be to
   # replace the AC_TRY_RUN() in configure.in if the fail code actually worked.
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/57a21ef/bonnie%2B%2B/remove-large-file-support-macros.diff"
-    sha256 "4d38a57f8a3d99405d945bb27ffe81e0ab542b520f2de6fad021a6ad3ff8a3b6"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/913b5a25087d2c64d3b6459635d5d64012b83042/bonnie%2B%2B/remove-large-file-support-macros.diff"
+    sha256 "368a7ea0cf202a169467efb81cb6649c1b6306999ccd54b85641fd4b458a46b7"
   end
 
   def install
@@ -28,5 +31,9 @@ class Bonniexx < Formula
                           "--prefix=#{prefix}",
                           "--mandir=#{man}"
     system "make", "install"
+  end
+
+  test do
+    system "#{sbin}/bonnie++", "-s", "0"
   end
 end

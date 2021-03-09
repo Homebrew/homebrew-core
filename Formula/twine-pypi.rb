@@ -3,58 +3,114 @@ class TwinePypi < Formula
 
   desc "Utilities for interacting with PyPI"
   homepage "https://github.com/pypa/twine"
-  url "https://github.com/pypa/twine/archive/1.9.1.tar.gz"
-  sha256 "1c9841dabb80b8066688f39fea3250982ce9dd38f2af3c69e95c87939306de2e"
+  url "https://files.pythonhosted.org/packages/f9/43/51c3139667e90399a4d7886013631ad020ad102db5c2907cb240ce56f3c1/twine-3.3.0.tar.gz"
+  sha256 "fcffa8fc37e8083a5be0728371f299598870ee1eccc94e9a25cef7b1dcfa8297"
+  license "Apache-2.0"
   head "https://github.com/pypa/twine.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "37cd3858e20cb8456053789c75d66767d40d3898dd4ec6725a99ea39220de0a4" => :high_sierra
-    sha256 "4d48e4d27b3933ea505f219d84be07f734dbff3e5e7a133ed23a0bcb5288998c" => :sierra
-    sha256 "be0b38d0ca616f4c65ca220d238b0e1f64cc8b822350ce0ec804a0e85e57ac16" => :el_capitan
-    sha256 "c88b0ffc33039b8cf6027e2dbb803b9943d0f8b62519f1b79c2484afb5436a24" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d6393307a93838df3887785e056c9d6204904e0de0fc0aeec999700cfe175885"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3dfd73691c5c4f51544c549d1531c1107d4b861f408402314b0b7d3b5cfebc37"
+    sha256 cellar: :any_skip_relocation, catalina:      "6c2ecc725d22194a0b921a334af114b03e3694c3d7a3f385e96466f02ad30de2"
+    sha256 cellar: :any_skip_relocation, mojave:        "44d5293d999bcb1b0398ab3096e28f899d401182921571e0b9f83a01abff616e"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@3.9"
+
+  resource "bleach" do
+    url "https://files.pythonhosted.org/packages/04/2c/8e256291cfeaefb72d1dafc888b1ad447e754d8062520b41f1d3ffa7e139/bleach-3.2.1.tar.gz"
+    sha256 "52b5919b81842b1854196eaae5ca29679a2f2e378905c346d3ca8227c2c66080"
+  end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/dd/0e/1e3b58c861d40a9ca2d7ea4ccf47271d4456ae4294c5998ad817bd1b4396/certifi-2017.4.17.tar.gz"
-    sha256 "f7527ebf7461582ce95f7a9e03dd141ce810d40590834f4ec20cddd54234c10a"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
+  end
+
+  resource "colorama" do
+    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
+    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+  end
+
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz"
+    sha256 "c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/d8/82/28a51052215014efc07feac7330ed758702fc0581347098a81699b5281cb/idna-2.5.tar.gz"
-    sha256 "3cb5ce08046c4e3a560fc02f138d0ac63e00f8ce5901a56b32ec8b7994082aab"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
+  end
+
+  resource "keyring" do
+    url "https://files.pythonhosted.org/packages/da/29/f6645f2a6f989b1c77f1a1da269ea1954981365d619a32b90f0d28a00289/keyring-21.7.0.tar.gz"
+    sha256 "a144f7e1044c897c3976202af868cb0ac860f4d433d5d0f8e750fa1a2f0f0b50"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
+    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
   end
 
   resource "pkginfo" do
-    url "https://files.pythonhosted.org/packages/58/54/57f7c5638fecdf232a5b6b767da467b0ff31467d7f86a7364c252acf2321/pkginfo-1.4.1.tar.gz"
-    sha256 "bb1a6aeabfc898f5df124e7e00303a5b3ec9a489535f346bfbddb081af93f89e"
+    url "https://files.pythonhosted.org/packages/30/e3/5b17405ee8c8a78b5ae6ede4c5f296bebd97eb5982b28bbe37d61802bbc5/pkginfo-1.6.1.tar.gz"
+    sha256 "a6a4ac943b496745cec21f14f021bbd869d5e9b4f6ec06918cffea5a2f4b9193"
+  end
+
+  resource "Pygments" do
+    url "https://files.pythonhosted.org/packages/29/60/8ff9dcb5eac7f4da327ba9ecb74e1ad783b2d32423c06ef599e48c79b1e1/Pygments-2.7.3.tar.gz"
+    sha256 "ccf3acacf3782cbed4a989426012f1c535c9a90d3a7fc3f16d231b9372d2b716"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+  end
+
+  resource "readme-renderer" do
+    url "https://files.pythonhosted.org/packages/a3/c4/03d640fbdb4d22830c98d1c76065f2cc40bc00994c7b7d365562d6b5492e/readme_renderer-28.0.tar.gz"
+    sha256 "6b7e5aa59210a40de72eb79931491eaf46fefca2952b9181268bd7c7c65c260a"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/27/c7/a45641c83c6e28f4922ba6af3d4ae4d79b41932c2f3d77fed9e0bf878149/requests-2.17.3.tar.gz"
-    sha256 "8d29f97ed1541709b57caddb77bb20592411d7ca10ec4f03275f49ee8456e225"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "requests-toolbelt" do
-    url "https://files.pythonhosted.org/packages/86/f9/e80fa23edca6c554f1994040064760c12b51daff54b55f9e379e899cd3d4/requests-toolbelt-0.8.0.tar.gz"
-    sha256 "f6a531936c6fa4c6cfce1b9c10d5c4f498d16528d2a54a22ca00011205a187b5"
+    url "https://files.pythonhosted.org/packages/28/30/7bf7e5071081f761766d46820e52f4b16c8a08fef02d2eb4682ca7534310/requests-toolbelt-0.9.1.tar.gz"
+    sha256 "968089d4584ad4ad7c171454f0a5c6dac23971e9472521ea3b6d49d610aa6fc0"
+  end
+
+  resource "rfc3986" do
+    url "https://files.pythonhosted.org/packages/70/e2/1344681ad04a0971e8884b9a9856e5a13cc4824d15c047f8b0bbcc0b2029/rfc3986-1.4.0.tar.gz"
+    sha256 "112398da31a3344dc25dbf477d8df6cb34f9278a94fee2625d89e4514be8bb9d"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/67/7c/95e5425871bf314e484aea5f8ec65b49ab006944309b496cd53c47646155/tqdm-4.14.0.tar.gz"
-    sha256 "284b7cb57c135f41122580df8a818ffffd85449a61365dfb41907d2bf115e88e"
+    url "https://files.pythonhosted.org/packages/80/e9/a51c724ce67ff24a18861af5b0c6f9468e4b4ecdbd53fd43a9288b856372/tqdm-4.54.1.tar.gz"
+    sha256 "38b658a3e4ecf9b4f6f8ff75ca16221ae3378b2e175d846b6b33ea3a20852cf5"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/96/d9/40e4e515d3e17ed0adbbde1078e8518f8c4e3628496b56eb8f026a02b9e4/urllib3-1.21.1.tar.gz"
-    sha256 "b14486978518ca0901a76ba973d7821047409d7f726f22156b24e83fd71382a5"
+    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
+    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
+  end
+
+  resource "webencodings" do
+    url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
+    sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
   def install

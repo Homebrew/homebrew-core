@@ -1,17 +1,24 @@
 class Zebra < Formula
   desc "Information management system"
-  homepage "https://www.indexdata.com/zebra"
-  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.1.0.tar.gz"
-  sha256 "1544f7929d03153ba79ea171b2128f8cab463ae28407035ae5046f8c4a100ea6"
-  revision 2
+  homepage "https://www.indexdata.com/resources/software/zebra/"
+  url "http://ftp.indexdata.dk/pub/zebra/idzebra-2.2.2.tar.gz"
+  sha256 "513c2bf272e12745d4a7b58599ded0bc1292a84e9dc420a32eb53b6601ae0000"
+  license "GPL-2.0-or-later"
+  revision 1
 
-  bottle do
-    sha256 "3f63fc7a8484ed1ac791d01857fcdc5a5b61a9fce74b7138cea8bb4e90e08733" => :high_sierra
-    sha256 "82c3f0b26e247d709131695563433e9e935b67b495dd283664d3431a38e5adb0" => :sierra
-    sha256 "d9eca4b41f3d070bf99adbfd1de09ec494b93d0cb11d10b91a51009618bd2b8c" => :el_capitan
+  livecheck do
+    url :homepage
+    regex(%r{>Latest:</strong>.*?v?(\d+(?:\.\d+)+)<}i)
   end
 
-  depends_on "icu4c" => :recommended
+  bottle do
+    sha256 arm64_big_sur: "b30d43d96eaef2d04e95af46e70ef8b1baa66e094d601fdb64a0f8c8abaaf091"
+    sha256 big_sur:       "92e6b6f82408307944dc5dd150eb34fbead3f53d56dc2443f3d2c77c7b79c5b6"
+    sha256 catalina:      "eaf67815e4b8131f13b765cfc867a66ee9ac4d45daec07783901e1842c9b762b"
+    sha256 mojave:        "54357482aefeac9d75bf849e7b102afea565e4eba42d1713a8c2388e3607b2a3"
+  end
+
+  depends_on "icu4c"
   depends_on "yaz"
 
   def install

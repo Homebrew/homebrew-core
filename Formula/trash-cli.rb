@@ -3,20 +3,27 @@ class TrashCli < Formula
 
   desc "Command-line interface to the freedesktop.org trashcan"
   homepage "https://github.com/andreafrancia/trash-cli"
-  url "https://github.com/andreafrancia/trash-cli/archive/0.17.1.14.tar.gz"
-  sha256 "8fdd20e5e9c55ea4e24677e602a06a94a93f1155f9970c55b25dede5e037b974"
+  url "https://files.pythonhosted.org/packages/8b/ab/710110ccdbc46e41f5cc6f196b1d94f4bc2f0bc7c26a3bbe0b263790b248/trash-cli-0.20.12.26.tar.gz"
+  sha256 "3b42917b09c19935afbb9824238afba05dd72c0e340c0ca0acf84e04b3e60879"
+  license "GPL-2.0-or-later"
   head "https://github.com/andreafrancia/trash-cli.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4cf098db9eb5888ad3e513cb222930975089034c9a3e8f2d6c1c53bb93b4ea1c" => :high_sierra
-    sha256 "6c2e56df6aeed7ed8bcbdea702b9d66058ea17be38bc39a26feba5928dbe053a" => :sierra
-    sha256 "92c6ab8dc868bad029103c897ccdc5a04e6e0f6809dfd2759c58aa390a7d5e8f" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d1e5b0d1d167a67cdeb66d1f7490cd83693c8a8986d89ddc5028791fc3827945"
+    sha256 cellar: :any_skip_relocation, big_sur:       "24574061108b1eb0906b573baec0aee240229a5011b7a02e3b139e664f228a99"
+    sha256 cellar: :any_skip_relocation, catalina:      "64cfdbfbdce3a999c438d36b67ce6b3473ce9547f8320258e3da86ab7c12e683"
+    sha256 cellar: :any_skip_relocation, mojave:        "5a638963dc04946eba48aa9dbcceee188dd055459ca62883228cf4a40385bb83"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@3.9"
 
-  conflicts_with "trash", :because => "both install a `trash` binary"
+  conflicts_with "macos-trash", because: "both install a `trash` binary"
+  conflicts_with "trash", because: "both install a `trash` binary"
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/e1/b0/7276de53321c12981717490516b7e612364f2cb372ee8901bd4a66a000d7/psutil-5.8.0.tar.gz"
+    sha256 "0c9ccb99ab76025f2f0bbecf341d4656e9c1351db8cc8a03ccd62e318ab4b5c6"
+  end
 
   def install
     virtualenv_install_with_resources

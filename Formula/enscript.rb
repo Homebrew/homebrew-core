@@ -4,23 +4,21 @@ class Enscript < Formula
   url "https://ftp.gnu.org/gnu/enscript/enscript-1.6.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/enscript/enscript-1.6.6.tar.gz"
   sha256 "6d56bada6934d055b34b6c90399aa85975e66457ac5bf513427ae7fc77f5c0bb"
-
+  revision 1
   head "https://git.savannah.gnu.org/git/enscript.git"
 
   bottle do
-    rebuild 1
-    sha256 "4b9fefd4bafc5f190272b8ed5bc4c0fbdaf4e1cdfa03aee7b7ef2f829500bc0b" => :high_sierra
-    sha256 "dea5f069c92bd1b5d2e3c1f0440d8ed5281d9ee44225e28295a1f682ff43a934" => :sierra
-    sha256 "e55d3f93f7a4eb89d8007d9c0c49d6b7f52778191f2601da648afff0098a6663" => :el_capitan
-    sha256 "d1c1bfc90a9e140a3d257d976729fc9b6e55118a10364ce1e3dc3dd26388edc9" => :yosemite
-    sha256 "f2be9be9caeff58dbec3c9abf3ff5554865e6a3ee4db91d156edce8ddf5e666e" => :mavericks
+    sha256 arm64_big_sur: "18c0e8fd04b918f671236e5feffe8406c8368369eb08fe301f817e59233659c0"
+    sha256 big_sur:       "97b523c5513e54b82d963a7b34a4cfbcbe0af74399bc48839b5285cfce29a9a1"
+    sha256 catalina:      "3611a6a01c76502ae6d4b1ff13d802acc5b2a2a3f2cf647e6b9323b7e40bde7e"
+    sha256 mojave:        "a8bbba8f7d64eed40dd59a9db980b049ec786e148d31a0aeb92556959b4ad0b0"
+    sha256 high_sierra:   "00045dff3bdf7ac98a19236838d7af7101cc1fc002e55550312042bb2e4d7426"
+    sha256 sierra:        "c14fad6cfd67fa782beb7a425eb03c3ed0b8090ed751c37f5f5ec426808df25c"
   end
-
-  keg_only :provided_pre_mountain_lion
 
   depends_on "gettext"
 
-  conflicts_with "cspice", :because => "both install `states` binaries"
+  conflicts_with "cspice", because: "both install `states` binaries"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
@@ -29,7 +27,7 @@ class Enscript < Formula
   end
 
   test do
-    assert_match /GNU Enscript #{Regexp.escape(version)}/,
+    assert_match "GNU Enscript #{Regexp.escape(version)}",
                  shell_output("#{bin}/enscript -V")
   end
 end

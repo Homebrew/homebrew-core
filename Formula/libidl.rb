@@ -3,21 +3,23 @@ class Libidl < Formula
   homepage "https://ftp.acc.umu.se/pub/gnome/sources/libIDL/0.8/"
   url "https://download.gnome.org/sources/libIDL/0.8/libIDL-0.8.14.tar.bz2"
   sha256 "c5d24d8c096546353fbc7cedf208392d5a02afe9d56ebcc1cccb258d7c4d2220"
+  revision 1
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "3d80aba8c6f6cc762bf20abbcdc5098d39d9cc5ecc9a31f1e08b96c35deb1004" => :high_sierra
-    sha256 "d8c0e559183f9cfb1ac579acb95db74c73c4f276ac791eb4ffcb65db8e47c0ca" => :sierra
-    sha256 "0c81487e7c93733097a62e6c693943fda8b13ce03ff6a6972a320c711d561e39" => :el_capitan
-    sha256 "356ad466ab477116e8f030ef75b70bc46321f68ec1f077f9b06dca3bb076e499" => :yosemite
-    sha256 "dffe56b6e1076ac49a43ff662517b974f97e47707906362629176cfdc09b6f91" => :mavericks
-    sha256 "7aee2ea7f3760687e9acd4a35c393e240f8f59e94a36c2a31812d15a41cfcac8" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "8b4d33f25fe4a01c6924b42d64072cbf42ca133552e67d47c46412ca2e848867"
+    sha256 cellar: :any, big_sur:       "320ddc04b68934e51f31fc33223c11097d712869a83242ca6669d05ca112ede9"
+    sha256 cellar: :any, catalina:      "fc384a7b4357147c85196b681bd1a96a70e2a7e194c38b6e8afbef5bafc21efb"
+    sha256 cellar: :any, mojave:        "6221a3b0ea37b55c26bc1f83c84ce3e027a8925b92d63055a51fe3a7d6bdff19"
+    sha256 cellar: :any, high_sierra:   "9b07bec68567266f1bc065b05afdb9b034c0c70548145d7cdd963b5958c8da30"
+    sha256 cellar: :any, sierra:        "ecabcc1a9cd229a135557f0f8bc32a38d03d399ff6816b0fc897cc4bcf72cd1c"
   end
 
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",

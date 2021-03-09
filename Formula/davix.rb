@@ -1,32 +1,36 @@
 class Davix < Formula
   desc "Library and tools for advanced file I/O with HTTP-based protocols"
-  homepage "https://dmc.web.cern.ch/projects/davix/home"
-  url "https://github.com/cern-it-sdc-id/davix.git",
-      :tag => "R_0_6_7",
-      :revision => "4425c4498655f11401c7909dfe241b406487f043"
-  version "0.6.7"
-  head "https://github.com/cern-it-sdc-id/davix.git"
+  homepage "https://github.com/cern-fts/davix"
+  url "https://github.com/cern-fts/davix/releases/download/R_0_7_6/davix-0.7.6.tar.gz"
+  sha256 "a2e7fdff29f7ba247a3bcdb08ab1db6d6ed745de2d3971b46526986caf360673"
+  license "LGPL-2.1"
+  head "https://github.com/cern-fts/davix.git"
 
   bottle do
-    cellar :any
-    sha256 "3fa224f7f2099030860ea04b5a06ef0cab8eb1e1e3ad53f765274c31eec8626c" => :high_sierra
-    sha256 "8ed83d7e8367d1156fff19940f2ce360b9d069cf99f4b367f979b5f756d60963" => :sierra
-    sha256 "66bbeb6fa8cd77823581a15337da9e9446d5cd1126e8d6986d77735c112f1185" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "29e62d295cee33757abdf95ee7cb4c3aa5b180419e6687bf9347a6a121cab134"
+    sha256 cellar: :any, big_sur:       "9e554eb91c81f79781ea0890dd7309fe94010b32787a465f2368a8c0cd9129f9"
+    sha256 cellar: :any, catalina:      "e96a673e5adb6b0856928002be86673db1ba3efd3b8b06d5f87b8793d99698bb"
+    sha256 cellar: :any, mojave:        "1c863a82c559b2cb4def7b425339edbb5cb31847d21ae886f92e8616bd8af497"
+    sha256 cellar: :any, high_sierra:   "41917fcf64168c8f229fe025d77807e2adf7298e2bdfcb2c4b582e9d116faf4b"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "openssl"
-  depends_on "ossp-uuid"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "libxml2"
+
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
-    ENV.libcxx
-
     system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/davix-get", "https://www.google.com"
+    system "#{bin}/davix-get", "https://brew.sh"
   end
 end

@@ -3,15 +3,25 @@ class Nedit < Formula
   homepage "https://sourceforge.net/projects/nedit/"
   url "https://downloads.sourceforge.net/project/nedit/nedit-source/nedit-5.7-src.tar.gz"
   sha256 "add9ac79ff973528ad36c86858238bac4f59896c27dbf285cbe6a4d425fca17a"
+  license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 "e0b25b1e4de1406581d398d1159f19b806328f1dc82b90874eab044dd8369162" => :high_sierra
-    sha256 "0150b964f9436f9e97e8a969379240ba50612354e36883bb851cc66f4fea6f74" => :sierra
-    sha256 "eecf056af8aa2b0062a5c6568a30c6f8e0120fbe5bdef718d5b30f76894e3f36" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "e81454f55e5a3b396abe741f65a4a2600d18e93301385edd3481d8d55cee20c0"
+    sha256 cellar: :any, big_sur:       "d39ce752a03c79732c908a3cbe93df61f413a12126f764e7e1c3d71f4106f701"
+    sha256 cellar: :any, catalina:      "c726811764a5d12465d4c11b273229482af935921df472f6d083a27e34b39b3f"
+    sha256 cellar: :any, mojave:        "7e3760fcb4d5a78393094c94b0c97a4e9b73487eeca6510963f098ebaeddf281"
+    sha256 cellar: :any, high_sierra:   "0f1ea26247cf5abe89ecc7038820b937ee20046fa44b504363604af4a7bbb093"
   end
 
+  depends_on "libice"
+  depends_on "libsm"
+  depends_on "libx11"
+  depends_on "libxext"
+  depends_on "libxp"
+  depends_on "libxpm"
+  depends_on "libxt"
   depends_on "openmotif"
-  depends_on :x11
 
   def install
     system "make", "macosx", "MOTIFLINK='-lXm'"
@@ -27,7 +37,7 @@ class Nedit < Formula
   end
 
   test do
-    system bin/"nedit", "-version"
-    system bin/"ncl", "-version"
+    assert_match "Can't open display", shell_output("DISPLAY= #{bin}/nedit 2>&1", 1)
+    assert_match "Can't open display", shell_output("DISPLAY= #{bin}/ncl 2>&1", 1)
   end
 end

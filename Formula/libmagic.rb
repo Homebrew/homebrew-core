@@ -1,18 +1,23 @@
 class Libmagic < Formula
   desc "Implementation of the file(1) command"
   homepage "https://www.darwinsys.com/file/"
-  url "ftp://ftp.astron.com/pub/file/file-5.32.tar.gz"
-  mirror "https://fossies.org/linux/misc/file-5.32.tar.gz"
-  sha256 "8639dc4d1b21e232285cd483604afc4a6ee810710e00e579dbe9591681722b50"
+  url "https://astron.com/pub/file/file-5.39.tar.gz"
+  sha256 "f05d286a76d9556243d0cb05814929c2ecf3a5ba07963f8f70bfaaa70517fad1"
 
-  bottle do
-    sha256 "f3181a7bb80610f8e0662e03ee980a03f6388c142e5b7b15eb97ad3b9b4690c9" => :high_sierra
-    sha256 "ba06b4094577d77c2d515932e0bf0f3e1481f26dd307e655d28f8fba13fa8791" => :sierra
-    sha256 "05d95e47cfa533c37fcbd4f4b54b9c9957d985d49852f397c6d78387fbe2c254" => :el_capitan
-    sha256 "d11466ebdc722d370346cecf135a925e1f482f0d0bbbb424f821347134f52e64" => :yosemite
+  livecheck do
+    url "https://astron.com/pub/file/"
+    regex(/href=.*?file[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on :python => :optional
+  bottle do
+    sha256 arm64_big_sur: "e588a1adec77deda36340e9cce3375fde9ffcdabcd79ba86a429dbd14ea542fe"
+    sha256 big_sur:       "2a09f46305a9457a2bfae1069cbf8f6a473d77f69a6370e67f67c0decc96ca0a"
+    sha256 catalina:      "90b17cb74e853804227abdd32c6810ff535fb98e8862f946c49860b697faece0"
+    sha256 mojave:        "f32eb14fbef470d28a041ddefec932e8d96870b4a13dbac3f61d8c6de6e50f29"
+    sha256 high_sierra:   "110d2db0b588dc5a379124d024b228e8ee8aae58c95a6a0510e68dc36426a86a"
+  end
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -21,13 +26,7 @@ class Libmagic < Formula
                           "--enable-fsect-man5",
                           "--enable-static"
     system "make", "install"
-    (share+"misc/magic").install Dir["magic/Magdir/*"]
-
-    if build.with? "python"
-      cd "python" do
-        system "python", *Language::Python.setup_install_args(prefix)
-      end
-    end
+    (share/"misc/magic").install Dir["magic/Magdir/*"]
 
     # Don't dupe this system utility
     rm bin/"file"
@@ -49,7 +48,7 @@ class Libmagic < Formula
           puts(magic_file(cookie, argv[1]));
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmagic", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmagic", "-o", "test"
     cp test_fixtures("test.png"), "test.png"
     assert_equal "image/png", shell_output("./test test.png").chomp
   end

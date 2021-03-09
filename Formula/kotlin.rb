@@ -1,15 +1,25 @@
 class Kotlin < Formula
   desc "Statically typed programming language for the JVM"
   homepage "https://kotlinlang.org/"
-  url "https://github.com/JetBrains/kotlin/releases/download/v1.2.0/kotlin-compiler-1.2.0.zip"
-  sha256 "895d0f8286db3e4f43d67cd5e09b600af6e0a5017cb74072d1b09c78b697775a"
+  url "https://github.com/JetBrains/kotlin/releases/download/v1.4.31/kotlin-compiler-1.4.31.zip"
+  sha256 "b50e7016febf7510325d685ae69cc62f49a7ca7f670cb4e0888112e3ec09c6ec"
+  license "Apache-2.0"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle :unneeded
+
+  depends_on "openjdk"
 
   def install
     libexec.install "bin", "build.txt", "lib"
     rm Dir["#{libexec}/bin/*.bat"]
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
+    prefix.install "license"
   end
 
   test do

@@ -1,25 +1,22 @@
 class Acme < Formula
   desc "Crossassembler for multiple environments"
-  homepage "https://web.archive.org/web/20150520143433/https://www.esw-heim.tu-clausthal.de/~marco/smorbrod/acme/"
-  url "https://www.mirrorservice.org/sites/ftp.cs.vu.nl/pub/minix/distfiles/backup/acme091src.tar.gz"
-  mirror "http://ftp.lip6.fr/pub/minix/distfiles/backup/acme091src.tar.gz"
-  version "0.91"
-  sha256 "31ed7f9be5cd27100b13d6c3e2faec35d15285542cbe168ec5e1b5236125decb"
+  homepage "https://sourceforge.net/projects/acme-crossass/"
+  url "https://svn.code.sf.net/p/acme-crossass/code-0/trunk", revision: "266"
+  version "0.97"
+  license "GPL-2.0-or-later"
 
-  bottle do
-    cellar :any_skip_relocation
-    rebuild 2
-    sha256 "679da82eb906eb814fc69e373fccc81d0c92563d88f2e8138cfe21eedb611c1a" => :high_sierra
-    sha256 "a551c65f11021ede47269b1a29b09c601063267501134daa8213674a62c97615" => :sierra
-    sha256 "84f0ba7e45580d5a28a9a0dd9d7a25a6e67a9bdc7407c5b91cf64b8b9cf0a165" => :el_capitan
-    sha256 "1e7c7805ac21061637cd1ce964f976c6f68b9259e892ffc77ee71f2aa280f879" => :yosemite
-    sha256 "022ef1a9526002dda47023b47c2af6227ee40f33b33b0ed232ae105fcf982911" => :mavericks
+  livecheck do
+    url "https://sourceforge.net/p/acme-crossass/code-0/HEAD/tree/trunk/docs/Changes.txt?format=raw"
+    strategy :page_match
+    regex(/New in release v?(\d+(?:\.\d+)+)/i)
   end
 
-  devel do
-    url "https://web.archive.org/web/20150501011451/https://www.esw-heim.tu-clausthal.de/~marco/smorbrod/acme/current/acme093testing.tar.bz2"
-    sha256 "cf374869265981437181609483bdb6c43f7313f81cfe57357b0ac88578038c02"
-    version "0.93"
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eed2df7b934a52ca875e02a7b89588ac602cfa0cfbde0e795bbcdaff72bb5201"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7890b8c1a32b202ab913553d534db373de3d61bb274a564fb9304cd4de043736"
+    sha256 cellar: :any_skip_relocation, catalina:      "54080f9a08a3f958c5a024fd536c2308c392521a4a4092afb115f368b3256fd2"
+    sha256 cellar: :any_skip_relocation, mojave:        "53ddd3c05dea30a12436e997a68ab50670bd9dbe771e3c3a6d7216c0240c6e07"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8ed3df0ed73b3f995ca33b357c00f54b03f16ec2effd61eca985b04a82eb40b6"
   end
 
   def install
@@ -29,7 +26,7 @@ class Acme < Formula
 
   test do
     path = testpath/"a.asm"
-    path.write <<-EOS
+    path.write <<~EOS
       !to "a.out", cbm
       * = $c000
       jmp $fce2

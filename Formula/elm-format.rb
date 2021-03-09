@@ -1,33 +1,40 @@
-require "language/haskell"
-
 class ElmFormat < Formula
-  include Language::Haskell::Cabal
   desc "Elm source code formatter, inspired by gofmt"
   homepage "https://github.com/avh4/elm-format"
   url "https://github.com/avh4/elm-format.git",
-      :tag => "0.6.1-alpha",
-      :revision => "24cbc66245289dd3ca5c08a14e86358dc039fcf3"
-  version "0.6.1-alpha"
+      tag:      "0.8.4",
+      revision: "5bd4fbe591fe8b456160c180cb875ef60bc57890"
+  license "BSD-3-Clause"
   head "https://github.com/avh4/elm-format.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d63d07ef26edd91e1b10c4b1286dd271ac7f2958eb5e92aa78bb62ec49f4802a" => :high_sierra
-    sha256 "0d803f1ba6449fc85db9edac0bf55f14c9358868b015559ec2836c799bdf9cb4" => :sierra
-    sha256 "034a1da2a60646992a7571e1879f6ff31ebc43c3f43250689d4b6d6f1c12286d" => :el_capitan
-    sha256 "964df8c9e60c3ab2968fa6d6304beee5d0eefd993001a35e26da279b54e2e543" => :yosemite
+    sha256 cellar: :any_skip_relocation, big_sur:     "f7f6bb421efb3969733d33c7f6200af334bcd768d2128b14ba0280270b2fff30"
+    sha256 cellar: :any_skip_relocation, catalina:    "dca23c0c1e66cfc6208ff891611ba8c38fdddd1d90d2a8b32bafe69dc3701b91"
+    sha256 cellar: :any_skip_relocation, mojave:      "0e196d773546e0d476c079a434c57f1b49a2966410397bb33747fa2d9e57ffe1"
+    sha256 cellar: :any_skip_relocation, high_sierra: "a8f9aa324518559cdd5b7617f5453f629e90f6897cd72e38f5ab84165e7ddae0"
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.8" => :build
+
+  def build_elm_format_conf
+    <<~EOS
+      module Build_elm_format where
+
+      gitDescribe :: String
+      gitDescribe = "#{version}"
+    EOS
+  end
 
   def install
+    defaults = buildpath/"generated/Build_elm_format.hs"
+    defaults.write(build_elm_format_conf)
+
     (buildpath/"elm-format").install Dir["*"]
 
-    cabal_sandbox do
-      cabal_sandbox_add_source "elm-format"
-      cabal_install "--only-dependencies", "elm-format"
-      cabal_install "--prefix=#{prefix}", "elm-format"
+    cd "elm-format" do
+      system "cabal", "v2-update"
+      system "cabal", "v2-install", *std_cabal_v2_args
     end
   end
 
@@ -38,6 +45,7 @@ class ElmFormat < Formula
       main = text "Hello, world!"
     EOS
 
-    system bin/"elm-format-0.17", testpath/"Hello.elm", "--yes"
+    system bin/"elm-format", "--elm-version=0.18", testpath/"Hello.elm", "--yes"
+    system bin/"elm-format", "--elm-version=0.19", testpath/"Hello.elm", "--yes"
   end
 end

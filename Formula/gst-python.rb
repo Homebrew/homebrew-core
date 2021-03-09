@@ -1,54 +1,47 @@
 class GstPython < Formula
   desc "Python overrides for gobject-introspection-based pygst bindings"
   homepage "https://gstreamer.freedesktop.org/modules/gst-python.html"
-  url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.12.3.tar.xz"
-  sha256 "c3f529dec1294633132690806703b80bad5752eff482eaf81f209c2aba012ba7"
+  url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-1.18.3.tar.xz"
+  sha256 "4e630735276e08ff4d70337aa5d91fd008e5f1ed3dc0993674cd5820e264259a"
+  license "LGPL-2.1-or-later"
 
-  bottle do
-    sha256 "1124d7e8080638a09ca8887b50394645aff5a7700b2f7be28b3c2525c55a83ba" => :high_sierra
-    sha256 "b5c0120dee822848e84745f9f972b96c83c4d945d50deb47fe719379e4d66f95" => :sierra
-    sha256 "8bc78b92da68334923853da6a82520fb5c7f6a7a03d861639de4679e9e03211d" => :el_capitan
+  livecheck do
+    url "https://gstreamer.freedesktop.org/src/gst-python/"
+    regex(/href=.*?gst-python[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
   end
 
-  option "without-python", "Build without python 2 support"
+  bottle do
+    sha256 big_sur:  "0323f7f77b31d549d64768a94bae8d8b5b1bb32cb30363e027e77ff40a3691c1"
+    sha256 catalina: "744cd20c663082002163044a3dc968b6a9230eadabb5b8c531cb06071c3efbc8"
+    sha256 mojave:   "0d9a4ce411145a61dbc9ae7d72664ffc437a4281916a1c6f957ea6fdb15bd38a"
+  end
 
-  depends_on :python3 => :optional
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "gst-plugins-base"
+  depends_on "pygobject3"
+  depends_on "python@3.9"
 
-  depends_on "pygobject3" if build.with? "python"
-  depends_on "pygobject3" => "with-python3" if build.with? "python3"
-
-  link_overwrite "lib/python2.7/site-packages/gi/overrides"
+  # See https://gitlab.freedesktop.org/gstreamer/gst-python/-/merge_requests/41
+  patch do
+    url "https://gitlab.freedesktop.org/gstreamer/gst-python/-/commit/3e752ede7ed6261681ef3831bc3dbb594f189e76.patch"
+    sha256 "ad63ba452d97da70601854cc8e46e8bd53db708a3d98bf7411483d52aadcebf3"
+  end
 
   def install
-    if build.with?("python") && build.with?("python3")
-      # Upstream does not support having both Python2 and Python3 versions
-      # of the plugin installed because apparently you can load only one
-      # per process, so GStreamer does not know which to load.
-      odie "Options --with-python and --with-python3 are mutually exclusive."
-    end
-
-    Language::Python.each_python(build) do |python, version|
-      # pygi-overrides-dir switch ensures files don't break out of sandbox.
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{prefix}",
-                            "--with-pygi-overrides-dir=#{lib}/python#{version}/site-packages/gi/overrides",
-                            "PYTHON=#{python}"
-      system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 
   test do
-    system "#{Formula["gstreamer"].opt_bin}/gst-inspect-1.0", "python"
-    Language::Python.each_python(build) do |python, _version|
-      # Without gst-python raises "TypeError: object() takes no parameters"
-      system python, "-c", <<~EOS
-        import gi
-        gi.require_version('Gst', '1.0')
-        from gi.repository import Gst
-        print (Gst.Fraction(num=3, denom=5))
-        EOS
-    end
+    system Formula["python@3.9"].opt_bin/"python3", "-c", <<~EOS
+      import gi
+      gi.require_version('Gst', '1.0')
+      from gi.repository import Gst
+      print (Gst.Fraction(num=3, denom=5))
+    EOS
   end
 end

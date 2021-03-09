@@ -1,66 +1,110 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.0g.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl@1.1-1.1.0g.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.0g.tar.gz"
-  sha256 "de4d501267da39310905cb6dc8c6121f7a2cad45a7707f76df828fe1b85073af"
+  url "https://www.openssl.org/source/openssl-1.1.1j.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1j.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1j.tar.gz"
+  sha256 "aaf2fcb575cdf6491b98ab4829abf78a3dec8402b8b81efc8f23c00d443981bf"
+  license "OpenSSL"
   version_scheme 1
 
-  bottle do
-    sha256 "5e42b3d59d4c7be3164a8f820cbc78c9611e0766d4326a9d0ab7961d31019f7c" => :high_sierra
-    sha256 "28fbe28a1aa1e36d577d8fd38336ffc9ed5af80c77c263a50eff825f9c5c2926" => :sierra
-    sha256 "5e598ed7560b4925dd7ae88da705428059180931b766110c4b6f1a41e6add256" => :el_capitan
+  livecheck do
+    url "https://www.openssl.org/source/"
+    regex(/href=.*?openssl[._-]v?(1\.1(?:\.\d+)+[a-z]?)\.t/i)
   end
 
-  keg_only :versioned_formula
+  bottle do
+    sha256 arm64_big_sur: "f8b99ea0ad2a19855aab784122271fbc811c69b03c53c0e8b959b02977e4444a"
+    sha256 big_sur:       "5725361adcd088a5b4fb278aa37b12964008f9ceb3892ceef558fb5de3c95896"
+    sha256 catalina:      "ecfbca86c18eb819222ae13aa2e4148d89c9dc15e1172545352b6fcf29d40d0c"
+    sha256 mojave:        "ffbc4252535f6073ff109cfa87e50847e6d44051a7ff374b8ad3b455477e7d1a"
+  end
 
-  option "without-test", "Skip build-time tests (not recommended)"
+  keg_only :shadowed_by_macos, "macOS provides LibreSSL"
 
-  # Only needs 5.10 to run, but needs >5.13.4 to run the testsuite.
-  # https://github.com/openssl/openssl/blob/4b16fa791d3ad8/README.PERL
-  # The MacOS ML tag is same hack as the way we handle most :python deps.
-  if build.with? "test"
-    depends_on :perl => "5.14" if MacOS.version <= :mountain_lion
-  else
-    depends_on :perl => "5.10"
+  on_linux do
+    resource "cacert" do
+      # homepage "http://curl.haxx.se/docs/caextract.html"
+      url "https://curl.haxx.se/ca/cacert-2020-01-01.pem"
+      mirror "https://gist.githubusercontent.com/dawidd6/16d94180a019f31fd31bc679365387bc/raw/ef02c78b9d6427585d756528964d18a2b9e318f7/cacert-2020-01-01.pem"
+      sha256 "adf770dfd574a0d6026bfaa270cb6879b063957177a991d453ff1d302c02081f"
+    end
+
+    resource "Test::Harness" do
+      url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Test-Harness-3.42.tar.gz"
+      sha256 "0fd90d4efea82d6e262e6933759e85d27cbcfa4091b14bf4042ae20bab528e53"
+    end
+
+    resource "Test::More" do
+      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302175.tar.gz"
+      sha256 "c8c8f5c51ad6d7a858c3b61b8b658d8e789d3da5d300065df0633875b0075e49"
+    end
+
+    resource "ExtUtils::MakeMaker" do
+      url "https://cpan.metacpan.org/authors/id/B/BI/BINGOS/ExtUtils-MakeMaker-7.48.tar.gz"
+      sha256 "94e64a630fc37e80c0ca02480dccfa5f2f4ca4b0dd4eeecc1d65acd321c68289"
+    end
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
   # be obvious to everyone, so explicitly state it for now to
   # help debug inevitable breakage.
-  def configure_args; %W[
-    --prefix=#{prefix}
-    --openssldir=#{openssldir}
-    no-ssl3
-    no-ssl3-method
-    no-zlib
-  ]
+  def configure_args
+    args = %W[
+      --prefix=#{prefix}
+      --openssldir=#{openssldir}
+      no-ssl3
+      no-ssl3-method
+      no-zlib
+    ]
+    on_linux do
+      args += (ENV.cflags || "").split
+      args += (ENV.cppflags || "").split
+      args += (ENV.ldflags || "").split
+      args << "enable-md2"
+    end
+    args
   end
 
   def install
+    on_linux do
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+      %w[ExtUtils::MakeMaker Test::Harness Test::More].each do |r|
+        resource(r).stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}", "CC=#{ENV.cc}"
+          system "make", "install"
+        end
+      end
+    end
+
     # This could interfere with how we expect OpenSSL to build.
     ENV.delete("OPENSSL_LOCAL_CONFIG_DIR")
 
     # This ensures where Homebrew's Perl is needed the Cellar path isn't
     # hardcoded into OpenSSL's scripts, causing them to break every Perl update.
     # Whilst our env points to opt_bin, by default OpenSSL resolves the symlink.
-    if which("perl") == Formula["perl"].opt_bin/"perl"
-      ENV["PERL"] = Formula["perl"].opt_bin/"perl"
-    end
+    ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
 
-    if MacOS.prefer_64_bit?
-      arch_args = %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128]
-    else
-      arch_args = %w[darwin-i386-cc]
+    arch_args = []
+    on_macos do
+      arch_args += %W[darwin64-#{Hardware::CPU.arch}-cc enable-ec_nistp_64_gcc_128]
+    end
+    on_linux do
+      if Hardware::CPU.intel?
+        arch_args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
+      elsif Hardware::CPU.arm?
+        arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
+      end
     end
 
     ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args)
     system "make"
-    system "make", "test" if build.with?("test")
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
+    system "make", "test"
   end
 
   def openssldir
@@ -68,6 +112,11 @@ class OpensslAT11 < Formula
   end
 
   def post_install
+    on_macos(&method(:macos_post_install))
+    on_linux(&method(:linux_post_install))
+  end
+
+  def macos_post_install
     keychains = %w[
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
@@ -87,22 +136,32 @@ class OpensslAT11 < Formula
     end
 
     openssldir.mkpath
-    (openssldir/"cert.pem").atomic_write(valid_certs.join("\n"))
+    (openssldir/"cert.pem").atomic_write(valid_certs.join("\n") << "\n")
   end
 
-  def caveats; <<~EOS
-    A CA file has been bootstrapped using certificates from the system
-    keychain. To add additional certificates, place .pem files in
-      #{openssldir}/certs
+  def linux_post_install
+    # Download and install cacert.pem from curl.haxx.se
+    cacert = resource("cacert")
+    cacert.fetch
+    rm_f openssldir/"cert.pem"
+    filename = Pathname.new(cacert.url).basename
+    openssldir.install cacert.files(filename => "cert.pem")
+  end
 
-    and run
-      #{opt_bin}/c_rehash
+  def caveats
+    <<~EOS
+      A CA file has been bootstrapped using certificates from the system
+      keychain. To add additional certificates, place .pem files in
+        #{openssldir}/certs
+
+      and run
+        #{opt_bin}/c_rehash
     EOS
   end
 
   test do
     # Make sure the necessary .cnf file exists, otherwise OpenSSL gets moody.
-    assert_predicate HOMEBREW_PREFIX/"etc/openssl@1.1/openssl.cnf", :exist?,
+    assert_predicate pkgetc/"openssl.cnf", :exist?,
             "OpenSSL requires the .cnf file for some functionality"
 
     # Check OpenSSL itself functions as expected.

@@ -1,15 +1,15 @@
 class Hebcal < Formula
   desc "Perpetual Jewish calendar for the command-line"
   homepage "https://github.com/hebcal/hebcal"
-  url "https://github.com/hebcal/hebcal/archive/v4.13.tar.gz"
-  sha256 "7b2e69b0e400ffd727fd818d926484c3f15a51cd6b325cea2483354501d6fce9"
+  url "https://github.com/hebcal/hebcal/archive/v4.24.tar.gz"
+  sha256 "64e885d45b2006539af3135dacdb3b540092483bf0380e1b0e5bea224ca19889"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "95fd596027fcf571cd1091be417f28ad59ee838aab4c0769f8f36ae10896eeb0" => :high_sierra
-    sha256 "b520aadc300e1660d66e8ee26712405b3581ad32b20c119908c5890d90f721e9" => :sierra
-    sha256 "55630d52364af42172ae1abc10847110fabe93f94ae21708863803be7c35fdc9" => :el_capitan
-    sha256 "37d26466a7deb14cb2f38cc7eff1621eef652239bb973b3f5c5c870cb624399d" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "33af9a0346510a27b1e046bcd8d7d4e734216d578ad907a54ebb9ad6aae3ace9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ff567e2bcda1ae361e63e8a86ddf85199c6224894a57caedee078e1483fdc521"
+    sha256 cellar: :any_skip_relocation, catalina:      "21a0b493d2ce497baed5a0badb60a312f5e96afb8b2afbe1d8eecc584d885207"
+    sha256 cellar: :any_skip_relocation, mojave:        "dea0961f7ee0fe3420f4b3eed313016897a1c2aca43e4b50a0936ee2b9c6653e"
   end
 
   depends_on "autoconf" => :build
@@ -21,6 +21,7 @@ class Hebcal < Formula
   end
 
   test do
-    system "#{bin}/hebcal"
+    output = shell_output("#{bin}/hebcal 01 01 2020").chomp
+    assert_equal output, "1/1/2020 4th of Tevet, 5780"
   end
 end

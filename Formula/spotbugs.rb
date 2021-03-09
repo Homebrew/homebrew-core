@@ -1,8 +1,9 @@
 class Spotbugs < Formula
   desc "Tool for Java static analysis (FindBugs's successor)"
   homepage "https://spotbugs.github.io/"
-  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/3.1.1/spotbugs-3.1.1.tgz"
-  sha256 "edd592e3dacd9a68574c90afdab1ea4287dd5b7bc5a8c9bf7d7b5342ddb745d7"
+  url "https://repo.maven.apache.org/maven2/com/github/spotbugs/spotbugs/4.2.2/spotbugs-4.2.2.tgz"
+  sha256 "4967c72396e34b86b9458d0c34c5ed185770a009d357df8e63951ee2844f769f"
+  license "LGPL-2.1-or-later"
 
   head do
     url "https://github.com/spotbugs/spotbugs.git"
@@ -12,17 +13,19 @@ class Spotbugs < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     if build.head?
       system "gradle", "build"
       system "gradle", "installDist"
       libexec.install Dir["spotbugs/build/install/spotbugs/*"]
     else
       libexec.install Dir["*"]
+      chmod 0755, "#{libexec}/bin/spotbugs"
     end
-    bin.install_symlink "#{libexec}/bin/spotbugs"
+    (bin/"spotbugs").write_env_script "#{libexec}/bin/spotbugs", Language::Java.overridable_java_home_env
   end
 
   test do
@@ -37,9 +40,9 @@ class Spotbugs < Formula
         }
       }
     EOS
-    system "javac", "HelloWorld.java"
-    system "jar", "cvfe", "HelloWorld.jar", "HelloWorld", "HelloWorld.class"
+    system "#{Formula["openjdk"].bin}/javac", "HelloWorld.java"
+    system "#{Formula["openjdk"].bin}/jar", "cvfe", "HelloWorld.jar", "HelloWorld", "HelloWorld.class"
     output = shell_output("#{bin}/spotbugs -textui HelloWorld.jar")
-    assert_match /M V EI.*\nM C UwF.*\n/, output
+    assert_match(/M V EI.*\nM C UwF.*\n/, output)
   end
 end

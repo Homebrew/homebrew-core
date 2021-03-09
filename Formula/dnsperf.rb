@@ -1,19 +1,26 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
-  homepage "https://nominum.com/measurement-tools/"
-  url "ftp://ftp.nominum.com/pub/nominum/dnsperf/2.1.0.0/dnsperf-src-2.1.0.0-1.tar.gz"
-  version "2.1.0.0"
-  sha256 "64b5f0a680e1ad60bca5fd709f1a9a8404ac2fd85af6138bd22ca9a28b616e0e"
+  homepage "https://www.dns-oarc.net/tools/dnsperf"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.4.2.tar.gz"
+  sha256 "be1782ada2bc735b1d3538ed2fa8fb52d917eb32538c2f0612ae60c024101c31"
+  license "Apache-2.0"
+  revision 1
 
-  bottle do
-    cellar :any
-    sha256 "654185e3cd66f2ba80a14e2018d55bdcbd0a8c2f2b2cca1959f9358f2b67c2f6" => :high_sierra
-    sha256 "022ff860326489a63461893dc00c22854fea6fd63949b48ae44abf37e539c20b" => :sierra
-    sha256 "5e605b056442f7c84a1f7b826ae3fc0e113d12b8ab2174371e004c79acc4336a" => :el_capitan
-    sha256 "8d18fb864b8cb9fd3624e10d178fc11d9bd569863ca9e94ff9fd7afc0ee91afc" => :yosemite
+  livecheck do
+    url :homepage
+    regex(/href=.*?dnsperf[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "8730e011c11d6122dc29b6394e581a0470e026ecd4e817f826514ebd7b6fcc82"
+    sha256 cellar: :any, big_sur:       "a28b5ac11a2d5163a91313749fd8ddd960ee6ca7f196b652927bbeb195989ffd"
+    sha256 cellar: :any, catalina:      "b84cdea5d717093c0d5221c95793c69dd338f7ade5606ad4a83f28695dc4cbbc"
+    sha256 cellar: :any, mojave:        "eb49eb5b1be6846b2c6bafd8a42a8e23275214ba2737ceefd640b5bbbf65e3d9"
+  end
+
+  depends_on "pkg-config" => :build
   depends_on "bind"
+  depends_on "krb5"
   depends_on "libxml2"
 
   def install

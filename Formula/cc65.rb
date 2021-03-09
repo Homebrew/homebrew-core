@@ -1,27 +1,23 @@
 class Cc65 < Formula
   desc "6502 C compiler"
   homepage "https://cc65.github.io/cc65/"
-  url "https://github.com/cc65/cc65/archive/V2.16.tar.gz"
-  sha256 "fdbbf1efbf2324658a5774fdceef4a1b202322a04f895688d95694843df76792"
-
+  url "https://github.com/cc65/cc65/archive/V2.19.tar.gz"
+  sha256 "157b8051aed7f534e5093471e734e7a95e509c577324099c3c81324ed9d0de77"
+  license "Zlib"
   head "https://github.com/cc65/cc65.git"
 
   bottle do
-    sha256 "d0e95f0073a40ad6a7cf252c0a9ac3097fecdd7d1b8e132f3cb0314554c8e673" => :high_sierra
-    sha256 "c3e1ba0c47aa7cff0841b4aba4688d8598fbc39733cc4da9cfebbb626330e222" => :sierra
-    sha256 "f0c5fee3dab48fc030953717cdea847a1bd7fc040d50f34407330f190de54420" => :el_capitan
-    sha256 "c7b91bec2fa66f33f2c1f87a12db927ca613652e9a0e2b52848f6cc06d00acbc" => :yosemite
+    sha256 arm64_big_sur: "47405e34cd591b17d9ed65842f25ac7c6d9f61e98f21b9c403596257d7e23dae"
+    sha256 big_sur:       "d0010fe7f4b58daea95dd57f4116668bd2bedfbd5392e73412162292034d456d"
+    sha256 catalina:      "a773d68d33b81899ebe7c10d294c0d6e2c2eab9063206f787b1e8c5b8e36f437"
+    sha256 mojave:        "bd750ae3470b736a6b7260723ead51d6e871edc8d8607f53b670f03c84932a00"
   end
 
-  conflicts_with "grc", :because => "both install `grc` binaries"
+  conflicts_with "grc", because: "both install `grc` binaries"
 
   def install
-    ENV.deparallelize
-
-    make_vars = ["prefix=#{prefix}", "libdir=#{share}"]
-
-    system "make", *make_vars
-    system "make", "install", *make_vars
+    system "make", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   def caveats

@@ -4,13 +4,15 @@ class GnuTypist < Formula
   url "https://ftp.gnu.org/gnu/gtypist/gtypist-2.9.5.tar.xz"
   mirror "https://ftpmirror.gnu.org/gtypist/gtypist-2.9.5.tar.xz"
   sha256 "c13af40b12479f8219ffa6c66020618c0ce305ad305590fde02d2c20eb9cf977"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 "79367e864781c4a9fe5b25e737e99bdcae8c7b11a2198459d72775120495c2c3" => :high_sierra
-    sha256 "014e293ce1ed514fe95e6fce4cbedefdc876a51b6d38a740183b8ce959899e5a" => :sierra
-    sha256 "75fcb398d3997d6d9357bb6cf5638d2e10e469ce114b344865d37112754cc7af" => :el_capitan
-    sha256 "285c918d6b2240e294e6b192aff25de0f0383f9ac645d8883e04e3443e52b674" => :yosemite
+    sha256 arm64_big_sur: "b241409e921daccc7d82bfd1641ba1b6fd43966d19458fc580d4245641306fe2"
+    sha256 big_sur:       "74506e983cf7d74abcd8cfa4007d8429cdae7283a1b3cd3a3f0272d4380df024"
+    sha256 catalina:      "2a824f3fad3871cbf43f15009c23563aa03872597f22e823f9e2551d35fe1e26"
+    sha256 mojave:        "9f0fcdd42b9a041408b132882778db2eb479749a7169b82f2caf1f4fd486b599"
+    sha256 high_sierra:   "72503afd4efafe7a8485ea22332819937008263976a6f5f5b42818565d59edbf"
+    sha256 sierra:        "d32708d6e8a640101ac618ceac23be6b9d1a6a4caa127c5fd12a44b4e57c09e9"
   end
 
   depends_on "gettext"
@@ -23,8 +25,10 @@ class GnuTypist < Formula
   end
 
   def install
-    # libiconv is not linked properly without this
-    ENV.append "LDFLAGS", "-liconv"
+    on_macos do
+      # libiconv is not linked properly without this
+      ENV.append "LDFLAGS", "-liconv"
+    end
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

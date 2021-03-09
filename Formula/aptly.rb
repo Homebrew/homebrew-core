@@ -1,27 +1,32 @@
 class Aptly < Formula
   desc "Swiss army knife for Debian repository management"
   homepage "https://www.aptly.info/"
-  url "https://github.com/smira/aptly/archive/v1.1.1.tar.gz"
-  sha256 "f7bc97e46cbff2f194af2c09db099d252f290a2ea90c251adea115e6d66cf31d"
-  head "https://github.com/smira/aptly.git"
+  url "https://github.com/aptly-dev/aptly/archive/v1.4.0.tar.gz"
+  sha256 "4172d54613139f6c34d5a17396adc9675d7ed002e517db8381731d105351fbe5"
+  license "MIT"
+  revision 1
+  head "https://github.com/aptly-dev/aptly.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d2364c7151cad362fc4ed4cc628aff6b3fecead9696276527f78034576ec5658" => :high_sierra
-    sha256 "7b2b48ae572475397cf32490422b5ac16b806063bf0280adeadf7e9fd135e0f0" => :sierra
-    sha256 "9586b3a09cb4267f928b045cb13f2e210a30b971b5e9b0e04575128e616789b8" => :el_capitan
-    sha256 "764451d229c92b48a3df79e074b761df632da13e661955ab1a767669ca631662" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7e20f2357e98719f0364e6e66322d0ea2d59b8be278cc656ace3f6386212fa11"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3ddf3032efd340ae06b8038917c4493facd1e4e9a64244b092d2d00f0904ae1d"
+    sha256 cellar: :any_skip_relocation, catalina:      "d14f3a2e0589a69b545078f4408a7ff804f727769f9ac0f66b0e08cbed96a7de"
+    sha256 cellar: :any_skip_relocation, mojave:        "4a164a193db58e11d6e7b18f7e911a8d7a96e8b40201160b822d8ade95181f65"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "53301cc0bf47b4eeadf784856ee71bc72c9be5db62ad0462ded0f843aed49b42"
   end
 
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     ENV["GOBIN"] = bin
-    (buildpath/"src/github.com/smira/aptly").install buildpath.children
-    cd "src/github.com/smira/aptly" do
+    (buildpath/"src/github.com/aptly-dev/aptly").install buildpath.children
+    cd "src/github.com/aptly-dev/aptly" do
       system "make", "VERSION=#{version}", "install"
       prefix.install_metafiles
+      bash_completion.install "completion.d/aptly"
+      zsh_completion.install "completion.d/_aptly"
     end
   end
 

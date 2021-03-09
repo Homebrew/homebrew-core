@@ -1,23 +1,43 @@
 class Fox < Formula
   desc "Toolkit for developing Graphical User Interfaces easily"
   homepage "http://www.fox-toolkit.org/"
-  url "http://ftp.fox-toolkit.org/pub/fox-1.6.55.tar.gz"
-  sha256 "172416625221e54dcc1c4293fc892b9695f1e952f4b895376e6604c6c3813d74"
+  url "http://fox-toolkit.org/ftp/fox-1.6.56.tar.gz"
+  sha256 "c517e5fcac0e6b78ca003cc167db4f79d89e230e5085334253e1d3f544586cb2"
+  license "LGPL-2.1-or-later"
+  revision 2
 
-  bottle do
-    cellar :any
-    sha256 "ece7adf2fe555c4a8872ce8581d98562a030498010133de035315d366dd7459d" => :high_sierra
-    sha256 "93c94db6535ede86fd5ae0a7998d3dd231ff8d3a5747a1b73bdc1212ca467ec5" => :sierra
-    sha256 "2ca2e3c75121d687d575656ef82ddcd45c6cc63d9f79151679e34b0d42b93733" => :el_capitan
+  livecheck do
+    url "http://www.fox-toolkit.org/news.html"
+    regex(/FOX STABLE v?(\d+(?:\.\d+)+)/i)
   end
 
-  depends_on :x11
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "9e595940c212b8efb8588736216000490c8e8f4eff89b96be34aa92702538f1f"
+    sha256 cellar: :any, big_sur:       "f7988beb83a1343a270ba6107f8693550fb4b6f92632600849eb11f203bfa2fc"
+    sha256 cellar: :any, catalina:      "e9f946383a4fc88a230622abd2c38386053f20c35eb632bf62ea8e06e43be7ab"
+    sha256 cellar: :any, mojave:        "7017807cda0f8aa8e43338d4556ec842db95626984f7a9eaef4b926a9dff7310"
+    sha256 cellar: :any, high_sierra:   "3705392848b062aa09d8be70c0f99b0331eeeceaea685389d684644e86f7fe22"
+  end
+
+  depends_on "fontconfig"
   depends_on "freetype"
-  depends_on "libpng"
   depends_on "jpeg"
+  depends_on "libpng"
   depends_on "libtiff"
+  depends_on "libx11"
+  depends_on "libxcursor"
+  depends_on "libxext"
+  depends_on "libxfixes"
+  depends_on "libxft"
+  depends_on "libxi"
+  depends_on "libxrandr"
+  depends_on "libxrender"
+  depends_on "mesa"
+  depends_on "mesa-glu"
 
   def install
+    # Needed for libxft to find ftbuild2.h provided by freetype
+    ENV.append "CPPFLAGS", "-I#{Formula["freetype"].opt_include}/freetype2"
     system "./configure", "--disable-dependency-tracking",
                           "--enable-release",
                           "--prefix=#{prefix}",

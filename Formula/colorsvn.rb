@@ -1,20 +1,26 @@
 class Colorsvn < Formula
   desc "Subversion output colorizer"
-  homepage "http://colorsvn.tigris.org/"
-  url "http://colorsvn.tigris.org/files/documents/4414/49311/colorsvn-0.3.3.tar.gz"
+  homepage "https://web.archive.org/web/20170725092001/colorsvn.tigris.org/"
+  url "https://web.archive.org/web/20170725092001/colorsvn.tigris.org/files/documents/4414/49311/colorsvn-0.3.3.tar.gz"
   sha256 "db58d5b8f60f6d4def14f8f102ff137b87401257680c1acf2bce5680b801394e"
   revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4135712b5dd13e852b9c3ec5b7e95f22f5ec89e28e9f600a9372bd260b2851cf" => :high_sierra
-    sha256 "5c56662f331161022c31f665d980e077d6a01328864c6c59c137de3b0b57e4f2" => :sierra
-    sha256 "bf4048c281332c5cfcae4fc74c0fa233ad84c3fe2c111e633101d593284fe601" => :el_capitan
-    sha256 "88c79f8a9bc43d118449ce9d97061af4633f15f942a0a48caef5e1b327aea0e5" => :yosemite
-    sha256 "2711d058fa4c892f350b6309a82f7eeb85455bc1b336afc75587c467121a553d" => :mavericks
+    sha256 cellar: :any_skip_relocation, catalina:    "fb2e7d5ebe86b5c758a88cc06fe9e79c0b6b7bb86153fe116380d9c7875b6355"
+    sha256 cellar: :any_skip_relocation, mojave:      "46d8260b22e8a86b2bb573bffff4c6b8cea06dd8e3b2fe7e35e4b66960eb38ee"
+    sha256 cellar: :any_skip_relocation, high_sierra: "4135712b5dd13e852b9c3ec5b7e95f22f5ec89e28e9f600a9372bd260b2851cf"
+    sha256 cellar: :any_skip_relocation, sierra:      "5c56662f331161022c31f665d980e077d6a01328864c6c59c137de3b0b57e4f2"
+    sha256 cellar: :any_skip_relocation, el_capitan:  "bf4048c281332c5cfcae4fc74c0fa233ad84c3fe2c111e633101d593284fe601"
+    sha256 cellar: :any_skip_relocation, yosemite:    "88c79f8a9bc43d118449ce9d97061af4633f15f942a0a48caef5e1b327aea0e5"
+    sha256 cellar: :any_skip_relocation, mavericks:   "2711d058fa4c892f350b6309a82f7eeb85455bc1b336afc75587c467121a553d"
   end
 
-  patch :DATA
+  disable! date: "2020-12-08", because: :unmaintained
+
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/colorsvn/0.3.3.patch"
+    sha256 "2fa2c40e90c04971865894933346f43fc1d85b8b4ba4f1c615a0b7ab0fea6f0a"
+  end
 
   def install
     # `configure` uses `which` to find the `svn` binary that is then hard-coded
@@ -35,57 +41,20 @@ class Colorsvn < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    You probably want to set an alias to svn in your bash profile.
-    So source #{etc}/profile.d/colorsvn-env.sh or add the line
+  def caveats
+    <<~EOS
+      You probably want to set an alias to svn in your bash profile.
+      So source #{etc}/profile.d/colorsvn-env.sh or add the line
 
-        alias svn=colorsvn
+          alias svn=colorsvn
 
-    to your bash profile.
+      to your bash profile.
 
-    So when you type "svn" you'll run "colorsvn".
+      So when you type "svn" you'll run "colorsvn".
     EOS
   end
 
   test do
-    assert_match /svn: E155007/, shell_output("#{bin}/colorsvn info 2>&1", 1)
+    assert_match "svn: E155007", shell_output("#{bin}/colorsvn info 2>&1", 1)
   end
 end
-
-__END__
-diff --git a/Makefile.in b/Makefile.in
-index 84a3d97..54c2f74 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -13,8 +13,6 @@ srcdir=@srcdir@
- mandir=@mandir@
- sysconfdir=@sysconfdir@
- 
--confdir=/etc
--
- CP=@CP@
- PERL=@PERL@
- RM=@RM@ -f
-@@ -36,10 +34,10 @@ colorsvn:
- install: colorsvn
- 	$(INSTALL) -d $(DESTDIR)$(bindir) && \
- 	$(INSTALL) -m 755 $(PACKAGE) $(DESTDIR)$(bindir)/$(PACKAGE) && \
--	$(INSTALL) -d $(DESTDIR)/$(confdir) && \
--	$(INSTALL) -m 644 $(CONFIGFILE) $(DESTDIR)/$(confdir)/$(CONFIGFILE) && \
--	$(INSTALL) -d $(DESTDIR)/$(confdir)/profile.d && \
--	$(INSTALL) -m 755 $(PROFFILE) $(DESTDIR)/$(confdir)/profile.d/$(PROFFILE) && \
-+	$(INSTALL) -d $(DESTDIR)/$(sysconfdir) && \
-+	$(INSTALL) -m 644 $(CONFIGFILE) $(DESTDIR)/$(sysconfdir)/$(CONFIGFILE) && \
-+	$(INSTALL) -d $(DESTDIR)/$(sysconfdir)/profile.d && \
-+	$(INSTALL) -m 755 $(PROFFILE) $(DESTDIR)/$(sysconfdir)/profile.d/$(PROFFILE) && \
- 	if [ -f $(srcdir)/colorsvn.1 ] ; then \
- 	    $(INSTALL) -d $(DESTDIR)$(mandir)/man1/ ; \
- 	    $(INSTALL) -m 644 $(srcdir)/colorsvn.1 $(DESTDIR)$(mandir)/man1/ ; \
-@@ -54,6 +52,6 @@ clean:
- 
- uninstall:
- 	$(RM) $(DESTDIR)$(bindir)/$(PACKAGE) && \
--	$(RM) $(DESTDIR)/$(confdir)/$(CONFIGFILE)  && \
--	$(RM) $(DESTDIR)/$(confdir)/profile.d/$(PROFFILE)
-+	$(RM) $(DESTDIR)/$(sysconfdir)/$(CONFIGFILE)  && \
-+	$(RM) $(DESTDIR)/$(sysconfdir)/profile.d/$(PROFFILE)

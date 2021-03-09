@@ -1,109 +1,67 @@
 class Libxslt < Formula
   desc "C XSLT library for GNOME"
   homepage "http://xmlsoft.org/XSLT/"
-  url "http://xmlsoft.org/sources/libxslt-1.1.32.tar.gz"
-  mirror "ftp://xmlsoft.org/libxml2/libxslt-1.1.32.tar.gz"
-  sha256 "526ecd0abaf4a7789041622c3950c0e7f2c4c8835471515fd77eec684a355460"
+  url "http://xmlsoft.org/sources/libxslt-1.1.34.tar.gz"
+  sha256 "98b1bd46d6792925ad2dfe9a87452ea2adebf69dcb9919ffd55bf926a7f93f7f"
+  license "X11"
+  revision 2
+
+  livecheck do
+    url "http://xmlsoft.org/sources/"
+    regex(/href=.*?libxslt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "502430d08fb7c8d0462ca5421b66caee4d9b8e39f3c7460c2bfca91be37091f9" => :high_sierra
-    sha256 "5d68588f3afbdd93022aeaf81b9c6403c0c6b8aac24e5ba25a195c5ec5bad7e5" => :sierra
-    sha256 "66854da0ffbb83f60863c23b985e5522037db4957aca70e2b49346a243a30991" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "7f0dcf602ce806db8ce41b1e8d4ef352823f7343f258cd0519e6ad1885f3c593"
+    sha256 cellar: :any, big_sur:       "61c11bb170d9ba4bd079a2c81887b9d82cb34a3de110117d61d75f7f050b90d3"
+    sha256 cellar: :any, catalina:      "7f1626b1ae090f561ed8d7c2a3c7e9067ad29d68b547d91ff5a2e83d346183bc"
+    sha256 cellar: :any, mojave:        "6c73651ec7791877fe42675f9de291709300a2c3aa0da3e859d139e4121a5a18"
   end
 
   head do
-    url "https://git.gnome.org/browse/libxslt.git"
+    url "https://gitlab.gnome.org/GNOME/libxslt.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-
-    # https://bugzilla.gnome.org/show_bug.cgi?id=743148
-    patch :DATA
   end
 
-  keg_only :provided_by_osx
+  keg_only :provided_by_macos
 
+  depends_on "libgcrypt"
   depends_on "libxml2"
 
   def install
-    if build.head?
-      ENV["NOCONFIGURE"] = "yes"
-      system "./autogen.sh"
-    end
-
-    # https://bugzilla.gnome.org/show_bug.cgi?id=762967
-    inreplace "configure", /PYTHON_LIBS=.*/, 'PYTHON_LIBS="-undefined dynamic_lookup"'
+    system "autoreconf", "-fiv" if build.head?
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
+                          "--without-python",
+                          "--with-crypto",
                           "--with-libxml-prefix=#{Formula["libxml2"].opt_prefix}"
     system "make"
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    To allow the nokogiri gem to link against this libxslt run:
-      gem install nokogiri -- --with-xslt-dir=#{opt_prefix}
+  def caveats
+    <<~EOS
+      To allow the nokogiri gem to link against this libxslt run:
+        gem install nokogiri -- --with-xslt-dir=#{opt_prefix}
     EOS
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/xslt-config --version")
+    (testpath/"test.c").write <<~EOS
+      #include <libexslt/exslt.h>
+      int main(int argc, char *argv[]) {
+        exsltCryptoRegister();
+        return 0;
+      }
+    EOS
+    flags = shell_output("#{bin}/xslt-config --cflags --libs").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *flags, "-lexslt"
+    system "./test"
   end
 end
-
-__END__
-diff --git a/autogen.sh b/autogen.sh
-index 0eeadd3..5e85821 100755
---- a/autogen.sh
-+++ b/autogen.sh
-@@ -8,7 +8,7 @@ THEDIR=`pwd`
- cd $srcdir
- DIE=0
- 
--(autoconf --version) < /dev/null > /dev/null 2>&1 || {
-+(autoreconf --version) < /dev/null > /dev/null 2>&1 || {
- 	echo
- 	echo "You must have autoconf installed to compile libxslt."
- 	echo "Download the appropriate package for your distribution,"
-@@ -16,22 +16,6 @@ DIE=0
- 	DIE=1
- }
- 
--(libtoolize --version) < /dev/null > /dev/null 2>&1 || {
--	echo
--	echo "You must have libtool installed to compile libxslt."
--	echo "Download the appropriate package for your distribution,"
--	echo "or see http://www.gnu.org/software/libtool"
--	DIE=1
--}
--
--(automake --version) < /dev/null > /dev/null 2>&1 || {
--	echo
--	DIE=1
--	echo "You must have automake installed to compile libxslt."
--	echo "Download the appropriate package for your distribution,"
--	echo "or see http://www.gnu.org/software/automake"
--}
--
- if test "$DIE" -eq 1; then
- 	exit 1
- fi
-@@ -46,14 +30,7 @@ if test -z "$NOCONFIGURE" -a -z "$*"; then
- 	echo "to pass any to it, please specify them on the $0 command line."
- fi
- 
--echo "Running libtoolize..."
--libtoolize --copy --force
--echo "Running aclocal..."
--aclocal $ACLOCAL_FLAGS
--echo "Running automake..."
--automake --add-missing --warnings=all
--echo "Running autoconf..."
--autoconf --warnings=all
-+autoreconf -v --force --install -Wall
- 
- cd $THEDIR
- 

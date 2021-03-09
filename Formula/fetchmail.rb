@@ -1,22 +1,27 @@
 class Fetchmail < Formula
-  desc "Fetch mail from a POP, IMAP, ETRN, or ODMR-capable server"
-  homepage "http://www.fetchmail.info/"
-  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.3/fetchmail-6.3.26.tar.xz"
-  sha256 "79b4c54cdbaf02c1a9a691d9948fcb1a77a1591a813e904283a8b614b757e850"
+  desc "Client for fetching mail from POP, IMAP, ETRN or ODMR-capable servers"
+  homepage "https://www.fetchmail.info/"
+  url "https://downloads.sourceforge.net/project/fetchmail/branch_6.4/fetchmail-6.4.17.tar.xz"
+  sha256 "a41bcdf11b41aa0682b259aee4717c617c15dadd43fa008b2ed38b770f4d50c6"
 
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "8e037ee9a367c9c4a26d5491e4db84285390d0ef1949c30d56c0726706dab6de" => :high_sierra
-    sha256 "63692fabb3746b739ce3b81f2d1ce964ca4e74613ea63f307e734f90dbcea513" => :sierra
-    sha256 "663d68d69a865daa6311f70ed2412abe79affa23b8fd76b44eaca5d9735fba36" => :el_capitan
-    sha256 "44c0f861ca7a8bf1af2bd5c1007a48e397bba3c8dfeb7c3a3cc5299dd1cb7c66" => :yosemite
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/branch_\d+(?:\.\d+)*?/fetchmail[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  depends_on "openssl"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "69091941fb702f47d95d5dc0b93978df4455c2f4df19382a66ec3d2775c32935"
+    sha256 cellar: :any, big_sur:       "18f8ad0233c864ef7df0af47fbd001b7facb0c393666226b70c76077921f52ab"
+    sha256 cellar: :any, catalina:      "8bb5a567c7f6a5b9adf489b40dbccdb47b9ecc1a2fbdcb284058751f85fdc5aa"
+    sha256 cellar: :any, mojave:        "b41e5ea60d50061719aa5d9366384655bce4e0af4026e9e3b772a0f81a7dc266"
+  end
+
+  depends_on "openssl@1.1"
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "--with-ssl=#{Formula["openssl"].opt_prefix}"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 

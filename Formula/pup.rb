@@ -1,46 +1,34 @@
-require "language/go"
-
 class Pup < Formula
   desc "Parse HTML at the command-line"
   homepage "https://github.com/EricChiang/pup"
   url "https://github.com/ericchiang/pup/archive/v0.4.0.tar.gz"
   sha256 "0d546ab78588e07e1601007772d83795495aa329b19bd1c3cde589ddb1c538b0"
+  license "MIT"
   head "https://github.com/EricChiang/pup.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8a5634cae164832bf92170816885d5ff891dba96e3c47e21bb29d0e8766fece8" => :high_sierra
-    sha256 "6c542761d7bcbb8615391bc4972dd736959b7a509a049d95dc09cfbdab18a9b7" => :sierra
-    sha256 "2a9ec79a05eeadfb90a35a38a72009ea7deaa7d53e549b6bc4fd99ac99912ed3" => :el_capitan
-    sha256 "6453ea102503241bc2290d193831e1f0d6cadf22d801d50eeb885a42400059d6" => :yosemite
-    sha256 "9e6e6b1015033619137627ee4b1338ffece6d8f2e67e2cbebaa8a81fa67cc311" => :mavericks
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9593a0417aaaa3ae4f906b0996e7cecd5c14f38d6e59c729a7d20f82b5b5db08"
+    sha256 cellar: :any_skip_relocation, big_sur:       "adf4c73c13c8066e9aa9c9acae07a6d4f84965dff901919a2f718ef898d1bcb7"
+    sha256 cellar: :any_skip_relocation, catalina:      "b543d371442c8a14f8113396523d65f1775f4b61ca55d4b61b859c180eb20777"
+    sha256 cellar: :any_skip_relocation, mojave:        "baeef002d46ed4c9872242419ed991b9d9f26d8e5b296f54b2ffb9e1e6bcfc84"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "f470de75187b994ef9612c5404dc7622a356c8ee6af21f6b2549b5d7c5d88d32"
+    sha256 cellar: :any_skip_relocation, sierra:        "4ba84cffa7cfd01bd252223055abdf5fd8b6cfc27474131cf313e688ea8eeecf"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "a1aa49640871c127c76f4aea6db65487db964a055e2aa4d86ee2d8b7f5dcb561"
   end
 
   depends_on "go" => :build
-
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
-
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "6e9ee79eab7bb1b84155379b3f94ff9a87b344e4"
-  end
+  depends_on "gox" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     dir = buildpath/"src/github.com/ericchiang/pup"
     dir.install buildpath.children
 
-    Language::Go.stage_deps resources, buildpath/"src"
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-    cd("src/github.com/mitchellh/gox") { system "go", "install" }
-
     cd dir do
-      arch = MacOS.prefer_64_bit? ? "amd64" : "386"
-      system "gox", "-arch", arch, "-os", "darwin", "./..."
-      bin.install "pup_darwin_#{arch}" => "pup"
+      system "gox", "-arch", "amd64", "-os", "darwin", "./..."
+      bin.install "pup_darwin_amd64" => "pup"
     end
 
     prefix.install_metafiles dir

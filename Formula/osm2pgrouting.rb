@@ -1,36 +1,30 @@
 class Osm2pgrouting < Formula
   desc "Import OSM data into pgRouting database"
-  homepage "http://pgrouting.org/docs/tools/osm2pgrouting.html"
-  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.2.tar.gz"
-  sha256 "2abb865ebcd2827ffc92f5ea2a82d6ea3d02e654ab97671766da5ab4a7f67418"
-  revision 1
+  homepage "https://pgrouting.org/docs/tools/osm2pgrouting.html"
+  url "https://github.com/pgRouting/osm2pgrouting/archive/v2.3.7.tar.gz"
+  sha256 "afbe3ff74c9b9b7b1350362fc839e1466335d57f84941af19b5a663fd58aba0c"
+  license "GPL-2.0-or-later"
   head "https://github.com/pgRouting/osm2pgrouting.git"
 
   bottle do
-    cellar :any
-    sha256 "a36761125b93c168b28f7760b0d94fd2b04f0ee7e710836e52821997db87f9fb" => :high_sierra
-    sha256 "1681df19e5f5b68f7fd49ebc2681d80bfdfc4d7e622176132d22afe872e836a9" => :sierra
-    sha256 "07b02a0ee0a62a561abd6df1fa142491a283b90dfe5eb5f7bac43990aabb2af3" => :el_capitan
+    sha256 cellar: :any, big_sur:  "b3a5695ec0da3196e6a0db7fff372f4792e9b1afc8b1cd2f7608973deba24916"
+    sha256 cellar: :any, catalina: "fc5653e1d1c6f002603fb38aa117260feff5c4784e0c5cb04d9cc0a72f331d0d"
+    sha256 cellar: :any, mojave:   "1a09c4bd948c742744f6dc377cbacf03281ae0bd705341b05ada202e540ef43d"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "expat"
-  depends_on "libpqxx"
+  depends_on "libpqxx@6"
   depends_on "pgrouting"
   depends_on "postgis"
-  depends_on :postgresql
+  depends_on "postgresql"
 
   def install
-    inreplace "CMakeLists.txt" do |s|
-      s.gsub! "RUNTIME DESTINATION \"/usr/bin\"",
-              "RUNTIME DESTINATION \"#{bin}\""
-      s.gsub! "set (SHARE_DIR \"/usr/share/osm2pgrouting\")",
-              "set (SHARE_DIR \"#{pkgshare}\")"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
     end
-
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
   end
 
   test do

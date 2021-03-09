@@ -1,45 +1,21 @@
-require "language/go"
-
 class Karn < Formula
   desc "Manage multiple Git identities"
   homepage "https://github.com/prydonius/karn"
-  url "https://github.com/prydonius/karn/archive/v0.0.3.tar.gz"
-  sha256 "a9336abe63dbf6b952e1e4a3d4c31ed62dda69aa51e53f07902edb894638162d"
+  url "https://github.com/prydonius/karn/archive/v0.0.5.tar.gz"
+  sha256 "bb3e6d93a4202cde22f8ea0767c994dfebd018fba1f4c1876bf9ab0e765aa45c"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0bf13908c9c79f7cac0edc461349172430f3e2da5f8795ef4485cc59ba4bc5e0" => :high_sierra
-    sha256 "46a84a4885f8d8af04273911c16aa4a7d2a39390eb116257e9868ba30e1b9562" => :sierra
-    sha256 "2f8c0c979d0f9adf7bb99b3fe84136af6c261445544f23fe7ed12d543a0e5485" => :el_capitan
-    sha256 "8ee7e6511ddfbcf8f5f7edc6f42bbbe6662e20e9ee029f7f2d13bb66e9fbf9e8" => :yosemite
-    sha256 "16d1efcf64c807f2db0a270fcff9b973eaf54c280af2819615fdaa46ff6cabc8" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9fff2a71abf62d3eaedba7d095e3fcfd9fbaa17895dab15fabefc4cd2d5a8725"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bdcf0389352b56c208549750ec502a1bfc01c02c0466c981abfcace027cc479b"
+    sha256 cellar: :any_skip_relocation, catalina:      "6f9d3e100d55f950b54ee3ada80008209a1f61aefe62ae7f171e9615554b2f93"
+    sha256 cellar: :any_skip_relocation, mojave:        "4d676e8bc136599f4ec3ef0d6cb604b003ced4a0537c190ea430d5b0ca8609cf"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/codegangsta/cli" do
-    url "https://github.com/codegangsta/cli.git",
-        :revision => "f47f7b7e8568e846e9614acd5738092c3acf7058"
-  end
-
-  go_resource "github.com/mitchellh/go-homedir" do
-    url "https://github.com/mitchellh/go-homedir.git",
-        :revision => "7d2d8c8a4e078ce3c58736ab521a40b37a504c52"
-  end
-
-  go_resource "gopkg.in/yaml.v2" do
-    url "https://gopkg.in/yaml.v2",
-        :revision => "49c95bdc21843256fb6c4e0d370a05f24a0bf213", :using => :git
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/prydonius"
-    ln_s buildpath, buildpath/"src/github.com/prydonius/karn"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "cmd/karn/karn.go"
-    bin.install "karn"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/karn/karn.go"
   end
 
   test do

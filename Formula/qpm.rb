@@ -1,49 +1,27 @@
-require "language/go"
-
 class Qpm < Formula
   desc "Package manager for Qt applications"
   homepage "https://www.qpm.io"
-  url "https://github.com/Cutehacks/qpm/archive/v0.10.0.tar.gz"
-  sha256 "2c56aa81e46fb144ff25b14a26476862462510e38cf1265b24c38e3ac4636ee5"
+  url "https://github.com/Cutehacks/qpm.git",
+      tag:      "v0.11.0",
+      revision: "fc340f20ddcfe7e09f046fd22d2af582ff0cd4ef"
+  license "Artistic-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 2
-    sha256 "e10b8209ffb5e0d36025c9aea3c53379628d4631d6bdaa46d0566625f8dede6d" => :high_sierra
-    sha256 "6dab4a36e19b1cd7a6a898d516b0fc59289798213b97a2c06130b63f69243eaa" => :sierra
-    sha256 "f2a77569109ea443de6fc94788906b1862ee183f3ecd6c065f7b05351f777eb6" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9b0932dcd3977d04fab01619bc01e76d69b3194f1827be9e19f544587d5d53ca"
+    sha256 cellar: :any_skip_relocation, big_sur:       "545f5e5f8e982649cf4977920de2c00b6da7c547ef694e7070b39e0a9408415a"
+    sha256 cellar: :any_skip_relocation, catalina:      "5d5edc32931995dfa82429a1d8708e700de70208f36767808a433c1e9bb2ffb2"
+    sha256 cellar: :any_skip_relocation, mojave:        "f8208ec60e2af6e9d1da2caa0ad1b48b5b027955c2daa51860fa1606b8c5acef"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "8c9d0dde0b7a4292f8fa04337805755ac16ce1aab08710463323afec2f73d551"
   end
 
   depends_on "go" => :build
 
-  go_resource "github.com/golang/protobuf" do
-    url "https://github.com/golang/protobuf.git",
-        :revision => "d3d78384b82d449651d2435ed329d70f7c48aa56"
-  end
-
-  go_resource "github.com/howeyc/gopass" do
-    url "https://github.com/howeyc/gopass.git",
-        :revision => "10b54de414cc9693221d5ff2ae14fd2fbf1b0ac1"
-  end
-
-  go_resource "golang.org/x/crypto" do
-    url "https://go.googlesource.com/crypto.git",
-        :revision => "575fdbe86e5dd89229707ebec0575ce7d088a4a6"
-  end
-
-  go_resource "golang.org/x/net" do
-    url "https://go.googlesource.com/net.git",
-        :revision => "042ba42fa6633b34205efc66ba5719cd3afd8d38"
-  end
-
-  go_resource "google.golang.org/grpc" do
-    url "https://github.com/grpc/grpc-go.git",
-        :revision => "3490323066222fe765ef7903b53a48cbc876906d"
-  end
-
   def install
     ENV["GOPATH"] = buildpath
-    Language::Go.stage_deps resources, buildpath/"src"
+    ENV["GO111MODULE"] = "auto"
+    (buildpath/"src").mkpath
+    ln_s buildpath, "src/qpm.io"
     system "go", "build", "-o", "bin/qpm", "qpm.io/qpm"
     bin.install "bin/qpm"
   end

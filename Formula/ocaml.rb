@@ -3,51 +3,52 @@
 # also updated by incrementing their revisions.
 #
 # Specific packages to pay attention to include:
-# - camlp4
-# - opam
+# - camlp5
+# - lablgtk
 #
 # Applications that really shouldn't break on a compiler update are:
-# - mldonkey
 # - coq
 # - coccinelle
 # - unison
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.06/ocaml-4.06.0.tar.xz"
-  sha256 "1236b5f91e1c075086d69e2d40cfab21e048b9fe38e902f707815bebbc20c5b7"
-  head "https://github.com/ocaml/ocaml.git", :branch => "trunk"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.10/ocaml-4.10.2.tar.xz"
+  sha256 "96871461078282d5db022077d89bde25c85fb5e376612b44f8c37d4e84f000e3"
+  license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
+  head "https://github.com/ocaml/ocaml.git", branch: "trunk"
+
+  livecheck do
+    url "https://ocaml.org/releases/"
+    regex(/href=.*?v?(\d+(?:\.\d+)+)\.html/i)
+  end
+
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "e063050517ec18694d395744b0f25db4347b9b39b805328dbd844ea73a4c406f"
+    sha256 cellar: :any, big_sur:       "ba026fe9338863ab3a79ca2c998f001eb38c913af36486db07e84e2c7e136e79"
+    sha256 cellar: :any, catalina:      "886db1a44bd60ac5275b56cd0acbf162d0b1836e2261a475035c40482ffb9788"
+    sha256 cellar: :any, mojave:        "5c4cce204b2ef4eea7c1f59df4216e9be9068e077d0ff92746af05035f485285"
+  end
 
   pour_bottle? do
     # The ocaml compilers embed prefix information in weird ways that the default
     # brew detection doesn't find, and so needs to be explicitly blacklisted.
-    reason "The bottle needs to be installed into /usr/local."
-    satisfy { HOMEBREW_PREFIX.to_s == "/usr/local" }
+    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
+    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
   end
-
-  bottle do
-    cellar :any
-    sha256 "377756d07b0253fd30eb0d5761d7a0e53d4305daa742122dbcbe70a378277f5c" => :high_sierra
-    sha256 "e62b761a4e814661d3ec110d3e3da378316ad57416d9d01bdc2dbd445d92e2b6" => :sierra
-    sha256 "0422ddaa6ee523fc6c9b30ad239118ae4de011b64bcb9687b917b586b7794595" => :el_capitan
-  end
-
-  option "with-x11", "Install with the Graphics module"
-  option "with-flambda", "Install with flambda support"
-
-  depends_on :x11 => :optional
 
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
 
     # the ./configure in this package is NOT a GNU autoconf script!
-    args = ["-prefix", HOMEBREW_PREFIX.to_s, "-with-debug-runtime", "-mandir", man]
-    args << "-no-graph" if build.without? "x11"
-    args << "-flambda" if build.with? "flambda"
+    args = %W[
+      --prefix=#{HOMEBREW_PREFIX}
+      --enable-debug-runtime
+      --mandir=#{man}
+    ]
     system "./configure", *args
-
     system "make", "world.opt"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "prefix=#{prefix}", "install"
   end
 
   test do

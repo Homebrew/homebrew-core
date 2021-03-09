@@ -1,32 +1,69 @@
 class Cryfs < Formula
   desc "Encrypts your files so you can safely store them in Dropbox, iCloud, etc."
   homepage "https://www.cryfs.org"
-  url "https://github.com/cryfs/cryfs/releases/download/0.9.7/cryfs-0.9.7.tar.xz"
-  sha256 "c998069217c29c026a944da47eea0a9e73eda914ef0f891f436701bcbdbbe4d7"
-  head "https://github.com/cryfs/cryfs.git", :branch => "develop"
+  url "https://github.com/cryfs/cryfs/releases/download/0.10.2/cryfs-0.10.2.tar.xz"
+  sha256 "5531351b67ea23f849b71a1bc44474015c5718d1acce039cf101d321b27f03d5"
+  license "LGPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "c6d716d9604086faa8aa64d64836d3c1c20674d94e203d98ea643202a5afd547" => :high_sierra
-    sha256 "ed69c7628756a2db65cdd0720c97f329de632dc8fb295615b22b351fe774623a" => :sierra
-    sha256 "8e3be5b7d701349d3d4e2ebb072320abd3d09f4b7a42a68e292878279a83c20b" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, catalina:    "3a5986dc3775877188cbf4442bd72c6f20ffe1d384fefebac8041c0d8f9ff09b"
+    sha256 cellar: :any, mojave:      "cc94e5ba2d13205b0199e59779cecd7dd094965ee22c4ebf92d53ecaa65f8be7"
+    sha256 cellar: :any, high_sierra: "daa6d8961ef98fc509e806614c4daf6f589ee7d76bbb483066962b6bd700a2fe"
+    sha256 cellar: :any, sierra:      "252aa90f3281ccff1b9d0c6292856df1a08be17ada7aacd320f05d2d2508565f"
+  end
+
+  head do
+    url "https://github.com/cryfs/cryfs.git", branch: "develop", shallow: false
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "cryptopp"
-  depends_on "openssl"
-  depends_on :osxfuse
+  depends_on "libomp"
+  depends_on "openssl@1.1"
 
-  needs :cxx11
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
-    system "cmake", ".", "-DBUILD_TESTING=off", *std_cmake_args
+    configure_args = [
+      "-DBUILD_TESTING=off",
+    ]
+
+    if build.head?
+      libomp = Formula["libomp"]
+      configure_args.concat(
+        [
+          "-DOpenMP_CXX_FLAGS='-Xpreprocessor -fopenmp -I#{libomp.include}'",
+          "-DOpenMP_CXX_LIB_NAMES=omp",
+          "-DOpenMP_omp_LIBRARY=#{libomp.lib}/libomp.dylib",
+        ],
+      )
+    end
+
+    system "cmake", ".", *configure_args, *std_cmake_args
     system "make", "install"
   end
 
   test do
     ENV["CRYFS_FRONTEND"] = "noninteractive"
-    assert_match "CryFS", shell_output("#{bin}/cryfs", 1)
+
+    # Test showing help page
+    assert_match "CryFS", shell_output("#{bin}/cryfs 2>&1", 10)
+
+    # Test mounting a filesystem. This command will ultimately fail because homebrew tests
+    # don't have the required permissions to mount fuse filesystems, but before that
+    # it should display "Mounting filesystem". If that doesn't happen, there's something
+    # wrong. For example there was an ABI incompatibility issue between the crypto++ version
+    # the cryfs bottle was compiled with and the crypto++ library installed by homebrew to.
+    mkdir "basedir"
+    mkdir "mountdir"
+    assert_match "Operation not permitted", pipe_output("#{bin}/cryfs -f basedir mountdir 2>&1", "password")
   end
 end

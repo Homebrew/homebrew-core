@@ -2,17 +2,18 @@ require "language/node"
 
 class HttpServer < Formula
   desc "Simple zero-configuration command-line HTTP server"
-  homepage "https://github.com/indexzero/http-server"
-  url "https://registry.npmjs.org/http-server/-/http-server-0.10.0.tgz"
-  sha256 "cf7bde2def672698f78463ce8bec54dfe6392c24552f2b1c5e2e5ce94428de23"
-  head "https://github.com/indexzero/http-server.git"
+  homepage "https://github.com/http-party/http-server"
+  url "https://registry.npmjs.org/http-server/-/http-server-0.12.3.tgz"
+  sha256 "7a4f4c768bedbdfd72de849efcbf65a437000004f5cabf958bc2d73caa1a1623"
+  license "MIT"
+  head "https://github.com/http-party/http-server.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8466d02ddb4943da343aead061c89112d20436937f001f8b4253eb2160c749e0" => :high_sierra
-    sha256 "232e9b864df77fb42296b9c0a065ae998d47c227700b6f969344228df2ceea5d" => :sierra
-    sha256 "19539364bfc94381abc86b2920bd2400bd6ea25e25f782a3491f51cfd0b2f632" => :el_capitan
-    sha256 "63dc26f7b77915ed23cb96bdbbf23ecc9d3dbd6ac5fc72c168de8d1fa9217e83" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1bbe9f7419b215d86dfb4a144e6250a3ab18f54a54dbc641c821be8b1cc43c2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b4c7352df68e5821c56ac58a44f73272a5196f51c12d5ef73b7e34a90749c889"
+    sha256 cellar: :any_skip_relocation, catalina:      "11f0b3f7fc0975e2eb7c911fe1555c13527f75ea5468215e6d6340e11bf36f33"
+    sha256 cellar: :any_skip_relocation, mojave:        "fcc2086b4000cc47077413c116c09ee4b60fe9b064f7d95ff7c19c966a181d4f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "1b3f5212bc710e5ae053bbd9fb3bd279d763ad03e6c550425ab95534e309a9ef"
   end
 
   depends_on "node"
@@ -23,15 +24,15 @@ class HttpServer < Formula
   end
 
   test do
-    begin
-      pid = fork do
-        exec "#{bin}/http-server"
-      end
-      sleep 1
-      output = shell_output("curl -sI http://localhost:8080")
-      assert_match /200 OK/m, output
-    ensure
-      Process.kill("HUP", pid)
+    port = free_port
+
+    pid = fork do
+      exec "#{bin}/http-server", "-p#{port}"
     end
+    sleep 1
+    output = shell_output("curl -sI http://localhost:#{port}")
+    assert_match "200 OK", output
+  ensure
+    Process.kill("HUP", pid)
   end
 end

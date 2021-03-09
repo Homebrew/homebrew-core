@@ -1,18 +1,27 @@
 class Launch < Formula
   desc "Command-line launcher for macOS, in the spirit of `open`"
   homepage "https://sabi.net/nriley/software/#launch"
-  url "https://sabi.net/nriley/software/launch-1.2.4.tar.gz"
-  sha256 "79ed9ca7548d6758f74f74dde003748fcb91bef973ac82262819952fed494907"
+  url "https://sabi.net/nriley/software/launch-1.2.5.tar.gz"
+  sha256 "486632b11bee04d9f6bcb595fd2a68b5fde2f748ebdc182274778cc5cf97ff70"
+  license "BSD-3-Clause"
   head "https://github.com/nriley/launch.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "c2228493f7a13892ca91063711ab3b471f7be882f0252d22717ee5e614caec44" => :high_sierra
-    sha256 "fda28496bffe1ef0e34ef99b0a553f767869a637b71a69700f11f96411849cbe" => :sierra
-    sha256 "f6219951bf7d3a4360e6f0246c2a54f2e894bda93a6c4ed5e147047f661af567" => :el_capitan
+  livecheck do
+    url "https://sabi.net/nriley/software/"
+    regex(/href=.*?launch[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on :xcode => :build
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b6a459442e09592a2ff98434c9d2b53b30ec71920e66d8bb3b66a7704715d7c7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d1e62bfa93fad6f10574c7556e2e21f2b551e12a23ac729fefd0e8e03763baeb"
+    sha256 cellar: :any_skip_relocation, catalina:      "e6e543dda95bf0eea6d817e5df484f91493f84bc49bedf5d73420be8452f3f05"
+    sha256 cellar: :any_skip_relocation, mojave:        "39473462b7b66e86f4d3abfef40f6b9314793ae6d621dba3ca61ccf9f06f1d0f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "7ea743ebff2392770ebb7bd7ff0a420ad9a3f6bc50d1181df7518a5fe46a8000"
+    sha256 cellar: :any_skip_relocation, sierra:        "4fa06c0d934752695a0c823c51569063b50f8826c7fb9cbd302f731b059e4225"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "9905b0dd99460cd88d48a1cf4c230ec03db380262001fa7a2ba54cbcbb84fad0"
+  end
+
+  depends_on xcode: :build
 
   def install
     rm_rf "launch" # We'll build it ourself, thanks.

@@ -1,84 +1,40 @@
 class Freeling < Formula
   desc "Suite of language analyzers"
   homepage "http://nlp.lsi.upc.edu/freeling/"
-  url "https://github.com/TALP-UPC/FreeLing/releases/download/4.0/FreeLing-4.0.tar.gz"
-  sha256 "c79d21c5af215105ba16eb69ee75b589bf7d41abce86feaa40757513e33c6ecf"
-  revision 7
+  url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.tar.gz"
+  sha256 "f96afbdb000d7375426644fb2f25baff9a63136dddce6551ea0fd20059bfce3b"
+  license "AGPL-3.0-only"
+  revision 3
 
   bottle do
-    sha256 "aa37c530f2462ae9da17aaa49e47bbbcf4f8054511e4a84ad13f6d63310194e6" => :high_sierra
-    sha256 "94a58c74ee77a01d0a047cdf6409e0f1616f07a647fb751d512b5bce23617b4f" => :sierra
-    sha256 "69929931b031630382b1b57a15799526ef38c6f33c35dc7b0045e67d2fefe68f" => :el_capitan
+    sha256 arm64_big_sur: "c0857913542156ed8eb7ea65fcd8bb5b07f0ca37c6d188e0eded904a6cc42d87"
+    sha256 big_sur:       "f6760d014830eefcee51bd7ab4ef0e966f887bf716ad27ed90381fee71a8a583"
+    sha256 catalina:      "8d531505078e4e6e5fa07c3ba16a06fe003b6dedcde6864099840d46ad296838"
+    sha256 mojave:        "17538a9c8c90936cfda768deaec8104c2e8961de283a3919d4ce6b353439a54c"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
+  depends_on "boost"
   depends_on "icu4c"
 
-  conflicts_with "hunspell", :because => "both install 'analyze' binary"
-
-  resource "boost" do
-    url "https://dl.bintray.com/boostorg/release/1.64.0/source/boost_1_64_0.tar.bz2"
-    sha256 "7bcc5caace97baa948931d712ea5f37038dbb1c5d89b43ad4def4ed7cb683332"
-  end
+  conflicts_with "dynet", because: "freeling ships its own copy of dynet"
+  conflicts_with "eigen", because: "freeling ships its own copy of eigen"
+  conflicts_with "foma", because: "freeling ships its own copy of foma"
+  conflicts_with "hunspell", because: "both install 'analyze' binary"
 
   def install
-    resource("boost").stage do
-      # Force boost to compile with the desired compiler
-      open("user-config.jam", "a") do |file|
-        file.write "using darwin : : #{ENV.cxx} ;\n"
-      end
+    # Allow compilation without extra data (more than 1 GB), should be fixed
+    # in next release
+    # https://github.com/TALP-UPC/FreeLing/issues/112
+    inreplace "CMakeLists.txt", "SET(languages \"as;ca;cs;cy;de;en;es;fr;gl;hr;it;nb;pt;ru;sl\")",
+                                "SET(languages \"en;es;pt\")"
+    inreplace "CMakeLists.txt", "SET(variants \"es/es-old;es/es-ar;es/es-cl;ca/balear;ca/valencia\")",
+                                "SET(variants \"es/es-old;es/es-ar;es/es-cl\")"
 
-      bootstrap_args = %W[
-        --without-icu
-        --prefix=#{libexec}/boost
-        --libdir=#{libexec}/boost/lib
-        --with-icu=#{Formula["icu4c"].opt_prefix}
-        --with-libraries=program_options,regex,system,thread
-      ]
-
-      args = %W[
-        --prefix=#{libexec}/boost
-        --libdir=#{libexec}/boost/lib
-        -d2
-        -j#{ENV.make_jobs}
-        --ignore-site-config
-        --layout=tagged
-        --user-config=user-config.jam
-        install
-        threading=multi
-        link=shared
-        optimization=space
-        variant=release
-        cxxflags=-std=c++11
-      ]
-
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-
-      system "./bootstrap.sh", *bootstrap_args
-      system "./b2", "headers"
-      system "./b2", *args
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
     end
-
-    (libexec/"boost/lib").each_child do |dylib|
-      MachO::Tools.change_dylib_id(dylib.to_s, dylib.to_s)
-    end
-
-    icu4c = Formula["icu4c"]
-    libtool = Formula["libtool"]
-    ENV.append "LDFLAGS", "-L#{libtool.lib}"
-    ENV.append "LDFLAGS", "-L#{icu4c.lib}"
-    ENV.append "LDFLAGS", "-L#{libexec}/boost/lib"
-    ENV.append "CPPFLAGS", "-I#{libtool.include}"
-    ENV.append "CPPFLAGS", "-I#{icu4c.include}"
-    ENV.append "CPPFLAGS", "-I#{libexec}/boost/include"
-
-    system "autoreconf", "--install"
-    system "./configure", "--prefix=#{prefix}", "--enable-boost-locale"
-    system "make", "install"
 
     libexec.install "#{bin}/fl_initialize"
     inreplace "#{bin}/analyze",

@@ -1,100 +1,72 @@
-require "language/haskell"
-
 class Elm < Formula
-  include Language::Haskell::Cabal
-
   desc "Functional programming language for building browser-based GUIs"
-  homepage "http://elm-lang.org"
-
-  stable do
-    url "https://github.com/elm-lang/elm-compiler/archive/0.18.0.tar.gz"
-    sha256 "3ed70ab6e624c09dd251bb2f1e104752ebd3f50a062ddf92fff9cbec98d09850"
-
-    resource "elm-package" do
-      url "https://github.com/elm-lang/elm-package/archive/0.18.0.tar.gz"
-      sha256 "5cf6e1ae0a645b426c0474cc7cd3f7d1605ffa1ac5756a39a8b2268ddc7ea0e9"
-    end
-
-    resource "elm-make" do
-      url "https://github.com/elm-lang/elm-make/archive/0.18.0.tar.gz"
-      sha256 "00c2d40128ca86454251d6672f49455265011c02aa3552a857af3109f337dbea"
-    end
-
-    resource "elm-repl" do
-      url "https://github.com/elm-lang/elm-repl/archive/0.18.0.tar.gz"
-      sha256 "be2b05d022ffa766fe186d5ad5da14385cec41ba7a4b2c18f2e0018351c99376"
-    end
-
-    resource "elm-reactor" do
-      url "https://github.com/elm-lang/elm-reactor/archive/0.18.0.tar.gz"
-      sha256 "736f84a08b10df07cfd3966aa5c7802957ab35d6d74f6322d4a69a0b9d75f4fe"
-    end
-  end
+  homepage "https://elm-lang.org"
+  url "https://github.com/elm/compiler/archive/0.19.1.tar.gz"
+  sha256 "aa161caca775cef1bbb04bcdeb4471d3aabcf87b6d9d9d5b0d62d3052e8250b1"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "4a7232fc62d4c340ddf49f6e63924734f66f5cb0861ea4fc042d41cebc139884" => :high_sierra
-    sha256 "64f0a490d8bce84b1541a2a219c7298d515d64b3042bb48c41d52f83adf9260d" => :sierra
-    sha256 "1c3f415cf011dbadc6265a22fd1671c2461f3e906cecc54172b67c7295b28344" => :el_capitan
-    sha256 "428fb7d2719fee543d9cc8a5e25d0cbd697fe447e585e322f01f29f35fcc1011" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:  "04efe8b2f66b7904b05578e59a07300e8f070521a87ab0733433609da531f29d"
+    sha256 cellar: :any_skip_relocation, catalina: "bb6cd6a1bd9b3a7f280791b2ffba6631efa784f9068f48c4d6f9e64d756a4b2a"
+    sha256 cellar: :any_skip_relocation, mojave:   "03d2874b915186af4361360b5a3f3d9a9734046b97d46607b34a4e8f0d5228c2"
   end
 
-  depends_on "ghc@8.0" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.6" => :build
 
-  # Fix two "Not in scope" errors
-  # Upstream PR from 3 Oct 2017 "Paths.hs: fix build failure"
-  resource "elm-package-patch" do
-    url "https://github.com/elm-lang/elm-package/pull/287.patch?full_index=1"
-    sha256 "3f922d7962a41217e760361ad444d00676aff0e40c3741fd536b39d2961165d3"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  patch do
+    # elm's tarball is not a proper cabal tarball, it contains multiple cabal files.
+    # Add `cabal.project` lets cabal-install treat this tarball as cabal project correctly.
+    # https://github.com/elm/compiler/pull/2159
+    url "https://github.com/elm/compiler/commit/eb566e901a419a6620e43c18faf89f57f0827124.patch?full_index=1"
+    sha256 "556ff15fb4d8e5ca6e853280e35389c8875fa31a543204b315b55ec2ac967624"
   end
 
   def install
-    # elm-compiler needs to be staged in a subdirectory for the build process to succeed
-    (buildpath/"elm-compiler").install Dir["*"]
-
-    extras_no_reactor = ["elm-package", "elm-make", "elm-repl"]
-    extras = extras_no_reactor + ["elm-reactor"]
-    extras.each do |extra|
-      resource(extra).stage buildpath/extra
-    end
-
-    # https://github.com/elm-lang/elm-make/pull/130
-    inreplace "elm-make/elm-make.cabal", "optparse-applicative >=0.11 && <0.12,",
-                                         "optparse-applicative >=0.11 && <0.14," # 0.13.0.0 is current
-
-    # https://github.com/elm-lang/elm-package/pull/252
-    inreplace "elm-package/elm-package.cabal" do |s|
-      s.gsub! "optparse-applicative >= 0.11 && < 0.12,",
-              "optparse-applicative >= 0.11 && < 0.14," # 0.13.0.0 is current
-      s.gsub! "HTTP >= 4000.2.5 && < 4000.3,",
-              "HTTP >= 4000.2.5 && < 4000.4," # 4000.3.3 is current
-    end
-
-    resource("elm-package-patch").stage do
-      system "patch", "-p1", "-i", Pathname.pwd/"287.patch", "-d",
-             buildpath/"elm-package"
-    end
-
-    cabal_sandbox do
-      cabal_sandbox_add_source "elm-compiler", *extras
-      cabal_install "--only-dependencies", "elm-compiler", *extras
-      cabal_install "--prefix=#{prefix}", "elm-compiler", *extras_no_reactor
-
-      # elm-reactor needs to be installed last because of a post-build dependency on elm-make
-      ENV.prepend_path "PATH", bin
-
-      cabal_install "--prefix=#{prefix}", "elm-reactor"
-    end
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
+    # create elm.json
+    elm_json_path = testpath/"elm.json"
+    elm_json_path.write <<~EOS
+      {
+        "type": "application",
+        "source-directories": [
+                  "."
+        ],
+        "elm-version": "0.19.1",
+        "dependencies": {
+                "direct": {
+                    "elm/browser": "1.0.0",
+                    "elm/core": "1.0.0",
+                    "elm/html": "1.0.0"
+                },
+                "indirect": {
+                    "elm/json": "1.0.0",
+                    "elm/time": "1.0.0",
+                    "elm/url": "1.0.0",
+                    "elm/virtual-dom": "1.0.0"
+                }
+        },
+        "test-dependencies": {
+          "direct": {},
+            "indirect": {}
+        }
+      }
+    EOS
+
     src_path = testpath/"Hello.elm"
     src_path.write <<~EOS
+      module Hello exposing (main)
       import Html exposing (text)
       main = text "Hello, world!"
     EOS
-
-    system bin/"elm", "package", "install", "elm-lang/html", "--yes"
 
     out_path = testpath/"index.html"
     system bin/"elm", "make", src_path, "--output=#{out_path}"

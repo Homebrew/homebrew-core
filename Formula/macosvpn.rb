@@ -1,17 +1,24 @@
 class Macosvpn < Formula
   desc "Create Mac OS VPNs programmatically"
   homepage "https://github.com/halo/macosvpn"
-  url "https://github.com/halo/macosvpn/archive/0.3.3.tar.gz"
-  sha256 "2ef6928fd75d7e4e298d620c6250015597865fc7f0ed95b925ff3f2a8b2514dc"
+  url "https://github.com/halo/macosvpn/archive/1.0.3.tar.gz"
+  sha256 "1922ba78d40efa08b6f79ccb8d74b2f859ec39a5c37622a7d1ecbb3ba50cff6a"
+  license "MIT"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "f6760ee774acb972c84ffa2205d4c66528e2569c8310b05a45b34038f8ad49d7" => :high_sierra
-    sha256 "adabba70188d09e44f73a7e56e084a1b6d7bb57d4c1fea1e2637fe944f4c88b6" => :sierra
-    sha256 "6bcc76fbd5c18c794822c4b154d17fdf6ef8e916a03325d3dbc1ff8d03078532" => :el_capitan
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on :xcode => ["7.3", :build]
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6862be0cd39d91775f3336d40da31d7e7f6f645e767e77efbbf132a6b25f9955"
+    sha256 cellar: :any_skip_relocation, big_sur:       "115f97b8ad4c7242c0baa1ec4990024c6984b758febf7109e9831a6ddd25fe5b"
+    sha256 cellar: :any_skip_relocation, catalina:      "d56030780813971500593d4ccf3d672da95fc69655c432107a378877d9e2a38e"
+    sha256 cellar: :any_skip_relocation, mojave:        "3d65153cae182cf1d98625bda798c191d348ff22a32f6992bcec0a6de5df4d0f"
+  end
+
+  depends_on xcode: ["11.1", :build]
 
   def install
     xcodebuild "SYMROOT=build"
@@ -19,6 +26,6 @@ class Macosvpn < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/macosvpn version", 10)
+    assert_match version.to_s, shell_output("#{bin}/macosvpn version", 2)
   end
 end

@@ -1,39 +1,56 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
-  homepage "http://qmmp.ylsoftware.com/"
-  url "http://qmmp.ylsoftware.com/files/qmmp-1.1.8.tar.bz2"
-  sha256 "17bc88d00ea0753e6fc7273592e894320f05cae807f7cc2c6a5351c73217f010"
-  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.2/"
+  homepage "https://qmmp.ylsoftware.com/"
+  url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.4.4.tar.bz2"
+  sha256 "b1945956109fd9c7844ee5780142c0d24564b88327dc2f9a61d29386abcf9d54"
+  license "GPL-2.0-or-later"
+  revision 1
+  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.4/"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/qmmp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "af90bc7575bc1ae4ae7cf1cfb2780e2b927ff2fa4769d1a15b8e668ed2887c1a" => :high_sierra
-    sha256 "679fa917fffada98dd35bff2a06476650c122fe8214214d87063507724dedd67" => :sierra
-    sha256 "408d3336ef00156ed7ee4af9f0ab95d8ae9dcdd6a5bf8fa082568b033682853b" => :el_capitan
-    sha256 "e7252389fc805b90fee400b9b2f3461a9ddc5da69e2e24de002b334e83ece742" => :yosemite
+    sha256 big_sur:  "63ce3f17fa4f0d129ca5273addd5d6eb13a1a09b8874fb9beee1ad2adbd0d994"
+    sha256 catalina: "24bc3187a83efa5687a03497c3bb3dc0772a924b71ca8663b40851c8b8d604d1"
+    sha256 mojave:   "5368c30b051f55c972b792655aa0a3c0e5e6cf65b7caeee4da973be5b2bd37ce"
   end
 
   depends_on "cmake" => :build
-  depends_on "qt"
+  depends_on "faad2"
   depends_on "ffmpeg"
   depends_on "flac"
+  depends_on "libbs2b"
+  depends_on "libmms"
+  depends_on "libogg"
+  depends_on "libsamplerate"
+  depends_on "libsndfile"
+  depends_on "libsoxr"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "libogg"
-  depends_on "libsoxr"
-  depends_on "faad2"
+  depends_on "mplayer"
+  depends_on "musepack"
   depends_on "opus"
   depends_on "opusfile"
-  depends_on "mplayer"
-  depends_on "libbs2b"
-  depends_on "libsndfile"
-  depends_on "musepack"
+  depends_on "qt@5"
   depends_on "taglib"
-  depends_on "libmms"
-  depends_on "libsamplerate"
 
   def install
     system "cmake", "./", "-USE_SKINNED", "-USE_ENCA", "-USE_QMMP_DIALOG", *std_cmake_args
     system "make", "install"
+
+    # fix linkage
+    cd (lib.to_s) do
+      Dir["*.dylib", "qmmp/*/*.so"].select { |f| File.ftype(f) == "file" }.each do |f|
+        MachO::Tools.dylibs(f).select { |d| d.start_with?("/tmp") }.each do |d|
+          bname = File.dirname(d)
+          d_new = d.sub(bname, opt_lib.to_s)
+          MachO::Tools.change_install_name(f, d, d_new)
+        end
+      end
+    end
   end
 
   test do

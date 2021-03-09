@@ -1,32 +1,30 @@
 class Osslsigncode < Formula
-  desc "Authenticode signing of PE(EXE/SYS/DLL/etc), CAB and MSI files"
-  homepage "https://sourceforge.net/projects/osslsigncode/"
-  url "https://downloads.sourceforge.net/project/osslsigncode/osslsigncode/osslsigncode-1.7.1.tar.gz"
-  sha256 "f9a8cdb38b9c309326764ebc937cba1523a3a751a7ab05df3ecc99d18ae466c9"
+  desc "OpenSSL based Authenticode signing for PE/MSI/Java CAB files"
+  homepage "https://github.com/mtrojnar/osslsigncode"
+  url "https://github.com/mtrojnar/osslsigncode/archive/2.1.tar.gz"
+  sha256 "1d142f4e0b9d490d6d7bc495dc57b8c322895b0e6ec474d04d5f6910d61e5476"
+  license "GPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "4e079298b889a8ff8b629bc97323852b7f9e342de55ab74e601c995e6ad585f1" => :high_sierra
-    sha256 "898333a70f9700c159c8a29b7452c210f61004b23f39b0637131f7257f9250ec" => :sierra
-    sha256 "ed69f3ff0b8144a10a66cbe0a1986717a5564415768530110ae66749777f3490" => :el_capitan
-    sha256 "5f3799537630936f8d7954e9ec28f191fff6e1713f6b209aa94b2b665e5eaf88" => :yosemite
-    sha256 "59da5261972c8d26f0238c6ea42f5b247489d41e7ce6525c703675a22e260cfa" => :mavericks
-    sha256 "49a6dd76e78c82062041e5025ed1e7d71f1c53b51ef0e314a5e6938a07b6e49d" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "8625c68db1963c4e359fd16862ccde8ae433889c441adb8892fc4cb0a63dc377"
+    sha256 cellar: :any, big_sur:       "80c746077ac49b3e448559fe14b4802b3c0f3b4b54d720969a164d7f679afc5e"
+    sha256 cellar: :any, catalina:      "964162e471801ec6335e1cb88fa7d71145a09acd7507f71d049af1edc6375f9e"
+    sha256 cellar: :any, mojave:        "6ce5ae481bea9b92e4baaf795dfbdaf6cb29d574189978012f641857ffe39113"
+    sha256 cellar: :any, high_sierra:   "2a70933b296047d0042df4e1c1361cab8d588ff70c36ef44f63ac01105ce32f6"
   end
 
-  head do
-    url "https://git.code.sf.net/p/osslsigncode/osslsigncode.git"
-    depends_on "automake" => :build
-  end
-
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
-  depends_on "openssl"
-  depends_on "libgsf" => :optional
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "libgsf"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "curl"
 
   def install
-    system "autoreconf", "-ivf" if build.head?
-    system "./configure", "--prefix=#{prefix}"
+    system "./autogen.sh"
+    system "./configure", "--with-gsf", "--prefix=#{prefix}"
     system "make", "install"
   end
 

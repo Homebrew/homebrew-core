@@ -1,63 +1,37 @@
 class Ohcount < Formula
   desc "Source code line counter"
-  homepage "https://github.com/blackducksw/ohcount"
-  url "https://github.com/blackducksw/ohcount/archive/3.0.0.tar.gz"
-  sha256 "46ef92e1bbf9313de507a03decaf8279173584555fb580bb3d46d42c65aa4a6d"
+  homepage "https://github.com/blackducksoftware/ohcount"
+  url "https://github.com/blackducksoftware/ohcount/archive/4.0.0.tar.gz"
+  sha256 "d71f69fd025f5bae58040988108f0d8d84f7204edda1247013cae555bfdae1b9"
+  license "GPL-2.0"
+  head "https://github.com/blackducksoftware/ohcount.git"
 
   bottle do
-    cellar :any
-    sha256 "20a3923fd7c0ad7cd9474c72b9ce9045ec396b2d0ff6cdb02c559bd2a70dc33b" => :high_sierra
-    sha256 "b3d4be11858ec755a35d97259c145a76d64ee2e3c0e776cc81578a323b549399" => :sierra
-    sha256 "4c6ca73681e204052237392b9c931e46fcdd599c6605bfc7861e3e91dce9ceac" => :el_capitan
-    sha256 "08d9df78da1afb3654e96fa142db9eb1981dbbc14861db522dae6e8cc08791e4" => :yosemite
-    sha256 "055b2eb9460b1723bcb8a0f215ddda35750ce6d9b9c3cd0bce75d4e9584f0b62" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "43a0bac3974271a961f6cbb035aeb37e0f63e6fc05200bdf8b28064ca7faf128"
+    sha256 cellar: :any, big_sur:       "4c6dbf352f569f3976b9c3992376f9afbd4cc05ceb1bbf129b4e462628dbe618"
+    sha256 cellar: :any, catalina:      "49de65862c42d1e653b84aa09a3ca9015de5afa40d9c1069d5a7f5a4e35060e5"
+    sha256 cellar: :any, mojave:        "b93054a4459a246895a524de21559fc1387e8cc6436d83481c7d85afc10be9e8"
+    sha256 cellar: :any, high_sierra:   "2bcddb3687af78d9317be143579afe692f8a3034c51b1e7e07ddd53491792365"
+    sha256 cellar: :any, sierra:        "716a64cf45acdb062651994384e88e74e5bf258a1b70b9b29cf09c5c115084e5"
   end
 
-  head do
-    url "https://github.com/blackducksw/ohcount.git"
-    depends_on "libmagic"
-  end
-
-  depends_on "ragel"
+  depends_on "gperf" => :build
+  depends_on "libmagic"
   depends_on "pcre"
-
-  patch :DATA
+  depends_on "ragel"
 
   def install
-    # find Homebrew's libpcre
-    ENV.append "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
-
     system "./build", "ohcount"
     bin.install "bin/ohcount"
   end
 
   test do
-    path = testpath/"test.rb"
-    path.write "# comment\n puts\n puts\n"
-    stats = `#{bin}/ohcount -i #{path}`.split("\n")[-1]
-    assert_equal 0, $CHILD_STATUS.exitstatus
+    (testpath/"test.rb").write <<~EOS
+      # comment
+      puts
+      puts
+    EOS
+    stats = shell_output("#{bin}/ohcount -i test.rb").lines.last
     assert_equal ["ruby", "2", "1", "33.3%"], stats.split[0..3]
   end
 end
-
-__END__
---- a/build
-+++ b/build
-@@ -29,7 +29,7 @@ else
-   INC_DIR=/opt/local/include
-   LIB_DIR=/opt/local/lib
-   # You shouldn't have to change the following.
--  CFLAGS="-fno-common -g"
-+  #CFLAGS="-fno-common -g"
-   WARN="-Wall -Wno-parentheses"
-   SHARED="-dynamiclib -L$LIB_DIR -lpcre"
-   SHARED_NAME=libohcount.dylib
-@@ -38,7 +38,7 @@ else
- fi
- 
- # C compiler and flags
--cc="gcc -fPIC -g $CFLAGS $WARN -I$INC_DIR -L$LIB_DIR"
-+cc="$CC $CFLAGS -O0 $WARN $CPPFLAGS $LDFLAGS"
- 
- # Ohcount source files
- files="src/sourcefile.c \

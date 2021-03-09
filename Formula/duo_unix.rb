@@ -1,25 +1,35 @@
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
-  url "https://dl.duosecurity.com/duo_unix-1.10.1.tar.gz"
-  sha256 "e2df2be50539c54c87cdc4964fdfee0fbd79a3f15fdfd807e94941291b5d6197"
+  url "https://github.com/duosecurity/duo_unix/archive/duo_unix-1.11.4.tar.gz"
+  sha256 "2fcba3e50fd477699d013c789ffc73a0b10c204d25c455abe7c81a2ecd886579"
+  license "GPL-2.0"
 
-  bottle do
-    sha256 "5faadc10745090796bc019256039765927f2b4f2c296901f62d67a6026b87562" => :high_sierra
-    sha256 "3e57a037c2a38a4268c44c9dd1c64e8c16a88238d4d2d059532c18ebf5b0f2f4" => :sierra
-    sha256 "fb3f8c6f09739346d79458813db607007cfc9c3470c0ee33c95cdad0b5b32912" => :el_capitan
-    sha256 "49ef30c2dc72644b3073a6fef31383cd6a558236ffb046c2c988d7805c4d4c1d" => :yosemite
+  livecheck do
+    url "https://github.com/duosecurity/duo_unix.git"
   end
 
-  depends_on "openssl"
+  bottle do
+    sha256 arm64_big_sur: "e323d478329b8b50be30253b7fd8b3f0387d5fd06a1047c7d18d6911860a095e"
+    sha256 big_sur:       "dece3829732fe41b3346b5de6f04b921ab22641c39eb45b87e91a0795a384e67"
+    sha256 catalina:      "67a6ff6605578e287fc862f6fb2ee9360dea7c22f8fbaa97a1bf18dd13db5ec0"
+    sha256 mojave:        "753e3f0d60c4c0404a6e347d052bc1ed4bd1e66b43170675549a36d4fe736f25"
+    sha256 high_sierra:   "8e707bc378fa13dfd92fb39e0de055c58f2470973fe80edc41bf500e4863128a"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "openssl@1.1"
 
   def install
+    system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--includedir=#{include}/duo",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-pam=#{lib}/pam/"
     system "make", "install"
   end

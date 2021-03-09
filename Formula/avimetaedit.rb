@@ -1,15 +1,17 @@
 class Avimetaedit < Formula
   desc "Tool for embedding, validating, and exporting of AVI files metadata"
   homepage "https://mediaarea.net/AVIMetaEdit"
-  url "https://mediaarea.net/download/binary/avimetaedit/1.0.1/AVIMetaEdit_CLI_1.0.1_GNU_FromSource.tar.bz2"
-  version "1.0.1"
-  sha256 "3aa4ca6aed51c71684f3fd1bd3b4defc2f9e50a8bd0bdf10e55e86c8ba24aafd"
+  url "https://mediaarea.net/download/binary/avimetaedit/1.0.2/AVIMetaEdit_CLI_1.0.2_GNU_FromSource.tar.bz2"
+  sha256 "e0b83e17460d0202a54f637cb673a0c03460704e6c2cff0c2e34222efb2c11ca"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "30a2632fe1d48e4d42fd676dcb16dda6fec0fa7de91026031f0bbe269cec4229" => :high_sierra
-    sha256 "72c069835864beea09634216566cbaeac6f747368abb05aed393081aa91bf74c" => :sierra
-    sha256 "d110ea050c73fe9b397a3e225bd5a41f90fad95c4fc3f5af9e0c25f5aa2f50e7" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9e10cf64f7d87cdc85102dffea61ac546b0877896ff721a55857a2e80eb0475"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c8cbab65b9f81a1015a5550b042fcc91471b288d8e256723be694f5caf402767"
+    sha256 cellar: :any_skip_relocation, catalina:      "f3b1bacfbd6b2c53421e97c37eaeee7783c1cda0e614e9a27ba34ae048bbb5c5"
+    sha256 cellar: :any_skip_relocation, mojave:        "2ee42355aa90d5bc5ca8c61dc0c02274edd9c723b8a5b65595285319e9b7dda6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "323673de85bd3c8f272d5f8d0b32d34304faaa02f88c2ce44f08c697266e889e"
+    sha256 cellar: :any_skip_relocation, sierra:        "75d65e8ef1ecf31ebb016aa7e1a940bdaac33042af895729a230b6ee4beab3f0"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "41873fc416d070f417f1387e50515ffa099018c2f8ef27a2b8ce8b8a94b5c43f"
   end
 
   def install
@@ -26,7 +28,7 @@ class Avimetaedit < Formula
     avi = "UklGRuYAAABBVkkgTElTVMAAAABoZHJsYXZpaDgAAABAnAAAlgAAAAAAAAAQCQAAAQAAAAAAAAABAAAAAAAQAA" \
           "IAAAACAAAAAAAAAAAAAAAAAAAAAAAAAExJU1R0AAAAc3RybHN0cmg4AAAAdmlkc0k0MjAAAAAAAAAAAAAAAAAB" \
           "AAAAGQAAAAAAAAABAAAABgAAAP////8AAAAAAAAAAAIAAgBzdHJmKAAAACgAAAACAAAAAgAAAAEADABJNDIwBg" \
-          "AAAAAAAAAAAAAAAAAAAAAAAABMSVNUEgAAAG1vdmkwMGRjBgAAABAQEBCAgA==".unpack("m")[0]
+          "AAAAAAAAAAAAAAAAAAAAAAAABMSVNUEgAAAG1vdmkwMGRjBgAAABAQEBCAgA==".unpack1("m")
     (testpath/"test.avi").write avi
     assert_match "test.avi,238,AVI", shell_output("#{bin}/avimetaedit --out-tech test.avi")
   end

@@ -1,17 +1,12 @@
 class Ranger < Formula
   desc "File browser"
-  homepage "http://ranger.nongnu.org/"
-  url "http://ranger.nongnu.org/ranger-1.8.1.tar.gz"
-  sha256 "1433f9f9958b104c97d4b23ab77a2ac37d3f98b826437b941052a55c01c721b4"
+  homepage "https://ranger.github.io"
+  url "https://ranger.github.io/ranger-1.9.3.tar.gz"
+  sha256 "ce088a04c91c25263a9675dc5c43514b7ec1b38c8ea43d9a9d00923ff6cdd251"
+  license "GPL-3.0"
   head "https://github.com/ranger/ranger.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "ddfa5373f14c26414497b6135735e7ca872ac5da39cc995d07832cf26f3bdcc2" => :high_sierra
-    sha256 "53183d431e6bcf9cf49a462130fb5e0929a4bf557a2d109c354e3194bfd36cc0" => :sierra
-    sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :el_capitan
-    sha256 "224dce8bf10cb4f29a182e00d8a684a388f5dc1544f427149ee85e050c07a833" => :yosemite
-  end
+  bottle :unneeded
 
   def install
     man1.install "doc/ranger.1"

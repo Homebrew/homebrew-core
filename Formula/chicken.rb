@@ -1,15 +1,21 @@
 class Chicken < Formula
   desc "Compiler for the Scheme programming language"
   homepage "https://www.call-cc.org/"
-  url "https://code.call-cc.org/releases/4.12.0/chicken-4.12.0.tar.gz"
-  sha256 "605ace459bc66e8c5f82abb03d9b1c9ca36f1c2295931d244d03629a947a6989"
+  url "https://code.call-cc.org/releases/5.2.0/chicken-5.2.0.tar.gz"
+  sha256 "819149c8ce7303a9b381d3fdc1d5765c5f9ac4dee6f627d1652f47966a8780fa"
   head "https://code.call-cc.org/git/chicken-core.git"
 
+  livecheck do
+    url "https://code.call-cc.org/releases/current/"
+    regex(/href=.*?chicken[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "583db05a9ea136f0813a6d09c22cfd791664bb70334789a785f75413e6c6f3f0" => :high_sierra
-    sha256 "a60a97a73b76bfdc0e37643e497719a21ac96039898a451035651adfcfc2abc6" => :sierra
-    sha256 "a0ab41706f71d20b4f4340405c57bc30b84dccaa59058cbc155c2cb7e6cb8d09" => :el_capitan
-    sha256 "5d2edcc2728ef961e98b44db1ae098269fb3cf6010595719ab6f01677e49b473" => :yosemite
+    sha256 arm64_big_sur: "8245210e28c0dd3ee7605efed72f157e49751e67e4c9eea279e5fc558a413278"
+    sha256 big_sur:       "1d723ed0cb6621708f2123882a05fffa9328f1ebdedb505f60746e5a1740761d"
+    sha256 catalina:      "674b9d864481f15a5b406c1ef2e1dfce8ee584a100edf2501a096afee44ad396"
+    sha256 mojave:        "3d35a95b8296a8e37c5bbaf5d77188684adcccc7f3f3d77e73c6c3e9ac566f86"
+    sha256 high_sierra:   "17b093038bb0845a2687c1294288a11992f4e2279a64c93ef0e2c80977a1d882"
   end
 
   def install
@@ -21,11 +27,8 @@ class Chicken < Formula
       C_COMPILER=#{ENV.cc}
       LIBRARIAN=ar
       POSTINSTALL_PROGRAM=install_name_tool
+      ARCH=x86-64
     ]
-
-    # Sometimes chicken detects a 32-bit environment by mistake, causing errors,
-    # see https://github.com/Homebrew/homebrew/issues/45648
-    args << "ARCH=x86-64" if MacOS.prefer_64_bit?
 
     system "make", *args
     system "make", "install", *args

@@ -3,16 +3,19 @@ class Qdae < Formula
   homepage "https://www.seasip.info/Unix/QDAE/"
   url "https://www.seasip.info/Unix/QDAE/qdae-0.0.10.tar.gz"
   sha256 "780752c37c9ec68dd0cd08bd6fe288a1028277e10f74ef405ca200770edb5227"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "60fdb0801b8db3e5b36bc896aca8d4e71278ffe2106019e38f34ffd9605500ec" => :high_sierra
-    sha256 "bf2425bdeea4a4ac407056410f6758d44f2b31a9c9afc13871f96914c1d17651" => :sierra
-    sha256 "b8882074853ecfcbf6d2426361d5baa553380efbb5896777f0c829cac65811a4" => :el_capitan
-    sha256 "1a4eeaff6ff2a86179b673c04837aebe2664ca1eeb065e3081296f653b762cc7" => :yosemite
+    rebuild 1
+    sha256 arm64_big_sur: "9551d2289bd90b76851cebd6d1f11e2e3b1c9ca856d8eb4f88312ec941efb097"
+    sha256 big_sur:       "1e6b4a1ae9c0f6c69623f72e6d84429f57986b6560939cfa7ea02b36a2f39830"
+    sha256 catalina:      "d951231205b4f4faf3e4f829665d25c82d236f3f52339dd5664fb8adb46e68eb"
+    sha256 mojave:        "290d931e61684c53227e0a16d808427eb7218fbec76c57eb250c03dbf15bb6b8"
+    sha256 high_sierra:   "945b28c4354053f3ebd81bb868ef6a14d8fef1c32d6cebd73455bd17f17332ae"
   end
 
-  depends_on "sdl"
   depends_on "libxml2"
+  depends_on "sdl"
 
   def install
     system "./configure", "--disable-debug",
@@ -22,9 +25,10 @@ class Qdae < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Data files are located in the following directory:
-      #{share}/QDAE
+  def caveats
+    <<~EOS
+      Data files are located in the following directory:
+        #{share}/QDAE
     EOS
   end
 

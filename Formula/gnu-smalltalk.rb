@@ -1,54 +1,32 @@
 class GnuSmalltalk < Formula
-  desc "GNU Smalltalk interpreter and image"
-  homepage "http://smalltalk.gnu.org/"
+  desc "Implementation of the Smalltalk language"
+  homepage "https://www.gnu.org/software/smalltalk/"
   url "https://ftp.gnu.org/gnu/smalltalk/smalltalk-3.2.5.tar.xz"
   mirror "https://ftpmirror.gnu.org/smalltalk/smalltalk-3.2.5.tar.xz"
   sha256 "819a15f7ba8a1b55f5f60b9c9a58badd6f6153b3f987b70e7b167e7755d65acc"
-  revision 5
-
-  head "https://github.com/bonzini/smalltalk.git"
+  license "GPL-2.0"
+  revision 9
+  head "https://github.com/gnu-smalltalk/smalltalk.git"
 
   bottle do
-    sha256 "366f92137137ebc25a1c98ab8b5bc7b9e6ef4461f5bf182e484c1a968ac2f140" => :high_sierra
-    sha256 "45c067640a3cd5e8453664e637f25e7e3205ebe4dfd5dcb609ea89a508dc14cf" => :sierra
-    sha256 "7190b107e1211615b45a7168bd0a4b3fdf194f11764285e30ed90b22bfacc659" => :el_capitan
-    sha256 "7f879a4dd647c3d3324154060aa4bbe62fb0b45d9b44cefceab8ffb2bdc1f49f" => :yosemite
+    sha256 big_sur:     "9fc21dd5d9f30b200c1d4b1187a22663f100ac4db1363e86edc12d59db96cd43"
+    sha256 catalina:    "8a00e81f1a751efeec308de2bbf2e75a1173a636a29c27cec440c121208f0fe6"
+    sha256 mojave:      "0f569ca28ff2eaa54b36780c278a7170be42ef25e6d305852323952390be7270"
+    sha256 high_sierra: "2f369eed3ac62fbe0c4c257cefa0c9477ce0a806859a18d65ba565fbfdc76786"
   end
-
-  devel do
-    url "https://alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/alpha.gnu.org/gnu/smalltalk/smalltalk-3.2.91.tar.gz"
-    sha256 "13a7480553c182dbb8092bd4f215781b9ec871758d1db7045c2d8587e4d1bef9"
-  end
-
-  option "with-test", "Verify the build with make check (this may hang)"
-  option "with-tcltk", "Build the Tcl/Tk module that requires X11"
-
-  deprecated_option "tests" => "with-test"
-  deprecated_option "with-tests" => "with-test"
-  deprecated_option "tcltk" => "with-tcltk"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libtool" => :run
-  depends_on "pkg-config" => :build
   depends_on "gawk" => :build
-  depends_on "readline"
-  depends_on "gnutls"
+  depends_on "pkg-config" => :build
   depends_on "gdbm"
-  depends_on "libffi" => :recommended
-  depends_on "libsigsegv" => :recommended
-  depends_on "glew" => :optional
-  depends_on :x11 if build.with? "tcltk"
+  depends_on "gnutls"
+  depends_on "libffi"
+  depends_on "libsigsegv"
+  depends_on "libtool"
+  depends_on "readline"
 
   def install
-    ENV.m32 unless MacOS.prefer_64_bit?
-
-    # Fix build failure "Symbol not found: _clock_gettime"
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      ENV["ac_cv_search_clock_gettime"] = "no"
-    end
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
@@ -56,21 +34,14 @@ class GnuSmalltalk < Formula
       --with-lispdir=#{elisp}
       --disable-gtk
       --with-readline=#{Formula["readline"].opt_lib}
+      --without-tcl
+      --without-tk
+      --without-x
     ]
-
-    if build.without? "tcltk"
-      args << "--without-tcl" << "--without-tk" << "--without-x"
-    end
-
-    # disable generational gc in 32-bit and if libsigsegv is absent
-    if !MacOS.prefer_64_bit? || build.without?("libsigsegv")
-      args << "--disable-generational-gc"
-    end
 
     system "autoreconf", "-ivf"
     system "./configure", *args
     system "make"
-    system "make", "-j1", "check" if build.with? "test"
     system "make", "install"
   end
 

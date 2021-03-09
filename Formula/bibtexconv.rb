@@ -1,36 +1,28 @@
 class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://www.uni-due.de/~be0001/bibtexconv/"
-  url "https://www.uni-due.de/~be0001/bibtexconv/download/bibtexconv-1.1.11.tar.gz"
-  sha256 "1240c3011718d9ba95c165dbf908eab871153530b70bca0ef74dc2b9664e83f1"
+  url "https://github.com/dreibh/bibtexconv/archive/bibtexconv-1.1.22.tar.gz"
+  sha256 "dfa7d12223100d04d4bdb2a26c8dec2efacf872140f5301ab111af8497b7163f"
+  license "GPL-3.0-or-later"
+  head "https://github.com/dreibh/bibtexconv.git"
 
   bottle do
-    cellar :any
-    sha256 "2b44b8dd4bf60b443c9318e056fdcffaed9218e75d7d907dd6ae5c4679a135e9" => :high_sierra
-    sha256 "81c4daa41ddb6837d40b66a883aceeb3470ca03148fcc6fd19386ff623776dd8" => :sierra
-    sha256 "397edcb9360918833774139e8cf9d11bcb53fc7c763e487a7bec325861b73cd6" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "61628b4d7ad5508ba641b305478fd6f457e30e73c23c22bd69883237c918ce22"
+    sha256 cellar: :any, big_sur:       "00f142e76fa6306e5de3ea352f81c8061119a8abdba4ec678f9c74efae97ca56"
+    sha256 cellar: :any, catalina:      "989c035897f4c7ae44ccffc47b8bfcd7f52cedbe7cdd7bf909c994892a447262"
+    sha256 cellar: :any, mojave:        "d6ebc4679598215456f0c608430b58621b8404f1fb8f467d14da6353b7f8478c"
   end
 
-  head do
-    url "https://github.com/dreibh/bibtexconv.git"
+  depends_on "cmake" => :build
+  depends_on "openssl@1.1"
 
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
-  depends_on "openssl"
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "curl"
 
   def install
-    if build.head?
-      inreplace "bootstrap", "/usr/bin/glibtoolize", Formula["libtool"].bin/"glibtoolize"
-      system "./bootstrap"
-    end
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make"
-    ENV.deparallelize # serialize folder creation
+    system "cmake", *std_cmake_args,
+                    "-DCRYPTO_LIBRARY=#{Formula["openssl@1.1"].opt_lib}/#{shared_library("libcrypto")}"
     system "make", "install"
   end
 

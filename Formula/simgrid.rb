@@ -1,43 +1,78 @@
 class Simgrid < Formula
+  include Language::Python::Shebang
+
   desc "Studies behavior of large-scale distributed systems"
-  homepage "http://simgrid.gforge.inria.fr"
-  url "https://gforge.inria.fr/frs/download.php/file/37148/SimGrid-3.17.tar.gz"
-  sha256 "f5e44f41983e83f65261598ab0de1909d3a8a3feb77f28e37d38f04631dbb908"
+  homepage "https://simgrid.org/"
+  url "https://framagit.org/simgrid/simgrid/uploads/98ec9471211bba09aa87d7866c9acead/simgrid-3.26.tar.gz"
+  sha256 "ac50da1eacc5a53b094a988a8ecde09962c29320f346b45e74dd32ab9d9f3e96"
+
+  livecheck do
+    url "https://framagit.org/simgrid/simgrid.git"
+    regex(/^v?(\d+(?:[._]\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "25156b23d0a2779e9d8207266d621c4328d83f1089005969991733e5007bb1d0" => :high_sierra
-    sha256 "5b383b0c5f6c6191a4843f7e419ca4739254d96d3c33bcba7cc19e05efd8b537" => :sierra
-    sha256 "a9a7b7d60cb9b7f586767d1225bd2a0ca10708285c2fb41ee84d8233b531d288" => :el_capitan
+    sha256 arm64_big_sur: "483bcf473f05f337322f46d7d9e42f032eec6eea51dbbc9766616f583117a20f"
+    sha256 big_sur:       "e955b530c04845a2411dd827c289ebf3945d45ba00bcc763591f7691ba80becb"
+    sha256 catalina:      "bf748370ffd539df857ae5365563b47a5bf685f6ea7bdcd27c3eaad31bf35d06"
+    sha256 mojave:        "64bc790d3fa33e14d1c9f067f4e047df4fbbcd630a439370adfc8ad39ab5ddd3"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "boost"
-  depends_on "pcre"
-  depends_on :python3
   depends_on "graphviz"
+  depends_on "pcre"
+  depends_on "python@3.9"
 
   def install
+    # Avoid superenv shim references
+    inreplace "src/smpi/smpicc.in", "@CMAKE_C_COMPILER@", "/usr/bin/clang"
+    inreplace "src/smpi/smpicxx.in", "@CMAKE_CXX_COMPILER@", "/usr/bin/clang++"
+
+    # FindPythonInterp is broken in CMake 3.19+
+    # REMOVE ME AT VERSION BUMP (after 3.25)
+    # https://framagit.org/simgrid/simgrid/-/issues/59
+    # https://framagit.org/simgrid/simgrid/-/commit/3a987e0a881dc1a0bb5a6203814f7960a5f4b07e
+    inreplace "CMakeLists.txt", "include(FindPythonInterp)", ""
+    python = Formula["python@3.9"]
+    python_version = python.version
+    # We removed CMake's ability to find Python, so we have to point to it ourselves
+    args = %W[
+      -DPYTHONINTERP_FOUND=TRUE
+      -DPYTHON_EXECUTABLE=#{python.opt_bin}/python3
+      -DPYTHON_VERSION_STRING=#{python_version}
+      -DPYTHON_VERSION_MAJOR=#{python_version.major}
+      -DPYTHON_VERSION_MINOR=#{python_version.minor}
+      -DPYTHON_VERSION_PATCH=#{python_version.patch}
+    ]
+    # End of local workaround, remove the above at version bump
+
     system "cmake", ".",
                     "-Denable_debug=on",
                     "-Denable_compile_optimizations=off",
-                    *std_cmake_args
+                    "-Denable_fortran=off",
+                    *std_cmake_args,
+                    *args # Part of workaround, remove at version bump
     system "make", "install"
+
+    bin.find { |f| rewrite_shebang detected_python_shebang, f }
   end
 
   test do
     (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <stdlib.h>
-      #include <simgrid/msg.h>
+      #include <simgrid/engine.h>
 
       int main(int argc, char* argv[]) {
-        printf("%f", MSG_get_clock());
+        printf("%f", simgrid_get_clock());
         return 0;
       }
     EOS
 
-    system ENV.cc, "test.c", "-lsimgrid", "-o", "test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lsimgrid",
+                   "-o", "test"
     system "./test"
   end
 end

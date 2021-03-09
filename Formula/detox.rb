@@ -1,18 +1,22 @@
 class Detox < Formula
   desc "Utility to replace problematic characters in filenames"
   homepage "https://detox.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/detox/detox/1.2.0/detox-1.2.0.tar.bz2"
-  sha256 "abfad90ee7d3e0fc53ce3b9da3253f9a800cdd92e3f8cc12a19394a7b1dcdbf8"
+  url "https://github.com/dharple/detox/archive/v1.4.2.tar.gz"
+  sha256 "40af25c00a55227cdddaa54d8a1b18fb47112f4fd72efabc325dd8e540b804df"
+  license "BSD-3-Clause"
 
   bottle do
-    sha256 "133b073b5e24308a29cbc63c3a8a2ee02a46c23b66d76b61057f330ea075e558" => :high_sierra
-    sha256 "0cc58044463abf09129c9d7a1c49df5ebb51f9d6e675233f8dce404aa6a6c69f" => :sierra
-    sha256 "886f37ab52a92b8cbc82bd6c0be49efbf56c9186903f9d3b3652b0ddb0555329" => :el_capitan
-    sha256 "0e1939ae85d72e1c941c1eb58bce8839b393c052221ef848373b518e3927cc59" => :yosemite
-    sha256 "a7bc2b7ecd5ae46a389973aab9f1506fa8ce67117bc4fbdead2b38d7eae732ce" => :mavericks
+    sha256 arm64_big_sur: "bdc45f67f781b94e1898b7538dfed399e5d47eeeefc33eb84fe1c6cda3a469f9"
+    sha256 big_sur:       "9d468f782f96d667d59892911dc1fa7ef7b40b3f0410d46c3a75147c8a5b886b"
+    sha256 catalina:      "83987429b9b768b6559420dd4656603ab6c963785e87bffd02a61e2be6557393"
+    sha256 mojave:        "a371814287b76ac37a6f24a719da41d5fb7d4215a2be548b075c706b1f670165"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--mandir=#{man}", "--prefix=#{prefix}"
     system "make"
     (prefix/"etc").mkpath
@@ -22,7 +26,6 @@ class Detox < Formula
 
   test do
     (testpath/"rename this").write "foobar"
-
     assert_equal "rename this -> rename_this\n", shell_output("#{bin}/detox --dry-run rename\\ this")
   end
 end

@@ -1,27 +1,36 @@
 class LibjsonRpcCpp < Formula
   desc "C++ framework for json-rpc"
   homepage "https://github.com/cinemast/libjson-rpc-cpp"
-  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.0.0.tar.gz"
-  sha256 "888c10f4be145dfe99e007d5298c90764fb73b58effb2c6a3fc522a5b60a18c6"
-  revision 1
+  url "https://github.com/cinemast/libjson-rpc-cpp/archive/v1.3.0.tar.gz"
+  sha256 "cf132ad9697b034f22ff37d12a1f1c6f2647ec2236701de5e76f6036ab664156"
+  license "MIT"
+  revision 2
   head "https://github.com/cinemast/libjson-rpc-cpp.git"
 
   bottle do
-    cellar :any
-    sha256 "e5d4cc49afc50d844b8b6cc74a33606ba3edd514fc31ac3bc24bd0321975f984" => :high_sierra
-    sha256 "2e0fba342ff4b2912ec0df0293a4fa9f95b3cc33a424eb5bbc57c3819d337470" => :sierra
-    sha256 "08cbd358998f26882aec42e81c4f24a7fbb244c1769597ac62e3e4dc738bc479" => :el_capitan
-    sha256 "9711596b93811aed07a7308097c39d39c7ac4d5b7b7be57be59f57567def7c81" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "0fdc2ac320638aff5068d94d4115182edebd6f705a4d705924abcfb26d4b602a"
+    sha256 cellar: :any, big_sur:       "96c5a539ae83af10f043b89d47dd4e433089a658c3676a9533716e3e04edb440"
+    sha256 cellar: :any, catalina:      "451b43048c296d53ea5ca91c6894cbc638710cfc6006426ebc536f143d8c1f04"
+    sha256 cellar: :any, mojave:        "88c6224dddcb78a2662b1fdecaae8944132fc7b3aec8b0b69b78b73134b52342"
   end
 
   depends_on "cmake" => :build
   depends_on "argtable"
+  depends_on "hiredis"
   depends_on "jsoncpp"
   depends_on "libmicrohttpd"
-  depends_on "hiredis"
+
+  uses_from_macos "curl"
+
+  # Fix for https://github.com/cinemast/libjson-rpc-cpp/issues/298
+  patch do
+    url "https://github.com/cinemast/libjson-rpc-cpp/commit/fa163678134aced775651558f91a006791e26ef8.patch?full_index=1"
+    sha256 "80a8cdfa40aba3dc71fbab77b0137f7f03bb9c969b9845e68f83181b4d8550f6"
+  end
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DCOMPILE_EXAMPLES=OFF", "-DCOMPILE_TESTS=OFF"
     system "make"
     system "make", "install"
   end

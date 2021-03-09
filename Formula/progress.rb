@@ -1,16 +1,22 @@
 class Progress < Formula
-  desc "Progress: Coreutils Progress Viewer"
+  desc "Coreutils progress viewer"
   homepage "https://github.com/Xfennec/progress"
-  url "https://github.com/Xfennec/progress/archive/v0.13.1.tar.gz"
-  sha256 "064c95e8b93893dbf4b4b8152290cbb3b0c005eda0cae500353561048c9939a5"
+  url "https://github.com/Xfennec/progress/archive/v0.16.tar.gz"
+  sha256 "59944ee35f8ae6d62ed4f9b643eee2ae6d03825da288d9779dc43de41164c834"
+  license "GPL-3.0"
   head "https://github.com/Xfennec/progress.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2efd9539e80fa903348eb1c6c7448351e1447c195b430fa7054e5f2a07c96e3f" => :high_sierra
-    sha256 "c04bdc66a7781fea19a127c30ad986de002bad27f7a198bdc892871a0fed78dc" => :sierra
-    sha256 "25a02d55c08c5bc17fa3830f577bbdc7320db434a499c95e5d6822cddccafdda" => :el_capitan
-    sha256 "0227e47f3d9614b1d67422d22f15321e5dfb2a078feee89dcff30ec0bffd2adc" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "97407ff56c65c8f77371ce073478868eb507742db82c11e107a43413bce646c3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "21a1663abf8e1a60baf99a3ae46d41883cd5136fabbe77dd07987e0730b08ec0"
+    sha256 cellar: :any_skip_relocation, catalina:      "804256c3be440464694fe8f0e9b94f323860f9fa2304c8984dc0e8cbbce43fab"
+    sha256 cellar: :any_skip_relocation, mojave:        "5c834228aa86062624e1d2f6f3c386607d3151842218eb9c70529e1485ee1e5b"
+  end
+
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "pkg-config" => :build
   end
 
   def install

@@ -1,55 +1,75 @@
 class Cairo < Formula
   desc "Vector graphics library with cross-device output support"
   homepage "https://cairographics.org/"
-  url "https://cairographics.org/releases/cairo-1.14.10.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/cairo-1.14.10.tar.xz"
-  sha256 "7e87878658f2c9951a14fc64114d4958c0e65ac47530b8ac3078b2ce41b66a09"
+  url "https://cairographics.org/releases/cairo-1.16.0.tar.xz"
+  sha256 "5e7b29b3f113ef870d1e3ecf8adf21f923396401604bda16d44be45e66052331"
+  license any_of: ["LGPL-2.1-only", "MPL-1.1"]
+  revision 5
+
+  livecheck do
+    url "https://cairographics.org/releases/?C=M&O=D"
+    regex(%r{href=(?:["']?|.*?/)cairo[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t}i)
+  end
 
   bottle do
-    sha256 "4ebf6543caa37a89405ac74de54d85151abf63bb13b48fb8dcdab98e483984a5" => :high_sierra
-    sha256 "0cf7f50b38512fd676b6b14f5b22961ababa3958c448f6485055bdad3a04b439" => :sierra
-    sha256 "65c3e0c132f1fc0747881b5057cdc6e77a2859d061bbe88406aff1e22e42971b" => :el_capitan
-    sha256 "034818691b65af1ec4d5601affc791061bf269f8e1092c57b891cdea6f47cc2d" => :yosemite
+    sha256 arm64_big_sur: "2fc4da6029167f696fc0b3c0553d36abb8e77c75f0096396d4eb89d0ea912612"
+    sha256 big_sur:       "cb16c1bb070a7cdca7aaf8899a70e407d73636116d62225626b2c8d31aa8d2ff"
+    sha256 catalina:      "4a117545953b9784f78db8261c03d71a1ae7af836dcd995abe7e6d710cdfd39c"
+    sha256 mojave:        "38c7b7b0f6266632a5f04df12180dc36a1ce218a1c54b13cdca18ad024067311"
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/cairo", :using => :git
-    depends_on "automake" => :build
+    url "https://gitlab.freedesktop.org/cairo/cairo.git"
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_pre_mountain_lion
-
   depends_on "pkg-config" => :build
-  depends_on :x11 => :optional
-  depends_on "freetype"
   depends_on "fontconfig"
-  depends_on "libpng"
-  depends_on "pixman"
+  depends_on "freetype"
   depends_on "glib"
+  depends_on "libpng"
+  depends_on "libx11"
+  depends_on "libxcb"
+  depends_on "libxext"
+  depends_on "libxrender"
+  depends_on "lzo"
+  depends_on "pixman"
+
+  uses_from_macos "zlib"
+
+  # Avoid segfaults on Big Sur. Remove at version bump.
+  # https://gitlab.freedesktop.org/cairo/cairo/-/issues/420
+  patch do
+    url "https://gitlab.freedesktop.org/cairo/cairo/-/commit/e22d7212acb454daccc088619ee147af03883974.patch"
+    sha256 "363a6018efc52721e2eace8df3aa319c93f3ad765ef7e3ea04e2ddd4ee94d0e1"
+  end
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
-      --enable-gobject=yes
-      --enable-svg=yes
-      --enable-tee=yes
-      --enable-quartz-image
+      --enable-gobject
+      --enable-svg
+      --enable-tee
+      --disable-valgrind
+      --enable-xcb
+      --enable-xlib
+      --enable-xlib-xrender
     ]
-
-    if build.with? "x11"
-      args << "--enable-xcb=yes" << "--enable-xlib=yes" << "--enable-xlib-xrender=yes"
-    else
-      args << "--enable-xcb=no" << "--enable-xlib=no" << "--enable-xlib-xrender=no"
+    on_macos do
+      args += %w[
+        --enable-quartz-image
+      ]
     end
 
     if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
+      ENV["NOCONFIGURE"] = "1"
+      system "./autogen.sh"
     end
+
+    system "./configure", *args
     system "make", "install"
   end
 

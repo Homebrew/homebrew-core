@@ -1,18 +1,38 @@
 class GetFlashVideos < Formula
   desc "Download or play videos from various Flash-based websites"
   homepage "https://github.com/monsieurvideo/get-flash-videos"
-  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.94.tar.gz"
-  sha256 "0a12fb9945d772e9c2c5347a712292be47c3f3551dc565b43eb74540370b1bdd"
+  url "https://github.com/monsieurvideo/get-flash-videos/archive/1.25.99.03.tar.gz"
+  sha256 "37267b41c7b0c240d99ed1f5e7ba04d00f98a8daff82ac9edd2b12c3bca83d73"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ef67bfb8dbf0a78c4e0df2976ceae3b85d4debafb191ffb4aa4677dee15db056" => :high_sierra
-    sha256 "1bc1ddeba3234670bbbd03bdaae15e5014db0306edbf075914466db280c01904" => :sierra
-    sha256 "311d82564584099f493d97597e1a2a7d7e611a939f47b9c7d40c78592be79d2c" => :el_capitan
-    sha256 "f5493203c42ebcb77fed042135de07639c07b786bf344f336a24e428def4b4ad" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "79a6359023b8e477bc3a033747b817c57a476cf19938a1ae484ce2a52f2ce4ef"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2778b4877b9a5f717f247e73ce571db7f3215ca6a31e77dfaaebc4d7b0664bd7"
+    sha256 cellar: :any_skip_relocation, catalina:      "aac5558ccf7b7198eb48b71d7cdb9d07b93f4174926182a6e540678b0c4f9648"
+    sha256 cellar: :any_skip_relocation, mojave:        "f67cf7971842dbfaa8f8ecb24ba6692bd506688c4ff6b0e51cc05dd3d13f6d11"
   end
 
   depends_on "rtmpdump"
+
+  uses_from_macos "perl"
+
+  on_linux do
+    resource "Module::Find" do
+      url "https://cpan.metacpan.org/authors/id/C/CR/CRENZ/Module-Find-0.13.tar.gz"
+      sha256 "4a47862072ca4962fa69796907476049dc60176003e946cf4b68a6b669f18568"
+    end
+
+    resource "Try::Tiny" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.28.tar.gz"
+      sha256 "f1d166be8aa19942c4504c9111dade7aacb981bc5b3a2a5c5f6019646db8c146"
+    end
+
+    resource "XML::Simple" do
+      url "https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-Simple-2.24.tar.gz"
+      sha256 "9a14819fd17c75fbb90adcec0446ceab356cab0ccaff870f2e1659205dc2424f"
+    end
+  end
 
   resource "Crypt::Blowfish_PP" do
     url "https://cpan.metacpan.org/authors/id/M/MA/MATTBM/Crypt-Blowfish_PP-1.12.tar.gz"
@@ -20,8 +40,8 @@ class GetFlashVideos < Formula
   end
 
   resource "LWP::Protocol" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.26.tar.gz"
-    sha256 "d0c5435275f8638ff36fff8f655ad2ccad1156e66cc47bfacfb9e44fc585b24f"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.33.tar.gz"
+    sha256 "97417386f11f007ae129fe155b82fd8969473ce396a971a664c8ae6850c69b99"
   end
 
   resource "Tie::IxHash" do
@@ -30,18 +50,23 @@ class GetFlashVideos < Formula
   end
 
   resource "WWW::Mechanize" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-1.86.tar.gz"
-    sha256 "0e5468b89afeff096fb6d9b91a9a58418746c89445fb01adb5caa25ecf32d469"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/WWW-Mechanize-1.88.tar.gz"
+    sha256 "36d97e778ab911ab5a762d551541686cbf3463c571f474322f7b5da77f50a879"
   end
 
   resource "Term::ProgressBar" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MANWAR/Term-ProgressBar-2.20.tar.gz"
-    sha256 "f9017571fee9eb1ba782a3ec56cc7f085960da8c462701162c973817297b7dae"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MANWAR/Term-ProgressBar-2.21.tar.gz"
+    sha256 "66994f1a6ca94d8d92e3efac406142fb0d05033360c0acce2599862db9c30e44"
   end
 
   resource "Class::MethodMaker" do
     url "https://cpan.metacpan.org/authors/id/S/SC/SCHWIGON/class-methodmaker/Class-MethodMaker-2.24.tar.gz"
     sha256 "5eef58ccb27ebd01bcde5b14bcc553b5347a0699e5c3e921c7780c3526890328"
+  end
+
+  resource "Crypt::Rijndael" do
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Crypt-Rijndael-1.13.tar.gz"
+    sha256 "cd7209a6dfe0a3dc8caffe1aa2233b0e6effec7572d76a7a93feefffe636214e"
   end
 
   def install
@@ -59,15 +84,14 @@ class GetFlashVideos < Formula
     (lib/"perl5").install "blib/lib/FlashVideo"
 
     bin.install "bin/get_flash_videos"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
     chmod 0755, libexec/"bin/get_flash_videos"
 
     man1.install "blib/man1/get_flash_videos.1"
   end
 
   test do
-    file = testpath/"BBC_-__Do_whatever_it_takes_to_get_him_to_talk.flv"
-    system bin/"get_flash_videos", "http://news.bbc.co.uk/2/hi/programmes/hardtalk/9560793.stm"
-    assert_predicate file, :exist?, "Failed to download #{file}!"
+    assert_match "Filename: BBC_-__Do_whatever_it_takes_to_get_him_to_talk.flv",
+      shell_output("#{bin}/get_flash_videos --info http://news.bbc.co.uk/2/hi/programmes/hardtalk/9560793.stm")
   end
 end

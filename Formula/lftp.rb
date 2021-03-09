@@ -1,25 +1,45 @@
 class Lftp < Formula
   desc "Sophisticated file transfer program"
   homepage "https://lftp.yar.ru/"
-  url "https://lftp.yar.ru/ftp/lftp-4.8.3.tar.xz"
-  sha256 "de7aee451afaa1aa391f7076b5f602922c2da0e05524a8d8fea413eda83cc78b"
+  url "https://lftp.yar.ru/ftp/lftp-4.9.2.tar.xz"
+  sha256 "c517c4f4f9c39bd415d7313088a2b1e313b2d386867fe40b7692b83a20f0670d"
+  license "GPL-3.0-or-later"
+  revision 1
 
-  bottle do
-    sha256 "699cbe616307d318e21e36f2665d5f6acfa616b194d9dd998feb977be61694af" => :high_sierra
-    sha256 "b9bdd2db27e79ac0fe39ac583fa2734f4296303a5f46d9f7a953122829643f75" => :sierra
-    sha256 "1bfc8491a2ff1103daf12a5b4c16f6f0b897c830d4cff85002db8bb0e1e14313" => :el_capitan
+  livecheck do
+    url "https://github.com/lavv17/lftp.git"
   end
 
+  bottle do
+    sha256 arm64_big_sur: "c6e871000f9337c8fa0d56ff9b345209c13449be17e00e4e0248deeae3fd589f"
+    sha256 big_sur:       "68cdb9b693cf4ea5b7a8c9c0cdd02a2a2eb391c78df5e657767a59819dcbd9af"
+    sha256 catalina:      "16e629365517da3f55e271f5e55c1d8ae759b5f2a2d7df669b87e93e05b948f9"
+    sha256 mojave:        "7165e8f2ed29e55cc2cb819961d167fb7da7c8ebba7ababf4475c792b6f29afb"
+  end
+
+  depends_on "libidn2"
+  depends_on "openssl@1.1"
   depends_on "readline"
-  depends_on "openssl"
-  depends_on "libidn"
+
+  uses_from_macos "zlib"
 
   def install
+    # Work around "error: no member named 'fpclassify' in the global namespace"
+    if MacOS.version == :high_sierra
+      ENV.delete("HOMEBREW_SDKROOT")
+      ENV.delete("SDKROOT")
+    end
+
+    # Work around configure issues with Xcode 12
+    # https://github.com/lavv17/lftp/issues/611
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}",
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}",
-                          "--with-libidn=#{Formula["libidn"].opt_prefix}"
+                          "--with-libidn2=#{Formula["libidn2"].opt_prefix}"
+
     system "make", "install"
   end
 

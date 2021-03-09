@@ -1,40 +1,32 @@
 class Libwbxml < Formula
   desc "Library and tools to parse and encode WBXML documents"
-  homepage "https://sourceforge.net/projects/libwbxml/"
-  url "https://downloads.sourceforge.net/project/libwbxml/libwbxml/0.11.6/libwbxml-0.11.6.tar.bz2"
-  sha256 "2f5ffe6f59986b34f9032bfbf013e32cabf426e654c160d208a99dc1b6284d29"
+  homepage "https://github.com/libwbxml/libwbxml"
+  url "https://github.com/libwbxml/libwbxml/archive/libwbxml-0.11.7.tar.gz"
+  sha256 "35e2cf033066edebc0d96543c0bdde87273359e4f4e59291299d41e103bd6338"
+  license "LGPL-2.1"
   head "https://github.com/libwbxml/libwbxml.git"
 
   bottle do
-    cellar :any
-    sha256 "d9793123d4fde1307610f37fe64251bd4d92da7bbb531289868867a9b5bc1fdf" => :high_sierra
-    sha256 "137d796ea2bcd0263c51d4d92ce96527ce73c23e933d66f226270baa97d1359f" => :sierra
-    sha256 "56dd0a5203520961413655ecbc8d60058b639179ac5c704848005a3a5179d78f" => :el_capitan
-    sha256 "6d3e97ce2d8a218780186f5be0005682768eb823ed0aec2c2275dabca8caafe3" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "79c3653734dc5a8fbd8707a17e085f8eb3d93367a51aa62f76da1d9ac5001ef2"
+    sha256 cellar: :any, big_sur:       "65a96ce0682ac9e3cec8599ef84c52ce89446c001cb6d3751e3962ae62d3ed82"
+    sha256 cellar: :any, catalina:      "4adbd8447466f7d3cbad72d5aff2730a87539dacd0638180cd39a9eaee11e174"
+    sha256 cellar: :any, mojave:        "9077d1c9669a92c39590de8280678cbe3d50853e76d69fda6a476ba88d170845"
+    sha256 cellar: :any, high_sierra:   "051a666b16d73e92e4910f40559d2bb5681ae4b5028a7f86959ad5f6bdb4e55a"
   end
-
-  option "with-docs", "Build the documentation with Doxygen and Graphviz"
-  option "with-verbose", "Build with verbose logging support"
-  deprecated_option "docs" => "with-docs"
 
   depends_on "cmake" => :build
-  depends_on "wget" => :optional
-
-  if build.with? "docs"
-    depends_on "doxygen" => :build
-    depends_on "graphviz" => :build
-  end
+  depends_on "doxygen" => :build
+  depends_on "graphviz" => :build
+  depends_on "wget"
 
   def install
     # Sandbox fix:
-    # Install in Cellar & then automatically symlink into top-level Module path.
-    inreplace "cmake/CMakeLists.txt", "${CMAKE_ROOT}/Modules/", "#{share}/cmake/Modules"
+    # Install in Cellar & then automatically symlink into top-level Module path
+    inreplace "cmake/CMakeLists.txt", "${CMAKE_ROOT}/Modules/",
+                                      "#{share}/cmake/Modules"
 
     mkdir "build" do
-      args = std_cmake_args
-      args << "-DBUILD_DOCUMENTATION=ON" if build.with? "docs"
-      args << "-DWBXML_LIB_VERBOSE=ON" if build.with? "verbose"
-      system "cmake", "..", *args
+      system "cmake", "..", *std_cmake_args, "-DBUILD_DOCUMENTATION=ON"
       system "make", "install"
     end
   end

@@ -3,13 +3,16 @@ class Greed < Formula
   homepage "http://www.catb.org/~esr/greed/"
   url "http://www.catb.org/~esr/greed/greed-4.2.tar.gz"
   sha256 "702bc0314ddedb2ba17d4b55d873384a1606886e8d69f35ce67f6e3024a8d3fd"
+  license "BSD-2-Clause"
   head "https://gitlab.com/esr/greed.git"
 
   bottle do
-    sha256 "48e748cf4efb284edd099918a7d3015b4d01e50e868ac47ea2d0978cb3255773" => :high_sierra
-    sha256 "9778c36a897958eac89c32b7c4ef3fa790a2800e22c03262442530e09474da77" => :sierra
-    sha256 "99eef3acefdd2f116d3d3052f11efa9baf848aa4ba6452f07741a922d18779f5" => :el_capitan
-    sha256 "2a503ee5dbbf11e7d7627e6535cc4691bd5606d981b0bfc416c20bfe9f393013" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "197eaf64e266d04b451278067451a05271ee348e04c860c360212f22e0a22cd2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "15791321c59787d6e5b633efb195e0b7edf8c92976d5c6991e12a920a9f46a00"
+    sha256 cellar: :any_skip_relocation, catalina:      "64d0028754d683a8bbe1de0bb1a7319dcf6d8020c6d3624e58df5b5be3bf4e42"
+    sha256 cellar: :any_skip_relocation, mojave:        "9cba951e4fd73d29a1e4899a4f2a7d5f0158f6f5b6d02bb75837c7296530e65c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "9685dcc52ad08b19964cfb61f4fd0d9e28ec0d42cde2f112da4e9be1e1d15b5b"
   end
 
   def install
@@ -24,9 +27,10 @@ class Greed < Formula
     system "make", "install", "BIN=#{bin}"
   end
 
-  def caveats; <<~EOS
-    High scores will be stored in the following location:
-      #{var}/greed/greed.hs
+  def caveats
+    <<~EOS
+      High scores will be stored in the following location:
+        #{var}/greed/greed.hs
     EOS
   end
 

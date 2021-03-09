@@ -1,24 +1,37 @@
 class YubicoPivTool < Formula
-  desc "Command-line tool for the YubiKey NEO PIV applet"
+  desc "Command-line tool for the YubiKey PIV application"
   homepage "https://developers.yubico.com/yubico-piv-tool/"
-  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-1.4.4.tar.gz"
-  sha256 "ab0eac3f78e9e01538723f631ed6042504409a1ab0342973e2bd52f2c68a3769"
+  url "https://developers.yubico.com/yubico-piv-tool/Releases/yubico-piv-tool-2.2.0.tar.gz"
+  sha256 "74cb2e03c7137c0dd529f35a230b4a598121cb71b10d7e55b91fd0cdefcac457"
+  license "BSD-2-Clause"
 
-  bottle do
-    cellar :any
-    sha256 "27dc927312080b5b29cf97391b0d8457f1226cda154fe5b6f57900ab6b084d09" => :high_sierra
-    sha256 "01428e4bf53de23c6858f0fcc2b9c56f1f6baca073a350a4c7d4e676eb985497" => :sierra
-    sha256 "184f77d93b88564c7fd82b5c928f433a521bd3d2cd0da16a3915e307ab2528f6" => :el_capitan
+  livecheck do
+    url "https://developers.yubico.com/yubico-piv-tool/Releases/"
+    regex(/href=.*?yubico-piv-tool[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_big_sur: "a4819de1638f828cbd2e9c5e50f9830a91ed578fb42ae2fbb073d5bc66fbb38c"
+    sha256 big_sur:       "446b3d63b270dd3bdd27adec31503c02553a0e0d4fb2610082e392e85061d528"
+    sha256 catalina:      "72474492baf278c59ec478cb24f2c8730ff9f59f0e1963a473a6d7ad94df4e12"
+    sha256 mojave:        "395ffe7d667fab0964b4544bb9cc4476ddcbc77eedce706c3f4c5fa4524d0e14"
+  end
+
+  depends_on "check" => :build
+  depends_on "cmake" => :build
+  depends_on "gengetopt" => :build
+  depends_on "help2man" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl"
+  depends_on "check"
+  depends_on "openssl@1.1"
+  depends_on "pcsc-lite"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_C_FLAGS=-I#{Formula["pcsc-lite"].opt_include}/PCSC"
+      system "make", "install"
+    end
   end
 
   test do

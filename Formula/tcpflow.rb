@@ -1,16 +1,20 @@
 class Tcpflow < Formula
-  desc "TCP flow recorder"
+  desc "TCP/IP packet demultiplexer"
   homepage "https://github.com/simsong/tcpflow"
-  url "https://digitalcorpora.org/downloads/tcpflow/tcpflow-1.4.5.tar.gz"
-  sha256 "f39fed437911b858c97937bc902f68f9a690753617abe825411a8483a7f70c72"
+  url "https://downloads.digitalcorpora.org/downloads/tcpflow/tcpflow-1.6.1.tar.gz"
+  sha256 "436f93b1141be0abe593710947307d8f91129a5353c3a8c3c29e2ba0355e171e"
+  license "GPL-3.0"
+
+  livecheck do
+    url "https://downloads.digitalcorpora.org/downloads/tcpflow/"
+    regex(/href=.*?tcpflow[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "c971d3d993660862b690239940e4c84d5fd8bffdff776ccba4c038d1eba76169" => :high_sierra
-    sha256 "ff6d43a7c67853c6f7a4ffbe9290028a179f0d722e8075395c1f133386778fe7" => :sierra
-    sha256 "ea92e38288a2fea16c85b9a937951b8ecc0c5ca619ccff050d36590866543356" => :el_capitan
-    sha256 "d5e07b6218d3160b27d12e154910286af4f3edbbbc70fe5879852849a046cfae" => :yosemite
-    sha256 "b0e5f0a0e6f6fc81be55627483028a578a679d1c342a7127aa3a983983acef1a" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "45666c536a212cbc2b76a6663e051f432e4b82910a440d5fa6cebad4562e70f9"
+    sha256 cellar: :any, big_sur:       "ec65cbfeff09cd48c9accca03cf14a733034b96f0d01d47cbcf43ef9e0e859de"
+    sha256 cellar: :any, catalina:      "78b9e40f778060e2a0a277dfa1ff2d3ee720be679f8ade7b98e274ace2a05e7c"
+    sha256 cellar: :any, mojave:        "752820d85c73654edd4b2eef81a36d6d3be542e8cb6f7f62af7906b0740ba98f"
   end
 
   head do
@@ -21,8 +25,7 @@ class Tcpflow < Formula
   end
 
   depends_on "boost" => :build
-  depends_on "sqlite" if MacOS.version < :lion
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "bash", "./bootstrap.sh" if build.head?

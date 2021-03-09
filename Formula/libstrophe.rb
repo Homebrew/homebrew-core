@@ -1,25 +1,28 @@
 class Libstrophe < Formula
   desc "XMPP library for C"
-  homepage "http://strophe.im/libstrophe/"
-  url "https://github.com/strophe/libstrophe/archive/0.9.1.tar.gz"
-  sha256 "c90493f986e5bd407132c5a3e174378c02cb80fa4eaee29875e06b4bba6afcc3"
+  homepage "https://strophe.im/libstrophe/"
+  url "https://github.com/strophe/libstrophe/archive/0.10.1.tar.gz"
+  sha256 "5bf0bbc555cb6059008f1b748370d4d2ee1e1fabd3eeab68475263556405ba39"
+  license any_of: ["GPL-3.0", "MIT"]
   head "https://github.com/strophe/libstrophe.git"
 
   bottle do
-    cellar :any
-    sha256 "3ff6c06cc05c83889e74a1fb06dd38bcd4ccf179d29210f0b0aacd6b6980ae63" => :high_sierra
-    sha256 "f0de1f0155ec4b9d7c936d0c3a0c0ecae7ccf0d1306baa4df47d58d6116e75fe" => :sierra
-    sha256 "da3d292e0c9d6e642038fffb8f79b4ec7eeced72900135b7cfc7cb4dfead5dc0" => :el_capitan
-    sha256 "7ae2803a6ad206a7642b822a9ad8078beeb5bd1108bd3ef1cf46cc72094c6653" => :yosemite
-    sha256 "6a6a3d52acff666a214cfdfb5e7559b3c32903d61c12405018ba25043d9e3416" => :mavericks
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "fe773ec4022f94be98b7bb05ba534bf87411b901a713416d8581ddc4968dd868"
+    sha256 cellar: :any, big_sur:       "a215207d02f646e2299504f7166cf293fd9f9714181106e0f7707a4feef9303a"
+    sha256 cellar: :any, catalina:      "cd0ced2cb8517143a02f68c2414de0c8f8da75829da7b46402cf645d6be960be"
+    sha256 cellar: :any, mojave:        "17f49cd12a1fc672fe95155ac910265343cc877214af995e1728aa1ef75bc2f1"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "pkg-config" => :build
   depends_on "libtool" => :build
-  depends_on "openssl"
+  depends_on "pkg-config" => :build
   depends_on "check"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "expat"
+  uses_from_macos "libxml2"
 
   def install
     system "./bootstrap.sh"
@@ -49,7 +52,7 @@ class Libstrophe < Formula
         xmpp_shutdown();
         return 0;
       }
-      EOS
+    EOS
     flags = ["-I#{include}/", "-L#{lib}", "-lstrophe"]
     system ENV.cc, "-o", "test", "test.c", *(flags + ENV.cflags.to_s.split)
     system "./test"

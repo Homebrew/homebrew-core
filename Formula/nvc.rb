@@ -1,14 +1,16 @@
 class Nvc < Formula
   desc "VHDL compiler and simulator"
   homepage "https://github.com/nickg/nvc"
-  url "https://github.com/nickg/nvc/releases/download/r1.2.1/nvc-1.2.1.tar.gz"
-  sha256 "ff6b1067a665c6732286239e539ae448a52bb11e9ea193569af1c147d0b4fce0"
+  url "https://github.com/nickg/nvc/releases/download/r1.5.0/nvc-1.5.tar.gz"
+  sha256 "4da984ba95eb3b8dd2893fb7a676675de869ff114b827a9f5490dfd54bc95fcb"
+  license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
-    sha256 "f11933a05847b9433fd505c03755767043872e145f247b7d87603e3a9dc51dc4" => :high_sierra
-    sha256 "23b8d156e8ee517b80e7736eeb31bfa3ac59e30bbdca157b53320b8cf987b633" => :sierra
-    sha256 "fec8eab13df57ffec18283f6a83366afcf431640f9e25142a4da04f63e43e2bf" => :el_capitan
-    sha256 "f33ffc17ef6123f97750b76fddedbb6ba3865fab02ebbca04c7441631740092d" => :yosemite
+    sha256 arm64_big_sur: "76441135ec856345e43510a1a7da280138a85d9c0cfee5976dd66d765d4baf4e"
+    sha256 big_sur:       "1f2d64225daa270c2914bc24bf9510ee778e3760a287c9d72f1aa6e96eb9ecbe"
+    sha256 catalina:      "35cf1be4eec7f103dd0d77d3a19464e7bbb745bc3dbbf04ccb0edf35ea82c734"
+    sha256 mojave:        "512571d57d7e9e97199941fc0dea8347034d64f750abb000ada7ba9fa5c8f4ea"
   end
 
   head do
@@ -18,20 +20,21 @@ class Nvc < Formula
     depends_on "automake" => :build
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "llvm" => :build
   depends_on "check" => :build
+  depends_on "pkg-config" => :build
+  depends_on "llvm"
 
   resource "vim-hdl-examples" do
     url "https://github.com/suoto/vim-hdl-examples.git",
-        :revision => "c112c17f098f13719784df90c277683051b61d05"
+        revision: "c112c17f098f13719784df90c277683051b61d05"
   end
 
   def install
     system "./autogen.sh" if build.head?
     system "./tools/fetch-ieee.sh"
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-system-cc=/usr/bin/clang"
     system "make"
     system "make", "install"
   end

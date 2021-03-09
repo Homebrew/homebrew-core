@@ -1,21 +1,26 @@
 class Fltk < Formula
   desc "Cross-platform C++ GUI toolkit"
-  homepage "http://www.fltk.org/"
-  url "http://fltk.org/pub/fltk/1.3.4/fltk-1.3.4-source.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/fltk/fltk-1.3.4-source.tar.gz"
-  mirror "https://fossies.org/linux/misc/fltk-1.3.4-source.tar.gz"
-  sha256 "c8ab01c4e860d53e11d40dc28f98d2fe9c85aaf6dbb5af50fd6e66afec3dc58f"
-  revision 1
+  homepage "https://www.fltk.org/"
+  url "https://www.fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/fltk-1.3.5.tar.gz"
+  sha256 "8729b2a055f38c1636ba20f749de0853384c1d3e9d1a6b8d4d1305143e115702"
 
-  bottle do
-    sha256 "7561987fff4639d07a28407b8d4f511fffe4579fb452a0aaa9dad2f0a0bde48d" => :high_sierra
-    sha256 "1fbd79e3f5c36f70cc5f2d0256520fd8c6ee969990412cb9080eacfe9e75e4a1" => :sierra
-    sha256 "fca842e5e25fc0a0566d64b3d34226e667f072f82cd51f009180a09db218666b" => :el_capitan
-    sha256 "bb481cbaefe696696c3bf527b4902b8251de3ee7c75619f89fd554a6e73b1b40" => :yosemite
+  livecheck do
+    url "https://www.fltk.org/software.php"
+    regex(/href=.*?fltk[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)-source\.t/i)
   end
 
-  depends_on "libpng"
+  bottle do
+    sha256 arm64_big_sur: "b93b7b3bea5d4d231c4d4c6041d9184a7711a02426b91339480b268a3ffe2bf7"
+    sha256 big_sur:       "a4f58ab4ac8e0b54a89caccc30f6ff453d845621f3287218f4a4953ae3eca6da"
+    sha256 catalina:      "d0ff3728a8da506e399b094b0e2a94ffef5a32805308d73fd2fb5fd0e402c88b"
+    sha256 mojave:        "3ea6ccc2fec9151f3ed0f20761794b9fe0477d168dbc4e83ba88b3f3d16c530b"
+    sha256 high_sierra:   "6edac0b91f19783376ec95c84819405a6f029d7d2bf8ac636d421682fc064e34"
+    sha256 sierra:        "e2bd28a348c8fbf948f2400d3df29ba786a2ca9cc3f87b3727477fb49ebf57f0"
+  end
+
   depends_on "jpeg"
+  depends_on "libpng"
 
   def install
     system "./configure", "--prefix=#{prefix}",

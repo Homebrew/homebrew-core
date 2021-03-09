@@ -1,19 +1,22 @@
 class AutoconfArchive < Formula
   desc "Collection of over 500 reusable autoconf macros"
   homepage "https://savannah.gnu.org/projects/autoconf-archive/"
-  url "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2017.09.28.tar.xz"
-  mirror "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2017.09.28.tar.xz"
-  sha256 "5c9fb5845b38b28982a3ef12836f76b35f46799ef4a2e46b48e2bd3c6182fa01"
+  url "https://ftp.gnu.org/gnu/autoconf-archive/autoconf-archive-2021.02.19.tar.xz"
+  mirror "https://ftpmirror.gnu.org/autoconf-archive/autoconf-archive-2021.02.19.tar.xz"
+  sha256 "e8a6eb9d28ddcba8ffef3fa211653239e9bf239aba6a01a6b7cfc7ceaec69cbd"
+  license "GPL-3.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "296fc393577638f777d8b9eb49660964e0e6a1134cb070c402de0f085c0fb8f4" => :high_sierra
-    sha256 "296fc393577638f777d8b9eb49660964e0e6a1134cb070c402de0f085c0fb8f4" => :sierra
-    sha256 "296fc393577638f777d8b9eb49660964e0e6a1134cb070c402de0f085c0fb8f4" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7d26fd3151dd3c363c91ea3c507d3c7dab579b906cf610d37c944abce78cc42a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c86fcd19fecc5c52847daebba5f81c768eb2d1c3f80cc3f8bee7ef1d0eb6e08c"
+    sha256 cellar: :any_skip_relocation, catalina:      "5eebb7b244cba512dc9ebb16d6ec6743d7c3859079af58213027adbdad6807de"
+    sha256 cellar: :any_skip_relocation, mojave:        "d2957cc212b85b0627cfb70760d7ab7d18dd984d838f9b62f8267b09220831ac"
   end
 
   # autoconf-archive is useless without autoconf
-  depends_on "autoconf" => :run
+  depends_on "autoconf"
+
+  conflicts_with "gnome-common", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"
 
   def install
     system "./configure", "--prefix=#{prefix}"

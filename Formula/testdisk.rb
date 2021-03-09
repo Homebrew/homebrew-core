@@ -1,17 +1,27 @@
 class Testdisk < Formula
   desc "Powerful free data recovery utility"
   homepage "https://www.cgsecurity.org/wiki/TestDisk"
-  url "https://www.cgsecurity.org/testdisk-7.0.tar.bz2"
-  sha256 "00bb3b6b22e6aba88580eeb887037aef026968c21a87b5f906c6652cbee3442d"
+  url "https://www.cgsecurity.org/testdisk-7.1.tar.bz2"
+  sha256 "1413c47569e48c5b22653b943d48136cb228abcbd6f03da109c4df63382190fe"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://www.cgsecurity.org/wiki/TestDisk_Download"
+    regex(/href=.*?testdisk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "e2643fdb09f3d33b18fb181590fe5fc58f9117a8a02791eb55ba5cce998b6cb0" => :high_sierra
-    sha256 "30784b33a74eaa138c16ddc7cbe56bc542f19759a87cfdea37084691ba5788b4" => :sierra
-    sha256 "979d1f6ba12aeee68300a657a78a234874707068232934d7f91597621a60253e" => :el_capitan
-    sha256 "13f6481decb5ad3f40f0617351dd9c78a02c3c0694a82cb048adde6ba897703f" => :yosemite
-    sha256 "d3e8a600a135807b630a4d649c052dc6065270910bd96f6b1f27265251787331" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "02338490d4e16fa0a61e422ec36ce72e97ad1d24406cda45f4d61396ba4cab36"
+    sha256 cellar: :any_skip_relocation, big_sur:       "325a572e2238e551d8415f58a463d80619850a9026b614d0c23da46838f2e9ea"
+    sha256 cellar: :any_skip_relocation, catalina:      "b0035f42c03dbbe94000ae373b1a8c5f9bbb6f9534ea3d64b5754475ee8fbc7b"
+    sha256 cellar: :any_skip_relocation, mojave:        "7431beee8948638cadaf5b7f439e32f798955caf403fdcfda5c9948afa5af3cc"
+  end
+
+  uses_from_macos "ncurses"
+
+  on_linux do
+    depends_on "util-linux"
   end
 
   def install
@@ -24,7 +34,8 @@ class Testdisk < Formula
 
   test do
     path = "test.dmg"
-    system "hdiutil", "create", "-megabytes", "10", path
+    cp test_fixtures(path + ".gz"), path + ".gz"
+    system "gunzip", path
     system "#{bin}/testdisk", "/list", path
   end
 end

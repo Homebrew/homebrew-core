@@ -1,23 +1,23 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flowtype.org/"
-  url "https://github.com/facebook/flow/archive/v0.60.1.tar.gz"
-  sha256 "4c2e911007298415d6f8c44e17fd8c84447e563021891342c05c09f5570d68da"
+  url "https://github.com/facebook/flow/archive/v0.146.0.tar.gz"
+  sha256 "7221c17e56511ed7ed3770c04f8aa193d841c19dbba70737b4c89f45d094179d"
+  license "MIT"
   head "https://github.com/facebook/flow.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "06f37e2da0441be098608f214221491ff82d9e3fe810de5780e2f30e5bb855fd" => :high_sierra
-    sha256 "318547f3c8ec7021b42fbbf20aeb04fdf4ed9bc1215ac9427b96d361dcf75083" => :sierra
-    sha256 "ebe70e6aabb7a5aaaa1ef68269a11160f4d4918c7760b8ae89b8bf8374d6e431" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:  "51bfd42347569c751e3d89a32767436c8bc716977d0d3acf53c2062dd9103d46"
+    sha256 cellar: :any_skip_relocation, catalina: "5616d2acec5a9d75b31177454c3c74afa19017530cde7acbce6de9a1c6f0bab0"
+    sha256 cellar: :any_skip_relocation, mojave:   "78a8ac6263b7511a6e11a5bcc88106fff57ae1251ea52ea907e0f5e951c87701"
   end
 
   depends_on "ocaml" => :build
   depends_on "opam" => :build
 
-  # Fix "compilation of ocaml-migrate-parsetree failed"
-  # Reported 24 Jul 2017 https://github.com/ocaml/opam/issues/3007
-  patch :DATA
+  uses_from_macos "m4" => :build
+  uses_from_macos "rsync" => :build
+  uses_from_macos "unzip" => :build
 
   def install
     system "make", "all-homebrew"
@@ -38,20 +38,3 @@ class Flow < Formula
     assert_match expected, shell_output("#{bin}/flow check #{testpath}", 2)
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index 515e581..8886bf6 100644
---- a/Makefile
-+++ b/Makefile
-@@ -174,8 +174,8 @@ all-homebrew:
-	export OPAMYES="1"; \
-	export FLOW_RELEASE="1"; \
-	opam init --no-setup && \
--	opam pin add flowtype . && \
--	opam install flowtype --deps-only && \
-+	opam pin add -n flowtype . && \
-+	opam config exec -- opam install flowtype --deps-only && \
-	opam config exec -- make
-
- clean:

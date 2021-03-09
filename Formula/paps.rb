@@ -1,68 +1,39 @@
 class Paps < Formula
   desc "Pango to PostScript converter"
-  homepage "https://paps.sourceforge.io/"
-  url "https://downloads.sourceforge.net/paps/paps-0.6.8.tar.gz"
-  sha256 "db214c4ea7ecde2f7986b869f6249864d3ff364e6f210c15aa2824bcbd850a20"
+  homepage "https://github.com/dov/paps"
+  url "https://github.com/dov/paps/archive/v0.7.1.tar.gz"
+  sha256 "b8cbd16f8dd5832ecfa9907d31411b35a7f12d81a5ec472a1555d00a8a205e0e"
+  license "LGPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "a96ea40f71d88a120c46f1f08b3d42dca390d55a189b51fd4efd870752f54f17" => :high_sierra
-    sha256 "9b8374465264e2d04873a198109bb802c76e2d5ddc9a21ae54c87c326977c9aa" => :sierra
-    sha256 "eed9fb9ffec9f551d0d7fcb7692c2de9192d9eb0a34908559cae41d73fa30c25" => :el_capitan
-    sha256 "c173071e5f66f0d911b8e8900ce9d6941cb0cbfed7fe5e1ffe623ec7c8c64e0c" => :yosemite
-    sha256 "3e0b3b9b5591c1ee670dde1560d7339fbd1c05a47d51362aa78be0de1d671f08" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "f8ab36ee220f8e2bfd5fb7db1c16812241ec8212cfc3ecd7c070517ac0a104b0"
+    sha256 cellar: :any, big_sur:       "1ceacf866bec6fbe8329ef4cac025f5ccb1bccda7616ffebd0fdd24fcc33e13c"
+    sha256 cellar: :any, catalina:      "4f19499edc025464f4ce74b0755ede3c404c41d131156aebd7d24ef3ca1fe64f"
+    sha256 cellar: :any, mojave:        "2852cb269611539d7d9fa227cca164318da3d1d3acec66b7a006ea958dc31d93"
+    sha256 cellar: :any, high_sierra:   "bef1ee9210f3591f0768817f4f748e49ea708742f56ce47e744bc4a1507f3f36"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "pango"
-  depends_on "freetype"
   depends_on "fontconfig"
-  depends_on "glib"
+  depends_on "freetype"
   depends_on "gettext"
-
-  # Find freetype headers
-  patch :DATA
+  depends_on "glib"
+  depends_on "pango"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./autogen.sh"
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}"
     system "make", "install"
+    pkgshare.install "examples"
   end
 
   test do
-    # https://paps.sourceforge.io/small-hello.utf8
-    utf8 = <<~EOS
-      paps by Dov Grobgeld (דב גרובגלד)
-      Printing through Παν語 (Pango)
-
-      Arabic السلام عليكم
-      Bengali (বাঙ্লা)  ষাগতোম
-      Greek (Ελληνικά)  Γειά σας
-      Hebrew שָׁלוֹם
-      Japanese  (日本語) こんにちは, ｺﾝﾆﾁﾊ
-      Chinese  (中文,普通话,汉语) 你好
-      Vietnamese  (Tiếng Việt)  Xin Chào
-    EOS
-    safe_system "echo '#{utf8}' |  #{bin}/paps > paps.ps"
+    system bin/"paps", pkgshare/"examples/small-hello.utf8", "--encoding=UTF-8", "-o", "paps.ps"
+    assert_predicate testpath/"paps.ps", :exist?
+    assert_match "%!PS-Adobe-3.0", (testpath/"paps.ps").read
   end
 end
-
-__END__
-diff --git a/src/libpaps.c b/src/libpaps.c
-index 6081d0d..d502b68 100644
---- a/src/libpaps.c
-+++ b/src/libpaps.c
-@@ -25,8 +25,10 @@
- 
- #include <pango/pango.h>
- #include <pango/pangoft2.h>
--#include <freetype/ftglyph.h>
--#include <freetype/ftoutln.h>
-+#include <ft2build.h>
-+#include FT_FREETYPE_H
-+#include FT_GLYPH_H
-+#include FT_OUTLINE_H
- #include <errno.h>
- #include <stdlib.h>
- #include <stdio.h>

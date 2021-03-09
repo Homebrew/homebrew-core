@@ -1,24 +1,27 @@
 class Pugixml < Formula
   desc "Light-weight C++ XML processing library"
   homepage "https://pugixml.org/"
-  url "https://github.com/zeux/pugixml/releases/download/v1.8.1/pugixml-1.8.1.tar.gz"
-  sha256 "00d974a1308e85ca0677a981adc1b2855cb060923181053fb0abf4e2f37b8f39"
+  url "https://github.com/zeux/pugixml/releases/download/v1.11.4/pugixml-1.11.4.tar.gz"
+  sha256 "8ddf57b65fb860416979a3f0640c2ad45ddddbbafa82508ef0a0af3ce7061716"
+  license "MIT"
+  revision 2
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "88279a4b4b301a1ded43cd30cb681d1b3f00b2be978449eec000f7828e5e6a6f" => :high_sierra
-    sha256 "4424c7e5154752886226e91bc8bd7a404079062d0705816533b1a86181fa95d6" => :sierra
-    sha256 "13495a332f3e2ba56148b936d42034d55373ade74af0c41f0c77feb52038ea43" => :el_capitan
-    sha256 "b2b7594b9fb20bda5ed45324ef815af60617673d6f86e066fbd988a8f82a0c16" => :yosemite
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  option "with-shared", "Build shared instead of static library"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "72487f35e935099779ea88bbbf6dd205406710df262674e6295972edff2a9ac1"
+    sha256 cellar: :any, big_sur:       "450e11f4eafe21828d3987620406eb42695a60c15086b7741898d483bb05fa8d"
+    sha256 cellar: :any, catalina:      "112dda2780766cf7403426252180cea172cd396f7b52aee42a690aa7539c933b"
+    sha256 cellar: :any, mojave:        "60d558fea876933be7a5322267ca58c0850eb23ec05d71b3d2c3876793b01367"
+  end
 
   depends_on "cmake" => :build
 
   def install
-    shared = build.with?("shared") ? "ON" : "OFF"
-    system "cmake", ".", "-DBUILD_SHARED_LIBS=#{shared}",
+    system "cmake", ".", "-DBUILD_SHARED_AND_STATIC_LIBS=ON",
                          "-DBUILD_PKGCONFIG=ON", *std_cmake_args
     system "make", "install"
   end
@@ -42,9 +45,8 @@ class Pugixml < Formula
       <root>Hello world!</root>
     EOS
 
-    system ENV.cc, "test.cpp", "-o", "test", "-lstdc++",
-                               "-L#{Dir["#{lib}/pug*"].first}", "-lpugixml",
-                               "-I#{include.children.first}"
+    system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}",
+                    "-L#{lib}", "-lpugixml"
     system "./test"
   end
 end

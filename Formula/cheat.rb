@@ -1,39 +1,33 @@
 class Cheat < Formula
-  include Language::Python::Virtualenv
-
   desc "Create and view interactive cheat sheets for *nix commands"
-  homepage "https://github.com/chrisallenlane/cheat"
-  url "https://github.com/chrisallenlane/cheat/archive/2.2.2.tar.gz"
-  sha256 "d898247e4d74e71afbf05943ca1430b3526cd8ec573fe3ee20e73bafcacc0e63"
-  head "https://github.com/chrisallenlane/cheat.git"
+  homepage "https://github.com/cheat/cheat"
+  url "https://github.com/cheat/cheat/archive/4.2.0.tar.gz"
+  sha256 "23c3c30fe1ad63916718eef534dcef22c0ae607695f74860180304c5cde3ea49"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5eb69f05c29b9be7a0b453d5dff25abf91af51c5a5c4c5a3956b78955bd0be6c" => :high_sierra
-    sha256 "65a2bf9dc7f1c50718f9811ad89958409ec14a24c140332a468d8b6520989328" => :sierra
-    sha256 "5da06a7464f2ef810c33d96f075dad2b5d5245e5d8e7700903d89daa029ca46a" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0616a7b0ce9a9fd33919390fb29f042eb997d3462917514b283385a9f05fe977"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dbfd6636a4b40dd7b94a400c7888f45ddd87427e855b00dc8119dd7200c49b14"
+    sha256 cellar: :any_skip_relocation, catalina:      "74c8c4a8fc13f0484628ed56dc6d54507f605d271faf844683119f6f46adfa2a"
+    sha256 cellar: :any_skip_relocation, mojave:        "540de221f3d25e9aaa697a078c51f36964d219a565701e06ed5492a02b6d876d"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "go" => :build
 
-  resource "docopt" do
-    url "https://files.pythonhosted.org/packages/a2/55/8f8cab2afd404cf578136ef2cc5dfb50baa1761b68c9da1fb1e4eed343c9/docopt-0.6.2.tar.gz"
-    sha256 "49b3a825280bd66b3aa83585ef59c4a8c82f2c8a522dbe754a8bc8d08c85c491"
-  end
-
-  resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/71/2a/2e4e77803a8bd6408a2903340ac498cb0a2181811af7c9ec92cb70b0308a/Pygments-2.2.0.tar.gz"
-    sha256 "dbae1046def0efb574852fab9e90209b23f556367b5a320c0bcb871c77c3e8cc"
-  end
+  conflicts_with "bash-snippets", because: "both install a `cheat` executable"
 
   def install
-    virtualenv_install_with_resources
+    system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
 
-    bash_completion.install "cheat/autocompletion/cheat.bash"
-    zsh_completion.install "cheat/autocompletion/cheat.zsh" => "_cheat"
+    bash_completion.install "scripts/cheat.bash"
+    fish_completion.install "scripts/cheat.fish"
+    zsh_completion.install "scripts/cheat.zsh"
   end
 
   test do
-    system bin/"cheat", "tar"
+    assert_match version.to_s, shell_output("#{bin}/cheat --version")
+
+    output = shell_output("#{bin}/cheat --init 2>&1")
+    assert_match "editor: vim", output
   end
 end

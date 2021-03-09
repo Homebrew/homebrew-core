@@ -1,16 +1,20 @@
 class Dbhash < Formula
   desc "Computes the SHA1 hash of schema and content of a SQLite database"
   homepage "https://www.sqlite.org/dbhash.html"
-  url "https://www.sqlite.org/2017/sqlite-src-3210000.zip"
-  version "3.21.0"
-  sha256 "8681a34e059b30605f611ac85168ca54edbade50c71468b5882f5abbcd66b94e"
+  url "https://www.sqlite.org/2021/sqlite-src-3340100.zip"
+  version "3.34.1"
+  sha256 "dddd237996b096dee8b37146c7a37a626a80306d6695103d2ec16ee3b852ff49"
+  license "blessing"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "db96d6ab7752f0b0452d3973d0b6ac45bba1ea511db51e59df20bb7bef851eb7" => :high_sierra
-    sha256 "36f7f808de9d1eb08231b68db17a2948b78876d4212031906db7a38359695d2a" => :sierra
-    sha256 "578b82fbbb3bf80ebee8c5795e8754c6df451c23a273bda6732179b2f30cf71d" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c1f600e1c3b9a4dffda17d135c5451a6370a66e929907cd542482bd9b78c00d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0749d1a47c9c62364004e492687b7e884d6beae636a16b310400074d6ab412ad"
+    sha256 cellar: :any_skip_relocation, catalina:      "33915e5efb31f85f70b224a895ec7d559ace851bb2db908e1ad9dfd7e7e48689"
+    sha256 cellar: :any_skip_relocation, mojave:        "58bdc1479bae920500e6f3193094b08ee4ccbbf34d209a4aaf89b86bec2b449d"
   end
+
+  uses_from_macos "tcl-tk" => :build
+  uses_from_macos "sqlite" => :test
 
   def install
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
@@ -22,7 +26,7 @@ class Dbhash < Formula
     dbpath = testpath/"test.sqlite"
     sqlpath = testpath/"test.sql"
     sqlpath.write "create table test (name text);"
-    system "/usr/bin/sqlite3 #{dbpath} < #{sqlpath}"
+    system "sqlite3 #{dbpath} < #{sqlpath}"
     assert_equal "b6113e0ce62c5f5ca5c9f229393345ce812b7309",
                  shell_output("#{bin}/dbhash #{dbpath}").strip.split.first
   end

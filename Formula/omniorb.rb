@@ -1,20 +1,29 @@
 class Omniorb < Formula
   desc "IOR and naming service utilities for omniORB"
   homepage "https://omniorb.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.2.2/omniORB-4.2.2.tar.bz2"
-  sha256 "ddd909ce31014be2beebf67a5e9fabbf03b5bb0c26b8c53ab64d470d77348ece"
+  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.2.4/omniORB-4.2.4.tar.bz2"
+  sha256 "28c01cd0df76c1e81524ca369dc9e6e75f57dc70f30688c99c67926e4bdc7a6f"
+  license "GPL-2.0"
+  revision 1
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/omniORB[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t}i)
+  end
 
   bottle do
-    sha256 "4d6e50aa2b7e921f95de4423576ad039549cbb10ed4ff034e4ebfac1ff2914fd" => :high_sierra
-    sha256 "989ec3dfa6d2cffa72b377822404ff212c9c52b10c6ce1cf7e77ebd5a26a96b4" => :sierra
-    sha256 "3c53f669e4832ee9e423bd1c124d3b3e7abd2f061b824fae408f5d553c61060a" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "af99975268bf9395f8aa6b00521f5dde8e41434a2bc19ee45aa9abba372bad75"
+    sha256 cellar: :any, big_sur:       "625e7bb2ca70ac3a1e52d3cc8ef9b1614b498eb24b00cdc78736dcea7c40c9cf"
+    sha256 cellar: :any, catalina:      "e25345b167440b0a34a7399a267b487d0e8ffb24ccd5f9c2cbbf874b8a38e729"
+    sha256 cellar: :any, mojave:        "5c8d7b0adeca7c70af83d5b13acc4629e8329104562deaea9f329bf7345ad272"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.9"
 
   resource "bindings" do
-    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.2.2/omniORBpy-4.2.2.tar.bz2"
-    sha256 "f3686e5f85b7c7fec83a1ec97dc6874d336e24830c0e68f1e1ecbd798fa1696a"
+    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.2.4/omniORBpy-4.2.4.tar.bz2"
+    sha256 "dae8d867559cc934002b756bc01ad7fabbc63f19c2d52f755369989a7a1d27b6"
   end
 
   def install
@@ -23,7 +32,7 @@ class Omniorb < Formula
     system "make", "install"
 
     resource("bindings").stage do
-      system "./configure", "--prefix=#{prefix}"
+      system "./configure", "--prefix=#{prefix}", "PYTHON=python3"
       system "make", "install"
     end
   end

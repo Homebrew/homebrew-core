@@ -1,17 +1,20 @@
 class Qpdf < Formula
   desc "Tools for and transforming and inspecting PDF files"
-  homepage "https://qpdf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qpdf/qpdf/7.0.0/qpdf-7.0.0.tar.gz"
-  sha256 "fed08de14caad0fe5efd148d9eca886d812588b2cbb35d13e61993ee8eb8c65f"
+  homepage "https://github.com/qpdf/qpdf"
+  url "https://github.com/qpdf/qpdf/releases/download/release-qpdf-10.3.0/qpdf-10.3.0.tar.gz"
+  sha256 "4649c66ddb3a4fc4b18927667fd3ae20a9edfbbdc1017ee1ed1e548d3abe00d1"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "c26c68ec2f09be96cda4b21ad23a6e7e6243121d8bf9ce4227545be39f8dc1e0" => :high_sierra
-    sha256 "20441ef157d913182f5a75a2fa40dca76b5b110b01ca64597a6bed5fe74b3797" => :sierra
-    sha256 "da38c81a17b35f8ee25cd6a10fe2a55d6a81cf0c158152c4e0d957e64a6ca04d" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "3294e47095527d787403863169b92b16ff2fd8e5ac4355ce5545a096afc19f08"
+    sha256 cellar: :any, big_sur:       "e32189770a71e953260a3a0785a8f20bf154ab80c43cd6cea24e6b4ae78c73c1"
+    sha256 cellar: :any, catalina:      "b54493c6cc63be6f7208981cb7af6796e3e3399c524964c741469f21a88c7871"
+    sha256 cellar: :any, mojave:        "a67999a7c8434e009324fe7f341cce059b1f9c7983090c29068c81083c036c05"
   end
 
   depends_on "jpeg"
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}"

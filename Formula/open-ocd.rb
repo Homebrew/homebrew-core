@@ -1,19 +1,24 @@
 class OpenOcd < Formula
   desc "On-chip debugging, in-system programming and boundary-scan testing"
-  homepage "https://sourceforge.net/projects/openocd/"
-  url "https://downloads.sourceforge.net/project/openocd/openocd/0.10.0/openocd-0.10.0.tar.bz2"
-  sha256 "7312e7d680752ac088b8b8f2b5ba3ff0d30e0a78139531847be4b75c101316ae"
+  homepage "http://openocd.org/"
+  url "https://downloads.sourceforge.net/project/openocd/openocd/0.11.0/openocd-0.11.0.tar.bz2"
+  sha256 "43a3ce734aff1d3706ad87793a9f3a5371cb0e357f0ffd0a151656b06b3d1e7d"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/openocd[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "eab0153f54c97d4922386996d7517b6dc22c8e418b620ba42dd6f190fc0c48f7" => :high_sierra
-    sha256 "281978e21362ed00dd198715825d77f0f2aeb64ad99954714a34ce128e1a0df8" => :sierra
-    sha256 "e1fc5f8a8bf079954a56459b330313cd82a69a219114821c14f9d3df2fd3ea25" => :el_capitan
-    sha256 "568ae702a3488805b8651b5456346c9484ca6f8486a09f3c2a4473664370a481" => :yosemite
+    sha256 arm64_big_sur: "c95313b03e7050963f4a35a28e88743cd01d1a5e198f809e60ac9e3374799995"
+    sha256 big_sur:       "8c776e777a2587d45f7abc2ab9cb3d682a9e1d0c186c16d3beeec4b5dddcc637"
+    sha256 catalina:      "70eeaab9796e8356a5ad08c8f69e9fc7a86f9ef3f7060248ab49722dfeb95794"
+    sha256 mojave:        "31773a9703e8b217b5d6dc58dc670a8f8afd2b51e7735bbd499eef2daad357dd"
   end
 
   head do
-    url "https://git.code.sf.net/p/openocd/code.git"
+    url "https://github.com/ntfreak/openocd.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -21,33 +26,24 @@ class OpenOcd < Formula
     depends_on "texinfo" => :build
   end
 
-  option "without-hidapi", "Disable building support for devices using HIDAPI (CMSIS-DAP)"
-  option "without-libftdi", "Disable building support for libftdi-based drivers (USB-Blaster, ASIX Presto, OpenJTAG)"
-  option "without-libusb",  "Disable building support for all other USB adapters"
-
   depends_on "pkg-config" => :build
-  depends_on "libusb" => :recommended
-  # some drivers are still not converted to libusb-1.0
-  depends_on "libusb-compat" if build.with? "libusb"
-  depends_on "libftdi" => :recommended
-  depends_on "hidapi" => :recommended
+  depends_on "capstone"
+  depends_on "hidapi"
+  depends_on "libftdi"
+  depends_on "libusb"
+  depends_on "libusb-compat"
 
   def install
-    # all the libusb and hidapi-based drivers are auto-enabled when
-    # the corresponding libraries are present in the system
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --enable-dummy
-      --enable-buspirate
-      --enable-jtag_vpi
-      --enable-remote-bitbang
-    ]
-
     ENV["CCACHE"] = "none"
 
     system "./bootstrap", "nosubmodule" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--enable-buspirate",
+                          "--enable-stlink",
+                          "--enable-dummy",
+                          "--enable-jtag_vpi",
+                          "--enable-remote-bitbang"
     system "make", "install"
   end
 end

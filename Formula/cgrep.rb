@@ -1,41 +1,36 @@
-require "language/haskell"
-
 class Cgrep < Formula
-  include Language::Haskell::Cabal
-
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v6.6.18.tar.gz"
-  sha256 "e753a4b49eb5895f86798fbcc1b13f4d9dd6b3803bf43ea0274c6be7447f7347"
+  url "https://github.com/awgn/cgrep/archive/v6.6.33.tar.gz"
+  sha256 "f0d7114e9c26dc3ff3515711cce63864f3995ac06ed3743acf2560fc5a1eb78e"
+  license "GPL-2.0-or-later"
   head "https://github.com/awgn/cgrep.git"
 
   bottle do
-    cellar :any
-    sha256 "ad692cea91721d3a6790393d4abf7d5b1baf7d5836619df9ad306a9aaa95ca82" => :high_sierra
-    sha256 "ba15c5f7e86bbb71aac18461e2865413cfd90d3794f7f3e53ab241eacb2ddcbb" => :sierra
-    sha256 "3427acebbfe2e88072d227cc565b4d577c6900b2694bf39b01a985dbd15f41db" => :el_capitan
+    sha256 cellar: :any, big_sur:  "4047191dea7a4ed298ec2b30bd9cd1a50b4a06f6cc6ab8c595a02df722c4cfa5"
+    sha256 cellar: :any, catalina: "917b7ccec03d60ae5fcd80da9544cd294db6d188ae7b14a894a39a51dd5459e1"
+    sha256 cellar: :any, mojave:   "0a3945e411e44e59e77e423caf8e445a6dbe06fef7724abb12612ae888707280"
   end
 
-  depends_on "ghc" => :build
   depends_on "cabal-install" => :build
+  depends_on "ghc@8.8" => :build
+  depends_on "pkg-config" => :build
   depends_on "pcre"
 
   def install
-    install_cabal_package
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
-    path = testpath/"test.rb"
-    path.write <<~EOS
+    (testpath/"t.rb").write <<~EOS
       # puts test comment.
       puts "test literal."
     EOS
 
-    assert_match ":1",
-      shell_output("script -q /dev/null #{bin}/cgrep --count --comment test #{path}")
-    assert_match ":1",
-      shell_output("script -q /dev/null #{bin}/cgrep --count --literal test #{path}")
-    assert_match ":1",
-      shell_output("script -q /dev/null #{bin}/cgrep --count --code puts #{path}")
+    assert_match ":1", shell_output("#{bin}/cgrep --count --comment test t.rb")
+    assert_match ":1", shell_output("#{bin}/cgrep --count --literal test t.rb")
+    assert_match ":1", shell_output("#{bin}/cgrep --count --code puts t.rb")
+    assert_match ":2", shell_output("#{bin}/cgrep --count puts t.rb")
   end
 end

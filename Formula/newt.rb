@@ -1,15 +1,22 @@
 class Newt < Formula
   desc "Library for color text mode, widget based user interfaces"
   homepage "https://pagure.io/newt"
-  url "https://pagure.io/releases/newt/newt-0.52.20.tar.gz"
-  sha256 "8d66ba6beffc3f786d4ccfee9d2b43d93484680ef8db9397a4fb70b5adbb6dbc"
+  url "https://pagure.io/releases/newt/newt-0.52.21.tar.gz"
+  sha256 "265eb46b55d7eaeb887fca7a1d51fe115658882dfe148164b6c49fccac5abb31"
+  license "LGPL-2.0"
+
+  livecheck do
+    url "https://pagure.io/releases/newt/"
+    regex(/href=.*?newt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "092e8f0a4603c337cd7e51d26d3721bd450a3a9ebf6eb0f55bf703f1a3c34cfa" => :high_sierra
-    sha256 "eb0b10566d3852909e6f11ad02dd09382cb494d05f1ea4a2371c15abda8cda1c" => :sierra
-    sha256 "1a3b16bafddded8ae06bcb5b261c50142b7b7752d4e4cf08d65709a2506edf82" => :el_capitan
-    sha256 "78f895d8ee19c343c5846a29699fd8be1f552f8d5c335081df353f8069cd9fa0" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "5b125ba2ac186a9b1163e5546a3669d19dbd1c9703060a2ac358e4ca784ec2b9"
+    sha256 cellar: :any, big_sur:       "93469c4ded76db63f8ac56143c9d110e18ff8c92f25857a7bb2955de63eb19cc"
+    sha256 cellar: :any, catalina:      "82ea49582f5bcf3bbaf6a39d4d6128c966889eaff682bf83601954c995ee1276"
+    sha256 cellar: :any, mojave:        "2b902ecc6fc52b2f2681eb23e4eb568684a018deeada88e5a920952de8cc1080"
+    sha256 cellar: :any, high_sierra:   "7a88cbe033eb207df57a6410f19339975a672e331c073e3ee79e467652c8753c"
+    sha256 cellar: :any, sierra:        "4d82531bb783ba5e3f8a64150582e61b2fd4a9fb8be96d0bee88fa3bbe0dc3c3"
   end
 
   depends_on "gettext"
@@ -38,7 +45,6 @@ class Newt < Formula
 
   test do
     ENV["TERM"] = "xterm"
-    system "python", "-c", "import snack"
     (testpath/"test.c").write <<~EOS
       #import <newt.h>
       int main() {

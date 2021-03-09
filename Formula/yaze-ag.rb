@@ -1,22 +1,24 @@
 class YazeAg < Formula
   desc "Yet Another Z80 Emulator (by AG)"
   homepage "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/"
-  url "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.30.3.tar.gz"
-  sha256 "f63c29a07ed7c17d8159ffe947d95d432147d7d6fad5d04b6fb75f341de121e6"
+  url "http://www.mathematik.uni-ulm.de/users/ag/yaze-ag/devel/yaze-ag-2.40.5_with_keytrans.tar.gz"
+  version "2.40.5"
+  sha256 "d46c861eb0725b87dd5567062f277860b98d538fca477d8686f17b36ef39d9bd"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "5a7cb2f9fe6c900a557786f8026c47a75272bf71bc74f1fbedf2c2648c17db0c" => :high_sierra
-    sha256 "bee2b2a896191528e71c1d986ecf4ca2fb3923f27617715542137d618584ea55" => :sierra
-    sha256 "97ffe6edc70a797cbb26d9399f49b46570b80b705a5d52a0b4fded357bc317ed" => :el_capitan
+    sha256 arm64_big_sur: "ee904628f8d8bdcafb50f18e4909d0d5a3cffe73f864ae66214fa91c8fabaa92"
+    sha256 big_sur:       "fa3420cfae542f27c772d484109f1a930fa82525c3349d7a4ea7bdbc8ad42649"
+    sha256 catalina:      "f250f5ad984f31c1f96c744b81195c96bdccce6f74dd7548ceed19ba1172c117"
+    sha256 mojave:        "86fb203ac02bad9477b7d3c7b78022df5feb126ae08df3ff93238d766f08a362"
+    sha256 high_sierra:   "9f3e2a6e51423a97f03e99ed2bca0c7778fcf4f6b223332a824743bdbad20e09"
+    sha256 sierra:        "daa83753710abc22b99dcdb20761673e9022e4205b5ddf225d7a6fdfdf47ed79"
+    sha256 el_capitan:    "7df38aea48a13d73f0a040f1775d915b6bc543d7f7daafbb3eda0b77ee4fdbf6"
   end
 
-  # Fix missing sys header include for caddr_t on Mac OS
-  # Fix omission of creating bin directory by custom Makefile
-  # Upstream author is aware of this issue:
-  # https://github.com/Homebrew/homebrew/pull/16817
-  patch :DATA
-
   def install
+    inreplace "Makefile_solaris_gcc", "md5sum -b", "md5"
+    bin.mkpath
     system "make", "-f", "Makefile_solaris_gcc",
                    "BINDIR=#{bin}",
                    "MANDIR=#{man1}",
@@ -29,24 +31,3 @@ class YazeAg < Formula
     assert_match "yazerc", shell_output("#{bin}/yaze -v", 1)
   end
 end
-
-__END__
-diff --git a/Makefile_solaris_gcc b/Makefile_solaris_gcc
-index 9e469a3..b25d007 100644
---- a/Makefile_solaris_gcc
-+++ b/Makefile_solaris_gcc
-@@ -140,11 +140,14 @@ simz80.c:	simz80.pl
-		perl -w simz80.pl >simz80.c
-		chmod a-w simz80.c
-
-+cdm.o:		CFLAGS+=-include sys/types.h
-+
- cdm:		cdm.o
-		$(CC) $(CFLAGS) cdm.o $(LIBS) -o $@
-
- install:	all
-		rm -rf $(LIBDIR)
-+		mkdir -p $(BINDIR)
-		mkdir -p $(LIBDIR)
-		mkdir -p $(MANDIR)
-		$(INSTALL) -s -c -m 755 yaze_bin $(BINDIR)

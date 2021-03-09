@@ -1,36 +1,49 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/archive/v6.4.1.tar.gz"
-  sha256 "87583af552695b2235f4ee3fc1e645d69e31702b109331d7e8785fb180cfa382"
+  url "https://github.com/mltframework/mlt/releases/download/v6.24.0/mlt-6.24.0.tar.gz"
+  sha256 "3b977c5632329fca7634d0034162df6d5b79cde3256bac43e7ba8353acced61e"
+  license "LGPL-2.1-only"
+  revision 2
+  head "https://github.com/mltframework/mlt.git"
 
   bottle do
-    sha256 "d8fd68f360e83c62b5933323054d688657c58df91a4f10d7986c3124e276f5a4" => :high_sierra
-    sha256 "0f48ee12e037716c9a5ef2d6349a3fa205d646a8275ee0c7f9dd0ffdd8c0f6be" => :sierra
-    sha256 "0b0fd8855c2c3f02504d182aa95878f310bae9a12558da8b46614e24b6d6fdc4" => :el_capitan
-    sha256 "967717d68301e59bf269f48ca9af1b08773517ade99e55683ef62e994398c441" => :yosemite
+    sha256 big_sur:  "768152c19d7f31edf5e3c1ed2a3e8f687d8bf655bb6b9877b0bc3cdf4aadb92d"
+    sha256 catalina: "3dfeb31325eaa6dc6665be06488a4edfa0a89b77b9b4390f3b18ac9842d06250"
+    sha256 mojave:   "a6eec67fd8692b5abef46cea80f2fd8396bae6799bcf63607c3006685e665892"
   end
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
+  depends_on "fftw"
   depends_on "frei0r"
+  depends_on "gdk-pixbuf"
   depends_on "libdv"
+  depends_on "libexif"
   depends_on "libsamplerate"
   depends_on "libvorbis"
-  depends_on "sdl"
+  depends_on "opencv@3"
+  depends_on "pango"
+  depends_on "qt@5"
+  depends_on "sdl2"
   depends_on "sox"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-jackrack",
-                          "--disable-swfdec",
-                          "--disable-gtk",
-                          "--enable-gpl"
+    args = ["--prefix=#{prefix}",
+            "--disable-jackrack",
+            "--disable-swfdec",
+            "--disable-sdl",
+            "--enable-motion_est",
+            "--enable-gpl",
+            "--enable-gpl3",
+            "--enable-opencv"]
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/melt", "-version"
+    assert_match "help", shell_output("#{bin}/melt -help")
   end
 end

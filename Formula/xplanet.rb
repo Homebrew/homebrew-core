@@ -3,40 +3,22 @@ class Xplanet < Formula
   homepage "https://xplanet.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xplanet/xplanet/1.3.1/xplanet-1.3.1.tar.gz"
   sha256 "4380d570a8bf27b81fb629c97a636c1673407f4ac4989ce931720078a90aece7"
-  revision 2
+  license "GPL-2.0-or-later"
+  revision 4
 
   bottle do
-    sha256 "bd4d0b8ed3bf33f6c6da0b43574fb08d054603d0b36b228a87d1ae070274ac7c" => :high_sierra
-    sha256 "eedbdc803d69fa1635e763eafa90ffd071b537e994a5fbdbe9eb84e69c0fc645" => :sierra
-    sha256 "6d37f0965bc1b1f1aa438fec8ea9e57a096681336dba25dc880f25cb752f3910" => :el_capitan
-    sha256 "4c0e0c1b025079129f808e85d3d5e76280799929fa6e9d119000e94283769a8d" => :yosemite
+    sha256 big_sur:     "48c24de21612e3a5cb19747db269ec15dc1a85a4e49c6e0c0c87b0bdf5b15d90"
+    sha256 catalina:    "c8e659713aaa70e8fc00d48e15cf997648759afa7b6ff8e0979212348fd6cc8f"
+    sha256 mojave:      "9912c643de81e812f69e639e1fe1ee3ee45900d85ce23409adb0a394305b970b"
+    sha256 high_sierra: "aec227666c4e6216b061e979c5aabd1343c9c6433e8f85868f0f12eff3c01b62"
   end
-
-  option "with-x11", "Build for X11 instead of Aqua"
-  option "with-all", "Build with default Xplanet configuration dependencies"
-  option "with-pango", "Build Xplanet to support Internationalized text library"
-  option "with-netpbm", "Build Xplanet with PNM graphic support"
-  option "with-cspice", "Build Xplanet with JPLs SPICE toolkit support"
 
   depends_on "pkg-config" => :build
-
-  depends_on "giflib" => :recommended
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-
-  if build.with?("all")
-    depends_on "netpbm"
-    depends_on "pango"
-    depends_on "cspice"
-  end
-
-  depends_on "netpbm" => :optional
-  depends_on "pango" => :optional
-  depends_on "cspice" => :optional
-
   depends_on "freetype"
-  depends_on :x11 => :optional
+  depends_on "giflib"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
 
   # patches bug in 1.3.1 with flag -num_times=2 (1.3.2 will contain fix, when released)
   # https://sourceforge.net/p/xplanet/code/208/tree/trunk/src/libdisplay/DisplayOutput.cpp?diff=5056482efd48f8457fc7910a:207
@@ -48,44 +30,41 @@ class Xplanet < Formula
   # Fix compilation with giflib 5
   # https://xplanet.sourceforge.io/FUDforum2/index.php?t=msg&th=592
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xplanet/xplanet-1.3.1-giflib5.patch"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6b8519a9391b96477c38e1b1c865892f7bf093ca/xplanet/xplanet-1.3.1-giflib5.patch"
     sha256 "0a88a9c984462659da37db58d003da18a4c21c0f4cd8c5c52f5da2b118576d6e"
   end
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --without-cygwin
+    args = [
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}",
+      "--without-cspice",
+      "--without-cygwin",
+      "--with-gif",
+      "--with-jpeg",
+      "--with-libtiff",
+      "--without-pango",
+      "--without-pnm",
+      "--without-x",
+      "--without-xscreensaver",
     ]
-
-    if build.without?("all")
-      args << "--without-gif" if build.without?("giflib")
-      args << "--without-jpeg" if build.without?("jpeg")
-      args << "--without-libpng" if build.without?("libpng")
-      args << "--without-libtiff" if build.without?("libtiff")
-      args << "--without-pnm" if build.without?("netpbm")
-      args << "--without-pango" if build.without?("pango")
-      args << "--without-cspice" if build.without?("cspice")
+    on_macos do
+      args << "--with-aqua"
     end
-
-    if build.with?("x11")
-      args << "--with-x" << "--with-xscreensaver" << "--without-aqua"
-    else
-      args << "--with-aqua" << "--without-x" << "--without-xscreensaver"
-    end
-
-    if build.with?("netpbm") || build.with?("all")
-      netpbm = Formula["netpbm"].opt_prefix
-      ENV.append "CPPFLAGS", "-I#{netpbm}/include/netpbm"
-      ENV.append "LDFLAGS", "-L#{netpbm}/lib"
-    end
-
     system "./configure", *args
+
     system "make", "install"
   end
 
+  # Test all the supported image formats, jpg, png, gif and tiff, as well as the -num_times 2 patch
   test do
-    system "#{bin}/xplanet", "-geometry", "4096x2160", "-projection", "mercator", "-gmtlabel", "-num_times", "1", "-output", "#{testpath}/xp-test.png"
+    system "#{bin}/xplanet", "-target", "earth", "-output", "#{testpath}/test.jpg",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--transpng", "#{testpath}/test.png",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.gif",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
+    system "#{bin}/xplanet", "-target", "earth", "--output", "#{testpath}/test.tiff",
+                             "-radius", "30", "-num_times", "2", "-random", "-wait", "1"
   end
 end

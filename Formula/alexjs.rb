@@ -2,15 +2,17 @@ require "language/node"
 
 class Alexjs < Formula
   desc "Catch insensitive, inconsiderate writing"
-  homepage "http://alexjs.com"
-  url "https://github.com/wooorm/alex/archive/5.1.0.tar.gz"
-  sha256 "82b8bbd2e1781138a9147bfda584f7da3da92f782d18d23fd091b0fd105ddcad"
+  homepage "https://alexjs.com"
+  url "https://github.com/get-alex/alex/archive/9.1.0.tar.gz"
+  sha256 "1e9acfabd7c7078278007bcfeccb3827ffec92a5c226ab1a387077997ee3dad4"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "98235c0024fdbf9109169020bfbe6e184e6d64843ee29d0c532aa2703650ba08" => :high_sierra
-    sha256 "89e37a748cc72279043da0fd9d7208f5dbe4612d1823d628de33b1a8c6f9e90e" => :sierra
-    sha256 "2010daebcecbbe252a3d57b1144734793177027d699826cf67a632ea4d6b475d" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1869fa035c9ce8179295d3cd697c8abfbc72a5fefc81d12ce0c047bf4db64eae"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1102acddac4146addf4d4b59ac66bf5d5d57b2badabfe9038c286ab5660c63f6"
+    sha256 cellar: :any_skip_relocation, catalina:      "e37814ad3315475e5484cc5c334089213a023ea443ccb2207702b8667f3e1a0e"
+    sha256 cellar: :any_skip_relocation, mojave:        "7c2d9fedf79264bd59e73b7f062512e03afdd1e6a66152c233996471636549f1"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "462578faccc1fd6ba5df072a50c90c28522067e6cbba84a3b6a6dfa29c7a2eaf"
   end
 
   depends_on "node"

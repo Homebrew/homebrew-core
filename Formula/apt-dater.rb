@@ -1,28 +1,39 @@
 class AptDater < Formula
   desc "Manage package updates on remote hosts using SSH"
   homepage "https://github.com/DE-IBH/apt-dater"
-  url "https://github.com/DE-IBH/apt-dater/archive/v0.9.0.tar.gz"
-  sha256 "1c361dd686d66473b27db4af8d241d520535c5d5a33f42a35943bf4e16c13f47"
+  url "https://github.com/DE-IBH/apt-dater/archive/v1.0.4.tar.gz"
+  sha256 "a4bd5f70a199b844a34a3b4c4677ea56780c055db7c557ff5bd8f2772378a4d6"
+  license "GPL-2.0"
+  revision 1
   version_scheme 1
 
   bottle do
-    rebuild 2
-    sha256 "2263ba095d1b5250428fd765b4c591886a4f7c117b1bb62719df1033a246de32" => :high_sierra
-    sha256 "026b29a9428c2c1d77e70001c8651f8e8ac20b20dee1ba62a89e0d69e2da570e" => :sierra
-    sha256 "a2f37094132e6f5cd8ad9b287bf299eea8acbc99b1d468002dfe875a8a14985d" => :el_capitan
-    sha256 "2ac3ba56f32d018a9af477484d8ad561871f855aca78726dbe8f43f5552f6acc" => :yosemite
+    sha256 arm64_big_sur: "ae020a711348a85409b5fa30467b329b1e009c006029809da302e9dc89bbee40"
+    sha256 big_sur:       "cf4a97e076ce5f8820c9a1dc787c5e751b350cc223d17ec0ba6007d6e8d97484"
+    sha256 catalina:      "5fe58574f889c5e29bd2f4c492848281450da398cace807a33c5100b44090665"
+    sha256 mojave:        "d736fdabb393e90e6895b9d5694cc0a78f592bd363483e7e935d044fd0331d41"
+    sha256 high_sierra:   "f6b5f606925ac38d24ef56fc52e93c3f5a4e8f1ab2d687ebb376c78d4f91f366"
+    sha256 sierra:        "66d81a3bf524ab635a34803119837ef26704011b2d362ab7f41aba0d40b54ea3"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "popt"
 
+  uses_from_macos "libxml2"
+
   def install
+    system "autoreconf", "-ivf"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make", "AM_LDFLAGS=", "install"
+    system "make", "install"
+    # Global config overrides local config, so delete global config to prioritize the
+    # config in $HOME/.config/apt-dater
+    (prefix/"etc").rmtree
   end
 
   test do

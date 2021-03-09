@@ -7,16 +7,19 @@ class Xsd < Formula
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "25dfd3dbcbe7f6f442bf6d45adaa849b5fbc4e7360ca4d9084bb1910252f992d" => :high_sierra
-    sha256 "935d1bcd6d9cf35cdd42e68ddb9931ad29df0834b76d6f4b9cdaa743176d7bae" => :sierra
-    sha256 "4e4a26fc0a99b11e8a740b6f5041964b682048de7ff0a9cbfd15ffea263f0c62" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "d2849a3cc67e9e3ad119bc2de7b4f9f278d44619e770f87ba90978a01cf3222c"
+    sha256 cellar: :any, big_sur:       "9ce5a5f4190d2db8665260ac89c115888dd986e6f59fb81f03ef0eee97dc3d04"
+    sha256 cellar: :any, catalina:      "8de0a3cfd410a3b2640a557e009b751f67c6f2416e38e42aa3a6634e73941847"
+    sha256 cellar: :any, mojave:        "cb064aa81b48f1777f14888e4c6df4ae3782159f5a315944df49882bce06b231"
+    sha256 cellar: :any, high_sierra:   "25dfd3dbcbe7f6f442bf6d45adaa849b5fbc4e7360ca4d9084bb1910252f992d"
+    sha256 cellar: :any, sierra:        "935d1bcd6d9cf35cdd42e68ddb9931ad29df0834b76d6f4b9cdaa743176d7bae"
+    sha256 cellar: :any, el_capitan:    "4e4a26fc0a99b11e8a740b6f5041964b682048de7ff0a9cbfd15ffea263f0c62"
   end
 
   depends_on "pkg-config" => :build
   depends_on "xerces-c"
 
-  needs :cxx11
+  conflicts_with "mono", because: "both install `xsd` binaries"
 
   # Patches:
   # 1. As of version 4.0.0, Clang fails to compile if the <iostream> header is
@@ -27,9 +30,10 @@ class Xsd < Formula
   #    is no place to file a bug report upstream other than the xsd-users mailing
   #    list (xsd-users@codesynthesis.com). I have sent this patch there but have
   #    received no response (yet).
-  patch :DATA
-
-  conflicts_with "mono", :because => "both install `xsd` binaries"
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/xsd/4.0.0.patch"
+    sha256 "55a15b7a16404e659060cc2487f198a76d96da7ec74e2c0fac9e38f24b151fa7"
+  end
 
   def install
     ENV.append "LDFLAGS", `pkg-config --libs --static xerces-c`.chomp
@@ -68,35 +72,9 @@ class Xsd < Formula
     system "#{bin}/xsd", "cxx-tree", schema
     assert_predicate testpath/"meaningoflife.hxx", :exist?
     assert_predicate testpath/"meaningoflife.cxx", :exist?
-    system "c++", "-o", "xsdtest", "xsdtest.cxx", "meaningoflife.cxx", "-lxerces-c"
+    system "c++", "-o", "xsdtest", "xsdtest.cxx", "meaningoflife.cxx",
+                  "-L#{Formula["xerces-c"].opt_lib}", "-lxerces-c"
     assert_predicate testpath/"xsdtest", :exist?
     system testpath/"xsdtest", instance
   end
 end
-
-__END__
-diff --git a/libxsd-frontend/xsd-frontend/semantic-graph/elements.cxx b/libxsd-frontend/xsd-frontend/semantic-graph/elements.cxx
-index fa48a9a..59994ae 100644
---- a/libxsd-frontend/xsd-frontend/semantic-graph/elements.cxx
-+++ b/libxsd-frontend/xsd-frontend/semantic-graph/elements.cxx
-@@ -2,6 +2,7 @@
- // copyright : Copyright (c) 2005-2014 Code Synthesis Tools CC
- // license   : GNU GPL v2 + exceptions; see accompanying LICENSE file
-
-+#include <iostream>
- #include <algorithm>
-
- #include <cutl/compiler/type-info.hxx>
-diff --git a/xsd/examples/cxx/tree/makefile b/xsd/examples/cxx/tree/makefile
-index 172195a..d8c8198 100644
---- a/xsd/examples/cxx/tree/makefile
-+++ b/xsd/examples/cxx/tree/makefile
-@@ -39,7 +39,7 @@ $(install): $(addprefix $(out_base)/,$(addsuffix /.install,$(all_examples)))
- $(dist): $(addprefix $(out_base)/,$(addsuffix /.dist,$(all_examples)))
-        $(call install-data,$(src_base)/README,$(dist_prefix)/$(path)/README)
-
--$(dist-win): export dirs := $(shell find $(src_base) -type d -exec test -f {}/driver.cxx ';' -printf '%P ')
-+$(dist-win): export dirs := $(shell find "$(src_base)" -type d -exec test -f {}/driver.cxx ';' -exec bash -c 'd="{}"; printf "%s " "${d#'"$(src_base)"'/}"' ";")
- $(dist-win): |$(out_root)/.dist-pre
- $(dist-win): $(addprefix $(out_base)/,$(addsuffix /.dist-win,$(all_examples)))
-        $(call install-data,$(src_base)/README,$(dist_prefix)/$(path)/README.txt)

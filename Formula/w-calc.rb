@@ -1,17 +1,18 @@
 class WCalc < Formula
   desc "Very capable calculator"
   homepage "https://w-calc.sourceforge.io/"
-  url "https://downloads.sourceforge.net/w-calc/wcalc-2.5.tar.bz2"
+  url "https://downloads.sourceforge.net/project/w-calc/Wcalc/2.5/wcalc-2.5.tar.bz2"
   sha256 "0e2c17c20f935328dcdc6cb4c06250a6732f9ee78adf7a55c01133960d6d28ee"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "53a5f916c3840f5f3742c5a4e2b9e30f6e4d1befa335a38e29e5e29619c1a0d7" => :high_sierra
-    sha256 "c7de145bfc785fe7c5ab006a6d64f19bd11d199e5bf0d0c0973d598717d6c8b3" => :sierra
-    sha256 "67160a91e50ae33f723ead45c4150750b62b3bd45ec009eb4b493e138d2a908d" => :el_capitan
-    sha256 "1737fad1cd9e5beac6f3a06057bd594b4de2c6b9f709544acd4825fae9160632" => :yosemite
-    sha256 "14bcdc8bb396d6c3890a7a7719d6619911ffe92e8949278865b256eb5f74682e" => :mavericks
-    sha256 "0eb8fb2e15ee8274ec673850eb5004654e3f7c3d3a835597b5809e87420db08f" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "0213a099bdf4e642145fba3fa6d034edaa5d5c628259cd175f271b3aa5b35ff8"
+    sha256 cellar: :any, big_sur:       "27705bfedd11e7181437ecfa3518ed5ca3a10cf9bbb81c6dd7f331080a476b9a"
+    sha256 cellar: :any, catalina:      "dfde02c6213c6eeeecaeae55d7ecaa7620ab5c86f346f9242c82899802901b8b"
+    sha256 cellar: :any, mojave:        "955d80417eea9747844f52b13d91005f207a869e04f49a4a8f1e1db7e8acfa74"
+    sha256 cellar: :any, high_sierra:   "be1800e5bb6cbf1e8087a0310ba648ec80f5013081d8db1145011c2c826b3c0c"
+    sha256 cellar: :any, sierra:        "f934e56de20012d05890525117377efd717ee9d1f09feada9cb41068791065ba"
+    sha256 cellar: :any, el_capitan:    "f9b1cd0799ffed7d47cb467d6a9ba606208ec93f263180eb094713ef0bec2bfc"
   end
 
   depends_on "gmp"

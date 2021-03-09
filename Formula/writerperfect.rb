@@ -1,30 +1,31 @@
 class Writerperfect < Formula
   desc "Library for importing WordPerfect documents"
   homepage "https://sourceforge.net/p/libwpd/wiki/writerperfect/"
-  url "https://downloads.sourceforge.net/project/libwpd/writerperfect/writerperfect-0.9.5/writerperfect-0.9.5.tar.xz"
-  sha256 "aa01122659482627f9adcff91bb242c37092c7f8537bfa5dc44e1a3c89aad9e2"
+  url "https://downloads.sourceforge.net/project/libwpd/writerperfect/writerperfect-0.9.6/writerperfect-0.9.6.tar.xz"
+  sha256 "1fe162145013a9786b201cb69724b2d55ff2bf2354c3cd188fd4466e7fc324e6"
 
-  bottle do
-    cellar :any
-    sha256 "366e4994f628091698e34dbb4e16648d12b1f9ff81c65c6623b2a216c8eb63c7" => :high_sierra
-    sha256 "cd81ab697a69bb1b004e0a67abcb2b455b0bcc08729631851f0ddd9144260f8d" => :sierra
-    sha256 "5443a58b0fe10cfadaf3977fca423c0289e2eba665244a5ebc020cbbbdfc78d6" => :el_capitan
-    sha256 "9f7253806ba136c75dc4920f6eca864258a1b1021fce2e7ff5b772573b3b742e" => :yosemite
-    sha256 "763ae44dd67dbbdb4b5d1efd8a749fd9c9ee32fb040aceb76696923a5b6ca815" => :mavericks
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/writerperfect[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  depends_on "pkg-config" => :build
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "00f00e38b26c51048a374d8becec3fbc1c1b1c05105710761575ae4906194920"
+    sha256 cellar: :any, big_sur:       "434788af114e54153fe89b17ff3c0ddfd879ffd0e59ac822821ede791a33d145"
+    sha256 cellar: :any, catalina:      "d9a391e73e78b29ced39f355c8d52fbba4198af66c578b9d41257422a969cd17"
+    sha256 cellar: :any, mojave:        "5e8658459f44238800ff490331d50aa6a71b48115157893c78901a4441a34dd3"
+    sha256 cellar: :any, high_sierra:   "12f30a1f15f5887da7675026656f59dd74b7fbffdf4129a2c1778578dbf4cc4a"
+    sha256 cellar: :any, sierra:        "36981e968c146d8aeca47d96327b3f3e909a3f58ca15bed17202e93fef6e17db"
+    sha256 cellar: :any, el_capitan:    "549f41525d1a5cf4cad493650ea0f8daae0208246f36984d6a56a4af533fc881"
+  end
+
   depends_on "boost" => :build
-  depends_on "libmwaw" => :optional
+  depends_on "pkg-config" => :build
   depends_on "libodfgen"
-  depends_on "libwps"
-  depends_on "libwpg"
   depends_on "libwpd"
-  depends_on "libetonyek" => :optional
-  depends_on "libvisio" => :optional
-  depends_on "libmspub" => :optional
-  depends_on "libfreehand" => :optional
-  depends_on "libcdr" => :optional
+  depends_on "libwpg"
+  depends_on "libwps"
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

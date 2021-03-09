@@ -1,32 +1,47 @@
 class Freexl < Formula
   desc "Library to extract data from Excel .xls files"
   homepage "https://www.gaia-gis.it/fossil/freexl/index"
-  url "https://www.gaia-gis.it/gaia-sins/freexl-sources/freexl-1.0.4.tar.gz"
-  sha256 "500ff1010bbceee26d4ce1b991515736bd8c0ae6894f8c38468c05c224fe7c25"
+  url "https://www.gaia-gis.it/gaia-sins/freexl-sources/freexl-1.0.6.tar.gz"
+  sha256 "3de8b57a3d130cb2881ea52d3aa9ce1feedb1b57b7daa4eb37f751404f90fc22"
 
-  bottle do
-    cellar :any
-    sha256 "7ca25e585235a32101d4609650add1b1958f802abb4ed27344070f22b30aef3b" => :high_sierra
-    sha256 "0acd882858992391ab7538d5ba0b7759e6ac74a66cbc2d3ab7687e21359153be" => :sierra
-    sha256 "3fe58df5c022ebb71b420fa3ce3cd6d672bea6f51b4fcb7231716305add6d768" => :el_capitan
+  livecheck do
+    url :homepage
+    regex(%r{current version is <b>v?(\d+(?:\.\d+)+)</b>}i)
   end
 
-  option "without-test", "Skip compile-time make checks"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "9ca72ad3d0fadf95435a288506a127a8f9ec814deb91f72c0fbeca4477d28c24"
+    sha256 cellar: :any, big_sur:       "5caea83326dab33d791db451df7a9add0f4d833e68f8bff36fdc4838ecd932ad"
+    sha256 cellar: :any, catalina:      "4bac859e3460476137f1596a36015e9c0d3e1d2b46a9aa47171cabf7af5f5d71"
+    sha256 cellar: :any, mojave:        "68d9f5926df0ca43cfda25423a405b837de81575eec025944f6ec67611422742"
+    sha256 cellar: :any, high_sierra:   "959ce4d49a7419b01acf9e66c9d0f77a213c067f723b87d08ac6aaa21d054fe9"
+  end
 
-  deprecated_option "without-check" => "without-test"
-
-  depends_on "doxygen" => [:optional, :build]
+  depends_on "doxygen" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
                           "--disable-silent-rules"
 
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
 
-    if build.with? "doxygen"
-      system "doxygen"
-      doc.install "html"
-    end
+    system "doxygen"
+    doc.install "html"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <stdio.h>
+      #include "freexl.h"
+
+      int main()
+      {
+          printf("%s", freexl_version());
+          return 0;
+      }
+    EOS
+    system ENV.cc, "-L#{lib}", "-lfreexl", "test.c", "-o", "test"
+    assert_equal version.to_s, shell_output("./test")
   end
 end

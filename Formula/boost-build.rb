@@ -1,24 +1,38 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/2016.03.tar.gz"
-  sha256 "1e79253a6ce4cadb08ac1c05feaef241cbf789b65362ba8973e37c1d25a2fbe9"
-
+  url "https://github.com/boostorg/build/archive/boost-1.75.0.tar.gz"
+  sha256 "889e931b25e435912e7b0dda89ae150fa1dabe419caccfbb923d41e85809e7df"
+  license "BSL-1.0"
+  version_scheme 1
   head "https://github.com/boostorg/build.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "6aed1a3d7dce1feefece8ea984967278da732fbe23292aca844cdd8c847bf63b" => :high_sierra
-    sha256 "87c0d16831b948b198795c2d17b96d8d7a586c0775411c4b3097266fef09e52f" => :sierra
-    sha256 "da756b55ac249c474a875ee4d2c57a49ec7331b08ee006cba5b2477883dbffee" => :el_capitan
-    sha256 "59dfa2358b532c384a8ff452be4c09d7d4e085f3a0be8c3f859c60ff55830905" => :yosemite
+  livecheck do
+    url :stable
+    regex(/^boost[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  conflicts_with "b2-tools", :because => "both install `b2` binaries"
+  bottle do
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "050492679c4ceafce723aca7fa4185e1342e3cd011b1947f33466e639ece226a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3e55b292a1bb2162a3ac207897e0c38031dc65a4bd858c085ffb35dfeae8237e"
+    sha256 cellar: :any_skip_relocation, catalina:      "71b77320b7c991c74dbad21e38e875cb2b150db8fcd56113d3f74ea379343b6f"
+    sha256 cellar: :any_skip_relocation, mojave:        "ef91e139803aba94c3ce22e085d1332b78e1a820fdeb73dace0eebc194aec0a4"
+  end
+
+  conflicts_with "b2-tools", because: "both install `b2` binaries"
+
+  # Fix build system issues on Apple silicon. This change has aleady
+  # been merged upstream, remove this patch once it lands in a release.
+  patch do
+    url "https://github.com/boostorg/build/commit/456be0b7ecca065fbccf380c2f51e0985e608ba0.patch?full_index=1"
+    sha256 "e7a78145452fc145ea5d6e5f61e72df7dcab3a6eebb2cade6b4cfae815687f3a"
+  end
 
   def install
     system "./bootstrap.sh"
     system "./b2", "--prefix=#{prefix}", "install"
+    pkgshare.install "boost-build.jam"
   end
 
   test do
@@ -29,7 +43,15 @@ class BoostBuild < Formula
     (testpath/"Jamroot.jam").write("exe hello : hello.cpp ;")
 
     system bin/"b2", "release"
-    out = Dir["bin/darwin-*/release/hello"]
+    release = nil
+    on_macos do
+      release = "darwin-*"
+    end
+    on_linux do
+      version = IO.popen("gcc -dumpversion").read.chomp
+      release = "gcc-#{version}"
+    end
+    out = Dir["bin/#{release}/release/hello"]
     assert out.length == 1
     assert_predicate testpath/out[0], :exist?
     assert_equal "Hello world", shell_output(out[0])

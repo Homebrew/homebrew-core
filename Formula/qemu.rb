@@ -1,51 +1,35 @@
-# Fix extraction on case-insensitive file systems.
-# Reported 4 Sep 2017 https://bugs.launchpad.net/qemu/+bug/1714750
-# This is actually an issue with u-boot and may take some time to sort out.
-class QemuDownloadStrategy < CurlDownloadStrategy
-  def stage
-    exclude = "#{name}-#{version}/roms/u-boot/scripts/Kconfig"
-    safe_system "tar", "xjf", cached_location, "--exclude", exclude
-    chdir
-  end
-end
-
 class Qemu < Formula
-  desc "x86 and PowerPC Emulator"
+  desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-2.10.1.tar.bz2",
-      :using => QemuDownloadStrategy
-  sha256 "8e040bc7556401ebb3a347a8f7878e9d4028cf71b2744b1a1699f4e741966ba8"
+  url "https://download.qemu.org/qemu-5.2.0.tar.xz"
+  sha256 "cb18d889b628fbe637672b0326789d9b0e3b8027e0445b936537c78549df17bc"
+  license "GPL-2.0-only"
   head "https://git.qemu.org/git/qemu.git"
 
   bottle do
-    sha256 "842262ef860430268534ad50d3ba726b640fcdd1475b51c173fd15e16ea3e80e" => :high_sierra
-    sha256 "be33f7ae7ac0115d5f0f1342f91d6327e637c4584cda47e52519ef80743142a0" => :sierra
-    sha256 "3ebf7f8ee199a5785183504a22c5952a0359a439296eb8052d75c408e0c879cd" => :el_capitan
+    sha256 arm64_big_sur: "87f301721d69b60e9088e4c60da5c905f887cbc504f31185ae663bfa36a11291"
+    sha256 big_sur:       "a9d19e88aaaa1cbca0069e298f09b738b8a0a27157ce893ac322f3d6a24519bc"
+    sha256 catalina:      "2443538eb765864a43207708b0f2eb80a601c4755952c9f3d9c7c85e1b07f2da"
+    sha256 mojave:        "359f0bc3b9f605758f3e34819a69c310f855e8b7ddc5ba45c2f3f4c8cf884f19"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "libtool" => :build
-  depends_on "jpeg"
-  depends_on "gnutls"
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+
   depends_on "glib"
+  depends_on "gnutls"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libssh"
+  depends_on "libusb"
+  depends_on "lzo"
   depends_on "ncurses"
+  depends_on "nettle"
   depends_on "pixman"
-  depends_on "libpng" => :recommended
-  depends_on "vde" => :optional
-  depends_on "sdl2" => :optional
-  depends_on "gtk+" => :optional
-  depends_on "libssh2" => :optional
-  depends_on "libusb" => :optional
-
-  deprecated_option "with-sdl" => "with-sdl2"
-
-  fails_with :gcc_4_0 do
-    cause "qemu requires a compiler with support for the __thread specifier"
-  end
-
-  fails_with :gcc do
-    cause "qemu requires a compiler with support for the __thread specifier"
-  end
+  depends_on "snappy"
+  depends_on "vde"
 
   # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
   resource "test-image" do
@@ -53,16 +37,20 @@ class Qemu < Formula
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
   end
 
+  # remove in next release
+  patch do
+    url "https://git.qemu.org/?p=qemu.git;a=patch;h=0dbce6efb5ff2e7113734d3a0cabbf87fc56feec"
+    sha256 "8ced33c7f829216544b762d8db0f143dbea04fa5a1ce41b491bbd7808f64a944"
+  end
+
+  # remove in next release
+  patch do
+    url "https://git.qemu.org/?p=qemu.git;a=patch;h=cb7abd8319d19000b57ae6c5c474c2635db054c6"
+    sha256 "818ad42f0cb25ab5df37058e27d7f879e4389489f692da4404c1f15dde5b2c4d"
+  end
+
   def install
     ENV["LIBTOOL"] = "glibtool"
-
-    # Fixes "dyld: lazy symbol binding failed: Symbol not found: _clock_gettime"
-    if MacOS.version == "10.11" && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace %w[hw/i386/kvm/i8254.c include/qemu/timer.h linux-user/strace.c
-                   roms/skiboot/external/pflash/progress.c
-                   roms/u-boot/arch/sandbox/cpu/os.c ui/spice-display.c
-                   util/qemu-timer-common.c], "CLOCK_MONOTONIC", "NOT_A_SYMBOL"
-    end
 
     args = %W[
       --prefix=#{prefix}
@@ -71,27 +59,59 @@ class Qemu < Formula
       --disable-bsd-user
       --disable-guest-agent
       --enable-curses
+      --enable-libssh
+      --enable-vde
       --extra-cflags=-DNCURSES_WIDECHAR=1
+      --disable-sdl
+      --disable-gtk
     ]
+    # Sharing Samba directories in QEMU requires the samba.org smbd which is
+    # incompatible with the macOS-provided version. This will lead to
+    # silent runtime failures, so we set it to a Homebrew path in order to
+    # obtain sensible runtime errors. This will also be compatible with
+    # Samba installations from external taps.
+    args << "--smbd=#{HOMEBREW_PREFIX}/sbin/samba-dot-org-smbd"
 
-    # Cocoa and SDL2/GTK+ UIs cannot both be enabled at once.
-    if build.with?("sdl2") || build.with?("gtk+")
-      args << "--disable-cocoa"
-    else
+    on_macos do
       args << "--enable-cocoa"
     end
-
-    args << (build.with?("vde") ? "--enable-vde" : "--disable-vde")
-    args << (build.with?("sdl2") ? "--enable-sdl" : "--disable-sdl")
-    args << (build.with?("gtk+") ? "--enable-gtk" : "--disable-gtk")
-    args << (build.with?("libssh2") ? "--enable-libssh2" : "--disable-libssh2")
 
     system "./configure", *args
     system "make", "V=1", "install"
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/qemu-system-i386 --version")
+    expected = build.stable? ? version.to_s : "QEMU Project"
+    assert_match expected, shell_output("#{bin}/qemu-system-aarch64 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-alpha --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-arm --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-cris --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-hppa --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-i386 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-m68k --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-microblaze --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-microblazeel --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-mips --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-mips64 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-mips64el --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-mipsel --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-moxie --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-nios2 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-or1k --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-ppc --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-ppc64 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-riscv32 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-riscv64 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-rx --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-s390x --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-sh4 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-sh4eb --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-sparc --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-sparc64 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-tricore --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-x86_64 --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-xtensa --version")
+    assert_match expected, shell_output("#{bin}/qemu-system-xtensaeb --version")
     resource("test-image").stage testpath
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info FLOPPY.img")
   end

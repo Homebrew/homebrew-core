@@ -1,31 +1,33 @@
 class Freetype < Formula
   desc "Software library to render fonts"
   homepage "https://www.freetype.org/"
-  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.8.1/freetype-2.8.1.tar.bz2"
-  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.8.1.tar.bz2"
-  sha256 "e5435f02e02d2b87bb8e4efdcaa14b1f78c9cf3ab1ed80f94b6382fb6acc7d78"
+  url "https://downloads.sourceforge.net/project/freetype/freetype2/2.10.4/freetype-2.10.4.tar.xz"
+  mirror "https://download.savannah.gnu.org/releases/freetype/freetype-2.10.4.tar.xz"
+  sha256 "86a854d8905b19698bbc8f23b860bc104246ce4854dcea8e3b0fb21284f75784"
+  license "FTL"
 
-  bottle do
-    cellar :any
-    sha256 "603b19cb3d0e8ae6ddc040a3a148a0ab66f605958d1afcf95c3411b11be00c70" => :high_sierra
-    sha256 "ad1a02a75cc736f17f340e1bcc4aca154ac7c5505e1f54e61b1a72b0b5ef07c8" => :sierra
-    sha256 "a0949e817a31d3c8a39bca2cdaf283c5a5e538c9c6786214369848fafffb0c0f" => :el_capitan
+  livecheck do
+    url :stable
+    regex(/url=.*?freetype[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  keg_only :provided_pre_mountain_lion
-
-  option "without-subpixel", "Disable sub-pixel rendering (a.k.a. LCD rendering, or ClearType)"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "0d3385d0d11a5d0198c09bfb77ba854766a3345067023d2fdc9b486ead52c392"
+    sha256 cellar: :any, big_sur:       "01b464b98584ba5777d8fc4605121c7a46e713a2f58d729197b82afef1b5f2b9"
+    sha256 cellar: :any, catalina:      "b4e7683ae202c49280024faac4ac7437e690cb5dd83edb806fac368bc2b7de35"
+    sha256 cellar: :any, mojave:        "81c65539bcc98d171fdff7a6e80cdddd7dc4bc9ed34e739c4361ab66f3391991"
+    sha256 cellar: :any, high_sierra:   "666892404720bcd855d866976e1cb9beecc3151ca595c3dd115a0daa6bb6c7e1"
+  end
 
   depends_on "libpng"
 
-  def install
-    if build.with? "subpixel"
-      inreplace "include/freetype/config/ftoption.h",
-          "/* #define FT_CONFIG_OPTION_SUBPIXEL_RENDERING */",
-          "#define FT_CONFIG_OPTION_SUBPIXEL_RENDERING"
-    end
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
-    system "./configure", "--prefix=#{prefix}", "--without-harfbuzz"
+  def install
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-freetype-config",
+                          "--without-harfbuzz"
     system "make"
     system "make", "install"
 

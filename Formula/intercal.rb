@@ -1,23 +1,35 @@
 class Intercal < Formula
   desc "Esoteric, parody programming language"
   homepage "http://catb.org/~esr/intercal/"
-  url "http://catb.org/~esr/intercal/intercal-0.30.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/i/intercal/intercal_0.30.orig.tar.gz"
-  sha256 "b38b62a61a3cb5b0d3ce9f2d09c97bd74796979d532615073025a7fff6be1715"
-  revision 1
+  url "http://catb.org/~esr/intercal/intercal-0.31.tar.gz"
+  sha256 "93d842b81ecdc82b352beb463fbf688749b0c04445388a999667e1958bba4ffc"
+  license "GPL-2.0"
+
+  # The latest version tags in the Git repository are `0.31` (2019-06-12) and
+  # `0.30` (2015-04-02) but there are older versions like `1.27` (2010-08-25)
+  # and `1.26` (2010-08-25). These two older 1.x releases are wrongly treated
+  # as newer but the GitLab project doesn't do releases, so we can only
+  # reference the tags. We work around this by restricting matching to 0.x
+  # releases for now. If the major version reaches 1.x in the future, this
+  # check will also need to be updated.
+  livecheck do
+    url :head
+    regex(/^v?(0(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "cf859045ee10ad86e4d430e86224f5d08e2cac391a39b7f7bab62ef336a59d65" => :high_sierra
-    sha256 "0af682680ed91e303158222255b56bac5c20f46882b90d0e54e500e93f461119" => :sierra
-    sha256 "aedc619191db840cebc64a0c96c7165c4f48e1af44849e4422f1839a6e7cc311" => :el_capitan
-    sha256 "889ab74f3c682bb55558d244781899c730eecb894cfad58083202d0674d46742" => :yosemite
+    sha256 big_sur:     "487fc70071a54c09cccdbba0284db23c156983b76416a4b4c03f44130531213c"
+    sha256 catalina:    "a2c1673fbed3d331e725694196acf9ea4cd6bc6df3b86568af3e67ee90d70b30"
+    sha256 mojave:      "d048d5c58fd1fc3b17c44103b3bbddd445a657415c215916587d9eb8e7f9c2da"
+    sha256 high_sierra: "c0569e08915adc912bdc3fb149d0d3c50e7a2d941fff8b2d951b22fcfaf4539f"
+    sha256 sierra:      "b00c959878aaead39f9106ef199d7082b4e1a62ef6957f11796a99650678c9b2"
   end
 
   head do
-    url "git://thyrsus.com/repositories/intercal.git"
+    url "https://gitlab.com/esr/intercal.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   def install

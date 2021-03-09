@@ -1,40 +1,24 @@
-class Git182Requirement < Requirement
-  fatal true
-  default_formula "git"
-
-  satisfy do
-    system "git stripspace --comment-lines </dev/null 2>/dev/null"
-  end
-
-  def message
-    "Your Git is too old.  Please upgrade to Git 1.8.2 or newer."
-  end
-end
-
 class GitIntegration < Formula
   desc "Manage git integration branches"
   homepage "https://johnkeeping.github.io/git-integration/"
   url "https://github.com/johnkeeping/git-integration/archive/v0.4.tar.gz"
   sha256 "b0259e90dca29c71f6afec4bfdea41fe9c08825e740ce18409cfdbd34289cc02"
+  license "GPL-2.0"
   head "https://github.com/johnkeeping/git-integration.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "483d5e5411d0a197e8e1e123f88fb2559745506115e3884064616b5118f1c5c3" => :high_sierra
-    sha256 "c4679cfcf05245017bf840a67eeecf0fde1b52862d46d00e9f80d267c33aedbe" => :sierra
-    sha256 "f91de5bf8a16b8b54db99566b81862c7d1e898dd332fd2d4d4bd457694443d62" => :el_capitan
-    sha256 "149a1f6f3cc6a413795893c6d63d48e82264a383aa901bee796c4d6a217b0c9b" => :yosemite
-    sha256 "2bae67c0933f3e0e990a12f1f90dd319cd788736a0cb50ad9f57e01195639331" => :mavericks
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9a9061562b7dc26dd939fc1b87c73de47ada2b464831c34487aee34de3a4d0e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "404013683ac61ff782e7844fa971ba3a872d9462c64b82140bcc53fb7eaffad5"
+    sha256 cellar: :any_skip_relocation, catalina:      "fb8287c4f092454a224bcc948821610f64b790d14e8befe4db9f3d441e2caab3"
+    sha256 cellar: :any_skip_relocation, mojave:        "96f0e7501667f2951628535f307efe672aa51daeb8af2509e0f04d06eb22b0e6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698"
+    sha256 cellar: :any_skip_relocation, sierra:        "30757baa47338aaa0e43240237d1dfefc1b59e397b55f36d5b7176ca978d7698"
   end
 
-  depends_on "asciidoc" => [:build, :optional]
-  depends_on Git182Requirement
-
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     (buildpath/"config.mak").write "prefix = #{prefix}"
     system "make", "install"
-    system "make", "install-doc" if build.with? "asciidoc"
     system "make", "install-completion"
   end
 

@@ -1,38 +1,40 @@
 class Gtkx < Formula
   desc "GUI toolkit"
   homepage "https://gtk.org/"
-  revision 1
+  license "LGPL-2.0-or-later"
 
   stable do
-    url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.31.tar.xz"
-    sha256 "68c1922732c7efc08df4656a5366dcc3afdc8791513400dac276009b40954658"
+    url "https://download.gnome.org/sources/gtk+/2.24/gtk+-2.24.33.tar.xz"
+    sha256 "ac2ac757f5942d318a311a54b0c80b5ef295f299c2a73c632f6bfb1ff49cc6da"
+  end
+
+  livecheck do
+    url :stable
+    regex(/gtk\+[._-]v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
   end
 
   bottle do
-    sha256 "9fdc12a30a9338224c7af6120e4dc916ae7ba557007eac348725a54adcaa2799" => :high_sierra
-    sha256 "860a8dd62ae8990a7dc3c403421fa3ee6bdf8ae810463fd5368094676b7c827d" => :sierra
-    sha256 "6be79985859e6f5a6bec18a23bf2bb5364b9f536bcd1283913d72f0cb32baa8c" => :el_capitan
-    sha256 "f18ee768ba59c29741133b7427f28ffdb2d615eb1c783d5b2995249b8b473086" => :yosemite
+    sha256 arm64_big_sur: "b304a9f2d24f97e179cb5731713fc4876a730b507eb057bba4f9097af46d7708"
+    sha256 big_sur:       "8ead5b96878ad431ac3e23dc3bd20bb4eac509c63c231e594986a0fa331e157f"
+    sha256 catalina:      "3900f64476d7988670b5d0c855f072fba0af2b1bb323acf4f126f70c95a38616"
+    sha256 mojave:        "10d1f2a81a115b9cf1e8c76fbd6cdc58f5b4593eb7f9e15cbe0127e14221dd06"
   end
 
   head do
-    url "https://git.gnome.org/browse/gtk+.git", :branch => "gtk-2-24"
+    url "https://gitlab.gnome.org/GNOME/gtk.git", branch: "gtk-2-24"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
-    depends_on "libtool" => :build
+    depends_on "automake" => :build
     depends_on "gtk-doc" => :build
+    depends_on "libtool" => :build
   end
 
-  option "with-quartz-relocation", "Build with quartz relocation support"
-
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gdk-pixbuf"
-  depends_on "jasper" => :optional
   depends_on "atk"
-  depends_on "pango"
-  depends_on "gobject-introspection"
+  depends_on "gdk-pixbuf"
   depends_on "hicolor-icon-theme"
+  depends_on "pango"
 
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
   # See:
@@ -49,12 +51,11 @@ class Gtkx < Formula
     args = ["--disable-dependency-tracking",
             "--disable-silent-rules",
             "--prefix=#{prefix}",
+            "--enable-static",
             "--disable-glibtest",
             "--enable-introspection=yes",
             "--with-gdktarget=quartz",
             "--disable-visibility"]
-
-    args << "--enable-quartz-relocation" if build.with?("quartz-relocation")
 
     if build.head?
       inreplace "autogen.sh", "libtoolize", "glibtoolize"
@@ -63,6 +64,8 @@ class Gtkx < Formula
     end
     system "./configure", *args
     system "make", "install"
+
+    inreplace bin/"gtk-builder-convert", %r{^#!/usr/bin/env python$}, "#!/usr/bin/python"
   end
 
   test do
@@ -81,6 +84,7 @@ class Gtkx < Formula
     gdk_pixbuf = Formula["gdk-pixbuf"]
     gettext = Formula["gettext"]
     glib = Formula["glib"]
+    harfbuzz = Formula["harfbuzz"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -93,6 +97,7 @@ class Gtkx < Formula
       -I#{gettext.opt_include}
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtk-2.0
       -I#{libpng.opt_include}/libpng16
       -I#{lib}/gtk-2.0/include

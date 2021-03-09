@@ -1,34 +1,40 @@
 class Libzdb < Formula
   desc "Database connection pool library"
-  homepage "http://tildeslash.com/libzdb/"
-  url "http://tildeslash.com/libzdb/dist/libzdb-3.1.tar.gz"
-  sha256 "0f01abb1b01d1a1f4ab9b55ad3ba445d203fc3b4757abdf53e1d85e2b7b42695"
-  revision 3
+  homepage "https://tildeslash.com/libzdb/"
+  url "https://tildeslash.com/libzdb/dist/libzdb-3.2.2.tar.gz"
+  sha256 "d51e4e21ee1ee84ac8763de91bf485360cd76860b951ca998e891824c4f195ae"
+  license "GPL-3.0-only"
+  revision 1
 
-  bottle do
-    cellar :any
-    sha256 "4cbb32921ac9edc6308ac6ac0d26553661d6ea3f154c62af9c3aaf63d2afdf58" => :high_sierra
-    sha256 "9cec69cc93f6b975d95c506f3c7b04a4d2934ac30adc13afedd1d32fe2e31d8c" => :sierra
-    sha256 "0a7bc557e3e91db185787147df1a87ae9c7aef33a1b57875bc74daa52a1338c8" => :el_capitan
-    sha256 "3a5394289ceffbd2bc7bde8dd4dfad4f9b27a4d0180fab199a839c44739f0344" => :yosemite
+  livecheck do
+    url :homepage
+    regex(%r{href=.*?dist/libzdb[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  depends_on "openssl"
-  depends_on :postgresql => :recommended
-  depends_on :mysql => :recommended
-  depends_on "sqlite" => :recommended
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "db54eac2ef107864c43f2888628a30ed7af5d3eae6f892b491ea7f2fe542a35b"
+    sha256 cellar: :any, big_sur:       "ae4c8d97236e248f1fa8fe189a4f7c049009335bc8038f541c8faf6c47c3d0e4"
+    sha256 cellar: :any, catalina:      "846888a4d5e47cccac9d41c95223974b16724b681c57e12e616a503409507014"
+    sha256 cellar: :any, mojave:        "7040dee7ee6eeb60e81aeacf6cc33f2e6e1ea5895c9a53e4a2b94ca509852974"
+  end
+
+  depends_on macos: :high_sierra # C++ 17 is required
+  depends_on "mysql-client"
+  depends_on "openssl@1.1"
+  depends_on "postgresql"
+  depends_on "sqlite"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--without-postgresql" if build.without? "postgresql"
-    args << "--without-mysql" if build.without? "mysql"
-    args << "--without-sqlite" if build.without? "sqlite"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
+    (pkgshare/"test").install Dir["test/*.{c,cpp}"]
+  end
+
+  test do
+    cp_r pkgshare/"test", testpath
+    cd "test" do
+      system ENV.cc, "select.c", "-L#{lib}", "-lzdb", "-I#{include}/zdb", "-o", "select"
+      system "./select"
+    end
   end
 end

@@ -1,57 +1,53 @@
 class Ledger < Formula
   desc "Command-line, double-entry accounting tool"
   homepage "https://ledger-cli.org/"
-  url "https://github.com/ledger/ledger/archive/v3.1.1.tar.gz"
-  sha256 "90f06561ab692b192d46d67bc106158da9c6c6813cc3848b503243a9dfd8548a"
-  revision 7
+  url "https://github.com/ledger/ledger/archive/v3.2.1.tar.gz"
+  sha256 "92bf09bc385b171987f456fe3ee9fa998ed5e40b97b3acdd562b663aa364384a"
+  license "BSD-3-Clause"
+  revision 4
   head "https://github.com/ledger/ledger.git"
 
-  bottle do
-    rebuild 1
-    sha256 "78eb7a89c983eb7b44e6cb9886f753b45f0d7dca8840f313df3b61b1260784f4" => :high_sierra
-    sha256 "399b606ab4739130941d763809510df932d46402f25e8149ccd19d146bacae1f" => :sierra
-    sha256 "90381bb4e3d1537d1741d1275f7671a5d3882991f893cca4f7e70ab6f80ab2f7" => :el_capitan
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  deprecated_option "debug" => "with-debug"
-
-  option "with-debug", "Build with debugging symbols enabled"
-  option "with-docs", "Build HTML documentation"
-  option "without-python", "Build without python support"
+  bottle do
+    sha256 arm64_big_sur: "2606457bb4b8596b5502ce4a4f1e61d62e71fa29118987ff14eb6b7d26d81368"
+    sha256 big_sur:       "b65a9b4ec2be3cc44503122ec6dcb41d1101fa3425a64b197b08743fe3aaad84"
+    sha256 catalina:      "be65eaa4610eb98628f7c3abaf5582dd0ab145a991275e2550e48cebc313a012"
+    sha256 mojave:        "47990a19ee10042ffb198cb105cb9c56a11a3d8db606166f57a57c9a9c89620a"
+  end
 
   depends_on "cmake" => :build
+  depends_on "boost"
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
+  depends_on "python@3.9"
 
-  boost_opts = []
-  boost_opts << "c++11" if MacOS.version < "10.9"
-  depends_on "boost" => boost_opts
-  depends_on "boost-python" => boost_opts if build.with? "python"
-
-  needs :cxx11
+  uses_from_macos "groff"
 
   def install
     ENV.cxx11
-
-    flavor = build.with?("debug") ? "debug" : "opt"
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}
       --output=build
       --prefix=#{prefix}
       --boost=#{Formula["boost"].opt_prefix}
-    ]
-    args << "--python" if build.with? "python"
-    args += %w[-- -DBUILD_DOCS=1]
-    args << "-DBUILD_WEB_DOCS=1" if build.with? "docs"
-    system "./acprep", flavor, "make", *args
-    system "./acprep", flavor, "make", "doc", *args
-    system "./acprep", flavor, "make", "install", *args
+      --
+      -DBUILD_DOCS=1
+      -DBUILD_WEB_DOCS=1
+      -DBoost_NO_BOOST_CMAKE=ON
+      -DPython_FIND_VERSION_MAJOR=3
+    ] + std_cmake_args
+    system "./acprep", "opt", "make", *args
+    system "./acprep", "opt", "make", "doc", *args
+    system "./acprep", "opt", "make", "install", *args
 
     (pkgshare/"examples").install Dir["test/input/*.dat"]
     pkgshare.install "contrib"
-    pkgshare.install "python/demo.py" if build.with? "python"
     elisp.install Dir["lisp/*.el", "lisp/*.elc"]
     bash_completion.install pkgshare/"contrib/ledger-completion.bash"
   end
@@ -65,7 +61,5 @@ class Ledger < Formula
       "balance", "--collapse", "equity"
     assert_equal "          $-2,500.00  Equity", balance.read.chomp
     assert_equal 0, $CHILD_STATUS.exitstatus
-
-    system "python", pkgshare/"demo.py" if build.with? "python"
   end
 end

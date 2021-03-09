@@ -1,46 +1,39 @@
 class Superlu < Formula
   desc "Solve large, sparse nonsymmetric systems of equations"
-  homepage "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/"
-  url "http://crd-legacy.lbl.gov/~xiaoye/SuperLU/superlu_5.2.1.tar.gz"
-  sha256 "28fb66d6107ee66248d5cf508c79de03d0621852a0ddeba7301801d3d859f463"
-  revision 2
+  homepage "https://portal.nersc.gov/project/sparse/superlu/"
+  url "https://portal.nersc.gov/project/sparse/superlu/superlu_5.2.2.tar.gz"
+  sha256 "470334a72ba637578e34057f46948495e601a5988a602604f5576367e606a28c"
+  license "BSD-3-Clause-LBNL"
+  revision 1
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "e1753077d759920bdd9cf128970c7c7b6519c3f69b80b16ae819d5cf2c6dded0" => :high_sierra
-    sha256 "d447474f77bbd417d76c0fb4dfbbc9d824d344639c8ca467d9ee9c9abd3acd09" => :sierra
-    sha256 "0944f8fb532af54aa50d962807568394f1cc0339710c981546a5c827faa5304f" => :el_capitan
-    sha256 "c138cf46fd369e931fb858639c1b02109ad3c76e97e7f7873ddd324b3d5106e7" => :yosemite
+  livecheck do
+    url :homepage
+    regex(/href=.*?superlu[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option "with-openmp", "Enable OpenMP multithreading"
+  bottle do
+    sha256 arm64_big_sur: "70e9312167959d574969c9853b78f8c862ecd9e4350d1e37e8bb0529764d7cb7"
+    sha256 big_sur:       "31635c3e8dc6dbd1401509c09812d28063c1e2de9ba0f6b234bedb88be9488d3"
+    sha256 catalina:      "9d40cab963df57b12521fe8150b19f37a8b969c8f4c6a0454767fdda0719c298"
+    sha256 mojave:        "ad6d7e6dab5b4f937fb99468d53d93f1d6eb28b095f95c809d99104d766e38ef"
+  end
 
-  depends_on "openblas" => :optional
-  depends_on "veclibfort" if build.without? "openblas"
-
-  needs :openmp if build.with? "openmp"
+  depends_on "cmake" => :build
+  depends_on "gcc"
+  depends_on "openblas"
 
   def install
-    ENV.deparallelize
-    cp "MAKE_INC/make.mac-x", "./make.inc"
+    args = std_cmake_args + %W[
+      -Denable_internal_blaslib=NO
+      -DTPL_BLAS_LIBRARIES=#{Formula["openblas"].opt_lib}/#{shared_library("libopenblas")}
+      -DBUILD_SHARED_LIBS=YES
+    ]
 
-    if build.with? "openblas"
-      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-    else
-      blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make"
+      system "make", "install"
     end
-
-    args = ["SuperLUroot=#{buildpath}",
-            "SUPERLULIB=$(SuperLUroot)/lib/libsuperlu.a",
-            "CC=#{ENV.cc}",
-            "CFLAGS=-fPIC #{ENV.cflags}",
-            "BLASLIB=#{blas}"]
-    args << "LOADOPTS=-fopenmp" if build.with?("openmp")
-
-    system "make", "lib", *args
-    lib.install Dir["lib/*"]
-    (include/"superlu").install Dir["SRC/*.h"]
-    doc.install Dir["Doc/*"]
 
     # Source and data for test
     pkgshare.install "EXAMPLE/dlinsol.c"
@@ -50,7 +43,7 @@ class Superlu < Formula
   test do
     system ENV.cc, pkgshare/"dlinsol.c", "-o", "test",
                    "-I#{include}/superlu", "-L#{lib}", "-lsuperlu",
-                   "-L#{Formula["veclibfort"].opt_lib}", "-lvecLibFort"
+                   "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
     assert_match "No of nonzeros in L+U = 11886",
                  shell_output("./test < #{pkgshare}/g20.rua")
   end

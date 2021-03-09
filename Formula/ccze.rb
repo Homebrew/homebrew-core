@@ -1,20 +1,26 @@
 class Ccze < Formula
   desc "Robust and modular log colorizer"
   homepage "https://packages.debian.org/wheezy/ccze"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/ccze/ccze_0.2.1.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/ccze/ccze_0.2.1.orig.tar.gz"
+  url "https://deb.debian.org/debian/pool/main/c/ccze/ccze_0.2.1.orig.tar.gz"
   sha256 "8263a11183fd356a033b6572958d5a6bb56bfd2dba801ed0bff276cfae528aa3"
+  license "GPL-2.0"
   revision 1
 
   bottle do
-    sha256 "6aa074341d1442c6795ece5581a5b404277254d4fdf3a42004d23e32e73824dd" => :high_sierra
-    sha256 "7f1d8fb98c7ca95eb938ff2bae748ad081772542234bbd25151cc37e0f097461" => :sierra
-    sha256 "795fc9b842f53197ec45774d909fb14efd463a64215fbec799ad870bb78a6834" => :el_capitan
-    sha256 "11c34c8ad4df9993b7f465c7c7a7fdb2588e3c75d678f3b22f36166ca1c04520" => :yosemite
-    sha256 "40b61bc0353350f43c97f611d26c0826e4e4ce5df0284b1f544e89460af25722" => :mavericks
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "b518785dfd98c9b08ae78f31fb72047d2fd26a8c3e96ceccdceaf6ba27dab97c"
+    sha256 cellar: :any, big_sur:       "c371f991787765a9ac035987d594b478a4a4bfcd1a1581990c3a86edfcdb5067"
+    sha256 cellar: :any, catalina:      "1d7fe7ec73840e77d3f76f6f9d38757e4ab62d9d6a951e6d9ccf83782f73a29a"
+    sha256 cellar: :any, mojave:        "f748556612ca69454aec71083d8cedbb3def5091c9663c7df046c597fe26048f"
+    sha256 cellar: :any, high_sierra:   "fdc8abe565f7cec57dd3461d6840e2676c556fa54eaccada60df4958310ff8a7"
   end
 
+  # query via the last repo status change `https://api.github.com/repos/madhouse/ccze`
+  deprecate! date: "2020-05-24", because: :repo_archived
+
   depends_on "pcre"
+
+  uses_from_macos "ncurses"
 
   def install
     # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=823334

@@ -1,17 +1,23 @@
 class Taktuk < Formula
   desc "Deploy commands to (a potentially large set of) remote nodes"
-  homepage "http://taktuk.gforge.inria.fr/"
-  url "https://gforge.inria.fr/frs/download.php/30903/taktuk-3.7.5.tar.gz"
-  sha256 "62d1b72616a1b260eb87cecde2e21c8cbb844939f2dcafad33507fcb16ef1cb1"
+  homepage "https://taktuk.gforge.inria.fr/"
+  url "https://gforge.inria.fr/frs/download.php/file/37055/taktuk-3.7.7.tar.gz"
+  sha256 "56a62cca92670674c194e4b59903e379ad0b1367cec78244641aa194e9fe893e"
+  license "GPL-2.0"
+
+  livecheck do
+    url "https://gforge.inria.fr/frs/?group_id=274"
+    regex(/href=.*?taktuk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "dd847ab64b86ca67c4c2736ccb3534fef03c2aaeea031d06d841664d4f9b1d73" => :high_sierra
-    sha256 "236b1b7277a6ff6e33bab7818cb779f32f1415e3e51e4edda6f243499328d1e5" => :sierra
-    sha256 "b5f260c944e09210f94a3b215112ed2975bf9c4a93ad1fdd30a627700e48a364" => :el_capitan
-    sha256 "4f703e2c8fb0f1b5c4c8b19b6a42e3a14023b40d6c511a10e0d460b8810d629e" => :yosemite
-    sha256 "b0ca7976fb797a3d74c4e97d26214f6b7fdd6cf6764cd9fc3d0f2b3931479bd5" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "d9743ff8c715d03d4549f09850a2029c135e72859d0518d94b44b3aa51f7abf6"
+    sha256 cellar: :any, big_sur:       "d33ad42f68016a53bbb84cfdf5704cae271041ada4b42c5b3892d30ff76e479e"
+    sha256 cellar: :any, catalina:      "7ed3f1542b9acfc2ad2de0b9150ad4e7aa72246415be9046fe5eafaf794b478d"
+    sha256 cellar: :any, mojave:        "6ff23461c51c77612a5c00fc4caf40d9c91aa3e7b2f409e9a86f57f27f305f01"
+    sha256 cellar: :any, high_sierra:   "9cc466f8a75eea1974143fedecd42547eb14401d772e527776f387aec4832f77"
+    sha256 cellar: :any, sierra:        "0ffc0bb09703bbf32afbcd302850803f94ecbb311eaa77353275e7dcb1549f62"
+    sha256 cellar: :any, el_capitan:    "4a731d243e6915729240deb75dc99cfee513bb7d0f69169981623b14ce6601c1"
   end
 
   def install

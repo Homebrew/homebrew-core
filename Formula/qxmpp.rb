@@ -1,27 +1,30 @@
 class Qxmpp < Formula
   desc "Cross-platform C++ XMPP client and server library"
   homepage "https://github.com/qxmpp-project/qxmpp/"
-  url "https://github.com/qxmpp-project/qxmpp/archive/v0.9.3.tar.gz"
-  sha256 "13f5162a1df720702c6ae15a476a4cb8ea3e57d861a992c4de9147909765e6de"
-  revision 2
+  url "https://github.com/qxmpp-project/qxmpp/archive/v1.3.1.tar.gz"
+  sha256 "812e718a2dd762ec501a9012a1281b9b6c6d46ec38adbc6eec242309144e1c55"
+  license "LGPL-2.1"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "4a810995bced82af3afb6c9c56dd6d0ddaa8b89c191dc506433d31ffc7df2d19" => :high_sierra
-    sha256 "2aae5596c491b1904299d29e8c309cf68debee312a1c613cc5b9dab3b8271777" => :sierra
-    sha256 "f783c251ee39546cd4cbc893565f5174a4510d41ac4861932c53f02b3f621d96" => :el_capitan
-    sha256 "6205c7bb9b62fbf5bcbce366e77c2a77992a3bcd88d5666e751a7dfee9202936" => :yosemite
+    sha256 cellar: :any, big_sur:  "305342475120bce321cb8c08155abea73b9bea24bf13182a2c90f5d15b52f55d"
+    sha256 cellar: :any, catalina: "3afe3b595811cbe3294fde018171c6af388f045ddc2a8c1dddda563d8713e5e0"
+    sha256 cellar: :any, mojave:   "bab8c0aa083c76d3dd59674a1b001efe33624e5a37b03b02effbd098d9c24852"
   end
 
-  depends_on "qt"
+  depends_on "cmake" => :build
+  depends_on xcode: :build
+  depends_on "qt@5"
 
   def install
-    system "qmake", "-config", "release", "PREFIX=#{prefix}"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "cmake", "--build", ".", "--target", "install"
+    end
   end
 
   test do
+    ENV.delete "CPATH"
     (testpath/"test.pro").write <<~EOS
       TEMPLATE     = app
       CONFIG      += console
@@ -42,7 +45,7 @@ class Qxmpp < Formula
       }
     EOS
 
-    system "#{Formula["qt"].bin}/qmake", "test.pro"
+    system "#{Formula["qt@5"].bin}/qmake", "test.pro"
     system "make"
     assert_predicate testpath/"test", :exist?, "test output file does not exist!"
     system "./test"

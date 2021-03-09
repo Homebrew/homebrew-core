@@ -1,63 +1,31 @@
 class GitCinnabar < Formula
   desc "Git remote helper to interact with mercurial repositories"
   homepage "https://github.com/glandium/git-cinnabar"
-  revision 1
+  url "https://github.com/glandium/git-cinnabar/archive/0.5.6.tar.gz"
+  sha256 "64c483e93eea5ec9ef142988e272f949428db2ef685aecc31ce112e24f55f3c9"
+  license "GPL-2.0-only"
   head "https://github.com/glandium/git-cinnabar.git"
 
-  stable do
-    url "https://github.com/glandium/git-cinnabar.git",
-        :tag => "0.4.0",
-        :revision => "6d374888ff0287517084c0ec7573963961f6acec"
-
-    # 5 Nov 2017 "Support the batch API change from mercurial 4.4"
-    patch do
-      url "https://github.com/glandium/git-cinnabar/commit/7ea77b0.patch?full_index=1"
-      sha256 "e28fdf1b9afa94dbd17289e739cd68af34bf7ae708b827cfa9e23286dbbbb57c"
-    end
-
-    # 5 Nov 2017 "Adapt localpeer to sshpeer changes in mercurial 4.4"
-    # Backport of https://github.com/glandium/git-cinnabar/commit/5c59ae1
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/e56093e/git-cinnabar/mercurial-4.4-sshpeer.patch"
-      sha256 "9af333567ff4aec002c947906d9e5a62ce7358c4ffa1edf7be0b5fe0a96b87ae"
-    end
-  end
-
   bottle do
-    cellar :any_skip_relocation
-    sha256 "30cc00b0406ccca2d8c5e29ca6217cf0ae8cb6925e7607b0fb67385aab973f63" => :high_sierra
-    sha256 "fddd63b61e1e4b624bf7e9585f32467915437bbc093588e2e0c6c209b649b5bb" => :sierra
-    sha256 "8549a043b40628b7141ed2d58cd8d473bb49345b52e4f6586554d5990770ddd3" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1944a8e26196b0c068235d412a08abe53e8e8ef9e7fec9e6c3e18ad73837301d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c5a93076b2e9594362fa665edf9aab87ad5f6861a179ec2e16fb87241caf135d"
+    sha256 cellar: :any_skip_relocation, catalina:      "074ae846819011d8632aadec2f3532dd2c1bf8c36385f09b09b7d8d977c3f411"
+    sha256 cellar: :any_skip_relocation, mojave:        "049b1d43555be25052dd9857fbdb35a871daf0c4b25b23568d881bac4e69aa75"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ab04140cfeea3a7c0370aae72b4b0ebf98bb5c6b72aaf1fc02cd9cdf7eb3ecce"
   end
 
-  devel do
-    url "https://github.com/glandium/git-cinnabar.git",
-        :tag => "0.5.0b1",
-        :revision => "f4ce4ab5ae70c11f00fbc0964e1edf4da6fe7657"
-    version "0.5.0b1"
+  depends_on :macos # Due to Python 2
+  depends_on "mercurial"
 
-    # same as in stable
-    patch do
-      url "https://github.com/glandium/git-cinnabar/commit/7ea77b0.patch?full_index=1"
-      sha256 "e28fdf1b9afa94dbd17289e739cd68af34bf7ae708b827cfa9e23286dbbbb57c"
-    end
+  uses_from_macos "curl"
 
-    # same as in stable
-    patch do
-      url "https://github.com/glandium/git-cinnabar/commit/5c59ae1.patch?full_index=1"
-      sha256 "263c13fb9a59ed790957fcf337671b093e0b4d434c37b69cf1d0e03fd2a4102b"
-    end
-  end
-
-  depends_on :hg
-
-  conflicts_with "git-remote-hg", :because => "both install `git-remote-hg` binaries"
+  conflicts_with "git-remote-hg", because: "both install `git-remote-hg` binaries"
 
   def install
     system "make", "helper"
     prefix.install "cinnabar"
     bin.install "git-cinnabar", "git-cinnabar-helper", "git-remote-hg"
-    bin.env_script_all_files(libexec, :PYTHONPATH => prefix)
+    bin.env_script_all_files(libexec, PYTHONPATH: prefix)
   end
 
   test do

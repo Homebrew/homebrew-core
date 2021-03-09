@@ -1,17 +1,22 @@
 class Cabextract < Formula
   desc "Extract files from Microsoft cabinet files"
   homepage "https://www.cabextract.org.uk/"
-  url "https://www.cabextract.org.uk/cabextract-1.6.tar.gz"
-  sha256 "cee661b56555350d26943c5e127fc75dd290b7f75689d5ebc1f04957c4af55fb"
+  url "https://www.cabextract.org.uk/cabextract-1.9.1.tar.gz"
+  sha256 "afc253673c8ef316b4d5c29cc4aa8445844bee14afffbe092ee9469405851ca7"
+  license "GPL-3.0"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?cabextract[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ddbd5454fc6d47066949775c746003a9bbb8156638fd35e046ae9ae6b9c2d8ac" => :high_sierra
-    sha256 "71efac9941b5d7f345cca0cebd739c8d235f47585651a03260ff46b8c45a815d" => :sierra
-    sha256 "c0346331ea9ab80aabaf9a74e06ab2f00b0898859e129583e8509a26d2ff7270" => :el_capitan
-    sha256 "e86f3dda55d8cbba0602abacbf67d09a1b733d4fe6db761938f8a3416f1cf5a8" => :yosemite
-    sha256 "f71f87d6bbb877207ad984d8ad4bd68c7f50ae0305178583c968847cb57f6179" => :mavericks
-    sha256 "464d4ede11b2be5ecf25244193e901d9d08c1d0daf254204703e054405e41603" => :mountain_lion
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f421b4d93548f37080a4041a1ae83cffa6e0407489913ea09525e3e3f482d39e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1ddac23f5e64926d1f2cd400e6fa0739db93dc0517712965b2b0ca1b3e74eabd"
+    sha256 cellar: :any_skip_relocation, catalina:      "d60179c028ac5fb69580f2f01cd9f59c1d1544c8f6d84a230a7dd3587f3c27e0"
+    sha256 cellar: :any_skip_relocation, mojave:        "cd27b939a0191d4dfff8ae13300b260b5ae01c563a21613718160012a982d5e8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c77caa7c32b4320f9e887abeea99261345e83f03e2c321ec9e99ddd9c75f5d98"
+    sha256 cellar: :any_skip_relocation, sierra:        "c531546af69afda3101f07b509eb143cdaef00f4fdcbdd420e60287508a87e5e"
   end
 
   def install
@@ -23,7 +28,7 @@ class Cabextract < Formula
 
   test do
     # probably the smallest valid .cab file
-    cab = <<-EOS.gsub(/\s+/, "")
+    cab = <<~EOS.gsub(/\s+/, "")
       4d5343460000000046000000000000002c000000000000000301010001000000d20400003
       e00000001000000000000000000000000003246899d200061000000000000000000
     EOS

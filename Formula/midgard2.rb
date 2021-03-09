@@ -3,18 +3,20 @@ class Midgard2 < Formula
   homepage "http://www.midgard-project.org/"
   url "https://github.com/downloads/midgardproject/midgard-core/midgard2-core-12.09.tar.gz"
   sha256 "7c1d17e061df8f3b39fd8944ab97ab7220219b470f7874e74471702d2caca2cb"
-  revision 1
+  license "LGPL-2.0"
+  revision 2
 
   bottle do
-    sha256 "c441435a2ea2a9c9ec76b066e9d03ff2bf49d3bd6484f1a61308a77ef4f536bb" => :high_sierra
-    sha256 "5c522e6151422dcc32f28f276f8315b66aab03c8147ea85f8f4b5f1700a664d2" => :sierra
-    sha256 "e9c17c300e476ee15ca5d3ccc34c70715da56a8e7be41a7e0638d3dfbbf49113" => :el_capitan
-    sha256 "b1d949df0056f3855adfdd4542825fbffa13043e4666516662b3e69f81c24e2b" => :yosemite
-    sha256 "8cb700e06f34ca0a08745d42f53dc2b451eb7a739105dda3aade4db2b03a9a3f" => :mavericks
+    sha256 arm64_big_sur: "60df7b2c0c5128949c9ad6c8cea8bce50b2abbbf1405da2e2a7681745eea90d0"
+    sha256 big_sur:       "e0e95184827d7b69fa0c39d3bca827d600e38db97541606f48edd14c08d3a2a3"
+    sha256 catalina:      "c3ed243fb5c433a40f959a357c8c78258a62b2fcc7eb5f3e6d94ca0b9cae3159"
+    sha256 mojave:        "d37c0fefe73ad6e8360585d80e26e11f7e1f5735fdf8382f0c3795f95fa93d68"
+    sha256 high_sierra:   "08df9e1d7487d38c8174047aa9d0620bc1f430f23602acba90c2ec9978a3fdd9"
+    sha256 sierra:        "2aec9cbfb7a432a4ad73157831b9d5f6573ae4b85141410040cb0f053435541a"
   end
 
   head do
-    url "https://github.com/midgardproject/midgard-core.git", :branch => "ratatoskr"
+    url "https://github.com/midgardproject/midgard-core.git", branch: "ratatoskr"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -22,8 +24,8 @@ class Midgard2 < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "glib"
   depends_on "dbus-glib"
+  depends_on "glib"
   depends_on "libgda"
 
   def install

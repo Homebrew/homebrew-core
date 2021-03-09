@@ -1,28 +1,26 @@
 class Pdnsrec < Formula
   desc "Non-authoritative/recursing DNS server"
   homepage "https://www.powerdns.com/recursor.html"
-  url "https://downloads.powerdns.com/releases/pdns-recursor-4.1.0.tar.bz2"
-  sha256 "880b9d4cc57e2b11cae5bff9b20571fb3466f4385c010d06764296fef44f60a3"
-  revision 1
+  url "https://downloads.powerdns.com/releases/pdns-recursor-4.4.2.tar.bz2"
+  sha256 "b0b97f49848a1758b64bc0b99a596c1583ea525477193f3c01905f5163a4f5cf"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://downloads.powerdns.com/releases/"
+    regex(/href=.*?pdns-recursor[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "11bdc4f5fefc37ec4aa50b0689262034a63a9ad26663116fcbbc1d43475bd029" => :high_sierra
-    sha256 "63f61ff6e6066090b6341133c6acf256fc139117710181394ff21daad3b2c80c" => :sierra
-    sha256 "01c68fe54ea7c000a0356bb862475d7dfd431ea13ba795b59a1e2aace82a5158" => :el_capitan
+    sha256 arm64_big_sur: "a6aa0796a7d756013f091d557864091220ca773ee298c609b344a7288408dcf7"
+    sha256 big_sur:       "09aedfb6fae88ddc911022c9f2d8166e3746d401a9d54fe3742bc117831beff1"
+    sha256 catalina:      "5d78e21c1882b3bdf96317c7044a8f247f0601f33ba9dcb074be05ac9d9c7475"
+    sha256 mojave:        "1ebddc007e37972ec7703a6c422dcc81991fd721c32a3ae07d4117ba34faf6a6"
   end
 
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "openssl"
   depends_on "lua"
-  depends_on "gcc" if DevelopmentTools.clang_build_version <= 600
-
-  needs :cxx11
-
-  fails_with :clang do
-    build 600
-    cause "incomplete C++11 support"
-  end
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
@@ -32,7 +30,7 @@ class Pdnsrec < Formula
       --sysconfdir=#{etc}/powerdns
       --disable-silent-rules
       --with-boost=#{Formula["boost"].opt_prefix}
-      --with-libcrypto=#{Formula["openssl"].opt_prefix}
+      --with-libcrypto=#{Formula["openssl@1.1"].opt_prefix}
       --with-lua
       --without-net-snmp
     ]

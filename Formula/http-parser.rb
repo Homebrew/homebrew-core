@@ -1,16 +1,16 @@
 class HttpParser < Formula
   desc "HTTP request/response parser for c"
   homepage "https://github.com/nodejs/http-parser"
-  url "https://github.com/nodejs/http-parser/archive/v2.7.1.tar.gz"
-  sha256 "70409ad324e5de2da6a0f39e859e566d497c1ff0a249c0c38a5012df91b386b3"
+  url "https://github.com/nodejs/http-parser/archive/v2.9.4.tar.gz"
+  sha256 "467b9e30fd0979ee301065e70f637d525c28193449e1b13fbcb1b1fab3ad224f"
+  license "MIT"
 
   bottle do
-    cellar :any
-    sha256 "1c402c0dbedc5ee4bf4d6d8fb79112300a47ea0a59892297474dc5973f496274" => :high_sierra
-    sha256 "a19519cd90917dccb31171febe7e25baaa583ec9bdd7c4e4d06dcb2a7605447f" => :sierra
-    sha256 "afc0af78e3a4789b18b96ec83a09a38c5e6fc0f6ba72523a1f5c0f4b4d1441e6" => :el_capitan
-    sha256 "0d62dc8723a72e60d13fbd61f870a8e3cc3a7f29fc5814c645322c284be7514c" => :yosemite
-    sha256 "5d3aaf70d3ca4ee5ff688b9f834acd68891d4fb637721b54597deeba6fca41d0" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "7130d0b0338eaf592eb0510251f95a8a4e580ef9ecc4eaf787ba048204639498"
+    sha256 cellar: :any, big_sur:       "48d383aa989a940b3918cc83fa2bb6b5fad92c9b4c70018172d36f9e465087e3"
+    sha256 cellar: :any, catalina:      "f03615a5ecb9e65d4bd7b302a8429ba9130012b092f3f42e0afd85df2bf47453"
+    sha256 cellar: :any, mojave:        "b36ae811b2b72823cea4c7ab445ee2a5f628255aa169f0bc453fda1d3d520fbb"
+    sha256 cellar: :any, high_sierra:   "0c6b69289fa4a8dd7ad532fcefb0848af229dcb5a64df981c03e99af2ce3acd8"
   end
 
   depends_on "coreutils" => :build

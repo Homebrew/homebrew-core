@@ -1,22 +1,28 @@
 class Hqx < Formula
   desc "Magnification filter designed for pixel art"
-  homepage "https://code.google.com/archive/p/hqx/"
-  url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/hqx/hqx-1.1.tar.gz"
-  sha256 "cc18f571fb4bc325317892e39ecd5711c4901831926bc93296de9ebb7b2f317b"
-  revision 2
+  homepage "https://github.com/grom358/hqx"
+  url "https://github.com/grom358/hqx.git",
+      tag:      "v1.2",
+      revision: "124c9399fa136fb0f743417ca27dfa2ca2860c2d"
+  license "LGPL-2.1"
 
   bottle do
-    cellar :any
-    sha256 "5a548a5e9b16d78b7f913c4b6fece78202b13e416962a9a5a965c3e2d27461a8" => :high_sierra
-    sha256 "7e58bc40ff9214f1b074595ac85c842ebafe676c6f3db42e3e0712c77c3377f4" => :sierra
-    sha256 "6bf8b3b1b203ae43cc833480c8b395776d1369a38bb78fe2b47034ff8a8a0645" => :el_capitan
-    sha256 "82f3574ae2e08ed7312d22b751b94be4783eccb2166fc1e45cc25ae90a7e5046" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "85c3fd01d9455be7d4d7307056598d4079f1a40f31803184f0aaa0ec2a9fef5a"
+    sha256 cellar: :any, big_sur:       "c3eaf1733b78849670e6b6c94e387cbe055f62135cfb4f5f2a9a9bb5b8e3a3aa"
+    sha256 cellar: :any, catalina:      "5451336478301f3e489b4a550f24c2051f707ed4819c26637d630bf128ee7501"
+    sha256 cellar: :any, mojave:        "942372ef0cb87baf0b90f4ea932d4f1c9825765a8cf5e482c1b3df04b18c821d"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "devil"
 
   def install
     ENV.deparallelize
+    system "autoreconf", "-iv"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

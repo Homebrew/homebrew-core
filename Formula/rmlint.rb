@@ -1,31 +1,38 @@
 class Rmlint < Formula
   desc "Extremely fast tool to remove dupes and other lint from your filesystem"
   homepage "https://github.com/sahib/rmlint"
-  url "https://github.com/sahib/rmlint/archive/v2.6.1.tar.gz"
-  sha256 "b4de3de2f197b5978113eb9d013ee9890efbdf01ba739416255ecc2567199b81"
+  url "https://github.com/sahib/rmlint/archive/v2.10.1.tar.gz"
+  sha256 "10e72ba4dd9672d1b6519c0c94eae647c5069c7d11f1409a46e7011dd0c6b883"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "06ee1c0ab8086cfc9a91b1a6a34534db620816a6ad9dc19e80891d6e0821d3d7" => :high_sierra
-    sha256 "a574a19f089e1a24168c57472e5c95993c6b7ab5c2990bb07dfa54ecdc94b291" => :sierra
-    sha256 "5e1aad2bec7238f2087d3ac643a6e0dba2f2b58a0302bb88acda26e035e23f99" => :el_capitan
-    sha256 "7e155b9753da549229811558e2b1914a5aeb8b95b85317804a81a7cab3eb3853" => :yosemite
+    sha256 cellar: :any, big_sur:     "1f6f76bfe7c4f4c058b91a0808e6e19a0029f4a4017929615bc223666abddf5a"
+    sha256 cellar: :any, catalina:    "38f621eb2196afa5504087ef48cd19777efbd5da81302ea668b0efbd68cc20d7"
+    sha256 cellar: :any, mojave:      "e7eac7ed5d93b19175c7860fe84faa34f878253c15bdbc280ee06cfd392f10e3"
+    sha256 cellar: :any, high_sierra: "b84e9cd89ef6b9d43f633226e0a7ecb85e5c75c65f3b50f83cf687862db8d191"
   end
 
-  option "with-json-glib", "Add support for reading json caches"
-  option "with-libelf", "Add support for finding non-stripped binaries"
-
-  depends_on "glib" => :run
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "scons" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "json-glib" => :optional
-  depends_on "libelf" => :optional
+  depends_on "glib"
+  depends_on "json-glib"
+  depends_on "libelf"
 
   def install
-    scons "config"
-    scons
+    # patch to address bug affecting High Sierra & Mojave introduced in rmlint v2.10.0
+    # may be removed once the following issue / pull request are resolved & merged:
+    #   https://github.com/sahib/rmlint/issues/438
+    #   https://github.com/sahib/rmlint/pull/444
+    if MacOS.version < :catalina
+      inreplace "lib/cfg.c",
+      "    rc = faccessat(AT_FDCWD, path, R_OK, AT_EACCESS|AT_SYMLINK_NOFOLLOW);",
+      "    rc = faccessat(AT_FDCWD, path, R_OK, AT_EACCESS);"
+    end
+
+    system "scons", "config"
+    system "scons"
     bin.install "rmlint"
     man1.install "docs/rmlint.1.gz"
   end

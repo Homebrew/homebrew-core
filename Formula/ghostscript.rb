@@ -1,29 +1,45 @@
 class Ghostscript < Formula
   desc "Interpreter for PostScript and PDF"
   homepage "https://www.ghostscript.com/"
-  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs922/ghostscript-9.22.tar.xz"
-  sha256 "c1f862e6f40f997dbe3feba89355e8cb05d55818994e10f4932b0dd9b627d1bb"
+  url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs9533/ghostpdl-9.53.3.tar.gz"
+  sha256 "96d04e4e464bddb062c1774ea895c4f1c1c94e6c4b62f5d32218ebd44dd65ba1"
+  license "AGPL-3.0-or-later"
+  revision 1
+
+  # We check the tags from the `head` repository because the GitHub tags are
+  # formatted ambiguously, like `gs9533` (corresponding to version 9.53.3).
+  livecheck do
+    url :head
+    regex(/^ghostpdl[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "dec4d99345c0d402cd78e12fc2b6d1c2efa9fc9e207480bb665b60cbcfef1c21" => :high_sierra
-    sha256 "45a8136781fc46574f134114b7db8417994406c81160211ad4e7252b17154810" => :sierra
-    sha256 "f935b2fc2d7a5dc580e530f4e571bca53ed2423633461e1a8c34957990258adf" => :el_capitan
+    sha256 arm64_big_sur: "e1a01add6b5692ebfd462591db21dd029d081529fbe4df0c22af94945cea75cc"
+    sha256 big_sur:       "41a0d8e27c5760e29514fc659147c1d79bc57bc5a119b2ea267200889ce3b930"
+    sha256 catalina:      "cf523782d68ba11a936318c387118390277eb2edc3baeee21c7875cfea9857ad"
+    sha256 mojave:        "c0186d93036a506e70d6632c5c0e48b4f61613fb670f266509cde735e261710e"
   end
 
   head do
     # Can't use shallow clone. Doing so = fatal errors.
-    url "https://git.ghostscript.com/ghostpdl.git", :shallow => false
+    url "https://git.ghostscript.com/ghostpdl.git", shallow: false
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  patch :DATA # Uncomment macOS-specific make vars
-
   depends_on "pkg-config" => :build
-  depends_on "little-cms2"
-  depends_on :x11 => :optional
+  depends_on "libtiff"
+
+  on_macos do
+    patch :DATA # Uncomment macOS-specific make vars
+  end
+
+  on_linux do
+    depends_on "fontconfig"
+    depends_on "libidn"
+  end
 
   # https://sourceforge.net/projects/gs-fonts/
   resource "fonts" do
@@ -31,7 +47,19 @@ class Ghostscript < Formula
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
   end
 
+  # Fix build on ARM Big Sur, updating config.{guess,sub}
+  # https://bugs.ghostscript.com/show_bug.cgi?id=703095
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/98c39e09/ghostscript/config.patch"
+    sha256 "155cf2ee5a498d441c3194ba3d75cb7812beaa3f507a72017174a884bf742862"
+  end
+
   def install
+    on_linux do
+      # Fixes: ./soobj/dxmainc.o: file not recognized: File truncated
+      ENV.deparallelize
+    end
+
     args = %W[
       --prefix=#{prefix}
       --disable-cups
@@ -39,8 +67,8 @@ class Ghostscript < Formula
       --disable-gtk
       --disable-fontconfig
       --without-libidn
+      --without-x
     ]
-    args << "--without-x" if build.without? "x11"
 
     if build.head?
       system "./autogen.sh", *args
@@ -58,18 +86,20 @@ class Ghostscript < Formula
 
   test do
     ps = test_fixtures("test.ps")
-    assert_match /Hello World!/, shell_output("#{bin}/ps2ascii #{ps}")
+    assert_match "Hello World!", shell_output("#{bin}/ps2ascii #{ps}")
   end
 end
 
 __END__
-diff --git a/base/unix-dll.mak b/base/unix-dll.mak
-index ae2d7d8..4f4daed 100644
---- a/base/unix-dll.mak
-+++ b/base/unix-dll.mak
-@@ -64,12 +64,12 @@ GS_SONAME_MAJOR_MINOR=$(GS_SONAME_BASE)$(GS_SOEXT)$(SO_LIB_VERSION_SEPARATOR)$(G
- 
- 
+diff --git i/base/unix-dll.mak w/base/unix-dll.mak
+index f50c09c00adb..8855133b400c 100644
+--- i/base/unix-dll.mak
++++ w/base/unix-dll.mak
+@@ -89,18 +89,33 @@ GPDL_SONAME_MAJOR_MINOR=$(GPDL_SONAME_BASE)$(GS_SOEXT)$(SO_LIB_VERSION_SEPARATOR
+ # similar linkers it must containt the trailing "="
+ # LDFLAGS_SO=-shared -Wl,$(LD_SET_DT_SONAME)$(LDFLAGS_SO_PREFIX)$(GS_SONAME_MAJOR)
+
+
  # MacOS X
 -#GS_SOEXT=dylib
 -#GS_SONAME=$(GS_SONAME_BASE).$(GS_SOEXT)
@@ -81,8 +111,26 @@ index ae2d7d8..4f4daed 100644
 +GS_SONAME_MAJOR_MINOR=$(GS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
  #LDFLAGS_SO=-dynamiclib -flat_namespace
 -#LDFLAGS_SO_MAC=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
-+LDFLAGS_SO_MAC=-dynamiclib -install_name __PREFIX__/lib/$(GS_SONAME_MAJOR_MINOR)
++GS_LDFLAGS_SO=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
  #LDFLAGS_SO=-dynamiclib -install_name $(FRAMEWORK_NAME)
- 
- GS_SO=$(BINDIR)/$(GS_SONAME)
 
++PCL_SONAME=$(PCL_SONAME_BASE).$(GS_SOEXT)
++PCL_SONAME_MAJOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
++PCL_SONAME_MAJOR_MINOR=$(PCL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
++PCL_LDFLAGS_SO=-dynamiclib -install_name $(PCL_SONAME_MAJOR_MINOR)
++
++XPS_SONAME=$(XPS_SONAME_BASE).$(GS_SOEXT)
++XPS_SONAME_MAJOR=$(XPS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
++XPS_SONAME_MAJOR_MINOR=$(XPS_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
++XPS_LDFLAGS_SO=-dynamiclib -install_name $(XPS_SONAME_MAJOR_MINOR)
++
++GPDL_SONAME=$(GPDL_SONAME_BASE).$(GS_SOEXT)
++GPDL_SONAME_MAJOR=$(GPDL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_SOEXT)
++GPDL_SONAME_MAJOR_MINOR=$(GPDL_SONAME_BASE).$(GS_VERSION_MAJOR).$(GS_VERSION_MINOR).$(GS_SOEXT)
++GPDL_LDFLAGS_SO=-dynamiclib -install_name $(GPDL_SONAME_MAJOR_MINOR)
++
+ GS_SO=$(BINDIR)/$(GS_SONAME)
+ GS_SO_MAJOR=$(BINDIR)/$(GS_SONAME_MAJOR)
+ GS_SO_MAJOR_MINOR=$(BINDIR)/$(GS_SONAME_MAJOR_MINOR)
+
+ PCL_SO=$(BINDIR)/$(PCL_SONAME)

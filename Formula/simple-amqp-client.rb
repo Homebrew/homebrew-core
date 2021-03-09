@@ -1,29 +1,28 @@
 class SimpleAmqpClient < Formula
   desc "C++ interface to rabbitmq-c"
   homepage "https://github.com/alanxz/SimpleAmqpClient"
-  url "https://github.com/alanxz/SimpleAmqpClient/archive/v2.4.0.tar.gz"
-  sha256 "5735ccccd638b2e2c275ca254f2f947bdfe34511247a32822985c3c25239e06e"
-  revision 1
+  url "https://github.com/alanxz/SimpleAmqpClient/archive/v2.5.1.tar.gz"
+  sha256 "057c56b29390ec7659de1527f9ccbadb602e3e73048de79594521b3141ab586d"
+  license "MIT"
   head "https://github.com/alanxz/SimpleAmqpClient.git"
 
   bottle do
-    cellar :any
-    sha256 "50bbaa2902d2893692e28465666f39405ecd4481e37fbbb5b99d2ef7d3690bfa" => :high_sierra
-    sha256 "32ae102c9883a9a6464084284d34371e6538c75fdfbcd1f8230e9889be4a2956" => :sierra
-    sha256 "b2ea2a0ed47a8eff9498d3e90fd01e5e466cc1317515a8fa63b6262d88af6800" => :el_capitan
-    sha256 "4ce0051362b24556e552aadf852dc98910414ff9ed81d9c9efbbeafb863c8cb6" => :yosemite
-    sha256 "37b12090418d4423810cff30c484d0a11736bf856119e9757d9923a381db61bc" => :mavericks
-    sha256 "92986f1969aa18e48035b57dedcaec0bf5c098f597b8fa6d573112e4d266958a" => :mountain_lion
+    sha256 cellar: :any, big_sur:     "f2dd44e2182fa7da6d5e9dcc255ad06138b09be9e0619ecd07135e6fc2c35405"
+    sha256 cellar: :any, catalina:    "97ceed4ae134cb5f01dc3c5efdafaccf3374aee7c748217eba9bb8624edb74dc"
+    sha256 cellar: :any, mojave:      "42bf1dcae157dc5e3ad6c274cfff63e0599d1c1fa2ed634696a26ec499e6b18f"
+    sha256 cellar: :any, high_sierra: "0df2d53228ce5b30d670a67b36b8440158d4773c55c206456fc2762c7e820cec"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "rabbitmq-c"
   depends_on "boost"
+  depends_on "rabbitmq-c"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-DCMAKE_INSTALL_LIBDIR=lib", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do

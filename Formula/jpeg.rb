@@ -1,15 +1,23 @@
 class Jpeg < Formula
   desc "Image manipulation library"
-  homepage "http://www.ijg.org"
-  url "http://www.ijg.org/files/jpegsrc.v9b.tar.gz"
-  sha256 "240fd398da741669bf3c90366f58452ea59041cacc741a489b99f2f6a0bad052"
+  homepage "https://www.ijg.org/"
+  url "https://www.ijg.org/files/jpegsrc.v9d.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/jpeg-9d.tar.gz"
+  mirror "https://fossies.org/linux/misc/jpegsrc.v9d.tar.gz"
+  sha256 "6c434a3be59f8f62425b2e3c077e785c9ce30ee5874ea1c270e843f273ba71ee"
+  license "IJG"
+
+  livecheck do
+    url "https://www.ijg.org/files/"
+    regex(/href=.*?jpegsrc[._-]v?(\d+[a-z]?)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "06fdebbd4693b6a25850fb885f8e8c9fd2389a5d0a1b78008d569cc04c441272" => :high_sierra
-    sha256 "658fd93026eafbaf3d3a8c2db53aa8ffd0097837ac8f500477b2352433d81723" => :sierra
-    sha256 "e22ae898671f312ed0a2d0eab8bf6a280e3f709642789c7932d30fc0e93cfb22" => :el_capitan
-    sha256 "306863ccbb13b68787378b55a717784c214209496ac70d761f92ab03e52c03d0" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "e511143cd72a76572dabe52cef0034996b2ed24334f1b3466ba339746230e37b"
+    sha256 cellar: :any, big_sur:       "c565929a4901365a3408b57275802f943625c1e29e1b48a186edd2e97d8c0bdb"
+    sha256 cellar: :any, catalina:      "8f7b82a952fb3937889c7f22da1403e5338cd320495917eb26b0c5b2e614791c"
+    sha256 cellar: :any, mojave:        "b931e7725c83275c56f962b51b83c10f31a01ac8d823c6722edaf16d893970b1"
+    sha256 cellar: :any, high_sierra:   "64286932634fbe1e0d07eacda334d2f4967b20bce0737424df56ec5eaa34ccca"
   end
 
   def install

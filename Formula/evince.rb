@@ -1,58 +1,60 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.26/evince-3.26.0.tar.xz"
-  sha256 "79567bdb743cf0c3ed7b638da32afc9b850298f9b4edd532455df4a7e2a4c9d8"
-  revision 2
+  url "https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz"
+  sha256 "27d419d5fed6305e074628edcfde0cb734fffda205d63cac323391c04903bd94"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "eb7e178a0b7620ff754e8ab9f606b778ca89b263e940a48e750c7323b6320f67" => :high_sierra
-    sha256 "401f46ef6d3f028659d397c6eeda644643a78c2acc1aede32161fc9d14a83748" => :sierra
-    sha256 "489c7a761077e80815c3878918a3c77254b70532b0a7d968f1ea525791789d08" => :el_capitan
+    sha256 arm64_big_sur: "31c52765fbb7507bed1fc93c4638c2c8dd5b1819fc86318a298da6f686c8bffb"
+    sha256 big_sur:       "8d1947ce12210d9983d7f5054e40da839ae3e534f13c8332dbd0b74403918af0"
+    sha256 catalina:      "8b9970bb044e1545185233a2eb60fb75e5f6bd8d8b23a19a55cbb611499d3314"
+    sha256 mojave:        "52904ac87db4caaca4358e40c58c0ac5e532faed724aa80b4dea9714048404b0"
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "itstool" => :build
-  depends_on "poppler"
-  depends_on "libxml2"
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+  depends_on "adwaita-icon-theme"
+  depends_on "djvulibre"
+  depends_on "gspell"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
-  depends_on "adwaita-icon-theme"
+  depends_on "libarchive"
+  depends_on "libgxps"
   depends_on "libsecret"
   depends_on "libspectre"
-  depends_on "gobject-introspection"
-  depends_on "shared-mime-info"
-  depends_on "djvulibre"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "poppler"
+  depends_on "python@3.9"
 
   def install
-    # Fix build failure "ar: illegal option -- D"
-    # Reported 15 Sep 2017 https://bugzilla.gnome.org/show_bug.cgi?id=787709
-    inreplace "configure", "AR_FLAGS=crD", "AR_FLAGS=r"
+    ENV["DESTDIR"] = "/"
 
-    # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
-    # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
-    # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
-    inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
+    args = %w[
+      -Dnautilus=false
+      -Ddjvu=enabled
+      -Dgxps=enabled
+      -Dcomics=enabled
+      -Dgtk_doc=false
+      -Dintrospection=true
+      -Dbrowser_plugin=false
+      -Dgspell=enabled
+      -Ddbus=false
+      -Dps=enabled
+    ]
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-nautilus",
-                          "--disable-schemas-compile",
-                          "--enable-introspection",
-                          "--enable-djvu",
-                          "--disable-browser-plugin"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
     system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
-    system "#{Formula["shared-mime-info"].opt_bin}/update-mime-database", "#{HOMEBREW_PREFIX}/share/mime"
   end
 
   test do

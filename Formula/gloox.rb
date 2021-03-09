@@ -1,36 +1,33 @@
 class Gloox < Formula
   desc "C++ Jabber/XMPP library that handles the low-level protocol"
   homepage "https://camaya.net/gloox/"
-  url "https://camaya.net/download/gloox-1.0.20.tar.bz2"
-  sha256 "0243086c0f4f0440d6d8e55705f83249a4463a1d75a034be42b5312e8886dea8"
+  url "https://camaya.net/download/gloox-1.0.24.tar.bz2"
+  sha256 "ae1462be2a2eb8fe5cd054825143617c53c2c9c7195606cb5a5ba68c0f68f9c9"
+
+  livecheck do
+    url :homepage
+    regex(/Latest stable version.*?href=.*?gloox[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "d6acd544200f6524e6c6c4b4c12747e855abb0fb6129628e86166b921035dc39" => :high_sierra
-    sha256 "8268b106a2de45233f339630793ebdb46c501925faa758f0d61eb7485ced1c87" => :sierra
-    sha256 "7b0dafa8d25adac387410d0bd064c2645d4fb8826c0b24b840c71e3e783eaa3b" => :el_capitan
-    sha256 "12fa240ab11bad334840099b0a8574b6cce0064647b06bb433f3600669bd6cda" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "d3a7c4aa4b061fe4dce520662e632bc9983b294cb94e479ea46221f43ea46c9f"
+    sha256 cellar: :any, big_sur:       "143b0a77842e9df885799b07e6cfb166c7951841b8b23027db51c9b93a5ba8a7"
+    sha256 cellar: :any, catalina:      "decf46b20a794855cf3bd3c06e05111d15fd11de4dec1c5fdf6a1253eb865e7a"
+    sha256 cellar: :any, mojave:        "607baeeadc43775af6799d5bc4715239cbe6455ec72d2e14d82523d425fa7799"
+    sha256 cellar: :any, high_sierra:   "011c8a88d0f8970c9ad4ed339972b55b56c26120e64ef9d1576b68c03b10f706"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "openssl" => :recommended
-  depends_on "gnutls" => :optional
-  depends_on "libidn" => :optional
+  depends_on "libidn"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --with-zlib
-      --disable-debug
-    ]
-
-    if build.with? "gnutls"
-      args << "--with-gnutls=yes"
-    else
-      args << "--with-openssl=#{Formula["openssl"].opt_prefix}"
-    end
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-zlib",
+                          "--disable-debug",
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}"
     system "make", "install"
   end
 

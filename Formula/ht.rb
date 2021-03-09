@@ -3,19 +3,25 @@ class Ht < Formula
   homepage "https://hte.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/hte/ht-source/ht-2.1.0.tar.bz2"
   sha256 "31f5e8e2ca7f85d40bb18ef518bf1a105a6f602918a0755bc649f3f407b75d70"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "122be4ebf9cc683744d3523fb87b4938de3a61ec4151005118c014b1f279939b" => :sierra
-    sha256 "5ec664d44de232a82b94ba1a2285f4c4a3b935b60f96ec83b75150e583323331" => :el_capitan
-    sha256 "7705bf13e35efb021252aaf509e82a88f8996ad65199440eb46f2271bf77a570" => :yosemite
-    sha256 "f41ba188255f61cd07be25969bce0a9667e81dfde9079ba17e7e329898cafed5" => :mavericks
-    sha256 "dac5a797ccbeb46b89c7677997a3640b5ba5ce274c5f928bde9be91dbcbdd88a" => :mountain_lion
+    rebuild 3
+    sha256 cellar: :any, arm64_big_sur: "67aa1b783d01e759a908a568cfc1715e614bff7b77171fc82af00e2af682b464"
+    sha256 cellar: :any, big_sur:       "68a9ebfab03bd7d4f5e61d26075d07ee692002a07b8e5f201ae84ebbac45e5dd"
+    sha256 cellar: :any, catalina:      "75ab4e842bc671346e7e75ef512f5f2b3d55008a07d91437a9ba46e9c9dcb1b4"
+    sha256 cellar: :any, mojave:        "9ba777d460dbc11e7c119d6924c765c0d3fb9c50953ed833a07de5e7eb9f6807"
   end
 
   depends_on "lzo"
 
+  uses_from_macos "ncurses"
+
   def install
+    # Fix compilation with Xcode 9
+    # https://github.com/sebastianbiallas/ht/pull/18
+    inreplace "htapp.cc", "(abs(a - b) > 1)", "(abs((int)a - (int)b))"
+
     chmod 0755, "./install-sh"
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

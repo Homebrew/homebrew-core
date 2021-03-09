@@ -1,29 +1,46 @@
 class Gtksourceview3 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.5.tar.xz"
-  sha256 "0246185fcc20c4734d01419a83f58f251a82e2a902fe60bb0335187fcf658181"
+  url "https://download.gnome.org/sources/gtksourceview/3.24/gtksourceview-3.24.11.tar.xz"
+  sha256 "691b074a37b2a307f7f48edc5b8c7afa7301709be56378ccf9cc9735909077fd"
+  revision 3
 
-  bottle do
-    sha256 "09c930da2b0d2d1e4a844eb520e613343a60a9b6b8017ccab2732dc6c498578b" => :high_sierra
-    sha256 "e8f01b660c11773df3468db3005f5ff3c95be7e9697a83783a6551cee2e9dd86" => :sierra
-    sha256 "11aa50e21f27d6bc0c9abf17f73f0e4459a7afbd9a1ce0d16443ed2a69804a9a" => :el_capitan
+  livecheck do
+    url :stable
+    regex(/gtksourceview[._-]v?(3\.([0-8]\d*?)?[02468](?:\.\d+)*?)\.t/i)
   end
 
-  depends_on "pkg-config" => :build
+  bottle do
+    rebuild 1
+    sha256 arm64_big_sur: "920ee02f85863c74d7c151cde00f0a8dbd18c66e825a50c7d8f36f3af9da06b6"
+    sha256 big_sur:       "2dc6c71c803b006967ee4154912c7f6e050c5c8c8f68a113335e66f48fe32277"
+    sha256 catalina:      "e82371b46c1d8206c5aedf9966835e27ffb3bd011ad936bffa0e26cfe3c2808c"
+    sha256 mojave:        "f9f3856ad743d604e084f77e68d2edd53d99093ce06dc23b9f0cdbdc5e70c5d0"
+    sha256 high_sierra:   "d67cdf5db8996c90d56ad6468c830fcb8e28b26753ab7d332b3a4c990c17e84b"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "gtk+3"
 
   def install
+    system "autoreconf", "-fi"
     system "./configure", "--disable-dependency-tracking",
+                          "--enable-vala=yes",
+                          "--enable-introspection=yes",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <gtksourceview/gtksourceview.h>
+      #include <gtksourceview/gtksource.h>
 
       int main(int argc, char *argv[]) {
         gchar *text = gtk_source_utils_unescape_search_text("hello world");
@@ -39,6 +56,7 @@ class Gtksourceview3 < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gtkx3 = Formula["gtk+3"]
+    harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
@@ -54,6 +72,7 @@ class Gtksourceview3 < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gtkx3.opt_include}/gtk-3.0
+      -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/gtksourceview-3.0
       -I#{libepoxy.opt_include}
       -I#{libpng.opt_include}/libpng16
@@ -78,10 +97,12 @@ class Gtksourceview3 < Formula
       -lgobject-2.0
       -lgtk-3
       -lgtksourceview-3.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

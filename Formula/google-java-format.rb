@@ -1,23 +1,17 @@
 class GoogleJavaFormat < Formula
   desc "Reformats Java source code to comply with Google Java Style"
   homepage "https://github.com/google/google-java-format"
-  url "https://github.com/google/google-java-format/archive/google-java-format-1.5.tar.gz"
-  sha256 "836086fb081086abf0286d2d70acdfe4fb8bccd12f78d7967bdf440e9bf71fea"
+  url "https://github.com/google/google-java-format/releases/download/google-java-format-1.9/google-java-format-1.9-all-deps.jar"
+  sha256 "1d98720a5984de85a822aa32a378eeacd4d17480d31cba6e730caae313466b97"
+  license "Apache-2.0"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "6518d97e039cf09bd0924b79f0b7f65cb37791c076277777f90d2db76beac26d" => :high_sierra
-    sha256 "9128ee4d7c2b0d38f53320e6e0875caeae4304cfd2534cbdf2db9b23ee8df003" => :sierra
-    sha256 "89b4ebce9de9785c672e93567aeb1f6b4b1ea13161277d59b677fb0e04889ba5" => :el_capitan
-  end
+  bottle :unneeded
 
-  depends_on "maven" => :build
+  depends_on "openjdk"
 
   def install
-    system "mvn", "install", "-DskipTests=true", "-Dmaven.javadoc.skip=true", "-B"
-    libexec.install "core/target/google-java-format-#{version}-all-deps.jar"
-
-    bin.write_jar_script libexec/"google-java-format-#{version}-all-deps.jar", "google-java-format"
+    libexec.install "google-java-format-#{version}-all-deps.jar" => "google-java-format.jar"
+    bin.write_jar_script libexec / "google-java-format.jar", "google-java-format"
   end
 
   test do

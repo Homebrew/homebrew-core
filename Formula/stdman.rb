@@ -1,17 +1,21 @@
 class Stdman < Formula
   desc "Formatted C++11/14/17 stdlib man pages from cppreference.com"
   homepage "https://github.com/jeaye/stdman"
-  url "https://github.com/jeaye/stdman/archive/2017.04.02.tar.gz"
-  sha256 "64f33e843c646de54745f234df7688df400a6f65f738408406cb48bcae2c852d"
+  url "https://github.com/jeaye/stdman/archive/2020.11.17.tar.gz"
+  sha256 "6e96634c67349e402339b1faa8f99e47f4145aa110e2ad492e00676b28bb05e2"
+  license "MIT"
   version_scheme 1
   head "https://github.com/jeaye/stdman.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b396f3795d2a23c268b96be6b54d96b3ebbcd31724fc9290cf4d207342ae3b3d" => :high_sierra
-    sha256 "e331f279e0e88fc136531b0a0bdece2dfee271c6ab96f2047e51a34651f37ac1" => :sierra
-    sha256 "8f40d671b1f63facc15c957ddb6eb1a58332bf13e68eef888175948017e79386" => :el_capitan
-    sha256 "2b137b92e15bf5941697df2f6fab98a8e030024bbbb0ddc5864f2bbb076f6223" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f865e4982fe6eeb4674df33b984ad994c863d26e1ef209c13ed688ae2bda30b7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "72cfb38a8ed45c88a2a70cf75029fe5be4e53e18a19a85e532a482714b68d32a"
+    sha256 cellar: :any_skip_relocation, catalina:      "4cffe0f6e5f997fdef7932ca12d10f1d0a0501f659028a277166e9e1678a93a2"
+    sha256 cellar: :any_skip_relocation, mojave:        "741674ceaa66f53fd98c146dc1123c63d981997c4ef7bf171f671d83f8b87959"
+  end
+
+  on_linux do
+    depends_on "man-db" => :test
   end
 
   def install

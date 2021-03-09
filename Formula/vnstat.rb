@@ -1,21 +1,24 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
-  homepage "http://humdi.net/vnstat/"
-  url "http://humdi.net/vnstat/vnstat-1.17.tar.gz"
-  sha256 "18e4c53576ca9e1ef2f0e063a6d83b0c44e3b1cf008560d658745df5c9aa7971"
+  homepage "https://humdi.net/vnstat/"
+  url "https://humdi.net/vnstat/vnstat-2.6.tar.gz"
+  sha256 "89276e0a7281943edb554b874078278ad947dc312938a2451e03eb80679f7ff7"
+  license "GPL-2.0"
   head "https://github.com/vergoh/vnstat.git"
 
   bottle do
-    sha256 "c51d2daf263c86f6bdb40c956ca1d66f67e2babe8068a6252a866561462a63e8" => :high_sierra
-    sha256 "9b2212cdc237d29d06c910ee437119f94097024e60e6a6aaf958293ffb6425ad" => :sierra
-    sha256 "35c444da5787d627847714dc9ef119f9a8501ead341782c2deb18c74432d59c4" => :el_capitan
-    sha256 "826ea7fb876a6d71aecdcea85bdaf5fcea55e63e97457bc6afb755518c9c1843" => :yosemite
+    sha256 big_sur:     "f2927c9530127989258ee417145dc37f3bb958086724c143051f4d9c5b93e7d1"
+    sha256 catalina:    "c4087b24e69aa3bbf9ccb7f58ca3d942bc3403bcfff47df7657cac00e8c9fc75"
+    sha256 mojave:      "795d67ae3e4d0f8683ee0812d29a4205aab38a2f453a09cd714adac7f00aaea8"
+    sha256 high_sierra: "5e873fe1cb03aecfc02e0a5224f2fa222ef9e3f2a2e8a007a031cf4a1f9cf3ee"
   end
 
   depends_on "gd"
 
+  uses_from_macos "sqlite"
+
   def install
-    inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.1 man/vnstati.1
+    inreplace %w[src/cfg.c src/common.h man/vnstat.1 man/vnstatd.8 man/vnstati.1
                  man/vnstat.conf.5].each do |s|
       s.gsub! "/etc/vnstat.conf", "#{etc}/vnstat.conf", false
       s.gsub! "/var/", "#{var}/", false
@@ -38,37 +41,39 @@ class Vnstat < Formula
     (var/"run/vnstat").mkpath
   end
 
-  def caveats; <<~EOS
-    To monitor interfaces other than "en0" edit #{etc}/vnstat.conf
+  def caveats
+    <<~EOS
+      To monitor interfaces other than "en0" edit #{etc}/vnstat.conf
     EOS
   end
 
-  plist_options :startup => true, :manual => "#{HOMEBREW_PREFIX}/opt/vnstat/bin/vnstatd --nodaemon --config #{HOMEBREW_PREFIX}/etc/vnstat.conf"
+  plist_options startup: true, manual: "#{HOMEBREW_PREFIX}/opt/vnstat/bin/vnstatd --nodaemon --config #{HOMEBREW_PREFIX}/etc/vnstat.conf"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/vnstatd</string>
-          <string>--nodaemon</string>
-          <string>--config</string>
-          <string>#{etc}/vnstat.conf</string>
-        </array>
-        <key>KeepAlive</key>
-        <true/>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>ProcessType</key>
-        <string>Background</string>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/vnstatd</string>
+            <string>--nodaemon</string>
+            <string>--config</string>
+            <string>#{etc}/vnstat.conf</string>
+          </array>
+          <key>KeepAlive</key>
+          <true/>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>ProcessType</key>
+          <string>Background</string>
+        </dict>
+      </plist>
     EOS
   end
 
@@ -84,6 +89,6 @@ class Vnstat < Formula
       Process.kill "SIGINT", stat.pid
       Process.wait stat.pid
     end
-    assert_match "Info: Monitoring:", stat.read
+    assert_match "Info: Monitoring", stat.read
   end
 end

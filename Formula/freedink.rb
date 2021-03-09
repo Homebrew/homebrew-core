@@ -1,31 +1,42 @@
 class Freedink < Formula
   desc "Portable version of the Dink Smallwood game engine"
   homepage "https://www.gnu.org/software/freedink/"
-  url "https://ftp.gnu.org/gnu/freedink/freedink-108.4.tar.gz"
-  sha256 "82cfb2e019e78b6849395dc4750662b67087d14f406d004f6d9e39e96a0c8521"
+  url "https://ftp.gnu.org/gnu/freedink/freedink-109.6.tar.gz"
+  sha256 "5e0b35ac8f46d7bb87e656efd5f9c7c2ac1a6c519a908fc5b581e52657981002"
   revision 1
 
   bottle do
-    sha256 "d78130e6917a14d7a5e367bada96e919915695d68d7796709d5bb99fbbc593f9" => :high_sierra
-    sha256 "c3d0467dd6eb6e2070e488d468cf3953257260401722dd28037a2b37326d604a" => :sierra
-    sha256 "97ba862a21ab764b5cf1c3c5d40604c8b006c81a88839c20199966a494725c16" => :el_capitan
-    sha256 "e4fa882a22081243a88ca1303f4aa7fe3843e4cc523fe973a5158b117e7d868e" => :yosemite
+    rebuild 1
+    sha256 arm64_big_sur: "3d3c10351e92122890d83f912bafe794fa40a673783fa5d99b1bdfcdcd53f0cb"
+    sha256 big_sur:       "fd45feffffd96dc600cda4e725619b326ec6a84e96c5844c156aca90fb2390b1"
+    sha256 catalina:      "b971d9badc94cb0075963c341ed11c1872e3157b279def6d91fd088743b5e5e4"
+    sha256 mojave:        "d44bcab516f79beec47a1ebdc8ec68b66071a34e17abb8556407a3656946d454"
+    sha256 high_sierra:   "d022642338ba2979982088f1b65d6230ab71478fdaadfe4966372aa15b909182"
   end
 
+  depends_on "glm" => :build
+  depends_on "pkg-config" => :build
   depends_on "check"
-  depends_on "sdl2_image"
-  depends_on "sdl_mixer"
-  depends_on "sdl_ttf"
-  depends_on "sdl_gfx"
-  depends_on "sdl_image"
+  depends_on "cxxtest"
+  depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "gettext"
   depends_on "libzip"
-  depends_on "fontconfig"
-  depends_on "pkg-config" => :build
+  depends_on "sdl2"
+  depends_on "sdl2_gfx"
+  depends_on "sdl2_image"
+  depends_on "sdl2_mixer"
+  depends_on "sdl2_ttf"
 
   resource "freedink-data" do
-    url "https://ftp.gnu.org/gnu/freedink/freedink-data-1.08.20170409.tar.gz"
-    sha256 "e1f1e23c7846bc74479610a65cc0169906e844c5193f0d83ba69accc54a3bdf5"
+    url "https://ftp.gnu.org/gnu/freedink/freedink-data-1.08.20190120.tar.gz"
+    sha256 "715f44773b05b73a9ec9b62b0e152f3f281be1a1512fbaaa386176da94cffb9d"
+  end
+
+  # Patch for recent SDL
+  patch :p0 do
+    url "https://raw.githubusercontent.com/openbsd/ports/fc8b95c6/games/freedink/game/patches/patch-src_input_cpp"
+    sha256 "fa06a8a87bd4f3977440cdde0fb6145b6e5b0005b266b19c059d3fd7c2ff836a"
   end
 
   def install
@@ -42,7 +53,7 @@ class Freedink < Formula
   end
 
   test do
-    assert_match "GNU FreeDink 108.4", shell_output("#{bin}/freedink -vwis")
+    assert_match "GNU FreeDink 109.6", shell_output("#{bin}/freedink -vwis")
     assert FileTest.exists?("#{share}/dink/dink/Dink.dat")
   end
 end

@@ -1,31 +1,27 @@
 class Cxxtest < Formula
-  desc "xUnit-style unit testing framework for C++"
-  homepage "http://cxxtest.com"
+  include Language::Python::Virtualenv
+
+  desc "C++ unit testing framework similar to JUnit, CppUnit and xUnit"
+  homepage "https://cxxtest.com/"
   url "https://github.com/CxxTest/cxxtest/releases/download/4.4/cxxtest-4.4.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/c/cxxtest/cxxtest_4.4.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/c/cxxtest/cxxtest_4.4.orig.tar.gz"
   sha256 "1c154fef91c65dbf1cd4519af7ade70a61d85a923b6e0c0b007dc7f4895cf7d8"
+  license "LGPL-3.0"
+  revision 2
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b6016aba933e8e047299e4a4dae83549eb8679a9e18e11937d90877b9e94af62" => :high_sierra
-    sha256 "09aa93c60544867a44c3ad711f7ad9207f3f097505ce658e12d4d8ae11287c82" => :sierra
-    sha256 "d35cfbbea5de989734e9f859531b203dffc870fdf931a5a7f12302adc7354c87" => :el_capitan
-    sha256 "a69d95d4c027024e6c14a999c679106cf6259e22bb748205d93dbc5d0596a8e3" => :yosemite
-    sha256 "2e8e487aac953d698f38f89ae9946572f8d072ec35b91683aa66bc147cec2fa4" => :mavericks
-    sha256 "de1e98e94198507c65ecb17ae240b995ae8f03dadeafbde27bb704df2e10737c" => :mountain_lion
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "087ee9046bc2b4dfe3b3d814f76833c1264fa4526d288e36a2b04c2c2479cbe1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d3a87d28e3b22363d72fb1e26880c5bb020504936d433b0f786f0a12f336a8b6"
+    sha256 cellar: :any_skip_relocation, catalina:      "40c95a78befc9212653a872f53f7b87669d6ed855da71355a6324571cfc09f9c"
+    sha256 cellar: :any_skip_relocation, mojave:        "19feab27f801c6af7cba8075900cdb96f492244d06fc49ed9b4c943b1f13777e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c989ac0116f6c42404580610e42f467af4d476b4107e2303d47da4f576a394f2"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@3.9"
 
   def install
-    ENV["PYTHONPATH"] = lib+"python2.7/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", lib+"python2.7/site-packages"
-
-    cd "./python" do
-      system "python", *Language::Python.setup_install_args(prefix)
-    end
-
-    bin.env_script_all_files(libexec+"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv.pip_install_and_link buildpath/"python"
 
     include.install "cxxtest"
     doc.install Dir["doc/*"]

@@ -1,17 +1,18 @@
 class StanfordNer < Formula
   desc "Stanford NLP Group's implementation of a Named Entity Recognizer"
   homepage "https://nlp.stanford.edu/software/CRF-NER.shtml"
-  url "https://nlp.stanford.edu/software/stanford-ner-2015-04-20.zip"
-  version "3.5.2"
-  sha256 "cd33ace6e9f92530024d9e04faf3c33c6d7db9841e8d8b85e257faeadfb25cff"
+  url "https://nlp.stanford.edu/software/stanford-ner-4.2.0.zip"
+  sha256 "06dd9f827106359bad90049c6952137502bc59ed40b9c88b448831b32cf55b2a"
+  license "GPL-2.0-or-later"
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*"]
-    bin.write_exec_script Dir["#{libexec}/*.sh"]
+    bin.install Dir["#{libexec}/*.sh"]
+    bin.env_script_all_files libexec, JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do

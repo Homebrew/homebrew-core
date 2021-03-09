@@ -1,15 +1,18 @@
 class Scale2x < Formula
   desc "Real-time graphics effect"
-  homepage "https://scale2x.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/scale2x/scale2x/3.1/scale2x-3.1.tar.gz"
-  sha256 "afdd88b90811b00ae884eb8a97355991f39d8028dbd5c6b1d95fdccf0fc56574"
+  homepage "https://www.scale2x.it/"
+  url "https://github.com/amadvance/scale2x/releases/download/v4.0/scale2x-4.0.tar.gz"
+  sha256 "996f2673206c73fb57f0f5d0e094d3774f595f7e7e80fcca8cc045e8b4ba6d32"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any
-    sha256 "fd683dea067c68253aa4fe198438fc19f023bca3a368931bfebbbabb5032fd99" => :high_sierra
-    sha256 "8699587cf81a5d38985d81e32bb7b7815cda1d731a5f134d045692b5276e0a12" => :sierra
-    sha256 "ad49eb9e6167e9ad5d5ea4f08a870b06ee9118465668762ac05a8b50cdbd7ebf" => :el_capitan
-    sha256 "c431a4d6ccc671f7d010fc1d010d6f31372c2075942ffc402f7969f7b0c7b43a" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "f7d4ecfe86027e9aec4928c84ba6262e7f8633796ed3317da93a2d8b2e1a5b58"
+    sha256 cellar: :any, big_sur:       "9ba9679c817187ca44e3074c102572781ad4e90abb1aa8a41d452e5d6814d046"
+    sha256 cellar: :any, catalina:      "83ab737ffb44b1b2913244a82c63d754057e79034bcf455d75b9150b630f85c7"
+    sha256 cellar: :any, mojave:        "da91fa8382839f9cf1b9d58b1e38b1d2f6d3cc1fef3cd0dce1481774397ebe35"
+    sha256 cellar: :any, high_sierra:   "2a3519bdbba8ff6caa1ca9b48d461866b8121dfd224a2c25da106087bb3cfd61"
+    sha256 cellar: :any, sierra:        "771e1b1ea660234e8bea89e774d0d802f7f1cb12c08e100cbb5b83d0a02a61ea"
+    sha256 cellar: :any, el_capitan:    "033e1adf0430ced99eef1b746842e9ca876b542f6fbd8f050e8f7c7e1b59f692"
   end
 
   depends_on "libpng"

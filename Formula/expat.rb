@@ -1,22 +1,40 @@
 class Expat < Formula
   desc "XML 1.0 parser"
   homepage "https://libexpat.github.io/"
-  url "https://downloads.sourceforge.net/project/expat/expat/2.2.5/expat-2.2.5.tar.bz2"
-  sha256 "d9dc32efba7e74f788fcc4f212a43216fc37cf5f23f4c2339664d473353aedf6"
-  head "https://github.com/libexpat/libexpat.git"
+  url "https://github.com/libexpat/libexpat/releases/download/R_2_2_10/expat-2.2.10.tar.xz"
+  sha256 "5dfe538f8b5b63f03e98edac520d7d9a6a4d22e482e5c96d4d06fcc5485c25f2"
+  license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(/href=.*?expat[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "0ef65624ae99120f21c4ef319a8a056697db296efd9bbd662529334711c7bc15" => :high_sierra
-    sha256 "653edd989854be055f50853486a4945d68e49cc8f6e944776bf2be67b51ac304" => :sierra
-    sha256 "618683020e64ef1ca99d0c2f388262cf32117d93d7f047bf8251461d8af3f04e" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "5e3abf13602731bb6eb80eb0cb5fd4acb0bfe24e561f7a608b6c92b7c7c5b4a9"
+    sha256 cellar: :any, big_sur:       "bdc39dc9c66e5efa771a59842102be8f35e8bab1f11f2b2353af0d986df95ec0"
+    sha256 cellar: :any, catalina:      "1a8b10b3ce11187fbc9d26013ac5939d69f53ad7e0768ecb3d026ae6007005ac"
+    sha256 cellar: :any, mojave:        "0715be3a1c1f7472cb662c640b263ed8c78da9cc20ebadb3f8df40e2300a87a8"
+    sha256 cellar: :any, high_sierra:   "f1d65a87a4535918db8fb7cae639335e70e0a0ac780a000f5ddb4685a47526e2"
+  end
+
+  head do
+    url "https://github.com/libexpat/libexpat.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "docbook2x" => :build
+    depends_on "libtool" => :build
   end
 
   keg_only :provided_by_macos
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    cd "expat" if build.head?
+    system "autoreconf", "-fiv" if build.head?
+    args = ["--prefix=#{prefix}", "--mandir=#{man}"]
+    args << "--with-docbook" if build.head?
+    system "./configure", *args
     system "make", "install"
   end
 

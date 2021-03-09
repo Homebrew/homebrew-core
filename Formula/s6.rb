@@ -1,38 +1,26 @@
 class S6 < Formula
   desc "Small & secure supervision software suite"
   homepage "https://skarnet.org/software/s6/"
-
-  stable do
-    url "https://skarnet.org/software/s6/s6-2.6.2.0.tar.gz"
-    sha256 "0313e4b55c11a3e12d2e9766971c9cc1eb0aef85ddbb5a4385923839e937acb0"
-
-    resource "skalibs" do
-      url "https://skarnet.org/software/skalibs/skalibs-2.6.2.0.tar.gz"
-      sha256 "12f9706b412367c45310ab971d204d959441895d3fea6e5e41ab8ef8d24b71b2"
-    end
-
-    resource "execline" do
-      url "https://skarnet.org/software/execline/execline-2.3.0.4.tar.gz"
-      sha256 "e4bb8fc8f20cca96f4bac9f0f74ebce5081b4b687bb11c79c843faf12507a64b"
-    end
-  end
+  url "https://skarnet.org/software/s6/s6-2.9.2.0.tar.gz"
+  sha256 "363db72af8fffba764b775c872b0749d052805b893b07888168f59a841e9dddd"
+  license "ISC"
 
   bottle do
-    sha256 "80fd71ba5d460ad00b5c2634934a6a5cc3210705b528afb192f02f1986c5f6bd" => :high_sierra
-    sha256 "221e5deb71c158412cd07b26d358bb6e2c880f85e8cd03bdd124812fc05b8491" => :sierra
-    sha256 "b7540a0be22dfe356436b026e2e09d0157aa3565831d0459476ef7d033fb7f96" => :el_capitan
+    sha256 arm64_big_sur: "0b1fc08741d7984f569b1d9c00808c5dfb8e1ee065e97d8e0d8b55746fc6fe70"
+    sha256 big_sur:       "47924b409c4d52519acf0b7d7757f689e78ce1cb272c297822597a59a37c4275"
+    sha256 catalina:      "94906378d458e78a0909dc89bd5672ca8d33645b1b070be4974ac7ebe0f3aa15"
+    sha256 mojave:        "e4024234358147987f7f6f599b73ddfd9bbe5e5fd414efcbc53577045a1dbb78"
+    sha256 high_sierra:   "d6be4dd0697c711c1e35fe25e4f1365bcb1c198ab8fc8c3f3d7169b29ccb4372"
   end
 
-  head do
-    url "git://git.skarnet.org/s6"
+  resource "skalibs" do
+    url "https://skarnet.org/software/skalibs/skalibs-2.9.2.1.tar.gz"
+    sha256 "250b99b53dd413172db944b31c1b930aa145ac79fe6c5d7e6869ef804228c539"
+  end
 
-    resource "skalibs" do
-      url "git://git.skarnet.org/skalibs"
-    end
-
-    resource "execline" do
-      url "git://git.skarnet.org/execline"
-    end
+  resource "execline" do
+    url "https://skarnet.org/software/execline/execline-2.6.1.0.tar.gz"
+    sha256 "a24c76f097ff44fe50b63b89bcde5d6ba9a481aecddbe88ee01b0e5a7b314556"
   end
 
   def install
@@ -68,24 +56,24 @@ class S6 < Formula
     system "make", "install"
 
     # Some S6 tools expect execline binaries to be on the path
-    bin.env_script_all_files(libexec/"bin", :PATH => "#{libexec}/execline:$PATH")
-    sbin.env_script_all_files(libexec/"sbin", :PATH => "#{libexec}/execline:$PATH")
-    (bin/"execlineb").write_env_script libexec/"execline/execlineb", :PATH => "#{libexec}/execline:$PATH"
+    bin.env_script_all_files(libexec/"bin", PATH: "#{libexec}/execline:$PATH")
+    sbin.env_script_all_files(libexec/"sbin", PATH: "#{libexec}/execline:$PATH")
+    (bin/"execlineb").write_env_script libexec/"execline/execlineb", PATH: "#{libexec}/execline:$PATH"
   end
 
   test do
-    # Test execline
-    test_script = testpath/"test.eb"
-    test_script.write <<~EOS
-      import PATH
-      if { [ ! -z ${PATH} ] }
-        true
+    (testpath/"test.eb").write <<~EOS
+      foreground
+      {
+        sleep 1
+      }
+      "echo"
+      "Homebrew"
     EOS
-    system "#{bin}/execlineb", test_script
+    assert_match "Homebrew", shell_output("#{bin}/execlineb test.eb")
 
-    # Test s6
     (testpath/"log").mkpath
-    pipe_output("#{bin}/s6-log #{testpath}/log", "Test input\n")
+    pipe_output("#{bin}/s6-log #{testpath}/log", "Test input\n", 0)
     assert_equal "Test input\n", File.read(testpath/"log/current")
   end
 end

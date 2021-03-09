@@ -3,28 +3,36 @@ class Mpg321 < Formula
   homepage "https://mpg321.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mpg321/mpg321/0.3.2/mpg321_0.3.2.orig.tar.gz"
   sha256 "056fcc03e3f5c5021ec74bb5053d32c4a3b89b4086478dcf81adae650eac284e"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "6a8f8f58c8bf02f99e8206a231fce4e9f2bd7333b888581dd1838246983d139f" => :high_sierra
-    sha256 "a69f242f57e4211f96fa56f10573777204d5ed7d61cd7b35a04e0bbd33b9064e" => :sierra
-    sha256 "6c8921b0703d2952b6038ce7097957c3c2bfe9b59c2d41b5caddc268e96b245d" => :el_capitan
-    sha256 "48b9ac480d966fc344c4867f3dcef7cd59be1440b11fe7d8280d51134a881f78" => :yosemite
-    sha256 "bf86f590672fdb27f6fc92c706db1bfcb2ca0a1e35129c5435821640a11a422f" => :mavericks
+    sha256 arm64_big_sur: "0cde599f9f7a975ff76faddcdd85606f62445c2493e201db737916fd03ec907f"
+    sha256 big_sur:       "f21a4649c7437144d8228ce229acf7dcd36541c8475ddc9e065bf62d7f501b35"
+    sha256 catalina:      "fdea1076a22b6af12c33b02e9eb040fceb11d39ed2eaa7307574bf5331d8f8dc"
+    sha256 mojave:        "d587b58200397ad4e8f7fa8c861e01c2c5e344d89a235e78d22fb7bd5ddf04f2"
+    sha256 high_sierra:   "6a8f8f58c8bf02f99e8206a231fce4e9f2bd7333b888581dd1838246983d139f"
+    sha256 sierra:        "a69f242f57e4211f96fa56f10573777204d5ed7d61cd7b35a04e0bbd33b9064e"
+    sha256 el_capitan:    "6c8921b0703d2952b6038ce7097957c3c2bfe9b59c2d41b5caddc268e96b245d"
+    sha256 yosemite:      "48b9ac480d966fc344c4867f3dcef7cd59be1440b11fe7d8280d51134a881f78"
+    sha256 mavericks:     "bf86f590672fdb27f6fc92c706db1bfcb2ca0a1e35129c5435821640a11a422f"
   end
 
-  depends_on "mad"
-  depends_on "libid3tag"
   depends_on "libao"
+  depends_on "libid3tag"
+  depends_on "mad"
 
   # 1. Apple defines semun already. Skip redefining it to fix build errors.
   #    This is a homemade patch fashioned using deduction.
   # 2. Also a couple of IPV6 values are not defined on OSX that are needed.
   #    This patch was seen in the wild for an app called lscube:
-  #       http://lscube.org/pipermail/lscube-commits/2009-March/000500.html
+  #       lscube.org/pipermail/lscube-commits/2009-March/000500.html [LOST LINK]
   # Both patches have been reported upstream here:
   # https://sourceforge.net/p/mpg321/patches/20/
   # Remove these at: Unknown.  These have not been merged as of 0.3.2.
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/mpg321/0.3.2.patch"
+    sha256 "a856292a913d3d94b3389ae7b1020d662e85bd4557d1a9d1c8ebe517978e62a1"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -35,33 +43,8 @@ class Mpg321 < Formula
                           "--disable-alsa"
     system "make", "install"
   end
-end
 
-__END__
---- a/mpg321.h	2012-03-25 05:27:49.000000000 -0700
-+++ b/mpg321.h	2012-11-15 20:54:28.000000000 -0800
-@@ -290,7 +290,7 @@
- /* Shared total decoded frames */
- decoded_frames *Decoded_Frames;
- 
--#if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED)
-+#if defined(__GNU_LIBRARY__) && !defined(_SEM_SEMUN_UNDEFINED) || defined(__APPLE__)
- /* */
- #else
- union semun {
---- a/network.c	2012-03-25 05:27:49.000000000 -0700
-+++ b/network.c	2012-11-15 20:58:02.000000000 -0800
-@@ -50,6 +50,13 @@
- 
- #define IFVERB if(options.opt & MPG321_VERBOSE_PLAY)
- 
-+/* The following defines are needed to emulate the Linux interface on
-+ * BSD-based systems like FreeBSD and OS X */
-+#if !defined(IPV6_ADD_MEMBERSHIP) && defined(IPV6_JOIN_GROUP)
-+#define IPV6_ADD_MEMBERSHIP IPV6_JOIN_GROUP
-+#define IPV6_DROP_MEMBERSHIP IPV6_LEAVE_GROUP
-+#endif
-+
- int proxy_enable = 0;
- char *proxy_server;
- int auth_enable = 0;
+  test do
+    system "#{bin}/mpg321", "--version"
+  end
+end

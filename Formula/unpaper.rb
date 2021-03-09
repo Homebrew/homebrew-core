@@ -1,27 +1,32 @@
 class Unpaper < Formula
   desc "Post-processing for scanned/photocopied books"
-  homepage "https://www.flameeyes.eu/projects/unpaper"
-  url "https://www.flameeyes.eu/files/unpaper-6.1.tar.xz"
+  homepage "https://www.flameeyes.com/projects/unpaper"
+  url "https://www.flameeyes.com/files/unpaper-6.1.tar.xz"
   sha256 "237c84f5da544b3f7709827f9f12c37c346cdf029b1128fb4633f9bafa5cb930"
-  revision 1
+  revision 7
 
   bottle do
-    cellar :any
-    sha256 "b37d324fd0e60d59421e19434c46c72a9593119d55958b96628b64f498a42191" => :high_sierra
-    sha256 "f37e1cc563b2eaa5bfde892d775200c86fcabd4261745a62e76f4ff175fad8c6" => :sierra
-    sha256 "7332b87cd5d0e087774f41fd0df69d5f26c616ca469a1d33cdfdcf4baa6153ff" => :el_capitan
-    sha256 "c84f37be3e99fcf3d47bf4bbffba7192d451761a31056705f11d6a4a19dcd45a" => :yosemite
-    sha256 "318d0e90644880ee357818a8d6d144d7ccc4873cca90a1ff77f1031f20994b93" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "8aadd07d5712465893b6c3625e7da966c8bfdee572c7ba660cedaa3b0cdff034"
+    sha256 cellar: :any, big_sur:       "a9841d58884ee1a0616a2a115c21c593eab613c0e040bf2b21d02ddeec682765"
+    sha256 cellar: :any, catalina:      "63a30f9ac771386a0f7d7302c31abe60855b4c4028458cbf9371270f42ee49e6"
+    sha256 cellar: :any, mojave:        "15d95668bd014ac329b703502832f020efcdb9011558ab8ba86ee0c8a458046d"
   end
 
   head do
     url "https://github.com/Flameeyes/unpaper.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
+
+  uses_from_macos "libxslt"
+
+  on_linux do
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
 
   def install
     system "autoreconf", "-i" if build.head?

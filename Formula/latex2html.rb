@@ -1,19 +1,24 @@
 class Latex2html < Formula
   desc "LaTeX-to-HTML translator"
-  homepage "https://www.ctan.org/pkg/latex2html"
-  url "http://mirrors.ctan.org/support/latex2html/latex2html-2017.2.tar.gz"
-  sha256 "4b8c21ef292817c85ba553f560129723bcae4ee9a6ec7a22ce2289329db7c1ef"
+  homepage "https://www.latex2html.org"
+  url "https://github.com/latex2html/latex2html/archive/v2021.tar.gz"
+  sha256 "872fe7a53f91ababaafc964847639e3644f2b9fab3282ea059788e4e18cbba47"
+  license "GPL-2.0-or-later"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "051de8192f7caaf9a2e2413e8cdb3f9878d1bb2e03200ffbb1ab42e3a78cb005" => :high_sierra
-    sha256 "8ef1c505140cf839ae71708e3785812a538622a19ee76c19ec1901b6a4567edc" => :sierra
-    sha256 "ee26a1cfa8ff76d1f1d7a0d3435e5a792fbc34e35e43cf84c22321c1df665f3a" => :el_capitan
-    sha256 "8c53c049249208b6441c43500b8921c0869b4d0fef6226194ce4e1a8a8c8cbfe" => :yosemite
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)*)$/i)
   end
 
-  depends_on "netpbm"
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0b92290fc7fb156b76df56ee8992b272fca29ccbe1ec50e7637df550939fcf0d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6872bf6979572c46b6440b7e3a54caa49661fb98348b4eb3be91022f133dede7"
+    sha256 cellar: :any_skip_relocation, catalina:      "fed2600e8edb14f29596c2b89720a1e21d19ae27c0c39bdf565c2320b147f553"
+    sha256 cellar: :any_skip_relocation, mojave:        "02ffab1491227b84d0accbf77265ae229ac104f5a3b62a51c8c69371d7f976d5"
+  end
+
   depends_on "ghostscript"
+  depends_on "netpbm"
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -33,6 +38,6 @@ class Latex2html < Formula
       \\end{document}
     EOS
     system "#{bin}/latex2html", "test.tex"
-    assert_match /Experimental Setup/, File.read("test/test.html")
+    assert_match "Experimental Setup", File.read("test/test.html")
   end
 end

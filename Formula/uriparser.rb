@@ -1,37 +1,24 @@
 class Uriparser < Formula
   desc "URI parsing library (strictly RFC 3986 compliant)"
-  homepage "https://uriparser.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/uriparser/Sources/0.8.4/uriparser-0.8.4.tar.bz2"
-  mirror "https://mirrors.kernel.org/debian/pool/main/u/uriparser/uriparser_0.8.4.orig.tar.bz2"
-  sha256 "ce7ccda4136974889231e8426a785e7578e66a6283009cfd13f1b24a5e657b23"
+  homepage "https://uriparser.github.io/"
+  url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.4/uriparser-0.9.4.tar.bz2"
+  sha256 "b7cdabe5611408fc2c3a10f8beecb881a0c7e93ff669c578cd9e3e6d64b8f87b"
+  head "https://github.com/uriparser/uriparser.git"
 
   bottle do
-    cellar :any
-    sha256 "34578f3621c2c8374eacf261e5724b0a3a0a799ebdd9a3b6f2326008761c6e57" => :high_sierra
-    sha256 "d1bea100c4dfd9c34ed7c39b7e5c27f2a24453da48fc6b45f37a2e23e7c13eb5" => :sierra
-    sha256 "9e4e1ad413aa5ffb4f0e52666df1c6f60551f085969a4e48583d4745d8a85fe6" => :el_capitan
-    sha256 "22c5ea8ff69d218577f29684e1b73d81c6d37850639e14e2da497f40ceb29cee" => :yosemite
-    sha256 "a09c4d7a93bf0e6f7e67b9c0a30d881f4eda1471acaf1e80c74e4b8f145332bc" => :mavericks
+    sha256 cellar: :any, big_sur:     "76fb92889b92e80282a0794e814c21d403bda66dd70dffaca61142bfb02a1ccd"
+    sha256 cellar: :any, catalina:    "0fac36c34a537dd29050a29003d5e4a1c34ce8d00d964c7e8ebdeaafa99f6268"
+    sha256 cellar: :any, mojave:      "5440ffb9d3363007478193e0ed4653d8f5eaf27fd36b5c0968968b73d14af2f9"
+    sha256 cellar: :any, high_sierra: "b25005697a3acc8cd6921189f41e6f7fa1c6667a9e259a3d85f8f1dea6915460"
   end
 
-  head do
-    url "https://git.code.sf.net/p/uriparser/git.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
 
-  depends_on "pkg-config" => :build
-  depends_on "cpptest"
-
-  conflicts_with "libkml", :because => "both install `liburiparser.dylib`"
+  conflicts_with "libkml", because: "both install `liburiparser.dylib`"
 
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--disable-doc"
-    system "make", "check"
+    system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF", "-DURIPARSER_BUILD_DOCS=OFF", *std_cmake_args
+    system "make"
     system "make", "install"
   end
 
@@ -41,6 +28,7 @@ class Uriparser < Formula
       scheme:       https
       hostText:     brew.sh
       absolutePath: false
+                    (always false for URIs with host)
     EOS
     assert_equal expected, shell_output("#{bin}/uriparse https://brew.sh").chomp
   end

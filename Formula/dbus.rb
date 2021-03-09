@@ -1,19 +1,26 @@
 class Dbus < Formula
-  # releases: even (1.10.x) = stable, odd (1.11.x) = development
+  # releases: even (1.12.x) = stable, odd (1.13.x) = development
   desc "Message bus system, providing inter-application communication"
   homepage "https://wiki.freedesktop.org/www/Software/dbus"
-  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.2.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dbus/dbus_1.12.2.orig.tar.gz"
-  sha256 "272bb5091770b047c8188b926d5e6038fa4fe6745488b2add96b23e2d9a83d88"
+  url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.12.20.orig.tar.gz"
+  sha256 "f77620140ecb4cdc67f37fb444f8a6bea70b5b6461f12f1cbe2cec60fa7de5fe"
+
+  livecheck do
+    url "https://dbus.freedesktop.org/releases/dbus/"
+    regex(/href=.*?dbus[._-]v?(\d+\.\d*?[02468](?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    sha256 "0e119f7daf329cb528d1df2c7d3729c5e3bd1ce182304a6f528a3089f1cedfa0" => :high_sierra
-    sha256 "36a437a12147e6e8f9ac21ad8a989823c8d3cb0d6e4825634fd0c5c95692853b" => :sierra
-    sha256 "edc027d1a14a0a282510c0bad27b0d37642d39a408a71176c7f429827f204b9d" => :el_capitan
+    sha256 arm64_big_sur: "98319ca7d3dda690a932243a20a1ebaebe89e2386282bad7232f842f2abecbc5"
+    sha256 big_sur:       "e3ff464367ad79df35c0f81d70a58607a174e9fa63cd507b575f0988ec913b7d"
+    sha256 catalina:      "23513ea5d75203fe4374ab37cc4226f23f34ec604449ef572fd6a2b48a612ff3"
+    sha256 mojave:        "912da7c3211a981762dc45e4f67fbedd1afd379459a40244340c83caa4134382"
+    sha256 high_sierra:   "6c98efff3cb8fdbba552351a2953f85953f053e12a8af891461118d37affdb73"
   end
 
   head do
-    url "https://anongit.freedesktop.org/git/dbus/dbus.git"
+    url "https://gitlab.freedesktop.org/dbus/dbus.git"
 
     depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build
@@ -22,6 +29,12 @@ class Dbus < Formula
   end
 
   depends_on "xmlto" => :build
+
+  uses_from_macos "expat"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
   # Homebrew pr/issue: 50219
@@ -52,6 +65,10 @@ class Dbus < Formula
                           "--without-x",
                           "--disable-tests"
     system "make", "install"
+  end
+
+  def plist_name
+    "org.freedesktop.dbus-session"
   end
 
   def post_install

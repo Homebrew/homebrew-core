@@ -1,21 +1,18 @@
 class Sipsak < Formula
   desc "SIP Swiss army knife"
-  homepage "https://sourceforge.net/projects/sipsak.berlios/"
-  url "https://downloads.sourceforge.net/project/sipsak.berlios/sipsak-0.9.6-1.tar.gz"
-  version "0.9.6"
-  sha256 "5064c56d482a080b6a4aea71821b78c21b59d44f6d1aa14c27429441917911a9"
+  homepage "https://github.com/nils-ohlmeier/sipsak/"
+  url "https://github.com/nils-ohlmeier/sipsak/releases/download/0.9.8.1/sipsak-0.9.8.1.tar.gz"
+  sha256 "c6faa022cd8c002165875d4aac83b7a2b59194f0491802924117fc6ac980c778"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "7590f9703c8c1a70bcc03274f278a398a2bc0d0259c4e7a7fb91c524ec4153ec" => :high_sierra
-    sha256 "4725693dba5edcb68df030b63cb738795e96d29668bc9bf512ba8e2800ec862a" => :sierra
-    sha256 "9f42a09240891ecd9aa62dea1dd75dc1c5362d2f946fefecf13ce975a6c05626" => :el_capitan
-    sha256 "873d8cd50cce684ad55abbdf834157b4464c70877de9d1c37ad3c4ec9aaf6e10" => :yosemite
-    sha256 "d70729739fcfe770fdfa997dc33cd04370a6cd2f6916e63adfed60473c4bfc55" => :mavericks
-    sha256 "09d0961004d525dfc5f81bfe111884b401a09993fd83ff2f426016feb99607d4" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "4525ec303fc0f5ffd3b752ccf1dcdc7fdb14921ad35d8e12109e257c47ce14fc"
+    sha256 cellar: :any, big_sur:       "70442c0b739c1fb357e8eef8246d56425fdde5f094bfe8048304cc2b42fbfe0b"
+    sha256 cellar: :any, catalina:      "3d7c198e46fd2e183d199718d175111e9024d4ea8f453685fe973e76c342f988"
+    sha256 cellar: :any, mojave:        "9f27279cd8a53e5d707d7208ba2ba5f5170dd775854f30396135a296dd9c55dd"
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     ENV.append "CFLAGS", "-std=gnu89"

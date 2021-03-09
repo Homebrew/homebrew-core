@@ -1,27 +1,26 @@
 class IosWebkitDebugProxy < Formula
   desc "DevTools proxy for iOS devices"
   homepage "https://github.com/google/ios-webkit-debug-proxy"
-  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.tar.gz"
-  sha256 "5a5ba157e76d984978f3f3aa22617b0c3c730d15e1a4d23a77c12e4a581189af"
-
+  url "https://github.com/google/ios-webkit-debug-proxy/archive/v1.8.8.tar.gz"
+  sha256 "5b743276f7fbcd145e6212e892867304c5e49e7c75c0f4a331ec6deb6a8d5b3e"
+  license "BSD-3-Clause"
   head "https://github.com/google/ios-webkit-debug-proxy.git"
 
   bottle do
-    cellar :any
-    sha256 "e83a0928e275ce33a863ce2bdf4e7b37fdbf4e6b8c14542ed2dbc5431c63ecc9" => :high_sierra
-    sha256 "4bcf8b1cf86f78454c9df257fa2a617636743f0863061c22585196e26b9d45ee" => :sierra
-    sha256 "25f05f5d10255ea544e74172646edeeaeb524b305d1db7a63bdb8352eb5fe375" => :el_capitan
-    sha256 "898cb683c00405fca5cbdf02b1af1bd9bb34badcfe19329eebd7d29d52e54e88" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "eb231061aab2df9284d4160f89567803399b86e3c58b95643db03e429ffdc05e"
+    sha256 cellar: :any, big_sur:       "0386ea5f531d49b175e460381c5f76c8696539c91225b1611d98665dba8d4685"
+    sha256 cellar: :any, catalina:      "c46bfdadb61495298c52d4d771d49fc0596ed8e5f1ec28cea8a9b57c77a035e8"
+    sha256 cellar: :any, mojave:        "890859443600c9a1bd40f0453a81948714b1b18be558f3991bbd8d6257274f15"
+    sha256 cellar: :any, high_sierra:   "c0111ff5ffe3e9146e7589d9e009f8b1907974bf9d23004a3611412e64b671f0"
   end
 
-  depends_on :macos => :lion
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libimobiledevice"
   depends_on "libplist"
-  depends_on "usbmuxd"
+  depends_on "openssl@1.1"
 
   def install
     system "./autogen.sh"
@@ -30,6 +29,16 @@ class IosWebkitDebugProxy < Formula
   end
 
   test do
-    system "#{bin}/ios_webkit_debug_proxy", "--help"
+    base_port = free_port
+    (testpath/"config.csv").write <<~EOS
+      null:#{base_port},:#{base_port + 1}-#{base_port + 101}
+    EOS
+
+    fork do
+      exec "#{bin}/ios_webkit_debug_proxy", "-c", testpath/"config.csv"
+    end
+
+    sleep(2)
+    assert_match "iOS Devices:", shell_output("curl localhost:#{base_port}")
   end
 end

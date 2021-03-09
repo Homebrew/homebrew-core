@@ -1,30 +1,45 @@
 class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
-  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.9.3.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/p/pari/pari_2.9.3.orig.tar.gz"
-  sha256 "e76a27779d2b1210ce1aba48363b98dd201a1bf876eb14f46ea6bd7769a00a63"
+  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.13.1.tar.gz"
+  sha256 "81ecf7d70ccdaae230165cff627c9ce2ec297b8f22f9f40742279d85f86dfcb1"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://pari.math.u-bordeaux.fr/pub/pari/unix/"
+    regex(/href=.*?pari[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "8d35c379a0b659ad24443156bf15f8ac7568a8bfa138a43a0a57f87d3bda4b87" => :high_sierra
-    sha256 "277dfbdc1111f80998e37b26372cdc5f8492a76547651a8a1296b931ac23d915" => :sierra
-    sha256 "b4b85de28303d7c0dd6bfb4199d5dc11648a5f119d142b71437939cf3c95db89" => :el_capitan
-    sha256 "5eee87a9a209235e74a8c608e84228de425dc16c0a44bae6e22ab54e736bb752" => :yosemite
+    sha256 arm64_big_sur: "bce28f4a6d89eccbed6c8a2a314c1eda9e600eaf924d56c45fe3e219974d59f6"
+    sha256 big_sur:       "683db9ffc99f148aa417d3679b8a2f4fa1e9c35ea0e9d657eac258a3b3ddcba7"
+    sha256 catalina:      "40b9dcb1426e44c03657c10af167be08c1ff1d1e1cbfe99d5c3ac724801b3e2e"
+    sha256 mojave:        "d7f12a7d997767b7eca8e93a29b5e82f5bb00a7ffd4c4b341968e1442b563872"
   end
 
   depends_on "gmp"
   depends_on "readline"
-  depends_on :x11
 
   def install
     readline = Formula["readline"].opt_prefix
     gmp = Formula["gmp"].opt_prefix
     system "./Configure", "--prefix=#{prefix}",
                           "--with-gmp=#{gmp}",
-                          "--with-readline=#{readline}"
+                          "--with-readline=#{readline}",
+                          "--graphic=ps"
     # make needs to be done in two steps
     system "make", "all"
     system "make", "install"
+
+    # Avoid references to Homebrew shims
+    inreplace lib/"pari/pari.cfg", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/", "/usr/bin/"
+  end
+
+  def caveats
+    <<~EOS
+      If you need the graphical plotting functions you need to install X11 with:
+        brew install --cask xquartz
+    EOS
   end
 
   test do

@@ -3,47 +3,32 @@ class Libgetdata < Formula
   homepage "https://getdata.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/getdata/getdata/0.10.0/getdata-0.10.0.tar.xz"
   sha256 "d547a022f435b9262dcf06dc37ebd41232e2229ded81ef4d4f5b3dbfc558aba3"
+  revision 1
 
   bottle do
-    sha256 "bf29e7e39c8a2acd7c48b9668c679c1e686439fea6452a3b6009d140d3849aee" => :high_sierra
-    sha256 "f0639bcf8df22e92c5bc2979c4c52834a2dd9ead9793905f3de9ef7002f23950" => :sierra
-    sha256 "8de8292bee505449d012e63b38549a8f623d4b50962d3e04442917522466f63c" => :el_capitan
-    sha256 "560fae5df4e8c5d308589ab7a0e04694a681d725bf492d7a31817cbf42aadd27" => :yosemite
+    rebuild 3
+    sha256 cellar: :any, arm64_big_sur: "731e469e2d2f4de61115fc882715a9dbaf33da5f14cc89fc628a1440766738fd"
+    sha256 cellar: :any, big_sur:       "3ee0053d39a05cadec5f4ed7edc3f143af7afd3d53b0fb7ee89b905ef7a220c6"
+    sha256 cellar: :any, catalina:      "f133f438e1833bff0f5cf43109e27768a983a068dec90a767ba9027d2bc2f0b9"
+    sha256 cellar: :any, mojave:        "6c5f143bb202c280c3b3e340a420a1cf6c6d936cba70faf837cd215e451987fe"
+    sha256 cellar: :any, high_sierra:   "6b8b5f7801a6cf31ecd5ac82ee02ca344f9634ad01c235a828e3875d0354931b"
   end
 
-  option "with-fortran", "Build Fortran 77 bindings"
-  option "with-perl", "Build Perl binding"
-  option "with-xz", "Build with LZMA compression support"
-  option "with-libzzip", "Build with zzip compression support"
+  depends_on "libtool"
 
-  deprecated_option "lzma" => "with-xz"
-  deprecated_option "zzip" => "with-libzzip"
-
-  depends_on "libtool" => :run
-  depends_on :fortran => :optional
-  depends_on :perl => ["5.3", :optional]
-  depends_on "xz" => :optional
-  depends_on "libzzip" => :optional
+  uses_from_macos "perl"
+  uses_from_macos "zlib"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --disable-python
-      --disable-php
-    ]
-
-    if build.with? "perl"
-      args << "--with-perl-dir=#{lib}/perl5/site_perl"
-    else
-      args << "--disable-perl"
-    end
-    args << "--without-liblzma" if build.without? "xz"
-    args << "--without-libzzip" if build.without? "libzzip"
-    args << "--disable-fortran" << "--disable-fortran95" if build.without? "fortran"
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--disable-fortran",
+                          "--disable-fortran95",
+                          "--disable-php",
+                          "--disable-python",
+                          "--without-liblzma",
+                          "--without-libzzip"
     system "make"
     system "make", "install"
   end

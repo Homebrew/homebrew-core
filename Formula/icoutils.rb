@@ -1,14 +1,23 @@
 class Icoutils < Formula
   desc "Create and extract MS Windows icons and cursors"
-  homepage "http://www.nongnu.org/icoutils/"
-  url "https://savannah.nongnu.org/download/icoutils/icoutils-0.32.2.tar.bz2"
-  sha256 "e892affbdc19cb640b626b62608475073bbfa809dc0c9850f0713d22788711bd"
+  homepage "https://www.nongnu.org/icoutils/"
+  url "https://savannah.nongnu.org/download/icoutils/icoutils-0.32.3.tar.bz2"
+  sha256 "17abe02d043a253b68b47e3af69c9fc755b895db68fdc8811786125df564c6e0"
+  license "GPL-3.0"
+
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/icoutils/"
+    regex(/href=.*?icoutils[._-](\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "ede0fe81bdef677d33a2ae3623e80af88f5b0de0808c585eb763d292c52565b1" => :high_sierra
-    sha256 "086f7d8fa79c9e8315b34dd97e1662ec2111c8a7c78defb017fab0c73ba81918" => :sierra
-    sha256 "dfa6965cb36ea05b8bd9073adc9026b7f25f14bd7905dd9e1f565697a7bc62a2" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "f761caa78a9a27c9480f9e6e78e44f8fa38e48404c5ee7488eedeb4ea51eb224"
+    sha256 cellar: :any, big_sur:       "9c63325e7eb42817701d615003736bc2aa04656d5b6b56d475712056836dccce"
+    sha256 cellar: :any, catalina:      "67e11f8966ff949902c637dccea47ee5ee341128519050f31f6c87eb74264d99"
+    sha256 cellar: :any, mojave:        "c22bed7e3ad43221011658fb8acd08481dccd11b0cc5750e6a21502d7da51fb9"
+    sha256 cellar: :any, high_sierra:   "50b8adff5f3364626026d19fba9a0c9fef8cf93104b8d6907bcbe8a5f4a136c2"
+    sha256 cellar: :any, sierra:        "1a3656f2fcf778aa32eb734a60dfceccd5e1a702fa6558b11b33cc6f44aeba99"
+    sha256 cellar: :any, el_capitan:    "fb93eb5cfa6b222e77ec07569f501fcc03143e9decf306ebd21e9d1c6d304bce"
   end
 
   depends_on "libpng"

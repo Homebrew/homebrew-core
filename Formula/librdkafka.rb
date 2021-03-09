@@ -1,25 +1,32 @@
 class Librdkafka < Formula
-  desc "The Apache Kafka C/C++ library"
+  desc "Apache Kafka C/C++ library"
   homepage "https://github.com/edenhill/librdkafka"
-  url "https://github.com/edenhill/librdkafka/archive/v0.11.3.tar.gz"
-  sha256 "2b96d7ed71470b0d0027bd9f0b6eb8fb68ed979f8092611c148771eb01abb72c"
+  url "https://github.com/edenhill/librdkafka/archive/v1.6.1.tar.gz"
+  sha256 "689028b5fdfdce026f396fc2f3bfe9e38947210d9bd22be28c3159cc8c41b57e"
+  license "BSD-2-Clause"
   head "https://github.com/edenhill/librdkafka.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "dce656349af51404992cc1d56911f9339adaf45074675bcc1d8e48b8230006c2" => :high_sierra
-    sha256 "772484a79bccead9e8964c572a0cb6a35432fdd3979f3f2f876f608db3d1d96f" => :sierra
-    sha256 "444a966aeed17701a3ee4d7d1087aef507695600144bcf7e0ff747c0f9d662b8" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "ec7240e9422a25af6c9504fbf5bea1fdb2bcb8765f4c6c09cb0b5a0094fb71b3"
+    sha256               big_sur:       "665c15af3ef760e026c0dc441a0c750485228128416775589defbf90f1001644"
+    sha256               catalina:      "193819ab935d16d82da2b143d0509d6aa734ee6c6258868a8dd26d987ecc5c22"
+    sha256               mojave:        "94140b0992f3bdc27792c03e1be2d58215947ea2e22df42f4f0d53bf4a1e9e49"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
+  depends_on "lz4"
   depends_on "lzlib"
-  depends_on "openssl"
-  depends_on "lz4" => :recommended
+  depends_on "openssl@1.1"
+  depends_on "zstd"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
@@ -31,6 +38,7 @@ class Librdkafka < Formula
       int main (int argc, char **argv)
       {
         int partition = RD_KAFKA_PARTITION_UA; /* random */
+        int version = rd_kafka_version();
         return 0;
       }
     EOS

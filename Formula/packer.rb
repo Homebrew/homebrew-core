@@ -1,68 +1,29 @@
-require "language/go"
-
 class Packer < Formula
   desc "Tool for creating identical machine images for multiple platforms"
   homepage "https://packer.io"
   url "https://github.com/hashicorp/packer.git",
-      :tag => "v1.1.2",
-      :revision => "14183e6bc442559cd401618ff58293c29455b87c"
+      tag:      "v1.7.0",
+      revision: "7ea4a779af7194caee3b497d584564cb849cd378"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/packer.git"
 
+  livecheck do
+    url "https://releases.hashicorp.com/packer/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fd03e8f9900a940a6c5be2a5467ee12004d507bc56f30cd2bdf87d45a3f2454c" => :high_sierra
-    sha256 "4376c0f43f18a80736cd848291ddbeef81bedc7300ce968dc240aaf0bc554671" => :sierra
-    sha256 "0fd07eae1489def22b4d0e3307a91bf1ea87ac8d86db57649f2cb4a3ea480e4e" => :el_capitan
+    sha256 cellar: :any_skip_relocation, big_sur:  "5caf98db141b6dad0b142a34eb291d40514ff83191fa96b5e9881c4a373090ed"
+    sha256 cellar: :any_skip_relocation, catalina: "f4d4e61f679f56fab341ce4fab5750018c54b65945e73b328dea6cd60e668264"
+    sha256 cellar: :any_skip_relocation, mojave:   "edc4db3f424721c4681ba93ae9df4f844df5a6fab40d5eea9ec417f1c2c7c2d8"
   end
 
   depends_on "go" => :build
-  depends_on "govendor" => :build
-
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
-
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
 
   def install
-    ENV["XC_OS"] = "darwin"
-    ENV["XC_ARCH"] = MacOS.prefer_64_bit? ? "amd64" : "386"
-    ENV["GOPATH"] = buildpath
-    # For the gox buildtool used by packer, which
-    # doesn't need to be installed permanently.
-    ENV.append_path "PATH", buildpath
-
-    packerpath = buildpath/"src/github.com/hashicorp/packer"
-    packerpath.install Dir["{*,.git}"]
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "build"
-      buildpath.install "gox"
-    end
-
-    cd packerpath do
-      # We handle this step above. Don't repeat it.
-      inreplace "Makefile" do |s|
-        s.gsub! "go get github.com/mitchellh/gox", ""
-        s.gsub! "go get golang.org/x/tools/cmd/stringer", ""
-        s.gsub! "go get github.com/kardianos/govendor", ""
-      end
-
-      (buildpath/"bin").mkpath
-      if build.head?
-        system "make", "bin"
-      else
-        system "make", "releasebin"
-      end
-      bin.install buildpath/"bin/packer"
-      zsh_completion.install "contrib/zsh-completion/_packer"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args
+    zsh_completion.install "contrib/zsh-completion/_packer"
+    prefix.install_metafiles
   end
 
   test do
@@ -86,6 +47,6 @@ class Packer < Formula
         }]
       }
     EOS
-    system "#{bin}/packer", "validate", minimal
+    system "#{bin}/packer", "validate", "-syntax-only", minimal
   end
 end

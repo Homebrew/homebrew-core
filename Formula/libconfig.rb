@@ -1,18 +1,22 @@
 class Libconfig < Formula
   desc "Configuration file processing library"
   homepage "https://hyperrealm.github.io/libconfig/"
-  url "https://github.com/hyperrealm/libconfig/archive/v1.7.1.tar.gz"
-  sha256 "d288e6ae817f4ef78df43cdb2647f768dc97899ee82fcc41f857e8eb9fd7fbdb"
+  url "https://github.com/hyperrealm/libconfig/archive/v1.7.2.tar.gz"
+  sha256 "f67ac44099916ae260a6c9e290a90809e7d782d96cdd462cac656ebc5b685726"
+  license "LGPL-2.1"
   head "https://github.com/hyperrealm/libconfig.git"
 
   bottle do
-    sha256 "393d13238b0259162bca7c1f61cc56f96370b3e84db24609bbcab6913bd6ac1e" => :high_sierra
-    sha256 "bb0326e6418c46f2c387e6e161e859d19e26efeefb86101d6056c66047f14523" => :sierra
-    sha256 "7f3cd7d160f43c050d05c462cb56ef8a31db13f06de7507b305a7cc14d244d65" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "4f8ed5fc70f9240873fa41d407fb56b21b3d528609c3c66246faee586196a8d9"
+    sha256 cellar: :any, big_sur:       "3b66cbc5fae338f422386f6a2eecd650a64391da8d2f7fba259af614729844da"
+    sha256 cellar: :any, catalina:      "5133affbfe2df2eccf05017748542e521e70a8db8763c8d8e39e00aec78fe3f8"
+    sha256 cellar: :any, mojave:        "b1c005fc0d3a811efcef915d8e84d9cc2828d6c35c5649f71fab3c714b2ae1ea"
+    sha256 cellar: :any, high_sierra:   "5762b7106a3e4ecc470193cd8abcfd40de090c456d42b413e545402246d73f69"
   end
 
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
 
   def install

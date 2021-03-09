@@ -1,21 +1,21 @@
 class Ratfor < Formula
   desc "Rational Fortran"
   homepage "http://www.dgate.org/ratfor/"
-  url "http://www.dgate.org/ratfor/tars/ratfor-1.03.tar.gz"
-  sha256 "d77497cd0856aad43e0d122f04aef4965994b744f1af9ab1237d7cd6849d139c"
+  url "http://www.dgate.org/ratfor/tars/ratfor-1.05.tar.gz"
+  sha256 "826278c5cec11f8956984f146e982137e90b0722af5dde9e8c5bf1fef614853c"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c3fce149ad7259cf7bf2873d92434bf4882c065fd4f29e21f9bc5d19470879fd" => :high_sierra
-    sha256 "fe4b59768af9db9e323ce5419e8387ffdd29b45e89f2651340a45e037ebf2336" => :sierra
-    sha256 "93d6bbe2c8b41e06adaadd365672c651f2fa1942aa283875bc1e54f8cec34fb3" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "86d1de3e075edcc1e493b46fc7186bd21906644ba69a7032f3bc827487eb9449"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0d9bfcd885197bf8bbfbd38469cd831e16f2dceb6cb6155acf075f0dfebcf095"
+    sha256 cellar: :any_skip_relocation, catalina:      "053917ccdf191b7cb15adb1c207cb3f18553def7d4cc9584b09222be07754660"
+    sha256 cellar: :any_skip_relocation, mojave:        "054cb6d92e13050233c54a5bbfdd1dc9fbaed09d63937b8426d543d9569ee07b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "16c83b337e66de93f5e1b21d77242b849a4a1613e2c2e38d1971a77277924bce"
   end
 
-  depends_on :fortran
+  depends_on "gcc" # for gfortran
 
   def install
     system "./configure", "--prefix=#{prefix}"
-    system "make", "check"
     system "make", "install"
   end
 
@@ -50,8 +50,7 @@ class Ratfor < Formula
     EOS
 
     system "#{bin}/ratfor", "-o", "test.f", testpath/"test.r"
-    ENV.fortran
-    system ENV.fc, "test.f", "-o", "test"
+    system "gfortran", "test.f", "-o", "test"
     system "./test"
   end
 end

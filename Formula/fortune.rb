@@ -2,26 +2,30 @@ class Fortune < Formula
   desc "Infamous electronic fortune-cookie generator"
   homepage "https://www.ibiblio.org/pub/linux/games/amusements/fortune/!INDEX.html"
   url "https://www.ibiblio.org/pub/linux/games/amusements/fortune/fortune-mod-9708.tar.gz"
-  mirror "ftp://ftp.ibiblio.org/pub/linux/games/amusements/fortune/fortune-mod-9708.tar.gz"
+  mirror "https://src.fedoraproject.org/repo/pkgs/fortune-mod/fortune-mod-9708.tar.gz/81a87a44f9d94b0809dfc2b7b140a379/fortune-mod-9708.tar.gz"
   sha256 "1a98a6fd42ef23c8aec9e4a368afb40b6b0ddfb67b5b383ad82a7b78d8e0602a"
 
-  bottle do
-    rebuild 2
-    sha256 "6f8a87247d72ed1d9197370b1df307bdb9d949d868ae210b7dc32dc43eaba8ab" => :high_sierra
-    sha256 "ac140349dc3a0ce55d2299e90651492df8ccf7839f57d8b1fa6ca221a665efc7" => :sierra
-    sha256 "fe681ea371ce058faeebbd459ac9b5f492b7b523652da937ed8cb7d9bbf0eaf8" => :el_capitan
-    sha256 "97c35357e5becf525ddaede462e40283872d0b5d2cebfeeb7d509cb0ef06fc7c" => :yosemite
-    sha256 "61792a39fce2c81cf7a47a9230884d0bc19ff7c5f84bc7264f2bc0aa705f8eb1" => :mavericks
+  livecheck do
+    url "https://www.ibiblio.org/pub/linux/games/amusements/fortune/"
+    regex(/href=.*?fortune-mod[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  option "without-offensive", "Don't install potentially offensive fortune files"
-
-  deprecated_option "no-offensive" => "without-offensive"
+  bottle do
+    rebuild 4
+    sha256 arm64_big_sur: "78689923b7ba4d7d5a4541a93a543effcbc7dcd722d803b47954656c92dfdeca"
+    sha256 big_sur:       "de301856c24aee684544214cb83474fe8237104c9cf214df6777267418b17d9f"
+    sha256 catalina:      "9d1ed340349cd7995d1308fc09fc69c3520c96b329ab881dc0d96fce914e029c"
+    sha256 mojave:        "9a7a866859df246c3fe9331cb1b131562359690dbc5bfed6ee4e8f5a4585025e"
+    sha256 high_sierra:   "3421fe011b2f27d30ae6e56d880eba8a68cb1249d6c4cd063a04fd61022507be"
+  end
 
   def install
     ENV.deparallelize
 
     inreplace "Makefile" do |s|
+      # Don't install offensive quotes
+      s.change_make_var! "OFFENSIVE", "0"
+
       # Use our selected compiler
       s.change_make_var! "CC", ENV.cc
 
@@ -33,8 +37,6 @@ class Fortune < Formula
 
       # macOS only supports POSIX regexes
       s.change_make_var! "REGEXDEFS", "-DHAVE_REGEX_H -DPOSIX_REGEX"
-      # Don't install offensive fortunes
-      s.change_make_var! "OFFENSIVE", "0" if build.without? "offensive"
     end
 
     system "make", "install"

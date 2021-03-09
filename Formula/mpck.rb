@@ -1,17 +1,17 @@
 class Mpck < Formula
   desc "Check MP3 files for errors"
-  homepage "http://checkmate.gissen.nl/"
-  url "http://checkmate.gissen.nl/checkmate-0.19.tar.gz"
-  sha256 "940f95d445bab629051930ef61c5614bdfbe9df6f450f1ffab86eaf885e79195"
+  homepage "https://checkmate.gissen.nl/"
+  url "https://checkmate.gissen.nl/checkmate-0.21.tar.gz"
+  sha256 "a27b4843ec06b069a46363836efda3e56e1daaf193a73a4da875e77f0945dd7a"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "10a102462923d52990581c999b2645727071500968a02af4c79427a20d1e0ad7" => :high_sierra
-    sha256 "fbdc8fda90c022cff2e3289b13926c503f83198b3c04abacc8ee5c310bbe7dda" => :sierra
-    sha256 "06b69481ecd910bf2c1daff65dd7d952a8759dd90e3d76f646f82ac79812d216" => :el_capitan
-    sha256 "e158ae142375591d361c6204ccc08072a29b52cee927726f9c30b063b51a0664" => :yosemite
-    sha256 "fcbf3745544824e2569004626c6a307800ef55aa2fcd667d278eaa5c34340452" => :mavericks
-    sha256 "09d7c03fdd0149b7efc7ecd36dab1e38de7af870484ad676d11e0ca78c7543ea" => :mountain_lion
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f963c58102f58169a5ea1d6264f3ea1093a62fd6461332d5e70d0e1ad9aa5d79"
+    sha256 cellar: :any_skip_relocation, big_sur:       "215f2f66b6567409359c6a0f784702df9fcc2e0c86edcab52fc40f91b6911bb9"
+    sha256 cellar: :any_skip_relocation, catalina:      "45f8695f2758dd07237c333e8a17aa38f8d0aed4e87e8b5dc7fea7bf4537b0e9"
+    sha256 cellar: :any_skip_relocation, mojave:        "e819ac8ce7eab3b4f83bcdf83cfbb129a9e3cebb36e314dabca646f808ed6257"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3ecd47f83f5645cfaf2bfef23b5b9a1b14bb36f2ec146409ca44d9d5f25c3401"
+    sha256 cellar: :any_skip_relocation, sierra:        "cd283270b83cf83c3e3a3c393404c1eca16e1620ced195821b97fe5ad6b39236"
   end
 
   def install

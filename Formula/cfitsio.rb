@@ -1,24 +1,25 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio3420.tar.gz"
-  mirror "https://fossies.org/linux/misc/cfitsio3420.tar.gz"
-  version "3.420"
-  sha256 "6c10aa636118fa12d9a5e2e66f22c6436fb358da2af6dbf7e133c142e2ac16b8"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-3.49.tar.gz"
+  version "3.490"
+  sha256 "5b65a20d5c53494ec8f638267fca4a629836b7ac8dd0ef0266834eab270ed4b3"
 
-  bottle do
-    cellar :any
-    sha256 "8b21e0a610d1caa8d8900546d2b2d9f83f74a9f1bd0d3e729f1ab1ad28b81813" => :high_sierra
-    sha256 "b2f55b8504d79e27d23b5fa93f77ff9bc2488eef4f5ed94c7a16757505df4462" => :sierra
-    sha256 "7681f60baee8d9a73639be3f54d7f4a1c71c9fc9f4ac7fd0e3ba20cb2a2c3c7b" => :el_capitan
+  livecheck do
+    url :homepage
+    regex(/Download the latest v?(\d+(?:\.\d+)+) version of CFITSIO/i)
   end
 
-  option "with-reentrant", "Build with support for concurrency"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "e5e1b4c2c73622ff9302547e5bafc7e80a5b98ae2e46522efeeaab0c6531b80b"
+    sha256 cellar: :any, big_sur:       "95b7f8301997e3b9c7111b8dc395b917800121a5e98edfdd0efc0f3d9adebbd9"
+    sha256 cellar: :any, catalina:      "2abc3263aed574298efd50d60dd5fa07e69c5a39ed87772e3edaa727a293506a"
+    sha256 cellar: :any, mojave:        "07c4d1610f3e5d90cbedb238939f588f09150edfe006f41c5072d2fb4e01980a"
+    sha256 cellar: :any, high_sierra:   "ec8feab397612c13da91dd9c8e2c91289973ec1e7e10bf07f17023cf5db26745"
+  end
 
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--enable-reentrant" if build.with? "reentrant"
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}", "--enable-reentrant"
     system "make", "shared"
     system "make", "install"
     (pkgshare/"testprog").install Dir["testprog*"]

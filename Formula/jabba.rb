@@ -1,22 +1,25 @@
 class Jabba < Formula
   desc "Cross-platform Java Version Manager"
   homepage "https://github.com/shyiko/jabba"
-  url "https://github.com/shyiko/jabba/archive/0.9.2.tar.gz"
-  sha256 "884da1fc23818db1396a8eeb4a10d40c7c008684b7642e2eec88bf264f47e071"
+  url "https://github.com/shyiko/jabba/archive/0.11.2.tar.gz"
+  sha256 "33874c81387f03fe1a27c64cb6fb585a458c1a2c1548b4b86694da5f81164355"
+  license "Apache-2.0"
   head "https://github.com/shyiko/jabba.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "1c23d02756f7701a08fa4805bd6e6ae267fb51e3587b7e2748d267b76cfb7e06" => :high_sierra
-    sha256 "1194d7753a570997667238c59ef05ca0c5f8c34029986b5cf7289fe48c656f15" => :sierra
-    sha256 "177f97bc1d5da9cc38c187d75e213a292f7b526de424e095efcc8446225fdf14" => :el_capitan
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, big_sur:     "a730868e347cb89b50393f96062b2c076f1d501b137ead1a795aa39e54ad4611"
+    sha256 cellar: :any_skip_relocation, catalina:    "7eddb409c7bb2784db21756e624a18b19977bb4df53ab547eaedd8abe876651e"
+    sha256 cellar: :any_skip_relocation, mojave:      "3101ea25ce49c3ed96b3c8595a5441fec3aeb536b56eca21c1dea56f6c1fd86b"
+    sha256 cellar: :any_skip_relocation, high_sierra: "8454f5aa9b8832908b1c889531118ea058b2e675ef7f7f37eeb282f454aeec1e"
   end
 
-  depends_on "go" => :build
   depends_on "glide" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
     dir = buildpath/"src/github.com/shyiko/jabba"
     dir.install buildpath.children
@@ -30,9 +33,9 @@ class Jabba < Formula
 
   test do
     ENV["JABBA_HOME"] = testpath/"jabba_home"
-    system bin/"jabba", "install", "1.9.0"
-    jdk_path = Utils.popen_read("#{bin}/jabba which 1.9.0").strip
-    assert_match 'java version "9.0.1"',
+    system bin/"jabba", "install", "openjdk@1.14.0"
+    jdk_path = shell_output("#{bin}/jabba which openjdk@1.14.0").strip
+    assert_match 'openjdk version "14',
                  shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
   end
 end

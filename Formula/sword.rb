@@ -1,22 +1,25 @@
 class Sword < Formula
   desc "Cross-platform tools to write Bible software"
   homepage "https://www.crosswire.org/sword/index.jsp"
-  url "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.7/sword-1.7.4.tar.gz"
-  sha256 "995da8cf5a207c1f09809bf4b9db0bd7d267da5fcdb9d6666c9b313edd9d213d"
+  url "https://www.crosswire.org/ftpmirror/pub/sword/source/v1.9/sword-1.9.0.tar.gz"
+  sha256 "42409cf3de2faf1108523e2c5ac0745d21f9ed2a5c78ed878ee9dcc303426b8a"
+  license "GPL-2.0-only"
 
-  bottle do
-    rebuild 2
-    sha256 "b756aef908089e6ad20e9c905d6c01c32d33a7139fd26b735bdd8259b390b465" => :sierra
-    sha256 "7b9581c869aa590288ad5b076b2547bcfe4edcb869550fc2c97497bcbb83e7ec" => :el_capitan
-    sha256 "1c5b77b0a2d5441cd9a51a72c65d8c64b64840072b70eb34a4c0231e7fe35c48" => :yosemite
-    sha256 "dc3bd07b3621d61ab58c1f1ca9796d7b1af05e3fccee3f8181cb5c743642df29" => :mavericks
+  livecheck do
+    url "https://www.crosswire.org/ftpmirror/pub/sword/source/"
+    regex(%r{href=.*?sword[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  option "with-clucene", "Use clucene for text searching capabilities"
-  option "with-icu4c", "Use icu4c for unicode support"
+  bottle do
+    rebuild 1
+    sha256 arm64_big_sur: "aa8af3684bf4475f2c4f193ce2eee82751525f99dfc718b49495ba58f1866662"
+    sha256 big_sur:       "85fd915531e0d5afa3ca380be523b09dd6c7ef4085ac4c7e26fc09e81c945228"
+    sha256 catalina:      "65d2da4bfbc5517b4fba2d4da6a4b57ff2429126041c59ee83ad29886df71d70"
+    sha256 mojave:        "84420513bcd1215cfcee1737022551b86d80059a0dfb1de6fc82dcec050280a2"
+    sha256 high_sierra:   "42b2dfd8162cd7b96efeba4da340df7dafae5f581be6c6bbb47f37a07bd9f66a"
+  end
 
-  depends_on "clucene" => :optional
-  depends_on "icu4c" => :optional
+  uses_from_macos "zlib"
 
   def install
     args = %W[
@@ -25,19 +28,9 @@ class Sword < Formula
       --disable-profile
       --disable-tests
       --with-curl
+      --without-icu
+      --without-clucene
     ]
-
-    if build.with? "icu4c"
-      args << "--with-icu"
-    else
-      args << "--without-icu"
-    end
-
-    if build.with? "clucene"
-      args << "--with-clucene"
-    else
-      args << "--without-clucene"
-    end
 
     system "./configure", *args
     system "make", "install"

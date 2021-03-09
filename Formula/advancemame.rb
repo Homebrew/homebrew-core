@@ -1,23 +1,34 @@
 class Advancemame < Formula
   desc "MAME with advanced video support"
-  homepage "http://www.advancemame.it/"
-  url "https://github.com/amadvance/advancemame/releases/download/v3.5/advancemame-3.5.tar.gz"
-  sha256 "779b3b43e3fbdf4bb24e97c418499cd4550446494e19f5d576827242b0821814"
+  homepage "https://www.advancemame.it/"
+  url "https://github.com/amadvance/advancemame/releases/download/v3.9/advancemame-3.9.tar.gz"
+  sha256 "3e4628e1577e70a1dbe104f17b1b746745b8eda80837f53fbf7b091c88be8c2b"
+  license "GPL-2.0"
 
-  bottle do
-    sha256 "68814ac2f24c61b03e395f0b39141b8d1a32a39f193c25a8a1e21000bdae7556" => :high_sierra
-    sha256 "2a64703b056e341dd6ee4773038f5d4fa289ae120e64b852d103c41cffec3fee" => :sierra
-    sha256 "1f67883e185c7d2afe1bfef2ab7eac425c15c4540d648cabb40b2cde8aba0e7f" => :el_capitan
-    sha256 "1865a05529d60f846bb97b29c936aaf49f975d788d3687a7b7e87fcd0681bf3d" => :yosemite
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on "sdl"
-  depends_on "freetype"
+  bottle do
+    sha256 arm64_big_sur: "fe56e046756c3f764cbe72137877c3bde3fd157175fc2347ae85874f9c2abe2b"
+    sha256 big_sur:       "b04cdb0a02ef28b8626eb92c9da9ae784e7f7ba7f6ab8675cd40e5d976e46228"
+    sha256 catalina:      "7530ca2e37ac45b53164ae54ab6669f1796ea0af88541a85a93a74c155fb0029"
+    sha256 mojave:        "95f2cdff91ff98c3c9f65a0751d7948cefb3829d96e1977b5b8869163eba0790"
+    sha256 high_sierra:   "9c5e0a9f81f43ec02eb951b82b4930639dafcdbacbeadf7bcc5e74f2e2ec7c45"
+    sha256 sierra:        "6ba2c02db07a9ef7ddf561dbc2cde3904abe0b1b0ab9c9469020fdeced72e011"
+  end
 
-  conflicts_with "advancemenu", :because => "both install `advmenu` binaries"
+  depends_on "pkg-config" => :build
+  depends_on "freetype"
+  depends_on "sdl"
+
+  uses_from_macos "expat"
+  uses_from_macos "ncurses"
+
+  conflicts_with "advancemenu", because: "both install `advmenu` binaries"
 
   def install
-    ENV.delete "SDKROOT" if MacOS.version == :yosemite
     system "./configure", "--prefix=#{prefix}"
     system "make", "install", "LDFLAGS=#{ENV.ldflags}", "mandir=#{man}", "docdir=#{doc}"
   end

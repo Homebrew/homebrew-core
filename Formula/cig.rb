@@ -1,43 +1,31 @@
-require "language/go"
-
 class Cig < Formula
   desc "CLI app for checking the state of your git repositories"
   homepage "https://github.com/stevenjack/cig"
   url "https://github.com/stevenjack/cig/archive/v0.1.5.tar.gz"
   sha256 "545a4a8894e73c4152e0dcf5515239709537e0192629dc56257fe7cfc995da24"
+  license "MIT"
   head "https://github.com/stevenjack/cig.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "a48e341826857fe9753dc444fa86d5ce121f4acc28a67e79c4955156c9707ccd" => :high_sierra
-    sha256 "8d6219bd7d8f795608a58bf95fed5489cf8aa8266b3d06e6ff506037fa449ead" => :sierra
-    sha256 "c64c5aaab66ee0853e0b3437c002dcf233fd543a019e4b411f9cf3f9555de702" => :el_capitan
-    sha256 "d349ccf020a30a7db72333a4aa1a8f73bcb2b3c6f0984c7a0e88de38bc07ed4c" => :yosemite
-    sha256 "b61176af3e53d2505f36ee3deafbb92a5f02f6c0841fefdcdfdd084821a95837" => :mavericks
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d4f345393a0553e40003b46523a07e2bb0162bba0309ca9c0d322f606e73b76"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c41c70e517158f1a31bb4b29a6fa01b12570001353b8800d55aadd4ddc99080e"
+    sha256 cellar: :any_skip_relocation, catalina:      "3ccce3238efd259041dbb0f0427d5ac06cc4dfafdfbfd336ddd0023e02e9dd7d"
+    sha256 cellar: :any_skip_relocation, mojave:        "9cf50d9418885990bed7e23b0c2987918d63bef3e7f3e27589c521b6b73160bf"
   end
 
   depends_on "go" => :build
-  depends_on "godep" => :build
 
-  go_resource "github.com/kr/fs" do
-    url "https://github.com/kr/fs.git",
-        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
-  end
-
-  go_resource "golang.org/x/tools" do
-    url "https://github.com/golang/tools.git",
-        :revision => "473fd854f8276c0b22f17fb458aa8f1a0e2cf5f5"
+  # Patch to remove godep dependency.
+  # Remove when the following PR is merged into release:
+  # https://github.com/stevenjack/cig/pull/44
+  patch do
+    url "https://github.com/stevenjack/cig/compare/2d834ee..f0e78f0.patch?full_index"
+    sha256 "3aa14ecfa057ec6aba08d6be3ea0015d9df550b4ede1c3d4eb76bdc441a59a47"
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    mkdir_p buildpath/"src/github.com/stevenjack/"
-    ln_sf buildpath, buildpath/"src/github.com/stevenjack/cig"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "godep", "go", "build", "-o", "cig", "."
-    bin.install "cig"
+    system "go", "build", *std_go_args
   end
 
   test do

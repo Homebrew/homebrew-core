@@ -1,30 +1,35 @@
 class Abook < Formula
   desc "Address book with mutt support"
   homepage "https://abook.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/abook/abook/0.5.6/abook-0.5.6.tar.gz"
-  sha256 "0646f6311a94ad3341812a4de12a5a940a7a44d5cb6e9da5b0930aae9f44756e"
-  revision 1
-
+  url "https://abook.sourceforge.io/devel/abook-0.6.1.tar.gz"
+  sha256 "f0a90df8694fb34685ecdd45d97db28b88046c15c95e7b0700596028bd8bc0f9"
+  license "GPL-2.0"
   head "https://git.code.sf.net/p/abook/git.git"
 
+  livecheck do
+    url :homepage
+    strategy :page_match
+    regex(/href=.*?abook[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 "3eb9e2e7003ef3501c63d87a5a632791769c84ac4d81a2c5fe1d40c04986e19f" => :high_sierra
-    sha256 "e32cff277928e0b5cd24f201b1b5f94faf5469f263856b48c78f85b539018c86" => :sierra
-    sha256 "fc5e09a73519a20dbe90258d6779bfddb1a02b2fc277fd54b4cd8c80c378539d" => :el_capitan
-    sha256 "2f3a8d37fd17ecdda801f8de53e4048f19d824748e11a34c6f9abca0aae06c3b" => :yosemite
+    sha256 arm64_big_sur: "e062925ce6b559649d5574f2ee4a709611df4a9a54f3396cf706c2a399cc747f"
+    sha256 big_sur:       "0c4b7d1c41dbd920e192711e8ed1200db46c30be141aaaeb606c41718d0c2a79"
+    sha256 catalina:      "09e77aa3db2cf8a702effbebbbf83f7a2f860b0d5db6bcf37549edb7db5438a7"
+    sha256 mojave:        "a6ab99c751a03e11e2ace660ad9325a9fe4262598f284c0fb87626778383e29d"
+    sha256 high_sierra:   "a0461ecc678e5cb65a901bd39dbd7f0f8015a29ed605e6cf28f1315d5c347ecb"
   end
 
-  devel do
-    url "https://abook.sourceforge.io/devel/abook-0.6.0pre2.tar.gz"
-    sha256 "59d444504109dd96816e003b3023175981ae179af479349c34fa70bc12f6d385"
-
-    # Remove `inline` from function implementation for clang compatibility
-    patch :DATA
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "gettext"
   depends_on "readline"
 
   def install
+    # fix "undefined symbols" error caused by C89 inline behaviour
+    inreplace "database.c", "inline int", "int"
+
+    system "autoreconf", "-ivf"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
@@ -36,18 +41,3 @@ class Abook < Formula
     system "#{bin}/abook", "--formats"
   end
 end
-
-__END__
-diff --git a/database.c b/database.c
-index 7c47ab6..53bdb9f 100644
---- a/database.c
-+++ b/database.c
-@@ -762,7 +762,7 @@ item_duplicate(list_item dest, list_item src)
-  */
- 
- /* quick lookup by "standard" field number */
--inline int
-+int
- field_id(int i)
- {
- 	assert((i >= 0) && (i < ITEM_FIELDS));

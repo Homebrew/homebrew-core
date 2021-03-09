@@ -1,34 +1,35 @@
 class Tcc < Formula
   desc "Tiny C compiler"
   homepage "https://bellard.org/tcc/"
-  url "https://download.savannah.gnu.org/releases/tinycc/tcc-0.9.26.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/tcc-0.9.26.tar.bz2"
-  sha256 "521e701ae436c302545c3f973a9c9b7e2694769c71d9be10f70a2460705b6d71"
+  url "https://download.savannah.nongnu.org/releases/tinycc/tcc-0.9.27.tar.bz2"
+  sha256 "de23af78fca90ce32dff2dd45b3432b2334740bb9bb7b05bf60fdbfc396ceb9c"
+  license "LGPL-2.0-or-later"
+  revision 1
 
-  bottle do
-    sha256 "a4e987aa8ee2608b822e494d33ac049f3108a82160aaea8cb17ec0f139d12d5b" => :sierra
-    sha256 "8187fcc40ec8350469ec8a759344d2abe110ad8b3acc09deb93e1dfe3295300c" => :el_capitan
-    sha256 "6361d686961e63328e2e084e346df9a0f3bea8f4c1aa7a48b627b528b76b5622" => :yosemite
-    sha256 "d933047b24c74dc83fad767b8838ded95c1b512846960144c6442480410038eb" => :mavericks
-    sha256 "a08aa7da0eccb7c93414fd4944ce5676248869da5f62810bbe687704ba37807d" => :mountain_lion
+  livecheck do
+    url "https://download.savannah.nongnu.org/releases/tinycc/"
+    regex(/href=.*?tcc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option "with-cross", "Build all cross compilers"
+  bottle do
+    sha256 catalina:    "68930891a8746b34b372ecfe43a6a042d0097414713c831353a095135d7b9569"
+    sha256 mojave:      "ca8cd4827e72201cd5f368b5b74b9dead8554e0188b7ea63f81926d775d704e9"
+    sha256 high_sierra: "1ad7de1b974ca3e16668dec9cbef2accb29ecedb8f3f5819c06a2f77c8f3f2d1"
+    sha256 sierra:      "c2949f3a99d1efb600137e4bb617ebd8a385697038f9cb8136c681033a7a636e"
+  end
 
   def install
     args = %W[
       --prefix=#{prefix}
       --source-path=#{buildpath}
       --sysincludepaths=/usr/local/include:#{MacOS.sdk_path}/usr/include:{B}/include
+      --enable-cross"
     ]
-
-    args << "--enable-cross" if build.with? "cross"
 
     ENV.deparallelize
     system "./configure", *args
-    system "make"
+    system "make", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make", "install"
-    system "make", "test"
   end
 
   test do

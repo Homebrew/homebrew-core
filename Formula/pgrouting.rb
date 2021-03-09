@@ -1,15 +1,21 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
-  homepage "http://www.pgrouting.org"
-  url "https://github.com/pgRouting/pgrouting/archive/v2.5.2.tar.gz"
-  sha256 "9251d5955e00456ce8fd7f4fade0f40158687fd58814cbb961ba3588edc31153"
+  homepage "https://pgrouting.org/"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v3.1.3/pgrouting-3.1.3.tar.gz"
+  sha256 "54b58e8c4ac997d130e894f6311a28238258b224bb824b83f5bfa0fb4ee79c60"
+  license "GPL-2.0-or-later"
   head "https://github.com/pgRouting/pgrouting.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any
-    sha256 "5a642c2d88ebaa7e0a0f9ae9369a716dd6dc2ab97c7fa4969c477be85b9490c8" => :high_sierra
-    sha256 "41d721ab350e6c2e3ba26c7178581c6a2935e089af7b366a738311ded552a998" => :sierra
-    sha256 "f98c878047ae5b781926f2d771cf11c6937df2a4938a24f58042d5c652167f38" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "287799f4aa536484337fae2c368adb56b956d24f9b8f5000b9de3ac766c3a86d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7424d8d1bdd429b880334d99310c96a818081dbd0ff7e53dba6b9c02d6ff255c"
+    sha256 cellar: :any_skip_relocation, catalina:      "e5405302217126a60aca29ba25e2329dccccce81295f56134e1aeda600502950"
+    sha256 cellar: :any_skip_relocation, mojave:        "ec66fa1e4d1251ddd476aeef4287cfee248991fb094472b7baf41b3e922bcb6b"
   end
 
   depends_on "cmake" => :build
@@ -29,23 +35,5 @@ class Pgrouting < Formula
 
     lib.install Dir["stage/**/lib/*"]
     (share/"postgresql/extension").install Dir["stage/**/share/postgresql/extension/*"]
-  end
-
-  test do
-    pg_bin = Formula["postgresql"].opt_bin
-    pg_port = "55561"
-    system "#{pg_bin}/initdb", testpath/"test"
-    pid = fork { exec "#{pg_bin}/postgres", "-D", testpath/"test", "-p", pg_port }
-
-    begin
-      sleep 2
-      system "#{pg_bin}/createdb", "-p", pg_port
-      system "#{pg_bin}/psql", "-p", pg_port, "--command", "CREATE DATABASE test;"
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", "CREATE EXTENSION postgis;"
-      system "#{pg_bin}/psql", "-p", pg_port, "-d", "test", "--command", "CREATE EXTENSION pgrouting;"
-    ensure
-      Process.kill 9, pid
-      Process.wait pid
-    end
   end
 end

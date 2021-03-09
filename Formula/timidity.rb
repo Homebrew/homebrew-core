@@ -1,26 +1,27 @@
 class Timidity < Formula
   desc "Software synthesizer"
   homepage "https://timidity.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.14.0/TiMidity++-2.14.0.tar.bz2"
-  sha256 "f97fb643f049e9c2e5ef5b034ea9eeb582f0175dce37bc5df843cc85090f6476"
+  url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.15.0/TiMidity++-2.15.0.tar.bz2"
+  sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
+  revision 1
 
-  bottle do
-    sha256 "5db392f0e53371e29fdca1ebeee3fdad24043f038c943314e991a06765d102a5" => :high_sierra
-    sha256 "b45b1df69ab87563a77e1163114160f66679fde5548bac0ae81acb7fae86ab80" => :sierra
-    sha256 "0b26a98c3e8e3706f8ff1fb2e21c014ac7245c01510799172e7f3ebdc71602ac" => :el_capitan
-    sha256 "2bfaec5aaaacf7ed13148f437cbeba6bb793f9eacdab739b7202d151031253b4" => :yosemite
-    sha256 "9e56e31b91c1cab53ebd7830114520233b02f7766f69f2e761d005b8bcd2fb58" => :mavericks
-    sha256 "a6c27dd89a2a68505faa01a3be6b770d5c89ae79a9b4739a5f7f1d226bfedb2d" => :mountain_lion
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/TiMidity%2B%2B[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  option "without-darwin", "Build without Darwin CoreAudio support"
-  option "without-freepats", "Build without the Freepats instrument patches from https://freepats.zenvoid.org/"
+  bottle do
+    sha256 big_sur:     "b7f6a933b163f87baad3e1799160fc42bf1b14829a5223e903ae38a26dc2c4c2"
+    sha256 catalina:    "4ebc752f9ca4fcfa88ade5f6806037678d855d97470adb5507c1290527fe6260"
+    sha256 mojave:      "2cae56b69dc38af0de2d80816539ac5d6c78da535d20d63a2103dcf907ec9b80"
+    sha256 high_sierra: "563d4ffe26aff2b7b4453d5cb159cc596bae4f804cc977978cb01856184ed9c7"
+  end
 
-  depends_on "libogg" => :recommended
-  depends_on "libvorbis" => :recommended
-  depends_on "flac" => :recommended
-  depends_on "speex" => :recommended
-  depends_on "libao" => :recommended
+  depends_on "flac"
+  depends_on "libao"
+  depends_on "libogg"
+  depends_on "libvorbis"
+  depends_on "speex"
 
   resource "freepats" do
     url "https://freepats.zenvoid.org/freepats-20060219.zip"
@@ -28,29 +29,17 @@ class Timidity < Formula
   end
 
   def install
-    args = ["--disable-debug",
-            "--disable-dependency-tracking",
-            "--prefix=#{prefix}",
-            "--mandir=#{man}"]
-
-    formats = []
-    formats << "darwin" if build.with? "darwin"
-    formats << "vorbis" if build.with?("libogg") && build.with?("libvorbis")
-    formats << "flac" if build.with? "flac"
-    formats << "speex" if build.with? "speex"
-    formats << "ao" if build.with? "libao"
-
-    args << "--enable-audio=" + formats.join(",") if formats.any?
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--mandir=#{man}",
+                          "--enable-audio=darwin,vorbis,flac,speex,ao"
     system "make", "install"
 
-    if build.with? "freepats"
-      (share/"freepats").install resource("freepats")
-      pkgshare.install_symlink share/"freepats/Tone_000",
-                               share/"freepats/Drum_000",
-                               share/"freepats/freepats.cfg" => "timidity.cfg"
-    end
+    # Freepats instrument patches from https://freepats.zenvoid.org/
+    (share/"freepats").install resource("freepats")
+    pkgshare.install_symlink share/"freepats/Tone_000",
+                             share/"freepats/Drum_000",
+                             share/"freepats/freepats.cfg" => "timidity.cfg"
   end
 
   test do

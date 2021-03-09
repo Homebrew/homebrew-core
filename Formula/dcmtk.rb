@@ -1,39 +1,44 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
-  homepage "http://dicom.offis.de/dcmtk.php.en"
-  url "http://dicom.offis.de/download/dcmtk/dcmtk362/dcmtk-3.6.2.tar.gz"
-  sha256 "1b5cf1dcb23cad401310c3afeb961c3613e3d20ab2d161dcc8bf0735b443218d"
-  head "http://git.dcmtk.org/dcmtk.git"
+  homepage "https://dicom.offis.de/dcmtk.php.en"
+  url "https://dicom.offis.de/download/dcmtk/dcmtk366/dcmtk-3.6.6.tar.gz"
+  sha256 "6859c62b290ee55677093cccfd6029c04186d91cf99c7642ae43627387f3458e"
+  head "https://git.dcmtk.org/dcmtk.git"
 
-  bottle do
-    sha256 "9b328afaa927a5001da453c3020ce895e2456c532289dd09b7a570a7517c54df" => :high_sierra
-    sha256 "667469116e8e934360205c525fc3cf30290e64f44bc99ee85adf516dfcb39298" => :sierra
-    sha256 "b245dc0c76c6075b9756a16ff50337b4fdfe33ded46c788f19925635c09344b2" => :el_capitan
+  livecheck do
+    url "https://dicom.offis.de/download/dcmtk/release/"
+    regex(/href=.*?dcmtk[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option "with-docs", "Install development libraries/headers and HTML docs"
-  option "with-libiconv", "Build with brewed libiconv. Dcmtk and system libiconv can have problems with utf8."
-  option "with-dicomdict", "Build with baked-in DICOM data dictionary."
+  bottle do
+    sha256 big_sur:  "14f0ad1188c09414ce0c38a5b1daad58031c490dedcb0e602d3a9d8946a7513c"
+    sha256 catalina: "b7169841e5ae53c3641392130e2d72190a859eb566e0445d16f58131a0bfe34a"
+    sha256 mojave:   "ba2af245944fd723362c4fd758aaa90a9f3b651e3422ce1326078bcdc4cad093"
+  end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :build if build.with? "docs"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "openssl" => :recommended
-  depends_on "libiconv" => :optional
+  depends_on "openssl@1.1"
+
+  uses_from_macos "libxml2"
 
   def install
-    args = std_cmake_args
-    args << "-DDCMTK_WITH_OPENSSL=NO" if build.without? "openssl"
-    args << "-DDCMTK_WITH_DOXYGEN=YES" if build.with? "docs"
-    args << "-DDCMTK_ENABLE_BUILTIN_DICTIONARY=YES -DDCMTK_ENABLE_EXTERNAL_DICTIONARY=NO" if build.with? "dicomdict"
-    args << "-DDCMTK_WITH_ICONV=YES -DLIBICONV_DIR=#{Formula["libiconv"].opt_prefix}" if build.with? "libiconv"
-    args << ".."
-
     mkdir "build" do
-      system "cmake", *args
-      system "make", "DOXYGEN" if build.with? "docs"
+      system "cmake", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args, ".."
       system "make", "install"
+      system "cmake", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args, ".."
+      system "make", "install"
+
+      on_macos do
+        inreplace lib/"cmake/dcmtk/DCMTKConfig.cmake", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+      end
+
+      on_linux do
+        if File.readlines(lib/"cmake/dcmtk/DCMTKConfig.cmake").grep(/#{HOMEBREW_SHIMS_PATH}/o).any?
+          inreplace lib/"cmake/dcmtk/DCMTKConfig.cmake", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
+        end
+      end
     end
   end
 

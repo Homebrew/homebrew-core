@@ -1,5 +1,3 @@
-require "language/go"
-
 # Please don't update this formula until the release is official via
 # mailing list or blog post. There's a history of GitHub tags moving around.
 # https://github.com/hashicorp/vault/issues/1051
@@ -7,57 +5,74 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      :tag => "v0.9.0",
-      :revision => "bdac1854478538052ba5b7ec9a9ec688d35a3335"
+      tag:      "v1.6.3",
+      revision: "b540be4b7ec48d0dd7512c8d8df9399d6bf84d76"
+  license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "c57077f8bb83f8abca3965389d379873166a0a2be9ffd3b424457eb7f0f80ccf" => :high_sierra
-    sha256 "7e1f8eadfac4d66576c036bfd55ae80571a19bb1695c8cc031a543a36a6c3dd6" => :sierra
-    sha256 "9c5ca2ff698d7d64f20f3eb22e1f432061ab0fb646065f9a2dff9f0564884431" => :el_capitan
+  livecheck do
+    url "https://releases.hashicorp.com/vault/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  option "with-dynamic", "Build dynamic binary with CGO_ENABLED=1"
+  bottle do
+    sha256 cellar: :any_skip_relocation, big_sur:  "79533af24d10955d68163da97bea338253b800c90eb939827cf424558a14cc86"
+    sha256 cellar: :any_skip_relocation, catalina: "0794305b753438b9631801e9cf4c850ae9cd46170a8ce8e500ce214b2eb11186"
+    sha256 cellar: :any_skip_relocation, mojave:   "143f8720a199827a818954eadc95bbbf6a216333fcc3bb2d1eca8cb278a0710a"
+  end
 
   depends_on "go" => :build
-
-  go_resource "github.com/mitchellh/iochan" do
-    url "https://github.com/mitchellh/iochan.git",
-        :revision => "87b45ffd0e9581375c491fef3d32130bb15c5bd7"
-  end
-
-  go_resource "github.com/mitchellh/gox" do
-    url "https://github.com/mitchellh/gox.git",
-        :revision => "c9740af9c6574448fd48eb30a71f964014c7a837"
-  end
+  depends_on "gox" => :build
+  depends_on "node@10" => :build
+  depends_on "yarn" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
+    system "make", "bootstrap", "static-dist", "dev-ui"
+    bin.install "bin/vault"
+  end
 
-    contents = buildpath.children - [buildpath/".brew_home"]
-    (buildpath/"src/github.com/hashicorp/vault").install contents
+  plist_options manual: "vault server -dev"
 
-    ENV.prepend_create_path "PATH", buildpath/"bin"
-
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    cd "src/github.com/mitchellh/gox" do
-      system "go", "install"
-    end
-
-    cd "src/github.com/hashicorp/vault" do
-      target = build.with?("dynamic") ? "dev-dynamic" : "dev"
-      system "make", target
-      bin.install "bin/vault"
-      prefix.install_metafiles
-    end
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/vault</string>
+            <string>server</string>
+            <string>-dev</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>WorkingDirectory</key>
+          <string>#{var}</string>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/vault.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/vault.log</string>
+        </dict>
+      </plist>
+    EOS
   end
 
   test do
+    port = free_port
+    ENV["VAULT_DEV_LISTEN_ADDRESS"] = "127.0.0.1:#{port}"
+    ENV["VAULT_ADDR"] = "http://127.0.0.1:#{port}"
+
     pid = fork { exec bin/"vault", "server", "-dev" }
-    sleep 1
-    ENV.append "VAULT_ADDR", "http://127.0.0.1:8200"
+    sleep 5
     system bin/"vault", "status"
     Process.kill("TERM", pid)
   end

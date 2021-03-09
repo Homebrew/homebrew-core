@@ -1,13 +1,14 @@
 class Kobalt < Formula
   desc "Build system"
-  homepage "http://beust.com/kobalt"
-  url "https://github.com/cbeust/kobalt/releases/download/1.0.92/kobalt-1.0.92.zip"
-  sha256 "202ce4d66a88cea7a852ab261a27d6a23b950baa17c6debf057a908f3b387614"
+  homepage "https://beust.com/kobalt/"
+  url "https://github.com/cbeust/kobalt/releases/download/1.0.129/kobalt-1.0.129.zip"
+  sha256 "0b4db9992f18f3b04503aa09dbb690bb12761552b392e24d49b04cc77b8bff68"
+  license "Apache-2.0"
 
   bottle :unneeded
 
   def install
-    libexec.install %w[kobalt]
+    libexec.install "kobalt-#{version}/kobalt"
 
     (bin/"kobaltw").write <<~EOS
       #!/bin/bash
@@ -19,7 +20,7 @@ class Kobalt < Formula
     (testpath/"src/main/kotlin/com/A.kt").write <<~EOS
       package com
       class A
-      EOS
+    EOS
 
     (testpath/"kobalt/src/Build.kt").write <<~EOS
       import com.beust.kobalt.*

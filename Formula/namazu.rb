@@ -3,34 +3,22 @@ class Namazu < Formula
   homepage "http://www.namazu.org/"
   url "http://www.namazu.org/stable/namazu-2.0.21.tar.gz"
   sha256 "5c18afb679db07084a05aca8dffcfb5329173d99db8d07ff6d90b57c333c71f7"
+  license "GPL-2.0"
 
   bottle do
     rebuild 1
-    sha256 "15f536a0c9e3212af68689dc2202ae0d9a7634d161aa0ac3aa6d55977506f8da" => :high_sierra
-    sha256 "2514d7e9209225e9f388feda1116c193ec98034952dd9c6b89bcaccafabedb1f" => :sierra
-    sha256 "39cad2ecd3948e2afd69fc58b6390e1fd7fa7e82cee8176fec7f71880c6e52c2" => :el_capitan
-    sha256 "01a0bf11f2ad2095306055016b430c19900ea6203af5fcf4bb5c92c085d44a67" => :yosemite
-    sha256 "ca6e854a626eaafd4ac26661b9a3db86dc9bc140f4aa98effd5843882aba7ecb" => :mavericks
+    sha256 catalina:    "36353c27b263366bddb893b1ea47ae52e9ea61b18abf068395883868725a5a0c"
+    sha256 mojave:      "f6140424ff2a5a5bee20b4430036ce76bd66bf82705cd0a1fa52790caf617fea"
+    sha256 high_sierra: "15f536a0c9e3212af68689dc2202ae0d9a7634d161aa0ac3aa6d55977506f8da"
+    sha256 sierra:      "2514d7e9209225e9f388feda1116c193ec98034952dd9c6b89bcaccafabedb1f"
+    sha256 el_capitan:  "39cad2ecd3948e2afd69fc58b6390e1fd7fa7e82cee8176fec7f71880c6e52c2"
+    sha256 yosemite:    "01a0bf11f2ad2095306055016b430c19900ea6203af5fcf4bb5c92c085d44a67"
+    sha256 mavericks:   "ca6e854a626eaafd4ac26661b9a3db86dc9bc140f4aa98effd5843882aba7ecb"
   end
 
-  option "with-japanese", "Support for japanese character encodings."
-
-  depends_on "kakasi" if build.with? "japanese"
-
-  resource "text-kakasi" do
-    url "https://cpan.metacpan.org/authors/id/D/DA/DANKOGAI/Text-Kakasi-2.04.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/D/DA/DANKOGAI/Text-Kakasi-2.04.tar.gz"
-    sha256 "844c01e78ba4bfb89c0702995a86f488de7c29b40a75e7af0e4f39d55624dba0"
-  end
+  disable! date: "2020-12-08", because: :unmaintained
 
   def install
-    if build.with? "japanese"
-      resource("text-kakasi").stage do
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
-        system "make", "install"
-      end
-    end
-
     cd "File-MMagic" do
       system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
       system "make", "install"
@@ -51,6 +39,6 @@ class Namazu < Formula
 
     system bin/"mknmz", "-O", "idx", data_file
     search_result = shell_output("#{bin}/namazu -a Homebrew idx")
-    assert_match /#{data_file}/, search_result
+    assert_match data_file.to_s, search_result
   end
 end

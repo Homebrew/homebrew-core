@@ -3,46 +3,54 @@ class Zmap < Formula
   homepage "https://zmap.io"
   url "https://github.com/zmap/zmap/archive/v2.1.1.tar.gz"
   sha256 "29627520c81101de01b0213434adb218a9f1210bfd3f2dcfdfc1f975dbce6399"
-
+  license "Apache-2.0"
+  revision 2
   head "https://github.com/zmap/zmap.git"
 
   bottle do
-    rebuild 1
-    sha256 "22797a2a2959ec957c10567d97d35b9bcb6d02d8fbd4e72666ac6e8d29064725" => :high_sierra
-    sha256 "659f3518abb4023324778a16fa306abc8d8c43b34c9bd16e6bc7e412f1a511d6" => :sierra
-    sha256 "d8c0781ebec0087401d6fe6c272b0ae83620590db314fc6cea5c5d33aea46725" => :el_capitan
-    sha256 "15c8181a1e086b39d88223f3a01bb29d868d9d7d6c3118973250833da96f38cb" => :yosemite
+    sha256 arm64_big_sur: "142f0a0643a81aa7c4cd350d60c0879406524e867b8d6891265a2260e22d6ccb"
+    sha256 big_sur:       "4fbcf0453c48feae254c0799fdb38dc489ab435a9fd8f71f4f40490cb61a7272"
+    sha256 catalina:      "7f3dce955fb01597407317a81e6d1e0b60d66756e64358f11106adf5335b820a"
+    sha256 mojave:        "3014cc393e0d9b5e6705392a10da8588f26d668daa5660aebe252ed514bf176e"
+    sha256 high_sierra:   "99c0f7e06b2789fb57bd465a5a1fe35628b6d5e624ebba32d7f1199abc78d8bf"
   end
 
+  depends_on "byacc" => :build
   depends_on "cmake" => :build
   depends_on "gengetopt" => :build
-  depends_on "byacc" => :build
   depends_on "pkg-config" => :build
   depends_on "gmp"
-  depends_on "libdnet"
   depends_on "json-c"
-  depends_on "hiredis" => :optional
-  depends_on "mongo-c-driver" => :optional
+  depends_on "libdnet"
 
-  deprecated_option "with-mongo-c" => "with-mongo-c-driver"
+  # fix json-c 0.14 compat
+  # ref PR, https://github.com/zmap/zmap/pull/609
+  patch :DATA
 
   def install
     inreplace ["conf/zmap.conf", "src/zmap.c", "src/zopt.ggo.in"], "/etc", etc
 
-    args = std_cmake_args
-    args << "-DENABLE_DEVELOPMENT=OFF"
-    args << "-DRESPECT_INSTALL_PREFIX_CONFIG=ON"
-    args << "-DWITH_REDIS=ON" if build.with? "hiredis"
-    args << "-DWITH_MONGO=ON" if build.with? "mongo-c-driver"
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DENABLE_DEVELOPMENT=OFF",
+                         "-DRESPECT_INSTALL_PREFIX_CONFIG=ON"
     system "make"
     system "make", "install"
   end
 
   test do
     system "#{sbin}/zmap", "--version"
-    assert_match /redis-csv/, `#{sbin}/zmap --list-output-modules` if build.with? "hiredis"
-    assert_match /mongo/, `#{sbin}/zmap --list-output-modules` if build.with? "mongo-c-driver"
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8bd825f..c70b651 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -71,7 +71,7 @@ if(WITH_JSON)
+         message(FATAL_ERROR "Did not find libjson")
+     endif()
+
+-    add_definitions("-DJSON")
++    string(REPLACE ";" " " JSON_CFLAGS "${JSON_CFLAGS}")
+     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${JSON_CFLAGS}")
+ endif()

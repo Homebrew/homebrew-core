@@ -1,13 +1,19 @@
 class NicovideoDl < Formula
+  include Language::Python::Shebang
+
   desc "Command-line program to download videos from www.nicovideo.jp"
   homepage "https://osdn.net/projects/nicovideo-dl/"
-  url "https://ja.osdn.net/frs/redir.php?f=%2Fnicovideo-dl%2F56304%2Fnicovideo-dl-0.0.20120212.tar.gz"
-  mirror "http://dl.osdn.jp/nicovideo-dl/56304/nicovideo-dl-0.0.20120212.tar.gz"
-  sha256 "a50e9d5c9c291e1e10e5fc3ad27d528b49c9671bdd63e36fb2f49d70b54b89d8"
+  # Canonical: https://osdn.net/dl/nicovideo-dl/nicovideo-dl-0.0.20190126.tar.gz
+  url "https://dotsrc.dl.osdn.net/osdn/nicovideo-dl/70568/nicovideo-dl-0.0.20190126.tar.gz"
+  sha256 "886980d154953bc5ff5d44758f352ce34d814566a83ceb0b412b8d2d51f52197"
+  revision 2
 
   bottle :unneeded
 
+  depends_on "python@3.9"
+
   def install
+    rewrite_shebang detected_python_shebang, "nicovideo-dl"
     bin.install "nicovideo-dl"
   end
 

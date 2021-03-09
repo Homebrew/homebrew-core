@@ -1,74 +1,46 @@
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
-  homepage "http://delta.affinix.com/qca/"
-  revision 2
-  head "https://anongit.kde.org/qca.git"
+  homepage "https://userbase.kde.org/QCA"
+  url "https://download.kde.org/stable/qca/2.3.2/qca-2.3.2.tar.xz"
+  sha256 "4697600237c4bc3a979e87d2cc80624f27b06280e635f5d90ec7dd4d2a9f606d"
+  license "LGPL-2.1-or-later"
+  revision 1
+  head "https://invent.kde.org/libraries/qca.git"
 
-  stable do
-    url "https://github.com/KDE/qca/archive/v2.1.3.tar.gz"
-    sha256 "a5135ffb0250a40e9c361eb10cd3fe28293f0cf4e5c69d3761481eafd7968067"
-
-    # upstream fixes for macOS building (remove on 2.2.0 upgrade)
-    patch do
-      url "https://github.com/KDE/qca/commit/7ba0ee591e0f50a7e7b532f9eb7e500e7da784fb.diff?full_index=1"
-      sha256 "3f6c8a8bbd246556c690142c209a34973981be66e46fee991a456fb2e8b66d72"
-    end
-    patch do
-      url "https://github.com/KDE/qca/commit/b435c1b87b14ac2d2de9f83e586bfd6d8c2a755e.diff?full_index=1"
-      sha256 "9ea01ad6b21282ff62b18ac02588f7106b75056ab8379dff3fdfcff13a6c122f"
-    end
-    patch do
-      url "https://github.com/KDE/qca/commit/f4b2eb0ced5310f3c43398eb1f03e0c065e08a82.diff?full_index=1"
-      sha256 "d6c27ebfd8fec5284e4a0a39faf62e44764be5baff08141bd7f4da6d0b9f438d"
-    end
-
-    # use major version for framework, instead of full version
-    # see: https://github.com/KDE/qca/pull/3
-    patch do
-      url "https://github.com/KDE/qca/pull/3.patch?full_index=1"
-      sha256 "37281b8fefbbdab768d7abcc39fb1c1bf85159730c2a4de6e84f0bf318ebac2c"
-    end
+  livecheck do
+    url "https://download.kde.org/stable/qca/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
-    sha256 "f4ab4894a879fd46f307b2b0a85579bab21597751e747f98dc6c6e6c280ed51a" => :high_sierra
-    sha256 "f1e667b1e659abf24cad1170de0228c44a359f90b5698ab8422790f804d91245" => :sierra
-    sha256 "a90f2bab8c7bbd0817daf660493aceaaab156db1acfa80116bf57c4ec75b6169" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "27409ec10e90ea2f1c6ab4c0cf343ad578ffe2d24f4ef4c8effb1ee9486c9367"
+    sha256 cellar: :any, big_sur:       "13f763f5765519e0ae2abdbd29157c913b2921a574858aae30adbcdaf2c26673"
+    sha256 cellar: :any, catalina:      "50c9fc8e51d570d965a70a978877e4b8aa632d61e6a8c836697ee7e046e1bffb"
+    sha256 cellar: :any, mojave:        "f9c79cd7db5b5c539ca73afd55b1acde851f8ca5180607265a83f72d7a29cde1"
   end
-
-  option "with-api-docs", "Build API documentation"
-
-  deprecated_option "with-gnupg" => "with-gpg2"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "qt"
-
-  # Plugins (QCA needs at least one plugin to do anything useful)
-  depends_on "openssl" # qca-ossl
-  depends_on "botan" => :optional # qca-botan
-  depends_on "libgcrypt" => :optional # qca-gcrypt
-  depends_on :gpg => [:optional, :run] # qca-gnupg
-  depends_on "nss" => :optional # qca-nss
-  depends_on "pkcs11-helper" => :optional # qca-pkcs11
-
-  if build.with? "api-docs"
-    depends_on "graphviz" => :build
-    depends_on "doxygen" => :build
-  end
+  depends_on "botan"
+  depends_on "gnupg"
+  depends_on "libgcrypt"
+  depends_on "nss"
+  depends_on "openssl@1.1"
+  depends_on "pkcs11-helper"
+  depends_on "qt@5"
 
   def install
     args = std_cmake_args
-    args << "-DQT4_BUILD=OFF"
     args << "-DBUILD_TESTS=OFF"
     args << "-DQCA_PLUGINS_INSTALL_DIR=#{lib}/qt5/plugins"
 
-    # Plugins (qca-ossl, qca-cyrus-sasl, qca-logger, qca-softstore always built)
-    args << "-DWITH_botan_PLUGIN=#{build.with?("botan") ? "YES" : "NO"}"
-    args << "-DWITH_gcrypt_PLUGIN=#{build.with?("libgcrypt") ? "YES" : "NO"}"
-    args << "-DWITH_gnupg_PLUGIN=#{build.with?("gpg2") ? "YES" : "NO"}"
-    args << "-DWITH_nss_PLUGIN=#{build.with?("nss") ? "YES" : "NO"}"
-    args << "-DWITH_pkcs11_PLUGIN=#{build.with?("pkcs11-helper") ? "YES" : "NO"}"
+    # Disable some plugins. qca-ossl, qca-cyrus-sasl, qca-logger,
+    # qca-softstore are always built.
+    args << "-DWITH_botan_PLUGIN=ON"
+    args << "-DWITH_gcrypt_PLUGIN=ON"
+    args << "-DWITH_gnupg_PLUGIN=ON"
+    args << "-DWITH_nss_PLUGIN=ON"
+    args << "-DWITH_pkcs11_PLUGIN=ON"
 
     # ensure opt_lib for framework install name and linking (can't be done via CMake configure)
     inreplace "src/CMakeLists.txt",
@@ -77,11 +49,6 @@ class Qca < Formula
 
     system "cmake", ".", *args
     system "make", "install"
-
-    if build.with? "api-docs"
-      system "make", "doc"
-      doc.install "apidocs/html"
-    end
   end
 
   test do

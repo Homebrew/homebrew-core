@@ -1,31 +1,29 @@
 class Dovecot < Formula
   desc "IMAP/POP3 server"
   homepage "https://dovecot.org/"
-  url "https://dovecot.org/releases/2.2/dovecot-2.2.33.2.tar.gz"
-  sha256 "fe1e3b78609a56ee22fc209077e4b75348fa1bbd54c46f52bde2472a4c4cee84"
+  url "https://dovecot.org/releases/2.3/dovecot-2.3.14.tar.gz"
+  sha256 "c8b3d7f3af1e558a3ff0f970309d4013a4d3ce136f8c02a53a3b05f345b9a34a"
+  license all_of: ["BSD-3-Clause", "LGPL-2.1-or-later", "MIT", "Unicode-DFS-2016", :public_domain]
+
+  livecheck do
+    url "https://dovecot.org/download"
+    regex(/href=.*?dovecot[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "7cb3706428dcf34d179f55e90741dcfc9efc0b9589d6e2c436d15a1aef0f38b8" => :high_sierra
-    sha256 "ad0cadba19b93fd85281d7ec8e86b1e210d19f43b1f7f5b5df8ce7ad90f3b014" => :sierra
-    sha256 "eb070bd1e5f6bd10c0a7268dff45cb421f1d0895ca1d8d25faa50088b9f2be09" => :el_capitan
+    sha256 arm64_big_sur: "b9f839dba9468f7eae88b0dd3fc82b5b874090e36a6acda2bb4213aec9643c0f"
+    sha256 big_sur:       "e2e2f8de6497655aaa4f3500e7daf815039ae7d5f4ab665a24479a93f0268f4f"
+    sha256 catalina:      "5e8f0e607c4ae4db5333adcba429c19c4292ad72512ee05a574ec412df1a066a"
+    sha256 mojave:        "23d56aa20b37f916b2942a2183529b9520072593439bb132c21dd82c91ca4d11"
   end
 
-  option "with-pam", "Build with PAM support"
-  option "with-pigeonhole", "Add Sieve addon for Dovecot mailserver"
-  option "with-pigeonhole-unfinished-features", "Build unfinished new Sieve addon features/extensions"
-  option "with-stemmer", "Build with libstemmer support"
-
-  depends_on "openssl"
-  depends_on "clucene" => :optional
+  depends_on "openssl@1.1"
+  uses_from_macos "bzip2"
+  uses_from_macos "sqlite"
 
   resource "pigeonhole" do
-    url "https://pigeonhole.dovecot.org/releases/2.2/dovecot-2.2-pigeonhole-0.4.21.tar.gz"
-    sha256 "4ae09cb788c5334d167f5a89ee70b0616c3231e5904ad258ce408e4953cfdd6a"
-  end
-
-  resource "stemmer" do
-    url "https://github.com/snowballstem/snowball.git",
-        :revision => "5137019d68befd633ce8b1cd48065f41e77ed43e"
+    url "https://pigeonhole.dovecot.org/releases/2.3/dovecot-2.3-pigeonhole-0.5.14.tar.gz"
+    sha256 "68ca0f78a3caa6b090a469f45c395c44cf16da8fcb3345755b1ca436c9ffb2d2"
   end
 
   def install
@@ -35,84 +33,71 @@ class Dovecot < Formula
       --libexecdir=#{libexec}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --with-ssl=openssl
-      --with-sqlite
-      --with-zlib
       --with-bzlib
+      --with-pam
+      --with-sqlite
+      --with-ssl=openssl
+      --with-zlib
     ]
-
-    args << "--with-lucene" if build.with? "clucene"
-    args << "--with-pam" if build.with? "pam"
-
-    if build.with? "stemmer"
-      args << "--with-libstemmer"
-
-      resource("stemmer").stage do
-        system "make", "dist_libstemmer_c"
-        system "tar", "xzf", "dist/libstemmer_c.tgz", "-C", buildpath
-      end
-    end
 
     system "./configure", *args
     system "make", "install"
 
-    if build.with? "pigeonhole"
-      resource("pigeonhole").stage do
-        args = %W[
-          --disable-dependency-tracking
-          --with-dovecot=#{lib}/dovecot
-          --prefix=#{prefix}
-        ]
+    resource("pigeonhole").stage do
+      args = %W[
+        --disable-dependency-tracking
+        --with-dovecot=#{lib}/dovecot
+        --prefix=#{prefix}
+      ]
 
-        args << "--with-unfinished-features" if build.with? "pigeonhole-unfinished-features"
-
-        system "./configure", *args
-        system "make"
-        system "make", "install"
-      end
+      system "./configure", *args
+      system "make"
+      system "make", "install"
     end
   end
 
-  def caveats; <<~EOS
-    For Dovecot to work, you may need to create a dovecot user
-    and group depending on your configuration file options.
+  def caveats
+    <<~EOS
+      For Dovecot to work, you may need to create a dovecot user
+      and group depending on your configuration file options.
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <false/>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/dovecot</string>
-          <string>-F</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/dovecot/dovecot.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/dovecot/dovecot.log</string>
-        <key>SoftResourceLimits</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
         <dict>
-        <key>NumberOfFiles</key>
-        <integer>1000</integer>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>KeepAlive</key>
+          <false/>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_sbin}/dovecot</string>
+            <string>-F</string>
+          </array>
+          <key>StandardErrorPath</key>
+          <string>#{var}/log/dovecot/dovecot.log</string>
+          <key>StandardOutPath</key>
+          <string>#{var}/log/dovecot/dovecot.log</string>
+          <key>SoftResourceLimits</key>
+          <dict>
+          <key>NumberOfFiles</key>
+          <integer>1000</integer>
+          </dict>
+          <key>HardResourceLimits</key>
+          <dict>
+          <key>NumberOfFiles</key>
+          <integer>1024</integer>
+          </dict>
         </dict>
-        <key>HardResourceLimits</key>
-        <dict>
-        <key>NumberOfFiles</key>
-        <integer>1024</integer>
-        </dict>
-      </dict>
-    </plist>
+      </plist>
     EOS
   end
 

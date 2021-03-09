@@ -3,21 +3,31 @@ class GitSeries < Formula
   homepage "https://github.com/git-series/git-series"
   url "https://github.com/git-series/git-series/archive/0.9.1.tar.gz"
   sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
+  license "MIT"
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 "f22eb16a878279e6613c26c92348d48e5c3aa9916bb9598589857d9bcc7596da" => :high_sierra
-    sha256 "602d435ffa40726db60f3bd69bd7d1e6eacc51f587daeb4afb022e3b147068a3" => :sierra
-    sha256 "3365e4bad3de55810eb4b8fa8788c19b7d56f2a28bc76b0a03601c1d9a37cd0c" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "ccf1c1e9a18629fe874987409d79f84da6e171fe802a6918147c3198b0047cce"
+    sha256 cellar: :any, big_sur:       "2193cb415148a398304ae5cde86bd8f672c62fef1028ad78057d66fa3ca0fd36"
+    sha256 cellar: :any, catalina:      "e273c21ef68060e010e42bc805bf1a2e5baf9a8e7ecec6338490175857713168"
+    sha256 cellar: :any, mojave:        "31c32b8df3a5a2c70c54786a0c222ce4fdeccace4cb3a5bf50f3a27d9f46167d"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
+  depends_on "libgit2"
   depends_on "libssh2"
+  depends_on "openssl@1.1"
 
   def install
-    system "cargo", "build", "--release"
-    bin.install "target/release/git-series"
+    # Ensure that the `openssl` crate picks up the intended library.
+    # https://crates.io/crates/openssl#manual-configuration
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
+
+    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
+
+    system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "git-series.1"
   end
 

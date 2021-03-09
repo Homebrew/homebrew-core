@@ -1,33 +1,36 @@
 class Homebank < Formula
   desc "Manage your personal accounts at home"
   homepage "http://homebank.free.fr"
-  url "http://homebank.free.fr/public/homebank-5.1.6.tar.gz"
-  sha256 "2861e11590a00f5cbc505293821cb8caeabb74c26babe8a6a9d728f3404290e0"
+  url "http://homebank.free.fr/public/homebank-5.5.1.tar.gz"
+  sha256 "9bb39eaad3c4c68d2bcbe21e2f6c4a5274e3a3f385afb2b2ff73ae5fd998da08"
+  license "GPL-2.0-or-later"
 
-  bottle do
-    rebuild 1
-    sha256 "f80774c00fb67105c433725215f6d3747be822a2a6f700291fc4fdb36867a4b3" => :high_sierra
-    sha256 "525a76bfbc463b3e82ec304a0052836cd726778b5445e4e95de82149b9c2ba50" => :sierra
-    sha256 "7c81a61b0d1e787070ebacbc1d047b3779674d628661ba1d4a3bfb417e1a161c" => :el_capitan
+  livecheck do
+    url "http://homebank.free.fr/public/"
+    regex(/href=.*?homebank[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "pkg-config" => :build
+  bottle do
+    sha256 arm64_big_sur: "75a1204a745e603355b01b2d2a1d412df56eb6b99d4b9434433c7e4d79572ed1"
+    sha256 big_sur:       "08666d7e1363902f7aa4f33fbf7a1d00fccb0604a04aa504f5a1094b44359a96"
+    sha256 catalina:      "48ef4e146e8fbc99def1d058b8cd5aabf62ad1fda020c19f722a52c67c2c1dfb"
+    sha256 mojave:        "8ca2d14827c4e8cf86557ca2b486acba0650bb129786ff4fb782d2198c48354b"
+  end
+
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "adwaita-icon-theme"
+  depends_on "fontconfig"
+  depends_on "freetype"
   depends_on "gettext"
   depends_on "gtk+3"
-  depends_on "adwaita-icon-theme"
   depends_on "hicolor-icon-theme"
-  depends_on "freetype"
-  depends_on "fontconfig"
+  depends_on "libofx"
   depends_on "libsoup"
-  depends_on "libofx" => :optional
 
   def install
-    args = ["--disable-dependency-tracking",
-            "--prefix=#{prefix}"]
-    args << "--with-ofx" if build.with? "libofx"
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}", "--with-ofx"
     chmod 0755, "./install-sh"
     system "make", "install"
   end

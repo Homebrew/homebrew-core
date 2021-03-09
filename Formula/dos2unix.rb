@@ -1,20 +1,23 @@
 class Dos2unix < Formula
   desc "Convert text between DOS, UNIX, and Mac formats"
   homepage "https://waterlan.home.xs4all.nl/dos2unix.html"
-  url "https://waterlan.home.xs4all.nl/dos2unix/dos2unix-7.4.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/dos2unix-7.4.0.tar.gz"
-  sha256 "bac765abdbd95cdd87a71989d4382c32cf3cbfeee2153f0086cb9cf18261048a"
+  url "https://waterlan.home.xs4all.nl/dos2unix/dos2unix-7.4.2.tar.gz"
+  mirror "https://fossies.org/linux/misc/dos2unix-7.4.2.tar.gz"
+  sha256 "6035c58df6ea2832e868b599dfa0d60ad41ca3ecc8aa27822c4b7a9789d3ae01"
+  license "BSD-2-Clause"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "6aca83a413b4c2b2645e7a17e02dcae91c4f0ae9d2dba430e8083266e5a06482" => :high_sierra
-    sha256 "51ccc96a8757320d073beb4ed224a65130c454bbe249c58157c5921e8ed9fe2c" => :sierra
-    sha256 "e0d2b2e99417be33b385a47f847e8838dc75b2ccdb5277b1d9ba031c4fe55b23" => :el_capitan
+  livecheck do
+    url "https://waterlan.home.xs4all.nl/dos2unix/"
+    regex(/href=.*?dos2unix[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option "with-gettext", "Build with Native Language Support"
-
-  depends_on "gettext" => :optional
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "54cb2c42f9f016e03ccf712d0927963fc629d8419de3bfdf324dc51088f87157"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7a4b0e40724b8721ff76a36cb74fd6c9816ce0e9b518c3abf0e2ec5bab5b0cce"
+    sha256 cellar: :any_skip_relocation, catalina:      "eb14b6db2fbf8fa0f52b69aa33101e1eb04bf3d4ef5dae7234754046e4cd54a6"
+    sha256 cellar: :any_skip_relocation, mojave:        "7a23d283d81cad13690d788c61117cbfe091282503077ad56bde83f026dd5097"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "98858938fe95e2453056d80c03c35396913a5c6902b2df00b618c884a4b51521"
+  end
 
   def install
     args = %W[
@@ -22,16 +25,9 @@ class Dos2unix < Formula
       CC=#{ENV.cc}
       CPP=#{ENV.cc}
       CFLAGS=#{ENV.cflags}
+      ENABLE_NLS=
       install
     ]
-
-    if build.without? "gettext"
-      args << "ENABLE_NLS="
-    else
-      gettext = Formula["gettext"]
-      args << "CFLAGS_OS=-I#{gettext.include}"
-      args << "LDFLAGS_EXTRA=-L#{gettext.lib} -lintl"
-    end
 
     system "make", *args
   end

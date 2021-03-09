@@ -1,23 +1,24 @@
 class Pinfo < Formula
   desc "User-friendly, console-based viewer for Info documents"
-  homepage "https://alioth.debian.org/projects/pinfo/"
-  url "https://alioth.debian.org/frs/download.php/file/3351/pinfo-0.6.10.tar.bz2"
-  sha256 "122180a0c23d11bc9eb569a4de3ff97d3052af96e32466fa62f2daf46ff61c5d"
+  homepage "https://packages.debian.org/sid/pinfo"
+  url "https://github.com/baszoetekouw/pinfo/archive/v0.6.13.tar.gz"
+  sha256 "9dc5e848a7a86cb665a885bc5f0fdf6d09ad60e814d75e78019ae3accb42c217"
+  license "GPL-2.0"
+  revision 1
 
   bottle do
-    sha256 "157eb8d83e00de837d96ffaea390fc7ff0dae3998422349653fd1fb1aecd96b3" => :high_sierra
-    sha256 "ae8359dabf4e46535b4dcdb5edeab6ed7809a844143f57ce58eac7e030840bdc" => :sierra
-    sha256 "b16b4d3ad4086adbb409cc7b5122cb5002df29f4fcec79510ec1b6b1678139b0" => :el_capitan
-    sha256 "f17994059227efc06af65d1e7d7be4fcd3a0907c3f64ad58336df61e12dab847" => :yosemite
-    sha256 "8accf82707225645802b54c80e2db03b08fae54abe03d86cb94f9244606ce5a0" => :mavericks
+    sha256 arm64_big_sur: "2592140c0bf2f8e5889f3e2020e163d097b6256bde001139dd88b778f7a985a6"
+    sha256 big_sur:       "9d4ae5da430d85f09f2ef7a2b5292976c3db781f80fd1b249e9d0caa05f74c4e"
+    sha256 catalina:      "a41b568910292b2119d0f63f53d5015d781b03576a58f08d397535560d407bf5"
+    sha256 mojave:        "b81b1202add75d938802681618f5bf95dd245e03ff80f5f0ca67a5ba8b7bfb84"
+    sha256 high_sierra:   "84edf6ec00f570004abc6f3d0335196b513a4a52e589919ca1e70c35b31525cc"
+    sha256 sierra:        "9b8e3d359081d68626f86cab8b048926b6471f8ca1be8e47ca8625e22da5021f"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-
   depends_on "gettext"
-  depends_on "readline" => :optional
 
   def install
     system "autoreconf", "--force", "--install"

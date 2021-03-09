@@ -3,13 +3,16 @@ class Nylon < Formula
   homepage "https://github.com/smeinecke/nylon"
   url "https://monkey.org/~marius/nylon/nylon-1.21.tar.gz"
   sha256 "34c132b005c025c1a5079aae9210855c80f50dc51dde719298e1113ad73408a4"
-  revision 1
+  license "BSD-3-Clause"
+  revision 2
 
   bottle do
-    sha256 "ad3ce3dde251f725f9659926ff529ca23e3e052a084221052bb6f4f1bf715abd" => :high_sierra
-    sha256 "aea3b5d69a3a6b1046597e7d5b26ff3b2084e7bd47c3f2f44933d2ff351da1d2" => :sierra
-    sha256 "e11dbfcb33533384db298fe84ed065f613db0c3503cd211b4404c586bfd19218" => :el_capitan
-    sha256 "6bf95ff668064396bae3a677320425eb5ec66e820d2099dff37ed109c2f2dca6" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "26d58c80e5db471ca253930300316cfc77dd1b53fae4ebd38502a48e69d4af8a"
+    sha256 cellar: :any, big_sur:       "dffadaeddcde173302400dfc71686048edf9944a3543ac578ce634d9f283870d"
+    sha256 cellar: :any, catalina:      "6138b062f2a435928485795e2b3bdef81983a87137d4bf73029838f19c1210f5"
+    sha256 cellar: :any, mojave:        "cb2cbfbd8df94b8581a116807075daf9fadbe9b9c5cfa537ea30dfa76537dd5c"
+    sha256 cellar: :any, high_sierra:   "3df9b3197c8dc9a227221027047c8de77ddb6ad9ce2edd14544c2d6e4923b660"
+    sha256 cellar: :any, sierra:        "b7eeab5896aaaca9c73166e519d092a71f15a36e800a28742729f8cbc270e6d8"
   end
 
   depends_on "libevent"

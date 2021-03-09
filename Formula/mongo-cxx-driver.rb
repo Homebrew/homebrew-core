@@ -1,29 +1,33 @@
 class MongoCxxDriver < Formula
   desc "C++ driver for MongoDB"
   homepage "https://github.com/mongodb/mongo-cxx-driver"
-  url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.1.3.tar.gz"
-  sha256 "cb1b371eb34e991b8bfac65146f862cd379aa8f7270c430e5f3d71d843245ed9"
+  url "https://github.com/mongodb/mongo-cxx-driver/archive/r3.6.2.tar.gz"
+  sha256 "f50a1acb98a473f0850e2766dc7e84c05415dc63b1a2f851b77b12629ac14d62"
+  license "Apache-2.0"
   head "https://github.com/mongodb/mongo-cxx-driver.git"
 
   bottle do
-    sha256 "b12a8b6566b88131477f79a84bd75a2145ac8545da8262966b2d2df6e750c76e" => :high_sierra
-    sha256 "7ad27f3653c9918154c096f0c00c0e0d70289817a81ad11c84f17850ea0f774b" => :sierra
-    sha256 "96e2986f43166c5f54ef62a7dc36dc007a5e5a63057b9bc05d23b2e4ff53e2f0" => :el_capitan
-    sha256 "514fbb37aee0e2cb3d72c8a31e984e8be6bd5308081c1051598f9e7efea543c9" => :yosemite
+    sha256 cellar: :any, big_sur:  "e68f3e5c87021c8537656445b3641966eb1b03b36870d7d63795f75692b443a9"
+    sha256 cellar: :any, catalina: "c914c8eb18e5b84f6e1051abfd565db1824523b487463ed4c3b670014009a323"
+    sha256 cellar: :any, mojave:   "d257deef2474d068c1b7757aa9b2e7c1bb6259e15292c8b48e96487118a1c86a"
   end
-
-  needs :cxx11
 
   depends_on "cmake" => :build
   depends_on "mongo-c-driver"
 
   def install
+    # We want to avoid shims referencing in examples,
+    # but we need to have examples/CMakeLists.txt file to make cmake happy
+    pkgshare.install "examples"
+    (buildpath / "examples/CMakeLists.txt").write ""
+
     mongo_c_prefix = Formula["mongo-c-driver"].opt_prefix
     system "cmake", ".", *std_cmake_args,
-      "-DLIBBSON_DIR=#{mongo_c_prefix}", "-DLIBMONGOC_DIR=#{mongo_c_prefix}"
+                        "-DBUILD_VERSION=#{version}",
+                        "-DLIBBSON_DIR=#{mongo_c_prefix}",
+                        "-DLIBMONGOC_DIR=#{mongo_c_prefix}"
     system "make"
     system "make", "install"
-    pkgshare.install "examples"
   end
 
   test do

@@ -1,45 +1,50 @@
 class Jsoncpp < Formula
   desc "Library for interacting with JSON"
   homepage "https://github.com/open-source-parsers/jsoncpp"
-  url "https://github.com/open-source-parsers/jsoncpp/archive/1.8.3.tar.gz"
-  sha256 "3671ba6051e0f30849942cc66d1798fdf0362d089343a83f704c09ee7156604f"
+  url "https://github.com/open-source-parsers/jsoncpp/archive/1.9.4.tar.gz"
+  sha256 "e34a628a8142643b976c7233ef381457efad79468c67cb1ae0b83a33d7493999"
+  license "MIT"
+  revision 1
   head "https://github.com/open-source-parsers/jsoncpp.git"
 
-  bottle do
-    cellar :any
-    sha256 "c573df8afc8f128197fe604dd13b6566e7136aa034d82b634e5ca4414132e212" => :high_sierra
-    sha256 "c83393c07b4a1d3a34b73549d53885baf000724055959c6e1ed3d3843d404f5a" => :sierra
-    sha256 "5ce443c585742b356a818f408a5ca2cddb309d1fa0beaedcc4c4f3259016c39e" => :el_capitan
-    sha256 "be145cf78eb4baff4cb2aa29963ec1c955202cb936d736db2536ec0b06a48e23" => :yosemite
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  needs :cxx11
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "e8698be8b88f02ce485d1b787f0dfd478360861998cb14a024b13f28d89ae24d"
+    sha256 cellar: :any, big_sur:       "83f3e13fd5d02667707d4f8e9a4507bd1f7ff5df5c2a9b049a36cd4597befb39"
+    sha256 cellar: :any, catalina:      "ecb519ab6a3d662893a69c18a047b30e6092ee31554ffc5756a53838320e6d9a"
+    sha256 cellar: :any, mojave:        "8a052407837f69662e243ec46bfe81faefafba89b31ec95d6953b9a3b7d1603e"
+    sha256 cellar: :any, high_sierra:   "85a862e7c2b2d381de4158ea6e574d92711cc7e311af7b01e9146f34d2da5f67"
+  end
 
-  depends_on "cmake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "python@3.9" => :build
 
   def install
-    ENV.cxx11
-
-    system "cmake", ".", *std_cmake_args,
-                         "-DBUILD_STATIC_LIBS=ON",
-                         "-DBUILD_SHARED_LIBS=ON",
-                         "-DJSONCPP_WITH_CMAKE_PACKAGE=ON",
-                         "-DJSONCPP_WITH_TESTS=OFF",
-                         "-DJSONCPP_WITH_POST_BUILD_UNITTEST=OFF",
-                         "-DCCACHE_FOUND=CCACHE_FOUND-NOTFOUND"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dpython=#{Formula["python@3.9"].opt_bin}/python3", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <json/json.h>
       int main() {
-        Json::Value root;
-        Json::Reader reader;
-        return reader.parse("[1, 2, 3]", root) ? 0: 1;
+          Json::Value root;
+          Json::CharReaderBuilder builder;
+          std::string errs;
+          std::istringstream stream1;
+          stream1.str("[1, 2, 3]");
+          return Json::parseFromStream(builder, stream1, &root, &errs) ? 0: 1;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++11", testpath/"test.cpp", "-o", "test",
                   "-I#{include}/jsoncpp",
                   "-L#{lib}",
                   "-ljsoncpp"

@@ -1,32 +1,31 @@
 class Burp < Formula
   desc "Network backup and restore"
-  homepage "http://burp.grke.org/"
+  homepage "https://burp.grke.org/"
+  license "AGPL-3.0"
+  revision 1
 
   stable do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.0.54/burp-2.0.54.tar.bz2"
-    sha256 "ae10470586f1fee4556eaae5b3c52b78cfc0eac4109f4b8253c549e7ff000d86"
-
-    resource "uthash" do
-      url "https://github.com/troydhanson/uthash/archive/v2.0.1.tar.gz"
-      sha256 "613b95fcc368b7d015ad2d0802313277012f50c4ac290c3dfc142d42ebea3337"
-    end
-  end
-
-  bottle do
-    sha256 "9514e480afa08c9dfe14be59610beaf691a6bfe1e2d58327fe57278f822aeedc" => :high_sierra
-    sha256 "c67d91fb1c454af07cf7097484f673e91125aa89ff7e6de6eca8cde508cbe00b" => :sierra
-    sha256 "effe7e754cefe38fa11a50409c7c3fc0ce9c84551de03dfd64302a382622378a" => :el_capitan
-    sha256 "bada46216bdbb6e1e3f6c6506a1e9c8578a077ef8e1fdbcef40c4ef513c84d38" => :yosemite
-  end
-
-  devel do
-    url "https://downloads.sourceforge.net/project/burp/burp-2.1.24/burp-2.1.24.tar.bz2"
-    sha256 "f37edad8144ac39346c83ecf0c08d477bbcdd6231be25bba798e92ee9ed0ed3d"
+    url "https://downloads.sourceforge.net/project/burp/burp-2.2.18/burp-2.2.18.tar.bz2"
+    sha256 "9c0c5298d8c2995d30d4e1a63d2882662e7056ce2b0cee1f65d7d0a6775c0f81"
 
     resource "uthash" do
       url "https://github.com/troydhanson/uthash.git",
-          :revision => "7f1b50be94ceffcc7acd7a7f3f0f8f9aae52cc2f"
+          revision: "8b214aefcb81df86a7e5e0d4fa20e59a6c18bc02"
     end
+  end
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/burp[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
+  bottle do
+    sha256 arm64_big_sur: "c577ab1379ef9343a399ddf347f52ceb5949eb86f68aa24f79aa8f566fbd8e70"
+    sha256 big_sur:       "2b7114e8a7c736749bf2a073c2cd34bd269ce2129c16035ee9d4df4c7faacfef"
+    sha256 catalina:      "a028ea604ba4bbb5abe2d9985e94ece9f673cf33e35191063eb91e356923e982"
+    sha256 mojave:        "f45062f56a6cc3bc9ba09b84d9f44e599015387d6d31b0ae8a289fa74a904021"
+    sha256 high_sierra:   "1855c5623a4d7ec1ed397f2646772d807a127f80f196c41dcae0efe7615afd8d"
+    sha256 sierra:        "157aa6cc33291ec50b8597b3bd97b08e0a92f79e634ec122eb0911e86bc395c9"
   end
 
   head do
@@ -41,18 +40,17 @@ class Burp < Formula
     end
   end
 
+  depends_on "pkg-config" => :build
   depends_on "librsync"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+  uses_from_macos "zlib"
 
   def install
     resource("uthash").stage do
-      system "make", "-C", "libut"
-      (buildpath/"uthash/lib").install "libut/libut.a"
-      (buildpath/"uthash/include").install Dir["src/*"]
+      (buildpath/"uthash/include").install "src/uthash.h"
     end
 
     ENV.prepend "CPPFLAGS", "-I#{buildpath}/uthash/include"
-    ENV.prepend "LDFLAGS", "-L#{buildpath}/uthash/lib"
 
     system "autoreconf", "-fiv" if build.head?
 
@@ -69,41 +67,43 @@ class Burp < Formula
     (var/"spool/burp").mkpath
   end
 
-  def caveats; <<~EOS
-    Before installing the launchd entry you should configure your burp client in
-      #{etc}/burp/burp.conf
+  def caveats
+    <<~EOS
+      Before installing the launchd entry you should configure your burp client in
+        #{etc}/burp/burp.conf
     EOS
   end
 
-  plist_options :startup => true
+  plist_options startup: true
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>UserName</key>
-      <string>root</string>
-      <key>KeepAlive</key>
-      <false/>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_bin}/burp</string>
-        <string>-a</string>
-        <string>t</string>
-      </array>
-      <key>StartInterval</key>
-      <integer>1200</integer>
-      <key>WorkingDirectory</key>
-      <string>#{HOMEBREW_PREFIX}</string>
-    </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>UserName</key>
+        <string>root</string>
+        <key>KeepAlive</key>
+        <false/>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/burp</string>
+          <string>-a</string>
+          <string>t</string>
+        </array>
+        <key>StartInterval</key>
+        <integer>1200</integer>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+      </dict>
+      </plist>
     EOS
   end
 
   test do
-    system bin/"burp", "-v"
+    system bin/"burp", "-V"
   end
 end

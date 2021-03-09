@@ -1,21 +1,27 @@
 class Astyle < Formula
   desc "Source code beautifier for C, C++, C#, and Java"
   homepage "https://astyle.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.0/astyle_3.0_macos.tar.gz"
-  sha256 "d113aa5942219699262ceddd1dde35c66b20bf6cc5eac04d27d398ca7a460eb3"
+  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.1/astyle_3.1_linux.tar.gz"
+  sha256 "cbcc4cf996294534bb56f025d6f199ebfde81aa4c271ccbd5ee1c1a3192745d7"
+  license "MIT"
   head "https://svn.code.sf.net/p/astyle/code/trunk/AStyle"
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/astyle[._-]v?(\d+(?:\.\d+)+)_}i)
+  end
+
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5f3094d0603e5459d268c49385f2a9204d01d508aa101d023ad3b8229f17d902" => :high_sierra
-    sha256 "49ed8641bb284828c0e753b6d2570c317f4275a9ee5845c33ac90835dd319258" => :sierra
-    sha256 "b5da4fab0010f84a6623585c99e5468492e0a2c8dd1a77680bd4c51b900c0272" => :el_capitan
-    sha256 "69819972ffefb908f5186f01b688d32c28e9ea2ca2a0d62c5b2850e686e1aefa" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1cc43739c9ff8b7e21f03935eacbc29a0656d42d4b52e662ed0079751efe84f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a327f191b54d199962e6de529a18dd99a6ff5fea0afb30db813fd66da80ed358"
+    sha256 cellar: :any_skip_relocation, catalina:      "bb1c58888bd7c8de8876e9a9aa27985d30e4c2a5c420ebaaf237fe3ee13c2900"
+    sha256 cellar: :any_skip_relocation, mojave:        "7df95dd20d813717a1de8d5696d93eaaa8977d713738c2c83c16b7ba0f4eb1c5"
   end
 
   def install
     cd "src" do
-      system "make", "CXX=#{ENV.cxx}", "-f", "../build/mac/Makefile"
+      system "make", "CXX=#{ENV.cxx}", "-f", "../build/gcc/Makefile"
       bin.install "bin/astyle"
     end
   end

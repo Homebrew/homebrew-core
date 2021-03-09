@@ -1,44 +1,46 @@
 class Fobis < Formula
   include Language::Python::Virtualenv
 
-  desc "KISS build tool for automaticaly building modern Fortran projects"
+  desc "KISS build tool for automatically building modern Fortran projects"
   homepage "https://github.com/szaghi/FoBiS"
-  url "https://files.pythonhosted.org/packages/6e/c3/217ba20c53a39e68f7bef139a47f5c820230d1d672529de44c9bd961a023/FoBiS.py-2.2.7.tar.gz"
-  sha256 "ed5054fc3887159ae7cafa32f16859761216ab678390ccc328b624ac5e960c63"
+  url "https://files.pythonhosted.org/packages/53/3a/5533ab0277977027478b4c1285bb20b6beb221b222403b10398fb24e81a2/FoBiS.py-3.0.5.tar.gz"
+  sha256 "ef23fde4199277abc693d539a81e0728571c349174da6b7476579f82482ab96c"
+  license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c712bc45ba7f821ab648adef31a172a70fc636e3008da53a244a92c9568467a5" => :high_sierra
-    sha256 "a442b70f322b7a21aa3c80fe501a0ad9d72b441f4265ad66322a1e2182a609d9" => :sierra
-    sha256 "e61dd9c83fa76a888fb484442875cb2c919a1662d73e8752a7517f68feba64eb" => :el_capitan
-    sha256 "549280c74f577a2aedd2627b7b4d082645ce3aa368d52f35b3c48f0e666b8413" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bfa1e5a5e7276be1292321294c418e9f1bac7a964f46d227a2d81fc3ad1b984e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "627133905b51d5436b9eb6a8e75080d847a6ea7c36886aa7f81e053fd89970d3"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a1685a770c843092bdcd918de2439bc9ed16e75b49e61e93148386b42d326d1"
+    sha256 cellar: :any_skip_relocation, mojave:        "6b517fdd37dbbdfce2e3ca628afd4f92ef688c18939e78c2b0487dbc1ac7da5e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "81a5206bdd09bf9b630a9ef4793015283891d88b1790dc8638e759679d892522"
   end
 
-  option "without-pygooglechart", "Disable support for coverage charts generated with pygooglechart"
+  depends_on "gcc" # for gfortran
+  depends_on "graphviz"
+  depends_on "python@3.9"
 
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on :fortran
-  depends_on "graphviz" => :recommended
-
-  resource "pygooglechart" do
-    url "https://files.pythonhosted.org/packages/95/88/54f91552de1e1b0085c02b96671acfba6e351915de3a12a398533fc82e20/pygooglechart-0.4.0.tar.gz"
-    sha256 "018d4dd800eea8e0e42a4b3af2a3d5d6b2a2b39e366071b7f270e9628b5f6454"
+  resource "configparser" do
+    url "https://files.pythonhosted.org/packages/e5/7c/d4ccbcde76b4eea8cbd73b67b88c72578e8b4944d1270021596e80b13deb/configparser-5.0.0.tar.gz"
+    sha256 "2ca44140ee259b5e3d8aaf47c79c36a7ab0d5e94d70bd4105c03ede7a20ea5a1"
   end
 
-  resource "graphviz" do
-    url "https://files.pythonhosted.org/packages/da/84/0e997520323d6b01124eb01c68d5c101814d0aab53083cd62bd75a90f70b/graphviz-0.8.zip"
-    sha256 "889c720d9955b804d56a8e842621558cbb5cbbdd93cbdf55862371311646e344"
+  resource "FoBiS.py" do
+    url "https://files.pythonhosted.org/packages/53/3a/5533ab0277977027478b4c1285bb20b6beb221b222403b10398fb24e81a2/FoBiS.py-3.0.5.tar.gz"
+    sha256 "ef23fde4199277abc693d539a81e0728571c349174da6b7476579f82482ab96c"
+  end
+
+  resource "future" do
+    url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
+    sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
   end
 
   def install
-    venv = virtualenv_create(libexec)
-    venv.pip_install "pygooglechart" if build.with? "pygooglechart"
-    venv.pip_install "graphviz" if build.with? "graphviz"
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
+    bin.install libexec/"bin/FoBiS.py"
   end
 
   test do
-    ENV.fortran
     (testpath/"test-mod.f90").write <<~EOS
       module fobis_test_m
         implicit none
@@ -54,6 +56,6 @@ class Fobis < Formula
       end program
     EOS
     system "#{bin}/FoBiS.py", "build", "-compiler", "gnu"
-    assert_match /Hello FoBiS/, shell_output(testpath/"test-prog")
+    assert_match "Hello FoBiS", shell_output(testpath/"test-prog")
   end
 end

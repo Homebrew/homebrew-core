@@ -1,24 +1,27 @@
 class Cnats < Formula
   desc "C client for the NATS messaging system"
-  homepage "https://github.com/nats-io/cnats"
-  url "https://github.com/nats-io/cnats/archive/v1.7.4.tar.gz"
-  sha256 "74ca4b380b7c5cb7ae85017d9e50aa23e89f7565f500f40df359d82adb493b93"
+  homepage "https://github.com/nats-io/nats.c"
+  url "https://github.com/nats-io/nats.c/archive/v2.3.0.tar.gz"
+  sha256 "2251e3804f5c492f9b98834fea66b161f1a6f7e39a193636760b028171725022"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "3f4fdfcf6afd14251ef2f434043f7d8040939daba60a9099cc7d9ea753273ed7" => :high_sierra
-    sha256 "6bd7954e5f15a75fc8c8e0b152dbf7450c45d35050c91da1e0e471f2d8179ff4" => :sierra
-    sha256 "a93f6fbd6a03feb582a5589cd19d5880b5adcc04cab5de2350f40a6a98ba20c8" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "3f82cb135d394f0dd8cc9565469b458584ba4793478515c249afd2a895b78cf1"
+    sha256 cellar: :any, big_sur:       "04fd440ce60e1f83343c47698a5f3fc9b8b3581bcb59d198b7af129089d93441"
+    sha256 cellar: :any, catalina:      "874dae9b5751b247f322df936983238c37fb25e4907b57258a8cbdbec7863802"
+    sha256 cellar: :any, mojave:        "cdce55913e70d44003278835ead106710f3221593ac4d47ff525c5f29c510d1c"
+    sha256 cellar: :any, high_sierra:   "885c923403383be453e7d200eb085b1238636c9b96213064d36c2fa71b709a55"
   end
 
   depends_on "cmake" => :build
-  depends_on "libevent" => :optional
-  depends_on "libuv" => :optional
-  depends_on "openssl"
+  depends_on "libevent"
+  depends_on "libuv"
+  depends_on "openssl@1.1"
+  depends_on "protobuf-c"
 
   def install
-    local_cmake_args = ["-DNATS_INSTALL_PREFIX=#{prefix}", "-DBUILD_TESTING=OFF"]
-    system "cmake", ".", *local_cmake_args, *std_cmake_args
+    system "cmake", ".", "-DCMAKE_INSTALL_PREFIX=#{prefix}",
+                         "-DBUILD_TESTING=OFF", *std_cmake_args
     system "make", "install"
   end
 
@@ -32,7 +35,6 @@ class Cnats < Formula
       }
     EOS
     system ENV.cc, "test.c", "-L#{lib}", "-lnats", "-o", "test"
-    test_version = shell_output "./test", 0
-    assert_equal version, test_version.strip
+    assert_equal version, shell_output("./test").strip
   end
 end

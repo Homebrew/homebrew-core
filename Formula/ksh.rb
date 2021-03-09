@@ -1,53 +1,27 @@
-
 class Ksh < Formula
   desc "KornShell, ksh93"
   homepage "http://www.kornshell.com"
-  url "https://opensource.apple.com/source/ksh/ksh-23/ast-ksh.2012-08-01.tgz",
-    :using => :nounzip
-  mirror "https://www.mirrorservice.org/pub/pkgsrc/distfiles/ast-ksh.2012-08-01.tgz"
-  version "93u+" # Versioning scheme: + means "+ patches", - means "beta/alpha".
-  sha256 "e6192cfa52a6a9fd20618cbaf3fa81f0cc9fd83525500757e83017275e962851"
+  url "https://github.com/att/ast/releases/download/2020.0.0/ksh-2020.0.0.tar.gz"
+  sha256 "8701c27211b0043ddd485e35f2ba7f4075fc8fc2818d0545e38b1dda4288b6f7"
+  license "EPL-1.0"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 3
-    sha256 "5ca742b83c55b817a0fa09f737d73530c0f73d89618c60a19ec2ea5251ef8cd4" => :high_sierra
-    sha256 "37a9f6c57702896fabe762fe90ebe454f04f3523aea311a28d34dc884d53736e" => :sierra
-    sha256 "5148e18444c7f1a4e7b71f72982362491aa5581101296acaa6d9c2a782d620b1" => :el_capitan
-    sha256 "13f85c7df7f44b68f1e5560c05b61eff8145230d94986537bdee5702c1e72e68" => :yosemite
-    sha256 "7c665466fb323fc0cb6ffb87ec9fe1630d75afcd3b12864e2424677473db4924" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ade0f9307c006c9833a85a4c046019668e327197ebe0220c8ed74fa59958f090"
+    sha256 cellar: :any_skip_relocation, big_sur:       "92ca5f26f79c9ca9637331d83b1e1521ab3e1c772d9e2d363c8353fb2c568a61"
+    sha256 cellar: :any_skip_relocation, catalina:      "ea7be886a6acee55713ca673ce1578a1303389fb2a964734c38137d3610d7f2b"
+    sha256 cellar: :any_skip_relocation, mojave:        "3bc3469d43fba904b3045722d43bb52444f88c2e6745af977bae9b52d1f0090e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "733e1c6bdd05054bf8d0097a6ae9ea2ca21e74b4676df7b424d4b9f43078afd4"
   end
 
-  resource "init" do
-    url "https://opensource.apple.com/source/ksh/ksh-23/INIT.2012-08-01.tgz"
-    mirror "https://www.mirrorservice.org/pub/pkgsrc/distfiles/INIT.2012-08-01.tgz"
-    sha256 "c40cf57e9b2186271a9c362a560aa4a6e25ba911a8258ab931d2bbdbce44cfe5"
-  end
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
 
   def install
-    resource("init").stage buildpath
-    (buildpath/"lib/package/tgz").install Dir["*.tgz"]
-    system "/bin/ksh", "bin/package", "read"
-
-    # Needed due to unusal build system.
-    ENV.refurbish_args
-
-    # From Apple"s ksh makefile.
-    kshcppdefines = "-DSHOPT_SPAWN=0 -D_ast_int8_t=int64_t -D_lib_memccpy"
-    system "/bin/ksh", "bin/package", "make", "CCFLAGS=#{kshcppdefines}"
-
-    bin.install "arch/darwin.i386-64/bin/ksh" => "ksh93"
-    bin.install_symlink "ksh93" => "ksh"
-
-    man1.install "arch/darwin.i386-64/man/man1/sh.1" => "ksh93.1"
-    man1.install_symlink "ksh93.1" => "ksh.1"
-  end
-
-  def caveats
-    <<~EOS
-      We agreed to the Eclipse Public License 1.0 for you.
-      If this is unacceptable you should uninstall.
-    EOS
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do

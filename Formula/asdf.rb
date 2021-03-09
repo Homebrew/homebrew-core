@@ -1,41 +1,38 @@
 class Asdf < Formula
   desc "Extendable version manager with support for Ruby, Node.js, Erlang & more"
-  homepage "https://github.com/asdf-vm"
-  url "https://github.com/asdf-vm/asdf/archive/v0.4.0.tar.gz"
-  sha256 "5e7c5e36ba056a39b3dde9a2312216747ed3a7ba66282d3b2c0e70a8b6fcbb5a"
+  homepage "https://asdf-vm.com/"
+  url "https://github.com/asdf-vm/asdf/archive/v0.8.0.tar.gz"
+  sha256 "9b667ca135c194f38d823c62cc0dc3dbe00d7a9f60caa0c06ecb3047944eadfa"
+  license "MIT"
+  revision 1
+  head "https://github.com/asdf-vm/asdf.git"
 
   bottle :unneeded
 
-  depends_on "autoconf" => :run
-  depends_on "automake" => :run
-  depends_on "libtool" => :run
+  depends_on "autoconf"
+  depends_on "automake"
   depends_on "coreutils"
+  depends_on "libtool"
   depends_on "libyaml"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "readline"
   depends_on "unixodbc"
+
+  conflicts_with "homeshick",
+    because: "asdf and homeshick both install files in lib/commands"
 
   def install
     bash_completion.install "completions/asdf.bash"
     fish_completion.install "completions/asdf.fish"
+    zsh_completion.install "completions/_asdf"
     libexec.install "bin/private"
     prefix.install Dir["*"]
-
-    inreplace "#{lib}/commands/reshim.sh",
-              "exec $(asdf_dir)/bin/private/asdf-exec ",
-              "exec $(asdf_dir)/libexec/private/asdf-exec "
-  end
-
-  def caveats; <<~EOS
-    Add the following line to your bash profile (e.g. ~/.bashrc, ~/.profile, or ~/.bash_profile)
-         source #{opt_prefix}/asdf.sh
-
-    If you use Fish shell, add the following line to your fish config (e.g. ~/.config/fish/config.fish)
-         source #{opt_prefix}/asdf.fish
-    EOS
+    touch prefix/"asdf_updates_disabled"
   end
 
   test do
-    system "#{bin}/asdf", "plugin-list"
+    output = shell_output("#{bin}/asdf plugin-list 2>&1", 1)
+    assert_match "Oohes nooes ~! No plugins installed", output
+    assert_match "Update command disabled.", shell_output("#{bin}/asdf update", 42)
   end
 end

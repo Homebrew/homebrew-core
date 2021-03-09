@@ -1,28 +1,35 @@
 class Unison < Formula
   desc "File synchronization tool for OSX"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
-  url "https://www.seas.upenn.edu/~bcpierce/unison//download/releases/stable/unison-2.48.4.tar.gz"
-  sha256 "30aa53cd671d673580104f04be3cf81ac1e20a2e8baaf7274498739d59e99de8"
-  revision 1
+  url "https://github.com/bcpierce00/unison/archive/v2.51.3.tar.gz"
+  sha256 "0c287d17f52729440b2bdc28edf4d19b2d5ea5869983d78e780d501c5866914b"
+  license "GPL-3.0-or-later"
+  head "https://github.com/bcpierce00/unison.git", branch: "master"
+
+  # The "latest" release on GitHub sometimes points to unstable versions (e.g.,
+  # release candidates), so we check the Git tags instead.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3e1c9260e9bdf7e7f3074cfee35d9068a3389c8fcda8556613419866ae5f928a" => :high_sierra
-    sha256 "51b6a7abef991785f2b6d29dca9be3f7b17ea2261de4c8dded481d899c562a09" => :sierra
-    sha256 "3bf2bc0ead48c846e631457f4451184fa45f70c4971cd53a47e35f5a5ee43f41" => :el_capitan
-    sha256 "271bd5cd412997594e7ddfc7afad177c48e4f20fecc88cc4dbf828ccdf3f7385" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0d8067436f39ee938090e49ccabbd11f038065a27db1f6ad7cefa695a14fc04d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c9abac8ba99bb85b7b2cbadf76dedcf1d786f047dc4e37aecc0cd80751fd8ed2"
+    sha256 cellar: :any_skip_relocation, catalina:      "cea7b5893ed3a5f39b599b98f244e8d6146cb7700fb19883667e61f9a4390b4c"
+    sha256 cellar: :any_skip_relocation, mojave:        "3c49a17f14f649b88c1188e43a6f82b05e233b79ba567b1ca702c147ba1e5950"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "1cdf5ae09de5f39426ef22f01284d7b4a1a5a792812b5fa14f76ba188b33ed55"
   end
 
   depends_on "ocaml" => :build
 
   def install
-    ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat
     ENV.deparallelize
     ENV.delete "CFLAGS" # ocamlopt reads CFLAGS but doesn't understand common options
     ENV.delete "NAME" # https://github.com/Homebrew/homebrew/issues/28642
-    system "make", "./mkProjectInfo"
     system "make", "UISTYLE=text"
-    bin.install "unison"
+    bin.install "src/unison"
+    prefix.install_metafiles "src"
   end
 
   test do

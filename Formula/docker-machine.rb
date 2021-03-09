@@ -2,22 +2,25 @@ class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
   url "https://github.com/docker/machine.git",
-      :tag => "v0.13.0",
-      :revision => "9ba6da9ebd1140b65eb73e1ce08086ca72764c60"
+      tag:      "v0.16.2",
+      revision: "bd45ab13d88c32a3dd701485983354514abc41fa"
+  license "Apache-2.0"
   head "https://github.com/docker/machine.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "f69505083b87c7964014ecaa1ccf5615f5e5b331aa682429a148113f9a480261" => :high_sierra
-    sha256 "5c2daef1c95e61be256fd1c2e428e342a3f1c5d895e33a3666fabdf9c3dbf1e4" => :sierra
-    sha256 "67c92599ec8b67662dda5f75ad187b5c53896eedf81c6af808b36bd84f01e5ad" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "da044dcd33a56a30d48a65bcccfc481aeab60401dc67ba05a6f335a11baf97c8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1f748f5d9d62d898d1f281573a366f33d6f2cc1916458499ac8a79fbc8166208"
+    sha256 cellar: :any_skip_relocation, catalina:      "99b99466af55891199daccd77e78e6006c193c00b8ffb1e624945c6f5a378119"
+    sha256 cellar: :any_skip_relocation, mojave:        "b01a09ab4be172d932acb5b8b8a203df5454117023b9454c617ba383a27e2195"
   end
 
-  depends_on "go" => :build
   depends_on "automake" => :build
+  depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/docker/machine").install buildpath.children
     cd "src/github.com/docker/machine" do
       system "make", "build"
@@ -28,7 +31,7 @@ class DockerMachine < Formula
     end
   end
 
-  plist_options :manual => "docker-machine start"
+  plist_options manual: "docker-machine start"
 
   def plist
     <<~EOS

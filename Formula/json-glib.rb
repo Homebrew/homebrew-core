@@ -1,27 +1,29 @@
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
-  homepage "https://live.gnome.org/JsonGlib"
-  url "https://download.gnome.org/sources/json-glib/1.2/json-glib-1.2.8.tar.xz"
-  sha256 "fd55a9037d39e7a10f0db64309f5f0265fa32ec962bf85066087b83a2807f40a"
+  homepage "https://wiki.gnome.org/Projects/JsonGlib"
+  url "https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.2.tar.xz"
+  sha256 "a33d66c6d038bda46b910c6c6d59c4e15db014e363dc997a0414c2e07d134f24"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 "ef94f622668cfdc0bbf6f9788ab9b41742fb9c6e80639e0212e4d33fdba8af4f" => :high_sierra
-    sha256 "3faa6b4be8e06f768fc550e7373edccd09ec308e00a65fd48a01eb46f0d77bac" => :sierra
-    sha256 "d26028a584955b8ebe2002261ccd34cd8ef8b5f287b6da211276fb981bd405dd" => :el_capitan
-    sha256 "6bd1f2ed688b6f637a942400d55fc6f4e51db40887421a80b1ffcce185d3e084" => :yosemite
+    sha256 arm64_big_sur: "f84ff6cd5b2e0295f55fec084791de5d78cc8eceab6af8c2bbccff7534aa370a"
+    sha256 big_sur:       "1f91e53ac2d8364a97b28a02cbf01d95458679548d09d5ed2b7e64b0bc6daabe"
+    sha256 catalina:      "53f88d2001e5050f25d1faa331112eb7ec706ce8fb67fa737fa0213b34980975"
+    sha256 mojave:        "47e4851f7cb0b4b54f2fc789bff2d38bf143f4c0d29e785797344ecdf87a8ef6"
   end
 
+  depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   def install
-    system "./configure", "--disable-silent-rules",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-introspection=yes"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dintrospection=enabled", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -47,9 +49,11 @@ class JsonGlib < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -ljson-glib-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

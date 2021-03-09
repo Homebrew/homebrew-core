@@ -1,41 +1,41 @@
 class Mdbtools < Formula
   desc "Tools to facilitate the use of Microsoft Access databases"
-  homepage "https://github.com/brianb/mdbtools/"
-  url "https://github.com/brianb/mdbtools/archive/0.7.1.tar.gz"
-  sha256 "dcf310dc7b07e7ad2f9f6be16047dc81312cfe1ab1bd94d0fa739c8059af0b16"
-  revision 1
+  homepage "https://github.com/mdbtools/mdbtools/"
+  url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.2/mdbtools-0.9.2.tar.gz"
+  sha256 "d4ba2974f9d4f0198fa92c5df178af7f52cdc5e1b545b6d0c9d79cd782fca742"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "240f62a34e523be1f0348b399660592c411437bec0de2655168bbc97713d3799" => :high_sierra
-    sha256 "e161be6807c2bda9ad9fd70549e3f94b5f953d5c8ef70a1261f6b09ec6ac9e45" => :sierra
-    sha256 "2cb35611ad74402c45bb691d5c37943552b7494ebcdfdc31fd3a68a16c2a2b0c" => :el_capitan
-    sha256 "7e43a2716347e3f89782134b53ca5bf240fd1ebd91025393737fc17b9e09aa21" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "9053e31cbbc87cb451115fbe2fe039071e85cc05cdee130b1890d44888d9c6e3"
+    sha256 cellar: :any, big_sur:       "64736fd8868a154014317e36924e1246091fc788e1b3a037ba14678600ea3034"
+    sha256 cellar: :any, catalina:      "b37102d082ed7e84a5251551fa5e84618b118ebaa3224a5ec1d19e043551f4fc"
+    sha256 cellar: :any, mojave:        "49918a104b998fd7cd87f164d5d9ff47933e0d7cf3a9fb66214979fdfeedf45e"
   end
 
-  option "with-man-pages", "Build manual pages"
-
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gawk" => :build
   depends_on "libtool" => :build
-  depends_on "txt2man" => :build if build.with? "man-pages"
+  depends_on "pkg-config" => :build
+
   depends_on "glib"
   depends_on "readline"
 
   def install
-    ENV.deparallelize
-
-    args = ["--prefix=#{prefix}"]
-    args << "--disable-man" if build.without? "man-pages"
-
-    if MacOS.version == :snow_leopard
-      mkdir "build-aux"
-      touch "build-aux/config.rpath"
-    end
-
-    system "autoreconf", "-i", "-f"
-    system "./configure", *args
+    system "autoreconf", "-fvi"
+    system "./configure", "--prefix=#{prefix}",
+                          "--enable-sql",
+                          "--enable-man"
     system "make", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/mdb-schema --drop-table test 2>&1", 1)
+
+    expected_output = <<~EOS
+      File not found
+      Could not open file
+    EOS
+    assert_match expected_output, output
   end
 end

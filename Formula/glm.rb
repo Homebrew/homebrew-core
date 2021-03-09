@@ -1,34 +1,48 @@
 class Glm < Formula
   desc "C++ mathematics library for graphics software"
   homepage "https://glm.g-truc.net/"
-  url "https://github.com/g-truc/glm/releases/download/0.9.8.5/glm-0.9.8.5.zip"
-  sha256 "9f9f520ec7fb8c20c69d6b398ed928a2448c6a3245cbedb8631a56a987c38660"
-
+  url "https://github.com/g-truc/glm/releases/download/0.9.9.8/glm-0.9.9.8.zip"
+  sha256 "37e2a3d62ea3322e43593c34bae29f57e3e251ea89f4067506c94043769ade4c"
+  # GLM is licensed under The Happy Bunny License or MIT License
+  license "MIT"
   head "https://github.com/g-truc/glm.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "d4424acb044d7f1de566ab1709d6107ef17f30198a31c988cc80ab80903c257a" => :high_sierra
-    sha256 "44c8742891bf12707b9d3024e4dee0b371e7d91fbd4da12f6e1d21242db6acd5" => :sierra
-    sha256 "44c8742891bf12707b9d3024e4dee0b371e7d91fbd4da12f6e1d21242db6acd5" => :el_capitan
-    sha256 "44c8742891bf12707b9d3024e4dee0b371e7d91fbd4da12f6e1d21242db6acd5" => :yosemite
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  option "with-doxygen", "Build documentation"
-  depends_on "doxygen" => [:build, :optional]
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4835a0d6b85dd518d3b47830bbae5f45521f4588bd02d3f690f792a6960b9492"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0533418aa7813363241f157a547604acc2c097790a6ddaff2967ede127e8225b"
+    sha256 cellar: :any_skip_relocation, catalina:      "9b661be1f704c2e946dbd4d4f96d58ae82427824ef88d7dd9f0f0cfc3fae2233"
+    sha256 cellar: :any_skip_relocation, mojave:        "7210910c6f106de4c22874f3977b1457cea3db6bb03269ea6831ffae861bb80e"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ea41bb7f8f195c22d6f7834c57684412d752e2c72ff795b9056dd90aaebf9d84"
+  end
+
   depends_on "cmake" => :build
+  depends_on "doxygen" => :build
 
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-      system "make", "install"
+      system "make"
     end
+    include.install "glm"
+    lib.install "cmake"
+    (lib/"pkgconfig/glm.pc").write <<~EOS
+      prefix=#{prefix}
+      includedir=${prefix}/include
 
-    if build.with? "doxygen"
-      cd "doc" do
-        system "doxygen", "man.doxy"
-        man.install "html"
-      end
+      Name: GLM
+      Description: OpenGL Mathematics
+      Version: #{version.to_s.match(/\d+\.\d+\.\d+/)}
+      Cflags: -I${includedir}
+    EOS
+
+    cd "doc" do
+      system "doxygen", "man.doxy"
+      man.install "html"
     end
     doc.install Dir["doc/*"]
   end

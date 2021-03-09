@@ -1,23 +1,32 @@
 class ZitaConvolver < Formula
   desc "Fast, partitioned convolution engine library"
-  homepage "http://kokkinizita.linuxaudio.org/linuxaudio/"
-  url "http://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-convolver-3.1.0.tar.bz2"
-  sha256 "bf7e93b582168b78d40666974460ad8142c2fa3c3412e327e4ab960b3fb31993"
+  homepage "https://kokkinizita.linuxaudio.org/linuxaudio/"
+  url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/zita-convolver-4.0.3.tar.bz2"
+  sha256 "9aa11484fb30b4e6ef00c8a3281eebcfad9221e3937b1beb5fe21b748d89325f"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url "https://kokkinizita.linuxaudio.org/linuxaudio/downloads/index.html"
+    regex(/href=.*?zita-convolver[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "5becab8a6db13cc2b525032600f0e80ee908d023d9228641c89644b729363e0a" => :high_sierra
-    sha256 "ec36965fa37b904736673784cc408780b71dcca831f4a5ac5e05088774159e93" => :sierra
-    sha256 "04d09876460f0e255618113fc69a7f30093f034bdb695990c2f2850f8e31afd5" => :el_capitan
-    sha256 "c6676066535c069104449a12324299a7361435f46fc6983ed0e28b85b585e6af" => :yosemite
-    sha256 "7419429613f3fa768f8f0b86a9bc6928f346d97270e0d701f653f195b29dcdd4" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "dd52351558f1a7d5860d8227ee71fb2fa28abf751adb4193dc63c8cb72f076ae"
+    sha256 cellar: :any, big_sur:       "0e712ab784293d338e277912151e068c7117f902165e7e4dcdd231ba8b3767fd"
+    sha256 cellar: :any, catalina:      "a616c118732c9f2c3775348e598a972abab7ae67b7cb0f283884cddaa55ce93d"
+    sha256 cellar: :any, mojave:        "e9bfda6d2d3119f93ea0d570b9b3516d44513c3eafc206543f8fb055707db8fd"
+    sha256 cellar: :any, high_sierra:   "b8b3326ead45ef0e126488d9c96a181f15888a11b707278c61c2ceeee312b37d"
   end
 
   depends_on "fftw"
 
   def install
-    cd "libs" do
-      system "make", "-f", "Makefile-osx", "install", "PREFIX=#{prefix}", "SUFFIX="
+    cd "source" do
+      on_macos do
+        inreplace "Makefile", "-Wl,-soname,", "-Wl,-install_name,"
+      end
+      inreplace "Makefile", "ldconfig", "ln -sf $(ZITA-CONVOLVER_MIN) $(DESTDIR)$(LIBDIR)/$(ZITA-CONVOLVER_MAJ)"
+      system "make", "install", "PREFIX=#{prefix}", "SUFFIX="
     end
   end
 

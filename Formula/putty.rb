@@ -1,29 +1,30 @@
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/putty/"
-  url "https://the.earth.li/~sgtatham/putty/0.70/putty-0.70.tar.gz"
-  sha256 "bb8aa49d6e96c5a8e18a057f3150a1695ed99a24eef699e783651d1f24e7b0be"
+  url "https://the.earth.li/~sgtatham/putty/0.74/putty-0.74.tar.gz"
+  sha256 "ddd5d388e51dd9e6e294005b30037f6ae802239a44c9dc9808c779e6d11b847d"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "832bf75b4d9927e461c853e802a7951724522fd083a0774f0609141965c06c82" => :high_sierra
-    sha256 "b212b6d5db7478c43d0f6883c459373e257219f9bfc4aa24abe2992d82f9294e" => :sierra
-    sha256 "658a1736398dedd1dc5bc1c267c08b126a6bd9b2653fb2ef3b425f401a14f293" => :el_capitan
-    sha256 "ef3e944e9b322ce16da3264e68bce6a23f58a23f45f8d84d27954670a8d71379" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0595c24581bb65f29d125f18abd5a5671194114a6f93c9dec43f06470c6ff1d5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c15a7253a5548f318e45e619e831475ddfb59f314e286b99c9f03164830233f2"
+    sha256 cellar: :any_skip_relocation, catalina:      "d5e454c08c5d06394527aa7141a332eb721097068f25deff3b4affa847837178"
+    sha256 cellar: :any_skip_relocation, mojave:        "5f9844fc7464fefd987780b3579a33b2ca37673be56c2a8249c312a19e20faea"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "6621f31a41a8eedbbb2fda99a0548deed80d432216469105bac8084df66dbcbf"
   end
 
   head do
     url "https://git.tartarus.org/simon/putty.git"
 
-    depends_on "halibut" => :build
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "gtk+3" => :optional
+    depends_on "halibut" => :build
   end
 
   depends_on "pkg-config" => :build
 
-  conflicts_with "pssh", :because => "both install `pscp` binaries"
+  uses_from_macos "expect" => :test
+
+  conflicts_with "pssh", because: "both install `pscp` binaries"
 
   def install
     if build.head?
@@ -37,13 +38,8 @@ class Putty < Formula
       --disable-silent-rules
       --disable-dependency-tracking
       --disable-gtktest
+      --without-gtk
     ]
-
-    if build.head? && build.with?("gtk+3")
-      args << "--with-gtk=3" << "--with-quartz"
-    else
-      args << "--without-gtk"
-    end
 
     system "./configure", *args
 
@@ -51,11 +47,9 @@ class Putty < Formula
     system "make", "VER=-DRELEASE=#{build_version}"
 
     bin.install %w[plink pscp psftp puttygen]
-    bin.install %w[putty puttytel pterm] if build.head? && build.with?("gtk+3")
 
     cd "doc" do
       man1.install %w[plink.1 pscp.1 psftp.1 puttygen.1]
-      man1.install %w[putty.1 puttytel.1 pterm.1] if build.head? && build.with?("gtk+3")
     end
   end
 

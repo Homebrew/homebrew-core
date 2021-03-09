@@ -1,26 +1,35 @@
 class Convox < Formula
-  desc "Command-line interface for the Rack PaaS on AWS"
+  desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/rack/archive/20171110202042.tar.gz"
-  sha256 "87b6557d95fbf36b0739a6e83ee59d12e823e5b89270f784a9381c7f087ad93d"
+  url "https://github.com/convox/convox/archive/3.0.45.tar.gz"
+  sha256 "3647585b31b092aa3c3c7243d3eefb2e83c4593a782a8904dec165f454e24f6a"
+  license "Apache-2.0"
+  version_scheme 1
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "360d5b9e7a931eb952601428d01e4110489e5bdcc4dc7d72f1b61c15b7516a48" => :high_sierra
-    sha256 "3711baf7e446a01de2fe6df35cf60acaad22a797be864ba353706224b63fe3cc" => :sierra
-    sha256 "16d801f1101cdc9e515db52f03f3a71d322cf380ac89ccbb0e47ad2b534c22df" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5c5484e46e8ba32c0babe936c951fecab00171b55d8dca49ff920b853529960"
+    sha256 cellar: :any_skip_relocation, big_sur:       "46c750d57369ba9176f837d83674253af263658acf216880e1038b98f4303504"
+    sha256 cellar: :any_skip_relocation, catalina:      "606a7cc3e37e5007e37eae7e6d2f10add0cbf1f272f6158560e01796b1fd2c18"
+    sha256 cellar: :any_skip_relocation, mojave:        "2b0e40402da441ecc00a803aa71c8bac1ee05ef2ca101b4fc9f60cd4e763c847"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/convox/rack").install Dir["*"]
-    system "go", "build", "-ldflags=-X main.Version=#{version}",
-           "-o", bin/"convox", "-v", "github.com/convox/rack/cmd/convox"
+    ldflags = %W[
+      -X main.version=#{version}
+    ].join(" ")
+
+    system "go", "build", *std_go_args, "-mod=vendor", "-ldflags", ldflags, "./cmd/convox"
   end
 
   test do
-    system bin/"convox"
+    assert_equal "Authenticating with localhost... ERROR: invalid login\n",
+      shell_output("#{bin}/convox login -t invalid localhost 2>&1", 1)
   end
 end

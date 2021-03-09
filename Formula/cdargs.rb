@@ -1,26 +1,36 @@
 class Cdargs < Formula
-  desc "Bookmarks for the shell"
-  homepage "https://www.skamphausen.de/cgi-bin/ska/CDargs"
-  url "https://www.skamphausen.de/downloads/cdargs/cdargs-1.35.tar.gz"
-  sha256 "ee35a8887c2379c9664b277eaed9b353887d89480d5749c9ad957adf9c57ed2c"
+  desc "Directory bookmarking system - Enhanced cd utilities"
+  homepage "https://github.com/cbxbiker61/cdargs"
+  url "https://github.com/cbxbiker61/cdargs/archive/2.1.tar.gz"
+  sha256 "062515c3fbd28c68f9fa54ff6a44b81cf647469592444af0872b5ecd7444df7d"
+  license "GPL-2.0"
+  head "https://github.com/cbxbiker61/cdargs.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "10a170bfe1b70f6c8909ddb6fb88b7615219d6847576e72ee1e4011aba482e9b" => :high_sierra
-    sha256 "5ba84d6dff14f5743296721a91e6d01ce984bf6e4589ce2128041b1ed9560a3a" => :sierra
-    sha256 "de9d5777eb0179f9ffacb5bcbb0ff0ce7f0c1fb208bb992290eb5a36e1d3f159" => :el_capitan
-    sha256 "cf098fc4187835ef1c970b38ab41719e0900c01d2772572f697e9773a6c632e6" => :yosemite
-    sha256 "2bb555d4cf65f3d11595350135582599fd6ccf988bc7bb76c58155ddcef29223" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fb52b8d939ea7fde7c8579710b1bad8617e987214f2bfb730300b2e761ebf4dd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4c2ee17afed909adb4511fbbd7521e0cc4a852fd383f94735f1de76e63ffeeeb"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a40505138d5465211cc963f438683e38b88518b9f854e58b75d245e7a6fcd16"
+    sha256 cellar: :any_skip_relocation, mojave:        "e78325dae8b29e9f7f5764537edf24d188be18ab27684392db9ebdbde1c9011b"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "fc93b68d48a7ae82eaf0816b6952bb1a6c7cc038c6439232cf01ea1b39bea3b0"
   end
+
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
 
   # fixes zsh usage using the patch provided at the cdargs homepage
   # (See https://www.skamphausen.de/cgi-bin/ska/CDargs)
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/cdargs/1.35.patch"
+    sha256 "adb4e73f6c5104432928cd7474a83901fe0f545f1910b51e4e81d67ecef80a96"
+  end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
-    system "make"
-    system "make", "install-strip"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
 
     rm Dir["contrib/Makefile*"]
     prefix.install "contrib"
@@ -33,32 +43,8 @@ class Cdargs < Formula
         #{prefix}/contrib
     EOS
   end
-end
 
-__END__
-diff --git a/contrib/cdargs-bash.sh b/contrib/cdargs-bash.sh
-index 8a197ef..f3da067 100644
---- a/contrib/cdargs-bash.sh
-+++ b/contrib/cdargs-bash.sh
-@@ -11,6 +11,12 @@
- CDARGS_SORT=0   # set to 1 if you want mark to sort the list
- CDARGS_NODUPS=1 # set to 1 if you want mark to delete dups
- 
-+# Support ZSH via its BASH completion emulation
-+if [ -n "$ZSH_VERSION" ]; then
-+	autoload bashcompinit
-+	bashcompinit
-+fi
-+
- # --------------------------------------------- #
- # Run the cdargs program to get the target      #
- # directory to be used in the various context   #
-@@ -166,7 +172,7 @@ function mark ()
-     local tmpfile
- 
-     # first clear any bookmarks with this same alias, if file exists
--    if [[ "$CDARGS_NODUPS" && -e "$HOME/.cdargs" ]]; then
-+    if [ "$CDARGS_NODUPS" ] && [ -e "$HOME/.cdargs" ]; then
-         tmpfile=`echo ${TEMP:-${TMPDIR:-/tmp}} | sed -e "s/\\/$//"`
-         tmpfile=$tmpfile/cdargs.$USER.$$.$RANDOM
-         grep -v "^$1 " "$HOME/.cdargs" > $tmpfile && 'mv' -f $tmpfile "$HOME/.cdargs";
+  test do
+    system "#{bin}/cdargs", "--version"
+  end
+end

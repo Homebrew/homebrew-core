@@ -1,16 +1,22 @@
 class Abnfgen < Formula
   desc "Quickly generate random documents that match an ABFN grammar"
   homepage "http://www.quut.com/abnfgen/"
-  url "http://www.quut.com/abnfgen/abnfgen-0.17.tar.gz"
-  sha256 "777a264d91a93bc9cf008d7520abb0470d7280fb38008c5f185cbf2d29640083"
+  url "http://www.quut.com/abnfgen/abnfgen-0.20.tar.gz"
+  sha256 "73ce23ab8f95d649ab9402632af977e11666c825b3020eb8c7d03fa4ca3e7514"
+
+  livecheck do
+    url :homepage
+    regex(%r{href=.*?/abnfgen[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "66283b4588de8a104eeb19c24e835b2af4c26b86f97f1d14b95b3ad99409af9b" => :high_sierra
-    sha256 "173a48d1e02cabc92904ad0b01842e90fc5b43411a1a00db59088b3840a1d3e3" => :sierra
-    sha256 "25aa694b994374b0194f65a01afdf1911ddd366d3195a6ac6451e81f87234768" => :el_capitan
-    sha256 "6020fe82950619f9ddf60265c80c2e8f2f68808618e87150d1634f5ec2c0eff8" => :yosemite
-    sha256 "004aa4f75ee0e51327a69a558cb3920b6859303b1d032e32e3caabe623dc35d4" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e3c6fe963835658791592b3846bcab8bfeafbee2c63f3fb804405ce72ed2e64a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bddcdbc3e7993d70dc27f99fd18b439ecb25cd338c8c88762d7d3842439fd2f2"
+    sha256 cellar: :any_skip_relocation, catalina:      "c1531bab58a352221fca0cc5b73db2d9f206e1b98272ff06a90d72aa9e991925"
+    sha256 cellar: :any_skip_relocation, mojave:        "b553651b5500f66d10a369f4d8862ed9c6d2b39d395c43e372b346b4c7bfead0"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3a62e72bec09b9bfff637710db366f713abc95de45437aeadbfa87a87dfc040c"
+    sha256 cellar: :any_skip_relocation, sierra:        "0d69f39473838a8e46fb02009329e05be6eeaed579ff5533a09cbbecd8d46a2d"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "fd51cb760ed8afb8a9e3dd5d05c8efa832361b238ad95410fb2864c91c081825"
   end
 
   def install

@@ -1,20 +1,26 @@
 class Dialog < Formula
   desc "Display user-friendly message boxes from shell scripts"
   homepage "https://invisible-island.net/dialog/"
-  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20170509.tgz"
-  mirror "https://fossies.org/linux/misc/dialog-1.3-20170509.tgz"
-  sha256 "2ff1ba74c632b9d13a0d0d2c942295dd4e8909694eeeded7908a467d0bcd4756"
+  url "https://invisible-mirror.net/archives/dialog/dialog-1.3-20210306.tgz"
+  sha256 "a73e7b607b635f63c0202bb3313106e700f91fe4a9f4d26ca7003f6eb2b9cb0f"
+  license "LGPL-2.1-or-later"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "55ca70e0f0e409e4ce74fb52fced006a43a2201ed635f90513a62b52dd8381ac" => :high_sierra
-    sha256 "ae701f5888a92c5471a133d3af23ec16de80f484a613f665c22c72bd9dd3e8cb" => :sierra
-    sha256 "c7f6b3631580d468acdea09309b9d3073c4ab6bb474f3479a679c75c93215f14" => :el_capitan
-    sha256 "d7a24282dfa9cc3a5a6b45aef751291079816f3560ec1ec3f1c1bffe787c374a" => :yosemite
+  livecheck do
+    url "https://invisible-mirror.net/archives/dialog/"
+    regex(/href=.*?dialog[._-]v?(\d+(?:\.\d+)+-\d{6,8})\.t/i)
   end
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1e09724f205584817856ea95da0efea7a7e1dadcd40c710dd1dfe5bd13095c3b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "714273a1a397ddce1a4c67d4efb9da0bba77cfd7043a71ee31999f958adb950b"
+    sha256 cellar: :any_skip_relocation, catalina:      "7530d0710cb81af8ca5b616c2442eea1e414a366be349c510c4e43d2b5b683a0"
+    sha256 cellar: :any_skip_relocation, mojave:        "c7498a57da87fa7a4f56ab04eb8352d225754726657974d3dce6620fe6b4096b"
+  end
+
+  uses_from_macos "ncurses"
+
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--with-ncurses"
     system "make", "install-full"
   end
 

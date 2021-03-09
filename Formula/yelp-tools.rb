@@ -1,29 +1,30 @@
 class YelpTools < Formula
   desc "Tools that help create and edit Mallard or DocBook documentation"
   homepage "https://github.com/GNOME/yelp-tools"
-  url "https://download.gnome.org/sources/yelp-tools/3.18/yelp-tools-3.18.0.tar.xz"
-  sha256 "c6c1d65f802397267cdc47aafd5398c4b60766e0a7ad2190426af6c0d0716932"
+  url "https://download.gnome.org/sources/yelp-tools/3.38/yelp-tools-3.38.0.tar.xz"
+  sha256 "607ce4b3ee8517c42db924a01a78660a03317595c75825731ea86a920e2b04b0"
+  license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 2
-    sha256 "362bd3f0673ad7e44f9d37b37f46989512823d218d06aa27e452c47faf589b41" => :high_sierra
-    sha256 "b0ea184a43def810986761f163243688d08e1f891ddfdb104793b5dcb7c9155c" => :sierra
-    sha256 "b0ea184a43def810986761f163243688d08e1f891ddfdb104793b5dcb7c9155c" => :el_capitan
-    sha256 "b0ea184a43def810986761f163243688d08e1f891ddfdb104793b5dcb7c9155c" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "287755e74068f82a9dd94e60e6ae8fc0a3d38f04c2df3ee44d8f427d403d89bc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9ecac26d055284b58e3b6220a719d20e3e0e5d4fd6c091bb649945b76df6ca69"
+    sha256 cellar: :any_skip_relocation, catalina:      "c4dde1e77132df114dfd4b19faeae2b8604a3557ac97a0f2caf47954fcfc0def"
+    sha256 cellar: :any_skip_relocation, mojave:        "4eec970808d0b15187fc1bfb976999b52ae0f13b6ae004f7ca9d65d15e6b07a8"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "906e221bce54f03db236aee3738c047e3d836a4f124aa3460b9d224a9d0c547b"
   end
 
   depends_on "gettext" => :build
-  depends_on "gtk+3"
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "libxml2" => :build
   depends_on "libxslt" => :build
   depends_on "pkg-config" => :build
+  depends_on "gtk+3"
 
   resource "yelp-xsl" do
-    url "https://download.gnome.org/sources/yelp-xsl/3.20/yelp-xsl-3.20.1.tar.xz"
-    sha256 "dc61849e5dca473573d32e28c6c4e3cf9c1b6afe241f8c26e29539c415f97ba0"
+    url "https://download.gnome.org/sources/yelp-xsl/3.38/yelp-xsl-3.38.1.tar.xz"
+    sha256 "b321563da6ab7fa8b989adaf1a91262059696316b4ddca2288fddcfed8dcdf67"
   end
 
   def install
@@ -49,13 +50,5 @@ class YelpTools < Formula
     system "#{bin}/yelp-new", "task", "ducksinarow"
     system "#{bin}/yelp-build", "html", "ducksinarow.page"
     system "#{bin}/yelp-check", "validate", "ducksinarow.page"
-    [
-      prefix/"share/yelp-xsl/icons/hicolor/24x24/status/yelp-note-warning.png",
-      prefix/"share/yelp-xsl/js/jquery.syntax.brush.smalltalk.js",
-      prefix/"share/yelp-xsl/xslt/mallard/html/mal2html-links.xsl",
-      share/"pkgconfig/yelp-xsl.pc",
-    ].each do |filename|
-      assert filename.exist?, "#{filename} doesn't exist"
-    end
   end
 end

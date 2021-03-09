@@ -2,16 +2,17 @@ class Csfml < Formula
   # Don't update CSFML until there's a corresponding SFML release
   desc "SMFL bindings for C"
   homepage "https://www.sfml-dev.org/"
-  url "https://github.com/SFML/CSFML/archive/2.4.tar.gz"
-  sha256 "4e3d9a03afafbd3a507c39457a7619b68616ec79e870b975e09665e924f9c4c6"
+  url "https://github.com/SFML/CSFML/archive/2.5.tar.gz"
+  sha256 "d49ddfbe9c14dbca60dd524d10bca7922142dc32a07a5dfbbd209cda7caad860"
+  license "Zlib"
   head "https://github.com/SFML/CSFML.git"
 
   bottle do
-    cellar :any
-    sha256 "f6507fafb4cbb87b11f6763c5683926b618e0f3795567329669efcff80264ae3" => :high_sierra
-    sha256 "9ad1dd48f601df0772a86cbb1101d75b29a89c8ef6269974187cbb4202f21e6a" => :sierra
-    sha256 "041543d0017f035714db20025d1b115227780ae5ac10de4ae9a56ad39fade888" => :el_capitan
-    sha256 "94edea36f26da5c9e87e2bfb114faa9dd479eb4f2dd7beeab5c00969708954a8" => :yosemite
+    sha256 cellar: :any, big_sur:     "48bbf215b25936227a04b9f34cf4095da257849561196a5b7a4fa9bcefb9e413"
+    sha256 cellar: :any, catalina:    "31fd66bf0d673c538efda5d66495bee9c4dddbf0c037d8066484c062dd3aaa3d"
+    sha256 cellar: :any, mojave:      "23ba78c253971cd63e84eb54763fac657beafa93f445ee851ba90c8e80146bbb"
+    sha256 cellar: :any, high_sierra: "4c5a98b1bd072adaacae84e7ab0f3c7f33b74c72378f303e3f35fae6dabd4df4"
+    sha256 cellar: :any, sierra:      "acfb319f9d70db51adf39a6931dfc938871ce9f9ad6dcb43d8395c7d735a2674"
   end
 
   depends_on "cmake" => :build

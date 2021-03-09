@@ -1,22 +1,24 @@
 class Neofetch < Formula
   desc "Fast, highly customisable system info script"
   homepage "https://github.com/dylanaraps/neofetch"
-  url "https://github.com/dylanaraps/neofetch/archive/3.3.0.tar.gz"
-  sha256 "4808e76bd81da3602cb5be7e01dfed8223b1109e2792755dd0d54126014ee696"
+  url "https://github.com/dylanaraps/neofetch/archive/7.1.0.tar.gz"
+  sha256 "58a95e6b714e41efc804eca389a223309169b2def35e57fa934482a6b47c27e7"
+  license "MIT"
   head "https://github.com/dylanaraps/neofetch.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b415a5e617cfbebac3d6e5d585a8306eb3fed1bd22c6b1a7088f623a3ffec173" => :high_sierra
-    sha256 "9ee6ce5a7c1542275dddc52a5f108e86e64c021364d3639ce4ed7ee987a01cf5" => :sierra
-    sha256 "9ee6ce5a7c1542275dddc52a5f108e86e64c021364d3639ce4ed7ee987a01cf5" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "da4b88eedb327e2c50fb80e39c5e2b453d447cc07be88479e11c8fdc26e128ec"
+    sha256 cellar: :any_skip_relocation, big_sur:       "65997eaa4358eba12ea2eaa20d3a7daa3b30acfae81aa447eab47894d808670e"
+    sha256 cellar: :any_skip_relocation, catalina:      "9d88c0c07ebdeddaf68a5512a7f4a36cbc52851dfb1c6fc63b446f6a9baaaa01"
+    sha256 cellar: :any_skip_relocation, mojave:        "9d88c0c07ebdeddaf68a5512a7f4a36cbc52851dfb1c6fc63b446f6a9baaaa01"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "9d88c0c07ebdeddaf68a5512a7f4a36cbc52851dfb1c6fc63b446f6a9baaaa01"
   end
 
-  depends_on "screenresolution" => :recommended
-  depends_on "imagemagick" => :recommended
+  depends_on "imagemagick"
+  depends_on "screenresolution"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}", "SYSCONFDIR=#{etc}"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do

@@ -3,26 +3,31 @@ class SwitchaudioOsx < Formula
   homepage "https://github.com/deweller/switchaudio-osx/"
   url "https://github.com/deweller/switchaudio-osx/archive/1.0.0.tar.gz"
   sha256 "c00389837ffd02b1bb672624fec7b75434e2d72d55574afd7183758b419ed6a3"
+  license "MIT"
   head "https://github.com/deweller/switchaudio-osx.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "c1f8caa620667cc5b2cf2e34a5ddfab9dd2371e71f5d121f03c155d16bffeec0" => :high_sierra
-    sha256 "217691f02cb407c7a8e58369579b3233516085f5c54473c2760684f91fff6d37" => :sierra
-    sha256 "85af890b6c7965861b474504576fb20c5a7cf4109d88034175c324c956256075" => :el_capitan
-    sha256 "8f8a92c4ddbb3cacc4f57c0251900e9221162cfeea63d83d2db7bfcc019d87ee" => :yosemite
-    sha256 "01ca5833d2b9c29e1299517feb31ff3bebc72c6a2c409830a0007e6aadc292b3" => :mavericks
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d9971abdf1ae93055e74f4e1b48ad4ed0cf835069ed0750594156279d18b702e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d577b2297c1865399ecbe4c7f2ac491063d75c786387502246b30d32e2606ee7"
+    sha256 cellar: :any_skip_relocation, catalina:      "4a1ad0824d878dcabb3d7ffe4ad911f850383dbf2db28100e58f28cbc96657b7"
+    sha256 cellar: :any_skip_relocation, mojave:        "85d0fe91c72d1a61e331e475af4e6ded9d0ca3581612c1934835bc44653fe407"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "26af506ea42b83ae8ccde71ed8b7666ccf3e3a349b2dd8958af7025854ffefd3"
+    sha256 cellar: :any_skip_relocation, sierra:        "89ed040cc50c7b7ad88a903da5351cfa0027a4daf22cf73f2713e0887847c5d1"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "515b762164648d739ae36f8c5013d250d84af1264bf3ee366ed35adae2f44208"
   end
 
-  depends_on :macos => :lion
-  depends_on :xcode => :build
+  depends_on xcode: :build
 
   def install
     xcodebuild "-project", "AudioSwitcher.xcodeproj",
                "-target", "SwitchAudioSource",
                "SYMROOT=build",
-               "-verbose"
+               "-verbose",
+               # Force 64-bit for Mojave
+               "-arch", "x86_64",
+               # Default target is 10.5, which fails on Mojave
+               "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     prefix.install Dir["build/Release/*"]
     bin.write_exec_script "#{prefix}/SwitchAudioSource"
     chmod 0755, "#{bin}/SwitchAudioSource"

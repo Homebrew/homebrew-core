@@ -1,35 +1,31 @@
 class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
-  homepage "https://actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.15.5.tar.gz"
-  sha256 "2dd710366ee03f9b23f3aaea2ed4bdc0c39c5e503819b870785186f54751cf86"
+  homepage "https://www.actor-framework.org/"
+  url "https://github.com/actor-framework/actor-framework/archive/0.17.6.tar.gz"
+  sha256 "e2bf5bd243f08bb7d8adde197cfe3e6d71314ed3378fe0692f8932f4c3b3928c"
+  license "BSD-3-Clause"
   head "https://github.com/actor-framework/actor-framework.git"
 
   bottle do
-    cellar :any
-    sha256 "4e141fb961dd112be9eef60304dade14cdbb9ea9192da3a2edac31b5cb0cff0f" => :high_sierra
-    sha256 "1160f797a3d5cca066a790517e8ec5ee7c525c53fb8a48fe908ba6c0aecf526a" => :sierra
-    sha256 "db0aca0ef3cbf84558ca5b54956ed60857a8139a69444a266c0907a9a08829ce" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "0343f31ed5a9532c8b495b27956203994827ce1f42e8c5b0702161f42dbd8c59"
+    sha256 cellar: :any, big_sur:       "0779640072ac88745f00f5946958a815f0deeb19dba46509181fd2ee944d4aa8"
+    sha256 cellar: :any, catalina:      "131af3b3422867d6cb4c9e46d773e7b102e2dd9209be5d844cbbe99a1a7c6883"
+    sha256 cellar: :any, mojave:        "20b60e3ee9f2953ac5453aeb1c5d724b1141f5b90be8b2b2d611f9f0938ff913"
+    sha256 cellar: :any, high_sierra:   "be54ecedb3968591490e165d7260b0b8c19745e44d125fde2a5cd209fa71fc16"
   end
 
-  needs :cxx11
-
-  option "with-opencl", "build with support for OpenCL actors"
-  option "without-test", "skip unit tests (not recommended)"
-
-  deprecated_option "without-check" => "without-test"
-
   depends_on "cmake" => :build
+  depends_on "openssl@1.1"
 
   def install
-    args = %W[--prefix=#{prefix} --no-examples --build-static]
-    args << "--no-opencl" if build.without? "opencl"
-
-    system "./configure", *args
-    system "make"
-    system "make", "test" if build.with? "test"
-    system "make", "install"
+    system "./configure", "--prefix=#{prefix}",
+                          "--build-static",
+                          "--no-examples",
+                          "--no-unit-tests",
+                          "--no-opencl"
+    system "make", "--directory=build", "install"
   end
 
   test do
@@ -42,12 +38,10 @@ class Caf < Formula
         self->spawn([] {
           std::cout << "test" << std::endl;
         });
-        self->await_all_other_actors_done();
       }
       CAF_MAIN()
     EOS
-    ENV.cxx11
-    system *(ENV.cxx.split + %W[test.cpp -L#{lib} -lcaf_core -o test])
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
     system "./test"
   end
 end

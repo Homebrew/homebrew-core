@@ -1,28 +1,43 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2"
-  sha256 "9807a5d16566c57fd74fb522764e0b134a8bbe6b6e8967b83afefd30dcd3be81"
+  url "https://dl.bintray.com/boostorg/release/1.75.0/source/boost_1_75_0.tar.bz2"
+  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_75_0.tar.bz2"
+  sha256 "953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb"
+  license "BSL-1.0"
+  revision 2
   head "https://github.com/boostorg/boost.git"
 
-  bottle do
-    cellar :any
-    sha256 "b7b199b8c4e40a8a32a9c8852989645c1e1e30e9f11b49927f400299ab60b1cf" => :high_sierra
-    sha256 "3d896801bccfc3f3ee1934e5764a5a613eaae8fda5567deb8e9f8b3fa0c2727f" => :sierra
-    sha256 "97f9486b46396c659741b069697e9acc5e146c8df12631a4981d7ad168f806e2" => :el_capitan
-    sha256 "0970b4eef313fe6188a4318b949a727d658ef31522aebc3ddaa44a877b67444a" => :yosemite
+  livecheck do
+    url "https://www.boost.org/feed/downloads.rss"
+    regex(/>Version v?(\d+(?:\.\d+)+)</i)
   end
 
-  option "with-icu4c", "Build regexp engine with icu support"
-  option "without-single", "Disable building single-threading variant"
-  option "without-static", "Disable building static library variant"
-  option :cxx11
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "a6ca6c43f67270378ae0400e66095c329ebe90a1989a4a9c4606f1b8e72a692f"
+    sha256 cellar: :any, big_sur:       "be8564844a1e5bb58c26287453617458db6e886f85197c8ce35c21cfa74b1bc0"
+    sha256 cellar: :any, catalina:      "aef0fade9e8159b572907189bb8dfd828dab94c44e036cdd782c2b3834d218f3"
+    sha256 cellar: :any, mojave:        "e24d396d90a8db75738cba4543b678c79ef720a96bf2f93688bd2f35fef66d3a"
+  end
 
-  deprecated_option "with-icu" => "with-icu4c"
+  depends_on "icu4c"
 
-  depends_on "icu4c" => :optional
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
 
-  needs :cxx11 if build.cxx11?
+  # Reduce INTERFACE_LINK_LIBRARIES exposure for shared libraries. Remove with the next release.
+  patch do
+    url "https://github.com/boostorg/boost_install/commit/7b3fc734242eea9af734d6cd8ccb3d8f6b64c5b2.patch?full_index=1"
+    sha256 "cd96f5c51fa510fa6cd194eb011c0a6f9beb377fa2e78821133372f76a3be349"
+    directory "tools/boost_install"
+  end
+
+  # Fix build on 64-bit arm
+  patch do
+    url "https://github.com/boostorg/build/commit/456be0b7ecca065fbccf380c2f51e0985e608ba0.patch?full_index=1"
+    sha256 "e7a78145452fc145ea5d6e5f61e72df7dcab3a6eebb2cade6b4cfae815687f3a"
+    directory "tools/build"
+  end
 
   def install
     # Force boost to compile with the desired compiler
@@ -31,14 +46,12 @@ class Boost < Formula
     end
 
     # libdir should be set by --prefix but isn't
-    bootstrap_args = ["--prefix=#{prefix}", "--libdir=#{lib}"]
-
-    if build.with? "icu4c"
-      icu4c_prefix = Formula["icu4c"].opt_prefix
-      bootstrap_args << "--with-icu=#{icu4c_prefix}"
-    else
-      bootstrap_args << "--without-icu"
-    end
+    icu4c_prefix = Formula["icu4c"].opt_prefix
+    bootstrap_args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      --with-icu=#{icu4c_prefix}
+    ]
 
     # Handle libraries that will not be built.
     without_libraries = ["python", "mpi"]
@@ -50,52 +63,28 @@ class Boost < Formula
     bootstrap_args << "--without-libraries=#{without_libraries.join(",")}"
 
     # layout should be synchronized with boost-python and boost-mpi
-    args = ["--prefix=#{prefix}",
-            "--libdir=#{lib}",
-            "-d2",
-            "-j#{ENV.make_jobs}",
-            "--layout=tagged",
-            "--user-config=user-config.jam",
-            "-sNO_LZMA=1",
-            "install"]
+    args = %W[
+      --prefix=#{prefix}
+      --libdir=#{lib}
+      -d2
+      -j#{ENV.make_jobs}
+      --layout=tagged-1.66
+      --user-config=user-config.jam
+      -sNO_LZMA=1
+      -sNO_ZSTD=1
+      install
+      threading=multi,single
+      link=shared,static
+    ]
 
-    if build.with? "single"
-      args << "threading=multi,single"
-    else
-      args << "threading=multi"
-    end
-
-    if build.with? "static"
-      args << "link=shared,static"
-    else
-      args << "link=shared"
-    end
-
-    # Trunk starts using "clang++ -x c" to select C compiler which breaks C++11
-    # handling using ENV.cxx11. Using "cxxflags" and "linkflags" still works.
-    if build.cxx11?
-      args << "cxxflags=-std=c++11"
-      if ENV.compiler == :clang
-        args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-      end
-    end
+    # Boost is using "clang++ -x c" to select C compiler which breaks C++14
+    # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
+    args << "cxxflags=-std=c++14"
+    args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     system "./bootstrap.sh", *bootstrap_args
     system "./b2", "headers"
     system "./b2", *args
-  end
-
-  def caveats
-    s = ""
-    # ENV.compiler doesn't exist in caveats. Check library availability
-    # instead.
-    if Dir["#{lib}/libboost_log*"].empty?
-      s += <<~EOS
-        Building of Boost.Log is disabled because it requires newer GCC or Clang.
-      EOS
-    end
-
-    s
   end
 
   test do
@@ -118,7 +107,7 @@ class Boost < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++1y", "-L#{lib}", "-lboost_system", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++14", "-stdlib=libc++", "-o", "test"
     system "./test"
   end
 end

@@ -1,44 +1,47 @@
 class Rinetd < Formula
   desc "Internet TCP redirection server"
-  homepage "https://www.boutell.com/rinetd/"
-  url "https://www.boutell.com/rinetd/http/rinetd.tar.gz"
-  version "0.62"
-  sha256 "0c68d27c5bd4b16ce4f58a6db514dd6ff37b2604a88b02c1dfcdc00fc1059898"
+  homepage "https://github.com/samhocevar/rinetd"
+  url "https://github.com/samhocevar/rinetd/releases/download/v0.73/rinetd-0.73.tar.bz2"
+  sha256 "24dd6ec1c4d353c33ced775a37566af9565b27e65f3e59939a8b2913a92c81d2"
+  license "GPL-2.0-or-later"
+  # NOTE: Original (unversioned) tool is at https://github.com/boutell/rinetd
+  #       Debian tracks the "samhocevar" fork so we follow suit
+  head "https://github.com/samhocevar/rinetd"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    rebuild 1
-    sha256 "44750b361b999c09a17a2bc8c576585a790c42bee66abe4df191b7b0cafe304c" => :high_sierra
-    sha256 "7a52fc5d01d83fd186626a6cff981e65da8943186973a4314efa2c561480325e" => :sierra
-    sha256 "30c72c1a5764aa20e7d8e232bcfe979f138e5029966c43468a886481304c39cb" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4f668d5feb5299fa1de94c4b0335ab3e36b5ac1238ccb4519cff25be103dea5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b73d5f5a82ad3371107eab67403b888e7e9e6f19f3c99909c8c72401a680c396"
+    sha256 cellar: :any_skip_relocation, catalina:      "f2f6a19fcfc01cfde67148410a6bcf81c861fb373e860210e32294cb9df4fbcc"
+    sha256 cellar: :any_skip_relocation, mojave:        "6a6f22a6081ac2dff01ca89a256a21c991a6f2171f2703b08e2acbd0d8c177a7"
   end
 
   def install
-    inreplace "rinetd.c" do |s|
+    # The daemon() function does exist but its deprecated so keep configure
+    # away:
+    system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{share}", "ac_cv_func_daemon=no"
+
+    # Point hardcoded runtime paths inside of our prefix
+    inreplace "src/rinetd.h" do |s|
       s.gsub! "/etc/rinetd.conf", "#{etc}/rinetd.conf"
-      s.gsub! "/var/run/rinetd.pid", "#{var}/rinetd.pid"
+      s.gsub! "/var/run/rinetd.pid", "#{var}/run/rinetd.pid"
     end
+    inreplace "rinetd.conf", "/var/log", "#{var}/log"
 
-    inreplace "Makefile" do |s|
-      s.gsub! "/usr/sbin", sbin
-      s.gsub! "/usr/man", man
-    end
-
-    sbin.mkpath
-    man8.mkpath
+    # Install conf file only as example and have post_install put it into place
+    mv "rinetd.conf", "rinetd.conf.example"
+    inreplace "Makefile", "rinetd.conf", "rinetd.conf.example"
 
     system "make", "install"
+  end
 
+  def post_install
     conf = etc/"rinetd.conf"
-    unless conf.exist?
-      conf.write <<~EOS
-        # forwarding rules go here
-        #
-        # you may specify allow and deny rules after a specific forwarding rule
-        # to apply to only that forwarding rule
-        #
-        # bindadress bindport connectaddress connectport
-      EOS
-    end
+    cp "#{share}/rinetd.conf.example", conf unless conf.exist?
   end
 
   test do

@@ -2,25 +2,32 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.6.3.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-2.6.3.tar.gz"
-  sha256 "aead6598263171b96970da0d881e616d0813b69b35ebdc5991f87ff2ea7f5c98"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-3.2.4.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-3.2.4.tar.gz"
+  sha256 "ac1dbb9e05a64910856599b1ac61118fdec1b3d0c700e42444d81c0d5f507a5a"
+  license "OpenSSL"
+
+  livecheck do
+    url :homepage
+    regex(/latest stable release is (\d+(?:\.\d+)+)/i)
+  end
 
   bottle do
-    sha256 "addcf97a9867de7a47c19b3ca7ed9c1ecc329c81147ab6a44d3dc0171c0afd8e" => :high_sierra
-    sha256 "0023299b95556b5e57e2330a4c058b0cd9a6a54150663d38f55892e68984de51" => :sierra
-    sha256 "8ccdd7c5e4065593cf08d7357ff68532741c5960aeaa0234ff55575291c88f18" => :el_capitan
+    sha256 arm64_big_sur: "e7c3dbbcd08c32b308da932462aecc0b95304c42cf2c6a51d19575511a285608"
+    sha256 big_sur:       "d73d021753a498acafbdbff49a182797487e891628b5106ba6fcf4dcc0148e9f"
+    sha256 catalina:      "3a61191228fa1e5ff6e8dceff5bd29d05cc3ce7a260b4fb37c69fc938db7124f"
+    sha256 mojave:        "7fc2356a16b34b50313b1c0822b33cded2cdffd144b3738c8dd3b6d37318bd5f"
   end
 
   head do
     url "https://github.com/libressl-portable/portable.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  keg_only "LibreSSL is not linked to prevent conflict with the system OpenSSL"
+  keg_only :provided_by_macos
 
   def install
     args = %W[
@@ -39,37 +46,40 @@ class Libressl < Formula
   end
 
   def post_install
-    keychains = %w[
-      /System/Library/Keychains/SystemRootCertificates.keychain
-    ]
+    on_macos do
+      keychains = %w[
+        /System/Library/Keychains/SystemRootCertificates.keychain
+      ]
 
-    certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(
-      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
-    )
+      certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
+      certs = certs_list.scan(
+        /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
+      )
 
-    valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
-        openssl_io.write(cert)
-        openssl_io.close_write
+      valid_certs = certs.select do |cert|
+        IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
+          openssl_io.write(cert)
+          openssl_io.close_write
+        end
+
+        $CHILD_STATUS.success?
       end
 
-      $CHILD_STATUS.success?
+      # LibreSSL install a default pem - We prefer to use macOS for consistency.
+      rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
+      (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
     end
-
-    # LibreSSL install a default pem - We prefer to use macOS for consistency.
-    rm_f %W[#{etc}/libressl/cert.pem #{etc}/libressl/cert.pem.default]
-    (etc/"libressl/cert.pem").atomic_write(valid_certs.join("\n"))
   end
 
-  def caveats; <<~EOS
-    A CA file has been bootstrapped using certificates from the SystemRoots
-    keychain. To add additional certificates (e.g. the certificates added in
-    the System keychain), place .pem files in
-      #{etc}/libressl/certs
+  def caveats
+    <<~EOS
+      A CA file has been bootstrapped using certificates from the SystemRoots
+      keychain. To add additional certificates (e.g. the certificates added in
+      the System keychain), place .pem files in
+        #{etc}/libressl/certs
 
-    and run
-      #{opt_bin}/openssl certhash #{etc}/libressl/certs
+      and run
+        #{opt_bin}/openssl certhash #{etc}/libressl/certs
     EOS
   end
 

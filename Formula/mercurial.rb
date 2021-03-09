@@ -3,25 +3,33 @@
 class Mercurial < Formula
   desc "Scalable distributed version control system"
   homepage "https://mercurial-scm.org/"
-  url "https://mercurial-scm.org/release/mercurial-4.4.2.tar.gz"
-  sha256 "dc2f72caccd6b760226753d48c2f4e8889fe176a6b23ef50775caac55ce28b85"
+  url "https://www.mercurial-scm.org/release/mercurial-5.7.tar.gz"
+  sha256 "609c3e7c9276dd75b03b713eccc10f5e0553001f35ae21600bcea1509699c601"
+  license "GPL-2.0-or-later"
 
-  bottle do
-    sha256 "493d5aaaf95ee796210a556696257d3db40ae582ccc1bbbd683137a5abf90b68" => :high_sierra
-    sha256 "6a7c132cb7fb156b3633af866960507a09d868ca4deb29980a0d6fa8ebc77650" => :sierra
-    sha256 "34d5c9a747545bfba87e1698287c43f47cf89c724cffee9c3a4e86dda9533024" => :el_capitan
+  livecheck do
+    url "https://www.mercurial-scm.org/release/"
+    regex(/href=.*?mercurial[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  option "with-custom-python", "Install against the python in PATH instead of Homebrew's python"
-  depends_on :python
+  bottle do
+    sha256 arm64_big_sur: "73b164d1e12a6e2dad57b3b58199a24235d5e69fd30c34f0c7b6502180fdf24b"
+    sha256 big_sur:       "5d9ba291e5eb80651356bbfee1bba223e3ed93aa5e078efe6702080098e0d221"
+    sha256 catalina:      "3b773a555be1944f60bd49a45f03046cabe1202201a90d15bcf5eeb3868c6f8b"
+    sha256 mojave:        "77750ea2d6e8b7bf9d294d859638b7d0b19e4ea659110d7646c67eb93c34cd4d"
+  end
+
+  depends_on "python@3.9"
 
   def install
-    system "make", "PREFIX=#{prefix}", "install-bin"
+    ENV["HGPYTHON3"] = "1"
+
+    system "make", "PREFIX=#{prefix}", "PYTHON=python3", "install-bin"
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
     cd "contrib/chg" do
-      system "make", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg", \
-             "HG=#{bin}/hg"
+      system "make", "PREFIX=#{prefix}", "PYTHON=python3", "HGPATH=#{bin}/hg",
+                     "HG=#{bin}/hg"
       bin.install "chg"
     end
 
@@ -44,8 +52,10 @@ class Mercurial < Formula
 
   def caveats
     return unless (opt_bin/"hg").exist?
+
     cacerts_configured = `#{opt_bin}/hg config web.cacerts`.strip
     return if cacerts_configured.empty?
+
     <<~EOS
       Homebrew has detected that Mercurial is configured to use a certificate
       bundle file as its trust store for TLS connections instead of using the

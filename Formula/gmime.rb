@@ -1,18 +1,22 @@
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "https://spruce.sourceforge.io/gmime/"
-  url "https://download.gnome.org/sources/gmime/3.0/gmime-3.0.5.tar.xz"
-  sha256 "2f5353ac1062aa58c4855cc7691a0778c84339c654301a6bc0e95ba8427b85e0"
+  url "https://download.gnome.org/sources/gmime/3.2/gmime-3.2.7.tar.xz"
+  sha256 "2aea96647a468ba2160a64e17c6dc6afe674ed9ac86070624a3f584c10737d44"
+  license "LGPL-2.1"
 
   bottle do
-    sha256 "d046da22ebd37b9071a9d3485b85035b77c2484628bcd626dc0a722417992d5b" => :high_sierra
-    sha256 "f0dda96e5c79eaec0b115b8de98888c59bbe16705bfa798f1b89b8e887f7cbee" => :sierra
-    sha256 "fc9b749c6f50cf3973af08c7ad07d036b6411905ea2356a7f110246b0fe832c0" => :el_capitan
+    sha256 arm64_big_sur: "0c12167da5badd3447325e0770666c1e7f5e5e8945613e4c54c4e3e5ef1915fa"
+    sha256 big_sur:       "3714b2907a93c2495efb79c0cf870bdab5683c64c17696836b19e5b34108b852"
+    sha256 catalina:      "877f2024cc0d97bc94f559ad992f87bdf6fdc23f9a1acc7b5bb13f0711b734c3"
+    sha256 mojave:        "7a0bda5bca906bc62e3ab24fc39752e2858fce861ba759040fc864928ab18d96"
+    sha256 high_sierra:   "0bb48841eae316695037bcd793673d518d0f2be20968a115a81c92824fb77ac0"
   end
 
+  depends_on "gobject-introspection" => :build
   depends_on "pkg-config" => :build
-  depends_on "gobject-introspection" => :recommended
   depends_on "glib"
+  depends_on "gpgme"
 
   def install
     args = %W[
@@ -21,13 +25,9 @@ class Gmime < Formula
       --enable-largefile
       --disable-vala
       --disable-glibtest
+      --enable-crypto
+      --enable-introspection
     ]
-
-    if build.with? "gobject-introspection"
-      args << "--enable-introspection"
-    else
-      args << "--disable-introspection"
-    end
 
     system "./configure", *args
     system "make", "install"
@@ -46,7 +46,7 @@ class Gmime < Formula
           return 1;
         }
       }
-      EOS
+    EOS
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     pcre = Formula["pcre"]
@@ -65,8 +65,10 @@ class Gmime < Formula
       -lglib-2.0
       -lgmime-3.0
       -lgobject-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "-o", "test", "test.c", *flags
     system "./test"
   end

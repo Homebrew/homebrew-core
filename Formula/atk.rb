@@ -1,25 +1,30 @@
 class Atk < Formula
   desc "GNOME accessibility toolkit"
   homepage "https://library.gnome.org/devel/atk/"
-  url "https://download.gnome.org/sources/atk/2.26/atk-2.26.1.tar.xz"
-  sha256 "ef00ff6b83851dddc8db38b4d9faeffb99572ba150b0664ee02e46f015ea97cb"
+  url "https://download.gnome.org/sources/atk/2.36/atk-2.36.0.tar.xz"
+  sha256 "fb76247e369402be23f1f5c65d38a9639c1164d934e40f6a9cf3c9e96b652788"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "08bf533625443e9f7e47c08d163fcc74fcc973c6aae9b61b6ef1a09d506d6a3b" => :high_sierra
-    sha256 "cce0be459801eb065dd540baee6aec81740895e46f422722f23c9bfb3dd0a1ff" => :sierra
-    sha256 "40860eef1dacca8db3f7de7b1c2aa302e352ea6cd9f05a3ab84234b77bcf6b1c" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "e7d40dbacc2c965c8b23224a5e1cd2a90d6c54758b957dcf3d66c2238feec518"
+    sha256 cellar: :any, big_sur:       "8321e0ee7364e1de1a3667c50954b4b4f629cba7c2d8077114c4a5bc38a24655"
+    sha256 cellar: :any, catalina:      "1065293046ab2984940dfa0b9c9e724439838e63f685c932d508ccd74bcf921b"
+    sha256 cellar: :any, mojave:        "68c7b621339c03964036877987db69806f663612ba275e68554a97d218a2b5b4"
+    sha256 cellar: :any, high_sierra:   "fa8f525bfeacab676f795bac37f622fc100e63c9e9661fbd6ddd3e1725ebd097"
   end
 
+  depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "gobject-introspection"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-introspection=yes"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -44,8 +49,10 @@ class Atk < Formula
       -latk-1.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

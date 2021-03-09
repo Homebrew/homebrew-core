@@ -1,57 +1,43 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
-  homepage "http://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/v0.801.tar.gz"
-  sha256 "40f94cdcc5c9a374c522de7eb2c2288eaa8c6de85d0bd6a730f48bd5d84a89f9"
-  revision 1
+  homepage "https://dosbox-x.com/"
+  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.83.11.tar.gz"
+  sha256 "d65c96349a921e9843914e5b852ef926e4fff3ae22d9ebd8490b534afec85717"
+  license "GPL-2.0-or-later"
+  version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git"
 
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "8cbaa0cf9658118b4b4ba32f4d1718f9bf49d0aec71cc7846463f37966559656" => :high_sierra
-    sha256 "d3fc4b2bd340ed6f7d2624b8daf95397891f8e142d6219437f2cae215f538216" => :sierra
-    sha256 "0b5098e3397a15804a300540be53c98f862c4f7276eb4c1de7966152421a9392" => :el_capitan
+  livecheck do
+    url :stable
+    regex(/^dosbox-x[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "sdl"
-  depends_on "sdl_net"
-  depends_on "sdl_sound"
-  depends_on "libpng"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "b69391d65116d0671de8a81c4f2605edfb0a3d1451e2f713d8cc992c97f48203"
+    sha256 cellar: :any, big_sur:       "d8f94ea5053977241263e0bab8a55bcc7709d1eb4a9c303a082f2be7daf131ba"
+    sha256 cellar: :any, catalina:      "b29cba95b2789ea7c56d9b3dcb85f3729c6ea1d509e944d6395c5f702c189a11"
+    sha256 cellar: :any, mojave:        "0502f349d980682f925eeaf160c06c96cda7247af12e2b39e95cd0ce14ce083a"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "pkg-config" => :build
   depends_on "fluid-synth"
-
-  # Otherwise build failure on Moutain Lion (#311)
-  needs :cxx11
-
-  conflicts_with "dosbox", :because => "both install `dosbox` binaries"
+  depends_on macos: :high_sierra # needs futimens
 
   def install
     ENV.cxx11
-
-    # Fix build failure due to missing <remote-ext.h> included from pcap.h
-    # https://github.com/joncampbell123/dosbox-x/issues/275
-    inreplace "src/hardware/ne2000.cpp", "#define HAVE_REMOTE\n", ""
-
-    # Fix compilation issue: https://github.com/joncampbell123/dosbox-x/pull/308
-    if DevelopmentTools.clang_build_version >= 900
-      inreplace "src/hardware/serialport/nullmodem.cpp",
-                "setCD(clientsocket > 0)", "setCD(clientsocket != 0)"
-    end
 
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-sdltest
-      --enable-core-inline
     ]
-    args << "--enable-debug" if build.with? "debugger"
-
-    system "./configure", *args
-    chmod 0755, "install-sh"
+    system "./build-macosx", *args
     system "make", "install"
   end
 
   test do
-    assert_match /DOSBox version #{version}/, shell_output("#{bin}/dosbox -version 2>&1", 1)
+    assert_match "DOSBox-X version #{version}", shell_output("#{bin}/dosbox-x -version 2>&1", 1)
   end
 end

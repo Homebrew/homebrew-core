@@ -1,21 +1,24 @@
 class Lapack < Formula
   desc "Linear Algebra PACKage"
-  homepage "http://www.netlib.org/lapack/"
-  url "http://www.netlib.org/lapack/lapack-3.8.0.tar.gz"
-  sha256 "deb22cc4a6120bff72621155a9917f485f96ef8319ac074a7afbc68aab88bcf6"
+  homepage "https://www.netlib.org/lapack/"
+  url "https://github.com/Reference-LAPACK/lapack/archive/v3.9.0.tar.gz"
+  sha256 "106087f1bb5f46afdfba7f569d0cbe23dacb9a07cd24733765a0e89dbe1ad573"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
-    sha256 "d2fd3a045aead6bfd24b0334727c729a3350170182e78511ca2639e25bf9da89" => :high_sierra
-    sha256 "cae4a32b1eed31c3aae19a8675d7ae8593ac48579dd8204762d61d6758a1ed7c" => :sierra
-    sha256 "e93b388936eba21115a578b848b5b13562f0f2269b08a0d90b66d3d5fd7f5f8d" => :el_capitan
+    sha256 arm64_big_sur: "7b84850a2c6dd2c589630c1c61157594c05689b516e1e072d1e0ad62e0df40e2"
+    sha256 big_sur:       "4545eca9af03f52eb2080a3e45017d877b1832a9096c5c023886bd8aa1116bec"
+    sha256 catalina:      "be00d33447ab0bb47a05f89517640c984cafb7723fd6fff9749de773c304f2df"
+    sha256 mojave:        "ad84de82af78dc5ee4b305c76a79a3fc18420beeac2be72d1c262936d5a9110e"
+    sha256 high_sierra:   "fd360d9073e8a483e88a0bca6c8dc96a8159488fa3a6009bb8cbe03747f20f4f"
   end
 
-  keg_only :provided_by_osx
+  keg_only :shadowed_by_macos, "macOS provides LAPACK in Accelerate.framework"
 
   depends_on "cmake" => :build
-  depends_on :fortran
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
 
   def install
     ENV.delete("MACOSX_DEPLOYMENT_TARGET")
@@ -30,7 +33,7 @@ class Lapack < Formula
   end
 
   test do
-    (testpath/"lp.cpp").write <<~EOS
+    (testpath/"lp.c").write <<~EOS
       #include "lapacke.h"
       int main() {
         void *p = LAPACKE_malloc(sizeof(char)*100);
@@ -40,7 +43,7 @@ class Lapack < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "lp.cpp", "-I#{include}", "-L#{lib}", "-llapacke", "-o", "lp"
+    system ENV.cc, "lp.c", "-I#{include}", "-L#{lib}", "-llapacke", "-o", "lp"
     system "./lp"
   end
 end

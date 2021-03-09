@@ -1,15 +1,17 @@
 class Brotli < Formula
   desc "Generic-purpose lossless compression algorithm by Google"
   homepage "https://github.com/google/brotli"
-  url "https://github.com/google/brotli/archive/v1.0.2.tar.gz"
-  sha256 "c2cf2a16646b44771a4109bb21218c8e2d952babb827796eb8a800c1f94b7422"
+  url "https://github.com/google/brotli/archive/v1.0.9.tar.gz"
+  sha256 "f9e8d81d0405ba66d181529af42a3354f838c939095ff99930da6aa9cdf6fe46"
+  license "MIT"
   head "https://github.com/google/brotli.git"
 
   bottle do
-    cellar :any
-    sha256 "bcb0f43337dc57d0fe955bb60644855711c7659e28260cc22d5d8773b1327fe3" => :high_sierra
-    sha256 "6c883d4ae1b91389b8a3f427bce8a03c6ec75f25792455f8099c5512c849111e" => :sierra
-    sha256 "9d2081d456e4fcef0cff8d961ed090543e28c4f116e204b7154aa744d1bc35a7" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "bcd00b6f423ec35f98aec55bc2c1cf433b6e70e915cdf04dd2c3a3707f1ce341"
+    sha256 cellar: :any, big_sur:       "9d3009fd246d0f6cf9fd11d0a3bd388f6c043c75fa302decf0dd935163fb0f4b"
+    sha256 cellar: :any, catalina:      "a382d95787cc2a5742a1d713f939bbc91ca6e097aee7f49f95cc111dca9fa9d7"
+    sha256 cellar: :any, mojave:        "d121eaa3e670d5ad972514a4cc000326249694c8b9691013e28b8dd52b87410d"
+    sha256 cellar: :any, high_sierra:   "126ecc002d37d167252743eb6ff5db19bb6aa4584ab3f731bd7876e438fc6dab"
   end
 
   depends_on "cmake" => :build

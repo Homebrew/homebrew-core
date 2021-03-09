@@ -1,16 +1,20 @@
 class Logcheck < Formula
   desc "Mail anomalies in the system logfiles to the administrator"
-  homepage "https://logcheck.alioth.debian.org/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/logcheck/logcheck_1.3.18.tar.xz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/l/logcheck/logcheck_1.3.18.tar.xz"
-  sha256 "077b9149ccd2b747b52785afa89da844f3d072c017c9e719925dec6acb9a9af4"
+  homepage "https://packages.debian.org/sid/logcheck"
+  url "https://deb.debian.org/debian/pool/main/l/logcheck/logcheck_1.3.22.tar.xz"
+  sha256 "7bb5de44d945b1ec6556c90ad8e9cb4e6355fc44b6c5653effe00495ec55e84e"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url "https://packages.debian.org/unstable/logcheck"
+    regex(/href=.*?logcheck[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "6c304fad3d53e8ef548f50c96c794dc736675bdee7d6e42942b7efd7a16ce066" => :high_sierra
-    sha256 "ce71670cdeba739650cd716867e12cda182a948189a68ca565d318299f847a61" => :sierra
-    sha256 "94fde1124326dc8ed8428878b84db52b22b4ce1c19949ee0dd170402164cbadd" => :el_capitan
-    sha256 "94fde1124326dc8ed8428878b84db52b22b4ce1c19949ee0dd170402164cbadd" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "93c3137e2f64093bbd04d83e291b6703c438c2f54624c48b66812dbe59e3e554"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f2bfaccdb1a53aec3701d8f35c960b3d253395f648ff32602adcc355741b5c36"
+    sha256 cellar: :any_skip_relocation, catalina:      "aa5bf95cb6fe848f0577be456ee84fd3ea2e5f5e7c00ecab57d6bbc85bf2d218"
+    sha256 cellar: :any_skip_relocation, mojave:        "5d88f3e85dd26050d6e65c4e980de25e7168bf6c254ac7e141c10360c41d8c28"
   end
 
   def install

@@ -1,27 +1,29 @@
 class Gprof2dot < Formula
+  include Language::Python::Virtualenv
+
   desc "Convert the output from many profilers into a Graphviz dot graph"
   homepage "https://github.com/jrfonseca/gprof2dot"
-  url "https://files.pythonhosted.org/packages/9d/36/f977122502979f3dfb50704979c9ed70e6b620787942b089bf1af15f5aba/gprof2dot-2017.9.19.tar.gz"
-  sha256 "cebc7aa2782fd813ead415ea1fae3409524343485eadc7fb60ef5bd1e810309e"
-
+  url "https://files.pythonhosted.org/packages/0f/80/11d3ec1703cc61606ddc68851747d1d1df3700d5e6c2b559af6dbeb398c5/gprof2dot-2021.2.21.tar.gz"
+  sha256 "1223189383b53dcc8ecfd45787ac48c0ed7b4dbc16ee8b88695d053eea1acabf"
+  license "LGPL-3.0-or-later"
   head "https://github.com/jrfonseca/gprof2dot.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b557363c9161ff1cd9de06cfb116eac29886c31f655c57d031ef2c6641fe876c" => :high_sierra
-    sha256 "4cbf98d1320170ed6287d0b58bc7c810e29529de2ea5d5c4c2545443c6f5e3e2" => :sierra
-    sha256 "2fe7080ddad320a9f73638f8d1ad072e97d6ba80825221414bae015019672852" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ff5a7c93c9ee8fda75fb559b15771a9833e232678ada2f36f5d378d86ec18e11"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7fde10f750d764840f63e58ffbeab678c565859810288d7bd3b6978d50bcd655"
+    sha256 cellar: :any_skip_relocation, catalina:      "5c47790338ce21e3a7cbe32e9c366ddf1c451057d72bfe6f9c09ffb62d0b18c6"
+    sha256 cellar: :any_skip_relocation, mojave:        "6a2ab69926fa5a54cb4f263f9f99398292bdb7aaaf252a34f6d6ba412c627599"
   end
 
-  depends_on "graphviz" => :recommended
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "graphviz"
+  depends_on "python@3.9"
+
+  on_linux do
+    depends_on "libx11"
+  end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python2.7/site-packages"
-    system "python", *Language::Python.setup_install_args(libexec)
-
-    bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    virtualenv_install_with_resources
   end
 
   test do

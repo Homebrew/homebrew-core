@@ -1,36 +1,51 @@
 class GobjectIntrospection < Formula
+  include Language::Python::Shebang
+
   desc "Generate introspection data for GObject libraries"
-  homepage "https://live.gnome.org/GObjectIntrospection"
-  url "https://download.gnome.org/sources/gobject-introspection/1.54/gobject-introspection-1.54.1.tar.xz"
-  sha256 "b88ded5e5f064ab58a93aadecd6d58db2ec9d970648534c63807d4f9a7bb877e"
+  homepage "https://gi.readthedocs.io/en/latest/"
+  url "https://download.gnome.org/sources/gobject-introspection/1.66/gobject-introspection-1.66.1.tar.xz"
+  sha256 "dd44a55ee5f426ea22b6b89624708f9e8d53f5cc94e5485c15c87cb30e06161d"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   bottle do
-    sha256 "af8872721600cf3b5c033bad125fcef08a59e3ddfde4093fe6bc6bce5331e004" => :high_sierra
-    sha256 "4f07bc2e12b9015a670a999744d8201c575ea9d49421ec617507aa01407d841e" => :sierra
-    sha256 "88736baecfbab3cf709cb6b09de85f9e4a4382ac1d1c59f33af22c522dab81a4" => :el_capitan
+    sha256 arm64_big_sur: "2d82497ba4828a88c50e4842a2f78849843b31dc12263591f3e1ce578a61c199"
+    sha256 big_sur:       "e5894b5eec0b33c9d00d0b7b1159cdfe6a2947fcf9ac9ade5ff621f2df7932df"
+    sha256 catalina:      "3e85468a3324cb560775e024c6fd52212af73994898b381faff9aad5baa2fdb6"
+    sha256 mojave:        "1d42d9c900dab307aefddffe723140ec2dfa25201426b4426c76cca28a4c46fa"
+    sha256 high_sierra:   "e22482d7c20cefd6c020eb7bb3406a9da8e159a128a700fa9d13983c3da426e7"
   end
 
-  depends_on "pkg-config" => :run
-  depends_on "glib"
+  depends_on "bison" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "cairo"
+  depends_on "glib"
   depends_on "libffi"
-  depends_on :python if MacOS.version <= :mavericks
+  depends_on "pkg-config"
+  depends_on "python@3.9"
+
+  uses_from_macos "flex"
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",
-        :revision => "499ac89f8a9ad17d250e907f74912159ea216416"
+        revision: "499ac89f8a9ad17d250e907f74912159ea216416"
   end
 
   def install
     ENV["GI_SCANNER_DISABLE_CACHE"] = "true"
     inreplace "giscanner/transformer.py", "/usr/share", "#{HOMEBREW_PREFIX}/share"
-    inreplace "configure" do |s|
-      s.change_make_var! "GOBJECT_INTROSPECTION_LIBDIR", "#{HOMEBREW_PREFIX}/lib"
-    end
+    inreplace "meson.build",
+      "config.set_quoted('GOBJECT_INTROSPECTION_LIBDIR', join_paths(get_option('prefix'), get_option('libdir')))",
+      "config.set_quoted('GOBJECT_INTROSPECTION_LIBDIR', '#{HOMEBREW_PREFIX}/lib')"
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}", "PYTHON=python"
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args,
+        "-Dpython=#{Formula["python@3.9"].opt_bin}/python3", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+      bin.find { |f| rewrite_shebang detected_python_shebang, f }
+    end
   end
 
   test do

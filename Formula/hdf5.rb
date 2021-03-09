@@ -1,37 +1,41 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://www.hdfgroup.org/package/source-bzip2/?wpdmdl=4300"
-  mirror "https://dl.bintray.com/homebrew/mirror/hdf5-1.10.1"
-  version "1.10.1"
-  sha256 "9c5ce1e33d2463fb1a42dd04daacbc22104e57676e2204e3d66b1ef54b88ebf2"
-  revision 2
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
+  sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
+  license "BSD-3-Clause"
+  revision 1
 
-  bottle do
-    sha256 "277756fe2af2c1ccc08d0da75dbd666baf912b5d73ba0280f32fcf3c54bdba35" => :high_sierra
-    sha256 "12da4985daed0cbce5a368519e3a04d0e82447636fba3595ec0c8dad9cf13cff" => :sierra
-    sha256 "62f02b4183d1c6841ed9322d5bc02156fd7e1871d398fbfb9c9bb272fb13fe0c" => :el_capitan
-    sha256 "860eed2e9851d234d197b31161e0bfe66414825024503a43e79704de98fea9c9" => :yosemite
+  livecheck do
+    url "https://www.hdfgroup.org/downloads/hdf5/"
+    regex(/Newsletter for HDF5[._-]v?(.*?) Release/i)
   end
 
-  deprecated_option "enable-parallel" => "with-mpi"
-
-  option :cxx11
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "2eb3e73920211c3b9f2b8fb3e2bd39d00dfd5069812e3639bb39d4cfe7d78cab"
+    sha256 cellar: :any, big_sur:       "7cd7cdc13241744c74a94eb578575c357cf263ff0228251a7882a9b7452bac92"
+    sha256 cellar: :any, catalina:      "ff70299b918490134fb3e883110f0092d591885db3fc798f2cc0f48cd9472f36"
+    sha256 cellar: :any, mojave:        "450afa0c0e0783b416e67df0d2a56c5f12518df65ba0326884e06f3388c5c445"
+    sha256 cellar: :any, high_sierra:   "541d0b241a81248d8b6c3d3b205fb3f319e5cefe751d7750aa2749b9696ff749"
+  end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "gcc" # for gfortran
   depends_on "szip"
-  depends_on :fortran
-  depends_on :mpi => [:optional, :cc, :cxx, :f90]
+
+  uses_from_macos "zlib"
 
   def install
-    ENV.cxx11 if build.cxx11?
+    inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
+      "${libdir}/libhdf5.settings",
+      "#{pkgshare}/libhdf5.settings"
 
-    inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/src/misc/h5cc.in],
-      "${libdir}/libhdf5.settings", "#{pkgshare}/libhdf5.settings"
-
-    inreplace "src/Makefile.am", "settingsdir=$(libdir)", "settingsdir=#{pkgshare}"
+    inreplace "src/Makefile.am",
+              "settingsdir=$(libdir)",
+              "settingsdir=#{pkgshare}"
 
     system "autoreconf", "-fiv"
 
@@ -42,23 +46,17 @@ class Hdf5 < Formula
       --with-szlib=#{Formula["szip"].opt_prefix}
       --enable-build-mode=production
       --enable-fortran
+      --enable-cxx
     ]
-
-    if build.without?("mpi")
-      args << "--enable-cxx"
-    else
-      args << "--disable-cxx"
-    end
-
-    if build.with? "mpi"
-      ENV["CC"] = ENV["MPICC"]
-      ENV["CXX"] = ENV["MPICXX"]
-      ENV["FC"] = ENV["MPIFC"]
-
-      args << "--enable-parallel"
+    on_linux do
+      args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
     end
 
     system "./configure", *args
+
+    # Avoid shims in settings file
+    inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+
     system "make", "install"
   end
 
@@ -101,7 +99,7 @@ class Hdf5 < Formula
       if (error /= 0) call abort
       write (*,"(I0,'.',I0,'.',I0)") major, minor, rel
       end
-      EOS
+    EOS
     system "#{bin}/h5fc", "test.f90"
     assert_equal version.to_s, shell_output("./a.out").chomp
   end

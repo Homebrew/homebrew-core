@@ -1,48 +1,57 @@
 class Mytop < Formula
   desc "Top-like query monitor for MySQL"
-  homepage "http://www.mysqlfanboy.com/mytop-3/"
-  url "http://www.mysqlfanboy.com/mytop-3/mytop-1.9.1.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
+  homepage "https://web.archive.org/web/20200221154243/www.mysqlfanboy.com/mytop-3/"
+  url "https://web.archive.org/web/20150602163826/www.mysqlfanboy.com/mytop-3/mytop-1.9.1.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/m/mytop/mytop_1.9.1.orig.tar.gz"
   sha256 "179d79459d0013ab9cea2040a41c49a79822162d6e64a7a85f84cdc44828145e"
-  revision 3
+  revision 8
 
-  bottle do
-    cellar :any
-    sha256 "5921bbce36cc99fba2b22daa784a3dbff556a1fd57d2f9f54e46e6650d32d8cc" => :high_sierra
-    sha256 "e49071ca46a5f8203d24ea318afab37b6a387f5669b69cca670a0b053e1c7611" => :sierra
-    sha256 "4fca8e6d7cf86993af8dcded0b4ce5bc0b4a3fb63ec2359c42d0513019ec03e0" => :el_capitan
-    sha256 "869b2a25dd9cd7fdeadce32336e8c8ff0d90545a78fedbd6c9a870c0910b2521" => :yosemite
+  livecheck do
+    skip "Upstream is gone and the formula uses archive.org URLs"
   end
 
-  depends_on :mysql
-  depends_on "openssl"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "1b5b8d90532a1d9712a2f0212374975af97603ccdcf7e452bc13178aedfce966"
+    sha256 cellar: :any, big_sur:       "ea2f5229c929cb23466f75964d1bf294130381b27efd55cf2ce91cb248c43732"
+    sha256 cellar: :any, catalina:      "69930f7d5c68b0d6ce75c89820732f269d3b3c6651358875b0db58ae1ead38f0"
+    sha256 cellar: :any, mojave:        "ac13ecf239ff9d4bb1d39ad584c46ac9a5c95f3b96b3991bf9108280b30c0a19"
+    sha256 cellar: :any, high_sierra:   "2862de7630947648898e1ef348a8357fdd25622310c9af03450c40ea33fc925c"
+  end
 
-  conflicts_with "mariadb", :because => "both install `mytop` binaries"
+  depends_on "mysql-client"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "perl"
+
+  conflicts_with "mariadb", because: "both install `mytop` binaries"
 
   resource "List::Util" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.46.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/P/PE/PEVANS/Scalar-List-Utils-1.46.tar.gz"
     sha256 "30662b1261364adb317e9a5bd686273d3dd731e3fda1b8e894802aa52e0052e7"
   end
 
   resource "Config::IniFiles" do
     url "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.94.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/S/SH/SHLOMIF/Config-IniFiles-2.94.tar.gz"
     sha256 "d6d38a416da79de874c5f1825221f22e972ad500b6527d190cc6e9ebc45194b4"
   end
 
+  # In Mojave, this is not part of the system Perl anymore
+  if MacOS.version >= :mojave
+    resource "DBI" do
+      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
+      sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
+    end
+  end
+
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/M/MI/MICHIELB/DBD-mysql-4.041.tar.gz"
-    sha256 "4777de11c464b515db9da95c08c225900d0594b65ba3256982dc21f9f9379040"
+    url "https://cpan.metacpan.org/authors/id/C/CA/CAPTTOFU/DBD-mysql-4.046.tar.gz"
+    sha256 "6165652ec959d05b97f5413fa3dff014b78a44cf6de21ae87283b28378daf1f7"
   end
 
   # Pick up some patches from Debian to improve functionality & fix
   # some syntax warnings when using recent versions of Perl.
   patch do
-    url "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/m/mytop/mytop_1.9.1-2.debian.tar.xz"
-    mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mytop/mytop_1.9.1-2.debian.tar.xz"
+    url "https://deb.debian.org/debian/pool/main/m/mytop/mytop_1.9.1-2.debian.tar.xz"
     sha256 "9c97b7d2a2d4d169c5f263ce0adb6340b71e3a0afd4cdde94edcead02421489a"
     apply "patches/01_fix_pod.patch",
           "patches/02_remove_db_test.patch",
@@ -69,7 +78,7 @@ class Mytop < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "test", "install"
     share.install prefix/"man"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
   end
 
   test do

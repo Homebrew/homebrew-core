@@ -1,32 +1,37 @@
 class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
+  if Hardware::CPU.arm?
+    # Branch from the Darwin maintainer of GCC with Apple Silicon support,
+    # located at https://github.com/iains/gcc-darwin-arm64 and
+    # backported with his help to gcc-10 branch. Too big for a patch.
+    url "https://github.com/fxcoudert/gcc/archive/gcc-10-arm-20210220.tar.gz"
+    sha256 "53beed690e4e0355d972ad58917a11e01af1cfe67b2e7602ca1ef89c98417a67"
+    version "10.2.0"
+  else
+    url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
+    sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
+  end
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 4
+  head "https://gcc.gnu.org/git/gcc.git"
 
-  head "svn://gcc.gnu.org/svn/gcc/trunk"
-
-  stable do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
-    sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
+  livecheck do
+    # Should be
+    # url :stable
+    # but that does not work with the ARM-specific branch above
+    url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0"
+    regex(%r{href=.*?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
   bottle do
-    sha256 "3b7606d2b98cf9ca5c25d2620d2c9d6c146a910f6063c071ac4bf5abdeb73faa" => :high_sierra
-    sha256 "bc96bddd0e9f7c074eab7c4036973bc60d5d5ef4489e65db64018363d63d248d" => :sierra
-    sha256 "755ed27d3aa9b60523aead68f36d17f6396b9f4b622a0972c05eae3302922d5c" => :el_capitan
-    sha256 "eecedf7c9233bd1553d3e22027f415f15a9d1a7ad11e486855bf3a8f7d36ed23" => :yosemite
+    rebuild 1
+    sha256 arm64_big_sur: "26e823464b7a0c4b854d95ec1bbed3caa4875ab552ce76792f0a9084ee085d96"
+    sha256 big_sur:       "9c412d919eb6808625ac69fe8ff882e06a82700c28c7e650defe5748930be87e"
+    sha256 catalina:      "9e8ebd91740ea2113601ee4ba2adec48ecd580c1fbe66998e93cdc44fc92ebff"
+    sha256 mojave:        "930750d0fd5abd916a7fd4346d5a01affb38929eec02824351cd599ecba6a943"
   end
-
-  option "with-jit", "Build just-in-time compiler"
-  option "with-nls", "Build with native language support (localization)"
-
-  depends_on "gmp"
-  depends_on "libmpc"
-  depends_on "mpfr"
-  depends_on "isl"
-
-  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-  cxxstdlib_check :skip
 
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
@@ -35,38 +40,30 @@ class Gcc < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
+  depends_on "gmp"
+  depends_on "isl"
+  depends_on "libmpc"
+  depends_on "mpfr"
+
+  uses_from_macos "zlib"
+
+  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
+  cxxstdlib_check :skip
+
+  if Hardware::CPU.intel?
+    # Patch for Big Sur, remove with GCC 10.3
+    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=98805
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6a83f36d/gcc/bigsur_2.patch"
+      sha256 "347a358b60518e1e0fe3c8e712f52bdac1241e44e6c7738549d969c24095f65b"
+    end
+  end
+
   def version_suffix
     if build.head?
       "HEAD"
     else
-      version.to_s.slice(/\d/)
-    end
-  end
-
-  # Fix for libgccjit.so linkage on Darwin
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
-  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225625332
-  # https://github.com/Homebrew/homebrew-core/issues/1872#issuecomment-225626490
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e9e0ee09389a54cc4c8fe1c24ebca3cd765ed0ba/gcc/6.1.0-jit.patch"
-    sha256 "863957f90a934ee8f89707980473769cff47ca0663c3906992da6afb242fb220"
-  end
-
-  # Use -headerpad_max_install_names in the build,
-  # otherwise lto1 load commands cannot be edited on El Capitan
-  if MacOS.version == :el_capitan
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/32cf103/gcc/7.1.0-headerpad.patch"
-      sha256 "dd884134e49ae552b51085116e437eafa63460b57ce84252bfe7a69df8401640"
-    end
-  end
-
-  # Fix parallel build on APFS filesystem
-  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=81797
-  if MacOS.version >= :high_sierra
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/df0465c02a/gcc/apfs.patch"
-      sha256 "f7772a6ba73f44a6b378e4fe3548e0284f48ae2d02c701df1be93780c1607074"
+      version.major.to_s
     end
   end
 
@@ -80,45 +77,50 @@ class Gcc < Formula
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
 
-    # JIT compiler is off by default, enabling it has performance cost
-    languages << "jit" if build.with? "jit"
+    pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
+    cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
-    osmajor = `uname -r`.chomp
-
-    args = [
-      "--build=x86_64-apple-darwin#{osmajor}",
-      "--prefix=#{prefix}",
-      "--libdir=#{lib}/gcc/#{version_suffix}",
-      "--enable-languages=#{languages.join(",")}",
-      # Make most executables versioned to avoid conflicts.
-      "--program-suffix=-#{version_suffix}",
-      "--with-gmp=#{Formula["gmp"].opt_prefix}",
-      "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
-      "--with-mpc=#{Formula["libmpc"].opt_prefix}",
-      "--with-isl=#{Formula["isl"].opt_prefix}",
-      "--with-system-zlib",
-      "--enable-checking=release",
-      "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
-      "--with-bugurl=https://github.com/Homebrew/homebrew-core/issues",
+    args = %W[
+      --build=#{cpu}-apple-darwin#{OS.kernel_version.major}
+      --prefix=#{prefix}
+      --libdir=#{lib}/gcc/#{version_suffix}
+      --disable-nls
+      --enable-checking=release
+      --enable-languages=#{languages.join(",")}
+      --program-suffix=-#{version_suffix}
+      --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-mpfr=#{Formula["mpfr"].opt_prefix}
+      --with-mpc=#{Formula["libmpc"].opt_prefix}
+      --with-isl=#{Formula["isl"].opt_prefix}
+      --with-system-zlib
+      --with-pkgversion=#{pkgversion}
+      --with-bugurl=#{tap.issues_url}
     ]
 
-    args << "--disable-nls" if build.without? "nls"
-    args << "--enable-host-shared" if build.with?("jit")
+    # Xcode 10 dropped 32-bit support
+    args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+
+    # System headers may not be in /usr/include
+    sdk = MacOS.sdk_path_if_needed
+    if sdk
+      args << "--with-native-system-header-dir=/usr/include"
+      args << "--with-sysroot=#{sdk}"
+    end
+
+    # Avoid reference to sed shim
+    args << "SED=/usr/bin/sed"
 
     # Ensure correct install names when linking against libgcc_s;
-    # see discussion in https://github.com/Homebrew/homebrew/pull/34303
+    # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
     inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
-      unless MacOS::CLT.installed?
-        # For Xcode-only systems, we need to tell the sysroot path.
-        # "native-system-headers" will be appended
-        args << "--with-native-system-header-dir=/usr/include"
-        args << "--with-sysroot=#{MacOS.sdk_path}"
-      end
-
       system "../configure", *args
-      system "make"
+
+      # Use -headerpad_max_install_names in the build,
+      # otherwise updated load commands won't fit in the Mach-O header.
+      # This is needed because `gcc` avoids the superenv shim.
+      system "make", "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
       system "make", "install"
 
       bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
@@ -153,9 +155,13 @@ class Gcc < Formula
 
     (testpath/"hello-cc.cc").write <<~EOS
       #include <iostream>
+      struct exception { };
       int main()
       {
         std::cout << "Hello, world!" << std::endl;
+        try { throw exception{}; }
+          catch (exception) { }
+          catch (...) { }
         return 0;
       }
     EOS

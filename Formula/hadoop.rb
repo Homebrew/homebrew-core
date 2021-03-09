@@ -1,41 +1,31 @@
 class Hadoop < Formula
   desc "Framework for distributed processing of large data sets"
   homepage "https://hadoop.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=hadoop/common/hadoop-2.8.2/hadoop-2.8.2.tar.gz"
-  mirror "https://archive.apache.org/dist/hadoop/common/hadoop-2.8.2/hadoop-2.8.2.tar.gz"
-  sha256 "aea99c7ce8441749d81202bdea431f1024f17ee6e0efb3144226883207cc6292"
+  url "https://www.apache.org/dyn/closer.lua?path=hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz"
+  mirror "https://archive.apache.org/dist/hadoop/common/hadoop-3.3.0/hadoop-3.3.0.tar.gz"
+  sha256 "ea1a0f0afcdfb9b6b9d261cdce5a99023d7e8f72d26409e87f69bda65c663688"
+  license "Apache-2.0"
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on "openjdk"
+
+  conflicts_with "yarn", because: "both install `yarn` binaries"
 
   def install
     rm_f Dir["bin/*.cmd", "sbin/*.cmd", "libexec/*.cmd", "etc/hadoop/*.cmd"]
     libexec.install %w[bin sbin libexec share etc]
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
-    sbin.write_exec_script Dir["#{libexec}/sbin/*"]
-    # But don't make rcc visible, it conflicts with Qt
-    (bin/"rcc").unlink
-
-    inreplace "#{libexec}/etc/hadoop/hadoop-env.sh",
-      "export JAVA_HOME=${JAVA_HOME}",
-      "export JAVA_HOME=\"$(/usr/libexec/java_home)\""
-    inreplace "#{libexec}/etc/hadoop/yarn-env.sh",
-      "# export JAVA_HOME=/home/y/libexec/jdk1.6.0/",
-      "export JAVA_HOME=\"$(/usr/libexec/java_home)\""
-    inreplace "#{libexec}/etc/hadoop/mapred-env.sh",
-      "# export JAVA_HOME=/home/y/libexec/jdk1.6.0/",
-      "export JAVA_HOME=\"$(/usr/libexec/java_home)\""
-  end
-
-  def caveats; <<~EOS
-    In Hadoop's config file:
-      #{libexec}/etc/hadoop/hadoop-env.sh,
-      #{libexec}/etc/hadoop/mapred-env.sh and
-      #{libexec}/etc/hadoop/yarn-env.sh
-    $JAVA_HOME has been set to be the output of:
-      /usr/libexec/java_home
-    EOS
+    Dir["#{libexec}/bin/*"].each do |path|
+      (bin/File.basename(path)).write_env_script path, JAVA_HOME: Formula["openjdk"].opt_prefix
+    end
+    Dir["#{libexec}/sbin/*"].each do |path|
+      (sbin/File.basename(path)).write_env_script path, JAVA_HOME: Formula["openjdk"].opt_prefix
+    end
+    Dir["#{libexec}/libexec/*.sh"].each do |path|
+      (libexec/File.basename(path)).write_env_script path, JAVA_HOME: Formula["openjdk"].opt_prefix
+    end
+    # Temporary fix until https://github.com/Homebrew/brew/pull/4512 is fixed
+    chmod 0755, Dir["#{libexec}/*.sh"]
   end
 
   test do

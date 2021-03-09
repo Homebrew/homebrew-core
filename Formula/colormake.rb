@@ -3,6 +3,7 @@ class Colormake < Formula
   homepage "https://github.com/pagekite/Colormake"
   url "https://github.com/pagekite/Colormake/archive/0.9.20140503.tar.gz"
   sha256 "a3f9fae9a455ac96be1cce0371b28bda33a9af73b06fa8e4329aa2f693d68d22"
+  license "GPL-2.0"
   head "https://github.com/pagekite/Colormake.git"
 
   bottle :unneeded
@@ -27,6 +28,6 @@ class Colormake < Formula
 
   test do
     (testpath/"Makefile").write("all:\n\techo Hello World!\n")
-    assert_match /Hello World!/, shell_output("#{bin}/colormake")
+    assert_match "Hello World!", shell_output("#{bin}/colormake")
   end
 end

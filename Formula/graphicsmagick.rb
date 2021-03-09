@@ -1,85 +1,53 @@
 class Graphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
-  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.26/GraphicsMagick-1.3.26.tar.xz"
-  sha256 "fba015f3d5e5d5f17e57db663f1aa9d338e7b62f1d415b85d13ee366927e5f88"
-  revision 2
-  head "http://hg.code.sf.net/p/graphicsmagick/code", :using => :hg
+  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.36/GraphicsMagick-1.3.36.tar.xz"
+  sha256 "5d5b3fde759cdfc307aaf21df9ebd8c752e3f088bb051dd5df8aac7ba7338f46"
+  head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
   bottle do
-    sha256 "12319549932a72415462038f0f441004ebb29bd882db39695a6ed66eab54d478" => :high_sierra
-    sha256 "a3e6506d9acd32f5dac9971b3e4f3fd25b4a5cf2e9003e2a3dc73f73bf02110c" => :sierra
-    sha256 "a33ac35c22e667ac3e74573f9b667aeabb688370656bc50ad460d24d4eff87b0" => :el_capitan
+    sha256 arm64_big_sur: "baae9073b2475351eb1d53d23fa0c2fcf75a1611649b3be229a71b693881436e"
+    sha256 big_sur:       "e8423e130f6dcdf83c501db944a341257e5b774cd007e1300f8b3cd3d32cafcb"
+    sha256 catalina:      "a09639dfb381b06df090e595f6f1bc343c3619c9643de26c6cfea4073c9527cd"
+    sha256 mojave:        "40b04368925d79d6e6fbe76014e5db18c7378eda414beb1b41de9bb8db6a69a0"
   end
-
-  option "without-magick-plus-plus", "disable build/install of Magick++"
-  option "without-svg", "Compile without svg support"
-  option "with-perl", "Build PerlMagick; provides the Graphics::Magick module"
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "freetype" => :recommended
-  depends_on "little-cms2" => :optional
-  depends_on "jasper" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "ghostscript" => :optional
-  depends_on "webp" => :optional
-  depends_on :x11 => :optional
+  depends_on "freetype"
+  depends_on "jasper"
+  depends_on "jpeg"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "libtool"
+  depends_on "little-cms2"
+  depends_on "webp"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   skip_clean :la
-
-  def ghostscript_fonts?
-    File.directory? "#{HOMEBREW_PREFIX}/share/ghostscript/fonts"
-  end
 
   def install
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
-      --enable-shared
-      --disable-static
-      --with-modules
-      --without-lzma
       --disable-openmp
+      --disable-static
+      --enable-shared
+      --with-modules
       --with-quantum-depth=16
+      --without-lzma
+      --without-x
+      --without-gslib
+      --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --without-wmf
     ]
-
-    args << "--without-gslib" if build.without? "ghostscript"
-    args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
-    args << "--with-perl" if build.with? "perl"
-    args << "--with-webp=yes" if build.with? "webp"
-    args << "--without-x" if build.without? "x11"
-    args << "--without-ttf" if build.without? "freetype"
-    args << "--without-xml" if build.without? "svg"
-    args << "--without-lcms2" if build.without? "little-cms2"
 
     # versioned stuff in main tree is pointless for us
     inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
     system "make", "install"
-    if build.with? "perl"
-      cd "PerlMagick" do
-        # Install the module under the GraphicsMagick prefix
-        system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
-        system "make"
-        system "make", "install"
-      end
-    end
-  end
-
-  def caveats
-    if build.with? "perl"
-      <<~EOS
-        The Graphics::Magick perl module has been installed under:
-
-          #{lib}
-
-      EOS
-    end
   end
 
   test do

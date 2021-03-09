@@ -1,17 +1,17 @@
 class Termrec < Formula
-  desc "Record \"videos\" of terminal output"
+  desc "Record videos of terminal output"
   homepage "https://angband.pl/termrec.html"
-  url "https://github.com/kilobyte/termrec/archive/0.17.tar.gz"
-  sha256 "e3496dcb520b63036423cc72f3eaf66f690e869ef4ae508f027923062c34d84f"
+  url "https://github.com/kilobyte/termrec/archive/v0.19.tar.gz"
+  sha256 "0550c12266ac524a8afb764890c420c917270b0a876013592f608ed786ca91dc"
+  license "LGPL-3.0"
   head "https://github.com/kilobyte/termrec.git"
 
   bottle do
-    cellar :any
-    sha256 "982701325a6da9d921d4a092269ec22c28363898e068ff6aa59df74d7b49198e" => :high_sierra
-    sha256 "945043d319c728bfb239514c13407816dce87c1ad2f6b2b4cd8590d9d5c7dc86" => :sierra
-    sha256 "787ed19e10d093b52b4aab2e6962480ea26b02ebda78bffb54258ce585c31ce1" => :el_capitan
-    sha256 "53f6c1350027212566b1bcd5bb632a5cc5a9fbd56954b619a9bc0a96dd587bb4" => :yosemite
-    sha256 "ffcb4996ef7e88fe41fef79289a65aa9d797e8ad10b7cc382fabc479d504bc31" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "a03a052b7ee89450b145a866724f6f97727c56bbf0220a14a089c84951aeed35"
+    sha256 cellar: :any, big_sur:       "81060090e19bbb56f0b991dfa987eb890c00b116b656be2d2bd29ea027f9496a"
+    sha256 cellar: :any, catalina:      "1d93149ec34c0bf531da76b0137390ed1f05bf2e35e806f1fe875fe6648c4c2b"
+    sha256 cellar: :any, mojave:        "e3f9f241763a05de367da2ee91727674e18a126a99480a750b901a21bdad0ffb"
+    sha256 cellar: :any, high_sierra:   "d6cb43ed14ec0531824bd4eb55ddc625b5711c28b274ce78eb815501e5f3ebf2"
   end
 
   depends_on "autoconf" => :build
@@ -20,8 +20,7 @@ class Termrec < Formula
   depends_on "xz"
 
   def install
-    inreplace "autogen", "libtoolize", "glibtoolize"
-    system "./autogen"
+    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

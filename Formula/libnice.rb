@@ -1,31 +1,44 @@
 class Libnice < Formula
   desc "GLib ICE implementation"
   homepage "https://wiki.freedesktop.org/nice/"
-  url "https://nice.freedesktop.org/releases/libnice-0.1.14.tar.gz"
-  sha256 "be120ba95d4490436f0da077ffa8f767bf727b82decf2bf499e39becc027809c"
+  url "https://nice.freedesktop.org/releases/libnice-0.1.18.tar.gz"
+  sha256 "5eabd25ba2b54e817699832826269241abaa1cf78f9b240d1435f936569273f4"
+  license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
-  bottle do
-    cellar :any
-    sha256 "978bc59e76b4477c1742896550cd4a9d5b1a215518fb88785c3064ec2995bfaa" => :high_sierra
-    sha256 "3782f1868a247063e772f0ac5b9f59524ed6c0ad5a72e1d96af7078e5a36f526" => :sierra
-    sha256 "f9247e1697faac654fa25fc461f080486731d8fbcffc7855c46ab9c716fa62fc" => :el_capitan
-    sha256 "2cbf1077ed2e87caf285188031d47710bedc3bfb801f1f0a87ca0fbb081c8e30" => :yosemite
+  livecheck do
+    url "https://github.com/libnice/libnice.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "0c414fc1c0583fc19cbb8e604914315a4118da705ad5cd78a6472410cd8c0b5b"
+    sha256 cellar: :any, big_sur:       "af306d90fda80e3afe83851672ec34a679e55595431383b5ba246051fc827895"
+    sha256 cellar: :any, catalina:      "eafa60c41c7d017627859714e5a1028151376432e1c5802b95f65f81a191016d"
+    sha256 cellar: :any, mojave:        "657ffb5240531a8dc9e918c2aec1c74fca62af994524e002d674ce9fbe52e4c1"
+  end
+
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gstreamer"
 
+  on_linux do
+    depends_on "intltool" => :build
+  end
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
   end
 
   test do
-    # Based on https://github.com/libnice/libnice/blob/master/examples/simple-example.c
+    # Based on https://github.com/libnice/libnice/blob/HEAD/examples/simple-example.c
     (testpath/"test.c").write <<~EOS
       #include <agent.h>
       int main(int argc, char *argv[]) {
@@ -58,9 +71,11 @@ class Libnice < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -lnice
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, *flags, "test.c", "-o", "test"
     system "./test"
   end

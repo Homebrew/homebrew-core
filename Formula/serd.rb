@@ -1,14 +1,20 @@
 class Serd < Formula
   desc "C library for RDF syntax"
   homepage "https://drobilla.net/software/serd/"
-  url "https://download.drobilla.net/serd-0.28.0.tar.bz2"
-  sha256 "1df21a8874d256a9f3d51a18b8c6e2539e8092b62cc2674b110307e93f898aec"
+  url "https://download.drobilla.net/serd-0.30.10.tar.bz2"
+  sha256 "affa80deec78921f86335e6fc3f18b80aefecf424f6a5755e9f2fa0eb0710edf"
+  license "ISC"
+
+  livecheck do
+    url "https://download.drobilla.net/"
+    regex(/href=.*?serd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "0c55076d7655da6d7d5154e24cd3d720fd9afcd610f5e7e9ee5af23859ab85f7" => :high_sierra
-    sha256 "7c7c1f9317f0fd595bfcdb8214e510c10648f99cdf9be1464b272abd4fa223ea" => :sierra
-    sha256 "8c0c40af6e4aaa222c37cd154d2ef80c6b13a50744d97e94139250a5e1a778a0" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "10155eb151924f5fea4d02b197a5e08c5536340d9335329ce9d3dd6af3431a11"
+    sha256 cellar: :any, big_sur:       "e28a02ac86a643e66e2d98fb2e22089f58071bd27faba353494ddc92f6823bfb"
+    sha256 cellar: :any, catalina:      "b9b49fee3a281d23119785510ce19337a2eb9fea637583291651a44b27b4f15f"
+    sha256 cellar: :any, mojave:        "b780e951258475391de8618edc7915c5f10ea8286769537743d703ed51318778"
   end
 
   depends_on "pkg-config" => :build
@@ -17,5 +23,9 @@ class Serd < Formula
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
     system "./waf", "install"
+  end
+
+  test do
+    pipe_output("serdi -", "() a <http://example.org/List> .", 0)
   end
 end

@@ -1,17 +1,21 @@
 class CrystalIcr < Formula
   desc "Interactive console for Crystal programming language"
   homepage "https://github.com/crystal-community/icr"
-  url "https://github.com/crystal-community/icr/archive/v0.4.0.tar.gz"
-  sha256 "6d3ba783b68a425c3def6918bbfb48c828d0d56e8636b7afbebd12a40a7dc5d3"
+  url "https://github.com/crystal-community/icr/archive/v0.8.0.tar.gz"
+  sha256 "8c7825dd035bbb4bc6499873d4bd125185a01cae10dc8dd6f98e6e013def381c"
+  license "MIT"
 
   bottle do
-    sha256 "08ae4625fa25214c13ebf03dbe2db9110f1298b2ff9023b9f4bcc1ad32b538fa" => :high_sierra
-    sha256 "3f315d6471eafd01ae864a937233e6617115ae8fe9e971a7b3247b88a06f4a99" => :sierra
-    sha256 "c36b7478e32bf42a8d3d528c7f267c366cc03bdd05af692eaf1ad15389e6a8f8" => :el_capitan
+    rebuild 1
+    sha256 big_sur:  "27aca5fd1d1b212b90575dd385b27cbc215aea9510cab6c24efe18ec15d617cc"
+    sha256 catalina: "a0683b8dce5fd77b89f4ba6412ad1ad7b793abfd2e703f9cff72e2ffe7248d43"
+    sha256 mojave:   "30bbc4ad85339e27305d4294cf53e3ddc252f137599b7602ca2930f01728cd8c"
   end
 
-  depends_on "crystal-lang"
-  depends_on "readline"
+  depends_on "crystal"
+  depends_on "libevent"
+  depends_on "libyaml"
+  depends_on "openssl@1.1"
 
   def install
     system "make", "install", "PREFIX=#{prefix}"

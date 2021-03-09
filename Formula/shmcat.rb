@@ -1,43 +1,34 @@
 class Shmcat < Formula
   desc "Tool that dumps shared memory segments (System V and POSIX)"
   homepage "https://shmcat.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/shmcat/shmcat-1.8.tar.bz2"
-  sha256 "43fbf1b62f22f7cfcfd21228225151441450441d47ca73c9c2951c9af5549dde"
+  url "https://downloads.sourceforge.net/project/shmcat/shmcat-1.9.tar.xz"
+  sha256 "831f1671e737bed31de3721b861f3796461ebf3b05270cf4c938749120ca8e5b"
+  license "GPL-2.0"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "34ecdb9d84a95821f6e4653776d5e1b24b34658e2fc4cbef01b4017328f32b39" => :high_sierra
-    sha256 "01cab982f77ba84084219d9106a7dc2e15ea8f1386b6b1dccadfb3f731c3a5be" => :sierra
-    sha256 "418a5aca4e039528a55706db8063808a0fa1dafb3d913376177735bbce1dc836" => :el_capitan
-    sha256 "1ce5eef9d77925041ea91bc2c8d49572525369df7a037928c3eb83698a58a8a4" => :yosemite
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/shmcat[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  option "with-ftok", "Build the ftok utility"
-  option "with-gettext", "Build with Native Language Support"
-
-  deprecated_option "with-nls" => "with-gettext"
-
-  depends_on "gettext" => :optional
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3bdee0944414bc51a08a7707e29d16a6f08e1d583ad4cd8357587da2a6519d05"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4a7b108892ada071d5ce75b8eb434b9c77c6cea5ed767ce31c78ac6e4b90d540"
+    sha256 cellar: :any_skip_relocation, catalina:      "f86090c36d839092913667dcfc924f76c71d318a03434a1e608b3960b1df7807"
+    sha256 cellar: :any_skip_relocation, mojave:        "e052a4f6b21407c032c1ee5a79fe9b1c08e78b7980c1cd3d6bfbfa8ffe639a58"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ff73e6df8b663b4f382098ce75a9ec4634d4658c5378b3ad122de135e30d44ab"
+    sha256 cellar: :any_skip_relocation, sierra:        "5ee7bcafe69d653421e29b56cf2e48a55874dc1e092e817a83cb446cda4acf01"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "1b6ddaf528253df2e2d5b93e97b6f4ade717ff8f3f6bcf829ed7cf9d9e682539"
+  end
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
-    args << "--disable-ftok" if build.without? "ftok"
-
-    if build.with? "gettext"
-      args << "--with-libintl-prefix=#{Formula["gettext"].opt_include}"
-    else
-      args << "--disable-nls"
-    end
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-ftok",
+                          "--disable-nls"
     system "make", "install"
   end
 
   test do
-    assert_match /#{version}/, shell_output("#{bin}/shmcat --version")
+    assert_match version.to_s, shell_output("#{bin}/shmcat --version")
   end
 end

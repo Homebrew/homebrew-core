@@ -1,16 +1,22 @@
 class Lz4 < Formula
   desc "Extremely Fast Compression algorithm"
-  homepage "http://www.lz4.org/"
-  url "https://github.com/lz4/lz4/archive/v1.8.0.tar.gz"
-  sha256 "2ca482ea7a9bb103603108b5a7510b7592b90158c151ff50a28f1ca8389fccf6"
+  homepage "https://lz4.github.io/lz4/"
+  url "https://github.com/lz4/lz4/archive/v1.9.3.tar.gz"
+  sha256 "030644df4611007ff7dc962d981f390361e6c97a34e5cbc393ddfbe019ffe2c1"
+  license "BSD-2-Clause"
   head "https://github.com/lz4/lz4.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    cellar :any
-    sha256 "f2fb292bafe98e31654fc85c7a032529c12a4d2139cf96d1211411106618a025" => :high_sierra
-    sha256 "1168e44a252b92853ce8fe24976c0198bc2a252678d36c4d5fd999e6e95bc417" => :sierra
-    sha256 "42f1aa22230648e0fe1dc738d6cf6649b35a9f5b5255322418de601347c7848c" => :el_capitan
-    sha256 "5abd84100b170b6b8650f46639edb181fefda11ffd582c46dcdc72580ac1913b" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "1d915415cff308983a50f873db4f0de6acab7b57d65a93ec127c06c824ca0269"
+    sha256 cellar: :any, big_sur:       "7024d0b6ee857352cbd3138f752496b87fa27252adbc6daefa4a6c64d3e347e5"
+    sha256 cellar: :any, catalina:      "899aeb12833a982e06013a60aa9b1ee69e3f77f969a5aa2dcec02ad329f369bb"
+    sha256 cellar: :any, mojave:        "e6adc6da46164495cf129c9e54bd69c6620eb4622a38e403edf1b5f488d044a8"
+    sha256 cellar: :any, high_sierra:   "46e99b27c33fd51a4394850be3559ea7b69fc26060ab2095dae315be14aa5e94"
   end
 
   def install

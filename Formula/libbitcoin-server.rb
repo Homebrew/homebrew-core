@@ -1,14 +1,17 @@
 class LibbitcoinServer < Formula
   desc "Bitcoin Full Node and Query Server"
   homepage "https://github.com/libbitcoin/libbitcoin-server"
-  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.3.0.tar.gz"
-  sha256 "3066ff98af14574edae3e36b056b847558953e501c9b4f626c0428db9933a0ad"
-  revision 1
+  url "https://github.com/libbitcoin/libbitcoin-server/archive/v3.6.0.tar.gz"
+  sha256 "283fa7572fcde70a488c93e8298e57f7f9a8e8403e209ac232549b2c433674e1"
+  license "AGPL-3.0"
+  revision 6
 
   bottle do
-    sha256 "91da3aa386c5810c3ad34af991223a579ff7c7f5b77e143ce550b81884347148" => :high_sierra
-    sha256 "4fd5c27fb1a24f27078bf4fdca964367f6ac13a3d5e5304d4aac8261b227114e" => :sierra
-    sha256 "ffed49361044749f0a66aaaaa89b7599bfeef1ea3dab10543365eb70e482c804" => :el_capitan
+    rebuild 1
+    sha256 arm64_big_sur: "20e59332917da2f92f60ed06e6a2c83516a0a24ca7deef6539723e4d4627cdbb"
+    sha256 big_sur:       "938cff4210a9af3dc898813c69d40de721907b6da1851d8fe5bd1245e1201a85"
+    sha256 catalina:      "a30c9b57cc0e7a513822cac708094844c9180d01ae46408d1e53c19ffd6a970f"
+    sha256 mojave:        "0cc3c97b8d11940fb5805b5d4c60a955e2b089be6f27666e3893c2cf7d617d18"
   end
 
   depends_on "autoconf" => :build
@@ -16,32 +19,19 @@ class LibbitcoinServer < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libbitcoin-node"
-  depends_on "zeromq"
-
-  resource "libbitcoin-protocol" do
-    url "https://github.com/libbitcoin/libbitcoin-protocol/archive/v3.3.0.tar.gz"
-    sha256 "7902de78b4c646daf2012e04bb7967784f67a6372a8a8d3c77417dabcc4b617d"
-  end
+  depends_on "libbitcoin-protocol"
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-blockchain"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin-node"].opt_libexec/"lib/pkgconfig"
-    ENV.prepend_create_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
-    resource("libbitcoin-protocol").stage do
-      system "./autogen.sh"
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make", "install"
-    end
 
     system "./autogen.sh"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--with-boost-libdir=#{Formula["boost"].opt_lib}"
     system "make", "install"
+
+    bash_completion.install "data/bs"
   end
 
   test do
@@ -53,11 +43,10 @@ class LibbitcoinServer < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp",
-                    "-I#{libexec}/include",
-                    "-I#{Formula["libbitcoin-node"].opt_libexec}/include",
-                    "-lbitcoin", "-lbitcoin-server", "-lboost_system",
-                    "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
+                    "-L#{lib}", "-lbitcoin-server",
+                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
     system "./test"
   end
 end

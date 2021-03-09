@@ -1,18 +1,37 @@
 class Libid3tag < Formula
   desc "ID3 tag manipulation library"
-  homepage "http://www.underbit.com/products/mad/"
+  homepage "https://www.underbit.com/products/mad/"
   url "https://downloads.sourceforge.net/project/mad/libid3tag/0.15.1b/libid3tag-0.15.1b.tar.gz"
   sha256 "63da4f6e7997278f8a3fef4c6a372d342f705051d1eeb6a46a86b03610e26151"
+  license "GPL-2.0-only"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/libid3tag[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "42909989a248048c3c03c64d937ab3ffc655dbf8fc90d6deffaa74f979bdbdba" => :high_sierra
-    sha256 "f80ff2abda5796fcabba3ff54405d9626628c3969f844723e9232d66e85e745f" => :sierra
-    sha256 "75e446174dd2a9dc17326c998757c4218a89cddb734f3000d0b0506de801732a" => :el_capitan
-    sha256 "07ef662e3ab9be0cce16eabb13dbc046fc60c42184ac003285371dc955859697" => :yosemite
-    sha256 "d832f73e16b185fed6a66d2f00199a7d76411e438854988262463f4769b40d5b" => :mavericks
-    sha256 "35d74caea8ad8110b36e9718175ef9a7f2824cc70c0d470018ad70319ced7b69" => :mountain_lion
+    rebuild 2
+    sha256 cellar: :any, arm64_big_sur: "cd7f36377060c5d16d3ee4d4ef5696ef47be82f4f0807172eef36f589cfad246"
+    sha256 cellar: :any, big_sur:       "ef38d5804e95cf7f2096c9e8ec31e568170c6e238e43e7ddc3df914ded26f07b"
+    sha256 cellar: :any, catalina:      "93b071dac99b3d85dac56e59af42e28d5de959bed9fd37a9a2178c02c8b20f17"
+    sha256 cellar: :any, mojave:        "1186600473728830dbb65189d11912e2abf42dac5fcbf7ee38629784cc83b310"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
+  uses_from_macos "gperf"
+  uses_from_macos "zlib"
+
+  on_linux do
+    # fix build with gperf
+    # https://bugs.gentoo.org/show_bug.cgi?id=605158
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/c23ea881388319b38838183754349bba/raw/4829ff0702a511f96026369676a11edd9a79ab30/libid3tag.diff"
+      sha256 "00f04427c6b3bab2bb8595f6df0ebc774b60031ee60428241801ccf6337d4c5d"
+    end
   end
 
   # patch for utf-16 (memory leaks), see https://bugs.launchpad.net/mixxx/+bug/403586
@@ -23,7 +42,7 @@ class Libid3tag < Formula
     "file-write"                         => "eff855cabd8a51866a29246a1b257da64f46aab72d4b8e163e2a4c0d15165bf1",
   }.each do |name, sha|
     patch do
-      url "http://mirror.ovh.net/gentoo-portage/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
+      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch?id=56bd759df1d0"
       sha256 sha
     end
   end
@@ -35,37 +54,44 @@ class Libid3tag < Formula
     "tag"          => "ca7262ddad158ab0be804429d705f8c6a1bb120371dec593323fa4876c1b277f",
   }.each do |name, sha|
     patch :p0 do
-      url "http://mirror.ovh.net/gentoo-portage/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch"
+      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-#{name}.patch?id=56bd759df1d0"
       sha256 sha
     end
   end
 
   # corrects "a cappella" typo
   patch :p2 do
-    url "http://mirror.ovh.net/gentoo-portage/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-a_capella.patch"
+    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-libs/libid3tag/files/0.15.1b/libid3tag-0.15.1b-a_capella.patch?id=56bd759df1d0"
     sha256 "5e86270ebb179d82acee686700d203e90f42e82beeed455b0163d8611657d395"
   end
 
   def install
+    # Run autoconf because config.{guess,sub} are outdated
+    touch "NEWS"
+    touch "AUTHORS"
+    touch "ChangeLog"
+    system "autoreconf", "-fiv"
+
     system "./configure", "--prefix=#{prefix}", "--disable-debug", "--disable-dependency-tracking"
     system "make", "install"
 
     (lib+"pkgconfig/id3tag.pc").write pc_file
   end
 
-  def pc_file; <<~EOS
-    prefix=#{opt_prefix}
-    exec_prefix=${prefix}
-    libdir=${exec_prefix}/lib
-    includedir=${prefix}/include
+  def pc_file
+    <<~EOS
+      prefix=#{opt_prefix}
+      exec_prefix=${prefix}
+      libdir=${exec_prefix}/lib
+      includedir=${prefix}/include
 
-    Name: id3tag
-    Description: ID3 tag reading library
-    Version: #{version}
-    Requires:
-    Conflicts:
-    Libs: -L${libdir} -lid3tag -lz
-    Cflags: -I${includedir}
+      Name: id3tag
+      Description: ID3 tag reading library
+      Version: #{version}
+      Requires:
+      Conflicts:
+      Libs: -L${libdir} -lid3tag -lz
+      Cflags: -I${includedir}
     EOS
   end
 end

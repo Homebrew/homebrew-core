@@ -1,26 +1,48 @@
 class Softhsm < Formula
   desc "Cryptographic store accessible through a PKCS#11 interface"
   homepage "https://www.opendnssec.org/softhsm/"
-  url "https://dist.opendnssec.org/source/softhsm-2.3.0.tar.gz"
-  sha256 "5ed604c89a3a6ef9d7d1ee92c28a2c4b3cd1f86f302c808e2d12c8f39aa2c127"
+  url "https://dist.opendnssec.org/source/softhsm-2.6.1.tar.gz"
+  sha256 "61249473054bcd1811519ef9a989a880a7bdcc36d317c9c25457fc614df475f2"
+  license "BSD-2-Clause"
 
-  bottle do
-    sha256 "2f05fba4b689174ca866f918bbf654f6e5a712c6434a8b05214c329ab0ac0306" => :high_sierra
-    sha256 "9c13086544e0a554bfe2a687cfa0b05961e84260407282f4c4198dfb8dc6bc04" => :sierra
-    sha256 "066d911caa4a4961939403d8f08c1862a947046e5bbc042edeb9ce9a37f8116e" => :el_capitan
-    sha256 "53cad8948c14774fc54d21c241225f4d9a32bc6c98dfc74b7888420a4c0290be" => :yosemite
+  # We check the GitHub repo tags instead of https://dist.opendnssec.org/source/
+  # since the aforementioned first-party URL has a tendency to lead to an
+  # `execution expired` error.
+  livecheck do
+    url "https://github.com/opendnssec/SoftHSMv2.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "openssl"
+  bottle do
+    rebuild 1
+    sha256 arm64_big_sur: "878fda1e9a3ab2de52ecc4244044971ad3e38909e080f77cb7973a5f797359c8"
+    sha256 big_sur:       "08a0d7a61d2b8d4f12253d3e5404ce43456fbb864dc9fb88999132f96a15c267"
+    sha256 catalina:      "6da111cdadbcf0127882e2bec5b3844454fd9b4e00a08d1fa49aa2f389b7062c"
+    sha256 mojave:        "b7abd86dfec3d10f5e5cde00f2bcd5e0e19e2d9674c50a431db1195c4655dfec"
+    sha256 high_sierra:   "73c40f26209dbf29280c16aefdfb492c749d8e14e4cbf83dc2a5b566c22f6bc9"
+  end
+
+  head do
+    url "https://github.com/opendnssec/SoftHSMv2.git", branch: "develop"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+    depends_on "pkg-config" => :build
+  end
+
+  depends_on "openssl@1.1"
 
   def install
+    system "sh", "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}/softhsm",
                           "--localstatedir=#{var}",
                           "--with-crypto-backend=openssl",
-                          "--with-openssl=#{Formula["openssl"].opt_prefix}"
+                          "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
+                          "--disable-gost"
     system "make", "install"
   end
 

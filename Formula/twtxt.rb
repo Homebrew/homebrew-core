@@ -3,24 +3,27 @@ class Twtxt < Formula
   homepage "https://github.com/buckket/twtxt"
   url "https://github.com/buckket/twtxt/archive/v1.2.3.tar.gz"
   sha256 "73b9d4988f96cc969c0c50ece0e9df12f7385735db23190e40c0d5e16f7ccd8c"
+  license "MIT"
+  revision 4
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2acd447c2233ff8820270c546b79eb22b3aeb6034dabc58198934115e797e261" => :high_sierra
-    sha256 "58c726382f159731b92891a8d19b5860a6d4f057d28856896b4de9343bb86666" => :sierra
-    sha256 "7875855c0b5ba87335d6bb76dc900604b215fccce80156eacdbc81b9ee555c8c" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0a54e1f05c92c1bf283b3d70b72c6585f823ab125f4563284f0c4b9028217d9b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ab8fc8ebac9953a37c85360158f293eefa648f16bd3e3c3fdc8992fcf4eb978e"
+    sha256 cellar: :any_skip_relocation, catalina:      "f02a3756e562ada9942eeac14cadb2113f22b67935b4d1e3a30a2890b3312855"
+    sha256 cellar: :any_skip_relocation, mojave:        "42f444d72bfcb08a0f105628d4883e03c5ff522b6eda4f390f9434b79bc1fdb6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "93e9cd335a6dd161246501db8e5fcbc9d38d5c4ab07136e47a3742359c043c59"
   end
 
-  depends_on :python3
+  depends_on "python@3.8"
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/1e/d4/c1206b016b42a0b223aadb559318966b64ec27e5406bed79c36356e62082/aiohttp-2.2.5.tar.gz"
-    sha256 "af5bfdd164256118a0a306b3f7046e63207d1f8cba73a67dcc0bd858dcfcd3bc"
+    url "https://files.pythonhosted.org/packages/c0/b9/853b158f5cb5d218daaff0fb0dbc2bd7de45b2c6c5f563dff0ee530ec52a/aiohttp-2.3.10.tar.gz"
+    sha256 "8adda6583ba438a4c70693374e10b60168663ffa6564c5c75d3c7a9055290964"
   end
 
   resource "async_timeout" do
-    url "https://files.pythonhosted.org/packages/6f/cc/ff80612164fe68bf97767052c5c783a033165df7d47a41ae5c1cc5ea480b/async-timeout-1.4.0.tar.gz"
-    sha256 "983891535b1eca6ba82b9df671c8abff53c804fce3fa630058da5bbbda500340"
+    url "https://files.pythonhosted.org/packages/a1/78/aae1545aba6e87e23ecab8d212b58bb70e72164b67eb090b81bb17ad38e3/async-timeout-3.0.1.tar.gz"
+    sha256 "0c3c816a028d47f659d6ff5c745cb2acf1f966da1fe5c19c77a70282b25f4c5f"
   end
 
   resource "chardet" do
@@ -38,24 +41,34 @@ class Twtxt < Formula
     sha256 "a43f57115831ac7c70de098e6ac46ac13be00d69abbf60bdcac251344785bb19"
   end
 
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/ad/13/eb56951b6f7950cadb579ca166e448ba77f9d24efc03edd7e55fa57d04b7/idna-2.8.tar.gz"
+    sha256 "c357b3f628cf53ae2c4c05627ecc484553142ca23264e593d327bcde5e9c3407"
+  end
+
+  resource "idna_ssl" do
+    url "https://files.pythonhosted.org/packages/46/03/07c4894aae38b0de52b52586b24bf189bb83e4ddabfe2e2c8f2419eec6f4/idna-ssl-1.1.0.tar.gz"
+    sha256 "a933e3bb13da54383f9e8f35dc4f9cb9eb9b3b78c6b36f311254d6d0d92c6c7c"
+  end
+
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/68/a6/d241f9d1ed5ca55a819329c2f98c6833a2d8f25463bc03c44039cd13639c/multidict-3.2.0.tar.gz"
-    sha256 "e27a7a95317371c15ecda7206f6e8c144f10a337bb2c3e61b5176deafbb88cb2"
+    url "https://files.pythonhosted.org/packages/84/96/5503ba866d8d216e49a6ce3bcb288df8a5fb3ac8a90b8fcff9ddcda32568/multidict-4.7.3.tar.gz"
+    sha256 "be813fb9e5ce41a5a99a29cdb857144a1bd6670883586f995b940a4878dc5238"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/54/bb/f1db86504f7a49e1d9b9301531181b00a1c7325dc85a29160ee3eaa73a54/python-dateutil-2.6.1.tar.gz"
-    sha256 "891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"
+    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
+    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
-    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
+    url "https://files.pythonhosted.org/packages/94/3e/edcf6fef41d89187df7e38e868b2dd2182677922b600e880baad7749c865/six-1.13.0.tar.gz"
+    sha256 "30f610279e8b2578cab6db20741130331735c781b56053c59c4076da27f06b66"
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/26/8b/e335a45600953cbaaa57e7f276eb8d89128898f11de63c47ecb97e32d29e/yarl-0.12.0.tar.gz"
-    sha256 "fc0f71ffdce882b4d4b287b0b3a68d9f2557ab14cc2c10ce4df714c42512cbde"
+    url "https://files.pythonhosted.org/packages/d6/67/6e2507586eb1cfa6d55540845b0cd05b4b77c414f6bca8b00b45483b976e/yarl-1.4.2.tar.gz"
+    sha256 "58cd9c469eced558cd81aa3f484b2924e8897049e06889e8ff2510435b7ef74b"
   end
 
   def install
@@ -71,9 +84,11 @@ class Twtxt < Formula
     system "python3", *Language::Python.setup_install_args(libexec)
 
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
   end
 
+  # If the test needs to be updated, more users can be found here:
+  # https://github.com/mdom/we-are-twtxt/blob/HEAD/we-are-twtxt.txt
   test do
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
@@ -82,11 +97,11 @@ class Twtxt < Formula
       nick = homebrew
       twtfile = twtxt.txt
       [following]
-      twtxt = https://buckket.org/twtxt_news.txt
+      abliss = https://abliss.keybase.pub/twtxt.txt#7a778276dd852edc65217e759cba637a28b4426b
     EOS
     (testpath/"twtxt.txt").write <<~EOS
       2016-02-05T18:00:56.626750+00:00  Homebrew speaks!
     EOS
-    assert_match "Fiat Lux!", shell_output("#{bin}/twtxt -c config timeline")
+    assert_match "PGP", shell_output("#{bin}/twtxt -c config timeline")
   end
 end

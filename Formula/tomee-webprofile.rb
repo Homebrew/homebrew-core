@@ -1,8 +1,10 @@
 class TomeeWebprofile < Formula
-  desc "All-Apache Java EE 6 Web Profile stack"
+  desc "All-Apache Java EE 7 Web Profile stack"
   homepage "https://tomee.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomee/tomee-1.7.4/apache-tomee-1.7.4-webprofile.tar.gz"
-  sha256 "4a1c13e60fcf1289980b0c14f8e67daf31b1c91f4e208fbc7aeec0a252655897"
+  url "https://www.apache.org/dyn/closer.lua?path=tomee/tomee-8.0.4/apache-tomee-8.0.4-webprofile.tar.gz"
+  mirror "https://archive.apache.org/dist/tomee/tomee-8.0.4/apache-tomee-8.0.4-webprofile.tar.gz"
+  sha256 "13b0817a17e54069c39c3878d7a271b52fe5adceb6ddef3fe1147f2cea2d78ac"
+  license "Apache-2.0"
 
   bottle :unneeded
 
@@ -18,11 +20,12 @@ class TomeeWebprofile < Formula
     bin.install_symlink "#{libexec}/bin/startup.sh" => "tomee-webprofile-startup"
   end
 
-  def caveats; <<~EOS
-    The home of Apache TomEE Web is:
-      #{opt_libexec}
-    To run Apache TomEE:
-      #{opt_libexec}/bin/tomee-webprofile-startup
+  def caveats
+    <<~EOS
+      The home of Apache TomEE Web is:
+        #{opt_libexec}
+      To run Apache TomEE:
+        #{opt_libexec}/bin/tomee-webprofile-startup
     EOS
   end
 

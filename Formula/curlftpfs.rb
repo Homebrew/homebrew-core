@@ -3,24 +3,31 @@ class Curlftpfs < Formula
   homepage "https://curlftpfs.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/curlftpfs/curlftpfs/0.9.2/curlftpfs-0.9.2.tar.gz"
   sha256 "4eb44739c7078ba0edde177bdd266c4cfb7c621075f47f64c85a06b12b3c6958"
-
-  head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", :using => :cvs
+  revision 1
+  head ":pserver:anonymous:@curlftpfs.cvs.sourceforge.net:/cvsroot/curlftpfs", using: :cvs
 
   bottle do
-    cellar :any
-    sha256 "96a8dfe5202c586e8e338b59cf546c22e4dd481d7ba14e4f0d601ffb438e0ef9" => :high_sierra
-    sha256 "44f2aecc6d790eff800e1e38b5f28e9fb5cf17b9a1adf6daaf23d42196796e8c" => :sierra
-    sha256 "21b0fc7553f564b464b4158deaf22beeae6d2791786b6eb9af0f16de854b8009" => :el_capitan
-    sha256 "4d610ca926b0698aa25633af0fa5ad1e9352de396f16c7f26e9beff682d4020f" => :yosemite
+    sha256 cellar: :any, catalina:    "2d3fea0aecd1856a956cedcf8ab992f217bd730371c6eb80900158c69f138aa8"
+    sha256 cellar: :any, mojave:      "b4f74999789cdb534784428530110421a256adc2b276ed8f372c8498e31719a0"
+    sha256 cellar: :any, high_sierra: "edb3da0b0ccc3b5b3004096f89174786ad75838b82b6c6b621855291744147f1"
+    sha256 cellar: :any, sierra:      "5734dbff6e2a7c18232d08d22fe64e19610f32b07e48b276996df759baaef407"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on :x11
-  depends_on :osxfuse
+  depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on :x11
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     ENV.append "CPPFLAGS", "-D__off_t=off_t"

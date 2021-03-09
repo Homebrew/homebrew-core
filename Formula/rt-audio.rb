@@ -1,35 +1,32 @@
 class RtAudio < Formula
   desc "API for realtime audio input/output"
   homepage "https://www.music.mcgill.ca/~gary/rtaudio/"
-  url "https://www.music.mcgill.ca/~gary/rtaudio/release/rtaudio-5.0.0.tar.gz"
-  sha256 "799deae1192da52cc2c15a078ed3b42449580be7d096fe9bc841c5bba0289c57"
-
+  url "https://www.music.mcgill.ca/~gary/rtaudio/release/rtaudio-5.1.0.tar.gz"
+  sha256 "ff138b2b6ed2b700b04b406be718df213052d4c952190280cf4e2fab4b61fe09"
+  license "MIT"
+  revision 1
   head "https://github.com/thestk/rtaudio.git"
 
   bottle do
-    cellar :any
-    sha256 "497769e931f08d51367dae46ad3f7c3ac52f7d87ed79698c4e564aed74433d4d" => :high_sierra
-    sha256 "d573b5a8e5e832e4b10445a05fe7502e62d42b5f8ae74796944ef3b30af7c3eb" => :sierra
-    sha256 "b47e9e56e72e2e7969f811e8cb11db6a4436e4f5b5363db917043083b8dda612" => :el_capitan
-    sha256 "bd1920ca3ad3c0f67e7824b430fa32a4f48085a9bb7233e9157bf292d73bd099" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "6aaea7e2e041421f615e4a20a371e2fe9c4fe601a8d1e3da61e9820595ab7c84"
+    sha256 cellar: :any, big_sur:       "80179e6294797448e1d3c70a23f42c8d64f1a45dc0b9d335af665143a65ec29f"
+    sha256 cellar: :any, catalina:      "0d370ab05627fc2a81ca3893e9112c4fbc5282b4503e4a2d39ab9bb99e076e65"
+    sha256 cellar: :any, mojave:        "b6a89413b4075ca42dfe7b6fb85e1546d02536dae94c5de5b23bbf231fde7247"
   end
 
-  depends_on "cmake" => :build
-
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      lib.install "librtaudio_static.a", "librtaudio.dylib"
-    end
-    include.install "RtAudio.h", Dir["include/*"]
-    prefix.install "contrib", "tests"
-    doc.install Dir["doc/*"]
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}"
+    system "make", "install"
+    doc.install %w[doc/release.txt doc/html doc/images]
+    (pkgshare/"tests").install "tests/testall.cpp"
   end
 
   test do
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lrtaudio",
-           prefix/"tests/testall.cpp", "-o", "test"
+    system ENV.cxx, "-I#{include}/rtaudio", "-L#{lib}", "-lrtaudio",
+           pkgshare/"tests/testall.cpp", "-o", "test"
     system "./test"
   end
 end

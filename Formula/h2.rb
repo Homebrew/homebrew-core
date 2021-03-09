@@ -1,15 +1,21 @@
 class H2 < Formula
   desc "Java SQL database"
   homepage "https://www.h2database.com/"
-  url "https://www.h2database.com/h2-2017-06-10.zip"
-  version "1.4.196"
-  sha256 "1224638c19b975ba4d8f82435c3ff89526740b1123409e29ceb87c0b6f1734c2"
+  url "https://www.h2database.com/h2-2019-10-14.zip"
+  version "1.4.200"
+  sha256 "a72f319f1b5347a6ee9eba42718e69e2ae41e2f846b3475f9292f1e3beb59b01"
+  license "MPL-2.0"
+
+  livecheck do
+    url "https://github.com/h2database/h2database.git"
+  end
 
   bottle :unneeded
 
-  def script; <<~EOS
-    #!/bin/sh
-    cd #{libexec} && bin/h2.sh "$@"
+  def script
+    <<~EOS
+      #!/bin/sh
+      cd #{libexec} && bin/h2.sh "$@"
     EOS
   end
 
@@ -32,34 +38,35 @@ class H2 < Formula
     (bin+"h2").write script
   end
 
-  plist_options :manual => "h2"
+  plist_options manual: "h2"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_bin}/h2</string>
-            <string>-tcp</string>
-            <string>-web</string>
-            <string>-pg</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-      </dict>
-    </plist>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>RunAtLoad</key>
+          <true/>
+          <key>KeepAlive</key>
+          <false/>
+          <key>ProgramArguments</key>
+          <array>
+              <string>#{opt_bin}/h2</string>
+              <string>-tcp</string>
+              <string>-web</string>
+              <string>-pg</string>
+          </array>
+          <key>WorkingDirectory</key>
+          <string>#{HOMEBREW_PREFIX}</string>
+        </dict>
+      </plist>
     EOS
   end
 
   test do
-    assert_match "Starts the H2 Console", shell_output("#{bin}/h2 -help")
+    assert_match "Usage: java org.h2.tools.GUIConsole", shell_output("#{bin}/h2 -help 2>&1")
   end
 end

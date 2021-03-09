@@ -1,48 +1,75 @@
 class Vapoursynth < Formula
-  include Language::Python::Virtualenv
-
   desc "Video processing framework with simplicity in mind"
   homepage "http://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vapoursynth/archive/R40.tar.gz"
-  sha256 "a5e4260abff95c4bf33cc7ff3203e8001f7b3be7bb5ccc3a6fc2b18523823e50"
+  url "https://github.com/vapoursynth/vapoursynth/archive/R52.tar.gz"
+  sha256 "4d5dc7950f4357da695d29708bc98013bc3e0bd72fc5d697f8c91ce3c4a4b2ac"
+  license "LGPL-2.1-or-later"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
+  livecheck do
+    url :stable
+    regex(/^R(\d+(?:\.\d+)*?)$/i)
+  end
+
   bottle do
-    sha256 "09ca14a45e20eab587488ac63dfc2f33140518fdf65f2ed594f361971f1ce854" => :high_sierra
-    sha256 "f62b157f6bacfb55141b9813da133f912cdb8f75392f7bfaecab82764e136627" => :sierra
-    sha256 "7694080f35dd4a719f677da865d0e4f8b73e74009a8ed9554828b3e7304dae5f" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "b3c19ccf1ca5ced181f926a8bf4216161e1768d32206a1a37d9622429d58c1a1"
+    sha256 cellar: :any, big_sur:       "3c71ee0d92d3187ddab6500dac2a36597268efa50cee90c854ffb69d75d5e6e7"
+    sha256 cellar: :any, catalina:      "4e4668fb68c7df01857472c070dfcf562fd392c48200204f637856a1368181b8"
+    sha256 cellar: :any, mojave:        "3d1e521272e5b5cff323d6678ff56f959945b9756f938c5ad46a797a345959c1"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cython" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
   depends_on "nasm" => :build
-
-  depends_on "libass"
-  depends_on :macos => :el_capitan # due to zimg dependency
-  depends_on :python3
-  depends_on "tesseract"
+  depends_on "pkg-config" => :build
+  depends_on "python@3.9"
   depends_on "zimg"
 
-  resource "Cython" do
-    url "https://files.pythonhosted.org/packages/10/32/21873ff231e069f860098b1602bb9e3ae2806d2f73ba661b5d806f200243/Cython-0.27.1.tar.gz"
-    sha256 "e6840a2ba2704f4ffb40e454c36f73aeb440a4005453ee8d7ff6a00d812ba176"
+  def install
+    system "./autogen.sh"
+    inreplace "Makefile.in", "pkglibdir = $(libdir)", "pkglibdir = $(exec_prefix)"
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-silent-rules",
+                          "--disable-dependency-tracking",
+                          "--with-cython=#{Formula["cython"].bin}/cython",
+                          "--with-plugindir=#{HOMEBREW_PREFIX}/lib/vapoursynth"
+    system "make", "install"
+    %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
+      rm prefix/"vapoursynth/lib#{filter}.la"
+    end
   end
 
-  def install
-    venv = virtualenv_create(buildpath/"cython", "python3")
-    venv.pip_install "Cython"
-    system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-cython=#{buildpath}/cython/bin/cython"
-    system "make", "install"
+  def post_install
+    (HOMEBREW_PREFIX/"lib/vapoursynth").mkpath
+    %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
+      (HOMEBREW_PREFIX/"lib/vapoursynth").install_symlink \
+        prefix/"vapoursynth/lib#{filter}.dylib" => "lib#{filter}.dylib"
+    end
+  end
+
+  def caveats
+    <<~EOS
+      This formula does not contain optional filters that require extra dependencies.
+      To use \x1B[3m\x1B[1mvapoursynth.core.sub\x1B[0m, execute:
+        brew install vapoursynth-sub
+      To use \x1B[3m\x1B[1mvapoursynth.core.ocr\x1B[0m, execute:
+        brew install vapoursynth-ocr
+      To use \x1B[3m\x1B[1mvapoursynth.core.imwri\x1B[0m, execute:
+        brew install vapoursynth-imwri
+      To use \x1B[3m\x1B[1mvapoursynth.core.ffms2\x1B[0m, execute the following:
+        brew install ffms2
+        ln -s "../libffms2.dylib" "#{HOMEBREW_PREFIX}/lib/vapoursynth/libffms2.dylib"
+      For more information regarding plugins, please visit:
+        \x1B[4mhttp://www.vapoursynth.com/doc/plugins.html\x1B[0m
+    EOS
   end
 
   test do
-    py3 = Language::Python.major_minor_version "python3"
-    ENV.prepend_path "PYTHONPATH", lib/"python#{py3}/site-packages"
-    system "python3", "-c", "import vapoursynth"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import vapoursynth"
     system bin/"vspipe", "--version"
   end
 end

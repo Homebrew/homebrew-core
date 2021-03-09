@@ -1,69 +1,63 @@
 class Pyqt < Formula
   desc "Python bindings for v5 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/download5"
-  url "https://downloads.sourceforge.net/project/pyqt/PyQt5/PyQt-5.9.2/PyQt5_gpl-5.9.2.tar.gz"
-  sha256 "c190dac598c97b0113ca5e7a37c71c623f02d1d713088addfacac4acfa4b8394"
+  url "https://files.pythonhosted.org/packages/28/6c/640e3f5c734c296a7193079a86842a789edb7988dca39eab44579088a1d1/PyQt5-5.15.2.tar.gz"
+  sha256 "372b08dc9321d1201e4690182697c5e7ffb2e0770e6b4a45519025134b12e4fc"
+  license "GPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 "4e111ba8e35f8fe50e45e1ed1ff25ba1882578c2c33c1da5bb95794019621cfe" => :high_sierra
-    sha256 "67bef8d3eaec8d31a3cf7096a701a3deea0442e6a4c12dc9922ea2592e5edc1d" => :sierra
-    sha256 "efe64dce088ce8484728af53ea2df8beeaac1e04f95e74a64579a3e922f907d0" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "62dd04f103f14e2e1eaddf86a910150010272f3dbc65ccdc0f8a46b5c42838fb"
+    sha256 cellar: :any, big_sur:       "47f7747c0bb57baf7be2c90f0c7abd9382cb1a0caf3d0554ab6935a933962ff4"
+    sha256 cellar: :any, catalina:      "ad56d5b20ed4f896ae9295e5ddf6e4b3feba9abf462fec8b584fa162a1988d78"
+    sha256 cellar: :any, mojave:        "0ad16dcf14f820bb1ecbd96974264d04f9c58ee8f8068cd7f47de88b275d8c1e"
   end
 
-  option "with-debug", "Build with debug symbols"
-  option "with-docs", "Install HTML documentation and python examples"
-
-  deprecated_option "enable-debug" => "with-debug"
-
-  depends_on "qt"
+  depends_on "python@3.9"
+  depends_on "qt@5"
   depends_on "sip"
-  depends_on :python => :recommended
-  depends_on :python3 => :recommended
+
+  resource "PyQt5-sip" do
+    url "https://files.pythonhosted.org/packages/73/8c/c662b7ebc4b2407d8679da68e11c2a2eb275f5f2242a92610f6e5024c1f2/PyQt5_sip-12.8.1.tar.gz"
+    sha256 "30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd"
+  end
 
   def install
-    if build.without?("python3") && build.without?("python")
-      odie "pyqt: --with-python3 must be specified when using --without-python"
-    end
+    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    args = ["--confirm-license",
+            "--bindir=#{bin}",
+            "--destdir=#{lib}/python#{version}/site-packages",
+            "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
+            "--sipdir=#{share}/sip/Qt5",
+            # sip.h could not be found automatically
+            "--sip-incdir=#{Formula["sip"].opt_include}",
+            "--qmake=#{Formula["qt@5"].bin}/qmake",
+            # Force deployment target to avoid libc++ issues
+            "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+            "--designer-plugindir=#{pkgshare}/plugins",
+            "--qml-plugindir=#{pkgshare}/plugins",
+            "--pyuic5-interpreter=#{Formula["python@3.9"].opt_bin}/python3",
+            "--verbose"]
 
-    Language::Python.each_python(build) do |python, version|
-      args = ["--confirm-license",
-              "--bindir=#{bin}",
-              "--destdir=#{lib}/python#{version}/site-packages",
-              "--stubsdir=#{lib}/python#{version}/site-packages/PyQt5",
-              "--sipdir=#{share}/sip/Qt5",
-              # sip.h could not be found automatically
-              "--sip-incdir=#{Formula["sip"].opt_include}",
-              "--qmake=#{Formula["qt"].bin}/qmake",
-              # Force deployment target to avoid libc++ issues
-              "QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
-              "--qml-plugindir=#{pkgshare}/plugins",
-              "--verbose"]
-      args << "--debug" if build.with? "debug"
-
-      system python, "configure.py", *args
-      system "make"
-      system "make", "install"
-      system "make", "clean"
-    end
-    doc.install "doc/html", "examples" if build.with? "docs"
+    system Formula["python@3.9"].opt_bin/"python3", "configure.py", *args
+    system "make"
+    ENV.deparallelize { system "make", "install" }
   end
 
   test do
     system "#{bin}/pyuic5", "--version"
     system "#{bin}/pylupdate5", "-version"
-    Language::Python.each_python(build) do |python, _version|
-      system python, "-c", "import PyQt5"
-      %w[
-        Gui
-        Location
-        Multimedia
-        Network
-        Quick
-        Svg
-        WebEngineWidgets
-        Widgets
-        Xml
-      ].each { |mod| system python, "-c", "import PyQt5.Qt#{mod}" }
-    end
+
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt5"
+    %w[
+      Gui
+      Location
+      Multimedia
+      Network
+      Quick
+      Svg
+      Widgets
+      Xml
+    ].each { |mod| system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt5.Qt#{mod}" }
   end
 end

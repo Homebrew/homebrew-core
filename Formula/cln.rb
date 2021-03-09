@@ -1,22 +1,16 @@
 class Cln < Formula
   desc "Class Library for Numbers"
   homepage "https://www.ginac.de/CLN/"
-  url "https://www.ginac.de/CLN/cln-1.3.4.tar.bz2"
-  sha256 "2d99d7c433fb60db1e28299298a98354339bdc120d31bb9a862cafc5210ab748"
+  url "https://www.ginac.de/CLN/cln-1.3.6.tar.bz2"
+  sha256 "f492530e8879bda529009b6033e1923c8f4aae843149fc28c667c20b094d984a"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "8ba5137f3ca736e16650418d4ea075f0e2c85ea87d88824e68f367bf5c4216dd" => :high_sierra
-    sha256 "da1f2677ac3df8180bfebd9fa59804610d4b3e0020adcc47ffe839ad831006e4" => :sierra
-    sha256 "b816f165673f58fb952669c7fa542b2fe52257e6572853785efee0048ea35d6a" => :el_capitan
-    sha256 "95e74408a4b9dca4e7a939d2ff79e9ab16f3193622027d3d741eb6fc9cc7695d" => :yosemite
-    sha256 "048947d9343c8848897be272cae74d98cd869fa3d64fa6f2bfe82cb68ca100b9" => :mavericks
+    sha256 cellar: :any, big_sur:     "3234c105147111fdbb679c8a27a4b59a99d8195a3e461642783028905c244db4"
+    sha256 cellar: :any, catalina:    "bbc7716e6028fc3dc95dc22bf20033d13119b6ffe62dbd4c2609ecce85459a92"
+    sha256 cellar: :any, mojave:      "1e62717cf6b0562643947c904c547e737bc9209cb349c388c6b7f9edcd915001"
+    sha256 cellar: :any, high_sierra: "0f14327e937f0a665dc66c5b62dc5d11094d812831221d8b86f8e5ba966e9540"
   end
-
-  option "without-test", "Skip compile-time checks (Not recommended)"
-
-  deprecated_option "without-check" => "without-test"
 
   depends_on "gmp"
 
@@ -24,7 +18,7 @@ class Cln < Formula
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking"
     system "make"
-    system "make", "check" if build.with? "test"
+    system "make", "check"
     system "make", "install"
   end
 

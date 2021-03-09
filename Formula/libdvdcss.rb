@@ -1,21 +1,22 @@
 class Libdvdcss < Formula
   desc "Access DVDs as block devices without the decryption"
   homepage "https://www.videolan.org/developers/libdvdcss.html"
-  url "https://download.videolan.org/pub/videolan/libdvdcss/1.4.0/libdvdcss-1.4.0.tar.bz2"
-  sha256 "2089375984800df29a4817b37f3123c1706723342d6dab4d0a8b75c25c2c845a"
+  url "https://download.videolan.org/pub/videolan/libdvdcss/1.4.2/libdvdcss-1.4.2.tar.bz2"
+  sha256 "78c2ed77ec9c0d8fbed7bf7d3abc82068b8864be494cfad165821377ff3f2575"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "a12b8c3d6f8e88394b86b711bfda78a465ba8a0fdf028e80f7676a5a1afaf76c" => :high_sierra
-    sha256 "bab4dbb3fbda6bdb3c21ebb1c925c242e0cc14a247fcaca552ab609710677b23" => :sierra
-    sha256 "c15f5de6e9bb695e3d5325c4732e83c12ac5142a5ae1ba1facc098560822b8a1" => :el_capitan
-    sha256 "c93bcd80c6ecdc46f9b74eeb82c5834d42c1380bd4b8070dbd9a80354d1726d7" => :yosemite
-    sha256 "09b948452ac6499dd896cf96ae9289028bfb73c143d93b3f73067369a690e04c" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "70921a36dabb28674da535508ab2434bec4843c08c1fb2597cfe532b2bd652f4"
+    sha256 cellar: :any, big_sur:       "9a8db2ea63440ad177206f94fef24af0649b6449a10f61e50987f357ed708bdf"
+    sha256 cellar: :any, catalina:      "352a2c343c04e65ee38fe154c797a29cc9cca509212e2296e9cd54e3e824ce29"
+    sha256 cellar: :any, mojave:        "645422cdd6facba8137146fd12df0538b27432a72bc79c5ca8c2667ab9fc70bc"
+    sha256 cellar: :any, high_sierra:   "4029db91ed7536435bd29db6b67f55509be13e70b6170337edec72daad8992c4"
+    sha256 cellar: :any, sierra:        "907d51957c4674ddeb27b458dcf5f1f4b382219bda893fc8908147acc1c2b1ea"
+    sha256 cellar: :any, el_capitan:    "0aaed21ecd3c8d3b4a9997300a599de5a541689ab200a6ffce52167b2ce5b664"
   end
 
   head do
-    url "https://git.videolan.org/git/libdvdcss.git"
+    url "https://code.videolan.org/videolan/libdvdcss.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

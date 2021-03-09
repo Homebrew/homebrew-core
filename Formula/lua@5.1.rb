@@ -3,51 +3,31 @@ class LuaAT51 < Formula
   desc "Powerful, lightweight programming language (v5.1.5)"
   homepage "https://www.lua.org/"
   url "https://www.lua.org/ftp/lua-5.1.5.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz"
   sha256 "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333"
-  revision 5
+  license "MIT"
+  revision 8
 
   bottle do
-    cellar :any
-    sha256 "95a10759ef537078d9b262efe260367bef1530a446bcedf0a33f91a327795095" => :high_sierra
-    sha256 "841465165c7ceac064594ce3f9086807df0200d5b059094eec8b17cbff9bab45" => :sierra
-    sha256 "2e186449f5081079315fc19d3bf455cbbfc0722ab7f10f9d8ac5c3d942ec8a5b" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "cde11765109e69c6484206f4b2a63081b535253f32233471343f03b52505a89b"
+    sha256 cellar: :any, big_sur:       "0d00a4c74d8e5fd3cd36621d318d2c1031a16c5701d2ae669223a2ca8a1a576d"
+    sha256 cellar: :any, catalina:      "bbc328f48c0cf137907ccabe206f75cc7ade66cf76cafe82ced3a5f885c73da8"
+    sha256 cellar: :any, mojave:        "4578b515c3e1a255f766d7fa542e632007ac2de8282e207b92192d0bb9bafd11"
+    sha256 cellar: :any, high_sierra:   "d374b94b3e4b9af93cb5c04086f4a9836c06953b4b1941c68a92986ba57356b1"
+    sha256 cellar: :any, sierra:        "67ce3661b56fe8dd0daf6f94b7da31a9516b00ae85d9bbe9eabd7ed2e1dbb324"
+    sha256 cellar: :any, el_capitan:    "e43d1c75fe4462c5dca2d95ebee9b0e4897c872f03c4331d5898a06a408cbcb3"
   end
 
-  option "with-completion", "Enables advanced readline support"
-  option "without-sigaction", "Revert to ANSI signal instead of improved POSIX sigaction"
-  option "without-luarocks", "Don't build with Luarocks support embedded"
+  deprecate! date: "2012-02-17", because: :unsupported
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
   patch :DATA
 
-  # sigaction provided by posix signalling power patch from
-  # http://lua-users.org/wiki/LuaPowerPatches
-  if build.with? "completion"
-    patch do
-      url "http://lua-users.org/files/wiki_insecure/power_patches/5.1/sig_catch.patch"
-      sha256 "221435dedd84a386e2d40454e6260a678286bfb7128afa18a4339e5fdda9c8f2"
-    end
-  end
-
-  # completion provided by advanced readline power patch from
-  # http://lua-users.org/wiki/LuaPowerPatches
-  if build.with? "completion"
-    patch do
-      url "https://luajit.org/patches/lua-5.1.4-advanced_readline.patch"
-      sha256 "dfd17e720d1079dcb64529af3e4fea4a4abc0115c934f365282a489d134cceb4"
-    end
-  end
-
-  resource "luarocks" do
-    url "https://keplerproject.github.io/luarocks/releases/luarocks-2.3.0.tar.gz"
-    sha256 "68e38feeb66052e29ad1935a71b875194ed8b9c67c2223af5f4d4e3e2464ed97"
-  end
-
   def install
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
+      s.gsub! "@LUA_PREFIX@", prefix
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
@@ -72,64 +52,30 @@ class LuaAT51 < Formula
     (lib/"pkgconfig").install "etc/lua.pc"
 
     # Renaming from Lua to Lua51.
-    # Note that the naming must be both lua-version & lua.version.
-    # Software can't find the libraries without supporting both the hyphen or full stop.
-    mv "#{bin}/lua", "#{bin}/lua-5.1"
-    mv "#{bin}/luac", "#{bin}/luac-5.1"
-    mv "#{man1}/lua.1", "#{man1}/lua-5.1.1"
-    mv "#{man1}/luac.1", "#{man1}/luac-5.1.1"
-    mv "#{lib}/pkgconfig/lua.pc", "#{lib}/pkgconfig/lua-5.1.pc"
+    # NOTE: The naming must be both lua-version & lua.version.
+    # Software can't find the libraries without supporting both the
+    # hyphen and full stop.
+    mv bin/"lua", bin/"lua-5.1"
+    mv bin/"luac", bin/"luac-5.1"
+    mv man1/"lua.1", man1/"lua-5.1.1"
+    mv man1/"luac.1", man1/"luac-5.1.1"
+    mv lib/"pkgconfig/lua.pc", lib/"pkgconfig/lua-5.1.pc"
     bin.install_symlink "lua-5.1" => "lua5.1"
     bin.install_symlink "luac-5.1" => "luac5.1"
     include.install_symlink "lua-5.1" => "lua5.1"
     (lib/"pkgconfig").install_symlink "lua-5.1.pc" => "lua5.1.pc"
     (libexec/"lib/pkgconfig").install_symlink lib/"pkgconfig/lua-5.1.pc" => "lua.pc"
-
-    # This resource must be handled after the main install, since there's a lua dep.
-    # Keeping it in install rather than postinstall means we can bottle.
-    if build.with? "luarocks"
-      resource("luarocks").stage do
-        ENV.prepend_path "PATH", bin
-
-        system "./configure", "--prefix=#{libexec}", "--rocks-tree=#{HOMEBREW_PREFIX}",
-                              "--sysconfdir=#{etc}/luarocks51", "--with-lua=#{prefix}",
-                              "--lua-version=5.1", "--versioned-rocks-dir"
-        system "make", "build"
-        system "make", "install"
-
-        (share/"lua/5.1/luarocks").install_symlink Dir["#{libexec}/share/lua/5.1/luarocks/*"]
-        bin.install_symlink libexec/"bin/luarocks-5.1"
-        bin.install_symlink libexec/"bin/luarocks-admin-5.1"
-
-        # This block ensures luarock exec scripts don't break across updates.
-        inreplace libexec/"share/lua/5.1/luarocks/site_config.lua" do |s|
-          s.gsub! libexec.to_s, opt_libexec.to_s
-          s.gsub! include.to_s, "#{HOMEBREW_PREFIX}/include"
-          s.gsub! lib.to_s, "#{HOMEBREW_PREFIX}/lib"
-          s.gsub! bin.to_s, "#{HOMEBREW_PREFIX}/bin"
-        end
-      end
-    end
   end
 
-  def caveats; <<~EOS
-    Please be aware due to the way Luarocks is designed any binaries installed
-    via Luarocks-5.3 AND 5.1 will overwrite each other in #{HOMEBREW_PREFIX}/bin.
-
-    This is, for now, unavoidable. If this is troublesome for you, you can build
-    rocks with the `--tree=` command to a special, non-conflicting location and
-    then add that to your `$PATH`.
+  def caveats
+    <<~EOS
+      You may also want luarocks:
+        brew install luarocks
     EOS
   end
 
   test do
     system "#{bin}/lua5.1", "-e", "print ('Ducks are cool')"
-
-    if File.exist?(bin/"luarocks-5.1")
-      mkdir testpath/"luarocks"
-      system bin/"luarocks-5.1", "install", "moonscript", "--tree=#{testpath}/luarocks"
-      assert_predicate testpath/"luarocks/bin/moon", :exist?
-    end
   end
 end
 
@@ -175,7 +121,7 @@ index e0d4c9f..4477d7b 100644
  $(LUA_A): $(CORE_O) $(LIB_O)
 -	$(AR) $@ $(CORE_O) $(LIB_O)	# DLL needs all object files
 -	$(RANLIB) $@
-+	$(CC) -dynamiclib -install_name HOMEBREW_PREFIX/lib/liblua.5.1.dylib \
++	$(CC) -dynamiclib -install_name @LUA_PREFIX@/lib/liblua.5.1.dylib \
 +		-compatibility_version 5.1 -current_version 5.1.5 \
 +		-o liblua.5.1.5.dylib $^
 

@@ -2,143 +2,134 @@ class Weboob < Formula
   include Language::Python::Virtualenv
 
   desc "Web Outside of Browsers"
-  homepage "http://weboob.org/"
-  url "https://symlink.me/attachments/download/342/weboob-1.2.tar.gz"
-  sha256 "1e3b7e35bd1e5d203e5d716be4a25e898aba6887b3c3b8341e3a0ce2ad8e87b0"
-  revision 1
-  head "https://git.symlink.me/pub/weboob/stable.git"
+  homepage "https://weboob.org/"
+  url "https://git.weboob.org/weboob/weboob/uploads/7b91875f693b60e93c5976daa051034b/weboob-2.0.tar.gz"
+  mirror "https://files.pythonhosted.org/packages/88/c1/b3423348d8e2a557c7e0d53b5977cf1a382703c7b4d1397876836184b493/weboob-2.0.tar.gz"
+  sha256 "fc8be1f77ad3a53285cef8b20a8b747960c163fad729c56838043d8ddcdfc9b0"
+  license "LGPL-3.0-or-later"
+  revision 4
+
+  livecheck do
+    url "https://git.weboob.org/weboob/weboob.git"
+    regex(/^v?(\d+(?:\.(?:\d+|[a-z])+))$/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "92274ecb51852da75133738b556ef177950324bda68125bdeca3b88f718fe1d2" => :high_sierra
-    sha256 "d4e4e6f2088d851ee2d66fc47bfbd042688b2dad139e02a6b930868b4b3657ad" => :sierra
-    sha256 "17da8046419caa38c3b4f5bc64c4295b6eb818b34d75f288ee26a9f05d5df2aa" => :el_capitan
-    sha256 "99d17c2b8fa57cd48127c55c7482efa5f5cc220c9f656d92c0403e8aa657ca7d" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "273a3ac31c89b6952d93046b46eed975a1d64c68198e06fc1aa71a8f090fc969"
+    sha256 cellar: :any, big_sur:       "b51b81b071a24fa3dd45c4b28bfdc6aa0922db9d066d0733b50fd20a22baaff9"
+    sha256 cellar: :any, catalina:      "efe922340a4c54a69856eadeeaf1862a2f22e00423b39b5261cdda54a2f6b3bf"
+    sha256 cellar: :any, mojave:        "817b0aaab2a04008152da12a4380eabd677493bb5be8bd3666498519a5bbc1ea"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
   depends_on "freetype"
+  depends_on "gnupg"
   depends_on "jpeg"
   depends_on "libyaml"
-  depends_on :gpg => :run
+  depends_on "python@3.9"
+  depends_on "tcl-tk"
 
-  resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/8d/80/eca7a2d1a3c2dafb960f32f844d570de988e609f5fd17de92e1cf6a01b0a/Pillow-4.0.0.tar.gz"
-    sha256 "ee26d2d7e7e300f76ba7b796014c04011394d0c4a5ed9a288264a3e443abca50"
+  resource "Babel" do
+    url "https://files.pythonhosted.org/packages/41/1b/5ed6e564b9ca54318df20ebe5d642ab25da4118df3c178247b8c4b26fa13/Babel-2.9.0.tar.gz"
+    sha256 "da031ab54472314f210b0adcff1588ee5d1d1d0ba4dbd07b94dba82bde791e05"
   end
 
-  resource "PrettyTable" do
-    url "https://files.pythonhosted.org/packages/ef/30/4b0746848746ed5941f052479e7c23d2b56d174b82f4fd34a25e389831f5/prettytable-0.7.2.tar.bz2"
-    sha256 "853c116513625c738dc3ce1aee148b5b5757a86727e67eff6502c7ca59d43c36"
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
-  resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "cssselect" do
-    url "https://files.pythonhosted.org/packages/77/ff/9c865275cd19290feba56344eba570e719efb7ca5b34d67ed12b22ebbb0d/cssselect-1.0.1.tar.gz"
-    sha256 "73db1c054b9348409e2862fc6c0dde5c4e4fbe4da64c5c5a9e05fbea45744077"
+    url "https://files.pythonhosted.org/packages/70/54/37630f6eb2c214cdee2ae56b7287394c8aa2f3bafb8b4eb8c3791aae7a14/cssselect-1.1.0.tar.gz"
+    sha256 "f95f8dedd925fd8f54edb3d2dfb44c190d9d18512377d3c1e2388d16126879bc"
   end
 
-  resource "feedparser" do
-    url "https://files.pythonhosted.org/packages/91/d8/7d37fec71ff7c9dbcdd80d2b48bcdd86d6af502156fc93846fb0102cb2c4/feedparser-5.2.1.tar.bz2"
-    sha256 "ce875495c90ebd74b179855449040003a1beb40cd13d5f037a0654251e260b02"
+  resource "html2text" do
+    url "https://files.pythonhosted.org/packages/6c/f9/033a17d8ea8181aee41f20c74c3b20f1ccbefbbc3f7cd24e3692de99fb25/html2text-2020.1.16.tar.gz"
+    sha256 "e296318e16b059ddb97f7a8a1d6a5c1d7af4544049a01e261731d2d5cc277bbb"
   end
 
-  resource "futures" do
-    url "https://files.pythonhosted.org/packages/55/db/97c1ca37edab586a1ae03d6892b6633d8eaa23b23ac40c7e5bbc55423c78/futures-3.0.5.tar.gz"
-    sha256 "0542525145d5afc984c88f914a0c85c77527f65946617edb5274f72406f981df"
-  end
-
-  resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/e8/04/4bb1672918e4fc6d6a8201bdaf986b9fb4763f2a47b11496186dbbbd40ce/google-api-python-client-1.6.2.tar.gz"
-    sha256 "8c2f50f8057571a5f817c74820cadb754d47799c5a4ea463c1500fe8e092c1ae"
-  end
-
-  resource "httplib2" do
-    url "https://files.pythonhosted.org/packages/e4/2e/a7e27d2c36076efeb8c0e519758968b20389adf57a9ce3af139891af2696/httplib2-0.10.3.tar.gz"
-    sha256 "e404d3b7bd86c1bc931906098e7c1305d6a3a6dcef141b8bb1059903abb3ceeb"
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/39/e8/a8e0b1fa65dd021d48fe21464f71783655f39a41f218293c1c590d54eb82/lxml-3.7.3.tar.gz"
-    sha256 "aa502d78a51ee7d127b4824ff96500f0181d3c7826e6ee7b800d068be79361c7"
+    url "https://files.pythonhosted.org/packages/db/f7/43fecb94d66959c1e23aa53d6161231dca0e93ec500224cf31b3c4073e37/lxml-4.6.2.tar.gz"
+    sha256 "cd11c7e8d21af997ee8079037fff88f16fda188a9776eb4b81c7e4c9c0a7d7fc"
   end
 
-  resource "mechanize" do
-    url "https://files.pythonhosted.org/packages/32/bc/d5b44fe4a3b5079f035240a7c76bd0c71a60c6082f4bfcb1c7585604aa35/mechanize-0.2.5.tar.gz"
-    sha256 "2e67b20d107b30c00ad814891a095048c35d9d8cb9541801cebe85684cc84766"
-  end
-
-  resource "oauth2client" do
-    url "https://files.pythonhosted.org/packages/c2/ce/7aaf19d8b856191e2e1885201fe45f3dc57b97f5ec5bc98ef2cc15472918/oauth2client-4.0.0.tar.gz"
-    sha256 "80be5420889694634b8517b4acd3292ace881d9d1aa9d590d37ec52faec238c7"
-  end
-
-  resource "olefile" do
-    url "https://files.pythonhosted.org/packages/35/17/c15d41d5a8f8b98cc3df25eb00c5cee76193114c78e5674df6ef4ac92647/olefile-0.44.zip"
-    sha256 "61f2ca0cd0aa77279eb943c07f607438edf374096b66332fae1ee64a6f0f73ad"
-  end
-
-  resource "pdfminer" do
-    url "https://files.pythonhosted.org/packages/57/4f/e1df0437858188d2d36466a7bb89aa024d252bd0b7e3ba90cbc567c6c0b8/pdfminer-20140328.tar.gz"
-    sha256 "ba187b93056586a14edd5e630cf63ae96b1cc84b611f55dcddbc997316d9f262"
-  end
-
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/69/17/eec927b7604d2663fef82204578a0056e11e0fc08d485fdb3b6199d9b590/pyasn1-0.2.3.tar.gz"
-    sha256 "738c4ebd88a718e700ee35c8d129acce2286542daa80a82823a7073644f706ad"
-  end
-
-  resource "pyasn1-modules" do
-    url "https://files.pythonhosted.org/packages/60/32/7703bccdba05998e4ff04db5038a6695a93bedc45dcf491724b85b5db76a/pyasn1-modules-0.0.8.tar.gz"
-    sha256 "10561934f1829bcc455c7ecdcdacdb4be5ffd3696f26f468eb6eb41e107f3837"
+  resource "Pillow" do
+    url "https://files.pythonhosted.org/packages/60/f0/dd2eb7911f948bf529f58f0c7931f6f6466f711bd6f1d81a69dc4edd4e2a/Pillow-8.1.2.tar.gz"
+    sha256 "b07c660e014852d98a00a91adfbe25033898a9d90a8f39beb2437d22a203fc44"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/51/fc/39a3fbde6864942e8bb24c93663734b74e281b984d1b8c4f95d64b0c21f6/python-dateutil-2.6.0.tar.gz"
-    sha256 "62a2f8df3d66f878373fd0072eacf4ee52194ba302e00082828e0d263b0418d2"
+    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
+    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+  end
+
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/b0/61/eddc6eb2c682ea6fd97a7e1018a6294be80dba08fa28e7a3570148b4612d/pytz-2021.1.tar.gz"
+    sha256 "83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "requests" do
-    url "https://pypi.python.org/packages/16/09/37b69de7c924d318e51ece1c4ceb679bf93be9d05973bb30c35babd596e2/requests-2.13.0.tar.gz"
-    sha256 "5722cd09762faa01276230270ff16af7acf7c5c45d623868d9ba116f15791ce8"
-  end
-
-  resource "rsa" do
-    url "https://files.pythonhosted.org/packages/14/89/adf8b72371e37f3ca69c6cb8ab6319d009c4a24b04a31399e5bd77d9bb57/rsa-3.4.2.tar.gz"
-    sha256 "25df4e10c263fb88b5ace923dd84bf9aa7f5019687b5e55382ffcdb8bede9db5"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
-  resource "uritemplate" do
-    url "https://files.pythonhosted.org/packages/cd/db/f7b98cdc3f81513fb25d3cbe2501d621882ee81150b745cdd1363278c10a/uritemplate-3.0.0.tar.gz"
-    sha256 "c02643cebe23fc8adb5e6becffe201185bf06c40bda5c0b4028a93f1527d011d"
+  resource "Unidecode" do
+    url "https://files.pythonhosted.org/packages/cd/31/245d8a384939aa0ee152c76fc62890f79f35fc41cd12839f5df268d9081d/Unidecode-1.2.0.tar.gz"
+    sha256 "8d73a97d387a956922344f6b74243c2c6771594659778744b2dbdaad8f6b727d"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
+    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
   end
 
   def install
-    venv = virtualenv_create(libexec)
+    venv = virtualenv_create(libexec, "python3")
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
-        sdkprefix = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+        sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
         s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
-        s.gsub! "ZLIB_ROOT = None", "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
-        s.gsub! "JPEG_ROOT = None", "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
-        s.gsub! "FREETYPE_ROOT = None", "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
+        s.gsub! "xcb.h", "probably_not_a_header_called_this_eh.h"
+        s.gsub! "ZLIB_ROOT = None",
+                "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        s.gsub! "JPEG_ROOT = None",
+                "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
+        s.gsub! "FREETYPE_ROOT = None",
+                "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', " \
+                                 "'#{Formula["freetype"].opt_prefix}/include')"
       end
 
-      # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
-      ENV.delete "SDKROOT"
-      ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers" unless MacOS::CLT.installed?
       venv.pip_install Pathname.pwd
+
+      xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+      site_packages = "lib/python#{xy}/site-packages"
+      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+      (prefix/site_packages/"homebrew-weboob.pth").write pth_contents
     end
+
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
     res = resources.map(&:name).to_set - ["Pillow"]
 
@@ -150,7 +141,7 @@ class Weboob < Formula
   end
 
   test do
-    system bin/"weboob-config", "update"
-    system bin/"weboob-config", "applications"
+    system bin/"weboob-config", "modules"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import weboob"
   end
 end

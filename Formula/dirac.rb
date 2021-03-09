@@ -3,17 +3,20 @@ class Dirac < Formula
   homepage "https://sourceforge.net/projects/dirac/"
   url "https://downloads.sourceforge.net/project/dirac/dirac-codec/Dirac-1.0.2/dirac-1.0.2.tar.gz"
   mirror "https://launchpad.net/ubuntu/+archive/primary/+files/dirac_1.0.2.orig.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/d/dirac/dirac_1.0.2.orig.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/d/dirac/dirac_1.0.2.orig.tar.gz"
   sha256 "816b16f18d235ff8ccd40d95fc5b4fad61ae47583e86607932929d70bf1f00fd"
 
   bottle do
-    cellar :any
     rebuild 1
-    sha256 "9413ec8e068d4c8e30d679a62af9779a09de385e2287acebacf9e5c56e80a50a" => :high_sierra
-    sha256 "09b846fe4069e971ec6d10668d97ac599cb555e5799f3ba3076d0d088e1f78cf" => :sierra
-    sha256 "8f4414614755f863d3ba0f43d6415684fbc00976ae24c7e45c88fe736be918d2" => :el_capitan
-    sha256 "1d3049d9dcdbd0116c65c54582601b20cdd17c8b89cf80e74efc79f71b641ca4" => :yosemite
-    sha256 "e7c407545085631c27c77f2d15abe84b3cc0a3645cf5e538aa15f0aacfe6de50" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "fd13d2ad2ae2be488a3667d58a9ae207a12afe17826e6d8fdebf454bba4a543f"
+    sha256 cellar: :any, big_sur:       "2d6aa7e4d9c73e1a79b9b23b86ade670324755806276d6061ec1b3e9f444548a"
+    sha256 cellar: :any, catalina:      "8c4a433f067fac458d219eaed956744d84cb9069334df82a3745e6f5f24aa686"
+    sha256 cellar: :any, mojave:        "c018586bbfdeb10487adc1c62bdd74138b9d11195064bd2a07d458a55d770a06"
+    sha256 cellar: :any, high_sierra:   "9413ec8e068d4c8e30d679a62af9779a09de385e2287acebacf9e5c56e80a50a"
+    sha256 cellar: :any, sierra:        "09b846fe4069e971ec6d10668d97ac599cb555e5799f3ba3076d0d088e1f78cf"
+    sha256 cellar: :any, el_capitan:    "8f4414614755f863d3ba0f43d6415684fbc00976ae24c7e45c88fe736be918d2"
+    sha256 cellar: :any, yosemite:      "1d3049d9dcdbd0116c65c54582601b20cdd17c8b89cf80e74efc79f71b641ca4"
+    sha256 cellar: :any, mavericks:     "e7c407545085631c27c77f2d15abe84b3cc0a3645cf5e538aa15f0aacfe6de50"
   end
 
   # First two patches: the only two commits in the upstream repo not in 1.0.2
@@ -30,7 +33,10 @@ class Dirac < Formula
 
   # HACK: the configure script, which assumes any compiler that
   # starts with "cl" is a Microsoft compiler
-  patch :DATA
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/dirac/1.0.2.patch"
+    sha256 "8f77a8f088b7054855e18391a4baa5c085da0f418f203c3e47aad7b63d84794a"
+  end
 
   def install
     # BSD cp doesn't have '-d'
@@ -41,50 +47,3 @@ class Dirac < Formula
     system "make", "install"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 41329b9..8f5ed19 100755
---- a/configure
-+++ b/configure
-@@ -15903,30 +15903,8 @@ ACLOCAL_AMFLAGS="-I m4 $ACLOCAL_AMFLAGS"
- use_msvc=no
-
-
--case "$CXX" in
--		cl*|CL*)
--		CXXFLAGS="-nologo -W1 -EHsc -DWIN32"
--		if test x"$enable_shared" = "xyes"; then
--		    LIBEXT=".dll";
--		    LIBFLAGS="-DLL -INCREMENTAL:NO"
--			CXXFLAGS="$CXXFLAGS -D_WINDLL"
--		else
--		    LIBEXT=".lib";
--		    LIBFLAGS="-lib"
--		fi
--		RANLIB="echo"
--		use_msvc=yes
--		;;
--	*)
--		;;
--esac
-- if test x"$use_msvc" = "xyes"; then
--  USE_MSVC_TRUE=
--  USE_MSVC_FALSE='#'
--else
-   USE_MSVC_TRUE='#'
-   USE_MSVC_FALSE=
--fi
-
-
-
-@@ -22678,7 +22656,8 @@ $debug ||
- if test -n "$CONFIG_FILES"; then
-
-
--ac_cr=''
-+ac_cr='
-+'
- ac_cs_awk_cr=`$AWK 'BEGIN { print "a\rb" }' </dev/null 2>/dev/null`
- if test "$ac_cs_awk_cr" = "a${ac_cr}b"; then
-   ac_cs_awk_cr='\\r'

@@ -1,41 +1,43 @@
 class Readline < Formula
   desc "Library for command-line editing"
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
-  url "https://ftp.gnu.org/gnu/readline/readline-7.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/readline/readline-7.0.tar.gz"
-  version "7.0.3"
-  sha256 "750d437185286f40a369e1e4f4764eda932b9459b5ec9a731628393dd3d32334"
-  revision 1
+  url "https://ftp.gnu.org/gnu/readline/readline-8.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/readline/readline-8.1.tar.gz"
+  sha256 "f8ceb4ee131e3232226a17f51b164afc46cd0b9e6cef344be87c65962cb82b02"
+  license "GPL-3.0-or-later"
+
+  livecheck do
+    url :stable
+    regex(/href=.*?readline[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "45322d69fba127fe9d5c8d1d2fe8b57e0a657b0ebc0a8143cc47118243828dfd" => :high_sierra
-    sha256 "af7886c963fe3e9f58c45d679a64b278f4df7b172bbd978cf42658a7fd7b4a2a" => :sierra
-    sha256 "86766a343a07e08c52e7e87e64a12d3aa34bf71ba248fc779a2c5b0664797ba9" => :el_capitan
-    sha256 "11589e87c4860e414fe5a4b3481d20e47258f41a91a7490a5c88e1a57d5e1d18" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "940e7c2b80ef7f59b26726a5669a31fcb8ba7cbbb17eb1f2ca589dafa6e68e5e"
+    sha256 cellar: :any, big_sur:       "2cc3a9582e3c7e21eb3c2c8964abd33e9720fb4a9588c626d8424ff8cc9b1aed"
+    sha256 cellar: :any, catalina:      "fe4de019cf549376a7743dcb0c86db8a08ca2b6d0dd2f8cb796dd7cf973dc2e9"
+    sha256 cellar: :any, mojave:        "1ea5a8050482911b319dc3e1436ee03310ba79d75d855d40114ba6067e01b9c5"
   end
 
-  %w[
-    001 9ac1b3ac2ec7b1bf0709af047f2d7d2a34ccde353684e57c6b47ebca77d7a376
-    002 8747c92c35d5db32eae99af66f17b384abaca961653e185677f9c9a571ed2d58
-    003 9e43aa93378c7e9f7001d8174b1beb948deefa6799b6f581673f465b7d9d4780
-  ].each_slice(2) do |p, checksum|
-    patch :p0 do
-      url "https://ftp.gnu.org/gnu/readline/readline-7.0-patches/readline70-#{p}"
-      mirror "https://ftpmirror.gnu.org/readline/readline-7.0-patches/readline70-#{p}"
-      sha256 checksum
-    end
-  end
+  keg_only :shadowed_by_macos, "macOS provides BSD libedit"
 
-  keg_only :shadowed_by_osx, <<~EOS
-    macOS provides the BSD libedit library, which shadows libreadline.
-    In order to prevent conflicts when programs look for libreadline we are
-    defaulting this GNU Readline installation to keg-only.
-  EOS
+  uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    args = ["--prefix=#{prefix}"]
+    on_linux do
+      args << "--with-curses"
+    end
+    system "./configure", *args
+
+    args = []
+    on_linux do
+      args << "SHLIB_LIBS=-lcurses"
+    end
+    # There is no termcap.pc in the base system, so we have to comment out
+    # the corresponding Requires.private line.
+    # Otherwise, pkg-config will consider the readline module unusable.
+    inreplace "readline.pc", /^(Requires.private: .*)$/, "# \\1"
+    system "make", "install", *args
   end
 
   test do

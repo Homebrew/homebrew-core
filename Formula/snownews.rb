@@ -1,51 +1,40 @@
 class Snownews < Formula
   desc "Text mode RSS newsreader"
-  homepage "https://kiza.eu/software/snownews"
-  url "https://kiza.eu/media/software/snownews/snownews-1.5.12.tar.gz"
-  sha256 "26dd96e9345d9cbc1c0c9470417080dd0c3eb31e7ea944f78f3302d7060ecb90"
-  revision 1
+  homepage "https://github.com/kouya/snownews"
+  url "https://github.com/kouya/snownews/archive/1.6.10.tar.gz"
+  sha256 "8c78067aef75e283df4b3cca1c966587b6654e9e84a3e6e5eb8bdd5829799242"
+  license "GPL-3.0"
 
   bottle do
-    sha256 "22fb8c0d85ab994352f15a8a54418d8e50dbf30b418c0e16daf34a0522a5a99b" => :high_sierra
-    sha256 "111d01a8162376cf510ca58d4db0dc87c3edd171f782738d36ce8326b25741f6" => :sierra
-    sha256 "03ac9fea075ea76b934c2ff5365b5e48295c6fbcb03f9c402332bbdf5f84690b" => :el_capitan
-    sha256 "9d950bf2641410e4ddc6646eeaead2e49a5925b186a7d72fb207f11ceaaa0572" => :yosemite
-    sha256 "50505095e31d0c0a0960cae1abd00e8900c64967c5ad81068de161c510e59afe" => :mavericks
+    sha256 arm64_big_sur: "8f6543fe8c6e40ec9e04b38178d1945fc3f80141f9c1035235232771807c04de"
+    sha256 big_sur:       "4b9252e14c89712ad72b1c4e52d467ef36ec0f8a53b15083f11120dade87f7a0"
+    sha256 catalina:      "6829a661dc7dbd01b149a05aff6b81b4ecc22b99f3f06345f029b183bf952c64"
+    sha256 mojave:        "db1d20c1468867a2eeb77b521fdfac4e167393797506afd6bbd603fb40c435bf"
+    sha256 high_sierra:   "0e1eed435b2c94a95e35ee89c3b68be6cfa9867d75dc9fbb46b19a66ff6da915"
+    sha256 sierra:        "6437a67fb63f92f3c4d57b69505cb5146e2d7325da0d6fd73b57ac0f1461c807"
   end
 
-  option "without-nls", "Build without translations"
+  depends_on "coreutils" => :build
+  depends_on "pkg-config" => :build
+  depends_on "gettext"
+  depends_on "ncurses"
 
-  depends_on "gettext" if build.with? "nls"
-  depends_on "openssl"
-
-  # Fix system openssl linking error on macOS.
-  # Allow EXTRA_LDFLAGS to take precedence so we can link brewed openssl
-  # instead of deprecated system openssl.
-  # Upstream has been notified but has no public bug tracker
-  patch :DATA
+  uses_from_macos "libxml2"
 
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--disable-nls" if build.without? "nls"
+    # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
+    # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
-    system "./configure", *args
-    # Must supply -lz because snownews configure relies on "xml2-config --libs" for
-    # it, which doesn't work on OS X prior to 10.11
-    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl"].opt_lib} -lz", "CC=#{ENV.cc}"
+    system "./configure", "--prefix=#{prefix}"
+
+    # Must supply -lz because configure relies on "xml2-config --libs"
+    # for it, which doesn't work on OS X prior to 10.11
+    system "make", "install", "EXTRA_LDFLAGS=#{ENV.ldflags} -L#{Formula["openssl@1.1"].opt_lib} -lz",
+           "CC=#{ENV.cc}", "INSTALL=ginstall"
+  end
+
+  test do
+    system bin/"snownews -V"
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index a752cd6..74e61d7 100755
---- a/configure
-+++ b/configure
-@@ -13,7 +13,7 @@ chomp($xmlldflags);
-
- my $prefix = "/usr/local";
- my $cflags = "-Wall -Wno-format-y2k -O2 -DLOCALEPATH=\"\\\"\$(LOCALEPATH)\\\"\" -DOS=\\\"$os\\\" $xmlcflags \$(EXTRA_CFLAGS) ";
--my $ldflags = "-lncurses -lcrypto $xmlldflags \$(EXTRA_LDFLAGS) ";
-+my $ldflags = "\$(EXTRA_LDFLAGS) -lncurses -lcrypto $xmlldflags ";
-
- my $use_nls = 1;
- parse_cmdl_line();

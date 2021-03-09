@@ -1,17 +1,26 @@
 class Clog < Formula
   desc "Colorized pattern-matching log tail utility"
   homepage "https://taskwarrior.org/docs/clog/"
-  url "https://tasktools.org/download/clog-1.3.0.tar.gz"
+  url "https://gothenburgbitfactory.org/download/clog-1.3.0.tar.gz"
   sha256 "fed44a8d398790ab0cf426c1b006e7246e20f3fcd56c0ec4132d24b05d5d2018"
-  head "https://git.tasktools.org/scm/ut/clog.git", :branch => "1.4.0", :shallow => false
+  license "MIT"
+  head "https://github.com/GothenburgBitFactory/clog.git", branch: "1.4.0", shallow: false
+
+  livecheck do
+    url "https://gothenburgbitfactory.org"
+    regex(/href=.*?clog[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b5309f9e692f111a0b68599ff465da02783d2f28a4b10d958c19e616177eb37a" => :high_sierra
-    sha256 "97e07b94ea058c766f4d036cc503fc6ec08ca64cddced33d63723e4611534595" => :sierra
-    sha256 "8f42168b8e165c4c1f1265b410ef62087b370075cc27269f1908eb0f373645c5" => :el_capitan
-    sha256 "a6c42c7d0795252434a3e1fc0307fc40490a4f29a9186408fa3ed7d82ba5f02e" => :yosemite
-    sha256 "61ce3b9c332f9487f9981d8bb93d62fd4b6dfd0bbf0aa8f680b3fd625b2d8576" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ce662c5bd6dfdc6dca64911cbdc37ebcfe5aac7eaea48215f94d3b94bba0b37c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "864d26fdc6960a6b4daf9ca76ef52e5e2db4a8ece187dbc7d8b87939e4823d32"
+    sha256 cellar: :any_skip_relocation, catalina:      "0a5985eee7c41d2199e64105cb0d32b8e065b57257841f48b2eb36a3a662bc7b"
+    sha256 cellar: :any_skip_relocation, mojave:        "ec11a01ddd6a6ad70a655c74f569af9a6b56cf66f87ea448e296a1e208449ba4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b5309f9e692f111a0b68599ff465da02783d2f28a4b10d958c19e616177eb37a"
+    sha256 cellar: :any_skip_relocation, sierra:        "97e07b94ea058c766f4d036cc503fc6ec08ca64cddced33d63723e4611534595"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "8f42168b8e165c4c1f1265b410ef62087b370075cc27269f1908eb0f373645c5"
+    sha256 cellar: :any_skip_relocation, yosemite:      "a6c42c7d0795252434a3e1fc0307fc40490a4f29a9186408fa3ed7d82ba5f02e"
+    sha256 cellar: :any_skip_relocation, mavericks:     "61ce3b9c332f9487f9981d8bb93d62fd4b6dfd0bbf0aa8f680b3fd625b2d8576"
   end
 
   depends_on "cmake" => :build
@@ -21,9 +30,10 @@ class Clog < Formula
     system "make", "install"
   end
 
-  def caveats; <<~EOS
-    Next step is to create a .clogrc file in your home directory. See 'man clog'
-    for details and a sample file.
+  def caveats
+    <<~EOS
+      Next step is to create a .clogrc file in your home directory. See 'man clog'
+      for details and a sample file.
     EOS
   end
 

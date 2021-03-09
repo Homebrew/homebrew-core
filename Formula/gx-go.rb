@@ -3,161 +3,180 @@ require "language/go"
 class GxGo < Formula
   desc "Tool to use with the gx package manager for packages written in go"
   homepage "https://github.com/whyrusleeping/gx-go"
-  url "https://github.com/whyrusleeping/gx-go/archive/v1.6.0.tar.gz"
-  sha256 "9f7d9ec600a3ce5dd6a04bf99b6fd2248c0a81652c4049ea83e537111b4df856"
+  url "https://github.com/whyrusleeping/gx-go/archive/v1.9.0.tar.gz"
+  sha256 "f3a0ee17359e0e5efab8008361da0e312ca723a0c9e165342a0306caba55a535"
+  license "MIT"
   head "https://github.com/whyrusleeping/gx-go.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "cda1bd1bd255c06339ae3b21d09d1588b359ce2974affb1751fb5c833f560f5d" => :high_sierra
-    sha256 "a6a923b5d582cc871b4e75f217a7922636138db32a952a730fbcd69d6ce23eb2" => :sierra
-    sha256 "46939a07dd402dfdb380f32cd11088d933f5f92c524a2d4710b54e17c27b11b5" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f19c6b08f918f3a5d697033421405cc1d8640251c1f35debc5c64a68638a6bf6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5dc1b0036572c7bd56d60b294608b151f1740018d90b94034072d8a97f3c0368"
+    sha256 cellar: :any_skip_relocation, catalina:      "66fa3b40ddb24acbb713379c90df9b398baafd51aa825d5ba28d5fc7781ad987"
+    sha256 cellar: :any_skip_relocation, mojave:        "8c86c8465cde5c6189e67f2d3b758604ef579d064f398cd48eff6ab6ce092bdb"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "57eb4c948ce99ebca79f938539c1b5e096aef6c16554c30f5744b4e1fc93016d"
+    sha256 cellar: :any_skip_relocation, sierra:        "7eb7a89b575a1cb12464f1a0a4d14c5983333a79fb6e4fbb9c5b5240e540020d"
   end
 
   depends_on "go" => :build
 
   go_resource "github.com/agl/ed25519" do
     url "https://github.com/agl/ed25519.git",
-        :revision => "5312a61534124124185d41f09206b9fef1d88403"
+        revision: "5312a61534124124185d41f09206b9fef1d88403"
   end
 
   go_resource "github.com/btcsuite/btcd" do
     url "https://github.com/btcsuite/btcd.git",
-        :revision => "8cea3866d0f7fb12d567a20744942c0d078c7d15"
+        revision: "675abc5df3c5531bc741b56a765e35623459da6d"
   end
 
-  go_resource "github.com/codegangsta/cli" do
+  go_resource "github.com/urfave/cli" do
     url "https://github.com/codegangsta/cli.git",
-        :revision => "7ace96b43d4bdc46f81d0d1219742b2469874cf6"
+        revision: "cfb38830724cc34fedffe9a2a29fb54fa9169cd1"
   end
 
   go_resource "github.com/gogo/protobuf" do
     url "https://github.com/gogo/protobuf.git",
-        :revision => "616a82ed12d78d24d4839363e8f3c5d3f20627cf"
+        revision: "ba06b47c162d49f2af050fb4c75bcbc86a159d5c"
+  end
+
+  go_resource "github.com/gxed/hashland" do
+    url "https://github.com/gxed/hashland.git",
+        revision: "d9f6b97f8db22dd1e090fd0bbbe98f09cc7dd0a8"
   end
 
   go_resource "github.com/ipfs/go-ipfs-api" do
     url "https://github.com/ipfs/go-ipfs-api.git",
-        :revision => "08c2643ffe65b5e2dc2785093fa6b006fc9b8402"
+        revision: "d204576299ddab1140d043d0abb0d9b60a8a5af4"
   end
 
   go_resource "github.com/ipfs/go-ipfs-cmdkit" do
     url "https://github.com/ipfs/go-ipfs-cmdkit.git",
-        :revision => "f3631e8ddde711a7aefed041806902d907a1f9ae"
+        revision: "c2103d7ae7f889e7329673cc3ba55df8b3863b0f"
   end
 
   go_resource "github.com/ipfs/go-log" do
     url "https://github.com/ipfs/go-log.git",
-        :revision => "48d644b006ba26f1793bffc46396e981801078e3"
-  end
-
-  go_resource "github.com/jbenet/go-base58" do
-    url "https://github.com/jbenet/go-base58.git",
-        :revision => "6237cf65f3a6f7111cd8a42be3590df99a66bc7d"
-  end
-
-  go_resource "github.com/jbenet/go-os-rename" do
-    url "https://github.com/jbenet/go-os-rename.git",
-        :revision => "3ac97f61ef67a6b87b95c1282f6c317ed0e693c2"
+        revision: "0ef81702b797a2ecef05f45dcc82b15298f54355"
   end
 
   go_resource "github.com/kr/fs" do
     url "https://github.com/kr/fs.git",
-        :revision => "2788f0dbd16903de03cb8186e5c7d97b69ad387b"
+        revision: "1455def202f6e05b95cc7bfc7e8ae67ae5141eba"
   end
 
   go_resource "github.com/libp2p/go-libp2p-crypto" do
     url "https://github.com/libp2p/go-libp2p-crypto.git",
-        :revision => "e89e1de117dd65c6129d99d1d853f48bc847cf17"
+        revision: "18915b5467c77ad8c07a35328c2cab468667a4e8"
   end
 
   go_resource "github.com/libp2p/go-libp2p-peer" do
     url "https://github.com/libp2p/go-libp2p-peer.git",
-        :revision => "d863b451638c441d046c53834ccfef13beebd025"
+        revision: "aa0e03e559bde9d4749ad8e38595e15a6fe808fa"
   end
 
   go_resource "github.com/libp2p/go-libp2p-pubsub" do
     url "https://github.com/libp2p/go-libp2p-pubsub.git",
-        :revision => "a031ab4d1b8142714eec946acb7033abafade3d7"
+        revision: "f736644fe805a9f5677c82aca25c82da7cde2c76"
+  end
+
+  go_resource "github.com/mattn/go-colorable" do
+    url "https://github.com/mattn/go-colorable.git",
+        revision: "efa589957cd060542a26d2dd7832fd6a6c6c3ade"
+  end
+
+  go_resource "github.com/mattn/go-isatty" do
+    url "https://github.com/mattn/go-isatty.git",
+        revision: "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
+  end
+
+  go_resource "github.com/minio/blake2b-simd" do
+    url "https://github.com/minio/blake2b-simd.git",
+        revision: "3f5f724cb5b182a5c278d6d3d55b40e7f8c2efb4"
+  end
+
+  go_resource "github.com/minio/sha256-simd" do
+    url "https://github.com/minio/sha256-simd.git",
+        revision: "ad98a36ba0da87206e3378c556abbfeaeaa98668"
   end
 
   go_resource "github.com/mitchellh/go-homedir" do
     url "https://github.com/mitchellh/go-homedir.git",
-        :revision => "b8bc1bf767474819792c23f32d8286a45736f1c6"
+        revision: "b8bc1bf767474819792c23f32d8286a45736f1c6"
+  end
+
+  go_resource "github.com/mr-tron/base58" do
+    url "https://github.com/mr-tron/base58.git",
+        revision: "c1bdf7c52f59d6685ca597b9955a443ff95eeee6"
   end
 
   go_resource "github.com/multiformats/go-multiaddr" do
     url "https://github.com/multiformats/go-multiaddr.git",
-        :revision => "6a3fc2bc0c9f2cae466f61d658136d8da99e66f5"
+        revision: "123a717755e0559ec8fda308019cd24e0a37bb07"
   end
 
   go_resource "github.com/multiformats/go-multiaddr-net" do
     url "https://github.com/multiformats/go-multiaddr-net.git",
-        :revision => "376ba58703c84bfff9ca6e0057adf38ad48d3de5"
-  end
-
-  go_resource "github.com/multiformats/go-multicodec-packed" do
-    url "https://github.com/multiformats/go-multicodec-packed.git",
-        :revision => "0ee69486dc1c9087aacfcc575e333f305009997e"
+        revision: "97d80565f68c5df715e6ba59c2f6a03d1fc33aaf"
   end
 
   go_resource "github.com/multiformats/go-multihash" do
     url "https://github.com/multiformats/go-multihash.git",
-        :revision => "9f612d271047a209928f7310045cad25250f39c6"
+        revision: "265e72146e710ff649c6982e3699d01d4e9a18bb"
   end
 
-  go_resource "github.com/sabhiram/go-git-ignore" do
-    url "https://github.com/sabhiram/go-git-ignore.git",
-        :revision => "362f9845770f1606d61ba3ddf9cfb1f0780d2ffe"
+  go_resource "github.com/opentracing/opentracing-go" do
+    url "https://github.com/opentracing/opentracing-go.git",
+        revision: "6c572c00d1830223701e155de97408483dfcd14a"
+  end
+
+  go_resource "github.com/sabhiram/go-gitignore" do
+    url "https://github.com/sabhiram/go-gitignore.git",
+        revision: "fc6676d5d4e5b94d6530686eecb94f85b44cdc39"
   end
 
   go_resource "github.com/spaolacci/murmur3" do
     url "https://github.com/spaolacci/murmur3.git",
-        :revision => "9f5d223c60793748f04a9d5b4b4eacddfc1f755d"
+        revision: "f09979ecbc725b9e6d41a297405f65e7e8804acc"
   end
 
   go_resource "github.com/whyrusleeping/go-logging" do
     url "https://github.com/whyrusleeping/go-logging.git",
-        :revision => "0457bb6b88fc1973573aaf6b5145d8d3ae972390"
-  end
-
-  go_resource "github.com/whyrusleeping/go-multipart-files" do
-    url "https://github.com/whyrusleeping/go-multipart-files.git",
-        :revision => "3be93d9f6b618f2b8564bfb1d22f1e744eabbae2"
+        revision: "0457bb6b88fc1973573aaf6b5145d8d3ae972390"
   end
 
   go_resource "github.com/whyrusleeping/gx" do
     url "https://github.com/whyrusleeping/gx.git",
-        :revision => "89a08d0e93418bb67e807dd8fbd127a525a20cda"
+        revision: "733691bc18c0858a3d7e1a6e0a42df7d0bcac1de"
   end
 
   go_resource "github.com/whyrusleeping/progmeter" do
     url "https://github.com/whyrusleeping/progmeter.git",
-        :revision => "30d42a105341e640d284d9920da2078029764980"
+        revision: "30d42a105341e640d284d9920da2078029764980"
   end
 
   go_resource "github.com/whyrusleeping/stump" do
     url "https://github.com/whyrusleeping/stump.git",
-        :revision => "206f8f13aae1697a6fc1f4a55799faf955971fc5"
+        revision: "206f8f13aae1697a6fc1f4a55799faf955971fc5"
   end
 
   go_resource "github.com/whyrusleeping/tar-utils" do
     url "https://github.com/whyrusleeping/tar-utils.git",
-        :revision => "beab27159606f5a7c978268dd1c3b12a0f1de8a7"
+        revision: "8c6c8ba81d5c71fd69c0f48dbde4b2fb422b6dfc"
   end
 
   go_resource "golang.org/x/crypto" do
     url "https://go.googlesource.com/crypto.git",
-        :revision => "9f005a07e0d31d45e6656d241bb5c0f2efd4bc94"
+        revision: "2d027ae1dddd4694d54f7a8b6cbe78dca8720226"
   end
 
-  go_resource "leb.io/hashland" do
-    url "https://github.com/tildeleb/hashland.git",
-        :revision => "07375b562deaa8d6891f9618a04e94a0b98e2ee7"
+  go_resource "golang.org/x/sys" do
+    url "https://go.googlesource.com/sys.git",
+        revision: "d0faeb539838e250bd0a9db4182d48d4a1915181"
   end
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     mkdir_p "src/github.com/whyrusleeping"
     ln_s buildpath, "src/github.com/whyrusleeping/gx-go"
     Language::Go.stage_deps resources, buildpath/"src"

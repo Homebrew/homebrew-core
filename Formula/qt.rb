@@ -1,103 +1,114 @@
-# Patches for Qt must be at the very least submitted to Qt's Gerrit codereview
-# rather than their bug-report Jira. The latter is rarely reviewed by Qt.
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/5.9/5.9.3/single/qt-everywhere-opensource-src-5.9.3.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/download.qt-project.org/official_releases/qt/5.9/5.9.3/single/qt-everywhere-opensource-src-5.9.3.tar.xz"
-  sha256 "57acd8f03f830c2d7dc29fbe28aaa96781b2b9bdddce94196e6761a0f88c6046"
-  head "https://code.qt.io/qt/qt5.git", :branch => "5.9", :shallow => false
+  url "https://download.qt.io/official_releases/qt/6.0/6.0.2/single/qt-everywhere-src-6.0.2.tar.xz"
+  sha256 "67a076640647783b95a907d2231e4f34cec69be5ed338c1c1b33124cadf10bdf"
+  license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
+
+  # The first-party website doesn't make version information readily available,
+  # so we check the `head` repository tags instead.
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "570ca1b244dbcecc74d2b7813e5659024eba1500640c84b1b6eedcd96dd1ba6f" => :high_sierra
-    sha256 "a05e2f102433b8e0eee1c8cbd0f27949c9314f7ebf237766bcf191ffdb4b6940" => :sierra
-    sha256 "42eae12f322119d24b695fdb29678b50b020dfde0a24bdd8caf4a952649ac2d0" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "fb36682730c3261967347efd1e1219970ddcf9e39998183b2aeaa76acad98cce"
+    sha256 cellar: :any, big_sur:       "99950b7eb8c3fd4a91f5622f1199b77d99d9d2aa9deeb2e2f11a1ed568f1194b"
+    sha256 cellar: :any, catalina:      "30f9131632cfa2088eb24315a5f34090e004413261e11b7290e37d78d7f9e42e"
+    sha256 cellar: :any, mojave:        "9498b72fda65897df32aa8ecd754b45d0f02551280170beb6b76e7001d4fff01"
   end
 
-  keg_only "Qt 5 has CMake issues when linked"
-
-  option "with-docs", "Build documentation"
-  option "with-examples", "Build examples"
-
-  # OS X 10.7 Lion is still supported in Qt 5.5, but is no longer a reference
-  # configuration and thus untested in practice. Builds on OS X 10.7 have been
-  # reported to fail: <https://github.com/Homebrew/homebrew/issues/45284>.
-  depends_on :macos => :mountain_lion
-
+  depends_on "cmake" => [:build, :test]
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on :xcode => :build
-  depends_on :mysql => :optional
-  depends_on :postgresql => :optional
+  depends_on xcode: :build
 
-  # Restore `.pc` files for framework-based build of Qt 5 on OS X. This
-  # partially reverts <https://codereview.qt-project.org/#/c/140954/> merged
-  # between the 5.5.1 and 5.6.0 releases. (Remove this as soon as feasible!)
-  #
-  # Core formulae known to fail without this patch (as of 2016-10-15):
-  #   * gnuplot  (with `--with-qt` option)
-  #   * mkvtoolnix (with `--with-qt` option, silent build failure)
-  #   * poppler    (with `--with-qt` option)
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/e8fe6567/qt5/restore-pc-files.patch"
-    sha256 "48ff18be2f4050de7288bddbae7f47e949512ac4bcd126c2f504be2ac701158b"
+  depends_on "assimp"
+  depends_on "dbus"
+  depends_on "double-conversion"
+  depends_on "freetype"
+  depends_on "glib"
+  depends_on "icu4c"
+  depends_on "jasper"
+  depends_on "jpeg"
+  depends_on "libb2"
+  depends_on "libpng"
+  depends_on "libproxy"
+  depends_on "libtiff"
+  depends_on "pcre2"
+  depends_on "python@3.9"
+  depends_on "webp"
+  depends_on "zstd"
+
+  uses_from_macos "cups"
+  uses_from_macos "krb5"
+  uses_from_macos "perl"
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
+
+  resource "qtimageformats" do
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qtimageformats-everywhere-src-6.0.2.tar.xz"
+    sha256 "b0379ba6bbefbc48ed3ef8a1d8812531bd671362f74e0cffa6adf67bb1139206"
   end
 
-  # Remove for >= 5.10
-  # Fix for upstream issue "macdeployqt does not work with Homebrew"
-  # See https://bugreports.qt.io/browse/QTBUG-56814
-  # Upstream commit from 23 Dec 2016 https://github.com/qt/qttools/commit/8f9b747f030bb41556831a23ec2a8e7e76fb7dc0#diff-2b6e250f93810fd9bcf9bbecf5d2be88
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a627e0a/qt5/QTBUG-56814.patch"
-    sha256 "b18e4715fcef2992f051790d3784a54900508c93350c25b0f2228cb058567142"
+  resource "qt3d" do
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qt3d-everywhere-src-6.0.2.tar.xz"
+    sha256 "ff6434da878062aea612a9d7323bd615c2f232c4462c26323f1a5511aac6db89"
+  end
+
+  resource "qtnetworkauth" do
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qtnetworkauth-everywhere-src-6.0.2.tar.xz"
+    sha256 "05b66ef42f3e6bf4cf5f36744db8483f9a57dbc7bd9ecc9ba81e7ca99b0a37e6"
   end
 
   def install
-    args = %W[
-      -verbose
-      -prefix #{prefix}
+    resources.each { |addition| addition.stage buildpath/addition.name }
+
+    config_args = %W[
       -release
-      -opensource -confirm-license
-      -system-zlib
-      -qt-libpng
-      -qt-libjpeg
-      -qt-freetype
-      -qt-pcre
-      -nomake tests
-      -no-rpath
-      -pkg-config
-      -dbus-runtime
+
+      -prefix #{HOMEBREW_PREFIX}
+      -extprefix #{prefix}
+
+      -libexecdir share/qt/libexec
+      -plugindir share/qt/plugins
+      -qmldir share/qt/qml
+      -docdir share/doc/qt
+      -translationdir share/qt/translations
+      -examplesdir share/qt/examples
+      -testsdir share/qt/tests
+
+      -libproxy
+      -no-feature-relocatable
+      -system-sqlite
     ]
 
-    args << "-nomake" << "examples" if build.without? "examples"
+    cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"]||s["CMAKE_FIND_FRAMEWORK"] } + %W[
+      -DICU_ROOT=#{Formula["icu4c"].opt_prefix}
 
-    if build.with? "mysql"
-      args << "-plugin-sql-mysql"
-      (buildpath/"brew_shim/mysql_config").write <<~EOS
-        #!/bin/sh
-        if [ x"$1" = x"--libs" ]; then
-          mysql_config --libs | sed "s/-lssl -lcrypto//"
-        else
-          exec mysql_config "$@"
-        fi
-      EOS
-      chmod 0755, "brew_shim/mysql_config"
-      args << "-mysql_config" << buildpath/"brew_shim/mysql_config"
-    end
+      -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
+      -DCMAKE_FIND_FRAMEWORK=FIRST
 
-    args << "-plugin-sql-psql" if build.with? "postgresql"
+      -DINSTALL_MKSPECSDIR=share/qt/mkspecs
+      -DINSTALL_DESCRIPTIONSDIR=share/qt/modules
 
-    system "./configure", *args
-    system "make"
-    ENV.deparallelize
-    system "make", "install"
+      -DFEATURE_pkg_config=ON
+      -DFEATURE_qt3d_system_assimp=ON
+      -DTEST_assimp=ON
+    ]
 
-    if build.with? "docs"
-      system "make", "docs"
-      system "make", "install_docs"
-    end
+    system "./configure", *config_args, "--", *cmake_args
+    system "ninja"
+    system "ninja", "install"
+
+    rm bin/"qt-cmake-private-install.cmake"
 
     # Some config scripts will only find Qt in a "Frameworks" folder
     frameworks.install_symlink Dir["#{lib}/*.framework"]
+
+    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", /.*set.__qt_initial_.*/, ""
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
@@ -106,25 +117,43 @@ class Qt < Formula
       include.install_symlink path => path.parent.basename(".framework")
     end
 
-    # Move `*.app` bundles into `libexec` to expose them to `brew linkapps` and
-    # because we don't like having them in `bin`.
-    # (Note: This move breaks invocation of Assistant via the Help menu
-    # of both Designer and Linguist as that relies on Assistant being in `bin`.)
-    libexec.mkpath
-    Pathname.glob("#{bin}/*.app") { |app| mv app, libexec }
-  end
-
-  def caveats; <<~EOS
-    We agreed to the Qt opensource license for you.
-    If this is unacceptable you should uninstall.
-    EOS
+    mkdir libexec
+    Pathname.glob("#{bin}/*.app") do |app|
+      mv app, libexec
+      bin.write_exec_script "#{libexec/app.stem}.app/Contents/MacOS/#{app.stem}"
+    end
   end
 
   test do
-    (testpath/"hello.pro").write <<~EOS
-      QT       += core
-      QT       -= gui
-      TARGET = hello
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.19.0)
+
+      project(test VERSION 1.0.0 LANGUAGES CXX)
+
+      set(CMAKE_CXX_STANDARD 17)
+      set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+      set(CMAKE_AUTOMOC ON)
+      set(CMAKE_AUTORCC ON)
+      set(CMAKE_AUTOUIC ON)
+
+      find_package(Qt6 COMPONENTS Core Widgets Sql Concurrent
+        3DCore Svg Quick3D Network NetworkAuth REQUIRED)
+
+      add_executable(test
+          main.cpp
+      )
+
+      target_link_libraries(test PRIVATE Qt6::Core Qt6::Widgets
+        Qt6::Sql Qt6::Concurrent Qt6::3DCore Qt6::Svg Qt6::Quick3D
+        Qt6::Network Qt6::NetworkAuth
+      )
+    EOS
+
+    (testpath/"test.pro").write <<~EOS
+      QT       += core svg 3dcore network networkauth quick3d \
+        sql
+      TARGET = test
       CONFIG   += console
       CONFIG   -= app_bundle
       TEMPLATE = app
@@ -132,21 +161,45 @@ class Qt < Formula
     EOS
 
     (testpath/"main.cpp").write <<~EOS
+      #undef QT_NO_DEBUG
       #include <QCoreApplication>
+      #include <Qt3DCore>
+      #include <QtQuick3D>
+      #include <QImageReader>
+      #include <QtNetworkAuth>
+      #include <QtSql>
+      #include <QtSvg>
       #include <QDebug>
+      #include <iostream>
 
       int main(int argc, char *argv[])
       {
         QCoreApplication a(argc, argv);
-        qDebug() << "Hello World!";
+        QSvgGenerator generator;
+        auto *handler = new QOAuthHttpServerReplyHandler();
+        delete handler; handler = nullptr;
+        auto *root = new Qt3DCore::QEntity();
+        delete root; root = nullptr;
+        Q_ASSERT(QSqlDatabase::isDriverAvailable("QSQLITE"));
+        const auto &list = QImageReader::supportedImageFormats();
+        for(const char* fmt:{"bmp", "cur", "gif", "heic", "heif",
+          "icns", "ico", "jp2", "jpeg", "jpg", "pbm", "pgm", "png",
+          "ppm", "svg", "svgz", "tga", "tif", "tiff", "wbmp", "webp",
+          "xbm", "xpm"}) {
+          Q_ASSERT(list.contains(fmt));
+        }
         return 0;
       }
     EOS
 
-    system bin/"qmake", testpath/"hello.pro"
+    system "cmake", testpath
     system "make"
-    assert_predicate testpath/"hello", :exist?
-    assert_predicate testpath/"main.o", :exist?
-    system "./hello"
+    system "./test"
+
+    # Work around "error: no member named 'signbit' in the global namespace"
+    ENV.delete "CPATH"
+    system bin/"qmake", testpath/"test.pro"
+    system "make"
+    system "./test"
   end
 end

@@ -1,30 +1,26 @@
 class Pulledpork < Formula
   desc "Snort rule management"
   homepage "https://github.com/shirkdog/pulledpork"
-  url "https://github.com/shirkdog/pulledpork/archive/v0.7.2.tar.gz"
-  sha256 "50046477d5d1a18aec131a56bd3f21170057d8a31fd6f30af706e31d5b14bd0a"
+  url "https://github.com/shirkdog/pulledpork/archive/v0.7.4.tar.gz"
+  sha256 "f0149eb6f723b622024295e0ee00e1acade93fae464b9fdc323fdf15e99c388c"
+  license "GPL-2.0-or-later"
   head "https://github.com/shirkdog/pulledpork.git"
 
   bottle do
-    cellar :any
-    sha256 "92dddb196343e394ab5b83f5b58a3de28d06e42fd637a8c2dbf48bb097d0b736" => :high_sierra
-    sha256 "7a84b60c180ab730402298a5d571017542765e99c0cd55c4c4a1f817b005bf40" => :sierra
-    sha256 "58789c4489d70e629ba6957205ad8dc5b36f1c4c61312da3b0a5a6e6ce9ad472" => :el_capitan
-    sha256 "7ce3fab5d594b8f8581f2bb62a1ccc9a4a3e35df34b6f0b84cb7f471471b3f8a" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "035ca3f72d7950b0446825984e779be22a25b2b8b180f226eb7589120092673e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0fef43eada21d5f8e2adb9f4d69a4baf81626734cf732c4c2f630b176a70b58b"
+    sha256 cellar: :any_skip_relocation, catalina:      "f1e692043de24e99030c5e07a4c11269e091af1748f2bf910048f016358581b6"
+    sha256 cellar: :any_skip_relocation, mojave:        "8f4884077fee641db519a021f0b47c739165546b8dd8b07a4ea4d1a2f8918aaf"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "00f4875c0b5e47644250f39845f90f9a78f10152f489d5c103046f48cd0d5f0a"
   end
 
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "perl"
 
   resource "Switch" do
     url "https://cpan.metacpan.org/authors/id/C/CH/CHORNY/Switch-2.17.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/C/CH/CHORNY/Switch-2.17.tar.gz"
     sha256 "31354975140fe6235ac130a109496491ad33dd42f9c62189e23f49f75f936d75"
-  end
-
-  resource "Crypt::SSLeay" do
-    url "https://cpan.metacpan.org/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz"
-    mirror "http://search.cpan.org/CPAN/authors/id/N/NA/NANIS/Crypt-SSLeay-0.72.tar.gz"
-    sha256 "f5d34f813677829857cf8a0458623db45b4d9c2311daaebe446f9e01afa9ffe8"
   end
 
   def install
@@ -37,9 +33,11 @@ class Pulledpork < Formula
       end
     end
 
+    inreplace "pulledpork.pl", "#!/usr/bin/env perl", "#!/usr/bin/perl"
+
     chmod 0755, "pulledpork.pl"
     bin.install "pulledpork.pl"
-    bin.env_script_all_files(libexec/"bin", :PERL5LIB => ENV["PERL5LIB"])
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
     doc.install Dir["doc/*"]
     (etc/"pulledpork").install Dir["etc/*"]
   end

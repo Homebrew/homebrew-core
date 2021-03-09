@@ -1,20 +1,20 @@
 class Nq < Formula
   desc "Unix command-line queue utility"
   homepage "https://github.com/chneukirchen/nq"
-  url "https://github.com/chneukirchen/nq/archive/v0.2.1.tar.gz"
-  sha256 "1773290791cce646e5e54e935118498a95948ca39ff5d58ac6dc65135275d3fc"
-
+  url "https://github.com/chneukirchen/nq/archive/v0.3.1.tar.gz"
+  sha256 "8897a747843fe246a6f8a43e181ae79ef286122a596214480781a02ef4ea304b"
+  license "CC0-1.0"
   head "https://github.com/chneukirchen/nq.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "01d09a92f7115fbd5824922ce06ea52184c3aa45723b26a993710939f541969c" => :high_sierra
-    sha256 "628282013a47d803037a67425f45ffae15d981e970e1f460854359a9aa124f35" => :sierra
-    sha256 "338e55ded1d9d3ac8c2efdb97a8ccd0832ff5a84d1c90937a6c1f23ce6426518" => :el_capitan
-    sha256 "a85312b7a2ed7cfda110cb1b7c5e2cf5bd9a5eb87b2597a33e6b6a30f3c6c395" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e20a81316a20ce81b4396831d87a88e5e7025a5d7792116352297882565875ec"
+    sha256 cellar: :any_skip_relocation, big_sur:       "97df5cbf63b142bf49bbbe683f869a96b003ab3c30eee3ae36ad0ee741744b1c"
+    sha256 cellar: :any_skip_relocation, catalina:      "95011ee6d48728704ee95480374c545d3c2bcea8f4482cecd9b8dbbab9a2407b"
+    sha256 cellar: :any_skip_relocation, mojave:        "b5b3f7b76cc79a5bc6d4a55e4fb3e018b08052dc7faa173300b1ddf2e16e6bee"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a6d18f2d7f1fafd661a5d145599969707efe71969ccc6ac34593f3f60c59081a"
+    sha256 cellar: :any_skip_relocation, sierra:        "0e8d6557f7713be4c1e5074ea909d36cd12e2e17d85a1c0a1141ac64f06953d3"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "67374f5db8a35f877a16e0fdbd313276fb269db81ce49e7654fb61fa865417cd"
   end
-
-  depends_on :macos => :yosemite
 
   def install
     system "make", "all", "PREFIX=#{prefix}"
@@ -23,7 +23,7 @@ class Nq < Formula
 
   test do
     system "#{bin}/nq", "touch", "TEST"
-    assert_match /exited with status 0/, shell_output("#{bin}/fq -a")
+    assert_match "exited with status 0", shell_output("#{bin}/fq -a")
     assert_predicate testpath/"TEST", :exist?
   end
 end

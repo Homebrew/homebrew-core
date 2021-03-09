@@ -1,23 +1,50 @@
 class BulkExtractor < Formula
   desc "Stream-based forensics tool"
   homepage "https://github.com/simsong/bulk_extractor/wiki"
-  url "https://digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-1.5.5.tar.gz"
+  url "https://downloads.digitalcorpora.org/downloads/bulk_extractor/bulk_extractor-1.5.5.tar.gz"
   sha256 "297a57808c12b81b8e0d82222cf57245ad988804ab467eb0a70cf8669594e8ed"
-  revision 2
+  license "MIT"
+  revision 3
 
-  bottle do
-    sha256 "bd8be8ebe8f00ce1b0d2a1d52d1c8eec1390337e78cf415414c42548558032bc" => :high_sierra
-    sha256 "e2773083f3813a2ed5ecde53ff965a13ca9a995b4c9f3b2abee42162c0492f2c" => :sierra
-    sha256 "cb2049ff2cd30733ec9a2456a4aefdabfa97511849d4c9b2f93de1526ee1f5ba" => :el_capitan
+  livecheck do
+    url "https://downloads.digitalcorpora.org/downloads/bulk_extractor/"
+    regex(/href=.*?bulk_extractor[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  bottle do
+    sha256 big_sur:     "4207941ab88e766e1a0fd55031585c52cea1c27ac528b7db1496a714fbeda5c4"
+    sha256 catalina:    "6acada1995761f484993f407f33014260f8c16596381172b405fe84eef206e06"
+    sha256 mojave:      "da01b2d5208c362fa10baa1a3b1d7fd018f4886eddb068107b9786c36bbff480"
+    sha256 high_sierra: "621af8efc0671cd2905f4f077c9cfef8ac2493cf65421fb2973228c2b651c24e"
+  end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "boost"
-  depends_on "openssl"
-  depends_on "afflib" => :optional
-  depends_on "exiv2" => :optional
-  depends_on "libewf" => :optional
+  depends_on "openssl@1.1"
+
+  # Upstream commits for OpenSSL 1.1 compatibility in dfxm:
+  # https://github.com/simsong/dfxml/commits/master/src/hash_t.h
+  # Three commits are picked:
+  #   - https://github.com/simsong/dfxml/commit/8198685d
+  #   - https://github.com/simsong/dfxml/commit/f2482de7
+  #   - https://github.com/simsong/dfxml/commit/c3122462
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/78bb67a8/bulk_extractor/openssl-1.1.diff"
+    sha256 "996fd9b3a8d1d77a1b22f2dbb9d0e5c501298d2fd95ad84a7ea3234d51e3ebe2"
+  end
 
   def install
+    # Source contains to copies of dfxml, keep them in sync
+    # (because of the patch). Remove in next version.
+    rm_rf "plugins/dfxml"
+    cp_r "src/dfxml", "plugins"
+
+    # Regenerate configure after applying the patch.
+    # Remove in next version.
+    system "autoreconf", "-f"
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make"

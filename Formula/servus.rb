@@ -2,15 +2,17 @@ class Servus < Formula
   desc "Library and Utilities for zeroconf networking"
   homepage "https://github.com/HBPVIS/Servus"
   url "https://github.com/HBPVIS/Servus.git",
-      :tag => "1.5.1",
-      :revision => "eee576548a05292179f4892d48b97108d8ed07c0"
+      tag:      "1.5.2",
+      revision: "170bd93dbdd6c0dd80cf4dfc5926590cc5cef5ab"
+  license "LGPL-3.0"
 
   bottle do
-    cellar :any
-    sha256 "fc9303986cd2dda58a7ed71e96273eef4517120b4e8b32f2956f672f3125e312" => :high_sierra
-    sha256 "6946b4f5b7151f94cdb6e75ae47fda08a1da867f5690e757ee9d82875836905a" => :sierra
-    sha256 "39e8d21f40ecf08f3bf68e565648c9b94e4eb5d1acda854d8ff58676dce9a7dc" => :el_capitan
-    sha256 "3f23b83c09997e5e51b0089b7d2fad4ee8d7527fe29633cb6551a239acff59d7" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "5a2c8cbe46fc1a9e8d2aa14036c2cc775f438cae77adaa8918d5a6cb9378c2e7"
+    sha256 cellar: :any, big_sur:       "4e2b2042868af63bf0d39f10821afdd04d37da37ad8ba4da41dff0a73fae7787"
+    sha256 cellar: :any, catalina:      "e0629cca8bee46595c540c2240ed1cc599c5f676527a21f951bfc89a0335c54e"
+    sha256 cellar: :any, mojave:        "65921c797c3a2bf7953cf692dee5852de3fd6c2b2466268221a9dfcb7eab960e"
+    sha256 cellar: :any, high_sierra:   "763042d70e605154698d686554d26f6bab46f30200df8a8c3af9c40faeffca64"
+    sha256 cellar: :any, sierra:        "bcfa24ee0545c044c32391ac72d54a5151de64170c777409163c0688cd9bf671"
   end
 
   depends_on "cmake" => :build
@@ -113,7 +115,10 @@ class Servus < Formula
           BOOST_CHECK_THROW( obj.toJSON(), std::runtime_error );
       }
     EOS
-    system ENV.cxx, "-lServus", "-DBOOST_TEST_DYN_LINK", "-lboost_unit_test_framework-mt", "-std=gnu++11", "test.cpp", "-o", "test"
+    system ENV.cxx, "-L#{lib}", "-lServus", "-DBOOST_TEST_DYN_LINK",
+                    "-L#{Formula["boost"].opt_lib}",
+                    "-lboost_unit_test_framework-mt",
+                    "-std=gnu++11", "test.cpp", "-o", "test"
     system "./test"
   end
 end

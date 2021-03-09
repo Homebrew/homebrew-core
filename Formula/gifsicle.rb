@@ -1,15 +1,17 @@
 class Gifsicle < Formula
   desc "GIF image/animation creator/editor"
   homepage "https://www.lcdf.org/gifsicle/"
-  url "https://www.lcdf.org/gifsicle/gifsicle-1.90.tar.gz"
-  sha256 "2d73b096752d58fa604cea559199aa6f55b45a3ec833898f94ff7997d22b834d"
+  url "https://www.lcdf.org/gifsicle/gifsicle-1.92.tar.gz"
+  sha256 "5ab556c01d65fddf980749e3ccf50b7fd40de738b6df679999294cc5fabfce65"
+  license "GPL-2.0"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "d58f0a76408cd3127fef7fca4760f3a322544838389cb3ed43e6d41e33149ecb" => :high_sierra
-    sha256 "1064f9cf5d0fe604c378e0390f2d79ceacdaa99f2d3d76873a0fc904e6f13718" => :sierra
-    sha256 "4f8cd7b0a09eed64ce5e8761b8f228b976c1e30fad55d06855f28a7f9d123b35" => :el_capitan
-    sha256 "7cb0e1cae0253622e6eb72081412e448ab10f3b69a9aef9ea1597f45c42db799" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4196ed90bad0a312f4b899359d05f7f2dc454bd51ac3bd428598a9e9a9436b0a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cb3eefd1feccd5bda0979aa5ccf1cc1198b599654a43d33328912733c6644f91"
+    sha256 cellar: :any_skip_relocation, catalina:      "5c39ab6736846e30082db190167bc498e78d03e523f642057eadc29f854c71b1"
+    sha256 cellar: :any_skip_relocation, mojave:        "52be1cd49246909777199147dcbbeb6f490580558615138ae063b6149cfbe53c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "a7cfb607906023c5bdb56a49f8a75ce0b3e2c76a971266bb530d04ed29be74f9"
+    sha256 cellar: :any_skip_relocation, sierra:        "746d071f268950c6af18704590b981f5f965d35e2adf6c202aa3df0f13e943e9"
   end
 
   head do
@@ -19,20 +21,15 @@ class Gifsicle < Formula
     depends_on "automake" => :build
   end
 
-  option "with-x11", "Install gifview"
-
-  depends_on :x11 => :optional
-
   conflicts_with "giflossy",
-    :because => "both install an `gifsicle` binary"
+    because: "both install an `gifsicle` binary"
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --disable-gifview
     ]
-
-    args << "--disable-gifview" if build.without? "x11"
 
     system "./bootstrap.sh" if build.head?
     system "./configure", *args

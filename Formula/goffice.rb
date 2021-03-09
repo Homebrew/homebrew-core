@@ -1,13 +1,16 @@
 class Goffice < Formula
   desc "Gnumeric spreadsheet program"
   homepage "https://developer.gnome.org/goffice/"
-  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.37.tar.xz"
-  sha256 "51b4e05dbfca5566409a7461e03b08b8882ba5f5e1b322de19eea05009700fe1"
+  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.48.tar.xz"
+  sha256 "a439162fa26a0e58117e07b82b37000a7f421088ad379eb1f6a1cdee101ecefc"
+  license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   bottle do
-    sha256 "3103ec713e3f2abb22def4df7c7f305f3f93da3463f26eb77808f642aafd755a" => :high_sierra
-    sha256 "89b1bcf68c62662baaf8939839366d24201480ee9c1ea955536f0903e81f8810" => :sierra
-    sha256 "f3c80eeaaf6bdf0cefbc22a91f14abdcb156d3d67e0079f858aa4b2e1daca3d6" => :el_capitan
+    sha256 arm64_big_sur: "b29f128d789d1399cb06fc284981d690a039ddeaa709bb15ac5f93483e3609f4"
+    sha256 big_sur:       "314d34ff359e1d6eb5d5935ac6e2778b47e360e6e13a6c3b98f99b7071e4c961"
+    sha256 catalina:      "3e05167a37c42bfa01acf4be7055a52e3c2a03c990536ae5562b2c0aa4812e42"
+    sha256 mojave:        "9edf36fd2ffb0a116e4e5f69cd00a04dd29eda04c1a3069b0e4da8950573c0a4"
+    sha256 high_sierra:   "7043808e39862444e7aaae796137b30fadefb142dea291f9d8ce23228d635264"
   end
 
   head do
@@ -29,6 +32,8 @@ class Goffice < Formula
   depends_on "librsvg"
   depends_on "pango"
   depends_on "pcre"
+
+  uses_from_macos "libxslt"
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
@@ -55,8 +60,9 @@ class Goffice < Formula
     system ENV.cc, "-I#{include}/libgoffice-0.10",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["libgsf"].opt_include}/libgsf-1",
-           "-I/usr/include/libxml2",
+           "-I#{MacOS.sdk_path}/usr/include/libxml2",
            "-I#{Formula["gtk+3"].opt_include}/gtk-3.0",
            "-I#{Formula["pango"].opt_include}/pango-1.0",
            "-I#{Formula["cairo"].opt_include}/cairo",

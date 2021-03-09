@@ -1,16 +1,17 @@
 class SimpleTiles < Formula
   desc "Image generation library for spatial data"
-  homepage "https://propublica.github.io/simple-tiles/"
+  homepage "https://github.com/propublica/simple-tiles"
   url "https://github.com/propublica/simple-tiles/archive/v0.6.1.tar.gz"
   sha256 "2391b2f727855de28adfea9fc95d8c7cbaca63c5b86c7286990d8cbbcd640d6f"
+  license "MIT"
+  revision 10
   head "https://github.com/propublica/simple-tiles.git"
 
   bottle do
-    cellar :any
-    sha256 "cbc2dea9c008f499c335bebb7bbb8c00fd19c797ae2442138175f794140e9396" => :high_sierra
-    sha256 "2d3092fc48d4bc3fd7eb3679f09506bae62c6509756a55fbf6f9a3f18dd5e738" => :sierra
-    sha256 "acbf4fd455b3351d3e5188361694cba78a98dec6f91ce70862e9a7a57b3d387b" => :el_capitan
-    sha256 "42c5936f5beb15090b5199c1e97295ecf442c11ce52fe38876f2a992ffbcb160" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "14669b22f33782b72b0b2c8a0b37cbcbfe741d3923939eafe3546430d97e7683"
+    sha256 cellar: :any, big_sur:       "873d8f241263b0d5cc5e3d5b6cba535bdb953c8311703aae2e95406301ec5d10"
+    sha256 cellar: :any, catalina:      "8543798355cbb329814f4214639ff750690f496d75c3986c1756de28c2a6aace"
+    sha256 cellar: :any, mojave:        "b2954855d7afd914fbac0bd06ed55b457c3d807285c24eb98f9641d88f7fa5ab"
   end
 
   depends_on "pkg-config" => :build
@@ -38,6 +39,7 @@ class SimpleTiles < Formula
            "-I#{Formula["gdal"].opt_include}",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
+           "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["pango"].opt_include}/pango-1.0",
            "test.c", "-o", "test"
     system testpath/"test"

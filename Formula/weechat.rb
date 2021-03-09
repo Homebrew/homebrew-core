@@ -1,65 +1,58 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-2.0.tar.xz"
-  sha256 "a9172dbacfd9c96e3e9bddc7134dae09b3b3e292e9cf44e82e5d964cf38fa2c7"
+  url "https://weechat.org/files/src/weechat-3.1.tar.xz"
+  sha256 "a55a2975aa119f76983412507e3ddb3fe68d0744e08739681ddc17744e77a4f7"
+  license "GPL-3.0-or-later"
   head "https://github.com/weechat/weechat.git"
 
   bottle do
-    sha256 "9de27c1e4bbfede92490be2a1aaa8298776351eff4a9cc316310354272f6fb3a" => :high_sierra
-    sha256 "aedbc07e5ac589855150994c5f8083f213509d8eeb9d6ab4259680964098029f" => :sierra
-    sha256 "9c55d0c335927a03424bb343a53fe2591c57ec7035318eb4e119a65f4dc7da2e" => :el_capitan
+    sha256 arm64_big_sur: "13358880145e64b9abb5aa1b3edd45cbe99fad9513269e71e40015561e274dac"
+    sha256 big_sur:       "2dc092a658d47fa3792106517dbc0c8d067f2a43e47444f9e11a8f6dd4d5841b"
+    sha256 catalina:      "bbe506b6fe5fc7ef054299d35114508e5bef467c9083880a237b76d4d4a078af"
+    sha256 mojave:        "b956b1d6111acfbdeafbeffb42eb715ce39a3fb064238f089f2373d31325c93a"
   end
 
-  option "with-perl", "Build the perl module"
-  option "with-ruby", "Build the ruby module"
-  option "with-curl", "Build with brewed curl"
-  option "with-debug", "Build with debug information"
-  option "without-tcl", "Do not build the tcl module"
-
+  depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "aspell"
+  depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
-  depends_on "gettext"
-  depends_on "aspell" => :optional
-  depends_on "lua" => :optional
-  depends_on :python => :optional
-  depends_on :ruby => ["2.1", :optional]
-  depends_on :perl => ["5.3", :optional]
-  depends_on "curl" => :optional
+  depends_on "lua"
+  depends_on "ncurses"
+  depends_on "perl"
+  depends_on "python@3.9"
+  depends_on "ruby"
+
+  uses_from_macos "curl"
+  uses_from_macos "tcl-tk"
+
+  on_macos do
+    depends_on "libiconv"
+  end
 
   def install
     args = std_cmake_args + %W[
+      -DENABLE_MAN=ON
       -DENABLE_GUILE=OFF
-      -DCA_FILE=#{etc}/openssl/cert.pem
+      -DCA_FILE=#{Formula["gnutls"].pkgetc}/cert.pem
       -DENABLE_JAVASCRIPT=OFF
+      -DENABLE_PHP=OFF
     ]
-    if build.with? "debug"
-      args -= %w[-DCMAKE_BUILD_TYPE=Release]
-      args << "-DCMAKE_BUILD_TYPE=Debug"
-    end
 
-    args << "-DENABLE_LUA=OFF" if build.without? "lua"
-    args << "-DENABLE_PERL=OFF" if build.without? "perl"
-    args << "-DENABLE_RUBY=OFF" if build.without? "ruby"
-    args << "-DENABLE_ASPELL=OFF" if build.without? "aspell"
-    args << "-DENABLE_TCL=OFF" if build.without? "tcl"
-    args << "-DENABLE_PYTHON=OFF" if build.without? "python"
+    # Fix error: '__declspec' attributes are not enabled
+    # See https://github.com/weechat/weechat/issues/1605
+    args << "-DCMAKE_C_FLAGS=-fdeclspec" if ENV.compiler == :clang
+
+    # Fix system gem on Mojave
+    ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
 
     mkdir "build" do
       system "cmake", "..", *args
       system "make", "install", "VERBOSE=1"
     end
-  end
-
-  def caveats
-    <<~EOS
-      Weechat can depend on Aspell if you choose the --with-aspell option, but
-      Aspell should be installed manually before installing Weechat so that
-      you can choose the dictionaries you want.  If Aspell was installed
-      automatically as part of weechat, there won't be any dictionaries.
-    EOS
   end
 
   test do

@@ -1,37 +1,36 @@
 class VorbisTools < Formula
   desc "Ogg Vorbis CODEC tools"
-  homepage "http://vorbis.com/"
-  url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.0.tar.gz"
-  sha256 "a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc"
-  revision 1
+  homepage "https://github.com/xiph/vorbis-tools"
+  url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz"
+  sha256 "db7774ec2bf2c939b139452183669be84fda5774d6400fc57fde37f77624f0b0"
+
+  livecheck do
+    url "https://downloads.xiph.org/releases/vorbis/"
+    regex(/href=.*?vorbis-tools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    rebuild 1
-    sha256 "b764cae12c12c9338b96023d5e855aa6f39b989c19dea650d43edc219135b17d" => :high_sierra
-    sha256 "a062b8dbfe05458dc18c311b16260da2ae12b00b3537643b4336094d731f8808" => :sierra
-    sha256 "5ec349e8c68d23599b9e3185c6b8b1a6a3294d3f0056b740e7b29f141a4c70b3" => :el_capitan
-    sha256 "643822a271f6748dc635cede3cdf7b53558cc25f4663014006d46cda817a7c8c" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "f6c6cc107f9c88f063f506dbf312602c4e9e61c80b5100aa77c6a3c7247eb7ee"
+    sha256 cellar: :any, big_sur:       "eabf92d09b16e16586caf87136e246da3acad99e772b763323c4b2dd05aa6d23"
+    sha256 cellar: :any, catalina:      "1d5caa7c22505a85eaa0a67930047b7d17786401b9c3376b67647502d4b056b5"
+    sha256 cellar: :any, mojave:        "469c4ff8079bd5a47d4aad1d06981660e6968facc25e542e54e505495261d8f1"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "flac"
+  depends_on "libao"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "libao"
-  depends_on "flac" => :optional
+
+  uses_from_macos "curl"
 
   def install
-    # Fix `brew linkage --test` "Missing libraries: /usr/lib/libnetwork.dylib"
-    # Prevent bogus linkage to the libnetwork.tbd in Xcode 7's SDK
-    ENV.delete("SDKROOT") if MacOS.version == :yosemite
-
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --disable-nls
       --prefix=#{prefix}
     ]
-
-    args << "--without-flac" if build.without? "flac"
 
     system "./configure", *args
     system "make", "install"

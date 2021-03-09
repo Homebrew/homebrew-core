@@ -1,28 +1,29 @@
 class Gosu < Formula
   desc "Pragmatic language for the JVM"
-  homepage "http://gosu-lang.org/"
-  url "https://github.com/gosu-lang/gosu-lang/archive/v1.14.6.tar.gz"
-  sha256 "cb7cddb44025ecf6d601c15df148e103eeb5316402debb22395d261ba34669fe"
+  homepage "https://gosu-lang.github.io/"
+  url "https://github.com/gosu-lang/gosu-lang/archive/v1.14.20.tar.gz"
+  sha256 "56c4782087c20ed9a5d6e8912d128c3f87d6906d74c0b75d3b63d7fabd705e73"
+  license "Apache-2.0"
   head "https://github.com/gosu-lang/gosu-lang.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "b8aa5ec8782193ef8abc8dd1d461b08aadad62c498ab5837a37d57702d45afbc" => :high_sierra
-    sha256 "9655ec17694b5410a1deb620c8d6c03c5ddc0532814d11ce0bcf9487c9b5f5ac" => :sierra
-    sha256 "fd311848681a64d3727889d47c061a52a55d64dc5236df1b06c0628a0bf71837" => :el_capitan
-    sha256 "dee97ff03b12443a4fcaab053ca8860377279e9b8676f4b487f57e7095422d1e" => :yosemite
+    sha256 cellar: :any_skip_relocation, big_sur:  "693e5dc4f4424b3a38797ca8cfefebee998c157abc23e7f2aee9d86f719f3812"
+    sha256 cellar: :any_skip_relocation, catalina: "64abc4230c722c02801160e8ed6640c6dba29817ca80f3832f58e47e2ceb58ad"
+    sha256 cellar: :any_skip_relocation, mojave:   "705ebbe2c1b1aafb4ce5995b132b7e65471ab5e24d4889981d1779018b7e610b"
   end
 
-  depends_on :java => "1.8+"
   depends_on "maven" => :build
+  depends_on "openjdk@8"
 
   skip_clean "libexec/ext"
 
   def install
+    ENV["JAVA_HOME"] = Language::Java.java_home("1.8")
+
     system "mvn", "package"
     libexec.install Dir["gosu/target/gosu-#{version}-full/gosu-#{version}/*"]
     (libexec/"ext").mkpath
-    bin.install_symlink libexec/"bin/gosu"
+    (bin/"gosu").write_env_script libexec/"bin/gosu", Language::Java.java_home_env("1.8")
   end
 
   test do

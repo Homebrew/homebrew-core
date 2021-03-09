@@ -1,128 +1,89 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://www.imagemagick.org/"
-  # Please always keep the Homebrew mirror as the primary URL as the
-  # ImageMagick site removes tarballs regularly which means we get issues
-  # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/imagemagick-7.0.7-13.tar.xz"
-  mirror "https://www.imagemagick.org/download/ImageMagick-7.0.7-13.tar.xz"
-  sha256 "cea13c9419d691879cf52c4e967967c392e8f76c0a6013f51c3bae90efc6480f"
+  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.11-3.tar.xz"
+  mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.11-3.tar.xz"
+  sha256 "3a970d1afd5e8fa08754ee8e097af4b7b088e6cd17cf55f1d3a9999d20018bc5"
+  license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
-  bottle do
-    sha256 "62fa77410cd16e04f58328d385742a90e03a40d3d598c79b06e700cfa6f3e023" => :high_sierra
-    sha256 "5bdfea29a35363d59457a0f57513d6a8460aa10d0462d2253679345541587104" => :sierra
-    sha256 "ece84a2fc9cfb33e1dd21153e078eff0897fdda512a137e146ac2d73589690bd" => :el_capitan
+  livecheck do
+    url "https://download.imagemagick.org/ImageMagick/download/"
+    regex(/href=.*?ImageMagick[._-]v?(\d+(?:\.\d+)+-\d+)\.t/i)
   end
 
-  option "with-fftw", "Compile with FFTW support"
-  option "with-hdri", "Compile with HDRI support"
-  option "with-opencl", "Compile with OpenCL support"
-  option "with-openmp", "Compile with OpenMP support"
-  option "with-perl", "Compile with PerlMagick"
-  option "without-magick-plus-plus", "disable build/install of Magick++"
-  option "without-modules", "Disable support for dynamically loadable modules"
-  option "without-threads", "Disable threads support"
-  option "with-zero-configuration", "Disables depending on XML configuration files"
-
-  deprecated_option "enable-hdri" => "with-hdri"
-  deprecated_option "with-jp2" => "with-openjpeg"
+  bottle do
+    sha256 arm64_big_sur: "420edef75429398019172ddf4ef05c46f9b06225f92af054efe9d195884359a4"
+    sha256 big_sur:       "51de4599cf631810750c36c39cbec1251782096bcb6399a53ab8beda88b65260"
+    sha256 catalina:      "d3cbc778196046e2f833b0746e085aae58d4e99d0b5e466da08c8d4738c3421f"
+    sha256 mojave:        "39707051a2c8f5563f3291833938a7a23766bb96c347d304f1b6dc344a4a5d00"
+  end
 
   depends_on "pkg-config" => :build
-  depends_on "libtool" => :run
+  depends_on "freetype"
+  depends_on "ghostscript"
+  depends_on "jpeg"
+  depends_on "libheif"
+  depends_on "liblqr"
+  depends_on "libomp"
+  depends_on "libpng"
+  depends_on "libtiff"
+  depends_on "libtool"
+  depends_on "little-cms2"
+  depends_on "openexr"
+  depends_on "openjpeg"
+  depends_on "webp"
   depends_on "xz"
 
-  depends_on "jpeg" => :recommended
-  depends_on "libpng" => :recommended
-  depends_on "libtiff" => :recommended
-  depends_on "freetype" => :recommended
+  uses_from_macos "bzip2"
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
-  depends_on :x11 => :optional
-  depends_on "fontconfig" => :optional
-  depends_on "little-cms" => :optional
-  depends_on "little-cms2" => :optional
-  depends_on "libwmf" => :optional
-  depends_on "librsvg" => :optional
-  depends_on "liblqr" => :optional
-  depends_on "openexr" => :optional
-  depends_on "ghostscript" => :optional
-  depends_on "webp" => :optional
-  depends_on "openjpeg" => :optional
-  depends_on "fftw" => :optional
-  depends_on "pango" => :optional
-  depends_on :perl => ["5.5", :optional]
-
-  needs :openmp if build.with? "openmp"
+  on_linux do
+    depends_on "libx11"
+  end
 
   skip_clean :la
 
   def install
+    # Avoid references to shim
+    inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
+
     args = %W[
-      --disable-osx-universal-binary
+      --enable-osx-universal-binary=no
       --prefix=#{prefix}
       --disable-dependency-tracking
       --disable-silent-rules
+      --disable-opencl
       --enable-shared
       --enable-static
+      --with-freetype=yes
+      --with-gvc=no
+      --with-modules
+      --with-openjp2
+      --with-openexr
+      --with-webp=yes
+      --with-heic=yes
+      --with-gslib
+      --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
+      --with-lqr
+      --without-fftw
+      --without-pango
+      --without-wmf
+      --enable-openmp
+      ac_cv_prog_c_openmp=-Xpreprocessor\ -fopenmp
+      ac_cv_prog_cxx_openmp=-Xpreprocessor\ -fopenmp
+      LDFLAGS=-lomp\ -lz
     ]
 
-    if build.without? "modules"
-      args << "--without-modules"
-    else
-      args << "--with-modules"
+    on_macos do
+      args << "--without-x"
     end
-
-    if build.with? "opencl"
-      args << "--enable-opencl"
-    else
-      args << "--disable-opencl"
-    end
-
-    if build.with? "openmp"
-      args << "--enable-openmp"
-    else
-      args << "--disable-openmp"
-    end
-
-    if build.with? "webp"
-      args << "--with-webp=yes"
-    else
-      args << "--without-webp"
-    end
-
-    if build.with? "openjpeg"
-      args << "--with-openjp2"
-    else
-      args << "--without-openjp2"
-    end
-
-    args << "--without-gslib" if build.without? "ghostscript"
-    args << "--with-perl" << "--with-perl-options='PREFIX=#{prefix}'" if build.with? "perl"
-    args << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" if build.without? "ghostscript"
-    args << "--without-magick-plus-plus" if build.without? "magick-plus-plus"
-    args << "--enable-hdri=yes" if build.with? "hdri"
-    args << "--without-fftw" if build.without? "fftw"
-    args << "--without-pango" if build.without? "pango"
-    args << "--without-threads" if build.without? "threads"
-    args << "--with-rsvg" if build.with? "librsvg"
-    args << "--without-x" if build.without? "x11"
-    args << "--with-fontconfig=yes" if build.with? "fontconfig"
-    args << "--with-freetype=yes" if build.with? "freetype"
-    args << "--enable-zero-configuration" if build.with? "zero-configuration"
-    args << "--without-wmf" if build.without? "libwmf"
 
     # versioned stuff in main tree is pointless for us
-    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_VERSION}", "${PACKAGE_NAME}"
+    inreplace "configure", "${PACKAGE_NAME}-${PACKAGE_BASE_VERSION}", "${PACKAGE_NAME}"
     system "./configure", *args
     system "make", "install"
-  end
-
-  def caveats
-    s = <<~EOS
-      For full Perl support you may need to adjust your PERL5LIB variable:
-        export PERL5LIB="#{HOMEBREW_PREFIX}/lib/perl5/site_perl":$PERL5LIB
-    EOS
-    s if build.with? "perl"
   end
 
   test do
@@ -132,5 +93,6 @@ class Imagemagick < Formula
     %w[Modules freetype jpeg png tiff].each do |feature|
       assert_match feature, features
     end
+    assert_match "Helvetica", shell_output("#{bin}/identify -list font")
   end
 end

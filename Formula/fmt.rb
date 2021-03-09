@@ -1,22 +1,26 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
-  homepage "https://fmtlib.github.io/"
-  url "https://github.com/fmtlib/fmt/archive/4.0.0.tar.gz"
-  sha256 "35300a0d356529447a79ed5ccf419239d8b34f916e5d4625f046fd37afa3650a"
+  homepage "https://fmt.dev/"
+  url "https://github.com/fmtlib/fmt/archive/7.1.3.tar.gz"
+  sha256 "5cae7072042b3043e12d53d50ef404bbb76949dad1de368d7f993a15c8c05ecc"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "0dfcbf41403abf9942202a7b96afc0ade48b7aba58db5bdbafd53c0598eb7aed" => :high_sierra
-    sha256 "bbc85439060bd61a32e51f81cc9f85a9dffa33ce469be41202267e6389886e64" => :sierra
-    sha256 "834e3662962513589804942894ced8d5dc5dfbb98d557060da8b6b071acba6ef" => :el_capitan
-    sha256 "5f6b23785f1fa87dce60777a0ed77381d7307b9116fdf60e0aa2dbb23e542852" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "ca7feb7f642cd97750e7df4a46229c5c8bf5948673a5b2be5cec24a4e4981ec3"
+    sha256 cellar: :any, big_sur:       "030400184b37be2dbefd79244622b6ba1db79a7a082063c9731422d67c1ec689"
+    sha256 cellar: :any, catalina:      "bc10923606cbc09de72d80d4fa35f2834cd3661791b493936a8d2853e571ef9d"
+    sha256 cellar: :any, mojave:        "9ff67f083520e388e629e37267b87099e2335ff8bedecd7662779f3042f11f3e"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=TRUE", *std_cmake_args
     system "make", "install"
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=FALSE", *std_cmake_args
+    system "make"
+    lib.install "libfmt.a"
   end
 
   test do
@@ -32,7 +36,7 @@ class Fmt < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-o", "test",
+    system ENV.cxx, "test.cpp", "-std=c++11", "-o", "test",
                   "-I#{include}",
                   "-L#{lib}",
                   "-lfmt"

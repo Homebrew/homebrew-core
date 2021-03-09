@@ -1,71 +1,44 @@
 class KubeAws < Formula
-  desc "CoreOS Kubernetes on AWS"
-  homepage "https://coreos.com/kubernetes/docs/latest/kubernetes-on-aws.html"
-  url "https://github.com/kubernetes-incubator/kube-aws/archive/v0.9.8.tar.gz"
-  sha256 "d4954b8d42dee8459329a799088267632e368e0b60652bfecab4a16d59a2f50a"
-  head "https://github.com/kubernetes-incubator/kube-aws.git"
+  desc "Command-line tool to declaratively manage Kubernetes clusters on AWS"
+  homepage "https://kubernetes-retired.github.io/kube-aws/"
+  url "https://github.com/kubernetes-retired/kube-aws.git",
+      tag:      "v0.16.4",
+      revision: "c74d91ecd6760d33111dc8c7f8f51bf816424310"
+  license "Apache-2.0"
+  head "https://github.com/kubernetes-retired/kube-aws.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "9552e54a302fb9514e05e2332e652ac4840a5175c583ca397cd655d6ada29f91" => :high_sierra
-    sha256 "43b4567874d330c91191d155c699c9a7b5522246bc5fd204954182a5f9a04b50" => :sierra
-    sha256 "c27239463b5d9d28c3adaa0bf5e112637b3a266bf28bfb97b076d952c9d24e53" => :el_capitan
-    sha256 "4bde1b4c7934815860f2e94731b9e70843f6d2bcf79a886f96dcb9f47be1d057" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7af14149a6b45de2067d7fbb256bcc452582134eda27688a82527d7a7a074b41"
+    sha256 cellar: :any_skip_relocation, catalina:      "1c5004445c0be8fd055ff78439bd3c0b413cd56247385c1453c5956fbe9503b1"
+    sha256 cellar: :any_skip_relocation, mojave:        "f05e8f3cfbe5f8c17f2cd6d3a854b7c329d7f922f03271bb36ca8497589ef7d4"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5172a4ad55d3977c81d405bc67d91a35ead719e24c555d5843529d2489323d79"
   end
 
+  # Fork can be found at: https://github.com/kube-aws/kube-aws
+  deprecate! date: "2020-09-29", because: :repo_archived
+
   depends_on "go" => :build
+  depends_on "packr" => :build
 
   def install
-    gopath_vendor = buildpath/"_gopath-vendor"
-    gopath_kube_aws = buildpath/"_gopath-kube-aws"
-    kube_aws_dir = "#{gopath_kube_aws}/src/github.com/kubernetes-incubator/kube-aws"
-
-    gopath_vendor.mkpath
-    mkdir_p File.dirname(kube_aws_dir)
-
-    ln_s buildpath/"vendor", "#{gopath_vendor}/src"
-    ln_s buildpath, kube_aws_dir
-
-    ENV["GOPATH"] = "#{gopath_vendor}:#{gopath_kube_aws}"
-
-    cd kube_aws_dir do
-      system "go", "generate", "./core/controlplane/config"
-      system "go", "generate", "./core/nodepool/config"
-      system "go", "generate", "./core/root/config"
-      system "go", "build", "-ldflags",
-             "-X github.com/kubernetes-incubator/kube-aws/core/controlplane/cluster.VERSION=#{version}",
-             "-a", "-tags", "netgo", "-installsuffix", "netgo",
-             "-o", bin/"kube-aws", "./"
-    end
+    system "make", "OUTPUT_PATH=#{bin}/kube-aws"
   end
 
   test do
-    require "yaml"
-
     system "#{bin}/kube-aws"
-    cluster = {
-      "clusterName" => "test-cluster",
-      "apiEndpoints" => [{
-        "name" => "default",
-        "dnsName" => "dns",
-        "loadBalancer" => { "createRecordSet" => false },
-      }],
-      "keyName" => "key",
-      "region" => "west",
-      "availabilityZone" => "zone",
-      "kmsKeyArn" => "arn",
-      "worker" => { "nodePools" => [{ "name" => "nodepool1" }] },
-      "addons" => { "clusterAutoscaler" => { "enabled" => false },
-                    "rescheduler" => { "enabled" => false } },
-    }
     system "#{bin}/kube-aws", "init", "--cluster-name", "test-cluster",
-           "--external-dns-name", "dns", "--region", "west",
+           "--external-dns-name", "dns", "--region", "us-west-1",
            "--availability-zone", "zone", "--key-name", "key",
-           "--kms-key-arn", "arn"
-    cluster_yaml = YAML.load_file("cluster.yaml")
-    assert_equal cluster, cluster_yaml
-
+           "--kms-key-arn", "arn", "--no-record-set",
+           "--s3-uri", "s3://examplebucket/mydir"
+    cluster_yaml = (testpath/"cluster.yaml").read
+    assert_match "clusterName: test-cluster", cluster_yaml
+    assert_match "dnsName: dns", cluster_yaml
+    assert_match "region: us-west-1", cluster_yaml
+    assert_match "availabilityZone: zone", cluster_yaml
+    assert_match "keyName: key", cluster_yaml
+    assert_match "kmsKeyArn: \"arn\"", cluster_yaml
     installed_version = shell_output("#{bin}/kube-aws version 2>&1")
-    assert_match "kube-aws version #{version}", installed_version
+    assert_match "kube-aws version v#{version}", installed_version
   end
 end

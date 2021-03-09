@@ -1,26 +1,34 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
-  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v2.7.4.tar.gz"
-  sha256 "f854be24801ec9b8e345ed63cc86f40011919a20ff44f192654e6f61d0a34ce6"
+  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.3.11.tar.gz"
+  sha256 "be2b11ada1020f77b859857310be54bd073c3a4f579d99a5e251a738576ca28c"
+  license "Apache-2.0"
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
-  bottle do
-    cellar :any
-    sha256 "44278c917e59878edd3cff2a79ed6a94cc79fe778ac32f20d20f7b015526e05c" => :high_sierra
-    sha256 "b1d85c9445970422250b5b91b70410f1ecc2b9c3951ea5cc5b323cd7a1eae96e" => :sierra
-    sha256 "318296f5c2379e06200f55c3c4a30b222ba03aa0e5be25b900e5c306cb7785b7" => :el_capitan
-    sha256 "19332e146a7c45fc9129661d42ccaa4007d56e2fe56a4638b5e0dbab094bbe3c" => :yosemite
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  needs :cxx11
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "754684e971db63046c2ba2aae19a4a2d6b0e33b18e07aa7ee324b9df5fd6c8ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1442f286a2b310a52bb50fe96a3a7ed9c0195d5ce56c6b57d6bb113622e08798"
+    sha256 cellar: :any_skip_relocation, catalina:      "1360b3ab9cdd7a8deed94088bbfaf3851ff505f2f395e407ea80ae3526d3b3fb"
+    sha256 cellar: :any_skip_relocation, mojave:        "9a18301146ab0ea720276fdc838f00841e1c3ea9a80dd2688ff6e1c054432c99"
+  end
 
   depends_on "cmake" => :build
+  depends_on "openssl@1.1"
 
   def install
     ENV.cxx11
 
-    system "cmake", "-DBUILD_SHARED=ON", "-DCMAKE_MACOSX_RPATH=1", *std_cmake_args
+    system "cmake", "-DBUILD_SHARED=ON",
+                    "-DCMAKE_MACOSX_RPATH=1",
+                    "-DAMQP-CPP_LINUX_TCP=ON",
+                    *std_cmake_args
     system "make"
     system "make", "install"
   end
@@ -32,9 +40,9 @@ class AmqpCpp < Formula
       {
         return 0;
       }
-      EOS
+    EOS
     system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-o",
-                    "test", "-lc++", "-lamqp-cpp"
+                    "test", "-lamqpcpp"
     system "./test"
   end
 end

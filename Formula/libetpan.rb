@@ -1,27 +1,38 @@
 class Libetpan < Formula
   desc "Portable mail library handling several protocols"
   homepage "https://www.etpan.org/libetpan.html"
-  url "https://github.com/dinhviethoa/libetpan/archive/1.8.tar.gz"
-  sha256 "4e67a7b4abadcf3cc16fa16e1621a68e54d489dadfd9a7d1f960c172e953b6eb"
+  url "https://github.com/dinhviethoa/libetpan/archive/1.9.4.tar.gz"
+  sha256 "82ec8ea11d239c9967dbd1717cac09c8330a558e025b3e4dc6a7594e80d13bb1"
+  license "BSD-3-Clause"
+  head "https://github.com/dinhviethoa/libetpan.git", branch: "master"
 
   bottle do
-    cellar :any
-    sha256 "ff101491c3d0ab63daa872418476e1e8a0d8884163b6b23e1044324368924444" => :high_sierra
-    sha256 "d4dc8cccd6f5db46bf0a857401b36bfdce2d19547b2fc764f71cda39c841f5fe" => :sierra
-    sha256 "ac094e06ea8c19f32bb71ec444280e66fb1821ff53236f8c8d3b449b89a36592" => :el_capitan
-    sha256 "1478d36967c7fa2850488ca83d9985d525224c658dbb1d40a656877b69601991" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "c72a2eeaf1b3fd67a093375fd567ff97c329d5d503abd720572eefb8d88acac3"
+    sha256 cellar: :any, big_sur:       "9d2ac6a48a6c14f2894155162d52ad7e8cf219ab21245b429b83378662f4a7f7"
+    sha256 cellar: :any, catalina:      "2effe5528f31ea1edcdd0baf468bb1ebbfb0061cb8bf131f2636b5db6cc20550"
+    sha256 cellar: :any, mojave:        "ba4948b8f0169ee43ba18b0dbea0564bfd5a2c625834f6f5a5c4b9ac1d725334"
+    sha256 cellar: :any, high_sierra:   "6a2f29f42a39d9d3eee7bca1974118fdd8d44a745f61af686aa40c449157b733"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on xcode: :build
 
   def install
-    system "./autogen.sh", "--disable-debug",
-                           "--disable-dependency-tracking",
-                           "--disable-silent-rules",
-                           "--prefix=#{prefix}"
-    system "make", "install"
+    xcodebuild "-project", "build-mac/libetpan.xcodeproj",
+               "-scheme", "static libetpan",
+               "-configuration", "Release",
+               "SYMROOT=build/libetpan",
+               "build"
+
+    xcodebuild "-project", "build-mac/libetpan.xcodeproj",
+               "-scheme", "libetpan",
+               "-configuration", "Release",
+               "SYMROOT=build/libetpan",
+               "build"
+
+    lib.install "build-mac/build/libetpan/Release/libetpan.a"
+    frameworks.install "build-mac/build/libetpan/Release/libetpan.framework"
+    include.install Dir["build-mac/build/libetpan/Release/include/**"]
+    bin.install "libetpan-config"
   end
 
   test do
@@ -34,7 +45,7 @@ class Libetpan < Formula
       {
         printf("version is %d.%d",libetpan_get_version_major(), libetpan_get_version_minor());
       }
-      EOS
+    EOS
     system ENV.cc, "test.c", "-L#{lib}", "-letpan", "-o", "test"
     system "./test"
   end

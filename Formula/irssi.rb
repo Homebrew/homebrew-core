@@ -1,32 +1,44 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.0.5/irssi-1.0.5.tar.xz"
-  sha256 "c2556427e12eb06cabfed40839ac6f57eb8b1aa6365fab6dfcd331b7a04bb914"
+  url "https://github.com/irssi/irssi/releases/download/1.2.2/irssi-1.2.2.tar.xz"
+  sha256 "6727060c918568ba2ff4295ad736128dba0b995d7b20491bca11f593bd857578"
+  license "GPL-2.0"
+  revision 1
+
+  livecheck do
+    url "https://irssi.org/download/"
+    regex(%r{<p>Latest release version: <strong>v?(\d+(?:\.\d+)+)</strong>}i)
+  end
 
   bottle do
-    sha256 "aaf7dab311191fe1793881ad9ce67fb33d48b073cbb669c8c2623fe845f1f80f" => :high_sierra
-    sha256 "80016b24698e45413d6cfc23ec93add1cce3deec4c8466d591c04bf348e77dae" => :sierra
-    sha256 "3497c7e2e878c921f02c4c5a8a3e2a012f466dc3becfd4cd9341d6cab2d7d24a" => :el_capitan
+    rebuild 1
+    sha256 arm64_big_sur: "a10819692310e4e965cece210cc320eb31a8273b9b052ff423c01c24afce6ba7"
+    sha256 big_sur:       "777daa274e6a688f4d0878b5be6b7054f5be774ff8fc8c63649aeefc48509e8d"
+    sha256 catalina:      "a8d0caa726da8abaa3942e154ea6d6501df46ea3ae7c24d3583d3a229fd92727"
+    sha256 mojave:        "e25efab5dc0b20925d920aca182f713fa54b3d781bbea7ff0ff98606a29e8553"
+    sha256 high_sierra:   "92ce3e102445bc1248daf5404b9045088dde6a8f4e185c5f2a98982e692b4b26"
+    sha256 sierra:        "5f2f66c2581189d52bab585f5a1731f2382a29d7125d782856b6b0944515b1bd"
   end
 
   head do
     url "https://github.com/irssi/irssi.git"
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "libtool" => :build
     depends_on "lynx" => :build
   end
 
-  option "with-dante", "Build with SOCKS support"
-  option "without-perl", "Build without perl support"
-
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "openssl" => :recommended
-  depends_on "dante" => :optional
+  depends_on "openssl@1.1"
+
+  uses_from_macos "ncurses"
+  uses_from_macos "perl"
 
   def install
+    ENV.delete "HOMEBREW_SDKROOT" if MacOS.version == :high_sierra
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -34,24 +46,24 @@ class Irssi < Formula
       --with-bot
       --with-proxy
       --enable-true-color
-      --with-socks=#{build.with?("dante") ? "yes" : "no"}
-      --with-ncurses=#{MacOS.sdk_path}/usr
+      --with-socks=no
+      --with-perl=yes
+      --with-perl-lib=#{lib}/perl5/site_perl
     ]
 
-    if build.with? "perl"
-      args << "--with-perl=yes"
-      args << "--with-perl-lib=#{lib}/perl5/site_perl"
-    else
-      args << "--with-perl=no"
+    on_macos do
+      args << "--with-ncurses=#{MacOS.sdk_path/"usr"}"
     end
-
-    args << "--disable-ssl" if build.without? "openssl"
+    on_linux do
+      args << "--with-ncurses=#{Formula["ncurses"].prefix}"
+    end
 
     if build.head?
+      ENV["NOCONFIGURE"] = "yes"
       system "./autogen.sh", *args
-    else
-      system "./configure", *args
     end
+
+    system "./configure", *args
     # "make" and "make install" must be done separately on some systems
     system "make"
     system "make", "install"
@@ -62,5 +74,13 @@ class Irssi < Formula
       pipe.puts "/quit\n"
       pipe.close_write
     end
+
+    # This is not how you'd use Perl with Irssi but it is enough to be
+    # sure the Perl element didn't fail to compile, which is needed
+    # because upstream treats Perl build failures as non-fatal.
+    # To debug a Perl problem copy the following test at the end of the install
+    # block to surface the relevant information from the build warnings.
+    ENV["PERL5LIB"] = lib/"perl5/site_perl"
+    system "perl", "-e", "use Irssi"
   end
 end

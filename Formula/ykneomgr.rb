@@ -3,23 +3,27 @@ class Ykneomgr < Formula
   homepage "https://developers.yubico.com/libykneomgr/"
   url "https://developers.yubico.com/libykneomgr/Releases/libykneomgr-0.1.8.tar.gz"
   sha256 "2749ef299a1772818e63c0ff5276f18f1694f9de2137176a087902403e5df889"
-  revision 1
+  license "LGPL-3.0-or-later"
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "35d3a87c9eff5d84fd8dbf3fc2cf9175ab69fd450b691c6f19ca3a1f8b9486ad" => :high_sierra
-    sha256 "749b6ae84f03c659f55d6086994e86b93250c80e75c95535e1bba2e988734846" => :sierra
-    sha256 "6635df6c9ced211112593d03a1faa6b913a0bfb697b5e3b198dad67f061b5573" => :el_capitan
-    sha256 "6b333a6688997a75a718d034059d7318fe2a02fe7d2a9078decf8a48283f85de" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "75e8cb3042d639b8271057b9d3e77c2786e66527a8c8602709dff4624b06d134"
+    sha256 cellar: :any, big_sur:       "d08813317ba58b25a12d90485c20e372922bde6bda948a4b4979eccb07374e5f"
+    sha256 cellar: :any, catalina:      "583b882ed5705cfbde73f815689c7fcf70aec84b42a8de606dd847f99afc93b7"
+    sha256 cellar: :any, mojave:        "0fee721a06b166425760bdc5b65349f374ac6512ce09404cdc2c4d82f621022e"
   end
 
   head do
     url "https://github.com/Yubico/libykneomgr.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
-    depends_on "libtool" => :build
     depends_on "gengetopt" => :build
+    depends_on "libtool" => :build
   end
+
+  # Deprecated in favor of YubiKey Manager (ykman)
+  deprecate! date: "2017-01-27", because: :deprecated_upstream
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
@@ -35,6 +39,6 @@ class Ykneomgr < Formula
   end
 
   test do
-    assert_match "0.1.8", shell_output("#{bin}/ykneomgr --version")
+    assert_match version.to_s, shell_output("#{bin}/ykneomgr --version")
   end
 end

@@ -1,13 +1,19 @@
 class Libngspice < Formula
   desc "Spice circuit simulator as shared library"
   homepage "https://ngspice.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/27/ngspice-27.tar.gz"
-  sha256 "0c08c7d57a2e21cf164496f3237f66f139e0c78e38345fbe295217afaf150695"
+  url "https://downloads.sourceforge.net/project/ngspice/ng-spice-rework/34/ngspice-34.tar.gz"
+  sha256 "2263fffc6694754972af7072ef01cfe62ac790800dad651bc290bfcae79bd7b5"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/ngspice[._-]v?(\d+(?:\.\d+)*)\.t}i)
+  end
 
   bottle do
-    sha256 "f1470393444748a5fb604cdadc7974402753827cca715f1588508fd7305c8d30" => :high_sierra
-    sha256 "841be3e66bf1f3dd18a74f2dfd201b95acebfd32e1bd180d99037193e3437bf3" => :sierra
-    sha256 "ef9fab04fd5b79cc361fa14642b59d762c7f589ea37c22e41273e97841712537" => :el_capitan
+    sha256 arm64_big_sur: "030028e4b85b595d98edaa642acbba72207f05d9ee7dc6f43ba2491398d128ab"
+    sha256 big_sur:       "a317cf13dd747369eb178e18f932ee4b0e3eebf8ffdb697f19cdaa1d100e20e8"
+    sha256 catalina:      "82d6d7ad4cf74d36b1f11741edc123b76bdd48279cb0af38d5eacfe155c8b7de"
+    sha256 mojave:        "908c45d65d80ad97d76a721ece430e09f8b828197999ee71152b2c12c5a4b231"
   end
 
   head do
@@ -18,24 +24,22 @@ class Libngspice < Formula
     depends_on "bison" => :build
     depends_on "flex" => :build
     depends_on "libtool" => :build
-
-    # Currently, headers don't get installed to include/*.
-    # There is a patch upstream that addresses this for HEAD.
-    # Upstream ticket: https://sourceforge.net/p/ngspice/bugs/327
-    patch :DATA
   end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--disable-debug",
-      "--disable-dependency-tracking", "--with-ngshared", "--enable-cider",
-      "--enable-xspice"
-    system "make", "install"
 
-    # To avoid rerunning autogen.sh for stable builds, work around the
-    # includedir bug by symlinking.  Upstream ticket:
-    # https://sourceforge.net/p/ngspice/bugs/327
-    include.install_symlink Dir[share/"ngspice/include/*"] if build.stable?
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-ngshared
+      --enable-cider
+      --enable-xspice
+    ]
+
+    system "./configure", *args
+    system "make", "install"
   end
 
   test do
@@ -53,22 +57,3 @@ class Libngspice < Formula
     system "./test"
   end
 end
-__END__
-diff --git a/src/include/ngspice/Makefile.am b/src/include/ngspice/Makefile.am
-index 216816e..fd7fec0 100644
---- a/src/include/ngspice/Makefile.am
-+++ b/src/include/ngspice/Makefile.am
-@@ -1,11 +1,9 @@
- ## Process this file with automake to produce Makefile.in
-
--includedir = $(pkgdatadir)/include/ngspice
--
--nodist_include_HEADERS = \
-+nodist_pkginclude_HEADERS = \
-	config.h
-
--include_HEADERS = \
-+pkginclude_HEADERS = \
-	tclspice.h	\
-	acdefs.h	\
-	bdrydefs.h	\

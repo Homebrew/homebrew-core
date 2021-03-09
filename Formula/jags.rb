@@ -3,16 +3,26 @@ class Jags < Formula
   homepage "https://mcmc-jags.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mcmc-jags/JAGS/4.x/Source/JAGS-4.3.0.tar.gz"
   sha256 "8ac5dd57982bfd7d5f0ee384499d62f3e0bb35b5f1660feb368545f1186371fc"
+  revision 2
 
-  bottle do
-    cellar :any
-    sha256 "1d4d987b95d6bfd9cb58429d3554e3c94bb54928a70efd8479365f19d9aea161" => :high_sierra
-    sha256 "1b91f63724f9027e8948f5d6391900a8def1bebd7983008c50cd8759f3210ceb" => :sierra
-    sha256 "1b8494215c7abf398693ba827f3c43bdc7054be58ef8c593a802384c995f8518" => :el_capitan
-    sha256 "2a1b02acc3e361549d64d10cee6581d598f78539c91cd715678c810eb6c31fe4" => :yosemite
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/JAGS[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  depends_on :fortran
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "ea0be62c30efa7d985684c3295af0fa972596ed029622af0cf409740d3658c2e"
+    sha256 cellar: :any, big_sur:       "72c2e292449224ec4b825399233be7de57fff2b810c7d31d738386c829a53098"
+    sha256 cellar: :any, catalina:      "11423ce61e9c8c567179c82e03179427ee9161808ff7256ffca47f72030359b7"
+    sha256 cellar: :any, mojave:        "9e1448b73ba0853385cdfd2861fd273588a6a8557522f0d3073f50154130e900"
+  end
+
+  depends_on "gcc" # for gfortran
+
+  on_linux do
+    depends_on "openblas"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",

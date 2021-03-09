@@ -1,7 +1,8 @@
 class Qtads < Formula
   desc "TADS multimedia interpreter"
   homepage "https://qtads.sourceforge.io/"
-  revision 1
+  license "GPL-3.0"
+  revision 2
   head "https://github.com/realnc/qtads.git"
 
   stable do
@@ -21,17 +22,34 @@ class Qtads < Formula
       url "https://github.com/realnc/qtads/commit/46701a2.patch?full_index=1"
       sha256 "02c86bfa44769ec15844bbefa066360fb83ac923360ced140545fb782f4f3397"
     end
+
+    # Fix "error: ordered comparison between pointer and zero"
+    # Reported 11 Dec 2017 https://github.com/realnc/qtads/issues/7
+    if DevelopmentTools.clang_build_version >= "900"
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/e189341/qtads/xcode9.diff"
+        sha256 "2016fef6e867b7b8dfe1bd5db64d588161aad1357faa1962ee48edbe35042ddc"
+      end
+    end
+  end
+
+  # The first-party download page links to releases on GitHub, so we manually
+  # check that for now. If the formula is modified in the future to use a
+  # release from GitHub, this should be modified to use `url :stable`.
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    cellar :any
-    sha256 "51fff5c39b8c234bb72b9a3865f7a067fb2dab902316c7943261ba66ed98ab19" => :sierra
-    sha256 "fe8ab65019c324c13c9024291b3e6288aff3ec28049a0cf321da421b4c28f0f6" => :el_capitan
-    sha256 "e2383ed761b051e337ed2a4a4162655cb9eaa19ed8ab0666e8a7d1efa236b9b2" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "435e78a2cbbac2b581aa335b6467a3c6cd89e65e2ecfa3f4b8865049c176b346"
+    sha256 cellar: :any, big_sur:       "1b7ad03b5fc2ceab4f7d8ffa5c6abc5eaef6f1c23152110f4e76b98598b3ca49"
+    sha256 cellar: :any, catalina:      "d9cde41ffc4ee4adf1b026b15bbd22e2bfdc8dd994866b007bff0936c4218608"
+    sha256 cellar: :any, mojave:        "d4db6c775198a2052b34c67255bdc26d18605d80885eacc3a7f596e980f89e0f"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qt"
+  depends_on "qt@5"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
   depends_on "sdl_sound"
@@ -42,7 +60,8 @@ class Qtads < Formula
       "INCLUDEPATH += src $$T2DIR $$T3DIR $$HTDIR",
       "INCLUDEPATH += src $$T2DIR $$T3DIR $$HTDIR #{sdl_sound_include}/SDL"
 
-    system "qmake", "DEFINES+=NO_STATIC_TEXTCODEC_PLUGINS"
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", "DEFINES+=NO_STATIC_TEXTCODEC_PLUGINS"
     system "make"
     prefix.install "QTads.app"
     bin.write_exec_script "#{prefix}/QTads.app/Contents/MacOS/QTads"

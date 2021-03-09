@@ -1,26 +1,15 @@
 class Wumpus < Formula
   desc "Exact clone of the ancient BASIC Hunt the Wumpus game"
   homepage "http://www.catb.org/~esr/wumpus/"
-  url "http://www.catb.org/~esr/wumpus/wumpus-1.6.tar.gz"
-  sha256 "965e49b3e53f44023994b42b3aa568ad79d3a2287bb0a07460b601500c9ae16d"
+  url "http://www.catb.org/~esr/wumpus/wumpus-1.7.tar.gz"
+  sha256 "892678a66d6d1fe2a7ede517df2694682b882797a546ac5c0568cc60b659f702"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "5a1435e4545eea1ab436a0fba4844ac2236ea6e49e045f3b59d19adcff5de97c" => :high_sierra
-    sha256 "fa693e01a17d31e9e5a5b51f27ea18b69e30f5613615c95ddb89c7dbc4bbe75d" => :sierra
-    sha256 "3b6751d8a871e44c033e4a6d83009bb8b499952385d8c1743be3d26bfe37b312" => :el_capitan
-    sha256 "d292048f1869507766d60e6931bffbf402f99d8fe36711ed6d9dbb060407a4a6" => :yosemite
-  end
-
-  # Patches to allow `make install` to specify a prefix; both patches
-  # can be removed in the next release
-  patch do
-    url "https://gitlab.com/esr/wumpus/commit/ea272d4786a55dbaa493d016324b7a05b4f165b9.diff"
-    sha256 "9a6d625e10425674329f14c625dba43b78b66c8137d356453d021e6c39ec339b"
-  end
-  patch do
-    url "https://gitlab.com/esr/wumpus/commit/99022db86e54c3338d6a670f219a0845fd531530.diff"
-    sha256 "72e40a834eb87e8deef51e8f064c50d93880e85ff9904a50be6b7c85052cc157"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1e1c53ffe64c591ac7e32ffe612d86a043588d0b6d5f63e0d8091dbcaa8af6d8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ac3f0b19f9510c8599a213401973d1cac9a0cb575bb8caa0be97d944dc94f765"
+    sha256 cellar: :any_skip_relocation, catalina:      "49bc794562f3b9a0ad5799b5fcd2d63a5f866b9b6dc7a4b0d80988c388ee3726"
+    sha256 cellar: :any_skip_relocation, mojave:        "e6881d8d217cebdd71e430c4ec8701d369d1ca03bb8724d30977b467d7422d83"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "006271b20835150dcf3006041f7053adf26a3ec58f9549029d14c844a53570c4"
   end
 
   def install

@@ -1,25 +1,22 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
-  homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v1.18.0.tar.gz"
-  sha256 "772f93776ba68a357b515cda1515ce898674ef6cde30826d0cac64ce9950ebb0"
-  head "https://github.com/libuv/libuv.git", :branch => "v1.x"
+  homepage "https://libuv.org"
+  url "https://github.com/libuv/libuv/archive/v1.41.0.tar.gz"
+  sha256 "6cfeb5f4bab271462b4a2cc77d4ecec847fdbdc26b72019c27ae21509e6f94fa"
+  license "MIT"
+  head "https://github.com/libuv/libuv.git", branch: "v1.x"
 
   bottle do
-    cellar :any
-    sha256 "8c6e424895b27bb7a37cace49a4496523f51d6193bc1547257816d79d2283f11" => :high_sierra
-    sha256 "c7ba0dcbb23958da08ac4135140633c44203750b954e1a9e4066ca06c6574c32" => :sierra
-    sha256 "4e130a18f6fd6bb9832b6c714a90e051957f7a9461d7717f393f70f9fed9b4cc" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "25ba3f6a09c7fa6c6dd3aeda7842aa95e05d3377788938ef59e71d1c504e2826"
+    sha256 cellar: :any, big_sur:       "74240126a16d9be316c69535e61fd1c000428b89b6e5a8f72198dc1ce86ddc99"
+    sha256 cellar: :any, catalina:      "fec3670ca2dcbe641c1351c806fa3f66f7e7054dc4d42c683d80c0dcfddf0131"
+    sha256 cellar: :any, mojave:        "452550de9576d4bea5258ec6e40f345b72819f2fad1b96f2c4a71d9481c16310"
   end
 
-  option "with-test", "Execute compile time checks (Requires Internet connection)"
-
-  deprecated_option "with-check" => "with-test"
-
-  depends_on "pkg-config" => :build
-  depends_on "automake" => :build
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
 
   def install
@@ -36,7 +33,6 @@ class Libuv < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    system "make", "check" if build.with? "test"
     system "make", "install"
   end
 

@@ -1,32 +1,38 @@
 class Gopass < Formula
-  desc "The slightly more awesome Standard Unix Password Manager for Teams"
-  homepage "https://www.justwatch.com/gopass"
-  url "https://www.justwatch.com/gopass/releases/1.6.2/gopass-1.6.2.tar.gz"
-  sha256 "1be00f5a0d79e80c4492d3843841181f5c96396a980f2d96255b9836820e5e7a"
-  head "https://github.com/justwatchcom/gopass.git"
+  desc "Slightly more awesome Standard Unix Password Manager for Teams"
+  homepage "https://github.com/gopasspw/gopass"
+  url "https://github.com/gopasspw/gopass/releases/download/v1.12.1/gopass-1.12.1.tar.gz"
+  sha256 "ab38e0a6d6a1938b03b3fa31c969b8cf05692b36acbb1b0e2fed121365852510"
+  license "MIT"
+  head "https://github.com/gopasspw/gopass.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "3da64a86caf12cdafd7dfd062eb15a455c91ca4c056132f9e9e852f414f91da7" => :high_sierra
-    sha256 "74c51ded668ab6f1c4a13f099471ebae8bbafd00779297e05cbe7d3b91f1a059" => :sierra
-    sha256 "4b8ffb3445624dfbf260327f1355d84a5d155809ece8e2f9bc5e3de54734f379" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "38fbe5a5ce0fc2d1a73a131de0a0234241aa0291d1e0f6594dc25a4768d24fc7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "889f30e3d3cda33a3146f9a52659d5868bf6ff07025f9bdf64ae42ec075681b6"
+    sha256 cellar: :any_skip_relocation, catalina:      "8efa4de9a7569c395afbe7721f6ea0bb572d8c6dd69a92568bac876576662b2b"
+    sha256 cellar: :any_skip_relocation, mojave:        "252cb69daf2c96836574596cfca87d6d2b7e94335c34267f275af37e0cc12f2d"
   end
 
   depends_on "go" => :build
-  depends_on :gpg => :run
+  depends_on "gnupg"
+
+  on_macos do
+    depends_on "terminal-notifier"
+  end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/justwatchcom/gopass").install buildpath.children
+    ENV["GOBIN"] = bin
 
-    cd "src/github.com/justwatchcom/gopass" do
-      prefix.install_metafiles
-      ENV["PREFIX"] = prefix
-      system "make", "install"
-    end
+    system "go", "install", "-ldflags", "-s -w -X main.version=#{version}", "./..."
 
-    output = Utils.popen_read("#{bin}/gopass completion bash")
-    (bash_completion/"gopass-completion").write output
+    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/gopass", "completion", "bash")
+    (bash_completion/"gopass").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/gopass", "completion", "zsh")
+    (zsh_completion/"_gopass").write output
+
+    output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/gopass", "completion", "fish")
+    (fish_completion/"gopass.fish").write output
   end
 
   test do
@@ -46,9 +52,9 @@ class Gopass < Formula
     begin
       system Formula["gnupg"].opt_bin/"gpg", "--batch", "--gen-key", "batch.gpg"
 
-      system bin/"gopass", "init", "--nogit", "testing@foo.bar"
+      system bin/"gopass", "init", "--path", testpath, "noop", "testing@foo.bar"
       system bin/"gopass", "generate", "Email/other@foo.bar", "15"
-      assert_predicate testpath/".password-store/Email/other@foo.bar.gpg", :exist?
+      assert_predicate testpath/"Email/other@foo.bar.gpg", :exist?
     ensure
       system Formula["gnupg"].opt_bin/"gpgconf", "--kill", "gpg-agent"
       system Formula["gnupg"].opt_bin/"gpgconf", "--homedir", "keyrings/live",

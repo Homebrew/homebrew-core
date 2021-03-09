@@ -1,26 +1,33 @@
 class DesktopFileUtils < Formula
   desc "Command-line utilities for working with desktop entries"
   homepage "https://wiki.freedesktop.org/www/Software/desktop-file-utils/"
-  url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.23.tar.xz"
-  sha256 "6c094031bdec46c9f621708f919084e1cb5294e2c5b1e4c883b3e70cb8903385"
+  url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.26.tar.xz"
+  sha256 "b26dbde79ea72c8c84fb7f9d870ffd857381d049a86d25e0038c4cef4c747309"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "0a3b290ebd40ce3b911268125379b6a0cd839db7fdaf9d88751eb442e2b00e1f" => :high_sierra
-    sha256 "a30b539cc22f037ccacfd1ff1993fbc6292e0fa399f2d796195a0870832bb12b" => :sierra
-    sha256 "8c18c3fe21f8d2b1bdb4befdadd2b6dabbbe89dcb9ebb7fbaf4a8a3c7a2153a1" => :el_capitan
-    sha256 "a6a09a60579ac8875cb92fbcf6177a860da6954c0aa61f323c66441211af0d1b" => :yosemite
-    sha256 "ccca14604b32329e36acf15be710bdc1458410c4bd382b8708d4afba1b68177a" => :mavericks
+    sha256 arm64_big_sur: "c1bdcafb26625cd695365e41b4d3bb225d42c6075aa799c86b98e367a7d8ce9f"
+    sha256 big_sur:       "de9ed12a55ebff6b2d321c91908219d3d0b7802080ad462774eb1179ec7435b1"
+    sha256 catalina:      "fba87a1749b744c74510df1a49ed7627615ab10a2398922eac1389f4e35a5cb8"
+    sha256 mojave:        "2e6548daf5b3fd3f038205986130d39390fd4b22955ed07ad06f6378d5e6e5f2"
+    sha256 high_sierra:   "12e7bfe0f9a579f826f7c74f5a67d41ed4dee469f1cf0f3b4be89ef9e884996e"
   end
 
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-lispdir=#{elisp}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+
+      # fix lisp file install location
+      mkdir_p share/"emacs/site-lisp/desktop-file-utils"
+      mv share/"emacs/site-lisp/desktop-entry-mode.el", share/"emacs/site-lisp/desktop-file-utils"
+    end
   end
 
   test do

@@ -1,26 +1,29 @@
 class Libupnp < Formula
   desc "Portable UPnP development kit"
   homepage "https://pupnp.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/pupnp/pupnp/libUPnP%201.6.22/libupnp-1.6.22.tar.bz2"
-  sha256 "0bdfacb7fa8d99b78343b550800ff193264f92c66ef67852f87f042fd1a1ebbc"
+  url "https://github.com/pupnp/pupnp/releases/download/release-1.14.2/libupnp-1.14.2.tar.bz2"
+  sha256 "ffe3045b91a4c951d105e0db98cd043341f1f4342ddaf23916e15a5792d5c270"
+  license "BSD-3-Clause"
 
-  bottle do
-    cellar :any
-    sha256 "de325c897a736519a7d65cf468ca70ef2c62a318459a20b8eb71164765a8627d" => :high_sierra
-    sha256 "9396b311d0ccf64bce92ae68ba54b50614e2e694293c17033411abef3fad45f8" => :sierra
-    sha256 "b8799e64ad5dcb2b5fc61b3365815affc8c33b5493f48cdf185445942ed0e639" => :el_capitan
-    sha256 "1778385bedb76e9d6fb344682503ef95c9fa970bd3f78e2c7a6d8c30f2ddc263" => :yosemite
+  livecheck do
+    url :stable
+    regex(/^release[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
-  option "without-ipv6", "Disable IPv6 support"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "0a4bb3015934cc4b82b65f54cf3938024b478b5f91c05451ef055f805db6d26e"
+    sha256 cellar: :any, big_sur:       "a8490a19a9efda5274e37e4e6cd7430b15e5b24b80a7462aceecd2b9f9056d00"
+    sha256 cellar: :any, catalina:      "e5e62207372fdf55e27e79e243002824bc8d0dc2c6836de617d5a8236c560c50"
+    sha256 cellar: :any, mojave:        "ce61c494f03d24f8082f41b8edce3ebde7355b07977fdbe0e68179cf1025258a"
+  end
 
   def install
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
+      --enable-ipv6
     ]
-    args << "--enable-ipv6" if build.with? "ipv6"
 
     system "./configure", *args
     system "make", "install"

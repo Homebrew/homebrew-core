@@ -1,36 +1,32 @@
 class Dwarfutils < Formula
   desc "Dump and produce DWARF debug information in ELF objects"
   homepage "https://www.prevanders.net/dwarf.html"
-  url "https://www.prevanders.net/libdwarf-20170709.tar.gz"
-  sha256 "46ccfb24ecd24bd7cce466d67a7bfeb62b9ed405dafdc924918d58c529abccb8"
+  url "https://www.prevanders.net/libdwarf-20210305.tar.gz"
+  sha256 "b86bef41725326d13ee3e7e45b929e0ca97b639e93cc1a9214c90a1774fa1c1a"
+  license all_of: ["BSD-2-Clause", "LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "a094f5785e8feb015608a4acdcf7f5ae00424adc3da04792581dc7ddbeea7e7a" => :high_sierra
-    sha256 "6be17e49a4a3e34c81a4c034a671db42bd53013bf9194c5ff8de4c0e91588292" => :sierra
-    sha256 "563dad4f509d2f1aa1f7d6b222614864c42dcb986d6bdc1fe7a094f952b55a9a" => :el_capitan
-    sha256 "99b4b4822bf18f7a6ce085a48cdf3116e27610117a64e18c4040a96a1929973d" => :yosemite
+  livecheck do
+    url :homepage
+    regex(%r{href=(?:["']?|.*?/)libdwarf[._-]v?(\d{6,8})\.t}i)
   end
 
-  option "with-sanitize", "Use -fsanitize"
+  bottle do
+    sha256 cellar: :any_skip_relocation, big_sur:  "670691ddbab4d2fa1098fcb07f7b7831b26aba2101d2ea2ca270af8599b03dc8"
+    sha256 cellar: :any_skip_relocation, catalina: "fb68efc4f5c05f989360c4b2d2c2b5b014aeb1de3e1c046c8ef5c45afcccafe6"
+    sha256 cellar: :any_skip_relocation, mojave:   "57e5fefb572f7416d6410026d568709d6c91a51aa29c0c9c15025fba0dec0681"
+  end
 
   depends_on "libelf" => :build
-  depends_on "gcc" if build.with? "sanitize"
+
+  uses_from_macos "zlib"
 
   def install
-    args = ""
-
-    if build.with? "sanitize"
-      ENV["CC"] = "#{Formula["gcc"].bin}/gcc-6"
-      args << "--enable-sanitize"
-    end
-
-    system "./configure", args
+    system "./configure"
     system "make"
 
     bin.install "dwarfdump/dwarfdump"
     man1.install "dwarfdump/dwarfdump.1"
-    lib.install "libdwarf/libdwarf.a"
+    lib.install "libdwarf/.libs/libdwarf.a"
     include.install "libdwarf/dwarf.h"
     include.install "libdwarf/libdwarf.h"
   end
@@ -61,7 +57,7 @@ class Dwarfutils < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-I#{include}", "-ldwarf", "test.c", "-o", "test"
+    system ENV.cc, "-I#{include}", "test.c", "-L#{lib}", "-ldwarf", "-o", "test"
     system "./test"
   end
 end

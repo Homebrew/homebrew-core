@@ -1,50 +1,39 @@
 class Libspatialite < Formula
   desc "Adds spatial SQL capabilities to SQLite"
   homepage "https://www.gaia-gis.it/fossil/libspatialite/index"
-  revision 3
+  url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-5.0.1.tar.gz"
+  mirror "https://ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.0.1.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-5.0.1.tar.gz"
+  sha256 "eecbc94311c78012d059ebc0fae86ea5ef6eecb13303e6e82b3753c1b3409e98"
+  license any_of: ["MPL-1.1", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
-  stable do
-    url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/libspatialite-4.3.0a.tar.gz"
-    mirror "https://ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-4.3.0a.tar.gz"
-    mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/pkgsrc/distfiles/libspatialite-4.3.0a.tar.gz"
-    sha256 "88900030a4762904a7880273f292e5e8ca6b15b7c6c3fb88ffa9e67ee8a5a499"
-
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/27a0e51936e01829d0a6f3c75a7fbcaf92bb133f/libspatialite/sqlite310.patch"
-      sha256 "459434f5e6658d6f63d403a7795aa5b198b87fc9f55944c714180e7de662fce2"
-    end
+  livecheck do
+    url "https://www.gaia-gis.it/gaia-sins/libspatialite-sources/"
+    regex(/href=.*?libspatialite[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
   end
 
   bottle do
-    cellar :any
-    sha256 "5a3b1a4c722b691a653797a4e15a1cd688a6c653cb4827eaf71b7d3d5fe9cb8e" => :high_sierra
-    sha256 "2924b1b4d5856c3a8b2e84aaffcb296d5fd3bc81c05d74e7b5c1dba61cfa91a7" => :sierra
-    sha256 "c394425fddfa6b821542c68e29d558646e54336322552a60b620dbe3e5bc2749" => :el_capitan
-    sha256 "1c1627686a4d9a6969accae84e3a35414e076be0535fef01c1343fb54e4b18e9" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "18ecddab7cd064038e15a9e023fc1cb94dfabcb4ea1dbd527e19754c80829445"
+    sha256 cellar: :any, big_sur:       "eea8b32b264f5183558158fe3d76cfd676bb731620f67fc1da66519f28171b6b"
+    sha256 cellar: :any, catalina:      "054c1286dcdffded43a8cf768eac32c4f20e9870bc0b0e0aa04c40fb31280836"
+    sha256 cellar: :any, mojave:        "c136e8503fda01a139f00fbc6ac5e3b24989961a17485c28e231b355090e98e4"
   end
 
   head do
-    url "https://www.gaia-gis.it/fossil/libspatialite", :using => :fossil
+    url "https://www.gaia-gis.it/fossil/libspatialite", using: :fossil
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
-  option "without-freexl", "Build without support for reading Excel files"
-  option "without-libxml2", "Disable support for xml parsing (parsing needed by spatialite-gui)"
-  option "without-liblwgeom", "Build without additional sanitization/segmentation routines provided by PostGIS 2.0+ library"
-  option "without-geopackage", "Build without OGC GeoPackage support"
-
   depends_on "pkg-config" => :build
-  depends_on "proj"
+  depends_on "freexl"
   depends_on "geos"
-  # Needs SQLite > 3.7.3 which rules out system SQLite on Snow Leopard and
-  # below. Also needs dynamic extension support which rules out system SQLite
-  # on Lion. Finally, RTree index support is required as well.
+  depends_on "librttopo"
+  depends_on "libxml2"
+  depends_on "minizip"
+  depends_on "proj"
   depends_on "sqlite"
-  depends_on "libxml2" => :recommended
-  depends_on "freexl" => :recommended
-  depends_on "liblwgeom" => :recommended
 
   def install
     system "autoreconf", "-fi" if build.head?
@@ -56,28 +45,20 @@ class Libspatialite < Formula
     inreplace "configure",
               "shrext_cmds='`test .$module = .yes && echo .so || echo .dylib`'",
               "shrext_cmds='.dylib'"
+    chmod 0755, "configure"
 
     # Ensure Homebrew's libsqlite is found before the system version.
     sqlite = Formula["sqlite"]
     ENV.append "LDFLAGS", "-L#{sqlite.opt_lib}"
     ENV.append "CFLAGS", "-I#{sqlite.opt_include}"
 
-    if build.with? "liblwgeom"
-      lwgeom = Formula["liblwgeom"]
-      ENV.append "LDFLAGS", "-L#{lwgeom.opt_lib}"
-      ENV.append "CFLAGS", "-I#{lwgeom.opt_include}"
-    end
-
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
       --with-sysroot=#{HOMEBREW_PREFIX}
       --enable-geocallbacks
+      --enable-rttopo=yes
     ]
-    args << "--enable-freexl=no" if build.without? "freexl"
-    args << "--enable-libxml2=no" if build.without? "libxml2"
-    args << "--enable-lwgeom=yes" if build.with? "liblwgeom"
-    args << "--enable-geopackage=no" if build.without? "geopackage"
 
     system "./configure", *args
     system "make", "install"

@@ -1,19 +1,26 @@
 class Upx < Formula
   desc "Compress/expand executable files"
   homepage "https://upx.github.io/"
-  url "https://github.com/upx/upx/releases/download/v3.94/upx-3.94-src.tar.xz"
-  sha256 "81ef72cdac7d8ccda66c2c1ab14f4cd54225e9e7b10cd40dd54be348dbf25621"
-  head "https://github.com/upx/upx.git", :branch => :devel
+  url "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-src.tar.xz"
+  sha256 "47774df5c958f2868ef550fb258b97c73272cb1f44fe776b798e393465993714"
+  revision 1
+  head "https://github.com/upx/upx.git", branch: "devel"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c532d12d5a54ace76fcc2c084ceb14cab0de89f7befd8c259b0f1af70d2abd9c" => :high_sierra
-    sha256 "c5af4e4d7cf49c8a91dfb50d79be814a9a30453c738d4addb56022781762af8c" => :sierra
-    sha256 "4e00d30ed448c287c1210acb27f29214a60748125d7c500a5e180f1484fa089c" => :el_capitan
-    sha256 "cfee86cc35770ad67a5b86c2eca8197063c3be6264cbf4c3a6b32a142f1b3356" => :yosemite
+    sha256 cellar: :any_skip_relocation, big_sur:  "5fc54db6b0fb2e8ebfa630d48c893e569e49b5c6795646d8912c447f3b0a1747"
+    sha256 cellar: :any_skip_relocation, catalina: "c04d7040eeaa8d2842449b86789ece0f0a73ee0ac1c013c6a00596288251abbc"
+    sha256 cellar: :any_skip_relocation, mojave:   "a2253a74b3531dc9173eac2ae2ea816ff7b8af3657aee2180ca1253f49cd9fec"
   end
 
-  depends_on "ucl"
+  depends_on "ucl" => :build
+
+  uses_from_macos "zlib"
+
+  patch do
+    # Big Sur fix: https://github.com/upx/upx/issues/424
+    url "https://github.com/upx/upx/commit/51f69a20e0287904398bbf4c72ba2f809a0b0850.patch?full_index=1"
+    sha256 "2f311ce1e7254085817d3415a687d561f761fb3a2077f0605fc3f39e620485f0"
+  end
 
   def install
     system "make", "all"

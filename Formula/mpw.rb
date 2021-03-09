@@ -1,39 +1,44 @@
 class Mpw < Formula
   desc "Stateless/deterministic password and identity manager"
-  homepage "https://ssl.masterpasswordapp.com/"
-  url "https://ssl.masterpasswordapp.com/mpw-2.6-cli-4-0-gf8043ae1.tar.gz"
-  version "2.6-cli-4"
-  sha256 "90480c0994cccdaa6637cc311e2092e5b6f2fdc751b58d218a6bd61e4603b2a0"
-  head "https://github.com/Lyndir/MasterPassword.git"
+  homepage "https://masterpassword.app/"
+  url "https://masterpassword.app/mpw-2.7-cli-1-0-gd5959582.tar.gz"
+  version "2.7-cli-1"
+  sha256 "480206dfaad5d5a7d71fba235f1f3d9041e70b02a8c1d3dda8ecba1da39d3e96"
+  license "GPL-3.0-or-later"
+  head "https://gitlab.com/MasterPassword/MasterPassword.git"
 
-  bottle do
-    cellar :any
-    sha256 "dae1000a0cf67648b022a23f07b9696c45040946118195874aafee9c752a83ec" => :high_sierra
-    sha256 "b58efb809596866dba6265a55bcd1be7d59ffa95cd74d3297ea0019badcb911a" => :sierra
-    sha256 "b9a997a1c4ba244b904b430e545da399f633bce79464bee3b0153c7707b484cf" => :el_capitan
+  # The first-party site doesn't seem to list version information, so it's
+  # necessary to check the tags from the `head` repository instead.
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+[._-]cli[._-]?\d+)$/i)
   end
 
-  option "without-json-c", "Disable JSON configuration support"
-  option "without-ncurses", "Disable colorized identicon support"
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "ae3c6d9c4698beed61f7d0ee6330d1afa63b993c8ff3ecd3dae5fea25dc052be"
+    sha256 cellar: :any, big_sur:       "ab5d2d32aee8f5d90e3818a776d10a681ce84435161ef9a9c146310b2277ce93"
+    sha256 cellar: :any, catalina:      "577e79323642d34b2ab391959ce2075e96172faa540c2e9d628406d0e80e2fc4"
+    sha256 cellar: :any, mojave:        "8592cadcded1acf97d687135d7f9f88674c05837e6f9646bb514c0b7fc18c954"
+  end
 
+  depends_on "json-c"
   depends_on "libsodium"
-  depends_on "json-c" => :recommended
-  depends_on "ncurses" => :recommended
+  depends_on "ncurses"
 
   def install
-    cd "platform-independent/cli-c" if build.head?
+    cd "cli" unless build.head?
+    cd "platform-independent/c/cli" if build.head?
 
     ENV["targets"] = "mpw"
-    ENV["mpw_json"] = build.with?("json-c") ? "1" : "0"
-    ENV["mpw_color"] = build.with?("ncurses") ? "1" : "0"
+    ENV["mpw_json"] = "1"
+    ENV["mpw_color"] = "1"
 
     system "./build"
-    system "./mpw-cli-tests"
     bin.install "mpw"
   end
 
   test do
-    assert_equal "Jejr5[RepuSosp",
-      shell_output("#{bin}/mpw -q -Fnone -u 'Robert Lee Mitchell' -M 'banana colored duckling' -tlong -c1 -a3 'masterpasswordapp.com'").strip
+    assert_equal "CefoTiciJuba7@",
+      shell_output("#{bin}/mpw -Fnone -q -u 'test' -M 'test' 'test'").strip
   end
 end

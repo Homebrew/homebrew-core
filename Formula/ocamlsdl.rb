@@ -3,21 +3,23 @@ class Ocamlsdl < Formula
   homepage "https://ocamlsdl.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/ocamlsdl/OCamlSDL/ocamlsdl-0.9.1/ocamlsdl-0.9.1.tar.gz"
   sha256 "abfb295b263dc11e97fffdd88ea1a28b46df8cc2b196777093e4fe7f509e4f8f"
-  revision 8
+  license "LGPL-2.1-or-later"
+  revision 13
 
   bottle do
-    cellar :any
-    sha256 "01d4b6848f1e138e621ee37698f81d128dd8aba1edb09e6b2a2466c1a413d085" => :high_sierra
-    sha256 "6015c0a5a2c6e1f60ed2c67947df817d3f91f59e74179615ede58bd0fa7ac463" => :sierra
-    sha256 "12bcce8fd2e3779988014ee22cc96653caaabb660010c6aefde798a64a030601" => :el_capitan
+    sha256 cellar: :any, catalina:    "8ccd0c9f59b9fad6fe084e57e726cd20d0f26497e71e4be94ff7f603512cbef8"
+    sha256 cellar: :any, mojave:      "6cd21f03d8a557368499d9cd61233dab4bab11fcd99c312036d58d660598c539"
+    sha256 cellar: :any, high_sierra: "6ae2abcf123aef7ce6cc2c5aad0d912bc459fdd9e7e2abfa99135d672767ddb7"
   end
 
-  depends_on "sdl"
+  disable! date: "2020-09-21", because: :unmaintained
+
   depends_on "ocaml"
-  depends_on "sdl_mixer" => :recommended
-  depends_on "sdl_image" => :recommended
-  depends_on "sdl_gfx" => :recommended
-  depends_on "sdl_ttf" => :recommended
+  depends_on "sdl"
+  depends_on "sdl_gfx"
+  depends_on "sdl_image"
+  depends_on "sdl_mixer"
+  depends_on "sdl_ttf"
 
   def install
     ENV["OCAMLPARAM"] = "safe-string=0,_" # OCaml 4.06.0 compat

@@ -1,17 +1,24 @@
 class Cscope < Formula
   desc "Tool for browsing source code"
   homepage "https://cscope.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cscope/cscope/15.8b/cscope-15.8b.tar.gz"
-  sha256 "4889d091f05aa0845384b1e4965aa31d2b20911fb2c001b2cdcffbcb7212d3af"
+  url "https://downloads.sourceforge.net/project/cscope/cscope/v15.9/cscope-15.9.tar.gz"
+  sha256 "c5505ae075a871a9cd8d9801859b0ff1c09782075df281c72c23e72115d9f159"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/cscope[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c341d01145d24da1e42347e3c8924569e97158c826ab5a118c2708baa3733ecc" => :high_sierra
-    sha256 "7065f35c7c69268a0c293c7108e936c92c83fa6c1aff78d9fb6eb4d6178cb3c9" => :sierra
-    sha256 "97930be35cbcd08980651597acf931adbb50a80df10960d6564497f19d9c8032" => :el_capitan
-    sha256 "71d86771790165c777341e4457dd193008cfb2fb24628a138cb45fec61e6b42d" => :yosemite
-    sha256 "cb2f63522d072307cacf63e8eabf4c284f2e8c1b2ff8c6de3aeb6fb8759a1212" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "149cb1ebe576bca4c8c928ed98005054e9ac2b8822c80ce9582d500453bce0ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "41553bf0bbc2ce6e41712381fcbc2d86eca0dd4618d138ca70037df8a1bf4e01"
+    sha256 cellar: :any_skip_relocation, catalina:      "212b5f945f2a2eae2d07893bb08c490098f4f3e58ec8865499bec550882de29e"
+    sha256 cellar: :any_skip_relocation, mojave:        "0a8c76e372e2c965e654b5024cbf872931e6204b7e2ba79623d5d7d002cd3c2f"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "ae7b5f716debeb937c3472add41f69c7176e9c4a9a0668090afd63313eabbe86"
+    sha256 cellar: :any_skip_relocation, sierra:        "7eef899511b0d7eb0d6a35acf677d9b19f89528aae0272d5c414bbafbe5daaaf"
   end
+
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}",
@@ -37,6 +44,6 @@ class Cscope < Formula
     EOS
     (testpath/"cscope.files").write "./test.c\n"
     system "#{bin}/cscope", "-b", "-k"
-    assert_match /test\.c.*func/, shell_output("#{bin}/cscope -L1func")
+    assert_match(/test\.c.*func/, shell_output("#{bin}/cscope -L1func"))
   end
 end

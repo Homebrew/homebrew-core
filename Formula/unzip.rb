@@ -1,27 +1,34 @@
 class Unzip < Formula
   desc "Extraction utility for .zip compressed archives"
-  homepage "http://www.info-zip.org/pub/infozip/UnZip.html"
+  homepage "https://infozip.sourceforge.io/UnZip.html"
   url "https://downloads.sourceforge.net/project/infozip/UnZip%206.x%20%28latest%29/UnZip%206.0/unzip60.tar.gz"
   version "6.0"
   sha256 "036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37"
-  revision 3
+  license "Info-ZIP"
+  revision 7
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "c69a3531f5c1c834132c89124e11e580cb052870515875240f035dd471977893" => :high_sierra
-    sha256 "72cf9820bc8fe8c008bdb1cf7b231afbb0bc6b48511f4d40e5e4840f5bb5df65" => :sierra
-    sha256 "8a2bfa62e728c9a9bc44d7acb9f34698e599b47f8200c45290b62502c682a6ec" => :el_capitan
-    sha256 "3c69150f5a9ad6d1d1737eb17c06315dd7d0bc02b9c1a11e02ecb281c1e5f37f" => :yosemite
+  livecheck do
+    url :stable
+    regex(%r{url=.*?(?:%20)?v?(\d+(?:\.\d+)+)/unzip\d+\.t}i)
   end
 
-  keg_only :provided_by_osx
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a6f2e2238d96b078490684ff0eeb6cc0847fe5ea2c8718bb6e5eb9c784587105"
+    sha256 cellar: :any_skip_relocation, big_sur:       "979c8a1705b3822f49391c2402e961e1a66c148017af85b1b54babe6463340c8"
+    sha256 cellar: :any_skip_relocation, catalina:      "ab86dd48d398d55a9162032f0e17e6d33111d8807a9f157953fe30483ddf330e"
+    sha256 cellar: :any_skip_relocation, mojave:        "76f80f74ec99ec7d8678ed1f8e3d13b495e50a3be65a37cad584804448d932b8"
+  end
+
+  keg_only :provided_by_macos
+
+  uses_from_macos "zip" => :test
+  uses_from_macos "bzip2"
 
   # Upstream is unmaintained so we use the Debian patchset:
-  # https://packages.debian.org/sid/unzip
+  # https://packages.debian.org/buster/unzip
   patch do
-    url "https://mirrors.ocf.berkeley.edu/debian/pool/main/u/unzip/unzip_6.0-21.debian.tar.xz"
-    mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/u/unzip/unzip_6.0-21.debian.tar.xz"
-    sha256 "8accd9d214630a366476437a3ec1842f2e057fdce16042a7b19ee569c33490a3"
+    url "https://deb.debian.org/debian/pool/main/u/unzip/unzip_6.0-26.debian.tar.xz"
+    sha256 "88cb7c0f1fd13252b662dfd224b64b352f9e75cd86389557fcb23fa6d2638599"
     apply %w[
       patches/01-manpages-in-section-1-not-in-section-1l.patch
       patches/02-this-is-debian-unzip.patch
@@ -42,17 +49,29 @@ class Unzip < Formula
       patches/17-restore-unix-timestamps-accurately.patch
       patches/18-cve-2014-9913-unzip-buffer-overflow.patch
       patches/19-cve-2016-9844-zipinfo-buffer-overflow.patch
+      patches/20-cve-2018-1000035-unzip-buffer-overflow.patch
+      patches/21-fix-warning-messages-on-big-files.patch
+      patches/22-cve-2019-13232-fix-bug-in-undefer-input.patch
+      patches/23-cve-2019-13232-zip-bomb-with-overlapped-entries.patch
+      patches/24-cve-2019-13232-do-not-raise-alert-for-misplaced-central-directory.patch
+      patches/25-cve-2019-13232-fix-bug-in-uzbunzip2.patch
+      patches/26-cve-2019-13232-fix-bug-in-uzinflate.patch
+      patches/27-zipgrep-avoid-test-errors.patch
     ]
   end
 
   def install
-    system "make", "-f", "unix/Makefile",
-      "CC=#{ENV.cc}",
-      "LOC=-DLARGE_FILE_SUPPORT",
-      "D_USE_BZ2=-DUSE_BZIP2",
-      "L_BZ2=-lbz2",
-      "macosx",
-      "LFLAGS1=-liconv"
+    args = %W[
+      CC=#{ENV.cc}
+      LOC=-DLARGE_FILE_SUPPORT
+      D_USE_BZ2=-DUSE_BZIP2
+      L_BZ2=-lbz2
+      macosx
+    ]
+    on_macos do
+      args << "LFLAGS1=-liconv"
+    end
+    system "make", "-f", "unix/Makefile", *args
     system "make", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
   end
 
@@ -61,7 +80,12 @@ class Unzip < Formula
     (testpath/"test2").write "Bonjour!"
     (testpath/"test3").write "Hej!"
 
-    system "/usr/bin/zip", "test.zip", "test1", "test2", "test3"
+    on_macos do
+      system "/usr/bin/zip", "test.zip", "test1", "test2", "test3"
+    end
+    on_linux do
+      system Formula["zip"].bin/"zip", "test.zip", "test1", "test2", "test3"
+    end
     %w[test1 test2 test3].each do |f|
       rm f
       refute_predicate testpath/f, :exist?, "Text files should have been removed!"

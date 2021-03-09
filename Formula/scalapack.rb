@@ -1,31 +1,39 @@
 class Scalapack < Formula
   desc "High-performance linear algebra for distributed memory machines"
-  homepage "http://www.netlib.org/scalapack/"
-  url "http://www.netlib.org/scalapack/scalapack-2.0.2.tgz"
-  sha256 "0c74aeae690fe5ee4db7926f49c5d0bb69ce09eea75beb915e00bba07530395c"
-  revision 9
+  homepage "https://www.netlib.org/scalapack/"
+  url "https://www.netlib.org/scalapack/scalapack-2.1.0.tgz"
+  sha256 "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
+  license "BSD-3-Clause"
+  revision 2
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?scalapack[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "93e61a6dc251751dd8e838e102dc4fde5565284dbbc1c4a5e02a577a8493a261" => :high_sierra
-    sha256 "e87e52207b480cc393cc9797eecbb75407bdc4a7f9a71db7cd5d31c19bd83e12" => :sierra
-    sha256 "23f8265eeeef16119282d85f1aa5285ca4ed1584c7f5dd933dabee61f737b9ab" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "7743ddfe24954d50640db05401637ce8878ffb795c4a991d3ba805a14ea3cca7"
+    sha256 cellar: :any, big_sur:       "da83f379e10c2bcfe543767c7e6a62ccd825e5f9d3cfb7ed066e9dd9c62c8154"
+    sha256 cellar: :any, catalina:      "281e3d5317f1616e8d5a6a3b9c37fbe6ee29a03b2abe14055854902a6c009a87"
+    sha256 cellar: :any, mojave:        "b222f27ffed17605ffca2d1b0b4804f4c66ec916c9d2b5f2dd085ad2427fa791"
+    sha256 cellar: :any, high_sierra:   "ea92d3247883a9e0de28483a34d1ca064d395d28c8a622fbac571f4cd6d0e64d"
   end
 
   depends_on "cmake" => :build
-  depends_on :fortran
-  depends_on :mpi => [:cc, :f90]
-  depends_on "openblas" => :optional
-  depends_on "veclibfort" if build.without?("openblas")
+  depends_on "gcc" # for gfortran
+  depends_on "open-mpi"
+  depends_on "openblas"
+
+  # Patch for compatibility with GCC 10
+  # https://github.com/Reference-ScaLAPACK/scalapack/pull/26
+  patch do
+    url "https://github.com/Reference-ScaLAPACK/scalapack/commit/bc6cad585362aa58e05186bb85d4b619080c45a9.patch?full_index=1"
+    sha256 "f0892888e5a83d984e023e76eabae8864ad89b90ae3a41d472b960c95fdab981"
+  end
 
   def install
-    if build.with? "openblas"
-      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
-    else
-      blas = "-L#{Formula["veclibfort"].opt_lib} -lvecLibFort"
-    end
-
     mkdir "build" do
+      blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON",
                       "-DBLAS_LIBRARIES=#{blas}", "-DLAPACK_LIBRARIES=#{blas}"
       system "make", "all"
@@ -36,7 +44,6 @@ class Scalapack < Formula
   end
 
   test do
-    ENV.fortran
     cp_r pkgshare/"EXAMPLE", testpath
     cd "EXAMPLE" do
       system "mpif90", "-o", "xsscaex", "psscaex.f", "pdscaexinfo.f", "-L#{opt_lib}", "-lscalapack"

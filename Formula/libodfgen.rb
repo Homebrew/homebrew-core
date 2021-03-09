@@ -1,25 +1,29 @@
 class Libodfgen < Formula
   desc "ODF export library for projects using librevenge"
   homepage "https://sourceforge.net/p/libwpd/wiki/libodfgen/"
-  url "https://dev-www.libreoffice.org/src/libodfgen-0.1.6.tar.bz2"
-  mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.6/libodfgen-0.1.6.tar.bz2"
-  sha256 "2c7b21892f84a4c67546f84611eccdad6259875c971e98ddb027da66ea0ac9c2"
+  url "https://dev-www.libreoffice.org/src/libodfgen-0.1.8.tar.xz"
+  mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.8/libodfgen-0.1.8.tar.xz"
+  sha256 "55200027fd46623b9bdddd38d275e7452d1b0ff8aeddcad6f9ae6dc25f610625"
+  license any_of: ["MPL-2.0", "LGPL-2.1-or-later"]
 
-  bottle do
-    cellar :any
-    sha256 "42a2c0bca9c48d8c47bfc54d2b584839dcfe43051c846ddb9d7dd25c449ebe0c" => :high_sierra
-    sha256 "d18687624066fd7e4e45a6a72ef03b387189f0e1931f1a64e4c6dcabe99e0ae0" => :sierra
-    sha256 "b8b0cd9fb81020c6d6018830d75f75004a8edd9f7034e630937e92512b2ee35f" => :el_capitan
-    sha256 "342c71b7855e8a8699638f01f917c29ce85a0d7f695fc2e404446fef3b0eedd4" => :yosemite
-    sha256 "a3062a3348ba437f1cad676dd5c3c58e1541b0ec8cdd5413ab165248d18bd63e" => :mavericks
+  livecheck do
+    url "https://dev-www.libreoffice.org/src/"
+    regex(/href=["']?libodfgen[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "pkg-config" => :build
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "db9ec11161a89cadc0cc829f021fbb1a26ffd96ca7962788013b6a83efa35440"
+    sha256 cellar: :any, big_sur:       "f53270e1f9060d1e2074a89444899e540e3307270fbd94c6a5186e9a05ecda45"
+    sha256 cellar: :any, catalina:      "f019ef9174156093d5592556fac3fb5e87a38a90882572a3ff4a15b7d9227c8c"
+    sha256 cellar: :any, mojave:        "b8bcc9b962fa97d431fb4a27a924a18b37b264e43bb5e881b67668aa18633edd"
+  end
+
   depends_on "boost" => :build
-  depends_on "libwpg" => :build
   depends_on "libetonyek" => :build
-  depends_on "libwpd"
+  depends_on "libwpg" => :build
+  depends_on "pkg-config" => :build
   depends_on "librevenge"
+  depends_on "libwpd"
 
   def install
     system "./configure", "--without-docs",

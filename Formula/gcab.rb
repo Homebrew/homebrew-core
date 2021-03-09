@@ -1,46 +1,41 @@
 class Gcab < Formula
   desc "Windows installer (.MSI) tool"
   homepage "https://wiki.gnome.org/msitools"
-  url "https://download.gnome.org/sources/gcab/0.7/gcab-0.7.tar.xz"
-  sha256 "a16e5ef88f1c547c6c8c05962f684ec127e078d302549f3dfd2291e167d4adef"
+  url "https://download.gnome.org/sources/gcab/1.4/gcab-1.4.tar.xz"
+  sha256 "67a5fa9be6c923fbc9197de6332f36f69a33dadc9016a2b207859246711c048f"
+  revision 1
+
+  # We use a common regex because gcab doesn't use GNOME's "even-numbered minor
+  # is stable" version scheme.
+  livecheck do
+    url :stable
+    regex(/gcab[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "1a793542ed68d1848834163ca43e99ddf88fbdfb0d01a50e775bb271c808594e" => :high_sierra
-    sha256 "cddbf83de6e61f82e0b12937f7c928990f2e9ea53d2cef2d55a302290b4c1fef" => :sierra
-    sha256 "7403bfd6a817af92bf1c89c90826e748c909e2ec559f18d708ac48306c5b7431" => :el_capitan
-    sha256 "3200cfd9434dc548094116bf426979978c51cbad8316fd299620ce86baa5acb3" => :yosemite
-    sha256 "1c063054e17f3194d214d5d1a8d01a12932ec8214cca7143956760039db22f2f" => :mavericks
+    sha256 arm64_big_sur: "df16b825f3c8acb716846e922e256b00ecd638b59d0676a4e89e92821886d6eb"
+    sha256 big_sur:       "1d850c754fe6688bc5534637a9888215163d187569f80a4b57fc82f0e74aa14b"
+    sha256 catalina:      "7ed919ea9c7d4ec04f9d5f361f8628936e016318475fec26fdf6ef5ea56491cc"
+    sha256 mojave:        "c9ef02142502a47b006db735b87fe7d55611d46ecc087c697d3142ce8bd9c27a"
+    sha256 high_sierra:   "ca3d97d649c89be881528e7a7cf42f51c18c3a8e4c4b47c9a5fad29f355afd30"
   end
 
-  depends_on "intltool" => :build
+  depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
-  depends_on "gettext"
   depends_on "glib"
-  depends_on "gobject-introspection"
-
-  # work around ld not understanding --version-script argument
-  # upstream bug: https://bugzilla.gnome.org/show_bug.cgi?id=708257
-  patch :DATA
 
   def install
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Ddocs=false", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
+  end
+
+  test do
+    system "#{bin}/gcab", "--version"
   end
 end
-
-__END__
-diff --git a/Makefile.in b/Makefile.in
-index 2264c17..7782d62 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -474,7 +474,7 @@ libgcab_1_0_la_CPPFLAGS = \
- libgcab_1_0_la_LIBADD = -lz $(GLIB_LIBS)
- libgcab_1_0_la_LDFLAGS = \
- 	-version-info 0:0:0				\
--	-Wl,--version-script=${srcdir}/libgcab.syms	\
-+	-Wl                                     	\
- 	-no-undefined					\
- 	$(NULL)
-

@@ -1,26 +1,41 @@
 require "language/node"
+require "json"
 
 class Babel < Formula
   desc "Compiler for writing next generation JavaScript"
   homepage "https://babeljs.io/"
-  url "https://registry.npmjs.org/babel-cli/-/babel-cli-6.24.1.tgz"
-  sha256 "d69a00bdb4f35184cda1f5bfe8075cd4d569600b8e61d864d1f08e360367933b"
+  url "https://registry.npmjs.org/@babel/core/-/core-7.13.10.tgz"
+  sha256 "b925118d3026009848e493479f1cfc07f9b32eb7956a3d24d0ea4c27bce5ed9a"
+  license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 "fa63837b3f1351ef2d0307ab556e40bbd91c1bc383c6d4ada3a072471cb01b40" => :high_sierra
-    sha256 "102dda22f4541c686da92112bf3b7c91da7ace61e04633d19a9874ee6c3d8935" => :sierra
-    sha256 "7dde27b4e0d9901fa2b2f3051fbe5b11baa3635e7bfac15ae4a0690e0270f067" => :el_capitan
-  end
-
-  devel do
-    url "https://registry.npmjs.org/babel-cli/-/babel-cli-7.0.0-alpha.12.tgz"
-    sha256 "a81e2421486ca48d3961c4ab1fada8acd3bb3583ccfb28822cbb0b16a2635144"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b74fbd85045e94602b74ae06e48f3d02191ecdbca04cfac79cd247f09752d76f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f42771474a813b970a06017ba71f33d032942da6a4e27d7f99e0203c8038b55c"
+    sha256 cellar: :any_skip_relocation, catalina:      "80e6b87b9229170895337c2cee463d515484eacb4c4afec8386e2b1206986a8b"
+    sha256 cellar: :any_skip_relocation, mojave:        "a74c1028d1fff6990cee37df7bd6bdb4e2529a79a1dfdaf9484cb53bd3bb51c6"
   end
 
   depends_on "node"
 
+  resource "babel-cli" do
+    url "https://registry.npmjs.org/@babel/cli/-/cli-7.13.10.tgz"
+    sha256 "b7b54ed45b51aa9cc6c2d98df33b0d17764a506d1dda8e2882726ea0f26ab47a"
+  end
+
   def install
+    (buildpath/"node_modules/@babel/core").install Dir["*"]
+    buildpath.install resource("babel-cli")
+
+    cd buildpath/"node_modules/@babel/core" do
+      system "npm", "install", *Language::Node.local_npm_install_args, "--production"
+    end
+
+    # declare babel-core as a bundledDependency of babel-cli
+    pkg_json = JSON.parse(IO.read("package.json"))
+    pkg_json["dependencies"]["@babel/core"] = version
+    pkg_json["bundleDependencies"] = ["@babel/core"]
+    IO.write("package.json", JSON.pretty_generate(pkg_json))
+
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end

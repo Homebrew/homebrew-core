@@ -1,16 +1,21 @@
 class Libev < Formula
   desc "Asynchronous event library"
   homepage "http://software.schmorp.de/pkg/libev.html"
-  url "http://dist.schmorp.de/libev/Attic/libev-4.24.tar.gz"
-  mirror "https://fossies.org/linux/misc/libev-4.24.tar.gz"
-  sha256 "973593d3479abdf657674a55afe5f78624b0e440614e2b8cb3a07f16d4d7f821"
+  url "http://dist.schmorp.de/libev/Attic/libev-4.33.tar.gz"
+  mirror "https://fossies.org/linux/misc/libev-4.33.tar.gz"
+  sha256 "507eb7b8d1015fbec5b935f34ebed15bf346bed04a11ab82b8eee848c4205aea"
+
+  livecheck do
+    url "http://dist.schmorp.de/libev/"
+    regex(/href=.*?libev[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "d6ff53dbbeb1f78dc213e04b76c7ec033b32022017eb4eb213b68f9bb91d0da1" => :high_sierra
-    sha256 "f9eace710427fcb1d9c3e821da0ecab3d5ff60e3a00750a7bfd4b17fd3d3d872" => :sierra
-    sha256 "3ff3f21def203c8a3d6175b659aa20cb6ed4bcdb8f6922087b4ec9c568e67c75" => :el_capitan
-    sha256 "6a41433542500be7a4fc7c350494839add102a73e2c66ef7578c91c73036985b" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "8ed86bdd0ff3b47f8802b251a9ca61770ffc4c9b0be964f41f50955256b5bb53"
+    sha256 cellar: :any, big_sur:       "95ddf4b85924a6a10d4a88b6eb52616fa8375e745c99d0752618d5bb82f5248a"
+    sha256 cellar: :any, catalina:      "e5481e2ba48282bffb5ecc059f0ddddd9807400593e849ed4b48b1fed3a14698"
+    sha256 cellar: :any, mojave:        "f6cfb8c6bb1219f4a54d36113ada7cc7e1e446d5a207bc77d69ac30d9cfe391f"
+    sha256 cellar: :any, high_sierra:   "f623fc2f4dc3a0980b4733945eb2025cd40636a6d4f5e5d75ae5f89e0b7b07bd"
   end
 
   def install
@@ -51,7 +56,7 @@ class Libev < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lev", "-o", "test", "test.c"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lev", "-o", "test"
     input = "hello, world\n"
     assert_equal input, pipe_output("./test", input, 0)
   end

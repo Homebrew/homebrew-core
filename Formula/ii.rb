@@ -1,25 +1,31 @@
 class Ii < Formula
   desc "Minimalist IRC client"
   homepage "https://tools.suckless.org/ii/"
-  url "https://dl.suckless.org/tools/ii-1.7.tar.gz"
-  sha256 "3a72ac6606d5560b625c062c71f135820e2214fed098e6d624fc40632dc7cc9c"
-  head "https://git.suckless.org/ii", :using => :git
+  url "https://dl.suckless.org/tools/ii-1.8.tar.gz"
+  sha256 "b9d9e1eae25e63071960e921af8b217ab1abe64210bd290994aca178a8dc68d2"
+  license "MIT"
+  head "https://git.suckless.org/ii", using: :git
+
+  livecheck do
+    url "https://dl.suckless.org/tools/"
+    regex(/href=.*?ii[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
     rebuild 1
-    sha256 "b064a969b39950d5357a2306a82678b0a148cc691248976bee6f1457f9442f05" => :high_sierra
-    sha256 "1880d429b9a1cea13b1dcd194a32887e06721bc781ddc86ce7a9f67e580c00a4" => :sierra
-    sha256 "94552db0ec06e1266deac0ec19e5d67de8d1bcb9028aac7230e54c60d89f6d82" => :el_capitan
-    sha256 "80269185a9b95dbe935859d056ba4f1510210f639a27aff6a5bfc2e847d7d985" => :yosemite
-    sha256 "5be7e1ba2e3dddf0d8700366c2ebee273c6c570fc4d6e20655d0bd9219478e9b" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a5de14cd12cba7a7ff58f2c5db87c300a3dcf69268dbbfbca552dbaf575568c0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a58cf380ab73f600dadce4712328013a3ea3b0b65009fda1a3d2dc5e92741716"
+    sha256 cellar: :any_skip_relocation, catalina:      "deb41b4c38d4b8e6cd2f3e9d8acea872a8daa694486ee59edd684248a7e74f4b"
+    sha256 cellar: :any_skip_relocation, mojave:        "c8e535b535af9adf8c3c3e760849f581d3e93ec227ae9f0ae2f30490b44e9c4d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "dcc9e7c86395491f5a62dd87dfcfb0f1b8b89a8f5ceb4e767ac70cf60ef350cd"
+    sha256 cellar: :any_skip_relocation, sierra:        "a83511296e08d8ec1d126bb09574b02856f382f3f504b6f2b256cab6bd645ed1"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "eeba4fb4ec437895a9946bbbb00186ff05277ce9d57e8bbe29e1db5596d8a70f"
   end
 
   def install
-    inreplace "config.mk" do |s|
-      s.gsub! "/usr/local", prefix
-      s.gsub! "cc", ENV.cc
-    end
-    system "make", "install"
+    # Fixed upstream, drop for next version
+    inreplace "Makefile", "SRC = ii.c strlcpy.c", "SRC = ii.c"
+
+    system "make", "install", "PREFIX=#{prefix}"
   end
 end

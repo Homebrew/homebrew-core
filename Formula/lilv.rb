@@ -1,15 +1,20 @@
 class Lilv < Formula
   desc "C library to use LV2 plugins"
   homepage "https://drobilla.net/software/lilv/"
-  url "https://download.drobilla.net/lilv-0.24.2.tar.bz2"
-  sha256 "f7ec65b1c1f1734ded3a6c051bbaf50f996a0b8b77e814a33a34e42bce50a522"
+  url "https://download.drobilla.net/lilv-0.24.12.tar.bz2"
+  sha256 "26a37790890c9c1f838203b47f5b2320334fe92c02a4d26ebbe2669dbd769061"
+  license "ISC"
+
+  livecheck do
+    url "https://download.drobilla.net/"
+    regex(/href=.*?lilv[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "ea7d9e940e919d52ac64f21364a7498b0c25642ddc2056d83220e14eab4b01a3" => :high_sierra
-    sha256 "4ee314969758f0d53d10eae544d858cca171cceacb5119698368ac9c6b8d7765" => :sierra
-    sha256 "860fd323f1c16c13857584328ebd97b4603986d405e6f8fe64cfc2394084243d" => :el_capitan
-    sha256 "e31927820fa0da477314a4756497cfc2ac6f96d0c279c14e69985725e31f792e" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "7d5c20eca54b3c37a221850a1dee80db09936951a68b809ac273b818520742e5"
+    sha256 cellar: :any, big_sur:       "0bd83420cebc6262ce2c99f52dc4a0e1b292eb4fb1a5342eede0a0de42042f9d"
+    sha256 cellar: :any, catalina:      "209a76fdfb98e2ed7c4fb0c61a30f74f6d20d733bdfa4119f3508a4b4e7b2670"
+    sha256 cellar: :any, mojave:        "59935741b27150d9c72f5c0d436c4d2df1e932d4edb3f6f75d3ab68b50ec42ca"
   end
 
   depends_on "pkg-config" => :build

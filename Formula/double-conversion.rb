@@ -1,25 +1,31 @@
 class DoubleConversion < Formula
   desc "Binary-decimal and decimal-binary routines for IEEE doubles"
-  homepage "https://github.com/floitsch/double-conversion"
-  url "https://github.com/floitsch/double-conversion/archive/v3.0.0.tar.gz"
-  sha256 "152f15355242b6b1fbb4098fcd825bf08527eda0c65e8446939222a13f0b3915"
-
-  head "https://github.com/floitsch/double-conversion.git"
+  homepage "https://github.com/google/double-conversion"
+  url "https://github.com/google/double-conversion/archive/v3.1.5.tar.gz"
+  sha256 "a63ecb93182134ba4293fd5f22d6e08ca417caafa244afaa751cbfddf6415b13"
+  license "BSD-3-Clause"
+  revision 1
+  head "https://github.com/google/double-conversion.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a90962bc9b0d25bd4d1c69e8892af60ffa4c8c18efd5653265debdad1736996e" => :high_sierra
-    sha256 "bb2a51610649c9f86c06adc2ae66764a42b66e4d95166d306b05dff35e91e422" => :sierra
-    sha256 "30a844eb4530cbe35e05fefed118fe096bf34de61c536283e6a1845f2f087639" => :el_capitan
-    sha256 "dae47f87d852b0df160efaa57b1d2b81f96f31a8a2526e478f073f7fd0fc0beb" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "928fbd4a31967ec090b4b292b1a212fec7eb75f27443493d0c175ca8bb56a9dc"
+    sha256 cellar: :any, big_sur:       "0f7c08daace9fc854f8526a7699102f40de9898fa1e6b05a0199b5da3c9e1a7d"
+    sha256 cellar: :any, catalina:      "20b93e20891d48912ffbfbdf3ef470f7305684df2381ef93056a11cedd95c65f"
+    sha256 cellar: :any, mojave:        "ec700c89a4f1794170b4466f5a0a100b6eafee7cb0a794e55ea53de18114a1d3"
+    sha256 cellar: :any, high_sierra:   "9b54153b09683b8fa40160588792385e04f6be56ba355c5a530a2209b9f0526d"
   end
 
   depends_on "cmake" => :build
 
   def install
     mkdir "dc-build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
       system "make", "install"
+      system "make", "clean"
+
+      system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
+      system "make"
+      lib.install "libdouble-conversion.a"
     end
   end
 

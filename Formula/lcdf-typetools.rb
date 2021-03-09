@@ -1,22 +1,34 @@
 class LcdfTypetools < Formula
   desc "Manipulate OpenType and multiple-master fonts"
   homepage "https://www.lcdf.org/type/"
-  url "https://www.lcdf.org/type/lcdf-typetools-2.106.tar.gz"
-  sha256 "503c3869f73a392ae0ba41e0fc4f7672e70e2d66e8a81f3bb183f495183fa967"
+  url "https://www.lcdf.org/type/lcdf-typetools-2.108.tar.gz"
+  sha256 "fb09bf45d98fa9ab104687e58d6e8a6727c53937e451603662338a490cbbcb26"
+  license "GPL-2.0"
+  head "https://github.com/kohler/lcdf-typetools.git"
 
-  bottle do
-    sha256 "54a0671edf516355776d087a614b2ae34bd4c45f3a6fc6e8e8cc37eb76d0c395" => :high_sierra
-    sha256 "506c5c3094db4572915e4d0148e63e50fcbc1538fdc99dcaf5c5757c566b0d8e" => :sierra
-    sha256 "76dd55f25f7bb778507f1aa115f99b72323f61f292462841aaa1229df9bfa80e" => :el_capitan
-    sha256 "765f4c5554e9302c9162f887fd227c52bdf3e46602789d6cc52a86f59780e90a" => :yosemite
+  livecheck do
+    url :homepage
+    regex(/href=.*?lcdf-typetools[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  conflicts_with "open-mpi", :because => "both install same set of binaries."
+  bottle do
+    sha256 arm64_big_sur: "bea41132d0d057aef10d64fe53b52bb198c3ce49b8548c72d5430f1411f68afe"
+    sha256 big_sur:       "45ff77c662edb2a238d2c07be58cf242685ed85c926847a381e9a2acf7035b3a"
+    sha256 catalina:      "e7ce2d4d16d2b79e482cb862231519653e6d3c09cd5e310573b04f804323e1e3"
+    sha256 mojave:        "0fd983396dbcf027e560753e6f25797500d085762edcf59a1a2034cd55c24cfd"
+    sha256 high_sierra:   "cdff1c16d03fd920033f85dd2e2180f91791057729fbd26b6f193ac7cd0ce9f4"
+    sha256 sierra:        "2bfe28f9e869eec676cada56bcf6efe97024e0e1f93b126a7b26ac2a292db2af"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--without-kpathsea"
     system "make", "install"
+  end
+
+  test do
+    font_name = (MacOS.version >= :catalina) ? "Arial\\ Unicode.ttf" : "Arial.ttf"
+    assert_include shell_output("#{bin}/otfinfo -p /Library/Fonts/#{font_name}"), "Arial"
   end
 end

@@ -1,21 +1,19 @@
 class Qwt < Formula
   desc "Qt Widgets for Technical Applications"
   homepage "https://qwt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.3/qwt-6.1.3.tar.bz2"
-  sha256 "f3ecd34e72a9a2b08422fb6c8e909ca76f4ce5fa77acad7a2883b701f4309733"
-  revision 4
+  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.6/qwt-6.1.6.tar.bz2"
+  sha256 "99460d31c115ee4117b0175d885f47c2c590d784206f09815dc058fbe5ede1f6"
+  license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
+  revision 1
 
   bottle do
-    sha256 "d91a8d16588cd615df09fc8bdf288c1eea5be8c0ad7e0fe894ad70914eb47488" => :high_sierra
-    sha256 "5e25de79818df25e3dab96795d24c4de066a39ae9d616d77c05f528ace671f6f" => :sierra
-    sha256 "b486e9d7b4a9d15886b51d9536ea6b32a642262d3acff5a7ea6985d7fd88db1a" => :el_capitan
-    sha256 "81fcb45fea416bc89e99b213d991c08ccb3ed34ef7da67346a273f8a1f203293" => :yosemite
+    sha256 arm64_big_sur: "61c473a8981af59dad4690620287f6386da12998020b7f869e23336bd1255c77"
+    sha256 big_sur:       "01d43fecf51f4177df97f93b868e93b916ef679955e9db5b7b6725113b25e139"
+    sha256 catalina:      "1d98e9f3c8df57fe0d1659afe81cb6d89b71145d0ba3247d08dc00cc1092dbb0"
+    sha256 mojave:        "05217eda2947313edf1946215b32b7f8bfbfc2d8ac69bb05c5bb8fbc1e5fc68b"
   end
 
-  option "with-qwtmathml", "Build the qwtmathml library"
-  option "without-plugin", "Skip building the Qt Designer plugin"
-
-  depends_on "qt"
+  depends_on "qt@5"
 
   # Update designer plugin linking back to qwt framework/lib after install
   # See: https://sourceforge.net/p/qwt/patches/45/
@@ -23,8 +21,7 @@ class Qwt < Formula
 
   def install
     inreplace "qwtconfig.pri" do |s|
-      s.gsub! /^\s*QWT_INSTALL_PREFIX\s*=(.*)$/, "QWT_INSTALL_PREFIX=#{prefix}"
-      s.sub! /\+(=\s*QwtDesigner)/, "-\\1" if build.without? "plugin"
+      s.gsub!(/^\s*QWT_INSTALL_PREFIX\s*=(.*)$/, "QWT_INSTALL_PREFIX=#{prefix}")
 
       # Install Qt plugin in `lib/qt/plugins/designer`, not `plugins/designer`.
       s.sub! %r{(= \$\$\{QWT_INSTALL_PREFIX\})/(plugins/designer)$},
@@ -32,35 +29,18 @@ class Qwt < Formula
     end
 
     args = ["-config", "release", "-spec"]
-    # On Mavericks we want to target libc++, this requires a unsupported/macx-clang-libc++ flag
-    if ENV.compiler == :clang && MacOS.version >= :mavericks
-      args << "macx-clang"
+    spec = if ENV.compiler == :clang
+      "macx-clang"
     else
-      args << "macx-g++"
+      "macx-g++"
     end
+    spec << "-arm64" if Hardware::CPU.arm?
+    args << spec
 
-    if build.with? "qwtmathml"
-      args << "QWT_CONFIG+=QwtMathML"
-      prefix.install "textengines/mathml/qtmmlwidget-license"
-    end
-
-    system "qmake", *args
+    qt5 = Formula["qt@5"].opt_prefix
+    system "#{qt5}/bin/qmake", *args
     system "make"
     system "make", "install"
-  end
-
-  def caveats
-    s = ""
-
-    if build.with? "qwtmathml"
-      s += <<~EOS
-        The qwtmathml library contains code of the MML Widget from the Qt solutions package.
-        Beside the Qwt license you also have to take care of its license:
-        #{opt_prefix}/qtmmlwidget-license
-      EOS
-    end
-
-    s
   end
 
   test do
@@ -74,10 +54,10 @@ class Qwt < Formula
     system ENV.cxx, "test.cpp", "-o", "out",
       "-std=c++11",
       "-framework", "qwt", "-framework", "QtCore",
-      "-F#{lib}", "-F#{Formula["qt"].opt_lib}",
+      "-F#{lib}", "-F#{Formula["qt@5"].opt_lib}",
       "-I#{lib}/qwt.framework/Headers",
-      "-I#{Formula["qt"].opt_lib}/QtCore.framework/Versions/5/Headers",
-      "-I#{Formula["qt"].opt_lib}/QtGui.framework/Versions/5/Headers"
+      "-I#{Formula["qt@5"].opt_lib}/QtCore.framework/Versions/5/Headers",
+      "-I#{Formula["qt@5"].opt_lib}/QtGui.framework/Versions/5/Headers"
     system "./out"
   end
 end

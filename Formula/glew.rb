@@ -1,19 +1,22 @@
 class Glew < Formula
   desc "OpenGL Extension Wrangler Library"
   homepage "https://glew.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/glew/glew/2.1.0/glew-2.1.0.tgz"
-  sha256 "04de91e7e6763039bc11940095cd9c7f880baba82196a7765f727ac05a993c95"
+  url "https://downloads.sourceforge.net/project/glew/glew/2.2.0/glew-2.2.0.tgz"
+  sha256 "d4fc82893cfb00109578d0a1a2337fb8ca335b3ceccf97b97e5cc7f08e4353e1"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/nigels-com/glew.git"
 
   bottle do
-    cellar :any
-    sha256 "6923b0c452de864a5be7a4d1c47803f434590e9caca1366c57811aead7e5a34b" => :high_sierra
-    sha256 "17d6b3bbb956bd1672a26490eb58a82eaa0e3e1adb926f3e87ba060bdf999cf3" => :sierra
-    sha256 "7d4cc74d42072da62ef61737bf28b638f52b4f56b2b8234f4709427eb44a11fe" => :el_capitan
-    sha256 "a2f2237afc466ec31735d03c983e962240555e7ad32f2bc7b5cbceb996f48ade" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "4ec7d501b56e5e5682f752975340c57a9aca68431d0d2cc9f849e428860f09de"
+    sha256 cellar: :any, big_sur:       "9e0b9a17a4d7372d191d377ae63e6bb0070434eefc997299fe708ca12c02bfb5"
+    sha256 cellar: :any, catalina:      "d3113b746275f48d4f50316c9ddf0ce27e7a11e20ffaac33dd1a2aaf9e59d52a"
+    sha256 cellar: :any, mojave:        "728dbc75cee45763fcc89605d758de1ed950cf219012a1614808a6abd8883ae8"
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
+
+  conflicts_with "root", because: "root ships its own copy of glew"
 
   def install
     cd "build" do
@@ -42,5 +45,27 @@ class Glew < Formula
     system ENV.cc, testpath/"test.c", "-o", "test", "-L#{lib}", "-lGLEW",
            "-framework", "GLUT"
     system "./test"
+
+    (testpath/"CMakeLists.txt").write <<~EOS
+      project(test_glew)
+
+      find_package(OpenGL REQUIRED)
+      find_package(GLEW REQUIRED)
+
+      add_executable(${PROJECT_NAME} main.cpp)
+      target_link_libraries(${PROJECT_NAME} PUBLIC OpenGL::GL GLEW::GLEW)
+    EOS
+
+    (testpath/"main.cpp").write <<~EOS
+      #include <GL/glew.h>
+
+      int main()
+      {
+        return 0;
+      }
+    EOS
+
+    system "cmake", ".", "-Wno-dev"
+    system "make"
   end
 end

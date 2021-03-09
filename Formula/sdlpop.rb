@@ -1,15 +1,16 @@
 class Sdlpop < Formula
   desc "Open-source port of Prince of Persia"
   homepage "https://github.com/NagyD/SDLPoP"
-  url "https://github.com/NagyD/SDLPoP/archive/v1.17.tar.gz"
-  sha256 "aa4b254ab80b889a6db491b41c4f83467124d932cc0836e5979fa73b6c49a94d"
+  url "https://github.com/NagyD/SDLPoP/archive/v1.21.tar.gz"
+  sha256 "2d3111bd92f39a6ee203194cf058f59c9774b5cb38437ff245dfc876930d0f95"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "9f0bab699f6023d896e5b10cd9dde5e532c22800bc3f2000a0dbd6023fee66ae" => :high_sierra
-    sha256 "a3ccd5802afa6e011c1fee322cdf0eee972124d2e33b3cf92fca9f62b4b74644" => :sierra
-    sha256 "8b3ae1c63ef4f92291e251ed1aeb2fd528a4189f4f282cfa1121bfef3353dca0" => :el_capitan
-    sha256 "72d5e075f07ce5c4dd3b6789412efa5355f0f54f6cc414abb0799550898b12de" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "11ae6da38a26202d102389aa5e4ce0f5c04eeb880cef6fdf61812b25a71c245f"
+    sha256 cellar: :any, big_sur:       "dc3e491f6ddf7644d20ad5315d519ca43c9cc6be1f4c4de49a2c74c3775820b9"
+    sha256 cellar: :any, catalina:      "b2d7607bbcd3a725ed2c3b1c9e290076c7c561deafac51b081f3d7ceabd04aad"
+    sha256 cellar: :any, mojave:        "6ce535a5a303503e21def50933a3596f13b373eaa5263a076ec062be328bb717"
+    sha256 cellar: :any, high_sierra:   "bf4afc58349c91ce9c2f06269e3807015e6cf4e37d0341fd4e09c3e48445c28c"
   end
 
   depends_on "pkg-config" => :build
@@ -20,26 +21,23 @@ class Sdlpop < Formula
   def install
     system "make", "-C", "src"
     doc.install Dir["doc/*"]
+    libexec.install "data"
+    libexec.install "prince"
 
     # Use var directory to keep save and replay files
-    pkgshare.install Dir["data/*.DAT"]
-    pkgshare.install "data"
     pkgvar = var/"sdlpop"
-    pkgvar.install_symlink Dir["#{pkgshare}/*.DAT"]
-    pkgvar.install_symlink pkgshare/"data"
     pkgvar.install "SDLPoP.ini" unless (pkgvar/"SDLPoP.ini").exist?
 
-    # Data files should be in the working directory
-    libexec.install "prince"
     (bin/"prince").write <<~EOS
       #!/bin/bash
       cd "#{pkgvar}" && exec "#{libexec}/prince" $@
-      EOS
+    EOS
   end
 
-  def caveats; <<~EOS
-    Data including save and replay files are stored in the following directory:
-      #{var}/sdlpop
+  def caveats
+    <<~EOS
+      Save and replay files are stored in the following directory:
+        #{var}/sdlpop
     EOS
   end
 end

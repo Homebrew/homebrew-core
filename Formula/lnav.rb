@@ -1,15 +1,21 @@
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
-  # lnav.org has an SSL issue: https://github.com/tstack/lnav/issues/401
-  homepage "https://github.com/tstack/lnav"
-  url "https://github.com/tstack/lnav/releases/download/v0.8.2/lnav-0.8.2.tar.gz"
-  sha256 "0f6a235aa3719f84067d510127730f5834a8874795494c9292c2f0de43db8c70"
+  homepage "https://lnav.org/"
+  url "https://github.com/tstack/lnav/releases/download/v0.9.0/lnav-0.9.0.tar.gz"
+  sha256 "03e15449a87fa511cd19c6bb5e95de4fffe17612520ff7683f2528d3b2a7238f"
+  license "BSD-2-Clause"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    sha256 "cba3ec43a680bbafb94a76111b677cfbef2aa1e5c0d97bd0b9b954213c6daf15" => :high_sierra
-    sha256 "6d10c74d64d4ea6ad0bf1e28feb03081164f6466984b18b1f35426c4b65ecf98" => :sierra
-    sha256 "a9517f28d9765a56c5012726e392ac577de272b7a7c5dc998b66d20873e56271" => :el_capitan
-    sha256 "d24c2db2e9a8954fb01326e458281699f1d8609bbdd99a0505967d5102aea0bc" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "6b79f37c40cf7a626865ffef75bc445813d91473d64068e6d906eb3cedeeab4a"
+    sha256 cellar: :any, big_sur:       "11eb34ef34f635e008facc8890c0bcb07585d62dd9c273890552890d863adf0e"
+    sha256 cellar: :any, catalina:      "b21b188394092e3ca801819e0b2eb26017132fb2baadfcb014d6fb3c8c6253e3"
+    sha256 cellar: :any, mojave:        "49510aa07d98f6a05f6d7ea19dc30f2ada6456b3fb644620efe1e7e3c92673b4"
+    sha256 cellar: :any, high_sierra:   "538a2a0b9f09829b33901bd33e5d8f566745f23a3d3fe95d6fa7f6608d3bb485"
   end
 
   head do
@@ -20,28 +26,20 @@ class Lnav < Formula
     depends_on "re2c" => :build
   end
 
-  depends_on "readline"
   depends_on "pcre"
-  depends_on "sqlite" if MacOS.version < :sierra
-  depends_on "curl" => ["with-libssh2", :optional]
+  depends_on "readline"
+  depends_on "sqlite"
 
   def install
-    # Fix errors such as "use of undeclared identifier 'sqlite3_value_subtype'"
-    ENV.delete("SDKROOT")
-
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      --with-readline=#{Formula["readline"].opt_prefix}
-    ]
-
-    # macOS ships with libcurl by default, albeit without sftp support. If we
-    # want lnav to use the keg-only curl formula that we specify as a
-    # dependency, we need to pass in the path.
-    args << "--with-libcurl=#{Formula["curl"].opt_lib}" if build.with? "curl"
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-sqlite=#{Formula["sqlite"].opt_prefix}",
+                          "--with-readline=#{Formula["readline"].opt_prefix}"
     system "make", "install"
+  end
+
+  test do
+    system "#{bin}/lnav", "-V"
   end
 end

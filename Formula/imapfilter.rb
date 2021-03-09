@@ -1,38 +1,38 @@
 class Imapfilter < Formula
   desc "IMAP message processor/filter"
   homepage "https://github.com/lefcha/imapfilter/"
-  url "https://github.com/lefcha/imapfilter/archive/v2.6.11.tar.gz"
-  sha256 "baea9596ed251910b176a2bdcd46d78ab68f6aa4e066f70ca0d6153e32df54fb"
-  revision 1
+  url "https://github.com/lefcha/imapfilter/archive/v2.7.5.tar.gz"
+  sha256 "ab19f840712e6951e51c29e44c43b3b2fa42e93693f98f8969cc763a4fad56bf"
+  license "MIT"
 
   bottle do
-    sha256 "02803ddbca53c23b2d5cb2a5a8f35ae793345d76edc1950425237fcf988e2b96" => :high_sierra
-    sha256 "93dc1b7812665fe71b765e12febee6e82d73508e28f151221e25f127af916e2a" => :sierra
-    sha256 "b167861900fb3f72c9852c2db920a96eb10aeb3b96f075b6f25e90ad99b03ddd" => :el_capitan
+    sha256 arm64_big_sur: "e49fed469e38c13b29df94f07ce45bb40bdcf167961ba08e7199192346ce8cd7"
+    sha256 big_sur:       "a3f6c7500a3206466979cb184c75e5d06f2a478c04ba7de9a671e0ae4e578a65"
+    sha256 catalina:      "4033f3f9c51c811a9bce55523d337f5d61ab987c742a90c02c12f97c00b768cb"
+    sha256 mojave:        "aa77cdfd4279e290c68fe6aa1af6d40d820e10f3f53513d17c4867fcfcade11e"
   end
 
   depends_on "lua"
-  depends_on "pcre"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
+  depends_on "pcre2"
 
   def install
-    inreplace "src/Makefile" do |s|
-      s.change_make_var! "CFLAGS", "#{s.get_make_var "CFLAGS"} #{ENV.cflags}"
-    end
-
     # find Homebrew's libpcre and lua
-    ENV.append "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
+    ENV.append "CPPFLAGS", "-I#{Formula["lua"].opt_include}/lua"
+    ENV.append "LDFLAGS", "-L#{Formula["pcre2"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{Formula["lua"].opt_lib}"
     ENV.append "LDFLAGS", "-liconv"
-    system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "LDFLAGS=#{ENV.ldflags}"
+    system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "MYCFLAGS=#{ENV.cflags}", "MYLDFLAGS=#{ENV.ldflags}"
     system "make", "PREFIX=#{prefix}", "MANDIR=#{man}", "install"
 
     prefix.install "samples"
   end
 
-  def caveats; <<~EOS
-    You will need to create a ~/.imapfilter/config.lua file.
-    Samples can be found in:
-      #{prefix}/samples
+  def caveats
+    <<~EOS
+      You will need to create a ~/.imapfilter/config.lua file.
+      Samples can be found in:
+        #{prefix}/samples
     EOS
   end
 

@@ -1,21 +1,40 @@
 class Enet < Formula
   desc "Provides a network communication layer on top of UDP"
   homepage "http://enet.bespin.org"
-  url "http://enet.bespin.org/download/enet-1.3.13.tar.gz"
-  sha256 "e36072021faa28731b08c15b1c3b5b91b911baf5f6abcc7fe4a6d425abada35c"
+  url "http://enet.bespin.org/download/enet-1.3.17.tar.gz"
+  sha256 "a38f0f194555d558533b8b15c0c478e946310022d0ec7b34334e19e4574dcedc"
+  license "MIT"
+  head "https://github.com/lsalzman/enet.git"
 
   bottle do
-    cellar :any
-    sha256 "e7a004695c99ab8564886887536ec2536fc4375f053f26db6f6253d866c876b3" => :high_sierra
-    sha256 "0f17698e0206e19f1ab693131f91f8f3267366a9ca9646463323880d459cf7a1" => :sierra
-    sha256 "4efff251b59d56ebc5368cf8cbdc6e59f48a52d97e8fd73e1900869cb3a634bb" => :el_capitan
-    sha256 "14a3e5aebe4adb9a76c643a85a91e15c4815fec76697709a3d56f68c3921666e" => :yosemite
-    sha256 "927255e6afb287eb95c6c7a53b275084229d3c11ad58066b824628e30a89dcea" => :mavericks
-    sha256 "1f17395dd354ce630340a14ead424e539d3a42980fcc324ff8c4430bb34f4b3b" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "b2ef2e83fc0f527691e8352d39241277ab742569cc5278a357a53b19a42e700d"
+    sha256 cellar: :any, big_sur:       "bb861ad42df5152ac53708cdee14a599ff5e09a06cf3d438e88f7bc6b84590db"
+    sha256 cellar: :any, catalina:      "557052d4c6fb7e8c4329270730bd97b032f279c2cfafaa6ebbd32f7ff7e076bf"
+    sha256 cellar: :any, mojave:        "7df13b64c909df3368a91094abaaab1563f66ebcb276af0d318408977af08d2f"
+    sha256 cellar: :any, high_sierra:   "6fbf495f25b1df30003129b77167df08d26fbb576fa61a3f17ff7eba366bdd2a"
   end
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <enet/enet.h>
+      #include <stdio.h>
+
+      int main (int argc, char ** argv)
+      {
+        if (enet_initialize () != 0)
+        {
+          fprintf (stderr, "An error occurred while initializing ENet.\\n");
+          return EXIT_FAILURE;
+        }
+        atexit (enet_deinitialize);
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lenet", "-o", "test"
+    system testpath/"test"
   end
 end

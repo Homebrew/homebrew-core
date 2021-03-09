@@ -3,47 +3,44 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/cmacmackin/ford/"
-  url "https://github.com/cmacmackin/ford/archive/v5.0.6.tar.gz"
-  sha256 "18d46dc4c6fec57ae0124b412d4db23a37d07a3849f41fa5bf4fb66deaed9615"
+  url "https://github.com/cmacmackin/ford/archive/v6.0.0.tar.gz"
+  sha256 "45fd53c7e5263fea2e751c436de6a1513d250647e98e32668b9965677974309e"
+  license "GPL-3.0"
+  revision 3
   head "https://github.com/cmacmackin/ford.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "fdf7c838602b5d38b6f12293a8d36100a5c2e879bae2f1d86e14077fd7fa1b19" => :high_sierra
-    sha256 "c738a796ee8a8adfdcb8358eb93e3a87530523b6260151d82a5003a1ed8af532" => :sierra
-    sha256 "47599cea228882fef8c4efaa0e52e8135ab58d6d3c7bed9efc29a0bd72d46716" => :el_capitan
-    sha256 "af2a90e3a5af08077676bdcf241c4cf61525c90164b92c5dc137a78237cce3e3" => :yosemite
-    sha256 "2c47a80b78dfec14df17313c888c2828ace07b848859be62b459ff2d60403fcb" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "004dc7234aa36e6fb9fab6c0ba7330a8df69edaa4e0eab9279e9c2dc5a76cb5e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9aab668aebf8641782123a24d00dc367e0f41e21dfabc05cfbd82ed4e3a402f0"
+    sha256 cellar: :any_skip_relocation, catalina:      "1d645364d5ef8813745637cc83089a521306e319104eeccca786af71c3b937e8"
+    sha256 cellar: :any_skip_relocation, mojave:        "0779dbcb80b7076526778d04d0ee35346973a34b5bc1eb945d26e0fe1c2beac3"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "3a4005e1f83a4c86dfde8adc54ef2e0bf592c347020e56b26e961cc71b88bf44"
   end
 
-  option "without-lxml", "Do not install lxml to improve the speed of search  database generation"
-
   depends_on "graphviz"
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@3.9"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/86/ea/8e9fbce5c8405b9614f1fd304f7109d9169a3516a493ce4f7f77c39435b7/beautifulsoup4-4.5.1.tar.gz"
-    sha256 "3c9474036afda9136aac6463def733f81017bf9ef3510d25634f335b0c87f5e1"
+    url "https://files.pythonhosted.org/packages/3b/e4/7cfc641f11e0eef60123912611a5c9ee7d4638da7325878b695b9ae4bb6f/beautifulsoup4-4.9.0.tar.gz"
+    sha256 "594ca51a10d2b3443cbac41214e12dbb2a1cd57e1a7344659849e2e20ba6a8d8"
   end
 
   resource "graphviz" do
-    url "https://files.pythonhosted.org/packages/3a/ef/4be504e14ef8c96503aeb774937b1539aa2c6982e1edffd655ac3b7f2041/graphviz-0.5.1.zip"
-    sha256 "d8f8f369a5c109d3fc971bbc1860b6848515d210aee8f5019c460351dbb00a50"
+    url "https://files.pythonhosted.org/packages/5d/71/f63fe59145fca7667d92475f1574dd583ad1f48ab228e9a5dddd5733197f/graphviz-0.13.2.zip"
+    sha256 "60acbeee346e8c14555821eab57dbf68a169e6c10bce40e83c1bf44f63a62a01"
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/f2/2f/0b98b06a345a761bec91a079ccae392d282690c2d8272e708f4d10829e22/Jinja2-2.8.tar.gz"
-    sha256 "bc1ff2ff88dbfacefde4ddde471d1417d3b304e8df103a7a9437d47269201bf4"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/4f/3f/cf6daac551fc36cddafa1a71ed48ea5fd642e5feabd3a0d83b8c3dfd0cb4/lxml-3.6.4.tar.gz"
-    sha256 "61d5d3e00b5821e6cda099b3b4ccfea4527bf7c595e0fb3a7a760490cedd6172"
+    url "https://files.pythonhosted.org/packages/d8/03/e491f423379ea14bb3a02a5238507f7d446de639b623187bccc111fbecdf/Jinja2-2.11.1.tar.gz"
+    sha256 "93187ffbc7808079673ef52771baa950426fd664d3aad1d0fa3e95644360e250"
   end
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/9b/53/4492f2888408a2462fd7f364028b6c708f3ecaa52a028587d7dd729f40b4/Markdown-2.6.6.tar.gz"
-    sha256 "9a292bb40d6d29abac8024887bcfc1159d7a32dc1d6f1f6e8d6d8e293666c504"
+    url "https://files.pythonhosted.org/packages/98/79/ce6984767cb9478e6818bd0994283db55c423d733cc62a88a3ffb8581e11/Markdown-3.2.1.tar.gz"
+    sha256 "90fee683eeabe1a92e149f7ba74e5ccdc81cd397bd6c516d93a8da0ef90b6902"
   end
 
   resource "markdown-include" do
@@ -52,8 +49,8 @@ class Ford < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/c0/41/bae1254e0396c0cc8cf1751cb7d9afc90a602353695af5952530482c963f/MarkupSafe-0.23.tar.gz"
-    sha256 "a4ec1aff59b95a14b45eb2e23761a0179e98319da5a7eb76b56ea8cdc7b871c3"
+    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
+    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
   end
 
   resource "md-environ" do
@@ -62,20 +59,30 @@ class Ford < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/b8/67/ab177979be1c81bc99c8d0592ef22d547e70bb4c6815c383286ed5dec504/Pygments-2.1.3.tar.gz"
-    sha256 "88e4c8a91b2af5962bfa5ea2447ec6dd357018e86e94c7d14bd8cacbc5b55d81"
+    url "https://files.pythonhosted.org/packages/6e/4d/4d2fe93a35dfba417311a4ff627489a947b01dc0cc377a3673c00cf7e4b2/Pygments-2.6.1.tar.gz"
+    sha256 "647344a061c249a3b74e230c739f434d7ea4d8b1d5f3721bc0f3558049b38f44"
+  end
+
+  resource "soupsieve" do
+    url "https://files.pythonhosted.org/packages/15/53/3692c565aea19f7d9dd696fee3d0062782e9ad5bf9535267180511a15967/soupsieve-2.0.tar.gz"
+    sha256 "e914534802d7ffd233242b785229d5ba0766a7f487385e3f714446a07bf540ae"
   end
 
   resource "toposort" do
-    url "https://files.pythonhosted.org/packages/f6/f7/875e23067652488ae40603336fdd63510a1e1853672b5b829a78452fd31c/toposort-1.4.tar.gz"
-    sha256 "c190b9d9a9e53ae2835f4d524130147af601fbd63677d19381c65067a80fa903"
+    url "https://files.pythonhosted.org/packages/e5/d8/9bc1598ddf74410beba243ffeaee8d0b3ca7e9ac5cefe77367da497433e1/toposort-1.5.tar.gz"
+    sha256 "dba5ae845296e3bf37b042c640870ffebcdeb8cd4df45adaa01d8c5476c557dd"
+  end
+
+  resource "tqdm" do
+    url "https://files.pythonhosted.org/packages/12/67/e736c012c6c8b4092dd54bb9bdd7737acf9a140a98c58b87c35363d0105d/tqdm-4.45.0.tar.gz"
+    sha256 "00339634a22c10a7a22476ee946bbde2dbe48d042ded784e4d88e0236eca5d81"
   end
 
   def install
-    venv = virtualenv_create(libexec)
-    deps = build.with?("lxml") ? resources : resources - [resource("lxml")]
-    venv.pip_install deps
-    venv.pip_install_and_link buildpath
+    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
+
+    virtualenv_install_with_resources
     doc.install "2008standard.pdf", "2003standard.pdf"
     pkgshare.install "example-project-file.md"
   end

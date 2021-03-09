@@ -9,4 +9,8 @@ class Xmlformat < Formula
   def install
     bin.install "xmlformat.pl" => "xmlformat"
   end
+
+  test do
+    system "#{bin}/xmlformat", "--version"
+  end
 end

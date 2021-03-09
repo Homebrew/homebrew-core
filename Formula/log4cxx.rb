@@ -1,19 +1,18 @@
 class Log4cxx < Formula
   desc "Library of C++ classes for flexible logging"
   homepage "https://logging.apache.org/log4cxx/index.html"
-  url "https://www.apache.org/dyn/closer.cgi?path=logging/log4cxx/0.10.0/apache-log4cxx-0.10.0.tar.gz"
-  sha256 "0de0396220a9566a580166e66b39674cb40efd2176f52ad2c65486c99c920c8c"
-  revision 1
+  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/0.11.0/apache-log4cxx-0.11.0.tar.gz"
+  mirror "https://archive.apache.org/dist/logging/log4cxx/0.11.0/apache-log4cxx-0.11.0.tar.gz"
+  sha256 "c316705ee3c4e5b919d3561d5f305162d21687aa6ae1f31f02f6cdadc958b393"
+  license "Apache-2.0"
 
   bottle do
-    cellar :any
-    sha256 "0d29b911db2c77048046e048589fcf6739b72f25494145f8d0650d81b67a36f1" => :high_sierra
-    sha256 "0e1c8e304f87bdb864f14e7b158e2f9e82ab4300a0ea144a8abaf9c8d5bc2976" => :sierra
-    sha256 "16eb54dca4f5d772a23d55d9599947f93a8c6003df5d6a4ad468b99daeda9153" => :el_capitan
-    sha256 "b96afe3f4e4b63017d2061028ed8792c4190996b1e008d8c87c3f52dba660ec5" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "3608d04c6ad5e3d6d0186519f9ad31157add75820c8a651a77cdc89e77c81ff1"
+    sha256 cellar: :any, big_sur:       "33929bf44a188a1e7f16ae25a4b6495b63846640ed74a7d5f0c94db15151f5d0"
+    sha256 cellar: :any, catalina:      "ec9ff34b2c49aa9a48536f7d109da16cc32f9ce83e95ac1dc3efc8a982709908"
+    sha256 cellar: :any, mojave:        "23a968d63f8a181a73410cffcde5fd16fbacd5867453e7c0d7b0cb3815942bf8"
+    sha256 cellar: :any, high_sierra:   "11478b4f5ece24ec391954cc0538bb28f11ae6256a9499ca1e95103c2eb1d75c"
   end
-
-  option :cxx11
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -21,30 +20,7 @@ class Log4cxx < Formula
 
   depends_on "apr-util"
 
-  # Incorporated upstream, remove on next version update
-  # https://issues.apache.org/jira/browse/LOGCXX-400 (r1414037)
-  # https://issues.apache.org/jira/browse/LOGCXX-404 (r1414037)
-  patch :p0 do
-    url "https://gist.githubusercontent.com/cawka/b4a79f6b883c46ac1672/raw/be8b4e610a1e21b34aaaf8fb4151362dcfb782ff/LOGCXX-400,LOGCXX-404---r1414037.patch"
-    sha256 "822c24f4eebd970aa284672eec2f71c6f8e192a85d78edb15a232c15011a52d4"
-  end
-
-  # https://issues.apache.org/jira/browse/LOGCXX-417 (r1556413)
-  patch :p0 do
-    url "https://gist.githubusercontent.com/cawka/b4a79f6b883c46ac1672/raw/4188731bd771a961a91fcfbe561f3999b555b9c3/LOG4CXX-417---r1556413.patch"
-    sha256 "eca194ec349b4925d0ad53d2b67c18b6a1aa7a979e7bd8729cfd1ed1ef4994c7"
-  end
-
-  # https://issues.apache.org/jira/browse/LOGCXX-400 (reported)
-  patch :p1 do
-    url "https://gist.githubusercontent.com/cawka/b4a79f6b883c46ac1672/raw/f33998566cccf91fb84133e101f5a92a14b31aed/LOGCXX-404---domtestcase.cpp.patch"
-    sha256 "3eaf321e1df8e8e4a0a507a96646727180e7e721b2c42af22a5d40962d3dbecc"
-  end
-
   def install
-    ENV.O2 # Using -Os causes build failures on Snow Leopard.
-    ENV.cxx11 if build.cxx11?
-
     # Fixes build error with clang, old libtool scripts. cf. #12127
     # Reported upstream here: https://issues.apache.org/jira/browse/LOGCXX-396
     # Remove at: unknown, waiting for developer comments.
@@ -92,6 +68,6 @@ class Log4cxx < Formula
       log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-llog4cxx"
-    assert_match /ERROR.*Foo/, shell_output("./test", 1)
+    assert_match(/ERROR.*Foo/, shell_output("./test", 1))
   end
 end

@@ -1,37 +1,34 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
-  homepage "http://zstd.net/"
-  url "https://github.com/facebook/zstd/archive/v1.3.2.tar.gz"
-  sha256 "ac5054a3c64e6510bc1ae890d05e3d271cc33ceebc9d06ac9f08105766d2798a"
+  homepage "https://facebook.github.io/zstd/"
+  url "https://github.com/facebook/zstd/archive/v1.4.9.tar.gz"
+  sha256 "acf714d98e3db7b876e5b540cbf6dee298f60eb3c0723104f6d3f065cd60d6a8"
+  license "BSD-3-Clause"
 
   bottle do
-    cellar :any
-    sha256 "f9ea1b45174bfc1e5175bc7b65d14014b4a7c685b6a5b9a6958c24db24656e6b" => :high_sierra
-    sha256 "435a8e371323527702454304b105e39bd8c62a3677859f21270a638db2a3b8fa" => :sierra
-    sha256 "2c9189e5f2cdc0abe0068630b6ba8d3207d90bd70c98982b3739b501db3ffde2" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "beddf3a858da5063f7a407e5c78c0c83a2efd2595354acb750118da7d87f0974"
+    sha256 cellar: :any, big_sur:       "34a6c2cc25d1a7bca6e2294ec3d024f359a2aaf705798b9cbdd71bccdd5c08bd"
+    sha256 cellar: :any, catalina:      "d3f7b4d61e213d3fae27317d496251768ad8cfe03a4aa1ab11479c632a7e4050"
+    sha256 cellar: :any, mojave:        "685d57a5577f21f89d5ee20aa986c447adf315bcf4daf96d22cb5cf170e4a5ce"
   end
 
-  option "without-pzstd", "Build without parallel (de-)compression tool"
-
   depends_on "cmake" => :build
+
+  uses_from_macos "zlib"
 
   def install
     system "make", "install", "PREFIX=#{prefix}/"
 
-    if build.with? "pzstd"
-      system "make", "-C", "contrib/pzstd", "googletest"
-      system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
-      bin.install "contrib/pzstd/pzstd"
-    end
+    # Build parallel version
+    system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
+    bin.install "contrib/pzstd/pzstd"
   end
 
   test do
     assert_equal "hello\n",
       pipe_output("#{bin}/zstd | #{bin}/zstd -d", "hello\n", 0)
 
-    if build.with? "pzstd"
-      assert_equal "hello\n",
-        pipe_output("#{bin}/pzstd | #{bin}/pzstd -d", "hello\n", 0)
-    end
+    assert_equal "hello\n",
+      pipe_output("#{bin}/pzstd | #{bin}/pzstd -d", "hello\n", 0)
   end
 end

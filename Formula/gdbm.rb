@@ -1,39 +1,42 @@
 class Gdbm < Formula
   desc "GNU database manager"
   homepage "https://www.gnu.org/software/gdbm/"
-  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.13.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.13.tar.gz"
-  sha256 "9d252cbd7d793f7b12bcceaddda98d257c14f4d1890d851c386c37207000a253"
+  url "https://ftp.gnu.org/gnu/gdbm/gdbm-1.19.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gdbm/gdbm-1.19.tar.gz"
+  sha256 "37ed12214122b972e18a0d94995039e57748191939ef74115b1d41d8811364bc"
+  license "GPL-3.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "48b4d3c3c2e3e1ae6f6c505aad986689b719b15a05b23cf33730b3f04818d236" => :high_sierra
-    sha256 "9647a01c12d0aeddfe0a73daeed3994ccc655bb61114f3be6b54bdf982d72790" => :sierra
-    sha256 "f2f5f359af6a2ecb3da54e242c43e914f4a60343dc42f13380948ebc977284dc" => :el_capitan
-    sha256 "1fa21ba6e4c5dc5b5d6bf9faae3f8c8e1304a95a8bd201712d40bd4271767948" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "2eea26ad3d3d013c3ed2e2b985d4749719e8be327bc53b615a1ffbe484264599"
+    sha256 cellar: :any, big_sur:       "3581501b051db1c0d1acccc710fe04453b61777e4d67110485ceca69f30d6d1a"
+    sha256 cellar: :any, catalina:      "a3e43170a1d8413e6817e57b7218828af22a20b2221d804ad529a68248840a51"
+    sha256 cellar: :any, mojave:        "996020d1bc3e8a8060a9fe49b992cd66e7404346a339ae98ef92090724f36fda"
   end
 
-  option "with-libgdbm-compat", "Build libgdbm_compat, a compatibility layer which provides UNIX-like dbm and ndbm interfaces."
-
+  # --enable-libgdbm-compat for dbm.h / gdbm-ndbm.h compatibility:
+  #   https://www.gnu.org.ua/software/gdbm/manual/html_chapter/gdbm_19.html
   # Use --without-readline because readline detection is broken in 1.13
   # https://github.com/Homebrew/homebrew-core/pull/10903
   def install
     args = %W[
       --disable-dependency-tracking
       --disable-silent-rules
+      --enable-libgdbm-compat
       --without-readline
       --prefix=#{prefix}
     ]
 
-    args << "--enable-libgdbm-compat" if build.with? "libgdbm-compat"
-
     system "./configure", *args
     system "make", "install"
+
+    # Avoid conflicting with macOS SDK's ndbm.h.  Renaming to gdbm-ndbm.h
+    # matches Debian's convention for gdbm's ndbm.h (libgdbm-compat-dev).
+    mv include/"ndbm.h", include/"gdbm-ndbm.h"
   end
 
   test do
     pipe_output("#{bin}/gdbmtool --norc --newdb test", "store 1 2\nquit\n")
     assert_predicate testpath/"test", :exist?
-    assert_match /2/, pipe_output("#{bin}/gdbmtool --norc test", "fetch 1\nquit\n")
+    assert_match "2", pipe_output("#{bin}/gdbmtool --norc test", "fetch 1\nquit\n")
   end
 end

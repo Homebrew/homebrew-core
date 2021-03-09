@@ -1,24 +1,38 @@
 class SpeechTools < Formula
   desc "C++ speech software library from the University of Edinburgh"
   homepage "http://festvox.org/docs/speech_tools-2.4.0/"
-  url "http://festvox.org/packed/festival/2.4/speech_tools-2.4-release.tar.gz"
-  sha256 "fbc2482c443919aa79d2e599d6a5faee4e793df55a79ef377f1dc7e8ba237010"
+  url "http://festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz"
+  sha256 "e4fd97ed78f14464358d09f36dfe91bc1721b7c0fa6503e04364fb5847805dcc"
+  revision 1
+  head "https://github.com/festvox/speech_tools.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "9df2392e021ab65fdcdc691fe3b2fbfc8037472a4bd40b0678cba885984c6c8c" => :high_sierra
-    sha256 "fdd91c9e012e6e6849c202dbeaa5fcec9ae740e915f350e5881f3ee0aafcea60" => :sierra
-    sha256 "f61c67afcd6c5f54b402183cb5148cf51cad67c95ce01bb3db0df57d384cc7e3" => :el_capitan
-    sha256 "48091e873f0d038ebc6e46ab3ca7c1e494d061afab3dae64e1dbd594e4afccbe" => :yosemite
-    sha256 "dca2c0deebfd3bd6aeba1cfaa4f72a3cc29b90e879fd51ed38c2524d1789eaad" => :mavericks
-    sha256 "16895a28e900f2b7d209d2c4dda0228024c6da9627189f356c631f1b8c990c27" => :mountain_lion
+  livecheck do
+    url "http://festvox.org/packed/festival/?C=M&O=D"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  conflicts_with "align", :because => "both install `align` binaries"
+  bottle do
+    rebuild 1
+    sha256 cellar: :any, big_sur:  "cabb028b487d5baa5c9c1bb67a982a285ab2af2194ac429fb80f0675e2bd9f6e"
+    sha256 cellar: :any, catalina: "e25823939149f50f343c2e6bd8521b302067a0eb3106df6b40ff96b2d1a70c21"
+    sha256 cellar: :any, mojave:   "3ede4e21772a17e0c0a109151406ad82943ba77b0cad2249c0cac51e063d24ea"
+  end
+
+  depends_on "libomp"
+
+  uses_from_macos "ncurses"
+
+  conflicts_with "align", because: "both install `align` binaries"
 
   def install
     ENV.deparallelize
-    system "./configure"
+    # Xcode doesn't include OpenMP directly any more, but with these
+    # flags we can force the compiler to use the libomp we provided
+    # as a dependency.  Normally you can force this on autoconf by
+    # setting "ac_cv_prog_cxx_openmp" and "LIBS", but this configure
+    # script does OpenMP its own way so we need to actually edit the script:
+    inreplace "configure", "-fopenmp", "-Xpreprocessor -fopenmp -lomp"
+    system "./configure", "--prefix=#{prefix}"
     system "make"
     # install all executable files in "main" directory
     bin.install Dir["main/*"].select { |f| File.file?(f) && File.executable?(f) }
@@ -35,11 +49,14 @@ class SpeechTools < Formula
 
     File.open(txtfile, "w") do |f|
       scale = 2 ** 15 - 1
-      f.puts Array.new(duration_secs * rate_hz) { |i| (scale * Math.sin(frequency_hz * 2 * Math::PI * i / rate_hz)).to_i }
+      samples = Array.new(duration_secs * rate_hz) do |i|
+        (scale * Math.sin(frequency_hz * 2 * Math::PI * i / rate_hz)).to_i
+      end
+      f.puts samples
     end
 
     # convert to wav format using ch_wave
-    system "ch_wave", txtfile,
+    system bin/"ch_wave", txtfile,
       "-itype", "raw",
       "-istype", "ascii",
       "-f", rate_hz.to_s,
@@ -47,13 +64,14 @@ class SpeechTools < Formula
       "-otype", "riff"
 
     # pitch tracking to est format using pda
-    system "pda", wavfile,
+    system bin/"pda", wavfile,
       "-shift", (1 / frequency_hz.to_f).to_s,
       "-o", ptcfile,
       "-otype", "est"
 
     # extract one frame from the middle using ch_track, capturing stdout
-    pitch = `ch_track #{ptcfile} -from #{frequency_hz * duration_secs / 2} -to #{frequency_hz * duration_secs / 2}`.strip
+    pitch = shell_output("#{bin}/ch_track #{ptcfile} -from #{frequency_hz * duration_secs / 2} " \
+                                                    "-to #{frequency_hz * duration_secs / 2}")
 
     # should be 100 (Hz)
     assert_equal frequency_hz, pitch.to_i

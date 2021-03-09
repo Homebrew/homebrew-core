@@ -3,25 +3,24 @@ class LibreadlineJava < Formula
   homepage "https://java-readline.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/java-readline/java-readline/0.8.0/libreadline-java-0.8.0-src.tar.gz"
   sha256 "cdcfd9910bfe2dca4cd08b2462ec05efee7395e9b9c3efcb51e85fa70548c890"
-  revision 1
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "fafccc3cee1c6e0fbc9cf517258e655cbb12d64b3ac1590731d9d1e7a63a92c9" => :high_sierra
-    sha256 "f608ae47b39418b975f21b435749c64b414325f9933cf70fee257888f6a58934" => :sierra
-    sha256 "eb99d1a6ae9817c90e228bd145450819417758007baf1ef78c763a05c4a0ac82" => :el_capitan
-    sha256 "21a487377ac0dae6c47753dd25d3f850b10fcc7ccde8f6a726b4f730bb05a3da" => :yosemite
+    sha256 cellar: :any, big_sur:     "73b6dbaa9a738c05b8195665829637d9c4e5c1be74f7059ee17e97e2ab879e01"
+    sha256 cellar: :any, catalina:    "cc49470dde32faf6c0621944621af9684366e6897a4994b5b021e63a8422f78e"
+    sha256 cellar: :any, mojave:      "65444e90dded6862954e3105db11a2918554c866a1a3a344e0414d0db810f55d"
+    sha256 cellar: :any, high_sierra: "3dc9c829727655f811d50c6ae215b2ae3130e8c4f13c0be8e48fd5b2d62349f3"
   end
 
+  depends_on "openjdk@8"
   depends_on "readline"
-  depends_on :java => "1.6+"
 
   # Fix "non-void function should return a value"-Error
   # https://sourceforge.net/p/java-readline/patches/2/
   patch :DATA
 
   def install
-    java_home = ENV["JAVA_HOME"]
+    java_home = Formula["openjdk@8"].opt_prefix
 
     # Reported 4th May 2016: https://sourceforge.net/p/java-readline/bugs/12/
     # JDK 8 doclint for Javadoc complains about minor HTML conformance issues
@@ -63,7 +62,8 @@ class LibreadlineJava < Formula
       s.change_make_var! "CC", "cc"
       s.gsub! "LIB_EXT := so", "LIB_EXT := jnilib"
       s.gsub! "$(CC) -shared $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@",
-        "$(CC) -install_name #{HOMEBREW_PREFIX}/lib/$(LIB_PRE)$(TG).$(LIB_EXT) -dynamiclib $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@"
+              "$(CC) -install_name #{HOMEBREW_PREFIX}/lib/$(LIB_PRE)$(TG).$(LIB_EXT) " \
+              "-dynamiclib $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@"
     end
 
     pkgshare.mkpath
@@ -75,15 +75,19 @@ class LibreadlineJava < Formula
     doc.install "api"
   end
 
-  def caveats; <<~EOS
-    You may need to set JAVA_HOME:
-      export JAVA_HOME="$(/usr/libexec/java_home)"
+  def caveats
+    <<~EOS
+      You may need to set JAVA_HOME:
+        export JAVA_HOME="$(/usr/libexec/java_home)"
     EOS
   end
 
   # Testing libreadline-java (can we execute and exit libreadline without exceptions?)
   test do
-    assert /Exception/ !~ pipe_output("java -Djava.library.path=#{lib} -cp #{pkgshare}/libreadline-java.jar test.ReadlineTest", "exit")
+    assert(/Exception/ !~ pipe_output(
+      "java -Djava.library.path=#{lib} -cp #{pkgshare}/libreadline-java.jar test.ReadlineTest",
+      "exit",
+    ))
   end
 end
 

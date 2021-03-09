@@ -1,27 +1,22 @@
 class Scmpuff < Formula
   desc "Adds numbered shortcuts for common git commands"
   homepage "https://mroth.github.io/scmpuff/"
-  url "https://github.com/mroth/scmpuff/archive/v0.2.1.tar.gz"
-  sha256 "6855562be9788a0fcf69102546f3bf8ccac063086d28a9a3f1ab4947e9dd08e2"
+  url "https://github.com/mroth/scmpuff/archive/v0.3.0.tar.gz"
+  sha256 "239cd269a476f5159a15ef462686878934617b11317fdc786ca304059c0b6a0b"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "a09454488aec6c6990f258473c1cdcd722b7f615fff662d040acee353df9a0ee" => :high_sierra
-    sha256 "3532b6f0d95310bede8ccb33b13ad4dbb657563744ea3accf641fa27e34a37b4" => :sierra
-    sha256 "3dd4f5a5a6760a6e92c57e69dda4e689eb33787ebbbad01482a3ae0fb26c4445" => :el_capitan
-    sha256 "fc633135611451e73386836b3d2a9bdd63b25065bcf6cae4228239af0fc05a04" => :yosemite
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "152725eafc16f39267d4ffc3bf99953be7fe024b01593721fc5adadc244ddbfe"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0741427c472b244575c9d7735e85f971677645107ea91ae99f32cc0377dc93ca"
+    sha256 cellar: :any_skip_relocation, catalina:      "0d673b2326d88ca0b4c952122f37d8c2cc269bf687e62f0161a9a75288b6ccbb"
+    sha256 cellar: :any_skip_relocation, mojave:        "30853a0768a6b6c65bdd0522854ae335f50f80ea24bbc64fd16a5411fcd7f2d6"
   end
 
   depends_on "go" => :build
 
   def install
-    mkdir_p buildpath/"src/github.com/mroth"
-    ln_s buildpath, buildpath/"src/github.com/mroth/scmpuff"
-    ENV["GOPATH"] = buildpath
-
-    # scmpuff's build script normally does version detection which depends on
-    # being checked out via git repo -- instead have homebrew specify version.
-    system "go", "build", "-o", "#{bin}/scmpuff", "-ldflags", "-X main.VERSION=#{version}", "./src/github.com/mroth/scmpuff"
+    system "go", "build", *std_go_args, "-ldflags", "-s -v -X main.VERSION=#{version}"
   end
 
   test do

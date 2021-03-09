@@ -1,55 +1,28 @@
 class Proxytunnel < Formula
   desc "Create TCP tunnels through HTTPS proxies"
-  homepage "https://proxytunnel.sourceforge.io/"
-  url "https://downloads.sourceforge.net/proxytunnel/proxytunnel-1.9.0.tgz"
-  sha256 "2ef5bbf8d81ddf291d71f865c5dab89affcc07c4cb4b3c3f23e1e9462721a6b9"
-  revision 1
+  homepage "https://github.com/proxytunnel/proxytunnel"
+  url "https://github.com/proxytunnel/proxytunnel/archive/v1.10.20210128.tar.gz"
+  sha256 "8253e19dd5e27a34a2c236e3e4739b7edba556110717af962b7412b461a6c2fa"
+  license "GPL-2.0-or-later"
 
   bottle do
-    cellar :any
-    sha256 "3d21252f1f5467a072fbdfff215d30e104a97510061a06a3b84f2ecbf3ee527b" => :high_sierra
-    sha256 "713f4529f60bc07a7ffc751730907b7f8238395a93a33d2430e272b66aab057a" => :sierra
-    sha256 "6632b143edd3bbe2f8620bec9445e78689193d05279f1bb13766d16168bf871f" => :el_capitan
-    sha256 "6764d4c9ce6bd4fcf08e7b8042a93977cb5788d316b54552bc6f49348a032c09" => :yosemite
-    sha256 "7a0c91840116c8a6cdc492d671f0426dbd1adcf8b20e1d7259ea3c42a3eb1d6f" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "222f0244f92ca6e2ce051db0da342cd72ae5072a69757a92c20c0423fa017e02"
+    sha256 cellar: :any, big_sur:       "5e8d043da430d8ecc266bf8411e29832f84e0aaa753eec116448826d74f356ce"
+    sha256 cellar: :any, catalina:      "f8aa1e88ac9c787e87bdfb82f4d20af89d86cb3f1cbc479b14efa09e5edcd97f"
+    sha256 cellar: :any, mojave:        "4583ebc48440fc29779b781490b598ae5acc09e9fcc00752284a26cd831c5e01"
   end
 
-  depends_on "openssl"
-
-  # Remove conflicting strlcpy/strlcat declarations
-  patch :DATA
+  depends_on "asciidoc" => :build
+  depends_on "xmlto" => :build
+  depends_on "openssl@1.1"
 
   def install
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
     system "make"
-    bin.install "proxytunnel"
-    man1.install "proxytunnel.1"
+    system "make", "install", "prefix=#{prefix}"
+  end
+
+  test do
+    system "#{bin}/proxytunnel", "--version"
   end
 end
-
-__END__
-diff --git a/Makefile b/Makefile
-index 9e9ac73..8244b55 100644
---- a/Makefile
-+++ b/Makefile
-@@ -56,8 +56,6 @@ PROGNAME = proxytunnel
- # Remove strlcpy/strlcat on (open)bsd/darwin systems
- OBJ = proxytunnel.o	\
- 	base64.o	\
--	strlcpy.o	\
--	strlcat.o	\
- 	strzcat.o	\
- 	setproctitle.o	\
- 	io.o		\
-diff --git a/proxytunnel.h b/proxytunnel.h
-index b948be0..e63c72a 100644
---- a/proxytunnel.h
-+++ b/proxytunnel.h
-@@ -32,8 +32,6 @@ void closeall();
- void do_daemon();
- void initsetproctitle(int argc, char *argv[]);
- void setproctitle(const char *fmt, ...);
--size_t strlcat(char *dst, const char *src, size_t siz);
--size_t strlcpy(char *dst, const char *src, size_t siz);
- size_t strzcat(char *dst, char *format, ...);
- int main( int argc, char *argv[] );
- char * readpassphrase(const char *, char *, size_t, int);

@@ -1,29 +1,20 @@
 class Winetricks < Formula
-  desc "Download and install various runtime libraries"
+  desc "Automatic workarounds for problems in Wine"
   homepage "https://github.com/Winetricks/winetricks"
-  url "https://github.com/Winetricks/winetricks/archive/20171018.tar.gz"
-  sha256 "ad60a2ffbffbe62c47e4f85767436814e67c5a42b838ba30b40a4fa36e5ab0cc"
+  url "https://github.com/Winetricks/winetricks/archive/20210206.tar.gz"
+  sha256 "705421798b28696f577104ebdf03b068b9343ab096754150f47a6ec06fa8ae65"
+  license "LGPL-2.1-or-later"
   head "https://github.com/Winetricks/winetricks.git"
 
   bottle :unneeded
 
-  option "with-zenity", "Zenity is needed for GUI"
-
   depends_on "cabextract"
   depends_on "p7zip"
-  depends_on "unrar"
-  depends_on "wine" => :optional
-  depends_on "zenity" => :optional
+  depends_on "unzip"
 
   def install
     bin.install "src/winetricks"
     man1.install "src/winetricks.1"
-  end
-
-  def caveats; <<~EOS
-    winetricks is a set of utilities for wine, which is installed separately:
-      brew install wine
-    EOS
   end
 
   test do

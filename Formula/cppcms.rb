@@ -1,24 +1,27 @@
 class Cppcms < Formula
   desc "Free High Performance Web Development Framework"
   homepage "http://cppcms.com/wikipp/en/page/main"
-  url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.0.5/cppcms-1.0.5.tar.bz2"
-  sha256 "84b685977bca97c3e997497f227bd5906adb80555066d811a7046b01c2f51865"
+  url "https://downloads.sourceforge.net/project/cppcms/cppcms/1.2.1/cppcms-1.2.1.tar.bz2"
+  sha256 "10fec7710409c949a229b9019ea065e25ff5687103037551b6f05716bf6cac52"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/cppcms[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "08e61238e4c996d1a43f74e448948476e5a80fbde09b5e2e4a42602954d5f23d" => :high_sierra
-    sha256 "7d669ab4f36bd0bf880235fb5842a8ffbbe655ca8d9d6cd511e8c57a6764632a" => :sierra
-    sha256 "3715285e50f8fe247c3d3dd2e543f92e994366ff1578e250dbcca5d8b38851b1" => :el_capitan
-    sha256 "6fec4bca41a688f32b5a8b7cef4de2585b14d59ddedc5967a967917e8727dea0" => :yosemite
-    sha256 "fe7c1581986e533596f9d12e4f199ecb1af9a15438d80911829af6365f4d3d05" => :mavericks
-    sha256 "b129b55fa688f760864a0cfecbf67c112411518e70c77b6b2c88af0ea2035205" => :mountain_lion
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "a76448718798b05d84c1b9a54afa83c35afc924ed5bb5a8ad592d39cff90eaee"
+    sha256 cellar: :any, big_sur:       "ebe54531c492cd6771e3eab7cfee4d4a858c5b13a91e061c9d5bb2cb75f310dc"
+    sha256 cellar: :any, catalina:      "14a71b7ff0bbcbd0def75bd0a5e4552d5bfeccd24b7de17d38dcb676c37a71cf"
+    sha256 cellar: :any, mojave:        "aa587cdc614e7450100ee7c9aef5259893db98db66b9aa3fce8bc928fe080de7"
+    sha256 cellar: :any, high_sierra:   "3339592fd6caed70941abe444cf34c1621dd65878eea1acbd07e798d4bb5c9b4"
+    sha256 cellar: :any, sierra:        "9f21d55044af09d3eced9664c2d570657f0b3221c9f3051a5311f6f197bd2a28"
   end
 
   depends_on "cmake" => :build
+  depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "openssl"
-
-  needs :cxx11
 
   def install
     ENV.cxx11
@@ -68,11 +71,12 @@ class Cppcms < Formula
       }
     EOS
 
+    port = free_port
     (testpath/"config.json").write <<~EOS
       {
           "service" : {
               "api" : "http",
-              "port" : 8080,
+              "port" : #{port},
               "worker_threads": 1
           },
           "daemon" : {
@@ -89,7 +93,7 @@ class Cppcms < Formula
 
     sleep 1 # grace time for server start
     begin
-      assert_match(/Hello World/, shell_output("curl http://127.0.0.1:8080/hello"))
+      assert_match(/Hello World/, shell_output("curl http://127.0.0.1:#{port}/hello"))
     ensure
       Process.kill 9, pid
       Process.wait pid

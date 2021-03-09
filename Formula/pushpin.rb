@@ -1,26 +1,33 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
-  homepage "http://pushpin.org"
-  url "https://dl.bintray.com/fanout/source/pushpin-1.17.0.tar.bz2"
-  sha256 "3cd1d869dced330af712d64f72e18a80545bdd60f96c6af83c0cdd7c6ba8f416"
+  homepage "https://pushpin.org/"
+  url "https://dl.bintray.com/fanout/source/pushpin-1.31.0.tar.bz2"
+  sha256 "62504863297a8ec1833486affaff91fade7a970dd43b9c8c2add5944603481ac"
+  license "AGPL-3.0-or-later"
+  revision 1
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 "b3fb2d68965c52057f290fe6dfb5aed85902052a00b2e32248a3dda1b66b7e23" => :high_sierra
-    sha256 "810b474f85f657447250cabefc61cbe6c453cb237458ae884d64717a499d3e4a" => :sierra
-    sha256 "4dba2208e2718a64ed9e646d02edfd32420b848be151a14aecb746665a183753" => :el_capitan
+    sha256 big_sur:  "f032a66f0bb002c59fe705e403f43bba0df830a395b1ea66a4d52b0b46812e54"
+    sha256 catalina: "99c79baa11d8b5ea76ef9f842676f081d30e923610398617ba4c5352e1bc65ea"
+    sha256 mojave:   "815a63479cf6b06aa797652e0a3e18e4326449171790cb110f40fde66755df60"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "qt"
-  depends_on "zeromq"
+  depends_on "condure"
   depends_on "mongrel2"
+  depends_on "python@3.9"
+  depends_on "qt@5"
+  depends_on "zeromq"
   depends_on "zurl"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--configdir=#{etc}", "--rundir=#{var}/run", "--logdir=#{var}/log", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--configdir=#{etc}",
+                          "--rundir=#{var}/run",
+                          "--logdir=#{var}/log",
+                          "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
@@ -41,14 +48,14 @@ class Pushpin < Formula
     EOS
 
     runfile.write <<~EOS
-      import urllib2
       import threading
-      from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
+      from http.server import BaseHTTPRequestHandler, HTTPServer
+      from urllib.request import urlopen
       class TestHandler(BaseHTTPRequestHandler):
         def do_GET(self):
           self.send_response(200)
           self.end_headers()
-          self.wfile.write('test response\\n')
+          self.wfile.write(b'test response\\n')
       def server_worker(c):
         global port
         server = HTTPServer(('', 10080), TestHandler)
@@ -67,9 +74,9 @@ class Pushpin < Formula
       server_thread.start()
       c.wait()
       c.release()
-      f = urllib2.urlopen('http://localhost:7999/test')
-      body = f.read()
-      assert(body == 'test response\\n')
+      with urlopen('http://localhost:7999/test') as f:
+        body = f.read()
+        assert(body == b'test response\\n')
     EOS
 
     pid = fork do
@@ -78,7 +85,7 @@ class Pushpin < Formula
 
     begin
       sleep 3 # make sure pushpin processes have started
-      system "python", runfile
+      system Formula["python@3.9"].opt_bin/"python3", runfile
     ensure
       Process.kill("TERM", pid)
       Process.wait(pid)

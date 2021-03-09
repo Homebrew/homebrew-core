@@ -5,14 +5,11 @@ class Libxspf < Formula
   sha256 "ba9e93a0066469b074b4022b480004651ad3aa5b4313187fd407d833f79b43a5"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "78d2aa4e8dd9bbff0fe0901fd0fbd79ab8afcb031b50196d8b2466e653df9d1b" => :high_sierra
-    sha256 "01b4b201155cf88910c1e4d7fb9427b61e88cf5c7f873ddf41536b07767aa148" => :sierra
-    sha256 "27d7c2323b047e0def2aab711991484845b75b647ad2cedb4e5fac40f5589cb8" => :el_capitan
-    sha256 "1d87baedae1c21d2df5bdd91c35be294b7c570e83c5c83fcdf284bce9a985c27" => :yosemite
-    sha256 "9f85ead926bf875a18a91db004a04d6aa814c4766a3ab22c3ffa1a0c5371b836" => :mavericks
-    sha256 "96a893aa4699d97dc39ef95089d6475f44cc00f7d9a9bea991bec30193e8b005" => :mountain_lion
+    rebuild 2
+    sha256 cellar: :any, big_sur:     "446e41e3c0e23961a20038101bd279e90e552600eaf9363006f82ed9caf5d199"
+    sha256 cellar: :any, catalina:    "2fac98e985ea3242cbce81bbb9e5e37fba44e47204b4a53b868e01199ece71eb"
+    sha256 cellar: :any, mojave:      "76c09682c27449a52128a0aa29de091b907327f71cf320b30be5eb3b37442bcb"
+    sha256 cellar: :any, high_sierra: "ae1e960341fb08826fb30de46f3b1c075c22d9e655acb9e44067327c487328a7"
   end
 
   depends_on "pkg-config" => :build
@@ -20,7 +17,7 @@ class Libxspf < Formula
   depends_on "uriparser"
 
   # Fix build against clang and GCC 4.7+
-  # https://git.xiph.org/?p=libxspf.git;a=commit;h=7f1f68d433f03484b572657ff5df47bba1b03ba6
+  # https://gitlab.xiph.org/xiph/libxspf/-/commit/7f1f68d433f03484b572657ff5df47bba1b03ba6
   patch :DATA
 
   def install
@@ -40,6 +37,6 @@ index 411f892..b66a25c 100644
  #include <cstdlib> // MAX_PATH
  #include <climits> // PATH_MAX
 +#include <unistd.h>
- 
- 
+
+
  #if defined(__WIN32__) || defined(WIN32)

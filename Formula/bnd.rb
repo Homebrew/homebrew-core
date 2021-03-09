@@ -1,10 +1,12 @@
 class Bnd < Formula
-  desc "The Swiss Army Knife for OSGi bundles"
-  homepage "http://bnd.bndtools.org/"
-  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/3.5.0/biz.aQute.bnd-3.5.0.jar"
-  sha256 "6ecfd9b416eb637f6cdd0caa9e86a86ffe9a4c6215de4260824b5669ada160c6"
+  desc "Swiss Army Knife for OSGi bundles"
+  homepage "https://bnd.bndtools.org/"
+  url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/5.3.0/biz.aQute.bnd-5.3.0.jar"
+  sha256 "f02cd3406b054da1840795c3cecc11c4226a8563aa74a67acc05f3d9aeaa9b85"
 
   bottle :unneeded
+
+  depends_on "openjdk"
 
   def install
     libexec.install "biz.aQute.bnd-#{version}.jar"
@@ -24,6 +26,7 @@ class Bnd < Formula
         <resource>
           <capability namespace="osgi.identity">
             <attribute name="osgi.identity" value="#{test_bsn}"/>
+            <attribute name="type" value="osgi.bundle"/>
             <attribute name="version" type="Version" value="#{test_version}"/>
           </capability>
           <capability namespace="osgi.content">
@@ -35,12 +38,14 @@ class Bnd < Formula
     EOS
 
     (testpath/"launch.bndrun").write <<~EOS
-      -standalone: index.xml
+      -standalone: ${.}/index.xml
       -runrequires: osgi.identity;filter:='(osgi.identity=#{test_bsn})'
     EOS
 
+    (testpath/"cnf/build.bnd").write <<~EOS
+    EOS
+
     output = shell_output("#{bin}/bnd resolve resolve -b launch.bndrun")
-    assert_match /launch.bndrun\s+ok/, output
-    assert_match /#{test_bsn};version='\[#{test_version},#{test_version_next}\)/, output
+    assert_match(/BUNDLES\s+#{test_bsn};version='\[#{test_version},#{test_version_next}\)'/, output)
   end
 end

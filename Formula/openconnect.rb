@@ -1,19 +1,26 @@
 class Openconnect < Formula
   desc "Open client for Cisco AnyConnect VPN"
-  homepage "http://www.infradead.org/openconnect.html"
-  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-7.08.tar.gz"
-  sha256 "1c44ec1f37a6a025d1ca726b9555649417f1d31a46f747922b84099ace628a03"
-  revision 1
+  homepage "https://www.infradead.org/openconnect/"
+  url "ftp://ftp.infradead.org/pub/openconnect/openconnect-8.10.tar.gz"
+  mirror "https://fossies.org/linux/privat/openconnect-8.10.tar.gz"
+  sha256 "30e64c6eca4be47bbf1d61f53dc003c6621213738d4ea7a35e5cf1ac2de9bab1"
+  license "LGPL-2.1-only"
+
+  livecheck do
+    url "https://www.infradead.org/openconnect/download.html"
+    regex(/href=.*?openconnect[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "ebc3bc520522b80f49ad28fb9055242a93f4e9ee1abf49a8be9858c4f2c13b92" => :high_sierra
-    sha256 "82f6f4b72fba93ee972a8455ebd6f9d9dfb607cd4bdd06c4b0bf068c5dbc4547" => :sierra
-    sha256 "41230a870a365a76eebd77a6a2255aa4e8f93eedc56c42546cd493967221f7c2" => :el_capitan
-    sha256 "207b75663d9f34b99a0cb2f7c4b7eccd665a98f88b7e9d736928dd4b65b658ca" => :yosemite
+    sha256 arm64_big_sur: "94132025cfdc325c792b5eed39e3afe8f86bf4512e06379d8374aabd72364115"
+    sha256 big_sur:       "9755c4ea66ed9c8aa1f1ee966c932ec2be37849887636d8f65a920f20c16ec55"
+    sha256 catalina:      "b4144970e695adc8f049319408cd431c96eb2ca4714feb903e0f01f3926dfd1f"
+    sha256 mojave:        "5f4d9cb8a0a39983205bad4e1e6d7a2ae586f0725571fa83eac6421b8d6f4b9a"
+    sha256 high_sierra:   "4d306766b4a334c7dcc8497b0684005c9011cd8913131b25bae2f56f3b3217d1"
   end
 
   head do
-    url "git://git.infradead.org/users/dwmw2/openconnect.git", :shallow => false
+    url "git://git.infradead.org/users/dwmw2/openconnect.git", shallow: false
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -22,12 +29,11 @@ class Openconnect < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gnutls"
-  depends_on "oath-toolkit" => :optional
-  depends_on "stoken" => :optional
+  depends_on "stoken"
 
   resource "vpnc-script" do
-    url "http://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/6e04e0bbb66c0bf0ae055c0f4e58bea81dbb5c3c:/vpnc-script"
-    sha256 "48b1673e1bfaacbfa4e766c41e15dd8458726cca8f3e07991d078d0d5b7c55e9"
+    url "https://git.infradead.org/users/dwmw2/vpnc-scripts.git/blob_plain/c0122e891f7e033f35f047dad963702199d5cb9e:/vpnc-script"
+    sha256 "3ddd9d6b46e92d76e6e26d89447e3a82d797ecda125d31792f14c203742dea0f"
   end
 
   def install
@@ -51,6 +57,6 @@ class Openconnect < Formula
   end
 
   test do
-    assert_match "AnyConnect VPN", pipe_output("#{bin}/openconnect 2>&1")
+    assert_match "POST https://localhost/", pipe_output("#{bin}/openconnect localhost 2>&1")
   end
 end

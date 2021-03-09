@@ -1,17 +1,18 @@
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
-  url "https://sourceware.org/pub/libffi/libffi-3.2.1.tar.gz"
-  mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
-  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/libf/libffi/libffi_3.2.1.orig.tar.gz"
-  sha256 "d06ebb8e1d9a22d19e38d63fdb83954253f39bedc5d46232a05645685722ca37"
+  url "https://sourceware.org/pub/libffi/libffi-3.3.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.3.orig.tar.gz"
+  mirror "https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz"
+  sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
+  license "MIT"
+  revision 3
 
   bottle do
-    cellar :any
-    sha256 "c63fbf004a3c314b7af3bd6b8fc50dc33c06730235cf7e245cb206307dca0933" => :high_sierra
-    sha256 "13836da147e311ac2920df5a1d0f04b672ce89204334b5e0233b428572860483" => :sierra
-    sha256 "82e5176c758030c4d7571ebd7b412624eed28b8379069c27e366952569168bda" => :el_capitan
-    sha256 "9047ca06422e869790ec80adf37cedb3eff6e422094bde0371e24d9bb18dc3f0" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "10a6d66c264f9a23d1162e535fe49f27c23f6ef452b4701ed7110f06aaf1e01d"
+    sha256 cellar: :any, big_sur:       "8a7a02cffb368dfdeaeb1176a7a7bcc6402371aee0a30bb001aff3452a4202c6"
+    sha256 cellar: :any, catalina:      "66caa8a807684ce5d5173ffc4db1eaa7167eabd634335a2ce3b8ba667efe2686"
+    sha256 cellar: :any, mojave:        "1205c19a1d51940726534923db0e1c291b001a3ea541d0694afccad7968343a3"
   end
 
   head do
@@ -21,12 +22,21 @@ class Libffi < Formula
     depends_on "libtool" => :build
   end
 
-  keg_only :provided_by_osx, "some formulae require a newer version of libffi"
+  keg_only :provided_by_macos
+
+  on_macos do
+    if Hardware::CPU.arm?
+      # Improved aarch64-apple-darwin support. See https://github.com/libffi/libffi/pull/565
+      patch do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/06252df03c68aee70856e5842f85f20b259e5250/libffi/libffi-3.3-arm64.patch"
+        sha256 "9290aba7f3131ca19eb28fa7ded836b80f15cf633ffac95dc52b14d0a668d1fa"
+      end
+    end
+  end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -80,7 +90,7 @@ class Libffi < Formula
       }
     EOS
 
-    flags = ["-L#{lib}", "-lffi", "-I#{lib}/libffi-#{version}/include"]
+    flags = ["-L#{lib}", "-lffi", "-I#{include}"]
     system ENV.cc, "-o", "closure", "closure.c", *(flags + ENV.cflags.to_s.split)
     system "./closure"
   end

@@ -1,16 +1,18 @@
 class Libmpdclient < Formula
   desc "Library for MPD in the C, C++, and Objective-C languages"
   homepage "https://www.musicpd.org/libs/libmpdclient/"
-  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.13.tar.xz"
-  sha256 "5115bd52bc20a707c1ecc7587e6389c17305348e2132a66cf767c62fc55ed45d"
+  url "https://www.musicpd.org/download/libmpdclient/2/libmpdclient-2.19.tar.xz"
+  sha256 "158aad4c2278ab08e76a3f2b0166c99b39fae00ee17231bd225c5a36e977a189"
+  license "BSD-3-Clause"
+  revision 1
   head "https://github.com/MusicPlayerDaemon/libmpdclient.git"
 
   bottle do
-    cellar :any
-    sha256 "af530e739905c173c9327f560c7a04ba39f8c5a3476d1c2d0516be62dc967789" => :high_sierra
-    sha256 "30f5b095ddc086dbb8d15b82f0184f83308c7bd5d020facacee2b27c54757add" => :sierra
-    sha256 "56530667e499edce59960bf7e7ef3fe3cda08b96c9a8af1f6e056a98ae86c0fc" => :el_capitan
-    sha256 "a4eab9eb2e1e33ef07412d5edb202983245f2a5b285771d352eb87c5fa162f4b" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "b703e7d52c1be39561ae59034cd4574c6a9ef4a06cd98416503a402b01f7cf7a"
+    sha256 cellar: :any, big_sur:       "ee86de4f5298b45cff0b1ba7446a9d9864fd1752184de585bf05e43a16374708"
+    sha256 cellar: :any, catalina:      "866e94308617552de97ecb04f824408fa4f849d1ef79ff9bf5467170c80e3a23"
+    sha256 cellar: :any, mojave:        "0db8f7c9e7cd6eb5082397e9270989864042e36c187cba2fa61ae43ca996e32f"
+    sha256 cellar: :any, high_sierra:   "71c37d5af98688decfe4440ce87e267064a4a71e0b1a4e11455068b5127edae4"
   end
 
   depends_on "doxygen" => :build
@@ -18,8 +20,20 @@ class Libmpdclient < Formula
   depends_on "ninja" => :build
 
   def install
-    system "meson", "--prefix=#{prefix}", ".", "output"
+    system "meson", *std_meson_args, ".", "output"
     system "ninja", "-C", "output"
     system "ninja", "-C", "output", "install"
+  end
+
+  test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <mpd/client.h>
+      int main() {
+        mpd_connection_new(NULL, 0, 30000);
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.cpp", "-L#{lib}", "-lmpdclient", "-o", "test"
+    system "./test"
   end
 end

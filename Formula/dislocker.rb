@@ -3,16 +3,26 @@ class Dislocker < Formula
   homepage "https://github.com/Aorimn/dislocker"
   url "https://github.com/Aorimn/dislocker/archive/v0.7.1.tar.gz"
   sha256 "742fb5c1b3ff540368ced54c29eae8b488ae5a5fcaca092947e17c2d358a6762"
+  license "GPL-2.0"
+  revision 5
 
   bottle do
-    sha256 "1b1fede1c17fb9829555c1ec85ea883a4b1fe7ae13f6ba595ec5504a06949f87" => :high_sierra
-    sha256 "68728e2f7ba2aae2b25fa4ef51596e62294bb1ca2b73f4def09b955dc5648f29" => :sierra
-    sha256 "fc7988168917b9635fb81cf1411aaaeec893e25a1be7e2bdefe40a6e80747c0a" => :el_capitan
+    sha256 catalina:    "e0049b9ff51ad9f3e4008df1edac9b52aa0d8df55e119990553b4d9cec651b90"
+    sha256 mojave:      "f6378852886b1d1793260ce411250751614428102a5fd07f792352ce0fc206c3"
+    sha256 high_sierra: "2b1e50229eb344c432db6cc35fd42b6e91d713f97f81d6f5067087f5c59b6cb3"
   end
 
   depends_on "cmake" => :build
   depends_on "mbedtls"
-  depends_on :osxfuse
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     system "cmake", "-DCMAKE_DISABLE_FIND_PACKAGE_Ruby=TRUE", *std_cmake_args

@@ -1,13 +1,14 @@
 class Cask < Formula
   desc "Emacs dependency management"
-  homepage "https://cask.readthedocs.org/"
-  url "https://github.com/cask/cask/archive/v0.8.1.tar.gz"
-  sha256 "8739ba608f23c79b3426faa8b068d5d1bc096c7305ce30b1163babd354be821c"
+  homepage "https://cask.readthedocs.io/"
+  url "https://github.com/cask/cask/archive/v0.8.6.tar.gz"
+  sha256 "0534a52f23c7b65e84aa4e1be62d623075cad39a19de38688fc0b5437cfb900f"
+  license "GPL-3.0-or-later"
   head "https://github.com/cask/cask.git"
 
   bottle :unneeded
 
-  depends_on :emacs => ["24", :run]
+  depends_on "emacs"
 
   def install
     bin.install "bin/cask"

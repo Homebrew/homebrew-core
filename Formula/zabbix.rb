@@ -1,36 +1,29 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://downloads.sourceforge.net/project/zabbix/ZABBIX%20Latest%20Stable/3.4.4/zabbix-3.4.4.tar.gz"
-  sha256 "2ee84e72a0d441f322ec0ab6f332ff174dec300b3acb8389769aadeb39a353a4"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/5.0/zabbix-5.0.9.tar.gz"
+  sha256 "2985a710ac8d1273464345b5b3cf6c9eaff1abde019f361e4eb0760a03807c9b"
+  license "GPL-2.0-or-later"
+
+  # As of writing, the Zabbix SourceForge repository is missing the latest
+  # version (4.4.8), so we have to check for the newest version on the Zabbix
+  # CDN index page instead. Unfortunately, the versions are separated into
+  # folders for a given major/minor version, so this will quietly stop being
+  # a proper check sometime in the future and need to be updated.
+  livecheck do
+    url "https://cdn.zabbix.com/zabbix/sources/stable/5.0/"
+    regex(/href=.*?zabbix[._-](\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    sha256 "5aba32f4d2305dbfeaaeda0c21b652c45be708073ef5aa7ebdb4195b4933e13e" => :high_sierra
-    sha256 "5ffedf3da86874ba55813acdd4c63c0d55a826fc26375561c5c7568c6dc35957" => :sierra
-    sha256 "1ac00e11b67e46dfbd3c5d75f6bd1d384a1a80d54ef3e78c069e53f788653069" => :el_capitan
+    sha256 arm64_big_sur: "c30636310e36dca63d94e9be9427fe9272db86fb0dae74f74763281a953619e7"
+    sha256 big_sur:       "4cddb5bb01586c3d64fdd54f204890bf4b96aab385ca125b6954aa316e8de02d"
+    sha256 catalina:      "917ad3387981bcc85a891924688bad4f818d8a9967ad0d39590d37da78f65a64"
+    sha256 mojave:        "b9583dfd6e8ea3ee04ff21a9b73ff0b41bbea6eb0edb017dfe280c4c29d535d9"
   end
 
-  option "with-mysql", "Use Zabbix Server with MySQL library instead PostgreSQL."
-  option "with-sqlite", "Use Zabbix Server with SQLite library instead PostgreSQL."
-  option "without-server-proxy", "Install only the Zabbix Agent without Server and Proxy."
-
-  deprecated_option "agent-only" => "without-server-proxy"
-
-  depends_on "openssl"
+  depends_on "openssl@1.1"
   depends_on "pcre"
-
-  if build.with? "server-proxy"
-    depends_on :mysql => :optional
-    depends_on :postgresql if build.without? "mysql"
-    depends_on "fping"
-    depends_on "libevent"
-    depends_on "libssh2"
-  end
-
-  def brewed_or_shipped(db_config)
-    brewed_db_config = "#{HOMEBREW_PREFIX}/bin/#{db_config}"
-    (File.exist?(brewed_db_config) && brewed_db_config) || which(db_config)
-  end
 
   def install
     args = %W[
@@ -38,42 +31,17 @@ class Zabbix < Formula
       --prefix=#{prefix}
       --sysconfdir=#{etc}/zabbix
       --enable-agent
-      --with-iconv=#{MacOS.sdk_path}/usr
       --with-libpcre=#{Formula["pcre"].opt_prefix}
-      --with-openssl=#{Formula["openssl"].opt_prefix}
+      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    if build.with? "server-proxy"
-      args += %w[
-        --enable-server
-        --enable-proxy
-        --enable-ipv6
-        --with-net-snmp
-        --with-libcurl
-        --with-ssh2
-      ]
-
-      if build.with? "mysql"
-        args << "--with-mysql=#{brewed_or_shipped("mysql_config")}"
-      elsif build.with? "sqlite"
-        args << "--with-sqlite3"
-      else
-        args << "--with-postgresql=#{brewed_or_shipped("pg_config")}"
-      end
-    end
-
-    if MacOS.version == :el_capitan && MacOS::Xcode.installed? && MacOS::Xcode.version >= "8.0"
-      inreplace "configure", "clock_gettime(CLOCK_REALTIME, &tp);",
-                             "undefinedgibberish(CLOCK_REALTIME, &tp);"
+    on_macos do
+      sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
+      args << "--with-iconv=#{sdk}/usr"
     end
 
     system "./configure", *args
     system "make", "install"
-
-    if build.with? "server-proxy"
-      db = build.with?("mysql") ? "mysql" : "postgresql"
-      pkgshare.install "frontends/php", "database/#{db}"
-    end
   end
 
   test do

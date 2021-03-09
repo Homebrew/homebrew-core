@@ -1,36 +1,28 @@
 class Libzzip < Formula
   desc "Library providing read access on ZIP-archives"
-  homepage "https://sourceforge.net/projects/zziplib/"
-  url "https://github.com/gdraheim/zziplib/archive/v0.13.67.tar.gz"
-  sha256 "1278178bdabac832da6bbf161033d890d335a2e38493c5af553ff5ce7b9b0220"
+  homepage "https://github.com/gdraheim/zziplib"
+  url "https://github.com/gdraheim/zziplib/archive/v0.13.72.tar.gz"
+  sha256 "93ef44bf1f1ea24fc66080426a469df82fa631d13ca3b2e4abaeab89538518dc"
+  license "LGPL-2.0"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "ccdbd2db5fc153ad6b0990539b5b6702c65f964971f9256887e508c0c291d86f" => :high_sierra
-    sha256 "e041856e291f2b6731d586ef8deb08593f65fc2f859019ff54c248e6c960c608" => :sierra
-    sha256 "08baf77479ed193c4d80d3f0b6ce1d2625987d31b72ce26faed321ac21f55740" => :el_capitan
-    sha256 "58fd8baaaadd33339ece54c63dde70fd4147c6f0302e28b953c10e85700fbb47" => :yosemite
+    sha256 arm64_big_sur: "50ada2e93bb60398e4a65a77c2ae5d3c5010a6d2d00a96a74de06ecf735b38d4"
+    sha256 big_sur:       "5b805b4607fcf22e7b004a24c4b219d735bfbe7ac0387b5595ea1dd1866536fb"
+    sha256 catalina:      "9ded307d1427e930bf5b7720a14b94a63f03d0a10ecb93e00ef695ae98ed7fa2"
+    sha256 mojave:        "430a9fc127c01b7c672a09406c2da7647f2913664f09c4086976cd4c5df977ff"
   end
 
-  option "with-sdl", "Enable SDL usage and create SDL_rwops_zzip.pc"
-
-  deprecated_option "sdl" => "with-sdl"
-
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "xmlto" => :build
-  depends_on "sdl" => :optional
+  depends_on "python@3.9" => :build
 
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-
-    args = %W[
-      --without-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-    args << "--enable-sdl" if build.with? "sdl"
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DZZIPTEST=OFF", "-DZZIPSDL=OFF", "-DCMAKE_INSTALL_RPATH=#{lib}"
+      system "make", "man"
+      system "make", "install"
+    end
   end
 
   test do

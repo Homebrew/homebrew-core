@@ -1,9 +1,8 @@
 class ZshCompletions < Formula
   desc "Additional completion definitions for zsh"
   homepage "https://github.com/zsh-users/zsh-completions"
-  url "https://github.com/zsh-users/zsh-completions/archive/0.27.0.tar.gz"
-  sha256 "9b817b73e709aca0e7e5a41471b5b63467d1e7aa69ef755b6ce39b99e61cd47a"
-
+  url "https://github.com/zsh-users/zsh-completions/archive/0.32.0.tar.gz"
+  sha256 "d2d20836fb60d2e5de11b08f1a8373484dc01260d224e64c6de9eec44137fa63"
   head "https://github.com/zsh-users/zsh-completions.git"
 
   bottle :unneeded
@@ -16,7 +15,12 @@ class ZshCompletions < Formula
     <<~EOS
       To activate these completions, add the following to your .zshrc:
 
-        fpath=(#{HOMEBREW_PREFIX}/share/zsh-completions $fpath)
+        if type brew &>/dev/null; then
+          FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+          autoload -Uz compinit
+          compinit
+        fi
 
       You may also need to force rebuild `zcompdump`:
 
@@ -25,7 +29,7 @@ class ZshCompletions < Formula
       Additionally, if you receive "zsh compinit: insecure directories" warnings when attempting
       to load these completions, you may need to run this:
 
-        chmod go-w '#{HOMEBREW_PREFIX}/share'
+        chmod -R go-w '#{HOMEBREW_PREFIX}/share/zsh'
     EOS
   end
 
@@ -35,6 +39,6 @@ class ZshCompletions < Formula
       autoload _ack
       which _ack
     EOS
-    assert_match /^_ack/, shell_output("/bin/zsh test.zsh")
+    assert_match(/^_ack/, shell_output("/bin/zsh test.zsh"))
   end
 end

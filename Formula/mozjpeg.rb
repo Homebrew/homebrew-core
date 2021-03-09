@@ -1,37 +1,35 @@
 class Mozjpeg < Formula
   desc "Improved JPEG encoder"
   homepage "https://github.com/mozilla/mozjpeg"
-  url "https://github.com/mozilla/mozjpeg/releases/download/v3.2/mozjpeg-3.2-release-source.tar.gz"
-  sha256 "8aecc1ecad447a73ae01b9a546e99142345e5a92838d84af425f2b19202e7b73"
+  url "https://github.com/mozilla/mozjpeg/archive/v4.0.3.tar.gz"
+  sha256 "4f22731db2afa14531a5bf2633d8af79ca5cb697a550f678bf43f24e5e409ef0"
+  license "BSD-3-Clause"
 
-  bottle do
-    cellar :any
-    sha256 "da5e5714bb881b7c4fba0f91b0649caff19424a63d397211506e28deff57947b" => :high_sierra
-    sha256 "064155896464277965bd3abc8581ade6a6c42938045df5418af2a17cb8892b11" => :sierra
-    sha256 "cd32c9a3b91acf653f34bfe82c92b44dfa7820ac15fd4c497a1e68a218cdebc0" => :el_capitan
-    sha256 "ba216c159f6ef8573699a11dd423c53f9b34432000cef18a30c8e3c3e27bda2f" => :yosemite
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  head do
-    url "https://github.com/mozilla/mozjpeg.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
+  bottle do
+    sha256 arm64_big_sur: "43d05f184bc2c2f0451913c9d6a437dd597c9da0fc675fd6a96859face7d8819"
+    sha256 big_sur:       "62b7cba57dec06208ee2af6a726b918c0131c0d4f4b735d32eab16df348e1852"
+    sha256 catalina:      "0664824dab3ebe497562d4b9fcb1fdafd011d7f0bcd6d50dc60bd73db57168cc"
+    sha256 mojave:        "0188f192ba8d6471e034d8144b321a84871d46cf110fb27bdebb67f2d9116baa"
   end
 
   keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg"
 
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "nasm" => :build
-  depends_on "libpng" => :optional
+  depends_on "libpng"
 
   def install
-    system "autoreconf", "-fvi" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--with-jpeg8"
-    system "make", "install"
+    mkdir "build" do
+      args = std_cmake_args - %w[-DCMAKE_INSTALL_LIBDIR=lib]
+      system "cmake", "..", *args, "-DCMAKE_INSTALL_LIBDIR=#{lib}"
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do

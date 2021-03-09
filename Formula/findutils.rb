@@ -1,20 +1,18 @@
 class Findutils < Formula
   desc "Collection of GNU find, xargs, and locate"
   homepage "https://www.gnu.org/software/findutils/"
-  url "https://ftp.gnu.org/gnu/findutils/findutils-4.6.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/findutils/findutils-4.6.0.tar.gz"
-  sha256 "ded4c9f73731cd48fec3b6bdaccce896473b6d8e337e9612e16cf1431bb1169d"
+  url "https://ftp.gnu.org/gnu/findutils/findutils-4.8.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/findutils/findutils-4.8.0.tar.xz"
+  sha256 "57127b7e97d91282c6ace556378d5455a9509898297e46e10443016ea1387164"
+  license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 "8411fd3a9a42a2be0c52b4ae8cad2dd60add473a4cf882620200ab43442fb5c2" => :high_sierra
-    sha256 "c1ecad1c780cb569d268ca5648570dcc753cca720ead2783943aea0363af728e" => :sierra
-    sha256 "bc20b7e2a97c3277ea13fd91b44fbc0015628e8684a2bba203c38a4c7357f6c7" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "00515eb2dc81769263cbde9066c25807b120e3a25a7dbff3f5a3858c07ba7f6d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ba06afcd59371297f232da8d59a68ebc2d66ce3ffdad3e83f65e2e9abb47a4c0"
+    sha256 cellar: :any_skip_relocation, catalina:      "7e47d6ae1e52d796ce0fd989c17ac169f1b78206e62a28274fe25296185a8a66"
+    sha256 cellar: :any_skip_relocation, mojave:        "78cf4e5b65633636743fd29b7fd3b48aebd20bed727203dc244192fdfa543f62"
   end
-
-  deprecated_option "default-names" => "with-default-names"
-
-  option "with-default-names", "Do not prepend 'g' to the binary"
 
   def install
     # Work around unremovable, nested dirs bug that affects lots of
@@ -25,28 +23,28 @@ class Findutils < Formula
     # https://lists.gnu.org/archive/html/bug-tar/2015-10/msg00017.html
     ENV["gl_cv_func_getcwd_abort_bug"] = "no" if MacOS.version == :el_capitan
 
+    # Workaround for build failures in 4.8.0
+    # https://lists.gnu.org/archive/html/bug-findutils/2021-01/msg00050.html
+    # https://lists.gnu.org/archive/html/bug-findutils/2021-01/msg00051.html
+    ENV.append "CFLAGS", "-D__nonnull\\(params\\)="
+
     args = %W[
       --prefix=#{prefix}
       --localstatedir=#{var}/locate
       --disable-dependency-tracking
       --disable-debug
+      --disable-nls
+      --with-packager=Homebrew
+      --with-packager-bug-reports=#{tap.issues_url}
     ]
-    args << "--program-prefix=g" if build.without? "default-names"
 
+    on_macos do
+      args << "--program-prefix=g"
+    end
     system "./configure", *args
     system "make", "install"
 
-    # https://savannah.gnu.org/bugs/index.php?46846
-    # https://github.com/Homebrew/homebrew/issues/47791
-    updatedb = (build.with?("default-names") ? "updatedb" : "gupdatedb")
-    (libexec/"bin").install bin/updatedb
-    (bin/updatedb).write <<~EOS
-      #!/bin/sh
-      export LC_ALL='C'
-      exec "#{libexec}/bin/#{updatedb}" "$@"
-    EOS
-
-    if build.without? "default-names"
+    on_macos do
       [[prefix, bin], [share, man/"*"]].each do |base, path|
         Dir[path/"g*"].each do |p|
           f = Pathname.new(p)
@@ -55,34 +53,33 @@ class Findutils < Formula
         end
       end
     end
-  end
 
-  def caveats
-    if build.without? "default-names"
-      <<~EOS
-        All commands have been installed with the prefix 'g'.
-        If you do not want the prefix, install using the "with-default-names" option.
-
-        If you need to use these commands with their normal names, you
-        can add a "gnubin" directory to your PATH from your bashrc like:
-
-            PATH="#{opt_libexec}/gnubin:$PATH"
-
-        Additionally, you can access their man pages with normal names if you add
-        the "gnuman" directory to your MANPATH from your bashrc as well:
-
-            MANPATH="#{opt_libexec}/gnuman:$MANPATH"
-      EOS
-    end
+    libexec.install_symlink "gnuman" => "man"
   end
 
   def post_install
     (var/"locate").mkpath
   end
 
+  def caveats
+    on_macos do
+      <<~EOS
+        All commands have been installed with the prefix "g".
+        If you need to use these commands with their normal names, you
+        can add a "gnubin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/gnubin:$PATH"
+      EOS
+    end
+  end
+
   test do
-    find = (build.with?("default-names") ? "find" : "gfind")
     touch "HOMEBREW"
-    assert_match "HOMEBREW", shell_output("#{bin}/#{find} .")
+    on_macos do
+      assert_match "HOMEBREW", shell_output("#{bin}/gfind .")
+      assert_match "HOMEBREW", shell_output("#{opt_libexec}/gnubin/find .")
+    end
+    on_linux do
+      assert_match "HOMEBREW", shell_output("#{bin}/find .")
+    end
   end
 end

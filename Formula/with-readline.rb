@@ -3,14 +3,15 @@ class WithReadline < Formula
   homepage "https://www.greenend.org.uk/rjk/sw/withreadline.html"
   url "https://www.greenend.org.uk/rjk/sw/with-readline-0.1.1.tar.gz"
   sha256 "d12c71eb57ef1dbe35e7bd7a1cc470a4cb309c63644116dbd9c88762eb31b55d"
-  revision 1
+  revision 2
 
   bottle do
-    cellar :any
-    sha256 "5db12ee438dc08ac90196940f9ff868c3169f3e77fbbd0b5ae1c6cde21dd96cf" => :high_sierra
-    sha256 "2f1e93e551ea44fbd5594fe734e8dd68d0cd741747a770bf2725be05bd00db04" => :sierra
-    sha256 "692f55b5ea8d97d2f19edea8c5ab6041b5efb3242aedb43feee0e5956e1e590b" => :el_capitan
-    sha256 "05cd5dac85256b656838e839a81cd5abdc22caa3d916e7316f7ce517d17f6059" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "7a8f7ff1d33453d059ac6ac6b23883fa3f86d720cb25415e590e81ca2e6255dd"
+    sha256 cellar: :any, big_sur:       "0700f15130da53328bff304e2cfdb422ad2bc4fff64a0377063af94cf46d3655"
+    sha256 cellar: :any, catalina:      "b0ba2ed66eff2c432234e5885ebeca2a671bb556024ad038563883b3c14a64b4"
+    sha256 cellar: :any, mojave:        "3a6e8e8e2d6f35ecd215b969c3794e586b1209820a9b0e5d935ddc5363f58678"
+    sha256 cellar: :any, high_sierra:   "72ea8c0cce2f94fae5c963a1113c9b2504f1d728234c3c511ad7e3d5dca0d74b"
+    sha256 cellar: :any, sierra:        "808a3a96b1d247f16c0a3e21eb18ed287f7df474b36c4685725768a05c3c1c61"
   end
 
   depends_on "readline"

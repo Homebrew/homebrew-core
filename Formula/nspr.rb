@@ -1,24 +1,26 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://developer.mozilla.org/docs/Mozilla/Projects/NSPR"
-  url "https://archive.mozilla.org/pub/mozilla.org/nspr/releases/v4.17/src/nspr-4.17.tar.gz"
-  sha256 "590a0aea29412ae22d7728038c21ef2ab42646e48172a47d2e4bb782846d1095"
+  url "https://archive.mozilla.org/pub/nspr/releases/v4.29/src/nspr-4.29.tar.gz"
+  sha256 "22286bdb8059d74632cc7c2865c139e63953ecfb33bf4362ab58827e86e92582"
+  license "MPL-2.0"
+
+  livecheck do
+    url "https://ftp.mozilla.org/pub/nspr/releases/"
+    regex(/v(\d+(?:\.\d+)*)/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "e90cc21f350aefb57ddb6e3f2c27e86e95fa9c7a9d7e40772a6603846b17a078" => :high_sierra
-    sha256 "e28f7bf25551e93a29b2310b80b7e492323f42677ecbefc43b64d6e09e76b354" => :sierra
-    sha256 "f083506086d7a0a72d90689f108d116a991e3da26c91416f6c980ff9fe59a9e7" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "c02e2a44ebd1f681e356062d94af3a7682c212156ec99b7d193f5ff0cd77735b"
+    sha256 cellar: :any, big_sur:       "853f1762fc3372f776f66ead09a8f45b7d03de583b5d70a2c11140eafb899897"
+    sha256 cellar: :any, catalina:      "c47dc31bf73d954e1d4629a92cff5f2e5801573fa9cc1caab7c9ea3b0fb68566"
+    sha256 cellar: :any, mojave:        "5b87579476cdbb34be47c9579125183f9ff29373e9b25e94d419b02995e6ae29"
+    sha256 cellar: :any, high_sierra:   "1b3e41e52e1dc0131ca2ae486d099fb91e7e983355d8dd4ae18ff47a8547fe1e"
   end
 
   def install
     ENV.deparallelize
     cd "nspr" do
-      # Fixes a bug with linking against CoreFoundation, needed to work with SpiderMonkey
-      # See: https://openradar.appspot.com/7209349
-      target_frameworks = Hardware::CPU.is_32_bit? ? "-framework Carbon" : ""
-      inreplace "pr/src/Makefile.in", "-framework CoreServices -framework CoreFoundation", target_frameworks
-
       args = %W[
         --disable-debug
         --prefix=#{prefix}
@@ -26,8 +28,8 @@ class Nspr < Formula
         --with-pthreads
         --enable-ipv6
         --enable-macos-target=#{MacOS.version}
+        --enable-64bit
       ]
-      args << "--enable-64bit" if MacOS.prefer_64_bit?
       system "./configure", *args
       # Remove the broken (for anyone but Firefox) install_name
       inreplace "config/autoconf.mk", "-install_name @executable_path/$@ ", "-install_name #{lib}/$@ "
@@ -38,5 +40,9 @@ class Nspr < Formula
       (bin/"compile-et.pl").unlink
       (bin/"prerr.properties").unlink
     end
+  end
+
+  test do
+    system "#{bin}/nspr-config", "--version"
   end
 end

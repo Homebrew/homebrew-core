@@ -1,8 +1,9 @@
 class Cromwell < Formula
   desc "Workflow Execution Engine using Workflow Description Language"
   homepage "https://github.com/broadinstitute/cromwell"
-  url "https://github.com/broadinstitute/cromwell/releases/download/30/cromwell-30.jar"
-  sha256 "dcb27dae4322e144ecfb55c882436ce444647c90df32df4208bece83fe294669"
+  url "https://github.com/broadinstitute/cromwell/releases/download/58/cromwell-58.jar"
+  sha256 "0a1ec37cd917724d97d6bdffc683fc143422fa48b154ed9087f30ab7479a08c4"
+  license "BSD-3-Clause"
 
   head do
     url "https://github.com/broadinstitute/cromwell.git"
@@ -11,21 +12,37 @@ class Cromwell < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
-  depends_on "akka"
+  depends_on "openjdk"
+
+  resource "womtool" do
+    url "https://github.com/broadinstitute/cromwell/releases/download/58/womtool-58.jar"
+    sha256 "c35266247f35f91023ec24b397b8817364fe6e40dc5b37888e26877572382bec"
+  end
 
   def install
     if build.head?
       system "sbt", "assembly"
-      libexec.install Dir["target/scala-*/cromwell-*.jar"][0]
+      libexec.install Dir["server/target/scala-*/cromwell-*.jar"][0] => "cromwell.jar"
+      libexec.install Dir["womtool/target/scala-*/womtool-*.jar"][0] => "womtool.jar"
     else
-      libexec.install Dir["cromwell-*.jar"][0]
+      libexec.install "cromwell-#{version}.jar" => "cromwell.jar"
+      resource("womtool").stage do
+        libexec.install "womtool-#{version}.jar" => "womtool.jar"
+      end
     end
-    bin.write_jar_script Dir[libexec/"cromwell-*.jar"][0], "cromwell"
+
+    (bin/"cromwell").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" $JAVA_OPTS -jar "#{libexec}/cromwell.jar" "$@"
+    EOS
+    (bin/"womtool").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk"].opt_bin}/java" -jar "#{libexec}/womtool.jar" "$@"
+    EOS
   end
 
   test do
-    (testpath/"hello.wdl").write <<-EOS
+    (testpath/"hello.wdl").write <<~EOS
       task hello {
         String name
 
@@ -42,7 +59,7 @@ class Cromwell < Formula
       }
     EOS
 
-    (testpath/"hello.json").write <<-EOS
+    (testpath/"hello.json").write <<~EOS
       {
         "test.hello.name": "world"
       }

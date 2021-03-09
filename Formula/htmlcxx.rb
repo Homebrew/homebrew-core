@@ -1,15 +1,16 @@
 class Htmlcxx < Formula
   desc "Non-validating CSS1 and HTML parser for C++"
   homepage "https://htmlcxx.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/htmlcxx/htmlcxx/0.86/htmlcxx-0.86.tar.gz"
-  sha256 "07542b5ea2442143b125ba213b6823ff4a23fff352ecdd84bbebe1d154f4f5c1"
+  url "https://downloads.sourceforge.net/project/htmlcxx/v0.87/htmlcxx-0.87.tar.gz"
+  sha256 "5d38f938cf4df9a298a5346af27195fffabfef9f460fc2a02233cbcfa8fc75c8"
 
   bottle do
-    sha256 "c948a4b11b8bcc60f03ebc0629bef746189379aed5af0a6391cb5fb66c0fe0b8" => :high_sierra
-    sha256 "ebcdff901aaafb18cac1e1bf94e849a4b995e3b583519495fe53c431ed68896a" => :sierra
-    sha256 "2be957cd2a735529bc4e921733cdee1b7a7afdfc6614914c76e9fcd08a89c90e" => :el_capitan
-    sha256 "b456c9087eb6dc788ec52717cb7eef3bf6dac24dbdd0d46674ed30c8597398ef" => :yosemite
-    sha256 "86839a9ca4861d4409d7a71b6553d3cbff78d5f99bf2a72971c302891245ed64" => :mavericks
+    sha256 arm64_big_sur: "076a461f50d225b8f6d7b1d1541b0fcdb2fba0af77e28d2524815e5d912b623e"
+    sha256 big_sur:       "5afe59e8f11f3ee3d04448c1e885b433cdcb356c6aaa80bc1e8ed0f6b0c0ec95"
+    sha256 catalina:      "8414d919ae850983832803af525e8b98d3e5aa106c47b05f420d77020c7c99ca"
+    sha256 mojave:        "e910595c43c028e25e0e0a44203e3c95b229162ea89678721b4a7f6e22974aca"
+    sha256 high_sierra:   "062a4b1629ab6f28e59ef0ea15c257c8bfd9e3646f3342fbfe14268727be7649"
+    sha256 sierra:        "4407cb1a50e8d629db9b93bdbbbf2a0892967611f7e579c49c0d084769f8a5ca"
   end
 
   def install

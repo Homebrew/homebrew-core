@@ -1,23 +1,37 @@
 class Chakra < Formula
-  desc "The core part of the JavaScript engine that powers Microsoft Edge"
+  desc "Core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/Microsoft/ChakraCore"
-  url "https://github.com/Microsoft/ChakraCore/archive/v1.7.4.tar.gz"
-  sha256 "13bf88e4d5618d1706ef2c2456bfbffa56726ae0f3b3640b5a8774bb5c27a83d"
+  url "https://github.com/Microsoft/ChakraCore/archive/v1.11.24.tar.gz"
+  sha256 "b99e85f2d0fa24f2b6ccf9a6d2723f3eecfe986a9d2c4d34fa1fd0d015d0595e"
+  license "MIT"
   revision 1
 
   bottle do
-    cellar :any
-    sha256 "f088267d3e847b56465b0ffc6df9e743c1152d3ccee8891f087666f00f0be52f" => :high_sierra
-    sha256 "fe69ed07fda7c459a39aed8160ff684b390e2697f11735f74d10172192db0e03" => :sierra
-    sha256 "5b1e2fb65e9724340e23c90f2013adbf63a3734435a9802375b8a1c81a400f3e" => :el_capitan
+    sha256 cellar: :any, big_sur:  "f57518d03ba2daf07758454a0cbe902a62f86f70a47f60b6b3b7248586ca48a8"
+    sha256 cellar: :any, catalina: "7a58925fe9d66f440d2c50e453d013b3a535e33070bc5053c752f59c1786f1be"
+    sha256 cellar: :any, mojave:   "16d11693872d1222374124d8d7db4032dc2af035260231837af86b87685723bb"
   end
 
   depends_on "cmake" => :build
   depends_on "icu4c"
 
   def install
-    system "./build.sh", "--lto-thin", "--static", "--icu=#{Formula["icu4c"].opt_include}", "-j=#{ENV.make_jobs}", "-y"
+    args = [
+      "--lto-thin",
+      "--icu=#{Formula["icu4c"].opt_include}",
+      "--extra-defines=U_USING_ICU_NAMESPACE=1", # icu4c 61.1 compatibility
+      "-j=#{ENV.make_jobs}",
+      "-y",
+    ]
+
+    # Build dynamically for the shared library
+    system "./build.sh", *args
+    # Then statically to get a usable binary
+    system "./build.sh", "--static", *args
+
     bin.install "out/Release/ch" => "chakra"
+    include.install Dir["out/Release/include/*"]
+    lib.install "out/Release/libChakraCore.dylib"
   end
 
   test do

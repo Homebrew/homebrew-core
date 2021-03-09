@@ -1,27 +1,36 @@
 class Verilator < Formula
   desc "Verilog simulator"
   homepage "https://www.veripool.org/wiki/verilator"
-  url "https://www.veripool.org/ftp/verilator-3.900.tgz"
-  sha256 "4be851e66179b405410782887e4121db7c6e8a7614a8066f353c36edd98a6b7b"
+  url "https://www.veripool.org/ftp/verilator-4.110.tgz"
+  sha256 "4716fe0058661a29d6b59caf8e7471b2eddbded6ed44ede78dc1c65094ecfecc"
+  license any_of: ["LGPL-3.0-only", "Artistic-2.0"]
+
+  livecheck do
+    url "https://github.com/verilator/verilator.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
-    sha256 "ed308764080fa2f7792675e3f41ee686e32e7da6e01e405624c10e72389ddab0" => :high_sierra
-    sha256 "6b82bb9d715ad1c585c40756911f3c3ab949abd5dc2aa222722e1b2fb08f64cf" => :sierra
-    sha256 "a631852aac4746089d7abcd85fc6132b3f3e4303d3e5a84d750a413d3952f07f" => :el_capitan
-    sha256 "c1a75df08503dcc66c82f4417486e4c6bd1cde95388b8cceb292336a08816674" => :yosemite
+    rebuild 1
+    sha256 arm64_big_sur: "42901384ef7092b0039c505d2ebbd7586024f25d5578eb2be31b9793a8c92fb0"
+    sha256 big_sur:       "88161464bfe85fa5e711272374a7ff363d56b577ca490eac61165bde531c5543"
+    sha256 catalina:      "a89df25c889c4e7c8333c4ac2072c7e309dd43d93c1405242644cee644041de3"
+    sha256 mojave:        "a2ce7f0df7764dd771586ca7c0ebdb360e1834147c2d7737a5d7ec7adb3a0095"
   end
 
   head do
-    url "http://git.veripool.org/git/verilator", :using => :git
-    depends_on "automake" => :build
+    url "https://git.veripool.org/git/verilator", using: :git
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
-  skip_clean "bin" # Allows perl scripts to keep their executable flag
+  depends_on "python@3.9" => :build
 
-  # Needs a newer flex on Lion (and presumably below)
-  # https://www.veripool.org/issues/720-Verilator-verilator-not-building-on-Mac-OS-X-Lion-10-7-
-  depends_on "flex" if MacOS.version <= :lion
+  uses_from_macos "bison"
+  uses_from_macos "flex"
+  uses_from_macos "perl"
+
+  skip_clean "bin" # Allows perl scripts to keep their executable flag
 
   def install
     system "autoconf" if build.head?

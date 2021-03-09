@@ -1,40 +1,32 @@
 class Iperf < Formula
   desc "Tool to measure maximum TCP and UDP bandwidth"
-  homepage "https://iperf.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/iperf/iperf-2.0.5.tar.gz"
-  sha256 "636b4eff0431cea80667ea85a67ce4c68698760a9837e1e9d13096d20362265b"
+  homepage "https://sourceforge.net/projects/iperf2/"
+  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.0.13.tar.gz"
+  sha256 "c88adec966096a81136dda91b4bd19c27aae06df4d45a7f547a8e50d723778ad"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/iperf[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "9514790acbb2b5821b9773e5a719178eb4d11db158deb1857a68d72e0b9eb6ae" => :high_sierra
-    sha256 "441219fd5a227aa8df41c61067d9ae20bb268c48bbdcdad5bce8deb5f32a45fe" => :sierra
-    sha256 "4fabcfbc462ea67189847e6faba598a5952bd155e292696cfd39f4d709f926a2" => :el_capitan
-    sha256 "37e46ed0ee35a3f0957d847ce4afc871c352108279f8c001c7879282a8706495" => :yosemite
-    sha256 "67d2c2cef38fc34704f379a0dcf7d32d0b1bd5d30cd44f0533a6bd55f275bb8a" => :mavericks
+    sha256 cellar: :any_skip_relocation, catalina:    "0b9b36d65f113055e86b158f62daa64bf5c177e27abec34c51cbb60bf2a7d4d7"
+    sha256 cellar: :any_skip_relocation, mojave:      "8c24a0392dcda9d134c1d1121671875da4b67905321eb6e67053d6e965f92bee"
+    sha256 cellar: :any_skip_relocation, high_sierra: "7cee5824d4c70a302b3830eaf6615f52e5a1b41fdcbfbcabb46c5dd3ee00ec2c"
+    sha256 cellar: :any_skip_relocation, sierra:      "4b29283a8f69c773d307501a5f89af2a0f5804ce62874b7bd2e6ea89145cf73a"
   end
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-
-    # Otherwise this definition confuses system headers on 10.13
-    # https://github.com/Homebrew/homebrew-core/issues/14418#issuecomment-324082915
-    if MacOS.version >= :high_sierra
-      inreplace "config.h", "#define bool int", ""
-    end
-
+    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
 
   test do
-    begin
-      server = IO.popen("#{bin}/iperf --server")
-      sleep 1
-      assert_match "Bandwidth", pipe_output("#{bin}/iperf --client 127.0.0.1 --time 1")
-    ensure
-      Process.kill("SIGINT", server.pid)
-      Process.wait(server.pid)
-    end
+    server = IO.popen("#{bin}/iperf --server")
+    sleep 1
+    assert_match "Bandwidth", pipe_output("#{bin}/iperf --client 127.0.0.1 --time 1")
+  ensure
+    Process.kill("SIGINT", server.pid)
+    Process.wait(server.pid)
   end
 end

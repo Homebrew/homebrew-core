@@ -1,12 +1,11 @@
 class Shellshare < Formula
   desc "Live Terminal Broadcast"
   homepage "https://shellshare.net"
-  url "https://github.com/vitorbaptista/shellshare/archive/v1.0.3.tar.gz"
-  sha256 "d984a413c3b1f785265430519e9b1eecc6e47b96d63f5b207f82872dab0a0765"
+  url "https://github.com/vitorbaptista/shellshare/archive/v1.1.0.tar.gz"
+  sha256 "0a102c863f60402ab48908563edde38450add0ae02454360fa94065824a61907"
+  license "Apache-2.0"
 
   bottle :unneeded
-
-  depends_on :python if MacOS.version <= :snow_leopard
 
   def install
     bin.install "public/bin/shellshare"

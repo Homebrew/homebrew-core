@@ -1,31 +1,26 @@
 class GithubMarkdownToc < Formula
   desc "Easy TOC creation for GitHub README.md (in go)"
   homepage "https://github.com/ekalinin/github-markdown-toc.go"
-  url "https://github.com/ekalinin/github-markdown-toc.go/archive/0.8.0.tar.gz"
-  sha256 "210e998e15b6b34c741a7e1500cf0e98494fe6d019c1fb85305d52e8070f3365"
+  url "https://github.com/ekalinin/github-markdown-toc.go/archive/1.2.0.tar.gz"
+  sha256 "6bfeab2b28e5c7ad1d5bee9aa6923882a01f56a7f2d0f260f01acde2111f65af"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "8853e0adc3d20ec4838d84e954bfb90e343154e86545843a1641c8424029565b" => :high_sierra
-    sha256 "aa55273d31e7668f919e05084ee86d020079ea88c960e50acd040e03f54f1e6e" => :sierra
-    sha256 "0a625d0131a7f928c82194ee3aeec6cfbaffb81e690ae9a66b8bc95267493c9c" => :el_capitan
-    sha256 "15d2549f9ec4c3d5a38c6de1c965808d407df5c05ee78a54093d050bb48993a5" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "db9ca9d24519c3cf044a6c461533744a020a69e569929299159164406d80ccc2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "aaeb4ccfaa12ec8914842a6a9f6b68cc1c393e617d17af87832b2d3500a41458"
+    sha256 cellar: :any_skip_relocation, catalina:      "1ab9219a4b4e5280248b2aab4ee29f3956dddff78c70b941800948e2f72132cd"
+    sha256 cellar: :any_skip_relocation, mojave:        "f4e584f9514dd801a4d3243e9d962f12fa32cd3c6c62bed6037f4d1232153d0a"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    dir = buildpath/"src/github.com/ekalinin/github-markdown-toc.go"
-    dir.install buildpath.children
-    cd dir do
-      system "go", "build", "-o", bin/"gh-md-toc", "main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args, "-o", bin/"gh-md-toc"
   end
 
   test do
-    system bin/"gh-md-toc", "--version"
-    system bin/"gh-md-toc", "../README.md"
+    (testpath/"README.md").write("# Header")
+    assert_match version.to_s, shell_output("#{bin}/gh-md-toc --version 2>&1")
+    assert_match "* [Header](#header)", shell_output("#{bin}/gh-md-toc ./README.md")
   end
 end

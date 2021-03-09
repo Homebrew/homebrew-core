@@ -1,18 +1,24 @@
 class Ipbt < Formula
   desc "Program for recording a UNIX terminal session"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/ipbt-20170831.3c40fd3.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/ipbt-20170831.tar.gz"
-  version "20170831"
-  sha256 "237394f7074a8e540495bdcb8b82b5a932f8597505e2ee3ba3d96b0671cfeae3"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/ipbt/ipbt-20210215.5a9cb02.tar.gz"
+  version "20210215"
+  sha256 "0aeafaacbccb89d2aaf044d6c6582c71cb66f607847854f2df514a21f6a5cb70"
+  license "MIT"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?ipbt[._-]v?(\d+(?:\.\d+)*)(?:[._-][\da-z]+)?\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "ca5fe4bf38c28b6134ef995643328af82277bac9765064cafa95c7be096cbb51" => :high_sierra
-    sha256 "f9dd24a2a7bd67ee00a4763b6931975f27443d906d91795962ca8a1eb647d269" => :sierra
-    sha256 "3ebaf07effeb98490201a2c8cc38bfdaec25c0db5a6bf3f2936f72b944ee5309" => :el_capitan
-    sha256 "511b256cd2f9eda3db809f2a46c47ed72c7a4fadef4fb16bb5197766cc966fe9" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "78f292ac5378f3b8d1a9bb5260a60a3b40118b944edcdaaca912646407e42d5d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "66c701400fe87ae661d959bb9f7558f7658c5d81e71438ec76435ee2943329aa"
+    sha256 cellar: :any_skip_relocation, catalina:      "f08bb4d0b1710cb02f1960c229f137c44505980793251ab81d0222be5f1b61e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "5678b11877df9433ceb47661596d3f0b4d0894e44a4173ae118b746117938e59"
   end
+
+  uses_from_macos "ncurses"
 
   def install
     system "./configure", "--prefix=#{prefix}",

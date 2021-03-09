@@ -2,22 +2,25 @@ class GandiCli < Formula
   include Language::Python::Virtualenv
 
   desc "Command-line interface to Gandi.net products using the public API"
-  homepage "http://cli.gandi.net"
-  url "https://files.pythonhosted.org/packages/f1/f7/e90542fae4fcb8d921946fd55bb88e49314999b22ed2fa4e56a8cf23a434/gandi.cli-1.0.tar.gz"
-  sha256 "e2534fae2136dc03f85e0d906e6c61ce2c76c38e70b33783aeb54feabc3ecf2e"
+  homepage "https://cli.gandi.net/"
+  url "https://files.pythonhosted.org/packages/cf/00/ff5acd1c9a0cfbb1a81a9f44ef4a745f31bb413869ae93295f8f5778cc4c/gandi.cli-1.6.tar.gz"
+  sha256 "af59bf81a5a434dd3a5bc728a9475d80491ed73ce4343f2c1f479cbba09266c0"
+  license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "e10419a340f36c6dc7c084bcc2a11e6842518e269d6d1556e24371c608d42797" => :high_sierra
-    sha256 "e4c50c0808a2612f4f0e8760c67bc8881e0e6298e54e97209c146e18f5c7f37e" => :sierra
-    sha256 "b60eddd8819423f9baf6f4a3b4ee1df5c8996bd35094170384145a5eefa15cff" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7fd3804eb7e0e2a60c5b3a66fe7dae07d473b92981a0386a4f0249601a2f34b2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "759533fa634716deecb668eddf22df0e4f2afb23120733ab1726a2ca51e10903"
+    sha256 cellar: :any_skip_relocation, catalina:      "727a9e7a6b1097d103b93edd2c65675d246a46fe8dbda706e686dc9c6da30958"
+    sha256 cellar: :any_skip_relocation, mojave:        "edbce322c908304cd7cb672b8c5e6baaab8ada8f35e52f10ad5c6153fb57958c"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "7adc68fbfb603f633d86c336220d743a5686bb0ab02e4b6f3ca37118c05c33be"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
+  depends_on "python@3.9"
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/23/3f/8be01c50ed24a4bd6b8da799839066ce0288f66f5e11f0367323467f0cbc/certifi-2017.11.5.tar.gz"
-    sha256 "5ec74291ca1136b40f0379e1128ff80e866597e4e2c1e755739a913bbc3613c0"
+    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
+    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
   end
 
   resource "chardet" do
@@ -26,33 +29,33 @@ class GandiCli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
-    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
+    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
+    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/f4/bd/0467d62790828c23c47fc1dfa1b1f052b24efdf5290f071c7a91d0d82fd3/idna-2.6.tar.gz"
-    sha256 "2c6a5de3089009e3da7c5dde64a141dbc8551d5b7f6cf4ed7c2568d0cc520a8f"
+    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
+    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
   end
 
   resource "IPy" do
-    url "https://files.pythonhosted.org/packages/88/28/79162bfc351a3f1ab44d663ab3f03fb495806fdb592170990a1568ffbf63/IPy-0.83.tar.gz"
-    sha256 "61da5a532b159b387176f6eabf11946e7458b6df8fb8b91ff1d345ca7a6edab8"
+    url "https://files.pythonhosted.org/packages/e1/66/b6dd22472bb027556849876beae2dd4dca3a4eaf2dd3039277b4edb8c6af/IPy-1.00.tar.gz"
+    sha256 "2f2bf658a858d43868d8a4352b3889cf78c66e2ce678b300dcf518c9149ba621"
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/4a/85/db5a2df477072b2902b0eb892feb37d88ac635d36245a72a6a69b23b383a/PyYAML-3.12.tar.gz"
-    sha256 "592766c6303207a20efc445587778322d7f73b161bd994f227adaa341ba212ab"
+    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
+    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/b0/e1/eab4fc3752e3d240468a8c0b284607899d2fbfb236a56b7377a329aa8d09/requests-2.18.4.tar.gz"
-    sha256 "9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
+    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
+    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/ee/11/7c59620aceedcc1ef65e156cc5ce5a24ef87be4107c2b74458464e437a5d/urllib3-1.22.tar.gz"
-    sha256 "cc44da8e1145637334317feebd728bd869a35285b93cbb4cca2577da7e62db4f"
+    url "https://files.pythonhosted.org/packages/81/f4/87467aeb3afc4a6056e1fe86626d259ab97e1213b1dfec14c7cb5f538bf0/urllib3-1.25.10.tar.gz"
+    sha256 "91056c15fa70756691db97756772bb1eb9678fa585d9184f24534b100dc60f4a"
   end
 
   def install

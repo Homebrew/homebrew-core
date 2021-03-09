@@ -1,51 +1,40 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/3.26/file-roller-3.26.2.tar.xz"
-  sha256 "3e677b8e1c2f19aead69cf4fc419a19fc3373aaf5d7bf558b4f077f10bbba8a5"
+  url "https://download.gnome.org/sources/file-roller/3.38/file-roller-3.38.0.tar.xz"
+  sha256 "723d1c6e567d35dad5eeeaeb86b8d18705658ee73e0b3b97ea16adc7a4dc331a"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "0f6ed9638357c88ec9e063f050f9602987f408f858d11f96ede54a889e9fb6ec" => :high_sierra
-    sha256 "527d3641639115a94e2cda64a7804d603a5c72cffff43fd3c12c32ed4b78ccba" => :sierra
-    sha256 "846f18e2a5785cbdb3acb87f86dc375a3362c0acf403888d989417a841912c4c" => :el_capitan
+    sha256 arm64_big_sur: "48e094d70bf4efb02ca607e581c257d78f7da62b287c0293ca141472c70f3e05"
+    sha256 big_sur:       "5f93b042a4c184676715979ee56beac1eac0d4cf371d314e4746968d5bc163d3"
+    sha256 catalina:      "0bfabe3ee4fcb30fc9b85f98c2c241b625238856c5d9af9fa325cb29bab27de2"
+    sha256 mojave:        "fae6eecff0f93c8c033754829e7f8260b3308e9e6f838c80c494aeb6a9b7f9e0"
+    sha256 high_sierra:   "78680c1e5096d8769a9f780c72f0ac3ecc009660085ce8cc29065fd07c1f0e71"
   end
 
-  depends_on "pkg-config" => :build
-  depends_on "intltool" => :build
   depends_on "itstool" => :build
-  depends_on "libxml2" => :build
-  depends_on "gtk+3"
-  depends_on "json-glib"
-  depends_on "libmagic"
-  depends_on "libarchive"
-  depends_on "hicolor-icon-theme"
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
-
-  # Add linked-library dependencies
-  depends_on "atk"
-  depends_on "cairo"
-  depends_on "gdk-pixbuf"
-  depends_on "gettext"
-  depends_on "glib"
-  depends_on "pango"
+  depends_on "gtk+3"
+  depends_on "hicolor-icon-theme"
+  depends_on "json-glib"
+  depends_on "libarchive"
+  depends_on "libmagic"
 
   def install
-    # forces use of gtk3-update-icon-cache instead of gtk-update-icon-cache. No bugreport should
-    # be filed for this since it only occurs because Homebrew renames gtk+3's gtk-update-icon-cache
-    # to gtk3-update-icon-cache in order to avoid a collision between gtk+ and gtk+3.
-    inreplace "data/Makefile.in", "gtk-update-icon-cache", "gtk3-update-icon-cache"
-
     ENV.append "CFLAGS", "-I#{Formula["libmagic"].opt_include}"
     ENV.append "LIBS", "-L#{Formula["libmagic"].opt_lib}"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-schemas-compile",
-                          "--disable-packagekit",
-                          "--enable-magic"
-    ENV.append_path "PYTHONPATH", "#{Formula["libxml2"].opt_lib}/python2.7/site-packages"
-    system "make", "install"
+    # stop meson_post_install.py from doing what needs to be done in the post_install step
+    ENV["DESTDIR"] = ""
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Dpackagekit=false", ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   def post_install

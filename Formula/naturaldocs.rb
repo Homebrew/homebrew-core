@@ -1,17 +1,31 @@
 class Naturaldocs < Formula
   desc "Extensible, multi-language documentation generator"
-  homepage "http://www.naturaldocs.org/"
-  url "https://downloads.sourceforge.net/project/naturaldocs/Stable%20Releases/1.52/NaturalDocs-1.52.zip"
-  sha256 "3f13c99e15778afe6c5555084a083f856e93567b31b08acd1fd81afb10082681"
+  homepage "https://www.naturaldocs.org/"
+  url "https://downloads.sourceforge.net/project/naturaldocs/Stable%20Releases/2.1/Natural_Docs_2.1.zip"
+  mirror "https://naturaldocs.org/download/natural_docs/2.1/Natural_Docs_2.1.zip"
+  sha256 "681a452ae6e981b0c0a0670d859873cceb3326939f2ae1e5f38bb27e91ac18c0"
+  license "AGPL-3.0-only"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/Natural.?Docs[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)}i)
+  end
 
   bottle :unneeded
 
-  def install
-    # Remove Windows files
-    rm_rf Dir["*.bat"]
+  depends_on "mono"
 
+  def install
     libexec.install Dir["*"]
-    chmod 0755, libexec+"NaturalDocs"
-    bin.install_symlink libexec+"NaturalDocs"
+    (bin/"naturaldocs").write <<~EOS
+      #!/bin/bash
+      mono #{libexec}/NaturalDocs.exe "$@"
+    EOS
+
+    libexec.install_symlink etc/"naturaldocs" => "config"
+  end
+
+  test do
+    system "#{bin}/naturaldocs", "-h"
   end
 end

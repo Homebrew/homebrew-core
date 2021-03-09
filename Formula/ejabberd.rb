@@ -1,28 +1,30 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://www.process-one.net/downloads/ejabberd/17.11/ejabberd-17.11.tgz"
-  sha256 "bd16b33a2f1345e5847fd05b70a5fa992181bac756cd6d5d621de9c18cb76801"
+  url "https://static.process-one.net/ejabberd/downloads/21.01/ejabberd-21.01.tgz"
+  sha256 "f1526138061b079054e4842ed50d520f0ada7dda3deb19c9e2beccbbeeee4086"
+  license "GPL-2.0-only"
 
   bottle do
-    sha256 "0c40ae646a5411fda4dea4c803ee77ada2691caa2abc169bbb6caa6252758b06" => :high_sierra
-    sha256 "5ed1494f73f564283a65115b9ffb83b7f665f451da3c3f859d4c2468f078105f" => :sierra
-    sha256 "32add6685c6b02d93b244670118ccf15f481ad9901e81aa20bfe7bed309d1a40" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "3e74e61eaeea09b8216bd4e8aec85a1f9ed4955025e77e0bfa774b34d4ae469d"
+    sha256 cellar: :any, big_sur:       "d6c70f318a01122269aa0a9356f926e23eb190f38f51a3c8d7b5b59a1b568f8a"
+    sha256 cellar: :any, catalina:      "f47d3de3194e456908d8e75aa1f308772dee675ce1789653787711d91a7669a1"
+    sha256 cellar: :any, mojave:        "9d59c55287a10faa857383a76f41559f0f26b73d65c569820d5ba108d3d39f83"
   end
 
   head do
     url "https://github.com/processone/ejabberd.git"
 
-    depends_on "automake" => :build
     depends_on "autoconf" => :build
+    depends_on "automake" => :build
   end
 
-  depends_on "openssl"
-  depends_on "erlang"
+  depends_on "erlang@22"
   depends_on "gd"
   depends_on "libyaml"
-  # for CAPTCHA challenges
-  depends_on "imagemagick" => :optional
+  depends_on "openssl@1.1"
+
+  conflicts_with "couchdb", because: "both install `jiffy` lib"
 
   def install
     ENV["TARGET_DIR"] = ENV["DESTDIR"] = "#{lib}/ejabberd/erlang/lib/ejabberd-#{version}"
@@ -39,7 +41,10 @@ class Ejabberd < Formula
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
-    system "make"
+
+    # Set CPP to work around cpp shim issue:
+    # https://github.com/Homebrew/brew/issues/5153
+    system "make", "CPP=clang -E"
 
     ENV.deparallelize
     system "make", "install"
@@ -50,40 +55,52 @@ class Ejabberd < Formula
   def post_install
     (var/"lib/ejabberd").mkpath
     (var/"spool/ejabberd").mkpath
+
+    # Create the vm.args file, if it does not exist. Put a random cookie in it to secure the instance.
+    vm_args_file = etc/"ejabberd/vm.args"
+    unless vm_args_file.exist?
+      require "securerandom"
+      cookie = SecureRandom.hex
+      vm_args_file.write <<~EOS
+        -setcookie #{cookie}
+      EOS
+    end
   end
 
-  def caveats; <<~EOS
-    If you face nodedown problems, concat your machine name to:
-      /private/etc/hosts
-    after 'localhost'.
+  def caveats
+    <<~EOS
+      If you face nodedown problems, concat your machine name to:
+        /private/etc/hosts
+      after 'localhost'.
     EOS
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/sbin/ejabberdctl start"
+  plist_options manual: "#{HOMEBREW_PREFIX}/sbin/ejabberdctl start"
 
-  def plist; <<~EOS
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-      <key>EnvironmentVariables</key>
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
       <dict>
-        <key>HOME</key>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>HOME</key>
+          <string>#{var}/lib/ejabberd</string>
+        </dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_sbin}/ejabberdctl</string>
+          <string>start</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>WorkingDirectory</key>
         <string>#{var}/lib/ejabberd</string>
       </dict>
-      <key>Label</key>
-      <string>#{plist_name}</string>
-      <key>ProgramArguments</key>
-      <array>
-        <string>#{opt_sbin}/ejabberdctl</string>
-        <string>start</string>
-      </array>
-      <key>RunAtLoad</key>
-      <true/>
-      <key>WorkingDirectory</key>
-      <string>#{var}/lib/ejabberd</string>
-    </dict>
-    </plist>
+      </plist>
     EOS
   end
 

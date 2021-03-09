@@ -1,117 +1,70 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
-  homepage "https://github.com/google/protobuf/"
-  url "https://github.com/google/protobuf/archive/v3.5.0.tar.gz"
-  sha256 "0cc6607e2daa675101e9b7398a436f09167dffb8ca0489b0307ff7260498c13c"
-  head "https://github.com/google/protobuf.git"
+  homepage "https://github.com/protocolbuffers/protobuf/"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.15.5/protobuf-all-3.15.5.tar.gz"
+  sha256 "c5d6404e8ef8dcf053ad850a974c93fbc29b1b44d1a5f7d54aeacf348028808f"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    sha256 "5febe3dbf8e63fd96fc2da057228974c92922d0edd2f52d246af0656025c7068" => :high_sierra
-    sha256 "32c55d230797781ef490c102a4179028755fdeb463f07c9049af1228ad653951" => :sierra
-    sha256 "1fe8fca34d715912617e340403571d858a41106a9ef443aa0706a6fa78a06fa9" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "5e24dcf3267f5f20c348b7e2695dda984026bb40f0202d0b6fd1f9e076a90d04"
+    sha256 cellar: :any, big_sur:       "872baaeb92aaaaa8d2634202806eeb91085072cc716e59acb2d77783e644d3e5"
+    sha256 cellar: :any, catalina:      "3bdf6d20261ee868895d0ef07fc300dfde8d2015e70db90e3b9049a7453a418f"
+    sha256 cellar: :any, mojave:        "28c9c92501261ebfddd78ab2cb94198d2256073012dc352b9c3bb32c6f5074c9"
   end
 
-  # this will double the build time approximately if enabled
-  option "with-test", "Run build-time check"
-  option "without-python", "Build without python support"
+  head do
+    url "https://github.com/protocolbuffers/protobuf.git"
 
-  deprecated_option "with-check" => "with-test"
-
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on :python => :recommended if MacOS.version <= :snow_leopard
-  depends_on :python3 => :optional
-
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/48/69/d87c60746b393309ca30761f8e2b49473d43450b150cb08f3c6df5c11be5/appdirs-1.4.3.tar.gz"
-    sha256 "9e5896d1372858f8dd3344faf4e5014d21849c756c8d5701f78f8a103b372d92"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
-    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/3c/ec/a94f8cf7274ea60b5413df054f82a8980523efd712ec55a59e7c3357cf7c/pyparsing-2.2.0.tar.gz"
-    sha256 "0832bcf47acd283788593e7a0f542407bd9550a55a8a8435214a1960e04bcb04"
-  end
+  depends_on "python@3.9" => [:build, :test]
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
+    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d5/b7/e52b7dccd3f91eec858309dcd931c1387bf70b6d458c86a9bfcb50134fbd/setuptools-34.3.3.zip"
-    sha256 "2cd244d3fca6ff7d0794a9186d1d19a48453e9813ae1d783edbfb8c348cde905"
-  end
-
-  resource "google-apputils" do
-    url "https://files.pythonhosted.org/packages/69/66/a511c428fef8591c5adfa432a257a333e0d14184b6c5d03f1450827f7fe7/google-apputils-0.4.2.tar.gz"
-    sha256 "47959d0651c32102c10ad919b8a0ffe0ae85f44b8457ddcf2bdc0358fb03dc29"
-  end
-
-  # Upstream's autogen script fetches this if not present
-  # but does no integrity verification & mandates being online to install.
-  resource "gmock" do
-    url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/googlemock/gmock-1.7.0.zip"
-    mirror "https://dl.bintray.com/homebrew/mirror/gmock-1.7.0.zip"
-    sha256 "26fcbb5925b74ad5fc8c26b0495dfc96353f4d553492eb97e85a8a6d2f43095b"
-  end
-
-  needs :cxx11
 
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
-    # https://github.com/google/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61
+    # https://github.com/protocolbuffers/protobuf/blob/5c24564811c08772d090305be36fae82d8f12bbe/configure.ac#L61
     ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.cxx11
 
-    (buildpath/"gmock").install resource("gmock")
-    system "./autogen.sh"
-
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--with-zlib"
     system "make"
-    system "make", "check" if build.with?("test") || build.bottle?
+    system "make", "check"
     system "make", "install"
 
     # Install editor support and examples
-    doc.install "editors", "examples"
+    pkgshare.install "editors/proto.vim", "examples"
+    elisp.install "editors/protobuf-mode.el"
 
-    Language::Python.each_python(build) do |python, version|
-      # google-apputils is a build-time dependency
-      ENV.prepend_create_path "PYTHONPATH", buildpath/"homebrew/lib/python#{version}/site-packages"
+    ENV.append_to_cflags "-I#{include}"
+    ENV.append_to_cflags "-L#{lib}"
 
-      res = resources.map(&:name).to_set - ["gmock"]
-      res.each do |package|
-        resource(package).stage do
-          system python, *Language::Python.setup_install_args(buildpath/"homebrew")
-        end
-      end
-      # google is a namespace package and .pth files aren't processed from
-      # PYTHONPATH
-      touch buildpath/"homebrew/lib/python#{version}/site-packages/google/__init__.py"
-      chdir "python" do
-        ENV.append_to_cflags "-I#{include}"
-        ENV.append_to_cflags "-L#{lib}"
-        args = Language::Python.setup_install_args libexec
-        args << "--cpp_implementation"
-        system python, *args
-      end
-      site_packages = "lib/python#{version}/site-packages"
-      pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-      (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
+    resource("six").stage do
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec)
     end
-  end
+    chdir "python" do
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(libexec),
+                        "--cpp_implementation"
+    end
 
-  def caveats; <<~EOS
-    Editor support and examples have been installed to:
-      #{doc}
-    EOS
+    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    site_packages = "lib/python#{version}/site-packages"
+    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+    (prefix/site_packages/"homebrew-protobuf.pth").write pth_contents
   end
 
   test do
@@ -127,7 +80,6 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-    system "python", "-c", "import google.protobuf" if build.with? "python"
-    system "python3", "-c", "import google.protobuf" if build.with? "python3"
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import google.protobuf"
   end
 end

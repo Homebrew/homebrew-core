@@ -1,15 +1,20 @@
 class Lzip < Formula
   desc "LZMA-based compression program similar to gzip or bzip2"
-  homepage "http://www.nongnu.org/lzip/lzip.html"
-  url "https://download.savannah.gnu.org/releases/lzip/lzip-1.19.tar.gz"
-  sha256 "ffadc4f56be1bc0d3ae155ec4527bd003133bdc703a753b2cc683f610e646ba9"
+  homepage "https://www.nongnu.org/lzip/"
+  url "https://download-mirror.savannah.gnu.org/releases/lzip/lzip-1.22.tar.gz"
+  sha256 "c3342d42e67139c165b8b128d033b5c96893a13ac5f25933190315214e87a948"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/lzip/"
+    regex(/href=.*?lzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7139dcfd0b8611bbc6c6e855cc678883dc0340214a4af84d55bba27f2b54461c" => :high_sierra
-    sha256 "0a6d59b6f75c039ad566dbda99ab47f929f5087f0b551c2930dab208b67ec9d0" => :sierra
-    sha256 "46fe2fe457326ea5f5bff7252b1e73642e3a516ee3f97e343cd03a253372047c" => :el_capitan
-    sha256 "9daceb61b21e2e493683348ebd0f3770a4085c8d75c2d2f7b6bb8ae455087383" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "78014ac2f6011ba98beeabd7aa79e37b6ee78a5e9c72b7bf7594005bfcc7f082"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dd3e7b00a64e6de1f1cbb0446c2a3c0dac5033dd9b2de5f52fe56d7375c0d339"
+    sha256 cellar: :any_skip_relocation, catalina:      "91a7214e357c949e0a06736e6a73eb667c0c487efaeebeb4df6fae99ee660575"
+    sha256 cellar: :any_skip_relocation, mojave:        "7c4d9d33bda8dd4043a48903d9348e683c1c64c1b0ab39b1680fcaadb952896f"
   end
 
   def install
@@ -28,7 +33,7 @@ class Lzip < Formula
 
     # compress: data.txt -> data.txt.lz
     system "#{bin}/lzip", path
-    assert !path.exist?
+    refute_predicate path, :exist?
 
     # decompress: data.txt.lz -> data.txt
     system "#{bin}/lzip", "-d", "#{path}.lz"

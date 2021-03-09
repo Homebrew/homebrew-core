@@ -1,39 +1,24 @@
 class YamlCpp < Formula
   desc "C++ YAML parser and emitter for YAML 1.2 spec"
   homepage "https://github.com/jbeder/yaml-cpp"
-  url "https://github.com/jbeder/yaml-cpp/archive/release-0.5.3.tar.gz"
-  sha256 "3492d9c1f4319dfd5588f60caed7cec3f030f7984386c11ed4b39f8e3316d763"
+  url "https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.3.tar.gz"
+  sha256 "77ea1b90b3718aa0c324207cb29418f5bced2354c2e483a9523d98c3460af1ed"
+  license "MIT"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "f4e9ed4651906c28464baf45d3a460502a24b42add49b35e969141818348680c" => :high_sierra
-    sha256 "fe1fca40afa3817fd44b1f3c4810dce9f4d20390522526e72d775b9336fc3c3a" => :sierra
-    sha256 "20b38c2f7c47550b458cb5b6f054795d90f4955d2525656e6d713cdbe7d451b1" => :el_capitan
-    sha256 "e0a51ff0b33568695412fe43cdc51b26642ae46dfb6dac56b813295057c91bb6" => :yosemite
-    sha256 "c779f86632b38472e022ad91f0f5ddb0f399fd547d36cbc5494a76c0f6becd48" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "3ef6d98fb044cfbb307037287e6c14914f28afc725c964998f894cd8b619ac15"
+    sha256 cellar: :any, big_sur:       "a4cd13489c2e397883162dad15f3a08adb434601ba2dd84d124c141f64f719fc"
+    sha256 cellar: :any, catalina:      "7cb356c020e5e1f2a32d5b2721516b9079cc4518556a0344fd498df6abe04731"
+    sha256 cellar: :any, mojave:        "ab76f2d444f7948c73f102588d079e4a3a0c758974f42cec1bffa31e80ca7bff"
+    sha256 cellar: :any, high_sierra:   "824351b703802346eeb47a3a0acdbf438327cc1cb77ef4a342493a938574c6d6"
   end
-
-  option :cxx11
-  option "with-static-lib", "Build a static library"
 
   depends_on "cmake" => :build
 
-  if build.cxx11? && MacOS.version < :mavericks
-    depends_on "boost" => "c++11"
-  else
-    depends_on "boost"
-  end
-
   def install
-    ENV.cxx11 if build.cxx11?
-    args = std_cmake_args
-    if build.with? "static-lib"
-      args << "-DBUILD_SHARED_LIBS=OFF"
-    else
-      args << "-DBUILD_SHARED_LIBS=ON"
-    end
-
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args, "-DYAML_BUILD_SHARED_LIBS=ON",
+                                          "-DYAML_CPP_BUILD_TESTS=OFF"
     system "make", "install"
   end
 
@@ -46,7 +31,7 @@ class YamlCpp < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lyaml-cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-lyaml-cpp", "-o", "test"
     system "./test"
   end
 end

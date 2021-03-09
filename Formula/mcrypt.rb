@@ -3,18 +3,22 @@ class Mcrypt < Formula
   homepage "https://mcrypt.sourceforge.io"
   url "https://downloads.sourceforge.net/project/mcrypt/MCrypt/2.6.8/mcrypt-2.6.8.tar.gz"
   sha256 "5145aa844e54cca89ddab6fb7dd9e5952811d8d787c4f4bf27eb261e6c182098"
+  license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 "892bc8fe3e910389a4499a3466e240740d9eba2eae92974cb0d8c7ba0182d635" => :high_sierra
-    sha256 "c2d358a3e8b7c547c2b136bcd8c7e53c095ca9902ccc81c7af56cc007bfd1202" => :sierra
-    sha256 "3cac7c430b1673877ba52bada82c3f710024dbd9f8dd0ff230c17c4623987beb" => :el_capitan
-    sha256 "d7b36cbc7affc0e1851861381e92677abce2b011f184ab39234ff6cfbf021413" => :yosemite
-    sha256 "6c060224061c43733929524f3e45010192d5fc4ece1972fbce7259f96f514fa2" => :mavericks
-    sha256 "b6dd5f1210d4b0fffa7b14e4fce445c11d6245840fd38f08255149b6e27832c2" => :mountain_lion
+    rebuild 4
+    sha256 cellar: :any, arm64_big_sur: "849ffa4e23dff9bff130c10d8ace02994034120b7d97ad36e9d7f6e8c048f97a"
+    sha256 cellar: :any, big_sur:       "e3182ac2f12baccfab81146bb4c6944b05154259a65165d694ca64e43d1f03f7"
+    sha256 cellar: :any, catalina:      "a52070083dfe080bbe0b8f71597a8a619c6b1421970c4670c6f40f5f2ba0fafe"
+    sha256 cellar: :any, mojave:        "6a23409a37396e2b2256485737a8195b06dcdea3607583e509f1d87d6a75faec"
   end
 
+  # Added automake as a build dependency to update config files in libmcrypt.
+  # Please remove in future if there is a patch upstream which recognises aarch64 macos.
+  depends_on "automake" => :build
   depends_on "mhash"
+
+  uses_from_macos "zlib"
 
   resource "libmcrypt" do
     url "https://downloads.sourceforge.net/project/mcrypt/Libmcrypt/2.5.8/libmcrypt-2.5.8.tar.gz"
@@ -26,7 +30,15 @@ class Mcrypt < Formula
   patch :DATA
 
   def install
+    # Work around configure issues with Xcode 12
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+
     resource("libmcrypt").stage do
+      # Workaround for ancient config files not recognising aarch64 macos.
+      %w[config.guess config.sub].each do |fn|
+        cp "#{Formula["automake"].opt_prefix}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}", fn
+      end
+
       system "./configure", "--prefix=#{prefix}",
                             "--mandir=#{man}"
       system "make", "install"

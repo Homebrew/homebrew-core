@@ -1,12 +1,12 @@
 class AnsibleCmdb < Formula
   desc "Generates static HTML overview page from Ansible facts"
   homepage "https://github.com/fboender/ansible-cmdb"
-  url "https://github.com/fboender/ansible-cmdb/releases/download/1.25/ansible-cmdb-1.25.zip"
-  sha256 "1a8e0c347f26c798ff361d8ce7d937d8739f327b71dff362aeee9775ba4235bc"
+  url "https://github.com/fboender/ansible-cmdb/releases/download/1.31/ansible-cmdb-1.31.tar.gz"
+  sha256 "ab1be4a85184647bcec08d4e65bda66c7d08c0f88c81eca4d0e44e02b768c2bb"
+  license "GPL-3.0-or-later"
 
   bottle :unneeded
 
-  depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
 
   def install

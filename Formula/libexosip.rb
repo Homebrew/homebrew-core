@@ -1,21 +1,29 @@
 class Libexosip < Formula
   desc "Toolkit for eXosip2"
-  homepage "https://www.antisip.com/category/osip-and-exosip-toolkit"
-  url "https://download.savannah.gnu.org/releases/exosip/libeXosip2-4.1.0.tar.gz"
-  sha256 "3c77713b783f239e3bdda0cc96816a544c41b2c96fa740a20ed322762752969d"
+  homepage "https://savannah.nongnu.org/projects/exosip"
+  url "https://download.savannah.gnu.org/releases/exosip/libexosip2-5.2.0.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/exosip/libexosip2-5.2.0.tar.gz"
+  sha256 "e3ae88df8573c9e08dbc24fe6195a118845e845109a8e291c91ecd6a2a3b7225"
+  license "GPL-2.0"
   revision 1
 
+  livecheck do
+    url "https://download.savannah.gnu.org/releases/exosip/"
+    regex(/href=.*?libexosip2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    cellar :any
-    sha256 "fef377c553a324d70764bb94b4c94a789d6cf584ab69c592baa6c44abc082689" => :high_sierra
-    sha256 "bc49bf581921515eff4719d5e0f31c2bffb43137d06affdc6e73a947d80692e0" => :sierra
-    sha256 "4ba8b361d2fd38f861c66b470d05bbb21e80ac92236cb8ad9323f1dca6121e2d" => :el_capitan
-    sha256 "9fd63688f31b0561749756daa3f426abc58754dc5033f6068dc0d389bde043f3" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "2d7a2d6081ef96cf011734d020173e54614f464b54978efbbb3d3539628563ea"
+    sha256 cellar: :any, big_sur:       "4b78b4c818018765e0fce6f1efb03cba359e6b110a192e301800abc596f199d4"
+    sha256 cellar: :any, catalina:      "a2f29649ea868b8527b3fe161a6135154952cf8fdef0f48facab4916ae60d0b1"
+    sha256 cellar: :any, mojave:        "de249e456a3a8e4b5e15dc31028c833913255e75f544aa036434185d4e765444"
+    sha256 cellar: :any, high_sierra:   "c5b5afc052fbf378ef0f350eea8b45e507e1307e3969e9960985946301bb2d9b"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "c-ares"
   depends_on "libosip"
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     # Extra linker flags are needed to build this on macOS. See:
@@ -26,5 +34,37 @@ class Libexosip < Formula
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <netinet/in.h>
+      #include <eXosip2/eXosip.h>
+
+      int main() {
+          struct eXosip_t *ctx;
+          int i;
+          int port = 35060;
+
+          ctx = eXosip_malloc();
+          if (ctx == NULL)
+              return -1;
+
+          i = eXosip_init(ctx);
+          if (i != 0)
+              return -1;
+
+          i = eXosip_listen_addr(ctx, IPPROTO_UDP, NULL, port, AF_INET, 0);
+          if (i != 0) {
+              eXosip_quit(ctx);
+              fprintf(stderr, "could not initialize transport layer\\n");
+              return -1;
+          }
+
+          return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-leXosip2", "-o", "test"
+    system "./test"
   end
 end

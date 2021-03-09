@@ -2,15 +2,18 @@ require "language/node"
 
 class Bit < Formula
   desc "Distributed Code Component Manager"
-  homepage "https://www.bitsrc.io"
-  url "https://registry.npmjs.org/bit-bin/-/bit-bin-0.11.1.tgz"
-  sha256 "e2ebcd5357a44aac1a1443f37b8ee0a67e352c12599cce7cbc9bcc787fe8f17e"
+  homepage "https://bit.dev"
+  url "https://registry.npmjs.org/bit-bin/-/bit-bin-14.8.8.tgz"
+  sha256 "25d899bacd06d77fad41026a9b19cbe94c8fb986f5fe59ead7ccec9f60fd0ef9"
+  license "Apache-2.0"
   head "https://github.com/teambit/bit.git"
 
   bottle do
-    sha256 "47b8807d3c63b9f37bf0f850e488a130da6b422bad91d2374ca2fdcf21bf7c68" => :high_sierra
-    sha256 "3c60d4a06d976ebe3938a7af44cca27e2f5ffba0b7fa216ab11deeaf0511a3d4" => :sierra
-    sha256 "265ea487213a47abdc8a22241112161c482d3c041928ab1454186514dfc41d95" => :el_capitan
+    sha256 arm64_big_sur: "616bf52a2d9e825320d9aab1af3603ee79e43f6d1455abd09576691049b70f0e"
+    sha256 big_sur:       "9d6e88c37d303bd76cc3bc62691dade7ce1343995163c2849061a88e91ab5ef1"
+    sha256 catalina:      "bc1b85c6100f4c5166eda34de5a92b66d73f45336536ed08921926dbb90ef6d8"
+    sha256 mojave:        "c9fe18470becb44f6580e36bd3e9bc52219a1d4f111d271382942304c435cd86"
+    sha256 high_sierra:   "2e2f871d7759adb7d2772a8ec319c3762c3e54e58625172f4ad44132cbdf3b2b"
   end
 
   depends_on "node"
@@ -21,7 +24,10 @@ class Bit < Formula
   end
 
   test do
-    assert_equal "successfully initialized an empty bit scope.\n",
-                 shell_output("#{bin}/bit init --skip-update")
+    (testpath/"Library/Caches/Bit/config/config.json").write <<~EOS
+      { "analytics_reporting": false, "error_reporting": false }
+    EOS
+    output = shell_output("#{bin}/bit init --skip-update")
+    assert_match "successfully initialized", output
   end
 end

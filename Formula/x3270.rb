@@ -1,33 +1,32 @@
 class X3270 < Formula
   desc "IBM 3270 terminal emulator for the X Window System and Windows"
   homepage "http://x3270.bgp.nu/"
-  url "https://downloads.sourceforge.net/project/x3270/x3270/3.5ga9/suite3270-3.5ga9-src.tgz"
-  sha256 "654756cc1204fd69a861d416d350a0ab3c9cea317173a80b06aca0402a517d3e"
+  url "http://x3270.bgp.nu/download/04.00/suite3270-4.0ga14-src.tgz"
+  sha256 "9796f2b47ed222776d4fe2756a0db3617f84dbbf02d0a9374c36a13b1b416375"
+  license "BSD-3-Clause"
 
-  bottle do
-    rebuild 1
-    sha256 "fcb185056300588a933723599dd3142f20829eee764b5c61264451cacfa04586" => :high_sierra
-    sha256 "a02bd6ef6daa2fc941c2db69ae51dd5849593df4186b8a8fd0de58527faedcdd" => :sierra
-    sha256 "ebd2763771ac4dd5e0675bd70d7877d258f09775721f6c2dfbec6beb07280bb5" => :el_capitan
-    sha256 "345e32a6ff0343ff370d7562138da8a3dba3a248e601a5a23ca6a1c7588f76b8" => :yosemite
+  livecheck do
+    url "http://x3270.bgp.nu/download.html"
+    regex(/href=.*?suite3270[._-]v?(\d+(?:\.\d+)+(?:ga\d+)?)(?:-src)?\.t/i)
   end
 
-  option "with-x11", "Include x3270 (X11-based version)"
-  option "without-c3270", "Exclude c3270 (curses-based version)"
-  option "without-s3270", "Exclude s3270 (displayless version)"
-  option "without-tcl3270", "Exclude tcl3270 (integrated with Tcl)"
-  option "without-pr3287", "Exclude pr3287 (printer emulation)"
+  bottle do
+    sha256 arm64_big_sur: "bf8dcba7b17bb1ebc1fdf8987badc037236e2f83c20a5621c914295355e0f545"
+    sha256 big_sur:       "0fb9e40a2f6d56e3f166d7cee9ef8eae4166e3e038c19b114ff840e33a3aad3e"
+    sha256 catalina:      "1e8f59bedd3fbda46cab9db08944ab21b3549f9ca9002423590015da3cf75ce6"
+    sha256 mojave:        "50108883c53cb6ef78dd63372952451db9d182d4409e340a31146397fbacaf93"
+  end
 
-  depends_on :x11 => :optional
-  depends_on "openssl"
+  depends_on "readline"
 
   def install
-    args = ["--prefix=#{prefix}"]
-    args << "--enable-x3270" if build.with? "x11"
-    args << "--enable-c3270" if build.with? "c3270"
-    args << "--enable-s3270" if build.with? "s3270"
-    args << "--enable-tcl3270" if build.with? "tcl3270"
-    args << "--enable-pr3287" if build.with? "pr3287"
+    args = %W[
+      --prefix=#{prefix}
+      --enable-c3270
+      --enable-pr3287
+      --enable-s3270
+      --enable-tcl3270
+    ]
 
     system "./configure", *args
     system "make", "install"

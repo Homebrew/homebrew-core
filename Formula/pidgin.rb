@@ -1,37 +1,34 @@
 class Pidgin < Formula
   desc "Multi-protocol chat client"
   homepage "https://pidgin.im/"
-  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.12.0/pidgin-2.12.0.tar.bz2"
-  sha256 "8c3d3536d6d3c971bd433ff9946678af70a0f6aa4e6969cc2a83bb357015b7f8"
+  url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.1/pidgin-2.14.1.tar.bz2"
+  sha256 "f132e18d551117d9e46acce29ba4f40892a86746c366999166a3862b51060780"
+  license "GPL-2.0-or-later"
+  revision 1
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/pidgin[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    sha256 "28a67f741d2aad6bbccef3759328dbda71f916584cbc25661195e3c96ed3dcc5" => :high_sierra
-    sha256 "b6e4a15391f21644ec05dd182e7c5b54c6f0befd554e28e13e35bfcb87806e9c" => :sierra
-    sha256 "879278d3b019f915f5618cff2f6428d7efe05b2a668ade0694c2e64861ec4bdc" => :el_capitan
-    sha256 "5b47e2398c38fb3fbf5e5340584b16bdf8f87f6ef300799cf8cde821417dd8a9" => :yosemite
+    sha256 arm64_big_sur: "d8ecf79354ce2ec2c060b58305743452f40e148a72ba5d72612b0f018ab00144"
+    sha256 big_sur:       "ffbc6daf100dda1b80d898692dd77dbde42fe5223e74316252bed2173197f2ed"
+    sha256 catalina:      "c5dc52dceddf5a7084b84b3c9515a0d08149f934420a08b12bc7f89ed4b7afe0"
+    sha256 mojave:        "14c679b8cca37387b9ca473d09b24fa89b61986bef017f94733a58a4fd97d069"
   end
 
-  option "with-perl", "Build Pidgin with Perl support"
-  option "without-gui", "Build only Finch, the command-line client"
-
-  deprecated_option "perl" => "with-perl"
-  deprecated_option "without-GUI" => "without-gui"
-
-  depends_on "pkg-config" => :build
   depends_on "intltool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "cairo"
   depends_on "gettext"
-  depends_on "gsasl" => :optional
   depends_on "gnutls"
+  depends_on "gtk+"
   depends_on "libgcrypt"
+  depends_on "libgnt"
   depends_on "libidn"
-  depends_on "glib"
-
-  if build.with? "gui"
-    depends_on "gtk+"
-    depends_on "cairo"
-    depends_on "pango"
-    depends_on "libotr"
-  end
+  depends_on "libotr"
+  depends_on "pango"
 
   # Finch has an equal port called purple-otr but it is a NIGHTMARE to compile
   # If you want to fix this and create a PR on Homebrew please do so.
@@ -46,39 +43,47 @@ class Pidgin < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
       --disable-avahi
-      --disable-doxygen
-      --enable-gnutls=yes
       --disable-dbus
+      --disable-doxygen
       --disable-gevolution
       --disable-gstreamer
       --disable-gstreamer-interfaces
       --disable-gtkspell
       --disable-meanwhile
       --disable-vv
+      --enable-gnutls=yes
+      --with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework
+      --with-tkconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework
       --without-x
     ]
 
-    args << "--disable-perl" if build.without? "perl"
-    args << "--enable-cyrus-sasl" if build.with? "gsasl"
+    ENV["ac_cv_func_perl_run"] = "yes" if MacOS.version == :high_sierra
 
-    args << "--with-tclconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-    args << "--with-tkconfig=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework"
-    args << "--disable-gtkui" if build.without? "gui"
+    # patch pidgin to read plugins and allow them to live in separate formulae which can
+    # all install their symlinks into these directories. See:
+    #   https://github.com/Homebrew/homebrew-core/pull/53557
+    inreplace "finch/finch.c", "LIBDIR", "\"#{HOMEBREW_PREFIX}/lib/finch\""
+    inreplace "libpurple/plugin.c", "LIBDIR", "\"#{HOMEBREW_PREFIX}/lib/purple-2\""
+    inreplace "pidgin/gtkmain.c", "LIBDIR", "\"#{HOMEBREW_PREFIX}/lib/pidgin\""
+    inreplace "pidgin/gtkutils.c", "DATADIR", "\"#{HOMEBREW_PREFIX}/share\""
 
     system "./configure", *args
     system "make", "install"
 
-    if build.with? "gui"
-      resource("pidgin-otr").stage do
-        ENV.prepend "CFLAGS", "-I#{Formula["libotr"].opt_include}"
-        ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
-        system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
-        system "make", "install"
-      end
+    resource("pidgin-otr").stage do
+      ENV.prepend "CFLAGS", "-I#{Formula["libotr"].opt_include}"
+      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
+      system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
+      system "make", "install"
     end
   end
 
   test do
     system "#{bin}/finch", "--version"
+    system "#{bin}/pidgin", "--version"
+
+    pid = fork { exec "#{bin}/pidgin", "--config=#{testpath}" }
+    sleep 5
+    Process.kill "SIGTERM", pid
   end
 end

@@ -3,27 +3,21 @@ class Getxbook < Formula
   homepage "https://njw.name/getxbook"
   url "https://njw.name/getxbook/getxbook-1.2.tar.xz"
   sha256 "7a4b1636ecb6dace814b818d9ff6a68167799b81ac6fc4dca1485efd48cf1c46"
+  revision 1
 
   bottle do
-    cellar :any
-    sha256 "fe6eb0a45995aafd518535671a6c7e17e3a8611e2c5444d0a420045d23e8006b" => :high_sierra
-    sha256 "16cdf74891b198e58f17345425ad29bc678c0164acb223872a618f0929a934f0" => :sierra
-    sha256 "36c96e48b025d7b483dab3d9bc7283d677885e1db23ad5c3c8947e49c34ccdb5" => :el_capitan
-    sha256 "b0b609d26eb1faeba89e929f6f6099297d14957d22653720adb61fbed9e492da" => :yosemite
-    sha256 "00f0f25a3d3440b0c7f98b2881c0750c9e568cfa685de2f89dbc43f58e667fce" => :mavericks
-    sha256 "74b03216052c58cfe830e69c169342ae6eba9fb24a92b25f3fa3794a015564d2" => :mountain_lion
+    sha256 cellar: :any, arm64_big_sur: "dc9c26a35297ffa8f3b40051b6293104dfb3bc03cb2ceccf56d77e0b8e5d7b6f"
+    sha256 cellar: :any, big_sur:       "86d7a091869ff032ca24ddd7979ed545ca17775ad5c99fac92c706857c31eeb0"
+    sha256 cellar: :any, catalina:      "a99745b1db4509b84e84c0306bdf4439086670e608e7ff7e4d89e5318547391b"
+    sha256 cellar: :any, mojave:        "68f7f76c607807315d1e8305830eaa94d04e1c87f1ea1382fb00bd7ec74f2886"
+    sha256 cellar: :any, high_sierra:   "dce13d6e7d9f5f0eb79064858dca9dc3d62b274ba1f07b2ceaca3bf06e4effed"
+    sha256 cellar: :any, sierra:        "d4b7500ecfbcf0b0d4ff905b01589a546aa53da5c1c465878305c8b6ee2c363c"
   end
 
-  option "with-gui", "Build the GUI"
-
-  depends_on "openssl"
-  depends_on "tcl-tk" if build.with? "gui"
+  depends_on "openssl@1.1"
 
   def install
-    args = %W[CC=#{ENV.cc} PREFIX=#{prefix}]
-    args << "install" if build.with?("gui")
-
-    system "make", *args
+    system "make", "CC=#{ENV.cc}", "PREFIX=#{prefix}"
     bin.install "getgbook", "getabook", "getbnbook"
   end
 

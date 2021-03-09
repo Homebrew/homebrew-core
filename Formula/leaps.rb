@@ -1,48 +1,38 @@
 class Leaps < Formula
   desc "Collaborative web-based text editing service written in Golang"
   homepage "https://github.com/jeffail/leaps"
-  url "https://github.com/Jeffail/leaps.git",
-      :tag => "v0.8.0",
-      :revision => "31af03df6678b72dd46b31ea53a1825b38b15ab6"
+  url "https://github.com/Jeffail/leaps/archive/v0.9.1.tar.gz"
+  sha256 "8335e2a939ac5928a05f71df4014529b5b0f2097152017d691a0fb6d5ae27be4"
+  license "MIT"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "09cc7b0c3ade3e507c8da0a343b38dda55d33ef1f1abfaee715e00e40049c71a" => :high_sierra
-    sha256 "b1e55d4d73f30e55412ce05d3159b913e69e8e3ff47a9bb1cc6c97e6344cbed8" => :sierra
-    sha256 "2c3b8c7583ffe70cfc9ce051c365accf8d9796ea248411258cb72ecce1d3dda4" => :el_capitan
-    sha256 "67bb53709d2de532f4b6701261e9e5f65b6ea33ad302684c6ca8db0eed8c55b9" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2602cc2c500cc446b5ceb72ffbb6dab1d339ffda72b5be20c73e33a432378e3e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8ed65478fa14879ff6c24e7e6710d09a8143fe33aad4f8f353bb4ab91e393824"
+    sha256 cellar: :any_skip_relocation, catalina:      "3b5cbe1f1da86d1cf1a3603fd6b0697a8fbe3bdffe6083dfc5b16c60cb5c3798"
+    sha256 cellar: :any_skip_relocation, mojave:        "1f777329b3f9c45a8d94ad10af2183067ca6d28c8f5db48d6c26d33e7d381961"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOBIN"] = bin
-    ENV["GOPATH"] = buildpath
-    ENV["GOHOME"] = buildpath
-
-    mkdir_p buildpath/"src/github.com/jeffail/"
-    ln_sf buildpath, buildpath/"src/github.com/jeffail/leaps"
-
-    system "go", "build", "-o", "#{bin}/leaps", "github.com/jeffail/leaps/cmd/leaps"
+    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/leaps"
   end
 
   test do
-    begin
-      port = ":8080"
+    port = ":#{free_port}"
 
-      # Start the server in a fork
-      leaps_pid = fork do
-        exec "#{bin}/leaps", "-address", port
-      end
-
-      # Give the server some time to start serving
-      sleep(1)
-
-      # Check that the server is responding correctly
-      assert_match "You are alone", shell_output("curl -o- http://localhost#{port}")
-    ensure
-      # Stop the server gracefully
-      Process.kill("HUP", leaps_pid)
+    # Start the server in a fork
+    leaps_pid = fork do
+      exec "#{bin}/leaps", "-address", port
     end
+
+    # Give the server some time to start serving
+    sleep(1)
+
+    # Check that the server is responding correctly
+    assert_match "You are alone", shell_output("curl -o- http://localhost#{port}")
+  ensure
+    # Stop the server gracefully
+    Process.kill("HUP", leaps_pid)
   end
 end

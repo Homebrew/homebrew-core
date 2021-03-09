@@ -1,36 +1,23 @@
 class Subnetcalc < Formula
   desc "IPv4/IPv6 subnet calculator"
   homepage "https://www.uni-due.de/~be0001/subnetcalc/"
-  url "https://www.uni-due.de/~be0001/subnetcalc/download/subnetcalc-2.4.8.tar.gz"
-  sha256 "bb99c5e20e1f1861913d0747e32fcd9f174f674a723b5c255f44b7b43754ae09"
+  url "https://www.uni-due.de/~be0001/subnetcalc/download/subnetcalc-2.4.18.tar.xz"
+  sha256 "71c0ad72eb31dde3cdcfb76f9fe752eb2d137a49d5d49ee8e2ee80bbeac42c67"
+  license "GPL-3.0-or-later"
+  head "https://github.com/dreibh/subnetcalc.git"
 
   bottle do
-    cellar :any
-    sha256 "c730ad755d22afd5e2fd2017910c4d69d693813fb632d761ea52992847b47f88" => :high_sierra
-    sha256 "29f37e42624b4fb437bf7795c0341f3b1b2e31dcf025b796b6a198532c21ba4b" => :sierra
-    sha256 "5d90401c8ef320206a3479945b536c0dace81e1c18bfcd3ce67d418fea059b55" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "71be3468fb96a18bdc21468d75473e8b2058a96c17aa2fdfd9a094e0a3d11bd7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bc64b5a8c222bb22e5f3319835b3128fcfc61d3fde5e192b8171b0c212233e10"
+    sha256 cellar: :any_skip_relocation, catalina:      "7af71ce1b492802a1fc88484d6ae8eb95c924dc4363f354dad1693984d60ddd2"
+    sha256 cellar: :any_skip_relocation, mojave:        "f136d2f2959574e52b0431b4c4fe8ebe88724a52911fea8ffe103b915012ed71"
   end
 
-  head do
-    url "https://github.com/dreibh/subnetcalc.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
-
-  depends_on "geoip" => :recommended
+  depends_on "cmake" => :build
+  depends_on "geoip"
 
   def install
-    args = ["--disable-dependency-tracking",
-            "--disable-silent-rules",
-            "--prefix=#{prefix}"]
-    args << "--with-geoip=no" if build.without? "geoip"
-
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 

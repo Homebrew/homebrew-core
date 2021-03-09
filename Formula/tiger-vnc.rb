@@ -1,39 +1,52 @@
 class TigerVnc < Formula
   desc "High-performance, platform-neutral implementation of VNC"
-  homepage "http://tigervnc.org/"
-  url "https://github.com/TigerVNC/tigervnc/archive/v1.8.0.tar.gz"
-  sha256 "9951dab0e10f8de03996ec94bec0d938da9f36d48dca8c954e8bbc95c16338f8"
+  homepage "https://tigervnc.org/"
+  url "https://github.com/TigerVNC/tigervnc/archive/v1.11.0.tar.gz"
+  sha256 "3648eca472a92a4e8fe55b27cd397b1bf16bad0b24a3a1988661f44553f5e2c3"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 "c7213004df95a5a8faf38d036bd631a59c6dd9227565fee7485624dfc16c62bc" => :high_sierra
-    sha256 "427af0dff8bae2e2720f0c6dea41d54de8eb8e5549ae77faab3110a9366858a5" => :sierra
-    sha256 "aba36a55571b32322bcd94cffce43eb5760bd54fa2000d68c3b968c2d9f0f161" => :el_capitan
-    sha256 "b7def4172a88768e2e84df9931138e13401a81913a644f25a72ab43f7ba1f6ae" => :yosemite
+    sha256 arm64_big_sur: "d4e19469518f0167a6abf40625c3c21df88bff1b2ca19bb6feac1c4a5a077cd2"
+    sha256 big_sur:       "ae46d4c867f0f761368e22c80daa9e0805c15f7fc5855bf32d37575c36168367"
+    sha256 catalina:      "b9a09483c45610c81dd29fc20a41b4fa8120e1353f736bb637732d4788e4bb28"
+    sha256 mojave:        "c90bdf1ac012129c5d4caecd3e5acf2d110ca8cd68a8bcff6de07373149424db"
+    sha256 high_sierra:   "2370d829c67ca1df886e47aca162c68034e138a10a93b846c31f1c927d84c435"
   end
 
   depends_on "cmake" => :build
-  depends_on "gnutls" => :recommended
-  depends_on "jpeg-turbo"
-  depends_on "gettext"
   depends_on "fltk"
-  depends_on :x11
+  depends_on "gettext"
+  depends_on "gnutls"
+  depends_on "jpeg-turbo"
+  depends_on "pixman"
 
-  # Remove for > 1.8.0
-  # Fix "redefinition of 'kVK_RightCommand' as different kind of symbol"
-  # Upstream commit from 24 May 2017 "Compatibility with macOS 10.12 SDK"
-  patch do
-    url "https://github.com/TigerVNC/tigervnc/commit/2b0a0ef0.patch?full_index=1"
-    sha256 "ddf74e2ccf57ff20e595f272ac41498c2f698003a619f365670871d00797db2b"
+  on_linux do
+    depends_on "libx11"
+    depends_on "libxcursor"
+    depends_on "libxdamage"
+    depends_on "libxext"
+    depends_on "libxfixes"
+    depends_on "libxft"
+    depends_on "libxi"
+    depends_on "libxinerama"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxtst"
   end
 
   def install
     turbo = Formula["jpeg-turbo"]
     args = std_cmake_args + %W[
       -DJPEG_INCLUDE_DIR=#{turbo.include}
-      -DJPEG_LIBRARY=#{turbo.lib}/libjpeg.dylib
+      -DJPEG_LIBRARY=#{turbo.lib}/#{shared_library("libjpeg")}
       .
     ]
     system "cmake", *args
     system "make", "install"
+  end
+
+  test do
+    output = shell_output("#{bin}/vncviewer -h 2>&1", 1)
+    assert_match "TigerVNC Viewer 64-bit v#{version}", output
   end
 end

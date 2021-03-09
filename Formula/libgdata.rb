@@ -1,35 +1,42 @@
 class Libgdata < Formula
   desc "GLib-based library for accessing online service APIs"
   homepage "https://wiki.gnome.org/Projects/libgdata"
-  url "https://download.gnome.org/sources/libgdata/0.16/libgdata-0.16.1.tar.xz"
-  sha256 "8740e071ecb2ae0d2a4b9f180d2ae5fdf9dc4c41e7ff9dc7e057f62442800827"
+  url "https://download.gnome.org/sources/libgdata/0.18/libgdata-0.18.1.tar.xz"
+  sha256 "dd8592eeb6512ad0a8cf5c8be8c72e76f74bfe6b23e4dd93f0756ee0716804c7"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 "58c86c6a2a745ef88e8c00026bbd0c715aa5f54006db8e5f4d23bd722b82b848" => :high_sierra
-    sha256 "8f708e61856122562afc224ec5c23f3bb204acc4002f5108f98ea7e76b5f55cb" => :sierra
-    sha256 "2f13d11ca0a27ef52ebcf12c2aff52c921d1105b7b53fd0277a351479c9a7c43" => :el_capitan
-    sha256 "d436dd7128819045779bbbf6f957922ec011940b60982fee9dc394700bffe21d" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "f890b86a1e19fe8c0135094bc869356a6dc6279d84e6267742d2f817994c9708"
+    sha256 cellar: :any, big_sur:       "6afaf2089a648f7c81ceff2e491ab3c059fbe751a521f2756a124f3b64135d18"
+    sha256 cellar: :any, catalina:      "5b6500481c8f15817ecf307b1ab9886fb0caffcd133445ec0cdd06c6bcc605e2"
+    sha256 cellar: :any, mojave:        "0ab77d93d64a4257bd46de5d29543057d050a14aa4bc603ffa79c5e9f99695a4"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
-  depends_on "libsoup"
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
+  depends_on "vala" => :build
+  depends_on "gtk+3"
   depends_on "json-glib"
   depends_on "liboauth"
-  depends_on "gobject-introspection"
-  depends_on "vala" => :optional
-
-  # submitted upstream as https://bugzilla.gnome.org/show_bug.cgi?id=754821
-  patch :DATA
+  depends_on "libsoup"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--disable-gnome",
-                          "--disable-tests"
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args,
+        "-Dintrospection=true",
+        "-Doauth1=enabled",
+        "-Dalways_build_tests=false",
+        "-Dvapi=true",
+        "-Dgtk=enabled",
+        "-Dgoa=disabled",
+        "-Dgnome=disabled",
+        ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
@@ -55,6 +62,7 @@ class Libgdata < Formula
       -I#{json_glib.opt_include}/json-glib-1.0
       -I#{liboauth.opt_include}
       -I#{libsoup.opt_include}/libsoup-2.4
+      -I#{MacOS.sdk_path}/usr/include/libxml2
       -D_REENTRANT
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
@@ -70,37 +78,7 @@ class Libgdata < Formula
       -lsoup-2.4
       -lxml2
     ]
-    if MacOS::CLT.installed?
-      flags << "-I/usr/include/libxml2"
-    else
-      flags << "-I#{MacOS.sdk_path}/usr/include/libxml2"
-    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
 end
-
-__END__
-diff --git a/gdata/gdata.symbols b/gdata/gdata.symbols
-index bba24ec..c80a642 100644
---- a/gdata/gdata.symbols
-+++ b/gdata/gdata.symbols
-@@ -966,9 +966,6 @@ gdata_documents_entry_get_quota_used
- gdata_documents_service_copy_document
- gdata_documents_service_copy_document_async
- gdata_documents_service_copy_document_finish
--gdata_goa_authorizer_get_type
--gdata_goa_authorizer_new
--gdata_goa_authorizer_get_goa_object
- gdata_documents_document_get_thumbnail_uri
- gdata_tasks_task_get_type
- gdata_tasks_task_new
-@@ -1089,8 +1086,6 @@ gdata_freebase_topic_value_is_image
- gdata_freebase_topic_result_get_type
- gdata_freebase_topic_result_new
- gdata_freebase_topic_result_dup_object
--gdata_freebase_result_error_get_type
--gdata_freebase_result_error_quark
- gdata_freebase_result_get_type
- gdata_freebase_result_new
- gdata_freebase_result_dup_variant

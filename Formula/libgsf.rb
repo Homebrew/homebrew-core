@@ -1,13 +1,16 @@
 class Libgsf < Formula
   desc "I/O abstraction library for dealing with structured file formats"
   homepage "https://developer.gnome.org/gsf/"
-  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.42.tar.xz"
-  sha256 "29fffb87b278b3fb1b8ae9138c3b4529c1fce664f1f94297c146a8563df80dc2"
+  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.47.tar.xz"
+  sha256 "d188ebd3787b5375a8fd38ee6f761a2007de5e98fa0cf5623f271daa67ba774d"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "991c1058133dd8551cf35408dac2d17d6dbc5ef0fd9a10cca9b2c80d8600f372" => :high_sierra
-    sha256 "192a8330ea0791eb95de79815207c40ab54b60a40fa287f376e286c9d4043661" => :sierra
-    sha256 "e9af6f98bb9a0cfe498bcc72897b04eae6da11b3163caee9111e0a5b8cfcda36" => :el_capitan
+    sha256 arm64_big_sur: "3262a07b0905e7ad4b2fe7558f5fddbe40d4a57e5749312520b171d9b83ad71e"
+    sha256 big_sur:       "190c702ad48598787b9fc72a019cd8f2701d1ae28ed41e3c111acd19b223d139"
+    sha256 catalina:      "82a2fce8b091d204302919c7541a0ad21a28a24fe8ad8a5d4ae7f50f3f190349"
+    sha256 mojave:        "a051f21e80044277fafb60264c915cb79ce5f64059e9737f7a15795bc79ad3c8"
+    sha256 high_sierra:   "c2cb9985014c2c727abe935f113ab827e5a7af1e4376c27261897381fc87a2ba"
   end
 
   head do
@@ -22,7 +25,8 @@ class Libgsf < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "gdk-pixbuf" => :optional
+
+  uses_from_macos "libxml2"
 
   def install
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]

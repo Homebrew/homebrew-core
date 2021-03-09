@@ -3,17 +3,25 @@ class RofsFiltered < Formula
   homepage "https://github.com/gburca/rofs-filtered/"
   url "https://github.com/gburca/rofs-filtered/archive/rel-1.7.tar.gz"
   sha256 "d66066dfd0274a2fb7b71dd929445377dd23100b9fa43e3888dbe3fc7e8228e8"
+  license "GPL-2.0"
 
   bottle do
-    sha256 "2662076d6c938fd260ee304e80999db5e22a1c516fdc5139c7e477892a5cc927" => :high_sierra
-    sha256 "c6f0661d382c415db63caf4512b18b526e5e75c25a5fa54de792d4365db4dfa1" => :sierra
-    sha256 "5c29bf0f477b23c3e3291549cffe632d3222899a34483cd8c23fe25f4d9b30ca" => :el_capitan
-    sha256 "194e5e00804165b7df68037bce7d6bd6b3f64a244b1f48c04b16e346bd70832c" => :yosemite
+    rebuild 1
+    sha256 cellar: :any, catalina:    "250c65163e46fc9eaaab11b27562c70775f2481cfe9f649ab151f8da3616ff08"
+    sha256 cellar: :any, mojave:      "6f220b4a193928a97dc8442cadf6d161224a1ddac098d496c8cf9a20fb7cd02a"
+    sha256 cellar: :any, high_sierra: "74277c4f4cc2c60534cda38627450176f356da5bb7120334fd667eaa261fea7b"
   end
 
   depends_on "cmake" => :build
-  depends_on :osxfuse
-  depends_on :macos => :yosemite
+
+  on_macos do
+    deprecate! date: "2020-11-10", because: "requires FUSE"
+    depends_on :osxfuse
+  end
+
+  on_linux do
+    depends_on "libfuse"
+  end
 
   def install
     mkdir "build" do

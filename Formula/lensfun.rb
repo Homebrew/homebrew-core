@@ -1,29 +1,33 @@
 class Lensfun < Formula
+  include Language::Python::Shebang
+
   desc "Remove defects from digital images"
-  homepage "https://lensfun.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/lensfun/0.3.2/lensfun-0.3.2.tar.gz"
-  sha256 "ae8bcad46614ca47f5bda65b00af4a257a9564a61725df9c74cb260da544d331"
-  revision 1
-  head "https://git.code.sf.net/p/lensfun/code.git"
+  homepage "https://lensfun.github.io/"
+  url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
+  sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
+  revision 3
 
   bottle do
-    sha256 "3a86b93b575783fdda2025b224d6d6a540760884f02d3491b1a4912fdb0aa823" => :high_sierra
-    sha256 "3dcab083540a31a7aa28f78dfe1bcd18b29a03510b56ca4a9ffeae0963e2169b" => :sierra
-    sha256 "2a6a0361c020ad9be4a827b5529d43bd80a814552f6d5943a54525e41f46c7c2" => :el_capitan
-    sha256 "d61e3c9409a3145b5a0ea98af8453462c2f69d24b4753f429d1dcdff719e9e92" => :yosemite
+    sha256 arm64_big_sur: "d88e64dba59fb70ca04c45029ba2908d9d731dd94b835cbf88f488dd66c8c96c"
+    sha256 big_sur:       "10c8d68811e3d286d340b8cdea0fff28380d719402f25e85ddc280e9d0a4b1fd"
+    sha256 catalina:      "1e83aa5f7ebcb3d3952a384244adfacbf82b2954637cd3df02337f52de1d7b67"
+    sha256 mojave:        "d0d64a98f863a5001667095eba97f55500a87610e00955c0edb95f70300e21c1"
+    sha256 high_sierra:   "0050ca39268f8201a1c28169da62380385ba5e77954142404465e6b3cba909d7"
   end
 
-  depends_on :python3
-  depends_on "pkg-config" => :build
   depends_on "cmake" => :build
-  depends_on "glib"
+  depends_on "pkg-config" => :build
   depends_on "gettext"
+  depends_on "glib"
   depends_on "libpng"
-  depends_on "doxygen" => :optional
+  depends_on "python@3.9"
 
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
+
+    rewrite_shebang detected_python_shebang,
+      bin/"lensfun-add-adapter", bin/"lensfun-convert-lcp", bin/"lensfun-update-data"
   end
 
   test do

@@ -1,35 +1,24 @@
 class BpmTools < Formula
   desc "Detect tempo of audio files using beats-per-minute (BPM)"
-  homepage "http://www.pogo.org.uk/~mark/bpm-tools/"
-  url "http://www.pogo.org.uk/~mark/bpm-tools/releases/bpm-tools-0.3.tar.gz"
+  homepage "https://www.pogo.org.uk/~mark/bpm-tools/"
+  url "https://www.pogo.org.uk/~mark/bpm-tools/releases/bpm-tools-0.3.tar.gz"
   sha256 "37efe81ef594e9df17763e0a6fc29617769df12dfab6358f5e910d88f4723b94"
-  head "http://www.pogo.org.uk/~mark/bpm-tools.git"
+  license "GPL-2.0"
+  head "https://www.pogo.org.uk/~mark/bpm-tools.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "4c9ca860e2541613e5c87cfc02906a9675e5f26318fb7c8ceb0cd12e3d3e781f" => :high_sierra
-    sha256 "de818373ff7067c15db709ba64f11df8bacaf02935754859ff6c14ba4defcde9" => :sierra
-    sha256 "0348970a3f89990ed97a15e10dff48f07b853d01d32a640a98e6c835d78f09d7" => :el_capitan
-    sha256 "d6bcb8fe9273b0640c2272bd9f4255797eec40a7369362600a62473c3cfd1c27" => :yosemite
-    sha256 "702aa6266adb11c4aada4711f32a45e93cd2bff67e62c9d420ecd748d7d80ead" => :mavericks
-  end
-
-  option "with-bpm-graph", "Install plot generation script"
-  option "with-bpm-tag", "Install audio file tagging script"
-
-  depends_on "gnuplot" if build.with? "bpm-graph"
-
-  if build.with? "bpm-tag"
-    depends_on "sox"
-    depends_on "id3v2"
-    depends_on "flac"
-    depends_on "vorbis-tools"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "19d555332dffb4fbcc6a80f15c3aa7692594b5c75fb3e01a9da6f0878fc5a98b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6ad965195d96e6d9f1b01732b1314af6211b101a6113aab02c9fbf799f3ded1d"
+    sha256 cellar: :any_skip_relocation, catalina:      "694afec7c21549badc5c2bf55ac3f3da588370affbaa78f1087e3bb204137f61"
+    sha256 cellar: :any_skip_relocation, mojave:        "56e3a889338b82d5b477c1564506e23549d9651b08260d9c9a38b5e6bd1555ab"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "422342ce8dd8a50853e8289ccc936747f4a77a20803850e6481498cf8c4a12c5"
+    sha256 cellar: :any_skip_relocation, sierra:        "f1219d522f61e89606f3e607a636e406faf5f954846b48965e37cc25dbb29b87"
   end
 
   def install
     system "make"
     bin.install "bpm"
-    bin.install "bpm-graph" if build.with? "bpm-graph"
-    bin.install "bpm-tag" if build.with? "bpm-tag"
+    bin.install "bpm-tag"
   end
 end

@@ -1,21 +1,27 @@
 class Libshout < Formula
   desc "Data and connectivity library for the icecast server"
-  homepage "http://www.icecast.org/"
-  url "https://downloads.xiph.org/releases/libshout/libshout-2.4.1.tar.gz"
-  sha256 "f3acb8dec26f2dbf6df778888e0e429a4ce9378a9d461b02a7ccbf2991bbf24d"
+  homepage "https://icecast.org/"
+  url "https://downloads.xiph.org/releases/libshout/libshout-2.4.5.tar.gz"
+  sha256 "d9e568668a673994ebe3f1eb5f2bee06e3236a5db92b8d0c487e1c0f886a6890"
+  license "LGPL-2.0-or-later"
+
+  livecheck do
+    url "https://ftp.osuosl.org/pub/xiph/releases/libshout/"
+    regex(/href=.*?libshout[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "31b3490184bacfbacc6a537385f7ebc421ae750cd2e466f00d53dc9f78ebf948" => :high_sierra
-    sha256 "a13a78cf64be826de47b9bc0430ead7ac900fa513be146ad408370d412ce3bce" => :sierra
-    sha256 "691763e02e7e63b03d2d530447798351ab92d705fb1fd68cc90f9a5ccd131d53" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "f1490d2569813b44c082e8e040d0fa89dfbc01e7b85b73a52c37a26415cfc794"
+    sha256 cellar: :any, big_sur:       "2af4498af2e733f0362fc204309d0d1aba893e8ebc66c8c65882c9a73f829d3a"
+    sha256 cellar: :any, catalina:      "a791567ecf1d73d8f04d643d9698201348c671a118a78f8689b2b558dc10a026"
+    sha256 cellar: :any, mojave:        "dc69a84a8e5089f8e8af3e567db1cad3eb0b126ca800c83e371097fa78c1dcdf"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "theora"
   depends_on "speex"
+  depends_on "theora"
 
   def install
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

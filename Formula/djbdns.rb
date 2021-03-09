@@ -5,11 +5,14 @@ class Djbdns < Formula
   sha256 "3ccd826a02f3cde39be088e1fc6aed9fd57756b8f970de5dc99fcd2d92536b48"
 
   bottle do
-    rebuild 1
-    sha256 "e8bea4161d14a3b2d0b26bbf7d28cbcfe8ce7fd1192622310f1af94f0b94130a" => :sierra
-    sha256 "5b35c66da0a07837375fe7c580674f842aad4ef91a4a0cc43bf10abca58a7ea4" => :el_capitan
-    sha256 "6a1fda941f1a1bc403157b9e9a0610bcc1a8b3b73b5ef92c1d4bab39cc11619d" => :yosemite
-    sha256 "5d42a7eb3f0e33ba6de7022957b3fcbe23d8e81dc623dfd3c67c9b33bd236932" => :mavericks
+    rebuild 3
+    sha256 arm64_big_sur: "62ab5e22e0c15787a98c84f23905dd569067cd4376dc8c472509ac5ee5d24955"
+    sha256 big_sur:       "1231622a14007c9ec76ef137a5e1a42a30ce4192b0fbba0cf768f981090059ce"
+    sha256 catalina:      "5b473b664d7370f2e838bd496555841e20a8ef13aaeee6b312fc6501911b7fe0"
+    sha256 mojave:        "b57557c57ac07e053f78b2e73aed4cc9ec72a0c89d68e4ca8bc1dd3b2b9cddba"
+    sha256 high_sierra:   "f6555710c361d47fabfeeb6d8148b84c3a7e973ba4407def4f0a37e327ac3a5b"
+    sha256 sierra:        "ce72334aa541af3a486f90e32b2162ba8b5c86825f0a52f1b6de9cb33640eeff"
+    sha256 el_capitan:    "9bbf4356e0bb4e25827fdf02d4efa0fc3763600456ad76e63f662dae6e1fb4ce"
   end
 
   depends_on "daemontools"
@@ -24,10 +27,10 @@ class Djbdns < Formula
     (buildpath/"conf-home").write prefix
     (buildpath/"conf-ld").write "gcc"
 
-    if MacOS::CLT.installed?
-      (buildpath/"conf-cc").write "gcc -O2 -include /usr/include/errno.h"
-    else
+    if MacOS.sdk_path_if_needed
       (buildpath/"conf-cc").write "gcc -O2 -include #{MacOS.sdk_path}/usr/include/errno.h"
+    else
+      (buildpath/"conf-cc").write "gcc -O2 -include /usr/include/errno.h"
     end
 
     bin.mkpath
@@ -36,6 +39,7 @@ class Djbdns < Formula
   end
 
   test do
-    assert_match /localhost/, shell_output("#{bin}/dnsname 127.0.0.1")
+    # Use example.com instead of localhost, because localhost does not resolve in all cases
+    assert_match(/\d+\.\d+\.\d+\.\d+/, shell_output("#{bin}/dnsip example.com").chomp)
   end
 end

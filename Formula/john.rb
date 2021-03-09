@@ -1,63 +1,60 @@
 class John < Formula
   desc "Featureful UNIX password cracker"
-  homepage "http://www.openwall.com/john/"
-  url "http://www.openwall.com/john/j/john-1.8.0.tar.xz"
-  sha256 "952cf68369fb5b27f2d112ce7ca1eb16b975c85cbce8c658abb8bc5a20e1b266"
+  homepage "https://www.openwall.com/john/"
+  url "https://www.openwall.com/john/k/john-1.9.0.tar.xz"
+  sha256 "0b266adcfef8c11eed690187e71494baea539efbd632fe221181063ba09508df"
+  revision 1
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "92504df8f94b8f7c8c9bd47ce8ef7c489ac78c62cf7b6e9797f1086d0a4b6f60" => :high_sierra
-    sha256 "2574e6b0ae4e5906b1cb546b23dc74b06c0c3494d477b8ce0c1d743d1515bfee" => :sierra
-    sha256 "729c644b587941668f0412de6a1d7aafc078b375f96421b278daecba51469ed8" => :el_capitan
-    sha256 "1576ba09d791c923265c5668aa0a0d5e7d806848d45e06210c0e3a5449bf1403" => :yosemite
-    sha256 "394909ad355846b561077f89a216fc87902d116dfcb970b92ff7f563a3d5ce3e" => :mavericks
+  livecheck do
+    url :homepage
+    regex(/href=.*?john[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  conflicts_with "john-jumbo", :because => "both install the same binaries"
+  bottle do
+    sha256 arm64_big_sur: "f1f00939ed4d4fcabc3b210e44187c526dca2be9f7ee9b565ea6140eb193b14f"
+    sha256 big_sur:       "30a16098075a63a195abd36e2c55c83e5d0bce98476230436bc7a4590b6a523b"
+    sha256 catalina:      "bc61b94c66cd5e711cfb069f2f7dc8f448d717cd1179cbe2fed954f0786a0023"
+    sha256 mojave:        "6bc29b809b272d370240703ab20715a7e57c651cdcf27b918a49cc9232c386eb"
+    sha256 high_sierra:   "96fad56c615dad3f07b2c4babf9e03a0dce6533e3e4cc11e7c37e99ef9379253"
+  end
 
-  patch :DATA # Taken from MacPorts, tells john where to find runtime files
+  conflicts_with "john-jumbo", because: "both install the same binaries"
+
+  # Backport of official patch from jumbo fork (https://www.openwall.com/lists/john-users/2016/01/04/1)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/cd039571f9a3e9ecabbe68bdfb443e3abaae6270/john/1.9.0.patch"
+    sha256 "3137169c7f3c25bf58a4f4db46ddf250e49737fc2816a72264dfe87a7f89b6a1"
+  end
 
   def install
+    inreplace "src/params.h" do |s|
+      s.gsub!(/#define JOHN_SYSTEMWIDE[[:space:]]*0/, "#define JOHN_SYSTEMWIDE 1")
+      s.gsub!(/#define JOHN_SYSTEMWIDE_EXEC.*/, "#define JOHN_SYSTEMWIDE_EXEC \"#{pkgshare}\"")
+      s.gsub!(/#define JOHN_SYSTEMWIDE_HOME.*/, "#define JOHN_SYSTEMWIDE_HOME \"#{pkgshare}\"")
+    end
+
     ENV.deparallelize
-    arch = MacOS.prefer_64_bit? ? "64" : "sse2"
-    target = "macosx-x86-#{arch}"
+
+    target = "macosx-x86-64"
+    on_linux do
+      target = "linux-x86-64"
+    end
 
     system "make", "-C", "src", "clean", "CC=#{ENV.cc}", target
 
-    # Remove the README symlink and install the real file
-    rm "README"
     prefix.install "doc/README"
     doc.install Dir["doc/*"]
+    %w[john unafs unique unshadow].each do |b|
+      bin.install "run/#{b}"
+    end
+    pkgshare.install Dir["run/*"]
+  end
 
-    # Only symlink the binary into bin
-    libexec.install Dir["run/*"]
-    bin.install_symlink libexec/"john"
-
-    # Source code defaults to 'john.ini', so rename
-    mv libexec/"john.conf", libexec/"john.ini"
+  test do
+    (testpath/"passwd").write <<~EOS
+      root:$1$brew$dOoH2.7QsPufgT8T.pihw/:0:0:System Administrator:/var/root:/bin/sh
+    EOS
+    system "john", "--wordlist=#{pkgshare}/password.lst", "passwd"
+    assert_match(/snoopy/, shell_output("john --show passwd"))
   end
 end
-
-
-__END__
---- a/src/params.h	2012-08-30 13:24:18.000000000 -0500
-+++ b/src/params.h	2012-08-30 13:25:13.000000000 -0500
-@@ -70,15 +70,15 @@
-  * notes above.
-  */
- #ifndef JOHN_SYSTEMWIDE
--#define JOHN_SYSTEMWIDE			0
-+#define JOHN_SYSTEMWIDE			1
- #endif
- 
- #if JOHN_SYSTEMWIDE
- #ifndef JOHN_SYSTEMWIDE_EXEC /* please refer to the notes above */
--#define JOHN_SYSTEMWIDE_EXEC		"/usr/libexec/john"
-+#define JOHN_SYSTEMWIDE_EXEC		"HOMEBREW_PREFIX/share/john"
- #endif
- #ifndef JOHN_SYSTEMWIDE_HOME
--#define JOHN_SYSTEMWIDE_HOME		"/usr/share/john"
-+#define JOHN_SYSTEMWIDE_HOME		"HOMEBREW_PREFIX/share/john"
- #endif
- #define JOHN_PRIVATE_HOME		"~/.john"
- #endif

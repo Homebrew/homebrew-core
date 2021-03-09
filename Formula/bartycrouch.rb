@@ -1,26 +1,22 @@
 class Bartycrouch < Formula
-  desc "Incrementally update your Strings files"
+  desc "Incrementally update/translate your Strings files"
   homepage "https://github.com/Flinesoft/BartyCrouch"
-  url "https://github.com/Flinesoft/BartyCrouch/archive/3.9.0.tar.gz"
-  sha256 "8dd474d6b559bcb6e3d207a4acb278f59f23bdc62968aef1310bc7d767c789bc"
+  url "https://github.com/Flinesoft/BartyCrouch.git",
+      tag:      "4.5.0",
+      revision: "34ca469548e5ed8c39ddc394683b5cfcd510d866"
+  license "MIT"
+  head "https://github.com/Flinesoft/BartyCrouch.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "ce64430d86c94e00f952b9e16eab5b47062641402d5c9eac8cae6aba94228a35" => :high_sierra
-    sha256 "8902cfb8b3ef9fd43662c44f4fbc1d761afeaf502878c9a7677987dae291042c" => :sierra
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "32a73b5f6efe8401e1aade10a2ac16b0d1116ab9b3c7e2fcc4cadb9dee26cc64"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5b64f40f1dc594b244c0a68eec60332f0bb10b59218a7086832cf8264f958f8c"
+    sha256 cellar: :any_skip_relocation, catalina:      "68b7b0654ff7e0d4d46713d245e180dd547559b8e6065ad0ce2bd0687d8fe4ee"
   end
 
-  depends_on :xcode => ["9.0", :build]
+  depends_on xcode: ["12.0", :build]
 
   def install
-    xcodebuild "-project", "BartyCrouch.xcodeproj",
-               "-scheme", "BartyCrouch CLI",
-               "SYMROOT=build",
-               "DSTROOT=#{prefix}",
-               "INSTALL_PATH=/bin",
-               "-verbose",
-               "install"
+    system "make", "install", "prefix=#{prefix}"
   end
 
   test do
@@ -39,8 +35,8 @@ class Bartycrouch < Formula
       "oldKey" = "Some translation";
     EOS
 
-    system bin/"bartycrouch", "code", "-p", testpath, "-l", testpath, "-a"
-    assert_match /"oldKey" = "/, File.read("en.lproj/Localizable.strings")
-    assert_match /"test" = "/, File.read("en.lproj/Localizable.strings")
+    system bin/"bartycrouch", "update"
+    assert_match '"oldKey" = "', File.read("en.lproj/Localizable.strings")
+    assert_match '"test" = "', File.read("en.lproj/Localizable.strings")
   end
 end

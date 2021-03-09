@@ -3,17 +3,16 @@ class Wemux < Formula
   homepage "https://github.com/zolrath/wemux"
   url "https://github.com/zolrath/wemux/archive/v3.2.0.tar.gz"
   sha256 "8de6607df116b86e2efddfe3740fc5eef002674e551668e5dde23e21b469b06c"
-
+  license "MIT"
   head "https://github.com/zolrath/wemux.git"
 
   bottle do
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "f8831b9e8be8db403ab615f14f82d0547d6816a5dfffdb78cc97b7bc93b3626f" => :high_sierra
-    sha256 "8f4b4487c79752dd628e4dcbadf862520da5a6d4be677114528425b65e5f130c" => :sierra
-    sha256 "882a3d58408b8a3f1d8d8701f23d96e2b73ea2a4cfe3ae60d6c9fa10d62a0681" => :el_capitan
-    sha256 "413d8099b66ae483fdedfecc79bcff2116d9ea579a23c5c4d3b4c24ec68db6cb" => :yosemite
-    sha256 "37be489fca544a7add785cfa20c419e3a313c2a8b3e1ba8ee611c1f7a1677467" => :mavericks
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "57909369808e5a5b85c118d3cbab8a5ad2ef9c5139102ee3bf934a53e0467b09"
+    sha256 cellar: :any_skip_relocation, big_sur:       "977fdbcc9dcbb4a9d6149d043cd1ac3e5887421e76eee644d1e3703be1e111cb"
+    sha256 cellar: :any_skip_relocation, catalina:      "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
+    sha256 cellar: :any_skip_relocation, mojave:        "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "5fb4eaf177d1766716003032bfc632d02ebed302c57e00dc752ed3de4b9cf1f6"
   end
 
   depends_on "tmux"
@@ -27,15 +26,16 @@ class Wemux < Formula
     etc.install "wemux.conf.example" => "wemux.conf"
   end
 
-  def caveats; <<~EOS
-    Your current user account has been automatically added as a wemux host.
+  def caveats
+    <<~EOS
+      Your current user account has been automatically added as a wemux host.
 
-    To give a user the ability to host wemux sessions add them to the
-    host_list array in:
-      #{etc}/wemux.conf
+      To give a user the ability to host wemux sessions add them to the
+      host_list array in:
+        #{etc}/wemux.conf
 
-    Either edit the file in your text editor of choice or run `wemux conf` to
-    open the file in your $EDITOR.
+      Either edit the file in your text editor of choice or run `wemux conf` to
+      open the file in your $EDITOR.
     EOS
   end
 

@@ -1,17 +1,20 @@
 class Icon < Formula
   desc "General-purpose programming language"
   homepage "https://www.cs.arizona.edu/icon/"
-  url "https://www.cs.arizona.edu/icon/ftp/packages/unix/icon-v951src.tgz"
-  version "9.5.1"
-  sha256 "062a680862b1c10c21789c0c7c7687c970a720186918d5ed1f7aad9fdc6fa9b9"
+  url "https://github.com/gtownsend/icon/archive/v9.5.20i.tar.gz"
+  version "9.5.20i"
+  sha256 "3ebfcc89f3f3f7acc5afe61402f6b3b168b8cd83f79021c98bbd791e92c4cbe8"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+[a-z]?)$/i)
+  end
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7c2d0794956448b8bebf166c97a65aa23fde0847eeb7c6c9f8197eff2835ffb5" => :high_sierra
-    sha256 "13d3963ef90d3f94f13a97e922185ea640233aee356e3bf8c2a0336de278482c" => :sierra
-    sha256 "5218afb915b7892d4c242c659218735293136c3b100f54aa7199bcc716915939" => :el_capitan
-    sha256 "44450b176b56db833a91ca6ae681e3876b2864a094b254340bcb5cd136957f17" => :yosemite
-    sha256 "ca5ba233b4713e54680525ffd3ee7554988aa48f6a959f78b53c24e58d8c1c59" => :mavericks
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1d414ead849c9d0c8f20fdbba672c2ffc0cc32d3522cb8bf3aa0dc20324ac875"
+    sha256 cellar: :any_skip_relocation, big_sur:       "14023318a41cfb25dc16580def3078398493ed67a6c17bcf4fef748ef8bf2779"
+    sha256 cellar: :any_skip_relocation, catalina:      "fc52931ec8205d4bce4a9d7b2d8d8a12bcca9c55ac3e0fa8a1c1e5550f193ccc"
+    sha256 cellar: :any_skip_relocation, mojave:        "7375228280ad4b34aa3e703da54e6af031c78c644636f1e1e45f0b776b4f5b18"
   end
 
   def install
@@ -24,6 +27,8 @@ class Icon < Formula
   end
 
   test do
-    assert_equal "Hello, World!", shell_output("#{bin}/icon -P 'procedure main(); writes(\"Hello, World!\"); end'")
+    args = "'procedure main(); writes(\"Hello, World!\"); end'"
+    output = shell_output("#{bin}/icon -P #{args}")
+    assert_equal "Hello, World!", output
   end
 end

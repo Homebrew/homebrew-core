@@ -1,19 +1,23 @@
 class Unshield < Formula
   desc "Extract files from InstallShield cabinet files"
   homepage "https://github.com/twogood/unshield"
-  url "https://github.com/twogood/unshield/archive/1.4.2.tar.gz"
-  sha256 "5dd4ea0c7e97ad8e3677ff3a254b116df08a5d041c2df8859aad5c4f88d1f774"
+  url "https://github.com/twogood/unshield/archive/1.4.3.tar.gz"
+  sha256 "aa8c978dc0eb1158d266eaddcd1852d6d71620ddfc82807fe4bf2e19022b7bab"
+  license "MIT"
+  revision 1
   head "https://github.com/twogood/unshield.git"
 
   bottle do
-    sha256 "e7352ba9971014d7320e63942231f97443f2b0895742ca9ede3aca2972b9b66a" => :high_sierra
-    sha256 "ce0d7256b7fa9194c736f958b84121c5303246721f4d66c13dce9b103de14424" => :sierra
-    sha256 "0c4970e41a434a33d58395acfdfbadf1269c50fe0c4a986dcf72882200145a72" => :el_capitan
-    sha256 "435e0ded27f6febb443d73c238b3f1b198c7881fed943b3b5505cb7c24e40fcc" => :yosemite
+    sha256 arm64_big_sur: "d12579d6ed702bf8d4b9a37f45b6d9c527c88e60d648d935d93c969d0b6b78df"
+    sha256 big_sur:       "fe9c9710de87f7734c84e3454ba88a2c35b859fb8b8dfae56968c3c0bb4e76fc"
+    sha256 catalina:      "d64e0c93743d7d50858bd5c46c76b8fa79183b5ee4643361202f53378a88cc05"
+    sha256 mojave:        "ec5db176e7f9557645cfdb63062802d37a8e516f39f1e53037e37ed398992b3b"
+    sha256 high_sierra:   "c68a5391b55e5101979c69d174160564d88edc7263afa140fd69ce289c6662ed"
+    sha256 sierra:        "96cc0aa68d191d1bc98d09a48abaa44b58b4e979bfcec3b2abc384c30d56684d"
   end
 
   depends_on "cmake" => :build
-  depends_on "openssl"
+  depends_on "openssl@1.1"
 
   def install
     system "cmake", ".", *std_cmake_args

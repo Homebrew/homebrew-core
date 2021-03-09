@@ -3,29 +3,29 @@ class Cpansearch < Formula
   homepage "https://github.com/c9s/cpansearch"
   url "https://github.com/c9s/cpansearch/archive/0.2.tar.gz"
   sha256 "09e631f361766fcacd608a0f5b3effe7b66b3a9e0970a458d418d58b8f3f2a74"
-
+  revision 1
   head "https://github.com/c9s/cpansearch.git"
 
   bottle do
-    cellar :any
-    sha256 "2e48150a0d449239bd223050d2bc3a9695c461543dc6e53d606292c8797afb1a" => :high_sierra
-    sha256 "7806b7b02a7bd6e578a7cbfc41935e854ec91c1174722bcbcd45f2716be31174" => :sierra
-    sha256 "f68927e2f114cb09d4c5f7057097f4685139dc16a58306b572b011dc11e5b27e" => :el_capitan
-    sha256 "554213c4d54b3bebfabf4eb10d274a9f86ba6271607b464a74541593cf52b8ac" => :yosemite
-    sha256 "02c985ade39c5df0aa2885022d8a1c56238975a147bda39adb0394c8acbde27a" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "37c73b9a5acde5677d8cb3d423c671eba4f0fae0e01fd057789c20184b033a54"
+    sha256 cellar: :any, big_sur:       "5cf4f854e56de6fb4d1b992f8c3ba9004dac26aa676007841042e8a30e0539c3"
+    sha256 cellar: :any, catalina:      "f5ad7240f2e1d3004c9b80d232192bbc50dcf777bdfe92fa73172e93476f5ef2"
+    sha256 cellar: :any, mojave:        "5d583c37a54d9d6f96c625faf75b40c53a2ae59b8c9960f51a6f9bc215fa5bae"
+    sha256 cellar: :any, high_sierra:   "e8197124d1341e8e5d8348cd322eac2bfa782d885c808b5322a340eb7b91ba8b"
+    sha256 cellar: :any, sierra:        "6b4545b0455642a3b4f3c92ef480e704742cd06fd6ff64d24f9a5edbb3bc33a7"
   end
 
   depends_on "pkg-config" => :build
   depends_on "glib"
+  depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
 
   def install
     system "make"
     bin.install "cpans"
   end
 
-  def caveats; <<~EOS
-    For usage instructions:
-        more #{opt_prefix}/README.md
-    EOS
+  test do
+    output = shell_output("#{bin}/cpans --fetch https://cpan.metacpan.org/")
+    assert_match "packages recorded", output
   end
 end

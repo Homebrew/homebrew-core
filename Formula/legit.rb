@@ -2,29 +2,31 @@ class Legit < Formula
   include Language::Python::Virtualenv
 
   desc "Command-line interface for Git, optimized for workflow simplicity"
-  homepage "https://www.git-legit.org/"
-  url "https://files.pythonhosted.org/packages/01/92/d7f9a6ccba82e996eb2cb23f33ebb0adf1ca1692b098f338cc0014f18a3b/legit-0.4.1.tar.gz"
-  sha256 "642377c8a6577841d6218d52ce4f2487ea9e0495397a794ae6073d8695dbf833"
-  head "https://github.com/kennethreitz/legit.git", :branch => "develop"
+  homepage "https://frostming.github.io/legit/"
+  url "https://files.pythonhosted.org/packages/cb/e4/8cc5904c486241bf2edc4dd84f357fa96686dc85f48eedb835af65f821bf/legit-1.2.0.post0.tar.gz"
+  sha256 "949396b68029a8af405ab20c901902341ef6bd55c7fec6dab71141d63d406b11"
+  license "BSD-3-Clause"
+  revision 1
+  head "https://github.com/frostming/legit.git", branch: "master"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "2baf449c242c99d28e5fa8e6a90173f1f3a69cc297b152bf58178ae16f5b8b69" => :high_sierra
-    sha256 "77aac4ae3731d10e702c15727b15228b6ceeaa64ae05fb9f0fc1710f18a078c8" => :sierra
-    sha256 "b2b6b76b06f58b127397b8ff8c027459f428bea3e8caa7bd9186296d3202a4d8" => :el_capitan
-    sha256 "d2c5bbb490afaadeb40712cc34abad894510b8ffdf56d40ab3af2676e919480b" => :yosemite
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b991a34a3b1731bcd71a09aecf6b974b0b2fcb3a8fd42c3d34e7b553f840b640"
+    sha256 cellar: :any_skip_relocation, big_sur:       "73161b2eb5a55db6d984dbf1b1aae96072419b500672bf6d58c0352e840cbc73"
+    sha256 cellar: :any_skip_relocation, catalina:      "3564e73b3de899626951b43275564ad6435816d0ad540c3f6c7941c89f6c6b60"
+    sha256 cellar: :any_skip_relocation, mojave:        "175045954b783f943c2e8b27d5df01d0a8bf21034439f7f9abd99cc8ced744e3"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "b4a46a53103b33f06eefdee01e64f87839b28c41288f96388a7f5e311234115e"
   end
 
-  depends_on :python if MacOS.version <= :snow_leopard
-
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/bd/66/0a7f48a0f3fb1d3a4072bceb5bbd78b1a6de4d801fb7135578e7c7b1f563/appdirs-1.4.0.tar.gz"
-    sha256 "8fc245efb4387a4e3e0ac8ebcc704582df7d72ff6a42a53f5600bbb18fdaadc5"
-  end
+  depends_on "python@3.9"
 
   resource "args" do
     url "https://files.pythonhosted.org/packages/e5/1c/b701b3f4bd8d3667df8342f311b3efaeab86078a840fb826bd204118cc6b/args-0.1.0.tar.gz"
     sha256 "a785b8d837625e9b61c39108532d95b85274acd679693b71ebb5156848fcf814"
+  end
+
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/95/d9/c3336b6b5711c3ab9d1d3a80f1a3e2afeb9d8c02a7166462f6cc96570897/click-6.7.tar.gz"
+    sha256 "f15516df478d5a56180fbf80e68f206010e6d160fc39fa508b65e035fd75130b"
   end
 
   resource "clint" do
@@ -32,34 +34,34 @@ class Legit < Formula
     sha256 "05224c32b1075563d0b16d0015faaf9da43aa214e4a2140e51f08789e7a4c5aa"
   end
 
+  resource "colorama" do
+    url "https://files.pythonhosted.org/packages/76/53/e785891dce0e2f2b9f4b4ff5bc6062a53332ed28833c7afede841f46a5db/colorama-0.4.1.tar.gz"
+    sha256 "05eed71e2e327246ad6b38c540c4a3117230b19679b875190486ddd2d721422d"
+  end
+
+  resource "crayons" do
+    url "https://files.pythonhosted.org/packages/14/fa/635fdd47686a0f29692d927333fcf39e0279fc39c81704866c97adc34053/crayons-0.1.2.tar.gz"
+    sha256 "5e17691605e564d63482067eb6327d01a584bbaf870beffd4456a3391bd8809d"
+  end
+
   resource "gitdb2" do
-    url "https://files.pythonhosted.org/packages/5c/bb/ab74c6914e3b570ab2e960fda17a01aec93474426eecd3b34751ba1c3b38/gitdb2-2.0.0.tar.gz"
-    sha256 "b9f3209b401b8b4da5f94966c9c17650e66b7474ee5cd2dde5d983d1fba3ab66"
+    url "https://files.pythonhosted.org/packages/c5/62/ed7205331e8d7cc377e2512cb32f8f8f075c0defce767551d0a76e102ce2/gitdb2-2.0.6.tar.gz"
+    sha256 "1b6df1433567a51a4a9c1a5a0de977aa351a405cc56d7d35f3388bad1f630350"
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/21/13/8d0981cee1c5b9dd7fa9f836ed7c304891686f300572c03a49e52c07c04c/GitPython-2.1.1.tar.gz"
-    sha256 "e96f8e953cf9fee0a7599fc587667591328760b6341a0081ef311a942fc96204"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/c6/70/bb32913de251017e266c5114d0a645f262fb10ebc9bf6de894966d124e35/packaging-16.8.tar.gz"
-    sha256 "5d50835fdf0a7edf0b55e311b7c887786504efea1177abd7e69329a8e5ea619e"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/38/bb/bf325351dd8ab6eb3c3b7c07c3978f38b2103e2ab48d59726916907cd6fb/pyparsing-2.1.10.tar.gz"
-    sha256 "811c3e7b0031021137fc83e051795025fcb98674d07eb8fe922ba4de53d39188"
+    url "https://files.pythonhosted.org/packages/1c/08/a2b5ba4ad43c4c33066ced2c45958593ab2554bb0d09f7ecb9bf9092e5f6/GitPython-2.1.8.tar.gz"
+    sha256 "ad61bc25deadb535b047684d06f3654c001d9415e1971e51c9c20f5b510076e9"
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/b3/b2/238e2590826bfdd113244a40d9d3eb26918bd798fc187e2360a8367068db/six-1.10.0.tar.gz"
-    sha256 "105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a"
+    url "https://files.pythonhosted.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz"
+    sha256 "70e8a77beed4562e7f14fe23a786b54f6296e34344c23bc42f07b15018ff98e9"
   end
 
   resource "smmap2" do
-    url "https://files.pythonhosted.org/packages/83/ce/e5b3aee7ca420b0ab24d4fcc2aa577f7aa6ea7e9306fafceabee3e8e4703/smmap2-2.0.1.tar.gz"
-    sha256 "5c9fd3ac4a30b85d041a8bd3779e16aa704a161991e74b9a46692bc368e68752"
+    url "https://files.pythonhosted.org/packages/3b/ba/e49102b3e8ffff644edded25394b2d22ebe3e645f3f6a8139129c4842ffe/smmap2-2.0.5.tar.gz"
+    sha256 "29a9ffa0497e7f2be94ca0ed1ca1aa3cd4cf25a1f6b4f5f87f74b46ed91d609a"
   end
 
   def install
@@ -74,7 +76,7 @@ class Legit < Formula
       [user]
         name = Real Person
         email = notacat@hotmail.cat
-      EOS
+    EOS
     system "git", "init"
     (testpath/"foo").write("woof")
     system "git", "add", "foo"

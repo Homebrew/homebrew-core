@@ -1,28 +1,38 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/v3.7.0.tar.gz"
-  sha256 "01f0841e7387918c2b6d0b7fb48014bda41d1487be1cabf718a0576018969641"
+  url "https://github.com/VirusTotal/yara/archive/v4.0.5.tar.gz"
+  sha256 "ea7ebefad05831faf6f780cab721611b0135803f03a84c27eeba7bfe0afc3aae"
+  license "BSD-3-Clause"
   head "https://github.com/VirusTotal/yara.git"
 
   bottle do
-    cellar :any
-    sha256 "0abc89f9bcd944bf31c91d35c21b8990a06d681cdcdd486ca2cb0f25795c5b18" => :high_sierra
-    sha256 "3c41b0a4be9efba08f9df404f463bbcb80783be2aa156079ad9195ea9f1f31ec" => :sierra
-    sha256 "087b9a0a65193d84be380b3a336595812d6db0038e6717e11908a4fe83ef7e43" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "6fc466b7f2f9a8890aacc431425da5149800b1155496be6bea1a2c6022824ce2"
+    sha256 cellar: :any, big_sur:       "672fc888ff396770760d782cc687cecb2ef6b2f80fe83e7fd7c7288f83262c16"
+    sha256 cellar: :any, catalina:      "dbbb1b1104e8f122ce48cc863676af3570cb1abecfe0d857f7556acc2878e351"
+    sha256 cellar: :any, mojave:        "b200381f65c1775acef216f7a482abef959f7f182894bb71043f98bf0a017731"
   end
 
-  depends_on "libtool" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on :python if MacOS.version <= :snow_leopard
-  depends_on "openssl"
+  depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
+  depends_on "jansson"
+  depends_on "libmagic"
+  depends_on "openssl@1.1"
+  depends_on "protobuf-c"
 
   def install
     system "./bootstrap.sh"
     system "./configure", "--disable-silent-rules",
                           "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+                          "--prefix=#{prefix}",
+                          "--enable-dotnet",
+                          "--enable-cuckoo",
+                          "--enable-magic",
+                          "--enable-macho",
+                          "--enable-dex",
+                          "--with-crypto"
     system "make", "install"
   end
 

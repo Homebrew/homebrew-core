@@ -1,32 +1,33 @@
 class Multimarkdown < Formula
   desc "Turn marked-up plain text into well-formatted documents"
   homepage "https://fletcher.github.io/MultiMarkdown-6/"
-  url "https://github.com/fletcher/MultiMarkdown-6/archive/6.2.3.tar.gz"
-  sha256 "639c25ce0285f6e8ff119ef9c6416609a1f8ed0da7847e69245ec01d80262c4f"
+  url "https://github.com/fletcher/MultiMarkdown-6/archive/6.6.0.tar.gz"
+  sha256 "6496b43c933d2f93ff6be80f5029d37e9576a5d5eacb90900e6b28c90405037f"
+  license "MIT"
   head "https://github.com/fletcher/MultiMarkdown-6.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "35e966adf5a362b9c56968f716cfbffb85ae20aed2e9e42c9ad41b8677fdc841" => :high_sierra
-    sha256 "d9569efcba9b2038fb8ddac568b464cdc724ceeffa7f35855a34d1a1535b0aca" => :sierra
-    sha256 "c6087305b183bc7b29d8334b7e9df67be7078874f566c3748df79d10dbdd241f" => :el_capitan
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c377c5976fff15a469b330470febc8b7db8f695b597e588fd35e975fe17010a5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "15b87bf8b7be554761d0114af63d3789df6db6cb58616afc408f569ea8ac50d0"
+    sha256 cellar: :any_skip_relocation, catalina:      "f4a26eb7603d38d0f67db4edbde56334fce2024c1c78fd5f49a7b8b69ba48683"
+    sha256 cellar: :any_skip_relocation, mojave:        "f095caaf1f01dd0611afcdfc77252dc2f21a3d89f8e41210e4d00307b835eb2d"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "308d597802afebc412f38df92dda2b98cef91845bb0e9c8e27d1bd2d38ee9d56"
   end
 
   depends_on "cmake" => :build
 
-  conflicts_with "mtools", :because => "both install `mmd` binaries"
-  conflicts_with "markdown", :because => "both install `markdown` binaries"
-  conflicts_with "discount", :because => "both install `markdown` binaries"
+  conflicts_with "mtools", because: "both install `mmd` binaries"
+  conflicts_with "markdown", because: "both install `markdown` binaries"
+  conflicts_with "discount", because: "both install `markdown` binaries"
 
   def install
-    system "make", "release"
-
-    cd "build" do
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
       system "make"
       bin.install "multimarkdown"
     end
 
-    bin.install Dir["scripts/*"].reject { |f| f =~ /\.bat$/ }
+    bin.install Dir["scripts/*"].reject { |f| f.end_with?(".bat") }
   end
 
   test do

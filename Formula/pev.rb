@@ -1,19 +1,20 @@
 class Pev < Formula
   desc "PE analysis toolkit"
   homepage "https://pev.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/pev/pev-0.80/pev-0.80.tar.gz"
-  sha256 "f68c8596f16d221d9a742812f6f728bcc739be90957bc1b00fbaa5943ffc5cfa"
+  url "https://downloads.sourceforge.net/project/pev/pev-0.81/pev-0.81.tar.gz"
+  sha256 "921b2831ca956aedc272d8580b2ff1a2cb54fb895cabeb81c907fe62b6ac83fb"
+  license "GPL-2.0-or-later"
   head "https://github.com/merces/pev.git"
 
   bottle do
-    sha256 "9f7b8ec7a8796b91524d7fdb5e9913db5afdd220f1fadbbc5a2e32ab7a994e8c" => :high_sierra
-    sha256 "c995e2ccdc4fde4e2e1beaa3039421ef8e77cdbe0ec00f1af50d7ba551d2c695" => :sierra
-    sha256 "ec81bb70fec6dd27f249a575194c62db766b2e31349224d503ecb1cbf2603c37" => :el_capitan
-    sha256 "1013086fe324f7b6147181762541d89dcf4837bd29bd89756d7df23c26fad1f2" => :yosemite
+    sha256 arm64_big_sur: "9a6e1d64960daa44838f688dc596cb7ca02536521c7c39ee5349021870f41172"
+    sha256 big_sur:       "bd9160da3191fbdc8c251c6513ae6ca73a330575171e7742e2488f655999d864"
+    sha256 catalina:      "d1effa68a21b99e2ed18ad0b0ceb5b4732ec253a818d4d88204801b02bba43ed"
+    sha256 mojave:        "0ff3ab7fe514f498dd088d42fd60e63bbd5c7fb3d94222aac68c5a4302404f2f"
   end
 
+  depends_on "openssl@1.1"
   depends_on "pcre"
-  depends_on "openssl"
 
   def install
     ENV.deparallelize

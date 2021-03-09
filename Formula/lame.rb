@@ -1,21 +1,32 @@
 class Lame < Formula
   desc "High quality MPEG Audio Layer III (MP3) encoder"
   homepage "https://lame.sourceforge.io/"
-  url "https://downloads.sourceforge.net/sourceforge/lame/lame-3.99.5.tar.gz"
-  sha256 "24346b4158e4af3bd9f2e194bb23eb473c75fb7377011523353196b19b9a23ff"
+  url "https://downloads.sourceforge.net/project/lame/lame/3.100/lame-3.100.tar.gz"
+  sha256 "ddfe36cab873794038ae2c1210557ad34857a4b6bdc515785d1da9e175b1da1e"
+  license "LGPL-2.0-or-later"
 
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "7a83459b430c68aa7388b4b9b569e33bd8d8b8b14debb2b7aaed315b5ef21ff9" => :high_sierra
-    sha256 "687dd6b97e6c8d385b55eb4ace546b52bb584a7c56516f97a144ff99e29abdc3" => :sierra
-    sha256 "fc7884b76f15e5feebef087b4597e1f142b9aed83274e989c1ca959edb294454" => :el_capitan
-    sha256 "064e13206ca4f731d919f89adb480b4a83116a4374f5aa6d205528838364ca7b" => :yosemite
-    sha256 "43ee3550ab5ce2c5e9b4e8adfedc197b5ffbf252320d46de97cd6a7133ddd16f" => :mavericks
-    sha256 "db743baefa0ec1b0f8c00df4728536418916c4d42c71c548dc43d43a1b24b523" => :mountain_lion
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/lame[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "2ff2c6ad3cfd26e1ba53230631e2f04734a4638c344cce50ff0b8fc36b45c403"
+    sha256 cellar: :any, big_sur:       "6ceaf88479ce365df8c29140359984ad8debcc44898b99424b39d729e923279b"
+    sha256 cellar: :any, catalina:      "02b6a2cbf9b902225308bc90c8314699761cbdcd13628271579f5345d8160af2"
+    sha256 cellar: :any, mojave:        "737751faa513a68ac2499bb5cc607bc366e15dab8ff3bff5443567a455af5c3f"
+    sha256 cellar: :any, high_sierra:   "9e65c67b83efa5a686aea0506dc44935cd2af2d4fe55fe38dc19610a0ccd80dd"
+    sha256 cellar: :any, sierra:        "c2d7bce53be2efb5d19d99ea00fbe69613885cce46009e8ab6099f8d5925c3ba"
+    sha256 cellar: :any, el_capitan:    "73c4d677b4e5357dc5baf30c96ac5f33cf7902e9c77869834b7cd9d17f3415bc"
+  end
+
+  uses_from_macos "ncurses"
+
   def install
+    # Fix undefined symbol error _lame_init_old
+    # https://sourceforge.net/p/lame/mailman/message/36081038/
+    inreplace "include/libmp3lame.sym", "lame_init_old\n", ""
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug",
                           "--prefix=#{prefix}",

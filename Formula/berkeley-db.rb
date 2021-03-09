@@ -1,26 +1,35 @@
 class BerkeleyDb < Formula
   desc "High performance key/value database"
-  homepage "https://www.oracle.com/technology/products/berkeley-db/index.html"
-  url "http://download.oracle.com/berkeley-db/db-6.2.32.tar.gz"
-  sha256 "a9c5e2b004a5777aa03510cfe5cd766a4a3b777713406b02809c17c8e0e7a8fb"
+  homepage "https://www.oracle.com/database/technologies/related/berkeleydb.html"
+  # Requires registration to download so we mirror it
+  url "https://dl.bintray.com/homebrew/mirror/berkeley-db-18.1.40.tar.gz"
+  mirror "https://fossies.org/linux/misc/db-18.1.40.tar.gz"
+  sha256 "0cecb2ef0c67b166de93732769abdeba0555086d51de1090df325e18ee8da9c8"
+  license "AGPL-3.0-only"
 
-  bottle do
-    cellar :any
-    sha256 "ee2f38644137df02f3ebd9fa689a09f1e12c2a21dab38a03f77e2c213a6135ef" => :high_sierra
-    sha256 "eb54f8ab1d0149e073f641ad066e6ffb179afdee83cd3211e90eeaaaa4a7bc9a" => :sierra
-    sha256 "c084857cfdd9bbc5eec028cc551d2323c050489e8a963ec40076270db8d14fb3" => :el_capitan
-    sha256 "1ed9a471cd8a38b58053a86e37b4ec83c09944781158fa20e2ba300f3b374f4f" => :yosemite
+  livecheck do
+    url "https://www.oracle.com/database/technologies/related/berkeleydb-downloads.html"
+    regex(%r{href=.*?/berkeley-db/db[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  depends_on :java => [:optional, :build]
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "fb300ebe3dcc5b308c6fbc383856545a6b35e883889c95f0bfeee40d6d07b02d"
+    sha256 cellar: :any, big_sur:       "dc8c2c76f315ea02737e9277f74cc9f8faba1733c10c20e2ef62d50b4abce4b7"
+    sha256 cellar: :any, catalina:      "f4d82916099a1023af6a72675dce0a445000efd2286866d1f36bf0b1063b24aa"
+    sha256 cellar: :any, mojave:        "ef85a6b6fb93f8dcee4144acf22665a331c5b2398822a5f183aed0fb863718f5"
+  end
+
+  depends_on "openssl@1.1"
 
   def install
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
+
     # --enable-compat185 is necessary because our build shadows
     # the system berkeley db 1.x
     args = %W[
       --disable-debug
+      --disable-static
       --prefix=#{prefix}
       --mandir=#{man}
       --enable-cxx
@@ -30,16 +39,14 @@ class BerkeleyDb < Formula
       --enable-dbm
       --enable-stl
     ]
-    args << "--enable-java" if build.with? "java"
 
     # BerkeleyDB requires you to build everything from the build_unix subdirectory
     cd "build_unix" do
       system "../dist/configure", *args
-      system "make", "install"
+      system "make", "install", "DOCLIST=license"
 
-      # use the standard docs location
-      doc.parent.mkpath
-      mv prefix/"docs", doc
+      # delete docs dir because it is huge
+      rm_rf prefix/"docs"
     end
   end
 

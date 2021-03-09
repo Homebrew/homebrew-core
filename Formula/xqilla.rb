@@ -1,28 +1,28 @@
 class Xqilla < Formula
   desc "XQuery and XPath 2 command-line interpreter"
   homepage "https://xqilla.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/xqilla/XQilla-2.3.3.tar.gz"
-  sha256 "8f76b9b4f966f315acc2a8e104e426d8a76ba4ea3441b0ecfdd1e39195674fd6"
-  revision 1
+  url "https://downloads.sourceforge.net/project/xqilla/XQilla-2.3.4.tar.gz"
+  sha256 "292631791631fe2e7eb9727377335063a48f12611d641d0296697e0c075902eb"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/XQilla[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "dd50c76bcc99f8dd8d2ceb62a7e8379198e0a5e6986c233bca1a935aa34223d3" => :high_sierra
-    sha256 "d2120862cf3ad0dda28c6c90589f87c49b98376b543f3c0fd1aa1446282a7194" => :sierra
-    sha256 "23b0237d4a917ac6e91d4d1957f676e466b3e218d2abffb671503d982f827a83" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "1b8493188f6fc779948193c1ae7cc803e85a4a18c32464c039448a27f830d9fe"
+    sha256 cellar: :any, big_sur:       "ac66706739f52be905422e387435524387fdec6ca86243aad5b8be446182d59a"
+    sha256 cellar: :any, catalina:      "3e01ca81220688c9680e3c23c0f7434f415e2b1e7b2e812f514a540eb51b50cd"
+    sha256 cellar: :any, mojave:        "93ae09129c45ee7b1a4ecfe996c305791e06833c1e73b604b33282e5ea90248a"
+    sha256 cellar: :any, high_sierra:   "38579e6ab1b6f6801ca5404cc79fcd972f395b9dd2e981672889b3eac5441c86"
+    sha256 cellar: :any, sierra:        "0f1ef8f2aa1349b723062426a3e44fba2821bcf93316bacabf4c5e2948093bc4"
+    sha256 cellar: :any, el_capitan:    "4326ec876d3e05647320c4ab55824c37531af997cc723f303fac4c4b40153753"
   end
 
   depends_on "xerces-c"
 
-  conflicts_with "zorba", :because => "Both supply xqc.h"
-
-  needs :cxx11
-
-  # See https://sourceforge.net/p/xqilla/bugs/48/
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/master/xqilla/xerces-containing-node.patch"
-    sha256 "36ffb2dff579e5610ca3be2a962942433127b24a78ca454647059d6d54b8e014"
-  end
+  conflicts_with "zorba", because: "both supply `xqc.h`"
 
   def install
     ENV.cxx11

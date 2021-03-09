@@ -1,30 +1,25 @@
 class BwmNg < Formula
   desc "Console-based live network and disk I/O bandwidth monitor"
   homepage "https://www.gropp.org/?id=projects&sub=bwm-ng"
-  url "https://github.com/vgropp/bwm-ng/releases/download/v0.6.1/bwm-ng-0.6.1.tar.gz"
-  mirror "https://www.gropp.org/bwm-ng/bwm-ng-0.6.1.tar.gz"
-  sha256 "027cf3c960cd96fc9ffacdf7713df62d0fc55eeef4a1388289f8a62ae5e50df0"
+  url "https://github.com/vgropp/bwm-ng/archive/v0.6.3.tar.gz"
+  sha256 "c1a552b6ff48ea3e4e10110a7c188861abc4750befc67c6caaba8eb3ecf67f46"
+  license "GPL-2.0-or-later"
+  head "https://github.com/vgropp/bwm-ng.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "7ffab079c543246df990e4bc0c5ed2c2329d887aa496a4a14c99a6dfccadacbf" => :high_sierra
-    sha256 "095250d62c0cdd0e28f79e0099421d8033a1d82832fa0b3f63e663eb9fe8b2f1" => :sierra
-    sha256 "a8e98c7fdf6a66485ecbbacf4539a8572061d17335ac6baf8305b07afa4a9a22" => :el_capitan
-    sha256 "2b6af853a216dca06b1e692f2f03a453962b384bd5fba7bc8566f277f71d9d5b" => :yosemite
-    sha256 "d68545d5c597faccc236df30879008b2902623e6c60d35474f3e9559d8f91d35" => :mavericks
-    sha256 "06cb4a90714cfb9ef2abf51ab4c08e18956eead594cf601c947b4cf6ac6bba05" => :mountain_lion
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f572a2c3cba92b810273eec515a00b0dc406319efd33934a571e97a2f48fb9c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "174c1fe863ea893c778909824972bebf6691c399076db4ca638dc2cee3b8c065"
+    sha256 cellar: :any_skip_relocation, catalina:      "8ece99c9c9349e80ac741aa8beafc3ea77ae62035279ed5da0c79d201d762882"
+    sha256 cellar: :any_skip_relocation, mojave:        "34ce809be16ab1eef9106643f22ff223a8da78a6c8336bd86e14dd41dccbec09"
   end
 
-  head do
-    url "https://github.com/vgropp/bwm-ng.git"
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-  end
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   def install
     ENV.append "CFLAGS", "-std=gnu89"
 
-    system "./autogen.sh" if build.head?
+    system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

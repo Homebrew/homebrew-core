@@ -1,45 +1,38 @@
 class Ntp < Formula
-  desc "The Network Time Protocol (NTP) Distribution"
+  desc "Network Time Protocol (NTP) Distribution"
   homepage "https://www.eecis.udel.edu/~mills/ntp/html/"
-  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p10.tar.gz"
-  version "4.2.8p10"
-  sha256 "ddd2366e64219b9efa0f7438e06800d0db394ac5c88e13c17b70d0dcdf99b99f"
+  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p15.tar.gz"
+  version "4.2.8p15"
+  sha256 "f65840deab68614d5d7ceb2d0bb9304ff70dcdedd09abb79754a87536b849c19"
+
+  livecheck do
+    url "https://www.ntp.org/downloads.html"
+    regex(/href=.*?ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
+  end
 
   bottle do
-    sha256 "5bda263067c4c0fe391c49734680e3f682f8c64672cf0628344db78df6cfa371" => :sierra
-    sha256 "eca0868f7a11c02bd5007602a534257fbdaa06aca5348e32cd06264728569e14" => :el_capitan
-    sha256 "766d2595c081694b7da0e5cfa6818e60483329f5ec7e2f1bf179f180735bbdc2" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "5aaceeca360143de4591c0294ed75755f50c14cfcdb908b7c1622fa5caa22cf4"
+    sha256 cellar: :any, big_sur:       "cee6250b029cdb17a3e7c8f68ec6bf16a3a3751bea52a758bca885932e5a0de4"
+    sha256 cellar: :any, catalina:      "3c6a8893b0e76b8af1a4fd19ab664279b5409c1129062bf1feee4643318236b3"
+    sha256 cellar: :any, mojave:        "b69ded37b2c8304157c3f46e4484af9099b4fd1e077929c35bb630903d059856"
+    sha256 cellar: :any, high_sierra:   "9f7ce9c3ff545ff738fcf4049445923c968ec807cf1ecde451be76412442e6f1"
   end
 
-  devel do
-    url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-dev/ntp-dev-4.3.93.tar.gz"
-    sha256 "a07e73d7a3ff139bba33ee4b1110d5f3f4567465505d6317c9b50eefb9720c42"
-  end
-
-  option "with-net-snmp", "Build ntpsnmpd, the SNMP MIB agent for ntpd"
-
-  depends_on "openssl"
-  depends_on "net-snmp" => :optional
+  depends_on "openssl@1.1"
 
   def install
-    system "./bootstrap" if build.head?
-
-    args = [
-      "--disable-debug",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--prefix=#{prefix}",
-      "--with-openssl-libdir=#{Formula["openssl"].lib}",
-      "--with-openssl-incdir=#{Formula["openssl"].include}",
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --with-openssl-libdir=#{Formula["openssl@1.1"].lib}
+      --with-openssl-incdir=#{Formula["openssl@1.1"].include}
+      --with-net-snmp-config=no
     ]
-    if build.with?("net-snmp")
-      args << "--with-net-snmp-config"
-    else
-      args << "--with-net-snmp-config=no"
-    end
 
     system "./configure", *args
-    system "make", "install"
+    system "make", "install", "LDADD_LIBNTP=-lresolv -undefined dynamic_lookup"
   end
 
   test do

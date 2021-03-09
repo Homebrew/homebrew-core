@@ -2,50 +2,43 @@ class Sfml < Formula
   # Don't update SFML until there's a corresponding CSFML release
   desc "Multi-media library with bindings for multiple languages"
   homepage "https://www.sfml-dev.org/"
-  url "https://www.sfml-dev.org/files/SFML-2.4.2-sources.zip"
-  sha256 "8ba04f6fde6a7b42527d69742c49da2ac529354f71f553409f9f821d618de4b6"
+  url "https://www.sfml-dev.org/files/SFML-2.5.1-sources.zip"
+  sha256 "bf1e0643acb92369b24572b703473af60bac82caf5af61e77c063b779471bb7f"
+  license "Zlib"
   revision 1
   head "https://github.com/SFML/SFML.git"
 
   bottle do
-    cellar :any
-    rebuild 1
-    sha256 "ed02627dfaff55b60f9271379256d99adfb010df3f4842b0e33fd366eb62df6e" => :high_sierra
-    sha256 "76c3949dad4b907b87d219f10eb2dae44d43cb76963a083f70935f138832d13c" => :sierra
-    sha256 "976560145b126bd482696148767f333ceda470d847064a5682abcd5c329937bd" => :el_capitan
-    sha256 "43dbf56a522f7bce55db7e5354ee0810b7abad63b97178a1ed7a73356c52577c" => :yosemite
+    sha256 arm64_big_sur: "4ea8183ad7187a6c2f29522d61ff2446f034484fe4341c81c12c2b4fa727e661"
+    sha256 big_sur:       "3acd05aacb9f9f8e87d99ecbaab09d976a7f151d822d6950e4d13697f0297443"
+    sha256 catalina:      "cdc8de4d6d5b63dd4334a33cc6c6f2f57e3686a5305d22b89579748237ac4d67"
+    sha256 mojave:        "311051956872de3bb215c1f4c0bc618157fbfb495f92acc7552b8efb76cf4fe3"
   end
 
   depends_on "cmake" => :build
-  depends_on "doxygen" => :optional
+  depends_on "doxygen" => :build
   depends_on "flac"
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "openal-soft" => :optional
 
   # https://github.com/Homebrew/homebrew/issues/40301
-  depends_on :macos => :lion
 
   def install
-    # Install pkg-config files, adding the CMake flag below isn't enough, as
-    # the CMakeLists.txt file currently doesn't consider MacOS X.
-    # This was fixed upstream for the future 2.5.0 release on 2016-12-19 in:
-    # https://github.com/SFML/SFML/commit/5fe5e5d6d7792e37685a437551ffa8ed5161fcc1
-    inreplace "CMakeLists.txt",
-              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD)",
-              "if(SFML_OS_LINUX OR SFML_OS_FREEBSD OR SFML_OS_MACOSX)"
-
-    args = std_cmake_args << "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE"
-    args << "-DSFML_BUILD_DOC=TRUE" if build.with? "doxygen"
+    # error: expected function body after function declarator
+    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
     # Always remove the "extlibs" to avoid install_name_tool failure
     # (https://github.com/Homebrew/homebrew/pull/35279) but leave the
     # headers that were moved there in https://github.com/SFML/SFML/pull/795
     rm_rf Dir["extlibs/*"] - ["extlibs/headers"]
 
-    system "cmake", ".", *args
+    system "cmake", ".", *std_cmake_args,
+                         "-DCMAKE_INSTALL_RPATH=#{opt_lib}",
+                         "-DSFML_MISC_INSTALL_PREFIX=#{share}/SFML",
+                         "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
+                         "-DSFML_BUILD_DOC=TRUE"
     system "make", "install"
   end
 

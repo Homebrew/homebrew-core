@@ -1,25 +1,27 @@
 class Muparser < Formula
   desc "C++ math expression parser library"
-  homepage "http://muparser.beltoforion.de/"
-  url "https://github.com/beltoforion/muparser/archive/v2.2.5.tar.gz"
-  sha256 "0666ef55da72c3e356ca85b6a0084d56b05dd740c3c21d26d372085aa2c6e708"
-
+  homepage "https://beltoforion.de/en/muparser/"
+  url "https://github.com/beltoforion/muparser/archive/v2.3.2.tar.gz"
+  sha256 "b35fc84e3667d432e3414c8667d5764dfa450ed24a99eeef7ee3f6647d44f301"
+  license "BSD-2-Clause"
+  revision 2
   head "https://github.com/beltoforion/muparser.git"
 
   bottle do
-    cellar :any
-    sha256 "5996f6d2fab05dbf570cf2622f09bfa89998d923944d840c0e81c79ca69358a6" => :high_sierra
-    sha256 "0e0432cc0a03c7657cae3873ac44a61583cc171218e78691c0b4d89105be4524" => :sierra
-    sha256 "126f7a337787b326f4727d12bbd4e9758609a41127e4145fecc69db131be4e80" => :el_capitan
-    sha256 "43a9e242f7abf60709e4b8fe8d629ddeb88d693af400d0e1aa894267b9d5b646" => :yosemite
-    sha256 "e6945023b6e8e758c0fd3ec69d66119a60b3179881b4dedd18bdfbddeb75eb53" => :mavericks
+    sha256 cellar: :any, arm64_big_sur: "aaeffc1af6b24928270c796679326095b390f3d998f91962b58aa3f7b3581f87"
+    sha256 cellar: :any, big_sur:       "b7c21016c81037618b2e0148b52567c13f2d6f955d39913770e840a07dabecbd"
+    sha256 cellar: :any, catalina:      "0a1a8ee3560af0487a46b7c524cdf938b1d6e159e6c4d9689968225cd6311713"
+    sha256 cellar: :any, mojave:        "3094837032e20cbbd5e74531a20450af6986bfd5ac83ea4df4884a538a552c85"
+    sha256 cellar: :any, high_sierra:   "ca242a645a77e528c16cced97cf06bc796071c549a8d81f22bd4d9bd547828fb"
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DENABLE_OPENMP=OFF"
+      system "make", "install"
+    end
   end
 
   test do
@@ -56,7 +58,7 @@ class Muparser < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lmuparser",
+    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lmuparser",
            testpath/"test.cpp", "-o", testpath/"test"
     system "./test"
   end

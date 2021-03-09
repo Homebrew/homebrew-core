@@ -1,17 +1,26 @@
 class Tin < Formula
   desc "Threaded, NNTP-, and spool-based UseNet newsreader"
   homepage "http://www.tin.org"
-  url "http://ftp.cuhk.edu.hk/pub/packages/news/tin/v2.4/tin-2.4.1.tar.gz"
-  sha256 "58e714e130d32258a41ce829c3286c5d4edb9df642ca7a62328b006c1f756478"
+  url "https://www.nic.funet.fi/pub/unix/news/tin/v2.4/tin-2.4.5.tar.xz"
+  sha256 "1a14e6a49a3627230f792eb48936d39d0abd7b04d958083a6296bb4210c6c512"
+  license "BSD-3-Clause"
 
-  bottle do
-    sha256 "d4047844c177a458fc5ecef53823dd6e2ff70acc6d36c76cddf72c7e817f0d03" => :high_sierra
-    sha256 "0007b4384c05e500560ae3ad0fb4f46a78ee1b93ff97c2e33404b0c2116cfc77" => :sierra
-    sha256 "ce603fb1e70d75727c644da65e88b23c24fbc5bf9852d94df0e6e3bff30652af" => :el_capitan
-    sha256 "e4e00f28bd2a58040dd0d35379bf756eecdfb6887c8a046c43d187d5180ac0ef" => :yosemite
+  livecheck do
+    url :homepage
+    regex(%r{tin-current\.t.*?>TIN v?(\d+(?:\.\d+)+)</A>.*?stable}i)
   end
 
-  conflicts_with "mutt", :because => "both install mmdf.5 and mbox.5 man pages"
+  bottle do
+    rebuild 1
+    sha256 arm64_big_sur: "051423dd86f4bf45e3584e8aadd838e46bcc006c7322e7471b1158f4c156c84a"
+    sha256 big_sur:       "1c9c260926726183ef975425c557afbd9be80a2cab7eb2258d63945716153980"
+    sha256 catalina:      "b3e2e78b8e6d0db0d04cb036454deb8bc718fb1c7cd489924ffcc548eacdeec4"
+    sha256 mojave:        "1170864e0be31fee55f0a49993e5d40908eafe0c8ed47eee2087236ad17ab988"
+  end
+
+  depends_on "gettext"
+
+  conflicts_with "mutt", because: "both install mmdf.5 and mbox.5 man pages"
 
   def install
     system "./configure", "--disable-debug",

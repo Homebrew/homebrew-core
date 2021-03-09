@@ -4,6 +4,7 @@ class Vcsh < Formula
   url "https://github.com/RichiH/vcsh/archive/v1.20151229-1.tar.gz"
   version "1.20151229-1"
   sha256 "7682a517eaf88a86ea5e38ad81707800e965375eaff8b5cfd882e210fe2fef71"
+  license "GPL-2.0"
 
   bottle :unneeded
 
@@ -14,6 +15,6 @@ class Vcsh < Formula
   end
 
   test do
-    assert_match /Initialized empty/, shell_output("#{bin}/vcsh init test").strip
+    assert_match "Initialized empty", shell_output("#{bin}/vcsh init test").strip
   end
 end

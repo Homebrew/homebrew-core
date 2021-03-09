@@ -1,32 +1,32 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.haxx.se/"
-  url "https://c-ares.haxx.se/download/c-ares-1.13.0.tar.gz"
-  mirror "https://launchpad.net/ubuntu/+archive/primary/+files/c-ares_1.13.0.orig.tar.gz"
-  sha256 "03f708f1b14a26ab26c38abd51137640cb444d3ec72380b21b20f1a8d2861da7"
+  url "https://c-ares.haxx.se/download/c-ares-1.17.1.tar.gz"
+  sha256 "d73dd0f6de824afd407ce10750ea081af47eba52b8a6cb307d220131ad93fc40"
+  license "MIT"
+  head "https://github.com/c-ares/c-ares.git"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?c-ares[._-](\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
-    cellar :any
-    sha256 "f6778d973ae8c04a1e8abca2d77340b50e19a0448e90f5cdc110b515e62b05e9" => :high_sierra
-    sha256 "e543ffa2ee246cd28e1dc0bb2ba1e2952266500419be8ed3a54d910c274f24be" => :sierra
-    sha256 "5efb5340249ab0b5cd160632391e6e632fbaf8857742d66dbba9938df8ac9215" => :el_capitan
-    sha256 "28977de886a3ca0cf08fae79d2b1abfb2d1c198b7a28c345dd37566ccbf8d670" => :yosemite
+    sha256 cellar: :any, arm64_big_sur: "63627c4d2e4698ba13b82aeb2a10f3aef3a7bcbb7b459c265dbd840e91e5b175"
+    sha256 cellar: :any, big_sur:       "514de64e48f4d2c6e448547a30ba03f613b899f30f97f9026740c59eb3f49aeb"
+    sha256 cellar: :any, catalina:      "3fc1e6a9c560039998b288db7dfb268c87db614841a6fa1048880b8b6bdd6e4c"
+    sha256 cellar: :any, mojave:        "8785faa759b2f10fcaefef1e7398b9ffe79b76b2339b4bc4b552fd9c418b1097"
   end
 
-  head do
-    url "https://github.com/bagder/c-ares.git"
-
-    depends_on "automake" => :build
-    depends_on "autoconf" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "cmake" => :build
+  depends_on "ninja" => :build
 
   def install
-    system "./buildconf" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-debug"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-GNinja", *std_cmake_args
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do

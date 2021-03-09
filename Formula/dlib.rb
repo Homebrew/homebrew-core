@@ -1,39 +1,39 @@
 class Dlib < Formula
   desc "C++ library for machine learning"
   homepage "http://dlib.net/"
-  url "http://dlib.net/files/dlib-19.7.tar.bz2"
-  sha256 "825dbe45e0d379a4e5584c2918b1e0cb37e9ed75657766fd7b2b4f3e05f892d6"
+  url "http://dlib.net/files/dlib-19.21.tar.bz2"
+  sha256 "be728a03ae8c4dc8b48408d90392a3c28bc6642a6eb22f3885895b434d7df53c"
+  license "BSL-1.0"
   head "https://github.com/davisking/dlib.git"
 
   bottle do
-    cellar :any
-    sha256 "49af9f842109f2d9c064a492afa6b98861cf28b22e75a63dc4e62c71661369af" => :high_sierra
-    sha256 "74a4d04a7b1fd715d15b7a6dfa2a9372c864f1d840f01cfbb56e7c0297cc6d04" => :sierra
-    sha256 "89626ef8537bb2a52362531dbe1478c826004918253bace1216ab2c4b54a5c8c" => :el_capitan
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "81dc4133691925848cc96ccaac3158456d47544a0614b35c29a9948f7faef10b"
+    sha256 cellar: :any, big_sur:       "655d96ba94159cd7a80ff842ea8693aa7857e91496a8447b3df23ddf50ee0993"
+    sha256 cellar: :any, catalina:      "597a1595ee2f5071afcac72128f85b3aadda96002253e54ae16995e151fb5432"
+    sha256 cellar: :any, mojave:        "52ab2f5e4073682520ec0f5cf7410bad8f1a03a4e783bdc4a93d1372cacee808"
   end
-
-  depends_on :macos => :el_capitan # needs thread-local storage
 
   depends_on "cmake" => :build
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "openblas" => :optional
-  depends_on :x11 => :optional
-
-  needs :cxx11
+  depends_on "openblas"
 
   def install
     ENV.cxx11
 
-    args = std_cmake_args + %w[-DDLIB_USE_BLAS=ON -DDLIB_USE_LAPACK=ON]
-    args << "-DDLIB_NO_GUI_SUPPORT=ON" if build.without? "x11"
+    args = std_cmake_args + %W[
+      -DDLIB_USE_BLAS=ON
+      -DDLIB_USE_LAPACK=ON
+      -Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
+      -Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib
+      -DDLIB_NO_GUI_SUPPORT=ON
+      -DBUILD_SHARED_LIBS=ON
+    ]
 
-    if build.with? "openblas"
-      args << "-Dcblas_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
-      args << "-Dlapack_lib=#{Formula["openblas"].opt_lib}/libopenblas.dylib"
-    else
-      args << "-Dcblas_lib=/usr/lib/libcblas.dylib"
-      args << "-Dlapack_lib=/usr/lib/liblapack.dylib"
+    if Hardware::CPU.intel?
+      args << "-DUSE_SSE2_INSTRUCTIONS=ON"
+      args << "-DUSE_SSE4_INSTRUCTIONS=ON" if MacOS.version.requires_sse4?
     end
 
     mkdir "dlib/build" do
@@ -53,6 +53,6 @@ class Dlib < Formula
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-I#{include}",
                     "-L#{lib}", "-ldlib"
-    assert_match /INFO.*example: The answer is 42/, shell_output("./test")
+    assert_match(/INFO.*example: The answer is 42/, shell_output("./test"))
   end
 end

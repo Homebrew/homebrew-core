@@ -1,42 +1,26 @@
 class Valabind < Formula
   desc "Vala bindings for radare, reverse engineering framework"
-  homepage "https://radare.org/"
-  url "https://github.com/radare/valabind/archive/1.4.0.tar.gz"
-  sha256 "b2e4939912feada6138b8269d228ea82fb0f1391fd2e2e7003f404677b0cdbc9"
+  homepage "https://github.com/radare/valabind"
+  url "https://github.com/radare/valabind/archive/1.8.0.tar.gz"
+  sha256 "3eba8c36c923eda932a95b8d0c16b7b30e8cdda442252431990436519cf87cdd"
+  license "GPL-3.0-or-later"
   head "https://github.com/radare/valabind.git"
 
   bottle do
-    sha256 "09ecd58afe5c101c661d20c18a229ca4d8204adfd65d508e6e46387faf8a5980" => :high_sierra
-    sha256 "05e13594c23aca12a1ea9c7ff4a5e3a17bbe1a68a65dea80d5a8aa89892d26cf" => :sierra
-    sha256 "bf466be7a14313608f3d68a86135b2b25094457c0fb89b7dd389f57fc4cd173c" => :el_capitan
+    sha256 cellar: :any, arm64_big_sur: "2fb4393d61be4746bc3dca065d162dc664035200ee4b326f64ce8b02908a6cc3"
+    sha256 cellar: :any, big_sur:       "cbaf377ea488bba4b372abe53eab42bdf84da7b93b00a827b847179477c59109"
+    sha256 cellar: :any, catalina:      "6a33a391be8a6d352504ba407afa44bca868d9065fac979ed7139edcb8797fef"
+    sha256 cellar: :any, mojave:        "4503f99bdf938276cbdbb8b5312f6b380a13cf8d653b88c02be1dfa880a2803c"
   end
 
-  depends_on "pkg-config" => :run # :run, not :build, for vala
-  depends_on "swig" => :run
+  depends_on "pkg-config" => :build
+  depends_on "swig"
+  depends_on "vala"
 
-  # vala dependencies
-  depends_on "gettext"
-  depends_on "glib"
-
-  # Upstream issue "Build failure with vala 0.38.0"
-  # Reported 6 Sep 2017 https://github.com/radare/valabind/issues/43
-  resource "vala" do
-    url "https://download.gnome.org/sources/vala/0.36/vala-0.36.5.tar.xz"
-    sha256 "7ae7eb8a976005afecf4f647b9043f2bb11e8b263c7fe9e905ab740b3d8a9f40"
-  end
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
-    resource("vala").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--disable-silent-rules",
-                            "--prefix=#{libexec}"
-      system "make"
-      system "make", "install"
-    end
-
-    ENV.prepend_path "PATH", libexec/"bin"
-    ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
-
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end

@@ -1,23 +1,23 @@
 class Xsv < Formula
   desc "Fast CSV toolkit written in Rust"
   homepage "https://github.com/BurntSushi/xsv"
-  url "https://github.com/BurntSushi/xsv/archive/0.12.2.tar.gz"
-  sha256 "484e3d4a9fec0d4c8089a77cba3e122970113e2bf0277ab6a956bf12954bbca3"
+  url "https://github.com/BurntSushi/xsv/archive/0.13.0.tar.gz"
+  sha256 "2b75309b764c9f2f3fdc1dd31eeea5a74498f7da21ae757b3ffd6fd537ec5345"
   head "https://github.com/BurntSushi/xsv.git"
 
   bottle do
-    sha256 "0d374ca4691f5e5fab0ff3d05bcaee68239fc61c05cbfff93bdefc8b7a981fe7" => :high_sierra
-    sha256 "e7b5bad91e0d75088045c1450970afb482b4419f777dd931775176106ed35271" => :sierra
-    sha256 "e6bf617d8bc98e792dde6590194695baa6f2f6ed4ab43b90f2bf50fff1b2f6a2" => :el_capitan
-    sha256 "0a3e50fe692f96af9706d2ecb8799b711c513ad9c8d8b4534b0ed0c2949e5ce3" => :yosemite
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7374ba9bf778c782cdea3107aa7dcfeeb218c65f72d4270911c1f24f81d57c58"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4dad76acfa42962ebd2a1b372e2f0cfdaedda68024849662e275525dd2c26a64"
+    sha256 cellar: :any_skip_relocation, catalina:      "b077e2fd6f968d6a3fa5c22a145e134bcead5cbe50ff20c78495937cbee7ea1d"
+    sha256 cellar: :any_skip_relocation, mojave:        "ade2c436c1acf011ef7807b01a2783f6c31c0cacf066e51db904adefd99d4a14"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "557ef267b773911347df0d1960040f2d28e20c3680637b8af5bd89edc77bcce2"
   end
 
   depends_on "rust" => :build
 
   def install
-    system "cargo", "build", "--release"
-
-    bin.install "target/release/xsv"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
