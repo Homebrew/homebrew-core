@@ -4,6 +4,7 @@ class V2ray < Formula
   url "https://github.com/v2fly/v2ray-core/archive/v4.35.1.tar.gz"
   sha256 "ef469a99c7db8596f8556478b478e2701ce2783af9affb7f3cb28201718e7d35"
   license all_of: ["MIT", "CC-BY-SA-4.0"]
+  revision 1
   head "https://github.com/v2fly/v2ray-core.git"
 
   livecheck do
@@ -32,7 +33,7 @@ class V2ray < Formula
                  "-o", bin/"v2ctl",
                  "./infra/control/main"
     (bin/"v2ray").write_env_script execpath,
-      V2RAY_LOCATION_ASSET: pkgshare
+      V2RAY_LOCATION_ASSET: "${V2RAY_LOCATION_ASSET:-#{pkgshare}}"
 
     pkgetc.install "release/config/config.json"
     pkgshare.install "release/config/geoip.dat"
