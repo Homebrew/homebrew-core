@@ -17,7 +17,6 @@ class TomcatNative < Formula
   depends_on "apr"
   depends_on "openjdk"
   depends_on "openssl@1.1"
-  depends_on "tomcat"
 
   def install
     cd "native" do
