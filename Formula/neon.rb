@@ -22,6 +22,8 @@ class Neon < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "libxml2"
+
   # Configure switch unconditionally adds the -no-cpp-precomp switch
   # to CPPFLAGS, which is an obsolete Apple-only switch that breaks
   # builds under non-Apple compilers and which may or may not do anything
