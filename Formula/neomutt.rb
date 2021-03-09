@@ -4,6 +4,7 @@ class Neomutt < Formula
   url "https://github.com/neomutt/neomutt/archive/20210205.tar.gz"
   sha256 "77e177780fc2d8abb475d9cac4342c7e61d53c243f6ce2f9bc86d819fc962cdb"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
@@ -22,6 +23,8 @@ class Neomutt < Formula
   depends_on "notmuch"
   depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
+
+  uses_from_macos "zlib"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
