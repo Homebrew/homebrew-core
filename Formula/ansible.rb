@@ -587,11 +587,13 @@ class Ansible < Formula
   def install
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
-    # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
+    on_macos do
+      # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
+      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
-    # https://github.com/Homebrew/homebrew-core/issues/7197
-    ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
+      # https://github.com/Homebrew/homebrew-core/issues/7197
+      ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
+    end
 
     venv = virtualenv_create(libexec, "python3")
     # Install all of the resources declared on the formula into the virtualenv.
@@ -629,7 +631,11 @@ class Ansible < Formula
         - name: ping
           ping:
     EOS
-    (testpath/"hosts.ini").write "localhost ansible_connection=local\n"
+    (testpath/"hosts.ini").write [
+      "localhost ansible_connection=local",
+      " ansible_python_interpreter=#{Formula["python@3.9"].opt_bin}/python3",
+      "\n",
+    ].join
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"
 
     # Ensure requests[security] is activated
