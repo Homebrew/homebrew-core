@@ -5,8 +5,6 @@ class CyrusSasl < Formula
   sha256 "26866b1549b00ffd020f188a43c258017fa1c382b3ddadd8201536f72efb05d5"
   license "BSD-3-Clause-Attribution"
 
-  keg_only :provided_by_macos
-
   depends_on "openssl@1.1"
 
   def install
