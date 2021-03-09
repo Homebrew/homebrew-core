@@ -26,10 +26,6 @@ class Macvim < Formula
     because: "vim and macvim both install vi* binaries"
 
   def install
-    # Fix error: '__declspec' attributes are not enabled
-    # Remove with next release (> 8.2-170)
-    ENV.append_to_cflags "-fdeclspec" if ENV.compiler == :clang
-
     # Avoid issues finding Ruby headers
     ENV.delete("SDKROOT")
 
