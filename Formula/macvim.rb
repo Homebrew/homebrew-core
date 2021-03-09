@@ -2,11 +2,10 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
-  url "https://github.com/macvim-dev/macvim/archive/snapshot-169.tar.gz"
-  version "8.2-169"
-  sha256 "3b5bd8631ada8566d7d575696fbe2e0df760f3cdd31c09b47980e3d62e523cc7"
+  url "https://github.com/macvim-dev/macvim/archive/snapshot-170.tar.gz"
+  version "8.2-170"
+  sha256 "6c38d2f91568751927e641fd9846230e2562d90e678d2dcd8e61d41fe670021b"
   license "Vim"
-  revision 2
   head "https://github.com/macvim-dev/macvim.git"
 
   bottle do
@@ -28,7 +27,7 @@ class Macvim < Formula
 
   def install
     # Fix error: '__declspec' attributes are not enabled
-    # Remove with next release (> 8.2-169)
+    # Remove with next release (> 8.2-170)
     ENV.append_to_cflags "-fdeclspec" if ENV.compiler == :clang
 
     # Avoid issues finding Ruby headers
