@@ -15,6 +15,8 @@ class ZshNavigationTools < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "fca68610ba67c19d8516719d03ed5074a5611ba01941dcb135c87d6d561f3cb1"
   end
 
+  uses_from_macos "zsh"
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
