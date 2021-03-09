@@ -24,6 +24,9 @@ class Verilator < Formula
   end
 
   depends_on "python@3.9" => :build
+
+  uses_from_macos "bison"
+  uses_from_macos "flex"
   uses_from_macos "perl"
 
   skip_clean "bin" # Allows perl scripts to keep their executable flag
