@@ -1,8 +1,8 @@
 class RakudoStar < Formula
   desc "Rakudo compiler and commonly used packages"
   homepage "https://rakudo.org/"
-  url "https://rakudo.org/dl/star/rakudo-star-2020.10.tar.gz"
-  sha256 "b5742c40bd25e582bed29c994802781d76ca204be1bccafd48dbf3056f6dcf6b"
+  url "https://rakudo.org/dl/star/rakudo-star-2021.02.1.tar.gz"
+  sha256 "1c9546fe115d49bf115cdb15b89bce27c5d24e2c1fd95a03c8853a46cc87e2a0"
   license "Artistic-2.0"
 
   livecheck do
@@ -27,11 +27,6 @@ class RakudoStar < Formula
   conflicts_with "moarvm", "nqp", because: "rakudo-star currently ships with moarvm and nqp included"
   conflicts_with "parrot"
   conflicts_with "rakudo"
-
-  # Patch to resolve references to the Homebrew shims directory. This has been fixed
-  # upstream in https://github.com/rakudo/rakudo/commit/dd0a2a15c6fd79c2e8ff75bb1bd0684ef612a1ea
-  # so this patch can be removed for the next rakudo-star release.
-  patch :DATA
 
   def install
     libffi = Formula["libffi"]
@@ -61,52 +56,3 @@ class RakudoStar < Formula
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
-
-__END__
-
-diff --git a/src/rakudo-2020.10/rakudo-2020.10/lib/Test.rakumod b/src/rakudo-2020.10/rakudo-2020.10/lib/Test.rakumod
-index e8548aac6..f1f706658 100644
---- a/src/rakudo-2020.10/rakudo-2020.10/lib/Test.rakumod
-+++ b/src/rakudo-2020.10/rakudo-2020.10/lib/Test.rakumod
-@@ -4,11 +4,10 @@ unit module Test;
- # Copyright (C) 2007 - 2020 The Perl Foundation.
- 
- # settable from outside
--my %ENV := %*ENV;  # reduce dynamic lookups
--my int $perl6_test_times =
--  ?(%ENV<RAKU_TEST_TIME> // %ENV<PERL6_TEST_TIMES>);
-+my int $raku_test_times =
-+  ?(%*ENV<RAKU_TEST_TIME> // %*ENV<PERL6_TEST_TIMES>);
- my int $die_on_fail =
--  ?(%ENV<RAKU_TEST_DIE_ON_FAIL> // %ENV<PERL6_TEST_DIE_ON_FAIL>);
-+  ?(%*ENV<RAKU_TEST_DIE_ON_FAIL> // %*ENV<PERL6_TEST_DIE_ON_FAIL>);
- 
- # global state
- my @vars;
-@@ -113,7 +112,7 @@ multi sub plan($number_of_tests) is export {
-     $time_before = nqp::time_n;
-     $time_after  = nqp::time_n;
-     $str-message ~= "\n$indents# between two timestamps " ~ ceiling(($time_after-$time_before)*1_000_000) ~ ' microseconds'
--        if nqp::iseq_i($perl6_test_times,1);
-+        if nqp::iseq_i($raku_test_times,1);
- 
-     $output.say: $str-message;
- 
-@@ -691,7 +690,7 @@ sub _is_deeply(Mu $got, Mu $expected) {
- sub die-on-fail {
-     if !$todo_reason && !$subtest_level && nqp::iseq_i($die_on_fail,1) {
-         _diag 'Test failed. Stopping test suite, because the '
--          ~ (%ENV<RAKU_TEST_DIE_ON_FAIL> ?? 'RAKU' !! 'PERL6')
-+          ~ (%*ENV<RAKU_TEST_DIE_ON_FAIL> ?? 'RAKU' !! 'PERL6')
-           ~ "_TEST_DIE_ON_FAIL\n"
-           ~ 'environmental variable is set to a true value.';
-         exit 255;
-@@ -749,7 +748,7 @@ sub proclaim(Bool(Mu) $cond, $desc is copy, $unescaped-prefix = '') {
-             !! "ok $num_of_tests_run - $unescaped-prefix$desc";
- 
-     $tap ~= ("\n$indents# t=" ~ ceiling(($time_after - $time_before)*1_000_000))
--        if nqp::iseq_i($perl6_test_times,1);
-+        if nqp::iseq_i($raku_test_times,1);
- 
-     $output.say: $tap;
- 
