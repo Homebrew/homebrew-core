@@ -25,6 +25,8 @@ class Gpac < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   conflicts_with "bento4", because: "both install `mp42ts` binaries"
 
   def install
