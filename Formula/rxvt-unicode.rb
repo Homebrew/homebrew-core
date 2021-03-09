@@ -28,6 +28,8 @@ class RxvtUnicode < Formula
   depends_on "libxrender"
   depends_on "libxt"
 
+  uses_from_macos "perl"
+
   # Patches 1 and 2 remove -arch flags for compiling perl support
   # Patch 3 fixes `make install` target on case-insensitive filesystems
   patch do
