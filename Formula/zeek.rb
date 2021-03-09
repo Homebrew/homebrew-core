@@ -42,6 +42,6 @@ class Zeek < Formula
 
   test do
     assert_match "version #{version}", shell_output("#{bin}/zeek --version")
-    assert_match "ARP Parsing", shell_output("#{bin}/zeek --print-plugins")
+    assert_match "ARP packet analyzer", shell_output("#{bin}/zeek --print-plugins")
   end
 end
