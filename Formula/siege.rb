@@ -20,6 +20,8 @@ class Siege < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "zlib"
+
   def install
     # To avoid unnecessary warning due to hardcoded path, create the folder first
     (prefix/"etc").mkdir
