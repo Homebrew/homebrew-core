@@ -21,6 +21,10 @@ class Testdisk < Formula
 
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
