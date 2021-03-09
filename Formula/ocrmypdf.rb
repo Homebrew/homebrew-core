@@ -6,6 +6,7 @@ class Ocrmypdf < Formula
   url "https://files.pythonhosted.org/packages/09/8c/6ff143d243a8e7456c7d8e03812c8f8ae91141f0e337f50a0e8c4914c890/ocrmypdf-11.7.1.tar.gz"
   sha256 "a403699d54d63ff32ebc117ce5dde4d3c870ab69d5ef3e63c24ef12bc7b9b7e9"
   license "MPL-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:  "a6350d5a824bbd456f7b440cff961fd640b5f3c69ac9c23f715802be7bb1b706"
@@ -26,6 +27,7 @@ class Ocrmypdf < Formula
   depends_on "pybind11"
   depends_on "python@3.9"
   depends_on "qpdf"
+  depends_on "tcl-tk"
   depends_on "tesseract"
   depends_on "unpaper"
 
@@ -125,10 +127,6 @@ class Ocrmypdf < Formula
                                  "'#{Formula["freetype"].opt_prefix}/include')"
       end
 
-      # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
-      unless MacOS::CLT.installed?
-        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
-      end
       venv.pip_install Pathname.pwd
     end
 
