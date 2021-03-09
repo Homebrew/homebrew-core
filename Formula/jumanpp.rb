@@ -6,7 +6,7 @@ class Jumanpp < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://lotus.kuee.kyoto-u.ac.jp/nl-resource/jumanpp/"
+    url :homepage
     regex(/href=.*?jumanpp[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
