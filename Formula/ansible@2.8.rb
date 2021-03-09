@@ -6,7 +6,7 @@ class AnsibleAT28 < Formula
   url "https://releases.ansible.com/ansible/ansible-2.8.12.tar.gz"
   sha256 "2a4ce2a3f387d2595ee3f968c3ea50d6db0ab2d8306f0e81ab96c2a15a683124"
   license "GPL-3.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, big_sur:     "ea9ee1215f40ad4179bed6247698c31d2a337c247602a5f5b3eb31ac78cba52e"
@@ -18,6 +18,7 @@ class AnsibleAT28 < Formula
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "openssl@1.1"
   depends_on "python@3.7"
@@ -65,8 +66,8 @@ class AnsibleAT28 < Formula
 
   ### extras for requests[security]
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/56/3b/78c6816918fdf2405d62c98e48589112669f36711e50158a0c15d804c30d/cryptography-2.9.2.tar.gz"
-    sha256 "a0c30272fb4ddda5f5ffc1089d7405b7a71b0b0f51993cb4e5dbb4590b2fc229"
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
   end
 
   resource "idna" do
@@ -75,8 +76,8 @@ class AnsibleAT28 < Formula
   end
 
   resource "pyOpenSSL" do
-    url "https://files.pythonhosted.org/packages/0d/1d/6cc4bd4e79f78be6640fab268555a11af48474fac9df187c3361a1d1d2f0/pyOpenSSL-19.1.0.tar.gz"
-    sha256 "9a24494b2602aaf402be5c9e30a0b82d4a5c67528fe8fb475e3f3bc00dd69507"
+    url "https://files.pythonhosted.org/packages/98/cd/cbc9c152daba9b5de6094a185c66f1c6eb91c507f378bb7cad83d623ea88/pyOpenSSL-20.0.1.tar.gz"
+    sha256 "4c231c759543ba02560fcd2480c48dcec4dae34c9da7d3747c508227e0624b51"
   end
   ### end
 
