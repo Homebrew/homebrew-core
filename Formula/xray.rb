@@ -30,7 +30,7 @@ class Xray < Formula
                  "-ldflags", ldflags,
                  "./main"
     (bin/"xray").write_env_script execpath,
-      XRAY_LOCATION_ASSET: pkgshare
+      XRAY_LOCATION_ASSET: "${XRAY_LOCATION_ASSET:-#{pkgshare}}"
 
     resource("geoip").stage do
       pkgshare.install "geoip.dat"
