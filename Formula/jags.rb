@@ -22,6 +22,10 @@ class Jags < Formula
 
   depends_on "gcc" # for gfortran
 
+  on_linux do
+    depends_on "openblas"
+  end
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
