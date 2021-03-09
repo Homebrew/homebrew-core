@@ -16,6 +16,7 @@
     "extra_packages": ["ipykernel"]
   },
   "fdroidserver": {
+      "exclude_packages": ["numpy"],
       "extra_packages": ["wheel"]
   },
   "molecule": false,
