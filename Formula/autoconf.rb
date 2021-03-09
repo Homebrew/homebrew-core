@@ -1,10 +1,13 @@
 class Autoconf < Formula
   desc "Automatic configure script builder"
   homepage "https://www.gnu.org/software/autoconf"
-  url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz"
-  mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz"
-  sha256 "954bd69b391edc12d6a4a51a2dd1476543da5c6bbf05a95b59dc0dd6fd4c2969"
-  license "GPL-2.0-or-later"
+  url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz"
+  mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.71.tar.gz"
+  sha256 "431075ad0bf529ef13cb41e9042c542381103e80015686222b8a9d4abef42a1c"
+  license all_of: [
+    "GPL-3.0-or-later",
+    "GPL-3.0-or-later" => { with: "Autoconf-exception-3.0" },
+  ]
 
   bottle do
     rebuild 4
@@ -19,7 +22,7 @@ class Autoconf < Formula
     sha256 cellar: :any_skip_relocation, mavericks:     "d153b3318754731ff5e91b45b2518c75880993fa9d1f312a03696e2c1de0c9d5"
   end
 
-  uses_from_macos "m4"
+  depends_on "m4"
   uses_from_macos "perl"
 
   def install
@@ -41,5 +44,18 @@ class Autoconf < Formula
   test do
     cp pkgshare/"autotest/autotest.m4", "autotest.m4"
     system bin/"autoconf", "autotest.m4"
+
+    (testpath/"configure.ac").write <<~EOS
+      AC_INIT([hello], [1.0])
+      AC_CONFIG_SRCDIR([hello.c])
+      AC_PROG_CC
+      AC_OUTPUT
+    EOS
+    (testpath/"hello.c").write "int foo(void) { return 42; }"
+
+    system bin/"autoconf"
+    system "./configure"
+    assert_predicate testpath/"config.status", :exist?
+    assert_match(/\nCC=.*#{ENV.cc}/, (testpath/"config.log").read)
   end
 end
