@@ -9,6 +9,15 @@ class ClojureLsp < Formula
   license "MIT"
   head "https://github.com/clojure-lsp/clojure-lsp.git"
 
+  livecheck do
+    url :stable
+    regex(%r{^(?:release[._-])?v?(\d+(?:[T/.-]\d+)+)$}i)
+    strategy :git do |tags, regex|
+      # Convert tags like `2021.03.01-19.18.54` to `20210301T191854` format
+      tags.map { |tag| tag[regex, 1]&.gsub(".", "")&.gsub(%r{[/-]}, "T") }.compact
+    end
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d390d657349ecad4b0a0c56fabf6a4ce322ed49df08b100b8543e3578425723"
     sha256 cellar: :any_skip_relocation, big_sur:       "dc21005dde338ac2c543c60fc0fe91fd26eaea952cd50e5c440569e879905ef4"
