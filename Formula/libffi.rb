@@ -6,7 +6,7 @@ class Libffi < Formula
   mirror "https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz"
   sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "101f73c4097df830a5f5ab4ad77da81c8dd1ce9c82e38676f7302aa09c3c236c"
@@ -28,23 +28,15 @@ class Libffi < Formula
     if Hardware::CPU.arm?
       # Improved aarch64-apple-darwin support. See https://github.com/libffi/libffi/pull/565
       patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/a4a91e61/libffi/libffi-3.3-arm64.patch"
-        sha256 "ee084f76f69df29ed0fa1bc8957052cadc3bbd8cd11ce13b81ea80323f9cb4a3"
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/06252df03c68aee70856e5842f85f20b259e5250/libffi/libffi-3.3-arm64.patch"
+        sha256 "9290aba7f3131ca19eb28fa7ded836b80f15cf633ffac95dc52b14d0a668d1fa"
       end
     end
   end
 
   def install
-    args = std_configure_args
-
-    on_macos do
-      # This can be removed in the future when libffi properly detects the CPU on ARM.
-      # https://github.com/libffi/libffi/issues/571#issuecomment-655223391
-      args << "--build=aarch64-apple-darwin#{OS.kernel_version}" if Hardware::CPU.arm?
-    end
-
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
