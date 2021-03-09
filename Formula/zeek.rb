@@ -32,7 +32,7 @@ class Zeek < Formula
                       "-DBUILD_SHARED_LIBS=true",
                       "-DINSTALL_AUX_TOOLS=true",
                       "-DINSTALL_ZEEKCTL=true",
-                      "-DCAF_ROOT_DIR=#{Formula["caf"].opt_prefix}",
+                      "-DCAF_ROOT=#{Formula["caf"].opt_prefix}",
                       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
                       "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                       "-DZEEK_LOCAL_STATE_DIR=#{var}"
