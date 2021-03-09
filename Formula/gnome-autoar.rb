@@ -5,6 +5,14 @@ class GnomeAutoar < Formula
   sha256 "f2c112c0120cca2bf5a82c5b0ac8cba90ce10d21fec78f50a3bc513fdd64586b"
   license "LGPL-2.1-or-later"
 
+  # gnome-autoar doesn't seem to follow the typical GNOME version format where
+  # even-numbered minor versions are stable, so we override the default regex
+  # from the `Gnome` strategy.
+  livecheck do
+    url :stable
+    regex(/gnome-autoar[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "c6e08f12eb6dfd6bc180807ac90df1442265256c2ebbb67a111fa09873d0d59b"
     sha256 big_sur:       "ed23a1cc6375962d89c85e43d72064197ff70d8ecaffe4d09560a154fe45603d"
