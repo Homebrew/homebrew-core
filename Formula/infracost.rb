@@ -25,7 +25,7 @@ class Infracost < Formula
   test do
     assert_match "v#{version}", shell_output("#{bin}/infracost --help 2>&1")
 
-    output = shell_output("#{bin}/infracost --no-color 2>&1", 1)
+    output = shell_output("#{bin}/infracost breakdown --no-color 2>&1", 1)
     assert_match "No INFRACOST_API_KEY environment variable is set.", output
   end
 end
