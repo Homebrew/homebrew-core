@@ -23,6 +23,8 @@ class Feh < Formula
   depends_on "libxinerama"
   depends_on "libxt"
 
+  uses_from_macos "curl"
+
   def install
     system "make", "PREFIX=#{prefix}", "verscmp=0", "exif=1"
     system "make", "PREFIX=#{prefix}", "install"
