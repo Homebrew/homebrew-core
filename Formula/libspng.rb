@@ -16,6 +16,8 @@ class Libspng < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
 
+  uses_from_macos "zlib"
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args, ".."
