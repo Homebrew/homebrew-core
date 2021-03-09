@@ -7,7 +7,7 @@ class Wcslib < Formula
 
   livecheck do
     url :homepage
-    regex(/href=.*?wcslib\.t.+?WCSLIB v?(\d+(?:\.\d+)+)</im)
+    regex(/href=.*?wcslib[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
