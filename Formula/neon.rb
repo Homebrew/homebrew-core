@@ -4,6 +4,7 @@ class Neon < Formula
   url "https://notroj.github.io/neon/neon-0.31.2.tar.gz"
   mirror "https://fossies.org/linux/www/neon-0.31.2.tar.gz"
   sha256 "cf1ee3ac27a215814a9c80803fcee4f0ede8466ebead40267a9bd115e16a8678"
+  license "LGPL-2.0-or-later"
 
   livecheck do
     url :homepage
