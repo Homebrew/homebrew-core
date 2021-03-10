@@ -20,6 +20,7 @@ class AwsGoogleAuth < Formula
   depends_on "freetype"
   depends_on "jpeg"
   depends_on "python@3.9"
+  depends_on "tcl-tk"
 
   uses_from_macos "libffi"
   uses_from_macos "libxml2"
@@ -203,10 +204,6 @@ class AwsGoogleAuth < Formula
           "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
       end
 
-      # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
-      unless MacOS::CLT.installed?
-        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
-      end
       venv.pip_install Pathname.pwd
     end
 
