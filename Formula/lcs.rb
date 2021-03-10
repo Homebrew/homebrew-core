@@ -6,6 +6,13 @@ class Lcs < Formula
   license "GPL-2.0"
   head "https://svn.code.sf.net/p/lcsgame/code/trunk"
 
+  # This formula is using an unstable trunk version and we can't reliably
+  # identify new versions in this case, so we skip it unless/until it's updated
+  # to use a stable version in the future.
+  livecheck do
+    skip "Formula uses an unstable trunk version"
+  end
+
   bottle do
     sha256 arm64_big_sur: "1ec069485376de05c00be777102bcef25f3f1349d84ecfc2e53990d6c6e403dd"
     sha256 big_sur:       "9e3c6957bab58eaf828f8420fd7e493bb352544ec552c96eb24c8d1ec8d4adc6"
