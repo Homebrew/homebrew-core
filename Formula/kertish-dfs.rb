@@ -2,7 +2,7 @@ class KertishDfs < Formula
   desc "Kertish FileSystem and Cluster Administration CLI"
   homepage "https://github.com/freakmaxi/kertish-dfs"
   url "https://github.com/freakmaxi/kertish-dfs/archive/v21.2.0066.tar.gz"
-  sha256 "1ff300a803a0d3bd068e1492319a771912cccd4ba3a72098b6d05678813af966"
+  sha256 "f76db2e933c1a3ad952f750d08712ca5ec664fc7e3e9acdf6fac98349e9b170d"
   license "GPL-3.0-only"
   head "https://github.com/freakmaxi/kertish-dfs.git"
 
@@ -11,10 +11,10 @@ class KertishDfs < Formula
   def install
     system "go", "mod", "download"
     cd "fs-tool" do
-      system "go", "build", "-trimpath", "-ldflags", "-X main.version=#{version}", "-o", "#{bin}/krtfs"
+      system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}", "-o", "#{bin}/krtfs"
     end
     cd "admin-tool" do
-      system "go", "build", "-trimpath", "-ldflags", "-X main.version=#{version}", "-o", "#{bin}/krtadm"
+      system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}", "-o", "#{bin}/krtadm"
     end
   end
 
