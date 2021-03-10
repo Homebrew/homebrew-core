@@ -6,11 +6,6 @@ class Trojan < Formula
   license "GPL-3.0-only"
   head "https://github.com/trojan-gfw/trojan.git"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "mysql-client"
