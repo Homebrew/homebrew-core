@@ -22,6 +22,16 @@ class Kakoune < Formula
   depends_on macos: :high_sierra # needs C++17
   depends_on "ncurses"
 
+  on_linux do
+    depends_on "binutils" => :build
+    depends_on "linux-headers" => :build
+    depends_on "pkg-config" => :build
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+  fails_with gcc: "6"
+
   def install
     cd "src" do
       system "make", "install", "debug=no", "PREFIX=#{prefix}"
