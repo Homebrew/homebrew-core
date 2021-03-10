@@ -2,8 +2,8 @@ class Nqp < Formula
   desc "Lightweight Perl 6-like environment for virtual machines"
   homepage "https://github.com/perl6/nqp"
   # NOTE: Please keep these values in sync with moarvm & rakudo when updating.
-  url "https://github.com/perl6/nqp/releases/download/2020.12/nqp-2020.12.tar.gz"
-  sha256 "fd445b3c3b844a2fc523dc567b2a65c4dc2cc9a3f42ef2e860ef71174823068e"
+  url "https://github.com/perl6/nqp/releases/download/2021.02/nqp-2021.02.tar.gz"
+  sha256 "d24b1dc8c9f5e743787098a19c9d17b75f57dd34d293716d5b15b9105037d4ef"
   license "Artistic-2.0"
 
   bottle do
@@ -14,6 +14,7 @@ class Nqp < Formula
     sha256 mojave:        "e52cad208d6c1d12286ae32a11be4371a0d0ec1626b3480a7fc0fa34f1217df7"
   end
 
+  depends_on "libtommath"
   depends_on "moarvm"
 
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with nqp included"
