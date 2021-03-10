@@ -6,8 +6,8 @@ class JenkinsLts < Formula
   license "MIT"
 
   livecheck do
-    url "https://get.jenkins.io/war-stable/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    url "https://www.jenkins.io/download/"
+    regex(%r{href=.*?/war-stable/v?(\d+(?:\.\d+)+)/jenkins\.war}i)
   end
 
   bottle :unneeded
