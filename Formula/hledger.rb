@@ -26,16 +26,16 @@ class Hledger < Formula
   uses_from_macos "zlib"
 
   resource "hledger-lib" do
-    url "https://hackage.haskell.org/package/hledger-lib-1.20.4/hledger-lib-1.20.4.tar.gz"
-    sha256 "dc7f00517d33062ed9c495dea6dc20181a0c4fd1805f2ce37f30743ea01cda9d"
+    url "https://hackage.haskell.org/package/hledger-lib-1.21/hledger-lib-1.21.tar.gz"
+    sha256 "be2cd8c4259da63a6cc2c5abf625ebc8ffaab405ec3284c6f7cb6e3431d5f902"
   end
   resource "hledger-ui" do
-    url "https://hackage.haskell.org/package/hledger-ui-1.20.4/hledger-ui-1.20.4.tar.gz"
-    sha256 "71009410e2267377ff572b04f0ac860c94c75ba1c58c0f8ea2fec35bc9f63279"
+    url "https://hackage.haskell.org/package/hledger-ui-1.21/hledger-ui-1.21.tar.gz"
+    sha256 "14f4f5de87b69b05ca6040cb444cf2e6e8dc1ccae601740cde0c79f00d322dc1"
   end
   resource "hledger-web" do
-    url "https://hackage.haskell.org/package/hledger-web-1.20.4/hledger-web-1.20.4.tar.gz"
-    sha256 "c4ba461165dd0513282bd0463c88effea2c29f2ca1bc8f7ed043d26572b9fa1a"
+    url "https://hackage.haskell.org/package/hledger-web-1.21/hledger-web-1.21.tar.gz"
+    sha256 "e2251687ed0c4dff9fea1767e3c30279df50713bdb9d4c2c1712f0eb19fe7a47"
   end
 
   def install
@@ -45,7 +45,7 @@ class Hledger < Formula
     cd ".." do
       system "stack", "update"
       (buildpath/"../stack.yaml").write <<~EOS
-        resolver: nightly-2021-01-15
+        resolver: lts-17.5
         compiler: ghc-#{Formula["ghc"].version}
         compiler-check: newer-minor
         packages:
@@ -56,21 +56,9 @@ class Hledger < Formula
       EOS
       system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"
 
-      man1.install "hledger-#{version}/hledger.1"
-      man5.install "hledger-lib/hledger_csv.5"
-      man5.install "hledger-lib/hledger_journal.5"
-      man5.install "hledger-lib/hledger_timeclock.5"
-      man5.install "hledger-lib/hledger_timedot.5"
-      man1.install "hledger-ui/hledger-ui.1"
-      man1.install "hledger-web/hledger-web.1"
-
-      info.install "hledger-#{version}/hledger.info"
-      info.install "hledger-lib/hledger_csv.info"
-      info.install "hledger-lib/hledger_journal.info"
-      info.install "hledger-lib/hledger_timeclock.info"
-      info.install "hledger-lib/hledger_timedot.info"
-      info.install "hledger-ui/hledger-ui.info"
-      info.install "hledger-web/hledger-web.info"
+      man1.install Dir["hledger-*/*.1"]
+      man5.install Dir["hledger-lib/*.5"]
+      info.install Dir["hledger-*/*.info"]
     end
   end
 
