@@ -2,8 +2,8 @@ class Zeek < Formula
   desc "Network security monitor"
   homepage "https://www.zeek.org"
   url "https://github.com/zeek/zeek.git",
-      tag:      "v3.2.4",
-      revision: "66d54d950a5f39c7b8a9d87bc2b0ac9c06b6804a"
+      tag:      "v4.0.0",
+      revision: "7b5263139e9909757c38dfca4c99abebf958df67"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git"
 
@@ -20,6 +20,7 @@ class Zeek < Formula
   depends_on "geoip"
   depends_on macos: :mojave
   depends_on "openssl@1.1"
+  depends_on "python@3.9"
 
   uses_from_macos "flex"
   uses_from_macos "libpcap"
@@ -27,12 +28,11 @@ class Zeek < Formula
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
-                      "-DDISABLE_PYTHON_BINDINGS=on",
                       "-DBROKER_DISABLE_TESTS=on",
                       "-DBUILD_SHARED_LIBS=on",
                       "-DINSTALL_AUX_TOOLS=on",
                       "-DINSTALL_ZEEKCTL=on",
-                      "-DCAF_ROOT_DIR=#{Formula["caf"].opt_prefix}",
+                      "-DCAF_ROOT=#{Formula["caf"].opt_prefix}",
                       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
                       "-DZEEK_ETC_INSTALL_DIR=#{etc}",
                       "-DZEEK_LOCAL_STATE_DIR=#{var}"
@@ -42,6 +42,6 @@ class Zeek < Formula
 
   test do
     assert_match "version #{version}", shell_output("#{bin}/zeek --version")
-    assert_match "ARP Parsing", shell_output("#{bin}/zeek --print-plugins")
+    assert_match "ARP packet analyzer", shell_output("#{bin}/zeek --print-plugins")
   end
 end
