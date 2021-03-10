@@ -89,46 +89,28 @@ class PostgresqlAT12 < Formula
 
   def post_install
     (var/"log").mkpath
-    versioned_data_dir.mkpath
+    postgresql_datadir.mkpath
 
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", versioned_data_dir unless versioned_pg_version_exists?
+    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
-  # Previous versions of this formula used the same data dir as the regular
-  # postgresql formula. So we check whether the versioned data dir exists
-  # and has a PG_VERSION file, which should indicate that the versioned
-  # data dir is in use. Otherwise, returns the old data dir path.
   def postgresql_datadir
-    if versioned_pg_version_exists?
-      versioned_data_dir
-    else
-      old_postgres_data_dir
-    end
+    var/name
   end
 
-  def versioned_data_dir
-    var/name
+  def postgresql_log_path
+    var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def old_postgres_data_dir
     var/"postgres"
-  end
-
-  # Same as with the data dir - use old log file if the old data dir
-  # is version 12
-  def postgresql_log_path
-    if versioned_pg_version_exists?
-      var/"log/#{name}.log"
-    else
-      var/"log/postgres.log"
-    end
-  end
-
-  def versioned_pg_version_exists?
-    (versioned_data_dir/"PG_VERSION").exist?
   end
 
   def postgresql_formula_present?
@@ -159,7 +141,7 @@ class PostgresqlAT12 < Formula
 
           In order to avoid this conflict, you should make sure that the
           #{name} data directory is located at:
-            #{versioned_data_dir}
+            #{postgresql_datadir}
 
         EOS
       else
@@ -170,7 +152,7 @@ class PostgresqlAT12 < Formula
           try to use both at the same time.
 
           You can migrate to a versioned data directory by running:
-            mv -v "#{old_postgres_data_dir}" "#{versioned_data_dir}"
+            mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
 
           (Make sure PostgreSQL is stopped before executing this command)
 
