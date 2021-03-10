@@ -19,6 +19,23 @@ class GimmeAwsCreds < Formula
 
   uses_from_macos "libffi"
 
+  on_macos do
+    resource "pyobjc-core" do
+      url "https://files.pythonhosted.org/packages/31/f2/880cc03678a2de93f7b60ab94b35323b7b1be213d775113b2a1b8e975201/pyobjc-core-7.1.tar.gz"
+      sha256 "a0616d5d816b4471f8f782c3a9a8923d2cc85014d88ad4f7fec694be9e6ea349"
+    end
+
+    resource "pyobjc-framework-Cocoa" do
+      url "https://files.pythonhosted.org/packages/e3/0a/44d42b3e54c26d8aa24361528802a6b830d0c97a7ddc6bedcd70ad02023f/pyobjc-framework-Cocoa-7.1.tar.gz"
+      sha256 "67966152b3d38a0225176fceca2e9f56d849c8e7445548da09a00cb13155ec3e"
+    end
+
+    resource "pyobjc-framework-LocalAuthentication" do
+      url "https://files.pythonhosted.org/packages/16/5e/a8d850157f828756f116ca1ccb767ded91d31a50e88bbd84a55344c4a78c/pyobjc-framework-LocalAuthentication-7.1.tar.gz"
+      sha256 "032d9f74cd79341a1d456df9212b0964f0af8ca6adff0a2f8941fdc241571975"
+    end
+  end
+
   on_linux do
     depends_on "pkg-config" => :build
   end
@@ -101,21 +118,6 @@ class GimmeAwsCreds < Formula
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
-  end
-
-  resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/31/f2/880cc03678a2de93f7b60ab94b35323b7b1be213d775113b2a1b8e975201/pyobjc-core-7.1.tar.gz"
-    sha256 "a0616d5d816b4471f8f782c3a9a8923d2cc85014d88ad4f7fec694be9e6ea349"
-  end
-
-  resource "pyobjc-framework-Cocoa" do
-    url "https://files.pythonhosted.org/packages/e3/0a/44d42b3e54c26d8aa24361528802a6b830d0c97a7ddc6bedcd70ad02023f/pyobjc-framework-Cocoa-7.1.tar.gz"
-    sha256 "67966152b3d38a0225176fceca2e9f56d849c8e7445548da09a00cb13155ec3e"
-  end
-
-  resource "pyobjc-framework-LocalAuthentication" do
-    url "https://files.pythonhosted.org/packages/16/5e/a8d850157f828756f116ca1ccb767ded91d31a50e88bbd84a55344c4a78c/pyobjc-framework-LocalAuthentication-7.1.tar.gz"
-    sha256 "032d9f74cd79341a1d456df9212b0964f0af8ca6adff0a2f8941fdc241571975"
   end
 
   resource "python-dateutil" do
