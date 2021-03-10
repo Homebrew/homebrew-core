@@ -6,11 +6,6 @@ class Bottom < Formula
   license "MIT"
   head "https://github.com/ClementTsang/bottom.git"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   depends_on "rust" => :build
 
   def install
