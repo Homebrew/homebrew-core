@@ -3,6 +3,7 @@ class Udunits < Formula
   homepage "https://www.unidata.ucar.edu/software/udunits/"
   url "https://github.com/Unidata/UDUNITS-2/archive/v2.2.27.6.tar.gz"
   sha256 "74fd7fb3764ce2821870fa93e66671b7069a0c971513bf1904c6b053a4a55ed1"
+  license "BSD-4-Clause"
   revision 1
 
   bottle do
