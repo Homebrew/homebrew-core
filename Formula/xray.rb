@@ -6,11 +6,6 @@ class Xray < Formula
   license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
   head "https://github.com/XTLS/Xray-core.git"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   depends_on "go" => :build
 
   resource "geoip" do
