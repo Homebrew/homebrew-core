@@ -3,7 +3,7 @@ class Exiv2 < Formula
   homepage "https://www.exiv2.org/"
   url "https://www.exiv2.org/builds/exiv2-0.27.3-Source.tar.gz"
   sha256 "a79f5613812aa21755d578a297874fb59a85101e793edc64ec2c6bd994e3e778"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/Exiv2/exiv2.git"
 
   livecheck do
@@ -42,6 +42,7 @@ class Exiv2 < Formula
       -DEXIV2_BUILD_SAMPLES=OFF
       -DSSH_LIBRARY=#{Formula["libssh"].opt_lib}/#{shared_library("libssh")}
       -DSSH_INCLUDE_DIR=#{Formula["libssh"].opt_include}
+      -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
       ..
     ]
     mkdir "build.cmake" do
