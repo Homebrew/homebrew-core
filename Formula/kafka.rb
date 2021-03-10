@@ -1,5 +1,5 @@
 class Kafka < Formula
-  desc "Publish-subscribe messaging rethought as a distributed commit log"
+  desc "Open-source distributed event streaming platform"
   homepage "https://kafka.apache.org/"
   url "https://www.apache.org/dyn/closer.lua?path=kafka/2.7.0/kafka_2.13-2.7.0.tgz"
   mirror "https://archive.apache.org/dist/kafka/2.7.0/kafka_2.13-2.7.0.tgz"
@@ -79,6 +79,14 @@ class Kafka < Formula
     inreplace "#{testpath}/kafka/zookeeper.properties", "#{var}/lib", testpath
     inreplace "#{testpath}/kafka/server.properties", "#{var}/lib", testpath
 
+    zk_port = free_port
+    kafka_port = free_port
+    inreplace "#{testpath}/kafka/zookeeper.properties", "clientPort=2181", "clientPort=#{zk_port}"
+    inreplace "#{testpath}/kafka/server.properties" do |s|
+      s.gsub! "zookeeper.connect=localhost:2181", "zookeeper.connect=localhost:#{zk_port}"
+      s.gsub! "#listeners=PLAINTEXT://:9092", "listeners=PLAINTEXT://:#{kafka_port}"
+    end
+
     begin
       fork do
         exec "#{bin}/zookeeper-server-start #{testpath}/kafka/zookeeper.properties " \
@@ -94,14 +102,15 @@ class Kafka < Formula
 
       sleep 30
 
-      system "#{bin}/kafka-topics --zookeeper localhost:2181 --create --if-not-exists --replication-factor 1 " \
-             "--partitions 1 --topic test > #{testpath}/kafka/demo.out 2>/dev/null"
-      pipe_output "#{bin}/kafka-console-producer --broker-list localhost:9092 --topic test 2>/dev/null",
-                  "test message"
-      system "#{bin}/kafka-console-consumer --bootstrap-server localhost:9092 --topic test --from-beginning " \
-             "--max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
-      system "#{bin}/kafka-topics --zookeeper localhost:2181 --delete --topic test >> #{testpath}/kafka/demo.out " \
+      system "#{bin}/kafka-topics --bootstrap-server localhost:#{kafka_port} --create --if-not-exists " \
+             "--replication-factor 1 --partitions 1 --topic test > #{testpath}/kafka/demo.out " \
              "2>/dev/null"
+      pipe_output "#{bin}/kafka-console-producer --bootstrap-server localhost:#{kafka_port} --topic test 2>/dev/null",
+                  "test message"
+      system "#{bin}/kafka-console-consumer --bootstrap-server localhost:#{kafka_port} --topic test " \
+             "--from-beginning --max-messages 1 >> #{testpath}/kafka/demo.out 2>/dev/null"
+      system "#{bin}/kafka-topics --bootstrap-server localhost:#{kafka_port} --delete --topic test " \
+             ">> #{testpath}/kafka/demo.out 2>/dev/null"
     ensure
       system "#{bin}/kafka-server-stop"
       system "#{bin}/zookeeper-server-stop"
