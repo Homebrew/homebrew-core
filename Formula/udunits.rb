@@ -14,6 +14,8 @@ class Udunits < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "texinfo" => :build
   uses_from_macos "expat"
   uses_from_macos "flex"
 
