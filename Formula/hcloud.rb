@@ -16,7 +16,7 @@ class Hcloud < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/hetznercloud/cli/cli.Version=v#{version}"
+    ldflags = "-s -w -X github.com/hetznercloud/cli/internal/version.Version=v#{version}"
     system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/hcloud"
 
     output = Utils.safe_popen_read("#{bin}/hcloud", "completion", "bash")
