@@ -36,10 +36,10 @@ class GopassJsonapi < Formula
                                                  "--kill", "gpg-agent"
     end
 
-    assert_match version.to_s, shell_output("#{bin}/gopass-jsonapi --version")
+    assert_match(/^gopass-jsonapi version #{version}$/, shell_output("#{bin}/gopass-jsonapi --version"))
 
-    msg='{"type": "query", "query": "foo.bar"}'
-    out = pipe_output("#{bin}/gopass-jsonapi listen", [msg.length].pack("L<")+msg)
-    assert_match "Email/other@foo.bar", out
+    msg = '{"type": "query", "query": "foo.bar"}'
+    assert_match "Email/other@foo.bar",
+      pipe_output("#{bin}/gopass-jsonapi listen", "#{[msg.length].pack("L<")}#{msg}")
   end
 end
