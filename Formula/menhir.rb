@@ -1,8 +1,8 @@
 class Menhir < Formula
   desc "LR(1) parser generator for the OCaml programming language"
   homepage "http://cristal.inria.fr/~fpottier/menhir"
-  url "https://gitlab.inria.fr/fpottier/menhir/-/archive/20201216/menhir-20201216.tar.bz2"
-  sha256 "bb9f2755e66b2a2bd60dc5eae979b9f56a119d45c892a1c6145f998b7467b59e"
+  url "https://gitlab.inria.fr/fpottier/menhir/-/archive/20210310/menhir-20210310.tar.bz2"
+  sha256 "93f08a009aa04d3f2e92a0cd6ca603b7103f4763a105f89549623e60b1d94081"
   license "GPL-3.0-or-later"
 
   bottle do
