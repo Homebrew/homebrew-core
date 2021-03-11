@@ -25,8 +25,22 @@ class Handbrake < Formula
   depends_on xcode: ["10.3", :build]
   depends_on "yasm" => :build
 
+  uses_from_macos "m4" => :build
+  uses_from_macos "libxml2"
+
+  on_linux do
+    depends_on "jansson"
+    depends_on "numactl"
+    depends_on "opus"
+  end
+
   def install
     inreplace "contrib/ffmpeg/module.defs", "$(FFMPEG.GCC.gcc)", "cc"
+
+    on_linux do
+      ENV.append "CFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2"
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--disable-xcode",
                           "--disable-gtk"
