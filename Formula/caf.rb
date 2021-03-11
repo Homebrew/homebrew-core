@@ -2,8 +2,8 @@ class Caf < Formula
   # Renamed from libccpa
   desc "Implementation of the Actor Model for C++"
   homepage "https://www.actor-framework.org/"
-  url "https://github.com/actor-framework/actor-framework/archive/0.17.6.tar.gz"
-  sha256 "e2bf5bd243f08bb7d8adde197cfe3e6d71314ed3378fe0692f8932f4c3b3928c"
+  url "https://github.com/actor-framework/actor-framework/archive/0.18.0.tar.gz"
+  sha256 "df765fa78861e67d44e2587c0ac0c1c662d8c93fe5ffc8757f552fc7ac15941f"
   license "BSD-3-Clause"
   head "https://github.com/actor-framework/actor-framework.git"
 
@@ -20,12 +20,11 @@ class Caf < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--build-static",
-                          "--no-examples",
-                          "--no-unit-tests",
-                          "--no-opencl"
-    system "make", "--directory=build", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DCAF_ENABLE_TESTING=OFF"
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
@@ -41,7 +40,7 @@ class Caf < Formula
       }
       CAF_MAIN()
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-L#{lib}", "-lcaf_core", "-o", "test"
     system "./test"
   end
 end
