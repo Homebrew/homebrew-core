@@ -3,10 +3,9 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/v.0.7.6.tar.gz"
-  sha256 "2c498cc6a18b9fbb77c52ca41ba329c503aa5d4ec648075c3ebb72bfa7102099"
+  url "https://github.com/Difegue/LANraragi/archive/v.0.7.7.tar.gz"
+  sha256 "5c703539b7bbc6e6e910ed5efe56a1303e03eebbb79b6bb40daadcb6609ab859"
   license "MIT"
-  revision 2
   head "https://github.com/Difegue/LANraragi.git"
 
   bottle do
@@ -27,6 +26,7 @@ class Lanraragi < Formula
   depends_on "openssl@1.1"
   depends_on "perl"
   depends_on "redis"
+  depends_on "zstd"
   uses_from_macos "libarchive"
 
   resource "Image::Magick" do
