@@ -1,8 +1,8 @@
 class Gofumpt < Formula
   desc "Stricter gofmt"
   homepage "https://github.com/mvdan/gofumpt"
-  url "https://github.com/mvdan/gofumpt/archive/v0.1.0.tar.gz"
-  sha256 "802c92d3df222c9b266d785305107c58a26ea186c4dbb5989b0db97b9bce0367"
+  url "https://github.com/mvdan/gofumpt/archive/v0.1.1.tar.gz"
+  sha256 "ea221438d830057d8bc0f7bbf667508695b4827d5a65ec634111ca5952e6cd5c"
   license "BSD-3-Clause"
 
   bottle do
