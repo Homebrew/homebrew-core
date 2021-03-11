@@ -19,6 +19,9 @@
       "exclude_packages": ["numpy"],
       "extra_packages": ["wheel"]
   },
+  "magic-wormhole": {
+    "extra_packages": ["wheel"]
+  },
   "molecule": false,
   "openstackclient": {
     "extra_packages": ["python-heatclient"]
