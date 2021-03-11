@@ -16,6 +16,16 @@ class Raylib < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "libx11"
+    depends_on "libxcursor"
+    depends_on "libxi"
+    depends_on "libxinerama"
+    depends_on "libxrandr"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   def install
     system "cmake", ".", "-DSTATIC_RAYLIB=ON",
                          "-DSHARED_RAYLIB=ON",
