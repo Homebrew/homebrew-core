@@ -22,6 +22,10 @@ class Urlview < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "abe2ea4e7d7f07e606837852d3e46c72c56fd4018a703e72f0945d87ccba19a4"
   end
 
+  on_linux do
+    depends_on "automake"
+  end
+
   patch do
     url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9-21.diff.gz"
     sha256 "efdf6a279d123952820dd6185ab9399ee1bf081ea3dd613dc96933cd1827a9e9"
@@ -34,6 +38,12 @@ class Urlview < Formula
       '#define DEFAULT_COMMAND "open %s"'
 
     man1.mkpath
+
+    on_linux do
+      touch("NEWS") # autoreconf will fail if this file does not exist
+      system "autoreconf", "-i"
+    end
+
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}"
     system "make", "install"
