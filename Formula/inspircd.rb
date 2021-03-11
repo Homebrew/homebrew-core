@@ -19,6 +19,8 @@ class Inspircd < Formula
 
   depends_on "pkg-config" => :build
 
+  uses_from_macos "openldap"
+
   skip_clean "data"
   skip_clean "logs"
 
