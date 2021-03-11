@@ -2,10 +2,9 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway/current/index.html"
   url "https://github.com/couchbase/sync_gateway.git",
-      tag:      "2.8.0",
-      revision: "e2e7d4286f84e3d101e2ea0d9ee868c66e6243f1"
+      tag:      "2.8.2",
+      revision: "4df7a2da36c88a72131b23eb044b7d0b69b456bd"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/couchbase/sync_gateway.git"
 
   livecheck do
