@@ -1,10 +1,10 @@
 class OtpCli < Formula
   desc "Tool for generate otp code in terminal"
   homepage "https://github.com/chyroc/otp-cli"
-
   url "https://github.com/chyroc/otp-cli/releases/download/v0.3.0/otp-cli-0.3.0.tar.gz"
   sha256 "b0c3a0afb4f886db32bcc12ed3d6eec985fe9cf4487e4db412557dfbdd5dcafe"
   head "https://github.com/chyroc/otp-cli"
+  license "Apache-2.0"
 
   depends_on "go" => :build
 
