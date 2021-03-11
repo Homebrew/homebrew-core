@@ -23,6 +23,9 @@
   "openstackclient": {
     "extra_packages": ["python-heatclient"]
   },
+  "nicotine-plus": {
+    "exclude_packages": ["pycairo", "PyGObject"]
+  },
   "pdm": {
     "extra_packages": ["wheel"]
   },
