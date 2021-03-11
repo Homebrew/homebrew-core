@@ -69,6 +69,12 @@ class Mysql < Formula
     rm_rf lib/"plugin/libcrypto.1.1.dylib"
     rm_rf lib/"plugin/libssl.1.1.dylib"
 
+    # edit mysql_config to make sure anything that uses it to figure out
+    # what libraries to link looks for openssl in the right place
+    inreplace bin/"mysql_config" do |s|
+      s.gsub! "libs=\"-L$pkglibdir\"", "libs=\"-L$pkglibdir -L#{Formula["openssl@1.1"].lib}\""
+    end
+
     # Remove the tests directory
     rm_rf prefix/"mysql-test"
 
