@@ -16,7 +16,7 @@ class Mmark < Formula
   depends_on "go" => :build
 
   resource "test" do
-    url "https://raw.githubusercontent.com/mmarkdown/mmark/master/rfc/2100.md"
+    url "https://raw.githubusercontent.com/mmarkdown/mmark/v2.2.10/rfc/2100.md"
     sha256 "0b5383917a0fbc0d2a4ef009d6ccd787444ce2e80c1ea06088cb96269ecf11f0"
   end
 
