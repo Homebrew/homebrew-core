@@ -29,8 +29,11 @@ class Inspircd < Formula
   skip_clean "logs"
 
   def install
-    system "./configure", "--enable-extras", "argon2 ldap mysql pgsql regex_stdlib ssl_gnutls"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--enable-extras",
+                          "argon2 ldap mysql pgsql regex_posix regex_stdlib ssl_gnutls sslrehashsignal"
+    system "./configure", "--disable-auto-extras",
+                          "--distribution-label", "homebrew-#{revision}",
+                          "--prefix", prefix
     system "make", "install"
   end
 
