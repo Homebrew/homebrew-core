@@ -23,9 +23,10 @@ class Opensc < Formula
   depends_on "automake" => :build
   depends_on "docbook-xsl" => :build
   depends_on "libtool" => :build
-  depends_on "pcsc-lite" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
+
+  uses_from_macos "pcsc-lite"
 
   def install
     args = %W[
