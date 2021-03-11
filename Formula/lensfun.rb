@@ -5,7 +5,7 @@ class Lensfun < Formula
   homepage "https://lensfun.github.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
-  revision 3
+  revision 4
 
   bottle do
     sha256 arm64_big_sur: "d88e64dba59fb70ca04c45029ba2908d9d731dd94b835cbf88f488dd66c8c96c"
@@ -21,6 +21,12 @@ class Lensfun < Formula
   depends_on "glib"
   depends_on "libpng"
   depends_on "python@3.9"
+
+  # This patch can be removed when new Lensfun release (v0.3.96) is available.
+  patch do
+    url "https://github.com/lensfun/lensfun/commit/de954c952929316ea2ad0f6f1e336d9d8164ace0.patch?full_index=1"
+    sha256 "67f0d2f33160bb1ab2b4d1e0465ad5967dbd8f8e3ba1d231b5534ec641014e3b"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
