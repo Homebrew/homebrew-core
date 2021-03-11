@@ -19,6 +19,8 @@ class X3270 < Formula
 
   depends_on "readline"
 
+  uses_from_macos "tcl-tk"
+
   def install
     args = %W[
       --prefix=#{prefix}
