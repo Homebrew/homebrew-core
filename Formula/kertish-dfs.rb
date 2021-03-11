@@ -9,7 +9,6 @@ class KertishDfs < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "mod", "download"
     cd "fs-tool" do
       system "go", "build", *std_go_args, "-ldflags", "-X main.version=#{version}", "-o", "#{bin}/krtfs"
     end
