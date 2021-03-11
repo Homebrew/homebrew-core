@@ -18,6 +18,10 @@ class Inspircd < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "argon2"
+  depends_on "gnutls"
+  depends_on "libpq"
+  depends_on "mysql-client"
 
   uses_from_macos "openldap"
 
@@ -25,7 +29,7 @@ class Inspircd < Formula
   skip_clean "logs"
 
   def install
-    system "./configure", "--enable-extras=ldap"
+    system "./configure", "--enable-extras", "argon2 ldap mysql pgsql regex_stdlib ssl_gnutls"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
