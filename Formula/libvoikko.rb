@@ -1,9 +1,9 @@
 class Libvoikko < Formula
   desc "Linguistic software and Finnish dictionary"
   homepage "https://voikko.puimula.org/"
-  url "https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.tar.gz"
-  sha256 "e843df002fcea2a90609d87e4d6c28f8a0e23332d3b42979ab1793e18f839307"
-  revision 3
+  url "https://www.puimula.org/voikko-sources/libvoikko/libvoikko-4.3.1.tar.gz"
+  sha256 "368240d4cfa472c2e2c43dc04b63e6464a3e6d282045848f420d0f7a6eb09a13"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://www.puimula.org/voikko-sources/libvoikko/"
@@ -11,11 +11,10 @@ class Libvoikko < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "32d024915b3a784c2142507c1d8c0b2ef675635ef9e387880b467a2c8aa7044b"
-    sha256 cellar: :any, big_sur:       "0d36dae546a309c83750f42e8eba3b6d9b51765f78093a9b6bffa5c9d5bc0cd8"
-    sha256 cellar: :any, catalina:      "94d12634dd73cba44a8e8c0fad1f2a2bea4db5ef50bffb277faaa400f798ccb0"
-    sha256 cellar: :any, mojave:        "bc325b6ce79a331c7046c54449174ca7cd2640703e90f50244b5ddfe5ed8de3b"
-    sha256 cellar: :any, high_sierra:   "5171bd4eeaba0f6712fd945622f76c0d615f3e6fad826329fa2ce77d8711380b"
+    sha256 cellar: :any, arm64_big_sur: "b0a624c9b02009d2eac3b6adbf6db56c05d6cde859ea5cef7b6a06973afd8619"
+    sha256 cellar: :any, big_sur:       "02041f6b02bbdf49d1399b6c8b0f99e00a003a9f03bf13b57fe449759f98e27e"
+    sha256 cellar: :any, catalina:      "ffc0a9565f9806e59b80b69523230d550a9c3cdfacf6d892a13a7c3b11ac428e"
+    sha256 cellar: :any, mojave:        "79b5cb80a3e95beb1d57485d549724334d687dfdbc60520d3b437f5646ae756d"
   end
 
   depends_on "foma" => :build
@@ -24,8 +23,8 @@ class Libvoikko < Formula
   depends_on "hfstospell"
 
   resource "voikko-fi" do
-    url "https://www.puimula.org/voikko-sources/voikko-fi/voikko-fi-2.3.tar.gz"
-    sha256 "37b7886a23cfbde472715ba1266e1a81e2a87c3f5ccce8ae23bd7b38bacdcec2"
+    url "https://www.puimula.org/voikko-sources/voikko-fi/voikko-fi-2.4.tar.gz"
+    sha256 "320b2d4e428f6beba9d0ab0d775f8fbe150284fbbafaf3e5afaf02524cee28cc"
   end
 
   def install
@@ -45,6 +44,6 @@ class Libvoikko < Formula
   end
 
   test do
-    pipe_output("#{bin}/voikkospell -m", "onkohan\n")
+    assert_match "C: onkohan", pipe_output("#{bin}/voikkospell -m", "onkohan\n")
   end
 end

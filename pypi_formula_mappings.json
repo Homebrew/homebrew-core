@@ -35,6 +35,9 @@
   "salt": {
     "extra_packages": ["M2Crypto", "pygit2"]
   },
+  "scipy": {
+    "exclude_packages": ["numpy"]
+  },
   "xdot": {
     "extra_packages": ["graphviz"]
   },

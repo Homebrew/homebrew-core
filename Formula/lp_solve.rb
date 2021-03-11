@@ -6,21 +6,31 @@ class LpSolve < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9a798c3fc6356bdbae35a8b3134ae5a51a7610c325cdf9f8ee4a3b41b7c1fcb0"
-    sha256 cellar: :any, big_sur:       "53e611f8df08011c71022b51b9cab75469e9799f4de457b769f407741ef5fe8c"
-    sha256 cellar: :any, catalina:      "0275d7331a6b593f84cc59a0f6a79e83be9362404b0b837aac78ce1cbe604ad7"
-    sha256 cellar: :any, mojave:        "e52d1c29dede6d743305aafd18ac7c6d6ba350d8e6fe32dae3af086bdec59ea5"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "064364e4edd599066792e63f44649f9986d3b3ef10e83b91c68d756aaac2f543"
+    sha256 cellar: :any, big_sur:       "04e8e54a2c3c58d7430337dc2b0f9ca6c2db2d144bb98a6b91312cd63faf834d"
+    sha256 cellar: :any, catalina:      "ac4e07a9e144e2ef6ed34e340a9d9eb769ae7184723df790a8b78ef32d46e753"
+    sha256 cellar: :any, mojave:        "4abc54efe795496f3114edcdaaf3b90e55632bbe92c5816b5372b9743366e62f"
   end
 
   def install
+    target = ""
+    subdir = "ux64"
+
+    on_macos do
+      target = ".osx"
+      subdir = "osx64"
+    end
+
     cd "lpsolve55" do
-      system "sh", "ccc.osx"
-      lib.install Dir["bin/osx64/liblpsolve55.{a,dylib}"]
+      system "sh", "ccc#{target}"
+      lib.install "bin/#{subdir}/liblpsolve55.a"
+      lib.install "bin/#{subdir}/#{shared_library("liblpsolve55")}"
     end
 
     cd "lp_solve" do
-      system "sh", "ccc.osx"
-      bin.install "bin/osx64/lp_solve"
+      system "sh", "ccc#{target}"
+      bin.install "bin/#{subdir}/lp_solve"
     end
 
     include.install Dir["*.h"], Dir["shared/*.h"], Dir["bfp/bfp_LUSOL/LUSOL/lusol*.h"]

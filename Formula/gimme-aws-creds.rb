@@ -8,16 +8,34 @@ class GimmeAwsCreds < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ee8b67ca3ed6752f88fa2dfdc60670042b5246d9604a56e66edce55ec7c28b3e"
-    sha256 cellar: :any, big_sur:       "32e55adf07ef7b2ba8d0282bd837e307830fa87bd0e25400d2a940dbd96c5a89"
-    sha256 cellar: :any, catalina:      "c23d69692fe8745b276e352478ebfd6b1ca20328ac5c0f5b88780447bf076e9e"
-    sha256 cellar: :any, mojave:        "1450d91e26517fe463c61c98e874b992253c4846c04909fbb0b6f2ee2e90d230"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "cac4d5083ecf36b4b839ed60ac208ac97bbe9a137fcf5e1ee90a9aba18a13f7e"
+    sha256 cellar: :any, big_sur:       "8881b4dc72a43d7ce04fe9cd602a0c50ea3588b6e5ecf2768f7baa6d34d76a92"
+    sha256 cellar: :any, catalina:      "4ce67f0dca38126e599fd3550c34a358bab848737cdd9cfaf2944bb04ce29211"
+    sha256 cellar: :any, mojave:        "eb15cdd16643bc10d69e0cc81d6b7483a1fff26c32cedd5245d5371e913ee1cc"
   end
 
   depends_on "python@3.9"
   depends_on "rust"
 
   uses_from_macos "libffi"
+
+  on_macos do
+    resource "pyobjc-core" do
+      url "https://files.pythonhosted.org/packages/31/f2/880cc03678a2de93f7b60ab94b35323b7b1be213d775113b2a1b8e975201/pyobjc-core-7.1.tar.gz"
+      sha256 "a0616d5d816b4471f8f782c3a9a8923d2cc85014d88ad4f7fec694be9e6ea349"
+    end
+
+    resource "pyobjc-framework-Cocoa" do
+      url "https://files.pythonhosted.org/packages/e3/0a/44d42b3e54c26d8aa24361528802a6b830d0c97a7ddc6bedcd70ad02023f/pyobjc-framework-Cocoa-7.1.tar.gz"
+      sha256 "67966152b3d38a0225176fceca2e9f56d849c8e7445548da09a00cb13155ec3e"
+    end
+
+    resource "pyobjc-framework-LocalAuthentication" do
+      url "https://files.pythonhosted.org/packages/16/5e/a8d850157f828756f116ca1ccb767ded91d31a50e88bbd84a55344c4a78c/pyobjc-framework-LocalAuthentication-7.1.tar.gz"
+      sha256 "032d9f74cd79341a1d456df9212b0964f0af8ca6adff0a2f8941fdc241571975"
+    end
+  end
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -101,21 +119,6 @@ class GimmeAwsCreds < Formula
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
-  end
-
-  resource "pyobjc-core" do
-    url "https://files.pythonhosted.org/packages/31/f2/880cc03678a2de93f7b60ab94b35323b7b1be213d775113b2a1b8e975201/pyobjc-core-7.1.tar.gz"
-    sha256 "a0616d5d816b4471f8f782c3a9a8923d2cc85014d88ad4f7fec694be9e6ea349"
-  end
-
-  resource "pyobjc-framework-Cocoa" do
-    url "https://files.pythonhosted.org/packages/e3/0a/44d42b3e54c26d8aa24361528802a6b830d0c97a7ddc6bedcd70ad02023f/pyobjc-framework-Cocoa-7.1.tar.gz"
-    sha256 "67966152b3d38a0225176fceca2e9f56d849c8e7445548da09a00cb13155ec3e"
-  end
-
-  resource "pyobjc-framework-LocalAuthentication" do
-    url "https://files.pythonhosted.org/packages/16/5e/a8d850157f828756f116ca1ccb767ded91d31a50e88bbd84a55344c4a78c/pyobjc-framework-LocalAuthentication-7.1.tar.gz"
-    sha256 "032d9f74cd79341a1d456df9212b0964f0af8ca6adff0a2f8941fdc241571975"
   end
 
   resource "python-dateutil" do

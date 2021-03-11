@@ -26,7 +26,6 @@ class Libvirt < Formula
   depends_on "perl" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
-  depends_on "rpcgen" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "gnutls"
@@ -34,6 +33,17 @@ class Libvirt < Formula
   depends_on "libiscsi"
   depends_on "libssh2"
   depends_on "yajl"
+
+  uses_from_macos "curl"
+  uses_from_macos "libxslt"
+
+  on_macos do
+    depends_on "rpcgen" => :build
+  end
+
+  on_linux do
+    depends_on "libtirpc" => :build
+  end
 
   def install
     mkdir "build" do

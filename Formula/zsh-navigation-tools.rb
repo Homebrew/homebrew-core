@@ -3,6 +3,7 @@ class ZshNavigationTools < Formula
   homepage "https://github.com/psprint/zsh-navigation-tools"
   url "https://github.com/psprint/zsh-navigation-tools/archive/v2.2.7.tar.gz"
   sha256 "ee832b81ce678a247b998675111c66aa1873d72aa33c2593a65626296ca685fc"
+  license any_of: ["GPL-3.0-only", "MIT"]
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a968a06b57fd74fb842f504c30d61e8c22aa57da9f84d8aca3159f1b5c2eb284"

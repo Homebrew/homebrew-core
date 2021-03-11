@@ -25,6 +25,9 @@ class LastpassCli < Formula
   depends_on "openssl@1.1"
   depends_on "pinentry"
 
+  uses_from_macos "curl"
+  uses_from_macos "libxslt"
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 

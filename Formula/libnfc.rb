@@ -24,6 +24,8 @@ class Libnfc < Formula
   depends_on "pkg-config" => :build
   depends_on "libusb-compat"
 
+  uses_from_macos "pcsc-lite"
+
   def install
     system "autoreconf", "-vfi" if build.head?
     system "./configure", "--disable-debug", "--disable-dependency-tracking",

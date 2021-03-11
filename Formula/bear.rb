@@ -24,6 +24,14 @@ class Bear < Formula
   depends_on "spdlog"
   depends_on "sqlite"
 
+  uses_from_macos "llvm" => :test
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5" # needs C++17
+
   def install
     args = std_cmake_args + %w[
       -DENABLE_UNIT_TESTS=OFF
