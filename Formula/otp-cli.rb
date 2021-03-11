@@ -13,6 +13,13 @@ class OtpCli < Formula
   end
 
   test do
-    assert_equal "otp-cli version v0.3.0\n", shell_output("#{bin}/otp-cli version")
+    (testpath/"secret.txt").write "testsecret"
+
+    assert_equal "otp-cli version v#{pkg_version}\n", shell_output("#{bin}/otp-cli version")
+    from_string = shell_output("#{bin}/otp-cli -s testsecret")
+    assert_equal 7, from_string.length
+    from_file = shell_output("#{bin}/otp-cli -f secret.txt")
+    assert_equal 7, from_file.length
+    assert_equal from_string, from_file
   end
 end
