@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # brew config for otp-cli
 class OtpCli < Formula
   desc "Tool for generate otp code in terminal"
