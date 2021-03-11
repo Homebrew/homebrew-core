@@ -23,5 +23,4 @@ class OtpCli < Formula
     # exit code should be 2".
     assert_match "otp-cli", shell_output("#{bin}/otp-cli -h 2>&1", 2)
   end
-
 end
