@@ -24,6 +24,15 @@ class Sfml < Formula
   depends_on "libogg"
   depends_on "libvorbis"
 
+  on_linux do
+    depends_on "libx11"
+    depends_on "libxrandr"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+    depends_on "openal-soft"
+    depends_on "systemd"
+  end
+
   # https://github.com/Homebrew/homebrew/issues/40301
 
   def install
@@ -35,11 +44,16 @@ class Sfml < Formula
     # headers that were moved there in https://github.com/SFML/SFML/pull/795
     rm_rf Dir["extlibs/*"] - ["extlibs/headers"]
 
-    system "cmake", ".", *std_cmake_args,
-                         "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                         "-DSFML_MISC_INSTALL_PREFIX=#{share}/SFML",
-                         "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
-                         "-DSFML_BUILD_DOC=TRUE"
+    args = ["-DCMAKE_INSTALL_RPATH=#{opt_lib}",
+            "-DSFML_MISC_INSTALL_PREFIX=#{share}/SFML",
+            "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
+            "-DSFML_BUILD_DOC=TRUE"]
+
+    on_linux do
+      args << "-DSFML_USE_SYSTEM_DEPS=ON"
+    end
+
+    system "cmake", ".", *std_cmake_args, *args
     system "make", "install"
   end
 
@@ -51,8 +65,8 @@ class Sfml < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}/SFML/System", "-L#{lib}", "-lsfml-system",
-           testpath/"test.cpp", "-o", "test"
+    system ENV.cxx, "-I#{include}/SFML/System", testpath/"test.cpp",
+           "-L#{lib}", "-lsfml-system", "-o", "test"
     system "./test"
   end
 end
