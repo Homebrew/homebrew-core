@@ -9,13 +9,7 @@ class OtpCli < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-
-    bin_path = buildpath/"src/github.com/chyroc/otp-cli"
-    bin_path.install Dir["*"]
-    cd bin_path do
-      system "go", "build", *std_go_args
-    end
+    system "go", "build", *std_go_args
   end
 
   test do
