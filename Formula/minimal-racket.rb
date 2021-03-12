@@ -1,9 +1,10 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/8.0/racket-minimal-8.0-src-builtpkgs.tgz"
-  sha256 "ef1a2dc5af4e68938a12f5fc25d1a9b3a0344e133da9c4d79132e23ac116493c"
+  url "https://mirror.racket-lang.org/installers/8.0/racket-minimal-8.0-src.tgz"
+  sha256 "6092e251b7f067dc2ec554e96fa2f63d619cc1a847166cc2819fb3f4b2896e63"
   license any_of: ["MIT", "Apache-2.0"]
+  revision 1
 
   # File links on the download page are created using JavaScript, so we parse
   # the filename from a string in an object. We match the version from the
@@ -11,7 +12,7 @@ class MinimalRacket < Formula
   # only found on the release page for a given version (e.g., `/releases/8.0/`).
   livecheck do
     url "https://download.racket-lang.org/"
-    regex(/["'][^"']*?racket(?:-minimal)?[._-]v?(\d+(?:\.\d+)+)-src-builtpkgs\.t/i)
+    regex(/["'][^"']*?racket(?:-minimal)?[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
   end
 
   bottle do
