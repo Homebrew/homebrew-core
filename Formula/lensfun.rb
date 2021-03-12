@@ -5,6 +5,12 @@ class Lensfun < Formula
   homepage "https://lensfun.github.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
+  license all_of: [
+    "LGPL-3.0-only",
+    "GPL-3.0-only",
+    "CC-BY-3.0",
+    :public_domain,
+  ]
   revision 4
 
   bottle do
