@@ -4,7 +4,7 @@ class Xterm < Formula
   url "https://invisible-mirror.net/archives/xterm/xterm-366.tgz"
   mirror "https://deb.debian.org/debian/pool/main/x/xterm/xterm_366.orig.tar.gz"
   sha256 "858b2885963fe97e712739066aadc1baeba2b33a0016303a7fec7d38bc73bf6e"
-  license :cannot_represent
+  license "X11"
 
   livecheck do
     url "https://invisible-mirror.net/archives/xterm/"
