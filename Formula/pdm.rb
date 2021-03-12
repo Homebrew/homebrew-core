@@ -8,6 +8,11 @@ class Pdm < Formula
   license "MIT"
   head "https://github.com/frostming/pdm.git"
 
+  livecheck do
+    url :stable
+    regex(%r{href=.*?/packages.*?/pdm[._-]v?(\d+(?:\.\d+)*(?:[a-z]\d+)?)\.t}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5e1977fff408c4ee1b588949e91f4180166a720bbe82cf097effe20ad2039dee"
     sha256 cellar: :any_skip_relocation, big_sur:       "6c67a4cd66af19dfe028cbeef1fe39bb9caa7534273a66f3bf4d9818424eca78"
