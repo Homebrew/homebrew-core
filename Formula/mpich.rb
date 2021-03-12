@@ -5,7 +5,7 @@ class Mpich < Formula
   mirror "https://fossies.org/linux/misc/mpich-3.4.1.tar.gz"
   sha256 "8836939804ef6d492bcee7d54abafd6477d2beca247157d92688654d13779727"
   license "mpich2"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.mpich.org/static/downloads/"
@@ -28,6 +28,17 @@ class Mpich < Formula
   end
 
   depends_on "gcc" # for gfortran
+  depends_on "hwloc"
+
+  on_macos do
+    conflicts_with "libfabric", because: "both install `fabric.h`"
+  end
+
+  on_linux do
+    # Can't be enabled on mac:
+    # https://lists.mpich.org/pipermail/discuss/2021-May/006192.html
+    depends_on "libfabric"
+  end
 
   conflicts_with "open-mpi", because: "both install MPI compiler wrappers"
 
@@ -48,22 +59,33 @@ class Mpich < Formula
       system "./autogen.sh"
     end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--enable-fast=all,O3",
-                          "--enable-g=dbg",
-                          "--enable-romio",
-                          "--enable-shared",
-                          "--with-pm=hydra",
-                          "FC=gfortran-#{Formula["gcc"].any_installed_version.major}",
-                          "F77=gfortran-#{Formula["gcc"].any_installed_version.major}",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          # Flag for compatibility with GCC 10
-                          # https://lists.mpich.org/pipermail/discuss/2020-January/005863.html
-                          "FFLAGS=-fallow-argument-mismatch",
-                          "CXXFLAGS=-Wno-deprecated",
-                          "CFLAGS=-fgnu89-inline -Wno-deprecated"
+    args = %W[
+      --disable-dependency-tracking
+      --enable-fast=all,O3
+      --enable-g=dbg
+      --enable-romio
+      --enable-shared
+      --with-pm=hydra
+      FC=gfortran-#{Formula["gcc"].any_installed_version.major}
+      F77=gfortran-#{Formula["gcc"].any_installed_version.major}
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --mandir=#{man}
+    ]
+
+    # Flag for compatibility with GCC 10
+    # https://lists.mpich.org/pipermail/discuss/2020-January/005863.html
+    args << "FFLAGS=-fallow-argument-mismatch"
+    args << "CXXFLAGS=-Wno-deprecated"
+    args << "CFLAGS=-fgnu89-inline -Wno-deprecated"
+
+    on_linux do
+      # Use libfabric https://lists.mpich.org/pipermail/discuss/2021-January/006092.html
+      args << "--with-device=ch4:ofi"
+      args << "--with-libfabric=#{Formula["libfabric"].opt_prefix}"
+    end
+
+    system "./configure", *args
 
     system "make"
     system "make", "install"
