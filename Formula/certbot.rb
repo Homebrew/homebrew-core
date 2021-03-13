@@ -6,6 +6,7 @@ class Certbot < Formula
   url "https://github.com/certbot/certbot/archive/v1.13.0.tar.gz"
   sha256 "832f9fc7fd5cb59af209236961cd0a533c2a96a9534054288975ae1dfc36605b"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/certbot/certbot.git"
 
   bottle do
@@ -15,6 +16,7 @@ class Certbot < Formula
     sha256 cellar: :any, mojave:        "5c7dbe585a460847ad7f92fc240d04b74c885004722ed77a50e319ae25a8b4e4"
   end
 
+  depends_on "rust" => :build
   depends_on "augeas"
   depends_on "dialog"
   depends_on "openssl@1.1"
@@ -27,8 +29,8 @@ class Certbot < Formula
   end
 
   resource "acme" do
-    url "https://files.pythonhosted.org/packages/10/52/8789f3f0c9958898bd628f41c8f0b6ee72867961f20535e2018020433abc/acme-1.12.0.tar.gz"
-    sha256 "aa363474d50e9fdda27acb8b1aa7efb26fecc5650e02039a0de3a3f0e696c2f2"
+    url "https://files.pythonhosted.org/packages/8f/e3/12419143610d53b5fe6c5fe35e7032d58aab2fb3b4d5ca224b1cda49010b/acme-1.13.0.tar.gz"
+    sha256 "6b4257dfd6a6d5f01e8cd4f0b10422c17836bed7c67e9c5b0a0ad6c7d651c088"
   end
 
   resource "certifi" do
@@ -37,8 +39,8 @@ class Certbot < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
-    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
+    url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
+    sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
   end
 
   resource "chardet" do
@@ -47,8 +49,8 @@ class Certbot < Formula
   end
 
   resource "ConfigArgParse" do
-    url "https://files.pythonhosted.org/packages/bb/79/3045743bb26ca2e44a1d317c37395462bfed82dbbd38e69a3280b63696ce/ConfigArgParse-1.2.3.tar.gz"
-    sha256 "edd17be986d5c1ba2e307150b8e5f5107aba125f3574dddd02c85d5cdcfd37dc"
+    url "https://files.pythonhosted.org/packages/3f/75/ca907906cd6c4c7097a037f7adaee36b3f32a08b66baed51b86d1fcc6398/ConfigArgParse-1.3.tar.gz"
+    sha256 "0428b975ab6c48bb101ccb732e1b5cb616296e28268e032aa806f32b647a1cc1"
   end
 
   resource "configobj" do
@@ -57,8 +59,8 @@ class Certbot < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/b7/82/f7a4ddc1af185936c1e4fa000942ffa8fb2d98cff26b75afa7b3c63391c4/cryptography-3.3.1.tar.gz"
-    sha256 "7e177e4bea2de937a584b13645cab32f25e3d96fc0bc4a4cf99c27dc77682be6"
+    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
+    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
   end
 
   resource "distro" do
@@ -72,8 +74,8 @@ class Certbot < Formula
   end
 
   resource "josepy" do
-    url "https://files.pythonhosted.org/packages/8b/a9/4ebb898a3484a7a7e48aa482c88ca6e445b2bee6aae6165bf7e4c21fc42c/josepy-1.6.0.tar.gz"
-    sha256 "0aab1c3ceffe045e7fd5bcfe7685e27e9d2758518d9ba7116b5de34087e70bf5"
+    url "https://files.pythonhosted.org/packages/e2/e1/d288d1ec3c38a8d427f49f42552fb2ed08096bd62ec60c6dea46f456fc79/josepy-1.7.0.tar.gz"
+    sha256 "d265414fa16d7a8b7a1d1833b4ebb19a22bd0deae5d44413cf9040fd8491d85a"
   end
 
   resource "parsedatetime" do
