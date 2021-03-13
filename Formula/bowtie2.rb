@@ -4,6 +4,7 @@ class Bowtie2 < Formula
   url "https://github.com/BenLangmead/bowtie2/archive/v2.4.3.tar.gz"
   sha256 "616017bcc68fc178418575fe39ffde42fff811d0d071bac7b1e7650288e4d166"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "c419e9c0755e6c39afc6c00c108c357347f85caf90924fe34411d8e6fdf91873"
