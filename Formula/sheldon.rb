@@ -1,8 +1,8 @@
 class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://rossmacarthur.github.io/sheldon"
-  url "https://github.com/rossmacarthur/sheldon/archive/0.6.1.tar.gz"
-  sha256 "297b5ad75e7d5b44887ffe19ba6ee8a4ef13d884d4f7e8b482df9fc968ba5bce"
+  url "https://github.com/rossmacarthur/sheldon/archive/0.6.2.tar.gz"
+  sha256 "f0f0c4b98ce1632153f200adb2bba68d37da21de8b6a948468aa3017e45e978f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rossmacarthur/sheldon.git"
 
