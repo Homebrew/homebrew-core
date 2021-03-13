@@ -4,6 +4,7 @@ class OsrmBackend < Formula
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.24.0.tar.gz"
   sha256 "a66b20e7ffe83e5e5fe12324980320e12a6ec2b05f2befd157de5c60c665613c"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   livecheck do
@@ -33,6 +34,8 @@ class OsrmBackend < Formula
       system "cmake", "..", "-DENABLE_CCACHE:BOOL=OFF",
                             "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
                             "-DLUA_LIBRARY=#{lua.opt_lib}/liblua.#{luaversion}.dylib",
+                            "-DTBB_INSTALL_DIR=#{Formula["tbb"].opt_prefix}",
+                            "-DTBB_LIBRARY_DIRS=#{Formula["tbb"].opt_lib}",
                             *std_cmake_args
       system "make"
       system "make", "install"
