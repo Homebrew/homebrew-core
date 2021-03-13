@@ -5,6 +5,7 @@ class Opencascade < Formula
   version "7.5.1"
   sha256 "3a43d8b50df78ade72786fa63bc8808deac6380189333663e7b4ef8558ae7739"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url "https://dev.opencascade.org/release"
@@ -23,7 +24,7 @@ class Opencascade < Formula
   depends_on "rapidjson" => :build
   depends_on "freeimage"
   depends_on "freetype"
-  depends_on "tbb"
+  depends_on "tbb@2020"
   depends_on "tcl-tk"
 
   def install
@@ -37,7 +38,7 @@ class Opencascade < Formula
                     "-D3RDPARTY_FREETYPE_DIR=#{Formula["freetype"].opt_prefix}",
                     "-D3RDPARTY_RAPIDJSON_DIR=#{Formula["rapidjson"].opt_prefix}",
                     "-D3RDPARTY_RAPIDJSON_INCLUDE_DIR=#{Formula["rapidjson"].opt_include}",
-                    "-D3RDPARTY_TBB_DIR=#{Formula["tbb"].opt_prefix}",
+                    "-D3RDPARTY_TBB_DIR=#{Formula["tbb@2020"].opt_prefix}",
                     "-D3RDPARTY_TCL_DIR:PATH=#{tcltk.opt_prefix}",
                     "-D3RDPARTY_TK_DIR:PATH=#{tcltk.opt_prefix}",
                     "-D3RDPARTY_TCL_INCLUDE_DIR:PATH=#{tcltk.opt_include}",
