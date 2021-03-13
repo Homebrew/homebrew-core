@@ -34,8 +34,8 @@ class Openrct2 < Formula
   end
 
   resource "objects" do
-    url "https://github.com/OpenRCT2/objects/releases/download/v1.0.17/objects.zip"
-    sha256 "bc31ca8ca56f40f9ff7958416611bc712932c1eda80ca94861789aa57da1740e"
+    url "https://github.com/OpenRCT2/objects/archive/v1.0.21.tar.gz"
+    sha256 "31129188916dc9ba2318d851e03393ce55782f121ab7c9d97544abdc7bbc92ab"
   end
 
   def install
@@ -44,7 +44,12 @@ class Openrct2 < Formula
     (buildpath/"data/object").install resource("objects")
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args,
+                            "-DWITH_TESTS=OFF",
+                            "-DDOWNLOAD_TITLE_SEQUENCES=OFF",
+                            "-DDOWNLOAD_OBJECTS=OFF",
+                            "-DMACOS_USE_DEPENDENCIES=OFF",
+                            "-DDISABLE_DISCORD_RPC=ON"
       system "make", "install"
     end
 
