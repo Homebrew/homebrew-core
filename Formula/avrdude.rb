@@ -4,6 +4,7 @@ class Avrdude < Formula
   url "https://download.savannah.gnu.org/releases/avrdude/avrdude-6.3.tar.gz"
   mirror "https://download-mirror.savannah.gnu.org/releases/avrdude/avrdude-6.3.tar.gz"
   sha256 "0f9f731b6394ca7795b88359689a7fa1fba818c6e1d962513eb28da670e0a196"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
@@ -28,6 +29,7 @@ class Avrdude < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "automake" => :build
   depends_on "libelf"
   depends_on "libftdi0"
   depends_on "libhid"
@@ -37,6 +39,14 @@ class Avrdude < Formula
   uses_from_macos "flex"
 
   def install
+    # Workaround for ancient config files not recognizing aarch64 macos.
+    am = Formula["automake"]
+    am_share = am.opt_share/"automake-#{am.version.major_minor}"
+    %w[config.guess config.sub].each do |fn|
+      chmod "u+w", fn
+      cp am_share/fn, fn
+    end
+
     if build.head?
       inreplace "bootstrap", /libtoolize/, "glibtoolize"
       system "./bootstrap"
