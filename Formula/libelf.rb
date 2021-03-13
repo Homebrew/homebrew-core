@@ -29,9 +29,17 @@ class Libelf < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "gettext" => :build
   depends_on "libtool" => :build
 
   def install
+    # Workaround for ancient config files not recognising aarch64 macos.
+    am = Formula["automake"]
+    am_share = am.opt_share/"automake-#{am.version.major_minor}"
+    %w[config.guess config.sub].each do |fn|
+      cp am_share/fn, fn
+    end
+
     system "autoreconf", "-fvi"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
