@@ -1,9 +1,20 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
-  url "https://github.com/facebook/rocksdb/archive/v6.17.3.tar.gz"
-  sha256 "bdd4790516f5ae17f83882dca1316f4dcaf4b245edbd641e7ec4ac3444c3c841"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
+  head "https://github.com/facebook/rocksdb.git"
+
+  stable do
+    url "https://github.com/facebook/rocksdb/archive/v6.17.3.tar.gz"
+    sha256 "bdd4790516f5ae17f83882dca1316f4dcaf4b245edbd641e7ec4ac3444c3c841"
+
+    # Add artifact suffix to shared library
+    # https://github.com/facebook/rocksdb/pull/7755
+    patch do
+      url "https://github.com/facebook/rocksdb/commit/98f3f3143007bcb5455105a05da7eeecc9cf53a0.patch?full_index=1"
+      sha256 "6fb59cd640ed8c39692855115b72e8aa8db50a7aa3842d53237e096e19f88fc1"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, big_sur:  "64c9409aa489f322acc46bec6460303058daf642155f59d2f64dd8f3cd41161f"
@@ -20,13 +31,6 @@ class Rocksdb < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
-  # Add artifact suffix to shared library
-  # https://github.com/facebook/rocksdb/pull/7755
-  patch do
-    url "https://github.com/facebook/rocksdb/commit/98f3f3143007bcb5455105a05da7eeecc9cf53a0.patch?full_index=1"
-    sha256 "6fb59cd640ed8c39692855115b72e8aa8db50a7aa3842d53237e096e19f88fc1"
-  end
-
   def install
     ENV.cxx11
     args = std_cmake_args + %w[
@@ -39,6 +43,8 @@ class Rocksdb < Formula
       -DWITH_ZLIB=ON
       -DWITH_ZSTD=ON
     ]
+
+    args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath -Wl,#{lib}"
 
     # build regular rocksdb
     mkdir "build" do
