@@ -4,6 +4,7 @@ class Embree < Formula
   url "https://github.com/embree/embree/archive/v3.12.2.tar.gz"
   sha256 "22a527622497e07970e733f753cc9c10b2bd82c3b17964e4f71a5fd2cdfca210"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/embree/embree.git"
 
   bottle do
