@@ -4,7 +4,7 @@ class MinimalRacket < Formula
   url "https://mirror.racket-lang.org/installers/8.0/racket-minimal-8.0-src.tgz"
   sha256 "6092e251b7f067dc2ec554e96fa2f63d619cc1a847166cc2819fb3f4b2896e63"
   license any_of: ["MIT", "Apache-2.0"]
-  revision 1
+  revision 2
 
   # File links on the download page are created using JavaScript, so we parse
   # the filename from a string in an object. We match the version from the
@@ -21,6 +21,8 @@ class MinimalRacket < Formula
     sha256 cellar: :any, catalina:      "d663a36957a4b6b758d56e105e84916450481c7abe184610eea961959557349b"
     sha256 cellar: :any, mojave:        "47bce359437efea949842a2f4a38cd3f2cd9c143e91e11735ed6084bf0cf0f7d"
   end
+
+  depends_on "openssl@1.1"
 
   uses_from_macos "libffi"
 
@@ -43,6 +45,11 @@ class MinimalRacket < Formula
         --sysconfdir=#{etc}
         --enable-useprefix
       ]
+
+      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@1.1"].opt_lib}"
+      on_linux do
+        ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}"
+      end
 
       system "./configure", *args
       system "make"
@@ -78,5 +85,15 @@ class MinimalRacket < Formula
       default-scope:
         installation
     EOS
+
+    # ensure Homebrew openssl is used
+    on_macos do
+      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/racket -e '(require openssl)' 2>&1")
+      assert_match(%r{loaded: .*openssl@1\.1/.*/libssl.*\.dylib}, output)
+    end
+    on_linux do
+      output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
+      assert_match "init: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libssl")}", output
+    end
   end
 end
