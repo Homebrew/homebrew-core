@@ -89,6 +89,10 @@ class Glibc < Formula
   sha256 "2bd08abb24811cda62e17e61e9972f091f02a697df550e2e44ddcfb2255269d2"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
+  livecheck do
+    skip "glibc is pinned to the version present in Homebrew CI"
+  end
+
   depends_on "binutils" => :build
   depends_on GawkRequirement => :build
   depends_on "linux-headers" => :build
