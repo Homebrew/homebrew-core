@@ -23,7 +23,8 @@ class Terracognita < Formula
   test do
     assert_match "v#{version}", shell_output("#{bin}/terracognita version")
 
-    assert_match "Error: the flag \"access-key\" is required", shell_output("#{bin}/terracognita aws 2>&1", 1)
+    assert_match "Error: one of --module, --hcl  or --tfstate are required",
+      shell_output("#{bin}/terracognita aws 2>&1", 1)
 
     assert_match "aws_instance", shell_output("#{bin}/terracognita aws resources")
   end
