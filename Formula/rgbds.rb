@@ -18,6 +18,7 @@ class Rgbds < Formula
     sha256 cellar: :any, mojave:        "a61753b345b81f0378916971fdf7629744556fe6d3c04c85afdec27669641e48"
   end
 
+  depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libpng"
 
