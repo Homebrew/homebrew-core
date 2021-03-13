@@ -43,6 +43,14 @@ class Fontforge < Formula
 
       # The "extras" built above don't get installed by default.
       bin.install Dir["bin/*"].select { |f| File.executable? f }
+
+      on_macos do
+        # Fix @rpath issue on arm64
+        system "install_name_tool", "-change",
+                                    "@rpath/libfontforge.4.dylib",
+                                    lib/"libfontforge.4.dylib",
+                                    bin/"fontforge"
+      end
     end
   end
 
