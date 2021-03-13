@@ -32,7 +32,6 @@ class Siril < Formula
   depends_on "libomp"
   depends_on "libraw"
   depends_on "librsvg"
-  depends_on "libsvg"
   depends_on "netpbm"
   depends_on "opencv"
   depends_on "openjpeg"
