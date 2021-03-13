@@ -1,8 +1,8 @@
 class Vc4asm < Formula
   desc "Macro assembler for Broadcom VideoCore IV aka Raspberry Pi GPU"
   homepage "http://maazl.de/project/vc4asm/doc/index.html"
-  url "https://github.com/maazl/vc4asm/archive/V0.2.3.tar.gz"
-  sha256 "8d5f49f7573d1cc6a7baf7cee5e1833af2a87427ad8176989083c6ba7d034c8c"
+  url "https://github.com/maazl/vc4asm/archive/V0.3.tar.gz"
+  sha256 "f712fb27eb1b7d46b75db298fd50bb62905ccbdd7c0c7d27728596c496f031c2"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "86cda7631f6e50ef12f26198ec3810684b9d74599b12b1e68af2ae77857119ae"
@@ -15,25 +15,17 @@ class Vc4asm < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "871b3b109ac49b09056f83e4488105196060d2388dc5052c679776b43fab5927"
   end
 
-  # Fixes "ar: illegal option combination for -r"
-  # Reported 13 Apr 2017 https://github.com/maazl/vc4asm/issues/18
-  resource "old_makefile" do
-    url "https://raw.githubusercontent.com/maazl/vc4asm/c6991f0/src/Makefile"
-    sha256 "2ea9a9e660e85dace2e9b1c9be17a57c8a91e89259d477f9f63820aee102a2d3"
-  end
+  depends_on "cmake" => :build
 
   def install
-    ENV.cxx11
+    # Upstream create a "CMakeCache.txt" directory in their tarball
+    # because they don't want CMake to write a cache file, but brew
+    # expects this to be a file that can be copied to HOMEBREW_LOGS
+    rm_r "CMakeCache.txt"
 
-    # Fixes "error: use of undeclared identifier 'errno'"
-    # Reported 13 Apr 2017 https://github.com/maazl/vc4asm/issues/19
-    inreplace "src/utils.cpp", "#include <unistd.h>",
-                               "#include <unistd.h>\n#include <errno.h>"
-
-    (buildpath/"src").install resource("old_makefile")
-    system "make", "-C", "src"
-    bin.install "bin/vc4asm", "bin/vc4dis"
-    share.install "share/vc4.qinc"
+    system "cmake", "-S.", "-Bbuild", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -43,6 +35,6 @@ class Vc4asm < Formula
       add.unpack8ai r0, r4, ra1
       add r0, r4.8a, ra1
     EOS
-    system "#{bin}/vc4asm", "-o test.hex", "-V", "#{share}/vc4.qinc", "test.qasm"
+    system "#{bin}/vc4asm", "-o test.hex", "-V", "#{share}/vc4inc/vc4.qinc", "test.qasm"
   end
 end
