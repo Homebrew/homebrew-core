@@ -26,10 +26,15 @@ class Qscintilla2 < Formula
   depends_on "sip"
 
   def install
-    # TODO: when qt 6.1 is released, modify the spec
-    spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
-    spec << "-arm64" if Hardware::CPU.arm?
-    args = %W[-config release -spec #{spec}]
+    args = []
+    spec = ""
+
+    on_macos do
+      # TODO: when qt 6.1 is released, modify the spec
+      spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+      spec << "-arm64" if Hardware::CPU.arm?
+      args = %W[-config release -spec #{spec}]
+    end
 
     pyqt = Formula["pyqt@5"]
     qt = Formula["qt@5"]
