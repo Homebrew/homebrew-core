@@ -4,6 +4,7 @@ class OsrmBackend < Formula
   url "https://github.com/Project-OSRM/osrm-backend/archive/v5.25.0.tar.gz"
   sha256 "6da276d609a54600bb37007fd98d14c2a48639f51dda0d962b5801dd0118dfbb"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/Project-OSRM/osrm-backend.git"
 
   livecheck do
@@ -24,7 +25,7 @@ class OsrmBackend < Formula
   depends_on "libxml2"
   depends_on "libzip"
   depends_on "lua"
-  depends_on "tbb"
+  depends_on "tbb@2020"
 
   def install
     lua = Formula["lua"]
