@@ -21,8 +21,10 @@ class Bison < Formula
 
   def install
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+                          "--enable-relocatable",
+                          "--prefix=/output"
+    system "make", "install", "DESTDIR=#{buildpath}"
+    prefix.install Dir["#{buildpath}/output/*"]
   end
 
   test do
