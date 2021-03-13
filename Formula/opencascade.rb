@@ -5,6 +5,7 @@ class Opencascade < Formula
   version "7.5.1"
   sha256 "3a43d8b50df78ade72786fa63bc8808deac6380189333663e7b4ef8558ae7739"
   license "LGPL-2.1-only"
+  revision 1
 
   livecheck do
     url "https://dev.opencascade.org/release"
