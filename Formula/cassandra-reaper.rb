@@ -1,8 +1,8 @@
 class CassandraReaper < Formula
   desc "Management interface for Cassandra"
   homepage "https://cassandra-reaper.io/"
-  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.2.1/cassandra-reaper-2.2.1-release.tar.gz"
-  sha256 "7c15268a33f6401969e24f714b50d65917273d08648d7b1b20e04ccbb820ce93"
+  url "https://github.com/thelastpickle/cassandra-reaper/releases/download/2.2.2/cassandra-reaper-2.2.2-release.tar.gz"
+  sha256 "6bae1f25d0e0299bc8d2c4ebd0ca46ad31ab70a16db48de9e657fca73c27e751"
   license "Apache-2.0"
 
   bottle do
@@ -63,7 +63,7 @@ class CassandraReaper < Formula
     fork do
       exec "#{bin}/cassandra-reaper", "#{testpath}/cassandra-reaper.yaml"
     end
-    sleep 10
+    sleep 30
     assert_match "200 OK", shell_output("curl -Im3 -o- http://localhost:#{port}/webui/login.html")
   end
 end
