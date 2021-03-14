@@ -7,7 +7,7 @@ class Nspr < Formula
 
   livecheck do
     url "https://ftp.mozilla.org/pub/nspr/releases/"
-    regex(/v(\d+(?:\.\d+)*)/i)
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
