@@ -31,6 +31,10 @@ class Fontforge < Formula
 
   uses_from_macos "libxml2"
 
+  # Fix for rpath on ARM
+  # https://github.com/fontforge/fontforge/issues/4658
+  patch :DATA
+
   def install
     mkdir "build" do
       system "cmake", "..",
@@ -40,9 +44,6 @@ class Fontforge < Formula
                       *std_cmake_args
       system "ninja"
       system "ninja", "install"
-
-      # The "extras" built above don't get installed by default.
-      bin.install Dir["bin/*"].select { |f| File.executable? f }
     end
   end
 
@@ -66,3 +67,15 @@ class Fontforge < Formula
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
   end
 end
+
+__END__
+diff --git a/contrib/fonttools/CMakeLists.txt b/contrib/fonttools/CMakeLists.txt
+index 0d3f464bc..b9f210cde 100644
+--- a/contrib/fonttools/CMakeLists.txt
++++ b/contrib/fonttools/CMakeLists.txt
+@@ -18,3 +18,5 @@ target_link_libraries(dewoff PRIVATE ZLIB::ZLIB)
+ target_link_libraries(pcl2ttf PRIVATE MathLib::MathLib)
+ target_link_libraries(ttf2eps PRIVATE fontforge)
+ target_link_libraries(woff PRIVATE ZLIB::ZLIB)
++
++install(TARGETS acorn2sfd dewoff findtable pcl2ttf pfadecrypt rmligamarks showttf stripttc ttf2eps woff RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
