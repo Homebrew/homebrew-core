@@ -1,8 +1,8 @@
 class Onednn < Formula
   desc "Basic building blocks for deep learning applications"
   homepage "https://01.org/oneDNN"
-  url "https://github.com/oneapi-src/oneDNN/archive/v2.1.1.tar.gz"
-  sha256 "9546d997b376ac0fa5f8ea29fb8a99b196aee21fc289aeb8380b1be0c3814d8b"
+  url "https://github.com/oneapi-src/oneDNN/archive/v2.1.2.tar.gz"
+  sha256 "cca53231ec99878dc7ef3cf4984525df4691b8174e703b40dd530c50531ecea0"
   license "Apache-2.0"
   head "https://github.com/oneapi-src/onednn.git"
 
@@ -16,12 +16,6 @@ class Onednn < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-
-  # remove in next release
-  patch do
-    url "https://github.com/oneapi-src/oneDNN/pull/1001.patch?full_index=1"
-    sha256 "03d8e37ee0a8b458a408fe30cafbbc93d83a8e4e5488b405cffa27a6f343afa6"
-  end
 
   def install
     system "cmake", ".", *std_cmake_args
