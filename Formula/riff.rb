@@ -16,6 +16,8 @@ class Riff < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "06f5da9420de8bf9aac4a16f93effeb2e3ceb83fedc44a5d1c375a2a6f9f52a4"
   end
 
+  deprecate! date: "2021-03-15", because: :repo_archived
+
   depends_on "go" => :build
   depends_on "kubernetes-cli"
 
