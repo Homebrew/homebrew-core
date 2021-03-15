@@ -55,6 +55,21 @@ class Perl < Formula
     system "make", "install"
   end
 
+  def post_install
+    on_linux do
+      perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
+      perl_core = Pathname.new(perl_archlib)/"CORE"
+      if File.readlines("#{perl_core}/perl.h").grep(/include <xlocale.h>/).any? &&
+         (OS::Linux::Glibc.system_version >= "2.26" ||
+         (Formula["glibc"].any_version_installed? && Formula["glibc"].version >= "2.26"))
+        # Glibc does not provide the xlocale.h file since version 2.26
+        # Patch the perl.h file to be able to use perl on newer versions.
+        # locale.h includes xlocale.h if the latter one exists
+        inreplace "#{perl_core}/perl.h", "include <xlocale.h>", "include <locale.h>"
+      end
+    end
+  end
+
   def caveats
     <<~EOS
       By default non-brewed cpan modules are installed to the Cellar. If you wish
