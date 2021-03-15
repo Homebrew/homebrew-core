@@ -22,6 +22,9 @@
       "exclude_packages": ["numpy"],
       "extra_packages": ["wheel"]
   },
+  "litecli": {
+    "exclude_packages": ["tabulate"]
+  },
   "magic-wormhole": {
     "extra_packages": ["wheel"]
   },
