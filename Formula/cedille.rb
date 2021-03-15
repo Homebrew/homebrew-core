@@ -5,7 +5,7 @@ class Cedille < Formula
     tag:      "v1.1.2",
     revision: "4d8a343a8d3f0b318e3c1b3209d216912dbc06ee"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/cedille/cedille.git"
 
   bottle do
@@ -17,7 +17,7 @@ class Cedille < Formula
 
   depends_on "agda" => :build
   depends_on "haskell-stack" => :build
-  depends_on "ghc@8.8"
+  depends_on "ghc"
 
   # needed to build with agda 2.6.1
   # taken from https://github.com/cedille/cedille/pull/144/files
@@ -27,14 +27,15 @@ class Cedille < Formula
   patch :DATA
 
   def install
-    inreplace "stack.yaml", "resolver: lts-12.26", <<~EOS
-      resolver: lts-16.12
-      allow-newer: true
-      system-ghc: true
-      install-ghc: false
-    EOS
+    # Use the newest resolver that supports our ghc on
+    # https://www.stackage.org
+    resolver = "lts-17.5"
 
-    system "stack", "build", "--copy-bins", "--local-bin-path=#{bin}"
+    system "stack", "build", "--copy-bins",
+                             "--local-bin-path=#{bin}",
+                             "--system-ghc",
+                             "--no-install-ghc",
+                             "--resolver=#{resolver}"
 
     system "make", "core/cedille-core"
 
