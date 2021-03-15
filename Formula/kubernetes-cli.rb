@@ -23,6 +23,12 @@ class KubernetesCli < Formula
 
   uses_from_macos "rsync" => :build
 
+  # ARM support, remove for next release and reinstate test
+  patch do
+    url "https://github.com/kubernetes/kubernetes/commit/f719624654c68d143cad4e4af2f21cca0bfde8fd.patch?full_index=1"
+    sha256 "3d40308a2f639c1a45a2105889776f0d02dd97000c188bc4cc78de739d5f0776"
+  end
+
   def install
     # Don't dirty the git tree
     rm_rf ".brew_home"
@@ -50,7 +56,10 @@ class KubernetesCli < Formula
     assert_match "kubectl controls the Kubernetes cluster manager.", run_output
 
     version_output = shell_output("#{bin}/kubectl version --client 2>&1")
-    assert_match "GitTreeState:\"clean\"", version_output
+
+    # Due to ARM patch reinstate for next release
+    # assert_match "GitTreeState:\"clean\"", version_output
+
     if build.stable?
       assert_match stable.instance_variable_get(:@resource)
                          .instance_variable_get(:@specs)[:revision],
