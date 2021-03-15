@@ -1,8 +1,8 @@
 class Ooniprobe < Formula
   desc "Network interference detection tool"
   homepage "https://ooni.org/"
-  url "https://github.com/ooni/probe-cli/archive/v3.5.2.tar.gz"
-  sha256 "56e419033715e1b2b61a82661f724148bab8fec4a28b2566a10e0a3051b3bade"
+  url "https://github.com/ooni/probe-cli/archive/v3.8.0.tar.gz"
+  sha256 "65bc4e592cadb99530be713798308d6950f67240bff6d90f2760fde11d750a83"
   license "BSD-3-Clause"
 
   bottle do
@@ -15,6 +15,7 @@ class Ooniprobe < Formula
   depends_on "go" => :build
 
   def install
+    system "go", "run", "./internal/cmd/getresources"
     system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/ooniprobe"
     (var/"ooniprobe").mkpath
   end
