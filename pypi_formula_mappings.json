@@ -41,6 +41,9 @@
   "scipy": {
     "exclude_packages": ["numpy"]
   },
+  "todoman": {
+    "exclude_packages": ["tabulate"]
+  },
   "xdot": {
     "extra_packages": ["graphviz"]
   },
