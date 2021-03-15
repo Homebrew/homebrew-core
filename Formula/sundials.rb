@@ -1,9 +1,10 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computing.llnl.gov/projects/sundials"
-  url "https://computing.llnl.gov/projects/sundials/download/sundials-5.7.0.tar.gz"
-  sha256 "8d6dd094feccbb8d6ecc41340ec16a65fabac82ed4415023f6d7c1c2390ea2f3"
+  url "https://github.com/LLNL/sundials/releases/download/v5.7.0/sundials-5.7.0.tar.gz"
+  sha256 "48da7baa8152ddb22aed1b02d82d1dbb4fbfea22acf67634011aa0303a100a43"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://computing.llnl.gov/projects/sundials/sundials-software"
@@ -53,7 +54,7 @@ class Sundials < Formula
   test do
     cp Dir[pkgshare/"examples/*"], testpath
     system ENV.cc, "-I#{include}", "test_nvector.c", "sundials_nvector.c",
-                   "test_nvector_serial.c", "-L#{lib}", "-lsundials_nvecserial"
+                   "test_nvector_serial.c", "-L#{lib}", "-lsundials_nvecserial", "-lm"
     assert_match "SUCCESS: NVector module passed all tests",
                  shell_output("./a.out 42 0")
   end
