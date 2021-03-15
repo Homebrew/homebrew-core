@@ -52,8 +52,10 @@ class Llvm < Formula
 
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
+    on_macos do
+      reason "The bottle needs the Xcode CLT to be installed."
+      satisfy { MacOS::CLT.installed? }
+    end
   end
 
   keg_only :provided_by_macos
