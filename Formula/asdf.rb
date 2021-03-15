@@ -13,8 +13,12 @@ class Asdf < Formula
     bash_completion.install "completions/asdf.bash"
     fish_completion.install "completions/asdf.fish"
     zsh_completion.install "completions/_asdf"
-    libexec.install Dir["*"]
-    bin.write_exec_script (libexec/"bin/asdf")
+    bin.write_exec_script (opt_libexec/"bin/asdf")
+    prefix.install_metafiles
+  end
+
+  def post_install
+  	system bin/"asdf", "reshim"
   end
 
   test do
