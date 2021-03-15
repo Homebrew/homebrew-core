@@ -12,17 +12,21 @@ class Bond < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "ghc@8.6" => :build
+  depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
   depends_on "boost"
   depends_on "rapidjson"
 
   def install
+    # Use the newest resolver that supports our ghc on
+    # https://www.stackage.org
+    resolver = "lts-17.5"
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                             "-DBOND_ENABLE_GRPC=FALSE",
                             "-DBOND_FIND_RAPIDJSON=TRUE",
-                            "-DBOND_STACK_OPTIONS=--system-ghc;--no-install-ghc"
+                            "-DBOND_STACK_OPTIONS=--system-ghc;--no-install-ghc;--resolver=#{resolver}"
       system "make"
       system "make", "install"
     end
