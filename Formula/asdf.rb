@@ -17,7 +17,7 @@ class Asdf < Formula
   end
 
   def post_install
-  	system bin/"asdf", "reshim"
+    system bin/"asdf", "reshim"
   end
 
   test do
