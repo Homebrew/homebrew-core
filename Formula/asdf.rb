@@ -9,15 +9,6 @@ class Asdf < Formula
 
   bottle :unneeded
 
-  depends_on "autoconf"
-  depends_on "automake"
-  depends_on "coreutils"
-  depends_on "libtool"
-  depends_on "libyaml"
-  depends_on "openssl@1.1"
-  depends_on "readline"
-  depends_on "unixodbc"
-
   conflicts_with "homeshick",
     because: "asdf and homeshick both install files in lib/commands"
 
