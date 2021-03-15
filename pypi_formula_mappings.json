@@ -1,4 +1,7 @@
 {
+  "anime-downloader": {
+    "exclude_packages": ["tabulate"]
+  },
   "ansible": false,
   "ansible-lint": {
       "extra_packages": ["ansible-base"]

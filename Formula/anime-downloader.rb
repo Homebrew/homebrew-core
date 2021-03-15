@@ -6,6 +6,7 @@ class AnimeDownloader < Formula
   url "https://files.pythonhosted.org/packages/06/4f/5290202545ec964b442458410dd9623cde0327ee164036553f976b9ea601/anime-downloader-5.0.7.tar.gz"
   sha256 "04fe167f679f53545493a23ef36ac572f11dc4348aa274ce2198e6dc1d31ec48"
   license "Unlicense"
+  revision 1
   head "https://github.com/vn-ki/anime-downloader.git"
 
   bottle do
@@ -17,6 +18,7 @@ class AnimeDownloader < Formula
 
   depends_on "aria2"
   depends_on "node"
+  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   resource "beautifulsoup4" do
@@ -65,8 +67,8 @@ class AnimeDownloader < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/c4/3a/5bca2cb1648b171afd6b7d29a11c6bca8b305bb75b7e2d78a0f5c61ff95e/pycryptodome-3.9.9.tar.gz"
-    sha256 "910e202a557e1131b1c1b3f17a63914d57aac55cf9fb9b51644962841c3995c4"
+    url "https://files.pythonhosted.org/packages/88/7f/740b99ffb8173ba9d20eb890cc05187677df90219649645aca7e44eb8ff4/pycryptodome-3.10.1.tar.gz"
+    sha256 "3e2e3a06580c5f190df843cdb90ea28d61099cf4924334d5297a995de68e4673"
   end
 
   resource "pySmartDL" do
@@ -85,18 +87,13 @@ class AnimeDownloader < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/58/5d/445e21e92345848305eecf473338e9ec7ed8905b99ea78415042060127fc/soupsieve-2.1.tar.gz"
-    sha256 "6dc52924dc0bc710a5d16794e6b3480b2c7c08b07729505feab2b2c16661ff6e"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
+    url "https://files.pythonhosted.org/packages/54/b9/1584ee0cd971ea935447c87bbc9d195d981feec446dd0af799d9d95c9d86/soupsieve-2.2.tar.gz"
+    sha256 "407fa1e8eb3458d1b5614df51d9651a1180ea5fedf07feb46e45d7e25e6d6cdd"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install
