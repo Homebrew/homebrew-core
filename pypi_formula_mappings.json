@@ -4,6 +4,9 @@
       "extra_packages": ["ansible-base"]
   },
   "ansible@2.8": false,
+  "aws-google-auth": {
+    "exclude_packages": ["tabulate"]
+  },
   "buku": "buku[server]",
   "cloudformation-cli": {
     "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin"]
