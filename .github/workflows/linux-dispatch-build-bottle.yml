@@ -22,7 +22,7 @@ jobs:
   bottle:
     runs-on: ubuntu-latest
     container:
-      image: homebrew/ubuntu16.04:master
+      image: ghcr.io/homebrew/ubuntu16.04:master
     env:
       HOMEBREW_BOTTLE_DOMAIN: https://homebrew.bintray.com/
     steps:

@@ -2,6 +2,7 @@ name: GitHub Actions CI - Linux
 on:
   pull_request:
     paths:
+      - .github/workflows/linux-pr-tests.yml
       - "Formula/alsa-lib.rb"
       - "Formula/attr.rb"
       - "Formula/device-mapper.rb"
@@ -56,7 +57,7 @@ jobs:
     if: needs.check_labels_linux.outputs.run-tests
     runs-on: ubuntu-latest
     container:
-      image: homebrew/ubuntu16.04:master
+      image: ghcr.io/homebrew/ubuntu16.04:master
     env:
       HOMEBREW_CORE_GIT_REMOTE: ${{github.event.repository.html_url}}
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1

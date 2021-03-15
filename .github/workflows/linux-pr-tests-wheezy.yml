@@ -2,6 +2,7 @@ name: Wheezy CI
 on:
   pull_request:
     paths:
+      - .github/workflows/linux-pr-tests-wheezy.yml
       - "Formula/patchelf.rb"
       - "Formula/binutils.rb"
 jobs:
