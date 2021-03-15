@@ -5,6 +5,11 @@ class Ooniprobe < Formula
   sha256 "65bc4e592cadb99530be713798308d6950f67240bff6d90f2760fde11d750a83"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6e8b378612ee1c8062b858e5ebfeaba669992f950811ac0eb363ec4f4b7d3bc7"
     sha256 cellar: :any_skip_relocation, big_sur:       "722f55422e32fe5105948df1b67bce7aae7d369b88b2bcd120c19349d50f5bf1"
