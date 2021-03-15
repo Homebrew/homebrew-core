@@ -44,6 +44,9 @@
   "scipy": {
     "exclude_packages": ["numpy"]
   },
+  "sqlite-utils": {
+    "exclude_packages": ["tabulate"]
+  },
   "todoman": {
     "exclude_packages": ["tabulate"]
   },
