@@ -9,9 +9,6 @@ class Asdf < Formula
 
   bottle :unneeded
 
-  conflicts_with "homeshick",
-    because: "asdf and homeshick both install files in lib/commands"
-
   def install
     bash_completion.install "completions/asdf.bash"
     fish_completion.install "completions/asdf.fish"
