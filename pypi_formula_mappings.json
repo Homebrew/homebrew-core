@@ -11,6 +11,9 @@
   "charm-tools": {
     "extra_packages": ["wheel"]
   },
+  "checkov": {
+    "exclude_packages": ["tabulate"]
+  },
   "diffoscope": "diffoscope[cmdline]",
   "ipython": {
     "extra_packages": ["ipykernel"]

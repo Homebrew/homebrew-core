@@ -7,6 +7,7 @@ class Checkov < Formula
   url "https://files.pythonhosted.org/packages/52/00/0abbc400cc72879a931e6afbea91211bf47016da3d81187fee8b06b13ec2/checkov-1.0.825.tar.gz"
   sha256 "65f8d9f701679737570b5a16f8d171d6e56fe965165322af0d82b118fe706234"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "708e38c5d4c7e3ca3b930bd5284ad437d07731871ede97d25afdc2085d013370"
@@ -15,6 +16,7 @@ class Checkov < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "6f18977f74649798f8ea61415599cfa84965e5ddec43cdfa21953c823ea19992"
   end
 
+  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   resource "bc-python-hcl2" do
@@ -131,11 +133,6 @@ class Checkov < Formula
   resource "smmap" do
     url "https://files.pythonhosted.org/packages/2b/6f/d48bbed5aa971943759f4ede3f12dca40aa7faa44f22bad483de86780508/smmap-3.0.5.tar.gz"
     sha256 "84c2751ef3072d4f6b2785ec7ee40244c6f45eb934d9e543e2c51f1bd3d54c50"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
-    sha256 "eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"
   end
 
   resource "termcolor" do
