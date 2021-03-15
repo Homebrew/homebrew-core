@@ -6,6 +6,7 @@ class Mycli < Formula
   url "https://files.pythonhosted.org/packages/24/94/b171e47b39420ebdf8d5f6dd13063785cd86e3d8b29b493fe1ebfcf7af4f/mycli-1.24.1.tar.gz"
   sha256 "748d98be3da5948f5394c15bb37e628d8785b86aa84e8bd9c9187e20b84d3266"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "aad6208689be93e576aa644dc64e9061910e871f4cb216baea2591cca3f96b49"
@@ -16,6 +17,7 @@ class Mycli < Formula
 
   depends_on "rust" => :build
   depends_on "openssl@1.1"
+  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   on_linux do
@@ -49,13 +51,13 @@ class Mycli < Formula
   end
 
   resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/32/36/a380aecd01d0db4a73f95167906a1f99afdffb965b3cd5e634e124e45436/importlib_resources-5.1.1.tar.gz"
-    sha256 "563c5579cd40a7d5c6256ea6519b510152b6968103ab540b9771a50093a09056"
+    url "https://files.pythonhosted.org/packages/c8/b2/d8263caf10de8632ef6756991d52e7fb0d8f5aa1e473344fad79b19ccb23/importlib_resources-5.1.2.tar.gz"
+    sha256 "642586fc4740bd1cad7690f836b3321309402b20b332529f25617ff18e8e1370"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/b1/32/2a6b734dc25b249467bfc1d844b077a252ea393d1b90733f4e899aa56506/prompt_toolkit-3.0.16.tar.gz"
-    sha256 "0fa02fa80363844a4ab4b8d6891f62dd0645ba672723130423ca4037b80c1974"
+    url "https://files.pythonhosted.org/packages/3e/8c/9b93fd9ae393a41c92c1a5b9042a048ef4650853ca6ff9e0818781a01e2f/prompt_toolkit-3.0.17.tar.gz"
+    sha256 "9397a7162cf45449147ad6042fa37983a081b8a73363a5253dd4072666333137"
   end
 
   resource "pyaes" do
@@ -69,8 +71,8 @@ class Mycli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/19/d0/dec5604a275b19b0ebd2b9c43730ce39549c8cd8602043eaf40c541a7256/Pygments-2.8.0.tar.gz"
-    sha256 "37a13ba168a02ac54cc5891a42b1caec333e59b66addb7fa633ea8a6d73445c0"
+    url "https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz"
+    sha256 "2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94"
   end
 
   resource "PyMySQL" do
@@ -91,11 +93,6 @@ class Mycli < Formula
   resource "sqlparse" do
     url "https://files.pythonhosted.org/packages/67/4b/253b6902c1526885af6d361ca8c6b1400292e649f0e9c95ee0d2e8ec8681/sqlparse-0.3.1.tar.gz"
     sha256 "e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
-    sha256 "eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"
   end
 
   resource "terminaltables" do

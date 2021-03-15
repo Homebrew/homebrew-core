@@ -29,6 +29,9 @@
     "extra_packages": ["wheel"]
   },
   "molecule": false,
+  "mycli": {
+    "exclude_packages": ["tabulate"]
+  },
   "openstackclient": {
     "extra_packages": ["python-heatclient"]
   },
