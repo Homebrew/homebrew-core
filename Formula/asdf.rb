@@ -14,7 +14,6 @@ class Asdf < Formula
     fish_completion.install "completions/asdf.fish"
     zsh_completion.install "completions/_asdf"
     bin.write_exec_script (opt_libexec/"bin/asdf")
-    prefix.install_metafiles
   end
 
   def post_install
