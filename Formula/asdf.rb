@@ -15,7 +15,6 @@ class Asdf < Formula
     zsh_completion.install "completions/_asdf"
     libexec.install Dir["*"]
     bin.write_exec_script (libexec/"bin/asdf")
-    touch prefix/"asdf_updates_disabled"
   end
 
   test do
