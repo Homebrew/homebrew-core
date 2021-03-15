@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz"
   sha256 "3c2034c54f811448f516668dce09d24008a0716c3a794dd8639b5388cbde247d"
   license "Python-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -41,6 +41,7 @@ class PythonAT39 < Formula
   depends_on "xz"
 
   uses_from_macos "bzip2"
+  uses_from_macos "expat"
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
   uses_from_macos "unzip"
@@ -66,8 +67,8 @@ class PythonAT39 < Formula
   link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/12/68/95515eaff788370246dac534830ea9ccb0758e921ac9e9041996026ecaf2/setuptools-53.0.0.tar.gz"
-    sha256 "1b18ef17d74ba97ac9c0e4b4265f123f07a8ae85d9cd093949fa056d3eeeead5"
+    url "https://files.pythonhosted.org/packages/b8/d3/155ebd29b6e34ac283614d3a1e7f476ffb93f535aa0d8b3647fa014815aa/setuptools-54.1.2.tar.gz"
+    sha256 "ebd0148faf627b569c8d2a1b20f5d3b09c873f12739d71c7ee88f037d5be82ff"
   end
 
   resource "pip" do
@@ -130,6 +131,8 @@ class PythonAT39 < Formula
       --with-dbmliborder=gdbm:ndbm
       --enable-optimizations
       --with-lto
+      --with-system-expat
+      --with-system-ffi
       --with-system-libmpdec
     ]
 
@@ -143,9 +146,6 @@ class PythonAT39 < Formula
     end
     on_linux do
       args << "--enable-shared"
-      # Required for the _ctypes module
-      # see https://github.com/Linuxbrew/homebrew-core/pull/1007#issuecomment-252421573
-      args << "--with-system-ffi"
     end
 
     # Python re-uses flags when building native modules.
@@ -297,10 +297,10 @@ class PythonAT39 < Formula
 
     system bin/"python3", "-m", "ensurepip"
 
-    # Get set of ensurepip-installed files for later cleanup
-    ensurepip_files = Set.new(Dir["#{site_packages}/setuptools-*"]) +
-                      Set.new(Dir["#{site_packages}/pip-*"]) +
-                      Set.new(Dir["#{site_packages}/wheel-*"])
+    # Get set of ensurepip-installed files for later cleanup.
+    # Consider pip and setuptools separately as one might be updated but one might not.
+    ensurepip_setuptools_files = Set.new(Dir["#{site_packages}/setuptools[-_.][0-9]*"])
+    ensurepip_pip_files = Set.new(Dir["#{site_packages}/pip[-_.][0-9]*"])
 
     # Remove Homebrew distutils.cfg if it exists, since it prevents the subsequent
     # pip install command from succeeding (it will be recreated afterwards anyways)
@@ -319,16 +319,20 @@ class PythonAT39 < Formula
            libexec/"wheel"
 
     # Get set of files installed via pip install
-    pip_files = Set.new(Dir["#{site_packages}/setuptools-*"]) +
-                Set.new(Dir["#{site_packages}/pip-*"]) +
-                Set.new(Dir["#{site_packages}/wheel-*"])
+    pip_setuptools_files = Set.new(Dir["#{site_packages}/setuptools[-_.][0-9]*"])
+    pip_pip_files = Set.new(Dir["#{site_packages}/pip[-_.][0-9]*"])
 
     # Clean up the bootstrapped copy of setuptools/pip provided by ensurepip.
     # Also consider the corner case where our desired version of tools is
     # the same as those provisioned via ensurepip. In this case, don't clean
     # up, or else we'll have no working setuptools, pip, wheel
-    if pip_files != ensurepip_files
-      ensurepip_files.each do |dir|
+    if pip_setuptools_files != ensurepip_setuptools_files
+      ensurepip_setuptools_files.each do |dir|
+        rm_rf dir
+      end
+    end
+    if pip_pip_files != ensurepip_pip_files
+      ensurepip_pip_files.each do |dir|
         rm_rf dir
       end
     end
@@ -370,7 +374,8 @@ class PythonAT39 < Formula
     inreplace lib_cellar/"ensurepip/__init__.py" do |s|
       s.gsub!(/_SETUPTOOLS_VERSION = .*/, "_SETUPTOOLS_VERSION = \"#{setuptools_version}\"")
       s.gsub!(/_PIP_VERSION = .*/, "_PIP_VERSION = \"#{pip_version}\"")
-      s.gsub! "    (\"pip\", _PIP_VERSION, \"py2.py3\"),", "    (\"pip\", _PIP_VERSION, \"py3\")," # pip21 is py3 only
+      # pip21 is py3 only
+      s.gsub! "    (\"pip\", _PIP_VERSION, \"py2.py3\"),", "    (\"pip\", _PIP_VERSION, \"py3\"),", false
     end
 
     # Help distutils find brewed stuff when building extensions
@@ -398,14 +403,14 @@ class PythonAT39 < Formula
       import re
       import os
       import sys
-      if sys.version_info[0] != 3:
-          # This can only happen if the user has set the PYTHONPATH for 3.x and run Python 2.x or vice versa.
+      if sys.version_info[:2] != (#{version.major}, #{version.minor}):
+          # This can only happen if the user has set the PYTHONPATH to a mismatching site-packages directory.
           # Every Python looks at the PYTHONPATH variable and we can't fix it here in sitecustomize.py,
           # because the PYTHONPATH is evaluated after the sitecustomize.py. Many modules (e.g. PyQt4) are
           # built only for a specific version of Python and will fail with cryptic error messages.
           # In the end this means: Don't set the PYTHONPATH permanently if you use different Python versions.
-          exit('Your PYTHONPATH points to a site-packages dir for Python 3.x but you are running Python ' +
-               str(sys.version_info[0]) + '.x!\\n     PYTHONPATH is currently: "' + str(os.environ['PYTHONPATH']) + '"\\n' +
+          exit('Your PYTHONPATH points to a site-packages dir for Python #{version.major_minor} but you are running Python ' +
+               str(sys.version_info[0]) + '.' + str(sys.version_info[1]) + '!\\n     PYTHONPATH is currently: "' + str(os.environ['PYTHONPATH']) + '"\\n' +
                '     You should `unset PYTHONPATH` to fix this.')
       # Only do this for a brewed python:
       if os.path.realpath(sys.executable).startswith('#{rack}'):
@@ -422,7 +427,19 @@ class PythonAT39 < Formula
           # Set the sys.executable to use the opt_prefix. Only do this if PYTHONEXECUTABLE is not
           # explicitly set and we are not in a virtualenv:
           if 'PYTHONEXECUTABLE' not in os.environ and sys.prefix == sys.base_prefix:
-              sys.executable = '#{opt_bin}/python#{version.major_minor}'
+              sys.executable = sys._base_executable = '#{opt_bin}/python#{version.major_minor}'
+      if 'PYTHONHOME' not in os.environ:
+          cellar_prefix = re.compile(r'#{rack}/[0-9\._abrc]+/')
+          if os.path.realpath(sys.base_prefix).startswith('#{rack}'):
+              new_prefix = cellar_prefix.sub('#{opt_prefix}/', sys.base_prefix)
+              if sys.prefix == sys.base_prefix:
+                  sys.prefix = new_prefix
+              sys.base_prefix = new_prefix
+          if os.path.realpath(sys.base_exec_prefix).startswith('#{rack}'):
+              new_exec_prefix = cellar_prefix.sub('#{opt_prefix}/', sys.base_exec_prefix)
+              if sys.exec_prefix == sys.base_exec_prefix:
+                  sys.exec_prefix = new_exec_prefix
+              sys.base_exec_prefix = new_exec_prefix
     EOS
   end
 
@@ -453,8 +470,10 @@ class PythonAT39 < Formula
     system "#{bin}/python#{version.major_minor}", "-m", "venv", testpath/"myvenv"
 
     # Check if some other modules import. Then the linked libs are working.
-    system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
+    system "#{bin}/python#{version.major_minor}", "-c", "import _ctypes"
     system "#{bin}/python#{version.major_minor}", "-c", "import _decimal"
+    system "#{bin}/python#{version.major_minor}", "-c", "import _gdbm"
+    system "#{bin}/python#{version.major_minor}", "-c", "import pyexpat"
     system "#{bin}/python#{version.major_minor}", "-c", "import zlib"
     on_macos do
       system "#{bin}/python#{version.major_minor}", "-c", "import tkinter; root = tkinter.Tk()"
