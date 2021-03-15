@@ -35,6 +35,9 @@
   "pipgrip": {
     "extra_packages": ["wheel"]
   },
+  "platformio": {
+    "exclude_packages": ["tabulate"]
+  },
   "poetry": {
     "extra_packages": ["importlib-metadata", "typing-extensions"]
   },
