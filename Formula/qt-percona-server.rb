@@ -4,6 +4,7 @@ class QtPerconaServer < Formula
   url "https://download.qt.io/official_releases/qt/6.0/6.0.2/submodules/qtbase-everywhere-src-6.0.2.tar.xz"
   sha256 "991a0e4e123104e76563067fcfa58602050c03aba8c8bb0c6198347c707817f1"
   license all_of: ["LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e8cac96be21c551591beaf0f0b3db9d236c4d92620ca90566583c415224624e0"
@@ -13,6 +14,7 @@ class QtPerconaServer < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "pkg-config" => :build
 
   depends_on "percona-server"
   depends_on "qt"
@@ -21,13 +23,23 @@ class QtPerconaServer < Formula
     because: "qt-mysql, qt-mariadb, and qt-percona-server install the same binaries"
 
   def install
+    args = std_cmake_args + %W[
+      -DCMAKE_STAGING_PREFIX=#{prefix}
+
+      -DFEATURE_sql_ibase=OFF
+      -DFEATURE_sql_mysql=ON
+      -DFEATURE_sql_oci=OFF
+      -DFEATURE_sql_odbc=OFF
+      -DFEATURE_sql_psql=OFF
+      -DFEATURE_sql_sqlite=OFF
+
+      -DMySQL_LIBRARIES=#{Formula["percona-server"].opt_lib}/#{shared_library("libperconaserverclient")}
+    ]
+
     cd "src/plugins/sqldrivers" do
-      system "qmake"
-      system "make", "sub-mysql"
-      (share/"qt").install "plugins/"
-    end
-    Pathname.glob(share/"qt/plugins/sqldrivers/#{shared_library("*")}") do |plugin|
-      system "strip", "-S", "-x", plugin
+      system "cmake", "-S", ".", "-B", "build", *args
+      system "cmake", "--build", "build"
+      system "cmake", "--install", "build"
     end
   end
 
