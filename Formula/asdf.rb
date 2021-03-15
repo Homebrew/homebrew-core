@@ -4,7 +4,7 @@ class Asdf < Formula
   url "https://github.com/asdf-vm/asdf/archive/v0.8.0.tar.gz"
   sha256 "9b667ca135c194f38d823c62cc0dc3dbe00d7a9f60caa0c06ecb3047944eadfa"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/asdf-vm/asdf.git"
 
   bottle :unneeded
@@ -25,8 +25,8 @@ class Asdf < Formula
     bash_completion.install "completions/asdf.bash"
     fish_completion.install "completions/asdf.fish"
     zsh_completion.install "completions/_asdf"
-    libexec.install "bin/private"
-    prefix.install Dir["*"]
+    libexec.install Dir["*"]
+    bin.write_exec_script (libexec/"bin/asdf")
     touch prefix/"asdf_updates_disabled"
   end
 
