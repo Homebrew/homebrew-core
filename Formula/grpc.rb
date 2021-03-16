@@ -1,10 +1,8 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
-  url "https://github.com/grpc/grpc.git",
-      tag:      "v1.36.3",
-      revision: "ce05bf557ced2d311bad8ee520f9f8088f715bd8",
-      shallow:  false
+  url "https://github.com/grpc/grpc/archive/v1.36.3.tar.gz"
+  sha256 "bb6de0544adddd54662ba1c314eff974e84c955c39204a4a2b733ccd990354b7"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git"
 
@@ -23,6 +21,8 @@ class Grpc < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
+  depends_on "googletest" => :build unless Hardware::CPU.arm?
+  depends_on "google-benchmark" => :build unless Hardware::CPU.arm?
   depends_on "libtool" => :build
   depends_on "pkg-config" => :test
   depends_on "abseil"
@@ -64,6 +64,7 @@ class Grpc < Formula
           -DCMAKE_INSTALL_RPATH=#{lib}
           -DBUILD_SHARED_LIBS=ON
           -DgRPC_BUILD_TESTS=ON
+          -DgRPC_BENCHMARK_PROVIDER=package
         ] + std_cmake_args
         system "cmake", *args
         system "make", "grpc_cli"
