@@ -52,6 +52,10 @@ class Qemu < Formula
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
   end
 
+  # remove in next release
+  # https://bugs.launchpad.net/qemu/+bug/1914849
+  patch :DATA
+
   def install
     ENV["LIBTOOL"] = "glibtool"
 
@@ -119,3 +123,20 @@ class Qemu < Formula
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info FLOPPY.img")
   end
 end
+
+__END__
+diff --git a/util/osdep.c b/util/osdep.c
+index 66d01b9160..76be8c295b 100644
+--- a/util/osdep.c
++++ b/util/osdep.c
+@@ -110,6 +110,9 @@ int qemu_mprotect_none(void *addr, size_t size)
+ {
+ #ifdef _WIN32
+     return qemu_mprotect__osdep(addr, size, PAGE_NOACCESS);
++#elif defined(__APPLE__) && defined(__arm64__)
++    /* Workaround mprotect (RWX->NONE) issue on Big Sur 11.2 */
++    return 0;
+ #else
+     return qemu_mprotect__osdep(addr, size, PROT_NONE);
+ #endif
+
