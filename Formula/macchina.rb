@@ -8,13 +8,12 @@ class Macchina < Formula
   depends_on "rust" => :build
 
   def install
-    Dir.chdir "macchina" do
+    cd "macchina" do
       system "cargo", "install", *std_cargo_args
     end
-    bin.install "target/release/macchina"
   end
 
   test do
-    system "macchina", "--version"
+    system "macchina", "-b", "-p"
   end
 end
