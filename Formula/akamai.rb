@@ -15,19 +15,10 @@ class Akamai < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-
-    srcpath = buildpath/"src/github.com/akamai/cli"
-    srcpath.install buildpath.children
-
-    cd srcpath do
-      system "go", "build", "-tags", "noautoupgrade nofirstrun", "-o", bin/"akamai", "cli/main.go"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-tags", "noautoupgrade nofirstrun", *std_go_args, "cli/main.go"
   end
 
   test do
-    assert_match "Purge", shell_output("echo n | #{bin}/akamai install --force purge")
+    assert_match "Purge", pipe_output("#{bin}/akamai install --force purge", "n")
   end
 end
