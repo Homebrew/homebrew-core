@@ -3,8 +3,8 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://files.pythonhosted.org/packages/ef/17/6c951f6815b01d6a35603e6c4cf15ff697a64273cd2717e1445946d8123f/dnsviz-0.9.2.tar.gz"
-  sha256 "e2d2751f2e2facc2a49ff30f75a0771f4156dee0bda9e888bd8f09fca7212795"
+  url "https://files.pythonhosted.org/packages/1f/76/c64f7b445d5a869a65c633ff9f5c04c8d72a75a5ca11e9a18fd104edfaf8/dnsviz-0.9.3.tar.gz"
+  sha256 "6f38f3d71b2b9ca3f4cffb003c828574d0c413bcc5112bb52921fa9db4e69259"
   license "GPL-2.0-or-later"
 
   bottle do
