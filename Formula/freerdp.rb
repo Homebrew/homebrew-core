@@ -4,6 +4,7 @@ class Freerdp < Formula
   url "https://github.com/FreeRDP/FreeRDP/archive/2.3.1.tar.gz"
   sha256 "3ad38d4bdd9cf97bd5425ea280961397129b28660743ab2f90eab88e8342459b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "02750821918300bf19eaa74d2c33e682e039c56b031bd457ea34c44aa5d1c775"
@@ -39,7 +40,11 @@ class Freerdp < Formula
   end
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DWITH_X11=ON", "-DBUILD_SHARED_LIBS=ON", "-DWITH_JPEG=ON"
+    system "cmake", ".", *std_cmake_args,
+                         "-DWITH_X11=ON",
+                         "-DBUILD_SHARED_LIBS=ON",
+                         "-DWITH_JPEG=ON",
+                         "-DCMAKE_INSTALL_NAME_DIR=#{lib}"
     system "make", "install"
   end
 
