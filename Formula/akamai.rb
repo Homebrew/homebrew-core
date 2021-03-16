@@ -1,8 +1,8 @@
 class Akamai < Formula
   desc "CLI toolkit for working with Akamai's APIs"
   homepage "https://github.com/akamai/cli"
-  url "https://github.com/akamai/cli/archive/1.1.5.tar.gz"
-  sha256 "759c3c3bc59c2623fc8a5f91907f55d870f77aef1839f2ecc703db5c469b852a"
+  url "https://github.com/akamai/cli/archive/1.2.0.tar.gz"
+  sha256 "644c722ad7046e99a6e638105cc75ee616c0a5091d9979f8118ef9473f6d7e67"
   license "Apache-2.0"
 
   bottle do
@@ -12,25 +12,22 @@ class Akamai < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "1d96850b0c979f5f351877977b7d06e5b26a78701a8993ad6366b229c15cae97"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "auto"
-    ENV["GLIDE_HOME"] = HOMEBREW_CACHE/"glide_home/#{name}"
 
     srcpath = buildpath/"src/github.com/akamai/cli"
     srcpath.install buildpath.children
 
     cd srcpath do
-      system "dep", "ensure", "-vendor-only"
-      system "go", "build", "-tags", "noautoupgrade nofirstrun", "-o", bin/"akamai"
+      system "go", "build", "-tags", "noautoupgrade nofirstrun", "-o", bin/"akamai", "cli/main.go"
       prefix.install_metafiles
     end
   end
 
   test do
-    assert_match "Purge", shell_output("#{bin}/akamai install --force purge")
+    assert_match "Purge", shell_output("echo n | #{bin}/akamai install --force purge")
   end
 end
