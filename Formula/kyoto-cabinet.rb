@@ -1,9 +1,9 @@
 class KyotoCabinet < Formula
   desc "Library of routines for managing a database"
   homepage "https://fallabs.com/kyotocabinet/"
-  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.77.tar.gz"
-  sha256 "56899329384cc6f0f1f8aa3f1b41001071ca99c1d79225086a7f3575c0209de6"
-  license "GPL-3.0"
+  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.79.tar.gz"
+  sha256 "67fb1da4ae2a86f15bb9305f26caa1a7c0c27d525464c71fd732660a95ae3e1d"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 arm64_big_sur: "1ca68b35195efd332074aeee92585a14d4dd1b4f54e1d5b398c3b74429c00329"
@@ -19,6 +19,7 @@ class KyotoCabinet < Formula
   patch :DATA
 
   def install
+    ENV.cxx11
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make" # Separate steps required
     system "make", "install"
