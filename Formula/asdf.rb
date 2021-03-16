@@ -11,7 +11,6 @@ class Asdf < Formula
   depends_on "coreutils"
   depends_on "git"
 
-
   def install
     bash_completion.install "completions/asdf.bash"
     fish_completion.install "completions/asdf.fish"
