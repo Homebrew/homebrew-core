@@ -2,7 +2,7 @@ class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/neovim/neovim/archive/v0.4.4.tar.gz"
@@ -28,13 +28,13 @@ class Neovim < Formula
 
   depends_on "cmake" => :build
   depends_on "luarocks" => :build
-  depends_on "luv" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libtermkey"
   depends_on "libuv"
   depends_on "libvterm"
   depends_on "luajit-openresty"
+  depends_on "luv"
   depends_on "msgpack"
   depends_on "unibilium"
 
@@ -90,12 +90,7 @@ class Neovim < Formula
     end
 
     mkdir "build" do
-      cmake_args = std_cmake_args
-      cmake_args += %W[
-        -DLIBLUV_INCLUDE_DIR=#{Formula["luv"].opt_include}
-        -DLIBLUV_LIBRARY=#{Formula["luv"].opt_lib}/libluv_a.a
-      ]
-      system "cmake", "..", *cmake_args
+      system "cmake", "..", *std_cmake_args
       # Patch out references to Homebrew shims
       inreplace "config/auto/versiondef.h", /#{HOMEBREW_LIBRARY}[^ ]+/o, ENV.cc
       system "make", "install"
