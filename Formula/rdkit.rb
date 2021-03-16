@@ -1,8 +1,8 @@
 class Rdkit < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/Release_2020_09_4.tar.gz"
-  sha256 "9e734ca8f99d8be1ef2ac51efb67c393c62e88b98cfa550d6173ce3eaa87b559"
+  url "https://github.com/rdkit/rdkit/archive/Release_2020_09_5.tar.gz"
+  sha256 "85cec9618e7ef6365b9b908ed674c073d898b6627521cc7fd8c2e05fea8a5def"
   license "BSD-3-Clause"
   head "https://github.com/rdkit/rdkit.git"
 
