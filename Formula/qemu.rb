@@ -2,7 +2,6 @@ class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
   license "GPL-2.0-only"
-  head "https://git.qemu.org/git/qemu.git"
 
   stable do
     url "https://download.qemu.org/qemu-5.2.0.tar.xz"
@@ -26,6 +25,13 @@ class Qemu < Formula
     sha256 big_sur:       "a9d19e88aaaa1cbca0069e298f09b738b8a0a27157ce893ac322f3d6a24519bc"
     sha256 catalina:      "2443538eb765864a43207708b0f2eb80a601c4755952c9f3d9c7c85e1b07f2da"
     sha256 mojave:        "359f0bc3b9f605758f3e34819a69c310f855e8b7ddc5ba45c2f3f4c8cf884f19"
+  end
+
+  # remove in next release
+  # if bug (https://bugs.launchpad.net/qemu/+bug/1914849) is fixed
+  head do
+    url "https://git.qemu.org/git/qemu.git"
+    patch :DATA
   end
 
   depends_on "libtool" => :build
@@ -119,3 +125,20 @@ class Qemu < Formula
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info FLOPPY.img")
   end
 end
+
+__END__
+diff --git a/util/osdep.c b/util/osdep.c
+index 66d01b9160..76be8c295b 100644
+--- a/util/osdep.c
++++ b/util/osdep.c
+@@ -110,6 +110,9 @@ int qemu_mprotect_none(void *addr, size_t size)
+ {
+ #ifdef _WIN32
+     return qemu_mprotect__osdep(addr, size, PAGE_NOACCESS);
++#elif defined(__APPLE__) && defined(__arm64__)
++    /* Workaround mprotect (RWX->NONE) issue on Big Sur 11.2 */
++    return 0;
+ #else
+     return qemu_mprotect__osdep(addr, size, PROT_NONE);
+ #endif
+
