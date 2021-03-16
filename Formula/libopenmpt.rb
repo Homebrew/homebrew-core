@@ -1,9 +1,9 @@
 class Libopenmpt < Formula
   desc "Software library to decode tracked music files"
   homepage "https://lib.openmpt.org/libopenmpt/"
-  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.5+release.autotools.tar.gz"
-  version "0.5.5"
-  sha256 "f1e01483ebf1a680d9ec030c9af20f5f2a5ac0f1e0642c18bd5593cfaa9ceb6b"
+  url "https://lib.openmpt.org/files/libopenmpt/src/libopenmpt-0.5.6+release.autotools.tar.gz"
+  version "0.5.6"
+  sha256 "17dea782b334c146f4acd948c7c31ffdd2afc899eb347ebe01be1606ea79f4b8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,10 +12,10 @@ class Libopenmpt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b41a555aca663ae452190910fd2c5fbee37588b864ad64ecea0471dbefd60690"
-    sha256 cellar: :any, big_sur:       "9cff46a437ec6052a185659845f023d58e6ed0746b8795e302e2c19ede3ef495"
-    sha256 cellar: :any, catalina:      "7aa35598ce904e38740c90f9c61b2c51b03868229502224e7d36cc680ea85851"
-    sha256 cellar: :any, mojave:        "faf5143021862bc64b2be69a40407fa30e0a609fc4851ae3fcea056e9a72cddd"
+    sha256 cellar: :any, arm64_big_sur: "fd051718667d70e0a3bbf022767a9f7206f2d728143a99a4cf00ec9f732590f9"
+    sha256 cellar: :any, big_sur:       "32ec9749dee285ad9dc2028e159289f03a734aa458d44e04f80a2ea88e2cdf14"
+    sha256 cellar: :any, catalina:      "b0e7403f3fa51099be0e74a51bd1f419041d8cddd5cbf7f875db03cb2771d9b2"
+    sha256 cellar: :any, mojave:        "8826e1e7cffa4ef09fb9c680dca07e974b4508ee9094c4ae80ca98639965c6c3"
   end
 
   depends_on "pkg-config" => :build
@@ -26,6 +26,15 @@ class Libopenmpt < Formula
   depends_on "libvorbis"
   depends_on "mpg123"
   depends_on "portaudio"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc" # for C++17
+    depends_on "pulseaudio"
+  end
+
+  fails_with gcc: "5"
 
   resource "mystique.s3m" do
     url "https://api.modarchive.org/downloads.php?moduleid=54144#mystique.s3m"

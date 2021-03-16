@@ -22,6 +22,9 @@ class Gromacs < Formula
   depends_on "gcc" # for OpenMP
   depends_on "openblas"
 
+  fails_with gcc: "5"
+  fails_with gcc: "6"
+
   def install
     # Non-executable GMXRC files should be installed in DATADIR
     inreplace "scripts/CMakeLists.txt", "CMAKE_INSTALL_BINDIR",

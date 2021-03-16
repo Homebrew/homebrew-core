@@ -1,15 +1,15 @@
 class Scw < Formula
   desc "Command-line Interface for Scaleway"
   homepage "https://github.com/scaleway/scaleway-cli"
-  url "https://github.com/scaleway/scaleway-cli/archive/v2.2.4.tar.gz"
-  sha256 "e4b3a8b2cb682684bfa0c6c63d8074bb269867bc5910201c81bb10eef160a0d3"
+  url "https://github.com/scaleway/scaleway-cli/archive/v2.3.0.tar.gz"
+  sha256 "2fccf3cd3c6d6fd94c4fd71bc8b20b14bb25534dc833594880d4a8edfb8ec139"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "323d5a79e50e9fb954ff5a25232ddc85ae24b690322b3c2efdfb64971f027505"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8088c820051babc7e934c5b6a3b4f4f3af5a8ca4861307fb81cb78e39c637c8c"
-    sha256 cellar: :any_skip_relocation, catalina:      "34b8f4ad1a3cfd50e242f13ab53fee34085d7e1cb8b394384f378b928d10e21e"
-    sha256 cellar: :any_skip_relocation, mojave:        "ec797ed2a4c6c8cd6d9b6b2a0a86827bdebe3c41997f85ab8f6ed28c73351ccd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "84308c55a1ec66c17755835f455380ff170a64c11d8dd55f1d21311040d59c36"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8399d6e3b238847990e7def0479c510d1b2ebd26888acce38a4ae2fd550804f5"
+    sha256 cellar: :any_skip_relocation, catalina:      "54baa872f088126ae8e2abf80cb69e3a239abac0e7dd20514d61d24c029a5693"
+    sha256 cellar: :any_skip_relocation, mojave:        "9597e867e6732d017a2def430c5e6081705f6b58ea43981a46e95db331a9b061"
   end
 
   depends_on "go" => :build

@@ -1,4 +1,7 @@
 {
+  "anime-downloader": {
+    "exclude_packages": ["tabulate"]
+  },
   "ansible": false,
   "ansible-lint": {
       "extra_packages": ["ansible-base"]
@@ -11,16 +14,26 @@
   "charm-tools": {
     "extra_packages": ["wheel"]
   },
+  "checkov": {
+    "exclude_packages": ["tabulate"]
+  },
   "diffoscope": "diffoscope[cmdline]",
   "ipython": {
     "extra_packages": ["ipykernel"]
   },
   "fdroidserver": {
+      "exclude_packages": ["numpy"],
       "extra_packages": ["wheel"]
+  },
+  "magic-wormhole": {
+    "extra_packages": ["wheel"]
   },
   "molecule": false,
   "openstackclient": {
     "extra_packages": ["python-heatclient"]
+  },
+  "nicotine-plus": {
+    "exclude_packages": ["pycairo", "PyGObject"]
   },
   "pdm": {
     "extra_packages": ["wheel"]
@@ -28,11 +41,23 @@
   "pipgrip": {
     "extra_packages": ["wheel"]
   },
+  "platformio": {
+    "exclude_packages": ["tabulate"]
+  },
   "poetry": {
     "extra_packages": ["importlib-metadata", "typing-extensions"]
   },
   "salt": {
     "extra_packages": ["M2Crypto", "pygit2"]
+  },
+  "scipy": {
+    "exclude_packages": ["numpy"]
+  },
+  "sqlite-utils": {
+    "exclude_packages": ["tabulate"]
+  },
+  "todoman": {
+    "exclude_packages": ["tabulate"]
   },
   "xdot": {
     "extra_packages": ["graphviz"]

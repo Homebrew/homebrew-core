@@ -1,15 +1,15 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree"
-  url "https://www.giuspen.com/software/cherrytree_0.99.31.tar.xz"
-  sha256 "3a3c939bdac6cc1f538b21194744f35f8f1264600bc254d7e1fc6d712dd0d560"
+  url "https://www.giuspen.com/software/cherrytree_0.99.32.tar.xz"
+  sha256 "cafc3233e2c22b6e689d4d58cfe87e0b5fcf342b549d23122bfcac4025b6d3c6"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "6b37af5773b4722c9177ea4d4957063abba11e1d6929c36747fe6a051018f198"
-    sha256 big_sur:       "d977f2cf50deeb139b2cc318a4a58cb2e6e3312e7cc5f8355b153954df43c4a3"
-    sha256 catalina:      "a63c6276d213f20d66ff011bab63c194d088a27282f9aedc9de7b7fea5d7035e"
-    sha256 mojave:        "f4d1b25b16f4d3197ca80ab620380af4b83bece164ddac93b96d4820094f085d"
+    sha256 arm64_big_sur: "d52717581e93cf1d236f4857cccb8f3880efd040c59d14be31ad1e4e4e6b95c0"
+    sha256 big_sur:       "3850d270cd3e051da438312542dca7786c91e9ac0847020acdb61288fda5724c"
+    sha256 catalina:      "d253ae29918c53a4cac6db8e4f0d55bfee0890a12463a737d8073949e31488a3"
+    sha256 mojave:        "c34e216b0f9053b4882a4f01e71afea502f7ca04aabd2ed10fdb835334495b15"
   end
 
   depends_on "cmake" => :build

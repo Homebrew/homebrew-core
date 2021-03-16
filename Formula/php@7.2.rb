@@ -9,9 +9,11 @@ class PhpAT72 < Formula
   revision 2
 
   bottle do
-    sha256 big_sur:  "ddc97a43c92647e196e878e299a4815f3a9b6c39e0f3d8cced98b789ec1727aa"
-    sha256 catalina: "1d565dbd54f4a42d633bd0079d20f48fa6c37600d6b265fedfaba3a9942b95c6"
-    sha256 mojave:   "f5048312f1a67b88e9bbc0553ab5c6e9f679df0ee30c04f9101e89541543a486"
+    rebuild 1
+    sha256 arm64_big_sur: "68fa27133add9196aab8c9e883c31802fa970d12a25a503e451d4efea5c9e654"
+    sha256 big_sur:       "22806c50d8d176e762ff37b80686fd19ffee2cf6cf55f319c209b571f6261bbf"
+    sha256 catalina:      "95c2f84e72605a59160940bade71ff839c9690dd614a8d0c858eb660ab85bd6c"
+    sha256 mojave:        "a4db5f63b5f98288007e4b98af9b58edfae59a2de32b1958cc32a29b7fc7dc07"
   end
 
   keg_only :versioned_formula
@@ -23,7 +25,6 @@ class PhpAT72 < Formula
   depends_on "xz" => :build
   depends_on "apr"
   depends_on "apr-util"
-  depends_on arch: :x86_64
   depends_on "argon2"
   depends_on "aspell"
   depends_on "autoconf"

@@ -4,18 +4,17 @@ class Shellcheck < Formula
   url "https://github.com/koalaman/shellcheck/archive/v0.7.1.tar.gz"
   sha256 "50a219bde5c16fc0a40e2e3725b6c192ff589bc8a2569c32b62dcaece0495896"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/koalaman/shellcheck.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:     "c7bd19ca5bc623c8a958c4cb56b77ab89e652c20a1a66dfbbc0c5d8832b60ada"
-    sha256 cellar: :any_skip_relocation, catalina:    "0cd635d2172d5e6617be8cdfb2723b6aa6feb2aa22e36cb3172d8b6fa012f4a0"
-    sha256 cellar: :any_skip_relocation, mojave:      "37201a49c0d7a5be49c5d97d4f6f8f5fcfef7d700b4694f74648a1addcd6783d"
-    sha256 cellar: :any_skip_relocation, high_sierra: "1b20aeaba4d5e2e3df5cbe27636d655b6f877ee05a41d25fe1e0b3f9d00afa81"
+    sha256 cellar: :any_skip_relocation, big_sur:  "5ba3cfe883216a700c133e35c3f1612ab70eaca07cfb43bf6ed427b72dd7d552"
+    sha256 cellar: :any_skip_relocation, catalina: "bd66df0992ced04f98883eada3f14e620f6c76f268cae2adb182b52d3bba1858"
+    sha256 cellar: :any_skip_relocation, mojave:   "bcb393cf5a259c69fdf7ef1725243b48c5653b9db17d2cd51ad140ab2d7de9c1"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.8" => :build
+  depends_on "ghc" => :build
   depends_on "pandoc" => :build
 
   def install

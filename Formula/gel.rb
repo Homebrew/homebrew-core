@@ -4,17 +4,18 @@ class Gel < Formula
   url "https://github.com/gel-rb/gel/archive/v0.3.0.tar.gz"
   sha256 "fe7c4bd67a2ea857b85b754f5b4d336e26640eda7199bc99b9a1570043362551"
   license "MIT"
+  revision 1
   head "https://github.com/gel-rb/gel.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, catalina:    "7452d45bb894918afcf8c4254910fcbcb29b126eb6376fc0ba77ec25ee79dab1"
-    sha256 cellar: :any_skip_relocation, mojave:      "7b08b9ca28185ab4ae1befb9f62d3d3a0d094f72629c0742b7135a521eac3381"
-    sha256 cellar: :any_skip_relocation, high_sierra: "7b08b9ca28185ab4ae1befb9f62d3d3a0d094f72629c0742b7135a521eac3381"
-    sha256 cellar: :any_skip_relocation, sierra:      "a4a5e3f1b6eb3ea8511adbf12f9b22482c392616bdd37c801be2fd100a1b886f"
+    sha256 cellar: :any_skip_relocation, big_sur:  "ceb2f0e2ffb4cc76db737cd86fea205fa20dd25e2c33f367ac1475586137876e"
+    sha256 cellar: :any_skip_relocation, catalina: "df5ac692c53d0410238d619eaeaf3dc8384fa0ff27d3053b8293a56328407ca2"
+    sha256 cellar: :any_skip_relocation, mojave:   "197ac248e075981a73fea2bbfdf4d11d10282b7d22ff521424b82fe1ca23a845"
   end
 
   def install
     ENV["PATH"] = "bin:#{ENV["HOME"]}/.local/gel/bin:#{ENV["PATH"]}"
+    inreplace "Gemfile.lock", "rdiscount (2.2.0.1)", "rdiscount (2.2.0.2)"
     system "gel", "install"
     system "rake", "man"
     bin.install "exe/gel"

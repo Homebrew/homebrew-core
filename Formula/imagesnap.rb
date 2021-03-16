@@ -1,15 +1,15 @@
 class Imagesnap < Formula
   desc "Tool to capture still images from an iSight or other video source"
-  homepage "https://iharder.sourceforge.io/current/macosx/imagesnap/"
-  url "https://github.com/rharder/imagesnap/archive/0.2.7.tar.gz"
-  sha256 "94832e7ec1e690046c71358cdd460106405b7bc333eba42960a3a5c5d47129d3"
+  homepage "https://github.com/rharder/imagesnap"
+  url "https://github.com/rharder/imagesnap/archive/0.2.12.tar.gz"
+  sha256 "34ba713a79b7e0598bd598441dc2ba4045cf503e13f14e71575ead5bc5257c7d"
   license :public_domain
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c3a28b07aae6f9f8ef4576c15d5429da8f3191344b60eeb84da0908bc44ceb1a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "aa01a6a882185253bfe06a727d7ba2c6e15f8ebae6bed05b479cfd0ba16c7f00"
-    sha256 cellar: :any_skip_relocation, catalina:      "b66463b0af39b7bc1b2d089d3a809f8ea1c2001dbdaaafa423a5c0ed18d9914a"
-    sha256 cellar: :any_skip_relocation, mojave:        "ff13ade6a1e91b84b4800c8b56ce73b3ebb3ce25c5341dc6e9dbae2f35afb410"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "18669a90a51230e2bdd331646376a9d253a70887f7d0bc5026f3ae8d80e99c2c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9d376efb1d620a467c115484d22472555e630651c7a1b59423d6d4db9879b969"
+    sha256 cellar: :any_skip_relocation, catalina:      "ca0082c02a7b09d664c91cf94bcf1dd9f181fcaf855c4152e2530b44bfd86d75"
+    sha256 cellar: :any_skip_relocation, mojave:        "ebe22a833280f18db1a3c0045660ed59da9873b81b6543c354737c875bcaf2a4"
   end
 
   depends_on xcode: :build

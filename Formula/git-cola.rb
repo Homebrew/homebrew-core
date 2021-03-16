@@ -4,17 +4,18 @@ class GitCola < Formula
   url "https://github.com/git-cola/git-cola/archive/v3.9.tar.gz"
   sha256 "66b62f479ad141322351d62aff76e4882719d08f8f29b35f97d30f355391a54e"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/git-cola/git-cola.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4d2379bb03d78feef5ef1e04763f6d94de3acfee0a87f0289c566d3ed6a3676"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d02b38b0410d5983dfe5d142974d8f9713a1ac345b20225146f37ce3ec0680d8"
-    sha256 cellar: :any_skip_relocation, catalina:      "e232b5172991d5110227e92a738c44ef39186f54106c65b09291bfbee0cc836d"
-    sha256 cellar: :any_skip_relocation, mojave:        "f9018b9a8fb972c116aa4a619f6be51762ab71c5cfc9c50d150f74735f90643c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b9a2de2f11aa72f0c4010a89c0118974cca4aed743bd8809cac81d6839a35bb2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "54c0806c423ffadb4bf4e017d8e7b657f0636fd16055e174bdf98881ccbb0ed0"
+    sha256 cellar: :any_skip_relocation, catalina:      "8ba8892158a9e2ceef9f278b4c7a789a2ee26bfffce97c56863d287a5b56d071"
+    sha256 cellar: :any_skip_relocation, mojave:        "ad020b9751ad02ff662b94c1df5bb18a496ec77c46957d6ec200633b45bf2959"
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
 
   uses_from_macos "rsync"

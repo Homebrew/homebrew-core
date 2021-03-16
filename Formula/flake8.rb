@@ -3,18 +3,16 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "https://flake8.pycqa.org/"
-  url "https://files.pythonhosted.org/packages/71/6a/b3341ef7e7f3585add027d876a7d9837cdfe3320b6c6b5fd0cddfa9ceeac/flake8-3.8.4.tar.gz"
-  sha256 "aadae8761ec651813c24be05c6f7b4680857ef6afaae4651a4eccaef97ce6c3b"
+  url "https://files.pythonhosted.org/packages/76/ef/63ca8e9026a942af5da9380481c51d9a51326af65d8051fc166ab858bbdb/flake8-3.9.0.tar.gz"
+  sha256 "78873e372b12b093da7b5e5ed302e8ad9e988b38b063b61ad937f26ca58fc5f0"
   license "MIT"
-  revision 1
   head "https://gitlab.com/PyCQA/flake8.git", shallow: false
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "919c2b7426270504f2cad10d6652336476d3cea402880c5de2653cf2ec21587b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1897e2a2000df43795e4a1b1de0fecb1e0141e0abce4c0b8df3c6ebad065f8c0"
-    sha256 cellar: :any_skip_relocation, catalina:      "136faaf5ecc55423194ac71a9eba7b1b03e694b0f7d4552c7c3d02cc3a7b1377"
-    sha256 cellar: :any_skip_relocation, mojave:        "77329693f9aaf1267a46c1fad72ccb976ccf9995767c256cf89458d36e27f663"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "21984464d73424bf014891c85318682610e5f6d975e5df18c3f5107937e6cd51"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8d8886893eb6326f968b8adc0e9cb863329012903dbefe0ee251a9d5e861f10b"
+    sha256 cellar: :any_skip_relocation, catalina:      "c800bc9078ba5dfe566d3d52055089c3c59cd42729a1580e4884b94b9669d0bd"
+    sha256 cellar: :any_skip_relocation, mojave:        "8773e31daeb655f6fc113e939de4a796f67fdb614324aa2cd965a082f3bdb151"
   end
 
   depends_on "python@3.9"
@@ -25,13 +23,13 @@ class Flake8 < Formula
   end
 
   resource "pycodestyle" do
-    url "https://files.pythonhosted.org/packages/bb/82/0df047a5347d607be504ad5faa255caa7919562962b934f9372b157e8a70/pycodestyle-2.6.0.tar.gz"
-    sha256 "c58a7d2815e0e8d7972bf1803331fb0152f867bd89adf8a01dfd55085434192e"
+    url "https://files.pythonhosted.org/packages/02/b3/c832123f2699892c715fcdfebb1a8fdeffa11bb7b2350e46ecdd76b45a20/pycodestyle-2.7.0.tar.gz"
+    sha256 "c389c1d06bf7904078ca03399a4816f974a1d590090fecea0c63ec26ebaf1cef"
   end
 
   resource "pyflakes" do
-    url "https://files.pythonhosted.org/packages/f1/e2/e02fc89959619590eec0c35f366902535ade2728479fc3082c8af8840013/pyflakes-2.2.0.tar.gz"
-    sha256 "35b2d75ee967ea93b55750aa9edbbf72813e06a66ba54438df2cfac9e3c27fc8"
+    url "https://files.pythonhosted.org/packages/52/f2/5642322bb66a424c5d86c1ff3106260debc4f9677313b895358943d40e2f/pyflakes-2.3.0.tar.gz"
+    sha256 "e59fd8e750e588358f1b8885e5a4751203a0516e0ee6d34811089ac294c8806f"
   end
 
   def install

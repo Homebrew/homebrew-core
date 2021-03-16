@@ -4,14 +4,14 @@ class Passenger < Formula
   url "https://github.com/phusion/passenger/releases/download/release-6.0.7/passenger-6.0.7.tar.gz"
   sha256 "e1e723cc6eae054afcd1585d734cfb167e5c33a8629b83976ee21257080e9b13"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a766382cfe180c5f9fc6755c3a31436a7885ddef532bd93ec8d03bafa751b11a"
-    sha256 cellar: :any, big_sur:       "d973dd35665e1caa04e00339fc092ae6d7a26961c8e8acb593684c5845e08d3e"
-    sha256 cellar: :any, catalina:      "26afbf17291bac20ae5ab266ef524fb12c2501840241c70b129ec96efd8128ea"
-    sha256 cellar: :any, mojave:        "15f8a9f32f4166bab1115e1550abe7406ff138d8839235a6af6608cee61cecc8"
+    sha256 cellar: :any, arm64_big_sur: "8f354081b97b232e32e7626ccd14b65bbaa68a17519aafe6623aacd857ffd0ee"
+    sha256 cellar: :any, big_sur:       "34fdc3dd3e67735f40222e2225f12c0f8444b73fcb0269802cdfb2492dbd8162"
+    sha256 cellar: :any, catalina:      "d8d6f9dccbcb36837fb012d0662286d84beade457b130019d7cdf5296b49eba5"
+    sha256 cellar: :any, mojave:        "bc2589b6a29730bd35246ce6d81688fc3630a6927592bcbabd08ed692cf66f48"
   end
 
   # to build nginx module

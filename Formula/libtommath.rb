@@ -4,14 +4,14 @@ class Libtommath < Formula
   url "https://github.com/libtom/libtommath/releases/download/v1.2.0/ltm-1.2.0.tar.xz"
   sha256 "b7c75eecf680219484055fcedd686064409254ae44bc31a96c5032843c0e18b1"
   license "Unlicense"
-  revision 2
+  revision 3
   head "https://github.com/libtom/libtommath.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8de5c86d359cd3e99ffa9ebd0648d7c255c7b6e63f3298af76863c99bd6e4660"
-    sha256 cellar: :any, big_sur:       "926fe5c304e1bc15bc32c94fcf11728a98ef6d64c46ea7544dba60ce9aacd1c3"
-    sha256 cellar: :any, catalina:      "16562795b0510326aecc42646ddd1b0dcc212dccb7307eec15fb1d17236085f1"
-    sha256 cellar: :any, mojave:        "5b7fb5610176a90288ea0b6d97e8279a401dd4c627e85a66b623a5f971f3902a"
+    sha256 cellar: :any, arm64_big_sur: "b91f82bc2fd4b0e36615b3ce67833e41a5bfde5fc35d0f29b1b20c49bbc31d89"
+    sha256 cellar: :any, big_sur:       "0f2e569f0625e7f52974b6cc69cdc51ee83dc8c302af03863fb3926fdc9c768f"
+    sha256 cellar: :any, catalina:      "35421851dc5c86313eda9b351b5401196d757e4e8de90fd410029862704a5f8d"
+    sha256 cellar: :any, mojave:        "631d118cba4e115604723dea978a4c439fd150480f7526bbcd2feec70300da83"
   end
 
   depends_on "libtool" => :build
@@ -27,7 +27,7 @@ class Libtommath < Formula
   end
 
   def install
-    ENV["DESTDIR"] = prefix
+    ENV["PREFIX"] = prefix
 
     system "make", "-f", "makefile.shared", "install"
     system "make", "test"

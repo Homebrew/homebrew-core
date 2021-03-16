@@ -8,7 +8,7 @@ class Ffe < Formula
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/ffe[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.t}i)
+    regex(%r{url=.*?/(?:ffe[._-])?v?(\d+(?:\.\d+)+(?:-\d+)?[a-z]?)\.t}i)
   end
 
   bottle do

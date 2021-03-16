@@ -1,15 +1,15 @@
 class Geph4 < Formula
   desc "Modular Internet censorship circumvention system to deal with national filtering"
   homepage "https://geph.io/"
-  url "https://github.com/geph-official/geph4/archive/v4.2.1.tar.gz"
-  sha256 "bb5aaadb4fc55a22ec0be59761f9f5e71299e2c944c8b74432b45f278fb755c9"
+  url "https://github.com/geph-official/geph4/archive/v4.2.3.tar.gz"
+  sha256 "1d6578a21df81bf4f7b061db5a76be41f1597ebc977974c24f9db59441f0cf46"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8a0babcae532a1c52d15807c1da33337260ed0130a176b91dff3b3462e304e7c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "edbe96c7e8395475bf3bb99a2b183ee34b474ebb325fc095eaa2fd052cc770c3"
-    sha256 cellar: :any_skip_relocation, catalina:      "484bf78360f764332036a34b5d260465a9ac52a57655087efac375389fa22d23"
-    sha256 cellar: :any_skip_relocation, mojave:        "97f3ed332edc560ae226d9b1c49ec3a7a17fa4583a90f9154fac24a81fc1fd58"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6653002d99929f1342e45b655fd05f3d81b3338f162281dafd9df31179b363a5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "373c9ad783bc6a720b05ad3d583c02d019f0d5f23208829b566d270eb8d815f4"
+    sha256 cellar: :any_skip_relocation, catalina:      "97408e07ab070916257a9e75e0c5e30cb31681f2ee10a51fd2d7eaf8613eb904"
+    sha256 cellar: :any_skip_relocation, mojave:        "de0631676a901b1d172b78f3f1e5a78b42df8e030fae980185614bbdc752593f"
   end
 
   depends_on "rust" => :build

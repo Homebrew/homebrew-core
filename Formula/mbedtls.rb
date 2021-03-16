@@ -1,8 +1,8 @@
 class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://tls.mbed.org/"
-  url "https://github.com/ARMmbed/mbedtls/archive/mbedtls-2.25.0.tar.gz"
-  sha256 "ea2049c2dd4868693998d5a9780e198194be5aea1706ff4a9d4f882f18c0a101"
+  url "https://github.com/ARMmbed/mbedtls/archive/mbedtls-2.26.0.tar.gz"
+  sha256 "35d8d87509cd0d002bddbd5508b9d2b931c5e83747d087234cc7ad551d53fe05"
   license "Apache-2.0"
   head "https://github.com/ARMmbed/mbedtls.git", branch: "development"
 
@@ -13,10 +13,10 @@ class Mbedtls < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "785f8faddef2276f59790346f8841f4e330482d438e3bbfd9f4108dfb5ca279e"
-    sha256 cellar: :any, big_sur:       "35a4787c9909ce5a07a2493a66f29a9c28b15adf22c1a11aed84fc4af473e51c"
-    sha256 cellar: :any, catalina:      "62225a9f1f13ac7994b6fd5d842ff98177b5c91acbfeae9fdf1e6dd8d38ed767"
-    sha256 cellar: :any, mojave:        "141066621c3a63f86614e3d13b781e33f80816119f8adf50a07c014537eb891d"
+    sha256 cellar: :any, arm64_big_sur: "6865368e7cb7c1ed400b404df81f1e31741f507217f0b7d0bc59e1d453ec11df"
+    sha256 cellar: :any, big_sur:       "1efb3f239ee33216cb622abfd288a8f2c86e2f41c1257a0285a22c35215a6862"
+    sha256 cellar: :any, catalina:      "ce31fd5b67d25bba62be1796da908badd06701b83c09fe3b62a8201770d71b7c"
+    sha256 cellar: :any, mojave:        "ffd5443cc95bb8a9de99c6d429aa4f3cd6193b4084dee14f25f4377f0f56eee2"
   end
 
   depends_on "cmake" => :build

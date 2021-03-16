@@ -2,17 +2,17 @@ class PrometheusCpp < Formula
   desc "Prometheus Client Library for Modern C++"
   homepage "https://github.com/jupp0r/prometheus-cpp"
   url "https://github.com/jupp0r/prometheus-cpp.git",
-      tag:      "v0.12.1",
-      revision: "38130aee330377d6289a076628dbe450d59ef3e9",
+      tag:      "v0.12.2",
+      revision: "2412990ee9ad89245e7d1df9ec85ab19b24674d3",
       shallow:  false
   license "MIT"
   head "https://github.com/jupp0r/prometheus-cpp.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "512cde8acc7dd926f3262100de76d8e5ef18a668699bcd88c4e666955ba62296"
-    sha256 cellar: :any_skip_relocation, big_sur:       "736af213f2ba5a31cae9ed98e240b3af852cf055852d861d15bb15f5402d2b87"
-    sha256 cellar: :any_skip_relocation, catalina:      "23b409e2a0f5f8be64f0388b99a4acb16a226d3324d81694c9adff105bd8630d"
-    sha256 cellar: :any_skip_relocation, mojave:        "4c5f320dce92274cf8985ea805f9ce1048daa2a0464f4f25a618010d3554b400"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6ff27c5b8c09e2707840457fe5a0995ea2012e5638cf2872dcbf50e972f44a1f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "18ff7233d38197c84da22d1a9d59dc5fd086b91051ae6c8c5f3a0458dfc5a4fd"
+    sha256 cellar: :any_skip_relocation, catalina:      "24aeac3a5c0424ec2ce6fd031d719a7d01bb4b1ea14e8bf6917688ddfe784c65"
+    sha256 cellar: :any_skip_relocation, mojave:        "d8791e24d60ee4bec20125c4fbcc5edbc948b400a93639c15fc4ad6bc75f27c8"
   end
 
   depends_on "cmake" => :build

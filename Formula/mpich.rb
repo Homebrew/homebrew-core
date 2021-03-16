@@ -1,11 +1,10 @@
 class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
-  url "https://www.mpich.org/static/downloads/3.3.2/mpich-3.3.2.tar.gz"
-  mirror "https://fossies.org/linux/misc/mpich-3.3.2.tar.gz"
-  sha256 "4bfaf8837a54771d3e4922c84071ef80ffebddbb6971a006038d91ee7ef959b9"
+  url "https://www.mpich.org/static/downloads/3.4.1/mpich-3.4.1.tar.gz"
+  mirror "https://fossies.org/linux/misc/mpich-3.4.1.tar.gz"
+  sha256 "8836939804ef6d492bcee7d54abafd6477d2beca247157d92688654d13779727"
   license "mpich2"
-  revision 1
 
   livecheck do
     url "https://www.mpich.org/static/downloads/"
@@ -13,9 +12,10 @@ class Mpich < Formula
   end
 
   bottle do
-    sha256 cellar: :any, catalina:    "3927047d7322310cef941a5e790c43b858a29716bea54d493bd1901b8d0bcb3d"
-    sha256 cellar: :any, mojave:      "44511bb2ad213ccc7e47a505895cf6aa4dbdd1a7dbba468095a130e83ca7bff3"
-    sha256 cellar: :any, high_sierra: "0498e1ee125ed94a3822179663e552ecf29bdca1ae3837520284fadae3782cef"
+    sha256 cellar: :any, arm64_big_sur: "c01c39f63b3bbf29ac0c917abdbb8e7ae327d6c7d0d37ed3157f7d52c0e1ea5d"
+    sha256 cellar: :any, big_sur:       "1654a8962a263a630133226f983cacca8aceb026acfb08f8110058aa572658d3"
+    sha256 cellar: :any, catalina:      "6ef2fb36371b7ec0a7639977ac6f3faa73a5a2a93020ec51679a2a3cd2463349"
+    sha256 cellar: :any, mojave:        "a441178f63a3dc94ca9a587014884b4b655e68a6a1d48601ee5841c4cfffb20f"
   end
 
   head do
@@ -30,6 +30,15 @@ class Mpich < Formula
 
   conflicts_with "open-mpi", because: "both install MPI compiler wrappers"
 
+  if Hardware::CPU.arm?
+    # gfortran from 10.2.0 on arm64 does not seem to know about real128 and complex128
+    # the recommended solution by upstream is to comment out the declaration of
+    # real128 and complex128 in the source code as they do not have the resources
+    # to update the f08 binding generation script at the moment
+    # https://lists.mpich.org/pipermail/discuss/2021-March/006167.html
+    patch :DATA
+  end
+
   def install
     if build.head?
       # ensure that the consistent set of autotools built by homebrew is used to
@@ -39,15 +48,26 @@ class Mpich < Formula
     end
 
     system "./configure", "--disable-dependency-tracking",
+                          "--enable-fast=all,O3",
+                          "--enable-g=dbg",
+                          "--enable-romio",
+                          "--enable-shared",
+                          "--enable-sharedlibs=gcc-osx",
+                          "--with-pm=hydra",
+                          "CC=gcc-#{Formula["gcc"].any_installed_version.major}",
+                          "CXX=g++-#{Formula["gcc"].any_installed_version.major}",
+                          "FC=gfortran-#{Formula["gcc"].any_installed_version.major}",
+                          "F77=gfortran-#{Formula["gcc"].any_installed_version.major}",
                           "--disable-silent-rules",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           # Flag for compatibility with GCC 10
                           # https://lists.mpich.org/pipermail/discuss/2020-January/005863.html
-                          "FFLAGS=-fallow-argument-mismatch"
+                          "FFLAGS=-fallow-argument-mismatch",
+                          "CXXFLAGS=-Wno-deprecated",
+                          "CFLAGS=-fgnu89-inline -Wno-deprecated"
 
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 
@@ -89,3 +109,63 @@ class Mpich < Formula
     system "#{bin}/mpirun", "-np", "4", "./hellof"
   end
 end
+
+__END__
+--- a/src/binding/fortran/use_mpi_f08/mpi_f08_types.f90
++++ b/src/binding/fortran/use_mpi_f08/mpi_f08_types.f90
+@@ -248,10 +248,8 @@
+     module procedure MPI_Sizeof_xint64
+     module procedure MPI_Sizeof_xreal32
+     module procedure MPI_Sizeof_xreal64
+-    module procedure MPI_Sizeof_xreal128
+     module procedure MPI_Sizeof_xcomplex32
+     module procedure MPI_Sizeof_xcomplex64
+-    module procedure MPI_Sizeof_xcomplex128
+ end interface
+ 
+ private :: MPI_Sizeof_character
+@@ -263,10 +261,8 @@
+ private :: MPI_Sizeof_xint64
+ private :: MPI_Sizeof_xreal32
+ private :: MPI_Sizeof_xreal64
+-private :: MPI_Sizeof_xreal128
+ private :: MPI_Sizeof_xcomplex32
+ private :: MPI_Sizeof_xcomplex64
+-private :: MPI_Sizeof_xcomplex128
+ 
+ contains
+ 
+@@ -350,16 +346,6 @@
+     ierror = 0
+ end subroutine MPI_Sizeof_xreal64
+ 
+-subroutine MPI_Sizeof_xreal128 (x, size, ierror)
+-    use,intrinsic :: iso_fortran_env, only: real128
+-    real(real128),dimension(..) :: x
+-    integer, intent(out) :: size
+-    integer, optional,  intent(out) :: ierror
+-
+-    size = storage_size(x)/8
+-    ierror = 0
+-end subroutine MPI_Sizeof_xreal128
+-
+ subroutine MPI_Sizeof_xcomplex32 (x, size, ierror)
+     use,intrinsic :: iso_fortran_env, only: real32
+     complex(real32),dimension(..) :: x
+@@ -380,16 +366,6 @@
+     ierror = 0
+ end subroutine MPI_Sizeof_xcomplex64
+ 
+-subroutine MPI_Sizeof_xcomplex128 (x, size, ierror)
+-    use,intrinsic :: iso_fortran_env, only: real128
+-    complex(real128),dimension(..) :: x
+-    integer, intent(out) :: size
+-    integer, optional,  intent(out) :: ierror
+-
+-    size = storage_size(x)/8
+-    ierror = 0
+-end subroutine MPI_Sizeof_xcomplex128
+-
+ subroutine MPI_Status_f2f08(f_status, f08_status, ierror)
+     integer, intent(in) :: f_status(MPI_STATUS_SIZE)
+     type(MPI_Status), intent(out) :: f08_status

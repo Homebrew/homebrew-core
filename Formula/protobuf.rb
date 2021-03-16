@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://github.com/protocolbuffers/protobuf/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.15.5/protobuf-all-3.15.5.tar.gz"
-  sha256 "c5d6404e8ef8dcf053ad850a974c93fbc29b1b44d1a5f7d54aeacf348028808f"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v3.15.6/protobuf-all-3.15.6.tar.gz"
+  sha256 "a96d66a29df73991ece4d82f04abf242d28f4cdacd7eb0ddf47f75a344a290af"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,10 +11,10 @@ class Protobuf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5e24dcf3267f5f20c348b7e2695dda984026bb40f0202d0b6fd1f9e076a90d04"
-    sha256 cellar: :any, big_sur:       "872baaeb92aaaaa8d2634202806eeb91085072cc716e59acb2d77783e644d3e5"
-    sha256 cellar: :any, catalina:      "3bdf6d20261ee868895d0ef07fc300dfde8d2015e70db90e3b9049a7453a418f"
-    sha256 cellar: :any, mojave:        "28c9c92501261ebfddd78ab2cb94198d2256073012dc352b9c3bb32c6f5074c9"
+    sha256 cellar: :any, arm64_big_sur: "9796999e817e40e4fffeb8db15a5a33f636f04513e4bc70d4f4a09aa5a30951b"
+    sha256 cellar: :any, big_sur:       "4af36392a6b3285041622528744eec0957774bd3b12232a570dc063f7d0f3c42"
+    sha256 cellar: :any, catalina:      "c67ec46a5a2bd323a92aff5ba016b36d69b85f59cf80286322e76d5e624ff1b1"
+    sha256 cellar: :any, mojave:        "5ba63d697ceb2452575f19d86220aa09c157059a89b1a2b9c9018a471f07cf6a"
   end
 
   head do

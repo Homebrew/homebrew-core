@@ -12,10 +12,11 @@ class PostgresqlAT12 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "ce1df76737ac5e78f76b158bc1a0b5fe404525bbf13fc1d31f7b493885ecab8b"
-    sha256 big_sur:       "b2e2f0778b1a297cf0de3860166b9950fa33d8d1cd2db27c5468f3409fe6cad1"
-    sha256 catalina:      "c0ffc3844af98126fa10e8046a3d4e6b1ebe48215ac6ac089ce809022d843d7d"
-    sha256 mojave:        "8a07a01a6558380e04360e6cccb2e6cb18b3b587077f0cf9700251472882bec8"
+    rebuild 1
+    sha256 arm64_big_sur: "c40b1a8be14ba123eed7a746ced8a9e6cd30bd6e6cba604fed259a712e085bd3"
+    sha256 big_sur:       "2f64555e8a25c33ecb45859b745b65d2944019b9a2cf470cf6658bf6d96f4a12"
+    sha256 catalina:      "27c3eb917fea4cddd42981063686576d9b454b28e33489c796ebe723fa239de8"
+    sha256 mojave:        "a677103e6e5e6977dd7ddee6cc3f64d6a75aa38fcf2910b33819f86f76ecdfe5"
   end
 
   keg_only :versioned_formula
@@ -89,46 +90,28 @@ class PostgresqlAT12 < Formula
 
   def post_install
     (var/"log").mkpath
-    versioned_data_dir.mkpath
+    postgresql_datadir.mkpath
 
     # Don't initialize database, it clashes when testing other PostgreSQL versions.
     return if ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", versioned_data_dir unless versioned_pg_version_exists?
+    system "#{bin}/initdb", "--locale=C", "-E", "UTF-8", postgresql_datadir unless pg_version_exists?
   end
 
-  # Previous versions of this formula used the same data dir as the regular
-  # postgresql formula. So we check whether the versioned data dir exists
-  # and has a PG_VERSION file, which should indicate that the versioned
-  # data dir is in use. Otherwise, returns the old data dir path.
   def postgresql_datadir
-    if versioned_pg_version_exists?
-      versioned_data_dir
-    else
-      old_postgres_data_dir
-    end
+    var/name
   end
 
-  def versioned_data_dir
-    var/name
+  def postgresql_log_path
+    var/"log/#{name}.log"
+  end
+
+  def pg_version_exists?
+    (postgresql_datadir/"PG_VERSION").exist?
   end
 
   def old_postgres_data_dir
     var/"postgres"
-  end
-
-  # Same as with the data dir - use old log file if the old data dir
-  # is version 12
-  def postgresql_log_path
-    if versioned_pg_version_exists?
-      var/"log/#{name}.log"
-    else
-      var/"log/postgres.log"
-    end
-  end
-
-  def versioned_pg_version_exists?
-    (versioned_data_dir/"PG_VERSION").exist?
   end
 
   def postgresql_formula_present?
@@ -159,7 +142,7 @@ class PostgresqlAT12 < Formula
 
           In order to avoid this conflict, you should make sure that the
           #{name} data directory is located at:
-            #{versioned_data_dir}
+            #{postgresql_datadir}
 
         EOS
       else
@@ -170,7 +153,7 @@ class PostgresqlAT12 < Formula
           try to use both at the same time.
 
           You can migrate to a versioned data directory by running:
-            mv -v "#{old_postgres_data_dir}" "#{versioned_data_dir}"
+            mv -v "#{old_postgres_data_dir}" "#{postgresql_datadir}"
 
           (Make sure PostgreSQL is stopped before executing this command)
 

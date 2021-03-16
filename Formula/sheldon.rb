@@ -1,16 +1,16 @@
 class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://rossmacarthur.github.io/sheldon"
-  url "https://github.com/rossmacarthur/sheldon/archive/0.6.1.tar.gz"
-  sha256 "297b5ad75e7d5b44887ffe19ba6ee8a4ef13d884d4f7e8b482df9fc968ba5bce"
+  url "https://github.com/rossmacarthur/sheldon/archive/0.6.2.tar.gz"
+  sha256 "454da0a9ea6305a81aa340a60870a2fa529c7f25cd87c35af1ba6907514a6e4d"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rossmacarthur/sheldon.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0f0322763809b4ebac2a61167e497271878c28c1afd57bf255a2c4e716f5dd83"
-    sha256 cellar: :any, big_sur:       "4f9bd308070072f1709954aa3392ac81e54858397cd7b715ea27203a514f9796"
-    sha256 cellar: :any, catalina:      "cd9012b81bdb7ea2b371d521d0eea2336346003018b90562a735b0e91694ddb2"
-    sha256 cellar: :any, mojave:        "229364c6a60c756bbbd55c6be0ce94af0f8d272b5f6e031ea8a0b6c4341d7d53"
+    sha256 cellar: :any, arm64_big_sur: "f18834a296da8975d65628f31dfacaf661c3797dd883d971616ed3083391af4a"
+    sha256 cellar: :any, big_sur:       "eed38c13b48c789d3b80314c81a79b454937b4898e4c8ea01aca8e6033d4eccf"
+    sha256 cellar: :any, catalina:      "4969320a627be9cc5795fe54ae4b5064685cc0d28a73fdfb743e87d2a34e4a6c"
+    sha256 cellar: :any, mojave:        "09af95d2e7ed90c97b72cf23b25b5991749f2224a8316bd2ac188d766ccd29a2"
   end
 
   depends_on "rust" => :build

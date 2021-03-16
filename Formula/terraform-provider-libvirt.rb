@@ -6,9 +6,10 @@ class TerraformProviderLibvirt < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "16ae4512f40a98056d05c21077bac05f96a6356e17362bfcff28e3649548f254"
-    sha256 cellar: :any, catalina: "d9b1288e730298acd13c72661eaab16cec9d1f435032f9a3d12340910a6cb85a"
-    sha256 cellar: :any, mojave:   "9d54585dbad9de738460f1cf773aefcf1d557e5edadb1e245f8cf618edbc6152"
+    sha256 cellar: :any, arm64_big_sur: "eecaaacbb135635d9195891b42da2946155bc435426d2d199eaf5fb5de8973a6"
+    sha256 cellar: :any, big_sur:       "16ae4512f40a98056d05c21077bac05f96a6356e17362bfcff28e3649548f254"
+    sha256 cellar: :any, catalina:      "d9b1288e730298acd13c72661eaab16cec9d1f435032f9a3d12340910a6cb85a"
+    sha256 cellar: :any, mojave:        "9d54585dbad9de738460f1cf773aefcf1d557e5edadb1e245f8cf618edbc6152"
   end
 
   depends_on "go" => :build

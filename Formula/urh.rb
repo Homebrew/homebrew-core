@@ -4,20 +4,21 @@ class Urh < Formula
   url "https://files.pythonhosted.org/packages/ea/ec/f091b8dd7636c1999a0cef0d6d0c5fe011e12e9a4c1809526bfa58c39197/urh-2.9.1.tar.gz"
   sha256 "b93df6f8c67bbb1c08d4b837aa3783f6fa79d2bd69cb725744f9e01bd81aefe2"
   license "GPL-3.0"
+  revision 1
   head "https://github.com/jopohl/urh.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f59be551336b3d01b468da371a51dc654a6833dcaf39c1f62dc3dd4e85b00aba"
-    sha256 cellar: :any, big_sur:       "6115bada2ad182024453d7d29ea4df3e6761204a9aa5f4b598209344a7b73f48"
-    sha256 cellar: :any, catalina:      "1f5710ff1c1c511793a55c7439162ba2869b58597c6336f4b0b0c2dc2d742f89"
-    sha256 cellar: :any, mojave:        "048a777039cd82536d42b16a526171de0ddc982654f69008dfa33e282038c694"
+    sha256 cellar: :any, arm64_big_sur: "0c727056d823dce0c6b4ad7a96ad53a34209a142f5af2fc5829aa6592300cc2a"
+    sha256 cellar: :any, big_sur:       "14b80c2ea0cd704579663ed8b0972718086bcf6266397ff4543a08ae87ca2add"
+    sha256 cellar: :any, catalina:      "8d90793f60e323a164c921c53f3ef38f775b4aa4ec6bd1b026fbe82937220e19"
+    sha256 cellar: :any, mojave:        "20a35ee00e62a0114167006e9de846912cf04751d18e08d83b79d25d6484f7f5"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cython"
   depends_on "hackrf"
   depends_on "numpy"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
 
   resource "psutil" do

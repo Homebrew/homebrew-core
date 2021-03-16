@@ -16,7 +16,10 @@ class Libproxy < Formula
   depends_on "cmake" => :build
   depends_on "python@3.9"
 
-  uses_from_macos "perl"
+  on_linux do
+    depends_on "dbus"
+    depends_on "glib"
+  end
 
   def install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"

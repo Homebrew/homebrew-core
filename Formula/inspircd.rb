@@ -4,6 +4,7 @@ class Inspircd < Formula
   url "https://github.com/inspircd/inspircd/archive/v3.9.0.tar.gz"
   sha256 "5bda0fc3d41908cda4580de39d62e8be4840da45f31e072cfca337b838add567"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://github.com/inspircd/inspircd.git"
@@ -11,20 +12,29 @@ class Inspircd < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6b507d03991070797eeaad12dcddd01f9e4998f220a271e5ce4e1cb4d169c585"
-    sha256 big_sur:       "0caaf6178d051e67e410280bfd012c55ae959466ff777f3bb0bb61365d7eb49b"
-    sha256 catalina:      "e7398c29b76c7e3186f9d649adc17bf0915d3d352063a089b6c85dddfbdd98c5"
-    sha256 mojave:        "803d67a8546b753df6bcd5b11da70c4bd00cd963e5517af4620696368880b0a7"
+    sha256 arm64_big_sur: "5d2dbc888bc7aba0351d25899c9d380ee22d4516e739a1edbfea816346e793ea"
+    sha256 big_sur:       "03ea201f04b20128300f42ae72a5d5ca210dd83ecc9f9d855a81322501fc92a1"
+    sha256 catalina:      "23c294085fe76ce18f6ee9af8716d72c3b116733aa576f0e45126e0c022f13db"
+    sha256 mojave:        "d319dc9f7e5574a95f751b7823ead8b4f07440846ec79b10d239f28027065c70"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "argon2"
+  depends_on "gnutls"
+  depends_on "libpq"
+  depends_on "mysql-client"
+
+  uses_from_macos "openldap"
 
   skip_clean "data"
   skip_clean "logs"
 
   def install
-    system "./configure", "--enable-extras=ldap"
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--enable-extras",
+                          "argon2 ldap mysql pgsql regex_posix regex_stdlib ssl_gnutls sslrehashsignal"
+    system "./configure", "--disable-auto-extras",
+                          "--distribution-label", "homebrew-#{revision}",
+                          "--prefix", prefix
     system "make", "install"
   end
 

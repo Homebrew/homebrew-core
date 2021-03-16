@@ -6,11 +6,13 @@ class Wxpython < Formula
   url "https://files.pythonhosted.org/packages/b0/4d/80d65c37ee60a479d338d27a2895fb15bbba27a3e6bb5b6d72bb28246e99/wxPython-4.1.1.tar.gz"
   sha256 "00e5e3180ac7f2852f342ad341d57c44e7e4326de0b550b9a5c4a8361b6c3528"
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
+  revision 1
 
   bottle do
-    sha256 cellar: :any, big_sur:  "9aed884ad2d17eadce20f6a004bdef1388b3f28a53dbe82751d110786723c336"
-    sha256 cellar: :any, catalina: "962dc706ef5e748da2f8ec188ce1fca50dcab98350b2254f50955ef8b118761e"
-    sha256 cellar: :any, mojave:   "342cee7f2cc885871b3471ef18e6ce026c93687a930fc7c658afbe21101f10ec"
+    sha256 cellar: :any, arm64_big_sur: "016eaf4f384d47d051c635a72ebc35311264220acf8060f3e85ddc5487f99ef7"
+    sha256 cellar: :any, big_sur:       "192ae16511d4d1b0830918a4b8cb693f5f8375a892fc771edb917c249dc8d3bf"
+    sha256 cellar: :any, catalina:      "23ef89d5df837f5203b74513a0ae244ed461f67ff9759cee2d762a70b64ed003"
+    sha256 cellar: :any, mojave:        "568c3fb2d698e9b823b6e9524f45d8057b39a0b248e81d46740496fea4d8791a"
   end
 
   depends_on "freetype"
@@ -19,6 +21,7 @@ class Wxpython < Formula
   depends_on "libtiff"
   depends_on "numpy"
   depends_on "python@3.9"
+  depends_on "tcl-tk"
 
   uses_from_macos "zlib"
 
@@ -28,8 +31,8 @@ class Wxpython < Formula
   end
 
   resource "Pillow" do
-    url "https://files.pythonhosted.org/packages/2b/06/93bf1626ef36815010e971a5ce90f49919d84ab5d2fa310329f843a74bc1/Pillow-8.0.1.tar.gz"
-    sha256 "11c5c6e9b02c9dac08af04f093eb5a2f84857df70a7d4a6a6ad461aca803fb9e"
+    url "https://files.pythonhosted.org/packages/60/f0/dd2eb7911f948bf529f58f0c7931f6f6466f711bd6f1d81a69dc4edd4e2a/Pillow-8.1.2.tar.gz"
+    sha256 "b07c660e014852d98a00a91adfbe25033898a9d90a8f39beb2437d22a203fc44"
   end
 
   resource "six" do
@@ -64,10 +67,6 @@ class Wxpython < Formula
           "FREETYPE_ROOT = ('#{Formula["freetype"].opt_prefix}/lib', '#{Formula["freetype"].opt_prefix}/include')"
       end
 
-      # avoid triggering "helpful" distutils code that doesn't recognize Xcode 7 .tbd stubs
-      unless MacOS::CLT.installed?
-        ENV.append "CFLAGS", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Versions/8.5/Headers"
-      end
       venv.pip_install Pathname.pwd
     end
 

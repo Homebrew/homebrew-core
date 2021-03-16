@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.41.1",
-      revision: "fa112f09c3a6ecdbbac477ef7b81f5a6050f4c45"
+      tag:      "v0.42.0",
+      revision: "f82dbfd0fa0d82b7db264180a3a09be4ad7522b5"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,9 +15,9 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "9faf9497dede0796c9e934a9f2c735b62144680ecbffcdc5031958b771c54a2c"
-    sha256 cellar: :any, catalina: "32f1f21135eb646bf9a32d71d4475f61e121b60aeff6656b06736b1343aa2ebb"
-    sha256 cellar: :any, mojave:   "febb4851db8133ed04f242bc4400ec791f814677d446a2f58d2793d7ed989cb5"
+    sha256 cellar: :any, big_sur:  "d25e76dc4c537c99e5653c27b6e28e1a8f21ef46370db11ace061fd556f5ef20"
+    sha256 cellar: :any, catalina: "ef395b54dca1954eddd823799c5d38224b32a2cf666fac6e687ef34752015aa8"
+    sha256 cellar: :any, mojave:   "a1f9b8056f0ad8f14f0e227fa5657c42a3c7f789244cf8f9b0d012098dcef910"
   end
 
   depends_on "cmake" => :build

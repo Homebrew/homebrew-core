@@ -1,15 +1,15 @@
 class Logcli < Formula
   desc "Run LogQL queries against a Loki server"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.1.0.tar.gz"
-  sha256 "ceccc4e42a7158ca0bc49903a3fbe31c8cd55f85f50bac8a8bba9843b4f8cd6f"
+  url "https://github.com/grafana/loki/archive/v2.2.0.tar.gz"
+  sha256 "758fa26422bacda69b12e740e46fa5b97e02063a90fece14fb3fdcd7add2f7f5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "08ac07823aeb4f80e1f634fdf344603d6450c8433f37cf0f646021839c5114f8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c00781eb4b3e730f5adbc1761e3ef026200b7ef7009c052c2e745af71006c817"
-    sha256 cellar: :any_skip_relocation, catalina:      "4e1718a506115656753253f0795a22378ee3d0fa691e1fdd38334f6c1604d304"
-    sha256 cellar: :any_skip_relocation, mojave:        "16c60bb03516466f2933aaac781a2a951120250caf03dd99fa27b2b214c03cc0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "86e6589fa4de360f805d3ca663f976c678eba3f33b3615f904d755d88f3d73bf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7b6bf073e5f6398d60fa9bf14c2f6842ec7165cfebb595adaf556244326cb420"
+    sha256 cellar: :any_skip_relocation, catalina:      "4bbcd22092d6e0090d1864098be53a8325d1cc723b627039f9d5c432b1d83e22"
+    sha256 cellar: :any_skip_relocation, mojave:        "b73c1f5933d3fdafdffb97049deed8bc2d67865644be5b747c3bc66e9ed5498e"
   end
 
   depends_on "go" => :build

@@ -16,10 +16,11 @@ class Netpbm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e666c13ca2255e45c8f522b172ccb78c1f41643368a773f9c4eb759dc26dda98"
-    sha256 cellar: :any, big_sur:       "37c05996e6da2e033b0ba5afc174ee28bf41a3d6a9e7436645f0370692b4cc34"
-    sha256 cellar: :any, catalina:      "0ce9cd466f391416cd581fb5b817f02253c2789eac2f588a53a9176f83122b55"
-    sha256 cellar: :any, mojave:        "ffd299c8a347ee3263f070a0f39a11131bfb23e60647a749b943b6e4d26fd27c"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "4fc18df2e77de3684ba5f563f401c6aebb1528931b5203f061802ac430fb36af"
+    sha256 cellar: :any, big_sur:       "9bfeca916645831dff97b9cf1a63d2ec844829377118e92638cbb6b652b48ba0"
+    sha256 cellar: :any, catalina:      "24d6ed86c8f4548ea414f646213a398bb562a1ea421474e7e75fc69cfcaf78cd"
+    sha256 cellar: :any, mojave:        "bf81e0d0fca89fb491575b6352079b9a2e13cb7cf502a8b43334c30261a1cf65"
   end
 
   depends_on "jasper"
@@ -40,16 +41,23 @@ class Netpbm < Formula
 
     inreplace "config.mk" do |s|
       s.remove_make_var! "CC"
-      s.change_make_var! "CFLAGS_SHLIB", "-fno-common"
-      s.change_make_var! "NETPBMLIBTYPE", "dylib"
-      s.change_make_var! "NETPBMLIBSUFFIX", "dylib"
-      s.change_make_var! "LDSHLIB", "--shared -o $(SONAME)"
       s.change_make_var! "TIFFLIB", "-ltiff"
       s.change_make_var! "JPEGLIB", "-ljpeg"
       s.change_make_var! "PNGLIB", "-lpng"
       s.change_make_var! "ZLIB", "-lz"
       s.change_make_var! "JASPERLIB", "-ljasper"
       s.change_make_var! "JASPERHDR_DIR", "#{Formula["jasper"].opt_include}/jasper"
+
+      on_macos do
+        s.change_make_var! "CFLAGS_SHLIB", "-fno-common"
+        s.change_make_var! "NETPBMLIBTYPE", "dylib"
+        s.change_make_var! "NETPBMLIBSUFFIX", "dylib"
+        s.change_make_var! "LDSHLIB", "--shared -o $(SONAME)"
+      end
+
+      on_linux do
+        s.change_make_var! "CFLAGS_SHLIB", "-fPIC"
+      end
     end
 
     ENV.deparallelize
@@ -64,7 +72,7 @@ class Netpbm < Formula
       end
 
       prefix.install %w[bin include lib misc]
-      lib.install Dir["staticlink/*.a"], Dir["sharedlink/*.dylib"]
+      lib.install Dir["staticlink/*.a"], Dir["sharedlink/#{shared_library("*")}"]
       (lib/"pkgconfig").install "pkgconfig_template" => "netpbm.pc"
     end
   end

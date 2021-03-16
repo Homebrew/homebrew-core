@@ -5,7 +5,7 @@ class Htpdate < Formula
   sha256 "5f1f959877852abb3153fa407e8532161a7abe916aa635796ef93f8e4119f955"
 
   livecheck do
-    url "http://www.vervest.org/htp/archive/c/?C=M&O=D"
+    url "http://www.vervest.org/htp/download"
     regex(/href=.*?htpdate[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

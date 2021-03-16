@@ -25,6 +25,8 @@ class Rrdtool < Formula
   depends_on "glib"
   depends_on "pango"
 
+  uses_from_macos "groff"
+
   def install
     # fatal error: 'ruby/config.h' file not found
     ENV.delete("SDKROOT")

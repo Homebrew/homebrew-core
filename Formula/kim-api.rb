@@ -22,6 +22,8 @@ class KimApi < Formula
   depends_on "doxygen" => :build
   depends_on "gcc" # for gfortran
 
+  uses_from_macos "xz"
+
   def install
     # change file(COPY) to configure_file() to avoid symlink issue; will be fixed in 2.2.2
     inreplace "cmake/items-macros.cmake.in" do |s|

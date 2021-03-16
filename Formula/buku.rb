@@ -209,6 +209,11 @@ class Buku < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
 
+    expect = "/usr/bin/expect"
+    on_linux do
+      expect = Formula["expect"].opt_bin/"expect"
+    end
+
     # Firefox exported bookmarks file
     (testpath/"bookmarks.html").write <<~EOS
       <!DOCTYPE NETSCAPE-Bookmark-file-1>
@@ -241,7 +246,7 @@ class Buku < Formula
       }
       spawn sleep 5
     EOS
-    system "/usr/bin/expect", "-f", "import"
+    system expect, "-f", "import"
 
     # Test online components -- fetch titles
     system bin/"buku", "--update"
@@ -268,7 +273,7 @@ class Buku < Formula
           "File decrypted"
       }
     EOS
-    system "/usr/bin/expect", "-f", "crypto-test"
+    system expect, "-f", "crypto-test"
 
     # Test database content and search
     result = shell_output("#{bin}/buku --np --sany Homebrew")

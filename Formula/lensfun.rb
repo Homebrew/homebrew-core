@@ -5,14 +5,19 @@ class Lensfun < Formula
   homepage "https://lensfun.github.io/"
   url "https://downloads.sourceforge.net/project/lensfun/0.3.95/lensfun-0.3.95.tar.gz"
   sha256 "82c29c833c1604c48ca3ab8a35e86b7189b8effac1b1476095c0529afb702808"
-  revision 3
+  license all_of: [
+    "LGPL-3.0-only",
+    "GPL-3.0-only",
+    "CC-BY-3.0",
+    :public_domain,
+  ]
+  revision 4
 
   bottle do
-    sha256 arm64_big_sur: "d88e64dba59fb70ca04c45029ba2908d9d731dd94b835cbf88f488dd66c8c96c"
-    sha256 big_sur:       "10c8d68811e3d286d340b8cdea0fff28380d719402f25e85ddc280e9d0a4b1fd"
-    sha256 catalina:      "1e83aa5f7ebcb3d3952a384244adfacbf82b2954637cd3df02337f52de1d7b67"
-    sha256 mojave:        "d0d64a98f863a5001667095eba97f55500a87610e00955c0edb95f70300e21c1"
-    sha256 high_sierra:   "0050ca39268f8201a1c28169da62380385ba5e77954142404465e6b3cba909d7"
+    sha256 arm64_big_sur: "976711172998eae467ddaba1feb590e0229cc0b41f11ac58e1db2d833a57c99c"
+    sha256 big_sur:       "48cd331c4214979daa6c122e2b776000af76208cb051562e27f4cef4f3aa3b93"
+    sha256 catalina:      "b0d8cdbcf20af0b1d577626e04643687955030785f57911e9d0a708a7ef95997"
+    sha256 mojave:        "526b6752883c94e7e2807fa06e6803e9dc45060189be102be5ed79c24b187af6"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +26,12 @@ class Lensfun < Formula
   depends_on "glib"
   depends_on "libpng"
   depends_on "python@3.9"
+
+  # This patch can be removed when new Lensfun release (v0.3.96) is available.
+  patch do
+    url "https://github.com/lensfun/lensfun/commit/de954c952929316ea2ad0f6f1e336d9d8164ace0.patch?full_index=1"
+    sha256 "67f0d2f33160bb1ab2b4d1e0465ad5967dbd8f8e3ba1d231b5534ec641014e3b"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args

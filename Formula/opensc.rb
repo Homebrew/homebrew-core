@@ -12,20 +12,21 @@ class Opensc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "91b2cdd67a4fb7bb63ad572df7959dee38663d303605b9a4f746171dcd85c881"
-    sha256 big_sur:       "02a7ab33866d33655995d3ef477135ad32e84ed2d35460ca2824dfa7a7be38bb"
-    sha256 catalina:      "3b8ccdec146efba3410eb73fa67340039b13437d5177a620c6f44aafa6c56e57"
-    sha256 mojave:        "706b6d81eeed307e64150f4212782da8b49c758995fd92eb32b0cddc85135ff3"
+    rebuild 2
+    sha256 arm64_big_sur: "885a597c41199253c351ca6ff2e74e37d4e185689aa39f13427c23f9c0ec230d"
+    sha256 big_sur:       "c65a43909f56d856d4a3dea6ff2010d0f4933dd8508e6cc0ee1898884e802df9"
+    sha256 catalina:      "483b47da8bd5a8339fc4dc6b2498b6c662cb0783801e5dfa2651602d7153fd86"
+    sha256 mojave:        "32df51660a704109b38931903b89c88ca79e98ce806f83d59fff486275edfdab"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "docbook-xsl" => :build
   depends_on "libtool" => :build
-  depends_on "pcsc-lite" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
+
+  uses_from_macos "pcsc-lite"
 
   def install
     args = %W[

@@ -2,11 +2,20 @@ class JsonSpirit < Formula
   desc "C++ JSON parser/generator"
   homepage "https://www.codeproject.com/Articles/20027/JSON-Spirit-A-C-JSON-Parser-Generator-Implemented"
   url "https://github.com/png85/json_spirit/archive/json_spirit-4.0.8.tar.gz"
-  # Current release is misnamed on GitHub, previous versioning scheme and homepage
-  # dictate the release as "4.08".
+  # Current release is misnamed on GitHub. Previous versioning scheme and
+  # homepage dictate the release as "4.08".
   version "4.08"
   sha256 "43829f55755f725c06dd75d626d9e57d0ce68c2f0d5112fe9a01562c0501e94c"
   license "MIT"
+
+  livecheck do
+    url :stable
+    regex(/^json_spirit[._-]v?(\d+(?:\.\d+)+)$/i)
+    strategy :git do |tags, regex|
+      # Convert versions like `4.0.8` to `4.08`
+      tags.map { |tag| tag[regex, 1]&.gsub(/(\d+)\.(\d+)\.(\d+)/, '\1.\2\3') }.compact
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "ef7641e5dd587a4595e326e74f438c9f99e411acceaeee75dc7450835e126895"

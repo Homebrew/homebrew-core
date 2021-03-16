@@ -3,15 +3,15 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/21/9a/5ac44a0e4f8f9444a4ce9aff9ebc2c4e14da5224432bb489154da9eddfa0/pre_commit-2.11.0.tar.gz"
-  sha256 "06f8cb95e29e56788fb5dc98d7ca7a714969dc96633e1ba654ccd5953b64c195"
+  url "https://files.pythonhosted.org/packages/81/51/9c5854bec705a95bc8533c4cd65b360c04bbd5680f83d59e6ebe2c4426ed/pre_commit-2.11.1.tar.gz"
+  sha256 "de55c5c72ce80d79106e48beb1b54104d16495ce7f95b0c7b13d4784193a00af"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "51b95a42c809305cecab47eff7f8164d5b0391f67f36df8f00844c361bf020f6"
-    sha256 cellar: :any, big_sur:       "cab6ac0186b3c6c41b8a7695364c3173b89a3cc1b1a6c805edb87f28a18fb1e6"
-    sha256 cellar: :any, catalina:      "3b73bae0f1b262f2d62f5c3d68c8ada7337aef080ea8becea27b148868ab4293"
-    sha256 cellar: :any, mojave:        "978f99eaa6eb34a488708f9bf6f418800e8b1f7837a0c3a91df41a16ee4ce8c5"
+    sha256 cellar: :any, arm64_big_sur: "4b8edc0995b9e2b6c5bfafd856eb0e0ecb31ed6cded514640acd146aa2072477"
+    sha256 cellar: :any, big_sur:       "986e1ff0af301b35c603cb91406c2a4f10f57f71715b92416a1912817264d33f"
+    sha256 cellar: :any, catalina:      "69407d220808ce6bc532abd02d62e76ad2fa39ecacc00fed48502a0a4f6c07e5"
+    sha256 cellar: :any, mojave:        "3536f11bb1cc89d5073bb05283b9dcec4da2989a30f1f0c978de628084556a23"
   end
 
   depends_on "libyaml"
@@ -38,8 +38,8 @@ class PreCommit < Formula
   end
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/ad/8d/f2390cfe86e7b839bb5228f3b57d7476a64ed6fba751e67b145234786d57/identify-2.1.0.tar.gz"
-    sha256 "2179e7359471ab55729f201b3fdf7dc2778e221f868410fedcb0987b791ba552"
+    url "https://files.pythonhosted.org/packages/e7/cf/7e2c0c72ba53c54d2183bfbdde395b9384790ff67fd2f3208937c39a44b3/identify-2.1.1.tar.gz"
+    sha256 "da3d757c94596c50865aae63db6ba4e2e5e3f666c3ea6a6da0cd09a8b2d34abc"
   end
 
   resource "nodeenv" do

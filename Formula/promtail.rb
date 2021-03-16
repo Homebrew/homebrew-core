@@ -1,16 +1,15 @@
 class Promtail < Formula
   desc "Log agent for Loki"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.1.0.tar.gz"
-  sha256 "ceccc4e42a7158ca0bc49903a3fbe31c8cd55f85f50bac8a8bba9843b4f8cd6f"
+  url "https://github.com/grafana/loki/archive/v2.2.0.tar.gz"
+  sha256 "758fa26422bacda69b12e740e46fa5b97e02063a90fece14fb3fdcd7add2f7f5"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0e1a8756b5e834af38df562cb64c642994f315a3f3c3b6bf407f635715e3ba03"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9f8cd2975f3ab3b7d9b8ef5fa9342b72fa41b004b598d09bcd03bb851c8790ba"
-    sha256 cellar: :any_skip_relocation, catalina:      "0bec4681b981aae0c080c142b6ab75713cc93b993014b128bf1becd456c88282"
-    sha256 cellar: :any_skip_relocation, mojave:        "9ff5316f9c200d2f4f9ed399e0a2a51ec51a930e8565539827f299035243b1b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "684dd470bba1ab702428bcc768e3ced16060837293ba9f12e34823215b5b138e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3bc21b34bb977a87c4e8fe2bcd365db6e21b42233fc100d49bb60dd7a5bd71ed"
+    sha256 cellar: :any_skip_relocation, catalina:      "8016c41a0ab1eeccbe0a79ee4c71fde464bdab004c62f4c6c6d8c165ad65a6f8"
+    sha256 cellar: :any_skip_relocation, mojave:        "687056a4e2c498755da1c54af3cafc5d57743496772cfad92db615f3c1801362"
   end
 
   depends_on "go" => :build

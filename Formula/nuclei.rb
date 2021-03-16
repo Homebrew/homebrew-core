@@ -1,16 +1,16 @@
 class Nuclei < Formula
   desc "HTTP/DNS scanner configurable via YAML templates"
   homepage "https://nuclei.projectdiscovery.io/"
-  url "https://github.com/projectdiscovery/nuclei/archive/v2.2.0.tar.gz"
-  sha256 "c503b565230f5375339c72872d496137abf8be26c156e20447d1ae0752169e40"
+  url "https://github.com/projectdiscovery/nuclei/archive/v2.3.1.tar.gz"
+  sha256 "45d9d7637ae7a50789d8d8f2e3024bcac119106d9f87fd52eb4dfc2ac7cddea4"
   license "MIT"
   head "https://github.com/projectdiscovery/nuclei.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "209ad76cc1ee1f93c1d5e71776d9da4e27b0d527fb7ab70439c6fa4500f632ca"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bf27703a6eb5f03a9c52e9aba2b4803b2da61fc55bd0bf0f825e75b13d3aa425"
-    sha256 cellar: :any_skip_relocation, catalina:      "00c3dc4a1d22d4b4387e0ab4eddc769b2183d46db1069118bc0157d71398b404"
-    sha256 cellar: :any_skip_relocation, mojave:        "93a6882b2612447957dc350faa6488028b0a8b68b43355a31f5aaa978de8aa77"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d988cf650094e4424b1a9d3d4c7a8b81774e5a573e5edba7a5d8a98641f0af96"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7f0dae029b979bf612256cc972da914fd57837bbbb3dc78c463de9c0baa8d9c4"
+    sha256 cellar: :any_skip_relocation, catalina:      "3ca6c861403d163d127c9185bff1c9b3b9cfcaf29e546bda48056450dbaeb249"
+    sha256 cellar: :any_skip_relocation, mojave:        "79e0967cddd0ad96ee93efbac1acc645658dcff01323fae80a93901a8b894130"
   end
 
   depends_on "go" => :build

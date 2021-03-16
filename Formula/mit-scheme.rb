@@ -1,9 +1,9 @@
 class MitScheme < Formula
   desc "MIT/GNU Scheme development tools and runtime library"
   homepage "https://www.gnu.org/software/mit-scheme/"
-  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.1/mit-scheme-11.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/11.1/mit-scheme-11.1.tar.gz"
-  sha256 "76c4f2eb61b5c4b4c2fe5159484a8d4a24e469fae14c0dd4c9df6221016856a6"
+  url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2.tar.gz"
+  sha256 "0859cb03a7c841d2dbc67e374cfee2b3ae1f95f6a1ee846d8f5bad39c7e566a1"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -13,9 +13,9 @@ class MitScheme < Formula
   end
 
   bottle do
-    sha256 big_sur:  "575c4d509b9718b21324f135fd9945a6906d5d09c72da10c3f48915ab21976f8"
-    sha256 catalina: "02fa401eabf3c3b2c382e257b64e15b13f5e3a27cf97a7a1c13f629242fd0061"
-    sha256 mojave:   "02ddca7dbe1b6bb1e0e69496dde10ee3e4de49a623c7a6ec2ee2d43f5dfda2bb"
+    sha256 big_sur:  "2a010afbf69c03bf7da5e45077bf76a1cce13d96748fa6c4c9d4ff74a87674cc"
+    sha256 catalina: "f1f056a425dddbc394caa899e1eab404163b7404ea07f3673850e5fb2ce78aaa"
+    sha256 mojave:   "f3b91a23b3e924b1cd560b59a87cf64350a232579390adf35661d9d6cec3b4bc"
   end
 
   # Has a hardcoded compile check for /Applications/Xcode.app
@@ -25,8 +25,13 @@ class MitScheme < Formula
   depends_on "openssl@1.1"
 
   resource "bootstrap" do
-    url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.1/mit-scheme-11.1-x86-64.tar.gz"
-    sha256 "92bcb77788d982a6522119ea0a51935b680b9ada88f99c21bcb9d843d6b384cd"
+    if Hardware::CPU.intel?
+      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2-x86-64.tar.gz"
+      sha256 "7ca848cccf29f2058ab489b41c5b3a101fb5c73dc129b1e366fb009f3414029d"
+    else
+      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2-aarch64le.tar.gz"
+      sha256 "49679bcf76c8b5896fda8998239c4dff0721708de4162dcbc21c88d9688faa86"
+    end
   end
 
   def install

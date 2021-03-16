@@ -3,15 +3,16 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/b2/3f/e56a405526b44d44f82adfe0c15859f44ad3b69ea929d37e9eb0e43d1f3e/conan-1.34.0.tar.gz"
-  sha256 "77f4f5e94cc70428cdd041d98c1e209c9797dc830d4d2d9b99642a18bda4824d"
+  url "https://files.pythonhosted.org/packages/42/e6/4240bdd702df451ad341a2d28d60d153819da39c63ecf50666d0e7dc3e04/conan-1.34.1.tar.gz"
+  sha256 "81508c938c1cc4ac1949228cfa5a4b65eeef0eff0370bb509e2b06dc5ed454e2"
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "b2234c38586bb4f5e7345afbaf7d1a5364393d3b715512ea1b97c5aaeb3eb59e"
-    sha256 cellar: :any_skip_relocation, catalina: "dc0617df3147c4d66e766e1c2b6e6c55cfc9b4320d9d1e5b972254f2e2eff8ee"
-    sha256 cellar: :any_skip_relocation, mojave:   "83601c3c8dba27e83ab686561d30595a64563f960cc0abc43949854cd45944a9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03b68856dcb294c0069c37ec521ebd506f93ddb338396ba3ddc85e3f9efb066e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3f83bff92c8738a8a6a4c04ae5915d329773eb33a9304e63813d1ad94126ee4c"
+    sha256 cellar: :any_skip_relocation, catalina:      "4fb04f19e90eb9ca70006451987803bf6add65257da60967cfe36e8e1d3ae613"
+    sha256 cellar: :any_skip_relocation, mojave:        "aeb0763b9fabf8a00d6caf35a4dc9bfb2a296709ecece4068cf7e31c9ca0842b"
   end
 
   depends_on "pkg-config" => :build
@@ -95,8 +96,8 @@ class Conan < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/19/d0/dec5604a275b19b0ebd2b9c43730ce39549c8cd8602043eaf40c541a7256/Pygments-2.8.0.tar.gz"
-    sha256 "37a13ba168a02ac54cc5891a42b1caec333e59b66addb7fa633ea8a6d73445c0"
+    url "https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz"
+    sha256 "2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94"
   end
 
   resource "PyJWT" do
@@ -130,8 +131,8 @@ class Conan < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/b1/43/5fbcc228769304f437f412b98be988121afff58245105ad4fdad7f8c1526/tqdm-4.58.0.tar.gz"
-    sha256 "c23ac707e8e8aabb825e4d91f8e17247f9cc14b0d64dd9e97be0781e9e525bba"
+    url "https://files.pythonhosted.org/packages/ef/58/60cc1e9af5714d1b86062f6dc00c5dd6973c902da6259f930b9c6e7a3430/tqdm-4.59.0.tar.gz"
+    sha256 "d666ae29164da3e517fcf125e41d4fe96e5bb375cd87ff9763f6b38b5592fe33"
   end
 
   resource "urllib3" do

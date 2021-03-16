@@ -26,11 +26,19 @@ class Analog < Formula
   uses_from_macos "zlib"
 
   def install
-    system "make", "CC=#{ENV.cc}",
-                   "CFLAGS=#{ENV.cflags}",
-                   "DEFS='-DLANGDIR=\"#{pkgshare}/lang/\"' -DHAVE_ZLIB",
-                   "LIBS=-lz",
-                   "OS=OSX"
+    args = %W[
+      CC=#{ENV.cc}
+      CFLAGS=#{ENV.cflags}
+      DEFS='-DLANGDIR="#{pkgshare}/lang/"'\ -DHAVE_ZLIB
+      LIBS=-lz\ -lm
+    ]
+    on_macos do
+      args << "OS=OSX"
+    end
+    on_linux do
+      args << "OS=UNIX"
+    end
+    system "make", *args
 
     bin.install "analog"
     pkgshare.install "examples", "how-to", "images", "lang"

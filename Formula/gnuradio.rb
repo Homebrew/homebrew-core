@@ -6,13 +6,13 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/releases/download/v3.9.0.0/gnuradio-3.9.0.0.tar.xz"
   sha256 "0a2622933c96a4b22405c7656b8af0db32762834317ec2b90bff0a0a5a4f75cb"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/gnuradio/gnuradio.git"
 
   bottle do
-    sha256 big_sur:  "32adf2e33733c8b046ceeedeadd0afb8fc0943987325569e8899f90b66ab6648"
-    sha256 catalina: "a52f7e2c034b691ed03e9d370f1991305c9bb1c31faeb792ec8e9e7501f30275"
-    sha256 mojave:   "4d89331a0cce48b523b9517227742bfc26aa9051bd9b47f6d1bb7bc0e9aa17b0"
+    sha256 big_sur:  "704874cf05f78628123ff2200d33dfe4f1478062bdb3e478c4fe27dd85d7a093"
+    sha256 catalina: "5ccb4f1a85fdb7710152deec42165858b3b70c16f00dfa2a42a0534021771049"
+    sha256 mojave:   "4854e1b3c6b2398305e5f731187f0c0d38c1b8844549aa7f3d8f672633d24a97"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +30,7 @@ class Gnuradio < Formula
   depends_on "numpy"
   depends_on "portaudio"
   depends_on "pygobject3"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
   depends_on "qt@5"
   depends_on "qwt"

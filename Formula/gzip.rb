@@ -4,7 +4,7 @@ class Gzip < Formula
   url "https://ftp.gnu.org/gnu/gzip/gzip-1.10.tar.gz"
   mirror "https://ftpmirror.gnu.org/gzip/gzip-1.10.tar.gz"
   sha256 "c91f74430bf7bc20402e1f657d0b252cb80aa66ba333a25704512af346633c68"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d064cf47cc31ea7238c17f5305a5ddfb0e464e0ecd9591632a18264ddf3b98c"

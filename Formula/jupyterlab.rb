@@ -3,14 +3,14 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/a9/ee/f772213f2764cc122e4aafc9d80fb7ca4b6f4f52ad5ea8af55f8afa9482d/jupyterlab-3.0.9.tar.gz"
-  sha256 "70aa808a1adc06e35701500a0b1cd2f472ad55b8d890153cb8bdfbd30b279646"
+  url "https://files.pythonhosted.org/packages/28/6e/e1b2c99dbba669b71a9165b19be7e27845fb69b7d55d4ac87aaf03261e0f/jupyterlab-3.0.10.tar.gz"
+  sha256 "fdc6020d81e8888755ac4b30a08a89520c210d2eda400cfea0c0972d2591cfec"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "0668ce00399494a951284a86fbef118be06e53918b449d58d6772d7fb4ca3f14"
-    sha256 cellar: :any, catalina: "8f1d8890fab104f745cf934a80b5c0f77fee1d0fce33d756318abaebb768a4d4"
-    sha256 cellar: :any, mojave:   "9cc9438e753d80cff253e497a16a0cac635b94ed8ac823afd352a20b6500d6fa"
+    sha256 cellar: :any, big_sur:  "f118e73bf6e60717eabcc613bdebe88b373a1b1e2e50c47c245be7d2f7543848"
+    sha256 cellar: :any, catalina: "cdfc7fcab2d2ac28f5075f9cf70f227cab33c330e5cc076b65c9a771c1f67ba5"
+    sha256 cellar: :any, mojave:   "e14f8efdfda03480c7853d37d22ccecfc096ddfc12f35b0f92f5a1fc2c612307"
   end
 
   depends_on "ipython"
@@ -22,8 +22,8 @@ class Jupyterlab < Formula
   uses_from_macos "expect" => :test
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/46/86/710a9c49c3c52d151321d16123db4e486d9048253696090d84a92f1973bc/anyio-2.1.0.tar.gz"
-    sha256 "8a56e08623dc55955a06719d4ad62de6009bb3f1dd04936e60b2104dd58da484"
+    url "https://files.pythonhosted.org/packages/d3/e6/901a94731af20e7109415525666cb3753a2bd1edd19616c2730448dffd0d/anyio-2.2.0.tar.gz"
+    sha256 "4a41c5b3a65ed92e469d51b6fba3779301850ea2e352afcf9e36c46f21ee14a9"
   end
 
   resource "appnope" do
@@ -72,8 +72,8 @@ class Jupyterlab < Formula
   end
 
   resource "defusedxml" do
-    url "https://files.pythonhosted.org/packages/a4/5f/f8aa58ca0cf01cbcee728abc9d88bfeb74e95e6cb4334cfd5bed5673ea77/defusedxml-0.6.0.tar.gz"
-    sha256 "f684034d135af4c6cbb949b8a4d2ed61634515257a67299e5f940fbaa34377f5"
+    url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
+    sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
   end
 
   resource "entrypoints" do
@@ -92,8 +92,8 @@ class Jupyterlab < Formula
   end
 
   resource "ipython" do
-    url "https://files.pythonhosted.org/packages/ae/b9/3c5dcecdc658783fee3dd760a9e1957312a2d9d75b8d8fc6988f629ab14a/ipython-7.20.0.tar.gz"
-    sha256 "1923af00820a8cf58e91d56b89efc59780a6e81363b94464a0f17c039dffff9e"
+    url "https://files.pythonhosted.org/packages/9c/7b/ca693dd606ccfe12cdc1623dc5e4ca24cbcab5a1ec39f5e5576b72d5cae7/ipython-7.21.0.tar.gz"
+    sha256 "04323f72d5b85b606330b6d7e2dc8d2683ad46c3905e955aa96ecc7a99388e70"
   end
 
   resource "ipython_genutils" do
@@ -167,8 +167,8 @@ class Jupyterlab < Formula
   end
 
   resource "nbclient" do
-    url "https://files.pythonhosted.org/packages/c6/24/498889f243b7badd69db4163a0bbeb9dccc617b959b58ec4bf1951bbeeb2/nbclient-0.5.2.tar.gz"
-    sha256 "0ed6e5700ad18818030a3a5f0f201408c5972d8e38793840cd9339488fd9f7c4"
+    url "https://files.pythonhosted.org/packages/11/95/894f0f5e1671ffce42d22400717058c0a5e37d288a55427ef6ec605f1db6/nbclient-0.5.3.tar.gz"
+    sha256 "db17271330c68c8c88d46d72349e24c147bb6f34ec82d8481a8f025c4d26589c"
   end
 
   resource "nbconvert" do
@@ -237,8 +237,8 @@ class Jupyterlab < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/19/d0/dec5604a275b19b0ebd2b9c43730ce39549c8cd8602043eaf40c541a7256/Pygments-2.8.0.tar.gz"
-    sha256 "37a13ba168a02ac54cc5891a42b1caec333e59b66addb7fa633ea8a6d73445c0"
+    url "https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz"
+    sha256 "2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94"
   end
 
   resource "pyparsing" do

@@ -6,14 +6,16 @@ class Platformio < Formula
   url "https://files.pythonhosted.org/packages/b2/68/63ed6a16eb5338ee81ff0e32697a4c5f4840c3c684f62373c2ae8e9cf734/platformio-5.1.0.tar.gz"
   sha256 "8382a07cce5f6490a61c817588e69d86ef768fefe0f53cab810cdfd2befab4a2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "11de8a3e5c7303a0fb22728305939a3f2d62fecf50cea39de0c4d986e8307b0a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "815d462f210632cd558f01268896a74cc87b17defbb82de80c1d4619193792c9"
-    sha256 cellar: :any_skip_relocation, catalina:      "13c6d901982b59873b581fef869b93ac91ca5db32428de46628a69ee385dc89b"
-    sha256 cellar: :any_skip_relocation, mojave:        "b164440f9684f5428f86006375143bda3916f582a61e06b38df52f308d35a702"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2a7e1da8703fde1bb25f06d8abb5d93e402325d8d9f75fc16ec51496a31f9bcd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "afaec6e9a0dde3cb39a364d132a18bcdd5b7069ff25e590142718d6e56697d6f"
+    sha256 cellar: :any_skip_relocation, catalina:      "73683f670a72134bb4e850d8af6df2b8298d275e0ffdcf6468c2bd15a820eb47"
+    sha256 cellar: :any_skip_relocation, mojave:        "c2d69c80339fae7316704012f520bfe140c3141d940b87eb1524dd92e742fc63"
   end
 
+  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   resource "aiofiles" do
@@ -92,23 +94,18 @@ class Platformio < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/33/62/accb8a86fed6ffb95a8dd1c8730450fba1dfd8e93271e9b17a476deb24ec/starlette-0.14.1.tar.gz"
-    sha256 "5268ef5d4904ec69582d5fd207b869a5aa0cd59529848ba4cf429b06e3ced99a"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
+    url "https://files.pythonhosted.org/packages/3a/06/ded663a1ddea8b11a2027d88ff0e757f9cdb812310f18bee33ef7270112f/starlette-0.14.2.tar.gz"
+    sha256 "7d49f4a27f8742262ef1470608c59ddbc66baf37c148e938c7038e6bc7a998aa"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/5e/03/dde1ff2144db62bc531606eb1f9c8aa49d71f985f08b31593b460d0ba2e6/uvicorn-0.13.3.tar.gz"
-    sha256 "ef1e0bb5f7941c6fe324e06443ddac0331e1632a776175f87891c7bd02694355"
+    url "https://files.pythonhosted.org/packages/26/6c/6ace1cd024a27dd692c80fd31c8e51e6b81bde459e2cae06b5ab30fc37d2/uvicorn-0.13.4.tar.gz"
+    sha256 "3292251b3c7978e8e4a7868f4baf7f7f7bb7e40c759ecc125c37e99cdea34202"
   end
 
   resource "wsproto" do

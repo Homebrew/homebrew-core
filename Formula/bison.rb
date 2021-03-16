@@ -2,17 +2,17 @@ class Bison < Formula
   desc "Parser generator"
   homepage "https://www.gnu.org/software/bison/"
   # X.Y.9Z are beta releases that sometimes get accidentally uploaded to the release FTP
-  url "https://ftp.gnu.org/gnu/bison/bison-3.7.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/bison/bison-3.7.5.tar.xz"
-  sha256 "e8c53bc5bc396d636622d0f25e31ca92fd53f00b09629f13ef540d564a6b31ab"
+  url "https://ftp.gnu.org/gnu/bison/bison-3.7.6.tar.xz"
+  mirror "https://ftpmirror.gnu.org/bison/bison-3.7.6.tar.xz"
+  sha256 "67d68ce1e22192050525643fc0a7a22297576682bef6a5c51446903f5aeef3cf"
   license "GPL-3.0-or-later"
   version_scheme 1
 
   bottle do
-    sha256 arm64_big_sur: "7717d17b5ebca46f673d4ba2eb5626c7a726c3e6203db10d0bf21185356841b6"
-    sha256 big_sur:       "b0f383e37c2e1e4bb14b654b07e96e8da7a01bd19b4c41cd5d2d88198dabff90"
-    sha256 catalina:      "b4128068b3902c2f98a3a3d25d19ff63daf61449dfb21146d5b117a34b38a4ef"
-    sha256 mojave:        "c9e6a12dd08f5a956d67e18294d49bc50803bc58decd4a0fb234e0606042e0fa"
+    sha256 arm64_big_sur: "05d792ec204c66eb1f38e4d4374df2534999546212e3e91a7b57e6d1a956c325"
+    sha256 big_sur:       "2c1e18a4cc7a16cf2b2ec53a1a8a1946268b9e3dee188049790c462ba9490795"
+    sha256 catalina:      "10aed89a3e041fea22157a87f37d46c1cdfba1e2b02ab6e6dbee995b033046ec"
+    sha256 mojave:        "589567242c46e728e28818ea075044b8443f5c37e85e35a84da4b008aa3db237"
   end
 
   keg_only :provided_by_macos
