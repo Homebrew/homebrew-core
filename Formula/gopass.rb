@@ -4,6 +4,7 @@ class Gopass < Formula
   url "https://github.com/gopasspw/gopass/releases/download/v1.12.2/gopass-1.12.2.tar.gz"
   sha256 "b4254ecbc14b62a68e1e98c99d08d53c50a5b5b15b8b5b592266a6d581c93f13"
   license "MIT"
+  revision 1
   head "https://github.com/gopasspw/gopass.git"
 
   bottle do
@@ -21,9 +22,7 @@ class Gopass < Formula
   end
 
   def install
-    ENV["GOBIN"] = bin
-
-    system "go", "install", "-ldflags", "-s -w -X main.version=#{version}", "./..."
+    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", *std_go_args
 
     output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/gopass", "completion", "bash")
     (bash_completion/"gopass").write output
