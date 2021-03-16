@@ -8,9 +8,9 @@ class Asdf < Formula
   head "https://github.com/asdf-vm/asdf.git"
 
   bottle :unneeded
-  
-  depends_on "git"
   depends_on "coreutils"
+  depends_on "git"
+
 
   def install
     bash_completion.install "completions/asdf.bash"
