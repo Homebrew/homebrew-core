@@ -34,7 +34,11 @@ class Rdkit < Formula
     python_executable = Formula["python@3.9"].opt_bin/"python3"
     py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     py3prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+    on_linux do
+      py3prefix = Formula["python@3.9"].opt_prefix
+    end
     py3include = "#{py3prefix}/include/python#{py3ver}"
+    numpy_include = Formula["numpy"].opt_lib/"python#{py3ver}/site-packages/numpy/core/include"
 
     # set -DMAEPARSER and COORDGEN_FORCE_BUILD=ON to avoid conflicts with some formulae i.e. open-babel
     args = std_cmake_args + %W[
@@ -55,6 +59,7 @@ class Rdkit < Formula
       -DBoost_NO_BOOST_CMAKE=ON
       -DPYTHON_INCLUDE_DIR=#{py3include}
       -DPYTHON_EXECUTABLE=#{python_executable}
+      -DPYTHON_NUMPY_INCLUDE_PATH=#{numpy_include}
     ]
 
     system "cmake", ".", *args
