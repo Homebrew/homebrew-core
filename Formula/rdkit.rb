@@ -1,5 +1,5 @@
 class Rdkit < Formula
-  desc "Interpreted, interactive, object-oriented programming language"
+  desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
   url "https://github.com/rdkit/rdkit/archive/Release_2020_09_5.tar.gz"
   sha256 "85cec9618e7ef6365b9b908ed674c073d898b6627521cc7fd8c2e05fea8a5def"
