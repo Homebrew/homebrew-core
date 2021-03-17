@@ -62,18 +62,14 @@ class LinuxKernelRequirement < Requirement
 
   MINIMUM_LINUX_KERNEL_VERSION = "2.6.32".freeze
 
-  def linux_kernel_version
-    @linux_kernel_version ||= Version.new Utils.safe_popen_read("uname -r")
-  end
-
   satisfy(build_env: false) do
-    linux_kernel_version >= MINIMUM_LINUX_KERNEL_VERSION
+    OS.kernel_version >= MINIMUM_LINUX_KERNEL_VERSION
   end
 
   def message
     <<~EOS
       Linux kernel version #{MINIMUM_LINUX_KERNEL_VERSION} or later is required by glibc.
-      Your system has Linux kernel version #{linux_kernel_version}.
+      Your system has Linux kernel version #{OS.kernel_version}.
     EOS
   end
 
