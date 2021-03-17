@@ -83,6 +83,6 @@ class Flint < Formula
     EOS
     system ENV.cc, "test.c", "-I#{include}/flint", "-L#{lib}", "-L#{Formula["gmp"].lib}",
            "-lflint", "-lgmp", "-o", "test"
-    system "./test 2"
+    system "./test", "2"
   end
 end
