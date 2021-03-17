@@ -170,15 +170,22 @@ class LbrySdk < Formula
   end
 
   test do
-    client_version = shell_output("#{bin}/lbrynet --version")[/(\d+\.?)+/]
+    # Get version of binary
+    version_binary = shell_output("#{bin}/lbrynet --version")[/(\d+\.?)+/]
 
+    # Launch server daemon
+    port_a = free_port
+    port_b = free_port
     pid = fork do
-      exec bin/"lbrynet start &> lbry-start.log"
+      exec bin/"lbrynet start --api=0.0.0.0:#{port_a} --streaming-server=0.0.0.0:#{port_b} --no-use-upnp &> /dev/null"
     end
     sleep 3
 
-    response = JSON.parse(shell_output("#{bin}/lbrynet version"))
-    assert_equal response["version"], client_version
+    # Get version of server
+    version_server = JSON.parse(shell_output("#{bin}/lbrynet --api=localhost:#{port_a} version"))["version"]
+
+    # Compare binary and server version
+    assert_equal version_binary, version_server
   ensure
     Process.kill("TERM", pid)
     Process.wait(pid)
