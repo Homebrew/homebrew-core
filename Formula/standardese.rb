@@ -2,8 +2,8 @@ class Standardese < Formula
   desc "Next-gen documentation generator for C++"
   homepage "https://standardese.github.io"
   url "https://github.com/standardese/standardese.git",
-      tag:      "0.4.1",
-      revision: "93c122b38f3f816be6f8c31e46320570f8879e0a"
+      tag:      "0.5.0",
+      revision: "e7a7fb8f59ba4b1cf59347ac016ec558e5d72ac3"
   license "MIT"
   head "https://github.com/standardese/standardese.git"
 
