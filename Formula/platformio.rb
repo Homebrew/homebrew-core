@@ -3,10 +3,9 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/b2/68/63ed6a16eb5338ee81ff0e32697a4c5f4840c3c684f62373c2ae8e9cf734/platformio-5.1.0.tar.gz"
-  sha256 "8382a07cce5f6490a61c817588e69d86ef768fefe0f53cab810cdfd2befab4a2"
+  url "https://files.pythonhosted.org/packages/b8/f0/4e9941349c3450838667d323545b256d91b723a4685a1e056f01642b851e/platformio-5.1.1.tar.gz"
+  sha256 "c1688692ec2de34dcc38c5a3f99e98f5eb469a1589445d9a35322fb39d9c7902"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2a7e1da8703fde1bb25f06d8abb5d93e402325d8d9f75fc16ec51496a31f9bcd"
@@ -15,12 +14,16 @@ class Platformio < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "c2d69c80339fae7316704012f520bfe140c3141d940b87eb1524dd92e742fc63"
   end
 
-  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/77/47/19e5951cc6ed771669906d2946b3deac32a35a9a155f730be49d8fa73dc9/aiofiles-0.6.0.tar.gz"
     sha256 "e0281b157d3d5d59d803e3f4557dcc9a3dff28a4dd4829a9ff478adae50ca092"
+  end
+
+  resource "ajsonrpc" do
+    url "https://files.pythonhosted.org/packages/6d/ca/c90cc6a4d8efa69de9c874d18f804422d22e8df5f5c1593e15536fb60652/ajsonrpc-1.1.0.tar.gz"
+    sha256 "0a01c2b56d20c59868ed96afbc468e0cd73e29b156e2c02c1ed3365e4e42b9ac"
   end
 
   resource "bottle" do
@@ -63,11 +66,6 @@ class Platformio < Formula
     sha256 "1f9e8a6ca6f16db5a37d3356f07b6e52344f6f9f7e806d618537731669eb1a94"
   end
 
-  resource "json-rpc" do
-    url "https://files.pythonhosted.org/packages/43/5a/7c2ea59e622682fff34d5aa3b301aa9a10bb0dbf0120f85cd391e4badad8/json-rpc-1.13.0.tar.gz"
-    sha256 "def0dbcf5b7084fc31d677f2f5990d988d06497f2f47f13024274cfb2d5d7589"
-  end
-
   resource "marshmallow" do
     url "https://files.pythonhosted.org/packages/9b/3a/9f586ba2932b17d89c11373f28d7350a09bf87a6274ef29a37605c996c1e/marshmallow-3.10.0.tar.gz"
     sha256 "4ab2fdb7f36eb61c3665da67a7ce281c8900db08d72ba6bf0e695828253581f7"
@@ -96,6 +94,11 @@ class Platformio < Formula
   resource "starlette" do
     url "https://files.pythonhosted.org/packages/3a/06/ded663a1ddea8b11a2027d88ff0e757f9cdb812310f18bee33ef7270112f/starlette-0.14.2.tar.gz"
     sha256 "7d49f4a27f8742262ef1470608c59ddbc66baf37c148e938c7038e6bc7a998aa"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
+    sha256 "eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"
   end
 
   resource "urllib3" do
