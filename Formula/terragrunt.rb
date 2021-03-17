@@ -13,7 +13,6 @@ class Terragrunt < Formula
   end
 
   depends_on "go" => :build
-  depends_on "terraform"
 
   def install
     system "go", "build", "-ldflags", "-s -w -X main.VERSION=v#{version}", *std_go_args
