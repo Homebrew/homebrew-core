@@ -77,6 +77,7 @@
   "letsencrypt": "certbot",
   "libcppa": "caf",
   "libmongoclient": "mongo-cxx-driver",
+  "libsasl2": "cyrus-sasl",
   "lua51": "lua@5.1",
   "mat": "mat2",
   "maven32": "maven@3.2",
