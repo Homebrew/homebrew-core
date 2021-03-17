@@ -23,6 +23,9 @@ class Libsvg < Formula
     sha256 cellar: :any, mavericks:   "a6de74ce690bcc7dffd353139182dc0d896250cdca652c315356349f7e78729e"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "libpng"
@@ -30,6 +33,14 @@ class Libsvg < Formula
   uses_from_macos "libxml2"
 
   def install
+    # Workaround for ancient config files not recognising aarch64 macos.
+    am = Formula["automake"]
+    am_share = am.opt_share/"automake-#{am.version.major_minor}"
+    %w[config.guess config.sub].each do |fn|
+      cp am_share/fn, fn
+    end
+
+    system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
