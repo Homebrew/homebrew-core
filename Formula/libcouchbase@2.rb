@@ -1,8 +1,8 @@
 class LibcouchbaseAT2 < Formula
   desc "C library for Couchbase"
   homepage "https://docs.couchbase.com/c-sdk/2.10/start-using-sdk.html"
-  url "https://packages.couchbase.com/clients/c/libcouchbase-2.10.7.tar.gz"
-  sha256 "bbee97ef2394f275b8cd4b9b940010566a2d34d4754ba3532a7fca3d94029b75"
+  url "https://packages.couchbase.com/clients/c/libcouchbase-2.10.9.tar.gz"
+  sha256 "6f6450121e0208005c17f7f4cdd9258a571bb22183f0bc08f11d75c207d55d0a"
   license "Apache-2.0"
   bottle do
     sha256 arm64_big_sur: "fc953052461b5fff2a327e017be7a69d03b5dc27ee7cc85aef35d688771059cc"
