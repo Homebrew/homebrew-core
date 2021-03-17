@@ -3,10 +3,9 @@ class Platformio < Formula
 
   desc "Professional collaborative platform for embedded development"
   homepage "https://platformio.org/"
-  url "https://files.pythonhosted.org/packages/b2/68/63ed6a16eb5338ee81ff0e32697a4c5f4840c3c684f62373c2ae8e9cf734/platformio-5.1.0.tar.gz"
-  sha256 "8382a07cce5f6490a61c817588e69d86ef768fefe0f53cab810cdfd2befab4a2"
+  url "https://files.pythonhosted.org/packages/b8/f0/4e9941349c3450838667d323545b256d91b723a4685a1e056f01642b851e/platformio-5.1.1.tar.gz"
+  sha256 "c1688692ec2de34dcc38c5a3f99e98f5eb469a1589445d9a35322fb39d9c7902"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2a7e1da8703fde1bb25f06d8abb5d93e402325d8d9f75fc16ec51496a31f9bcd"
@@ -21,6 +20,11 @@ class Platformio < Formula
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/77/47/19e5951cc6ed771669906d2946b3deac32a35a9a155f730be49d8fa73dc9/aiofiles-0.6.0.tar.gz"
     sha256 "e0281b157d3d5d59d803e3f4557dcc9a3dff28a4dd4829a9ff478adae50ca092"
+  end
+
+  resource "ajsonrpc" do
+    url "https://files.pythonhosted.org/packages/6d/ca/c90cc6a4d8efa69de9c874d18f804422d22e8df5f5c1593e15536fb60652/ajsonrpc-1.1.0.tar.gz"
+    sha256 "0a01c2b56d20c59868ed96afbc468e0cd73e29b156e2c02c1ed3365e4e42b9ac"
   end
 
   resource "bottle" do
@@ -61,11 +65,6 @@ class Platformio < Formula
   resource "ifaddr" do
     url "https://files.pythonhosted.org/packages/3d/fc/4ce147e3997cd0ea470ad27112087545cf83bf85015ddb3054673cb471bb/ifaddr-0.1.7.tar.gz"
     sha256 "1f9e8a6ca6f16db5a37d3356f07b6e52344f6f9f7e806d618537731669eb1a94"
-  end
-
-  resource "json-rpc" do
-    url "https://files.pythonhosted.org/packages/43/5a/7c2ea59e622682fff34d5aa3b301aa9a10bb0dbf0120f85cd391e4badad8/json-rpc-1.13.0.tar.gz"
-    sha256 "def0dbcf5b7084fc31d677f2f5990d988d06497f2f47f13024274cfb2d5d7589"
   end
 
   resource "marshmallow" do
