@@ -3,8 +3,8 @@ class LbrySdk < Formula
 
   desc "Decentralized peer-to-peer protocol for publishing and accessing digital content"
   homepage "https://lbry.com"
-  url "https://github.com/lbryio/lbry-sdk/archive/v0.91.0.tar.gz"
-  sha256 "6a908089755740fbae8f259ab0397a25f95624b2172fd5a0e005ebde19531c4b"
+  url "https://github.com/lbryio/lbry-sdk/archive/v0.92.0.tar.gz"
+  sha256 "d2488937f9e912c5376cf76cba83871497a2f97ce9a1e927546e1b1c9cf81bad"
   license "MIT"
   head "https://github.com/lbryio/lbry-sdk.git"
 
