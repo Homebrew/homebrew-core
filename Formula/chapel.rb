@@ -12,6 +12,8 @@ class Chapel < Formula
     sha256 high_sierra: "101b6a940e07d3e86ec809b3f7737950e0ef12c61daf43ef92c00e95047333c5"
   end
 
+  depends_on "python@3.9"
+
   def install
     libexec.install Dir["*"]
     # Chapel uses this ENV to work out where to install.
