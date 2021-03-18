@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/06/4c/44f612e5378283b5b2f1cfde1b408e6830e64f6cbb0105aeee469291119f/ansible-lint-5.0.3.tar.gz"
-  sha256 "9416eaa3080f4fa38228a3a8931a5481fe3bc5e1e3d074033a9b756325b920bd"
+  url "https://files.pythonhosted.org/packages/4c/1e/055aacee378bab20fbb2dedeb13b90f5400c926e7be7aca440958531d131/ansible-lint-5.0.4.tar.gz"
+  sha256 "10d13fa5f8cdf9232769693800bf9260e9aa8d5cb68900894308309e255fe2d4"
   license "MIT"
 
   bottle do
@@ -28,8 +28,8 @@ class AnsibleLint < Formula
   end
 
   resource "ansible-base" do
-    url "https://files.pythonhosted.org/packages/83/f9/19c0f3c5bc555f08ee24122dfda7dc4968f966971817c2c3a07df6972c14/ansible-base-2.10.6.tar.gz"
-    sha256 "c6b3bc3dc83ee510357cb7afc8c557c05ce38f6b40e9bc9dab13551b2944dfd4"
+    url "https://files.pythonhosted.org/packages/ba/58/009ab5eccdac9f44c52cc50391d5c8b986bc6559e0d56f3cc558a779ca48/ansible-base-2.10.7.tar.gz"
+    sha256 "b15fa8b2dcfa613d2e7bfc8ec6524b1094d50ed29613b1fcc27237c017fe8d40"
   end
 
   resource "bracex" do
