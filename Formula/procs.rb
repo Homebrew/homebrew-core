@@ -4,6 +4,7 @@ class Procs < Formula
   url "https://github.com/dalance/procs/archive/v0.11.4.tar.gz"
   sha256 "30a903374eb888b89cd43bbc19365aa24ef01b3588298ab246085dbe42c8e819"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "197d9df98f18130c417b90864018e382c5b2237890bec9283a7a4cff57c4383b"
@@ -16,6 +17,13 @@ class Procs < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    
+    system "procs", "--completion", "bash"
+    system "procs", "--completion", "fish"
+    system "procs", "--completion", "zsh"
+    bash_completion.install "procs.bash" => "procs"
+    fish_completion.install "procs.fish"
+    zsh_completion.install "_procs"
   end
 
   test do
