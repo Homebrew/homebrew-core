@@ -18,9 +18,9 @@ class Procs < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    system "procs", "--completion", "bash"
-    system "procs", "--completion", "fish"
-    system "procs", "--completion", "zsh"
+    system "#{bin}/procs", "--completion", "bash"
+    system "#{bin}/procs", "--completion", "fish"
+    system "#{bin}/procs", "--completion", "zsh"
     bash_completion.install "procs.bash" => "procs"
     fish_completion.install "procs.fish"
     zsh_completion.install "_procs"
