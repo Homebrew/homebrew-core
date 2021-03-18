@@ -3,8 +3,8 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.66/glib-2.66.7.tar.xz"
-  sha256 "09f158769f6f26b31074e15b1ac80ec39b13b53102dfae66cfe826fb2cc65502"
+  url "https://download.gnome.org/sources/glib/2.68/glib-2.68.0.tar.xz"
+  sha256 "67734f584f3a05a2872f57e9a8db38f3b06c7087fb531c5a839d9171968103ea"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -26,21 +26,20 @@ class Glib < Formula
     depends_on "util-linux"
   end
 
-  # https://bugzilla.gnome.org/show_bug.cgi?id=673135 Resolved as wontfix,
-  # but needed to fix an assumption about the location of the d-bus machine
-  # id file.
+  # replace several hardcoded paths with homebrew counterparts
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/6164294a75541c278f3863b111791376caa3ad26/glib/hardcoded-paths.diff"
-    sha256 "a57fec9e85758896ff5ec1ad483050651b59b7b77e0217459ea650704b7d422b"
+    url "https://github.com/Homebrew/formula-patches/raw/c4d9edffc4fd5a28f0d3440a22e893632826ad20/glib/hardcoded-paths.diff"
+    sha256 "d81c9e8296ec5b53b4ead6917f174b06026eeb0c671dfffc4965b2271fb6a82c"
   end
 
   def install
-    inreplace %w[gio/gdbusprivate.c gio/xdgmime/xdgmime.c glib/gutils.c],
+    inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c],
       "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     args = std_meson_args + %W[
       --default-library=both
+      --localstatedir=#{var}
       -Diconv=auto
       -Dgio_module_dir=#{HOMEBREW_PREFIX}/lib/gio/modules
       -Dbsymbolic_functions=false
