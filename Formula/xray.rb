@@ -4,6 +4,7 @@ class Xray < Formula
   url "https://github.com/XTLS/Xray-core/archive/v1.4.2.tar.gz"
   sha256 "565255d8c67b254f403d498b9152fa7bc097d649c50cb318d278c2be644e92cc"
   license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
+  revision 1
   head "https://github.com/XTLS/Xray-core.git"
 
   bottle do
@@ -25,6 +26,12 @@ class Xray < Formula
     sha256 "ee9778dc00b703905ca1f400ad13dd462eae52c5aee6465f0a7543b0232c9d08"
   end
 
+  resource "example_config" do
+    # borrow v2ray (v4.36.2) example config
+    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v4.36.2/release/config/config.json"
+    sha256 "1bbadc5e1dfaa49935005e8b478b3ca49c519b66d3a3aee0b099730d05589978"
+  end
+
   def install
     ldflags = "-s -w -buildid="
     execpath = libexec/name
@@ -34,13 +41,23 @@ class Xray < Formula
     (bin/"xray").write_env_script execpath,
       XRAY_LOCATION_ASSET: "${XRAY_LOCATION_ASSET:-#{pkgshare}}"
 
-    resource("geoip").stage do
-      pkgshare.install "geoip.dat"
-    end
-
+    pkgshare.install resource("geoip")
     resource("geosite").stage do
       pkgshare.install "dlc.dat" => "geosite.dat"
     end
+    pkgetc.install resource("example_config")
+  end
+
+  def caveats
+    <<~EOS
+      An example config is installed to #{etc}/xray/config.json
+    EOS
+  end
+
+  service do
+    run [opt_bin/"xray", "run", "--config", "#{etc}/xray/config.json"]
+    run_type :immediate
+    keep_alive true
   end
 
   test do
