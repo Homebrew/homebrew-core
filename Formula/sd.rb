@@ -4,6 +4,7 @@ class Sd < Formula
   url "https://github.com/chmln/sd/archive/v0.7.6.tar.gz"
   sha256 "faf33a97797b95097c08ebb7c2451ac9835907254d89863b10ab5e0813b5fe5f"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "57aa8ffe25e54e25d3657c662faacd04a80e3dc38755d3dbf83f125c58780145"
@@ -23,6 +24,7 @@ class Sd < Formula
     out_dir = Dir["target/release/build/sd-*/out"].first
     man1.install "#{out_dir}/sd.1"
     bash_completion.install "#{out_dir}/sd.bash"
+    fish_completion.install "#{out_dir}/sd.fish"
     zsh_completion.install "#{out_dir}/_sd"
   end
 
