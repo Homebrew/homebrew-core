@@ -36,7 +36,7 @@ class AnsibleAT29 < Formula
   # The first, long block of resources can be semi-automatically updated by two similar ways
   # Either run `brew update-python-resources ansible@2.9 --print-only` and replace the
   # resource block manually.
-  # Or comment out the secord brock with the manual resource and run
+  # Or comment out the second block with the manual resource and run
   # 'brew update-python-resources ansible@2.9'.
   #
   # In both cases, after the automatic resource updates, check for latest versions of the to
