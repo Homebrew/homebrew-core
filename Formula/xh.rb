@@ -1,5 +1,5 @@
 class Xh < Formula
-  desc "Yet another HTTPie clone"
+  desc "Friendly and fast tool for sending HTTP requests"
   homepage "https://github.com/ducaale/xh"
   url "https://github.com/ducaale/xh/archive/v0.9.1.tar.gz"
   sha256 "b0cd92b428094286688214fde316e0b9bb668c184989a4a0ec25b5ffae2cccd4"
