@@ -17,6 +17,16 @@ class Libgosu < Formula
   depends_on "pkg-config" => :build
   depends_on "sdl2"
 
+  on_linux do
+    depends_on "fontconfig"
+    depends_on "gcc"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+    depends_on "openal-soft"
+  end
+
+  fails_with gcc: "5"
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
@@ -51,7 +61,13 @@ class Libgosu < Formula
       }
     EOS
 
-    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lgosu", "-I#{include}", "-std=c++11"
+    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lgosu", "-I#{include}", "-std=c++17"
+
+    on_linux do
+      # Fails in Linux CI with "Could not initialize SDL Video: No available video device"
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     system "./test"
   end
 end
