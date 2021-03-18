@@ -1,9 +1,11 @@
 class Bcftools < Formula
   desc "Tools for BCF/VCF files and variant calling from samtools"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/bcftools/releases/download/1.11/bcftools-1.11.tar.bz2"
-  sha256 "3ceee47456ec481f34fa6c34beb6fe892b5b365933191132721fdf126e45a064"
-  license "MIT"
+  url "https://github.com/samtools/bcftools/releases/download/1.12/bcftools-1.12.tar.bz2"
+  sha256 "7a0e6532b1495b9254e38c6698d955e5176c1ee08b760dfea2235ee161a024f5"
+  # The bcftools source code is MIT/Expat-licensed, but when it is configured
+  # with --enable-libgsl the resulting executable is GPL-licensed.
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
@@ -20,7 +22,6 @@ class Bcftools < Formula
 
   depends_on "gsl"
   depends_on "htslib"
-  depends_on "xz"
 
   def install
     system "./configure", "--prefix=#{prefix}",
