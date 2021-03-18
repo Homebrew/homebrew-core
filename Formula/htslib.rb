@@ -1,8 +1,8 @@
 class Htslib < Formula
   desc "C library for high-throughput sequencing data formats"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/htslib/releases/download/1.11/htslib-1.11.tar.bz2"
-  sha256 "cffadd9baa6fce27b8fe0b01a462b489f06a5433dfe92121f667f40f632538d7"
+  url "https://github.com/samtools/htslib/releases/download/1.12/htslib-1.12.tar.bz2"
+  sha256 "2280141b46e953ba4ae01b98335a84f8e6ccbdb6d5cdbab7f70ee4f7e3b6f4ca"
   license "MIT"
 
   livecheck do
@@ -27,11 +27,15 @@ class Htslib < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-libcurl"
     system "make", "install"
-    pkgshare.install "test"
   end
 
   test do
-    sam = pkgshare/"test/ce#1.sam"
+    sam = testpath/"test.sam"
+    sam.write <<~EOS
+      @SQ	SN:chr1	LN:500
+      r1	0	chr1	100	0	4M	*	0	0	ATGC	ABCD
+      r2	0	chr1	200	0	4M	*	0	0	AATT	EFGH
+    EOS
     assert_match "SAM", shell_output("#{bin}/htsfile #{sam}")
     system "#{bin}/bgzip -c #{sam} > sam.gz"
     assert_predicate testpath/"sam.gz", :exist?
