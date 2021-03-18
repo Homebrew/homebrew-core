@@ -12,6 +12,8 @@ class Gstreamermm < Formula
     sha256 cellar: :any, mojave:        "d5cbb27b618ded15a4b8dd132195307927a03358a88575e4934d7b0da0148e75"
   end
 
+  disable! date: "2021-03-18", because: "is unmaintained upstream and does not build with glib 2.68.0+"
+
   depends_on "pkg-config" => :build
   depends_on "glibmm@2.66"
   depends_on "gst-plugins-base"
