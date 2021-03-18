@@ -4,7 +4,7 @@ name: Triage issues
 on:
   push:
     paths:
-    - .github/workflows/triage-issues.yml
+      - .github/workflows/triage-issues.yml
   schedule:
     # Once every day at midnight UTC
     - cron: "0 0 * * *"
@@ -33,8 +33,8 @@ jobs:
           stale-pr-message: >
             This pull request has been automatically marked as stale because it has not had
             recent activity. It will be closed if no further activity occurs.
-          exempt-issue-labels: 'gsoc-outreachy,help wanted,in progress'
-          exempt-pr-labels: 'gsoc-outreachy,help wanted,in progress'
+          exempt-issue-labels: "gsoc-outreachy,help wanted,in progress"
+          exempt-pr-labels: "gsoc-outreachy,help wanted,in progress"
 
   lock-threads:
     if: startsWith(github.repository, 'Homebrew/') && github.event_name != 'issue_comment'

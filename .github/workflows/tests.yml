@@ -18,79 +18,79 @@ jobs:
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
-    - name: Set up Homebrew
-      id: set-up-homebrew
-      uses: Homebrew/actions/setup-homebrew@master
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
-    - name: Cache Bundler RubyGems
-      uses: actions/cache@v1
-      with:
-        path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-        key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-        restore-keys: ${{ runner.os }}-rubygems-
+      - name: Cache Bundler RubyGems
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ runner.os }}-rubygems-
 
-    - name: Install Bundler RubyGems
-      run: brew install-bundler-gems
+      - name: Install Bundler RubyGems
+        run: brew install-bundler-gems
 
-    - run: brew test-bot --only-tap-syntax
+      - run: brew test-bot --only-tap-syntax
 
-    - name: Check .github/workflows/tests-linux.yml formulae coverage
-      run: |
-        FILES=$(grep -oE 'Formula/[a-z0-9_\.\-]+' .github/workflows/linux-pr-tests.yml)
-        for FILE in $FILES; do
-          if [ ! -f "$FILE" ]; then
-            echo ".github/workflows/tests-linux.yml is testing a non existing file: $FILE"
-            exit 1
-          fi
-        done
+      - name: Check .github/workflows/tests-linux.yml formulae coverage
+        run: |
+          FILES=$(grep -oE 'Formula/[a-z0-9_\.\-]+' .github/workflows/linux-pr-tests.yml)
+          for FILE in $FILES; do
+            if [ ! -f "$FILE" ]; then
+              echo ".github/workflows/tests-linux.yml is testing a non existing file: $FILE"
+              exit 1
+            fi
+          done
 
-    - name: Check for CI-syntax-only label
-      id: check-labels
-      uses: actions/github-script@v3
-      if: github.event_name == 'pull_request'
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const { data: { labels: labels } } = await github.pulls.get({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            pull_number: context.issue.number
-          })
-          if (!labels.map(label => label.name).includes('CI-syntax-only')) {
-            console.log('No CI-syntax-only label found. Running tests.')
-            return true
-          }
-          console.log('CI-syntax-only label found. Skipping tests.')
+      - name: Check for CI-syntax-only label
+        id: check-labels
+        uses: actions/github-script@v3
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: { labels: labels } } = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            })
+            if (!labels.map(label => label.name).includes('CI-syntax-only')) {
+              console.log('No CI-syntax-only label found. Running tests.')
+              return true
+            }
+            console.log('CI-syntax-only label found. Skipping tests.')
 
-    - name: Check for CI-force-arm label
-      id: check-arm-labels
-      uses: actions/github-script@v3
-      if: github.event_name == 'pull_request'
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        script: |
-          const { data: { labels: labels } } = await github.pulls.get({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            pull_number: context.issue.number
-          })
-          if (!labels.map(label => label.name).includes('CI-force-arm')) {
-            console.log('No CI-force-arm label found.')
-            return true
-          }
-          console.log('CI-force-arm label found.')
+      - name: Check for CI-force-arm label
+        id: check-arm-labels
+        uses: actions/github-script@v3
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const { data: { labels: labels } } = await github.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.issue.number
+            })
+            if (!labels.map(label => label.name).includes('CI-force-arm')) {
+              console.log('No CI-force-arm label found.')
+              return true
+            }
+            console.log('CI-force-arm label found.')
 
   tests:
     needs: tap_syntax
     if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.run-tests
     strategy:
       matrix:
-        version: ['11-arm', '11.0', '10.15', '10.14']
+        version: ["11-arm", "11.0", "10.15", "10.14"]
       fail-fast: false
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
     env:
-      PATH: '/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin'
+      PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
       HOMEBREW_DEVELOPER: 1
       GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

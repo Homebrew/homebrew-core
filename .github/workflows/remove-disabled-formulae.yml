@@ -3,7 +3,7 @@ name: Remove disabled formulae
 on:
   push:
     paths:
-    - .github/workflows/remove-disabled-formulae.yml
+      - .github/workflows/remove-disabled-formulae.yml
   schedule:
     # Once every day at midnight UTC
     - cron: "0 0 * * *"
