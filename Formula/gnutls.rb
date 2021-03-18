@@ -66,15 +66,21 @@ class Gnutls < Formula
   end
 
   def post_install
+    ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
+
     keychains = %w[
+      /Library/Keychains/System.keychain
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
 
     certs_list = `security find-certificate -a -p #{keychains.join(" ")}`
-    certs = certs_list.scan(/-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m)
+    certs = certs_list.scan(
+      /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
+    )
 
+    # Check that the certificate has not expired
     valid_certs = certs.select do |cert|
-      IO.popen("openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
+      IO.popen("openssl x509 -inform pem -checkend 0 -noout &>/dev/null", "w") do |openssl_io|
         openssl_io.write(cert)
         openssl_io.close_write
       end
@@ -82,8 +88,25 @@ class Gnutls < Formula
       $CHILD_STATUS.success?
     end
 
+    # Check that the certificate is trusted in keychain
+    trusted_certs = begin
+      tmpfile = Tempfile.new
+
+      valid_certs.select do |cert|
+        tmpfile.rewind
+        tmpfile.write cert
+        tmpfile.truncate cert.size
+        tmpfile.flush
+        IO.popen("/usr/bin/security verify-cert -l -L -R offline -c #{tmpfile.path} &>/dev/null")
+
+        $CHILD_STATUS.success?
+      end
+    ensure
+      tmpfile&.close!
+    end
+
     pkgetc.mkpath
-    (pkgetc/"cert.pem").atomic_write(valid_certs.join("\n"))
+    (pkgetc/"cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
 
     # Touch gnutls.go to avoid Guile recompilation.
     # See https://github.com/Homebrew/homebrew-core/pull/60307#discussion_r478917491
