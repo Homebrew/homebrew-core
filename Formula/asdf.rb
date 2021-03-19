@@ -28,7 +28,7 @@ class Asdf < Formula
 
   def caveats
     <<~EOS
-      Add shims in $PATH by having the following line your ~/.zshenv or #{shell_profile}: 
+      Add shims in $PATH by having the following line your #{shell_profile} or ~/.zshenv:
         export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
       To support package version per session using asdf shell <name> <version>
@@ -39,7 +39,7 @@ class Asdf < Formula
       Restart your terminal for the settings to take effect.
     EOS
   end
-        
+
   test do
     output = shell_output("#{bin}/asdf plugin-list 2>&1", 1)
     assert_match "Oohes nooes ~! No plugins installed", output
