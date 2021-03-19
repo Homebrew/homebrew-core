@@ -1,8 +1,8 @@
 class Waffle < Formula
   desc "C library for selecting an OpenGL API and window system at runtime"
   homepage "http://www.waffle-gl.org/"
-  url "https://gitlab.freedesktop.org/mesa/waffle/-/raw/website/files/release/waffle-1.6.3/waffle-1.6.3.tar.xz"
-  sha256 "30e47bb78616e5deab1b94fd901c629a42b6ec3bf693c668217d4d5fd9b62219"
+  url "https://gitlab.freedesktop.org/mesa/waffle/-/raw/website/files/release/waffle-1.7.0/waffle-1.7.0.tar.xz"
+  sha256 "69e42d15d08f63e7a54a8b8770295a6eb04dfd1c6f86c328b6039dbe7de28ef3"
   license "BSD-2-Clause"
   head "https://gitlab.freedesktop.org/mesa/waffle.git"
 
