@@ -19,7 +19,7 @@ class Asdf < Formula
     touch libexec/"asdf_updates_disabled"
     bin.write_exec_script (opt_libexec/"bin/asdf")
     (prefix/"asdf.sh").write ". #{opt_libexec}/asdf.sh\n"
-    (prefix/"asdf.fish").write ". #{opt_libexec}/asdf.fish\n"
+    (prefix/"asdf.fish").write "source #{opt_libexec}/asdf.fish\n"
   end
 
   def post_install
@@ -28,14 +28,14 @@ class Asdf < Formula
 
   def caveats
     <<~EOS
-      Add shims in $PATH by having the following line your #{shell_profile} or ~/.zshenv:
+      Add shims in $PATH by having the following line your ~/.zshenv or #{shell_profile}:
         export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
       To support package version per session using asdf shell <name> <version>
       Add the following line to your #{shell_profile} file:
         . #{opt_libexec}/lib/asdf.sh
       If you use Fish shell then add the following line to your ~/.config/fish/config.fish:
-        . #{opt_libexec}/lib/asdf.fish
+        source #{opt_libexec}/lib/asdf.fish
       Restart your terminal for the settings to take effect.
     EOS
   end
