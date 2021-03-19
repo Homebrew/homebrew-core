@@ -19,6 +19,9 @@ class Bzt < Formula
   depends_on "numpy"
   depends_on "python@3.9"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+
   resource "apiritif" do
     url "https://files.pythonhosted.org/packages/3c/88/5d381e9755ce82de93a8e9b3b86332b45c42f3f2480d66dd77174b02bfb0/apiritif-0.9.6.tar.gz"
     sha256 "4be1c5a830735c8e8662aa8ac2ccd549b0481cd55b7ed7eb6bfa73fd983de0fc"
