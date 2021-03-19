@@ -31,19 +31,19 @@ class Asdf < Formula
       Add shims in $PATH by having the following line your ~/.zshenv or #{shell_profile}:
         export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
       If you use Fish shell add the following line to your ~/.config/fish/config.fish:
-      	set PATH (
-		      if test -n "$ASDF_DATA_DIR"
-		        echo $ASDF_DATA_DIR/shims
-		      else
-		        echo $HOME/.asdf/shims
-		      end
-		    ) $PATH
+        set PATH (
+          if test -n "$ASDF_DATA_DIR"
+            echo $ASDF_DATA_DIR/shims
+          else
+            echo $HOME/.asdf/shims
+          end
+        ) $PATH
 
       To support package version per session using asdf shell <name> <version>
-	      Add the following line to your #{shell_profile} file:
-    	    . #{opt_libexec}/lib/asdf.sh
-	      If you use Fish shell add the following line to your ~/.config/fish/config.fish:
-    	    source #{opt_libexec}/lib/asdf.fish
+          Add the following line to your #{shell_profile} file:
+            . #{opt_libexec}/lib/asdf.sh
+          If you use Fish shell add the following line to your ~/.config/fish/config.fish:
+            source #{opt_libexec}/lib/asdf.fish
       Restart your terminal for the settings to take effect.
     EOS
   end
