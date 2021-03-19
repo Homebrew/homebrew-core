@@ -28,11 +28,11 @@ class Asdf < Formula
 
   def caveats
     <<~EOS
-      Add shims in $PATH by having the following line your ~/.zshenv or ~/bash_profile: 
-        export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
+      Add shims in $PATH by having the following line your ~/.zshenv or #{shell_profile}: 
+        export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
       To support package version per session using asdf shell <name> <version>
-      Add the following line to your ~/.bash_profile or ~/.zshrc file:
+      Add the following line to your #{shell_profile} file:
         . #{opt_libexec}/lib/asdf.sh
       If you use Fish shell then add the following line to your ~/.config/fish/config.fish:
         . #{opt_libexec}/lib/asdf.fish
