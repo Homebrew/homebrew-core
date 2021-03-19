@@ -18,6 +18,8 @@ class Asdf < Formula
     libexec.install Dir["*"]
     touch libexec/"asdf_updates_disabled"
     bin.write_exec_script (opt_libexec/"bin/asdf")
+    (prefix/"asdf.sh").write "source #{opt_libexec}/asdf.sh\n"
+    (prefix/"asdf.fish").write "source #{opt_libexec}/asdf.fish\n"
   end
 
   def post_install
