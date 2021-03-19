@@ -3,6 +3,7 @@ class Abuse < Formula
   homepage "http://abuse.zoy.org/"
   url "http://abuse.zoy.org/raw-attachment/wiki/download/abuse-0.8.tar.gz"
   sha256 "0104db5fd2695c9518583783f7aaa7e5c0355e27c5a803840a05aef97f9d3488"
+  license all_of: [:public_domain, "GPL-2.0-or-later", "WTFPL"]
   head "svn://svn.zoy.org/abuse/abuse/trunk"
 
   livecheck do
@@ -28,6 +29,11 @@ class Abuse < Formula
   depends_on "libvorbis"
   depends_on "sdl"
   depends_on "sdl_mixer"
+
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
 
   def startup_script
     <<~EOS
@@ -65,9 +71,11 @@ class Abuse < Formula
                           "--with-assetdir=#{pkgshare}",
                           "--with-sdl-prefix=#{Formula["sdl"].opt_prefix}"
 
-    # Use Framework OpenGL, not libGl
-    %w[. src src/imlib src/lisp src/net src/sdlport].each do |p|
-      inreplace "#{p}/Makefile", "-lGL", "-framework OpenGL"
+    on_macos do
+      # Use Framework OpenGL, not libGl
+      %w[. src src/imlib src/lisp src/net src/sdlport].each do |p|
+        inreplace "#{p}/Makefile", "-lGL", "-framework OpenGL"
+      end
     end
 
     system "make"
@@ -86,6 +94,11 @@ class Abuse < Formula
   end
 
   test do
+    on_linux do
+      # Fails in Linux CI with "Unable to initialise SDL : No available video device"
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     system "#{bin}/abuse", "--help"
   end
 end
