@@ -18,7 +18,7 @@ class Logstash < Formula
     sha256 cellar: :any, mojave:   "88f1c72bffc4b7c2002ac38bcbf5bd211215aa5defdae0f69ababd5c5da84829"
   end
 
-  depends_on "openjdk@8"
+  depends_on "openjdk@11"
 
   uses_from_macos "ruby" => :build
 
@@ -51,7 +51,7 @@ class Logstash < Formula
     (libexec/"config").rmtree
 
     bin.install libexec/"bin/logstash", libexec/"bin/logstash-plugin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env("1.8"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env("11"))
   end
 
   def post_install
