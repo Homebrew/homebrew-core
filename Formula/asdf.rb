@@ -18,14 +18,28 @@ class Asdf < Formula
     libexec.install Dir["*"]
     touch libexec/"asdf_updates_disabled"
     bin.write_exec_script (opt_libexec/"bin/asdf")
-    (prefix/"asdf.sh").write "source #{opt_libexec}/asdf.sh\n"
-    (prefix/"asdf.fish").write "source #{opt_libexec}/asdf.fish\n"
+    (prefix/"asdf.sh").write ". #{opt_libexec}/asdf.sh\n"
+    (prefix/"asdf.fish").write ". #{opt_libexec}/asdf.fish\n"
   end
 
   def post_install
     system bin/"asdf", "reshim"
   end
 
+  def caveats
+    <<~EOS
+      Add shims in $PATH by having the following line your ~/.zshenv or ~/bash_profile: 
+        export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims"
+
+      To support package version per session using asdf shell <name> <version>
+      Add the following line to your ~/.bash_profile or ~/.zshrc file:
+        . #{opt_libexec}/lib/asdf.sh
+      If you use Fish shell then add the following line to your ~/.config/fish/config.fish:
+        . #{opt_libexec}/lib/asdf.fish
+      Restart your terminal for the settings to take effect.
+    EOS
+  end
+        
   test do
     output = shell_output("#{bin}/asdf plugin-list 2>&1", 1)
     assert_match "Oohes nooes ~! No plugins installed", output
