@@ -17,7 +17,10 @@ class Uriparser < Formula
   conflicts_with "libkml", because: "both install `liburiparser.dylib`"
 
   def install
-    system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF", "-DURIPARSER_BUILD_DOCS=OFF", *std_cmake_args
+    system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF",
+                         "-DURIPARSER_BUILD_DOCS=OFF",
+                         "-DCMAKE_INSTALL_RPATH=#{opt_lib}",
+                         *std_cmake_args
     system "make"
     system "make", "install"
   end
