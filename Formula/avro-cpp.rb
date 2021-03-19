@@ -1,11 +1,10 @@
 class AvroCpp < Formula
   desc "Data serialization system"
   homepage "https://avro.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.10.1/cpp/avro-cpp-1.10.1.tar.gz"
-  mirror "https://archive.apache.org/dist/avro/avro-1.10.1/cpp/avro-cpp-1.10.1.tar.gz"
-  sha256 "6e9e8820325cdaffcc1981958ed86b484c33dcf0277a164b2a58357fdd046cc8"
+  url "https://www.apache.org/dyn/closer.lua?path=avro/avro-1.10.2/cpp/avro-cpp-1.10.2.tar.gz"
+  mirror "https://archive.apache.org/dist/avro/avro-1.10.2/cpp/avro-cpp-1.10.2.tar.gz"
+  sha256 "41ff2ddb9dab64af195c248cb10165dffe026e8aac8f572a22380a5c60e762e3"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a0483d513cf45e07a900217f40380f2877f24d76bed80eca97c3a1847d319f00"
