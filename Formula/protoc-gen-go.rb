@@ -1,10 +1,9 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
   homepage "https://github.com/golang/protobuf"
-  url "https://github.com/golang/protobuf/archive/v1.4.3.tar.gz"
-  sha256 "5736f943f8647362f5559689df6154f3c85d261fb088867c8a68494e2a767610"
+  url "https://github.com/golang/protobuf/archive/v1.5.1.tar.gz"
+  sha256 "d6f2c6973d08e6701c41e6c0afc381c985270ad8050c7819da197b258ac8959d"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/golang/protobuf.git"
 
   bottle do
@@ -27,12 +26,13 @@ class ProtocGenGo < Formula
     protofile.write <<~EOS
       syntax = "proto3";
       package proto3;
+      option go_package = "package/test";
       message Request {
         string name = 1;
         repeated int64 key = 2;
       }
     EOS
-    system "protoc", "--go_out=.", "proto3.proto"
+    system "protoc", "--go_out=.", "--go_opt=paths=source_relative", "proto3.proto"
     assert_predicate testpath/"proto3.pb.go", :exist?
     refute_predicate (testpath/"proto3.pb.go").size, :zero?
   end
