@@ -17,6 +17,8 @@ class Pngcheck < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "83edeec573d0aa0032cf4f242d9c5b15462678da50c80dd922c4254a22b7ae16"
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "make", "-f", "Makefile.unx", "ZINC=", "ZLIB=-lz"
     bin.install %w[pngcheck pngsplit png-fix-IDAT-windowsize]
