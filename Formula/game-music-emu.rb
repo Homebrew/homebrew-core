@@ -3,6 +3,7 @@ class GameMusicEmu < Formula
   homepage "https://bitbucket.org/mpyne/game-music-emu"
   url "https://bitbucket.org/mpyne/game-music-emu/downloads/game-music-emu-0.6.3.tar.xz"
   sha256 "aba34e53ef0ec6a34b58b84e28bf8cfbccee6585cebca25333604c35db3e051d"
+  license one_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   revision 2
   head "https://bitbucket.org/mpyne/game-music-emu.git"
 
@@ -16,8 +17,10 @@ class GameMusicEmu < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "zlib"
+
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DENABLE_UBSAN=OFF"
     system "make", "install"
   end
 
