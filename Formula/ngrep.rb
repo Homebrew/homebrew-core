@@ -3,6 +3,7 @@ class Ngrep < Formula
   homepage "https://github.com/jpr5/ngrep"
   url "https://github.com/jpr5/ngrep/archive/V1_47.tar.gz"
   sha256 "dc4dbe20991cc36bac5e97e99475e2a1522fd88c59ee2e08f813432c04c5fff3"
+  license :cannot_represent # Described as 'BSD with advertising' here: https://src.fedoraproject.org/rpms/ngrep/blob/rawhide/f/ngrep.spec#_8
 
   bottle do
     rebuild 1
@@ -15,16 +16,32 @@ class Ngrep < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "d057c167d3b695ff915c13fd39e3cd7b3e6e2a5b3f82bce6bb8ea4c030e8f6e7"
   end
 
+  uses_from_macos "libpcap"
+
   def install
     sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-    system "./configure", "--enable-ipv6",
-                          "--prefix=#{prefix}",
-                          # this line required to make configure succeed
-                          "--with-pcap-includes=#{sdk}/usr/include/pcap",
-                          # this line required to avoid segfaults
-                          # see https://github.com/jpr5/ngrep/commit/e29fc29
-                          # https://github.com/Homebrew/homebrew/issues/27171
-                          "--disable-pcap-restart"
+
+    args = [
+      "--enable-ipv6",
+      "--prefix=#{prefix}",
+      # this line required to avoid segfaults
+      # see https://github.com/jpr5/ngrep/commit/e29fc29
+      # https://github.com/Homebrew/homebrew/issues/27171
+      "--disable-pcap-restart",
+    ]
+
+    on_macos do
+      # this line required to make configure succeed
+      args << "--with-pcap-includes=#{sdk}/usr/include/pcap"
+    end
+
+    on_linux do
+      # this line required to make configure succeed
+      args << "--with-pcap-includes=#{Formula["libpcap"].opt_include}/pcap"
+    end
+
+    system "./configure", *args
+
     system "make", "install"
   end
 
