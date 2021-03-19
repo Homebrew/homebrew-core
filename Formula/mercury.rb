@@ -15,6 +15,8 @@ class Mercury < Formula
 
   depends_on "openjdk"
 
+  uses_from_macos "flex"
+
   # Disable advanced segfault handling due to broken header detection.
   patch do
     url "https://github.com/Mercury-Language/mercury/commit/37ed70d43878cd53c8da40bf410e0a312835c036.patch?full_index=1"
