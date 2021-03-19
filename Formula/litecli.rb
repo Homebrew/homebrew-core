@@ -17,7 +17,7 @@ class Litecli < Formula
   depends_on "python-tabulate"
   depends_on "python@3.9"
 
-  uses_from_macos "sqlite" => :test
+  uses_from_macos "sqlite"
 
   resource "cli-helpers" do
     url "https://files.pythonhosted.org/packages/3f/3f/6ecd0ddf2394b698dd82ff3ddbcda235f8d6dadf124af6222eff49b32e87/cli_helpers-2.1.0.tar.gz"
