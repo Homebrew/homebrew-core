@@ -1,8 +1,8 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.111.zip"
-  sha256 "f1670c7e3aeaa66bc5658539fbd162e5099f022666855ef2b2c2bac07fec4bd3"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap-2.8/gsoap_2.8.112.zip"
+  sha256 "05345312e0bb4d81c98ae63b97cff9eb097f38dafe09356189f9d8e235c54095"
   license any_of: ["GPL-2.0-or-later", "gSOAP-1.3b"]
 
   livecheck do
