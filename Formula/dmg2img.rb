@@ -3,6 +3,7 @@ class Dmg2img < Formula
   homepage "http://vu1tur.eu.org/tools/"
   url "http://vu1tur.eu.org/tools/dmg2img-1.6.7.tar.gz"
   sha256 "02aea6d05c5b810074913b954296ddffaa43497ed720ac0a671da4791ec4d018"
+  license "GPL-2.0-only"
   revision 1
 
   livecheck do
@@ -20,6 +21,8 @@ class Dmg2img < Formula
   end
 
   depends_on "openssl@1.1"
+
+  uses_from_macos "bzip2"
 
   # Patch for OpenSSL 1.1 compatibility
   patch :p0 do
