@@ -19,6 +19,8 @@ class Polipo < Formula
   # https://github.com/jech/polipo/commit/4d42ca1b5849518762d110f34b6ce2e03d6df9ec
   deprecate! date: "2016-11-06", because: :unsupported
 
+  uses_from_macos "texinfo"
+
   def install
     cache_root = (var + "cache/polipo")
     cache_root.mkpath
