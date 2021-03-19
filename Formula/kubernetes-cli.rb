@@ -2,10 +2,9 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.20.4",
-      revision: "e87da0bd6e03ec3fea7933c4b5263d151aafd07c"
+      tag:      "v1.20.5",
+      revision: "6b1d87acf3c8253c123756b9e61dac642678305f"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/kubernetes/kubernetes.git"
 
   livecheck do
