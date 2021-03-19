@@ -19,6 +19,8 @@ class TtyClock < Formula
 
   depends_on "pkg-config" => :build
 
+  uses_from_macos "ncurses"
+
   def install
     ENV.append "LDFLAGS", "-lncurses"
     system "make", "PREFIX=#{prefix}"
