@@ -15,6 +15,11 @@ class Ncspot < Formula
   depends_on "python@3.9" => :build
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "pkg-config"
+  end
+
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
     system "cargo", "install",
