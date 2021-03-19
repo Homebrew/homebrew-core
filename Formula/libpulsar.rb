@@ -21,6 +21,8 @@ class Libpulsar < Formula
   depends_on "snappy"
   depends_on "zstd"
 
+  uses_from_macos "curl"
+
   def install
     cd "pulsar-client-cpp" do
       system "cmake", ".", *std_cmake_args,
@@ -43,7 +45,8 @@ class Libpulsar < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cc", "-L#{lib}", "-lpulsar", "-o", "test"
+
+    system ENV.cxx, "-std=gnu++11", "test.cc", "-L#{lib}", "-lpulsar", "-o", "test"
     system "./test"
   end
 end
