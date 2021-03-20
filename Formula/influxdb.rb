@@ -1,8 +1,8 @@
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v1.8.4.tar.gz"
-  sha256 "9f2c135c8f9f50ca469196e6b4e575e26f1a338538788e71b664212e03b4df7b"
+  url "https://github.com/influxdata/influxdb/archive/v2.0.4.tar.gz"
+  sha256 "73ebee977b8f2235eea5d280d7d9fcff8e29cf1e61c5c370ae9939d92f085c6d"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git"
 
@@ -19,83 +19,30 @@ class Influxdb < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "ad332849b3ab8d6a07e58a06a2164ccc207652797f55e396f3845081a006a121"
   end
 
+  depends_on "bazaar" => :build
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
+  depends_on "rust" => :build
+  depends_on "yarn" => :build
+  depends_on "protobuf"
 
-  def install
-    ENV["GOBIN"] = buildpath
-
-    system "go", "install", "-ldflags", "-X main.version=#{version}", "./..."
-    bin.install %w[influxd influx influx_tsm influx_stress influx_inspect]
-
-    etc.install "etc/config.sample.toml" => "influxdb.conf"
-    inreplace etc/"influxdb.conf" do |s|
-      s.gsub! "/var/lib/influxdb/data", "#{var}/influxdb/data"
-      s.gsub! "/var/lib/influxdb/meta", "#{var}/influxdb/meta"
-      s.gsub! "/var/lib/influxdb/wal", "#{var}/influxdb/wal"
-    end
-
-    (var/"influxdb/data").mkpath
-    (var/"influxdb/meta").mkpath
-    (var/"influxdb/wal").mkpath
+  resource "pkg-config-wrapper" do
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/0.2.1.tar.gz"
+    sha256 "a31955bae060799b482d36ed522e76d55e1002d879d38371ed43d254b51f59d5"
   end
 
-  plist_options manual: "influxd -config #{HOMEBREW_PREFIX}/etc/influxdb.conf"
+  def install
+    resource("pkg-config-wrapper").stage do
+      system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
+    end
+    ENV.prepend_path "PATH", buildpath/"bootstrap"
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/influxd</string>
-            <string>-config</string>
-            <string>#{HOMEBREW_PREFIX}/etc/influxdb.conf</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/influxdb.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/influxdb.log</string>
-          <key>SoftResourceLimits</key>
-          <dict>
-            <key>NumberOfFiles</key>
-            <integer>10240</integer>
-          </dict>
-        </dict>
-      </plist>
-    EOS
+    ldflags = "-X main.version=#{version}"
+    system "go", "build", *std_go_args, "-ldflags", ldflags, "-o", bin/"influx", "./cmd/influx"
+    system "go", "build", *std_go_args, "-ldflags", ldflags, "-o", bin/"influxd", "./cmd/influxd"
   end
 
   test do
-    (testpath/"config.toml").write shell_output("#{bin}/influxd config")
-    inreplace testpath/"config.toml" do |s|
-      s.gsub! %r{/.*/.influxdb/data}, "#{testpath}/influxdb/data"
-      s.gsub! %r{/.*/.influxdb/meta}, "#{testpath}/influxdb/meta"
-      s.gsub! %r{/.*/.influxdb/wal}, "#{testpath}/influxdb/wal"
-    end
-
-    begin
-      pid = fork do
-        exec "#{bin}/influxd -config #{testpath}/config.toml"
-      end
-      sleep 6
-      output = shell_output("curl -Is localhost:8086/ping")
-      assert_match "X-Influxdb-Version:", output
-    ensure
-      Process.kill("SIGTERM", pid)
-      Process.wait(pid)
-    end
+    assert_match "assets-path:", shell_output("#{bin}/influxd print-config")
   end
 end
