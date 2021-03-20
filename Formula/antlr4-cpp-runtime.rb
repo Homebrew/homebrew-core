@@ -6,7 +6,7 @@ class Antlr4CppRuntime < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "https://www.antlr.org/download/"
+    url "https://www.antlr.org/download.html"
     regex(/href=.*?antlr4-cpp-runtime[._-]v?(\d+(?:\.\d+)+)-source\.zip/i)
   end
 
