@@ -1,8 +1,8 @@
 class SimpleScan < Formula
   desc "GNOME document scanning application"
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
-  url "https://download.gnome.org/sources/simple-scan/3.38/simple-scan-3.38.5.tar.xz"
-  sha256 "2a9293aad60cdd2b51f3d43783afa1748e74b5e7df79dd4a8ef2fc940beeb66d"
+  url "https://download.gnome.org/sources/simple-scan/40/simple-scan-40.tar.xz"
+  sha256 "49c407e1991677b9f6832d07a5a0c8a9bbf029b3d20d609dc318411e4a02b4ce"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -20,6 +20,7 @@ class SimpleScan < Formula
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "libgusb"
+  depends_on "libhandy"
   depends_on "sane-backends"
   depends_on "webp"
 
