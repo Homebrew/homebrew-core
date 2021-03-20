@@ -7,7 +7,7 @@ class Qscintilla2 < Formula
 
   livecheck do
     url "https://www.riverbankcomputing.com/software/qscintilla/download"
-    regex(/href=.*?QScintilla(?:.gpl)?[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(/href=.*?QScintilla(?:[._-](?:gpl|src))?[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
