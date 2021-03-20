@@ -17,6 +17,12 @@ class K9s < Formula
 
   depends_on "go" => :build
 
+  # remove in next release
+  patch do
+    url "https://github.com/chenrui333/k9s/commit/e8dd6714.patch?full_index=1"
+    sha256 "bd09126a30afec0828f9e5cfe19e47da2fd898191279ead18da52c26ad5dc037"
+  end
+
   def install
     system "go", "build", "-ldflags",
              "-s -w -X github.com/derailed/k9s/cmd.version=#{version}
