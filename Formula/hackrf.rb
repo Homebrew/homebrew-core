@@ -1,8 +1,8 @@
 class Hackrf < Formula
   desc "Low cost software radio platform"
   homepage "https://github.com/mossmann/hackrf"
-  url "https://github.com/mossmann/hackrf/archive/v2018.01.1.tar.gz"
-  sha256 "84dbb5536d3aa5bd6b25d50df78d591e6c3431d752de051a17f4cb87b7963ec3"
+  url "https://github.com/mossmann/hackrf/archive/v2021.03.1.tar.gz"
+  sha256 "84a9aef6fe2666744dc1a17ba5adb1d039f8038ffab30e9018dcfae312eab5be"
   license "GPL-2.0"
   head "https://github.com/mossmann/hackrf.git"
 
