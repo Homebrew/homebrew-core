@@ -6,9 +6,10 @@ class Influxdb < Formula
   license "MIT"
   head "https://github.com/influxdata/influxdb.git"
 
+  # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?((?!9\.9\.9)\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
