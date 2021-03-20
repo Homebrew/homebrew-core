@@ -24,7 +24,16 @@ class Dotnet < Formula
   depends_on "icu4c"
   depends_on "openssl@1.1"
 
+  # libicu 68 deprecates its defined boolean constants for TRUE/FALSE
+  # https://github.com/dotnet/runtime/issues/47346
+  resource "runtime-libicu-68-patch" do
+    url "https://raw.githubusercontent.com/archlinux/svntogit-community/ac84e64334a020b62551896bf54a87c49baa2b8e/trunk/9999-runtime-libicu-68.patch"
+    sha256 "f3ce241390dd396ba641d842f43c89ead63c53f0db95776e2c9df1786bf7c296"
+  end
+
   def install
+    (buildpath/"patches/runtime").install resource("runtime-libicu-68-patch")
+
     # Arguments needed to not artificially time-limit downloads from Azure.
     # See the following GitHub issue comment for details:
     # https://github.com/dotnet/source-build/issues/1596#issuecomment-670995776
