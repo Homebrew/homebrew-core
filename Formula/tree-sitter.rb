@@ -4,7 +4,7 @@ class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
   url "https://github.com/tree-sitter/tree-sitter/archive/v0.19.4.tar.gz"
-  sha256 "b90c1107a3e09b2dbef9ba317db9fde18f7222898d8470782f539cee286eebad"
+  sha256 "98e6b7f77d277235ef43023a8eee37745d1bc315c138481ed1b054cff158e817"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git"
 
