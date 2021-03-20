@@ -17,7 +17,7 @@ class StructurizrCli < Formula
   test do
     expected_output = <<~EOS.strip
       Structurizr CLI v#{version}
-      Usage: structurizr push|pull|lock|unlock|export [options]
+      Usage: structurizr push|pull|lock|unlock|export|validate [options]
     EOS
     result = pipe_output("#{bin}/structurizr-cli").strip
     assert_equal result, expected_output
