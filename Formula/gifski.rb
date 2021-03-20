@@ -12,8 +12,8 @@ class Gifski < Formula
     sha256 cellar: :any, mojave:        "e06d9be5f774a40f746b99046ac7e7c8c517c9a84a9b15ca2b1231fbe6287e09"
   end
 
-  depends_on "pkg-config" => :build
   depends_on "llvm" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg"
 
