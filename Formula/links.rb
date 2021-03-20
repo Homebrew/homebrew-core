@@ -3,7 +3,7 @@ class Links < Formula
   homepage "http://links.twibright.com/"
   url "http://links.twibright.com/download/links-2.22.tar.bz2"
   sha256 "0364986b3a7f1e8e3171bea362b53f71e1dd3360a8842d66fdc65580ebc2084d"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "http://links.twibright.com/download.php"
