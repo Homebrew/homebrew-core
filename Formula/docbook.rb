@@ -78,19 +78,24 @@ class Docbook < Formula
   end
 
   def post_install
+    xmlcatalog = "xmlcatalog"
+    on_linux do
+      xmlcatalog = Formula["libxml2"].opt_bin/"xmlcatalog"
+    end
+
     etc_catalog = etc/"xml/catalog"
     ENV["XML_CATALOG_FILES"] = etc_catalog
 
     # only create catalog file if it doesn't exist already to avoid content added
     # by other formulae to be removed
-    system "xmlcatalog", "--noout", "--create", etc_catalog unless File.file?(etc_catalog)
+    system xmlcatalog, "--noout", "--create", etc_catalog unless File.file?(etc_catalog)
 
     %w[4.2 4.1.2 4.3 4.4 4.5 5.0 5.1].each do |version|
       catalog = opt_prefix/"docbook/xml/#{version}/catalog.xml"
 
-      system "xmlcatalog", "--noout", "--del",
+      system xmlcatalog, "--noout", "--del",
              "file://#{catalog}", etc_catalog
-      system "xmlcatalog", "--noout", "--add", "nextCatalog",
+      system xmlcatalog, "--noout", "--add", "nextCatalog",
              "", "file://#{catalog}", etc_catalog
     end
   end
