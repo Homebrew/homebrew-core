@@ -61,6 +61,11 @@ class DocbookXsl < Formula
   end
 
   def post_install
+    xmlcatalog = "xmlcatalog"
+    on_linux do
+      xmlcatalog = Formula["libxml2"].opt_bin/"xmlcatalog"
+    end
+
     etc_catalog = etc/"xml/catalog"
     ENV["XML_CATALOG_FILES"] = etc_catalog
 
@@ -72,8 +77,8 @@ class DocbookXsl < Formula
 
       # add/replace catalog entries
       cat_loc = "#{loc}/catalog.xml"
-      system "xmlcatalog", "--noout", "--del", cat_loc, etc_catalog
-      system "xmlcatalog", "--noout", "--add", "nextCatalog", "", cat_loc, etc_catalog
+      system xmlcatalog, "--noout", "--del", cat_loc, etc_catalog
+      system xmlcatalog, "--noout", "--add", "nextCatalog", "", cat_loc, etc_catalog
 
       # add rewrites for the new and old catalog URLs
       rewrites = ["rewriteSystem", "rewriteURI"]
@@ -82,9 +87,9 @@ class DocbookXsl < Formula
         "http://docbook.sourceforge.net/release/#{old_name}",
       ].each do |url_prefix|
         [version.to_s, "current"].each do |ver|
-          system "xmlcatalog", "--noout", "--del", "#{url_prefix}/#{ver}", etc_catalog
+          system xmlcatalog, "--noout", "--del", "#{url_prefix}/#{ver}", etc_catalog
           rewrites.each do |rewrite|
-            system "xmlcatalog", "--noout", "--add", rewrite, "#{url_prefix}/#{ver}", loc, etc_catalog
+            system xmlcatalog, "--noout", "--add", rewrite, "#{url_prefix}/#{ver}", loc, etc_catalog
           end
         end
       end
@@ -92,13 +97,17 @@ class DocbookXsl < Formula
   end
 
   test do
-    system "xmlcatalog", "#{etc}/xml/catalog", "https://cdn.docbook.org/release/xsl-nons/current/"
-    system "xmlcatalog", "#{etc}/xml/catalog", "https://cdn.docbook.org/release/xsl-nons/#{version}/"
-    system "xmlcatalog", "#{etc}/xml/catalog", "https://cdn.docbook.org/release/xsl/current/"
-    system "xmlcatalog", "#{etc}/xml/catalog", "https://cdn.docbook.org/release/xsl/#{version}/"
-    system "xmlcatalog", "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl/current/"
-    system "xmlcatalog", "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl/#{version}/"
-    system "xmlcatalog", "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl-ns/current/"
-    system "xmlcatalog", "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl-ns/#{version}/"
+    xmlcatalog = "xmlcatalog"
+    on_linux do
+      xmlcatalog = Formula["libxml2"].opt_bin/"xmlcatalog"
+    end
+    system xmlcatalog, "#{etc}/xml/catalog", "https://cdn.docbook.org/release/xsl-nons/current/"
+    system xmlcatalog, "#{etc}/xml/catalog", "https://cdn.docbook.org/release/xsl-nons/#{version}/"
+    system xmlcatalog, "#{etc}/xml/catalog", "https://cdn.docbook.org/release/xsl/current/"
+    system xmlcatalog, "#{etc}/xml/catalog", "https://cdn.docbook.org/release/xsl/#{version}/"
+    system xmlcatalog, "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl/current/"
+    system xmlcatalog, "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl/#{version}/"
+    system xmlcatalog, "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl-ns/current/"
+    system xmlcatalog, "#{etc}/xml/catalog", "http://docbook.sourceforge.net/release/xsl-ns/#{version}/"
   end
 end
