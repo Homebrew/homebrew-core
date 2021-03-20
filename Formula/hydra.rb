@@ -45,6 +45,11 @@ class Hydra < Formula
     # https://github.com/vanhauser-thc/thc-hydra/issues/22
     system "./configure", "--prefix=#{prefix}"
     bin.mkpath
+    # remove unsupported ld flags on mac
+    # related to https://github.com/vanhauser-thc/thc-hydra/issues/622
+    on_macos do
+      inreplace "Makefile", "-Wl,--allow-multiple-definition", ""
+    end
     system "make", "all", "install"
     share.install prefix/"man" # Put man pages in correct place
   end
