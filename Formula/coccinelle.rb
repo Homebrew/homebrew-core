@@ -5,6 +5,7 @@ class Coccinelle < Formula
       tag:      "1.1.0",
       revision: "e84d3ddc7d4131b7e7e70c29d49eca09d35fabb6"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/coccinelle/coccinelle.git"
 
   livecheck do
@@ -22,16 +23,30 @@ class Coccinelle < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "hevea" => :build
+  depends_on "ocaml-findlib" => :build
   depends_on "opam" => :build
   depends_on "ocaml"
 
+  # Bootstap resource for Ocaml 4.12 compatibility.
+  # Remove when Coccinelle supports Ocaml 4.12 natively
+  resource "stdcompat" do
+    url "https://github.com/thierry-martinez/stdcompat/releases/download/v15/stdcompat-15.tar.gz"
+    sha256 "5e746f68ffe451e7dabe9d961efeef36516b451f35a96e174b8f929a44599cf5"
+  end
+
   def install
+    resource("stdcompat").stage do
+      system "./configure", "--prefix=#{buildpath}/bootstrap"
+      ENV.deparallelize { system "make" }
+      system "make", "install"
+    end
+    ENV.prepend_path "OCAMLPATH", buildpath/"bootstrap/lib"
+
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot
       ENV["OPAMYES"] = "1"
       ENV["OPAMVERBOSE"] = "1"
       system "opam", "init", "--no-setup", "--disable-sandboxing"
-      system "opam", "install", "ocamlfind"
       system "./autogen"
       system "opam", "config", "exec", "--", "./configure",
                             "--disable-dependency-tracking",
