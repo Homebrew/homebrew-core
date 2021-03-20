@@ -4,6 +4,7 @@ class SpirvTools < Formula
   url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.7.tar.gz"
   sha256 "c06eed1c7a1018b232768481184b5ae4d91d614d7bd7358dc2fe306bd0a39c6e"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "298a193c4afa67d0205bcda76cc8ec2cdbc4c501b426da048ddedd39293db17a"
@@ -40,7 +41,9 @@ class SpirvTools < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
+                            "-DBUILD_SHARED_LIBS=ON",
                             "-DSPIRV_SKIP_TESTS=ON",
+                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF",
                             "-DEFFCEE_BUILD_TESTING=OFF"
       system "make", "install"
     end
@@ -50,8 +53,15 @@ class SpirvTools < Formula
 
   test do
     cp libexec/"examples"/"main.cpp", "test.cpp"
+
+    args = "-lc++"
+
+    on_linux do
+      args = ["-lstdc++", "-lm"]
+    end
+
     system ENV.cc, "-o", "test", "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
-                   "-lSPIRV-Tools", "-lSPIRV-Tools-link", "-lSPIRV-Tools-opt", "-lc++"
+                   "-lSPIRV-Tools", "-lSPIRV-Tools-link", "-lSPIRV-Tools-opt", *args
     system "./test"
   end
 end
