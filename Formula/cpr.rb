@@ -19,15 +19,6 @@ class Cpr < Formula
 
   uses_from_macos "curl"
 
-  # Fix system curl detection
-  # See https://github.com/whoshuu/cpr/pull/428
-  #
-  # Remove in the next release
-  patch do
-    url "https://github.com/whoshuu/cpr/commit/451fd1a896c963367ebb3d77cfe4550b2d5636f3.patch?full_index=1"
-    sha256 "74349209c5d28d9261871080341c735517b3e64e91ac6cc6884abb2767f14b33"
-  end
-
   def install
     args = std_cmake_args
     args << "-DUSE_SYSTEM_CURL=ON"
