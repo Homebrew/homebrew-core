@@ -20,9 +20,10 @@ class Cpr < Formula
   uses_from_macos "curl"
 
   def install
-    args = std_cmake_args
-    args << "-DUSE_SYSTEM_CURL=ON"
-    args << "-DBUILD_CPR_TESTS=OFF"
+    args = std_cmake_args + %w[
+      -DCPR_FORCE_USE_SYSTEM_CURL=ON
+      -DCPR_BUILD_TESTS=OFF
+    ]
 
     system "cmake", ".", *args, "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"
