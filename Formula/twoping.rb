@@ -1,10 +1,9 @@
 class Twoping < Formula
   desc "Ping utility to determine directional packet loss"
   homepage "https://www.finnie.org/software/2ping/"
-  url "https://www.finnie.org/software/2ping/2ping-4.5.tar.gz"
-  sha256 "867009928bf767d36279f90ff8f891855804c0004849f9554ac77fcd7f0fdb7b"
-  license "GPL-2.0"
-  revision 1
+  url "https://www.finnie.org/software/2ping/2ping-4.5.1.tar.gz"
+  sha256 "b56beb1b7da1ab23faa6d28462bcab9785021011b3df004d5d3c8a97ed7d70d8"
+  license "GPL-2.0-or-later"
   head "https://github.com/rfinnie/2ping.git", branch: "main"
 
   bottle do
@@ -25,6 +24,7 @@ class Twoping < Formula
     man1.install_symlink "2ping.1" => "2ping6.1"
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bash_completion.install "2ping.bash_completion" => "2ping"
   end
 
   plist_options manual: "2ping --listen", startup: true
