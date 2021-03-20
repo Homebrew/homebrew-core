@@ -31,7 +31,7 @@ class GhcAT9 < Formula
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/8.10.3/ghc-9.0.1-x86_64-deb9-linux.tar.xz"
+      url "https://downloads.haskell.org/~ghc/9.0.1/ghc-9.0.1-x86_64-deb9-linux.tar.xz"
       sha256 "4ca6252492f59fe589029fadca4b6f922d6a9f0ff39d19a2bd9886fde4e183d5"
     end
   end
