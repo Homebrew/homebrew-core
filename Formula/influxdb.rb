@@ -37,7 +37,7 @@ class Influxdb < Formula
     end
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
-    ldflags = "-X main.version=#{version}"
+    ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args, "-ldflags", ldflags, "-o", bin/"influx", "./cmd/influx"
     system "go", "build", *std_go_args, "-ldflags", ldflags, "-o", bin/"influxd", "./cmd/influxd"
   end
