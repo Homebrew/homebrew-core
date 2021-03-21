@@ -1,8 +1,8 @@
 class TreCommand < Formula
   desc "Tree command, improved"
   homepage "https://github.com/dduan/tre"
-  url "https://github.com/dduan/tre/archive/v0.3.4.tar.gz"
-  sha256 "d4526efa37280ab2450c9595cf90b72d2fbf5fdeb989a3386f24297cb5da82fc"
+  url "https://github.com/dduan/tre/archive/v0.3.5.tar.gz"
+  sha256 "63c09e26125006960239984f870deeb5fa81a22e1553f6d47be4ef22b075d810"
   license "MIT"
   head "https://github.com/dduan/tre.git"
 
