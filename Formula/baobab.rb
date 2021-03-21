@@ -1,8 +1,9 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
-  url "https://download.gnome.org/sources/baobab/3.38/baobab-3.38.0.tar.xz"
-  sha256 "048468147860816b97f15d50b3c84e9acf0539c1441cfeb63703d112e8728329"
+  url "https://download.gnome.org/sources/baobab/40/baobab-40.0.tar.xz"
+  sha256 "a6aeaa2c327a997fe0d5f443ce95b785e2ba6e338fb0a026cb7dc7d7d688d1a7"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_big_sur: "900fff026ec24002744ec2f9836c55614f5d9a775cb562d38fcd883871ea69b0"
@@ -20,6 +21,7 @@ class Baobab < Formula
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
+  depends_on "libhandy"
 
   def install
     # stop meson_post_install.py from doing what needs to be done in the post_install step
