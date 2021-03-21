@@ -1,8 +1,8 @@
 class GsettingsDesktopSchemas < Formula
   desc "GSettings schemas for desktop components"
   homepage "https://download.gnome.org/sources/gsettings-desktop-schemas/"
-  url "https://download.gnome.org/sources/gsettings-desktop-schemas/3.38/gsettings-desktop-schemas-3.38.0.tar.xz"
-  sha256 "5704c8266004b296036671f223c705dc046aa694a1b1abb87c67e7d2747a8c67"
+  url "https://download.gnome.org/sources/gsettings-desktop-schemas/40/gsettings-desktop-schemas-40.0.tar.xz"
+  sha256 "f1b83bf023c0261eacd0ed36066b76f4a520bbcb14bb69c402b7959257125685"
   license "LGPL-2.1-or-later"
 
   bottle do
