@@ -27,7 +27,7 @@ class Cherrytree < Formula
   uses_from_macos "curl"
 
   def install
-    system "cmake", ".", "-DINSTALL_GTEST=''", "-GNinja", *std_cmake_args
+    system "cmake", ".", "-DBUILD_TESTING=''", "-GNinja", *std_cmake_args
     system "ninja"
     system "ninja", "install"
   end
