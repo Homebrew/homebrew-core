@@ -18,12 +18,24 @@ class Mavsdk < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "abseil"
+  depends_on "c-ares"
+  depends_on "curl"
+  depends_on "grpc"
+  depends_on "jsoncpp"
+  depends_on "openssl@1.1"
+  depends_on "protobuf"
+  depends_on "re2"
+  depends_on "tinyxml2"
+
+  uses_from_macos "zlib"
 
   def install
     # Source build adapted from
     # https://mavsdk.mavlink.io/develop/en/contributing/build.html
     system "cmake", *std_cmake_args,
                     "-Bbuild/default",
+                    "-DSUPERBUILD=OFF",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DBUILD_MAVSDK_SERVER=ON",
                     "-DBUILD_TESTS=OFF",
