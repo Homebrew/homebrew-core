@@ -56,7 +56,7 @@ class Fabio < Formula
       end
       sleep 10
       assert_equal true, port_open?(localhost_ip, fabio_default_port)
-      system "killall", "fabio" # fabio forks off from the fork...
+      system "kill -9 $(pgrep fabio)" # fabio forks off from the fork...
       system "consul", "leave"
     end
   end
