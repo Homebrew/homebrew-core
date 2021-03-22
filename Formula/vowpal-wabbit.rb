@@ -3,8 +3,8 @@ class VowpalWabbit < Formula
   homepage "https://github.com/VowpalWabbit/vowpal_wabbit"
   # pull from git tag to get submodules
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
-      tag:      "8.9.2",
-      revision: "88442026750858c1dea9218dc0666fbbb5ae6520"
+      tag:      "8.10.0",
+      revision: "..."
   license "BSD-3-Clause"
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
@@ -15,8 +15,12 @@ class VowpalWabbit < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "flatbuffers" => :build
   depends_on "rapidjson" => :build
+  depends_on "spdlog" => :build
   depends_on "boost"
+  depends_on "fmt"
+  depends_on "zlib"
 
   def install
     ENV.cxx11
@@ -26,7 +30,10 @@ class VowpalWabbit < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                             "-DBUILD_TESTS=OFF",
-                            "-DRAPIDJSON_SYS_DEP=ON"
+                            "-DRAPIDJSON_SYS_DEP=ON",
+                            "-DFMT_SYS_DEP=ON",
+                            "-DSPDLOG_SYS_DEP=ON",
+                            "-DBUILD_FLATBUFFERS=ON"
       system "make", "install"
     end
     bin.install Dir["utl/*"]
@@ -34,6 +41,7 @@ class VowpalWabbit < Formula
     rm bin/"new_version"
     rm bin/"vw-validate.html"
     rm bin/"clang-format"
+    rm_r bin/"flatbuffer"
   end
 
   test do
