@@ -45,6 +45,10 @@ class Pyenv < Formula
     #   - https://github.com/pyenv/pyenv/issues/1056#issuecomment-356818337
     #   - https://github.com/Homebrew/homebrew-core/pull/22727
   end
+  
+  def post_install
+    system "pyenv", "rehash"
+  end
 
   test do
     shell_output("eval \"$(#{bin}/pyenv init -)\" && pyenv versions")
