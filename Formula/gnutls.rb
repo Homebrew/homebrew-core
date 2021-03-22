@@ -34,6 +34,13 @@ class Gnutls < Formula
 
   on_linux do
     depends_on "autogen" => :build
+
+    resource "cacert" do
+      # homepage "http://curl.haxx.se/docs/caextract.html"
+      url "https://curl.haxx.se/ca/cacert-2020-01-01.pem"
+      mirror "https://gist.githubusercontent.com/dawidd6/16d94180a019f31fd31bc679365387bc/raw/ef02c78b9d6427585d756528964d18a2b9e318f7/cacert-2020-01-01.pem"
+      sha256 "adf770dfd574a0d6026bfaa270cb6879b063957177a991d453ff1d302c02081f"
+    end
   end
 
   def install
@@ -66,6 +73,11 @@ class Gnutls < Formula
   end
 
   def post_install
+    on_macos(&method(:macos_post_install))
+    on_linux(&method(:linux_post_install))
+  end
+
+  def macos_post_install
     ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
 
     keychains = %w[
@@ -111,6 +123,16 @@ class Gnutls < Formula
     # Touch gnutls.go to avoid Guile recompilation.
     # See https://github.com/Homebrew/homebrew-core/pull/60307#discussion_r478917491
     touch "#{lib}/guile/3.0/site-ccache/gnutls.go"
+  end
+
+  def linux_post_install
+    # Download and install cacert.pem from curl.haxx.se
+    cacert = resource("cacert")
+    cacert.fetch
+
+    rm_f pkgetc/"cert.pem"
+    filename = Pathname.new(cacert.url).basename
+    pkgetc.install cacert.files(filename => "cert.pem")
   end
 
   def caveats
