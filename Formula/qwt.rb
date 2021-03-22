@@ -34,6 +34,9 @@ class Qwt < Formula
     else
       "macx-g++"
     end
+    on_linux do
+      spec = "linux-g++"
+    end
     spec << "-arm64" if Hardware::CPU.arm?
     args << spec
 
@@ -51,13 +54,28 @@ class Qwt < Formula
         return (curve1 == NULL);
       }
     EOS
-    system ENV.cxx, "test.cpp", "-o", "out",
-      "-std=c++11",
-      "-framework", "qwt", "-framework", "QtCore",
-      "-F#{lib}", "-F#{Formula["qt@5"].opt_lib}",
-      "-I#{lib}/qwt.framework/Headers",
-      "-I#{Formula["qt@5"].opt_lib}/QtCore.framework/Versions/5/Headers",
-      "-I#{Formula["qt@5"].opt_lib}/QtGui.framework/Versions/5/Headers"
+    on_macos do
+      system ENV.cxx, "test.cpp", "-o", "out",
+        "-std=c++11",
+        "-framework", "qwt", "-framework", "QtCore",
+        "-F#{lib}", "-F#{Formula["qt@5"].opt_lib}",
+        "-I#{lib}/qwt.framework/Headers",
+        "-I#{Formula["qt@5"].opt_lib}/QtCore.framework/Versions/5/Headers",
+        "-I#{Formula["qt@5"].opt_lib}/QtGui.framework/Versions/5/Headers"
+    end
+    on_linux do
+      system ENV.cxx,
+        "-I#{Formula["qt@5"].opt_include}",
+        "-I#{Formula["qt@5"].opt_include}/QtCore",
+        "-I#{Formula["qt@5"].opt_include}/QtGui",
+        "test.cpp",
+        "-lqwt", "-lQt5Core", "-lQt5Gui",
+        "-L#{Formula["qt@5"].opt_lib}",
+        "-L#{Formula["qwt"].opt_lib}",
+        "-Wl,-rpath=#{Formula["qt@5"].opt_lib}",
+        "-Wl,-rpath=#{Formula["qwt"].opt_lib}",
+        "-o", "out", "-std=c++11", "-fPIC"
+    end
     system "./out"
   end
 end
