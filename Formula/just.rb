@@ -4,6 +4,7 @@ class Just < Formula
   url "https://github.com/casey/just/archive/v0.8.4.tar.gz"
   sha256 "7aee472e4b70e62e89d7d5185493a3c680aeae4cc323c842e4c5b9b8af47040a"
   license "CC0-1.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f2ba1e974312ef1b70483c1d74bdf8f3c669e70872908b7014082b8959c4724a"
@@ -16,6 +17,11 @@ class Just < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    man1.install "#{buildpath}/man/just.1"
+    bash_completion.install "#{buildpath}/completions/just.bash" => "just"
+    fish_completion.install "#{buildpath}/completions/just.fish"
+    zsh_completion.install "#{buildpath}/completions/just.zsh" => "_just"
   end
 
   test do
