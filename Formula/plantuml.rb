@@ -1,8 +1,8 @@
 class Plantuml < Formula
   desc "Draw UML diagrams"
   homepage "https://plantuml.com/"
-  url "https://downloads.sourceforge.net/project/plantuml/1.2021.2/plantuml.1.2021.2.jar"
-  sha256 "d3a3eba987f509ce0564faf42b6c5473cdedfbfa866f03177bf04e57cd45bb17"
+  url "https://downloads.sourceforge.net/project/plantuml/1.2021.3/plantuml.1.2021.3.jar"
+  sha256 "2b1d9f4f1ef5a1590082ccad97538505c10d3272756479a0f2abd80c54d24b63"
   license "GPL-3.0-or-later"
   version_scheme 1
 
