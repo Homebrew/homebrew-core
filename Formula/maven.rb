@@ -1,11 +1,10 @@
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
-  sha256 "26ad91d751b3a9a53087aefa743f4e16a17741d3915b219cf74112bf87a438c5"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.8.0/binaries/apache-maven-3.8.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.8.0/binaries/apache-maven-3.8.0-bin.tar.gz"
+  sha256 "85e7515396073c6f343fbd221d0b83c5cccd47e1f4c7ca3f1d2bd6c28606b9f9"
   license "Apache-2.0"
-  revision 1
 
   bottle :unneeded
 
