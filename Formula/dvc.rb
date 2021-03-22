@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/be/f7/0c11247eaf3d55f8c6466276e2504f02e6e79f8dce1be7b360da2266705e/dvc-2.0.6.tar.gz"
-  sha256 "e2a3e7a6767587d16e8999ce6d2717bcec10245edee30164a39a3f663944884b"
+  url "https://files.pythonhosted.org/packages/0f/2f/5bdef7a43dc5210f5d9549bd25769d4bf729c0e8594ef5ff90e151440276/dvc-2.0.7.tar.gz"
+  sha256 "e1c230c4fb367ce30f10e1f2c7c03fa7e4b10c086f872fe27b66c35d74cd92a2"
   license "Apache-2.0"
 
   bottle do
@@ -153,8 +153,8 @@ class Dvc < Formula
   end
 
   resource "mailchecker" do
-    url "https://files.pythonhosted.org/packages/5a/0d/513e57bf531843ea4613fec8b6843c3b44d57307c9e4d815875f79329d9c/mailchecker-4.0.3.tar.gz"
-    sha256 "00dbe9739c754366233eb3887c5deef987672482a26e814314c3e749fc7b1d1f"
+    url "https://files.pythonhosted.org/packages/8d/5c/37779c9bad98af5542138cc25a0a08ff0989e31d2449f54a9bc766f564e6/mailchecker-4.0.6.tar.gz"
+    sha256 "ab99a8d0933ca9deef130869825142e552d6b037f293a5ffa620132653fb03e7"
   end
 
   resource "nanotime" do
@@ -183,8 +183,8 @@ class Dvc < Formula
   end
 
   resource "phonenumbers" do
-    url "https://files.pythonhosted.org/packages/7e/42/4d54cb5316d5c1a816615eec8da51459292f0dfcacae27efd2ef07e55868/phonenumbers-8.12.19.tar.gz"
-    sha256 "0f597b602e64af90c06b14c8223e94fdb0ed20f203e1c9785a8bbe4de00c45e8"
+    url "https://files.pythonhosted.org/packages/ac/8b/695f6490dede7a8021fac4b5c964f6c4e4e76a61aa7ed478caf4a85eacb7/phonenumbers-8.12.20.tar.gz"
+    sha256 "ee5a8508c4a414262abad92ec33f050347f681973ed0fb36e98b52bfe159f6b8"
   end
 
   resource "ply" do
