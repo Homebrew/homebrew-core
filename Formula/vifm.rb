@@ -23,7 +23,9 @@ class Vifm < Formula
                           "--without-libmagic",
                           "--without-X11"
     system "make"
-    system "make", "check"
+    # Run make check only when not root
+    # https://github.com/vifm/vifm/issues/654
+    system "make", "check" unless Process.uid.zero?
 
     ENV.deparallelize { system "make", "install" }
   end
