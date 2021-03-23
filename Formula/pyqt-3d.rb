@@ -23,10 +23,13 @@ class Pyqt3d < Formula
     pyqt = Formula["pyqt"]
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
 
-    inreplace "pyproject.toml", "[tool.sip.project]", <<~EOS
-      [tool.sip.project]
-      sip-include-dirs = ["#{pyqt.opt_lib}/python#{xy}/site-packages/PyQt#{pyqt.version.major}/bindings"]
-    EOS
+    open("pyproject.toml", "a") do |f|
+      f.puts <<~EOS
+        [tool.sip.project]
+        sip-include-dirs = ["#{pyqt.opt_lib}/python#{xy}/site-packages/PyQt#{pyqt.version.major}/bindings"]
+      EOS
+    end
+
     system "sip-install", "--target-dir", prefix
     (lib/"python#{xy}/site-packages").install %W[#{prefix}/PyQt#{pyqt.version.major} #{prefix}/PyQt#{pyqt.version.major}_3D-#{version}.dist-info]
   end
