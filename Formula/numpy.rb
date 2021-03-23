@@ -4,6 +4,7 @@ class Numpy < Formula
   url "https://files.pythonhosted.org/packages/d2/48/f445be426ccd9b2fb64155ac6730c7212358882e589cd3717477d739d9ff/numpy-1.20.1.zip"
   sha256 "3bc63486a870294683980d76ec1e3efc786295ae00128f9ea38e2c6e74d5a60a"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/numpy/numpy.git"
 
   bottle do
@@ -32,13 +33,11 @@ class Numpy < Formula
 
     Pathname("site.cfg").write config
 
-    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{version}/site-packages"
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
 
-    system Formula["python@3.9"].opt_bin/"python3", "setup.py",
-      "build", "--fcompiler=gnu95", "--parallel=#{ENV.make_jobs}",
-      "install", "--prefix=#{prefix}",
-      "--single-version-externally-managed", "--record=installed.txt"
+    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix),
+      "build", "--fcompiler=gnu95", "--parallel=#{ENV.make_jobs}"
   end
 
   test do
