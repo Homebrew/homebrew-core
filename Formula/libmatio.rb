@@ -1,8 +1,8 @@
 class Libmatio < Formula
   desc "C library for reading and writing MATLAB MAT files"
   homepage "https://matio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.19/matio-1.5.19.tar.gz"
-  sha256 "a4fa4d248b0414fc72f3d6155f710c470d5628d3c31af834f8d5ccf06b60286f"
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.20/matio-1.5.20.tar.gz"
+  sha256 "5d1f72a1f51abf6a9cd23eaa812fb17b861097059095f48c768c4835c5aa2598"
   license "BSD-2-Clause"
 
   bottle do
