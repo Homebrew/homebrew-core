@@ -7,8 +7,9 @@ class Pidgin < Formula
   revision 1
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/pidgin[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    url "https://sourceforge.net/projects/pidgin/files/Pidgin/"
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
