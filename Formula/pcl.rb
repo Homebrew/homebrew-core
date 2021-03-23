@@ -1,11 +1,16 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
-  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.11.1.tar.gz"
-  sha256 "a61558e53abafbc909e0996f91cfd2d7a400fcadf6b8cfb0ea3172b78422c74e"
   license "BSD-3-Clause"
-  revision 6
-  head "https://github.com/PointCloudLibrary/pcl.git"
+  revision 7
+
+  stable do
+    url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.11.1.tar.gz"
+    sha256 "a61558e53abafbc909e0996f91cfd2d7a400fcadf6b8cfb0ea3172b78422c74e"
+
+    # VTK 9 will be supported in PCL 1.12.
+    depends_on "vtk@8.2"
+  end
 
   bottle do
     rebuild 2
@@ -13,6 +18,12 @@ class Pcl < Formula
     sha256 big_sur:       "28d8084197443d83e2c645397f1ac02424a23a796d43c83818fc776504c5ff7e"
     sha256 catalina:      "6fd5dffa364e69965ddc84b2567a9b5652c88f2fb9014f6a3bbc1d8fb612f089"
     sha256 mojave:        "53a69083aa676db47ad798d9d519f6c7db2fd85e6eed02c463add06a7c0485ea"
+  end
+
+  head do
+    url "https://github.com/PointCloudLibrary/pcl.git"
+
+    depends_on "vtk"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -26,7 +37,7 @@ class Pcl < Formula
   depends_on "libpcap"
   depends_on "libusb"
   depends_on "qhull"
-  depends_on "vtk@8.2"
+  depends_on "qt@5"
 
   def install
     args = std_cmake_args + %w[
@@ -43,7 +54,6 @@ class Pcl < Formula
       -DBUILD_simulation:BOOL=ON
       -DWITH_CUDA:BOOL=OFF
       -DWITH_DOCS:BOOL=OFF
-      -DWITH_QT:BOOL=FALSE
       -DWITH_TUTORIALS:BOOL=OFF
     ]
 
