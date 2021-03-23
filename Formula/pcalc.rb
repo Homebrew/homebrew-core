@@ -1,8 +1,8 @@
 class Pcalc < Formula
   desc "Calculator for those working with multiple bases, sizes, and close to the bits"
   homepage "https://github.com/alt-romes/programmer-calculator"
-  url "https://github.com/alt-romes/programmer-calculator/archive/v2.0.1.tar.gz"
-  sha256 "a3b8b59bd4da9a1ee39f73303e18005f2b4a45b655f7a7cca10aa9ce173610e7"
+  url "https://github.com/alt-romes/programmer-calculator/archive/v2.1.tar.gz"
+  sha256 "27cba8e04e73f1a2fbb4900abbf450fee07f7691c709addde21e5bb7a44c9988"
   license "GPL-3.0-or-later"
 
   bottle do
