@@ -18,10 +18,10 @@ class Just < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    man1.install "#{buildpath}/man/just.1"
-    bash_completion.install "#{buildpath}/completions/just.bash" => "just"
-    fish_completion.install "#{buildpath}/completions/just.fish"
-    zsh_completion.install "#{buildpath}/completions/just.zsh" => "_just"
+    man1.install "man/just.1"
+    bash_completion.install "completions/just.bash" => "just"
+    fish_completion.install "completions/just.fish"
+    zsh_completion.install "completions/just.zsh" => "_just"
   end
 
   test do
