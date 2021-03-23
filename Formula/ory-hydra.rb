@@ -1,8 +1,8 @@
 class OryHydra < Formula
   desc "OpenID Certified OAuth 2.0 Server and OpenID Connect Provider"
   homepage "https://www.ory.sh/hydra/"
-  url "https://github.com/ory/hydra/archive/v1.9.2.tar.gz"
-  sha256 "717d27efdb302cae2a57b0664b8cf3cb493d10ac7750a25162778cc256b1c006"
+  url "https://github.com/ory/hydra/archive/v1.9.3-pre.1.tar.gz"
+  sha256 "1a797980738c53e2d14dfadc3e1852f110541340e147ae2c0b7d8f87a4063133"
   license "Apache-2.0"
 
   bottle do
