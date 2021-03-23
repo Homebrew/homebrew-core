@@ -1,10 +1,20 @@
 class Hcxtools < Formula
   desc "Utils for conversion of cap/pcap/pcapng WiFi dump files"
   homepage "https://github.com/ZerBea/hcxtools"
-  url "https://github.com/ZerBea/hcxtools/archive/6.1.5.tar.gz"
-  sha256 "6229e46a1298ee6f883e25dafbf837fe6314476d4b3201e1ba63645569c862c7"
   license "MIT"
   head "https://github.com/ZerBea/hcxtools.git"
+
+  stable do # remove block when patch is no longer needed
+    url "https://github.com/ZerBea/hcxtools/archive/6.1.6.tar.gz"
+    sha256 "27b1b1ad722b9d82f8e92c6bec92d081159e5b8225bd2a477bf8d304ff4aeb03"
+
+    # Fix build failure on macOS. Remove at next release.
+    # https://github.com/ZerBea/hcxtools/issues/186
+    patch do
+      url "https://github.com/ZerBea/hcxtools/commit/f592df4bd1bfcc4ade8e6396587fd27dc8f154f5.patch?full_index=1"
+      sha256 "9393c16de231d6a77d395c4200e094bff38a937ae300dc7f56a69cc4a26644a1"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7203d4127bf7bffe5ef0ce0ac53bf06ef4d3d46f5acad23eb084268a1fd68df1"
