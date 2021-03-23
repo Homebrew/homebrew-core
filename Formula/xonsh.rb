@@ -6,7 +6,7 @@ class Xonsh < Formula
   url "https://files.pythonhosted.org/packages/39/af/ba93eb37f0340c3f225dcb45858aa6169c05b03f9044c528fe2e770952a0/xonsh-0.9.27.tar.gz"
   sha256 "82aa7c50eb161c74e0b12c4f9c772d228a1e90b21afb948c0dc9dfb2b63f5fd5"
   license "BSD-2-Clause-Views"
-  head "https://github.com/xonsh/xonsh.git"
+  head "https://github.com/xonsh/xonsh.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a789ba640efa248ae6dce5fab63d43e094e50fe2a3d6fab12a46aee3b0e8431f"
