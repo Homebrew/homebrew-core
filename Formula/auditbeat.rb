@@ -5,6 +5,7 @@ class Auditbeat < Formula
       tag:      "v7.11.2",
       revision: "1d9cced55410003f5d0b4594ff5471d15a4e2900"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/elastic/beats.git"
 
   bottle do
@@ -15,23 +16,19 @@ class Auditbeat < Formula
   end
 
   depends_on "go" => :build
+  depends_on "mage" => :build
   depends_on "python@3.9" => :build
 
   def install
     # remove non open source files
     rm_rf "x-pack"
 
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/elastic/beats").install buildpath.children
-    ENV.prepend_path "PATH", buildpath/"bin" # for mage (build tool)
-
-    cd "src/github.com/elastic/beats/auditbeat" do
+    cd "auditbeat" do
       # don't build docs because it would fail creating the combined OSS/x-pack
       # docs and we aren't installing them anyway
       inreplace "magefile.go", "devtools.GenerateModuleIncludeListGo, Docs)",
                                "devtools.GenerateModuleIncludeListGo)"
 
-      system "make", "mage"
       # prevent downloading binary wheels during python setup
       system "make", "PIP_INSTALL_PARAMS=--no-binary :all", "python-env"
       system "mage", "-v", "build"
@@ -41,8 +38,6 @@ class Auditbeat < Formula
       (libexec/"bin").install "auditbeat"
       prefix.install "build/kibana"
     end
-
-    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"auditbeat").write <<~EOS
       #!/bin/sh
