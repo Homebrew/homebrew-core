@@ -6,8 +6,9 @@ class Libgnt < Formula
   license "GPL-2.0"
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/libgnt[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    url "https://sourceforge.net/projects/pidgin/files/libgnt/"
+    regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
+    strategy :page_match
   end
 
   bottle do
