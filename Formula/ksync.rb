@@ -2,8 +2,8 @@ class Ksync < Formula
   desc "Sync files between your local system and a kubernetes cluster"
   homepage "https://ksync.github.io/ksync/"
   url "https://github.com/ksync/ksync.git",
-      tag:      "0.4.6",
-      revision: "bfb445b179a0405ab4a01b999010010406f425b7"
+      tag:      "0.4.7",
+      revision: "71ae4b6491fb17102e56a84198cfefe717901c79"
   license "Apache-2.0"
   head "https://github.com/ksync/ksync.git"
 
