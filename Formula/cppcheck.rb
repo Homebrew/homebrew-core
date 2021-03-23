@@ -1,8 +1,8 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/2.4.tar.gz"
-  sha256 "d1ac6a1eaf24f2f54df5a164c7e37d1e0624cc094a4622e226a73b53ede1eeb8"
+  url "https://github.com/danmar/cppcheck/archive/2.4.1.tar.gz"
+  sha256 "11a9d9fe5305a105561655c45d2cd83cb30fbc87b41d0569de1b00a1a314867f"
   license "GPL-3.0-or-later"
   head "https://github.com/danmar/cppcheck.git"
 
@@ -13,16 +13,21 @@ class Cppcheck < Formula
     sha256 mojave:        "316ad7e3082e78e9316b943c7adcce849cd02b0e0b0096e0ea8faf4b8eccf6aa"
   end
 
-  depends_on "python@3.9" => :test
+  depends_on "cmake" => :build
+  depends_on "python@3.9" => [:build, :test]
   depends_on "pcre"
 
+  uses_from_macos "libxml2"
+
   def install
-    ENV.cxx11
-
-    system "make", "HAVE_RULES=yes", "FILESDIR=#{prefix}/cfg"
-
-    # FILESDIR is relative to the prefix for install, don't add #{prefix}.
-    system "make", "DESTDIR=#{prefix}", "BIN=#{bin}", "FILESDIR=/cfg", "install"
+    args = std_cmake_args + %W[
+      -DHAVE_RULES=ON
+      -DUSE_MATCHCOMPILER=ON
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Move the python addons to the cppcheck pkgshare folder
     (pkgshare/"addons").install Dir.glob("addons/*.py")
