@@ -37,7 +37,7 @@ class Moc < Formula
   end
 
   livecheck do
-    url "http://ftp.daper.net/pub/soft/moc/stable/"
+    url "https://moc.daper.net/download"
     regex(/href=.*?moc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
