@@ -1,8 +1,8 @@
 class Igraph < Formula
   desc "Network analysis package"
   homepage "https://igraph.org/"
-  url "https://github.com/igraph/igraph/releases/download/0.9.0/igraph-0.9.0.tar.gz"
-  sha256 "012e5d5a50420420588c33ec114c6b3000ccde544db3f25c282c1931c462ad7a"
+  url "https://github.com/igraph/igraph/releases/download/0.9.1/igraph-0.9.1.tar.gz"
+  sha256 "1902810650e8f9d98feefa3eca735db5a879416d00a08f68aad2ca07964cee9f"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -14,16 +14,39 @@ class Igraph < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "arpack"
   depends_on "glpk"
-  depends_on "gmp"
-
-  on_linux do
-    depends_on "openblas"
-  end
+  depends_on "openblas"
 
   def install
     mkdir "build" do
-      system "cmake", "-G", "Unix Makefiles", "-DIGRAPH_ENABLE_TLS=ON", "..", *std_cmake_args
+      # explanation of extra options:
+      # * we want a shared library, not a static one
+      # * link-time optimization should be enabled if the compiler supports it
+      # * thread-local storage of global variables is enabled
+      # * GLPK is used as an external dependency
+      # * GraphML support should be compiled in (needs libxml2)
+      # * use external BLAS and LAPACK from OpenBLAS
+      # * use external ARPACK (also from Homebrew)
+      # * use vendored CXSparse (the entire SuiteSparse is too big
+      #   a dependency and igraph does not need most of it)
+      # * use external GLPK (also from Homebrew)
+      # * use vendored mini-GMP (external GMP has no additional benefits and it
+      #   is heavyweight)
+      system "cmake", "-G", "Unix Makefiles",
+                      "-DBUILD_SHARED_LIBS=ON",
+                      "-DIGRAPH_ENABLE_LTO=AUTO",
+                      "-DIGRAPH_ENABLE_TLS=ON",
+                      "-DIGRAPH_GLPK_SUPPORT=ON",
+                      "-DIGRAPH_GRAPHML_SUPPORT=ON",
+                      "-DIGRAPH_USE_INTERNAL_ARPACK=OFF",
+                      "-DIGRAPH_USE_INTERNAL_BLAS=OFF",
+                      "-DIGRAPH_USE_INTERNAL_CXSPARSE=ON",
+                      "-DIGRAPH_USE_INTERNAL_GLPK=OFF",
+                      "-DIGRAPH_USE_INTERNAL_GMP=ON",
+                      "-DIGRAPH_USE_INTERNAL_LAPACK=OFF",
+                      "-DBLA_VENDOR=OpenBLAS",
+                      "..", *std_cmake_args
       system "make"
       system "make", "install"
     end
