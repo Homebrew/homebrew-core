@@ -54,11 +54,17 @@ class Zip < Formula
 
     system "#{bin}/zip", "test.zip", "test1", "test2", "test3"
     assert_predicate testpath/"test.zip", :exist?
-    assert_match "test of test.zip OK", shell_output("#{bin}/zip -T test.zip")
+    on_macos do
+      # zip -T needs unzip, disabled under Linux to avoid a circular dependency
+      assert_match "test of test.zip OK", shell_output("#{bin}/zip -T test.zip")
+    end
 
     # test bzip2 support that should be automatically linked in using the bzip2 library in macOS
     system "#{bin}/zip", "-Z", "bzip2", "test2.zip", "test1", "test2", "test3"
     assert_predicate testpath/"test2.zip", :exist?
-    assert_match "test of test2.zip OK", shell_output("#{bin}/zip -T test2.zip")
+    on_macos do
+      # zip -T needs unzip, disabled under Linux to avoid a circular dependency
+      assert_match "test of test2.zip OK", shell_output("#{bin}/zip -T test2.zip")
+    end
   end
 end
