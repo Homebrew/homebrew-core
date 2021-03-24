@@ -16,7 +16,9 @@ class Igraph < Formula
   depends_on "cmake" => :build
   depends_on "arpack"
   depends_on "glpk"
+  depends_on "gmp"
   depends_on "openblas"
+  depends_on "suite-sparse"
 
   def install
     mkdir "build" do
@@ -24,15 +26,11 @@ class Igraph < Formula
       # * we want a shared library, not a static one
       # * link-time optimization should be enabled if the compiler supports it
       # * thread-local storage of global variables is enabled
-      # * GLPK is used as an external dependency
+      # * force the usage of external dependencies from Homebrew where possible
       # * GraphML support should be compiled in (needs libxml2)
-      # * use external BLAS and LAPACK from OpenBLAS
-      # * use external ARPACK (also from Homebrew)
-      # * use vendored CXSparse (the entire SuiteSparse is too big
-      #   a dependency and igraph does not need most of it)
-      # * use external GLPK (also from Homebrew)
-      # * use vendored mini-GMP (external GMP has no additional benefits and it
-      #   is heavyweight)
+      # * BLAS and LAPACK should come from OpenBLAS
+      # * prevent the usage of ccache even if it is installed to ensure that we
+      #    have a clean build
       system "cmake", "-G", "Unix Makefiles",
                       "-DBUILD_SHARED_LIBS=ON",
                       "-DIGRAPH_ENABLE_LTO=AUTO",
@@ -41,11 +39,12 @@ class Igraph < Formula
                       "-DIGRAPH_GRAPHML_SUPPORT=ON",
                       "-DIGRAPH_USE_INTERNAL_ARPACK=OFF",
                       "-DIGRAPH_USE_INTERNAL_BLAS=OFF",
-                      "-DIGRAPH_USE_INTERNAL_CXSPARSE=ON",
+                      "-DIGRAPH_USE_INTERNAL_CXSPARSE=OFF",
                       "-DIGRAPH_USE_INTERNAL_GLPK=OFF",
-                      "-DIGRAPH_USE_INTERNAL_GMP=ON",
+                      "-DIGRAPH_USE_INTERNAL_GMP=OFF",
                       "-DIGRAPH_USE_INTERNAL_LAPACK=OFF",
                       "-DBLA_VENDOR=OpenBLAS",
+                      "-DUSE_CCACHE=OFF",
                       "..", *std_cmake_args
       system "make"
       system "make", "install"
