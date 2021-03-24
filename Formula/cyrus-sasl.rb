@@ -5,13 +5,6 @@ class CyrusSasl < Formula
   sha256 "26866b1549b00ffd020f188a43c258017fa1c382b3ddadd8201536f72efb05d5"
   license "BSD-3-Clause-Attribution"
 
-  bottle do
-    sha256 arm64_big_sur: "bf65079be801e9e99253d9b2329f42dcf50ce38a76fe0b9cfd0a776651764765"
-    sha256 big_sur:       "383f79bf7d14b883c1b60a1356f3b94e1194ee90ad34b58b722f7ba06b4751d2"
-    sha256 catalina:      "15c3df25dde7304adaf9ab246f6387e08029c49bfe4a52726f0d3d1add0452c7"
-    sha256 mojave:        "5db405a2496c27205077235e0074767ae35fab10946325f108b425332f6c5c5e"
-  end
-
   keg_only :provided_by_macos
 
   depends_on "openssl@1.1"
