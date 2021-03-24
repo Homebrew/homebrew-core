@@ -34,7 +34,7 @@ class Dynare < Formula
   depends_on "suite-sparse"
 
   resource "io" do
-    url "https://octave.sourceforge.io/download.php?package=io-2.6.3.tar.gz"
+    url "https://octave.sourceforge.io/download.php?package=io-2.6.3.tar.gz", using: :nounzip
     sha256 "6bc63c6498d79cada01a6c4446f793536e0bb416ddec2a5201dd8d741d459e10"
   end
 
@@ -44,7 +44,7 @@ class Dynare < Formula
   end
 
   resource "statistics" do
-    url "https://octave.sourceforge.io/download.php?package=statistics-1.4.2.tar.gz"
+    url "https://octave.sourceforge.io/download.php?package=statistics-1.4.2.tar.gz", using: :nounzip
     sha256 "7976814f837508e70367548bfb0a6d30aa9e447d4e3a66914d069efb07876247"
   end
 
@@ -96,23 +96,20 @@ class Dynare < Formula
   test do
     ENV.cxx11
 
-    (testpath/"statistics").install resource("statistics")
-    (testpath/"io").install resource("io")
-
-    # Octave needs the resource tarballs, so we tar them back up
-    system "tar", "-zcf", "statistics.tar.gz", "./statistics"
-    system "tar", "-zcf", "io.tar.gz", "./io"
+    statistics = resource("statistics")
+    io = resource("io")
+    testpath.install statistics, io
 
     cp lib/"dynare/examples/bkk.mod", testpath
 
-    (testpath/"test.m").write <<~EOS
+    (testpath/"dyn_test.m").write <<~EOS
       pkg prefix #{testpath}/octave
-      pkg install io.tar.gz
-      pkg install statistics.tar.gz
+      pkg install io-#{io.version}.tar.gz
+      pkg install statistics-#{statistics.version}.tar.gz
       dynare bkk.mod console
     EOS
 
     system Formula["octave"].opt_bin/"octave", "--no-gui",
-           "-H", "--path", "#{lib}/dynare/matlab", "test.m"
+           "-H", "--path", "#{lib}/dynare/matlab", "dyn_test.m"
   end
 end
