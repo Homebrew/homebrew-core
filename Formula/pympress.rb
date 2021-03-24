@@ -53,6 +53,11 @@ class Pympress < Formula
   end
 
   test do
+    on_linux do
+      # (pympress:48790): Gtk-WARNING **: 13:03:37.080: cannot open display
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     system bin/"pympress", "--help"
 
     # Version info contained in log file only if all dependencies loaded successfully
