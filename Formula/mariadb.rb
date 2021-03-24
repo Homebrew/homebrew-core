@@ -27,6 +27,10 @@ class Mariadb < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   conflicts_with "mysql", "percona-server",
     because: "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mytop", because: "both install `mytop` binaries"
