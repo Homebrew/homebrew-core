@@ -21,15 +21,15 @@ class PyqtNetworkauth < Formula
 
   def install
     pyqt = Formula["pyqt"]
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    python = Formula["python@3.9"]
+    site_packages = Language::Python.site_packages(python)
 
     open("pyproject.toml", "a") do |f|
       f.puts "[tool.sip.project]"
-      f.puts "sip-include-dirs = [\"#{pyqt.opt_lib}/python#{xy}/site-packages/PyQt#{pyqt.version.major}/bindings\"]"
+      f.puts "sip-include-dirs = [\"#{pyqt.prefix/site_packages}/PyQt#{pyqt.version.major}/bindings\"]"
     end
 
-    system "sip-install", "--target-dir", prefix
-    (lib/"python#{xy}/site-packages").install %W[#{prefix}/PyQt#{pyqt.version.major} #{prefix}/PyQt#{pyqt.version.major}_NetworkAuth-#{version}.dist-info]
+    system "sip-install", "--target-dir", prefix/site_packages
   end
 
   test do
