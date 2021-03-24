@@ -21,6 +21,10 @@ class FluentBit < Formula
   depends_on "cmake" => :build
   depends_on "flex" => :build
 
+  on_linux do
+    depends_on "openssl@1.1"
+  end
+
   def install
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
