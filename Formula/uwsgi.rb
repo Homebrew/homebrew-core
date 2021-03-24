@@ -34,6 +34,10 @@ class Uwsgi < Formula
   uses_from_macos "openldap"
   uses_from_macos "perl"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
     # /usr/lib/system/libsystem_darwin.dylib on 10.11 and 10.12, respectively
