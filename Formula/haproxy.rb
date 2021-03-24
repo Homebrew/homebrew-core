@@ -22,8 +22,6 @@ class Haproxy < Formula
 
   def install
     args = %w[
-      TARGET=generic
-      USE_KQUEUE=1
       USE_POLL=1
       USE_PCRE=1
       USE_OPENSSL=1
@@ -31,6 +29,14 @@ class Haproxy < Formula
       USE_ZLIB=1
       ADDLIB=-lcrypto
     ]
+    on_macos do
+      args << "TARGET=generic"
+      # BSD only:
+      args << "USE_KQUEUE=1"
+    end
+    on_linux do
+      args << "TARGET=linux-glibc"
+    end
 
     # We build generic since the Makefile.osx doesn't appear to work
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}", "LDFLAGS=#{ENV.ldflags}", *args
