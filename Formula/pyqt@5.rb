@@ -24,8 +24,10 @@ class PyqtAT5 < Formula
 
   def install
     python = Formula["python@3.9"]
+    site_packages = prefix/Language::Python.site_packages(python)
+
     args = %W[
-      --target-dir #{prefix}
+      --target-dir #{site_packages}
       --no-make
       --confirm-license
       --no-designer-plugin
@@ -39,17 +41,12 @@ class PyqtAT5 < Formula
       system "make", "install"
     end
 
-    xy = Language::Python.major_minor_version python.bin/"python3"
-    (lib/"python#{xy}/site-packages").install %W[#{prefix}/PyQt#{version.major} #{prefix}/PyQt#{version.major}-#{version}.dist-info]
-
     resource("PyQt5-sip").stage do
       system python.bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
   test do
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV.append_path "PYTHONPATH", "#{opt_lib}/python#{xy}/site-packages"
     system "#{bin}/pyuic#{version.major}", "--version"
     system "#{bin}/pylupdate#{version.major}", "-version"
 
