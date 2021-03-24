@@ -1,8 +1,8 @@
 class Wskdeploy < Formula
   desc "Apache OpenWhisk project deployment utility"
   homepage "https://openwhisk.apache.org/"
-  url "https://github.com/apache/openwhisk-wskdeploy/archive/1.1.0.tar.gz"
-  sha256 "caf1f147c363a7324ce0c5d9851794c5671f56712888004c0db644de8f2a2169"
+  url "https://github.com/apache/openwhisk-wskdeploy/archive/1.2.0.tar.gz"
+  sha256 "bffe6f6ef2167189fc38893943a391aaf7327e9e6b8d27be1cc1c26535c06e86"
   license "Apache-2.0"
 
   bottle do
