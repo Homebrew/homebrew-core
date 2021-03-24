@@ -14,8 +14,11 @@ class Ext2fuse < Formula
   depends_on "e2fsprogs"
 
   on_macos do
-    deprecate! date: "2020-11-10", because: "requires FUSE"
+    if MacOS.version <= :catalina
     depends_on :osxfuse
+    else
+      depends_on :macfuse
+    end
   end
 
   on_linux do
