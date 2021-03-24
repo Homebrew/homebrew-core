@@ -4,6 +4,7 @@ class Foremost < Formula
   url "https://foremost.sourceforge.io/pkg/foremost-1.5.7.tar.gz"
   sha256 "502054ef212e3d90b292e99c7f7ac91f89f024720cd5a7e7680c3d1901ef5f34"
   license :public_domain
+  revision 1
 
   livecheck do
     url "http://foremost.sourceforge.net/"
@@ -26,7 +27,16 @@ class Foremost < Formula
       s.gsub!(/^RAW_FLAGS =/, "RAW_FLAGS = #{ENV.cflags}")
     end
 
-    system "make", "mac"
+    # Startup the command tries to look for the default config file in /usr/local,
+    # move it to etc instead
+    inreplace "config.c", "/usr/local/etc/", "#{etc}/"
+
+    on_macos do
+      system "make", "mac"
+    end
+    on_linux do
+      system "make"
+    end
 
     bin.install "foremost"
     man8.install "foremost.8.gz"
