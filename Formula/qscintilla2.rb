@@ -37,8 +37,9 @@ class Qscintilla2 < Formula
     end
 
     pyqt = Formula["pyqt@5"]
+    python = Formula["python@3.9"]
     qt = Formula["qt@5"]
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    site_packages = Language::Python.site_packages(python)
 
     cd "src" do
       inreplace "qscintilla.pro" do |s|
@@ -69,14 +70,14 @@ class Qscintilla2 < Formula
       mv "pyproject-qt#{qt.version.major}.toml", "pyproject.toml"
       (buildpath/"Python/pyproject.toml").append_lines <<~EOS
         [tool.sip.project]
-        sip-include-dirs = ["#{pyqt.opt_lib}/python#{xy}/site-packages/PyQt#{pyqt.version.major}/bindings"]
+        sip-include-dirs = ["#{pyqt.opt_prefix/site_packages}/PyQt#{pyqt.version.major}/bindings"]
       EOS
 
       # TODO: qt6 options
       # --qsci-features-dir #{share}/qt/mkspecs/features
       # --api-dir #{share}/qt/qsci/api/python
       args = %W[
-        --target-dir #{prefix}
+        --target-dir #{prefix/site_packages}
 
         --qsci-features-dir #{prefix}/data/mkspecs/features
         --qsci-include-dir #{include}
@@ -84,8 +85,6 @@ class Qscintilla2 < Formula
         --api-dir #{prefix}/data/qsci/api/python
       ]
       system "sip-install", *args
-
-      (lib/"python#{xy}/site-packages").install %W[#{prefix}/PyQt#{pyqt.version.major} #{prefix}/QScintilla-#{version}.dist-info]
     end
   end
 
