@@ -1,11 +1,10 @@
 class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
-  # Switch to use git tag/revision as needed by `lein-git-version`
   url "https://github.com/clojure-lsp/clojure-lsp.git",
-      tag:      "2021.03.06-17.05.35",
-      revision: "fe2e44152b8d680e560e3c7a854621404f6ee2c8"
-  version "20210306T170535"
+      tag:      "2021.03.24-00.41.55",
+      revision: "3cf38b47c953f7e21d535df4cb91a71a36f03d09"
+  version "20210324T004155"
   license "MIT"
   head "https://github.com/clojure-lsp/clojure-lsp.git"
 
@@ -25,15 +24,15 @@ class ClojureLsp < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "45f6603e80b995a0ea41fd33276a98aff8295cbd4aa7f3ea6a641618e6780de7"
   end
 
-  depends_on "leiningen" => :build
+  depends_on "clojure" => :build
   # The Java Runtime version only recognizes class file versions up to 52.0
   depends_on "openjdk@11"
 
   def install
-    system "lein", "uberjar"
-    jar = Dir["target/clojure-lsp-*-standalone.jar"][0]
+    system "clojure", "-X:prod-jar"
+    jar = "clojure-lsp.jar"
     libexec.install jar
-    bin.write_jar_script libexec/File.basename(jar), "clojure-lsp", java_version: "11"
+    bin.write_jar_script libexec/jar, "clojure-lsp", java_version: "11"
   end
 
   test do
