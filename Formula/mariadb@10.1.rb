@@ -25,6 +25,10 @@ class MariadbAT101 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
