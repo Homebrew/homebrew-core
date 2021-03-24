@@ -27,6 +27,12 @@ class Cvs < Formula
   depends_on "automake" => :build
   depends_on "gettext"
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   patch :p0 do
     url "https://opensource.apple.com/tarballs/cvs/cvs-47.tar.gz"
     sha256 "643d871d6c5f3aaa1f7be626d60bd83bbdcab0f61196f51cb81e8c20e41f808a"
