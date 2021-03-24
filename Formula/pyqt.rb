@@ -24,24 +24,21 @@ class Pyqt < Formula
 
   def install
     python = Formula["python@3.9"]
+    site_packages = prefix/Language::Python.site_packages(python)
+    # HACK: there is no option to set the plugindir
+    inreplace "project.py", "builder.qt_configuration['QT_INSTALL_PLUGINS']", "'#{share}/qt/plugins'"
+
     args = %W[
-      --target-dir #{prefix}
+      --target-dir #{site_packages}
       --no-make
       --confirm-license
     ]
     system "sip-build", *args
     cd "build" do
-      qt_prefix = Formula["qt"].prefix Formula["qt"].version
       inreplace "inventory.txt", python.opt_prefix, prefix
-      inreplace "inventory.txt", qt_prefix, prefix
       inreplace "Makefile", /(?<=\$\(INSTALL_ROOT\))#{Regexp.escape(python.opt_prefix)}/, prefix
-      inreplace "designer/Makefile", /(?<=\$\(INSTALL_ROOT\))#{Regexp.escape(qt_prefix)}/, prefix
-      inreplace "qmlscene/Makefile", /(?<=\$\(INSTALL_ROOT\))#{Regexp.escape(qt_prefix)}/, prefix
       system "make", "install"
     end
-
-    xy = Language::Python.major_minor_version python.bin/"python3"
-    (lib/"python#{xy}/site-packages").install %W[#{prefix}/PyQt#{version.major} #{prefix}/PyQt#{version.major}-#{version}.dist-info]
 
     resource("PyQt6-sip").stage do
       system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
