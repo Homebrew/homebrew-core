@@ -2,8 +2,8 @@ class Ksync < Formula
   desc "Sync files between your local system and a kubernetes cluster"
   homepage "https://ksync.github.io/ksync/"
   url "https://github.com/ksync/ksync.git",
-      tag:      "0.4.7",
-      revision: "71ae4b6491fb17102e56a84198cfefe717901c79"
+      tag:      "0.4.7-hotfix",
+      revision: "14ec9e24670b90ee45d4571984e58d3bff02c50e"
   license "Apache-2.0"
   head "https://github.com/ksync/ksync.git"
 
@@ -18,11 +18,6 @@ class Ksync < Formula
   depends_on "go" => :build
 
   def install
-    # Remove this when upstream provide working go.sum files
-    # (i.e. it builds without errors)
-    # https://github.com/ksync/ksync/issues/504
-    system "go", "mod", "tidy"
-
     project = "github.com/ksync/ksync"
     ldflags = %W[
       -w
