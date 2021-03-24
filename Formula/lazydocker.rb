@@ -2,8 +2,8 @@ class Lazydocker < Formula
   desc "Lazier way to manage everything docker"
   homepage "https://github.com/jesseduffield/lazydocker"
   url "https://github.com/jesseduffield/lazydocker.git",
-      tag:      "v0.10",
-      revision: "ff0a53bfadfb1bfef5a0e3db023d57fed36fe4eb"
+      tag:      "v0.12",
+      revision: "6fd5337cc272289463eb562606e67515f48b4aff"
   license "MIT"
 
   bottle do
