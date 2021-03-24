@@ -27,7 +27,7 @@ class Instead < Formula
       system "cmake", "..", "-DWITH_GTK2=OFF",
                             "-DWITH_LUAJIT=ON",
                             "-DLUA_INCLUDE_DIR=#{luajit.opt_include}/luajit-2.1",
-                            "-DLUA_LIBRARY=#{luajit.opt_lib}/libluajit.dylib",
+                            "-DLUA_LIBRARY=#{luajit.opt_lib}/#{shared_library("libluajit")}",
                             *std_cmake_args
       system "make", "install"
     end
