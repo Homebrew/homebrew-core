@@ -26,6 +26,10 @@ class MariadbAT102 < Formula
   depends_on "groonga"
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
     # without needing an explicit path to be set. This can still
