@@ -18,6 +18,10 @@ class GoogleAuthenticatorLibpam < Formula
   depends_on "libtool" => :build
   depends_on "qrencode"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     system "./bootstrap.sh"
     system "./configure", "--disable-dependency-tracking",
