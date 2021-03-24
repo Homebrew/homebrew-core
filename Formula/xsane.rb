@@ -34,6 +34,11 @@ class Xsane < Formula
   end
 
   test do
+    on_linux do
+      # (xsane:27015): Gtk-WARNING **: 12:58:53.105: cannot open display
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     system "#{bin}/xsane", "--version"
   end
 end
