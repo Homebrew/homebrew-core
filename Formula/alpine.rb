@@ -22,6 +22,11 @@ class Alpine < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "ncurses"
+  uses_from_macos "openldap"
+
+  on_linux do
+    depends_on "linux-pam"
+  end
 
   def install
     ENV.deparallelize
