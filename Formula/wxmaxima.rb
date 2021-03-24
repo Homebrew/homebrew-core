@@ -44,6 +44,11 @@ class Wxmaxima < Formula
   end
 
   test do
+    on_linux do
+      # Error: Unable to initialize GTK+, is DISPLAY set properly
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     assert_match "algebra", shell_output("#{bin}/wxmaxima --help 2>&1")
   end
 end
