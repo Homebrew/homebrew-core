@@ -1,8 +1,8 @@
 class Sops < Formula
   desc "Editor of encrypted files"
   homepage "https://github.com/mozilla/sops"
-  url "https://github.com/mozilla/sops/archive/v3.6.1.tar.gz"
-  sha256 "bb6611eb70580ff74a258aa8b9713fdcb9a28de5a20ee716fe6b516608a60237"
+  url "https://github.com/mozilla/sops/archive/v3.7.0.tar.gz"
+  sha256 "909496eaed98f6ff4fadc216ad904ef2d2a82ff229e6af6cc0cb1625e2df5d83"
   license "MPL-2.0"
   head "https://github.com/mozilla/sops.git", branch: "develop"
 
