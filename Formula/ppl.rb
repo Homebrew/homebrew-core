@@ -1,11 +1,16 @@
 class Ppl < Formula
   desc "Parma Polyhedra Library: numerical abstractions for analysis, verification"
-  homepage "https://bugseng.com/ppl"
+  homepage "https://www.bugseng.com/ppl"
   url "https://www.bugseng.com/products/ppl/download/ftp/releases/1.2/ppl-1.2.tar.xz"
   mirror "https://deb.debian.org/debian/pool/main/p/ppl/ppl_1.2.orig.tar.xz"
   sha256 "691f0d5a4fb0e206f4e132fc9132c71d6e33cdda168470d40ac3cf62340e9a60"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 1
+
+  livecheck do
+    url "https://www.bugseng.com/ppl-download"
+    regex(/href=.*?ppl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "f607e5d5ebefa0cb480bc84b1ba6e4eb1f2f07e7d7a00ae1f4c71958b5c82323"
