@@ -25,17 +25,7 @@ class ParquetTools < Formula
     sha256 "5caf572cb0df5ce9d6893609de82d2369b42c3c81c611847b6f921d912040118"
   end
 
-  # based on https://github.com/apache/parquet-mr/pull/809
-  patch do
-    url "https://github.com/apache/parquet-mr/commit/b6d07ae0744ba47aa9a8868ef2d7cbb232a60b22.patch?full_index=1"
-    sha256 "200999012f743454cd525572bf848cd48b26051916a2d468474823a0aa2ccf61"
-  end
-
   def install
-    # Mimic changes from https://github.com/apache/parquet-mr/pull/826
-    # See https://issues.apache.org/jira/browse/PARQUET-1923
-    inreplace "pom.xml", "<hadoop.version>2.7.3</hadoop.version>", "<hadoop.version>2.10.1</hadoop.version>"
-
     cd "parquet-tools" do
       system "mvn", "clean", "package", "-Plocal"
       libexec.install "target/parquet-tools-#{version}.jar"
