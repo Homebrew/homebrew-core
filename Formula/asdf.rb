@@ -28,7 +28,7 @@ class Asdf < Formula
 
   def caveats
     <<~EOS
-      Add shims in $PATH by having the following line your ~/.zshenv or #{shell_profile}:
+      Add shims in $PATH by having the following line your #{shell_profile}:
         export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
       If you use Fish shell add the following line to your ~/.config/fish/config.fish:
         set PATH (
