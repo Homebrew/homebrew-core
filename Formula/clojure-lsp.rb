@@ -26,7 +26,6 @@ class ClojureLsp < Formula
   
   disable! date: "2021-03-25", because: "does not provide the native binary, which is the recommended way of using clojure-lsp now. Please see https://github.com/clojure-lsp/homebrew-brew"
 
-
   depends_on "clojure" => :build
   # The Java Runtime version only recognizes class file versions up to 52.0
   depends_on "openjdk@11"
