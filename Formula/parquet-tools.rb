@@ -16,6 +16,9 @@ class ParquetTools < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "3fba4dc621d0ddb6e8cb648dba43398d98e37e0f954130353f368b6f849e6f06"
   end
 
+  # See https://issues.apache.org/jira/browse/PARQUET-1666
+  deprecate! date: "2021-03-25", because: :deprecated_upstream
+
   depends_on "maven" => :build
   depends_on "openjdk"
 
