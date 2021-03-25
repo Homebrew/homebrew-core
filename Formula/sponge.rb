@@ -5,6 +5,11 @@ class Sponge < Formula
   sha256 "4fc86d56a8a276a0cec71cdabda5ccca50c7a44a2a1ccd888476741d1ce6831d"
   license "GPL-2.0-only"
 
+  livecheck do
+    url "https://git.joeyh.name/index.cgi/moreutils.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5b0e74d146e19640d3075302bdd5ad212bee4971c12b3420f043d61c5a037081"
