@@ -1,10 +1,12 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v4.0.0.0.tar.gz"
-  sha256 "4f3513c43edf0178391ed5755266864532716b8b503bcfb9a983ae6256c51b14"
+  # The build system uses git to recover version information
+  url "https://github.com/EttusResearch/uhd.git",
+      tag:      "v4.0.0.0",
+      revision: "90ce6062b6b5df2eddeee723777be85108e4e7c7"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 1
+  revision 2
   head "https://github.com/EttusResearch/uhd.git"
 
   livecheck do
@@ -21,6 +23,7 @@ class Uhd < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libusb"
   depends_on "python@3.9"
@@ -47,6 +50,6 @@ class Uhd < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/uhd_config_info --version")
+    assert_match version.major_minor_patch.to_s, shell_output("#{bin}/uhd_config_info --version")
   end
 end
