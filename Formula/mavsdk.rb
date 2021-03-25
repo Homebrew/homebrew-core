@@ -23,12 +23,22 @@ class Mavsdk < Formula
   depends_on "curl"
   depends_on "grpc"
   depends_on "jsoncpp"
+  depends_on macos: :catalina # Mojave libc++ is too old
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "re2"
   depends_on "tinyxml2"
 
   uses_from_macos "zlib"
+
+  # Fix build error on Catalina
+  # error: use of undeclared identifier 'MSG_NOSIGNAL'
+  # Remove when the following PR has landed in a release:
+  # https://github.com/mavlink/MAVSDK/pull/1382
+  patch do
+    url "https://github.com/mavlink/MAVSDK/commit/43f8713d3793955d6fe4793592e81b5a1f998439.patch?full_index=1"
+    sha256 "6219405c44c7c78ab843734afa1ab708d96a376c49708f3cbf686f7edb5f46c3"
+  end
 
   def install
     # Source build adapted from
