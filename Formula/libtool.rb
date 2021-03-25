@@ -5,7 +5,7 @@ class Libtool < Formula
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c4f95f52617ef0d9a6ec19b5c581241be4593497cd120e42621f55b0ae9548b6"
@@ -15,7 +15,7 @@ class Libtool < Formula
     sha256 cellar: :any, high_sierra:   "60c7d86f9364e166846f8d3fb2ba969e6ca157e7ecbbb42a1de259116618c2ba"
   end
 
-  uses_from_macos "m4" => :build
+  depends_on "m4"
 
   # Fixes the build on macOS 11:
   # https://lists.gnu.org/archive/html/libtool-patches/2020-06/msg00001.html
@@ -30,8 +30,6 @@ class Libtool < Formula
        config-h.in libltdl/config-h.in configure libltdl/configure].each do |file|
       touch file
     end
-
-    ENV["SED"] = "sed" # prevent libtool from hardcoding sed path from superenv
 
     args = %W[
       --disable-dependency-tracking
