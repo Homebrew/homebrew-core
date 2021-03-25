@@ -49,6 +49,7 @@ class Mavsdk < Formula
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DBUILD_MAVSDK_SERVER=ON",
                     "-DBUILD_TESTS=OFF",
+                    "-DCMAKE_INSTALL_RPATH=#{lib}",
                     "-H."
     system "cmake", "--build", "build/default"
     system "cmake", "--build", "build/default", "--target", "install"
