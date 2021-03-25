@@ -1,13 +1,10 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
+  url "https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/emacs/emacs-27.2.tar.xz"
+  sha256 "b4a7cc4e78e63f378624e0919215b910af5bb2a0afc819fad298272e9f40c1b9"
   license "GPL-3.0-or-later"
-
-  stable do
-    url "https://ftp.gnu.org/gnu/emacs/emacs-27.2.tar.xz"
-    mirror "https://ftpmirror.gnu.org/emacs/emacs-27.2.tar.xz"
-    sha256 "b4a7cc4e78e63f378624e0919215b910af5bb2a0afc819fad298272e9f40c1b9"
-  end
 
   bottle do
     sha256 arm64_big_sur: "f08cd18fa19f49b85606cc4a871272ef4ff9da656c4c952bd91ac03a70dbb0e3"
