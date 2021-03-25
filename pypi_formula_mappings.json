@@ -36,6 +36,12 @@
     "exclude_packages": ["tabulate"]
   },
   "diffoscope": "diffoscope[cmdline]",
+  "dvc": {
+    "extra_packages": [
+        "gcsfs", "pydrive", "six", "boto3", "adlfs", "azure-identity", "knack",
+        "oss2", "pycryptodome", "paramiko[invoke]", "webdavclient3"
+    ]
+  },
   "ipython": {
     "extra_packages": ["ipykernel"]
   },
