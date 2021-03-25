@@ -31,7 +31,7 @@ class Sqldiff < Formula
     dbpath = testpath/"test.sqlite"
     sqlpath = testpath/"test.sql"
     sqlpath.write "create table test (name text);"
-    system "/usr/bin/sqlite3 #{dbpath} < #{sqlpath}"
+    system "sqlite3 #{dbpath} < #{sqlpath}"
     assert_equal "test: 0 changes, 0 inserts, 0 deletes, 0 unchanged",
                  shell_output("#{bin}/sqldiff --summary #{dbpath} #{dbpath}").strip
   end
