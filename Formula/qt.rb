@@ -23,7 +23,7 @@ class Qt < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: :build
+  depends_on xcode: [:build, :test]
 
   depends_on "assimp"
   depends_on "dbus"
@@ -39,13 +39,13 @@ class Qt < Formula
   depends_on "libtiff"
   depends_on "pcre2"
   depends_on "python@3.9"
+  depends_on "sqlite"
   depends_on "webp"
   depends_on "zstd"
 
   uses_from_macos "cups"
   uses_from_macos "krb5"
   uses_from_macos "perl"
-  uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
   resource "qtimageformats" do
@@ -85,9 +85,10 @@ class Qt < Formula
       -system-sqlite
     ]
 
+    # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
+    # and `-DTEST_assimp=ON` when Qt 6.2 is released.
+    # See https://bugreports.qt.io/browse/QTBUG-91537
     cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"]||s["CMAKE_FIND_FRAMEWORK"] } + %W[
-      -DICU_ROOT=#{Formula["icu4c"].opt_prefix}
-
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
       -DCMAKE_FIND_FRAMEWORK=FIRST
 
@@ -126,7 +127,7 @@ class Qt < Formula
 
   test do
     (testpath/"CMakeLists.txt").write <<~EOS
-      cmake_minimum_required(VERSION 3.19.0)
+      cmake_minimum_required(VERSION #{Formula["cmake"].version})
 
       project(test VERSION 1.0.0 LANGUAGES CXX)
 
@@ -196,8 +197,6 @@ class Qt < Formula
     system "make"
     system "./test"
 
-    # Work around "error: no member named 'signbit' in the global namespace"
-    ENV.delete "CPATH"
     system bin/"qmake", testpath/"test.pro"
     system "make"
     system "./test"
