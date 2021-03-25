@@ -60,8 +60,8 @@ class Opus < Formula
         return err;
       }
     EOS
-    system ENV.cxx, "-I#{include}/opus", "-L#{lib}", "-lopus",
-           testpath/"test.cpp", "-o", "test"
+    system ENV.cxx, "-I#{include}/opus", testpath/"test.cpp",
+           "-L#{lib}", "-lopus", "-o", "test"
     system "./test"
   end
 end
