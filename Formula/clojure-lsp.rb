@@ -23,7 +23,7 @@ class ClojureLsp < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "352d8a0f6581fc9e56e7ec103f716f966995eeb2d0d9a2065bf4b4fcb9630160"
     sha256 cellar: :any_skip_relocation, mojave:        "d1e46a6739dbc18dd5366855a5de4a2bf55957f453bbc70b5a38b768c845c833"
   end
-  
+
   disable! date: "2021-03-25", because: "does not provide the native binary, which is the recommended way of using clojure-lsp now.\
 Please see https://github.com/clojure-lsp/homebrew-brew"
 
