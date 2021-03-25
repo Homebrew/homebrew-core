@@ -26,16 +26,15 @@ class ParquetTools < Formula
   end
 
   def install
-    cd "parquet-tools" do
-      system "mvn", "clean", "package", "-Plocal"
-      libexec.install "target/parquet-tools-#{version}.jar"
-      bin.write_jar_script libexec/"parquet-tools-#{version}.jar", "parquet-tools"
+    cd "parquet-tools-deprecated" do
+      system "mvn", "clean", "package", "-Plocal", "-DskipTests=true"
+      libexec.install "target/parquet-tools-deprecated-#{version}.jar"
+      bin.write_jar_script libexec/"parquet-tools-deprecated-#{version}.jar", "parquet-tools"
     end
   end
 
   test do
-    resource("test-parquet").stage(testpath)
-    system "#{bin}/parquet-tools", "cat", testpath/"homebrew.parquet"
+    resource("test-parquet").stage testpath
 
     output = shell_output("#{bin}/parquet-tools cat #{testpath}/homebrew.parquet")
     assert_match "values = Homebrew", output
