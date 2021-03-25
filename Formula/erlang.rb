@@ -2,8 +2,8 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-23.2.7.tar.gz"
-  sha256 "db84414c42ef5c9d472ddf780cad6f210c2344b22ecd59ca57527bf043ea0943"
+  url "https://github.com/erlang/otp/archive/OTP-23.3.tar.gz"
+  sha256 "a9dfe9ea762b9f06f67af6074bed0f75705e1f114b9c45634db7d7cac2a293da"
   license "Apache-2.0"
   head "https://github.com/erlang/otp.git"
 
@@ -28,9 +28,9 @@ class Erlang < Formula
   uses_from_macos "m4" => :build
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_23.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_23.2.tar.gz"
-    sha256 "1f58e16826a8b9f86e10ca057f4e3e3e0304dcd3cf46fe2cef6f5c1d56196fc8"
+    url "https://www.erlang.org/download/otp_doc_html_23.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_23.3.tar.gz"
+    sha256 "03d86ac3e71bb58e27d01743a9668c7a1265b573541d4111590f0f3ec334383e"
   end
 
   def install
