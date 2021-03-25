@@ -3,8 +3,8 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/95/53/dfe1c1379677d0333bce40fcd10a42fbe5439fb561b61b8b8af47bd81bcf/streamlink-2.1.0.tar.gz"
-  sha256 "931383cefe385548ed9d371452741272512b6c75d6a6563935873d0efdf65a21"
+  url "https://files.pythonhosted.org/packages/05/da/5f25244ae3fbfdc712fea9bb4d3a158b365a8d8240f2949b2b0bf411cddb/streamlink-2.1.1.tar.gz"
+  sha256 "59c56540a137e2544b93c685e36e2fc005bffd0395293b05e7110c1e8b52545e"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git"
 
