@@ -6,6 +6,7 @@ class Streamlink < Formula
   url "https://files.pythonhosted.org/packages/05/da/5f25244ae3fbfdc712fea9bb4d3a158b365a8d8240f2949b2b0bf411cddb/streamlink-2.1.1.tar.gz"
   sha256 "59c56540a137e2544b93c685e36e2fc005bffd0395293b05e7110c1e8b52545e"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/streamlink/streamlink.git"
 
   bottle do
@@ -85,6 +86,7 @@ class Streamlink < Formula
 
   def install
     virtualenv_install_with_resources
+    man1.install_symlink libexec/"share/man/man1/streamlink.1"
   end
 
   test do
