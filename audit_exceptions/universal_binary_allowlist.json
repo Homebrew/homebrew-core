@@ -20,5 +20,6 @@
   "openjdk",
   "openjdk@11",
   "serverless",
-  "sourcery"
+  "sourcery",
+  "swift"
 ]
