@@ -14,6 +14,13 @@ class Latexindent < Formula
 
   depends_on "perl"
 
+  on_macos do
+    resource "Mac::SystemDirectory" do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Mac-SystemDirectory-0.13.tar.gz"
+      sha256 "8730740e4ff3ea4812139b0787dbd1b544e093a08218d908071629b70fde3684"
+    end
+  end
+
   resource "B::Hooks::EndOfScope" do
     url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/B-Hooks-EndOfScope-0.24.tar.gz"
     sha256 "03aa3dfe5d0aa6471a96f43fe8318179d19794d4a640708f0288f9216ec7acc6"
@@ -77,11 +84,6 @@ class Latexindent < Formula
   resource "MRO::Compat" do
     url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.13.tar.gz"
     sha256 "8a2c3b6ccc19328d5579d02a7d91285e2afd85d801f49d423a8eb16f323da4f8"
-  end
-
-  resource "Mac::SystemDirectory" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Mac-SystemDirectory-0.13.tar.gz"
-    sha256 "8730740e4ff3ea4812139b0787dbd1b544e093a08218d908071629b70fde3684"
   end
 
   resource "Module::Build" do
