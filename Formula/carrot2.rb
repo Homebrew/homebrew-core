@@ -2,8 +2,8 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://project.carrot2.org"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.1.0",
-      revision: "84fab40554501d653194c8f233ec4b137cd881ae"
+      tag:      "release/4.2.1",
+      revision: "936bcf7fa48e03fafffdf4e6f15b36074d161e6e"
   license "Apache-2.0"
 
   bottle do
@@ -21,14 +21,14 @@ class Carrot2 < Formula
       /expectedGradleVersion = '[^']+'/,
       "expectedGradleVersion = '#{Formula["gradle"].version}'"
 
-    system "gradle", "assemble"
+    system "gradle", "assemble", "--no-daemon"
 
     cd "distribution/build/dist" do
       inreplace "dcs/conf/logging/appender-file.xml", "${dcs:home}/logs", var/"log/carrot2"
       libexec.install Dir["*"]
     end
 
-    (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs.sh",
+    (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs",
       JAVA_CMD:    "exec '#{Formula["openjdk"].opt_bin}/java'",
       SCRIPT_HOME: libexec/"dcs"
   end
