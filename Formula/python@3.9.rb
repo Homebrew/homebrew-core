@@ -5,7 +5,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz"
   sha256 "3c2034c54f811448f516668dce09d24008a0716c3a794dd8639b5388cbde247d"
   license "Python-2.0"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -285,6 +285,9 @@ class PythonAT39 < Formula
       s.gsub! "    (\"pip\", _PIP_VERSION, \"py2.py3\"),", "    (\"pip\", _PIP_VERSION, \"py3\"),"
     end
 
+    # Write out sitecustomize.py
+    (lib_cellar/"sitecustomize.py").atomic_write(sitecustomize)
+
     # Install unversioned symlinks in libexec/bin.
     {
       "idle"          => "idle3",
@@ -309,9 +312,8 @@ class PythonAT39 < Formula
     site_packages_cellar.unlink if site_packages_cellar.exist?
     site_packages_cellar.parent.install_symlink site_packages
 
-    # Write our sitecustomize.py
+    # Remove old sitecustomize.py. Now stored in the cellar.
     rm_rf Dir["#{site_packages}/sitecustomize.py[co]"]
-    (site_packages/"sitecustomize.py").atomic_write(sitecustomize)
 
     # Remove old setuptools installations that may still fly around and be
     # listed in the easy_install.pth. This can break setuptools build with
@@ -422,6 +424,10 @@ class PythonAT39 < Formula
               if sys.exec_prefix == sys.base_exec_prefix:
                   sys.exec_prefix = new_exec_prefix
               sys.base_exec_prefix = new_exec_prefix
+      # Check for and add the python-tk prefix.
+      tkinter_prefix = "#{HOMEBREW_PREFIX}/opt/python-tk@#{version.major_minor}/libexec"
+      if os.path.isdir(tkinter_prefix):
+          sys.path.append(tkinter_prefix)
     EOS
   end
 
@@ -463,7 +469,7 @@ class PythonAT39 < Formula
 
     # tkinter is provided in a separate formula
     assert_match "ModuleNotFoundError: No module named '_tkinter'",
-                 shell_output("#{bin}/python#{version.major_minor} -c 'import tkinter' 2>&1", 1)
+                 shell_output("#{bin}/python#{version.major_minor} -Sc 'import tkinter' 2>&1", 1)
 
     # Verify that the selected DBM interface works
     (testpath/"dbm_test.py").write <<~EOS
