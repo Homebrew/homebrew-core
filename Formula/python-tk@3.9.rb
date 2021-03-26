@@ -5,6 +5,7 @@ class PythonTkAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz"
   sha256 "3c2034c54f811448f516668dce09d24008a0716c3a794dd8639b5388cbde247d"
   license "Python-2.0"
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -39,8 +40,9 @@ class PythonTkAT39 < Formula
               ]
         )
       EOS
-      system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
-      rm_r Dir[lib/"python3.9/site-packages/*.egg-info"]
+      system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(libexec),
+                                                  "--install-lib=#{libexec}"
+      rm_r Dir[libexec/"*.egg-info"]
     end
   end
 
