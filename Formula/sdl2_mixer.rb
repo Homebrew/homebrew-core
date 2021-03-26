@@ -4,6 +4,7 @@ class Sdl2Mixer < Formula
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz"
   sha256 "b4cf5a382c061cd75081cf246c2aa2f9df8db04bdda8dcdc6b6cca55bede2419"
   license "Zlib"
+  revision 1
   head "https://hg.libsdl.org/SDL_mixer", using: :hg
 
   livecheck do
@@ -21,6 +22,7 @@ class Sdl2Mixer < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "flac"
   depends_on "libmodplug"
   depends_on "libvorbis"
   depends_on "sdl2"
@@ -31,7 +33,7 @@ class Sdl2Mixer < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
-      --disable-music-flac
+      --enable-music-flac
       --disable-music-flac-shared
       --disable-music-midi-fluidsynth
       --disable-music-midi-fluidsynth-shared
