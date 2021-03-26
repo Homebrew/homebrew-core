@@ -1,8 +1,8 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/3.38/evince-3.38.2.tar.xz"
-  sha256 "27d419d5fed6305e074628edcfde0cb734fffda205d63cac323391c04903bd94"
+  url "https://download.gnome.org/sources/evince/40/evince-40.0.tar.xz"
+  sha256 "0c0c01fe00de395019b1e0b3ec555964b3c8416624828e590c9deb536ed63891"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -24,6 +24,7 @@ class Evince < Formula
   depends_on "hicolor-icon-theme"
   depends_on "libarchive"
   depends_on "libgxps"
+  depends_on "libhandy"
   depends_on "libsecret"
   depends_on "libspectre"
   depends_on "poppler"
