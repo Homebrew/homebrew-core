@@ -26,8 +26,8 @@ class Usbredir < Formula
   # Upstream patch, remove for next release
   # https://gitlab.freedesktop.org/spice/usbredir/issues/9
   patch do
-    url "https://gitlab.freedesktop.org/spice/usbredir/commit/985e79d5f98d5586d87204317462549332c1dd46.patch"
-    sha256 "2647e12ce39b509d4b5afec12643da76a7eea978241d2169e8eded44c8108a33"
+    url "https://gitlab.freedesktop.org/spice/usbredir/commit/985e79d5f98d5586d87204317462549332c1dd46.diff"
+    sha256 "21c0da8f6be94764e1e3363f5ed76ed070b5087034420cb17a81da06e4b73f83"
   end
 
   def install
