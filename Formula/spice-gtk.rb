@@ -52,8 +52,8 @@ class SpiceGtk < Formula
 
   # Upstream patch: https://gitlab.freedesktop.org/spice/spice-gtk/issues/88
   patch do
-    url "https://gitlab.freedesktop.org/spice/spice-gtk/commit/3c9b37bfc7c88969dfe16b8bfd874745e0fceb8a.patch"
-    sha256 "893878f2682d663cce38b9769f08e68fd7d60d650f4974728f380847d87dcbc1"
+    url "https://gitlab.freedesktop.org/spice/spice-gtk/commit/3c9b37bfc7c88969dfe16b8bfd874745e0fceb8a.diff"
+    sha256 "c2bb9c6dc0d07f333d10077987386680818296f1deb3b796ea7e35453aba7d91"
   end
 
   def install
