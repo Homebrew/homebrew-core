@@ -1,8 +1,8 @@
 class DhallLspServer < Formula
   desc "Language Server Protocol (LSP) server for Dhall"
   homepage "https://github.com/dhall-lang/dhall-haskell/tree/master/dhall-lsp-server"
-  url "https://hackage.haskell.org/package/dhall-lsp-server-1.0.13/dhall-lsp-server-1.0.13.tar.gz"
-  sha256 "530587160dc993e820c5be0eadb55d703f2510b29efcf59b3d1cdc5b5b0f4532"
+  url "https://hackage.haskell.org/package/dhall-lsp-server-1.0.14/dhall-lsp-server-1.0.14.tar.gz"
+  sha256 "4962f3b272a9fd4ce36c509094a391394167ec2cb08802ec8680994c0707c8cb"
   license "BSD-3-Clause"
   head "https://github.com/dhall-lang/dhall-haskell.git"
 
