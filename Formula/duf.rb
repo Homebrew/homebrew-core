@@ -6,6 +6,11 @@ class Duf < Formula
   license "MIT"
   head "https://github.com/muesli/duf.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ee0e42d0616cf301e64fdcf1e4258b5f2dc0a3142447545ae4fe5a7a63e5c8d3"
     sha256 cellar: :any_skip_relocation, big_sur:       "7b4d9f133d69a9b09f086b12019abe91deb60aa41a8404cd948bccf13397e2f7"
