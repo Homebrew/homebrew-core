@@ -16,6 +16,8 @@ class Leaf < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "leaf-proxy", because: "both install `leaf` binaries"
+
   def install
     system "go", "build", *std_go_args, "./cmd/leaf/main.go"
   end
