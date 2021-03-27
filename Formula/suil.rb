@@ -28,8 +28,8 @@ class Suil < Formula
   # Disable qt5_in_gtk3 because it depends upon X11
   # Can be removed if https://gitlab.com/lv2/suil/-/merge_requests/1 is merged
   patch do
-    url "https://gitlab.com/lv2/suil/-/commit/33ea47e18ddc1eb384e75622c0e75164d351f2c0.patch"
-    sha256 "10dddc02f0a61f03babb4d9692a63aaa2dc9e66e364a2c3098ec5710822002fd"
+    url "https://gitlab.com/lv2/suil/-/commit/33ea47e18ddc1eb384e75622c0e75164d351f2c0.diff"
+    sha256 "2f335107e26c503460965953f94410e458c5e8dd86a89ce039f65c4e3ae16ba7"
   end
 
   def install
