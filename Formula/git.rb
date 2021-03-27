@@ -23,13 +23,13 @@ class Git < Formula
   depends_on "pcre2"
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.31.0.tar.xz"
-    sha256 "2ff3c0403870c3f02cdd46af1cd749b0c5d7826bfe00bee09ba1d0c2f19f554b"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.31.1.tar.xz"
+    sha256 "ae94a6b128d1972a8b4041af9fc529ece96a9f2a13952ff843262ccb7bc1642c"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.31.0.tar.xz"
-    sha256 "185ddcbc31ae6b8d33c3ab78f6022ee6cc79dd867c1b2e5c3767821124e780ec"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.31.1.tar.xz"
+    sha256 "5d0d443c57155da2f201584d4c8c5ad10a0a24ff3af3a7a77cdc8f56dddac702"
   end
 
   resource "Net::SMTP::SSL" do
