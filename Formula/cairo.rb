@@ -42,8 +42,8 @@ class Cairo < Formula
   # Avoid segfaults on Big Sur. Remove at version bump.
   # https://gitlab.freedesktop.org/cairo/cairo/-/issues/420
   patch do
-    url "https://gitlab.freedesktop.org/cairo/cairo/-/commit/e22d7212acb454daccc088619ee147af03883974.patch"
-    sha256 "363a6018efc52721e2eace8df3aa319c93f3ad765ef7e3ea04e2ddd4ee94d0e1"
+    url "https://gitlab.freedesktop.org/cairo/cairo/-/commit/e22d7212acb454daccc088619ee147af03883974.diff"
+    sha256 "3b98004d7321c06d294fa901ac91964b6a4277ce4e53ef0cf98bf89e00d93332"
   end
 
   def install
