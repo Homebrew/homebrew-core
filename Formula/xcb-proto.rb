@@ -20,8 +20,8 @@ class XcbProto < Formula
   # Fix for Python 3.9. Use math.gcd() for Python >= 3.5.
   # fractions.gcd() has been deprecated since Python 3.5.
   patch do
-    url "https://gitlab.freedesktop.org/xorg/proto/xcbproto/-/commit/426ae35bee1fa0fdb8b5120b1dcd20cee6e34512.patch"
-    sha256 "58c56b9713cf4a597d7e8c634f276c2b7c139a3b1d3f5f87afd5946f8397d329"
+    url "https://gitlab.freedesktop.org/xorg/proto/xcbproto/-/commit/426ae35bee1fa0fdb8b5120b1dcd20cee6e34512.diff"
+    sha256 "53593ed1b146baa47755da8e9c58f51b1451eec038b421b145d3f583055c55e0"
   end
 
   def install
