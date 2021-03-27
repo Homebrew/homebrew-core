@@ -5,6 +5,11 @@ class Libmpeg2 < Formula
   sha256 "dee22e893cb5fc2b2b6ebd60b88478ab8556cb3b93f9a0d7ce8f3b61851871d4"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://libmpeg2.sourceforge.io/downloads.html"
+    regex(/href=.*?libmpeg2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any, arm64_big_sur: "e2f1a24fdb40a15928f35ae84326fab5b8d1293ca2b378aee8e45aab9bb5766c"
