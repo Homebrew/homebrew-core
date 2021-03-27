@@ -17,8 +17,8 @@ class Libtasn1 < Formula
   # Remove the patch when the issue is resolved:
   # https://gitlab.com/gnutls/libtasn1/-/issues/30
   patch do
-    url "https://gitlab.com/gnutls/libtasn1/-/commit/088c9f3e946cb8a15867f6f09f0ef503a7551961.patch"
-    sha256 "0791ee7d9e0f231018956a0a5eac80165ede1ec7732490d7d8bea7dc83022d3a"
+    url "https://gitlab.com/gnutls/libtasn1/-/commit/088c9f3e946cb8a15867f6f09f0ef503a7551961.diff"
+    sha256 "a4328a01c6bb4440f21fe2b6e54a5e612bc76e5bc9292c5e198178307824b761"
   end
 
   def install
