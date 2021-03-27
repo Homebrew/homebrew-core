@@ -23,7 +23,7 @@ class S2n < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", "-DBUILD_TESTING=OFF"
       system "make"
       system "make", "install"
     end
@@ -38,7 +38,7 @@ class S2n < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-ls2n", "-o", "test"
+    system ENV.cc, "test.c", "-L#{opt_lib}", "-ls2n", "-o", "test"
     system "./test"
   end
 end
