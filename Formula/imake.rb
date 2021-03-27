@@ -6,6 +6,11 @@ class Imake < Formula
   license "MIT"
   revision 3
 
+  livecheck do
+    url "https://xorg.freedesktop.org/releases/individual/util/"
+    regex(/href=.*?imake[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "7eafaa82ad84b47d8f4bd76bdca5ccfa065f622ea31b1d2c05fb316af8f60015"
     sha256 big_sur:       "c382f4319ca3b0138c5d20bfeea095d76ca9c972e166550b58f259f03a5d267c"
