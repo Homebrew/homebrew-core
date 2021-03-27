@@ -58,8 +58,8 @@ class Libxml2 < Formula
   # Fix compatibility with Python 3.9
   # https://gitlab.gnome.org/GNOME/libxml2/-/issues/149
   patch do
-    url "https://gitlab.gnome.org/nwellnhof/libxml2/-/commit/e4fb36841800038c289997432ca547c9bfef9db1.patch"
-    sha256 "c3fa874b78d76b8de8afbbca9f83dc94e9a0da285eaf6ee1f6976ed4cd41e367"
+    url "https://gitlab.gnome.org/nwellnhof/libxml2/-/commit/e4fb36841800038c289997432ca547c9bfef9db1.diff"
+    sha256 "318a5e235d4a39579557185f8b80a40a302be49bfaa419c17c8acf52113acb27"
   end
 
   def sdk_include
