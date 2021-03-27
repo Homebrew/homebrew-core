@@ -13,8 +13,8 @@ class Picoc < Formula
     # Fix abort trap due to stack overflow
     # Upstream commit from 14 Oct 2013 "Fixed a problem with PlatformGetLine()"
     patch do
-      url "https://gitlab.com/zsaleeba/picoc/commit/ed54c519169b88b7b40d1ebb11599d89a4228a71.patch"
-      sha256 "bdedbb6e70e6378e05e50d0ef055306045e460f2675f8bd870566ae28b654589"
+      url "https://gitlab.com/zsaleeba/picoc/commit/ed54c519169b88b7b40d1ebb11599d89a4228a71.diff"
+      sha256 "45b49c860c0fac1ce2f7687a2662a86d2fcfb6947cf8ad6cf21e2a3d696d7d72"
     end
   end
 
