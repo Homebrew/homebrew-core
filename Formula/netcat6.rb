@@ -15,6 +15,11 @@ class Netcat6 < Formula
     sha256 sierra:        "bdb853a9a63a03555682eae734d9d9a7725591dfd16128cf59f208968ef16ef2"
   end
 
+  # Upstream appears to have stopped developing netcat6 and instead recommends
+  # using OpenBSD's netcat (which supports IPv6) or Nmap's netcat replacement
+  # (ncat).
+  deprecate! date: "2021-03-27", because: :deprecated_upstream
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
