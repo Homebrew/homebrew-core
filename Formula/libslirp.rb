@@ -21,8 +21,8 @@ class Libslirp < Formula
   # Fix QEMU networking
   # https://gitlab.freedesktop.org/slirp/libslirp/-/issues/35
   patch do
-    url "https://gitlab.freedesktop.org/slirp/libslirp/-/commit/7271345efe182199acaeae602cb78a94a7c6dc9d.patch"
-    sha256 "9b6fa60ad5ea251dda70c898078cbbc25b1dad035d1530d0cb5ae7db16333f92"
+    url "https://gitlab.freedesktop.org/slirp/libslirp/-/commit/7271345efe182199acaeae602cb78a94a7c6dc9d.diff"
+    sha256 "240e5b8c3cc21729936ae8a79056a58b4024e2f9d0fbad3c76a4f9398f9dfe65"
   end
 
   def install
