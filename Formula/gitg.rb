@@ -33,8 +33,8 @@ class Gitg < Formula
   # Fix libgitg compile on macOS from https://gitlab.gnome.org/GNOME/gitg/-/merge_requests/142
   # Remove for next version
   patch do
-    url "https://gitlab.gnome.org/GNOME/gitg/-/commit/67f5cd6925e8bf1e4c7e5b65fe9370c2cdd1d273.patch"
-    sha256 "e81c59f77aceb8c1ae3914ffebf24f5a0287bd2cf9511996eb8a3f4282e8542d"
+    url "https://gitlab.gnome.org/GNOME/gitg/-/commit/67f5cd6925e8bf1e4c7e5b65fe9370c2cdd1d273.diff"
+    sha256 "b9b842d1be3e435ce14a57d30702138a0e08ba0f9ef95249876fc05aeac2417c"
   end
 
   def install
