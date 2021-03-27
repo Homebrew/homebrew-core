@@ -4,6 +4,11 @@ class Rtmidi < Formula
   url "https://www.music.mcgill.ca/~gary/rtmidi/release/rtmidi-4.0.0.tar.gz"
   sha256 "370cfe710f43fbeba8d2b8c8bc310f314338c519c2cf2865e2d2737b251526cd"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rtmidi[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "80a67ef458c2888992bb8cc547d58959082df3ed13f0427b2fd7db14a59bac8b"
     sha256 cellar: :any, big_sur:       "2eee6c3a73e0621703d2cff69249bdbc6cb6f46c91b2599bb74953d0292f5277"
