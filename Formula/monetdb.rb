@@ -6,6 +6,11 @@ class Monetdb < Formula
   license "MPL-2.0"
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
+  livecheck do
+    url "https://www.monetdb.org/downloads/sources/Latest/"
+    regex(/href=.*?MonetDB[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "9ccb9b0e293542899b7b2e8b542301dd4b436f5d504cce68ea1c7390c2d1b475"
     sha256 big_sur:       "6fcd9e767b822fb50fdc2f041eb232a479752fbf8411c636541de5080307aebe"
