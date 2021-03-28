@@ -30,14 +30,24 @@ class Bigloo < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  # Fix a configure script bug. Remove when this lands in a release:
+  # https://github.com/manuel-serrano/bigloo/pull/65
+  patch do
+    url "https://github.com/manuel-serrano/bigloo/commit/e74d7b3443171c974b032fb74d965c8ac4578237.patch?full_index=1"
+    sha256 "9177d80b6bc647d08710a247a9e4016471cdec1ae35b390aceb04de44f5b4738"
+  end
+
   def install
+    # Force bigloo not to use vendored libraries
+    inreplace "configure", /(^\s+custom\w+)=yes$/, "\\1=no"
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man1}
       --infodir=#{info}
-      --no-os-macosx
+      --os-macosx
       --customgc=no
       --customlibuv=no
       --native=yes
