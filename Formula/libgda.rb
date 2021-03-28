@@ -15,7 +15,6 @@ class Libgda < Formula
 
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
-  depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
@@ -24,18 +23,11 @@ class Libgda < Formula
   depends_on "glib"
   depends_on "iso-codes"
   depends_on "json-glib"
-  depends_on "libgcrypt"
-  depends_on "libgee"
   depends_on "openssl@1.1"
-  depends_on "readline"
   depends_on "sqlite"
 
   def install
-    # this build uses the sqlite source code that comes with libgda,
-    # as opposed to using the system or brewed sqlite3, which is not supported on macOS,
-    # as mentioned in https://github.com/GNOME/libgda/blob/95eeca4b0470f347c645a27f714c62aa6e59f820/libgda/sqlite/README#L31
-
-    system "meson", "builddir", *std_meson_args, "-Djson=true"
+    system "meson", "builddir", *std_meson_args, "-Djson=true", "-Dsqlcipher=false"
     system "meson", "compile", "-C", "builddir"
     system "meson", "install", "-C", "builddir"
 
