@@ -3,8 +3,8 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/15/5e/eda186199d8033caf286599d40fa04a7939c07b2c1bd0426ad1887429dc6/localstack-0.12.8.tar.gz"
-  sha256 "8a038785f6a9d0743ba5bd1a80de8adf8b81b5de0d6ee8b6d7672fb3c201f470"
+  url "https://files.pythonhosted.org/packages/99/43/a18a93a746940067067301ef99c71b2c34e65d2d1cf1aac190b93b79a48e/localstack-0.12.9.tar.gz"
+  sha256 "6bd6b94cf29158ebbd02a58096e9dc42bf0dec8a36f81d77635ac5c5f4ad1408"
   license "Apache-2.0"
 
   bottle do
@@ -85,6 +85,11 @@ class Localstack < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
     sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+  end
+
+  resource "PyYAML" do
+    url "https://files.pythonhosted.org/packages/9f/2c/9417b5c774792634834e730932745bc09a7d36754ca00acf1ccd1ac2594d/PyYAML-5.1.tar.gz"
+    sha256 "436bc774ecf7c103814098159fbb84c2715d25980175292c648f2da143909f95"
   end
 
   resource "requests" do
