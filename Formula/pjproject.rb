@@ -19,11 +19,18 @@ class Pjproject < Formula
     sha256 cellar: :any, high_sierra: "114939ba488f6f78f1d337d27eb1873aacfb9c55788b60543f6dbab7e23f745e"
   end
 
+  depends_on "libgsm"
   depends_on macos: :high_sierra # Uses Security framework API enum cases introduced in 10.13.4
   depends_on "openssl@1.1"
+  depends_on "speex"
+  depends_on "speexdsp"
+  depends_on "srtp"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}",
+                          "--with-external-gsm",
+                          "--with-external-speex",
+                          "--with-external-srtp"
     system "make", "dep"
     system "make"
     system "make", "install"
