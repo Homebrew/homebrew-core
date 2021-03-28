@@ -18,7 +18,7 @@ class Libgda < Formula
   depends_on "itstool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
@@ -42,9 +42,18 @@ class Libgda < Formula
     # Install unversioned symlinks
     include.install_symlink include/"libgda-#{version.major_minor}/libgda" => "libgda"
     lib.install_symlink lib/shared_library("libgda-#{version.major_minor}") => shared_library("libgda")
+
+    pkgshare.install "examples"
   end
 
   test do
-    system "#{bin}/gda-sql", "-v"
+    example = pkgshare/"examples/SimpleExample/example.c"
+    pkgconfig = Formula["pkg-config"].opt_bin/"pkg-config"
+    pc_cflags = Utils.safe_popen_read(pkgconfig, "--cflags", "libgda-#{version.major_minor}").split
+    pc_cflags << "-I#{Formula["sqlite"].include}"
+    pc_libs = Utils.safe_popen_read(pkgconfig, "--libs", "libgda-#{version.major_minor}").split
+    pc_libs += %W[-L#{Formula["sqlite"].lib} -lsqlite3]
+    system ENV.cc, *pc_cflags, *pc_libs, example, "-o", "test"
+    system "./test"
   end
 end
