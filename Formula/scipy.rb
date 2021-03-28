@@ -22,6 +22,8 @@ class Scipy < Formula
 
   cxxstdlib_check :skip
 
+  fails_with gcc: "5"
+
   def install
     # Fix for current GCC on Big Sur, which does not like 11 as version value
     # (reported at https://github.com/iains/gcc-darwin-arm64/issues/31#issuecomment-750343944)
@@ -46,7 +48,8 @@ class Scipy < Formula
     version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
     ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
-    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build", "--fcompiler=gnu95"
+    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build",
+      "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
     system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
