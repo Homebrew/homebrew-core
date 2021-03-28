@@ -27,6 +27,9 @@ class Libgda < Formula
   depends_on "sqlite"
 
   def install
+    # meson mistakenly finds libpq on Catalina and Mojave
+    inreplace "meson.build", "dependency ('libpq", "dependency ('non_existent_lib"
+
     system "meson", "builddir", *std_meson_args, "-Djson=true", "-Dsqlcipher=false"
     system "meson", "compile", "-C", "builddir"
     system "meson", "install", "-C", "builddir"
