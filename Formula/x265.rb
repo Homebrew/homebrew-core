@@ -47,8 +47,18 @@ class X265 < Formula
       system "cmake", buildpath/"source", *args
       system "make"
       mv "libx265.a", "libx265_main.a"
-      system "libtool", "-static", "-o", "libx265.a", "libx265_main.a",
-                        "libx265_main10.a", "libx265_main12.a"
+
+      on_macos do
+        system "libtool", "-static", "-o", "libx265.a", "libx265_main.a",
+                          "libx265_main10.a", "libx265_main12.a"
+      end
+
+      on_linux do
+        system "ar", "cr", "libx265.a", "libx265_main.a", "libx265_main10.a",
+                           "libx265_main12.a"
+        system "ranlib", "libx265.a"
+      end
+
       system "make", "install"
     end
   end
