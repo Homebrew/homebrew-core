@@ -42,7 +42,7 @@ class Libvirt < Formula
   end
 
   on_linux do
-    depends_on "libtirpc" => :build
+    depends_on "libtirpc"
   end
 
   def install
