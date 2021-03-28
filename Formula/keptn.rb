@@ -37,7 +37,7 @@ class Keptn < Formula
       Timeout.timeout(5) do
         assert_match "Warning: could not open KUBECONFIG file", r.gets.chomp
         Process.wait pid
-        assert_equal 0, $CHILD_STATUS.exitstatus
+        assert_equal 1, $CHILD_STATUS.exitstatus
       end
     rescue Timeout::Error
       puts "process not finished in time, killing it"
