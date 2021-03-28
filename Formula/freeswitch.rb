@@ -109,7 +109,7 @@ class Freeswitch < Formula
 
   resource "libks" do
     url "https://github.com/signalwire/libks.git",
-        tag:      "1.7.0",
+        tag:      "v1.7.0",
         revision: "db9bfa746b1fffcaf062bbe060c8cef70c227116"
   end
 
