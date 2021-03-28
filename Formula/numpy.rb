@@ -19,6 +19,8 @@ class Numpy < Formula
   depends_on "openblas"
   depends_on "python@3.9"
 
+  fails_with gcc: "5"
+
   def install
     openblas = Formula["openblas"].opt_prefix
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
@@ -36,8 +38,9 @@ class Numpy < Formula
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/"lib/python#{xy}/site-packages"
 
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix),
-      "build", "--fcompiler=gnu95", "--parallel=#{ENV.make_jobs}"
+    system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build",
+        "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
+    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do
