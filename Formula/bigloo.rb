@@ -1,10 +1,9 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3e.tar.gz"
-  version "4.3e"
-  sha256 "43363cb968c57925f402117ff8ec4b47189e2747b02350805a34fa617d9f618a"
-  revision 1
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4b.tar.gz"
+  sha256 "a313922702969b0a3b3d803099ea05aca698758be6bd0aae597caeb6895ce3cf"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www-sop.inria.fr/indes/fp/Bigloo/download.html"
@@ -21,9 +20,15 @@ class Bigloo < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
+  depends_on "bdw-gc"
   depends_on "gmp"
+  depends_on "libunistring"
+  depends_on "libuv"
+  depends_on "openjdk"
   depends_on "openssl@1.1"
+  depends_on "pcre"
 
   def install
     args = %W[
@@ -32,8 +37,9 @@ class Bigloo < Formula
       --prefix=#{prefix}
       --mandir=#{man1}
       --infodir=#{info}
-      --customgc=yes
-      --os-macosx
+      --no-os-macosx
+      --customgc=no
+      --customlibuv=no
       --native=yes
       --disable-alsa
       --disable-mpg123
@@ -43,15 +49,6 @@ class Bigloo < Formula
     ]
 
     system "./configure", *args
-
-    # bigloo seems to either miss installing these dependencies, or maybe
-    # do it out of order with where they're used.
-    cd "libunistring" do
-      system "make", "install"
-    end
-    cd "pcre" do
-      system "make", "install"
-    end
 
     system "make"
     system "make", "install"
