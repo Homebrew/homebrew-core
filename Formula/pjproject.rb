@@ -1,8 +1,8 @@
 class Pjproject < Formula
   desc "C library for multimedia protocols such as SIP, SDP, RTP and more"
   homepage "https://www.pjsip.org/"
-  url "https://github.com/pjsip/pjproject/archive/2.10.tar.gz"
-  sha256 "936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de"
+  url "https://github.com/pjsip/pjproject/archive/2.11.tar.gz"
+  sha256 "c89b155a38daef6e92c8e1ae5c6895357fe5c5406dfdee2f3717962e21565f1c"
   license "GPL-2.0-or-later"
   head "https://github.com/pjsip/pjproject.git"
 
