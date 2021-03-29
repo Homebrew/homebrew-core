@@ -6,6 +6,7 @@ class Sip < Formula
   url "https://files.pythonhosted.org/packages/76/d9/5e1048d2f2fa6714e0d76382810b0fa81400c40e25b1f4f46c1a82e48364/sip-6.0.3.tar.gz"
   sha256 "929e3515428ea962003ccf6795244a5fe4fa6e2c94dc9ab8cb2c58fcd368c34c"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  revision 1
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
   bottle do
@@ -32,18 +33,30 @@ class Sip < Formula
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
+  # TODO: remove them after sip 6.1.0
+  # These patch provide the option `--scripts-dir`
+  patch do
+    url "https://www.riverbankcomputing.com/hg/sip/raw-diff/ffd0551c32cc/sipbuild/builder.py"
+    sha256 "2c969dfba2e4b0553d06999a3aa07a93ea4b7ca2cce62635d1418ecdc74a6df2"
+  end
+
+  patch do
+    url "https://www.riverbankcomputing.com/hg/sip/raw-diff/ffd0551c32cc/sipbuild/project.py"
+    sha256 "ea99834ab404583a1a49a05997950758fe95ba473129438117ffa5647028d99a"
+  end
+
   def install
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
-    %w[packaging pyparsing toml].each do |r|
-      venv.pip_install resource(r)
+    python = Formula["python@3.9"]
+    venv = virtualenv_create(libexec, python.bin/"python3")
+    resources.each do |r|
+      venv.pip_install r
     end
 
-    system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+    system python.bin/"python3", *Language::Python.setup_install_args(prefix)
 
-    site_packages = libexec/"lib/python#{xy}/site-packages"
-    pth_contents = "import site; site.addsitedir('#{site_packages}')\n"
-    (lib/"python#{xy}/site-packages/homebrew-sip.pth").write pth_contents
+    site_packages = Language::Python.site_packages(python)
+    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
+    (prefix/site_packages/"homebrew-sip.pth").write pth_contents
   end
 
   test do
