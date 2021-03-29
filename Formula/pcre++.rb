@@ -1,10 +1,15 @@
 class Pcrexx < Formula
   desc "C++ wrapper for the Perl Compatible Regular Expressions"
-  homepage "https://www.daemon.de/PCRE"
+  homepage "https://www.daemon.de/projects/pcrepp/"
   url "https://www.daemon.de/idisk/Apps/pcre++/pcre++-0.9.5.tar.gz"
   mirror "https://distfiles.openadk.org/pcre++-0.9.5.tar.gz"
   sha256 "77ee9fc1afe142e4ba2726416239ced66c3add4295ab1e5ed37ca8a9e7bb638a"
   license "LGPL-2.1-only"
+
+  livecheck do
+    url "https://www.daemon.de/projects/pcrepp/download/"
+    regex(/href=.*?pcre\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 2
