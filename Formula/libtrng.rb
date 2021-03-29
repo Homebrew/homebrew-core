@@ -1,13 +1,14 @@
 class Libtrng < Formula
   desc "Tina's Random Number Generator Library"
   homepage "https://www.numbercrunch.de/trng/"
-  url "https://www.numbercrunch.de/trng/trng-4.22.tar.gz"
-  sha256 "6acff0a6136e41cbf0b265ae1f4392c8f4394ecfe9803bc98255e9e8d926f3d8"
+  url "https://github.com/rabauke/trng4/archive/refs/tags/v4.24.tar.gz"
+  sha256 "92dd7ab4de95666f453b4fef04827fa8599d93a3e533cdc604782c15edd0c13c"
   license "BSD-3-Clause"
+  head "https://github.com/rabauke/trng4.git"
 
   livecheck do
-    url :homepage
-    regex(/href=.*?trng[._-]v?(\d+(?:\.\d+)+)\.t.*?latest/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -19,10 +20,6 @@ class Libtrng < Formula
   end
 
   depends_on "cmake" => :build
-
-  # Examples do not build. Should be fixed in next release.
-  # https://github.com/rabauke/trng4/commit/78f7aea798b12603d9a2f6c68e19692f61c70647
-  patch :DATA
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -46,18 +43,3 @@ class Libtrng < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
-index a916560..b29ab99 100644
---- a/examples/CMakeLists.txt
-+++ b/examples/CMakeLists.txt
-@@ -6,7 +6,7 @@ find_package(OpenMP)
- find_package(TBB)
-
- include_directories(..)
--link_libraries(trng4)
-+link_libraries(trng4_static)
- link_directories(${PROJECT_BINARY_DIR}/trng)
-
- add_executable(hello_world hello_world.cc)
