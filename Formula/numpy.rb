@@ -1,10 +1,9 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/d2/48/f445be426ccd9b2fb64155ac6730c7212358882e589cd3717477d739d9ff/numpy-1.20.1.zip"
-  sha256 "3bc63486a870294683980d76ec1e3efc786295ae00128f9ea38e2c6e74d5a60a"
+  url "https://files.pythonhosted.org/packages/82/a8/1e0f86ae3f13f7ce260e9f782764c16559917f24382c74edfb52149897de/numpy-1.20.2.zip"
+  sha256 "878922bf5ad7550aa044aa9301d417e2d3ae50f0f577de92051d739ac6096cee"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/numpy/numpy.git"
 
   bottle do
