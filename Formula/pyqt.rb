@@ -4,6 +4,7 @@ class Pyqt < Formula
   url "https://files.pythonhosted.org/packages/29/4c/2f98c98536b957117ac02c3ffe027c3a66937c027f6b3506d6dd4aca3389/PyQt6-6.0.3.tar.gz"
   sha256 "bfe5946a667080f7f755fb5acb92706c3e029bf7679d77fc3898f900f69f768a"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "23c1f68ec3d0ef27f80b5d8a5393beaea4de181e98e697fae3126e4e1befd08a"
@@ -13,9 +14,10 @@ class Pyqt < Formula
   end
 
   depends_on "pyqt-builder" => :build
+  depends_on "sip" => :build
+
   depends_on "python@3.9"
   depends_on "qt"
-  depends_on "sip"
 
   resource "PyQt6-sip" do
     url "https://files.pythonhosted.org/packages/95/7e/495d128a62a9f03bbfd71d764baccd44699cdcdeedb8db1dd4429e0646b2/PyQt6_sip-13.0.1.tar.gz"
@@ -30,24 +32,19 @@ class Pyqt < Formula
 
     args = %W[
       --target-dir #{site_packages}
-      --no-make
+      --scripts-dir #{bin}
       --confirm-license
     ]
-    system "sip-build", *args
-    cd "build" do
-      inreplace "inventory.txt", python.opt_prefix, prefix
-      inreplace "Makefile", /(?<=\$\(INSTALL_ROOT\))#{Regexp.escape(python.opt_prefix)}/, prefix
-      system "make", "install"
-    end
+    system "sip-install", *args
 
     resource("PyQt6-sip").stage do
-      system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
+      system python.bin/"python3", *Language::Python.setup_install_args(prefix)
     end
   end
 
   test do
-    system "#{bin}/pyuic#{version.major}", "-V"
-    system "#{bin}/pylupdate#{version.major}", "-V"
+    system bin/"pyuic#{version.major}", "-V"
+    system bin/"pylupdate#{version.major}", "-V"
 
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import PyQt#{version.major}"
     # TODO: add additional libraries in future: Position, Multimedia
