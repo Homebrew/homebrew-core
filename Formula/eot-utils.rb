@@ -5,6 +5,11 @@ class EotUtils < Formula
   sha256 "4eed49dac7052e4147deaddbe025c7dfb404fc847d9fe71e1c42eba5620e6431"
   license "W3C"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?eot-utilities[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8f017607b1caeb3d53e2054abe9b3a75cd8a513b3ef5874b297f7b076ecd5c9a"
     sha256 cellar: :any_skip_relocation, big_sur:       "146f315f88dffb59c62cd7cec217851ecf5586c42e6317a453b3a635391eab28"
