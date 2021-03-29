@@ -1,8 +1,8 @@
 class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "https://www.lua.org/"
-  url "https://www.lua.org/ftp/lua-5.4.2.tar.gz"
-  sha256 "11570d97e9d7303c0a59567ed1ac7c648340cd0db10d5fd594c09223ef2f524f"
+  url "https://www.lua.org/ftp/lua-5.4.3.tar.gz"
+  sha256 "f8612276169e3bfcbcfb8f226195bfc6e466fe13042f1076cbde92b7ec96bbfb"
   license "MIT"
 
   livecheck do
