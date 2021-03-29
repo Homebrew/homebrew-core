@@ -5,6 +5,11 @@ class Ginac < Formula
   sha256 "44b4404a897dd7719233c44f3c73bc15695e12b58d3676cb57c90ddcddf72b51"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.ginac.de/Download.html"
+    regex(/href=.*?ginac[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:     "84f3dc97d9ee0ccabd1ff0c950b0c83859a95cd06c9de5a8a9aae9d472ebd7c7"
     sha256 cellar: :any, catalina:    "9af774101ed69e14f7e060a85cd4a5edab1ecdda620e0e139085d09707dd2e6f"
