@@ -5,6 +5,11 @@ class SpawnFcgi < Formula
   sha256 "ab327462cb99894a3699f874425a421d934f957cb24221f00bb888108d9dd09e"
   license "BSD-3-Clause"
 
+  livecheck do
+    url "https://redmine.lighttpd.net/projects/spawn-fcgi/news"
+    regex(/href=.*?spawn-fcgi[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "89bc1faf59756165a4a27cd43fdbac4c5d81ba5e12613fc1152c181a60f5c0df"
