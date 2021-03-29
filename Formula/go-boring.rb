@@ -3,6 +3,7 @@ class GoBoring < Formula
   homepage "https://go.googlesource.com/go/+/dev.boringcrypto/README.boringcrypto.md"
   url "https://go-boringcrypto.storage.googleapis.com/go1.16.2b7.src.tar.gz"
   sha256 "8991c28e30bdd9b34076c2871ab69aac7f306dba08d202aa7301f3adb54ad9f3"
+  version "1.16.2b7"
   license "BSD-3-Clause"
 
   livecheck do
