@@ -1,9 +1,9 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://www.imagemagick.org/"
-  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.11-4.tar.xz"
-  mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.11-4.tar.xz"
-  sha256 "9ac056692065ddf485d85bf6698d3eef5aa29e76d353ae721e1e5b80ffaa9dc4"
+  url "https://dl.bintray.com/homebrew/mirror/ImageMagick-7.0.11-5.tar.xz"
+  mirror "https://www.imagemagick.org/download/releases/ImageMagick-7.0.11-5.tar.xz"
+  sha256 "9d2f65d6ee86a7c2a09c451b6d2635e44da3bc4ed3aa03241e011d04537eadf8"
   license "ImageMagick"
   head "https://github.com/ImageMagick/ImageMagick.git"
 
