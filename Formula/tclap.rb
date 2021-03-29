@@ -1,8 +1,8 @@
 class Tclap < Formula
   desc "Templatized C++ command-line parser library"
   homepage "https://tclap.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/tclap/tclap-1.2.3.tar.gz"
-  sha256 "19e7db5281540f154348770bc3a7484575f4f549aef8e00aabcc94b395f773c9"
+  url "https://downloads.sourceforge.net/project/tclap/tclap-1.2.4.tar.gz"
+  sha256 "634c5b59dbb1ccbc9d6a5f6de494a257e29a3f59dcb6fc30445ff39b45188574"
   license "MIT"
 
   livecheck do
