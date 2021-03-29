@@ -336,6 +336,7 @@ class PythonAT39 < Formula
            "--no-deps",
            "--no-index",
            "--upgrade",
+           "--isolated",
            "--target=#{site_packages}",
            bundled/"setuptools-#{resource("setuptools").version}-py3-none-any.whl",
            bundled/"pip-#{resource("pip").version}-py3-none-any.whl",
