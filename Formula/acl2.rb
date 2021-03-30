@@ -4,7 +4,7 @@ class Acl2 < Formula
   url "https://github.com/acl2/acl2/archive/8.3.tar.gz"
   sha256 "45eedddb36b2eff889f0dba2b96fc7a9b1cf23992fcfdf909bc179f116f2c5ea"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
 
   bottle do
     sha256 big_sur:  "d1db45acd4143a2170cb691a18be510ae19e8b6b901d3b3c64e487cd54a0d32f"
