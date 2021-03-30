@@ -137,13 +137,20 @@ jobs:
       - name: Setup git
         uses: Homebrew/actions/git-user-config@master
 
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@master
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
+
       - name: Upload and publish bottles on Bintray
         env:
           HOMEBREW_BINTRAY_USER: brewtestbot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+          BREWTESTBOT_NAME_EMAIL: "BrewTestBot <1589480+BrewTestBot@users.noreply.github.com>"
         run: |
           cd ~/bottles
-          brew pr-upload --verbose
+          brew pr-upload --verbose --committer="$BREWTESTBOT_NAME_EMAIL"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
