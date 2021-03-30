@@ -218,7 +218,9 @@ class AwsGoogleAuth < Formula
   end
 
   test do
-    assert_match "Invalid username or password",
-      shell_output("echo 'foobar' | #{bin}/aws-google-auth -u foo -I C01111111 -S 111111111111 2>&1", 1)
+    auth_process = IO.popen "#{bin}/aws-google-auth"
+    sleep 3
+    Process.kill "TERM", auth_process.pid
+    assert_match "AWS Region:", auth_process.read
   end
 end
