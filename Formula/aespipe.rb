@@ -4,6 +4,12 @@ class Aespipe < Formula
   url "https://loop-aes.sourceforge.io/aespipe/aespipe-v2.4f.tar.bz2"
   sha256 "b135e1659f58dc9be5e3c88923cd03d2a936096ab8cd7f2b3af4cb7a844cef96"
 
+  livecheck do
+    url "http://loop-aes.sourceforge.net/aespipe/"
+    regex(/href=.*?aespipe[._-]v?(\d+(?:\.\d+)+[a-z])\.t/i)
+    strategy :page_match
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "204ddb0b9c6fde98f4bdec7c3c93aa2ad95cde565dd22538f2c61a55875a398e"
     sha256 cellar: :any_skip_relocation, big_sur:       "b94579255152f8761049784697e757d2399f075bb77b7c194741311aad2943c3"
