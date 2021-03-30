@@ -29,6 +29,7 @@ on:
       - "Formula/lttng-ust.rb"
       - "Formula/numactl.rb"
       - "Formula/strace.rb"
+      - "Formula/systemd.rb"
       - "Formula/valgrind.rb"
       - "Formula/wayland.rb"
       - "Formula/wayland-protocols.rb"
