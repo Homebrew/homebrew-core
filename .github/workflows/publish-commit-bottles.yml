@@ -57,9 +57,15 @@ jobs:
       - name: Configure Git user
         uses: Homebrew/actions/git-user-config@master
 
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@master
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
+
       - name: Pull bottles
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
           HOMEBREW_BINTRAY_USER: brewtestbot
           HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
         run: brew pr-pull --debug --workflows=tests.yml ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
