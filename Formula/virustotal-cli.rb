@@ -1,8 +1,8 @@
 class VirustotalCli < Formula
   desc "Command-line interface for VirusTotal"
   homepage "https://github.com/VirusTotal/vt-cli"
-  url "https://github.com/VirusTotal/vt-cli/archive/0.9.0.tar.gz"
-  sha256 "ec418c60697d03fd859bbf3a36abe4f30d59111651e3065de6cd581040a19027"
+  url "https://github.com/VirusTotal/vt-cli/archive/0.9.1.tar.gz"
+  sha256 "4d0cd031876c1cd3aecd6d60c10b3afd5ddaa04ee456a2a7008714d79a9a7c68"
   license "Apache-2.0"
 
   bottle do
