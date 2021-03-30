@@ -1,8 +1,8 @@
 class Terracognita < Formula
   desc "Reads from existing Cloud Providers and generates Terraform code"
   homepage "https://github.com/cycloidio/terracognita"
-  url "https://github.com/cycloidio/terracognita/archive/v0.6.2.tar.gz"
-  sha256 "7e3f7e8e6ce231fbc0a9c4f88ee50e7e4fd287287fa79d9464c9555ebc883916"
+  url "https://github.com/cycloidio/terracognita/archive/v0.6.3.tar.gz"
+  sha256 "505ec50d30fda5d20ce2c67a4340480997df78376f427aa28f7a352fbd7c4400"
   license "MIT"
   head "https://github.com/cycloidio/terracognita.git"
 
