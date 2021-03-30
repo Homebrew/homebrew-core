@@ -8,7 +8,7 @@ class GoBoring < Formula
 
   livecheck do
     url "https://go-boringcrypto.storage.googleapis.com/"
-    regex(/go(\d+(?:\.\d+)+b\d+)[._-]src\.t/i)
+    regex(/>go[._-]?(\d+(?:\.\d+)+b\d+)[._-]src\.t/i)
   end
 
   keg_only "it conflicts with the Go formula"
@@ -52,7 +52,7 @@ class GoBoring < Formula
 
     # Remove useless files.
     # Breaks patchelf because folder contains weird debug/test files
-    rm_rf Dir[libexec/"src/debug/elf/testdata"]
+    Dir.glob(libexec/"**/testdata").each { |testdata| rm_rf testdata }
   end
 
   test do
