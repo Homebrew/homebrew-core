@@ -1,8 +1,8 @@
 class Xsimd < Formula
   desc "Modern, portable C++ wrappers for SIMD intrinsics"
   homepage "https://xsimd.readthedocs.io/en/latest/"
-  url "https://github.com/QuantStack/xsimd/archive/7.4.9.tar.gz"
-  sha256 "f6601ffb002864ec0dc6013efd9f7a72d756418857c2d893be0644a2f041874e"
+  url "https://github.com/QuantStack/xsimd/archive/7.4.10.tar.gz"
+  sha256 "df00f476dea0c52ffebad60924e3f0db2a016b80d508f8d5a2399a74c0d134cd"
   license "BSD-3-Clause"
 
   bottle do
