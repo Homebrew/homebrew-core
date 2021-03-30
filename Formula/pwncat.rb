@@ -3,8 +3,8 @@ class Pwncat < Formula
 
   desc "Netcat with FW/IDS/IPS evasion, self-inject-, bind- and reverse shell"
   homepage "https://pwncat.org"
-  url "https://files.pythonhosted.org/packages/31/8a/efc45ecc5e91afc76de9c56f89de99af01d575529fead6ee24331a3fddf2/pwncat-0.1.0.tar.gz"
-  sha256 "4f711c3d0f22650e20ad1429a7f0c9116b930be04435e7f690746ca0e1c5cd69"
+  url "https://files.pythonhosted.org/packages/e0/cd/f7c7a2d468fdf8355c574ac65f189da87a469c393ec704d8f3fa83613aa5/pwncat-0.1.1.tar.gz"
+  sha256 "62e625e9061f037cfca7b7455a4f7db4213c1d1302e73d4c475c63f924f1805f"
   license "MIT"
   revision 1
   head "https://github.com/cytopia/pwncat.git"
