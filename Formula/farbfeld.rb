@@ -21,7 +21,7 @@ class Farbfeld < Formula
   test do
     # this is just a 1x1 image with 0xfefe red, 0x0000 green&blue & 0xffff alpha
     testimg = "ZmFyYmZlbGQAAAABAAAAAf7+AAAAAP//"
-    system "echo '#{testimg}' | base64 -d > #{testpath}/a"
+    system "echo '#{testimg}' | base64 --decode > #{testpath}/a"
     system "#{bin}/ff2png < #{testpath}/a | #{bin}/png2ff > #{testpath}/b"
     system "#{bin}/ff2jpg < #{testpath}/b | #{bin}/jpg2ff > #{testpath}/c"
     assert_equal testimg, shell_output("base64 < #{testpath}/c").strip
