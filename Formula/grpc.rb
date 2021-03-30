@@ -6,6 +6,7 @@ class Grpc < Formula
       revision: "3e53dbe8213137d2c731ecd4d88ebd2948941d75",
       shallow:  false
   license "Apache-2.0"
+  revision 1
   head "https://github.com/grpc/grpc.git"
 
   livecheck do
