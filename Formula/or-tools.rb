@@ -4,6 +4,7 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/v8.2.tar.gz"
   sha256 "cf40715fa5cfeee88e2c8f5583465182c8dedf60b4eb7c4a967b32ff61ac4302"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/google/or-tools.git"
 
   livecheck do
@@ -27,6 +28,13 @@ class OrTools < Formula
   depends_on "coinutils"
   depends_on "osi"
   depends_on "protobuf"
+
+  # Patch to fix build with abseil 20210324. Remove at version bump (v9.0).
+  # https://github.com/Homebrew/homebrew-core/issues/74657
+  patch do
+    url "https://github.com/google/or-tools/commit/9e901a7b24e5860baa90c0fc7a02de622bc9403a.patch?full_index=1"
+    sha256 "7d504e9ba9efdc72187b3420bc46a2b104234bc711c946b711b7ffec5243f31f"
+  end
 
   def install
     system "cmake", "-S.", "-Bbuild", *std_cmake_args,
