@@ -1,8 +1,8 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-8.20210310/git-annex-8.20210310.tar.gz"
-  sha256 "dd0ae1cac40c97490e0699c68a341b5bff6fcb38e733df83b67c442a7eca97a8"
+  url "https://hackage.haskell.org/package/git-annex-8.20210330/git-annex-8.20210330.tar.gz"
+  sha256 "17109144b2aadfab79fa0e193df3e0c02fd80f738a5ed6eccb0d11692bedb01d"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/"
@@ -19,6 +19,14 @@ class GitAnnex < Formula
   depends_on "gsasl"
   depends_on "libmagic"
   depends_on "quvi"
+
+  # Fix build failure for version 8.20210330
+  # See https://git-annex.branchable.com/bugs/git-annex_8.20210330_fails_to_build_in_brew/
+  # Change already merged upstream; remove in next release
+  patch do
+    url "http://source.git-annex.branchable.com/?p=source.git;a=patch;h=8868a3a4c7bfaa356d8c0eb7c6abb8b980f63d99"
+    sha256 "ab2bb641a0b08bcb7c9059f60b09aed9989f6c4ddfc647dc3b1faddd4e101eef"
+  end
 
   def install
     system "cabal", "v2-update"
