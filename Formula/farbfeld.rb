@@ -1,14 +1,14 @@
 class Farbfeld < Formula
-  desc "tools for working with the farbfeld image format"
+  desc "Tools for working with the farbfeld image format"
   homepage "https://tools.suckless.org/farbfeld/"
   url "https://dl.suckless.org/farbfeld/farbfeld-4.tar.gz"
   sha256 "c7df5921edd121ca5d5b1cf6fb01e430aff9b31242262e4f690d3af72ccbe72a"
   license "ISC"
   head "https://git.suckless.org/farbfeld"
 
+  depends_on "make" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "make" => :build
 
   def install
     system "make",
