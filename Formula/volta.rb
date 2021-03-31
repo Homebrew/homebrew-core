@@ -28,7 +28,7 @@ class Volta < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
-    
+
     bash_output = Utils.safe_popen_read("#{bin}/volta", "completions", "bash")
     (bash_completion/"volta").write bash_output
     zsh_output = Utils.safe_popen_read("#{bin}/volta", "completions", "zsh")
