@@ -10,11 +10,7 @@ class Farbfeld < Formula
   depends_on "libpng"
 
   def install
-    system "make",
-           "CC=#{ENV.cc}",
-           "CFLAGS=#{ENV.cflags}",
-           "PREFIX=#{prefix}",
-           "install"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
