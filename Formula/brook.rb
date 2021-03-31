@@ -10,7 +10,7 @@ class Brook < Formula
   def install
     ldflags = "-s -w"
     cd "cli/brook" do
-      system "go", "build", "-ldflags", ldflags, "-o", bin/"brook"
+      system "go", "build", *std_go_args, "-ldflags", ldflags
     end
   end
 
