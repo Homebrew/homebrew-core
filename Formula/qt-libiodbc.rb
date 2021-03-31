@@ -1,10 +1,9 @@
 class QtLibiodbc < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.0/6.0.2/submodules/qtbase-everywhere-src-6.0.2.tar.xz"
-  sha256 "991a0e4e123104e76563067fcfa58602050c03aba8c8bb0c6198347c707817f1"
+  url "https://download.qt.io/official_releases/qt/6.0/6.0.3/submodules/qtbase-everywhere-src-6.0.3.tar.xz"
+  sha256 "1a45b61c2a349964625c50e3ea40cbb309e269762dd0786397e0e18e7e10d394"
   license all_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "fd6503fa1719e5a13cb78e6d24cf32f5755b1f044af2d6b9f1948f81944065b3"
