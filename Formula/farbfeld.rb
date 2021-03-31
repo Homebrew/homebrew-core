@@ -6,7 +6,6 @@ class Farbfeld < Formula
   license "ISC"
   head "https://git.suckless.org/farbfeld"
 
-  depends_on "make" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
