@@ -5,6 +5,7 @@ class Volta < Formula
       tag:      "v1.0.2",
       revision: "9606139be374266859264c7931e990ad97ae8419"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -27,6 +28,13 @@ class Volta < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    
+    bash_output = Utils.safe_popen_read("#{bin}/volta", "completions", "bash")
+    (bash_completion/"volta").write bash_output
+    zsh_output = Utils.safe_popen_read("#{bin}/volta", "completions", "zsh")
+    (zsh_completion/"_volta").write zsh_output
+    fish_output = Utils.safe_popen_read("#{bin}/volta", "completions", "fish")
+    (fish_completion/"volta.fish").write fish_output
   end
 
   test do
