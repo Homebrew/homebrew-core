@@ -65,7 +65,7 @@ class Vim < Formula
     # https://github.com/vim/vim/issues/114
     system "make", "install", "prefix=#{prefix}", "STRIP=#{which "true"}"
     bin.install_symlink "vim" => "vi"
-    
+
     on_linux do
       <<~EOS
         If you'd like X11 support that includes clipboard and other utilities, you should
