@@ -46,13 +46,6 @@ class Ghostscript < Formula
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
   end
 
-  # Fix build on ARM Big Sur, updating config.{guess,sub}
-  # https://bugs.ghostscript.com/show_bug.cgi?id=703095
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/98c39e09/ghostscript/config.patch"
-    sha256 "155cf2ee5a498d441c3194ba3d75cb7812beaa3f507a72017174a884bf742862"
-  end
-
   def install
     on_linux do
       # Fixes: ./soobj/dxmainc.o: file not recognized: File truncated
