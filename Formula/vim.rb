@@ -65,13 +65,13 @@ class Vim < Formula
     # https://github.com/vim/vim/issues/114
     system "make", "install", "prefix=#{prefix}", "STRIP=#{which "true"}"
     bin.install_symlink "vim" => "vi"
-  end
 
-  def caveats
-    <<~EOS
-      GNU/Linux users, if you'd like X11 support that includes clipboard, you should
-      install `gvim` which provides an optional GUI that can be accessed from the terminal through `vim -g`
-    EOS
+    def on_linux
+      <<~EOS
+        GNU/Linux users, if you'd like X11 support that includes clipboard, you should
+        install `gvim` which provides an optional GUI that can be accessed from the terminal through `vim -g`
+      EOS
+    end    
   end
 
   test do
