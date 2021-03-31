@@ -66,14 +66,14 @@ class Vim < Formula
     system "make", "install", "prefix=#{prefix}", "STRIP=#{which "true"}"
     bin.install_symlink "vim" => "vi"
   end
-  
+
   def caveats
     <<~EOS
       GNU/Linux users, if you'd like X11 support that includes clipboard, you should
       install `gvim` which provides an optional GUI that can be accessed from the terminal through `vim -g`
     EOS
   end
-  
+
   test do
     (testpath/"commands.vim").write <<~EOS
       :python3 import vim; vim.current.buffer[0] = 'hello python3'
