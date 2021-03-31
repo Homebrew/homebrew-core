@@ -3,6 +3,8 @@ class Libmagic < Formula
   homepage "https://www.darwinsys.com/file/"
   url "https://astron.com/pub/file/file-5.40.tar.gz"
   sha256 "167321f43c148a553f68a0ea7f579821ef3b11c27b8cbe158e4df897e4a5dd57"
+  # libmagic has a BSD-2-Clause-like license
+  license :cannot_represent
 
   livecheck do
     url "https://astron.com/pub/file/"
