@@ -9,6 +9,7 @@ class Gvim < Formula
 
   depends_on "gettext"
   depends_on "gtk+3"
+  depends_on "libcanberra"
   depends_on "lua"
   depends_on "perl"
   depends_on "python@3.9"
