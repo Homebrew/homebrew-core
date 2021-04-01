@@ -2,8 +2,8 @@ class Gojq < Formula
   desc "Pure Go implementation of jq"
   homepage "https://github.com/itchyny/gojq"
   url "https://github.com/itchyny/gojq.git",
-      tag:      "v0.12.2",
-      revision: "94879363409d5695fd8aee3bb6facd6823697320"
+      tag:      "v0.12.3",
+      revision: "bc1af7c0980cd41218b5f04982a1d28850e38ed6"
   license "MIT"
   head "https://github.com/itchyny/gojq.git"
 
