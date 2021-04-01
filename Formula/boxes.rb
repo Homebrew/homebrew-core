@@ -14,7 +14,7 @@ class Boxes < Formula
     sha256 high_sierra:   "ca1c4e0e76f03ee4a60789f30093d2eee3794ff54b989da1a8a3ae555228f081"
     sha256 sierra:        "d31462128d1f55cd3014ae942b4620f1ec4d06e72e8a47cae5ef56afcf65e791"
   end
-  
+
   depends_on "libunistring"
   depends_on "pcre"
 
