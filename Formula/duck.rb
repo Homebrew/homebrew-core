@@ -1,15 +1,14 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  # check the changelog for the latest stable version: https://cyberduck.io/changelog/
   url "https://dist.duck.sh/duck-src-7.8.5.34493.tar.gz"
   sha256 "766b29ae7135c3dd0bcce85c910236baa52669c6535fc00eb6446a6b4c7d25c6"
   license "GPL-3.0-only"
   head "https://svn.cyberduck.io/trunk/"
 
   livecheck do
-    url "https://cyberduck.io/changelog/"
-    regex(/href=.*?Cyberduck[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+    url "https://dist.duck.sh/"
+    regex(/href=.*?duck-src[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
