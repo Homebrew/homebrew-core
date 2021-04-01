@@ -7,7 +7,6 @@ class Gvim < Formula
   license "Vim"
   head "https://github.com/vim/vim.git"
 
-
   depends_on "gettext"
   depends_on "gtk+3"
   depends_on "libcanberra"
@@ -16,33 +15,25 @@ class Gvim < Formula
   depends_on "python@3.9"
   depends_on "ruby"
 
-
   uses_from_macos "ncurses"
-
 
   conflicts_with "ex-vi",
     because: "vim and ex-vi both install bin/ex and bin/view"
 
-
   conflicts_with "macvim",
     because: "vim and macvim both install vi* binaries"
-
 
   conflicts_with "vim",
     because: "vim and macvim both install vi* binaries"
 
-
   def install
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
-
 
     # https://github.com/Homebrew/homebrew-core/pull/1046
     ENV.delete("SDKROOT")
 
-
     # vim doesn't require any Python package, unset PYTHONPATH.
     ENV.delete("PYTHONPATH")
-
 
     # We specify HOMEBREW_PREFIX as the prefix to make vim look in the
     # the right place (HOMEBREW_PREFIX/share/vim/{vimrc,vimfiles}) for
@@ -72,7 +63,6 @@ class Gvim < Formula
     system "make", "install", "prefix=#{prefix}", "STRIP=#{which "true"}"
     bin.install_symlink "vim" => "vi"
   end
-
 
   test do
     (testpath/"commands.vim").write <<~EOS
