@@ -4,7 +4,7 @@ class VowpalWabbit < Formula
   # pull from git tag to get submodules
   url "https://github.com/VowpalWabbit/vowpal_wabbit.git",
       tag:      "8.10.0",
-      revision: "..."
+      revision: "200be9132a4bfbe8fb91bce8a04c4fa15d2e590b"
   license "BSD-3-Clause"
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git"
 
