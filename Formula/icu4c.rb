@@ -40,6 +40,11 @@ class Icu4c < Formula
   end
 
   test do
-    system "#{bin}/gendict", "--uchars", "/usr/share/dict/words", "dict"
+    if File.exist? "/usr/share/dict/words"
+      system "#{bin}/gendict", "--uchars", "/usr/share/dict/words", "dict"
+    else
+      (testpath/"hello").write "hello\nworld\n"
+      system "#{bin}/gendict", "--uchars", "hello", "dict"
+    end
   end
 end
