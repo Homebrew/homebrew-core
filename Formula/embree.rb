@@ -18,13 +18,19 @@ class Embree < Formula
   depends_on "tbb"
 
   def install
-    args = std_cmake_args + %w[
+    max_isa = "SSE4.2"
+
+    on_macos do
+      max_isa = "SSE2" unless MacOS.version.requires_sse42?
+    end
+
+    args = std_cmake_args + %W[
       -DBUILD_TESTING=OFF
       -DEMBREE_IGNORE_CMAKE_CXX_FLAGS=OFF
       -DEMBREE_ISPC_SUPPORT=ON
+      -DEMBREE_MAX_ISA=#{max_isa}
       -DEMBREE_TUTORIALS=OFF
     ]
-    args << "-DEMBREE_MAX_ISA=#{MacOS.version.requires_sse42? ? "SSE4.2" : "SSE2"}" if Hardware::CPU.intel?
 
     mkdir "build" do
       system "cmake", *args, ".."
