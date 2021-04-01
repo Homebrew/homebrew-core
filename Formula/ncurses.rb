@@ -30,7 +30,8 @@ class Ncurses < Formula
                           "--enable-symlinks",
                           "--enable-widec",
                           "--with-shared",
-                          "--with-gpm=no"
+                          "--with-gpm=no",
+                          "--without-ada"
     system "make", "install"
     make_libncurses_symlinks
 
