@@ -28,10 +28,12 @@ class Ncspot < Formula
   end
 
   test do
-    pid = fork { exec "#{bin}/ncspot -b . -d debug.log 2>&1 >/dev/null" }
-    sleep 2
-    Process.kill "TERM", pid
+    stdin, stdout, wait_thr = Open3.popen2 "script -q /dev/null"
+    stdin.puts "stty rows 80 cols 130"
+    stdin.puts "env LC_CTYPE=en_US.UTF-8 LANG=en_US.UTF-8 TERM=xterm #{bin}/ncspot -b ."
+    sleep 1
+    Process.kill("INT", wait_thr.pid)
 
-    assert_match '[ncspot::config] [TRACE] "./.config"', File.read("debug.log")
+    assert_match "Please login to Spotify", stdout.read
   end
 end
