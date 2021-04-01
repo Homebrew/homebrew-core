@@ -23,6 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/homebrew/ubuntu16.04:master
+      options: --user=linuxbrew
     env:
       HOMEBREW_BOTTLE_DOMAIN: https://homebrew.bintray.com/
     steps:
