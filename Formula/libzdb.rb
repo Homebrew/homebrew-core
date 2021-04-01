@@ -24,6 +24,12 @@ class Libzdb < Formula
   depends_on "postgresql"
   depends_on "sqlite"
 
+  on_linux do
+    depends_on "gcc" # C++ 17 is required
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
@@ -33,7 +39,7 @@ class Libzdb < Formula
   test do
     cp_r pkgshare/"test", testpath
     cd "test" do
-      system ENV.cc, "select.c", "-L#{lib}", "-lzdb", "-I#{include}/zdb", "-o", "select"
+      system ENV.cc, "select.c", "-L#{lib}", "-lpthread", "-lzdb", "-I#{include}/zdb", "-o", "select"
       system "./select"
     end
   end
