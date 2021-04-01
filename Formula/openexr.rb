@@ -1,9 +1,9 @@
 class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
-  # NOTE: Please keep these values in sync with ilmbase.rb when updating.
-  url "https://github.com/openexr/openexr/archive/v2.5.5.tar.gz"
-  sha256 "59e98361cb31456a9634378d0f653a2b9554b8900f233450f2396ff495ea76b3"
+  # NOTE: Please keep these values in sync with imath.rb when updating.
+  url "https://github.com/openexr/openexr/archive/v3.0.1.tar.gz"
+  sha256 "6d14a8df938bbbd55dd6e55b24c527fe9323fe6a45f704e56967dfbf477cecc1"
   license "BSD-3-Clause"
 
   bottle do
@@ -15,7 +15,7 @@ class Openexr < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ilmbase"
+  depends_on "imath"
 
   uses_from_macos "zlib"
 
@@ -25,8 +25,8 @@ class Openexr < Formula
   end
 
   def install
-    cd "OpenEXR" do
-      system "cmake", ".", *std_cmake_args
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end
