@@ -36,6 +36,11 @@ class Pianobar < Formula
   end
 
   test do
+    on_linux do
+      # Errno::EIO: Input/output error @ io_fread - /dev/pts/0
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     require "pty"
     PTY.spawn(bin/"pianobar") do |stdout, stdin, _pid|
       stdin.putc "\n"
