@@ -15,10 +15,25 @@ class Driftctl < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags",
-             "-s -w -X github.com/cloudskiff/driftctl/build.env=release
-             -X github.com/cloudskiff/driftctl/pkg/version.version=v#{version}",
-             *std_go_args
+    ENV["CGO_ENABLED"] = "0"
+
+    ldflags = %W[
+      -s -w
+      -X github.com/cloudskiff/driftctl/build.env=release
+      -X github.com/cloudskiff/driftctl/pkg/version.version=v#{version}",
+    ].join(" ")
+
+    system "go", "build", "-ldflags", ldflags,
+                          *std_go_args
+
+    output = Utils.safe_popen_read("#{bin}/driftctl", "completion", "bash")
+    (bash_completion/"driftctl").write output
+
+    output = Utils.safe_popen_read("#{bin}/driftctl", "completion", "zsh")
+    (zsh_completion/"_driftctl").write output
+
+    output = Utils.safe_popen_read("#{bin}/driftctl", "completion", "fish")
+    (fish_completion/"driftctl.fish").write output
   end
 
   test do
