@@ -16,7 +16,7 @@ class Boxes < Formula
   end
 
   depends_on "libunistring"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   def install
     # distro uses /usr/share/boxes change to prefix
