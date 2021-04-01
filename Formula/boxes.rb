@@ -3,7 +3,7 @@ class Boxes < Formula
   homepage "https://boxes.thomasjensen.com/"
   url "https://github.com/ascii-boxes/boxes/archive/v2.0.0.tar.gz"
   sha256 "952c85eccde42d23252dfe590d6f296a2179297ad1c54745330fb794907f5ad9"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/ascii-boxes/boxes.git"
 
   bottle do
