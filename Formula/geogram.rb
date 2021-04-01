@@ -5,6 +5,11 @@ class Geogram < Formula
   sha256 "4456d65baa014e9eb0352675f76eca260ed97eb386d23bc5c13af419dc2e8142"
   license all_of: ["BSD-3-Clause", :public_domain, "LGPL-3.0-or-later", "MIT"]
 
+  livecheck do
+    url "https://gforge.inria.fr/frs/?group_id=5833"
+    regex(/href=.*?geogram[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 big_sur:     "16a2b60356439f3a481677989c256085696690a1599636859bc18a31723e075d"
