@@ -6,9 +6,12 @@ class Hdf5 < Formula
   license "BSD-3-Clause"
   revision 1
 
+  # This regex isn't matching filenames within href attributes (as we normally
+  # do on HTML pages) because this page uses JavaScript to handle the download
+  # buttons and the HTML doesn't contain the related URLs.
   livecheck do
-    url "https://www.hdfgroup.org/downloads/hdf5/"
-    regex(/Newsletter for HDF5[._-]v?(.*?) Release/i)
+    url "https://www.hdfgroup.org/downloads/hdf5/source-code/"
+    regex(/>\s*hdf5[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
