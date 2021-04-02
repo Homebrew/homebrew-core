@@ -45,7 +45,7 @@ class Log4cplus < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}",
-                    "-llog4cplus", "test.cpp", "-o", "test"
+                    "test.cpp", "-o", "test", "-llog4cplus"
     assert_match "Hello, World!", shell_output("./test")
   end
 end
