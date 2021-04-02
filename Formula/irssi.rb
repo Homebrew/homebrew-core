@@ -1,7 +1,7 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
 
   stable do
