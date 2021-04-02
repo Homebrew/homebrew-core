@@ -85,7 +85,9 @@ class Tile38 < Formula
     # remove `$408` in the first line output
     json_output = shell_output("#{bin}/tile38-cli -p #{port} server")
     tile38_server = JSON.parse(json_output)
+
     assert_equal tile38_server["ok"], true
+    assert_predicate testpath/"data", :exist?
   ensure
     Process.kill("HUP", pid)
   end
