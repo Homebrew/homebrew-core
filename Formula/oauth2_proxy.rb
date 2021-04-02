@@ -1,8 +1,8 @@
 class Oauth2Proxy < Formula
   desc "Reverse proxy for authenticating users via OAuth 2 providers"
   homepage "https://oauth2-proxy.github.io/oauth2-proxy/"
-  url "https://github.com/oauth2-proxy/oauth2_proxy/archive/v7.1.1.tar.gz"
-  sha256 "3025d1b6ac5ef8d594cf6739e305011d52ebd814172aca4ded4afcd316f5a8be"
+  url "https://github.com/oauth2-proxy/oauth2_proxy/archive/v7.1.2.tar.gz"
+  sha256 "cf2a921179a23542e74e12e1ecfd2b17e9fd7958382ab952e17f94ec0ac69f2b"
   license "MIT"
   head "https://github.com/oauth2-proxy/oauth2-proxy.git"
 
