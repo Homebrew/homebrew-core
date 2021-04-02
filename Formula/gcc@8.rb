@@ -32,6 +32,12 @@ class GccAT8 < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "binutils"
+  end
+
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
