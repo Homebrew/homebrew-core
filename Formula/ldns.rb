@@ -42,9 +42,11 @@ class Ldns < Formula
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
     system "./configure", *args
 
-    inreplace "Makefile" do |s|
-      s.change_make_var! "PYTHON_LDFLAGS", "-undefined dynamic_lookup"
-      s.gsub!(/(\$\(PYTHON_LDFLAGS\).*) -no-undefined/, "\\1")
+    on_macos do
+      inreplace "Makefile" do |s|
+        s.change_make_var! "PYTHON_LDFLAGS", "-undefined dynamic_lookup"
+        s.gsub!(/(\$\(PYTHON_LDFLAGS\).*) -no-undefined/, "\\1")
+      end
     end
 
     system "make"
