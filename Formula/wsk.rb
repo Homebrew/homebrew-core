@@ -1,8 +1,8 @@
 class Wsk < Formula
   desc "OpenWhisk Command-Line Interface (CLI)"
   homepage "https://openwhisk.apache.org/"
-  url "https://github.com/apache/openwhisk-cli/archive/1.1.0.tar.gz"
-  sha256 "d2365117b7c9144ed088b0d6a08c789df1e532e212223dc550d78ce2e1a92ae4"
+  url "https://github.com/apache/openwhisk-cli/archive/1.2.0.tar.gz"
+  sha256 "cafc57b2f2e29f204c00842541691038abcc4e639dd78485f9c042c93335f286"
   license "Apache-2.0"
 
   bottle do
