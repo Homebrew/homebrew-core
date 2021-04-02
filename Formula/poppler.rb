@@ -71,16 +71,18 @@ class Poppler < Formula
       system "make", "install", "prefix=#{prefix}"
     end
 
-    libpoppler = (lib/"libpoppler.dylib").readlink
-    [
-      "#{lib}/libpoppler-cpp.dylib",
-      "#{lib}/libpoppler-glib.dylib",
-      "#{lib}/libpoppler-qt5.dylib",
-      *Dir["#{bin}/*"],
-    ].each do |f|
-      macho = MachO.open(f)
-      macho.change_dylib("@rpath/#{libpoppler}", "#{opt_lib}/#{libpoppler}")
-      macho.write!
+    on_macos do
+      libpoppler = (lib/"libpoppler.dylib").readlink
+      [
+        "#{lib}/libpoppler-cpp.dylib",
+        "#{lib}/libpoppler-glib.dylib",
+        "#{lib}/libpoppler-qt5.dylib",
+        *Dir["#{bin}/*"],
+      ].each do |f|
+        macho = MachO.open(f)
+        macho.change_dylib("@rpath/#{libpoppler}", "#{opt_lib}/#{libpoppler}")
+        macho.write!
+      end
     end
   end
 
