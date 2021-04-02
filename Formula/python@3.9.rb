@@ -2,10 +2,9 @@ class PythonAT39 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
   # Keep in sync with python-tk@3.9.
-  url "https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tar.xz"
-  sha256 "3c2034c54f811448f516668dce09d24008a0716c3a794dd8639b5388cbde247d"
+  url "https://www.python.org/ftp/python/3.9.3/Python-3.9.3.tar.xz"
+  sha256 "30811039c65e04c14fc698e423947e464f9316e69fb44610bd38446046bb82b5"
   license "Python-2.0"
-  revision 4
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -67,8 +66,8 @@ class PythonAT39 < Formula
   link_overwrite "Frameworks/Python.framework/Versions/Current"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/b8/d3/155ebd29b6e34ac283614d3a1e7f476ffb93f535aa0d8b3647fa014815aa/setuptools-54.1.2.tar.gz"
-    sha256 "ebd0148faf627b569c8d2a1b20f5d3b09c873f12739d71c7ee88f037d5be82ff"
+    url "https://files.pythonhosted.org/packages/94/75/05e1d69c61c4dfaf65ad12785cd18bedc1e0129976c55914d6aea59c7da8/setuptools-54.2.0.tar.gz"
+    sha256 "aa9c24fb83a9116b8d425e53bec24c7bfdbffc313c2159f9ed036d4a6dd32d7d"
   end
 
   resource "pip" do
