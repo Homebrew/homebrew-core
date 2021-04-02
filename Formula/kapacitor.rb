@@ -22,25 +22,25 @@ class Kapacitor < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    kapacitor_path = buildpath/"src/github.com/influxdata/kapacitor"
-    kapacitor_path.install Dir["*"]
+    ldflags = %W[
+      -s
+      -w
+      -X main.version=#{version}
+      -X main.commit=#{Utils.git_head}
+    ]
 
-    cd kapacitor_path do
-      system "go", "install",
-             "-ldflags", "-X main.version=#{version} -X main.commit=#{Utils.git_head}",
-             "./cmd/..."
-    end
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/kapacitor"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "-o", bin/"kapacitord", "./cmd/kapacitord"
 
-    inreplace kapacitor_path/"etc/kapacitor/kapacitor.conf" do |s|
+    inreplace "etc/kapacitor/kapacitor.conf" do |s|
       s.gsub! "/var/lib/kapacitor", "#{var}/kapacitor"
       s.gsub! "/var/log/kapacitor", "#{var}/log"
     end
 
-    bin.install "bin/kapacitord"
-    bin.install "bin/kapacitor"
-    etc.install kapacitor_path/"etc/kapacitor/kapacitor.conf" => "kapacitor.conf"
+    etc.install "etc/kapacitor/kapacitor.conf" => "kapacitor.conf"
+  end
 
+  def post_install
     (var/"kapacitor/replay").mkpath
     (var/"kapacitor/tasks").mkpath
   end
