@@ -1,10 +1,9 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.5.1.tar.gz"
-  sha256 "e27fe5b168918ab60d58d7ace2bd82dd14a4d0bd1d3ae182952c2113f5637513"
+  url "https://github.com/opencv/opencv/archive/4.5.2.tar.gz"
+  sha256 "ae258ed50aa039279c3d36afdea5c6ecf762515836b27871a8957c610d0424f8"
   license "Apache-2.0"
-  revision 3
 
   livecheck do
     url :stable
