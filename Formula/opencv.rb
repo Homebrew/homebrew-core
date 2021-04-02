@@ -37,8 +37,8 @@ class Opencv < Formula
   depends_on "webp"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.5.1.tar.gz"
-    sha256 "12c3b1ddd0b8c1a7da5b743590a288df0934e5cef243e036ca290c2e45e425f5"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.2.tar.gz"
+    sha256 "9f52fd3114ac464cb4c9a2a6a485c729a223afb57b9c24848484e55cef0b5c2a"
   end
 
   def install
