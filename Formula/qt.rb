@@ -4,6 +4,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/6.0/6.0.3/single/qt-everywhere-src-6.0.3.tar.xz"
   sha256 "ca4a97439443dd0b476a47b284ba772c3b1b041a9eef733e26a789490993a0e3"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
   # The first-party website doesn't make version information readily available,
@@ -66,6 +67,9 @@ class Qt < Formula
   def install
     resources.each { |addition| addition.stage buildpath/addition.name }
 
+    # force cmake to use GSS.framework
+    inreplace "qtbase/cmake/FindGSSAPI.cmake", "gssapi_krb5", ""
+
     config_args = %W[
       -release
 
@@ -88,9 +92,8 @@ class Qt < Formula
     # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
     # and `-DTEST_assimp=ON` when Qt 6.2 is released.
     # See https://bugreports.qt.io/browse/QTBUG-91537
-    cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"]||s["CMAKE_FIND_FRAMEWORK"] } + %W[
+    cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] } + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
-      -DCMAKE_FIND_FRAMEWORK=FIRST
 
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
       -DINSTALL_DESCRIPTIONSDIR=share/qt/modules
@@ -101,8 +104,8 @@ class Qt < Formula
     ]
 
     system "./configure", *config_args, "--", *cmake_args
-    system "ninja"
-    system "ninja", "install"
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
 
     rm bin/"qt-cmake-private-install.cmake"
 
