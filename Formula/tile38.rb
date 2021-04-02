@@ -77,12 +77,13 @@ class Tile38 < Formula
   end
 
   test do
+    port = free_port
     pid = fork do
-      exec "#{bin}/tile38-server", "-q"
+      exec "#{bin}/tile38-server", "-q", "-p", port.to_s
     end
     sleep 2
     # remove `$408` in the first line output
-    json_output = shell_output("#{bin}/tile38-cli server").lines[1]
+    json_output = shell_output("#{bin}/tile38-cli -p #{port} server")
     tile38_server = JSON.parse(json_output)
     assert_equal tile38_server["ok"], true
   ensure
