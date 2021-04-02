@@ -1,9 +1,9 @@
 class Fuseki < Formula
   desc "SPARQL server"
   homepage "https://jena.apache.org/documentation/fuseki2/"
-  url "https://www.apache.org/dyn/closer.lua?path=jena/binaries/apache-jena-fuseki-3.17.0.tar.gz"
-  mirror "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-3.17.0.tar.gz"
-  sha256 "70008c600cb9a04662e15b057462d0ab269bc25e34e29bf201d8d1a1d6db249e"
+  url "https://www.apache.org/dyn/closer.lua?path=jena/binaries/apache-jena-fuseki-4.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/jena/binaries/apache-jena-fuseki-4.0.0.tar.gz"
+  sha256 "af53684be6819a476b6ea28fc46d31b85918361349f884620c153c14eb4e859d"
   license "Apache-2.0"
 
   bottle :unneeded
