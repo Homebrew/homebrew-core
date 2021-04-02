@@ -3,8 +3,8 @@ require "language/node"
 class Terrahub < Formula
   desc "Terraform automation and orchestration tool"
   homepage "https://docs.terrahub.io"
-  url "https://registry.npmjs.org/terrahub/-/terrahub-0.5.1.tgz"
-  sha256 "ecb13c488d2e9f51fad258965791fa9bb390a4b86fb288651786433b724e6485"
+  url "https://registry.npmjs.org/terrahub/-/terrahub-0.5.2.tgz"
+  sha256 "afb6a0d572a56e078f8b55d22f69e9743d12530a9a51d4d4da5a5073785bca95"
   license "MPL-2.0"
 
   livecheck do
