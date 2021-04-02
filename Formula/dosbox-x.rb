@@ -4,6 +4,7 @@ class DosboxX < Formula
   url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.83.13.tar.gz"
   sha256 "8e7a5d30ae7ec70fa853663368badf5bafe3b4018629196115ffaa95f4771f27"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git"
 
