@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/d9/6c/806b4b0e1f7cc0935157af4f84c175ca4df7af8b963ddafc60c068b1f189/dvc-2.0.15.tar.gz"
-  sha256 "08fc86af26646b33edb29138ec40e6670b3e5bc962468a0b3279451c39b66804"
+  url "https://files.pythonhosted.org/packages/23/d1/5bae91c67dedcebc5927746e3a316c035bff8031daf119204c545aaa5b7d/dvc-2.0.17.tar.gz"
+  sha256 "5e528f3dfc22b02d25c79ff2791f02c3fd5706b8320e071ba18789a6f60e2fe6"
   license "Apache-2.0"
 
   bottle do
@@ -20,6 +20,8 @@ class Dvc < Formula
   depends_on "apache-arrow"
   depends_on "libgit2"
   depends_on "openssl@1.1"
+  depends_on "protobuf"
+  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   # When updating, check that the extra packages in pypi_formula_mappings.json
@@ -41,8 +43,8 @@ class Dvc < Formula
   end
 
   resource "aliyun-python-sdk-core" do
-    url "https://files.pythonhosted.org/packages/0c/3f/2c6a7a0617a36d9afb3d13ffece4567ee5112b32aeb57f9aa09c7f8bcf89/aliyun-python-sdk-core-2.13.32.tar.gz"
-    sha256 "3c5e49a70250ac2ea48f16de4a5c4439313a9518ed3ea0ef80a64f247e731ec4"
+    url "https://files.pythonhosted.org/packages/ad/55/d1f3192da9d361c81590d41f601dc82ad95fa04f11be6245b6b9f8014435/aliyun-python-sdk-core-2.13.33.tar.gz"
+    sha256 "23c4074b82b0148ecfea0d3c491e53d0073f96723e279f22b9563b2fa6d69ab7"
   end
 
   resource "aliyun-python-sdk-kms" do
@@ -76,13 +78,13 @@ class Dvc < Formula
   end
 
   resource "azure-core" do
-    url "https://files.pythonhosted.org/packages/c2/cf/9b18280461cb94d1a6163200826ef249e7c8154193e2356daf06f7ce3437/azure-core-1.12.0.zip"
-    sha256 "adf2b1c6ef150a92295b4b405f982a9d2c55c4846728cb14760ca592acbb09ec"
+    url "https://files.pythonhosted.org/packages/d5/2d/269ab77f694cea9a02c7fb734744a4b52ecf92eb57b22a90cd7dcb83059d/azure-core-1.13.0.zip"
+    sha256 "624b46db407dbed9e03134ab65214efab5b5315949a1fbd6cd592c46fb272588"
   end
 
   resource "azure-datalake-store" do
-    url "https://files.pythonhosted.org/packages/2e/e8/0483d88c6dba818b5a81c410c7bf1bce5817077961f3d408731aa2481fa6/azure-datalake-store-0.0.51.tar.gz"
-    sha256 "b871ebb3bcfd292e8a062dbbaacbc132793d98f1b60f549a8c3b672619603fc1"
+    url "https://files.pythonhosted.org/packages/13/8b/2c151c9f4c3f5345d9a32889e15a471d98e426851b9fcf13dc9f134f5b93/azure-datalake-store-0.0.52.tar.gz"
+    sha256 "4198ddb32614d16d4502b43d5c9739f81432b7e0e4d75d30e05149fe6007fea2"
   end
 
   resource "azure-identity" do
@@ -101,13 +103,13 @@ class Dvc < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ad/27/88683a68b7d9f385d913348506ba09fd3572e9f177bd3058abe6357f3031/boto3-1.17.41.tar.gz"
-    sha256 "d85b0e05d7de96169b0024b76b292be62b01ef6f5ca853a512506346b82d2abb"
+    url "https://files.pythonhosted.org/packages/a7/ee/45a5b2beee77645fc7dc78846bd6c0676f7270b3a0afa7a34ca020413faa/boto3-1.17.44.tar.gz"
+    sha256 "ffb9b192b2b52ab88cde09e2af7d9fd6e541287e5719098be97ffd7144f47eb1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/4e/58/bf880908d0473792a7b6a4f292dbd1b286f990846cecc159c8c585d1283b/botocore-1.20.41.tar.gz"
-    sha256 "63f650fc96bce141e8194a761e6890fea2fba6e01253aefa31ae69f145015c21"
+    url "https://files.pythonhosted.org/packages/90/ca/e5f7009e66697b9c5fd972dd9cf2fc0c8c7c2a5b895dc326e62d89c7e9fd/botocore-1.20.44.tar.gz"
+    sha256 "2958e3912939558fd789a64b23a10039d8b0c0c84a23b573f3f2e3154de357ad"
   end
 
   resource "cached-property" do
@@ -241,8 +243,8 @@ class Dvc < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/7e/d8/bee650a7fbf01ad0e1ba8cad9de29f5d4bf0cb334b169cc3861ce428c9b9/google-api-python-client-2.0.2.tar.gz"
-    sha256 "48686cceb0dc8cb8b9ee1920ad7c0d9b499ef4fca0ca51c1c69f1e462a628011"
+    url "https://files.pythonhosted.org/packages/39/22/66f328d96e71b938ddf044622979e8cfd0e2492f22442c47027d55523fca/google-api-python-client-2.1.0.tar.gz"
+    sha256 "f9ac377efe69571aea1acc9e15760d4204aca23c4464eb63f963ae4defc95d97"
   end
 
   resource "google-auth" do
@@ -346,8 +348,8 @@ class Dvc < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/ef/d0/f706a9e5814a42c544fa1b2876fc33e5d17e1f2c92a5361776632c4f41ab/networkx-2.5.tar.gz"
-    sha256 "7978955423fbc9639c10498878be59caf99b44dc304c2286162fd24b458c1602"
+    url "https://files.pythonhosted.org/packages/b0/21/adfbf6168631e28577e4af9eb9f26d75fe72b2bb1d33762a5f2c425e6c2a/networkx-2.5.1.tar.gz"
+    sha256 "109cd585cac41297f71103c3c42ac6ef7379f29788eb54cb751be5a663bb235a"
   end
 
   resource "oauth2client" do
@@ -398,11 +400,6 @@ class Dvc < Formula
   resource "portalocker" do
     url "https://files.pythonhosted.org/packages/31/e3/b75d97109c793db0e23bcad15ab642da7517fe8dd6ad31567ed66ff51760/portalocker-1.7.1.tar.gz"
     sha256 "6d6f5de5a3e68c4dd65a98ec1babb26d28ccc5e770e07b672d65d5a35e4b2d8a"
-  end
-
-  resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/c5/82/cee5dcde1c7a0ffe1336946a117d31b1a394558fcf4d8ca3fba720a47f80/protobuf-3.15.6.tar.gz"
-    sha256 "2b974519a2ae83aa1e31cff9018c70bbe0e303a46a598f982943c49ae1d4fcd3"
   end
 
   resource "psutil" do
@@ -512,8 +509,8 @@ class Dvc < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/1d/61/e06f30b1f3c16634ad2b12ef1f42ec218793ebe593d6c36b43202d1a6683/rich-10.0.1.tar.gz"
-    sha256 "d5f620a067e5d5f9c6e8039d9b09d8bb7b730bca5c696ca7e32788b37c0b9fa5"
+    url "https://files.pythonhosted.org/packages/12/3c/e4e2b356057f3ce557fcda8a2b9bf114b06f71ade88dac8a0883ae800e28/rich-10.1.0.tar.gz"
+    sha256 "8f05431091601888c50341697cfc421dc398ce37b12bca0237388ef9c7e2c9e9"
   end
 
   resource "rsa" do
@@ -554,11 +551,6 @@ class Dvc < Formula
   resource "smmap" do
     url "https://files.pythonhosted.org/packages/dd/d4/2b4f196171674109f0fbb3951b8beab06cd0453c1b247ec0c4556d06648d/smmap-4.0.0.tar.gz"
     sha256 "7e65386bd122d45405ddf795637b7f7d2b532e7e401d46bbe3fb49b9986d5182"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
-    sha256 "eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"
   end
 
   resource "text-unidecode" do
