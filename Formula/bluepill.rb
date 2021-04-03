@@ -20,6 +20,7 @@ class Bluepill < Formula
   end
 
   depends_on xcode: ["11.2", :build]
+  depends_on :macos
 
   def install
     xcodebuild "-workspace", "Bluepill.xcworkspace",
