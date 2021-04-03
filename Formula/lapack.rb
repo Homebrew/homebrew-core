@@ -1,10 +1,9 @@
 class Lapack < Formula
   desc "Linear Algebra PACKage"
   homepage "https://www.netlib.org/lapack/"
-  url "https://github.com/Reference-LAPACK/lapack/archive/v3.9.0.tar.gz"
-  sha256 "106087f1bb5f46afdfba7f569d0cbe23dacb9a07cd24733765a0e89dbe1ad573"
+  url "https://github.com/Reference-LAPACK/lapack/archive/v3.9.1.tar.gz"
+  sha256 "d0085d2caf997ff39299c05d4bacb6f3d27001d25a4cc613d48c1f352b73e7e0"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/Reference-LAPACK/lapack.git"
 
   bottle do
