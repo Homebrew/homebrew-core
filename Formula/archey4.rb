@@ -24,6 +24,6 @@ class Archey4 < Formula
   end
 
   test do
-    system "#{bin}/archey", "-v"
+    system "#{bin}/archey", "-j"
   end
 end
