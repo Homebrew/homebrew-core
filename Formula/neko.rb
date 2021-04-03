@@ -32,6 +32,7 @@ class Neko < Formula
     depends_on "httpd"
     # On mac, neko uses carbon. On Linux it uses gtk2
     depends_on "gtk+"
+    depends_on "pango"
   end
 
   # Don't redefine MSG_NOSIGNAL -- https://github.com/HaxeFoundation/neko/pull/217
@@ -69,6 +70,15 @@ class Neko < Formula
   end
 
   def install
+    args = std_cmake_args
+
+    on_linux do
+      args << "-DAPR_LIBRARY=#{Formula["apr"].libexec}/lib"
+      args << "-DAPR_INCLUDE_DIR=#{Formula["apr"].libexec}/include/apr-1"
+      args << "-DAPRUTIL_LIBRARY=#{Formula["apr-util"].libexec}/lib"
+      args << "-DAPRUTIL_INCLUDE_DIR=#{Formula["apr-util"].libexec}/include/apr-1"
+    end
+
     inreplace "libs/mysql/CMakeLists.txt",
               %r{https://downloads.mariadb.org/f/},
               "https://downloads.mariadb.com/Connectors/c/"
