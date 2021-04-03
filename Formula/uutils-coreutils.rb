@@ -1,8 +1,8 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://github.com/uutils/coreutils"
-  url "https://github.com/uutils/coreutils/archive/0.0.5.tar.gz"
-  sha256 "eb34e767b4677e659864bf6236b31d55d9a5c73692024686b72ec67e80802d29"
+  url "https://github.com/uutils/coreutils/archive/0.0.6.tar.gz"
+  sha256 "9caa4ef91d7604417a7b4c69976293d81234b0d805be1020bdd46d65f63898db"
   license "MIT"
   head "https://github.com/uutils/coreutils.git"
 
