@@ -20,6 +20,7 @@ class Zeek < Formula
   depends_on "swig" => :build
   depends_on "caf"
   depends_on "geoip"
+  depends_on "libmaxminddb"
   depends_on macos: :mojave
   depends_on "openssl@1.1"
   depends_on "python@3.9"
@@ -34,6 +35,7 @@ class Zeek < Formula
                       "-DBUILD_SHARED_LIBS=on",
                       "-DINSTALL_AUX_TOOLS=on",
                       "-DINSTALL_ZEEKCTL=on",
+                      "-DUSE_GEOIP=on",
                       "-DCAF_ROOT=#{Formula["caf"].opt_prefix}",
                       "-DOPENSSL_ROOT_DIR=#{Formula["openssl@1.1"].opt_prefix}",
                       "-DZEEK_ETC_INSTALL_DIR=#{etc}",
