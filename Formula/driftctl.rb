@@ -4,6 +4,7 @@ class Driftctl < Formula
   url "https://github.com/cloudskiff/driftctl/archive/v0.7.0.tar.gz"
   sha256 "b1f842f04b0b51d5bcf563a70e9842b38b158e24e67c474410b6027a85b43fbb"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
@@ -21,11 +22,10 @@ class Driftctl < Formula
     ldflags = %W[
       -s -w
       -X github.com/cloudskiff/driftctl/build.env=release
-      -X github.com/cloudskiff/driftctl/pkg/version.version=v#{version}",
+      -X github.com/cloudskiff/driftctl/pkg/version.version=v#{version}
     ].join(" ")
 
-    system "go", "build", "-ldflags", ldflags,
-                          *std_go_args
+    system "go", "build", *std_go_args(ldflags: ldflags)
 
     output = Utils.safe_popen_read("#{bin}/driftctl", "completion", "bash")
     (bash_completion/"driftctl").write output
