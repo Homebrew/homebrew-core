@@ -155,6 +155,10 @@ jobs:
         uses: Homebrew/actions/git-try-push@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_API_TOKEN}}
+        env:
+          GIT_COMMITTER_NAME: BrewTestBot
+          GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
 
       - name: Post comment on failure
         if: ${{!success() && github.event.inputs.issue > 0}}
