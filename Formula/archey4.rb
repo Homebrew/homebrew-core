@@ -26,7 +26,7 @@ class Archey4 < Formula
   test do
     ENV["DO_NOT_TRACK"] = "1"
 
-    assert_match version.to_s, shell_output("#{bin}/archey -v")
-    assert_match /BSD|Linux|macOS/i, shell_output("#{bin}/archey -j")
+    assert_match(version.to_s, shell_output("#{bin}/archey -v"))
+    assert_match(/BSD|Linux|macOS/i, shell_output("#{bin}/archey -j"))
   end
 end
