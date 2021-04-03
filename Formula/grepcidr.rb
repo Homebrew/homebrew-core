@@ -5,6 +5,11 @@ class Grepcidr < Formula
   sha256 "61886a377dabf98797145c31f6ba95e6837b6786e70c932324b7d6176d50f7fb"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?grepcidr[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2a44c09499df8266ce513c939722e15a3b8365cb9802a1311450d470ad01b0e"
     sha256 cellar: :any_skip_relocation, big_sur:       "1aee569b691f9aee204924d4059b55b5d28be63394350b9ed5993d42a131c081"
