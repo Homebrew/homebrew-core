@@ -13,6 +13,8 @@ class Fileicon < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "154c80c94f29f209b78252e71d914647a8300c66c02acda672b8574e8e704e92"
   end
 
+  depends_on :macos
+
   def install
     bin.install "bin/fileicon"
     man1.install "man/fileicon.1"
