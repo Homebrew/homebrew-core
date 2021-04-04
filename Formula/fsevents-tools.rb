@@ -25,6 +25,8 @@ class FseventsTools < Formula
     depends_on "pkg-config" => :build
   end
 
+  depends_on :macos
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
