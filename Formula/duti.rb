@@ -21,6 +21,7 @@ class Duti < Formula
   end
 
   depends_on "autoconf" => :build
+  depends_on :macos
 
   # Fix compilation on macOS 10.14 Mojave
   patch do
