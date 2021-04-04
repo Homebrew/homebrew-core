@@ -14,6 +14,7 @@ class Xcodegen < Formula
   end
 
   depends_on xcode: ["10.2", :build]
+  depends_on :macos
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
