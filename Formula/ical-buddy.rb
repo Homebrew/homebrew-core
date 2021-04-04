@@ -14,6 +14,8 @@ class IcalBuddy < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "4f621e8b12e2c2e5e7c9fdd97ee973b7d4b14ce58eb5a5f7a9db32243f0f99f1"
   end
 
+  depends_on :macos
+
   def install
     args = %W[icalBuddy icalBuddy.1 icalBuddyLocalization.1
               icalBuddyConfig.1 COMPILER=#{ENV.cc}]
