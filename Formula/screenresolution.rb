@@ -18,6 +18,8 @@ class Screenresolution < Formula
     sha256 cellar: :any_skip_relocation, mavericks:     "9e6944af938c0c9ec9e1e4a79a6849fabb222baa0d977a9425bee6a2827595d0"
   end
 
+  depends_on :macos
+
   def install
     system "make", "CC=#{ENV.cc}"
     system "make", "PREFIX=#{prefix}", "install"
