@@ -28,6 +28,11 @@ class Zeek < Formula
   uses_from_macos "flex"
   uses_from_macos "libpcap"
 
+  resource "pcap-test" do
+    url "https://raw.githubusercontent.com/zeek/zeek/59ed5c75f190d4401d30172b9297b3592dd72acf/testing/btest/Traces/http/get.trace"
+    sha256 "48c8c3a3560a13ffb03d4eb0ed14143fb57350ced7d6874761a963a8091b1866"
+  end
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
@@ -47,5 +52,7 @@ class Zeek < Formula
   test do
     assert_match "version #{version}", shell_output("#{bin}/zeek --version")
     assert_match "ARP packet analyzer", shell_output("#{bin}/zeek --print-plugins")
+    resource("pcap-test").stage testpath
+    assert shell_output("#{bin}/zeek -C -r get.trace && test -s conn.log && test -s http.log")
   end
 end
