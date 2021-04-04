@@ -16,6 +16,7 @@ class IosSim < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "ddbe9d541710ab4dd219db3f766e878ff8698dcd88c25a247e5c44e165ea2773"
   end
 
+  depends_on :macos
   depends_on "node"
 
   def install
