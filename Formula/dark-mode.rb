@@ -14,6 +14,7 @@ class DarkMode < Formula
   end
 
   depends_on xcode: :build
+  depends_on :macos
   depends_on macos: :mojave
 
   def install
