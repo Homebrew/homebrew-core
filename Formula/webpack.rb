@@ -26,6 +26,7 @@ class Webpack < Formula
   def install
     (buildpath/"node_modules/webpack").install Dir["*"]
     buildpath.install resource("webpack-cli")
+    ENV.prepend_path "PATH", buildpath/"node_modules/.bin"
 
     cd buildpath/"node_modules/webpack" do
       system "npm", "install", *Language::Node.local_npm_install_args, "--production", "--legacy-peer-deps"
