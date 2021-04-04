@@ -17,6 +17,7 @@ class Folderify < Formula
   end
 
   depends_on "imagemagick"
+  depends_on :macos
   depends_on "python@3.9"
 
   def install
