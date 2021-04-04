@@ -1,8 +1,8 @@
 class Shellz < Formula
   desc "Small utility to track and control custom shellz"
   homepage "https://github.com/evilsocket/shellz"
-  url "https://github.com/evilsocket/shellz/archive/v1.5.0.tar.gz"
-  sha256 "870bcc2d6e4fd20913556f95325bc3e1876f3243ef67295c33e2bcc990126e97"
+  url "https://github.com/evilsocket/shellz/archive/v1.5.1.tar.gz"
+  sha256 "ff7d5838fd0f8385a700bd882eab9f6e5da023899458c9215e36e2244cc11bfd"
   license "GPL-3.0-only"
 
   bottle do
