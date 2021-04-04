@@ -13,20 +13,10 @@ class Shellz < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "b659a90bd79e516d71679e68d36a35038937f23ee9d1de1dfee313fd11b0169e"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/evilsocket/shellz").install buildpath.children
-
-    cd "src/github.com/evilsocket/shellz" do
-      system "dep", "ensure", "-vendor-only"
-      system "make", "build"
-      bin.install "shellz"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/shellz"
   end
 
   test do
