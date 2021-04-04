@@ -19,6 +19,7 @@ class Macvim < Formula
   depends_on "cscope"
   depends_on "gettext"
   depends_on "lua"
+  depends_on :macos
   depends_on "python@3.9"
   depends_on "ruby"
 
