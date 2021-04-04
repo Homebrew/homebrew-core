@@ -4,6 +4,7 @@ class Yajl < Formula
   url "https://github.com/lloyd/yajl/archive/2.1.0.tar.gz"
   sha256 "3fb73364a5a30efe615046d07e6db9d09fd2b41c763c5f7d3bfb121cd5c5ac5a"
   license "ISC"
+  revision 1
 
   bottle do
     rebuild 4
@@ -20,6 +21,13 @@ class Yajl < Formula
 
   # Configure uses cmake internally
   depends_on "cmake" => :build
+
+  # Remove it as soon as https://github.com/lloyd/yajl/pull/139 is resolved
+  # The same patch is applied in FreeBSD, Fedora and its derivatives
+  patch do
+    url "https://github.com/lloyd/yajl/commit/681eeb01ac1cfd56b3a21a409cd64781d26798f0.patch?full_index=1"
+    sha256 "b8b917dcf41b75205e33a4b9fda7a18b3578fbed0e88532b4437302b75b82f80"
+  end
 
   def install
     ENV.deparallelize
