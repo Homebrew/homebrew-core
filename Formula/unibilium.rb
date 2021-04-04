@@ -1,8 +1,8 @@
 class Unibilium < Formula
   desc "Very basic terminfo library"
   homepage "https://github.com/neovim/unibilium"
-  url "https://github.com/neovim/unibilium/archive/v2.1.0.tar.gz"
-  sha256 "05bf97e357615e218126f7ac086e7056a23dc013cfac71643b50a18ad390c7d4"
+  url "https://github.com/neovim/unibilium/archive/v2.1.1.tar.gz"
+  sha256 "6f0ee21c8605340cfbb458cbd195b4d074e6d16dd0c0e12f2627ca773f3cabf1"
   license "LGPL-3.0-or-later"
 
   bottle do
