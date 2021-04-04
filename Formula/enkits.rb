@@ -21,7 +21,7 @@ class Enkits < Formula
   end
 
   test do
-    system ENV.cxx, pkgshare/"example/PinnedTask.cpp", "-I#{include}/enkiTS", "-L#{lib}", "-lenkiTS", "-o", "example"
+    system ENV.cxx, pkgshare/"example/PinnedTask.cpp", "-std=c++11", "-I#{include}/enkiTS", "-L#{lib}", "-lenkiTS", "-o", "example"
     output = shell_output("./example")
     assert_match("This will run on the main thread", output)
     assert_match(/This could run on any thread, currently thread \d/, output)
