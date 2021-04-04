@@ -6,6 +6,7 @@ class AnsibleLint < Formula
   url "https://files.pythonhosted.org/packages/98/e8/0e399e023de25053b7d2fc17a65ad1850dbcb0a9e6ee855c94d6549ee5dc/ansible-lint-5.0.6.tar.gz"
   sha256 "e5104cb11c437aec7f51e05a07f8c68d7f9b7c4cc36afc52edd8b0f71d84d63a"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "62a92636a51a4ee03d14d617d101ce848e41d04ab820da4ffbf7d52152a6a5f7"
