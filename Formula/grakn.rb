@@ -12,7 +12,7 @@ class Grakn < Formula
   def install
     libexec.install Dir["*"]
     bin.install libexec/"grakn"
-    bin.env_script_all_files(libexec, Language::Java.java_home_env("1.11"))
+    bin.env_script_all_files(libexec, Language::Java.java_home_env("11"))
   end
 
   test do
