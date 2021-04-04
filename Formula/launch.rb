@@ -22,6 +22,7 @@ class Launch < Formula
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   def install
     rm_rf "launch" # We'll build it ourself, thanks.
