@@ -60,13 +60,13 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/ae/f6/6ffb46f6cf0bb584e44279accd3321cb838b78b324031feb8fd9adf63ed2/rich-9.13.0.tar.gz"
-    sha256 "d59e94a0e3e686f0d268fe5c7060baa1bd6744abca71b45351f5850a3aaa6764"
+    url "https://files.pythonhosted.org/packages/12/3c/e4e2b356057f3ce557fcda8a2b9bf114b06f71ade88dac8a0883ae800e28/rich-10.1.0.tar.gz"
+    sha256 "8f05431091601888c50341697cfc421dc398ce37b12bca0237388ef9c7e2c9e9"
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/1d/2f/40abf6501e051df8af970bfa6d81a90fcd62dc536f82ceec80a2694a3123/ruamel.yaml-0.16.13.tar.gz"
-    sha256 "bb48c514222702878759a05af96f4b7ecdba9b33cd4efcf25c86b882cef3a942"
+    url "https://files.pythonhosted.org/packages/88/4d/ec3d9d9eca7903c9746976a0157b352c1b1dcb8d9de4590a95f671d44790/ruamel.yaml-0.17.2.tar.gz"
+    sha256 "8f1e15421668b9edf30ed02899f5f81aff9808a4271935776f61a99a569a13da"
   end
 
   resource "ruamel.yaml.clib" do
