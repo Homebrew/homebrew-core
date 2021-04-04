@@ -7,6 +7,8 @@ class AwsKeychain < Formula
 
   bottle :unneeded
 
+  depends_on :macos
+
   def install
     bin.install "aws-keychain"
   end
