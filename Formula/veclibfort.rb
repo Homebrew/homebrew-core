@@ -16,6 +16,7 @@ class Veclibfort < Formula
   end
 
   depends_on "gcc" # for gfortran
+  depends_on :macos
 
   def install
     system "make", "all"
