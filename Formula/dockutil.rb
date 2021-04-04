@@ -7,6 +7,8 @@ class Dockutil < Formula
 
   bottle :unneeded
 
+  depends_on :macos
+
   def install
     bin.install "scripts/dockutil"
   end
