@@ -12,6 +12,7 @@ class Xctool < Formula
     sha256 cellar: :any, high_sierra: "055172ba606bf94416513e418007f849a08ff24a3b3484fb67c1b4f854123bb9"
   end
 
+  depends_on :macos
   depends_on xcode: "7.0"
 
   def install
