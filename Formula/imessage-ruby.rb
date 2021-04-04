@@ -18,6 +18,8 @@ class ImessageRuby < Formula
     sha256 cellar: :any_skip_relocation, mavericks:     "7b546ccf5cf13a7d474c635a57eebc8e74ff61ea6c7c3cdfefffe4c78737ab47"
   end
 
+  depends_on :macos
+
   def install
     system "rake", "standalone:install", "prefix=#{prefix}"
   end
