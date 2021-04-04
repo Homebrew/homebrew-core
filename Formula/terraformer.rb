@@ -15,12 +15,6 @@ class Terraformer < Formula
 
   depends_on "go" => :build
 
-  # remove in next release
-  patch do
-    url "https://github.com/chenrui333/terraformer/commit/106ab51.patch?full_index=1"
-    sha256 "a222bcee9f1532f6adc75715f83baa9cc4a032cfbc258afca953dfede4ee8649"
-  end
-
   def install
     system "go", "build", *std_go_args, "-ldflags", "-s -w"
   end
