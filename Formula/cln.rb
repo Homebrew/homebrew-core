@@ -5,6 +5,11 @@ class Cln < Formula
   sha256 "f492530e8879bda529009b6033e1923c8f4aae843149fc28c667c20b094d984a"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cln[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:     "3234c105147111fdbb679c8a27a4b59a99d8195a3e461642783028905c244db4"
     sha256 cellar: :any, catalina:    "bbc7716e6028fc3dc95dc22bf20033d13119b6ffe62dbd4c2609ecce85459a92"
