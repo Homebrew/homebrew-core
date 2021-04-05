@@ -3,10 +3,9 @@ class HomeassistantCli < Formula
 
   desc "Command-line utility for Home Assistant"
   homepage "https://github.com/home-assistant/home-assistant-cli"
-  url "https://files.pythonhosted.org/packages/ea/14/3e1f0327335a2a50409efbcdd35f4eea2961308a735bb1b1dd5b70ff6cec/homeassistant-cli-0.9.1.tar.gz"
-  sha256 "eec1b7f16d688fb8781b554f8c41325222316237aa3eb980f30bf172859f61a8"
+  url "https://files.pythonhosted.org/packages/7d/2c/17453eda0e2799d735bfbb654fdf25fd4faae724dc8d7f47c8aa877338d3/homeassistant-cli-0.9.2.tar.gz"
+  sha256 "99118e62b6a251b306932cbf902f438f5e1ae419d4ee599b79c062b2c6f80d47"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/home-assistant/home-assistant-cli.git"
 
   bottle do
@@ -60,8 +59,8 @@ class HomeassistantCli < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/da/93/84fa12f2dc341f8cf5f022ee09e109961055749df2d0c75c5f98746cfe6c/decorator-4.4.2.tar.gz"
-    sha256 "e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
+    url "https://files.pythonhosted.org/packages/77/d3/b9fe64cd6d97562488685a8509aff2c1e710c421e2bd22ba698f3fb5e6d0/decorator-5.0.5.tar.gz"
+    sha256 "acda948ffcfe4bd0c4a57834b74ad968b91925b8201b740ca9d46fb8c5c618ce"
   end
 
   resource "idna" do
@@ -79,9 +78,9 @@ class HomeassistantCli < Formula
     sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
   end
 
-  resource "jsonpath-rw" do
-    url "https://files.pythonhosted.org/packages/71/7c/45001b1f19af8c4478489fbae4fc657b21c4c669d7a5a036a86882581d85/jsonpath-rw-1.4.0.tar.gz"
-    sha256 "05c471281c45ae113f6103d1268ec7a4831a2e96aa80de45edc89b11fac4fbec"
+  resource "jsonpath-ng" do
+    url "https://files.pythonhosted.org/packages/c5/d0/c4b2fa7e00e69670a92b103761b4e10a4bdaca109818d44753219c20b7be/jsonpath-ng-1.5.2.tar.gz"
+    sha256 "144d91379be14d9019f51973bd647719c877bfc07dc6f3f5068895765950c69d"
   end
 
   resource "MarkupSafe" do
@@ -115,8 +114,8 @@ class HomeassistantCli < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/2e/e4/3447fed9ab29944333f48730ecff4dca92f0868c5b188d6ab2b2078e32c2/regex-2020.11.13.tar.gz"
-    sha256 "83d6b356e116ca119db8e7c6fc2983289d87b27b3fac238cfe5dca529d884562"
+    url "https://files.pythonhosted.org/packages/38/3f/4c42a98c9ad7d08c16e7d23b2194a0e4f3b2914662da8bc88986e4e6de1f/regex-2021.4.4.tar.gz"
+    sha256 "52ba3d3f9b942c49d7e4bc105bb28551c44065f139a65062ab7912bef10c9afb"
   end
 
   resource "requests" do
@@ -160,8 +159,8 @@ class HomeassistantCli < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/4b/21/a09b4a8fdd0f9068c8134de31c4258f43c1c35352e89bdcb8994dae180d9/zeroconf-0.28.8.tar.gz"
-    sha256 "4be24a10aa9c73406f48d42a8b3b077c217b0e8d7ed1e57639630da520c25959"
+    url "https://files.pythonhosted.org/packages/ca/77/eb6137997adc60811c6c46b28b00abac5c16daf14383f61d8a0180326b38/zeroconf-0.29.0.tar.gz"
+    sha256 "7aefbb658b452b1fd7e51124364f938c6f5e42d6ea893fa2557bea8c06c540af"
   end
 
   def install
