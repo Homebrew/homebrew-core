@@ -29,11 +29,12 @@ class Grokj2k < Formula
   def install
     system "cmake", ".", *std_cmake_args, "-DBUILD_DOC=ON"
     system "make", "install"
+    include.install_symlink "grok-#{version.major_minor}" => "grok"
   end
 
   test do
     (testpath/"test.c").write <<~EOS
-      #include <grok.h>
+      #include <grok/grok.h>
 
       int main () {
         grk_image_cmptparm cmptparm;
@@ -46,7 +47,7 @@ class Grokj2k < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include.children.first}", "-L#{lib}", "-lgrokj2k", "test.c", "-o", "test"
+    system ENV.cc, "-I#{opt_include}", "-L#{opt_lib}", "-lgrokj2k", "test.c", "-o", "test"
     # Linux test
     # system ENV.cc, "test.c", "-I#{include.children.first}", "-L#{lib}", "-lgrokj2k", "-o", "test"
     system "./test"
