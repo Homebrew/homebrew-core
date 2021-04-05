@@ -33,12 +33,9 @@ class PerconaToolkit < Formula
     sha256 "f21c5e299ad3ce0fdc0cb0f41378dca85a70e8d6c9a7599f0e56a957200ec294"
   end
 
-  # In Mojave, this is not part of the system Perl anymore
-  if MacOS.version >= :mojave
-    resource "DBI" do
-      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
-      sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
-    end
+  resource "DBI" do
+    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
+    sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
   end
 
   resource "DBD::mysql" do
