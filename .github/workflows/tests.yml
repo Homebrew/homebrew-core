@@ -126,7 +126,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@main
         with:
-          name: logs (${{ matrix.version }})
+          name: logs-${{ matrix.version }}
           path: bottles/logs
 
       - name: Delete logs and home
@@ -151,7 +151,7 @@ jobs:
         if: always() && steps.bottles.outputs.failures > 0
         uses: actions/upload-artifact@main
         with:
-          name: bottles (${{ matrix.version }})
+          name: bottles-${{ matrix.version }}
           path: bottles/failed
 
       # Must be run before the `Upload bottles` step so that failed
