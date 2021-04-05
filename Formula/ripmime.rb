@@ -18,7 +18,13 @@ class Ripmime < Formula
   end
 
   def install
-    system "make", "LIBS=-liconv", "CFLAGS=#{ENV.cflags}"
+    args = %W[
+      CFLAGS=#{ENV.cflags}
+    ]
+    on_macos do
+      args << "LIBS=-liconv"
+    end
+    system "make", *args
     bin.install "ripmime"
     man1.install "ripmime.1"
   end
