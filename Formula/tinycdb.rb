@@ -4,6 +4,11 @@ class Tinycdb < Formula
   url "https://www.corpit.ru/mjt/tinycdb/tinycdb-0.78.tar.gz"
   sha256 "50678f432d8ada8d69f728ec11c3140e151813a7847cf30a62d86f3a720ed63c"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?tinycdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ce0db392cd0f531c5fdc9b3c463a9a26b8389dbb75be6f51bea2fcd0a57bed4e"
     sha256 cellar: :any_skip_relocation, big_sur:       "9e3f2a46d163d0503ac66b177ed0e8ad0848115c782469fd7fa58f49219b4726"
