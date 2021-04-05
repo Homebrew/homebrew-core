@@ -4,8 +4,8 @@ class Rav1e < Formula
   url "https://github.com/xiph/rav1e/archive/v0.4.1.tar.gz"
   sha256 "b0be59435a40e03b973ecc551ca7e632e03190b5a20f944818afa3c2ecf4852d"
   license "BSD-2-Clause"
-  head "https://github.com/xiph/rav1e.git"
   revision 1
+  head "https://github.com/xiph/rav1e.git"
 
   livecheck do
     url :stable
