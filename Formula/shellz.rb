@@ -15,6 +15,12 @@ class Shellz < Formula
 
   depends_on "go" => :build
 
+  # remove in next release
+  patch do
+    url "https://github.com/chenrui333/shellz/commit/10bd430.patch?full_index=1"
+    sha256 "c23d375e7ea2b20e3c2c0fec39adda384a0ce34482c7d97f8aa63c1526bf80f3"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/shellz"
   end
