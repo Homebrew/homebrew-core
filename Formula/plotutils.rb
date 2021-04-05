@@ -4,6 +4,7 @@ class Plotutils < Formula
   url "https://ftp.gnu.org/gnu/plotutils/plotutils-2.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/plotutils/plotutils-2.6.tar.gz"
   sha256 "4f4222820f97ca08c7ea707e4c53e5a3556af4d8f1ab51e0da6ff1627ff433ab"
+  license "GPL-3.0-or-later"
   revision 1
 
   bottle do
