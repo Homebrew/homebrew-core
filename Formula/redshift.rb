@@ -3,7 +3,7 @@ class Redshift < Formula
   homepage "http://jonls.dk/redshift/"
   url "https://github.com/jonls/redshift/releases/download/v1.12/redshift-1.12.tar.xz"
   sha256 "d2f8c5300e3ce2a84fe6584d2f1483aa9eadc668ab1951b2c2b8a03ece3a22ba"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 1
 
   bottle do
@@ -31,15 +31,18 @@ class Redshift < Formula
   def install
     args = %W[
       --prefix=#{prefix}
-      --enable-corelocation
       --disable-silent-rules
       --disable-dependency-tracking
       --disable-geoclue
       --disable-geoclue2
-      --enable-quartz
       --with-systemduserunitdir=no
       --disable-gui
     ]
+
+    on_macos do
+      args << "--enable-corelocation"
+      args << "--enable-quartz"
+    end
 
     system "./bootstrap" if build.head?
     system "./configure", *args
