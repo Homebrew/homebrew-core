@@ -53,7 +53,8 @@ jobs:
                               "except": [
                                   "Formula/openssl@1.1.rb",
                                   "Formula/openssl@3.0.rb",
-                                  "Formula/python@3.9.rb"
+                                  "Formula/python@3.9.rb",
+                                  "Formula/python-tk@3.9.rb"
                               ]
                           }, {
                               "label": "missing license",
