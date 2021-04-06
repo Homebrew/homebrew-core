@@ -87,7 +87,6 @@ class Gcc < Formula
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
 
     args = %W[
-      --build=#{cpu}-apple-darwin#{OS.kernel_version.major}
       --prefix=#{prefix}
       --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
@@ -98,27 +97,28 @@ class Gcc < Formula
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
       --with-mpc=#{Formula["libmpc"].opt_prefix}
       --with-isl=#{Formula["isl"].opt_prefix}
-      --with-system-zlib
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
     ]
 
-    # Xcode 10 dropped 32-bit support
-    args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+    on_macos do
+      args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
+      args << "--with-system-zlib"
 
-    # System headers may not be in /usr/include
-    sdk = MacOS.sdk_path_if_needed
-    if sdk
-      args << "--with-native-system-header-dir=/usr/include"
-      args << "--with-sysroot=#{sdk}"
+      # Xcode 10 dropped 32-bit support
+      args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+
+      # System headers may not be in /usr/include
+      sdk = MacOS.sdk_path_if_needed
+      if sdk
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=#{sdk}"
+      end
+
+      # Ensure correct install names when linking against libgcc_s;
+      # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
+      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     end
-
-    # Avoid reference to sed shim
-    args << "SED=/usr/bin/sed"
-
-    # Ensure correct install names when linking against libgcc_s;
-    # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
 
     mkdir "build" do
       system "../configure", *args
