@@ -1,8 +1,8 @@
 class Graphene < Formula
   desc "Thin layer of graphic data types"
   homepage "https://ebassi.github.io/graphene/"
-  url "https://github.com/ebassi/graphene/releases/download/1.10.4/graphene-1.10.4.tar.xz"
-  sha256 "b2a45f230f332478553bd79666eca8df1d1c6dbf208c344ba9f5120592772414"
+  url "https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz"
+  sha256 "80ae57723e4608e6875626a88aaa6f56dd25df75024bd16e9d77e718c3560b25"
   license "MIT"
 
   bottle do
