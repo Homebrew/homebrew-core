@@ -1,8 +1,8 @@
 class Rbspy < Formula
   desc "Sampling profiler for Ruby"
   homepage "https://rbspy.github.io/"
-  url "https://github.com/rbspy/rbspy/archive/v0.4.2.tar.gz"
-  sha256 "4bd76a63db015401124031929ea7138a2625cb6da6300df45dea491e96046cdc"
+  url "https://github.com/rbspy/rbspy/archive/v0.4.3.tar.gz"
+  sha256 "12296d3ce2c404b40333e0b4ff54718ac62cd4f2ef196a86a2b81e1f5a563049"
   license "MIT"
 
   bottle do
@@ -29,7 +29,14 @@ class Rbspy < Formula
     system "#{bin}/rbspy", "report", "-f", "summary", "-i", "recording.gz",
                            "-o", "result"
 
-    expected_result = "100.00   100.00  aaa - short_program.rb"
+    expected_result = <<~EOS
+      % self  % total  name
+      100.00   100.00  <c function> - unknown
+        0.00   100.00  ccc - sample_program.rb
+        0.00   100.00  bbb - sample_program.rb
+        0.00   100.00  aaa - short_program.rb
+        0.00   100.00  <main> - sample_program.rb
+    EOS
     assert_includes File.read("result"), expected_result
   end
 end
