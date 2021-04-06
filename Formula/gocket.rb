@@ -5,11 +5,10 @@ class Gocket < Formula
   sha256 "c08bea2234b54cd6a8a68513f775c92985519c31f80cc7ed26b36d1556a6be41"
   license "Apache-2.0"
 
-  depends_on "go"
+  depends_on "go" => :build
 
   def install
-    system "go", "build"
-    bin.install "gocket"
+    system "go", "build", *std_go_args
   end
 
   test do
