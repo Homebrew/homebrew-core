@@ -3,8 +3,8 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/0c/ad/43f288c052c09d320c853a654132482a7afe68649c26554adb5784f1091a/internetarchive-1.9.9.tar.gz"
-  sha256 "a1614cbf35499d833e07699ddfd344764f86959fd5535aa9ce1203f57a77f970"
+  url "https://files.pythonhosted.org/packages/b8/9e/4bbe558e78d946fd53c14b99888d5582b20722a516a1ffb13a3923a2d61e/internetarchive-2.0.0.tar.gz"
+  sha256 "132895220e53168fd8ab62a7a98c55a55717cf5e9ba184220310b67dc91f5c7d"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -47,13 +47,13 @@ class Internetarchive < Formula
   end
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/4f/42/c171c0090a5cd8e4b59515b35ac0bcc1a097481a738cadccdaf7aff87094/jsonpatch-1.28.tar.gz"
-    sha256 "e930adc932e4d36087dbbf0f22e1ded32185dfb20662f2e3dd848677a5295a14"
+    url "https://files.pythonhosted.org/packages/21/67/83452af2a6db7c4596d1e2ecaa841b9a900980103013b867f2865e5e1cf0/jsonpatch-1.32.tar.gz"
+    sha256 "b6ddfe6c3db30d81a96aaeceb6baf916094ffa23d7dd5fa2c13e13f8b6e600c2"
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/52/e7/246d9ef2366d430f0ce7bdc494ea2df8b49d7a2a41ba51f5655f68cfe85f/jsonpointer-2.0.tar.gz"
-    sha256 "c192ba86648e05fdae4f08a17ec25180a9aef5008d973407b581798a83975362"
+    url "https://files.pythonhosted.org/packages/6b/35/400557d3df63269a4c010cbd4865910b3c1718fbfe8d83210b216cd3efcf/jsonpointer-2.1.tar.gz"
+    sha256 "5a34b698db1eb79ceac454159d3f7c12a451a91f6334a4f638454327b7a89962"
   end
 
   resource "requests" do
@@ -62,8 +62,8 @@ class Internetarchive < Formula
   end
 
   resource "schema" do
-    url "https://files.pythonhosted.org/packages/c2/13/7332387fabc217b04ce7c4a3286fd1049444991b44cd8f143354e7f8f1fd/schema-0.7.3.tar.gz"
-    sha256 "4cf529318cfd1e844ecbe02f41f7e5aa027463e7403666a52746f31f04f47a5e"
+    url "https://files.pythonhosted.org/packages/2b/91/42bc143289fd5f032ab1b01c5da32dc162ae808a585122f27ed5bf67268f/schema-0.7.4.tar.gz"
+    sha256 "fbb6a52eb2d9facf292f233adcc6008cffd94343c63ccac9a1cb1f3e6de1db17"
   end
 
   resource "six" do
@@ -72,13 +72,13 @@ class Internetarchive < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/69/50/9f29874d835945b845812799edc732ba30c41e9d20431f9f69c8ffb9c670/tqdm-4.56.0.tar.gz"
-    sha256 "fe3d08dd00a526850568d542ff9de9bbc2a09a791da3c334f3213d8d0bbbca65"
+    url "https://files.pythonhosted.org/packages/35/35/bd5af89c97ad5177ed234d9e79d01a984f8b5226b8ffc8b5d3c4fc8e157d/tqdm-4.60.0.tar.gz"
+    sha256 "ebdebdb95e3477ceea267decfc0784859aa3df3e27e22d23b83e9b272bf157ae"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install
