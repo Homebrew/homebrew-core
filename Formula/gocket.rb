@@ -1,18 +1,18 @@
 class Gocket < Formula
   desc "CLI / TUI for Pocket"
   homepage "https://github.com/Phantas0s/gocket"
-  url "https://github.com/Phantas0s/gocket/releases/download/v0.2.4/gocket_0.2.4_Darwin_x86_64.tar.gz"
-  version "0.2.4"
-  sha256 "971594be7b9b0efef3e68665a6d2a43dff1ea6cb7665725ea2a5212b9035186f"
+  url "https://github.com/Phantas0s/gocket/archive/refs/tags/v0.2.4.tar.gz"
+  sha256 "c08bea2234b54cd6a8a68513f775c92985519c31f80cc7ed26b36d1556a6be41"
   license "Apache-2.0"
 
+  depends_on "go"
+
   def install
+    system "go", "build"
     bin.install "gocket"
   end
 
   test do
-    assert_predicate bin/"gocket", :exist?
-
     require "open3"
     Open3.popen3("#{bin}/gocket list") do |_, stdout, stderr, wait_thr|
       assert_include stdout.read, "List your Pocket pages"
