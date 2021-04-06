@@ -1,8 +1,8 @@
 class UBootTools < Formula
   desc "Universal boot loader"
   homepage "https://www.denx.de/wiki/U-Boot/"
-  url "https://ftp.denx.de/pub/u-boot/u-boot-2021.01.tar.bz2"
-  sha256 "b407e1510a74e863b8b5cb42a24625344f0e0c2fc7582d8c866bd899367d0454"
+  url "https://ftp.denx.de/pub/u-boot/u-boot-2021.04.tar.bz2"
+  sha256 "0d438b1bb5cceb57a18ea2de4a0d51f7be5b05b98717df05938636e0aadfe11a"
   license all_of: ["GPL-2.0-only", "GPL-2.0-or-later", "BSD-3-Clause"]
 
   livecheck do
