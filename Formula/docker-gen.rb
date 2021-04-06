@@ -19,7 +19,7 @@ class DockerGen < Formula
 
   def install
     ldflags = "-s -w -X main.buildVersion=#{version}"
-    system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/docker-gen"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/docker-gen"
   end
 
   test do
