@@ -3,8 +3,8 @@ require "language/go"
 class DockerGen < Formula
   desc "Generate files from docker container metadata"
   homepage "https://github.com/jwilder/docker-gen"
-  url "https://github.com/jwilder/docker-gen/archive/0.7.4.tar.gz"
-  sha256 "7951b63684e4ace9eab4f87f0c5625648f8add2559fa7779fabdb141a8a83908"
+  url "https://github.com/jwilder/docker-gen/archive/0.7.5.tar.gz"
+  sha256 "6cbf434cef66132337dda09250b25313da3b2a56eb4cbc8dda8ae8404eff59ca"
   license "MIT"
 
   bottle do
