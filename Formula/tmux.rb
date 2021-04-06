@@ -26,6 +26,8 @@ class Tmux < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
+
+    uses_from_macos "bison" => :build
   end
 
   depends_on "pkg-config" => :build
