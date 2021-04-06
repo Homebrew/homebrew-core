@@ -40,7 +40,7 @@ class Libjwt < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-I#{include}", "-ljwt", "-o", "test"
+    system ENV.cc, "-L#{lib}", "-I#{include}", "test.c", "-ljwt", "-o", "test"
     system "./test"
   end
 end
