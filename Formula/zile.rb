@@ -4,9 +4,9 @@ class Zile < Formula
   # Before bumping to a new version, check the NEWS file to make sure it is a
   # stable release: https://git.savannah.gnu.org/cgit/zile.git/plain/NEWS
   # For context, see: https://github.com/Homebrew/homebrew-core/issues/67379
-  url "https://ftp.gnu.org/gnu/zile/zile-2.4.15.tar.gz"
-  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.15.tar.gz"
-  sha256 "39c300a34f78c37ba67793cf74685935a15568e14237a3a66fda8fcf40e3035e"
+  url "https://ftp.gnu.org/gnu/zile/zile-2.6.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/zile/zile-2.6.1.tar.gz"
+  sha256 "bfbacddf768e39173a27467924fe409990a3e97be3632a02979865fbb9af0277"
   license "GPL-3.0-or-later"
   version_scheme 1
 
@@ -21,6 +21,8 @@ class Zile < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
+  depends_on "glib"
+  depends_on "libgee"
 
   uses_from_macos "ncurses"
 
