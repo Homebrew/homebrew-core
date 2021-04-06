@@ -15,12 +15,6 @@ class CloudNuke < Formula
 
   depends_on "go" => :build
 
-  # remove in next release
-  patch do
-    url "https://github.com/chenrui333/cloud-nuke/commit/5f2919c.patch?full_index=1"
-    sha256 "049a8e9dfc5715c8cb322b53ea76f17192ba46342a0d09cd39d78324ba138cfa"
-  end
-
   def install
     system "go", "build", "-ldflags", "-s -w -X main.VERSION=v#{version}", *std_go_args
   end
