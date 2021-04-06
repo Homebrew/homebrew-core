@@ -114,9 +114,6 @@ class Howdoi < Formula
   end
 
   test do
-    assert_match "sqrt", shell_output("#{bin}/howdoi square root ruby")
-
-    assert_match "# put current date as yyyy-mm-dd in $date",
-      shell_output("#{bin}/howdoi format date bash 2>&1")
+    assert_equal "Here are a few popular howdoi commands ", shell_output("#{bin}/howdoi howdoi").split("\n").first
   end
 end
