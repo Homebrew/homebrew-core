@@ -1,8 +1,8 @@
 class Di < Formula
   desc "Advanced df-like disk information utility"
   homepage "https://gentoo.com/di/"
-  url "https://downloads.sourceforge.net/project/diskinfo-di/di-4.49.tar.gz"
-  sha256 "c04daaa724c5c99fd209a6f5ab384bbff77518760f52f9dbe78bdf252e9468f8"
+  url "https://downloads.sourceforge.net/project/diskinfo-di/di-4.50.tar.gz"
+  sha256 "82f08b6c2549fd6ab2e9cb596135a70883ffd4136d176466ae0ec9ba67a3492a"
   license "Zlib"
 
   livecheck do
