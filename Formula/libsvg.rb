@@ -6,11 +6,6 @@ class Libsvg < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
-  stable do
-    # Allow building on M1 Macs.
-    patch :DATA
-  end
-
   livecheck do
     url "https://cairographics.org/snapshots/"
     regex(/href=.*?libsvg[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -36,6 +31,15 @@ class Libsvg < Formula
   depends_on "libpng"
 
   uses_from_macos "libxml2"
+
+  # Allow building on M1 Macs. libsvg uses a very old configuration for
+  # autotools that appears now to be deprecated (Cairo itself got rid of these
+  # macros in 2008). This patch adapts the fix Cairo made to unblock
+  # installation on modern computers. It is unlikely that this patch will be
+  # accepted upstream, since as far as I understand it libsvg is in
+  # less-than-maintainence mode.
+  # (https://cgit.freedesktop.org/cairo/commit/?id=afdf3917ee86a7d8ae17f556db96478682674a76)
+  patch :DATA
 
   def install
     system "autoreconf", "-fiv"
