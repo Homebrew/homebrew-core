@@ -6,6 +6,11 @@ class Libsvg < Formula
   license "LGPL-2.1-or-later"
   revision 1
 
+  stable do
+    # Allow building on M1 Macs.
+    patch :DATA
+  end
+
   livecheck do
     url "https://cairographics.org/snapshots/"
     regex(/href=.*?libsvg[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -29,14 +34,8 @@ class Libsvg < Formula
   depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "libpng"
-  
-  uses_from_macos "libxml2"
-  
-  stable do
-    # Allow building on M1 Macs.
-    patch :DATA
-  end
 
+  uses_from_macos "libxml2"
 
   def install
     system "autoreconf", "-fiv"
