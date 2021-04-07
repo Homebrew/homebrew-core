@@ -25,7 +25,7 @@ class Orgalorg < Formula
     assert_match "orgalorg - files synchronization on many hosts.", shell_output("#{bin}/orgalorg --help")
 
     port = free_port
-    output = shell_output("#{bin}/orgalorg -u tester -o 127.0.0.1:#{port} -C uptime 2>&1", 1)
+    output = shell_output("#{bin}/orgalorg -u tester --host=127.0.0.1:#{port} -C uptime 2>&1", 1)
     assert_match("connecting to cluster failed", output)
     assert_match("dial tcp 127.0.0.1:#{port}: connect: connection refused", output)
     assert_match("can't connect to address: [tester@127.0.0.1:#{port}]", output)
