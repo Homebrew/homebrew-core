@@ -29,16 +29,11 @@ class Fish < Formula
   uses_from_macos "ncurses"
 
   def install
-    # In Homebrew's 'superenv' sed's path will be incompatible, so
-    # the correct path is passed into configure here.
     args = %W[
       -Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
       -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
       -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
     ]
-    on_macos do
-      args << "-DSED=/usr/bin/sed"
-    end
     system "cmake", ".", *std_cmake_args, *args
     system "make", "install"
   end
