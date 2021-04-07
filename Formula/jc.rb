@@ -3,8 +3,8 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/f3/51/25e8eb139cc60a3dbdd4ff2d2befe2400055616e5bf04b8d3e2208c8f218/jc-1.14.4.tar.gz"
-  sha256 "562370981da44eba8916647c6947456eb811c803407106d3f47a302205fcc396"
+  url "https://files.pythonhosted.org/packages/e4/ba/30b6b4e6fbc9e739fd04e8c9258f098d19bd9fa2a2ab8699a6b273aaaa98/jc-1.15.0.tar.gz"
+  sha256 "1f6085a23202a6293c88756befbb2072e5af13ff68eb1692f960aa87b6dc7691"
   license "MIT"
 
   bottle do
@@ -17,13 +17,13 @@ class Jc < Formula
   depends_on "python@3.9"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/19/d0/dec5604a275b19b0ebd2b9c43730ce39549c8cd8602043eaf40c541a7256/Pygments-2.8.0.tar.gz"
-    sha256 "37a13ba168a02ac54cc5891a42b1caec333e59b66addb7fa633ea8a6d73445c0"
+    url "https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz"
+    sha256 "2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94"
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/1d/2f/40abf6501e051df8af970bfa6d81a90fcd62dc536f82ceec80a2694a3123/ruamel.yaml-0.16.13.tar.gz"
-    sha256 "bb48c514222702878759a05af96f4b7ecdba9b33cd4efcf25c86b882cef3a942"
+    url "https://files.pythonhosted.org/packages/62/cf/148028462ab88a71046ba0a30780357ae9e07125863ea9ca7808f1ea3798/ruamel.yaml-0.17.4.tar.gz"
+    sha256 "44bc6b54fddd45e4bc0619059196679f9e8b79c027f4131bb072e6a22f4d5e28"
   end
 
   resource "ruamel.yaml.clib" do
@@ -41,7 +41,7 @@ class Jc < Formula
   end
 
   test do
-    assert_equal "[{\"header1\": \"data1\", \"header2\": \"data2\"}]\n", \
+    assert_equal "[{\"header1\":\"data1\",\"header2\":\"data2\"}]\n", \
                   pipe_output("#{bin}/jc --csv", "header1, header2\n data1, data2")
   end
 end
