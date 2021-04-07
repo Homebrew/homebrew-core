@@ -15,6 +15,12 @@ class Duckscript < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "openssl@1.1"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     cd "duckscript_cli" do
       system "cargo", "install", *std_cargo_args
