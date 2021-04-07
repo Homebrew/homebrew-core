@@ -1,8 +1,8 @@
 class Dgraph < Formula
   desc "Fast, Distributed Graph DB"
   homepage "https://dgraph.io"
-  url "https://github.com/dgraph-io/dgraph/archive/v20.11.3.tar.gz"
-  sha256 "cf0ed5d61dff1d0438dc5b211972d8f64b40dcadebf35355060918c3cf0a6e62"
+  url "https://github.com/dgraph-io/dgraph/archive/v21.03.0.tar.gz"
+  sha256 "36731a466fd27e13a5aa6bae60a2a7adac063ba430147285add7568bfcd3fe22"
   # Source code in this repository is variously licensed under the Apache Public License 2.0 (APL)
   # and the Dgraph Community License (DCL). A copy of each license can be found in the licenses directory.
   license "Apache-2.0"
