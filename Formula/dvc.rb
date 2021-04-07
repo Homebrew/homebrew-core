@@ -433,9 +433,9 @@ class Dvc < Formula
     sha256 "248081a39bcb56784deb018977e428605c1c758f10897a339fce1dd728ff007d"
   end
 
-  resource "PyDrive" do
-    url "https://files.pythonhosted.org/packages/52/e0/0e64788e5dd58ce2d6934549676243dc69d982f198524be9b99e9c2a4fd5/PyDrive-1.3.1.tar.gz"
-    sha256 "83890dcc2278081c6e3f6a8da1f8083e25de0bcc8eb7c91374908c5549a20787"
+  resource "PyDrive2" do
+    url "https://files.pythonhosted.org/packages/90/03/d73dfaa7f28789fc95cb0f3c802cf157b0dbf29e16c0030f10db62d5502b/PyDrive2-1.8.1.tar.gz"
+    sha256 "49c5678c159b14908ec6645e0e9c84c877af6bb0aa97c97ba926211db86b99be"
   end
 
   resource "pygit2" do
