@@ -1,8 +1,8 @@
 class Libxres < Formula
   desc "X.Org: X-Resource extension client library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXres-1.2.0.tar.bz2"
-  sha256 "ff75c1643488e64a7cfbced27486f0f944801319c84c18d3bd3da6bf28c812d4"
+  url "https://www.x.org/archive/individual/lib/libXres-1.2.1.tar.bz2"
+  sha256 "b6e6fb1ebb61610e56017edd928fb89a5f53b3f4f990078309877468663b2b11"
   license "MIT"
 
   bottle do
