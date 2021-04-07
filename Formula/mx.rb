@@ -1,9 +1,14 @@
 class Mx < Formula
   desc "Command-line tool used for the development of Graal projects"
   homepage "https://github.com/graalvm/mx"
-  url "https://github.com/graalvm/mx/archive/refs/tags/5.292.5.tar.gz"
-  sha256 "18c2a8d1af4afd7245fab7fe60f46d6b80a984d23596b053da71f7ef53f68caa"
+  url "https://github.com/graalvm/mx/archive/refs/tags/5.292.6.tar.gz"
+  sha256 "92894dacb210c8f12701a16b275bfbd42390213520deb68bed045f40e3a87164"
   license "GPL-2.0-only"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "dd671091cb445364e11ea8765b21cebfecb0d4f587520ebfdabae5fada44827a"
