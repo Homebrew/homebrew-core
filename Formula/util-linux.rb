@@ -59,7 +59,6 @@ class UtilLinux < Formula
       args << "--disable-wall" # already comes with macOS
       args << "--disable-libmount" # does not build on macOS
       args << "--enable-libuuid" # conflicts with ossp-uuid
-      args << "--disable-wall" # already comes with macOS
     end
     on_linux do
       args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
