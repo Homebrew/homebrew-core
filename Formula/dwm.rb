@@ -7,6 +7,11 @@ class Dwm < Formula
   revision 2
   head "https://git.suckless.org/dwm", using: :git
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dwm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7fd3a01a1f29927ca94c2c5ea32b4ee0c9f31d9ea39adc04e76ab40517663149"
     sha256 cellar: :any, big_sur:       "afd787afd9c6ea4cc81c100f324d2b8aa4c65c2a06e43ca87d54135425b347cf"
