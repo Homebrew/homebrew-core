@@ -35,6 +35,8 @@ class Knot < Formula
   depends_on "protobuf-c"
   depends_on "userspace-rcu"
 
+  uses_from_macos "libedit"
+
   def install
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--disable-dependency-tracking",
