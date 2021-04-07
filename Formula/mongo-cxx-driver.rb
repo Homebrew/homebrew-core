@@ -25,7 +25,8 @@ class MongoCxxDriver < Formula
     system "cmake", ".", *std_cmake_args,
                         "-DBUILD_VERSION=#{version}",
                         "-DLIBBSON_DIR=#{mongo_c_prefix}",
-                        "-DLIBMONGOC_DIR=#{mongo_c_prefix}"
+                        "-DLIBMONGOC_DIR=#{mongo_c_prefix}",
+                        "-DCMAKE_INSTALL_RPATH=#{lib}"
     system "make"
     system "make", "install"
   end
