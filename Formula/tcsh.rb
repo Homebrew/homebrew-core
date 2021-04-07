@@ -4,6 +4,7 @@ class Tcsh < Formula
   url "https://astron.com/pub/tcsh/tcsh-6.22.03.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.22.03.tar.gz"
   sha256 "be2cfd653d2a0c7f506d2dd14c12324ba749bd484037be6df44a3973f52262b7"
+  license "BSD-3-Clause"
 
   livecheck do
     url "https://astron.com/pub/tcsh/"
@@ -22,6 +23,10 @@ class Tcsh < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     system "make", "install"
+
+    on_linux do
+      bin.install_symlink "tcsh" => "csh"
+    end
   end
 
   test do
