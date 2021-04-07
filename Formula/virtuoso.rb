@@ -6,6 +6,7 @@ class Virtuoso < Formula
   # This explicit version should be safe to remove next release.
   version "7.2.5.1"
   sha256 "826477d25a8493a68064919873fb4da4823ebe09537c04ff4d26ba49d9543d64"
+  license "GPL-2.0-only"
   revision 1
   # HEAD is disabled as the below, required patches are not compatible.
 
@@ -26,6 +27,10 @@ class Virtuoso < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "gperf" => :build
+
+  on_linux do
+    depends_on "net-tools" => :build
+  end
 
   conflicts_with "unixodbc", because: "both install `isql` binaries"
 
