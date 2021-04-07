@@ -24,11 +24,17 @@ class Wxmaxima < Formula
       system "cmake", "..", "-GNinja", *std_cmake_args
       system "ninja"
       system "ninja", "install"
-      prefix.install "src/wxMaxima.app"
+
+      on_macos do
+        prefix.install "src/wxMaxima.app"
+      end
     end
 
     bash_completion.install "data/wxmaxima"
-    bin.write_exec_script "#{prefix}/wxMaxima.app/Contents/MacOS/wxmaxima"
+
+    on_macos do
+      bin.write_exec_script "#{prefix}/wxMaxima.app/Contents/MacOS/wxmaxima"
+    end
   end
 
   def caveats
