@@ -20,6 +20,8 @@ class Cadence < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "cadence-workflow", because: "both install a `cadence` executable"
+
   def install
     system "go", "build", *std_go_args, "./runtime/cmd/main"
   end
