@@ -12,6 +12,9 @@ class Mesos < Formula
     sha256 mojave:   "4703f4fb7376a394f08e4b44bd90f2eacefc409e38350290dd131371892c89bb"
   end
 
+  # See https://lists.apache.org/thread.html/rab2a820507f7c846e54a847398ab20f47698ec5bce0c8e182bfe51ba@<dev.mesos.apache.org>
+  deprecate! date: "2021-04-05", because: :deprecated_upstream
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
