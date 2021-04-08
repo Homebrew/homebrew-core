@@ -1,20 +1,12 @@
 class BoostPython < Formula
   desc "C++ library for C++/Python2 interoperability"
   homepage "https://www.boost.org/"
-  url "https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_74_0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_74_0.tar.bz2"
+  url "https://downloads.sourceforge.net/project/boost/boost/1.74.0/boost_1_74_0.tar.bz2"
   sha256 "83bfc1507731a0906e387fc28b7ef5417d591429e51e788417fe9ff025e116b1"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
-  bottle do
-    rebuild 1
-    sha256 cellar: :any, big_sur:  "773bf09629cf60599cb4118827d40b81ef792efbe24796ac5a756e4c173ba889"
-    sha256 cellar: :any, catalina: "6fb5b45ffb117fa0a996a24f6ccf8041685ebbe65b8a5cea26d92028eeff09e4"
-    sha256 cellar: :any, mojave:   "f17e33b10753adb4d49cd1d9daf46ba28552953e53069025b84393cb5db89223"
-  end
-
-  deprecate! date: "2020-01-01", because: "uses Python 2, which is no longer supported"
+  disable! date: "2021-04-08", because: :does_not_build
 
   depends_on "boost"
   depends_on :macos # Due to Python 2
