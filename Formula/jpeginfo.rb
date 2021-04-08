@@ -7,6 +7,11 @@ class Jpeginfo < Formula
   revision 1
   head "https://github.com/tjko/jpeginfo.git"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?jpeginfo[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "883d13008806a89bd05f612ffd27940a5985f47ad9c950af76f719b6a781bb1e"
