@@ -11,7 +11,6 @@ class Dislocker < Formula
 
   on_macos do
     disable! date: "2021-04-08", because: "requires FUSE"
-    depends_on :osxfuse
   end
 
   on_linux do
