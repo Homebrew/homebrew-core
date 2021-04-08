@@ -4,6 +4,7 @@ class NodeAT14 < Formula
   url "https://nodejs.org/dist/v14.16.1/node-v14.16.1.tar.gz"
   sha256 "5f5080427abddde7f22fd2ba77cd2b8a1f86253277a1eec54bc98a202728ce80"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -22,6 +23,14 @@ class NodeAT14 < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
   depends_on "icu4c"
+
+  # Patch for compatibility with ICU 69
+  # https://github.com/v8/v8/commit/035c305ce7761f51328b45f1bd83e26aef267c9d
+  patch do
+    url "https://github.com/v8/v8/commit/035c305ce7761f51328b45f1bd83e26aef267c9d.patch?full_index=1"
+    sha256 "dfe0f6c312b0bea2733252db41fedae330afa21b055ee886b0b8f9ca780e2901"
+    directory "deps/v8"
+  end
 
   def install
     # make sure subprocesses spawned by make are using our Python 3
