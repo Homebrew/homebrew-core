@@ -142,23 +142,23 @@ jobs:
         with:
           signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
 
-      - name: Upload and publish bottles on Bintray
-        env:
-          HOMEBREW_BINTRAY_USER: brewtestbot
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
-          BREWTESTBOT_NAME_EMAIL: "BrewTestBot <1589480+BrewTestBot@users.noreply.github.com>"
-        run: |
-          cd ~/bottles
-          brew pr-upload --verbose --committer="$BREWTESTBOT_NAME_EMAIL"
-
       - name: Upload bottles to GitHub Packages
         env:
           HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
           HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+          BREWTESTBOT_NAME_EMAIL: "BrewTestBot <1589480+BrewTestBot@users.noreply.github.com>"
         run: |
           cd ~/bottles
-          brew pr-upload --verbose --no-commit --root-url="https://ghcr.io/v2/homebrew/core"
+          brew pr-upload --verbose --committer="$BREWTESTBOT_NAME_EMAIL" --root-url="https://ghcr.io/v2/homebrew/core"
+
+      - name: Upload and publish bottles on Bintray
+        env:
+          HOMEBREW_BINTRAY_USER: brewtestbot
+          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
+        run: |
+          cd ~/bottles
+          brew pr-upload --verbose --no-commit --root-url="https://homebrew.bintray.com/bottles"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
