@@ -6,12 +6,6 @@ class Osquery < Formula
   license any_of: ["Apache-2.0", "GPL-2.0-only"]
   revision 17
 
-  bottle do
-    sha256 cellar: :any, catalina:    "ea852c037cabbc09798dcdba8ce675e49d56f3a576b3b1fbf541bd9ca40ba1d1"
-    sha256 cellar: :any, mojave:      "ec9daadf541bd30127bef694fc8e1ad1689de9338936ddbf28a0a138d25890b0"
-    sha256 cellar: :any, high_sierra: "9c70ccbcc111293ceddc2421035cf6b0748709d96979c3db01a5d8dee1053db4"
-  end
-
   disable! date: "2020-05-18", because: "has old, vendored dependencies and cannot use duplicated Homebrew libraries"
 
   depends_on "bison" => :build
