@@ -21,7 +21,7 @@ class Sshfs < Formula
 
   on_macos do
     deprecate! date: "2020-11-10", because: "requires FUSE"
-    depends_on :osxfuse
+    depends_on :macfuse
   end
 
   on_linux do
