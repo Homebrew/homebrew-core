@@ -4,6 +4,7 @@ class Fastlane < Formula
   url "https://github.com/fastlane/fastlane/archive/2.180.0.tar.gz"
   sha256 "f91c275bce16f9b0e5c2720ec278abdffec405ad983ec75269d12832f589178c"
   license "MIT"
+  revision 1
   head "https://github.com/fastlane/fastlane.git"
 
   livecheck do
@@ -18,7 +19,9 @@ class Fastlane < Formula
     sha256 cellar: :any, mojave:        "42425e2bd0d5322fee4ec9e788bf12822e82c677bb3989cdb48bb004020c588e"
   end
 
-  depends_on "ruby@2.7"
+  # Issue with Ruby 2.7 not finding gems correctly
+  # https://github.com/fastlane/fastlane/issues/18517
+  depends_on "ruby@2.6"
 
   def install
     ENV["GEM_HOME"] = libexec
