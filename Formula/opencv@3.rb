@@ -1,10 +1,9 @@
 class OpencvAT3 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/3.4.13.tar.gz"
-  sha256 "70230049194ae03ed8bfaab6cd1388569aa1b5c482d8b50d3af1cd2ae5a0b95d"
+  url "https://github.com/opencv/opencv/archive/refs/tags/3.4.14.tar.gz"
+  sha256 "dfeb91c93d494be590afbe342ebb61742381f901fe2e0376987b1581f74948d1"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
     sha256 arm64_big_sur: "7dd060aad31743521ecf989ede57662ea41be3c6b7f6ac0895a5464bc5972615"
@@ -31,8 +30,8 @@ class OpencvAT3 < Formula
   depends_on "tbb"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/3.4.13.tar.gz"
-    sha256 "2ba1052eb52e5ad90ed32d2046504345a6bf3ab8ed57d101a492877c3bfae357"
+    url "https://github.com/opencv/opencv_contrib/archive/3.4.14.tar.gz"
+    sha256 "f8394bc68b70c57e54fc7706a4d2b7ef33e514c385f338c4cb470fe37d0dc243"
   end
 
   def install
