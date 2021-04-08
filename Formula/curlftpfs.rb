@@ -20,7 +20,6 @@ class Curlftpfs < Formula
   depends_on "glib"
 
   # TODO: depend on specific X11 formulae instead
-  # depends_on :x11
 
   on_macos do
     disable! date: "2021-04-08", because: "requires FUSE"
