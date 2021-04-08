@@ -1,9 +1,9 @@
 class Icu4c < Formula
   desc "C/C++ and Java libraries for Unicode and globalization"
   homepage "http://site.icu-project.org/home"
-  url "https://github.com/unicode-org/icu/releases/download/release-68-2/icu4c-68_2-src.tgz"
-  version "68.2"
-  sha256 "c79193dee3907a2199b8296a93b52c5cb74332c26f3d167269487680d479d625"
+  url "https://github.com/unicode-org/icu/releases/download/release-69-1/icu4c-69_1-src.tgz"
+  version "69.1"
+  sha256 "4cba7b7acd1d3c42c44bb0c14be6637098c7faf2b330ce876bc5f3b915d09745"
   license "ICU"
 
   livecheck do
