@@ -2,10 +2,9 @@ class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      tag:      "v0.17.1.9",
-      revision: "8fef32e45c80aec41f25be9d1d8fb75adc883c64"
+      tag:      "v0.17.2.0",
+      revision: "f6e63ef260e795aacd408c28008398785b84103a"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d6fb5505e8fab3d588fb01cd61e4feab202d575729525a96fc270060b4162079"
