@@ -27,7 +27,7 @@ class Grafana < Formula
   def install
     system "go", "run", "build.go", "build"
 
-    system "yarn", "install"
+    system "yarn", "install", "--network-concurrency 4"
 
     system "node_modules/webpack/bin/webpack.js", "--config", "scripts/webpack/webpack.prod.js"
 
