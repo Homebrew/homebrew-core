@@ -3,6 +3,7 @@ class MkConfigure < Formula
   homepage "https://github.com/cheusov/mk-configure"
   url "https://downloads.sourceforge.net/project/mk-configure/mk-configure/mk-configure-0.37.0/mk-configure-0.37.0.tar.gz"
   sha256 "16d66de82bec9f050d5641af0851171e4804be69095630a01f7af8b88cd199e7"
+  license all_of: ["BSD-2-Clause", "BSD-3-Clause", "MIT", "MIT-CMU"]
 
   livecheck do
     url :stable
