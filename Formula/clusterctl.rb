@@ -1,8 +1,8 @@
 class Clusterctl < Formula
   desc "Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle"
   homepage "https://cluster-api.sigs.k8s.io"
-  url "https://github.com/kubernetes-sigs/cluster-api/archive/refs/tags/v0.3.14.tar.gz"
-  sha256 "fc7c7eb07bce70505721c8bc82ff4b8f111172cdfef94964b7ceac82e45faace"
+  url "https://github.com/kubernetes-sigs/cluster-api/archive/refs/tags/v0.3.15.tar.gz"
+  sha256 "5f5b70b2a5469bb1c70079a186e1dfec6542fc870f1f95db236082ac3b70a955"
   license "Apache-2.0"
 
   bottle do
@@ -15,11 +15,12 @@ class Clusterctl < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-o", bin/"clusterctl"
+    system "make", "clusterctl"
+    prefix.install "bin"
   end
 
   test do
-    output = shell_output("KUBECONFIG=/homebrew.config  #{bin}/clusterctl 2>&1", 1)
-    assert_match "invalid configuration: no configuration has been provided", output
+    output = shell_output("KUBECONFIG=/homebrew.config  #{bin}/clusterctl init --infrastructure docker 2>&1", 1)
+    assert_match "Error: invalid kubeconfig file; clusterctl requires a valid kubeconfig", output
   end
 end
