@@ -4,6 +4,11 @@ class Id3tool < Formula
   url "http://nekohako.xware.cx/id3tool/id3tool-1.2a.tar.gz"
   sha256 "7908d66c5aabe2a53ae8019e8234f4231485d80be4b2fe72c9d04013cff1caec"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?id3tool[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "eec5850fee5d290bad13de2cb4456b2e600560632be7b86309ac5c3f3f03697f"
     sha256 cellar: :any_skip_relocation, big_sur:       "7a6a25738f1961b7ebb929fe0e4746a60ef71fd28af06ea305c5f5d95ef10e60"
