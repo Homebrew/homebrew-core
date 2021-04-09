@@ -1,8 +1,8 @@
 class Navi < Formula
   desc "Interactive cheatsheet tool for the command-line"
   homepage "https://github.com/denisidoro/navi"
-  url "https://github.com/denisidoro/navi/archive/v2.14.0.tar.gz"
-  sha256 "544c01e9d10dfcdcdded7758411e90d69e9b4734dfda1c0908359a72ba7b2bee"
+  url "https://github.com/denisidoro/navi/archive/v2.15.0.tar.gz"
+  sha256 "60037f702975f141ab10de2287b19032907a773624319ccc1700cbabfb5549bf"
   license "Apache-2.0"
 
   bottle do
