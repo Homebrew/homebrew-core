@@ -14,8 +14,6 @@ class Gdu < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "coreutils", because: "both install `gdu` binaries"
-
   def install
     time = Time.new
     user = Utils.safe_popen_read("id", "-u", "-n")
@@ -27,7 +25,7 @@ class Gdu < Formula
       -X 'github.com/dundee/gdu/v4/build.User=#{user}'
     ]
 
-    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
+    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "-o", bin/"#{name}-go"
   end
 
   test do
@@ -35,8 +33,9 @@ class Gdu < Formula
     (testpath/"test_dir"/"file1").write "hello"
     (testpath/"test_dir"/"file2").write "brew"
 
-    assert_match version.to_s, shell_output("#{bin}/gdu -v")
-    assert_match "colorized", shell_output("#{bin}/gdu --help 2>&1")
-    assert_match "4.0 KiB file1", shell_output("#{bin}/gdu --non-interactive --no-progress #{testpath}/test_dir 2>&1")
+    assert_match version.to_s, shell_output("#{bin}/gdu-go -v")
+    assert_match "colorized", shell_output("#{bin}/gdu-go --help 2>&1")
+    assert_match "4.0 KiB file1",
+      shell_output("#{bin}/gdu-go --non-interactive --no-progress #{testpath}/test_dir 2>&1")
   end
 end
