@@ -7,6 +7,11 @@ class Monero < Formula
   license "BSD-3-Clause"
   revision 1
 
+  livecheck do
+    url "https://www.getmonero.org/blog/tags/releases.html"
+    regex(/Monero GUI .*?v?(\d+(?:\.\d+)+)["' >]/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d6fb5505e8fab3d588fb01cd61e4feab202d575729525a96fc270060b4162079"
     sha256 cellar: :any, big_sur:       "ba4a3f33a6554f58d0a6b6b689b770e74acc9304e411667259ceb2702550bb19"
