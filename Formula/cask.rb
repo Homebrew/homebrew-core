@@ -8,6 +8,7 @@ class Cask < Formula
 
   bottle :unneeded
 
+  depends_on "coreutils"
   depends_on "emacs"
 
   def install
