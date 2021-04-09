@@ -1,8 +1,8 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://vincentbernat.github.io/lldpd/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.9.tar.gz"
-  sha256 "6b64eb3125952b1e33472198b054e8aa0dee45f45d3d4be22789090a474949f5"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.10.tar.gz"
+  sha256 "445b2d76037ef3ebd03d40e1fc1f29ef08102faa3a09fe846b952797c8bc7722"
   license "ISC"
 
   livecheck do
