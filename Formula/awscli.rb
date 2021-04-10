@@ -56,7 +56,7 @@ class Awscli < Formula
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
-    assert_include Dir["#{libexec}/lib/python3.9/site-packages/awscli/data/*"],
-                   "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
+    assert_includes Dir["#{libexec}/lib/python3.9/site-packages/awscli/data/*"],
+                    "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
   end
 end
