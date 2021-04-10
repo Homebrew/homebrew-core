@@ -27,6 +27,7 @@ class Openvpn < Formula
 
   on_linux do
     depends_on "linux-pam"
+    depends_on "net-tools"
   end
 
   def install
