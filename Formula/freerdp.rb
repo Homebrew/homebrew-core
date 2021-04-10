@@ -32,10 +32,14 @@ class Freerdp < Formula
   depends_on "libxv"
   depends_on "openssl@1.1"
 
+  uses_from_macos "cups"
+
   on_linux do
     depends_on "alsa-lib"
     depends_on "ffmpeg"
     depends_on "glib"
+    depends_on "systemd"
+    depends_on "wayland"
   end
 
   def install
