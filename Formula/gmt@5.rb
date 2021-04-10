@@ -6,7 +6,7 @@ class GmtAT5 < Formula
   mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.5-src.tar.gz"
   sha256 "225629c7869e204d5f9f1a384c4ada43e243f83e1ed28bdca4f7c2896bf39ef6"
   license "LGPL-3.0"
-  revision 9
+  revision 11
 
   bottle do
     sha256 big_sur:  "57284c711b15ccbc3bd5b7f9d6e34d89b0476025d69106ef1cac0b37ae31b963"
