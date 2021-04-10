@@ -29,6 +29,7 @@ on:
       - "Formula/lttng-ust.rb"
       - "Formula/net-tools.rb"
       - "Formula/numactl.rb"
+      - "Formula/sshfs.rb"
       - "Formula/strace.rb"
       - "Formula/systemd.rb"
       - "Formula/valgrind.rb"
