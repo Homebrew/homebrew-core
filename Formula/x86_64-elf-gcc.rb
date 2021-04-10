@@ -4,6 +4,7 @@ class X8664ElfGcc < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
   sha256 "64f404c1a650f27fc33da242e1f2df54952e3963a49e06e73f6940f3223ac344"
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   bottle do
     sha256 big_sur:  "68a66ee578b9657b2bd58170f197ebdf0b119e15685e3cd452fedb8fcfd50a2e"
