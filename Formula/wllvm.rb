@@ -3,8 +3,8 @@ class Wllvm < Formula
 
   desc "Toolkit for building whole-program LLVM bitcode files"
   homepage "https://pypi.org/project/wllvm/"
-  url "https://files.pythonhosted.org/packages/63/cd/0cc7994c2a94983adb8b07f34a88e6a815f4d18a1e29eb68d094e5863f18/wllvm-1.3.0.tar.gz"
-  sha256 "a98dd48350d8aae80fe03b92efb11c3e1b92f6aee482f4331f7c97265ca7a602"
+  url "https://files.pythonhosted.org/packages/4b/df/31d7519052bc21d0e9771e9a6540d6310bfb13bae7dacde060d8f647b8d3/wllvm-1.3.1.tar.gz"
+  sha256 "3e057a575f05c9ecc8669a8c4046f2bfdf0c69533b87b4fbfcabe0df230cc331"
   license "MIT"
 
   bottle do
@@ -31,11 +31,7 @@ class Wllvm < Formula
     assert_predicate testpath/".test.o", :exist?
     assert_predicate testpath/".test.o.bc", :exist?
 
-    # extract-bc currently does not work on ARM.
-    # https://github.com/SRI-CSL/whole-program-llvm/issues/29
-    unless Hardware::CPU.arm?
-      system bin/"extract-bc", testpath/"test"
-      assert_predicate testpath/"test.bc", :exist?
-    end
+    system bin/"extract-bc", testpath/"test"
+    assert_predicate testpath/"test.bc", :exist?
   end
 end
