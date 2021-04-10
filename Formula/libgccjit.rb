@@ -1,12 +1,11 @@
 class Libgccjit < Formula
   desc "JIT library for the GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-  sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
+  sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
   license "GPL-3.0-or-later" => {
     with: "GCC-exception-3.1",
   }
-  revision 1
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
@@ -70,9 +69,6 @@ class Libgccjit < Formula
       args << "--with-native-system-header-dir=/usr/include"
       args << "--with-sysroot=#{sdk}"
     end
-
-    # Avoid reference to sed shim
-    args << "SED=/usr/bin/sed"
 
     # Use -headerpad_max_install_names in the build,
     # otherwise updated load commands won't fit in the Mach-O header.
