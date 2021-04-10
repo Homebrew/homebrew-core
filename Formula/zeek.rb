@@ -5,7 +5,7 @@ class Zeek < Formula
       tag:      "v4.0.0",
       revision: "7b5263139e9909757c38dfca4c99abebf958df67"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
   head "https://github.com/zeek/zeek.git"
 
   bottle do
@@ -27,6 +27,7 @@ class Zeek < Formula
 
   uses_from_macos "flex"
   uses_from_macos "libpcap"
+  uses_from_macos "zlib"
 
   resource "pcap-test" do
     url "https://raw.githubusercontent.com/zeek/zeek/59ed5c75f190d4401d30172b9297b3592dd72acf/testing/btest/Traces/http/get.trace"
@@ -34,6 +35,13 @@ class Zeek < Formula
   end
 
   def install
+    # Remove SDK paths from zeek-config. This breaks usage with other SDKs.
+    # https://github.com/corelight/zeek-community-id/issues/15
+    inreplace "zeek-config.in" do |s|
+      s.gsub! ":@ZEEK_CONFIG_PCAP_INCLUDE_DIR@", ""
+      s.gsub! ":@ZEEK_CONFIG_ZLIB_INCLUDE_DIR@", ""
+    end
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                       "-DBROKER_DISABLE_TESTS=on",
@@ -54,5 +62,7 @@ class Zeek < Formula
     assert_match "ARP packet analyzer", shell_output("#{bin}/zeek --print-plugins")
     resource("pcap-test").stage testpath
     assert shell_output("#{bin}/zeek -C -r get.trace && test -s conn.log && test -s http.log")
+    # For bottling MacOS SDK paths must not be part of the public include directories, see zeek/zeek#1468.
+    refute_includes shell_output("#{bin}/zeek-config --include_dir").chomp, "MacOSX"
   end
 end
