@@ -7,24 +7,19 @@ class Pdmenu < Formula
 
   head "git://git.joeyh.name/pdmenu"
 
-  depends_on "gettext" => :build
-  depends_on "s-lang" => :build
+  depends_on "coreutils"
+  depends_on "gettext"
+  depends_on "s-lang"
 
   def install
-    ENV.append "CC", "-I#{HOMEBREW_PREFIX}/include"
-    ENV.append "SLANG_H_LOC", "#{HOMEBREW_PREFIX}/include/slang.h"
-    ENV.append "SLANG_LIB_LOC", "#{HOMEBREW_PREFIX}/lib"
-    ENV.append "INSTALL", "#{HOMEBREW_PREFIX}/bin/ginstall"
-
     # should be fixed in the upcoming 1.3.7
-    system "sed", "-i", "-c", "s?^LIBS.*$?LIBS           = @LIBS@ @INTLLIBS@ $(EFENCE)?", "autoconf/makeinfo.in"
+    inreplace("autoconf/makeinfo.in", "LIBS		= @LIBS@ $(EFENCE)", "LIBS           = @LIBS@ @INTLLIBS@ $(EFENCE)") if not build.head?
 
-    # we cannot use "/usr/share/locale"
-    system "sed", "-i", "-c", "s?^LOCALEDIR.*$?LOCALEDIR      = $(INSTALL_PREFIX)/#{prefix}/locale?", "Makefile"
+    # we cannot actually use "/usr/share/locale"
+    inreplace "Makefile", "LOCALEDIR	= $(INSTALL_PREFIX)/usr/share/locale", "LOCALEDIR      = $(INSTALL_PREFIX)#{prefix}/locale"
 
-    system "./configure", "--prefix=#{prefix}", "--with-libiconv-prefix=#{HOMEBREW_PREFIX}"
+    system "./configure", "--prefix=#{prefix}"
     system "make"
-    mkdir pkgshare.to_s
     system "make", "install"
   end
 
