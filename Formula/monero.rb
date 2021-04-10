@@ -8,8 +8,8 @@ class Monero < Formula
   revision 1
 
   livecheck do
-    url "https://www.getmonero.org/blog/tags/releases.html"
-    regex(/Monero GUI .*?v?(\d+(?:\.\d+)+)["' >]/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
