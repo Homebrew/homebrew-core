@@ -4,6 +4,7 @@ class Gdcm < Formula
   url "https://github.com/malaterre/GDCM/archive/v3.0.9.tar.gz"
   sha256 "fcfc50ea8809bd4a173550c7d7bb4f8722ae0781fbf17240ce84a04e90af0e9b"
   license "BSD-3-Clause"
+  revision 2
 
   livecheck do
     url :stable
