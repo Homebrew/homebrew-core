@@ -4,6 +4,7 @@ class Nco < Formula
   url "https://github.com/nco/nco/archive/4.9.8.tar.gz"
   sha256 "1ef3e887f0841cec3b117ec14830b7d002f7a3a4d0e33a95ae1aa66d0d66ee4b"
   license "BSD-3-Clause"
+  revision 2
 
   livecheck do
     url :stable
