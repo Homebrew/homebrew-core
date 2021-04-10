@@ -1,6 +1,6 @@
 class Expect < Formula
   desc "Program that can automate interactive applications"
-  homepage "https://expect.sourceforge.io/"
+  homepage "https://core.tcl-lang.org/expect/index"
   url "https://downloads.sourceforge.net/project/expect/Expect/5.45.4/expect5.45.4.tar.gz"
   sha256 "49a7da83b0bdd9f46d04a04deec19c7767bb9a323e40c4781f89caf760b92c34"
   license :public_domain
