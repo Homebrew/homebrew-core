@@ -4,7 +4,7 @@ class I686ElfGcc < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
   sha256 "64f404c1a650f27fc33da242e1f2df54952e3963a49e06e73f6940f3223ac344"
-  license "GPL-2.0"
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   bottle do
     sha256 big_sur:  "b08b99ff3b7ae42ef378cc46b614170f232098dcc0a650d7557637d2135809e2"
