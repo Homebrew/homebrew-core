@@ -23,8 +23,8 @@ class Tendermint < Formula
   test do
     mkdir(testpath/"staging")
     shell_output("#{bin}/tendermint init --home #{testpath}/staging")
-    assert_true File.exist?(testpath/"staging/config/genesis.json")
-    assert_true File.exist?(testpath/"staging/config/config.toml")
-    assert_true Dir.exist?(testpath/"staging/data")
+    assert_predicate testpath/"staging/config/genesis.json", :exist?
+    assert_predicate testpath/"staging/config/config.toml", :exist?
+    assert_predicate testpath/"staging/data", :exist?
   end
 end
