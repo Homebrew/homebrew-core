@@ -19,6 +19,7 @@ class Fibjs < Formula
     # the build script breaks when CI is set by Homebrew
     begin
       env_ci = ENV.delete "CI"
+      system "./build", "clean"
       system "./build", "release", "-j#{ENV.make_jobs}"
     ensure
       ENV["CI"] = env_ci
