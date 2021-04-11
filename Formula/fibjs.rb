@@ -15,6 +15,15 @@ class Fibjs < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "llvm" => :build
+  end
+
+  # https://github.com/fibjs/fibjs/blob/master/BUILDING.md
+  fails_with :gcc do
+    cause "Upstream does not support gcc."
+  end
+
   def install
     # the build script breaks when CI is set by Homebrew
     begin
@@ -24,7 +33,11 @@ class Fibjs < Formula
       ENV["CI"] = env_ci
     end
 
-    bin.install "bin/Darwin_amd64_release/fibjs"
+    os = "Darwin"
+    on_linux do
+      os = "Linux"
+    end
+    bin.install "bin/#{os}_amd64_release/fibjs"
   end
 
   test do
