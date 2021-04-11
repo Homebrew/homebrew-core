@@ -1,8 +1,8 @@
 class V2ray < Formula
   desc "Platform for building proxies to bypass network restrictions"
   homepage "https://v2fly.org/"
-  url "https://github.com/v2fly/v2ray-core/archive/v4.36.2.tar.gz"
-  sha256 "e7f7ceefd4cd9d2e57d18cecf55228a5a126c6ed5ee53767660601c35e70535c"
+  url "https://github.com/v2fly/v2ray-core/archive/v4.37.2.tar.gz"
+  sha256 "ece74b2f0e04d9cd487d1b4d79010f0269b6ee0742aaeb147979e5b97639ffa3"
   license all_of: ["MIT", "CC-BY-SA-4.0"]
   head "https://github.com/v2fly/v2ray-core.git"
 
@@ -20,6 +20,16 @@ class V2ray < Formula
 
   depends_on "go" => :build
 
+  resource "geoip" do
+    url "https://github.com/v2fly/geoip/releases/download/202104080008/geoip.dat"
+    sha256 "1ba724e396f31e89d05f4cc9e912e13c1c5ea4478a2a0901e9cbb9f9a8b9c5db"
+  end
+
+  resource "geosite" do
+    url "https://github.com/v2fly/domain-list-community/releases/download/20210407065022/dlc.dat"
+    sha256 "3fb0dc75a94fafe55445ffd14c2317c8f871d63732170b5c8d5e9d2efcf9c655"
+  end
+
   def install
     ldflags = "-s -w -buildid="
     execpath = libexec/name
@@ -35,8 +45,14 @@ class V2ray < Formula
       V2RAY_LOCATION_ASSET: "${V2RAY_LOCATION_ASSET:-#{pkgshare}}"
 
     pkgetc.install "release/config/config.json"
-    pkgshare.install "release/config/geoip.dat"
-    pkgshare.install "release/config/geosite.dat"
+
+    resource("geoip").stage do
+      pkgshare.install "geoip.dat"
+    end
+
+    resource("geosite").stage do
+      pkgshare.install "dlc.dat" => "geosite.dat"
+    end
   end
 
   plist_options manual: "v2ray -config=#{HOMEBREW_PREFIX}/etc/v2ray/config.json"
