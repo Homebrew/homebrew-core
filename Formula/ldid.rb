@@ -4,7 +4,7 @@ class Ldid < Formula
   url "https://git.saurik.com/ldid.git",
       tag:      "v2.1.3",
       revision: "d4a4dbe847733d55834ebc60f0678c350fa3ebd5"
-  license "AGPL-3.0"
+  license "AGPL-3.0-or-later"
   head "https://git.saurik.com/ldid.git"
 
   bottle do
