@@ -54,9 +54,17 @@ class Asciidoctor < Formula
     sha256 "5e9b62fe1239091ea9b2893cd00ffe1bcbdd9371f4e1d35fac595c98c5856cbb"
   end
 
-  resource "css_parser" do
-    url "https://rubygems.org/gems/css_parser-1.9.0.gem"
-    sha256 "a19cbe6edf9913b596c63bc285681b24288820bbe32c51564e09b49e9a8d4477"
+  if MacOS.version < :catalina
+    # macOS Mojave comes with system Ruby 2.3 and css_parser > 1.7.1 requires 2.4
+    resource "css_parser" do
+      url "https://rubygems.org/gems/css_parser-1.7.1.gem"
+      sha256 "dc35cf9ea61daac68007b0ffb0d84fd3159013f546e13441c93297ca106d8411"
+    end
+  else
+    resource "css_parser" do
+      url "https://rubygems.org/gems/css_parser-1.9.0.gem"
+      sha256 "a19cbe6edf9913b596c63bc285681b24288820bbe32c51564e09b49e9a8d4477"
+    end
   end
 
   resource "prawn-svg" do
