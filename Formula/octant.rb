@@ -2,8 +2,8 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      tag:      "v0.17.0",
-      revision: "7fded9570239df80f75fa6cf9f4a6ec17945a7e3"
+      tag:      "v0.19.0",
+      revision: "ed8bc93fcd68c6a49f73416c656d97b7341ac528"
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git"
 
@@ -35,7 +35,6 @@ class Octant < Formula
       system "go", "run", "build.go", "go-install"
       ENV.prepend_path "PATH", buildpath/"bin"
 
-      system "go", "generate", "./pkg/plugin/plugin.go"
       system "go", "run", "build.go", "web-build"
 
       build_time = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -43,7 +42,7 @@ class Octant < Formula
                  "-X \"main.gitCommit=#{Utils.git_head}\"",
                  "-X \"main.buildTime=#{build_time}\""]
 
-      system "go", "build", "-o", bin/"octant", "-ldflags", ldflags.join(" "),
+      system "go", "build", "-tags", "embedded", "-o", bin/"octant", "-ldflags", ldflags.join(" "),
               "-v", "./cmd/octant"
     end
   end
