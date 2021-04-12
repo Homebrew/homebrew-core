@@ -67,7 +67,7 @@ class HaskellLanguageServer < Formula
       ghc = Formula[ghc_str]
 
       assert_match "Completed (1 file worked, 1 file failed)",
-        shell_output("PATH=#{ghc.bin}:$PATH #{bin}/haskell-language-server-#{ghc.version} #{testpath}/*.hs", 1)
+        shell_output("PATH=#{ghc.bin}:$PATH #{bin}/haskell-language-server-#{ghc.version} #{testpath}/*.hs 2>&1", 1)
     end
   end
 end
