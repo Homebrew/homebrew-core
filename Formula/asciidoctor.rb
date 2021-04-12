@@ -13,7 +13,7 @@ class Asciidoctor < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "d4fa41fc1f142f4d8ad25c2063ed79dd04091386d87c7996c17c9adcb10be301"
   end
 
-  uses_from_macos "ruby", since: :catalina
+  depends_on "ruby@2.7" if MacOS.version <= :mojave
 
   # All of these resources are for the asciidoctor-pdf, coderay and rouge gems. To update the asciidoctor-pdf
   # resources, check https://rubygems.org/gems/asciidoctor-pdf for the latest dependency versions. Make sure to select
