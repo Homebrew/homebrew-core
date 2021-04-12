@@ -5,8 +5,6 @@ class Asciidoctor < Formula
   sha256 "4812dd15bb71b3ae8351e8e3c2df4528c7c40dd97ef1954a56442b56b59019a6"
   license "MIT"
 
-  uses_from_macos "ruby", since: :catalina
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "bd10fcb661d700a6dc30113b6af905708978ca6d4198ea6531abc80628a34f2a"
     sha256 cellar: :any_skip_relocation, big_sur:       "4af4798f8081100713a1b3d301107b5ddd01d1f85d40d5f351d12b3261148fbe"
@@ -15,12 +13,14 @@ class Asciidoctor < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "d4fa41fc1f142f4d8ad25c2063ed79dd04091386d87c7996c17c9adcb10be301"
   end
 
-  # All of these resources are for the asciidoctor-pdf, coderay and rouge gems. To update the asciidoctor-pdf resources,
-  # check https://rubygems.org/gems/asciidoctor-pdf for the latest dependency versions. Make sure to select the
-  # correct version of each dependency gem because the allowable versions can differ between versions.
+  uses_from_macos "ruby", since: :catalina
+
+  # All of these resources are for the asciidoctor-pdf, coderay and rouge gems. To update the asciidoctor-pdf
+  # resources, check https://rubygems.org/gems/asciidoctor-pdf for the latest dependency versions. Make sure to select
+  # the correct version of each dependency gem because the allowable versions can differ between versions.
   # To help, click on "Show all transitive dependencies" for a tree view of all dependencies. I've added comments
   # above each resource to make updating them easier, but please update those comments as the dependencies change.
-  
+
   # asciidoctor-pdf requires concurrent-ruby ~> 1.1.0
   resource "concurrent-ruby" do
     url "https://rubygems.org/gems/concurrent-ruby-1.1.8.gem"
@@ -201,9 +201,9 @@ class Asciidoctor < Formula
         - three
       EOS
       output = Utils.popen_read bin/"asciidoctor", "-b", "html5", "-o", "test.html", "test.adoc", err: :out
-      refute_match /optional gem '#{highlighter}' is not available/, output
+      refute_match(/optional gem '#{highlighter}' is not available/, output)
       assert_match "<h1>AsciiDoc is Writing Zen</h1>", File.read("test.html")
-      assert_match /<pre class="#{highlighter} highlight">/i, File.read("test.html")
+      assert_match(/<pre class="#{highlighter} highlight">/i, File.read("test.html"))
       system bin/"asciidoctor", "-r", "asciidoctor-pdf", "-b", "pdf", "-o", "test.pdf", "test.adoc"
       assert_match "/Title (AsciiDoc is Writing Zen)", File.read("test.pdf", mode: "rb")
     end
