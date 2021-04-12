@@ -14,9 +14,11 @@ body:
       required: true
   - type: checkboxes
     attributes:
-      description: Please verify that you've followed these steps
+      description: Please verify that you've followed these steps.
       options:
-        - label: The `brew doctor` above contains no "Warning" lines.
+        - label: I did `brew update` and am still able to reproduce my issue.
+          required: true
+        - label: Resolving the warnings from `brew doctor` did not fix my problem.
           required: true
   - type: textarea
     attributes:
