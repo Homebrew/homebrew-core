@@ -7,7 +7,6 @@ class Picoc < Formula
 
   stable do
     url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/picoc/picoc-2.1.tar.bz2"
-    mirror "https://dl.bintray.com/homebrew/mirror/picoc-2.1.tar.bz2"
     sha256 "bfed355fab810b337ccfa9e3215679d0b9886c00d9cb5e691f7e7363fd388b7e"
 
     # Remove for > 2.1
