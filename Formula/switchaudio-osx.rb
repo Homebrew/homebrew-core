@@ -25,8 +25,7 @@ class SwitchaudioOsx < Formula
                "-target", "SwitchAudioSource",
                "SYMROOT=build",
                "-verbose",
-               # Force 64-bit for Mojave
-               "-arch", "x86_64",
+               "-arch", Hardware::CPU.arch,
                # Default target is 10.5, which fails on Mojave
                "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     prefix.install Dir["build/Release/*"]
