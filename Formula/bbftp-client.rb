@@ -2,7 +2,6 @@ class BbftpClient < Formula
   desc "Secure file transfer software, optimized for large files"
   homepage "https://software.in2p3.fr/bbftp/"
   url "http://software.in2p3.fr/bbftp/dist/bbftp-client-3.2.1.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/bbftp-client-3.2.1.tar.gz"
   sha256 "4000009804d90926ad3c0e770099874084fb49013e8b0770b82678462304456d"
   revision 3
 
