@@ -1,8 +1,8 @@
 class Elektra < Formula
   desc "Framework to access config settings in a global key database"
   homepage "https://libelektra.org/"
-  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.4.tar.gz"
-  sha256 "e1f11f063ab262ce056238ca17aa60442a450a0bb6c5f57a9959df0365576bc6"
+  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.5.tar.gz"
+  sha256 "0b6ee9d6bf13c3749f4d014df444606f84a2f5a797a541002f8d4e745007c3a5"
   license "BSD-3-Clause"
   head "https://github.com/ElektraInitiative/libelektra.git"
 
