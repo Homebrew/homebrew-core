@@ -15,8 +15,8 @@ class Asciidoctor < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "d4fa41fc1f142f4d8ad25c2063ed79dd04091386d87c7996c17c9adcb10be301"
   end
 
-  # All of these resources are for the asciidoctor-pdf gem. To update these resources, check
-  # https://rubygems.org/gems/asciidoctor-pdf for the latest dependency versions. Make sure to select the
+  # All of these resources are for the asciidoctor-pdf, coderay and rouge gems. To update the asciidoctor-pdf resources,
+  # check https://rubygems.org/gems/asciidoctor-pdf for the latest dependency versions. Make sure to select the
   # correct version of each dependency gem because the allowable versions can differ between versions.
   # To help, click on "Show all transitive dependencies" for a tree view of all dependencies. I've added comments
   # above each resource to make updating them easier, but please update those comments as the dependencies change.
@@ -151,6 +151,16 @@ class Asciidoctor < Formula
     sha256 "c7a8998e905770628829972320017415174e69dea29fd0717e08e49d69b2104d"
   end
 
+  resource "coderay" do
+    url "https://rubygems.org/gems/coderay-1.1.3.gem"
+    sha256 "dc530018a4684512f8f38143cd2a096c9f02a1fc2459edcfe534787a7fc77d4b"
+  end
+
+  resource "rouge" do
+    url "https://rubygems.org/gems/rouge-3.26.0.gem"
+    sha256 "a3deb40ae6a07daf67ace188b32c63df04cffbe3c9067ef82495d41101188b2c"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|
@@ -166,31 +176,36 @@ class Asciidoctor < Formula
   end
 
   test do
-    (testpath/"test.adoc").write <<~EOS
-      = AsciiDoc is Writing Zen
-      Random J. Author <rjauthor@example.com>
-      :icons: font
+    %w[rouge coderay].each do |highlighter|
+      (testpath/"test.adoc").atomic_write <<~EOS
+        = AsciiDoc is Writing Zen
+        Random J. Author <rjauthor@example.com>
+        :icons: font
+        :source-highlighter: #{highlighter}
 
-      Hello, World!
+        Hello, World!
 
-      == Syntax Highlighting
+        == Syntax Highlighting
 
-      Python source.
+        Python source.
 
-      [source, python]
-      ----
-      import something
-      ----
+        [source, python]
+        ----
+        import something
+        ----
 
-      List
+        List
 
-      - one
-      - two
-      - three
-    EOS
-    system bin/"asciidoctor", "-b", "html5", "-o", "test.html", "test.adoc"
-    assert_match "<h1>AsciiDoc is Writing Zen</h1>", File.read("test.html")
-    system bin/"asciidoctor", "-r", "asciidoctor-pdf", "-b", "pdf", "-o", "test.pdf", "test.adoc"
-    assert_match "/Title (AsciiDoc is Writing Zen)", File.read("test.pdf", mode: "rb")
+        - one
+        - two
+        - three
+      EOS
+      output = Utils.popen_read bin/"asciidoctor", "-b", "html5", "-o", "test.html", "test.adoc", err: :out
+      refute_match /optional gem '#{highlighter}' is not available/, output
+      assert_match "<h1>AsciiDoc is Writing Zen</h1>", File.read("test.html")
+      assert_match /<pre class="#{highlighter} highlight">/i, File.read("test.html")
+      system bin/"asciidoctor", "-r", "asciidoctor-pdf", "-b", "pdf", "-o", "test.pdf", "test.adoc"
+      assert_match "/Title (AsciiDoc is Writing Zen)", File.read("test.pdf", mode: "rb")
+    end
   end
 end
