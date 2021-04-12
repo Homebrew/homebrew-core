@@ -2,7 +2,6 @@ class Mftrace < Formula
   desc "Trace TeX bitmap font to PFA, PFB, or TTF font"
   homepage "https://lilypond.org/mftrace/"
   url "https://lilypond.org/downloads/sources/mftrace/mftrace-1.2.20.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/mftrace-1.2.20.tar.gz"
   sha256 "626b7a9945a768c086195ba392632a68d6af5ea24ef525dcd0a4a8b199ea5f6f"
   license "GPL-2.0"
   revision 1
