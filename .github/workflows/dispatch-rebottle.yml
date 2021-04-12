@@ -23,7 +23,7 @@ jobs:
   bottle:
     strategy:
       matrix:
-        version: ["11-arm", "11.0", "10.15", "10.14"]
+        version: ["11-arm64", "11", "10.15", "10.14"]
       fail-fast: false
     runs-on: ${{ matrix.version }}
     timeout-minutes: 4320
