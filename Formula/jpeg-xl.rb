@@ -1,9 +1,11 @@
 class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
+  # Check whether this can be switched to `openexr` and `imath` at version bump
   url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.3.7/jpeg-xl-v0.3.7.tar.bz2"
   sha256 "32548f17c2a596e9963aa09934710f96dca6f78ec2337d7936dada89a6090b56"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "f55a2b63bdfce332ea36992cd396c1b39509b9d91d82dd37dd7d634190917ea1"
@@ -19,7 +21,7 @@ class JpegXl < Formula
   depends_on "ilmbase"
   depends_on "jpeg"
   depends_on "libpng"
-  depends_on "openexr"
+  depends_on "openexr@2"
   depends_on "webp"
 
   # These resources are versioned according to the script supplied with jpeg-xl to download the dependencies:
