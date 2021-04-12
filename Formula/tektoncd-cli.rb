@@ -5,6 +5,11 @@ class TektoncdCli < Formula
   sha256 "0f6103026e4ac0f76ab1af5f5fef2dafbe3dc673861557479310186aa1d341cf"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a8803334ededf8c39be7fea6af6917e7fc56a99d397f102aae0d9d4927de4b69"
     sha256 cellar: :any_skip_relocation, big_sur:       "f1fde128ff114c265b568b649e733b10e5c258ef276f70dc0777ff018784e4ad"
