@@ -1,11 +1,10 @@
 class Dpkg < Formula
   desc "Debian package management system"
   homepage "https://wiki.debian.org/Teams/Dpkg"
-  # Please always keep the Homebrew mirror as the primary URL as the
+  # Please use a mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://dl.bintray.com/homebrew/mirror/dpkg-1.20.7.1.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.7.1.tar.xz"
+  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.7.1.tar.xz"
   sha256 "0aad2de687f797ef8ebdabc7bafd16dc1497f1ce23bd9146f9aa73f396a5636f"
   license "GPL-2.0-only"
 
