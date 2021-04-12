@@ -4,6 +4,7 @@ class Cocoapods < Formula
   url "https://github.com/CocoaPods/CocoaPods/archive/1.10.1.tar.gz"
   sha256 "7629705179e4bfd894bebe4ed62c28d1cc539103f6d1924f4c8127f46cbd13e1"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "08794cfd260bf206eed3496805816661da367bffdf9af748cd812b1c40a0de75"
@@ -13,6 +14,7 @@ class Cocoapods < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "ruby" if Hardware::CPU.arm?
 
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "ruby", since: :catalina
