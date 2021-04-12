@@ -1,10 +1,11 @@
 class Ctl < Formula
   desc "Programming language for digital color management"
   homepage "https://github.com/ampas/CTL"
+  # Check whether this can be switched to `openexr` and `imath` at version bump
   url "https://github.com/ampas/CTL/archive/ctl-1.5.2.tar.gz"
   sha256 "d7fac1439332c4d84abc3c285b365630acf20ea041033b154aa302befd25e0bd"
   license "AMPAS"
-  revision 5
+  revision 6
 
   bottle do
     sha256 arm64_big_sur: "e0279cf65e4c8dc7d574ef2e6e15e79e3d8632829cf7ba41535802d4d9d5d399"
@@ -18,7 +19,7 @@ class Ctl < Formula
   depends_on "aces_container"
   depends_on "ilmbase"
   depends_on "libtiff"
-  depends_on "openexr"
+  depends_on "openexr@2"
 
   # from https://github.com/ampas/CTL/pull/73
   patch do
