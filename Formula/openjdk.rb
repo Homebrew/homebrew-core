@@ -40,7 +40,6 @@ class Openjdk < Formula
     on_macos do
       if Hardware::CPU.arm?
         url "https://download.java.net/java/early_access/jdk16/31/GPL/openjdk-16-ea+31_osx-x64_bin.tar.gz"
-        mirror "https://dl.bintray.com/homebrew/mirror/openjdk-16-ea+31_osx-x64_bin.tar.gz"
         sha256 "8e4a8fdd2d965067bdb56e1a72c7c72343d571b371ac61eee74d9e71bbef63e8"
       else
         url "https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_osx-x64_bin.tar.gz"
