@@ -13,7 +13,7 @@ on:
         description: Issue number, where comment on failure would be posted
         required: false
       upload:
-        description: Whether to upload built bottles to Bintray or not
+        description: "Whether to upload built bottles or not (default: false)"
         required: false
 
 env:
@@ -150,14 +150,6 @@ jobs:
         run: |
           cd ~/bottles
           brew pr-upload --verbose --keep-old --committer="$BREWTESTBOT_NAME_EMAIL" --root-url="https://ghcr.io/v2/homebrew/core"
-
-      - name: Upload and publish bottles on Bintray
-        env:
-          HOMEBREW_BINTRAY_USER: brewtestbot
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        run: |
-          cd ~/bottles
-          brew pr-upload --verbose --keep-old --no-commit --root-url="https://homebrew.bintray.com/bottles"
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master

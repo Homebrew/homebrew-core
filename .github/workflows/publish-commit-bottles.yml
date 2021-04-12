@@ -71,13 +71,6 @@ jobs:
           HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
         run: brew pr-pull --debug --workflows=tests.yml --committer="$BREWTESTBOT_NAME_EMAIL" --root-url="https://ghcr.io/v2/homebrew/core" ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
 
-      - name: Pull bottles and publish to Bintray
-        env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          HOMEBREW_BINTRAY_USER: brewtestbot
-          HOMEBREW_BINTRAY_KEY: ${{secrets.HOMEBREW_BINTRAY_KEY}}
-        run: brew pr-pull --debug --workflows=tests.yml --no-commit --root-url="https://homebrew.bintray.com/bottles" ${{github.event.inputs.args}} ${{github.event.inputs.pull_request}}
-
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
