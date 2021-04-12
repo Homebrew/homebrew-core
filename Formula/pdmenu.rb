@@ -27,5 +27,12 @@ class Pdmenu < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/pdmenu -v")
+
+    # check some strings from the default menu
+    ENV["TERM"] = "vt220"
+    s = pipe_output("#{bin}/pdmenu")
+    assert_match "Main Menu", s
+    assert_match "Welcome to Pdmenu ", s
+    assert_match " by Joey Hess <pdmenu@joeyh.name>", s
   end
 end
