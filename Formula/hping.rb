@@ -2,7 +2,6 @@ class Hping < Formula
   desc "Command-line oriented TCP/IP packet assembler/analyzer"
   homepage "http://www.hping.org/"
   url "http://www.hping.org/hping3-20051105.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/hping-3.20051105.tar.gz"
   version "3.20051105"
   sha256 "f5a671a62a11dc8114fa98eade19542ed1c3aa3c832b0e572ca0eb1a5a4faee8"
 
