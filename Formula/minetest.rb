@@ -2,11 +2,10 @@ class Minetest < Formula
   desc "Free, open source voxel game engine and game"
   homepage "https://www.minetest.net/"
   license "LGPL-2.1"
-  revision 1
 
   stable do
-    url "https://github.com/minetest/minetest/archive/5.4.0.tar.gz"
-    sha256 "6e9b299e156651be9bcf973a9232cff32215de31dfae5ea770a71d1757cab014"
+    url "https://github.com/minetest/minetest/archive/5.4.1.tar.gz"
+    sha256 "de9e4410583c845c104b4be25f9d0b8743d8573c120149b8910ae2519f9ab14e"
 
     resource "minetest_game" do
       url "https://github.com/minetest/minetest_game/archive/5.4.0.tar.gz"
