@@ -5,6 +5,10 @@ class Librasterlite < Formula
   sha256 "0a8dceb75f8dec2b7bd678266e0ffd5210d7c33e3d01b247e9e92fa730eebcb3"
   revision 7
 
+  livecheck do
+    skip "No longer developed"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "19919f543a85e1890dfaee593945ce9427d71ac10c7f02b5895a2654981f1d91"
     sha256 cellar: :any, big_sur:       "d6fc5943cd16fd63e2e0c599c2790fb97ec6af38ccc61305e6cfafdaa195a81d"
