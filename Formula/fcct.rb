@@ -1,8 +1,8 @@
 class Fcct < Formula
   desc "Fedora CoreOS Config Transpiler"
   homepage "https://github.com/coreos/fcct"
-  url "https://github.com/coreos/fcct/archive/v0.10.0.tar.gz"
-  sha256 "4dc13da0a0473390e208ee303757dbc8c1cbeb1a9330199de86fa8f16afb24b4"
+  url "https://github.com/coreos/fcct/archive/v0.11.0.tar.gz"
+  sha256 "3da1138aa86dc069e6f08b7fa9a4f3b910593406a0cc48f71edc7b3e1d1b1c49"
   license "Apache-2.0"
   head "https://github.com/coreos/fcct.git"
 
