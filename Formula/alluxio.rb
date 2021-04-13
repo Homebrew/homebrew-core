@@ -15,6 +15,10 @@ class Alluxio < Formula
   # Alluxio requires Java 8 or Java 11
   depends_on "openjdk@11"
 
+  on_macos do
+    disable! date: "2021-10-13", because: "requires FUSE"
+  end
+
   def default_alluxio_conf
     <<~EOS
       alluxio.master.hostname=localhost
