@@ -4,6 +4,7 @@ class Portaudio < Formula
   url "http://files.portaudio.com/archives/pa_stable_v190700_20210406.tgz"
   version "19.7.0"
   sha256 "47efbf42c77c19a05d22e627d42873e991ec0c1357219c0d74ce6a2948cb2def"
+  license "MIT"
   version_scheme 1
   head "https://github.com/PortAudio/portaudio.git"
 
