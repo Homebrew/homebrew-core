@@ -20,9 +20,9 @@ body:
       required: true
   - type: checkboxes
     attributes:
-      description: Please verify that you've followed this step.
+      description: Please verify that you've followed these steps
       options:
-        - label: Resolving the warnings from `brew doctor` did not fix my problem.
+        - label: The `brew doctor` above contains no "Warning" lines.
           required: true
   - type: textarea
     attributes:
