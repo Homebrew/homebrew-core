@@ -22,10 +22,8 @@ class Fcct < Formula
 
   def install
     system "go", "build", "-mod=vendor",
-      "-ldflags", "-w -X github.com/coreos/fcct/internal/version.Raw=#{version}",
+      "-ldflags", "-w -X github.com/coreos/butane/internal/version.Raw=#{version}",
       *std_go_args, "internal/main.go"
-
-    prefix.install_metafiles
   end
 
   test do
