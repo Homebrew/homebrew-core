@@ -1,10 +1,9 @@
 class Sdcc < Formula
   desc "ANSI C compiler for Intel 8051, Maxim 80DS390, and Zilog Z80"
   homepage "https://sdcc.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/sdcc/sdcc/4.0.0/sdcc-src-4.0.0.tar.bz2"
-  sha256 "489180806fc20a3911ba4cf5ccaf1875b68910d7aed3f401bbd0695b0bef4e10"
+  url "https://downloads.sourceforge.net/project/sdcc/sdcc/4.1.0/sdcc-src-4.1.0.tar.bz2"
+  sha256 "81edf776d5a2dc61a4b5c3408929db7b25874d69c46e4a71b116be1322fd533f"
   license all_of: ["GPL-2.0-only", "GPL-3.0-only", :public_domain, "Zlib"]
-  revision 1
   head "https://svn.code.sf.net/p/sdcc/code/trunk/sdcc"
 
   livecheck do
