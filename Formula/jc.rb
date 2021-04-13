@@ -3,8 +3,8 @@ class Jc < Formula
 
   desc "Serializes the output of command-line tools to structured JSON output"
   homepage "https://github.com/kellyjonbrazil/jc"
-  url "https://files.pythonhosted.org/packages/e4/ba/30b6b4e6fbc9e739fd04e8c9258f098d19bd9fa2a2ab8699a6b273aaaa98/jc-1.15.0.tar.gz"
-  sha256 "1f6085a23202a6293c88756befbb2072e5af13ff68eb1692f960aa87b6dc7691"
+  url "https://files.pythonhosted.org/packages/d8/90/0ba582183dc880d457484fbe44abf39f0d29f9bdd74733107921b4f811b6/jc-1.15.1.tar.gz"
+  sha256 "1afb297d16860f701756812148c3c98ee07a74d14eda01c74ab446e2c5a87bbe"
   license "MIT"
 
   bottle do
@@ -38,6 +38,7 @@ class Jc < Formula
 
   def install
     virtualenv_install_with_resources
+    man1.install "jc/man/jc.1.gz"
   end
 
   test do
