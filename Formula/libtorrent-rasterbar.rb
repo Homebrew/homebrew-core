@@ -1,10 +1,9 @@
 class LibtorrentRasterbar < Formula
   desc "C++ bittorrent library with Python bindings"
   homepage "https://www.libtorrent.org/"
-  url "https://github.com/arvidn/libtorrent/releases/download/libtorrent-1.2.10/libtorrent-rasterbar-1.2.10.tar.gz"
-  sha256 "d0dd30bdc3926587c4241f4068d8e39628a6c1f9f6cf53195f0e9bc90017befb"
+  url "https://github.com/arvidn/libtorrent/releases/download/v1.2.13/libtorrent-rasterbar-1.2.13.tar.gz"
+  sha256 "976d2771ffcd564f08a63351e9c22e842aaa8cd29f6f7fe25d169c038a844e85"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
