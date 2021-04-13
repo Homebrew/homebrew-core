@@ -49,7 +49,7 @@ class Gflags < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-L#{lib}", "-lgflags", "test.cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lgflags", "-o", "test"
     assert_match "Hello world!", shell_output("./test")
     assert_match "Foo bar!", shell_output("./test --message='Foo bar!'")
   end
