@@ -3,6 +3,7 @@ class Monit < Formula
   homepage "https://mmonit.com/monit/"
   url "https://mmonit.com/monit/dist/monit-5.28.0.tar.gz"
   sha256 "9fc6287fd9570b25a85c5d5bf988ee8bd4c54d0e9e01ff04cc4b9398a159849c"
+  license "AGPL-3.0-or-later"
 
   livecheck do
     url "https://mmonit.com/monit/dist/"
