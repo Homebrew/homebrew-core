@@ -16,9 +16,9 @@ body:
     attributes:
       description: Please verify that you've followed these steps.
       options:
-        - label: I did `brew update` and am still able to reproduce my issue.
+        - label: I ran `brew update` and am still able to reproduce my issue.
           required: true
-        - label: Resolving the warnings from `brew doctor` did not fix my problem.
+        - label: I have resolved all warnings from `brew doctor` and that did not fix my problem.
           required: true
   - type: textarea
     attributes:
