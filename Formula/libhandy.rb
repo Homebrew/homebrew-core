@@ -1,8 +1,8 @@
 class Libhandy < Formula
   desc "Building blocks for modern adaptive GNOME apps"
   homepage "https://gitlab.gnome.org/GNOME/libhandy"
-  url "https://gitlab.gnome.org/GNOME/libhandy/-/archive/1.2.0/libhandy-1.2.0.tar.gz"
-  sha256 "7998c8a28737d191679892b18898c96aff95f86c0c701e3e1bb3338ebe40bc75"
+  url "https://gitlab.gnome.org/GNOME/libhandy/-/archive/1.2.1/libhandy-1.2.1.tar.gz"
+  sha256 "90cee074048310926a1c66278fa10043a220953cc6be03f9f5eb756b6bcd1043"
   license "LGPL-2.1-or-later"
 
   bottle do
