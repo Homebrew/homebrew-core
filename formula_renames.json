@@ -31,6 +31,7 @@
   "elasticsearch@6.8": "elasticsearch@6",
   "elasticsearch@7.8": "elasticsearch@7",
   "fbida": "exiftran",
+  "fcct": "butane",
   "ffmpeg28": "ffmpeg@2.8",
   "fig": "docker-compose",
   "findbugs": "spotbugs",
