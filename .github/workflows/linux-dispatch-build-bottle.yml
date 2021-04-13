@@ -37,15 +37,15 @@ jobs:
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
-      - name: Run brew test-bot --only-formulae
+      - name: Run brew test-bot --keep-old --only-json-tab --only-formulae
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           mkdir ~/bottles
           cd ~/bottles
-          brew test-bot --keep-old --only-formulae ${{github.event.inputs.formula}}
+          brew test-bot --keep-old --only-json-tab --only-formulae ${{github.event.inputs.formula}}
 
-      - name: Output brew test-bot --only-formulae failures
+      - name: Output brew test-bot --keep-old --only-json-tab --only-formulae failures
         if: always()
         run: |
           cat ~/bottles/steps_output.txt
