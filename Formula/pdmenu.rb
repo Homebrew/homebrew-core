@@ -5,7 +5,7 @@ class Pdmenu < Formula
   sha256 "dedd2a4a5719278b5e49041161990c2f20b5909818837542aaca01819f2c14eb"
   license "GPL-2.0-only"
 
-  depends_on "coreutils"
+  depends_on "coreutils" => :build
   depends_on "gettext"
   depends_on "s-lang"
 
