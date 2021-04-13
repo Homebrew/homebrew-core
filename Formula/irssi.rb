@@ -2,14 +2,13 @@ class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
   license "GPL-2.0-or-later"
-  revision 2
 
   stable do
     # We can switch back to a tarball after the next release;
     # irssi's autogen refuses to work from a tarball
     url "https://github.com/irssi/irssi.git",
-        tag:      "1.2.2",
-        revision: "42110b92e92cb40e82fd736d88b099d096483939"
+        tag:      "1.2.3",
+        revision: "91dc3e4dfa1a9558c5a7fe0ea982cb9df0e2de65"
 
     # Backports an upstream patch which disables some autoconf behaviour;
     # prerequisite for the next patch to work.
