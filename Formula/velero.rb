@@ -30,7 +30,7 @@ class Velero < Formula
   end
 
   test do
-    output = shell_output("#{bin}/velero 2>&1", 1)
+    output = shell_output("#{bin}/velero 2>&1")
     assert_match "Velero is a tool for managing disaster recovery", output
     assert_match "Version: v#{version}", shell_output("#{bin}/velero version --client-only 2>&1")
     system bin/"velero", "client", "config", "set", "TEST=value"
