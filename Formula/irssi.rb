@@ -1,31 +1,9 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
+  url "https://github.com/irssi/irssi/releases/download/1.2.3/irssi-1.2.3.tar.xz"
+  sha256 "a647bfefed14d2221fa77b6edac594934dc672c4a560417b1abcbbc6b88d769f"
   license "GPL-2.0-or-later"
-
-  stable do
-    # We can switch back to a tarball after the next release;
-    # irssi's autogen refuses to work from a tarball
-    url "https://github.com/irssi/irssi.git",
-        tag:      "1.2.3",
-        revision: "91dc3e4dfa1a9558c5a7fe0ea982cb9df0e2de65"
-
-    # Backports an upstream patch which disables some autoconf behaviour;
-    # prerequisite for the next patch to work.
-    # https://github.com/irssi/irssi/pull/1268
-    patch do
-      url "https://github.com/Homebrew/formula-patches/raw/467f95fcd0438b5f7a88ae0c406a8f73bc93b501/irssi/nostdinc.diff"
-      sha256 "00a7fe5e796ec3e37d629e0484f08f23b0fa33a428088d120ac0d8283054449c"
-    end
-
-    # Backports a patch which adjusts how irssi uses curses headers,
-    # required for it to work properly on Apple silicon.
-    # https://github.com/irssi/irssi/pull/1290
-    patch do
-      url "https://github.com/Homebrew/formula-patches/raw/467f95fcd0438b5f7a88ae0c406a8f73bc93b501/irssi/curses_check.patch"
-      sha256 "a505394680e518712e9d0ab0ff14622d34b633b8310dbbfa42b5ad1df7fd3050"
-    end
-  end
 
   livecheck do
     url "https://irssi.org/download/"
@@ -46,11 +24,6 @@ class Irssi < Formula
     depends_on "libtool" => :build
     depends_on "lynx" => :build
   end
-
-  # Needed while we're regenerating configure due to the patch
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
 
   depends_on "pkg-config" => :build
   depends_on "glib"
@@ -81,10 +54,10 @@ class Irssi < Formula
       args << "--with-ncurses=#{Formula["ncurses"].prefix}"
     end
 
-    # Restore this to an `if build.head?` conditional
-    # once we no longer need the patch
-    ENV["NOCONFIGURE"] = "yes"
-    system "./autogen.sh", *args
+    if build.head?
+      ENV["NOCONFIGURE"] = "yes"
+      system "./autogen.sh", *args
+    end
 
     system "./configure", *args
     # "make" and "make install" must be done separately on some systems
