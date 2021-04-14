@@ -39,6 +39,14 @@ class Mpd < Formula
   depends_on "opus"
   depends_on "sqlite"
 
+  uses_from_macos "curl"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     # mpd specifies -std=gnu++0x, but clang appears to try to build
     # that against libstdc++ anyway, which won't work.
@@ -109,6 +117,12 @@ class Mpd < Formula
   end
 
   test do
+    on_linux do
+      # oss_output: Error opening OSS device "/dev/dsp": No such file or directory
+      # oss_output: Error opening OSS device "/dev/sound/dsp": No such file or directory
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     require "expect"
 
     port = free_port
