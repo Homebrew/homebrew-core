@@ -1,8 +1,8 @@
 class Trunk < Formula
   desc "Build, bundle & ship your Rust WASM application to the web"
   homepage "https://github.com/thedodd/trunk"
-  url "https://github.com/thedodd/trunk/archive/v0.10.0.tar.gz"
-  sha256 "5a707d68cd03ade95b854ea127505ebc5d31d6a9adfe72dd34ce89f168ac21d1"
+  url "https://github.com/thedodd/trunk/archive/v0.11.0.tar.gz"
+  sha256 "ee34967ef8ee1352f155f9eb2e1e68c754002885fdbe125fc20921341a754819"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/thedodd/trunk.git"
 
