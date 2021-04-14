@@ -40,6 +40,7 @@ class Fn < Formula
         socket.close
       end
     end
+    sleep 1
     begin
       ENV["FN_API_URL"] = "http://localhost:#{port}"
       ENV["FN_REGISTRY"] = "fnproject"
