@@ -3,8 +3,8 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://files.pythonhosted.org/packages/83/fb/3a34858df94ffd206f112120d3c70c117d75a4a1bc183badd6b6ec3fa980/docker-compose-1.29.0.tar.gz"
-  sha256 "7f3ac832111b55bf1385ccae8b136dc4cbec04a00cf3191b3d0517003324bfc1"
+  url "https://files.pythonhosted.org/packages/c5/90/b9695cea5207eb858e1bd08e7882368605d2599d60072df5be09f4452e84/docker-compose-1.29.1.tar.gz"
+  sha256 "d2064934f5084db8a0c4805e226447bf1fd0c928419be95afb6bd1866838c1f1"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
