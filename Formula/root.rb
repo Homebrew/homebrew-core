@@ -1,10 +1,9 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.22.08.source.tar.gz"
-  sha256 "6f061ff6ef8f5ec218a12c4c9ea92665eea116b16e1cd4df4f96f00c078a2f6f"
+  url "https://root.cern.ch/download/root_v6.24.02.source.tar.gz"
+  sha256 "0507e1095e279ccc7240f651d25966024325179fa85a1259b694b56723ad7c1c"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/root-project/root.git"
 
   livecheck do
@@ -34,6 +33,7 @@ class Root < Formula
   depends_on "pcre"
   depends_on "python@3.9"
   depends_on "tbb"
+  depends_on :xcode if MacOS.version <= :catalina
   depends_on "xrootd"
   depends_on "xz" # for LZMA
   depends_on "zstd"
@@ -44,16 +44,7 @@ class Root < Formula
 
   skip_clean "bin"
 
-  # Can be removed post 6.22.08
-  patch do
-    url "https://github.com/root-project/root/commit/d113c9fcf7e1d88c573717c676aa4b97f1db2ea2.patch?full_index=1"
-    sha256 "6d0fd5ccd92fbb27a949ea40ed4fd60a5e112a418d124ca99f05f70c9df31cda"
-  end
-
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
-
     # Freetype/afterimage/gl2ps/lz4 are vendored in the tarball, so are fine.
     # However, this is still permitting the build process to make remote
     # connections. As a hack, since upstream support it, we inreplace
