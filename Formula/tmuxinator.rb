@@ -4,6 +4,7 @@ class Tmuxinator < Formula
   url "https://github.com/tmuxinator/tmuxinator/archive/v2.0.3.tar.gz"
   sha256 "7ef03f8b23306944170b5951e7db280d1a1c3f1484fc292056f28185224634ab"
   license "MIT"
+  revision 1
   head "https://github.com/tmuxinator/tmuxinator.git"
 
   bottle do
