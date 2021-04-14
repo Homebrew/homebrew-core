@@ -2,20 +2,18 @@ class Unison < Formula
   desc "File synchronization tool for OSX"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/bcpierce00/unison.git", branch: "master"
 
   stable do
     url "https://github.com/bcpierce00/unison/archive/v2.51.3.tar.gz"
     sha256 "0c287d17f52729440b2bdc28edf4d19b2d5ea5869983d78e780d501c5866914b"
 
-    # Patch to fix build with ocaml 4.12. Remove when one of
-    # https://github.com/bcpierce00/unison/pull/480 or
+    # Patch to fix build with ocaml 4.12. Remove in 2.51.4
     # https://github.com/bcpierce00/unison/pull/481
-    # is merged and lands in a release.
     patch do
-      url "https://github.com/bcpierce00/unison/compare/6d7a131bcf5e03cc7468d08c61379b350472c7e2..6dd7e7f96d4a7d7a356f3c2cff2baa6c14bf13af.patch?full_index=1"
-      sha256 "7a6936c0ffda056521e433e5b9a5d1a8a45669869336a10203c339dc99dfb7f1"
+      url "https://github.com/bcpierce00/unison/commit/14b885316e0a4b41cb80fe3daef7950f88be5c8f.patch?full_index=1"
+      sha256 "6d498d5e21d77cbc83ffc533c93cfa2f2ea30ab1b991b16e612e1d09a20efc8e"
     end
   end
 
