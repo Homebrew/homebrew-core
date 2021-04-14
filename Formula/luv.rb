@@ -1,13 +1,12 @@
 class Luv < Formula
   desc "Bare libuv bindings for lua"
   homepage "https://github.com/luvit/luv"
-  version "1.36.0-0"
+  version "1.40.0-0"
   license "Apache-2.0"
-  revision 1
 
   stable do
-    url "https://github.com/luvit/luv/archive/1.36.0-0.tar.gz"
-    sha256 "739d733d32741a9e6caa3ff3a4416dcf121f39f622ee143c7d63130ce7de27be"
+    url "https://github.com/luvit/luv/archive/1.40.0-0.tar.gz"
+    sha256 "23167a3d5dbc1e30df1f106ffae0a4c5bd50993da2066dc1f7e1842bb9fb6cd0"
 
     resource "lua-compat-5.3" do
       url "https://github.com/keplerproject/lua-compat-5.3/archive/v0.10.tar.gz"
