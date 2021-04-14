@@ -4,6 +4,7 @@ class Dolt < Formula
   url "https://github.com/dolthub/dolt/archive/v0.26.0.tar.gz"
   sha256 "2239ceb95403f0c4a0efb63d423636e19ee8c0f7f4ec0d1f5be8e3aeac995292"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
