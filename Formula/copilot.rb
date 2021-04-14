@@ -9,6 +9,11 @@ class Copilot < Formula
   license "Apache-2.0"
   head "https://github.com/aws/copilot-cli.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "59490e2cd622b6e0507f36d2ae3bb326e1e96a3ad812436047292c3cd58d6f9b"
     sha256 cellar: :any_skip_relocation, big_sur:       "0c897e38d3d5b53c875d6b7166fde810c5463f403c661900771e90b6366f7ed7"
