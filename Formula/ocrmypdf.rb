@@ -35,6 +35,12 @@ class Ocrmypdf < Formula
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
     sha256 "fd78e5fee591709f32ef6edb9a015b4aa1a5022598e36227500c8f4e02328d9c"
@@ -115,11 +121,19 @@ class Ocrmypdf < Formula
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
-        sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-        s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
-        s.gsub! "xcb.h", "probably_not_a_header_called_this_eh.h"
-        s.gsub! "ZLIB_ROOT = None",
-                "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        on_macos do
+          sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
+          s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
+          s.gsub! "xcb.h", "probably_not_a_header_called_this_eh.h"
+          s.gsub! "ZLIB_ROOT = None",
+                  "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        end
+
+        on_linux do
+          s.gsub! "ZLIB_ROOT = None",
+                  "ZLIB_ROOT = ('#{Formula["zlib"].opt_prefix}/lib', '#{Formula["zlib"].opt_prefix}/include')"
+        end
+
         s.gsub! "JPEG_ROOT = None",
                 "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
         s.gsub! "FREETYPE_ROOT = None",
