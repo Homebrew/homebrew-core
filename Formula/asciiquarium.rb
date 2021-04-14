@@ -1,10 +1,14 @@
+require "language/perl"
+
 class Asciiquarium < Formula
+  include Language::Perl::Shebang
+
   desc "Aquarium animation in ASCII art"
   homepage "https://robobunny.com/projects/asciiquarium/html/"
   url "https://robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
   sha256 "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://robobunny.com/projects/asciiquarium/"
@@ -47,7 +51,7 @@ class Asciiquarium < Formula
     # Disable dynamic selection of perl which may cause segfault when an
     # incompatible perl is picked up.
     # https://github.com/Homebrew/homebrew-core/issues/4936
-    inreplace "asciiquarium", "#!/usr/bin/env perl", "#!#{Formula["perl"].opt_bin/"perl"}"
+    rewrite_shebang detected_perl_shebang, "asciiquarium"
 
     chmod 0755, "asciiquarium"
     bin.install "asciiquarium"
@@ -67,9 +71,9 @@ class Asciiquarium < Formula
 
     require "pty"
     ENV["TERM"] = "xterm"
-    PTY.spawn(bin/"asciiquarium") do |stdout, _stdin, pid|
-      sleep 0.5
-      Process.kill "TERM", pid
+    PTY.spawn(bin/"asciiquarium") do |stdout, stdin, _pid|
+      sleep 1
+      stdin.write "q"
       output = begin
         stdout.gets
       rescue Errno::EIO
