@@ -7,6 +7,11 @@ class Pumba < Formula
   revision 1
   head "https://github.com/alexei-led/pumba.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "23ea7c27073d54ac360deae32dd52388dcda30a72ca7e3f7c34fd715533d9c45"
     sha256 cellar: :any_skip_relocation, big_sur:       "ab72f222b8eeaadf48320af5f87db33697cafa4a519010d200a377f16f81cef2"
