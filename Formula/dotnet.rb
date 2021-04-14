@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/source-build.git",
-      tag:      "v5.0.104-SDK",
-      revision: "269e323b5f2e2df4678c7763282c14fb1a530cfa"
+      tag:      "v5.0.202-SDK",
+      revision: "561d6ea60d5c3f914c0d2c4f88f1e955bc9c997a"
   license "MIT"
 
   livecheck do
