@@ -18,9 +18,7 @@ class Fastlane < Formula
     sha256 cellar: :any, mojave:        "73aaa47abe9c23fe4918c4a210fa89c2e3686449d4fbf9d0fc863c40c0ff1bc2"
   end
 
-  # Issue with Ruby 2.7 not finding gems correctly
-  # https://github.com/fastlane/fastlane/issues/18517
-  depends_on "ruby@2.6"
+  depends_on "ruby@2.7"
 
   def install
     ENV["GEM_HOME"] = libexec
