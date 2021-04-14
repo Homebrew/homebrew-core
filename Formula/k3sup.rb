@@ -5,6 +5,7 @@ class K3sup < Formula
       tag:      "0.10.2",
       revision: "de10fc701f46d7d3676d29769e6a73efc1429225"
   license "MIT"
+  revision 1
   head "https://github.com/alexellis/k3sup.git"
 
   livecheck do
