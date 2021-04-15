@@ -21,6 +21,12 @@ class Libosmium < Formula
     sha256 "beffbdfab060854fd770178a8db9c028b5b6ee4a059a2fed82c46390a85f3f31"
   end
 
+  # Apple Silicon support via @fxcoudert. Can be removed on next release.
+  patch do
+    url "https://github.com/osmcode/libosmium/commit/c587e53e8c7125b738e38614b4b2a1b9a5df0784.patch?full_index=1"
+    sha256 "86dc10774a3886dfb051b95c5c7a9acbcf4d06e6b532482430858314f6336f30"
+  end
+
   def install
     resource("protozero").stage { libexec.install "include" }
     system "cmake", ".", "-DINSTALL_GDALCPP=ON",
