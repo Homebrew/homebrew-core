@@ -16,5 +16,6 @@ class FabricInstaller < Formula
 
   test do
     system "#{bin}/fabric-installer", "server"
+    system "test -f fabric-server-launch.jar"
   end
 end
