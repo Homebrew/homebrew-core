@@ -15,7 +15,9 @@ class Mask < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", "--locked", "--root", prefix, "--path", "./mask"
+    cd "mask" do
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
