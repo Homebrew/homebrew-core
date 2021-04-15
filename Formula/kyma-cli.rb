@@ -12,7 +12,7 @@ class KymaCli < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "571e5fa55baf08581a01e9f2fde9769e72c7acfa70baa7a0459a552b2dcfa6a3"
   end
 
-  depends_on "go@1.14" => :build
+  depends_on "go" => :build
 
   def install
     ldflags = %W[
