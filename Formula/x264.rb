@@ -7,15 +7,15 @@ class X264 < Formula
   stable do
     # the latest commit on the stable branch
     url "https://code.videolan.org/videolan/x264.git",
-        revision: "b86ae3c66f51ac9eab5ab7ad09a9d62e67961b8a"
-    version "r3048"
+        revision: "c347e7a0b476d77674e2c9a6f137f57da026e8fc"
+    version "r3053"
   end
 
   # There's no guarantee that the versions we find on the `release-macos` index
   # page are stable but there didn't appear to be a different way of getting
   # the version information at the time of writing.
   livecheck do
-    url "https://artifacts.videolan.org/x264/release-macos/"
+    url "https://artifacts.videolan.org/x264/release-macos-x86_64/"
     regex(%r{href=.*?x264[._-](r\d+)[._-][\da-z]+/?["' >]}i)
   end
 
