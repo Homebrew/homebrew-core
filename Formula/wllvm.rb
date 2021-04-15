@@ -14,7 +14,7 @@ class Wllvm < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "c953b8c3d45d6df5a67e5d334fe279a50cef7ccf9d67e7d53db995285da433c3"
   end
 
-  depends_on "llvm"
+  depends_on "llvm" => :test
   depends_on "python@3.9"
 
   def install
