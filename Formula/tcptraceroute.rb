@@ -31,12 +31,17 @@ class Tcptraceroute < Formula
     sha256 cellar: :any, high_sierra: "e71cda023bb22dc514fda3d22af13bf8f0db80c1937add70b67cf7447d40a67f"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libnet"
 
   uses_from_macos "libpcap"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+    # Regenerate configure script for arm64/Apple Silicon support.
+    system "autoreconf", "--verbose", "--install", "--force"
+
+    system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-libnet=#{HOMEBREW_PREFIX}",
                           "--mandir=#{man}"
