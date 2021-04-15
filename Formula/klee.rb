@@ -4,6 +4,7 @@ class Klee < Formula
   url "https://github.com/klee/klee/archive/v2.2.tar.gz"
   sha256 "1ff2e37ed3128e005b89920fad7bcf98c7792a11a589dd443186658f5eb91362"
   license "NCSA"
+  revision 1
   head "https://github.com/klee/klee.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Klee < Formula
 
   depends_on "cmake" => :build
   depends_on "gperftools"
-  depends_on "llvm"
+  depends_on "llvm@11"
   depends_on "python-tabulate"
   depends_on "python@3.9"
   depends_on "sqlite"
@@ -30,6 +31,8 @@ class Klee < Formula
   end
 
   def install
+    llvm = Formula["llvm@11"]
+
     libcxx_install_dir = libexec/"libcxx"
     libcxx_src_dir = buildpath/"libcxx"
     resource("libcxx").stage libcxx_src_dir
@@ -59,7 +62,7 @@ class Klee < Formula
       mkdir "llvm/build" do
         with_env(
           LLVM_COMPILER:      "clang",
-          LLVM_COMPILER_PATH: Formula["llvm"].opt_bin,
+          LLVM_COMPILER_PATH: llvm.opt_bin,
         ) do
           system "cmake", "..", *libcxx_args
           system "make", "cxx"
@@ -78,7 +81,7 @@ class Klee < Formula
     # https://github.com/klee/klee/blob/v#{version}/README-CMake.md
     args = std_cmake_args + %W[
       -DKLEE_RUNTIME_BUILD_TYPE=Release
-      -DLLVM_CONFIG_BINARY=#{Formula["llvm"].opt_bin}/llvm-config
+      -DLLVM_CONFIG_BINARY=#{llvm.opt_bin}/llvm-config
       -DENABLE_DOCS=OFF
       -DENABLE_SYSTEM_TESTS=OFF
       -DENABLE_KLEE_ASSERTS=ON
@@ -107,6 +110,8 @@ class Klee < Formula
   # Test adapted from
   # http://klee.github.io/tutorials/testing-function/
   test do
+    llvm = Formula["llvm@11"]
+
     (testpath/"get_sign.c").write <<~EOS
       #include "klee/klee.h"
 
@@ -126,7 +131,7 @@ class Klee < Formula
       }
     EOS
 
-    ENV["CC"] = Formula["llvm"].opt_bin/"clang"
+    ENV["CC"] = llvm.opt_bin/"clang"
 
     system ENV.cc, "-I#{opt_include}", "-emit-llvm",
                     "-c", "-g", "-O0", "-disable-O0-optnone",
