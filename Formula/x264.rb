@@ -11,12 +11,40 @@ class X264 < Formula
     version "r3048"
   end
 
-  # There's no guarantee that the versions we find on the `release-macos` index
-  # page are stable but there didn't appear to be a different way of getting
-  # the version information at the time of writing.
+  # Cross-check the abbreviated commit hashes from the release filenames with
+  # the latest commits in the `stable` Git branch:
+  # https://code.videolan.org/videolan/x264/-/commits/stable
   livecheck do
     url "https://artifacts.videolan.org/x264/release-macos/"
-    regex(%r{href=.*?x264[._-](r\d+)[._-][\da-z]+/?["' >]}i)
+    regex(%r{href=.*?x264[._-](r\d+)[._-]([\da-z]+)/?["' >]}i)
+    strategy :page_match do |page, regex|
+      # Match the version and abbreviated commit hash in filenames
+      matches = page.scan(regex)
+
+      # Fetch the `stable` Git branch Atom feed
+      stable_page_data = Homebrew::Livecheck::Strategy.page_content("https://code.videolan.org/videolan/x264/-/commits/stable?format=atom")
+      return [] if stable_page_data[:content] && stable_page_data[:content].empty?
+
+      # Extract commit hashes from the feed content
+      commit_hashes = stable_page_data[:content].scan(%r{/commit/([\da-z]+)}i).flatten
+      return [] if commit_hashes.empty?
+
+      # Only keep versions with a matching commit hash in the `stable` branch
+      matches.map do |match|
+        next nil unless match.length >= 2
+
+        release_hash = match[1]
+        commit_in_stable = false
+        commit_hashes.each do |commit_hash|
+          next unless commit_hash.start_with?(release_hash)
+
+          commit_in_stable = true
+          break
+        end
+
+        commit_in_stable ? match[0] : nil
+      end.compact
+    end
   end
 
   bottle do
