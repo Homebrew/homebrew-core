@@ -4,6 +4,7 @@ class Step < Formula
   url "https://github.com/smallstep/cli/releases/download/v0.15.15/step_0.15.15.tar.gz"
   sha256 "c9d1776c3cb9f7764f62d47b484306f9e3072ce8a6131d77150039059d951765"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "326725f61a6d58ba6890f2a84f4563f9b0a1085d466c36cfba9a4a3d53792780"
@@ -20,12 +21,14 @@ class Step < Formula
   end
 
   def install
+    ENV["VERSION"] = version.to_s
     system "make", "build"
     bin.install "bin/step" => "step"
     bash_completion.install "autocomplete/bash_autocomplete" => "step"
     zsh_completion.install "autocomplete/zsh_autocomplete" => "_step"
 
-    resource("certificates").stage do
+    resource("certificates").stage do |r|
+      ENV["VERSION"] = r.version.to_s
       system "make", "build"
       bin.install "bin/step-ca" => "step-ca"
     end
