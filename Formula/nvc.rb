@@ -4,7 +4,7 @@ class Nvc < Formula
   url "https://github.com/nickg/nvc/releases/download/r1.5.0/nvc-1.5.tar.gz"
   sha256 "4da984ba95eb3b8dd2893fb7a676675de869ff114b827a9f5490dfd54bc95fcb"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_big_sur: "76441135ec856345e43510a1a7da280138a85d9c0cfee5976dd66d765d4baf4e"
@@ -22,7 +22,7 @@ class Nvc < Formula
 
   depends_on "check" => :build
   depends_on "pkg-config" => :build
-  depends_on "llvm"
+  depends_on "llvm@11"
 
   resource "vim-hdl-examples" do
     url "https://github.com/suoto/vim-hdl-examples.git",
@@ -32,7 +32,7 @@ class Nvc < Formula
   def install
     system "./autogen.sh" if build.head?
     system "./tools/fetch-ieee.sh"
-    system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
+    system "./configure", "--with-llvm=#{Formula["llvm@11"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
                           "--with-system-cc=/usr/bin/clang"
     system "make"
