@@ -1,7 +1,7 @@
 # "File" is a reserved class name
 class FileFormula < Formula
   desc "Utility to determine file types"
-  homepage "https://www.darwinsys.com/file/"
+  homepage "https://darwinsys.com/file/"
   url "https://astron.com/pub/file/file-5.40.tar.gz"
   sha256 "167321f43c148a553f68a0ea7f579821ef3b11c27b8cbe158e4df897e4a5dd57"
   # file-formula has a BSD-2-Clause-like license
