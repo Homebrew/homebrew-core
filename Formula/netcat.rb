@@ -15,7 +15,13 @@ class Netcat < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:  "1f346605e0236ea7880258da2abf0bde1d7d8d8735a07d6d32feaf12425ff6da"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+
   def install
+    # Regenerate configure script for arm64/Apple Silicon support.
+    system "autoreconf", "--verbose", "--install", "--force"
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
