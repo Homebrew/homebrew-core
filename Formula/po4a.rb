@@ -8,6 +8,7 @@ class Po4a < Formula
   url "https://github.com/mquinson/po4a/releases/download/v0.63/po4a-0.63.tar.gz"
   sha256 "e21be3ee545444bae2fe6a44aeb9d320604708cc2e4c601bcb3cc440db75b4ce"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mquinson/po4a.git"
 
   bottle do
@@ -18,8 +19,7 @@ class Po4a < Formula
 
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
-
-  uses_from_macos "perl"
+  depends_on "perl"
 
   resource "Locale::gettext" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
@@ -27,8 +27,6 @@ class Po4a < Formula
   end
 
   resource "Module::Build" do
-    # po4a requires Module::Build v0.4200 and above, while standard
-    # MacOS Perl installation has 0.4003
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
     sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
   end
@@ -70,13 +68,6 @@ class Po4a < Formula
     resources.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
-
-        # Work around restriction on 10.15+ where .bundle files cannot be loaded
-        # from a relative path -- while in the middle of our build we need to
-        # refer to them by their full path.  Workaround adapted from:
-        #   https://github.com/fink/fink-distributions/issues/461#issuecomment-563331868
-        inreplace "Makefile", "blib/", "$(shell pwd)/blib/" if r.name == "TermReadKey"
-
         system "make", "install"
       end
     end
