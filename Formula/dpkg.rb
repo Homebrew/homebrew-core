@@ -4,8 +4,8 @@ class Dpkg < Formula
   # Please use a mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.7.1.tar.xz"
-  sha256 "0aad2de687f797ef8ebdabc7bafd16dc1497f1ce23bd9146f9aa73f396a5636f"
+  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.20.9.tar.xz"
+  sha256 "5ce242830f213b5620f08e6c4183adb1ef4dc9da28d31988a27c87c71fe534ce"
   license "GPL-2.0-only"
 
   livecheck do
@@ -25,7 +25,6 @@ class Dpkg < Formula
   depends_on "gnu-tar"
   depends_on "gpatch"
   depends_on "perl"
-  depends_on "po4a"
   depends_on "xz" # For LZMA
 
   uses_from_macos "bzip2"
