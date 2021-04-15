@@ -4,6 +4,7 @@ class Zig < Formula
   url "https://ziglang.org/download/0.7.1/zig-0.7.1.tar.xz"
   sha256 "2db3b944ab368d955b48743d9f7c963b8f96de1a441ba5a35e197237cc6dae44"
   license "MIT"
+  revision 1
   head "https://github.com/ziglang/zig.git"
 
   bottle do
@@ -13,7 +14,7 @@ class Zig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm@11"
 
   def install
     system "cmake", ".", *std_cmake_args
