@@ -1,8 +1,8 @@
 class Chapel < Formula
-  desc "Emerging programming language designed for parallel computing"
+  desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.24.0/chapel-1.24.0.tar.gz"
-  sha256 "77c6087f3e0837268470915f2ad260d49cf7ac4adf16f5b44862ae624c1be801"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.24.1/chapel-1.24.1.tar.gz"
+  sha256 "f898f266fccaa34d937b38730a361d42efb20753ba43a95e5682816e008ce5e4"
   license "Apache-2.0"
 
   bottle do
@@ -27,6 +27,7 @@ class Chapel < Formula
       system "make", "chpldoc"
       system "make", "mason"
       system "make", "cleanall"
+      rm_rf("third-party/llvm/llvm-src/")
     end
 
     prefix.install_metafiles
