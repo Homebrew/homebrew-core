@@ -1,8 +1,8 @@
 class Libomp < Formula
   desc "LLVM's OpenMP runtime library"
   homepage "https://openmp.llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/openmp-11.1.0.src.tar.xz"
-  sha256 "d187483b75b39acb3ff8ea1b7d98524d95322e3cb148842957e9b0fbb866052e"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.0/openmp-12.0.0.src.tar.xz"
+  sha256 "eb1b7022a247332114985ed155a8fb632c28ce7c35a476e2c0caf865150f167d"
   license "MIT"
 
   livecheck do
@@ -18,14 +18,6 @@ class Libomp < Formula
   end
 
   depends_on "cmake" => :build
-
-  # Upstream patch for ARM, accepted, remove in next version
-  # https://reviews.llvm.org/D91002
-  # https://bugs.llvm.org/show_bug.cgi?id=47609
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/7e2ee1d7/libomp/arm.patch"
-    sha256 "6de9071e41a166b74d29fe527211831d2f8e9cb031ad17929dece044f2edd801"
-  end
 
   def install
     # Disable LIBOMP_INSTALL_ALIASES, otherwise the library is installed as
