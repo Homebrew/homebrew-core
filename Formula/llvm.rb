@@ -37,6 +37,7 @@ class Llvm < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "swig" => :build
   depends_on "libffi"
   depends_on "python@3.9"
@@ -136,7 +137,7 @@ class Llvm < Formula
 
     llvmpath = buildpath/"llvm"
     mkdir llvmpath/"build" do
-      system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
+      system "cmake", "-G", "Ninja", "..", *(std_cmake_args + args)
       system "cmake", "--build", "."
       system "cmake", "--build", ".", "--target", "install"
       system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
