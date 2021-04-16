@@ -5,6 +5,11 @@ class WithReadline < Formula
   sha256 "d12c71eb57ef1dbe35e7bd7a1cc470a4cb309c63644116dbd9c88762eb31b55d"
   revision 2
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?with-readline[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7a8f7ff1d33453d059ac6ac6b23883fa3f86d720cb25415e590e81ca2e6255dd"
     sha256 cellar: :any, big_sur:       "0700f15130da53328bff304e2cfdb422ad2bc4fff64a0377063af94cf46d3655"
