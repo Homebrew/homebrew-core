@@ -118,6 +118,6 @@ class Kafka < Formula
       sleep 10
     end
 
-    assert_match(/test message/, IO.read("#{testpath}/kafka/demo.out"))
+    assert_match(/test message/, File.read("#{testpath}/kafka/demo.out"))
   end
 end
