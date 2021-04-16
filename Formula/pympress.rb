@@ -3,10 +3,9 @@ class Pympress < Formula
 
   desc "Simple and powerful dual-screen PDF reader designed for presentations"
   homepage "https://github.com/Cimbali/pympress/"
-  url "https://files.pythonhosted.org/packages/92/80/c63ad7748e877dfeb5d7d756c1bdd4c2657e5a857814b4d6edf96d44678c/pympress-1.5.3.tar.gz"
-  sha256 "d8c10c286d1de2210c19a3e752542b61c8bcc592c48553f7c7043e943a87d05d"
-  license "GPL-2.0"
-  revision 2
+  url "https://files.pythonhosted.org/packages/c8/dc/5343fe21c911247410667fe93d9b9a46355572ce4154037c0d7657d211ce/pympress-1.6.1.tar.gz"
+  sha256 "17943f706124edbabb0b06a50ee927f04ee6cc232ba6edb9ccb15cc4263c0dd5"
+  license "GPL-2.0-or-later"
   head "https://github.com/Cimbali/pympress.git"
 
   bottle do
@@ -58,11 +57,6 @@ class Pympress < Formula
       return if ENV["HOMEBREW_GITHUB_ACTIONS"]
     end
 
-    system bin/"pympress", "--help"
-
-    # Version info contained in log file only if all dependencies loaded successfully
-    assert_predicate testpath/"Library/Logs/pympress.log", :exist?
-    output = (testpath/"Library/Logs/pympress.log").read
-    assert_match(/^INFO:pympress.__main__:Pympress: #{version}\s*;/, output)
+    system bin/"pympress", "--quit"
   end
 end
