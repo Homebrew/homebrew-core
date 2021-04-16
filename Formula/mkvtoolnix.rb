@@ -42,6 +42,12 @@ class Mkvtoolnix < Formula
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
 
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
+
   def install
     ENV.cxx11
 
