@@ -37,7 +37,7 @@ class OryHydra < Formula
           port: #{admin_port}
     EOS
 
-    fork { exec bin/"hydra", "serve", "all", "--config", "config.yaml" }
+    fork { exec bin/"hydra", "serve", "all", "--config", "#{testpath}/config.yaml" }
     sleep 5
 
     endpoint = "https://127.0.0.1:#{admin_port}/"
