@@ -91,7 +91,7 @@ class Auditbeat < Formula
     sleep 5
     touch testpath/"files/touch"
     sleep 30
-    s = IO.readlines(testpath/"auditbeat/auditbeat").last(1)[0]
+    s = File.readlines(testpath/"auditbeat/auditbeat").last(1)[0]
     assert_match(/"action":\["(initial_scan|created)"\]/, s)
     realdirpath = File.realdirpath(testpath)
     assert_match "\"path\":\"#{realdirpath}/files/touch\"", s
