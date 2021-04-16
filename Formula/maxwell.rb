@@ -33,6 +33,6 @@ class Maxwell < Formula
     sleep 15
 
     # Validate that we actually got in to Maxwell far enough to attempt to connect.
-    assert_match "ERROR Maxwell - SQLException: Communications link failure", IO.read("#{testpath}/maxwell.log")
+    assert_match "ERROR Maxwell - SQLException: Communications link failure", File.read("#{testpath}/maxwell.log")
   end
 end
