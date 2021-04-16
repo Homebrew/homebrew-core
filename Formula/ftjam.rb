@@ -20,7 +20,6 @@ class Ftjam < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "31e7d5357421066e2b58cab199a690691a8897e442e1472acdb3d0d829657670"
     sha256 cellar: :any_skip_relocation, el_capitan:  "f94287203827dea6ac5031e695c217a48b1b69e939dcd68a489c8477b4100447"
     sha256 cellar: :any_skip_relocation, yosemite:    "95490ead99e537713d8c26d1c1bea72b31ea06153a405867ffe83c044593caa0"
-    sha256 cellar: :any_skip_relocation, mavericks:   "554e527a1e52be6ebd9f5f1fbae4e8f648f750a179936e329238dee32b32520a"
   end
 
   conflicts_with "jam", because: "both install a `jam` binary"

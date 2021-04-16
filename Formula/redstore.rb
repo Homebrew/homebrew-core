@@ -14,7 +14,6 @@ class Redstore < Formula
     sha256 cellar: :any, sierra:        "e507eab072e33f0cee1ca08efb51ab06d65cee3a64248ec6badbd4f601f5c674"
     sha256 cellar: :any, el_capitan:    "5ae64e4a536011ef3f68d2e8b4253624f60995025064de38f3a38308dd005421"
     sha256 cellar: :any, yosemite:      "1c891f4297c26269136c5caa5be3ab721cbb8e5b53c83daf3440082df4edf6a2"
-    sha256 cellar: :any, mavericks:     "55e35fe682d2bfd5b4e13d7e66302d79033766056e55b0031ce649ad582b30e3"
   end
 
   depends_on "pkg-config" => :build

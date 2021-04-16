@@ -14,7 +14,6 @@ class Setweblocthumb < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "563620905a209f198f30bbffc9177294b224cee3098719af6da8cfca74092157"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2a9c327d5d594d00d7d283d6627a5eeef160731616aec9d62bab017b52d71f1a"
     sha256 cellar: :any_skip_relocation, yosemite:      "f55cbbabd19c245e42249b8d75c51b4fcec05d6d08674a448bf6e7a3da70aae5"
-    sha256 cellar: :any_skip_relocation, mavericks:     "fa6ca731192b7645165ab28c148122688e5e584e2de1c8b500371d1c36cf9dda"
   end
 
   def install

@@ -14,7 +14,6 @@ class Teem < Formula
     sha256 sierra:        "31d19cd9e0e4c064fb743c41a286736503e61b1d5e4b81f29140fcebf2cde2c8"
     sha256 el_capitan:    "5ade8dc18d0c66ac154d802df6c64e88222781b6fc427a841fb1f4047f8c4e49"
     sha256 yosemite:      "3974a9a565044cb4de798eb1bec2b8980eef03eb6bd7ec6c98cddd606f7c8a29"
-    sha256 mavericks:     "c340d18c157b81be663636ff72326ecb946313ea1dfc533a6ba95b9efdb6bf44"
   end
 
   depends_on "cmake" => :build

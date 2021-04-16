@@ -95,7 +95,7 @@ class Libtensorflow < Formula
 
     summarize_graph_output = shell_output("#{bin}/summarize_graph --in_graph=#{testpath}/graph.pb 2>&1")
     variables_match = /Found \d+ variables:.+$/.match(summarize_graph_output)
-    assert_not_nil variables_match, "Unexpected stdout from summarize_graph for graph.pb (no found variables)"
+    refute_nil variables_match, "Unexpected stdout from summarize_graph for graph.pb (no found variables)"
     variables_names = variables_match[0].scan(/name=([^,]+)/).flatten.sort
 
     transform_command = %W[
@@ -113,13 +113,13 @@ class Libtensorflow < Formula
 
     new_summarize_graph_output = shell_output("#{bin}/summarize_graph --in_graph=#{testpath}/graph-new.pb 2>&1")
     new_variables_match = /Found \d+ variables:.+$/.match(new_summarize_graph_output)
-    assert_not_nil new_variables_match, "Unexpected summarize_graph output for graph-new.pb (no found variables)"
+    refute_nil new_variables_match, "Unexpected summarize_graph output for graph-new.pb (no found variables)"
     new_variables_names = new_variables_match[0].scan(/name=([^,]+)/).flatten.sort
 
-    assert_not_equal variables_names, new_variables_names, "transform_graph didn't obfuscate variable names"
+    refute_equal variables_names, new_variables_names, "transform_graph didn't obfuscate variable names"
 
     benchmark_model_match = /benchmark_model -- (.+)$/.match(new_summarize_graph_output)
-    assert_not_nil benchmark_model_match,
+    refute_nil benchmark_model_match,
       "Unexpected summarize_graph output for graph-new.pb (no benchmark_model example)"
 
     benchmark_model_args = benchmark_model_match[1].split

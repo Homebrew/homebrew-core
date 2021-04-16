@@ -14,7 +14,6 @@ class Convertlit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "43e28e7711f27843223b29d351ba0ce03a4deee76bbc99c4bdac50969b8eaeb7"
     sha256 cellar: :any_skip_relocation, el_capitan:    "66b05c2c6371f16620c82b31b507413556b511b859644322c65f4ceea4a83a64"
     sha256 cellar: :any_skip_relocation, yosemite:      "024a9fdb4b58a3e04c12ec300facbac636b3510f8726726c4be93c60cf272ab1"
-    sha256 cellar: :any_skip_relocation, mavericks:     "366ce6afb71223d3f14939c5d4d382a90cf56df7920cb41dca0eeae72e809702"
   end
 
   depends_on "libtommath"

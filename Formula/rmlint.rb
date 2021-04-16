@@ -6,10 +6,11 @@ class Rmlint < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, big_sur:     "1f6f76bfe7c4f4c058b91a0808e6e19a0029f4a4017929615bc223666abddf5a"
-    sha256 cellar: :any, catalina:    "38f621eb2196afa5504087ef48cd19777efbd5da81302ea668b0efbd68cc20d7"
-    sha256 cellar: :any, mojave:      "e7eac7ed5d93b19175c7860fe84faa34f878253c15bdbc280ee06cfd392f10e3"
-    sha256 cellar: :any, high_sierra: "b84e9cd89ef6b9d43f633226e0a7ecb85e5c75c65f3b50f83cf687862db8d191"
+    sha256 cellar: :any, arm64_big_sur: "4a8bd2357b069ad4be2327e14569931add4a6063f7642cc5a50ee0918e752362"
+    sha256 cellar: :any, big_sur:       "1f6f76bfe7c4f4c058b91a0808e6e19a0029f4a4017929615bc223666abddf5a"
+    sha256 cellar: :any, catalina:      "38f621eb2196afa5504087ef48cd19777efbd5da81302ea668b0efbd68cc20d7"
+    sha256 cellar: :any, mojave:        "e7eac7ed5d93b19175c7860fe84faa34f878253c15bdbc280ee06cfd392f10e3"
+    sha256 cellar: :any, high_sierra:   "b84e9cd89ef6b9d43f633226e0a7ecb85e5c75c65f3b50f83cf687862db8d191"
   end
 
   depends_on "gettext" => :build

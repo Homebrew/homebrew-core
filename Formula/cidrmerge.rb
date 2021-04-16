@@ -14,7 +14,6 @@ class Cidrmerge < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "8f2cf233141b0ea465c05d3487718176bb40023a05ecf7c275fdae9c36a5eef1"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7e607252679cd1648e6c9f48ebbeaa2379ce089ad87815bd6636e65dcedebc7b"
     sha256 cellar: :any_skip_relocation, yosemite:      "20c6f57fc6081c8d27d2e68b81e3d4c5cd68e7c799dc30e076f45ee71b42e69d"
-    sha256 cellar: :any_skip_relocation, mavericks:     "89b2d5b31bd190e0aa8837b84f3a684cf01b4501321e898507e5d8dd809f09d7"
   end
 
   def install

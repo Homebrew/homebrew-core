@@ -14,6 +14,7 @@ class Sourcekitten < Formula
   end
 
   depends_on xcode: ["11.4", :build]
+  depends_on :macos
   depends_on xcode: "6.0"
 
   def install

@@ -4,10 +4,9 @@ class Libtorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v1.7.1",
-      revision: "57bffc3a8e4fee0cce31e1ff1f662ccf7b16db57"
+      tag:      "v1.8.1",
+      revision: "56b43f4fec1f76953f15a627694d4bba34588969"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -15,9 +14,9 @@ class Libtorch < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "b0688c3e965b190612de4ebc1b3b8e37b5b334e0c250ede0f69257e6bd4be7df"
-    sha256 cellar: :any, catalina: "4fc2881e79a5ddd302c9239c577480086b7988d052000d784fd30c8666024a30"
-    sha256 cellar: :any, mojave:   "c11f64cab20420978c90c49259c7bce8da7e03f0bba6f6d51d3041b3788697da"
+    sha256 cellar: :any, big_sur:  "a54d2d66fbe9ae20d674d9d784cba3d216d39282a928abdc4bdc1e8bf3df2be4"
+    sha256 cellar: :any, catalina: "477823228ada7f2292e27ffbe22af9916851b77a0ac001203a7a3a347ba5bfba"
+    sha256 cellar: :any, mojave:   "21049d9645216ee9ce2ae98876fef743b3a99f3882d2ff326fe659da3116714f"
   end
 
   depends_on "cmake" => :build
@@ -29,8 +28,8 @@ class Libtorch < Formula
   depends_on "pybind11"
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "typing" do
@@ -38,24 +37,36 @@ class Libtorch < Formula
     sha256 "1187fb9c82fd670d10aa07bbb6cfcfe4bdda42d6fab8d5134f04e8c4d0b71cc9"
   end
 
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/16/06/0f7367eafb692f73158e5c5cbca1aec798cdf78be5167f6415dd4205fa32/typing_extensions-3.7.4.3.tar.gz"
+    sha256 "99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c"
+  end
+
   def install
-    venv = virtualenv_create(libexec, Formula["python@3.9"].opt_bin/"python3")
+    venv = virtualenv_create(buildpath/"venv", Formula["python@3.9"].opt_bin/"python3")
     venv.pip_install resources
 
     args = %W[
       -DBUILD_CUSTOM_PROTOBUF=OFF
       -DBUILD_PYTHON=OFF
-      -DPYTHON_EXECUTABLE=#{libexec}/bin/python
+      -DPYTHON_EXECUTABLE=#{buildpath}/venv/bin/python
       -Dpybind11_PREFER_third_party=OFF
       -DUSE_CUDA=OFF
       -DUSE_METAL=OFF
       -DUSE_MKLDNN=OFF
       -DUSE_NNPACK=OFF
+      -DUSE_OPENMP=OFF
       -DUSE_SYSTEM_EIGEN_INSTALL=ON
     ]
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, *args
+
+      # Avoid references to Homebrew shims
+      inreplace "caffe2/core/macros.h",
+                "{\"CXX_COMPILER\", \"#{HOMEBREW_SHIMS_PATH}/mac/super/clang++\"},",
+                "{\"CXX_COMPILER\", \"/usr/bin/clang++\"},"
+
       system "make"
       system "make", "install"
     end

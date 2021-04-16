@@ -12,7 +12,6 @@ class Libbind < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "b5a4bc4b247b5cce0c637bb96335c5df27e2210c40cc89e19f9957f5aef1cbdb"
     sha256 cellar: :any_skip_relocation, el_capitan:  "d0a71d129904ac0529c6f8e789a41307caaeb0e6d9f33f30f23f4b3dbc61456d"
     sha256 cellar: :any_skip_relocation, yosemite:    "c2eaf992dc37ce98d5936ba7e086c30a5da242bfe834e593dfb40d7d3e546923"
-    sha256 cellar: :any_skip_relocation, mavericks:   "f59cf59e14f6192c962592a4411391413d929c8dfff81fdd8b4a82ce7c0d3f02"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

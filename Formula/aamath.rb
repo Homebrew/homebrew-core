@@ -19,7 +19,6 @@ class Aamath < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d537cb11d2dcbac9b5d5356c471775699312e83450635ba7676083f381a531cd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8b805e37fd5f4536b4fbf7f3ae6251b645b4b132027d56ccd015a6036c304744"
     sha256 cellar: :any_skip_relocation, yosemite:      "1e22022e621e7d2337edf4a80ae2c1618a89089132656d85cc141774565e34d7"
-    sha256 cellar: :any_skip_relocation, mavericks:     "0212e0b5844ea1a491bc7d4fcab2b590921042b28bc50e79c36cd9e15d08e2aa"
   end
 
   uses_from_macos "bison" => :build # for yacc

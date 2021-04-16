@@ -15,7 +15,6 @@ class Fsw < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "71b5da385bf9d59d33e6c331f23cab5676284d627129ee4f0352976b8ce13fe8"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3d02fa0e6e8a6f9518341fc3934e7b53e13ac42304b07b7088ce54384ed64371"
     sha256 cellar: :any_skip_relocation, yosemite:      "2a439435d39ddd9a8c1bb978ae7ebb25415fd7a3d0c7079e6a731ecbbf035f68"
-    sha256 cellar: :any_skip_relocation, mavericks:     "3d35dff82bb319e3d714fabf1638e3d9b5fa5760c04ae193ad45800507110e0d"
   end
 
   def install

@@ -1,16 +1,15 @@
 class Cnats < Formula
   desc "C client for the NATS messaging system"
   homepage "https://github.com/nats-io/nats.c"
-  url "https://github.com/nats-io/nats.c/archive/v2.3.0.tar.gz"
-  sha256 "2251e3804f5c492f9b98834fea66b161f1a6f7e39a193636760b028171725022"
+  url "https://github.com/nats-io/nats.c/archive/v2.4.0.tar.gz"
+  sha256 "e8275b939693f7e0a2e6f8ae6aa453e8edcf8c83a7234546da4e3a83462a42c9"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3f82cb135d394f0dd8cc9565469b458584ba4793478515c249afd2a895b78cf1"
-    sha256 cellar: :any, big_sur:       "04fd440ce60e1f83343c47698a5f3fc9b8b3581bcb59d198b7af129089d93441"
-    sha256 cellar: :any, catalina:      "874dae9b5751b247f322df936983238c37fb25e4907b57258a8cbdbec7863802"
-    sha256 cellar: :any, mojave:        "cdce55913e70d44003278835ead106710f3221593ac4d47ff525c5f29c510d1c"
-    sha256 cellar: :any, high_sierra:   "885c923403383be453e7d200eb085b1238636c9b96213064d36c2fa71b709a55"
+    sha256 cellar: :any, arm64_big_sur: "569dd4476c1151631a317cd5505b283108903dd208b570cd3f489df99a927ed0"
+    sha256 cellar: :any, big_sur:       "84513761d57db3c3dd87a7a587b39fe47f49186c4fa430f5bb87ed4896cc0b2e"
+    sha256 cellar: :any, catalina:      "a6e9c60644c9aaa3b2f5c250137947a2a5d27ac19db21a1cc444d2be5d6fe8dc"
+    sha256 cellar: :any, mojave:        "7db8f44385b323aa0fd2ee4efcd1e4939b89ffb93d96288e5d5d978f77f65473"
   end
 
   depends_on "cmake" => :build

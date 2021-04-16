@@ -14,7 +14,6 @@ class Hello < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9691f91e7c6897d525b76f5910144e0ed0adcb8bd8f7bb155f29fd431d8ff431"
     sha256 cellar: :any_skip_relocation, el_capitan:    "54ac46b692fcca2abe77aeeca41976172a2dc24a6762f84a47fabcaba336df89"
     sha256 cellar: :any_skip_relocation, yosemite:      "f81a305402e8f8b6cf11a17dac81f604b6f48d940909886a6733cf4f6a64c05f"
-    sha256 cellar: :any_skip_relocation, mavericks:     "c80495cb6d1ad8f2c3a64c22c9dcee9d0117ca25fa6426f20a6acca275cd6c56"
   end
 
   conflicts_with "perkeep", because: "both install `hello` binaries"

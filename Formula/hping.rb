@@ -2,7 +2,6 @@ class Hping < Formula
   desc "Command-line oriented TCP/IP packet assembler/analyzer"
   homepage "http://www.hping.org/"
   url "http://www.hping.org/hping3-20051105.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/hping-3.20051105.tar.gz"
   version "3.20051105"
   sha256 "f5a671a62a11dc8114fa98eade19542ed1c3aa3c832b0e572ca0eb1a5a4faee8"
 
@@ -26,7 +25,6 @@ class Hping < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "e6b7a8ef4527b282da33e75fc9484dee752f365b34498849fd251146948f0e80"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9644e041cb830ebd121c224cef3727e20c5bf4dcca918fd91135d74e10eb2123"
     sha256 cellar: :any_skip_relocation, yosemite:      "95f5fabc90cdd2e8ca9b10189f69a2057019b35ac1f6cb2e7e4afa7bea1221d5"
-    sha256 cellar: :any_skip_relocation, mavericks:     "3e8641cad09db531d4ee6b3686748627177d53234ad6b5df92abebf3c1a94ae7"
   end
 
   patch :DATA
@@ -79,7 +77,7 @@ index 3d0ea58..a8a9699 100644
 @@ -18,8 +18,6 @@
  #include <arpa/inet.h>
  #include <string.h>
- 
+
 -size_t strlcpy(char *dst, const char *src, size_t siz);
 -
  char *get_hostname(char* addr)

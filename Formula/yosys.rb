@@ -21,6 +21,8 @@ class Yosys < Formula
   depends_on "python@3.9"
   depends_on "readline"
 
+  uses_from_macos "flex"
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "PRETTY=0"
   end

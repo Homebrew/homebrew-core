@@ -1,36 +1,33 @@
 class Step < Formula
   desc "Crypto and x509 Swiss-Army-Knife"
   homepage "https://smallstep.com"
-  url "https://github.com/smallstep/cli/releases/download/v0.15.12/step_0.15.12.tar.gz"
-  sha256 "84f913664519835d204034a4ae47261eda0a651316e663f58fb3af5ca6c997ed"
+  url "https://github.com/smallstep/cli/releases/download/v0.15.16/step_0.15.16.tar.gz"
+  sha256 "4366c90497420ca1a51fd1ba558826d7502467e7eed40654cf7f08dbc8854c27"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c6003a16ae69f881ea1e50517dc5863af7bc1faec275a73824a901fa0754fe49"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0ad85a0f05c4b11aa2832101a2e4260fcaba0ea2cf1caa39c6b237a908a77c7c"
-    sha256 cellar: :any_skip_relocation, catalina:      "a12071e617e7cde551ccf3a4cab122d28b09c4ef790d699d1b4bb0e3c8510172"
-    sha256 cellar: :any_skip_relocation, mojave:        "c83602ae9c56d7d064b4589e44b9f1d2aa8180bc1a36ce049009feb405a37782"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b488bf4f0ce687ba91bce50f4dd37563dfb0cdc41aeef6a6fc58708309283c63"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2a42a0742849f428c0f50115ea665ad3b99b1680e063b2fdf50c896eb6fe818a"
+    sha256 cellar: :any_skip_relocation, catalina:      "107841d1447a1acce30135b12c4b9f3dc490d28d8db29cd408ea00aac9e4abf8"
+    sha256 cellar: :any_skip_relocation, mojave:        "579cf95e326aa4de5fde7be9ee71bce0260da14662e451e6468991104b4386e1"
   end
 
   depends_on "go" => :build
 
   resource "certificates" do
-    url "https://github.com/smallstep/certificates/releases/download/v0.15.8/step-certificates_0.15.8.tar.gz"
-    sha256 "b94c885410036a9743f8f1a43b982452ea226527748c834b8f6e953a4ee642a1"
+    url "https://github.com/smallstep/certificates/releases/download/v0.15.14/step-ca_0.15.14.tar.gz"
+    sha256 "a2e479444e362dd2045f13941353393cb79bc09eb6c24d19bb07af4bb6a4ffcc"
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/smallstep/cli").install buildpath.children
-    cd "src/github.com/smallstep/cli" do
-      system "make", "build"
-      bin.install "bin/step" => "step"
-      bash_completion.install "autocomplete/bash_autocomplete" => "step"
-      zsh_completion.install "autocomplete/zsh_autocomplete" => "_step"
-    end
+    ENV["VERSION"] = version.to_s
+    system "make", "build"
+    bin.install "bin/step" => "step"
+    bash_completion.install "autocomplete/bash_autocomplete" => "step"
+    zsh_completion.install "autocomplete/zsh_autocomplete" => "_step"
 
-    resource("certificates").stage "#{buildpath}/src/github.com/smallstep/certificates"
-    cd "#{buildpath}/src/github.com/smallstep/certificates" do
+    resource("certificates").stage do |r|
+      ENV["VERSION"] = r.version.to_s
       system "make", "build"
       bin.install "bin/step-ca" => "step-ca"
     end

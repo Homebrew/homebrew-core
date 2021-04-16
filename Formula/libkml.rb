@@ -14,7 +14,6 @@ class Libkml < Formula
     sha256 cellar: :any, sierra:        "860294d677de2f8a4c18e4d750d59aeafa2b38801b12eb76b5e951a23a8ec108"
     sha256 cellar: :any, el_capitan:    "57b9693cdf9a6abaeeea9648cd84a81d17ba0f056bd8d8e8442e68d97dbc7828"
     sha256 cellar: :any, yosemite:      "a3cdfca3ed0acbc93949683a8bb2862c36ec8bf06f20b9fe3752ac624667f455"
-    sha256 cellar: :any, mavericks:     "22c4df9a8f64f8c6ec300cfb268994d739ff41e80db44ca3a72358fc4b70bc05"
   end
 
   # Fix compilation with clang and gcc 4.7+
@@ -50,4 +49,3 @@ index 764ae55..8ee9892 100644
 +#include <unistd.h>
  #include <sys/types.h>
  #include <sys/stat.h>
- 

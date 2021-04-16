@@ -14,7 +14,6 @@ class FseventsTools < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "8190bdd8d9d88f9ee6ebdc56434551a44a39502225160ad2604562d9c7ed0822"
     sha256 cellar: :any_skip_relocation, el_capitan:    "a15d1b927a74d8b76b553d696343ac5fe82396f8b5b052e15adc6c3270f2ccd6"
     sha256 cellar: :any_skip_relocation, yosemite:      "9d4bda3175c503f8ff65f134495de43471854eacc3396a9cf1895d5c2b91cb63"
-    sha256 cellar: :any_skip_relocation, mavericks:     "045442f0279c20196e0941fbf160557ebdea04169267ba8105717d7d207cc346"
   end
 
   head do
@@ -24,6 +23,8 @@ class FseventsTools < Formula
     depends_on "automake" => :build
     depends_on "pkg-config" => :build
   end
+
+  depends_on :macos
 
   def install
     system "./autogen.sh" if build.head?

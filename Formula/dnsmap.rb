@@ -13,7 +13,6 @@ class Dnsmap < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2015e3fdee32fcdbc0501f522ba720280e8cb07a75f8166fd62a9f876ea12124"
     sha256 cellar: :any_skip_relocation, el_capitan:    "57d5f7ea4a8a73b454bbc60e38fdb9a55e07c2d97f0b5acf38db0408e83b197b"
     sha256 cellar: :any_skip_relocation, yosemite:      "6ede00304c268f3a0013f8aa708f5bfc314acbac1db7a3547e8381dc620b18eb"
-    sha256 cellar: :any_skip_relocation, mavericks:     "8ed334077b5c440a7e7015e0b178f0e9500d816d6ee99d00e81a532b8e028e26"
   end
 
   def install

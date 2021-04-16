@@ -3,6 +3,7 @@ class Sdl2Image < Formula
   homepage "https://www.libsdl.org/projects/SDL_image/"
   url "https://www.libsdl.org/projects/SDL_image/release/SDL2_image-2.0.5.tar.gz"
   sha256 "bdd5f6e026682f7d7e1be0b6051b209da2f402a2dd8bd1c4bd9c25ad263108d0"
+  license "Zlib"
 
   livecheck do
     url :homepage
@@ -49,7 +50,7 @@ class Sdl2Image < Formula
           return success;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lsdl2_image", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lSDL2_image", "-o", "test"
     system "./test"
   end
 end

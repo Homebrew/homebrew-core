@@ -20,7 +20,6 @@ class Cmockery2 < Formula
     sha256 cellar: :any, sierra:        "661b4a8751a4dbe7e52b19cd9452d8b7dd61c929d73da27ac4fca5623a0dff6c"
     sha256 cellar: :any, el_capitan:    "61b64aeaf89d205742bbb254148502cd2df83bcf05d20377bdce8637f275bee5"
     sha256 cellar: :any, yosemite:      "ea94ba8420bd5bc01412b52ce9c03b392b933f279d1bce7a8ff8f7502bc83f88"
-    sha256 cellar: :any, mavericks:     "ce0cc1a3151655d4bb970ca92c87c5ebb5ed660c3c445e763edc4b835ca7e9a6"
   end
 
   depends_on "autoconf" => :build

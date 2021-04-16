@@ -2,15 +2,14 @@ class Solarus < Formula
   desc "Action-RPG game engine"
   homepage "https://www.solarus-games.org/"
   url "https://gitlab.com/solarus-games/solarus.git",
-      tag:      "v1.6.4",
-      revision: "6d2a11ddd1d07d21695ab7304c3ddd462fd37c26"
+      tag:      "v1.6.5",
+      revision: "3aec70b0556a8d7aed7903d1a3e4d9a18c5d1649"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, big_sur:     "80970673e8217a282440a21de4e4db8fa4435f9743e94c74f300fa55f2963014"
-    sha256 cellar: :any, catalina:    "23c646e9a69c966e0f2930ac225661dab3d8b97fbb9e34c12cb49cdfe1e56d67"
-    sha256 cellar: :any, mojave:      "6d02a298994633961ed83feb34471cf743059aa9daf90d9b5153f2613337e8d2"
-    sha256 cellar: :any, high_sierra: "dedfe91badd887dfdcf0e0d55b662fde86890c1f8e287dddd224b29b0339f4b9"
+    sha256 cellar: :any, big_sur:  "8432227fe84cb749c77d45a9349c6d65793f0bff13fd77640266bcd51d564b95"
+    sha256 cellar: :any, catalina: "f50e6c02f9ca2a9a01314605b017e90cf6102b9b3d97e48f4fbd104a86cf37b6"
+    sha256 cellar: :any, mojave:   "df3043713901b3a842e612c3da8204e3fc830d2cbaa42f1f7f04b6a26b479c6b"
   end
 
   depends_on "cmake" => :build

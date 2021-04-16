@@ -1,15 +1,15 @@
 class Jd < Formula
   desc "JSON diff and patch"
   homepage "https://github.com/josephburnett/jd"
-  url "https://github.com/josephburnett/jd/archive/v1.3.0.tar.gz"
-  sha256 "cbd5f2ff3c56a57126acd246cbd7820dbc4a9296756c5af9ce4ca705bcefc0d9"
+  url "https://github.com/josephburnett/jd/archive/v1.4.0.tar.gz"
+  sha256 "9b1547b3c34652c61944a59e1449b8f819f196b86808c006e85ae8816d6c4d06"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5b45be90cd17c04df3705c2ee08cdef96e46e74367d8203b0e5d78b03ac925e7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "25a7769810ab7ae690b0eb36ca77ebabb2c1d7bccf69fc5d84997019c1ecce42"
-    sha256 cellar: :any_skip_relocation, catalina:      "b2598d40731b157f9bad27e48397db6dd44f8df036f66657ea9961e6a04573a2"
-    sha256 cellar: :any_skip_relocation, mojave:        "82b255b04f78303e4df2fb1d68c8d2d0ff852372516efe6a9d1b476db96d9166"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "567d80b08b78a787d813f8b5fc8119c60d082e7bfa2f641b1b807a6f85a69286"
+    sha256 cellar: :any_skip_relocation, big_sur:       "043e88ba4881d02947cd922f8be0d26d581afcf1b877d433f8bb2f53e724a245"
+    sha256 cellar: :any_skip_relocation, catalina:      "bf662b680167c6d28e9adf4d28ac35bb13fe6838255b9e6d4cf49be0a05cb920"
+    sha256 cellar: :any_skip_relocation, mojave:        "c9a9b7acbab08f9717cf464bf2b00d970728d014ccb738fcb28af7502e8ef6d3"
   end
 
   depends_on "go" => :build

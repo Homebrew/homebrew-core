@@ -14,7 +14,6 @@ class LibxdgBasedir < Formula
     sha256 cellar: :any, sierra:        "00953ec922b6ebac6e27b1f8e1139fcc1cc5b9f8312dc8d0ebe69778c884c1b7"
     sha256 cellar: :any, el_capitan:    "30b3e34a46470f11d90ca01aebd2b2d1fbaa6cc8a05c1bcec7067d40fdec75d1"
     sha256 cellar: :any, yosemite:      "7e165b0e949f559789981a5c0e0fd68bbf478943a0c9b03ad3778cecb0219691"
-    sha256 cellar: :any, mavericks:     "5c7bfadf4ca8b26c077eea7480df5a4ca3634b5823860a06ce2756050acbe84a"
   end
 
   depends_on "autoconf" => :build

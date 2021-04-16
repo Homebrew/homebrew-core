@@ -23,7 +23,6 @@ class Dnstracer < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "4d89811df14c8564d1ad2dae5a2f45f5e11a51f7b7ecb5f75f692b9507451b7b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d90b34cfc2d03af3c80ef6118484ddff05863a0e4d9a7a5db8bcf3801bcb3414"
     sha256 cellar: :any_skip_relocation, yosemite:      "13eaef32eb5d1dd11e71adeb6abe9bd43200a219951648d0d4eb707ea935c542"
-    sha256 cellar: :any_skip_relocation, mavericks:     "d4b8c5352a711e86091779e6565f752828af549c5806fdf3d58cb572e977aaa4"
   end
 
   def install

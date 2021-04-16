@@ -2,16 +2,16 @@ class Gojq < Formula
   desc "Pure Go implementation of jq"
   homepage "https://github.com/itchyny/gojq"
   url "https://github.com/itchyny/gojq.git",
-      tag:      "v0.12.2",
-      revision: "94879363409d5695fd8aee3bb6facd6823697320"
+      tag:      "v0.12.3",
+      revision: "bc1af7c0980cd41218b5f04982a1d28850e38ed6"
   license "MIT"
   head "https://github.com/itchyny/gojq.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f5b738d3326ff396214465e2e81347458f5f9de47e8c744f42da1297a46dba76"
-    sha256 cellar: :any_skip_relocation, big_sur:       "57b7ab77a581462c9e4874bdfa6f97410a6012ae8f05f7881bdec5ee79821e5f"
-    sha256 cellar: :any_skip_relocation, catalina:      "5fe043ffc48c087dd7b876ba686c9beff9791c702493ac25e3ae1c0731a7c228"
-    sha256 cellar: :any_skip_relocation, mojave:        "a14bb2e2c4bfcda8b21ae8f1f8dd811dfd2ffc6939f029e6b18235c3c19887f5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "81942e2f9588e91c72e21aeb5464529f05e4d724c1c0d83773516f8fcc13b176"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9b1a0a98e70bbba21d729c61605609f1055404790ed2ed92ecf994ca3307e1bd"
+    sha256 cellar: :any_skip_relocation, catalina:      "7fc117302c80d1aef474f7e2d59c5d6be53de2f87a8de08b0b9349a085e61da8"
+    sha256 cellar: :any_skip_relocation, mojave:        "3dd9b02a3d6b5eb08323052e23cdfd846003372c8cea96a38fb975352b33da7c"
   end
 
   depends_on "go" => :build

@@ -1,17 +1,15 @@
 class KyotoCabinet < Formula
   desc "Library of routines for managing a database"
   homepage "https://fallabs.com/kyotocabinet/"
-  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.77.tar.gz"
-  sha256 "56899329384cc6f0f1f8aa3f1b41001071ca99c1d79225086a7f3575c0209de6"
-  license "GPL-3.0"
+  url "https://fallabs.com/kyotocabinet/pkg/kyotocabinet-1.2.79.tar.gz"
+  sha256 "67fb1da4ae2a86f15bb9305f26caa1a7c0c27d525464c71fd732660a95ae3e1d"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "1ca68b35195efd332074aeee92585a14d4dd1b4f54e1d5b398c3b74429c00329"
-    sha256 big_sur:       "d378396d5ea0974ddcd3fa105618bfb826da0f5280b2310a64d85f7bb570cf91"
-    sha256 catalina:      "444a9c86b36b081cc9ad31ef68d8c4e03f0861b9f0603a7fe5c99780cdab3926"
-    sha256 mojave:        "ddd2f1b0f1985ad81b04b29dbd54f95c5f7c88f7427b559e9f298a6473a820b0"
-    sha256 high_sierra:   "e4b99c22b5aebf85986e5c172ec61768833708acbb04318335f6641bea1f77ef"
-    sha256 sierra:        "04ef198a6638dabdee27e881df9b16970eadc724f2f663a01edee7950b38b85a"
+    sha256 arm64_big_sur: "fa9322ae66dc8295d2f60365999a371c6602bcfd98f050e0897992e745c53d93"
+    sha256 big_sur:       "8a7873835b5790ece37b54d398daf834e7aa75570202cd7a174ba7e5ebecf6a3"
+    sha256 catalina:      "c78b84f7dc1e82f12a8bdbeb934abeb9858968fa8c53dee9a405b1e55b49155d"
+    sha256 mojave:        "214ade984ae17b36058ceca13c37fb5612da6daa0c7cbd919e635c1c714a4a1b"
   end
 
   uses_from_macos "zlib"
@@ -19,6 +17,7 @@ class KyotoCabinet < Formula
   patch :DATA
 
   def install
+    ENV.cxx11
     system "./configure", "--disable-debug", "--prefix=#{prefix}"
     system "make" # Separate steps required
     system "make", "install"

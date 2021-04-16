@@ -1,8 +1,8 @@
 class Gtkx3 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.26.tar.xz"
-  sha256 "2cc1b2dc5cad15d25b6abd115c55ffd8331e8d4677745dd3ce6db725b4fff1e9"
+  url "https://download.gnome.org/sources/gtk+/3.24/gtk+-3.24.28.tar.xz"
+  sha256 "b04e09763367f1ce932cd2ee3a359d4de150e1c38e7bef7d29aa72557a6b47c6"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,10 @@ class Gtkx3 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4ba0ac4436a7980287f1f4e5e3b79c9a88e67794354c6d2e1de765f729ca0045"
-    sha256 big_sur:       "b5fe57e102381520b10516f5a068eccba5ca0e787420dd10599261140b9ffdde"
-    sha256 catalina:      "04ccff53534fab1b53934bc1c82e27a4e58d682d7f98b4bed02cf9c4c7f9c2d7"
-    sha256 mojave:        "ec0cd9c16ee1ac7444cdbad4d1be574ca4dd2994254e5789f248c5ddb4e277a5"
+    sha256 arm64_big_sur: "f789bc303be1ec09791c7ed3846c99a29bf30543f5954c10613bd80071519b11"
+    sha256 big_sur:       "92ddbf01922c8974581a0d8e91d2eda74e5d3a6093f0da41ab7ef399ed695a1f"
+    sha256 catalina:      "98e0d8e9cfed0dea667da58f062141db261cf33cbde4b72c4765488026f71794"
+    sha256 mojave:        "e9a2d4797e0bbe7a5583128d911b3bab1e9c8290a9b262c9c89e3fd14cc63913"
   end
 
   depends_on "docbook" => :build

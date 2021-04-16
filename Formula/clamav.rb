@@ -1,9 +1,8 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://www.clamav.net/downloads/production/clamav-0.103.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/clamav-0.103.1.tar.gz"
-  sha256 "7308c47b89b268af3b9f36140528927a49ff3e633a9c9c0aac2712d81056e257"
+  url "https://www.clamav.net/downloads/production/clamav-0.103.2.tar.gz"
+  sha256 "d4b5d0ac666262e423a326fb54778caa7c69624d6c3f9542895feb8478271bd2"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,10 +11,10 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "819a822b63f106657c8e0374eddad592eda5aebaa608a16111578b8e5dac390c"
-    sha256 big_sur:       "ef79742b675d0b07d1cef974996a4647848ba2d2508c3f7a011d93090ae52e3a"
-    sha256 catalina:      "aeb895673034b67934ec56ab7bc91c49e6034c80c54c699966f2ed6064b0aba8"
-    sha256 mojave:        "d5e992c19a4104eea8a8cf17cd13f71e18a0484a35939a30f2aec534603bb5ac"
+    sha256 arm64_big_sur: "08f7636b609fddf9d71d654831910e8354096d2352b31eedbe3a8f363c36072c"
+    sha256 big_sur:       "fe53693f8f14392597ac7495d80188bdee88455862c830d6ada5613ddbe50084"
+    sha256 catalina:      "ad496a6937046968511af7c71bac5514ce35f8c104f1711bb6b2ffe1bde372eb"
+    sha256 mojave:        "850cecb7bc17f8a0000e4666a1432b320722712fb394191c6b488c1307c60d0c"
   end
 
   head do

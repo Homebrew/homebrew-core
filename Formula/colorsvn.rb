@@ -12,7 +12,6 @@ class Colorsvn < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "5c56662f331161022c31f665d980e077d6a01328864c6c59c137de3b0b57e4f2"
     sha256 cellar: :any_skip_relocation, el_capitan:  "bf4048c281332c5cfcae4fc74c0fa233ad84c3fe2c111e633101d593284fe601"
     sha256 cellar: :any_skip_relocation, yosemite:    "88c79f8a9bc43d118449ce9d97061af4633f15f942a0a48caef5e1b327aea0e5"
-    sha256 cellar: :any_skip_relocation, mavericks:   "2711d058fa4c892f350b6309a82f7eeb85455bc1b336afc75587c467121a553d"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

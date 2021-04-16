@@ -2,7 +2,6 @@ class Lrzsz < Formula
   desc "Tools for zmodem/xmodem/ymodem file transfer"
   homepage "https://www.ohse.de/uwe/software/lrzsz.html"
   url "https://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/lrzsz-0.12.20.tar.gz"
   sha256 "c28b36b14bddb014d9e9c97c52459852f97bd405f89113f30bee45ed92728ff1"
   revision 1
 

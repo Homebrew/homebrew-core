@@ -15,7 +15,6 @@ class Pwnat < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "f8319cece67a334c14129e706f9d1b249d7905cf1ad62df9b5ee9553dbb8d001"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0149fc977622f2fd55db5845a377437028df31bb847230d3fd73d548e481e289"
     sha256 cellar: :any_skip_relocation, yosemite:      "cf17568c4053240ffe61594bcc618577c0d0c569abda8b3b956a4e4b441a755e"
-    sha256 cellar: :any_skip_relocation, mavericks:     "0baed31dc05b28a330501a0d4119e8997c1038d14311c64f2d7b367ebdf9f01e"
   end
 
   def install

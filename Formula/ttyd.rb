@@ -4,13 +4,14 @@ class Ttyd < Formula
   url "https://github.com/tsl0922/ttyd/archive/1.6.3.tar.gz"
   sha256 "1116419527edfe73717b71407fb6e06f46098fc8a8e6b0bb778c4c75dc9f64b9"
   license "MIT"
+  revision 1
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
-    sha256 arm64_big_sur: "f7627069a2b82aa5a279fb5b3ac54ac4da377c1b26a70998d3ebd6822e0cf266"
-    sha256 big_sur:       "a02e04e5aa70943d5998c5e75c49a82037725d205560391c89987cfdfb397472"
-    sha256 catalina:      "c915f944862f3db3e74444db19a8df4e0f045f826877b1a1abad8f366c57b1a9"
-    sha256 mojave:        "b3e8614d3b270121d85fae679016c68fe0f2c633d538dde1daa7887d1137cbeb"
+    sha256 arm64_big_sur: "17d9729f4c4c7162f8adeb361a64c30c2cfd5ed987728dd0692efb1096d9c5fc"
+    sha256 big_sur:       "3a8e47c44c2c09a23b83bf834a389d43907493bde07db0eea1ebb42b505df6dc"
+    sha256 catalina:      "918b9ae7215da2a72e88ff0456cf8be93e61249fadd97f1cd9ec09e71152b1ba"
+    sha256 mojave:        "d550e8e2cbae8483440e802a3d02d4beba1aec4c30d58e6cd27c07d69aafbe0f"
   end
 
   depends_on "cmake" => :build

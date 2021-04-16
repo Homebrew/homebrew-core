@@ -3,16 +3,15 @@ class Borgbackup < Formula
 
   desc "Deduplicating archiver with compression and authenticated encryption"
   homepage "https://borgbackup.org/"
-  url "https://files.pythonhosted.org/packages/c9/4d/dd06d8787f8faa8c50a422abd9ba14be15ee0b5830e745033815c49d5313/borgbackup-1.1.15.tar.gz"
-  sha256 "49cb9eed98b8e32ae3b97beaedf94cdff46f796445043f1923fd0fce7ed3c2bc"
+  url "https://files.pythonhosted.org/packages/d4/49/7f35a26124631ec87ee7467ae42b52c1381eb82c564108652dcb5edf99b9/borgbackup-1.1.16.tar.gz"
+  sha256 "bc569224d6320483e508c36ff2a651d01bbd0aaebf32305e2683a696b9c32d50"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "74defaac235883c8c4330ac0f5618ca30d17ff098d88fa83f158c6f4fef518c7"
-    sha256 cellar: :any, big_sur:       "0e44a5087964a741d4b08483ebf78537360be79f507e73561330a586d615a973"
-    sha256 cellar: :any, catalina:      "f5b616a9529e30fe7dab405cac668904f8e91b931540113bae52c70a2b182e8d"
-    sha256 cellar: :any, mojave:        "8e85f89b4e7b5ec8643ac7909aaccbf39efd02d9f3aa25bc3f45e897a62b6c58"
+    sha256 cellar: :any, arm64_big_sur: "1f09de37b5fe3241769883419c428101d33527d69a12fb87dd04d9a58f46e642"
+    sha256 cellar: :any, big_sur:       "ee9ea1c3ed3f90c2eeeed0b94d39045798c346b44a86f44cd23d2d1df071246c"
+    sha256 cellar: :any, catalina:      "bd51e4780ef2add38d62ab7ae288ae0c667520c86a7c271abbd380333b8ed029"
+    sha256 cellar: :any, mojave:        "f623b6ba4c9606d1b89bc1195ad0dc12695d126f37d47446e27f3c5f66b02fc0"
   end
 
   depends_on "pkg-config" => :build

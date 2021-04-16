@@ -2,16 +2,15 @@ class Lazydocker < Formula
   desc "Lazier way to manage everything docker"
   homepage "https://github.com/jesseduffield/lazydocker"
   url "https://github.com/jesseduffield/lazydocker.git",
-      tag:      "v0.10",
-      revision: "ff0a53bfadfb1bfef5a0e3db023d57fed36fe4eb"
+      tag:      "v0.12",
+      revision: "6fd5337cc272289463eb562606e67515f48b4aff"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3bdd4a2361a64382d489fadd6c33880ebc974c5eba2a03c761fd13ae9ff8de7d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "68be351eabf1834a34465ee7ee44ef5d006252235d90374e0a35e4f2bceb408d"
-    sha256 cellar: :any_skip_relocation, catalina:      "beb117f1a6967c87d619fb493ba6a4ec03b528ff55e568b8f740245e0679d1aa"
-    sha256 cellar: :any_skip_relocation, mojave:        "0caabdbda1ce740c6a76952d40c8b8dc28acf936860d5f117113a9c3370ba84c"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "129c5552e5b09b98e170878c7713e52310daa8c3ab507200935415e4621ee1ce"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a4097503e3348206114d757b8f532fadaf8868eb3de2c1cb4795a4bb1ddbcdd0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9854a209f403c2e2fc43d69cbf8b42e3e80844992c31321c7b960f4f187d093e"
+    sha256 cellar: :any_skip_relocation, catalina:      "ac9d6261cbc3e0827b4d7a96666340e0bcd13ed177bfd115a6248fcdb63926e0"
+    sha256 cellar: :any_skip_relocation, mojave:        "99ffcce11cdc7e5e61e28d81255c9eba0dfe5c004919629dec01b3dc9a71f878"
   end
 
   depends_on "go" => :build

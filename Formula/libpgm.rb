@@ -15,7 +15,6 @@ class Libpgm < Formula
     sha256 cellar: :any, sierra:        "e84427aa937687e77701f8b0834866c86e6d4916685c769c4900403307b624c5"
     sha256 cellar: :any, el_capitan:    "24765bd6efa0aa65a333e3d5bb5a48159875b81cae8ca99c479fbda4133f49b9"
     sha256 cellar: :any, yosemite:      "ae0d1d980f84677fcaa08b1d9f35f1c9d4858e4239598530b7485e9f248def73"
-    sha256 cellar: :any, mavericks:     "87ac77e422ffd9b72d1070c991064d0a8a9b5eb2d124f5cdd9911590b48bd291"
   end
 
   def install

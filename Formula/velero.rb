@@ -1,15 +1,15 @@
 class Velero < Formula
   desc "Disaster recovery for Kubernetes resources and persistent volumes"
   homepage "https://github.com/vmware-tanzu/velero"
-  url "https://github.com/vmware-tanzu/velero/archive/v1.5.3.tar.gz"
-  sha256 "f541416805f792c9f6e5ec2620b0c0f5d43d32ee6714f99fb9fadd8ee9072378"
+  url "https://github.com/vmware-tanzu/velero/archive/v1.6.0.tar.gz"
+  sha256 "68d8bf3c117b3ddfe7e8005238824e802ede83ce76dd670723663a392f779fc9"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e38bd17473efe454d815194e52ca516ce08ca1623e0d0a2f33a7043ac22f51d1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "48533b571d22497df4c10e6ec43a356e060923ebdeebf79d4294bb06ac4dd222"
-    sha256 cellar: :any_skip_relocation, catalina:      "e88af008dbe0f1aacd927c9d1d545cb4377b1bbcbdefd8ea7ef60d29eb52fae5"
-    sha256 cellar: :any_skip_relocation, mojave:        "d8c95c53579e629b85ad556d49f01fc9b669e97d5a0d08158af20faaf1fe2702"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ec1edc47dc7cf10e58611986e504028787921953f43a27eddf75dfa28e59f9c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3793747c07f37e2088eab787d3cdbbf9b55c9a804787efa1e8cdf854407234ff"
+    sha256 cellar: :any_skip_relocation, catalina:      "605826184cccbb5d34331dd5b410615667a921c9adf5a4ad3499f1140d62bb75"
+    sha256 cellar: :any_skip_relocation, mojave:        "3b4b493abdc403991fc85f562a0234924c5fb2e4d9633d7696c9a3a4a11b08e0"
   end
 
   depends_on "go" => :build
@@ -30,7 +30,7 @@ class Velero < Formula
   end
 
   test do
-    output = shell_output("#{bin}/velero 2>&1", 1)
+    output = shell_output("#{bin}/velero 2>&1")
     assert_match "Velero is a tool for managing disaster recovery", output
     assert_match "Version: v#{version}", shell_output("#{bin}/velero version --client-only 2>&1")
     system bin/"velero", "client", "config", "set", "TEST=value"

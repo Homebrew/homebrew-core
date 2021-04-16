@@ -1,20 +1,20 @@
 class PetscComplex < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (complex)"
   homepage "https://www.mcs.anl.gov/petsc/"
-  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.14.5.tar.gz"
-  sha256 "8b8ff5c4e10468f696803b354a502d690c7d25c19d694a7e10008a302fdbb048"
+  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.15.0.tar.gz"
+  sha256 "ac46db6bfcaaec8cd28335231076815bd5438f401a4a05e33736b4f9ff12e59a"
   license "BSD-2-Clause"
 
   livecheck do
-    url "https://www.mcs.anl.gov/petsc/download/"
+    url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/"
     regex(/href=.*?petsc-lite[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 arm64_big_sur: "656efb5c7d6717386e3138503c81cce9ae3c3c1bb8f99d3a4c00658578c74a48"
-    sha256 big_sur:       "2adbf961b61d0690a6fc80669c464b5c22afd0952c0ca1000037b115822c1231"
-    sha256 catalina:      "3defa36417b3fcb1db51a2250844b78583f5810e51ae8ed05ec8bbc8df63bd46"
-    sha256 mojave:        "8aa9dd0fb3d3e3e7405534c738bb62d24953d6f35f10b756dca6a3ffad78a2a8"
+    sha256 arm64_big_sur: "f25cd098cf7896633557b30986f6e8d39741fc397d39c813ca6719d0c577601d"
+    sha256 big_sur:       "4c296aa37c1a1253ea472d56edc78ebafbebaf7ce62853d52b04d53cc5022dce"
+    sha256 catalina:      "30042d132c880dde9849a11271db4738f5869ae950c1acb4ca09db43aa751132"
+    sha256 mojave:        "6b89bf601a92e634ce8badc710afaf5e47c61f5d82c600fcc4a1d185aaec7890"
   end
 
   depends_on "hdf5"
@@ -42,7 +42,16 @@ class PetscComplex < Formula
 
     # Avoid references to Homebrew shims
     rm_f lib/"petsc/conf/configure-hash"
-    inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+
+    on_macos do
+      inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
+    end
+
+    on_linux do
+      if File.readlines("#{lib}/petsc/conf/petscvariables").grep(/#{HOMEBREW_SHIMS_PATH}/o).any?
+        inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
+      end
+    end
   end
 
   test do

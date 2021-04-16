@@ -1,16 +1,16 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.1/hbase-2.4.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/2.4.1/hbase-2.4.1-bin.tar.gz"
-  sha256 "2ef95d4b8c8a6a955b25a578b6b336b996233f09abf285fd62cedd8d07a67fc2"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.2/hbase-2.4.2-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.4.2/hbase-2.4.2-bin.tar.gz"
+  sha256 "829e5b324fdcb7d291183d7a4c6ba0a7419d2d03ef487a8a137c359fcd073bae"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "1da9558690f3c73ec7621133f8479fc4434c0dcadde298c49751f0ae4ce00b2e"
-    sha256 big_sur:       "35270a7596f6252714837d937bd2ad5b9b7b3f00b50067b289d08f97f76e5846"
-    sha256 catalina:      "3b1d13d0dc1dd5ea220c15cf7de44bf9c4c38b023783cbc313a0e8ed0aa383bc"
-    sha256 mojave:        "b60c11f10ccd5c5730a6b099bdfccd8342067e7d2b0ccb45f81e775f4fce6382"
+    sha256 arm64_big_sur: "5764375ca41e34e06aed467d70f5b58cb79fc1801d746a53240a08563750e2fc"
+    sha256 big_sur:       "29291b4bb48377067a8e564bc94141ea641c1e95b2ebbeb97b1aeefe07272507"
+    sha256 catalina:      "320d2409665e71a1f560451ea4854596b970c34356ba54d8642227e4ae0ee677"
+    sha256 mojave:        "9e74ab6da3e4a282cd048b40c86a57c00ef2e6954c129817968d53cf5f2bd9f4"
   end
 
   depends_on "ant" => :build

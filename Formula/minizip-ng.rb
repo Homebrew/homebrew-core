@@ -1,15 +1,16 @@
-class Minizip2 < Formula
+class MinizipNg < Formula
   desc "Zip file manipulation library with minizip 1.x compatibility layer"
-  homepage "https://github.com/nmoinvaz/minizip"
-  url "https://github.com/nmoinvaz/minizip/archive/2.10.6.tar.gz"
-  sha256 "c2889690b1a1f55898d37d3fb51f05183a4861fb7d53ab702c6a5777bf232b75"
+  homepage "https://github.com/zlib-ng/minizip-ng"
+  url "https://github.com/zlib-ng/minizip-ng/archive/3.0.1.tar.gz"
+  sha256 "96c95b274dd535984ce0e87691691388f2b976106e8cf8d527b15da552ac94e4"
   license "Zlib"
+  head "https://github.com/zlib-ng/minizip-ng.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f5969b8323a391996b022af84e1eee37653367bee7e753ee7810d5e603ca4e7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "22ef440bea17e14161ab0234e300eb962bf5f45bed7354ce496c955c106d91da"
-    sha256 cellar: :any_skip_relocation, catalina:      "535b3e0e48e6d4d4f498802dac216a60661045869e87c6671d7ad821838f9240"
-    sha256 cellar: :any_skip_relocation, mojave:        "e473a772186ca62e789f0164f2c8733091c828cda07096c182fa1b7361d4e064"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8ad8c82b45731b2bf0c2ab381a03ca1ee04b2a0b77d1a82cf9c96e943aded479"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1e9ce92109dfe17d988a2007bb488cba82e7840e4432589c3d3ebd99d4c73fa4"
+    sha256 cellar: :any_skip_relocation, catalina:      "4f2dfbfa9b7adb2bcde15d974ca0285887a1d148a47d1c7800b9b3ca294d68ff"
+    sha256 cellar: :any_skip_relocation, mojave:        "ec319bfa442812f8c5ac517d7f1eb231725a6b3e24449d1acc48700168376ced"
   end
 
   depends_on "cmake" => :build
@@ -46,7 +47,7 @@ class Minizip2 < Formula
       }
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}",
-                   "-lminizip", "-lz", "-lbz2", "-liconv",
+                   "-lminizip", "-lz", "-lbz2", "-liconv", "-lcompression",
                    "-L#{Formula["zstd"].opt_lib}", "-lzstd", "-llzma",
                    "-framework", "CoreFoundation", "-framework", "Security", "-o", "test"
     system "./test"

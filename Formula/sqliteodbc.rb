@@ -2,7 +2,6 @@ class Sqliteodbc < Formula
   desc "ODBC driver for SQLite"
   homepage "https://ch-werner.homepage.t-online.de/sqliteodbc/"
   url "https://ch-werner.homepage.t-online.de/sqliteodbc/sqliteodbc-0.9998.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/sqliteodbc-0.9998.tar.gz"
   sha256 "fabcbec73f98d1a34911636c02c29fc64147d27516b142e8e132c68c05a6065b"
 
   livecheck do

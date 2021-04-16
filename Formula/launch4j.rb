@@ -1,9 +1,9 @@
 class Launch4j < Formula
   desc "Cross-platform Java executable wrapper"
   homepage "https://launch4j.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/launch4j/launch4j-3/3.13/launch4j-3.13-macosx-x86.tgz"
-  version "3.13"
-  sha256 "df232427bd5a4d1674e2e66232127954d18de21d10417ee8e11534d9a914bd0d"
+  url "https://downloads.sourceforge.net/project/launch4j/launch4j-3/3.14/launch4j-3.14-macosx-x86.tgz"
+  version "3.14"
+  sha256 "caed147c560551bcf46d1a894083808e58de62941b268ef58ca803ed09736675"
   license all_of: ["BSD-3-Clause", "MIT"]
 
   bottle :unneeded

@@ -1,8 +1,8 @@
 class NodeBuild < Formula
   desc "Install NodeJS versions"
   homepage "https://github.com/nodenv/node-build"
-  url "https://github.com/nodenv/node-build/archive/v4.9.32.tar.gz"
-  sha256 "e2c98e06f9fb31865d7e23be8d49b8adb5ed1ede1d16ec87b0e06865689ea718"
+  url "https://github.com/nodenv/node-build/archive/v4.9.37.tar.gz"
+  sha256 "6d702a0187951d2e7f2da5437e4d0b0301b54de969858529314c30b7dd4bd6fc"
   license "MIT"
   head "https://github.com/nodenv/node-build.git"
 

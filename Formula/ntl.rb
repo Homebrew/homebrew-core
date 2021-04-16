@@ -49,6 +49,7 @@ class Ntl < Formula
       -L#{lib}
       -lntl
       -lgmp
+      -lpthread
     ]
     system ENV.cxx, "square.cc", "-o", "square", *flags
     assert_equal "4611686018427387904", pipe_output("./square", "2147483648")

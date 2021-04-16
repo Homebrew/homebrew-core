@@ -13,7 +13,6 @@ class M2c < Formula
     sha256 sierra:      "e98a99fb06c6b72bd0cf11d8369df21e1e9e57253e0a9d63ae8641444079df93"
     sha256 el_capitan:  "4aa6ac4f5fd855f4f84d5577ff6f79495fda9edc2ce5335c64bd96a881975eb0"
     sha256 yosemite:    "67659bd6a5fe922c1b34d5068a5cecbfee1f804e5ff432e32c8682a04029ccac"
-    sha256 mavericks:   "7bf62153eeb0976851785db04e1319f745709294aa9d0bc99e47ffee3eba1315"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

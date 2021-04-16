@@ -14,7 +14,6 @@ class Mosml < Formula
     sha256 sierra:        "297c05c55f2784f3b934a2fdb3ec2f91d8b11a06453c8649c1f6562cefdc089e"
     sha256 el_capitan:    "5dae62ca2034ba70844d684111cec58561895eac39db3177d439747512206002"
     sha256 yosemite:      "3a0289ba1b1a56cf3c2a598ccbee9b1739c7c35628a173dd00bd2f20fead6703"
-    sha256 mavericks:     "97ba76cf36e165dc798bdae33fc06c7c5954b1293686f43d2781b3130e75a119"
   end
 
   depends_on "gmp"

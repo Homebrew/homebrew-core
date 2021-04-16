@@ -32,6 +32,7 @@ class GtkMacIntegration < Formula
   depends_on "gettext"
   depends_on "gtk+"
   depends_on "gtk+3"
+  depends_on :macos
 
   def install
     args = %W[

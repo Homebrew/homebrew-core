@@ -3,20 +3,21 @@ class Litecli < Formula
 
   desc "CLI for SQLite Databases with auto-completion and syntax highlighting"
   homepage "https://github.com/dbcli/litecli"
-  url "https://files.pythonhosted.org/packages/06/86/d893d0ffe537e43720f51415163b47f07b92fdae00a20af595006ff70703/litecli-1.5.0.tar.gz"
-  sha256 "b09f0804d26b018360b240778612390810e8e00ea0f79d5412fd0d4775c0e3cd"
+  url "https://files.pythonhosted.org/packages/cd/c2/4a061e7d6aeec8ae0a8da1da77827cd100b0199adf3f9ac771fdc585621d/litecli-1.6.0.tar.gz"
+  sha256 "4d274e1475b4d3bb32384838830bc4a8388992b7cb8119aa8cffc7ffaa0167f9"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "39ffe359f5228519abc663377291de0984f89e2c44c1745ca199c292c821ea1e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c3eca4cb7815933a095fd3fd873d4f389d38940cf7cdad95c4e12e980208db39"
-    sha256 cellar: :any_skip_relocation, catalina:      "787c7ab063f0ea5219d7fb1ff22d0a96898dce05442df1fe7bc08f4318e41eb9"
-    sha256 cellar: :any_skip_relocation, mojave:        "1e979870e8020280d4c6fd401e172e81b63f574a46ec67f7179067c09d59fb37"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1e8e191643ac0d4592595de0d0a3f73c268f3c9a73df85f48803b90e9ff64896"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f7714d8bc524b27e694ba4d118604fb35574e72b53386011a7e3f2a928eed737"
+    sha256 cellar: :any_skip_relocation, catalina:      "2d6b08879f86f1d7bc2017c25604dbe5824288b0ec0c7289be17db34ccff993f"
+    sha256 cellar: :any_skip_relocation, mojave:        "916584cbeb899294bf3cd9122340db695f10f45368291b0728e712f91ba420f7"
   end
 
+  depends_on "python-tabulate"
   depends_on "python@3.9"
 
-  uses_from_macos "sqlite" => :test
+  uses_from_macos "sqlite"
 
   resource "cli-helpers" do
     url "https://files.pythonhosted.org/packages/3f/3f/6ecd0ddf2394b698dd82ff3ddbcda235f8d6dadf124af6222eff49b32e87/cli_helpers-2.1.0.tar.gz"
@@ -34,13 +35,13 @@ class Litecli < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/d4/12/7fe77b49d67845a378cfadb484b64218ed09d0e8bf420c663b4fe28f0631/prompt_toolkit-3.0.8.tar.gz"
-    sha256 "25c95d2ac813909f813c93fde734b6e44406d1477a9faef7c915ff37d39c0a8c"
+    url "https://files.pythonhosted.org/packages/3e/8c/9b93fd9ae393a41c92c1a5b9042a048ef4650853ca6ff9e0818781a01e2f/prompt_toolkit-3.0.17.tar.gz"
+    sha256 "9397a7162cf45449147ad6042fa37983a081b8a73363a5253dd4072666333137"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/29/60/8ff9dcb5eac7f4da327ba9ecb74e1ad783b2d32423c06ef599e48c79b1e1/Pygments-2.7.3.tar.gz"
-    sha256 "ccf3acacf3782cbed4a989426012f1c535c9a90d3a7fc3f16d231b9372d2b716"
+    url "https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz"
+    sha256 "2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94"
   end
 
   resource "six" do
@@ -51,11 +52,6 @@ class Litecli < Formula
   resource "sqlparse" do
     url "https://files.pythonhosted.org/packages/a2/54/da10f9a0235681179144a5ca02147428f955745e9393f859dec8d0d05b41/sqlparse-0.4.1.tar.gz"
     sha256 "0f91fd2e829c44362cbcfab3e9ae12e22badaa8a29ad5ff599f9ec109f0454e8"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
   end
 
   resource "terminaltables" do

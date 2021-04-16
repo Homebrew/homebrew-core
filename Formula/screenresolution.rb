@@ -15,8 +15,9 @@ class Screenresolution < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "ef630f5af67d6bcdde3fd580917ad05d871274f0d62b2a76705ab2b9683f334f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "63cfb53fe13d5f5b2c72e8a644b312f8a144b12e2b3f284de5adfc5010e1570d"
     sha256 cellar: :any_skip_relocation, yosemite:      "3b3f5d4c414aa36ee1ce963d47a82a50e06f1ffc7a36759bf13ee12c43845c73"
-    sha256 cellar: :any_skip_relocation, mavericks:     "9e6944af938c0c9ec9e1e4a79a6849fabb222baa0d977a9425bee6a2827595d0"
   end
+
+  depends_on :macos
 
   def install
     system "make", "CC=#{ENV.cc}"

@@ -2,16 +2,15 @@ class Periscope < Formula
   desc "Organize and de-duplicate your files without losing data"
   homepage "https://github.com/anishathalye/periscope"
   url "https://github.com/anishathalye/periscope.git",
-      tag:      "v0.2.0",
-      revision: "d672bf60f4b59c1f54fa3c26aef75d0593615c40"
+      tag:      "v0.2.1",
+      revision: "00d8e6699a9f5037c5f0d3f8cefadb14b4321562"
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8cfadad385f69d292c7fa21e74962839f802c4f715fdf90c3bd2a8b588c0ce91"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9824c9c61ed092523c30284612f1ddfa9c0725cd6c13c854340f47a4fa0ff6d3"
-    sha256 cellar: :any_skip_relocation, catalina:      "9b11b76bc3d4a06f735e88293a5c2263dbea9c4ed6d023bd6b1d88c6ba73a5f6"
-    sha256 cellar: :any_skip_relocation, mojave:        "b86dff9739ead37c41f5a40f6641c1795d515517d99d134ad900bf47b383b453"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "62bcdb7e1d0a230a65fdd16b2a9e9b34e5bd676b8e6c661b2bbc5deffca9a0d5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "24aefb91809223a004545b0f7966851a4c01cfeea1928afd7229aa4f0c31a343"
+    sha256 cellar: :any_skip_relocation, catalina:      "c61ca7e7e40bbf7b6f20f31666eb524880cbcdd8044f2acb676169627a1f4c01"
+    sha256 cellar: :any_skip_relocation, mojave:        "fd07096a5c2096d16223fc292be0a3ccf0f1af1f59619ab14938c9ac30890ebf"
   end
 
   depends_on "go" => :build

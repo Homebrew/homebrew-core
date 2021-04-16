@@ -10,7 +10,6 @@ class HardlinkOsx < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "01a3edbdac1385e04a3b0857e8073f0731ee26f6f71746a9c5347458aafc9623"
     sha256 cellar: :any_skip_relocation, el_capitan:  "edf85db2b0586c410dd96f8ab50cf4cc0f34d1494b3b91a5ef0b00ae16fed3c0"
     sha256 cellar: :any_skip_relocation, yosemite:    "dcba3e0320ca63d1b958173aa9e2ac24074c5c1f94becaba07f0c92e721b941e"
-    sha256 cellar: :any_skip_relocation, mavericks:   "2ebdf76a67f7c63614d581963d92d79de15cf834b7e3857c139f474db71aab73"
   end
 
   # https://github.com/selkhateeb/hardlink/issues/31

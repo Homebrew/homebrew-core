@@ -11,9 +11,11 @@ class PostgresqlAT96 < Formula
   end
 
   bottle do
-    sha256 big_sur:  "4285aadabde5a4c2c5214fe5a96845ce902238e276d1174bc4cc3455bdbaac50"
-    sha256 catalina: "3f4cc821946ee655328655314fb316f62cc5129319ce43740bb11f0248372240"
-    sha256 mojave:   "73f23acf06335e999d11b583ab9d30d25793a49383f96c048d4346f290e65c6e"
+    rebuild 1
+    sha256 arm64_big_sur: "5d6d88348d7ea4ccef8259d6357dc9b72a4ac93514de282a28cf2a8b920b4fc6"
+    sha256 big_sur:       "ab1af8b44d2de91b7f39441d224e0f4cca582be0e7cf37bc845e86ec660b2ece"
+    sha256 catalina:      "17ff71424cfaf686d2a83fb2c36ae509012b773c40f92420a31250214ee5ffe8"
+    sha256 mojave:        "4374f31f6e7ea4d531ece7419cfd857bafca0bddef9336c518800b30d689def7"
   end
 
   keg_only :versioned_formula
@@ -21,14 +23,16 @@ class PostgresqlAT96 < Formula
   # https://www.postgresql.org/support/versioning/
   deprecate! date: "2021-11-11", because: :unsupported
 
-  depends_on arch: :x86_64
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  uses_from_macos "krb5"
   uses_from_macos "libxslt"
+  uses_from_macos "openldap"
   uses_from_macos "perl"
 
   on_linux do
+    depends_on "linux-pam"
     depends_on "util-linux"
   end
 

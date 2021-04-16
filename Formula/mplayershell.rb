@@ -14,11 +14,10 @@ class Mplayershell < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "e9377eaebb65903037105bf3ed6ee301a182452791e9daeaadd08ccb732d9d1b"
     sha256 cellar: :any_skip_relocation, el_capitan:  "ae4c1c9d069053afa7e71867256b577e23bd0dec87a90ccab2ebeab089a3634b"
     sha256 cellar: :any_skip_relocation, yosemite:    "1637360e180d7b48367cb7c4f01d03856b9d13247000e4cc33f0af5f6ed92101"
-    sha256 cellar: :any_skip_relocation, mavericks:   "a95437813704c56c3e52bd1b17974bec24c209e26df8e9dfe07af45d51ecaf49"
   end
 
   depends_on xcode: :build
-
+  depends_on :macos
   depends_on "mplayer"
 
   def install

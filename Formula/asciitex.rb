@@ -14,7 +14,6 @@ class Asciitex < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9828783530514218f99ea7eabfad2031caeac979fac90cc9e049de4b4622fb80"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0ae267d7ffcf17769da97275af047dc2a4ba9e5086acdb53dd11ca41f3d40ddb"
     sha256 cellar: :any_skip_relocation, yosemite:      "e9eadc960e449db67f305c3e1cc8d4f025288967bb8b6a37f5ba4bf5ad58493d"
-    sha256 cellar: :any_skip_relocation, mavericks:     "31518a63d9b06f8e47ff57c5d6d22ca838abc2c1366d59db2bb8967971134d52"
   end
 
   def install

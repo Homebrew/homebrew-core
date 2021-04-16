@@ -13,7 +13,7 @@ class CargoEdit < Formula
     sha256 cellar: :any, mojave:        "db8fc1ad91e81679e46f49dddb9280b825b17b6ed9762f66a070af52ddee952a"
   end
 
-  depends_on "rust" => :build
+  depends_on "rust" => [:build, :test]
   depends_on "libgit2"
   depends_on "openssl@1.1"
 
@@ -29,6 +29,11 @@ class CargoEdit < Formula
         name = "demo-crate"
         version = "0.1.0"
       EOS
+
+      # Update the crates.io index. cargo-add doesn't currently handle this properly.
+      # https://github.com/killercup/cargo-edit/issues/420
+      # Remove this and the rust test dependency when this is fixed.
+      system "cargo", "search", "--limit=0"
 
       system bin/"cargo-add", "add", "clap@2", "serde"
       system bin/"cargo-add", "add", "-D", "just@0.8.3"

@@ -1,10 +1,9 @@
 class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.0.tar.xz"
-  sha256 "68bfaeef027b6ccd0032504a68ae69721a70e97d921ff328c0c8836c798f6cb1"
+  url "https://cache.ruby-lang.org/pub/ruby/3.0/ruby-3.0.1.tar.xz"
+  sha256 "d06bccd382d03724b69f674bc46cd6957ba08ed07522694ce44b9e8ffc9c48e2"
   license "Ruby"
-  revision 1
 
   livecheck do
     url "https://www.ruby-lang.org/en/downloads/"
@@ -12,11 +11,10 @@ class Ruby < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "501ba0c0968ccebdc18cb781820e401764243b536c30821909dcd5049b5a73d2"
-    sha256 big_sur:       "60f0b39ab2714afc942145c00684fae27c6388cafdb59fd9c8f1dca97fcfc773"
-    sha256 catalina:      "b869f4edd6b14d7c54e8994d77b5d92f935ca67c746babbda910471de21ac6aa"
-    sha256 mojave:        "efdb21d54bd759a1862140d61ab83b49221aa02fc9e1891972053da7edfb855b"
+    sha256 arm64_big_sur: "860b8b8d1642a66577df16a442ade6d7b21c0d66c14f8963c9bd4ad11bae790a"
+    sha256 big_sur:       "00daa93e4b30d3bbeac5089c1c34355315774e0d9fd1d9588402b2e755089c53"
+    sha256 catalina:      "1af6edba23ff9aa12fcab0fee9246cf46110263bf962e46e800152096b0c7017"
+    sha256 mojave:        "c3e943ccbe925a3c624952e249b06083947e5025dcca09511ec85a88bd47ac3c"
   end
 
   head do
@@ -38,8 +36,8 @@ class Ruby < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-3.2.3.tgz"
-    sha256 "a15dd7cd471a5fee2b6a36cf855ac2952a64d46629cd628b1a52c57bcebf52df"
+    url "https://rubygems.org/rubygems/rubygems-3.2.15.tgz"
+    sha256 "110f1c8e0d35b5646559b3d8f66a80b7dfdbef6aa736f532a276d1d2be7cf05c"
   end
 
   def api_version

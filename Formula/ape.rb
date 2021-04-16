@@ -10,7 +10,6 @@ class Ape < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "dd095fa1465e0a20613481720e26a5917c08882b340a18ab4d351a95e5eb3a3e"
     sha256 cellar: :any_skip_relocation, el_capitan:  "259b19e211ff6d6ffc376db0b3696a912a6ac48dca83cbcbe525c78e56755c82"
     sha256 cellar: :any_skip_relocation, yosemite:    "3859216e566e6faaccc7183d737527dd4785260a698c8344520e7951baebca76"
-    sha256 cellar: :any_skip_relocation, mavericks:   "83c7ef23309dec2e7bd4bec3ae75b6f0e04fcfecbda489c90810b6948eb3bb28"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

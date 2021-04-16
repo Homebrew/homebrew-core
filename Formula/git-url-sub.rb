@@ -15,7 +15,6 @@ class GitUrlSub < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2fcf47332e070caed126fef2be0a1108a23e18a9d1ba80b6059b45a417af1b31"
     sha256 cellar: :any_skip_relocation, el_capitan:    "cf954ff293abbcaf8816c8142b5762ebe7601107f76530f6bab0edea71e2d609"
     sha256 cellar: :any_skip_relocation, yosemite:      "2edfbc5f15001b1c4c08b26251a845533473a79bc2f387d3fd1d74751080cd1b"
-    sha256 cellar: :any_skip_relocation, mavericks:     "ce9c28238d1904b9d2c97da10fd7a6be0b1ceafde423311078dfac0bbe8a82dc"
   end
 
   def install

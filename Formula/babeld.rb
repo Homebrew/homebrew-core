@@ -12,11 +12,11 @@ class Babeld < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6a56133eedc55610cbd65c8862584e2a109702e6f6c3619c58bcc99a41c99da1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a7bb20a1f278ab2acc151622894d0e96ee81e9a9a0e53c1ecc9565f5906ed172"
-    sha256 cellar: :any_skip_relocation, catalina:      "1e311a15868154bf204fe2d9d19ed1db24c830fcf9cfaa32cf1255d7ed35b108"
-    sha256 cellar: :any_skip_relocation, mojave:        "1ddbacdd3433b008c2ad86e582ab2376cf0bab93b7939bb9f47d6e1e1fd06ad3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c6021be16309b6bb2280cb2b0518176a8940ec1925fb84653f0ecd6b5e7c8255"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6622356c892c502ec37f13acf4d77cf3c22b73c101da00c694419df1b41c647d"
+    sha256 cellar: :any_skip_relocation, catalina:      "94f5533d9452bd84e747e2d5d37d1ca46e920490f94626d6a2bbc12cac26c0cc"
+    sha256 cellar: :any_skip_relocation, mojave:        "a40446c3797cf7da4e7817513e4ee170cc48b5f5bd738bee5f7b6b50cece52ea"
   end
 
   def install
@@ -32,10 +32,6 @@ class Babeld < Formula
 
   test do
     shell_output("#{bin}/babeld -I #{testpath}/test.pid -L #{testpath}/test.log", 1)
-    expected = <<~EOS
-      Couldn't tweak forwarding knob.: Operation not permitted
-      kernel_setup failed.
-    EOS
-    assert_equal expected, (testpath/"test.log").read
+    assert_match "kernel_setup failed", (testpath/"test.log").read
   end
 end

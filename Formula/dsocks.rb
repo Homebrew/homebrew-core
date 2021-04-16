@@ -15,7 +15,6 @@ class Dsocks < Formula
     sha256 cellar: :any, sierra:        "896675fab1d6bf50e5ab9512041ab49fcf9af65198d93ec85c0f2c0d801df49d"
     sha256 cellar: :any, el_capitan:    "9b764e48bfe348433382d030a4aa00eefe1afa63b6bcfaab2450101bb429020e"
     sha256 cellar: :any, yosemite:      "d537e7fe450742d499835b2ba76a94df1285162709b7d953530d5814a0f78019"
-    sha256 cellar: :any, mavericks:     "419d972f1aba39997ec90a4c8e35c98ecfedbfb63506478e8b406ac04a01e5de"
   end
 
   def install

@@ -18,7 +18,6 @@ class Libspnav < Formula
     sha256 cellar: :any, sierra:        "55cf0552148451302bb50c04a843d8d3834ca95a38c79bf5270f20ac49f82d41"
     sha256 cellar: :any, el_capitan:    "48685db33ebe4acb821b33dbd609f95d03c47bd6c316b08f1bc1110d86271643"
     sha256 cellar: :any, yosemite:      "87bf93469bb14eef1a24de81cd521f6a62363a6aa7c04a319f3f18905de039b1"
-    sha256 cellar: :any, mavericks:     "f425659deb611eacb94f2245f0c8f8235aa0169a422874f2aa2c32f8d207b84a"
   end
 
   def install

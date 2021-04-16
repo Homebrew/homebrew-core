@@ -1,14 +1,14 @@
 class DockerComposeCompletion < Formula
   desc "Completion script for docker-compose"
   homepage "https://docs.docker.com/compose/completion/"
-  url "https://github.com/docker/compose/archive/1.28.5.tar.gz"
-  sha256 "41981d62e69e3bb2220a18306cebf9b2f564afe5f2b11f0cf8bba3bf0cf34938"
+  url "https://github.com/docker/compose/archive/1.29.0.tar.gz"
+  sha256 "a798ec994096654d0e50b408fdb55015ce3e520b31e1819797edc425e9413388"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest
   end
 
   bottle :unneeded

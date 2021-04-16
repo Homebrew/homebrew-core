@@ -14,7 +14,6 @@ class RandomizeLines < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "19f42b1930e7a523778b18834c9615eb3c891ee490a1cb41a73f61bc47c336f6"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e61c986a537a9f0c77b1382add72096e72f7447ef50ac8acc01320014681e691"
     sha256 cellar: :any_skip_relocation, yosemite:      "fbffa3106ec600894f313f9770f1336227e2bf149f10c487344f26b4bf8f1093"
-    sha256 cellar: :any_skip_relocation, mavericks:     "ec4fc7a2361d75b1b76d0b4edfdb39aae104a9c054eaae07f0b0ee55762fe485"
   end
 
   def install

@@ -14,7 +14,6 @@ class Minuit2 < Formula
     sha256 cellar: :any, sierra:        "00867c4037d0110f2adf23a623aa918a95c9345be197ecdc0a9aa0d9da9f04e0"
     sha256 cellar: :any, el_capitan:    "7457852262758583daca3f23ac3e6fa312fe0a3fd84f0b20da2081967124a0fc"
     sha256 cellar: :any, yosemite:      "32ff2d05e0a85b28513789e1f625e654f2141b80202f506ad0f7721caab95ddd"
-    sha256 cellar: :any, mavericks:     "e2b2aba706d32238723ee7aaba7e4c536d68a6979b01c67e944bb34039653f40"
   end
 
   def install

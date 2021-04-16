@@ -3,16 +3,15 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://github.com/Backblaze/B2_Command_Line_Tool/archive/v2.1.0.tar.gz"
-  sha256 "7fbc25e5d7ef5b88ff870f95ae8f100dd194448ae86d0ed6bd029d50897f44d5"
+  url "https://files.pythonhosted.org/packages/73/f3/466c6d097df5cd325ab6cd1379831641e48e48d80355ced0109c9d939c0b/b2-2.3.0.tar.gz"
+  sha256 "9b3fa855e564815ddbb6e7815bd9b0b761a41f70d49e5c0d6785639f9217c122"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "538e37a8d0dfc0ede9d899119e19f02243d2b17ad5a27d8446ca87a8428df43e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d264b66cfb7d841a069d900e3a5fdfc8003d45de20298df1207b42573de4280f"
-    sha256 cellar: :any_skip_relocation, catalina:      "afdab50c5e6398ac74355674473569b5f6dbd3e43bdeaaf9fe27dea19cabac4d"
-    sha256 cellar: :any_skip_relocation, mojave:        "0d46e13619fb6fb5fa27c2bf5abb276d484ed12eba08366c6d3794b2b574a70e"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "e93427f054a8360d0dec4ff73a71f25e938bb427b51bd860a3d1bde035a2bc2b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5fa45ecd7cf4e7fa2eea6175835b7929323b5c134f4a21815ad28677a1f62414"
+    sha256 cellar: :any_skip_relocation, big_sur:       "efd742b163462fb021dec56a5fd7f982a9d23bed4b70edbca09d79027cf09ede"
+    sha256 cellar: :any_skip_relocation, catalina:      "7c7fb496f9a7736e7445cbda08d8beaca962e7dd5513adf32c7d8778d7d72239"
+    sha256 cellar: :any_skip_relocation, mojave:        "c96decfc559c8624c0d1953b466436889eeb951ec412df0f2ec9ef963a40bd5b"
   end
 
   depends_on "python@3.9"
@@ -25,18 +24,23 @@ class B2Tools < Formula
   end
 
   resource "b2sdk" do
-    url "https://files.pythonhosted.org/packages/50/4c/2e00d4f1e45692f66132c539edb3f9f3fc0a8938c6d49c151d1f72bb6fc2/b2sdk-1.2.0.tar.gz"
-    sha256 "8e46ff9d47a9b90d8b9beab1969fcf4920300b02e20e6bf0745be04e09e8a6ff"
+    url "https://files.pythonhosted.org/packages/f1/bc/3363e4e5cb3f96b116bee03f590874b390fdd50010a8914a671f9cbdd5a0/b2sdk-1.5.0.tar.gz"
+    sha256 "d85a74cb7f60db676119572085cd44a61d3c383ab8e3c6836d46a15ac669db74"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/e6/de/879cf857ae6f890dfa23c3d6239814c5471936b618c8fb0c8732ad5da885/certifi-2020.11.8.tar.gz"
-    sha256 "f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
+  end
+
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/2f/e0/3d435b34abd2d62e8206171892f174b180cd37b09d57b924ca5c2ef2219d/docutils-0.16.tar.gz"
+    sha256 "c2de3a60e9e7d07be26b7f2b00ca0309c207e06c100f9cc2a94931fc75a478fc"
   end
 
   resource "funcsigs" do
@@ -65,8 +69,13 @@ class B2Tools < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
+  end
+
+  resource "rst2ansi" do
+    url "https://files.pythonhosted.org/packages/3c/19/b29bc04524e7d1dbde13272fbb67e45a8eb24bb6d112cf10c46162b350d7/rst2ansi-0.1.5.tar.gz"
+    sha256 "1b17fb9a628d40f57933ad1a3aa952346444be069469508e73e95060da33fe6f"
   end
 
   resource "six" do
@@ -75,13 +84,13 @@ class B2Tools < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/88/e6/13dde83089386c9aa200c4539891948094443d4f6fe85fe95c7806c1f3d5/tqdm-4.51.0.tar.gz"
-    sha256 "ef54779f1c09f346b2b5a8e5c61f96fbcb639929e640e59f8cf810794f406432"
+    url "https://files.pythonhosted.org/packages/ef/58/60cc1e9af5714d1b86062f6dc00c5dd6973c902da6259f930b9c6e7a3430/tqdm-4.59.0.tar.gz"
+    sha256 "d666ae29164da3e517fcf125e41d4fe96e5bb375cd87ff9763f6b38b5592fe33"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
-    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install

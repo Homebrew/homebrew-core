@@ -35,6 +35,6 @@ class Cpio < Formula
       #include <string>
     EOS
     system "ls #{testpath} | #{bin}/cpio -ov > #{testpath}/directory.cpio"
-    assert_path_exist "#{testpath}/directory.cpio"
+    assert_path_exists "#{testpath}/directory.cpio"
   end
 end

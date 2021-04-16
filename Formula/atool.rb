@@ -20,7 +20,6 @@ class Atool < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "656b59fcaa79956c81af4ce21afc06dbf9f6ffaecc0ff52b1a063da2c911fe89"
     sha256 cellar: :any_skip_relocation, el_capitan:    "dcfdcb720aa3704b9103aa01bb8efac42d24327bc8664baa420a9a69d75a98b6"
     sha256 cellar: :any_skip_relocation, yosemite:      "efdeeb165e146f4a76477417d2af9c60e2f776d06081bb579ff73ceb296a899d"
-    sha256 cellar: :any_skip_relocation, mavericks:     "4eed286344a3a1d4fc6efc908b34062b5cc7c7fdf2449cf85b7767168585fc7a"
   end
 
   def install

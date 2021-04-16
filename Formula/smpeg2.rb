@@ -18,7 +18,6 @@ class Smpeg2 < Formula
     sha256 cellar: :any, sierra:        "05ea6a84c6ff07c3c88e89f0ecd153c5cd92866d3edb8cc4b4dfd06f445971b7"
     sha256 cellar: :any, el_capitan:    "52aba7403eee04f66c9184a741354b747dfcd0994fa3bd7de9058b65a30fcf19"
     sha256 cellar: :any, yosemite:      "6031bf704fd0508bb90322dbe77f62580708e3fe77362e3dea6b0691360b686b"
-    sha256 cellar: :any, mavericks:     "fa5760a0f8ff18f596b0044a0da7562a361904f2520a7406c3681ace8a705950"
   end
 
   depends_on "autoconf" => :build

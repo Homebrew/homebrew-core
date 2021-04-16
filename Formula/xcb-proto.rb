@@ -1,14 +1,3 @@
-class Python3Requirement < Requirement
-  fatal true
-  satisfy(build_env: false) { which "python3" }
-  def message
-    <<~EOS
-      An existing Python 3 installation is required in order to avoid cyclic
-      dependencies (as Homebrew's Python depends on libxcb).
-    EOS
-  end
-end
-
 class XcbProto < Formula
   desc "X.Org: XML-XCB protocol descriptions for libxcb code generation"
   homepage "https://www.x.org/"
@@ -18,23 +7,15 @@ class XcbProto < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c0d6040951956079df0f6c8e58b0ec759dab7b0aebdeacaa05189c1fe0775ee"
-    sha256 cellar: :any_skip_relocation, big_sur:       "15460cb7e0d83e7c05e331a98ed4a82e2badb9c337009e8d5fa830d26be113ea"
-    sha256 cellar: :any_skip_relocation, catalina:      "9a4114ec613fb5d8ba41cc43dffb95059bbe7815e812d194ef7c6507281883f4"
-    sha256 cellar: :any_skip_relocation, mojave:        "432ed8c5ad796f9311c34f4bfd3290e42fc132bf0e106ed6e39462ff8d028ab1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3ab62d4a00b0901a5676a904d9d58e263a2c6220d6bb08ea8bcee72ccede7b7e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4059bed377fd405eb7d2da7a550d2cc1fe33facfa2d2b0c1f3b4b8ebb40c70e2"
+    sha256 cellar: :any_skip_relocation, catalina:      "2cb7d82e47a13c5e90f1fb8e90eccd596efa140f13d3c34bdf594f2eb07adff4"
+    sha256 cellar: :any_skip_relocation, mojave:        "f1bb7552c78b5f0d5adb7085e509c7ecaa6da5afd3bfa865546778e0dcd9a5a8"
   end
 
   depends_on "pkg-config" => [:build, :test]
-
-  on_macos do
-    depends_on "python@3.9" => :build
-  end
-  on_linux do
-    # Use an existing Python 3, to avoid a cyclic dependency on Linux:
-    # python3 -> tcl-tk -> libx11 -> libxcb -> xcb-proto -> python3
-    depends_on Python3Requirement => :build
-  end
+  depends_on "python@3.9" => :build
 
   # Fix for Python 3.9. Use math.gcd() for Python >= 3.5.
   # fractions.gcd() has been deprecated since Python 3.5.

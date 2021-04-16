@@ -14,7 +14,7 @@ class Gist < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "28f8947a2912459cc79536eed7cbc2af958c9282f31990741f2fd0f32fffa70a"
   end
 
-  depends_on "ruby" if MacOS.version <= :sierra
+  uses_from_macos "ruby", since: :high_sierra
 
   def install
     system "rake", "install", "prefix=#{prefix}"

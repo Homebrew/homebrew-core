@@ -8,10 +8,11 @@ class CmarkGfm < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any, big_sur:     "3e26c1d17fc758db9384e87ae0fb9c14bf72131e907999f3df7e92e82db9f740"
-    sha256 cellar: :any, catalina:    "f7d1e82fce11d59440842e86065a21ec244b85159e091528dca7e004a32615ba"
-    sha256 cellar: :any, mojave:      "e203ca97951abc32dc20dede8c504df44a6972f8cb03df7a0e597bc7caeb20f5"
-    sha256 cellar: :any, high_sierra: "461d5443abc76191e65b3df9f2448072107e31211017e38bbb461842b523ee43"
+    sha256               arm64_big_sur: "b72e66bbd58fdb81dac3c52cb9274e08cdb8f791239c80444798c171c998324e"
+    sha256 cellar: :any, big_sur:       "3e26c1d17fc758db9384e87ae0fb9c14bf72131e907999f3df7e92e82db9f740"
+    sha256 cellar: :any, catalina:      "f7d1e82fce11d59440842e86065a21ec244b85159e091528dca7e004a32615ba"
+    sha256 cellar: :any, mojave:        "e203ca97951abc32dc20dede8c504df44a6972f8cb03df7a0e597bc7caeb20f5"
+    sha256 cellar: :any, high_sierra:   "461d5443abc76191e65b3df9f2448072107e31211017e38bbb461842b523ee43"
   end
 
   depends_on "cmake" => :build
@@ -21,7 +22,7 @@ class CmarkGfm < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
       system "make", "install"
     end
   end

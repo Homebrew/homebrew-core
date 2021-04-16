@@ -2,8 +2,8 @@ class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
   url "https://github.com/apache/camel-k.git",
-      tag:      "v1.3.1",
-      revision: "b705f57d2503505388e40931a8c97ad50fc2d346"
+      tag:      "v1.3.2",
+      revision: "619900dda959838499eb5ea6949e1e008b44a8bf"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
@@ -13,10 +13,10 @@ class Kamel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c52e7f5e007e12e4c191db92ed779e7aded3e09a42284871a50c52fec108c311"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5e07672ad25869206e8d43c1959426411b6f1a410e44e4e2279271e07c542684"
-    sha256 cellar: :any_skip_relocation, catalina:      "982c51e01f8e5bf9fb867c5107428ffe3ef000400c1d9cdc9c5710d50d4f194d"
-    sha256 cellar: :any_skip_relocation, mojave:        "356cffa21363864841e10ef0073c6a6ce25d215a7cc728d246e0953c896dfebf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "65348d15b231c7d414f08656de6e057c69249404fbd94d76a5526a05e2efa20d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e70071d20d4463314430567ea64c43c32dd0394cf88e7756fd7f6019ab776fab"
+    sha256 cellar: :any_skip_relocation, catalina:      "d694f515c43e1339a756a492479f403a087954a5d6f424517ea50869003a474a"
+    sha256 cellar: :any_skip_relocation, mojave:        "eaaa8a6eadf177b576260eb7ce5ffa95b0cd858890b14fa8f73d07368f27d6ed"
   end
 
   depends_on "go" => :build

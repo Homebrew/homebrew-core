@@ -3,6 +3,7 @@ class Bcrypt < Formula
   homepage "https://bcrypt.sourceforge.io/"
   url "https://bcrypt.sourceforge.io/bcrypt-1.1.tar.gz"
   sha256 "b9c1a7c0996a305465135b90123b0c63adbb5fa7c47a24b3f347deb2696d417d"
+  license "BSD-3-Clause"
 
   livecheck do
     url "http://bcrypt.sourceforge.net/"
@@ -18,6 +19,8 @@ class Bcrypt < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "bb843c3b04f9adf57df1c2d07e30303626eedb0f45695dcaf38d0835ea3e35fd"
     sha256 cellar: :any_skip_relocation, high_sierra:   "883a4a97b7275e91cd90ab9d1ca69fa2a3c0db3544a2d77863a37bda16c51667"
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "make", "CC=#{ENV.cc}",

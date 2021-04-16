@@ -12,7 +12,6 @@ class Openslp < Formula
     sha256 sierra:      "fdd847dba24e5a96c30ccef98f0d035f39abc88617d779df627c132be5b648ae"
     sha256 el_capitan:  "1c19d8355ddda63b9259101a0b7b56ea0fd9fb8f343e2df19f7248542fbf38e5"
     sha256 yosemite:    "95e41f7f42e80ab3234b460d90196389a0d275877195fe188ffc6249c0b762ce"
-    sha256 mavericks:   "883203d7fc5bbd6faefa058bf2f68dad2cc6a485f46599163d000684ae585507"
   end
 
   def install

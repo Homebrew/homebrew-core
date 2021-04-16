@@ -4,6 +4,7 @@ class Libedit < Formula
   url "https://thrysoee.dk/editline/libedit-20210216-3.1.tar.gz"
   version "20210216-3.1"
   sha256 "2283f741d2aab935c8c52c04b57bf952d02c2c02e651172f8ac811f77b1fc77a"
+  license "BSD-3-Clause"
 
   livecheck do
     url :homepage
@@ -26,6 +27,11 @@ class Libedit < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+
+    on_linux do
+      # Conflicts with readline.
+      mv man3/"history.3", man3/"history_libedit.3"
+    end
   end
 
   test do

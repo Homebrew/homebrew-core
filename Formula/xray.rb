@@ -1,28 +1,28 @@
 class Xray < Formula
   desc "Platform for building proxies to bypass network restrictions"
   homepage "https://xtls.github.io/"
-  url "https://github.com/XTLS/Xray-core/archive/v1.3.1.tar.gz"
-  sha256 "5b860144c470c3f7c6b71ffdf0c3830980f1f6ce431fbe6bf10249c1f0e991a7"
+  url "https://github.com/XTLS/Xray-core/archive/v1.4.2.tar.gz"
+  sha256 "565255d8c67b254f403d498b9152fa7bc097d649c50cb318d278c2be644e92cc"
   license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
   head "https://github.com/XTLS/Xray-core.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9765e7df071e456ea09873a40530b6d4ee8333079e54b068c8673d58984e27e6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bb471e2bc6dd18290c0e8011a28dc1d63d2ef615b661f2dca2d8820f9ed782be"
-    sha256 cellar: :any_skip_relocation, catalina:      "f357ebc653a5c6a87d29526f8d03fb3fd31f936b78a3d0bb1f3e80bf53564876"
-    sha256 cellar: :any_skip_relocation, mojave:        "ff1bd3ebc1b39a1f513cf9bf6e71488190557b503c5f3ddc5551d450aa5d6163"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "49099e603dd66c25dcfd250e87559841abff25a96f48a96ec787c139aa47d06c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2d98fb0997a94df4d413003bd95f5821eb6fbe293e5efa85b205e8e5e5bc0147"
+    sha256 cellar: :any_skip_relocation, catalina:      "130b05c879ef762488846945ec42e8e5ffb73d67d82917eaf7e3bfcf56032481"
+    sha256 cellar: :any_skip_relocation, mojave:        "f68a2892b2be3a4f97c1fc2ec02be2a0a00fb884c8eeac9621330d33683bde1b"
   end
 
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202103040019/geoip.dat"
-    sha256 "b2b2804ae07ec87c5df9473d5d547688461425ab50e3f58d4585ac9c472629a1"
+    url "https://github.com/v2fly/geoip/releases/download/202104010913/geoip.dat"
+    sha256 "f94e464f7f37e6f3c88c2aa5454ab02a4b840bc44c75c5001719a618916906cf"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20210304030907/dlc.dat"
-    sha256 "e38a086c5384eafe5b0423e4abafa51d6b05f1862e808eea88d9bcf808fd3467"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20210401091829/dlc.dat"
+    sha256 "ee9778dc00b703905ca1f400ad13dd462eae52c5aee6465f0a7543b0232c9d08"
   end
 
   def install

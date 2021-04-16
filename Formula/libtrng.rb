@@ -1,28 +1,24 @@
 class Libtrng < Formula
   desc "Tina's Random Number Generator Library"
   homepage "https://www.numbercrunch.de/trng/"
-  url "https://www.numbercrunch.de/trng/trng-4.22.tar.gz"
-  sha256 "6acff0a6136e41cbf0b265ae1f4392c8f4394ecfe9803bc98255e9e8d926f3d8"
+  url "https://github.com/rabauke/trng4/archive/refs/tags/v4.24.tar.gz"
+  sha256 "92dd7ab4de95666f453b4fef04827fa8599d93a3e533cdc604782c15edd0c13c"
   license "BSD-3-Clause"
+  head "https://github.com/rabauke/trng4.git"
 
   livecheck do
-    url :homepage
-    regex(/href=.*?trng[._-]v?(\d+(?:\.\d+)+)\.t.*?latest/i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fbf1971402ee149d4a60e6dec96a2c44ca500871848e0a5bd4974ce4f8b11369"
-    sha256 cellar: :any, big_sur:       "8eff7623b750819d2bc64e993601623805898bc279b0790841485e4c089735cb"
-    sha256 cellar: :any, catalina:      "b0e5af117a32d265de30662de4d7ef61e412853f262949e86ac1ff91dfd69875"
-    sha256 cellar: :any, mojave:        "4b753374a4fb6305e417ea5d89237f6e62b47b8c9e2c034c76e26475184de48c"
-    sha256 cellar: :any, high_sierra:   "4f269f561d5b8b692189e90cba163578ad68b2fa83a84660d8da4d367c4a2e93"
+    sha256 cellar: :any, arm64_big_sur: "9cfa0851919690b182b5cd227c71e77b7f07f5179ff5d06b52894fb98ca131df"
+    sha256 cellar: :any, big_sur:       "c97a7c825b5a6614dd771cef5f0aebdadb70f5b619e19aa446afff5072ec236d"
+    sha256 cellar: :any, catalina:      "044b708b751a88a22b95e4b75c47a8125fe017d6e69ea39c1177c9bc06c0de85"
+    sha256 cellar: :any, mojave:        "85e7a9b91ec9df836ce6127af7ca09deffd9052136c34ae1b0d3e310467eddc9"
   end
 
   depends_on "cmake" => :build
-
-  # Examples do not build. Should be fixed in next release.
-  # https://github.com/rabauke/trng4/commit/78f7aea798b12603d9a2f6c68e19692f61c70647
-  patch :DATA
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -46,18 +42,3 @@ class Libtrng < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
-index a916560..b29ab99 100644
---- a/examples/CMakeLists.txt
-+++ b/examples/CMakeLists.txt
-@@ -6,7 +6,7 @@ find_package(OpenMP)
- find_package(TBB)
-
- include_directories(..)
--link_libraries(trng4)
-+link_libraries(trng4_static)
- link_directories(${PROJECT_BINARY_DIR}/trng)
-
- add_executable(hello_world hello_world.cc)

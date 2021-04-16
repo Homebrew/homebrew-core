@@ -1,15 +1,14 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.66/gjs-1.66.2.tar.xz"
-  sha256 "bd7f5f8b171277cc0bb9ee1754b0240b62f06a76b8b18c968cf471b34ab34e59"
+  url "https://download.gnome.org/sources/gjs/1.68/gjs-1.68.0.tar.xz"
+  sha256 "f00e74a00e81ab61bb92669e0f1c8bb613cc019586097f06aed0572efcaf1aef"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
-  revision 2
 
   bottle do
-    sha256 big_sur:  "a065bebe7a6d0418e0fc35aed79ff6080691305f19bcc78de6bb81405ab73ee3"
-    sha256 catalina: "f630015b9b05f59c731cba6f99bacbd11be5ca6ac865b8a29f496c0fb1d34688"
-    sha256 mojave:   "150190528f20702178f5ad8391ad85b8f576eefa0f40b9bff94191603961dbf0"
+    sha256 big_sur:  "1e8638f3021ec9ca2f6ea9de615e7f148ee473c2e81238f7dd9769f7a3f48c14"
+    sha256 catalina: "3324cac672de14375a18665f8ab123a8ddb2e776b1c10c9855d82c73d3c7eae3"
+    sha256 mojave:   "09da7913ef958dbb02938be3a60984a3e6eb11fcb824be4d3ec44fa91a5664b3"
   end
 
   depends_on "meson" => :build

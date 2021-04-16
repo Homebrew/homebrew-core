@@ -14,7 +14,6 @@ class Mp4v2 < Formula
     sha256 cellar: :any, sierra:        "6cab2b32c845f6d54cdb8d64c558126cec39c27fb77a92f204bb8abda1c0ccfa"
     sha256 cellar: :any, el_capitan:    "52d299e61126db288d73a3e6e8b40c3eff25af1c7498c4a74787dce2dda02e9a"
     sha256 cellar: :any, yosemite:      "14ca4b71690959d461d41b4338be70005de4553566996677f973094c1a56c3fb"
-    sha256 cellar: :any, mavericks:     "bb51275338ca5b157b303fb9d024922c9b73ddcac69973ba2fe9d880ad6dc914"
   end
 
   conflicts_with "bento4",

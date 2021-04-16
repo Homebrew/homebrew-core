@@ -14,7 +14,6 @@ class Mergepbx < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "35a545aa5eb9b4d761134818b792f50e007d7bb6235fbbf54e7733a8e35d742e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9330e987d0c93a73b9edfbc77f265fa225b058d36b9210c797fe02494d1a656f"
     sha256 cellar: :any_skip_relocation, yosemite:      "77c1ec431ae1a7cd6fb4b04376e14e8aa1f7399cf840e006caf69c0f88839a7e"
-    sha256 cellar: :any_skip_relocation, mavericks:     "690559c9a95577702180b53493822f2c6887d2896f27c26cdfe9f2cad506809e"
   end
 
   resource "dummy_base" do

@@ -14,7 +14,6 @@ class Cgvg < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "12b8a6abb31e2e8d7ba044663b33990884ec24d1b0c0776901480cbecd47113f"
     sha256 cellar: :any_skip_relocation, el_capitan:  "a8232322755cb4c369193dca37fecb968ff689c6463611680e12f216f46507c4"
     sha256 cellar: :any_skip_relocation, yosemite:    "de0c8b890aa68670097790093fdceccfe1d69598c18ea5385069efc2f73a3c5d"
-    sha256 cellar: :any_skip_relocation, mavericks:   "d05cafffec1008fff858f9c0210d37d4d081aa34d8a490b968a8b824866a69be"
   end
 
   def install

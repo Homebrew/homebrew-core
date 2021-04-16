@@ -12,7 +12,6 @@ class Dnsrend < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "ff7281e230ada3a6ebf6ec6b46f5a0a5b28597c2f817cf99df9b2b32c3f175b7"
     sha256 cellar: :any_skip_relocation, el_capitan:  "fd38fc65be2c773804e6b7713cabee7fbdbc9ac344e72382e36174aaf258a41f"
     sha256 cellar: :any_skip_relocation, yosemite:    "83519cb5e7899fa2d2eca7f2a0e4ff76336582206ac42063ad1a446612bf3471"
-    sha256 cellar: :any_skip_relocation, mavericks:   "d9f91e7344b0457ec4d0ab29c95a91bf91c4c8d3ee8432b4159b1818785c043f"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

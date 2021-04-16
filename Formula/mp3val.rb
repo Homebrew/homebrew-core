@@ -14,7 +14,6 @@ class Mp3val < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "649cf78ba7bc387f346a6685b8c83bec495a5e75ea0fa6d93135cc36ec898f5f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d13a9b31c885d1704a0cc5e1ff6b995acd616248abcf5276fc068b78f7be785f"
     sha256 cellar: :any_skip_relocation, yosemite:      "298b6b2835de5f1aa3cef2f9435da3935ffbcfa49468511676661e8eaff8ca70"
-    sha256 cellar: :any_skip_relocation, mavericks:     "0828eb9f4e02af5014e1b8d82be9ad54797b0de6a299b05a1ef0daa86bc5dbe2"
   end
 
   def install

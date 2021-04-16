@@ -17,7 +17,6 @@ class Lolcode < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "47b268e8334d901868a6498738772b1c776fe34ab249befa702658489e53dff9"
     sha256 cellar: :any_skip_relocation, el_capitan:    "74920cea828644c7ad0fe3b12ee5c9a4c06a46ec37c2826280327e37e30f5513"
     sha256 cellar: :any_skip_relocation, yosemite:      "571a57a0fa8b60aac62ce3a358c0b123efcd2af9ec4004c51194c549ad8dd3f1"
-    sha256 cellar: :any_skip_relocation, mavericks:     "9159a0b5f907f400f7e233c026579568dd2c6a98d952fde2759f84cb52101508"
   end
 
   depends_on "cmake" => :build

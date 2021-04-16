@@ -15,7 +15,6 @@ class Gsar < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "762262cc0840aa074588b1fbbd534f6b865a44d344628b9dbf36b07dfdef2a9a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "5cf3fe6d772f95378e2802a6208b8f06524a81b4d881343571dd3af201b69e98"
     sha256 cellar: :any_skip_relocation, yosemite:      "6e138e63b868dfbd4d16109cabe60f50dc600fd65cbf14cd3926b1b8c2f3e2dc"
-    sha256 cellar: :any_skip_relocation, mavericks:     "3911e63bccd5deae4101c7c38a84954ad7e205bda69b3eefcee61a4d46e1df8d"
   end
 
   def install

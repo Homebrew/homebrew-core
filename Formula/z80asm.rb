@@ -18,7 +18,6 @@ class Z80asm < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2bf9a1b8ebae970b16ad7d4644a028ddcb21d8069f2f5d73d18d69881d7eca27"
     sha256 cellar: :any_skip_relocation, el_capitan:    "46446e7c3644dc58e1c5cc80b904863298f818d15c4aaad721e36cabae75207c"
     sha256 cellar: :any_skip_relocation, yosemite:      "f52e469f9e8ab4c30c6cce5cde41a52bfbdb06e8db88b8be80fb7c54cbb73a21"
-    sha256 cellar: :any_skip_relocation, mavericks:     "ed0e94c25d70c23f537ffbf8440b909b5d652e6000ebacd89be024c7ceee0e3d"
   end
 
   def install

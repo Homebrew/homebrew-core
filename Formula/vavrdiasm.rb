@@ -12,7 +12,6 @@ class Vavrdiasm < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "c04a9755b9f2e15fa512fdb08d28b95b8cf0304287f3a7930975b4ad75417fcf"
     sha256 cellar: :any_skip_relocation, el_capitan:  "0671b1062a86e8d596a9f404fd843cb37d6d2d1bb28ebb2b8a8f6cbdd763c97c"
     sha256 cellar: :any_skip_relocation, yosemite:    "ce57062586ca9cb91290141376f1da1f5de3c6efb6fe4687585a3e64cc29c014"
-    sha256 cellar: :any_skip_relocation, mavericks:   "f881c5a6d94581c4fc9efb13118c84c40700f13d130302f6ee4cb16968d1f6b0"
   end
 
   disable! date: "2020-09-17", because: :unmaintained

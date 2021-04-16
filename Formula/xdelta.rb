@@ -13,7 +13,6 @@ class Xdelta < Formula
     sha256 cellar: :any, sierra:        "7f51b76d06a6ac8aae36c10b41776a374d5fafa6b55c4908a885be7a88194676"
     sha256 cellar: :any, el_capitan:    "e07f928aadf6a9d8beb8a19fb72cb673cf0ae13c339ccd75c5df134cb3bc5c09"
     sha256 cellar: :any, yosemite:      "2581a9d0aabf6f6b34d35aae4d7ab07b6aaebdb70fd3b00ef14eff3bd96aa6c7"
-    sha256 cellar: :any, mavericks:     "a0801a8bd9796d03d8c031905e28a6e5f50b155da3102337070ec787ccb5cee9"
   end
 
   depends_on "autoconf" => :build

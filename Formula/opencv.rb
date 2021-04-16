@@ -1,10 +1,9 @@
 class Opencv < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
-  url "https://github.com/opencv/opencv/archive/4.5.1.tar.gz"
-  sha256 "e27fe5b168918ab60d58d7ace2bd82dd14a4d0bd1d3ae182952c2113f5637513"
+  url "https://github.com/opencv/opencv/archive/4.5.2.tar.gz"
+  sha256 "ae258ed50aa039279c3d36afdea5c6ecf762515836b27871a8957c610d0424f8"
   license "Apache-2.0"
-  revision 3
 
   livecheck do
     url :stable
@@ -12,10 +11,10 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "08183e5e5d48cc0ad40050a65ddd86c70bde41435c339ab06ef887f26754e58a"
-    sha256 big_sur:       "6ea488911c616643554ed7a5611c598369820dde4d6fdbc1c3d0ebf76b877ceb"
-    sha256 catalina:      "fba82ab6b60fbb0b892808bb8be6a17ff7805d9e9647705b4c0c656dd2f6a11e"
-    sha256 mojave:        "8a4e0c37ab0cc35a53e31d2ae265a2e5c8d22799d0c88ca582f5e6ed9da515d6"
+    sha256 arm64_big_sur: "bf52b176271698c7e2e4e9c5e042882c8049e4f1f327689077b9ec4e35e53b23"
+    sha256 big_sur:       "13624f806d33bc40c4b49e8b552311611f83ef5ba9af79140aa53efe40a5dcaa"
+    sha256 catalina:      "8df0308f01d98ec7037164b11a0058979a3ea084ded3132d5810eb315c2bf104"
+    sha256 mojave:        "5ffe038e388394e57be95ad3b187a7f8823000b7fd87484aba70128453c15475"
   end
 
   depends_on "cmake" => :build
@@ -38,8 +37,8 @@ class Opencv < Formula
   depends_on "webp"
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/4.5.1.tar.gz"
-    sha256 "12c3b1ddd0b8c1a7da5b743590a288df0934e5cef243e036ca290c2e45e425f5"
+    url "https://github.com/opencv/opencv_contrib/archive/4.5.2.tar.gz"
+    sha256 "9f52fd3114ac464cb4c9a2a6a485c729a223afb57b9c24848484e55cef0b5c2a"
   end
 
   def install

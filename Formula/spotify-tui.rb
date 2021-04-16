@@ -27,8 +27,10 @@ class SpotifyTui < Formula
 
   test do
     pid = fork { exec "#{bin}/spt -c #{testpath/"client.yml"} 2>&1 > output" }
-    sleep 2
-    Process.kill "TERM", pid
+    sleep 10
     assert_match "Enter your Client ID", File.read("output")
+  ensure
+    Process.kill "TERM", pid
+    quiet_system "pkill", "-9", "-f", "spt"
   end
 end

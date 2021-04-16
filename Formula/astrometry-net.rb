@@ -3,10 +3,9 @@ class AstrometryNet < Formula
 
   desc "Automatic identification of astronomical images"
   homepage "https://github.com/dstndstn/astrometry.net"
-  url "https://github.com/dstndstn/astrometry.net/releases/download/0.82/astrometry.net-0.82.tar.gz"
-  sha256 "20f7ac7474962546f462286178e40b09602eeda10af98c828c64f67771fbc197"
+  url "https://github.com/dstndstn/astrometry.net/releases/download/0.85/astrometry.net-0.85.tar.gz"
+  sha256 "e5aa28cbd6c5dd2eaf6df68f95398c3cae190668d86e9922521d29689fc27221"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -14,11 +13,10 @@ class AstrometryNet < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7f0d280c3cee7baef3f06bb9fa3ff52be07fa94a94f71192a9bf65e94285ab72"
-    sha256 cellar: :any, big_sur:       "700e922e70fab4f449c5167c376cc2105d94d72c1ffbc674cfc8a40f15527338"
-    sha256 cellar: :any, catalina:      "341deb97e8b97022dba091f90eb564fb69993e686a7e3ce4f5ecee824f99a572"
-    sha256 cellar: :any, mojave:        "c21290e658b447a4ee10e33c6f0924ba7224bf31863e2541cb2ee502781cec28"
-    sha256 cellar: :any, high_sierra:   "da1ed3b61a7388044bc0b40fc58f9b9d1ecc2b27df25ff47596980b56edc82ad"
+    sha256 cellar: :any, arm64_big_sur: "1424fac61426e18c1ee28c528b21b60b8b32c464c4102b82cc082850e9db7d41"
+    sha256 cellar: :any, big_sur:       "2cb514958572c469dfbc648b06c1f6c2471a038dcd6c92e9ef74f6342c42c445"
+    sha256 cellar: :any, catalina:      "5fcba0d1c13e2058800d50f7e36d660e0c7a135b5d381a81b7cdb580b2f6d886"
+    sha256 cellar: :any, mojave:        "569f2581812d7249ff3171e0dca14bfeac6a19dce50414c32f20fa25acee330c"
   end
 
   depends_on "pkg-config" => :build
@@ -34,8 +32,8 @@ class AstrometryNet < Formula
   depends_on "wcslib"
 
   resource "fitsio" do
-    url "https://files.pythonhosted.org/packages/5e/d7/58ef112ec42a23a866351b09f802e1b1fa6967ac01df0c9f3ea5ee8223ce/fitsio-1.1.2.tar.gz"
-    sha256 "20e689bdbb8cbf5fc6c4a1f7154e7407ed1aa68e2d045e3e2cd814f57d85002f"
+    url "https://files.pythonhosted.org/packages/98/2b/0b36a6d039d10da5bfa96d0d6206523f8787fbcc4b8aa0b8107e5139b8b4/fitsio-1.1.4.tar.gz"
+    sha256 "59c281648ea8fe50ed557857b201eacb21671b83ae60956a7e22c2a7e2a82b9d"
   end
 
   def install

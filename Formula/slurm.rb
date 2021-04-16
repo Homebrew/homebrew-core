@@ -14,7 +14,6 @@ class Slurm < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "03f2d26fda7d44d9853f4e24ca0cd28b7096ec174ea6de731234bdb7d7742f88"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f77b8d2eb56422a448af47cab61f2e9b48d7d82439fa44ecd4dd19cf18ff83f8"
     sha256 cellar: :any_skip_relocation, yosemite:      "ec4091e007334ba76cccb21d4d9dd6cc229d38193de110c38aee969969ccf959"
-    sha256 cellar: :any_skip_relocation, mavericks:     "737bb85b1e76c2a577e515857ae01d7eed5b64f0ea514bae0534f1360cc53566"
   end
 
   depends_on "cmake" => :build

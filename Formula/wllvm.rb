@@ -3,15 +3,15 @@ class Wllvm < Formula
 
   desc "Toolkit for building whole-program LLVM bitcode files"
   homepage "https://pypi.org/project/wllvm/"
-  url "https://files.pythonhosted.org/packages/63/cd/0cc7994c2a94983adb8b07f34a88e6a815f4d18a1e29eb68d094e5863f18/wllvm-1.3.0.tar.gz"
-  sha256 "a98dd48350d8aae80fe03b92efb11c3e1b92f6aee482f4331f7c97265ca7a602"
+  url "https://files.pythonhosted.org/packages/4b/df/31d7519052bc21d0e9771e9a6540d6310bfb13bae7dacde060d8f647b8d3/wllvm-1.3.1.tar.gz"
+  sha256 "3e057a575f05c9ecc8669a8c4046f2bfdf0c69533b87b4fbfcabe0df230cc331"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b146448a287a26c086f41c4db6222e2f2969bbc12a4d86c9eaf05e2ce5ed4da2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fe0b731ecde0d7e66f096f374741fc177fa01c2d866d28d2519b009f7f3f881a"
-    sha256 cellar: :any_skip_relocation, catalina:      "87139d500bf0594a1573a3d6c7f860db22d5608f1556771cf4ae2dd06e45d828"
-    sha256 cellar: :any_skip_relocation, mojave:        "cbaafe80bf7c436c2aca8d8080f1772d5d592836ce05d8b3864345b53bd4f4e2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0e2d0379de94210ef4627ba7093361c994bc44d732a9c8c3abe56237b37a792e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "15cfa5f572614f6f4c3cd2bc30f3983830b5cae8736f08e1514bc9608cef0dc1"
+    sha256 cellar: :any_skip_relocation, catalina:      "860faf0ed34adee6eeedbed016b90f0dc53cf2d74c7a2a68685ce7c49e6e2ce6"
+    sha256 cellar: :any_skip_relocation, mojave:        "c953b8c3d45d6df5a67e5d334fe279a50cef7ccf9d67e7d53db995285da433c3"
   end
 
   depends_on "llvm"
@@ -31,11 +31,7 @@ class Wllvm < Formula
     assert_predicate testpath/".test.o", :exist?
     assert_predicate testpath/".test.o.bc", :exist?
 
-    # extract-bc currently does not work on ARM.
-    # https://github.com/SRI-CSL/whole-program-llvm/issues/29
-    unless Hardware::CPU.arm?
-      system bin/"extract-bc", testpath/"test"
-      assert_predicate testpath/"test.bc", :exist?
-    end
+    system bin/"extract-bc", testpath/"test"
+    assert_predicate testpath/"test.bc", :exist?
   end
 end

@@ -1,23 +1,22 @@
-class KdeThreadweaver < Formula
+class Threadweaver < Formula
   desc "Helper for multithreaded programming"
   homepage "https://api.kde.org/frameworks/threadweaver/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.79/threadweaver-5.79.0.tar.xz"
-  sha256 "297ca4454e9dc526af8033ee47932a63e3ef3d76868a75dfa66df0f7a04d5918"
+  url "https://download.kde.org/stable/frameworks/5.80/threadweaver-5.80.0.tar.xz"
+  sha256 "6a3722a5c927eeaf8e9841fdcb513018ea41f384f41c25a1542cc52bdd43b5c8"
   license "LGPL-2.0-or-later"
-  revision 1
   head "https://invent.kde.org/frameworks/threadweaver.git"
 
   bottle do
-    sha256 arm64_big_sur: "4e2cc8b16301bc9e2fc14fda3748bf5c6806f1a5354fd8975bffe543afd609ac"
-    sha256 big_sur:       "14e86bf2b254bf6cc4a03eef9ce8fd440172befc09987963c06490bc5fb71475"
-    sha256 catalina:      "4ed11a2a30e6c38fb227c7b0177e7759c155320d4b3dd7de9a64386f3fbf9ed4"
-    sha256 mojave:        "47d34ce1fc476cbbbad3c8d7344a202a3169d450163e33cbf8d389dcf5f4bcf9"
+    sha256 arm64_big_sur: "9db34c9a77a039eb54ef9699ccc23b2233d3f51c7fef724c6fa0e126dc06af4e"
+    sha256 big_sur:       "c47e6ed2b643b8e0e73a3df11b612a334c6ae85d5766db2c2f1ead458de6d44c"
+    sha256 catalina:      "ce4895bc462087f14d7bc68613a1cd320800651da53527915094787ec170a46c"
+    sha256 mojave:        "1ae5d21684f5f5cd7266a3dada3f3cc077231575025f2e5d631ef6586fb95aed"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build
+  depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "graphviz" => :build
-  depends_on "kde-extra-cmake-modules" => [:build, :test]
   depends_on "qt@5"
 
   def install

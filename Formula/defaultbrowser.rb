@@ -15,6 +15,8 @@ class Defaultbrowser < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "f0ccf84abbd31469f80c4d232292dd280a978d3f04a1a6db46079902d9821d1e"
   end
 
+  depends_on :macos
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end

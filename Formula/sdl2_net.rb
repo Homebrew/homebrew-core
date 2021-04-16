@@ -3,6 +3,7 @@ class Sdl2Net < Formula
   homepage "https://www.libsdl.org/projects/SDL_net/"
   url "https://www.libsdl.org/projects/SDL_net/release/SDL2_net-2.0.1.tar.gz"
   sha256 "15ce8a7e5a23dafe8177c8df6e6c79b6749a03fff1e8196742d3571657609d21"
+  license "Zlib"
 
   livecheck do
     url :homepage
@@ -18,7 +19,6 @@ class Sdl2Net < Formula
     sha256 cellar: :any, sierra:        "dc2b96762f77dd4d42fea1da4d4c2373692dd0a531f686f00de0dd4a6eed8df9"
     sha256 cellar: :any, el_capitan:    "46d189ebe1f240381a9e8d99a2cb249e577cec98e6399e741e47275735a3471c"
     sha256 cellar: :any, yosemite:      "2e2bcc1e1aac84b37ebb44398e463d9004764aa369489926cd07bb97cb9f60c4"
-    sha256 cellar: :any, mavericks:     "ebabcb8f4df6fdee7855a6e19080aea42d9909205b287312015179bb9b3f472a"
   end
 
   depends_on "pkg-config" => :build

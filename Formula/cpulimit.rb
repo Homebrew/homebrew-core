@@ -15,7 +15,6 @@ class Cpulimit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "fa5bc8d713837693c6bbd6139bec5e48b8a1d46ef669b2e042715dd1318b1655"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9d7320465152a12ba75ce924beada5a3ce365b14becaa75e08ee8334c2cb2f6a"
     sha256 cellar: :any_skip_relocation, yosemite:      "7ff9d929c5a1178b250b756cefcbecc4b202c72f03073e9eb43f4a47420930a8"
-    sha256 cellar: :any_skip_relocation, mavericks:     "c24a495cd69c62693bcb0bd2a44c41c5bca84f0b9754019681816c1d2b47fe3e"
   end
 
   def install

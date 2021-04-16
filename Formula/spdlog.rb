@@ -1,16 +1,16 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/v1.8.2.tar.gz"
-  sha256 "e20e6bd8f57e866eaf25a5417f0a38a116e537f1a77ac7b5409ca2b180cec0d5"
+  url "https://github.com/gabime/spdlog/archive/v1.8.5.tar.gz"
+  sha256 "944d0bd7c763ac721398dca2bb0f3b5ed16f67cef36810ede5061f35a543b4b8"
   license "MIT"
   head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "642108455663ea0eb7bb0d430c82b1dc359b6411f966cafbb0092af775468322"
-    sha256 cellar: :any, big_sur:       "e3a306a9e37b2fa5d35857daed33e4ebbf0fdb503d0061a1e8ec443521abcf1f"
-    sha256 cellar: :any, catalina:      "0da73847d24190c8f51d017abab07176f6d609a409c58c0df27d1dcfd1bbd375"
-    sha256 cellar: :any, mojave:        "40496533a239969ce9da48a76b5db57721eb7fe594e5ab129c9bb6f34281778c"
+    sha256 cellar: :any, arm64_big_sur: "16a01aa6326ba369f3b1444969b3c6404752058f3c520ab7deed1bb05b27ae83"
+    sha256 cellar: :any, big_sur:       "4f4ccddb0cb5a2868c2abb930edb10db00b9a424359cfd00f960e342b7192c50"
+    sha256 cellar: :any, catalina:      "64679359dccef4c95d23522c0ec9ee883a764988b5f57af5a0025b68aeb331a9"
+    sha256 cellar: :any, mojave:        "086b5db228715bf36c75abf1995922229190705b8765ab97263fb5ca7c4922b4"
   end
 
   depends_on "cmake" => :build

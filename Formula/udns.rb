@@ -11,7 +11,6 @@ class Udns < Formula
     sha256 cellar: :any, sierra:      "8fbcc7a26f6be81abfe4766e9efc012c720938e8ea9dc9f20497cb82b101e659"
     sha256 cellar: :any, el_capitan:  "59939957b47912ebb286426391a4e2c904ecc416e9de18dc8c0a74052ac82ffe"
     sha256 cellar: :any, yosemite:    "342aff7270a4251655eb7cfc538b39db1805cfe965ada5cad1a2819b727d9107"
-    sha256 cellar: :any, mavericks:   "d6be7acb570845e63c6ac69b8169c4ce1d5a31f5f76f60bad10168a5b13126ff"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

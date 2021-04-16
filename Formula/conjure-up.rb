@@ -6,13 +6,16 @@ class ConjureUp < Formula
   url "https://github.com/conjure-up/conjure-up/archive/2.6.14.tar.gz"
   sha256 "c9f115229a305ff40eae051f40db2ca18a3dc2bd377397e22786bba032feb79a"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any, big_sur:  "1d755ca87d77ebcbc5d9f7d5fbb4e3287c5190a6373bb7d3d36c318606fa0b10"
-    sha256 cellar: :any, catalina: "25e7e461528cf9c56ccdb4c286d38cc72c2843a7ba2310f65276f3c104ad3b80"
-    sha256 cellar: :any, mojave:   "e722d4d340ff170432a12a97b0de57de13f774d439831989fc1286920d087376"
+    sha256 cellar: :any, arm64_big_sur: "3e516b5c4a0d71ed5d32332fc12703605654c93127e45c8754455e84b4cab93e"
+    sha256 cellar: :any, big_sur:       "869c705b0f4392a57afd2ba7e4f7b5260640b5130c47dbb3aeb77bc142296d6c"
+    sha256 cellar: :any, catalina:      "2112383857f9f865eff1a9528dd6ab2ace8a7b34be1d4ed3ac4fe80b014f9241"
+    sha256 cellar: :any, mojave:        "b36c8bb8462705691744403cdcf6b2da77e7d1391249dba3857297cc950e6b97"
   end
+
+  deprecate! date: "2021-04-15", because: :repo_archived
 
   depends_on "awscli"
   depends_on "jq"
@@ -51,8 +54,8 @@ class ConjureUp < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/93/1a/ab8c62b5838722f29f3daffcc8d4bd61844aa9b5f437341cc890ceee483b/cffi-1.12.3.tar.gz"
-    sha256 "041c81822e9f84b1d9c401182e174996f0bae9991f33725d059b771744290774"
+    url "https://files.pythonhosted.org/packages/66/6a/98e023b3d11537a5521902ac6b50db470c826c682be6a8c661549cb7717a/cffi-1.14.4.tar.gz"
+    sha256 "1a465cbe98a7fd391d47dce4b8f7e5b921e6cd805ef421d04f5f66ba8f06086c"
   end
 
   resource "chardet" do
@@ -257,7 +260,17 @@ class ConjureUp < Formula
     sha256 "08e3c3e0535befa4f0c4443824496c03ecc25062debbcf895874f8a0b4c97c9f"
   end
 
+  # See https://github.com/conjure-up/conjure-up/pull/1655
+  patch do
+    url "https://github.com/conjure-up/conjure-up/commit/d2bf8ab8e71ff01321d0e691a8d3e3833a047678.patch?full_index=1"
+    sha256 "a2bc3249200c1a809c18ffea69c9292a937902dfe2c8b7ee10da4c7aa319469c"
+  end
+
   def install
+    # See https://github.com/conjure-up/conjure-up/pull/1655
+    inreplace "conjureup/juju.py", "os.environ['JUJU']", "\"#{Formula["juju"].opt_bin}/juju\""
+    inreplace "conjureup/juju.py", "os.environ['JUJU_WAIT']", "\"#{Formula["juju-wait"].opt_bin}/juju-wait\""
+
     venv = virtualenv_create(libexec, "python3")
     venv.pip_install resource("cffi") # needs to be installed prior to bcrypt
     res = resources.map(&:name).to_set - ["cffi"]

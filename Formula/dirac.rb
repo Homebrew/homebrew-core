@@ -16,7 +16,6 @@ class Dirac < Formula
     sha256 cellar: :any, sierra:        "09b846fe4069e971ec6d10668d97ac599cb555e5799f3ba3076d0d088e1f78cf"
     sha256 cellar: :any, el_capitan:    "8f4414614755f863d3ba0f43d6415684fbc00976ae24c7e45c88fe736be918d2"
     sha256 cellar: :any, yosemite:      "1d3049d9dcdbd0116c65c54582601b20cdd17c8b89cf80e74efc79f71b641ca4"
-    sha256 cellar: :any, mavericks:     "e7c407545085631c27c77f2d15abe84b3cc0a3645cf5e538aa15f0aacfe6de50"
   end
 
   # First two patches: the only two commits in the upstream repo not in 1.0.2

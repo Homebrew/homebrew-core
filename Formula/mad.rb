@@ -34,7 +34,7 @@ class Mad < Formula
   end
 
   test do
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmad", pkgshare/"minimad.c", "-o", "minimad"
+    system ENV.cc, "-I#{include}", pkgshare/"minimad.c", "-L#{lib}", "-lmad", "-o", "minimad"
     system "./minimad <#{test_fixtures("test.mp3")} >test.wav"
     assert_equal 4608, (testpath/"test.wav").size?
   end

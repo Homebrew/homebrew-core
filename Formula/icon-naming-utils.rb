@@ -17,7 +17,6 @@ class IconNamingUtils < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d824a2df63a9615bb242c197af07ce18f6a6a046df9c785fe31d5f39d986f4ed"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f8a29d74289a555ba7969b8d8f6984de7251393d7d0270e61abf69d36f270fc0"
     sha256 cellar: :any_skip_relocation, yosemite:      "22a80ba1d9042481251c8b85aa46dc163abfd9a54d6815ab43a3a5124592be5f"
-    sha256 cellar: :any_skip_relocation, mavericks:     "1e2f32f1e755df8a974482ad56c0cc85f7d537005419b0c0c42013f0f0ab717d"
   end
 
   def install

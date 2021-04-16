@@ -14,7 +14,6 @@ class StyleCheck < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "1a6787ed0c5cbe6ee567e112b16d5d32193bb0dacbf23e515f512df3287a3abd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "8ad833cef9ca35a1ae95569f93c8936a82c6d6039e3bd4560e2b1dc93fd029d8"
     sha256 cellar: :any_skip_relocation, yosemite:      "08759f3a407af4dab0310f4a02ee18f15f2104011d702a300adbe9d33bcde0f5"
-    sha256 cellar: :any_skip_relocation, mavericks:     "afeff378c5e3aac20d3fa3756d7dbd85242f6d4d846e9cd670f3119069e83a52"
   end
 
   def install

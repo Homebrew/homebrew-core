@@ -20,7 +20,6 @@ class Mp3unicode < Formula
     sha256 cellar: :any, sierra:        "4d8a82928bc851fc314a6c8f57a3897d6f75df65aad84e79b451783d217ebd1d"
     sha256 cellar: :any, el_capitan:    "e9db3c9529d5358f83bb67d5966c6b508851f27a3bc61d5212b674d620a03a7e"
     sha256 cellar: :any, yosemite:      "56c77d872d7adda53f68661145a5b372ecf64ef0284181a7ecd9b56997f14c74"
-    sha256 cellar: :any, mavericks:     "10d647d04714f9e95d9bf3ab8dfd023fea3f22876dfe055c01211e527a2facd3"
   end
 
   head do

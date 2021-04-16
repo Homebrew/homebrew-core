@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v1.7.2.tar.gz"
-  sha256 "732c293b588d8c1ff7cc4bffb0b671247f9b743adc28562cf39a485f590cbf3c"
+  url "https://github.com/fluent/fluent-bit/archive/v1.7.3.tar.gz"
+  sha256 "909d4e3ccd6305b119294ad864a4791e0418a42299d3bdd40f9a393519a9dd6b"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git"
 
@@ -12,14 +12,18 @@ class FluentBit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "603cb62859535f526ebc25bd79feeec2dffd80c4034bf5233b37ef4154446a69"
-    sha256 cellar: :any, catalina: "3eef292b1db3805d2dae6a9190147682f9e6428f7e136cbff6623edb746df367"
-    sha256 cellar: :any, mojave:   "8f16be3826e994e684094d549a5142f328daa422c2d0da50e36085e32da9f029"
+    sha256 cellar: :any, big_sur:  "3130add51c9c4e127b22e679be8a3ea943e953c6271ff17e98661c0a6115a8f4"
+    sha256 cellar: :any, catalina: "9fbfe4aca7a26e4b726c0afd06d58bb4436021a0eb9e53c91839912cf906c5aa"
+    sha256 cellar: :any, mojave:   "b1a63baaec354c72ba5114457b2763e889b6ff1ae49c819f572b989f7cd301bf"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
+
+  on_linux do
+    depends_on "openssl@1.1"
+  end
 
   def install
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET

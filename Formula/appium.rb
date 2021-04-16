@@ -9,10 +9,11 @@ class Appium < Formula
   head "https://github.com/appium/appium.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "73c0488d2b56b71fa63c6ac64cf3907ba3af4af58edc1eb32501f15dcca98746"
-    sha256 cellar: :any, big_sur:       "041e871dbb940d86bf7ca1c389ffd1ee4edfbebbe33e050c2c9ce614b06040f7"
-    sha256 cellar: :any, catalina:      "e37ee0e06e21738b0cd4b3e30ceb3699dfc2adaf310fe672d7178b9e7263dad8"
-    sha256 cellar: :any, mojave:        "272492e72dda7b421261a7197fb77dc07fcbb63f01692485cc3b94201d7afb64"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "dfdf7b266b87ae1305b59edd974bb6c5c45540f039c1d3ec1fc1a9409ae8e0f4"
+    sha256 cellar: :any, big_sur:       "3b1fb101b829a8c4c94a42c452579c7cd90fd48a42fc0d3c0e8af52390312232"
+    sha256 cellar: :any, catalina:      "05cec8a15e6974dd917aa41ebf3bd9d5df45fb8f4c0b9d0496775257cb2c91a5"
+    sha256 cellar: :any, mojave:        "d3fdc01e23b34d4829f6b1f5d63cbc178448ffdae9a28cca17ca879241b2f63c"
   end
 
   depends_on "node"
@@ -24,36 +25,14 @@ class Appium < Formula
 
   plist_options manual: "appium"
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{bin}/appium</string>
-          </array>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>PATH</key>
-            <string>#{HOMEBREW_PREFIX}/bin:#{HOMEBREW_PREFIX}/sbin:/usr/bin:/bin:/usr/sbin:/sbin</string>
-          </dict>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/appium-error.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/appium.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"appium"
+    environment_variables PATH: std_service_path_env
+    run_type :immediate
+    keep_alive true
+    error_log_path var/"log/appium-error.log"
+    log_path var/"log/appium.log"
+    working_dir var
   end
 
   test do

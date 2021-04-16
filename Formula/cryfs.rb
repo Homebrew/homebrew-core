@@ -23,8 +23,7 @@ class Cryfs < Formula
   depends_on "openssl@1.1"
 
   on_macos do
-    deprecate! date: "2020-11-10", because: "requires FUSE"
-    depends_on :osxfuse
+    disable! date: "2021-04-08", because: "requires FUSE"
   end
 
   on_linux do

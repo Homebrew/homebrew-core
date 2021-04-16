@@ -15,7 +15,6 @@ class Lib3ds < Formula
     sha256 cellar: :any, sierra:        "4338a4f81ccc33ad78b30f051085594606b74fe5f7773e197a36f08e0b8967ba"
     sha256 cellar: :any, el_capitan:    "e5810afd47dd88fb769e6ef62ef558b4ee4e643d4f5ae3fddb019257642b3375"
     sha256 cellar: :any, yosemite:      "33f5b51953a8d4a583c7d5d6a7796ffaaccf8bf6a303fac300bfdb76dcd0ad60"
-    sha256 cellar: :any, mavericks:     "3faa2167b32ab4fba667c2fc1d1131411fc3765c7e32a220b16aa62ee433d930"
   end
 
   def install

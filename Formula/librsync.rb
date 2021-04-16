@@ -1,16 +1,15 @@
 class Librsync < Formula
   desc "Library that implements the rsync remote-delta algorithm"
   homepage "https://librsync.github.io/"
-  url "https://github.com/librsync/librsync/archive/v2.3.1.tar.gz"
-  sha256 "dbd7eb643665691bdf4009174461463737b19b4814b789baad62914cabfe4569"
-  license "LGPL-2.1"
+  url "https://github.com/librsync/librsync/archive/v2.3.2.tar.gz"
+  sha256 "ef8ce23df38d5076d25510baa2cabedffbe0af460d887d86c2413a1c2b0c676f"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "f849718419f4b2bcd7411e9840a3f075ab8880794d342fc6eb3521c454d3ef8d"
-    sha256 big_sur:       "718cdee2aa974cb87367e5fcf26eee51e4d77552a9033622a8c3584e09f99f0e"
-    sha256 catalina:      "eb1526a88a99556f1ae98c7fa008a8c17ddbe2efe2e55de0192ccbccf9840937"
-    sha256 mojave:        "27f16505bf1b37a9701d70701e708451d47743a3b4d453dcc1d4048065af05af"
-    sha256 high_sierra:   "20fd33975022b7caaa12b9906b726f1b9dd9a792d9291170e72298a351650610"
+    sha256 arm64_big_sur: "e2672691faeaba727acde6252c3dba8a39b9a0703f942f8f830d6e5514e15bb3"
+    sha256 big_sur:       "7561cdbc8327f77db0647112ae1496ca544c659a04dfe83e703c9edeee890869"
+    sha256 catalina:      "4d38d5dbea74b9eac4624877d7c7e29f08c38d68dedaaf9dadbdc5e3a820678b"
+    sha256 mojave:        "5796b96a6fc4781e134879993d0fa23816994c424d9984ec0584ae6b0bea2963"
   end
 
   depends_on "cmake" => :build

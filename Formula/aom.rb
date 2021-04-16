@@ -2,15 +2,15 @@ class Aom < Formula
   desc "Codec library for encoding and decoding AV1 video streams"
   homepage "https://aomedia.googlesource.com/aom"
   url "https://aomedia.googlesource.com/aom.git",
-      tag:      "v2.0.2",
-      revision: "cb1d48da8da2061e72018761788a18b8fa8013bb"
+      tag:      "v3.0.0",
+      revision: "d853caa2ab62d161e5edf344ffee7b597449dc0d"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 arm64_big_sur: "f17ad0f61eef16b08826918342e88f7d180009b867467aba7307a6a495b20b59"
-    sha256 big_sur:       "4ac5117ff5065d8ad5e185c98eba0b4909ea2201bd0f8b8844edf2987e85d8a6"
-    sha256 catalina:      "0cad1d09aafe134daa8e24f5e346fd2766171f637b31894be22f9a80dcbbb770"
-    sha256 mojave:        "1856596662ee2ad37056f4db3ac26e049be22801dade3b98f1bc4ef143a23908"
+    sha256 arm64_big_sur: "ff94fb5247d3d491e28f24e409d67d5e4470f3bc10c628470fae47c830ddfc86"
+    sha256 big_sur:       "85f1f42ca7c5403d950f81f6612760beea461c9a639f3c1680e6c16c08a1bbba"
+    sha256 catalina:      "116f4bd589fbf453238000e9b6f9adf9d8ea7ecf098ad773a656c39774f46bb9"
+    sha256 mojave:        "2eee8e14e36a112a7ebf1fe104fd69135e2e62b0540486093be274b395d7f589"
   end
 
   depends_on "cmake" => :build

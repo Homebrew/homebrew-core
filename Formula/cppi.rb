@@ -15,7 +15,6 @@ class Cppi < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d4c044247ba8a12f1462089bfa22602547894f0a9081fce21c4800e192a526ae"
     sha256 cellar: :any_skip_relocation, el_capitan:    "970e44d2a7a340fe29577f92c4b6dfcbac17f3aef35e6085197b668c4cd9013f"
     sha256 cellar: :any_skip_relocation, yosemite:      "f8198f4b6e76d9310d66d20cb0a5b2b6adc70bee83f0bbeaca8b45b6529ccc60"
-    sha256 cellar: :any_skip_relocation, mavericks:     "a37872a422b21892119583f4fe9670ff403d2e40ceb14f50166e2b501938c544"
   end
 
   def install

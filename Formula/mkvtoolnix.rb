@@ -1,8 +1,8 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-53.0.0.tar.xz"
-  sha256 "8dfd66278c81e6f1df0fd84aad30ce2b4cf7a2ad4336924f01f1879f9d1e4cd6"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-56.1.0.tar.xz"
+  sha256 "75ff6476e7c4eab10c315af4e2dd78f1399d35da7c4611a8f93f4c3c0b475f72"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,9 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3a9e5699a395a9e2a5823885fa3337c74dccb13b545195a1010075a7587e5a03"
-    sha256 cellar: :any, big_sur:       "712880637df3730d2c49390de8fc3be9053b2e093a06e8d5dcd43ba7c1d79547"
-    sha256 cellar: :any, catalina:      "8139fcc6b846f6f4b317bd4ac393a3ef15e72446a0f6a0f12b65daddff04cd76"
-    sha256 cellar: :any, mojave:        "a633f4d8d7438fdc876fc2dfba0ef20037d43391e63e509df833d34ef169d812"
+    sha256 cellar: :any, arm64_big_sur: "1bbdf9a5b970528aacb26b8911d9535f72666ced6ff3747e02c26cfb12d60c38"
+    sha256 cellar: :any, big_sur:       "c149a71b116863a8a5c869e5491739ef885c0b0b2e9782a34ac870d7498d6872"
+    sha256 cellar: :any, catalina:      "b45a671313014f72a5cb0252d177b6da7dec7e4ff8ee8fbb3a4fbf27ac770a33"
   end
 
   head do
@@ -35,7 +34,8 @@ class Mkvtoolnix < Formula
   depends_on "libmatroska"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on macos: :mojave # C++17
+  # https://mkvtoolnix.download/downloads.html#macosx
+  depends_on macos: :catalina # C++17
   depends_on "pcre2"
   depends_on "pugixml"
 

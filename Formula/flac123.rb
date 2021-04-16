@@ -14,7 +14,6 @@ class Flac123 < Formula
     sha256 cellar: :any, sierra:        "f62d8e1f08e8cd5d952f02a35ebcdc921a1295035a2b66e843d80aacb8d9843e"
     sha256 cellar: :any, el_capitan:    "669b5ff8922496fe8abe8b020ef92118847539095a0d281f73b85e965be1f708"
     sha256 cellar: :any, yosemite:      "3bc22230d8e4ed12c794a0784173e576d17cfae249bb87d4540680d3f0483957"
-    sha256 cellar: :any, mavericks:     "afeeeebde3988d1028452606aaf22ba18379cf59743c4ac9abefac2f86234dd1"
   end
 
   depends_on "autoconf" => :build

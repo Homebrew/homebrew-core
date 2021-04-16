@@ -1,11 +1,12 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.8.tar.gz"
-  sha256 "b15da8fc4edcb91d554e1259e220ea0173ef639ceaa4b465e06feb7e125b84bf"
+  url "https://mosquitto.org/files/source/mosquitto-2.0.10.tar.gz"
+  sha256 "0188f7b21b91d6d80e992b8d6116ba851468b3bd154030e8a003ed28fb6f4a44"
   # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is not in the SPDX list
   license "EPL-1.0"
+  revision 1
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -13,14 +14,15 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "ef77fabb6afa21afc71d4da3702909d62730bf985eab97c50baceab9db726b7d"
-    sha256 big_sur:       "77cc5148716a9ae22d6a5b19f92beef6d33cd777c020f2444200368097699b71"
-    sha256 catalina:      "0b450c6694c6940368bf150693dbc2e04f3bbda608c691f91fa84509d26d2510"
-    sha256 mojave:        "fb1679f4855964d8ed60af4f42903aad617550c9ada5c0e8e3a31c2aa204f2df"
+    sha256 arm64_big_sur: "37075e4522029d3c29a0f5f01a2765e21d7d7861b916fbc411c18aabb5eecc1d"
+    sha256 big_sur:       "b4d048a8ae02ea81048315280fdca94beb5c36f9cbf2fc5e7d572147a1d9056f"
+    sha256 catalina:      "3e75e7bf3ff9c1e75b55ceb0558341e5105714552498252a74bbfabf061c5b83"
+    sha256 mojave:        "12ea925ba276e00955710d333279aa06ecfe0038a37a9ce7c9d4ad64bb628a96"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "cjson"
   depends_on "libwebsockets"
   depends_on "openssl@1.1"
 
@@ -79,5 +81,9 @@ class Mosquitto < Formula
   test do
     quiet_system "#{sbin}/mosquitto", "-h"
     assert_equal 3, $CHILD_STATUS.exitstatus
+    quiet_system "#{bin}/mosquitto_ctrl", "dynsec", "help"
+    assert_equal 0, $CHILD_STATUS.exitstatus
+    quiet_system "#{bin}/mosquitto_passwd", "-c", "-b", "/tmp/mosquitto.pass", "foo", "bar"
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

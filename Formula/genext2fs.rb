@@ -14,7 +14,6 @@ class Genext2fs < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "82ac8092d73d2f81fd0770b15bad060f4f3b010c089a0cda5131f9bcec3318ea"
     sha256 cellar: :any_skip_relocation, el_capitan:    "3842e46ce4c24b75364337fbe4a10243cd01a8aaf4b51feca6631c7cf0649aa6"
     sha256 cellar: :any_skip_relocation, yosemite:      "acdca2f9efcacafc7f105a43837a2f36e42dca1fd1325d62f9e5327797c69164"
-    sha256 cellar: :any_skip_relocation, mavericks:     "f8f37e86e32de96736daac7b2b24594647e28d2b1610ccd68237d028d9b4dd43"
   end
 
   def install

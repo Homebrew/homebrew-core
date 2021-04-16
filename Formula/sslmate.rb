@@ -9,6 +9,11 @@ class Sslmate < Formula
   sha256 "454e19338910363189b349cfe3477351a20c34c6fda0f312ad143b1688faa6c4"
   revision 1
 
+  livecheck do
+    url "https://packages.sslmate.com/other/"
+    regex(/href=.*?sslmate[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "98c1d69f485322c03fb5edab0ecdba7a358386093cd4656985fc95ac5c956540"
     sha256 cellar: :any_skip_relocation, big_sur:       "61d7abbfa341a9d07f7c8b3f078d24f3b951e9d0093b57e662ef92c5d30767ae"

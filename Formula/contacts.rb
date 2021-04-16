@@ -15,7 +15,6 @@ class Contacts < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "27b7b256aa6f034b245c6cc1e6c7def038bbf183e73f94db942a220aa876ef0d"
     sha256 cellar: :any_skip_relocation, sierra:      "21bf2ec23b9f096ed09acd44dbd7c2cc59891c01a821a6695e58d69c54647c0e"
     sha256 cellar: :any_skip_relocation, el_capitan:  "7f6c6817310dacf83041d2017e8841b49e26df0d09039692576b6fe0fed52ecc"
-    sha256 cellar: :any_skip_relocation, mavericks:   "9a9c89e40f9ccf4ec45cf63414eaf31266dfc9b71dc96d8c02f7ab2b38e8f346"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

@@ -1,27 +1,19 @@
 class P7zip < Formula
   desc "7-Zip (high compression file archiver) implementation"
   homepage "https://github.com/jinfeihan57/p7zip"
-  url "https://github.com/jinfeihan57/p7zip/archive/v17.03.tar.gz"
-  sha256 "bb4b9b21584c0e076e0b4b2705af0dbe7ac19d378aa7f09a79da33a5b3293187"
+  url "https://github.com/jinfeihan57/p7zip/archive/v17.04.tar.gz"
+  sha256 "ea029a2e21d2d6ad0a156f6679bd66836204aa78148a4c5e498fe682e77127ef"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d14cc7a098606e902b3bfcb908d71a658e6b78c64adccdc93ae87a0c9f1bfd87"
-    sha256 cellar: :any_skip_relocation, big_sur:       "696fae5d82319db27d8460c09bfcaa238b2af1f3741575317b4bb010d93cc90d"
-    sha256 cellar: :any_skip_relocation, catalina:      "f6b8e20d8f659449c9ee8b9793c78a6bfbf5e1eb990865721b91fd7a2e7e21cc"
-    sha256 cellar: :any_skip_relocation, mojave:        "b5d486a4b47f49eae90b1255a002219fc5f5e8236202333dc84d99a4529cc104"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d1e2497a5256b9211572534456bb7271c9d04d10fc2e12599b95e0ddf4f1991b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c4d62f05f0cba984aa6b5712debc4f7d3b2c3bece0c503633a588cb209c911c2"
+    sha256 cellar: :any_skip_relocation, catalina:      "bea86999db7dee5f0cb78d3a72d875d822ec73ebb2a6e7d46cf27ae66243c645"
+    sha256 cellar: :any_skip_relocation, mojave:        "1484f0f3a0a4812dccb5f388c6671a7e524b001872b0df6d7cabc160c2f03989"
   end
 
   # Remove non-free RAR sources
   patch :DATA
-
-  # Fix AES security bugs
-  # https://github.com/jinfeihan57/p7zip/pull/117
-  patch do
-    url "https://github.com/jinfeihan57/p7zip/commit/6106df26ff64fa8147bfc9abdc0a14908b5d3871.patch?full_index=1"
-    sha256 "5fcce7293ba017b4aa3ba5afbe6f2a847d60a785ea0966c31ac33da4bdf3ef6e"
-  end
 
   def install
     on_macos do

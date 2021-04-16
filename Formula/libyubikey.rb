@@ -19,7 +19,6 @@ class Libyubikey < Formula
     sha256 cellar: :any, sierra:        "23f550d2f6e2cd6310756e3625c17868e206c90029e241fbc915a408f4761263"
     sha256 cellar: :any, el_capitan:    "2b1fbc1860932dd4a4c2b09928d838bc3646ff0b2a97bc5c538981befdc21760"
     sha256 cellar: :any, yosemite:      "7f5c7a55b9e5bf373f01f8f02a983d45ae11d801acc8110cd8f5e13edf0e2973"
-    sha256 cellar: :any, mavericks:     "efaf65ea86cb01821d8c3145ab0f0528f6bb9e8afa0090ffbf2c0818e093c357"
   end
 
   def install

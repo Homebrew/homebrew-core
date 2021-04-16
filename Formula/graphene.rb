@@ -1,15 +1,15 @@
 class Graphene < Formula
   desc "Thin layer of graphic data types"
   homepage "https://ebassi.github.io/graphene/"
-  url "https://download.gnome.org/sources/graphene/1.10/graphene-1.10.2.tar.xz"
-  sha256 "e97de8208f1aac4f913d4fa71ab73a7034e807186feb2abe55876e51c425a7f6"
+  url "https://github.com/ebassi/graphene/releases/download/1.10.6/graphene-1.10.6.tar.xz"
+  sha256 "80ae57723e4608e6875626a88aaa6f56dd25df75024bd16e9d77e718c3560b25"
+  license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ed93a2b7f3830d38f82bece133afa43636e1cb90b3342c222909229260e63716"
-    sha256 cellar: :any, big_sur:       "0e6af428f089a813408d7edc7a5196372a1ee8dd3ed13f7edbf4acfb1f62407a"
-    sha256 cellar: :any, catalina:      "d8519d2811ee796969121cd0b087fb7a5e96c2952c69bb2dfe206f3efc299e31"
-    sha256 cellar: :any, mojave:        "0e7e238034cfcd390b8bd0e49bd6ba3c23dcdbff7c9a1cea5e626b34a3381acb"
-    sha256 cellar: :any, high_sierra:   "7bcd5ab83e1509ddeec6b710ba2a69c99bb92438344694423b1c886346fd44c2"
+    sha256 cellar: :any, arm64_big_sur: "64f77c528bc4e693aef3a747f76eb2c63a1a25f37e730d46fda139c002271301"
+    sha256 cellar: :any, big_sur:       "20b41dfc4c7bf01973d14f33129db71d7968509e8dc0761f640e36400ae8127e"
+    sha256 cellar: :any, catalina:      "9a39689fd7d593fc8d5b86b077d153d863c51b470703e87dfd8cfd1ee157d742"
+    sha256 cellar: :any, mojave:        "d6e6d695f0b7c04b6b8b0b09a18a9cd39bd25ba0e64d5843fa12c0a56100ea06"
   end
 
   depends_on "gobject-introspection" => :build

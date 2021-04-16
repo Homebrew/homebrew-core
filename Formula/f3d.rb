@@ -4,12 +4,13 @@ class F3d < Formula
   url "https://gitlab.kitware.com/f3d/f3d/-/archive/v1.1.0/f3d-v1.1.0.tar.gz"
   sha256 "93aa9759efcc4e77beac4568280aaeaca21bfb233d3c9f60262207ca595bde79"
   license "BSD-3-Clause"
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "bb7240f16fcb91501863f5c0d47d602d79a51573b2ec640d99548598f78a25ee"
-    sha256 cellar: :any, big_sur:       "0bac4019ea861ad37466e7bfbd3c5ce7cc497af88b84bc3b281a1e65c90ec570"
-    sha256 cellar: :any, catalina:      "084b51e428b310c22349769db16e2d55ec467ce6711251536f63e33ef469c6eb"
-    sha256 cellar: :any, mojave:        "4bf7e46f38dcecc2ce4d6d4e6ef1f7d0418cd3b6578f3f0d44d9b6708f858669"
+    sha256 cellar: :any, arm64_big_sur: "b199843d36c965a4ca51147d3114bfd5c9fd4a6aa1867b0bd7c34946734ddcd5"
+    sha256 cellar: :any, big_sur:       "0fee7380115fcabee6ded441b91a607435b13da1b6fc478bc1db6101c779d1a3"
+    sha256 cellar: :any, catalina:      "916545a539076217350a0858fcb0e016992c054ca48eccbad26c46091233419d"
+    sha256 cellar: :any, mojave:        "0965ddce0fe74abbfb857fe585d1f504fc2758434d5a22f64663f2c519466193"
   end
 
   depends_on "cmake" => :build

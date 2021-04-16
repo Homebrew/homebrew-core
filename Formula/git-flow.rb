@@ -24,7 +24,6 @@ class GitFlow < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "acb9a2690fa86925600fa6e67e38731ef05f7f5d6ccfceb9c5175286c1081fe0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "56826b30d91ffb54829f4792f88c673b1c3e748aa662bef5806e4a6f5d0ee015"
     sha256 cellar: :any_skip_relocation, yosemite:      "a5e97d4d5c082194b36c18e7b051c43b2d5b37366b2ac56c5ea9407f6315685b"
-    sha256 cellar: :any_skip_relocation, mavericks:     "8e931605a0d12cffa282db7244e0041cc14f8a7692e184a6bc1975800be2dac0"
   end
 
   head do

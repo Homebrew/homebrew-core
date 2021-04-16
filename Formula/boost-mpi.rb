@@ -2,17 +2,16 @@ class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
   url "https://dl.bintray.com/boostorg/release/1.75.0/source/boost_1_75_0.tar.bz2"
-  mirror "https://dl.bintray.com/homebrew/mirror/boost_1_75_0.tar.bz2"
   sha256 "953db31e016db7bb207f11432bef7df100516eeb746843fa0486a222e3fd49cb"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "1e3acbc5248b962a5d82eb8edb1e3ffef905cc52106a28d46c46f2b68d24e293"
-    sha256 big_sur:       "94e6a5f93cb4c9f225e8efdeee54aec07f8a440d515cb49f4ebbfa836154b09d"
-    sha256 catalina:      "4b9073178ad5d46e4770e58bf12323b725dd3053a1afa1d872202120ce1dcd28"
-    sha256 mojave:        "c44780bc2bc1ee6c58717f2c4c20f01a00c027f6c035ddeb7ac90e5eaf122dc8"
+    rebuild 2
+    sha256 arm64_big_sur: "38f6d5dddcdd925515838fd5f7bf55816443419e793fab9a145b4e6f2ce6148e"
+    sha256 big_sur:       "304716b2419c77790b2915ae8ea1df2c6290ce19db2526f497316dcde871d016"
+    sha256 catalina:      "c64692ab8cfde0cf5353806cfe5f2dd413e60864f07ee14524398288430f36c5"
+    sha256 mojave:        "541bcc69465a535743300f1548c4216ba7feea989e076abf00b0ddc98b5098c7"
   end
 
   # Test with cmake to avoid issues like:
@@ -47,7 +46,12 @@ class BoostMpi < Formula
     args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     open("user-config.jam", "a") do |file|
-      file.write "using darwin : : #{ENV.cxx} ;\n"
+      on_macos do
+        file.write "using darwin : : #{ENV.cxx} ;\n"
+      end
+      on_linux do
+        file.write "using gcc : : #{ENV.cxx} ;\n"
+      end
       file.write "using mpi ;\n"
     end
 
@@ -61,14 +65,16 @@ class BoostMpi < Formula
     lib.install Dir["install-mpi/lib/*mpi*"]
     (lib/"cmake").install Dir["install-mpi/lib/cmake/*mpi*"]
 
-    # libboost_mpi links to libboost_serialization, which comes from the main boost formula
-    boost = Formula["boost"]
-    MachO::Tools.change_install_name("#{lib}/libboost_mpi-mt.dylib",
-                                     "libboost_serialization-mt.dylib",
-                                     "#{boost.lib}/libboost_serialization-mt.dylib")
-    MachO::Tools.change_install_name("#{lib}/libboost_mpi.dylib",
-                                     "libboost_serialization.dylib",
-                                     "#{boost.lib}/libboost_serialization.dylib")
+    on_macos do
+      # libboost_mpi links to libboost_serialization, which comes from the main boost formula
+      boost = Formula["boost"]
+      MachO::Tools.change_install_name("#{lib}/libboost_mpi-mt.dylib",
+                                       "libboost_serialization-mt.dylib",
+                                       "#{boost.lib}/libboost_serialization-mt.dylib")
+      MachO::Tools.change_install_name("#{lib}/libboost_mpi.dylib",
+                                       "libboost_serialization.dylib",
+                                       "#{boost.lib}/libboost_serialization.dylib")
+    end
   end
 
   test do

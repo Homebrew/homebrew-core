@@ -14,7 +14,6 @@ class Libbinio < Formula
     sha256 cellar: :any, sierra:        "beba76f7c3b6c54228c8972cfa01d1cb06d309d870f23ce6aad457c23e11742f"
     sha256 cellar: :any, el_capitan:    "a0e373df44eee915d0f9259fb8627df92bfe3db8547bf66a9918f5c398342709"
     sha256 cellar: :any, yosemite:      "99e8bdd47cde67290e0854c8854c0eef32a995ff10cbf1f991ca37834d60e0a4"
-    sha256 cellar: :any, mavericks:     "e4a0b854ab3f5e98362f19af214b909205240e8a0358b88b2adf3a68a0e875f6"
   end
 
   def install

@@ -13,6 +13,8 @@ class FseventWatch < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "4f9c9f11ee85b971d840b9b3626ed55c7b9160308900de2278a7b159a384f0f0"
   end
 
+  depends_on :macos
+
   def install
     bin.mkpath
     system "make", "install", "PREFIX=#{prefix}", "CFLAGS=-DCLI_VERSION=\\\"#{version}\\\""

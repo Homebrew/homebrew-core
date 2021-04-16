@@ -3,6 +3,12 @@ class Id3tool < Formula
   homepage "http://nekohako.xware.cx/id3tool/"
   url "http://nekohako.xware.cx/id3tool/id3tool-1.2a.tar.gz"
   sha256 "7908d66c5aabe2a53ae8019e8234f4231485d80be4b2fe72c9d04013cff1caec"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?id3tool[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "eec5850fee5d290bad13de2cb4456b2e600560632be7b86309ac5c3f3f03697f"
@@ -13,7 +19,6 @@ class Id3tool < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2b7bcf184092881638221c606ae50879d02478bf9d433dc946f63dbe2e68368a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b5b4d49b4710a67df5200149873dd8c17131ef4a4eaac722a2095b1445d053ff"
     sha256 cellar: :any_skip_relocation, yosemite:      "348a229d26dd699013d8e3372c5382da10b12d02d286304e61d9f2c71ed77101"
-    sha256 cellar: :any_skip_relocation, mavericks:     "dd989abacf0c1113879b6864a5ca08a59ac766a320897b9c323e5f7eaeeb2e70"
   end
 
   def install

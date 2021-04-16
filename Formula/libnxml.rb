@@ -15,7 +15,6 @@ class Libnxml < Formula
     sha256 cellar: :any, sierra:        "ddeb6f19f803f29eb44f498ed687dd76a5bdeb0b6416c67759e1690ab9fa4f14"
     sha256 cellar: :any, el_capitan:    "de106efa2da60ccb8567403547f904485c1c6431dd492ce4e1bbd66599c7f961"
     sha256 cellar: :any, yosemite:      "7c2bff9c49c93ef6a3901050212671c60e0cb4e72f2faf968eb4ae57f3d6fbeb"
-    sha256 cellar: :any, mavericks:     "49cfdc9ab57c78deed6b2fc3ce1c13b48a943384b2d366f9c37cfb673528b637"
   end
 
   def install

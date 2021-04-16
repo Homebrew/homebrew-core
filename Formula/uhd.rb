@@ -1,10 +1,12 @@
 class Uhd < Formula
   desc "Hardware driver for all USRP devices"
   homepage "https://files.ettus.com/manual/"
-  url "https://github.com/EttusResearch/uhd/archive/v4.0.0.0.tar.gz"
-  sha256 "4f3513c43edf0178391ed5755266864532716b8b503bcfb9a983ae6256c51b14"
+  # The build system uses git to recover version information
+  url "https://github.com/EttusResearch/uhd.git",
+      tag:      "v4.0.0.0",
+      revision: "90ce6062b6b5df2eddeee723777be85108e4e7c7"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 1
+  revision 2
   head "https://github.com/EttusResearch/uhd.git"
 
   livecheck do
@@ -13,14 +15,15 @@ class Uhd < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "098213c91123486b73640dea181811f24089b910dc4b06dc416f6893890a545a"
-    sha256 big_sur:       "082d0aa874d4fe5c14f5fb095c387b73a03d7b178f28223735cd0b65720686fe"
-    sha256 catalina:      "ce3eb00e862e1d0799b0f6c36b890aa7ce8e224e4a1c37e90b0ad22edc5d3a8e"
-    sha256 mojave:        "52ba3ba2fa2b05eef1811a34285bcb54ae49cdb81e6a9441114cd0f5106830aa"
+    sha256 arm64_big_sur: "6d7c30e045cd3c2db314798a440e9b6ef803f776efe61a1c43cec845eba345c7"
+    sha256 big_sur:       "8958921dbc42bfa6fa8280009f934beb86cffadf488e17cd433b7f6b2b79f744"
+    sha256 catalina:      "cea4d4a254b7ece640531c5c7a4e8555a512ba80a9a67c856ac880dd13d6c4e4"
+    sha256 mojave:        "36ce3765f122569d97f783b9e81718e8c03bbae8777f4f32d82085cd0c73787a"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "libusb"
   depends_on "python@3.9"
@@ -47,6 +50,6 @@ class Uhd < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/uhd_config_info --version")
+    assert_match version.major_minor_patch.to_s, shell_output("#{bin}/uhd_config_info --version")
   end
 end

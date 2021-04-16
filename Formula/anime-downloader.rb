@@ -3,20 +3,21 @@ class AnimeDownloader < Formula
 
   desc "Download your favourite anime"
   homepage "https://github.com/vn-ki/anime-downloader"
-  url "https://files.pythonhosted.org/packages/06/4f/5290202545ec964b442458410dd9623cde0327ee164036553f976b9ea601/anime-downloader-5.0.7.tar.gz"
-  sha256 "04fe167f679f53545493a23ef36ac572f11dc4348aa274ce2198e6dc1d31ec48"
+  url "https://files.pythonhosted.org/packages/00/8b/2f354c0c2e56f1fe45e805698bd6a81c472473a48b814c44aaed2d41016d/anime-downloader-5.0.9.tar.gz"
+  sha256 "40eaded9508a30f35993b2fc0f436c357d9939d58625a10bd595bfc11816ead4"
   license "Unlicense"
   head "https://github.com/vn-ki/anime-downloader.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3a202b4257f5b6b0a5eb94ae86cdae3980ac4a2ecd3d806e91c8750ac5ab8c2c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8000f581b43794240687ae2792a266b1a61929d561e02388c90edccaf0f4b406"
-    sha256 cellar: :any_skip_relocation, catalina:      "e76e47b8fd7b2feb747f78b5e58c33c8a2c52daac637eccfe88cae6fd1fccb2f"
-    sha256 cellar: :any_skip_relocation, mojave:        "4ef176a388883c4fae8202f28023b6548ca6b12dfaf7e8ccf2821198edb8e859"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "51528ac11b71b803cec6866244164cc4b5e837fbc189c38cdb054bf189ef59f7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4b7f8ef5058b22b72b3f5bda4ad9110c9d4ab4e7bc9aa5cf9691ca5f0c5ea558"
+    sha256 cellar: :any_skip_relocation, catalina:      "ca0111a1386a2269340b3ce8b7d7a24766975cc680ab60e4c045cadae989e106"
+    sha256 cellar: :any_skip_relocation, mojave:        "b561d3e6d9c25da1d6088154ce894985d5e6d0b08d317566e31ee9a970dc1754"
   end
 
   depends_on "aria2"
   depends_on "node"
+  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   resource "beautifulsoup4" do
@@ -65,8 +66,8 @@ class AnimeDownloader < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/c4/3a/5bca2cb1648b171afd6b7d29a11c6bca8b305bb75b7e2d78a0f5c61ff95e/pycryptodome-3.9.9.tar.gz"
-    sha256 "910e202a557e1131b1c1b3f17a63914d57aac55cf9fb9b51644962841c3995c4"
+    url "https://files.pythonhosted.org/packages/88/7f/740b99ffb8173ba9d20eb890cc05187677df90219649645aca7e44eb8ff4/pycryptodome-3.10.1.tar.gz"
+    sha256 "3e2e3a06580c5f190df843cdb90ea28d61099cf4924334d5297a995de68e4673"
   end
 
   resource "pySmartDL" do
@@ -85,18 +86,13 @@ class AnimeDownloader < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/58/5d/445e21e92345848305eecf473338e9ec7ed8905b99ea78415042060127fc/soupsieve-2.1.tar.gz"
-    sha256 "6dc52924dc0bc710a5d16794e6b3480b2c7c08b07729505feab2b2c16661ff6e"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
+    url "https://files.pythonhosted.org/packages/c8/3f/e71d92e90771ac2d69986aa0e81cf0dfda6271e8483698f4847b861dd449/soupsieve-2.2.1.tar.gz"
+    sha256 "052774848f448cf19c7e959adf5566904d525f33a3f8b6ba6f6f8f26ec7de0cc"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install

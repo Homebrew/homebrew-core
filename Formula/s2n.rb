@@ -1,8 +1,8 @@
 class S2n < Formula
   desc "Implementation of the TLS/SSL protocols"
-  homepage "https://github.com/awslabs/s2n"
-  url "https://github.com/awslabs/s2n/archive/v0.10.0.tar.gz"
-  sha256 "ace34f0546f50551ee2124d25f8de3b7b435ddb1b4fbf640ea0dcb0f1c677451"
+  homepage "https://github.com/aws/s2n-tls"
+  url "https://github.com/aws/s2n-tls/archive/refs/tags/1.0.3.tar.gz"
+  sha256 "7e9783cbaa1b14bebed31f4f85019adb39222e36f59f10da86be5b1f2a3bea85"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,10 @@ class S2n < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e777f779afcfcdedf621642693d6c257fbf2f7bb3730e57011063643e6b32697"
-    sha256 cellar: :any, big_sur:       "d2de6735ea9b3b5dbc6c027959beb240f5fe7dbcf66c5d7be10eb2e1fd9e6230"
-    sha256 cellar: :any, catalina:      "563c56399c77a3d3a6a7fa265a854c11671e671ad679316e0f5eb3fadfe1d3ea"
-    sha256 cellar: :any, mojave:        "5dfe9d90d210cf4df21c785d866efb35a4e2a2c23fc79e8de2c77d732ae666c7"
-    sha256 cellar: :any, high_sierra:   "fa1f38966a646891d5fda5573743d5212f462a3d816e7879c92e27ef243858e8"
+    sha256 cellar: :any, arm64_big_sur: "d1a65590c41f5c3ec585d12d9777e03b3466b085a98af50bea52a7aa050c4350"
+    sha256 cellar: :any, big_sur:       "abb94733725e2704c936d0c6cf2376ff955278470e15591a2b51cf1dca133e6c"
+    sha256 cellar: :any, catalina:      "683728531d2c965c8abbb1826112ee297bba3c6c48680f1961b2bf248e0cdc00"
+    sha256 cellar: :any, mojave:        "f02a82580fe393b454fb1bb49d12fe82fe03262820c2645593aece85de650789"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +22,7 @@ class S2n < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", "-DBUILD_TESTING=OFF"
       system "make"
       system "make", "install"
     end
@@ -38,7 +37,7 @@ class S2n < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-ls2n", "-o", "test"
+    system ENV.cc, "test.c", "-L#{opt_lib}", "-ls2n", "-o", "test"
     system "./test"
   end
 end

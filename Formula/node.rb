@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v15.11.0/node-v15.11.0.tar.xz"
-  sha256 "1a7091a210423970619b4af95dba6f4c6e2b576b9700460e5220afff24a8d2d1"
+  url "https://nodejs.org/dist/v15.14.0/node-v15.14.0.tar.xz"
+  sha256 "8122dc4eea4f00af32a1d14ca85a1d4d6ca7b2dcffd9a731bda149fc5593a66e"
   license "MIT"
   head "https://github.com/nodejs/node.git"
 
@@ -12,21 +12,28 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0f9370176b23c6a709ead6590fdcacaf1c9ea7ef141aa8e32114b47274e043c5"
-    sha256 cellar: :any, big_sur:       "edb7281061ce503632fcfa44c72efaa0b4f03b2104628b8fc3c28715022a8975"
-    sha256 cellar: :any, catalina:      "1dc4ea77c4196c8376eb6d81401f7bdb357c49ce456780659a2a4e01685cea4e"
-    sha256 cellar: :any, mojave:        "ab1b358c58ed5561d75db0c2dc9661a31fcdd809ce425d293ae869d49f63bfb1"
+    sha256 cellar: :any, arm64_big_sur: "221d1c7c020742aa23c390bdd6392895317b718501aa462686dfc52857647de0"
+    sha256 cellar: :any, big_sur:       "5663d5e86b6e9ff7ffafa9f32060ac60870bfe11cefda8c5f20f8cd4294c3120"
+    sha256 cellar: :any, catalina:      "6bfc60e2d3f32cb0e381c7296bf218144658933e4b8bfb0816350f72986b98a5"
+    sha256 cellar: :any, mojave:        "41aa0ea95e8f4697373cabb84a1d4ff503c12084486cb7791b937098c87a7dcf"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "brotli"
+  depends_on "c-ares"
   depends_on "icu4c"
+  depends_on "libuv"
+  depends_on "nghttp2"
+  depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-7.6.0.tgz"
-    sha256 "6fe261c6af4d4810c0cabf87da402980fe2f610b1a7b58f74449a5d603e011be"
+    url "https://registry.npmjs.org/npm/-/npm-7.7.6.tgz"
+    sha256 "18d921dd898c34c8a4a3cd3d2c92c3c8108b788c77c20ca6869aaa640b224cf4"
   end
 
   def install
@@ -35,7 +42,27 @@ class Node < Formula
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
-    args = %W[--prefix=#{prefix} --without-npm --with-intl=system-icu]
+    args = %W[
+      --prefix=#{prefix}
+      --without-npm
+      --with-intl=system-icu
+      --shared-libuv
+      --shared-nghttp2
+      --shared-openssl
+      --shared-zlib
+      --shared-brotli
+      --shared-cares
+      --shared-libuv-includes=#{Formula["libuv"].include}
+      --shared-libuv-libpath=#{Formula["libuv"].lib}
+      --shared-nghttp2-includes=#{Formula["nghttp2"].include}
+      --shared-nghttp2-libpath=#{Formula["nghttp2"].lib}
+      --shared-openssl-includes=#{Formula["openssl@1.1"].include}
+      --shared-openssl-libpath=#{Formula["openssl@1.1"].lib}
+      --shared-brotli-includes=#{Formula["brotli"].include}
+      --shared-brotli-libpath=#{Formula["brotli"].lib}
+      --shared-cares-includes=#{Formula["c-ares"].include}
+      --shared-cares-libpath=#{Formula["c-ares"].lib}
+    ]
     args << "--tag=head" if build.head?
 
     system "./configure", *args

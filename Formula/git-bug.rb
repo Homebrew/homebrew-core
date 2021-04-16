@@ -2,17 +2,16 @@ class GitBug < Formula
   desc "Distributed, offline-first bug tracker embedded in git, with bridges"
   homepage "https://github.com/MichaelMure/git-bug"
   url "https://github.com/MichaelMure/git-bug.git",
-      tag:      "0.7.1",
-      revision: "2d64b85db71a17ff3277bbbf7ac9d8e81f8e416c"
-  license "GPL-3.0"
+      tag:      "v0.7.2",
+      revision: "cc4a93c8ce931b1390c61035b888ad17110b7bd6"
+  license "GPL-3.0-or-later"
   head "https://github.com/MichaelMure/git-bug.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "58ea13c7cfe68fa51484a16808a7ef3506573f9f502402e1c28273bad9960035"
-    sha256 cellar: :any_skip_relocation, big_sur:       "874a11e7af28e1d085e19803e9056287906a531f438894e853343e3d5d3d46e4"
-    sha256 cellar: :any_skip_relocation, catalina:      "6b22d352d4f7ac655ab3544593cbdbcb1d1ad6e2f87dd0f7066e31a9319aa97b"
-    sha256 cellar: :any_skip_relocation, mojave:        "c5a308416b902fbd59bd1df0bd17074f5bc9d8de594a07573b8d074889cb45fd"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "0617df6821ac81888aa4ba8b38102031b17fb64b6b25b20554a454e3e4a1fd60"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7477b094e81aa878baf489654c8b131c6d8ebd40222b41769481e298089ba019"
+    sha256 cellar: :any_skip_relocation, big_sur:       "26ead98df2569b14356aac45755b68397dceca6a0dc2cdb6ec00f1a4926fc669"
+    sha256 cellar: :any_skip_relocation, catalina:      "60c08117214d4d8657e67f182d1380b291882944d69c54c9adaa0f8140e28993"
+    sha256 cellar: :any_skip_relocation, mojave:        "6184e21ba0f2c4c28722dd7276004f2f430e02e4f2cf56462b4914d08df6f2f0"
   end
 
   depends_on "go" => :build

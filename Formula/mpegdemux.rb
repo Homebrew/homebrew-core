@@ -14,7 +14,6 @@ class Mpegdemux < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2a1bae657b91607e47b201f2d97749def3c771911208db70c278bf4a47f4fd7e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4f00eabfededc549d4f419b6e6bf7896dbff0c95e83fda5f47067bf73294289b"
     sha256 cellar: :any_skip_relocation, yosemite:      "322f5cf622b25ea9e907e1eb8d1f0ce172672ed91a0592d2621019f3b4159947"
-    sha256 cellar: :any_skip_relocation, mavericks:     "baa0e3b7dffa4d3017c5639a0e07702b10e8913b87987e3c7235bbfae757fa0e"
   end
 
   def install

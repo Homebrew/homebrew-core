@@ -13,7 +13,6 @@ class Libgfshare < Formula
     sha256 cellar: :any, sierra:        "ed8e772e5d4b6c8471aa4d711bd2178b873cce23028bcd3831a51aca67c3485e"
     sha256 cellar: :any, el_capitan:    "c50ebaadca206eef93bc6d835f5814e0d640223c2c7e39cd12feff47720c054d"
     sha256 cellar: :any, yosemite:      "6929a937f6f8ee624f02891622375d23aa65114475cf53ce82342976b4705454"
-    sha256 cellar: :any, mavericks:     "1696482fdd83b98b999d4b4037ae6c02d06a4b5297d089c826fed92a367d0d5c"
   end
 
   def install

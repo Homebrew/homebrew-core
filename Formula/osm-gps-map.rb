@@ -82,6 +82,12 @@ class OsmGpsMap < Formula
       -losmgpsmap-1.0
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
+
+    on_linux do
+      # (test:40601): Gtk-WARNING **: 23:06:24.466: cannot open display
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     system "./test"
   end
 end

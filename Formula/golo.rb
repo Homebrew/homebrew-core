@@ -1,8 +1,8 @@
 class Golo < Formula
   desc "Lightweight dynamic language for the JVM"
   homepage "https://golo-lang.org/"
-  url "https://bintray.com/artifact/download/golo-lang/downloads/golo-3.3.0.zip"
-  sha256 "a9ff036518aee4280102b2d5b79752d8378857fd9714e5b701999a6c93b89316"
+  url "https://www.eclipse.org/downloads/download.php?file=/golo/golo-3.3.0.zip&r=1"
+  sha256 "35df1aca1c7161a1a33855dbd8deafa8e4dbe9627f5f17a9211eae3db3486229"
   license "EPL-2.0"
   revision 2
   head "https://github.com/eclipse/golo-lang.git"

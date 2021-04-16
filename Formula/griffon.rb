@@ -6,6 +6,8 @@ class Griffon < Formula
 
   bottle :unneeded
 
+  disable! date: "2021-04-01", because: :unsupported
+
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]

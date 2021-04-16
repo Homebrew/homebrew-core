@@ -1,29 +1,50 @@
 class Igraph < Formula
   desc "Network analysis package"
   homepage "https://igraph.org/"
-  url "https://github.com/igraph/igraph/releases/download/0.9.0/igraph-0.9.0.tar.gz"
-  sha256 "012e5d5a50420420588c33ec114c6b3000ccde544db3f25c282c1931c462ad7a"
+  url "https://github.com/igraph/igraph/releases/download/0.9.2/igraph-0.9.2.tar.gz"
+  sha256 "fda86b5253daa3b994aaaa7aef0b8e4780dc8b2efbbdbf0aa71af9fedaecb073"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6ae842ab97a92237987c202eb561dc309571af3d9452570d8c47edc0f4474b5f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b9d9cbcfc223d72bc33add33264d8bf6f4eb677107f1e72984114f083336fe59"
-    sha256 cellar: :any_skip_relocation, catalina:      "c02bb0b1563dfcc3e5511be93d1d20d0f38a34a588919112299b0be4780dd8f6"
-    sha256 cellar: :any_skip_relocation, mojave:        "990acbc314d5fec00ccc08bf76f3b436ac297abf3c5c303364315f41961d0aba"
+    sha256 cellar: :any, arm64_big_sur: "85ea5d7a5c7883fe20f4fb4df95cfc580b66ba4e7bea542634273f25365470e2"
+    sha256 cellar: :any, big_sur:       "a0fb6603f3b39eca91218779f1afb8ba517121266ee1ce5212dada981e2c9e22"
+    sha256 cellar: :any, catalina:      "cec4671bb655b9170b72316094d962c5d4ddb153d4846e58a90872b96c43cbee"
+    sha256 cellar: :any, mojave:        "f96fee248c7a1fe69b7da6c7c549b5da90308340ef025719a4579cb6886f98b8"
   end
 
   depends_on "cmake" => :build
+  depends_on "arpack"
   depends_on "glpk"
   depends_on "gmp"
-
-  on_linux do
-    depends_on "openblas"
-  end
+  depends_on "openblas"
+  depends_on "suite-sparse"
 
   def install
     mkdir "build" do
-      system "cmake", "-G", "Unix Makefiles", "-DIGRAPH_ENABLE_TLS=ON", "..", *std_cmake_args
+      # explanation of extra options:
+      # * we want a shared library, not a static one
+      # * link-time optimization should be enabled if the compiler supports it
+      # * thread-local storage of global variables is enabled
+      # * force the usage of external dependencies from Homebrew where possible
+      # * GraphML support should be compiled in (needs libxml2)
+      # * BLAS and LAPACK should come from OpenBLAS
+      # * prevent the usage of ccache even if it is installed to ensure that we
+      #    have a clean build
+      system "cmake", "-G", "Unix Makefiles",
+                      "-DBUILD_SHARED_LIBS=ON",
+                      "-DIGRAPH_ENABLE_LTO=AUTO",
+                      "-DIGRAPH_ENABLE_TLS=ON",
+                      "-DIGRAPH_GLPK_SUPPORT=ON",
+                      "-DIGRAPH_GRAPHML_SUPPORT=ON",
+                      "-DIGRAPH_USE_INTERNAL_ARPACK=OFF",
+                      "-DIGRAPH_USE_INTERNAL_BLAS=OFF",
+                      "-DIGRAPH_USE_INTERNAL_CXSPARSE=OFF",
+                      "-DIGRAPH_USE_INTERNAL_GLPK=OFF",
+                      "-DIGRAPH_USE_INTERNAL_GMP=OFF",
+                      "-DIGRAPH_USE_INTERNAL_LAPACK=OFF",
+                      "-DBLA_VENDOR=OpenBLAS",
+                      "-DUSE_CCACHE=OFF",
+                      "..", *std_cmake_args
       system "make"
       system "make", "install"
     end

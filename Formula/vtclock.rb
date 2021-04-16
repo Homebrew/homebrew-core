@@ -14,7 +14,6 @@ class Vtclock < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "766e69763326b8a8c5cfdc636cbba9f6fcffde0739be56612c54a2904d95d456"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f87c685e59533a0085b439c4153c2734d4091447f5a81c627ccc0d2e589ac65d"
     sha256 cellar: :any_skip_relocation, yosemite:      "a72a8c176276c40a3e9b0c6083a61013efb55b5ea43cd786000dad3c4243dd96"
-    sha256 cellar: :any_skip_relocation, mavericks:     "9811bd8bb3e5cd2f94dc37346e09588bbab5cb1f0cb1ef5f094adf20046440da"
   end
 
   def install

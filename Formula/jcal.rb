@@ -19,7 +19,6 @@ class Jcal < Formula
     sha256 cellar: :any, sierra:        "d6f50844723751f0de8181f751ffc0912013b518b5ac60777a3ade7e1aaa3179"
     sha256 cellar: :any, el_capitan:    "4d876e18cb50c7aa31211b60b66e42637ca3c9eeed9c688c1945dc4755977597"
     sha256 cellar: :any, yosemite:      "3640b058b034b519a5aa3bb1dde36b4efb2ec7bb8124bdbd106617202bf87b22"
-    sha256 cellar: :any, mavericks:     "f3c61ee0a88644c66be60de5d0d0c3ec0118aa4762797baab398363c948a0536"
   end
 
   depends_on "autoconf" => :build

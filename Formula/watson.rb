@@ -3,35 +3,33 @@ class Watson < Formula
 
   desc "Command-line tool to track (your) time"
   homepage "https://tailordev.github.io/Watson/"
-  url "https://files.pythonhosted.org/packages/d3/1c/b2e928b12a320ee098da477b50ee9dd1d5054b9501f63fae670767bee279/td-watson-1.10.0.tar.gz"
-  sha256 "f223bc0cd03a4baeb0b149032731edda9c6fc0c04ff61d819c6f542f01957369"
+  url "https://files.pythonhosted.org/packages/e0/a5/9e29eb31b0a0c2c7a813cfa5a10ba3bf83f8c4d4471155c914fcd41a5d45/td-watson-2.0.0.tar.gz"
+  sha256 "08890779ea5c72ff1a50e039584d11808088a3e2194d8c7e195e5439aa0b2d78"
   license "MIT"
-  revision 1
   head "https://github.com/TailorDev/Watson.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bbacc9c9851817a475dffab977b811aae3e458ec44764cc913c6e5e7a695a0cf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1bcccec3931eb5ba2ae34d3d43ba2862d80c12974e34e1fb86fcc30f03cbde08"
-    sha256 cellar: :any_skip_relocation, catalina:      "66987a4358988a3de67d3f1d95c14f396d43d417f566b7e4747939374abfa011"
-    sha256 cellar: :any_skip_relocation, mojave:        "ab7d7da5d7c96d4838fc631b648ab627fdd998909e34aa20d35723afb87f94d1"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "2dd361ff58ad7182aff12325fa5399afb667cee4d7a0d49beeb9c0cc5e906e39"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fe5bd88bf96bfcef8ba85ccd24a980653fa99eb5f2b80a5aeef6e1b0d575a194"
+    sha256 cellar: :any_skip_relocation, big_sur:       "af021b51ef668924064fcea0ce92d752f0a919109d931ce8647b2ee6c5039e29"
+    sha256 cellar: :any_skip_relocation, catalina:      "15fea88df8c5d70f50ff8bf47ed746618acdecc3ab74a029aa60a569c7a462c5"
+    sha256 cellar: :any_skip_relocation, mojave:        "1465938282147eb00a00544702d0195f6f50c16561a890a1c142e9704630c837"
   end
 
   depends_on "python@3.9"
 
   resource "arrow" do
-    url "https://files.pythonhosted.org/packages/3f/e5/ddd9d095abbd249c2a610e6676c806a5f156c943677b30c2904f4c18f1b9/arrow-0.15.7.tar.gz"
-    sha256 "3f1a92b25bbee5f80cc8f6bdecfeade9028219229137c559c37335b4f574a292"
+    url "https://files.pythonhosted.org/packages/f6/72/e8c899f0eef9c0131ffdb1bc25d79ff65c60411f831ab17d29e3809f5812/arrow-1.0.3.tar.gz"
+    sha256 "399c9c8ae732270e1aa58ead835a79a40d7be8aa109c579898eb41029b5a231d"
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/40/a7/ded59fa294b85ca206082306bba75469a38ea1c7d44ea7e1d64f5443d67a/certifi-2020.6.20.tar.gz"
-    sha256 "5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3"
+    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
+    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
   end
 
   resource "chardet" do
-    url "https://files.pythonhosted.org/packages/fc/bb/a5768c230f9ddb03acc9ef3f0d4a3cf93462473795d18e9535498c8f929d/chardet-3.0.4.tar.gz"
-    sha256 "84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae"
+    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
   end
 
   resource "click" do
@@ -55,8 +53,8 @@ class Watson < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/da/67/672b422d9daf07365259958912ba533a0ecab839d4084c487a5fe9a5405f/requests-2.24.0.tar.gz"
-    sha256 "b3559a131db72c33ee969480840fff4bb6dd111de7dd27c8ee1f820f4f00231b"
+    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
+    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
   end
 
   resource "six" do
@@ -65,8 +63,8 @@ class Watson < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/05/8c/40cd6949373e23081b3ea20d5594ae523e681b6f472e600fbc95ed046a36/urllib3-1.25.9.tar.gz"
-    sha256 "3018294ebefce6572a474f0604c2021e33b3fd8006ecd11d62107a5d2a963527"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install

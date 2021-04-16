@@ -1,15 +1,15 @@
 class JenkinsJobBuilder < Formula
   desc "Configure Jenkins jobs with YAML files stored in Git"
   homepage "https://docs.openstack.org/infra/jenkins-job-builder/"
-  url "https://files.pythonhosted.org/packages/a3/82/35f989cef1585685e25b89f9b9315141b9e7853211f70027fe9f58e316c0/jenkins-job-builder-3.8.0.tar.gz"
-  sha256 "b91c9e44fd72dc64bbb576f49072c18bbfadac94667bf29edf180e63e2ea67a9"
+  url "https://files.pythonhosted.org/packages/1b/63/a87bc9bd2461cb0fbc59b257df94c579bcdcec17dac070f04d4a0e57214c/jenkins-job-builder-3.9.0.tar.gz"
+  sha256 "4a53e146843d567c375c2e61e70a840d75a412402fd78c1dd3da5642a6aaa375"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "46dfdb8e7ef7fa8c64af646b4e05678ceecf42b28623ac8841131450f7a8d049"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5d530ad4213a5890f6ab76aaa47f4769f729dbe1c426619f47391c82a1a84733"
-    sha256 cellar: :any_skip_relocation, catalina:      "acc2780f1192afa3319909faddaf12852cec5d4c22e7889e262c9fbf2a9bf531"
-    sha256 cellar: :any_skip_relocation, mojave:        "0e45165252f69efa7f8f7ae83e79d2243622358c91949e2d949414e21073f604"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5704840b402f29ac033794e0069511bbd26086c92ab48c270771fd7611364ea6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "69c8972dffda3834ad3f2f88de9644b709019f0caebdc9845befa8e89345da8b"
+    sha256 cellar: :any_skip_relocation, catalina:      "aa8129b03faa3af6f24a123059e18a179522de86c8db75cdb05bf2fdace0cc06"
+    sha256 cellar: :any_skip_relocation, mojave:        "c987e38ace62b50528df2ff117d949b6299715e96214bfd77a96b1fa14ecf5f7"
   end
 
   depends_on "python@3.9"
@@ -35,8 +35,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/64/a7/45e11eebf2f15bf987c3bc11d37dcc838d9dc81250e67e4c5968f6008b6c/Jinja2-2.11.2.tar.gz"
-    sha256 "89aab215427ef59c34ad58735269eb58b1a5808103067f7bb9d5836c651b3bb0"
+    url "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz"
+    sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
   end
 
   resource "MarkupSafe" do
@@ -60,8 +60,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "requests" do
@@ -80,8 +80,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
-    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install

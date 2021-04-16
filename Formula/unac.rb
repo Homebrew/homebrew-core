@@ -14,7 +14,6 @@ class Unac < Formula
     sha256 cellar: :any, sierra:        "b97f2799eafd917f8fe1cc47c39634bc91a19ca452ce11ec8fd5edf37ea1dba3"
     sha256 cellar: :any, el_capitan:    "6c9d63dde182a55e237e63cfa4ab625164ce275e343fd88003483227bd7439bc"
     sha256 cellar: :any, yosemite:      "0db9b14eae2c3db5d2d268deb4a3369557a13d35dd216f4ea50aa0776eb56fb3"
-    sha256 cellar: :any, mavericks:     "1fd7af2c4ef86426dc63f80a14076a37ebabced46a572caf1b0e9fe760ab64c1"
   end
 
   depends_on "autoconf" => :build

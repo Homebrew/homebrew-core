@@ -11,7 +11,6 @@ class Md < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "b4187ef160dfbdefabaa05abb5bc044560ccf27410dc92be160760ec1142279d"
     sha256 cellar: :any_skip_relocation, el_capitan:  "6d758b2227eec1332e56fac01eba034ace9df33c424cf8b96523d115342691ac"
     sha256 cellar: :any_skip_relocation, yosemite:    "979e6070affecebf0bcddb24075a3e059c5e4880da1666bb3dc96608f5d7148a"
-    sha256 cellar: :any_skip_relocation, mavericks:   "5faf5907b69c2a53c9bbbcfcb908d24c222181490b69116e09102212382be5ea"
   end
 
   # https://github.com/Homebrew/homebrew-core/pull/66347#issuecomment-739548996

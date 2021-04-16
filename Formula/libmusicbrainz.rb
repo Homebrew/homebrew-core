@@ -14,7 +14,6 @@ class Libmusicbrainz < Formula
     sha256 cellar: :any, sierra:        "8fe055e1f987e23a569f915082031e172a5c3d0aef6f86de78ce9c8258f53cd2"
     sha256 cellar: :any, el_capitan:    "6a63410ca9eae84b263d7165d05701801f4e05de26a9e95a7396f95a602cedd7"
     sha256 cellar: :any, yosemite:      "0851c7889df9dc2971b60fe9fd8ad891afd8d5dae08877393e2f69e3cc33f589"
-    sha256 cellar: :any, mavericks:     "44fa04315d5bbda3e6b9e6ce20a6140c93d535d8c58e8816c574a7e6d4b90429"
   end
 
   depends_on "cmake" => :build

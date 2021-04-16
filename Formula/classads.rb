@@ -13,7 +13,6 @@ class Classads < Formula
     sha256 cellar: :any, sierra:      "d51471a725a552974a309b8add05ca731264f7a0fbaedee1c85b97475c204cb7"
     sha256 cellar: :any, el_capitan:  "52bd3bb21e7a2491ad96f01988b802ab183c5e93d3123e9cc57b75e1a0076171"
     sha256 cellar: :any, yosemite:    "2ec01b2285391e8c1a696c783db281dc69c05e0f2c483792129799b8ad304d7e"
-    sha256 cellar: :any, mavericks:   "b2ba8857a9e07ece0c19ac04a78893322bb22b361e28d5eb23abfa2515e965c9"
   end
 
   depends_on "pcre"

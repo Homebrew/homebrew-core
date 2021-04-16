@@ -13,7 +13,6 @@ class Cdpr < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c6603372329fd2dc0c60266b3f3eb6c9f7cc5c0ce7f351b05977ab39a18cde7c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0bdc868c9b11510e2d9e6551dee970c20406215153906d8bc42790d8510ac429"
     sha256 cellar: :any_skip_relocation, yosemite:      "3f0fbd6fe9862b367f64354ad6ce3b2deacd35ae627f8d73d5095739325be378"
-    sha256 cellar: :any_skip_relocation, mavericks:     "d23bf22f119337fdb04c7a016046ceb6c724d63015f19620d55c3e4883827f21"
   end
 
   def install

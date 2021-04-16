@@ -4,20 +4,21 @@ class Hdf5 < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
   sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
 
+  # This regex isn't matching filenames within href attributes (as we normally
+  # do on HTML pages) because this page uses JavaScript to handle the download
+  # buttons and the HTML doesn't contain the related URLs.
   livecheck do
-    url "https://www.hdfgroup.org/downloads/hdf5/"
-    regex(/Newsletter for HDF5[._-]v?(.*?) Release/i)
+    url "https://www.hdfgroup.org/downloads/hdf5/source-code/"
+    regex(/>\s*hdf5[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "2eb3e73920211c3b9f2b8fb3e2bd39d00dfd5069812e3639bb39d4cfe7d78cab"
-    sha256 cellar: :any, big_sur:       "7cd7cdc13241744c74a94eb578575c357cf263ff0228251a7882a9b7452bac92"
-    sha256 cellar: :any, catalina:      "ff70299b918490134fb3e883110f0092d591885db3fc798f2cc0f48cd9472f36"
-    sha256 cellar: :any, mojave:        "450afa0c0e0783b416e67df0d2a56c5f12518df65ba0326884e06f3388c5c445"
-    sha256 cellar: :any, high_sierra:   "541d0b241a81248d8b6c3d3b205fb3f319e5cefe751d7750aa2749b9696ff749"
+    sha256 cellar: :any, arm64_big_sur: "49863955ae3d3bd15a1a51c736a89c5cc6928779108fdd0dff5707c8c80137ae"
+    sha256 cellar: :any, big_sur:       "32a6a69f4524f1ff53adde0c182300d2bfeb08a2ec239b0f4ade28e77d64e471"
+    sha256 cellar: :any, catalina:      "3b2b1043a2e8b39930386a8ed1d28a8bec35fb9e791be41713d1142e5d4f5827"
+    sha256 cellar: :any, mojave:        "e43f228f5d7ab744fd3a94e2df4be1e491dd4825e208619ba8568f1778a7c268"
   end
 
   depends_on "autoconf" => :build

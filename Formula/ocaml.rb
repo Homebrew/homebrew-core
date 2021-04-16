@@ -13,8 +13,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.10/ocaml-4.10.2.tar.xz"
-  sha256 "96871461078282d5db022077d89bde25c85fb5e376612b44f8c37d4e84f000e3"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.12/ocaml-4.12.0.tar.xz"
+  sha256 "39ee9db8dc1e3eb65473dd81a71fabab7cc253dbd7b85e9f9b5b28271319bec3"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
@@ -24,10 +24,10 @@ class Ocaml < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e063050517ec18694d395744b0f25db4347b9b39b805328dbd844ea73a4c406f"
-    sha256 cellar: :any, big_sur:       "ba026fe9338863ab3a79ca2c998f001eb38c913af36486db07e84e2c7e136e79"
-    sha256 cellar: :any, catalina:      "886db1a44bd60ac5275b56cd0acbf162d0b1836e2261a475035c40482ffb9788"
-    sha256 cellar: :any, mojave:        "5c4cce204b2ef4eea7c1f59df4216e9be9068e077d0ff92746af05035f485285"
+    sha256 cellar: :any, arm64_big_sur: "23d4a0ea99bad00b29387d05eef233fb1ce44a71e9031644f984850820f7b1fc"
+    sha256 cellar: :any, big_sur:       "98ee5c246e559e6d494ce7e2927a8a4c11ff3c47c26d7a2da19053ba97aa6158"
+    sha256 cellar: :any, catalina:      "f1f72000415627bc8ea540dffc7fd29c2d7ebc41c70e76b03a994c7e6e746284"
+    sha256 cellar: :any, mojave:        "9badb226c3d92ae196c9a2922c73075eaa45ee90f3c9b06180e29706e95f2f0b"
   end
 
   pour_bottle? do

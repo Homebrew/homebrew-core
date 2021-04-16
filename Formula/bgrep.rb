@@ -15,7 +15,6 @@ class Bgrep < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "eaed7c05fd07c77cd5aeb6f1232abcf5c9678b86fdaf7e7daf5049476acc690c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "29f0b2d7ab307eae228a03d4f42f677d9ff0884edc5c96771da36182cb592cd2"
     sha256 cellar: :any_skip_relocation, yosemite:      "af4dab94130c48930d064074da8492c5531842a348747b0dd39420db738f6ae9"
-    sha256 cellar: :any_skip_relocation, mavericks:     "b166d637dda09833c3b2c3396670347b087fef6366576303f87fb704b1d3eede"
   end
 
   def install

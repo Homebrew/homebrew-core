@@ -14,7 +14,6 @@ class Zzuf < Formula
     sha256 sierra:        "9f1b2bfb909739bc5dec2e56b520313e30df3384e8a249b575d3664ac6a636be"
     sha256 el_capitan:    "5f0c55658fba6bbf225b6001b5be75c38f7a375322bd4b23944f3c7239dae0c7"
     sha256 yosemite:      "7f260ec41af74aa8b99df4a89f202382c72067e34b4bb3ac0a0e3fb0be6f8ed0"
-    sha256 mavericks:     "52460ee4dcac540298fa8f0e07225bc01d5592fd4ff558f1cfd129b329e87639"
   end
 
   head do

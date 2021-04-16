@@ -15,7 +15,6 @@ class Libantlr3c < Formula
     sha256 cellar: :any, sierra:        "a5e779c431e16bdaab829c774468ce11f8e7ea359412800e294433b011704541"
     sha256 cellar: :any, el_capitan:    "fea1cde8ae732cdbbffa6a6d329239b1da067d2b69424d53178e60309748c403"
     sha256 cellar: :any, yosemite:      "8026d876b20980138c076cb4008f358deb858204b6399c436cf45e93594274e7"
-    sha256 cellar: :any, mavericks:     "010c3866a3c183b10dec76f845ce826a26a5a384074f8c56f41abeb9e4aa6e77"
   end
 
   def install

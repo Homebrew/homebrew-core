@@ -13,7 +13,6 @@ class Svdlibc < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "91a70ced4042615305d39e9d4d88d91b4d971bf8bb40e883b8f7a2682bb2e729"
     sha256 cellar: :any_skip_relocation, el_capitan:  "f4e320bb8555cfed8d39a134153df533a3b921ae01827728cba36c6217bb85be"
     sha256 cellar: :any_skip_relocation, yosemite:    "da1b02f2d5758322ddcfc30b0513249f31dd1aad96fd2f3377e9edc301f7c686"
-    sha256 cellar: :any_skip_relocation, mavericks:   "3be9467077ff9035209957c3c8111b3a50be89cce873726119efba60856eca38"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

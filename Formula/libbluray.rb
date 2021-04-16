@@ -1,8 +1,8 @@
 class Libbluray < Formula
   desc "Blu-Ray disc playback library for media players like VLC"
   homepage "https://www.videolan.org/developers/libbluray.html"
-  url "https://download.videolan.org/videolan/libbluray/1.2.1/libbluray-1.2.1.tar.bz2"
-  sha256 "5223e83f7988ea2cc860b5cadcaf9cf971087b0c80ca7b60cc17c8300cae36ec"
+  url "https://download.videolan.org/videolan/libbluray/1.3.0/libbluray-1.3.0.tar.bz2"
+  sha256 "e2dbaf99e84e0a9725f4985bcb85d41e52c2261cc651d8884b1b790b5ef016f9"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,11 +11,10 @@ class Libbluray < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "fecb563ca1eefe2b784bec27c64b8bbe65850a8b483d12cee8123b3f9ff940de"
-    sha256 cellar: :any, big_sur:       "ddc9740b0ec3c919e709f163b694c3c00ad36a5c6f7ed9db244e08c73d12f7a4"
-    sha256 cellar: :any, catalina:      "8d2dbe765f837608676970568fe081ba91c12af436c2812c2224e4a878692e86"
-    sha256 cellar: :any, mojave:        "cad2684af7571e916f43c0945324a2024de313f49e67829434f61ee413e02bb7"
+    sha256 cellar: :any, arm64_big_sur: "fb78d5e9950654e6f5da0e1cec9543decf00f7b5c17d9dce898981badd065073"
+    sha256 cellar: :any, big_sur:       "c5bcd42c46908cfed9df378bf73b25a23482dbb6676bec1322fc902f51aad07c"
+    sha256 cellar: :any, catalina:      "acfe4417abf3c5169e7271e81043fd4fb6d26bcd2ea96a266b820c33e8492ac6"
+    sha256 cellar: :any, mojave:        "1321b4dba202cd31bd086cab15545128c8f00081378aa5e03598e54774f9a3e7"
   end
 
   head do

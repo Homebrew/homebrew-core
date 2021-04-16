@@ -3,6 +3,7 @@ class Llvm < Formula
   homepage "https://llvm.org/"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
@@ -44,16 +45,18 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6024181e8252d3300a44d989f0716cec5a6d92b66a439290232c7dbeed3a50dc"
-    sha256 cellar: :any, big_sur:       "0f26bad97402fd22555367e8d6f20511b24912dcc56d202b7960b41a8462d6b2"
-    sha256 cellar: :any, catalina:      "c1260c9b53f3bd098650f0bafea11d284b8c48c812dca34c50828239f559737b"
-    sha256 cellar: :any, mojave:        "2f9f6bb43e7743a71426358d2666647e6ff563c00cc14c1404ea43c3f504041d"
+    sha256 cellar: :any, arm64_big_sur: "89c49726e4f90bae088ee3b1e323c36cf7b74778810d35a54c99061f51e5f492"
+    sha256 cellar: :any, big_sur:       "6e6dac1f068982588f6bd2d0fe05d2bc5b664ef55489df46b20e46807ab1e049"
+    sha256 cellar: :any, catalina:      "45f145b60eab557f2079bb1f5ac4bfc4333387fad5a12330a581ea5398c74402"
+    sha256 cellar: :any, mojave:        "f7c4af43940fb0e2f5f3964c74e3b71ed5edf45c078df9599f68b6a4a9ff2a61"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
   pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
+    on_macos do
+      reason "The bottle needs the Xcode CLT to be installed."
+      satisfy { MacOS::CLT.installed? }
+    end
   end
 
   keg_only :provided_by_macos
@@ -62,13 +65,20 @@ class Llvm < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
-  depends_on "python@3.9" => :build
+  depends_on "swig" => :build
   depends_on "libffi"
+  depends_on "python@3.9"
 
   uses_from_macos "libedit"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "binutils" # needed for gold
+    depends_on "libelf" # openmp requires <gelf.h>
+  end
 
   def install
     projects = %w[
@@ -87,7 +97,8 @@ class Llvm < Formula
       libunwind
     ]
 
-    py_ver = "3.9"
+    py_ver = Language::Python.major_minor_version("python3")
+    site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -99,16 +110,17 @@ class Llvm < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
+    # we install the lldb Python module into libexec to prevent users from
+    # accidentally importing it with a non-Homebrew Python or a Homebrew Python
+    # in a non-default prefix
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
       -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
       -DLLVM_POLLY_LINK_INTO_TOOLS=ON
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_LINK_LLVM_DYLIB=ON
-      -DLLVM_BUILD_LLVM_C_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
-      -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INCLUDE_TESTS=OFF
@@ -118,22 +130,36 @@ class Llvm < Formula
       -DLLVM_TARGETS_TO_BUILD=all
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
-      -DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-      -DLLDB_ENABLE_PYTHON=OFF
+      -DLLDB_ENABLE_PYTHON=ON
       -DLLDB_ENABLE_LUA=OFF
-      -DLLDB_ENABLE_LZMA=OFF
+      -DLLDB_ENABLE_LZMA=ON
+      -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
     ]
 
-    sdk = MacOS.sdk_path_if_needed
-    args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
+    on_macos do
+      args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
+      args << "-DLLVM_ENABLE_LIBCXX=ON"
+      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}"
 
-    if MacOS.version == :mojave && MacOS::CLT.installed?
-      # Mojave CLT linker via software update is older than Xcode.
-      # Use it to retain compatibility.
-      args << "-DCMAKE_LINKER=/Library/Developer/CommandLineTools/usr/bin/ld"
+      sdk = MacOS.sdk_path_if_needed
+      args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
+
+      if MacOS.version == :mojave && MacOS::CLT.installed?
+        # Mojave CLT linker via software update is older than Xcode.
+        # Use it to retain compatibility.
+        args << "-DCMAKE_LINKER=/Library/Developer/CommandLineTools/usr/bin/ld"
+      end
+    end
+
+    on_linux do
+      args << "-DLLVM_ENABLE_LIBCXX=OFF"
+      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
+      # Enable llvm gold plugin for LTO
+      args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
     end
 
     llvmpath = buildpath/"llvm"
@@ -146,7 +172,7 @@ class Llvm < Formula
 
     # Install LLVM Python bindings
     # Clang Python bindings are installed by CMake
-    (lib/"python#{py_ver}/site-packages").install llvmpath/"bindings/python/llvm"
+    (lib/site_packages).install llvmpath/"bindings/python/llvm"
 
     # Install Emacs modes
     elisp.install Dir[llvmpath/"utils/emacs/*.el"] + Dir[share/"clang/*.el"]

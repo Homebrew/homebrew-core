@@ -1,16 +1,16 @@
 class Libgosu < Formula
   desc "2D game development library"
   homepage "https://libgosu.org"
-  url "https://github.com/gosu/gosu/archive/v1.1.1.1.tar.gz"
-  sha256 "d450fcf171693e058b396ecc83e123848994419cb5c7326ef3adafc12b591a6f"
+  url "https://github.com/gosu/gosu/archive/v1.2.0.tar.gz"
+  sha256 "89e3d175c7a7c27ae9722a719e7307a77aefac0d28c9c9e2b531ca84e080aab6"
   license "MIT"
   head "https://github.com/gosu/gosu.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ba3dc05c5b75e98517f19f8c79b1250905ed45d10470e318fe039950ac98ea10"
-    sha256 cellar: :any, big_sur:       "e3743ae931e3fb3e7f2f606d61678a8ea4377b2edd065f3972f5c59fdaed2124"
-    sha256 cellar: :any, catalina:      "032761586a702d3ca96cfc9635bb4d6660505c3638127a411a9d5c7faf7a9f3b"
-    sha256 cellar: :any, mojave:        "116839d8a24839752bb94c9904351db68d10a3cc33b56968e89f243ca1174675"
+    sha256 cellar: :any, arm64_big_sur: "2fdd60050495a39676631ff20b6adce12f08509dfafc07d5544922d6bbc07ea2"
+    sha256 cellar: :any, big_sur:       "81fcf49b8dcd3c32e765c1c160fde1587fd7fc72dc69a02e0369a2f6933b2c7d"
+    sha256 cellar: :any, catalina:      "260af0d8a2ec9e279c80748fab5824583bf452c92ae1fd2ad974effc7e79c946"
+    sha256 cellar: :any, mojave:        "681e8df033559e1f7af28bd4d9da638be31e56261ddaca28338f6a2a91cfc569"
   end
 
   depends_on "cmake" => :build

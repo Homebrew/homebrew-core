@@ -14,6 +14,12 @@ class Glui < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c087de27b46b86a14d583904e0a9d293428af37d8710b521ae7aeeb5174fc8fd"
   end
 
+  on_linux do
+    depends_on "freeglut"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   # Fix compiler warnings in glui.h. Merged into master on November 28, 2016.
   patch do
     url "https://github.com/libglui/glui/commit/fc9ad76733034605872a0d1323bb19cbc23d87bf.patch?full_index=1"
@@ -28,17 +34,39 @@ class Glui < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS
-      #include <cassert>
-      #include <GL/glui.h>
-      int main() {
-        GLUI *glui = GLUI_Master.create_glui("GLUI");
-        assert(glui != nullptr);
-        return 0;
-      }
-    EOS
-    system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
-      "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
-    system "./a.out"
+    on_macos do
+      (testpath/"test.cpp").write <<~EOS
+        #include <cassert>
+        #include <GL/glui.h>
+        int main() {
+          GLUI *glui = GLUI_Master.create_glui("GLUI");
+          assert(glui != nullptr);
+          return 0;
+        }
+      EOS
+      system ENV.cxx, "-framework", "GLUT", "-framework", "OpenGL", "-I#{include}",
+        "-L#{lib}", "-lglui", "-std=c++11", "test.cpp"
+      system "./a.out"
+    end
+
+    on_linux do
+      (testpath/"test.cpp").write <<~EOS
+        #include <cassert>
+        #include <GL/glui.h>
+        #include <GL/glut.h>
+        int main(int argc, char **argv) {
+          glutInit(&argc, argv);
+          GLUI *glui = GLUI_Master.create_glui("GLUI");
+          assert(glui != nullptr);
+          return 0;
+        }
+      EOS
+      system ENV.cxx, "-I#{include}", "-std=c++11", "test.cpp",
+        "-L#{lib}", "-lglui", "-lglut", "-lGLU", "-lGL"
+      if ENV["DISPLAY"]
+        # Fails without X display: freeglut (./a.out): failed to open display ''
+        system "./a.out"
+      end
+    end
   end
 end

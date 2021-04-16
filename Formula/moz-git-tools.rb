@@ -16,7 +16,6 @@ class MozGitTools < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "7a771b0e71a44dafd3fc4eb2210f909d412f9ea541a7ff50a96ce272204cc501"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c5ddb2e842a6fb26ba5feacdee6bac287d94732abd888bd11bc5c80be4f100a4"
     sha256 cellar: :any_skip_relocation, yosemite:      "91f89ec1014d6c7b395571210c0f21b1e701f4bfb90540a94fa3daafd4472d3b"
-    sha256 cellar: :any_skip_relocation, mavericks:     "8df4c14355c7b6291964609122f8643f61d77e05c2b6b68517710e5653a1423e"
   end
 
   def install

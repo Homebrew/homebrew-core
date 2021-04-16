@@ -1,10 +1,15 @@
 class Chmlib < Formula
   desc "Library for dealing with Microsoft ITSS/CHM files"
-  homepage "http://www.jedrea.com/chmlib"
+  homepage "http://www.jedrea.com/chmlib/"
   url "http://www.jedrea.com/chmlib/chmlib-0.40.tar.gz"
   mirror "https://download.tuxfamily.org/slitaz/sources/packages/c/chmlib-0.40.tar.gz"
   sha256 "512148ed1ca86dea051ebcf62e6debbb00edfdd9720cde28f6ed98071d3a9617"
   license "LGPL-2.1"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?chmlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 2
@@ -15,7 +20,6 @@ class Chmlib < Formula
     sha256 cellar: :any, sierra:      "9781c76f933beca002df542d2db0644e51766568d9399f9e73dc39b9e896f539"
     sha256 cellar: :any, el_capitan:  "6b834a6ae6e95f8daaa726fd6ae1a2d3e60335f98862fea9e790c24e5a6411d1"
     sha256 cellar: :any, yosemite:    "bdc19058cbf1690e960bd88d06f6c8b2ff47f8b743947eb82c259ba394881a65"
-    sha256 cellar: :any, mavericks:   "366c564a2cd0185d84ff6892f5d773f80ddee50f6db39e763060b3ebb31413b3"
   end
 
   def install

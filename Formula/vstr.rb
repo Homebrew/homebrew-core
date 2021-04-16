@@ -13,7 +13,6 @@ class Vstr < Formula
     sha256 cellar: :any, sierra:      "07e2b05d9908a847c72950532d3ed12771c856365c8747c8c5917da9a5ea4413"
     sha256 cellar: :any, el_capitan:  "d2d5b14e9ac589c782307e058e06815ad2408bbcf418ac721d3fac3be8b832a7"
     sha256 cellar: :any, yosemite:    "0d4176307ea18472c9da9a765bcb033e6256ae361d2e32b758b205a56dd7e38a"
-    sha256 cellar: :any, mavericks:   "5fc509c660fc38b3484a093ce0894ee2e9c3ea3cccc43222071c4d8139975d8d"
   end
 
   depends_on "pkg-config" => :build

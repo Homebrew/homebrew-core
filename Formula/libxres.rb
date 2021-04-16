@@ -1,16 +1,15 @@
 class Libxres < Formula
   desc "X.Org: X-Resource extension client library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXres-1.2.0.tar.bz2"
-  sha256 "ff75c1643488e64a7cfbced27486f0f944801319c84c18d3bd3da6bf28c812d4"
+  url "https://www.x.org/archive/individual/lib/libXres-1.2.1.tar.bz2"
+  sha256 "b6e6fb1ebb61610e56017edd928fb89a5f53b3f4f990078309877468663b2b11"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "10d33ad166cc2ce0992e7837eea0ffeee0e68541b83a449985c4f23456962331"
-    sha256 cellar: :any, big_sur:       "fcb9ac04422ee9752674c1fe7cad12cf079b299b0bbd7492866c1cd51223455d"
-    sha256 cellar: :any, catalina:      "9284047f0480984d64b23e375e7aea8fe986e92cf511aac09cd6966221a2e7a7"
-    sha256 cellar: :any, mojave:        "1e5bda4d9cd50b6d45252949946e03758e0e05bdd4bf0e3d4e4724a43cd9aa55"
-    sha256 cellar: :any, high_sierra:   "bfec4cc0604f69d40a032f4ec36d231be3bac9eca44bcfcf4fb18ecd23023fbc"
+    sha256 cellar: :any, arm64_big_sur: "60935c75823a1601c976f1bcd0ac3376bf61b3a5662722c2490da69f7f69ba91"
+    sha256 cellar: :any, big_sur:       "993e7994f092301118aec29874cd7332ac5ddf2199dc38784f46aa2650bf54ff"
+    sha256 cellar: :any, catalina:      "98b7edc1c10775aa7fb949cb1cdc8e2a33a6f4a9de16b7e7d9366f3cd7ecdbeb"
+    sha256 cellar: :any, mojave:        "147c8a30297594a8da02cf5b46942d2c1408683adde5a7abe8ec272ff0452ada"
   end
 
   depends_on "pkg-config" => :build

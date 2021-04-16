@@ -1,31 +1,27 @@
 class SwitchaudioOsx < Formula
   desc "Change macOS audio source from the command-line"
   homepage "https://github.com/deweller/switchaudio-osx/"
-  url "https://github.com/deweller/switchaudio-osx/archive/1.0.0.tar.gz"
-  sha256 "c00389837ffd02b1bb672624fec7b75434e2d72d55574afd7183758b419ed6a3"
+  url "https://github.com/deweller/switchaudio-osx/archive/1.1.0.tar.gz"
+  sha256 "1e77f938c681b68e56187e66e11c524f2d337f54142d1cdbbd8dafec1153317d"
   license "MIT"
   head "https://github.com/deweller/switchaudio-osx.git"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d9971abdf1ae93055e74f4e1b48ad4ed0cf835069ed0750594156279d18b702e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d577b2297c1865399ecbe4c7f2ac491063d75c786387502246b30d32e2606ee7"
-    sha256 cellar: :any_skip_relocation, catalina:      "4a1ad0824d878dcabb3d7ffe4ad911f850383dbf2db28100e58f28cbc96657b7"
-    sha256 cellar: :any_skip_relocation, mojave:        "85d0fe91c72d1a61e331e475af4e6ded9d0ca3581612c1934835bc44653fe407"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "26af506ea42b83ae8ccde71ed8b7666ccf3e3a349b2dd8958af7025854ffefd3"
-    sha256 cellar: :any_skip_relocation, sierra:        "89ed040cc50c7b7ad88a903da5351cfa0027a4daf22cf73f2713e0887847c5d1"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "515b762164648d739ae36f8c5013d250d84af1264bf3ee366ed35adae2f44208"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "631619e7f83da181c8287e6795de8d54c03cab15bf29ba4ce5b5c0fb1f3aafcb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4e6b47d1a51d71706f160ed4f19cc6fe6cacd1370eab298c029976ae6c32484e"
+    sha256 cellar: :any_skip_relocation, catalina:      "59e92aaf09b86e49b6bd5f4300db02cf0812118e08146eaa2c540cb8e34b1a6b"
+    sha256 cellar: :any_skip_relocation, mojave:        "e48cf16dc12a923093b4ddf5467f8234d129e5bdc15f1df1fdad30ec251e7f35"
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   def install
     xcodebuild "-project", "AudioSwitcher.xcodeproj",
                "-target", "SwitchAudioSource",
                "SYMROOT=build",
                "-verbose",
-               # Force 64-bit for Mojave
-               "-arch", "x86_64",
+               "-arch", Hardware::CPU.arch,
                # Default target is 10.5, which fails on Mojave
                "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     prefix.install Dir["build/Release/*"]

@@ -19,7 +19,6 @@ class ArgpStandalone < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "10627e72c0e0eb66cbd03a2beb767c06b8edad4bef01914de7f7c6c1be33a356"
     sha256 cellar: :any_skip_relocation, el_capitan:    "798e6ddb78957f9ad33662287b5971aaf3a43f3646e84691d56b3b85ca06d47f"
     sha256 cellar: :any_skip_relocation, yosemite:      "c926ac0ad3b8dbb8c3e08299ade556470f81d3a88eb51dc60e7cfe107da533e8"
-    sha256 cellar: :any_skip_relocation, mavericks:     "789a73a54793c058ee419824d76d603562d56fe6c2bce37c6b5b47f8f0ddce2a"
   end
 
   # This patch fixes compilation with Clang.

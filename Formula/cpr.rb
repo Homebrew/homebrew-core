@@ -2,16 +2,16 @@ class Cpr < Formula
   desc "C++ Requests, a spiritual port of Python Requests"
   homepage "https://whoshuu.github.io/cpr/"
   url "https://github.com/whoshuu/cpr.git",
-      tag:      "1.5.2",
-      revision: "41fbaca90160950f1397e0ffc6b58bd81063f131"
+      tag:      "1.6.0",
+      revision: "aac5058a15e9ad5ad393973dc6fe44d7614a7f55"
   license "MIT"
   head "https://github.com/whoshuu/cpr.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b93aecd08cd2c187694a572c2c9c8d4cdb0ed181b4387fd3e7a68f67a4847d6a"
-    sha256 cellar: :any, big_sur:       "0f3457ec4a948fb235d26d9bfdd0c1b3f53297c0e7c505a1f34a3d853907ddc8"
-    sha256 cellar: :any, catalina:      "51bbf276165a820d37e9d9dfc829e7dae6f100b57bbb4095283955924027a7e8"
-    sha256 cellar: :any, mojave:        "66cfe69826f724c686417117ba2ef710e7765a35c39b648d6d239867f6c47473"
+    sha256 cellar: :any, arm64_big_sur: "148fe92c19acedf327f3391d9d27cfdcbc9827402d7c19792711279fab011900"
+    sha256 cellar: :any, big_sur:       "01d2a7feccbd41e4c1031f4949abdd32219ecd4c352ce7b422ff3a5b9a4acabb"
+    sha256 cellar: :any, catalina:      "20cbfb4275787989ed99d346281a14b033703b53dcd1c81e3870d085e6a4002b"
+    sha256 cellar: :any, mojave:        "d9125cf69063f36f241a66160bac0143c0602e66251326900b31053cfa2bae72"
   end
 
   depends_on "cmake" => :build
@@ -19,19 +19,11 @@ class Cpr < Formula
 
   uses_from_macos "curl"
 
-  # Fix system curl detection
-  # See https://github.com/whoshuu/cpr/pull/428
-  #
-  # Remove in the next release
-  patch do
-    url "https://github.com/whoshuu/cpr/commit/451fd1a896c963367ebb3d77cfe4550b2d5636f3.patch?full_index=1"
-    sha256 "74349209c5d28d9261871080341c735517b3e64e91ac6cc6884abb2767f14b33"
-  end
-
   def install
-    args = std_cmake_args
-    args << "-DUSE_SYSTEM_CURL=ON"
-    args << "-DBUILD_CPR_TESTS=OFF"
+    args = std_cmake_args + %w[
+      -DCPR_FORCE_USE_SYSTEM_CURL=ON
+      -DCPR_BUILD_TESTS=OFF
+    ]
 
     system "cmake", ".", *args, "-DBUILD_SHARED_LIBS=ON"
     system "make", "install"

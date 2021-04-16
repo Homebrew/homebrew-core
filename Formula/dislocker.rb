@@ -6,18 +6,11 @@ class Dislocker < Formula
   license "GPL-2.0"
   revision 5
 
-  bottle do
-    sha256 catalina:    "e0049b9ff51ad9f3e4008df1edac9b52aa0d8df55e119990553b4d9cec651b90"
-    sha256 mojave:      "f6378852886b1d1793260ce411250751614428102a5fd07f792352ce0fc206c3"
-    sha256 high_sierra: "2b1e50229eb344c432db6cc35fd42b6e91d713f97f81d6f5067087f5c59b6cb3"
-  end
-
   depends_on "cmake" => :build
   depends_on "mbedtls"
 
   on_macos do
-    deprecate! date: "2020-11-10", because: "requires FUSE"
-    depends_on :osxfuse
+    disable! date: "2021-04-08", because: "requires FUSE"
   end
 
   on_linux do

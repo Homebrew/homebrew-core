@@ -29,9 +29,15 @@ class Ncmpcpp < Formula
   depends_on "readline"
   depends_on "taglib"
 
+  uses_from_macos "curl"
+
   def install
     ENV.cxx11
-    ENV.append "LDFLAGS", "-liconv"
+
+    on_macos do
+      ENV.append "LDFLAGS", "-liconv"
+    end
+
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
 

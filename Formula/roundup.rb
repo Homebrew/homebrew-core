@@ -15,7 +15,6 @@ class Roundup < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "255515246130477d53aa39d0289b2840af33a937d7169a1dba297380d1eb02da"
     sha256 cellar: :any_skip_relocation, el_capitan:    "77ff95001e3a2de6eedd4d5702e5e418b7c4ecfa6855af7b479e1e978249882f"
     sha256 cellar: :any_skip_relocation, yosemite:      "5dd0f6d1e64f54b3bb389411f95cd823b75e31f073e739d78793fca4b21e8e59"
-    sha256 cellar: :any_skip_relocation, mavericks:     "42a3781280553b56fdd9330f2ef1f930b489c932ac0191313eb1cf6482e9728f"
   end
 
   def install

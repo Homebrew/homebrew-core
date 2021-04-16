@@ -7,9 +7,11 @@ class Siril < Formula
   head "https://gitlab.com/free-astro/siril.git"
 
   bottle do
-    sha256 big_sur:  "5e27c3ab3740980331edca631549372c91388342d9e94ee40dbfd6ec25ede24c"
-    sha256 catalina: "fe4bb5bff2cf48f9bdd62abe930cf2fde12073bb23cd996f773c02d105cf8376"
-    sha256 mojave:   "44132a8e1947801f0a6f1cf7d1ed6ea1e149cf657a49bb931ab66bcc29d9f14b"
+    rebuild 1
+    sha256 arm64_big_sur: "5b91d3cdfb919a7aa31d421baff057b6065301cc931726b33db1b0a8c38eabd6"
+    sha256 big_sur:       "9269d262d5b6bcb897c7dd254f6044a6afe2f304ce48fa01f2e054858fb4700b"
+    sha256 catalina:      "e984a5b1f8becace8ad0e3c48b31238c9146d9af741e1cdd040ec04b4dd2fe3b"
+    sha256 mojave:        "cab28144f4bfa18c0871aebff227d80912be07794ddab339eab252b554884e4d"
   end
 
   depends_on "autoconf" => :build
@@ -32,10 +34,16 @@ class Siril < Formula
   depends_on "libomp"
   depends_on "libraw"
   depends_on "librsvg"
-  depends_on "libsvg"
   depends_on "netpbm"
   depends_on "opencv"
   depends_on "openjpeg"
+
+  # Fix build with glib 2.68.
+  # Remove with the next release.
+  patch do
+    url "https://gitlab.com/free-astro/siril/-/commit/d319fceca5b00f156e1c5e3512d3ac1f41beb16a.patch"
+    sha256 "b10b73d8d3d6895c0ec8a5bb84a0ce4f6ad64349ef55ceb6716bca82fbefedfe"
+  end
 
   def install
     # siril uses pkg-config but it has wrong include paths for several

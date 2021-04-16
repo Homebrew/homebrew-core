@@ -19,7 +19,6 @@ class CmuPocketsphinx < Formula
     sha256 sierra:        "12abc8b527906e7ed0d2f6f0a6b6cb5c00f548fe94fcce995bdc80f43b4cf17b"
     sha256 el_capitan:    "2f1f4738dbcf7641a530b82c4dc6447ecadb5f9b60cd2484c33c379efb5c46e5"
     sha256 yosemite:      "dea4e6a8e131f68c94a6b9fb783a0445476354a90629001d5007fe3b4e5247bd"
-    sha256 mavericks:     "9d49cd11915d906db23021eeaed8bed1ee5e565eaad03a1a96cbb03448ae6867"
   end
 
   head do

@@ -13,7 +13,6 @@ class Aoeui < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "1b04b93c490895121fed315f685d60cb96551b971ca1433a5240425cfa31dfcd"
     sha256 cellar: :any_skip_relocation, el_capitan:    "62a04ac0fd27e76f4f77da95e7d5aaf75488765f98b02574ae7dff0508cd9f13"
     sha256 cellar: :any_skip_relocation, yosemite:      "19f622466c20ad4ddff2fc97ac186e189d5a8bb02dd405ed2a93c5d13a88b1f4"
-    sha256 cellar: :any_skip_relocation, mavericks:     "a3ac3238356624a12b20df52c98d2bc52e0d785745e393928fc4c629212d1406"
   end
 
   def install

@@ -4,5 +4,6 @@
   "libbladerf": "https://nuand.com/",
   "micropython": "https://www.micropython.org/",
   "minio": "https://min.io",
-  "monero": "https://www.getmonero.org/"
+  "monero": "https://www.getmonero.org/",
+  "volk": "https://www.libvolk.org/"
 }

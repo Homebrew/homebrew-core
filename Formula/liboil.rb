@@ -14,7 +14,6 @@ class Liboil < Formula
     sha256 cellar: :any, sierra:        "f242435c284690879f84812481843e92c54adc190a8201aa31d550c262e1951d"
     sha256 cellar: :any, el_capitan:    "7d76b7a220caeb8dbaef27b879f4f3ac0ad5b236b563961abd9484e8bc9e0160"
     sha256 cellar: :any, yosemite:      "9ea78f801296e8643f366d634449a043376e9015e9329dc1c591a9ad55a37b66"
-    sha256 cellar: :any, mavericks:     "b7f92d53730febc590a12c4812784428e947c61361354c46f2fef245c0a51bba"
   end
 
   depends_on "autoconf" => :build

@@ -3,16 +3,16 @@ class Certbot < Formula
 
   desc "Tool to obtain certs from Let's Encrypt and autoenable HTTPS"
   homepage "https://certbot.eff.org/"
-  url "https://github.com/certbot/certbot/archive/v1.13.0.tar.gz"
-  sha256 "832f9fc7fd5cb59af209236961cd0a533c2a96a9534054288975ae1dfc36605b"
+  url "https://github.com/certbot/certbot/archive/v1.14.0.tar.gz"
+  sha256 "3e307c461f381065a2f03d153db2842ad2f593b4cfe6ccc4574e2cef8510122b"
   license "Apache-2.0"
   head "https://github.com/certbot/certbot.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f36f9916fe32e01eb7fce07b71d3ad50a6ff22803f6e499098a7dcc6f7d38fbe"
-    sha256 cellar: :any, big_sur:       "c42e322e8ec5f3893748e7af9177a2d3d6c8cee4ce460644cc61e5ea6d9609bc"
-    sha256 cellar: :any, catalina:      "846dc4edb3a960a11bc042b9281599c9287b27f2d3a9cbe1dde760b24d4da8e7"
-    sha256 cellar: :any, mojave:        "5c7dbe585a460847ad7f92fc240d04b74c885004722ed77a50e319ae25a8b4e4"
+    sha256 cellar: :any, arm64_big_sur: "b1ce677ed65acb88892cb71d9dbfaadc9473448ec8bca9118a4962ade4116ffa"
+    sha256 cellar: :any, big_sur:       "0d431a0bb36cc57871f25a4d0f10bb307911325a213c3efa429157d4d3f08688"
+    sha256 cellar: :any, catalina:      "159887d785e85fdfdacb7984d46cdeacd8de659b7e8cb255855881990159904d"
+    sha256 cellar: :any, mojave:        "2addabd12a9f56852d2ce505b735edfa1d924dca45f422636769ed4630c26778"
   end
 
   depends_on "augeas"

@@ -2,8 +2,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-      tag:      "v1.5.8",
-      revision: "873d93b7377bf1c7bfbcd508e4ea6a6213997aff"
+      tag:      "v1.5.9",
+      revision: "06a16e51ceb5b7086b3b855969c3f93532da1550"
   license "MIT"
   head "https://github.com/influxdata/kapacitor.git"
 
@@ -13,34 +13,34 @@ class Kapacitor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "53a4ffb90955abd638c370b605249e59cebf063a9bab2a91f8cd78f5ae81542c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a1381a3e165a2aeaac47206ab1de2898de021b1e6508253fdc04d57afe599d6a"
-    sha256 cellar: :any_skip_relocation, catalina:      "6e5902e6a5524d6062185bc20eaedaccf68d48ff9a12e374fce7d7666e0b8ad7"
-    sha256 cellar: :any_skip_relocation, mojave:        "786f624493214d9b7135f4e01753cab017eb5db0f24a0629319f6c85101755f0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6840ff3ad3bbd7eb8500d7035f7724d278ffd4fa8059c8f00a72471f1daff4a1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8e0bd768594327baa91874afc5aeaf9eebe310e50554a2c9a02f486312a278f1"
+    sha256 cellar: :any_skip_relocation, catalina:      "4551fac2fe167dacce08c19c4bec7649697cb2a5736b2c6b9bcdff81218d8f53"
+    sha256 cellar: :any_skip_relocation, mojave:        "9f08dac43c3173f7a1847ce86e12d39461df159f0f5f97f21815758cfb785aba"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    kapacitor_path = buildpath/"src/github.com/influxdata/kapacitor"
-    kapacitor_path.install Dir["*"]
+    ldflags = %W[
+      -s
+      -w
+      -X main.version=#{version}
+      -X main.commit=#{Utils.git_head}
+    ]
 
-    cd kapacitor_path do
-      system "go", "install",
-             "-ldflags", "-X main.version=#{version} -X main.commit=#{Utils.git_head}",
-             "./cmd/..."
-    end
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/kapacitor"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "-o", bin/"kapacitord", "./cmd/kapacitord"
 
-    inreplace kapacitor_path/"etc/kapacitor/kapacitor.conf" do |s|
+    inreplace "etc/kapacitor/kapacitor.conf" do |s|
       s.gsub! "/var/lib/kapacitor", "#{var}/kapacitor"
       s.gsub! "/var/log/kapacitor", "#{var}/log"
     end
 
-    bin.install "bin/kapacitord"
-    bin.install "bin/kapacitor"
-    etc.install kapacitor_path/"etc/kapacitor/kapacitor.conf" => "kapacitor.conf"
+    etc.install "etc/kapacitor/kapacitor.conf" => "kapacitor.conf"
+  end
 
+  def post_install
     (var/"kapacitor/replay").mkpath
     (var/"kapacitor/tasks").mkpath
   end

@@ -1,18 +1,16 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2.tar.gz"
-  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.6.2/apache-zookeeper-3.6.2.tar.gz"
-  sha256 "62d9e865a7b1da5e906ff39ebf40cfa1880303c04b4cf38e2c88d328bc2bcd6f"
+  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0.tar.gz"
+  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.7.0/apache-zookeeper-3.7.0.tar.gz"
+  sha256 "cb3980f61b66babe550dcb717c940160ba813512c0aca26c2b8a718fac5d465d"
   license "Apache-2.0"
-  revision 1
   head "https://gitbox.apache.org/repos/asf/zookeeper.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:     "5ff355365ea58279fd5702e194f45871779548d7b9a044e271e91f8824ed018f"
-    sha256 cellar: :any, catalina:    "418667fe02a90fc96ea22a9331c0f39639041c77a8d9f7c9b07535a100102564"
-    sha256 cellar: :any, mojave:      "ea6c5aa3aa78b6ef735bd28c31bdb8097981cecf641afbcdab2dfcd6f4094c02"
-    sha256 cellar: :any, high_sierra: "a6022a25669efa984068971483c90eb50fa9fe17d9d34f8d5554621ebe2f439f"
+    sha256 cellar: :any, big_sur:  "7dbe1fb25e88aa574a0772d60f5e6cac74c9d6973d2a6fd985ed57bb8ba04064"
+    sha256 cellar: :any, catalina: "8ee9ba9ef8f089b3b1e5c399e8240b1c53582f7232be43f86e9d1f4db9b33c05"
+    sha256 cellar: :any, mojave:   "89e29710ba842ed9f5ea5dd4a88cadc356e9216e6bad238a6774b7da8ab90ac2"
   end
 
   depends_on "autoconf" => :build

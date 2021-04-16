@@ -21,6 +21,12 @@ class Icecream < Formula
   depends_on "lzo"
   depends_on "zstd"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "llvm" => :test
+    depends_on "libcap-ng"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking

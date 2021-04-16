@@ -1,14 +1,14 @@
 class Bond < Formula
   desc "Cross-platform framework for working with schematized data"
   homepage "https://github.com/microsoft/bond"
-  url "https://github.com/microsoft/bond/archive/9.0.4.tar.gz"
-  sha256 "59392145dbe271c3f1fd4b784958a08cf5c9e38c1a769af007ce6ac7100daf01"
+  url "https://github.com/microsoft/bond/archive/9.0.5.tar.gz"
+  sha256 "53ee8a325c34136495a1568ca8f0740d4527b74efa0ff71c7d927971fad0dc82"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "b777ee788ae5d9ee234cc7dea3f671d4d8e50edafdd2b48ecd990c6643ffcacb"
-    sha256 cellar: :any, catalina: "c4677d09cbf02e66671d9760ca64fcfbab1127b778c70719d9db58daca9b7c7e"
-    sha256 cellar: :any, mojave:   "432c38ccaa1931fb8320cbbc8692d3982ce225732f70cdb5c7f3b8596c487f31"
+    sha256 cellar: :any, big_sur:  "9cc49b023fbd14c296f04cd5ae537bf6098f9b09025812a350a99a72bed00fea"
+    sha256 cellar: :any, catalina: "5d78ce28f6865648b61de0d5fc449c13e6ebc3093209efe781073d560b1b29b7"
+    sha256 cellar: :any, mojave:   "54718f979d4ee63570fe76d4d96682f1c169791c3e1b91fc32471aee3bcccd0e"
   end
 
   depends_on "cmake" => :build

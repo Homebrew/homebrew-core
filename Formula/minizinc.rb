@@ -1,17 +1,16 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
-  url "https://github.com/MiniZinc/libminizinc/archive/2.5.3.tar.gz"
-  sha256 "07982723009fcb50ae190bf17277e8c91e6279f319521f571d253ba27e2c2b1b"
+  url "https://github.com/MiniZinc/libminizinc/archive/2.5.5.tar.gz"
+  sha256 "c6c81fa8bdc2d7f8c8d851e5a4b936109f5d996abd8c6f809539f753581c6288"
   license "MPL-2.0"
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "d3e7df985149ff4c1b12782a94b0ccfb5d862dd3e186e6c934d6e9d70dc21c3e"
-    sha256 cellar: :any, big_sur:       "1c54e2022738c39dd339bec62ba9d933b5b44fc07587c51361492cdfd5a961db"
-    sha256 cellar: :any, catalina:      "2ee5718af0ff50473754355384284e29162d2dff60c7b433d312c9cef0e21ff0"
-    sha256 cellar: :any, mojave:        "9d2af2903a893c0dadeddecbdbbdd2fb55fac3b1f37364881b4648fd90c037b2"
+    sha256 cellar: :any, arm64_big_sur: "051a8da67510e17e57371dc332cc441f80b366affce08917173b92fb9c7e047e"
+    sha256 cellar: :any, big_sur:       "65127ebb8476ee303b45624b7e7a7c9e1f6d4b740056b95c31da6350f819ada6"
+    sha256 cellar: :any, catalina:      "921698a98271c69f66d66303be5e6852b083e4117a349f4039c482597b863039"
+    sha256 cellar: :any, mojave:        "2ffec6708a7253410c073e8faa5e8dceb43ddee2d1002beb1032f31c8ee4a492"
   end
 
   depends_on "cmake" => :build

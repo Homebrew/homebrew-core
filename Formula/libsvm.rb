@@ -2,9 +2,8 @@ class Libsvm < Formula
   desc "Library for support vector machines"
   homepage "https://www.csie.ntu.edu.tw/~cjlin/libsvm/"
 
-  # Upstream deletes old downloads, so we need to mirror it ourselves
+  # TODO: Upstream deletes old downloads, so we need a mirror
   url "https://www.csie.ntu.edu.tw/~cjlin/libsvm/libsvm-3.24.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/libsvm-3.24.tar.gz"
   sha256 "d5881a201a4e6227bf8e2f5de7d6eeaef481c6c2bb9540aeca547737844f8696"
   license "BSD-3-Clause"
 

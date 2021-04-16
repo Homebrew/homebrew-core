@@ -22,6 +22,10 @@ class DuoUnix < Formula
   depends_on "libtool" => :build
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     system "./bootstrap"
     system "./configure", "--disable-dependency-tracking",

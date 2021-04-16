@@ -20,7 +20,6 @@ class Aldo < Formula
     sha256 cellar: :any, sierra:        "ad5216c04fce4d1f4da63af2fa4d298a3414073db186991ec4389a942799ddd1"
     sha256 cellar: :any, el_capitan:    "0691c4b9b7ae5b6f104c5b5205f731d4348563b8a9a8c3631395f619ce00aabf"
     sha256 cellar: :any, yosemite:      "f5d55cefcfc65033f50bf2aedb30298db1540a8dd5f5c028feb3b4b1c7e5610b"
-    sha256 cellar: :any, mavericks:     "fea59d120862f6a04da3993dde1b2f6db60183fc6d7f90f77bb622efdf8a16ac"
   end
 
   depends_on "libao"

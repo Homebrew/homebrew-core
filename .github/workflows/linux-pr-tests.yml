@@ -2,9 +2,11 @@ name: GitHub Actions CI - Linux
 on:
   pull_request:
     paths:
+      - .github/workflows/linux-pr-tests.yml
       - "Formula/alsa-lib.rb"
       - "Formula/attr.rb"
       - "Formula/device-mapper.rb"
+      - "Formula/glibc.rb"
       - "Formula/libaio.rb"
       - "Formula/ladspa-sdk.rb"
       - "Formula/libbsd.rb"
@@ -20,9 +22,15 @@ on:
       - "Formula/libpciaccess.rb"
       - "Formula/libseccomp.rb"
       - "Formula/libtirpc.rb"
+      - "Formula/libunwind.rb"
       - "Formula/libva.rb"
       - "Formula/linux-headers.rb"
+      - "Formula/linux-pam.rb"
+      - "Formula/lttng-ust.rb"
+      - "Formula/net-tools.rb"
+      - "Formula/numactl.rb"
       - "Formula/strace.rb"
+      - "Formula/systemd.rb"
       - "Formula/valgrind.rb"
       - "Formula/wayland.rb"
       - "Formula/wayland-protocols.rb"
@@ -54,7 +62,8 @@ jobs:
     if: needs.check_labels_linux.outputs.run-tests
     runs-on: ubuntu-latest
     container:
-      image: homebrew/ubuntu16.04:master
+      image: ghcr.io/homebrew/ubuntu16.04:master
+      options: --user=linuxbrew
     env:
       HOMEBREW_CORE_GIT_REMOTE: ${{github.event.repository.html_url}}
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1

@@ -20,7 +20,6 @@ class Libhid < Formula
     sha256 cellar: :any, sierra:        "b92f274a981788b3092927223099f4f3220877417c766ec8e8bd63171e9a9849"
     sha256 cellar: :any, el_capitan:    "a22388fc2ac89d99ed04449c590b035308a81c8f1a2e80ee68ca64a7e10ced7e"
     sha256 cellar: :any, yosemite:      "4920ff4278cbc288fc8c84ef9b3137d99010ba047d6f072b9a6eccf07588721a"
-    sha256 cellar: :any, mavericks:     "cda30ad7a75c6a9b156806f398d39afd8288dd7c94c6d06685f8168125906cae"
   end
 
   depends_on "libusb"

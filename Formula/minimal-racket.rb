@@ -1,9 +1,10 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/8.0/racket-minimal-8.0-src-builtpkgs.tgz"
-  sha256 "ef1a2dc5af4e68938a12f5fc25d1a9b3a0344e133da9c4d79132e23ac116493c"
+  url "https://mirror.racket-lang.org/installers/8.0/racket-minimal-8.0-src.tgz"
+  sha256 "6092e251b7f067dc2ec554e96fa2f63d619cc1a847166cc2819fb3f4b2896e63"
   license any_of: ["MIT", "Apache-2.0"]
+  revision 2
 
   # File links on the download page are created using JavaScript, so we parse
   # the filename from a string in an object. We match the version from the
@@ -11,15 +12,17 @@ class MinimalRacket < Formula
   # only found on the release page for a given version (e.g., `/releases/8.0/`).
   livecheck do
     url "https://download.racket-lang.org/"
-    regex(/["'][^"']*?racket(?:-minimal)?[._-]v?(\d+(?:\.\d+)+)-src-builtpkgs\.t/i)
+    regex(/["'][^"']*?racket(?:-minimal)?[._-]v?(\d+(?:\.\d+)+)-src\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3875d84e3a363ce0fd7aec130f371196837dfbde82fc3c44d0e2f6c4bbedce45"
-    sha256 cellar: :any, big_sur:       "beb2a0852ecf8684bbe1107a606949b8ca0de51af7162ed5f08c82070256f8d6"
-    sha256 cellar: :any, catalina:      "be1a5ecd7b8e83ee7d16fbdc1c811a68814d38a0ffcc0584641875f6598f8e8c"
-    sha256 cellar: :any, mojave:        "b258ef48248bdba52dfb728ea0c0e14704fc9f794a31fe86e870339a30ff1c8c"
+    sha256 arm64_big_sur: "d25a57fc13b6174372f6fef049e7412188a9b9c2ae6dfa69bf00ddb7db209caf"
+    sha256 big_sur:       "94e7424a7f400a5af5fe569002b6a4a8fd731759a75748efbdc9a490af466175"
+    sha256 catalina:      "b4fe16faf4e0892db92b33963e31c48656e261f0a0ef299451713ff09a23c1d5"
+    sha256 mojave:        "f4e8d5367d0a2d8a33ad2f72e3e84e829a6306a3883c86ba7b5e51686b3bd36f"
   end
+
+  depends_on "openssl@1.1"
 
   uses_from_macos "libffi"
 
@@ -42,6 +45,11 @@ class MinimalRacket < Formula
         --sysconfdir=#{etc}
         --enable-useprefix
       ]
+
+      ENV["LDFLAGS"] = "-rpath #{Formula["openssl@1.1"].opt_lib}"
+      on_linux do
+        ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}"
+      end
 
       system "./configure", *args
       system "make"
@@ -77,5 +85,15 @@ class MinimalRacket < Formula
       default-scope:
         installation
     EOS
+
+    # ensure Homebrew openssl is used
+    on_macos do
+      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/racket -e '(require openssl)' 2>&1")
+      assert_match(%r{loaded: .*openssl@1\.1/.*/libssl.*\.dylib}, output)
+    end
+    on_linux do
+      output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
+      assert_match "init: #{Formula["openssl@1.1"].opt_lib}/#{shared_library("libssl")}", output
+    end
   end
 end

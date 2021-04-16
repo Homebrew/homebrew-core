@@ -14,7 +14,6 @@ class Kytea < Formula
     sha256 sierra:        "d29c61f74da5f4d88f09d8b540943599ce8b6e5062af88b7d5725ea84fb4c603"
     sha256 el_capitan:    "3e0c66a7efb34ddb8e4f80d9b95562779e224271b8d63d38f9bc8176103427e2"
     sha256 yosemite:      "2f2dda314728cd74750db339ebc2d166b8b611ad54668cc3e7b6225d39aec3f5"
-    sha256 mavericks:     "045d0c9ad0cf35e003b8839cb0213e3f49d9107dfbc955e449b36fd4b6596640"
   end
 
   head do

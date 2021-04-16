@@ -20,7 +20,6 @@ class Msdl < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "69b04b6f10ea552b6c862110434cc63dfa6bfccdc8034edd70fed5db0f79e68b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "34ba320e82d1ce97fb0a106abd2c5ec848ba16857730ba51cadd0a030bee62ab"
     sha256 cellar: :any_skip_relocation, yosemite:      "5b8ac26e3adbb19386398a5500a8d5631d426b2e0e951433134b5383b80bb568"
-    sha256 cellar: :any_skip_relocation, mavericks:     "a28059bba6256df7233eacbfdadd9eeec2c3c6ec22038cb06ca49745b347a828"
   end
 
   # Fixes linker error under clang; apparently reported upstream:

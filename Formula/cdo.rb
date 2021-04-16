@@ -4,6 +4,7 @@ class Cdo < Formula
   url "https://code.mpimet.mpg.de/attachments/download/24638/cdo-1.9.10.tar.gz"
   sha256 "cc39c89bbb481d7b3945a06c56a8492047235f46ac363c4f0d980fccdde6677e"
   license "GPL-2.0-only"
+  revision 2
 
   livecheck do
     url "https://code.mpimet.mpg.de/projects/cdo/files"
@@ -11,10 +12,10 @@ class Cdo < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3d7b530430215b221d425f561c801d46cdd53a55d2386a816d1101cb9d1aa62a"
-    sha256 cellar: :any, big_sur:       "bfc4a37a38a61186ca6e8426899136d65bb7d66ab9987c16e5d422e6a955874d"
-    sha256 cellar: :any, catalina:      "955ae6b0e69ba8c32530c732011da18da59088f9758b84e8733ca3be9d973212"
-    sha256 cellar: :any, mojave:        "93c32ad2e784fec206d157300a97bab63cf934ad6da881f2f880fe97133493e4"
+    sha256 cellar: :any, arm64_big_sur: "7a43db43e80e273009a45a8eacae5fc8598650fa48f1a3a8045d2b675fae5883"
+    sha256 cellar: :any, big_sur:       "6f3d10dfcc8bf35c102f3ee8595e95f71e5d6acbcae4e000d7bc7323c50dfbcf"
+    sha256 cellar: :any, catalina:      "8ea69492689eaf80fec52045743e19825b7892bc19ea2f962d2be74dad6a883c"
+    sha256 cellar: :any, mojave:        "7d4033220e3fa18f3e4a18c775e69b1f50e8949a67d6109d6a8544301599cfc9"
   end
 
   depends_on "eccodes"

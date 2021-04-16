@@ -3,16 +3,14 @@ class Docutils < Formula
 
   desc "Text processing system for reStructuredText"
   homepage "https://docutils.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/docutils/docutils/0.16/docutils-0.16.tar.gz"
-  sha256 "7d4e999cca74a52611773a42912088078363a30912e8822f7a3d38043b767573"
-  revision 2
+  url "https://downloads.sourceforge.net/project/docutils/docutils/0.17/docutils-0.17.tar.gz"
+  sha256 "e2ffeea817964356ba4470efba7c2f42b6b0de0b04e66378507e3e2504bbff4c"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bf6ed6207b7aa3f030661e670e69a561af961c6ed3f920489997454c137480b4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5a05e748f77245ccca711d5363d498b4c5c656fed6600bd3b011aa38b3d579fc"
-    sha256 cellar: :any_skip_relocation, catalina:      "b29e292e287170881f5e88d0e05fa41420515081126e486332d9036c8024f9ef"
-    sha256 cellar: :any_skip_relocation, mojave:        "8fe38011ae417e9f2476fdadc5a3c96558fa4f6ce7c86ac3961a71b9b35ecfbc"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "771eee4e347d10e5e9722e2c74f99c31e4c712aa06d422bd1c03903b2bba7b97"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "252d181f5b4eb0c502d9a0bf7c70d7ce7e4d52c18f274cc978227ebc223c4ad9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f7e3b4495a340aa0f7c6564d469f10311fc23b0b3e9d78f0d7c241542eee9c28"
+    sha256 cellar: :any_skip_relocation, catalina:      "12cab4d54dc321757da38bebd43ab58855902e4fd17c3a163802b5d93f357cce"
+    sha256 cellar: :any_skip_relocation, mojave:        "6a66c7b7c241c6057d66df9f5bbf7eb62642d4a3437d207b8b28035bdcc774ce"
   end
 
   depends_on "python@3.9"

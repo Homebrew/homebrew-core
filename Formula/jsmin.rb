@@ -14,7 +14,6 @@ class Jsmin < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "21ce8792fb1bb8b004f884953b2ab97ebd0d00568f5507c3b168f594ebbbd084"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7672c92faa52fbc0684808da9803ebfa8883df0e0243e63a9a0b7c6441218b85"
     sha256 cellar: :any_skip_relocation, yosemite:      "92ce35c390c8a2723e7b7cef8655e61ab9373f274c719ab4c04256cab1c42d1d"
-    sha256 cellar: :any_skip_relocation, mavericks:     "248da380666e6e08f25b75588c32d1dcad3952978e31d2a08c59c99756946bb4"
   end
 
   def install

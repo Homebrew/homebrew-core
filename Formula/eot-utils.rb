@@ -5,6 +5,11 @@ class EotUtils < Formula
   sha256 "4eed49dac7052e4147deaddbe025c7dfb404fc847d9fe71e1c42eba5620e6431"
   license "W3C"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?eot-utilities[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8f017607b1caeb3d53e2054abe9b3a75cd8a513b3ef5874b297f7b076ecd5c9a"
     sha256 cellar: :any_skip_relocation, big_sur:       "146f315f88dffb59c62cd7cec217851ecf5586c42e6317a453b3a635391eab28"
@@ -14,7 +19,6 @@ class EotUtils < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "320909b9801c96b10491dca13de7c793dae8b0d0864839c6b7a65cbaa1e8e036"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b2a4e0f385fa861baf54ac3c483f5599bc96994b3797fe00430653f1a5c28ba4"
     sha256 cellar: :any_skip_relocation, yosemite:      "3276e755d84fda54851733b693e56922ddb597f1ac4f14792f4221ce794832da"
-    sha256 cellar: :any_skip_relocation, mavericks:     "d22988bd2c4ba4bb945a80d997fb06532579a09a3bc0c8be86c832f7bbc57a42"
   end
 
   resource "eot" do

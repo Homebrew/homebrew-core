@@ -14,7 +14,6 @@ class Yamcha < Formula
     sha256 cellar: :any, sierra:      "b9f2e9521d25dafc70617857f32b1742b8bb29046b3ea930eafb3261a0727e36"
     sha256 cellar: :any, el_capitan:  "b65fade9c6ddcced1d3c3fc6700f18ed2ddd16b62437fc71f9a85a3568851520"
     sha256 cellar: :any, yosemite:    "b038ddce247b7f56041c4325fd01c0ab0b32399d1ca602df37b65739a09b74e0"
-    sha256 cellar: :any, mavericks:   "6b43b01d7d2385706e3259a49e8944368edef3a20755ea4093f4e3ebbf56eb27"
   end
 
   depends_on "tinysvm"

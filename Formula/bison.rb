@@ -2,17 +2,18 @@ class Bison < Formula
   desc "Parser generator"
   homepage "https://www.gnu.org/software/bison/"
   # X.Y.9Z are beta releases that sometimes get accidentally uploaded to the release FTP
-  url "https://ftp.gnu.org/gnu/bison/bison-3.7.5.tar.xz"
-  mirror "https://ftpmirror.gnu.org/bison/bison-3.7.5.tar.xz"
-  sha256 "e8c53bc5bc396d636622d0f25e31ca92fd53f00b09629f13ef540d564a6b31ab"
+  url "https://ftp.gnu.org/gnu/bison/bison-3.7.6.tar.xz"
+  mirror "https://ftpmirror.gnu.org/bison/bison-3.7.6.tar.xz"
+  sha256 "67d68ce1e22192050525643fc0a7a22297576682bef6a5c51446903f5aeef3cf"
   license "GPL-3.0-or-later"
   version_scheme 1
 
   bottle do
-    sha256 arm64_big_sur: "7717d17b5ebca46f673d4ba2eb5626c7a726c3e6203db10d0bf21185356841b6"
-    sha256 big_sur:       "b0f383e37c2e1e4bb14b654b07e96e8da7a01bd19b4c41cd5d2d88198dabff90"
-    sha256 catalina:      "b4128068b3902c2f98a3a3d25d19ff63daf61449dfb21146d5b117a34b38a4ef"
-    sha256 mojave:        "c9e6a12dd08f5a956d67e18294d49bc50803bc58decd4a0fb234e0606042e0fa"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ee20f2693b08afe6bf50abad5e9a6adf60b629360c64fb580f0512283d87846f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9f57b6c53d6595330adf79112e72034895f061769ebc8906a9b5afe9f4f873d0"
+    sha256 cellar: :any_skip_relocation, catalina:      "2276ffa48c694379540f63a5241c39b738f1dcb7424aceec54beb2e7be172489"
+    sha256 cellar: :any_skip_relocation, mojave:        "0dca09521f16b6e49e2c21ae9dec6069fee065a9ffd4b8191dca66b1957937d6"
   end
 
   keg_only :provided_by_macos
@@ -21,8 +22,10 @@ class Bison < Formula
 
   def install
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+                          "--enable-relocatable",
+                          "--prefix=/output"
+    system "make", "install", "DESTDIR=#{buildpath}"
+    prefix.install Dir["#{buildpath}/output/*"]
   end
 
   test do

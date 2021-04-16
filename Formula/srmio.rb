@@ -13,7 +13,6 @@ class Srmio < Formula
     sha256 cellar: :any, sierra:      "9ca9c4a2d17c7f431b1ad9899ae97ea22ec44e24a9c0c60220638c0f31f9b2c4"
     sha256 cellar: :any, el_capitan:  "9e45cba0daaa89683552f1feb19cd49c42d27a311113ecb204ae8c2e48231f3f"
     sha256 cellar: :any, yosemite:    "e71a6c2fac5115cae2fe1a8b7eea9fb5800b96f908adf357a667b5df70bd7089"
-    sha256 cellar: :any, mavericks:   "d0c35e531e9defc37adc487e00a18ce46b59181bbdf74d46cbc9f5618153d5e4"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

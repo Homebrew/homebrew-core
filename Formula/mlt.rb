@@ -1,16 +1,15 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/releases/download/v6.24.0/mlt-6.24.0.tar.gz"
-  sha256 "3b977c5632329fca7634d0034162df6d5b79cde3256bac43e7ba8353acced61e"
+  url "https://github.com/mltframework/mlt/releases/download/v6.26.1/mlt-6.26.1.tar.gz"
+  sha256 "8a484bbbf51f33e25312757531f3ad2ce20607149d20fcfcb40a3c1e60b20b4e"
   license "LGPL-2.1-only"
-  revision 2
   head "https://github.com/mltframework/mlt.git"
 
   bottle do
-    sha256 big_sur:  "768152c19d7f31edf5e3c1ed2a3e8f687d8bf655bb6b9877b0bc3cdf4aadb92d"
-    sha256 catalina: "3dfeb31325eaa6dc6665be06488a4edfa0a89b77b9b4390f3b18ac9842d06250"
-    sha256 mojave:   "a6eec67fd8692b5abef46cea80f2fd8396bae6799bcf63607c3006685e665892"
+    sha256 big_sur:  "25813b8268445f3776c439d80edc2ef23728237978ed0823cc5b6369f45ad68b"
+    sha256 catalina: "b3ee3bb7bad07c158d2cccbb5d4629489a4360a58bf0a161a1557745a43f5b57"
+    sha256 mojave:   "6b9b14a33bc1022aed3c57c4553bb106c0de72190ec261cba41a3ef7b62be459"
   end
 
   depends_on "pkg-config" => :build

@@ -14,7 +14,6 @@ class Bittwist < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "b69084cc099ecb0fcea860d9d07fb8a271b1bd645bef603abfe0cb20f4979902"
     sha256 cellar: :any_skip_relocation, el_capitan:    "215b6353dcedd6ad0908e725c68204f2aa8413bf32ae3eb0a3afa96eb6c17d60"
     sha256 cellar: :any_skip_relocation, yosemite:      "279cade886758dfabfbaa319c6afb302c7e254db0377f0eed1f1155afb800175"
-    sha256 cellar: :any_skip_relocation, mavericks:     "3dcd106243667b15b4be07203daffb1c97f815051734813c0e37384c6db3747c"
   end
 
   def install

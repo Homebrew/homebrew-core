@@ -12,7 +12,6 @@ class Flasm < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "423b77912442f613cec430a8eee149783047f6b1a32d82d4b2920969fb6ca77e"
     sha256 cellar: :any_skip_relocation, el_capitan:  "44aa3b83ee62932fea2f1b3139b2fe391c59bba92f890121eca35e2736214b52"
     sha256 cellar: :any_skip_relocation, yosemite:    "b2ae27971e7fa4a731000eeda0cd7a8fb75cbe55d013af3c2d9d0cc3b2bc405f"
-    sha256 cellar: :any_skip_relocation, mavericks:   "73568b00e6ecdde3baa228ef27e2c43a4879cb15bfd3d0ca036510a5d2dcbd3a"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

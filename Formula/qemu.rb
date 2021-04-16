@@ -1,16 +1,32 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-5.2.0.tar.xz"
-  sha256 "cb18d889b628fbe637672b0326789d9b0e3b8027e0445b936537c78549df17bc"
   license "GPL-2.0-only"
+  revision 1
   head "https://git.qemu.org/git/qemu.git"
 
+  stable do
+    url "https://download.qemu.org/qemu-5.2.0.tar.xz"
+    sha256 "cb18d889b628fbe637672b0326789d9b0e3b8027e0445b936537c78549df17bc"
+
+    # remove in next release
+    patch do
+      url "https://git.qemu.org/?p=qemu.git;a=patch;h=0dbce6efb5ff2e7113734d3a0cabbf87fc56feec"
+      sha256 "8ced33c7f829216544b762d8db0f143dbea04fa5a1ce41b491bbd7808f64a944"
+    end
+
+    # remove in next release
+    patch do
+      url "https://git.qemu.org/?p=qemu.git;a=patch;h=cb7abd8319d19000b57ae6c5c474c2635db054c6"
+      sha256 "818ad42f0cb25ab5df37058e27d7f879e4389489f692da4404c1f15dde5b2c4d"
+    end
+  end
+
   bottle do
-    sha256 arm64_big_sur: "87f301721d69b60e9088e4c60da5c905f887cbc504f31185ae663bfa36a11291"
-    sha256 big_sur:       "a9d19e88aaaa1cbca0069e298f09b738b8a0a27157ce893ac322f3d6a24519bc"
-    sha256 catalina:      "2443538eb765864a43207708b0f2eb80a601c4755952c9f3d9c7c85e1b07f2da"
-    sha256 mojave:        "359f0bc3b9f605758f3e34819a69c310f855e8b7ddc5ba45c2f3f4c8cf884f19"
+    sha256 arm64_big_sur: "ed35771ec8725d39c1d8113496d3d5eb826c005707166d4d4245414b72917d6c"
+    sha256 big_sur:       "b3e345a9bdf7b44c9250c3a806d30509903a025c6a10e021804e4b0389906a76"
+    sha256 catalina:      "9c2c7f34bdaa6e2398b1a54385b3e25a2b67c19e3f8ceae8ea9b649b5626448c"
+    sha256 mojave:        "06e7e68f8201f7b3345b74ba5fe5582c42a35da5285cf7914b946403b2c7c797"
   end
 
   depends_on "libtool" => :build
@@ -22,6 +38,7 @@ class Qemu < Formula
   depends_on "gnutls"
   depends_on "jpeg"
   depends_on "libpng"
+  depends_on "libslirp"
   depends_on "libssh"
   depends_on "libusb"
   depends_on "lzo"
@@ -37,18 +54,6 @@ class Qemu < Formula
     sha256 "81237c7b42dc0ffc8b32a2f5734e3480a3f9a470c50c14a9c4576a2561a35807"
   end
 
-  # remove in next release
-  patch do
-    url "https://git.qemu.org/?p=qemu.git;a=patch;h=0dbce6efb5ff2e7113734d3a0cabbf87fc56feec"
-    sha256 "8ced33c7f829216544b762d8db0f143dbea04fa5a1ce41b491bbd7808f64a944"
-  end
-
-  # remove in next release
-  patch do
-    url "https://git.qemu.org/?p=qemu.git;a=patch;h=cb7abd8319d19000b57ae6c5c474c2635db054c6"
-    sha256 "818ad42f0cb25ab5df37058e27d7f879e4389489f692da4404c1f15dde5b2c4d"
-  end
-
   def install
     ENV["LIBTOOL"] = "glibtool"
 
@@ -60,6 +65,7 @@ class Qemu < Formula
       --disable-guest-agent
       --enable-curses
       --enable-libssh
+      --enable-slirp=system
       --enable-vde
       --extra-cflags=-DNCURSES_WIDECHAR=1
       --disable-sdl

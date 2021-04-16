@@ -1,10 +1,9 @@
 class SonarqubeLts < Formula
   desc "Manage code quality"
   homepage "https://www.sonarqube.org/"
-  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.5.zip"
-  sha256 "c7f182c4fc19e8ab5aac1ff5a0107044bde00205ec5f57fad47a5fe967509411"
+  url "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.6.zip"
+  sha256 "9991d4df42c10c181005df6a4aff6b342baf9be2f3ad0e83e52a502f44d2e2d8"
   license "LGPL-3.0-or-later"
-  revision 1
 
   # The regex below should only match the LTS release archive on the Sonarqube
   # downloads page. This is necessary because the usual index page for releases

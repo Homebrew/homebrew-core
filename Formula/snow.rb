@@ -17,7 +17,6 @@ class Snow < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3c975f8c77c450c084b8a468f5d51dd12acaa15dd93dbc440b4523b8dc130316"
     sha256 cellar: :any_skip_relocation, el_capitan:    "5121a5196c5ed20b7496a5190830bf2e49bdd18c3950fc6b1b8fabb239c9ef7c"
     sha256 cellar: :any_skip_relocation, yosemite:      "f4e949f65f946916a5f0b018a75e741336fed9e6434f1802d906e003e9da6b65"
-    sha256 cellar: :any_skip_relocation, mavericks:     "4d6bd4ca3de8ee330802495bdb04b0928afa21bb47a8fb1cde71d8a0c7919ada"
   end
 
   def install

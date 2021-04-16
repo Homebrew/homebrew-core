@@ -14,7 +14,6 @@ class Fprobe < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "fe38758d956c43b2a223734d426c990c63ee44ac643dc769c3d6a0cd4f07ef6b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9b06507a358024842b59c9f4d637b94b3681e720dbd3a1a8bc93d4d34f9a4442"
     sha256 cellar: :any_skip_relocation, yosemite:      "18043cf3fcc930ee1690ee4bc74d92eed3c56a2424f85d58720c56a4b5bcad1d"
-    sha256 cellar: :any_skip_relocation, mavericks:     "71b149edc078b237aecde23a53d76dc9809e3c9efafb32b52c03f3cc4af91c36"
   end
 
   def install

@@ -4,12 +4,13 @@ class SpirvTools < Formula
   url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2020.7.tar.gz"
   sha256 "c06eed1c7a1018b232768481184b5ae4d91d614d7bd7358dc2fe306bd0a39c6e"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "298a193c4afa67d0205bcda76cc8ec2cdbc4c501b426da048ddedd39293db17a"
-    sha256 cellar: :any, big_sur:       "f0d685a0636f3fdc829b3bfd050b9307eaec55d3c14cc268597a5b6337878b00"
-    sha256 cellar: :any, catalina:      "862c589b37c0e016504a21f15db961537fda9233d646181154addd96495da1b5"
-    sha256 cellar: :any, mojave:        "8ba12af92ba9c44685ee2bed8f10ffa2890b0a991d7298659b1188351fc53521"
+    sha256 cellar: :any, arm64_big_sur: "f12ae92b52b9ea8020a5fe07ba44f3e4b465cacd71f23db04340a369f65c7f41"
+    sha256 cellar: :any, big_sur:       "d08bd6ce7194e2d2150a50319133c818b5525b22b78da8530e3a125c34602c29"
+    sha256 cellar: :any, catalina:      "485707bcd26aa53c8b92e3e2f885f0557dc0147eb114af89db8d1340b261b4bf"
+    sha256 cellar: :any, mojave:        "51d1671e0e01d9fa4601c5b153ccc0e372676fb444d19f7d57b51130868eb5d7"
   end
 
   depends_on "cmake" => :build
@@ -40,7 +41,9 @@ class SpirvTools < Formula
 
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
+                            "-DBUILD_SHARED_LIBS=ON",
                             "-DSPIRV_SKIP_TESTS=ON",
+                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF",
                             "-DEFFCEE_BUILD_TESTING=OFF"
       system "make", "install"
     end
@@ -50,8 +53,15 @@ class SpirvTools < Formula
 
   test do
     cp libexec/"examples"/"main.cpp", "test.cpp"
+
+    args = "-lc++"
+
+    on_linux do
+      args = ["-lstdc++", "-lm"]
+    end
+
     system ENV.cc, "-o", "test", "test.cpp", "-std=c++11", "-I#{include}", "-L#{lib}",
-                   "-lSPIRV-Tools", "-lSPIRV-Tools-link", "-lSPIRV-Tools-opt", "-lc++"
+                   "-lSPIRV-Tools", "-lSPIRV-Tools-link", "-lSPIRV-Tools-opt", *args
     system "./test"
   end
 end

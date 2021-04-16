@@ -1,15 +1,15 @@
 class QtUnixodbc < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.0/6.0.2/submodules/qtbase-everywhere-src-6.0.2.tar.xz"
-  sha256 "991a0e4e123104e76563067fcfa58602050c03aba8c8bb0c6198347c707817f1"
+  url "https://download.qt.io/official_releases/qt/6.0/6.0.3/submodules/qtbase-everywhere-src-6.0.3.tar.xz"
+  sha256 "1a45b61c2a349964625c50e3ea40cbb309e269762dd0786397e0e18e7e10d394"
   license all_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a7d220cdec6d94c16541af9a375cf2db9a1aaa76f39be565acabfb9c3f2c5dd4"
-    sha256 cellar: :any, big_sur:       "80f1672f638ca8972b49b13fb410028b00fb439cc77d4ba3b2c9770e2053c79d"
-    sha256 cellar: :any, catalina:      "5e0959c56bde944941a99db8a646f38e3fab0b1bf7d9b634785098fa6fb312c0"
-    sha256 cellar: :any, mojave:        "a021f1e0e28c5277d211b7012b58f2b35e87d38564f701e635775a6fcfe44038"
+    sha256 cellar: :any, arm64_big_sur: "283f99f68d2103de7a1c0d92a15b5f0a671bdf077ddecd536d889b530e3de5d6"
+    sha256 cellar: :any, big_sur:       "5f122f35743e2aad0369e405610dbd37900a3b65be5faf519b24351a3b8c85ee"
+    sha256 cellar: :any, catalina:      "c1203734051509fb542f7ad5cf2b8153461e22700c3756b9a83e86d0955c2b50"
+    sha256 cellar: :any, mojave:        "0797c1a5b97c54806b55038edee9c2e6ade817e8939621ec2dcd0c7a7f209fd2"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -21,19 +21,27 @@ class QtUnixodbc < Formula
     because: "qt-unixodbc and qt-libiodbc install the same binaries"
 
   def install
+    args = std_cmake_args + %W[
+      -DCMAKE_STAGING_PREFIX=#{prefix}
+
+      -DFEATURE_sql_ibase=OFF
+      -DFEATURE_sql_mysql=OFF
+      -DFEATURE_sql_oci=OFF
+      -DFEATURE_sql_odbc=ON
+      -DFEATURE_sql_psql=OFF
+      -DFEATURE_sql_sqlite=OFF
+    ]
+
     cd "src/plugins/sqldrivers" do
-      system "qmake", "--", "ODBC_PREFIX=#{Formula["unixodbc"].opt_prefix}"
-      system "make", "sub-odbc"
-      (share/"qt").install "plugins/"
-    end
-    Pathname.glob(share/"qt/plugins/sqldrivers/#{shared_library("*")}") do |plugin|
-      system "strip", "-S", "-x", plugin
+      system "cmake", ".", *args
+      system "cmake", "--build", "."
+      system "cmake", "--install", "."
     end
   end
 
   test do
     (testpath/"CMakeLists.txt").write <<~EOS
-      cmake_minimum_required(VERSION 3.19.0)
+      cmake_minimum_required(VERSION #{Formula["cmake"].version})
       project(test VERSION 1.0.0 LANGUAGES CXX)
       set(CMAKE_CXX_STANDARD 17)
       set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -70,9 +78,9 @@ class QtUnixodbc < Formula
       }
     EOS
 
-    system "cmake", "-DCMAKE_BUILD_TYPE=Debug", testpath
-    system "make"
-    system "./test"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_BUILD_TYPE=Debug"
+    system "cmake", "--build", "build"
+    system "./build/test"
 
     ENV.delete "CPATH"
     system "qmake"

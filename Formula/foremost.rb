@@ -4,6 +4,7 @@ class Foremost < Formula
   url "https://foremost.sourceforge.io/pkg/foremost-1.5.7.tar.gz"
   sha256 "502054ef212e3d90b292e99c7f7ac91f89f024720cd5a7e7680c3d1901ef5f34"
   license :public_domain
+  revision 1
 
   livecheck do
     url "http://foremost.sourceforge.net/"
@@ -12,11 +13,10 @@ class Foremost < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eaa53c5ccfead5cbb2e83d5b2fe176e55e5b7f1968b8badb07e8ada47aaea79b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c8f1ad7327f5cc999d9c54486bfcf2a1c6ab4ff3e76b455b3ba79f930befba14"
-    sha256 cellar: :any_skip_relocation, catalina:      "9ccac7b43068a6c89c5b48b33af7bfac09ab7e69fb36b1376e79646c6a01f049"
-    sha256 cellar: :any_skip_relocation, mojave:        "a552aed53b1ca671b4c23e0dd61ce2e82ea09a0c2798615a6a44860475aeaea7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b00ca6770529d4df2682f62deda5cee60cd86553d2402e3e0b4411c63ea444a1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "46ddc6fa415ef88bb90b4f14698b8051d6167a7e1763863bbdc4116eed590317"
+    sha256 cellar: :any_skip_relocation, catalina:      "6be1f3b67ee3002ab30f9f7bc667f55b02d4311a99b4f974af34b6d0353a0139"
+    sha256 cellar: :any_skip_relocation, mojave:        "a392a7045508e07e54fd7210de043758e9bf84ff0b0d13867a550a71665c51ef"
   end
 
   def install
@@ -26,7 +26,16 @@ class Foremost < Formula
       s.gsub!(/^RAW_FLAGS =/, "RAW_FLAGS = #{ENV.cflags}")
     end
 
-    system "make", "mac"
+    # Startup the command tries to look for the default config file in /usr/local,
+    # move it to etc instead
+    inreplace "config.c", "/usr/local/etc/", "#{etc}/"
+
+    on_macos do
+      system "make", "mac"
+    end
+    on_linux do
+      system "make"
+    end
 
     bin.install "foremost"
     man8.install "foremost.8.gz"

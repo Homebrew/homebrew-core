@@ -14,7 +14,6 @@ class Jove < Formula
     sha256 sierra:        "a4559511caca50cf08e01049dda2a35a9423b5c976bf0d930ba819afebc1387b"
     sha256 el_capitan:    "c083761f33516e9d18718b6f78f6468b9aa72c0c80bb625987c60c05cc4f1895"
     sha256 yosemite:      "4e741042364faa5ef07f7957d9e811c204561ecad03ebbcd98f82761211ec78c"
-    sha256 mavericks:     "260e22d1b9cabcc9b8cacd415d8e5cf840c6970e302a2840cb4076f3583a591d"
   end
 
   # Per MacPorts, avoid clash with libc getline

@@ -17,7 +17,6 @@ class Gdm < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "1271ce8ff02868997451491819027d10c362a9d6b72d10c9cbdafeb80ebbe747"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b3f081076a078f90f6a534ff30ff268c89baec38bd02ff11c9e02804755c8c33"
     sha256 cellar: :any_skip_relocation, yosemite:      "03f2d8cbcee0c4e41a00ec222f56b7d3204290b075afafe28afe6ced3458ebd8"
-    sha256 cellar: :any_skip_relocation, mavericks:     "a5b111a00c19c74400787394eead8b5a209f9ee64125a5365eae97fa3d78d38a"
   end
 
   depends_on "go"

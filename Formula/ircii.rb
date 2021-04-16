@@ -1,10 +1,16 @@
 class Ircii < Formula
   desc "IRC and ICB client"
   homepage "http://www.eterna.com.au/ircii/"
-  url "https://ircii.warped.com/ircii-20190117.tar.bz2"
-  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20190117.orig.tar.bz2"
-  sha256 "10316f0a3723e4ce3d67fd5a7df10e6bcf30dd0750fb96d5437cacb16b0e9617"
-  revision 1
+  url "https://ircii.warped.com/ircii-20210314.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20210314.orig.tar.bz2"
+  sha256 "866f2b847daed3d70859f208f7cb0f20b58c0933b2159f7ff92a68c518d393a9"
+  license all_of: [
+    "BSD-3-Clause",
+    "BSD-2-Clause",
+    "GPL-2.0-or-later",
+    "MIT",
+    :public_domain,
+  ]
 
   livecheck do
     url "https://ircii.warped.com/"
@@ -12,12 +18,10 @@ class Ircii < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "a2cd8fdd4ad9a08296a510e61772422d95ef1e047405c79d613a4e46ce4e68e3"
-    sha256 big_sur:       "5fa9235fe1b9f86202dabe7b7a62a0e5fc0007e7f211d50ce04c5574dba30af0"
-    sha256 catalina:      "fea5e21aa100bda1104f1d4947376e9af68be118caf89d8b9468b51cbd2059b4"
-    sha256 mojave:        "95424df7e321088386df0d493fdc9a29c0f1955201ce0ce6ba9640a6c9678a9e"
-    sha256 high_sierra:   "ff375e444386f89ee0ae5f3aa3b6f38bfaa8818c3cd2db8065669f8a0f7d0165"
-    sha256 sierra:        "d0739ce549eb581ca3bb13de8c3aa164657235814e3c1edb2a050fde5dbf24f2"
+    sha256 arm64_big_sur: "59c85726eb16390bbeac0309702bf21e76116b552fac81ce36d2d4aa20866318"
+    sha256 big_sur:       "e7eae3e18034f4b13f64f83d538dae8b421245f03b3bd5c0c080a1a77db5414e"
+    sha256 catalina:      "dc265a9d5875eff670c60a9e81bc0185ee74eee142ad09b8f0bc6c20ea663507"
+    sha256 mojave:        "758aa15d57d51e9f2c97115e837cd10c9879bfeb46c84823380291a76573f669"
   end
 
   depends_on "openssl@1.1"

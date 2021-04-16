@@ -3,8 +3,8 @@ class Linkerd < Formula
   homepage "https://linkerd.io"
 
   url "https://github.com/linkerd/linkerd2.git",
-      tag:      "stable-2.9.4",
-      revision: "f9f385a89ff9765dfc100886537ee9e15efbc3cc"
+      tag:      "stable-2.10.1",
+      revision: "d71a8291ae80dc5b1e292e6637255a6c3f18db98"
   license "Apache-2.0"
 
   livecheck do
@@ -13,10 +13,10 @@ class Linkerd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "07a36af650207fe73ad428e9073f9aa4d2be325c2ee9712e4002b765cc451528"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c7febb2775499447608d28e889060b2de09aa55be6ad252343c2af485f54fcf4"
-    sha256 cellar: :any_skip_relocation, catalina:      "edf4fe6c38dd321d0fc79d719463097454cb7c99cbf915d51a2ab4d21d79e53d"
-    sha256 cellar: :any_skip_relocation, mojave:        "5fbc42faf0ffd0e33caf915c030b222cad0c8c5a4d717983a6cb9ab8a498996b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dab52518c3d6c4348643236af6b6a090efa0e6dbc09f557dd75ecdad8ea4858b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7a234b4b47336939afa9534866fb7028196ace96991e26204a8e46d5e83331db"
+    sha256 cellar: :any_skip_relocation, catalina:      "1048915adb1c3e3eb5a6f96aea2a098ea7727a18b1391e94f65e295d09df6d0e"
+    sha256 cellar: :any_skip_relocation, mojave:        "d0337419a80faadeedd0ed54d95f659bab89b16de5e7102000bbbc191b4c0dac"
   end
 
   depends_on "go" => :build

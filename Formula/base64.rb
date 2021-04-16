@@ -18,7 +18,6 @@ class Base64 < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "3cd13d14c225413a5bc3b24f8f5dab48c2a942b64bf9162ad3a8ea8320a74bd1"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0ab522634adf5c9eefb08c11d51d2b6e0477d8ea607afdb8eefe204de764f180"
     sha256 cellar: :any_skip_relocation, yosemite:      "5681332029a2ed1fe1272b2ef9877a6348501897822c6a8955b26bb904426b1a"
-    sha256 cellar: :any_skip_relocation, mavericks:     "42e0864be73790c541237c3a2d41183cf1baacad346cb16c97bd3576f5f50cfc"
   end
 
   def install

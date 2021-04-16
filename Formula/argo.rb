@@ -2,14 +2,14 @@ class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo.git",
-      tag:      "v2.12.10",
-      revision: "f1e0c6174b48af69d6e8ecd235a2d709f44f8095"
+      tag:      "v3.0.1",
+      revision: "a8c7d54c47b8dc08fd94d8347802d8d0604b09c3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "af62c0bb8980ff0de71247bb6686f4f2aff74c038914186282f162b09ea3277c"
-    sha256 cellar: :any_skip_relocation, catalina: "4adff87b23d3a3d44882dcdaddfdba58836ce30a84afdfa5ab528c6fe25c7cab"
-    sha256 cellar: :any_skip_relocation, mojave:   "c7b8ce0247bb4193fc08647baf440b28e471fcc706a66912ab4b766917e29e80"
+    sha256 cellar: :any_skip_relocation, big_sur:  "1590240dc5d0d8d0002d9d829e22fa4b45016fa8fbd0c666ded7ddb81415acad"
+    sha256 cellar: :any_skip_relocation, catalina: "150f94d5ccd484d75adea575692d07bad70348e20ef699eea4779226fc207c70"
+    sha256 cellar: :any_skip_relocation, mojave:   "1a7f5665556a3b2b4a223a0cc036e02c0568e78440abafed0f12ad5da07fe63d"
   end
 
   depends_on "go" => :build
@@ -36,6 +36,6 @@ class Argo < Formula
     # Since it is an empty file we expect it to be invalid
     touch testpath/"kubeconfig"
     assert_match "invalid configuration",
-      shell_output("#{bin}/argo lint --kubeconfig ./kubeconfig 2>&1", 1)
+      shell_output("#{bin}/argo lint --kubeconfig ./kubeconfig ./kubeconfig 2>&1", 1)
   end
 end

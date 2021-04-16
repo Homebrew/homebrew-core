@@ -14,7 +14,6 @@ class Delta < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "07e775a1054966ad2924512386643bc8cb4ef3ad7e12ce9a140015c82fba3072"
     sha256 cellar: :any_skip_relocation, el_capitan:    "202409012500969cfd034c9d44c441a809445a3b367d514357346438aa850f14"
     sha256 cellar: :any_skip_relocation, yosemite:      "d3374cc3e84c93bb84615b1669503ea8b708ab65baf629ee0be9a728b12b10bc"
-    sha256 cellar: :any_skip_relocation, mavericks:     "04102ae55ffc2cc4351816b010544b854c21f1c5e2a462a6af0e57ec2f57b501"
   end
 
   conflicts_with "git-delta", because: "both install a `delta` binary"

@@ -12,7 +12,6 @@ class Winexe < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "e9594f927f9ef58608951175c0bd118b82cf7b25d5b829453195b66f45c2cbc1"
     sha256 cellar: :any_skip_relocation, el_capitan:  "58080b3729c9b261a65c7db2072ec867176bfd6a802c23f9b343feb44592789a"
     sha256 cellar: :any_skip_relocation, yosemite:    "fa7654ed5641e517a658fe8852a9ee5459acca047518c433d989f1aef69a7a6d"
-    sha256 cellar: :any_skip_relocation, mavericks:   "32261fefc9c9fd32e91ddb0776d6e43dcdda32b958f9382a8d784972ba09eb3e"
   end
 
   depends_on "autoconf" => :build
@@ -61,9 +60,9 @@ diff -Naur winexe-1.00-orig/source4/winexe/winexe.h winexe-1.00/source4/winexe/w
 @@ -63,7 +63,7 @@
  int async_write(struct async_context *c, const void *buf, int len);
  int async_close(struct async_context *c);
- 
+
 -struct tevent_context *ev_ctx;
 +extern struct tevent_context *ev_ctx;
- 
+
  /* winexesvc32_exe.c */
  extern unsigned int winexesvc32_exe_len;

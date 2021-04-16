@@ -15,7 +15,6 @@ class Pngnq < Formula
     sha256 cellar: :any, sierra:        "0914104edfd7c6089ae4b053e5a57cf1b5a0d9bb476424ce654a923cafef651c"
     sha256 cellar: :any, el_capitan:    "dd6970fb9055fb1a6702c820e75a3d7b826e165e61c23c17b0845cca780c3da9"
     sha256 cellar: :any, yosemite:      "cba40b130f3d16666580be2b572721d0d8d312f60f62e4fdef656ffa825bc65e"
-    sha256 cellar: :any, mavericks:     "4d9e35ec7c627bd2dc8c1ca26982e9c93e0a74687600830d5d491587ec04f967"
   end
 
   depends_on "pkg-config" => :build

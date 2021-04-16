@@ -3,17 +3,15 @@ class GobjectIntrospection < Formula
 
   desc "Generate introspection data for GObject libraries"
   homepage "https://gi.readthedocs.io/en/latest/"
-  url "https://download.gnome.org/sources/gobject-introspection/1.66/gobject-introspection-1.66.1.tar.xz"
-  sha256 "dd44a55ee5f426ea22b6b89624708f9e8d53f5cc94e5485c15c87cb30e06161d"
+  url "https://download.gnome.org/sources/gobject-introspection/1.68/gobject-introspection-1.68.0.tar.xz"
+  sha256 "d229242481a201b84a0c66716de1752bca41db4133672cfcfb37c93eb6e54a27"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
-  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "2d82497ba4828a88c50e4842a2f78849843b31dc12263591f3e1ce578a61c199"
-    sha256 big_sur:       "e5894b5eec0b33c9d00d0b7b1159cdfe6a2947fcf9ac9ade5ff621f2df7932df"
-    sha256 catalina:      "3e85468a3324cb560775e024c6fd52212af73994898b381faff9aad5baa2fdb6"
-    sha256 mojave:        "1d42d9c900dab307aefddffe723140ec2dfa25201426b4426c76cca28a4c46fa"
-    sha256 high_sierra:   "e22482d7c20cefd6c020eb7bb3406a9da8e159a128a700fa9d13983c3da426e7"
+    sha256 arm64_big_sur: "41f7a223a257f2da33389b61128ece298cde0c63a036ee45f78c9b65ac71ea3f"
+    sha256 big_sur:       "bea661944345fe41b302c36402667d050dccee2f1899a729b01430325a5fc0d0"
+    sha256 catalina:      "165846ffc3a6fbc66ff8cfc7ca40549ee5f807b5314c41501b297fe7d23d9354"
+    sha256 mojave:        "b381b87d399e318d6ee2812d8ef92c2be6031de0f83307296a99f42d612f10ad"
   end
 
   depends_on "bison" => :build

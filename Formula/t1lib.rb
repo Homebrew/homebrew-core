@@ -16,7 +16,6 @@ class T1lib < Formula
     sha256 sierra:        "94789287c849a04f05a40c79940aee6efe3e03318c95db9c2be69ee4e6806d82"
     sha256 el_capitan:    "fa356a5405f5b0cf57c15ebd5b680c215e1e498189914e9b9663eb132655a8c1"
     sha256 yosemite:      "6d1bf242eb7a5201180b9d4b505a7f83663802383d358180cea696714ae57fc8"
-    sha256 mavericks:     "ec107b30d4b9a95bbc094a7a944cab862ed78a875c5ed0002aa7232ec514e9d7"
   end
 
   def install

@@ -4,12 +4,13 @@ class Ola < Formula
   url "https://github.com/OpenLightingProject/ola/releases/download/0.10.8/ola-0.10.8.tar.gz"
   sha256 "102aa3114562a2a71dbf7f77d2a0fb9fc47acc35d6248a70b6e831365ca71b13"
   license "GPL-2.0"
+  revision 1
   head "https://github.com/OpenLightingProject/ola.git"
 
   bottle do
-    sha256 big_sur:  "01d3fbbad1714ae2f0ac902e9770798abd9d18db6412a664ddc528071c64ef4d"
-    sha256 catalina: "4ac72f24e812e7c3c59fb5bef66b9e33757df3231e1c8de4c428126ad1f52dec"
-    sha256 mojave:   "4b897250e2d6f1ca338ca42f420dd4edb00171e6d3c59ef776bd32e9dfe00412"
+    sha256 big_sur:  "32d103661d8d4e991fdf6218a316e7933f50626634d94c0d81ca8a5109e9b14d"
+    sha256 catalina: "7ab0c5c20ff8d8ac86eb67f0fea871d3ad3a074a8e0d7d32ec413980aaf6aa56"
+    sha256 mojave:   "f15710894fb4012a6175f71a9452e7e1ae3b155b88619856c3d9fe66edfef92c"
   end
 
   depends_on "autoconf" => :build
@@ -20,7 +21,7 @@ class Ola < Formula
   depends_on "libmicrohttpd"
   depends_on "libusb"
   depends_on "numpy"
-  depends_on "protobuf@3.6"
+  depends_on "protobuf"
   depends_on "python@3.9"
 
   # remove in version 0.10.9

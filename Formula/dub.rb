@@ -1,8 +1,8 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/v1.24.1.tar.gz"
-  sha256 "1e601b8dbde9ea041715a2be7ac243f573912fe38ce636fa1cacf09605a1cf95"
+  url "https://github.com/dlang/dub/archive/v1.25.0.tar.gz"
+  sha256 "b9ea1a6a3d69ba4a4b522ad1e1e7f9b17c08e0d872b9a6d125ab6bdfc2b42957"
   license "MIT"
   version_scheme 1
   head "https://github.com/dlang/dub.git"
@@ -13,9 +13,9 @@ class Dub < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "d79d4b4e6b2ed53f6908798ca24c178fe6f8eeaa67fc4f0d1fb5a3433051abce"
-    sha256 cellar: :any_skip_relocation, catalina: "5a6fa5e698960fcdb23b66cd43f105bae80e1cb7488e3a496836dbd0987fd7dd"
-    sha256 cellar: :any_skip_relocation, mojave:   "55fd6eeaff82c03155343f219d1afdc9ac5c1f0e49f0d1a94fa563576a6f4906"
+    sha256 cellar: :any_skip_relocation, big_sur:  "eea63ed91407b03fcb3ce5a812efea3b759356719f41aef40289502d5a0ffb8e"
+    sha256 cellar: :any_skip_relocation, catalina: "1204eeec46c4a66a55f1834f78dd6ac72fb5a713ee5bf5f2c4ce335e7f84fe8e"
+    sha256 cellar: :any_skip_relocation, mojave:   "8b11bd3b2eda8084026f030de3a4e2f90f6da010239caa6141cb09650f6015ed"
   end
 
   depends_on "dmd" => :build

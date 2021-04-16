@@ -21,6 +21,6 @@ class Nef < Formula
     system "#{bin}/nef", "markdown",
            "--project", "#{share}/tests/Documentation.app",
            "--output", "#{testpath}/nef"
-    assert_path_exist "#{testpath}/nef/library/apis.md", :exist?
+    assert_path_exists "#{testpath}/nef/library/apis.md"
   end
 end

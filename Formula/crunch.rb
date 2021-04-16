@@ -15,7 +15,6 @@ class Crunch < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "737d46b90aaa933abe03e111ece79e3f6a0ecb372cc1903b9dba3a33208111b9"
     sha256 cellar: :any_skip_relocation, el_capitan:    "84c0c275e63cc5c27fd468587f67ae5f1ab31a3923fe2eda27b4e33477356844"
     sha256 cellar: :any_skip_relocation, yosemite:      "406d94f00713b83bbf41b36453605a5f85f154f88aec9b3ae23e7646ddcc03c1"
-    sha256 cellar: :any_skip_relocation, mavericks:     "379e5d6a2a8a9baaa9b337f3e702e25ccca6025fd8b49e2685031e67d8ce8666"
   end
 
   def install

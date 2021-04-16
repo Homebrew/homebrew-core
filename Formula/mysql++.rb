@@ -6,6 +6,11 @@ class Mysqlxx < Formula
   license "LGPL-2.1-or-later"
   revision 2
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?mysql\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "84187bd98edc4c965935f5cbd38572bbc01c755bd8fa31808571c66ccd6fe589"
     sha256 cellar: :any, big_sur:       "8217141b2c7f02ee63c256b20bac582b8dcfca969b3bc1658cbe3a234e5eff98"

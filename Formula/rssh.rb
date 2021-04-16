@@ -13,7 +13,6 @@ class Rssh < Formula
     sha256 sierra:        "aebe589ee047200b1fd0486d3a1fb08c4a601366391e80bcd1e7dcb87ca456e0"
     sha256 el_capitan:    "23891b0317ef29a36b0b8ee9f140193d17ae616983c13f2179d5b317b33e1eee"
     sha256 yosemite:      "a63ead463b79c5375e0b919976173db13a236fcea06c4fa038a719375a550ca9"
-    sha256 mavericks:     "8b36773d40fb20e51fc0f277fe7930540dfc6e1cec0f6c5d19d20242ce1de3b9"
   end
 
   # Submitted upstream:

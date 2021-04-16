@@ -1,10 +1,9 @@
 class Root < Formula
   desc "Object oriented framework for large scale data analysis"
   homepage "https://root.cern.ch/"
-  url "https://root.cern.ch/download/root_v6.22.06.source.tar.gz"
-  sha256 "c4688784a7e946cd10b311040b6cf0b2f75125a7520e04d1af0b746505911b57"
+  url "https://root.cern.ch/download/root_v6.22.08.source.tar.gz"
+  sha256 "6f061ff6ef8f5ec218a12c4c9ea92665eea116b16e1cd4df4f96f00c078a2f6f"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/root-project/root.git"
 
   livecheck do
@@ -13,21 +12,10 @@ class Root < Formula
   end
 
   bottle do
-    sha256 big_sur:  "b3789e14153fb1ff967322a6fab0ce3f2248103e6d50d04ba7da1326411935a9"
-    sha256 catalina: "3d01849d366be92882668a7c0a270371d50fa803c782d8ea4020800f37b7504d"
-    sha256 mojave:   "7d9440901fb0440771ea3ca6906f53f8f3bba6610564fb47962890f955d40d40"
-  end
-
-  # https://github.com/Homebrew/homebrew-core/issues/30726
-  # strings libCling.so | grep Xcode:
-  #  /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1
-  #  /Applications/Xcode.app/Contents/Developer
-  pour_bottle? do
-    reason "The bottle hardcodes locations inside Xcode.app"
-    satisfy do
-      MacOS::Xcode.installed? &&
-        MacOS::Xcode.prefix.to_s.include?("/Applications/Xcode.app/")
-    end
+    sha256 arm64_big_sur: "6a4af2c361ac4f65f523b5487a93afe1ff7ea3939997bd376d6971a1de6dd1fb"
+    sha256 big_sur:       "6f3b9e7ce0cc079488e9e4b9d6ca8a0b948c0d605887ff95f40a881c0645a1b6"
+    sha256 catalina:      "7fdc50aa5b0b2889c0b93f77c8dad5b8f838b924663f4d5b38fe2f423ef6effd"
+    sha256 mojave:        "385d6278a1dd4c09fd1031b8c443e19b7ec4482ad85105c0d0f06bc6dea60229"
   end
 
   depends_on "cmake" => :build
@@ -39,9 +27,6 @@ class Root < Formula
   depends_on "gl2ps"
   depends_on "graphviz"
   depends_on "gsl"
-  # Temporarily depend on Homebrew libxml2 to work around a brew issue:
-  # https://github.com/Homebrew/brew/issues/5068
-  depends_on "libxml2" if MacOS.version >= :mojave
   depends_on "lz4"
   depends_on "numpy" # for tmva
   depends_on "openssl@1.1"
@@ -52,9 +37,17 @@ class Root < Formula
   depends_on "xz" # for LZMA
   depends_on "zstd"
 
+  uses_from_macos "libxml2"
+
   conflicts_with "glew", because: "root ships its own copy of glew"
 
   skip_clean "bin"
+
+  # Can be removed post 6.22.08
+  patch do
+    url "https://github.com/root-project/root/commit/d113c9fcf7e1d88c573717c676aa4b97f1db2ea2.patch?full_index=1"
+    sha256 "6d0fd5ccd92fbb27a949ea40ed4fd60a5e112a418d124ca99f05f70c9df31cda"
+  end
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"

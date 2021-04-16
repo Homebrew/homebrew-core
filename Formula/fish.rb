@@ -1,8 +1,8 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.2.0/fish-3.2.0.tar.xz"
-  sha256 "4f0293ed9f6a6b77e47d41efabe62f3319e86efc8bf83cc58733044fbc6f9211"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.2.2/fish-3.2.2.tar.xz"
+  sha256 "5944da1a8893d11b0828a4fd9136ee174549daffb3d0adfdd8917856fe6b4009"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,10 +11,10 @@ class Fish < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7071739f327b442f6d1bec65332c33d29cb0833fd601a215d4d3492dbf188614"
-    sha256 cellar: :any, big_sur:       "9891254ae3507ac79a050fc5ef5a837820ab78f06ad7ab5495a61a3e83bfb970"
-    sha256 cellar: :any, catalina:      "dffc718a031961c893db21b189b2ae81a4ed65b7f1d1ae77ac7a83fd6a62038a"
-    sha256 cellar: :any, mojave:        "274a7590ffb5f2252ed2fc1ca97164c8ec77808312e48a2a0d794987e692767b"
+    sha256 cellar: :any, arm64_big_sur: "f5c944adf3c809bb40601157c0879e7c1425e515d1eb94b262c8e2df58d91855"
+    sha256 cellar: :any, big_sur:       "3b580443ffe91b87d60d7bb5a85493a138fe6d731ac883f0769d6b06e1cb9a76"
+    sha256 cellar: :any, catalina:      "150c9da4f2786cee5a8da6e5988b14f42213b2d3f051038f223c4986253d6d61"
+    sha256 cellar: :any, mojave:        "04a1913039b23d096c7ed2481fdfb55f0cf16cb69761aaf85eff65095a1bdf7d"
   end
 
   head do
@@ -29,16 +29,11 @@ class Fish < Formula
   uses_from_macos "ncurses"
 
   def install
-    # In Homebrew's 'superenv' sed's path will be incompatible, so
-    # the correct path is passed into configure here.
     args = %W[
       -Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d
       -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
       -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
     ]
-    on_macos do
-      args << "-DSED=/usr/bin/sed"
-    end
     system "cmake", ".", *std_cmake_args, *args
     system "make", "install"
   end

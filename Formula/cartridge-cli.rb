@@ -2,23 +2,21 @@ class CartridgeCli < Formula
   desc "Tarantool Cartridge command-line utility"
   homepage "https://tarantool.org/"
   url "https://github.com/tarantool/cartridge-cli.git",
-      tag:      "2.6.0",
-      revision: "6d409e4a0139238441420f7fc58453cb21488035"
+      tag:      "2.8.0",
+      revision: "9fa5c75b1798b7a389cd920940815ddb5806681a"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "875c19e2fcb15d07b7ce167d6657af81e7137c5b80c77b33533792a307e06dce"
-    sha256 cellar: :any_skip_relocation, catalina: "361e9cfc5f12e0980f3ac052603c9dca0c52e62ed4c70e01b3b07faf554b5924"
-    sha256 cellar: :any_skip_relocation, mojave:   "8e2ec16a6bed6b6762530ebf34ee9084b33417f56f975a5270e35b115bca8107"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6f30ae36e39757a217274b9b0aebb2a30510764e49fe89c315f421db9b212d7c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ef6c940e204492247c90baf942931a681e0fd47c1e3c1613a0646956214eb6a4"
+    sha256 cellar: :any_skip_relocation, catalina:      "48bebb906f118f7e1c98c53f0bbe47ffd00227f427c2c21de08a0e1a497a813a"
+    sha256 cellar: :any_skip_relocation, mojave:        "1728106730b9c39fb5fbd3b61c88cee9824e32e4a8537057ca09c13c3312117f"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
 
   def install
-    # Remove this when upstream ships a go.sum
-    system "go", "mod", "download"
-
     system "mage", "build"
     bin.install "cartridge"
     system bin/"cartridge", "gen", "completion"

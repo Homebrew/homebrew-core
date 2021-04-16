@@ -1,16 +1,16 @@
 class Quill < Formula
   desc "C++14 Asynchronous Low Latency Logging Library"
   homepage "https://github.com/odygrd/quill"
-  url "https://github.com/odygrd/quill/archive/v1.6.1.tar.gz"
-  sha256 "282f54a67fecaa7f094cf986a9e2f7fab342f39e9167c76d7619ad531d0bbaa5"
+  url "https://github.com/odygrd/quill/archive/v1.6.2.tar.gz"
+  sha256 "9c27cd7fdf4459c75d1722dd9f2226b5e82ad96b5dbf58559bc8ba3df6af8839"
   license "MIT"
   head "https://github.com/odygrd/quill.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "95fe2829bbb6e32603f6643bcee27c1d35cedbbe2a0fd46c68c9e761a69a2e20"
-    sha256 cellar: :any_skip_relocation, big_sur:       "68eb91bec1bb6aa4940c8810fcc52249d481d561d330c3b47e1a81bf7ad04e05"
-    sha256 cellar: :any_skip_relocation, catalina:      "f2cbdd35b47985eb42e2704dcf66350bdedf9e81d71e2d180ed2c584882056ff"
-    sha256 cellar: :any_skip_relocation, mojave:        "d44cf769025e1d4b1a0cb54e4f6868bbfd48f7b2f7b21d9043add433d3163244"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "01409dc369de300077b23a0c5bf2fb6bf677ed66fca43712f5fe084d47361fec"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b02566a1d53b41e8d09e828183cce4be7e80533671f952173576db728c4927f3"
+    sha256 cellar: :any_skip_relocation, catalina:      "0745cc442c7e9f71dc999cc47acc6b6147d8ccbdf0c1261da7fdebd526c53ff8"
+    sha256 cellar: :any_skip_relocation, mojave:        "dbcd03e89bea2d0817561537857268a7cbb216efaa1b182cfe297ed8f3968737"
   end
 
   depends_on "cmake" => :build

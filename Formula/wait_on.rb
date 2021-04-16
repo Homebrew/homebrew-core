@@ -14,7 +14,6 @@ class WaitOn < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "31a21b915c4f8d901ed5d51d14f3f2f81993ed07891832fdbfb314b7cc8599e5"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f362694f30021c32557e23b5add36ac4bdfbcabc6056996c5d23fc125527d85d"
     sha256 cellar: :any_skip_relocation, yosemite:      "1719c6f8843af24cc8a985ee3e246fd10c6fe7b08297a1086e0636ed437199fd"
-    sha256 cellar: :any_skip_relocation, mavericks:     "91acf6c588980ddfa44f17778a82eac20e0b1cc8401f21d2c145060a83fae97b"
   end
 
   depends_on "bsdmake" => :build

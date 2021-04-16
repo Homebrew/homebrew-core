@@ -1,17 +1,17 @@
 class Passenger < Formula
   desc "Server for Ruby, Python, and Node.js apps via Apache/NGINX"
   homepage "https://www.phusionpassenger.com/"
-  url "https://github.com/phusion/passenger/releases/download/release-6.0.7/passenger-6.0.7.tar.gz"
-  sha256 "e1e723cc6eae054afcd1585d734cfb167e5c33a8629b83976ee21257080e9b13"
+  url "https://github.com/phusion/passenger/releases/download/release-6.0.8/passenger-6.0.8.tar.gz"
+  sha256 "1e73767025b299c6f8421c2a0df1ca7163b767de47ffab0c6239deb7b809d16d"
   license "MIT"
-  revision 5
+  revision 1
   head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8f354081b97b232e32e7626ccd14b65bbaa68a17519aafe6623aacd857ffd0ee"
-    sha256 cellar: :any, big_sur:       "34fdc3dd3e67735f40222e2225f12c0f8444b73fcb0269802cdfb2492dbd8162"
-    sha256 cellar: :any, catalina:      "d8d6f9dccbcb36837fb012d0662286d84beade457b130019d7cdf5296b49eba5"
-    sha256 cellar: :any, mojave:        "bc2589b6a29730bd35246ce6d81688fc3630a6927592bcbabd08ed692cf66f48"
+    sha256 cellar: :any, arm64_big_sur: "90d075517637a179cc31640a9e1bcad4f59e2c92aeec1ed7753db1854d51ee3d"
+    sha256 cellar: :any, big_sur:       "f4e7d77ef21c07f2a03333a2190d5fe4c8c3a51dc603131a171e9f0b2b812591"
+    sha256 cellar: :any, catalina:      "c28d5417754fe2d985798595fd2f2e792ade03635ba35c77c621303f19ec462a"
+    sha256 cellar: :any, mojave:        "7f894527ee04c1e5772279f5fac912dd67587db4a4f8a7bb3f1692fba9fb4117"
   end
 
   # to build nginx module

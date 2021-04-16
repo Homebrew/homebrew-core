@@ -4,14 +4,14 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.0/VTK-9.0.1.tar.gz"
   sha256 "1b39a5e191c282861e7af4101eaa8585969a2de05f5646c9199a161213a622c7"
   license "BSD-3-Clause"
-  revision 5
+  revision 8
   head "https://github.com/Kitware/VTK.git"
 
   bottle do
-    sha256 arm64_big_sur: "edd03b21ced84d45a3105ee23ce3d525153fd12eccbd25a86e1089fb41e4b9b4"
-    sha256 big_sur:       "a415f22f71a62fc66b88dc8feede4f577008c21218a19c3987831575d3db5fa0"
-    sha256 catalina:      "79c11f73d11607c0c2b82034d00f3bed74e1c566b81de849568e23b32ddc5f68"
-    sha256 mojave:        "7c1429e3bd0d8414fa3b8999ffeec5d10bfda64b8740659226ba707dff6e6cc6"
+    sha256 arm64_big_sur: "90f55e4a0eacf63b2b8e8364f9417c4f3eb601d7f1adadd2d24e2f85af9396e6"
+    sha256 big_sur:       "f3fc43c294014f9f964261abe7779436b8e1d753af6622c816a16c7f761ae0df"
+    sha256 catalina:      "fcc4ff8ed4e7f95239ca8db06cee98b3a2988e8cf4f5e40fc4f14256f1e4a7f5"
+    sha256 mojave:        "4f2c3aa0e5cf517e3e393a66b0b8af110fcf324a10785fefab5129ba8f5bd6b9"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -30,7 +30,7 @@ class Vtk < Formula
   depends_on "lz4"
   depends_on "netcdf"
   depends_on "pugixml"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
   depends_on "qt@5"
   depends_on "sqlite"

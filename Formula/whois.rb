@@ -1,16 +1,16 @@
 class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://packages.debian.org/sid/whois"
-  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.5.8.tar.xz"
-  sha256 "cd9e7bad3b6968182bfcc311e22be3aec9a974397377d748845147884ce07547"
+  url "https://deb.debian.org/debian/pool/main/w/whois/whois_5.5.9.tar.xz"
+  sha256 "69088241ed33d2204f153c8005b312a69b60a1429075ff49f42f9f1f73a19c19"
   license "GPL-2.0-or-later"
   head "https://github.com/rfc1036/whois.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7929a883bd68f11f716cfcb23479a4d4bce9187ea1d0c3521aa08702352cddb9"
-    sha256 cellar: :any, big_sur:       "7cae3b5c25d64da91303a6f54110d571eeaabafecaae2341b4717a9be9b0a3ae"
-    sha256 cellar: :any, catalina:      "8829fbca0176db80e9b242a91a512cb6d3e45fb9f7872110673de3ff44b97684"
-    sha256 cellar: :any, mojave:        "9e961538d4264696764c92244c2d6de3e42a4ff6330a74de133cfb2f669adb89"
+    sha256 cellar: :any, arm64_big_sur: "131eca7a6a0466f410a0ad4f00e54de60fd5dfd2eca4f94ebfdbbe7dd28c65b5"
+    sha256 cellar: :any, big_sur:       "9ced0ec07b88b9915a574e2f5e31b66f76e8ddd0d7b678452cef175ef2e5cb14"
+    sha256 cellar: :any, catalina:      "961d72a35be229f81b4202f171054cb234b15ece9df017b125b0bd8798a5f4ca"
+    sha256 cellar: :any, mojave:        "7b8d36fae69c3c4ec0d77bd7f713ff0a587101053f2de8f5e155a7f040e5eaba"
   end
 
   keg_only :provided_by_macos
@@ -19,9 +19,17 @@ class Whois < Formula
   depends_on "libidn2"
 
   def install
-    ENV.append "LDFLAGS", "-L/usr/lib -liconv"
+    on_macos do
+      ENV.append "LDFLAGS", "-L/usr/lib -liconv"
+    end
 
-    system "make", "whois", "HAVE_ICONV=1"
+    have_iconv = "HAVE_ICONV=1"
+
+    on_linux do
+      have_iconv = "HAVE_ICONV=0"
+    end
+
+    system "make", "whois", have_iconv
     bin.install "whois"
     man1.install "whois.1"
     man5.install "whois.conf.5"

@@ -14,7 +14,6 @@ class Flake < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "b2eca0967c020b082f7d7f8c4d15765204ea63aa9332012074c852967a0fee07"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e521dae57260b2a71f161f16609530c854ff8ebee4252b0addf3c16b5abc982c"
     sha256 cellar: :any_skip_relocation, yosemite:      "af8e2e83dd3c82e8cc26be91ca64e24571b34185d4f8f007725b54d37f38e2b1"
-    sha256 cellar: :any_skip_relocation, mavericks:     "caae2cab90e1e392a93d47b88c5c9a9242c3740ca95e767bca61d9d267f337f9"
   end
 
   def install

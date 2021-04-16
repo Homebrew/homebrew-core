@@ -4,12 +4,13 @@ class OcamlZarith < Formula
   url "https://github.com/ocaml/Zarith/archive/release-1.12.tar.gz"
   sha256 "cc32563c3845c86d0f609c86d83bf8607ef12354863d31d3bffc0dacf1ed2881"
   license "LGPL-2.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e7889e5af493114347ecb79b2055497248c79b8feabb40ce94334c97df66999e"
-    sha256 cellar: :any, big_sur:       "44f2142166493aa89d13d042e76238c4aada07b461c71f6e2c0558a9ef16ba15"
-    sha256 cellar: :any, catalina:      "3e5a15ac5d4739779053dccc3d32a6db4d8a3e2f0dd907e1b522a07d9f40ecf2"
-    sha256 cellar: :any, mojave:        "eb1c4799beaf503ca9f29eb92ba9d6e84a01ee38c164f8e60aa4a4f6921ec153"
+    sha256 cellar: :any, arm64_big_sur: "0c3cce93d88d87b8b128773e559179cb422b954e4454c25202b17b3445e4af0f"
+    sha256 cellar: :any, big_sur:       "503c0161d43c38d83ca74b3860158f16a57fa17cd65d8c5a2d7faf3c833617d6"
+    sha256 cellar: :any, catalina:      "3a8f9f2889bf97dc71933e7c4c2e924dcde23f89c76febce45e6e48c0324f319"
+    sha256 cellar: :any, mojave:        "8a5b07c6216820cf1929027f3768d0eceeca1676ff17cf5a5cd923fa34e1746d"
   end
 
   depends_on "ocaml-findlib" => :build

@@ -15,7 +15,6 @@ class Binkd < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d685be9cb23ecb98dc34c2ea185c47ec39e54db1a8ca88782d11cbd96c78862a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d69c67a3cb68789a0a96196b5d2d92e44e6dd9bab3eb870ec9727987ae538c35"
     sha256 cellar: :any_skip_relocation, yosemite:      "e56862a339a1de58072d3ffb23981bff13a1eb69322c5e12e47949c171d5ceff"
-    sha256 cellar: :any_skip_relocation, mavericks:     "55690b37076bc21a7764f85ff97957bc0403b4b45ed6b12585c800d72785bfdb"
   end
 
   def install

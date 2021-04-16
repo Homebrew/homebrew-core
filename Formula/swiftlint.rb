@@ -2,15 +2,15 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      tag:      "0.43.0",
-      revision: "da2ca76953d6465309978053925c1849328e37f6"
+      tag:      "0.43.1",
+      revision: "180d94132758dd183124ab1e63d6aa8e10023ec2"
   license "MIT"
   head "https://github.com/realm/SwiftLint.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "40380ba3f38a0b1d3abcd3a091f4962f82e8140cf3fc19b46851a3fed9fb22ea"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2beddd14fbfe3299c7f3172052c91c132b7cfc61f9846caa01b0c9ae088b3512"
-    sha256 cellar: :any_skip_relocation, catalina:      "52a94e468e6b409912c528f05eb5148d65d896895d7037f6cbe6760c1557f679"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e1b633e61793b924f5875e4812b49184c91fc6580bfd497ab650fe13fbbe8d8f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "90faabe65db0f6bc43c3752b3b6d541e7e23cd0f368035dcef57503d74ed9581"
+    sha256 cellar: :any_skip_relocation, catalina:      "c1396dec887bf6d7986c35f38101955fb1a5c527ad4cd459174b3841dfa62239"
   end
 
   depends_on xcode: ["11.4", :build]

@@ -1,16 +1,16 @@
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v3.5.tar.gz"
-  sha256 "e636d4035499a112a0ad33f1557838132ed2e39d8857c5b219714fe9f64681f3"
+  url "https://github.com/jarun/nnn/archive/v4.0.tar.gz"
+  sha256 "a219ec8fad3dd0512aadae5840176f3265188c4c22da3b17b133bac602b40754"
   license "BSD-2-Clause"
   head "https://github.com/jarun/nnn.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "bbf45030eafc9b51f479a0c8c023e2ce99e4d9e290e5db991b95698faff4f9d8"
-    sha256 cellar: :any, big_sur:       "5c64cb1e6f452482a993008ab9c040a1bc5d6ce1a9420ff968e2331d3dadcdb9"
-    sha256 cellar: :any, catalina:      "272c2795afd613f2d2d8ac9f9a892b1cfcdc06577edec50b15cedb43b7a9593d"
-    sha256 cellar: :any, mojave:        "5805e7ec131062a1b9444d7ec1bae509ab540a00fe333ca3fb20caa0a32ccd2e"
+    sha256 cellar: :any, arm64_big_sur: "3121884b9703f5bc511499904d0cd65c941ce22cb80eeb0a0c650e75de0788e3"
+    sha256 cellar: :any, big_sur:       "e6ab60e20d2ec6e9ce86c7774843141e19ac3f71fdb1022b9e8a9206ee2a8f3a"
+    sha256 cellar: :any, catalina:      "abd54ea24cb7ed46303b925f22466592c0ceaffbe8b8a8ec67ac6421c05bf64a"
+    sha256 cellar: :any, mojave:        "16a859bc4fafbf733092be7c8b03a738f165b358f87b1738dee7b349e2e1c47a"
   end
 
   depends_on "gnu-sed"
@@ -30,9 +30,12 @@ class Nnn < Formula
     # Testing this curses app requires a pty
     require "pty"
 
-    PTY.spawn(bin/"nnn") do |r, w, _pid|
-      w.write "q"
-      assert_match testpath.realpath.to_s, r.read
+    (testpath/"testdir").mkdir
+    cd testpath/"testdir" do
+      PTY.spawn(bin/"nnn") do |r, w, _pid|
+        w.write "q"
+        assert_match "~/testdir", r.read
+      end
     end
   end
 end

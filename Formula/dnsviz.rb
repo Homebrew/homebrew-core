@@ -3,15 +3,15 @@ class Dnsviz < Formula
 
   desc "Tools for analyzing and visualizing DNS and DNSSEC behavior"
   homepage "https://github.com/dnsviz/dnsviz/"
-  url "https://files.pythonhosted.org/packages/ef/17/6c951f6815b01d6a35603e6c4cf15ff697a64273cd2717e1445946d8123f/dnsviz-0.9.2.tar.gz"
-  sha256 "e2d2751f2e2facc2a49ff30f75a0771f4156dee0bda9e888bd8f09fca7212795"
+  url "https://files.pythonhosted.org/packages/1f/76/c64f7b445d5a869a65c633ff9f5c04c8d72a75a5ca11e9a18fd104edfaf8/dnsviz-0.9.3.tar.gz"
+  sha256 "6f38f3d71b2b9ca3f4cffb003c828574d0c413bcc5112bb52921fa9db4e69259"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e5a805a5cafe74d1364077901b26f0899538424af771ee4115b5f323344cf5e3"
-    sha256 cellar: :any, big_sur:       "9dbc6cd49867764480cf482dafa8a94eae56c1263b38f649e1e14795abcf1210"
-    sha256 cellar: :any, catalina:      "1add24b1469e000acdbc8da9e4b9272c84d7fc54052e45d50405419f1add8d07"
-    sha256 cellar: :any, mojave:        "5e7c4ffb3e9356299e9ff04efc282b2e809a06313c47b7f0c26628cf785177ee"
+    sha256 cellar: :any, arm64_big_sur: "3db7cc32c451761409b59b1ee15b41b46392892ba76859a4f48b1029216b15bb"
+    sha256 cellar: :any, big_sur:       "5f8ab0c06c72486bfaee86b789c15482ecae3a78ecc6912c4986aff5d3bb8819"
+    sha256 cellar: :any, catalina:      "b4a5a0647e673fb99c41a261bddd92c0b1d601ba539d18cfe1ae9a9abd0e2037"
+    sha256 cellar: :any, mojave:        "05b5c37f1c92e3992e27b6348097bb11234ae934e0fa3c797d745987b2c8d6ea"
   end
 
   depends_on "pkg-config" => :build

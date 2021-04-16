@@ -1,10 +1,9 @@
 class Bigloo < Formula
   desc "Scheme implementation with object system, C, and Java interfaces"
   homepage "https://www-sop.inria.fr/indes/fp/Bigloo/"
-  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo4.3e.tar.gz"
-  version "4.3e"
-  sha256 "43363cb968c57925f402117ff8ec4b47189e2747b02350805a34fa617d9f618a"
-  revision 1
+  url "ftp://ftp-sop.inria.fr/indes/fp/Bigloo/bigloo-4.4b.tar.gz"
+  sha256 "a313922702969b0a3b3d803099ea05aca698758be6bd0aae597caeb6895ce3cf"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www-sop.inria.fr/indes/fp/Bigloo/download.html"
@@ -12,28 +11,44 @@ class Bigloo < Formula
   end
 
   bottle do
-    sha256 catalina:    "06c2d3728e778db36954a6fca8ecc8cb663d90122a884cfb0fc96ce1de36663a"
-    sha256 mojave:      "5de69de8a1afee85a7b6af5d024c80ff3ceb7acc8e391c20fd24398122cfad9a"
-    sha256 high_sierra: "26a5f98ee71f7794ced067f64a695f040ef271413ac58b0e0cbfa883ab44ee73"
-    sha256 sierra:      "2844e66dfeecc9cfe4ad85558f2d2be450b5aea3acad7461402e9fcb7fb5bbdd"
+    sha256 big_sur:  "4ec0eade2fd256f4d25e4026200158b7ccc1a06b4c9554b503daaa9e7b0e8cab"
+    sha256 catalina: "a64de44ab2d8674bde6500e0ac8646950f930d3296597ac6afee994ef3752096"
+    sha256 mojave:   "73d13d970992f108d38bfac032f9ee0d37414e7bb6a8af093e199a69fc08bee5"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => :build
 
+  depends_on "bdw-gc"
   depends_on "gmp"
+  depends_on "libunistring"
+  depends_on "libuv"
+  depends_on "openjdk"
   depends_on "openssl@1.1"
+  depends_on "pcre"
+
+  # Fix a configure script bug. Remove when this lands in a release:
+  # https://github.com/manuel-serrano/bigloo/pull/65
+  patch do
+    url "https://github.com/manuel-serrano/bigloo/commit/e74d7b3443171c974b032fb74d965c8ac4578237.patch?full_index=1"
+    sha256 "9177d80b6bc647d08710a247a9e4016471cdec1ae35b390aceb04de44f5b4738"
+  end
 
   def install
+    # Force bigloo not to use vendored libraries
+    inreplace "configure", /(^\s+custom\w+)=yes$/, "\\1=no"
+
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --prefix=#{prefix}
       --mandir=#{man1}
       --infodir=#{info}
-      --customgc=yes
       --os-macosx
+      --customgc=no
+      --customlibuv=no
       --native=yes
       --disable-alsa
       --disable-mpg123
@@ -43,15 +58,6 @@ class Bigloo < Formula
     ]
 
     system "./configure", *args
-
-    # bigloo seems to either miss installing these dependencies, or maybe
-    # do it out of order with where they're used.
-    cd "libunistring" do
-      system "make", "install"
-    end
-    cd "pcre" do
-      system "make", "install"
-    end
 
     system "make"
     system "make", "install"

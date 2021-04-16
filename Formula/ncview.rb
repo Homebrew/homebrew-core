@@ -2,10 +2,9 @@ class Ncview < Formula
   desc "Visual browser for netCDF format files"
   homepage "https://cirrus.ucsd.edu/ncview/"
   url "ftp://cirrus.ucsd.edu/pub/ncview/ncview-2.1.8.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/ncview-2.1.8.tar.gz"
   sha256 "e8badc507b9b774801288d1c2d59eb79ab31b004df4858d0674ed0d87dfc91be"
   license "GPL-3.0-only"
-  revision 4
+  revision 6
 
   # The stable archive in the formula is fetched over FTP and the website for
   # the software hasn't been updated to list the latest release (it has been
@@ -17,11 +16,10 @@ class Ncview < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "0c7b273ab3f81d8dece1035fb0170542287492dad9573dd2c9bd4726b9ac82cb"
-    sha256 big_sur:       "62940cf53207de388e665e1d1376e48c684af71732422fff53c5ab660be55648"
-    sha256 catalina:      "cd138ec52b70136fc6593d390a384490921b5cdfea173396e776f10f2fbc8466"
-    sha256 mojave:        "17d275efffcb75749da6a8ad011fcc675e2db41b57fd1948e4a7951a1495aa08"
+    sha256 arm64_big_sur: "891d85685f499d86b5666a688f1fed2e406a05082a0bd3916b5da325230d6c4b"
+    sha256 big_sur:       "6129b591b2b0238a0e61ec86ebc5d875a494e677963656b679300e67f874c13c"
+    sha256 catalina:      "93d6850d0542b7ea67b442f1ea80d63b80a04c872f0c4d25d0713f3fba5b92a2"
+    sha256 mojave:        "0b8b3c63895071a605b80ab1c1576356d1bfe634857e78f2cf3cb22742de09c2"
   end
 
   depends_on "libice"

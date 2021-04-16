@@ -15,7 +15,6 @@ class Libcsv < Formula
     sha256 cellar: :any, sierra:        "6d89efd634be6551134f099e458225325d76d69f55ba37676a3ccf7bea6c4e59"
     sha256 cellar: :any, el_capitan:    "3f69bb369fafd5c207f1c8ea500dc1e725e8e7dfe005215ff14b61fc25ac28e6"
     sha256 cellar: :any, yosemite:      "ace67ec808ae6963525164b700ace39c8552f0c68364415401fea532f3ea2fe2"
-    sha256 cellar: :any, mavericks:     "7c32b16f3528f615214dcca0633995ec01a70ff4db8badd09cbcc3a884fe64fc"
   end
 
   def install

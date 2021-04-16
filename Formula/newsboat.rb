@@ -1,16 +1,16 @@
 class Newsboat < Formula
   desc "RSS/Atom feed reader for text terminals"
   homepage "https://newsboat.org/"
-  url "https://newsboat.org/releases/2.22.1/newsboat-2.22.1.tar.xz"
-  sha256 "8920f41cc53776b67c0e85ad1696b0967f6ac248f3b8913d977942c15d75e690"
+  url "https://newsboat.org/releases/2.23/newsboat-2.23.tar.xz"
+  sha256 "b997b139d41db2cc5f54346f27c448bee47d6c6228a12ce9cb91c3ffaec7dadc"
   license "MIT"
   head "https://github.com/newsboat/newsboat.git"
 
   bottle do
-    sha256 arm64_big_sur: "e9fcc698d8778d553246fb3d1bf53976818e59376c56e3c28bdc041f34526a6c"
-    sha256 big_sur:       "5f662f131861dd00d6f25122f7f790e6db3a6a8769406ef5740b55f061f8ec24"
-    sha256 catalina:      "180667d4eb94c77f4fbc43e542b823fccbd91b020e341a5fa132d4789d105c49"
-    sha256 mojave:        "bbf2e67497c2c4985401be6d13effd2794ed2619e2a2cbdb014e30f98faa3830"
+    sha256 arm64_big_sur: "096bfe4251f6d377dfb23ead04216d44bf1c569a33d2777436d201492c13a349"
+    sha256 big_sur:       "70d56cc3656fc51a42d53b70860c0de373e9b3792f20aefb0452d03e7213bd52"
+    sha256 catalina:      "a32a919a3a00dc668a3534e5711b393779827409662d92955ae14b4f98e059b4"
+    sha256 mojave:        "83ec08468bdeadf15000a2ed60a79930144be95bd7022dbc2efa2e53803d47e4"
   end
 
   depends_on "asciidoctor" => :build

@@ -3,7 +3,7 @@ class LibtorrentRakshasa < Formula
   homepage "https://github.com/rakshasa/libtorrent"
   url "https://github.com/rakshasa/libtorrent/archive/v0.13.8.tar.gz"
   sha256 "0f6c2e7ffd3a1723ab47fdac785ec40f85c0a5b5a42c1d002272205b988be722"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -23,6 +23,8 @@ class LibtorrentRakshasa < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
+
+  uses_from_macos "zlib"
 
   conflicts_with "libtorrent-rasterbar",
     because: "they both use the same libname"

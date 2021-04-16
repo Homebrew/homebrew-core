@@ -13,7 +13,6 @@ class Bsdsfv < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "38b9d278b430e250b384c5ba2baf3e74dfe0771c5ceea45686022ecb01616ee2"
     sha256 cellar: :any_skip_relocation, el_capitan:    "404ec03e044a019a487adfab90012a29a6655fe67b907d9b4e9a46d4f6c57a9b"
     sha256 cellar: :any_skip_relocation, yosemite:      "fd15cb46a9499bcd1182e8fe4a6ae1de9fb77ced85186601ef6c6579a22d9c51"
-    sha256 cellar: :any_skip_relocation, mavericks:     "7d0590952682b7baf619122a2942dacbf7ed455263c49b0314a85be7d51b1dc1"
   end
 
   # bug report:

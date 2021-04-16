@@ -2,8 +2,8 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/2.69/asymptote-2.69.src.tgz"
-  sha256 "466456077477f9593785af41fcc45bb9a1c0253b40796982d78bf2c7804df79d"
+  url "https://downloads.sourceforge.net/project/asymptote/2.70/asymptote-2.70.src.tgz"
+  sha256 "f5cc913a858c33e92f79ab421d354c0fe2babd87f452ae9dff729a902aa80c3f"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -12,10 +12,10 @@ class Asymptote < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "5bc32ee475579206caed260136147e6bdf78033ae6802869610f0a819a8d3aca"
-    sha256 big_sur:       "1fca67852324d36dcef54330e3fff2dc63cfab1febb181fe32331fab68e3b1dc"
-    sha256 catalina:      "eb767b712aef26dbc03011b252816a75d11cb1b3f4d9283a8d5c471f107b321c"
-    sha256 mojave:        "93bba0f8c39057a76fb2d5bc13aa8e67d0b7a6ee831d26b70e3b23f5521672ea"
+    sha256 arm64_big_sur: "51b5992d115848c87754a30dc0341c73119294eb80f882b2ccf363215b276715"
+    sha256 big_sur:       "d6631cfaf7909cfd8a38c7e655411b69248d395531589f7562b66b36ad9ccedf"
+    sha256 catalina:      "b906f3cbeda2861975792c6279df7c2e22738c8ae232bfb5e4cf4ec1a37c0725"
+    sha256 mojave:        "c7d65e0093978726a703585d8155862b1b7e10ba47f531f907c106b65bead23c"
   end
 
   depends_on "glm" => :build

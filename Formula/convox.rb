@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/3.0.45.tar.gz"
-  sha256 "3647585b31b092aa3c3c7243d3eefb2e83c4593a782a8904dec165f454e24f6a"
+  url "https://github.com/convox/convox/archive/3.0.47.tar.gz"
+  sha256 "cf09fba7d21a09f4a7441012f509b3ecc634fcb2267b891af9014cdc20cff4e6"
   license "Apache-2.0"
   version_scheme 1
 
@@ -12,10 +12,10 @@ class Convox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5c5484e46e8ba32c0babe936c951fecab00171b55d8dca49ff920b853529960"
-    sha256 cellar: :any_skip_relocation, big_sur:       "46c750d57369ba9176f837d83674253af263658acf216880e1038b98f4303504"
-    sha256 cellar: :any_skip_relocation, catalina:      "606a7cc3e37e5007e37eae7e6d2f10add0cbf1f272f6158560e01796b1fd2c18"
-    sha256 cellar: :any_skip_relocation, mojave:        "2b0e40402da441ecc00a803aa71c8bac1ee05ef2ca101b4fc9f60cd4e763c847"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b740523173869753a3b43ec76ec8e028eef6af39c1f90a0149954c93f9200e7a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e2bb3e77077bc4c94f82f1f4bfc10128518fb18b3aaa16145fe315111e828efd"
+    sha256 cellar: :any_skip_relocation, catalina:      "28f76e47ecc9b86f98a1d5c229bc8ad24c0d9863ac74c67ef823480df7465e04"
+    sha256 cellar: :any_skip_relocation, mojave:        "58d17a811bc76d9f4f5c668eb42163ee38eefbd4bd1eaaf352965653e65f3a55"
   end
 
   depends_on "go" => :build

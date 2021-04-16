@@ -1,8 +1,8 @@
 class GstLibav < Formula
   desc "GStreamer plugins for Libav (a fork of FFmpeg)"
   homepage "https://gstreamer.freedesktop.org/"
-  url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.3.tar.xz"
-  sha256 "ad20546bcd78ac1e7cf194666d73c4f33efeb62647d2b6af22993b540699e91c"
+  url "https://gstreamer.freedesktop.org/src/gst-libav/gst-libav-1.18.4.tar.xz"
+  sha256 "344a463badca216c2cef6ee36f9510c190862bdee48dc4591c0a430df7e8c396"
   license "LGPL-2.1-or-later"
   head "https://gitlab.freedesktop.org/gstreamer/gst-libav.git"
 
@@ -12,10 +12,10 @@ class GstLibav < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f5a635d58ea18362c44dc87e551eb56bfcb4efcd2ce69b32106195e030925a02"
-    sha256 cellar: :any, big_sur:       "2824b4c1998b68774cffceb17354178f1959e615505eac53637a227e78492b2c"
-    sha256 cellar: :any, catalina:      "bf46288c33d59607e167f02490448593c56d1875583c66774605dcc2941f10aa"
-    sha256 cellar: :any, mojave:        "5ecbcf85f03499e057ddb9b2b8a4364ac68918d3da6df74a51f883bc6b48e9a4"
+    sha256 cellar: :any, arm64_big_sur: "56c5478c06c134d37b87bc02470d60406465ef1ee464540bf1ac8d4fc1d51873"
+    sha256 cellar: :any, big_sur:       "a2893bd458ce04c3cfca61b0ef0e719eb8826fa05d45d0fed94ef08630d5e008"
+    sha256 cellar: :any, catalina:      "b089298e3075f69f65253c7144f488f4379a922964acc9a3cc533b4dad7c99e9"
+    sha256 cellar: :any, mojave:        "e4700197650b63949b5c6d494d3b77e51ba94326f6afe723dd8efdd2744f6ad0"
   end
 
   depends_on "meson" => :build

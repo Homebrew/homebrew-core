@@ -20,7 +20,6 @@ class Gplcver < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a0f14e7d01b7098ed6e770b21df05f03d7506ca0bab3d1f84845ca9ca7d1eb5b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "a094d355a75148ed611e9668841a33810a1a1226bc6651b8d0c5e4868867e7fd"
     sha256 cellar: :any_skip_relocation, yosemite:      "fc4f5fc0f1bb13139740ae6f2966bd4e3adb57c7a9803b84f946d95fcb40dd2a"
-    sha256 cellar: :any_skip_relocation, mavericks:     "0fc13b457839ee25fc9d0b35338ada6af67d07c8e3fb4ea1ac6f7d454f13475c"
   end
 
   def install

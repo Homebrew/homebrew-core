@@ -13,7 +13,6 @@ class Henplus < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "2a66a4eeecd45406dc022d6f22a17aaf1ff3a22277296620a2771fb26a580afe"
     sha256 cellar: :any_skip_relocation, el_capitan:  "529052e2809a6c83143e68f2352defef79b72a72c91a27a16c5d0b778a51d729"
     sha256 cellar: :any_skip_relocation, yosemite:    "8c3373e1459910f5c2df7c1849a881cf4caf71f75830f18b92bff9013b3178e8"
-    sha256 cellar: :any_skip_relocation, mavericks:   "21f7ee166b94b30dd78cee8a6757fecd285544b8b12b332db9141e6a94eb29a7"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

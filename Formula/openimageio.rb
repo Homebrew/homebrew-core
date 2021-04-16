@@ -1,8 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-2.2.12.0.tar.gz"
-  sha256 "6010b0642b5bf9c045c397a0f0a7efec232fdaffb49984d449073d006e9004a6"
+  url "https://github.com/OpenImageIO/oiio/archive/Release-2.2.13.1.tar.gz"
+  sha256 "7f810124e866ac14ad9c11b0ab528a6ed4c8e62a190cc44a77eed8159f57405c"
   license "BSD-3-Clause"
   head "https://github.com/OpenImageIO/oiio.git"
 
@@ -13,9 +13,9 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 big_sur:  "3df83ab1ae7839a94676222239912f28cc4192ba977fe44acebd07c20b678f76"
-    sha256 catalina: "8c040bf300de4c716578d20cd0cab302ede08588761fa1f56e45ca98d245cbab"
-    sha256 mojave:   "940b43b047c56509bb52fe39912ac9cf3cfec63525e706a9f1ff0df79c15c48f"
+    sha256 big_sur:  "f10b10d96c92d1e40e31579e4f1c5202924fc3e6bb4d3ebd2c802955fed38a29"
+    sha256 catalina: "8d51cd8c2797482fb1422219f2d358bc2db0c1c20460c09a5f9028248fe62acf"
+    sha256 mojave:   "fd7c09c1507afd7b579a6841333c873f281f1a388ab8c636079957d86c0266a8"
   end
 
   depends_on "cmake" => :build
@@ -54,6 +54,9 @@ class Openimageio < Formula
     # CMake picks up the system's python dylib, even if we have a brewed one.
     py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     py3prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+    on_linux do
+      py3prefix = Formula["python@3.9"].opt_prefix
+    end
 
     ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"
 

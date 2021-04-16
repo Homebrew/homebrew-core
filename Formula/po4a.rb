@@ -8,18 +8,19 @@ class Po4a < Formula
   url "https://github.com/mquinson/po4a/releases/download/v0.63/po4a-0.63.tar.gz"
   sha256 "e21be3ee545444bae2fe6a44aeb9d320604708cc2e4c601bcb3cc440db75b4ce"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mquinson/po4a.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "3152d1ecad710bc92baf67a2230c8d550721bd087933ebde47b789909a5df95b"
-    sha256 cellar: :any, catalina: "e1330eb9308bb3ceb2ba294ffab28ae0b09e3590945c68eee5903a72bf417957"
-    sha256 cellar: :any, mojave:   "15009f06cb3de22d3f3a0afeea85710e1f6accb398d6b418cdbc7a024c98de9e"
+    sha256 cellar: :any, arm64_big_sur: "2398df84c002595f8c107f4ed67ba619a3767733129ef6cc7fdf745397dcd249"
+    sha256 cellar: :any, big_sur:       "1dc5ba26111d1e86260b4287078bc0cd07cf385d6e3696a0523a8ca4c186e1e9"
+    sha256 cellar: :any, catalina:      "7872aead33c8fa1574b49c4afab8b99cecae8d7c6dbe806b1fb5ff05bd47b401"
+    sha256 cellar: :any, mojave:        "8b5c19ed360b43c0256a1b0a92bc6bf427c330b6f0cc93421bceb7a0d3c224e5"
   end
 
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
-
-  uses_from_macos "perl"
+  depends_on "perl"
 
   resource "Locale::gettext" do
     url "https://cpan.metacpan.org/authors/id/P/PV/PVANDRY/gettext-1.07.tar.gz"
@@ -27,8 +28,6 @@ class Po4a < Formula
   end
 
   resource "Module::Build" do
-    # po4a requires Module::Build v0.4200 and above, while standard
-    # MacOS Perl installation has 0.4003
     url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
     sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
   end
@@ -70,13 +69,6 @@ class Po4a < Formula
     resources.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "NO_MYMETA=1"
-
-        # Work around restriction on 10.15+ where .bundle files cannot be loaded
-        # from a relative path -- while in the middle of our build we need to
-        # refer to them by their full path.  Workaround adapted from:
-        #   https://github.com/fink/fink-distributions/issues/461#issuecomment-563331868
-        inreplace "Makefile", "blib/", "$(shell pwd)/blib/" if r.name == "TermReadKey"
-
         system "make", "install"
       end
     end

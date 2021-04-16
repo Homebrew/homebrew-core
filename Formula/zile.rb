@@ -4,23 +4,24 @@ class Zile < Formula
   # Before bumping to a new version, check the NEWS file to make sure it is a
   # stable release: https://git.savannah.gnu.org/cgit/zile.git/plain/NEWS
   # For context, see: https://github.com/Homebrew/homebrew-core/issues/67379
-  url "https://ftp.gnu.org/gnu/zile/zile-2.4.15.tar.gz"
-  mirror "https://ftpmirror.gnu.org/zile/zile-2.4.15.tar.gz"
-  sha256 "39c300a34f78c37ba67793cf74685935a15568e14237a3a66fda8fcf40e3035e"
+  url "https://ftp.gnu.org/gnu/zile/zile-2.6.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/zile/zile-2.6.1.tar.gz"
+  sha256 "bfbacddf768e39173a27467924fe409990a3e97be3632a02979865fbb9af0277"
   license "GPL-3.0-or-later"
   version_scheme 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "ed302040d0b263f1de4344e0826afe53462001af631becf80e8e6c5d97058719"
-    sha256 cellar: :any, big_sur:       "45c8f93c5e1d937a6f945343db7615c4fc1fe4d287b1b5777a9578234a2ef645"
-    sha256 cellar: :any, catalina:      "49fb51f48ad1526f27c94f357653f0f2503a5bca98c6550378468ea513b32aed"
-    sha256 cellar: :any, mojave:        "161f09a4b1f56d85b644b994bbf0a7449e710b30dee08db4ab88e4e3db501c59"
+    sha256 cellar: :any, arm64_big_sur: "2e077bc929d8ad6f54297ca6fa9f8d0e32b2166c619376faa871a93409ae7231"
+    sha256 cellar: :any, big_sur:       "ddc19628311876015e1bd06b3c4caece27ab8ac3422f5cf0b01dd64bc5260049"
+    sha256 cellar: :any, catalina:      "1d684c5d64bc4e3d01a5f6accc8fc6b74f2f703eefb06a41668a2e3a2c27be56"
+    sha256 cellar: :any, mojave:        "bf159c4da03f13e6db8cfba823b774495489bfa15480ecaa3428c4cd4909b468"
   end
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
+  depends_on "glib"
+  depends_on "libgee"
 
   uses_from_macos "ncurses"
 

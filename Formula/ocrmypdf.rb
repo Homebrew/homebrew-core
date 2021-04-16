@@ -3,16 +3,15 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/09/8c/6ff143d243a8e7456c7d8e03812c8f8ae91141f0e337f50a0e8c4914c890/ocrmypdf-11.7.1.tar.gz"
-  sha256 "a403699d54d63ff32ebc117ce5dde4d3c870ab69d5ef3e63c24ef12bc7b9b7e9"
+  url "https://files.pythonhosted.org/packages/f6/0a/04b78c479bae669a0250022ea695b3d8a8e8b2c8f8bdeb2061df2b4085f9/ocrmypdf-11.7.3.tar.gz"
+  sha256 "329b070959731c277f0df91cfe011dd4da0d6534f23a739a3aa77bdab00fbc2f"
   license "MPL-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "00bce2b3b0d2305f27da13eca4107a696b848554fc1d3fac22d23fc77fb89eac"
-    sha256 cellar: :any, big_sur:       "d0ce9f51be2d39ee22aa500000a9e4e26cfd4b09de18c0cba78c174cfed403bf"
-    sha256 cellar: :any, catalina:      "905c37b626ad139a0fe13380df46dfead0b862e64480b116c07805590b7ac805"
-    sha256 cellar: :any, mojave:        "66c8b4a39b56dc7f2e832482500091bca9f99667e57f0c42cd3354f46dfaa7e2"
+    sha256 cellar: :any, arm64_big_sur: "f430f0ad0571047852e0b74f1d15409810af03d462bcb091ccefe49e52f607e9"
+    sha256 cellar: :any, big_sur:       "8ab27a358dc76e23185109369195229a961998946c566198ba743a9388bc65a3"
+    sha256 cellar: :any, catalina:      "97169aad00a334e85a51d9f275e7ba6d950bb139321b0d9817dcfaab8e36ade9"
+    sha256 cellar: :any, mojave:        "5d4cfa767680e259b9fde387bece8879b2dce9095e21894745466dc89ccb3d4b"
   end
 
   depends_on "pkg-config" => :build
@@ -35,6 +34,12 @@ class Ocrmypdf < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   resource "cffi" do
     url "https://files.pythonhosted.org/packages/a8/20/025f59f929bbcaa579704f443a438135918484fffaacfaddba776b374563/cffi-1.14.5.tar.gz"
@@ -77,8 +82,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/d2/44/b3b5d49a41a0793d3621c0614e07028b9640c49e744f80b46a4fe17bb946/pikepdf-2.8.0.post1.tar.gz"
-    sha256 "f742acfd2c41ceff0ade2dec8ddc4875ce0a75f51f5e943b56f4d741ab54b122"
+    url "https://files.pythonhosted.org/packages/c6/7c/521a6920d5373c1fb8bfe8077162184b9c2b3d9ee2e20d4b47bc9cc3da55/pikepdf-2.9.1.tar.gz"
+    sha256 "99c19cf0dd0fc89fc9e6a0de61e974e34d4111dd69802aeaee3e61fb1a74a3d8"
   end
 
   resource "Pillow" do
@@ -97,8 +102,8 @@ class Ocrmypdf < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/6f/72/f5b6bd34e3caf60406adf1c99c91045b8b148ce377d9ecec5e682659b192/reportlab-3.5.63.tar.gz"
-    sha256 "6abe1f858a1df75e66023205f5f70c80db57dafbff5085f9374ea81a28594830"
+    url "https://files.pythonhosted.org/packages/fd/e0/77859a867ed4e792c209ba3f7f3d1e50de2088762f108b8ed6fbb7079b46/reportlab-3.5.66.tar.gz"
+    sha256 "63fba51babad0047def4ffaa41d0065248ca39d680e98dc9e3010de5425539b4"
   end
 
   resource "sortedcontainers" do
@@ -116,11 +121,19 @@ class Ocrmypdf < Formula
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
-        sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
-        s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
-        s.gsub! "xcb.h", "probably_not_a_header_called_this_eh.h"
-        s.gsub! "ZLIB_ROOT = None",
-                "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        on_macos do
+          sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
+          s.gsub! "openjpeg.h", "probably_not_a_header_called_this_eh.h"
+          s.gsub! "xcb.h", "probably_not_a_header_called_this_eh.h"
+          s.gsub! "ZLIB_ROOT = None",
+                  "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        end
+
+        on_linux do
+          s.gsub! "ZLIB_ROOT = None",
+                  "ZLIB_ROOT = ('#{Formula["zlib"].opt_prefix}/lib', '#{Formula["zlib"].opt_prefix}/include')"
+        end
+
         s.gsub! "JPEG_ROOT = None",
                 "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
         s.gsub! "FREETYPE_ROOT = None",

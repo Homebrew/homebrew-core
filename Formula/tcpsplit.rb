@@ -13,7 +13,6 @@ class Tcpsplit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2e9d12ee609d30075f141527c3804ce78a8c312e5b72ce6eb655ed08521faf45"
     sha256 cellar: :any_skip_relocation, el_capitan:    "5014edcbc87913b2103c9347dd4b132ca1b4c3b1a007c853eda75213481e7d30"
     sha256 cellar: :any_skip_relocation, yosemite:      "c87bf331cb20c6301b922ee3fb37f0c92957f3e32d0391b07aa7b36980b20819"
-    sha256 cellar: :any_skip_relocation, mavericks:     "ec4011f01c1d8c2f71172956b70b99336aa8ec89372d37c1678caa23d6986f1a"
   end
 
   def install

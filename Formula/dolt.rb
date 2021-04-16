@@ -1,8 +1,8 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://github.com/liquidata-inc/dolt"
-  url "https://github.com/dolthub/dolt/archive/v0.24.1.tar.gz"
-  sha256 "229660073eca1b141bd0daf12dde23d78f204539c6f75c424cc0fd915f0fa781"
+  url "https://github.com/dolthub/dolt/archive/v0.26.0.tar.gz"
+  sha256 "2239ceb95403f0c4a0efb63d423636e19ee8c0f7f4ec0d1f5be8e3aeac995292"
   license "Apache-2.0"
 
   livecheck do
@@ -11,10 +11,11 @@ class Dolt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a8d10767c6dd5b0ee09ad83fced22d078d4fadec8c31655b4d9a295fd9c77bdb"
-    sha256 cellar: :any_skip_relocation, big_sur:       "002f2ae9e834468a46b062b315764d679d00a2cb6c6bf075a528b1c93b6e1f19"
-    sha256 cellar: :any_skip_relocation, catalina:      "6adef5f64b4428c768a5299718ec2a32d97dfc363216ac4aaf2e3c45da2ca783"
-    sha256 cellar: :any_skip_relocation, mojave:        "81df0f4ba77a87e7dd5b6f07040866b2fdf3dfb7299e189a8fe54f0f8dd9a2df"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bc8dd62c305a68894dfb96dbf7410cbd1455fbb2efaf9436709da25a087e115b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "043c2bfb7a5232061a3835069da9cbfb19563b640bd5db71a2cb779489c6deac"
+    sha256 cellar: :any_skip_relocation, catalina:      "2dbca5bd86b0847e959b40c992f8587ddf82a4d5229874dc649a151ae19cac8f"
+    sha256 cellar: :any_skip_relocation, mojave:        "72172f6014012f5c08ef58c11009bccce8468f965251907dad1fce8ba5916eea"
   end
 
   depends_on "go" => :build

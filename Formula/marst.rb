@@ -13,7 +13,6 @@ class Marst < Formula
     sha256 cellar: :any, sierra:      "23fecf40d2b6ac2c986d61789bcb9dcf9b0e4926521294ea23dc7703f042bcb2"
     sha256 cellar: :any, el_capitan:  "c1a70d467ff3117c2a31bd52a659fbff2293f6f17b11cd4b370e9e8220a483c8"
     sha256 cellar: :any, yosemite:    "6d8834fc64e1da37fce2ed9cae3c9f0e0dbfcb41f213c55c8413c2a522ed8811"
-    sha256 cellar: :any, mavericks:   "7fddf8023d17c4bfcb6fc4141c6202b3e856ee2ecd684236daef058592b79335"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

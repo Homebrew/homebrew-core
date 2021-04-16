@@ -21,7 +21,6 @@ class PdflibLite < Formula
     sha256 cellar: :any, sierra:      "466701d2cac2d101b470fbdb122ba3a8f4f9169fe6a28fc8846859d8f7cfafc8"
     sha256 cellar: :any, el_capitan:  "c05f42bfb25d1fa204440a1d421af10f9bf853e94dd17c7325e0382d7683d589"
     sha256 cellar: :any, yosemite:    "e2e8891b33b4f3f2bab8f809e19d9df0450c1e872d39e6d5090094630210ee45"
-    sha256 cellar: :any, mavericks:   "d4506f8523153b8e452c17f2897d10ce526476ed8e27c913a9325aac2f2b4f0f"
   end
 
   def install

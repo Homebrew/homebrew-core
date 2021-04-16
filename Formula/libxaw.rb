@@ -1,16 +1,15 @@
 class Libxaw < Formula
   desc "X.Org: X Athena Widget Set"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXaw-1.0.13.tar.bz2"
-  sha256 "8ef8067312571292ccc2bbe94c41109dcf022ea5a4ec71656a83d8cce9edb0cd"
+  url "https://www.x.org/archive/individual/lib/libXaw-1.0.14.tar.bz2"
+  sha256 "76aef98ea3df92615faec28004b5ce4e5c6855e716fa16de40c32030722a6f8e"
   license "MIT"
 
   bottle do
-    sha256 arm64_big_sur: "0f7f9dc31f8aa0f810ca434cf6bc941ff28d9904ed8cd48c18671584f5d27c04"
-    sha256 big_sur:       "c791467b848242806594004d828fc9134f44a6ed8ea8b2ce555fbabaf3373bcb"
-    sha256 catalina:      "cdaab6ac0ae83f6c7fd615f00f1ac9d4111d7912b4d4c3f1d6065f7bc3735485"
-    sha256 mojave:        "d62b47d62a98b1e98d674ee06861dd7d0a2d52ae177df35e10efc850b94f0147"
-    sha256 high_sierra:   "1c6e777ab323b157620636022ac3f19bf83c39fa3ee97768b52c82abaa870281"
+    sha256 arm64_big_sur: "6f9bd6bef10340da3fc23f24d0c4a4e3358dcbada118a8b74c4e05d901ac0dd6"
+    sha256 big_sur:       "bceab125f7dc2fde90b23c68daf8d3a6b5fff65a0f3f3895abe750a74a328dc6"
+    sha256 catalina:      "345ff906f7375ae71a550298fd482c849994ed25d0263822fe7ce8f3740db9f2"
+    sha256 mojave:        "16cd8aec41f9df9798704213ac41b7e9013d1a8af9f4bda90bfb13d50e55f057"
   end
 
   depends_on "pkg-config" => :build

@@ -4,15 +4,17 @@ class Cocoapods < Formula
   url "https://github.com/CocoaPods/CocoaPods/archive/1.10.1.tar.gz"
   sha256 "7629705179e4bfd894bebe4ed62c28d1cc539103f6d1924f4c8127f46cbd13e1"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_big_sur: "08794cfd260bf206eed3496805816661da367bffdf9af748cd812b1c40a0de75"
-    sha256 big_sur:       "0caa8953926c827f62d53f9767aed0a904604c0425ea0557b24d738240db809a"
-    sha256 catalina:      "3a05cecba1a15c8cad8baa04b4e6be6eef8159c061b37096012de75132e7cd74"
-    sha256 mojave:        "0883b18c75e7cade594eced3d828ccacefafbbb3ead61667bca21e1fbc94970d"
+    sha256 cellar: :any, arm64_big_sur: "bf7b573944dfb6dee095e847102eb5595cafc69e56bd3e0f19e2bbe77b0b3e49"
+    sha256               big_sur:       "49e9b04847f8a3a667b3fa53cc1f66b001e461108c90704abe2981e7a560b0c7"
+    sha256               catalina:      "93a20a23596270d968a7b76f40f6a092218c75f53546ac8f0c84002df8d10974"
+    sha256 cellar: :any, mojave:        "d573ae11f98d5313564180a02c158173df17222cf81e7be1b8a370373e3e48fb"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "ruby" if Hardware::CPU.arm?
 
   uses_from_macos "libffi", since: :catalina
   uses_from_macos "ruby", since: :catalina

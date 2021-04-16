@@ -1,15 +1,15 @@
 class Sratoolkit < Formula
   desc "Data tools for INSDC Sequence Read Archive"
   homepage "https://github.com/ncbi/sra-tools"
-  url "https://github.com/ncbi/sra-tools/archive/2.10.9.tar.gz"
-  sha256 "9f9f31cd861bb52a49114c553ea38a0166e4e161345f12c364167865f4dbdaae"
+  url "https://github.com/ncbi/sra-tools/archive/2.11.0.tar.gz"
+  sha256 "10ac0a4d1fafc274bc107de811891d3e803d0713a247581dece4448231883810"
   license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
   head "https://github.com/ncbi/sra-tools.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "2e6ba6ca7df3d84b405aa1f2f8f198a30428ad7c8b4b0e4f17c9b90499851e94"
-    sha256 cellar: :any_skip_relocation, catalina: "4a0110b9f08743369503f72bbfcd24aec64f87a820e61ad75652f85ea058203d"
-    sha256 cellar: :any_skip_relocation, mojave:   "bf46b5e1ba3fb51cc2ef92dd6bc3a3b30946cf505fb3c5262b826e04c5a09604"
+    sha256 cellar: :any_skip_relocation, big_sur:  "87602a3b77c5d58a037bf2e93423e6cb925bd586fe424680035885894359aeb0"
+    sha256 cellar: :any_skip_relocation, catalina: "15a8306c7a3b550ee120a0eb6ab7c87e0e53a3f33549a0a0f3c5a218c6e75d13"
+    sha256 cellar: :any_skip_relocation, mojave:   "b9b36c564d65e79d3726e4de473e18d892f109221f45dbb91768ecac5758df59"
   end
 
   depends_on "hdf5"
@@ -19,13 +19,13 @@ class Sratoolkit < Formula
   uses_from_macos "perl"
 
   resource "ngs-sdk" do
-    url "https://github.com/ncbi/ngs/archive/2.10.9.tar.gz"
-    sha256 "1372695af5ac2599c9dad0b8cdce857c95c7827ff831a6709343276a29438b1e"
+    url "https://github.com/ncbi/ngs/archive/2.11.0.tar.gz"
+    sha256 "5fde50784760c00b403c2cc42ead15a4e9477697ee439f0a16edb4de3f52dfcc"
   end
 
   resource "ncbi-vdb" do
-    url "https://github.com/ncbi/ncbi-vdb/archive/2.10.9.tar.gz"
-    sha256 "3707f81412dbf6ce2b29d3e65e364116c86acc534543e5a084cf8a666b81960d"
+    url "https://github.com/ncbi/ncbi-vdb/archive/2.11.0.tar.gz"
+    sha256 "9a65e3885b9ae1ebecbec871f04ce3162ac3764fb556ecdc8c1e61993e2164aa"
   end
 
   def install

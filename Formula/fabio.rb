@@ -7,9 +7,10 @@ class Fabio < Formula
   head "https://github.com/fabiolb/fabio.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "8b1ea88c236dc4b04882f05377d5a9930e9e5e93c2092961bc68bd0d661daad5"
-    sha256 cellar: :any_skip_relocation, catalina: "60852a8b3a6c9dbdeb14e05f209351cc75d014ffad037bb0c2ee83ff0f84edbb"
-    sha256 cellar: :any_skip_relocation, mojave:   "d32c45abeb55519d51edc65c87c68e4bc7d117e8a0d8f8dfec5e667467e6174f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:  "64a7ae7497bc62f44ad203a43b4e0c9bbcb1bad020cb876422bd0d746f6d8bcc"
+    sha256 cellar: :any_skip_relocation, catalina: "ffbae8584c9186bb63a761cc52aafd82fb90fd3ec35bce7b9fe81ffa0baf5b0d"
+    sha256 cellar: :any_skip_relocation, mojave:   "813e3edb76153f73dbd94b5291213a7584632f43a6bc9d4a8ef4deab6e3f96d8"
   end
 
   depends_on "go" => :build
@@ -56,7 +57,7 @@ class Fabio < Formula
       end
       sleep 10
       assert_equal true, port_open?(localhost_ip, fabio_default_port)
-      system "killall", "fabio" # fabio forks off from the fork...
+      system "kill -9 $(pgrep fabio)" # fabio forks off from the fork...
       system "consul", "leave"
     end
   end

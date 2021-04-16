@@ -1,15 +1,16 @@
 class Sourcery < Formula
   desc "Meta-programming for Swift, stop writing boilerplate code"
   homepage "https://github.com/krzysztofzablocki/Sourcery"
-  url "https://github.com/krzysztofzablocki/Sourcery/archive/1.3.3.tar.gz"
-  sha256 "edd44bea2620b65e990e69c30a0a717ec4e5626fb7a07bc999ac42b50de72489"
+  url "https://github.com/krzysztofzablocki/Sourcery/archive/1.4.0.tar.gz"
+  sha256 "a735ea332ca62af592ca5a09e5195767fd5d83242b8274bc0c6fc45387efe569"
   license "MIT"
   head "https://github.com/krzysztofzablocki/Sourcery.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1b4480b268fc43adadefd3ee6375a43e5c3d442d5af73dbb2a039e28cf54a6a9"
-    sha256 cellar: :any, big_sur:       "5cb91900806e044b6a2a89883f31c6ce83d3e5953f98f1c759c3d9b45ce5b60e"
-    sha256 cellar: :any, catalina:      "efc96d2467b4ee2453af02be28115f64b191dcdf19351733866f76acd0685e60"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "abacda61686eb9aac087eded93bd4f3d8384a2df4b07eb25f5db1bf42cb71081"
+    sha256 cellar: :any, big_sur:       "ea9749813c93e9abecb0953910efd402aa556f94edc0bb3d41d5ba2213422608"
+    sha256 cellar: :any, catalina:      "648fba6896d186b3d28a6b19f0b2cf6e70ff74554f9cd412539d765c12e63487"
   end
 
   depends_on xcode: "12.0"

@@ -16,7 +16,6 @@ class Lcrack < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "8e5fb5b2ad952ea17bc314a9ae49ce4baf736868448e833600c394b60d326846"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2bd1de3426e4bd4ebfc6fb6026dc9a9fd046a5d9345459700a2361b7fe53f49c"
     sha256 cellar: :any_skip_relocation, yosemite:      "443e64bdb0307e12f4ef990abea7941239784cb7c9798929880a7973f86cf5bc"
-    sha256 cellar: :any_skip_relocation, mavericks:     "7ce0dcf84e40ecf7bffc05b068f8c5109d055e654fba8a8c918cbfada447e19e"
   end
 
   def install

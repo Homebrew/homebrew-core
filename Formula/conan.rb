@@ -3,16 +3,16 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/42/e6/4240bdd702df451ad341a2d28d60d153819da39c63ecf50666d0e7dc3e04/conan-1.34.1.tar.gz"
-  sha256 "81508c938c1cc4ac1949228cfa5a4b65eeef0eff0370bb509e2b06dc5ed454e2"
+  url "https://files.pythonhosted.org/packages/ad/16/d1ccae2576e48110fed524c7675fe23276e4e209efd23929d82b87609338/conan-1.35.1.tar.gz"
+  sha256 "b55136ac1b6a1fcf4ffb0d2c3934a9bdab0dd22ef8a736f557214d3d09bb8e20"
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03b68856dcb294c0069c37ec521ebd506f93ddb338396ba3ddc85e3f9efb066e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3f83bff92c8738a8a6a4c04ae5915d329773eb33a9304e63813d1ad94126ee4c"
-    sha256 cellar: :any_skip_relocation, catalina:      "4fb04f19e90eb9ca70006451987803bf6add65257da60967cfe36e8e1d3ae613"
-    sha256 cellar: :any_skip_relocation, mojave:        "aeb0763b9fabf8a00d6caf35a4dc9bfb2a296709ecece4068cf7e31c9ca0842b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0595a08b9dd0bf7fb1389b91291182496e954109f7706a65a1e6428c892617d9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dc6463ab87aa485792a4a6f75b0a3da35fa706943586610876c97be93c62ceab"
+    sha256 cellar: :any_skip_relocation, catalina:      "f6fd5287a04affbc7f6fa4ff7e1389dc78168b989bd8f7c26b3bbb5b166dd823"
+    sha256 cellar: :any_skip_relocation, mojave:        "188badc517c07ec48022b0f79f323a24007a77a290cfc659c4142b7bd374e450"
   end
 
   depends_on "pkg-config" => :build
@@ -131,8 +131,8 @@ class Conan < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/ef/58/60cc1e9af5714d1b86062f6dc00c5dd6973c902da6259f930b9c6e7a3430/tqdm-4.59.0.tar.gz"
-    sha256 "d666ae29164da3e517fcf125e41d4fe96e5bb375cd87ff9763f6b38b5592fe33"
+    url "https://files.pythonhosted.org/packages/35/35/bd5af89c97ad5177ed234d9e79d01a984f8b5226b8ffc8b5d3c4fc8e157d/tqdm-4.60.0.tar.gz"
+    sha256 "ebdebdb95e3477ceea267decfc0784859aa3df3e27e22d23b83e9b272bf157ae"
   end
 
   resource "urllib3" do

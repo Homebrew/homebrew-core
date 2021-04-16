@@ -15,7 +15,6 @@ class Makefile2graph < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "274ee025c45df9757d608249d64105b9314c8e59fc52a81ad6906f807498b67c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ed1939b1b0fd106f3e328e310a887cf454b81481f78fdf57ce75c0480a922d7d"
     sha256 cellar: :any_skip_relocation, yosemite:      "37aebae489e0f341f80417ec711e5c2817f5b8097c3493dcc11bc754bdd1b1cf"
-    sha256 cellar: :any_skip_relocation, mavericks:     "0de3d4a2492797c3259798493e287ac2403f02254c6cfcf74948a16bcc4bcd0d"
   end
 
   depends_on "graphviz"

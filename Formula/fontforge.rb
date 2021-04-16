@@ -3,11 +3,14 @@ class Fontforge < Formula
   homepage "https://fontforge.github.io"
   url "https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz"
   sha256 "68bcba8f602819eddc29cd356ee13fafbad7a80d19b652d354c6791343476c78"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 big_sur:  "fdadc5e603cec702c46ce7d7cf71bc39ea8b61c1d7e41baaa6347af596ea8d75"
-    sha256 catalina: "fa057842c812785b9fc515f8e52d50d5c05a18f1647474469edd34587e18e8c9"
-    sha256 mojave:   "e3e59082b1b97574d9ed2ebb644a38df2d94e31e37a61a01726f578c49beef7a"
+    rebuild 1
+    sha256 arm64_big_sur: "240744fcd44612d9208c1f47e81d8f01b9d94108b50afe54170be14329a95a5a"
+    sha256 big_sur:       "20f92c9d7e6405ca51bdf9f9a2f0216b527bd78e38c2c3bedecbfab3eeb12747"
+    sha256 catalina:      "de48bd3b27ae91d21b8f7d8724cf2b9100683bf02db99794bcd9d9c4ca3483de"
+    sha256 mojave:        "fc6b9c92f02f1e01d8850bfb595dad4f18faf2c3ba079d7bf8084699ec006d53"
   end
 
   depends_on "cmake" => :build
@@ -31,6 +34,10 @@ class Fontforge < Formula
 
   uses_from_macos "libxml2"
 
+  # Fix for rpath on ARM
+  # https://github.com/fontforge/fontforge/issues/4658
+  patch :DATA
+
   def install
     mkdir "build" do
       system "cmake", "..",
@@ -40,9 +47,6 @@ class Fontforge < Formula
                       *std_cmake_args
       system "ninja"
       system "ninja", "install"
-
-      # The "extras" built above don't get installed by default.
-      bin.install Dir["bin/*"].select { |f| File.executable? f }
     end
   end
 
@@ -66,3 +70,15 @@ class Fontforge < Formula
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import fontforge; fontforge.font()"
   end
 end
+
+__END__
+diff --git a/contrib/fonttools/CMakeLists.txt b/contrib/fonttools/CMakeLists.txt
+index 0d3f464bc..b9f210cde 100644
+--- a/contrib/fonttools/CMakeLists.txt
++++ b/contrib/fonttools/CMakeLists.txt
+@@ -18,3 +18,5 @@ target_link_libraries(dewoff PRIVATE ZLIB::ZLIB)
+ target_link_libraries(pcl2ttf PRIVATE MathLib::MathLib)
+ target_link_libraries(ttf2eps PRIVATE fontforge)
+ target_link_libraries(woff PRIVATE ZLIB::ZLIB)
++
++install(TARGETS acorn2sfd dewoff findtable pcl2ttf pfadecrypt rmligamarks showttf stripttc ttf2eps woff RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

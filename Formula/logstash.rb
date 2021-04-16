@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://github.com/elastic/logstash/archive/v7.11.1.tar.gz"
-  sha256 "5459338bad4dd76e6dfec45e935d0676f5be4a1ec422652476654d515bcc3b2c"
+  url "https://github.com/elastic/logstash/archive/v7.12.0.tar.gz"
+  sha256 "d8872815329dbb45ed91c982f4d68701bcafe3784af115a18a3223a6277ef48a"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/elastic/logstash.git"
@@ -13,12 +13,12 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "847ead527113ab2220c3d0dedf8414f6342ef27e654fc3ad628ceb8af4674c8a"
-    sha256 cellar: :any, catalina: "8add2aa6e8ff0086a9bf38bc87bd5027f7290e0f39ca0faffe41049e0eca2737"
-    sha256 cellar: :any, mojave:   "88f1c72bffc4b7c2002ac38bcbf5bd211215aa5defdae0f69ababd5c5da84829"
+    sha256 cellar: :any, big_sur:  "d00077490a439d272da7c19ebb83b2cbb8977aa797c58074502b9f033e6bf3f3"
+    sha256 cellar: :any, catalina: "002c5990899e621425bdbdd64e8c4b1bc2d499c2562b9b468d50bc0a3f8e4dfa"
+    sha256 cellar: :any, mojave:   "a1dac995477845d83272f8bce340ac026432f15b40e31af29f89ba6183caf45e"
   end
 
-  depends_on "openjdk@8"
+  depends_on "openjdk@11"
 
   uses_from_macos "ruby" => :build
 
@@ -51,7 +51,7 @@ class Logstash < Formula
     (libexec/"config").rmtree
 
     bin.install libexec/"bin/logstash", libexec/"bin/logstash-plugin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env("1.8"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env("11"))
   end
 
   def post_install

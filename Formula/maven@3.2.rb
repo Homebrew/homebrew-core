@@ -11,6 +11,8 @@ class MavenAT32 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2015-11-14", because: :unmaintained
+
   depends_on "openjdk"
 
   def install

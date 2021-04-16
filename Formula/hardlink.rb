@@ -13,7 +13,6 @@ class Hardlink < Formula
     sha256 cellar: :any, sierra:        "56ac75c51db6d7e19efe41eef24aa6646cdc126a113f5aacadd5f80043efc0d5"
     sha256 cellar: :any, el_capitan:    "d8b6e2d26d8f49a207c5082a97f1e5c31b35041bcfbc17a217a1c2ad4ff68551"
     sha256 cellar: :any, yosemite:      "36c30ed90a3d2b9d2d4d07cb182c2838dfba276a05c22d022a42e16043e86f02"
-    sha256 cellar: :any, mavericks:     "cba1b82474c668bbb36e2e56cf7b36685924592d291dc05067d7c4a605686084"
   end
 
   depends_on "pkg-config" => :build

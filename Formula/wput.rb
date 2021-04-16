@@ -13,7 +13,6 @@ class Wput < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "0a8c4296a3e14d8b420f65464293b000dd1bd2e33a802c92e1812f0c267d3f0f"
     sha256 cellar: :any_skip_relocation, el_capitan:  "8e4eeb941d98dc0313b87682b7ae659bbceac59426cf0483c2ae2676cf5b924b"
     sha256 cellar: :any_skip_relocation, yosemite:    "97bc045a03ddd01106304530a453a47693fbd5f3419090310c91a187e1d23931"
-    sha256 cellar: :any_skip_relocation, mavericks:   "3e9c649d134fff0d79d23a2eb575e440354e938b0f261c5fed53efe9d6f3f8c9"
   end
 
   # The patch is to skip inclusion of malloc.h only on OSX. Upstream:

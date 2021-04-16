@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.42.0",
-      revision: "f82dbfd0fa0d82b7db264180a3a09be4ad7522b5"
+      tag:      "v0.46.0",
+      revision: "6a5868db83f4fbafb576eb7f6af2dc16f7b62932"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,9 +15,10 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "d25e76dc4c537c99e5653c27b6e28e1a8f21ef46370db11ace061fd556f5ef20"
-    sha256 cellar: :any, catalina: "ef395b54dca1954eddd823799c5d38224b32a2cf666fac6e687ef34752015aa8"
-    sha256 cellar: :any, mojave:   "a1f9b8056f0ad8f14f0e227fa5657c42a3c7f789244cf8f9b0d012098dcef910"
+    sha256 cellar: :any, arm64_big_sur: "d7083d007bd668b4095704f46d1b32aa035c37e547ecfeb47d5d774081cb38f7"
+    sha256 cellar: :any, big_sur:       "dcab1a53f26b8819112a1e78d0705a189c0abf6f4f1a207df6d5a67d87d92594"
+    sha256 cellar: :any, catalina:      "8f0d5039ff82195979fe85135ed3a6b709df81c8164c27b579acc9b0cfc3f4b4"
+    sha256 cellar: :any, mojave:        "a3c3a19f32ba7d6cc5f3fe45b77c58a5025d941631d7e1080d880156d05bcc57"
   end
 
   depends_on "cmake" => :build
@@ -59,12 +60,6 @@ class Semgrep < Formula
     sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
   end
 
-  # only doing this because junit-xml source is not available in PyPI for v1.9
-  resource "junit-xml" do
-    url "https://github.com/kyrus/python-junit-xml.git",
-        revision: "4bd08a272f059998cedf9b7779f944d49eba13a6"
-  end
-
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
     sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
@@ -86,8 +81,13 @@ class Semgrep < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/16/8b/54a26c1031595e5edd0e616028b922d78d8ffba8bc775f0a4faeada846cc/ruamel.yaml-0.16.10.tar.gz"
-    sha256 "099c644a778bf72ffa00524f78dd0b6476bca94a1da344130f4bf3381ce5b954"
+    url "https://files.pythonhosted.org/packages/62/cf/148028462ab88a71046ba0a30780357ae9e07125863ea9ca7808f1ea3798/ruamel.yaml-0.17.4.tar.gz"
+    sha256 "44bc6b54fddd45e4bc0619059196679f9e8b79c027f4131bb072e6a22f4d5e28"
+  end
+
+  resource "ruamel.yaml.clib" do
+    url "https://files.pythonhosted.org/packages/fa/a1/f9c009a633fce3609e314294c7963abe64934d972abea257dce16a15666f/ruamel.yaml.clib-0.2.2.tar.gz"
+    sha256 "2d24bd98af676f4990c4d715bcdc2a60b19c56a3fb3a763164d2d8ca0e806ba7"
   end
 
   resource "six" do
@@ -96,13 +96,13 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/af/34/0fb7d9ce9f84244618e0acf8355f944e27107d617534e07978cb2221a59b/tqdm-4.57.0.tar.gz"
-    sha256 "65185676e9fdf20d154cffd1c5de8e39ef9696ff7e59fe0156b1b08e468736af"
+    url "https://files.pythonhosted.org/packages/35/35/bd5af89c97ad5177ed234d9e79d01a984f8b5226b8ffc8b5d3c4fc8e157d/tqdm-4.60.0.tar.gz"
+    sha256 "ebdebdb95e3477ceea267decfc0784859aa3df3e27e22d23b83e9b272bf157ae"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install
@@ -127,7 +127,7 @@ class Semgrep < Formula
       ENV["PREFIX"] = prefix
 
       system "opam", "init", "--no-setup", "--disable-sandboxing"
-      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.0" }
+      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.2" }
 
       system "opam", "exec", "--", "make", "setup"
 
@@ -153,7 +153,7 @@ class Semgrep < Formula
         system "opam", "install", "--deps-only", "-y", "."
         system "opam", "exec", "--", "make", "all"
         system "opam", "exec", "--", "make", "install"
-        bin.install "_build/default/cli/Main.exe" => "semgrep-core"
+        bin.install "_build/install/default/bin/semgrep-core" => "semgrep-core"
       end
     end
 

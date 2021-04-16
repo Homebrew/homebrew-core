@@ -1,16 +1,15 @@
 class Sispmctl < Formula
   desc "Control Gembird SIS-PM programmable power outlet strips"
   homepage "https://sispmctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/sispmctl/sispmctl/sispmctl-4.8/sispmctl-4.8.tar.gz"
-  sha256 "0f8391f7e95cbf1fb96a68686a1dcf1e16747b050ae1b8ff90653c99976068db"
+  url "https://downloads.sourceforge.net/project/sispmctl/sispmctl/sispmctl-4.9/sispmctl-4.9.tar.gz"
+  sha256 "6a9ec7125e8c01bb45d4a3b56f07fb41fc437020c8dcd8c0f29ebb98dc55a647"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "b4676b0505143fc7473c62b8ff019dc9c374d8134c4e4ca6767fb23b9a315783"
-    sha256 big_sur:       "363a600681cb459b5c55ccf6217d5444b09cf163a095e11b6cde646c5f2d2206"
-    sha256 catalina:      "2c4a8a22528a34de494a7e5f93873f80cf4bc47646e725baddd86bb2d242ade8"
-    sha256 mojave:        "ec93867cb3b46835c74d640fdb329735b15cb4b273b722cb5855808a764e27c9"
-    sha256 high_sierra:   "1d7c6d1b3e44399b748f6e47d08e8b381ac9685cacd2d0993fbdac140760cc4b"
+    sha256 arm64_big_sur: "4e6492d30b2625b3c117b12ddf23d0e12e9cce5c9e0d7f2ae4806a0b9227154d"
+    sha256 big_sur:       "3c5776d579886dae1c1c79dfbd00e0f62009b5b36b369ef5cb17866eeb48e54a"
+    sha256 catalina:      "ca5277017192e749e693430127f13263e8eb78bb37c462dc613ffaac8fd036c8"
+    sha256 mojave:        "751addc56782d7d36eabc1b244413c7e30db2674117ca4bdfa501a23882ff84d"
   end
 
   depends_on "pkg-config" => :build

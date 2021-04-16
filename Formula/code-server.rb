@@ -1,20 +1,20 @@
 class CodeServer < Formula
   desc "Access VS Code through the browser"
   homepage "https://github.com/cdr/code-server"
-  url "https://registry.npmjs.org/code-server/-/code-server-3.9.1.tgz"
-  sha256 "cfd8c6d7ed646fb7efe18a889757352a1271e25749df3519ed51f7c3988f0d3f"
+  url "https://registry.npmjs.org/code-server/-/code-server-3.9.3.tgz"
+  sha256 "76a2cb7e49359b7a598213bc96851252b3fa9cf7a9867f83e4634375c8c49ecc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f4c7d8f17c2d5c4c8519e1a64b800fb9ce7433a9d33364afccd951bc0addd6af"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a6472c654d4397de563a78fe879acb3574e3d7855ab999cb03b57fda38b9ac6c"
-    sha256 cellar: :any_skip_relocation, catalina:      "66fe382b5b6e48343e5fd0cac224fd9ddeaf78b4fe98b50bb1a4c119c1522336"
-    sha256 cellar: :any_skip_relocation, mojave:        "293fc8a3e25dbf476e30e48701f667ba35f74ed0ec0083916e73a34c6e88eb72"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7b18c4bdafb39ab30bced1971eb3268ae76ca21129f6d27128824566be92533e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7f7663f3a2c91143e781ed783a28936eaeefef8aac1f64925a0fc950e39a7772"
+    sha256 cellar: :any_skip_relocation, catalina:      "833d6ed612a04f1c75317b6ad1db4991fe302b31b72b7129c45d68602c27670a"
+    sha256 cellar: :any_skip_relocation, mojave:        "ac075a0d43dd645fc9843f4f6764d565e908eb6682e3d3eb7a26bec4c7153d4e"
   end
 
   depends_on "python@3.9" => :build
   depends_on "yarn" => :build
-  depends_on "node"
+  depends_on "node@14"
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -24,9 +24,10 @@ class CodeServer < Formula
   end
 
   def install
+    node = Formula["node@14"]
     system "yarn", "--production", "--frozen-lockfile"
     libexec.install Dir["*"]
-    env = { PATH: "#{HOMEBREW_PREFIX}/opt/node/bin:$PATH" }
+    env = { PATH: "#{node.opt_bin}:$PATH" }
     (bin/"code-server").write_env_script "#{libexec}/out/node/entry.js", env
   end
 
@@ -66,9 +67,9 @@ class CodeServer < Formula
   end
 
   test do
-    # See https://github.com/cdr/code-server/blob/master/ci/build/test-standalone-release.sh
-    system bin/"code-server", "--extensions-dir=.", "--install-extension", "ms-python.python"
-    assert_match "ms-python.python",
-      shell_output("#{bin/"code-server"} --extensions-dir=. --list-extensions")
+    # See https://github.com/cdr/code-server/blob/main/ci/build/test-standalone-release.sh
+    system bin/"code-server", "--extensions-dir=.", "--install-extension", "wesbos.theme-cobalt2"
+    assert_match "wesbos.theme-cobalt2",
+      shell_output("#{bin}/code-server --extensions-dir=. --list-extensions")
   end
 end

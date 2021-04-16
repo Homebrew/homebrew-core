@@ -16,7 +16,6 @@ class Mkcue < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "b1bec8cabaddb6a78a3c2e0a13f73eb426922b64e6d9ef3c0103e92e203f6af4"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7677f358f99d733a6f43d02cbf5365f3c59b4f93c6a59ee05bd48045a12cbb52"
     sha256 cellar: :any_skip_relocation, yosemite:      "ddd5ad0b0a05a4fe74e0bfa18390370f547e3d21c00fa2499e50021ea3482ee4"
-    sha256 cellar: :any_skip_relocation, mavericks:     "e8b51b15862be5637828a522e1026409c6eef947836cf787787769d7c5b8b5de"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Tclap < Formula
   desc "Templatized C++ command-line parser library"
   homepage "https://tclap.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/tclap/tclap-1.2.3.tar.gz"
-  sha256 "19e7db5281540f154348770bc3a7484575f4f549aef8e00aabcc94b395f773c9"
+  url "https://downloads.sourceforge.net/project/tclap/tclap-1.2.4.tar.gz"
+  sha256 "634c5b59dbb1ccbc9d6a5f6de494a257e29a3f59dcb6fc30445ff39b45188574"
   license "MIT"
 
   livecheck do
@@ -11,10 +11,10 @@ class Tclap < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7759ca2808c4112bc4feaaca64f6dd93762554ac87dd2f7af531508535a70237"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1805257b4ea89658de13fa55b18386c5c342b0d53095ac425cbf326ceec35640"
-    sha256 cellar: :any_skip_relocation, catalina:      "2d096686e490335890260c02e10b5fcc914372d43c6d9d6201186c367376dfe1"
-    sha256 cellar: :any_skip_relocation, mojave:        "e7ae47f1e056dd98bb0e60f8a827c2d895b9ab3ab71bb9b4f1cf9778408b4055"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebc4db6f0fb2c415687dbbb4658eaf527eb94ceddb6336789dcea04382991a5c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "345213efdaff1e9b1ea0af2528fed0699beb7050b34b359df70cdf220c3cb399"
+    sha256 cellar: :any_skip_relocation, catalina:      "48653e8b3887fd1046f82516ecc3ed5147eeade6d28bd466c1f5c6b320f9a159"
+    sha256 cellar: :any_skip_relocation, mojave:        "b3c06dabecff169974b1cd64550e1351f619ebf0c2a09cb4a21b654b42d55b95"
   end
 
   def install

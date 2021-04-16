@@ -14,7 +14,6 @@ class TokyoDystopia < Formula
     sha256 cellar: :any, sierra:        "0a7da80cf5e8892112986d9a51e8cd3804da2a7436b8a03b472f561b06c35890"
     sha256 cellar: :any, el_capitan:    "2a9e21b6f57781adb9e3dc673f2e466b817d4a00860b45fa49ded534d4cb0ed4"
     sha256 cellar: :any, yosemite:      "6fa4ed94aace1e4c3b2a9962f31055883325255f8175c63aa08f079a4974eb6e"
-    sha256 cellar: :any, mavericks:     "231960b2f9d41cc1ee48a66812b1f0fa5977613e39ddd1a62c22a46e21b3feaf"
   end
 
   depends_on "tokyo-cabinet"

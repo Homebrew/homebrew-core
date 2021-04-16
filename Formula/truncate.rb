@@ -15,7 +15,6 @@ class Truncate < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "c4c892f0afbdf3a401ccb0af2a7cf8c65b37ccfdfe2412dda5284faa94f562ff"
     sha256 cellar: :any_skip_relocation, el_capitan:    "299b80454c20134c5d0916da25fb3d5f0b6843e620dac6babebe01a899253a69"
     sha256 cellar: :any_skip_relocation, yosemite:      "a9d1c87d6cfec42674f0e7db25b786ba100a04c8c0da318fd5f6299a7418843f"
-    sha256 cellar: :any_skip_relocation, mavericks:     "d8751674842b772bd3a5318c1234f262518d05d66a7fe3b06ce5f59b2176bba8"
   end
 
   conflicts_with "coreutils", because: "both install `truncate` binaries"

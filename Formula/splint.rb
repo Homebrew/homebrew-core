@@ -4,6 +4,7 @@ class Splint < Formula
   url "https://mirrorservice.org/sites/distfiles.macports.org/splint/splint-3.1.2.src.tgz"
   mirror "https://src.fedoraproject.org/repo/pkgs/splint/splint-3.1.2.src.tgz/25f47d70bd9c8bdddf6b03de5949c4fd/splint-3.1.2.src.tgz"
   sha256 "c78db643df663313e3fa9d565118391825dd937617819c6efc7966cdf444fb0a"
+  license "GPL-2.0-or-later"
 
   bottle do
     rebuild 1
@@ -21,10 +22,17 @@ class Splint < Formula
 
   def install
     ENV.deparallelize # build is not parallel-safe
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}",
-                          "--infodir=#{info}",
-                          "--mandir=#{man}"
+
+    args = ["--disable-debug",
+            "--prefix=#{prefix}",
+            "--infodir=#{info}",
+            "--mandir=#{man}"]
+
+    on_linux do
+      args << "LEXLIB=#{Formula["flex"].opt_lib}/libfl.so"
+    end
+
+    system "./configure", *args
     system "make"
     system "make", "install"
   end

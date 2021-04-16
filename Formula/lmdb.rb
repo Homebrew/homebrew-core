@@ -1,8 +1,8 @@
 class Lmdb < Formula
   desc "Lightning memory-mapped database: key-value data store"
   homepage "https://symas.com/lmdb/"
-  url "https://git.openldap.org/openldap/openldap/-/archive/LMDB_0.9.28/openldap-LMDB_0.9.28.tar.bz2"
-  sha256 "54f4a3a927793db950288e9254c0dfe35afc75af12cd92b8aaae0d1e990186c0"
+  url "https://git.openldap.org/openldap/openldap/-/archive/LMDB_0.9.29/openldap-LMDB_0.9.29.tar.bz2"
+  sha256 "182e69af99788b445585b8075bbca89ae8101069fbeee25b2756fb9590e833f8"
   license "OLDAP-2.8"
   version_scheme 1
   head "https://git.openldap.org/openldap/openldap.git", branch: "mdb.master"
@@ -13,10 +13,10 @@ class Lmdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e841311d68877f2fb3d1ed488b33ce07c1d4b164babd5bbe6552c4f01765fce1"
-    sha256 cellar: :any, big_sur:       "1fe7ed983f30164a0558431649e1b6f86b28dc36660c0ffc215db205f85bbe39"
-    sha256 cellar: :any, catalina:      "cb42f85558a8825f775ae80c79a9f5f7ed015d0d4f46f91eba5a4f61474a8b99"
-    sha256 cellar: :any, mojave:        "9b1e6d9b6436d526e1798e132d1529366511d18b5c7a8547336cbd3f1683121f"
+    sha256 cellar: :any, arm64_big_sur: "9f0fb7ee716181ea0197b4cd2731e1a7b68077168065cf40753fdeed7ad25b70"
+    sha256 cellar: :any, big_sur:       "df699787f64959d4990f90e2e5cd873b01038387f5bcda6a9a2e6dbc73d0262f"
+    sha256 cellar: :any, catalina:      "41941922c4e5f8367887ac21f632f132dd3b7eb19d749a61580364595cf1ccb4"
+    sha256 cellar: :any, mojave:        "6d59993e9a2ff698c7c658a2a6fd90e5f6afebd43bc155a70b2691991e1eb67b"
   end
 
   def install

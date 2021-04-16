@@ -15,7 +15,6 @@ class Libresample < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "b94dc206fa507bcdceb49534740c5c0dff0868a9d9333e4acd8922f22b10c912"
     sha256 cellar: :any_skip_relocation, el_capitan:    "ba2446005f2417fa81e5a5963d2273494396f8821ee95fd84ed9825342564598"
     sha256 cellar: :any_skip_relocation, yosemite:      "2f58f8b45cd7b6f89f645cb90d3b4f63dd0a28e927713f3a4664c348e3a15a21"
-    sha256 cellar: :any_skip_relocation, mavericks:     "61a8ab0861ce6e6c45632b7235eaf718e4be191fe8c184ba8f065d436681d786"
   end
 
   def install

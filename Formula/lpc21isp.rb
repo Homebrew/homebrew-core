@@ -14,7 +14,6 @@ class Lpc21isp < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "68c3756fd99268814cfdc861e971d1201bac42bf5b922ab37119fcb082c86a1c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c12b33d514be2490a3a5bb9d3c1f8468e7e24d13eee0a636a9d067f486af59fc"
     sha256 cellar: :any_skip_relocation, yosemite:      "10deab3f8de3cb88b27ea38344ba7c641b758faf45f9a247f3fca968f6db456b"
-    sha256 cellar: :any_skip_relocation, mavericks:     "5631ccbccd2bb128a1592399a558cbb837d63eb9b1ac2d8187c34fb42064b226"
   end
 
   def install

@@ -13,7 +13,6 @@ class Libopennet < Formula
     sha256 cellar: :any, sierra:      "c3447365aeb1a478b14b5a71b6ffd29a1f95754fb460ed6f618b55e2f958c227"
     sha256 cellar: :any, el_capitan:  "de1cb9622ec3b6501236af7e66367bc5bbaa20dfb8e3ae328a339bea6d708bab"
     sha256 cellar: :any, yosemite:    "abcf105b630a05b8a7d26f1a0ba8defafcf31c0dc23e79c3a5f8a9a14878e6de"
-    sha256 cellar: :any, mavericks:   "cc3c5f62b47b334019035ab1f34f6f9e8b195f3ea37afa820d8b3dbbb4402eae"
   end
 
   def install

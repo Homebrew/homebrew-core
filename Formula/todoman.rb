@@ -6,15 +6,17 @@ class Todoman < Formula
   url "https://files.pythonhosted.org/packages/05/7f/6387b4c886c88e983931dfdef884177495cbafaebe7d239c01406d8b5f6a/todoman-3.9.0.tar.gz"
   sha256 "e7e5cab13ecce0562b1f13f46ab8cbc079caed4b462f2371929f8a4abff2bcbe"
   license "ISC"
+  revision 1
   head "https://github.com/pimutils/todoman.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8c560182a558c8374186d2e8b9944209308362b17d5a0c358adc21fc3e6885e4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "67b32a6c50b1ebd68727c4cf02086fab7206300c82abd76e364b0f66d664267f"
-    sha256 cellar: :any_skip_relocation, catalina:      "607fe3be782f120d990422e478cb380530d60de3890f54cb3a700d40c4ee6a54"
-    sha256 cellar: :any_skip_relocation, mojave:        "33524bd7330f99979230051bf8a8f6d4e173ab4dac6dc9dece6667582e1b28da"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "285c8ec230d61d4a1812c11bc381160b9aa9a78ed071cacd02bc508df6eccc05"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ea144b7e1a329ef8fd6ac43440f800c3ffcb1874a5aa1e18f98ab24c2e724e4f"
+    sha256 cellar: :any_skip_relocation, catalina:      "281ee05aec4e119f290513ac67a8b14308492fe4137fa29d721d1288023387c8"
+    sha256 cellar: :any_skip_relocation, mojave:        "ff931185da31a9467fec4d823001da45264e33ead3e2235e10d59fb72cbcbc12"
   end
 
+  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   conflicts_with "devtodo", because: "both install a `todo` binary"
@@ -40,8 +42,8 @@ class Todoman < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/61/b2/1d04b65aa3b47aacff465b5c8937c8620fce710ad73ac3b15facb1ede188/humanize-3.1.0.tar.gz"
-    sha256 "fd3eb915310335c63a54d4507289ecc7b3a7454cd2c22ac5086d061a3cbfd592"
+    url "https://files.pythonhosted.org/packages/64/f1/2fb00b5db6ece093d47fa8d0afc0634683c06bc8f0d0dd2a2457905d8456/humanize-3.2.0.tar.gz"
+    sha256 "ab69004895689951b79f2ae4fdd6b8127ff0c180aff107856d5d98119a33f026"
   end
 
   resource "icalendar" do
@@ -60,8 +62,8 @@ class Todoman < Formula
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/09/07/448a8887c7195450604dfc0305d80d74324c36ee18ed997664051d4bffe3/pytz-2020.4.tar.gz"
-    sha256 "3e6b7dd2d1e0a59084bcee14a17af60c5c562cdc16d828e8eba2e683d3a7e268"
+    url "https://files.pythonhosted.org/packages/b0/61/eddc6eb2c682ea6fd97a7e1018a6294be80dba08fa28e7a3570148b4612d/pytz-2021.1.tar.gz"
+    sha256 "83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da"
   end
 
   resource "pyxdg" do
@@ -72,11 +74,6 @@ class Todoman < Formula
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
   end
 
   resource "urwid" do

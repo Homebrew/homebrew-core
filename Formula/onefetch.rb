@@ -24,7 +24,7 @@ class Onefetch < Formula
     system "#{bin}/onefetch", "--help"
     assert_match "onefetch " + version.to_s, shell_output("#{bin}/onefetch -V").chomp
 
-    system "git init"
+    system "git", "init"
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "BrewTestBot@test.com"
     system "echo \"puts 'Hello, world'\" > main.rb && git add main.rb && git commit -m \"First commit\""

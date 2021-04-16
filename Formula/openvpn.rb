@@ -25,6 +25,11 @@ class Openvpn < Formula
   depends_on "openssl@1.1"
   depends_on "pkcs11-helper"
 
+  on_linux do
+    depends_on "linux-pam"
+    depends_on "net-tools"
+  end
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

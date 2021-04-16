@@ -1,17 +1,16 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.5.0.tar.gz"
-  sha256 "701d0cc0c7e97cc2cf2c2f4068fce45e52a8854f5dc6c9e49e2014202eec9a4f"
+  url "https://luarocks.org/releases/luarocks-3.7.0.tar.gz"
+  sha256 "9255d97fee95cec5b54fc6ac718b11bf5029e45bed7873e053314919cd448551"
   license "MIT"
   head "https://github.com/luarocks/luarocks.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "78a5601e8bc9ea85ef0819b00ed1153e28184475f3a199e5fcaca006dfe8e8c4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c3ade94bf5e9e76691bfae341a729a8c4031d3405194401ef7d7ecefcab3057e"
-    sha256 cellar: :any_skip_relocation, catalina:      "70d1bab344f3868a6c728b32ccba961229c873d3c817add66e1199e76eb19fa1"
-    sha256 cellar: :any_skip_relocation, mojave:        "c54dfe9498451a46fd617179b97229352a3bd13d812e848909a58e35419cf04f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "884ff51dc8c4b1009ce40d3a6f4a1306566ff9da8417ea4c03dce4c38a136807"
+    sha256 cellar: :any_skip_relocation, big_sur:       "631971f2bc3585dc67d7b5c7b07391489442564a0f111ae358008a02e3b8d73d"
+    sha256 cellar: :any_skip_relocation, catalina:      "b7d91bbc4ec33e19953bc1ed4127557c530b66c0e0ff7eec1a188268b486b594"
+    sha256 cellar: :any_skip_relocation, mojave:        "bcd1442f092e25f04eac3270b5a468d911716a50a3af716ce3f4f9c44a46920e"
   end
 
   depends_on "lua@5.1" => :test

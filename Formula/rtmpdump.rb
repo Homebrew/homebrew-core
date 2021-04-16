@@ -37,11 +37,18 @@ class Rtmpdump < Formula
 
   def install
     ENV.deparallelize
+
+    os = "darwin"
+
+    on_linux do
+      os = "posix"
+    end
+
     system "make", "CC=#{ENV.cc}",
                    "XCFLAGS=#{ENV.cflags}",
                    "XLDFLAGS=#{ENV.ldflags}",
                    "MANDIR=#{man}",
-                   "SYS=darwin",
+                   "SYS=#{os}",
                    "prefix=#{prefix}",
                    "sbindir=#{bin}",
                    "install"

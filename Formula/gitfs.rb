@@ -9,20 +9,13 @@ class Gitfs < Formula
   revision 5
   head "https://github.com/presslabs/gitfs.git"
 
-  bottle do
-    sha256 cellar: :any, catalina:    "c8c83c94da3b5f1dc480eec0ede90bf678eee59a97bb54a64cf94555d9c57752"
-    sha256 cellar: :any, mojave:      "189008579b9d28a9084536f62101051648b64a78cd6faf780b3f40041becc188"
-    sha256 cellar: :any, high_sierra: "218c5f19bcecb33e4f18c19cf0f56ce6d9628d4cfad9f095fbb1071af3cd79c2"
-  end
-
   depends_on "libgit2"
   depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
   on_macos do
-    deprecate! date: "2020-11-10", because: "requires FUSE"
-    depends_on :osxfuse
+    disable! date: "2021-04-08", because: "requires FUSE"
   end
 
   on_linux do

@@ -50,7 +50,7 @@ class Rabbitmq < Formula
 
     # Extract rabbitmqadmin and install to sbin
     # use it to generate, then install the bash completion file
-    system "/usr/bin/unzip", "-qq", "-j",
+    system "unzip", "-qq", "-j",
            "#{prefix}/plugins/rabbitmq_management-#{version}.ez",
            "rabbitmq_management-#{version}/priv/www/cli/rabbitmqadmin"
 

@@ -22,7 +22,6 @@ class Aften < Formula
     sha256 cellar: :any, sierra:        "535ef47b08163c8d1d7a66ffda7d3f280c0569a74d9feedbcfc93cd3c55194ca"
     sha256 cellar: :any, el_capitan:    "68b4983cc843e2d57854a263038a965a2dd6c473c98111f482ec1c69d09ace83"
     sha256 cellar: :any, yosemite:      "4f785f04a3bbde677452f2c5d1c04f77605e156b4020294c5799c85d0b8586d3"
-    sha256 cellar: :any, mavericks:     "b7acaf77ece8e6b51493ce69e713990a4ce13bc5b9d5ad6914cc86c0f745c9d0"
   end
 
   depends_on "cmake" => :build
@@ -70,8 +69,7 @@ index b7c6159..4db11f7 100644
  static inline void cpu_caps_detect(void){}
 +static inline void apply_simd_restrictions(AftenSimdInstructions *simd_instructions){}
  #endif
- 
- #endif /* CPU_CAPS_H */
--- 
-2.24.3 (Apple Git-128)
 
+ #endif /* CPU_CAPS_H */
+--
+2.24.3 (Apple Git-128)

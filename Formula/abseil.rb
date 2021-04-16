@@ -1,15 +1,15 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/20200923.3.tar.gz"
-  sha256 "ebe2ad1480d27383e4bf4211e2ca2ef312d5e6a09eba869fd2e8a5c5d553ded2"
+  url "https://github.com/abseil/abseil-cpp/archive/20210324.0.tar.gz"
+  sha256 "dd7db6815204c2a62a2160e32c55e97113b0a0178b2f090d6bab5ce36111db4b"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "0b4448de8c7a176da27c895da37c7edbadabd304a2d5ddb76c7d134f7b130e4d"
-    sha256 big_sur:       "e16d12f4d5eb788fc774d1cc6d328a659bfc56f0cef74244396f2453890bb9ed"
-    sha256 catalina:      "648a6091da13e90637b3579249ae8821292ca96efb95cd1d4a5a649d553c6ef6"
-    sha256 mojave:        "0879e0af3745923b219e99af5355100a4a8e4c944167414e038633a6779736d0"
+    sha256 arm64_big_sur: "b0ac0ff75bf1d9d81ffc8be51ed7d04d773b294f4b4f2ebb2a2d1bd4e8d05dc2"
+    sha256 big_sur:       "3498c9abb8b6ef72700b63604caf8597caa6281d7ac324d9f7ae5e7ae7fd7cb0"
+    sha256 catalina:      "e27ffdb0329487136a912ad4b5d5a3e2d850e294544aa400a133d50744283505"
+    sha256 mojave:        "60698d41a284bbd52a7cc371f3e39114079923e855e80713650bfa1edb023f18"
   end
 
   depends_on "cmake" => :build

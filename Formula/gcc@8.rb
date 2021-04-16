@@ -4,7 +4,7 @@ class GccAT8 < Formula
   url "https://ftp.gnu.org/gnu/gcc/gcc-8.4.0/gcc-8.4.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/gcc/gcc-8.4.0/gcc-8.4.0.tar.xz"
   sha256 "e30a6e52d10e1f27ed55104ad233c30bd1e99cfb5ff98ab022dc941edd1b2dd4"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,16 +12,18 @@ class GccAT8 < Formula
   end
 
   bottle do
-    sha256 big_sur:  "f8d2856e05a7b6e6eed981bdc4ea722a93594a6cdaa8f5529910eb11f6103d01"
-    sha256 catalina: "adbc2af7732229438dcc29decaa1c1e25292c39ba21aaf1bd49453f1a8d7bfa9"
-    sha256 mojave:   "1be90ef0660203d2f578a6bd66fdb6f24c99e47ea1f785e738287e34f5d4a123"
+    sha256 big_sur:  "a835ceb445a4b4019e14fda6fb4a984a7f633faf5ef5f9f49bddbe23cae1e7fc"
+    sha256 catalina: "4ef99da615886fab55a27d34bfa4ac88761c9cb73ebcb5ed199d6a0fe6997fd3"
+    sha256 mojave:   "6e73d66113184f35f91c285f3754cc0c67797876cf0a97c75bdce4d92d6af074"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? do
-    reason "The bottle needs the Xcode CLT to be installed."
-    satisfy { MacOS::CLT.installed? }
+    on_macos do
+      reason "The bottle needs the Xcode CLT to be installed."
+      satisfy { MacOS::CLT.installed? }
+    end
   end
 
   depends_on arch: :x86_64
@@ -29,6 +31,12 @@ class GccAT8 < Formula
   depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "binutils"
+  end
 
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
@@ -53,7 +61,6 @@ class GccAT8 < Formula
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
     args = %W[
-      --build=x86_64-apple-darwin#{OS.kernel_version.major}
       --prefix=#{prefix}
       --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
@@ -64,27 +71,33 @@ class GccAT8 < Formula
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
       --with-mpc=#{Formula["libmpc"].opt_prefix}
       --with-isl=#{Formula["isl"].opt_prefix}
-      --with-system-zlib
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
     ]
 
-    # Xcode 10 dropped 32-bit support
-    args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+    on_macos do
+      args << "--build=x86_64-apple-darwin#{OS.kernel_version.major}"
+      args << "--with-system-zlib"
 
-    # System headers may not be in /usr/include
-    sdk = MacOS.sdk_path_if_needed
-    if sdk
-      args << "--with-native-system-header-dir=/usr/include"
-      args << "--with-sysroot=#{sdk}"
+      # Xcode 10 dropped 32-bit support
+      args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+
+      # System headers may not be in /usr/include
+      sdk = MacOS.sdk_path_if_needed
+      if sdk
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=#{sdk}"
+      end
+
+      # Ensure correct install names when linking against libgcc_s;
+      # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
+      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     end
 
-    # Avoid reference to sed shim
-    args << "SED=/usr/bin/sed"
-
-    # Ensure correct install names when linking against libgcc_s;
-    # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+    on_linux do
+      # Fix Linux error: gnu/stubs-32.h: No such file or directory.
+      args << "--disable-multilib"
+    end
 
     mkdir "build" do
       system "../configure", *args

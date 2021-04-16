@@ -1,16 +1,15 @@
 class Cryptol < Formula
   desc "Domain-specific language for specifying cryptographic algorithms"
   homepage "https://www.cryptol.net/"
-  url "https://hackage.haskell.org/package/cryptol-2.10.0/cryptol-2.10.0.tar.gz"
-  sha256 "0bfa21d4766b9ad21ba16ee43b83854f25a84e7ca2b68a14cbe0006b4173ef63"
+  url "https://hackage.haskell.org/package/cryptol-2.11.0/cryptol-2.11.0.tar.gz"
+  sha256 "43b7535f5cb792efccddbb3f4c09bd2e922777d19a6537cb3aa27adf69280716"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "4187c237c543bb46baafc512421ae81e051696fac21f4ca3fd20bd91b5ad869d"
-    sha256 cellar: :any_skip_relocation, catalina: "b0a150b50f609533bcfb52525182ff3400b6ff7f35aed6b1a58028730b2c57bf"
-    sha256 cellar: :any_skip_relocation, mojave:   "c7e874290c69aea49179991ddcc9c0615d382fe3fdde1c56e8659d3c3f5e376b"
+    sha256 cellar: :any_skip_relocation, big_sur:  "7864c5659f35ee68c4c84683362063dfb2efd8c143b0bb507fbfc3f67661af87"
+    sha256 cellar: :any_skip_relocation, catalina: "be3298c8389c666439fc38f898e4cd16ea06fc3513977dc65a3cca684a28cde0"
+    sha256 cellar: :any_skip_relocation, mojave:   "105d72cd5224912dfa83599dbf41393878bc3bd71ce9ab5d8056f490bd18e3fd"
   end
 
   depends_on "cabal-install" => :build
@@ -19,10 +18,6 @@ class Cryptol < Formula
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
-
-  # Patch to fix build failure with incompatible version of libBF
-  # https://github.com/GaloisInc/cryptol/issues/1083
-  patch :DATA
 
   def install
     system "cabal", "v2-update"
@@ -38,18 +33,3 @@ class Cryptol < Formula
     assert_match expected, shell_output("#{bin}/cryptol -b helloworld.icry")
   end
 end
-
-__END__
-diff --git a/cryptol.cabal b/cryptol.cabal
-index 077e927..2a3cb8e 100644
---- a/cryptol.cabal
-+++ b/cryptol.cabal
-@@ -56,7 +56,7 @@ library
-                        GraphSCC          >= 1.0.4,
-                        heredoc           >= 0.2,
-                        integer-gmp       >= 1.0 && < 1.1,
--                       libBF             >= 0.5.1,
-+                       libBF             == 0.5.1,
-                        MemoTrie          >= 0.6 && < 0.7,
-                        monad-control     >= 1.0,
-                        monadLib          >= 3.7.2,

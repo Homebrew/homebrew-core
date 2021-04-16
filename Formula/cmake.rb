@@ -1,8 +1,8 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.19.6/cmake-3.19.6.tar.gz"
-  sha256 "ec87ab67c45f47c4285f204280c5cde48e1c920cfcfed1555b27fb3b1a1d20ba"
+  url "https://github.com/Kitware/CMake/releases/download/v3.20.1/cmake-3.20.1.tar.gz"
+  sha256 "3f1808b9b00281df06c91dd7a021d7f52f724101000da7985a401678dfe035b0"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
@@ -14,10 +14,10 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dc2b663e16d20465541b78ac5b780114a8f7867d34c0c5712256a18cb32c8b4a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2b57a88a40946e2340fdec37572b8aad7cea22b4c92459e92359a83fd66d6455"
-    sha256 cellar: :any_skip_relocation, catalina:      "1ae520ac59a80a7f3dda92ea33ec447ae22047b07eb69197d69da0c9f0ae6083"
-    sha256 cellar: :any_skip_relocation, mojave:        "989874119fc4876068106b5dd7948eac4144a11a2ec6712acb8404bcdd2cf3ab"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b94fa9c13065ce31259621e1ac1ff8f46c0a6ee606a5944f2562ed86c7fcf2a6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c8b975b0911f9125065459e9b55da2c43fc58485446ec35d8294d2db2ad77972"
+    sha256 cellar: :any_skip_relocation, catalina:      "1875ab07ed5843cdc06368ae851ec1232a72bb679f70f816e549acfe5fff6c31"
+    sha256 cellar: :any_skip_relocation, mojave:        "0af0a3d97a83dcdece0c5a8ba867d6b199b928f1c4e0a325eef785af6b8f2f1e"
   end
 
   depends_on "sphinx-doc" => :build

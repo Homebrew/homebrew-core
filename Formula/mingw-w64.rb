@@ -4,7 +4,7 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v8.0.0.tar.bz2"
   sha256 "44c740ea6ab3924bc3aa169bad11ad3c5766c5c8459e3126d44eabb8735a5762"
   license "ZPL-2.1"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -12,9 +12,9 @@ class MingwW64 < Formula
   end
 
   bottle do
-    sha256 big_sur:  "cf32456b5f1f3e16079a9ef8767d48fc1ec3423c7f447bb6744c0fe4777e1751"
-    sha256 catalina: "15aa7c6ff216ed6c48da13a37ab6aa865e1d9af86ad75cf0445bf8624bd4e382"
-    sha256 mojave:   "cd3990827011083e2c8decd8f33f409f010bd42257b5d3b67ac1df0686d18d73"
+    sha256 big_sur:  "8c3cd715317e77d6a0d08533c8ff5d52a1579167df4135e4d2e9454b50ebc60a"
+    sha256 catalina: "fbc6d694298b4605a1cee8cda91d7ab5aaec320e8032881138fd710d2a21e3c8"
+    sha256 mojave:   "c3a059d85c9aacc3ae3c4f2a72e7d13f3361eaaf342cae7203bb907c66e72fc5"
   end
 
   # Apple's makeinfo is old and has bugs
@@ -32,9 +32,9 @@ class MingwW64 < Formula
   end
 
   resource "gcc" do
-    url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-    sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
+    sha256 "64f404c1a650f27fc33da242e1f2df54952e3963a49e06e73f6940f3223ac344"
   end
 
   def target_archs
@@ -93,8 +93,6 @@ class MingwW64 < Formula
         --disable-nls
         --enable-threads=posix
       ]
-      # Avoid reference to sed shim
-      args << "SED=/usr/bin/sed"
 
       mkdir "#{buildpath}/gcc/build-#{arch}" do
         system "../configure", *args
@@ -171,7 +169,9 @@ class MingwW64 < Formula
     EOS
 
     ENV["LC_ALL"] = "C"
-    ENV.remove_macosxsdk
+    on_macos do
+      ENV.remove_macosxsdk
+    end
     target_archs.each do |arch|
       target = "#{arch}-w64-mingw32"
       outarch = (arch == "i686") ? "i386" : "x86-64"

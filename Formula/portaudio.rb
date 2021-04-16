@@ -1,18 +1,18 @@
 class Portaudio < Formula
   desc "Cross-platform library for audio I/O"
   homepage "http://www.portaudio.com"
-  url "http://www.portaudio.com/archives/pa_stable_v190600_20161030.tgz"
-  version "19.6.0"
-  sha256 "f5a21d7dcd6ee84397446fa1fa1a0675bb2e8a4a6dceb4305a8404698d8d1513"
+  url "http://files.portaudio.com/archives/pa_stable_v190700_20210406.tgz"
+  version "19.7.0"
+  sha256 "47efbf42c77c19a05d22e627d42873e991ec0c1357219c0d74ce6a2948cb2def"
+  license "MIT"
   version_scheme 1
   head "https://github.com/PortAudio/portaudio.git"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "f28bf56e8387efa44468a1dd8b6b57a0075580a4a27d075a762469ef244f94d2"
-    sha256 cellar: :any, big_sur:       "15cafef0378ce5a162f4210be1809c22358ca22bfd6f199fb8fe0448ef9f4812"
-    sha256 cellar: :any, catalina:      "752ecb3b066e413e83b40c2d9f1170927a600711deccb3ca861fc4a4137622f7"
-    sha256 cellar: :any, mojave:        "7aaae4d4ce8ecabf6470178d71aa826ea2808009ceb602cb52fa17658d34cc61"
+    sha256 cellar: :any, arm64_big_sur: "50a45425f5c6026788791370b1ba30b0dcc82b6cedacd2240168f57f9abe6484"
+    sha256 cellar: :any, big_sur:       "f9ae97164b4101048870c761b15998e46f40da666c3f0e20c33cf6ce2f7319d0"
+    sha256 cellar: :any, catalina:      "8b87696f44cf2220cff66b9bcfa105f6a58dfec4eb2a881409e37773494c84b4"
+    sha256 cellar: :any, mojave:        "a2cab0bc4fee9757af7269408eb91df07ddeddfa6dd35c9740aae93816622b0b"
   end
 
   depends_on "pkg-config" => :build

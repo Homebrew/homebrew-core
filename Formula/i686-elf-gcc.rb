@@ -1,16 +1,15 @@
 class I686ElfGcc < Formula
   desc "GNU compiler collection for i686-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.2.0/gcc-10.2.0.tar.xz"
-  sha256 "b8dd4368bb9c7f0b98188317ee0254dd8cc99d1e3a18d0ff146c855fe16c1d8c"
-  license "GPL-2.0"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
+  sha256 "64f404c1a650f27fc33da242e1f2df54952e3963a49e06e73f6940f3223ac344"
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   bottle do
-    sha256 big_sur:     "774bb133598e76c19daa758e533132d632e6b541a4f6c348bc1428b573bb5c58"
-    sha256 catalina:    "8e258af70b398807c115631de8a1dc8c6ebdb3be870fe26410c14e91a7659a58"
-    sha256 mojave:      "4c14d4308435c164f92de628f8e1b97a63692fb0b3ff083c083a64fed1c72870"
-    sha256 high_sierra: "c8d9a65d529d5c9219b451dfd724c7df0275df5f9c6138eb3db173b783c07372"
+    sha256 big_sur:  "b08b99ff3b7ae42ef378cc46b614170f232098dcc0a650d7557637d2135809e2"
+    sha256 catalina: "3c71adb21e1e28dbcb124437cdd0f1de8a1d5fab8aa834ccfe67735f6af55fe9"
+    sha256 mojave:   "486dc517f6e1e21d96f3483eb7f8ab12a6e989c251cab9cd07d70fa01f4574e6"
   end
 
   depends_on "gmp"
@@ -28,8 +27,7 @@ class I686ElfGcc < Formula
                              "--without-headers",
                              "--with-as=#{Formula["i686-elf-binutils"].bin}/i686-elf-as",
                              "--with-ld=#{Formula["i686-elf-binutils"].bin}/i686-elf-ld",
-                             "--enable-languages=c,c++",
-                             "SED=/usr/bin/sed"
+                             "--enable-languages=c,c++"
       system "make", "all-gcc"
       system "make", "install-gcc"
       system "make", "all-target-libgcc"

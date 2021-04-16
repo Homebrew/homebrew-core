@@ -1,6 +1,6 @@
 class Unyaffs < Formula
   desc "Extract files from a YAFFS2 filesystem image"
-  homepage "https://git.b-ehlers.de/ehlers/unyaffs/"
+  homepage "https://www.b-ehlers.de/projects/unyaffs.html"
   url "https://git.b-ehlers.de/ehlers/unyaffs/archive/0.9.7.tar.gz"
   sha256 "792d18c3866910e25026aaa9dcfdec4b67bca7453ce5b2474d1ce8e9d31b2c69"
   license "GPL-2.0-only"

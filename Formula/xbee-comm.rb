@@ -18,7 +18,6 @@ class XbeeComm < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9f6d626176e06f69934f3a3a3c56ddfa6a02be4f49d2e53dbce9d92b17f9eeb0"
     sha256 cellar: :any_skip_relocation, el_capitan:    "64b15ac79da143e2b092db702fd22c92ef064093be1c4c81cb60fd5b08f44075"
     sha256 cellar: :any_skip_relocation, yosemite:      "805e99d4e700a2e9993f26fbc48cae17c1bf16e6ff9ce63b5c7195358fcb052c"
-    sha256 cellar: :any_skip_relocation, mavericks:     "06cb9c96c880a55763dbb58c1b1a60cba19ec89be9c6995955e235d10b6cb47d"
   end
 
   depends_on "autoconf" => :build

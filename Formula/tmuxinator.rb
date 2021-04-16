@@ -1,17 +1,17 @@
 class Tmuxinator < Formula
   desc "Manage complex tmux sessions easily"
   homepage "https://github.com/tmuxinator/tmuxinator"
-  url "https://github.com/tmuxinator/tmuxinator/archive/v2.0.2.tar.gz"
-  sha256 "2e473fc56f9491f682ec115b62c07b29bbfb79b2e5bb0cc33ea3c5e008e6f852"
+  url "https://github.com/tmuxinator/tmuxinator/archive/v2.0.3.tar.gz"
+  sha256 "7ef03f8b23306944170b5951e7db280d1a1c3f1484fc292056f28185224634ab"
   license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "afc36c0b2e025de0cc5ca6849de580f380405b6cfb1bcec099d95664da4e5ffd"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c57d9e47b03552d52d480ad94123e9530db0e81c9e660bb516795dbf107eaf09"
-    sha256 cellar: :any_skip_relocation, catalina:      "afce6d81dd916ad941dc78336f249330279970d3dbcf40c41a4153ed17189bd1"
-    sha256 cellar: :any_skip_relocation, mojave:        "651de3698fd15d6088e7c60d75c2c0d5fe07304f015585b618e9b6db2db1295a"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "59ae8d30dd41a1404d0da34d94efa6cf2146efe7a1c1cc69e72745770324f66c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "62ff7ec6746d01cf90d68ac56a4550e9ed00162ae3625528e433940143b06131"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d6c77802104e9e397dbd796667b7ef78e296a7b243bfd885ce395c648847f321"
+    sha256 cellar: :any_skip_relocation, catalina:      "515f228bfc6d511abf6d5e52a54a1fe006deb6d3d31ab53774c4ce650f91b41c"
+    sha256 cellar: :any_skip_relocation, mojave:        "b3ea4285613f2367e7f75fb1f47e4c370dd1159d99531d19c38f8a80b23e459f"
   end
 
   depends_on "ruby"

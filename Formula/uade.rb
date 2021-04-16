@@ -19,7 +19,6 @@ class Uade < Formula
     sha256 sierra:        "432a5f95b33416c9bfc29ef4d81ea6d4fab2a568c71c00a9bda034985ed1276b"
     sha256 el_capitan:    "59ddaa5a6d841f436a5d297330ff62b613e446785ad17666c8fb4157d3a7c8db"
     sha256 yosemite:      "454945f35580b0b2bc8f0c7ddeecfae091634f54ee3a367eb14acce7251e5779"
-    sha256 mavericks:     "807b7f5cb5a83348c778003d781d715cec73d37da537e0b11b8138c93aad4938"
   end
 
   depends_on "pkg-config" => :build
@@ -51,14 +50,14 @@ index 05bfa9b..a73608e 100755
 @@ -399,13 +399,13 @@ if test -n "$sharedir"; then
      uadedatadir="$sharedir"
  fi
- 
+
 -$NATIVECC -v 2>/dev/null >/dev/null
 +$NATIVECC --version 2>/dev/null >/dev/null
  if test "$?" != "0"; then
      echo Native CC "$NATIVECC" not found, please install a C compiler
      exit 1
  fi
- 
+
 -$TARGETCC -v 2>/dev/null >/dev/null
 +$TARGETCC --version 2>/dev/null >/dev/null
  if test "$?" != "0"; then

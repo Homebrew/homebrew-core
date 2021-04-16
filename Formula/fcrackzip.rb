@@ -19,7 +19,6 @@ class Fcrackzip < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "ce2d79b833f5805cbc475711a38db0a7a791b793b24b094e68f3ed54dfe5fd82"
     sha256 cellar: :any_skip_relocation, el_capitan:    "169a5e7ea0e7ee9d04dc7ecce5288ef3a096fc9875d9af134b342878ce8c55fd"
     sha256 cellar: :any_skip_relocation, yosemite:      "1e9a5e3d9d37ce1bf7338d3f12f84bf67b31de4e2a6eb1511f90458c45b1b810"
-    sha256 cellar: :any_skip_relocation, mavericks:     "305533df364c7b91ae837dc38b3632bc9e2f0d167e10ad94901b5f2c06ab4924"
   end
 
   def install

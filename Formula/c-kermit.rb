@@ -21,7 +21,6 @@ class CKermit < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "b19ecd36ee298cba626b1276c228cdb4ee57726cf5af64166d8ff2800067e926"
     sha256 cellar: :any_skip_relocation, el_capitan:    "446776aff790c8f3b6f30be915dc18f4beffa973b92201384682beb7dc714562"
     sha256 cellar: :any_skip_relocation, yosemite:      "fe01b123ec7cddfbf46908bbf2071542a92f195d75733230896b5de78d92cdef"
-    sha256 cellar: :any_skip_relocation, mavericks:     "eebf4b834242dc754c00eb87ee5cee621d39f9369cfe67cdb620a1f81a197f20"
   end
 
   def install

@@ -14,7 +14,6 @@ class Rlog < Formula
     sha256 cellar: :any, sierra:        "51f6586bcfa2235a19b311189ca63431c596c689c7b014850e4a0cef2275074e"
     sha256 cellar: :any, el_capitan:    "c95d8998639fd75131f923191eaa857bc3ff8f33ee64ca3b5d459ac1979e6fa2"
     sha256 cellar: :any, yosemite:      "44f3b8ee89802fb13674e3b60e873045a459bf13513b84f3f7b94c8a4444b2eb"
-    sha256 cellar: :any, mavericks:     "70c1faaac613087604231c7e30ba5dd458183c1dec4cfccb73b25a32fee6c603"
   end
 
   patch :DATA
@@ -31,15 +30,15 @@ __END__
 --- orig/rlog/common.h.in	2008-06-14 20:10:13.000000000 -0700
 +++ new/rlog/common.h.in	2009-05-18 16:05:04.000000000 -0700
 @@ -52,7 +52,12 @@
- 
+
  # define PRINTF(FMT,X) __attribute__ (( __format__ ( __printf__, FMT, X)))
  # define HAVE_PRINTF_ATTR 1
 +
-+#ifdef __APPLE__ 
++#ifdef __APPLE__
 +# define RLOG_SECTION __attribute__ (( section("__DATA, RLOG_DATA") ))
 +#else
  # define RLOG_SECTION __attribute__ (( section("RLOG_DATA") ))
 +#endif
- 
+
  #if __GNUC__ >= 3
  # define expect(foo, bar) __builtin_expect((foo),bar)

@@ -5,13 +5,13 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-6.2.0.tar.xz"
   sha256 "7b721324cccb3eaeb4efb455508201ac8ccbd200f77106f52342f9ab7f022d1a"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_big_sur: "afdebc1135673d8c0cf25286153423333c13aa31c89e9b0ceb07a185e4e8e1a3"
-    sha256 big_sur:       "a39e7b2b04823d13e9d71cac7b6379063804bf04cb64ae46ef330eeaa4233f25"
-    sha256 catalina:      "7a5ec4de669a721c99dce0743d6254b57c2b92406978fca7af0e77ba804bc499"
-    sha256 mojave:        "6babda8a8af803dcf3085292374a830123d98a71ded69f568feb3c6271c7356f"
+    sha256 arm64_big_sur: "63f47974ce06e29e374f1301cfe8a037607b50d3ba1de874f0440ce3c06245ac"
+    sha256 big_sur:       "8b0438e418db6d1b5b86716ccb4dc9a80488687994416eeaafae15fa70aae5cd"
+    sha256 catalina:      "29d8d18c1a661f3fd3711a2fa95e2e03991513ed42399cd796fc1bc49298af24"
+    sha256 mojave:        "4e4f2ff5b9e24d69b0d9018669cf5d89ea3bc6d1c3ced782129776a821e972c2"
   end
 
   head do

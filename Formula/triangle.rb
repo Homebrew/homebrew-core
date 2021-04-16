@@ -1,16 +1,15 @@
 class Triangle < Formula
   desc "Convert images to computer generated art using Delaunay triangulation"
   homepage "https://github.com/esimov/triangle"
-  url "https://github.com/esimov/triangle/archive/v1.1.1.tar.gz"
-  sha256 "e62b05cf654ee9c61b8145aaea32f54ee39da872cca37084c96db5cda6587ad1"
+  url "https://github.com/esimov/triangle/archive/v1.1.2.tar.gz"
+  sha256 "6050c25f32e8ab94919b9a8320a09023cb36a97e797ec22f73c2dfaf7a774d6a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4498b4b6c20831ee695454aa0a8a28628a2a07c7f9a418b6e26c88104cae1c3a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "787b0732b1db07a2230e57136c30e74045bc9f5e6985c15135b6cb136042a4cc"
-    sha256 cellar: :any_skip_relocation, catalina:      "a90c331e51936a58d69e47b7ce4d9925072b6024ad6b1d1fe9d75b17f2becf15"
-    sha256 cellar: :any_skip_relocation, mojave:        "6dc2d0aba307e988e2d4205881be47aef561ab3cea7d7bc5c378e23414782ad9"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "d8859fc5b05f1faac1db7cd3130e6e8c8359724fc2162e5d6dc97d3e5198651d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24e275d2b33f33b26fed232868d1485ce5a1d4a882d3710b715b484919a57fcd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ad745cc5ef31c405301232d11cb75b768a001293a9d150704a4c955c8f38a698"
+    sha256 cellar: :any_skip_relocation, catalina:      "34e735d76b7417fa426161d4ed2b27b891e0f040070ccef3d6f430a637b9c453"
+    sha256 cellar: :any_skip_relocation, mojave:        "66ea6247ba2d105e5953814cdb9746ea2264a22689d879e16ace3c18e42f92f1"
   end
 
   depends_on "go" => :build

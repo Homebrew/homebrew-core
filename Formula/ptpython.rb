@@ -3,16 +3,16 @@ class Ptpython < Formula
 
   desc "Advanced Python REPL"
   homepage "https://github.com/prompt-toolkit/ptpython"
-  url "https://files.pythonhosted.org/packages/35/1c/fe502a47ece39d4963205b81da03e505ad548616557ea9fd9bb6adefddd4/ptpython-3.0.16.tar.gz"
-  sha256 "4b0f6e381a8251ec8d6aa94fe12f3400bf6edf789f89c8a6099f8a91d4a5d2e1"
+  url "https://files.pythonhosted.org/packages/ba/0f/50bcc855141de9c0412654fbbda99afc45cdf669382feacec0f7024637e0/ptpython-3.0.17.tar.gz"
+  sha256 "911d25cca31a8e4f9b2ecd16dcdad793b8859e94fca1275f3485d8cdf20b13de"
   license "BSD-3-Clause"
   head "https://github.com/prompt-toolkit/ptpython.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "32fafdadf92aa16f4c4ba99a5cdc738250719380084c1b90369c52ef79a2c2d5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7403256d48e79dffdce96095feab9822cffeffcd1e9433577658ff7ca663ed97"
-    sha256 cellar: :any_skip_relocation, catalina:      "a4dd345f87fb2da5406ed6d060a5777011ff3d34ee7fe14fef57080bdb2884e3"
-    sha256 cellar: :any_skip_relocation, mojave:        "b32eedf88527ecf4550474a65c9b392d818c71b1bfdcb3068352c54f0ce2e830"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3c5b4b41eb2a5a59e5bae6ad55914b62d2ab55916487b239c9267706bfbe246"
+    sha256 cellar: :any_skip_relocation, big_sur:       "dd604371be0bf62e0485cc9fe7ec8e2ab53cf1059bd0146e5895d10969ec356d"
+    sha256 cellar: :any_skip_relocation, catalina:      "212009d12a4ea37f77ca930b11f619b8b1d784323a746701356bee9efa9bbf14"
+    sha256 cellar: :any_skip_relocation, mojave:        "dca5a5d745e0b3ba65589149183fa67d354462b0bcf6ce4fe654a887aa85df06"
   end
 
   depends_on "python@3.9"
@@ -53,18 +53,18 @@ class Ptpython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/b1/32/2a6b734dc25b249467bfc1d844b077a252ea393d1b90733f4e899aa56506/prompt_toolkit-3.0.16.tar.gz"
-    sha256 "0fa02fa80363844a4ab4b8d6891f62dd0645ba672723130423ca4037b80c1974"
+    url "https://files.pythonhosted.org/packages/f7/e0/47738dadee0ec15ffbfa926f01586db2397201e0af3e06a0e669adfd6f2f/prompt_toolkit-3.0.18.tar.gz"
+    sha256 "e1b4f11b9336a28fa11810bc623c357420f69dfdb6d2dac41ca2c21a55c033bc"
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/e1/86/8059180e8217299079d8719c6e23d674aadaba0b1939e25e0cc15dcf075b/Pygments-2.7.4.tar.gz"
-    sha256 "df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"
+    url "https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz"
+    sha256 "2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/2e/e4/3447fed9ab29944333f48730ecff4dca92f0868c5b188d6ab2b2078e32c2/regex-2020.11.13.tar.gz"
-    sha256 "83d6b356e116ca119db8e7c6fc2983289d87b27b3fac238cfe5dca529d884562"
+    url "https://files.pythonhosted.org/packages/84/cb/e7792d2c52f61a686ce0fabe79b3674c41238d07cd35c79b4062e9a807f6/regex-2021.3.17.tar.gz"
+    sha256 "4b8a1fb724904139149a43e172850f35aa6ea97fb0545244dc0b805e0154ed68"
   end
 
   resource "toml" do

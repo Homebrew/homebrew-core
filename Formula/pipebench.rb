@@ -16,7 +16,6 @@ class Pipebench < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "213e31962005a876277c6f8edd3c9cd8964c253496f7945d48aef7338c76277e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "353cabdaf04a41e2169c1e489cd038f9fbe7f33cfd24a5a0b3068449ccc3446d"
     sha256 cellar: :any_skip_relocation, yosemite:      "a999c7ba2978e60d38bdeec63d1f1a8b2667cb0d77d35c4da2e57212a37b85ac"
-    sha256 cellar: :any_skip_relocation, mavericks:     "c5b0805588d8a8d9047d30b9330dd0be0215bfe694ed662cf11fa84595bba85c"
   end
 
   def install

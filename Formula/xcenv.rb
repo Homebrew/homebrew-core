@@ -8,6 +8,8 @@ class Xcenv < Formula
 
   bottle :unneeded
 
+  depends_on :macos
+
   def install
     prefix.install ["bin", "libexec"]
   end

@@ -4,6 +4,7 @@ class Plotutils < Formula
   url "https://ftp.gnu.org/gnu/plotutils/plotutils-2.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/plotutils/plotutils-2.6.tar.gz"
   sha256 "4f4222820f97ca08c7ea707e4c53e5a3556af4d8f1ab51e0da6ff1627ff433ab"
+  license "GPL-3.0-or-later"
   revision 1
 
   bottle do
@@ -16,10 +17,13 @@ class Plotutils < Formula
     sha256 cellar: :any, sierra:        "b63f4f051452f8fd9b5ddb50f9d574122c2277c9778e1a56c3f2d59e55c3da73"
     sha256 cellar: :any, el_capitan:    "b734cdcbc7ce11c4a716bc96ee7671f3883a5d41dadceac28d994ad2c20292f9"
     sha256 cellar: :any, yosemite:      "fae89f252628820ac83a0896fa022b1c08cacca6e6234b2fb23c10554f424fd3"
-    sha256 cellar: :any, mavericks:     "e51b4b5c367e8f9ec533f54e20c9df0b887818ee35c4cde19ba8feb73d4d2ff2"
   end
 
   depends_on "libpng"
+
+  on_linux do
+    depends_on "libxaw"
+  end
 
   def install
     # Fix usage of libpng to be 1.5 compatible

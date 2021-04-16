@@ -1,8 +1,9 @@
 class MkConfigure < Formula
   desc "Lightweight replacement for GNU autotools"
   homepage "https://github.com/cheusov/mk-configure"
-  url "https://downloads.sourceforge.net/project/mk-configure/mk-configure/mk-configure-0.36.0/mk-configure-0.36.0.tar.gz"
-  sha256 "a7becc4411dc2b137110b1543c6067b3db11db6baa4a6b303916605f0f2d55ea"
+  url "https://downloads.sourceforge.net/project/mk-configure/mk-configure/mk-configure-0.37.0/mk-configure-0.37.0.tar.gz"
+  sha256 "16d66de82bec9f050d5641af0851171e4804be69095630a01f7af8b88cd199e7"
+  license all_of: ["BSD-2-Clause", "BSD-3-Clause", "MIT", "MIT-CMU"]
 
   livecheck do
     url :stable
@@ -10,10 +11,10 @@ class MkConfigure < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8c03a1f64dbd6b63382f83c4f881a419c4347fd5d817862918974a293ac0be16"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7d9ceb180bbc7fa3d57f51c537f1c0e2de03b21386222293bf8352ab7bf7bf6a"
-    sha256 cellar: :any_skip_relocation, catalina:      "129f2ade79cb9123a937d7161edb971f8939df544c4a559b319a17dce8428ddd"
-    sha256 cellar: :any_skip_relocation, mojave:        "edf53a9eff012505917554bc4fc313981285fecafdb89b787dcff990f0439a02"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "99cfb90e5b63675ee36307557d4c4981843cb39f96824d3b0424d0feaa215ae8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "74fd29adec76158ebe619c4116609fe56b88aed78f64161fa352cad842a5a760"
+    sha256 cellar: :any_skip_relocation, catalina:      "d49908536866ff5ad40d08035125236d0f3c0cdcb0d4db190b4d2fc72deee1c1"
+    sha256 cellar: :any_skip_relocation, mojave:        "8e2d5682e9bbafe39e7d518b681f7e498b95b81a9e4ba16e5159af08825c2078"
   end
 
   depends_on "bmake"

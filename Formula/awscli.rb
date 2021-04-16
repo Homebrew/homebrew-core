@@ -3,16 +3,16 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.1.30.tar.gz"
-  sha256 "0902b0399684174bd9e865f14895314d0b4ab535ad24b3079400ff85717b14a9"
+  url "https://github.com/aws/aws-cli/archive/2.1.38.tar.gz"
+  sha256 "bf5e61d02c7a1cd4352db70bc766802de3cccea8bee53304c665a2ac7b40e556"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6b26063548191c85f74e7a5fc224a03832a52c7277be145dff14966b91e731eb"
-    sha256               big_sur:       "5acbb3297d97ea79d3597a19036d0a1f83907eb99913319ebea3df3333243c2f"
-    sha256               catalina:      "bf8d341b5603fa67b8fe2be24e418d8f612b6a85676ba16c647379629157743a"
-    sha256               mojave:        "160067567368e1d16a2b7f51ce25559f602a8f60288754f7e247640046d2abb1"
+    sha256 cellar: :any, arm64_big_sur: "133cb6c1b627d489e7822d63f6f9eace0a543de872dbb5b45163f14e53eead87"
+    sha256               big_sur:       "a99a0d90f194fb8cb61ecb69fdd73bce09c71ec44bc8371e09ffb241ee11f87a"
+    sha256               catalina:      "db2c1b1d4eced5f1e0ab7a1df24458b5136a513ffc78a0d414a25320d9ccacae"
+    sha256               mojave:        "5b06cf4a23fcf5fa805d04bd56afd89122b912b81d73318d15a5536869bf5bea"
   end
 
   depends_on "python@3.9"
@@ -56,7 +56,7 @@ class Awscli < Formula
 
   test do
     assert_match "topics", shell_output("#{bin}/aws help")
-    assert_include Dir["#{libexec}/lib/python3.9/site-packages/awscli/data/*"],
-                   "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
+    assert_includes Dir["#{libexec}/lib/python3.9/site-packages/awscli/data/*"],
+                    "#{libexec}/lib/python3.9/site-packages/awscli/data/ac.index"
   end
 end

@@ -1,28 +1,33 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/2.3.tar.gz"
-  sha256 "3c622628ebf46f68909c7a96743b07b6207894a0772fbe802603732152ab1035"
+  url "https://github.com/danmar/cppcheck/archive/2.4.1.tar.gz"
+  sha256 "11a9d9fe5305a105561655c45d2cd83cb30fbc87b41d0569de1b00a1a314867f"
   license "GPL-3.0-or-later"
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
-    sha256 arm64_big_sur: "48ddb6efdcb51f6bd829057f467e4b8cf99fabefe9be834a17fc0bcfc58ad9f9"
-    sha256 big_sur:       "d43b72a935d69d6a170289be18dc91677021ce79e3a9b3098d185e74f86a76ef"
-    sha256 catalina:      "e5e9dcaa609ee6d13d4a49597bde145f7264cf9ea18b9bd4f8b3bd6733c6f56f"
-    sha256 mojave:        "fc7ad924b5ab15d44cd6496d8fad5a5e1df639541bc04a67c9f68cd0ab909409"
+    sha256 arm64_big_sur: "48768ad6f9d3eea1736bf2c91071d2c85883bf5485e0ceaf1cdf2d6f80c85743"
+    sha256 big_sur:       "4aa26128b5b22730d005a2c1faed82d2e5ff5072331765915f812bd6279e7077"
+    sha256 catalina:      "7522e2ef04467bbd45f23d50242b35bdac552c6f5bcdef795ae52f1122d83fad"
+    sha256 mojave:        "8bc9e90fb422973484d1df7338b0b4ecd3d4a4839d57c688079d597620dd8332"
   end
 
-  depends_on "python@3.9" => :test
+  depends_on "cmake" => :build
+  depends_on "python@3.9" => [:build, :test]
   depends_on "pcre"
 
+  uses_from_macos "libxml2"
+
   def install
-    ENV.cxx11
-
-    system "make", "HAVE_RULES=yes", "FILESDIR=#{prefix}/cfg"
-
-    # FILESDIR is relative to the prefix for install, don't add #{prefix}.
-    system "make", "DESTDIR=#{prefix}", "BIN=#{bin}", "FILESDIR=/cfg", "install"
+    args = std_cmake_args + %W[
+      -DHAVE_RULES=ON
+      -DUSE_MATCHCOMPILER=ON
+      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Move the python addons to the cppcheck pkgshare folder
     (pkgshare/"addons").install Dir.glob("addons/*.py")

@@ -15,7 +15,6 @@ class Redir < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "cb7132731ff0121978a4e72208203d30d4fd91a10731fda2ac474619ab4472cb"
     sha256 cellar: :any_skip_relocation, el_capitan:    "6109cd43a30457b4306b701f12088b6b7c1b40dddfb592b805e5ba4eb6b56158"
     sha256 cellar: :any_skip_relocation, yosemite:      "76c6d218033c27de7a5030e8d9fe1356e0a152e3a31e4210b589314643b9fd0d"
-    sha256 cellar: :any_skip_relocation, mavericks:     "19b1d25bc23f38eeecd22c9ed2eac4640e63e97d7a192e7bc71b822d5d29afe0"
   end
 
   def install

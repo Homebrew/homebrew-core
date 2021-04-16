@@ -3,8 +3,8 @@ class C7n < Formula
 
   desc "Rules engine for cloud security, cost optimization, and governance"
   homepage "https://github.com/cloud-custodian/cloud-custodian"
-  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.10.0.tar.gz"
-  sha256 "807ba80dcebd9eaa972772d6952c1b9e7c3bfd34b18dd5c3f44790f76c3eb7d2"
+  url "https://github.com/cloud-custodian/cloud-custodian/archive/0.9.11.0.tar.gz"
+  sha256 "6893497aea3d8c956f03588cec845f288d6c00db8caa3444c72c18aa8ae54d39"
   license "Apache-2.0"
 
   livecheck do
@@ -13,12 +13,13 @@ class C7n < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a2c557f8b99a4cb78e4f505c8c530b1032e9cb3ccd7b1d7ea71e52f013fd0a24"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b620cf92b010f74bcbd593aa4ad2bb214fc6409a811211e2a4a886558dd1ae2f"
-    sha256 cellar: :any_skip_relocation, catalina:      "4e912eacec68187bb8995f42a98bb8228204039e9d7a20384ac9aeaee019fbb8"
-    sha256 cellar: :any_skip_relocation, mojave:        "3503b3d947cc8763e6ec2254f28b0d877b008ed662878858e4c34d237dba2ce2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2c8882d52e1eaabd2df446e7b6bbe91979fb8a6d110852d9c44ac3da976f2cb6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5b04c9aed7f6ea764ab0322fb0a6f3e7e58737a9f031a5cf7ad85cb408f834f0"
+    sha256 cellar: :any_skip_relocation, catalina:      "36dba24d4fc6d75b84c56f6e57af83843064dafae3b86e512b3a3c21c8e1e208"
+    sha256 cellar: :any_skip_relocation, mojave:        "96b4249641926857ee779ab8d00c37515b3ed61836688526737706ac379fbd9d"
   end
 
+  depends_on "python-tabulate"
   depends_on "python@3.9"
 
   resource "argcomplete" do
@@ -32,18 +33,18 @@ class C7n < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ad/28/18bc9eb86ac557ecc7f3f6067a454888b90e8dcec49731870f1fc5f8e9a1/boto3-1.16.42.tar.gz"
-    sha256 "928e73f51f71469a1b0cead1fbb37f304457ec54400833c02c0c328e64581fea"
+    url "https://files.pythonhosted.org/packages/36/f6/93e3878eaa336a6a068daca29e8ce43baa7c779f03dbc10c509f0241bdf1/boto3-1.17.45.tar.gz"
+    sha256 "edd3042eba5e21914a7d099cb8a25f009c0c42a9529c9ac4f5b852ad5b3acacf"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/ea/b6/feb570c421052117643d1e38874fe18b13350c9280c73c99b07ccd3887a0/botocore-1.19.42.tar.gz"
-    sha256 "f0b071fd08f4d72d7ba2c547da529abebe052705c1595be6d12a2151a75a6029"
+    url "https://files.pythonhosted.org/packages/4b/f1/f5ccaf6e0ef833c67210615511d934c0f0815673a7007fed384945462b9f/botocore-1.20.45.tar.gz"
+    sha256 "b3a59b21c6f404d2c5dcb1a21698484a5ac1bbe639ca97b2e0f0e19c52c2ebe1"
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/30/8c/aafe43247cd18441740a4c3976c29b147e9df3ce79c1076b4e4f6253d15d/importlib_metadata-3.3.0.tar.gz"
-    sha256 "5c5a2720817414a6c41f0a49993908068243ae02c1635a228126519b509c8aed"
+    url "https://files.pythonhosted.org/packages/8e/33/d54eacc679af34dc7c03fe9f3383669095b27fa17bd820cd33ec957cb249/importlib_metadata-3.10.0.tar.gz"
+    sha256 "c9db46394197244adf2f0b08ec5bc3cf16757e9590b02af1fca085c16c0d600a"
   end
 
   resource "jmespath" do
@@ -52,8 +53,8 @@ class C7n < Formula
   end
 
   resource "jsonpickle" do
-    url "https://files.pythonhosted.org/packages/8a/6d/92d8dadd0aa7a526fe5466e05e1b26b5fc033183af7dc0c38d67eb69915b/jsonpickle-1.3.tar.gz"
-    sha256 "71bca2b80ae28af4e3f86629ef247100af7f97032b5ca8d791c1f8725b411d95"
+    url "https://files.pythonhosted.org/packages/62/8a/84864798c5ef120e3a5b5cf08d8c231fa4499b53d465488563c4cb901f2f/jsonpickle-2.0.0.tar.gz"
+    sha256 "0be49cba80ea6f87a168aa8168d717d00c6ca07ba83df3cec32d3b30bfe6fb9a"
   end
 
   resource "jsonschema" do
@@ -72,23 +73,18 @@ class C7n < Formula
   end
 
   resource "PyYAML" do
-    url "https://files.pythonhosted.org/packages/64/c2/b80047c7ac2478f9501676c988a5411ed5572f35d1beff9cae07d321512c/PyYAML-5.3.1.tar.gz"
-    sha256 "b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"
+    url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
+    sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/50/de/2b688c062107942486c81a739383b1432a72717d9a85a6a1a692f003c70c/s3transfer-0.3.3.tar.gz"
-    sha256 "921a37e2aefc64145e7b73d50c71bb4f26f46e4c9f414dc648c6245ff92cf7db"
+    url "https://files.pythonhosted.org/packages/0f/c2/266326b601256b5722aea10961504857f324cd50f4adc66a2f573fbea017/s3transfer-0.3.6.tar.gz"
+    sha256 "c5dadf598762899d8cfaecf68eba649cd25b0ce93b6c954b156aaa3eed160547"
   end
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/57/6f/213d075ad03c84991d44e63b6516dd7d185091df5e1d02a660874f8f7e1e/tabulate-0.8.7.tar.gz"
-    sha256 "db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"
   end
 
   resource "typing-extensions" do
@@ -97,13 +93,13 @@ class C7n < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/29/e6/d1a1d78c439cad688757b70f26c50a53332167c364edb0134cadd280e234/urllib3-1.26.2.tar.gz"
-    sha256 "19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/ce/b0/757db659e8b91cb3ea47d90350d7735817fe1df36086afc77c1c4610d559/zipp-3.4.0.tar.gz"
-    sha256 "ed5eee1974372595f9e416cc7bbeeb12335201d8081ca8a0743c954d4446e5cb"
+    url "https://files.pythonhosted.org/packages/38/f9/4fa6df2753ded1bcc1ce2fdd8046f78bd240ff7647f5c9bcf547c0df77e3/zipp-3.4.1.tar.gz"
+    sha256 "3607921face881ba3e026887d8150cca609d517579abe052ac81fc5aeffdbd76"
   end
 
   def install

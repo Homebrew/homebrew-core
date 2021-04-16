@@ -1,16 +1,15 @@
 class Fstrm < Formula
   desc "Frame Streams implementation in C"
   homepage "https://github.com/farsightsec/fstrm"
-  url "https://dl.farsightsecurity.com/dist/fstrm/fstrm-0.6.0.tar.gz"
-  sha256 "a7049089eb0861ecaa21150a05613caa6dee4e8545b91191eff2269caa923910"
+  url "https://dl.farsightsecurity.com/dist/fstrm/fstrm-0.6.1.tar.gz"
+  sha256 "bca4ac1e982a2d923ccd24cce2c98f4ceeed5009694430f73fc0dcebca8f098f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "857656667ef67ce129a655133edb97df0a5fe07f6cb562c28918283995503720"
-    sha256 cellar: :any, big_sur:       "2a869068c96a6c1787a8d4f5667ed8692259b006d0e0fc37b1c1925270533ae8"
-    sha256 cellar: :any, catalina:      "e84d0b8f2c27683c16e0d168a94b355cc2dcdfae2b118b943b3853579f85a829"
-    sha256 cellar: :any, mojave:        "d20520e5164f271d97214c4645186996ee926c3847d59e8236e6dd643edec13b"
-    sha256 cellar: :any, high_sierra:   "8a373443cef458c2384efa537867eba87a19f58a413f052dcf0ee4c6636a379b"
+    sha256 cellar: :any, arm64_big_sur: "409e20e264b28337487a22ff762e8f7d1b4dc81bea1cd131c6d673a978d94e2f"
+    sha256 cellar: :any, big_sur:       "32c20ee504e029088d36ee45177137411beed0aaaac76ce287810cec71d3eea9"
+    sha256 cellar: :any, catalina:      "3b775d63b3594f2264b413184aad3fbb33990c07473e0db9db12c86bd0f19950"
+    sha256 cellar: :any, mojave:        "7f18a4569511492fdad064427c67fc88f988046c1fc6804a7973e1ae2911714e"
   end
 
   head do

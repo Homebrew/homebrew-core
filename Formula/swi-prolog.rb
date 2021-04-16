@@ -35,9 +35,7 @@ class SwiProlog < Formula
       system "cmake", "..", *std_cmake_args,
                       "-DSWIPL_PACKAGES_JAVA=OFF",
                       "-DSWIPL_PACKAGES_X=OFF",
-                      "-DCMAKE_INSTALL_PREFIX=#{libexec}",
-                      "-DCMAKE_C_COMPILER=/usr/bin/clang",
-                      "-DCMAKE_CXX_COMPILER=/usr/bin/clang++"
+                      "-DCMAKE_INSTALL_PREFIX=#{libexec}"
       system "make", "install"
     end
 

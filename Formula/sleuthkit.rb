@@ -1,8 +1,8 @@
 class Sleuthkit < Formula
   desc "Forensic toolkit"
   homepage "https://www.sleuthkit.org/"
-  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.10.1/sleuthkit-4.10.1.tar.gz"
-  sha256 "65c3f701f046f012feba78452a50f1307948a1038474eaf8e296f65031604a0a"
+  url "https://github.com/sleuthkit/sleuthkit/releases/download/sleuthkit-4.10.2/sleuthkit-4.10.2.tar.gz"
+  sha256 "c4836b7fd57b0a7a45432eeee18c41833027c8980fab3e4961c733b4e6867686"
   license "GPL-2.0"
 
   livecheck do
@@ -12,11 +12,10 @@ class Sleuthkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6aff4ffcdfd49eb927b027f16b5ddb02bb7d74d24382ea3ed56fb0e14dee8af1"
-    sha256 cellar: :any, big_sur:       "c1ab47b1de34253319907d3ce1f9742109b225168ad5adec25d1abb62340543e"
-    sha256 cellar: :any, catalina:      "32169b058d0500b740d6496bd5b9d1f87920d0d4a2c4b466f72d5857db88c449"
-    sha256 cellar: :any, mojave:        "96242dd0f595b9384e9d73e0c272c7105a98f13a66a010db796c538ec848bf24"
-    sha256 cellar: :any, high_sierra:   "076912d050385aca70b18f1a681c69cfcaa7237d87517b5d15457351701e7329"
+    sha256 cellar: :any, arm64_big_sur: "2019d39f5f7125a51c9b355d1106fb87a7ff69dd8468e4a7ac862f5ef4c63199"
+    sha256 cellar: :any, big_sur:       "c24c26b12e348409df732b847a5bf889dc9be429a0cb102595dc90576e0de320"
+    sha256 cellar: :any, catalina:      "be14b5b898b736334e74427335411f5ccaf05c462e45c367a61a1399155293f0"
+    sha256 cellar: :any, mojave:        "fa11e725245a2b893d8f781afc5b9e80e9e0c064a0030f87f45ac907fb2fb839"
   end
 
   depends_on "ant" => :build

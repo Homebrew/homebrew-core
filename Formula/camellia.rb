@@ -18,7 +18,6 @@ class Camellia < Formula
     sha256 cellar: :any, sierra:        "b4783ca8cf782a63d09daa1ff363c2fb4c4ea6dd4e75b8beb29167f536227730"
     sha256 cellar: :any, el_capitan:    "a80b2f52fd6811c5c4017bceac418d241c30342c93c1e9ae8911ed5274630e9c"
     sha256 cellar: :any, yosemite:      "94196d40772f262cedb88f3dcf8b66c84fcc78cd419b439bd9619c25d602c8b1"
-    sha256 cellar: :any, mavericks:     "73db73665d4a3972bc5c0b6250d3bc050de83e54330c88e9282b970bf5ececce"
   end
 
   def install

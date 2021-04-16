@@ -19,7 +19,6 @@ class Zxcc < Formula
     sha256 sierra:        "79aa0631d52d2d69ae554319db0027ffd59f2baa3d1c35473925f72a5c1965e3"
     sha256 el_capitan:    "11bd1697b8a6b5a3a77ce417d35ad7e1da9e6df18a36ebccfa18a47ce470d3cb"
     sha256 yosemite:      "824c8a2511a55f9fc00b7058247e3e76d9579c14d20f2d17b5e57aaf1388671f"
-    sha256 mavericks:     "94203911967d0818075168a3734fb1f756e5ba0ecddac30e50dac36319d38f44"
   end
 
   def install

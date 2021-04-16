@@ -3,15 +3,15 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/0c/ad/43f288c052c09d320c853a654132482a7afe68649c26554adb5784f1091a/internetarchive-1.9.9.tar.gz"
-  sha256 "a1614cbf35499d833e07699ddfd344764f86959fd5535aa9ce1203f57a77f970"
+  url "https://files.pythonhosted.org/packages/3f/61/4b1924191ee2806e82c09d9b1d52bf3f703121955c2690a7a6709f5a25cd/internetarchive-2.0.2.tar.gz"
+  sha256 "515e6646a2b917c15f2241670d21f14a014b9c67dc509aef4d4aca5a59cdda65"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6fc93b7d1a7b5445af264cf80dbc46543ffaecfa5828aebbb8b8fa7a07cf12cc"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8bbb208166fe6d36ad639c3b2a7a062c23ffbefb46e6ff5087acb923eb2418f5"
-    sha256 cellar: :any_skip_relocation, catalina:      "f24d4891757cca45c3fbf30c2c3a8f38caf727b6e63897717dbb1ed0390cb819"
-    sha256 cellar: :any_skip_relocation, mojave:        "1dff0700defb5d43a0f161024b86f1ed308793cc660150d3086760f649eb7623"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "25e8b4e563a9457537efaa3a8b62c71e8de046b6deb79db322da553b478fd277"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f132057ac4d048270739bbd10a2e5ef9ba7035d033bd533562977ade209c4afd"
+    sha256 cellar: :any_skip_relocation, catalina:      "9cc622f3fc3eff5776ef614802b026efda1bd805d67923c23e2d8c47434d5349"
+    sha256 cellar: :any_skip_relocation, mojave:        "b31d38254ea3bcc7e55754e4641f7396c75edb3104e7649ab325d77dcc02ea98"
   end
 
   depends_on "python@3.9"
@@ -47,13 +47,13 @@ class Internetarchive < Formula
   end
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/4f/42/c171c0090a5cd8e4b59515b35ac0bcc1a097481a738cadccdaf7aff87094/jsonpatch-1.28.tar.gz"
-    sha256 "e930adc932e4d36087dbbf0f22e1ded32185dfb20662f2e3dd848677a5295a14"
+    url "https://files.pythonhosted.org/packages/21/67/83452af2a6db7c4596d1e2ecaa841b9a900980103013b867f2865e5e1cf0/jsonpatch-1.32.tar.gz"
+    sha256 "b6ddfe6c3db30d81a96aaeceb6baf916094ffa23d7dd5fa2c13e13f8b6e600c2"
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/52/e7/246d9ef2366d430f0ce7bdc494ea2df8b49d7a2a41ba51f5655f68cfe85f/jsonpointer-2.0.tar.gz"
-    sha256 "c192ba86648e05fdae4f08a17ec25180a9aef5008d973407b581798a83975362"
+    url "https://files.pythonhosted.org/packages/6b/35/400557d3df63269a4c010cbd4865910b3c1718fbfe8d83210b216cd3efcf/jsonpointer-2.1.tar.gz"
+    sha256 "5a34b698db1eb79ceac454159d3f7c12a451a91f6334a4f638454327b7a89962"
   end
 
   resource "requests" do
@@ -62,8 +62,8 @@ class Internetarchive < Formula
   end
 
   resource "schema" do
-    url "https://files.pythonhosted.org/packages/c2/13/7332387fabc217b04ce7c4a3286fd1049444991b44cd8f143354e7f8f1fd/schema-0.7.3.tar.gz"
-    sha256 "4cf529318cfd1e844ecbe02f41f7e5aa027463e7403666a52746f31f04f47a5e"
+    url "https://files.pythonhosted.org/packages/2b/91/42bc143289fd5f032ab1b01c5da32dc162ae808a585122f27ed5bf67268f/schema-0.7.4.tar.gz"
+    sha256 "fbb6a52eb2d9facf292f233adcc6008cffd94343c63ccac9a1cb1f3e6de1db17"
   end
 
   resource "six" do
@@ -72,13 +72,13 @@ class Internetarchive < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/69/50/9f29874d835945b845812799edc732ba30c41e9d20431f9f69c8ffb9c670/tqdm-4.56.0.tar.gz"
-    sha256 "fe3d08dd00a526850568d542ff9de9bbc2a09a791da3c334f3213d8d0bbbca65"
+    url "https://files.pythonhosted.org/packages/35/35/bd5af89c97ad5177ed234d9e79d01a984f8b5226b8ffc8b5d3c4fc8e157d/tqdm-4.60.0.tar.gz"
+    sha256 "ebdebdb95e3477ceea267decfc0784859aa3df3e27e22d23b83e9b272bf157ae"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install

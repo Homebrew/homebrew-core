@@ -4,13 +4,13 @@ class OcamlNum < Formula
   url "https://github.com/ocaml/num/archive/v1.4.tar.gz"
   sha256 "015088b68e717b04c07997920e33c53219711dfaf36d1196d02313f48ea00f24"
   license "LGPL-2.1"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fc2e933047de0f32e0802f2233202c076098e1c18669a2bfb266ae1ddf357e74"
-    sha256 cellar: :any, big_sur:       "ec4da1895770f1bb0e657493bb65737632927c5888bf3b5f203277a6c47495df"
-    sha256 cellar: :any, catalina:      "b0c05329d5a13be31143dffb145210d52644775185d3545490519aac7ec72a90"
-    sha256 cellar: :any, mojave:        "d8a6415aab44a93f0c1985f2a4ef0bbc8f69f8ec1dbf69965a4c13f9d7ebe075"
+    sha256 cellar: :any, arm64_big_sur: "f1f22afab148209110159c9fcbe9cdfd7f27ca6a25b55ddd11358c130da033fb"
+    sha256 cellar: :any, big_sur:       "4563053ebf720e623e0afeb935f803ab1aedc3c15d6d99d6bc2818301eeb4ecb"
+    sha256 cellar: :any, catalina:      "26b165d15abd314baafa8c8a055236684eb26ae86740d85edca087321c5c311c"
+    sha256 cellar: :any, mojave:        "c14f476a964f149d3dc3145cb219286fea6585962351ada79aa1ed4606d9f781"
   end
 
   depends_on "ocaml-findlib" => :build

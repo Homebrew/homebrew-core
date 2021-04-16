@@ -19,6 +19,8 @@ class Libx11 < Formula
   depends_on "xorgproto"
 
   def install
+    ENV.delete "LC_ALL"
+    ENV["LC_CTYPE"] = "C"
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}

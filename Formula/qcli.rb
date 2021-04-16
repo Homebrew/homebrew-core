@@ -4,14 +4,14 @@ class Qcli < Formula
   url "https://github.com/bavc/qctools/archive/v1.2.tar.gz"
   sha256 "d648a5fb6076c6367e4eac320018ccbd1eddcb2160ce175b361b46fcf0d4a710"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/bavc/qctools.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "cef087971d3749ecf47034171457c2cc838dad1298f5f7606a524b4c86f9d2f3"
-    sha256 cellar: :any, big_sur:       "227a1bf258d07d729f5060e75c512b708bf6fa816e40adc9d4126dafd3fabbdf"
-    sha256 cellar: :any, catalina:      "b4822c9f864d0fe3b0a0d1e81efaef5daaad3e3f7efd3d520a0ebb711181622d"
-    sha256 cellar: :any, mojave:        "39f76c5605152c55bc40454dfbf2ec895af7d2a359c88692bbe0c49388c0a478"
+    sha256 cellar: :any, arm64_big_sur: "0d9f37d9080941a3cc46915af7b014e86ab38f863efd986dcec8b3fc4c4adf30"
+    sha256 cellar: :any, big_sur:       "e0ccef859a1e5c18e2c8ce01ce6bb1b58a83489ef20670909a5c4b07c284c4b6"
+    sha256 cellar: :any, catalina:      "6615b8e8fef95ec1ac8b2b60857071b172278281a2a404c3553e9f1571d03d8a"
+    sha256 cellar: :any, mojave:        "c918566c4dd012489eac5453d022a2ad0ab97c61d803c358f722234b7ea72d90"
   end
 
   depends_on "pkg-config" => :build

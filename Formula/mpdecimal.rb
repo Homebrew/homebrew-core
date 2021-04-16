@@ -5,6 +5,11 @@ class Mpdecimal < Formula
   sha256 "9f9cd4c041f99b5c49ffb7b59d9f12d95b683d88585608aa56a6307667b2b21f"
   license "BSD-2-Clause"
 
+  livecheck do
+    url "https://www.bytereef.org/mpdecimal/download.html"
+    regex(/href=.*?mpdecimal[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "eebbc5c7e71710c848eb60b90f946aefdee1b5269c840c30b8098d6bb758500b"
     sha256 cellar: :any, big_sur:       "255b6226cdcfaf0d40167012593e863e73dfed2884c10e7fc3eb4018e81712df"

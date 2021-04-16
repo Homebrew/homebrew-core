@@ -1,17 +1,16 @@
 class Glab < Formula
   desc "Open-source GitLab command-line tool"
   homepage "https://glab.readthedocs.io/"
-  url "https://github.com/profclems/glab/archive/v1.15.0.tar.gz"
-  sha256 "d2551b1ae3c8ec61e0d161e8a75efb16fea1e0716eed0095f23bcf5bfbc8d758"
+  url "https://github.com/profclems/glab/archive/v1.16.0.tar.gz"
+  sha256 "eac7ac0dae3b709aea7c7eaa578d09b8f101e590f1c2d83c66926afa233993b0"
   license "MIT"
-  revision 1
   head "https://github.com/profclems/glab.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7587c9a18bc675a2b160a75d362a90a5927196e5c1c7d79260cf4bdfc7cb2b01"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4d2287ebe64e3c776c88aef4cb4f1b1276345f8ffa4c2f68325a424314606833"
-    sha256 cellar: :any_skip_relocation, catalina:      "ff37b590f989cd2392d70c38c667a6affed2823a24e863a7d1ab16e36b4958ca"
-    sha256 cellar: :any_skip_relocation, mojave:        "bd27068df5007c6d1b6a7edda3b06b031df65c9f59fdffe8e1b6f14051d452f3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "747b4542cac6c9b832c4a43a279b1f9219ba5834a0c8f8e7cd5ac5656152a4c6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "942b9de81ad865c128eeb857abc862632bb676caf296589849403d2b1a90e601"
+    sha256 cellar: :any_skip_relocation, catalina:      "2d3a42f75e3d788c1699d487e06fda6bb207261d7c4629bd6a00042ceb3792f1"
+    sha256 cellar: :any_skip_relocation, mojave:        "71d98335b86d79b40580a4c14c27bda6a4fd4abf4e7fbc1fee0c5d1f236cda1e"
   end
 
   depends_on "go" => :build

@@ -16,7 +16,6 @@ class Tcpstat < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "378e42522ee14d64c0f5bf9bceeb0100c9193210eea2ee2ff80433b2b3da0166"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e483bf39d0e42a8124c3e2e50f117e66b285bada33df94c1b070460c6df622ea"
     sha256 cellar: :any_skip_relocation, yosemite:      "313fe3a9402b65b6f44b583c49ba83d301b63708b2e0a554100a5e83c03559d8"
-    sha256 cellar: :any_skip_relocation, mavericks:     "d090af2c66892bd831257dcd3ea109ab8c85cfdd7be6d2c7c2295e13b1c0b7b8"
   end
 
   def install

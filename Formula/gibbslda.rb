@@ -13,7 +13,6 @@ class Gibbslda < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9244041821944e45946fcf6a491ee1579293b4c154c7b9921b38fd6159567552"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c8a95c74f3c9e967506fb386a1343459ecae8362cbf91362a7955ba017bea5fc"
     sha256 cellar: :any_skip_relocation, yosemite:      "091c214c2589c2a2a0b0dcb90f45cf993ffeeb7d7260f505ef84f1fd773b326c"
-    sha256 cellar: :any_skip_relocation, mavericks:     "bd4c35f5f73ae1aa5fdee00bd89c7b9c455c30061effe1660fbfbd203cb82cd3"
   end
 
   # Build fails without including stdlib - https://trac.macports.org/ticket/41915

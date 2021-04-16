@@ -1,8 +1,8 @@
 class Nushell < Formula
   desc "Modern shell for the GitHub era"
   homepage "https://www.nushell.sh"
-  url "https://github.com/nushell/nushell/archive/0.28.0.tar.gz"
-  sha256 "aa6769f614a031ad33738064030d1c0d9ab500b2b0924adca71edacb1bd1d85d"
+  url "https://github.com/nushell/nushell/archive/0.29.0.tar.gz"
+  sha256 "1572c5e48c7b460e1693eb4dd153902cfff9b5069abd05297b79563e6ffbf9f1"
   license "MIT"
   head "https://github.com/nushell/nushell.git", branch: "main"
 
@@ -13,10 +13,10 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1c915950ff584a2e41f15c579398bd4603bb35ff42154b7153d3fe6927d950d4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b9ab2940958aa3574fa73e5b81efa021c4fdd68cc770d2e0dabaffa3fc10c5f5"
-    sha256 cellar: :any_skip_relocation, catalina:      "5531820e5c83e15223373ec9790229d0e61d1edf34073134222f531e964b096f"
-    sha256 cellar: :any_skip_relocation, mojave:        "d80c479e3cb2556a462cc740419849b9eb723b220a7bdcfd40c9d496e6a1434b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aac6763146aecb86d8380b9529f1faa7120d5fea9325e1a8dac3d451dc21eecb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "05e95f943a3c59dbc3b08436ba21aaadc606d8e8c03bc1650bc8427a575ac2ee"
+    sha256 cellar: :any_skip_relocation, catalina:      "87f350cd6fce9633c2f0abce86fc6ab7f216ca5a47f8d9c9a8dbc737e47ecd46"
+    sha256 cellar: :any_skip_relocation, mojave:        "6b2665736f8a1b9114b1a5abe0ae13c6b2fb1a78b878bda3156ca9459984262d"
   end
 
   depends_on "rust" => :build

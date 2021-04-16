@@ -1,8 +1,8 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.0/6.0.2/single/qt-everywhere-src-6.0.2.tar.xz"
-  sha256 "67a076640647783b95a907d2231e4f34cec69be5ed338c1c1b33124cadf10bdf"
+  url "https://download.qt.io/official_releases/qt/6.0/6.0.3/single/qt-everywhere-src-6.0.3.tar.xz"
+  sha256 "ca4a97439443dd0b476a47b284ba772c3b1b041a9eef733e26a789490993a0e3"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
@@ -14,16 +14,16 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fb36682730c3261967347efd1e1219970ddcf9e39998183b2aeaa76acad98cce"
-    sha256 cellar: :any, big_sur:       "99950b7eb8c3fd4a91f5622f1199b77d99d9d2aa9deeb2e2f11a1ed568f1194b"
-    sha256 cellar: :any, catalina:      "30f9131632cfa2088eb24315a5f34090e004413261e11b7290e37d78d7f9e42e"
-    sha256 cellar: :any, mojave:        "9498b72fda65897df32aa8ecd754b45d0f02551280170beb6b76e7001d4fff01"
+    sha256 cellar: :any, arm64_big_sur: "d54796b612c7c9a03ef61cb46c7371dd61c9f0d158450ceffc63641f5023a917"
+    sha256 cellar: :any, big_sur:       "2de2bde3a0246ac6f41e82e68b19f130e06855a8ab74d9d3f156ada706d743a1"
+    sha256 cellar: :any, catalina:      "09527b3f023b7f31822be933615636a7b7c17dce67848a3b5544f2081df2bfe8"
+    sha256 cellar: :any, mojave:        "4e1a1ac8a420e29898499eae3f770c51118c235e68fa457f32a311232f3c0e68"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: :build
+  depends_on xcode: [:build, :test]
 
   depends_on "assimp"
   depends_on "dbus"
@@ -39,28 +39,28 @@ class Qt < Formula
   depends_on "libtiff"
   depends_on "pcre2"
   depends_on "python@3.9"
+  depends_on "sqlite"
   depends_on "webp"
   depends_on "zstd"
 
   uses_from_macos "cups"
   uses_from_macos "krb5"
   uses_from_macos "perl"
-  uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
   resource "qtimageformats" do
-    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qtimageformats-everywhere-src-6.0.2.tar.xz"
-    sha256 "b0379ba6bbefbc48ed3ef8a1d8812531bd671362f74e0cffa6adf67bb1139206"
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.3/qtimageformats-everywhere-src-6.0.3.tar.xz"
+    sha256 "327580b5a5b9a8d75e869c0eaa7ff34881bbde4e4ccc51d07a59e96054136837"
   end
 
   resource "qt3d" do
-    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qt3d-everywhere-src-6.0.2.tar.xz"
-    sha256 "ff6434da878062aea612a9d7323bd615c2f232c4462c26323f1a5511aac6db89"
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.3/qt3d-everywhere-src-6.0.3.tar.xz"
+    sha256 "470f95c559b68cc8faa982c1ca7ff83054d6802f7b2a0c1d960a155b92080cf9"
   end
 
   resource "qtnetworkauth" do
-    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.2/qtnetworkauth-everywhere-src-6.0.2.tar.xz"
-    sha256 "05b66ef42f3e6bf4cf5f36744db8483f9a57dbc7bd9ecc9ba81e7ca99b0a37e6"
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.3/qtnetworkauth-everywhere-src-6.0.3.tar.xz"
+    sha256 "124bf433e2c5418e900a5947d4ceb128ee179f514eddcea33924f0b695be64ed"
   end
 
   def install
@@ -85,9 +85,10 @@ class Qt < Formula
       -system-sqlite
     ]
 
+    # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
+    # and `-DTEST_assimp=ON` when Qt 6.2 is released.
+    # See https://bugreports.qt.io/browse/QTBUG-91537
     cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"]||s["CMAKE_FIND_FRAMEWORK"] } + %W[
-      -DICU_ROOT=#{Formula["icu4c"].opt_prefix}
-
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
       -DCMAKE_FIND_FRAMEWORK=FIRST
 
@@ -126,7 +127,7 @@ class Qt < Formula
 
   test do
     (testpath/"CMakeLists.txt").write <<~EOS
-      cmake_minimum_required(VERSION 3.19.0)
+      cmake_minimum_required(VERSION #{Formula["cmake"].version})
 
       project(test VERSION 1.0.0 LANGUAGES CXX)
 
@@ -196,8 +197,6 @@ class Qt < Formula
     system "make"
     system "./test"
 
-    # Work around "error: no member named 'signbit' in the global namespace"
-    ENV.delete "CPATH"
     system bin/"qmake", testpath/"test.pro"
     system "make"
     system "./test"

@@ -20,6 +20,8 @@ class Glyr < Formula
   depends_on "gettext"
   depends_on "glib"
 
+  uses_from_macos "curl"
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"

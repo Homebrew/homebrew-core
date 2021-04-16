@@ -4,6 +4,8 @@ class Tcsh < Formula
   url "https://astron.com/pub/tcsh/tcsh-6.22.03.tar.gz"
   mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.22.03.tar.gz"
   sha256 "be2cfd653d2a0c7f506d2dd14c12324ba749bd484037be6df44a3973f52262b7"
+  license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://astron.com/pub/tcsh/"
@@ -11,10 +13,10 @@ class Tcsh < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4984599cbefc72104b17434f89aa257e0b2de09605a53ac66e9d07e4804b344d"
-    sha256 big_sur:       "e572fcc4259db31e54c25ccf22d736637cfce0801f038691b86d5d68847d6603"
-    sha256 catalina:      "2feecc5bd032b40e4673125431957d89a37a54aac8d4e0b5849fd9fa33aa7bfa"
-    sha256 mojave:        "1a278f9965f6b362035623cf793afee82e0039277f61f06f32499f7bdf0ec0ad"
+    sha256 arm64_big_sur: "db17d78c13b5c84ab7d63a0a817e90d4952bd912e05ded54b7989031244abeeb"
+    sha256 big_sur:       "b72af846ad95fa94d102ea96ce87f267c053382fc10127df7d1b20ed66048000"
+    sha256 catalina:      "888b1e8c5d9eefbd64c2e99d20d9358bc6a95b4bb2dc4f7857c75f5ce27801c5"
+    sha256 mojave:        "5a46aa98b8f49e3c284e817a18f48ff511f2ec6af9a7d3a8a9af2f24bcc3ad96"
   end
 
   uses_from_macos "ncurses"
@@ -22,6 +24,7 @@ class Tcsh < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--sysconfdir=#{etc}"
     system "make", "install"
+    bin.install_symlink "tcsh" => "csh"
   end
 
   test do

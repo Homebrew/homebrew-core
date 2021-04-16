@@ -1,15 +1,15 @@
 class Pdfcpu < Formula
   desc "PDF processor written in Go"
   homepage "https://pdfcpu.io"
-  url "https://github.com/pdfcpu/pdfcpu/archive/v0.3.9.tar.gz"
-  sha256 "8391671f4135a90e0b25ac9b24c3fe0750caee15b0e5c9e5f1912855fdf313a5"
+  url "https://github.com/pdfcpu/pdfcpu/archive/v0.3.11.tar.gz"
+  sha256 "d538acd82b7beaa7c1ad29f8bc2455b28975551904290f1093484f328c359cff"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "122aecb2cd82e1f5af5b2523666c7301aed1d9856ea81cf7a5ea0c3290a1f927"
-    sha256 cellar: :any_skip_relocation, big_sur:       "01b9b0b91d99d953e94087cfc2e8ed1e70c34c97d8ac0f3ab4fdc83b92e8be70"
-    sha256 cellar: :any_skip_relocation, catalina:      "775aaef135989f53de0d8da36d13161ae62ddb981a3326a81f4050f5724b4ce3"
-    sha256 cellar: :any_skip_relocation, mojave:        "6850b47349d59cb3be388dc728dc596fe5edcced697abc1bc2d6eae6ea8b6344"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "624219b4260f843a569e0118a960265074b37d37dd2ea540634d0dc95c79df69"
+    sha256 cellar: :any_skip_relocation, big_sur:       "929a1b6879bf834d195e9811940469fdf5d6b26a0260e41b8821f0d3ca8a0fd2"
+    sha256 cellar: :any_skip_relocation, catalina:      "cff4d99d6c310dc77d4c760b52e1c4b345b18682742f5b4bc575b4e4310a3275"
+    sha256 cellar: :any_skip_relocation, mojave:        "cbade3938d02906c5689f3f16aeccddede49fb054264cb18a89972fc6398cf6e"
   end
 
   depends_on "go" => :build

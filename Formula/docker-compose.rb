@@ -3,16 +3,16 @@ class DockerCompose < Formula
 
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://files.pythonhosted.org/packages/92/29/303a71a1bf4522d6e36baa14d48f286d75da545777d8510b9f4085686ee3/docker-compose-1.28.5.tar.gz"
-  sha256 "b3ff8f0352eb4055c4c483cb498aeff7c90195fa679f3caf7098a2d6fa6030e5"
+  url "https://files.pythonhosted.org/packages/c5/90/b9695cea5207eb858e1bd08e7882368605d2599d60072df5be09f4452e84/docker-compose-1.29.1.tar.gz"
+  sha256 "d2064934f5084db8a0c4805e226447bf1fd0c928419be95afb6bd1866838c1f1"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b2aa9493fda75a1044fee7c321394b4d884fe72e6658c7523712659a0549d583"
-    sha256 cellar: :any, big_sur:       "da80757f384997366c44221500a223cd169bbe002fc2676727b43056eca26ca8"
-    sha256 cellar: :any, catalina:      "ff772da8c719b4f7c0ad0aae4ddf625c6eee12a8bc5c56bf864dde3ee435752f"
-    sha256 cellar: :any, mojave:        "dd017cc11c4ac1242835aed3dd7da723244fb86f10e1c88e3a2ee319c674ab97"
+    sha256 cellar: :any, arm64_big_sur: "8f62a4ec1e3ae543afc931483ea8cf015fc4eb8f394f84d6f57fb111723213b6"
+    sha256 cellar: :any, big_sur:       "14df94cf6ccb19cc0a5837b41fe56a654a8a6e3a1f339be59088976ee6b0e05b"
+    sha256 cellar: :any, catalina:      "e8691188bcc89578dce5de3ad4032c1afde7caffc436cf9fde92d1e5a4135000"
+    sha256 cellar: :any, mojave:        "95367c971090d7f01d98dcd71248c9a79106b414bbae782f3432784e5329c9e9"
   end
 
   depends_on "rust" => :build
@@ -32,11 +32,6 @@ class DockerCompose < Formula
     sha256 "5b93c1726e50a93a033c36e5ca7fdcd29a5c7395af50a6892f5d9e7c6cfbfb29"
   end
 
-  resource "cached-property" do
-    url "https://files.pythonhosted.org/packages/61/2c/d21c1c23c2895c091fa7a91a54b6872098fea913526932d21902088a7c41/cached-property-1.5.2.tar.gz"
-    sha256 "9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130"
-  end
-
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
     sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
@@ -53,8 +48,8 @@ class DockerCompose < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
-    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
+    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
+    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
   end
 
   resource "distro" do
@@ -63,8 +58,8 @@ class DockerCompose < Formula
   end
 
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/fd/46/6f6116c30cb859a0cdb95444140e9fe0be0de455c9c83748ee421aec8274/docker-4.4.4.tar.gz"
-    sha256 "d3393c878f575d3a9ca3b94471a3c89a6d960b35feb92f033c0de36cc9d934db"
+    url "https://files.pythonhosted.org/packages/fa/a2/e46d7c1b51394a09271a3b07c3a68deb3a669429beafd444d9553ed52868/docker-5.0.0.tar.gz"
+    sha256 "3e8bc47534e0ca9331d72c32f2881bb13b93ded0bcdeab3c833fb7cf61c0a9a5"
   end
 
   resource "dockerpty" do
@@ -108,8 +103,8 @@ class DockerCompose < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/53/04/1a8126516c8febfeb2015844edee977c9b783bdff9b3bcd89b1cc2e1f372/python-dotenv-0.15.0.tar.gz"
-    sha256 "587825ed60b1711daea4832cf37524dfd404325b7db5e25ebe88c495c9f807a0"
+    url "https://files.pythonhosted.org/packages/27/ec/5ce6e87222af71a508ec6bbbe3923a9c6440b6a41e9618006c2b7e69a4a7/python-dotenv-0.17.0.tar.gz"
+    sha256 "471b782da0af10da1a80341e8438fca5fadeba2881c54360d5fd8d03d03a4f4a"
   end
 
   resource "PyYAML" do
@@ -133,13 +128,13 @@ class DockerCompose < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
-  resource "websocket_client" do
-    url "https://files.pythonhosted.org/packages/8b/0f/52de51b9b450ed52694208ab952d5af6ebbcbce7f166a48784095d930d8c/websocket_client-0.57.0.tar.gz"
-    sha256 "d735b91d6d1692a6a181f2a8c9e0238e5f6373356f561bb9dc4c7af36f452010"
+  resource "websocket-client" do
+    url "https://files.pythonhosted.org/packages/4a/df/112c278ba1ead96786d24d973429ce1e1a2c86b9843183d9f8ef8c6330d7/websocket_client-0.58.0.tar.gz"
+    sha256 "63509b41d158ae5b7f67eb4ad20fecbb4eee99434e73e140354dc3ff8e09716f"
   end
 
   def install

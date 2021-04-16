@@ -2,8 +2,8 @@ class Erlang < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/archive/OTP-23.2.7.tar.gz"
-  sha256 "db84414c42ef5c9d472ddf780cad6f210c2344b22ecd59ca57527bf043ea0943"
+  url "https://github.com/erlang/otp/archive/OTP-23.3.1.tar.gz"
+  sha256 "a5a067a3b17bbef8511f2c056957925b666670b6f2cdaf645e1bc28ce3dd3517"
   license "Apache-2.0"
   head "https://github.com/erlang/otp.git"
 
@@ -13,10 +13,10 @@ class Erlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "17dd54ac9dc1f0b21422e781bdfbb6ee8db53e9c06d2a663a4d89a8eb6ce05b9"
-    sha256 cellar: :any, big_sur:       "42d12c0f32085c4e898d3a68531dd9d38b48b5a5eff085e000a3ba3cf736ce94"
-    sha256 cellar: :any, catalina:      "ba3e82593aee59d4ba65a63680575adc36f2efc008c91ec3724e28ca546b04b7"
-    sha256 cellar: :any, mojave:        "fd2d929a9f235fa7692d8a7586fce72fb8e600a631ccf962977ec6613fe1ae25"
+    sha256 cellar: :any, arm64_big_sur: "770da1ebdb9b1a841bf8d954685597510d01b7a31b8604f918a9584e7d712d05"
+    sha256 cellar: :any, big_sur:       "4d17d85cc255934a3cc8786b6d1b0a1b4fed5b52ab2702d3092166cee69bf2e0"
+    sha256 cellar: :any, catalina:      "d4325325c312f87ed81fcf3ee47b946ad6f7be37fcf54bb1e25d8212fbcef6b0"
+    sha256 cellar: :any, mojave:        "644b5e55f50fa4d4eb30034015ae8df3657306ab915860c3c6479039be4c4d4f"
   end
 
   depends_on "autoconf" => :build
@@ -28,9 +28,9 @@ class Erlang < Formula
   uses_from_macos "m4" => :build
 
   resource "html" do
-    url "https://www.erlang.org/download/otp_doc_html_23.2.tar.gz"
-    mirror "https://fossies.org/linux/misc/otp_doc_html_23.2.tar.gz"
-    sha256 "1f58e16826a8b9f86e10ca057f4e3e3e0304dcd3cf46fe2cef6f5c1d56196fc8"
+    url "https://www.erlang.org/download/otp_doc_html_23.3.tar.gz"
+    mirror "https://fossies.org/linux/misc/otp_doc_html_23.3.tar.gz"
+    sha256 "03d86ac3e71bb58e27d01743a9668c7a1265b573541d4111590f0f3ec334383e"
   end
 
   def install

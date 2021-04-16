@@ -1,10 +1,9 @@
 class PythonAT38 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.8/Python-3.8.8.tar.xz"
-  sha256 "7c664249ff77e443d6ea0e4cf0e587eae918ca3c48d081d1915fe2a1f1bcc5cc"
+  url "https://www.python.org/ftp/python/3.8.9/Python-3.8.9.tar.xz"
+  sha256 "5e391f3ec45da2954419cab0beaefd8be38895ea5ce33577c3ec14940c4b9572"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,10 +11,10 @@ class PythonAT38 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "d69d6259b306244ad832f35ce26982b51c3886798466048482fceb30a3b8af9e"
-    sha256 big_sur:       "17d85e5de9771365d769bad9bd7cc3f126f3eaa004c3ff684368a930d7fa710f"
-    sha256 catalina:      "898ace209da0f175407aad47f4076bb8a3ba40b9d3ef8480ad93abf733d284ed"
-    sha256 mojave:        "f185acb02fb2c9c5c884d4b94f878ebcce1f42302f56c073407c27d6e261a579"
+    sha256 arm64_big_sur: "e0aa205ed6ff34c99c3659490ccbc280c070dc04ac6a8d04960b36ff9076dd2e"
+    sha256 big_sur:       "6111e285226a59c3c3b0f684de2a810deb1b5b5b68e81fdafcb11f0a0b0f6606"
+    sha256 catalina:      "65a3d5fa32b16df0886c7390e992f4948b51ce56d10e57bd05895e5795efe0fd"
+    sha256 mojave:        "5d408f56ab185c3e7644e6ac3fe063cc367aa14810050cd2a9297332de97f5a9"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -54,8 +53,8 @@ class PythonAT38 < Formula
              "bin/easy_install-3.7", "bin/easy_install-3.8"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/12/68/95515eaff788370246dac534830ea9ccb0758e921ac9e9041996026ecaf2/setuptools-53.0.0.tar.gz"
-    sha256 "1b18ef17d74ba97ac9c0e4b4265f123f07a8ae85d9cd093949fa056d3eeeead5"
+    url "https://files.pythonhosted.org/packages/94/75/05e1d69c61c4dfaf65ad12785cd18bedc1e0129976c55914d6aea59c7da8/setuptools-54.2.0.tar.gz"
+    sha256 "aa9c24fb83a9116b8d425e53bec24c7bfdbffc313c2159f9ed036d4a6dd32d7d"
   end
 
   resource "pip" do
@@ -171,7 +170,7 @@ class PythonAT38 < Formula
     # superenv makes cc always find includes/libs!
     inreplace "setup.py",
       "do_readline = self.compiler.find_library_file(self.lib_dirs, 'readline')",
-      "do_readline = '#{Formula["readline"].opt_lib}/libhistory.dylib'"
+      "do_readline = '#{Formula["readline"].opt_lib}/#{shared_library("libhistory")}'"
 
     inreplace "setup.py" do |s|
       s.gsub! "sqlite_setup_debug = False", "sqlite_setup_debug = True"

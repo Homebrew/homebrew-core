@@ -1,15 +1,15 @@
 class Instead < Formula
   desc "Interpreter of simple text adventures"
   homepage "https://instead.syscall.ru/"
-  url "https://github.com/instead-hub/instead/archive/3.3.3.tar.gz"
-  sha256 "1425c559ab91c8ec3e02ad74f6989a4408ee7141d69361d17aeff174d194fe57"
+  url "https://github.com/instead-hub/instead/archive/3.3.4.tar.gz"
+  sha256 "6577235e42a22d8f7f628fedc998d718e65da9e1a3cb61f09be6d1cd648fc061"
   license "MIT"
 
   bottle do
-    sha256 arm64_big_sur: "37dcf9170b3706a2e998d5b9c6656786bfab4745e0d59cc0f4e9cc79bcec4fe7"
-    sha256 big_sur:       "1ccae5373dd3a5fb4bb1031f56bfa9f55b50077c63512d3a3c90a3e02c71dadc"
-    sha256 catalina:      "c45adcc385d4034b861366b7420c6ab8d699e485fa2c0f7184fa87fc9de3f717"
-    sha256 mojave:        "68beec5c7fe7fa252265ac54f08c3a612f51e5d0aac0890a72bef42b06a07919"
+    sha256 arm64_big_sur: "dd4cd0a7efdc8cc8fe7ea6c7bc85b357624167eb2f292d8fc870102253367d8f"
+    sha256 big_sur:       "c027c9549578e0fbfb7258bfcfd516a4e56ed5386062151f538d2d19265a6527"
+    sha256 catalina:      "6b7ab908bf9fb25b0f1196f367bef74d79d8580f032d063abd1235c66fd9fce8"
+    sha256 mojave:        "028d118f6b7d3d918092c413630e4d782015ff11b7a69c63115e3ed832d8b0e2"
   end
 
   depends_on "cmake" => :build
@@ -27,7 +27,7 @@ class Instead < Formula
       system "cmake", "..", "-DWITH_GTK2=OFF",
                             "-DWITH_LUAJIT=ON",
                             "-DLUA_INCLUDE_DIR=#{luajit.opt_include}/luajit-2.1",
-                            "-DLUA_LIBRARY=#{luajit.opt_lib}/libluajit.dylib",
+                            "-DLUA_LIBRARY=#{luajit.opt_lib}/#{shared_library("libluajit")}",
                             *std_cmake_args
       system "make", "install"
     end

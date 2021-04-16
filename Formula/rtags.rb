@@ -4,7 +4,7 @@ class Rtags < Formula
   url "https://github.com/Andersbakken/rtags.git",
       tag:      "v2.38",
       revision: "9687ccdb9e539981e7934e768ea5c84464a61139"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/Andersbakken/rtags.git"
 
   livecheck do
@@ -26,8 +26,10 @@ class Rtags < Formula
   depends_on "openssl@1.1"
 
   def install
-    # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi
-    ENV.append("LDFLAGS", "-lc++abi")
+    on_macos do
+      # Homebrew llvm libc++.dylib doesn't correctly reexport libc++abi
+      ENV.append("LDFLAGS", "-lc++abi")
+    end
 
     args = std_cmake_args << "-DRTAGS_NO_BUILD_CLANG=ON"
 

@@ -12,7 +12,6 @@ class Fondu < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "a4e10488264a8c28c06aa2f517e1937b3375462b4c44dcfb2ed50a8742298821"
     sha256 cellar: :any_skip_relocation, el_capitan:  "c4fadd6744370dc946b7dde1ec8329335146257ad60b829f9f4024912859d7db"
     sha256 cellar: :any_skip_relocation, yosemite:    "dfeddb29a48dcf4db6aaf8170b54137fb329e216a4f83f47ddf262a984ab469e"
-    sha256 cellar: :any_skip_relocation, mavericks:   "cc8bb3c5213b0b792929fa1658077da60717993f0dbdaa56c0fe6004930309f4"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

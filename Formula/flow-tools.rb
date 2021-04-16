@@ -13,7 +13,6 @@ class FlowTools < Formula
     sha256 sierra:        "47ae55656be935936a5d3aa505f510c337818bd3c9d1a7fb028044523382dd8b"
     sha256 el_capitan:    "2b41c1415b50e7123c5268dce7c656aba825a16c061691ee8eaf06e39d622cec"
     sha256 yosemite:      "0d3814f50d6bc8d06c808176bc0b6f725f429b231a21eabe49fadf6729a7d27b"
-    sha256 mavericks:     "dc15779397a7f60c67b20c314b4513133c0883a5eafb3e972e744b8a70ca1060"
   end
 
   uses_from_macos "zlib"

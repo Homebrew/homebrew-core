@@ -18,11 +18,11 @@ class Curlftpfs < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on :x11
+
+  # TODO: depend on specific X11 formulae instead
 
   on_macos do
-    deprecate! date: "2020-11-10", because: "requires FUSE"
-    depends_on :osxfuse
+    disable! date: "2021-04-08", because: "requires FUSE"
   end
 
   on_linux do

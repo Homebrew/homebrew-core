@@ -11,14 +11,14 @@ class Gnupg < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "e43d39b6d1eb7ed8451ef71fd9ccc37a2505e0c04a68e89290fcd9add362f228"
-    sha256 big_sur:       "6726388722ce3b72733bb9b685c7325a42bfa277b54fadf5c5994a3396b3c35f"
-    sha256 catalina:      "f7e22bee02f43a65794ab1b2bb44bc9650a634fdc2002a102106e78b6c32d2a8"
-    sha256 mojave:        "7250d3b3429e984579c1a1cde3455f63981c3a29d17d23eadce5c45079199bbf"
+    rebuild 1
+    sha256 arm64_big_sur: "dfcafec11417b6ba95ee301c1507ed87b5b7251df546e143f1a5bdedd65b4673"
+    sha256 big_sur:       "675fbedff1eaddf91c6b0dd547390604c561c65de4af91a0810dc326a9079e6d"
+    sha256 catalina:      "eead46a35c3fde2b33c8c6a1ed825a0e474923c97e28dda4a1a92c3f3fefc93b"
+    sha256 mojave:        "ed045a3ec35171c7183b23b28868489a258d119033caf395dee54ab2268332b2"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "adns"
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libassuan"

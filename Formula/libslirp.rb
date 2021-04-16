@@ -4,18 +4,26 @@ class Libslirp < Formula
   url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.4.0/libslirp-v4.4.0.tar.gz"
   sha256 "43513390c57bee8c23b31545bfcb765200fccf859062b1c8101e72befdabce2e"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3cd403d0ace2d57d506d64ce0bfcc27d3f7adb3e5113481a585a2f8ab0e53f9c"
-    sha256 cellar: :any, big_sur:       "c246bdd605b4dd938e1973e3cc6e9855bfac88d2387aa40d41a85180554dc4ab"
-    sha256 cellar: :any, catalina:      "1e17da7e87c39a76d7597c6030d2ae12d3b2a79742b4533e0113e7442e610833"
-    sha256 cellar: :any, mojave:        "a2f636ece566472a1eb9db4761399a0a68bf1c2ca8b901a34d4205858704be90"
+    sha256 cellar: :any, arm64_big_sur: "cec97ae53546763da4c377038f43c5a72d2ed14288a0c13441a57ae419bd0ac2"
+    sha256 cellar: :any, big_sur:       "911888d8a0ac274363a629b94c07d7b46d2b1eae5fdbf1131f95b0f16684d45a"
+    sha256 cellar: :any, catalina:      "f168f09b9cf07d04dbb1a1d5d1a6f5c845a00ace46388ba366846fdcacee7e45"
+    sha256 cellar: :any, mojave:        "4dbfe6f24dbac45a0c5d2796d350752ea25ebff528f0ccc1e29f3d476ec51104"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
+
+  # Fix QEMU networking
+  # https://gitlab.freedesktop.org/slirp/libslirp/-/issues/35
+  patch do
+    url "https://gitlab.freedesktop.org/slirp/libslirp/-/commit/7271345efe182199acaeae602cb78a94a7c6dc9d.patch"
+    sha256 "9b6fa60ad5ea251dda70c898078cbbc25b1dad035d1530d0cb5ae7db16333f92"
+  end
 
   def install
     system "meson", "build", "-Ddefault_library=both", *std_meson_args

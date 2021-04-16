@@ -15,7 +15,6 @@ class WatchSim < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "4c0b4b9cf453585d826f3950eba375d8dea80194c50c8d5ab3a014dec9a49c0d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "1a7666cc09ecf2228350ea766d0f8e3bd32ab545ac44d9b17b7dc42107c6f15d"
     sha256 cellar: :any_skip_relocation, yosemite:      "06d95de04920d991ee1ee5a9e8035fb12ef103aa072382cef82cab683797e8d9"
-    sha256 cellar: :any_skip_relocation, mavericks:     "b04846befdb378679cdd93bdf182784a8ed0da3957cb0b4a124576b3cd06e54c"
   end
 
   depends_on xcode: "6.2"

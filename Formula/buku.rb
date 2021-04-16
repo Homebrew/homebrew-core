@@ -209,6 +209,11 @@ class Buku < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["XDG_DATA_HOME"] = "#{testpath}/.local/share"
 
+    expect = "/usr/bin/expect"
+    on_linux do
+      expect = Formula["expect"].opt_bin/"expect"
+    end
+
     # Firefox exported bookmarks file
     (testpath/"bookmarks.html").write <<~EOS
       <!DOCTYPE NETSCAPE-Bookmark-file-1>
@@ -241,7 +246,7 @@ class Buku < Formula
       }
       spawn sleep 5
     EOS
-    system "/usr/bin/expect", "-f", "import"
+    system expect, "-f", "import"
 
     # Test online components -- fetch titles
     system bin/"buku", "--update"
@@ -268,7 +273,7 @@ class Buku < Formula
           "File decrypted"
       }
     EOS
-    system "/usr/bin/expect", "-f", "crypto-test"
+    system expect, "-f", "crypto-test"
 
     # Test database content and search
     result = shell_output("#{bin}/buku --np --sany Homebrew")
@@ -280,13 +285,20 @@ class Buku < Formula
     assert_match version.to_s, result
 
     port = free_port
-    fork do
-      exec "#{bin}/bukuserver run --host 127.0.0.1 --port #{port} 2>&1 >/dev/null"
-    end
-    sleep 5
+    begin
+      pid = fork do
+        exec "#{bin}/bukuserver run --host 127.0.0.1 --port #{port} 2>&1 >/dev/null"
+      end
+      sleep 10
 
-    result = shell_output("curl -s 127.0.0.1:#{port}/api/bookmarks")
-    assert_match "https://github.com/Homebrew/brew", result
-    assert_match "The missing package manager for macOS", result
+      result = shell_output("curl -s 127.0.0.1:#{port}/api/bookmarks")
+      assert_match "https://github.com/Homebrew/brew", result
+      assert_match "The missing package manager for macOS", result
+    ensure
+      Process.kill "SIGTERM", pid
+      Process.wait pid
+      # bukuserver leaves orphaned processees behind
+      quiet_system "pkill", "-9", "-f", "bukuserver"
+    end
   end
 end

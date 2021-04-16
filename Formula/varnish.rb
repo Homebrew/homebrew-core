@@ -1,11 +1,10 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-6.5.1.tgz"
-  mirror "https://dl.bintray.com/homebrew/mirror/varnish-6.5.1.tgz"
-  sha256 "11964c688f9852237c99c1e327d54dc487549ddb5f0f5aa7996e521333d7cdb5"
+  url "https://varnish-cache.org/_downloads/varnish-6.6.0.tgz"
+  mirror "https://fossies.org/linux/www/varnish-6.6.0.tgz"
+  sha256 "d5ff82f2041276dfaeb9a652a88b6d7287cfcf7ca345bb02c438fb65d2bca2e5"
   license "BSD-2-Clause"
-  revision 1
 
   livecheck do
     url "https://varnish-cache.org/releases/"
@@ -13,11 +12,10 @@ class Varnish < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "9446a70a569e7b17cd934ffaeeedea4a69deaae91a5166a0ff7cef6d882435de"
-    sha256 big_sur:       "272ffac77b37af6c977de1e0d47e5188f345ada3b74c6694bb5f70d6d84cd77e"
-    sha256 catalina:      "ccb2255702590d79a54f01da8cf908817e429038b0beaf9aea540b2377f89f2c"
-    sha256 mojave:        "eee4d8ac5ca6f6f5abf86730301f5001806b4696a4576fb039379e53886f466d"
-    sha256 high_sierra:   "0f9d912916432054e482785fc1bc3b475e8446250dc86638180d537287a00d9e"
+    sha256 arm64_big_sur: "f7f9fbe170b82b63e47a6357e9ccc66af7a89571b3e96b61d1b87b6a0b37dac3"
+    sha256 big_sur:       "83994fe56e798d944b1d216ecf91e1474f2d254b34f79af531b0bf2d4f2e0b21"
+    sha256 catalina:      "07b78fb097f6d78bb92d1915a71d8bd91ec1c6519166e6e2c960aebe97c41fab"
+    sha256 mojave:        "05757e6f285bc5180ff096b2c3c91105b75cd179ba7b6946d58c3a1ff63c481d"
   end
 
   depends_on "docutils" => :build

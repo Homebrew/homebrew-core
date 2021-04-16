@@ -21,7 +21,6 @@ class TokyoCabinet < Formula
     sha256 sierra:        "9ace00b3ee94dbd63c427910c5aff77935f04bb884047061c792d6e90836a380"
     sha256 el_capitan:    "a209fa62fdb84a86784de5eb9699a9a6811c962afab2ebf418b2a712f51852d8"
     sha256 yosemite:      "3267823914e250aff7c8d3a5a686a010f0fc96242a417dbf47bb1502aa020ad6"
-    sha256 mavericks:     "8d8e93ed60945cfb729395882e69d3924d899c8f792eab73a6094aa78b47c75c"
   end
 
   def install

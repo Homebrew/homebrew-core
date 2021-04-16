@@ -1,16 +1,15 @@
 class Wskdeploy < Formula
   desc "Apache OpenWhisk project deployment utility"
   homepage "https://openwhisk.apache.org/"
-  url "https://github.com/apache/openwhisk-wskdeploy/archive/1.1.0.tar.gz"
-  sha256 "caf1f147c363a7324ce0c5d9851794c5671f56712888004c0db644de8f2a2169"
+  url "https://github.com/apache/openwhisk-wskdeploy/archive/1.2.0.tar.gz"
+  sha256 "bffe6f6ef2167189fc38893943a391aaf7327e9e6b8d27be1cc1c26535c06e86"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "681984dc7d97f45477252e42ca8dd8a3cd8758f274bbf8d2cc92613dda4f023d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "79a5cf98448c501d441edcd2bacb5c84cac9a3a7702ec8f9d3aa78ae05dc586a"
-    sha256 cellar: :any_skip_relocation, catalina:      "ea50064881e77fc755335751edfbd5a37d8c858d77dd6d9fc336be3af3fdbc18"
-    sha256 cellar: :any_skip_relocation, mojave:        "90b92ae3d73e3bb529b9b777e43842accab85e0dadf5b289d6c3eefeb15377a0"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "4cdc4d3314a16347a1f22367d5a21590ddda64e67fdeb015f050f9d14f12fdf5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "87364286a37d26de6a051ba1d0244de932de11058e041e969ea20400560df8e5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c77d6ad2c5fa8acec45bf9507d840f3de1a125edb5759f6de49427efb454fd38"
+    sha256 cellar: :any_skip_relocation, catalina:      "17ff44da88c60d8c8c3a17fd4e2844c90d1bf7fe460928ae21731da5a7f52740"
+    sha256 cellar: :any_skip_relocation, mojave:        "375d6f828a4a45d398ba11dcee4c60e64651697ee374917db7f2137b4c98cb77"
   end
 
   depends_on "go" => :build

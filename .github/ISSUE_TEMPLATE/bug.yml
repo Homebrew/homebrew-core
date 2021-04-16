@@ -1,5 +1,5 @@
 name: New issue for Reproducible Bug
-about: "If you're sure it's reproducible and not just your machine: submit an issue so we can investigate."
+description: "If you're sure it's reproducible and not just your machine: submit an issue so we can investigate."
 labels: bug
 issue_body: false
 body:
@@ -8,14 +8,17 @@ body:
       value: Please note we will close your issue without comment if you do not fill out the issue checklist below and provide ALL the requested information. If you repeatedly fail to use the issue template, we will block you from ever submitting issues to Homebrew again.
   - type: textarea
     attributes:
+      render: shell
       label: "`brew gist-logs <formula>` link OR `brew config` AND `brew doctor` output"
     validations:
       required: true
   - type: checkboxes
     attributes:
-      description: Please verify that you've followed these steps
+      description: Please verify that you've followed these steps.
       options:
-        - label: The `brew doctor` above contains no "Warning" lines.
+        - label: I ran `brew update` and am still able to reproduce my issue.
+          required: true
+        - label: I have resolved all warnings from `brew doctor` and that did not fix my problem.
           required: true
   - type: textarea
     attributes:
@@ -34,6 +37,7 @@ body:
       required: true
   - type: textarea
     attributes:
+      render: shell
       label: Step-by-step reproduction instructions (by running `brew` commands)
     validations:
       required: true

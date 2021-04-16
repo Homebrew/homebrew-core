@@ -14,6 +14,8 @@ class Makepkg < Formula
     sha256 high_sierra: "c8f2f6999669c56b5e40e2608ad1e0adfe2c8eb73f8cef959a229856d21da6ed"
   end
 
+  disable! date: "2022-03-28", because: "depends on fakeroot which does not build"
+
   depends_on "asciidoc" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build

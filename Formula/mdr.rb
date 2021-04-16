@@ -14,7 +14,6 @@ class Mdr < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "ef68c4389ee92beeb6c04e1859f398d108ffcce03fe692dd5776f7e12d776672"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0b522120151f1116ae7e681ff2fb129ecd26486202ca753d6b1de902f6f29334"
     sha256 cellar: :any_skip_relocation, yosemite:      "7048e71ef8f9a1d5c1712dce6cb33df08029038d771789021a1b8bc1e5f4ad10"
-    sha256 cellar: :any_skip_relocation, mavericks:     "b80b64d56e7e77e9b53dd8c308dd50450552b782a72204cb710adf2de28c4f9e"
   end
 
   def install

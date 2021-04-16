@@ -11,7 +11,6 @@ class GfComplete < Formula
     sha256 cellar: :any, sierra:      "e6528a98b675a939a81a37ffd6f780c531a53dae8fc51eb8ec9277be1a363d37"
     sha256 cellar: :any, el_capitan:  "7a00f4c71d8f2173a4a21f1638010ee149d927dfb0f95a901036290f9b6529b5"
     sha256 cellar: :any, yosemite:    "fd9172068e361c01e87a7a696e2ad6e7cee18f473cdd878a249e7df99e6cdf4a"
-    sha256 cellar: :any, mavericks:   "9f82edf4ac3d0207b91075dbc7656ab21f6ab82b7df12053bdbcbf9886109cd3"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

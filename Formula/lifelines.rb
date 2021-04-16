@@ -13,7 +13,6 @@ class Lifelines < Formula
     sha256 sierra:        "1a974d23d51da7a7d2aedaec195291195a9eb442839a9bb9e5574ed6d8c01199"
     sha256 el_capitan:    "20b13125e3312866baed38e6f6ffd706a6f4a0436617e8a6055f1f776a76b9a2"
     sha256 yosemite:      "69108c01987d30c1e82b2928fdaf0817ba2b2883fc6fef886e3e559dd49d29c2"
-    sha256 mavericks:     "cbe7743498423c250758271405f0a6a1f8e8b0bed83f91eac8c67041534da399"
   end
 
   def install

@@ -1,9 +1,9 @@
 class Sqldiff < Formula
   desc "Displays the differences between SQLite databases"
   homepage "https://www.sqlite.org/sqldiff.html"
-  url "https://www.sqlite.org/2021/sqlite-src-3340100.zip"
-  version "3.34.1"
-  sha256 "dddd237996b096dee8b37146c7a37a626a80306d6695103d2ec16ee3b852ff49"
+  url "https://www.sqlite.org/2021/sqlite-src-3350400.zip"
+  version "3.35.4"
+  sha256 "77007915a87ccc8a653d5f3d2d3a3cca89807641965c2a6e2958bea964ea02a4"
   license "blessing"
 
   livecheck do
@@ -12,10 +12,10 @@ class Sqldiff < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f9c6846623d6f94989c17fd33131393d2bc7a8fb336e5598eb326e94b956b584"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ae802d2735142bad1b231ae31a4bfd5bfe8a78a9ac7bfbe68afdc9f2a08880ed"
-    sha256 cellar: :any_skip_relocation, catalina:      "28f56212edcb23f49f8f1d86b1f1b434f7a5b3b03f9d8eba5ba19085ad67c991"
-    sha256 cellar: :any_skip_relocation, mojave:        "6ddccf007a69ef3b632906e5eaca40686de76e819a816d26b2feca69926627a3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d41f6977dc4249390db5ac5283c3514967903967b548a107457d22365e477c04"
+    sha256 cellar: :any_skip_relocation, big_sur:       "def8ed3bbbc404d52ae4989380c8457279d421249aa770d8354729beb3ebf7aa"
+    sha256 cellar: :any_skip_relocation, catalina:      "0aed32b0e14c0eaad01412684ee0c4498f0077922adf304aea54a2e759f0648f"
+    sha256 cellar: :any_skip_relocation, mojave:        "9789c76c28ad585e233e5f605f313a0414d9b099b96c7556ddbe9de1404733c1"
   end
 
   uses_from_macos "tcl-tk" => :build
@@ -31,7 +31,7 @@ class Sqldiff < Formula
     dbpath = testpath/"test.sqlite"
     sqlpath = testpath/"test.sql"
     sqlpath.write "create table test (name text);"
-    system "/usr/bin/sqlite3 #{dbpath} < #{sqlpath}"
+    system "sqlite3 #{dbpath} < #{sqlpath}"
     assert_equal "test: 0 changes, 0 inserts, 0 deletes, 0 unchanged",
                  shell_output("#{bin}/sqldiff --summary #{dbpath} #{dbpath}").strip
   end

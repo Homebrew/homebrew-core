@@ -15,7 +15,6 @@ class Scheme48 < Formula
     sha256 sierra:        "e9751df2e3cfd1a007d74d541ca494a439645e3006ad354ddf65b0abfb370864"
     sha256 el_capitan:    "af2ced8a13fdad5478f745c698b09071e71d84daca01c6e3e3c35961b06cbea4"
     sha256 yosemite:      "475d12c64562fc2498fcd8d9a8bab76d4f290444e43fcf04c40c745a7f6c6923"
-    sha256 mavericks:     "6ae24159bb6e2485465135ba60d60291be7681dfc9662e42f176bb9f9d4a6f00"
   end
 
   def install

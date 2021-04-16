@@ -3,6 +3,8 @@ class Sdl2Mixer < Formula
   homepage "https://www.libsdl.org/projects/SDL_mixer/"
   url "https://www.libsdl.org/projects/SDL_mixer/release/SDL2_mixer-2.0.4.tar.gz"
   sha256 "b4cf5a382c061cd75081cf246c2aa2f9df8db04bdda8dcdc6b6cca55bede2419"
+  license "Zlib"
+  revision 1
   head "https://hg.libsdl.org/SDL_mixer", using: :hg
 
   livecheck do
@@ -11,15 +13,14 @@ class Sdl2Mixer < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "96e7a8f9e28a01bea6cd404b64f9297370564ba4d6a5dee741f7337975b87209"
-    sha256 cellar: :any, big_sur:       "5369e47d093aa409b279f9f6acf2126d1dd1c7adf61438b0d0baa2d111c06af7"
-    sha256 cellar: :any, catalina:      "419d988dc795842301df16d2e57f7759417708b0d61466fea7ec1685db77bf1d"
-    sha256 cellar: :any, mojave:        "411aebe8a4b960a900879efc9d871575156efc174863beb135359679f3e7a8bf"
-    sha256 cellar: :any, high_sierra:   "af842a740632725bec40acd7418fa21aafcce0bee03d11a283c8c3509a235c78"
-    sha256 cellar: :any, sierra:        "359d8bd99a88d06f9484eb76b87b021ce48c777ac4583a0301ae0449e693cbf9"
+    sha256 cellar: :any, arm64_big_sur: "0c30ec331d3f53fd97f7bac6a6107d49d07e5804e2830c1d2ee536caeaa532e6"
+    sha256 cellar: :any, big_sur:       "2fdc878fe345af8ab210786b42bfd998db006b990becd8f7f1bae1f2b2ab1b73"
+    sha256 cellar: :any, catalina:      "3533275c4351a77010b161b24f195fd00ede8780e940a477773367eb97cb5008"
+    sha256 cellar: :any, mojave:        "6d797207e602091ecee25168556e27f03665f5a9cb5d759152689b62e114f58b"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "flac"
   depends_on "libmodplug"
   depends_on "libvorbis"
   depends_on "sdl2"
@@ -30,7 +31,7 @@ class Sdl2Mixer < Formula
     args = %W[
       --prefix=#{prefix}
       --disable-dependency-tracking
-      --disable-music-flac
+      --enable-music-flac
       --disable-music-flac-shared
       --disable-music-midi-fluidsynth
       --disable-music-midi-fluidsynth-shared
@@ -60,7 +61,8 @@ class Sdl2Mixer < Formula
           return success;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lsdl2_mixer", "test.c", "-o", "test"
+    system ENV.cc, "-I#{Formula["sdl2"].opt_include}/SDL2",
+           "test.c", "-L#{lib}", "-lSDL2_mixer", "-o", "test"
     system "./test"
   end
 end

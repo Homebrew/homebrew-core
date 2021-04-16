@@ -1,28 +1,27 @@
-class KdeKarchive < Formula
+class Karchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/frameworks/karchive/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.79/karchive-5.79.0.tar.xz"
-  sha256 "0cd2bf46cc476b8b56138b3a892688ab70d0ddaa9739350a7421dc77a6210e07"
+  url "https://download.kde.org/stable/frameworks/5.80/karchive-5.80.0.tar.xz"
+  sha256 "fce08d578c5311c475f43df5c40480ddafbb065c41599c535b5e98d2175c5df5"
   license all_of: [
     "BSD-2-Clause",
     "LGPL-2.0-only",
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.0-only", "LGPL-3.0-only"],
   ]
-  revision 1
   head "https://invent.kde.org/frameworks/karchive.git"
 
   bottle do
-    sha256 arm64_big_sur: "0b3b535f5402de3c1885d2064e1a56ad9724cd3cb9b03b7095bd1ace63f9c877"
-    sha256 big_sur:       "3e1b0e3b53f2879ba8eb38a04ae0b8530c26f6d411c45ff87366e4c55072e671"
-    sha256 catalina:      "1c0dfdc9b341296e4d6f3732207a6fd81497d9573471542ce1d0ea546c0ff435"
-    sha256 mojave:        "e8f81aeae13c7b409fb423074ed50da2a752e0ad7694921665f59e91bc9996d1"
+    sha256 arm64_big_sur: "c17c23b5adae2fbfec336d75c4d4a9529aa18eb530e6cccfca23b0324c14ed2d"
+    sha256 big_sur:       "19fd1b9c1f51a978a5881fa0c839e637adca0f28c775bd152e7794094a06628e"
+    sha256 catalina:      "6a791ecc6949be93f1f3124888b1553d636ef0416f1ac3d990eeac13b5f37f96"
+    sha256 mojave:        "4874cb8acc21059aed98090420f515319806410f958f790ee87a8847d0c579e4"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build
+  depends_on "extra-cmake-modules" => [:build, :test]
   depends_on "graphviz" => :build
-  depends_on "kde-extra-cmake-modules" => [:build, :test]
 
   depends_on "qt@5"
   depends_on "xz"

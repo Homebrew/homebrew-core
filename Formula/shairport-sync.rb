@@ -12,10 +12,11 @@ class ShairportSync < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "63312b9a9084550abbc4b057617b60734c83d5e2d591a72c4e94acac2783f870"
-    sha256 big_sur:       "3db1d86ee0deaecd65c024f9918b60fcf9d14b19c147f186baa3ae8c97181f15"
-    sha256 catalina:      "65a5e9fb739fac564e2e4f70523fe6467cafd344db63394aea7faaf21d51dde2"
-    sha256 mojave:        "b3c0527359c314d59d68533c1c158952818867ccb8a42a0a8a8c7afaabcc012e"
+    rebuild 1
+    sha256 arm64_big_sur: "ef60c478cd72141489399f23790442691c75df2019e5c83200a28fbeacc4c943"
+    sha256 big_sur:       "9b2ab0fbb73a44beca8d4d79bfc47ee1a7ecc2e2c30390bc5f38f53e98be7938"
+    sha256 catalina:      "6f89f17dec98194146ad0fbbadb987efc8c6bda21c0f0b5d549a308a248abdd6"
+    sha256 mojave:        "0ed4ea3dd099b0ee7f518b2a0a2fe1c48ff6c4bdb56efb963cb1e1c8c36586c2"
   end
 
   depends_on "autoconf" => :build
@@ -52,6 +53,35 @@ class ShairportSync < Formula
 
   def post_install
     (var/"run").mkpath
+  end
+
+  plist_options manual: "shairport-sync"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{opt_bin}/shairport-sync</string>
+          <string>--use-stderr</string>
+          <string>--verbose</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/#{name}.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/#{name}.log</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do

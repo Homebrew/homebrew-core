@@ -2,34 +2,30 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.11.1",
-      revision: "9b2fecb327a29fe8d0477074d8a2e42a3fabbc4b"
+      tag:      "v7.12.0",
+      revision: "08e20483a651ea5ad60115f68ff0e53e6360573a"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "9e99e90816cc09a45adb89f887f168984c034669c7c081c8458b038170bf97e5"
-    sha256 cellar: :any_skip_relocation, catalina: "3a703e236b9fc0ce489071ab9364e2ba6699211f4875213bb7b5265bbb4789e5"
-    sha256 cellar: :any_skip_relocation, mojave:   "5b77542a42ed0232f77af3bbb9ea32c4d920f66d5e9a3d09b0c17f9669d86332"
+    sha256 cellar: :any_skip_relocation, big_sur:  "ae62495115011161159fb26431d1be92b90ed51c490af978d7e977aba08d31ed"
+    sha256 cellar: :any_skip_relocation, catalina: "248eb8cc5133835f395f0d80122d745c2f440b0a95b2c4d7ec8687af4563320b"
+    sha256 cellar: :any_skip_relocation, mojave:   "1a7c43f71cf62ef9c7cc659edc4afe271ca0181024177a60f37637cb78498c99"
   end
 
   depends_on "go" => :build
+  depends_on "mage" => :build
   depends_on "python@3.9" => :build
 
   def install
     # remove non open source files
     rm_rf "x-pack"
 
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/elastic/beats").install buildpath.children
-    ENV.prepend_path "PATH", buildpath/"bin" # for mage (build tool)
-
-    cd "src/github.com/elastic/beats/metricbeat" do
+    cd "metricbeat" do
       # don't build docs because it would fail creating the combined OSS/x-pack
       # docs and we aren't installing them anyway
       inreplace "magefile.go", "mg.Deps(CollectDocs, FieldsDocs)", ""
 
-      system "make", "mage"
       system "mage", "-v", "build"
       ENV.deparallelize
       system "mage", "-v", "update"
@@ -38,8 +34,6 @@ class Metricbeat < Formula
       (libexec/"bin").install "metricbeat"
       prefix.install "build/kibana"
     end
-
-    prefix.install_metafiles buildpath/"src/github.com/elastic/beats"
 
     (bin/"metricbeat").write <<~EOS
       #!/bin/sh

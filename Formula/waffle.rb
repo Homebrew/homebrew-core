@@ -1,16 +1,16 @@
 class Waffle < Formula
   desc "C library for selecting an OpenGL API and window system at runtime"
   homepage "http://www.waffle-gl.org/"
-  url "https://gitlab.freedesktop.org/mesa/waffle/-/raw/website/files/release/waffle-1.6.3/waffle-1.6.3.tar.xz"
-  sha256 "30e47bb78616e5deab1b94fd901c629a42b6ec3bf693c668217d4d5fd9b62219"
+  url "https://gitlab.freedesktop.org/mesa/waffle/-/raw/website/files/release/waffle-1.7.0/waffle-1.7.0.tar.xz"
+  sha256 "69e42d15d08f63e7a54a8b8770295a6eb04dfd1c6f86c328b6039dbe7de28ef3"
   license "BSD-2-Clause"
   head "https://gitlab.freedesktop.org/mesa/waffle.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e3c1a264e214314ec29c4541a615fa052e1667f998b14f55349df21d3ab2994d"
-    sha256 cellar: :any, big_sur:       "c241c542967b4d1e19477823186e6e42bd0c90ccf49796a0f796c8ac933b63fc"
-    sha256 cellar: :any, catalina:      "9837f5e10a09639fb08921412a8a881688348335034343a564539b619ef3f421"
-    sha256 cellar: :any, mojave:        "875998b76a6e9d345faafb3d01cf64891e94ec30b46c5a65a9effe43666745d6"
+    sha256 cellar: :any, arm64_big_sur: "2978050a3df20c384641d00498cc83255c945999ed249d9d7d2e33d24998e387"
+    sha256 cellar: :any, big_sur:       "a382e396564e8eda224154272ab33584cdedc1978d096e0989aef1bf8aea4edc"
+    sha256 cellar: :any, catalina:      "f7a2dfc36d15d76318ee9e22277675818b75311f442792c2c979121df7fdd1af"
+    sha256 cellar: :any, mojave:        "2f865431b367967e1ec77232813930923f3435332972334933cb4a0173a061b6"
   end
 
   depends_on "cmake" => :build

@@ -14,7 +14,6 @@ class Aggregate < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "ebe7aa16c7cf36684463292995c60fdde12cdac889de551d8f85b89e6b77416c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "87507a739f2bd5ba57ccd23b34f2b7c41d68a897c128231dbbc32ba23b869ed5"
     sha256 cellar: :any_skip_relocation, yosemite:      "813ccd28b00f94e1574079f7f6816858e32c5d8f9a964b783307d25c7e449d2b"
-    sha256 cellar: :any_skip_relocation, mavericks:     "169598a0d41382215ba51ed0c377c98857804e82fb1658414dd04ee94ddbb993"
   end
 
   conflicts_with "crush-tools", because: "both install an `aggregate` binary"

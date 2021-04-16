@@ -14,11 +14,16 @@ class Ripmime < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "09a2b60d927bbc236998e29ea50969ce95ab4470d74cd7a40a54f9f4ec24252b"
     sha256 cellar: :any_skip_relocation, el_capitan:    "1151fa0bb8a10779979cec95c7039832eb81b7126f808ba9c89ccb73cf658814"
     sha256 cellar: :any_skip_relocation, yosemite:      "6ef2fdabe468bc42be725020ef23cc924d1572c7446648e38dbd6de3f1399a38"
-    sha256 cellar: :any_skip_relocation, mavericks:     "741b45ca155022fb6b540dd1cc0882f5f29330b6909e37fd5115e84705d9d6bb"
   end
 
   def install
-    system "make", "LIBS=-liconv", "CFLAGS=#{ENV.cflags}"
+    args = %W[
+      CFLAGS=#{ENV.cflags}
+    ]
+    on_macos do
+      args << "LIBS=-liconv"
+    end
+    system "make", *args
     bin.install "ripmime"
     man1.install "ripmime.1"
   end

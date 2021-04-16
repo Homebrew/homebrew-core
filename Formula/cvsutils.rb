@@ -14,7 +14,6 @@ class Cvsutils < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d1f2e13e0df6dbb767a04f7e206114c119f9e6435f227e07e14b4d200e6aba8f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "f8e35c8b0ed2db868e7dd12f653c20d7d2709059fb5a773fd49084a2655f4ca0"
     sha256 cellar: :any_skip_relocation, yosemite:      "ccefce4b4a1053e9a32e4f43318c7bf73c7154f0bee1be1cf1777e8fd3e8eabf"
-    sha256 cellar: :any_skip_relocation, mavericks:     "ab6140058099bdc798e0e294640504035d5c976a8752742044a161c416e2e31e"
   end
 
   def install

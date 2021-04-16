@@ -1,11 +1,10 @@
 class Netcdf < Formula
   desc "Libraries and data formats for array-oriented scientific data"
   homepage "https://www.unidata.ucar.edu/software/netcdf"
-  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.7.4.tar.gz"
-  mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.7.4.tar.gz"
-  sha256 "0e476f00aeed95af8771ff2727b7a15b2de353fb7bb3074a0d340b55c2bd4ea8"
+  url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-c-4.8.0.tar.gz"
+  mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.8.0.tar.gz"
+  sha256 "679635119a58165c79bb9736f7603e2c19792dd848f19195bf6881492246d6d5"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/Unidata/netcdf-c.git"
 
   livecheck do
@@ -14,10 +13,11 @@ class Netcdf < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "26eaaca9d9cf3bddea87d982c76c31df6df91b198d04ac62f0084141109457dd"
-    sha256 big_sur:       "55caff29df9b25ee906d2dcce6c78e02b6e9ac163b42e06f53c45aa0f6ade645"
-    sha256 catalina:      "b3aeca909a91b47e8e0d3fdc9d209dd13ecfb2b1879bab5ea49d3dcfd6404ddd"
-    sha256 mojave:        "9504a25d84dd6afb80553576474420cc074c64821aa346a58271dad26982b187"
+    rebuild 1
+    sha256 arm64_big_sur: "0be981ad85709be8c0afa1d3a80c7c2bf2907544f738baa6f7fd2052c7747d2b"
+    sha256 big_sur:       "280c7067606a716fad3e605ec990b25c15b45346895988234d3a255e87751188"
+    sha256 catalina:      "d416cc6a508b5303101125ca0703480b15e028cf3b7f126bb2415f8416cf6634"
+    sha256 mojave:        "addbaebb433ab43a9dda69aab665831e98de0302eeb0c8e78de41666c21de5d3"
   end
 
   depends_on "cmake" => :build
@@ -39,9 +39,10 @@ class Netcdf < Formula
   end
 
   resource "fortran" do
-    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-fortran-4.5.2.tar.gz"
-    mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-fortran-4.5.2.tar.gz"
-    sha256 "b959937d7d9045184e9d2040a915d94a7f4d0185f4a9dceb8f08c94b0c3304aa"
+    # Source tarball at official domains are missing some configuration files
+    # Switch back at version bump
+    url "https://github.com/Unidata/netcdf-fortran/archive/refs/tags/v4.5.3.tar.gz"
+    sha256 "c6da30c2fe7e4e614c1dff4124e857afbd45355c6798353eccfa60c0702b495a"
   end
 
   def install
@@ -53,6 +54,11 @@ class Netcdf < Formula
       args = common_args.dup
       args << "-DNC_EXTRA_DEPS=-lmpi" if Tab.for_name("hdf5").with? "mpi"
       args << "-DENABLE_TESTS=OFF" << "-DENABLE_NETCDF_4=ON" << "-DENABLE_DOXYGEN=OFF"
+
+      # Extra CMake flags for compatibility with hdf5 1.12
+      # Remove with the following PR lands in a release:
+      # https://github.com/Unidata/netcdf-c/pull/1973
+      args << "-DCMAKE_C_FLAGS='-I#{Formula["hdf5"].include} -DH5_USE_110_API'"
 
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *args
       system "make", "install"

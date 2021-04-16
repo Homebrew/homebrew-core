@@ -1,6 +1,4 @@
 class PythonTabulate < Formula
-  include Language::Python::Virtualenv
-
   desc "Pretty-print tabular data in Python"
   homepage "https://pypi.org/project/tabulate/"
   url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
@@ -8,21 +6,17 @@ class PythonTabulate < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a0c0264bb2566ba54fea39d410ac559adc9bd064a7459590f276f6bc806de18d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a2261b94cbed74c1dd639cfcfcfeb862e36776f9e1c0c7992b77b2598bd277f3"
-    sha256 cellar: :any_skip_relocation, catalina:      "d3cf2f4240d1017a944a2f0853b4e2080ec208c8e4907d47edc2d7549a9da3bc"
-    sha256 cellar: :any_skip_relocation, mojave:        "9b36addf9d6d81022caef2e3ec8b874c2b7463cee9c4098dae3613c8e600900d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2beca641f9753d21b695dd61d57f2557dee3231c78dad9d7e5c456554b792f44"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c6dc3b60616b7fc6d810a17471bdd2ca872224560a5283039eae5dd618b8c65d"
+    sha256 cellar: :any_skip_relocation, catalina:      "9e8e0c24b82a80db0e474a1cbb4cfd4e8628513fc8d70dfe6dde0c49b197df17"
+    sha256 cellar: :any_skip_relocation, mojave:        "3d9e98f92133a5c058618584b0178645eafb0230531fbef665d3ed2546f63f0f"
   end
 
   depends_on "python@3.9"
 
   def install
-    virtualenv_install_with_resources
-
-    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    site_packages = "lib/python#{xy}/site-packages"
-    pth_contents = "import site; site.addsitedir('#{libexec/site_packages}')\n"
-    (prefix/site_packages/"homebrew-py-tabulate.pth").write pth_contents
+    system Formula["python@3.9"].bin/"python3", *Language::Python.setup_install_args(prefix)
   end
 
   test do

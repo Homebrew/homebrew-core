@@ -1,16 +1,16 @@
 class CloudNuke < Formula
   desc "CLI tool to nuke (delete) cloud resources"
   homepage "https://gruntwork.io/"
-  url "https://github.com/gruntwork-io/cloud-nuke/archive/v0.1.25.tar.gz"
-  sha256 "393624de01911df47bb93ba2f320103a714b323e1ef9dfc8847e5ea5e4cffcd6"
+  url "https://github.com/gruntwork-io/cloud-nuke/archive/v0.1.29.tar.gz"
+  sha256 "329c672a81e08cbeb22a76c83b206261a3e0a5b3f03d58f329071e9dcef411e7"
   license "MIT"
   head "https://github.com/gruntwork-io/cloud-nuke.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b9b0004c478661abde73731d1992f4d0be499964b7e21f435612a2655401c5c9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5dfbb61a88d7f98ee1a62a879f4b5b4b454a589e5075c883a65bc934e240c5b2"
-    sha256 cellar: :any_skip_relocation, catalina:      "b70ad8545d3392c26958d9c390f2d92ab2e4530e8b925251d39a27e4bfa47f78"
-    sha256 cellar: :any_skip_relocation, mojave:        "09d0f6c97b54c100956763b6418a3419ceedf4e55838b3954d19d1ffdf9aaf07"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b17a2693f46142381893f00f7988d4296c024a7ba4852585aa6cabfa529c6bf1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d81f003fc6993caaf897faf962124152ada062fb27c5da3b4c9e84736a087d4d"
+    sha256 cellar: :any_skip_relocation, catalina:      "f4f321b0756b3f831e79017b3336a92cd77c572d885f862f5c0213d65fc30134"
+    sha256 cellar: :any_skip_relocation, mojave:        "c86f84dda85f2952a53cde639994392bc19dff6e545eee44ebabcbc2fb100c27"
   end
 
   depends_on "go" => :build

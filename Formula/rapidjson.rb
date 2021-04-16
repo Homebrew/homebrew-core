@@ -15,7 +15,6 @@ class Rapidjson < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "9fbe96e76e21457931a5e2fff343833b84941e2387ab02212946ad71665c3f6f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d0b949a9bd043535e2ff3e032b45b26de0083d319bc094db7ccc1edfea6cbdb3"
     sha256 cellar: :any_skip_relocation, yosemite:      "252ec61e7d5cba129a888bb566d4f2b61bd1bd2886de637f48afa638e6764007"
-    sha256 cellar: :any_skip_relocation, mavericks:     "806e4c788a675bbb0cff3cc9af68f8cdf46ac3d5bf49a47a94b331cc67ca0f4d"
   end
 
   depends_on "cmake" => :build

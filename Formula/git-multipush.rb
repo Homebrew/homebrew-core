@@ -15,7 +15,6 @@ class GitMultipush < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "81d0a4bc4808ab5a31b043640c2ec861cbe6a5fead1a76eda0ffa7bff8ae6158"
     sha256 cellar: :any_skip_relocation, el_capitan:    "dab6c9480077541aff39c6ba5b27a91bbc557faedd713178e9f6e8ea7daa5371"
     sha256 cellar: :any_skip_relocation, yosemite:      "83355d6549e7cf7d4a9d037cc44895487bb97019e5b810b42266af458302ce7d"
-    sha256 cellar: :any_skip_relocation, mavericks:     "cc6bb7672b79860ae50c06633c28913b5fadb25e2815c5b3e432d4039746f16c"
   end
 
   depends_on "asciidoc" => :build

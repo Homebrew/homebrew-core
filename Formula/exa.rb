@@ -1,11 +1,10 @@
 class Exa < Formula
   desc "Modern replacement for 'ls'"
   homepage "https://the.exa.website"
-  # Remove Cargo.lock resource at version bump!
-  url "https://github.com/ogham/exa/archive/v0.9.0.tar.gz"
-  sha256 "96e743ffac0512a278de9ca3277183536ee8b691a46ff200ec27e28108fef783"
+  url "https://github.com/ogham/exa/archive/v0.10.1.tar.gz"
+  sha256 "ff0fa0bfc4edef8bdbbb3cabe6fdbd5481a71abbbcc2159f402dea515353ae7c"
   license "MIT"
-  revision 2
+  head "https://github.com/ogham/exa.git"
 
   livecheck do
     url :stable
@@ -13,17 +12,13 @@ class Exa < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5fc2d5300cbd6ab2d3c113ce011c6ac187e8e774f3d3e4d1f1592b109206d39"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2ea88382cf3e9906bc27cd37f3f57c953cce9fcd686d958824ccb27093c5c8da"
-    sha256 cellar: :any_skip_relocation, catalina:      "979193384c57b8858b592d1200468cb6584ffa7df7833d6777eb8637e0ecfc97"
-    sha256 cellar: :any_skip_relocation, mojave:        "af7d2f089dc99cab221dbc57c33c443e112a843911d561588621e60378f56a46"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "caac7c603cded147f69fec0b64deb28017b747861cd6ec0f7aa1df9d6a1387e6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c3bc35df4c4957502d687da38bb7b4cdf1c2239b35bfdddebe004f05081c246e"
+    sha256 cellar: :any_skip_relocation, catalina:      "e1d7aae78877242d8b2678744940d4fcb56a393fd4d69b0290f7da54e08a8b2b"
+    sha256 cellar: :any_skip_relocation, mojave:        "935794d2a1521fc3645f48eaec3035748cde91b183a23bb0c68b069f1187aae9"
   end
 
-  head do
-    url "https://github.com/ogham/exa.git"
-    depends_on "pandoc" => :build
-  end
-
+  depends_on "pandoc" => :build unless Hardware::CPU.arm?
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
@@ -32,42 +27,24 @@ class Exa < Formula
     depends_on "libgit2"
   end
 
-  # Replace stale lock file. Remove at version bump.
-  resource "Cargo.lock" do
-    url "https://raw.githubusercontent.com/ogham/exa/61c5df7c111fc7451bf6b8f0dfdcb2b6b46577d0/Cargo.lock"
-    sha256 "0bc38c483120874c42b9ada35d13530f16850274cfa8ff1defc1e55bba509698"
-  end
-
   def install
-    # Remove at version bump
-    unless build.head?
-      rm_f "Cargo.lock"
-      resource("Cargo.lock").stage buildpath
-    end
-
     system "cargo", "install", *std_cargo_args
 
-    # Remove in 0.9+
-    if build.head?
-      bash_completion.install "completions/completions.bash" => "exa"
-      zsh_completion.install  "completions/completions.zsh"  => "_exa"
-      fish_completion.install "completions/completions.fish" => "exa.fish"
+    bash_completion.install "completions/completions.bash" => "exa"
+    zsh_completion.install  "completions/completions.zsh"  => "_exa"
+    fish_completion.install "completions/completions.fish" => "exa.fish"
 
-      args = %w[
-        --standalone
-        --to=man
-      ]
+    args = %w[
+      --standalone
+      --to=man
+    ]
 
+    unless Hardware::CPU.arm?
       system "pandoc", *args, "man/exa.1.md", "-o", "exa.1"
       system "pandoc", *args, "man/exa_colors.5.md", "-o", "exa_colors.5"
 
       man1.install "exa.1"
       man5.install "exa_colors.5"
-    else
-      bash_completion.install "contrib/completions.bash" => "exa"
-      zsh_completion.install  "contrib/completions.zsh"  => "_exa"
-      fish_completion.install "contrib/completions.fish" => "exa.fish"
-      man1.install "contrib/man/exa.1"
     end
   end
 

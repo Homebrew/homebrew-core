@@ -2,10 +2,9 @@ class SyncGateway < Formula
   desc "Make Couchbase Server a replication endpoint for Couchbase Lite"
   homepage "https://docs.couchbase.com/sync-gateway/current/index.html"
   url "https://github.com/couchbase/sync_gateway.git",
-      tag:      "2.8.0",
-      revision: "e2e7d4286f84e3d101e2ea0d9ee868c66e6243f1"
+      tag:      "2.8.2",
+      revision: "4df7a2da36c88a72131b23eb044b7d0b69b456bd"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/couchbase/sync_gateway.git"
 
   livecheck do
@@ -14,10 +13,10 @@ class SyncGateway < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f74920fd3089dec5de1df45342787f01c176e6e7aea57e8781999f40f53a878"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1eb668b81243fb12bcbbbacae732a90a03afca24977b00e8ad25b3eab36c564d"
-    sha256 cellar: :any_skip_relocation, catalina:      "c433c7310d089ff0399ba66e3f35aca60a5663f207d9b23e95069f0d5dd6e397"
-    sha256 cellar: :any_skip_relocation, mojave:        "f352f303e22c12d87faa8e5748bce4b33fa831a88b30fb744a4f7e011296fa8b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e445a768ff0ec3e3e33d7a0ccd14c7a66cfb8401cfa385e68ee62ce8cef4668a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b718f1e3d7fee3d47e9091606afd43891f6323558c8d3a4c30c88eff563147e3"
+    sha256 cellar: :any_skip_relocation, catalina:      "6abd3e4f3d682d3e1bc6e7ffcee385c95b33664af989f22d1c86f96c3e4b7474"
+    sha256 cellar: :any_skip_relocation, mojave:        "e43aa516b0457ef79f599773ccfe110c34ddbc492b552fd63bc5e97fda432c06"
   end
 
   depends_on "gnupg" => :build

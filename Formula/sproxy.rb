@@ -14,7 +14,6 @@ class Sproxy < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "8d57317644b76b465adc5caf984f1e3cf57f9486f642705eee66128adbcf3589"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4ed786b0b05ca3c88d5904e3119d84725a9f9bedf5d952c055f22a81661a825c"
     sha256 cellar: :any_skip_relocation, yosemite:      "19da9a5b680a860e721ec60763dd48e9a5213505ee643703abcdc66707e8ce51"
-    sha256 cellar: :any_skip_relocation, mavericks:     "96b9cdebf5a11907998ba33e2b568fd5a77d46261a6faaa9c33a5d8eeca9a27f"
   end
 
   # Only needed due to the change to "Makefile.am"

@@ -14,7 +14,6 @@ class Cityhash < Formula
     sha256 cellar: :any, sierra:        "62d8d1409dfe744d4de7a1727824b06c5a80b248433c2d8bd8a4efcd444346cb"
     sha256 cellar: :any, el_capitan:    "b09962ca43b3bb3321e1e57bf74a0936142ec5c94e198113ac3aa14e669e4d28"
     sha256 cellar: :any, yosemite:      "2b155183e2422811593d91b415ac2e90a00b7d6972f284e54b3214940250935e"
-    sha256 cellar: :any, mavericks:     "6c361a421b5f59c32c1098d4c29dd0c8f3048cf288c8880e954448926ed26184"
   end
 
   def install

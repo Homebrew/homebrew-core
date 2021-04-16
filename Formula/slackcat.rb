@@ -1,16 +1,15 @@
 class Slackcat < Formula
   desc "Command-line utility for posting snippets to Slack"
   homepage "https://github.com/vektorlab/slackcat"
-  url "https://github.com/vektorlab/slackcat/archive/v1.6.tar.gz"
-  sha256 "e5c8f98f3048cccc3f8e49c0449435a839a18c7f12426643ac80731b63b829a9"
+  url "https://github.com/bcicen/slackcat/archive/refs/tags/1.7.2.tar.gz"
+  sha256 "562858968aeb67aedb32a6048512d6433bcc41fd3c17ae5d657f2f2d2e415cf7"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f9a013fef9bfc12b384cee438b7d6fed60eda90b5d047b2cd574661ae7ee6b73"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d23ba4edd9c5a4009eab83933837add4ed2623016d5380d32509ba2a88ade346"
-    sha256 cellar: :any_skip_relocation, catalina:      "c2aeed6d82c38d56f4f1875db98543d06b225568c0c619d63ebac1885092b033"
-    sha256 cellar: :any_skip_relocation, mojave:        "10da5931d1023b2c34b82c96bbd059edacf8986f7d47dcbc60097ecbf765e429"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d4afbc9b42ef6eff3b63598a4c241d16ab5673912139b39e259b521d8ff40fd6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ffd89b1f8ec05ad9258fbed8b8e1a2f11345414de7d160cbf11250887a4b037b"
+    sha256 cellar: :any_skip_relocation, catalina:      "ca236771d46645d91e47f6b907fd2171822f6f7d0ca79e5c086366c73b5e57c7"
+    sha256 cellar: :any_skip_relocation, mojave:        "874dfe7ec201371aa7f8b5e011db03cf573c63c893ecb7f851eabd839c144a98"
   end
 
   depends_on "go" => :build

@@ -34,11 +34,14 @@ class PostgresqlAT12 < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
+  uses_from_macos "krb5"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+  uses_from_macos "openldap"
   uses_from_macos "perl"
 
   on_linux do
+    depends_on "linux-pam"
     depends_on "util-linux"
   end
 

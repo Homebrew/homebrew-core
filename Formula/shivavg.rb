@@ -14,7 +14,6 @@ class Shivavg < Formula
     sha256 cellar: :any, sierra:        "f92bdb7b86632d7bf59d25259e26eece00e502759dd52adaac7495424290da4a"
     sha256 cellar: :any, el_capitan:    "3e9de2887110c90051ad5b89080f62cd5990ae39f8fdef02a4c50ba11e413ca8"
     sha256 cellar: :any, yosemite:      "f3de3b35fcfeff41c1836bc7722579d1d4b461e10d4152802bae1ab48b5a3bbb"
-    sha256 cellar: :any, mavericks:     "e9bdb03d76c994311a7e38c95eb40561bcb8f7fefdc12ac80137724f39a6bb4a"
   end
 
   depends_on "autoconf" => :build

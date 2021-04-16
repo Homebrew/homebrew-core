@@ -13,7 +13,6 @@ class Srecord < Formula
     sha256 cellar: :any, sierra:        "0601896fc392a13f7ef861fc3840fadfc7ddc7313763c1d374555129f4301c0d"
     sha256 cellar: :any, el_capitan:    "6a0df3e5fb40699d9b1198562b3b3a4e1745c3a0d12923c461246b7784b8324c"
     sha256 cellar: :any, yosemite:      "c3c29b357c44bc3da2dbb8f23a6d83aeb637aa374fe0564eb9454e5e6b53d54c"
-    sha256 cellar: :any, mavericks:     "10a04c2aca5e6f554c00aa57bd05f9c3cbe46238c9af66678dc1e6a3323c5cdb"
   end
 
   depends_on "libtool" => :build

@@ -26,6 +26,8 @@ class Bench < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc@8.8" => :build
 
+  uses_from_macos "zlib"
+
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args

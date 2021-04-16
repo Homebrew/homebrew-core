@@ -18,7 +18,6 @@ class Udis86 < Formula
     sha256 cellar: :any, sierra:        "e3774a825eda78db57585c75b739dc60d0c069e35c8666575f5889908b0735d5"
     sha256 cellar: :any, el_capitan:    "e763db7beca50f11ab341f13f5fd571513f4847772bb70ef83d94bb576427673"
     sha256 cellar: :any, yosemite:      "bcd6eb347f55bc856ceb64604d3bace30219e346de34caa8be7de2b52a1cb35d"
-    sha256 cellar: :any, mavericks:     "84b56e3d62695b2c39c2c450d94fcd258439baedbcd68980a19b685f2e2b95c9"
   end
 
   def install

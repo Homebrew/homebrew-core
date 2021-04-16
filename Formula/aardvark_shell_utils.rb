@@ -21,7 +21,6 @@ class AardvarkShellUtils < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "cf6d9a3d99fefa3cce7ea67c7e8070a99d648b5bf3a3cd9da9ab128a1696327d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4fc19fca9729b408c5a77f362fff72a8c74c324d4a81cc0cf3e4c91b41bf2d6f"
     sha256 cellar: :any_skip_relocation, yosemite:      "ca1cb774102a7e5128f964c2c9d48b45877f1fd3347288edb2adef5981fdd0f4"
-    sha256 cellar: :any_skip_relocation, mavericks:     "e8e8b6fd4ee85d8a6ae267fbd20160c1aeddeb6c8e302793b12a807131ef4b27"
   end
 
   conflicts_with "coreutils", because: "both install `realpath` binaries"

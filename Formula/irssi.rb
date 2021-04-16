@@ -1,10 +1,9 @@
 class Irssi < Formula
   desc "Modular IRC client"
   homepage "https://irssi.org/"
-  url "https://github.com/irssi/irssi/releases/download/1.2.2/irssi-1.2.2.tar.xz"
-  sha256 "6727060c918568ba2ff4295ad736128dba0b995d7b20491bca11f593bd857578"
-  license "GPL-2.0"
-  revision 1
+  url "https://github.com/irssi/irssi/releases/download/1.2.3/irssi-1.2.3.tar.xz"
+  sha256 "a647bfefed14d2221fa77b6edac594934dc672c4a560417b1abcbbc6b88d769f"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://irssi.org/download/"
@@ -12,13 +11,10 @@ class Irssi < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "a10819692310e4e965cece210cc320eb31a8273b9b052ff423c01c24afce6ba7"
-    sha256 big_sur:       "777daa274e6a688f4d0878b5be6b7054f5be774ff8fc8c63649aeefc48509e8d"
-    sha256 catalina:      "a8d0caa726da8abaa3942e154ea6d6501df46ea3ae7c24d3583d3a229fd92727"
-    sha256 mojave:        "e25efab5dc0b20925d920aca182f713fa54b3d781bbea7ff0ff98606a29e8553"
-    sha256 high_sierra:   "92ce3e102445bc1248daf5404b9045088dde6a8f4e185c5f2a98982e692b4b26"
-    sha256 sierra:        "5f2f66c2581189d52bab585f5a1731f2382a29d7125d782856b6b0944515b1bd"
+    sha256 arm64_big_sur: "26e7ffc0a387626910476fe4c4fbed5a5006ff718edd9f087067adfe2dfb537a"
+    sha256 big_sur:       "029b203b01fdde27b18fc9646980d45df551048614e14f5879a90d8914ae9255"
+    sha256 catalina:      "954cd682c20c4a32ecc2f877b7e92202d58299a825c3910867223703f0e2c402"
+    sha256 mojave:        "d8b4a41cf599842e56b1eacf4cc0557395e117cbf20ff733a3f764e457b6b296"
   end
 
   head do

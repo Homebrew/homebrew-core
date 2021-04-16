@@ -13,9 +13,11 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256 big_sur:  "decfecdd17919cf5496b210282de8c5e449649b97621a677f2662ab7acf690b0"
-    sha256 catalina: "f3f822df081ac31da45ad5d7d6cd4f613dbf408f43e1cd33a40dae9faba6fd7f"
-    sha256 mojave:   "18938e8c06fb3cff96daf16314443538c90fedb0e7d5c4e23bdd7d846d1edc24"
+    rebuild 1
+    sha256 arm64_big_sur: "3261b54951231e4e16d59060206cb505eacb2817cbe696100e432db5202e5b41"
+    sha256 big_sur:       "8016d9dd512fa62164ce443a5c6ec48306d71f0cbb52f169d05387934fd9f88e"
+    sha256 catalina:      "81866d46a905d6d7f7a01a74ecea18bbc6e4876e61275d603cfeba6cfb21e1a0"
+    sha256 mojave:        "a461e71826dc959d047b3a26a0e414b12d0b0708e02e44d1c0dab07982831dcd"
   end
 
   depends_on "cmake" => :build
@@ -53,6 +55,7 @@ class Wireshark < Formula
       -DBUILD_wireshark=OFF
       -DENABLE_APPLICATION_BUNDLE=OFF
       -DENABLE_QT5=OFF
+      -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
     ]
 
     system "cmake", *args, "."

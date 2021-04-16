@@ -16,7 +16,6 @@ class Truecrack < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "96ecdedf66599ec83da60c5a64de37dce4aa3411bf3a575bb5d5e1b6646fd5b3"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2905997955799043b8f07c7cb28854d0a0acd3a84131b92b6c49780570dd198f"
     sha256 cellar: :any_skip_relocation, yosemite:      "d7d6879b7132093ebcc716ffe115dc20974c68e7e629f7f7cc3bce5030d153d3"
-    sha256 cellar: :any_skip_relocation, mavericks:     "8357dddf047bdd2180f241edb5848e49a48083300484143a245f41e5def1888d"
   end
 
   # Fix missing return value compilation issue

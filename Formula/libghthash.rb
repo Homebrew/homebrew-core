@@ -14,7 +14,6 @@ class Libghthash < Formula
     sha256 cellar: :any, sierra:        "730eb3945e001efa5ebfc84452c94b69237f3cdf830ef5c58cef8854ed4cd3d6"
     sha256 cellar: :any, el_capitan:    "e889f34ca4f1978869eff48334f1f55248628fbc586abdeb151fe017479d220e"
     sha256 cellar: :any, yosemite:      "0487e2e14b14ae288428c474fe9ce3e9baf814d4d73de8b0113ca9cc502ffd63"
-    sha256 cellar: :any, mavericks:     "207d07d59447e098c1987286324866ef8b26e0c4c191e4c1c0268ba8d95c5fac"
   end
 
   depends_on "autoconf" => :build

@@ -18,7 +18,6 @@ class Mp3wrap < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "3c85e837e2dbcfcbbccb0b074ebfa9283c13d2453b206c246bc4d77600328dfb"
     sha256 cellar: :any_skip_relocation, sierra:        "0471701ab4f6b59423503b7c250376ba597a9f28d9962f6f9b35a107d58411ab"
     sha256 cellar: :any_skip_relocation, el_capitan:    "c65886799c1397eec33f48ef73774ad6a509fec44a18dec4a50c8755736f040a"
-    sha256 cellar: :any_skip_relocation, mavericks:     "50e1b97fa8423acc0c3980c7171544cf248b049d31cb1c6d3ba1214c293bc2eb"
   end
 
   def install

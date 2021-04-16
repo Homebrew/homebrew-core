@@ -27,7 +27,6 @@ class IosClassGuard < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a7843a0767e916aa6be1509a984eb698bb54d125d06ad762fd25f4a3d6a55db1"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0bb9abaac82cbc4e66a12493548659197559a01a779db6ceda4cf6c4439ea0bb"
     sha256 cellar: :any_skip_relocation, yosemite:      "4cada6d32bb82fbd8ad2afa58b7041bd5da12dc5d9fceab6277eec97459a2d33"
-    sha256 cellar: :any_skip_relocation, mavericks:     "4eddde784c843628cb8bcb8c971142683c5a17373058f5bda62356b432dec00a"
   end
 
   depends_on xcode: :build

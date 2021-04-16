@@ -13,7 +13,6 @@ class Kstart < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "271ec8468ad4aa1e46dbe4674f9e214d563fc2ea689279e860b4b8324d2196d8"
     sha256 cellar: :any_skip_relocation, el_capitan:    "493a3dcca4b6b50ba44687c8b4d78cebf044a9c6ab465eb344aa3d29c64a39fc"
     sha256 cellar: :any_skip_relocation, yosemite:      "c90ef2d0808350085d616f7cfae6001b47e04ec3d2ced85bd0f7427abba6ff6f"
-    sha256 cellar: :any_skip_relocation, mavericks:     "983306746f5c1273ffb86eb4719c01527e4df317fee1c01daf371c6d60e6f8be"
   end
 
   def install

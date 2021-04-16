@@ -6,19 +6,20 @@ class AwsGoogleAuth < Formula
   url "https://files.pythonhosted.org/packages/17/42/b466b9376f88f27d4d251b2e61194879a840b7be0c3a6808bc20381b2d5e/aws-google-auth-0.0.37.tar.gz"
   sha256 "0cc76e88ac188a26a484faffb21f1c7f31c0c56932aa30e6772e17245d0eb7cc"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/cevoaustralia/aws-google-auth.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8918c50c8e591f42b1a1fb0e941c531bcda1066420bbaa0809ea25382813c17d"
-    sha256 cellar: :any, big_sur:       "e188f97fd6a29f327951b32ebfd67e369e88343d601fd8f97d6c0ad7e2e1b2a2"
-    sha256 cellar: :any, catalina:      "758d857031ff550cacb3fabeecea7d417eb0211d846ad771c809bb0dcb1b1e6d"
-    sha256 cellar: :any, mojave:        "ae52982f6a6feba48846321484581d3c2959b05f2e95e886cb0ff8620adf3f52"
+    sha256 cellar: :any, arm64_big_sur: "b3505a5a5991890399602c8ad46b27c28bac5f3a53ac44592c467cd39d43581e"
+    sha256 cellar: :any, big_sur:       "3589bde7757ffc1a99c89e23f2262f15cf91a7238c8caef1a41bd4d0e3b80f9a"
+    sha256 cellar: :any, catalina:      "ced4f01986457520cccd65f0aa77a3e229798dab20f8488ca96b92d1187d494f"
+    sha256 cellar: :any, mojave:        "b089e1e1e63eabe258206f60a958b25f935e2c24751d63d581526e972de5f16a"
   end
 
   depends_on "rust" => :build
   depends_on "freetype"
   depends_on "jpeg"
+  depends_on "python-tabulate"
   depends_on "python@3.9"
   depends_on "tcl-tk"
 
@@ -36,13 +37,13 @@ class AwsGoogleAuth < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/e4/c3/ea17ed52138ba29aa6cdddec791fcf8865d54c26c74444a60929247069e5/boto3-1.17.24.tar.gz"
-    sha256 "bf4a321da7dbe0c5a20380ff9f6a8a4e2e135e72a40348890122a197368b4421"
+    url "https://files.pythonhosted.org/packages/0d/2f/734b2dd3795421b0ee44f1c457681a134b1c2a5b975d9a8033260c76a09a/boto3-1.17.27.tar.gz"
+    sha256 "fa41987f9f71368013767306d9522b627946a01b4843938a26fb19cc8adb06c0"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5a/19/d40be5a0a2484744deedc796fbf61996a55e248ed4f89916c6900350a456/botocore-1.20.24.tar.gz"
-    sha256 "9398bcd9491442aa559a7c111b96004bb06af612e53baa7165b0a646bb43534d"
+    url "https://files.pythonhosted.org/packages/5d/2a/c9d97a542f972b908d9b9e22124fad40aa86855c05fe50992fe3fce9b291/botocore-1.20.27.tar.gz"
+    sha256 "4477803f07649f4d80b17d054820e7a09bb2cb0792d0decc2812108bc3759c4a"
   end
 
   resource "certifi" do
@@ -71,8 +72,8 @@ class AwsGoogleAuth < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/48/18/08eaa583eb21602e86e32d534fa7f40159774566037e60a69822b10ef3ad/importlib_metadata-3.7.2.tar.gz"
-    sha256 "18d5ff601069f98d5d605b6a4b50c18a34811d655c55548adc833e687289acde"
+    url "https://files.pythonhosted.org/packages/99/23/aac25e607237feabe8d076932d27a590341001a9bf8a1e4149ee1c3c3c40/importlib_metadata-3.7.3.tar.gz"
+    sha256 "742add720a20d0467df2f444ae41704000f50e1234f46174b51f9c6031a1bd71"
   end
 
   resource "jmespath" do
@@ -130,19 +131,14 @@ class AwsGoogleAuth < Formula
     sha256 "407fa1e8eb3458d1b5614df51d9651a1180ea5fedf07feb46e45d7e25e6d6cdd"
   end
 
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
-    sha256 "eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"
-  end
-
   resource "tzlocal" do
     url "https://files.pythonhosted.org/packages/ce/73/99e4cc30db6b21cba6c3b3b80cffc472cc5a0feaf79c290f01f1ac460710/tzlocal-2.1.tar.gz"
     sha256 "643c97c5294aedc737780a49d9df30889321cbe1204eac2c2ec6134035a92e44"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   resource "zipp" do
@@ -193,11 +189,16 @@ class AwsGoogleAuth < Formula
 
     resource("Pillow").stage do
       inreplace "setup.py" do |s|
-        sdkprefix = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
         s.gsub! "openjpeg.h",
           "probably_not_a_header_called_this_eh.h"
-        s.gsub! "ZLIB_ROOT = None",
-          "ZLIB_ROOT = ('#{sdkprefix}/usr/lib', '#{sdkprefix}/usr/include')"
+        on_macos do
+          s.gsub! "ZLIB_ROOT = None",
+            "ZLIB_ROOT = ('#{MacOS.sdk_path_if_needed}/usr/lib', '#{MacOS.sdk_path_if_needed}/usr/include')"
+        end
+        on_linux do
+          s.gsub! "ZLIB_ROOT = None",
+                  "ZLIB_ROOT = ('#{Formula["zlib"].opt_prefix}/lib', '#{Formula["zlib"].opt_prefix}/include')"
+        end
         s.gsub! "JPEG_ROOT = None",
           "JPEG_ROOT = ('#{Formula["jpeg"].opt_prefix}/lib', '#{Formula["jpeg"].opt_prefix}/include')"
         s.gsub! "FREETYPE_ROOT = None",
@@ -217,7 +218,9 @@ class AwsGoogleAuth < Formula
   end
 
   test do
-    assert_match "Invalid username or password",
-      shell_output("echo 'foobar' | #{bin}/aws-google-auth -u foo -I C01111111 -S 111111111111 2>&1", 1)
+    auth_process = IO.popen "#{bin}/aws-google-auth"
+    sleep 3
+    Process.kill "TERM", auth_process.pid
+    assert_match "AWS Region:", auth_process.read
   end
 end

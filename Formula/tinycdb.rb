@@ -4,6 +4,11 @@ class Tinycdb < Formula
   url "https://www.corpit.ru/mjt/tinycdb/tinycdb-0.78.tar.gz"
   sha256 "50678f432d8ada8d69f728ec11c3140e151813a7847cf30a62d86f3a720ed63c"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?tinycdb[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ce0db392cd0f531c5fdc9b3c463a9a26b8389dbb75be6f51bea2fcd0a57bed4e"
     sha256 cellar: :any_skip_relocation, big_sur:       "9e3f2a46d163d0503ac66b177ed0e8ad0848115c782469fd7fa58f49219b4726"
@@ -13,7 +18,6 @@ class Tinycdb < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a1b2de0589b4530d51f33060657d5c7f08a46d1e90b60f2c2a03f499ff944a4e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "4f4341c31d1ed6eddce4dfa57360e339f27f37a0db5b5b6df8df46f5ccda65c2"
     sha256 cellar: :any_skip_relocation, yosemite:      "d73abbd1439c1579c3ab925d2110fee60f287bb9b262850e030c74f7c356bcaa"
-    sha256 cellar: :any_skip_relocation, mavericks:     "b35dda3e5219c993140f7ed6244f483b0159cbd4458fb3ee4461e25daa368d41"
   end
 
   def install

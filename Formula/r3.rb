@@ -20,7 +20,6 @@ class R3 < Formula
     sha256 cellar: :any, sierra:        "d39c22ae9e69454cc7c205ff0cecc3dd6084a38a1e1742091f55df389e5a8f4a"
     sha256 cellar: :any, el_capitan:    "6122bbc3566581f130e54cd563ed69f169598f5ce62d6319e7b5a95b10b802ef"
     sha256 cellar: :any, yosemite:      "56a37f8cab8af3833eb52c6fc739027ffd755fb0e60530bd96dc643bdb8e18ed"
-    sha256 cellar: :any, mavericks:     "26bd4bc4114b54d57d9f39bd00f15914f03eea7407fbcc50df4c1925b412a879"
   end
 
   depends_on "autoconf" => :build

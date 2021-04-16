@@ -1,15 +1,15 @@
 class Wasm3 < Formula
   desc "High performance WebAssembly interpreter"
   homepage "https://github.com/wasm3/wasm3"
-  url "https://github.com/wasm3/wasm3/archive/v0.4.8.tar.gz"
-  sha256 "75a1736d4616e3463b29eece86ca4f03b687503bee81601381aba91e0119ea68"
+  url "https://github.com/wasm3/wasm3/archive/v0.4.9.tar.gz"
+  sha256 "4a09c118fae597db046bddad5734cc536a47f9afd333855789bda6955d08a617"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a89be08c7ff241a0a624161b333d9d08c3ebd4539fb4499d2fa96bb5a5c5e31d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "296862636f23bda386da3d469e6bd22e79959203d8960e457777e7ea88952978"
-    sha256 cellar: :any_skip_relocation, catalina:      "94625f80433b1af43daba906cc715d78891e202f92d323fae9164efbc2fa76ed"
-    sha256 cellar: :any_skip_relocation, mojave:        "e7aac098bda9f38e0f10778b82bcd0b08e88f7834d9a0e511dc6d4f7536ae74d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "96fc207027c4a0c699ec5aa4dc509f42e30d36a9afe6f22b250955983f872f28"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fd097a9b898fdbf3f61a42ee47c361e94ff0f1c506459f8eada6856fb990b236"
+    sha256 cellar: :any_skip_relocation, catalina:      "c547d13349dbb14ef56c27a74ee44292a8b8e712333baf59a11aa2781df4fed7"
+    sha256 cellar: :any_skip_relocation, mojave:        "9899e01b3ec8dbd3ef1fbcfdf8767028ddd1d19ce1647c46acc390dd9549c24f"
   end
 
   depends_on "cmake" => :build

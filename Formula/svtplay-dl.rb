@@ -3,15 +3,15 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/54/1f/fc757bf1035840e6a861cafe2e2296875437d20a62fd583e33f716d7f1f0/svtplay-dl-3.1.tar.gz"
-  sha256 "27381b0c26771b97e095bb84354539205c1005ba1cbe7cd68f82d2db1e17bc44"
+  url "https://files.pythonhosted.org/packages/b7/4b/0be7037dd06f03004777a56b278ead2d9df81a51662d726b5615f00f0a02/svtplay-dl-3.5.tar.gz"
+  sha256 "b68142ce851032370ae726d37000b054d9bf0b2b922ea128fcce1fbacc52ca7f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "076b9f0dd7389b5290de39da4550deb7c4084889fcfdaece02dff1a12c6bdc17"
-    sha256 cellar: :any, big_sur:       "b456d3278ff98949991af3c4cd1327ad36830c03dd8f5eb6ff0db56bfd1ebc49"
-    sha256 cellar: :any, catalina:      "3cf118cb80818cb0c3f1f5bd5f1b2738d9724474fcf49b978a54f08916389c82"
-    sha256 cellar: :any, mojave:        "52ff16bcb914b76f1ab4e595dac58fc61adceac8abb15d76680696ccfb2e831e"
+    sha256 cellar: :any, arm64_big_sur: "08ca9570dd31286789c339b6d034a47eb01b540a579b27fda792364dbcfe296f"
+    sha256 cellar: :any, big_sur:       "c678239b9db9a5d9be40aafd7072546d0c62dc81726b868baf65416743d33d1e"
+    sha256 cellar: :any, catalina:      "e46c544887fa2002e4d592d0f173cba701f7a78042eae13ced77f646c36a0368"
+    sha256 cellar: :any, mojave:        "890c57b5e637c10175da78ea8a574cc532ba7840169817bc6fd7ce3f42f49a7e"
   end
 
   depends_on "rust" => :build
@@ -34,8 +34,8 @@ class SvtplayDl < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
-    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
+    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
+    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
   end
 
   resource "idna" do
@@ -64,8 +64,8 @@ class SvtplayDl < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install

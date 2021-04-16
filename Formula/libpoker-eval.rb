@@ -16,7 +16,6 @@ class LibpokerEval < Formula
     sha256 cellar: :any, sierra:        "5216cd33d433fd9212ed14d6fffec593c7106226547c1555344604186e7aafc6"
     sha256 cellar: :any, el_capitan:    "67b105600a8e29ed2d38421bc27340ff6e9092806f6458f0ddd6a27de0bcfb9c"
     sha256 cellar: :any, yosemite:      "b15086546ac1ac0310e3113231bfcc2c9de0d23474be8a1a1b4663e6bc8f713f"
-    sha256 cellar: :any, mavericks:     "9bbfb3886a4e530455dbf53581aecd0df8c86a2f80a444692441449c30f76d92"
   end
 
   def install

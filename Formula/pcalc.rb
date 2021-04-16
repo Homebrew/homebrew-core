@@ -1,15 +1,15 @@
 class Pcalc < Formula
   desc "Calculator for those working with multiple bases, sizes, and close to the bits"
   homepage "https://github.com/alt-romes/programmer-calculator"
-  url "https://github.com/alt-romes/programmer-calculator/archive/v2.0.1.tar.gz"
-  sha256 "a3b8b59bd4da9a1ee39f73303e18005f2b4a45b655f7a7cca10aa9ce173610e7"
+  url "https://github.com/alt-romes/programmer-calculator/archive/v2.1.tar.gz"
+  sha256 "27cba8e04e73f1a2fbb4900abbf450fee07f7691c709addde21e5bb7a44c9988"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d7268ccb14450e15d1615919272edc4e365670c54daf7fb6b9de272c6eddf6b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b81ac1f8cc3d7ab174d2cd4873571da42988259af0ec6eaf21a277c5dcf08842"
-    sha256 cellar: :any_skip_relocation, catalina:      "cb6c78a7399eaeeee80f0d23863bbe60dd011171b0251e512d6c581b3947c4ea"
-    sha256 cellar: :any_skip_relocation, mojave:        "a66a10045261aece457eba2a4d7ef8bdd4af4e3218877a94c48797d34d54d137"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "394ca2ef67e980b0fbc55c29e3623ef8adf24392e129489f640a1aa6b011dacd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "109563ed8739d73cb64ceb8bfb35ceaa0e002d5af6cf0f63b1d52ca84fd4b8c6"
+    sha256 cellar: :any_skip_relocation, catalina:      "afbf577c7349e107f117dc18d6f9247e8cc307601573c19f5f3c3aada892b867"
+    sha256 cellar: :any_skip_relocation, mojave:        "c7b810b53b109c4bfa80ec2a2b834b9d56c129d5252c42cf6cce1693b9482d5e"
   end
 
   uses_from_macos "ncurses"

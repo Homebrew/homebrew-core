@@ -1,8 +1,8 @@
 class PerconaXtrabackup < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.22-15/source/tarball/percona-xtrabackup-8.0.22-15.tar.gz"
-  sha256 "064fe405f8c1f94edd9300756bdf979eae0a41c5cad15762caabfe24f5332eac"
+  url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.23-16/source/tarball/percona-xtrabackup-8.0.23-16.tar.gz"
+  sha256 "ca834acf940a79981366eb874d1b71df794e237c8936da86d03415771604be7e"
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
@@ -10,10 +10,10 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "8b66f0ee901d903d322b9e95243f0a8ddca7357b4d4882d36be54019117cb0d1"
-    sha256 big_sur:       "e5cfb19cf48aea96afc5dbaf68f80d2004df87be382acb33deeaeacaa1318ea1"
-    sha256 catalina:      "4cbadb373a159de39d5f3a2d23397488602b915d5b2b9e68bf48afe5381ff6c0"
-    sha256 mojave:        "92e81f48bdf16cdc9d30f58265d67a9b5814ad29da723dc8dc3ae1c37f66b92d"
+    sha256 arm64_big_sur: "d17963278ce32743a922cd8c192faf6222b84da1e7062537bfe4fe8e0a997619"
+    sha256 big_sur:       "a396cce05c7460af0f54db0bd0bcf72381b4d8343091f5a79904809b8f8f6e33"
+    sha256 catalina:      "b1d1808994069850fa9ae61feacd6ef9aef74749ecbcd85cd4cc33dca5cc1378"
+    sha256 mojave:        "87244443e6bac47d36fe2d42d5dba3aae5a52f53bb8bacbdf75dde4e29b26a07"
   end
 
   depends_on "cmake" => :build

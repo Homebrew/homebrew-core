@@ -15,7 +15,6 @@ class Chgems < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "01e2e0335391df51b5fb2003e79d4994a48b4515077904b4e924062a0bf79b3c"
     sha256 cellar: :any_skip_relocation, el_capitan:    "395b45c3493721bccfc7fdefa2d81ec61b7f07f8cfd799eac5f1e96011a618f3"
     sha256 cellar: :any_skip_relocation, yosemite:      "aac706b654c0e5a617bfa9dab9310334d874d561f2eca10a16778a3b49804545"
-    sha256 cellar: :any_skip_relocation, mavericks:     "d3e7aba5d1fb3da9f66a1e5fd3149c6eec3afb37286ade3e40f235bdbafc8d78"
   end
 
   def install

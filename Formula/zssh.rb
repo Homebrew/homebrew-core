@@ -17,7 +17,6 @@ class Zssh < Formula
     sha256 cellar: :any_skip_relocation, sierra:      "49e01bb86097999f21f3d96b0f9cd63a975d4fd52f6e286d42ceee16ee996eb7"
     sha256 cellar: :any_skip_relocation, el_capitan:  "04212f19c1d9a6b97fd56ffe937606f1779849fdf04b93e3f285889599845c8f"
     sha256 cellar: :any_skip_relocation, yosemite:    "94280569f9e1c1deb9d8c3be4256cd501399fd51758f8e2ea6d77fd9f1b6ef2e"
-    sha256 cellar: :any_skip_relocation, mavericks:   "94b16bb29616a839134527fd869ac40a8fb5fa88b0048d1a93a828e306c2a270"
   end
 
   depends_on "lrzsz"

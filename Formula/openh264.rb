@@ -4,21 +4,20 @@ class Openh264 < Formula
   url "https://github.com/cisco/openh264/archive/v2.1.1.tar.gz"
   sha256 "af173e90fce65f80722fa894e1af0d6b07572292e76de7b65273df4c0a8be678"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/cisco/openh264.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "548fde2cb583ccc88f96e931787b758c309100a6386cfd2bf9e4173cc1d99601"
-    sha256 cellar: :any, big_sur:       "8025149092f1d95f870524cb04786fa08f3f67e1e60e259b675ba2a03b38949a"
-    sha256 cellar: :any, catalina:      "40bbd156c791be70467bebecb927745edc9b54dd46aa2c4a317562a4cf1dce8e"
-    sha256 cellar: :any, mojave:        "952ae4b5cafae14722588046032ee363b7b027178aa30ec450e4ee916b85eb4b"
-    sha256 cellar: :any, high_sierra:   "de7a5593d7a401e606b44d88347e83651508538d2461e4510b024f41b8b0f42e"
+    sha256 cellar: :any, arm64_big_sur: "c63f32513ab056a1848184f11c0d82b1c233d81be4a9dd9f29df89029be9ea75"
+    sha256 cellar: :any, big_sur:       "b1679e30909ec05ca67b2f134a8e322319f845530005c185bb7284c2b2fd1301"
+    sha256 cellar: :any, catalina:      "0c16ce9eb6bc29bddf43376bc6ceff0ab6843572edb3fb631dfc9e135d7a3208"
+    sha256 cellar: :any, mojave:        "f42bf16f4d86c24a6562530db55ffb5957a83b26443735bc902f5856b3470cba"
   end
 
   depends_on "nasm" => :build
 
   def install
     system "make", "install-shared", "PREFIX=#{prefix}"
-    chmod 0444, "#{lib}/libopenh264.dylib"
   end
 
   test do

@@ -6,14 +6,11 @@ class Voroxx < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fe957e10239223b1027bb38058a9b6275af5b11bef45ec2c92ad6e718c48df87"
-    sha256 cellar: :any_skip_relocation, big_sur:       "36e9ac6de84545992490e09c1ff6202988bafc4e99a164907338d3117bcefe3c"
-    sha256 cellar: :any_skip_relocation, catalina:      "d3e73665fab068af530be8c745fbe03498a3d2060110264e99e17935f0980581"
-    sha256 cellar: :any_skip_relocation, mojave:        "cd60116a442b685c8275ba23f64fd453b01b517247d0a7c969d3b4fe5a7ae706"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "72c8a07d26abe320651fb74425c67baecd8044e23f2951d86704c8dba88f3871"
-    sha256 cellar: :any_skip_relocation, sierra:        "9d522e672d8f551439c18b536e0ca2d0dc94a6036722eba12bbaba37d2aa3428"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "b10e4cccc62a7fff1a34c6f80174e2f62cb12dfcaf2782b2c81cc567f0928943"
-    sha256 cellar: :any_skip_relocation, yosemite:      "d7ce06fd7ebd51a8a592c2409f80eae0bbc6a5fc0d906ffa324534c805249af1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a2c8a6acd7f49f29bbb103253151e24179f810536915a36d814217aeff389bd6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a92c62db56b3816239293a8953f59141cba060a7c3c271cc0bb836caf4948f3d"
+    sha256 cellar: :any_skip_relocation, catalina:      "cc5c247b85e45611cbf88a99812864f07315e0dcd571a2dd152c28e435145b3c"
+    sha256 cellar: :any_skip_relocation, mojave:        "0dc3186cec2a52edb6ed5d66accaedcae74d9183d8da7d255cd2b9247a605b66"
   end
 
   def install

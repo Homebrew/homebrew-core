@@ -1,10 +1,9 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1j.tar.gz"
-  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.1.1j.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1j.tar.gz"
-  sha256 "aaf2fcb575cdf6491b98ab4829abf78a3dec8402b8b81efc8f23c00d443981bf"
+  url "https://www.openssl.org/source/openssl-1.1.1k.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1k.tar.gz"
+  sha256 "892a0875b9872acd04a9fde79b1f943075d5ea162415de3047c327df33fbaee5"
   license "OpenSSL"
   version_scheme 1
 
@@ -14,10 +13,10 @@ class OpensslAT11 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "f8b99ea0ad2a19855aab784122271fbc811c69b03c53c0e8b959b02977e4444a"
-    sha256 big_sur:       "5725361adcd088a5b4fb278aa37b12964008f9ceb3892ceef558fb5de3c95896"
-    sha256 catalina:      "ecfbca86c18eb819222ae13aa2e4148d89c9dc15e1172545352b6fcf29d40d0c"
-    sha256 mojave:        "ffbc4252535f6073ff109cfa87e50847e6d44051a7ff374b8ad3b455477e7d1a"
+    sha256 arm64_big_sur: "0a75e0f116c0653bc7a2b422e5dc500e7e51557303aa4fca9c1a28786189c1da"
+    sha256 big_sur:       "17d94c51ddfa8364baed5f3a754063e1ca75f807194f68d0b976619cf4e69c1a"
+    sha256 catalina:      "cb610ecdda346011031b890d7b7c6e1942d7fc08cf083b74f148ec7ffed8c7e1"
+    sha256 mojave:        "7928c80c309c6ece50b1c0d968a1e54011088cc896d26aa511249978a246bd50"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
@@ -117,7 +116,10 @@ class OpensslAT11 < Formula
   end
 
   def macos_post_install
+    ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
+
     keychains = %w[
+      /Library/Keychains/System.keychain
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
 
@@ -126,8 +128,9 @@ class OpensslAT11 < Formula
       /-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----/m,
     )
 
+    # Check that the certificate has not expired
     valid_certs = certs.select do |cert|
-      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout >/dev/null", "w") do |openssl_io|
+      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout &>/dev/null", "w") do |openssl_io|
         openssl_io.write(cert)
         openssl_io.close_write
       end
@@ -135,8 +138,25 @@ class OpensslAT11 < Formula
       $CHILD_STATUS.success?
     end
 
+    # Check that the certificate is trusted in keychain
+    trusted_certs = begin
+      tmpfile = Tempfile.new
+
+      valid_certs.select do |cert|
+        tmpfile.rewind
+        tmpfile.write cert
+        tmpfile.truncate cert.size
+        tmpfile.flush
+        IO.popen("/usr/bin/security verify-cert -l -L -R offline -c #{tmpfile.path} &>/dev/null")
+
+        $CHILD_STATUS.success?
+      end
+    ensure
+      tmpfile&.close!
+    end
+
     openssldir.mkpath
-    (openssldir/"cert.pem").atomic_write(valid_certs.join("\n") << "\n")
+    (openssldir/"cert.pem").atomic_write(trusted_certs.join("\n") << "\n")
   end
 
   def linux_post_install

@@ -1,16 +1,15 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/3.38/gtranslator-3.38.0.tar.xz"
-  sha256 "dbcda9b81a22d9233be18e99fd5c448f6ab05759d1e94c10580bb831ca2d7635"
+  url "https://download.gnome.org/sources/gtranslator/40/gtranslator-40.0.tar.xz"
+  sha256 "ec3eba36dee1c549377d1475aef71748dbaebd295005e1990ea9821f02b38834"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "5d5883134917ac1a97cdaafd240fc9f162843e8cc053954bce1381e893663d23"
-    sha256 big_sur:       "87af99ef6bff1ac84eb04b70b0923040af2588909078f42ee2926620ebf9fd5c"
-    sha256 catalina:      "ca6600f0f0d75cc1f9c2a063ac2ad6bdfe790fe89a72533307deda968903eb2b"
-    sha256 mojave:        "d46199ba9a6eb1a9cf068fe5a9ae34529ab60b70ebdaca2f29c82e4eef86d34b"
-    sha256 high_sierra:   "13cc15d49f5c39f4be9f28860b6e99d7186d7b985fa03308f3a185692f57ad3b"
+    sha256 arm64_big_sur: "b90853dc169f42e8f9b1dddcc3af59a52c6809c07a011ec74676676e1aa34c61"
+    sha256 big_sur:       "3a1ea832e3c5b8be45917df36d6229fde96c22e3a8077101d40c00367872b8f6"
+    sha256 catalina:      "9ead77c72b7ee59d76a4c73c92cb93a29cee0cf7885bc8aab54eb672809baf0b"
+    sha256 mojave:        "e5c88ca5952d0958cb3f9bacf25e63ca41ade68c86cb8c55648820fa672ca0ab"
   end
 
   depends_on "meson" => :build
@@ -26,6 +25,7 @@ class Gtranslator < Formula
   depends_on "json-glib"
   depends_on "libdazzle"
   depends_on "libgda"
+  depends_on "libhandy"
   depends_on "libsoup"
 
   def install

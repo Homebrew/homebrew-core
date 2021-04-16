@@ -13,7 +13,6 @@ class Unarj < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "44c4722b1e3d30d987bcbd9fc9ccd7015c54d087bedb7da030e50cc84d0a52e6"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7bdcd771f852f59915623dae370c8f807cbf20f242dad60d62afa1dc683cdf4a"
     sha256 cellar: :any_skip_relocation, yosemite:      "95794638930505f1d4a23553571d62de07dd3f62da7687ef571c6f7e893bba42"
-    sha256 cellar: :any_skip_relocation, mavericks:     "d81c8d0e7799847d65e8059eee61bb29f9e33ea3ea501465dee0cc7c68f425ff"
   end
 
   resource "testfile" do

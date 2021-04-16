@@ -1,16 +1,16 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/v0.12.0.tar.gz"
-  sha256 "9c3930380120bf8479caa55236fb9fdbbad5bfe3d41c0729a667c777cbc856e2"
+  url "https://github.com/Nukesor/pueue/archive/v0.12.1.tar.gz"
+  sha256 "a67e6f349696a61e0471fc573aa8791695a7e536ee76df3e1eb12397fa3b3571"
   license "MIT"
   head "https://github.com/Nukesor/pueue.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "34050139a57ab4f6874cae421082f2449c61d28703fc39f988b9470fe4bd9263"
-    sha256 cellar: :any_skip_relocation, big_sur:       "47feda4778516a8b2b68afd05b86013e6383d112c4553c466658549a94786222"
-    sha256 cellar: :any_skip_relocation, catalina:      "6f48e1ac9b2705da5e8d5a5fc147c06a78af1067a7e639a3cbc3dee4ec47e9b1"
-    sha256 cellar: :any_skip_relocation, mojave:        "3c604c05fa8f52884fd9513051b98792387861f0627e0a71a47c030a97da3166"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d41441f0b73efc9cdaff84d1f0c6f846713e44eeee596f8e45f8cb891956e229"
+    sha256 cellar: :any_skip_relocation, big_sur:       "64ef61f0c9ffc71acda4ba872763f8231d6f47945292c32bdb47fac9d0bd822d"
+    sha256 cellar: :any_skip_relocation, catalina:      "e5a867f9a6ef13ffa4fb2c7299f54a1f2a1b9eb4692a9089f718e86c2e070c89"
+    sha256 cellar: :any_skip_relocation, mojave:        "3701700007c0198d27942382917e479de6b0040238fa5663e41f28df2a6fcb15"
   end
 
   depends_on "rust" => :build
@@ -63,7 +63,9 @@ class Pueue < Formula
     sleep 2
 
     begin
-      mkdir testpath/"Library/Preferences"
+      mkdir testpath/"Library/Preferences" # For macOS
+      mkdir testpath/".config" # For Linux
+
       output = shell_output("#{bin}/pueue status")
       assert_match "Task list is empty. Add tasks with `pueue add -- [cmd]`", output
 

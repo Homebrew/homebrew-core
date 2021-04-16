@@ -14,7 +14,6 @@ class Rats < Formula
     sha256 sierra:        "5f2a74a60c30a825ad036f390e3830346be4fe3299a28a81e25630d54defd119"
     sha256 el_capitan:    "224ae02df998c8fc296bf3905fbc369a787fc55f5ef295d63f1b3c44bfee7a5d"
     sha256 yosemite:      "7c26f10919e103d7e57c232e0e07840ad309fd04878831c04829d70506767157"
-    sha256 mavericks:     "ab9d3469ecf24da07c80691cea41aa0266e85061ad3ddfec6cf65a0bd7c85acf"
   end
 
   def install

@@ -14,7 +14,6 @@ class Smake < Formula
     sha256 sierra:        "b1afe84c5a7b535738d2b2ee3f2abf879c908cf4f3b9c5a6f9f9cdd3fc403536"
     sha256 el_capitan:    "a5cb6ea4fab2d0ce67342f482fd0efb4dcc20483722e56ae120880d2a97ebab0"
     sha256 yosemite:      "c1420a59ceba43481eac2b2046a7d3c4aac967a12ff52bccb3b4697eca8d5c8f"
-    sha256 mavericks:     "4e8157c27f8ab0d5ad2c9673a86357f38acfabea1ac4eef80c54e8141dfdb336"
   end
 
   def install

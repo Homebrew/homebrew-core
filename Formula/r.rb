@@ -1,8 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.0.4.tar.gz"
-  sha256 "523f27d69744a08c8f0bd5e1e6c3d89a4db29ed983388ba70963a3cd3a4a802e"
+  url "https://cran.r-project.org/src/base/R-4/R-4.0.5.tar.gz"
+  sha256 "0a3ee079aa772e131fe5435311ab627fcbccb5a50cabc54292e6f62046f1ffef"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,10 +11,10 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "850201a102aa7b0ae7865b32ed27b1f252e968d93aa663929abc475394a2d21b"
-    sha256 big_sur:       "1bf6b564592e5908384a43a78b8039a9077d2953cccb8ec7cff3aeb11961596f"
-    sha256 catalina:      "9ac4f83c55c651d5dfb22f1b9bca3f90ac60494b226a55bb74085a454dcd8027"
-    sha256 mojave:        "0a7797f9411a5339be8caf9e7efb0ceb283002916156e1f8a36b4ada02d60d4f"
+    sha256 arm64_big_sur: "0195d40acde04ca99929bf671eb990d9275c6dce0e752faad75ad0fc0c311212"
+    sha256 big_sur:       "e22f6248204d6638102f3bac9dc10200184414457be6e99927506eb7faff8e96"
+    sha256 catalina:      "deedc4be14fe303169a24c4e14db4d47890e5846ffef0c43f493e657c72b91b3"
+    sha256 mojave:        "355a404a20b4b29f710a69dcfe88660ba8e14efd7b6a1ba086413c031be59861"
   end
 
   depends_on "pkg-config" => :build
@@ -46,7 +46,6 @@ class R < Formula
       "--with-aqua",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
-      "SED=/usr/bin/sed", # don't remember Homebrew's sed shim
       "--disable-java",
     ]
 

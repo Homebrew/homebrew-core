@@ -4,13 +4,13 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
-  revision 3
+  revision 6
 
   bottle do
-    sha256 arm64_big_sur: "69b118e23e20257c52369dbb88e3a1a30c4dea1ee4891aee79e123627a9ccad2"
-    sha256 big_sur:       "e0504050736f55cb4072758b18e33f1ac6bdf840e0f81579358b003f9fcdc738"
-    sha256 catalina:      "16bb22003f2fb2571149500e603bd128ad0602bf5f22ec37fc7c39f9fce9f5d2"
-    sha256 mojave:        "3a25b791574046d0c1c415107b5f12b0e2937aeecfcb783b67c694bc8f659ce7"
+    sha256 arm64_big_sur: "81fc6d19a33fa38e234b7d18bbbbc81fbd0b2996e402ba774c69193b53c358ba"
+    sha256 big_sur:       "8bc79eb0816f3fcbe54ffd10f6db58094aa8814e15e7fb6a7402ea65a1885be4"
+    sha256 catalina:      "b8b797c6faf44ded4565bfb887c14d915f3997fc646aef250c273d2cfbc5d7d8"
+    sha256 mojave:        "228d62e2e0f9933c9a967aa71394d062a23611e7fea37e430daeb49a70df4250"
   end
 
   keg_only :versioned_formula
@@ -25,7 +25,7 @@ class VtkAT82 < Formula
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "netcdf"
-  depends_on "pyqt"
+  depends_on "pyqt@5"
   depends_on "python@3.9"
   depends_on "qt@5"
 

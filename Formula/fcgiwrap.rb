@@ -14,7 +14,6 @@ class Fcgiwrap < Formula
     sha256 cellar: :any, sierra:        "ed81f5b0cec39f7138a877cea2a0e397007d3271393805af53739b837537bd0f"
     sha256 cellar: :any, el_capitan:    "c0a70c3cc726788dfac52d8b23c79c1a4ef31a8c7e1418ac335cfe182b94f05d"
     sha256 cellar: :any, yosemite:      "ea03eeafcd71e07c2e608bc974a00cf642b253de24eb7bd587155c89db2fffad"
-    sha256 cellar: :any, mavericks:     "15a4dc62dba901bdc25f8d898674069b8cad09b3d2c00458900f31c143305a4e"
   end
 
   depends_on "autoconf" => :build

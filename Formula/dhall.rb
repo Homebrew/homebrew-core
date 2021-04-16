@@ -1,18 +1,21 @@
 class Dhall < Formula
   desc "Interpreter for the Dhall language"
   homepage "https://dhall-lang.org/"
-  url "https://hackage.haskell.org/package/dhall-1.38.0/dhall-1.38.0.tar.gz"
-  sha256 "490854a22a158f675ff7e98aeb33f88faeba3f93923e263420c6d37b628add45"
+  url "https://hackage.haskell.org/package/dhall-1.38.1/dhall-1.38.1.tar.gz"
+  sha256 "f3e95cfa0ef1a89d5ca29591b7925db51551150a27f3fd02717ce69699e8e03c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "3de60b380ab466d50c1629884c233c467a30e71c3301ff3dd3ceaaa2caada8c6"
-    sha256 cellar: :any_skip_relocation, catalina: "91fa91f7204130ebf78c84cc250fa4d26bc4f32c4c72c455d7f8702977548ba2"
-    sha256 cellar: :any_skip_relocation, mojave:   "bb548f90ea5dc33b1dc86280e62d95e69ac3b18b07fdc68af58138dc28b3b701"
+    sha256 cellar: :any_skip_relocation, big_sur:  "ba724dd03858c6e1cbfef358b50a48c2df7c3298b1ad3e3ff6af14ac282475ac"
+    sha256 cellar: :any_skip_relocation, catalina: "d91c78ee735fec577fe621c73c56a00e803c0bf130c98ef90f0cd21bdb977b08"
+    sha256 cellar: :any_skip_relocation, mojave:   "5b9c420c1f2f1a9f24561c172977912852104d986e8243ec21ade06ad155ebd1"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
+
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     system "cabal", "v2-update"

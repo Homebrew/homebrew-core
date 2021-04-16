@@ -1,15 +1,15 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://static.process-one.net/ejabberd/downloads/21.01/ejabberd-21.01.tgz"
-  sha256 "f1526138061b079054e4842ed50d520f0ada7dda3deb19c9e2beccbbeeee4086"
+  url "https://static.process-one.net/ejabberd/downloads/21.04/ejabberd-21.04.tgz"
+  sha256 "7dc2797b3223bc92f422ee35f53a1cf686a738c99641b87768b519d8c3bfb73a"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3e74e61eaeea09b8216bd4e8aec85a1f9ed4955025e77e0bfa774b34d4ae469d"
-    sha256 cellar: :any, big_sur:       "d6c70f318a01122269aa0a9356f926e23eb190f38f51a3c8d7b5b59a1b568f8a"
-    sha256 cellar: :any, catalina:      "f47d3de3194e456908d8e75aa1f308772dee675ce1789653787711d91a7669a1"
-    sha256 cellar: :any, mojave:        "9d59c55287a10faa857383a76f41559f0f26b73d65c569820d5ba108d3d39f83"
+    sha256 cellar: :any, arm64_big_sur: "e724d35c5572f8c4b4249b4986cfd9641af633c0498247f098b2d84391ecb52f"
+    sha256 cellar: :any, big_sur:       "48160b33cfecd42b409ab92d25301ce7136dd95afbef0ff81ea7ed356030bc71"
+    sha256 cellar: :any, catalina:      "9d168b77adb8fefc6859d7fbad6478c7faaf3aa395d71bd46e3865bcd85407a5"
+    sha256 cellar: :any, mojave:        "adfbcb57cc672dca1db1b09e1b08b20736a5ab17e361f8d50352c065b9b643d2"
   end
 
   head do

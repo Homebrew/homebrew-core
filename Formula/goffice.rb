@@ -1,16 +1,15 @@
 class Goffice < Formula
   desc "Gnumeric spreadsheet program"
   homepage "https://developer.gnome.org/goffice/"
-  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.48.tar.xz"
-  sha256 "a439162fa26a0e58117e07b82b37000a7f421088ad379eb1f6a1cdee101ecefc"
+  url "https://download.gnome.org/sources/goffice/0.10/goffice-0.10.49.tar.xz"
+  sha256 "5ffc18dbb385edfb85b6c6254b9e5b4cb3d2ffa3042b932cdbce8e37f4b307e9"
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   bottle do
-    sha256 arm64_big_sur: "b29f128d789d1399cb06fc284981d690a039ddeaa709bb15ac5f93483e3609f4"
-    sha256 big_sur:       "314d34ff359e1d6eb5d5935ac6e2778b47e360e6e13a6c3b98f99b7071e4c961"
-    sha256 catalina:      "3e05167a37c42bfa01acf4be7055a52e3c2a03c990536ae5562b2c0aa4812e42"
-    sha256 mojave:        "9edf36fd2ffb0a116e4e5f69cd00a04dd29eda04c1a3069b0e4da8950573c0a4"
-    sha256 high_sierra:   "7043808e39862444e7aaae796137b30fadefb142dea291f9d8ce23228d635264"
+    sha256 arm64_big_sur: "ef9f35b3c30116d2aa50e70575405cc3a3cd8d3b8408658cd2497fd0e6d74006"
+    sha256 big_sur:       "8dc23cf6bcd6c6e7bd4212cbd4439607b1d85d8b47a965194405cd7f15871db3"
+    sha256 catalina:      "981b6edf6a358e135af47aa28a1ebb9d77ca4bb73b4adf088daf4b827030ecc7"
+    sha256 mojave:        "ab69693898a7bec07c1e3ffdf480aea5f4112810c060c6e935aff775c476676e"
   end
 
   head do

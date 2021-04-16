@@ -13,7 +13,6 @@ class Libpuzzle < Formula
     sha256 cellar: :any, sierra:      "62452be0513886b00ad766fc6c444f69af8a70d89948a65b3fe201c12383f536"
     sha256 cellar: :any, el_capitan:  "0768fc24347a5e5e061722175cae535b6e295c28302d98ad3e03dc9f79a32bf0"
     sha256 cellar: :any, yosemite:    "d8f7de77378d0fa29e34876ccc8def7f8e60e6564a1c17dae77f4c32ebd8ae5a"
-    sha256 cellar: :any, mavericks:   "ed3d860aa40203a73921fc7f6919828599a28fb39e2d95f0c963ae4eb5c7811b"
   end
 
   disable! date: "2020-12-08", because: :unmaintained

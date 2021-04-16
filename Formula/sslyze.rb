@@ -6,8 +6,8 @@ class Sslyze < Formula
   license "AGPL-3.0-only"
 
   stable do
-    url "https://files.pythonhosted.org/packages/f8/2f/8afebdb46e95abff793488683b038c8d159d6e035992652febd1642d7e46/sslyze-4.0.3.tar.gz"
-    sha256 "b6f74d087861a82e647507d2055d7be70810a9cff5e38c281240ca974566f78f"
+    url "https://files.pythonhosted.org/packages/90/b4/f24057503cf7aa318f5e2a778002773612ca0196be1a80f679f06625e71f/sslyze-4.0.4.tar.gz"
+    sha256 "1bac42d2d4248169aa042dd608887b9e3e3aba42f7fb2d807251fb04a9d6acf1"
 
     resource "nassl" do
       url "https://github.com/nabla-c0d3/nassl/archive/4.0.0.tar.gz"
@@ -16,9 +16,9 @@ class Sslyze < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "e77d4aabf5ee4cc1ac6640e30afd3c4377d524ff82c5b1c1445e3a895fe5d7b9"
-    sha256 cellar: :any, catalina: "ca998509255754099482720a04779668fb9aa3797fb68df07fc09ab13857c460"
-    sha256 cellar: :any, mojave:   "05501e84564298625e34a0ca4f1b95b22e219fc5db7d48bb2eb736bd9e4c2ab7"
+    sha256 cellar: :any, big_sur:  "d4679e0817acb24e97f59577ab84abd33a8a11300ba835d89aaba2e32f33000f"
+    sha256 cellar: :any, catalina: "5acc1a5dc3494fd651cb987e4893af3aa0413f180ca62cc806c96f538f756cde"
+    sha256 cellar: :any, mojave:   "bc861e6c31c30eb914321b65ff758c630357b10031e9f481585a7609df2f9e1c"
   end
 
   head do

@@ -19,5 +19,7 @@
   "numpy@1.16",
   "openssl@1.1",
   "pangomm@2.46",
-  "python@3.9"
+  "pyqt@5",
+  "python@3.9",
+  "python-tk@3.9"
 ]

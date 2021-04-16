@@ -14,7 +14,6 @@ class Dcfldd < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "0958d948042f047d4249a7400f8c4f7adfe41f11c20aa04a0dbaac09c718ea2a"
     sha256 cellar: :any_skip_relocation, el_capitan:    "0d5ff357d74fa90a97d80e202ddb5b5554bfec35efa2c4cb6e0f7e6dc9cf8ece"
     sha256 cellar: :any_skip_relocation, yosemite:      "4731a1409199c0eb8d83f9f2f23106c1f71ccb1f8d8faf71a3fd691ba394791f"
-    sha256 cellar: :any_skip_relocation, mavericks:     "5aeedb1165a426057dce57cf8b9b5b33db33f502d8cf2611276f2526bde1dda4"
   end
 
   def install

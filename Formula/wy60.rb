@@ -13,7 +13,6 @@ class Wy60 < Formula
     sha256 sierra:        "f03706d166cfcc0679e696493bd13df30ad0617a92b602b79e3494ba3b1f46fb"
     sha256 el_capitan:    "84d3bfa45582f2816808006f192c7580cedad24de3941a0786b5b36ce29e469c"
     sha256 yosemite:      "80508e33f12142eec20ff0e8866ed191b03facea5b6653a6f5331cb017ff78af"
-    sha256 mavericks:     "7257f9a9c49d867114209be3d4b4b8537da65f34302fa15266f7ead044947331"
   end
 
   def install

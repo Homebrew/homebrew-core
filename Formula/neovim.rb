@@ -2,7 +2,7 @@ class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/neovim/neovim/archive/v0.4.4.tar.gz"
@@ -14,11 +14,10 @@ class Neovim < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "306ef84a70624fa5924d04b0fe949e16433bc7f0a5bab86af368b780926a86a8"
-    sha256 big_sur:       "3a958561859b4f526a729d0efd7030eb57580ba7dc97decff586de6b2c48f804"
-    sha256 catalina:      "c5f97d4a2740a93137452feba2640a401f3bea83bc3b5b5fc2235a043f05cce8"
-    sha256 mojave:        "3646015b633d5c5044f3a27ee64c0a10c11a6554f0de2f0989e7e77b11d11c2c"
+    sha256 arm64_big_sur: "9e24789f21eba59817331f583622d5594598162de01eeac4abfdeacdee67f7a9"
+    sha256 big_sur:       "33fd21ea56ff618b9840e4ca87ddf2b0450f73dff8f39eed163052e171395bdb"
+    sha256 catalina:      "e2d64684c43eb19390975d6434e2845f98f9e0f0f91c00b1277750c36bdf0676"
+    sha256 mojave:        "e6e9437addbf446ed88518784f461a0bdb9c578b6779f3353e066a4491b52465"
   end
 
   head do
@@ -28,13 +27,13 @@ class Neovim < Formula
 
   depends_on "cmake" => :build
   depends_on "luarocks" => :build
-  depends_on "luv" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libtermkey"
   depends_on "libuv"
   depends_on "libvterm"
   depends_on "luajit-openresty"
+  depends_on "luv"
   depends_on "msgpack"
   depends_on "unibilium"
 
@@ -90,12 +89,7 @@ class Neovim < Formula
     end
 
     mkdir "build" do
-      cmake_args = std_cmake_args
-      cmake_args += %W[
-        -DLIBLUV_INCLUDE_DIR=#{Formula["luv"].opt_include}
-        -DLIBLUV_LIBRARY=#{Formula["luv"].opt_lib}/libluv_a.a
-      ]
-      system "cmake", "..", *cmake_args
+      system "cmake", "..", *std_cmake_args
       # Patch out references to Homebrew shims
       inreplace "config/auto/versiondef.h", /#{HOMEBREW_LIBRARY}[^ ]+/o, ENV.cc
       system "make", "install"

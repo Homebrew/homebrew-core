@@ -19,7 +19,6 @@ class Librevenge < Formula
     sha256 cellar: :any, sierra:        "2f8a2a371c35b578d181d1ce8d45084a2f699bbed95cabd10f5cd75977249542"
     sha256 cellar: :any, el_capitan:    "827a37488cc92f16ba8f4d7343e7944c7faed4b8cf9d930f49d93e4104784c94"
     sha256 cellar: :any, yosemite:      "a95c4fc2b7832e226d21a209811a2f149b8fde4962d07d354e3a6cb80b7f0a01"
-    sha256 cellar: :any, mavericks:     "45c4df842b9cf38554efeb4d04f2c2abf2ed8341e0fb4bc0d80830e02e1fbfeb"
   end
 
   depends_on "pkg-config" => :build

@@ -1,21 +1,20 @@
 class Libmatio < Formula
   desc "C library for reading and writing MATLAB MAT files"
   homepage "https://matio.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.19/matio-1.5.19.tar.gz"
-  sha256 "a4fa4d248b0414fc72f3d6155f710c470d5628d3c31af834f8d5ccf06b60286f"
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.21/matio-1.5.21.tar.gz"
+  sha256 "21809177e55839e7c94dada744ee55c1dea7d757ddaab89605776d50122fb065"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c2ce5f216e9fa77fd0d328504a4d339e1061b5e1c8800d7a1d741ac65c50a3ab"
-    sha256 cellar: :any, big_sur:       "6581c5cc3897753a78031740d10ccc534e9d0e8bde17d7c97d578b0b034d0475"
-    sha256 cellar: :any, catalina:      "ceb9363a18078ce2c25154d230a359ec3ce3db0cea9c2aaea3cfd41119806363"
-    sha256 cellar: :any, mojave:        "f015d539a7c798899a45b3a35d2795bc64aef3856b2ef5ef08fba6cf21295e25"
-    sha256 cellar: :any, high_sierra:   "41b16e1b850d33c612c474b2780b27396ba83da81f875a869014e5232d1f06da"
+    sha256 cellar: :any, arm64_big_sur: "fb9d717a8f88e9235218c3976be38b7ed0c5cab0ca43b8e6374355a85af435ba"
+    sha256 cellar: :any, big_sur:       "98a891d294f382a85d61c8d57381e02d1ecb0139af46c08335c8f2eaf5727d7d"
+    sha256 cellar: :any, catalina:      "bcb2ae92ff978e644dcc7c1469d452a5f65a1d1587c9a2f68de4ac88d0d8dbcb"
+    sha256 cellar: :any, mojave:        "a19666b0812ccbe6b83193694677075ec678433af8cd2aa6b8f728c0dab46700"
   end
 
   depends_on "hdf5"
 
-  resource "test_mat_file" do
+  resource "homebrew-test_mat_file" do
     url "https://web.uvic.ca/~monahana/eos225/poc_data.mat.sfx"
     sha256 "a29df222605476dcfa660597a7805176d7cb6e6c60413a3e487b62b6dbf8e6fe"
   end
@@ -34,7 +33,7 @@ class Libmatio < Formula
   end
 
   test do
-    testpath.install resource("test_mat_file")
+    testpath.install resource("homebrew-test_mat_file")
     (testpath/"mat.c").write <<~'EOS'
       #include <stdlib.h>
       #include <matio.h>

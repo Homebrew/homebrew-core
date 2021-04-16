@@ -24,12 +24,24 @@ class Mednafen < Formula
   depends_on macos: :sierra # needs clock_gettime
   depends_on "sdl2"
 
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
   end
 
   test do
+    # Test fails on headless CI: Could not initialize SDL: No available video device
+    on_linux do
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+
     cmd = "#{bin}/mednafen | head -n1 | grep -o '[0-9].*'"
     assert_equal version.to_s, shell_output(cmd).chomp
   end

@@ -28,7 +28,6 @@ class Id3lib < Formula
     sha256 cellar: :any, sierra:        "1dddf1fac71acc4bd54cfcc6cdb80884129754d25f42efff5fbe6d5d38d99c0a"
     sha256 cellar: :any, el_capitan:    "266926f3fe3593bd04db9b9ff200676aaeb879d1f855e289cc41d2b40d72a16d"
     sha256 cellar: :any, yosemite:      "6d255640321f499620cdac8c6645be5c74c6d67de9cf593506f5766b0adf9ddb"
-    sha256 cellar: :any, mavericks:     "0eaeb0ed5fe1a86af5ffa34d4d5a96b91b97ccfc525fd471dc38a63d2585ad77"
   end
 
   depends_on "autoconf" => :build

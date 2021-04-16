@@ -3,16 +3,16 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/0b/41/b6f3d4c71e967c61902b58ebfc39007167ac554b88b4f3eea44b4b0f41b8/yubikey-manager-4.0.0.tar.gz"
-  sha256 "ab7a953ceb6f5de4487c20c02672cf7ee19ab49f0b99a9ae2f1cfa06a5d64a44"
+  url "https://files.pythonhosted.org/packages/8f/0d/5dc7fa046ac9bb23d162a6e12b95ebbbdbb4cd4d76df995ca2c514545821/yubikey-manager-4.0.1.tar.gz"
+  sha256 "3b16caa39bf038169b53aff684ee113168a27e8e08548c73f8395cc0ff713bf1"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a19b309fc13396408f6ac9c36232adcd9243312cf96a999b4a552ffa6953a6e2"
-    sha256 cellar: :any, big_sur:       "74a42e1fa390da95cf003bbd8a23fec3fd7c4c3aa34fd1861dc36ba47fb3ebc7"
-    sha256 cellar: :any, catalina:      "001843648f1a67f05ac364e912d90bbfff6eda7adb421b6184a10a156b4a4357"
-    sha256 cellar: :any, mojave:        "a5bade1f58997341d493602bf45c6caeb2a47f6dddcd5c381b7840e87a3624c6"
+    sha256 cellar: :any, arm64_big_sur: "d379ac350760f313a35f754c066c8c7addbcc0275eda6b3edf0a87844f012869"
+    sha256 cellar: :any, big_sur:       "baf09f48223a8de64a99605e9134c89dd6c95d361038d3da669569a05ff4de13"
+    sha256 cellar: :any, catalina:      "ecd3a0e259e8881d53af3496d7bcbb7f0a3d4b7681d0c02f2b042e9297136fd5"
+    sha256 cellar: :any, mojave:        "c78c75b9178c2c57995940da0d5ffb207556dd74d55ef92c440a930a2f406455"
   end
 
   depends_on "rust" => :build
@@ -38,8 +38,8 @@ class Ykman < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/fa/2d/2154d8cb773064570f48ec0b60258a4522490fcb115a6c7c9423482ca993/cryptography-3.4.6.tar.gz"
-    sha256 "2d32223e5b0ee02943f32b19245b61a62db83a882f0e76cc564e1cec60d48f87"
+    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
+    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
   end
 
   resource "fido2" do
@@ -50,6 +50,11 @@ class Ykman < Formula
   resource "pycparser" do
     url "https://files.pythonhosted.org/packages/0f/86/e19659527668d70be91d0369aeaa055b4eb396b0f387a4f92293a20035bd/pycparser-2.20.tar.gz"
     sha256 "2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0"
+  end
+
+  resource "pyOpenSSL" do
+    url "https://files.pythonhosted.org/packages/98/cd/cbc9c152daba9b5de6094a185c66f1c6eb91c507f378bb7cad83d623ea88/pyOpenSSL-20.0.1.tar.gz"
+    sha256 "4c231c759543ba02560fcd2480c48dcec4dae34c9da7d3747c508227e0624b51"
   end
 
   resource "pyscard" do

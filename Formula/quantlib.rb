@@ -1,7 +1,7 @@
 class Quantlib < Formula
   desc "Library for quantitative finance"
   homepage "https://www.quantlib.org/"
-  url "https://dl.bintray.com/quantlib/releases/QuantLib-1.21.tar.gz"
+  url "https://github.com/lballabio/QuantLib/releases/download/QuantLib-v1.21/QuantLib-1.21.tar.gz"
   sha256 "3d3296fb13f822de6b980692604e2b1ba0d1b45e0e32d67d80b4cc9725b87d1b"
   license "BSD-3-Clause"
 

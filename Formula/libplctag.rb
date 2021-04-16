@@ -1,8 +1,8 @@
 class Libplctag < Formula
   desc "Portable and simple API for accessing AB PLC data over Ethernet"
   homepage "https://github.com/libplctag/libplctag"
-  url "https://github.com/libplctag/libplctag/archive/v2.3.4.tar.gz"
-  sha256 "bcd223fac0e9b0e9dfa863aeff20c6fc1be2cc9bd27485199f0c92cddc462fb1"
+  url "https://github.com/libplctag/libplctag/archive/v2.3.6.tar.gz"
+  sha256 "30151ac758a10e0a4be4ec0c65c7d9556f59b2b0d37271df68c0a26d4fdbed8e"
   license any_of: ["LGPL-2.0-or-later", "MPL-2.0"]
 
   livecheck do
@@ -11,10 +11,10 @@ class Libplctag < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a47894fb8d8c4cd9cc028d737f8e3f9eb74075a612106bd19e3f7bdc65c51b96"
-    sha256 cellar: :any, big_sur:       "5f7043cc38c824ea25e5a6cd989c0cb17e68c2badecb2a766769b106048f6436"
-    sha256 cellar: :any, catalina:      "708e892ce802a477a2696d94d0dbb377b4406feb578c9d1889aa514d7c630093"
-    sha256 cellar: :any, mojave:        "8e239a05299933f52311c0715f5a85a811675a20566684c526c1f7fd031248dd"
+    sha256 cellar: :any, arm64_big_sur: "dff1e1ee1b1ead6084b0b96947f8db4f153ed7aec7cfe09bbe23fc9db0623ca7"
+    sha256 cellar: :any, big_sur:       "86f61ac3fa8684cf51f71e0248c780ee3005128b3aef6803d0782fdc69dbeb8e"
+    sha256 cellar: :any, catalina:      "6d7c10dc1b1c2e79232ed1b459a1ee7c18f1a32a08e3e9ec9cb2d248ad67b514"
+    sha256 cellar: :any, mojave:        "b5c226870b5c1d0c7d0847121a00d6a17a59bc4cc807008686db9bcf5cbcc5ad"
   end
 
   depends_on "cmake" => :build

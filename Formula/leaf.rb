@@ -7,14 +7,16 @@ class Leaf < Formula
   head "https://github.com/vrongmeal/leaf.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "92383edde853bff3ca30232ad54a8508d9f73b33b6fb5279402c564835f3bfaf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "05134aed065b97e8a0f03a5a7103b91e1e212267e3f015e06c094f35e00f0404"
-    sha256 cellar: :any_skip_relocation, catalina:      "ff2197a6b53db4ed452c5abaf4279ad46b2c0ad48b82b07680c04d13a7163cba"
-    sha256 cellar: :any_skip_relocation, mojave:        "8c1fa1f81a61baf2e78c9afaf0b82704086e9d082a8660e4548d1a0786871a37"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "bb124d36d6bef75d7005792079f9b08ebbe4cd858469d1efe6d464865d351b6d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7880e0f8658071b6040d8e32161e77ef72b6bf7b96489443acfa6b9852af31a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "395fbe11a4e482bf227e460f239ee008f2f6b50e9d071699c703c87d452b8ec0"
+    sha256 cellar: :any_skip_relocation, catalina:      "995eb379b3e25e45108bd3c2166baef1fcd6f6ede329572133b8b203261ff9fc"
+    sha256 cellar: :any_skip_relocation, mojave:        "c35970131c185aba296c242bc4366eac4636f3c3ab6f791e020bb1024d7c63ac"
   end
 
   depends_on "go" => :build
+
+  conflicts_with "leaf-proxy", because: "both install `leaf` binaries"
 
   def install
     system "go", "build", *std_go_args, "./cmd/leaf/main.go"

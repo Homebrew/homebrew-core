@@ -1,8 +1,8 @@
 class Dgraph < Formula
   desc "Fast, Distributed Graph DB"
   homepage "https://dgraph.io"
-  url "https://github.com/dgraph-io/dgraph/archive/v20.11.2.tar.gz"
-  sha256 "12b68b033c3741f528dfba6952520ac931d9cb640f0d1e44c99ff85541c9a60a"
+  url "https://github.com/dgraph-io/dgraph/archive/v20.11.3.tar.gz"
+  sha256 "cf0ed5d61dff1d0438dc5b211972d8f64b40dcadebf35355060918c3cf0a6e62"
   # Source code in this repository is variously licensed under the Apache Public License 2.0 (APL)
   # and the Dgraph Community License (DCL). A copy of each license can be found in the licenses directory.
   license "Apache-2.0"
@@ -14,10 +14,10 @@ class Dgraph < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0e39e8efd111d1c7c0f7125b90e943d397db9eca348f4082c3f49f8a343367cf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a1ff46e3aa37fdddd19e556a4b19cf7025e729b3cff61bdc0d05bf38b96addd6"
-    sha256 cellar: :any_skip_relocation, catalina:      "3a6473f330c65ed91bfbe3dc69900f730893f378ca38ff0a0ccb6a046c02045d"
-    sha256 cellar: :any_skip_relocation, mojave:        "c1579bbb0bd88c9d8e376eee6a4075ff94134442ffe624c88e3e1c5fdd0a11c2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "28d00b7cc12ab6eb34da4240b7075ee322ff51cd94223d7a8892c823f91bf5cc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9e2da2c025d3b8f89d4716be724942f7c284c9d0ac70c77fed7c287a31abdb56"
+    sha256 cellar: :any_skip_relocation, catalina:      "9d2545b3b0e293d8e48b4c23887bef147f1f1444735dacbf70eb9585bd25502e"
+    sha256 cellar: :any_skip_relocation, mojave:        "57fa2f974e4e0313fb58f7e35e2d9547a4d43319af7e84a4fc6619238e862885"
   end
 
   depends_on "go" => :build

@@ -21,7 +21,6 @@ class Libcuefile < Formula
     sha256 cellar: :any, sierra:        "66ec2d9281a5459326a1b2d220b9f68fa241a6b9f8370324377af6751d60b7fd"
     sha256 cellar: :any, el_capitan:    "fc48e0953e3df489f37ee30214bd50b07020955b02f957a90c699474f09ef974"
     sha256 cellar: :any, yosemite:      "427a043ee4dc777743c80a836c5fa69c4de91ea2510f740db099224f95ed38b4"
-    sha256 cellar: :any, mavericks:     "b3336424f211dfdd684537b4674afbe32e86179d9cf36dd3c07c3cb0e624cbb8"
   end
 
   depends_on "cmake" => :build

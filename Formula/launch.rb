@@ -12,16 +12,15 @@ class Launch < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b6a459442e09592a2ff98434c9d2b53b30ec71920e66d8bb3b66a7704715d7c7"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d1e62bfa93fad6f10574c7556e2e21f2b551e12a23ac729fefd0e8e03763baeb"
-    sha256 cellar: :any_skip_relocation, catalina:      "e6e543dda95bf0eea6d817e5df484f91493f84bc49bedf5d73420be8452f3f05"
-    sha256 cellar: :any_skip_relocation, mojave:        "39473462b7b66e86f4d3abfef40f6b9314793ae6d621dba3ca61ccf9f06f1d0f"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "7ea743ebff2392770ebb7bd7ff0a420ad9a3f6bc50d1181df7518a5fe46a8000"
-    sha256 cellar: :any_skip_relocation, sierra:        "4fa06c0d934752695a0c823c51569063b50f8826c7fb9cbd302f731b059e4225"
-    sha256 cellar: :any_skip_relocation, el_capitan:    "9905b0dd99460cd88d48a1cf4c230ec03db380262001fa7a2ba54cbcbb84fad0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a8bc9136d5da0270c108662086bebfd5cf74cd5eb82a773318e9be1b7a61b986"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0190475edf924787849170f68ab44589bbb41e8eb8e72dc86fefb4f15954ce00"
+    sha256 cellar: :any_skip_relocation, catalina:      "1d48da3f7c9c226fe622e83b1ff37bca0b960ab6979b01f2bf2e4b8010febacc"
+    sha256 cellar: :any_skip_relocation, mojave:        "d9eddaed19bcf6f70a4d6039028cc95693a616006541bd07e3ccea619f462ad8"
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   def install
     rm_rf "launch" # We'll build it ourself, thanks.

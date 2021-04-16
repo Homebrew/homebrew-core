@@ -17,6 +17,7 @@ class DockerMachineParallels < Formula
 
   depends_on "go" => :build
   depends_on "docker-machine"
+  depends_on :macos
 
   def install
     system "make", "build"

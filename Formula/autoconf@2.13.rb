@@ -15,6 +15,8 @@ class AutoconfAT213 < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "5257ef101823cbf8d20693e27bf4505aec149c7d588459fedc2791a7906eb444"
   end
 
+  uses_from_macos "m4"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",

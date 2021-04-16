@@ -13,7 +13,6 @@ class Clockywock < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d25af48f1f063a64f514a632ffd1c017ba4dd2c0abc2b428489147247eb8cfaf"
     sha256 cellar: :any_skip_relocation, el_capitan:    "12ce1b232f8dfa658e774f8ae08b99f40ca6ae12ee2d5df41af67412412c2b43"
     sha256 cellar: :any_skip_relocation, yosemite:      "fccbf3e83841993156fa544c0b0f30a92058facf07ce5b1e622aec78e2573aff"
-    sha256 cellar: :any_skip_relocation, mavericks:     "c4919f759cc8446bc8d83ff71a52de61bd8ba8db11eccfb43270e54c1949227f"
   end
 
   def install

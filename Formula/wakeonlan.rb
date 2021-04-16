@@ -13,7 +13,6 @@ class Wakeonlan < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "2cb19ca9617f87fc2c14536434f17b44174336a739fed3ad83404ccfb412ee31"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7da7f512ae921016be21fa3899d4f01841e3da5bc96570fcd85b530e4e720c06"
     sha256 cellar: :any_skip_relocation, yosemite:      "78a5d905b250ddb09cc3fa4296f2ffc8c925788a7d8e5d05e96f5581e81a7e9d"
-    sha256 cellar: :any_skip_relocation, mavericks:     "0669ec3967a728dd2962727896711f418556491ad172483240e84110843998e0"
   end
 
   def install

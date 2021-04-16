@@ -20,11 +20,14 @@ class Libzip < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "zip" => :test
   uses_from_macos "bzip2"
+  uses_from_macos "openssl@1.1"
+  uses_from_macos "xz"
   uses_from_macos "zlib"
 
-  conflicts_with "libtcod", "minizip2",
-    because: "libtcod, libzip and minizip2 install a `zip.h` header"
+  conflicts_with "libtcod", "minizip-ng",
+    because: "libtcod, libzip and minizip-ng install a `zip.h` header"
 
   def install
     system "cmake", ".", *std_cmake_args

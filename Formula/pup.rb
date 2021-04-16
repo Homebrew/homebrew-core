@@ -26,9 +26,14 @@ class Pup < Formula
     dir = buildpath/"src/github.com/ericchiang/pup"
     dir.install buildpath.children
 
+    os = "darwin"
+    on_linux do
+      os = "linux"
+    end
+
     cd dir do
-      system "gox", "-arch", "amd64", "-os", "darwin", "./..."
-      bin.install "pup_darwin_amd64" => "pup"
+      system "gox", "-arch", "amd64", "-os", os, "./..."
+      bin.install "pup_#{os}_amd64" => "pup"
     end
 
     prefix.install_metafiles dir

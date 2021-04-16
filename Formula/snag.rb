@@ -15,7 +15,6 @@ class Snag < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "692ce892c40f38cb39e77b464efa531b27004a9bbaf0096fb5876b570086cf82"
     sha256 cellar: :any_skip_relocation, el_capitan:    "18a6d589a0b416ee502a8dacd6f919959d25cc08d9bbaad152fdade4c72634dc"
     sha256 cellar: :any_skip_relocation, yosemite:      "00edba081c3a56f6cda3a4fc5bb1125d8ce93a8239c3cae89346b1893df12025"
-    sha256 cellar: :any_skip_relocation, mavericks:     "df63529c6ec2ff4f38f0fb7900687b9362ce710a13013d4bac4bb9cdea5190da"
   end
 
   depends_on "go" => :build

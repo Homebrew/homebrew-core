@@ -1,16 +1,15 @@
 class Libcpuid < Formula
   desc "Small C library for x86 CPU detection and feature extraction"
   homepage "https://github.com/anrieff/libcpuid"
-  url "https://github.com/anrieff/libcpuid/archive/v0.5.0.tar.gz"
-  sha256 "49893f31475510aa0ebe2ad3a29fad95e2a592cc5f48451c95271c536f89a157"
+  url "https://github.com/anrieff/libcpuid/archive/v0.5.1.tar.gz"
+  sha256 "36d62842ef43c749c0ba82237b10ede05b298d79a0e39ef5fd1115ba1ff8e126"
   license "BSD-2-Clause"
   head "https://github.com/anrieff/libcpuid.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:     "b78b08f172becb720d91e55534298516e7ad10e6f7fcf897955cce3c48a41d66"
-    sha256 cellar: :any, catalina:    "df477785b9f155d2ed62f8d9213301bbfe32235f2337eff3e1d549bec2f92a7a"
-    sha256 cellar: :any, mojave:      "cad37d2a433cab21c1776b0815efa0dba907c31444d81c7770f27df296ff9cd9"
-    sha256 cellar: :any, high_sierra: "e1370567a0f5ea7504d2f254a1b375006a19f6b68a5948fb4d51febfdfd194cc"
+    sha256 cellar: :any, big_sur:  "f7252b191ada11eee6bb25649cba4fda28be44c91ebcfd936e3508d3573bf4f1"
+    sha256 cellar: :any, catalina: "e954e21a3bb2ab10c1eb831af1626ccf9cbbe69e123a4da6d69975d59cfca867"
+    sha256 cellar: :any, mojave:   "9cb4e35df56ce25adcfc4c0a03f1a377aac54ec7e217bc9bb583df41eebcc8c2"
   end
 
   depends_on "autoconf" => :build

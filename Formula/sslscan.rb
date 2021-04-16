@@ -1,8 +1,8 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites"
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/2.0.8.tar.gz"
-  sha256 "c21f12082bf554908d824fcd2ce342dff1a1dbcab98efa9ea033f5ebdec7974e"
+  url "https://github.com/rbsec/sslscan/archive/2.0.9.tar.gz"
+  sha256 "22a3b0664cd12c06b716eee818fdcefa545803f5f52033723ce2f76743beb647"
   license "GPL-3.0-or-later"
   head "https://github.com/rbsec/sslscan.git"
 
@@ -12,10 +12,10 @@ class Sslscan < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "ddb78bfa279f0dd7a40a7cf42663f315cd4fe02451a573c10db683c7c992c8ce"
-    sha256 cellar: :any, big_sur:       "c4d36dd15745281e258416b21eb884891f045a0d822d9d6391ddc1ed1a83e429"
-    sha256 cellar: :any, catalina:      "3fc799c6195682f4002ac57c0ccb0c69cee753227d5aa898f522d868d9a46673"
-    sha256 cellar: :any, mojave:        "5ebaa3049ff956d91d8aebb542c6b0b4759b268c5f4a67347d2b88a8f2af86fd"
+    sha256 cellar: :any, arm64_big_sur: "8a3fdc786fb3b6990873bc8b060d8fbe72b94e902c7d147ddab5578952d904ba"
+    sha256 cellar: :any, big_sur:       "b2dbd6726386de8f4ed98717bb891117eacd4e3fc86b72556500e4da0802c694"
+    sha256 cellar: :any, catalina:      "3a2ee1806e85d481f046ce00e359a863cb8a8cb2e73f39c3d124f2a08c8daaf3"
+    sha256 cellar: :any, mojave:        "482290749bffb04bfe09c48a5f4ba879b02a9efd7a98ccf1c3102e235838638c"
   end
 
   depends_on "openssl@1.1"
