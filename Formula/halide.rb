@@ -4,6 +4,7 @@ class Halide < Formula
   url "https://github.com/halide/Halide/archive/v11.0.1.tar.gz"
   sha256 "4db6c4697fd5b84298cb91c13d86d9e95b0f9a65227af39374e2da98b503c8f2"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -19,7 +20,6 @@ class Halide < Formula
 
   depends_on "cmake" => :build
   depends_on "jpeg"
-  depends_on "libomp"
   depends_on "libpng"
   depends_on "llvm"
   depends_on "python@3.9"
