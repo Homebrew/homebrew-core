@@ -38,7 +38,7 @@ class OryHydra < Formula
     EOS
 
     fork { exec bin/"hydra", "serve", "all", "--config", "#{testpath}/config.yaml" }
-    sleep 10
+    sleep 20
 
     endpoint = "https://127.0.0.1:#{admin_port}/"
     output = shell_output("#{bin}/hydra clients list --endpoint #{endpoint} --skip-tls-verify")
