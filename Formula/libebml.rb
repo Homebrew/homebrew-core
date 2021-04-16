@@ -15,6 +15,12 @@ class Libebml < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
+
   def install
     mkdir "build" do
       system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
