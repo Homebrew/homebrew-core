@@ -5,6 +5,11 @@ class Clusterctl < Formula
   sha256 "38924e4d386cf61e3761ccc5e0738bdc8b355c6281f81fc972b15c640a0a61ed"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9d431c82b44e2fbffd942cd109122c26647596bf1308f016ab91c1364af3313"
     sha256 cellar: :any_skip_relocation, big_sur:       "394bcb29c3a32b3c6f9ab6d2b307970f099ea6eab792c5f5238dad05be986b06"
