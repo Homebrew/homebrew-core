@@ -4,6 +4,7 @@ class Odin < Formula
   url "https://github.com/odin-lang/Odin/archive/v0.13.0.tar.gz"
   sha256 "ae88c4dcbb8fdf37f51abc701d94fb4b2a8270f65be71063e0f85a321d54cdf0"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/odin-lang/Odin.git"
 
   livecheck do
@@ -18,7 +19,8 @@ class Odin < Formula
     sha256 cellar: :any, mojave:   "940a412200b5b40246d9fd5a7775add5ea88e9fe8b8c0f7a4563b89d38c47314"
   end
 
-  depends_on "llvm"
+  # Check if this can be switched to `llvm` at next release
+  depends_on "llvm@11"
 
   uses_from_macos "libiconv"
 
@@ -31,7 +33,7 @@ class Odin < Formula
     libexec.install "odin", "core", "shared"
     (bin/"odin").write <<~EOS
       #!/bin/bash
-      export PATH="#{Formula["llvm"].opt_bin}:$PATH"
+      export PATH="#{Formula["llvm@11"].opt_bin}:$PATH"
       exec -a odin "#{libexec}/odin" "$@"
     EOS
     pkgshare.install "examples"
