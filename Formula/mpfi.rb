@@ -5,6 +5,11 @@ class Mpfi < Formula
   sha256 "2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f"
   license "GPL-3.0"
 
+  livecheck do
+    url "https://gforge.inria.fr/frs/?group_id=157"
+    regex(/href=.*?mpfi[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "294ebea233e52a6a0153e535a031e3bbea8bd4b36c4323c9d715512d77defc41"
