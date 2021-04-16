@@ -17,9 +17,6 @@ class ZshViMode < Formula
     <<~EOS
       To activate the zsh vi mode, add the following line to your .zshrc:
         source #{opt_pkgshare}/zsh-vi-mode.plugin.zsh
-
-      To check the plugin version, use the following command after activation:
-        zvm_version
     EOS
   end
 
