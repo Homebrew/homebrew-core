@@ -16,6 +16,6 @@ class FabricInstaller < Formula
 
   test do
     system "#{bin}/fabric-installer", "server"
-    assert File.exist?("fabric-server-launch.jar")
+    assert_predicate testpath/"fabric-server-launch.jar", :exist?
   end
 end
