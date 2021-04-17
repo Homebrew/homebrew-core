@@ -3,10 +3,12 @@ class Mitmproxy < Formula
 
   desc "Intercept, modify, replay, save HTTP/S traffic"
   homepage "https://mitmproxy.org"
+  # At version bump, check whether `protobuf` resource
+  # can be replaced with the formula
   url "https://github.com/mitmproxy/mitmproxy/archive/v6.0.2.tar.gz"
   sha256 "15b32ce31e707d35de1707afe09e82bbf3d643bdd93968c5512caba80523c606"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
@@ -17,8 +19,8 @@ class Mitmproxy < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "protobuf"
   depends_on "python@3.9"
+  depends_on "six"
 
   uses_from_macos "libffi"
 
@@ -159,11 +161,6 @@ class Mitmproxy < Formula
   resource "ruamel.yaml" do
     url "https://files.pythonhosted.org/packages/17/2f/f38332bf6ba751d1c8124ea70681d2b2326d69126d9058fbd9b4c434d268/ruamel.yaml-0.16.12.tar.gz"
     sha256 "076cc0bc34f1966d920a49f18b52b6ad559fbe656a0748e3535cf7b3f29ebf9e"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "sortedcontainers" do
