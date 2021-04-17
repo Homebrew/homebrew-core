@@ -88,6 +88,9 @@
   "poetry": {
     "extra_packages": ["importlib-metadata", "typing-extensions"]
   },
+  "protobuf": {
+    "exclude_packages": ["six"]
+  },
   "regipy": {
     "exclude_packages": ["tabulate"]
   },
