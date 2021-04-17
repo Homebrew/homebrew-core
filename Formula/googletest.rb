@@ -36,7 +36,7 @@ class Googletest < Formula
         ASSERT_TRUE(true);
       }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-lgtest", "-lgtest_main", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-L#{lib}", "-lgtest", "-lgtest_main", "-pthread", "-o", "test"
     system "./test"
   end
 end
