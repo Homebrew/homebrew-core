@@ -24,9 +24,15 @@ class Mongoose < Formula
       bin.install "mongoose_mac" => "mongoose"
     end
 
-    system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib"
+    on_macos do
+      system ENV.cc, "-dynamiclib", "mongoose.c", "-o", "libmongoose.dylib"
+    end
+    on_linux do
+      system ENV.cc, "-fPIC", "-c", "mongoose.c"
+      system ENV.cc, "-shared", "-Wl,-soname,libmongoose.so", "-o", "libmongoose.so", "mongoose.o", "-lc", "-lpthread"
+    end
+    lib.install shared_library("libmongoose")
     include.install "mongoose.h"
-    lib.install "libmongoose.dylib"
     pkgshare.install "examples"
     doc.install Dir["docs/*"]
   end
