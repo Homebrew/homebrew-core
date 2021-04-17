@@ -13,9 +13,41 @@ class Seal < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "cpp-gsl"
+  depends_on "zstd"
+
+  uses_from_macos "zlib"
+
+  resource "hexl" do
+    url "https://github.com/intel/hexl/archive/tags/v1.0.1.tar.gz"
+    sha256 "435bc6727a5d54e0b1fca0e2d21ac0fdf5bd8623fbd9015637d01ece931cc602"
+  end
 
   def install
-    system "cmake", "-DBUILD_SHARED_LIBS=ON", ".", *std_cmake_args
+    if Hardware::CPU.intel?
+      resource("hexl").stage do
+        hexl_args = std_cmake_args + %w[
+          -DHEXL_BENCHMARK=OFF
+          -DHEXL_TESTING=OFF
+          -DHEXL_EXPORT=ON
+        ]
+        system "cmake", "-S", ".", "-B", "build", *hexl_args
+        system "cmake", "--build", "build"
+        system "cmake", "--install", "build"
+      end
+      ENV.append "LDFLAGS", "-L#{lib}"
+    end
+
+    args = std_cmake_args + %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DSEAL_BUILD_DEPS=OFF
+      -DSEAL_USE_ALIGNED_ALLOC=#{(MacOS.version > :mojave) ? "ON" : "OFF"}
+      -DSEAL_USE_INTEL_HEXL=#{Hardware::CPU.intel? ? "ON" : "OFF"}
+      -DHEXL_DIR=#{lib}/cmake
+      -DCMAKE_CXX_FLAGS=-I#{include}
+    ]
+
+    system "cmake", ".", *args
     system "make"
     system "make", "install"
     pkgshare.install "native/examples"
