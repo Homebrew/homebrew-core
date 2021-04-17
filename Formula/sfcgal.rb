@@ -19,13 +19,6 @@ class Sfcgal < Formula
   depends_on "gmp"
   depends_on "mpfr"
 
-  # Build against boost >= 1.75
-  # https://gitlab.com/Oslandia/SFCGAL/-/issues/238
-  patch do
-    url "https://gitlab.com/Oslandia/SFCGAL/-/commit/d07ed747e7f06acb22d5891ece789b331cff14c5.patch"
-    sha256 "158b68643ff4de03aed064d1e494dd7e27acf86da3ae8949fddd78d5b73d6d73"
-  end
-
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
