@@ -121,13 +121,15 @@ class Netcdf < Formula
       lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
     ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
 
-    # SIP causes system Python not to play nicely with @rpath
-    libnetcdf = (lib/"libnetcdf.dylib").readlink
-    %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
-      macho = MachO.open("#{lib}/#{f}")
-      macho.change_dylib("@rpath/#{libnetcdf}",
-                         "#{lib}/#{libnetcdf}")
-      macho.write!
+    on_macos do
+      # SIP causes system Python not to play nicely with @rpath
+      libnetcdf = (lib/"libnetcdf.dylib").readlink
+      %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
+        macho = MachO.open("#{lib}/#{f}")
+        macho.change_dylib("@rpath/#{libnetcdf}",
+                           "#{lib}/#{libnetcdf}")
+        macho.write!
+      end
     end
   end
 
