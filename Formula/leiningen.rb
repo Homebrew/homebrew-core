@@ -1,8 +1,8 @@
 class Leiningen < Formula
   desc "Build tool for Clojure"
   homepage "https://github.com/technomancy/leiningen"
-  url "https://github.com/technomancy/leiningen/archive/2.9.5.tar.gz"
-  sha256 "a29b45966e5cc1a37d5dc07fe436ed7cb172c88c53d44a049956ff53a096d43e"
+  url "https://github.com/technomancy/leiningen/archive/2.9.6.tar.gz"
+  sha256 "2f3b8a7eb710bd3a266975387f216bd4a3bace2f1b0a1f0ae88a93d919d813d9"
   license "EPL-1.0"
   head "https://github.com/technomancy/leiningen.git"
 
