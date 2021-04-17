@@ -1,8 +1,8 @@
 class Gitbatch < Formula
   desc "Manage your git repositories in one place"
   homepage "https://github.com/isacikgoz/gitbatch"
-  url "https://github.com/isacikgoz/gitbatch/archive/v0.6.0.tar.gz"
-  sha256 "b87b0432b3270a403a10dd8d3c06cd6f7c5a6d2e94c32c0e8410c61124e347e5"
+  url "https://github.com/isacikgoz/gitbatch/archive/v0.6.1.tar.gz"
+  sha256 "0ef36a4ea0b6cf4beb51928dd51281ec106006ba800c439d2588515c1bfeaf41"
   license "MIT"
 
   bottle do
