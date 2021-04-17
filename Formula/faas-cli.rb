@@ -22,7 +22,11 @@ class FaasCli < Formula
   depends_on "go" => :build
 
   def install
-    ENV["XC_OS"] = "darwin"
+    os = "darwin"
+    on_linux do
+      os = "linux"
+    end
+    ENV["XC_OS"] = os
     ENV["XC_ARCH"] = "amd64"
     project = "github.com/openfaas/faas-cli"
     ldflags = %W[
