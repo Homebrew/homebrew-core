@@ -1,8 +1,8 @@
 class CadenceWorkflow < Formula
   desc "Distributed, scalable, durable, and highly available orchestration engine"
   homepage "https://cadenceworkflow.io/"
-  url "https://github.com/uber/cadence/archive/refs/tags/v0.18.2.tar.gz"
-  sha256 "1cdffbee29d9455a0ff4e61114f93b1f5fc210366b707b7dd496a90325a21dce"
+  url "https://github.com/uber/cadence/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "7d08b62b78c4c9d64d6e6c6c5e7874a0c0abad01369c378777d97c39c3d77c3a"
   license "MIT"
   head "https://github.com/uber/cadence.git"
 
