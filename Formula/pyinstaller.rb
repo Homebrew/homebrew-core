@@ -37,9 +37,15 @@ class Pyinstaller < Formula
   end
 
   test do
-    xy = Language::Python.major_minor_version "python3.9"
+    (testpath/"easy_install.py").write <<~EOS
+      """Run the EasyInstall command"""
+
+      if __name__ == '__main__':
+          from setuptools.command.easy_install import main
+          main()
+    EOS
     system bin/"pyinstaller", "-F", "--distpath=#{testpath}/dist", "--workpath=#{testpath}/build",
-                              libexec/"lib/python#{xy}/site-packages/easy_install.py"
+                              "#{testpath}/easy_install.py"
     assert_predicate testpath/"dist/easy_install", :exist?
   end
 end
