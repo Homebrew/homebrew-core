@@ -18,6 +18,8 @@ class MysqlAT56 < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "libedit"
+
   def datadir
     var/"mysql"
   end
@@ -57,7 +59,11 @@ class MysqlAT56 < Formula
     system "make", "install"
 
     # Avoid references to the Homebrew shims directory
-    inreplace bin/"mysqlbug", HOMEBREW_SHIMS_PATH/"mac/super/", ""
+    os = "mac"
+    on_linux do
+      os = "linux"
+    end
+    inreplace bin/"mysqlbug", HOMEBREW_SHIMS_PATH/"#{os}/super/", ""
 
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
