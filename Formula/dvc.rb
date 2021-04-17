@@ -6,6 +6,7 @@ class Dvc < Formula
   url "https://files.pythonhosted.org/packages/0f/3b/d51f69c500718eb65875dc8134370d1aedf1983327e284ab1464fc36c85a/dvc-2.1.0.tar.gz"
   sha256 "46cfbf0db27107fb3a2d5c643e3a948bb24539bf165ef70e77ce64283959e481"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "b46bdccddfdba0c66b2347139c6c233ac9ab5c0444fc3a06dd9dbf111b6726da"
@@ -23,6 +24,7 @@ class Dvc < Formula
   depends_on "protobuf"
   depends_on "python-tabulate"
   depends_on "python@3.9"
+  depends_on "six"
 
   # When updating, check that the extra packages in pypi_formula_mappings.json
   # correctly reflects the following extra packages in setup.py:
@@ -540,11 +542,6 @@ class Dvc < Formula
   resource "shtab" do
     url "https://files.pythonhosted.org/packages/4f/9f/1718447f3db4ddc308da97135bdb2a5df325301f99c9a02b8c3e95e573e9/shtab-1.3.6.tar.gz"
     sha256 "7e587e2889b4e51339b6c59c956b3f0eb5194113967d913515025406d5be849c"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "smmap" do

@@ -40,10 +40,10 @@
   "diffoscope": "diffoscope[cmdline]",
   "dvc": {
     "extra_packages": [
-        "gcsfs", "pydrive2", "six", "boto3", "adlfs", "azure-identity", "knack",
+        "gcsfs", "pydrive2", "boto3", "adlfs", "azure-identity", "knack",
         "oss2", "pycryptodome", "paramiko[invoke]", "webdavclient3"
     ],
-    "exclude_packages": ["tabulate", "protobuf"]
+    "exclude_packages": ["protobuf", "six", "tabulate"]
   },
   "ipython": {
     "extra_packages": ["ipykernel"]
