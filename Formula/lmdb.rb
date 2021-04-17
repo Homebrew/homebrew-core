@@ -21,8 +21,12 @@ class Lmdb < Formula
 
   def install
     cd "libraries/liblmdb" do
-      system "make", "SOEXT=.dylib"
-      system "make", "install", "SOEXT=.dylib", "prefix=#{prefix}"
+      ext = ""
+      on_macos do
+        ext = "SOEXT=.dylib"
+      end
+      system "make", ext
+      system "make", "install", ext, "prefix=#{prefix}"
     end
   end
 
