@@ -4,6 +4,7 @@ class TinyFugue < Formula
   url "https://downloads.sourceforge.net/project/tinyfugue/tinyfugue/5.0%20beta%208/tf-50b8.tar.gz"
   version "5.0b8"
   sha256 "3750a114cf947b1e3d71cecbe258cb830c39f3186c369e368d4662de9c50d989"
+  license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
@@ -22,6 +23,8 @@ class TinyFugue < Formula
   depends_on "libnet"
   depends_on "openssl@1.1"
   depends_on "pcre"
+
+  uses_from_macos "ncurses"
 
   conflicts_with "tee-clc", because: "both install a `tf` binary"
 
