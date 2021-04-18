@@ -5,6 +5,7 @@ class Minikube < Formula
       tag:      "v1.20.0",
       revision: "c61663e942ec43b20e8e70839dcca52e44cd85ae"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kubernetes/minikube.git"
 
   bottle do
@@ -27,6 +28,9 @@ class Minikube < Formula
 
     output = Utils.safe_popen_read("#{bin}/minikube", "completion", "zsh")
     (zsh_completion/"_minikube").write output
+
+    output = Utils.safe_popen_read("#{bin}/minikube", "completion", "fish")
+    (fish_completion/"minikube.fish").write output
   end
 
   test do
