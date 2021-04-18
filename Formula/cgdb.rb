@@ -3,7 +3,7 @@ class Cgdb < Formula
   homepage "https://cgdb.github.io/"
   url "https://cgdb.me/files/cgdb-0.7.1.tar.gz"
   sha256 "bb723be58ec68cb59a598b8e24a31d10ef31e0e9c277a4de07b2f457fe7de198"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://cgdb.me/files/"
@@ -30,6 +30,7 @@ class Cgdb < Formula
   depends_on "readline"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "texinfo" => :build
 
   def install
     system "sh", "autogen.sh" if build.head?
