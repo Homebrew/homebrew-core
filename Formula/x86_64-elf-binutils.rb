@@ -13,6 +13,8 @@ class X8664ElfBinutils < Formula
     sha256 mojave:        "0b82544bb76a74993fa3a663b6ced46dd48e3f5afb61df97653cf46581f5c317"
   end
 
+  uses_from_macos "texinfo"
+
   def install
     system "./configure", "--target=x86_64-elf",
                           "--prefix=#{prefix}",
