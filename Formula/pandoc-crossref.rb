@@ -15,6 +15,9 @@ class PandocCrossref < Formula
   depends_on "ghc" => :build
   depends_on "pandoc"
 
+  uses_from_macos "unzip" => :build
+  uses_from_macos "zlib"
+
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
