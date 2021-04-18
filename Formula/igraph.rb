@@ -19,6 +19,8 @@ class Igraph < Formula
   depends_on "openblas"
   depends_on "suite-sparse"
 
+  uses_from_macos "libxml2"
+
   def install
     mkdir "build" do
       # explanation of extra options:
