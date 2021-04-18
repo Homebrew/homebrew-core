@@ -16,6 +16,7 @@ class Hebcal < Formula
   depends_on "automake" => :build
 
   def install
+    system "autoreconf", "-fiv"
     system "./configure", "--prefix=#{prefix}", "ACLOCAL=aclocal", "AUTOMAKE=automake"
     system "make", "install"
   end
