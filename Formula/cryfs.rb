@@ -3,7 +3,7 @@ class Cryfs < Formula
   homepage "https://www.cryfs.org"
   url "https://github.com/cryfs/cryfs/releases/download/0.10.2/cryfs-0.10.2.tar.xz"
   sha256 "5531351b67ea23f849b71a1bc44474015c5718d1acce039cf101d321b27f03d5"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
 
   bottle do
     rebuild 1
@@ -22,6 +22,7 @@ class Cryfs < Formula
   depends_on "libomp"
   depends_on "openssl@1.1"
 
+  opoo "CryFS doesn't live in homebrew-core anymore. To install, please run `brew install cryfs/tap/cryfs`."
   on_macos do
     disable! date: "2021-04-08", because: "requires FUSE"
   end
