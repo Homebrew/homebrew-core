@@ -23,8 +23,14 @@ class Libfido2 < Formula
   end
 
   def install
+    args = std_cmake_args
+
+    on_linux do
+      args << "-DUDEV_RULES_DIR=#{lib}/udev/rules.d"
+    end
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *args
       system "make"
       system "make", "man_symlink_html"
       system "make", "man_symlink"
