@@ -35,7 +35,7 @@ class Sfml < Formula
     rm_rf Dir["extlibs/*"] - ["extlibs/headers"]
 
     system "cmake", ".", *std_cmake_args,
-                         "-DCMAKE_INSTALL_RPATH=#{opt_lib}",
+                         "-DCMAKE_INSTALL_RPATH=#{rpath}",
                          "-DSFML_MISC_INSTALL_PREFIX=#{share}/SFML",
                          "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
                          "-DSFML_BUILD_DOC=TRUE"
