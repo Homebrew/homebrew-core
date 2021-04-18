@@ -4,6 +4,8 @@ class Zstd < Formula
   url "https://github.com/facebook/zstd/archive/v1.4.9.tar.gz"
   sha256 "acf714d98e3db7b876e5b540cbf6dee298f60eb3c0723104f6d3f065cd60d6a8"
   license "BSD-3-Clause"
+  revision 1
+  head "https://github.com/facebook/zstd.git", branch: "dev"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "beddf3a858da5063f7a407e5c78c0c83a2efd2595354acb750118da7d87f0974"
@@ -17,11 +19,16 @@ class Zstd < Formula
   uses_from_macos "zlib"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}/"
+    rpath = "-DCMAKE_INSTALL_RPATH=@loader_path/../lib"
+    on_linux do
+      rpath = nil
+    end
 
-    # Build parallel version
-    system "make", "-C", "contrib/pzstd", "PREFIX=#{prefix}"
-    bin.install "contrib/pzstd/pzstd"
+    cd "build/cmake" do
+      system "cmake", "-S", ".", "-B", "builddir", "-DZSTD_BUILD_CONTRIB=ON", *std_cmake_args, rpath
+      system "cmake", "--build", "builddir"
+      system "cmake", "--install", "builddir"
+    end
   end
 
   test do
