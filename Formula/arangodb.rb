@@ -117,7 +117,7 @@ class Arangodb < Formula
               "--server.js-dir", "#{share}/arangodb3/js") do |r, _, pid|
       loop do
         available = IO.select([r], [], [], 60)
-        assert_not_equal available, nil
+        refute_equal available, nil
 
         line = r.readline.strip
         ohai line
