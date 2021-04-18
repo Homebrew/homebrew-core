@@ -26,18 +26,17 @@ class Gl2ps < Formula
   end
 
   def install
-    # Prevent linking against X11's libglut.dylib when it's present
-    # Reported to upstream's mailing list gl2ps@geuz.org (1st April 2016)
-    # https://www.geuz.org/pipermail/gl2ps/2016/000433.html
-    # Reported to cmake's bug tracker, as well (1st April 2016)
-    # https://public.kitware.com/Bug/view.php?id=16045
-    system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework", *std_cmake_args
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
   test do
+    glu = "GLUT"
+    on_linux do
+      glu = "GL"
+    end
     (testpath/"test.c").write <<~EOS
-      #include <GLUT/glut.h>
+      #include <#{glu}/glut.h>
       #include <gl2ps.h>
 
       int main(int argc, char *argv[])
@@ -66,8 +65,16 @@ class Gl2ps < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT",
-                   "-framework", "Cocoa", "test.c", "-o", "test"
+    on_macos do
+      system ENV.cc, "-L#{lib}", "-lgl2ps", "-framework", "OpenGL", "-framework", "GLUT",
+                     "-framework", "Cocoa", "test.c", "-o", "test"
+    end
+    on_linux do
+      system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lgl2ps", "-lglut", "-lGL"
+
+      # Fails without an X11 display: freeglut (./test): failed to open display ''
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
     system "./test"
     assert_predicate testpath/"test.eps", :exist?
     assert_predicate File.size("test.eps"), :positive?
