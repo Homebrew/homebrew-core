@@ -4,7 +4,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.31.4.tar.xz"
   sha256 "8661b66567660fd630af10c4647c30327fdd1b34a988cab80d614328a5b74f55"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
   livecheck do
@@ -56,6 +56,20 @@ class Notmuch < Formula
     cd "bindings/python" do
       system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
+
+    # If installed in non-standard prefixes, such as is the default with
+    # Homebrew on Apple Silicon machines, other formulae can fail to locate
+    # libnotmuch.dylib due to not checking locations like /opt/homebrew for
+    # libraries. This is a bug in notmuch rather than Homebrew; globals.py
+    # uses a vanilla CDLL instead of CDLL wrapped with `find_library`
+    # which effectively causes the issue.
+    #
+    # CDLL("libnotmuch.dylib") = OSError: dlopen(libnotmuch.dylib, 6): image not found
+    # find_library("libnotmuch") = '/opt/homebrew/lib/libnotmuch.dylib'
+    # http://notmuch.198994.n3.nabble.com/macOS-globals-py-issue-td4044216.html
+    inreplace lib/"python3.9/site-packages/notmuch/globals.py",
+               "libnotmuch.{0:s}.dylib",
+               opt_lib/"libnotmuch.{0:s}.dylib"
   end
 
   test do
