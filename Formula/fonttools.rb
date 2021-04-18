@@ -22,7 +22,12 @@ class Fonttools < Formula
   end
 
   test do
-    cp "/System/Library/Fonts/ZapfDingbats.ttf", testpath
-    system bin/"ttx", "ZapfDingbats.ttf"
+    on_macos do
+      cp "/System/Library/Fonts/ZapfDingbats.ttf", testpath
+      system bin/"ttx", "ZapfDingbats.ttf"
+    end
+    on_linux do
+      assert_match "usage", shell_output("#{bin}/ttx -h")
+    end
   end
 end
