@@ -18,6 +18,8 @@ class Packetq < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "58bfb682012318c49bb013b791771f94896d008d77f0ce1bb189d13ab55b20ea"
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
