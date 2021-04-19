@@ -35,6 +35,6 @@ class Libmpeg2 < Formula
   end
 
   test do
-    system ENV.cc, "-I#{include}/mpeg2dec", "-L#{lib}", "-lmpeg2", pkgshare/"sample1.c"
+    system ENV.cc, "-I#{include}/mpeg2dec", pkgshare/"sample1.c", "-L#{lib}", "-lmpeg2"
   end
 end
