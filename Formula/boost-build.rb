@@ -1,8 +1,8 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/boost-1.75.0.tar.gz"
-  sha256 "889e931b25e435912e7b0dda89ae150fa1dabe419caccfbb923d41e85809e7df"
+  url "https://github.com/boostorg/build/archive/boost-1.76.0.tar.gz"
+  sha256 "886bc799c4a7c56218a41acee89f37073672c5c02586b680bf6dc0603d6c9349"
   license "BSL-1.0"
   version_scheme 1
   head "https://github.com/boostorg/build.git"
@@ -21,13 +21,6 @@ class BoostBuild < Formula
   end
 
   conflicts_with "b2-tools", because: "both install `b2` binaries"
-
-  # Fix build system issues on Apple silicon. This change has aleady
-  # been merged upstream, remove this patch once it lands in a release.
-  patch do
-    url "https://github.com/boostorg/build/commit/456be0b7ecca065fbccf380c2f51e0985e608ba0.patch?full_index=1"
-    sha256 "e7a78145452fc145ea5d6e5f61e72df7dcab3a6eebb2cade6b4cfae815687f3a"
-  end
 
   def install
     system "./bootstrap.sh"
