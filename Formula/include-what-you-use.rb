@@ -56,11 +56,8 @@ class IncludeWhatYouUse < Formula
     # formula. This would be indicated by include-what-you-use failing to
     # locate stddef.h and/or stdlib.h when running the test block below.
     # https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
-    mkdir_p libexec/"lib/clang/#{llvm.version}"
-    cp_r llvm.opt_lib/"clang/#{llvm.version}/include",
-      libexec/"lib/clang/#{llvm.version}"
-    mkdir_p libexec/"include"
-    cp_r llvm.opt_include/"c++", libexec/"include"
+    (libexec/"lib").install_symlink llvm.lib/"clang"
+    (libexec/"include").install_symlink llvm.include/"c++"
   end
 
   test do
