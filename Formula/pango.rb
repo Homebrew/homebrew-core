@@ -4,6 +4,7 @@ class Pango < Formula
   url "https://download.gnome.org/sources/pango/1.48/pango-1.48.4.tar.xz"
   sha256 "418913fb062071a075846244989d4a67aa5c80bf0eae8ee4555a092fd566a37a"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://gitlab.gnome.org/GNOME/pango.git"
 
   bottle do
@@ -30,6 +31,7 @@ class Pango < Formula
                       "-Dintrospection=enabled",
                       "-Duse_fontconfig=true",
                       ".."
+      inreplace "build.ninja", "@rpath", opt_lib
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
