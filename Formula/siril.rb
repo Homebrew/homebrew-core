@@ -41,8 +41,8 @@ class Siril < Formula
   # Fix build with glib 2.68.
   # Remove with the next release.
   patch do
-    url "https://gitlab.com/free-astro/siril/-/commit/d319fceca5b00f156e1c5e3512d3ac1f41beb16a.patch"
-    sha256 "b10b73d8d3d6895c0ec8a5bb84a0ce4f6ad64349ef55ceb6716bca82fbefedfe"
+    url "https://gitlab.com/free-astro/siril/-/commit/d319fceca5b00f156e1c5e3512d3ac1f41beb16a.diff"
+    sha256 "dd3593a8158bf661382995859665546d9fbf8b29822ad100e6a06c44f57d6013"
   end
 
   def install
