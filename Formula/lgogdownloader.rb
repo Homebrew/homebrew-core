@@ -3,7 +3,7 @@ class Lgogdownloader < Formula
   homepage "https://sites.google.com/site/gogdownloader/"
   url "https://sites.google.com/site/gogdownloader/lgogdownloader-3.7.tar.gz"
   sha256 "984859eb2e0802cfe6fe76b1fe4b90e7354e95d52c001b6b434e0a9f5ed23bf0"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4d1ffe227ab919193c96021c9fb5ea4b161335b7ffaa0ee4bceaf3fba94280ed"
