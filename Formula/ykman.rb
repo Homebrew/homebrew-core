@@ -3,8 +3,8 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/8f/0d/5dc7fa046ac9bb23d162a6e12b95ebbbdbb4cd4d76df995ca2c514545821/yubikey-manager-4.0.1.tar.gz"
-  sha256 "3b16caa39bf038169b53aff684ee113168a27e8e08548c73f8395cc0ff713bf1"
+  url "https://files.pythonhosted.org/packages/67/4d/824b40d37cafc9ca681ad1fa80981a59d10b4153f146b6bafb943180ea46/yubikey-manager-4.0.2.tar.gz"
+  sha256 "998f804a66695feeb3a48ba200320850243aa605d6d4edcb30bea4cc349aea21"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git"
 
