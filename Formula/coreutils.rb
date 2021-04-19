@@ -28,6 +28,10 @@ class Coreutils < Formula
 
   uses_from_macos "gperf" => :build
 
+  on_linux do
+    depends_on "attr"
+  end
+
   conflicts_with "aardvark_shell_utils", because: "both install `realpath` binaries"
   conflicts_with "b2sum", because: "both install `b2sum` binaries"
   conflicts_with "ganglia", because: "both install `gstat` binaries"
@@ -40,11 +44,6 @@ class Coreutils < Formula
 
   def install
     system "./bootstrap" if build.head?
-
-    # Fix configure: error: you should not run configure as root
-    on_linux do
-      ENV["FORCE_UNSAFE_CONFIGURE"] = "1" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
 
     args = %W[
       --prefix=#{prefix}
