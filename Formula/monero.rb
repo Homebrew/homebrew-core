@@ -32,6 +32,10 @@ class Monero < Formula
 
   conflicts_with "wownero", because: "both install a wallet2_api.h header"
 
+  # Boost 1.76 compatibility
+  # https://github.com/loqs/monero/commit/5e902e5e32c672661dfe5677c4a950c4dd409198
+  patch :DATA
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
@@ -74,3 +78,18 @@ class Monero < Formula
     assert_equal address, shell_output(cmd).lines.last.split[1]
   end
 end
+
+__END__
+diff --git a/contrib/epee/include/storages/portable_storage.h b/contrib/epee/include/storages/portable_storage.h
+index 1e68605ab..801bb2c34 100644
+--- a/contrib/epee/include/storages/portable_storage.h
++++ b/contrib/epee/include/storages/portable_storage.h
+@@ -40,6 +40,8 @@
+ #include "span.h"
+ #include "int-util.h"
+
++#include <boost/mpl/contains.hpp>
++
+ namespace epee
+ {
+   namespace serialization
