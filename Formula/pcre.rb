@@ -43,8 +43,8 @@ class Pcre < Formula
       --enable-pcregrep-libbz2
     ]
 
-    # JIT not currently supported for Apple Silicon
-    args << "--enable-jit" unless Hardware::CPU.arm?
+    # JIT not currently supported for Apple Silicon or OS older than sierra
+    args << "--enable-jit" if MacOS.version >= :sierra && !Hardware::CPU.arm?
 
     system "./autogen.sh" if build.head?
     system "./configure", *args
