@@ -4,7 +4,7 @@ class CucumberCpp < Formula
   url "https://github.com/cucumber/cucumber-cpp/archive/v0.5.tar.gz"
   sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
   license "MIT"
-  revision 8
+  revision 9
 
   bottle do
     rebuild 2
@@ -24,6 +24,7 @@ class CucumberCpp < Formula
       -DCUKE_DISABLE_CPPSPEC=on
       -DCUKE_DISABLE_FUNCTIONAL=on
       -DCUKE_DISABLE_BOOST_TEST=on
+      -DCMAKE_CXX_STANDARD=11
     ]
 
     system "cmake", ".", *args
@@ -32,6 +33,7 @@ class CucumberCpp < Formula
   end
 
   test do
+    boost = Formula["boost"]
     ENV.prepend_path "PATH", Formula["ruby"].opt_bin
     ENV["GEM_HOME"] = testpath
     ENV["BUNDLE_PATH"] = testpath
@@ -59,8 +61,8 @@ class CucumberCpp < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}",
-           "-lcucumber-cpp", "-I#{Formula["boost"].opt_include}",
-           "-L#{Formula["boost"].opt_lib}", "-lboost_regex", "-lboost_system",
+           "-lcucumber-cpp", "-I#{boost.opt_include}",
+           "-L#{boost.opt_lib}", "-lboost_regex", "-lboost_system",
            "-lboost_program_options", "-lboost_filesystem", "-lboost_chrono",
            "-pthread"
     begin
