@@ -4,7 +4,7 @@ class LibbitcoinNetwork < Formula
   url "https://github.com/libbitcoin/libbitcoin-network/archive/v3.6.0.tar.gz"
   sha256 "68d36577d44f7319280c446a5327a072eb20749dfa859c0e1ac768304c9dd93a"
   license "AGPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -21,6 +21,7 @@ class LibbitcoinNetwork < Formula
   depends_on "libbitcoin"
 
   def install
+    ENV.cxx11
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
 
     system "./autogen.sh"
@@ -32,6 +33,7 @@ class LibbitcoinNetwork < Formula
   end
 
   test do
+    boost = Formula["boost"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/network.hpp>
       int main() {
@@ -45,7 +47,7 @@ class LibbitcoinNetwork < Formula
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
                     "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
                     "-L#{lib}", "-lbitcoin-network",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_system"
+                    "-L#{boost.opt_lib}", "-lboost_system"
     system "./test"
   end
 end
