@@ -4,7 +4,7 @@ class ClangFormat < Formula
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
   version_scheme 1
-  head "https://github.com/llvm/llvm-project.git"
+  head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.0/llvm-12.0.0.src.tar.xz"
