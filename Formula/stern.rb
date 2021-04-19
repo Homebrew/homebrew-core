@@ -1,8 +1,8 @@
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers"
   homepage "https://github.com/stern/stern"
-  url "https://github.com/stern/stern/archive/v1.14.0.tar.gz"
-  sha256 "f166462dd2b0fb8227dfd1d15c4e718b0917a5d5bb33aeb609affa8e7ac41b4f"
+  url "https://github.com/stern/stern/archive/v1.15.0.tar.gz"
+  sha256 "d62bd798d8b801d44c505f89890801424a3d2e1cd3b46c62ad49d250d20d50d8"
   license "Apache-2.0"
   head "https://github.com/stern/stern.git"
 
