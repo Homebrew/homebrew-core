@@ -5,6 +5,7 @@ class Wownero < Formula
       tag:      "v0.9.3.3",
       revision: "e2d2b9a447502e22467af9df20e0732b3dd4ac4c"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d2f964bb144127466cb61ffea9bfd1adc4f1dfa89499255d8891303febd3386e"
@@ -26,6 +27,10 @@ class Wownero < Formula
 
   conflicts_with "miniupnpc", because: "wownero ships its own copy of miniupnpc"
   conflicts_with "monero", because: "both install a wallet2_api.h header"
+
+  # Boost 1.76 compatibility
+  # https://github.com/loqs/monero/commit/5e902e5e32c672661dfe5677c4a950c4dd409198
+  patch :DATA
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -69,3 +74,18 @@ class Wownero < Formula
     assert_equal address, shell_output(cmd).lines.last.split[1]
   end
 end
+
+__END__
+diff --git a/contrib/epee/include/storages/portable_storage.h b/contrib/epee/include/storages/portable_storage.h
+index f77e89cb6..066e12878 100644
+--- a/contrib/epee/include/storages/portable_storage.h
++++ b/contrib/epee/include/storages/portable_storage.h
+@@ -39,6 +39,8 @@
+ #include "span.h"
+ #include "int-util.h"
+
++#include <boost/mpl/contains.hpp>
++
+ namespace epee
+ {
+   class byte_slice;
