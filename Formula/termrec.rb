@@ -19,6 +19,8 @@ class Termrec < Formula
   depends_on "libtool" => :build
   depends_on "xz"
 
+  uses_from_macos "zlib"
+
   def install
     system "./autogen.sh"
     system "./configure", "--disable-debug",
