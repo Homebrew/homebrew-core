@@ -2,8 +2,8 @@ class Osm < Formula
   desc "Open Service Mesh (OSM)"
   homepage "https://openservicemesh.io/"
   url "https://github.com/openservicemesh/osm.git",
-      tag:      "v0.8.2",
-      revision: "9ea49cfb762ed6433960e05719974040f5534660"
+      tag:      "v0.8.3",
+      revision: "6fa4a5791cd70ec5eb2f0abaa0c09b7993c2fd34"
   license "Apache-2.0"
 
   bottle do
