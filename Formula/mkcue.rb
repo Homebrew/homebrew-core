@@ -28,6 +28,15 @@ class Mkcue < Formula
 
   test do
     touch testpath/"test"
-    system "#{bin}/mkcue", "test"
+    system "#{bin}/mkcue", "test" unless ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    if ENV["HOMEBREW_GITHUB_ACTIONS"]
+      on_macos do
+        system "#{bin}/mkcue", "test"
+      end
+      on_linux do
+        assert_match "Cannot read table of contents", shell_output("#{bin}/mkcue test 2>&1", 2)
+      end
+    end
   end
 end
