@@ -3,7 +3,7 @@ class Proper < Formula
   homepage "https://proper-testing.github.io"
   url "https://github.com/proper-testing/proper/archive/v1.3.tar.gz"
   sha256 "7e59eeaef12c07b1e42b0891238052cd05cbead58096efdffa3413b602cd8939"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6a1d458a2c8a8de933313461c08be393fa6d7fc52dbe97c1408f072af006759a"
@@ -23,6 +23,6 @@ class Proper < Formula
 
   test do
     output = shell_output("erl -noshell -pa #{opt_prefix}/ebin -eval 'io:write(code:which(proper))' -s init stop")
-    assert_not_equal "non_existing", output
+    refute_equal "non_existing", output
   end
 end
