@@ -1,7 +1,6 @@
 name: New issue for Reproducible Bug
 description: "If you're sure it's reproducible and not just your machine: submit an issue so we can investigate."
 labels: bug
-issue_body: false
 body:
   - type: markdown
     attributes:
