@@ -3,7 +3,7 @@ class Balance < Formula
   homepage "https://balance.inlab.net/"
   url "https://download.inlab.net/Balance/3.57/balance-3.57.tar"
   sha256 "3a7e460e4368fdd91425531e273b54faae5408e6b3c6cf266b70893d2e073fcf"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "4b170d08a0e4d13fe80d1d7574945e56d5a7d78507c6b880f60950ce98d7ffea"
