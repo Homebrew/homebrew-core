@@ -1,8 +1,8 @@
 class Soci < Formula
   desc "Database access library for C++"
   homepage "https://soci.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/soci/soci/soci-4.0.1/soci-4.0.1.zip"
-  sha256 "ec25f69df0237882bb9035c69e21d91e62f0c6a2cd6f9f0153bbf00b435ff6b2"
+  url "https://downloads.sourceforge.net/project/soci/soci/soci-4.0.2/soci-4.0.2.zip"
+  sha256 "3c8a456579320dc828cace5aa20d4d10690b273a50997e9c195d0b270fa668ba"
   license "BSL-1.0"
 
   bottle do
