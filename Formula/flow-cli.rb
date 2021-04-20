@@ -6,6 +6,11 @@ class FlowCli < Formula
   license "Apache-2.0"
   head "https://github.com/onflow/flow-cli.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "640730183411e755ed6bc1e402ce48be6a3286ec2b6376c7ba5574573b21334f"
     sha256 cellar: :any_skip_relocation, big_sur:       "e849fd2ea976df73999d503e4f7824e13eb41ef4e1b4c29948a52286265a54bf"
