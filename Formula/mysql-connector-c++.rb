@@ -1,8 +1,8 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.23-src.tar.gz"
-  sha256 "9af06495a6a080fed62da70978f1cb0c66f058edd5ea9eda9345a64bf8ec688f"
+  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.0.24-src.tar.gz"
+  sha256 "5a2058477e5abab7942cbd796fa6824dc4ad11c4e09744899376f2a5b9857954"
 
   livecheck do
     url "https://dev.mysql.com/downloads/connector/cpp/?tpl=files&os=src"
