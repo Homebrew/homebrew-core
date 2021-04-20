@@ -39,7 +39,7 @@ class Kamel < Formula
     assert_match "Apache Camel K is a lightweight", run_output
 
     help_output = shell_output("echo $(#{bin}/kamel help 2>&1)")
-    assert_match "Error: cannot get command client: invalid configuration", help_output.chomp
+    assert_match "kamel [command] --help", help_output.chomp
 
     get_output = shell_output("echo $(#{bin}/kamel get 2>&1)")
     assert_match "Error: cannot get command client: invalid configuration", get_output
