@@ -1,8 +1,8 @@
 class Bwctl < Formula
   desc "Command-line tool and daemon for network measuring tools"
-  homepage "https://software.internet2.edu/bwctl/"
-  url "https://software.internet2.edu/sources/bwctl/bwctl-1.5.4.tar.gz"
-  sha256 "e6dca6ca30c8ef4d68e6b34b011a9ff7eff3aba4a84efc19d96e3675182e40ef"
+  homepage "https://github.com/perfsonar/bwctl"
+  url "https://github.com/perfsonar/bwctl/archive/refs/tags/1.6.7.tar.gz"
+  sha256 "d840c4a97d36b1eb431bcbab8047f1dd975029bed1e4cb13e3c33d69204abb5a"
   license "Apache-2.0"
 
   bottle do
@@ -14,7 +14,7 @@ class Bwctl < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "2d326aaaa5c9031fd668569cbd68627d84884389b4883282d82259af152b12c3"
   end
 
-  # https://software.internet2.edu/bwctl/
+  # https://github.com/perfsonar/bwctl
   # The use of BWCTL became deprecated with the release of pScheduler in perfSONAR 4.0 in April, 2017.
   deprecate! date: "2017-04-01", because: :deprecated_upstream
 
@@ -22,7 +22,7 @@ class Bwctl < Formula
 
   def install
     # configure mis-sets CFLAGS for I2util
-    # https://lists.internet2.edu/sympa/arc/perfsonar-user/2015-04/msg00016.html
+    # https://github.com/perfsonar/i2util
     # https://github.com/Homebrew/homebrew/pull/38212
     inreplace "configure", 'CFLAGS="-I$I2util_dir/include $CFLAGS"', 'CFLAGS="-I$with_I2util/include $CFLAGS"'
 
