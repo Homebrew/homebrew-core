@@ -13,6 +13,7 @@ class KymaCli < Formula
   end
 
   depends_on "go" => :build
+  depends_on macos: :catalina
 
   def install
     ldflags = %W[
