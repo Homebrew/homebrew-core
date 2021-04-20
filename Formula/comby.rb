@@ -21,6 +21,7 @@ class Comby < Formula
   depends_on "pcre"
 
   uses_from_macos "m4"
+  uses_from_macos "sqlite"
   uses_from_macos "unzip"
   uses_from_macos "zlib"
 
