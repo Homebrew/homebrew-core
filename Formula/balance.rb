@@ -1,8 +1,8 @@
 class Balance < Formula
   desc "Software load balancer"
-  homepage "https://www.inlab.net/balance/"
-  url "https://www.inlab.net/wp-content/uploads/2018/05/balance-3.57.tar.gz"
-  sha256 "b355f98932a9f4c9786cb61012e8bdf913c79044434b7d9621e2fa08370afbe1"
+  homepage "https://balance.inlab.net/"
+  url "https://download.inlab.net/Balance/3.57/balance-3.57.tar"
+  sha256 "3a7e460e4368fdd91425531e273b54faae5408e6b3c6cf266b70893d2e073fcf"
   license "GPL-2.0"
 
   bottle do
