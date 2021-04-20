@@ -3,7 +3,7 @@ class Sysbench < Formula
   homepage "https://github.com/akopytov/sysbench"
   url "https://github.com/akopytov/sysbench/archive/1.0.20.tar.gz"
   sha256 "e8ee79b1f399b2d167e6a90de52ccc90e52408f7ade1b9b7135727efe181347f"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any, big_sur:     "81f4b5aa43833246f85567c964707b1741b85439c7f85e41e9d7bad7b922f7b6"
@@ -18,6 +18,8 @@ class Sysbench < Formula
   depends_on "pkg-config" => :build
   depends_on "mysql-client"
   depends_on "openssl@1.1"
+
+  uses_from_macos "vim" # needed for xxd
 
   def install
     system "./autogen.sh"
