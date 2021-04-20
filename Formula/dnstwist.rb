@@ -87,6 +87,6 @@ class Dnstwist < Formula
     assert_match "Fetching content from:", output
     assert_match "//brew.sh", output
     assert_match(/Processing \d+ permutations/, output)
-    assert_not_match(/notice: missing module/, output)
+    refute_match(/notice: missing module/, output)
   end
 end
