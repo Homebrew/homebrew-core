@@ -1,20 +1,10 @@
 class Rocksdb < Formula
   desc "Embeddable, persistent key-value store for fast storage"
   homepage "https://rocksdb.org/"
+  url "https://github.com/facebook/rocksdb/archive/v6.19.3.tar.gz"
+  sha256 "5c19ffefea2bbe4c275d0c60194220865f508f371c64f42e802b4a85f065af5b"
   license any_of: ["GPL-2.0-only", "Apache-2.0"]
   head "https://github.com/facebook/rocksdb.git"
-
-  stable do
-    url "https://github.com/facebook/rocksdb/archive/v6.19.3.tar.gz"
-    sha256 "5c19ffefea2bbe4c275d0c60194220865f508f371c64f42e802b4a85f065af5b"
-
-    # Add artifact suffix to shared library
-    # https://github.com/facebook/rocksdb/pull/7755
-    patch do
-      url "https://github.com/facebook/rocksdb/commit/98f3f3143007bcb5455105a05da7eeecc9cf53a0.patch?full_index=1"
-      sha256 "6fb59cd640ed8c39692855115b72e8aa8db50a7aa3842d53237e096e19f88fc1"
-    end
-  end
 
   bottle do
     sha256 cellar: :any, big_sur:  "64c9409aa489f322acc46bec6460303058daf642155f59d2f64dd8f3cd41161f"
@@ -33,7 +23,7 @@ class Rocksdb < Formula
 
   def install
     ENV.cxx11
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
       -DPORTABLE=ON
       -DUSE_RTTI=ON
       -DWITH_BENCHMARK_TOOLS=OFF
@@ -42,9 +32,8 @@ class Rocksdb < Formula
       -DWITH_SNAPPY=ON
       -DWITH_ZLIB=ON
       -DWITH_ZSTD=ON
+      -DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{lib}
     ]
-
-    args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath -Wl,#{lib}"
 
     # build regular rocksdb
     mkdir "build" do
