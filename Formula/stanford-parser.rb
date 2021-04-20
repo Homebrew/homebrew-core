@@ -5,6 +5,11 @@ class StanfordParser < Formula
   sha256 "8c2110c78f7f82b66bcf91089a18e415669eda4346bbd9a6e3bc2bde63e5fed1"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?stanford-parser[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+  end
+
   bottle :unneeded
 
   depends_on "openjdk"
