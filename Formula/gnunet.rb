@@ -27,6 +27,8 @@ class Gnunet < Formula
   depends_on "libunistring"
   depends_on "unbound"
 
+  uses_from_macos "curl"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
