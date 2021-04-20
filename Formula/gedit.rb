@@ -126,12 +126,14 @@ class Gedit < Formula
       -lgobject-2.0
       -lgtk-3
       -lgtksourceview-4.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lpeas-1.0
       -lpeas-gtk-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
