@@ -20,8 +20,11 @@ class Molecule < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.9"
 
+  uses_from_macos "libffi"
+
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "gmp"
   end
 
   # Instructions for updating the resource blocks:
