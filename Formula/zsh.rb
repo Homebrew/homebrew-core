@@ -4,6 +4,7 @@ class Zsh < Formula
   url "https://downloads.sourceforge.net/project/zsh/zsh/5.8/zsh-5.8.tar.xz"
   mirror "https://www.zsh.org/pub/zsh-5.8.tar.xz"
   sha256 "dcc4b54cc5565670a65581760261c163d720991f0d06486da61f8d839b52de27"
+  license "MIT-Modern-Variant"
   revision 1
 
   bottle do
@@ -21,6 +22,8 @@ class Zsh < Formula
 
   depends_on "ncurses"
   depends_on "pcre"
+
+  uses_from_macos "texinfo"
 
   resource "htmldoc" do
     url "https://downloads.sourceforge.net/project/zsh/zsh-doc/5.8/zsh-5.8-doc.tar.xz"
