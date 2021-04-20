@@ -46,7 +46,7 @@ class CargoEdit < Formula
       system bin/"cargo-rm", "rm", "serde"
       manifest = (crate/"Cargo.toml").read
 
-      assert_not_match(/serde/, manifest)
+      refute_match(/serde/, manifest)
     end
   end
 end
