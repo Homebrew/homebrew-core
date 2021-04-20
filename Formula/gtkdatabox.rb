@@ -77,10 +77,12 @@ class Gtkdatabox < Formula
       -lgobject-2.0
       -lgtk-quartz-2.0
       -lgtkdatabox
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
