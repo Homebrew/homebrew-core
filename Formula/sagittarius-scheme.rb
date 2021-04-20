@@ -18,6 +18,8 @@ class SagittariusScheme < Formula
   depends_on "openssl@1.1"
   depends_on "unixodbc"
 
+  uses_from_macos "zlib"
+
   def install
     system "cmake", ".", *std_cmake_args, "-DODBC_LIBRARIES=odbc"
     system "make", "install"
