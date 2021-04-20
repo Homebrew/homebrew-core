@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/d7/16/0cf20e40551e929f5304eb6aaf0630675990c90edde8d60119ae24cb924e/pdm-1.4.5.tar.gz"
-  sha256 "fe3d9bf16e29c89aecbbf4b6d235ab1936f6508582b221d9e0c049eeeb212a7e"
+  url "https://files.pythonhosted.org/packages/35/61/f7c37dd26c810ef14b1fba95935c8c2be4240f1643d0a9d81a98b95115c6/pdm-1.5.0.tar.gz"
+  sha256 "6a9a16b10016b35c1900843906512fb549f2c1059a5789acaa9b23982b5f7e37"
   license "MIT"
   head "https://github.com/frostming/pdm.git"
 
@@ -48,8 +48,8 @@ class Pdm < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/8e/33/d54eacc679af34dc7c03fe9f3383669095b27fa17bd820cd33ec957cb249/importlib_metadata-3.10.0.tar.gz"
-    sha256 "c9db46394197244adf2f0b08ec5bc3cf16757e9590b02af1fca085c16c0d600a"
+    url "https://files.pythonhosted.org/packages/9a/5a/5bee793e43f6499b7e28de7c0333f49752590826b08a456f3874f555f4f5/importlib_metadata-4.0.0.tar.gz"
+    sha256 "2e881981c9748d7282b374b68e759c87745c25427b67ecf0cc67fb6637a1bff9"
   end
 
   resource "keyring" do
@@ -63,18 +63,13 @@ class Pdm < Formula
   end
 
   resource "pdm-pep517" do
-    url "https://files.pythonhosted.org/packages/56/ec/7904eb115b767affe2df35d8def6fae4eaa6a9a471ca12826817e73755b3/pdm-pep517-0.6.1.tar.gz"
-    sha256 "de2dc09a9f649850d584e352330bdc4c69d23e114e04ddbcbed81911751805c5"
+    url "https://files.pythonhosted.org/packages/c1/95/1afb82a4c61ce5b7354280c66c01d7e76b192bf133c5fb811e7e639bcc42/pdm-pep517-0.7.0.tar.gz"
+    sha256 "aeb25e17e1ddd4d06264946b84e0043db39cb2ab5f812b4cccca116511aeab81"
   end
 
   resource "pep517" do
     url "https://files.pythonhosted.org/packages/0f/4c/ac5dc83e7afa327ea9b018a15193a4f1cd8bcce85263a60c127fdcf8ffd3/pep517-0.10.0.tar.gz"
     sha256 "ac59f3f6b9726a49e15a649474539442cf76e0697e39df4869d25e68e880931b"
-  end
-
-  resource "pycomplete" do
-    url "https://files.pythonhosted.org/packages/28/ab/e08452acd7775aff9afd981ad08955dd25243f9411cf23c69a17724d5731/pycomplete-0.3.2.tar.gz"
-    sha256 "671bfba70b6f2eecedad6b6daabac2aa3f1573cd790cc56ccd48b8067f584391"
   end
 
   resource "pyparsing" do
@@ -88,18 +83,18 @@ class Pdm < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/f7/d9/543ac57e686e053f8f4043c47010e2c690629b3fdec02d988a6ec4a0a4a4/python-dotenv-0.16.0.tar.gz"
-    sha256 "9fa413c37d4652d3fa02fea0ff465c384f5db75eab259c4fc5d0c5b8bf20edd4"
+    url "https://files.pythonhosted.org/packages/27/ec/5ce6e87222af71a508ec6bbbe3923a9c6440b6a41e9618006c2b7e69a4a7/python-dotenv-0.17.0.tar.gz"
+    sha256 "471b782da0af10da1a80341e8438fca5fadeba2881c54360d5fd8d03d03a4f4a"
   end
 
   resource "pythonfinder" do
-    url "https://files.pythonhosted.org/packages/79/08/c08e07764115bbb386e9b1761ac687d7c952eb4127a99f37aeee72030aa0/pythonfinder-1.2.5.tar.gz"
-    sha256 "481fba9cb7ffa43fe5b5b5c4c5cbcec565a79762e24daff65043158a93fc1986"
+    url "https://files.pythonhosted.org/packages/0d/fc/8ce27504a863ec89478f953ee7293ad62e33c3ca0bb659cfc0ca1b37ff3b/pythonfinder-1.2.6.tar.gz"
+    sha256 "21ffb77b152ae14c5c7d9b1c98c6df0a1a34d4b3e050da39f561224e7664a5f4"
   end
 
   resource "resolvelib" do
-    url "https://files.pythonhosted.org/packages/52/ba/3860b1bfe6b08a727deddda52287282e10303d20f01321c3666f2e602c18/resolvelib-0.5.5.tar.gz"
-    sha256 "123de56548c90df85137425a3f51eb93df89e2ba719aeb6a8023c032758be950"
+    url "https://files.pythonhosted.org/packages/af/91/9c0a7a26d77806184980411f38243acf2611f9ff5c91e8f94ea437688e3a/resolvelib-0.7.0.tar.gz"
+    sha256 "8840a8bf49fd56cff51398ebfe090e5d6aeaf4c4102472bff006aca7db470868"
   end
 
   resource "shellingham" do
