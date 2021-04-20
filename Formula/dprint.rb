@@ -22,7 +22,7 @@ class Dprint < Formula
   end
 
   test do
-    (testpath/".dprintrc.json").write <<~EOS
+    (testpath/"dprint.json").write <<~EOS
       {
         "$schema": "https://dprint.dev/schemas/v0.json",
         "projectType": "openSource",
@@ -42,7 +42,7 @@ class Dprint < Formula
           "**/target"
         ],
         "plugins": [
-          "https://plugins.dprint.dev/typescript-0.34.0.wasm",
+          "https://plugins.dprint.dev/typescript-0.44.1.wasm",
           "https://plugins.dprint.dev/json-0.7.2.wasm",
           "https://plugins.dprint.dev/markdown-0.4.3.wasm",
           "https://plugins.dprint.dev/rustfmt-0.3.0.wasm"
