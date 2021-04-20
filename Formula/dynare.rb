@@ -5,6 +5,11 @@ class Dynare < Formula
   sha256 "3c2e0069a3e5c23866130d5c73c3da840a38612baa2aa3d90f42e3d984abad80"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url "https://www.dynare.org/download/"
+    regex(/href=.*?dynare[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:  "16565deeb391a6277473ae77a6c47acdd7ac1234508ebcff4af952ce9356b7f2"
     sha256 cellar: :any, catalina: "282f2456d2fadccdbf8119e04b356fd725b02000a3d1be6cd07357e507859eca"
