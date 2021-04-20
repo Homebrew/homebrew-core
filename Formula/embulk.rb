@@ -11,7 +11,7 @@ class Embulk < Formula
 
   livecheck do
     url :homepage
-    regex(%r{Stable.+?href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}im)
+    regex(%r{(?<!un)Stable.+?href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}im)
   end
 
   bottle :unneeded
