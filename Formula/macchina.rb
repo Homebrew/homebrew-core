@@ -12,6 +12,6 @@ class Macchina < Formula
   end
 
   test do
-    system "macchina", "--doctor"
+    assert_match "Let's check your system for errors...", shell_output("#{bin}/macchina --doctor")
   end
 end
