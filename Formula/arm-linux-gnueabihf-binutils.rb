@@ -13,6 +13,8 @@ class ArmLinuxGnueabihfBinutils < Formula
     sha256 mojave:        "d04d0806c353980de4eaee8579d1d11c2b8760250ec2544bcd9914c2d9052fb7"
   end
 
+  uses_from_macos "texinfo"
+
   def install
     ENV.cxx11
 
