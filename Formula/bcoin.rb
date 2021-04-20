@@ -41,6 +41,6 @@ class Bcoin < Formula
       })();
     EOS
     system "#{Formula["node"].bin}/node", testpath/"script.js"
-    assert_true File.directory?("#{testpath}/.bcoin")
+    assert File.directory?("#{testpath}/.bcoin")
   end
 end
