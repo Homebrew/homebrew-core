@@ -1,8 +1,8 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.23.tar.gz"
-  sha256 "1c7a424303c134758e59607a0b3172e43a21a27ff08e8c88c2439ffd4fc724a5"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.24.tar.gz"
+  sha256 "4bc9c54b38e9e2a3f5cc77f21791dc52372f15c5473f7d427793f6ec44bf5900"
 
   livecheck do
     url "https://github.com/mysql/mysql-server.git"
