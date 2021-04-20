@@ -18,43 +18,53 @@ class FetchCrl < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "7c4aedc9178b36cf45d9a05ed4213c5c2ede584dc1c2754f2370b91f42a1efe3"
   end
 
-  resource "LWP" do
-    on_linux do
+  uses_from_macos "perl"
+
+  on_linux do
+    resource "LWP" do
       url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.43.tar.gz"
       sha256 "e9849d7ee6fd0e89cc999e63d7612c951afd6aeea6bc721b767870d9df4ac40d"
     end
-  end
 
-  resource "HTTP::Request" do
-    on_linux do
+    resource "HTTP::Request" do
       url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Message-6.18.tar.gz"
       sha256 "d060d170d388b694c58c14f4d13ed908a2807f0e581146cef45726641d809112"
     end
-  end
 
-  resource "URI" do
-    on_linux do
+    resource "URI" do
       url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-1.76.tar.gz"
       sha256 "b2c98e1d50d6f572483ee538a6f4ccc8d9185f91f0073fd8af7390898254413e"
     end
-  end
 
-  resource "HTTP::Date" do
-    on_linux do
+    resource "HTTP::Date" do
       url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.05.tar.gz"
       sha256 "365d6294dfbd37ebc51def8b65b81eb79b3934ecbc95a2ec2d4d827efe6a922b"
     end
-  end
 
-  resource "Try::Tiny" do
-    on_linux do
+    resource "Try::Tiny" do
       url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.28.tar.gz"
       sha256 "f1d166be8aa19942c4504c9111dade7aacb981bc5b3a2a5c5f6019646db8c146"
     end
   end
 
   def install
+    on_linux do
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      resources.each do |r|
+        r.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make"
+          system "make", "install"
+        end
+      end
+    end
+
     system "make", "install", "PREFIX=#{prefix}", "ETC=#{etc}", "CACHE=#{var}/cache"
+
+    on_linux do
+      bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
+      sbin.env_script_all_files libexec/"sbin", PERL5LIB: ENV["PERL5LIB"]
+    end
   end
 
   test do
