@@ -65,6 +65,10 @@ class Csound < Formula
     resource("ableton-link").stage { cp_r "include/ableton", buildpath }
     resource("getfem").stage { cp_r "src/gmm", buildpath }
 
+    inreplace "CMakeLists.txt",
+       /^    add_definitions\("-DCS_DEFAULT_PLUGINDIR=\\"\$\{CS_FRAMEWORK_FULL_PATH\}\\""\)$/,
+       "    add_definitions(\"-DCS_DEFAULT_PLUGINDIR=\\\".\\\"\")"
+
     args = std_cmake_args + %W[
       -DABLETON_LINK_HOME=#{buildpath}/ableton
       -DBUILD_ABLETON_LINK_OPCODES=ON
@@ -73,7 +77,7 @@ class Csound < Formula
       -DBUILD_LUA_INTERFACE=OFF
       -DBUILD_PYTHON_INTERFACE=OFF
       -DBUILD_WEBSOCKET_OPCODE=OFF
-      -DCMAKE_INSTALL_RPATH=#{frameworks}
+      -DCMAKE_INSTALL_RPATH=@loader_path/../Frameworks
       -DCS_FRAMEWORK_DEST=#{frameworks}
       -DGMM_INCLUDE_DIR=#{buildpath}/gmm
       -DJAVA_MODULE_INSTALL_DIR=#{libexec}
@@ -96,6 +100,9 @@ class Csound < Formula
 
   def caveats
     <<~EOS
+      You should add to #{shell_profile}:
+        export OPCODE6DIR64=#{opt_frameworks}/CsoundLib64.framework/Resources/Opcodes64
+
       To use the Python bindings, you may need to add to #{shell_profile}:
         export DYLD_FRAMEWORK_PATH="$DYLD_FRAMEWORK_PATH:#{opt_frameworks}"
 
