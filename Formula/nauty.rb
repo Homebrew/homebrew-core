@@ -5,6 +5,11 @@ class Nauty < Formula
   version "27r1"
   sha256 "76ca5d196e402c83a987f90c28ff706bcc5a333bb4a8fbb979a62d3b99c34e77"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?nauty[._-]?v?(\d+(?:\.\d+)*(?:r\d+)?)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6d7980d67e772addbc5220e4536a1193580253ae2a52fbc7182d12eb73573c6b"
     sha256 cellar: :any_skip_relocation, big_sur:       "8714e05e1d050933e8571cca1c388a088d11170757fa5b1ae3fe5be7f490f6b5"
