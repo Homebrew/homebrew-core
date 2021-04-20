@@ -2,8 +2,8 @@ class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
   url "https://github.com/apache/camel-k.git",
-      tag:      "v1.3.2",
-      revision: "619900dda959838499eb5ea6949e1e008b44a8bf"
+      tag:      "v1.4.0",
+      revision: "4e7c313e87f7f808dcf5cd3182dcacf8874618bc"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
