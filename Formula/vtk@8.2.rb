@@ -62,7 +62,6 @@ class VtkAT82 < Formula
       -DModule_vtkInfovisBoostGraphAlgorithms=ON
       -DModule_vtkRenderingFreeTypeFontConfig=ON
       -DVTK_REQUIRED_OBJCXX_FLAGS=''
-      -DVTK_USE_COCOA=ON
       -DVTK_USE_SYSTEM_EXPAT=ON
       -DVTK_USE_SYSTEM_HDF5=ON
       -DVTK_USE_SYSTEM_JPEG=ON
@@ -80,6 +79,10 @@ class VtkAT82 < Formula
       -DVTK_WRAP_PYTHON_SIP=ON
       -DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'
     ]
+
+    on_macos do
+      args << "-DVTK_USE_COCOA=ON"
+    end
 
     mkdir "build" do
       system "cmake", "..", *args
