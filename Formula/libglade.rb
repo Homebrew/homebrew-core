@@ -81,11 +81,13 @@ class Libglade < Formula
       -lglib-2.0
       -lgobject-2.0
       -lgtk-quartz-2.0
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
       -lxml2
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
