@@ -5,8 +5,8 @@ class Rocksdb < Formula
   head "https://github.com/facebook/rocksdb.git"
 
   stable do
-    url "https://github.com/facebook/rocksdb/archive/v6.17.3.tar.gz"
-    sha256 "bdd4790516f5ae17f83882dca1316f4dcaf4b245edbd641e7ec4ac3444c3c841"
+    url "https://github.com/facebook/rocksdb/archive/v6.19.3.tar.gz"
+    sha256 "5c19ffefea2bbe4c275d0c60194220865f508f371c64f42e802b4a85f065af5b"
 
     # Add artifact suffix to shared library
     # https://github.com/facebook/rocksdb/pull/7755
