@@ -4,7 +4,7 @@ class Bc < Formula
   url "https://ftp.gnu.org/gnu/bc/bc-1.07.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/bc/bc-1.07.1.tar.gz"
   sha256 "62adfca89b0a1c0164c2cdca59ca210c1d44c3ffc46daf9931cf4942664cb02a"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
@@ -21,6 +21,7 @@ class Bc < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "ed" => :build
+  uses_from_macos "texinfo" => :build
   uses_from_macos "flex"
 
   def install
