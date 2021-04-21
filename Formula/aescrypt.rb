@@ -32,7 +32,7 @@ class Aescrypt < Formula
     original_text = "hello"
     cipher_text = pipe_output("#{bin}/aescrypt -k #{testpath}/key -s 128", original_text)
     deciphered_text = pipe_output("#{bin}/aesget -k #{testpath}/key -s 128", cipher_text)
-    assert_not_equal original_text, cipher_text
+    refute_equal original_text, cipher_text
     assert_equal original_text, deciphered_text
   end
 end
