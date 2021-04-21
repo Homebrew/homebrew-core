@@ -21,6 +21,7 @@ class Imapsync < Formula
   end
 
   uses_from_macos "perl"
+  uses_from_macos "pod2man"
 
   resource "Encode::IMAPUTF7" do
     url "https://cpan.metacpan.org/authors/id/P/PM/PMAKHOLM/Encode-IMAPUTF7-1.05.tar.gz"
