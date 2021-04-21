@@ -42,5 +42,6 @@ class Mgba < Formula
 
   test do
     system "#{bin}/mGBA", "-h"
+    system "#{bin}/mGBA"
   end
 end
