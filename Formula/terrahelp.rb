@@ -46,6 +46,6 @@ class Terrahelp < Formula
     output = shell_output("cat #{tf_output} \| #{bin}/terrahelp mask --tfvars #{tf_vars}").strip
 
     assert_match("vars.msg1: \"******\"", output, "expecting sensitive value to be masked")
-    assert_not_match(/sensitive-value-1-AK#%DJGHS\*G/, output, "not expecting sensitive value to be presentt")
+    refute_match(/sensitive-value-1-AK#%DJGHS\*G/, output, "not expecting sensitive value to be presentt")
   end
 end
