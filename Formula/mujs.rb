@@ -15,6 +15,10 @@ class Mujs < Formula
     sha256 cellar: :any, mojave:        "ad3d0b6ffb7c7c0069ea8d31b4f4188e676787d2db6ff0e87f4e71807448df52"
   end
 
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     system "make", "release"
     system "make", "prefix=#{prefix}", "install"
