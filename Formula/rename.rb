@@ -14,6 +14,9 @@ class Rename < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "ed4a9403e533b143f8f1ee307035b28c995a13970c64ed7646719e12688ec7a0"
   end
 
+  uses_from_macos "perl"
+  uses_from_macos "pod2man"
+
   conflicts_with "util-linux", because: "both install `rename` binaries"
 
   def install
