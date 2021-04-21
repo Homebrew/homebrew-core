@@ -16,6 +16,8 @@ class Libextractor < Formula
   depends_on "pkg-config" => :build
   depends_on "libtool"
 
+  uses_from_macos "zlib"
+
   conflicts_with "csound", because: "both install `extract` binaries"
   conflicts_with "pkcrack", because: "both install `extract` binaries"
 
