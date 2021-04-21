@@ -6,10 +6,12 @@ class Rainbarf < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/creaktive/rainbarf.git"
 
-  bottle :unneeded
+  depends_on "pod2man" => :build
+
+  uses_from_macos "perl"
 
   def install
-    system "pod2man", "rainbarf", "rainbarf.1"
+    system "#{Formula["pod2man"].opt_bin}/pod2man", "rainbarf", "rainbarf.1"
     man1.install "rainbarf.1"
     bin.install "rainbarf"
   end
