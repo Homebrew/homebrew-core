@@ -2,8 +2,8 @@ class Devspace < Formula
   desc "CLI helps develop/deploy/debug apps with Docker and k8s"
   homepage "https://devspace.cloud/docs"
   url "https://github.com/devspace-cloud/devspace.git",
-      tag:      "v5.11.0",
-      revision: "37f0042f2204233072c6d063219f8362509387b7"
+      tag:      "v5.12.0",
+      revision: "042f56ca4f3cb9bb7e4f5eefefe0b6639f4a8262"
   license "Apache-2.0"
   head "https://github.com/devspace-cloud/devspace.git"
 
@@ -28,7 +28,7 @@ class Devspace < Formula
       -X main.commitHash=#{Utils.git_head}
       -X main.version=#{version}
     ]
-    system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
   end
 
   test do
