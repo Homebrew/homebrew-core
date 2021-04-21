@@ -30,7 +30,7 @@ class Bombadillo < Formula
     assert_match "Bombadillo is a non-web browser", r.read
 
     status = PTY.check(pid)
-    assert_not_nil status
-    assert_true status.success?
+    refute_nil status
+    assert status.success?
   end
 end
