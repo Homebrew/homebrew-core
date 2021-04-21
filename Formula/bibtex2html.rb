@@ -18,6 +18,11 @@ class Bibtex2html < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "e2b32aea9dcfb51cff11b8014425975198b73b3a74f48c2f7103e01ef2ec7a9b"
   end
 
+  head do
+    url "https://github.com/backtracking/bibtex2html.git"
+    depends_on "autoconf" => :build
+  end
+
   depends_on "ocaml" => :build
 
   def install
@@ -26,6 +31,7 @@ class Bibtex2html < Formula
       s.remove_make_var! "STRLIB"
     end
 
+    system "autoconf" if build.head?
     system "./configure", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
