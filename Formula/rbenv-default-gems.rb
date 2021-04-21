@@ -7,8 +7,6 @@ class RbenvDefaultGems < Formula
   revision 1
   head "https://github.com/sstephenson/rbenv-default-gems.git"
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   # Upstream patch: https://github.com/sstephenson/rbenv-default-gems/pull/3
