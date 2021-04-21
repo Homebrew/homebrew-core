@@ -46,7 +46,7 @@ class Periscope < Formula
 
     # rm allows deleting dupes but not uniques
     shell_output "#{bin}/psc rm #{testpath/"a"}"
-    assert_not_predicate (testpath/"a"), :exist?
+    refute_predicate (testpath/"a"), :exist?
     # now b is unique
     shell_output "#{bin}/psc rm #{testpath/"b"} 2>/dev/null", 1
     assert_predicate (testpath/"b"), :exist?
