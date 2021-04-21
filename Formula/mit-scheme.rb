@@ -24,6 +24,10 @@ class MitScheme < Formula
   depends_on xcode: :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "m4" => :build
+  uses_from_macos "texinfo" => :build
+  uses_from_macos "ncurses"
+
   resource "bootstrap" do
     if Hardware::CPU.intel?
       url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/11.2/mit-scheme-11.2-x86-64.tar.gz"
@@ -66,9 +70,12 @@ class MitScheme < Formula
 
     inreplace "microcode/configure" do |s|
       s.gsub! "/usr/local", prefix
-      # Fixes "configure: error: No MacOSX SDK for version: 10.10"
-      # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
-      s.gsub!(/SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}")
+
+      on_macos do
+        # Fixes "configure: error: No MacOSX SDK for version: 10.10"
+        # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47769
+        s.gsub!(/SDK=MacOSX\$\{MACOS\}$/, "SDK=MacOSX#{MacOS.sdk.version}")
+      end
     end
 
     inreplace "edwin/compile.sh" do |s|
