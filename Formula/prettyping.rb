@@ -5,8 +5,6 @@ class Prettyping < Formula
   sha256 "48ff5dce1d18761c4ee3c860afd3360266f7079b8e85af9e231eb15c45247323"
   license "MIT"
 
-  bottle :unneeded
-
   # Fixes IPv6 handling on BSD/OSX:
   # https://github.com/denilsonsa/prettyping/issues/7
   # https://github.com/denilsonsa/prettyping/pull/11
