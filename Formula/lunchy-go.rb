@@ -51,6 +51,6 @@ class LunchyGo < Formula
       removed #{plist}
     EOS
 
-    assert_not_predicate plist, :exist?
+    refute_predicate plist, :exist?
   end
 end
