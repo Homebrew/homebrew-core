@@ -4,6 +4,7 @@ class Pyenv < Formula
   url "https://github.com/pyenv/pyenv/archive/1.2.26.tar.gz"
   sha256 "004a47be4919ca717bee546d3062543d166c24678a21a9a5aa75f3bd0653c5d2"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
 
@@ -32,6 +33,8 @@ class Pyenv < Formula
 
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX
+    inreplace "libexec/pyenv-rehash", "$(command -v pyenv)", opt_bin/"pyenv"
+    inreplace "pyenv.d/rehash/source.bash", "$(command -v pyenv)", opt_bin/"pyenv"
 
     system "src/configure"
     system "make", "-C", "src"
@@ -47,6 +50,22 @@ class Pyenv < Formula
   end
 
   test do
-    shell_output("eval \"$(#{bin}/pyenv init -)\" && pyenv versions")
+    # Create a fake python version and executable.
+    pyenv_root = Pathname(shell_output("pyenv root").strip)
+    python_bin = pyenv_root/"versions/1.2.3/bin"
+    foo_script = python_bin/"foo"
+    foo_script.write "echo hello"
+    chmod "+x", foo_script
+
+    # Test versions.
+    versions = shell_output("eval \"$(#{bin}/pyenv init -)\" && pyenv versions").split("\n")
+    assert_equal 2, versions.length
+    assert_match(/\* system/, versions[0])
+    assert_equal("  1.2.3", versions[1])
+
+    # Test rehash.
+    system "pyenv", "rehash"
+    refute_match "Cellar", (pyenv_root/"shims/foo").read
+    assert_equal "hello", shell_output("eval \"$(#{bin}/pyenv init -)\" && PYENV_VERSION='1.2.3' foo").chomp
   end
 end
