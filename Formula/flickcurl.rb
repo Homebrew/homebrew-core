@@ -3,6 +3,7 @@ class Flickcurl < Formula
   homepage "http://librdf.org/flickcurl/"
   url "http://download.dajobe.org/flickcurl/flickcurl-1.26.tar.gz"
   sha256 "ff42a36c7c1c7d368246f6bc9b7d792ed298348e5f0f5d432e49f6803562f5a3"
+  license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "49065801b7dfe7880206948a41c58ae5f190b50e3acbbe7d14ff24d29a30db0c"
@@ -16,6 +17,9 @@ class Flickcurl < Formula
   end
 
   depends_on "pkg-config" => :build
+
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
 
   def install
     system "./configure", "--disable-dependency-tracking",
