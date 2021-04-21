@@ -12,6 +12,9 @@ class XmlrpcC < Formula
     sha256 cellar: :any, mojave:        "b058d27a7d2a0ba5a265186a5c4bcb26c9a9a0c9d4a60e639b30a72a2d4a7169"
   end
 
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
+
   def install
     ENV.deparallelize
     # --enable-libxml2-backend to lose some weight and not statically link in expat
