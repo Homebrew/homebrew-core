@@ -29,7 +29,7 @@ class AppEngineJava < Formula
     Process.setsid
     IO.popen("#{bin}/dev_appserver.sh . 2>&1") do |io|
       until $LAST_READ_LINE == "INFO: Dev App Server is now running\n"
-        assert_not_nil io.gets, "Dev App Server terminated prematurely"
+        refute_nil io.gets, "Dev App Server terminated prematurely"
       end
       Signal.trap "INT", "IGNORE"
       Process.kill "INT", 0
