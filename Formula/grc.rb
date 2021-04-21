@@ -8,8 +8,6 @@ class Grc < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/garabik/grc.git", branch: "devel"
 
-  bottle :unneeded
-
   depends_on "python@3.9"
 
   conflicts_with "cc65", because: "both install `grc` binaries"
