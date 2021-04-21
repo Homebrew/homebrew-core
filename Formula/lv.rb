@@ -22,6 +22,8 @@ class Lv < Formula
     sha256 high_sierra:   "90a79ade2abcd36772eb50db1c93298a67766d626a5316a3eeb1638312fbd377"
   end
 
+  uses_from_macos "ncurses"
+
   on_linux do
     depends_on "gzip"
   end
