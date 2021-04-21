@@ -14,8 +14,9 @@ class Grc < Formula
 
   def install
     # fix non-standard prefix installs
-    inreplace ["grc", "grc.1"], "/etc", etc
-    inreplace ["grcat", "grcat.1"], "/usr/local", HOMEBREW_PREFIX
+    inreplace "grc", "/usr/local/etc/", "#{etc}/"
+    inreplace "grc.1", " /etc/", " #{etc}/"
+    inreplace ["grcat", "grcat.1"], "/usr/local/share/grc/", "#{pkgshare}/"
 
     # so that the completions don't end up in etc/profile.d
     inreplace "install.sh",
