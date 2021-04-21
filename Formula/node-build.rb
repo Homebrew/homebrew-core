@@ -11,8 +11,6 @@ class NodeBuild < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle :unneeded
-
   depends_on "autoconf"
   depends_on "openssl@1.1"
   depends_on "pkg-config"
