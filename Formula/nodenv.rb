@@ -6,8 +6,6 @@ class Nodenv < Formula
   license "MIT"
   head "https://github.com/nodenv/nodenv.git"
 
-  bottle :unneeded
-
   depends_on "node-build"
 
   def install
