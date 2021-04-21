@@ -3,6 +3,7 @@ class Dtc < Formula
   homepage "https://www.devicetree.org/"
   url "https://www.kernel.org/pub/software/utils/dtc/dtc-1.6.0.tar.xz"
   sha256 "10503b0217e1b07933e29e8d347a00015b2431bea5f59afe0bed3af30340c82d"
+  license any_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
 
   livecheck do
     url "https://mirrors.edge.kernel.org/pub/software/utils/dtc/"
@@ -18,6 +19,9 @@ class Dtc < Formula
   end
 
   depends_on "pkg-config" => :build
+
+  uses_from_macos "bison"
+  uses_from_macos "flex"
 
   def install
     inreplace "libfdt/Makefile.libfdt", "libfdt.$(SHAREDLIB_EXT).1", "libfdt.1.$(SHAREDLIB_EXT)"
