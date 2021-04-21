@@ -66,10 +66,10 @@ class Gitup < Formula
     system bin/"gitup", "first", "second"
 
     first_head = Utils.git_head(testpath/"first")
-    assert_not_equal first_head, first_head_start
+    refute_equal first_head, first_head_start
 
     second_head = Utils.git_head(testpath/"second")
-    assert_not_equal second_head, second_head_start
+    refute_equal second_head, second_head_start
 
     third_head_start = "f47ab45abdbc77e518776e5dc44f515721c523ae"
     mkdir "third" do
@@ -80,7 +80,7 @@ class Gitup < Formula
 
     system bin/"gitup"
     third_head = Utils.git_head(testpath/"third")
-    assert_not_equal third_head, third_head_start
+    refute_equal third_head, third_head_start
 
     assert_match %r{#{Dir.pwd}/third}, `#{bin}/gitup --list`.strip
 
