@@ -4,6 +4,7 @@ class K3d < Formula
   url "https://github.com/rancher/k3d/archive/v4.4.2.tar.gz"
   sha256 "e3e6bc85b7f548580023671f59cec18c4c7f99ad3c7c37d1838984f82d4bf86c"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -33,6 +34,10 @@ class K3d < Formula
     # Install zsh completion
     output = Utils.safe_popen_read("#{bin}/k3d", "completion", "zsh")
     (zsh_completion/"_k3d").write output
+
+    # Install fish completion
+    output = Utils.safe_popen_read("#{bin}/k3d", "completion", "fish")
+    (fish_completion/"k3d.fish").write output
   end
 
   test do
