@@ -13,7 +13,7 @@ class Mockery < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "c6021ba38358d6dfaec61d4a4c6ebd5729ea78f95ef41c52a5903083e87d6b05"
   end
 
-  depends_on "go"
+  depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args, "-ldflags", "-s -w -X github.com/vektra/mockery/v2/pkg/config.SemVer=#{version}"
