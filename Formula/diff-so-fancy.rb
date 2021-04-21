@@ -6,8 +6,6 @@ class DiffSoFancy < Formula
   license "MIT"
   head "https://github.com/so-fancy/diff-so-fancy.git", branch: "next"
 
-  bottle :unneeded
-
   def install
     libexec.install "diff-so-fancy", "lib"
     bin.install_symlink libexec/"diff-so-fancy"
