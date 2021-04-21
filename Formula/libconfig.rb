@@ -3,7 +3,7 @@ class Libconfig < Formula
   homepage "https://hyperrealm.github.io/libconfig/"
   url "https://github.com/hyperrealm/libconfig/archive/v1.7.2.tar.gz"
   sha256 "f67ac44099916ae260a6c9e290a90809e7d782d96cdd462cac656ebc5b685726"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
   head "https://github.com/hyperrealm/libconfig.git"
 
   bottle do
@@ -18,6 +18,9 @@ class Libconfig < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+
+  uses_from_macos "flex" => :build
+  uses_from_macos "texinfo" => :build
 
   def install
     system "autoreconf", "-fiv"
@@ -35,8 +38,8 @@ class Libconfig < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lconfig",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, testpath/"test.c", "-I#{include}",
+           "-L#{lib}", "-lconfig", "-o", testpath/"test"
     system "./test"
   end
 end
