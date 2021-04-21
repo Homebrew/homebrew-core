@@ -18,6 +18,8 @@ class Luarocks < Formula
   depends_on "luajit" => :test unless Hardware::CPU.arm?
   depends_on "lua"
 
+  uses_from_macos "unzip"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
