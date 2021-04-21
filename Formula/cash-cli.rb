@@ -6,6 +6,7 @@ class CashCli < Formula
   url "https://registry.npmjs.org/cash-cli/-/cash-cli-4.2.1.tgz"
   sha256 "593e2b02aab0e4369225a2c78a895d511ee491a1708e44d7aba63d9a897b000e"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "11e8b5cf3e977adc9dde41f31173b5a1403d72da4dcdefc277e31ea22cf30612"
@@ -15,11 +16,13 @@ class CashCli < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "903fde1135bcc71b70d74b852084897a2708f1d87ad00c200c793600472c42aa"
   end
 
-  depends_on "node"
+  depends_on "node@14"
 
   def install
+    node = Formula["node@14"]
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", { PATH: "#{node.opt_bin}:$PATH" }
   end
 
   test do
