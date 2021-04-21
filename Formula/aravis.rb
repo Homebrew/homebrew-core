@@ -1,8 +1,8 @@
 class Aravis < Formula
   desc "Vision library for genicam based cameras"
   homepage "https://wiki.gnome.org/Projects/Aravis"
-  url "https://download.gnome.org/sources/aravis/0.8/aravis-0.8.7.tar.xz"
-  sha256 "a78f723a6787106c5a14f243d869bd10cbb2838c6c6b622c2aa6a95c5c64b612"
+  url "https://download.gnome.org/sources/aravis/0.8/aravis-0.8.8.tar.xz"
+  sha256 "1fa85396b4a63d765fc201902934813fa8bbb28b504c8a009ffde405ed559da6"
   license "LGPL-2.1-or-later"
 
   bottle do
