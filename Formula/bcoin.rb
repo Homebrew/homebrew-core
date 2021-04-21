@@ -6,7 +6,7 @@ class Bcoin < Formula
   url "https://github.com/bcoin-org/bcoin/archive/v2.1.2.tar.gz"
   sha256 "b4c63598ee1efc17e4622ef88c1dff972692da1157e8daf7da5ea8abc3d234df"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/bcoin-org/bcoin.git"
 
   bottle do
@@ -17,12 +17,11 @@ class Bcoin < Formula
   end
 
   depends_on "python@3.9" => :build
-  depends_on "node@14"
+  depends_on "node"
 
   def install
-    node = Formula["node@14"]
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    (bin/"bcoin").write_env_script libexec/"bin/bcoin", PATH: "#{node.opt_bin}:$PATH"
+    system "#{Formula["node"].libexec}/bin/npm", "install", *Language::Node.std_npm_install_args(libexec)
+    (bin/"bcoin").write_env_script libexec/"bin/bcoin", PATH: "#{Formula["node"].opt_bin}:$PATH"
   end
 
   test do
@@ -39,7 +38,7 @@ class Bcoin < Formula
         await node.ensure();
       })();
     EOS
-    system "#{Formula["node@14"].bin}/node", testpath/"script.js"
+    system "#{Formula["node"].bin}/node", testpath/"script.js"
     assert File.directory?("#{testpath}/.bcoin")
   end
 end
