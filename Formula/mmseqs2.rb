@@ -21,6 +21,10 @@ class Mmseqs2 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gawk"
+  end
+
   resource "documentation" do
     url "https://github.com/soedinglab/MMseqs2.wiki.git",
         revision: "790eb1b49f460d6054d5b8a6a643b8543f166388"
@@ -40,12 +44,14 @@ class Mmseqs2 < Formula
       "-DHAVE_SSE4_1=1"
     end
 
-    libomp = Formula["libomp"]
-    args << "-DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
-    args << "-DOpenMP_C_LIB_NAMES=omp"
-    args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
-    args << "-DOpenMP_CXX_LIB_NAMES=omp"
-    args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
+    on_macos do
+      libomp = Formula["libomp"]
+      args << "-DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
+      args << "-DOpenMP_C_LIB_NAMES=omp"
+      args << "-DOpenMP_CXX_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
+      args << "-DOpenMP_CXX_LIB_NAMES=omp"
+      args << "-DOpenMP_omp_LIBRARY=#{libomp.opt_lib}/libomp.a"
+    end
 
     system "cmake", ".", *args
     system "make", "install"
