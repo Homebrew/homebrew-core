@@ -5,8 +5,6 @@ class ZshAutosuggestions < Formula
   sha256 "0b6e251ced5fd7b5b78ea01f798ecc1b46169743a717567f0ec0a21198a372e8"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     pkgshare.install "zsh-autosuggestions.zsh"
   end
