@@ -57,6 +57,6 @@ class Lunchy < Formula
       uninstalled com.example.echo
     EOS
 
-    assert_not_predicate plist, :exist?
+    refute_predicate plist, :exist?
   end
 end
