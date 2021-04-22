@@ -1,41 +1,11 @@
 class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
-  license "MPL-1.1"
-  head "https://github.com/signalwire/freeswitch.git"
-
-  stable do
-    url "https://github.com/signalwire/freeswitch.git",
+  url "https://github.com/signalwire/freeswitch.git",
         tag:      "v1.10.6",
         revision: "1ff9d0a60e00c887d653805b3c6c7aa93443a05b"
-
-    # Fix find_if_index
-    # see https://github.com/signalwire/freeswitch/issues/859 and https://github.com/signalwire/freeswitch/pull/863
-    #
-    # remove this in next release
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/611377d40b560402f21ec5bd5a23f32ef09c9d1d.patch?full_index=1"
-      sha256 "95323626a7720e16e3f35e2889d5925fdc6c2c2efbe37f6fe5ab6e8733e3ae4d"
-    end
-
-    # Fix mod_spandsp
-    # see https://github.com/signalwire/freeswitch/pull/812
-    #
-    # remove this in next release
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/61368b24c16d7f9509fe7f5b1895d8404e23cd50.patch?full_index=1"
-      sha256 "f03fe3f8ae993af045ee7910c6a7446f84c29f8bea936ab4c0f700344f3d5afb"
-    end
-
-    # Fix mod_gsmopen
-    # see https://github.com/signalwire/freeswitch/pull/812
-    #
-    # remove this in next release
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/51fba83ed3ed2d9753d8e6b13e13001aca50b493.patch?full_index=1"
-      sha256 "1c5332127af09cddd3cba3b71d02de5deb025d552cc93b1f383874d89566956e"
-    end
-  end
+  license "MPL-1.1"
+  head "https://github.com/signalwire/freeswitch.git"
 
   livecheck do
     url :stable
