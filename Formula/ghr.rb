@@ -28,6 +28,6 @@ class Ghr < Formula
   test do
     ENV["GITHUB_TOKEN"] = nil
     args = "-username testbot -repository #{testpath} v#{version} #{Dir.pwd}"
-    assert_include "token not found", shell_output("#{bin}/ghr #{args}", 15)
+    assert_includes "token not found", shell_output("#{bin}/ghr #{args}", 15)
   end
 end
