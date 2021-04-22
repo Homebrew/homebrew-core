@@ -83,7 +83,7 @@ class Cubeb < Formula
       }
     EOS
     system "cc", "-o", "test", "#{testpath}/test.c", "-L#{lib}", "-lcubeb"
-    assert_no_match(/FAIL:.*/, shell_output("#{testpath}/test"),
+    refute_match(/FAIL:.*/, shell_output("#{testpath}/test"),
                     "Basic sanity test failed.")
   end
 end
