@@ -2,13 +2,12 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   license "MPL-1.1"
-  revision 3
   head "https://github.com/signalwire/freeswitch.git"
 
   stable do
     url "https://github.com/signalwire/freeswitch.git",
-        tag:      "v1.10.5",
-        revision: "25569c16311afb3fe04a445830a8ab5c88488a5e"
+        tag:      "v1.10.6",
+        revision: "1ff9d0a60e00c887d653805b3c6c7aa93443a05b"
 
     # Fix find_if_index
     # see https://github.com/signalwire/freeswitch/issues/859 and https://github.com/signalwire/freeswitch/pull/863
