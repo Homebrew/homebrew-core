@@ -25,6 +25,6 @@ class Fileicon < Formula
     system bin/"fileicon", "set", testpath, icon
     assert_predicate testpath/"Icon\r", :exist?
     stdout = shell_output "#{bin}/fileicon test #{testpath}"
-    assert_include stdout, "HAS custom icon: '#{testpath}'"
+    assert_includes stdout, "HAS custom icon: '#{testpath}'"
   end
 end
