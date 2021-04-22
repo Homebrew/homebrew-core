@@ -60,7 +60,7 @@ class Launchdns < Formula
 
   test do
     output = shell_output("#{bin}/launchdns --version")
-    assert_no_match(/without socket activation/, output)
+    refute_match(/without socket activation/, output)
     system bin/"launchdns", "-p0", "-t1"
   end
 end
