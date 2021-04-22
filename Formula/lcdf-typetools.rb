@@ -29,6 +29,6 @@ class LcdfTypetools < Formula
 
   test do
     font_name = (MacOS.version >= :catalina) ? "Arial\\ Unicode.ttf" : "Arial.ttf"
-    assert_include shell_output("#{bin}/otfinfo -p /Library/Fonts/#{font_name}"), "Arial"
+    assert_includes shell_output("#{bin}/otfinfo -p /Library/Fonts/#{font_name}"), "Arial"
   end
 end
