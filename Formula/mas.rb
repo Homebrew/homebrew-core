@@ -42,6 +42,6 @@ class Mas < Formula
 
   test do
     assert_equal version.to_s, shell_output("#{bin}/mas version").chomp
-    assert_include shell_output("#{bin}/mas info 497799835"), "Xcode"
+    assert_includes shell_output("#{bin}/mas info 497799835"), "Xcode"
   end
 end
