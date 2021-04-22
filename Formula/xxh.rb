@@ -62,12 +62,12 @@ class Xxh < Formula
 
       argv = stdout.lines.grep(/^Final arguments list:/).first.split(":").second
       args = JSON.parse argv.tr("'", "\"")
-      assert_include args, "xxh-shell-zsh"
+      assert_includes args, "xxh-shell-zsh"
 
       ssh_argv = stderr.lines.grep(/^ssh arguments:/).first.split(":").second
       ssh_args = JSON.parse ssh_argv.tr("'", "\"")
-      assert_include ssh_args, "Port=#{port}"
-      assert_include ssh_args, "HostName=127.0.0.1"
+      assert_includes ssh_args, "Port=#{port}"
+      assert_includes ssh_args, "HostName=127.0.0.1"
       assert_match "Connection closed by remote host", stderr
     ensure
       Process.kill("TERM", server_pid)
