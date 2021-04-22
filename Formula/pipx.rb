@@ -66,6 +66,6 @@ class Pipx < Formula
     system "#{bin}/pipx", "install", "csvkit"
     assert_predicate testpath/".local/bin/csvjoin", :exist?
     system "#{bin}/pipx", "uninstall", "csvkit"
-    assert_no_match Regexp.new("csvjoin"), shell_output("#{bin}/pipx list")
+    refute_match "csvjoin", shell_output("#{bin}/pipx list")
   end
 end
