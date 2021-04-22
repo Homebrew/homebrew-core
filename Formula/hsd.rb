@@ -44,6 +44,6 @@ class Hsd < Formula
       })();
     EOS
     system "#{Formula["node@10"].opt_bin}/node", testpath/"script.js"
-    assert_true File.directory?("#{testpath}/.hsd")
+    assert File.directory?("#{testpath}/.hsd")
   end
 end
