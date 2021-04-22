@@ -45,6 +45,6 @@ class Cgit < Formula
 
     ENV["CGIT_CONFIG"] = testpath/"cgitrc"
     # no "Status" line means 200
-    assert_no_match(/Status: .+/, shell_output("#{pkgshare}/cgit.cgi"))
+    refute_match(/Status: .+/, shell_output("#{pkgshare}/cgit.cgi"))
   end
 end
