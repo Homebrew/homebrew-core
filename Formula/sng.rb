@@ -25,6 +25,6 @@ class Sng < Formula
   test do
     cp test_fixtures("test.png"), "test.png"
     system bin/"sng", "test.png"
-    assert_include File.read("test.sng"), "width: 8; height: 8; bitdepth: 8;"
+    assert_includes File.read("test.sng"), "width: 8; height: 8; bitdepth: 8;"
   end
 end
