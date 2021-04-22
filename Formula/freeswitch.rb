@@ -104,13 +104,13 @@ class Freeswitch < Formula
   # There's no tags for now https://github.com/freeswitch/spandsp/issues/13
   resource "spandsp" do
     url "https://github.com/freeswitch/spandsp.git",
-        revision: "6351b1824a7634853bf963c0ec399e783e35d4d1"
+        revision: "e08c74db3f072db893c4d37de733f03c27bf7ed3"
   end
 
   resource "libks" do
     url "https://github.com/signalwire/libks.git",
-        tag:      "1.6.0",
-        revision: "637e0e3db192a6d73a248cf0e794a4b03424805b"
+        tag:      "v1.7.0",
+        revision: "db9bfa746b1fffcaf062bbe060c8cef70c227116"
   end
 
   resource "signalwire-c" do
