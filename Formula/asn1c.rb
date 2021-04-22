@@ -3,7 +3,7 @@ class Asn1c < Formula
   homepage "https://lionet.info/asn1c/blog/"
   url "https://github.com/vlm/asn1c/releases/download/v0.9.28/asn1c-0.9.28.tar.gz"
   sha256 "8007440b647ef2dd9fb73d931c33ac11764e6afb2437dbe638bb4e5fc82386b9"
-  license "GPL-3.0"
+  license "BSD-2-Clause"
 
   bottle do
     sha256 arm64_big_sur: "fb9e9bcf79e03d772682d793cae01dcf56327295ec42907541f5a1467186992d"
