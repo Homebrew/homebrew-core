@@ -1,8 +1,8 @@
 class Airspy < Formula
   desc "Driver and tools for a software-defined radio"
   homepage "https://airspy.com/"
-  url "https://github.com/airspy/airspyone_host/archive/v1.0.9.tar.gz"
-  sha256 "967ef256596d4527b81f007f77b91caec3e9f5ab148a8fec436a703db85234cc"
+  url "https://github.com/airspy/airspyone_host/archive/v1.0.10.tar.gz"
+  sha256 "fcca23911c9a9da71cebeffeba708c59d1d6401eec6eb2dd73cae35b8ea3c613"
   head "https://github.com/airspy/airspyone_host.git"
 
   bottle do
