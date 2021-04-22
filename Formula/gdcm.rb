@@ -4,7 +4,7 @@ class Gdcm < Formula
   url "https://github.com/malaterre/GDCM/archive/v3.0.9.tar.gz"
   sha256 "fcfc50ea8809bd4a173550c7d7bb4f8722ae0781fbf17240ce84a04e90af0e9b"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -27,6 +27,9 @@ class Gdcm < Formula
   depends_on "python@3.9"
   depends_on "vtk@8.2"
 
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
+
   def install
     ENV.cxx11
 
@@ -45,6 +48,9 @@ class Gdcm < Formula
       -DGDCM_BUILD_EXAMPLES=OFF
       -DGDCM_BUILD_DOCBOOK_MANPAGES=OFF
       -DGDCM_USE_VTK=ON
+      -DGDCM_USE_SYSTEM_EXPAT=ON
+      -DGDCM_USE_SYSTEM_ZLIB=ON
+      -DGDCM_USE_SYSTEM_UUID=ON
       -DGDCM_USE_SYSTEM_OPENJPEG=ON
       -DGDCM_USE_SYSTEM_OPENSSL=ON
       -DGDCM_WRAP_PYTHON=ON
