@@ -20,7 +20,7 @@ class Rustscan < Formula
   end
 
   test do
-    assert_no_match(/panic/, shell_output("#{bin}/rustscan --greppable -a 127.0.0.1"))
-    assert_no_match(/panic/, shell_output("#{bin}/rustscan --greppable -a 0.0.0.0"))
+    refute_match("panic", shell_output("#{bin}/rustscan --greppable -a 127.0.0.1"))
+    refute_match("panic", shell_output("#{bin}/rustscan --greppable -a 0.0.0.0"))
   end
 end
