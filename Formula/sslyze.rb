@@ -82,6 +82,6 @@ class Sslyze < Formula
 
   test do
     assert_match "SCAN COMPLETED", shell_output("#{bin}/sslyze --regular google.com")
-    assert_no_match(/exception/, shell_output("#{bin}/sslyze --certinfo letsencrypt.org"))
+    refute_match("exception", shell_output("#{bin}/sslyze --certinfo letsencrypt.org"))
   end
 end
