@@ -29,8 +29,8 @@ class MCli < Formula
 
   test do
     output = pipe_output("#{bin}/m help 2>&1")
-    assert_no_match(/.*No such file or directory.*/, output)
-    assert_no_match(/.*command not found.*/, output)
+    refute_match(/.*No such file or directory.*/, output)
+    refute_match(/.*command not found.*/, output)
     assert_match(/.*Swiss Army Knife for macOS.*/, output)
   end
 end
