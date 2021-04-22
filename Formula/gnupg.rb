@@ -1,8 +1,8 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.27.tar.bz2"
-  sha256 "34e60009014ea16402069136e0a5f63d9b65f90096244975db5cea74b3d02399"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.1.tar.bz2"
+  sha256 "c498db346a9b9a4b399e514c8f56dfc0a888ce8f327f10376ff984452cd154ec"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -29,11 +29,15 @@ class Gnupg < Formula
   depends_on "npth"
   depends_on "pinentry"
 
-  uses_from_macos "sqlite" => :build
+  uses_from_macos "sqlite", since: :catalina
 
   on_linux do
     depends_on "libidn"
   end
+
+  # Fix tests for gnupg 2.3.1, remove in the next release
+  # Patch ref: https://dev.gnupg.org/rGd36c4dc95b72b780375d57311bdf4ae842fd54fa
+  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -42,7 +46,6 @@ class Gnupg < Formula
                           "--sbindir=#{bin}",
                           "--sysconfdir=#{etc}",
                           "--enable-all-tests",
-                          "--enable-symcryptrun",
                           "--with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry"
     system "make"
     system "make", "check"
@@ -76,3 +79,17 @@ class Gnupg < Formula
     end
   end
 end
+
+__END__
+diff --git a/tests/openpgp/defs.scm b/tests/openpgp/defs.scm
+index 768d479aa..86d312f82 100644
+--- a/tests/openpgp/defs.scm
++++ b/tests/openpgp/defs.scm
+@@ -338,6 +338,7 @@
+   (create-file "common.conf"
+ 	       (if (flag "--use-keyboxd" *args*)
+ 		   "use-keyboxd" "#use-keyboxd")
++	       (string-append "keyboxd-program " (tool 'keyboxd))
+ 	       )
+
+   (create-file "gpg.conf"
