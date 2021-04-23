@@ -12,11 +12,12 @@ class Unum < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "270c0296d036b4be85368539d895d27f0630e3f6a4106cc8758747e5f2371471"
   end
 
+  depends_on "pod2man" => :build
+
   uses_from_macos "perl"
-  uses_from_macos "pod2man"
 
   def install
-    system "pod2man", "unum.pl", "unum.1"
+    system "#{Formula["pod2man"].opt_bin}/pod2man", "unum.pl", "unum.1"
     bin.install "unum.pl" => "unum"
     man1.install "unum.1"
   end
