@@ -35,11 +35,11 @@ class Terrascan < Formula
     EOS
 
     expected = <<~EOS
-      \tPolicies Validated  :	159
-      \tViolated Policies   :	0
-      \tLow                 :	0
-      \tMedium              :	0
-      \tHigh                :	0
+      \tPolicies Validated  :\t158
+      \tViolated Policies   :\t0
+      \tLow                 :\t0
+      \tMedium              :\t0
+      \tHigh                :\t0
     EOS
 
     assert_match expected, shell_output("#{bin}/terrascan scan -f #{testpath}/ami.tf -t aws")
