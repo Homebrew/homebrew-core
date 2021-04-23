@@ -22,7 +22,6 @@ class NotmuchMutt < Formula
   depends_on "readline"
 
   uses_from_macos "perl"
-  uses_from_macos "pod2man"
 
   resource "Term::ReadLine::Gnu" do
     url "https://cpan.metacpan.org/authors/id/H/HA/HAYASHI/Term-ReadLine-Gnu-1.37.tar.gz"
