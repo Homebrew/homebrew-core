@@ -16,24 +16,29 @@ class Lsof < Formula
   keg_only :provided_by_macos
 
   def install
-    ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
+    os = "linux"
+    on_macos do
+      ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
+
+      # Source hardcodes full header paths at /usr/include
+      inreplace %w[
+        dialects/darwin/kmem/dlsof.h
+        dialects/darwin/kmem/machine.h
+        dialects/darwin/libproc/machine.h
+      ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
+
+      os = "darwin"
+    end
+
     ENV["LSOF_CC"] = ENV.cc
     ENV["LSOF_CCV"] = ENV.cxx
 
-    # Source hardcodes full header paths at /usr/include
-    inreplace %w[
-      dialects/darwin/kmem/dlsof.h
-      dialects/darwin/kmem/machine.h
-      dialects/darwin/libproc/machine.h
-    ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
-
     mv "00README", "README"
-    system "./Configure", "-n", "darwin"
+    system "./Configure", "-n", os
 
     system "make"
     bin.install "lsof"
-    man8.install "lsof.8"
-    prefix.install_metafiles
+    man8.install "Lsof.8"
   end
 
   test do
