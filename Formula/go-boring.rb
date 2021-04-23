@@ -20,30 +20,10 @@ class GoBoring < Formula
 
   keg_only "it conflicts with the Go formula"
 
-  # Don't update this unless this version cannot bootstrap the new version.
-  resource "gobootstrap" do
-    on_macos do
-      if Hardware::CPU.arm?
-        url "https://storage.googleapis.com/golang/go1.16.darwin-arm64.tar.gz"
-        version "1.16"
-        sha256 "4dac57c00168d30bbd02d95131d5de9ca88e04f2c5a29a404576f30ae9b54810"
-      else
-        url "https://storage.googleapis.com/golang/go1.16.darwin-amd64.tar.gz"
-        version "1.16"
-        sha256 "6000a9522975d116bf76044967d7e69e04e982e9625330d9a539a8b45395f9a8"
-      end
-    end
-
-    on_linux do
-      url "https://storage.googleapis.com/golang/go1.16.linux-amd64.tar.gz"
-      version "1.16"
-      sha256 "013a489ebb3e24ef3d915abe5b94c3286c070dfe0818d5bca8108f1d6e8440d2"
-    end
-  end
+  depends_on "go" => :build
 
   def install
-    (buildpath/"gobootstrap").install resource("gobootstrap")
-    ENV["GOROOT_BOOTSTRAP"] = buildpath/"gobootstrap"
+    ENV["GOROOT_BOOTSTRAP"] = Formula["go"].opt_libexec
 
     cd "src" do
       ENV["GOROOT_FINAL"] = libexec
@@ -51,7 +31,6 @@ class GoBoring < Formula
     end
 
     (buildpath/"pkg/obj").rmtree
-    rm_rf "gobootstrap" # Bootstrap not required beyond compile.
     libexec.install Dir["*"]
     bin.install_symlink Dir[libexec/"bin/go*"]
 
