@@ -3,8 +3,8 @@ class Tg < Formula
 
   desc "Terminal telegram client"
   homepage "https://github.com/paul-nameless/tg"
-  url "https://github.com/paul-nameless/tg/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "2303983af7b7246fb3198bcae688d3b6327a96bbfc91c94ef9bc783cc7191f42"
+  url "https://github.com/paul-nameless/tg/archive/refs/tags/v0.12.0.zip"
+  sha256 "6a7e2c1824c050e84ed9e18d23c942e44903b41940a2b29c953c4c2edaf3a989"
   license "Unlicense"
 
   depends_on "python@3.9"
