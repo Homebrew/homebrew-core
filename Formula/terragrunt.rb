@@ -13,10 +13,32 @@ class Terragrunt < Formula
   end
 
   depends_on "go" => :build
-  depends_on "terraform"
 
   def install
     system "go", "build", "-ldflags", "-s -w -X main.VERSION=v#{version}", *std_go_args
+  end
+
+  def caveats
+    <<~EOS
+      Terragrunt has been installed as
+        #{HOMEBREW_PREFIX}/bin/terragrunt
+
+      Terragrunt requires a version of `terraform` to be in the user's path.
+
+      Teams using terragrunt/terraform need to use the same version of
+      terraform. To prevent accidental version changes via `brew upgrade`, we
+      recommend using `tfenv` to install and manage `terraform` versions:
+        brew install tfenv
+        tfenv install <required terraform version>
+        tfenv use <required terraform version>
+
+      See: https://github.com/tfutils/tfenv
+
+      Terraform can also be installed directly with homebrew.  This is only
+      recommended when NOT working as part of a team (i.e., for solo projects,
+      learning, or experimenting):
+        brew install terraform
+    EOS
   end
 
   test do
