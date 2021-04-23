@@ -22,13 +22,20 @@ class Chicken < Formula
     ENV.deparallelize
 
     args = %W[
-      PLATFORM=macosx
       PREFIX=#{prefix}
       C_COMPILER=#{ENV.cc}
       LIBRARIAN=ar
-      POSTINSTALL_PROGRAM=install_name_tool
       ARCH=x86-64
     ]
+
+    on_macos do
+      args << "POSTINSTALL_PROGRAM=install_name_tool"
+      args << "PLATFORM=macosx"
+    end
+
+    on_linux do
+      args << "PLATFORM=linux"
+    end
 
     system "make", *args
     system "make", "install", *args
