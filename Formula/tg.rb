@@ -10,7 +10,7 @@ class Tg < Formula
   bottle :unneeded
 
   depends_on "python@3.9"
-  depends_on "tdlib" => "1.7.0"
+  depends_on "tdlib"
 
   resource "python-telegram-patched" do
     url "https://github.com/paul-nameless/python-telegram/archive/refs/tags/0.14.0-patched.tar.gz"
