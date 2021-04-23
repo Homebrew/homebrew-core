@@ -14,8 +14,9 @@ class NumUtils < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "476a96d60faaf281b704e6a137a0b4e03bd708e51f07ae97940f7efdba693ebb"
   end
 
+  depends_on "pod2man" => :build
+
   uses_from_macos "perl"
-  uses_from_macos "pod2man"
 
   conflicts_with "normalize", because: "both install `normalize` binaries"
   conflicts_with "crush-tools", because: "both install an `range` binary"
@@ -23,7 +24,7 @@ class NumUtils < Formula
 
   def install
     %w[average bound interval normalize numgrep numprocess numsum random range round].each do |p|
-      system "pod2man", p, "#{p}.1"
+      system "#{Formula["pod2man"].opt_bin}/pod2man", p, "#{p}.1"
       bin.install p
       man1.install "#{p}.1"
     end
