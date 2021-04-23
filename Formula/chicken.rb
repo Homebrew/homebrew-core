@@ -3,6 +3,7 @@ class Chicken < Formula
   homepage "https://www.call-cc.org/"
   url "https://code.call-cc.org/releases/5.2.0/chicken-5.2.0.tar.gz"
   sha256 "819149c8ce7303a9b381d3fdc1d5765c5f9ac4dee6f627d1652f47966a8780fa"
+  license "BSD-3-Clause"
   head "https://code.call-cc.org/git/chicken-core.git"
 
   livecheck do
