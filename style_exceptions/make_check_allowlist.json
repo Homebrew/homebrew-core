@@ -5,6 +5,7 @@
   "gmp",
   "gnupg",
   "gnupg@1.4",
+  "gnupg@2.2",
   "google-sparsehash",
   "jemalloc",
   "jpeg-turbo",
