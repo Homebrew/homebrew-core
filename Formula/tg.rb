@@ -7,7 +7,6 @@ class Tg < Formula
   sha256 "2303983af7b7246fb3198bcae688d3b6327a96bbfc91c94ef9bc783cc7191f42"
   license "Unlicense"
 
-  bottle :unneeded
 
   depends_on "python@3.9"
   depends_on "tdlib"
