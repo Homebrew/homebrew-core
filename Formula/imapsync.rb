@@ -20,8 +20,9 @@ class Imapsync < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "fa0a19bf66b24d332f6e0f4f827b2abdff2b904b483c4927f2ed7d6d944ab261"
   end
 
+  depends_on "pod2man" => :build
+
   uses_from_macos "perl"
-  uses_from_macos "pod2man"
 
   resource "Encode::IMAPUTF7" do
     url "https://cpan.metacpan.org/authors/id/P/PM/PMAKHOLM/Encode-IMAPUTF7-1.05.tar.gz"
@@ -122,7 +123,7 @@ class Imapsync < Formula
     end
 
     system "perl", "-c", "imapsync"
-    system "pod2man", "imapsync", "imapsync.1"
+    system "#{Formula["pod2man"].opt_bin}/pod2man", "imapsync", "imapsync.1"
     inreplace "imapsync", "#!/usr/bin/env perl", "#!/usr/bin/perl"
     bin.install "imapsync"
     man1.install "imapsync.1"
