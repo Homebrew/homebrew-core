@@ -1,10 +1,9 @@
 class GitSizer < Formula
   desc "Compute various size metrics for a Git repository"
   homepage "https://github.com/github/git-sizer"
-  url "https://github.com/github/git-sizer/archive/v1.3.0.tar.gz"
-  sha256 "c5f77d50eeda704a228f30f5a233ef0e56ef9f4cc83433d46e331b3247d28c6d"
+  url "https://github.com/github/git-sizer/archive/v1.4.0.tar.gz"
+  sha256 "5dafc4014d6bfae40e678d72c0a67a29cd9ac7b38a0894fc75ab8c05a9064a4b"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "54dcd27b35469e1484f5ef6d13af998417f9c6596dd42b2485f3a33d4186c127"
@@ -16,13 +15,7 @@ class GitSizer < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/github/git-sizer").install buildpath.children
-    cd "src/github.com/github/git-sizer" do
-      system "go", "build", *std_go_args(ldflags: "-X main.ReleaseVersion=#{version}")
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args(ldflags: "-X main.ReleaseVersion=#{version}")
   end
 
   test do
