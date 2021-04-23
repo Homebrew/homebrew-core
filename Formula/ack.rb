@@ -14,7 +14,7 @@ class Ack < Formula
     end
   end
 
-  bottle :unneeded
+  depends_on "pod2man" => :build
 
   uses_from_macos "perl"
 
@@ -38,7 +38,7 @@ class Ack < Formula
       man1.install "blib/man1/ack.1"
     else
       bin.install "ack-v#{version.to_s.tr("-", "_")}" => "ack"
-      system "pod2man", "#{bin}/ack", "ack.1"
+      system "#{Formula["pod2man"].opt_bin}/pod2man", "#{bin}/ack", "ack.1", "--release=ack v#{version}"
       man1.install "ack.1"
     end
   end
