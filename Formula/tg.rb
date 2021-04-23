@@ -21,7 +21,12 @@ class Tg < Formula
   end
 
   test do
-    (testpath/".config/tg/conf.py").write("")
-    assert_match version.to_s, shell_output("#{bin}/tg -v")
+    require "pty"
+
+    PTY.spawn(bin/"tg") do |r, w, _pid|
+      assert_match "Enter your phone", r.gets
+      w.close
+      r.close
+    end
   end
 end
