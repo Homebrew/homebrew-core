@@ -4,6 +4,11 @@ class Cdparanoia < Formula
   url "https://downloads.xiph.org/releases/cdparanoia/cdparanoia-III-10.2.src.tgz"
   sha256 "005db45ef4ee017f5c32ec124f913a0546e77014266c6a1c50df902a55fe64df"
 
+  livecheck do
+    url "https://www.xiph.org/paranoia/down.html"
+    regex(/href=.*?cdparanoia-III[._-]v?(\d+(?:\.\d+)+)\.src\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "79d03f652937117697ae235b7bbb8558be9cb86edc42c330316204a288d5cb59"
     sha256 cellar: :any, big_sur:       "2b7649f89581be2a35b246e4aab15e936573d3920f794ae5187e23b796874dbf"
