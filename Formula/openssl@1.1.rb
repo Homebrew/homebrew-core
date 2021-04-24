@@ -5,6 +5,7 @@ class OpensslAT11 < Formula
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1k.tar.gz"
   sha256 "892a0875b9872acd04a9fde79b1f943075d5ea162415de3047c327df33fbaee5"
   license "OpenSSL"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -20,6 +21,8 @@ class OpensslAT11 < Formula
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
+
+  uses_from_macos "zlib"
 
   on_linux do
     resource "cacert" do
@@ -46,16 +49,16 @@ class OpensslAT11 < Formula
   end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
-  # SSLv3 & zlib are off by default with 1.1.0 but this may not
-  # be obvious to everyone, so explicitly state it for now to
-  # help debug inevitable breakage.
+  # SSLv3 and zlib are off by default with 1.1.0. We enable zlib as
+  # is is useful for some apps. Explicitly state both of these facts
+  # to help debug future breakage.
   def configure_args
     args = %W[
       --prefix=#{prefix}
       --openssldir=#{openssldir}
       no-ssl3
       no-ssl3-method
-      no-zlib
+      zlib-dynamic
     ]
     on_linux do
       args += (ENV.cflags || "").split
