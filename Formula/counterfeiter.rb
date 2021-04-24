@@ -20,8 +20,11 @@ class Counterfeiter < Formula
   end
 
   test do
-    output = shell_output("#{bin}/counterfeiter -p os 2>&1", 1)
-    assert_match "go: cannot find GOROOT directory", output
+    ENV["GOROOT"] = Formula["go"].opt_libexec
+
+    output = shell_output("#{bin}/counterfeiter -p os 2>&1")
+    assert_predicate testpath/"osshim", :exist?
+    assert_match "Writing `Os` to `osshim/os.go`...", output
 
     output = shell_output("#{bin}/counterfeiter -generate 2>&1", 1)
     assert_match "no buildable Go source files", output
