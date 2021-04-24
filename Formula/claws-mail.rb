@@ -6,6 +6,11 @@ class ClawsMail < Formula
   license "GPL-3.0-or-later"
   revision 1
 
+  livecheck do
+    url "https://www.claws-mail.org/releases.php"
+    regex(/href=.*?claws-mail[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "bbd1c67af463fb0645306523ebe20d37833aa8e3d38c042e8ce60d378c53d1d0"
     sha256 big_sur:       "cc9a93ec8f3322edcd9c9be0a3c9b059d130008115e19276533675432cae1c67"
