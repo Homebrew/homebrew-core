@@ -3,8 +3,9 @@ class Jrnl < Formula
 
   desc "Command-line note taker"
   homepage "https://jrnl.sh/"
-  url "https://files.pythonhosted.org/packages/82/5b/145bef5f739d1451fa1c32130fef936cddb008684f67e0fbe611079399d3/jrnl-2.8.tar.gz"
-  sha256 "9a3240462523e56ef9497a5fcdec42ec693d2ef6b8959b965197b49dfee148fe"
+  url "https://files.pythonhosted.org/packages/76/9b/87e8c99a2bb5ae7d6912c25d70eadd20b1c5a882acfc8aec61402b157440/jrnl-2.8.1.tar.gz"
+  version "2.8.1"
+  sha256 "a69f0fa9be3dff7fa32d8a2ea3697ed828329b1db595fde23bbba5eab460d519"
   license "GPL-3.0-only"
 
   bottle do
@@ -49,8 +50,8 @@ class Jrnl < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/64/bc/1b4b48fc8ec1375717736f6dfb06e6a57972b1dd4ed16d5e9463c880e7b0/importlib_metadata-3.8.1.tar.gz"
-    sha256 "eb83dfc8d87a64d42fb2904312d632bb8d57e47c5b435f8d4d5523d2b0efc3d0"
+    url "https://files.pythonhosted.org/packages/91/b6/4f8d521c15fa22bca780aeff56a5b43665ac522585b2b2090e3626ca585f/importlib_metadata-4.0.1.tar.gz"
+    sha256 "8c501196e49fb9df5df43833bdb1e4328f64847763ec8a50703148b73784d581"
   end
 
   resource "keyring" do
