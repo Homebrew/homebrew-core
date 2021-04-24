@@ -3,8 +3,8 @@ class GitReview < Formula
 
   desc "Submit git branches to gerrit for review"
   homepage "https://opendev.org/opendev/git-review"
-  url "https://files.pythonhosted.org/packages/54/36/445652deaa5e19a58e5512bdc8c5a37ccc9673cb205c7e06ff776cb8b228/git-review-2.0.0.tar.gz"
-  sha256 "6e6c86b61334526c5c0f200fdf61957310b0c32208339a38c890db7fe0de5452"
+  url "https://files.pythonhosted.org/packages/52/32/314cdb83186d43661a36d3e49390f818bce4e878b90a0bc980a3c70252bb/git-review-2.1.0.tar.gz"
+  sha256 "3a6c775645b1fa8c40c49fbfce6f8d7e225a1e797a0aa92912607b1d97e61ed6"
   license "Apache-2.0"
   head "https://opendev.org/opendev/git-review.git"
 
@@ -38,8 +38,8 @@ class GitReview < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/d7/8d/7ee68c6b48e1ec8d41198f694ecdc15f7596356f2ff8e6b1420300cf5db3/urllib3-1.26.3.tar.gz"
-    sha256 "de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
+    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
+    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
   end
 
   def install
