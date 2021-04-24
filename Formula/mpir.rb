@@ -5,6 +5,11 @@ class Mpir < Formula
   sha256 "52f63459cf3f9478859de29e00357f004050ead70b45913f2c2269d9708675bb"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url "https://mpir.org/downloads.html"
+    regex(/href=.*?mpir[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any, arm64_big_sur: "dcfb7c5e0b679f0d3cc14ec76fa3a565f8b521ba19a2d6212e6f39b27f220a6c"
