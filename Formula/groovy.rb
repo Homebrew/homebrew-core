@@ -6,8 +6,8 @@ class Groovy < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://dl.bintray.com/groovy/maven/"
-    regex(/href=.*?groovy-binary[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+    url "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/"
+    regex(/href=.*?apache-groovy-binary[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
   bottle :unneeded
