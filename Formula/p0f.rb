@@ -5,6 +5,11 @@ class P0f < Formula
   sha256 "543b68638e739be5c3e818c3958c3b124ac0ccb8be62ba274b4241dbdec00e7f"
   license "LGPL-2.1-only"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?p0f[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 arm64_big_sur: "c2b5dfb6885142c3066f900623a1cb1e4920335ad80455f49ae463f2bb07e953"
