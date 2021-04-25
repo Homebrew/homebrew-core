@@ -19,13 +19,11 @@ class Zstd < Formula
   uses_from_macos "zlib"
 
   def install
-    rpath = "-DCMAKE_INSTALL_RPATH=@loader_path/../lib"
-    on_linux do
-      rpath = nil
-    end
-
     cd "build/cmake" do
-      system "cmake", "-S", ".", "-B", "builddir", "-DZSTD_BUILD_CONTRIB=ON", *std_cmake_args, rpath
+      system "cmake", "-S", ".", "-B", "builddir",
+                      "-DZSTD_BUILD_CONTRIB=ON",
+                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                      *std_cmake_args
       system "cmake", "--build", "builddir"
       system "cmake", "--install", "builddir"
     end
