@@ -57,7 +57,8 @@ class Gdcm < Formula
       -DPYTHON_EXECUTABLE=#{python_executable}
       -DPYTHON_INCLUDE_DIR=#{python_include}
       -DGDCM_INSTALL_PYTHONMODULE_DIR=#{lib}/python#{xy}/site-packages
-      -DCMAKE_INSTALL_RPATH=#{lib}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
       -DGDCM_NO_PYTHON_LIBS_LINKING=ON
     ]
 
