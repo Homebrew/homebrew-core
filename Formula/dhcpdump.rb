@@ -1,9 +1,14 @@
 class Dhcpdump < Formula
   desc "Monitor DHCP traffic for debugging purposes"
-  homepage "https://www.mavetju.org/"
+  homepage "https://www.mavetju.org/unix/general.php"
   url "https://www.mavetju.org/download/dhcpdump-1.8.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/d/dhcpdump/dhcpdump_1.8.orig.tar.gz"
   sha256 "6d5eb9418162fb738bc56e4c1682ce7f7392dd96e568cc996e44c28de7f77190"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?dhcpdump[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ea331a3bb132f7f9fbc334e85fd7d7cfc6cf7314df93bf123c5e042febbe1951"
