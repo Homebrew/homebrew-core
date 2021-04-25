@@ -4,7 +4,7 @@ class Libbitcoin < Formula
   url "https://github.com/libbitcoin/libbitcoin-system/archive/v3.6.0.tar.gz"
   sha256 "5bcc4c31b53acbc9c0d151ace95d684909db4bf946f8d724f76c711934c6775c"
   license "AGPL-3.0"
-  revision 6
+  revision 7
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "ffa7dcb602fe16966e0a6b0814cbe7640a851aa783b0c34a8f0fc596fb654d66"
@@ -27,6 +27,7 @@ class Libbitcoin < Formula
   end
 
   def install
+    ENV.cxx11
     resource("secp256k1").stage do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
@@ -50,6 +51,7 @@ class Libbitcoin < Formula
   end
 
   test do
+    boost = Formula["boost"]
     (testpath/"test.cpp").write <<~EOS
       #include <bitcoin/bitcoin.hpp>
       int main() {
@@ -63,7 +65,7 @@ class Libbitcoin < Formula
       }
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lbitcoin",
-                    "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+                    "-L#{boost.opt_lib}", "-lboost_system",
                     "-o", "test"
     system "./test"
   end
