@@ -31,6 +31,7 @@ class Bpytop < Formula
 
   test do
     config = (testpath/".config/bpytop")
+    mkdir config/"themes"
     (config/"bpytop.conf").write <<~EOS
       #? Config file for bpytop v. #{version}
 
