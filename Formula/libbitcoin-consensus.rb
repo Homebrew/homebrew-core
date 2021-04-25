@@ -4,7 +4,7 @@ class LibbitcoinConsensus < Formula
   url "https://github.com/libbitcoin/libbitcoin-consensus/archive/v3.6.0.tar.gz"
   sha256 "a4252f40910fcb61da14cf8028bf3824125bacb0fc251491c9bb4e2818065fca"
   license "AGPL-3.0"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -26,6 +26,7 @@ class LibbitcoinConsensus < Formula
   end
 
   def install
+    ENV.cxx11
     resource("secp256k1").stage do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
