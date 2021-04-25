@@ -5,6 +5,11 @@ class Tofrodos < Formula
   sha256 "3457f6f3e47dd8c6704049cef81cb0c5a35cc32df9fe800b5fbb470804f0885f"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?tofrodos[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "abd0c2470073c169d8fdbca2f0f65fe458da25456a8ace5758d394988d0f5ed7"
     sha256 cellar: :any_skip_relocation, big_sur:       "11f0293ead8b99af5173c84b0e80cb63b3aefbddc6b411ce222f841383e8a4d8"
