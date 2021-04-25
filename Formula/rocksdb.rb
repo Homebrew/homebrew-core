@@ -33,7 +33,7 @@ class Rocksdb < Formula
       -DWITH_SNAPPY=ON
       -DWITH_ZLIB=ON
       -DWITH_ZSTD=ON
-      -DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{lib}
+      -DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}
     ]
 
     # build regular rocksdb
