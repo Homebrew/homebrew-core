@@ -21,7 +21,7 @@ class Assimp < Formula
   def install
     args = std_cmake_args
     args << "-DASSIMP_BUILD_TESTS=OFF"
-    args << "-DCMAKE_INSTALL_RPATH=#{lib}"
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", *args
     system "make", "install"
   end
