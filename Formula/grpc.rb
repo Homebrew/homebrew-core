@@ -40,7 +40,7 @@ class Grpc < Formula
         ../..
         -DCMAKE_CXX_STANDARD=17
         -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
-        -DCMAKE_INSTALL_RPATH=#{lib}
+        -DCMAKE_INSTALL_RPATH=#{rpath}
         -DBUILD_SHARED_LIBS=ON
         -DgRPC_BUILD_TESTS=OFF
         -DgRPC_INSTALL=ON
@@ -55,22 +55,18 @@ class Grpc < Formula
       system "cmake", *args
       system "make", "install"
 
-      # grpc_cli does not build correctly with a non-/usr/local prefix.
-      # Reported upstream at https://github.com/grpc/grpc/issues/25176
-      # When removing the `unless` block, make sure to do the same for
-      # the test block.
-      unless Hardware::CPU.arm?
-        args = %W[
-          ../..
-          -DCMAKE_INSTALL_RPATH=#{lib}
-          -DBUILD_SHARED_LIBS=ON
-          -DgRPC_BUILD_TESTS=ON
-        ] + std_cmake_args
-        system "cmake", *args
-        system "make", "grpc_cli"
-        bin.install "grpc_cli"
-        lib.install Dir[shared_library("libgrpc++_test_config", "*")]
-      end
+      args = %W[
+        ../..
+        -DCMAKE_INSTALL_RPATH=#{rpath}
+        -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
+        -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
+        -DBUILD_SHARED_LIBS=ON
+        -DgRPC_BUILD_TESTS=ON
+      ] + std_cmake_args
+      system "cmake", *args
+      system "make", "grpc_cli"
+      bin.install "grpc_cli"
+      lib.install Dir[shared_library("libgrpc++_test_config", "*")]
     end
   end
 
@@ -87,9 +83,7 @@ class Grpc < Formula
     pkg_config_flags = shell_output("pkg-config --cflags --libs libcares protobuf re2 grpc++").chomp.split
     system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *pkg_config_flags, "-o", "test"
     system "./test"
-    unless Hardware::CPU.arm?
-      output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
-      assert_match "Received an error when querying services endpoint.", output
-    end
+    output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
+    assert_match "Received an error when querying services endpoint.", output
   end
 end
