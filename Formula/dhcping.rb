@@ -5,6 +5,11 @@ class Dhcping < Formula
   mirror "https://deb.debian.org/debian/pool/main/d/dhcping/dhcping_1.2.orig.tar.gz"
   sha256 "32ef86959b0bdce4b33d4b2b216eee7148f7de7037ced81b2116210bc7d3646a"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dhcping[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8126f3068682d4e4629158c4bec5f71fe557671ee93521d4a46286fcc8a9e53a"
     sha256 cellar: :any_skip_relocation, big_sur:       "cea21616fd5abd22da30648e6744ff16630f3ead891b8336ca668c3fa3f93a0a"
