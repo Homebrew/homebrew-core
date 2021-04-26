@@ -10,8 +10,6 @@ class Groovy < Formula
     regex(/href=.*?apache-groovy-binary[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   conflicts_with "groovysdk", because: "both install the same binaries"
