@@ -5,6 +5,7 @@ class Dbus < Formula
   url "https://dbus.freedesktop.org/releases/dbus/dbus-1.12.20.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.12.20.orig.tar.gz"
   sha256 "f77620140ecb4cdc67f37fb444f8a6bea70b5b6461f12f1cbe2cec60fa7de5fe"
+  license any_of: ["AFL-2.1", "GPL-2.0-or-later"]
 
   livecheck do
     url "https://dbus.freedesktop.org/releases/dbus/"
@@ -28,42 +29,44 @@ class Dbus < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
 
   uses_from_macos "expat"
 
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
-
-  # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
-  # Homebrew pr/issue: 50219
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0a8a55872e/d-bus/org.freedesktop.dbus-session.plist.osx.diff"
-    sha256 "a8aa6fe3f2d8f873ad3f683013491f5362d551bf5d4c3b469f1efbc5459a20dc"
+  on_macos do
+    # Patch applies the config templating fixed in https://bugs.freedesktop.org/show_bug.cgi?id=94494
+    # Homebrew pr/issue: 50219
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0a8a55872e/d-bus/org.freedesktop.dbus-session.plist.osx.diff"
+      sha256 "a8aa6fe3f2d8f873ad3f683013491f5362d551bf5d4c3b469f1efbc5459a20dc"
+    end
   end
 
   def install
     # Fix the TMPDIR to one D-Bus doesn't reject due to odd symbols
     ENV["TMPDIR"] = "/tmp"
-
-    # macOS doesn't include a pkg-config file for expat
-    ENV["EXPAT_CFLAGS"] = "-I#{MacOS.sdk_path}/usr/include"
-    ENV["EXPAT_LIBS"] = "-lexpat"
-
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
     system "./autogen.sh", "--no-configure" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--localstatedir=#{var}",
-                          "--sysconfdir=#{etc}",
-                          "--enable-xml-docs",
-                          "--disable-doxygen-docs",
-                          "--enable-launchd",
-                          "--with-launchd-agent-dir=#{prefix}",
-                          "--without-x",
-                          "--disable-tests"
+
+    args = [
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}",
+      "--localstatedir=#{var}",
+      "--sysconfdir=#{etc}",
+      "--enable-xml-docs",
+      "--disable-doxygen-docs",
+      "--without-x",
+      "--disable-tests",
+    ]
+
+    on_macos do
+      args << "--enable-launchd"
+      args << "--with-launchd-agent-dir=#{prefix}"
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 
