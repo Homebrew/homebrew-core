@@ -6,6 +6,18 @@ class HttpLoad < Formula
   sha256 "5a7b00688680e3fca8726dc836fd3f94f403fde831c71d73d9a1537f215b4587"
   revision 2
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?http_load[._-]v?(\d+[a-z]+\d+)\.t/i)
+    strategy :page_match do |page, regex|
+      # Convert date-based version from 09Mar2016 format to 20160309
+      page.scan(regex).map do |match|
+        date_str = match&.first
+        date_str ? Date.parse(date_str)&.strftime("%Y%m%d") : nil
+      end
+    end
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d5fc5ba0ce6baf991e45fcb70f6e2fd3153e1f902d1d510cf015b3ff8cc4d0c3"
     sha256 cellar: :any, big_sur:       "67456aed34ccc1d9873b946ed2adb7c86ecd52ad90a495f9527afd0a883710d0"
