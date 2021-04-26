@@ -4,7 +4,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/6.0/6.0.3/single/qt-everywhere-src-6.0.3.tar.xz"
   sha256 "ca4a97439443dd0b476a47b284ba772c3b1b041a9eef733e26a789490993a0e3"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
+  revision 2
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
   # The first-party website doesn't make version information readily available,
@@ -83,6 +83,7 @@ class Qt < Formula
 
       -libproxy
       -no-feature-relocatable
+      -no-feature-brotli
       -system-sqlite
 
       -no-sql-mysql
