@@ -9,7 +9,7 @@ class Odin < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+[a-z]?)$/i)
   end
 
   bottle do
