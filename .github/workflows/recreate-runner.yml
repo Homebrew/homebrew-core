@@ -1,0 +1,22 @@
+name: Recreate Linux self-hosted runner on schedule
+
+# on:
+#   workflow_dispatch:
+#   schedule:
+#     # Once each 24 hours, at 1 during the night
+#     - cron: "0 0 1 1/1 *"
+
+on: pull_request
+
+jobs:
+  recreate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          version: 12
+      - run: npm install @octokit/action
+      - run: node .github/actions/find-runner.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
