@@ -9,8 +9,6 @@ class Artifactory < Formula
     regex(/href=.*?jfrog-artifactory-oss[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
