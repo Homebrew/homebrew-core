@@ -19,6 +19,7 @@ class Mysql < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "graphviz"
   depends_on "openssl@1.1"
   depends_on "protobuf"
 
