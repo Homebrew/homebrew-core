@@ -5,8 +5,6 @@ class Paket < Formula
   sha256 "58185853a390c979aedec9fe2b7b2f81c1131ebfae51c5be4121b670b329deef"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "mono"
 
   def install
