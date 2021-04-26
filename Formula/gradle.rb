@@ -10,8 +10,6 @@ class Gradle < Formula
     regex(/href=.*?gradle[._-]v?(\d+(?:\.\d+)+)-all\.(?:[tz])/i)
   end
 
-  bottle :unneeded
-
   # gradle currently does not support Java 16
   if Hardware::CPU.arm?
     depends_on "openjdk@11"
