@@ -6,8 +6,8 @@ class StoneSoup < Formula
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://crawl.develz.org/download.htm"
-    regex(/Stable.*?>v?(\d+(?:\.\d+)+)</i)
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
