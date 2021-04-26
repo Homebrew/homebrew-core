@@ -6,8 +6,6 @@ class ZshViMode < Formula
   license "MIT"
   head "https://github.com/jeffreytse/zsh-vi-mode.git"
 
-  bottle :unneeded
-
   def install
     pkgshare.install "zsh-vi-mode.zsh"
     pkgshare.install "zsh-vi-mode.plugin.zsh"
