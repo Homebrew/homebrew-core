@@ -5,10 +5,11 @@ class Denominator < Formula
   sha256 "f2d09aaebb63ccb348dcba3a5cc3e94a42b0eae49e90ac0ec2b0a14adfbe5254"
   license "Apache-2.0"
 
-  bottle :unneeded
+  depends_on "openjdk"
 
   def install
-    bin.install "denominator-cli-4.7.1-fat.jar" => "denominator"
+    (libexec/"bin").install "denominator-cli-#{version}-fat.jar"
+    bin.write_jar_script libexec/"bin/denominator-cli-#{version}-fat.jar", "denominator"
   end
 
   test do
