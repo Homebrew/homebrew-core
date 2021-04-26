@@ -23,9 +23,12 @@ class Libwebm < Formula
       system "cmake", "..", *std_cmake_args
       system "make"
       lib.install "libwebm.a"
-      bin.install %w[sample sample_muxer vttdemux webm2pes]
+      bin.install %w[mkvparser_sample mkvmuxer_sample vttdemux webm2pes]
     end
     include.install Dir.glob("mkv*.hpp")
+    (include/"mkvmuxer").install Dir.glob("mkvmuxer/mkv*.h")
+    (include/"common").install Dir.glob("common/*.h")
+    (include/"mkvparser").install Dir.glob("mkvparser/mkv*.h")
     include.install Dir.glob("vtt*.h")
   end
 
