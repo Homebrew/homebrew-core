@@ -32,11 +32,20 @@ class Gtk4 < Formula
   depends_on "pango"
 
   uses_from_macos "libxslt" => :build # for xsltproc
+  uses_from_macos "cups"
+
+  on_linux do
+    depends_on "libxkbcommon"
+  end
+
+  # fix linux build https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/3480
+  patch do
+    url "https://gitlab.gnome.org/dlech/gtk/-/commit/b393b811c7a66a950485770f5864435c04c59d6e.diff"
+    sha256 "1a9d1f7c857ebc33b6bb8e7c63cb6d547227394009319d2906ddc4ff7a3eb6aa"
+  end
 
   def install
     args = std_meson_args + %w[
-      -Dx11-backend=false
-      -Dmacos-backend=true
       -Dgtk_doc=false
       -Dman-pages=true
       -Dintrospection=enabled
@@ -44,7 +53,11 @@ class Gtk4 < Formula
       -Dbuild-tests=false
     ]
 
-    args << "-Dprint-cups=disabled" if MacOS.version <= :mojave
+    on_macos do
+      args << "-Dx11-backend=false"
+      args << "-Dmacos-backend=true"
+      args << "-Dprint-cups=disabled" if MacOS.version <= :mojave
+    end
 
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
