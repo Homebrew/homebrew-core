@@ -31,6 +31,28 @@ class Mesa < Formula
   depends_on "libxdamage"
   depends_on "libxext"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "llvm"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "lm-sensors"
+    depends_on "libelf"
+    depends_on "libxfixes"
+    depends_on "libxrandr"
+    depends_on "libxshmfence"
+    depends_on "libxv"
+    depends_on "libxvmc"
+    depends_on "libxxf86vm"
+    depends_on "libva"
+    depends_on "libvdpau"
+    depends_on "libdrm"
+    depends_on "wayland"
+    depends_on "wayland-protocols"
+  end
+
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
     sha256 "17831f0b7087c313c0ffae2bcbbd3c1d5ba9eeac9c38f2eb7b50e8c99fe9d5ab"
@@ -61,9 +83,36 @@ class Mesa < Formula
     ENV.prepend_path "PATH", "#{venv_root}/bin"
 
     mkdir "build" do
-      system "meson", *std_meson_args, "..", "-Db_ndebug=true"
+      args = ["-Db_ndebug=true"]
+
+      on_linux do
+        args << "-Dplatforms=x11,wayland"
+        args << "-Dglx=auto"
+        args << "-Ddri3=true"
+        args << "-Ddri-drivers=auto"
+        args << "-Dgallium-drivers=auto"
+        args << "-Dgallium-omx=disabled"
+        args << "-Degl=true"
+        args << "-Dgbm=true"
+        args << "-Dopengl=true"
+        args << "-Dgles1=true"
+        args << "-Dgles2=true"
+        args << "-Dxvmc=true"
+        args << "-Dvalgrind=false"
+        args << "-Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,xvmc,lima"
+      end
+
+      system "meson", *std_meson_args, "..", *args
       system "ninja"
       system "ninja", "install"
+    end
+
+    on_linux do
+      # Strip executables/libraries/object files to reduce their size
+      system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
+        f = Pathname.new(f)
+        f.file? && (f.elf? || f.extname == ".a")
+      end)
     end
   end
 
