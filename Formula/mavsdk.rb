@@ -5,6 +5,7 @@ class Mavsdk < Formula
       tag:      "v0.39.0",
       revision: "988a10244856324a622007546d3231b5dfe1d475"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -40,7 +41,7 @@ class Mavsdk < Formula
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DBUILD_MAVSDK_SERVER=ON",
                     "-DBUILD_TESTS=OFF",
-                    "-DCMAKE_INSTALL_RPATH=#{lib}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-H."
     system "cmake", "--build", "build/default"
     system "cmake", "--build", "build/default", "--target", "install"
