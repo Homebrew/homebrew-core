@@ -10,8 +10,6 @@ class Composer < Formula
     regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/composer\.phar}i)
   end
 
-  bottle :unneeded
-
   def install
     bin.install "composer.phar" => "composer"
   end
