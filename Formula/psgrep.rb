@@ -6,8 +6,6 @@ class Psgrep < Formula
   license "GPL-3.0"
   head "https://github.com/jvz/psgrep.git"
 
-  bottle :unneeded
-
   def install
     bin.install "psgrep"
     man1.install "psgrep.1"
