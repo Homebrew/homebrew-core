@@ -6,8 +6,6 @@ class Nvm < Formula
   license "MIT"
   head "https://github.com/nvm-sh/nvm.git"
 
-  bottle :unneeded
-
   def install
     prefix.install "nvm.sh", "nvm-exec"
     bash_completion.install "bash_completion" => "nvm"
