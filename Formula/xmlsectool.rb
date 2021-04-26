@@ -10,8 +10,6 @@ class Xmlsectool < Formula
     regex(/href=.*?xmlsectool[._-]v?(\d+(?:\.\d+)+)(?:-bin)?\.zip/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
