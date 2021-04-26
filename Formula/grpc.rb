@@ -6,7 +6,7 @@ class Grpc < Formula
       revision: "3e53dbe8213137d2c731ecd4d88ebd2948941d75",
       shallow:  false
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/grpc/grpc.git"
 
   livecheck do
@@ -40,7 +40,7 @@ class Grpc < Formula
         ../..
         -DCMAKE_CXX_STANDARD=17
         -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
-        -DCMAKE_INSTALL_RPATH=#{lib}
+        -DCMAKE_INSTALL_RPATH=#{rpath}
         -DBUILD_SHARED_LIBS=ON
         -DgRPC_BUILD_TESTS=OFF
         -DgRPC_INSTALL=ON
@@ -62,7 +62,7 @@ class Grpc < Formula
       unless Hardware::CPU.arm?
         args = %W[
           ../..
-          -DCMAKE_INSTALL_RPATH=#{lib}
+          -DCMAKE_INSTALL_RPATH=#{rpath}
           -DBUILD_SHARED_LIBS=ON
           -DgRPC_BUILD_TESTS=ON
         ] + std_cmake_args
