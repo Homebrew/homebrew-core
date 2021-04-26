@@ -6,8 +6,6 @@ class BootClj < Formula
   license "EPL-1.0"
   revision 2
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
