@@ -6,8 +6,6 @@ class Gifify < Formula
   license "MIT"
   head "https://github.com/jclem/gifify.git"
 
-  bottle :unneeded
-
   depends_on "ffmpeg"
   depends_on "imagemagick"
 
