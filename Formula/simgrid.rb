@@ -3,12 +3,12 @@ class Simgrid < Formula
 
   desc "Studies behavior of large-scale distributed systems"
   homepage "https://simgrid.org/"
-  url "https://framagit.org/simgrid/simgrid/uploads/98ec9471211bba09aa87d7866c9acead/simgrid-3.26.tar.gz"
-  sha256 "ac50da1eacc5a53b094a988a8ecde09962c29320f346b45e74dd32ab9d9f3e96"
+  url "https://framagit.org/simgrid/simgrid/uploads/b95690ca814bc12e905115e51e45112d/simgrid-3.27.tar.gz"
+  sha256 "51aeb9de0434066e5fec40e785f5ea9fa934afe7f6bfb4aa627246e765f1d6d7"
 
   livecheck do
-    url "https://framagit.org/simgrid/simgrid.git"
-    regex(/^v?(\d+(?:[._]\d+)+)$/i)
+    url :homepage
+    regex(/href=.*?simgrid[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
