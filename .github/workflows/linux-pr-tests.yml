@@ -32,6 +32,7 @@ on:
       - "Formula/numactl.rb"
       - "Formula/sshfs.rb"
       - "Formula/strace.rb"
+      - "Formula/sysstat.rb"
       - "Formula/systemd.rb"
       - "Formula/valgrind.rb"
       - "Formula/wayland.rb"
