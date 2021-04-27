@@ -25,12 +25,6 @@ class Sniffglue < Formula
     sha256 "bac79a9c3413637f871193589d848697af895b7f2700d949022224d59aa6830f"
   end
 
-  # Fix build with Rust 1.51. Remove at next release.
-  patch do
-    url "https://github.com/kpcyrd/sniffglue/commit/e2244ab2616272faa8ebce18308e146f275250c4.patch?full_index=1"
-    sha256 "9eeda436c2a807a891195ff15a0bb29ce3493341d8ae19e5b2b9005a640453b9"
-  end
-
   def install
     system "cargo", "install", *std_cargo_args
 
