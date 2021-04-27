@@ -29,10 +29,15 @@ class Dartsim < Formula
 
   def install
     ENV.cxx11
+    args = std_cmake_args
 
-    # Force to link to system GLUT (see: https://cmake.org/Bug/view.php?id=16045)
-    system "cmake", ".", "-DGLUT_glut_LIBRARY=/System/Library/Frameworks/GLUT.framework",
-                         *std_cmake_args
+    on_macos do
+      # Force to link to system GLUT (see: https://cmake.org/Bug/view.php?id=16045)
+      glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
+      args << "-DGLUT_glut_LIBRARY=#{glut_lib}"
+    end
+
+    system "cmake", ".", *args
     system "make", "install"
 
     # Clean up the build file garbage that has been installed.
