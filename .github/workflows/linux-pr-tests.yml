@@ -26,6 +26,7 @@ on:
       - "Formula/libva.rb"
       - "Formula/linux-headers.rb"
       - "Formula/linux-pam.rb"
+      - "Formula/lm-sensors.rb"
       - "Formula/lttng-ust.rb"
       - "Formula/net-tools.rb"
       - "Formula/numactl.rb"
