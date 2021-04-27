@@ -9,8 +9,6 @@ class Repo < Formula
   license "Apache-2.0"
   version_scheme 1
 
-  bottle :unneeded
-
   depends_on "python@3.9"
 
   def install
