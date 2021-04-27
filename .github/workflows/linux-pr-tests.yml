@@ -5,6 +5,7 @@ on:
       - .github/workflows/linux-pr-tests.yml
       - "Formula/alsa-lib.rb"
       - "Formula/attr.rb"
+      - "Formula/at-spi2-core.rb"
       - "Formula/device-mapper.rb"
       - "Formula/glibc.rb"
       - "Formula/libaio.rb"
