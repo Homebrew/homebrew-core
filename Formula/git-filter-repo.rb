@@ -7,8 +7,6 @@ class GitFilterRepo < Formula
   sha256 "eb269f6e9b91fcacf676f7d5b8174d962dab5facce2022cc59cb672cd33cd602"
   license "MIT"
 
-  bottle :unneeded
-
   # ignore git dependency audit:
   #  * Don't use git as a dependency (it's always available)
   # But we require Git 2.22.0+
