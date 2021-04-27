@@ -6,8 +6,6 @@ class Sbtenv < Formula
   license "MIT"
   head "https://github.com/sbtenv/sbtenv.git"
 
-  bottle :unneeded
-
   def install
     inreplace "libexec/sbtenv", "/usr/local", HOMEBREW_PREFIX
     prefix.install "bin", "completions", "libexec"
