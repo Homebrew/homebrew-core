@@ -5,6 +5,7 @@ class LlvmAT11 < Formula
   sha256 "74d2529159fd118c3eac6f90107b5611bccc6f647fdea104024183e8d5e25831"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
 
   livecheck do
     url :homepage
@@ -73,6 +74,12 @@ class LlvmAT11 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/6166a68c/llvm/openmp_arm.patch"
     sha256 "70fe3836b423e593688cd1cc7a3d76ee6406e64b9909f1a2f780c6f018f89b1e"
+  end
+
+  # Support for macOS 11.3+ SDKs
+  patch do
+    url "https://github.com/llvm/llvm-project/commit/a3a24316087d0e1b4db0b8fee19cdee8b7968032.patch?full_index=1"
+    sha256 "744aaebcc8da875892a00cbe2ebc6bb16db97431808b49f134adf70e64cf0e91"
   end
 
   def install
