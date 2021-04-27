@@ -5,6 +5,11 @@ class Rgf < Formula
   sha256 "78ccd04dfcb610094393e8463e01e6933d9ff15ed08024e6088daf7ab0e94a97"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ec708a6c591ac0103bafc39608b3ac287b72c67b99d25929345b727776a96b65"
     sha256 cellar: :any_skip_relocation, big_sur:       "ce42712fd7c267b9df1de9e869c08b46a33227f416a7986c91bc181deaedf8b9"
