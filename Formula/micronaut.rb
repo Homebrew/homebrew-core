@@ -20,7 +20,7 @@ class Micronaut < Formula
   depends_on "openjdk"
 
   def install
-    system "gradle", "micronaut-cli:assemble", "-x", "test"
+    system "./gradlew", "micronaut-cli:assemble", "-x", "test"
 
     mkdir_p libexec/"bin"
     mv "starter-cli/build/exploded/bin/mn", libexec/"bin/mn"
