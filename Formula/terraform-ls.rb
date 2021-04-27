@@ -4,7 +4,7 @@ class TerraformLs < Formula
   url "https://github.com/hashicorp/terraform-ls/archive/v0.15.0.tar.gz"
   sha256 "1efa538816c8678fe1e1243bdd99b913056d64826d631dfd7a6795c37573ed97"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/terraform-ls.git"
+  head "https://github.com/hashicorp/terraform-ls.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2e9d6445cf5938f99875502ae54b4606753c0907f156add96f04caa702297e6f"
