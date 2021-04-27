@@ -1,10 +1,9 @@
 class XcbProto < Formula
   desc "X.Org: XML-XCB protocol descriptions for libxcb code generation"
   homepage "https://www.x.org/"
-  url "https://xcb.freedesktop.org/dist/xcb-proto-1.14.tar.gz"
-  sha256 "1c3fa23d091fb5e4f1e9bf145a902161cec00d260fabf880a7a248b02ab27031"
+  url "https://xorg.freedesktop.org/archive/individual/proto/xcb-proto-1.14.1.tar.xz"
+  sha256 "f04add9a972ac334ea11d9d7eb4fc7f8883835da3e4859c9afa971efdf57fcc3"
   license "MIT"
-  revision 2
 
   bottle do
     rebuild 2
@@ -16,13 +15,6 @@ class XcbProto < Formula
 
   depends_on "pkg-config" => [:build, :test]
   depends_on "python@3.9" => :build
-
-  # Fix for Python 3.9. Use math.gcd() for Python >= 3.5.
-  # fractions.gcd() has been deprecated since Python 3.5.
-  patch do
-    url "https://gitlab.freedesktop.org/xorg/proto/xcbproto/-/commit/426ae35bee1fa0fdb8b5120b1dcd20cee6e34512.diff"
-    sha256 "53593ed1b146baa47755da8e9c58f51b1451eec038b421b145d3f583055c55e0"
-  end
 
   def install
     args = %W[
