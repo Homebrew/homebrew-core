@@ -46,7 +46,15 @@ class Raylib < Formula
           return 42 <= num && num <= 1337 ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lraylib", "-o", "test"
+    flags = []
+    on_macos do
+      flags = %w[
+        -framework Cocoa
+        -framework IOKit
+        -framework OpenGL
+      ]
+    end
+    system ENV.cc, "test.c", "-L#{lib}", "-lraylib", "-o", "test", *flags
     system "./test"
   end
 end
