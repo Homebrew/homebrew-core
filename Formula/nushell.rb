@@ -4,6 +4,7 @@ class Nushell < Formula
   url "https://github.com/nushell/nushell/archive/0.30.0.tar.gz"
   sha256 "a36cd3d93c69aab83c874fe0c8b653ce9fe188da9f527d3bb28492ba213e579a"
   license "MIT"
+  revision 1
   head "https://github.com/nushell/nushell.git", branch: "main"
 
   livecheck do
@@ -29,7 +30,7 @@ class Nushell < Formula
   end
 
   def install
-    system "cargo", "install", "--features", "stable", *std_cargo_args
+    system "cargo", "install", "--features", "extra", *std_cargo_args
   end
 
   test do
