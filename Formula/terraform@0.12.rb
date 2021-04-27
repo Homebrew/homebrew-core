@@ -14,6 +14,7 @@ class TerraformAT012 < Formula
   keg_only :versioned_formula
 
   depends_on "go" => :build
+  depends_on macos: :catalina
 
   def install
     # v0.6.12 - source contains tests which fail if these environment variables are set locally.
