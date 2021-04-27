@@ -1,26 +1,9 @@
 class OpenMpi < Formula
   desc "High performance message passing library"
   homepage "https://www.open-mpi.org/"
+  url "https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.bz2"
+  sha256 "e24f7a778bd11a71ad0c14587a7f5b00e68a71aa5623e2157bafee3d44c07cda"
   license "BSD-3-Clause"
-
-  stable do
-    url "https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.bz2"
-    sha256 "e24f7a778bd11a71ad0c14587a7f5b00e68a71aa5623e2157bafee3d44c07cda"
-
-    if Hardware::CPU.arm?
-      # Dependencies needed for patch. Remove at next release.
-      depends_on "autoconf" => :build
-      depends_on "automake" => :build
-      depends_on "libtool" => :build
-
-      # Patch to fix ARM build. Remove at next release.
-      # https://github.com/open-mpi/ompi/pull/8421
-      patch do
-        url "https://github.com/open-mpi/ompi/commit/4779d8e079314ffd4556e3cb3289fecd07646cc5.patch?full_index=1"
-        sha256 "0553ffcc813919ee06937156073fc18ef6b55fa58201a9cba5168f35f7040c66"
-      end
-    end
-  end
 
   livecheck do
     url :homepage
@@ -87,8 +70,7 @@ class OpenMpi < Formula
     ]
     args << "--with-platform-optimized" if build.head?
 
-    # Remove ` || Hardware::CPU.arm?` in the next release
-    system "./autogen.pl", "--force" if build.head? || Hardware::CPU.arm?
+    system "./autogen.pl", "--force" if build.head?
     system "./configure", *args
     system "make", "all"
     system "make", "check"
