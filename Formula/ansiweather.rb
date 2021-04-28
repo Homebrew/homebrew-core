@@ -6,8 +6,6 @@ class Ansiweather < Formula
   license "BSD-2-Clause"
   head "https://github.com/fcambus/ansiweather.git"
 
-  bottle :unneeded
-
   depends_on "jq"
 
   def install
