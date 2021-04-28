@@ -5,13 +5,12 @@ class AnsibleCmdb < Formula
   sha256 "ab1be4a85184647bcec08d4e65bda66c7d08c0f88c81eca4d0e44e02b768c2bb"
   license "GPL-3.0-or-later"
 
-  bottle :unneeded
-
   depends_on "libyaml"
 
   def install
     prefix.install_metafiles
     man1.install "ansible-cmdb.man.1" => "ansible-cmdb.1"
+    inreplace "ansible-cmdb.py", "/usr/local", HOMEBREW_PREFIX
     libexec.install Dir["*"] - ["Makefile"]
     bin.write_exec_script libexec/"ansible-cmdb"
   end
