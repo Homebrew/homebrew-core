@@ -2,10 +2,9 @@ class Kubebuilder < Formula
   desc "SDK for building Kubernetes APIs using CRDs"
   homepage "https://github.com/kubernetes-sigs/kubebuilder"
   url "https://github.com/kubernetes-sigs/kubebuilder.git",
-      tag:      "v2.3.2",
-      revision: "5da27b892ae310e875c8719d94a5a04302c597d0"
+      tag:      "v3.0.0",
+      revision: "533874b302e9bf94cd7105831f8a543458752973"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/kubernetes-sigs/kubebuilder.git"
 
   bottle do
@@ -28,7 +27,7 @@ class Kubebuilder < Formula
       -X sigs.k8s.io/kubebuilder/v2/cmd/version.gitCommit=#{Utils.git_head}
       -X sigs.k8s.io/kubebuilder/v2/cmd/version.buildDate=#{Time.now.iso8601}
     ]
-    system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "./cmd"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd"
     prefix.install_metafiles
   end
 
