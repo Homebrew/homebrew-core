@@ -6,8 +6,6 @@ class Overdrive < Formula
   license "MIT"
   head "https://github.com/chbrown/overdrive.git"
 
-  bottle :unneeded
-
   depends_on "tidy-html5"
   uses_from_macos "curl"
   uses_from_macos "libressl"
