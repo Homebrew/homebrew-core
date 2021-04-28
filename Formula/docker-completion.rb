@@ -6,8 +6,6 @@ class DockerCompletion < Formula
       revision: "99e3ed89195c4e551e87aad1e7453b65456b03ad"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   conflicts_with "docker",
     because: "docker already includes these completion scripts"
 
