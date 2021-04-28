@@ -11,9 +11,8 @@ class Druid < Formula
     regex(/href=.*?druid[._-]v?(\d+(?:\.\d+)+)-bin\.t/i)
   end
 
-  bottle :unneeded
-
   depends_on "zookeeper" => :test
+  depends_on arch: :x86_64
   depends_on "openjdk@8"
 
   resource "mysql-metadata-storage" do
