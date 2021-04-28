@@ -9,8 +9,6 @@ class AntContrib < Formula
     regex(%r{url=.*?/ant-contrib[._-]v?(\d+(?:\.\d+)+(?:[a-z]\d+)?)-bin\.t}i)
   end
 
-  bottle :unneeded
-
   depends_on "ant"
 
   def install
