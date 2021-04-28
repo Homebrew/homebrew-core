@@ -11,8 +11,6 @@ class DjangoCompletion < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle :unneeded
-
   def install
     bash_completion.install "extras/django_bash_completion" => "django"
   end
