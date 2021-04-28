@@ -28,17 +28,17 @@ class Ldc < Formula
   resource "ldc-bootstrap" do
     on_macos do
       if Hardware::CPU.intel?
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.25.1/ldc2-1.25.1-osx-x86_64.tar.xz"
-        sha256 "ebf4ad51959e5845cb56a8b860b6619f44022186b06c28f0942272f5eb3d54c4"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.26.0/ldc2-1.26.0-osx-x86_64.tar.xz"
+        sha256 "b5af4e96b70b094711659b27a93406572cbd4ecf7003c1c84445c55c739c06a1"
       else
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.25.1/ldc2-1.25.1-osx-arm64.tar.xz"
-        sha256 "bb39aa145f74ff033423f06d43dbc26f9d650fe3794764bc938abef4bf1ca7f5"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.26.0/ldc2-1.26.0-osx-arm64.tar.xz"
+        sha256 "303930754c819d0f88434813a82122196bf3fe76ea5bd1b0f16d100b540100e6"
       end
     end
 
     on_linux do
-      url "https://github.com/ldc-developers/ldc/releases/download/v1.25.1/ldc2-1.25.1-linux-x86_64.tar.xz"
-      sha256 "d059c853db0313d9cdbc6c5c0f021b60e150f19ae68b4c53251ad0292767c095"
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.26.0/ldc2-1.26.0-linux-x86_64.tar.xz"
+      sha256 "06063a92ab2d6c6eebc10a4a9ed4bef3d0214abc9e314e0cd0546ee0b71b341e"
     end
   end
 
