@@ -6,8 +6,6 @@ class SpacemanDiff < Formula
   license "MIT"
   head "https://github.com/holman/spaceman-diff.git"
 
-  bottle :unneeded
-
   depends_on "imagemagick"
   depends_on "jp2a"
 
