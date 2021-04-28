@@ -11,8 +11,6 @@ class BundlerCompletion < Formula
     skip "No version information available"
   end
 
-  bottle :unneeded
-
   def install
     bash_completion.install "completion-bundle" => "bundler"
   end
