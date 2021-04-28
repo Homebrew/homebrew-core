@@ -6,8 +6,6 @@ class Gifcap < Formula
   license "MIT"
   head "https://github.com/outlook/gifcap.git"
 
-  bottle :unneeded
-
   depends_on "ffmpeg"
 
   def install
