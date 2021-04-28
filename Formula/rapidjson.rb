@@ -4,6 +4,7 @@ class Rapidjson < Formula
   url "https://github.com/miloyip/rapidjson/archive/v1.1.0.tar.gz"
   sha256 "bf7ced29704a1e696fbccf2a2b4ea068e7774fa37f6d7dd4039d0787f8bed98e"
   license "MIT"
+  revision 1
   head "https://github.com/miloyip/rapidjson.git"
 
   bottle do
@@ -21,6 +22,11 @@ class Rapidjson < Formula
   depends_on "doxygen" => :build
 
   conflicts_with "mesos", because: "mesos installs a copy of rapidjson headers"
+
+  patch do
+    url "https://github.com/Tencent/rapidjson/commit/2850576d53c63d1a9e472a785531697da89e41dc.patch?full_index=1"
+    sha256 "5b0117910629b03027ce27000e5d4713756ce21bc7ab099c76b2ccb84df518dd"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args
