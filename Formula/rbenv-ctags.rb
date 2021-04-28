@@ -7,8 +7,6 @@ class RbenvCtags < Formula
   revision 1
   head "https://github.com/tpope/rbenv-ctags.git"
 
-  bottle :unneeded
-
   depends_on "ctags"
   depends_on "rbenv"
 
