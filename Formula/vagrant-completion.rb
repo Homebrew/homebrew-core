@@ -6,8 +6,6 @@ class VagrantCompletion < Formula
   license "MIT"
   head "https://github.com/hashicorp/vagrant.git"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "contrib/bash/completion.sh" => "vagrant"
     zsh_completion.install "contrib/zsh/_vagrant"
