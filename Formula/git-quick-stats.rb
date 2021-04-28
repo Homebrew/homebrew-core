@@ -5,8 +5,6 @@ class GitQuickStats < Formula
   sha256 "47645d7eb261052f6818c73890b4bbc52d576cb877e2c91201f49f0d2b68115b"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bin.install "git-quick-stats"
   end
