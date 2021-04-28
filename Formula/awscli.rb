@@ -3,8 +3,8 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/2.1.39.tar.gz"
-  sha256 "45b4af14ff70e2b7ba9aa2f107dd321a56620506adfe9eebd6dd1a48b8345192"
+  url "https://github.com/aws/aws-cli/archive/2.2.0.tar.gz"
+  sha256 "cef019bd932570362cb410c1788382f77d56180626c54364914e8ae016273842"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
@@ -15,6 +15,7 @@ class Awscli < Formula
     sha256               mojave:        "9fa69138cad8cd539c851b1e95099eacfae8c3d933639ecbbfaaa5cff75a2e3a"
   end
 
+  depends_on "cmake" => :build
   depends_on "python@3.9"
 
   uses_from_macos "groff"
