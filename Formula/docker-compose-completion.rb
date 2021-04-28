@@ -11,8 +11,6 @@ class DockerComposeCompletion < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   conflicts_with "docker-compose",
     because: "docker-compose already includes completion scripts"
 
