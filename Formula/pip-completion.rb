@@ -14,8 +14,6 @@ class PipCompletion < Formula
     skip "No version information available"
   end
 
-  bottle :unneeded
-
   def install
     bash_completion.install "pip"
   end
