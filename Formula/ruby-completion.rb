@@ -7,8 +7,6 @@ class RubyCompletion < Formula
   license "MIT"
   head "https://github.com/mernen/completion-ruby.git"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "completion-ruby" => "ruby"
   end
