@@ -10,8 +10,6 @@ class Phpunit < Formula
     regex(/href=.*?phpunit[._-]v?(\d+(?:\.\d+)+)\.phar/i)
   end
 
-  bottle :unneeded
-
   depends_on "php" => :test
 
   def install
