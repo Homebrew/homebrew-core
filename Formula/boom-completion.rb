@@ -6,8 +6,6 @@ class BoomCompletion < Formula
   license "MIT"
   head "https://github.com/holman/boom.git"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "completion/boom.bash" => "boom"
     zsh_completion.install "completion/boom.zsh" => "_boom"
