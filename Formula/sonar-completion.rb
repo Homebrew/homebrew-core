@@ -6,8 +6,6 @@ class SonarCompletion < Formula
   license "Apache-2.0"
   head "https://github.com/a1dutch/sonarqube-bash-completion.git"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "etc/bash_completion.d/sonar"
   end
