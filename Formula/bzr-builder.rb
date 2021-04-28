@@ -4,8 +4,6 @@ class BzrBuilder < Formula
   url "https://launchpad.net/bzr-builder/trunk/0.7.3/+download/bzr-builder-0.7.3.tar.gz"
   sha256 "9f8a078eafd6700ccbefa4e7e3f7df3240e15a2003c9538135c4be945ac90c91"
 
-  bottle :unneeded
-
   depends_on "bazaar"
 
   def install
