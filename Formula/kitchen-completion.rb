@@ -6,8 +6,6 @@ class KitchenCompletion < Formula
   license "MIT"
   head "https://github.com/MarkBorcherding/test-kitchen-bash-completion.git"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "kitchen-completion.bash" => "kitchen"
   end
