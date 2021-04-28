@@ -6,8 +6,6 @@ class PackerCompletion < Formula
   license "MIT"
   head "https://github.com/mrolli/packer-bash-completion.git"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "packer"
   end
