@@ -33,9 +33,10 @@ class Kubebuilder < Formula
   test do
     assert_match "KubeBuilderVersion:\"#{version}\"", shell_output("#{bin}/kubebuilder version 2>&1")
     mkdir "test" do
+      system "go", "mod", "init", "example.com"
       system "#{bin}/kubebuilder", "init",
-        "--repo=github.com/example/example-repo", "--domain=example.com",
-        "--license=apache2", "--owner='The Example authors'", "--fetch-deps=false"
+        "--plugins", "go/v3", "--project-version", "3",
+        "--skip-go-version-check"
     end
   end
 end
