@@ -6,8 +6,6 @@ class OpenCompletion < Formula
   license "MIT"
   head "https://github.com/moshen/open-bash-completion.git"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "open"
   end
