@@ -10,8 +10,6 @@ class KaitaiStructCompiler < Formula
     regex(/href=.*?kaitai-struct-compiler[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
