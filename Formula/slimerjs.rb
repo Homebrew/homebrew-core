@@ -6,8 +6,6 @@ class Slimerjs < Formula
   license "MPL-2.0"
   head "https://github.com/laurentj/slimerjs.git"
 
-  bottle :unneeded
-
   def install
     cd "src" do
       system "zip", "-r", "omni.ja", "chrome/", "components/", "modules/",
