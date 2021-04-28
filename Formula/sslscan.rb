@@ -18,12 +18,23 @@ class Sslscan < Formula
     sha256 cellar: :any, mojave:        "482290749bffb04bfe09c48a5f4ba879b02a9efd7a98ccf1c3102e235838638c"
   end
 
-  depends_on "openssl@1.1"
+  # Update this when possible but doing so isn't security-critical.
+  resource "custom-openssl" do
+    url "https://www.openssl.org/source/openssl-1.1.1k.tar.gz"
+    mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1k.tar.gz"
+    sha256 "892a0875b9872acd04a9fde79b1f943075d5ea162415de3047c327df33fbaee5"
+  end
 
   def install
-    # use `libcrypto.dylib` built from `openssl@1.1`
-    inreplace "Makefile", "static: openssl/libcrypto.a",
-                          "static: #{Formula["openssl@1.1"].opt_lib}/libcrypto.dylib"
+    # sslscan requires a version of OpenSSL built with features like zlib
+    # enabled so it can test for vulnerability to CRIME/etc-style attacks.
+    (buildpath/"openssl").install resource("custom-openssl")
+    ENV.delete("OPENSSL_LOCAL_CONFIG_DIR")
+
+    inreplace "Makefile" do |s|
+      s.gsub! "openssl/Makefile: .openssl.is.fresh", "openssl/Makefile:"
+      s.gsub! "darwin64-x86_64-cc", "darwin64-#{Hardware::CPU.arch}-cc no-shared"
+    end
 
     system "make", "static"
     system "make", "install", "PREFIX=#{prefix}"
