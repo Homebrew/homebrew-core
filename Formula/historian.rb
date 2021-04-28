@@ -5,8 +5,6 @@ class Historian < Formula
   sha256 "691b131290ddf06142a747755412115fec996cb9cc2ad8e8f728118788b3fe05"
   license "BSD-2-Clause"
 
-  bottle :unneeded
-
   def install
     bin.install "hist"
   end
