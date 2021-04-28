@@ -5,6 +5,11 @@ class DockerSlim < Formula
   sha256 "a623513a476d897f1bd98bab9c460772c3b1374cb6928d7ddabb7070a0e2ab4c"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa83917219351901e66a533d70147b7f9cecdf98f53c8839755e75907786d62d"
     sha256 cellar: :any_skip_relocation, big_sur:       "2760413280d87d7b2979a4196909dc52de41e502c83753b21f37238b23ff5b5f"
