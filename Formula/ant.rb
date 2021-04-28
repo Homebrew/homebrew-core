@@ -7,8 +7,6 @@ class Ant < Formula
   license "Apache-2.0"
   head "https://git-wip-us.apache.org/repos/asf/ant.git"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   resource "ivy" do
