@@ -6,8 +6,6 @@ class MavenCompletion < Formula
   license "Apache-2.0"
   head "https://github.com/juven/maven-bash-completion.git"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "bash_completion.bash" => "maven"
   end
