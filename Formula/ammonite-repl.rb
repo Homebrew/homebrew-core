@@ -5,8 +5,6 @@ class AmmoniteRepl < Formula
   sha256 "e7af76416202ff02b8faece785740d957e3ca6351f8d56cf69a749ec4d25484b"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
