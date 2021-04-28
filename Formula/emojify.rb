@@ -6,8 +6,6 @@ class Emojify < Formula
   license "MIT"
   head "https://github.com/mrowa44/emojify.git"
 
-  bottle :unneeded
-
   def install
     bin.install "emojify"
   end
