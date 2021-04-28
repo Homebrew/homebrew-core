@@ -10,8 +10,6 @@ class DyldHeaders < Formula
     regex(/href=.*?dyld[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  bottle :unneeded
-
   keg_only :provided_by_macos
 
   def install
