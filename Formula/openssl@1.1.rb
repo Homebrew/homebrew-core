@@ -99,7 +99,6 @@ class OpensslAT11 < Formula
       end
     end
 
-    ENV.deparallelize
     system "perl", "./Configure", *(configure_args + arch_args)
     system "make"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
