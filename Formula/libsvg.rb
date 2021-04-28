@@ -32,13 +32,8 @@ class Libsvg < Formula
 
   uses_from_macos "libxml2"
 
-  # Allow building on M1 Macs. libsvg uses a very old configuration for
-  # autotools that appears now to be deprecated (Cairo itself got rid of these
-  # macros in 2008). This patch adapts the fix Cairo made to unblock
-  # installation on modern computers. It is unlikely that this patch will be
-  # accepted upstream, since as far as I understand it libsvg is in
-  # less-than-maintainence mode.
-  # (https://cgit.freedesktop.org/cairo/commit/?id=afdf3917ee86a7d8ae17f556db96478682674a76)
+  # Allow building on M1 Macs. This patch is adapted from
+  # https://cgit.freedesktop.org/cairo/commit/?id=afdf3917ee86a7d8ae17f556db96478682674a76
   patch :DATA
 
   def install
