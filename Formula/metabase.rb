@@ -18,8 +18,6 @@ class Metabase < Formula
     depends_on "yarn" => :build
   end
 
-  bottle :unneeded
-
   # metabase uses jdk.nashorn.api.scripting.JSObject
   # which is removed in Java 15
   depends_on "openjdk@11"
