@@ -15,8 +15,6 @@ class Jenkins < Formula
     depends_on "maven" => :build
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@11"
 
   def install
