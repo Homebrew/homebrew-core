@@ -21,14 +21,13 @@ class Kubebuilder < Formula
     goos = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOOS").chomp
     goarch = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOARCH").chomp
     ldflags = %W[
-      -X sigs.k8s.io/kubebuilder/v2/cmd/version.kubeBuilderVersion=#{version}
-      -X sigs.k8s.io/kubebuilder/v2/cmd/version.goos=#{goos}
-      -X sigs.k8s.io/kubebuilder/v2/cmd/version.goarch=#{goarch}
-      -X sigs.k8s.io/kubebuilder/v2/cmd/version.gitCommit=#{Utils.git_head}
-      -X sigs.k8s.io/kubebuilder/v2/cmd/version.buildDate=#{Time.now.iso8601}
+      -X main.kubeBuilderVersion=#{version}
+      -X main.goos=#{goos}
+      -X main.goarch=#{goarch}
+      -X main.gitCommit=#{Utils.git_head}
+      -X main.buildDate=#{Time.now.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd"
-    prefix.install_metafiles
   end
 
   test do
