@@ -5,8 +5,6 @@ class Dockutil < Formula
   sha256 "6dbbc1467caaab977bf4c9f2d106ceadfedd954b6a4848c54c925aff81159a65"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on :macos
 
   def install
