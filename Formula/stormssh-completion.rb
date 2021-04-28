@@ -5,8 +5,6 @@ class StormsshCompletion < Formula
   sha256 "cbdc35d674919aacc18723c42f2b6354fcd3efdcbfbb28e1fe60fbd1c1c7b18d"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "stormssh"
   end
