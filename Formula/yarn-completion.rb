@@ -5,8 +5,6 @@ class YarnCompletion < Formula
   sha256 "cc9d86bd8d4c662833424f86f1f86cfa0516c0835874768d9cf84aaf79fb8b21"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "bash"
 
   def install
