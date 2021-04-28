@@ -6,8 +6,6 @@ class RbenvCommunalGems < Formula
   license "MIT"
   revision 1
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   def install
