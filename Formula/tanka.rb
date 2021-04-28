@@ -7,6 +7,11 @@ class Tanka < Formula
   license "Apache-2.0"
   head "https://github.com/grafana/tanka.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4c38ee4f904e18ea3d68c157ec9c9374868a453539c56ebc6587bb7ace282989"
     sha256 cellar: :any_skip_relocation, big_sur:       "49f0c4756478a459aa99cc8f67b17c596bee55969ce8d84a49721d7e95c8cf8a"
