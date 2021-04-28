@@ -10,8 +10,6 @@ class Cimg < Formula
     regex(/href=.*?CImg[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
-  bottle :unneeded
-
   def install
     include.install "CImg.h"
     prefix.install "Licence_CeCILL-C_V1-en.txt", "Licence_CeCILL_V2-en.txt"
