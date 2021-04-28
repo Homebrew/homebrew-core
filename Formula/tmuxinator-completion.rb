@@ -6,8 +6,6 @@ class TmuxinatorCompletion < Formula
   license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git"
 
-  bottle :unneeded
-
   conflicts_with "tmuxinator", because: "the tmuxinator formula includes completion"
 
   def install
