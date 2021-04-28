@@ -6,8 +6,6 @@ class DockerMachineCompletion < Formula
   license "Apache-2.0"
   head "https://github.com/docker/machine.git"
 
-  bottle :unneeded
-
   conflicts_with "docker-machine",
     because: "docker-machine already includes completion scripts"
 
