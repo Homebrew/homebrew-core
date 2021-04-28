@@ -6,8 +6,6 @@ class Fmpp < Formula
   license "Apache-2.0"
   revision 2
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
