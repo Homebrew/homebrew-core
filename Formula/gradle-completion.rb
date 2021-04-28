@@ -6,8 +6,6 @@ class GradleCompletion < Formula
   license "MIT"
   head "https://github.com/gradle/gradle-completion.git"
 
-  bottle :unneeded
-
   depends_on "bash-completion"
 
   def install
