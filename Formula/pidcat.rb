@@ -6,8 +6,6 @@ class Pidcat < Formula
   license "Apache-2.0"
   head "https://github.com/JakeWharton/pidcat.git"
 
-  bottle :unneeded
-
   def install
     bin.install "pidcat.py" => "pidcat"
     bash_completion.install "bash_completion.d/pidcat"
