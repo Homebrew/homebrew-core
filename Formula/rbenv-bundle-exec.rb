@@ -7,8 +7,6 @@ class RbenvBundleExec < Formula
   revision 1
   head "https://github.com/maljub01/rbenv-bundle-exec.git"
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   def install
