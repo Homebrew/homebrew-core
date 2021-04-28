@@ -5,6 +5,7 @@ class Docutils < Formula
   homepage "https://docutils.sourceforge.io"
   url "https://downloads.sourceforge.net/project/docutils/docutils/0.17.1/docutils-0.17.1.tar.gz"
   sha256 "686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8c6f650a9ceec0e34b6d1463d40448e171027c230cfeba1d7bfa971c15d3ed0e"
@@ -17,6 +18,10 @@ class Docutils < Formula
 
   def install
     virtualenv_install_with_resources
+
+    Dir.glob("#{libexec}/bin/*.py") do |f|
+      bin.install_symlink f => File.basename(f, ".py")
+    end
   end
 
   test do
