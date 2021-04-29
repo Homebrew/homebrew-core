@@ -18,10 +18,10 @@ class AwsIamAuthenticator < Formula
 
   def install
     ldflags = ["-s", "-w",
-               "-X main.version=#{version}",
-               "-X main.commit=#{Utils.git_head}"]
-    system "go", "build", "-ldflags", ldflags.join(" "), "-trimpath",
-           "-o", bin/"aws-iam-authenticator", "./cmd/aws-iam-authenticator"
+               "-X sigs.k8s.io/aws-iam-authenticator/pkg.Version=#{version}",
+               "-X sigs.k8s.io/aws-iam-authenticator/pkg.CommitID=#{Utils.git_head}",
+               "-buildid=''"]
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/aws-iam-authenticator"
     prefix.install_metafiles
   end
 
