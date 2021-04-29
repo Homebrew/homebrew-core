@@ -5,8 +5,6 @@ class SchemaEvolutionManager < Formula
   sha256 "69a3b2b9ef23f2af97b34742c7c33f2f3889a1e7d471cf9e19138b20d8cfe944"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   def install
     system "./install.sh", prefix
   end
