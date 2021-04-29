@@ -1,6 +1,7 @@
 {
   "gnuradio": "https://gnuradio.org/",
   "hashcat": "https://hashcat.net/hashcat/",
+  "hyperspec": "https://www.lispworks.com/documentation/common-lisp.html",
   "libbladerf": "https://nuand.com/",
   "micropython": "https://www.micropython.org/",
   "minio": "https://min.io",
