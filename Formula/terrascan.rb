@@ -1,8 +1,8 @@
 class Terrascan < Formula
   desc "Detect compliance and security violations across Infrastructure as Code"
   homepage "https://www.accurics.com/products/terrascan/"
-  url "https://github.com/accurics/terrascan/archive/v1.5.0.tar.gz"
-  sha256 "e969960d9748e50125359097f5004c34ccf72e638dd06d10204a62468d57b260"
+  url "https://github.com/accurics/terrascan/archive/v1.5.1.tar.gz"
+  sha256 "0ef2490c711fc089e05a926ba1935be62f60bd20b7226906e207382aaae48f84"
   license "Apache-2.0"
   head "https://github.com/accurics/terrascan.git"
 
