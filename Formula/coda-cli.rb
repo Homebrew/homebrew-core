@@ -5,8 +5,6 @@ class CodaCli < Formula
   sha256 "5ed407313a8d1fc6cc4d5b1acc14a80f7e6fad6146f2334de510e475955008b9"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bin.install "coda"
   end
