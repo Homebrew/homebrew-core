@@ -7,8 +7,6 @@ class RbenvBundler < Formula
   revision 1
   head "https://github.com/carsomyr/rbenv-bundler.git"
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   def install
