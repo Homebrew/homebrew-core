@@ -6,8 +6,6 @@ class Activemq < Formula
   sha256 "212feca1ee4bc750befd45a735cbfef00c0c9aee451ef5116e991330c1ab105b"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
