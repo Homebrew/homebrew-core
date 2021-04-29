@@ -5,8 +5,6 @@ class Goto < Formula
   sha256 "460fe3994455501b50b2f771f999ace77ade295122e90e959084047dbfb1f0dc"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "goto.sh"
   end
