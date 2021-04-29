@@ -8,8 +8,6 @@ class SshCopyId < Formula
   license "SSH-OpenSSH"
   head "https://github.com/openssh/openssh-portable.git"
 
-  bottle :unneeded
-
   keg_only :provided_by_macos
 
   def install
