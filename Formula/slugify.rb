@@ -6,8 +6,6 @@ class Slugify < Formula
   license "MIT"
   head "https://github.com/benlinton/slugify.git"
 
-  bottle :unneeded
-
   def install
     bin.install "slugify"
     man1.install "slugify.1"
