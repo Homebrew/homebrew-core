@@ -8,8 +8,6 @@ class ApacheFlink < Formula
   license "Apache-2.0"
   head "https://github.com/apache/flink.git"
 
-  bottle :unneeded
-
   depends_on "openjdk@11"
 
   def install
