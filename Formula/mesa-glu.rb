@@ -62,6 +62,6 @@ class MesaGlu < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-lGLU", "test.cpp"
+    system ENV.cxx, "-I#{include}", "test.cpp", "-L#{lib}", "-lGLU"
   end
 end
