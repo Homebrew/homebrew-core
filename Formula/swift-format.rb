@@ -26,7 +26,7 @@ class SwiftFormat < Formula
     satisfy { MacOS::CLT.installed? }
   end
 
-  depends_on xcode: ["12.0", :build]
+  depends_on xcode: ["12.5", :build]
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
