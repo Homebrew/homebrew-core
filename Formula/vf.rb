@@ -5,8 +5,6 @@ class Vf < Formula
   sha256 "6418d188b88d5f3885b7a8d24520ac47accadb5144ae24e836aafbea4bd41859"
   head "https://github.com/glejeune/vf.git"
 
-  bottle :unneeded
-
   def install
     # Since the shell file is sourced instead of run
     # install to prefix instead of bin
