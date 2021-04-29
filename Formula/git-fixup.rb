@@ -6,8 +6,6 @@ class GitFixup < Formula
   license "ISC"
   head "https://github.com/keis/git-fixup.git", branch: "master"
 
-  bottle :unneeded
-
   def install
     system "make", "PREFIX=#{prefix}", "install"
     zsh_completion.install "completion.zsh" => "_git-fixup"
