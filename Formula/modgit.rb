@@ -4,8 +4,6 @@ class Modgit < Formula
   url "https://github.com/jreinke/modgit/archive/v1.1.0.tar.gz"
   sha256 "9d279c370eee29f54017ca20cf543efda87534bd6a584e7c0f489bbf931dccb8"
 
-  bottle :unneeded
-
   def install
     bin.install "modgit"
   end
