@@ -6,6 +6,8 @@ class Zinc < Formula
 
   deprecate! date: "2018-06-10", because: :repo_archived
 
+  depends_on "openjdk"
+
   def install
     rm_f Dir["bin/ng/{linux,win}*"]
     libexec.install Dir["*"]
