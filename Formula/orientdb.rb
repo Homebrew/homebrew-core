@@ -1,8 +1,8 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.org/"
-  url "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.1.11/orientdb-3.1.11.zip"
-  sha256 "fcd2e3d6b4d8127f00f22f60b0eb37e66560acf749fb567ce2af6123ba688209"
+  url "https://s3.us-east-2.amazonaws.com/orientdb3/releases/3.2.0/orientdb-3.2.0.zip"
+  sha256 "c9d669e6f7645b2217fe38be6d74cdef1ff3533b69b4ee1b3c0bd79744880bcd"
   license "Apache-2.0"
 
   livecheck do
