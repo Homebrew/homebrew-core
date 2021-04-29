@@ -6,8 +6,6 @@ class PyenvCcache < Formula
   license "MIT"
   head "https://github.com/pyenv/pyenv-ccache.git"
 
-  bottle :unneeded
-
   depends_on "ccache"
   depends_on "pyenv"
 
