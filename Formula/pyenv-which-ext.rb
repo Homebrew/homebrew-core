@@ -6,8 +6,6 @@ class PyenvWhichExt < Formula
   license "MIT"
   head "https://github.com/pyenv/pyenv-which-ext.git"
 
-  bottle :unneeded
-
   depends_on "pyenv"
 
   def install
