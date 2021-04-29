@@ -6,8 +6,6 @@ class ChromeExport < Formula
   license "ISC"
   revision 1
 
-  bottle :unneeded
-
   def install
     bin.install "export-chrome-bookmarks"
     bin.install "export-chrome-history"
