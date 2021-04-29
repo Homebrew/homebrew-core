@@ -1,8 +1,8 @@
 class CargoAudit < Formula
   desc "Audit Cargo.lock files for crates with security vulnerabilities"
   homepage "https://rustsec.org/"
-  url "https://github.com/RustSec/cargo-audit/archive/v0.14.0.tar.gz"
-  sha256 "bd2ecab6ff03fb11496cd0e7389273991b7d14d19bbdd76847126cb28079519e"
+  url "https://github.com/RustSec/cargo-audit/archive/v0.14.1.tar.gz"
+  sha256 "bdf1b12a298f585195fbbe75cb01c8746a0bbb734409d0a9130c197cb179f638"
   license "Apache-2.0"
   head "https://github.com/RustSec/cargo-audit.git"
 
