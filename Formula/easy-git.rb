@@ -9,8 +9,6 @@ class EasyGit < Formula
     regex(%r{href=.*?(\d+(?:\.\d+)+)/eg["' >]}i)
   end
 
-  bottle :unneeded
-
   def install
     bin.install "eg"
   end
