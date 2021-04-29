@@ -3,6 +3,8 @@ class Jxrlib < Formula
   homepage "https://archive.codeplex.com/?p=jxrlib"
   url "https://deb.debian.org/debian/pool/main/j/jxrlib/jxrlib_1.1.orig.tar.gz"
   sha256 "c7287b86780befa0914f2eeb8be2ac83e672ebd4bd16dc5574a36a59d9708303"
+  license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "54cfa4c3ba6f80ae22012ceb65b6c50340489d6a8cf99b0abd26a93e4be16628"
@@ -15,15 +17,18 @@ class Jxrlib < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "0dae977caf9e34289c9dd09f7e12bdf7158ccc42d9fa2dc00b4164b82c1caf3f"
   end
 
+  depends_on "cmake" => :build
+
+  # Enable building with CMake. Adapted from Debian patch.
+  patch do
+    url "https://raw.githubusercontent.com/Gcenx/macports-wine/1b310a17497f9a49cc82789cc5afa2d22bb67c0c/graphics/jxrlib/files/0001-Add-ability-to-build-using-cmake.patch"
+    sha256 "beebe13d40bc5b0ce645db26b3c8f8409952d88495bbab8bc3bebc954bdecffe"
+  end
+
   def install
-    system "make"
-    # The current stable release (1.1) doesn't have a make 'install' target
-    lib.install %w[libjxrglue.a libjpegxr.a]
-    bin.install %w[JxrEncApp JxrDecApp]
-    include.install %w[common image]
-    include.install "jxrgluelib" => "glue"
-    include.install "jxrtestlib" => "test"
-    doc.install Dir["doc/*"]
+    inreplace "CMakeLists.txt", "@VERSION@", version
+    system "cmake", ".", *std_cmake_args
+    system "make", "install"
   end
 
   test do
