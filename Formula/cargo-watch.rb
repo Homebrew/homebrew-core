@@ -1,8 +1,8 @@
 class CargoWatch < Formula
   desc "Watches over your Cargo project's source"
   homepage "https://github.com/passcod/cargo-watch"
-  url "https://github.com/passcod/cargo-watch/archive/v7.7.0.tar.gz"
-  sha256 "63099570b5716125e911ca74d1e4b2e3cf07d432d8af5b9da30cb43d0f0723f4"
+  url "https://github.com/passcod/cargo-watch/archive/v7.7.1.tar.gz"
+  sha256 "164c4b3ed6106dce6efbbd04a33010e880032cf3e650fd3b0098221974bfc74d"
   license "CC0-1.0"
   head "https://github.com/passcod/cargo-watch.git"
 
