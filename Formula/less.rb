@@ -7,7 +7,7 @@ class Less < Formula
 
   livecheck do
     url :homepage
-    regex(/less[._-]v?(\d+).+?released.+?general use/i)
+    regex(/less[._-]v?(\d+(?:\.\d+)*).+?released.+?general use/i)
   end
 
   bottle do
