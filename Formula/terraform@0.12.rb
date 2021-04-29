@@ -13,6 +13,8 @@ class TerraformAT012 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2021-04-14", because: :unsupported
+
   depends_on "go" => :build
   depends_on macos: :catalina
 
