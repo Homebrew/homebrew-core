@@ -1,9 +1,11 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "https://www.openvdb.org/"
+  # Check whether this can be switched to `openexr` and `imath` at version bump
   url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v8.0.1.tar.gz"
   sha256 "a6845da7c604d2c72e4141c898930ac8a2375521e535f696c2cd92bebbe43c4f"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
@@ -20,7 +22,7 @@ class Openvdb < Formula
   depends_on "glfw"
   depends_on "ilmbase"
   depends_on "jemalloc"
-  depends_on "openexr"
+  depends_on "openexr@2"
   depends_on "tbb"
 
   resource "test_file" do
