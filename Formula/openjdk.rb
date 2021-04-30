@@ -8,8 +8,8 @@ class Openjdk < Formula
     sha256 "ced60f868e1a2e7d9c94a1988c9298dde63f8f600182da3658844578c3e335a8"
     version "15.0.3"
   else
-    url "https://hg.openjdk.java.net/jdk-updates/jdk15u/archive/jdk-15.0.3-ga.tar.bz2"
-    sha256 "b9d2a6fdcf22af448f5226c748ecf7375cceda414313a3573561c2cb23ee86ba"
+    url "https://github.com/openjdk/jdk15u/archive/refs/tags/jdk-15.0.3-ga.tar.gz"
+    sha256 "3cf4cb3bb6320e50fdfd0fa8552cd53651a7dad8cff0f443adffef89d703d219"
   end
   license :cannot_represent
 
