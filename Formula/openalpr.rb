@@ -4,6 +4,7 @@ class Openalpr < Formula
   url "https://github.com/openalpr/openalpr/archive/v2.3.0.tar.gz"
   sha256 "1cfcaab6f06e9984186ee19633a949158c0e2aacf9264127e2f86bd97641d6b9"
   license "AGPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 big_sur:  "8cf1530f286a3223c92ff60f13f377f6a1016b1bca53dd85b91b7f2c273aa6e7"
