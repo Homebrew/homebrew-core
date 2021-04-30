@@ -80,7 +80,7 @@ class Openjdk < Formula
     # this approach may need some changes in the future
     #
     version_to_parse = if Hardware::CPU.arm?
-      "16"
+      "17"
     else
       version
     end
@@ -150,7 +150,7 @@ class Openjdk < Formula
       if Hardware::CPU.arm?
         s += <<~EOS
           This is a beta version of openjdk for Apple Silicon
-          (openjdk 16 preview).
+          (openjdk 17 preview).
         EOS
       end
 
