@@ -127,7 +127,8 @@ class Semgrep < Formula
       ENV["PREFIX"] = prefix
 
       system "opam", "init", "--no-setup", "--disable-sandboxing"
-      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.2" }
+      compiler_version = Hardware::CPU.arm ? "4.12" : "4.10.2"
+      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.#{compiler_version}" }
 
       system "opam", "exec", "--", "make", "setup"
 
