@@ -4,7 +4,7 @@ class Field3d < Formula
   url "https://github.com/imageworks/Field3D/archive/v1.7.3.tar.gz"
   sha256 "b6168bc27abe0f5e9b8d01af7794b3268ae301ac72b753712df93125d51a0fd4"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c89838aa0ae15362f20185876d52e26f2481cb81de1cc02af5afd14a0258ffe4"
@@ -23,7 +23,7 @@ class Field3d < Formula
     ENV.prepend "CXXFLAGS", "-DH5_USE_110_API"
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DMPI_FOUND=OFF"
       system "make", "install"
     end
     man1.install "man/f3dinfo.1"
