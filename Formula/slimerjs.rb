@@ -7,9 +7,10 @@ class Slimerjs < Formula
   head "https://github.com/laurentj/slimerjs.git"
 
   def install
+    ENV["TZ"] = "UTC"
     cd "src" do
-      system "zip", "-r", "omni.ja", "chrome/", "components/", "modules/",
-                    "defaults/", "chrome.manifest", "-x@package_exclude.lst"
+      system "zip", "-o", "-X", "-r", "omni.ja", "chrome/", "components/",
+        "modules/", "defaults/", "chrome.manifest", "-x@package_exclude.lst"
       libexec.install %w[application.ini omni.ja slimerjs slimerjs.py]
     end
     bin.install_symlink libexec/"slimerjs"
