@@ -1,12 +1,15 @@
 class Artifactory < Formula
   desc "Manages binaries"
   homepage "https://www.jfrog.com/artifactory/"
-  url "https://dl.bintray.com/jfrog/artifactory/jfrog-artifactory-oss-6.23.13.zip"
-  sha256 "0889c11b768a4b1a6bfb6939280c24e5bd22b36bc3438481b0b420443eb5f379"
+  # v7 is available but does contain a number of pre-builts that need to be avoided.
+  # Note that just using the source archive is not sufficient.
+  url "https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/6.23.15/jfrog-artifactory-oss-6.23.15.zip"
+  sha256 "c342b9949aa42d928f25704105fd9f522835e9344e56ecc24e63a899c2948041"
   license "AGPL-3.0-or-later"
+
   livecheck do
-    url "https://dl.bintray.com/jfrog/artifactory/"
-    regex(/href=.*?jfrog-artifactory-oss[._-]v?(\d+(?:\.\d+)+)\.zip/i)
+    url "https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/oss/jfrog-artifactory-oss/"
+    regex(/href=.*?v?(\d+(?:\.\d+)+)/i)
   end
 
   bottle do
@@ -22,6 +25,9 @@ class Artifactory < Formula
     # Remove Windows binaries
     rm_f Dir["bin/*.bat"]
     rm_f Dir["bin/*.exe"]
+
+    # Prebuilts
+    rm_rf "bin/metadata"
 
     # Set correct working directory
     inreplace "bin/artifactory.sh",
