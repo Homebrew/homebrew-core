@@ -9,6 +9,10 @@ class GitQuickStats < Formula
     sha256 cellar: :any_skip_relocation, all: "af6dd6341848ad55754a708793390cc4b732977d49b49758139c49746b9e827c"
   end
 
+  on_linux do
+    depends_on "util-linux" # for `column`
+  end
+
   def install
     bin.install "git-quick-stats"
   end
