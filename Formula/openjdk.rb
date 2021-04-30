@@ -2,10 +2,10 @@ class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
   if Hardware::CPU.arm?
-    # Temporarily use a openjdk 16 preview on Apple Silicon
-    # (because it is better than nothing)
-    url "https://github.com/openjdk/jdk-sandbox/archive/dbc9e4b50cdda35f5712deaf440c49f50b9edc96.tar.gz"
-    sha256 "ced60f868e1a2e7d9c94a1988c9298dde63f8f600182da3658844578c3e335a8"
+    # Temporarily use a openjdk 17 preview on Apple Silicon (because it is better than nothing).
+    # See https://openjdk.java.net/jeps/391
+    url "https://github.com/openjdk/jdk/archive/dbc9e4b50cdda35f5712deaf440c49f50b9edc96.tar.gz"
+    sha256 "e1b22e612d55dd94942df84e1457edb06a4536bed5903fdc8091026f041bf888"
     version "15.0.3"
   else
     url "https://github.com/openjdk/jdk15u/archive/refs/tags/jdk-15.0.3-ga.tar.gz"
@@ -38,7 +38,7 @@ class Openjdk < Formula
   # From https://jdk.java.net/archive/
   resource "boot-jdk" do
     on_macos do
-      if Hardware::CPU.arm?
+      if Hardware::CPU.arm? # Oracle doesn't shipped JDK for Apple Silicon yet, so use Zulu JDK 16 for bootstrapping.
         url "https://cdn.azul.com/zulu/bin/zulu16.30.15-ca-jdk16.0.1-macosx_aarch64.tar.gz"
         sha256 "47f50e9c120130a77a77e65ccdb4ca4e101fe662bb429ba95668811c8618ab67"
       else
