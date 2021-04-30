@@ -53,7 +53,15 @@ class Raylib < Formula
         -framework OpenGL
       ]
     end
-    system ENV.cc, "test.c", "-L#{lib}", "-lraylib", "-o", "test", *flags
+    on_linux do
+      flags = %w[
+        -lm
+        -ldl
+        -lGL
+        -lpthread
+      ]
+    end
+    system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-lraylib", *flags
     system "./test"
   end
 end
