@@ -4,9 +4,9 @@ class Openjdk < Formula
   if Hardware::CPU.arm?
     # Temporarily use a openjdk 16 preview on Apple Silicon
     # (because it is better than nothing)
-    url "https://github.com/openjdk/jdk-sandbox/archive/a56ddad05cf1808342aeff1b1cd2b0568a6cdc3a.tar.gz"
-    sha256 "29df31b5eefb5a6c016f50b2518ca29e8e61e3cfc676ed403214e1f13a78efd5"
-    version "15.0.2"
+    url "https://github.com/openjdk/jdk-sandbox/archive/dbc9e4b50cdda35f5712deaf440c49f50b9edc96.tar.gz"
+    sha256 "ced60f868e1a2e7d9c94a1988c9298dde63f8f600182da3658844578c3e335a8"
+    version "15.0.3"
   else
     url "https://hg.openjdk.java.net/jdk-updates/jdk15u/archive/jdk-15.0.3-ga.tar.bz2"
     sha256 "b9d2a6fdcf22af448f5226c748ecf7375cceda414313a3573561c2cb23ee86ba"
