@@ -1,7 +1,7 @@
 class Swagger2markupCli < Formula
   desc "Swagger to AsciiDoc or Markdown converter"
   homepage "https://github.com/Swagger2Markup/swagger2markup"
-  url "https://jcenter.bintray.com/io/github/swagger2markup/swagger2markup-cli/1.3.3/swagger2markup-cli-1.3.3.jar"
+  url "https://search.maven.org/remotecontent?filepath=io/github/swagger2markup/swagger2markup-cli/1.3.3/swagger2markup-cli-1.3.3.jar"
   sha256 "93ff10990f8279eca35b7ac30099460e557b073d48b52d16046ab1aeab248a0a"
   license "Apache-2.0"
   revision 2
