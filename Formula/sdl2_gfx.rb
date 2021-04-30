@@ -44,7 +44,7 @@ class Sdl2Gfx < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lsdl2_gfx", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lSDL2_gfx", "-o", "test"
     system "./test"
   end
 end
