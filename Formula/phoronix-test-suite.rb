@@ -11,8 +11,6 @@ class PhoronixTestSuite < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   def install
     ENV["DESTDIR"] = buildpath/"dest"
     system "./install-sh", prefix
