@@ -4,6 +4,7 @@ class Cfssl < Formula
   url "https://github.com/cloudflare/cfssl/archive/v1.5.0.tar.gz"
   sha256 "5267164b18aa99a844e05adceaf4f62d1b96dcd326a9132098d65c515c180a91"
   license "BSD-2-Clause"
+  revision 1
   head "https://github.com/cloudflare/cfssl.git"
 
   bottle do
@@ -18,11 +19,10 @@ class Cfssl < Formula
   depends_on "libtool"
 
   def install
-    ldflags = ["-s", "-w",
-               "-X github.com/cloudflare/cfssl/cli/version.version=#{version}"]
+    ldflags = "-s -w -X github.com/cloudflare/cfssl/cli/version.version=#{version}"
 
-    system "go", "build", "-o", "#{bin}/cfssl", "-ldflags", ldflags, "cmd/cfssl/cfssl.go"
-    system "go", "build", "-o", "#{bin}/cfssljson", "-ldflags", ldflags, "cmd/cfssljson/cfssljson.go"
+    system "go", "build", *std_go_args(ldflags: ldflags), "-o", "#{bin}/cfssl", "cmd/cfssl/cfssl.go"
+    system "go", "build", *std_go_args(ldflags: ldflags), "-o", "#{bin}/cfssljson", "cmd/cfssljson/cfssljson.go"
     system "go", "build", "-o", "#{bin}/cfsslmkbundle", "cmd/mkbundle/mkbundle.go"
   end
 
@@ -59,5 +59,7 @@ class Cfssl < Formula
     assert_match(/.*-----END CERTIFICATE-----$/, response["cert"])
     assert_match(/^-----BEGIN RSA PRIVATE KEY-----.*/, response["key"])
     assert_match(/.*-----END RSA PRIVATE KEY-----$/, response["key"])
+
+    assert_match(/^Version:\s+#{version}/, shell_output("#{bin}/cfssl version"))
   end
 end
