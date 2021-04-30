@@ -39,8 +39,8 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://download.java.net/java/early_access/jdk16/31/GPL/openjdk-16-ea+31_osx-x64_bin.tar.gz"
-        sha256 "8e4a8fdd2d965067bdb56e1a72c7c72343d571b371ac61eee74d9e71bbef63e8"
+        url "https://cdn.azul.com/zulu/bin/zulu16.30.15-ca-jdk16.0.1-macosx_aarch64.tar.gz"
+        sha256 "47f50e9c120130a77a77e65ccdb4ca4e101fe662bb429ba95668811c8618ab67"
       else
         url "https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_osx-x64_bin.tar.gz"
         sha256 "386a96eeef63bf94b450809d69ceaa1c9e32a97230e0a120c1b41786b743ae84"
