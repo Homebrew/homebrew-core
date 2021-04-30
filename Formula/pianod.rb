@@ -3,6 +3,7 @@ class Pianod < Formula
   homepage "https://deviousfish.com/pianod/"
   url "https://deviousfish.com/Downloads/pianod2/Devel/pianod2-301.tar.gz"
   sha256 "d6fa01d786af65fe3b4e6f4f97fa048db6619b9443e23f655d3ea8ab4766caee"
+  license "MIT"
   revision 1
 
   bottle do
@@ -21,6 +22,8 @@ class Pianod < Formula
   on_linux do
     # pianod uses avfoundation on macOS, ffmpeg on Linux
     depends_on "ffmpeg"
+    depends_on "gnutls"
+    depends_on "libbsd"
   end
 
   def install
