@@ -71,6 +71,7 @@ class Gcc < Formula
     #  - Go, currently not supported on macOS
     #  - BRIG
     languages = %w[c c++ objc obj-c++ fortran]
+    languages << "d" if Hardware::CPU.intel?
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -89,6 +90,8 @@ class Gcc < Formula
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
     ]
+    # libphobos is part of gdc
+    args << "--enable-libphobos" if Hardware::CPU.intel?
 
     on_macos do
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
@@ -96,6 +99,10 @@ class Gcc < Formula
 
       # Xcode 10 dropped 32-bit support
       args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
+
+      # Workaround for Xcode 12.5 bug on Intel
+      # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100340
+      args << "--without-build-config" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version >= 1205
 
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
@@ -119,6 +126,7 @@ class Gcc < Formula
       system "make", "install"
 
       bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
+      bin.install_symlink bin/"gdc-#{version_suffix}" => "gdc" if Hardware::CPU.intel?
     end
 
     # Handle conflicts between GCC formulae and avoid interfering
@@ -176,5 +184,18 @@ class Gcc < Formula
     EOS
     system "#{bin}/gfortran", "-o", "test", "test.f90"
     assert_equal "Done\n", `./test`
+
+    if Hardware::CPU.intel?
+      (testpath/"hello_d.d").write <<~EOS
+        import std.stdio;
+        int main()
+        {
+          writeln("Hello, world!");
+          return 0;
+        }
+      EOS
+      system "#{bin}/gdc-#{version_suffix}", "-o", "hello-d", "hello_d.d"
+      assert_equal "Hello, world!\n", `./hello-d`
+    end
   end
 end
