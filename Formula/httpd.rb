@@ -3,7 +3,7 @@ class Httpd < Formula
   homepage "https://httpd.apache.org/"
   url "https://www.apache.org/dyn/closer.lua?path=httpd/httpd-2.4.47.tar.bz2"
   mirror "https://archive.apache.org/dist/httpd/httpd-2.4.47.tar.bz2"
-  sha256 "567d5ac72ea643e3828e8e54f32e06f1fad10095d33ae4071eeaec3c78b70a34"
+  sha256 "23d006dbc8e578116a1138fa457eea824048458e89c84087219f0372880c03ca"
   license "Apache-2.0"
 
   bottle do
