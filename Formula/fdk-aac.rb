@@ -3,6 +3,7 @@ class FdkAac < Formula
   homepage "https://sourceforge.net/projects/opencore-amr/"
   url "https://downloads.sourceforge.net/project/opencore-amr/fdk-aac/fdk-aac-2.0.2.tar.gz"
   sha256 "c9e8630cf9d433f3cead74906a1520d2223f89bcd3fa9254861017440b8eb22f"
+  license "Apache-2.0"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "90dee33598510f7bca41e3da463e18f5400d71639af4394668ade28b89dc6175"
