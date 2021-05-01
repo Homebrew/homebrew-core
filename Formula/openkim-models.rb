@@ -3,6 +3,7 @@ class OpenkimModels < Formula
   homepage "https://openkim.org"
   url "https://s3.openkim.org/archives/collection/openkim-models-2021-01-28.txz"
   sha256 "8824adee02ae4583bd378cc81140fbb49515c5965708ee98d856d122d48dd95f"
+  revision 1
 
   livecheck do
     url "https://s3.openkim.org/archives/collection/"
