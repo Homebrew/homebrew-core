@@ -1,8 +1,8 @@
 class FdkAac < Formula
   desc "Standalone library of the Fraunhofer FDK AAC code from Android"
   homepage "https://sourceforge.net/projects/opencore-amr/"
-  url "https://downloads.sourceforge.net/project/opencore-amr/fdk-aac/fdk-aac-2.0.1.tar.gz"
-  sha256 "840133aa9412153894af03b27b03dde1188772442c316a4ce2a24ed70093f271"
+  url "https://downloads.sourceforge.net/project/opencore-amr/fdk-aac/fdk-aac-2.0.2.tar.gz"
+  sha256 "c9e8630cf9d433f3cead74906a1520d2223f89bcd3fa9254861017440b8eb22f"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "90dee33598510f7bca41e3da463e18f5400d71639af4394668ade28b89dc6175"
