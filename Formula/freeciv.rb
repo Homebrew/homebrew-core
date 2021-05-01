@@ -4,6 +4,7 @@ class Freeciv < Formula
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.4/freeciv-2.6.4.tar.bz2"
   sha256 "40db957766acbd49c5af15afd1711da996b6681be7abee3352c5f2539c10c1ce"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -27,6 +28,7 @@ class Freeciv < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "adwaita-icon-theme"
   depends_on "atk"
   depends_on "cairo"
   depends_on "freetype"
