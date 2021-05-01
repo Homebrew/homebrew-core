@@ -4,6 +4,7 @@ class Scipy < Formula
   url "https://files.pythonhosted.org/packages/fe/fd/8704c7b7b34cdac850485e638346025ca57c5a859934b9aa1be5399b33b7/scipy-1.6.3.tar.gz"
   sha256 "a75b014d3294fce26852a9d04ea27b5671d86736beb34acdfc05859246260707"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/scipy/scipy.git"
 
   bottle do
