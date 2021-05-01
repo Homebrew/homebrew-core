@@ -4,7 +4,7 @@ class Scalapack < Formula
   url "https://www.netlib.org/scalapack/scalapack-2.1.0.tgz"
   sha256 "61d9216cf81d246944720cfce96255878a3f85dec13b9351f1fa0fd6768220a6"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url :homepage
