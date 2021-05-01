@@ -5,6 +5,7 @@ class Vcpkg < Formula
   version "2020.11-1"
   sha256 "dcae747fddfc1540b57d576afd2ad5191611013cce0bf30f184a1535c3d90fbe"
   license "MIT"
+  revision 1
   head "https://github.com/microsoft/vcpkg.git"
 
   bottle do
