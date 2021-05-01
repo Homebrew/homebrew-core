@@ -1,8 +1,8 @@
 class Gopass < Formula
   desc "Slightly more awesome Standard Unix Password Manager for Teams"
   homepage "https://github.com/gopasspw/gopass"
-  url "https://github.com/gopasspw/gopass/releases/download/v1.12.5/gopass-1.12.5.tar.gz"
-  sha256 "2b6d8da5ed88ae02a2666cadcffbd0a60ce93bfd0a44f9b460a7e4ab2b1ed773"
+  url "https://github.com/gopasspw/gopass/releases/download/v1.12.6/gopass-1.12.6.tar.gz"
+  sha256 "eeab6c62ae7586d9e1f50a664298a06afc7e30b7394bcd254a91abccf30bfa70"
   license "MIT"
   head "https://github.com/gopasspw/gopass.git"
 
