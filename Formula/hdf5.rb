@@ -4,7 +4,7 @@ class Hdf5 < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.0/src/hdf5-1.12.0.tar.bz2"
   sha256 "97906268640a6e9ce0cde703d5a71c9ac3092eded729591279bf2e3ca9765f61"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   # This regex isn't matching filenames within href attributes (as we normally
   # do on HTML pages) because this page uses JavaScript to handle the download
@@ -28,6 +28,8 @@ class Hdf5 < Formula
   depends_on "szip"
 
   uses_from_macos "zlib"
+
+  conflicts_with "hdf5-mpi", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 
   def install
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
