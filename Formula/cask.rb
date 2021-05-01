@@ -6,8 +6,6 @@ class Cask < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/cask/cask.git"
 
-  bottle :unneeded
-
   depends_on "coreutils"
   depends_on "emacs"
 
