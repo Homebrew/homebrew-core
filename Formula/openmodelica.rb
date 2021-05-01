@@ -6,6 +6,7 @@ class Openmodelica < Formula
     tag:      "v1.16.5",
     revision: "11fcab4f2d6895f2db073572b2bff1a43177313f"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/OpenModelica/OpenModelica.git"
 
   bottle do
