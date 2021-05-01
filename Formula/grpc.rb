@@ -2,8 +2,8 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.37.0",
-      revision: "44c40ac23023b7b3dd82744372c06817cc203898",
+      tag:      "v1.37.1",
+      revision: "8664c8334c05d322fbbdfb9e3b24601a23e9363c",
       shallow:  false
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git"
@@ -33,7 +33,20 @@ class Grpc < Formula
 
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "llvm" => :build if MacOS.version <= :mojave
+  end
+
+  fails_with :clang do
+    build 1100
+    cause "Requires C++17 features not yet implemented"
+  end
+
   def install
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    on_macos do
+      ENV.llvm_clang if MacOS.version <= :mojave
+    end
     mkdir "cmake/build" do
       args = %W[
         ../..
