@@ -4,7 +4,7 @@ class Eccodes < Formula
   url "https://software.ecmwf.int/wiki/download/attachments/45757960/eccodes-2.21.0-Source.tar.gz"
   sha256 "da0a0bf184bb436052e3eae582defafecdb7c08cdaab7216780476e49b509755"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://software.ecmwf.int/wiki/display/ECC/Releases"
