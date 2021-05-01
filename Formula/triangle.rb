@@ -14,12 +14,6 @@ class Triangle < Formula
 
   depends_on "go" => :build
 
-  # fix the build, remove in the next release
-  patch do
-    url "https://github.com/chenrui333/triangle/commit/1b77095.patch?full_index=1"
-    sha256 "32f15bd419ca122ae6e5d38793d1f3e4446569327ad05281f1a499226faf8f73"
-  end
-
   def install
     system "go", "build", "-mod=vendor", "-o", "#{bin}/triangle", "./cmd/triangle"
   end
