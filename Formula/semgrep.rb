@@ -129,11 +129,9 @@ class Semgrep < Formula
       system "opam", "init", "--no-setup", "--disable-sandboxing"
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.2" }
 
-      if Hardware::CPU.arm?
-        # Delete OCaml version file since it conflicts with C++20 version header
-        # This can be removed once semgrep upgrades to ocaml 4.12.0
-        rm "#{opamroot}/ocaml-base-compiler.4.10.2/lib/ocaml/version"
-      end
+      # Delete OCaml version file since it conflicts with C++20 version header
+      # This can be removed once semgrep upgrades to ocaml 4.12.0
+      rm "#{opamroot}/ocaml-base-compiler.4.10.2/lib/ocaml/version"
 
       system "opam", "exec", "--", "make", "setup"
 
