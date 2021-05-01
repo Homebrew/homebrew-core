@@ -4,6 +4,7 @@ class Openblas < Formula
   url "https://github.com/xianyi/OpenBLAS/archive/v0.3.15.tar.gz"
   sha256 "30a99dec977594b387a17f49904523e6bc8dd88bd247266e83485803759e4bbe"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/xianyi/OpenBLAS.git", branch: "develop"
 
   livecheck do
@@ -22,6 +23,13 @@ class Openblas < Formula
 
   depends_on "gcc" # for gfortran
   fails_with :clang
+
+  # Fix compile on ARM
+  # https://github.com/xianyi/OpenBLAS/issues/3222
+  patch do
+    url "https://github.com/xianyi/OpenBLAS/commit/c90c23e78f24f37c6be877e37075463a4ba8f201.patch?full_index=1"
+    sha256 "eb89ce6160fc896eb6668658c2e6fdc34942b5e39ed45d28af4673435a500cf5"
+  end
 
   def install
     ENV["DYNAMIC_ARCH"] = "1"
