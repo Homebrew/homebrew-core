@@ -5,6 +5,7 @@ class Netcdf < Formula
   mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-c-4.8.0.tar.gz"
   sha256 "679635119a58165c79bb9736f7603e2c19792dd848f19195bf6881492246d6d5"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Unidata/netcdf-c.git"
 
   livecheck do
