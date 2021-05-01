@@ -5,8 +5,6 @@ class Flash < Formula
   sha256 "879057fea97c791a812e5c990d4ea07effd02406d3a267a9b24285c31ea6db3f"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bin.install "flash"
   end
