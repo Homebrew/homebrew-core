@@ -44,7 +44,7 @@ class Sdl2Net < Formula
       }
     EOS
 
-    system ENV.cc, "-L#{lib}", "-lsdl2_net", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-I#{Formula["sdl2"].opt_include}/SDL2", "-L#{lib}", "-lSDL2_net", "-o", "test"
     system "./test"
   end
 end
