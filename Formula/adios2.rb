@@ -4,6 +4,7 @@ class Adios2 < Formula
   url "https://github.com/ornladios/ADIOS2/archive/v2.7.1.tar.gz"
   sha256 "c8e237fd51f49d8a62a0660db12b72ea5067512aa7970f3fcf80b70e3f87ca3e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
   bottle do
