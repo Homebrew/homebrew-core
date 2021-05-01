@@ -4,6 +4,7 @@ class Openfast < Formula
   url "https://github.com/openfast/openfast/archive/v2.5.0.tar.gz"
   sha256 "b3d9cfcdd87a8fa0e8e62d08bf65a9a9ee69e16a5221e6fb0d3b7f4226971d0e"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:  "59580daa33a07c7e6e82457b95c1c29f9a0c7771e3660f05a540055f61d4de84"
@@ -14,6 +15,13 @@ class Openfast < Formula
   depends_on "cmake" => :build
   depends_on "gcc"
   depends_on "openblas"
+
+  # Fix build on ARM
+  # https://github.com/OpenFAST/openfast/pull/744
+  patch do
+    url "https://github.com/OpenFAST/openfast/commit/2f5cb69efcaeebce099a814d6a338171b828ae0d.patch?full_index=1"
+    sha256 "77611167b092e8daef0650db82dab24127f829d060199bae8b191cac9e3c0b9a"
+  end
 
   def install
     args = std_cmake_args + %w[
