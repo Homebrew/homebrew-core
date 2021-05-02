@@ -6,8 +6,6 @@ class Willgit < Formula
   license "MIT"
   head "https://github.com/DanielVartanov/willgit.git"
 
-  bottle :unneeded
-
   conflicts_with "git-utils",
     because: "both install a `git-rank-contributors` script"
 
