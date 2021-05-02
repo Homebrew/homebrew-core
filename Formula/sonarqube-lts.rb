@@ -14,8 +14,6 @@ class SonarqubeLts < Formula
     regex(/href=.*?sonarqube[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.zip/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@11"
 
   conflicts_with "sonarqube", because: "both install the same binaries"
