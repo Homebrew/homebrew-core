@@ -3,8 +3,8 @@ class NameThatHash < Formula
 
   desc "Modern hash identification system"
   homepage "https://nth.skerritt.blog/"
-  url "https://files.pythonhosted.org/packages/06/3a/17c66be9fea9112f74aca39dc0a1493668afdb4d3aad20ab5a6ac4fb873a/name-that-hash-1.7.2.tar.gz"
-  sha256 "116c7d38de2c1d4fbb5ac13d312779e10e59957fb603fa915f37e0259c813d5f"
+  url "https://files.pythonhosted.org/packages/c5/f2/d845308790348ef09cd8ba3f9b04fde0120cb1615aba499f791d5d26d4c2/name-that-hash-1.8.0.tar.gz"
+  sha256 "f1f11dce70e0baf7521245abb4eb3a1563dac637791369561c5daba1aeb7fc97"
   license "GPL-3.0-or-later"
   head "https://github.com/HashPals/Name-That-Hash.git", branch: "main"
 
@@ -32,11 +32,6 @@ class NameThatHash < Formula
     sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
   end
 
-  resource "loguru" do
-    url "https://files.pythonhosted.org/packages/6d/25/0d65383fc7b4f4ce9505d16773b2b2a9f0f465ef00ab337d66afff47594a/loguru-0.5.3.tar.gz"
-    sha256 "b28e72ac7a98be3d28ad28570299a393dfcd32e5e3f6a353dec94675767b6319"
-  end
-
   resource "Pygments" do
     url "https://files.pythonhosted.org/packages/15/9d/bc9047ca1eee944cc245f3649feea6eecde3f38011ee9b8a6a64fb7088cd/Pygments-2.8.1.tar.gz"
     sha256 "2656e1a6edcdabf4275f9a3640db59fd5de107d88e8663c5d4e9a0fa62f77f94"
@@ -48,8 +43,8 @@ class NameThatHash < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/16/06/0f7367eafb692f73158e5c5cbca1aec798cdf78be5167f6415dd4205fa32/typing_extensions-3.7.4.3.tar.gz"
-    sha256 "99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c"
+    url "https://files.pythonhosted.org/packages/aa/55/62e2d4934c282a60b4243a950c9dbfa01ae7cac0e8d6c0b5315b87432c81/typing_extensions-3.10.0.0.tar.gz"
+    sha256 "50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"
   end
 
   def install
