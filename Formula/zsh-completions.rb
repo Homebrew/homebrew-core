@@ -5,8 +5,6 @@ class ZshCompletions < Formula
   sha256 "d2d20836fb60d2e5de11b08f1a8373484dc01260d224e64c6de9eec44137fa63"
   head "https://github.com/zsh-users/zsh-completions.git"
 
-  bottle :unneeded
-
   def install
     pkgshare.install Dir["src/_*"]
   end
