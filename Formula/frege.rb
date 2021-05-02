@@ -12,8 +12,6 @@ class Frege < Formula
     regex(/href=.*?frege[._-]?(\d+(?:\.\d+)+)\.jar/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
