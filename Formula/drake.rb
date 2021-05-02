@@ -6,7 +6,7 @@ class Drake < Formula
   license "EPL-1.0"
   head "https://github.com/Factual/drake.git"
 
-  bottle :unneeded
+  depends_on "openjdk"
 
   resource "jar" do
     url "https://github.com/Factual/drake/releases/download/1.0.3/drake.jar"
@@ -16,10 +16,11 @@ class Drake < Formula
   def install
     jar = "drake-#{version}-standalone.jar"
     inreplace "drake-pkg", /DRAKE_JAR/, libexec/jar
-    bin.install "drake-pkg" => "drake"
+    libexec.install "drake-pkg"
     resource("jar").stage do
       libexec.install "drake.jar" => jar
     end
+    (bin/"drake").write_env_script libexec/"drake-pkg", Language::Java.overridable_java_home_env
   end
 
   test do
