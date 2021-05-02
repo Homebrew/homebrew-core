@@ -11,8 +11,6 @@ class Maven < Formula
     regex(/href=.*?apache-maven[._-]v?(\d+(?:\.\d+)+)-bin\.t/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
