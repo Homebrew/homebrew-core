@@ -6,8 +6,6 @@ class Pycodestyle < Formula
   license "MIT"
   head "https://github.com/PyCQA/pycodestyle.git"
 
-  bottle :unneeded
-
   def install
     bin.install "pycodestyle.py" => "pycodestyle"
   end
