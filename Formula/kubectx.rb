@@ -6,8 +6,6 @@ class Kubectx < Formula
   license "Apache-2.0"
   head "https://github.com/ahmetb/kubectx.git"
 
-  bottle :unneeded
-
   depends_on "kubernetes-cli"
 
   def install
