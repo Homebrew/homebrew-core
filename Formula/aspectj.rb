@@ -10,8 +10,6 @@ class Aspectj < Formula
     regex(%r{Latest Stable Release.*?href=.*?/aspectj[._-]v?(\d+(?:\.\d+)+)\.jar}im)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
