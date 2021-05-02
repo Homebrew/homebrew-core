@@ -6,11 +6,16 @@ class ObjcRun < Formula
   license "MIT"
   head "https://github.com/iljaiwas/objc-run.git"
 
-  bottle :unneeded
-
   def install
+    # Keep bottles uniform before keg-relocation
+    inreplace "objc-run", "/usr/local", HOMEBREW_PREFIX
     bin.install "objc-run"
     pkgshare.install "examples", "test.bash"
+  end
+
+  def post_install
+    # Undo mistaken keg relocation
+    inreplace bin/"objc-run", HOMEBREW_PREFIX, "/usr/local"
   end
 
   test do
