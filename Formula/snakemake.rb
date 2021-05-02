@@ -3,8 +3,8 @@ class Snakemake < Formula
 
   desc "Pythonic workflow system"
   homepage "https://snakemake.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/85/31/ce328a6f1552e115495462090b4db704d657cc45c5375dae9798d3bc0d2d/snakemake-6.2.1.tar.gz"
-  sha256 "cbb7688aee07a7e9a223a3b05bc9425d6245f8ad0990fc3c623e6645b02f310c"
+  url "https://files.pythonhosted.org/packages/70/51/b444f00d922f6fa02cdb21f74ff51b1a499aec0c62cdd6ebfce155abc0cf/snakemake-6.3.0.tar.gz"
+  sha256 "eb6a59c7cfe847333d792fad8ef04a478bed8f2184f0f447c011b15dfbc20a49"
   license "MIT"
   head "https://github.com/snakemake/snakemake.git"
 
@@ -164,8 +164,8 @@ class Snakemake < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/16/06/0f7367eafb692f73158e5c5cbca1aec798cdf78be5167f6415dd4205fa32/typing_extensions-3.7.4.3.tar.gz"
-    sha256 "99d4073b617d30288f569d3f13d2bd7548c3a7e4c8de87db09a9d29bb3a4a60c"
+    url "https://files.pythonhosted.org/packages/aa/55/62e2d4934c282a60b4243a950c9dbfa01ae7cac0e8d6c0b5315b87432c81/typing_extensions-3.10.0.0.tar.gz"
+    sha256 "50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"
   end
 
   resource "urllib3" do
