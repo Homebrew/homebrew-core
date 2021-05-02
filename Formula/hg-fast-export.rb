@@ -7,8 +7,6 @@ class HgFastExport < Formula
   sha256 "f7c374ae683e188adbe72f1c3731e69e2209323439accbf84ed27ae8207f39b4"
   license "GPL-2.0-or-later"
 
-  bottle :unneeded
-
   depends_on "mercurial"
   depends_on "python@3.9"
 
