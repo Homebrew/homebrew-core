@@ -3,7 +3,7 @@ class Stgit < Formula
   homepage "https://stacked-git.github.io"
   url "https://github.com/stacked-git/stgit/releases/download/v1.1/stgit-1.1.tar.gz"
   sha256 "fc9674943c8e5534122ad96646078b4f07b7b69fc202b57eaa9b430ee13f0d9b"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/stacked-git/stgit.git"
 
   bottle do
