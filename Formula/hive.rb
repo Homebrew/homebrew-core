@@ -7,8 +7,7 @@ class Hive < Formula
   license "Apache-2.0"
   revision 3
 
-  bottle :unneeded
-
+  depends_on arch: :x86_64
   depends_on "hadoop"
 
   # hive requires Java 8. Java 11 support ticket:
