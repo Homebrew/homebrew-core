@@ -5,8 +5,6 @@ class Yadm < Formula
   sha256 "9f848c80deed2725c012d058bd60d1ea13539fd6fbacd5245bf97d442cb89263"
   license "GPL-3.0-or-later"
 
-  bottle :unneeded
-
   def install
     system "make", "install", "PREFIX=#{prefix}"
     bash_completion.install "completion/bash/yadm"
