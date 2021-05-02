@@ -1,8 +1,8 @@
 class Fennel < Formula
   desc "Lua Lisp Language"
   homepage "https://fennel-lang.org"
-  url "https://github.com/bakpakin/Fennel/archive/0.9.1.tar.gz"
-  sha256 "1bf39419dd789d230401583509b74190e7309abf4cb1c14064e25e547758d6c8"
+  url "https://github.com/bakpakin/Fennel/archive/0.9.2.tar.gz"
+  sha256 "01844552ae1a23b36bea291281f5fb0f1336b9a110caad8810e835ccea53dddc"
   license "MIT"
 
   bottle do
