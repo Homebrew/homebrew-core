@@ -8,8 +8,6 @@ class Crash < Formula
     url "https://github.com/crashub/crash"
   end
 
-  bottle :unneeded
-
   resource "docs" do
     url "https://search.maven.org/remotecontent?filepath=org/crashub/crash.distrib/1.3.2/crash.distrib-1.3.2-docs.tar.gz"
     sha256 "b3bf1efe50fb640224819f822835e3897c038ab5555049f2279a5b26171178bb"
