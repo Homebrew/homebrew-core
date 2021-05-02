@@ -4,7 +4,7 @@ class Bork < Formula
   url "https://github.com/skylarmacdonald/bork/archive/v0.12.0.tar.gz"
   sha256 "525f797a5ad01734d298852a038c2a2cb338ee9bb038c560bb20ecf142b1588b"
   license "Apache-2.0"
-  head "https://github.com/skylarmacdonald/bork.git"
+  head "https://github.com/skylarmacdonald/bork.git", branch: "main"
 
   bottle :unneeded
 
