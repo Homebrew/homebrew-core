@@ -10,8 +10,7 @@ class Nuget < Formula
     regex(%r{"url":\s*?"[^"]+/v?(\d+(?:\.\d+)+)/nuget\.exe",\s*?"stage":\s*?"ReleasedAndBlessed"}i)
   end
 
-  bottle :unneeded
-
+  depends_on arch: :x86_64
   depends_on "mono"
 
   def install
