@@ -5,8 +5,6 @@ class Easyengine < Formula
   sha256 "d9abef0aef4f87a54a9c48abcc999c2565a8ba43d109b11d695fb4abd32261a3"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "dnsmasq"
   depends_on "php"
 
