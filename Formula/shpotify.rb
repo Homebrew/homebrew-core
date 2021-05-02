@@ -6,8 +6,6 @@ class Shpotify < Formula
   license "MIT"
   head "https://github.com/hnarayanan/shpotify.git"
 
-  bottle :unneeded
-
   def install
     bin.install "spotify"
   end
