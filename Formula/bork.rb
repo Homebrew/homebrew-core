@@ -6,8 +6,6 @@ class Bork < Formula
   license "Apache-2.0"
   head "https://github.com/skylarmacdonald/bork.git", branch: "main"
 
-  bottle :unneeded
-
   def install
     prefix.install %w[bin docs lib test types]
   end
