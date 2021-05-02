@@ -19,8 +19,8 @@ class Imgproxy < Formula
 
   # patch build, remove in next release
   patch do
-    url "https://github.com/chenrui333/imgproxy/commit/5e72bbd.patch?full_index=1"
-    sha256 "871d4727bdfb369263237849a1d3aa15460af16e1f6ed3b71e4522a75847aadc"
+    url "https://github.com/imgproxy/imgproxy/commit/488d786.patch?full_index=1"
+    sha256 "4d1b3646c8b61883fe35bf9da37ce2f6e2e128643b4c22ba831d0bc9aa96c9dd"
   end
 
   def install
