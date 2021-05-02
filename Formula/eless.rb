@@ -5,8 +5,6 @@ class Eless < Formula
   sha256 "a691a56da6d92f279e46c10d72d3ef6e4951f0e30092ca394622b6e94aae551b"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "emacs"
 
   def install
