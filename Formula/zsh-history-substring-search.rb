@@ -4,8 +4,6 @@ class ZshHistorySubstringSearch < Formula
   url "https://github.com/zsh-users/zsh-history-substring-search/archive/v1.0.2.tar.gz"
   sha256 "c1bb21490bd31273fb511b23000fb7caf49c258a79c4b8842f3e1f2ff76fd84c"
 
-  bottle :unneeded
-
   def install
     pkgshare.install "zsh-history-substring-search.zsh"
   end
