@@ -7,9 +7,8 @@ class Isl < Formula
   # and update isl_version() function accordingly.  All other names will
   # result in isl_version() function returning "UNKNOWN" and hence break
   # package detection.
-  url "http://isl.gforge.inria.fr/isl-0.23.tar.xz"
-  mirror "https://deb.debian.org/debian/pool/main/i/isl/isl_0.23.orig.tar.xz"
-  sha256 "5efc53efaef151301f4e7dde3856b66812d8153dede24fab17673f801c8698f2"
+  url "http://isl.gforge.inria.fr/isl-0.24.tar.xz"
+  sha256 "043105cc544f416b48736fff8caf077fb0663a717d06b1113f16e391ac99ebad"
   license "MIT"
 
   livecheck do
@@ -41,6 +40,7 @@ class Isl < Formula
                           "--prefix=#{prefix}",
                           "--with-gmp=system",
                           "--with-gmp-prefix=#{Formula["gmp"].opt_prefix}"
+    system "make"
     system "make", "install"
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.py"]
   end
