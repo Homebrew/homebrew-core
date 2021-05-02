@@ -5,14 +5,14 @@ class BatsCore < Formula
   sha256 "1d5075e6e712dc15fbe818b9d88605dbc8908269857f054b046321a4b9cba089"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "coreutils"
 
   conflicts_with "bats", because: "both install `bats` executables"
 
   def install
     system "./install.sh", prefix
+    # Replace `/usr/local` references for uniform bottles
+    inreplace lib/"bats-core/formatter.bash", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
