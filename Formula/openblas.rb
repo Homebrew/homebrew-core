@@ -1,21 +1,10 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.15.tar.gz"
+  sha256 "30a99dec977594b387a17f49904523e6bc8dd88bd247266e83485803759e4bbe"
   license "BSD-3-Clause"
   head "https://github.com/xianyi/OpenBLAS.git", branch: "develop"
-
-  # Remove stable block at version bump
-  stable do
-    url "https://github.com/xianyi/OpenBLAS/archive/v0.3.13.tar.gz"
-    sha256 "79197543b17cc314b7e43f7a33148c308b0807cd6381ee77f77e15acf3e6459e"
-
-    # Build script fix. Remove at version bump.
-    # https://github.com/xianyi/OpenBLAS/pull/3038
-    patch do
-      url "https://github.com/xianyi/OpenBLAS/commit/00ce35336ee1eb1089f30d1e117a8a6a933f9654.patch?full_index=1"
-      sha256 "555e3a8ab042bef2320549db2bad57249d9cf351a6f28e82d6ba53f008920465"
-    end
-  end
 
   livecheck do
     url :stable
