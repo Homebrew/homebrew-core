@@ -11,8 +11,6 @@ class Clojure < Formula
     regex(/url ".*?clojure-tools-v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
   depends_on "rlwrap"
 
