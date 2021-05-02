@@ -4,6 +4,11 @@ class Ecasound < Formula
   url "https://ecasound.seul.org/download/ecasound-2.9.3.tar.gz"
   sha256 "468bec44566571043c655c808ddeb49ae4f660e49ab0072970589fd5a493f6d4"
 
+  livecheck do
+    url "https://www.eca.cx/ecasound/download.php"
+    regex(/href=.*?ecasound[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 big_sur:     "d3a693686266e5570afbd54ecaede7930145c6a69461e7839c97857b373c63f6"
     sha256 catalina:    "f6fede56fea73bdfd32cebd514448b50dec47542ff7d76342f950a61160a9fff"
