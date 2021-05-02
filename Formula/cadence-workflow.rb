@@ -17,6 +17,12 @@ class CadenceWorkflow < Formula
 
   conflicts_with "cadence", because: "both install an `cadence` executable"
 
+  # build patch, remove in next release
+  patch do
+    url "https://github.com/uber/cadence/commit/b6b70ffbced027f0833696aea09be350bd41d15e.patch?full_index=1"
+    sha256 "1547ac2d655e8b8cebb3fb00431bf0e5ff6c0ed4100d2dbe16ee0afbb404e1cf"
+  end
+
   def install
     system "make", "cadence", "cadence-server", "cadence-canary", "cadence-sql-tool", "cadence-cassandra-tool"
     bin.install "cadence"
