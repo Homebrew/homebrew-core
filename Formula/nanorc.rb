@@ -6,8 +6,6 @@ class Nanorc < Formula
   license "GPL-3.0"
   head "https://github.com/scopatz/nanorc.git"
 
-  bottle :unneeded
-
   def install
     pkgshare.install Dir["*.nanorc"]
     doc.install %w[readme.md license]
