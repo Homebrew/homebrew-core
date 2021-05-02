@@ -5,8 +5,6 @@ class Httpstat < Formula
   sha256 "7bfaa0428fe806ad4a68fc2db0aedf378f2e259d53f879372835af4ef14a6d41"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bin.install "httpstat.py" => "httpstat"
   end
