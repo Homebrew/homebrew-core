@@ -12,11 +12,11 @@ class Scala < Formula
     regex(/href=.*?scala[._-]v?(\d+(?:\.\d+)+)(?:[._-]final)?\.t/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
+    # Replace `/usr/local` references for uniform bottles
+    inreplace Dir["man/man1/scala{,c}.1"], "/usr/local", HOMEBREW_PREFIX
     rm_f Dir["bin/*.bat"]
     doc.install Dir["doc/*"]
     share.install "man"
