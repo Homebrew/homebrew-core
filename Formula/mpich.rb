@@ -5,7 +5,7 @@ class Mpich < Formula
   mirror "https://fossies.org/linux/misc/mpich-3.4.1.tar.gz"
   sha256 "8836939804ef6d492bcee7d54abafd6477d2beca247157d92688654d13779727"
   license "mpich2"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.mpich.org/static/downloads/"
