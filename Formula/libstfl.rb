@@ -3,6 +3,7 @@ class Libstfl < Formula
   homepage "http://www.clifford.at/stfl/"
   url "http://www.clifford.at/stfl/stfl-0.24.tar.gz"
   sha256 "d4a7aa181a475aaf8a8914a8ccb2a7ff28919d4c8c0f8a061e17a0c36869c090"
+  license "LGPL-3.0-or-later"
   revision 12
 
   livecheck do
@@ -27,8 +28,12 @@ class Libstfl < Formula
   def install
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
-    ENV.append "LDLIBS", "-liconv"
-    ENV.append "LIBS", "-lncurses -liconv -lruby"
+    ENV.append "LIBS", "-lncurses -lruby"
+
+    on_macos do
+      ENV.append "LDLIBS", "-liconv"
+      ENV.append "LIBS", "-liconv"
+    end
 
     %w[
       stfl.pc.in
@@ -55,8 +60,15 @@ class Libstfl < Formula
       s.change_make_var! "PYTHON_SITEARCH", lib/"python#{xy}/site-packages"
       s.gsub! "lib-dynload/", ""
       s.gsub! "ncursesw", "ncurses"
-      s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`#{python_config} --cflags`.chomp}"
-      s.gsub! "-lncurses", "-lncurses -liconv"
+
+      on_macos do
+        s.gsub! "gcc", "gcc -undefined dynamic_lookup #{`#{python_config} --cflags`.chomp}"
+        s.gsub! "-lncurses", "-lncurses -liconv"
+      end
+
+      on_linux do
+        s.gsub! "gcc", "gcc #{`#{python_config} --cflags`.chomp}"
+      end
     end
 
     # Fails race condition of test:
