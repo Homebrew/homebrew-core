@@ -44,10 +44,6 @@ class Giza < Formula
     test_dir = "#{prefix}/test/C"
     cp_r test_dir, testpath
 
-    on_macos do
-      ENV["CC"] = "#{Formula["gcc"].bin}/gcc-10"
-    end
-
     flags = %W[
       -I#{include}
       -L#{lib}
