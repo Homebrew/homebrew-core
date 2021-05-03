@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/41/8a/91ddacb5c8f6d302dbbe2b5dca515dc28aaca670b847a5d8a7807d06a140/moto-2.0.5.tar.gz"
-  sha256 "17219c9e8d79bc7450615896b37e5bd639c2038d4672bcab114ac4661e27f8ae"
+  url "https://files.pythonhosted.org/packages/96/e5/d2e05e204e0163f59edd36d08bc1cc2ae0e395088c1b18d64156e537a81a/moto-2.0.6.tar.gz"
+  sha256 "7982176837406cabb47a84785125d337b6df357ae92ae29423724d072764dd90"
   license "Apache-2.0"
 
   bottle do
@@ -28,18 +28,18 @@ class Moto < Formula
   end
 
   resource "aws-xray-sdk" do
-    url "https://files.pythonhosted.org/packages/55/24/4beff65d9878ccb8ddbbcae339a9c716951fbb28c65c79082eb5b0e6bc6c/aws-xray-sdk-2.7.0.tar.gz"
-    sha256 "697c9068e84dd5d2c1456def3fd0865f226046b5db4db56d738050e425960adf"
+    url "https://files.pythonhosted.org/packages/f5/3d/8b58be10b0976942c993c9cd312fbee7b79c455a9d74a06601a784ac306e/aws-xray-sdk-2.8.0.tar.gz"
+    sha256 "90c2fcc982a770e86d009a4c3d2b5c3e372da91cb8284d982bae458e2c0bb268"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7a/1e/570e2446e97bac3d348d0bc6cbf8ac28997ddbef3d97c052f1c476ff48bb/boto3-1.17.49.tar.gz"
-    sha256 "a482135c30fa07eaf4370314dd0fb49117222a266d0423b2075aed3835ed1f04"
+    url "https://files.pythonhosted.org/packages/c5/d6/af0c15b601e38bff38d975a231d8c4401d29e1385bf1ebb65b97cefa91e1/boto3-1.17.62.tar.gz"
+    sha256 "d856a71d74351649ca8dd59ad17c8c3e79ea57734ff4a38a97611e1e10b06863"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/49/95/afb61cbea75fb2ba846d5ed4fcc364fbc7b59a998adfe379409a4ee36231/botocore-1.20.49.tar.gz"
-    sha256 "f7f103fa0651c69dd360c7d0ecd874854303de5cc0869e0cbc2818a52baacc69"
+    url "https://files.pythonhosted.org/packages/84/0f/19c3aa46381749e6a6bd24855fed7f732a7b768a580c15e138ecfa49b344/botocore-1.20.62.tar.gz"
+    sha256 "f7c2c5c5ed5212b2628d8fb1c587b31c6e8d413ecbbd1a1cdf6f96ed6f5c8d5e"
   end
 
   resource "certifi" do
@@ -53,8 +53,8 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/bc/9a/d0ed07130759ecbf84ea5e05cb4713286ab8c1b7ea2fc26ecd216d396be9/cfn-lint-0.48.2.tar.gz"
-    sha256 "67dc1687ccb68f76341a75f1a35f3074e6ac21169208d1ee1f658ed06134b213"
+    url "https://files.pythonhosted.org/packages/69/21/ca1285c092585de8fb95b247ed4c7932c8a9eaaa1600ead5d8af5b6d4913/cfn-lint-0.49.0.tar.gz"
+    sha256 "1d003e10084b56dede14d3e1acc1f4a793646dcc01318dee2f209d35c1a9fb50"
   end
 
   resource "chardet" do
@@ -123,8 +123,8 @@ class Moto < Formula
   end
 
   resource "jsondiff" do
-    url "https://files.pythonhosted.org/packages/64/5c/2b4b0ae4d42cb1b0b1a89ab1c4d9fe02c72461e33a5d02009aa700574943/jsondiff-1.2.0.tar.gz"
-    sha256 "34941bc431d10aa15828afe1cbb644977a114e75eef6cc74fb58951312326303"
+    url "https://files.pythonhosted.org/packages/37/53/df2401ddcdc20289e715d3ab30080a0f286a897b6c9c6511bad869ee1ea1/jsondiff-1.3.0.tar.gz"
+    sha256 "5122bf4708a031b02db029366184a87c5d0ddd5a327a5884ee6cf0193e599d71"
   end
 
   resource "jsonpatch" do
@@ -203,8 +203,8 @@ class Moto < Formula
   end
 
   resource "responses" do
-    url "https://files.pythonhosted.org/packages/57/88/f8ce5cf43226357ebf8e2a5b6ea39c7747947620f5d9de34e883c0705a10/responses-0.13.2.tar.gz"
-    sha256 "0f0ab4717728d33dae8e66deea61eecc1e38f0398e35249e3963ff74cfc8d0d8"
+    url "https://files.pythonhosted.org/packages/fe/5e/4a15f6d998e7bb3b6fe774286893784f3507ef4d30a6404b6f56eb20691a/responses-0.13.3.tar.gz"
+    sha256 "18a5b88eb24143adbf2b4100f328a2f5bfa72fbdacf12d97d41f07c26c45553d"
   end
 
   resource "rsa" do
@@ -213,8 +213,8 @@ class Moto < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/0f/c2/266326b601256b5722aea10961504857f324cd50f4adc66a2f573fbea017/s3transfer-0.3.6.tar.gz"
-    sha256 "c5dadf598762899d8cfaecf68eba649cd25b0ce93b6c954b156aaa3eed160547"
+    url "https://files.pythonhosted.org/packages/27/90/f467e516a845cf378d85f0a51913c642e31e2570eb64b352c4dc4c6cbfc7/s3transfer-0.4.2.tar.gz"
+    sha256 "cb022f4b16551edebbb31a377d3f09600dbada7363d8c5db7976e7f47732e1b2"
   end
 
   resource "six" do
