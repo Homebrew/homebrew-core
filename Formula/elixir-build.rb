@@ -6,8 +6,6 @@ class ElixirBuild < Formula
   license "MIT"
   head "https://github.com/mururu/elixir-build.git"
 
-  bottle :unneeded
-
   conflicts_with "narwhal", because: "both install `json` binaries"
 
   def install
