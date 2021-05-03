@@ -14,8 +14,14 @@ class Libsigcxx < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-
   depends_on macos: :high_sierra # needs C++17
+
+  on_linux do
+    depends_on "m4" => :build
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV.cxx11
@@ -45,6 +51,11 @@ class Libsigcxx < Formula
         return 0;
       }
     EOS
+
+    on_linux do
+      ENV["CXX"] = Formula["gcc"].opt_bin/"c++-10"
+    end
+
     system ENV.cxx, "-std=c++17", "test.cpp",
                    "-L#{lib}", "-lsigc-3.0", "-I#{include}/sigc++-3.0", "-I#{lib}/sigc++-3.0/include", "-o", "test"
     assert_match "hello world", shell_output("./test")
