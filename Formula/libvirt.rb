@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://www.libvirt.org"
-  url "https://libvirt.org/sources/libvirt-7.2.0.tar.xz"
-  sha256 "01f459d0c7ba5009622a628dba1a026200e8f4a299fea783b936a71d7e0ed1d0"
+  url "https://libvirt.org/sources/libvirt-7.3.0.tar.xz"
+  sha256 "27bdbb85c0301475ab1f2ecd185c629ea0bfd5512bef3f6f1817b6c55d1dc1be"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   livecheck do
