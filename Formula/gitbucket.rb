@@ -61,8 +61,6 @@ class Gitbucket < Formula
       pid = fork do
         exec "'#{java}' -jar #{libexec}/gitbucket.war --port=#{free_port} > output"
       end
-      puts "PID"
-      puts pid
       sleep 12
       File.read("output") !~ /Exception/
     ensure
