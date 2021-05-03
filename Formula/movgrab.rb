@@ -3,8 +3,8 @@ class Movgrab < Formula
   homepage "https://sites.google.com/site/columscode/home/movgrab"
   url "https://github.com/ColumPaget/Movgrab/archive/3.1.2.tar.gz"
   sha256 "30be6057ddbd9ac32f6e3d5456145b09526cc6bd5e3f3fb3999cc05283457529"
-  license "GPL-3.0"
-  revision 2
+  license "GPL-3.0-or-later"
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "9921657b5d558018c44f82963a3cc6a6ba7008ad131796ca703595d19df2e216"
@@ -14,7 +14,11 @@ class Movgrab < Formula
     sha256 cellar: :any, high_sierra:   "7702b7817fc398f4901014bd6162578294da414a18b1ae4e5f10ef8cf05a678c"
   end
 
-  depends_on "libressl"
+  uses_from_macos "openssl@1.1"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   # Fixes an incompatibility between Linux's getxattr and macOS's.
   # Reported upstream; half of this is already committed, and there's
