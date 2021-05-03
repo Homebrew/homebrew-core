@@ -5,8 +5,6 @@ class DropboxUploader < Formula
   sha256 "8c9be8bd38fb3b0f0b4d1a863132ad38c8299ac62ecfbd1e818addf32b48d84c"
   license "GPL-3.0"
 
-  bottle :unneeded
-
   def install
     bin.install "dropbox_uploader.sh", "dropShell.sh"
   end
