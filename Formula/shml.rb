@@ -5,8 +5,6 @@ class Shml < Formula
   sha256 "0f0634fe5dd043f5ff52946151584a59b5826acbb268c9d884a166c3196b8f4f"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bin.install "shml.sh"
     bin.install_symlink bin/"shml.sh" => "shml"
