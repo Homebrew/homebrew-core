@@ -31,6 +31,10 @@ class Ncview < Formula
   depends_on "netcdf"
   depends_on "udunits"
 
+  on_linux do
+    depends_on "libxext"
+  end
+
   def install
     # Bypass compiler check (which fails due to netcdf's nc-config being
     # confused by our clang shim)
