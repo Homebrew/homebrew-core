@@ -7,8 +7,6 @@ class Asdf < Formula
   revision 1
   head "https://github.com/asdf-vm/asdf.git"
 
-  bottle :unneeded
-
   depends_on "autoconf"
   depends_on "automake"
   depends_on "coreutils"
