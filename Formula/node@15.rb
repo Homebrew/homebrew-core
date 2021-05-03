@@ -8,7 +8,7 @@ class Node < Formula
 
   livecheck do
     url "https://nodejs.org/dist/"
-    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    regex(%r{href=["']?v?(15(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
