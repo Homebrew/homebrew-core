@@ -22,6 +22,10 @@ class Pinentry < Formula
   depends_on "libassuan"
   depends_on "libgpg-error"
 
+  on_linux do
+    depends_on "libsecret"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking
