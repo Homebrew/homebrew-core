@@ -1,8 +1,8 @@
 class AdwaitaIconTheme < Formula
   desc "Icons for the GNOME project"
   homepage "https://developer.gnome.org"
-  url "https://download.gnome.org/sources/adwaita-icon-theme/40/adwaita-icon-theme-40.0.tar.xz"
-  sha256 "1f2bca34f60357ab91b7db91c5e919ad36775e094138dffc870bb5f97b0dbbb2"
+  url "https://download.gnome.org/sources/adwaita-icon-theme/40/adwaita-icon-theme-40.1.tar.xz"
+  sha256 "3fba2ee1e9e2225413230397824fc9d484271c44252db7f57ba9bebf45c9b12a"
   license any_of: ["LGPL-3.0-or-later", "CC-BY-SA-3.0"]
 
   bottle do
