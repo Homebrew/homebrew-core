@@ -6,8 +6,6 @@ class EmacsDracula < Formula
   license "MIT"
   head "https://github.com/dracula/emacs.git"
 
-  bottle :unneeded
-
   depends_on "emacs"
 
   def install
