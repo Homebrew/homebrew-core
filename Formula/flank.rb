@@ -10,8 +10,6 @@ class Flank < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
