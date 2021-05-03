@@ -6,9 +6,9 @@ class BrewGem < Formula
   license "MIT"
   head "https://github.com/sportngin/brew-gem.git"
 
-  bottle :unneeded
-
   def install
+    inreplace "lib/brew/gem/formula.rb.erb", "/usr/local", HOMEBREW_PREFIX
+
     lib.install Dir["lib/*"]
     bin.install "bin/brew-gem"
   end
