@@ -2,8 +2,8 @@ class Saml2aws < Formula
   desc "Login and retrieve AWS temporary credentials using a SAML IDP"
   homepage "https://github.com/Versent/saml2aws"
   url "https://github.com/Versent/saml2aws.git",
-  tag:      "v2.29.0",
-  revision: "7090ac307ce99271f7c8b81e8aefae1122b75b22"
+  tag:      "v2.30.0",
+  revision: "49701e7d9563da09ad93f13db0cb5bd90a57bbc4"
   license "MIT"
 
   bottle do
