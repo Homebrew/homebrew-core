@@ -17,6 +17,10 @@ class Libfabric < Formula
   depends_on "automake" => :build
   depends_on "libtool"  => :build
 
+  on_macos do
+    conflicts_with "mpich", because: "both install `fabric.h`"
+  end
+
   def install
     system "autoreconf", "-fiv"
     system "./configure", "--disable-dependency-tracking",
