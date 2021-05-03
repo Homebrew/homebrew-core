@@ -21,14 +21,21 @@ class PcscLite < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "libusb"
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--sysconfdir=#{etc}",
-                          "--disable-libsystemd"
+    args = %W[--disable-dependency-tracking
+              --disable-silent-rules
+              --prefix=#{prefix}
+              --sysconfdir=#{etc}
+              --disable-libsystemd]
+
+    on_linux do
+      args << "--disable-udev"
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 
