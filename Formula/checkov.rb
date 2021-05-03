@@ -262,7 +262,7 @@ class Checkov < Formula
       }
     EOS
 
-    assert_match "Passed checks: 4, Failed checks: 4, Skipped checks: 0",
+    assert_match "Passed checks: 5, Failed checks: 6, Skipped checks: 0",
       shell_output("#{bin}/checkov -f #{testpath}/test.tf 2>&1", 1)
 
     (testpath/"test2.tf").write <<~EOS
@@ -279,7 +279,7 @@ class Checkov < Formula
         }
       }
     EOS
-    assert_match "Passed checks: 4, Failed checks: 2, Skipped checks: 2",
+    assert_match "Passed checks: 5, Failed checks: 4, Skipped checks: 2",
       shell_output("#{bin}/checkov -f #{testpath}/test2.tf 2>&1", 1)
   end
 end
