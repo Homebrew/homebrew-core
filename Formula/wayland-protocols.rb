@@ -5,7 +5,7 @@ class WaylandProtocols < Formula
   sha256 "9782b7a1a863d82d7c92478497d13c758f52e7da4f197aa16443f73de77e4de7"
   license "MIT"
 
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "wayland" => :build
   depends_on :linux
 
