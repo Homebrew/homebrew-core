@@ -57,17 +57,11 @@ class Gitbucket < Formula
 
   test do
     java = Formula["openjdk"].opt_bin/"java"
-    begin
-      pid = fork do
-        exec "'#{java}' -jar #{libexec}/gitbucket.war --port=#{free_port} > output"
-      end
-      sleep 12
-      File.read("output") !~ /Exception/
-    ensure
-      Process.kill "SIGTERM", pid
-      Process.wait pid
-      # gitbucket leaves orphaned processees behind
-      quiet_system "pkill", "-9", "-f", "gitbucket"
+    fork do
+      $stdout.reopen(testpath/"output")
+      exec "'#{java}' -jar #{libexec}/gitbucket.war --port=#{free_port}"
     end
+    sleep 12
+    File.read("output") !~ /Exception/
   end
 end
