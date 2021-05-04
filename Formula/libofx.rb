@@ -3,7 +3,7 @@ class Libofx < Formula
   homepage "https://libofx.sourceforge.io"
   url "https://downloads.sourceforge.net/project/libofx/libofx/libofx-0.10.2.tar.gz"
   sha256 "7164fbe6c570867296f38f46f9def62ea993e46f2a67a9af1771d8edb877eb18"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
