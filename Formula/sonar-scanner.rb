@@ -6,7 +6,7 @@ class SonarScanner < Formula
   license "LGPL-3.0-or-later"
   head "https://github.com/SonarSource/sonar-scanner-cli.git"
 
-  bottle :unneeded
+  depends_on "openjdk"
 
   def install
     rm_rf Dir["bin/*.bat"]
@@ -14,7 +14,7 @@ class SonarScanner < Formula
     bin.install libexec/"bin/sonar-scanner"
     etc.install libexec/"conf/sonar-scanner.properties"
     ln_s etc/"sonar-scanner.properties", libexec/"conf/sonar-scanner.properties"
-    bin.env_script_all_files libexec/"bin/", SONAR_SCANNER_HOME: libexec
+    bin.env_script_all_files libexec/"bin/", SONAR_SCANNER_HOME: libexec, JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
   test do
