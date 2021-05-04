@@ -2,7 +2,7 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      tag:      "v3.18.2",
+      tag:      "v3.18.3",
       revision: "528c58600dcb1ab40eaf99135c8113fc049514dd"
   license "Apache-2.0"
   head "https://github.com/projectcalico/calicoctl.git"
@@ -18,11 +18,10 @@ class Calicoctl < Formula
 
   def install
     commands = "github.com/projectcalico/calicoctl/v3/calicoctl/commands"
-    system "go", "build", *std_go_args,
-                          "-ldflags", "-X #{commands}.VERSION=#{version} " \
-                                      "-X #{commands}.GIT_REVISION=#{Utils.git_short_head} " \
-                                      "-s -w",
-                          "calicoctl/calicoctl.go"
+    ldflags = "-X #{commands}.VERSION=#{version} " \
+              "-X #{commands}.GIT_REVISION=#{Utils.git_short_head} " \
+              "-s -w"
+    system "go", "build", *std_go_args(ldflags: ldflags), "calicoctl/calicoctl.go"
   end
 
   test do
