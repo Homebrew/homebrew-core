@@ -9,8 +9,6 @@ class Checkbashisms < Formula
     regex(/href=.*?devscripts[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   def install
     inreplace "scripts/checkbashisms.pl" do |s|
       s.gsub! "###VERSION###", version
