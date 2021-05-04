@@ -1,8 +1,8 @@
 class Indicators < Formula
   desc "Activity indicators for modern C++"
   homepage "https://github.com/p-ranav/indicators"
-  url "https://github.com/p-ranav/indicators/archive/v2.0.tar.gz"
-  sha256 "ef296fa614edcd798db0ac6c3c0f2990682cae8b83724a4db34eed17521c75f7"
+  url "https://github.com/p-ranav/indicators/archive/v2.2.tar.gz"
+  sha256 "b768f1b7ca64a413503f72d5460cc617c1458c17fb7a8c0ee503d753e1f20d03"
   license "MIT"
   head "https://github.com/p-ranav/indicators.git"
 
