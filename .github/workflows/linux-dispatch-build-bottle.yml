@@ -51,6 +51,12 @@ jobs:
           cat ~/bottles/steps_output.txt
           rm ~/bottles/steps_output.txt
 
+      - name: Output brew bottle result
+        if: always()
+        run: |
+          cat ~/bottles/bottle_output.txt
+          rm ~/bottles/bottle_output.txt
+
       - name: Upload logs
         if: failure()
         uses: actions/upload-artifact@main
