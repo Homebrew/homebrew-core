@@ -14,12 +14,6 @@ class A2ps < Formula
     sha256 mojave:        "8ca49b4797277f79e87e48ab4c6794601b64d1dde35b9eac556d4153b8237a51"
   end
 
-  pour_bottle? do
-    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
-    # https://github.com/Homebrew/brew/issues/2005
-    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
-  end
-
   uses_from_macos "gperf"
 
   on_macos do
