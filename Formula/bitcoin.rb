@@ -6,6 +6,11 @@ class Bitcoin < Formula
   license "MIT"
   head "https://github.com/bitcoin/bitcoin.git"
 
+  livecheck do
+    url "https://bitcoin.org/en/download"
+    regex(/latest version.*?v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:  "f9235205e7c1befe37fa1663c5f25a9dfe03198ff9db8e439d116109fb12948c"
     sha256 cellar: :any, catalina: "1908a1b6dc0f0ded7091db58cfe74d7540f36636c1599b71a2016c50f71ab7fe"
