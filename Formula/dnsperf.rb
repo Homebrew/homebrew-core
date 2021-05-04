@@ -18,12 +18,13 @@ class Dnsperf < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "bind"
-  depends_on "krb5"
-  depends_on "libxml2"
+  depends_on "concurrencykit"
+  depends_on "ldns"
+  depends_on "openssl@1.1"
 
   def install
     system "./configure", "--prefix=#{prefix}"
+    system "make"
     system "make", "install"
   end
 
