@@ -99,10 +99,10 @@ class Global < Formula
     assert_match "test.c", shell_output("#{bin}/global -d c2func  # passes")
     assert_match "test.py", shell_output("#{bin}/global -d pyfunc  # passes")
     assert_match "test.py", shell_output("#{bin}/global -d py2func # passes")
-    assert_no_match(/test\.c/, shell_output("#{bin}/global -r c2func  # correctly fails"))
-    assert_no_match(/test\.c/, shell_output("#{bin}/global -s cvar    # correctly fails"))
-    assert_no_match(/test\.py/, shell_output("#{bin}/global -r py2func # correctly fails"))
-    assert_no_match(/test\.py/, shell_output("#{bin}/global -s pyvar   # correctly fails"))
+    refute_match "test.c", shell_output("#{bin}/global -r c2func  # correctly fails")
+    refute_match "test.c", shell_output("#{bin}/global -s cvar    # correctly fails")
+    refute_match "test.py", shell_output("#{bin}/global -r py2func # correctly fails")
+    refute_match "test.py", shell_output("#{bin}/global -s pyvar   # correctly fails")
 
     # Test the default parser
     assert shell_output("#{bin}/gtags --gtagsconf=#{share}/gtags/gtags.conf --gtagslabel=default .")
