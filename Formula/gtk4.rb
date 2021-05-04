@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.2/gtk-4.2.0.tar.xz"
-  sha256 "e975f286e911666a79b6bcf486e6f99b0bd9d2b4cc348d19bce487a0b1c97072"
+  url "https://download.gnome.org/sources/gtk/4.2/gtk-4.2.1.tar.xz"
+  sha256 "023169775de43f0a1fde066fbc19d78545ea6a7562c1915abde9b8ae4a7309e6"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -37,12 +37,6 @@ class Gtk4 < Formula
 
   on_linux do
     depends_on "libxkbcommon"
-  end
-
-  # fix linux build https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/3480
-  patch do
-    url "https://gitlab.gnome.org/dlech/gtk/-/commit/b393b811c7a66a950485770f5864435c04c59d6e.diff"
-    sha256 "1a9d1f7c857ebc33b6bb8e7c63cb6d547227394009319d2906ddc4ff7a3eb6aa"
   end
 
   def install
