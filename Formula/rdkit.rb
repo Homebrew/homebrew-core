@@ -4,6 +4,7 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/Release_2021_03_1.tar.gz"
   sha256 "9495f797a54ac70b3b6e12776de7d82acd7f7b5d5f0cc1f168c763215545610b"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git"
 
   bottle do
@@ -65,6 +66,9 @@ class Rdkit < Formula
     system "cmake", ".", *args
     system "make"
     system "make", "install"
+
+    site_packages = "lib/python#{py3ver}/site-packages"
+    (prefix/site_packages/"homebrew-rdkit.pth").write libexec/site_packages
   end
 
   def caveats
@@ -76,6 +80,7 @@ class Rdkit < Formula
   end
 
   test do
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import rdkit"
     (testpath/"test.py").write <<~EOS
       from rdkit import Chem ; print(Chem.MolToSmiles(Chem.MolFromSmiles('C1=CC=CN=C1')))
     EOS
