@@ -1,8 +1,8 @@
 class Gptfdisk < Formula
   desc "Text-mode partitioning tools"
   homepage "https://www.rodsbooks.com/gdisk/"
-  url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.6/gptfdisk-1.0.6.tar.gz"
-  sha256 "ddc551d643a53f0bd4440345d3ae32c49b04a797e9c01036ea460b6bb4168ca8"
+  url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.7/gptfdisk-1.0.7.tar.gz"
+  sha256 "754004b7f85b279287c7ac3c0469b1d7e0eae043a97a2e587b0560ca5f3828c0"
   license "GPL-2.0-or-later"
 
   bottle do
