@@ -16,11 +16,6 @@ class Gptfdisk < Formula
 
   uses_from_macos "ncurses"
 
-  # Fix Big Sur compilation issue with 1.0.5; the physical *.dylib files
-  # are no longer present directly on the filesystem, but the linker still
-  # knows what to do.
-  patch :DATA
-
   def install
     system "make", "-f", "Makefile.mac"
     %w[cgdisk fixparts gdisk sgdisk].each do |program|
@@ -36,17 +31,3 @@ class Gptfdisk < Formula
     assert_match "Found valid GPT with protective MBR", shell_output("#{bin}/gdisk -l test.dmg")
   end
 end
-
-__END__
-diff -ur a/Makefile.mac b/Makefile.mac
---- a/Makefile.mac	2020-02-17 22:34:11.000000000 +0000
-+++ b/Makefile.mac	2020-12-05 22:12:04.000000000 +0000
-@@ -21,7 +21,7 @@
- #	$(CXX) $(LIB_OBJS) -L/usr/lib -licucore gpttext.o gdisk.o -o gdisk
- 
- cgdisk: $(LIB_OBJS) cgdisk.o gptcurses.o
--	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o /usr/lib/libncurses.dylib $(LDFLAGS) $(FATBINFLAGS) -o cgdisk
-+	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o -L/usr/lib -lncurses $(LDFLAGS) $(FATBINFLAGS) -o cgdisk
- #	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o $(LDFLAGS) -licucore -lncurses -o cgdisk
- 
- sgdisk: $(LIB_OBJS) gptcl.o sgdisk.o
