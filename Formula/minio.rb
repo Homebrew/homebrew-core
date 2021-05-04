@@ -5,7 +5,7 @@ class Minio < Formula
       tag:      "RELEASE.2021-04-22T15-44-28Z",
       revision: "a7acfa6158ea53c7a38f2034d85fbb8c8111e08a"
   version "20210422154428"
-  license "Apache-2.0"
+  license "AGPL-3.0-or-later"
   head "https://github.com/minio/minio.git"
 
   livecheck do
