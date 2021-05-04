@@ -1,6 +1,6 @@
 class CollectorSidecar < Formula
   desc "Manage log collectors through Graylog"
-  homepage "https://github.com/Graylog2/collector-sidecar"
+  homepage "https://www.graylog.org/"
   url "https://github.com/Graylog2/collector-sidecar/archive/1.1.0.tar.gz"
   sha256 "d0222a4d02efa83b002dd02129eeaa0acf935e3724abc0979c5467c43f88b990"
   license "GPL-3.0"
