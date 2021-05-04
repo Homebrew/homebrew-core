@@ -3,11 +3,22 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
-  url "https://github.com/Difegue/LANraragi/archive/v.0.7.6.tar.gz"
-  sha256 "2c498cc6a18b9fbb77c52ca41ba329c503aa5d4ec648075c3ebb72bfa7102099"
   license "MIT"
-  revision 3
   head "https://github.com/Difegue/LANraragi.git"
+
+  # Remove patch and `stable` block at version bump
+  stable do
+    url "https://github.com/Difegue/LANraragi/archive/v.0.7.8.tar.gz"
+    sha256 "e7deffd7f5b4528d7a7ddeab412d8230571e37d5a5eb8a0f6606e4e6655c22c9"
+
+    # Allow setting `LRR_TEMP_DIRECTORY` to fix test
+    # https://github.com/Difegue/LANraragi/issues/469
+    # Remove at version bump
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2f6f05abc781d85f891e0b87cda821e5c069abff/lanraragi/tempdir.patch"
+      sha256 "d14dfd68a32e7c0805a488f89644c73ca6472546edfd6118bd6726593adb3b81"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "140bb7034a374577fb5a6066e731bc846dab158a055c028f9ad1e43ceb0ceb48"
@@ -27,6 +38,8 @@ class Lanraragi < Formula
   depends_on "openssl@1.1"
   depends_on "perl"
   depends_on "redis"
+  depends_on "zstd"
+
   uses_from_macos "libarchive"
 
   resource "Image::Magick" do
@@ -48,7 +61,7 @@ class Lanraragi < Formula
     ENV.prepend_create_path "PERL5LIB", "#{libexec}/lib/perl5"
     ENV.prepend_path "PERL5LIB", "#{libexec}/lib"
     ENV["CFLAGS"] = "-I#{libexec}/include"
-    ENV["OPENSSL_PREFIX"] = "#{Formula["openssl@1.1"]}/1.1.1g"
+    ENV["OPENSSL_PREFIX"] = Formula["openssl@1.1"].opt_prefix
 
     imagemagick = Formula["imagemagick"]
     resource("Image::Magick").stage do
@@ -99,6 +112,13 @@ class Lanraragi < Formula
   end
 
   test do
+    # Make sure lanraragi writes files to a path allowed by the sandbox
+    ENV["LRR_LOG_DIRECTORY"] = ENV["LRR_TEMP_DIRECTORY"] = testpath
+    %w[server.pid shinobu.pid minion.pid].each { |file| touch file }
+
+    # Set PERL5LIB as we're not calling the launcher script
+    ENV["PERL5LIB"] = libexec/"lib/perl5"
+
     # This can't have its _user-facing_ functionality tested in the `brew test`
     # environment because it needs Redis. It fails spectacularly tho with some
     # table flip emoji. So let's use those to confirm _some_ functionality.
@@ -108,6 +128,7 @@ class Lanraragi < Formula
       It appears your Redis database is currently not running.
       The program will cease functioning now.
     EOS
-    assert_match output, shell_output("#{bin}/lanraragi", 1)
+    # Execute through npm to avoid starting a redis-server
+    assert_match output, shell_output("npm start --prefix #{libexec}", 61)
   end
 end
