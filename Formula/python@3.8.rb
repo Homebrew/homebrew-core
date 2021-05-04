@@ -1,8 +1,8 @@
 class PythonAT38 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.9/Python-3.8.9.tar.xz"
-  sha256 "5e391f3ec45da2954419cab0beaefd8be38895ea5ce33577c3ec14940c4b9572"
+  url "https://www.python.org/ftp/python/3.8.10/Python-3.8.10.tar.xz"
+  sha256 "6af24a66093dd840bcccf371d4044a3027e655cf24591ce26e48022bc79219d9"
   license "Python-2.0"
 
   livecheck do
@@ -53,35 +53,18 @@ class PythonAT38 < Formula
              "bin/easy_install-3.7", "bin/easy_install-3.8"
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/94/75/05e1d69c61c4dfaf65ad12785cd18bedc1e0129976c55914d6aea59c7da8/setuptools-54.2.0.tar.gz"
-    sha256 "aa9c24fb83a9116b8d425e53bec24c7bfdbffc313c2159f9ed036d4a6dd32d7d"
+    url "https://files.pythonhosted.org/packages/f6/e9/19af16328705915233299f6f1f02db95899fb00c75ac9da4757aa1e5d1de/setuptools-56.0.0.tar.gz"
+    sha256 "08a1c0f99455307c48690f00d5c2ac2c1ccfab04df00454fef854ec145b81302"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/b7/2d/ad02de84a4c9fd3b1958dc9fb72764de1aa2605a9d7e943837be6ad82337/pip-21.0.1.tar.gz"
-    sha256 "99bbde183ec5ec037318e774b0d8ae0a64352fe53b2c7fd630be1d07e94f41e5"
+    url "https://files.pythonhosted.org/packages/94/b0/e10bdc8809c81796c80aa3644a8e3dc16594fb1bd68f5996929f26cad980/pip-21.1.1.tar.gz"
+    sha256 "51ad01ddcd8de923533b01a870e7b987c2eb4d83b50b89e1bf102723ff9fed8b"
   end
 
   resource "wheel" do
     url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
     sha256 "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
-  end
-
-  # Patch for MACOSX_DEPLOYMENT_TARGET on Big Sur, not yet backported to the 3.8 branch
-  # https://bugs.python.org/issue42504
-  # https://github.com/python/cpython/pull/23556
-  patch do
-    url "https://github.com/python/cpython/commit/09a698b4.patch?full_index=1"
-    sha256 "a297c429ca83847d1d3ae84bdbb66e8a035731fd17955205de37c902d13300bf"
-  end
-
-  # Remove this block when upstream backports arm64 compatibility to the 3.8 branch
-  if Hardware::CPU.arm?
-    # Upstream PRs #20171, #21114, #21224 and #21249
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/cef51fde/python/3.8.7.patch"
-      sha256 "01ebca9fed99fd0b34abfd198e7d6137e3f851d9d1a07ded837b28c7998e810c"
-    end
   end
 
   # Link against libmpdec.so.3, update for mpdecimal.h symbol cleanup.
