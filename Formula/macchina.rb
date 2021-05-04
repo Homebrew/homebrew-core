@@ -1,8 +1,8 @@
 class Macchina < Formula
   desc "System information fetcher, with an emphasis on performance and minimalism"
   homepage "https://github.com/Macchina-CLI/macchina"
-  url "https://github.com/Macchina-CLI/macchina/archive/v0.7.0.tar.gz"
-  sha256 "6ff1497864a400f5eade2b46984cbe1259a0f7a75bf7191a2a75e111a8ffe119"
+  url "https://github.com/Macchina-CLI/macchina/archive/v0.7.4.tar.gz"
+  sha256 "66349e2274c48d8eb1ac1a627eb16dca0ee96e62c2fa34f9d9fadbe75a029d9f"
   license "MIT"
 
   bottle do
