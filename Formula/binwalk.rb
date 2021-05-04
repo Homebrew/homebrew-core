@@ -8,6 +8,11 @@ class Binwalk < Formula
   license "MIT"
   head "https://github.com/ReFirmLabs/binwalk.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "de845e209f61f7d53daec264962ce1aeb2fb72b5385ea6b8c9ac2188d0427bff"
     sha256 cellar: :any, big_sur:       "1d408cfd054c7f7e7d1035fae12f1ed22951c99ae2037e12d26a274e97ef3335"
