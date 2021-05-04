@@ -5,6 +5,7 @@ class Llvm < Formula
   sha256 "9ed1688943a4402d7c904cc4515798cdb20080066efa010fe7e1f2551b423628"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -141,6 +142,11 @@ class Llvm < Formula
       system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
+    on_macos do
+      # Install versioned symlink, or else `llvm-config` doesn't work properly
+      lib.install_symlink "libLLVM.dylib" => "libLLVM-#{version.major}.dylib" unless build.head?
+    end
+
     # Install LLVM Python bindings
     # Clang Python bindings are installed by CMake
     (lib/site_packages).install llvmpath/"bindings/python/llvm"
@@ -158,6 +164,9 @@ class Llvm < Formula
 
   test do
     assert_equal prefix.to_s, shell_output("#{bin}/llvm-config --prefix").chomp
+    assert_equal "-lLLVM-#{version.major}", shell_output("#{bin}/llvm-config --libs").chomp
+    assert_equal (lib/shared_library("libLLVM-#{version.major}")).to_s,
+                 shell_output("#{bin}/llvm-config --libfiles").chomp
 
     (testpath/"omptest.c").write <<~EOS
       #include <stdlib.h>
