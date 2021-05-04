@@ -61,7 +61,7 @@ class SeleniumServerStandalone < Formula
     output = JSON.parse(output)
 
     assert_equal 0, output["status"]
-    assert_true output["value"]["ready"]
+    assert_equal true, output["value"]["ready"]
     assert_equal version, output["value"]["build"]["version"]
   end
 end
