@@ -20,13 +20,6 @@ class Fontconfig < Formula
     sha256 el_capitan:    "40d70137a970e257de5cf1251b10d56d7db835faee88a9f4c020b4a4e4f82eb1"
   end
 
-  pour_bottle? do
-    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
-    # c.f. the identical hack in lua
-    # https://github.com/Homebrew/homebrew/issues/47173
-    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX }
-  end
-
   head do
     url "https://gitlab.freedesktop.org/fontconfig/fontconfig.git"
 
