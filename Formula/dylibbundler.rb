@@ -1,8 +1,8 @@
 class Dylibbundler < Formula
   desc "Utility to bundle libraries into executables for macOS"
   homepage "https://github.com/auriamg/macdylibbundler"
-  url "https://github.com/auriamg/macdylibbundler/archive/0.4.5-release.tar.gz"
-  sha256 "cd41e45115371721e0aa94e70c457134acf49f6d5f6d359b5bae060fd876d887"
+  url "https://github.com/auriamg/macdylibbundler/archive/1.0.0.tar.gz"
+  sha256 "9e2c892f0cfd7e10cef9af1127fee6c18a4c391463b9fc50574667eec4ec2c60"
   license "MIT"
   head "https://github.com/auriamg/macdylibbundler.git"
 
