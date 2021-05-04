@@ -3,6 +3,7 @@ class Mapserver < Formula
   homepage "https://mapserver.org/"
   url "https://download.osgeo.org/mapserver/mapserver-7.6.3.tar.gz"
   sha256 "0e0db478dabddee50498cd89669340f160a0437fed5a9f823022b19e2f150365"
+  license "MIT"
 
   livecheck do
     url "https://mapserver.org/download.html"
