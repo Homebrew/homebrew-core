@@ -1,8 +1,8 @@
 class Fq < Formula
   desc "Brokered message queue optimized for performance"
   homepage "https://github.com/circonus-labs/fq"
-  url "https://github.com/circonus-labs/fq/archive/v0.13.9.tar.gz"
-  sha256 "a6eb89d53209606bf355aa75d76a07e4b2340224bc1ecc90757ab916a404b458"
+  url "https://github.com/circonus-labs/fq/archive/v0.13.10.tar.gz"
+  sha256 "fe304987145ec7ce0103a3d06a75ead38ad68044c0f609ad0bcc20c06cbfd62e"
   license "MIT"
   head "https://github.com/circonus-labs/fq.git"
 
