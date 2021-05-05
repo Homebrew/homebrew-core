@@ -6,6 +6,7 @@ class PreCommit < Formula
   url "https://files.pythonhosted.org/packages/45/4b/622765062cdf3b60db8c3b4f1804be28f6f0de1f4def2d7af986f6852fd3/pre_commit-2.12.1.tar.gz"
   sha256 "900d3c7e1bf4cf0374bb2893c24c23304952181405b4d88c9c40b72bda1bb8a9"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "293f86148cb1ce81debf79d5d524d8e8f0521190d823b813511b7e1c19d87afa"
@@ -87,9 +88,9 @@ class PreCommit < Formula
   # Avoid relative paths
   def post_install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    bin_python_path = Pathname(libexec/"bin")
-    lib_python_path = Pathname(libexec/"lib/python#{xy}")
-    [lib_python_path, bin_python_path].each do |folder|
+    dirs_to_fix = [libexec/"lib/python#{xy}"]
+    on_linux { dirs_to_fix << libexec/"bin" }
+    dirs_to_fix.each do |folder|
       folder.each_child do |f|
         next unless f.symlink?
 
