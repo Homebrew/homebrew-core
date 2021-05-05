@@ -8,8 +8,8 @@ class Rpm < Formula
   version_scheme 1
 
   livecheck do
-    url "https://github.com/rpm-software-management/rpm.git"
-    regex(/rpm[._-]v?(\d+(?:\.\d+)+)-release/i)
+    url "https://rpm.org/download.html"
+    regex(/href=.*?rpm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
