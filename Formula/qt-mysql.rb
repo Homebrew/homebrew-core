@@ -1,8 +1,8 @@
 class QtMysql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.0/6.0.3/submodules/qtbase-everywhere-src-6.0.3.tar.xz"
-  sha256 "1a45b61c2a349964625c50e3ea40cbb309e269762dd0786397e0e18e7e10d394"
+  url "https://download.qt.io/official_releases/qt/6.0/6.0.4/submodules/qtbase-everywhere-src-6.0.4.tar.xz"
+  sha256 "c42757932d7cb264a043cc2a0eed30774d938f63db67bfff11d8e319c0c8799a"
   license all_of: ["LGPL-2.1-only", "LGPL-3.0-only"]
 
   bottle do
