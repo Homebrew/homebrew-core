@@ -2,8 +2,9 @@ class DjlServing < Formula
   desc "This module contains an universal model serving implementation"
   homepage "https://github.com/awslabs/djl/tree/master/serving"
   url "https://djl-ai.s3.amazonaws.com/publish/djl-serving/serving-0.11.0.tar"
-  sha256 "93dfd5e4efca5208918b016338209de37b96796af6dc584e269093c116f04030"
+  sha256 "a7bdd3397744e7cca57dc551cca9180ee88f5e630d31cef01a46cfb0dc73f666"
   license "Apache-2.0"
+  revision 1
 
   bottle :unneeded
 
