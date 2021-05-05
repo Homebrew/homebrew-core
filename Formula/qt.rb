@@ -1,10 +1,9 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.0/6.0.3/single/qt-everywhere-src-6.0.3.tar.xz"
-  sha256 "ca4a97439443dd0b476a47b284ba772c3b1b041a9eef733e26a789490993a0e3"
+  url "https://download.qt.io/official_releases/qt/6.0/6.0.4/single/qt-everywhere-src-6.0.4.tar.xz"
+  sha256 "677db6472420f9046b16f7c0d0aa15c4f11f344462a6374feb860625c12fc72b"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 2
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
   # The first-party website doesn't make version information readily available,
@@ -24,9 +23,9 @@ class Qt < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: [:build, :test]
 
   depends_on "assimp"
+  depends_on "brotli"
   depends_on "dbus"
   depends_on "double-conversion"
   depends_on "freetype"
@@ -49,19 +48,19 @@ class Qt < Formula
   uses_from_macos "perl"
   uses_from_macos "zlib"
 
-  resource "qtimageformats" do
-    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.3/qtimageformats-everywhere-src-6.0.3.tar.xz"
-    sha256 "327580b5a5b9a8d75e869c0eaa7ff34881bbde4e4ccc51d07a59e96054136837"
+  resource "qt3d" do
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.4/qt3d-everywhere-src-6.0.4.tar.xz"
+    sha256 "d6970593f4ab2d94c7beedf217ce4456c69f647251aa661a7de3a6ccf1b618ff"
   end
 
-  resource "qt3d" do
-    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.3/qt3d-everywhere-src-6.0.3.tar.xz"
-    sha256 "470f95c559b68cc8faa982c1ca7ff83054d6802f7b2a0c1d960a155b92080cf9"
+  resource "qtimageformats" do
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.4/qtimageformats-everywhere-src-6.0.4.tar.xz"
+    sha256 "c284b2eb413a7cf62ba7168c693b7498539fc41dfd9f29dd3ce5c5b46d8d1073"
   end
 
   resource "qtnetworkauth" do
-    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.3/qtnetworkauth-everywhere-src-6.0.3.tar.xz"
-    sha256 "124bf433e2c5418e900a5947d4ceb128ee179f514eddcea33924f0b695be64ed"
+    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.4/qtnetworkauth-everywhere-src-6.0.4.tar.xz"
+    sha256 "108c761dde84c346a292e875a24bfba7a0e1d0ea3e0238149fe9ac11a3de92e9"
   end
 
   def install
@@ -203,6 +202,7 @@ class Qt < Formula
     system "make"
     system "./test"
 
+    ENV.delete "CPATH"
     system bin/"qmake", testpath/"test.pro"
     system "make"
     system "./test"
