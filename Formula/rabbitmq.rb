@@ -10,8 +10,6 @@ class Rabbitmq < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle :unneeded
-
   depends_on "python@3.9" => :build
   depends_on "erlang"
 
