@@ -16,15 +16,13 @@ class Prestodb < Formula
     regex(/latest_presto_version.*?(\d+(?:\.\d+)+)/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   conflicts_with "prestosql", because: "both install `presto` and `presto-server` binaries"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.251/presto-cli-0.251-executable.jar"
-    sha256 "2c868c778efdfe1a120f24b1f8dfa99b5f1013421bd49696fea6d4ab65b4fcb6"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.252/presto-cli-0.252-executable.jar"
+    sha256 "a7fca41bf1adc6f6717ac27ef83f988447d2671ba41967ca852770c46a5ca084"
   end
 
   def install
