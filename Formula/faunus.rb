@@ -1,13 +1,13 @@
 class Faunus < Formula
   include Language::Python::Virtualenv
 
-  desc "A Framework for Metropolis Monte Carlo Simulation of Molecular Systems"
+  desc "Framework for Metropolis Monte Carlo Simulation of Molecular Systems"
   homepage "https://mlund.github.io/faunus"
   url "https://github.com/mlund/faunus/archive/522213d.zip"
-  #url "https://github.com/mlund/faunus/archive/refs/tags/v2.4.2.tar.gz"
-  #sha256 "a751d59191ae3b82741a1a63dea70620b461d0ba6935f17e5babc3706ad9e746"
-  license "MIT"
   version "2.5.0"
+  sha256 "5872d39ac3e3eab6069031ea966374ddc31a989ca4223ceb97f8a8da3b5b49f5"
+  license "MIT"
+  revision 1
 
   depends_on "cmake" => :build
   depends_on "python@3.9"
@@ -31,12 +31,13 @@ class Faunus < Formula
     ENV.prepend_create_path "PYTHONPATH", "#{venv_root}/lib/python#{xy}/site-packages"
     venv = virtualenv_create(venv_root, "python3")
     venv.pip_install resources
-    system "cmake", "-DENABLE_OPENMP=off", "-DENABLE_PYTHON=on", "-S", ".", *std_cmake_args, "-DPYTHON_EXECUTABLE=#{venv_root}/bin/python"
+    system "cmake", "-DENABLE_OPENMP=off", "-DENABLE_PYTHON=on", "-S", ".", *std_cmake_args,
+      "-DPYTHON_EXECUTABLE=#{venv_root}/bin/python"
     system "make", "install"
   end
 
   test do
-    system "#{bin}/faunus", "test"
+    system "#{bin}/faunus", "--version"
     system "#{bin}/yason.py", "-h"
   end
 end
