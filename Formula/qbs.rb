@@ -1,10 +1,9 @@
 class Qbs < Formula
   desc "Build tool for developing projects across multiple platforms"
   homepage "https://wiki.qt.io/Qbs"
-  url "https://download.qt.io/official_releases/qbs/1.18.0/qbs-src-1.18.0.tar.gz"
-  sha256 "3d0211e021bea3e56c4d5a65c789d11543cc0b6e88f1bfe23c2f8ebf0f89f8d4"
+  url "https://download.qt.io/official_releases/qbs/1.19.0/qbs-src-1.19.0.tar.gz"
+  sha256 "69ada96bccabf329ca59bbdd15eb706d5be04f0f0813a0fd54aa88ad44344a05"
   license :cannot_represent
-  revision 1
   head "git://code.qt.io/qbs/qbs.git"
 
   bottle do
@@ -13,9 +12,6 @@ class Qbs < Formula
     sha256 cellar: :any, catalina:      "d8ba14e6afe3f8d292f074c5bfa655102f5b483e21789068d55b04671569806a"
     sha256 cellar: :any, mojave:        "9b61fc6f4b8b8b1837a9d8d06ade301397b098d6d22e6fefe5ea1e73746551ce"
   end
-
-  # https://www.qt.io/blog/2018/10/29/deprecation-of-qbs
-  deprecate! because: :deprecated_upstream
 
   depends_on "qt@5"
 
