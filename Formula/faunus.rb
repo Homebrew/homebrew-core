@@ -7,7 +7,7 @@ class Faunus < Formula
   version "2.5.0"
   sha256 "d7b3d6bfddafa808fd21108c916583c850719d736a2f344aac3ab6088d2d72cc"
   license "MIT"
-  revision 1
+  revision 0
 
   depends_on "cmake" => :build
   depends_on "libtool" => :build
@@ -60,7 +60,7 @@ class Faunus < Formula
   end
 
   test do
-    system "#{bin}/faunus", "--version"
+    system "#{bin}/faunus", "test"
     system "#{bin}/yason.py", "-h"
   end
 end
