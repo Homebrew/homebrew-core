@@ -12,6 +12,8 @@ class Points2grid < Formula
     sha256 cellar: :any, mojave:   "6f7cf1d33b5c66044ecdb7afddf198b96959eb0b7ab6281b9fbcd9dad7f995aa"
   end
 
+  deprecate! date: "2021-05-06", because: :repo_archived
+
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "gdal"
