@@ -31,6 +31,10 @@ class Manticoresearch < Formula
       -DBoost_NO_BOOST_CMAKE=ON
       -DWITH_ODBC=OFF
     ]
+
+    # Disable support for Manticore Columnar Library on ARM (since the library itself doesn't support it as well)
+    args << "-DWITH_COLUMNAR=OFF" if Hardware::CPU.arm?
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, *args
       system "make", "install"
