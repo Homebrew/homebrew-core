@@ -4,7 +4,7 @@ class OpenMpi < Formula
   url "https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.1.tar.bz2"
   sha256 "e24f7a778bd11a71ad0c14587a7f5b00e68a71aa5623e2157bafee3d44c07cda"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
