@@ -2,8 +2,8 @@ class Cling < Formula
   desc "C++ interpreter"
   homepage "https://root.cern.ch/cling"
   url "https://github.com/root-project/cling.git",
-      tag:      "v0.7",
-      revision: "70163975eee5a76b45a1ca4016bfafebc9b57e07"
+      tag:      "v0.9",
+      revision: "f3768a4c43b0f3b23eccc6075fa178861a002a10"
   license any_of: ["LGPL-2.1-only", "NCSA"]
 
   livecheck do
@@ -20,19 +20,20 @@ class Cling < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   resource "clang" do
     url "http://root.cern.ch/git/clang.git",
-        tag:      "cling-v0.7",
-        revision: "354b25b5d915ff3b1946479ad07f3f2768ea1621"
+        tag:      "cling-v0.9",
+        revision: "b7fa7dcfd21cac3d67688be9bdc83a35778e53e1"
   end
 
   resource "llvm" do
     url "http://root.cern.ch/git/llvm.git",
-        tag:      "cling-v0.6",
-        revision: "e0b472e46eb5861570497c2b9efabf96f2d4a485"
+        tag:      "cling-v0.9",
+        revision: "85e42859fb6de405e303fc8d92e37ff2b652b4b5"
   end
 
   def install
