@@ -76,4 +76,20 @@ jobs:
 
       - run: brew test-bot --only-cleanup-before
 
-      - run: brew test-bot --only-formulae --build-from-source
+      - run: |
+          mkdir ~/bottles
+          cd  ~/bottles
+          brew test-bot --only-formulae --build-from-source
+
+      - name: Output brew test-bot --only-json-tab --only-formulae failures
+        if: always()
+        run: |
+          cat  ~/bottles/steps_output.txt
+          rm  ~/bottles/steps_output.txt
+
+      - name: Upload logs
+        if: failure()
+        uses: actions/upload-artifact@main
+        with:
+          name: logs-linux
+          path:  ~/bottles/logs
