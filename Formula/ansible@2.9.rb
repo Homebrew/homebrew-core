@@ -3,8 +3,8 @@ class AnsibleAT29 < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/34/ba/bf2d302eb3e8489c104b26c069ff02b597f5fb6044e4f8c758185df19f3f/ansible-2.9.19.tar.gz"
-  sha256 "64445d133b3d2f8e0924d196740da81971b2e0c3f9df4a4976206ae059288732"
+  url "https://files.pythonhosted.org/packages/69/a5/66a19a54e4565c94532807556e992609a3789048a1686d67e39c9e0b322a/ansible-2.9.21.tar.gz"
+  sha256 "4098246b67aa143e1e3af79d99346419e0545d5405d1cdf6e7fd389beab6de5a"
   license "GPL-3.0-or-later"
 
   # The newest PyPI release won't be a 2.9.x version, so we match versions from
@@ -33,14 +33,11 @@ class AnsibleAT29 < Formula
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
 
-  # The first, long block of resources can be semi-automatically updated by two similar ways
-  # Either run `brew update-python-resources ansible@2.9 --print-only` and replace the
-  # resource block manually.
-  # Or comment out the second block with the manual resource and run
-  # 'brew update-python-resources ansible@2.9'.
-  #
-  # In both cases, after the automatic resource updates, check for latest versions of the to
-  # be manually updated resource block
+  # The second (short) block of resources can't be automatically updated and should be cared for manually.
+  # The first (long) block can be updated by two slightly different methods.
+  # A) run `brew update-python-resources ansible@2.9 --print-only` and replace the resource block manually.
+  # B) temporarily comment out the "Manually updated resources" block and run
+  # `brew update-python-resources ansible@2.9`.
   #
   # This will collect requirements from:
   #   ansible
@@ -76,8 +73,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
-    sha256 "832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
+    url "https://files.pythonhosted.org/packages/4d/e0/8f3ccee89317124211d2efa44739c939b99e2446b82596c8fc6e824cf851/attrs-21.1.0.tar.gz"
+    sha256 "3901be1cb7c2a780f14668691474d9252c070a756be0a9ead98cfeabfa11aeb8"
   end
 
   resource "bcrypt" do
@@ -86,18 +83,18 @@ class AnsibleAT29 < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a7/ee/45a5b2beee77645fc7dc78846bd6c0676f7270b3a0afa7a34ca020413faa/boto3-1.17.44.tar.gz"
-    sha256 "ffb9b192b2b52ab88cde09e2af7d9fd6e541287e5719098be97ffd7144f47eb1"
+    url "https://files.pythonhosted.org/packages/40/5b/a25eb36bd333f246ab47705bf4ce3a3512c62612470cc8956e0b214deca7/boto3-1.17.67.tar.gz"
+    sha256 "61fe8cbb2d4bf1c9a69a73b3f2c68464e0ab587c9367b35f0ef691f372d5ce67"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/90/ca/e5f7009e66697b9c5fd972dd9cf2fc0c8c7c2a5b895dc326e62d89c7e9fd/botocore-1.20.44.tar.gz"
-    sha256 "2958e3912939558fd789a64b23a10039d8b0c0c84a23b573f3f2e3154de357ad"
+    url "https://files.pythonhosted.org/packages/af/70/4fb7c31c7dc3a43aa716a3b1dca4f0b37c71998af7c74c40dba844c919bc/botocore-1.20.67.tar.gz"
+    sha256 "4666fb5bdf7d78c51d465bac7d9eb1d31c34be46990cd1ad2d1b338bbec8c049"
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/74/17/5735dd9f015f03d2d928ea108f3c02075b784ceed05d32a98e7e44ddd114/cachetools-4.2.1.tar.gz"
-    sha256 "f469e29e7aa4cff64d8de4aad95ce76de8ea1125a16c68e0d93f65c3c3dc92e9"
+    url "https://files.pythonhosted.org/packages/52/ba/619250fa6bc11ce6aa4de0604d45843090a53cd7d10d7253b89669313370/cachetools-4.2.2.tar.gz"
+    sha256 "61b5ed1e22a0924aed1d23b478f37e8d52549ff8a961de2909c69bf950020cff"
   end
 
   resource "certifi" do
@@ -141,8 +138,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/77/d3/b9fe64cd6d97562488685a8509aff2c1e710c421e2bd22ba698f3fb5e6d0/decorator-5.0.5.tar.gz"
-    sha256 "acda948ffcfe4bd0c4a57834b74ad968b91925b8201b740ca9d46fb8c5c618ce"
+    url "https://files.pythonhosted.org/packages/a9/09/dd085a8afcf48fdaba851fe10956d5dbf1e9091206f7ca717223563f75c2/decorator-5.0.7.tar.gz"
+    sha256 "6f201a6c4dac3d187352661f508b9364ec8091217442c9478f1f83c003a0f060"
   end
 
   resource "dnspython" do
@@ -171,8 +168,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/b5/11/0ab136e0743bb92728c4863e19bbaec2e213095f74c0189f30dc3092366f/google-auth-1.28.0.tar.gz"
-    sha256 "9bd436d19ab047001a1340720d2b629eb96dd503258c524921ec2af3ee88a80e"
+    url "https://files.pythonhosted.org/packages/35/93/d5d63fde20def63d708b1f341c90d52fe75d0ade870975012e791583509e/google-auth-1.30.0.tar.gz"
+    sha256 "9ad25fba07f46a628ad4d0ca09f38dcb262830df2ac95b217f9b0129c9e42206"
   end
 
   resource "idna" do
@@ -206,8 +203,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "junos-eznc" do
-    url "https://files.pythonhosted.org/packages/13/a8/9959129d0189549f660d3919b92953ca24fe368890ba5e8ba2df09e426a1/junos-eznc-2.5.4.tar.gz"
-    sha256 "bf036d0af9ee5c5e4f517cb5fc902fe891fa120e18f459805862c53d4a97193a"
+    url "https://files.pythonhosted.org/packages/b4/4a/5260acb93dab4138e95ae69477a84b0b25c5440988e4bb97bd2328ac14f6/junos-eznc-2.6.0.tar.gz"
+    sha256 "761a85a1485f8dc41b983ae7296889c7a78394b78d2de68f0831b7efa5f6ca34"
   end
 
   resource "jxmlease" do
@@ -251,8 +248,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "ncclient" do
-    url "https://files.pythonhosted.org/packages/d8/2d/6734311ad19ac8b7ad9ad941cfe74f7879a612c9d7cd84f8ac82f6752efa/ncclient-0.6.10.tar.gz"
-    sha256 "67b1eba5a6c7c6075746d8c33d4e8f4ded17604034c1fcd1c78996ef52bf66ff"
+    url "https://files.pythonhosted.org/packages/72/fd/ccae38393c22099229b68e8cdf061408b824e09ee207e2401c224398c5b0/ncclient-0.6.9.tar.gz"
+    sha256 "0112f2ad41fb658f52446d870853a63691d69299c73c7351c520d38dbd8dc0c4"
   end
 
   resource "netaddr" do
@@ -286,8 +283,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "openstacksdk" do
-    url "https://files.pythonhosted.org/packages/cb/6a/8a11e91f03ca4361a8dc7758d2e8ad702b0a30475f0b550fca5f7aee8c1f/openstacksdk-0.55.0.tar.gz"
-    sha256 "8ee4d8fe8bc97bc57b2152aaf44b8fda1178e9acb3dbc51a88bc52fb34ab6407"
+    url "https://files.pythonhosted.org/packages/d2/38/33a4e7a6de6592298b883e26090925d33b16ff973d87c53c60c847fcd425/openstacksdk-0.56.0.tar.gz"
+    sha256 "9c7633746a5603ef059f95f33d5aa8116066204de65b572c877a8c31120ef65b"
   end
 
   resource "os-client-config" do
@@ -306,8 +303,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "oslo.config" do
-    url "https://files.pythonhosted.org/packages/ef/ac/b9015ba65085e73971ec0caa34e99e0a5e16fd7e521274d5224507b004a4/oslo.config-8.5.0.tar.gz"
-    sha256 "f50bb71439af4515bce3cf1c2b60d36da70c3cfbf5b1b7e3cd4c4cf868f2c3e9"
+    url "https://files.pythonhosted.org/packages/20/94/6eb0fbbabfbe49863e7e5333289fb5b179246506e6aed37ba8f0f9dca9d4/oslo.config-8.6.0.tar.gz"
+    sha256 "dadb10ea187b6282622a31be3a15bd1c45dc0bc2a4f232ec8762ae8196982f28"
   end
 
   resource "oslo.context" do
@@ -351,8 +348,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/65/e2/8cb5e718a3a63e8c22677fde5e3d8d18d12a551a1bbd4557217e38a97ad0/pbr-5.5.1.tar.gz"
-    sha256 "5fad80b613c402d5b7df7bd84812548b2a61e9977387a80a5fc5c396492b13c9"
+    url "https://files.pythonhosted.org/packages/35/8c/69ed04ae31ad498c9bdea55766ed4c0c72de596e75ac0d70b58aa25e0acf/pbr-5.6.0.tar.gz"
+    sha256 "42df03e7797b796625b1029c0400279c7c34fd7df24a7d7818a1abb5b38710dd"
   end
 
   resource "pexpect" do
@@ -501,8 +498,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/88/4d/ec3d9d9eca7903c9746976a0157b352c1b1dcb8d9de4590a95f671d44790/ruamel.yaml-0.17.2.tar.gz"
-    sha256 "8f1e15421668b9edf30ed02899f5f81aff9808a4271935776f61a99a569a13da"
+    url "https://files.pythonhosted.org/packages/62/cf/148028462ab88a71046ba0a30780357ae9e07125863ea9ca7808f1ea3798/ruamel.yaml-0.17.4.tar.gz"
+    sha256 "44bc6b54fddd45e4bc0619059196679f9e8b79c027f4131bb072e6a22f4d5e28"
   end
 
   resource "ruamel.yaml.clib" do
@@ -511,8 +508,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/0f/c2/266326b601256b5722aea10961504857f324cd50f4adc66a2f573fbea017/s3transfer-0.3.6.tar.gz"
-    sha256 "c5dadf598762899d8cfaecf68eba649cd25b0ce93b6c954b156aaa3eed160547"
+    url "https://files.pythonhosted.org/packages/27/90/f467e516a845cf378d85f0a51913c642e31e2570eb64b352c4dc4c6cbfc7/s3transfer-0.4.2.tar.gz"
+    sha256 "cb022f4b16551edebbb31a377d3f09600dbada7363d8c5db7976e7f47732e1b2"
   end
 
   resource "scp" do
@@ -531,8 +528,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "stevedore" do
@@ -541,8 +538,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "transitions" do
-    url "https://files.pythonhosted.org/packages/85/58/3ba0bdbe8cfc8e668d4119bdc7d85caaa826340435605233f2b2a6e116b4/transitions-0.8.7.tar.gz"
-    sha256 "8c60ec0828cd037820726283cad5d4d77a5e31514e058b51250420e9873e9bc7"
+    url "https://files.pythonhosted.org/packages/ee/ca/8e6eafd9f2d1af7f0bee4af9add66ea633c82519d3d2c40701fa5fb66ad6/transitions-0.8.8.tar.gz"
+    sha256 "e7a86b31a161a76133f189b3ae9dad2755a80ea4c1e0eee1805648d021fb677d"
   end
 
   resource "urllib3" do
@@ -556,8 +553,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/4a/df/112c278ba1ead96786d24d973429ce1e1a2c86b9843183d9f8ef8c6330d7/websocket_client-0.58.0.tar.gz"
-    sha256 "63509b41d158ae5b7f67eb4ad20fecbb4eee99434e73e140354dc3ff8e09716f"
+    url "https://files.pythonhosted.org/packages/48/bf/c706b56243f1641159ff211b51d3341024e1cdf63defc2b74595b6319039/websocket-client-0.59.0.tar.gz"
+    sha256 "d376bd60eace9d437ab6d7ee16f4ab4e821c9dae591e1b783c58ebd8aaf80c5c"
   end
 
   resource "wrapt" do
@@ -604,9 +601,6 @@ class AnsibleAT29 < Formula
     on_macos do
       # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
       ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
-
-      # https://github.com/Homebrew/homebrew-core/issues/7197
-      ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/ffi"
     end
 
     virtualenv_install_with_resources
