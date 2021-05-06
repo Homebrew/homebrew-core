@@ -61,6 +61,5 @@ class Faunus < Formula
 
   test do
     system "#{bin}/faunus", "test"
-    system "#{bin}/yason.py", "-h"
   end
 end
