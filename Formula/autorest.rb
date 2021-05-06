@@ -11,6 +11,7 @@ class Autorest < Formula
     sha256 cellar: :any_skip_relocation, all: "d032c14ed42501e7000e032c59574f0ff3e6946a72d3fd2ce4205afd5c77092e"
   end
 
+  depends_on arch: :x86_64
   depends_on "node"
 
   resource "homebrew-petstore" do
