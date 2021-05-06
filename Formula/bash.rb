@@ -32,9 +32,33 @@ class Bash < Formula
     end
   end
 
+  # We're not using `url :stable` here because we need `url` to be a string
+  # when we use it in the `strategy` block.
   livecheck do
-    url :stable
+    url "https://ftp.gnu.org/gnu/bash/?C=M&O=D"
     regex(/href=.*?bash[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :gnu do |page, regex|
+      # Match versions from files and assume the last-sorted one is newest
+      versions = page.scan(regex).flatten.uniq.sort
+      newest_version = versions.last
+
+      # Simply return the found versions if there isn't a patches directory
+      # for the "newest" version
+      patches_directory = page.match(%r{href=.*?(bash[._-]v?#{newest_version}[._-]patches/?)["' >]}i)
+      return versions if patches_directory.blank?
+
+      # Fetch the page for the patches directory
+      patches_page = Homebrew::Livecheck::Strategy.page_content(URI.join(@url, patches_directory[1]).to_s)
+      return versions if patches_page[:content].blank?
+
+      # Generate additional major.minor.patch versions from the patch files in
+      # the directory and add those to the versions array
+      patches_page[:content].scan(/href=.*?bash[._-]?v?\d+(?:\.\d+)*[._-]0*(\d+)["' >]/i).each do |match|
+        versions << "#{newest_version}.#{match[0]}"
+      end
+
+      versions
+    end
   end
 
   bottle do
