@@ -1,10 +1,10 @@
 class Libzt < Formula
   desc "Encrypted P2P socket networking library"
   homepage "https://www.zerotier.com"
-  license "BUSL-1.1"
   url "https://github.com/zerotier/libzt.git",
       tag:      "1.4.0",
       revision: "613c7e8f91cf83b993524a8f4ca9b883937331c2"
+  license "BUSL-1.1"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "42bc3dfa1a402b1306f51e56d07c9a79e5fa38c2c9aea11321a8bc6e8bdec66e"
