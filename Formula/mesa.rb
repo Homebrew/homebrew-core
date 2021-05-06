@@ -9,8 +9,8 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git"
 
   livecheck do
-    url "https://archive.mesa3d.org/"
-    regex(/href=.*?mesa[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://www.mesa3d.org/news/"
+    regex(/Mesa v?(\d+(?:\.\d+)+) is released/i)
   end
 
   bottle do
