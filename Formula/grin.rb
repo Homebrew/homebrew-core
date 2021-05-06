@@ -1,8 +1,8 @@
 class Grin < Formula
   desc "Minimal implementation of the Mimblewimble protocol"
   homepage "https://grin.mw/"
-  url "https://github.com/mimblewimble/grin/archive/v5.0.4.tar.gz"
-  sha256 "9cc8bbb4d1aed7a9dc34b67d5253f10844e9ee966f147c0063c28d94d975c24c"
+  url "https://github.com/mimblewimble/grin/archive/v5.1.0.tar.gz"
+  sha256 "8c8bad23e32fc45bf8bce484c46bd5d782f9bd13ff7d442e316e5140fea1ed72"
   license "Apache-2.0"
 
   bottle do
