@@ -62,7 +62,7 @@ class Faunus < Formula
   end
 
   test do
-    pipe_output( "#{bin}/faunus --quiet", "#{bin}/yason.py #{share}/faunus/examples/minimal.yml")
+    pipe_output("#{bin}/faunus --quiet", "#{bin}/yason.py #{share}/faunus/examples/minimal.yml")
     system "#{bin}/faunus", "test"
   end
 end
