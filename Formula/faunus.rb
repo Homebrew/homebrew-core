@@ -56,9 +56,13 @@ class Faunus < Formula
       "-S", ".", *std_cmake_args,
       "-DPYTHON_EXECUTABLE=#{venv_root}/bin/python"
     system "make", "install"
+    mv prefix/"bin/yason.py", prefix/"bin/yason.py.unwrapped"
+    (bin/"yason.py").write_env_script prefix/"bin/yason.py.unwrapped",
+      PYTHONPATH: "#{venv_root}/lib/python#{xy}/site-packages"
   end
 
   test do
+    system "#{bin}/yason.py #{share}/faunus/examples/minimal.yml | #{bin}/faunus --quiet"
     system "#{bin}/faunus", "test"
   end
 end
