@@ -11,6 +11,7 @@ class Gjs < Formula
     sha256 mojave:   "f949793971129e00f7899341ac3b14df0bdfd3bd68ce4f63ac2ef46a02f4244a"
   end
 
+  depends_on "autoconf@2.13" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -22,34 +23,18 @@ class Gjs < Formula
   depends_on "nspr"
   depends_on "readline"
 
-  resource "autoconf@213" do
-    url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz"
-    mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.13.tar.gz"
-    sha256 "f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e"
-  end
-
   resource "six" do
     url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
     sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
   end
 
   resource "mozjs78" do
-    url "https://archive.mozilla.org/pub/firefox/releases/78.8.0esr/source/firefox-78.8.0esr.source.tar.xz"
-    sha256 "1cf2dfdee2e31fd0a5ecced6275a33fa11bee1d2a7c65e23350b26992584a110"
+    url "https://archive.mozilla.org/pub/firefox/releases/78.10.1esr/source/firefox-78.10.1esr.source.tar.xz"
+    sha256 "c41f45072b0eb84b9c5dcb381298f91d49249db97784c7e173b5f210cd15cf3f"
   end
 
   def install
     ENV.cxx11
-
-    resource("autoconf@213").stage do
-      system "./configure", "--disable-debug",
-                            "--disable-dependency-tracking",
-                            "--program-suffix=213",
-                            "--prefix=#{buildpath}/autoconf",
-                            "--infodir=#{buildpath}/autoconf/share/info",
-                            "--datadir=#{buildpath}/autoconf/share"
-      system "make", "install"
-    end
 
     resource("six").stage do
       system Formula["python@3.8"].opt_bin/"python3", *Language::Python.setup_install_args(buildpath/"vendor")
