@@ -39,6 +39,13 @@ class Openmodelica < Formula
   uses_from_macos "libffi"
   uses_from_macos "ncurses"
 
+  # Fix issues with CMake 3.20+
+  # https://github.com/OpenModelica/OpenModelica/pull/7445
+  patch do
+    url "https://github.com/OpenModelica/OpenModelica/commit/71aa2f871639041f3569fafe1b1cea25b84981ff.patch?full_index=1"
+    sha256 "0f794a01481227b4c58a4c57c3f37035962de3955b9878f78207d0d3ebfbce09"
+  end
+
   def install
     ENV.append_to_cflags "-I#{MacOS.sdk_path_if_needed}/usr/include/ffi"
     args = %W[
@@ -52,7 +59,7 @@ class Openmodelica < Formula
       --with-omniORB
     ]
 
-    system "autoconf"
+    system "autoreconf", "--install", "--verbose", "--force"
     system "./configure", *args
     # omplot needs qt & OpenModelica #7240.
     # omparser needs OpenModelica #7247
