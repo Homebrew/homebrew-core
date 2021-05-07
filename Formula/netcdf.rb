@@ -32,12 +32,6 @@ class Netcdf < Formula
     sha256 "6a1189a181eed043b5859e15d5c080c30d0e107406fbb212c8fb9814e90f3445"
   end
 
-  resource "cxx-compat" do
-    url "https://www.unidata.ucar.edu/downloads/netcdf/ftp/netcdf-cxx-4.2.tar.gz"
-    mirror "https://www.gfd-dennou.org/arch/netcdf/unidata-mirror/netcdf-cxx-4.2.tar.gz"
-    sha256 "95ed6ab49a0ee001255eac4e44aacb5ca4ea96ba850c08337a3e4c9a0872ccd1"
-  end
-
   resource "fortran" do
     # Source tarball at official domains are missing some configuration files
     # Switch back at version bump
@@ -102,17 +96,6 @@ class Netcdf < Formula
       end
     end
 
-    ENV.prepend "CPPFLAGS", "-I#{include}"
-    ENV.prepend "LDFLAGS", "-L#{lib}"
-    resource("cxx-compat").stage do
-      system "./configure", "--disable-dependency-tracking",
-                            "--enable-shared",
-                            "--enable-static",
-                            "--prefix=#{prefix}"
-      system "make"
-      system "make", "install"
-    end
-
     # Remove some shims path
     inreplace [
       bin/"nf-config", bin/"ncxx4-config", bin/"nc-config",
@@ -124,12 +107,9 @@ class Netcdf < Formula
     on_macos do
       # SIP causes system Python not to play nicely with @rpath
       libnetcdf = (lib/"libnetcdf.dylib").readlink
-      %w[libnetcdf-cxx4.dylib libnetcdf_c++.dylib].each do |f|
-        macho = MachO.open("#{lib}/#{f}")
-        macho.change_dylib("@rpath/#{libnetcdf}",
-                           "#{lib}/#{libnetcdf}")
-        macho.write!
-      end
+      macho = MachO.open("#{lib}/libnetcdf-cxx4.dylib")
+      macho.change_dylib("@rpath/#{libnetcdf}", "#{lib}/#{libnetcdf}")
+      macho.write!
     end
   end
 
