@@ -28,13 +28,6 @@ class OrTools < Formula
   depends_on "osi"
   depends_on "protobuf"
 
-  # Patch to fix build with abseil 20210324. Remove at version bump (v9.0).
-  # https://github.com/Homebrew/homebrew-core/issues/74657
-  patch do
-    url "https://github.com/google/or-tools/commit/9e901a7b24e5860baa90c0fc7a02de622bc9403a.patch?full_index=1"
-    sha256 "7d504e9ba9efdc72187b3420bc46a2b104234bc711c946b711b7ffec5243f31f"
-  end
-
   def install
     system "cmake", "-S.", "-Bbuild", *std_cmake_args,
            "-DUSE_SCIP=OFF", "-DBUILD_SAMPLES=OFF", "-DBUILD_EXAMPLES=OFF"
