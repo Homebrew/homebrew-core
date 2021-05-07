@@ -16,6 +16,9 @@ class Gptfdisk < Formula
 
   uses_from_macos "ncurses"
 
+  # update linker path for libncurses
+  patch :DATA
+
   def install
     system "make", "-f", "Makefile.mac"
     %w[cgdisk fixparts gdisk sgdisk].each do |program|
@@ -31,3 +34,17 @@ class Gptfdisk < Formula
     assert_match "Found valid GPT with protective MBR", shell_output("#{bin}/gdisk -l test.dmg")
   end
 end
+
+__END__
+diff --git a/Makefile.mac b/Makefile.mac
+index ea21fa6..b50bb34 100644
+--- a/Makefile.mac
++++ b/Makefile.mac
+@@ -21,7 +21,7 @@ gdisk:	$(LIB_OBJS) gpttext.o gdisk.o
+ #	$(CXX) $(LIB_OBJS) -L/usr/lib -licucore gpttext.o gdisk.o -o gdisk
+ 
+ cgdisk: $(LIB_OBJS) cgdisk.o gptcurses.o
+-	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o /usr/local/Cellar/ncurses/6.2/lib/libncurses.dylib $(LDFLAGS) -o cgdisk
++	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o -L/usr/lib -lncurses $(LDFLAGS) -o cgdisk
+ #	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o /usr/lib/libncurses.dylib $(LDFLAGS) -o cgdisk
+ #	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o $(LDFLAGS) -licucore -lncurses -o cgdisk
