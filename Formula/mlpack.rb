@@ -27,13 +27,15 @@ class Mlpack < Formula
   depends_on "graphviz"
 
   resource "stb_image" do
-    url "https://mlpack.org/files/stb-2.22/stb_image.h"
-    sha256 "0e28238d865510073b5740ae8eba8cd8032cc5b25f94e0f7505fac8036864909"
+    url "https://raw.githubusercontent.com/nothings/stb/e140649c/stb_image.h"
+    sha256 "8e5b0d717dfc8a834c97ef202d20e78d083d009586e1731c985817d0155d568c"
+    version "2.26"
   end
 
   resource "stb_image_write" do
-    url "https://mlpack.org/files/stb-1.13/stb_image_write.h"
-    sha256 "0e8b3d80bc6eb8fdb64abc4db9fec608b489bc73418eaf14beda102a0699a4c9"
+    url "https://raw.githubusercontent.com/nothings/stb/314d0a6f/stb_image_write.h"
+    sha256 "51998500e9519a85be1aa3291c6ad57deb454da98a1693ab5230f91784577479"
+    version "1.15"
   end
 
   def install
