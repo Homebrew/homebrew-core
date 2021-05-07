@@ -56,8 +56,8 @@ class Faunus < Formula
       "-S", ".", *std_cmake_args,
       "-DPYTHON_EXECUTABLE=#{venv_root}/bin/python"
     system "make", "install"
-    mv prefix/"bin/yason.py", prefix/"bin/yason.py.unwrapped"
-    (bin/"yason.py").write_env_script prefix/"bin/yason.py.unwrapped",
+    mv prefix/"bin/yason.py", libexec/"yason.py"
+    (bin/"yason.py").write_env_script libexec/"yason.py",
       PYTHONPATH: "#{venv_root}/lib/python#{xy}/site-packages"
   end
 
