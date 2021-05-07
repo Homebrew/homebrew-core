@@ -70,6 +70,7 @@ jobs:
     env:
       HOMEBREW_CORE_GIT_REMOTE: ${{github.event.repository.html_url}}
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+      HOMEBREW_DEVELOPER: 1
     steps:
       - name: Set up Homebrew
         uses: Homebrew/actions/setup-homebrew@master
