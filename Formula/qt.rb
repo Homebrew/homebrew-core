@@ -1,10 +1,9 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.0/6.0.3/single/qt-everywhere-src-6.0.3.tar.xz"
-  sha256 "ca4a97439443dd0b476a47b284ba772c3b1b041a9eef733e26a789490993a0e3"
+  url "https://download.qt.io/official_releases/qt/6.1/6.1.0/single/qt-everywhere-src-6.1.0.tar.xz"
+  sha256 "326a710b08b0973bb4f5306a786548d8b8dd656db75ce9f3f85ea32680d3c88a"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 2
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
   # The first-party website doesn't make version information readily available,
@@ -24,9 +23,10 @@ class Qt < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: [:build, :test]
+  depends_on xcode: [:build, :test] if MacOS.version <= :mojave
 
   depends_on "assimp"
+  depends_on "brotli"
   depends_on "dbus"
   depends_on "double-conversion"
   depends_on "freetype"
@@ -49,29 +49,34 @@ class Qt < Formula
   uses_from_macos "perl"
   uses_from_macos "zlib"
 
-  resource "qtimageformats" do
-    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.3/qtimageformats-everywhere-src-6.0.3.tar.xz"
-    sha256 "327580b5a5b9a8d75e869c0eaa7ff34881bbde4e4ccc51d07a59e96054136837"
+  # TODO: remove them after 6.1.1
+  # macdeployqt: Fix plugin resolution bugs for non-standard installs
+  patch do
+    url "https://code.qt.io/cgit/qt/qttools.git/patch/?id=03abcbabbd4caa11048d19d95b23f165cd7a5361"
+    sha256 "b219a0e782b30b6942eed8ad5b0a5cf3be3dae08542a999e7c6f162cca24c4db"
+    directory "qttools"
   end
 
-  resource "qt3d" do
-    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.3/qt3d-everywhere-src-6.0.3.tar.xz"
-    sha256 "470f95c559b68cc8faa982c1ca7ff83054d6802f7b2a0c1d960a155b92080cf9"
-  end
-
-  resource "qtnetworkauth" do
-    url "https://download.qt.io/official_releases/additional_libraries/6.0/6.0.3/qtnetworkauth-everywhere-src-6.0.3.tar.xz"
-    sha256 "124bf433e2c5418e900a5947d4ceb128ee179f514eddcea33924f0b695be64ed"
+  # macdeployqt: Fix bug parsing otool output when deploying plugins
+  patch do
+    url "https://code.qt.io/cgit/qt/qttools.git/patch/?id=7f3bcf85f1041e7e56dba37593dcd80f2054c221"
+    sha256 "c34f4ef4d0047c7b60ec7ea40847bbfc3f8fa9a63a2f5ea9a38199caffdc7647"
+    directory "qttools"
   end
 
   def install
-    resources.each { |addition| addition.stage buildpath/addition.name }
+    # FIXME: See https://bugreports.qt.io/browse/QTBUG-89559
+    # and https://codereview.qt-project.org/c/qt/qtbase/+/327393
+    # It is not friendly to Homebrew or macOS
+    # because on macOS `/tmp` -> `/private/tmp`
+    inreplace "qtbase/CMakeLists.txt", "FATAL_ERROR", ""
 
     config_args = %W[
       -release
 
       -prefix #{HOMEBREW_PREFIX}
       -extprefix #{prefix}
+      -sysroot #{MacOS.sdk_path}
 
       -libexecdir share/qt/libexec
       -plugindir share/qt/plugins
@@ -83,7 +88,6 @@ class Qt < Formula
 
       -libproxy
       -no-feature-relocatable
-      -no-feature-brotli
       -system-sqlite
 
       -no-sql-mysql
@@ -107,8 +111,8 @@ class Qt < Formula
     ]
 
     system "./configure", *config_args, "--", *cmake_args
-    system "ninja"
-    system "ninja", "install"
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
 
     rm bin/"qt-cmake-private-install.cmake"
 
@@ -203,6 +207,7 @@ class Qt < Formula
     system "make"
     system "./test"
 
+    ENV.delete "CPATH" unless MacOS.version <= :mojave
     system bin/"qmake", testpath/"test.pro"
     system "make"
     system "./test"
