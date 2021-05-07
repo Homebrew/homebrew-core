@@ -13,6 +13,8 @@ class Ilmbase < Formula
     sha256 mojave:        "53b8f2f3e3e1ef9b6c22de5993eec29ab6d9cc46109df39a7eb7b49f0b8e02a2"
   end
 
+  keg_only "ilmbase conflicts with `openexr` and `imath`"
+
   # https://github.com/AcademySoftwareFoundation/openexr/pull/929
   deprecate! date: "2021-04-05", because: :unsupported
 
