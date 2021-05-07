@@ -1,10 +1,9 @@
 class MoltenVk < Formula
   desc "Implementation of the Vulkan graphics and compute API on top of Metal"
   homepage "https://github.com/KhronosGroup/MoltenVK"
-  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.0.41.tar.gz"
-  sha256 "a11208f3bc2eb5cd6cfebbc0bc09ac2af8ecbe5cc3e57cde817bc8bc96d2cc33"
+  url "https://github.com/KhronosGroup/MoltenVK/archive/v1.1.3.tar.gz"
+  sha256 "c20758bc19a46060aaf6e0949b47d29824b70b9ec0e22fb73a3feeef4c73a0ef"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any, big_sur:  "2e0b63c01b8f4d6994f7ecfb96c837a33cb4bc1ede187aa9a5effc0034ec4369"
@@ -14,7 +13,7 @@ class MoltenVk < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
-  depends_on xcode: ["11.0", :build]
+  depends_on xcode: ["11.7", :build]
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on macos: :sierra
 
@@ -30,43 +29,37 @@ class MoltenVk < Formula
   resource "Vulkan-Headers" do
     # ExternalRevisions/Vulkan-Headers_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-        revision: "fb7f9c9bcd1d1544ea203a1f3d4253d0e90c5a90"
-  end
-
-  resource "Vulkan-Portability" do
-    # ExternalRevisions/Vulkan-Portability_repo_revision
-    url "https://github.com/KhronosGroup/Vulkan-Portability.git",
-        revision: "53be040f04ce55463d0e5b25fd132f45f003e903"
+        revision: "074fa3055cfee530992bcbfa0fcb23106a82c1ab"
   end
 
   resource "SPIRV-Cross" do
     # ExternalRevisions/SPIRV-Cross_repo_revision
     url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-        revision: "e58e8d5dbe03ea2cc755dbaf43ffefa1b8d77bef"
+        revision: "995c7981cc3ec0cbd1e5a07321cfdee3d1219524"
   end
 
   resource "glslang" do
     # ExternalRevisions/glslang_repo_revision
     url "https://github.com/KhronosGroup/glslang.git",
-        revision: "e157435c1e777aa1052f446dafed162b4a722e03"
+        revision: "18eef33bd7a4bf5ad8c69f99cb72022608cf6e73"
   end
 
   resource "SPIRV-Tools" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        revision: "fd8e130510a6b002b28eee5885a9505040a9bdc9"
+        revision: "dc72924cb31cd9f3dbc3eb47e9d926cf641e3a07"
   end
 
   resource "SPIRV-Headers" do
     # External/glslang/known_good.json
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "f8bf11a0253a32375c32cad92c841237b96696c0"
+        revision: "dafead1765f6c1a5f9f8a76387dcb2abe4e54acd"
   end
 
   resource "Vulkan-Tools" do
     # ExternalRevisions/Vulkan-Tools_repo_revision
     url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-        revision: "7844b9b4e180612c7ca35bcb07ce7f86610b22c4"
+        revision: "eb3d67bd17ee433e2b0a8e56a7249bd83908812e"
   end
 
   def install
@@ -76,24 +69,53 @@ class MoltenVk < Formula
     mv "External/SPIRV-Tools", "External/glslang/External/spirv-tools"
     mv "External/SPIRV-Headers", "External/glslang/External/spirv-tools/external/spirv-headers"
 
+    # Build glslang
+    cd "External/glslang" do
+      system "./build_info.py", ".",
+              "-i", "build_info.h.tmpl",
+              "-o", "build/include/glslang/build_info.h"
+    end
+
+    # Build spirv-tools
     mkdir "External/glslang/External/spirv-tools/build" do
       # Required due to files being generated during build.
       system "cmake", "..", *std_cmake_args
       system "make"
     end
 
+    # Build ExternalDependencies
     xcodebuild "-project", "ExternalDependencies.xcodeproj",
                "-scheme", "ExternalDependencies-macOS",
                "-derivedDataPath", "External/build",
                "SYMROOT=External/build", "OBJROOT=External/build",
                "build"
 
+    # Create SPIRVCross.xcframework
+    xcodebuild "-quiet", "-create-xcframework",
+               "-output", "External/build/Latest/SPIRVCross.xcframework",
+               "-library", "External/build/Intermediates/XCFrameworkStaging/" \
+               "Release/Platform/libSPIRVCross.a"
+
+    # Create SPIRVTools.xcframework
+    xcodebuild "-quiet", "-create-xcframework",
+               "-output", "External/build/Latest/SPIRVTools.xcframework",
+               "-library", "External/build/Intermediates/XCFrameworkStaging/" \
+               "Release/Platform/libSPIRVTools.a"
+
+    # Created glslang.xcframework
+    xcodebuild "-quiet", "-create-xcframework",
+               "-output", "External/build/Latest/glslang.xcframework",
+               "-library", "External/build/Intermediates/XCFrameworkStaging/" \
+               "Release/Platform/libglslang.a"
+
+    # Build MoltenVK Package
     xcodebuild "-project", "MoltenVKPackaging.xcodeproj",
                "-scheme", "MoltenVK Package (macOS only)",
                "SYMROOT=#{buildpath}/build", "OBJROOT=build",
                "build"
 
-    (libexec/"lib").install Dir["External/build/macOS/lib{SPIRVCross,SPIRVTools,glslang}.a"]
+    (libexec/"lib").install Dir["External/build/Intermediates/XCFrameworkStaging/Release/" \
+                                "Platform/lib{SPIRVCross,SPIRVTools,glslang}.a"]
     glslang_dir = Pathname.new("External/glslang")
     Pathname.glob("External/glslang/{glslang,SPIRV}/**/*.{h,hpp}") do |header|
       header.chmod 0644
@@ -102,28 +124,18 @@ class MoltenVk < Formula
     (libexec/"include").install "External/SPIRV-Cross/include/spirv_cross"
     (libexec/"include").install "External/glslang/External/spirv-tools/include/spirv-tools"
     (libexec/"include").install "External/Vulkan-Headers/include/vulkan" => "vulkan"
-    (libexec/"include").install "External/Vulkan-Portability/include/vulkan" => "vulkan-portability"
+    (libexec/"include").install "External/Vulkan-Headers/include/vk_video" => "vk_video"
 
-    frameworks.install "Package/Release/MoltenVK/macOS/framework/MoltenVK.framework"
-    lib.install "Package/Release/MoltenVK/macOS/dynamic/libMoltenVK.dylib"
-    lib.install "Package/Release/MoltenVK/macOS/static/libMoltenVK.a"
+    frameworks.install "Package/Release/MoltenVK/MoltenVK.xcframework"
+    lib.install "Package/Release/MoltenVK/dylib/macOS/libMoltenVK.dylib"
+    lib.install "build/Release/libMoltenVK.a"
     include.install "MoltenVK/MoltenVK/API" => "MoltenVK"
 
     bin.install "Package/Release/MoltenVKShaderConverter/Tools/MoltenVKShaderConverter"
-    frameworks.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/" \
-                       "macOS/framework/MoltenVKGLSLToSPIRVConverter.framework"
-    frameworks.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/" \
-                       "macOS/framework/MoltenVKSPIRVToMSLConverter.framework"
-    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/" \
-                "macOS/dynamic/libMoltenVKGLSLToSPIRVConverter.dylib"
-    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKGLSLToSPIRVConverter/" \
-                "macOS/static/libMoltenVKGLSLToSPIRVConverter.a"
-    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/" \
-                "macOS/dynamic/libMoltenVKSPIRVToMSLConverter.dylib"
-    lib.install "Package/Release/MoltenVKShaderConverter/MoltenVKSPIRVToMSLConverter/" \
-                "macOS/static/libMoltenVKSPIRVToMSLConverter.a"
+    frameworks.install "Package/Release/MoltenVKShaderConverter/" \
+                       "MoltenVKShaderConverter.xcframework"
     include.install Dir["Package/Release/MoltenVKShaderConverter/include/" \
-                        "{MoltenVKGLSLToSPIRVConverter,MoltenVKSPIRVToMSLConverter}"]
+                        "MoltenVKShaderConverter"]
 
     (share/"vulkan").install "MoltenVK/icd" => "icd.d"
   end
