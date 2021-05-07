@@ -6,12 +6,13 @@ class PreCommit < Formula
   url "https://files.pythonhosted.org/packages/45/4b/622765062cdf3b60db8c3b4f1804be28f6f0de1f4def2d7af986f6852fd3/pre_commit-2.12.1.tar.gz"
   sha256 "900d3c7e1bf4cf0374bb2893c24c23304952181405b4d88c9c40b72bda1bb8a9"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "293f86148cb1ce81debf79d5d524d8e8f0521190d823b813511b7e1c19d87afa"
-    sha256 cellar: :any, big_sur:       "b4fc105736473a76aa66d03427f3e5c075094110c5af40d00d332e39d6ad4fc8"
-    sha256 cellar: :any, catalina:      "c1c5d23944a08d15d05bb2f19c043b34d815db93636314e7574bc1efc97a996b"
-    sha256 cellar: :any, mojave:        "4dfb08b62abf0a4f994185814065ea676277d2ce120d5c44203985041403e45b"
+    sha256 cellar: :any, arm64_big_sur: "01e79b1eae3a45890afb90656a7435ca02518c672407e525069754014e030617"
+    sha256 cellar: :any, big_sur:       "1c71f76aeb569f2fe2c36f7cd85b5674b05aa7b932a9bd067d9629c09082a5db"
+    sha256 cellar: :any, catalina:      "330c0bf90f3d07f21f966a7049280e4839e43b1ade7f5c525f4965bb91696218"
+    sha256 cellar: :any, mojave:        "b49cbb706fc3f449259e89e0b23be3c544df1629da03035bdc0d3ec7275668be"
   end
 
   depends_on "libyaml"
@@ -87,9 +88,9 @@ class PreCommit < Formula
   # Avoid relative paths
   def post_install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    bin_python_path = Pathname(libexec/"bin")
-    lib_python_path = Pathname(libexec/"lib/python#{xy}")
-    [lib_python_path, bin_python_path].each do |folder|
+    dirs_to_fix = [libexec/"lib/python#{xy}"]
+    on_linux { dirs_to_fix << libexec/"bin" }
+    dirs_to_fix.each do |folder|
       folder.each_child do |f|
         next unless f.symlink?
 

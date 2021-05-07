@@ -26,11 +26,13 @@ class SpotifyTui < Formula
   end
 
   test do
-    pid = fork { exec "#{bin}/spt -c #{testpath/"client.yml"} 2>&1 > output" }
+    output = testpath/"output"
+    fork do
+      $stdout.reopen(output)
+      $stderr.reopen(output)
+      exec "#{bin}/spt -c #{testpath}/client.yml"
+    end
     sleep 10
-    assert_match "Enter your Client ID", File.read("output")
-  ensure
-    Process.kill "TERM", pid
-    quiet_system "pkill", "-9", "-f", "spt"
+    assert_match "Enter your Client ID", output.read
   end
 end

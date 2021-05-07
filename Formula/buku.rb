@@ -285,20 +285,15 @@ class Buku < Formula
     assert_match version.to_s, result
 
     port = free_port
-    begin
-      pid = fork do
-        exec "#{bin}/bukuserver run --host 127.0.0.1 --port #{port} 2>&1 >/dev/null"
-      end
-      sleep 10
-
-      result = shell_output("curl -s 127.0.0.1:#{port}/api/bookmarks")
-      assert_match "https://github.com/Homebrew/brew", result
-      assert_match "The missing package manager for macOS", result
-    ensure
-      Process.kill "SIGTERM", pid
-      Process.wait pid
-      # bukuserver leaves orphaned processees behind
-      quiet_system "pkill", "-9", "-f", "bukuserver"
+    fork do
+      $stdout.reopen("/dev/null")
+      $stderr.reopen("/dev/null")
+      exec "#{bin}/bukuserver run --host 127.0.0.1 --port #{port}"
     end
+    sleep 10
+
+    result = shell_output("curl -s 127.0.0.1:#{port}/api/bookmarks")
+    assert_match "https://github.com/Homebrew/brew", result
+    assert_match "The missing package manager for macOS", result
   end
 end

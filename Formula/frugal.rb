@@ -1,15 +1,15 @@
 class Frugal < Formula
   desc "Cross language code generator for creating scalable microservices"
   homepage "https://github.com/Workiva/frugal"
-  url "https://github.com/Workiva/frugal/archive/v3.14.3.tar.gz"
-  sha256 "875f5a3faaee153c84d85ecd213fc833fa5601867310bd7b983065ececc2c2c1"
+  url "https://github.com/Workiva/frugal/archive/v3.14.4.tar.gz"
+  sha256 "6a0e2c0d3e7ce18d8472ccbc66ee3f860d4dc562ef7aa32666c85657cc5f2e95"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d42c28e3502043aa163cb786f02282f87942ec3ca71b00b1340cbc3ea113d3da"
-    sha256 cellar: :any_skip_relocation, big_sur:       "81433cadebe1ac671fa196edf4533b66e66ab31610cca6a49935be058dd3b23d"
-    sha256 cellar: :any_skip_relocation, catalina:      "81433cadebe1ac671fa196edf4533b66e66ab31610cca6a49935be058dd3b23d"
-    sha256 cellar: :any_skip_relocation, mojave:        "81433cadebe1ac671fa196edf4533b66e66ab31610cca6a49935be058dd3b23d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0acdc08e59fe3be4262274de5a59cd56cc8e5408e86cbfb09de08ca298871d1c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a4cc0a9dabaec0d9c8410d4232f6ca7f7794fc998f2734416c82b17160a16ef8"
+    sha256 cellar: :any_skip_relocation, catalina:      "a4cc0a9dabaec0d9c8410d4232f6ca7f7794fc998f2734416c82b17160a16ef8"
+    sha256 cellar: :any_skip_relocation, mojave:        "a4cc0a9dabaec0d9c8410d4232f6ca7f7794fc998f2734416c82b17160a16ef8"
   end
 
   depends_on "go" => :build

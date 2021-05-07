@@ -47,17 +47,14 @@ class Fabio < Formula
       else
         fork do
           exec "consul agent -dev -bind 127.0.0.1"
-          puts "consul started"
         end
         sleep 30
       end
       fork do
-        exec "#{bin}/fabio &>fabio-start.out&"
-        puts "fabio started"
+        exec "#{bin}/fabio"
       end
       sleep 10
       assert_equal true, port_open?(localhost_ip, fabio_default_port)
-      system "kill -9 $(pgrep fabio)" # fabio forks off from the fork...
       system "consul", "leave"
     end
   end

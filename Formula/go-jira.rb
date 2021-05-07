@@ -5,6 +5,11 @@ class GoJira < Formula
   sha256 "c5bcf7b61300b67a8f4e42ab60e462204130c352050e8551b1c23ab2ecafefc7"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b1352079509d72281e76344ebe41a0704b97a0c116151fb7536a2bb6b26d2bf1"
     sha256 cellar: :any_skip_relocation, big_sur:       "40fd5a4ecfcb1f7a296651f59f28829e760a1ef69f884766b5262abf972663d6"

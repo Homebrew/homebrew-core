@@ -4,15 +4,15 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/99/9e/5c58514597a74ea5a96c8324590f69b46fdf46888d162025031e877708d3/checkov-2.0.105.tar.gz"
-  sha256 "851b99b51ce8b037531feeac49f955e643431bb0e55befa5c1844a15b79284f9"
+  url "https://files.pythonhosted.org/packages/a3/da/6a5a35cb0619122d785a9d0fcdef7f084c0ee5278b9918d7a5b128a70b31/checkov-2.0.120.tar.gz"
+  sha256 "97128d40bc37d303705b1b73a4f4d21ae443a43542ea08d49707d870fae5f63a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7e87e76f023030711dd8dd68ea0e9816311ea0e515f0f3fd992f710fc0812d6e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3bc5aa88d0c8d78afd40a5da4609eedec8b682d9068d7e3f227dafb2801b0b38"
-    sha256 cellar: :any_skip_relocation, catalina:      "c8632c48baf9ab3822b0fd93e47e82c20ef3de3c11471d23f73a41a5450d71e6"
-    sha256 cellar: :any_skip_relocation, mojave:        "f69d9e83f71bbdc83f7e458c22ee6fc74770b126108544d47d32059393954f10"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa9e4035aa68e4978f923f6d329b91ac69fdda78c8bff630f8a6f6469129f880"
+    sha256 cellar: :any_skip_relocation, big_sur:       "29a3fc07db944b77017f95773bf63e143870216cd28d371a744e74c2bad20aa2"
+    sha256 cellar: :any_skip_relocation, catalina:      "33ab6877115b9af43a565fcb9e58f6a87e251545062f7bd24b02ca242a3e1614"
+    sha256 cellar: :any_skip_relocation, mojave:        "638a10e146b48752e410b31f2664296516a42db532219c991ebf1b409c6ff31a"
   end
 
   depends_on "python-tabulate"
@@ -34,8 +34,8 @@ class Checkov < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/84/0f/19c3aa46381749e6a6bd24855fed7f732a7b768a580c15e138ecfa49b344/botocore-1.20.62.tar.gz"
-    sha256 "f7c2c5c5ed5212b2628d8fb1c587b31c6e8d413ecbbd1a1cdf6f96ed6f5c8d5e"
+    url "https://files.pythonhosted.org/packages/84/bc/2e91f286a89c84cc77bd8ca64aff2eadc91a9e5b7ac43b5be359c1117134/botocore-1.20.68.tar.gz"
+    sha256 "0f693f5ad6348ec1a62b3a66fee2840d3b722d66b44896022d644275ff8b143d"
   end
 
   resource "cached-property" do
@@ -239,8 +239,8 @@ class Checkov < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/4a/df/112c278ba1ead96786d24d973429ce1e1a2c86b9843183d9f8ef8c6330d7/websocket_client-0.58.0.tar.gz"
-    sha256 "63509b41d158ae5b7f67eb4ad20fecbb4eee99434e73e140354dc3ff8e09716f"
+    url "https://files.pythonhosted.org/packages/48/bf/c706b56243f1641159ff211b51d3341024e1cdf63defc2b74595b6319039/websocket-client-0.59.0.tar.gz"
+    sha256 "d376bd60eace9d437ab6d7ee16f4ab4e821c9dae591e1b783c58ebd8aaf80c5c"
   end
 
   def install

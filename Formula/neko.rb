@@ -8,9 +8,11 @@ class Neko < Formula
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "232fae50c371bc3ed8c560c08ac6a8da6e69099c7ff31d3e31652f2114dcbb2f"
-    sha256 cellar: :any, catalina: "8f4a846bcb9edbd9d001e7e1eda1acdb217108c962d2e7c2789368c0b09d20c1"
-    sha256 cellar: :any, mojave:   "a5aa3adb6b6a3175e2ac29d5e6176cc6644b3a751bc339e653d39304f19ea0c2"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "ece8bc64b6653a08e64d1641bb8ce38ab2c1b9652953ae4ab4ade96c7cbbbce4"
+    sha256 cellar: :any, big_sur:       "b709a1c46fd41c3d0f2e09ef65624e5e286408c885b8eb773806533d251c5550"
+    sha256 cellar: :any, catalina:      "3c3942cb5d805125d765c401688fb8dc8a66047d21e1e9e10522ecd94de58c21"
+    sha256 cellar: :any, mojave:        "6fbefe32d592b7fe197ea6e2e891b9da0d2d34ead8e5a44306714d16c4b40042"
   end
 
   depends_on "cmake" => :build
@@ -44,15 +46,24 @@ class Neko < Formula
     sha256 "7fbe2f67e076efa2d7aa200456d4e5cc1e06d21f78ac5f2eed183f3fcce5db96"
   end
 
+  # Fix mariadb-connector-c CMake error: "Flow control statements are not properly nested."
+  # https://github.com/HaxeFoundation/neko/pull/225
+  patch do
+    url "https://github.com/HaxeFoundation/neko/commit/660fba028af1b77be8cb227b8a44cc0ef16aba79.patch?full_index=1"
+    sha256 "7b0a60494eaef7c67cd15e5d80d867fee396ac70e99000603fba0dc3cd5e1158"
+  end
+
+  # Fix m1 specifics
+  # https://github.com/HaxeFoundation/neko/pull/224
+  patch do
+    url "https://github.com/HaxeFoundation/neko/commit/ff5da9b0e96cc0eabc44ad2c10b7a92623ba49ee.patch?full_index=1"
+    sha256 "ac843dfc7585535f3b08fee2b22e667fa6c38e62dcf8374cdfd1d8fcbdbcdcfd"
+  end
+
   def install
     inreplace "libs/mysql/CMakeLists.txt",
               %r{https://downloads.mariadb.org/f/},
               "https://downloads.mariadb.com/Connectors/c/"
-
-    # Workaround issue where lock_acquire(), lock_try(), and lock_release()
-    # conflict with some symbols in Mach headers:
-    #   https://github.com/HaxeFoundation/neko/issues/215#issuecomment-745617663
-    inreplace %w[vm/neko.h.in vm/others.c vm/threads.c libs/ui/ui.c], /\slock_/, " HOMEBREW_lock_"
 
     # Work around for https://github.com/HaxeFoundation/neko/issues/216 where
     # maria-connector fails to detect the location of iconv.dylib on Big Sur.

@@ -7,10 +7,11 @@ class Libical < Formula
   revision 1
 
   bottle do
-    sha256 arm64_big_sur: "a7658e9ae8a6404685ce931b5a19eb950817915b910680778db9497245c3214d"
-    sha256 big_sur:       "d4719732f95e73c1c85cfcfecf14249036af09b15444f22903be74fd84bfa9d0"
-    sha256 catalina:      "b9ea72b109cc455f12925e0a3c5089d00741468c7d5281c53bdcd535a40a31e2"
-    sha256 mojave:        "f4a628cd0a30a0eb8f961a0012f2651346b8c45d4e36ebf9b741ef4a98d421f8"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "d21ba9fd766b87b6b30b220e2fcd5b26f93e7a5618f6e38790402ac6f105aaa8"
+    sha256 cellar: :any, big_sur:       "9d900728f649ccb4c9e80df219089b8f608e9027f7cb313896115574acc8d93a"
+    sha256 cellar: :any, catalina:      "a76e728e573b3d72e288009edc4e3f6d792a3ef7b91fca78e9a6b5d12ee6cd3b"
+    sha256 cellar: :any, mojave:        "5c8fbf1cb846303940f183de67b538dc0c1139a3117d115db3aa3e02c25d0c28"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +25,7 @@ class Libical < Formula
     system "cmake", ".", "-DBDB_LIBRARY=BDB_LIBRARY-NOTFOUND",
                          "-DENABLE_GTK_DOC=OFF",
                          "-DSHARED_ONLY=ON",
-                         "-DCMAKE_INSTALL_RPATH=#{lib}",
+                         "-DCMAKE_INSTALL_RPATH=#{rpath}",
                          *std_cmake_args
     system "make", "install"
   end

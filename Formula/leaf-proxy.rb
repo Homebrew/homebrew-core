@@ -1,16 +1,16 @@
 class LeafProxy < Formula
   desc "Lightweight and fast proxy utility"
   homepage "https://github.com/eycorsican/leaf"
-  url "https://github.com/eycorsican/leaf/archive/v0.3.0.tar.gz"
-  sha256 "72cc8e6ba62016ab9ae9272dd4aadc2d00e0067387ab3ddb71e415b4603d82d9"
+  url "https://github.com/eycorsican/leaf/archive/v0.3.1.tar.gz"
+  sha256 "895057e2424a8b99c2fc330a8b9f34895a377d7fcff5d5fb7b867d357a3bdd83"
   license "Apache-2.0"
   head "https://github.com/eycorsican/leaf.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "55462c61d114bd612eeadaecae8c9718a2da2adccdda2cea9df98a72fa9dc784"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a7882efdf6addbddd3f5f876c6bd74e98b728e80c53d641bb6b8a81880ef3d34"
-    sha256 cellar: :any_skip_relocation, catalina:      "1dec02ad9d5ff5a898cf99fd0103305dedccbcb6403acac2223dc77b51e2ca0d"
-    sha256 cellar: :any_skip_relocation, mojave:        "939ba81a40b0254a22f7c7db3a99ab2cec706132e8409379636517a2bbe66e55"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7436395fb5eb5616771b7b521d8abd053f28b6b370e3244220a78ef3cae7a602"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3acdb89d85419f3f767b19782bd3442c74baad9b0527471ab83bd9f74efa8dd9"
+    sha256 cellar: :any_skip_relocation, catalina:      "31c45ca626144ad34a3bcf09440077cbaeb793851538e2046c581122f378ebe9"
+    sha256 cellar: :any_skip_relocation, mojave:        "e0ea5b75bd333e98c716f9f9782aadb47e4e8d9c6b0e8f087f782eb8c67a58bd"
   end
 
   depends_on "rust" => :build

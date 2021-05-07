@@ -1,12 +1,12 @@
 class Xtensor < Formula
   desc "Multi-dimensional arrays with broadcasting and lazy computing"
   homepage "https://xtensor.readthedocs.io/en/latest/"
-  url "https://github.com/QuantStack/xtensor/archive/0.23.8.tar.gz"
-  sha256 "bddb3e03a6fc7d39463df25e1b1a72aac79db7f0f32813c5d34feb7c2708b6b5"
+  url "https://github.com/QuantStack/xtensor/archive/0.23.9.tar.gz"
+  sha256 "5bdb9d85ee82c60be0bce32d891b5cc20eb633284a0aabb907f55bbe722cc8e3"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "536dad69f355799d9a89289e9572b0333996644107dd7a498e68512b48b67e72"
+    sha256 cellar: :any_skip_relocation, all: "2024a518bb41b4e0434761f090c38d83c79a0bcc7233b3507e6f210a67e07aa3"
   end
 
   depends_on "cmake" => :build

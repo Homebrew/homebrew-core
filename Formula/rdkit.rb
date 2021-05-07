@@ -4,13 +4,14 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/Release_2021_03_1.tar.gz"
   sha256 "9495f797a54ac70b3b6e12776de7d82acd7f7b5d5f0cc1f168c763215545610b"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git"
 
   bottle do
-    sha256 arm64_big_sur: "b3c25f8041b97feb1d44b0881ade496bc030ef7cd7bb472b0e5f2f3ed15c70e5"
-    sha256 big_sur:       "b858bd08a423315f15f0e261730488fe1e303734ab07cc8ca31d9dfb10272f6d"
-    sha256 catalina:      "a809feb8d0cff4c9c1a357d7e434de5cefc42e254ea47d65079e6c72d4322ad8"
-    sha256 mojave:        "e5aaf566b2d5a33553bc626eb99e785da5359a1e803d3abbeb86501804f9ffb7"
+    sha256 arm64_big_sur: "4517bab8a0cbf87d593d4da115beef2f5df826eb5f876f57178099fe6007b8fa"
+    sha256 big_sur:       "855d43ea94058f878cdba983391f3344d07223ce24b5400fe811adec6adcf305"
+    sha256 catalina:      "f8fc9a8cb5afcf5d891fc4a53da47a3a7cc40351d769ce73e735b02987e722ba"
+    sha256 mojave:        "6f7c9125af11fa603668b89ca0594648d75a6b2c50934be6191c203ec18137dc"
   end
 
   depends_on "cmake" => :build
@@ -65,6 +66,9 @@ class Rdkit < Formula
     system "cmake", ".", *args
     system "make"
     system "make", "install"
+
+    site_packages = "lib/python#{py3ver}/site-packages"
+    (prefix/site_packages/"homebrew-rdkit.pth").write libexec/site_packages
   end
 
   def caveats
@@ -76,6 +80,7 @@ class Rdkit < Formula
   end
 
   test do
+    system Formula["python@3.9"].opt_bin/"python3", "-c", "import rdkit"
     (testpath/"test.py").write <<~EOS
       from rdkit import Chem ; print(Chem.MolToSmiles(Chem.MolFromSmiles('C1=CC=CN=C1')))
     EOS

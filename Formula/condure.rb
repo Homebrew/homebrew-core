@@ -1,17 +1,15 @@
 class Condure < Formula
   desc "HTTP/WebSocket connection manager"
   homepage "https://github.com/fanout/condure"
-  url "https://github.com/fanout/condure/archive/1.1.0.tar.gz"
-  sha256 "28d19110765e78701b512cf81aba23e4a823e3f502c6e87c7e247554da748cfe"
+  url "https://github.com/fanout/condure/archive/1.2.0.tar.gz"
+  sha256 "0372b925558ed966df0657b18c0c91b1e1d1ed789c59e572728722569e504fb0"
   license "Apache-2.0"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_big_sur: "49a9a397891392a99536028f60a15d951c942764e96f37ea7bab668710217ec6"
-    sha256 cellar: :any, big_sur:       "4e037359206bf4563fc7c7d64809d7e22905d1624ddda1047d0b92aa81a51b88"
-    sha256 cellar: :any, catalina:      "26957f142c585546573cadf4f89475803d55f308d3d63c51ee1248a70af3dd40"
-    sha256 cellar: :any, mojave:        "09bed07fabc6999a7eaf9f44ab25085b64ca9400fd2988328226f2fbba37d428"
-    sha256 cellar: :any, high_sierra:   "080bfe369f308022f3f766f7d9034e15114e17db0911dae9a37e482eb07954bf"
+    sha256 cellar: :any, arm64_big_sur: "f5fe1e3d3986b9094cd4c9dd47c723c34be95569a48d17ea65f35772f82ea38d"
+    sha256 cellar: :any, big_sur:       "2daf0a91d666cdd8ac6defd4d603e86d1f8619e936b2c58299d86b2d08e9345e"
+    sha256 cellar: :any, catalina:      "369a5eac6c74ac9e579b3f52fea9ca7b7359499bc3f0926d96285fdce0ce6168"
+    sha256 cellar: :any, mojave:        "5bcbf91da877662c3407ef78db0eeaf8a42c9aa51885db95203fca9d3d01c955"
   end
 
   depends_on "pkg-config" => :build
@@ -21,8 +19,8 @@ class Condure < Formula
   depends_on "zeromq"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/86/08/e5fc492317cc9d65b32d161c6014d733e8ab20b5e78e73eca63f53b17004/pyzmq-19.0.1.tar.gz"
-    sha256 "13a5638ab24d628a6ade8f794195e1a1acd573496c3b85af2f1183603b7bf5e0"
+    url "https://files.pythonhosted.org/packages/a3/7a/561526861908d366ddc2764933a6090078654b0f2ff20c3c180dd5851554/pyzmq-22.0.3.tar.gz"
+    sha256 "f7f63ce127980d40f3e6a5fdb87abf17ce1a7c2bd8bf2c7560e1bbce8ab1f92d"
   end
 
   resource "tnetstring3" do
