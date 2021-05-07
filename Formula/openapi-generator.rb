@@ -11,8 +11,6 @@ class OpenapiGenerator < Formula
     depends_on "maven" => :build
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
