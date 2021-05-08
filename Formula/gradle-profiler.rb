@@ -7,12 +7,7 @@ class GradleProfiler < Formula
 
   bottle :unneeded
 
-  # gradle currently does not support Java 16
-  if Hardware::CPU.arm?
-    depends_on "openjdk@11"
-  else
-    depends_on "openjdk"
-  end
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.bat"]
@@ -28,7 +23,7 @@ class GradleProfiler < Formula
   test do
     (testpath/"settings.gradle").write ""
     (testpath/"build.gradle").write 'println "Hello"'
-    output = shell_output("#{bin}/gradle-profiler --gradle-version 6.5 --profile chrome-trace")
+    output = shell_output("#{bin}/gradle-profiler --gradle-version 7.0 --profile chrome-trace")
     assert_includes output, "* Results written to"
   end
 end
