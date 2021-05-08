@@ -12,7 +12,7 @@ class GradleProfiler < Formula
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin lib]
-    Language::Java.overridable_java_home_env
+    env = Language::Java.overridable_java_home_env
     (bin/"gradle-profiler").write_env_script libexec/"bin/gradle-profiler", env
   end
 
