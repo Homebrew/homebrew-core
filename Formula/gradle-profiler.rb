@@ -12,11 +12,7 @@ class GradleProfiler < Formula
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin lib]
-    env = if Hardware::CPU.arm?
-      Language::Java.overridable_java_home_env("11")
-    else
-      Language::Java.overridable_java_home_env
-    end
+    Language::Java.overridable_java_home_env
     (bin/"gradle-profiler").write_env_script libexec/"bin/gradle-profiler", env
   end
 
