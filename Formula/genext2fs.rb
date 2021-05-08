@@ -1,9 +1,12 @@
 class Genext2fs < Formula
   desc "Generates an ext2 filesystem as a normal (non-root) user"
   homepage "https://genext2fs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/genext2fs/genext2fs/1.4.1/genext2fs-1.4.1.tar.gz"
-  sha256 "404dbbfa7a86a6c3de8225c8da254d026b17fd288e05cec4df2cc7e1f4feecfc"
-  license "GPL-2.0"
+  url "https://github.com/bestouff/genext2fs/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "d3861e4fe89131bd21fbd25cf0b683b727b5c030c4c336fadcd738ada830aab0"
+  license "GPL-2.0-or-later"
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a3d9a117858748bd0a157e77968666936832bf63ff14d28850061a9b2ea68e95"
@@ -17,6 +20,7 @@ class Genext2fs < Formula
   end
 
   def install
+    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
