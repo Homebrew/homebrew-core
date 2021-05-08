@@ -4,6 +4,7 @@ class Fish < Formula
   url "https://github.com/fish-shell/fish-shell/releases/download/3.2.2/fish-3.2.2.tar.xz"
   sha256 "5944da1a8893d11b0828a4fd9136ee174549daffb3d0adfdd8917856fe6b4009"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,9 +25,8 @@ class Fish < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ncurses"
   depends_on "pcre2"
-
-  uses_from_macos "ncurses"
 
   def install
     args = %W[
@@ -34,8 +34,9 @@ class Fish < Formula
       -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
       -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
     ]
-    system "cmake", ".", *std_cmake_args, *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def post_install
