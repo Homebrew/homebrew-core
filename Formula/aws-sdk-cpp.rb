@@ -22,7 +22,7 @@ class AwsSdkCpp < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make"
       system "make", "install"
     end
