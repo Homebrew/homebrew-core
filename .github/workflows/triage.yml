@@ -15,6 +15,23 @@ jobs:
         if: always()
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+      - name: Add `bump-formula-pr` label if needed
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          script: |
+            const { data: { body: body } } = await github.pulls.get({
+              ...context.repo,
+              pull_number: context.issue.number
+            })
+            if (!body.includes("Created with `brew bump-formula-pr`")) {
+              return
+            }
+            github.issues.addLabels({
+              ...context.repo,
+              issue_number: context.issue.number,
+              labels: ['bump-formula-pr']
+            })
       - name: Label pull request
         uses: Homebrew/actions/label-pull-requests@master
         if: always()
