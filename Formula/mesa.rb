@@ -10,7 +10,7 @@ class Mesa < Formula
 
   livecheck do
     url "https://www.mesa3d.org/news/"
-    regex(/Mesa v?(\d+(?:\.\d+)+) is released/i)
+    regex(/>\s*Mesa v?(\d+(?:\.\d+)+) is released\s*</i)
   end
 
   bottle do
