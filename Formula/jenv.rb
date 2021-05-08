@@ -15,12 +15,23 @@ class Jenv < Formula
   end
 
   def caveats
-    <<~EOS
-      To activate jenv, add the following to your #{shell_profile}:
+    if preferred == :fish
+      <<~EOS
+        To activate jenv, run the following commands:
 
-        export PATH="$HOME/.jenv/bin:$PATH"
-        eval "$(jenv init -)"
-    EOS
+          echo 'status --is-interactive; and source (jenv init -|psub)' >> #{shell_profile}
+          set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME $HOME
+          ln -sf #{opt_libexec}/fish/*.fish $XDG_CONFIG_HOME/.config/fish/functions
+
+      EOS
+    else
+      <<~EOS
+        To activate jenv, add the following to your #{shell_profile}:
+
+          export PATH="$HOME/.jenv/bin:$PATH"
+          eval "$(jenv init -)"
+      EOS
+    end
   end
 
   test do
