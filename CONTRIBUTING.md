@@ -32,8 +32,8 @@ Once you've addressed any potential feedback and a member of the Homebrew org ha
 ### To contribute a fix to the `foo` formula
 
 If you are already well versed in the use of `git`, then you can find the local
-copy of the `homebrew-core` repository in this directory
-(`$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/`), modify the formula there
+copy of the `homebrew-core` repository in this directory:
+`brew --repository homebrew/core`. Modify the formula there using `brew edit foo`
 leaving the section `bottle do ... end` unchanged, and prepare a pull request
 as you usually do.  Before submitting your pull request, be sure to test it
 with these commands:
