@@ -7,6 +7,14 @@ class GraphqlCli < Formula
   sha256 "c52d62ac108d4a3f711dbead0939bd02e3e2d0c82f8480fd76fc28f285602f5c"
   license "MIT"
 
+  # The Npm page is nearly 2 MB compressed (due to there being thousands
+  # of pre-release versions of the package) and livecheck can time out, so we
+  # check the Git tags in this instance.
+  livecheck do
+    url :homepage
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "2da205bbd5c76588be334a84b52dacfac9062045d605ed3f8298b7cb7b9b84a7"
     sha256 big_sur:       "02d60908557d5dedf63fffe66a51f5829807abd910b5460a2ae44d7b8d208142"
