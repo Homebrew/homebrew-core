@@ -5,6 +5,7 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-2.7.1/apache-pulsar-2.7.1-src.tar.gz"
   sha256 "99c57e23ee6b9621b97439684e141dce467a138356b058918bcd9be032cf8822"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
