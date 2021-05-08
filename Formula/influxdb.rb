@@ -4,6 +4,7 @@ class Influxdb < Formula
   url "https://github.com/influxdata/influxdb/archive/v2.0.6.tar.gz"
   sha256 "b8f019cfb85f7fdcdd5399dc2418cdc1ac302f99da0d031c2e307ecb62e129cd"
   license "MIT"
+  revision 1
   head "https://github.com/influxdata/influxdb.git"
 
   # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
