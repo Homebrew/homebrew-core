@@ -29,8 +29,11 @@ class Genext2fs < Formula
   end
 
   test do
-    system "#{bin}/genext2fs", "--root", testpath,
-                               "--size-in-blocks", "20",
+    rootpath = testpath/"img"
+    (rootpath/"foo.txt").write "hello world"
+    system "#{bin}/genext2fs", "--root", rootpath,
+                               "--block-size", "4096",
+                               "--size-in-blocks", "100",
                                "#{testpath}/test.img"
   end
 end
