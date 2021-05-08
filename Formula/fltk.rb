@@ -21,6 +21,13 @@ class Fltk < Formula
   depends_on "jpeg"
   depends_on "libpng"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libxft"
+    depends_on "libxt"
+    depends_on "mesa-glu"
+  end
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--enable-threads",
