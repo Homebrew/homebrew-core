@@ -26,12 +26,6 @@ class HaskellStack < Formula
     depends_on "gmp"
   end
 
-  # Support build with persistent-2.11 and optparse-applicative-0.16
-  patch do
-    url "https://github.com/commercialhaskell/stack/commit/7796eaa6b2c6c5e8a579af34ebc33b12d73b6c99.patch?full_index=1"
-    sha256 "58aa8a861307c14068148a88bf8f46ed7fe2e3c89a3c8bfd1949316e2d7dab29"
-  end
-
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
