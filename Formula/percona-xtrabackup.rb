@@ -3,6 +3,7 @@ class PerconaXtrabackup < Formula
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
   url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.23-16/source/tarball/percona-xtrabackup-8.0.23-16.tar.gz"
   sha256 "ca834acf940a79981366eb874d1b71df794e237c8936da86d03415771604be7e"
+  revision 1
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-XtraBackup-LATEST/"
