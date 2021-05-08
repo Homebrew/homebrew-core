@@ -1,8 +1,8 @@
 class Glog < Formula
   desc "Application-level logging library"
   homepage "https://github.com/google/glog"
-  url "https://github.com/google/glog/archive/v0.4.0.tar.gz"
-  sha256 "f28359aeba12f30d73d9e4711ef356dc842886968112162bc73002645139c39c"
+  url "https://github.com/google/glog/archive/v0.5.0.tar.gz"
+  sha256 "eede71f28371bf39aa69b45de23b329d37214016e2055269b3b5e7cfd40b59f5"
   license "BSD-3-Clause"
   head "https://github.com/google/glog.git"
 
@@ -19,25 +19,9 @@ class Glog < Formula
   depends_on "gflags"
 
   def install
-    mkdir "cmake-build" do
-      system "cmake", "..", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-      system "make", "install"
-    end
-
-    # Upstream PR from 30 Aug 2017 "Produce pkg-config file under cmake"
-    # See https://github.com/google/glog/pull/239
-    (lib/"pkgconfig/libglog.pc").write <<~EOS
-      prefix=#{prefix}
-      exec_prefix=${prefix}
-      libdir=${exec_prefix}/lib
-      includedir=${prefix}/include
-
-      Name: libglog
-      Description: Google Log (glog) C++ logging framework
-      Version: #{stable.version}
-      Libs: -L${libdir} -lglog
-      Cflags: -I${includedir}
-    EOS
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--build", "build", "--target", "install"
   end
 
   test do
