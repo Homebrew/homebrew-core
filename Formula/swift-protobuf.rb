@@ -4,6 +4,7 @@ class SwiftProtobuf < Formula
   url "https://github.com/apple/swift-protobuf/archive/1.16.0.tar.gz"
   sha256 "a8c06b3fb05b18d74bd63151f0074904e8223cbe8217d0c6cbb4fba470dfb766"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/apple/swift-protobuf.git"
 
   bottle do
