@@ -122,7 +122,12 @@ class Alot < Formula
       pid = fork do
         $stdout.reopen("/dev/null")
         $stdin.reopen("/dev/null")
-        exec "script", "-q", "/dev/null", bin/"alot", "--logfile", testpath/"out.log"
+        on_macos do
+          exec "script", "-q", "/dev/null", bin/"alot", "--logfile", testpath/"out.log"
+        end
+        on_linux do
+          exec "script", "-q", "/dev/null", "-e", "-c", "#{bin}/alot --logfile #{testpath}/out.log"
+        end
       end
       sleep 10
     ensure
