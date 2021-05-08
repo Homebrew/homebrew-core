@@ -18,7 +18,11 @@ class Multitail < Formula
   depends_on "ncurses"
 
   def install
-    system "make", "-f", "makefile.macosx", "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
+    makefile = "makefile.macosx"
+    on_linux do
+      makefile = "Makefile"
+    end
+    system "make", "-f", makefile, "multitail", "DESTDIR=#{HOMEBREW_PREFIX}"
 
     bin.install "multitail"
     man1.install gzip("multitail.1")
