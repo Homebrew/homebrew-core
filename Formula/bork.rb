@@ -7,9 +7,8 @@ class Bork < Formula
   head "https://github.com/skylarmacdonald/bork.git", branch: "main"
 
   def install
-    %w[types/shells.sh types/pipsi.sh types/cask.sh test/type-pipsi.bats test/type-cask.bats].each do |f|
-      inreplace f, "/usr/local/", HOMEBREW_PREFIX
-    end
+    files = %w[types/shells.sh types/pipsi.sh types/cask.sh test/type-pipsi.bats test/type-cask.bats]
+    inreplace files, "/usr/local/", HOMEBREW_PREFIX
 
     prefix.install %w[bin docs lib test types]
   end
