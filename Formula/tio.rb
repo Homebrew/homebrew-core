@@ -3,7 +3,7 @@ class Tio < Formula
   homepage "https://tio.github.io"
   url "https://github.com/tio/tio/releases/download/v1.32/tio-1.32.tar.xz"
   sha256 "a8f5ed6994cacb96780baa416b19e5a6d7d67e8c162a8ea4fd9eccd64984ae44"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cd68cb38333ea9bf99d8e0cdd28cf73ce8517b834213b2f786f29c4d58ca0dd8"
@@ -25,6 +25,12 @@ class Tio < Formula
   test do
     # Test that tio emits the correct error output when run with an argument that is not a tty.
     # Use `script` to run tio with its stdio attached to a PTY, otherwise it will complain about that instead.
-    assert_match "Error: Not a tty device", shell_output("script -q /dev/null #{bin}/tio /dev/null", 1).strip
+    test_str = "Error: Not a tty device"
+    on_macos do
+      assert_match test_str, shell_output("script -q /dev/null #{bin}/tio /dev/null", 1).strip
+    end
+    on_linux do
+      assert_match test_str, shell_output("script -q /dev/null -e -c \"#{bin}/tio /dev/null\"", 1).strip
+    end
   end
 end
