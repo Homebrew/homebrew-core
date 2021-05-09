@@ -14,9 +14,6 @@ class Imath < Formula
 
   depends_on "cmake" => :build
 
-  conflicts_with "ilmbase",
-    because: "imath replaces ilmbase and installs conflicting libraries"
-
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
