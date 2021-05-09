@@ -4,6 +4,7 @@ class Qt < Formula
   url "https://download.qt.io/official_releases/qt/6.1/6.1.0/single/qt-everywhere-src-6.1.0.tar.xz"
   sha256 "326a710b08b0973bb4f5306a786548d8b8dd656db75ce9f3f85ea32680d3c88a"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev", shallow: false
 
   # The first-party website doesn't make version information readily available,
@@ -20,8 +21,8 @@ class Qt < Formula
     sha256 cellar: :any, mojave:        "10948f967cc80adb8f03cce3b12514cbf46e2cf62b979d930ae5ab6e5e2a907c"
   end
 
-  depends_on "cmake" => [:build, :test]
-  depends_on "ninja" => :build
+  depends_on "cmake"      => [:build, :test]
+  depends_on "ninja"      => :build
   depends_on "pkg-config" => :build
   depends_on xcode: [:build, :test] if MacOS.version <= :mojave
 
@@ -78,11 +79,8 @@ class Qt < Formula
       -extprefix #{prefix}
       -sysroot #{MacOS.sdk_path}
 
-      -libexecdir share/qt/libexec
-      -plugindir share/qt/plugins
-      -qmldir share/qt/qml
-      -docdir share/doc/qt
-      -translationdir share/qt/translations
+      -archdatadir share/qt
+      -datadir share/qt
       -examplesdir share/qt/examples
       -testsdir share/qt/tests
 
@@ -103,7 +101,6 @@ class Qt < Formula
       -DCMAKE_FIND_FRAMEWORK=FIRST
 
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
-      -DINSTALL_DESCRIPTIONSDIR=share/qt/modules
 
       -DFEATURE_pkg_config=ON
       -DFEATURE_qt3d_system_assimp=ON
@@ -119,7 +116,7 @@ class Qt < Formula
     # Some config scripts will only find Qt in a "Frameworks" folder
     frameworks.install_symlink Dir["#{lib}/*.framework"]
 
-    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", /.*set.__qt_initial_.*/, ""
+    inreplace lib/"cmake/Qt6/qt.toolchain.cmake", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin"
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
