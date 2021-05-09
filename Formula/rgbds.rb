@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://rgbds.gbdev.io"
-  url "https://github.com/gbdev/rgbds/archive/v0.5.0.tar.gz"
-  sha256 "441be80edcaed80c2372e9053401ff8faedb96bd1af9d11d8fedac98e56ccea8"
+  url "https://github.com/gbdev/rgbds/archive/v0.5.1.tar.gz"
+  sha256 "1e5331b5638076c1f099a961f8663256e9f8be21135427277eb0000d3d6ee887"
   license "MIT"
   head "https://github.com/gbdev/rgbds.git"
 
@@ -20,19 +20,32 @@ class Rgbds < Formula
 
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "libpng"
+
+  resource "rgbobj" do
+    url "https://github.com/gbdev/rgbobj/archive/refs/tags/v0.1.0.tar.gz"
+    sha256 "359a3504dc5a5f7812dfee602a23aec80163d1d9ec13f713645b5495aeef2a9b"
+  end
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "mandir=#{man}"
+    resource("rgbobj").stage do
+      system "cargo", "install", *std_cargo_args
+      man1.install "rgbobj.1"
+    end
+    zsh_completion.install Dir["contrib/zsh_compl/_*"]
   end
 
   test do
-    # https://github.com/rednex/rgbds/blob/HEAD/test/asm/assert-const.asm
+    # Based on https://github.com/rednex/rgbds/blob/HEAD/test/asm/assert-const.asm
     (testpath/"source.asm").write <<~EOS
       SECTION "rgbasm passing asserts", ROM0[0]
+      Label:
         db 0
         assert @
     EOS
-    system "#{bin}/rgbasm", "source.asm"
+    system "#{bin}/rgbasm", "-o", "output.o", "source.asm"
+    system "#{bin}/rgbobj", "-A", "-s", "data", "-p", "data", "output.o"
   end
 end
