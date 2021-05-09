@@ -91,6 +91,12 @@ class Httpd < Formula
     end
 
     inreplace %W[
+      #{lib}/httpd/build/config_vars.mk
+    ] do |s|
+      s.gsub! "#{HOMEBREW_SHIMS_PATH}/mac/super", "#{HOMEBREW_DEFAULT_PREFIX}/bin"
+    end
+
+    inreplace %W[
       #{bin}/apachectl
       #{bin}/apxs
       #{include}/httpd/ap_config_auto.h
