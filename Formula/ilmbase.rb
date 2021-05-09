@@ -5,6 +5,7 @@ class Ilmbase < Formula
   url "https://github.com/openexr/openexr/archive/v2.5.5.tar.gz"
   sha256 "59e98361cb31456a9634378d0f653a2b9554b8900f233450f2396ff495ea76b3"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     rebuild 1
