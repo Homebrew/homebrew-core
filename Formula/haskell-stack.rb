@@ -28,7 +28,7 @@ class HaskellStack < Formula
 
   def install
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args, '--constraint=persistent^>=2.11.0.0'
+    system "cabal", "v2-install", *std_cabal_v2_args, "--constraint=persistent^>=2.11.0.0"
   end
 
   test do
