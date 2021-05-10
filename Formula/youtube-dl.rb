@@ -17,6 +17,7 @@ class YoutubeDl < Formula
   depends_on "python@3.9"
 
   def install
+    # Test comment
     virtualenv_install_with_resources
     man1.install_symlink libexec/"share/man/man1/youtube-dl.1" => "youtube-dl.1"
     bash_completion.install libexec/"etc/bash_completion.d/youtube-dl.bash-completion"
