@@ -1,9 +1,9 @@
 class Guile < Formula
   desc "GNU Ubiquitous Intelligent Language for Extensions"
   homepage "https://www.gnu.org/software/guile/"
-  url "https://ftp.gnu.org/gnu/guile/guile-3.0.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.6.tar.xz"
-  sha256 "e2bd83c2077d721356e7579ca33097a13a20e2b7eda6c2362ee1166fbc845d28"
+  url "https://ftp.gnu.org/gnu/guile/guile-3.0.7.tar.xz"
+  mirror "https://ftpmirror.gnu.org/guile/guile-3.0.7.tar.xz"
+  sha256 "f57d86c70620271bfceb7a9be0c81744a033f08adc7ceba832c9917ab3e691b7"
   license "LGPL-3.0-or-later"
 
   bottle do
