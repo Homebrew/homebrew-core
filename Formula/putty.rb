@@ -1,8 +1,9 @@
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/putty/"
-  url "https://the.earth.li/~sgtatham/putty/0.74/putty-0.74.tar.gz"
-  sha256 "ddd5d388e51dd9e6e294005b30037f6ae802239a44c9dc9808c779e6d11b847d"
+  url "https://the.earth.li/~sgtatham/putty/0.75/putty-0.75.tar.gz"
+  sha256 "d3173b037eddbe9349abe978101277b4ba9f9959e25dedd44f87e7b85cc8f9f5"
+  license "MIT"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0595c24581bb65f29d125f18abd5a5671194114a6f93c9dec43f06470c6ff1d5"
@@ -33,10 +34,7 @@ class Putty < Formula
       system "make", "-C", "doc"
     end
 
-    args = %W[
-      --prefix=#{prefix}
-      --disable-silent-rules
-      --disable-dependency-tracking
+    args = std_configure_args + %w[
       --disable-gtktest
       --without-gtk
     ]
