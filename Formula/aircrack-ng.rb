@@ -34,6 +34,10 @@ class AircrackNg < Formula
                            "--disable-dependency-tracking",
                            "--prefix=#{prefix}",
                            "--with-experimental"
+    # On MacOS X, some of the c++ header files #include <version> and the makefile has -I. causing problems
+    on_macos do
+      mv "version", "version.txt"
+    end
     system "make", "install"
   end
 
@@ -77,3 +81,26 @@ __END__
  
  if [ ! -d "${OUI_PATH}" ]; then
  	mkdir -p ${OUI_PATH}
+
+diff --git a/include/aircrack-ng/ce-wpa/pseudo_intrinsics.h b/include/aircrack-ng/ce-wpa/pseudo_intrinsics.h
+index adb5d23..4a08d17 100644
+--- a/include/aircrack-ng/ce-wpa/pseudo_intrinsics.h
++++ b/include/aircrack-ng/ce-wpa/pseudo_intrinsics.h
+@@ -94,13 +94,13 @@ typedef uint64x2_t vtype64;
+ #define vor vorrq_u32
+ #define vorn vornq_u32
+ #define vroti_epi32(x, i)                                                      \
+-	(i > 0 ? vsliq_n_u32(vshrq_n_u32(x, 32 - (i)), x, i)                       \
+-		   : vsriq_n_u32(vshlq_n_u32(x, 32 + (i)), x, -(i)))
++	(i > 0 ? (vtype)vsliq_n_u32(vshrq_n_u32((x), 32 - ((i) & 31)), (x), (i) & 31)        \
++		   : (vtype)vsriq_n_u32(vshlq_n_u32((x), (32 + (i)) & 31), (x), (-(i)) & 31))
+ #define vroti_epi64(x, i)                                                      \
+ 	(i > 0 ? (vtype) vsliq_n_u64(                                              \
+-				 vshrq_n_u64((vtype64)(x), 64 - (i)), (vtype64)(x), i)         \
++				 vshrq_n_u64((vtype64)(x), 64 - ((i) & 63), (vtype64)(x), (i) & 63))         \
+ 		   : (vtype) vsriq_n_u64(                                              \
+-				 vshlq_n_u64((vtype64)(x), 64 + (i)), (vtype64)(x), -(i)))
++				 vshlq_n_u64((vtype64)(x), (64 + (i)) & 63), (vtype64)(x), (-(i)) & 63))
+ #define vroti16_epi32 vroti_epi32
+ #define vset1_epi32(x) vdupq_n_u32(x)
+ #define vset1_epi64(x) (vtype) vdupq_n_u64(x)
