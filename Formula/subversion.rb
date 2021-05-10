@@ -5,7 +5,7 @@ class Subversion < Formula
   mirror "https://archive.apache.org/dist/subversion/subversion-1.14.1.tar.bz2"
   sha256 "2c5da93c255d2e5569fa91d92457fdb65396b0666fad4fd59b22e154d986e1a9"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_big_sur: "cc10a37f931098a527772624566986313996921ef4db503574894e7c879a148e"
@@ -45,8 +45,8 @@ class Subversion < Formula
   uses_from_macos "zlib"
 
   resource "py3c" do
-    url "https://github.com/encukou/py3c/archive/v1.1.tar.gz"
-    sha256 "c7ffc22bc92dded0ca859db53ef3a0b466f89a9f8aad29359c9fe4ff18ebdd20"
+    url "https://github.com/encukou/py3c/archive/v1.3.tar.gz"
+    sha256 "8364eca74ec273c647317abaf0f9936cab81feed0d204e7d856dbf018986b923"
   end
 
   resource "serf" do
@@ -86,6 +86,16 @@ class Subversion < Formula
       system "scons", "install"
     end
 
+    perl = Formula["perl"].opt_bin/"perl"
+    on_macos do
+      perl = "/usr/bin/perl"
+    end
+
+    ruby = Formula["ruby"].opt_bin/"ruby"
+    on_macos do
+      ruby = "/usr/bin/ruby"
+    end
+
     # Use existing system zlib
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
@@ -110,8 +120,9 @@ class Subversion < Formula
       --without-gpg-agent
       --enable-javahl
       --without-jikes
+      PERL=#{perl}
       PYTHON=#{Formula["python@3.9"].opt_bin}/python3
-      RUBY=/usr/bin/ruby
+      RUBY=#{ruby}
     ]
 
     inreplace "Makefile.in",
@@ -137,34 +148,28 @@ class Subversion < Formula
     system "make", "javahl"
     system "make", "install-javahl"
 
-    if Hardware::CPU.intel?
-      perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
-      perl_core = Pathname.new(perl_archlib)/"CORE"
-      perl_extern_h = perl_core/"EXTERN.h"
-
-      unless perl_extern_h.exist?
-        # No EXTERN.h, maybe it's system perl
-        perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
-        perl_core = MacOS.sdk_path/"System/Library/Perl"/perl_version/"darwin-thread-multi-2level/CORE"
-        perl_extern_h = perl_core/"EXTERN.h"
-      end
-
-      onoe "'#{perl_extern_h}' does not exist" unless perl_extern_h.exist?
-
-      inreplace "Makefile" do |s|
-        s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
-          "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
-      end
-      system "make", "swig-pl"
-      system "make", "install-swig-pl"
-
-      # This is only created when building against system Perl, but it isn't
-      # purged by Homebrew's post-install cleaner because that doesn't check
-      # "Library" directories. It is however pointless to keep around as it
-      # only contains the perllocal.pod installation file.
-      rm_rf prefix/"Library/Perl"
+    perl_archlib = Utils.safe_popen_read(perl, "-MConfig", "-e", "print $Config{archlib}")
+    on_macos do
+      perl_archlib = "#{MacOS.sdk_path}#{perl_archlib}"
     end
+    perl_core = Pathname.new(perl_archlib)/"CORE"
+    perl_extern_h = perl_core/"EXTERN.h"
+
+    onoe "'#{perl_extern_h}' does not exist" unless perl_extern_h.exist?
+
+    inreplace "Makefile" do |s|
+      s.change_make_var! "SWIG_PL_INCLUDES",
+        "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
+        "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+    end
+    system "make", "swig-pl"
+    system "make", "install-swig-pl"
+
+    # This is only created when building against system Perl, but it isn't
+    # purged by Homebrew's post-install cleaner because that doesn't check
+    # "Library" directories. It is however pointless to keep around as it
+    # only contains the perllocal.pod installation file.
+    rm_rf prefix/"Library/Perl"
   end
 
   def caveats
@@ -185,11 +190,14 @@ class Subversion < Formula
     system "#{bin}/svnadmin", "create", "test"
     system "#{bin}/svnadmin", "verify", "test"
 
-    if Hardware::CPU.intel?
-      perl_version = Utils.safe_popen_read("/usr/bin/perl", "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
-      ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/darwin-thread-multi-2level"
-      system "/usr/bin/perl", "-e", "use SVN::Client; new SVN::Client()"
+    perl = Formula["perl"].opt_bin/"perl"
+    on_macos do
+      perl = "/usr/bin/perl"
     end
+
+    perl_version = Utils.safe_popen_read(perl, "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
+    ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/darwin-thread-multi-2level"
+    system perl, "-e", "use SVN::Client; new SVN::Client()"
   end
 end
 
