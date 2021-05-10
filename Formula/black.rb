@@ -3,8 +3,8 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/52/7e/6a41d1504225ef9213731e69ecebfa8fe78c614bcb01e1147f6242073636/black-21.5b0.tar.gz"
-  sha256 "9dc2042018ca10735366d944c2c12d9cad6dec74a3d5f679d09384ea185d9943"
+  url "https://files.pythonhosted.org/packages/83/e5/81da40cfcdf90a797a4fa3f809a612ee3646e2d3bd6afbb76068be82e4f4/black-21.5b1.tar.gz"
+  sha256 "23695358dbcb3deafe7f0a3ad89feee5999a46be5fec21f4f1d108be0bcdb3b1"
   license "MIT"
 
   livecheck do
@@ -42,8 +42,8 @@ class Black < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
-    sha256 "832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
+    url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
+    sha256 "ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
   end
 
   resource "chardet" do
