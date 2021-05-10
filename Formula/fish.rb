@@ -25,6 +25,8 @@ class Fish < Formula
   end
 
   depends_on "cmake" => :build
+  # Apple ncurses (5.4) is 15+ years old and
+  # has poor support for modern terminals
   depends_on "ncurses"
   depends_on "pcre2"
 
