@@ -1,8 +1,8 @@
 class Tfenv < Formula
   desc "Terraform version manager inspired by rbenv"
   homepage "https://github.com/tfutils/tfenv"
-  url "https://github.com/tfutils/tfenv/archive/v2.2.1.tar.gz"
-  sha256 "8de13c82a1e990907ebc52651e13933ea94889aece913e05f6bec76d9516af0f"
+  url "https://github.com/tfutils/tfenv/archive/v2.2.2.tar.gz"
+  sha256 "ac7f74d8a0151e36a539ceae1460b320ec7b98b360dbd7799dc7cdbdf8c06ded"
   license "MIT"
   head "https://github.com/tfutils/tfenv.git"
 
