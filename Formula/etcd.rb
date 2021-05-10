@@ -28,35 +28,26 @@ class Etcd < Formula
 
   plist_options manual: "etcd"
 
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/etcd</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    environment_variables ETCD_UNSUPPORTED_ARCH: "arm64" if Hardware::CPU.arm?
+    run [opt_bin/"etcd"]
+    run_type :immediate
+    keep_alive true
+    working_dir var
   end
 
   test do
     test_string = "Hello from brew test!"
     etcd_pid = fork do
+      on_macos do
+        if Hardware::CPU.arm?
+          # etcd isn't officially supported on arm64
+          # https://github.com/etcd-io/etcd/issues/10318
+          # https://github.com/etcd-io/etcd/issues/10677
+          ENV["ETCD_UNSUPPORTED_ARCH"]="arm64"
+        end
+      end
+
       exec bin/"etcd",
         "--enable-v2", # enable etcd v2 client support
         "--force-new-cluster",
