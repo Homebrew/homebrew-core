@@ -12,13 +12,13 @@ class Nodeenv < Formula
   end
 
   test do
-    system bin/"nodeenv", "--node=0.10.40", "--prebuilt", "env-0.10.40-prebuilt"
+    system bin/"nodeenv", "--node=16.0.0", "--prebuilt", "env-16.0.0-prebuilt"
     # Dropping into the virtualenv itself requires sourcing activate which
     # isn't easy to deal with. This ensures current Node installed & functional.
-    ENV.prepend_path "PATH", testpath/"env-0.10.40-prebuilt/bin"
+    ENV.prepend_path "PATH", testpath/"env-16.0.0-prebuilt/bin"
 
     (testpath/"test.js").write "console.log('hello');"
     assert_match "hello", shell_output("node test.js")
-    assert_match "v0.10.40", shell_output("node -v")
+    assert_match "v16.0.0", shell_output("node -v")
   end
 end
