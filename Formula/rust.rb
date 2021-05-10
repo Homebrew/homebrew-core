@@ -4,13 +4,13 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.51.0-src.tar.gz"
-    sha256 "7a6b9bafc8b3d81bbc566e7c0d1f17c9f499fd22b95142f7ea3a8e4d1f9eb847"
+    url "https://static.rust-lang.org/dist/rustc-1.52.1-src.tar.gz"
+    sha256 "3a6f23a26d0e8f87abbfbf32c5cd7daa0c0b71d0986abefc56b9a5fbfbd0bf98"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.52.0",
-          revision: "43b129a20fbf1ede0df411396ccf0c024bf34134"
+          tag:      "0.53.0",
+          revision: "69767412acbf7f64773427b1fb53e45296712c3c"
     end
   end
 
@@ -43,18 +43,18 @@ class Rust < Formula
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
       if Hardware::CPU.arm?
-        url "https://static.rust-lang.org/dist/2021-02-11/cargo-1.50.0-aarch64-apple-darwin.tar.gz"
-        sha256 "19d526ef3518fb0322f809deddbd4208a27d08efa41d2188348f1be8d3bcfe5e"
+        url "https://static.rust-lang.org/dist/2021-05-10/cargo-1.52.1-aarch64-apple-darwin.tar.gz"
+        sha256 "6787f8746cedd005b7abeabf6e2250ebc5fa767486c5bf23c597298e6965d576"
       else
-        url "https://static.rust-lang.org/dist/2021-02-11/cargo-1.50.0-x86_64-apple-darwin.tar.gz"
-        sha256 "45640bb1cef40f25ecb4bd2a3bb34fdf884c418e625d4f9c9595d2aca84fad78"
+        url "https://static.rust-lang.org/dist/2021-05-10/cargo-1.52.1-x86_64-apple-darwin.tar.gz"
+        sha256 "40d8fe950202763f633b6dd927f8e546e0a44b4b959945310c9eeb77f69e72d1"
       end
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2021-02-11/cargo-1.50.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "3456cfd9be761907a4d3aae475bd79d93662b7aee4541f28df3d1f7c7d71a034"
+      url "https://static.rust-lang.org/dist/2021-05-10/cargo-1.52.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "f3225c27ce16296400389285358b61e138811c2e0eb1388593817688145ab64d"
     end
   end
 
