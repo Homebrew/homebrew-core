@@ -1,8 +1,8 @@
 class Clash < Formula
   desc "Rule-based tunnel in Go"
   homepage "https://github.com/Dreamacro/clash"
-  url "https://github.com/Dreamacro/clash/archive/v1.5.0.tar.gz"
-  sha256 "766fa180c0d95cdbaaf0383c0f1f5b9129643a30166155cdab30922ebfbbee7d"
+  url "https://github.com/Dreamacro/clash/archive/v1.6.0.tar.gz"
+  sha256 "670963bee40fd3edca832a3ead22a92d3fb427ceed05be6c5a111d46a1555330"
   license "GPL-3.0-only"
 
   bottle do
