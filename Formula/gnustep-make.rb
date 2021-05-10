@@ -1,9 +1,9 @@
 class GnustepMake < Formula
   desc "Basic GNUstep Makefiles"
   homepage "http://gnustep.org"
-  url "http://ftpmain.gnustep.org/pub/gnustep/core/gnustep-make-2.8.0.tar.gz"
-  sha256 "9fce2942dd945c103df37d668dd5fff650b23351b25a650428f6f59133f5ca5d"
-  license "GPL-3.0"
+  url "http://ftpmain.gnustep.org/pub/gnustep/core/gnustep-make-2.9.0.tar.gz"
+  sha256 "a0b066c11257879c7c85311dea69c67f6dc741ef339db6514f85b64992c40d2a"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url "http://ftpmain.gnustep.org/pub/gnustep/core/"
@@ -19,7 +19,7 @@ class GnustepMake < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
                           "--with-config-file=#{prefix}/etc/GNUstep.conf",
                           "--enable-native-objc-exceptions"
     system "make", "install", "tooldir=#{libexec}"
