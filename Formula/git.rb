@@ -5,6 +5,7 @@ class Git < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.31.1.tar.xz"
   sha256 "9f61417a44d5b954a5012b6f34e526a3336dcf5dd720e2bb7ada92ad8b3d6680"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/git/git.git", shallow: false
 
   livecheck do
@@ -27,6 +28,12 @@ class Git < Formula
   uses_from_macos "openssl@1.1"
   uses_from_macos "zlib"
 
+  on_macos do
+    # Not introducing the Perl dependency on Linux for now.
+    # This line is still used to hint relocation on macOS.
+    uses_from_macos "perl"
+  end
+
   on_linux do
     depends_on "linux-headers"
   end
@@ -41,9 +48,14 @@ class Git < Formula
     sha256 "5d0d443c57155da2f201584d4c8c5ad10a0a24ff3af3a7a77cdc8f56dddac702"
   end
 
-  resource "Net::SMTP::SSL" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
-    sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
+  on_macos do
+    # Only needed for Net::SMTP < 2.34
+    if MacOS.version <= :catalina
+      resource "Net::SMTP::SSL" do
+        url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
+        sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
+      end
+    end
   end
 
   def install
@@ -52,28 +64,28 @@ class Git < Formula
     ENV["NO_DARWIN_PORTS"] = "1"
     ENV["PYTHON_PATH"] = which("python")
     ENV["PERL_PATH"] = which("perl")
+    on_macos do
+      ENV["PERL_PATH"] = "/usr/bin/perl"
+    end
     ENV["USE_LIBPCRE2"] = "1"
     ENV["INSTALL_SYMLINKS"] = "1"
     ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     ENV["V"] = "1" # build verbosely
 
-    perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
-
     on_macos do
-      ENV["PERLLIB_EXTRA"] = %W[
-        #{MacOS.active_developer_dir}
-        /Library/Developer/CommandLineTools
-        /Applications/Xcode.app/Contents/Developer
-      ].uniq.map do |p|
-        "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
-      end.join(":")
-    end
-
-    # Ensure we are using the correct system headers (for curl) to workaround
-    # mismatched Xcode/CLT versions:
-    # https://github.com/Homebrew/homebrew-core/issues/46466
-    if MacOS.version == :mojave && MacOS::CLT.installed? && MacOS::CLT.provides_sdk?
-      ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
+      ENV["PERLLIB_EXTRA"] = if MacOS.version >= :catalina
+        perl_version = Utils.safe_popen_read("/usr/bin/perl", "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
+        ENV["PERLLIB_EXTRA"] = Formula["subversion"].opt_lib/"perl5/site_perl/#{perl_version}/darwin-thread-multi-2level"
+      else
+        perl_version = Utils.safe_popen_read("/usr/bin/perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
+        %W[
+          #{MacOS.active_developer_dir}
+          /Library/Developer/CommandLineTools
+          /Applications/Xcode.app/Contents/Developer
+        ].uniq.map do |p|
+          "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
+        end.join(":")
+      end
     end
 
     # The git-gui and gitk tools are installed by a separate formula (git-gui)
@@ -143,20 +155,22 @@ class Git < Formula
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
-    # git-send-email needs Net::SMTP::SSL
-    resource("Net::SMTP::SSL").stage do
-      (share/"perl5").install "lib/Net"
-    end
-
-    # This is only created when building against system Perl, but it isn't
-    # purged by Homebrew's post-install cleaner because that doesn't check
-    # "Library" directories. It is however pointless to keep around as it
-    # only contains the perllocal.pod installation file.
-    rm_rf prefix/"Library/Perl"
-
-    # Set the macOS keychain credential helper by default
-    # (as Apple's CLT's git also does this).
     on_macos do
+      # git-send-email needs Net::SMTP::SSL for Net::SMTP < 2.34
+      if MacOS.version <= :catalina
+        resource("Net::SMTP::SSL").stage do
+          (share/"perl5").install "lib/Net"
+        end
+      end
+
+      # This is only created when building against system Perl, but it isn't
+      # purged by Homebrew's post-install cleaner because that doesn't check
+      # "Library" directories. It is however pointless to keep around as it
+      # only contains the perllocal.pod installation file.
+      rm_rf prefix/"Library/Perl"
+
+      # Set the macOS keychain credential helper by default
+      # (as Apple's CLT's git also does this).
       (buildpath/"gitconfig").write <<~EOS
         [credential]
         \thelper = osxkeychain
