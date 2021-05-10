@@ -37,29 +37,24 @@ class SignalCli < Formula
 
   def install
     libexec.install Dir["lib", "bin"]
-    (bin/"signal-cli").write_env_script libexec/"bin/signal-cli", JAVA_HOME: Formula["openjdk"].opt_prefix
+    (bin/"signal-cli").write_env_script libexec/"bin/signal-cli", Language::Java.overridable_java_home_env
 
     # this will install the necessary cargo/rustup toolchain bits in HOMEBREW_CACHE
     system "#{Formula["rustup-init"].bin}/rustup-init", "-qy", "--no-modify-path"
     ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
 
-    resource("libsignal-client").stage do
+    resource("libsignal-client").stage do |r|
       # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#building-libsignal-client-yourself
 
       # rm originally-embedded libsignal_jni lib
-      system "zip", "-d", "#{libexec}/lib/signal-client-java-0.2.3.jar", "libsignal_jni.so"
+      system "zip", "-d", libexec/"lib/signal-client-#{r.version}.jar", "libsignal_jni.so"
 
       # build & embed library for current platform
       cd "java" do
         inreplace "settings.gradle", ", ':android'", ""
         system "./build_jni.sh", "desktop"
         cd "java/src/main/resources" do
-          on_macos do
-            system "zip", "-u", "#{libexec}/lib/signal-client-java-0.2.3.jar", "./libsignal_jni.dylib"
-          end
-          on_linux do
-            system "zip", "-u", "#{libexec}/lib/signal-client-java-0.2.3.jar", "./libsignal_jni.so"
-          end
+          system "zip", "-u", libexec/"lib/signal-client-#{r.version}.jar", shared_library("libsignal_jni")
         end
       end
     end
@@ -67,22 +62,16 @@ class SignalCli < Formula
     resource("libzkgroup").stage do
       # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libzkgroup
 
+      zkgroup_jar = Dir[libexec/"lib/zkgroup-java-*.jar"].first
       # rm originally-embedded libzkgroup library
-      system "zip", "-d", "#{libexec}/lib/zkgroup-java-0.7.0.jar", "libzkgroup.so"
+      system "zip", "-d", zkgroup_jar, "libzkgroup.so"
 
       # build & embed library for current platform
-      on_macos do
-        system "make", "mac_dylib"
-        # system "make", "libzkgroup" # above is deprecated and will go away in a future version
-        cd "ffi/java/src/main/resources" do
-          system "zip", "-u", "#{libexec}/lib/zkgroup-java-0.7.0.jar", "./libzkgroup.dylib"
-        end
-      end
-      on_linux do
-        system "make", "libzkgroup"
-        cd "ffi/java/src/main/resources" do
-          system "zip", "-u", "#{libexec}/lib/zkgroup-java-0.7.0.jar", "./libzkgroup.so"
-        end
+      target = "mac_dylib"
+      on_linux { target = "libzkgroup" }
+      system "make", target
+      cd "ffi/java/src/main/resources" do
+        system "zip", "-u", zkgroup_jar, shared_library("libzkgroup")
       end
     end
   end
