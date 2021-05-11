@@ -33,8 +33,7 @@ class Luaradio < Formula
 
     env = {
       PATH:      "#{Formula["luajit-openresty"].opt_bin}:$PATH",
-      LUA_PATH:  "#{lib}/lua/5.1/?.lua${LUA_PATH:+:$LUA_PATH}",
-      LUA_CPATH: "#{lib}/lua/5.1/?.so${LUA_CPATH:+:$LUA_CPATH}",
+      LUA_CPATH: "#{lib}/lua/5.1/?.so${LUA_CPATH:+;$LUA_CPATH};;",
     }
 
     bin.env_script_all_files libexec/"bin", env
