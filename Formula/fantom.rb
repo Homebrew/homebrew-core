@@ -5,17 +5,19 @@ class Fantom < Formula
   sha256 "805befd635700ad2d85993ef02abc6c8df4c8be57b688302ce62f45a693117d3"
   license "AFL-3.0"
 
-  bottle :unneeded
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.exe", "bin/*.dll", "lib/dotnet/*"]
 
-    # Select the macOS JDK path in the config file
-    inreplace "etc/build/config.props", "//jdkHome=/System", "jdkHome=/System"
+    # Select OpenJDK path in the config file
+    java_home = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
+    inreplace "etc/build/config.props", %r{//jdkHome=/System.*$}, "jdkHome=#{java_home}"
 
     libexec.install Dir["*"]
     chmod 0755, Dir["#{libexec}/bin/*"]
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    bin.install Dir["#{libexec}/bin/*"]
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: java_home
   end
 
   test do
