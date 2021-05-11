@@ -9,6 +9,8 @@ class SchemaEvolutionManager < Formula
     sha256 cellar: :any_skip_relocation, all: "3030f5f85bc2fcf07ce294d5ff42ecc1a96f0cb22b90de9d937f587be917f497"
   end
 
+  uses_from_macos "ruby"
+
   def install
     system "./install.sh", prefix
   end
