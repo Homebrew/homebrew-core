@@ -44,6 +44,6 @@ class Earthly < Formula
     EOS
 
     output = shell_output("#{bin}/earthly --buildkit-host 127.0.0.1 +default 2>&1", 1).strip
-    assert_match "Error while dialing invalid address 127.0.0.1", output
+    assert_match "buildkitd failed to start", output
   end
 end
