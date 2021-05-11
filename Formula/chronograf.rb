@@ -17,7 +17,8 @@ class Chronograf < Formula
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
-  depends_on "node" => :build
+  # Switch to `node` when chronograf updates dependency node-sass>=6.0.0
+  depends_on "node@14" => :build
   depends_on "yarn" => :build
   depends_on "influxdb"
   depends_on "kapacitor"
@@ -25,9 +26,6 @@ class Chronograf < Formula
   def install
     Language::Node.setup_npm_environment
 
-    cd "ui" do # fix compatibility with the latest node
-      system "yarn", "upgrade", "parcel@1.11.0"
-    end
     system "make", "dep"
     system "make", ".jssrc"
     system "make", "chronograf"
