@@ -40,6 +40,6 @@ class TaskwarriorTui < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/taskwarrior-tui --version")
     assert_match "The argument '--config <FILE>' requires a value but none was supplied",
-      shell_output("#{bin}/taskwarrior-tui --config 2>&1", 1)
+      shell_output("#{bin}/taskwarrior-tui --config 2>&1", 2)
   end
 end
