@@ -19,6 +19,7 @@ class Envoy < Formula
   depends_on "go" => :build
   depends_on "libtool" => :build
   depends_on "ninja" => :build
+  depends_on macos: :catalina
 
   def install
     args = %w[
