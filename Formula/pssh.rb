@@ -1,11 +1,12 @@
 class Pssh < Formula
   include Language::Python::Virtualenv
+
   desc "Parallel versions of OpenSSH and related tools"
   homepage "https://code.google.com/archive/p/parallel-ssh/"
   url "https://files.pythonhosted.org/packages/60/9a/8035af3a7d3d1617ae2c7c174efa4f154e5bf9c24b36b623413b38be8e4a/pssh-2.3.1.tar.gz"
   sha256 "539f8d8363b722712310f3296f189d1ae8c690898eca93627fc89a9cb311f6b4"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
     rebuild 1
@@ -21,25 +22,12 @@ class Pssh < Formula
   conflicts_with "putty", because: "both install `pscp` binaries"
 
   # Fix for Python 3 compatibility
-  # https://bugs.archlinux.org/task/46571
   patch do
-    url "https://github.com/nplanel/parallel-ssh/commit/ee379dc5.patch?full_index=1"
-    sha256 "79c133072396e5d3d370ec254b7f7ed52abe1d09b5d398880f0e1cfaf988defa"
-  end
-
-  # Fix for Python 3 compatibility
-  # https://bugs.archlinux.org/task/51533
-  patch do
-    url "https://bugs.archlinux.org/task/51533?getfile=14659"
-    sha256 "47c1af738d4ba252e9f35c5633da91bae2a2919a7b6b2bf425ee1f090d61c7fe"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/957fd102811ab8a8c34bf09916a767e71dc6fd66/pssh/python3.patch"
+    sha256 "aba524c201cdc1be79ecd1896d2b04b758f173cdebd53acf606c32321a7e8c33"
   end
 
   def install
-    # Fixes import error with python3, see https://github.com/lilydjwg/pssh/issues/70
-    # fixed in master, should be removed for versions > 2.3.1
-    inreplace "psshlib/cli.py", "import version", "from psshlib import version"
-
-    virtualenv_create(libexec, "python3")
     virtualenv_install_with_resources
   end
 
