@@ -1,8 +1,8 @@
 class Snownews < Formula
   desc "Text mode RSS newsreader"
   homepage "https://github.com/kouya/snownews"
-  url "https://github.com/kouya/snownews/archive/1.6.10.tar.gz"
-  sha256 "8c78067aef75e283df4b3cca1c966587b6654e9e84a3e6e5eb8bdd5829799242"
+  url "https://github.com/kouya/snownews/archive/v1.8.tar.gz"
+  sha256 "90d2611b3e3a00bc14a8869365d366ad1dab17ea1687857440159fc7137c3bed"
   license "GPL-3.0"
 
   bottle do
@@ -19,8 +19,22 @@ class Snownews < Formula
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "ncurses"
+  depends_on "openssl@1.1"
 
   uses_from_macos "libxml2"
+
+  # remove in next release
+  patch do
+    url "https://github.com/msharov/snownews/commit/448f9e20490dfdb9bde2f7c9928e72c89b203397.patch?full_index=1"
+    sha256 "0f338f63781637c137e0cb0602008e63a6d01e737de11d7e78a498e99a47c4aa"
+  end
+
+  # remove in next release
+  # https://github.com/msharov/snownews/pull/65
+  patch do
+    url "https://github.com/chenrui333/snownews/commit/10a676f5df81d73b38efe8a74d2e8dbb6c003df2.patch?full_index=1"
+    sha256 "3e864e4dddae592558ec99d3ca18e488aa683c4ac5655ffc15ce717104b934dc"
+  end
 
   def install
     # Fix file not found errors for /usr/lib/system/libsystem_symptoms.dylib and
@@ -36,6 +50,6 @@ class Snownews < Formula
   end
 
   test do
-    system bin/"snownews -V"
+    assert_match version.to_s, shell_output(bin/"snownews --help")
   end
 end
