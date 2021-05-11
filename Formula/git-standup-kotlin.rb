@@ -1,8 +1,8 @@
-class GitStandupKt < Formula
+class GitStandupKotlin < Formula
   desc "Git extension to generate reports for standup - in Kotlin Multiplatform"
   homepage "https://github.com/jmfayard/kotlin-cli-starter"
-  url "https://github.com/jmfayard/kotlin-cli-starter/archive/refs/tags/v0.1.zip"
-  sha256 "ee568d395a637d4cb16846c63835e76a6ffb562dcf39895a49eeb28d23bfdba3"
+  url "https://github.com/jmfayard/kotlin-cli-starter/archive/refs/tags/v0.1.tar.gz"
+  sha256 "358c6c7cd2b3b752a84be972202645cbf9b12fc34ce18aaedf3563b7b005669c"
   license "MIT"
 
   depends_on "gradle" => :build
@@ -13,7 +13,7 @@ class GitStandupKt < Formula
 
   def install
     system "git", "init", "."
-    system "git", "config", "user.name", "Git User"
+    system "git", "config", "--global", "user.name", "Git User"
     system "./gradlew", "nativeTest", "linkReleaseExecutableNative"
     bash_completion.install "dist/git-standup.kt.bash" => "git-standup"
     fish_completion.install "dist/git-standup.kt.fish"
@@ -22,6 +22,7 @@ class GitStandupKt < Formula
   end
 
   test do
-    system `system "#{bin}/git-standup", "--quote"`
+    system "git", "config", "--global", "user.name", "Git User"
+    system "#{bin}/git-standup", "--quote"
   end
 end
