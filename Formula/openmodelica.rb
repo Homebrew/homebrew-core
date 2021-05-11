@@ -18,7 +18,7 @@ class Openmodelica < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
-  depends_on "gcc" => :build # for gfortran
+  depends_on "gcc@10" => :build # for gfortran
   depends_on "gnu-sed" => :build
   depends_on "libtool" => :build
   depends_on "openjdk" => :build
