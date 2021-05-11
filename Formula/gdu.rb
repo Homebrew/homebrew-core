@@ -27,7 +27,7 @@ class Gdu < Formula
       -X 'github.com/dundee/gdu/v4/build.User=#{user}'
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "github.com/dundee/gdu/v4/cmd/gdu"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "github.com/dundee/gdu/v4/cmd/gdu"
   end
 
   test do
