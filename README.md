@@ -6,7 +6,7 @@ Core formulae for the Linuxbrew package manager (Homebrew on Linux or Windows 10
 
  [Homebrew/discussions (forum)](https://github.com/homebrew/discussions/discussions)
 
-## How do I install these formulae?
+## How do I install these formula?
 
 Just `brew install <formula>`. This is the default tap for Homebrew and is installed by default.
 
