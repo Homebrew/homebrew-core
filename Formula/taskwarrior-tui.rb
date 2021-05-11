@@ -32,6 +32,9 @@ class TaskwarriorTui < Formula
       system "pandoc", *args, "docs/taskwarrior-tui.1.md", "-o", "taskwarrior-tui.1"
       man1.install "taskwarrior-tui.1"
     end
+    bash_completion.install "completions/taskwarrior-tui.bash"
+    fish_completion.install "completions/taskwarrior-tui.fish"
+    zsh_completion.install "completions/_taskwarrior-tui"
   end
 
   test do
