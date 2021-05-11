@@ -29,6 +29,6 @@ class LeanCli < Formula
 
   test do
     assert_match "lean version #{version}", shell_output("#{bin}/lean --version")
-    assert_match "Please login first.", shell_output("#{bin}/lean init 2>&1", 1)
+    assert_match "Please log in first.", shell_output("#{bin}/lean init 2>&1", 1)
   end
 end
