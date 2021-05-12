@@ -6,6 +6,7 @@ class Jupyterlab < Formula
   url "https://files.pythonhosted.org/packages/36/ab/ebb7a2684ae3a8bb6669e488b843559cf424e965080f56fd8c4c6948f0e0/jupyterlab-3.0.15.tar.gz"
   sha256 "8e7a1537b39d27ff00666c8ec022e41ecba6669168dd6f8a145941d6b4ec4ca4"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:  "e3103c53fa8ca94337a3b7b0b17607e0b925b0d79296d889bc01183471262795"
@@ -107,8 +108,8 @@ class Jupyterlab < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz"
-    sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
+    url "https://files.pythonhosted.org/packages/7a/0c/23cbcf515b5394e9f59a3e6629f26e1142b92d474ee0725a26aa5a3bcf76/Jinja2-3.0.0.tar.gz"
+    sha256 "ea8d7dd814ce9df6de6a761ec7f1cac98afe305b8cdc4aaae4e114b8d8ce24c5"
   end
 
   resource "json5" do
@@ -147,8 +148,8 @@ class Jupyterlab < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
-    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
+    url "https://files.pythonhosted.org/packages/67/6a/5b3ed5c122e20c33d2562df06faf895a6b91b0a6b96a4626440ffe1d5c8e/MarkupSafe-2.0.0.tar.gz"
+    sha256 "4fae0677f712ee090721d8b17f412f1cbceefbf0dc180fe91bab3232f38b4527"
   end
 
   resource "matplotlib-inline" do
@@ -162,8 +163,8 @@ class Jupyterlab < Formula
   end
 
   resource "nbclassic" do
-    url "https://files.pythonhosted.org/packages/d3/68/5640769e334de9565e954e24bfecce84dbe797aacda8b012806640562855/nbclassic-0.2.7.tar.gz"
-    sha256 "6835b27ffaed1f7a497371bb2c05c0f2b123cbcf7c3c116c1ca808ac78ac2fe8"
+    url "https://files.pythonhosted.org/packages/c2/cd/b998e74e2a9ddfb83ad8bbcbdef9f320b5d8907e84f3f4f793d0a985b696/nbclassic-0.2.8.tar.gz"
+    sha256 "9553dcd9ae4d932db640dad0daa186fe6c64e69ec2159868c0b38d7adef9b3b5"
   end
 
   resource "nbclient" do
@@ -287,8 +288,8 @@ class Jupyterlab < Formula
   end
 
   resource "terminado" do
-    url "https://files.pythonhosted.org/packages/93/65/bdfa6296624e647008bec3dc47a1d2c4f52ab6104b55b3961e0b30e9b80f/terminado-0.9.4.tar.gz"
-    sha256 "9a7dbcfbc2778830eeb70261bf7aa9d98a3eac8631a3afe3febeb57c12f798be"
+    url "https://files.pythonhosted.org/packages/e6/7d/509f24644348856e2eff7328ad7294127d85eccbb4ac049125ff02caf979/terminado-0.9.5.tar.gz"
+    sha256 "54c22cfb47cf79d4ff4ed2e7b5f8f98ecc28d0830f980465b6e04cf09cf553cf"
   end
 
   resource "testpath" do
@@ -386,5 +387,11 @@ class Jupyterlab < Formula
     # Ensure that jupyter-lab binary was installed by pip.
     assert_equal version.to_s,
       shell_output(bin/"jupyter-lab --version").strip
+
+    port = free_port
+    fork { exec "#{bin}/jupyter-lab", "-y", "--port=#{port}", "--no-browser", "--LabApp.token=''" }
+    sleep 10
+    assert_match "<title>JupyterLab</title>",
+      shell_output("curl --silent --fail http://localhost:#{port}/lab")
   end
 end
