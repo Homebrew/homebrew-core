@@ -2,8 +2,8 @@ class Dscanner < Formula
   desc "Analyses e.g. the style and syntax of D code"
   homepage "https://github.com/dlang-community/D-Scanner"
   url "https://github.com/dlang-community/D-Scanner.git",
-      tag:      "v0.11.0",
-      revision: "17edb1a1bed749d7eb6c3e9d49632fcf53ee185d"
+      tag:      "v0.11.1",
+      revision: "7809598da0e06a319d35d3b6edb4277710fa776b"
   license "BSL-1.0"
   head "https://github.com/dlang-community/D-Scanner.git"
 
