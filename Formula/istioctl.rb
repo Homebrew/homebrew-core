@@ -2,8 +2,8 @@ class Istioctl < Formula
   desc "Istio configuration command-line utility"
   homepage "https://istio.io/"
   url "https://github.com/istio/istio.git",
-      tag:      "1.9.4",
-      revision: "13fb8ac89420d8cc5b3f895adc614233e805a61c"
+      tag:      "1.9.5",
+      revision: "67362755b7ca63ff1442d627a733627ed5c75df4"
   license "Apache-2.0"
   head "https://github.com/istio/istio.git"
 
@@ -13,6 +13,15 @@ class Istioctl < Formula
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
+
+  # Support for arm64 will probably be added with istio version 1.10
+  depends_on arch: :x86_64
+
+  # Remove this patch on the next release
+  patch do
+    url "https://github.com/istio/istio/commit/98a6168b48fd02c2e3d7cc819067d50044004ba5.patch?full_index=1"
+    sha256 "ac2c864146072cdb96990d703fab669e9a8a4db3b772c05a47a8ac8aaa395ec4"
+  end
 
   def install
     ENV["VERSION"] = version.to_s
