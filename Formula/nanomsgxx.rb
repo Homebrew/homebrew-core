@@ -78,7 +78,7 @@ class Nanomsgxx < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-L#{lib}", "-lnnxx", "test.cpp"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-lnnxx"
 
     assert_equal "Hello Nanomsgxx!\n", shell_output("#{testpath}/a.out")
   end
