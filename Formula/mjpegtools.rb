@@ -3,6 +3,7 @@ class Mjpegtools < Formula
   homepage "https://mjpeg.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/mjpeg/mjpegtools/2.2.0/mjpegtools-2.2.0.tar.bz2"
   sha256 "a84349839471052db1ef691134aacf905b314dfce8762d47e10edcc9ab5f97d8"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4e6e97aa6b84f1269e344708cc2fa5b4fd4cadf7c27da94a1a450a5d7fef45fa"
