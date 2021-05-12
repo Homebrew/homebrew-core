@@ -5,16 +5,27 @@ class Exim < Formula
   sha256 "051861fc89f06205162f12129fb7ebfe473383bb6194bf8642952bfd50329274"
   license "GPL-2.0-or-later"
 
-  # The upstream download page at https://ftp.exim.org/pub/exim/exim4/ places
-  # maintenance releases (e.g., 4.93.0.4) in a separate "fixes" subdirectory.
-  # As a result, we can't create a check that finds both the main releases
-  # (e.g., 4.93) and the aforementioned maintenance releases. The Git repo tags
-  # seem to be the best solution currently and we're using the GitHub mirror
-  # below since the upstream repo (git://git.exim.org/exim.git) doesn't work
-  # over https.
+  # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
+  # to check both the main `exim4` directory and the `fixes` subdirectory to
+  # identify the latest version.
   livecheck do
-    url "https://github.com/Exim/exim.git"
-    regex(/^exim[._-]v?(\d+(?:\.\d+)+)$/i)
+    url "https://ftp.exim.org/pub/exim/exim4/"
+    regex(/href=.*?exim[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    strategy :page_match do |page, regex|
+      # Match versions from files in the `exim4` directory
+      versions = page.scan(regex).flatten.uniq
+
+      # Return versions if a `fixes` subdirectory isn't present
+      return versions if page.match(%r{href=["']?fixes/?["' >]}i).blank?
+
+      # Fetch the page for the `fixes` directory
+      fixes_page = Homebrew::Livecheck::Strategy.page_content(URI.join(@url, "fixes").to_s)
+      return versions if fixes_page[:content].blank?
+
+      # Match maintenance releases and add them to the versions array
+      versions += fixes_page[:content].scan(regex).flatten
+      versions
+    end
   end
 
   bottle do
