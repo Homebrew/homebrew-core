@@ -25,31 +25,21 @@ class Flann < Formula
     end
   end
 
-  resource("dataset.dat") do
-    url "https://www.cs.ubc.ca/research/flann/uploads/FLANN/datasets/dataset.dat"
-    sha256 "dcbf0268a7ff9acd7c3972623e9da722a8788f5e474ae478b888c255ff73d981"
-  end
-
-  resource("testset.dat") do
-    url "https://www.cs.ubc.ca/research/flann/uploads/FLANN/datasets/testset.dat"
-    sha256 "d9ff91195bf2ad8ced78842fa138b3cd4e226d714edbb4cb776369af04dda81b"
-  end
-
-  resource("dataset.hdf5") do
-    url "https://www.cs.ubc.ca/research/flann/uploads/FLANN/datasets/dataset.hdf5"
-    sha256 "64ae599f3182a44806f611fdb3c77f837705fcaef96321fb613190a6eabb4860"
-  end
-
   def install
     system "cmake", ".", *std_cmake_args, "-DBUILD_PYTHON_BINDINGS:BOOL=OFF", "-DBUILD_MATLAB_BINDINGS:BOOL=OFF"
     system "make", "install"
   end
 
   test do
-    resource("dataset.dat").stage testpath
-    resource("testset.dat").stage testpath
-    resource("dataset.hdf5").stage testpath
-    system "#{bin}/flann_example_c"
-    system "#{bin}/flann_example_cpp"
+    (testpath/"test.c").write <<~EOS
+      #include <flann/flann.h>
+
+      int main(void) {
+        flann_log_verbosity(3);
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lflann"
+    system "./a.out"
   end
 end
