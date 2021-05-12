@@ -6,6 +6,7 @@ class DockerMachineNfs < Formula
   license "MIT"
 
   def install
+    inreplace "docker-machine-nfs.sh", "/usr/local", HOMEBREW_PREFIX
     bin.install "docker-machine-nfs.sh" => "docker-machine-nfs"
   end
 
