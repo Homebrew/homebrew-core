@@ -1,9 +1,8 @@
 class Mjpegtools < Formula
   desc "Record and playback videos and perform simple edits"
   homepage "https://mjpeg.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/mjpeg/mjpegtools/2.1.0/mjpegtools-2.1.0.tar.gz"
-  sha256 "864f143d7686377f8ab94d91283c696ebd906bf256b2eacc7e9fb4dddcedc407"
-  revision 2
+  url "https://downloads.sourceforge.net/project/mjpeg/mjpegtools/2.2.0/mjpegtools-2.2.0.tar.bz2"
+  sha256 "a84349839471052db1ef691134aacf905b314dfce8762d47e10edcc9ab5f97d8"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0903181fb61252feccfb8d40a390a7d5c55ed1476d37d040983e5608efeaee1b"
