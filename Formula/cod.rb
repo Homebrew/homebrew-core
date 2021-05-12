@@ -13,6 +13,7 @@ class Cod < Formula
   end
 
   test do
+    assert_match "", shell_output("cod daemon")
     assert_match "", shell_output("cod remove cod")
     assert_match 'learned completions: "--help" "--help-long" and 10 more', shell_output("cod learn cod")
   end
