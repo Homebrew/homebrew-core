@@ -13,6 +13,6 @@ class Atuin < Formula
 
   test do
     assert_match "autoload -U add-zsh-hook", shell_output("atuin init zsh")
-    assert_match "", shell_output("atuin history list")
+    assert shell_output("atuin history list").blank?
   end
 end
