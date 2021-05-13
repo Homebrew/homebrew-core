@@ -3,6 +3,7 @@ class PerconaServer < Formula
   homepage "https://www.percona.com"
   url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.22-13/source/tarball/percona-server-8.0.22-13.tar.gz"
   sha256 "614249dc7790e82cabf22fdb20492be7ec5b8e98550f662204a17e0e8797cc9a"
+  license "BSD-3-Clause"
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-Server-LATEST/"
@@ -24,6 +25,14 @@ class PerconaServer < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
   depends_on "protobuf"
+
+  uses_from_macos "curl"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libedit"
+    depends_on "readline"
+  end
 
   conflicts_with "mariadb", "mysql",
     because: "percona, mariadb, and mysql install the same binaries"
