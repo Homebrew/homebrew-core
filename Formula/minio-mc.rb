@@ -5,7 +5,7 @@ class MinioMc < Formula
       tag:      "RELEASE.2021-05-12T03-10-11Z",
       revision: "7d142be7111bfc82960dc4a9cc5395cc5ca6e9c8"
   version "20210512031011"
-  license "Apache-2.0"
+  license "AGPL-3.0-or-later"
   head "https://github.com/minio/mc.git"
 
   livecheck do
