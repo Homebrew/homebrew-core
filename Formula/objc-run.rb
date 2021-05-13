@@ -14,14 +14,6 @@ class ObjcRun < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "65be98ab9f851e2184d33c710a7619e6fd55820f0bbd1ad969c77a3f0755dbeb"
   end
 
-  pour_bottle? do
-    reason "The bottle needs to be installed into #{Homebrew::DEFAULT_PREFIX}."
-    # https://github.com/Homebrew/homebrew-core/pull/76633
-    # Remove when the following issue is resolved:
-    # https://github.com/Homebrew/brew/issues/11302
-    satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX } unless Hardware::CPU.arm?
-  end
-
   def install
     bin.install "objc-run"
     pkgshare.install "examples", "test.bash"
