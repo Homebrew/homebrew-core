@@ -69,7 +69,6 @@ class Ffmpeg < Formula
       --enable-shared
       --enable-pthreads
       --enable-version3
-      --enable-avresample
       --cc=#{ENV.cc}
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
@@ -110,6 +109,10 @@ class Ffmpeg < Formula
       --disable-libjack
       --disable-indev=jack
     ]
+
+    # libavresample has been deprecated and removed but some non-updated formulae are still linked to it
+    # Remove in the next release
+    args << "--enable-avresample" unless build.head?
 
     on_macos do
       # Needs corefoundation, coremedia, corevideo
