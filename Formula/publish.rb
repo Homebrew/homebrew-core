@@ -13,8 +13,7 @@ class Publish < Formula
   end
 
   # https://github.com/JohnSundell/Publish#system-requirements
-  depends_on xcode: ["12.4", :build]
-  depends_on macos: :catalina
+  depends_on xcode: ["12.5", :build]
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
