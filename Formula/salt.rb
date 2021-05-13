@@ -26,6 +26,8 @@ class Salt < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "gmp"
+    depends_on "pcre"
   end
 
   # Homebrew installs optional dependencies: pycryptodome, pygit2
