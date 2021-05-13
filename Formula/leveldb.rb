@@ -16,9 +16,11 @@ class Leveldb < Formula
   depends_on "snappy"
 
   def install
-    args = *std_cmake_args + %w[
+    args = *std_cmake_args + %W[
       -DLEVELDB_BUILD_TESTS=OFF
       -DLEVELDB_BUILD_BENCHMARKS=OFF
+      -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
     mkdir "build" do
