@@ -11,7 +11,12 @@ class GoogleJavaFormat < Formula
 
   def install
     libexec.install "google-java-format-#{version}-all-deps.jar" => "google-java-format.jar"
-    bin.write_jar_script libexec / "google-java-format.jar", "google-java-format"
+    bin.write_jar_script libexec / "google-java-format.jar", "google-java-format",
+      "--add-exports jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED \
+      --add-exports jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED \
+      --add-exports jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED \
+      --add-exports jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED \
+      --add-exports jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"
   end
 
   test do
