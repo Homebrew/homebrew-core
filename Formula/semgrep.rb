@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.50.1",
-      revision: "e6522f0e753e39d2b256b42a45c2dc09d55d3b43"
+      tag:      "v0.51.0",
+      revision: "3d8dff60a10dea83473a319570181ee0ad7cfea9"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -31,8 +31,8 @@ class Semgrep < Formula
   depends_on "python@3.9"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/4d/e0/8f3ccee89317124211d2efa44739c939b99e2446b82596c8fc6e824cf851/attrs-21.1.0.tar.gz"
-    sha256 "3901be1cb7c2a780f14668691474d9252c070a756be0a9ead98cfeabfa11aeb8"
+    url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
+    sha256 "ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
   end
 
   resource "certifi" do
