@@ -3,9 +3,9 @@ class Grpc < Formula
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
       tag:      "v1.37.1",
-      revision: "8664c8334c05d322fbbdfb9e3b24601a23e9363c",
-      shallow:  false
+      revision: "8664c8334c05d322fbbdfb9e3b24601a23e9363c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/grpc/grpc.git"
 
   livecheck do
@@ -71,18 +71,17 @@ class Grpc < Formula
       # Reported upstream at https://github.com/grpc/grpc/issues/25176
       # When removing the `unless` block, make sure to do the same for
       # the test block.
-      unless Hardware::CPU.arm?
-        args = %W[
-          ../..
-          -DCMAKE_INSTALL_RPATH=#{rpath}
-          -DBUILD_SHARED_LIBS=ON
-          -DgRPC_BUILD_TESTS=ON
-        ] + std_cmake_args
-        system "cmake", *args
-        system "make", "grpc_cli"
-        bin.install "grpc_cli"
-        lib.install Dir[shared_library("libgrpc++_test_config", "*")]
-      end
+      args = %W[
+        ../..
+        -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
+        -DCMAKE_INSTALL_RPATH=#{rpath}
+        -DBUILD_SHARED_LIBS=ON
+        -DgRPC_BUILD_TESTS=ON
+      ] + std_cmake_args
+      system "cmake", *args
+      system "make", "grpc_cli"
+      bin.install "grpc_cli"
+      lib.install Dir[shared_library("libgrpc++_test_config", "*")]
     end
   end
 
@@ -99,9 +98,8 @@ class Grpc < Formula
     pkg_config_flags = shell_output("pkg-config --cflags --libs libcares protobuf re2 grpc++").chomp.split
     system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *pkg_config_flags, "-o", "test"
     system "./test"
-    unless Hardware::CPU.arm?
-      output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
-      assert_match "Received an error when querying services endpoint.", output
-    end
+
+    output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
+    assert_match "Received an error when querying services endpoint.", output
   end
 end
