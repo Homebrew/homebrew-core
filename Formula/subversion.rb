@@ -44,6 +44,15 @@ class Subversion < Formula
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
+  on_macos do
+    # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
+    patch :DATA
+  end
+
+  on_linux do
+    depends_on "libtool"
+  end
+
   resource "py3c" do
     url "https://github.com/encukou/py3c/archive/v1.1.tar.gz"
     sha256 "c7ffc22bc92dded0ca859db53ef3a0b466f89a9f8aad29359c9fe4ff18ebdd20"
@@ -55,15 +64,19 @@ class Subversion < Formula
     sha256 "549c2d21c577a8a9c0450facb5cca809f26591f048e466552240947bdf7a87cc"
   end
 
-  # Prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
-  patch :DATA
-
   def install
     py3c_prefix = buildpath/"py3c"
     serf_prefix = libexec/"serf"
 
     resource("py3c").unpack py3c_prefix
     resource("serf").stage do
+      on_linux do
+        inreplace "SConstruct" do |s|
+          s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
+          "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
+        end
+      end
+
       inreplace "SConstruct" do |s|
         s.gsub! "print 'Warning: Used unknown variables:', ', '.join(unknown.keys())",
         "print('Warning: Used unknown variables:', ', '.join(unknown.keys()))"
@@ -74,21 +87,52 @@ class Subversion < Formula
         s.gsub! "'SERF_PATCH_VERSION ([0-9]+)'",
         "b'SERF_PATCH_VERSION ([0-9]+)'"
       end
+
       # scons ignores our compiler and flags unless explicitly passed
+      krb5 = "/usr"
+      on_linux do
+        krb5 = Formula["krb5"].opt_prefix
+      end
+
       args = %W[
-        PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
+        PREFIX=#{serf_prefix} GSSAPI=#{krb5} CC=#{ENV.cc}
         CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}
         OPENSSL=#{Formula["openssl@1.1"].opt_prefix}
         APR=#{Formula["apr"].opt_prefix}
         APU=#{Formula["apr-util"].opt_prefix}
       ]
+
+      on_linux do
+        args << "ZLIB=#{Formula["zlib"].opt_prefix}"
+      end
+
       system "scons", *args
       system "scons", "install"
     end
 
     # Use existing system zlib and sqlite
+    on_linux do
+      # svn can't find libserf-1.so.1 at runtime without this
+      ENV.append "LDFLAGS", "-Wl,-rpath=#{serf_prefix}/lib"
+    end
+
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
+    zlib = "#{MacOS.sdk_path_if_needed}/usr"
+    on_linux do
+      zlib = Formula["zlib"].opt_prefix
+    end
+
+    ruby = "/usr/bin/ruby"
+    on_linux do
+      ruby = "#{Formula["ruby"].opt_bin}/ruby"
+    end
+
+    sqlite = "#{MacOS.sdk_path_if_needed}/usr"
+    on_linux do
+      sqlite = Formula["sqlite"].opt_prefix
+    end
+
     args = %W[
       --prefix=#{prefix}
       --disable-debug
@@ -102,22 +146,23 @@ class Subversion < Formula
       --with-ruby-sitedir=#{lib}/ruby
       --with-py3c=#{py3c_prefix}
       --with-serf=#{serf_prefix}
-      --with-sqlite=#{MacOS.sdk_path_if_needed}/usr
+      --with-sqlite=#{sqlite}
       --with-swig=#{Formula["swig"].opt_prefix}
-      --with-zlib=#{MacOS.sdk_path_if_needed}/usr
+      --with-zlib=#{zlib}
       --without-apache-libexecdir
       --without-berkeley-db
       --without-gpg-agent
       --enable-javahl
       --without-jikes
       PYTHON=#{Formula["python@3.9"].opt_bin}/python3
-      RUBY=/usr/bin/ruby
+      RUBY=#{ruby}
     ]
 
     inreplace "Makefile.in",
               "toolsdir = @bindir@/svn-tools",
               "toolsdir = @libexecdir@/svn-tools"
 
+    # regenerate configure file as we patched `build/ac-macros/swig.m4`
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make"
@@ -151,10 +196,12 @@ class Subversion < Formula
 
       onoe "'#{perl_extern_h}' does not exist" unless perl_extern_h.exist?
 
-      inreplace "Makefile" do |s|
-        s.change_make_var! "SWIG_PL_INCLUDES",
-          "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
-          "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+      on_macos do
+        inreplace "Makefile" do |s|
+          s.change_make_var! "SWIG_PL_INCLUDES",
+            "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
+            "-DPERL_DARWIN -fno-strict-aliasing -I#{HOMEBREW_PREFIX}/include -I#{perl_core}"
+        end
       end
       system "make", "swig-pl"
       system "make", "install-swig-pl"
@@ -186,9 +233,19 @@ class Subversion < Formula
     system "#{bin}/svnadmin", "verify", "test"
 
     if Hardware::CPU.intel?
-      perl_version = Utils.safe_popen_read("/usr/bin/perl", "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
-      ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/darwin-thread-multi-2level"
-      system "/usr/bin/perl", "-e", "use SVN::Client; new SVN::Client()"
+      platform = "darwin-thread-multi-2level"
+      on_linux do
+        platform = "x86_64-linux-thread-multi"
+      end
+
+      perl = "/usr/bin/perl"
+      on_linux do
+        perl = "#{Formula["perl"].opt_bin}/perl"
+      end
+
+      perl_version = Utils.safe_popen_read(perl.to_s, "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
+      ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/#{platform}"
+      system perl, "-e", "use SVN::Client; new SVN::Client()"
     end
   end
 end
