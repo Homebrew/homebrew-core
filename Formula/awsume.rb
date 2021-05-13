@@ -3,8 +3,8 @@ class Awsume < Formula
 
   desc "Utility for easily assuming AWS IAM roles from the command-line"
   homepage "https://awsu.me"
-  url "https://github.com/trek10inc/awsume/archive/4.5.2.tar.gz"
-  sha256 "a6a921b7f9729402754fd713253239ea4e77bab897a072dcae8eef981422842e"
+  url "https://files.pythonhosted.org/packages/25/5b/f7e5e1afb43fedbaf8dc3d5b0c74dab9d13c7d98ce6878ecdc45dd0809be/awsume-4.5.2.tar.gz"
+  sha256 "583e56d6847e7a92fa9a708e75fb8bef4383a0be708657b848d05a80362c3842"
   license "MIT"
   head "https://github.com/trek10inc/awsume.git"
 
