@@ -19,23 +19,38 @@ class Bullet < Formula
   depends_on "python@3.9" => :build
 
   def install
+    common_args = %w[
+      -DBT_USE_EGL=ON
+      -DBUILD_UNIT_TESTS=OFF
+      -DINSTALL_EXTRA_LIBS=ON
+      -DBUILD_SHARED_LIBS=ON
+    ]
+
+    double_args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{opt_lib}/bullet_double
+      -DUSE_DOUBLE_PRECISION=ON
+    ]
+
+    mkdir "builddbl" do
+      system "cmake", "..", *double_args, *common_args
+      system "make", "install"
+    end
+    dbllibs = lib.children
+    (lib/"bullet_double").install dbllibs
+
     args = std_cmake_args + %W[
       -DBUILD_PYBULLET=ON
       -DBUILD_PYBULLET_NUMPY=ON
-      -DBT_USE_EGL=ON
-      -DBUILD_UNIT_TESTS=OFF
-      -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
-      -DINSTALL_EXTRA_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{opt_lib}
     ]
 
     mkdir "build" do
-      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=ON"
+      system "cmake", "..", *args, *common_args, "-DBUILD_SHARED_LIBS=OFF"
       system "make", "install"
 
       system "make", "clean"
 
-      system "cmake", "..", *args, "-DBUILD_SHARED_LIBS=OFF"
+      system "cmake", "..", *args, *common_args, "-DBUILD_SHARED_LIBS=ON"
       system "make", "install"
     end
   end
@@ -56,7 +71,13 @@ class Bullet < Formula
       cxx_lib = "-lstdc++"
     end
 
+    # Test single-precision library
     system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}",
+                   "-lLinearMath", cxx_lib, "-o", "test"
+    system "./test"
+
+    # Test double-precision library
+    system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}/bullet_double",
                    "-lLinearMath", cxx_lib, "-o", "test"
     system "./test"
   end
