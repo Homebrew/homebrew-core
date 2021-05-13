@@ -22,12 +22,12 @@ class Bullet < Formula
       -DBT_USE_EGL=ON
       -DBUILD_UNIT_TESTS=OFF
       -DINSTALL_EXTRA_LIBS=ON
-      -DBUILD_SHARED_LIBS=ON
     ]
 
     double_args = std_cmake_args + %W[
-      -DCMAKE_INSTALL_RPATH=#{opt_lib}/bullet_double
+      -DCMAKE_INSTALL_RPATH=#{opt_lib}/bullet/double
       -DUSE_DOUBLE_PRECISION=ON
+      -DBUILD_SHARED_LIBS=ON
     ]
 
     mkdir "builddbl" do
@@ -35,22 +35,28 @@ class Bullet < Formula
       system "make", "install"
     end
     dbllibs = lib.children
-    (lib/"bullet_double").install dbllibs
+    (lib/"bullet/double").install dbllibs
 
     args = std_cmake_args + %W[
-      -DBUILD_PYBULLET=ON
       -DBUILD_PYBULLET_NUMPY=ON
       -DCMAKE_INSTALL_RPATH=#{opt_lib}
     ]
 
     mkdir "build" do
-      system "cmake", "..", *args, *common_args, "-DBUILD_SHARED_LIBS=OFF"
+      system "cmake", "..", *args, *common_args, "-DBUILD_SHARED_LIBS=OFF", "-DBUILD_PYBULLET=OFF"
       system "make", "install"
 
       system "make", "clean"
 
-      system "cmake", "..", *args, *common_args, "-DBUILD_SHARED_LIBS=ON"
+      system "cmake", "..", *args, *common_args, "-DBUILD_SHARED_LIBS=ON", "-DBUILD_PYBULLET=ON"
       system "make", "install"
+    end
+
+    # Install single-precision library symlinks into `lib/"bullet/single"` for consistency
+    lib.each_child do |f|
+      next if f == lib/"bullet"
+
+      (lib/"bullet/single").install_symlink f
     end
   end
 
@@ -76,7 +82,7 @@ class Bullet < Formula
     system "./test"
 
     # Test double-precision library
-    system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}/bullet_double",
+    system ENV.cc, "test.cpp", "-I#{include}/bullet", "-L#{lib}/bullet/double",
                    "-lLinearMath", cxx_lib, "-o", "test"
     system "./test"
   end
