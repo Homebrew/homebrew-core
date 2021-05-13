@@ -155,10 +155,42 @@ class Latexml < Formula
     end
   end
 
+  resource "Pod::Find" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-1.63.tar.gz"
+      sha256 "dbe0b56129975b2f83a02841e8e0ed47be80f060686c66ea37e529d97aa70ccd"
+    end
+  end
+
+  resource "HTTP::Date" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/HTTP-Date-6.05.tar.gz"
+      sha256 "365d6294dfbd37ebc51def8b65b81eb79b3934ecbc95a2ec2d4d827efe6a922b"
+    end
+  end
+
+  resource "Try::Tiny" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/E/ET/ETHER/Try-Tiny-0.30.tar.gz"
+      sha256 "da5bd0d5c903519bbf10bb9ba0cb7bcac0563882bcfe4503aee3fb143eddef6b"
+    end
+  end
+
+  resource "Encode::Locale" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/G/GA/GAAS/Encode-Locale-1.05.tar.gz"
+      sha256 "176fa02771f542a4efb1dbc2a4c928e8f4391bf4078473bd6040d8f11adb0ec1"
+    end
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
     resources.each do |r|
       r.stage do
+        on_linux do
+          ENV["PERL_CANARY_STABILITY_NOPROMPT"] = "1"
+        end
+
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make"
         system "make", "install"
