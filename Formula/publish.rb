@@ -1,8 +1,8 @@
 class Publish < Formula
   desc "Static site generator for Swift developers"
   homepage "https://github.com/JohnSundell/Publish"
-  url "https://github.com/JohnSundell/Publish/archive/0.7.0.tar.gz"
-  sha256 "71ab0609567c2929639b919e5c52f5a8d02cacd35c9ba4de32c5c992ee49cd33"
+  url "https://github.com/JohnSundell/Publish/archive/0.8.0.tar.gz"
+  sha256 "c807030d86490ebb633f8326319dac4036d41297598709670284e4f7044d7883"
   license "MIT"
   head "https://github.com/JohnSundell/Publish.git"
 
