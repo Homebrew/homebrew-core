@@ -4,6 +4,7 @@ class HaskellStack < Formula
   url "https://github.com/commercialhaskell/stack/archive/v2.7.1.tar.gz"
   sha256 "eb849d5625084a6de57e8520ddf8172aca64ddadd9fee37cdafeefad80895b62"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/commercialhaskell/stack.git"
 
   livecheck do
@@ -28,12 +29,7 @@ class HaskellStack < Formula
 
   def install
     system "cabal", "v2-update"
-
-    # stack does not have an upper bound for persistent and persistent-template.
-    # Remove constraint when stack's dependency pantry builds with newer
-    # persistent(2.13.0.0) and persistent-template(2.12.0.0)
-    cabal_install_constraints = ["--constraint=persistent^>=2.11.0.0", "--constraint=persistent-template^>=2.9.1.0"]
-    system "cabal", "v2-install", *std_cabal_v2_args, *cabal_install_constraints
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do
