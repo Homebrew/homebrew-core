@@ -1,8 +1,8 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://github.com/fanout/pushpin/releases/download/v1.32.0/pushpin-1.32.0.tar.bz2"
-  sha256 "1234545c5e3b9b708ab3f0e4248cedafba151ccd3907a92e35005877e5e92232"
+  url "https://github.com/fanout/pushpin/releases/download/v1.32.1/pushpin-1.32.1.tar.bz2"
+  sha256 "f2f000a49b17ceb40a530a9445073a5e1ddd93df7bbf305e6781071c0e97f406"
   license "AGPL-3.0-or-later"
   head "https://github.com/fanout/pushpin.git"
 
@@ -13,6 +13,7 @@ class Pushpin < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "condure"
   depends_on "mongrel2"
   depends_on "python@3.9"
