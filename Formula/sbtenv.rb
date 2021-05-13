@@ -1,8 +1,8 @@
 class Sbtenv < Formula
   desc "Command-line tool for managing sbt environments"
   homepage "https://github.com/sbtenv/sbtenv"
-  url "https://github.com/sbtenv/sbtenv/archive/version/0.0.23.tar.gz"
-  sha256 "60207bf461c17edca5409c99e2b54c687ffe20bb28f0f7dbd1b6895ca34dbfee"
+  url "https://github.com/sbtenv/sbtenv/archive/version/0.0.24.tar.gz"
+  sha256 "f483769e5467c718c9de72baa4eb3c679315e4f4a9ac02bb636996a63c28e3d5"
   license "MIT"
   head "https://github.com/sbtenv/sbtenv.git"
 
