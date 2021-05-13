@@ -27,12 +27,12 @@ class Clair < Formula
     ].join(" ")
 
     system "go", "build", *std_go_args, "-ldflags", ldflags, "./cmd/clair"
-    (etc/"clair").install resource("test_resource")
+    (etc/"clair").install "config.yaml.sample" => "config.yaml"
   end
 
   test do
-    cp etc/"clair/config.yaml.sample", testpath
-    output = shell_output("#{bin}/clair -conf #{testpath}/config.yaml.sample -mode combo 2>&1", 1)
+    cp etc/"clair/config.yaml", testpath
+    output = shell_output("#{bin}/clair -conf #{testpath}/config.yaml -mode combo 2>&1", 1)
     # requires a Postgres database
     assert_match "initialized failed: failed to initialize libindex: failed to create ConnPool", output
   end
