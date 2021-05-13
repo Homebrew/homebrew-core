@@ -4,18 +4,18 @@ class Ringojs < Formula
   url "https://github.com/ringo/ringojs/releases/download/v2.0.0/ringojs-2.0.0.tar.gz"
   sha256 "5991953012f3c493abb8c7256fa48e885bd284976bd1ec36f20fef77ff37fac9"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     rm Dir["bin/*.cmd"]
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
     env = { RINGO_HOME: libexec }
-    env.merge! Language::Java.overridable_java_home_env
+    env.merge! Language::Java.overridable_java_home_env("11")
     bin.env_script_all_files libexec/"bin", env
   end
 
