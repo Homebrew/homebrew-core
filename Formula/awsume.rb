@@ -3,8 +3,8 @@ class Awsume < Formula
 
   desc "Utility for easily assuming AWS IAM roles from the command-line"
   homepage "https://awsu.me"
-  url "https://files.pythonhosted.org/packages/ad/fe/4989e174549aef5d0d320b18a29727f55a0fa87985e1d9ec61466a7fbd66/awsume-4.5.1.tar.gz"
-  sha256 "88f2a085bcb99178d0df36ebaec22412068bb89d63a2c36e9ada1e8d64ebce03"
+  url "https://github.com/trek10inc/awsume/archive/4.5.2.tar.gz"
+  sha256 "a6a921b7f9729402754fd713253239ea4e77bab897a072dcae8eef981422842e"
   license "MIT"
   head "https://github.com/trek10inc/awsume.git"
 
@@ -20,13 +20,13 @@ class Awsume < Formula
   uses_from_macos "sqlite"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/07/8f/26740695fa4e6fa47a6a3794f375a7d8be1626858ef6f541b9465029dee1/boto3-1.17.71.tar.gz"
-    sha256 "edf9b3b36e08cd575a9458bf59871852335aceb5db2d07bfc8530bae3a97d045"
+    url "https://files.pythonhosted.org/packages/47/91/83a451e512a7357ffcb132dc25cad84e4d14bc866fd255f810a832c744a6/boto3-1.17.72.tar.gz"
+    sha256 "3317722a1e9acbfc0d30cdf273d1708c823ceb19309e9cd91cac8a3604762341"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/36/10/0aad4fae034a4b395ab67cb6943b57224c70bccebe046cb17cb9bbf94b44/botocore-1.20.71.tar.gz"
-    sha256 "b7afebca1fd6ca1f8af79f377a445d474e3bd2cf88e704169d6713a6362a304f"
+    url "https://files.pythonhosted.org/packages/9b/32/04cae70cf2d43c11346714c8e0b597ab610e8eb231a8195e34155ea63397/botocore-1.20.72.tar.gz"
+    sha256 "0fa93a2e2daad5791c63ee526ada66896cc483d04cb2d32bfcadfeb881203453"
   end
 
   resource "colorama" do
