@@ -6,6 +6,7 @@ class PhpAT73 < Formula
   mirror "https://fossies.org/linux/www/php-7.3.28.tar.xz"
   sha256 "a2a84dbec8c1eee3f46c5f249eaaa2ecb3f9e7a6f5d0604d2df44ff8d4904dbe"
   license "PHP-3.01"
+  revision 1
 
   bottle do
     sha256 big_sur:  "35320bca23e69d1b6f0ed42c53ba996f28532b21f774f8d0f754705c2cf592b2"
