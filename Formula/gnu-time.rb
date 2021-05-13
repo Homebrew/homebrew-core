@@ -16,6 +16,8 @@ class GnuTime < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "d51ef948a5a87281175fef771cb28469cbdb3085e3c51ad325d780ff921cc013"
   end
 
+  uses_from_macos "ruby" => :test
+
   def install
     args = %W[
       --prefix=#{prefix}
