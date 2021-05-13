@@ -2,8 +2,8 @@ class KubernetesCli < Formula
   desc "Kubernetes command-line interface"
   homepage "https://kubernetes.io/"
   url "https://github.com/kubernetes/kubernetes.git",
-      tag:      "v1.21.0",
-      revision: "cb303e613a121a29364f75cc67d3d580833a7479"
+      tag:      "v1.21.1",
+      revision: "5e58841cce77d4bc13713ad2b91fa0d961e69192"
   license "Apache-2.0"
   head "https://github.com/kubernetes/kubernetes.git"
 
@@ -20,6 +20,7 @@ class KubernetesCli < Formula
   end
 
   depends_on "bash" => :build
+  depends_on "coreutils" => :build
   depends_on "go" => :build
 
   uses_from_macos "rsync" => :build
@@ -29,6 +30,7 @@ class KubernetesCli < Formula
     rm_rf ".brew_home"
 
     # Make binary
+    ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin" # needs GNU date
     system "make", "WHAT=cmd/kubectl"
     bin.install "_output/bin/kubectl"
 
