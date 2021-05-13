@@ -1,10 +1,10 @@
 class MingwW64 < Formula
   desc "Minimalist GNU for Windows and GCC cross-compilers"
   homepage "https://sourceforge.net/projects/mingw-w64/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v8.0.0.tar.bz2"
-  sha256 "44c740ea6ab3924bc3aa169bad11ad3c5766c5c8459e3126d44eabb8735a5762"
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v8.0.2.tar.bz2"
+  sha256 "f00cf50951867a356d3dc0dcc7a9a9b422972302e23d54a33fc05ee7f73eee4d"
   license "ZPL-2.1"
-  revision 4
+  revision 0
 
   livecheck do
     url :stable
