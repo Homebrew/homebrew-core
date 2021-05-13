@@ -20,13 +20,6 @@ class Clair < Formula
   depends_on "rpm"
   depends_on "xz"
 
-  # revert back to config.yaml.sample
-  # remove in next release
-  resource "test_resource" do
-    url "https://raw.githubusercontent.com/quay/clair/6e195c99a14139360c8d09f90c94024eb7d27b67/config.yaml.sample"
-    sha256 "4efbe587cdc074d29cfa9fe539d97304a33c28fcaeb986d6c8e4db7f8c705812"
-  end
-
   def install
     ldflags = %W[
       -s -w
