@@ -14,24 +14,21 @@ class Log4cxx < Formula
     sha256 cellar: :any, high_sierra:   "11478b4f5ece24ec391954cc0538bb28f11ae6256a9499ca1e95103c2eb1d75c"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "cmake" => :build
   depends_on "libtool" => :build
 
   depends_on "apr-util"
 
   def install
-    # Fixes build error with clang, old libtool scripts. cf. #12127
-    # Reported upstream here: https://issues.apache.org/jira/browse/LOGCXX-396
-    # Remove at: unknown, waiting for developer comments.
-    system "./autogen.sh"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          # Docs won't install on macOS
-                          "--disable-doxygen",
-                          "--with-apr=#{Formula["apr"].opt_bin}",
-                          "--with-apr-util=#{Formula["apr-util"].opt_bin}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..",
+                      *std_cmake_args,
+                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                      "-DCMAKE_CXX_STANDARD=17",
+                      "-DBUILD_SHARED_LIBS=ON"
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
@@ -67,7 +64,7 @@ class Log4cxx < Formula
       log4j.appender.R.layout=org.apache.log4j.PatternLayout
       log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n
     EOS
-    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-llog4cxx"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", "-L#{lib}", "-llog4cxx"
     assert_match(/ERROR.*Foo/, shell_output("./test", 1))
   end
 end
