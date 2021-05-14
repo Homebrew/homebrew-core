@@ -4,7 +4,7 @@ class Influxdb < Formula
   url "https://github.com/influxdata/influxdb/archive/v2.0.6.tar.gz"
   sha256 "b8f019cfb85f7fdcdd5399dc2418cdc1ac302f99da0d031c2e307ecb62e129cd"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/influxdata/influxdb.git"
 
   # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
@@ -58,6 +58,53 @@ class Influxdb < Formula
     ldflags = "-s -w -X main.version=#{version}"
     system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"influx", "./cmd/influx"
     system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "assets", "-o", bin/"influxd", "./cmd/influxd"
+
+    data = var/"lib/influxdb2"
+    data.mkpath
+
+    # Generate default config file.
+    config = buildpath/"config.yml"
+    config.write Utils.safe_popen_read(bin/"influxd", "print-config",
+                                       "--bolt-path=#{data}/influxdb.bolt",
+                                       "--engine-path=#{data}/engine")
+    (etc/"influxdb2").install config
+
+    # Create directory for DB stdout+stderr logs.
+    (var/"log/influxdb2").mkpath
+  end
+
+  plist_options manual: "INFLUXD_CONFIG_PATH=#{HOMEBREW_PREFIX}/etc/influxdb2/config.yml influxd"
+
+  def plist
+    <<~EOS
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+        <key>Label</key>
+        <string>#{plist_name}</string>
+        <key>WorkingDirectory</key>
+        <string>#{HOMEBREW_PREFIX}</string>
+        <key>EnvironmentVariables</key>
+        <dict>
+          <key>INFLUXD_CONFIG_PATH</key>
+          <string>#{etc}/influxdb2/config.yml</string>
+        </dict>
+        <key>ProgramArguments</key>
+        <array>
+          <string>#{bin}/influxd</string>
+        </array>
+        <key>RunAtLoad</key>
+        <true/>
+        <key>KeepAlive</key>
+        <true/>
+        <key>StandardErrorPath</key>
+        <string>#{var}/log/influxdb2/influxd_output.log</string>
+        <key>StandardOutPath</key>
+        <string>#{var}/log/influxdb2/influxd_output.log</string>
+      </dict>
+      </plist>
+    EOS
   end
 
   test do
@@ -69,8 +116,7 @@ class Influxdb < Formula
     ENV["INFLUX_HOST"] = influx_host
 
     influxd = fork do
-      exec "#{bin}/influxd", "--store=memory",
-                             "--bolt-path=#{testpath}/influxd.bolt",
+      exec "#{bin}/influxd", "--bolt-path=#{testpath}/influxd.bolt",
                              "--engine-path=#{testpath}/engine",
                              "--http-bind-address=:#{influxd_port}",
                              "--log-level=error"
