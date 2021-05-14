@@ -1,11 +1,11 @@
 class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.0/source/synfig-1.4.0.tar.gz"
-  mirror "https://github.com/synfig/synfig/releases/download/v1.4.0/synfig-1.4.0.tar.gz"
-  sha256 "7f36d57eba9dc959e1deae89e6908585a08db7f2d9399915a46a9eff33080c9c"
+  # NOTE: Please keep these values in sync with etl.rb when updating.
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.1/synfig-1.4.1.tar.gz"
+  mirror "https://github.com/synfig/synfig/releases/download/v1.4.1/synfig-1.4.1.tar.gz"
+  sha256 "f90f1dcff1a409bbe2bfbb2cf42b7019cf735bec3223722db2feba6e198d1bc1"
   license "GPL-3.0-or-later"
-  revision 3
   head "https://svn.code.sf.net/p/synfig/code/"
 
   livecheck do
