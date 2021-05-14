@@ -30,7 +30,6 @@ class Nvc < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./tools/fetch-ieee.sh"
     system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
                           "--with-system-cc=/usr/bin/clang",
