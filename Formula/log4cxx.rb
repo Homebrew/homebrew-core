@@ -21,11 +21,7 @@ class Log4cxx < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..",
-                      *std_cmake_args,
-                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                      "-DCMAKE_CXX_STANDARD=17",
-                      "-DBUILD_SHARED_LIBS=ON"
+      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
       system "make"
       system "make", "install"
     end
