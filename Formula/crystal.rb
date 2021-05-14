@@ -2,6 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/1.0.0.tar.gz"
@@ -61,7 +62,7 @@ class Crystal < Formula
     ENV.append_path "PATH", "boot/bin"
     ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["bdw-gc"].opt_lib
     ENV.append_path "CRYSTAL_LIBRARY_PATH", ENV["HOMEBREW_LIBRARY_PATHS"]
-    ENV.append_path "LLVM_CONFIG", Formula["llvm"].opt_bin/"llvm-config"
+    ENV.append_path "LLVM_CONFIG", Formula["llvm@9"].opt_bin/"llvm-config"
 
     # Build crystal
     crystal_build_opts = []
