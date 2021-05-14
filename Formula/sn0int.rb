@@ -1,8 +1,8 @@
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
-  url "https://github.com/kpcyrd/sn0int/archive/v0.20.1.tar.gz"
-  sha256 "e973330d717bd0d8af0e4c510a7015e77a467e8bbe321e305118398578434717"
+  url "https://github.com/kpcyrd/sn0int/archive/v0.21.0.tar.gz"
+  sha256 "104444dacfe7548e6ce8b90f30029d855d3ccd25d216fba72c0dc12e28bdf078"
   license "GPL-3.0-or-later"
 
   bottle do
