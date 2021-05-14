@@ -4,6 +4,7 @@ class SwaggerCodegen < Formula
   url "https://github.com/swagger-api/swagger-codegen/archive/v3.0.25.tar.gz"
   sha256 "3a9b525c8109afaba7333dfc070de148c18c3e8596382b89bba591e0394ac5e0"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/swagger-api/swagger-codegen.git"
 
   bottle do
@@ -14,11 +15,11 @@ class SwaggerCodegen < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
 
     system "mvn", "clean", "package"
     libexec.install "modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
