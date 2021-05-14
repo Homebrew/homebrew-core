@@ -1,8 +1,8 @@
 class Phpmd < Formula
   desc "PHP Mess Detector"
   homepage "https://phpmd.org"
-  url "https://github.com/phpmd/phpmd/releases/download/2.10.0/phpmd.phar"
-  sha256 "324e9423b9c6a70566f65870a63e6e5822ab3fa8978e1d1f7b337f0175eaef88"
+  url "https://github.com/phpmd/phpmd/releases/download/2.10.1/phpmd.phar"
+  sha256 "c516e4a90c72ccf8170dcc806621c0f0a7ed553b8853aca085e7c38d2e187e61"
   license "BSD-3-Clause"
 
   bottle :unneeded
