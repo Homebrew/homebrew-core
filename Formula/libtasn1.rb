@@ -13,13 +13,6 @@ class Libtasn1 < Formula
     sha256 cellar: :any, mojave:        "384a48716bc3b0fa7122c2fbd3a1ab4a93087acee7191710fa5bbbfa31e0f24f"
   end
 
-  # Remove the patch when the issue is resolved:
-  # https://gitlab.com/gnutls/libtasn1/-/issues/30
-  patch do
-    url "https://gitlab.com/gnutls/libtasn1/-/commit/088c9f3e946cb8a15867f6f09f0ef503a7551961.diff"
-    sha256 "a4328a01c6bb4440f21fe2b6e54a5e612bc76e5bc9292c5e198178307824b761"
-  end
-
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking",
                           "--disable-silent-rules"
