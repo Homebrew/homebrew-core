@@ -7,8 +7,7 @@ class IpinfoCli < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "ipinfo",
-    because: "homebrew/core/ipinfo conflicts with the binary name provided by this formula"
+  conflicts_with "ipinfo", because: "ipinfo and ipinfo-cli install the same binaries"
 
   def install
     system "./ipinfo/build.sh"
