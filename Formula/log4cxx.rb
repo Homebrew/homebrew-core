@@ -15,8 +15,6 @@ class Log4cxx < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libtool" => :build
-
   depends_on "apr-util"
 
   def install
