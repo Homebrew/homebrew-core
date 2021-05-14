@@ -21,7 +21,7 @@ class Nvc < Formula
 
   depends_on "check" => :build
   depends_on "pkg-config" => :build
-  depends_on "llvm@11"
+  depends_on "llvm"
 
   resource "vim-hdl-examples" do
     url "https://github.com/suoto/vim-hdl-examples.git",
@@ -31,9 +31,10 @@ class Nvc < Formula
   def install
     system "./autogen.sh" if build.head?
     system "./tools/fetch-ieee.sh"
-    system "./configure", "--with-llvm=#{Formula["llvm@11"].opt_bin}/llvm-config",
+    system "./configure", "--with-llvm=#{Formula["llvm"].opt_bin}/llvm-config",
                           "--prefix=#{prefix}",
-                          "--with-system-cc=/usr/bin/clang"
+                          "--with-system-cc=/usr/bin/clang",
+                          "--enable-vhpi"
     system "make"
     system "make", "install"
   end
