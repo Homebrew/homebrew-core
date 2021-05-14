@@ -1,8 +1,8 @@
 class PyqtNetworkauth < Formula
   desc "Python bindings for The Qt Company’s Qt Network Authorization library"
   homepage "https://www.riverbankcomputing.com/software/pyqtnetworkauth"
-  url "https://files.pythonhosted.org/packages/21/de/a7c4ef992a66be7ee458ab25ad7cdf93483712517ba807a74c30dc7c9375/PyQt6_NetworkAuth-6.0.3.tar.gz"
-  sha256 "ae3c1540e9504eea024ee4da13c6ead146f987aa5fe1942c8d7465ef631e8ba8"
+  url "https://files.pythonhosted.org/packages/92/3d/3088bcf0bcba3b586c401dad60f7706224966e8861653088e5786115f66c/PyQt6_NetworkAuth-6.1.0.tar.gz"
+  sha256 "11af1bb27a6b3686db8770cd9c089be408d4db93115ca77600e6c6415e3d318c"
   license "GPL-3.0-only"
 
   bottle do
