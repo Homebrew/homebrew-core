@@ -14,7 +14,7 @@ class Guile < Formula
   end
 
   head do
-    url "https://git.savannah.gnu.org/git/guile.git"
+    url "https://git.savannah.gnu.org/git/guile.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
