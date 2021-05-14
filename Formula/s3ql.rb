@@ -22,7 +22,7 @@ class S3ql < Formula
   uses_from_macos "libffi"
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires FUSE (see https://github.com/Homebrew/homebrew-core/pull/64491)"
   end
 
   on_linux do

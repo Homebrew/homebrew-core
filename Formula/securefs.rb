@@ -16,7 +16,7 @@ class Securefs < Formula
   depends_on "cmake" => :build
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires FUSE (see https://github.com/Homebrew/homebrew-core/pull/64491)"
   end
 
   on_linux do

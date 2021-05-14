@@ -15,7 +15,7 @@ class Gcsfuse < Formula
   depends_on "go" => :build
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires FUSE (see https://github.com/Homebrew/homebrew-core/pull/64491)"
   end
 
   on_linux do
