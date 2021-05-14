@@ -1,9 +1,10 @@
 class Etl < Formula
   desc "Extensible Template Library"
   homepage "https://synfig.org"
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.0/source/ETL-1.4.0.tar.gz"
-  mirror "https://github.com/synfig/synfig/releases/download/v1.4.0/ETL-1.4.0.tar.gz"
-  sha256 "d43396c0ac356114713469216a9257247c2588d5475590a46db63cf201d1a011"
+  # NOTE: Please keep these values in sync with synfig.rb when updating.
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.1/ETL-1.4.1.tar.gz"
+  mirror "https://github.com/synfig/synfig/releases/download/v1.4.1/ETL-1.4.1.tar.gz"
+  sha256 "ecb61942da60dca8e623af8ad03656897d10b03296e8907dd3c6c296390a074c"
   license "GPL-2.0-or-later"
 
   livecheck do
