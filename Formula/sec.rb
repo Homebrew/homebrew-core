@@ -3,7 +3,7 @@ class Sec < Formula
   homepage "https://simple-evcorr.sourceforge.io/"
   url "https://github.com/simple-evcorr/sec/releases/download/2.9.0/sec-2.9.0.tar.gz"
   sha256 "741154d25db69706e2200e119b5cd32d65ae0b803d9c0faefcccfbcfe1c97503"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle :unneeded
 
