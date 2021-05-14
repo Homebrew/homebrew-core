@@ -1,10 +1,10 @@
 class ScIm < Formula
   desc "Spreadsheet program for the terminal, using ncurses"
   homepage "https://github.com/andmarti1424/sc-im"
-  url "https://github.com/andmarti1424/sc-im/archive/v0.8.1.tar.gz"
-  sha256 "73958f2adf2548be138f90a1fa2cb3a9c316a6d8d78234ebb1dc408cbf83bac7"
+  url "https://github.com/andmarti1424/sc-im/archive/v0.8.2.tar.gz"
+  sha256 "7f00c98601e7f7709431fb4cbb83707c87016a3b015d48e5a7c2f018eff4b7f7"
   license "BSD-4-Clause"
-  head "https://github.com/andmarti1424/sc-im.git", branch: "freeze"
+  head "https://github.com/andmarti1424/sc-im.git", branch: "main"
 
   bottle do
     sha256 arm64_big_sur: "892bdf2037d8a344f8b254fbe43268a7cf3ed2309b5c43560261b17d9dca7759"
@@ -32,6 +32,7 @@ class ScIm < Formula
   test do
     input = <<~EOS
       let A1=1+1
+      recalc
       getnum A1
     EOS
     output = pipe_output(
