@@ -1,7 +1,8 @@
 name: GitHub Actions CI
 on:
   push:
-    branches: master
+    branches:
+      - master
   pull_request:
 env:
   HOMEBREW_DEVELOPER: 1
@@ -13,9 +14,6 @@ jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
-    outputs:
-      run-tests: ${{ steps.check-labels.outputs.result }}
-      skip-arm-tests: ${{ steps.check-arm-labels.outputs.result }}
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
@@ -45,8 +43,7 @@ jobs:
             fi
           done
 
-      - name: Check for CI-syntax-only label
-        id: check-labels
+      - name: Check for CI labels
         uses: actions/github-script@v3
         if: github.event_name == 'pull_request'
         with:
@@ -57,29 +54,43 @@ jobs:
               repo: context.repo.repo,
               pull_number: context.issue.number
             })
-            if (!labels.map(label => label.name).includes('CI-syntax-only')) {
-              console.log('No CI-syntax-only label found. Running tests.')
-              return true
-            }
-            console.log('CI-syntax-only label found. Skipping tests.')
+            const label_names = labels.map(label => label.name)
 
-      - name: Check for CI-force-arm label
-        id: check-arm-labels
-        uses: actions/github-script@v3
-        if: github.event_name == 'pull_request'
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const { data: { labels: labels } } = await github.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.issue.number
-            })
-            if (!labels.map(label => label.name).includes('CI-force-arm')) {
-              console.log('No CI-force-arm label found.')
-              return true
+            if (label_names.includes('CI-syntax-only')) {
+              console.log('CI-syntax-only label found. Skipping tests.')
+              console.log("::set-output name=run-tests::false");
             }
-            console.log('CI-force-arm label found.')
+            else {
+              console.log('No CI-syntax-only label found. Running tests.')
+              console.log("::set-output name=run-tests::true");
+            }
+
+            if (label_names.includes('CI-no-fail-fast')) {
+              console.log('CI-no-fail-fast label found. Continue until all matrix builds have run.')
+              console.log("::set-output name=fail-fast::false");
+            }
+            else {
+              console.log('No CI-no-fail-fast label found. Fail on first failing matrix builds.')
+              console.log("::set-output name=fail-fast::true");
+            }
+
+            if (label_names.includes('CI-long-timeout')) {
+              console.log('CI-long-timeout label found. Setting long timeout.')
+              console.log("::set-output name=timeout-minutes::4320");
+            }
+            else {
+              console.log('No CI-long-timeout label found. Setting short timeout.')
+              console.log("::set-output name=timeout-minutes::60");
+            }
+
+            if (label_names.includes('CI-force-arm')) {
+              console.log('CI-force-arm label found. Running ARM builds.')
+              console.log("::set-output name=skip-arm-tests::false");
+            }
+            else {
+              console.log('No CI-force-arm label found. Skipping ARM builds.')
+              console.log("::set-output name=skip-arm-tests::true");
+            }
 
   tests:
     needs: tap_syntax
@@ -87,9 +98,9 @@ jobs:
     strategy:
       matrix:
         version: ["11-arm64", "11", "10.15", "10.14"]
-      fail-fast: false
+      fail-fast: ${{ needs.tap_syntax.outputs.fail-fast }}
     runs-on: ${{ matrix.version }}
-    timeout-minutes: 4320
+    timeout-minutes: ${{ needs.tap_syntax.outputs.timeout-minutes }}
     env:
       PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
       HOMEBREW_DEVELOPER: 1
@@ -100,9 +111,7 @@ jobs:
       - name: Check whether ARM tests will be forced
         if: needs.tap_syntax.outputs.skip-arm-tests
         run: echo 'HOMEBREW_REQUIRE_BOTTLED_ARM=1' >> $GITHUB_ENV
-      - name: Force vendored Ruby on Catalina
-        if: matrix.version == '10.15'
-        run: echo 'HOMEBREW_FORCE_VENDOR_RUBY=1' >> $GITHUB_ENV
+
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
