@@ -1,11 +1,20 @@
 class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
-  url "https://github.com/HaxeFoundation/haxe.git",
-      tag:      "4.2.2",
-      revision: "a2f4ba95400edf10195ce2a1c87c56dc0d67111b"
   license all_of: ["GPL-2.0-or-later", "MIT"]
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
+
+  stable do
+    url "https://github.com/HaxeFoundation/haxe.git",
+        tag:      "4.2.2",
+        revision: "a2f4ba95400edf10195ce2a1c87c56dc0d67111b"
+
+    # Remove when campl5 dependency is bumped to 8.00 in a release
+    patch do
+      url "https://github.com/HaxeFoundation/haxe/commit/db72b31390c51c1627cf5658ca256aace41a81b0.patch?full_index=1"
+      sha256 "95a22f2cc227c4e6d066e60eb88b2a71ad6c278d6f38656fbd87ee905411918a"
+    end
+  end
 
   livecheck do
     url :stable
@@ -60,7 +69,7 @@ class Haxe < Formula
       system "opam", "config", "exec", "--",
              "opam", "pin", "add", "haxe", buildpath, "--no-action"
       system "opam", "config", "exec", "--",
-             "opam", "install", "haxe", "--deps-only"
+             "opam", "install", "haxe", "--deps-only", "--working-dir"
       system "opam", "config", "exec", "--",
              "make"
     end
