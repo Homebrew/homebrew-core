@@ -17,7 +17,7 @@ class PhpAT72 < Formula
 
   keg_only :versioned_formula
 
-  disable! date: "2021-11-30", because: :deprecated_upstream
+  deprecate! date: "2021-11-30", because: :deprecated_upstream
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkg-config" => :build
