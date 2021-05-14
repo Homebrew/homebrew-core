@@ -16,5 +16,6 @@ class IpinfoCli < Formula
 
   test do
     assert_equal "1.1.2\n", `#{bin}/ipinfo version`
+    assert_equal "1.1.1.0\n1.1.1.1\n1.1.1.2\n1.1.1.3\n", `#{bin}/ipinfo prips 1.1.1.1/30`
   end
 end
