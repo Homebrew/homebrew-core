@@ -1,9 +1,9 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "https://dev.opencascade.org/"
-  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_5_1;sf=tgz"
-  version "7.5.1"
-  sha256 "3a43d8b50df78ade72786fa63bc8808deac6380189333663e7b4ef8558ae7739"
+  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_5_2;sf=tgz"
+  version "7.5.2"
+  sha256 "1a32d2b0d6d3c236163cb45139221fb198f0f3cdad56606c5b1c9a2a8869b3ac"
   license "LGPL-2.1-only"
 
   livecheck do
