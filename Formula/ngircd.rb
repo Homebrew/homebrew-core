@@ -6,6 +6,11 @@ class Ngircd < Formula
   sha256 "55c16fd26009f6fc6a007df4efac87a02e122f680612cda1ce26e17a18d86254"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://ngircd.barton.de/download.php"
+    regex(/href=.*?ngircd[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 big_sur:  "9fe092e3ca8de75453b4aa667067e1cd863c041b8055ae7981e51f3506ac19c4"
     sha256 catalina: "95f504faeffb209318e93a050c632805178e91cd1e9475bbccfa9eb040b8d785"
