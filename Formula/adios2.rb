@@ -52,7 +52,7 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_FLEX=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
-      -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DPython_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
     ]
