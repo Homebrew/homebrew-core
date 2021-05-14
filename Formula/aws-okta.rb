@@ -12,6 +12,9 @@ class AwsOkta < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "910418c2dd89b78a7d665cdd8082d9941de433c6c8db800ce0515dfb6c1eb25b"
   end
 
+  # See https://github.com/segmentio/aws-okta/issues/278
+  deprecate! date: "2020-01-20", because: :deprecated_upstream
+
   depends_on "go" => :build
 
   on_linux do
