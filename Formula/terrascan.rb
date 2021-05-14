@@ -15,12 +15,6 @@ class Terrascan < Formula
 
   depends_on "go" => :build
 
-  # Fixes version, remove in next release.
-  patch do
-    url "https://github.com/accurics/terrascan/commit/d8fd9c4bae5b12ffbe8d7c7e1a1d67042dfd8edf.patch?full_index=1"
-    sha256 "994c4bc35899286edf48baad868b7482e5dc1090ad8a7dceffe25e4df438ca2f"
-  end
-
   def install
     system "go", "build", *std_go_args, "./cmd/terrascan"
   end
