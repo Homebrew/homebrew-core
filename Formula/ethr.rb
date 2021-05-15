@@ -8,7 +8,7 @@ class Ethr < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", -ldflags, "-X main.gVersion=v#{version.to_s}", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-X main.gVersion=v#{version}")
   end
 
   test do
