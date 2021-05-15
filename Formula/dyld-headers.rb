@@ -1,8 +1,8 @@
 class DyldHeaders < Formula
   desc "Header files for the dynamic linker"
   homepage "https://opensource.apple.com/"
-  url "https://opensource.apple.com/tarballs/dyld/dyld-832.7.3.tar.gz"
-  sha256 "d2efd46d12bf63e724315760c50cb53b1f08ffb09f3b549fb07139b78dd26db4"
+  url "https://opensource.apple.com/tarballs/dyld/dyld-851.27.tar.gz"
+  sha256 "f0ac5a6611a5665b9745a0a1b1b7b516866c647b8f6361e18af9f671a85d8f27"
   license "APSL-2.0"
 
   livecheck do
