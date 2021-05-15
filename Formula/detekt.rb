@@ -4,6 +4,7 @@ class Detekt < Formula
   url "https://github.com/detekt/detekt/releases/download/v1.17.1/detekt-cli-1.17.1-all.jar"
   sha256 "2a01bc4fe9836d08a683be268887ecd88b6f76b8832078fb153feaf126f91678"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :homepage
@@ -12,11 +13,11 @@ class Detekt < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     libexec.install "detekt-cli-#{version}-all.jar"
-    bin.write_jar_script libexec/"detekt-cli-#{version}-all.jar", "detekt"
+    bin.write_jar_script libexec/"detekt-cli-#{version}-all.jar", "detekt", java_version: "11"
   end
 
   test do
