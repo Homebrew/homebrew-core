@@ -4,7 +4,7 @@ class Freeciv < Formula
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%202.6/2.6.4/freeciv-2.6.4.tar.bz2"
   sha256 "40db957766acbd49c5af15afd1711da996b6681be7abee3352c5f2539c10c1ce"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -59,6 +59,7 @@ class Freeciv < Formula
       --disable-sdltest
       --disable-sdl2test
       --disable-sdl2framework
+      --enable-client=gtk3.22
       --enable-fcdb=sqlite3
       --prefix=#{prefix}
       --with-readline=#{Formula["readline"].opt_prefix}
