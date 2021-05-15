@@ -19,6 +19,9 @@ class Etl < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "3499623804687865757dec0f5df9ae2b8c70ed8d8c8c6cfa2e8bd6bf839b55db"
   end
 
+  depends_on "pkg-config" => :build
+  depends_on "glibmm@2.66"
+
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
