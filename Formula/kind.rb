@@ -14,6 +14,7 @@ class Kind < Formula
   end
 
   depends_on "go" => :build
+  depends_on "docker" => :test
 
   def install
     system "go", "build", "-o", bin/"kind"
