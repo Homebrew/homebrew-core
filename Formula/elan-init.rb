@@ -15,7 +15,10 @@ class ElanInit < Formula
   depends_on "rust" => :build
   # elan-init will run on arm64 Macs, but will fetch Leans that are x86_64.
   depends_on arch: :x86_64
+  depends_on "coreutils"
   depends_on "gmp"
+
+  conflicts_with "lean", because: "`lean` and `elan-init` install the same binaries"
 
   def install
     ENV["RELEASE_TARGET_NAME"] = "homebrew-build"
@@ -49,5 +52,6 @@ class ElanInit < Formula
       end
     EOS
     system bin/"lean", testpath/"hello.lean"
+    system bin/"leanpkg", "help"
   end
 end
