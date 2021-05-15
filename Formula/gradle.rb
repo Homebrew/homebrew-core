@@ -12,22 +12,12 @@ class Gradle < Formula
 
   bottle :unneeded
 
-  # gradle currently does not support Java 16
-  if Hardware::CPU.arm?
-    depends_on "openjdk@11"
-  else
-    depends_on "openjdk"
-  end
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin docs lib src]
-    env = if Hardware::CPU.arm?
-      Language::Java.overridable_java_home_env("11")
-    else
-      Language::Java.overridable_java_home_env
-    end
-    (bin/"gradle").write_env_script libexec/"bin/gradle", env
+    (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env
   end
 
   test do
