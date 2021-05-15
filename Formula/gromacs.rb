@@ -45,17 +45,30 @@ class Gromacs < Formula
                                         "CMAKE_INSTALL_DATADIR"
 
     # Avoid superenv shim reference
-    inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein", "@CMAKE_LINKER@",
-                                                             "/usr/bin/ld"
+    gcc = Formula["gcc"]
+    cc = gcc.opt_bin/"gcc-#{gcc.any_installed_version.major}"
+    cxx = gcc.opt_bin/"g++-#{gcc.any_installed_version.major}"
+    inreplace "src/gromacs/gromacs-toolchain.cmake.cmakein" do |s|
+      s.gsub! "@CMAKE_LINKER@", "/usr/bin/ld"
+      s.gsub! "@CMAKE_C_COMPILER@", cc
+      s.gsub! "@CMAKE_CXX_COMPILER@", cxx
+    end
+
+    inreplace "src/buildinfo.h.cmakein" do |s|
+      s.gsub! "@BUILD_C_COMPILER@", cc
+      s.gsub! "@BUILD_CXX_COMPILER@", cxx
+    end
+
+    inreplace "src/gromacs/gromacs-config.cmake.cmakein", "@GROMACS_CXX_COMPILER@", cxx
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DGROMACS_CXX_COMPILER=#{cxx}"
       system "make", "install"
     end
 
     bash_completion.install "build/scripts/GMXRC" => "gromacs-completion.bash"
-    bash_completion.install "#{bin}/gmx-completion-gmx.bash" => "gmx-completion-gmx.bash"
-    bash_completion.install "#{bin}/gmx-completion.bash" => "gmx-completion.bash"
+    bash_completion.install bin/"gmx-completion-gmx.bash" => "gmx-completion-gmx.bash"
+    bash_completion.install bin/"gmx-completion.bash" => "gmx-completion.bash"
     zsh_completion.install "build/scripts/GMXRC.zsh" => "_gromacs"
   end
 
