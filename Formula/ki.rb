@@ -4,6 +4,7 @@ class Ki < Formula
   url "https://github.com/Kotlin/kotlin-interactive-shell/archive/refs/tags/v0.3.3.tar.gz"
   sha256 "46913b17c85711213251948342d0f4d0fec7dc98dd11c1f24eedb0409338e273"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Kotlin/kotlin-interactive-shell.git", branch: "main"
 
   bottle do
@@ -14,12 +15,13 @@ class Ki < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     system "mvn", "-DskipTests", "package"
     libexec.install "lib/ki-shell.jar"
-    bin.write_jar_script libexec/"ki-shell.jar", "ki"
+    bin.write_jar_script libexec/"ki-shell.jar", "ki", java_version: "11"
   end
 
   test do
