@@ -1,8 +1,8 @@
 class PinentryMac < Formula
   desc "Pinentry for GPG on Mac"
   homepage "https://github.com/GPGTools/pinentry"
-  url "https://github.com/GPGTools/pinentry/archive/v1.1.0.3.tar.gz"
-  sha256 "1ac83f1688d02518da5ddce1ceaa7e40893080a8d2f015b759dfaddf1b14545c"
+  url "https://github.com/GPGTools/pinentry/archive/v1.1.1.1.tar.gz"
+  sha256 "1a414f2e172cf8c18a121e60813413f27aedde891c5955151fbf8d50c46a9098"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later"]
   head "https://github.com/GPGTools/pinentry.git", branch: "dev"
 
