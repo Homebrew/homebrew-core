@@ -34,8 +34,10 @@ class Kind < Formula
   end
 
   test do
+    ENV["DOCKER_HOST"] = "unix://#{testpath}/invalid.sock"
+
     # Should error out as creating a kind cluster requires root
     status_output = shell_output("#{bin}/kind get kubeconfig --name homebrew 2>&1", 1)
-    assert_match "ERROR: could not locate any control plane nodes", status_output
+    assert_match "Cannot connect to the Docker daemon", status_output
   end
 end
