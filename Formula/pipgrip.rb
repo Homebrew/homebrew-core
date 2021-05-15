@@ -3,8 +3,8 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/57/d2/dd1e78d9d1de7bcfd27c09494d57ab3020778da662bb15e4f905342dd714/pipgrip-0.6.7.tar.gz"
-  sha256 "784280e2dedf72b7676839f645dcfd29075d8d808d89d8cd52b8f70dbd46a2de"
+  url "https://files.pythonhosted.org/packages/7e/94/495cfb7c06b0283f289bbda9806d07c47dbf6964e9043596e82b5cc53954/pipgrip-0.6.8.tar.gz"
+  sha256 "b6a7c6f8fd8a3d0e4798e665208d5c042d53beaf29c9cb74b6b4207c2625d8f8"
   license "BSD-3-Clause"
 
   bottle do
@@ -22,8 +22,8 @@ class Pipgrip < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
-    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
+    url "https://files.pythonhosted.org/packages/d5/99/286fd2fdfb501620a9341319ba47444040c7b3094d3b6c797d7281469bf8/click-8.0.0.tar.gz"
+    sha256 "7d8c289ee437bcb0316820ccee14aefcb056e58d31830ecab8e47eda6540e136"
   end
 
   resource "packaging" do
@@ -42,8 +42,8 @@ class Pipgrip < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "wheel" do
