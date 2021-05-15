@@ -1,8 +1,8 @@
 class Findomain < Formula
   desc "Cross-platform subdomain enumerator"
   homepage "https://github.com/Findomain/findomain"
-  url "https://github.com/Edu4rdSHL/findomain/archive/4.2.0.tar.gz"
-  sha256 "900a59ff813cbb0c23c3a8f655ca2a3f04a7b0c1510271b21df90351e47b256d"
+  url "https://github.com/Edu4rdSHL/findomain/archive/4.2.1.tar.gz"
+  sha256 "07a1bd8320902d7a27b933e8af6e0406f9098d407bde42cc849b4761e63d314c"
   license "GPL-3.0-or-later"
 
   bottle do
