@@ -21,9 +21,12 @@ class Lean < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "coreutils"
   depends_on "gmp"
   depends_on "jemalloc"
   depends_on macos: :mojave
+
+  conflicts_with "elan-init", because: "`lean` and `elan-init` install the same binaries"
 
   def install
     mkdir "src/build" do
@@ -45,6 +48,7 @@ class Lean < Formula
           split, repeat { assumption }
       end
     EOS
-    system "#{bin}/lean", testpath/"hello.lean"
+    system bin/"lean", testpath/"hello.lean"
+    system bin/"leanpkg", "help"
   end
 end
