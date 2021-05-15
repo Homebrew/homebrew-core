@@ -19,18 +19,15 @@ class Usbredir < Formula
     sha256 cellar: :any, sierra:        "7feac9566048e308877ef3f3d1b93660433dc8f1611e3daf031eaa4dd90c7238"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "libusb"
 
-  # Upstream patch, remove for next release
-  # https://gitlab.freedesktop.org/spice/usbredir/issues/9
-  patch do
-    url "https://gitlab.freedesktop.org/spice/usbredir/commit/985e79d5f98d5586d87204317462549332c1dd46.diff"
-    sha256 "21c0da8f6be94764e1e3363f5ed76ed070b5087034420cb17a81da06e4b73f83"
-  end
-
   def install
+    # Use meson from the release after 0.9.0
+    system "autoreconf", "-fiv"
     system "./configure", "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
