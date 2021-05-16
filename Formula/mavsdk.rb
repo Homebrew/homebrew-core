@@ -1,4 +1,6 @@
 class Mavsdk < Formula
+  include Language::Python::Virtualenv
+
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
@@ -18,6 +20,8 @@ class Mavsdk < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.9" => :build
+  depends_on "six" => :build
   depends_on "abseil"
   depends_on "c-ares"
   depends_on "curl"
@@ -31,7 +35,57 @@ class Mavsdk < Formula
 
   uses_from_macos "zlib"
 
+  # These resources are needed to install protoc_gen_mavsdk, which we use to regenerate protobuf headers.
+  # This is needed when brewed protobuf is newer than upstream's vendored protobuf.
+  resource "Jinja2" do
+    url "https://files.pythonhosted.org/packages/7a/0c/23cbcf515b5394e9f59a3e6629f26e1142b92d474ee0725a26aa5a3bcf76/Jinja2-3.0.0.tar.gz"
+    sha256 "ea8d7dd814ce9df6de6a761ec7f1cac98afe305b8cdc4aaae4e114b8d8ce24c5"
+  end
+
+  resource "MarkupSafe" do
+    url "https://files.pythonhosted.org/packages/67/6a/5b3ed5c122e20c33d2562df06faf895a6b91b0a6b96a4626440ffe1d5c8e/MarkupSafe-2.0.0.tar.gz"
+    sha256 "4fae0677f712ee090721d8b17f412f1cbceefbf0dc180fe91bab3232f38b4527"
+  end
+
+  # Upstream only provides a wheel. This is needed only for the build.
+  resource "protoc_gen_mavsdk" do
+    url "https://files.pythonhosted.org/packages/da/91/96d4bde10cf9512250290880373fec0e1e068a9cafae96e69e90f45b2616/protoc_gen_mavsdk-1.0.1-py3-none-any.whl"
+    sha256 "5ccdfadea69e2da95567a8aa1925bdb2d34697def2ce1d5835b596c97abcc1ac"
+  end
+
   def install
+    # Fix generator script to use brewed deps
+    generator = "tools/generate_from_protos.sh"
+    inreplace generator do |s|
+      s.gsub!(/^(protoc_binary)=.*/, "\\1=#{Formula["protobuf"].opt_bin}/protoc")
+      s.gsub!(/^(protoc_grpc_binary)=.*/, "\\1=#{Formula["grpc"].opt_bin}/grpc_cpp_plugin")
+    end
+
+    # Install protoc_gen_mavsdk deps
+    venv_dir = buildpath/"bootstrap"
+    venv = virtualenv_create(venv_dir, "python3")
+    %w[Jinja2 MarkupSafe].each do |r|
+      venv.pip_install resource(r)
+    end
+
+    # We want to install protoc_gen_mavsdk into the same venv as the other resources,
+    # so let's emulate the environment created when a venv is activated.
+    with_env(
+      VIRTUAL_ENV: venv_dir,
+      PYTHONPATH:  Formula["six"].opt_prefix/Language::Python.site_packages("python3"),
+      PATH:        "#{venv_dir}/bin:#{ENV["PATH"]}",
+    ) do
+      buildpath.install resource("protoc_gen_mavsdk")
+      system "python", "-m", "pip", "install", "-v",
+             "--no-deps",
+             "--no-index",
+             Dir[buildpath/"protoc_gen_mavsdk-*.whl"].first
+      system generator
+    end
+
+    # Keep git tree clean. This is used to generate version information.
+    system "git", "restore", buildpath
+
     # Source build adapted from
     # https://mavsdk.mavlink.io/develop/en/contributing/build.html
     system "cmake", *std_cmake_args,
