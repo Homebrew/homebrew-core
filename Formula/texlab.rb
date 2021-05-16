@@ -3,7 +3,7 @@ class Texlab < Formula
   homepage "https://texlab.netlify.com/"
   url "https://github.com/latex-lsp/texlab/archive/v3.0.0.tar.gz"
   sha256 "6ca624104cf9b354badcc3e6304daafca2e022e92dd0d70ac010b6a9b943a5c3"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
   head "https://github.com/latex-lsp/texlab.git"
 
   bottle do
