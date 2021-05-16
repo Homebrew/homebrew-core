@@ -4,7 +4,7 @@ class Bloaty < Formula
   url "https://github.com/google/bloaty/releases/download/v1.1/bloaty-1.1.tar.bz2"
   sha256 "a308d8369d5812aba45982e55e7c3db2ea4780b7496a5455792fb3dcba9abd6f"
   license "Apache-2.0"
-  revision 6
+  revision 7
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "bda2966a745c782a4a0e3959195f0d00228412f18f7701f4f7984fd0d32375ab"
