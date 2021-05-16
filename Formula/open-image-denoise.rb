@@ -4,6 +4,7 @@ class OpenImageDenoise < Formula
   url "https://github.com/OpenImageDenoise/oidn/releases/download/v1.4.0/oidn-1.4.0.src.tar.gz"
   sha256 "3e7b85d344b3635719879c4444f061714e6e799895110bd5d78a357dc9b017db"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8489e561617733ecee003ac96bcfd7cf22702e0ccb0f446e9157be8037a8f498"
