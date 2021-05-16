@@ -1,8 +1,8 @@
 class Fltk < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.fltk.org/"
-  url "https://www.fltk.org/pub/fltk/1.3.5/fltk-1.3.5-source.tar.gz"
-  sha256 "8729b2a055f38c1636ba20f749de0853384c1d3e9d1a6b8d4d1305143e115702"
+  url "https://www.fltk.org/pub/fltk/1.3.6/fltk-1.3.6-source.tar.gz"
+  sha256 "9aac75ef9e9b7bd7b5338a4c0d4dd536e6c22ea7b15ea622aa1d8f1fa30d37ab"
 
   livecheck do
     url "https://www.fltk.org/software.php"
