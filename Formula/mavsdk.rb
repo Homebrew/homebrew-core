@@ -1,4 +1,6 @@
 class Mavsdk < Formula
+  include Language::Python::Virtualenv
+
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
@@ -18,6 +20,7 @@ class Mavsdk < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.9" => :build
   depends_on "abseil"
   depends_on "c-ares"
   depends_on "curl"
@@ -32,6 +35,26 @@ class Mavsdk < Formula
   uses_from_macos "zlib"
 
   def install
+    generator = "tools/generate_from_protos.sh"
+    inreplace generator do |s|
+      s.gsub!(/^(protoc_binary)=.*/, "\\1=#{Formula["protobuf"].opt_bin}/protoc")
+      s.gsub!(/^(protoc_grpc_binary)=.*/, "\\1=#{Formula["grpc"].opt_bin}/grpc_cpp_plugin")
+    end
+
+    # We need `protoc-gen-mavsdk` to bootstrap
+    venv_dir = buildpath/"bootstrap"
+    with_env(
+      VIRTUAL_ENV: venv_dir,
+      PATH:        "#{venv_dir}/bin:#{ENV["PATH"]}",
+    ) do
+      virtualenv_create(venv_dir, "python3")
+      system venv_dir/"bin/pip", "install", "protoc-gen-mavsdk"
+      system generator
+    end
+
+    # Keep tree clean
+    system "git", "restore", buildpath
+
     # Source build adapted from
     # https://mavsdk.mavlink.io/develop/en/contributing/build.html
     system "cmake", *std_cmake_args,
