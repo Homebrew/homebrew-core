@@ -4,7 +4,7 @@ class GrpcSwift < Formula
   url "https://github.com/grpc/grpc-swift/archive/1.0.0.tar.gz"
   sha256 "5e0258437538bdfa26ca0e023649d97baa138d91881b949b2b344ef84cc2082a"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/grpc/grpc-swift.git"
 
   bottle do
