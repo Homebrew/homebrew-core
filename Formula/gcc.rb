@@ -14,6 +14,7 @@ class Gcc < Formula
     sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
@@ -46,6 +47,7 @@ class Gcc < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
+  uses_from_macos "libiconv"
   uses_from_macos "zlib"
 
   on_linux do
@@ -63,15 +65,28 @@ class Gcc < Formula
     end
   end
 
+  resource "bootstrap_gcc" do
+    url "https://phoenixnap.dl.sourceforge.net/project/gnuada/GNAT_GCC%20Mac%20OS%20X/11.1.0/native/gcc-11.1.0-x86_64-apple-darwin15.pkg"
+    sha256 "d947b5db0576cb62942e5ce61f3ef53fb679f07b1adff7a4c0fa19a5e72a9532"
+  end
+
   def install
+    resource("bootstrap_gcc").stage do
+      system "pkgutil", "--expand-full", "gcc-11.1.0-x86_64-apple-darwin15.pkg", buildpath/"bootstrap_gcc"
+    end
+    bootstrap_gcc_prefix = buildpath/"bootstrap_gcc/gcc-11.1.0-x86_64-apple-darwin15.pkg/Payload"
+    inreplace "configure", /\${CC}(?= -c conftest\.adb)/, bootstrap_gcc_prefix/"bin/gcc"
+    open("gcc/ada/gcc-interface/Make-lang.in", "a") { |f| f.puts "override CC = #{bootstrap_gcc_prefix}/bin/gcc" }
+
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
+    ENV.append_path "PATH", bootstrap_gcc_prefix/"bin"
+    ENV["ADAC"] = bootstrap_gcc_prefix/"bin/gcc"
 
     # We avoiding building:
-    #  - Ada, which requires a pre-existing GCC Ada compiler to bootstrap
     #  - Go, currently not supported on macOS
     #  - BRIG
-    languages = %w[c c++ objc obj-c++ fortran]
+    languages = %w[ada c c++ objc obj-c++ fortran]
     languages << "d" if Hardware::CPU.intel?
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
@@ -110,6 +125,7 @@ class Gcc < Formula
       if sdk
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
+        ENV["SDKROOT"] = MacOS.sdk_path
       end
 
       # Ensure correct install names when linking against libgcc_s;

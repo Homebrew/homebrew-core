@@ -3,6 +3,7 @@
   "clozure-cl",
   "crystal",
   "fpc",
+  "gcc",
   "ghc",
   "ghc@8.6",
   "ghc@8.8",
