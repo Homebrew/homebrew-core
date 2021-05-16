@@ -1,8 +1,8 @@
 class Pyqt3d < Formula
   desc "Python bindings for The Qt Company’s Qt 3D framework"
   homepage "https://www.riverbankcomputing.com/software/pyqt3d/"
-  url "https://files.pythonhosted.org/packages/86/a8/91f76584146250da04d9f2c33355a119279928ed8cfc04a8b1baf9c2c667/PyQt6_3D-6.0.3.tar.gz"
-  sha256 "6981d25d7fe850a036d75c0fb1eb58331d7e1c51eda305b40081d1d2c4db0e82"
+  url "https://files.pythonhosted.org/packages/f7/06/6a2d193f36d2f115fcfaac6375f05737270bc8c133cd259a7a3431c38152/PyQt6_3D-6.1.0.tar.gz"
+  sha256 "8f04ffa5d8ba983434b0b12a63d06e8efab671a0b2002cee761bbd0ef443513c"
   license "GPL-3.0-only"
 
   bottle do
@@ -12,25 +12,22 @@ class Pyqt3d < Formula
     sha256 mojave:        "3e937bc4e4c6f3d188f5ea8fb5eef6b8f6f39446d314e3e29e9f00fb28d6d38f"
   end
 
+  keg_only "pyqt now contains all submodules"
+  disable! date: "2021-06-16", because: "pyqt now contains all submodules"
+
   depends_on "pyqt-builder" => :build
+  depends_on "sip" => :build
 
   depends_on "pyqt"
   depends_on "python@3.9"
   depends_on "qt"
-  depends_on "sip"
 
   def install
     pyqt = Formula["pyqt"]
-    python = Formula["python@3.9"]
-    site_packages = Language::Python.site_packages(python)
+    site_packages = Language::Python.site_packages("python3")
 
-    open("pyproject.toml", "a") do |f|
-      f.puts <<~EOS
-        [tool.sip.project]
-        sip-include-dirs = ["#{pyqt.prefix/site_packages}/PyQt#{pyqt.version.major}/bindings"]
-      EOS
-    end
-
+    inreplace "pyproject.toml", "[tool.sip.project]",
+      "[tool.sip.project]\nsip-include-dirs = [\"#{pyqt.prefix/site_packages}/PyQt#{version.major}/bindings\"]\n"
     system "sip-install", "--target-dir", prefix/site_packages
   end
 
