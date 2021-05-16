@@ -5,6 +5,11 @@ class Cksfv < Formula
   sha256 "a173be5b6519e19169b6bb0b8a8530f04303fe3b17706927b9bd58461256064c"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://zakalwe.fi/~shd/foss/cksfv/files/"
+    regex(/href=.*?cksfv[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a024ad7db7fd8bcc1ad251d6392963533b3d2733b3d9f1fa49dcdcdd11573b57"
     sha256 cellar: :any_skip_relocation, big_sur:       "a747f42a401eae71dd1931f2d09e8d215646f645ce3024a3702b6af36b22d242"
