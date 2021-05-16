@@ -5,7 +5,7 @@ class Openvdb < Formula
   url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v8.0.1.tar.gz"
   sha256 "a6845da7c604d2c72e4141c898930ac8a2375521e535f696c2cd92bebbe43c4f"
   license "MPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
@@ -23,7 +23,7 @@ class Openvdb < Formula
   depends_on "ilmbase"
   depends_on "jemalloc"
   depends_on "openexr@2"
-  depends_on "tbb"
+  depends_on "tbb@2020"
 
   resource "test_file" do
     url "https://artifacts.aswf.io/io/aswf/openvdb/models/cube.vdb/1.0.0/cube.vdb-1.0.0.zip"
@@ -34,6 +34,7 @@ class Openvdb < Formula
     cmake_args = [
       "-DDISABLE_DEPENDENCY_VERSION_CHECKS=ON",
       "-DOPENVDB_BUILD_DOCS=ON",
+      "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}",
     ]
 
     mkdir "build" do
