@@ -21,7 +21,7 @@ class Cloc < Formula
   end
 
   resource "Algorithm::Diff" do
-    url "https://cpan.metacpan.org/authors/id/T/TY/TYEMQ/Algorithm-Diff-1.201.tar.gz"
+    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Algorithm-Diff-1.201.tar.gz"
     sha256 "0022da5982645d9ef0207f3eb9ef63e70e9713ed2340ed7b3850779b0d842a7d"
   end
 
