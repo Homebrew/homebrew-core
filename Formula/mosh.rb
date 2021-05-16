@@ -2,7 +2,7 @@ class Mosh < Formula
   desc "Remote terminal application"
   homepage "https://mosh.org"
   license "GPL-3.0-or-later"
-  revision 15
+  revision 16
 
   stable do
     url "https://mosh.org/mosh-1.3.2.tar.gz"
@@ -12,6 +12,13 @@ class Mosh < Formula
     patch do
       url "https://github.com/mobile-shell/mosh/commit/e5f8a826ef9ff5da4cfce3bb8151f9526ec19db0.patch?full_index=1"
       sha256 "022bf82de1179b2ceb7dc6ae7b922961dfacd52fbccc30472c527cb7c87c96f0"
+    end
+
+    # Fix Xcode 12.5 build. Backport of the following commit:
+    # https://github.com/mobile-shell/mosh/commit/12199114fe4234f791ef4c306163901643b40538
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/72fb5d9a79e581a5033bce38fb00ee25a0c2fdfe/net/mosh/files/patch-version-subdir.diff"
+      sha256 "939e5435ce7d9cecb7b2bccaf31294092eb131b5bd41d5776a40d660ffc95982"
     end
   end
 
@@ -30,6 +37,10 @@ class Mosh < Formula
     depends_on "automake" => :build
   end
 
+  # Remove autoconf and automake when the
+  # Xcode 12.5 patch is removed.
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
   depends_on "protobuf"
@@ -45,7 +56,8 @@ class Mosh < Formula
     # PATH to support launching outside shell e.g. via launcher
     inreplace "scripts/mosh.pl", "'mosh-client", "\'#{bin}/mosh-client"
 
-    system "./autogen.sh" if build.head?
+    # Uncomment `if build.head?` when Xcode 12.5 patch is removed
+    system "./autogen.sh" # if build.head?
     system "./configure", "--prefix=#{prefix}", "--enable-completion"
     system "make", "install"
   end
