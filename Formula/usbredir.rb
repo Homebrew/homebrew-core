@@ -3,7 +3,7 @@ class Usbredir < Formula
   homepage "https://www.spice-space.org"
   url "https://www.spice-space.org/download/usbredir/usbredir-0.9.0.tar.xz"
   sha256 "a3e167bf42bc7fe02c3c9db27d7767f1b8ce41b99ad14a4b0d0a60abe8bf56a6"
-  license "GPL-2.0"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
   livecheck do
     url "https://www.spice-space.org/download/usbredir/"
