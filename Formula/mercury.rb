@@ -5,6 +5,11 @@ class Mercury < Formula
   sha256 "ef093ae81424c4f3fe696eff9aefb5fb66899e11bb17ae0326adfb70d09c1c1f"
   license all_of: ["GPL-2.0-only", "LGPL-2.0-only", "MIT"]
 
+  livecheck do
+    url "https://dl.mercurylang.org/"
+    regex(/href=.*?mercury-srcdist[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:  "8b37f68829e59efd2127a32dfbcbf80d617196b6f35c970e1d4727b5076abb39"
     sha256 cellar: :any, catalina: "2b98c59507d6aa72db55b8864d9818f302fef92b5bbdc6630287276494a3bc62"
