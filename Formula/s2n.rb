@@ -1,8 +1,8 @@
 class S2n < Formula
   desc "Implementation of the TLS/SSL protocols"
   homepage "https://github.com/aws/s2n-tls"
-  url "https://github.com/aws/s2n-tls/archive/refs/tags/v1.0.7.tar.gz"
-  sha256 "6978d731425d92f4891c7849549a29e0ec002fb76809b1c9da40dd265067fe3d"
+  url "https://github.com/aws/s2n-tls/archive/refs/tags/v1.0.8.tar.gz"
+  sha256 "41d6215e73f38eb1970d17f85c7eb683f556f803a608339a76da9030e160bbd6"
   license "Apache-2.0"
 
   livecheck do
