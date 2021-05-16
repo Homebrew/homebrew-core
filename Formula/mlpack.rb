@@ -54,7 +54,7 @@ class Mlpack < Formula
       -DENSMALLEN_INCLUDE_DIR=#{Formula["ensmallen"].opt_include}
       -DARMADILLO_LIBRARY=#{Formula["armadillo"].opt_lib}/#{shared_library("libarmadillo")}
       -DSTB_IMAGE_INCLUDE_DIR=#{include/"stb"}
-      -DCMAKE_INSTALL_RPATH=#{lib}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
     mkdir "build" do
       system "cmake", "..", *cmake_args
