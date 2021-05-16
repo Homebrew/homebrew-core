@@ -1,10 +1,9 @@
 class PamYubico < Formula
   desc "Yubico pluggable authentication module"
   homepage "https://developers.yubico.com/yubico-pam/"
-  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.26.tar.gz"
-  sha256 "2de96495963fefd72b98243952ca5d5ec513e702c596e54bc667ef6b5e252966"
+  url "https://developers.yubico.com/yubico-pam/Releases/pam_yubico-2.27.tar.gz"
+  sha256 "63d02788852644d871746e1a7a1d16c272c583c226f62576f5ad232a6a44e18c"
   license "BSD-2-Clause"
-  revision 1
 
   livecheck do
     url "https://developers.yubico.com/yubico-pam/Releases/"
