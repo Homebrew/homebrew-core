@@ -5,7 +5,7 @@ class Openvdb < Formula
   url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v8.0.1.tar.gz"
   sha256 "a6845da7c604d2c72e4141c898930ac8a2375521e535f696c2cd92bebbe43c4f"
   license "MPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
@@ -34,6 +34,8 @@ class Openvdb < Formula
     cmake_args = [
       "-DDISABLE_DEPENDENCY_VERSION_CHECKS=ON",
       "-DOPENVDB_BUILD_DOCS=ON",
+      "-DTBB_ROOT=#{Formula["tbb"].opt_prefix}",
+      "-DTbb_INCLUDE_DIR=#{Formula["tbb"].opt_include}",
     ]
 
     mkdir "build" do
