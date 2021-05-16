@@ -25,13 +25,21 @@ class MinizipNg < Formula
   conflicts_with "minizip",
     because: "both install a `libminizip.a` library"
   conflicts_with "libtcod", "libzip",
-    because: "libtcod, libzip and minizip2 install a `zip.h` header"
+    because: "libtcod, libzip and minizip-ng install a `zip.h` header"
 
   def install
-    system "cmake", ".", "-DIconv_IS_BUILT_IN=on",
-                         "-DMZ_FETCH_LIBS=OFF",
-                         *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build/static",
+                    "-DMZ_FETCH_LIBS=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build/static"
+    system "cmake", "--install", "build/static"
+
+    system "cmake", "-S", ".", "-B", "build/shared",
+                    "-DMZ_FETCH_LIBS=OFF",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build/shared"
+    system "cmake", "--install", "build/shared"
   end
 
   test do
