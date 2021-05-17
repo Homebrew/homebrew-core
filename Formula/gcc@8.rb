@@ -1,10 +1,9 @@
 class GccAT8 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-8.4.0/gcc-8.4.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.4.0/gcc-8.4.0.tar.xz"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-8.5.0/gcc-8.5.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-8.5.0/gcc-8.5.0.tar.xz"
   sha256 "e30a6e52d10e1f27ed55104ad233c30bd1e99cfb5ff98ab022dc941edd1b2dd4"
-  revision 3
 
   livecheck do
     url :stable
@@ -89,6 +88,10 @@ class GccAT8 < Formula
         args << "--with-sysroot=#{sdk}"
       end
 
+      # Workaround for Xcode 12.5 bug on Intel
+      # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100340
+      args << "--without-build-config" if DevelopmentTools.clang_build_version >= 1205
+
       # Ensure correct install names when linking against libgcc_s;
       # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
       inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
@@ -138,9 +141,13 @@ class GccAT8 < Formula
 
     (testpath/"hello-cc.cc").write <<~EOS
       #include <iostream>
+      struct exception { };
       int main()
       {
         std::cout << "Hello, world!" << std::endl;
+        try { throw exception{}; }
+          catch (exception) { }
+          catch (...) { }
         return 0;
       }
     EOS
