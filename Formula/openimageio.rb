@@ -4,7 +4,7 @@ class Openimageio < Formula
   url "https://github.com/OpenImageIO/oiio/archive/Release-2.2.14.0.tar.gz"
   sha256 "e41b4b6958d318250caa1d1f167863a915a99062273583bb96457101d54e89cd"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/OpenImageIO/oiio.git"
 
   livecheck do
