@@ -4,12 +4,13 @@ class PhpCodeSniffer < Formula
   url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.6.0/phpcs.phar"
   sha256 "3f7e099bd4b03681e12f96582ce0d76e065213ba15a3b1c22d79349e213ab169"
   license "BSD-3-Clause"
+  revision 1
 
   bottle :unneeded
 
   resource "phpcbf.phar" do
-    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.5.5/phpcbf.phar"
-    sha256 "6f64fe00dee53fa7b256f63656dc0154f5964666fc7e535fac86d0078e7dea41"
+    url "https://github.com/squizlabs/PHP_CodeSniffer/releases/download/3.6.0/phpcbf.phar"
+    sha256 "e19755c44800f955cd4d234657f90ead1ecb08c4957528fcad6424526b0c8b13"
   end
 
   def install
