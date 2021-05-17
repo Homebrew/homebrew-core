@@ -4,6 +4,7 @@ class Clazy < Formula
   url "https://download.kde.org/stable/clazy/1.9/src/clazy-1.9.tar.xz"
   sha256 "4c6c2e473e6aa011cc5fab120ebcffec3fc11a9cc677e21ad8c3ea676eb076f8"
   license "LGPL-2.0-or-later"
+  revision 1
   head "https://invent.kde.org/sdk/clazy.git"
 
   livecheck do
