@@ -5,6 +5,7 @@ class Openexr < Formula
   url "https://github.com/openexr/openexr/archive/v3.0.1.tar.gz"
   sha256 "6d14a8df938bbbd55dd6e55b24c527fe9323fe6a45f704e56967dfbf477cecc1"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "b80c2c86f766b5b165558b748ab12958881063f76d6ed593a1f99c8cdf565254"
