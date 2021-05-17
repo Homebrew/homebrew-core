@@ -5,6 +5,7 @@ class Inetutils < Formula
   mirror "https://ftpmirror.gnu.org/inetutils/inetutils-2.0.tar.xz"
   sha256 "e573d566e55393940099862e7f8994164a0ed12f5a86c3345380842bdc124722"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "82b61f26f0dc565334619a3ca34994cfea99088e25db94bd15706037a2c49b61"
@@ -37,7 +38,7 @@ class Inetutils < Formula
       args << "--program-prefix=g"
     end
     system "./configure", *args
-    system "make", "install"
+    system "make", "SUIDMODE=", "install"
 
     on_macos do
       # Binaries not shadowing macOS utils symlinked without 'g' prefix
