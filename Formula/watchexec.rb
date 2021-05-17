@@ -15,16 +15,18 @@ class Watchexec < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    cd "cli" do
+      system "cargo", "install", *std_cargo_args
+    end
     man1.install "doc/watchexec.1"
   end
 
   test do
     o = IO.popen("#{bin}/watchexec -1 --postpone -- echo 'saw file change'")
-    sleep 1
+    sleep 15
     touch "test"
-    sleep 5
-    Process.kill("INT", o.pid)
+    sleep 15
+    Process.kill("TERM", o.pid)
     assert_match "saw file change", o.read
   end
 end
