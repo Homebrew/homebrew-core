@@ -3,8 +3,8 @@ require "language/node"
 class Nativefier < Formula
   desc "Wrap web apps natively"
   homepage "https://github.com/nativefier/nativefier"
-  url "https://registry.npmjs.org/nativefier/-/nativefier-43.1.2.tgz"
-  sha256 "f8681c081f41a71f9c1a089e24f0f97151888a0f5e1783af1e013a1ec99ac5e8"
+  url "https://registry.npmjs.org/nativefier/-/nativefier-43.1.3.tgz"
+  sha256 "63757f0889c96a399db7bd3db4d9224d400fa78a0db9674be865d1c4188bff31"
   license "MIT"
 
   bottle do
