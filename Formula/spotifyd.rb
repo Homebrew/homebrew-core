@@ -20,26 +20,16 @@ class Spotifyd < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "dbus"
-
-  on_linux do
-    depends_on "alsa-lib"
-  end
+  depends_on "portaudio"
 
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
     system "cargo", "install", "--no-default-features",
-                               "--features=dbus_keyring,rodio_backend",
+                               "--features=dbus_keyring,portaudio_backend",
                                *std_cargo_args
   end
 
-  def caveats
-    <<~EOS
-      Configure spotifyd using these instructions:
-        https://github.com/Spotifyd/spotifyd#configuration-file
-    EOS
-  end
-
-  plist_options manual: "spotifyd --no-daemon"
+  plist_options manual: "spotifyd --no-daemon --backend portaudio"
 
   def plist
     <<~EOS
@@ -57,6 +47,8 @@ class Spotifyd < Formula
           <array>
               <string>#{opt_bin}/spotifyd</string>
               <string>--no-daemon</string>
+              <string>--backend</string>
+              <string>portaudio</string>
           </array>
         </dict>
       </plist>
@@ -64,7 +56,8 @@ class Spotifyd < Formula
   end
 
   test do
-    cmd = "#{bin}/spotifyd --username homebrew_fake_user_for_testing --password homebrew --no-daemon --backend rodio"
+    cmd = "#{bin}/spotifyd --username homebrew_fake_user_for_testing \
+      --password homebrew --no-daemon --backend portaudio"
     assert_match "Authentication failed", shell_output(cmd, 101)
   end
 end
