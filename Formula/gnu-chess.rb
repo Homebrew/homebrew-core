@@ -4,7 +4,7 @@ class GnuChess < Formula
   url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.8.tar.gz"
   mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.8.tar.gz"
   sha256 "d50446cda8012240321da39cddbb4df4d08458a8d538a4738882814139583847"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :stable
