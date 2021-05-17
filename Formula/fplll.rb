@@ -3,7 +3,7 @@ class Fplll < Formula
   homepage "https://github.com/fplll/fplll"
   url "https://github.com/fplll/fplll/releases/download/5.4.1/fplll-5.4.1.tar.gz"
   sha256 "7bd887957173aa592091772c1c36f6aa606b3b2ace0d14e2c26c7463dcf2deb7"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 arm64_big_sur: "377b5606bb5c319ad73824afcc907f946a1c7c60ddb5a0e181d257fcafc5c5ce"
