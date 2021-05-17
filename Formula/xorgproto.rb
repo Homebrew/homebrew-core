@@ -1,8 +1,8 @@
 class Xorgproto < Formula
   desc "X.Org: Protocol Headers"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.4.tar.bz2"
-  sha256 "0f5157030162844b398e7ce69b8bb967c2edb8064b0a9c9bb5517eb621459fbf"
+  url "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2021.4.99.1.tar.bz2"
+  sha256 "0bce7d4fe800dcb5581cc59a99946c12e6e0be292636544221ec73e96f1a28ed"
   license "MIT"
 
   bottle do
