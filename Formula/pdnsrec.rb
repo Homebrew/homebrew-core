@@ -22,8 +22,24 @@ class Pdnsrec < Formula
   depends_on "lua"
   depends_on "openssl@1.1"
 
+  on_macos do
+    depends_on "llvm" => :build if MacOS.version <= :mojave
+  end
+
+  fails_with :clang do
+    build 1100
+    cause <<-EOS
+      Undefined symbols for architecture x86_64:
+        "MOADNSParser::init(bool, std::__1::basic_string_view<char, std::__1::char_traits<char> > const&)"
+    EOS
+  end
+
   def install
     ENV.cxx11
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    on_macos do
+      ENV.llvm_clang if MacOS.version <= :mojave
+    end
 
     args = %W[
       --prefix=#{prefix}
