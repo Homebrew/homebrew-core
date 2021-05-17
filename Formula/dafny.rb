@@ -19,7 +19,7 @@ class Dafny < Formula
   depends_on "gradle" => :build
   depends_on "nuget" => :build
   depends_on "dotnet"
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   # Use the following along with the z3 build below, as long as dafny
   # cannot build with latest z3 (https://github.com/dafny-lang/dafny/issues/810)
