@@ -7,6 +7,7 @@ class Mavsdk < Formula
       tag:      "v0.40.0",
       revision: "b0514e3fe84b035005e0ad40655f24914e5df57a"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -36,7 +37,8 @@ class Mavsdk < Formula
 
   uses_from_macos "zlib"
 
-  # These resources are needed to install protoc_gen_mavsdk, which we use to regenerate protobuf headers.
+  # To update the resources, use homebrew-pypi-poet on the PyPI package `protoc-gen-mav-sdk`.
+  # These resources are needed to install protoc-gen-mavsdk, which we use to regenerate protobuf headers.
   # This is needed when brewed protobuf is newer than upstream's vendored protobuf.
   resource "Jinja2" do
     url "https://files.pythonhosted.org/packages/7a/0c/23cbcf515b5394e9f59a3e6629f26e1142b92d474ee0725a26aa5a3bcf76/Jinja2-3.0.0.tar.gz"
@@ -48,12 +50,6 @@ class Mavsdk < Formula
     sha256 "4fae0677f712ee090721d8b17f412f1cbceefbf0dc180fe91bab3232f38b4527"
   end
 
-  # Upstream only provides a wheel. This is needed only for the build.
-  resource "protoc_gen_mavsdk" do
-    url "https://files.pythonhosted.org/packages/da/91/96d4bde10cf9512250290880373fec0e1e068a9cafae96e69e90f45b2616/protoc_gen_mavsdk-1.0.1-py3-none-any.whl"
-    sha256 "5ccdfadea69e2da95567a8aa1925bdb2d34697def2ce1d5835b596c97abcc1ac"
-  end
-
   def install
     # Fix generator script to use brewed deps
     generator = "tools/generate_from_protos.sh"
@@ -62,30 +58,24 @@ class Mavsdk < Formula
       s.gsub!(/^(protoc_grpc_binary)=.*/, "\\1=#{Formula["grpc"].opt_bin}/grpc_cpp_plugin")
     end
 
-    # Install protoc_gen_mavsdk deps
+    # Install protoc-gen-mavsdk deps
     venv_dir = buildpath/"bootstrap"
     venv = virtualenv_create(venv_dir, "python3")
     %w[Jinja2 MarkupSafe].each do |r|
       venv.pip_install resource(r)
     end
 
-    # We want to install protoc_gen_mavsdk into the same venv as the other resources,
-    # so let's emulate the environment created when a venv is activated.
+    # Install protoc-gen-mavsdk
+    venv.pip_install "proto/pb_plugins"
+
+    # Run generator script in an emulated virtual env.
     with_env(
       VIRTUAL_ENV: venv_dir,
       PYTHONPATH:  Formula["six"].opt_prefix/Language::Python.site_packages("python3"),
       PATH:        "#{venv_dir}/bin:#{ENV["PATH"]}",
     ) do
-      buildpath.install resource("protoc_gen_mavsdk")
-      system "python", "-m", "pip", "install", "-v",
-             "--no-deps",
-             "--no-index",
-             Dir[buildpath/"protoc_gen_mavsdk-*.whl"].first
       system generator
     end
-
-    # Keep git tree clean. This is used to generate version information.
-    system "git", "restore", buildpath
 
     # Source build adapted from
     # https://mavsdk.mavlink.io/develop/en/contributing/build.html
