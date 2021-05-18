@@ -26,6 +26,10 @@ class Pdnsrec < Formula
     depends_on "llvm" => :build if MacOS.version <= :mojave
   end
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   fails_with :clang do
     build 1100
     cause <<-EOS
@@ -33,6 +37,8 @@ class Pdnsrec < Formula
         "MOADNSParser::init(bool, std::__1::basic_string_view<char, std::__1::char_traits<char> > const&)"
     EOS
   end
+
+  fails_with gcc: "5"
 
   def install
     ENV.cxx11
