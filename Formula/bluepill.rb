@@ -7,9 +7,13 @@ class Bluepill < Formula
   license "BSD-2-Clause"
   head "https://github.com/linkedin/bluepill.git"
 
+  # Typically the preceding `v` is optional in livecheck regexes but we need it
+  # to be required here to omit older versions that break version comparison
+  # (e.g., 9.0.0). Note: We don't use the `GithubLatest` strategy here because
+  # the "latest" version is sometimes incorrect.
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
