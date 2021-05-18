@@ -18,28 +18,27 @@ class Qscintilla2 < Formula
   end
 
   depends_on "pyqt-builder" => :build
+  depends_on "sip"          => :build
 
   # TODO: use qt when octave can migrate to qt6
   depends_on "pyqt@5"
   depends_on "python@3.9"
   depends_on "qt@5"
-  depends_on "sip"
 
   def install
     args = []
     spec = ""
 
     on_macos do
-      # TODO: when qt 6.1 is released, modify the spec
+      # TODO: when using qt 6, modify the spec
       spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
       spec << "-arm64" if Hardware::CPU.arm?
       args = %W[-config release -spec #{spec}]
     end
 
     pyqt = Formula["pyqt@5"]
-    python = Formula["python@3.9"]
     qt = Formula["qt@5"]
-    site_packages = Language::Python.site_packages(python)
+    site_packages = Language::Python.site_packages("python3")
 
     cd "src" do
       inreplace "qscintilla.pro" do |s|
