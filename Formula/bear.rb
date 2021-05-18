@@ -19,7 +19,6 @@ class Bear < Formula
   depends_on "pkg-config" => :build
   depends_on "fmt"
   depends_on "grpc"
-  depends_on macos: :catalina
   depends_on "nlohmann-json"
   depends_on "python@3.9"
   depends_on "spdlog"
@@ -27,13 +26,29 @@ class Bear < Formula
 
   uses_from_macos "llvm" => :test
 
+  on_macos do
+    depends_on "llvm" if MacOS.version <= :mojave
+  end
+
   on_linux do
     depends_on "gcc"
   end
 
   fails_with gcc: "5" # needs C++17
 
+  fails_with :clang do
+    build 1100
+    cause <<-EOS
+      Undefined symbols for architecture x86_64:
+        "std::__1::__fs::filesystem::__current_path(std::__1::error_code*)"
+    EOS
+  end
+
   def install
+    on_macos do
+      ENV.llvm_clang if MacOS.version <= :mojave
+    end
+
     args = std_cmake_args + %w[
       -DENABLE_UNIT_TESTS=OFF
       -DENABLE_FUNC_TESTS=OFF
