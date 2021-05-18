@@ -28,7 +28,6 @@ class Mavsdk < Formula
   depends_on "curl"
   depends_on "grpc"
   depends_on "jsoncpp"
-  depends_on macos: :catalina # Mojave libc++ is too old
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "re2"
@@ -36,7 +35,19 @@ class Mavsdk < Formula
 
   uses_from_macos "zlib"
 
-  # To update the resources, use homebrew-pypi-poet on the PyPI package `protoc-gen-mav-sdk`.
+  on_macos do
+    depends_on "llvm" if MacOS.version <= :mojave
+  end
+
+  fails_with :clang do
+    build 1100
+    cause <<-EOS
+      Undefined symbols for architecture x86_64:
+        "std::__1::__fs::filesystem::__status(std::__1::__fs::filesystem::path const&, std::__1::error_code*)"
+    EOS
+  end
+
+  # To update the resources, use homebrew-pypi-poet on the PyPI package `protoc-gen-mavsdk`.
   # These resources are needed to install protoc-gen-mavsdk, which we use to regenerate protobuf headers.
   # This is needed when brewed protobuf is newer than upstream's vendored protobuf.
   resource "Jinja2" do
@@ -49,12 +60,16 @@ class Mavsdk < Formula
     sha256 "4fae0677f712ee090721d8b17f412f1cbceefbf0dc180fe91bab3232f38b4527"
   end
 
+  # Fix generate_from_protos.sh to use brewed deps
+  # https://github.com/mavlink/MAVSDK/pull/1438
+  patch do
+    url "https://github.com/mavlink/MAVSDK/commit/09b6c09ffcddde395f9b186c6766f417e2e265b3.patch?full_index=1"
+    sha256 "773720629fc75be9477aca395ceb83094f96f19422924802ccd5df7c28edc932"
+  end
+
   def install
-    # Fix generator script to use brewed deps
-    generator = "tools/generate_from_protos.sh"
-    inreplace generator do |s|
-      s.gsub!(/^(protoc_binary)=.*/, "\\1=#{Formula["protobuf"].opt_bin}/protoc")
-      s.gsub!(/^(protoc_grpc_binary)=.*/, "\\1=#{Formula["grpc"].opt_bin}/grpc_cpp_plugin")
+    on_macos do
+      ENV.llvm_clang if MacOS.version <= :mojave
     end
 
     # Install protoc-gen-mavsdk deps
@@ -73,7 +88,7 @@ class Mavsdk < Formula
       PYTHONPATH:  Formula["six"].opt_prefix/Language::Python.site_packages("python3"),
       PATH:        "#{venv_dir}/bin:#{ENV["PATH"]}",
     ) do
-      system generator
+      system "tools/generate_from_protos.sh"
     end
 
     # Source build adapted from
@@ -91,6 +106,9 @@ class Mavsdk < Formula
   end
 
   test do
+    # Force use of Clang on Mojave
+    on_macos { ENV.clang }
+
     (testpath/"test.cpp").write <<~EOS
       #include <mavsdk/mavsdk.h>
       #include <mavsdk/plugins/info/info.h>
@@ -103,10 +121,8 @@ class Mavsdk < Formula
       }
     EOS
     system ENV.cxx, "-std=c++17", testpath/"test.cpp", "-o", "test",
-                  "-I#{include}/mavsdk",
-                  "-L#{lib}",
-                  "-lmavsdk",
-                  "-lmavsdk_info"
+                    "-I#{include}/mavsdk", "-L#{lib}",
+                    "-lmavsdk", "-lmavsdk_info"
     system "./test"
 
     assert_equal "Usage: #{bin}/mavsdk_server [-h | --help]",
