@@ -18,6 +18,8 @@ class Rogue < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "7a7a380bb29967b8e795aa2407e8f205752b93952082491e20fff84394819294"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     # Fix main.c:241:11: error: incomplete definition of type 'struct _win_st'
     ENV.append "CPPFLAGS", "-DNCURSES_OPAQUE=0"
@@ -31,6 +33,12 @@ class Rogue < Formula
       # Take out weird man install script and DIY below
       s.gsub! "-if test -d $(man6dir) ; then $(INSTALL) -m 0644 rogue.6 $(DESTDIR)$(man6dir)/$(PROGRAM).6 ; fi", ""
       s.gsub! "-if test ! -d $(man6dir) ; then $(INSTALL) -m 0644 rogue.6 $(DESTDIR)$(mandir)/$(PROGRAM).6 ; fi", ""
+    end
+
+    on_linux do
+      inreplace "mdport.c", "#ifdef NCURSES_VERSION",
+        "#ifdef NCURSES_VERSION\nTERMTYPE *tp = (TERMTYPE *) (cur_term);"
+      inreplace "mdport.c", "cur_term->type.Strings", "tp->Strings"
     end
 
     system "make", "install"
