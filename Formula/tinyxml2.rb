@@ -1,8 +1,8 @@
 class Tinyxml2 < Formula
   desc "Improved tinyxml (in memory efficiency and size)"
   homepage "http://grinninglizard.com/tinyxml2"
-  url "https://github.com/leethomason/tinyxml2/archive/8.0.0.tar.gz"
-  sha256 "6ce574fbb46751842d23089485ae73d3db12c1b6639cda7721bf3a7ee862012c"
+  url "https://github.com/leethomason/tinyxml2/archive/8.1.0.tar.gz"
+  sha256 "23c95af3b981cf9a56c7f669505832c93427cb684811bcb6c9311bd18fa9bc30"
   license "Zlib"
   head "https://github.com/leethomason/tinyxml2.git"
 
@@ -17,7 +17,7 @@ class Tinyxml2 < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-Dtinyxml2_SHARED_LIBS=ON"
     system "make", "install"
   end
 
