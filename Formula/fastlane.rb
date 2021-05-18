@@ -27,14 +27,11 @@ class Fastlane < Formula
     system "gem", "build", "fastlane.gemspec"
     system "gem", "install", "fastlane-#{version}.gem", "--no-document"
 
-    (bin/"fastlane").write <<~EOS
-      #!/bin/bash
-      export PATH="#{Formula["ruby@2.7"].opt_bin}:#{libexec}/bin:$PATH"
-      export FASTLANE_INSTALLED_VIA_HOMEBREW="true"
-      GEM_HOME="#{libexec}" GEM_PATH="#{libexec}" \\
-        exec "#{libexec}/bin/fastlane" "$@"
-    EOS
-    chmod "+x", bin/"fastlane"
+    (bin/"fastlane").write_env_script libexec/"bin/fastlane",
+      PATH:                            "#{Formula["ruby@2.7"].opt_bin}:#{libexec}/bin:$PATH",
+      FASTLANE_INSTALLED_VIA_HOMEBREW: "true",
+      GEM_HOME:                        libexec.to_s,
+      GEM_PATH:                        libexec.to_s
   end
 
   test do
