@@ -1,8 +1,8 @@
 class CloudformationGuard < Formula
   desc "Checks CloudFormation templates for compliance using a declarative syntax"
   homepage "https://github.com/aws-cloudformation/cloudformation-guard"
-  url "https://github.com/aws-cloudformation/cloudformation-guard/archive/1.0.0.tar.gz"
-  sha256 "1d4c057a9c076f0311409603291dadad0063159a8bed6b5576accec2dc3a4e7b"
+  url "https://github.com/aws-cloudformation/cloudformation-guard/archive/2.0.1.tar.gz"
+  sha256 "a3c8f02724bfddca54ea02ffd456f409839da7c9896f9631ed505890ce289ebc"
   license "Apache-2.0"
 
   bottle do
@@ -16,9 +16,11 @@ class CloudformationGuard < Formula
   depends_on "rust" => :build
 
   def install
-    cd "cfn-guard" do
+    cd "guard" do
       system "cargo", "install", *std_cargo_args
     end
+    doc.install "docs"
+    doc.install "guard-examples"
   end
 
   test do
@@ -36,8 +38,11 @@ class CloudformationGuard < Formula
     EOS
 
     (testpath/"test-ruleset").write <<~EOS
-      AWS::EC2::Volume Size == 99
+      rule migrated_rules {
+        let aws_ec2_volume = Resources.*[ Type == "AWS::EC2::Volume" ]
+        %aws_ec2_volume.Properties.Size == 99
+      }
     EOS
-    system bin/"cfn-guard", "check", "-r", "test-ruleset", "-t", "test-template.yml"
+    system bin/"cfn-guard", "validate", "-r", "test-ruleset", "-d", "test-template.yml"
   end
 end
