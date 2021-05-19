@@ -19,9 +19,9 @@ class MysqlClient < Formula
   keg_only "it conflicts with mysql (which contains client libraries)"
 
   depends_on "cmake" => :build
+  depends_on "libevent"
   # GCC is not supported either, so exclude for El Capitan.
   depends_on macos: :sierra if DevelopmentTools.clang_build_version < 900
-  depends_on "libevent"
   depends_on "openssl@1.1"
   depends_on "zstd"
 
