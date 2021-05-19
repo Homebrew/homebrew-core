@@ -32,7 +32,7 @@ class Bnfc < Formula
       system "make", "text", "man", "SPHINXBUILD=#{Formula["sphinx-doc"].bin/"sphinx-build"}"
       cd "_build" do
         doc.install "text" => "manual"
-        man1.install "man/bnfc.1" => "bnfc.1"
+        man1.install "man/1/bnfc.1" => "bnfc.1"
       end
     end
     doc.install %w[README.md examples]
