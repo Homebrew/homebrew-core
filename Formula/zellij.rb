@@ -17,16 +17,16 @@ class Zellij < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    bash_output = Utils.safe_popen_read(bin/"zellij", "generate-completion", "bash")
+    bash_output = Utils.safe_popen_read(bin/"zellij", "setup", "--generate-completion", "bash")
     (bash_completion/"zellij").write bash_output
-    zsh_output = Utils.safe_popen_read(bin/"zellij", "generate-completion", "zsh")
+    zsh_output = Utils.safe_popen_read(bin/"zellij", "setup", "--generate-completion", "zsh")
     (zsh_completion/"_zellij").write zsh_output
-    fish_output = Utils.safe_popen_read(bin/"zellij", "generate-completion", "fish")
+    fish_output = Utils.safe_popen_read(bin/"zellij", "setup", "--generate-completion", "fish")
     (fish_completion/"zellij.fish").write fish_output
   end
 
   test do
-    assert_match(/keybinds:.*/, shell_output("#{bin}/zellij setup --dump-config", 1))
+    assert_match(/keybinds:.*/, shell_output("#{bin}/zellij setup --dump-config"))
     assert_match("zellij #{version}", shell_output("#{bin}/zellij --version"))
   end
 end
