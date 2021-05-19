@@ -40,6 +40,13 @@ class SwiProlog < Formula
     end
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
+
+    on_linux do
+      inreplace "libexec/lib/swipl/bin/x86_64-linux/swipl-ld",
+        HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
+      inreplace "libexec/lib/swipl/lib/x86_64-linux/libswipl.so.#{version}",
+        HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
+    end
   end
 
   test do
