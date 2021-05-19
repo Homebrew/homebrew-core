@@ -18,10 +18,13 @@ class Mysql < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "libevent"
   depends_on "openssl@1.1"
   depends_on "protobuf"
+  depends_on "zstd"
 
   uses_from_macos "libedit"
+  uses_from_macos "zlib"
 
   conflicts_with "mariadb", "percona-server",
     because: "mysql, mariadb, and percona install the same binaries"
@@ -47,6 +50,9 @@ class Mysql < Formula
       -DWITH_EDITLINE=system
       -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
       -DWITH_PROTOBUF=system
+      -DWITH_LIBEVENT=system
+      -DWITH_ZLIB=system
+      -DWITH_ZSTD=system
       -DWITH_UNIT_TESTS=OFF
       -DENABLED_LOCAL_INFILE=1
       -DWITH_INNODB_MEMCACHED=ON
