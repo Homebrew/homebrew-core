@@ -6,6 +6,11 @@ class Rmw < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/theimpossibleastronaut/rmw.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "383d2b2a02e8fcfd416e4b2ba106049bef27bdb3fc3f37f8fcaeea62b827b2f4"
     sha256 cellar: :any, big_sur:       "0f7135823daa0e0da7f172b24a173b31f39f9f44224fb0b1d623cdc9ef9a2077"
