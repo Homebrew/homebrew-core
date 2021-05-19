@@ -2,8 +2,8 @@ class Heksa < Formula
   desc "CLI hex dumper with colors"
   homepage "https://github.com/raspi/heksa"
   url "https://github.com/raspi/heksa.git",
-      tag:      "v1.13.0",
-      revision: "4342bec6160ca58e90890e87f276044e7aca3831"
+      tag:      "v1.14.0",
+      revision: "045ea335825556c856b2f4dee606ae91c61afe7d"
   license "Apache-2.0"
   head "https://github.com/raspi/heksa.git"
 
