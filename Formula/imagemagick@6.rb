@@ -4,8 +4,8 @@ class ImagemagickAT6 < Formula
   # Please always use a mirror as the primary URL as the
   # ImageMagick site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://www.imagemagick.org/download/releases/ImageMagick-6.9.12-12.tar.xz"
-  sha256 "e6a4d18a875d1ad5981fd157ab2219f1b44e85c009e39ab4cf494acd9af3dba3"
+  url "https://www.imagemagick.org/download/releases/ImageMagick-6.9.12-13.tar.xz"
+  sha256 "a72cb13e79a0878a6fd07f877a61e683c29b646d4fd3ca9ff1ddc042cae846c6"
   license "ImageMagick"
   head "https://github.com/imagemagick/imagemagick6.git"
 
