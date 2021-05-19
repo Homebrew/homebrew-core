@@ -14,11 +14,12 @@ class Proper < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a80e754b0bb2ce17d223034734cd1aa473532ba743cf45cbff89fa154af18220"
   end
 
+  depends_on "rebar3" => :build
   depends_on "erlang"
 
   def install
     system "make"
-    prefix.install Dir["ebin", "include"]
+    prefix.install Dir["_build/default/lib/proper/ebin", "include"]
   end
 
   test do
