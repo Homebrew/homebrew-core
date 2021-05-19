@@ -4,8 +4,8 @@ class Copilot < Formula
   desc "CLI tool for Amazon ECS and AWS Fargate"
   homepage "https://github.com/aws/copilot-cli/wiki"
   url "https://github.com/aws/copilot-cli.git",
-      tag:      "v1.6.0",
-      revision: "48cf6adee52dc37ab5c04fcfdfdaa1b38155caef"
+      tag:      "v1.7.0",
+      revision: "35958604cb68d0d7ccfd1dd085c5e485caf7cad5"
   license "Apache-2.0"
   head "https://github.com/aws/copilot-cli.git"
 
