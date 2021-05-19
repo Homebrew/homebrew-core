@@ -18,14 +18,30 @@ class Envoy < Formula
   depends_on "go" => :build
   depends_on "libtool" => :build
   depends_on "ninja" => :build
-  depends_on macos: :catalina
+
+  on_macos do
+    depends_on "gcc" if DevelopmentTools.clang_build_version <= 1100
+  end
+
+  fails_with :clang do
+    build 1100
+    cause "error: no viable overloaded operator[] for type '::google::protobuf::Map<std::string, std::string>'"
+  end
 
   def install
-    args = %w[
+    on_macos do
+      if DevelopmentTools.clang_build_version <= 1100
+        gcc = Formula["gcc"]
+        ENV["CC"] = gcc.opt_bin/"gcc-#{gcc.any_installed_version.major}"
+        ENV["CXX"] = gcc.opt_bin/"g++-#{gcc.any_installed_version.major}"
+      end
+    end
+
+    args = %W[
       --curses=no
       --show_task_finish
       --verbose_failures
-      --action_env=PATH=/usr/local/bin:/opt/local/bin:/usr/bin:/bin
+      --action_env=PATH=#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin
       --test_output=all
     ]
     system Formula["bazelisk"].opt_bin/"bazelisk", "build", *args, "//source/exe:envoy-static"
