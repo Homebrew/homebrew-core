@@ -3,8 +3,8 @@ require "language/node"
 class MermaidCli < Formula
   desc "Command-line interface (CLI) for mermaid"
   homepage "https://github.com/mermaid-js/mermaid-cli"
-  url "https://registry.npmjs.org/@mermaid-js/mermaid-cli/-/mermaid-cli-8.9.3-1.tgz"
-  sha256 "7ab5ec6cc7eb3dab4d993fded334ee8c4266328c7f4b57bda64b0e6d6799ddd5"
+  url "https://registry.npmjs.org/@mermaid-js/mermaid-cli/-/mermaid-cli-8.10.1.tgz"
+  sha256 "01a3fc212dabcba498942f9e2520f24b26758151a0f9b3ab82c1c1fe85ad3150"
   license "MIT"
 
   bottle do
