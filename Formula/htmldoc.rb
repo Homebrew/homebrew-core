@@ -14,6 +14,7 @@ class Htmldoc < Formula
     sha256 mojave:        "b80236d31f3d87fbeba9908617f9868b8c0f998de5f72184684e60f7fe1ccef6"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "libpng"
 
