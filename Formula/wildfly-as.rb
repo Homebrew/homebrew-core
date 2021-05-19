@@ -10,6 +10,8 @@ class WildflyAs < Formula
     regex(/href=.*?wildfly[._-]v?(\d+(?:\.\d+)+)\.Final\.t/i)
   end
 
+  bottle :unneeded
+
   depends_on "openjdk"
 
   def install
