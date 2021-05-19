@@ -12,16 +12,11 @@ class Carrot2 < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "dd82165536db4f4a723d1789f376dca7c1a617fc1ee402818e991ff8734c39d5"
   end
 
-  depends_on "gradle" => :build
   depends_on "openjdk"
 
   def install
-    # Make possible to build the formula with the latest available in Homebrew gradle
-    inreplace "gradle/validation/check-environment.gradle",
-      /expectedGradleVersion = '[^']+'/,
-      "expectedGradleVersion = '#{Formula["gradle"].version}'"
-
-    system "gradle", "assemble", "--no-daemon"
+    # Remove `./gradlew` and use Homebrew gradle when carrot2 supports Gradle 7+
+    system "./gradlew", "assemble", "--no-daemon"
 
     cd "distribution/build/dist" do
       inreplace "dcs/conf/logging/appender-file.xml", "${dcs:home}/logs", var/"log/carrot2"
