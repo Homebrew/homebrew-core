@@ -14,18 +14,7 @@ class Bitrise < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-
-    # Install bitrise
-    bitrise_go_path = buildpath/"src/github.com/bitrise-io/bitrise"
-    bitrise_go_path.install Dir["*"]
-
-    cd bitrise_go_path do
-      prefix.install_metafiles
-
-      system "go", "build", "-o", bin/"bitrise"
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
