@@ -20,16 +20,6 @@ class ElasticsearchAT6 < Formula
   end
 
   def install
-    if build.head?
-      # Build the package from source
-      system "gradle", "clean", ":distribution:tar:assemble"
-      # Extract the package to the tar directory
-      mkdir "tar"
-      cd "tar"
-      system "tar", "--strip-components=1", "-xf",
-        Dir["../distribution/tar/build/distributions/elasticsearch-*.tar.gz"].first
-    end
-
     # Remove Windows files
     rm_f Dir["bin/*.bat"]
     rm_f Dir["bin/*.exe"]
