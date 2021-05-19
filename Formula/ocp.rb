@@ -1,8 +1,8 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-0.2.2.tar.xz"
-  sha256 "afd07a6ae2af4733eb06e516cb607276ee084d1d30aa1cf0c3fd6e62f1d3a144"
+  url "https://stian.cubic.org/ocp/ocp-0.2.90.tar.xz"
+  sha256 "e5bb775648c4708c821cb8313932a8fef7dcf1b5035208e56e57779984d60911"
   license "GPL-2.0-or-later"
   head "https://github.com/mywave82/opencubicplayer.git"
 
@@ -21,29 +21,50 @@ class Ocp < Formula
   depends_on "pkg-config" => :build
   depends_on "xa" => :build
   depends_on "flac"
+  depends_on "freetype"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
 
+  if MacOS.version < :catalina
+    depends_on "sdl"
+  else
+    depends_on "sdl2"
+  end
+
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  resource "unifont" do
+    url "https://ftp.gnu.org/gnu/unifont/unifont-13.0.06/unifont-13.0.06.tar.gz"
+    sha256 "68def7a46df44241c7bf62de7ce0444e8ee9782f159c4b7553da9cfdc00be925"
+  end
 
   def install
     ENV.deparallelize
 
+    # Required for SDL2
+    resource("unifont").stage do
+      cd "font/precompiled" do
+        share.install "unifont-13.0.06.ttf" => "unifont.ttf"
+        share.install "unifont_csur-13.0.06.ttf" => "unifont_csur.ttf"
+        share.install "unifont_upper-13.0.06.ttf" => "unifont_upper.ttf"
+      end
+    end
+
     args = %W[
       --prefix=#{prefix}
       --without-x11
-      --without-sdl
-      --without-sdl2
       --without-desktop_file_install
+      --with-unifontdir=#{share}
     ]
 
-    # Workaround for bad compiler version check: https://github.com/mywave82/opencubicplayer/issues/30
-    inreplace "configure",
-              "2.95.[2-9]|2.95.[2-9][-].*|3.[0-9]|3.[0-9].[0-9]|3.[0-9]|3.[0-9].[0-9]-*|4.*|5.*|6.*|7*|8*|9*|10*",
-              "[1-9]*"
+    args << if MacOS.version < :catalina
+      "--without-sdl2"
+    else
+      "--without-sdl"
+    end
 
     system "./configure", *args
     system "make"
