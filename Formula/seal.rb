@@ -19,8 +19,8 @@ class Seal < Formula
   uses_from_macos "zlib"
 
   resource "hexl" do
-    url "https://github.com/intel/hexl/archive/tags/v1.0.1.tar.gz"
-    sha256 "435bc6727a5d54e0b1fca0e2d21ac0fdf5bd8623fbd9015637d01ece931cc602"
+    url "https://github.com/intel/hexl/archive/tags/v1.1.0.tar.gz"
+    sha256 "81965ced20e86b3138fc94dc0c0e41d526c942d654704e3cebc7086171ce497d"
   end
 
   def install
