@@ -13,7 +13,8 @@ class Ship < Formula
   end
 
   depends_on "go" => :build
-  depends_on "node" => :build
+  # Switch to `node` when ship updates dependency node-sass>=6.0.0
+  depends_on "node@14" => :build
   depends_on "yarn" => :build
 
   def install
