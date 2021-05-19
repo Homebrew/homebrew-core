@@ -4,30 +4,19 @@ class Gradle < Formula
   url "https://services.gradle.org/distributions/gradle-7.0.2-all.zip"
   sha256 "13bf8d3cf8eeeb5770d19741a59bde9bd966dd78d17f1bbad787a05ef19d1c2d"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url "https://services.gradle.org/distributions/"
     regex(/href=.*?gradle[._-]v?(\d+(?:\.\d+)+)-all\.(?:[tz])/i)
   end
 
-  bottle :unneeded
-
-  # gradle currently does not support Java 16
-  if Hardware::CPU.arm?
-    depends_on "openjdk@11"
-  else
-    depends_on "openjdk"
-  end
+  depends_on "openjdk"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin docs lib src]
-    env = if Hardware::CPU.arm?
-      Language::Java.overridable_java_home_env("11")
-    else
-      Language::Java.overridable_java_home_env
-    end
-    (bin/"gradle").write_env_script libexec/"bin/gradle", env
+    (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env
   end
 
   test do
