@@ -33,7 +33,7 @@ class Asdf < Formula
 
   test do
     output = shell_output("#{bin}/asdf plugin-list 2>&1", 1)
-    assert_match "Oohes nooes ~! No plugins installed", output
+    assert_match "No plugins installed", output
     assert_match "Update command disabled.", shell_output("#{bin}/asdf update", 42)
   end
 end
