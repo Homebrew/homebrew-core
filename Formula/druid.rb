@@ -84,6 +84,8 @@ class Druid < Formula
       assert_match "version", output
     ensure
       system bin/"druid-broker.sh", "stop"
+      # force zookeeper stop since it is sometimes still alive after druid-broker.sh finishes
+      system Formula["zookeeper"].opt_bin/"zkServer", "stop"
       Process.wait pid
     end
   end
