@@ -1,8 +1,8 @@
 class Seal < Formula
   desc "Easy-to-use homomorphic encryption library"
   homepage "https://github.com/microsoft/SEAL"
-  url "https://github.com/microsoft/SEAL/archive/v3.6.4.tar.gz"
-  sha256 "a0fb90455de357e8647522fcd417d5060ca767bfec2372cda09107852e438205"
+  url "https://github.com/microsoft/SEAL/archive/v3.6.5.tar.gz"
+  sha256 "77bfcb4a8b785206c419cdf7aff8c200250691518eeddc958f874d1f567b2872"
   license "MIT"
 
   bottle do
@@ -88,7 +88,7 @@ class Seal < Formula
       target_link_libraries(sealexamples SEAL::seal_shared)
     EOS
 
-    system "cmake", "examples"
+    system "cmake", "examples", "-DHEXL_DIR=#{lib}/cmake"
     system "make"
     # test examples 1-5 and exit
     input = "1\n2\n3\n4\n5\n0\n"
