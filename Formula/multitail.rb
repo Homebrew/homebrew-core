@@ -14,6 +14,8 @@ class Multitail < Formula
     sha256 cellar: :any, high_sierra:   "57526de43035b0d5d2520d54b252d29c20a4efb146c019ac044ad5067be5351a"
   end
 
+  deprecate! date: "2021-05-20", because: "Upstream website has disappeared"
+
   depends_on "pkg-config" => :build
   depends_on "ncurses"
 
