@@ -1,8 +1,8 @@
 class Pcapplusplus < Formula
   desc "C++ network sniffing, packet parsing and crafting framework"
   homepage "https://pcapplusplus.github.io"
-  url "https://github.com/seladb/PcapPlusPlus/archive/v20.08.tar.gz"
-  sha256 "b35150a8517d3e5d5d8d1514126e4e8e4688f0941916af4256214c013c06ff50"
+  url "https://github.com/seladb/PcapPlusPlus/archive/v21.05.tar.gz"
+  sha256 "f7bc2caea72544f42e3547c8acf65fca07ddd4cd45f7be2f5132dd1826ea27bb"
   license "Unlicense"
 
   bottle do
@@ -15,18 +15,6 @@ class Pcapplusplus < Formula
 
   def install
     system "./configure-mac_os_x.sh", "--install-dir", prefix
-
-    # Fix OS/X build issue in v20.08 which inclues <in.h> whether it exists or not,
-    # can be removed next release:
-    inreplace %w[Examples/DnsSpoofing/main.cpp
-                 Examples/HttpAnalyzer/main.cpp
-                 Examples/IPDefragUtil/main.cpp
-                 Examples/IPFragUtil/main.cpp
-                 Examples/IcmpFileTransfer/Common.cpp
-                 Examples/IcmpFileTransfer/IcmpFileTransfer-catcher.cpp
-                 Examples/IcmpFileTransfer/IcmpFileTransfer-pitcher.cpp
-                 Examples/PcapSplitter/IPPortSplitters.h
-                 Examples/SSLAnalyzer/main.cpp], "#include <in.h>", "#include <netinet/in.h>"
 
     # library requires to run 'make all' and
     # 'make install' in two separate commands.
