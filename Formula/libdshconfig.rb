@@ -5,6 +5,11 @@ class Libdshconfig < Formula
   sha256 "6f372686c5d8d721820995d2b60d2fda33fdb17cdddee9fce34795e7e98c5384"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.netfort.gr.jp/~dancer/software/downloads/"
+    regex(/href=.*?libdshconfig[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "7c8ce322c8a67038c0d2eea98640665aad9a4f17dced7d796ac55e271936918a"
