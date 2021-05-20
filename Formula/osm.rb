@@ -17,7 +17,7 @@ class Osm < Formula
 
   def install
     ENV["VERSION"] = "v"+version
-    ENV["BUILD_DATE"] = "$$(date +%Y-%m-%d-%H:%M)"
+    ENV["BUILD_DATE"] = Time.now.utc.strftime("%Y-%m-%d-%H:%M")
     system "make", "build-osm"
     bin.install "bin/osm"
   end
