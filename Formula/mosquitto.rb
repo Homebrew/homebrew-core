@@ -35,7 +35,7 @@ class Mosquitto < Formula
   def install
     system "cmake", ".", *std_cmake_args,
                     "-DWITH_WEBSOCKETS=ON",
-                    "-DCMAKE_INSTALL_RPATH=#{lib}"
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "make", "install"
   end
 
