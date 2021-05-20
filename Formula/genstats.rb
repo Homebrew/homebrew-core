@@ -15,6 +15,8 @@ class Genstats < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "91737ec825ed346716fddcedc4e075b195f214dfb22586a33d46f7ec5ea3a17e"
   end
 
+  deprecate! date: "2021-05-20", because: "Upstream website has disappeared"
+
   def install
     # Tried to make this a patch.  Applying the patch hunk would
     # fail, even though I used "git diff | pbcopy". Tried messing
