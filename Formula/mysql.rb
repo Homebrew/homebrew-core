@@ -4,6 +4,7 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.25.tar.gz"
   sha256 "93c5f57cbd69573a8d9798725edec52e92830f70c398a1afaaea2227db331728"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
+  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -18,7 +19,10 @@ class Mysql < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "icu4c"
   depends_on "libevent"
+  depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "protobuf"
   depends_on "zstd"
@@ -46,11 +50,14 @@ class Mysql < Formula
       -DINSTALL_PLUGINDIR=lib/plugin
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
+      -DWITH_SYSTEM_LIBS=ON
       -DWITH_BOOST=boost
       -DWITH_EDITLINE=system
-      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
-      -DWITH_PROTOBUF=system
+      -DWITH_ICU=system
       -DWITH_LIBEVENT=system
+      -DWITH_LZ4=system
+      -DWITH_PROTOBUF=system
+      -DWITH_SSL=system
       -DWITH_ZLIB=system
       -DWITH_ZSTD=system
       -DWITH_UNIT_TESTS=OFF
@@ -67,6 +74,7 @@ class Mysql < Formula
     end
 
     # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
+    # Reported upstream at https://bugs.mysql.com/bug.php?id=103227
     rm_rf lib/"libssl.dylib"
     rm_rf lib/"libssl.1.1.dylib"
     rm_rf lib/"libcrypto.1.1.dylib"
