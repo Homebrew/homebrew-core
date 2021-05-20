@@ -23,7 +23,7 @@ class Pdnsrec < Formula
   depends_on "openssl@1.1"
 
   on_macos do
-    depends_on "llvm" => :build if MacOS.version <= :mojave
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
   on_linux do
@@ -44,7 +44,7 @@ class Pdnsrec < Formula
     ENV.cxx11
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     on_macos do
-      ENV.llvm_clang if MacOS.version <= :mojave
+      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
     end
 
     args = %W[
