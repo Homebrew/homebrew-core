@@ -1,7 +1,9 @@
 class Openvdb < Formula
   desc "Sparse volume processing toolkit"
   homepage "https://www.openvdb.org/"
-  # Check whether this can be switched to `openexr` and `imath` at version bump
+  # Check whether this can be switched to `openexr`, `imath`, and `tbb` at version bump
+  # https://github.com/AcademySoftwareFoundation/openvdb/issues/1034
+  # https://github.com/AcademySoftwareFoundation/openvdb/issues/932
   url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v8.0.1.tar.gz"
   sha256 "a6845da7c604d2c72e4141c898930ac8a2375521e535f696c2cd92bebbe43c4f"
   license "MPL-2.0"
