@@ -16,6 +16,8 @@ class Httping < Formula
     sha256 cellar: :any, sierra:        "9d0b6368e6fa4e2b4fb618c7ba3893a5b3b47471b366305026ee75b44d6ce91e"
   end
 
+  deprecate! date: "2021-05-20", because: "Upstream website has disappeared"
+
   depends_on "gettext"
   depends_on "openssl@1.1"
 
