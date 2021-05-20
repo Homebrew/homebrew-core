@@ -3,8 +3,8 @@ class Ykdl < Formula
 
   desc "Video downloader that focus on China mainland video sites"
   homepage "https://github.com/zhangn1985/ykdl"
-  url "https://github.com/zhangn1985/ykdl/archive/v1.7.0.tar.gz"
-  sha256 "44e9d946c0e311a5469319a200af5bc5a6e461efa0f117f6a9608f820f22ecb8"
+  url "https://github.com/zhangn1985/ykdl/archive/v1.7.1.tar.gz"
+  sha256 "15b4b977b9fca6f9b646d360206987618dc851a78cc49b29fda60b49f9a4d8a1"
   license "MIT"
 
   bottle do
