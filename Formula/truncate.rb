@@ -17,6 +17,8 @@ class Truncate < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "a9d1c87d6cfec42674f0e7db25b786ba100a04c8c0da318fd5f6299a7418843f"
   end
 
+  deprecate! date: "2021-05-20", because: :repo_removed
+
   conflicts_with "coreutils", because: "both install `truncate` binaries"
   conflicts_with "uutils-coreutils", because: "both install `truncate` binaries"
 
