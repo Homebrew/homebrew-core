@@ -4,7 +4,8 @@ class Parallelstl < Formula
   url "https://github.com/intel/parallelstl/archive/20201111.tar.gz"
   sha256 "c5ca7e0a618df8d28087be2e23ae38713ab1bcff0107562b935fbb5ba072fbf6"
   # Apache License Version 2.0 with LLVM exceptions
-  license "Apache-2.0"
+  license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "944b95b0b94389d981d71def6dd11e676c911c578b680b08c5a176937877a5ac"
@@ -15,7 +16,7 @@ class Parallelstl < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "tbb"
+  depends_on "tbb@2020"
 
   def install
     mkdir "build" do
@@ -26,6 +27,8 @@ class Parallelstl < Formula
   end
 
   test do
+    tbb = Formula["tbb@2020"]
+
     (testpath/"test.cpp").write <<~EOS
       #include <pstl/execution>
       #include <pstl/algorithm>
@@ -40,7 +43,7 @@ class Parallelstl < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "-L#{Formula["tbb"].opt_lib}", "-ltbb",
+    system ENV.cxx, "-std=c++11", "-L#{tbb.opt_lib}", "-ltbb", "-I#{tbb.opt_include}",
                     "-I#{prefix}/stdlib", "-I#{include}", "test.cpp", "-o", "test"
     system "./test"
   end
