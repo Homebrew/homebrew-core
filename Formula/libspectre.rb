@@ -4,7 +4,7 @@ class Libspectre < Formula
   url "https://libspectre.freedesktop.org/releases/libspectre-0.2.9.tar.gz"
   sha256 "49ae9c52b5af81b405455c19fe24089d701761da2c45d22164a99576ceedfbed"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://libspectre.freedesktop.org/releases/"
