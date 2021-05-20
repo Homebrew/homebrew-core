@@ -38,7 +38,7 @@ class Mavsdk < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" if MacOS.version <= :mojave
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
   end
 
   fails_with :clang do
@@ -71,7 +71,7 @@ class Mavsdk < Formula
 
   def install
     on_macos do
-      ENV.llvm_clang if MacOS.version <= :mojave
+      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
     end
 
     # Install protoc-gen-mavsdk deps
