@@ -30,7 +30,7 @@ class Pcapplusplus < Formula
         const std::vector<pcpp::PcapLiveDevice*>& devList =
           pcpp::PcapLiveDeviceList::getInstance().getPcapLiveDevicesList();
         if (devList.size() > 0) {
-          if (devList[0]->getName() == NULL)
+          if (devList[0]->getName() == "")
             return 1;
           return 0;
         }
