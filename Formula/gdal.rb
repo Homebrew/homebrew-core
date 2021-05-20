@@ -4,6 +4,7 @@ class Gdal < Formula
   url "https://download.osgeo.org/gdal/3.3.0/gdal-3.3.0.tar.xz"
   sha256 "190c8f4b56afc767f43836b2a5cd53cc52ee7fdc25eb78c6079c5a244e28efa7"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -45,7 +46,7 @@ class Gdal < Formula
   depends_on "openjpeg"
   depends_on "pcre"
   depends_on "poppler"
-  depends_on "proj"
+  depends_on "proj@7"
   depends_on "python@3.9"
   depends_on "sqlite" # To ensure compatibility with SpatiaLite
   depends_on "unixodbc" # macOS version is not complete enough
@@ -91,7 +92,7 @@ class Gdal < Formula
       "--with-png=#{Formula["libpng"].opt_prefix}",
       "--with-spatialite=#{Formula["libspatialite"].opt_prefix}",
       "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
-      "--with-proj=#{Formula["proj"].opt_prefix}",
+      "--with-proj=#{Formula["proj@7"].opt_prefix}",
       "--with-zstd=#{Formula["zstd"].opt_prefix}",
       "--with-liblzma=yes",
       "--with-cfitsio=#{Formula["cfitsio"].opt_prefix}",
