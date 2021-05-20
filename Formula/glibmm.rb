@@ -1,8 +1,8 @@
 class Glibmm < Formula
   desc "C++ interface to glib"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/glibmm/2.68/glibmm-2.68.0.tar.xz"
-  sha256 "c1f38573191dceed85a05600888cf4cf4695941f339715bd67d51c2416f4f375"
+  url "https://download.gnome.org/sources/glibmm/2.68/glibmm-2.68.1.tar.xz"
+  sha256 "6664e27c9a9cca81c29e35687f49f2e0d173a2fc9e98c3428311f707db532f8c"
   license "LGPL-2.1-or-later"
 
   bottle do
