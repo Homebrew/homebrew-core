@@ -27,7 +27,7 @@ class MongoCxxDriver < Formula
                         "-DBUILD_VERSION=#{version}",
                         "-DLIBBSON_DIR=#{mongo_c_prefix}",
                         "-DLIBMONGOC_DIR=#{mongo_c_prefix}",
-                        "-DCMAKE_INSTALL_RPATH=#{lib}"
+                        "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "make"
     system "make", "install"
   end
