@@ -6,9 +6,17 @@ class Opencascade < Formula
   sha256 "3a43d8b50df78ade72786fa63bc8808deac6380189333663e7b4ef8558ae7739"
   license "LGPL-2.1-only"
 
+  # The first-party download page (https://dev.opencascade.org/release)
+  # references version 7.5.0 and hasn't been updated for later maintenance
+  # releases (e.g., 7.5.1, 7.5.2), so we check the Git tags instead. Release
+  # information is posted at https://dev.opencascade.org/forums/occt-releases
+  # but the text varies enough that we can't reliably match versions from it.
   livecheck do
-    url "https://dev.opencascade.org/release"
-    regex(/href=.*?opencascade[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://git.dev.opencascade.org/repos/occt.git"
+    regex(/^v?(\d+(?:[._]\d+)+(?:p\d+)?)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.gsub("_", ".") }.compact
+    end
   end
 
   bottle do
