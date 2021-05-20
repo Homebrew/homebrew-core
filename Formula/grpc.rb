@@ -35,7 +35,7 @@ class Grpc < Formula
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "llvm" => :build if MacOS.version <= :mojave
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1100
   end
 
   fails_with :clang do
@@ -46,7 +46,7 @@ class Grpc < Formula
   def install
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     on_macos do
-      ENV.llvm_clang if MacOS.version <= :mojave
+      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
     end
     mkdir "cmake/build" do
       args = %W[
