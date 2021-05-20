@@ -3,6 +3,7 @@ class MysqlClient < Formula
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
   url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.25.tar.gz"
   sha256 "93c5f57cbd69573a8d9798725edec52e92830f70c398a1afaaea2227db331728"
+  license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
     url "https://github.com/mysql/mysql-server.git"
