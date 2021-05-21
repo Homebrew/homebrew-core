@@ -4,7 +4,7 @@ class Mapserver < Formula
   url "https://download.osgeo.org/mapserver/mapserver-7.6.3.tar.gz"
   sha256 "0e0db478dabddee50498cd89669340f160a0437fed5a9f823022b19e2f150365"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://mapserver.org/download.html"
@@ -29,7 +29,7 @@ class Mapserver < Formula
   depends_on "giflib"
   depends_on "libpng"
   depends_on "postgresql"
-  depends_on "proj"
+  depends_on "proj@7"
   depends_on "protobuf-c"
   depends_on "python@3.9"
 
