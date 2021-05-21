@@ -1,8 +1,8 @@
 class Mlt < Formula
   desc "Author, manage, and run multitrack audio/video compositions"
   homepage "https://www.mltframework.org/"
-  url "https://github.com/mltframework/mlt/releases/download/v6.26.1/mlt-6.26.1.tar.gz"
-  sha256 "8a484bbbf51f33e25312757531f3ad2ce20607149d20fcfcb40a3c1e60b20b4e"
+  url "https://github.com/mltframework/mlt/releases/download/v7.0.1/mlt-7.0.1.tar.gz"
+  sha256 "b68c88d9ad91889838186188cce938feee8b63e3755a3b6fb45dc9c2ae0c5ecd"
   license "LGPL-2.1-only"
   head "https://github.com/mltframework/mlt.git"
 
@@ -12,6 +12,7 @@ class Mlt < Formula
     sha256 mojave:   "6b9b14a33bc1022aed3c57c4553bb106c0de72190ec261cba41a3ef7b62be459"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "fftw"
@@ -21,25 +22,29 @@ class Mlt < Formula
   depends_on "libexif"
   depends_on "libsamplerate"
   depends_on "libvorbis"
-  depends_on "opencv@3"
+  depends_on "opencv"
   depends_on "pango"
   depends_on "qt@5"
   depends_on "sdl2"
   depends_on "sox"
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--disable-jackrack",
-            "--disable-swfdec",
-            "--disable-sdl",
-            "--enable-motion_est",
-            "--enable-gpl",
-            "--enable-gpl3",
-            "--enable-opencv"]
+    args = std_cmake_args + %W[
+      -DCMAKE_INSTALL_RPATH=#{opt_lib}
+      -DGPL=ON
+      -DGPL3=ON
+      -DMOD_OPENCV=ON
+      -DMOD_JACKRACK=OFF
+      -DMOD_SDL1=OFF
+    ]
 
-    system "./configure", *args
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    # Workaround as current `mlt` doesn't provide an unversioned mlt++.pc file.
+    # Remove if mlt readds or all dependents (e.g. `synfig`) support versioned .pc
+    (lib/"pkgconfig").install_symlink "mlt++-7.pc" => "mlt++.pc"
   end
 
   test do
