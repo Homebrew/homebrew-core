@@ -43,8 +43,6 @@ class Bazel < Formula
 
       bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
       zsh_completion.install "scripts/zsh_completion/_bazel"
-
-      prefix.install_metafiles
     end
   end
 
