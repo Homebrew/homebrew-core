@@ -4,6 +4,7 @@ class Latexindent < Formula
   url "https://github.com/cmhughes/latexindent.pl/archive/V3.9.3.tar.gz"
   sha256 "20e5db2581bfc43b9f99917a4aac2e5fcfe881c8ca4330e5138408978a3fbf71"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7265b0c8541a8e7af218b26d0fddf2b9a1623a0b478fd9d41729d69a6daa8037"
