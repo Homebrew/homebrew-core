@@ -39,7 +39,7 @@ class Bazelisk < Formula
     # This is an older than current version, so that we can test that bazelisk
     # will target an explicit version we specify. This version shouldn't need to
     # be bumped.
-    ENV["USE_BAZEL_VERSION"] = "0.28.0"
-    assert_match "Build label: 0.28.0", shell_output("#{bin}/bazelisk version")
+    ENV["USE_BAZEL_VERSION"] = "4.1.0"
+    assert_match "Build label: 4.1.0", shell_output("#{bin}/bazelisk version")
   end
 end
