@@ -3,8 +3,8 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://github.com/ansible/ansible-lint/"
-  url "https://files.pythonhosted.org/packages/56/ac/726a486e7a6118c701dfdd6d04a7b745c24fbb79da07b16a453cc737aaad/ansible-lint-5.0.8.tar.gz"
-  sha256 "b67b9628407ae9bc15bb0bb71f79871bdf593fefe6b0684c0cc44be5fc90803f"
+  url "https://files.pythonhosted.org/packages/9b/fb/21e8e4d099f64f91cea6ba8728278308cd65e924e3aef5194295dd53066a/ansible-lint-5.0.10.tar.gz"
+  sha256 "e7dab22d7826ac623c7c2566e17ee5420633afc844a3a0c0db3adaaa72bc6a82"
   license "MIT"
 
   bottle do
@@ -60,8 +60,8 @@ class AnsibleLint < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/12/3c/e4e2b356057f3ce557fcda8a2b9bf114b06f71ade88dac8a0883ae800e28/rich-10.1.0.tar.gz"
-    sha256 "8f05431091601888c50341697cfc421dc398ce37b12bca0237388ef9c7e2c9e9"
+    url "https://files.pythonhosted.org/packages/1e/cc/ced09195051b5384e9a82d6de7fc1a3917017fe214d30d41a9935cea465d/rich-10.2.2.tar.gz"
+    sha256 "17b3f486c38e79cc219d8848974b277ef532a82d12b3ad6eb37bb8c6f22ab5fc"
   end
 
   resource "ruamel.yaml" do
@@ -84,14 +84,9 @@ class AnsibleLint < Formula
     sha256 "5bd16ef5d3b985647fe28dfa6f695d343aa26479a04e8792b9d3c8f49e361ae1"
   end
 
-  resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/aa/55/62e2d4934c282a60b4243a950c9dbfa01ae7cac0e8d6c0b5315b87432c81/typing_extensions-3.10.0.0.tar.gz"
-    sha256 "50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"
-  end
-
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/24/b9/51525e9aea08d04e602a53812afe3890e78d204e55464f8d0ea906587e54/wcmatch-8.1.2.tar.gz"
-    sha256 "efda751de15201b395b6d6e64e6ae3b6b03dc502a64c3c908aa5cad14c27eee5"
+    url "https://files.pythonhosted.org/packages/47/63/88168196fdcd77e012944bb83ab589a9d53336b8094703a64567f0bf218c/wcmatch-8.2.tar.gz"
+    sha256 "4d54ddb506c90b5a5bba3a96a1cfb0bb07127909e19046a71d689ddfb18c3617"
   end
 
   def install
