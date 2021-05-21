@@ -4,7 +4,7 @@ class Mhonarc < Formula
   url "https://www.mhonarc.org/release/MHonArc/tar/MHonArc-2.6.19.tar.bz2"
   sha256 "08912eae8323997b940b94817c83149d2ee3ed11d44f29b3ef4ed2a39de7f480"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7100a27e7d9ea90abbee2f1d5eba2ef8a26c8fb38febb8fbf49f6da3a8bd785f"
