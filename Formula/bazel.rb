@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/4.0.0/bazel-4.0.0-dist.zip"
-  sha256 "d350f80e70654932db252db380d2ec0144a00e86f8d9f2b4c799ffdb48e9cdd1"
+  url "https://github.com/bazelbuild/bazel/releases/download/4.1.0/bazel-4.1.0-dist.zip"
+  sha256 "f377d755c96a50f6bd2f423562598d822f43356783330a0b780ad442864d6eeb"
   license "Apache-2.0"
 
   bottle do
@@ -16,14 +16,6 @@ class Bazel < Formula
   depends_on "openjdk@11"
 
   uses_from_macos "zip"
-
-  # Fix compilation on macOS 10.14 Mojave
-  # Remove in the next release
-  # See https://github.com/bazelbuild/bazel/pull/12882
-  patch do
-    url "https://github.com/bazelbuild/bazel/commit/092b4c10fa2a2552dc3a98544d637c02ea2865c7.patch?full_index=1"
-    sha256 "273cf54bf4c0fe42fe8da959dc76fc1a3e768f3f3d4108bfd280728db022a308"
-  end
 
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
