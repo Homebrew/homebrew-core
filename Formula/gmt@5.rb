@@ -5,8 +5,8 @@ class GmtAT5 < Formula
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-5.4.5-src.tar.gz"
   mirror "https://fossies.org/linux/misc/GMT/gmt-5.4.5-src.tar.gz"
   sha256 "225629c7869e204d5f9f1a384c4ada43e243f83e1ed28bdca4f7c2896bf39ef6"
-  license "LGPL-3.0"
-  revision 11
+  license "LGPL-3.0-or-later"
+  revision 12
 
   bottle do
     sha256 big_sur:  "f42e900ff75b79457fb7c6794ee97ecc660f8b06e906cdcda4e14850c53f4c7b"
@@ -15,6 +15,8 @@ class GmtAT5 < Formula
   end
 
   keg_only :versioned_formula
+
+  deprecate! date: "2021-05-22", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "fftw"
@@ -41,6 +43,11 @@ class GmtAT5 < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/cdbf0de198531528db908a5d827f3d2e5b9618cc/gmt%405/netcdf-4.7.4.patch"
     sha256 "d894869830f6e57b0670dc31df6b5c684e079418f8bf5c0cd0f7014b65c1981f"
   end
+
+  # This patch is required because of incorrect usage of the `date` command in
+  # cmake/modules/ConfigCMake.cmake; this arises because SOURCE_DATE_EPOCH is
+  # set for builds.
+  patch :DATA
 
   def install
     (buildpath/"gshhg").install resource("gshhg")
@@ -82,3 +89,18 @@ class GmtAT5 < Formula
     assert_predicate testpath/"test.ps", :exist?
   end
 end
+
+__END__
+diff --git a/cmake/modules/ConfigCMake.cmake b/cmake/modules/ConfigCMake.cmake
+index 3579171..cbe75d6 100644
+--- a/cmake/modules/ConfigCMake.cmake
++++ b/cmake/modules/ConfigCMake.cmake
+@@ -79,7 +79,7 @@ set (GMT_LONG_VERSION_STRING "${GMT_PACKAGE_NAME} - ${GMT_PACKAGE_DESCRIPTION_SU
+ # Get date
+ if(DEFINED ENV{SOURCE_DATE_EPOCH})
+ 	EXECUTE_PROCESS(
+-	  COMMAND "date" "-u" "-d" "@$ENV{SOURCE_DATE_EPOCH}" "+%Y;%m;%d;%B"
++	  COMMAND "date" "-u" "-j" "-f" "%s" "@$ENV{SOURCE_DATE_EPOCH}" "+%Y;%m;%d;%B"
+ 	  OUTPUT_VARIABLE _today
+ 	  OUTPUT_STRIP_TRAILING_WHITESPACE)
+ else(DEFINED ENV{SOURCE_DATE_EPOCH})
