@@ -4,6 +4,7 @@ class Ptex < Formula
   url "https://github.com/wdas/ptex.git",
       tag:      "v2.4.0",
       revision: "5fa7d84337f072f8a842403c63e6a6a44b66e898"
+  license "BSD-3-Clause"
 
   livecheck do
     url :stable
