@@ -5,6 +5,7 @@ class ArduinoCli < Formula
      tag:      "0.18.3",
      revision: "d710b642ef7992a678053e9d68996c02f5863721"
   license "GPL-3.0-only"
+  revision 1
   head "https://github.com/arduino/arduino-cli.git"
 
   livecheck do
@@ -25,7 +26,8 @@ class ArduinoCli < Formula
     ldflags = %W[
       -s -w
       -X github.com/arduino/arduino-cli/version.versionString=#{version}
-      -X github.com/arduino/arduino-cli/version.commit=#{Utils.git_head}
+      -X github.com/arduino/arduino-cli/version.commit=#{Utils.git_head(length: 8)}
+      -X github.com/arduino/arduino-cli/version.date=#{Time.now.utc.iso8601}
     ]
     system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
 
@@ -44,6 +46,10 @@ class ArduinoCli < Formula
     assert File.directory?("#{testpath}/test_sketch")
 
     version_output = shell_output("#{bin}/arduino-cli version 2>&1")
-    assert_match "arduino-cli alpha Version: #{version}", version_output
+    assert_match("arduino-cli alpha Version: #{version}", version_output)
+    assert_match("Commit:", version_output)
+    assert_match(/[a-f0-9]{8}/, version_output)
+    assert_match("Date: ", version_output)
+    assert_match(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/, version_output)
   end
 end
