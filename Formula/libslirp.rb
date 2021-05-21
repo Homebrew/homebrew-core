@@ -1,10 +1,9 @@
 class Libslirp < Formula
   desc "General purpose TCP-IP emulator"
   homepage "https://gitlab.freedesktop.org/slirp/libslirp"
-  url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.4.0/libslirp-v4.4.0.tar.gz"
-  sha256 "43513390c57bee8c23b31545bfcb765200fccf859062b1c8101e72befdabce2e"
+  url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.5.0/libslirp-v4.5.0.tar.gz"
+  sha256 "94e1dea99b58259c25e3b1af1f6119419c0b4bcf1dc3d6566776c7aa2d7692f3"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "cec97ae53546763da4c377038f43c5a72d2ed14288a0c13441a57ae419bd0ac2"
@@ -17,13 +16,6 @@ class Libslirp < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-
-  # Fix QEMU networking
-  # https://gitlab.freedesktop.org/slirp/libslirp/-/issues/35
-  patch do
-    url "https://gitlab.freedesktop.org/slirp/libslirp/-/commit/7271345efe182199acaeae602cb78a94a7c6dc9d.diff"
-    sha256 "240e5b8c3cc21729936ae8a79056a58b4024e2f9d0fbad3c76a4f9398f9dfe65"
-  end
 
   def install
     system "meson", "build", "-Ddefault_library=both", *std_meson_args
