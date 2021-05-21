@@ -2,11 +2,10 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.37.1",
-      revision: "8664c8334c05d322fbbdfb9e3b24601a23e9363c",
+      tag:      "v1.38.0",
+      revision: "54dc182082db941aa67c7c3f93ad858c99a16d7d",
       shallow:  false
   license "Apache-2.0"
-  revision 1
   head "https://github.com/grpc/grpc.git"
 
   livecheck do
@@ -68,21 +67,21 @@ class Grpc < Formula
       system "cmake", *args
       system "make", "install"
 
-      # grpc_cli does not build correctly with a non-/usr/local prefix.
-      # Reported upstream at https://github.com/grpc/grpc/issues/25176
-      # When removing the `unless` block, make sure to do the same for
-      # the test block.
-      unless Hardware::CPU.arm?
-        args = %W[
-          ../..
-          -DCMAKE_INSTALL_RPATH=#{rpath}
-          -DBUILD_SHARED_LIBS=ON
-          -DgRPC_BUILD_TESTS=ON
-        ] + std_cmake_args
-        system "cmake", *args
-        system "make", "grpc_cli"
-        bin.install "grpc_cli"
-        lib.install Dir[shared_library("libgrpc++_test_config", "*")]
+      args = %W[
+        ../..
+        -DCMAKE_INSTALL_RPATH=#{rpath}
+        -DBUILD_SHARED_LIBS=ON
+        -DgRPC_BUILD_TESTS=ON
+      ] + std_cmake_args
+      system "cmake", *args
+      system "make", "grpc_cli"
+      bin.install "grpc_cli"
+      lib.install Dir[shared_library("libgrpc++_test_config", "*")]
+
+      on_macos do
+        # These are installed manually, so need to be relocated manually as well
+        MachO::Tools.add_rpath(bin/"grpc_cli", rpath)
+        MachO::Tools.add_rpath(lib/shared_library("libgrpc++_test_config"), rpath)
       end
     end
   end
@@ -100,9 +99,8 @@ class Grpc < Formula
     pkg_config_flags = shell_output("pkg-config --cflags --libs libcares protobuf re2 grpc++").chomp.split
     system ENV.cc, "test.cpp", "-L#{Formula["abseil"].opt_lib}", *pkg_config_flags, "-o", "test"
     system "./test"
-    unless Hardware::CPU.arm?
-      output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
-      assert_match "Received an error when querying services endpoint.", output
-    end
+
+    output = shell_output("grpc_cli ls localhost:#{free_port} 2>&1", 1)
+    assert_match "Received an error when querying services endpoint.", output
   end
 end
