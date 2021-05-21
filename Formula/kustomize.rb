@@ -2,8 +2,8 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      tag:      "kustomize/v4.1.2",
-      revision: "a5914abad89e0b18129eaf1acc784f9fe7d21439"
+      tag:      "kustomize/v4.1.3",
+      revision: "0f614e92f72f1b938a9171b964d90b197ca8fb68"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kustomize.git"
 
