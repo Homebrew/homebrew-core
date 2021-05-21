@@ -55,11 +55,14 @@ class Opencascade < Formula
                     "-D3RDPARTY_TK_LIBRARY_DIR:PATH=#{tcltk.opt_lib}",
                     "-D3RDPARTY_TCL_LIBRARY:FILEPATH=#{tcltk.opt_lib}/libtcl#{tcltk.version.major_minor}.dylib",
                     "-D3RDPARTY_TK_LIBRARY:FILEPATH=#{tcltk.opt_lib}/libtk#{tcltk.version.major_minor}.dylib",
-                    "-DCMAKE_INSTALL_RPATH:FILEPATH=#{lib}",
+                    "-DCMAKE_INSTALL_RPATH:FILEPATH=#{rpath}",
                     *std_cmake_args
     system "make", "install"
 
     bin.env_script_all_files(libexec/"bin", CASROOT: prefix)
+
+    # Binaries moved into `libexec` expect the libraries in a relative location
+    libexec.install_symlink lib
 
     # Some apps expect resources in legacy ${CASROOT}/src directory
     prefix.install_symlink pkgshare/"resources" => "src"
