@@ -17,17 +17,19 @@ class Gdu < Formula
   conflicts_with "coreutils", because: "both install `gdu` binaries"
 
   def install
-    time = Time.new
+    ENV["TZ"] = "UTC"
+    time = Time.at(ENV["SOURCE_DATE_EPOCH"].to_i)
     user = Utils.safe_popen_read("id", "-u", "-n")
+    major = version.major
 
     ldflags = %W[
       -s -w
-      -X 'github.com/dundee/gdu/v4/build.Version=v#{version}'
-      -X 'github.com/dundee/gdu/v4/build.Time=#{time}'
-      -X 'github.com/dundee/gdu/v4/build.User=#{user}'
+      -X "github.com/dundee/gdu/v#{major}/build.Version=v#{version}"
+      -X "github.com/dundee/gdu/v#{major}/build.Time=#{time}"
+      -X "github.com/dundee/gdu/v#{major}/build.User=#{user}"
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "github.com/dundee/gdu/v4/cmd/gdu"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "github.com/dundee/gdu/v#{major}/cmd/gdu"
   end
 
   test do
