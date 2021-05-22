@@ -1,8 +1,8 @@
 class Autorestic < Formula
   desc "High level CLI utility for restic"
   homepage "https://autorestic.vercel.app/"
-  url "https://github.com/cupcakearmy/autorestic/archive/v1.0.9.tar.gz"
-  sha256 "4795e9797fb89361c8108ff8196b90690f85f6744947bd7863ebbe995a0440ca"
+  url "https://github.com/cupcakearmy/autorestic/archive/v1.1.1.tar.gz"
+  sha256 "f1bbc4b64cf5a2ee2e738500109867e3dc77a2190cf847d18ceffc7d2831053b"
   license "Apache-2.0"
   head "https://github.com/cupcakearmy/autorestic.git"
 
@@ -31,6 +31,7 @@ class Autorestic < Formula
     }
     File.open(testpath/".autorestic.yml", "w") { |file| file.write(config.to_yaml) }
     (testpath/"repo"/"test.txt").write("This is a testfile")
+    system "#{bin}/autorestic", "check"
     system "#{bin}/autorestic", "backup", "-a"
     system "#{bin}/autorestic", "restore", "-l", "foo", "--to", "restore"
     assert compare_file testpath/"repo"/"test.txt", testpath/"restore"/"test.txt"
