@@ -3,7 +3,7 @@ class Cmusfm < Formula
   homepage "https://github.com/Arkq/cmusfm"
   url "https://github.com/Arkq/cmusfm/archive/v0.4.0.tar.gz"
   sha256 "d72e04df69c1f3e95f1b7779f583a790660856fadb5cfd8a2717c085b1b12111"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "d37da57d5d175d116320c1a70e1afe16d847eb4b70b459bdbc9f547e7edee7af"
