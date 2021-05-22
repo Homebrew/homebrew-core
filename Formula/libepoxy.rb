@@ -1,8 +1,8 @@
 class Libepoxy < Formula
   desc "Library for handling OpenGL function pointer management"
   homepage "https://github.com/anholt/libepoxy"
-  url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.7.tar.xz"
-  sha256 "9479cc0146ffb395fdecf9bd2a5930834fd0bce490cbcc4681ffd716bb3a0763"
+  url "https://download.gnome.org/sources/libepoxy/1.5/libepoxy-1.5.8.tar.xz"
+  sha256 "cf05e4901778c434aef68bb7dc01bea2bce15440c0cecb777fb446f04db6fe0d"
   license "MIT"
 
   # We use a common regex because libepoxy doesn't use GNOME's "even-numbered
