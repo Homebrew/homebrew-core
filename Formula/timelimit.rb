@@ -1,8 +1,8 @@
 class Timelimit < Formula
   desc "Limit a process's absolute execution time"
   homepage "https://devel.ringlet.net/sysutils/timelimit/"
-  url "https://devel.ringlet.net/files/sys/timelimit/timelimit-1.9.0.tar.gz"
-  sha256 "34185bbfe807a912f352f4e2f634c9c3781810b376c4bba947a2381611e7d72c"
+  url "https://devel.ringlet.net/files/sys/timelimit/timelimit-1.9.2.tar.gz"
+  sha256 "320a72770288b2deeb9abbd343f9c27afcb6190bb128ad2a1e1ee2a03a796d45"
 
   livecheck do
     url :homepage
