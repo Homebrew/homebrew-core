@@ -1,9 +1,14 @@
 class Daemon < Formula
   desc "Turn other processes into daemons"
   homepage "http://libslack.org/daemon/"
-  url "http://libslack.org/daemon/download/daemon-0.6.4.tar.gz"
-  sha256 "c4b9ea4aa74d55ea618c34f1e02c080ddf368549037cb239ee60c83191035ca1"
-  license "GPL-2.0"
+  url "http://libslack.org/daemon/download/daemon-0.8.tar.gz"
+  sha256 "74f12e6d4b3c85632489bd08431d3d997bc17264bf57b7202384f2e809cff596"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?daemon[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a634d876fc4382b34bfd5f3b564a62a251e3eb3b6d07ab03a9c27f25617c44f5"
@@ -16,17 +21,8 @@ class Daemon < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "f48000af3631f28d47d01d3d89a1f03e7c4f7eac4a81ab7db9c38a1ce9ff66cd"
   end
 
-  # fixes for strlcpy/strlcat: https://trac.macports.org/ticket/42845
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/3323958/daemon/daemon-0.6.4-ignore-strlcpy-strlcat.patch"
-    sha256 "a56e16b0801a13045d388ce7e755b2b4e40288c3731ce0f92ea879d0871782c0"
-  end
-
   def install
-    # Parallel build failure reported to raf@raf.org 27th Feb 2016
-    ENV.deparallelize
-
-    system "./config"
+    system "./configure"
     system "make"
     system "make", "PREFIX=#{prefix}", "install"
   end
