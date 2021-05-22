@@ -1,8 +1,8 @@
 class Cairomm < Formula
   desc "Vector graphics library with cross-device output support"
   homepage "https://cairographics.org/cairomm/"
-  url "https://cairographics.org/releases/cairomm-1.16.0.tar.xz"
-  sha256 "7e881492c5f9f546688c31160deb742c166fc4c68b6b8eb9920c00a0f0f144f9"
+  url "https://cairographics.org/releases/cairomm-1.16.1.tar.xz"
+  sha256 "6f6060d8e98dd4b8acfee2295fddbdd38cf487c07c26aad8d1a83bb9bff4a2c6"
   license "LGPL-2.0-or-later"
 
   livecheck do
