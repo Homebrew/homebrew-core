@@ -8,8 +8,8 @@ class Openjdk < Formula
     sha256 "29df31b5eefb5a6c016f50b2518ca29e8e61e3cfc676ed403214e1f13a78efd5"
     version "15.0.2"
   else
-    url "https://hg.openjdk.java.net/jdk-updates/jdk15u/archive/jdk-15.0.2-ga.tar.bz2"
-    sha256 "d07b45b5b319e7034e8ebc41cd78c496e6ee8b1f6e08310dee303beaee8b4a3a"
+    url "https://github.com/Homebrew/homebrew-core/pull/72535"
+    sha256 "9c88cdd5f556e13c2e4f5ebb524d2c2a227ea733c6c1be7adb795744cd54df6c"
   end
   license :cannot_represent
 
