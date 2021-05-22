@@ -1,8 +1,8 @@
 class OpenZwave < Formula
   desc "Library that interfaces with selected Z-Wave PC controllers"
   homepage "http://www.openzwave.com"
-  url "http://old.openzwave.com/downloads/openzwave-1.6.1080.tar.gz"
-  sha256 "61c4b1857bb80c67b06f83bbeb956275184e30e12401984587dfe79070218d3c"
+  url "http://old.openzwave.com/downloads/openzwave-1.6.1914.tar.gz"
+  sha256 "c4e4eb643709eb73c30cc25cffc24e9e7b6d7c49bd97ee8986c309d168d9ad2f"
   license "LGPL-3.0"
 
   livecheck do
