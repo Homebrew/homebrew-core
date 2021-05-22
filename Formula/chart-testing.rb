@@ -2,8 +2,8 @@ class ChartTesting < Formula
   desc "Testing and linting Helm charts"
   homepage "https://github.com/helm/chart-testing"
   url "https://github.com/helm/chart-testing.git",
-      tag:      "v3.3.1",
-      revision: "71d0e1e82c5c8b66ce4d9704426dc13b7075829d"
+      tag:      "v3.4.0",
+      revision: "68a43ac09699ef9473266457e893a7ddd7ef6b5b"
   license "Apache-2.0"
   head "https://github.com/helm/chart-testing.git"
 
