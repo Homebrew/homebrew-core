@@ -1,8 +1,8 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.18.0/logrotate-3.18.0.tar.xz"
-  sha256 "841f81bf09d0014e4a2e11af166bb33fcd8429cc0c2d4a7d3d9ceb3858cfccc5"
+  url "https://github.com/logrotate/logrotate/releases/download/3.18.1/logrotate-3.18.1.tar.xz"
+  sha256 "14a924e4804b3974e85019a9f9352c2a69726702e6656155c48bcdeace68a5dc"
   license "GPL-2.0"
 
   bottle do
