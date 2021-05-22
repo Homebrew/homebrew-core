@@ -3,7 +3,7 @@ class OpenZwave < Formula
   homepage "http://www.openzwave.com"
   url "http://old.openzwave.com/downloads/openzwave-1.6.1914.tar.gz"
   sha256 "c4e4eb643709eb73c30cc25cffc24e9e7b6d7c49bd97ee8986c309d168d9ad2f"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
 
   livecheck do
     url "http://old.openzwave.com/downloads/"
