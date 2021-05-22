@@ -1,9 +1,9 @@
 class Freeipmi < Formula
   desc "In-band and out-of-band IPMI (v1.5/2.0) software"
   homepage "https://www.gnu.org/software/freeipmi/"
-  url "https://ftp.gnu.org/gnu/freeipmi/freeipmi-1.6.7.tar.gz"
-  mirror "https://ftpmirror.gnu.org/freeipmi/freeipmi-1.6.7.tar.gz"
-  sha256 "bb8519313933656c1e55e4f1ab3204748c26671d058e8aadd8e30a8053eadebf"
+  url "https://ftp.gnu.org/gnu/freeipmi/freeipmi-1.6.8.tar.gz"
+  mirror "https://ftpmirror.gnu.org/freeipmi/freeipmi-1.6.8.tar.gz"
+  sha256 "4aa46a269ecc1bbff9412451f17b5408f64395e7dc45b713edf5eb5362700a71"
   license "GPL-3.0-or-later"
 
   bottle do
