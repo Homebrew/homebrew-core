@@ -5,6 +5,7 @@ class ChartTesting < Formula
       tag:      "v3.4.0",
       revision: "68a43ac09699ef9473266457e893a7ddd7ef6b5b"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/helm/chart-testing.git"
 
   bottle do
@@ -18,6 +19,8 @@ class ChartTesting < Formula
   depends_on "yamllint" => :test
 
   def install
+    # Fix default search path for configuration files, needed for ARM
+    inreplace "pkg/config/config.go", "/usr/local/etc", etc
     ldflags = %W[
       -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.Version=#{version}
       -X github.com/helm/chart-testing/v#{version.major}/ct/cmd.GitCommit=#{Utils.git_head}
