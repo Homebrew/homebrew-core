@@ -1,9 +1,8 @@
 class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
-  url "https://github.com/ssh-vault/ssh-vault.git",
-      tag:      "0.12.6",
-      revision: "7296095220586d5dc46554444b2e23aba164066c"
+  url "https://github.com/ssh-vault/ssh-vault/archive/0.12.7.tar.gz"
+  sha256 "1fbe2036f4af167fe034371a7171577d732c52744b7093142cf5c836dfa5e2f2"
   license "BSD-3-Clause"
   head "https://github.com/ssh-vault/ssh-vault.git"
 
@@ -14,19 +13,11 @@ class SshVault < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "c6cf671474c67600ddac7bbcae909797c8ba26e16692533b5e82faa153ea9d77"
   end
 
-  depends_on "dep" => :build
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/ssh-vault/ssh-vault").install buildpath.children
-    cd "src/github.com/ssh-vault/ssh-vault" do
-      system "dep", "ensure", "-vendor-only"
-      ldflags = "-s -w -X main.version=#{version}"
-      system "go", "build", "-ldflags", ldflags, "-o", "#{bin}/ssh-vault", "cmd/ssh-vault/main.go"
-      prefix.install_metafiles
-    end
+    ldflags = "-s -w -X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "cmd/ssh-vault/main.go"
   end
 
   test do
