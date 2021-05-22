@@ -1,10 +1,9 @@
 class Mysqlxx < Formula
   desc "C++ wrapper for MySQL's C API"
   homepage "https://tangentsoft.com/mysqlpp/home"
-  url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.2.5.tar.gz"
-  sha256 "839cfbf71d50a04057970b8c31f4609901f5d3936eaa86dab3ede4905c4db7a8"
+  url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.3.0.tar.gz"
+  sha256 "449cbc46556cc2cc9f9d6736904169a8df6415f6960528ee658998f96ca0e7cf"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url :homepage
@@ -27,6 +26,11 @@ class Mysqlxx < Formula
                           "--with-field-limit=40",
                           "--with-mysql-lib=#{mysql.opt_lib}",
                           "--with-mysql-include=#{mysql.opt_include}/mysql"
+
+    # Delete "version" file incorrectly included as C++20 <version> header
+    # Remove when fixed upstream
+    rm "version"
+
     system "make", "install"
   end
 
