@@ -5,6 +5,11 @@ class OpenZwave < Formula
   sha256 "61c4b1857bb80c67b06f83bbeb956275184e30e12401984587dfe79070218d3c"
   license "LGPL-3.0"
 
+  livecheck do
+    url "http://old.openzwave.com/downloads/"
+    regex(/href=.*?openzwave[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "d7ac3272c8e97d579bd7cbf660d0831b282d426344d1c66d1d6273665972c5ac"
     sha256 big_sur:       "ca1c3e4e29bb19f377f169a015112818ebb69320ff76f05de671a857a28a4670"
