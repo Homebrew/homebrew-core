@@ -4,6 +4,7 @@ class GradleAT6 < Formula
   url "https://services.gradle.org/distributions/gradle-6.9-all.zip"
   sha256 "5d234488d2cac2ed556dc3c47096e189ad76a63cf304ebf124f756498922cf16"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "54e094483acd546ddd781b44442fd190e4cf68b4c9845a51dc6a76dd3a568d50"
@@ -15,21 +16,12 @@ class GradleAT6 < Formula
   keg_only :versioned_formula
 
   # gradle@6 does not support Java 16
-  if Hardware::CPU.arm?
-    depends_on "openjdk@11"
-  else
-    depends_on "openjdk"
-  end
+  depends_on "openjdk@11"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin docs lib src]
-    env = if Hardware::CPU.arm?
-      Language::Java.overridable_java_home_env("11")
-    else
-      Language::Java.overridable_java_home_env
-    end
-    (bin/"gradle").write_env_script libexec/"bin/gradle", env
+    (bin/"gradle").write_env_script libexec/"bin/gradle", Language::Java.overridable_java_home_env("11")
   end
 
   test do
