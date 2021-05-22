@@ -4,6 +4,7 @@ class Mkvtoolnix < Formula
   url "https://mkvtoolnix.download/sources/mkvtoolnix-57.0.0.tar.xz"
   sha256 "961d0487bd273ec45fb142284a5710c09da5625bbc6981e8838899d13d74fcc7"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://mkvtoolnix.download/sources/"
@@ -36,8 +37,10 @@ class Mkvtoolnix < Formula
   depends_on "libvorbis"
   # https://mkvtoolnix.download/downloads.html#macosx
   depends_on macos: :catalina # C++17
+  depends_on "nlohmann-json"
   depends_on "pcre2"
   depends_on "pugixml"
+  depends_on "utf8cpp"
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
@@ -58,6 +61,7 @@ class Mkvtoolnix < Formula
       extra_includes << "#{Formula[feature].opt_include};"
       extra_libs << "#{Formula[feature].opt_lib};"
     end
+    extra_includes << "#{Formula["utf8cpp"].opt_include}/utf8cpp;"
     extra_includes.chop!
     extra_libs.chop!
 
