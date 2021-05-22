@@ -1,10 +1,9 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.22/mpd-0.22.6.tar.xz"
-  sha256 "2be149a4895c3cb613477f8cf1193593e3d8a1d38a75ffa7d32da8c8316a4d5e"
+  url "https://www.musicpd.org/download/mpd/0.22/mpd-0.22.8.tar.xz"
+  sha256 "9617ed08c9ffafcf5f925819251f6b90df3f4f73cf2838c41033e1962104286d"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
