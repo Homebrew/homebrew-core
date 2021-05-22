@@ -34,13 +34,14 @@ class OpenZwave < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
+      #include <functional>
       #include <openzwave/Manager.h>
       int main()
       {
         return OpenZWave::Manager::getVersionAsString().empty();
       }
     EOS
-    system ENV.cxx, "test.cpp", "-I#{include}/openzwave",
+    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}/openzwave",
                     "-L#{lib}", "-lopenzwave", "-o", "test"
     system "./test"
   end
