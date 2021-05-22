@@ -11,8 +11,11 @@ class Nift < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "62b96189d61ca0c360aa7c00718f0995fde9d20ad81c5a700836083800093aef"
   end
 
+  depends_on "luajit-openresty"
+
   def install
-    system "make"
+    inreplace "Lua.h", "/usr/local/include", Formula["luajit-openresty"].opt_include
+    system "make", "BUNDLED=0", "LUAJIT_VERSION=2.1"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
