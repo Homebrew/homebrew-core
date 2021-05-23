@@ -7,7 +7,7 @@ class Ehco < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+){1,2})$/i)
   end
 
   bottle do
