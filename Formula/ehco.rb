@@ -5,6 +5,11 @@ class Ehco < Formula
   sha256 "326c468c3790ad01031e52ccb4efcfa5e331d2198fdb13137749c67e8eaacf38"
   license "GPL-3.0-only"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f5bb2716a01d4cede9dfdf1bdcf6f1170ac5ada0647cf55ac13d313e4af61489"
     sha256 cellar: :any_skip_relocation, big_sur:       "0735f491493dc56c2655dba4c1cdbe585860bd3e9cd934c00341cce9d836352a"
