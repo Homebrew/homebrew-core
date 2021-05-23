@@ -6,6 +6,11 @@ class CargoAudit < Formula
   license "Apache-2.0"
   head "https://github.com/RustSec/cargo-audit.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5135cd085b6e2a687ac7e64fa7c0c38dc75132f1aeb628cb096e67dc51e5cd20"
     sha256 cellar: :any, big_sur:       "4e45de8a4031f71511991181b941ce01e77c095020ddee580a2d9acc053ff958"
