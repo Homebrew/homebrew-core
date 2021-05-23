@@ -1,8 +1,8 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/1.2.27.tar.gz"
-  sha256 "7e061b98f66ed60070a3920351bfc991d132f28ed4c7e037b8e726f825261586"
+  url "https://github.com/pyenv/pyenv/archive/v2.0.0.tar.gz"
+  sha256 "7ed52cf43008c3dd45d8ebe4c407b87c8c8a7e4a26b57114c415bcc786a81045"
   license "MIT"
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git"
@@ -57,7 +57,9 @@ class Pyenv < Formula
     chmod "+x", foo_script
 
     # Test versions.
-    versions = shell_output("eval \"$(#{bin}/pyenv init -)\" && pyenv versions").split("\n")
+    versions = shell_output("eval \"$(#{bin}/pyenv init --path)\" " \
+                            "&& eval \"$(#{bin}/pyenv init -)\" " \
+                            "&& pyenv versions").split("\n")
     assert_equal 2, versions.length
     assert_match(/\* system/, versions[0])
     assert_equal("  1.2.3", versions[1])
@@ -65,6 +67,8 @@ class Pyenv < Formula
     # Test rehash.
     system "pyenv", "rehash"
     refute_match "Cellar", (pyenv_root/"shims/foo").read
-    assert_equal "hello", shell_output("eval \"$(#{bin}/pyenv init -)\" && PYENV_VERSION='1.2.3' foo").chomp
+    assert_equal "hello", shell_output("eval \"$(#{bin}/pyenv init --path)\" " \
+                                       "&& eval \"$(#{bin}/pyenv init -)\" " \
+                                       "&& PYENV_VERSION='1.2.3' foo").chomp
   end
 end
