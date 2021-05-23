@@ -43,6 +43,7 @@ class Ace < Formula
 
   test do
     cp_r "#{pkgshare}/examples/Log_Msg/.", testpath
+    MachO::Tools.change_install_name("test_callback", "@rpath/libACE.dylib", "#{opt_lib}/libACE.dylib")
     system "./test_callback"
   end
 end
