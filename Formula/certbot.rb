@@ -15,6 +15,7 @@ class Certbot < Formula
     sha256 cellar: :any, mojave:        "2addabd12a9f56852d2ce505b735edfa1d924dca45f422636769ed4630c26778"
   end
 
+  depends_on "rust" => :build
   depends_on "augeas"
   depends_on "dialog"
   depends_on "openssl@1.1"
