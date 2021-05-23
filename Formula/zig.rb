@@ -32,11 +32,21 @@ class Zig < Formula
     (testpath/"hello.zig").write <<~EOS
       const std = @import("std");
       pub fn main() !void {
-          var stdout_file: std.fs.File = std.io.getStdOut();
-          _ = try stdout_file.write("Hello, world!");
+          const stdout = std.io.getStdOut().writer();
+          try stdout.print("Hello, world!", .{});
       }
     EOS
     system "#{bin}/zig", "build-exe", "hello.zig"
+    assert_equal "Hello, world!", shell_output("./hello")
+
+    (testpath/"hello.c").write <<~EOS
+      #include <stdio.h>
+      int main() {
+        fprintf(stdout, "Hello, world!");
+        return 0;
+      }
+    EOS
+    system "#{bin}/zig", "cc", "hello.c", "-o", "hello"
     assert_equal "Hello, world!", shell_output("./hello")
   end
 end
