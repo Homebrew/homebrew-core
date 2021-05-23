@@ -14,9 +14,14 @@ class Keptn < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "auto"
+    ldflags = %W[
+      -s -w
+      -X main.Version=#{version}
+      -X main.KubeServerVersionConstraints=""
+    ].join(" ")
+
     cd buildpath/"cli" do
-      system "go", "build", *std_go_args, "-ldflags", "-s -w -X main.Version=#{version} -X main.KubeServerVersionConstraints=\"\""
+      system "go", "build", *std_go_args(ldflags: ldflags)
     end
   end
 
