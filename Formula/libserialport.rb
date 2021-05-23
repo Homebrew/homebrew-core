@@ -5,6 +5,11 @@ class Libserialport < Formula
   sha256 "4a2af9d9c3ff488e92fb75b4ba38b35bcf9b8a66df04773eba2a7bbf1fa7529d"
   license "LGPL-3.0"
 
+  livecheck do
+    url "https://sigrok.org/wiki/Downloads"
+    regex(/href=.*?libserialport[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "cd674d1a466be43b3783028ca9f794d97ee5ce9c90f080cbbdb7c0479094cb26"
     sha256 cellar: :any, big_sur:       "67613224a8f626829329285c5dc904fb25b6dfcbf17e24e35aaeb9fbf33b0f26"
