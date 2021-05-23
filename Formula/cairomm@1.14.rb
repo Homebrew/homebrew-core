@@ -7,7 +7,7 @@ class CairommAT114 < Formula
 
   livecheck do
     url "https://cairographics.org/releases/?C=M&O=D"
-    regex(/href=.*?cairomm[._-]v?(1\.14\.\d*[02468](?:\.\d+)*)\.t/i)
+    regex(/href=.*?cairomm[._-]v?(1\.14(?:\.\d+)+)\.t/i)
   end
 
   bottle do
