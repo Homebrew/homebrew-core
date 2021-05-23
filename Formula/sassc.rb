@@ -2,8 +2,8 @@ class Sassc < Formula
   desc "Wrapper around libsass that helps to create command-line apps"
   homepage "https://github.com/sass/sassc"
   url "https://github.com/sass/sassc.git",
-      tag:      "3.6.1",
-      revision: "46748216ba0b60545e814c07846ca10c9fefc5b6"
+      tag:      "3.6.2",
+      revision: "66f0ef37e7f0ad3a65d2f481eff09d09408f42d0"
   license "MIT"
   head "https://github.com/sass/sassc.git"
 
