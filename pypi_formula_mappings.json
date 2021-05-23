@@ -38,6 +38,17 @@
     "extra_packages": ["junit-xml-2"]
   },
   "diffoscope": "diffoscope[cmdline]",
+  "duplicity": {
+    "extra_packages": [
+      "azure-storage-blob", "b2sdk", "boto", "boto3", "boxsdk[jwt]",
+      "dropbox", "gdata-python3", "google-api-python-client",
+      "google-auth-oauthlib", "jottalib", "keyring", "megatools",
+      "paramiko", "pexpect", "psutil", "pydrive", "pyrax",
+      "python-swiftclient", "requests[security]", "requests-oauthlib",
+      "monotonic==1.5"
+    ],
+    "exclude_packages": ["six"]
+  },
   "dvc": {
     "extra_packages": [
         "gcsfs", "pydrive2", "boto3", "adlfs", "azure-identity", "knack",
