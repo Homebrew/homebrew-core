@@ -4,7 +4,6 @@ class Glslviewer < Formula
   url "https://github.com/patriciogonzalezvivo/glslViewer.git",
     tag:      "1.7.0",
     revision: "d698ddbff0dc119b506334494895b546ae9e4ae8"
-  sha256 "4a03e989dc81587061714ccc130268cc06ddaff256ea24b7492ca28dc855e8d6"
   license "BSD-3-Clause"
   head "https://github.com/patriciogonzalezvivo/glslViewer.git"
 
