@@ -1,8 +1,8 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://www.codenotary.io"
-  url "https://github.com/codenotary/immudb/archive/v0.9.2.tar.gz"
-  sha256 "9b50eb1d79e6d2f1f0aa0a11298d7f4a1b767a4c5e8717de9f96d49872d190db"
+  url "https://github.com/codenotary/immudb/archive/v1.0.0.tar.gz"
+  sha256 "2733520d2b60698199bbb8c9a5be26d7d2319615d7d4673b422e7ae6fd60bf42"
   license "Apache-2.0"
 
   livecheck do
@@ -25,16 +25,17 @@ class Immudb < Formula
   end
 
   test do
-    immudb_port = free_port
+    port = free_port
 
     fork do
-      exec bin/"immudb", "--auth=false", "-p", immudb_port.to_s
+      exec bin/"immudb", "--auth=true", "-p", port.to_s
     end
     sleep 3
 
-    system bin/"immuclient", "safeset", "hello", "world", "-p", immudb_port.to_s
-    assert_match "world", shell_output("#{bin}/immuclient safeget hello -p #{immudb_port}")
+    system bin/"immuclient", "login", "--tokenfile=./tkn", "--username=immudb", "--password=immudb", "-p", port.to_s
+    system bin/"immuclient", "--tokenfile=./tkn", "safeset", "hello", "world", "-p", port.to_s
+    assert_match "world", shell_output("#{bin}/immuclient --tokenfile=./tkn safeget hello -p #{port}")
 
-    assert_match "OK", shell_output("#{bin}/immuadmin status -p #{immudb_port}")
+    assert_match "OK", shell_output("#{bin}/immuadmin status -p #{port}")
   end
 end
