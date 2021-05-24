@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/source-build.git",
-      tag:      "v5.0.104-SDK",
-      revision: "269e323b5f2e2df4678c7763282c14fb1a530cfa"
+      tag:      "v5.0.203-SDK",
+      revision: "a8f12771179965da9f48646ded87068d379563b9"
   license "MIT"
 
   livecheck do
@@ -24,15 +24,15 @@ class Dotnet < Formula
   depends_on "icu4c"
   depends_on "openssl@1.1"
 
-  # libicu 68 deprecates its defined boolean constants for TRUE/FALSE
-  # https://github.com/dotnet/runtime/issues/47346
-  resource "runtime-libicu-68-patch" do
-    url "https://raw.githubusercontent.com/archlinux/svntogit-community/ac84e64334a020b62551896bf54a87c49baa2b8e/trunk/9999-runtime-libicu-68.patch"
-    sha256 "f3ce241390dd396ba641d842f43c89ead63c53f0db95776e2c9df1786bf7c296"
+  # Fix build failure due to atoll definition leak. Remove in v6 release.
+  # Patch ref: https://github.com/dotnet/runtime/pull/45352
+  resource "runtime-atoll-patch" do
+    url "https://github.com/dotnet/runtime/commit/839ad29b16a8baf7b1470f13d7faa0ce941769b3.patch?full_index=1"
+    sha256 "70844513e20d09e77510f9ccf3769dacaf57c98f4dcc8054837da60111454c5b"
   end
 
   def install
-    (buildpath/"patches/runtime").install resource("runtime-libicu-68-patch")
+    (buildpath/"patches/runtime").install resource("runtime-atoll-patch")
 
     # Arguments needed to not artificially time-limit downloads from Azure.
     # See the following GitHub issue comment for details:
