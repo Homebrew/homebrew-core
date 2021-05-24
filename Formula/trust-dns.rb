@@ -69,7 +69,7 @@ class TrustDns < Formula
       stores = { type = "forward", name_servers = [{ socket_addr = "8.8.8.8:53", protocol = "udp", trust_nx_responses = false },
                                                    { socket_addr = "8.8.8.8:53", protocol = "tcp", trust_nx_responses = false }] }
       EOS
-      exec bin/"named", "-p #{port}"
+      exec bin/"named", "-p #{port} -c #{testpath}/named.toml"
     end
     sleep(2)
     output = shell_output("dig @127.0.0.1 -p #{port} example.com.")
