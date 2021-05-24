@@ -4,15 +4,17 @@ class GradleProfiler < Formula
   url "https://repo.gradle.org/gradle/ext-releases-local/org/gradle/profiler/gradle-profiler/0.16.0/gradle-profiler-0.16.0.zip"
   sha256 "f376581ed7b788d9d3d640a2ddde88747ce2e8a0e297991a77b98e6b7a257fbb"
   license "Apache-2.0"
+  revision 1
 
-  bottle :unneeded
-
-  depends_on "openjdk"
+  # gradle currently does not support Java 17 (ARM)
+  # gradle@6 is still default gradle-version, but does not support Java 16
+  # Switch to `openjdk` once above situations are no longer true
+  depends_on "openjdk@11"
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin lib]
-    env = Language::Java.overridable_java_home_env
+    env = Language::Java.overridable_java_home_env("11")
     (bin/"gradle-profiler").write_env_script libexec/"bin/gradle-profiler", env
   end
 
