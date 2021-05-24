@@ -6,6 +6,11 @@ class Ldapvi < Formula
   sha256 "6f62e92d20ff2ac0d06125024a914b8622e5b8a0a0c2d390bf3e7990cbd2e153"
   revision 7
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ldapvi[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "86cc23b1d8f7bf9b1cf46730d25e0774fa331015e024dfbb5091830c4f73aee0"
     sha256 cellar: :any, big_sur:       "79eefa4e1619324c2573a42e688785d5325c4e2d28ef7366ee24a2586a2dd071"
