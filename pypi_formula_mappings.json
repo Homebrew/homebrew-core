@@ -72,7 +72,9 @@
   "magic-wormhole": {
     "extra_packages": ["wheel"]
   },
-  "molecule": false,
+  "molecule": {
+    "extra_packages": ["docker-py", "python-vagrant"]
+  },
   "moto": {
     "package_name": "moto[all,server]",
     "exclude_packages": ["junit-xml"],
