@@ -1,15 +1,14 @@
 class TrustDns < Formula
-  desc "A Rust based DNS client, server, and resolver "
+  desc "Rust based DNS client, server, and Resolver"
   homepage "https://github.com/bluejekyll/trust-dns"
   url "https://github.com/bluejekyll/trust-dns/archive/refs/tags/v0.20.3.tar.gz"
   sha256 "1766f59ea28e1c1289fcd370d455ae73416814035bad1de313528391cbf8454a"
   license "MIT"
-  
-  
+
   depends_on "rust" => :build
-  
+
   uses_from_macos "zlib"
-  
+
   def install
     %w[util bin].each do |dir|
       cd(dir) { system "cargo", "install", "--all-features", *std_cargo_args }
@@ -72,6 +71,7 @@ class TrustDns < Formula
     end
     sleep(2)
     output = shell_output("dig @127.0.0.1 -p #{port} example.com.")
-    assert_match(/example\.com\.\t\t\d+\tIN\tA\t((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\n/, output)
+    ip = "((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
+    assert_match(/example\.com\.\t\t\d+\tIN\tA\t#{ip}\n/, output)
   end
 end
