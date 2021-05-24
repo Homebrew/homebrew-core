@@ -8,6 +8,8 @@ class Bats < Formula
 
   bottle :unneeded
 
+  deprecate! date: "2021-05-24", because: :repo_archived
+
   conflicts_with "bats-core", because: "both install `bats` executables"
 
   def install
