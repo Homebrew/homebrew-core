@@ -49,32 +49,29 @@ class TrustDns < Formula
 
   test do
     port = free_port
-    fork do
-      (testpath/"named.toml").write <<~EOS
+    (testpath/"named.txt").write "1233"
+    (testpath/"named.toml").write <<~EOS
       listen_addrs_ipv4 = ["127.0.0.1"]
-      listen_port = 53
-
+      listen_port = #{port}
       [[zones]]
       ## zone: this is the ORIGIN of the zone, aka the base name, '.' is implied on the end
       ##  specifying something other than '.' here, will restrict this forwarder to only queries
       ##  where the search name is a subzone of the name, e.g. if zone is "example.com.", then
       ##  queries for "www.example.com" or "example.com" would be forwarded.
       zone = "."
-      
       ## zone_type: Primary, Secondary, Hint, Forward
       zone_type = "Forward"
-      
       ## remember the port, defaults: 53 for Udp & Tcp, 853 for Tls and 443 for Https.
       ##   Tls and/or Https require features dns-over-tls and/or dns-over-https
       stores = { type = "forward", name_servers = [{ socket_addr = "8.8.8.8:53", protocol = "udp", trust_nx_responses = false },
-                                                   { socket_addr = "8.8.8.8:53", protocol = "tcp", trust_nx_responses = false }] }
-      EOS
-      exec bin/"named", "-p #{port} -c #{testpath}/named.toml"
+                                                  { socket_addr = "8.8.8.8:53", protocol = "tcp", trust_nx_responses = false }] }
+    EOS
+
+    fork do
+      exec bin/"named", "-c#{testpath}/named.toml"
     end
     sleep(2)
     output = shell_output("dig @127.0.0.1 -p #{port} example.com.")
-    block = /\d{,2}|1\d{2}|2[0-4]\d|25[0-5]/
-    ip = /\A#{block}\.#{block}\.#{block}\.#{block}\z/
-    assert_match(/example\.com\.\t\t0\tIN\tA\t#{ip}\n/, output)
+    assert_match(/example\.com\.\t\t\d+\tIN\tA\t((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\n/, output)
   end
 end
