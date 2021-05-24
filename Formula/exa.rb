@@ -31,9 +31,9 @@ class Exa < Formula
     system "cargo", "install", *std_cargo_args
 
     if build.head?
-      bash_completion.install "completions/bash/exa"      => "exa"
-      zsh_completion.install  "completions/zsh/_exa"      => "_exa"
-      fish_completion.install "completions/fish/exa.fish" => "exa.fish"
+      bash_completion.install "completions/bash/exa"
+      zsh_completion.install  "completions/zsh/_exa"
+      fish_completion.install "completions/fish/exa.fish"
     else
       # Remove after >0.10.1 build
       bash_completion.install "completions/completions.bash" => "exa"
