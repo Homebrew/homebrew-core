@@ -16,6 +16,8 @@ class Awf < Formula
     sha256 cellar: :any, sierra:        "417806f1ab0aa5d1c2e2e0302dd2c3c4cdaaf2957ac18fbfe1f9a2ced72947bd"
   end
 
+  deprecate! date: "2021-05-24", because: :repo_archived
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
