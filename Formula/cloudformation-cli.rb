@@ -3,8 +3,8 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/45/14/d995bdaa28a1f457e9184f0540fe2aa8292f1641e4f580c556151a0d2005/cloudformation-cli-0.2.11.tar.gz"
-  sha256 "1e41af5fa177585ace790274f0d8ecb3f790d5be7cce5aaf3588823866f3420c"
+  url "https://files.pythonhosted.org/packages/a8/e1/7227509cee69bbb3bbb2d01a35dddfdf81505e9241932a47a4fbc19983d0/cloudformation-cli-0.2.12.tar.gz"
+  sha256 "7a9f84f9e0c6a1286e9ab31013a657766843e21721d27df12b8ae6aa4afa89e4"
   license "Apache-2.0"
 
   bottle do
@@ -95,8 +95,8 @@ class CloudformationCli < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/2a/25/6aff2b746e2cd4fa1ab5b8d14c82c79e34d1aaea590f6850f74ebc68be41/hypothesis-6.13.3.tar.gz"
-    sha256 "49fbede48837cbee2160a83d1c99c0a9094d74bad0e2f6f5f351ac80ff559a79"
+    url "https://files.pythonhosted.org/packages/06/00/fc3f76d94c7366ef3d5a9c23326db82859fbf66ff96fdac975878f1888c7/hypothesis-6.13.5.tar.gz"
+    sha256 "7b1d886ff78c6d2d3eee921d00116548e67310c2bf3bd13e3e59e073f4fdad88"
   end
 
   resource "idna" do
