@@ -1,8 +1,8 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/releases/download/v0.8.1/signal-cli-0.8.1.tar.gz"
-  sha256 "2ead51489d5521ae8c1538936c6a8dcbb22a96227019eb9e826ff5f9146dbbe2"
+  url "https://github.com/AsamK/signal-cli/releases/download/v0.8.3/signal-cli-0.8.3.tar.gz"
+  sha256 "56c38b4b070b44a335835275b3a05f8f047d887f6bfb410bf9e4e2e60ce1a15c"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -68,6 +68,7 @@ class SignalCli < Formula
 
       # build & embed library for current platform
       target = "mac_dylib"
+      target = "libzkgroup" if Hardware::CPU.arm?
       on_linux { target = "libzkgroup" }
       system "make", target
       cd "ffi/java/src/main/resources" do
