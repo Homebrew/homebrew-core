@@ -1,10 +1,18 @@
 class Qmmp < Formula
   desc "Qt-based Multimedia Player"
   homepage "https://qmmp.ylsoftware.com/"
-  url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.4.6.tar.bz2"
-  sha256 "f513774357836ad4983fa216c84cf5db634284faebec48c461733838917fd664"
   license "GPL-2.0-or-later"
-  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.4/"
+  head "https://svn.code.sf.net/p/qmmp-dev/code/branches/qmmp-1.5/"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/qmmp-dev/qmmp/qmmp-1.5.0.tar.bz2"
+    sha256 "2f796bdbfeee4c1226541e746bcfea3d5b983a559081529e4c86a2c792026be7"
+
+    # Fix build without mpg123
+    # See https://sourceforge.net/p/qmmp-dev/tickets/1082/
+    # Remove in the next release
+    patch :DATA
+  end
 
   livecheck do
     url :stable
@@ -56,3 +64,18 @@ class Qmmp < Formula
     system bin/"qmmp", "--version"
   end
 end
+
+__END__
+--- a/src/plugins/Input/mpeg/decodermpegfactory.cpp
++++ b/src/plugins/Input/mpeg/decodermpegfactory.cpp
+@@ -204,7 +204,9 @@
+         d = new DecoderMAD(crc, input);
+     }
+ #elif defined(WITH_MAD)
+-    d = new DecoderMAD(input);
++    QSettings settings(Qmmp::configFile(), QSettings::IniFormat);
++    bool crc = settings.value("MPEG/enable_crc", false).toBool();
++    d = new DecoderMAD(crc, input);
+ #elif defined(WITH_MPG123)
+     d = new DecoderMPG123(input);
+ #endif
