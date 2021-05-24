@@ -1,10 +1,11 @@
 class Global < Formula
+  include Language::Python::Shebang
+
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.6.4.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.6.4.tar.gz"
-  sha256 "987e8cb956c53f8ebe4453b778a8fde2037b982613aba7f3e8e74bcd05312594"
-  revision 1
+  url "https://ftp.gnu.org/gnu/global/global-6.6.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.6.tar.gz"
+  sha256 "758078afff98d4c051c58785c7ada3ed1977fabb77f8897ff657b71cc62d4d5d"
 
   bottle do
     sha256 catalina:    "748524c4b316196e41e0f54df683117c61f7dfdbab1c3e641c36ae4eed7f1013"
@@ -24,7 +25,7 @@ class Global < Formula
   end
 
   depends_on "ctags"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "ncurses"
 
@@ -35,17 +36,18 @@ class Global < Formula
   skip_clean "lib/gtags"
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/cb/9f/27d4844ac5bf158a33900dbad7985951e2910397998e85712da03ce125f0/Pygments-2.5.2.tar.gz"
-    sha256 "98c8aa5a9f778fcd1026a17361ddaf7330d1b7c62ae97c3bb0ae73e0b9b6b0fe"
+    url "https://files.pythonhosted.org/packages/ba/6e/7a7c13c21d8a4a7f82ccbfe257a045890d4dbf18c023f985f565f97393e3/Pygments-2.9.0.tar.gz"
+    sha256 "a18f47b506a429f6f4b9df81bb02beab9ca21d0a5fee38ed15aef65f0545519f"
   end
 
   def install
     system "sh", "reconf.sh" if build.head?
 
-    xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
-    pygments_args = %W[build install --prefix=#{libexec}]
-    resource("Pygments").stage { system "python3", "setup.py", *pygments_args }
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3")
+
+    resource("Pygments").stage do
+      system "python3", *Language::Python.setup_install_args(libexec)
+    end
 
     args = %W[
       --disable-dependency-tracking
@@ -56,6 +58,8 @@ class Global < Formula
 
     system "./configure", *args
     system "make", "install"
+
+    rewrite_shebang detected_python_shebang, share/"gtags/script/pygments_parser.py"
 
     bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
 
