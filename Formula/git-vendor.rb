@@ -1,8 +1,8 @@
 class GitVendor < Formula
   desc "Command for managing git vendored dependencies"
   homepage "https://brettlangdon.github.io/git-vendor"
-  url "https://github.com/brettlangdon/git-vendor/archive/v1.1.2.tar.gz"
-  sha256 "1ae2c12ae535669d0f65d297f5ff79d36d37dabf372feb6bda3f7856cf14ef97"
+  url "https://github.com/brettlangdon/git-vendor/archive/v1.2.0.tar.gz"
+  sha256 "d464f048769dfe7125d6c2453ec3b19b53920d9ebc80d0b28bab05011481ce89"
   license "MIT"
   head "https://github.com/brettlangdon/git-vendor.git"
 
@@ -15,6 +15,13 @@ class GitVendor < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "24e13e681254ae28aae5d51dffda26d70c0cbfbca7c52b61f16f7496822c7d1f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "9461c5ce8f0b418d4ab1180c1fff22ef847b0d0af740489b3553d1715a8dc8c0"
     sha256 cellar: :any_skip_relocation, yosemite:      "62a8d29afff9e7e99c93917cfee92a68495443234346a72f16c8167d6310126a"
+  end
+
+  # Fix issue with /bin/sh builtin echo not supporting -n option
+  # Remove in the next release
+  patch do
+    url "https://github.com/brettlangdon/git-vendor/commit/c58c212f24fe54b0c77860da5185fc2bf3b77986.patch?full_index=1"
+    sha256 "5393c3a03856014ef1609ebca52006c23ead1f72c4737740704642492467f7b5"
   end
 
   def install
