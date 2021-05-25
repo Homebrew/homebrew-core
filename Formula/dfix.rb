@@ -5,7 +5,7 @@ class Dfix < Formula
       tag:      "v0.3.5",
       revision: "5265a8db4b0fdc54a3d0837a7ddf520ee94579c4"
   license "BSL-1.0"
-  head "https://github.com/dlang-community/dfix.git", shallow: false
+  head "https://github.com/dlang-community/dfix.git"
 
   livecheck do
     url "https://code.dlang.org/packages/dfix"
