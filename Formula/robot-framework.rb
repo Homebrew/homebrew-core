@@ -3,8 +3,8 @@ class RobotFramework < Formula
 
   desc "Open source test framework for acceptance testing"
   homepage "https://robotframework.org/"
-  url "https://files.pythonhosted.org/packages/1d/34/1dd668560f4dad65fb913a80b82f942395ace488c02c1ce050c07f3347fb/robotframework-4.0.2.zip"
-  sha256 "efd39558219fddc86473d4d390aeaec60640d7a7567a15fd51c0576f20e46171"
+  url "https://files.pythonhosted.org/packages/e0/81/5247355aba88bc9c54dcf7127a9853cc88a3a0b75124d8391680a3787001/robotframework-4.0.3.zip"
+  sha256 "93c2107f789fd897f234f4b8f1ba8e7b9f4ef326d9bcbfceb71dda8cc197388c"
   license "Apache-2.0"
   head "https://github.com/robotframework/robotframework.git"
 
@@ -50,8 +50,8 @@ class RobotFramework < Formula
   end
 
   resource "robotframework-archivelibrary" do
-    url "https://files.pythonhosted.org/packages/29/b6/bf5bd38d5764f6afaf17b0debef580aee9bfbd63ad77a0e215389691fdfb/robotframework-archivelibrary-0.4.0.tar.gz"
-    sha256 "d18dd05a9d43decef1352a9a7601522639e4e6f02a084692b6392603c5f6c063"
+    url "https://files.pythonhosted.org/packages/3d/ca/0cd119e4ebf6944d48b7e9467c9bc254ea3188cb2cf9109e8e87ae906a99/robotframework-archivelibrary-0.4.1.tar.gz"
+    sha256 "61cfb1d74717cb11862c87d8f44f5b5cc4a2862de42c441859df83fc33dd3dcf"
   end
 
   resource "robotframework-pythonlibcore" do
