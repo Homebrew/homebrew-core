@@ -1,8 +1,8 @@
 class Enzyme < Formula
   desc "High-performance automatic differentiation of LLVM"
   homepage "https://enzyme.mit.edu"
-  url "https://github.com/wsmoses/Enzyme/archive/v0.0.11.tar.gz"
-  sha256 "cf82e2a3bf701775e6c9514c2f9a35b5cdd037c353077b145a649189427f7ff5"
+  url "https://github.com/wsmoses/Enzyme/archive/v0.0.12.tar.gz"
+  sha256 "d9b003a9a01e87fac1f23a7efcdd8b6cfa578f5d6b43663575b8d7472db5d787"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/wsmoses/Enzyme.git", branch: "main"
 
@@ -14,11 +14,11 @@ class Enzyme < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm@11"
+  depends_on "llvm"
 
   def install
     mkdir "build" do
-      system "cmake", "../enzyme", *std_cmake_args, "-DLLVM_DIR=#{Formula["llvm@11"].opt_lib}/cmake/llvm"
+      system "cmake", "../enzyme", *std_cmake_args, "-DLLVM_DIR=#{Formula["llvm"].opt_lib}/cmake/llvm"
       system "make"
       system "make", "install"
     end
@@ -40,7 +40,7 @@ class Enzyme < Formula
       }
     EOS
 
-    llvm = Formula["llvm@11"]
+    llvm = Formula["llvm"]
     opt = llvm.opt_bin/"opt"
     ENV["CC"] = llvm.opt_bin/"clang"
 
