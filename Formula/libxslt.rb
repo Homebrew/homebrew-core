@@ -28,6 +28,10 @@ class Libxslt < Formula
   depends_on "libgcrypt"
   depends_on "libxml2"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   # Fix configure script for libxml2
   # Remove in the next release
   patch do
