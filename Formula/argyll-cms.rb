@@ -1,8 +1,8 @@
 class ArgyllCms < Formula
   desc "ICC compatible color management system"
   homepage "https://www.argyllcms.com/"
-  url "https://www.argyllcms.com/Argyll_V2.1.2_src.zip"
-  sha256 "be378ca836b17b8684db05e9feaab138d711835ef00a04a76ac0ceacd386a3e3"
+  url "https://www.argyllcms.com/Argyll_V2.2.0_src.zip"
+  sha256 "c612a2e49fd51e089616cd27b6d4717d0f20fc8edbd906462f0d0dbbabbc711c"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -24,16 +24,6 @@ class ArgyllCms < Formula
   depends_on "libtiff"
 
   conflicts_with "num-utils", because: "both install `average` binaries"
-
-  # Fixes calls to obj_msgSend, whose signature changed in macOS 10.15.
-  # Follows the advice in this blog post, which should be compatible
-  # with both older and newer versions of macOS.
-  # https://www.mikeash.com/pyblog/objc_msgsends-new-prototype.html
-  # Submitted upstream: https://www.freelists.org/post/argyllcms/Patch-Fix-macOS-build-failures-from-obj-msgSend-definition-change
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/f6ede0dff06c2d9e3383416dc57c5157704b6f3a/argyll-cms/fix_objc_msgSend.diff"
-    sha256 "fa86f5f21ed38bec6a20a79cefb78ef7254f6185ef33cac23e50bb1de87507a4"
-  end
 
   # Fixes a missing header, which is an error by default on arm64 but not x86_64
   patch do
