@@ -14,6 +14,7 @@ class Gcc < Formula
     sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
@@ -40,6 +41,7 @@ class Gcc < Formula
   depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
+  depends_on "zstd"
 
   uses_from_macos "zlib"
 
@@ -83,6 +85,7 @@ class Gcc < Formula
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
       --with-mpc=#{Formula["libmpc"].opt_prefix}
       --with-isl=#{Formula["isl"].opt_prefix}
+      --with-zstd=#{Formula["zstd"].opt_prefix}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
     ]
