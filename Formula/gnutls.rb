@@ -1,9 +1,9 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.15.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.15.tar.xz"
-  sha256 "0ea8c3283de8d8335d7ae338ef27c53a916f15f382753b174c18b45ffd481558"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.16.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.16.tar.xz"
+  sha256 "1b79b381ac283d8b054368b335c408fedcb9b7144e0c07f531e3537d4328f3b3"
   # license "LGPL-2.1-or-later AND GPL-3.0-only" - review syntax after resolving https://github.com/Homebrew/brew/pull/8260
   license "GPL-3.0-only"
 
