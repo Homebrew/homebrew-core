@@ -1,8 +1,8 @@
 class Dar < Formula
   desc "Backup directory tree and files"
   homepage "http://dar.linux.free.fr/doc/index.html"
-  url "https://downloads.sourceforge.net/project/dar/dar/2.6.14/dar-2.6.14.tar.gz"
-  sha256 "d6ecca8feab692521d00d84bcf2e934ad2737909dd794bdd4f40f3c228da77e5"
+  url "https://downloads.sourceforge.net/project/dar/dar/2.7.1/dar-2.7.1.tar.gz"
+  sha256 "76dade8adbeb817ffc78bf592c8200487ab5650234cf539539a9cbc5d346beef"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -21,7 +21,8 @@ class Dar < Formula
   depends_on "lzo"
 
   def install
-    ENV.cxx11
+    # Need to set due to upstream issue: https://github.com/Edrusb/DAR/issues/29
+    ENV.append "CXXFLAGS", "-std=c++14"
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-build-html",
