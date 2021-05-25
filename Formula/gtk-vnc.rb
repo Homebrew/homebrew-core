@@ -1,8 +1,9 @@
 class GtkVnc < Formula
   desc "VNC viewer widget for GTK"
   homepage "https://wiki.gnome.org/Projects/gtk-vnc"
-  url "https://download.gnome.org/sources/gtk-vnc/1.0/gtk-vnc-1.0.0.tar.xz"
-  sha256 "a81a1f1a79ad4618027628ffac27d3391524c063d9411c7a36a5ec3380e6c080"
+  url "https://download.gnome.org/sources/gtk-vnc/1.2/gtk-vnc-1.2.0.tar.xz"
+  sha256 "7aaf80040d47134a963742fb6c94e970fcb6bf52dc975d7ae542b2ef5f34b94a"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 arm64_big_sur: "c4d93c7478a2c290005613240d088189785560435f8c4aa3031ec5af6c1196a3"
@@ -22,12 +23,20 @@ class GtkVnc < Formula
   depends_on "gtk+3"
   depends_on "libgcrypt"
 
-  # submitted upstream at https://gitlab.gnome.org/GNOME/gtk-vnc/merge_requests/4
+  # Fix configuration failure with -Dwith-vala=disabled
+  # Remove in the next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/gtk-vnc/-/commit/bdab05584bab5c2ecdd508df49b03e80aedd19fc.diff"
+    sha256 "1b260157be888d9d8e6053e6cfd7ae92a666c306f04f4f23a0a1ed68a06c777d"
+  end
+
+  # Fix compile failure in src/vncdisplaykeymap.c
+  # error: implicit declaration of function 'GDK_IS_QUARTZ_DISPLAY' is invalid in C99
   patch :DATA
 
   def install
     mkdir "build" do
-      system "meson", *std_meson_args, "-Dwith-vala=false", ".."
+      system "meson", *std_meson_args, "-Dwith-vala=disabled", ".."
       system "ninja", "-v"
       system "ninja", "install", "-v"
     end
@@ -39,77 +48,16 @@ class GtkVnc < Formula
 end
 
 __END__
-diff --git a/src/meson.build b/src/meson.build
-index 956f189..e238bc3 100644
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -89,7 +89,7 @@ else
- endif
-
- gvnc_link_args = []
--if host_machine.system() != 'windows'
-+if meson.get_compiler('c').has_link_argument('-Wl,--no-undefined')
-   gvnc_link_args += ['-Wl,--no-undefined']
- endif
-
-@@ -116,6 +116,15 @@ gvnc_inc = [
-   top_incdir,
- ]
-
-+c_args = []
+diff --git a/src/vncdisplaykeymap.c b/src/vncdisplaykeymap.c
+index 9c029af..8d3ec20 100644
+--- a/src/vncdisplaykeymap.c
++++ b/src/vncdisplaykeymap.c
+@@ -69,6 +69,8 @@
+ #endif
+ 
+ #ifdef GDK_WINDOWING_QUARTZ
++#include <gdk/gdkquartz.h>
 +
-+if host_machine.system() == 'darwin'
-+  # fix "The deprecated ucontext routines require _XOPEN_SOURCE to be defined"
-+  c_args += ['-D_XOPEN_SOURCE=600']
-+  # for MAP_ANON
-+  c_args += ['-D_DARWIN_C_SOURCE']
-+endif
-+
- gvnc = library(
-   'gvnc-1.0',
-   sources: gvnc_sources,
-@@ -123,8 +132,10 @@ gvnc = library(
-   include_directories: gvnc_inc,
-   link_args: gvnc_link_args,
-   version: '0.0.1',
-+  darwin_versions: ['1.0', '1.1'],
-   soversion: '0',
-   install: true,
-+  c_args: c_args,
- )
-
- gvnc_dep = declare_dependency(
-@@ -178,7 +189,7 @@ if libpulse_dep.found()
-   ]
-
-   gvncpulse_link_args = []
--  if host_machine.system() != 'windows'
-+  if meson.get_compiler('c').has_link_argument('-Wl,--no-undefined')
-     gvncpulse_link_args += ['-Wl,--no-undefined']
-   endif
-
-@@ -206,6 +217,7 @@ if libpulse_dep.found()
-     include_directories: gvncpulse_inc,
-     link_args: gvncpulse_link_args,
-     version: '0.0.1',
-+    darwin_versions: ['1.0', '1.1'],
-     soversion: '0',
-     install: true,
-   )
-@@ -337,7 +349,7 @@ endforeach
-
-
- gtk_vnc_link_args = []
--if host_machine.system() != 'windows'
-+if meson.get_compiler('c').has_link_argument('-Wl,--no-undefined')
-   gtk_vnc_link_args += ['-Wl,--no-undefined']
- endif
-
-@@ -369,6 +381,7 @@ gtk_vnc = library(
-   include_directories: gtk_vnc_inc,
-   link_args: gtk_vnc_link_args,
-   version: '0.0.2',
-+  darwin_versions: ['1.0', '1.2'],
-   soversion: '0',
-   install: true,
- )
+ /* OS-X native keycodes */
+ #include "vncdisplaykeymap_osx2qnum.h"
+ #endif
