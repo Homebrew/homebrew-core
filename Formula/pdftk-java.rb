@@ -4,6 +4,7 @@ class PdftkJava < Formula
   url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.2.2/pdftk-v3.2.2.tar.gz"
   sha256 "b284e413dd43fe440152360eccbc5cb9ffd8978be8313ffc060bfebb74d14bf1"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://gitlab.com/pdftk-java/pdftk.git"
 
   livecheck do
@@ -18,12 +19,12 @@ class PdftkJava < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk@8"
+  depends_on "openjdk"
 
   def install
     system "gradle", "shadowJar", "--no-daemon"
     libexec.install "build/libs/pdftk-all.jar"
-    bin.write_jar_script libexec/"pdftk-all.jar", "pdftk", java_version: "1.8"
+    bin.write_jar_script libexec/"pdftk-all.jar", "pdftk"
   end
 
   test do
