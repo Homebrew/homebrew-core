@@ -5,7 +5,7 @@ class Dfmt < Formula
       tag:      "v0.13.4",
       revision: "e79ba9f0c89ee39f32780c5a2fcd2294b1040190"
   license "BSL-1.0"
-  head "https://github.com/dlang-community/dfmt.git", branch: "v0.x.x", shallow: false
+  head "https://github.com/dlang-community/dfmt.git", branch: "v0.x.x"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "00eceeab6157c27c75002f5239183b3902071c0aefe0b8892831115897edf197"
