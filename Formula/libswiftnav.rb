@@ -16,6 +16,9 @@ class Libswiftnav < Formula
     sha256 cellar: :any, el_capitan:    "9bea031f090e48b33e9fa24b8dc5d0391b64dfdc93613ac6aed23c2643ad6e7b"
   end
 
+  # See: https://github.com/swift-nav/libswiftnav
+  deprecate! date: "2021-05-24", because: :repo_archived
+
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
