@@ -24,17 +24,27 @@ class Yaws < Formula
   depends_on "libtool" => :build
   depends_on "erlang"
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   # the default config expects these folders to exist
   skip_clean "var/log/yaws"
   skip_clean "lib/yaws/examples/ebin"
   skip_clean "lib/yaws/examples/include"
 
   def install
+    # Ensure pam headers are found on Xcode-only installs
+    extra_args = %W[
+      --with-extrainclude=#{MacOS.sdk_path}/usr/include/security
+    ]
+    on_linux do
+      extra_args = %W[
+        --with-extrainclude=#{Formula["linux-pam"].opt_include}/security
+      ]
+    end
     system "autoreconf", "-fvi"
-    system "./configure", "--prefix=#{prefix}",
-                          # Ensure pam headers are found on Xcode-only installs
-                          "--with-extrainclude=#{MacOS.sdk_path}/usr/include/security",
-                          "SED=/usr/bin/sed"
+    system "./configure", "--prefix=#{prefix}", *extra_args
     system "make", "install", "WARNINGS_AS_ERRORS="
 
     cd "applications/yapp" do
@@ -45,6 +55,12 @@ class Yaws < Formula
     # the default config expects these folders to exist
     (lib/"yaws/examples/ebin").mkpath
     (lib/"yaws/examples/include").mkpath
+
+    # Remove Homebrew shims references on Linux
+    on_linux do
+      inreplace Dir["#{prefix}/var/yaws/www/*/Makefile"], HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/",
+        "/usr/bin/"
+    end
   end
 
   def post_install
