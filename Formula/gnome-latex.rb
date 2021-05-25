@@ -4,6 +4,7 @@ class GnomeLatex < Formula
   url "https://download.gnome.org/sources/gnome-latex/3.38/gnome-latex-3.38.0.tar.xz"
   sha256 "a82a9fc6f056929ea18d6dffd121e71b2c21768808c86ef1f34da0f86e220d77"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "8ea1216cd53e87eb4c9667c90e29cfc007f115129070ef1dd205f2a2480900f9"
@@ -13,7 +14,13 @@ class GnomeLatex < Formula
     sha256 high_sierra:   "7a9d3285f2457fecacc4e0840e32ac940b0e77041dd30839e6a7af7ad55453dd"
   end
 
+  # See: https://gitlab.gnome.org/Archive/gnome-latex
+  deprecate! date: "2021-05-25", because: :repo_archived
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
+  depends_on "gtk-doc" => :build
   depends_on "intltool" => :build
   depends_on "itstool" => :build
   depends_on "pkg-config" => :build
@@ -24,7 +31,14 @@ class GnomeLatex < Formula
   depends_on "libgee"
   depends_on "tepl"
 
+  # Add commit to port to Tepl 6
+  patch do
+    url "https://gitlab.gnome.org/Archive/gnome-latex/-/commit/e1b01186f8a4e5d3fee4c9ccfbedd6d098517df9.diff"
+    sha256 "0d54059732cb3092f52bfb8bca6ebad24a08b86036baafb31e06aca2415517ca"
+  end
+
   def install
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-schemas-compile",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
