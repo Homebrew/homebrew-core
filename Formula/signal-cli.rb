@@ -68,7 +68,6 @@ class SignalCli < Formula
 
       # build & embed library for current platform
       target = "mac_dylib"
-      target = "libzkgroup" if Hardware::CPU.arm?
       on_linux { target = "libzkgroup" }
       system "make", target
       cd "ffi/java/src/main/resources" do
