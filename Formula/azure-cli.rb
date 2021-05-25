@@ -6,6 +6,7 @@ class AzureCli < Formula
   url "https://github.com/Azure/azure-cli/archive/azure-cli-2.24.0.tar.gz"
   sha256 "aba02251cc62d8eb6fd77187a56627a15ebcaf94074c2f69b83ad9e0c4f7a711"
   license "MIT"
+  revision 1
   head "https://github.com/Azure/azure-cli.git"
 
   livecheck do
@@ -22,8 +23,7 @@ class AzureCli < Formula
   end
 
   depends_on "openssl@1.1"
-  # Azure CLI is not compatible with Python 3.9 yet
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
