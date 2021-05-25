@@ -4,7 +4,7 @@ class Ldc < Formula
   url "https://github.com/ldc-developers/ldc/releases/download/v1.26.0/ldc-1.26.0-src.tar.gz"
   sha256 "c18f4c76869f0196b459dcd6196c7eaea1b097cc422cf3771de394f6c0ef7474"
   license "BSD-3-Clause"
-  head "https://github.com/ldc-developers/ldc.git", shallow: false
+  head "https://github.com/ldc-developers/ldc.git"
 
   livecheck do
     url :stable
