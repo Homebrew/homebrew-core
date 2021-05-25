@@ -28,6 +28,6 @@ class Hashcat < Formula
   test do
     cp_r pkgshare.children, testpath
     cp bin/"hashcat", testpath
-    system testpath/"hashcat --benchmark -m 0"
+    system testpath/"hashcat --benchmark -m 0 -d1"
   end
 end
