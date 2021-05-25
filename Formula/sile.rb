@@ -14,7 +14,7 @@ class Sile < Formula
   end
 
   head do
-    url "https://github.com/sile-typesetter/sile.git", shallow: false
+    url "https://github.com/sile-typesetter/sile.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
