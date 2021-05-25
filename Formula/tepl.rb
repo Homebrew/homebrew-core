@@ -1,10 +1,9 @@
 class Tepl < Formula
   desc "GNOME Text Editor Product Line"
   homepage "https://wiki.gnome.org/Projects/Tepl"
-  url "https://download.gnome.org/sources/tepl/5.0/tepl-5.0.1.tar.xz"
-  sha256 "b1274967609f524484b38775fa9ecb296c6d6616aabd052f286339a289912804"
+  url "https://download.gnome.org/sources/tepl/6.00/tepl-6.00.0.tar.xz"
+  sha256 "a86397a895dca9c0de7a5ccb063bda8f7ef691cccb950ce2cfdee367903e7a63"
   license "LGPL-2.1-or-later"
-  revision 2
 
   bottle do
     sha256 arm64_big_sur: "406692c0672208bb43c849ce78f03f8b3322e05e069f296de82f533fa6c32183"
@@ -12,6 +11,9 @@ class Tepl < Formula
     sha256 catalina:      "3a0303c141c4e71a15fd7233c60d7f1c55db9a8ef3173105de4d0d12ae0d06d8"
     sha256 mojave:        "911f8f12c8f6b0af2cc4126bdc774acd977726cc267b6fc53b92b605c81402f1"
   end
+
+  # See: https://gitlab.gnome.org/Archive/tepl
+  deprecate! date: "2021-05-25", because: :repo_archived
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
@@ -104,7 +106,7 @@ class Tepl < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -ltepl-5
+      -ltepl-6
       -lgtk-3
       -lgtksourceview-4.0
       -lintl
