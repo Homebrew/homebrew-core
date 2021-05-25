@@ -14,12 +14,6 @@ class Silicon < Formula
 
   depends_on "rust" => :build
 
-  # Patch the build for big_sur, remove in next release
-  patch do
-    url "https://github.com/Aloxaf/silicon/commit/b3679c4dd4087040950ff9495d76621f2f0f5d0d.patch?full_index=1"
-    sha256 "9d26486421fde04141cba5471910a9d7f7df39f88ef5f58266cdb758f1f88254"
-  end
-
   def install
     system "cargo", "install", *std_cargo_args
   end
