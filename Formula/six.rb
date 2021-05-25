@@ -1,6 +1,4 @@
 class Six < Formula
-  include Language::Python::Virtualenv
-
   desc "Python 2 and 3 compatibility utilities"
   homepage "https://github.com/benjaminp/six"
   url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
