@@ -6,7 +6,7 @@ class Rtmpdump < Formula
   sha256 "5c032f5c8cc2937eb55a81a94effdfed3b0a0304b6376147b86f951e225e3ab5"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   revision 1
-  head "https://git.ffmpeg.org/rtmpdump.git", shallow: false
+  head "https://git.ffmpeg.org/rtmpdump.git"
 
   livecheck do
     url "https://cdn-aws.deb.debian.org/debian/pool/main/r/rtmpdump/"
