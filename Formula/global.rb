@@ -6,6 +6,7 @@ class Global < Formula
   url "https://ftp.gnu.org/gnu/global/global-6.6.6.tar.gz"
   mirror "https://ftpmirror.gnu.org/global/global-6.6.6.tar.gz"
   sha256 "758078afff98d4c051c58785c7ada3ed1977fabb77f8897ff657b71cc62d4d5d"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 arm64_big_sur: "f96368bfa6146b1e1ab6df7fa7a830edac7a733e5e5b166da466279cd95f7f24"
