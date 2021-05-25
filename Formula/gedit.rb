@@ -1,8 +1,8 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/3.38/gedit-3.38.2.tar.xz"
-  sha256 "0e3573508add1777f06c05a66c3fe6fba97694d66cb577b98dbe0166a222c62d"
+  url "https://download.gnome.org/sources/gedit/40/gedit-40.1.tar.xz"
+  sha256 "55e394a82cb65678b1ab49526cf5bd43f00d8fba21476a4849051a8e137d3691"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -93,7 +93,7 @@ class Gedit < Formula
       -I#{gtksourceview4.opt_include}/gtksourceview-4
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gedit-3.38
+      -I#{include}/gedit-40.0
       -I#{libepoxy.opt_include}
       -I#{libffi.opt_lib}/libffi-3.0.13/include
       -I#{libpeas.opt_include}/libpeas-1.0
@@ -118,7 +118,7 @@ class Gedit < Formula
       -lcairo-gobject
       -lgdk-3
       -lgdk_pixbuf-2.0
-      -lgedit-3.38
+      -lgedit-40.0
       -lgio-2.0
       -lgirepository-1.0
       -lglib-2.0
