@@ -4,8 +4,7 @@ class Gnutls < Formula
   url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/gnutls-3.6.16.tar.xz"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.6/gnutls-3.6.16.tar.xz"
   sha256 "1b79b381ac283d8b054368b335c408fedcb9b7144e0c07f531e3537d4328f3b3"
-  # license "LGPL-2.1-or-later AND GPL-3.0-only" - review syntax after resolving https://github.com/Homebrew/brew/pull/8260
-  license "GPL-3.0-only"
+  license all_of: ["LGPL-2.1-or-later", "GPL-3.0-only"]
 
   livecheck do
     url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/"
