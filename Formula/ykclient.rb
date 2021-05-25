@@ -31,6 +31,12 @@ class Ykclient < Formula
     depends_on "libtool" => :build
   end
 
+  # "This project is deprecated and is no longer being maintained. For more
+  # information and guidance on how to implement Yubico OTP support in
+  # applications, see
+  # https://status.yubico.com/2021/04/15/one-api-yubico-com-one-http-get/."
+  deprecate! date: "2021-05-24", because: :repo_archived
+
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
 
