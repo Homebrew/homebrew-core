@@ -4,7 +4,7 @@ class DosboxStaging < Formula
   url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.76.0.tar.gz"
   sha256 "7df53c22f7ce78c70afb60b26b06742b90193b56c510219979bf12e0bb2dc6c7"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/dosbox-staging/dosbox-staging.git"
 
   bottle do
