@@ -6,7 +6,7 @@ class Flake8 < Formula
   url "https://files.pythonhosted.org/packages/9e/47/15b267dfe7e03dca4c4c06e7eadbd55ef4dfd368b13a0bab36d708b14366/flake8-3.9.2.tar.gz"
   sha256 "07528381786f2a6237b061f6e96610a4167b226cb926e2aa2b6b1d78057c576b"
   license "MIT"
-  head "https://gitlab.com/PyCQA/flake8.git", shallow: false
+  head "https://gitlab.com/PyCQA/flake8.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8aeeb7350e52e439082ff355558fd2d18de2f1c133cbbbda22678ec8438c7f0d"
