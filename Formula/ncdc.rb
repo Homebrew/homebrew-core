@@ -15,7 +15,7 @@ class Ncdc < Formula
   end
 
   head do
-    url "https://g.blicky.net/ncdc.git", shallow: false
+    url "https://g.blicky.net/ncdc.git"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
