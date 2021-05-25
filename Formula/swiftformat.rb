@@ -4,7 +4,7 @@ class Swiftformat < Formula
   url "https://github.com/nicklockwood/SwiftFormat/archive/0.48.3.tar.gz"
   sha256 "1cbab865086f715e544e0cf67d638631444d95bb87d365d75eef16efbc763a49"
   license "MIT"
-  head "https://github.com/nicklockwood/SwiftFormat.git", shallow: false
+  head "https://github.com/nicklockwood/SwiftFormat.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "45f0d1d25e117bba4d30e3077c3445052bf4bb5238419a0747d851adbede06d1"
