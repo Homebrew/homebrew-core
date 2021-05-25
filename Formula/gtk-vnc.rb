@@ -30,6 +30,7 @@ class GtkVnc < Formula
 
   # Fix compile failure in src/vncdisplaykeymap.c
   # error: implicit declaration of function 'GDK_IS_QUARTZ_DISPLAY' is invalid in C99
+  # https://gitlab.gnome.org/GNOME/gtk-vnc/-/issues/16
   patch :DATA
 
   def install
