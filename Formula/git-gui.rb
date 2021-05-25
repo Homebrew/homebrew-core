@@ -5,7 +5,7 @@ class GitGui < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.31.1.tar.xz"
   sha256 "9f61417a44d5b954a5012b6f34e526a3336dcf5dd720e2bb7ada92ad8b3d6680"
   license "GPL-2.0-only"
-  head "https://github.com/git/git.git", shallow: false
+  head "https://github.com/git/git.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f6941b6984b73e4f89c9635a6113a0401461821febd431116dd06cf4971ec469"
