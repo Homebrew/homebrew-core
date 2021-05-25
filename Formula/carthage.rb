@@ -6,7 +6,7 @@ class Carthage < Formula
       revision: "9a3d1799ba8f8b9e2d4514cfa53a2cca6064136e",
       shallow:  false
   license "MIT"
-  head "https://github.com/Carthage/Carthage.git", shallow: false
+  head "https://github.com/Carthage/Carthage.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9be26e66087b149d4d6ff813323fb5fa1ac0ec1a55d3d1a26fc3aafc8f8e8ec"
