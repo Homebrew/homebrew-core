@@ -4,7 +4,7 @@ class Clog < Formula
   url "https://gothenburgbitfactory.org/download/clog-1.3.0.tar.gz"
   sha256 "fed44a8d398790ab0cf426c1b006e7246e20f3fcd56c0ec4132d24b05d5d2018"
   license "MIT"
-  head "https://github.com/GothenburgBitFactory/clog.git", branch: "1.4.0", shallow: false
+  head "https://github.com/GothenburgBitFactory/clog.git", branch: "1.4.0"
 
   livecheck do
     url "https://gothenburgbitfactory.org"
