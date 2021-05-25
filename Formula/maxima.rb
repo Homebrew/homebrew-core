@@ -1,10 +1,9 @@
 class Maxima < Formula
   desc "Computer algebra system"
   homepage "https://maxima.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.44.0-source/maxima-5.44.0.tar.gz"
-  sha256 "d93f5e48c4daf8f085d609cb3c7b0bdf342c667fd04cf750c846426874c9d2ec"
-  license "GPL-2.0"
-  revision 5
+  url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.45.0-source/maxima-5.45.0.tar.gz"
+  sha256 "c7631f32644805cebb7bafef3ab5331c4bacd2c27e384fd88323b5039a60d0d8"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable
