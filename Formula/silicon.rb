@@ -1,8 +1,8 @@
 class Silicon < Formula
   desc "Create beautiful image of your source code"
   homepage "https://github.com/Aloxaf/silicon/"
-  url "https://github.com/Aloxaf/silicon/archive/v0.4.1.tar.gz"
-  sha256 "43c736dce804f91f05f4fff85aaf6f036827278a5d03f35d7c63581a42e6bff3"
+  url "https://github.com/Aloxaf/silicon/archive/v0.4.2.tar.gz"
+  sha256 "a5fb780ea33ca8e3db038a57efdfc8d4548a832e3eb027671057e6657b5d5294"
   license "MIT"
 
   bottle do
