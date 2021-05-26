@@ -4,6 +4,11 @@ class Hashcash < Formula
   url "http://hashcash.org/source/hashcash-1.22.tgz"
   sha256 "0192f12d41ce4848e60384398c5ff83579b55710601c7bffe6c88bc56b547896"
 
+  livecheck do
+    url "http://hashcash.org/source/"
+    regex(/href=.*?hashcash[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a58aab9f64cd4e97938df6d17e88f8d07549d9d84d3499e0c2d071664660132c"
     sha256 cellar: :any_skip_relocation, big_sur:       "4d72206542ef1e5c627cd54327baa1fa5b5c669445ba4879aac6dbe4c23876a3"
