@@ -1,10 +1,9 @@
 class Bowtie2 < Formula
   desc "Fast and sensitive gapped read aligner"
   homepage "https://bowtie-bio.sourceforge.io/bowtie2/"
-  url "https://github.com/BenLangmead/bowtie2/archive/v2.4.3.tar.gz"
-  sha256 "616017bcc68fc178418575fe39ffde42fff811d0d071bac7b1e7650288e4d166"
+  url "https://github.com/BenLangmead/bowtie2/archive/v2.4.4.tar.gz"
+  sha256 "ef8272fc1b3e18a30f16cb4b6a4344bf50e1f82fbd3af93dc8194b58e5856f64"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "42595bf08b477aef727f3e83bf8f8e8ad3c8d9818b487598aa702e98e0cfb193"
