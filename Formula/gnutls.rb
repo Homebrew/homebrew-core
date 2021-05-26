@@ -31,7 +31,7 @@ class Gnutls < Formula
   depends_on "unbound"
 
   on_linux do
-    depends_on "autogen" => :build
+    depends_on "autogen"
 
     resource "cacert" do
       # homepage "http://curl.haxx.se/docs/caextract.html"
