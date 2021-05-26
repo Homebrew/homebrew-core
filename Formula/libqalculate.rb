@@ -2,8 +2,8 @@ class Libqalculate < Formula
   desc "Library for Qalculate! program"
   homepage "https://qalculate.github.io/"
   # NOTE: Please keep these values in sync with qalculate-gtk.rb when updating.
-  url "https://github.com/Qalculate/libqalculate/releases/download/v3.18.0/libqalculate-3.18.0.tar.gz"
-  sha256 "ed7263f48d12a1dd94fe105156a6563125e9b3fe6361e9a9deb5b0ea5cbf03cf"
+  url "https://github.com/Qalculate/libqalculate/releases/download/v3.19.0/libqalculate-3.19.0.tar.gz"
+  sha256 "43657a96e18b91739a0ef1d0f42701d7c5a0c8a3a6c7eee8ebfe9aeda75f7ddc"
   license "GPL-2.0-or-later"
 
   bottle do
