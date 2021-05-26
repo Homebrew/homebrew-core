@@ -3,7 +3,7 @@ class RdiffBackup < Formula
   homepage "https://rdiff-backup.net/"
   url "https://github.com/rdiff-backup/rdiff-backup/releases/download/v2.0.5/rdiff-backup-2.0.5.tar.gz"
   sha256 "2bb7837b4a9712b6efaebfa7da8ed6348ffcb02fcecff0e19d8fff732e933b87"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
@@ -17,7 +17,6 @@ class RdiffBackup < Formula
   depends_on "python@3.9"
 
   def install
-    ENV["ARCHFLAGS"] = "-arch x86_64"
     system "python3", "setup.py", "build", "--librsync-dir=#{prefix}"
     libexec.install Dir["build/lib.macosx*/rdiff_backup"]
     libexec.install Dir["build/scripts-*/*"]
