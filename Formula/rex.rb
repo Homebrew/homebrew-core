@@ -12,13 +12,6 @@ class Rex < Formula
 
   uses_from_macos "perl"
 
-  on_macos do
-    resource "LWP::UserAgent" do
-      url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.43.tar.gz"
-      sha256 "e9849d7ee6fd0e89cc999e63d7612c951afd6aeea6bc721b767870d9df4ac40d"
-    end
-  end
-
   resource "Module::Build" do
     # AWS::Signature4 requires Module::Build v0.4205 and above, while standard
     # MacOS Perl installation has 0.4003
@@ -114,6 +107,11 @@ class Rex < Formula
   resource "JSON::MaybeXS" do
     url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/JSON-MaybeXS-1.004000.tar.gz"
     sha256 "59bda02e8f4474c73913723c608b539e2452e16c54ed7f0150c01aad06e0a126"
+  end
+
+  resource "LWP::UserAgent" do
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/libwww-perl-6.43.tar.gz"
+    sha256 "e9849d7ee6fd0e89cc999e63d7612c951afd6aeea6bc721b767870d9df4ac40d"
   end
 
   resource "LWP::MediaTypes" do
@@ -234,8 +232,13 @@ class Rex < Formula
       system "./Build", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "./Build", "install"
     elsif File.exist? "Makefile.PL"
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}",
-                     "INC=-I#{MacOS.sdk_path}/System/Library/Perl/5.18/darwin-thread-multi-2level/CORE"
+      on_macos do
+        path = "#{MacOS.sdk_path}/System/Library/Perl/#{MacOS.preferred_perl_version}/darwin-thread-multi-2level/CORE"
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", "INC=-I#{path}"
+      end
+      on_linux do
+        system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      end
       system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
       system "make", "install"
     else
