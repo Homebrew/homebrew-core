@@ -28,6 +28,7 @@ class Mysqlxx < Formula
                           "--with-mysql-include=#{mysql.opt_include}/mysql"
 
     # Delete "version" file incorrectly included as C++20 <version> header
+    # Issue ref: https://tangentsoft.com/mysqlpp/tktview/4ea874fe67e39eb13ed4b41df0c591d26ef0a26c
     # Remove when fixed upstream
     rm "version"
 
