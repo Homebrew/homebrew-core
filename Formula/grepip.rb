@@ -1,8 +1,8 @@
 class Grepip < Formula
   desc "Filters IPv4 & IPv6 addresses with a grep-compatible interface"
   homepage "https://ipinfo.io"
-  url "https://github.com/ipinfo/cli/archive/grepip-1.0.3.tar.gz"
-  sha256 "c47da974620700560e0c95a445fc9f0e0cfa2fd192aa88094dab8577c9a6a426"
+  url "https://github.com/ipinfo/cli/archive/grepip-1.1.0.tar.gz"
+  sha256 "297e969f92e3fd47137d6ed6313d00245611a850a17f139f07d6d536969014d1"
   license "Apache-2.0"
 
   livecheck do
