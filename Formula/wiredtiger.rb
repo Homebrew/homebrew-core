@@ -1,11 +1,12 @@
 class Wiredtiger < Formula
   desc "High performance NoSQL extensible platform for data management"
-  homepage "http://www.wiredtiger.com"
-  url "https://github.com/wiredtiger/wiredtiger/releases/download/3.2.0/wiredtiger-3.2.0.tar.bz2"
-  sha256 "c812d34ac542fdd2f5dc16e2f47ebc1eba09487f45e34fbae5a052a668931968"
+  homepage "https://source.wiredtiger.com/"
+  url "https://github.com/wiredtiger/wiredtiger/releases/download/10.0.0/wiredtiger-10.0.0.tar.bz2"
+  sha256 "4830107ac744c0459ef99697652aa3e655c2122005a469a49d221e692fb834a5"
+  license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://github.com/wiredtiger/wiredtiger.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
@@ -21,9 +22,12 @@ class Wiredtiger < Formula
 
   uses_from_macos "zlib"
 
+  # Workaround to build on ARM with system type 'arm-apple-darwin*'
+  # Remove in next release as build system is changing to CMake
+  patch :DATA
+
   def install
     system "./configure", "--with-builtins=snappy,zlib",
-                          "--with-python",
                           "--prefix=#{prefix}"
     system "make", "install"
   end
@@ -33,3 +37,16 @@ class Wiredtiger < Formula
     system "#{bin}/wt", "drop", "table:test"
   end
 end
+
+__END__
+--- a/configure
++++ b/configure
+@@ -16317,7 +16317,7 @@ else
+ fi
+
+ case $host_cpu in #(
+-  aarch64*) :
++  aarch64*|arm*) :
+     wt_cv_arm64="yes" ;; #(
+   *) :
+     wt_cv_arm64="no" ;;
