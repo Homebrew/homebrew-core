@@ -19,10 +19,19 @@ class Libtecla < Formula
     sha256 cellar: :any, yosemite:    "836d6100343197540f079ea7f6b9e5641fd8efc4e331d3492f8be4cd41ced6e9"
   end
 
+  # Added automake as a build dependency to update config files for ARM support.
+  # Please remove in the future if there is a patch upstream which recognises aarch64 macOS.
+  depends_on "automake" => :build
+
   uses_from_macos "ncurses"
 
   def install
     ENV.deparallelize
+
+    %w[config.guess config.sub].each do |fn|
+      cp "#{Formula["automake"].opt_prefix}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}", fn
+    end
+
     system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
     system "make", "install"
   end
