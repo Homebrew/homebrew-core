@@ -2,8 +2,8 @@ class QalculateGtk < Formula
   desc "Multi-purpose desktop calculator"
   homepage "https://qalculate.github.io/"
   # NOTE: Please keep these values in sync with libqalculate.rb when updating.
-  url "https://github.com/Qalculate/qalculate-gtk/releases/download/v3.18.0/qalculate-gtk-3.18.0.tar.gz"
-  sha256 "3e727087877c7c367c223948d8ed807fd0bbc19386dd9f6f4741c213cd6d3311"
+  url "https://github.com/Qalculate/qalculate-gtk/releases/download/v3.19.0/qalculate-gtk-3.19.0.tar.gz"
+  sha256 "9c060a9a0da9717e7c66acbfd3dfc8c556d731d83448195658219c1b4d5b21cc"
   license "GPL-2.0-or-later"
 
   bottle do
