@@ -5,6 +5,7 @@ class GccAT10 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-10.3.0/gcc-10.3.0.tar.xz"
   sha256 "64f404c1a650f27fc33da242e1f2df54952e3963a49e06e73f6940f3223ac344"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
 
   livecheck do
     url :stable
@@ -26,6 +27,7 @@ class GccAT10 < Formula
   depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
+  depends_on "zstd"
 
   uses_from_macos "zlib"
 
@@ -66,6 +68,7 @@ class GccAT10 < Formula
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
       --with-mpc=#{Formula["libmpc"].opt_prefix}
       --with-isl=#{Formula["isl"].opt_prefix}
+      --with-zstd=#{Formula["zstd"].opt_prefix}
       --with-pkgversion=#{pkgversion}
       --with-bugurl=#{tap.issues_url}
     ]
@@ -90,6 +93,7 @@ class GccAT10 < Formula
     end
 
     mkdir "build" do
+      ENV.append_to_cflags "-I#{Formula["zstd"].opt_include}"
       system "../configure", *args
 
       # Use -headerpad_max_install_names in the build,
