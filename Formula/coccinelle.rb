@@ -3,7 +3,7 @@ class Coccinelle < Formula
   homepage "http://coccinelle.lip6.fr/"
   url "https://github.com/coccinelle/coccinelle.git",
       tag:      "1.1.0",
-      revision: "e84d3ddc7d4131b7e7e70c29d49eca09d35fabb6"
+      revision: "25e7cee77b4b6efbabf60ffaa8bccd72500ba8bd"
   license "GPL-2.0-only"
   revision 1
   head "https://github.com/coccinelle/coccinelle.git"
@@ -25,7 +25,9 @@ class Coccinelle < Formula
   depends_on "hevea" => :build
   depends_on "ocaml-findlib" => :build
   depends_on "opam" => :build
+  depends_on "pkg-config" => :build
   depends_on "ocaml"
+  depends_on "pcre"
 
   # Bootstap resource for Ocaml 4.12 compatibility.
   # Remove when Coccinelle supports Ocaml 4.12 natively
