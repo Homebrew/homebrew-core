@@ -48,7 +48,7 @@ class Ospray < Formula
 
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
-      -DCMAKE_INSTALL_RPATH=#{opt_lib}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
       -DOSPRAY_ENABLE_APPS=OFF
       -DOSPRAY_ENABLE_TESTING=OFF
       -DOSPRAY_ENABLE_TUTORIALS=OFF
