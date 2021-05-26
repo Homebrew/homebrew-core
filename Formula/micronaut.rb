@@ -4,6 +4,7 @@ class Micronaut < Formula
   url "https://github.com/micronaut-projects/micronaut-starter/archive/v2.5.4.tar.gz"
   sha256 "2f044087a676ee9c00a7d19a9facf5d968befdfbd6e1d322a19f711ce0279439"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -16,8 +17,7 @@ class Micronaut < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "1e9a7d6099788f287af39b5e77edd75ab5313e161ff43d7c8bcae65d3bac8a54"
   end
 
-  depends_on "gradle" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     system "./gradlew", "micronaut-cli:assemble", "-x", "test"
@@ -27,7 +27,7 @@ class Micronaut < Formula
     mv "starter-cli/build/exploded/lib", libexec/"lib"
 
     bash_completion.install "starter-cli/build/exploded/bin/mn_completion"
-    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env
+    (bin/"mn").write_env_script libexec/"bin/mn", Language::Java.overridable_java_home_env("11")
   end
 
   test do
