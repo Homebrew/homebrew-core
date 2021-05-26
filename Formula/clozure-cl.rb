@@ -20,29 +20,19 @@ class ClozureCl < Formula
   depends_on xcode: :build
   depends_on macos: :catalina # The GNU assembler frontend which ships macOS 10.14 is incompatible with clozure-ccl: https://github.com/Clozure/ccl/issues/271
 
-  # Patch to build heap image with linker shipped with Big Sur.  Remove for next version.
-  on_macos do
-    if MacOS.version >= :catalina
-      patch do
-        url "https://github.com/Clozure/ccl/commit/553c0f25f38b2b0d5922ca7b4f62f09eb85ace1c.patch?full_index=1"
-        sha256 "deb9e35df75d82c1694fec569a246388485fb64ab7bae3addff6ff3650160b04"
-      end
-    end
-  end
-
   on_linux do
     depends_on "m4"
   end
 
   resource "bootstrap" do
     on_macos do
-      url "https://github.com/Clozure/ccl/releases/download/v1.12/darwinx86.tar.gz"
-      sha256 "9434fb5ebc01fc923625ad56726fdd217009e2d3c107cfa3c5435cb7692ba7ca"
+      url "https://github.com/Clozure/ccl/releases/download/v1.12.1/darwinx86.tar.gz"
+      sha256 "92c5776ba1ba8548361669b50ae1655d7f127ff01d6e2107d8dccb97f2a585cd"
     end
 
     on_linux do
-      url "https://github.com/Clozure/ccl/releases/download/v1.12/linuxx86.tar.gz"
-      sha256 "7fbdb04fb1b19f0307c517aa5ee329cb4a21ecc0a43afd1b77531e4594638796"
+      url "https://github.com/Clozure/ccl/releases/download/v1.12.1/linuxx86.tar.gz"
+      sha256 "ec98d881abc3826b7fd5ec811f01f9bb77e4491ac4eb7f1cea5e3b26d5098052"
     end
   end
 
