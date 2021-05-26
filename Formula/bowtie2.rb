@@ -4,6 +4,7 @@ class Bowtie2 < Formula
   url "https://github.com/BenLangmead/bowtie2/archive/v2.4.4.tar.gz"
   sha256 "ef8272fc1b3e18a30f16cb4b6a4344bf50e1f82fbd3af93dc8194b58e5856f64"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "540b354db85c68e4be5276c7a68622b260cf53da5366c11337eeb8e690432b1f"
@@ -11,6 +12,7 @@ class Bowtie2 < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "9341eaa91888215e685123847a3e87f91a2d140612dcb8d1a3850c01c335fc2d"
   end
 
+  depends_on "simde"
   depends_on "tbb"
 
   def install
