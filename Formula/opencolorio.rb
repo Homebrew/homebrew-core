@@ -21,7 +21,7 @@ class Opencolorio < Formula
   def install
     args = std_cmake_args + %W[
       -DCMAKE_VERBOSE_MAKEFILE=OFF
-      -DCMAKE_INSTALL_RPATH=#{lib}
+      -DCMAKE_INSTALL_RPATH=#{rpath}
       -DPYTHON=python3
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/"python3"
     ]
