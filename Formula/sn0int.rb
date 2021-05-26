@@ -34,7 +34,7 @@ class Sn0int < Formula
     (fish_completion/"sn0int.fish").write fish_output
 
     system "make", "-C", "docs", "man"
-    man1.install "docs/_build/man/1/sn0int.1"
+    man1.install "docs/_build/man/sn0int.1"
   end
 
   test do
