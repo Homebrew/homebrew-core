@@ -25,7 +25,7 @@ class Openmama < Formula
     mkdir "build" do
       system "cmake", "..", "-DAPR_ROOT=#{Formula["apr"].opt_prefix}",
                             "-DPROTON_ROOT=#{Formula["qpid-proton"].opt_prefix}",
-                            "-DCMAKE_INSTALL_RPATH=#{opt_lib}",
+                            "-DCMAKE_INSTALL_RPATH=#{rpath}",
                             "-DINSTALL_RUNTIME_DEPENDENCIES=OFF",
                             "-DWITH_TESTTOOLS=OFF",
                             *std_cmake_args
