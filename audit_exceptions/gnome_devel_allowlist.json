@@ -1,4 +1,5 @@
 {
+  "gtk-doc": "1.33",
   "gtk-mac-integration": "2.1",
   "libart": "2.3",
   "libepoxy": "1.5"
