@@ -61,20 +61,15 @@ class Rust < Formula
   def install
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
-    # Fix build failure for compiler_builtins "error: invalid deployment target
-    # for -stdlib=libc++ (requires OS X 10.7 or later)"
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    on_macos do
+      # Fix build failure for compiler_builtins "error: invalid deployment target
+      # for -stdlib=libc++ (requires OS X 10.7 or later)"
+      ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    end
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
-
-    # Fix build failure for cmake v0.1.24 "error: internal compiler error:
-    # src/librustc/ty/subst.rs:127: impossible case reached" on 10.11, and for
-    # libgit2-sys-0.6.12 "fatal error: 'os/availability.h' file not found
-    # #include <os/availability.h>" on 10.11 and "SecTrust.h:170:67: error:
-    # expected ';' after top level declarator" among other errors on 10.12
-    ENV["SDKROOT"] = MacOS.sdk_path
 
     args = ["--prefix=#{prefix}"]
     if build.head?
