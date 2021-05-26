@@ -31,6 +31,15 @@ class MysqlAT56 < Formula
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
 
+    # fix C++20 compiler loads VERSION
+    File.rename "VERSION", "MYSQL_VERSION"
+    inreplace "cmake/mysql_version.cmake",
+      "  ${CMAKE_SOURCE_DIR}/VERSION",
+      "  ${CMAKE_SOURCE_DIR}/MYSQL_VERSION"
+    inreplace "cmake/mysql_version.cmake",
+      "   FILE (STRINGS ${CMAKE_SOURCE_DIR}/VERSION str REGEX \"^[ ]*${keyword}=\")",
+      "   FILE (STRINGS ${CMAKE_SOURCE_DIR}/MYSQL_VERSION str REGEX \"^[ ]*${keyword}=\")"
+
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
