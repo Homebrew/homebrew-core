@@ -10,13 +10,6 @@ class GitVendor < Formula
     sha256 cellar: :any_skip_relocation, all: "4a32c52d725602c25e460a58d24f99029753aab5a215530bc0717968841bf8f3"
   end
 
-  # Fix issue with /bin/sh builtin echo not supporting -n option
-  # Remove in the next release
-  patch do
-    url "https://github.com/brettlangdon/git-vendor/commit/c58c212f24fe54b0c77860da5185fc2bf3b77986.patch?full_index=1"
-    sha256 "5393c3a03856014ef1609ebca52006c23ead1f72c4737740704642492467f7b5"
-  end
-
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end
