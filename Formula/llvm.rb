@@ -53,8 +53,6 @@ class Llvm < Formula
       openmp
       polly
       mlir
-    ]
-    runtimes = %w[
       compiler-rt
       libcxx
       libcxxabi
@@ -79,7 +77,6 @@ class Llvm < Formula
     # in a non-default prefix
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
-      -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
       -DLLVM_POLLY_LINK_INTO_TOOLS=ON
       -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_LINK_LLVM_DYLIB=ON
