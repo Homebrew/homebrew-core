@@ -35,6 +35,6 @@ class Gosec < Formula
 
     output = shell_output("#{bin}/gosec ./...", 1)
     assert_match "G101 (CWE-798)", output
-    assert_match "Issues : 1", output
+    assert_match "Issues : \e[1;31m1\e[0m", output
   end
 end
