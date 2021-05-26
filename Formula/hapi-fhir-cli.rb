@@ -15,7 +15,7 @@ class HapiFhirCli < Formula
   depends_on "openjdk"
 
   resource "test_resource" do
-    url "https://github.com/jamesagnew/hapi-fhir/raw/v5.1.0/hapi-fhir-structures-dstu3/src/test/resources/specimen-example.json"
+    url "https://github.com/jamesagnew/hapi-fhir/raw/v5.4.0/hapi-fhir-structures-dstu3/src/test/resources/specimen-example.json"
     sha256 "4eacf47eccec800ffd2ca23b704c70d71bc840aeb755912ffb8596562a0a0f5e"
   end
 
