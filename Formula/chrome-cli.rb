@@ -1,8 +1,8 @@
 class ChromeCli < Formula
   desc "Control Google Chrome from the command-line"
   homepage "https://github.com/prasmussen/chrome-cli"
-  url "https://github.com/prasmussen/chrome-cli/archive/1.6.0.tar.gz"
-  sha256 "ff1fba560743cba7b661e8daef52d4494acc084da4a21c3fad211f7cdf5e971f"
+  url "https://github.com/prasmussen/chrome-cli/archive/refs/tags/1.7.1.tar.gz"
+  sha256 "27ee5ab9a9d60fbd829f069074fe592f2aafd129df0df4aedbbc12b8df11ac32"
   license "MIT"
   head "https://github.com/prasmussen/chrome-cli.git"
 
@@ -21,22 +21,14 @@ class ChromeCli < Formula
 
   def install
     # Release builds
-    xcodebuild "SDKROOT=", "SYMROOT=build"
+    xcodebuild "SYMROOT=build"
     bin.install "build/Release/chrome-cli"
 
-    # Canary builds; see:
-    # https://github.com/prasmussen/chrome-cli/issues/15
-    rm_rf "build"
-    inreplace "chrome-cli/App.m", "com.google.Chrome", "com.google.Chrome.canary"
-    xcodebuild "SDKROOT=", "SYMROOT=build"
-    bin.install "build/Release/chrome-cli" => "chrome-canary-cli"
-
-    # Chromium builds; see:
-    # https://github.com/prasmussen/chrome-cli/issues/31
-    rm_rf "build"
-    inreplace "chrome-cli/App.m", "com.google.Chrome.canary", "org.Chromium.chromium"
-    xcodebuild "SDKROOT=", "SYMROOT=build"
-    bin.install "build/Release/chrome-cli" => "chromium-cli"
+    # Install wrapper scripts for chrome compatible browsers
+    bin.install "scripts/chrome-canary-cli"
+    bin.install "scripts/chromium-cli"
+    bin.install "scripts/brave-cli"
+    bin.install "scripts/vivaldi-cli"
   end
 
   test do
