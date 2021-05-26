@@ -42,6 +42,10 @@ class Reminiscence < Formula
 
     ENV.prepend "CPPFLAGS", "-I#{libexec}/include"
     ENV.prepend "LDFLAGS", "-L#{libexec}/lib"
+    on_linux do
+      # Fixes: reminiscence: error while loading shared libraries: libvorbisidec.so.1
+      ENV.append "LDFLAGS", "-Wl,-rpath=#{libexec}/lib"
+    end
 
     system "make"
     bin.install "rs" => "reminiscence"
