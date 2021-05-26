@@ -1,10 +1,9 @@
 class Embree < Formula
   desc "High-performance ray tracing kernels"
   homepage "https://embree.github.io/"
-  url "https://github.com/embree/embree/archive/v3.12.2.tar.gz"
-  sha256 "22a527622497e07970e733f753cc9c10b2bd82c3b17964e4f71a5fd2cdfca210"
+  url "https://github.com/embree/embree/archive/v3.13.0.tar.gz"
+  sha256 "4d86a69508a7e2eb8710d571096ad024b5174834b84454a8020d3a910af46f4f"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/embree/embree.git"
 
   bottle do
@@ -18,15 +17,13 @@ class Embree < Formula
   depends_on "tbb"
 
   def install
-    max_isa = MacOS.version.requires_sse42? ? "SSE4.2" : "SSE2"
-
-    args = std_cmake_args + %W[
+    args = std_cmake_args + %w[
       -DBUILD_TESTING=OFF
       -DEMBREE_IGNORE_CMAKE_CXX_FLAGS=OFF
       -DEMBREE_ISPC_SUPPORT=ON
-      -DEMBREE_MAX_ISA=#{max_isa}
       -DEMBREE_TUTORIALS=OFF
     ]
+    args << "-DEMBREE_MAX_ISA=#{MacOS.version.requires_sse42? ? "SSE4.2" : "SSE2"}" if Hardware::CPU.intel?
 
     mkdir "build" do
       system "cmake", *args, ".."
