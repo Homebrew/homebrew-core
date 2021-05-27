@@ -1,10 +1,21 @@
 class NestopiaUe < Formula
   desc "NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
-  url "https://github.com/0ldsk00l/nestopia/archive/1.50.tar.gz"
-  sha256 "f0274f8b033852007c67237897c69725b811c0df8a6d0120f39c23e990662aae"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/0ldsk00l/nestopia.git"
+
+  # Remove stable block in next release with merged patch
+  stable do
+    url "https://github.com/0ldsk00l/nestopia/archive/1.51.0.tar.gz"
+    sha256 "9dd3253629a05f68fb730e5bc59148cd5498cea359eff2cbf4202d1e1329bce9"
+
+    # Fix for build issue: https://github.com/0ldsk00l/nestopia/issues/353
+    # Remove in the next release
+    patch do
+      url "https://github.com/0ldsk00l/nestopia/commit/d57e02e19ba88d609a092da5b420432a7251b71d.patch?full_index=1"
+      sha256 "5eba25a40d1b1cefd864e2f3fad160c438f3cb7a1257bea20bbc93c0235c1123"
+    end
+  end
 
   bottle do
     sha256 arm64_big_sur: "21dd1ec76826e208b26d981ebfafbef95d8c2f4a00330cd7556bc366e5bc7745"
@@ -18,10 +29,11 @@ class NestopiaUe < Formula
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "libao"
+  depends_on "fltk"
   depends_on "libarchive"
-  depends_on "libepoxy"
   depends_on "sdl2"
+
+  uses_from_macos "zlib"
 
   def install
     system "autoreconf", "-fiv"
