@@ -11,6 +11,10 @@ class Browser < Formula
   end
 
   def install
+    on_linux do
+      # https://gist.github.com/defunkt/318247#gistcomment-3760018
+      inreplace "browser", 'exec "open', 'exec "xdg-open'
+    end
     bin.install "browser"
   end
 
