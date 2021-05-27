@@ -10,7 +10,7 @@ class Nginx < Formula
 
   livecheck do
     url :homepage
-    regex(%r{nginx[._-]v?(\d+(?:\.\d+)+)</a>\nmainline version has been released}i)
+    regex(%r{nginx[._-]v?(\d+(?:\.\d+)+)</a>\nmainline version}i)
   end
 
   bottle do
