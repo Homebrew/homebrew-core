@@ -25,6 +25,12 @@ class FluentBit < Formula
     depends_on "openssl@1.1"
   end
 
+  # Apply https://github.com/fluent/fluent-bit/pull/3564 to build on M1
+  patch do
+    url "https://github.com/fluent/fluent-bit/commit/fcdf304e5abc3e3b66b1acac76dbaf23b2d22579.patch?full_index=1"
+    sha256 "80d1b0b6916ff1e0c157e6824afa769f08e28e764f65bfd28df0900d6f9bda1e"
+  end
+
   def install
     chdir "build" do
       # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
