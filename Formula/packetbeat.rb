@@ -2,8 +2,8 @@ class Packetbeat < Formula
   desc "Lightweight Shipper for Network Data"
   homepage "https://www.elastic.co/products/beats/packetbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.12.1",
-      revision: "651a2ad1225f3d4420a22eba847de385b71f711d"
+      tag:      "v7.13.0",
+      revision: "054e224d226b42a1dd7c72dcf48c3f18de452e22"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
