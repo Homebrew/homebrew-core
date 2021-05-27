@@ -4,6 +4,7 @@
   "ark": "velero",
   "arm": "nyx",
   "artifactory-cli-go": "jfrog-cli-go",
+  "badtouch": "authoscope",
   "bash-completion2": "bash-completion@2",
   "beanstalk": "beanstalkd",
   "berkeley-db4": "berkeley-db@4",
