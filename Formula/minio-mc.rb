@@ -2,9 +2,9 @@ class MinioMc < Formula
   desc "Replacement for ls, cp and other commands for object storage"
   homepage "https://github.com/minio/mc"
   url "https://github.com/minio/mc.git",
-      tag:      "RELEASE.2021-05-18T03-39-44Z",
-      revision: "6e251456d2b99f5120f98556f7436607300f10de"
-  version "20210518033944"
+      tag:      "RELEASE.2021-05-26T19-19-26Z",
+      revision: "8d65ee71302e662669bbbf57b834a4aa38c94bdc"
+  version "20210526191926"
   license "AGPL-3.0-or-later"
   head "https://github.com/minio/mc.git"
 
