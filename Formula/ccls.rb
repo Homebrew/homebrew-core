@@ -19,6 +19,12 @@ class Ccls < Formula
   depends_on "llvm"
   depends_on macos: :high_sierra # C++ 17 is required
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "cmake", *std_cmake_args
     system "make", "install"
