@@ -1,10 +1,9 @@
 class Libxmlxx3 < Formula
   desc "C++ wrapper for libxml"
   homepage "https://libxmlplusplus.sourceforge.io/"
-  url "https://download.gnome.org/sources/libxml++/3.2/libxml++-3.2.2.tar.xz"
-  sha256 "a53d0af2c9bf566b4d5d57d1c6495b189555c54785941d7e3bef666728952f0b"
+  url "https://download.gnome.org/sources/libxml++/3.2/libxml++-3.2.3.tar.xz"
+  sha256 "9541f6d2eede269498bb32e4193a41b631453654f407d47a876d62ab73beb7b5"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url :stable
