@@ -3,8 +3,8 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/03/b5/03caa8175206dc694899eeec28727c33eb92c9b794c06f9057b4516b1523/regipy-1.8.4.tar.gz"
-  sha256 "6f5827feb645df1149f0b599dabf04483a029816d3e38f7412fcb95669929949"
+  url "https://files.pythonhosted.org/packages/45/e2/84730bc78f86a961e852203507acc808e335e8fbaf98ed868ed89b5f2bbd/regipy-1.9.0.tar.gz"
+  sha256 "b3e669d67214570429617f2eaef4411114d11500f92e6cbadff3135b9ddddde9"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git"
 
@@ -29,8 +29,8 @@ class Regipy < Formula
   end
 
   resource "construct" do
-    url "https://files.pythonhosted.org/packages/13/92/517dd8f4b4f79d75a15b1c9c68e510cb323da0ff098f7ed62d2fdda525db/construct-2.10.61.tar.gz"
-    sha256 "d75384a04cb36ae5417dd34ce230c392e6085d872ab8a99ebd756c34bac0dff5"
+    url "https://files.pythonhosted.org/packages/39/2b/c68eaf8294f01ea534f39b8b4ec1d7308b5195e08570c276b104bccd24ff/construct-2.10.67.tar.gz"
+    sha256 "730235fedf4f2fee5cfadda1d14b83ef1bf23790fb1cc579073e10f70a050883"
   end
 
   resource "inflection" do
