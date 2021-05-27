@@ -1,11 +1,10 @@
 class ProtocGenGo < Formula
   desc "Go support for Google's protocol buffers"
-  homepage "https://github.com/golang/protobuf"
-  url "https://github.com/golang/protobuf/archive/v1.5.2.tar.gz"
-  sha256 "088cc0f3ba18fb8f9d00319568ff0af5a06d8925a6e6cb983bb837b4efb703b3"
+  homepage "https://github.com/protocolbuffers/protobuf-go"
+  url "https://github.com/protocolbuffers/protobuf-go/archive/v1.26.0.tar.gz"
+  sha256 "26218474bcf776ecf32d7d194c6bfaca8e7b4f0c087e5b595fd50fbb31409676"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/golang/protobuf.git"
+  head "https://github.com/protocolbuffers/protobuf-go.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a8ae4e8a4e7760bf13b8369b601d42357b094e61d87020a2164c985092778d0c"
@@ -18,7 +17,7 @@ class ProtocGenGo < Formula
   depends_on "protobuf"
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./protoc-gen-go"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/protoc-gen-go"
     prefix.install_metafiles
   end
 
