@@ -14,6 +14,6 @@ class Stox < Formula
   end
   
   test do
-    system "stox", "help", "-n"
+    system bin/"stox", "--help"
   end
 end
