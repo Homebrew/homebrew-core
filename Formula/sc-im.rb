@@ -15,6 +15,12 @@ class ScIm < Formula
 
   depends_on "ncurses"
 
+  uses_from_macos "bison" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     cd "src" do
       system "make", "prefix=#{prefix}"
