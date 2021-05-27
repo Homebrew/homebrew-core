@@ -52,6 +52,14 @@ class OpenshiftCli < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      The version reported by the "oc version --client" command is known to be incorrect.
+      Nevertheless the correct version matching the formula was installed.
+      For more information see: https://github.com/openshift/oc/issues/740
+    EOS
+  end
+
   test do
     (testpath/"kubeconfig").write ""
     system "KUBECONFIG=#{testpath}/kubeconfig #{bin}/oc config set-context foo 2>&1"
