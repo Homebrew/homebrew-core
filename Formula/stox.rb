@@ -8,8 +8,8 @@ class Stox < Formula
   depends_on xcode: "12.4"
   
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc", \
-      "-cross-module-optimization", "--enable-test-discovery"
+    system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc",
+                    "-cross-module-optimization", "--enable-test-discovery"
     bin.install ".build/release/stox"
   end
   
