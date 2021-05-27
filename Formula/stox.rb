@@ -15,7 +15,7 @@ class Stox < Formula
   end
 
   test do
-      output = shell_output("#{bin}/stox del")
-      assert_match("\nDelete all lists? (y / n): ", output)
+      output = shell_output("#{bin}/stox all")
+      assert_match("\nNo saved lists\n", output)
   end
 end
