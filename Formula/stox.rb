@@ -10,8 +10,7 @@ class Stox < Formula
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "-Xswiftc", \
       "-cross-module-optimization", "--enable-test-discovery"
-    mv ".build/release/stox", "stox"
-    bin.install "stox"
+    bin.install ".build/release/stox"
   end
   
   test do
