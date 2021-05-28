@@ -1,10 +1,15 @@
 class Onscripter < Formula
   desc "NScripter-compatible visual novel engine"
-  homepage "https://onscripter.osdn.jp/"
+  homepage "https://onscripter.osdn.jp/onscripter.html"
   url "https://onscripter.osdn.jp/onscripter-20200722.tar.gz"
   sha256 "12e5f4ac336ae3da46bf166ff1d439840be6336b19401a76c7d788994a9cd35e"
   license "GPL-2.0"
   revision 1
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?onscripter[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6bf87dccb1539e34ca53a5d2912937d812d91d5540885a53d7e10e9c334a0f1a"
