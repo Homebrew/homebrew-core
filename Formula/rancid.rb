@@ -5,6 +5,11 @@ class Rancid < Formula
   mirror "https://deb.debian.org/debian/pool/main/r/rancid/rancid_3.13.orig.tar.gz"
   sha256 "7241d2972b1f6f76a28bdaa0e7942b1257e08b404a15d121c9dee568178f8bf5"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rancid[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b815068fba2453ad568c0406b1f8bd1b1dfe6c69891ac1301a57b01934141132"
     sha256 cellar: :any_skip_relocation, big_sur:       "3c22c8b4feebcaf1b03f4feb919c352d2b449aab6341b1fe81164fa771240826"
