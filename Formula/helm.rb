@@ -2,8 +2,8 @@ class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v3.5.4",
-      revision: "1b5edb69df3d3a08df77c9902dc17af864ff05d1"
+      tag:      "v3.6.0",
+      revision: "7f2df6467771a75f5646b7f12afb408590ed1755"
   license "Apache-2.0"
   head "https://github.com/helm/helm.git"
 
@@ -17,11 +17,6 @@ class Helm < Formula
   depends_on "go" => :build
 
   def install
-    # See https://github.com/helm/helm/pull/9486, remove with next release (3.5.4)
-    on_linux do
-      system "go", "mod", "tidy"
-    end
-
     system "make", "build"
     bin.install "bin/helm"
 
