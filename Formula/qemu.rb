@@ -10,8 +10,8 @@ class Qemu < Formula
 
     # remove in next release
     patch do
-      url "https://patchwork.kernel.org/project/qemu-devel/patch/CA+pCdY09+OQfXq3YmRNuQE59ACOq7Py2q4hqOwgq4PnepCXhTA@mail.gmail.com/raw/"
-      sha256 "a9a643c8089b004f5c5208ec9afc7630ed1b249e7911fcf19e742a7a1b58bdb4"
+      url "https://git.qemu.org/?p=qemu.git;a=patch;h=75eebe0b1f15464d19a39c4186bfabf328ab601a"
+      sha256 "9f4db8c6f80f4a87baf1b778fea62bbad89db9db5fd47548c2d22e5475edd910"
     end
   end
 
