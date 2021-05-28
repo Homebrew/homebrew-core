@@ -2,10 +2,15 @@ class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo/latest/"
   url "https://github.com/solo-io/gloo.git",
-      tag:      "v1.7.7",
-      revision: "309aa1e49999348b65d82f5304977e271ba8f914"
+      tag:      "v1.7.8",
+      revision: "faf4c222fe951e99fefde46e55f2a8c2a7669b1a"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9a0745ee80c106625df8e3c96a93f31ee76fe0b33dc29c260b1c45a2113ebdd3"
