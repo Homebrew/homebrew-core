@@ -4,6 +4,14 @@ class Nrg2iso < Formula
   url "http://gregory.kokanosky.free.fr/v4/linux/nrg2iso-0.4.tar.gz"
   sha256 "25049d864680ec12bbe31b20597ce8c1ba3a4fe7a7f11e25742b83e2fda94aa3"
 
+  # The latest version reported on the English page (nrg2iso.en.html) and the
+  # main French page (nrg2iso.html) can differ, so we may want to keep an eye
+  # on this to make sure we don't miss any versions.
+  livecheck do
+    url :homepage
+    regex(/href=.*?nrg2iso[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b1896503c9c1944672f043adebe206ec236d51253f4c2057fcb83694477434b"
     sha256 cellar: :any_skip_relocation, big_sur:       "de13076ac7730d2b664fbdfe4128b17f0c61fc458c9bfd82b5fbf638ec526702"
