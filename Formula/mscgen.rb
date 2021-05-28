@@ -5,6 +5,11 @@ class Mscgen < Formula
   sha256 "3c3481ae0599e1c2d30b7ed54ab45249127533ab2f20e768a0ae58d8551ddc23"
   revision 3
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?mscgen-src[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, big_sur:     "662b9da17d8c911e9d24be48def9a222e7068386c0b482eca48248d127467e14"
