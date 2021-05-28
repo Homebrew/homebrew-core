@@ -5,6 +5,11 @@ class Minimodem < Formula
   mirror "https://deb.debian.org/debian/pool/main/m/minimodem/minimodem_0.24.orig.tar.gz"
   sha256 "f8cca4db8e3f284d67f843054d6bb4d88a3db5e77b26192410e41e9a06f4378e"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?minimodem[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "659dd378a4d6fc0f96d3752b6fd8303f0f6c79beeb0424fa8456ec33d270fb02"
     sha256 cellar: :any, big_sur:       "09ee4e144cb7484994278cf3698474f9d205fb38d926c1936046c422eb772a99"
