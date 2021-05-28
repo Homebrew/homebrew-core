@@ -33,7 +33,7 @@ class Xrootd < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                             "-DENABLE_PYTHON=OFF",
-                            "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
+                            "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make", "install"
     end
   end
