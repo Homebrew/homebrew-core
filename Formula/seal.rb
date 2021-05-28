@@ -18,6 +18,12 @@ class Seal < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   resource "hexl" do
     url "https://github.com/intel/hexl/archive/tags/v1.1.0.tar.gz"
     sha256 "81965ced20e86b3138fc94dc0c0e41d526c942d654704e3cebc7086171ce497d"
