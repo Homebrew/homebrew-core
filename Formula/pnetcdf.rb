@@ -6,6 +6,11 @@ class Pnetcdf < Formula
   license "NetCDF"
   revision 1
 
+  livecheck do
+    url "https://parallel-netcdf.github.io/wiki/Download.html"
+    regex(/href=.*?pnetcdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "e15cc2caf8c4aeffa65126c52e3dceffdf6fc93dee09eed8dae9db2085756f38"
     sha256 big_sur:       "c2f92ef84469ce44c4b502c72120a750ff64eb06b08e0ed6ebdbf74c11f026d2"
