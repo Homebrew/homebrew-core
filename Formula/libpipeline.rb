@@ -1,9 +1,14 @@
 class Libpipeline < Formula
   desc "C library for manipulating pipelines of subprocesses"
   homepage "http://libpipeline.nongnu.org/"
-  url "https://download.savannah.gnu.org/releases/libpipeline/libpipeline-1.5.3.tar.gz"
+  url "https://download.savannah.nongnu.org/releases/libpipeline/libpipeline-1.5.3.tar.gz"
   sha256 "5dbf08faf50fad853754293e57fd4e6c69bb8e486f176596d682c67e02a0adb0"
   license "GPL-3.0-or-later"
+
+  livecheck do
+    url "https://download.savannah.nongnu.org/releases/libpipeline/"
+    regex(/href=.*?libpipeline[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0a398cdb65f5321e356e7035a3bc2352dd3b92e2f37632d85a64fbdd0510d41d"
