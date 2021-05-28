@@ -10,6 +10,7 @@ class E2fsprogs < Formula
     "BSD-3-Clause",      # lib/uuid
     "MIT",               # lib/et, lib/ss
   ]
+  revision 1
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
   livecheck do
@@ -37,10 +38,25 @@ class E2fsprogs < Formula
     # Enforce MKDIR_P to work around a configure bug
     # see https://github.com/Homebrew/homebrew-core/pull/35339
     # and https://sourceforge.net/p/e2fsprogs/discussion/7053/thread/edec6de279/
-    system "./configure", "--prefix=#{prefix}", "--disable-e2initrd-helper",
-                          "MKDIR_P=mkdir -p"
+    args = [
+      "--prefix=#{prefix}",
+      "--disable-e2initrd-helper",
+      "MKDIR_P=mkdir -p",
+    ]
+    on_macos do
+      args << "--enable-bsd-shlibs" unless Hardware::CPU.arm?
+    end
+    on_linux do
+      args << "--enable-elf-shlibs"
+    end
+
+    system "./configure", *args
 
     system "make"
+
+    # Fix: lib/libcom_err.1.1.dylib: No such file or directory
+    ENV.deparallelize
+
     system "make", "install"
     system "make", "install-libs"
   end
