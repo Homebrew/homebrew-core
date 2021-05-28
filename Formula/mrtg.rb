@@ -4,6 +4,11 @@ class Mrtg < Formula
   url "https://oss.oetiker.ch/mrtg/pub/mrtg-2.17.7.tar.gz"
   sha256 "9b94cb268fb15b0304ad3bb3ec92b9a8a16dacfcee72baac19298224a2c332c3"
 
+  livecheck do
+    url "https://oss.oetiker.ch/mrtg/pub/"
+    regex(/href=.*?mrtg[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a1b3746893c8a50b75735a622cecdea8ae87d0ed4adaa18a9aadd473238fe271"
     sha256 cellar: :any, big_sur:       "657438ce4eea4830cd467cc64bd8f653b9a025e8052b6c1b5e8811bbd837cc91"
