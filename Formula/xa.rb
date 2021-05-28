@@ -5,6 +5,11 @@ class Xa < Formula
   sha256 "32f2164c99e305218e992970856dd8e2309b5cb6ac4758d7b2afe3bfebc9012d"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href\s*?=.*?xa[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e17d657560922230517dfecf5d6600f0aae85c17bb86108a9c6c935be3a1bde7"
     sha256 cellar: :any_skip_relocation, big_sur:       "0f45f1bf0cd1d43ff2135c305ec836301dcc6d58d1ebc0f7fdbe9d9b9fb747a7"
