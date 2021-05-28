@@ -2,10 +2,15 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      tag:      "v3.18.3",
-      revision: "528c58600dcb1ab40eaf99135c8113fc049514dd"
+      tag:      "v3.19.1",
+      revision: "6fc0db96a3d2df7bd2eb0929f9c3d327380b0ed0"
   license "Apache-2.0"
   head "https://github.com/projectcalico/calicoctl.git"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "622d966ce5503d359a68fb9095840e193e46157d518916fd00e7fe352872edd8"
