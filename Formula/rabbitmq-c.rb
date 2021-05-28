@@ -21,7 +21,7 @@ class RabbitmqC < Formula
   def install
     system "cmake", ".", *std_cmake_args, "-DBUILD_EXAMPLES=OFF",
                          "-DBUILD_TESTS=OFF", "-DBUILD_API_DOCS=OFF",
-                         "-DBUILD_TOOLS=ON", "-DCMAKE_INSTALL_RPATH=#{opt_lib}"
+                         "-DBUILD_TOOLS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "make", "install"
   end
 
