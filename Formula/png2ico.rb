@@ -5,6 +5,11 @@ class Png2ico < Formula
   sha256 "d6bc2b8f9dacfb8010e5f5654aaba56476df18d88e344ea1a32523bb5843b68e"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?png2ico-src[._-]v?(\d+(?:[.-]\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any, arm64_big_sur: "af73312990d3438e1a996e9f22cd034805b4851b2fa13d8fae17437e8123538b"
