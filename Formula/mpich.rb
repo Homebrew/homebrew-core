@@ -1,11 +1,10 @@
 class Mpich < Formula
   desc "Implementation of the MPI Message Passing Interface standard"
   homepage "https://www.mpich.org/"
-  url "https://www.mpich.org/static/downloads/3.4.1/mpich-3.4.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/mpich-3.4.1.tar.gz"
-  sha256 "8836939804ef6d492bcee7d54abafd6477d2beca247157d92688654d13779727"
+  url "https://www.mpich.org/static/downloads/3.4.2/mpich-3.4.2.tar.gz"
+  mirror "https://fossies.org/linux/misc/mpich-3.4.2.tar.gz"
+  sha256 "5c19bea8b84e8d74cca5f047e82b147ff3fba096144270e3911ad623d6c587bf"
   license "mpich2"
-  revision 3
 
   livecheck do
     url "https://www.mpich.org/static/downloads/"
