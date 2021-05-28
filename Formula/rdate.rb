@@ -5,6 +5,11 @@ class Rdate < Formula
   sha256 "6e800053eaac2b21ff4486ec42f0aca7214941c7e5fceedd593fa0be99b9227d"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rdate[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3606f3683c8c1465c87a5c3fe427c4e067420f7de3ff4abdabb61871105e190"
