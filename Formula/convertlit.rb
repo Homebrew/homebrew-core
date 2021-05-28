@@ -5,6 +5,13 @@ class Convertlit < Formula
   version "1.8"
   sha256 "d70a85f5b945104340d56f48ec17bcf544e3bb3c35b1b3d58d230be699e557ba"
 
+  # The archive filenames don't use periods in the version, so we have to match
+  # the version from the link text.
+  livecheck do
+    url "http://www.convertlit.com/download.php"
+    regex(/href=.*?clit[._-]?v?\d+(?:\.\d+)*src\.zip[^>]+>\s*?Convert LIT v?(\d+(?:\.\d+)+)/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0ef0e8a30545af331a8acbc7280dfaa41fab75a0bb87a2bf05b84e5ebdc8db2e"
     sha256 cellar: :any_skip_relocation, big_sur:       "4a70dcf4f3bc3b2806794651f1cbbf9effe317ea3d29b06339595bae0d6e71b9"
