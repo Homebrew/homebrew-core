@@ -5,6 +5,11 @@ class Mediaconch < Formula
   sha256 "8f8f31f1c3eb55449799ebb2031ef373934a0a9826ce6c2b2bdd32dacbf5ec4c"
   revision 1
 
+  livecheck do
+    url "https://mediaarea.net/MediaConch/Download/Source"
+    regex(/href=.*?MediaConch[._-]CLI[._-]v?(\d+(?:\.\d+)+)[._-]GNU[._-]FromSource\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2bc516280f29cda43dcda638a0a5dd586a34fc52beb724bd97f382825d347d7a"
     sha256 cellar: :any, big_sur:       "1ab9e887a8787b4b3655df4f9b01214da00ef466da186db7dca1ae646bb09b3d"
