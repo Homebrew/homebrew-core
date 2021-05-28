@@ -20,7 +20,7 @@ class Uriparser < Formula
   def install
     system "cmake", ".", "-DURIPARSER_BUILD_TESTS=OFF",
                          "-DURIPARSER_BUILD_DOCS=OFF",
-                         "-DCMAKE_INSTALL_RPATH=#{opt_lib}",
+                         "-DCMAKE_INSTALL_RPATH=#{rpath}",
                          *std_cmake_args
     system "make"
     system "make", "install"
