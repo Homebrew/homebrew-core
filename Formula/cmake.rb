@@ -1,8 +1,8 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.20.2/cmake-3.20.2.tar.gz"
-  sha256 "aecf6ecb975179eb3bb6a4a50cae192d41e92b9372b02300f9e8f1d5f559544e"
+  url "https://github.com/Kitware/CMake/releases/download/v3.20.3/cmake-3.20.3.tar.gz"
+  sha256 "4d008ac3461e271fcfac26a05936f77fc7ab64402156fb371d41284851a651b8"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git"
 
@@ -27,11 +27,6 @@ class Cmake < Formula
 
   on_linux do
     depends_on "openssl@1.1"
-  end
-
-  patch do
-    url "https://github.com/Kitware/CMake/commit/fa8599e9a6297585513e9849f5ce086b81f42eb0.patch?full_index=1"
-    sha256 "d867b95fc6c9fe185f0fbd3f66fb74c09605d8896a52eafc9c9af0ffe13c3f70"
   end
 
   # The completions were removed because of problems with system bash
