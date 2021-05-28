@@ -5,6 +5,11 @@ class AdwaitaIconTheme < Formula
   sha256 "0b6c436ed6ad9887a88ada1f72a0197b1eb73b020d8d344abab4c7fa7250f8f6"
   license any_of: ["LGPL-3.0-or-later", "CC-BY-SA-3.0"]
 
+  livecheck do
+    url :stable
+    regex(/adwaita-icon-theme-(\d+\.([0-8]\d*?)?[02468](?:\.\d+)*?|\d{2,}(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "3d32ff160b977a5f9f37d096199199e3503bfa73c19556ec1260559f1af48def"
   end
