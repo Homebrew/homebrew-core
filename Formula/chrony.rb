@@ -5,6 +5,11 @@ class Chrony < Formula
   sha256 "ed76f2d3f9347ac6221a91ad4bd553dd0565ac188cd7490d0801d08f7171164c"
   license "GPL-2.0-only"
 
+  livecheck do
+    url "https://chrony.tuxfamily.org/download.html"
+    regex(/href=.*?chrony[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "90fcce18cd0b68629e37023124cb961ac67c2f36da2bdfaeeeb2f6b146a49b9c"
     sha256 cellar: :any_skip_relocation, big_sur:       "ecba024c1c74b0f2d8094b06043a6ceafbc4bcd4cba944e3600792789adcfb4b"
