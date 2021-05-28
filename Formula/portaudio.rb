@@ -8,6 +8,15 @@ class Portaudio < Formula
   version_scheme 1
   head "https://github.com/PortAudio/portaudio.git"
 
+  livecheck do
+    url "http://files.portaudio.com/download.html"
+    regex(/href=.*?pa[._-]stable[._-]v?(\d+)(?:[._-]\d+)?\.t/i)
+    strategy :page_match do |page, regex|
+      # Modify filename version (190700) to match formula version (19.7.0)
+      page.scan(regex).map { |match| match&.first&.scan(/\d{2}/)&.map(&:to_i)&.join(".") }
+    end
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "50a45425f5c6026788791370b1ba30b0dcc82b6cedacd2240168f57f9abe6484"
     sha256 cellar: :any, big_sur:       "f9ae97164b4101048870c761b15998e46f40da666c3f0e20c33cf6ce2f7319d0"
