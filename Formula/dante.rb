@@ -4,6 +4,11 @@ class Dante < Formula
   url "https://www.inet.no/dante/files/dante-1.4.3.tar.gz"
   sha256 "418a065fe1a4b8ace8fbf77c2da269a98f376e7115902e76cda7e741e4846a5d"
 
+  livecheck do
+    url "https://www.inet.no/dante/download.html"
+    regex(/href=.*?dante[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7b25a50f17292cdad4dd0e52de401117411fc6bb660c66bedbdbc8c7759dea9a"
     sha256 cellar: :any, big_sur:       "098dc6c46d4ee77860f8fefcd44bc21533bf70423add42de899910757796d410"
