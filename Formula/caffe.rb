@@ -30,9 +30,9 @@ class Caffe < Formula
   depends_on "snappy"
   depends_on "szip"
 
-  resource "test_model_weights" do
-    url "http://dl.caffe.berkeleyvision.org/bvlc_reference_caffenet.caffemodel"
-    sha256 "472d4a06035497b180636d8a82667129960371375bd10fcb6df5c6c7631f25e0"
+  resource "test_model" do
+    url "https://github.com/nandahkrishna/CaffeMNIST/archive/2483b0ba9b04728041f7d75a3b3cf428cb8edb12.tar.gz"
+    sha256 "2d4683899e9de0949eaf89daeb09167591c060db2187383639c34d7cb5f46b31"
   end
 
   # Fix compilation with OpenCV 4
@@ -66,13 +66,10 @@ class Caffe < Formula
   end
 
   test do
-    model = "bvlc_reference_caffenet"
-    m_path = "#{pkgshare}/models/#{model}"
-    resource("test_model_weights").stage do
+    resource("test_model").stage do
       system "#{bin}/caffe", "test",
-             "-model", "#{m_path}/deploy.prototxt",
-             "-solver", "#{m_path}/solver.prototxt",
-             "-weights", "#{model}.caffemodel"
+             "-model", "lenet_train_test.prototxt",
+             "-weights", "lenet_iter_10000.caffemodel"
     end
   end
 end
