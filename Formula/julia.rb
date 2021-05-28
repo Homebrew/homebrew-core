@@ -86,6 +86,10 @@ class Julia < Formula
     # ARM gcc does not provide `libquadmath`
     args << "USE_SYSTEM_CSL=1" unless Hardware::CPU.arm?
 
+    # `USE_SYSTEM_SUITESPARSE` was renamed in
+    # https://github.com/JuliaLang/julia/commit/835f65d9b9f54e0a8dd856fc940a188f87a48cda
+    args << "USE_SYSTEM_LIBSUITESPARSE=1" if build.head?
+
     # Stable uses `libosxunwind` which is not in Homebrew/core
     # https://github.com/JuliaLang/julia/pull/39127
     on_macos { args << "USE_SYSTEM_LIBUNWIND=1" if build.head? }
