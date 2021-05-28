@@ -5,6 +5,11 @@ class GtkChtheme < Formula
   sha256 "26f4b6dd60c220d20d612ca840b6beb18b59d139078be72c7b1efefc447df844"
   revision 3
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?gtk-chtheme[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8db79039412079abddb969b631131eb3a85f4e90edbcda84bffe4505e55f44b7"
     sha256 cellar: :any, big_sur:       "b6255d461ea8c2ce6606170fdfc3d0564cc7d83ad5feeb7243c6dac01a7ba9e1"
