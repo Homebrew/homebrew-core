@@ -4,6 +4,11 @@ class Zsync < Formula
   url "http://zsync.moria.org.uk/download/zsync-0.6.2.tar.bz2"
   sha256 "0b9d53433387aa4f04634a6c63a5efa8203070f2298af72a705f9be3dda65af2"
 
+  livecheck do
+    url "http://zsync.moria.org.uk/downloads"
+    regex(/href=.*?zsync[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0ee85fb722fa125e4323e14732d4de448f3751e9445e2ec6933fce0ee38d5a90"
     sha256 cellar: :any_skip_relocation, big_sur:       "1be9e390c02555dbce349a76e0beb63231bc327f4326580b18679ff0307db446"
