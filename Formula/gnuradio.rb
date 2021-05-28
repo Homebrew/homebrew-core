@@ -8,6 +8,11 @@ class Gnuradio < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/gnuradio/gnuradio.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:  "11134e43fc66f713045e669118d4c9dcdfe19468bff503a0c362166f6e32dae7"
     sha256 cellar: :any, catalina: "2e2fc2e22252fe5b5ee6f95636eaf021d041d69bca3352bfcafe7f3c03639b3e"
