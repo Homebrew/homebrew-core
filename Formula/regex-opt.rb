@@ -5,6 +5,11 @@ class RegexOpt < Formula
   sha256 "128c8ba9570b1fd8a6a660233de2f5a4022740bc5ee300300709c3894413883f"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?regex-opt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0d8b19c7d0c896626944d9affc850e42f0073ecbfe82b6380f0ed494c13bc759"
