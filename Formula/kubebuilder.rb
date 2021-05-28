@@ -5,6 +5,7 @@ class Kubebuilder < Formula
       tag:      "v3.0.0",
       revision: "533874b302e9bf94cd7105831f8a543458752973"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kubernetes-sigs/kubebuilder.git"
 
   bottle do
@@ -28,6 +29,13 @@ class Kubebuilder < Formula
       -X main.buildDate=#{Time.now.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd"
+
+    output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "bash")
+    (bash_completion/"kubebuilder").write output
+    output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "zsh")
+    (zsh_completion/"_kubebuilder").write output
+    output = Utils.safe_popen_read(bin/"kubebuilder", "completion", "fish")
+    (fish_completion/"kubebuilder.fish").write output
   end
 
   test do
