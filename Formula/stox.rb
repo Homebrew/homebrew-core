@@ -15,7 +15,7 @@ class Stox < Formula
   
   test do
     (testpath/"test.swift").write <<~EOS
-    import Foundation
+      import Foundation
     EOS
     assert_predicate testpath/"test.swift", :exist?
   end
