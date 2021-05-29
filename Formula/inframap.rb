@@ -21,8 +21,7 @@ class Inframap < Formula
   end
 
   def install
-    ldflags = "-X github.com/cycloidio/inframap/cmd.Version=v#{version}"
-    system "go", "build", *std_go_args, "-ldflags", ldflags
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/cycloidio/inframap/cmd.Version=v#{version}")
   end
 
   test do
