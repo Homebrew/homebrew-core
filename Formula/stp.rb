@@ -6,6 +6,11 @@ class Stp < Formula
   license "MIT"
   head "https://github.com/stp/stp.git"
 
+  livecheck do
+    url :stable
+    regex(/^(?:stp[._-])?v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c85797a1bcf17ff2ee089ca7deffb73cb366073342c80805fb5d96f01b6862a8"
     sha256 cellar: :any, big_sur:       "67c02fd361c644c8b084a169780a08b3a784dc9be52c9526f43c46eedd43fa8b"
