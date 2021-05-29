@@ -4,6 +4,7 @@ class Nim < Formula
   url "https://nim-lang.org/download/nim-1.4.8.tar.xz"
   sha256 "b798c577411d7d95b8631261dbb3676e9d1afd9e36740d044966a0555b41441a"
   license "MIT"
+  head "https://github.com/nim-lang/Nim.git", branch: "devel"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6da9b8800dc0ed04a52c42b45e9571b023c1775f34ac6e6d432d80ef974cec42"
@@ -12,30 +13,22 @@ class Nim < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "c491410e36acd9723e4c3827e9bbbded66fcb4bb97c383d34dc82c49d2db9d95"
   end
 
-  head do
-    url "https://github.com/nim-lang/Nim.git", branch: "devel"
-    resource "csources" do
-      url "https://github.com/nim-lang/csources.git"
-    end
-  end
-
   depends_on "help2man" => :build
 
   def install
     if build.head?
-      resource("csources").stage do
-        system "/bin/sh", "build.sh"
-        (buildpath/"bin").install "bin/nim"
-      end
+      # this will clone https://github.com/nim-lang/csources_v1
+      # at some hardcoded revision
+      system "/bin/sh", "build_all.sh"
+      # Build a new version of the compiler with readline bindings
+      system "./koch", "boot", "-d:release", "-d:useLinenoise"
     else
       system "/bin/sh", "build.sh"
+      system "bin/nim", "c", "-d:release", "koch"
+      system "./koch", "boot", "-d:release", "-d:useLinenoise"
+      system "./koch", "tools"
     end
-    # Compile the koch management tool
-    system "bin/nim", "c", "-d:release", "koch"
-    # Build a new version of the compiler with readline bindings
-    system "./koch", "boot", "-d:release", "-d:useLinenoise"
-    # Build nimble/nimgrep/nimpretty/nimsuggest
-    system "./koch", "tools"
+
     system "./koch", "geninstall"
     system "/bin/sh", "install.sh", prefix
 
