@@ -9,6 +9,9 @@ class Iozone < Formula
   livecheck do
     url "https://www.iozone.org/src/current/"
     regex(/href=.*?iozone[._-]?v?(\d+(?:[._]\d+)+)\.t/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match&.first&.gsub("_", ".") }
+    end
   end
 
   bottle do
