@@ -10,6 +10,8 @@ class BrewGem < Formula
     sha256 cellar: :any_skip_relocation, all: "fc319ba05f5f17b0f516292f5fb2d55eccb6c03a11cacc438b1c2c2fb5ccb0db"
   end
 
+  uses_from_macos "ruby"
+
   def install
     inreplace "lib/brew/gem/formula.rb.erb", "/usr/local", HOMEBREW_PREFIX
 
