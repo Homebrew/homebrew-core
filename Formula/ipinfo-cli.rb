@@ -5,6 +5,11 @@ class IpinfoCli < Formula
   sha256 "86a40d5ea784bbecb1ea570cfaaf3a9924f87b52fda1ef2ef978f2ed95422d67"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^ipinfo[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa19540de7e6a5a07401f87df2a3df232c6464171842cc57c7ff0d4f36c9ff27"
     sha256 cellar: :any_skip_relocation, big_sur:       "d9aa10ccd5db7e49054624cd5a48a1a1c8299708c496906302d7d993efa2ba48"
