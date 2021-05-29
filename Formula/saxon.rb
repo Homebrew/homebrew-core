@@ -8,6 +8,9 @@ class Saxon < Formula
   livecheck do
     url :stable
     regex(%r{url=.*?/SaxonHE(\d+(?:[.-]\d+)+)J?\.(?:t|zip)}i)
+    strategy :sourceforge do |page, regex|
+      page.scan(regex).map { |match| match&.first&.gsub("-", ".") }
+    end
   end
 
   bottle :unneeded
