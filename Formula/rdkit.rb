@@ -1,11 +1,18 @@
 class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/Release_2021_03_1.tar.gz"
-  sha256 "9495f797a54ac70b3b6e12776de7d82acd7f7b5d5f0cc1f168c763215545610b"
+  url "https://github.com/rdkit/rdkit/archive/Release_2021_03_2.tar.gz"
+  sha256 "9907a745405cc915c65504046e446199f8ad03d870714de57c27d3738f330fe4"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/rdkit/rdkit.git"
+
+  livecheck do
+    url :stable
+    regex(/^Release[._-](\d+(?:[._]\d+)+)$/i)
+    strategy :git do |tags|
+      tags.map { |tag| tag[regex, 1]&.gsub("_", ".") }.compact
+    end
+  end
 
   bottle do
     sha256 arm64_big_sur: "4517bab8a0cbf87d593d4da115beef2f5df826eb5f876f57178099fe6007b8fa"
