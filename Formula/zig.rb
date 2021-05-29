@@ -24,7 +24,7 @@ class Zig < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DZIG_STATIC_LLVM=ON"
     system "make", "install"
   end
 
