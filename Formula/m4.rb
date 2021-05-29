@@ -17,15 +17,6 @@ class M4 < Formula
 
   keg_only :provided_by_macos
 
-  # Fix crash from usage of %n in dynamic format strings on High Sierra
-  # Patch credit to Jeremy Huddleston Sequoia <jeremyhu@apple.com>
-  if MacOS.version >= :high_sierra
-    patch :p0 do
-      url "https://raw.githubusercontent.com/macports/macports-ports/edf0ee1e2cf/devel/m4/files/secure_snprintf.patch"
-      sha256 "57f972940a10d448efbd3d5ba46e65979ae4eea93681a85e1d998060b356e0d2"
-    end
-  end
-
   on_linux do
     # Glibc no longer provides several required symbols since version 2.28.
     # Gnulib, bundled into m4, and the dependent of those removed symbols
