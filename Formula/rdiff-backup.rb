@@ -6,6 +6,11 @@ class RdiffBackup < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8ca9789a8e2456096ab851fe8277004201bc2f9ca66adf6934a6a942f9eaf3d3"
     sha256 cellar: :any, big_sur:       "da5cbef995206de251e217fbfb1a0594d3222c26c20c003df78a8aad6e855b8f"
