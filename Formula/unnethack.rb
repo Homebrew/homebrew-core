@@ -5,6 +5,11 @@ class Unnethack < Formula
   sha256 "a32a2c0e758eb91842033d53d43f718f3bc719a346e993d9b23bac06f0ac9004"
   head "https://github.com/UnNetHack/UnNetHack.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-]\d{6,8})?)$/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "5b4386eee78f20075e693b6ad437df496c8c914518161d8901991c1c4a6ee1f9"
     sha256 big_sur:       "45d58053580ccdf9b65510768136206b71453b3457f23240a6dc592f817a6145"
