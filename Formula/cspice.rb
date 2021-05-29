@@ -5,6 +5,13 @@ class Cspice < Formula
   version "66"
   sha256 "f5d48c4b0d558c5d71e8bf6fcdf135b0943210c1ff91f8191dfc447419a6b12e"
 
+  # The `stable` tarball is unversioned, so we have to identify the latest
+  # version from text on the homepage.
+  livecheck do
+    url :homepage
+    regex(/current SPICE Toolkit version is (?:<[^>]+?>)?N0*(\d+)/im)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "a8674cfcd5ef55ec8061890728960dd910aa23533c2c4868e93915c77b6e5c8c"
     sha256 cellar: :any_skip_relocation, mojave:      "a08696e53b60d3255a28ca8c52fc6ba992d95f345f31dea6506a64227d10ceac"
