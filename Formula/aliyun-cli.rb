@@ -18,7 +18,7 @@ class AliyunCli < Formula
 
   def install
     system "make", "metas"
-    system "go", "build", *std_go_args(ldflags: "-X github.com/aliyun/aliyun-cli/cli.Version=#{version}"),
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/aliyun/aliyun-cli/cli.Version=#{version}"),
                           "-o", bin/"aliyun", "main/main.go"
   end
 
