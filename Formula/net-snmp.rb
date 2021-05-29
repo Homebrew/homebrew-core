@@ -21,6 +21,11 @@ class NetSnmp < Formula
 
   keg_only :provided_by_macos
 
+  if Hardware::CPU.arm?
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
   depends_on "openssl@1.1"
 
   def install
@@ -42,6 +47,7 @@ class NetSnmp < Formula
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
+    system "autoreconf", "-fvi" if Hardware::CPU.arm?
     system "./configure", *args
     system "make"
     system "make", "install"
