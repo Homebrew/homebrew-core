@@ -4,6 +4,7 @@ class Collectd < Formula
   url "https://collectd.org/files/collectd-5.12.0.tar.bz2"
   sha256 "5bae043042c19c31f77eb8464e56a01a5454e0b39fa07cf7ad0f1bfc9c3a09d6"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "ae24e993f2be3d7618d2e7fa44862e7874c5b6d10a9891ae26767ec050f36f43"
