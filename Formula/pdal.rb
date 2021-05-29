@@ -7,6 +7,17 @@ class Pdal < Formula
   revision 4
   head "https://github.com/PDAL/PDAL.git"
 
+  # The upstream GitHub repository sometimes tags a commit with only a
+  # major/minor version (`1.2`) and then uses major/minor/patch (`1.2.3`) for
+  # the release (with downloadable assets). This inconsistency can be a problem
+  # if we need to substitute the version from livecheck in the `stable` URL, so
+  # we use the `GithubLatest` strategy here.
+  livecheck do
+    url :stable
+    regex(/href=.*?PDAL[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
+    strategy :github_latest
+  end
+
   bottle do
     sha256 arm64_big_sur: "9eeb18f3dbf4cde5dcc641be1e06237ddc88d615be7fe95bf9b1f8ac50fa1922"
     sha256 big_sur:       "fcf5c16aaa8e0b03174f97ca817f5da2409b671802532aa619ddc21cda1f1bd8"
