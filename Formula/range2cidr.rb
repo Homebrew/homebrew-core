@@ -5,6 +5,11 @@ class Range2cidr < Formula
   sha256 "caf6627b361ce690a884ccbb98c229d07dcf73e453af625638b7508113e1b0df"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^range2cidr[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5afa2bd9b03bf007db38f7dca0b129b0d2094a4309ce983aeb855e0a784119c7"
     sha256 cellar: :any_skip_relocation, big_sur:       "543dde8b3d0ef72d2884e13891a46dda2a9492dc601159efb41380960ebcc054"
