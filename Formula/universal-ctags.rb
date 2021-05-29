@@ -7,6 +7,11 @@ class UniversalCtags < Formula
   license "GPL-2.0-only"
   head "https://github.com/universal-ctags/ctags.git"
 
+  livecheck do
+    url :stable
+    regex(/^(p\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "48182f751f5f6efaa9516d4ed948e59b440b4e7fb0ad7b3ed654cbb7e2f4f44b"
     sha256 cellar: :any, big_sur:       "40e0a5ebd29473d1233c7e147e85ef84a01af9019c773816adb55a4fed9fd9d1"
