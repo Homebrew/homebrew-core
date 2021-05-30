@@ -32,6 +32,11 @@ class Molecule < Formula
   # 2. Manually re-add the `molecule-vagrant` resource using the link and checksum found at
   #    `https://pypi.org/project/molecule-vagrant/#files`
 
+  resource "molecule-vagrant" do
+    url "https://files.pythonhosted.org/packages/2d/95/70a098aca889beb3c44c7943367ca9f63838f18cbfc5060d512a41104d6b/molecule-vagrant-0.6.3.tar.gz"
+    sha256 "c1d7f8def1cf8878f52e40de50bbe93d804e87859e01d27dcf81c1e84c164782"
+  end
+
   resource "ansible-lint" do
     url "https://files.pythonhosted.org/packages/97/24/11394bf9ba617dd64f6b4042a4e5d49a219e52ec1dc7eb3f891da2a35a0f/ansible-lint-5.0.11.tar.gz"
     sha256 "c41f398c5a3faaab0481ec988ed42221d9f2de48da1acb06f261546349a870c0"
