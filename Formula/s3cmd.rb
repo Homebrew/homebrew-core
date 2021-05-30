@@ -6,7 +6,7 @@ class S3cmd < Formula
   url "https://files.pythonhosted.org/packages/c7/eb/5143fe1884af2303cb7b23f453e5c9f337af46c2281581fc40ab5322dee4/s3cmd-2.1.0.tar.gz"
   sha256 "966b0a494a916fc3b4324de38f089c86c70ee90e8e1cae6d59102103a4c0cc03"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/s3tools/s3cmd.git"
 
   bottle do
@@ -21,7 +21,7 @@ class S3cmd < Formula
   # - https://github.com/s3tools/s3cmd/pull/1144
   # - https://github.com/s3tools/s3cmd/pull/1137
   # Do not bump Python version until these issues are fixed, probably when version 2.2.0 is released.
-  depends_on "python@3.8"
+  depends_on "python@3.9"
   depends_on "six"
 
   resource "python-dateutil" do
