@@ -50,12 +50,19 @@ class Wdc < Formula
     EOS
     pugixml = Formula["pugixml"]
     openssl = Formula["openssl@1.1"]
-    system ENV.cxx, "test.cpp", "-o", "test", "-lcurl", "-std=c++11",
+    curl_args = "-lcurl"
+    on_linux do
+      curl = Formula["curl"]
+      curl_args << "-L#{curl.opt_lib}"
+      curl_args << "-I#{curl.opt_include}"
+    end
+    system ENV.cxx, "test.cpp", "-o", "test", "-std=c++11", "-pthread",
                    "-L#{lib}", "-lwdc", "-I#{include}",
                    "-L#{openssl.opt_lib}", "-lssl", "-lcrypto",
                    "-I#{openssl.opt_include}",
                    "-L#{pugixml.opt_lib}", "-lpugixml",
-                   "-I#{pugixml.opt_include}"
+                   "-I#{pugixml.opt_include}",
+                   *curl_args
     system "./test"
   end
 end
