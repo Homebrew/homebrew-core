@@ -13,6 +13,8 @@ class Libzt < Formula
     sha256 cellar: :any, high_sierra:   "19554cc555c087797403049615b0145cec80dc3c49a5a70167b2fad75a0729ce"
   end
 
+  disable! date: "2021-05-31", because: "has an incompatible license"
+
   depends_on "cmake" => :build
 
   def install
