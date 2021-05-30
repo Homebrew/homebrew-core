@@ -1,10 +1,10 @@
 class Pipx < Formula
   desc "Execute binaries from Python packages in isolated environments"
-  homepage "https://github.com/pipxproject/pipx"
-  url "https://files.pythonhosted.org/packages/92/09/c4afd1d89677871c3a69657b9aa34c12328b2fb409b068e3933a6e8c2fa4/pipx-0.16.2.1.tar.gz"
-  sha256 "805319eab100c0c36e349b76103bbe903445229a60ebb0010d7cf7590ff5ba20"
+  homepage "https://github.com/pypa/pipx"
+  url "https://files.pythonhosted.org/packages/55/d2/7e4d2f0155ea58d818d043f76eb220ec4ac31df33adafaa7d7edf62b1aeb/pipx-0.16.3.tar.gz"
+  sha256 "51fa41281383212db3b2a6906713871edc1a7d597ae387873026402e281a0b25"
   license "MIT"
-  head "https://github.com/pipxproject/pipx.git"
+  head "https://github.com/pypa/pipx.git"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a6dde65154b456011d4157a3dded90f118266af5f1447a1601044d219706e164"
@@ -21,13 +21,8 @@ class Pipx < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
-    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
-  end
-
-  resource "colorama" do
-    url "https://files.pythonhosted.org/packages/1f/bb/5d3246097ab77fa083a61bd8d3d527b7ae063c7d8e8671b1cf8c4ec10cbe/colorama-0.4.4.tar.gz"
-    sha256 "5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"
+    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
+    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
   end
 
   resource "distro" do
@@ -48,8 +43,8 @@ class Pipx < Formula
   end
 
   resource "userpath" do
-    url "https://files.pythonhosted.org/packages/f0/1b/d2bccd0b855484e3b419c0d87990e6f588793fb7b233d8ea26fa620936fb/userpath-1.4.2.tar.gz"
-    sha256 "dd4b5496e4ef2c1a3bbb103ffefa7738fa4ba15f23580918bb9f949dcd61a8a7"
+    url "https://files.pythonhosted.org/packages/54/ff/48ddc6562a06c38db208ba347512af3d366232333d30a91538f14335a8b9/userpath-1.6.0.tar.gz"
+    sha256 "b2b9a5ca1478ecfa63514b48709d650f48bf7be89f62bd236db556b85b6deff6"
   end
 
   def install
