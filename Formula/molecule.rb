@@ -3,8 +3,8 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/c4/b9/87a02077d873ccee6e5b72077aaf851f8614c098776e558aa10b31373309/molecule-3.3.1.tar.gz"
-  sha256 "9ac0fde11f895bbc6727de26e2ab0bd0316964f4e4facfd821240959814f9572"
+  url "https://files.pythonhosted.org/packages/4a/94/81b28cea7223c3be6d5299ed8fa83e92fe5f042253a2b7f99eb7342340d7/molecule-3.3.2.tar.gz"
+  sha256 "0ad253897052d1ae3b4b9c35c7b83eb23b203e99740bb26f4b7025ff5fe47cd0"
   license "MIT"
 
   bottle do
@@ -32,14 +32,9 @@ class Molecule < Formula
   # 2. Manually re-add the `molecule-vagrant` resource using the link and checksum found at
   #    `https://pypi.org/project/molecule-vagrant/#files`
 
-  resource "molecule-vagrant" do
-    url "https://files.pythonhosted.org/packages/2d/95/70a098aca889beb3c44c7943367ca9f63838f18cbfc5060d512a41104d6b/molecule-vagrant-0.6.3.tar.gz"
-    sha256 "c1d7f8def1cf8878f52e40de50bbe93d804e87859e01d27dcf81c1e84c164782"
-  end
-
   resource "ansible-lint" do
-    url "https://files.pythonhosted.org/packages/9b/fb/21e8e4d099f64f91cea6ba8728278308cd65e924e3aef5194295dd53066a/ansible-lint-5.0.10.tar.gz"
-    sha256 "e7dab22d7826ac623c7c2566e17ee5420633afc844a3a0c0db3adaaa72bc6a82"
+    url "https://files.pythonhosted.org/packages/97/24/11394bf9ba617dd64f6b4042a4e5d49a219e52ec1dc7eb3f891da2a35a0f/ansible-lint-5.0.11.tar.gz"
+    sha256 "c41f398c5a3faaab0481ec988ed42221d9f2de48da1acb06f261546349a870c0"
   end
 
   resource "arrow" do
@@ -63,8 +58,8 @@ class Molecule < Formula
   end
 
   resource "Cerberus" do
-    url "https://files.pythonhosted.org/packages/c4/87/55f8b2e36a5f97c5aaf6424e75f7a21cbd69d0365f6e2e332d03d029bb15/Cerberus-1.3.4.tar.gz"
-    sha256 "d1b21b3954b2498d9a79edf16b3170a3ac1021df88d197dc2ce5928ba519237c"
+    url "https://files.pythonhosted.org/packages/90/a7/71c6ed2d46a81065e68c007ac63378b96fa54c7bb614d653c68232f9c50c/Cerberus-1.3.2.tar.gz"
+    sha256 "302e6694f206dd85cb63f13fd5025b31ab6d38c99c50c6d769f8fa0b0f299589"
   end
 
   resource "certifi" do
@@ -85,11 +80,6 @@ class Molecule < Formula
   resource "click" do
     url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
     sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
-  end
-
-  resource "click-completion" do
-    url "https://files.pythonhosted.org/packages/93/18/74e2542defdda23b021b12b835b7abbd0fc55896aa8d77af280ad65aa406/click-completion-0.5.2.tar.gz"
-    sha256 "5bf816b81367e638a190b6e91b50779007d14301b3f9f3145d68e3cade7bce86"
   end
 
   resource "click-help-colors" do
@@ -232,11 +222,6 @@ class Molecule < Formula
     sha256 "2d24bd98af676f4990c4d715bcdc2a60b19c56a3fb3a763164d2d8ca0e806ba7"
   end
 
-  resource "shellingham" do
-    url "https://files.pythonhosted.org/packages/9c/c9/a3e3bc667c8372a74aa4b16649c3466364cd84f7aacb73453c51b0c2c8a7/shellingham-1.4.0.tar.gz"
-    sha256 "4855c2458d6904829bd34c299f11fdeed7cfefbf8a2c522e4caea6cd76b3171e"
-  end
-
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
@@ -258,8 +243,8 @@ class Molecule < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
-    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
+    url "https://files.pythonhosted.org/packages/94/40/c396b5b212533716949a4d295f91a4c100d51ba95ea9e2d96b6b0517e5a5/urllib3-1.26.5.tar.gz"
+    sha256 "a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"
   end
 
   resource "wcmatch" do
