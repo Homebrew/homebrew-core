@@ -5,7 +5,7 @@ class Helm < Formula
       tag:      "v3.6.0",
       revision: "7f2df6467771a75f5646b7f12afb408590ed1755"
   license "Apache-2.0"
-  head "https://github.com/helm/helm.git"
+  head "https://github.com/helm/helm.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a634b6c75bf040bf5da284c1fc70c5c234852fba1d525fb29b6b1588e863b4d3"
