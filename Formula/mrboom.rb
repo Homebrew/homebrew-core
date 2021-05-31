@@ -28,12 +28,12 @@ class Mrboom < Formula
     require "expect"
     require "timeout"
     PTY.spawn(bin/"mrboom", "-m", "-f 0", "-z") do |r, _w, pid|
-      sleep 1
+      sleep 15
       Process.kill "SIGINT", pid
       assert_match "monster", r.expect(/monster/, 10)[0]
     ensure
       begin
-        Timeout.timeout(10) do
+        Timeout.timeout(30) do
           Process.wait pid
         end
       rescue Timeout::Error
