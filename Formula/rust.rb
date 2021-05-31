@@ -4,8 +4,8 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.52.0-src.tar.gz"
-    sha256 "33bec45b11a24fae2178cdd76794c3dc3c23c24ade7dfaedc09a74c278379a63"
+    url "https://static.rust-lang.org/dist/rustc-1.52.1-src.tar.gz"
+    sha256 "3a6f23a26d0e8f87abbfbf32c5cd7daa0c0b71d0986abefc56b9a5fbfbd0bf98"
 
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
@@ -63,18 +63,11 @@ class Rust < Formula
 
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    on_macos { ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version }
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
-
-    # Fix build failure for cmake v0.1.24 "error: internal compiler error:
-    # src/librustc/ty/subst.rs:127: impossible case reached" on 10.11, and for
-    # libgit2-sys-0.6.12 "fatal error: 'os/availability.h' file not found
-    # #include <os/availability.h>" on 10.11 and "SecTrust.h:170:67: error:
-    # expected ';' after top level declarator" among other errors on 10.12
-    ENV["SDKROOT"] = MacOS.sdk_path
 
     args = ["--prefix=#{prefix}"]
     if build.head?
