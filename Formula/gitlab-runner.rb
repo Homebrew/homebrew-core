@@ -22,21 +22,16 @@ class GitlabRunner < Formula
   depends_on "go" => :build
 
   def install
-    dir = buildpath/"src/gitlab.com/gitlab-org/gitlab-runner"
-    dir.install buildpath.children
+    proj = "gitlab.com/gitlab-org/gitlab-runner"
+    ldflags = [
+      "-X #{proj}/common.NAME=gitlab-runner",
+      "-X #{proj}/common.VERSION=#{version}",
+      "-X #{proj}/common.REVISION=#{Utils.git_short_head(length: 8)}",
+      "-X #{proj}/common.BRANCH=#{version.major}-#{version.minor}-stable",
+      "-X #{proj}/common.BUILT=#{Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")}",
+    ]
 
-    cd dir do
-      proj = "gitlab.com/gitlab-org/gitlab-runner"
-      system "go", "build", "-ldflags", <<~EOS
-        -X #{proj}/common.NAME=gitlab-runner
-        -X #{proj}/common.VERSION=#{version}
-        -X #{proj}/common.REVISION=#{Utils.git_short_head(length: 8)}
-        -X #{proj}/common.BRANCH=#{version.major}-#{version.minor}-stable
-        -X #{proj}/common.BUILT=#{Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")}
-      EOS
-
-      bin.install "gitlab-runner"
-    end
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
   end
 
   plist_options manual: "gitlab-runner start"
