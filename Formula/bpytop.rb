@@ -3,8 +3,8 @@ class Bpytop < Formula
 
   desc "Linux/OSX/FreeBSD resource monitor"
   homepage "https://github.com/aristocratos/bpytop"
-  url "https://files.pythonhosted.org/packages/cf/18/a53f8d2393ca8856a9a3e7e6130d6803048d21e7bac60ae6979249436d25/bpytop-1.0.65.tar.gz"
-  sha256 "de16412efec4bde588466bfed2166908240b59d941c48fc6b9623e2fde0e05ef"
+  url "https://files.pythonhosted.org/packages/d5/b7/0a8783bc25cccf20da0086ee733184470e4a9c155a5c62e3af81bf8dc187/bpytop-1.0.66.tar.gz"
+  sha256 "56d729e88098016969c2ae8e921b789d46418e076161e4b6bc3babd203e1478e"
   license "Apache-2.0"
 
   bottle do
