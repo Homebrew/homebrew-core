@@ -1,12 +1,12 @@
 class Pywhat < Formula
   include Language::Python::Virtualenv
 
-  desc "🐸 Identify anything: emails, IP addresses, and more 🧙‍♀️"
+  desc "🐸 Identify anything: emails, IP addresses, and more 🧙"
   homepage "https://github.com/bee-san/pyWhat"
   url "https://files.pythonhosted.org/packages/32/18/94ed2965c98f2577826bf642bd496516738c3056c824687c1453c2e88944/pywhat-1.1.0.tar.gz"
   sha256 "445cfe9ac2ccffd8438d4d4197fc5ec0ebbfac1ec241a75cd2e65ea5ed68e615"
-  license "GPL-3.0-only"
-  head "https://github.com/bee-san/pyWhat.git"
+  license "GPL-3.0-or-later"
+  head "https://github.com/bee-san/pyWhat.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6440cd5a863215e48c456dc4099fac28ec6f2a04eabaff9cf6056ab4bd1713ec"
@@ -58,6 +58,6 @@ class Pywhat < Formula
   end
 
   test do
-    assert_equal "Possible language (ISO-639-1 code): et 100% probability.", pipe_output("#{bin}/pywhat test").strip
+    assert_equal "Possible language (ISO-639-1 code): et 100% probability.", shell_output("#{bin}/pywhat test").strip
   end
 end
