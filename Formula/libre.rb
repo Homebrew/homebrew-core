@@ -17,11 +17,16 @@ class Libre < Formula
   uses_from_macos "zlib"
 
   def install
-    system "make", "SYSROOT=#{MacOS.sdk_path}/usr", "install", "PREFIX=#{prefix}"
+    sysroot = nil
+    on_macos do
+      sysroot = "SYSROOT=#{MacOS.sdk_path}/usr"
+    end
+    system "make", *sysroot, "install", "PREFIX=#{prefix}"
   end
 
   test do
     (testpath/"test.c").write <<~EOS
+      #include <stdint.h>
       #include <re/re.h>
       int main() {
         return libre_init();
