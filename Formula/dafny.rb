@@ -4,6 +4,7 @@ class Dafny < Formula
   url "https://github.com/dafny-lang/dafny/archive/v3.1.0.tar.gz"
   sha256 "6cecba54e4190094b805fa6462538413226dca44f288a8500003884878f1cc7a"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
