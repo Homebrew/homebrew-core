@@ -21,8 +21,8 @@ class LibxdgBasedir < Formula
   depends_on "libtool" => :build
 
   def install
-    system "./autogen.sh", "--disable-dependency-tracking",
-                           "--prefix=#{prefix}"
+    system "./autogen.sh"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
