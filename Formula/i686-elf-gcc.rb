@@ -17,6 +17,15 @@ class I686ElfGcc < Formula
   depends_on "libmpc"
   depends_on "mpfr"
 
+  # Remove when upstream has Apple Silicon support
+  if Hardware::CPU.arm?
+    patch do
+      # patch from gcc-11.1.0-arm branch
+      url "https://github.com/fxcoudert/gcc/commit/eea3046c5fa62d4dee47e074c7a758570d9da61c.patch?full_index=1"
+      sha256 "b55ca05a0ed32f69f63bbe708568df5ad62d938da0e34b515d601bb966d32d40"
+    end
+  end
+
   def install
     mkdir "i686-elf-gcc-build" do
       system "../configure", "--target=i686-elf",
