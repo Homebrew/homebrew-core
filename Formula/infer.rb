@@ -36,6 +36,10 @@ class Infer < Formula
   uses_from_macos "xz"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "patchelf" => :build
+  end
+
   def install
     # needed to build clang
     ENV.permit_arch_flags
@@ -51,6 +55,9 @@ class Infer < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
     ENV["OPAMVERBOSE"] = "1"
+    on_linux do
+      ENV["PATCHELF"] = Formula["patchelf"].opt_bin/"patchelf"
+    end
 
     system "opam", "init", "--no-setup", "--disable-sandboxing"
 
