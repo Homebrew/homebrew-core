@@ -9,7 +9,7 @@ class Wxmac < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
   end
 
   bottle do

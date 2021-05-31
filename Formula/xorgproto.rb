@@ -5,6 +5,11 @@ class Xorgproto < Formula
   sha256 "0f5157030162844b398e7ce69b8bb967c2edb8064b0a9c9bb5517eb621459fbf"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/href=.*?xorgproto[._-]v?(\d+\.\d+(?:\.([0-8]\d*?)?\d(?:\.\d+)*)?)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "e7e892aa9dfd101f067d5c3e298ccc65bb37c2a7889a0f50ef4e4610b030e00c"
   end
