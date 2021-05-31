@@ -1,6 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class WrenConsole < Formula
   desc "Improved REPL and CLI tool for running Wren scripts"
   homepage "https://github.com/joshgoebel/wren-console"
@@ -12,11 +9,11 @@ class WrenConsole < Formula
 
   def install
     on_macos do
-      system "git clone https://github.com/joshgoebel/wren-essentials deps/wren-essentials"
+      system "git", "clone", "https://github.com/joshgoebel/wren-essentials", "deps/wren-essentials"
       system "make", "-C", "projects/make.mac"
     end
     on_linux do
-      system "git clone https://github.com/joshgoebel/wren-essentials deps/wren-essentials"
+      system "git", "clone", "https://github.com/joshgoebel/wren-essentials", "deps/wren-essentials"
       system "make", "-C", "projects/make"
     end
     bin.install "bin/wrenc"
