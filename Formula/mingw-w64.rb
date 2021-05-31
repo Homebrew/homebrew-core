@@ -34,6 +34,15 @@ class MingwW64 < Formula
     url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
     mirror "https://ftpmirror.gnu.org/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
     sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
+
+    # Remove when upstream has Apple Silicon support
+    if Hardware::CPU.arm?
+      patch do
+        # patch from gcc-11.1.0-arm branch
+        url "https://github.com/fxcoudert/gcc/commit/eea3046c5fa62d4dee47e074c7a758570d9da61c.patch?full_index=1"
+        sha256 "b55ca05a0ed32f69f63bbe708568df5ad62d938da0e34b515d601bb966d32d40"
+      end
+    end
   end
 
   def target_archs
