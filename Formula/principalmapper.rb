@@ -1,13 +1,13 @@
 class Principalmapper < Formula
   include Language::Python::Virtualenv
 
-  desc "A tool for quickly evaluating IAM permissions in AWS."
+  desc "Quickly evaluate IAM permissions in AWS"
   homepage "https://github.com/nccgroup/PMapper"
   url "https://files.pythonhosted.org/packages/b4/4d/c270b88e05d4b17705936b7a3d05056d67e117b4087c663834d9bbd348d6/principalmapper-1.1.2.tar.gz"
   sha256 "e36366a603b812de9eaf9c242a421f6982517b236344b9c44a1c509d82c62a26"
   license "AGPL-3.0-only"
 
-  depends_on "python"
+  depends_on "python@3.9"
   depends_on "six"
 
   resource "botocore" do
