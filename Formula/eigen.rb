@@ -6,6 +6,11 @@ class Eigen < Formula
   license "MPL-2.0"
   head "https://gitlab.com/libeigen/eigen.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e03d900e18903478875f1c354ee169373be0fdc49996da784e4a55f7b3c3594a"
     sha256 cellar: :any_skip_relocation, big_sur:       "c3305d00c64e0bd6f53e45858b92be3d72827c02b2e2f71d4edd01f1efaa1080"
