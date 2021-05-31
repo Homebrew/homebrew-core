@@ -155,10 +155,19 @@ class Openjdk < Formula
 
   def caveats
     on_macos do
-      <<~EOS
+      s = <<~EOS
         For the system Java wrappers to find this JDK, symlink it with
           sudo ln -sfn #{opt_libexec}/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
       EOS
+
+      if Hardware::CPU.arm?
+        s += <<~EOS
+          This is a beta version of openjdk for Apple Silicon
+          (openjdk 17 preview).
+        EOS
+      end
+
+      s
     end
   end
 
