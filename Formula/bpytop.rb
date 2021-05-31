@@ -26,7 +26,7 @@ class Bpytop < Formula
 
   def install
     virtualenv_install_with_resources
-    pkgshare.install "bpytop-themes" => "themes"
+    pkgshare.install "themes"
   end
 
   test do
