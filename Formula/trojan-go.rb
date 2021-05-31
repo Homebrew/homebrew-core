@@ -2,8 +2,8 @@ class TrojanGo < Formula
   desc "Trojan proxy in Go"
   homepage "https://p4gefau1t.github.io/trojan-go/"
   url "https://github.com/p4gefau1t/trojan-go.git",
-      tag:      "v0.10.2",
-      revision: "08b303e93e881da3a8bf5ac4c04af09cb7b1a3fb"
+      tag:      "v0.10.3",
+      revision: "15817b5060ffc6284d9ba3a3defe99614a426d57"
   license "GPL-3.0-only"
   head "https://github.com/p4gefau1t/trojan-go.git"
 
@@ -17,13 +17,13 @@ class TrojanGo < Formula
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202105260213/geoip.dat"
-    sha256 "4fc24aee62dda4f3a46196552f2183a8cb9249b772a1e4442b7cd16522fa7ebb"
+    url "https://github.com/v2fly/geoip/releases/download/202105270041/geoip.dat"
+    sha256 "a5f1cec9c252197a07a4b7b7e89da08dec65692715beb5ecad1106c2dea3c73c"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20210526032424/dlc.dat"
-    sha256 "fd83fe6cd88aaf2391e506fc6aba2d75067df729555341c747c00290a25d323d"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20210530205623/dlc.dat"
+    sha256 "5064df9aee2056cce8c63dc5ec005f9e6b9487fc1227ab7250c4c84bf26cb26a"
   end
 
   def install
