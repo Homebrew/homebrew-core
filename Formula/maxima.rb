@@ -4,6 +4,7 @@ class Maxima < Formula
   url "https://downloads.sourceforge.net/project/maxima/Maxima-source/5.45.0-source/maxima-5.45.0.tar.gz"
   sha256 "c7631f32644805cebb7bafef3ab5331c4bacd2c27e384fd88323b5039a60d0d8"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url :stable
