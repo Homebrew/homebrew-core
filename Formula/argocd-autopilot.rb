@@ -15,5 +15,7 @@ class ArgocdAutopilot < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/argocd-autopilot version")
+    assert_match "authentication failed",
+                 shell_output("#{bin}/argocd-autopilot repo create -o foo -n bar -t dummy 2>&1", 1)
   end
 end
