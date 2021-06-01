@@ -1,10 +1,10 @@
 class GccAT9 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
-  sha256 "71e197867611f6054aa1119b13a0c0abac12834765fe2d81f35ac57f84f742d1"
-  revision 2
+  url "https://ftp.gnu.org/gnu/gcc/gcc-9.4.0/gcc-9.4.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.4.0/gcc-9.4.0.tar.xz"
+  sha256 "c95da32f440378d7751dd95533186f7fc05ceb4fb65eb5b85234e6299eb9838e"
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
     url :stable
@@ -77,6 +77,10 @@ class GccAT9 < Formula
       # Xcode 10 dropped 32-bit support
       args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
 
+      # Workaround for Xcode 12.5 bug on Intel
+      # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100340
+      args << "--without-build-config" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version >= 1205
+
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
       if sdk
@@ -133,9 +137,13 @@ class GccAT9 < Formula
 
     (testpath/"hello-cc.cc").write <<~EOS
       #include <iostream>
+      struct exception { };
       int main()
       {
         std::cout << "Hello, world!" << std::endl;
+        try { throw exception{}; }
+          catch (exception) { }
+          catch (...) { }
         return 0;
       }
     EOS
