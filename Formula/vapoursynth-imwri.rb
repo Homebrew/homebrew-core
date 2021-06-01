@@ -4,6 +4,7 @@ class VapoursynthImwri < Formula
   url "https://github.com/vapoursynth/vapoursynth/archive/R53.tar.gz"
   sha256 "78e2c5311b2572349ff7fec2e16311e9e4f6acdda78673872206ab660eadf7c8"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/vapoursynth/vapoursynth.git"
 
   bottle do
