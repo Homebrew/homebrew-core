@@ -2,8 +2,8 @@ class Inlets < Formula
   desc "Expose your local endpoints to the Internet"
   homepage "https://github.com/inlets/inlets"
   url "https://github.com/inlets/inlets.git",
-      tag:      "3.0.1",
-      revision: "dbccc1ee8edfa0a06e4f7b258bbee4a959bc18af"
+      tag:      "3.0.2",
+      revision: "7b18a394b74390133e511957d954b1ba3b7d01a2"
   license "MIT"
   head "https://github.com/inlets/inlets.git"
 
