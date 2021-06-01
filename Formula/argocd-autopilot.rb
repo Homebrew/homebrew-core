@@ -1,5 +1,5 @@
 class ArgocdAutopilot < Formula
-  desc "Argo-CD Autopilot"
+  desc "Opinionated way of installing Argo CD and managing GitOps repositories"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj-labs/argocd-autopilot.git",
       tag:      "v0.1.9",
@@ -14,7 +14,6 @@ class ArgocdAutopilot < Formula
   end
 
   test do
-    assert_match "#{version}",
-      shell_output("#{bin}/argocd-autopilot version")
+    assert_match version.to_s, shell_output("#{bin}/argocd-autopilot version")
   end
 end
