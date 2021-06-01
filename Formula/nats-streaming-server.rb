@@ -1,8 +1,8 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/refs/tags/v0.21.2.tar.gz"
-  sha256 "4e116cd50e92eb72583db654d083e993a4f217a2096ddb9c56eff561ca5b90ad"
+  url "https://github.com/nats-io/nats-streaming-server/archive/refs/tags/v0.22.0.tar.gz"
+  sha256 "adbb4a51536f9baabf42788c9e87bef029bc861cc5376e679098f2bc2dce181e"
   license "Apache-2.0"
   head "https://github.com/nats-io/nats-streaming-server.git"
 
