@@ -2,9 +2,9 @@ class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
   url "https://github.com/clojure-lsp/clojure-lsp.git",
-      tag:      "2021.05.14-15.26.02",
-      revision: "e5a377df84504adaeaa68a3a3a61bb637eb63fba"
-  version "20210514T152602"
+      tag:      "2021.06.01-16.19.44",
+      revision: "d17d1347249477ee534e5df1030ff1b36c1e2ecb"
+  version "20210601T161944"
   license "MIT"
   head "https://github.com/clojure-lsp/clojure-lsp.git"
 
@@ -29,7 +29,7 @@ class ClojureLsp < Formula
   depends_on "openjdk@11"
 
   def install
-    system "clojure", "-X:prod-jar"
+    system "make", "prod-bin"
     jar = "clojure-lsp.jar"
     libexec.install jar
     bin.write_jar_script libexec/jar, "clojure-lsp", java_version: "11"
