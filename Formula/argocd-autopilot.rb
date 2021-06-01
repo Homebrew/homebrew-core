@@ -9,6 +9,7 @@ class ArgocdAutopilot < Formula
   depends_on "go" => :build
 
   def install
+    inreplace "hack/build.sh", "-extldflags\ \'-static\'", ""
     system "make", "cli-package"
     bin.install "dist/argocd-autopilot"
   end
