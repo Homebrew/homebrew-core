@@ -1,9 +1,9 @@
 class Vsftpd < Formula
   desc "Secure FTP server for UNIX"
   homepage "https://security.appspot.com/vsftpd.html"
-  url "https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz"
-  mirror "https://fossies.org/linux/misc/vsftpd-3.0.3.tar.gz"
-  sha256 "9d4d2bf6e6e2884852ba4e69e157a2cecd68c5a7635d66a3a8cf8d898c955ef7"
+  url "https://security.appspot.com/downloads/vsftpd-3.0.4.tar.gz"
+  mirror "https://fossies.org/linux/misc/vsftpd-3.0.4.tar.gz"
+  sha256 "6b9421bd27e8a6cdeed5b31154f294a20b003a11a26c09500715a0a6b1b86a26"
   license "GPL-2.0-only"
 
   livecheck do
