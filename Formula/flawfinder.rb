@@ -24,7 +24,7 @@ class Flawfinder < Formula
   depends_on "python@3.9"
 
   def install
-    rewrite_shebang detected_python_shebang, "flawfinder"
+    rewrite_shebang detected_python_shebang, "flawfinder.py"
     system "make", "prefix=#{prefix}", "install"
   end
 
