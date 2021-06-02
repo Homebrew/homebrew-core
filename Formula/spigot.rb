@@ -19,16 +19,17 @@ class Spigot < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "885c712c8e738092e669b36cdbeadb354057bf8eb3f9af572a2716e61bab1d8c"
   end
 
+  depends_on "cmake" => :build
+
   on_linux do
     depends_on "gmp"
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
