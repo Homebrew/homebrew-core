@@ -3,8 +3,8 @@ class Kibana < Formula
   homepage "https://www.elastic.co/products/kibana"
   # NOTE: Do not bump version to one with a non-open-source license
   url "https://github.com/elastic/kibana.git",
-      tag:      "v7.10.2",
-      revision: "a0b793698735eb1d0ab1038f8e5d7a951524e929"
+      tag:      "v7.13.1",
+      revision: "9b177ae95979d96cf172517a3c6e469bbbda07ed"
   license "Apache-2.0"
   head "https://github.com/elastic/kibana.git"
 
