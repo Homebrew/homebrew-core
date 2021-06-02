@@ -1,8 +1,8 @@
 class Tm < Formula
   desc "TriggerMesh CLI to work with knative objects"
   homepage "https://triggermesh.com"
-  url "https://github.com/triggermesh/tm/archive/v1.5.0.tar.gz"
-  sha256 "64ecf3c1d75095f5909d4ee46a2903327099d33b952c6866ef03bfcdfb4d521d"
+  url "https://github.com/triggermesh/tm/archive/v1.6.0.tar.gz"
+  sha256 "52a2c55cbae8da6a043759c32ec6a6f83b93e56b4bf77064417769513742a614"
   license "Apache-2.0"
   head "https://github.com/triggermesh/tm.git"
 
