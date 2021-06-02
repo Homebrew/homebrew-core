@@ -1,7 +1,7 @@
 class Oras < Formula
   desc "OCI Registry As Storage"
-  homepage "https://github.com/deislabs/oras"
-  url "https://github.com/deislabs/oras/archive/v0.12.0.tar.gz"
+  homepage "https://github.com/oras-project/oras"
+  url "https://github.com/oras-project/oras/archive/v0.12.0.tar.gz"
   sha256 "5e19d61683a57b414efd75bd1b0290c941b8faace5fcc9d488f5e4aa674bf03e"
   license "MIT"
 
@@ -17,12 +17,10 @@ class Oras < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/deislabs/oras/internal/version.Version=#{version}
-      -X github.com/deislabs/oras/internal/version.BuildMetadata=Homebrew
+      -X github.com/oras-project/oras/internal/version.Version=#{version}
+      -X github.com/oras-project/oras/internal/version.BuildMetadata=Homebrew
     ]
-    system "go", "build", *std_go_args,
-                          "-ldflags", ldflags.join(" "),
-                          "./cmd/oras"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd/oras"
   end
 
   test do
