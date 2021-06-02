@@ -12,6 +12,7 @@ class Jenv < Formula
   def install
     libexec.install Dir["*"]
     bin.write_exec_script libexec/"bin/jenv"
+    fish_function.install_symlink Dir[libexec/"fish/*.fish"]
   end
 
   def caveats
@@ -20,8 +21,6 @@ class Jenv < Formula
         To activate jenv, run the following commands:
 
           echo 'status --is-interactive; and source (jenv init -|psub)' >> #{shell_profile}
-          set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME $HOME/.config
-          ln -sf #{opt_libexec}/fish/*.fish $XDG_CONFIG_HOME/fish/functions
 
       EOS
     else
