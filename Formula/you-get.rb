@@ -3,8 +3,8 @@ class YouGet < Formula
 
   desc "Dumb downloader that scrapes the web"
   homepage "https://you-get.org/"
-  url "https://files.pythonhosted.org/packages/ce/48/ac9a960df2af7ab1c6afe80853320d4d76b219727ff2a2e513cd006d2bdb/you-get-0.4.1525.tar.gz"
-  sha256 "905eae25a7d2aef2262cb6a2cabd036381a6c6c6cc8746e13c4a8fde4602911c"
+  url "https://files.pythonhosted.org/packages/7b/7d/fe93719aadff3814695dc30541324aba9da422a3800a1942c5e5d2457ab0/you-get-0.4.1527.tar.gz"
+  sha256 "470b2f76ccad5dbe37bc4a8779056cf6da67f4322fe723e2b9227e825da595c9"
   license "MIT"
   head "https://github.com/soimort/you-get.git", branch: "develop"
 
