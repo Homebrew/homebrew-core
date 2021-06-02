@@ -14,6 +14,8 @@ class GnuGetopt < Formula
 
   keg_only :provided_by_macos
 
+  depends_on "asciidoctor" => :build
+
   on_linux do
     keg_only "conflicts with util-linux"
   end
@@ -23,7 +25,7 @@ class GnuGetopt < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
 
-    system "make", "getopt"
+    system "make", "getopt", "misc-utils/getopt.1"
 
     bin.install "getopt"
     man1.install "misc-utils/getopt.1"
