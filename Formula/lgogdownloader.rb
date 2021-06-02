@@ -5,6 +5,11 @@ class Lgogdownloader < Formula
   sha256 "984859eb2e0802cfe6fe76b1fe4b90e7354e95d52c001b6b434e0a9f5ed23bf0"
   revision 5
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?lgogdownloader[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "16c65ba9c5a83ef4b68b3dfb35924a217f0cdd14f7abeb66186878293436cd94"
     sha256 cellar: :any, big_sur:       "d5c6efb4221585f32ecd462f6aa40f004ca67c0d1a7213f7a5e9a75eb9284ce8"
