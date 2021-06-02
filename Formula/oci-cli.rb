@@ -3,8 +3,8 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/d4/cd/ac38657dfbd6af257ad1697ba15b9c18a4d2acf341b3d916efaec08b5cc7/oci-cli-2.25.0.tar.gz"
-  sha256 "aadfc14ce04336dffab25ac4c29316c541caf7bdfab79d6a5c638ffb41296f31"
+  url "https://files.pythonhosted.org/packages/0b/2d/4b3cf8e8659b086241654f714f63ccdcda8c56b7842e5698cde141b14731/oci-cli-2.25.1.tar.gz"
+  sha256 "ce3ec1327e1c78941f47ef439e14fabf1e2b625c0a4f0e5b103f5466a5542e4a"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git"
 
@@ -23,8 +23,8 @@ class OciCli < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
-    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
+    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
+    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
   end
 
   resource "cffi" do
@@ -53,8 +53,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/f3/d6/08e979c01426fe5d1e759ef03ab08b1a73f642147c53ef2f443c53690969/oci-2.38.4.tar.gz"
-    sha256 "ea1330607e0a4eb9fcd8f171aae173507e2630ff1eb79b7b33ff1b6287e486e2"
+    url "https://files.pythonhosted.org/packages/09/92/3a084a225afb96ed0e74f63fab728f5e26405f902b118685e97c8a17a979/oci-2.39.0.tar.gz"
+    sha256 "e1bff7347fc34846c82c751bba0ce81141740fafd9bedd36d9fe5af56bd2b463"
   end
 
   resource "pycparser" do
