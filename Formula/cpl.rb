@@ -30,9 +30,7 @@ class Cpl < Formula
                           "--prefix=#{prefix}",
                           "--with-cfitsio=#{Formula["cfitsio"].prefix}",
                           "--with-fftw=#{Formula["fftw"].prefix}",
-                          "--with-wcslib=#{Formula["wcslib"].prefix}",
-                          # Needed for 7.1.2's ./configure to work under Xcode 12:
-                          "CC=#{ENV.cc} -Wno-implicit-function-declaration"
+                          "--with-wcslib=#{Formula["wcslib"].prefix}"
     system "make", "install"
   end
 
