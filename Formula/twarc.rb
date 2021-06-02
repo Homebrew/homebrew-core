@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/95/66/2e79e37f9ec90ec27fef42f2ec859ddd0bb4562c7b098b1dce882dc84c8c/twarc-2.1.1.tar.gz"
-  sha256 "6d8e0a40e506f5a28cdd1d1ae0de9d7e6c1755f5d5ebf2653c53313cb094043a"
+  url "https://files.pythonhosted.org/packages/f0/e7/41a880e9e30533941a6c001cdcfd5f6b7700015a41e691cb96456d35e8a8/twarc-2.1.2.tar.gz"
+  sha256 "e39d04743c8c1c58457e23e9c6c41f1b1f7282f2915f25f6594719e262ed9223"
   license "MIT"
 
   bottle do
@@ -52,8 +52,8 @@ class Twarc < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/fc/c7/829c73c64d3749da7811c06319458e47f3461944da9d98bb4df1cb1598c2/oauthlib-3.1.0.tar.gz"
-    sha256 "bee41cc35fcca6e988463cacc3bcb8a96224f470ca547e697b604cc697b2f889"
+    url "https://files.pythonhosted.org/packages/9e/84/001a3f8d9680f3b26d5e7711e13d5ff92e4b511766a72ac6b4a4e5f06796/oauthlib-3.1.1.tar.gz"
+    sha256 "8f0215fcc533dd8dd1bee6f4c412d4f0cd7297307d43ac61666389e3bc3198a3"
   end
 
   resource "python-dateutil" do
