@@ -1,8 +1,8 @@
 class Concurrencykit < Formula
   desc "Aid design and implementation of concurrent systems"
   homepage "http://concurrencykit.org/"
-  url "https://github.com/concurrencykit/ck/archive/0.7.0.tar.gz"
-  sha256 "e730cb448fb0ecf9d19bf4c7efe9efc3c04dd9127311d87d8f91484742b0da24"
+  url "https://github.com/concurrencykit/ck/archive/0.7.1.tar.gz"
+  sha256 "97d2a21d5326ef79b4668be2e6eda6284ee77a64c0981b35fd9695c736c3d4ac"
   license "BSD-2-Clause"
   head "https://github.com/concurrencykit/ck.git"
 
