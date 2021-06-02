@@ -19,14 +19,11 @@ class Jenv < Formula
     if preferred == :fish
       <<~EOS
         To activate jenv, run the following commands:
-
           echo 'status --is-interactive; and source (jenv init -|psub)' >> #{shell_profile}
-
       EOS
     else
       <<~EOS
         To activate jenv, add the following to your #{shell_profile}:
-
           export PATH="$HOME/.jenv/bin:$PATH"
           eval "$(jenv init -)"
       EOS
