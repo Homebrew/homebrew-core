@@ -4,6 +4,7 @@ class Timewarrior < Formula
   url "https://github.com/GothenburgBitFactory/timewarrior/releases/download/v1.4.3/timew-1.4.3.tar.gz"
   sha256 "c4df7e306c9a267c432522c37958530b8fd6e5a410c058f575e25af4d8c7ca53"
   license "MIT"
+  revision 1
   head "https://github.com/GothenburgBitFactory/timewarrior.git"
 
   bottle do
@@ -13,6 +14,7 @@ class Timewarrior < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "18f0a0d7a5077f4d45f796b54ef93146656321dc07fdd1d044e7fedac4f98506"
   end
 
+  depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
 
   def install
@@ -24,6 +26,7 @@ class Timewarrior < Formula
     (testpath/".timewarrior/data").mkpath
     (testpath/".timewarrior/extensions").mkpath
     touch testpath/".timewarrior/timewarrior.cfg"
+    system "man", "-P", "cat", "timew-summary"
     assert_match "Tracking foo", shell_output("#{bin}/timew start foo")
   end
 end
