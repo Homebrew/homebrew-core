@@ -3,7 +3,7 @@ class Fswatch < Formula
   homepage "https://github.com/emcrisostomo/fswatch"
   url "https://github.com/emcrisostomo/fswatch/releases/download/1.16.0/fswatch-1.16.0.tar.gz"
   sha256 "95ece85eb01af71e99afef0173755fcedb737b639163f8efc7fed674f6f5372f"
-  license "GPL-3.0"
+  license all_of: ["GPL-3.0-or-later", "Apache-2.0"]
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "12f1acafc38cc38fddb8a221897ace28a95b6927b1708c52cd764b0aa56472dd"
