@@ -1,8 +1,8 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.83.13.tar.gz"
-  sha256 "8e7a5d30ae7ec70fa853663368badf5bafe3b4018629196115ffaa95f4771f27"
+  url "https://github.com/joncampbell123/dosbox-x/archive/dosbox-x-v0.83.14.tar.gz"
+  sha256 "d27e1b796e22104c1cc822ee3255c07275e5ebbb6e29d8eda07dbf9feefc53e8"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git"
