@@ -1,7 +1,7 @@
 class PistonCli < Formula
   include Language::Python::Virtualenv
 
-  desc "Universal shell supporting code highlighting, files, and interpretation."
+  desc "Universal shell supporting code highlighting, files, and interpretation"
   homepage "https://github.com/Shivansh-007/piston-cli"
   url "https://files.pythonhosted.org/packages/1c/ed/a264ad9fe2c4ec70a018affa88627e84eed850bfe8fe2a4ae83ee33886ff/piston-cli-1.4.3.tar.gz"
   sha256 "aaf0c654971a31751a8dd5105a5e16d5da2cb7c9343ec4bd5d7fe8f2e42bb5f6"
