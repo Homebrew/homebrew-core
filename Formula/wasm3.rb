@@ -1,8 +1,8 @@
 class Wasm3 < Formula
   desc "High performance WebAssembly interpreter"
   homepage "https://github.com/wasm3/wasm3"
-  url "https://github.com/wasm3/wasm3/archive/v0.4.9.tar.gz"
-  sha256 "4a09c118fae597db046bddad5734cc536a47f9afd333855789bda6955d08a617"
+  url "https://github.com/wasm3/wasm3/archive/v0.5.0.tar.gz"
+  sha256 "b778dd72ee2251f4fe9e2666ee3fe1c26f06f517c3ffce572416db067546536c"
   license "MIT"
 
   bottle do
