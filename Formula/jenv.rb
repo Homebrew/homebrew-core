@@ -20,8 +20,8 @@ class Jenv < Formula
         To activate jenv, run the following commands:
 
           echo 'status --is-interactive; and source (jenv init -|psub)' >> #{shell_profile}
-          set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME $HOME
-          ln -sf #{opt_libexec}/fish/*.fish $XDG_CONFIG_HOME/.config/fish/functions
+          set -q XDG_CONFIG_HOME; or set XDG_CONFIG_HOME $HOME/.config
+          ln -sf #{opt_libexec}/fish/*.fish $XDG_CONFIG_HOME/fish/functions
 
       EOS
     else
