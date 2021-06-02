@@ -1,8 +1,8 @@
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
-  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.7.tar.bz2"
-  sha256 "ef06d6230f9cae55177777713ccac5d2bb4913f075d0b964d593e41e22612874"
+  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.8.tar.bz2"
+  sha256 "1cb6ccb4ac9ec38fa80dd80dbdb24ccf16cf58d2de42a030776a3a7c691cabf8"
 
   livecheck do
     url :homepage
