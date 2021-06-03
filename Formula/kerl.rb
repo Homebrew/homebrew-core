@@ -6,8 +6,6 @@ class Kerl < Formula
   license "MIT"
   head "https://github.com/kerl/kerl.git"
 
-  bottle :unneeded
-
   def install
     bin.install "kerl"
     bash_completion.install "bash_completion/kerl"
