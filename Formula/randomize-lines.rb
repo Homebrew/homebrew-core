@@ -5,6 +5,11 @@ class RandomizeLines < Formula
   sha256 "1cfca23d6a14acd190c5a6261923757d20cb94861c9b2066991ec7a7cae33bc8"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?rl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c107eea0fba80096a370db46e622320bdb9ea825b837280e46ad236b3a37bbd4"
     sha256 cellar: :any_skip_relocation, big_sur:       "05b5f772ee8d86ef341e30e91194b0a4b0cdbe5d3e16c8e319ed5e74a901e806"
