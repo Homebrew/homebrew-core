@@ -1,8 +1,8 @@
 class Caire < Formula
   desc "Content aware image resize tool"
   homepage "https://github.com/esimov/caire"
-  url "https://github.com/esimov/caire/archive/v1.3.1.tar.gz"
-  sha256 "8e9e1fbbfa0a2fd24280890ff1b5a48df487bdcba3445c50ff749235f569372f"
+  url "https://github.com/esimov/caire/archive/v1.3.2.tar.gz"
+  sha256 "fe759bbbf4ddb2a89d43ac99812f8a3027e2f84fc8f9771db88ac043cc41cbf7"
   license "MIT"
   head "https://github.com/esimov/caire.git"
 
