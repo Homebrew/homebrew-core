@@ -3,15 +3,15 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/95/66/2e79e37f9ec90ec27fef42f2ec859ddd0bb4562c7b098b1dce882dc84c8c/twarc-2.1.1.tar.gz"
-  sha256 "6d8e0a40e506f5a28cdd1d1ae0de9d7e6c1755f5d5ebf2653c53313cb094043a"
+  url "https://files.pythonhosted.org/packages/f0/e7/41a880e9e30533941a6c001cdcfd5f6b7700015a41e691cb96456d35e8a8/twarc-2.1.2.tar.gz"
+  sha256 "e39d04743c8c1c58457e23e9c6c41f1b1f7282f2915f25f6594719e262ed9223"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a2f4ddf25cfe935a719962364a0fb74399ea94f26dd21b4fc17d5ba968f80495"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bbe05dfd59b593e64e9be6aa224ace979a5d11410992e48b50718e32747e324c"
-    sha256 cellar: :any_skip_relocation, catalina:      "bf7863b8f0768dc4c885b9b31359e74c04fef0ae9f03a83f58bc92354b14ce75"
-    sha256 cellar: :any_skip_relocation, mojave:        "5cd54e9a9fa656a0dd0b080c0b8977865f569a3af22d14edc8b9d2a79630573d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e2c05da4d9235ddb1f08f6c9a00436c9f2a7ded2c4e84eff72cd396dc33a5da3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e8cf3e97b78953ad98c566095caecc86c25ad0caf7f134cb5f0be7a920115bb6"
+    sha256 cellar: :any_skip_relocation, catalina:      "5063577224f587b1830c0bcca323150ed8a44f0b4b0e1a5c8e9837170a160b24"
+    sha256 cellar: :any_skip_relocation, mojave:        "987822257fc6791820843e202c7e0df7461ab959b49b85dff1c74736aa1e28e8"
   end
 
   depends_on "python@3.9"
@@ -52,8 +52,8 @@ class Twarc < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/fc/c7/829c73c64d3749da7811c06319458e47f3461944da9d98bb4df1cb1598c2/oauthlib-3.1.0.tar.gz"
-    sha256 "bee41cc35fcca6e988463cacc3bcb8a96224f470ca547e697b604cc697b2f889"
+    url "https://files.pythonhosted.org/packages/9e/84/001a3f8d9680f3b26d5e7711e13d5ff92e4b511766a72ac6b4a4e5f06796/oauthlib-3.1.1.tar.gz"
+    sha256 "8f0215fcc533dd8dd1bee6f4c412d4f0cd7297307d43ac61666389e3bc3198a3"
   end
 
   resource "python-dateutil" do

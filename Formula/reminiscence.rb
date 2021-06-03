@@ -1,8 +1,8 @@
 class Reminiscence < Formula
   desc "Flashback engine reimplementation"
   homepage "http://cyxdown.free.fr/reminiscence/"
-  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.7.tar.bz2"
-  sha256 "ef06d6230f9cae55177777713ccac5d2bb4913f075d0b964d593e41e22612874"
+  url "http://cyxdown.free.fr/reminiscence/REminiscence-0.4.8.tar.bz2"
+  sha256 "1cb6ccb4ac9ec38fa80dd80dbdb24ccf16cf58d2de42a030776a3a7c691cabf8"
 
   livecheck do
     url :homepage
@@ -10,10 +10,10 @@ class Reminiscence < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2bfceaf5574bb466177bea7a5cc2f6137212eba2d4cc4b6c547efcea3af5f52b"
-    sha256 cellar: :any, big_sur:       "94e240b118e26f65e12fe087ba325a924841cdb57de69206f7433f4976b3ae55"
-    sha256 cellar: :any, catalina:      "e5e9f65d1dcdfd16cea37f66f4d7f30a051fd5252bc330cb1e2c5740fb939d11"
-    sha256 cellar: :any, mojave:        "1f9a8d59c676baae13f81ab411be784be4f7ae0cc55bee6ed2e14bab210473b7"
+    sha256 cellar: :any, arm64_big_sur: "e5f1b6bbae4b98d7b63fc625185777507337626a291562e40e9bf43a5b5cd07a"
+    sha256 cellar: :any, big_sur:       "d9ce59c1d7e918e95c41ab0634f37296716d81985463b066415c5cd311e23a1b"
+    sha256 cellar: :any, catalina:      "6e2a4eae17d7c5344f2fdcf4c23214fba760d039e9a5d9a1ba6d9236684a9331"
+    sha256 cellar: :any, mojave:        "267a60d456e2223523e09144575cab1d5b6087b8e52c4bb6715450ee00fa60ac"
   end
 
   depends_on "autoconf" => :build

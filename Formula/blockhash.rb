@@ -4,14 +4,14 @@ class Blockhash < Formula
   url "https://github.com/commonsmachinery/blockhash/archive/v0.3.1.tar.gz"
   sha256 "56e8d2fecf2c7658c9f8b32bfb2d29fdd0d0535ddb3082e44b45a5da705aca86"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/commonsmachinery/blockhash.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a21c816803c5e302a789f2616c67a1d8e49262257a771cb4d86b8f84d2962a2d"
-    sha256 cellar: :any, big_sur:       "82866f4bac111fe2a8a5503c9bb3a04b5e5c1495ebad4355eef972c29ddcff43"
-    sha256 cellar: :any, catalina:      "4ee5b64b3f683ea5b2aef80dc699027d8ba0e2a3f164bbbbc02e80123c92ebf4"
-    sha256 cellar: :any, mojave:        "45ae3e5d45b9e0b3766cfcc35a208de03dce5fe5ffe5abb42e508c9a776603e7"
+    sha256 cellar: :any, arm64_big_sur: "1263f1d1a652f85a0cd026b5f9d1e1df6f1f467aee9a4336dfcacd02d590253b"
+    sha256 cellar: :any, big_sur:       "e7dad94beb23855c8bb9b9145da15b74b29f11f5125c3c9cb495d9894a747a3a"
+    sha256 cellar: :any, catalina:      "16fa35be4bfea3e7e71ee26879f2e8508062b3f9684c178bc0204c0cec1e0284"
+    sha256 cellar: :any, mojave:        "b6fd37575c7c00ab516240c916d7af8576655188c4fa830bf04833859d804b7f"
   end
 
   depends_on "pkg-config" => :build

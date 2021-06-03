@@ -132,12 +132,12 @@ class Glibc < Formula
       system "make", "install"
       prefix.install_symlink "lib" => "lib64"
     end
-
-    # Install ld.so symlink.
-    ln_sf lib/"ld-linux-x86-64.so.2", HOMEBREW_PREFIX/"lib/ld.so"
   end
 
   def post_install
+    # Install ld.so symlink.
+    ln_sf lib/"ld-linux-x86-64.so.2", HOMEBREW_PREFIX/"lib/ld.so"
+
     # Compile locale definition files
     mkdir_p lib/"locale"
 

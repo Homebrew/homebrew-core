@@ -1,9 +1,9 @@
 class Ispell < Formula
   desc "International Ispell"
   homepage "https://www.cs.hmc.edu/~geoff/ispell.html"
-  url "https://www.cs.hmc.edu/~geoff/tars/ispell-3.4.02.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/i/ispell/ispell_3.4.02.orig.tar.gz"
-  sha256 "6679604c3157fe54b2100905f3b52aaadfd23f46bb05a787188ec326f1c7d92c"
+  url "https://www.cs.hmc.edu/~geoff/tars/ispell-3.4.03.tar.gz"
+  mirror "https://deb.debian.org/debian/pool/main/i/ispell/ispell_3.4.03.orig.tar.gz"
+  sha256 "bae76abe0e92160a7ef36141426c932e05676c9893c4cd54d302c31890db1c10"
 
   livecheck do
     url :homepage
@@ -11,10 +11,10 @@ class Ispell < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "e360fc035e8d3a92e478a0e80609ccb39e5ca978cc3c8ed518aefd680401c2bd"
-    sha256 big_sur:       "e27a92684329bd9c8bb2cb663b8a17f59519ed3e9eb9c04f1a1d145de4ec2726"
-    sha256 catalina:      "780428f2e0e4a6b8151af68c037b1059c479d642942a7609c25d343be08e40a4"
-    sha256 mojave:        "14e8be247605fc01cacfeb0d115945217b028a1ff372f33fbe8132f03f88e9d8"
+    sha256 arm64_big_sur: "206bac064616192692a52cd0fb8f64138cc685a0d2765ce21ba1889672a3558b"
+    sha256 big_sur:       "bb31a94a6248a8298f8f93ba6175336aa4b7e1297440d9cea7af22be117170f9"
+    sha256 catalina:      "d588636ea56a940732b17181ad84b1b22b906314f5cbc2171aad5bce76812903"
+    sha256 mojave:        "9fe86ce46da93f3f73b2c7ad3bd079d5a4eae7dd86c7ab638841eb5a21895ea7"
   end
 
   uses_from_macos "bison" => :build

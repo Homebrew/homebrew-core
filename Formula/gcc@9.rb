@@ -1,10 +1,10 @@
 class GccAT9 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.3.0/gcc-9.3.0.tar.xz"
-  sha256 "71e197867611f6054aa1119b13a0c0abac12834765fe2d81f35ac57f84f742d1"
-  revision 2
+  url "https://ftp.gnu.org/gnu/gcc/gcc-9.4.0/gcc-9.4.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-9.4.0/gcc-9.4.0.tar.xz"
+  sha256 "c95da32f440378d7751dd95533186f7fc05ceb4fb65eb5b85234e6299eb9838e"
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   livecheck do
     url :stable
@@ -12,9 +12,9 @@ class GccAT9 < Formula
   end
 
   bottle do
-    sha256 big_sur:  "5d22085577464257e9b1cb00bae0a9691474ad7690692afd4e2789bf512cd1a5"
-    sha256 catalina: "be32c5993e4dd28c9af70ed8a65071e1a99cf40f273f8ea66924fe30635c9a72"
-    sha256 mojave:   "4fe853726359f38c27fe4c8d0a5d62167bdad4e1f6166dd8c7944a499c77a88b"
+    sha256 big_sur:  "ef05afedb14a945c18e8ab08af9e96293a8ef285af2df365a676b9df0be9c93f"
+    sha256 catalina: "01e1eb5be5910cd743653c25de299ac7614ca3910de50b0ae3c25f9ba89c108d"
+    sha256 mojave:   "c480dc44d4a5e568077e452c49c7c8e8daa61a924e7137fbeefc8821449d7d10"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -77,6 +77,10 @@ class GccAT9 < Formula
       # Xcode 10 dropped 32-bit support
       args << "--disable-multilib" if DevelopmentTools.clang_build_version >= 1000
 
+      # Workaround for Xcode 12.5 bug on Intel
+      # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=100340
+      args << "--without-build-config" if Hardware::CPU.intel? && DevelopmentTools.clang_build_version >= 1205
+
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
       if sdk
@@ -133,9 +137,13 @@ class GccAT9 < Formula
 
     (testpath/"hello-cc.cc").write <<~EOS
       #include <iostream>
+      struct exception { };
       int main()
       {
         std::cout << "Hello, world!" << std::endl;
+        try { throw exception{}; }
+          catch (exception) { }
+          catch (...) { }
         return 0;
       }
     EOS

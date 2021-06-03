@@ -2,9 +2,9 @@ class ClojureLsp < Formula
   desc "Language Server (LSP) for Clojure"
   homepage "https://github.com/clojure-lsp/clojure-lsp"
   url "https://github.com/clojure-lsp/clojure-lsp.git",
-      tag:      "2021.05.14-15.26.02",
-      revision: "e5a377df84504adaeaa68a3a3a61bb637eb63fba"
-  version "20210514T152602"
+      tag:      "2021.06.01-16.19.44",
+      revision: "d17d1347249477ee534e5df1030ff1b36c1e2ecb"
+  version "20210601T161944"
   license "MIT"
   head "https://github.com/clojure-lsp/clojure-lsp.git"
 
@@ -18,10 +18,10 @@ class ClojureLsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "41c3d632d4f0023ed7bc73163103f0c05a0c6cbb820ec984883620e54974c796"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d5ae5b9ebe5228e6de7c5e7aa377e1b5c15ae0bcde9577cd7a6f439f5ea4893a"
-    sha256 cellar: :any_skip_relocation, catalina:      "af6e0975d10f208689a4b8c516eb9621304438db534c6d1dd3db9679260e31a4"
-    sha256 cellar: :any_skip_relocation, mojave:        "7ffd44c23974551b48ad2996b366d7aac01f092ceffeb154e6fc8fea2144c838"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f7553eeef175e7fab98d3513a993162cf00a940575de89b1d6e802cc4a6fc5ae"
+    sha256 cellar: :any_skip_relocation, big_sur:       "edc2a4d6e3914895683c101f92e887b0d573feb9215972f0f178473b0f786b4c"
+    sha256 cellar: :any_skip_relocation, catalina:      "166cbb7fbfe32ac69f9f77669df0ccef5f9fc4c161b7678e7c90c1d4585cc141"
+    sha256 cellar: :any_skip_relocation, mojave:        "faa438a6e4f69f39e45c5b21686ed2d926cad60e0c3a0e380126b18675ee7517"
   end
 
   depends_on "clojure" => :build
@@ -29,7 +29,7 @@ class ClojureLsp < Formula
   depends_on "openjdk@11"
 
   def install
-    system "clojure", "-X:prod-jar"
+    system "make", "prod-bin"
     jar = "clojure-lsp.jar"
     libexec.install jar
     bin.write_jar_script libexec/jar, "clojure-lsp", java_version: "11"

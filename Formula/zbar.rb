@@ -4,6 +4,7 @@ class Zbar < Formula
   url "https://github.com/mchehab/zbar/archive/0.23.90.tar.gz"
   sha256 "25fdd6726d5c4c6f95c95d37591bfbb2dde63d13d0b10cb1350923ea8b11963b"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/mchehab/zbar.git"
 
   livecheck do
@@ -12,10 +13,10 @@ class Zbar < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "da7a7d53d15640ef06f7479abdd322e2a5efeebf3947d8a818fc1184f2367797"
-    sha256 big_sur:       "7d99550adb7819400686e8d43cddc41bcc8b16281571b76028b0621b8458b07f"
-    sha256 catalina:      "edf2bd674be776af3ee0be04f9ad86365413ba57afc513ef51eab4eb88f73743"
-    sha256 mojave:        "8e6433e54110979d17f47332faf44881822e1c31bb1a6cc012c6c10a86e84842"
+    sha256 arm64_big_sur: "baa3cd1c3c1f3942f21809ce8da4135007a447a5c00162962fe7ed2a86eb3221"
+    sha256 big_sur:       "4bdea261367d272a41f9546056eb9b6ba65f1d88fbbeb07fbea7f2ac8da225bb"
+    sha256 catalina:      "e49e72eb04239895bbd43b085c03f24ddf86288530d1d7afedbd933fee8b172f"
+    sha256 mojave:        "cb9d3b6678c961ae919859751707682658a1cb40b268d329ace6c64e3dbb9c12"
   end
 
   depends_on "autoconf" => :build

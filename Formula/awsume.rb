@@ -3,16 +3,16 @@ class Awsume < Formula
 
   desc "Utility for easily assuming AWS IAM roles from the command-line"
   homepage "https://awsu.me"
-  url "https://files.pythonhosted.org/packages/25/5b/f7e5e1afb43fedbaf8dc3d5b0c74dab9d13c7d98ce6878ecdc45dd0809be/awsume-4.5.2.tar.gz"
-  sha256 "583e56d6847e7a92fa9a708e75fb8bef4383a0be708657b848d05a80362c3842"
+  url "https://files.pythonhosted.org/packages/2f/d4/2f9621851aa22e06b0242d1c5dc2fbeb6267d5beca92c0adf875438793c2/awsume-4.5.3.tar.gz"
+  sha256 "e94cc4c1d0f3cc0db8270572e2880c0641ce14cf226355bf42440b726bf453ef"
   license "MIT"
   head "https://github.com/trek10inc/awsume.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "430313775987ab59b0003c726ce7811f3894f8100856f38fba6f4354e0f2aefd"
-    sha256 cellar: :any_skip_relocation, big_sur:       "2e3463f690806e61a1a0a903f18b6df4011023b958476ddd442f9d338e76cb3c"
-    sha256 cellar: :any_skip_relocation, catalina:      "a8925a0d936e825ce00fa86f9bdfccc710c86c06d33a19d8aaf0d804a9f64f34"
-    sha256 cellar: :any_skip_relocation, mojave:        "6f8cee7614dec442423e8d0070b5e236be421304516a6cf4ab2c2622facdc56d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4aabc67dc8a89b21b22e87f5daaed8098c0d8d088593588cf2877348e78e02c6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "806d2b9b42e2c6b2ada3ea54078acd63f9d57993d0e035ef8f1a2146b4b3acb3"
+    sha256 cellar: :any_skip_relocation, catalina:      "8a625ab78b6ef09d29fe249e1455c22606842a1334483d34026203d3649098ab"
+    sha256 cellar: :any_skip_relocation, mojave:        "cad6a135f48beed8f047779cd8e53822910346ff88ab96cc664b348eebe84c3f"
   end
 
   depends_on "openssl@1.1"
@@ -20,13 +20,13 @@ class Awsume < Formula
   uses_from_macos "sqlite"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/47/91/83a451e512a7357ffcb132dc25cad84e4d14bc866fd255f810a832c744a6/boto3-1.17.72.tar.gz"
-    sha256 "3317722a1e9acbfc0d30cdf273d1708c823ceb19309e9cd91cac8a3604762341"
+    url "https://files.pythonhosted.org/packages/b5/48/ec62ebe81e6e5d31859d7741693ab6407f9422d8a32b546ab7a519694190/boto3-1.17.85.tar.gz"
+    sha256 "8352dffe768af9e1471323c8e443cc66a114891572bf832bec3cc2eec47838f6"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9b/32/04cae70cf2d43c11346714c8e0b597ab610e8eb231a8195e34155ea63397/botocore-1.20.72.tar.gz"
-    sha256 "0fa93a2e2daad5791c63ee526ada66896cc483d04cb2d32bfcadfeb881203453"
+    url "https://files.pythonhosted.org/packages/47/99/6caacd7d0fcd4cb0e092f4b7a57bc98cac86555a5a943f13454f09133ca0/botocore-1.20.85.tar.gz"
+    sha256 "d8992096d9c04e7be331924a59677e591cce6a3c6bd3a4c8fe26b00700d5255a"
   end
 
   resource "colorama" do
@@ -70,8 +70,8 @@ class Awsume < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
-    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
+    url "https://files.pythonhosted.org/packages/94/40/c396b5b212533716949a4d295f91a4c100d51ba95ea9e2d96b6b0517e5a5/urllib3-1.26.5.tar.gz"
+    sha256 "a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"
   end
 
   def install

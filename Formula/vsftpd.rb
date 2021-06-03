@@ -1,9 +1,9 @@
 class Vsftpd < Formula
   desc "Secure FTP server for UNIX"
   homepage "https://security.appspot.com/vsftpd.html"
-  url "https://security.appspot.com/downloads/vsftpd-3.0.3.tar.gz"
-  mirror "https://fossies.org/linux/misc/vsftpd-3.0.3.tar.gz"
-  sha256 "9d4d2bf6e6e2884852ba4e69e157a2cecd68c5a7635d66a3a8cf8d898c955ef7"
+  url "https://security.appspot.com/downloads/vsftpd-3.0.4.tar.gz"
+  mirror "https://fossies.org/linux/misc/vsftpd-3.0.4.tar.gz"
+  sha256 "6b9421bd27e8a6cdeed5b31154f294a20b003a11a26c09500715a0a6b1b86a26"
   license "GPL-2.0-only"
 
   livecheck do
@@ -12,11 +12,10 @@ class Vsftpd < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 arm64_big_sur: "b4db372cd088914a87f7c103eaed341550041af0d76e491a6d92b835f61285b6"
-    sha256 big_sur:       "40acdd9e273725a5338036bc7cb79af8c1978a9d18eefab2b735591b0bf5176d"
-    sha256 catalina:      "48478d6f73d9fa182c6597de7f195ab659879dbb301a70aa5e306d496331aebd"
-    sha256 mojave:        "156a4b41142d78d359c2a6c17b9aa3cca5a00e56fe01c2188dcc224735c0fdeb"
+    sha256 arm64_big_sur: "39c9723d0b2bdb7514c497c5ca38a8c5925e0586d2391fcab7ff3b52be0ea702"
+    sha256 big_sur:       "aca3609846714ed749df94668ae6e90b28d762c4a18066089af03310de6a8ab5"
+    sha256 catalina:      "21e36b15fcc37ae27c2e756e029714ef573a74c544d5f691a8bfe7e327143d01"
+    sha256 mojave:        "5ffca9c3643cb55a9fcdc53b5d6b044bbe9303c13fb20f7e7b46896f5db85b34"
   end
 
   uses_from_macos "perl" => :build

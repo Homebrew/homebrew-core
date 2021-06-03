@@ -1,15 +1,15 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "https://fibjs.org/"
-  url "https://github.com/fibjs/fibjs/releases/download/v0.32.1/fullsrc.zip"
-  sha256 "e4fbe79ab8cfe9d33cb56771524a67d1231770b312bc677165344a0a9efb72dd"
+  url "https://github.com/fibjs/fibjs/releases/download/v0.33.0/fullsrc.zip"
+  sha256 "4a681b057598f1ebcdc7b943aba506bd942d7919b7c7fcb459a2c6d4ffdaab4f"
   license "GPL-3.0-only"
   head "https://github.com/fibjs/fibjs.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "805081981e806be46cc919002806f1518c2c2cb2421fbe97bc2ca5a00e4fb621"
-    sha256 cellar: :any_skip_relocation, catalina: "93826d72189ebf83939879b05130ce6de9c9aa07465f89488b31a76248da2888"
-    sha256 cellar: :any_skip_relocation, mojave:   "c8af00dfa6f60530bec05341d3e7fec0591a6dfcb88ba4c74f0bb31a243d330f"
+    sha256 cellar: :any_skip_relocation, big_sur:  "e5a997e76a3fa661cbdf75cf61e3e53e093451c2c5e9a1e55a16e6b8742fb55d"
+    sha256 cellar: :any_skip_relocation, catalina: "a93fbe33a0f6feca011ea1f21f69f2d5d72be12cc4b2ca11f217e53ad1a09c72"
+    sha256 cellar: :any_skip_relocation, mojave:   "bef936d8399cb135a7073b6983ee41b0fb41e967c893a92db785f5d319ea453e"
   end
 
   depends_on "cmake" => :build

@@ -6,6 +6,7 @@ on:
       - "Formula/alsa-lib.rb"
       - "Formula/attr.rb"
       - "Formula/avahi.rb"
+      - "Formula/at-spi2-core.rb"
       - "Formula/device-mapper.rb"
       - "Formula/glibc.rb"
       - "Formula/libaio.rb"

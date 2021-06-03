@@ -24,6 +24,10 @@ class Libepoxy < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
 
+  on_linux do
+    depends_on "freeglut"
+  end
+
   def install
     mkdir "build" do
       system "meson", *std_meson_args, ".."
@@ -55,7 +59,12 @@ class Libepoxy < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lepoxy", "-framework", "OpenGL", "-o", "test"
+    args = %w[-lepoxy]
+    on_macos do
+      args += %w[-framework OpenGL -DOS_MAC]
+    end
+    args += %w[-o test]
+    system ENV.cc, "test.c", "-L#{lib}", *args
     system "ls", "-lh", "test"
     system "file", "test"
     system "./test"

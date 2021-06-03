@@ -2,16 +2,16 @@ class Packetbeat < Formula
   desc "Lightweight Shipper for Network Data"
   homepage "https://www.elastic.co/products/beats/packetbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.13.0",
-      revision: "054e224d226b42a1dd7c72dcf48c3f18de452e22"
+      tag:      "v7.13.1",
+      revision: "2d80f6e99f41b65a270d61706fa98d13cfbda18d"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "97059595d6095e7da16b00ad87f7c1d25d5931dcbc4dc91e57bd1c9f02e927d4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7bff8655c6cba923be741a289e046c61e2ed2628f39eae415f63fc0f409cb2fc"
-    sha256 cellar: :any_skip_relocation, catalina:      "2fd10f57a749c3a1f430eb0578aa582ccaab669ee86d71fdb6015393d0828b3f"
-    sha256 cellar: :any_skip_relocation, mojave:        "f885c4f6cfa4d364de5516029f482bda1598ef2a6cc64c6c768175cf3f44ca99"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a66d0351a81814bf56339a7fcdb544555512c15792543347796ca17c1dd04800"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bf32251346026831fa95bd0d677c92c4e3dafeb6ff35261ec08f63faabae3c3d"
+    sha256 cellar: :any_skip_relocation, catalina:      "78de47077dec64501d5d73be90248a8a1f6c391b776164310619e5e0f782f026"
+    sha256 cellar: :any_skip_relocation, mojave:        "bc7db713e06ea4e3829dac9d9dc28dbaf0cc3be71a9b980c6ee832880762e64d"
   end
 
   depends_on "go" => :build

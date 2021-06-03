@@ -3,15 +3,15 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/4a/94/81b28cea7223c3be6d5299ed8fa83e92fe5f042253a2b7f99eb7342340d7/molecule-3.3.2.tar.gz"
-  sha256 "0ad253897052d1ae3b4b9c35c7b83eb23b203e99740bb26f4b7025ff5fe47cd0"
+  url "https://files.pythonhosted.org/packages/56/87/f35c28aabe1e4a7d6e234b49ced74b5aa73b3de1b78224743132ddbbdb92/molecule-3.3.3.tar.gz"
+  sha256 "cb413639f19a3f805bc8ebcbba51e254381a15128ce5a5322e6733de26602b2d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "a731995fbcebb2bd1bdf806cbaed831d88ff44d7169eee9ea889c8dd3cab4e63"
-    sha256 cellar: :any, big_sur:       "4a8a1bbc92c1a8fa0693796dd6cd9d6c327d13b7a9f9e6f85e17ee6e163bc4c8"
-    sha256 cellar: :any, catalina:      "a9d3783072d71d85d762ee76fd7855f7573c4e7d8d54a2990d901120872958e4"
-    sha256 cellar: :any, mojave:        "89d5bb4655cb63aac298ee253c0002e6e83b52a244cbc116b9313e34c6f74ecc"
+    sha256 cellar: :any, arm64_big_sur: "c97baece25ac52250e9571c99f527d389217ec9a697f4a40fcd391718db6e23c"
+    sha256 cellar: :any, big_sur:       "e09202808414b7aa79e20cb806aff220b559a34dd286ab5d812c436c069b7cc2"
+    sha256 cellar: :any, catalina:      "50852a71b651e6dcf4f3b27a2542db405693aae22e5883ed5363194b5b570ea3"
+    sha256 cellar: :any, mojave:        "67562d1a22ef2b83c356192395c6e0f89ad2209d3571893651ba3f709c72b075"
   end
 
   depends_on "rust" => :build
@@ -67,8 +67,8 @@ class Molecule < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/06/a9/cd1fd8ee13f73a4d4f491ee219deeeae20afefa914dfb4c130cfc9dc397a/certifi-2020.12.5.tar.gz"
-    sha256 "1a4995114262bffbc2413b159f2a1a480c969de6e6eb13ee966d470af86af59c"
+    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
+    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
   end
 
   resource "cffi" do
@@ -217,8 +217,8 @@ class Molecule < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/62/cf/148028462ab88a71046ba0a30780357ae9e07125863ea9ca7808f1ea3798/ruamel.yaml-0.17.4.tar.gz"
-    sha256 "44bc6b54fddd45e4bc0619059196679f9e8b79c027f4131bb072e6a22f4d5e28"
+    url "https://files.pythonhosted.org/packages/fd/6b/b83bdc8fb9aad62f6469117874e7c11b64d94ba9e8557f73ca1f28c2df7d/ruamel.yaml-0.17.7.tar.gz"
+    sha256 "5c3fa739bbedd2f23769656784e671c6335d17a5bf163c3c3901d8663c0af287"
   end
 
   resource "ruamel.yaml.clib" do

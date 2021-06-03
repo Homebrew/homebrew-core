@@ -1,15 +1,15 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://hackage.haskell.org/package/pandoc-2.14/pandoc-2.14.tar.gz"
-  sha256 "88eda1e01828da310429b3cbfbdb5ff80ccfbc0d7158f88c41e9c409ebb3f9c2"
+  url "https://hackage.haskell.org/package/pandoc-2.14.0.1/pandoc-2.14.0.1.tar.gz"
+  sha256 "23afd822ee0416c8e8a3179dde698e7753724325b5a21a26f9c9591c5aabd03b"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/pandoc.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "b62fcbc0b2edec0566ce554070ebd891f2072576fd2cd38eb98325760958404c"
-    sha256 cellar: :any_skip_relocation, catalina: "193915dd53c8d11863b6c874220fae89e44c3c44a59d60c53190b81e15b89324"
-    sha256 cellar: :any_skip_relocation, mojave:   "2e24634d0c05f6e04ac23bce38fc3c0157fe4a25d7675e47424875f51c33ee8d"
+    sha256 cellar: :any_skip_relocation, big_sur:  "bf26d6505074279f2213266d41deb2ec43bcc759f4c8d2ede44bcd47775ffd62"
+    sha256 cellar: :any_skip_relocation, catalina: "6bf648b2067e3bc446fd1306de3778e7e5a25f2e7b7c089a9e40fa8ee9501c77"
+    sha256 cellar: :any_skip_relocation, mojave:   "fb8f80c1ff5cff3386e7bdf785fe60cbf2fb87b780e73624e38bc4e3aac23d5a"
   end
 
   depends_on "cabal-install" => :build

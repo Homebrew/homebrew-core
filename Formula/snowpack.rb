@@ -3,15 +3,15 @@ require "language/node"
 class Snowpack < Formula
   desc "Frontend build tool designed for the modern web"
   homepage "https://www.snowpack.dev"
-  url "https://registry.npmjs.org/snowpack/-/snowpack-3.5.2.tgz"
-  sha256 "1f56d7d2ef4aa344a443df02aa9ca91739dc89ad1d531d514782bb93c1ab5695"
+  url "https://registry.npmjs.org/snowpack/-/snowpack-3.5.4.tgz"
+  sha256 "4ee2f4f9323566f5e4b9431b188f89a344276ee288d730cfd6dc878f765d7f10"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3b9f1bf13a83884a1a39c3bb82ad4e4a270054f2062727baf3b10ff1d3c2f40"
-    sha256 cellar: :any_skip_relocation, big_sur:       "88006ddf2f71d1ee159ac898819fb6e1e4cf3610aeb88c6d7cb6b8a1efb3740b"
-    sha256 cellar: :any_skip_relocation, catalina:      "88006ddf2f71d1ee159ac898819fb6e1e4cf3610aeb88c6d7cb6b8a1efb3740b"
-    sha256 cellar: :any_skip_relocation, mojave:        "88006ddf2f71d1ee159ac898819fb6e1e4cf3610aeb88c6d7cb6b8a1efb3740b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "514bf52b8ae95fa3d5c5d2ed4f38e8945eba8e38d2f0b0e44329d1b0a69aad1f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5b01e7e6bb639b68a33a3087db8cb10c476e2c8aa7957f20a18f214b70580979"
+    sha256 cellar: :any_skip_relocation, catalina:      "5b01e7e6bb639b68a33a3087db8cb10c476e2c8aa7957f20a18f214b70580979"
+    sha256 cellar: :any_skip_relocation, mojave:        "5b01e7e6bb639b68a33a3087db8cb10c476e2c8aa7957f20a18f214b70580979"
   end
 
   depends_on "node"

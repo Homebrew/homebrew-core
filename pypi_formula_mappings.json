@@ -51,8 +51,9 @@
   },
   "dvc": {
     "extra_packages": [
-        "gcsfs", "pydrive2", "boto3", "adlfs", "azure-identity", "knack",
-        "oss2", "pycryptodome", "paramiko[invoke]", "webdavclient3"
+        "gcsfs", "pydrive2", "adlfs", "azure-identity", "knack",
+        "oss2", "pycryptodome", "paramiko[invoke]", "webdavclient3",
+        "s3fs", "aiobotocore[boto3]"
     ],
     "exclude_packages": ["protobuf", "six", "tabulate"]
   },
