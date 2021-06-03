@@ -5,8 +5,7 @@ class CassandraReaper < Formula
   sha256 "5622555209e1d347f7c2173097a865a540d9ccd3a66222aa563e773d645cedbe"
   license "Apache-2.0"
 
-  bottle :unneeded
-
+  depends_on arch: :x86_64 # openjdk@8 does not support ARM
   depends_on "openjdk@8"
 
   def install
