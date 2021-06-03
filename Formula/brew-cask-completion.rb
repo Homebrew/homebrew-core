@@ -8,6 +8,7 @@ class BrewCaskCompletion < Formula
   head "https://github.com/xyb/homebrew-cask-completion.git"
 
   def install
+    inreplace "brew-cask.fish", "/usr/local/", HOMEBREW_PREFIX
     fish_completion.install "brew-cask.fish"
   end
 
