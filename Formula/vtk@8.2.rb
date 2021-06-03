@@ -29,6 +29,15 @@ class VtkAT82 < Formula
   depends_on "python@3.9"
   depends_on "qt@5"
 
+  uses_from_macos "tcl-tk"
+
+  on_linux do
+    depends_on "icu4c"
+    depends_on "libxt"
+    depends_on "szip"
+    depends_on "mesa-glu"
+  end
+
   # TODO: use diff
   # Fix compile issues on Mojave and later
   patch do
