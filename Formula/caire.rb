@@ -21,7 +21,7 @@ class Caire < Formula
 
   test do
     system bin/"caire", "-in", test_fixtures("test.png"), "-out", testpath/"test_out.png",
-           "-width=1", "-height=1", "-cc=data/facefinder", "-perc=1"
+           "-width=1", "-height=1", "-perc=1"
     assert_predicate testpath/"test_out.png", :exist?
   end
 end
