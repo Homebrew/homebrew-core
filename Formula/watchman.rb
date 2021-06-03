@@ -1,27 +1,10 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
+  url "https://github.com/facebook/watchman/archive/v2021.05.31.00.tar.gz"
+  sha256 "0bf447ba180bf7baecefcaa154eca73b0661b0b2c6162a8b010af8ef08e8ad18"
   license "Apache-2.0"
-  revision 5
   head "https://github.com/facebook/watchman.git"
-
-  stable do
-    url "https://github.com/facebook/watchman/archive/v4.9.0.tar.gz"
-    sha256 "1f6402dc70b1d056fffc3748f2fdcecff730d8843bb6936de395b3443ce05322"
-
-    # Upstream commit from 1 Sep 2017: "Have bin scripts use iter() method for python3"
-    patch do
-      url "https://github.com/facebook/watchman/commit/17958f7d.patch?full_index=1"
-      sha256 "73990f0c7bd434d04fd5f1310b97c5f8599793007bd31ae438c2ba0211fb2c43"
-    end
-  end
-
-  # The Git repo contains a few tags like `2020.05.18.00`, so we have to
-  # restrict matching to versions with two to three parts (e.g., 1.2, 1.2.3).
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+){,2})$/i)
-  end
 
   bottle do
     sha256 arm64_big_sur: "4a44a39cfd719b34d146043aa5afcc6ac304ebbd2ff4ff0fb2e37e22871f38ac"
