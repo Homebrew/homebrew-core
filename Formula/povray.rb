@@ -1,10 +1,9 @@
 class Povray < Formula
   desc "Persistence Of Vision RAYtracer (POVRAY)"
   homepage "https://www.povray.org/"
-  url "https://github.com/POV-Ray/povray/archive/v3.7.0.8.tar.gz"
-  sha256 "53d11ebd2972fc452af168a00eb83aefb61387662c10784e81b63e44aa575de4"
+  url "https://github.com/POV-Ray/povray/archive/v3.7.0.9.tar.gz"
+  sha256 "c273f75864ac98f86b442f58597d842aa8b76e788ea5e9133724296d93fb3e6b"
   license "AGPL-3.0-or-later"
-  revision 1
   head "https://github.com/POV-Ray/povray.git"
 
   livecheck do
@@ -26,8 +25,9 @@ class Povray < Formula
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
-
-  depends_on "openexr"
+  # Check whether this can be switched to `openexr` at version bump
+  # Issue ref: https://github.com/POV-Ray/povray/issues/408
+  depends_on "openexr@2"
 
   def install
     ENV.cxx11
@@ -39,7 +39,7 @@ class Povray < Formula
       --prefix=#{prefix}
       --mandir=#{man}
       --with-boost=#{Formula["boost"].opt_prefix}
-      --with-openexr=#{Formula["openexr"].opt_prefix}
+      --with-openexr=#{Formula["openexr@2"].opt_prefix}
       --without-libsdl
       --without-x
     ]
@@ -55,14 +55,6 @@ class Povray < Formula
     end
 
     system "./configure", *args
-
-    # The VERSION file in the root of the package is read by the autoconf bits.
-    # However, on a non-case-sensitive filesystem this breaks "#include <version>"
-    # deep inside the boost libraries.  See https://github.com/POV-Ray/povray/issues/403
-    rm "VERSION"
-    rm "unix/VERSION"
-    rm "libraries/tiff/VERSION"
-
     system "make", "install"
   end
 
