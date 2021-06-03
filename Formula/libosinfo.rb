@@ -4,6 +4,7 @@ class Libosinfo < Formula
   url "https://releases.pagure.org/libosinfo/libosinfo-1.9.0.tar.xz"
   sha256 "b4f3418154ef3f43d9420827294916aea1827021afc06e1644fc56951830a359"
   license "LGPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://releases.pagure.org/libosinfo/?C=M&O=D"
@@ -21,12 +22,16 @@ class Libosinfo < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "check"
+  depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "libsoup"
-  depends_on "libxml2"
+  depends_on "osinfo-db"
   depends_on "usb.ids"
+
+  uses_from_macos "pod2man" => :build
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "pci.ids" do
     url "https://raw.githubusercontent.com/pciutils/pciids/7906a7b1f2d046072fe5fed27236381cff4c5624/pci.ids"
@@ -46,7 +51,7 @@ class Libosinfo < Formula
       system "meson", *std_meson_args, *flags, ".."
       system "ninja", "install", "-v"
     end
-    (share/"osinfo/.keep").write ""
+    share.install_symlink HOMEBREW_PREFIX/"share/osinfo"
   end
 
   test do
