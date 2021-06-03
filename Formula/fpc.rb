@@ -27,9 +27,6 @@ class Fpc < Formula
     sha256 "56b870fbce8dc9b098ecff3c585f366ad3e156ca32a6bf3b20091accfb252616"
   end
 
-  # Help fpc find the startup files (crt1.o and friends) with 10.14 SDK
-  patch :DATA
-
   def install
     fpc_bootstrap = buildpath/"bootstrap"
     resource("bootstrap").stage do
@@ -66,21 +63,3 @@ class Fpc < Formula
     assert_equal "Hello Homebrew", `./hello`.strip
   end
 end
-
-__END__
-diff --git a/compiler/systems/t_bsd.pas b/compiler/systems/t_bsd.pas
-index b35a78ae..61d0817d 100644
---- a/compiler/systems/t_bsd.pas
-+++ b/compiler/systems/t_bsd.pas
-@@ -465,7 +465,10 @@ begin
-   if startupfile<>'' then
-     begin
-      if not librarysearchpath.FindFile(startupfile,false,result) then
--       result:='/usr/lib/'+startupfile;
-+       if sysutils.fileexists('/usr/lib/'+startupfile) then
-+         result:='/usr/lib/'+startupfile
-+       else if sysutils.fileexists('/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/') then
-+         result:='/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/'+startupfile;
-     end;
-   result:=maybequoted(result);
- end;
