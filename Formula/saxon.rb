@@ -13,7 +13,7 @@ class Saxon < Formula
     end
   end
 
-  bottle :unneeded
+  depends_on "openjdk"
 
   def install
     libexec.install Dir["*.jar", "doc", "notices"]
