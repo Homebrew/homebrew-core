@@ -29,6 +29,6 @@ class RosaCli < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/rosa version")
-    assert_match "Error creating AWS client", shell_output("#{bin}/rosa create cluster 2<&1", 1)
+    assert_match "Not logged in, run the 'rosa login' command", shell_output("#{bin}/rosa create cluster 2<&1", 1)
   end
 end
