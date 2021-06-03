@@ -32,6 +32,8 @@ class Zeek < Formula
   def install
     # Remove SDK paths from zeek-config. This breaks usage with other SDKs.
     # https://github.com/corelight/zeek-community-id/issues/15
+    # Remove the `:` in each `inreplace` when this lands in a release:
+    # https://github.com/zeek/zeek/commit/ca725c1f9b96c8eb33885a29d24eefddf28e16ab
     inreplace "zeek-config.in" do |s|
       s.gsub! ":@ZEEK_CONFIG_PCAP_INCLUDE_DIR@", ""
       s.gsub! ":@ZEEK_CONFIG_ZLIB_INCLUDE_DIR@", ""
