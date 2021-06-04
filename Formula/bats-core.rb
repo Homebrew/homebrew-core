@@ -11,6 +11,8 @@ class BatsCore < Formula
 
   depends_on "coreutils"
 
+  uses_from_macos "bc" => :test
+
   conflicts_with "bats", because: "both install `bats` executables"
 
   def install
