@@ -6,8 +6,6 @@ class Spaceship < Formula
   license "MIT"
   head "https://github.com/denysdovhan/spaceship-prompt.git"
 
-  bottle :unneeded
-
   depends_on "zsh" => :test
 
   def install
