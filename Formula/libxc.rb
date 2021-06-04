@@ -1,10 +1,9 @@
 class Libxc < Formula
   desc "Library of exchange and correlation functionals for codes"
   homepage "https://tddft.org/programs/libxc/"
-  url "https://gitlab.com/libxc/libxc/-/archive/4.3.4/libxc-4.3.4.tar.bz2"
-  sha256 "0efe8b33d151de8787e33c4ba8e2161ffb9da978753f3bd12c5c0a018e7d3ef5"
+  url "https://gitlab.com/libxc/libxc/-/archive/5.1.4/libxc-5.1.4.tar.bz2"
+  sha256 "17ea2328552bccc01463b76f41c297bde8bfc4868951a08c010aba326222cebe"
   license "MPL-2.0"
-  revision 2
 
   bottle do
     sha256               arm64_big_sur: "08e052bb3fdc234263a6bafffd84ac393ad7bec9c9053af7b758177313a5cf63"
@@ -43,8 +42,7 @@ class Libxc < Formula
 
     (testpath/"test.f90").write <<~EOS
       program lxctest
-        use xc_f90_types_m
-        use xc_f90_lib_m
+        use xc_f03_lib_m
       end program lxctest
     EOS
     system "gfortran", "test.f90", "-L#{lib}", "-lxc", "-I#{include}",
