@@ -36,6 +36,10 @@ class ClangFormat < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_linux do
+    keg_only "it conflicts with llvm"
+  end
+
   def install
     if build.head?
       ln_s buildpath/"clang", buildpath/"llvm/tools/clang"
