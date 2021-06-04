@@ -6,6 +6,11 @@ class Pbc < Formula
   license "LGPL-3.0"
   head "https://repo.or.cz/pbc.git"
 
+  livecheck do
+    url "https://crypto.stanford.edu/pbc/download.html"
+    regex(/href=.*?pbc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "ac722f3534f9cf0679f2c999353a524d822d4068d8f9877a5967fe6fbcef9f04"
