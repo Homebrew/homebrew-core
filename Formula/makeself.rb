@@ -1,8 +1,8 @@
 class Makeself < Formula
   desc "Generates a self-extracting compressed tar archive"
   homepage "http://www.megastep.org/makeself/"
-  url "https://github.com/megastep/makeself/archive/release-2.4.3.tar.gz"
-  sha256 "b4c81c3d0a7c81459459319e9fc75320e057ea908430aa8a020be1993d6b74c8"
+  url "https://github.com/megastep/makeself/archive/release-2.4.4.tar.gz"
+  sha256 "3ca30c6b60a873cf0e44c0d47e9778a46ec0ca2ba8feffb1dd62a34cc2226395"
   license "GPL-2.0-or-later"
   head "https://github.com/megastep/makeself.git"
 
