@@ -1,10 +1,12 @@
 class Libbtbb < Formula
+  include Language::Python::Shebang
+
   desc "Bluetooth baseband decoding library"
   homepage "https://github.com/greatscottgadgets/libbtbb"
-  url "https://github.com/greatscottgadgets/libbtbb/archive/2018-12-R1.tar.gz"
-  version "2018-12-R1"
-  sha256 "0eb2b72e1c1131538206f1e3176e2cf1048751fe7dc665eef1e7429d1f2e6225"
-  license "GPL-2.0"
+  url "https://github.com/greatscottgadgets/libbtbb/archive/2020-12-R1.tar.gz"
+  version "2020-12-R1"
+  sha256 "9478bb51a38222921b5b1d7accce86acd98ed37dbccb068b38d60efa64c5231f"
+  license "GPL-2.0-or-later"
   head "https://github.com/greatscottgadgets/libbtbb.git"
 
   bottle do
@@ -17,12 +19,14 @@ class Libbtbb < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.9"
 
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
+    rewrite_shebang detected_python_shebang, bin/"btaptap"
   end
 
   test do
