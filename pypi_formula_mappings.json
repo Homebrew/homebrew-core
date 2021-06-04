@@ -27,6 +27,9 @@
   },
   "black": "black[d]",
   "buku": "buku[server]",
+  "certbot": {
+    "extra_packages": ["certbot-apache", "certbot-nginx"]
+  },
   "cloudformation-cli": {
     "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin"]
   },
