@@ -34,11 +34,13 @@ class Minizip < Formula
     system "make"
 
     cd "contrib/minizip" do
-      # edits to statically link to libz.a
-      inreplace "Makefile.am" do |s|
-        s.sub! "-L$(zlib_top_builddir)", "$(zlib_top_builddir)/libz.a"
-        s.sub! "-version-info 1:0:0 -lz", "-version-info 1:0:0"
-        s.sub! "libminizip.la -lz", "libminizip.la"
+      on_macos do
+        # edits to statically link to libz.a
+        inreplace "Makefile.am" do |s|
+          s.sub! "-L$(zlib_top_builddir)", "$(zlib_top_builddir)/libz.a"
+          s.sub! "-version-info 1:0:0 -lz", "-version-info 1:0:0"
+          s.sub! "libminizip.la -lz", "libminizip.la"
+        end
       end
       system "autoreconf", "-fi"
       system "./configure", "--prefix=#{prefix}"
