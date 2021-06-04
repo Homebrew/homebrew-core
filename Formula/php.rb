@@ -2,11 +2,10 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.0.6.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.0.6.tar.xz"
-  sha256 "e9871d3b6c391fe9e89f86f6334852dcc10eeaaa8d5565beb8436e7f0cf30e20"
+  url "https://www.php.net/distributions/php-8.0.7.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.0.7.tar.xz"
+  sha256 "d5fc2e4fc780a32404d88c360e3e0009bc725d936459668e9c2ac992f2d83654"
   license "PHP-3.01"
-  revision 1
 
   livecheck do
     url "https://www.php.net/releases/feed.php"
