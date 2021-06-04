@@ -18,6 +18,7 @@ class Cminpack < Formula
   def install
     system "cmake", ".", "-DBUILD_SHARED_LIBS=ON",
                          "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON",
+                         "-DCMINPACK_LIB_INSTALL_DIR=lib",
                          *std_cmake_args
     system "make", "install"
 
@@ -27,8 +28,8 @@ class Cminpack < Formula
   end
 
   test do
-    system ENV.cc, pkgshare/"thybrdc.c", "-o", "test",
-                   "-I#{include}/cminpack-1", "-L#{lib}", "-lcminpack", "-lm"
+    system ENV.cc, "-I#{include}/cminpack-1", pkgshare/"thybrdc.c",
+                   "-L#{lib}", "-lcminpack", "-lm", "-o", "test"
     assert_match "number of function evaluations", shell_output("./test")
   end
 end
