@@ -1,11 +1,9 @@
 class Vcpkg < Formula
   desc "C++ Library Manager"
   homepage "https://github.com/microsoft/vcpkg"
-  url "https://github.com/microsoft/vcpkg/archive/2020.11-1.tar.gz"
-  version "2020.11-1"
-  sha256 "dcae747fddfc1540b57d576afd2ad5191611013cce0bf30f184a1535c3d90fbe"
+  url "https://github.com/microsoft/vcpkg/archive/2021.05.12.tar.gz"
+  sha256 "907f26a5357c30e255fda9427f1388a39804f607a11fa4c083cc740cb268f5dc"
   license "MIT"
-  revision 1
   head "https://github.com/microsoft/vcpkg.git"
 
   bottle do
@@ -29,13 +27,6 @@ class Vcpkg < Formula
     fails_with :clang do
       cause "'file_status' is unavailable: introduced in macOS 10.15"
     end
-  end
-
-  # build fix for arm
-  # remove in next release
-  patch do
-    url "https://github.com/microsoft/vcpkg/commit/7f328aa.patch?full_index=1"
-    sha256 "afe40ee3c294b85f062dc1598ff0cd7ae4f550336ac0b13f2a4f0226c50c501e"
   end
 
   def install
