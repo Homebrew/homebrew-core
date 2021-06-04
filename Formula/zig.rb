@@ -2,11 +2,10 @@ class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
   license "MIT"
-  revision 1
 
   stable do
-    url "https://ziglang.org/download/0.7.1/zig-0.7.1.tar.xz"
-    sha256 "2db3b944ab368d955b48743d9f7c963b8f96de1a441ba5a35e197237cc6dae44"
+    url "https://ziglang.org/download/0.8.0/zig-0.8.0.tar.xz"
+    sha256 "03a828d00c06b2e3bb8b7ff706997fd76bf32503b08d759756155b6e8c981e77"
     depends_on "llvm@11"
   end
 
