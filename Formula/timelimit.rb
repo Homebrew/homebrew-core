@@ -1,0 +1,37 @@
+class Timelimit < Formula
+  desc "Limit a process's absolute execution time"
+  homepage "https://devel.ringlet.net/sysutils/timelimit/"
+  url "https://devel.ringlet.net/files/sys/timelimit/timelimit-1.9.2.tar.gz"
+  sha256 "320a72770288b2deeb9abbd343f9c27afcb6190bb128ad2a1e1ee2a03a796d45"
+
+  livecheck do
+    url :homepage
+    regex(/latest release is .*?timelimit[._-]v?(\d+(?:\.\d+)+)</i)
+  end
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "857697f444d4ddc8658970890885230fe12eb21474cb212112a3ccbbbbaf81b3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3888001f62e0dfdf0573b405dc2c0c5a36ce1274d1091a0cb0f38ee18438cfc4"
+    sha256 cellar: :any_skip_relocation, catalina:      "e083932ebe7fa08f9afaa28254e5a73df07a29bf072cb932065678d708127a87"
+    sha256 cellar: :any_skip_relocation, mojave:        "c0259eec4d6e78c2faf7c3860e5c47dffdef165dff28ef7992f7e9bf0914d0bd"
+  end
+
+  def install
+    # don't install for specific users
+    inreplace "Makefile", "-o ${BINOWN} -g ${BINGRP}", ""
+    inreplace "Makefile", "-o ${SHAREOWN} -g ${SHAREGRP}", ""
+
+    args = %W[LOCALBASE=#{prefix} MANDIR=#{man}/man]
+
+    check_args = args + ["check"]
+    install_args = args + ["install"]
+
+    system "make", *check_args
+    system "make", *install_args
+  end
+
+  test do
+    assert_equal "timelimit: sending warning signal 15",
+      shell_output("#{bin}/timelimit -p -t 1 sleep 5 2>&1", 143).chomp
+  end
+end

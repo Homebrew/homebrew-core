@@ -1,0 +1,45 @@
+class Libxfixes < Formula
+  desc "X.Org: Header files for the XFIXES extension"
+  homepage "https://www.x.org/"
+  url "https://www.x.org/archive/individual/lib/libXfixes-6.0.0.tar.bz2"
+  sha256 "a7c1a24da53e0b46cac5aea79094b4b2257321c621b258729bc3139149245b4c"
+  license "MIT"
+
+  bottle do
+    sha256 cellar: :any, arm64_big_sur: "9668a973a8a220609add6d2af60547745b81cb198936930fcd05bfd6b9aca47c"
+    sha256 cellar: :any, big_sur:       "a0317884b16dfd0e391d9ab48b4a9785fa2c4fdf3fd5dca857be98b1ae6fded2"
+    sha256 cellar: :any, catalina:      "916d95deb297ee98b57a87586a90a5a880792efab259c511230844a6ab94d06e"
+    sha256 cellar: :any, mojave:        "5c560e7ae60a53ea414c34a7d5159da0e4fc04a9159baa4ce9d67d942d05b9a4"
+  end
+
+  depends_on "pkg-config" => :build
+  depends_on "libx11"
+  depends_on "xorgproto"
+
+  def install
+    args = %W[
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --localstatedir=#{var}
+      --disable-dependency-tracking
+      --disable-silent-rules
+    ]
+
+    system "./configure", *args
+    system "make"
+    system "make", "install"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include "X11/extensions/Xfixes.h"
+
+      int main(int argc, char* argv[]) {
+        XFixesSelectionNotifyEvent event;
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c"
+    assert_equal 0, $CHILD_STATUS.exitstatus
+  end
+end

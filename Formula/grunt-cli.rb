@@ -1,0 +1,47 @@
+require "language/node"
+
+class GruntCli < Formula
+  desc "JavaScript Task Runner"
+  homepage "https://gruntjs.com/"
+  url "https://registry.npmjs.org/grunt-cli/-/grunt-cli-1.4.3.tgz"
+  sha256 "c7ffc367ad7d019ef34e98913dfdbcf05dcf03f2e32dc88fba8f650b1dae83bd"
+  license "MIT"
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8eafad607c94848c1bd74eca2a52b92533f399247c85d4de923ff12367ce2cda"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
+    sha256 cellar: :any_skip_relocation, catalina:      "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
+    sha256 cellar: :any_skip_relocation, mojave:        "e1be76f2bb72f2cc111627400cf586487b8515a0051b96c4d8138da773d1ac73"
+  end
+
+  depends_on "node"
+
+  def install
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    bin.install_symlink Dir["#{libexec}/bin/*"]
+  end
+
+  test do
+    (testpath/"package.json").write <<~EOS
+      {
+        "name": "grunt-homebrew-test",
+        "version": "1.0.0",
+        "devDependencies": {
+          "grunt": ">=0.4.0"
+        }
+      }
+    EOS
+
+    (testpath/"Gruntfile.js").write <<~EOS
+      module.exports = function(grunt) {
+        grunt.registerTask("default", "Write output to file.", function() {
+          grunt.file.write("output.txt", "Success!");
+        })
+      };
+    EOS
+
+    system "npm", "install", *Language::Node.local_npm_install_args
+    system bin/"grunt"
+    assert_predicate testpath/"output.txt", :exist?, "output.txt was not generated"
+  end
+end

@@ -1,0 +1,167 @@
+{
+  "anime-downloader": {
+    "exclude_packages": ["tabulate"]
+  },
+  "ansible": {
+    "extra_packages": [
+      "apache-libcloud", "boto3", "dnspython", "docker-py", "junos-eznc", "jxmlease", "kerberos", "ntc-templates",
+      "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-keyczar", "python-neutronclient",
+      "pywinrm", "requests-credssp", "shade", "zabbix-api"
+    ],
+    "exclude_packages": ["textfsm", "pycrypto"]
+  },
+  "ansible@2.8": false,
+  "ansible@2.9": {
+    "extra_packages": [
+      "apache-libcloud", "boto3", "dnspython", "docker-py", "junos-eznc", "jxmlease", "kerberos", "ntc-templates",
+      "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-keyczar", "python-neutronclient",
+      "pywinrm", "requests-credssp", "shade", "zabbix-api"
+    ],
+    "exclude_packages": ["textfsm", "pycrypto"]
+  },
+  "aws-google-auth": {
+    "exclude_packages": ["tabulate"]
+  },
+  "athenacli": {
+    "exclude_packages": ["tabulate"]
+  },
+  "black": "black[d]",
+  "buku": "buku[server]",
+  "cloudformation-cli": {
+    "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin"]
+  },
+  "charm-tools": {
+    "extra_packages": ["wheel"]
+  },
+  "checkov": {
+    "exclude_packages": ["tabulate", "junit-xml"],
+    "extra_packages": ["junit-xml-2"]
+  },
+  "diffoscope": "diffoscope[cmdline]",
+  "duplicity": {
+    "extra_packages": [
+      "azure-storage-blob", "b2sdk", "boto", "boto3", "boxsdk[jwt]",
+      "dropbox", "gdata-python3", "google-api-python-client",
+      "google-auth-oauthlib", "jottalib", "keyring", "megatools",
+      "paramiko", "pexpect", "psutil", "pydrive", "pyrax",
+      "python-swiftclient", "requests[security]", "requests-oauthlib",
+      "monotonic==1.5"
+    ],
+    "exclude_packages": ["six"]
+  },
+  "dvc": {
+    "extra_packages": [
+        "gcsfs", "pydrive2", "adlfs", "azure-identity", "knack",
+        "oss2", "pycryptodome", "paramiko[invoke]", "webdavclient3",
+        "s3fs", "aiobotocore[boto3]"
+    ],
+    "exclude_packages": ["protobuf", "six", "tabulate"]
+  },
+  "ipython": {
+    "extra_packages": ["ipykernel"]
+  },
+  "fdroidserver": {
+      "exclude_packages": ["numpy"],
+      "extra_packages": ["wheel"]
+  },
+  "homeassistant-cli": {
+    "exclude_packages": ["tabulate"]
+  },
+  "litecli": {
+    "exclude_packages": ["tabulate"]
+  },
+  "magic-wormhole": {
+    "extra_packages": ["wheel"]
+  },
+  "molecule": {
+    "extra_packages": ["docker-py", "python-vagrant"]
+  },
+  "moto": {
+    "package_name": "moto[all,server]",
+    "exclude_packages": ["junit-xml"],
+    "extra_packages": ["junit-xml-2"]
+  },
+  "mycli": {
+    "exclude_packages": ["tabulate"]
+  },
+  "openstackclient": {
+    "extra_packages": ["python-heatclient", "python-octaviaclient"]
+  },
+  "nicotine-plus": {
+    "exclude_packages": ["pycairo", "PyGObject"]
+  },
+  "pdm": {
+    "extra_packages": ["wheel"]
+  },
+  "pipgrip": {
+    "extra_packages": ["wheel"]
+  },
+  "platformio": {
+    "exclude_packages": ["tabulate"]
+  },
+  "poetry": {
+    "extra_packages": ["importlib-metadata", "typing-extensions"]
+  },
+  "protobuf": {
+    "exclude_packages": ["six"]
+  },
+  "regipy": {
+    "exclude_packages": ["tabulate"]
+  },
+  "robot-framework": {
+    "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"]
+  },
+  "s3cmd": {
+    "exclude_packages": ["six"]
+  },
+  "salt": {
+    "extra_packages": ["pycryptodome", "pygit2"],
+    "exclude_packages": [
+    	"pyobjc", "pyobjc-core", "pyobjc-framework-Accounts", "pyobjc-framework-AddressBook", "pyobjc-framework-AdSupport",
+    	"pyobjc-framework-AppleScriptKit", "pyobjc-framework-AppleScriptObjC", "pyobjc-framework-ApplicationServices",
+    	"pyobjc-framework-AuthenticationServices", "pyobjc-framework-AutomaticAssessmentConfiguration",
+    	"pyobjc-framework-Automator", "pyobjc-framework-AVFoundation", "pyobjc-framework-AVKit", "pyobjc-framework-BusinessChat",
+    	"pyobjc-framework-CalendarStore", "pyobjc-framework-CFNetwork", "pyobjc-framework-CloudKit", "pyobjc-framework-Cocoa",
+    	"pyobjc-framework-Collaboration", "pyobjc-framework-ColorSync", "pyobjc-framework-Contacts", "pyobjc-framework-ContactsUI",
+    	"pyobjc-framework-CoreAudio", "pyobjc-framework-CoreAudioKit", "pyobjc-framework-CoreBluetooth", "pyobjc-framework-CoreData",
+    	"pyobjc-framework-CoreHaptics", "pyobjc-framework-CoreLocation", "pyobjc-framework-CoreMedia", "pyobjc-framework-CoreMediaIO",
+    	"pyobjc-framework-CoreML", "pyobjc-framework-CoreMotion", "pyobjc-framework-CoreServices", "pyobjc-framework-CoreSpotlight",
+    	"pyobjc-framework-CoreText", "pyobjc-framework-CoreWLAN", "pyobjc-framework-CryptoTokenKit", "pyobjc-framework-DeviceCheck",
+    	"pyobjc-framework-DictionaryServices", "pyobjc-framework-DiscRecording", "pyobjc-framework-DiscRecordingUI",
+    	"pyobjc-framework-DiskArbitration", "pyobjc-framework-DVDPlayback", "pyobjc-framework-EventKit",
+    	"pyobjc-framework-ExceptionHandling", "pyobjc-framework-ExecutionPolicy", "pyobjc-framework-ExternalAccessory",
+    	"pyobjc-framework-FileProvider", "pyobjc-framework-FileProviderUI", "pyobjc-framework-FinderSync", "pyobjc-framework-FSEvents",
+    	"pyobjc-framework-GameCenter", "pyobjc-framework-GameController", "pyobjc-framework-GameKit", "pyobjc-framework-GameplayKit",
+    	"pyobjc-framework-ImageCaptureCore", "pyobjc-framework-IMServicePlugIn", "pyobjc-framework-InputMethodKit",
+    	"pyobjc-framework-InstallerPlugins", "pyobjc-framework-InstantMessage", "pyobjc-framework-Intents", "pyobjc-framework-IOSurface",
+    	"pyobjc-framework-iTunesLibrary", "pyobjc-framework-LatentSemanticMapping", "pyobjc-framework-LaunchServices",
+    	"pyobjc-framework-libdispatch", "pyobjc-framework-LinkPresentation", "pyobjc-framework-LocalAuthentication",
+    	"pyobjc-framework-MapKit", "pyobjc-framework-MediaAccessibility", "pyobjc-framework-MediaLibrary", "pyobjc-framework-MediaPlayer",
+    	"pyobjc-framework-MediaToolbox", "pyobjc-framework-Metal", "pyobjc-framework-MetalKit", "pyobjc-framework-ModelIO",
+    	"pyobjc-framework-MultipeerConnectivity", "pyobjc-framework-NaturalLanguage", "pyobjc-framework-NetFS", "pyobjc-framework-Network",
+    	"pyobjc-framework-NetworkExtension", "pyobjc-framework-NotificationCenter", "pyobjc-framework-OpenDirectory",
+    	"pyobjc-framework-OSAKit", "pyobjc-framework-OSLog", "pyobjc-framework-PencilKit", "pyobjc-framework-Photos",
+    	"pyobjc-framework-PhotosUI", "pyobjc-framework-PreferencePanes", "pyobjc-framework-PushKit", "pyobjc-framework-Quartz",
+    	"pyobjc-framework-QuickLookThumbnailing", "pyobjc-framework-SafariServices", "pyobjc-framework-SceneKit",
+    	"pyobjc-framework-ScreenSaver", "pyobjc-framework-ScriptingBridge", "pyobjc-framework-SearchKit", "pyobjc-framework-Security",
+    	"pyobjc-framework-SecurityFoundation", "pyobjc-framework-SecurityInterface", "pyobjc-framework-ServiceManagement",
+    	"pyobjc-framework-Social", "pyobjc-framework-SoundAnalysis", "pyobjc-framework-Speech", "pyobjc-framework-SpriteKit",
+    	"pyobjc-framework-StoreKit", "pyobjc-framework-SyncServices", "pyobjc-framework-SystemConfiguration",
+    	"pyobjc-framework-SystemExtensions", "pyobjc-framework-UserNotifications", "pyobjc-framework-VideoSubscriberAccount",
+    	"pyobjc-framework-VideoToolbox", "pyobjc-framework-Vision", "pyobjc-framework-WebKit"]
+  },
+  "scipy": {
+    "exclude_packages": ["numpy"]
+  },
+  "semgrep": "semgrep",
+  "sqlite-utils": {
+    "exclude_packages": ["tabulate"]
+  },
+  "todoman": {
+    "exclude_packages": ["tabulate"]
+  },
+  "xdot": {
+    "extra_packages": ["graphviz"]
+  },
+  "xonsh": "xonsh[ptk,pygments,proctitle]"
+}

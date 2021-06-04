@@ -1,0 +1,35 @@
+name: Recreate Linux self-hosted runner on schedule
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Once each 24 hours, at 1 during the night
+    - cron: "0 1 * * *"
+
+jobs:
+  recreate:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v0.2.1
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+      - name: Wait for idle runner
+        id: killable
+        uses: Homebrew/actions/wait-for-idle-runner@master
+        with:
+          github_token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
+          runner_name: linux-self-hosted-1
+      - name: Kill runner and create a new one
+        if: ${{ steps.killable.outputs.runner-found == 'true' && steps.killable.outputs.runner-idle == 'true' }}
+        uses: Homebrew/actions/create-gcloud-instance@master
+        with:
+          runner_name: linux-self-hosted-1
+          gcp_project_id: ${{ secrets.GCP_PROJECT_ID }}
+          gcp_service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+          gcp_sa_key: ${{ secrets.GCP_SA_KEY }}
+          github_token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
