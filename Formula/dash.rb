@@ -1,8 +1,8 @@
 class Dash < Formula
   desc "POSIX-compliant descendant of NetBSD's ash (the Almquist SHell)"
   homepage "http://gondor.apana.org.au/~herbert/dash/"
-  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.11.3.tar.gz"
-  sha256 "62b9f1676ba6a7e8eaec541a39ea037b325253240d1f378c72360baa1cbcbc2a"
+  url "http://gondor.apana.org.au/~herbert/dash/files/dash-0.5.11.4.tar.gz"
+  sha256 "4e15b7ba5363bcc2a443549910cdc15b5ad601df8196b5f294c712eff037e08d"
   license "BSD-3-Clause"
   head "https://git.kernel.org/pub/scm/utils/dash/dash.git"
 
