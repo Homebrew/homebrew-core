@@ -1,10 +1,9 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.22-13/source/tarball/percona-server-8.0.22-13.tar.gz"
-  sha256 "614249dc7790e82cabf22fdb20492be7ec5b8e98550f662204a17e0e8797cc9a"
+  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.23-14/source/tarball/percona-server-8.0.23-14.tar.gz"
+  sha256 "613b8c110ede5cf67a7ac32e16556f4c67d8ad35263f4f8d6457ae0789074048"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://www.percona.com/downloads/Percona-Server-LATEST/"
@@ -24,14 +23,19 @@ class PerconaServer < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+  depends_on "icu4c"
+  depends_on "libevent"
+  depends_on "lz4"
   depends_on "openssl@1.1"
   depends_on "protobuf"
+  depends_on "zstd"
 
   uses_from_macos "curl"
+  uses_from_macos "libedit"
+  uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
-    depends_on "libedit"
     depends_on "readline"
   end
 
@@ -73,13 +77,18 @@ class PerconaServer < Formula
       -DINSTALL_PLUGINDIR=lib/percona-server/plugin
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
-      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
-      -DWITH_UNIT_TESTS=OFF
-      -DWITH_EMBEDDED_SERVER=ON
       -DENABLED_LOCAL_INFILE=1
+      -DWITH_EMBEDDED_SERVER=ON
       -DWITH_INNODB_MEMCACHED=ON
+      -DWITH_UNIT_TESTS=OFF
       -DWITH_EDITLINE=system
+      -DWITH_ICU=system
+      -DWITH_LIBEVENT=system
+      -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
+      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_ZLIB=system
+      -DWITH_ZSTD=system
     ]
 
     # MySQL >5.7.x mandates Boost as a requirement to build & has a strict
