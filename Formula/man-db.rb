@@ -5,7 +5,7 @@ class ManDb < Formula
   mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.9.4.tar.xz"
   sha256 "b66c99edfad16ad928c889f87cf76380263c1609323c280b3a9e6963fdb16756"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/man-db/"
@@ -38,6 +38,9 @@ class ManDb < Formula
       --disable-setuid
       --disable-nls
       --program-prefix=g
+      --with-config-file=#{etc}/man_db.conf
+      --with-systemdtmpfilesdir=#{etc}/tmpfiles.d
+      --with-systemdsystemunitdir=#{etc}/systemd/system
     ]
 
     system "./configure", *args
