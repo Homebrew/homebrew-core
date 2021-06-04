@@ -1,9 +1,9 @@
 class Libgweather < Formula
   desc "GNOME library for weather, locations and timezones"
   homepage "https://wiki.gnome.org/Projects/LibGWeather"
-  url "https://download.gnome.org/sources/libgweather/3.36/libgweather-3.36.1.tar.xz"
-  sha256 "de2709f0ee233b20116d5fa9861d406071798c4aa37830ca25f5ef2c0083e450"
-  revision 2
+  url "https://download.gnome.org/sources/libgweather/40/libgweather-40.0.tar.xz"
+  sha256 "ca4e8f2a4baaa9fc6d75d8856adb57056ef1cd6e55c775ba878ae141b6276ee6"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
     sha256 arm64_big_sur: "ea89b381f0cb180a44a1ab0d106693a8874fb785221cc6840092da07ed4960ec"
@@ -17,9 +17,12 @@ class Libgweather < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "pygobject3" => :build
   depends_on "geocode-glib"
   depends_on "gtk+3"
   depends_on "libsoup"
+
+  uses_from_macos "libxml2"
 
   def install
     ENV["DESTDIR"] = "/"
