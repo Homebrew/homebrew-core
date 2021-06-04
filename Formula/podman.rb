@@ -17,7 +17,7 @@ class Podman < Formula
 
   def install
     system "make", "podman-remote-darwin"
-    bin.install "bin/podman-remote-darwin" => "podman"
+    bin.install "bin/darwin/podman"
 
     system "make", "install-podman-remote-darwin-docs"
     man1.install Dir["docs/build/remote/darwin/*.1"]
