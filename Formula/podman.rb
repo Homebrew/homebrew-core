@@ -24,6 +24,7 @@ class Podman < Formula
 
     bash_completion.install "completions/bash/podman"
     zsh_completion.install "completions/zsh/_podman"
+    fish_completion.install "completions/fish/podman.fish"
   end
 
   test do
