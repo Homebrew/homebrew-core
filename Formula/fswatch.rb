@@ -5,6 +5,11 @@ class Fswatch < Formula
   sha256 "95ece85eb01af71e99afef0173755fcedb737b639163f8efc7fed674f6f5372f"
   license all_of: ["GPL-3.0-or-later", "Apache-2.0"]
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a9857b4d1cc1320e967edcc5ba5c61bd9215fac591204bc005bc89223f107228"
     sha256 cellar: :any, big_sur:       "f930656cf465723b282216767a932555efdfd6b75d0404cd904c52005fad53ac"
