@@ -10,8 +10,6 @@ class ClosureCompiler < Formula
     regex(/href=.*?v?(\d{8})/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
