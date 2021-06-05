@@ -28,7 +28,11 @@ class Gawk < Formula
                           "--without-libsigsegv-prefix"
 
     system "make"
-    system "make", "check"
+    if which "cmp"
+      system "make", "check"
+    else
+      opoo "Skipping `make check` due to unavailable `cmp`"
+    end
     system "make", "install"
 
     (libexec/"gnubin").install_symlink bin/"gawk" => "awk"
