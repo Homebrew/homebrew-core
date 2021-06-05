@@ -15,7 +15,7 @@ class Osm2pgrouting < Formula
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "expat"
-  depends_on "libpqxx@6"
+  depends_on "libpqxx"
   depends_on "pgrouting"
   depends_on "postgis"
   depends_on "postgresql"
