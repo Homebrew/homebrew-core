@@ -6,8 +6,6 @@ class Antigen < Formula
   license "MIT"
   head "https://github.com/zsh-users/antigen.git", branch: "develop"
 
-  bottle :unneeded
-
   uses_from_macos "zsh"
 
   def install
