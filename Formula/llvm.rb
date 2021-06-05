@@ -20,9 +20,6 @@ class Llvm < Formula
     sha256 cellar: :any, mojave:        "9231c5c2edb2c0d5226bec12cf1fe40b92beedbdf2fcc03585aa1f0a5d9ae2bc"
   end
 
-  # Clang cannot find system headers if Xcode CLT is not installed
-  pour_bottle? only_if: :clt_installed
-
   keg_only :provided_by_macos
 
   # https://llvm.org/docs/GettingStarted.html#requirement
@@ -76,7 +73,7 @@ class Llvm < Formula
 
     # we install the lldb Python module into libexec to prevent users from
     # accidentally importing it with a non-Homebrew Python or a Homebrew Python
-    # in a non-default prefix
+    # in a non-default prefix. See https://lldb.llvm.org/resources/caveats.html
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
       -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
@@ -99,6 +96,9 @@ class Llvm < Formula
       -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
+      -DPACKAGE_VENDOR=#{tap.user}
+      -DPACKAGE_BUGREPORT=#{tap.issues_url}
+      -DCLANG_VENDOR_UTI=org.#{tap.user.downcase}.clang
     ]
 
     if MacOS.version >= :catalina
@@ -113,10 +113,18 @@ class Llvm < Formula
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}"
-      args << "-DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=@loader_path/../lib"
+      args << "-DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}"
 
       sdk = MacOS.sdk_path_if_needed
       args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
+
+      extra_includes = [HOMEBREW_PREFIX/"include"]
+      extra_includes << "#{MacOS::CLT::PKG_PATH}/usr/include" if sdk
+      if MacOS::Xcode.installed? && sdk
+        extra_includes << MacOS::Xcode.toolchain_path/"usr/include"
+        extra_includes << MacOS::Xcode.sdk_path/"usr/include"
+      end
+      args << "-DC_INCLUDE_DIRS=#{extra_includes.join(":")}"
     end
 
     on_linux do
@@ -220,7 +228,7 @@ class Llvm < Formula
 
     # Testing Command Line Tools
     if MacOS::CLT.installed?
-      toolchain_path = "/Library/Developer/CommandLineTools"
+      toolchain_path = MacOS::CLT::PKG_PATH
       system "#{bin}/clang++", "-v",
              "-isysroot", MacOS::CLT.sdk_path,
              "-isystem", "#{toolchain_path}/usr/include/c++/v1",
