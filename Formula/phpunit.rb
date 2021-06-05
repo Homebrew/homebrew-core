@@ -4,7 +4,6 @@ class Phpunit < Formula
   url "https://phar.phpunit.de/phpunit-9.5.5.phar"
   sha256 "8136c06c3a91ec3967bcc28bb8924921035b6d3283ed35abca238dfabeb04669"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://phar.phpunit.de/"
