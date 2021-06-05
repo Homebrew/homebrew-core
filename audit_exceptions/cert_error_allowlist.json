@@ -6,5 +6,6 @@
   "micropython": "https://www.micropython.org/",
   "minio": "https://min.io",
   "monero": "https://www.getmonero.org/",
+  "opusfile": "https://www.opus-codec.org/",
   "volk": "https://www.libvolk.org/"
 }

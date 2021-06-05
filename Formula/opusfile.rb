@@ -1,7 +1,7 @@
 class Opusfile < Formula
   desc "API for decoding and seeking in .opus files"
   homepage "https://www.opus-codec.org/"
-  url "https://downloads.xiph.org/releases/opus/opusfile-0.12.tar.gz"
+  url "https://ftp.osuosl.org/pub/xiph/releases/opus/opusfile-0.12.tar.gz"
   sha256 "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b"
   license "BSD-3-Clause"
 
@@ -26,9 +26,9 @@ class Opusfile < Formula
   depends_on "openssl@1.1"
   depends_on "opus"
 
-  resource "music_48kbps.opus" do
-    url "https://www.opus-codec.org/static/examples/samples/music_48kbps.opus"
-    sha256 "64571f56bb973c078ec784472944aff0b88ba0c88456c95ff3eb86f5e0c1357d"
+  resource "sample" do
+    url "https://dl.espressif.com/dl/audio/gs-16b-1c-44100hz.opus"
+    sha256 "f80fabebe4e00611b93019587be9abb36dbc1935cb0c9f4dfdf5c3b517207e1b"
   end
 
   def install
@@ -39,7 +39,7 @@ class Opusfile < Formula
   end
 
   test do
-    testpath.install resource("music_48kbps.opus")
+    resource("sample").stage { testpath.install Pathname.pwd.children(false).first => "sample.opus" }
     (testpath/"test.c").write <<~EOS
       #include <opus/opusfile.h>
       #include <stdlib.h>
@@ -60,6 +60,6 @@ class Opusfile < Formula
                              "-L#{lib}",
                              "-lopusfile",
                              "-o", "test"
-    system "./test", "music_48kbps.opus"
+    system "./test", "sample.opus"
   end
 end
