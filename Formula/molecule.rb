@@ -3,8 +3,8 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/56/87/f35c28aabe1e4a7d6e234b49ced74b5aa73b3de1b78224743132ddbbdb92/molecule-3.3.3.tar.gz"
-  sha256 "cb413639f19a3f805bc8ebcbba51e254381a15128ce5a5322e6733de26602b2d"
+  url "https://files.pythonhosted.org/packages/ba/e3/d46af4bc3ef85ccebe4f573b4f2c5429ef2b24fdb57f071bf7187dfefe04/molecule-3.3.4.tar.gz"
+  sha256 "5794d0b39e695c4544c714ac90ab90901f22d8c9f623c2fee665b8b2dc2ce6cc"
   license "MIT"
 
   bottle do
@@ -37,8 +37,8 @@ class Molecule < Formula
   end
 
   resource "ansible-lint" do
-    url "https://files.pythonhosted.org/packages/97/24/11394bf9ba617dd64f6b4042a4e5d49a219e52ec1dc7eb3f891da2a35a0f/ansible-lint-5.0.11.tar.gz"
-    sha256 "c41f398c5a3faaab0481ec988ed42221d9f2de48da1acb06f261546349a870c0"
+    url "https://files.pythonhosted.org/packages/f5/e9/b359bd8b6581734f958a2704d1e8201647fdc99b5ae87fabf97874d91a34/ansible-lint-5.0.12.tar.gz"
+    sha256 "f2b0b74bd05cf55f0bb45304767e1862ed62c05def06e1f03aa2c2d39c67907c"
   end
 
   resource "arrow" do
@@ -232,8 +232,8 @@ class Molecule < Formula
   end
 
   resource "subprocess-tee" do
-    url "https://files.pythonhosted.org/packages/79/2a/cc70df8ca362c39fe5ad84e9cd175f886bf65a68a697778e8a9935770e45/subprocess-tee-0.3.1.tar.gz"
-    sha256 "518b59a4cd51573749c8f063a675ff9b4ee3370742ee1d7078c2a8b73bad2567"
+    url "https://files.pythonhosted.org/packages/3d/a6/3cb11b15c3f5abc8f5159272a4db0f60492570e9b4eefbad3d36876ea40a/subprocess-tee-0.3.2.tar.gz"
+    sha256 "62de360f2014dff831ac6dfb4fedca9c0c0d83bf20c2ac58dac894ca2afa6005"
   end
 
   resource "tenacity" do
