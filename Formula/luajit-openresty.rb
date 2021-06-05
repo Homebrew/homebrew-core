@@ -6,6 +6,11 @@ class LuajitOpenresty < Formula
   license "MIT"
   head "https://github.com/openresty/luajit2.git", branch: "v2.1-agentzh"
 
+  livecheck do
+    url :stable
+    regex(/^v?2\.1[-_.](\d{8})$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "1206d1abe22d5ce6c2be8899c5829172f25264ea2b888926116c0b5aa21eedbd"
     sha256 cellar: :any, big_sur:       "c4058bf652e63d1fa42b1453a7f1f100f1c8702c874d778693318d2e903ce465"
