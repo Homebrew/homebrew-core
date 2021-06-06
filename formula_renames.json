@@ -52,6 +52,7 @@
   "gnuplot4": "gnuplot@4",
   "google-app-engine": "app-engine-python",
   "google-perftools": "gperftools",
+  "grakn": "typedb",
   "grunt": "grunt-cli",
   "gst-validate": "gst-devtools",
   "gtef": "tepl",
