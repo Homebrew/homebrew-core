@@ -18,6 +18,7 @@ class Ghc < Formula
 
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "llvm" if Hardware::CPU.arm?
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
