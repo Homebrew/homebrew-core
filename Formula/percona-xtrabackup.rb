@@ -18,13 +18,19 @@ class PerconaXtrabackup < Formula
 
   depends_on "cmake" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "libev"
+  depends_on "icu4c"
+  depends_on "libevent"
   depends_on "libgcrypt"
+  depends_on "lz4"
   depends_on "mysql-client"
   depends_on "openssl@1.1"
   depends_on "protobuf"
+  depends_on "zstd"
 
+  uses_from_macos "curl"
+  uses_from_macos "libedit"
   uses_from_macos "perl"
+  uses_from_macos "zlib"
 
   # Should be installed before DBD::mysql
   resource "Devel::CheckLib" do
@@ -59,8 +65,14 @@ class PerconaXtrabackup < Formula
       -DINSTALL_MANDIR=share/man
       -DWITH_MAN_PAGES=ON
       -DINSTALL_MYSQLTESTDIR=
-      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_EDITLINE=system
+      -DWITH_ICU=system
+      -DWITH_LIBEVENT=system
+      -DWITH_LZ4=system
       -DWITH_PROTOBUF=system
+      -DWITH_SSL=#{Formula["openssl@1.1"].opt_prefix}
+      -DWITH_ZLIB=system
+      -DWITH_ZSTD=system
     ]
 
     # macOS has this value empty by default.
