@@ -17,7 +17,6 @@ class Ghc < Formula
   end
 
   depends_on "python@3.9" => :build
-  depends_on "sphinx-doc" => :build
   depends_on "llvm" if Hardware::CPU.arm?
 
   resource "gmp" do
@@ -79,7 +78,7 @@ class Ghc < Formula
     end
 
     system "./configure", "--prefix=#{prefix}", *args
-    system "make"
+    system "make", "BUILD_SPHINX_HTML=NO"
 
     ENV.deparallelize { system "make", "install" }
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
