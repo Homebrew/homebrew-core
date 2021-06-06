@@ -53,8 +53,9 @@ class Ghc < Formula
     # GMP *does not* use PIC by default without shared libs so --with-pic
     # is mandatory or else you'll get "illegal text relocs" errors.
     resource("gmp").stage do
+      cpu = Hardware::CPU.arm? ? "aarch64" : Hardware.oldest_cpu
       system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{OS.kernel_version.major}"
+                            "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
       system "make"
       system "make", "install"
     end
