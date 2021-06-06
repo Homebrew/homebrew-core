@@ -19,7 +19,7 @@ class Treefrog < Formula
 
   depends_on xcode: :build
   depends_on "mongo-c-driver"
-  depends_on "qt@5"
+  depends_on "qt"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc"
@@ -41,7 +41,7 @@ class Treefrog < Formula
     assert_predicate testpath/"hello", :exist?
     cd "hello" do
       assert_predicate Pathname.pwd/"hello.pro", :exist?
-      system Formula["qt@5"].opt_bin/"qmake"
+      system Formula["qt"].opt_bin/"qmake"
       assert_predicate Pathname.pwd/"Makefile", :exist?
       system "make"
       system bin/"treefrog", "-v"
