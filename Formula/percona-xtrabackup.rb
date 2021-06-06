@@ -19,6 +19,7 @@ class PerconaXtrabackup < Formula
   depends_on "cmake" => :build
   depends_on "sphinx-doc" => :build
   depends_on "icu4c"
+  depends_on "libev"
   depends_on "libevent"
   depends_on "libgcrypt"
   depends_on "lz4"
