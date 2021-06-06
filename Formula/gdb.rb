@@ -25,9 +25,6 @@ class Gdb < Formula
     depends_on "guile"
   end
 
-  conflicts_with "i386-elf-gdb", because: "both install include/gdb, share/gdb and share/info"
-  conflicts_with "x86_64-elf-gdb", because: "both install include/gdb, share/gdb and share/info"
-
   fails_with :clang do
     build 800
     cause <<~EOS
