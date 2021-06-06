@@ -17,7 +17,7 @@ class Gmt < Formula
   depends_on "fftw"
   depends_on "gdal"
   depends_on "netcdf"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   resource "gshhg" do
     url "https://github.com/GenericMappingTools/gshhg-gmt/releases/download/2.3.7/gshhg-gmt-2.3.7.tar.gz"
@@ -47,7 +47,7 @@ class Gmt < Formula
       -DFFTW3_ROOT=#{Formula["fftw"].opt_prefix}
       -DGDAL_ROOT=#{Formula["gdal"].opt_prefix}
       -DNETCDF_ROOT=#{Formula["netcdf"].opt_prefix}
-      -DPCRE_ROOT=#{Formula["pcre"].opt_prefix}
+      -DPCRE_ROOT=#{Formula["pcre2"].opt_prefix}
       -DFLOCK:BOOL=TRUE
       -DGMT_INSTALL_MODULE_LINKS:BOOL=FALSE
       -DGMT_INSTALL_TRADITIONAL_FOLDERNAMES:BOOL=FALSE
