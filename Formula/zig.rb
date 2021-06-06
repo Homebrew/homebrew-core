@@ -15,9 +15,10 @@ class Zig < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "llvm"
+  depends_on "llvm" => :build
 
   def install
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
     system "cmake", ".", *std_cmake_args, "-DZIG_STATIC_LLVM=ON"
     system "make", "install"
   end
