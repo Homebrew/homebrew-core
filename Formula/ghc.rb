@@ -1,8 +1,8 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.10.4/ghc-8.10.4-src.tar.xz"
-  sha256 "52af871b4e08550257d720c2944ac85727d0b948407cef1bebfe7508c224910e"
+  url "https://downloads.haskell.org/~ghc/8.10.5/ghc-8.10.5-src.tar.xz"
+  sha256 "f10941f16e4fbd98580ab5241b9271bb0851304560c4d5ca127e3b0e20e3076f"
   license "BSD-3-Clause"
 
   livecheck do
