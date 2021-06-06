@@ -24,12 +24,18 @@ class MysqlAT56 < Formula
     var/"mysql"
   end
 
+  # Fixes loading of VERSION file, backported from mysql/mysql-server@51675dd
+  patch :DATA
+
   def install
     # Don't hard-code the libtool path. See:
     # https://github.com/Homebrew/homebrew/issues/20185
     inreplace "cmake/libutils.cmake",
       "COMMAND /usr/bin/libtool -static -o ${TARGET_LOCATION}",
       "COMMAND libtool -static -o ${TARGET_LOCATION}"
+
+    # Fix loading of VERSION file; required in conjunction with patch
+    File.rename "VERSION", "MYSQL_VERSION"
 
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     args = %W[
@@ -166,3 +172,28 @@ class MysqlAT56 < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
+diff --git a/cmake/mysql_version.cmake b/cmake/mysql_version.cmake
+index 34ed6f4..4becbbc 100644
+--- a/cmake/mysql_version.cmake
++++ b/cmake/mysql_version.cmake
+@@ -31,7 +31,7 @@ SET(DOT_FRM_VERSION "6")
+ 
+ # Generate "something" to trigger cmake rerun when VERSION changes
+ CONFIGURE_FILE(
+-  ${CMAKE_SOURCE_DIR}/VERSION
++  ${CMAKE_SOURCE_DIR}/MYSQL_VERSION
+   ${CMAKE_BINARY_DIR}/VERSION.dep
+ )
+ 
+@@ -39,7 +39,7 @@ CONFIGURE_FILE(
+ 
+ MACRO(MYSQL_GET_CONFIG_VALUE keyword var)
+  IF(NOT ${var})
+-   FILE (STRINGS ${CMAKE_SOURCE_DIR}/VERSION str REGEX "^[ ]*${keyword}=")
++   FILE (STRINGS ${CMAKE_SOURCE_DIR}/MYSQL_VERSION str REGEX "^[ ]*${keyword}=")
+    IF(str)
+      STRING(REPLACE "${keyword}=" "" str ${str})
+      STRING(REGEX REPLACE  "[ ].*" ""  str "${str}")
+
