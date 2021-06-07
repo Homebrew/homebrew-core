@@ -4,7 +4,7 @@ class Libffcall < Formula
   url "https://ftp.gnu.org/gnu/libffcall/libffcall-2.3.tar.gz"
   mirror "https://ftpmirror.gnu.org/gnu/libffcall/libffcall-2.3.tar.gz"
   sha256 "81e7e9862e342053b62004e1788b49e80defaa3186d0352cccf6e6b77c823ef2"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any, big_sur:  "bb1f926fad9495f329bf5c6145621cb03102588514955cb05e715fb9ac840dd6"
