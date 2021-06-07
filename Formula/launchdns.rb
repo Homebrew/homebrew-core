@@ -18,7 +18,10 @@ class Launchdns < Formula
     system "./configure", "--with-launch-h", "--with-launch-h-activate-socket"
     system "make", "install"
 
-    (prefix/"etc/resolver/localhost").write("nameserver 127.0.0.1\nport 55353\n")
+    (prefix/"etc/resolver/localhost").write <<~EOS
+      nameserver 127.0.0.1
+      port 55353
+    EOS
   end
 
   plist_options manual: "launchdns"
