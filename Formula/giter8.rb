@@ -7,7 +7,7 @@ class Giter8 < Formula
 
   bottle :unneeded
 
-  disable! date: "2020-07-30", because: "fetches unversioned dependencies at runtime"
+  disable! date: "2020-07-30", because: "fetches unversioned dependencies at runtime. Please refer to the setup page http://www.foundweekends.org/giter8/setup.html for alternative installation methods"
 
   depends_on "openjdk"
 
