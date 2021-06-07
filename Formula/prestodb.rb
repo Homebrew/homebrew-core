@@ -1,19 +1,16 @@
 class Prestodb < Formula
   desc "Distributed SQL query engine for big data"
   homepage "https://prestodb.io"
-  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.254/presto-server-0.254.tar.gz"
-  sha256 "5904eedf93ce64de066e486bf057e29bd15041c1a1e265846a3cd885ba4d397f"
+  url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/0.254.1/presto-server-0.254.1.tar.gz"
+  sha256 "0671fbf3789b70a197a280b5f8287c21596df8d7914cf9b35c1f9788e09c28c3"
   license "Apache-2.0"
 
-  # The source of the Presto download page at https://prestodb.io/download.html
-  # contains old version information. The current version information is loaded
-  # from the JavaScript file below, so we check that instead. We don't check
-  # Maven because sometimes the directory listing page contains a newer version
-  # that hasn't been released yet and we probably don't want to upgrade until
-  # it's official on the first-party website, etc.
+  # Upstream has said that we should check Maven for Presto version information
+  # and the highest version found there is newest:
+  # https://github.com/prestodb/presto/issues/16200
   livecheck do
-    url "https://prestodb.io/static/js/version.js"
-    regex(/latest_presto_version.*?(\d+(?:\.\d+)+)/i)
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-server/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
@@ -25,8 +22,8 @@ class Prestodb < Formula
   conflicts_with "prestosql", because: "both install `presto` and `presto-server` binaries"
 
   resource "presto-cli" do
-    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.254/presto-cli-0.254-executable.jar"
-    sha256 "423addac63ae577f921b92578b9e26879a3f05c73734e1b2d53507c355810ea7"
+    url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.254.1/presto-cli-0.254.1-executable.jar"
+    sha256 "9cd9593ee2854fb862e00ae2d3e5f8c7942928ad3055471c49d2fcc19a167923"
   end
 
   def install
