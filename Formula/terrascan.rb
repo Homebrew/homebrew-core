@@ -1,6 +1,6 @@
 class Terrascan < Formula
   desc "Detect compliance and security violations across Infrastructure as Code"
-  homepage "https://www.accurics.com/products/terrascan/"
+  homepage "https://github.com/accurics/terrascan"
   url "https://github.com/accurics/terrascan/archive/v1.6.0.tar.gz"
   sha256 "4ff014832f5d4e85ee275930639705a8ad9123eb4691591e6645fc76f1b0eb95"
   license "Apache-2.0"
@@ -35,15 +35,14 @@ class Terrascan < Formula
     EOS
 
     expected = <<~EOS
-      \tPolicies Validated  :\t203
       \tViolated Policies   :\t0
       \tLow                 :\t0
       \tMedium              :\t0
       \tHigh                :\t0
     EOS
 
-    assert_match expected, shell_output("#{bin}/terrascan scan -f #{testpath}/ami.tf -t aws")
-
-    assert_match "version: v#{version}", shell_output("#{bin}/terrascan version")
+    output = shell_output("#{bin}/terrascan scan -f #{testpath}/ami.tf -t aws")
+    assert_match expected, output
+    assert_match(/Policies Validated\s+:\s+\d+/, output)
   end
 end
