@@ -50,10 +50,16 @@ class OpensslAT11 < Formula
   # SSLv3 & zlib are off by default with 1.1.0 but this may not
   # be obvious to everyone, so explicitly state it for now to
   # help debug inevitable breakage.
+  #
+  # enable-ssl-trace results in the SSL_trace() function being
+  # built and exposed in ssl.h. SSL_trace() is extremely useful
+  # for debugging handshake issues, and, given the negligable
+  # cost, is worth including by default.
   def configure_args
     args = %W[
       --prefix=#{prefix}
       --openssldir=#{openssldir}
+      enable-ssl-trace
       no-ssl3
       no-ssl3-method
       no-zlib
