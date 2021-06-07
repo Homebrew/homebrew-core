@@ -4,7 +4,7 @@ class Dartsim < Formula
   url "https://github.com/dartsim/dart/archive/v6.10.1.tar.gz"
   sha256 "bf19cdef8e28dbc4059dcbb11997576d6e1d825791bd756e8272d2ddc5b147ce"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 big_sur:  "761351510ddd1e719882b2daaea5be4f7c04280725bf8fd0f829ea9ada7096f0"
