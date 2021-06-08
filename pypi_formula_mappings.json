@@ -159,6 +159,9 @@
     	"pyobjc-framework-SystemExtensions", "pyobjc-framework-UserNotifications", "pyobjc-framework-VideoSubscriberAccount",
     	"pyobjc-framework-VideoToolbox", "pyobjc-framework-Vision", "pyobjc-framework-WebKit"]
   },
+  "sceptre": {
+    "exclude_packages": ["six"]
+  },
   "scipy": {
     "exclude_packages": ["numpy"]
   },

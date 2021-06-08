@@ -6,6 +6,7 @@ class Sceptre < Formula
   url "https://files.pythonhosted.org/packages/54/0d/f48f7a7c1e5a49ead5e531e3087674bcbec050bce262bb4486e7c03d3a33/sceptre-2.5.0.tar.gz"
   sha256 "40f4ceae1a4d66cbea94cbff04411e20f14c85be2547197de744f1fb09e986d9"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "26f8ed58058ca751e85b3b05c06ed3641ce3990808f65f1b390bcc5476177a04"
@@ -14,7 +15,8 @@ class Sceptre < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "a48375a0271b441d4d3df4dc2ff430b27aba357e58df5dae6ee3e5cf38ea1d82"
   end
 
-  depends_on "python@3.8"
+  depends_on "python@3.9"
+  depends_on "six"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/40/5b/a25eb36bd333f246ab47705bf4ce3a3512c62612470cc8956e0b214deca7/boto3-1.17.67.tar.gz"
@@ -84,11 +86,6 @@ class Sceptre < Formula
   resource "s3transfer" do
     url "https://files.pythonhosted.org/packages/27/90/f467e516a845cf378d85f0a51913c642e31e2570eb64b352c4dc4c6cbfc7/s3transfer-0.4.2.tar.gz"
     sha256 "cb022f4b16551edebbb31a377d3f09600dbada7363d8c5db7976e7f47732e1b2"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do
