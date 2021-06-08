@@ -4,6 +4,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.32.1.tar.xz"
   sha256 "a747ca4e8cc919d91feda6cadb97e63b72ff79119491989bbcea79ad47680615"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
   livecheck do
@@ -19,6 +20,7 @@ class Notmuch < Formula
   end
 
   depends_on "doxygen" => :build
+  depends_on "emacs" => :build
   depends_on "libgpg-error" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
@@ -52,6 +54,7 @@ class Notmuch < Formula
     system "./configure", *args
     system "make", "V=1", "install"
 
+    elisp.install Dir["emacs/*.el"]
     bash_completion.install "completion/notmuch-completion.bash"
 
     (prefix/"vim/plugin").install "vim/notmuch.vim"
