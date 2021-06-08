@@ -6,6 +6,7 @@ class CharmTools < Formula
   url "https://files.pythonhosted.org/packages/24/05/211a1656f72908afa84635c9a0b73aebf4edfcc1a3c5c0d71ec96bf20068/charm-tools-2.8.3.tar.gz"
   sha256 "ff03c7fd61ce1355f02845c9631ecd01828dfabc29a94566d74f2b35e6d3ea68"
   license "GPL-3.0-only"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "b14eda65739706c3b18061b9ea08ce963f0d43d5c64829a0baeb42c95cf566f2"
@@ -18,7 +19,7 @@ class CharmTools < Formula
   depends_on "charm"
   depends_on "libyaml"
   depends_on "openssl@1.1"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
