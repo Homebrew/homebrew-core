@@ -3,6 +3,7 @@ class Fltk < Formula
   homepage "https://www.fltk.org/"
   url "https://www.fltk.org/pub/fltk/1.3.6/fltk-1.3.6-source.tar.gz"
   sha256 "9aac75ef9e9b7bd7b5338a4c0d4dd536e6c22ea7b15ea622aa1d8f1fa30d37ab"
+  license "LGPL-2.0-only" => { with: "FLTK-exception" }
 
   livecheck do
     url "https://www.fltk.org/software.php"
@@ -16,6 +17,11 @@ class Fltk < Formula
     sha256 mojave:        "137faeafeb34fe3517d79aebb9c3fcfb2c959729e46d59d62be6203c2a520f39"
   end
 
+  head do
+    url "https://github.com/fltk/fltk.git"
+    depends_on "cmake" => :build
+  end
+
   depends_on "jpeg"
   depends_on "libpng"
 
@@ -27,10 +33,28 @@ class Fltk < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-threads",
-                          "--enable-shared"
-    system "make", "install"
+    if build.head?
+      args = std_cmake_args
+
+      # Don't build docs / require doxygen
+      args << "-DOPTION_BUILD_HTML_DOCUMENTATION=OFF"
+      args << "-DOPTION_BUILD_PDF_DOCUMENTATION=OFF"
+
+      # Don't build tests
+      args << "-DFLTK_BUILD_TEST=OFF"
+
+      # Build both shared & static libs
+      args << "-DOPTION_BUILD_SHARED_LIBS=ON"
+
+      system "cmake", ".", *args
+      system "cmake", "--build", "."
+      system "cmake", "--install", "."
+    else
+      system "./configure", "--prefix=#{prefix}",
+                            "--enable-threads",
+                            "--enable-shared"
+      system "make", "install"
+    end
   end
 
   test do
