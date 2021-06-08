@@ -4,6 +4,7 @@ class HaskellLanguageServer < Formula
   url "https://github.com/haskell/haskell-language-server/archive/1.1.0.tar.gz"
   sha256 "1d2bab12dcf6ef5f14fe4159e2d1f76b00de75fa9af51846b7ad861fa1daadb2"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/haskell/haskell-language-server.git"
 
   # we need :github_latest here because otherwise
@@ -21,28 +22,34 @@ class HaskellLanguageServer < Formula
 
   depends_on "cabal-install" => [:build, :test]
   depends_on "ghc" => [:build, :test]
-  depends_on "ghc@8.6" => [:build, :test]
-  depends_on "ghc@8.8" => [:build, :test]
+
+  if Hardware::CPU.arm?
+    depends_on "llvm" => :build
+  else
+    depends_on "ghc@8.6" => [:build, :test]
+    depends_on "ghc@8.8" => [:build, :test]
+  end
+
+  def ghcs
+    deps.map(&:to_formula)
+        .select { |f| f.name.match? "ghc" }
+        .sort_by(&:version)
+  end
 
   def install
     system "cabal", "v2-update"
+    newest_ghc = ghcs.max_by(&:version)
 
-    %w[ghc@8.6 ghc@8.8 ghc].each do |ghc_str|
-      ghc = Formula[ghc_str]
-
+    ghcs.each do |ghc|
       system "cabal", "v2-install", "-w", ghc.bin/"ghc", *std_cabal_v2_args
 
-      bin.install bin/"haskell-language-server" => "haskell-language-server-#{ghc.version}"
-      rm bin/"haskell-language-server-wrapper" unless ghc_str == "ghc"
+      bin.install bin/"haskell-language-server" => "haskell-language-server-#{ghc.version.major_minor}"
+      rm bin/"haskell-language-server-wrapper" unless ghc == newest_ghc
     end
   end
 
   def caveats
-    ghc_versions = [
-      Formula["ghc@8.6"].version,
-      Formula["ghc@8.8"].version,
-      Formula["ghc"].version,
-    ].join ", "
+    ghc_versions = ghcs.map(&:version).map(&:to_s).join(", ")
 
     <<~EOS
       #{name} is built for GHC versions #{ghc_versions}.
@@ -63,11 +70,11 @@ class HaskellLanguageServer < Formula
       f :: Int -> Int
     EOS
 
-    %w[ghc@8.6 ghc@8.8 ghc].each do |ghc_str|
-      ghc = Formula[ghc_str]
-
-      assert_match "Completed (1 file worked, 1 file failed)",
-        shell_output("PATH=#{ghc.bin}:$PATH #{bin}/haskell-language-server-#{ghc.version} #{testpath}/*.hs 2>&1", 1)
+    ghcs.each do |ghc|
+      with_env(PATH: "#{ghc.bin}:#{ENV["PATH"]}") do
+        assert_match "Completed (1 file worked, 1 file failed)",
+          shell_output("#{bin}/haskell-language-server-#{ghc.version.major_minor} #{testpath}/*.hs 2>&1", 1)
+      end
     end
   end
 end
