@@ -13,6 +13,12 @@ class Gotop < Formula
 
   depends_on "go" => :build
 
+  # Apply https://github.com/xxxserxxx/gotop/pull/183 to build on M1
+  patch do
+    url "https://github.com/xxxserxxx/gotop/commit/5efc6ec054a65c3ec63ed5eb67631ca3becdeb50.patch?full_index=1"
+    sha256 "1dd66fc5e25d49396c2be000f35f2b7fe57083a63e093f54d3565a6d43467771"
+  end
+
   def install
     time = `date +%Y%m%dT%H%M%S`.chomp
     system "go", "build", *std_go_args, "-ldflags",
