@@ -6,8 +6,6 @@ class Fasd < Formula
   license "MIT"
   head "https://github.com/clvv/fasd.git"
 
-  bottle :unneeded
-
   def install
     bin.install "fasd"
     man1.install "fasd.1"
