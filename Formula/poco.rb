@@ -25,7 +25,8 @@ class Poco < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                             "-DENABLE_DATA_MYSQL=OFF",
-                            "-DENABLE_DATA_ODBC=OFF"
+                            "-DENABLE_DATA_ODBC=OFF",
+                            "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make", "install"
     end
   end
