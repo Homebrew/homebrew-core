@@ -2,10 +2,21 @@ class LuajitOpenresty < Formula
   desc "OpenResty's Branch of LuaJIT 2"
   homepage "https://github.com/openresty/luajit2"
   url "https://github.com/openresty/luajit2/archive/refs/tags/v2.1-20210510.tar.gz"
-  version "20210510"
   sha256 "1ee6dad809a5bb22efb45e6dac767f7ce544ad652d353a93d7f26b605f69fe3f"
   license "MIT"
+  version_scheme 1
   head "https://github.com/openresty/luajit2.git", branch: "v2.1-agentzh"
+
+  # The latest LuaJIT release is unstable (2.1.0-beta3, from 2017-05-01) and
+  # OpenResty is making releases using the latest LuaJIT Git commits. With this
+  # in mind, the regex below is very permissive and will match any tags
+  # starting with a numeric version, ensuring that we match unstable versions.
+  # We should consider restricting the regex to stable versions if it ever
+  # becomes feasible in the future.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:[.-]\d+)+[^{}]*)/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "1206d1abe22d5ce6c2be8899c5829172f25264ea2b888926116c0b5aa21eedbd"
