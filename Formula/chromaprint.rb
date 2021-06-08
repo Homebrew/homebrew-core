@@ -16,8 +16,15 @@ class Chromaprint < Formula
   depends_on "ffmpeg"
 
   def install
-    system "cmake", "-DCMAKE_BUILD_TYPE=Release", "-DBUILD_TOOLS=ON", ".", *std_cmake_args
-    system "make", "install"
+    args = %W[
+      -DBUILD_TOOLS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    mkdir "build" do
+      system "cmake", "..", *args, *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
