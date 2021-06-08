@@ -1,8 +1,8 @@
 class Gollum < Formula
   desc "Go n:m message multiplexer"
   homepage "https://github.com/trivago/gollum"
-  url "https://github.com/trivago/gollum/archive/v0.5.4.tar.gz"
-  sha256 "ba2299c7946385704b7952a77f28e6a7bd243f350e31e7009e21586ec9ca5494"
+  url "https://github.com/trivago/gollum/archive/0.6.0.tar.gz"
+  sha256 "2d9e7539342ccf5dabb272bbba8223d279a256c0901e4a27d858488dd4343c49"
   license "Apache-2.0"
   head "https://github.com/trivago/gollum.git"
 
@@ -18,13 +18,7 @@ class Gollum < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/trivago/gollum").install buildpath.children
-    cd "src/github.com/trivago/gollum" do
-      system "go", "build", "-o", bin/"gollum"
-      prefix.install_metafiles
-    end
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w -X gollum/core.versionString=#{version}")
   end
 
   test do
