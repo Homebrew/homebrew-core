@@ -11,12 +11,8 @@ class GitFilterRepo < Formula
     sha256 cellar: :any_skip_relocation, all: "ceecf90b3bef4645e16ad2b509fb7a7e7724ec59b9da12e0305e95c6d8389a4c"
   end
 
-  # ignore git dependency audit:
-  #  * Don't use git as a dependency (it's always available)
-  # But we require Git 2.22.0+
-  # https://github.com/Homebrew/homebrew-core/pull/46550#issuecomment-563229479
-  depends_on "git"
   depends_on "python@3.9"
+  uses_from_macos "git", since: :catalina # git 2.22.0+ is required
 
   def install
     rewrite_shebang detected_python_shebang, "git-filter-repo"
