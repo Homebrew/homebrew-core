@@ -11,8 +11,6 @@ class TodoTxt < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   def install
     bin.install "todo.sh"
     prefix.install "todo.cfg" # Default config file
