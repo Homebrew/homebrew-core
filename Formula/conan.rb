@@ -3,8 +3,8 @@ class Conan < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/3b/a5/627a51563ac3e1164e1d2ee8995e714f93e00be696f8153ef840bee7797e/conan-1.37.0.tar.gz"
-  sha256 "2a5e7f872906912f0b22751046b11397f73dc92602cb87dd2089842d476fb767"
+  url "https://files.pythonhosted.org/packages/63/f5/07110dc9b065c0c11785d2ff1ebedd79cfad094db228120df1503003e996/conan-1.37.1.tar.gz"
+  sha256 "1b68f3c7c672ec161aeff77220e2cce9d42cc732ac162ecc8ec3245971b7d4ae"
   license "MIT"
   head "https://github.com/conan-io/conan.git"
 
@@ -51,8 +51,8 @@ class Conan < Formula
   end
 
   resource "fasteners" do
-    url "https://files.pythonhosted.org/packages/d1/8f/a6c06f9bce5691a40283e52b92ec1522d6863951e738a31b109bf6bf2002/fasteners-0.16.tar.gz"
-    sha256 "c995d8c26b017c5d6a6de9ad29a0f9cdd57de61ae1113d28fac26622b06a0933"
+    url "https://files.pythonhosted.org/packages/0b/e8/faae4f961991ad1c0c0aca0a5fa16aa88f42d040f05853d1fb1697e2cee2/fasteners-0.16.2.tar.gz"
+    sha256 "2fa2ca17a4fa0510ff63e0a091ab58fdd1bcdbab82e08d4e449b85ff086fa68e"
   end
 
   resource "future" do
