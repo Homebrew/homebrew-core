@@ -38,8 +38,10 @@ class Dartsim < Formula
       args << "-DGLUT_glut_LIBRARY=#{glut_lib}"
     end
 
-    system "cmake", ".", *args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+      system "make", "install"
+    end
 
     # Clean up the build file garbage that has been installed.
     rm_r Dir["#{share}/doc/dart/**/CMakeFiles/"]
