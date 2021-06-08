@@ -26,9 +26,9 @@ class CabalInstall < Formula
         url "https://downloads.haskell.org/~cabal/cabal-install-3.2.0.0/cabal-install-3.2.0.0-x86_64-apple-darwin17.7.0.tar.xz"
         sha256 "9197c17d2ece0f934f5b33e323cfcaf486e4681952687bc3d249488ce3cbe0e9"
       else
-        # Bootstrapped on Homebrew CI. Replace with official upstream artefact when one is available.
-        url "https://github.com/haskell/cabal/files/6617482/cabal-install-3.5-arm64-darwin-11.4-bootstrapped.tar.gz"
-        sha256 "e6f2c70fe8946df3980899bd1c564ffea55630b57238cdac9de851178e644a53"
+        # Replace with a bootstrap binary when upstream provide one
+        url "https://github.com/haskell/cabal/archive/fc4daed11271630aae1954e1520f9c16be2f4cd3.tar.gz"
+        sha256 "21629b86d14c0ac0945e83271100afba66971484d7a057c12c1cafb8d887b41b"
       end
     end
     on_linux do
@@ -37,11 +37,27 @@ class CabalInstall < Formula
     end
   end
 
-  def install
-    resource("bootstrap").stage buildpath
-    cabal = buildpath/"cabal"
-    cd "cabal-install" if build.head?
+  resource "bootstrap-json" do
+    url "https://github.com/haskell/cabal/files/6612159/darwin-8.10.5.json.zip"
+    sha256 "16f65ec4d656e6c28979fd966597045015d7b9020a017889a512d4e347c2e770"
+  end
 
+  def install
+    cabal = buildpath/"cabal"
+    if Hardware::CPU.intel?
+      resource("bootstrap").stage buildpath
+    else
+      resource("bootstrap").stage buildpath/"bootdir"
+      resource("bootstrap-json").stage buildpath/"bootdir/bootstrap"
+      cd "bootdir" do
+        system "bootstrap/bootstrap.py",
+                "-d", "bootstrap/darwin-8.10.5.json",
+                "-w", Formula["ghc"].opt_bin/"ghc"
+      end
+      buildpath.install "bootdir/_build/bin/cabal"
+    end
+
+    cd "cabal-install" if build.head?
     system cabal, "v2-update"
     system cabal, "v2-install", *std_cabal_v2_args
     bash_completion.install "bash-completion/cabal"
