@@ -15,6 +15,7 @@ class Shellcheck < Formula
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pandoc" => :build
+  depends_on "llvm" => :build if Hardware::CPU.arm?
 
   def install
     system "cabal", "v2-update"
