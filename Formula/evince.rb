@@ -1,8 +1,8 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/40/evince-40.1.tar.xz"
-  sha256 "7a666363c350af2e3bbba7f14b3c1befc5012f9ed3d9d073447f4c59f33dcf2d"
+  url "https://download.gnome.org/sources/evince/40/evince-40.2.tar.xz"
+  sha256 "0ff7ec79376a8a97ac4cd274d32e804c7e236ef2d2d5d3f646de6eb882a63c77"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -29,6 +29,13 @@ class Evince < Formula
   depends_on "libspectre"
   depends_on "poppler"
   depends_on "python@3.9"
+
+  # patch submitted upstream
+  # see https://gitlab.gnome.org/GNOME/evince/-/merge_requests/348
+  patch do
+    url "https://gitlab.gnome.org/GNOME/evince/-/commit/5d08585702b6dfccc67098b501cfa99a01775c87.diff"
+    sha256 "87dd01dcf68ddee832cc9931165bc8dd66c76cb09520072afd0354b02b600146"
+  end
 
   def install
     ENV["DESTDIR"] = "/"
