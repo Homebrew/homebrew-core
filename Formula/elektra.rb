@@ -1,8 +1,8 @@
 class Elektra < Formula
   desc "Framework to access config settings in a global key database"
   homepage "https://libelektra.org/"
-  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.5.tar.gz"
-  sha256 "0b6ee9d6bf13c3749f4d014df444606f84a2f5a797a541002f8d4e745007c3a5"
+  url "https://www.libelektra.org/ftp/elektra/releases/elektra-0.9.6.tar.gz"
+  sha256 "c8e75f4d21bf3bd6b1028e776af9ff644a17a7dfbb1f2052f50392767deea197"
   license "BSD-3-Clause"
   head "https://github.com/ElektraInitiative/libelektra.git"
 
@@ -27,14 +27,6 @@ class Elektra < Formula
                             "-DPLUGINS=NODEP", *std_cmake_args
       system "make", "install"
     end
-
-    # Avoid references to the Homebrew shims directory
-    os = "mac"
-    on_linux do
-      os = "linux"
-    end
-    inreplace Dir[prefix/"share/elektra/test_data/gen/gen/highlevel/*.check.sh"],
-              HOMEBREW_SHIMS_PATH/"#{os}/super/", ""
 
     bash_completion.install "scripts/completion/kdb-bash-completion" => "kdb"
     fish_completion.install "scripts/completion/kdb.fish"
