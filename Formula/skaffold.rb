@@ -2,8 +2,8 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-      tag:      "v1.25.0",
-      revision: "c788c2b15fc3b3a002edcff25b5ef33563d5bb9c"
+      tag:      "v1.26.0",
+      revision: "851bcab1a12274966a846cbb95b0cf364f45531c"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git"
 
