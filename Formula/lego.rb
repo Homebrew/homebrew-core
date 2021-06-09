@@ -19,7 +19,7 @@ class Lego < Formula
   end
 
   test do
-    output = shell_output("lego -a --email test@brew.sh --dns digitalocean -d brew.test run", 1)
+    output = shell_output("lego -a --email test@brew.sh --dns digitalocean -d brew.test run 2>&1", 1)
     assert_match "some credentials information are missing: DO_AUTH_TOKEN", output
 
     output = shell_output("DO_AUTH_TOKEN=xx lego -a --email test@brew.sh --dns digitalocean -d brew.test run 2>&1", 1)
