@@ -11,14 +11,25 @@ class Tcpreplay < Formula
     sha256 cellar: :any, mojave:   "f55a4af6cbc64fcf75fd5967ae13f9babd24472c4f1ce659beeaa8754a317fda"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "libdnet"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--enable-dynamic-link"
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --disable-silent-rules
+      --prefix=#{prefix}
+      --enable-dynamic-link
+      --with-macosx-sdk=#{MacOS.version}
+    ]
+
+    system "./autogen.sh"
+    system "./configure", *args
+
     system "make", "install"
   end
 
