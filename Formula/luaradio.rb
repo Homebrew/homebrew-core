@@ -1,10 +1,9 @@
 class Luaradio < Formula
   desc "Lightweight, embeddable flow graph signal processing framework for SDR"
   homepage "https://luaradio.io/"
-  url "https://github.com/vsergeev/luaradio/archive/v0.9.1.tar.gz"
-  sha256 "25150fa6b2cfd885d59453a9c4599811573176451c659278c12d50fece69f7f3"
+  url "https://github.com/vsergeev/luaradio/archive/v0.10.0.tar.gz"
+  sha256 "d540aac3363255c4a1f47313888d9133b037cc5d1edca0d428499a272710b992"
   license "MIT"
-  revision 1
   head "https://github.com/vsergeev/luaradio.git"
 
   bottle do
