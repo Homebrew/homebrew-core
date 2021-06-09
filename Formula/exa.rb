@@ -18,7 +18,7 @@ class Exa < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "935794d2a1521fc3645f48eaec3035748cde91b183a23bb0c68b069f1187aae9"
   end
 
-  depends_on "pandoc" => :build unless Hardware::CPU.arm?
+  depends_on "pandoc" => :build
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
@@ -45,14 +45,10 @@ class Exa < Formula
       --standalone
       --to=man
     ]
-
-    unless Hardware::CPU.arm?
-      system "pandoc", *args, "man/exa.1.md", "-o", "exa.1"
-      system "pandoc", *args, "man/exa_colors.5.md", "-o", "exa_colors.5"
-
-      man1.install "exa.1"
-      man5.install "exa_colors.5"
-    end
+    system "pandoc", *args, "man/exa.1.md", "-o", "exa.1"
+    system "pandoc", *args, "man/exa_colors.5.md", "-o", "exa_colors.5"
+    man1.install "exa.1"
+    man5.install "exa_colors.5"
   end
 
   test do
