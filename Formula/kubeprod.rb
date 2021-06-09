@@ -1,8 +1,8 @@
 class Kubeprod < Formula
   desc "Installer for the Bitnami Kubernetes Production Runtime (BKPR)"
   homepage "https://kubeprod.io"
-  url "https://github.com/bitnami/kube-prod-runtime/archive/v1.7.1.tar.gz"
-  sha256 "ad906a7b195fc567a3f8f48d29a348341f88309215090e07ac4561627f1213ef"
+  url "https://github.com/bitnami/kube-prod-runtime/archive/v1.8.0.tar.gz"
+  sha256 "cc2fbda4c115d164afcaaabbbef4b5824b9b09b6df95d9cce021aee50c2ad2c1"
   license "Apache-2.0"
 
   bottle do
