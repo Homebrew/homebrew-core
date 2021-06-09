@@ -73,7 +73,7 @@ class Irrlicht < Formula
 
   test do
     on_macos do
-      assert_match "x86_64", shell_output("lipo -info #{lib}/libIrrlicht.a")
+      assert_match Hardware::CPU.arch.to_s, shell_output("lipo -info #{lib}/libIrrlicht.a")
     end
     on_linux do
       cp_r Dir["#{pkgshare}/examples/01.HelloWorld/*"], testpath
