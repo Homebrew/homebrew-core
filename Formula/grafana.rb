@@ -3,7 +3,7 @@ class Grafana < Formula
   homepage "https://grafana.com"
   url "https://github.com/grafana/grafana/archive/v8.0.0.tar.gz"
   sha256 "81c7223a205eb30b46de0436f00e52df1bbeba997476e785c95dcdf1b1949dd2"
-  license "Apache-2.0"
+  license "AGPL-3.0-only"
   head "https://github.com/grafana/grafana.git"
 
   bottle do
