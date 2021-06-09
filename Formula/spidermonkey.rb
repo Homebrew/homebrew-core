@@ -1,16 +1,17 @@
 class Spidermonkey < Formula
   desc "JavaScript-C Engine"
-  homepage "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey"
-  url "https://archive.mozilla.org/pub/mozilla.org/js/js185-1.0.0.tar.gz"
-  version "1.8.5"
-  sha256 "5d12f7e1f5b4a99436685d97b9b7b75f094d33580227aa998c406bbae6f2a687"
+  homepage "https://spidermonkey.dev/"
+  # NOTE: fetch source from here: https://treeherder.mozilla.org/jobs?repo=mozilla-release
+  # click on the first SM(pkg) link you see, then navigate to `Artifacts` sheet
+  # download the `mozjs-<version>.tar.xz`
+  url "https://firefox-ci-tc.services.mozilla.com/api/queue/v1/task/OrV4RM3WTS6k2O3xbrLj1A/runs/0/artifacts/public/build/mozjs-89.0.0.tar.xz"
+  sha256 "50b930324d9e399279002ca90233d9555d67dba3a5f005d83539caee38adb252"
   license "MPL-1.1"
-  revision 4
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
   livecheck do
-    url "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases"
-    regex(%r{href=.*?Releases/v?(\d+(?:\.\d+)*)["' >]}i)
+    url "https://ftp.mozilla.org/pub/firefox/releases/"
+    regex(/(\d+(?:\.\d+)+)/i)
   end
 
   bottle do
@@ -20,49 +21,52 @@ class Spidermonkey < Formula
     sha256 cellar: :any, mojave:   "8c0b46bc04a7e95f99262969b22cc311ee1f7d83413af05865318743ccd96944"
   end
 
-  depends_on :macos # Due to Python 2
-  depends_on "nspr"
-  depends_on "readline"
+  depends_on "autoconf@2.13" => :build
+  depends_on "pkg-config"    => :build
+  depends_on "python@3.9"    => :build
+  depends_on "rust"          => :build
 
-  conflicts_with "narwhal", because: "both install a js binary"
+  depends_on "icu4c"
+  depends_on "nspr"
+
+  uses_from_macos "libedit"
 
   def install
-    cd "js/src" do
-      # Remove the broken *(for anyone but FF) install_name
-      inreplace "config/rules.mk",
-        "-install_name @executable_path/$(SHARED_LIBRARY) ",
-        "-install_name #{lib}/$(SHARED_LIBRARY) "
+    # TODO: remove this `inreplace` statement in future because
+    # upstream has removed the `sdk_max_version`
+    inreplace "build/moz.configure/toolchain.configure",
+                'sdk_max_version = Version("11.1")',
+                'sdk_max_version = Version("11.99")'
 
-      # The ./configure script assumes that it can find readline
-      # just as "-lreadline", but we want it to look in opt/readline/lib
-      inreplace "configure", "-lreadline", "-L#{Formula["readline"].opt_lib} -lreadline"
-    end
+    inreplace "config/rules.mk",
+              "-install_name $(_LOADER_PATH)/$(SHARED_LIBRARY) ",
+              "-install_name #{lib}/$(SHARED_LIBRARY) "
 
-    # The ./configure script that comes with spidermonkey 1.8.5 makes some mistakes
-    # with Xcode 12's default setting of -Werror,implicit-function-declaration
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    args = %W[
+      --prefix=#{prefix}
+      --enable-optimize
+      --enable-readline
+      --enable-release
+      --enable-shared-js
+      --disable-jemalloc
+      --with-intl-api
+      --with-system-icu
+      --with-system-nspr
+      --with-system-zlib
+    ]
 
-    mkdir "brew-build" do
-      system "../js/src/configure", "--prefix=#{prefix}",
-                                    "--enable-readline",
-                                    "--enable-threadsafe",
-                                    "--with-system-nspr",
-                                    "--with-nspr-prefix=#{Formula["nspr"].opt_prefix}",
-                                    "--enable-macos-target=#{MacOS.version}"
-
-      inreplace "js-config", /JS_CONFIG_LIBS=.*?$/, "JS_CONFIG_LIBS=''"
-      # These need to be in separate steps.
+    cd "js/src"
+    mkdir "brew_build" do
+      system "../configure", *args
       system "make"
       system "make", "install"
-
-      # Also install js REPL.
-      bin.install "shell/js"
+      rm lib/"libjs_static.ajs"
     end
   end
 
   test do
     path = testpath/"test.js"
     path.write "print('hello');"
-    assert_equal "hello", shell_output("#{bin}/js #{path}").strip
+    assert_equal "hello", shell_output("#{bin}/js#{version.major} #{path}").strip
   end
 end
