@@ -13,6 +13,7 @@ class Hadolint < Formula
 
   depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
+  depends_on "llvm" => :build if Hardware::CPU.arm?
 
   uses_from_macos "xz"
 
@@ -25,8 +26,14 @@ class Hadolint < Formula
     jobs = ENV.make_jobs
     ENV.deparallelize
 
-    system "stack", "-j#{jobs}", "build"
-    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
+    ghc_args = [
+      "--system-ghc",
+      "--no-install-ghc",
+      "--skip-ghc-check",
+    ]
+
+    system "stack", "-j#{jobs}", "build", *ghc_args
+    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install", *ghc_args
   end
 
   test do
