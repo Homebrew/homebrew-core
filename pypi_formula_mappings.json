@@ -76,6 +76,9 @@
   "magic-wormhole": {
     "extra_packages": ["wheel"]
   },
+  "mkdocs": {
+    "exclude_packages": ["six"]
+  },
   "molecule": {
     "extra_packages": ["docker-py", "python-vagrant"]
   },
