@@ -4,6 +4,11 @@ class Exiftags < Formula
   url "https://johnst.org/sw/exiftags/exiftags-1.01.tar.gz"
   sha256 "d95744de5f609f1562045f1c2aae610e8f694a4c9042897a51a22f0f0d7591a4"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?exiftags[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2229163e3493c0fae8cf83479f5c5258b926437b353038cd738d7f7d50fc20f9"
     sha256 cellar: :any_skip_relocation, big_sur:       "e6f10871b2577320dd9c219faa1e1b31fac8a311cde68810d233aaafa79a5a08"
