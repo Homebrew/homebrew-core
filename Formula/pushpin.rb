@@ -1,8 +1,8 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://github.com/fanout/pushpin/releases/download/v1.32.1/pushpin-1.32.1.tar.bz2"
-  sha256 "f2f000a49b17ceb40a530a9445073a5e1ddd93df7bbf305e6781071c0e97f406"
+  url "https://github.com/fanout/pushpin/releases/download/v1.32.2/pushpin-1.32.2.tar.bz2"
+  sha256 "67fd1cabcaf95deb998007abb189acf06d72f761caae7292fe2a6cb35de779f1"
   license "AGPL-3.0-or-later"
   head "https://github.com/fanout/pushpin.git"
 
