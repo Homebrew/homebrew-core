@@ -6,6 +6,7 @@ class Circleci < Formula
       tag:      "v0.1.15338",
       revision: "850f9acdbf24e4222bd4b36035e20c182e7db385"
   license "MIT"
+  revision 1
   head "https://github.com/CircleCI-Public/circleci-cli.git"
 
   bottle do
@@ -15,25 +16,18 @@ class Circleci < Formula
   end
 
   depends_on "go" => :build
+  depends_on "packr" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
+    system "packr2", "--ignore-imports", "-v"
 
-    dir = buildpath/"src/github.com/CircleCI-Public/circleci-cli"
-    dir.install buildpath.children
-
-    cd dir do
-      ldflags = %W[
-        -s -w
-        -X github.com/CircleCI-Public/circleci-cli/version.packageManager=homebrew
-        -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
-        -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{Utils.git_short_head}
-      ]
-      system "make", "pack"
-      system "go", "build", "-ldflags", ldflags.join(" "),
-             "-o", bin/"circleci"
-      prefix.install_metafiles
-    end
+    ldflags = %W[
+      -s -w
+      -X github.com/CircleCI-Public/circleci-cli/version.packageManager=homebrew
+      -X github.com/CircleCI-Public/circleci-cli/version.Version=#{version}
+      -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{Utils.git_short_head}
+    ]
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
   end
 
   test do
