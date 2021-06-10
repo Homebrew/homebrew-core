@@ -23,10 +23,13 @@ class Ffmpegthumbnailer < Formula
     args = std_cmake_args
     args << "-DENABLE_GIO=ON"
     args << "-DENABLE_THUMBNAILER=ON"
+    args << "-DCMAKE_INSTALL_RPATH=#{rpath}"
 
-    system "cmake", *args
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
