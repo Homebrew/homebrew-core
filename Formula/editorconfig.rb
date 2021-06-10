@@ -17,8 +17,10 @@ class Editorconfig < Formula
   depends_on "pcre2"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+      system "make", "install"
+    end
   end
 
   test do
