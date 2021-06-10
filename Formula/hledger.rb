@@ -21,6 +21,7 @@ class Hledger < Formula
 
   depends_on "ghc" => :build
   depends_on "haskell-stack" => :build
+  depends_on "llvm" => :build if Hardware::CPU.arm?
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
