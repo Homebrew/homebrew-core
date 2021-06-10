@@ -3,22 +3,10 @@ require "language/node"
 class Lanraragi < Formula
   desc "Web application for archival and reading of manga/doujinshi"
   homepage "https://github.com/Difegue/LANraragi"
+  url "https://github.com/Difegue/LANraragi/archive/v.0.7.9.tar.gz"
+  sha256 "ca14c0d27d9ad28aba835f14c904406414c4094cab904d1d763a0c7608afa5b6"
   license "MIT"
   head "https://github.com/Difegue/LANraragi.git"
-
-  # Remove patch and `stable` block at version bump
-  stable do
-    url "https://github.com/Difegue/LANraragi/archive/v.0.7.9.tar.gz"
-    sha256 "ca14c0d27d9ad28aba835f14c904406414c4094cab904d1d763a0c7608afa5b6"
-
-    # Allow setting `LRR_TEMP_DIRECTORY` to fix test
-    # https://github.com/Difegue/LANraragi/issues/469
-    # Remove at version bump
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2f6f05abc781d85f891e0b87cda821e5c069abff/lanraragi/tempdir.patch"
-      sha256 "d14dfd68a32e7c0805a488f89644c73ca6472546edfd6118bd6726593adb3b81"
-    end
-  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "dfb800e786cac097575e60706c4c08df229a2afc32a9fec859ee81b1503f3bb2"
