@@ -4,6 +4,7 @@ class Libprelude < Formula
   url "https://www.prelude-siem.org/attachments/download/1395/libprelude-5.2.0.tar.gz"
   sha256 "187e025a5d51219810123575b32aa0b40037709a073a775bc3e5a65aa6d6a66e"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "7b7bd68152744ba511e577cbba513e86155f0b9734ed54591a462482d94c5679"
@@ -16,7 +17,7 @@ class Libprelude < Formula
   depends_on "pkg-config" => :build
   depends_on "gnutls"
   depends_on "libgpg-error"
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   def install
     ENV["HAVE_CXX"] = "yes"
@@ -29,7 +30,7 @@ class Libprelude < Formula
       --without-perl
       --without-swig
       --without-python2
-      --with-python3=#{Formula["python@3.8"].opt_bin/"python3"}
+      --with-python3=python#{Formula["python@3.9"].version.major_minor}
       --with-libgnutls-prefix=#{Formula["gnutls"].opt_prefix}
     ]
 
