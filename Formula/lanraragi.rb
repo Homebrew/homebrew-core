@@ -8,8 +8,8 @@ class Lanraragi < Formula
 
   # Remove patch and `stable` block at version bump
   stable do
-    url "https://github.com/Difegue/LANraragi/archive/v.0.7.8.tar.gz"
-    sha256 "e7deffd7f5b4528d7a7ddeab412d8230571e37d5a5eb8a0f6606e4e6655c22c9"
+    url "https://github.com/Difegue/LANraragi/archive/v.0.7.9.tar.gz"
+    sha256 "ca14c0d27d9ad28aba835f14c904406414c4094cab904d1d763a0c7608afa5b6"
 
     # Allow setting `LRR_TEMP_DIRECTORY` to fix test
     # https://github.com/Difegue/LANraragi/issues/469
