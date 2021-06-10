@@ -4,7 +4,7 @@ class Allureofthestars < Formula
   url "https://hackage.haskell.org/package/Allure-0.10.2.0/Allure-0.10.2.0.tar.gz"
   sha256 "fcb9f38ea543d3277fa90eee004f7624d1168bf7f2c17902cda1870293b7c2f4"
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
-  revision 1
+  revision 2
   head "https://github.com/AllureOfTheStars/Allure.git"
 
   bottle do
@@ -15,12 +15,9 @@ class Allureofthestars < Formula
 
   depends_on "cabal-install" => :build
   depends_on "pkg-config" => :build
-  depends_on "ghc" if MacOS.version >= :catalina
+  depends_on "ghc"
   depends_on "gmp"
   depends_on "sdl2_ttf"
-
-  on_macos { depends_on "ghc@8.8" if MacOS.version <= :mojave }
-  on_linux { depends_on "ghc" }
 
   def install
     system "cabal", "v2-update"
