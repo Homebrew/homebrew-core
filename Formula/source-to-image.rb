@@ -22,7 +22,8 @@ class SourceToImage < Formula
     on_linux do
       os = "linux"
     end
-    bin.install "_output/local/bin/#{os}/amd64/s2i"
+    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+    bin.install "_output/local/bin/#{os}/#{arch}/s2i"
   end
 
   test do
