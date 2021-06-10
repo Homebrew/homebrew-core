@@ -31,13 +31,13 @@ class Lanraragi < Formula
   uses_from_macos "libarchive"
 
   resource "Image::Magick" do
-    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/PerlMagick-7.0.10.tar.gz"
-    sha256 "1d5272d71b5cb44c30cd84b09b4dc5735b850de164a192ba191a9b35568305f4"
+    url "https://cpan.metacpan.org/authors/id/J/JC/JCRISTY/Image-Magick-7.0.11-1.tar.gz"
+    sha256 "734bee16656af5bca94000419d912518842ba6460ac2d0ff07e3e5a0103272e2"
   end
 
   resource "libarchive-headers" do
-    url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.40.4.tar.gz"
-    sha256 "20ad61b1301138bc7445e204dd9e9e49145987b6655bbac39f6cad3c75b10369"
+    url "https://opensource.apple.com/tarballs/libarchive/libarchive-83.100.2.tar.gz"
+    sha256 "e54049be1b1d4f674f33488fdbcf5bb9f9390db5cc17a5b34cbeeb5f752b207a"
   end
 
   resource "Archive::Peek::Libarchive" do
