@@ -4,7 +4,7 @@ class CabalInstall < Formula
   url "https://hackage.haskell.org/package/cabal-install-3.4.0.0/cabal-install-3.4.0.0.tar.gz"
   sha256 "1980ef3fb30001ca8cf830c4cae1356f6065f4fea787c7786c7200754ba73e97"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/haskell/cabal.git", branch: "3.4"
 
   bottle do
@@ -15,11 +15,8 @@ class CabalInstall < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "72d1e5df19c428e987f7bee160c05eda1cc75af427d2962242750b3d4f29952a"
   end
 
-  depends_on "ghc" if MacOS.version >= :catalina
+  depends_on "ghc"
   uses_from_macos "zlib"
-
-  on_macos { depends_on "ghc@8.8" if MacOS.version <= :mojave }
-  on_linux { depends_on "ghc" }
 
   resource "bootstrap" do
     on_macos do
@@ -44,7 +41,6 @@ class CabalInstall < Formula
   end
 
   def install
-    cabal = buildpath/"cabal"
     if Hardware::CPU.intel?
       resource("bootstrap").stage buildpath
     else
@@ -58,17 +54,11 @@ class CabalInstall < Formula
       buildpath.install "bootdir/_build/bin/cabal"
     end
 
+    cabal = buildpath/"cabal"
     cd "cabal-install" if build.head?
     system cabal, "v2-update"
     system cabal, "v2-install", *std_cabal_v2_args
     bash_completion.install "bash-completion/cabal"
-
-    on_macos do
-      if MacOS.version <= :mojave
-        (libexec/"bin").install bin/"cabal"
-        (bin/"cabal").write_env_script libexec/"bin/cabal", PATH: "$PATH:#{Formula["ghc@8.8"].opt_bin}"
-      end
-    end
   end
 
   test do
