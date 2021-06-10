@@ -2,7 +2,7 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.1.3/Agda-2.6.1.3.tar.gz"
@@ -28,14 +28,12 @@ class Agda < Formula
     end
   end
 
+  depends_on "llvm" => [:build, :test] if Hardware::CPU.arm?
   depends_on "cabal-install"
   depends_on "emacs"
-  depends_on "ghc" if MacOS.version >= :catalina
+  depends_on "ghc"
 
   uses_from_macos "zlib"
-
-  on_macos { depends_on "ghc@8.8" if MacOS.version <= :mojave }
-  on_linux { depends_on "ghc" }
 
   resource "alex" do
     url "https://hackage.haskell.org/package/alex-3.2.6/alex-3.2.6.tar.gz"
@@ -80,13 +78,11 @@ class Agda < Formula
 
     # Clean up references to Homebrew shims
     rm_rf "#{lib}/agda/dist-newstyle/cache"
-
-    on_macos do
-      bin.env_script_all_files libexec/"bin", PATH: "$PATH:#{Formula["ghc@8.8"].opt_bin}" if MacOS.version <= :mojave
-    end
   end
 
   test do
+    ENV.append_path "PATH", Formula["llvm"].opt_bin
+
     simpletest = testpath/"SimpleTest.agda"
     simpletest.write <<~EOS
       module SimpleTest where
