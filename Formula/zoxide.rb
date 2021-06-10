@@ -1,8 +1,8 @@
 class Zoxide < Formula
   desc "Shell extension to navigate your filesystem faster"
   homepage "https://github.com/ajeetdsouza/zoxide"
-  url "https://github.com/ajeetdsouza/zoxide/archive/v0.7.1.tar.gz"
-  sha256 "12fa47e1258bb7794cc529a586603c9392b07c917b0fefb58a57fd68e6652c3b"
+  url "https://github.com/ajeetdsouza/zoxide/archive/v0.7.2.tar.gz"
+  sha256 "992deee4a65608542a1b5ef696182bb91c4369d5603873b2f3fdde4e01210682"
   license "MIT"
 
   bottle do
@@ -16,6 +16,9 @@ class Zoxide < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+    bash_completion.install "contrib/completions/zoxide.bash" => "zoxide"
+    zsh_completion.install "contrib/completions/_zoxide"
+    fish_completion.install "contrib/completions/zoxide.fish"
   end
 
   test do
