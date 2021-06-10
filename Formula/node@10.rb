@@ -6,11 +6,6 @@ class NodeAT10 < Formula
   license "MIT"
   revision 1
 
-  livecheck do
-    url "https://nodejs.org/dist/"
-    regex(%r{href=["']?v?(10(?:\.\d+)+)/?["' >]}i)
-  end
-
   bottle do
     sha256 cellar: :any, big_sur:  "84095e53ee88c7acc39a574a64e7832bbb7326be76a4de502ed55fdd47e784c4"
     sha256 cellar: :any, catalina: "be200f225fd88d1a4a1efba2470b305accbddff927bf7d5287eeb4777fb02b9c"
