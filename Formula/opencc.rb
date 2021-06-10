@@ -15,9 +15,11 @@ class Opencc < Formula
 
   def install
     ENV.cxx11
-    system "cmake", ".", "-DBUILD_DOCUMENTATION:BOOL=OFF", *std_cmake_args
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-DBUILD_DOCUMENTATION:BOOL=OFF", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+      system "make"
+      system "make", "install"
+    end
   end
 
   test do
