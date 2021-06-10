@@ -8,11 +8,6 @@ class Dgraph < Formula
   license "Apache-2.0"
   head "https://github.com/dgraph-io/dgraph.git"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "28d00b7cc12ab6eb34da4240b7075ee322ff51cd94223d7a8892c823f91bf5cc"
     sha256 cellar: :any_skip_relocation, big_sur:       "9e2da2c025d3b8f89d4716be724942f7c284c9d0ac70c77fed7c287a31abdb56"
