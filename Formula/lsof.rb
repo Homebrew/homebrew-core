@@ -1,6 +1,6 @@
 class Lsof < Formula
   desc "Utility to list open files"
-  homepage "https://people.freebsd.org/~abe/"
+  homepage "https://github.com/lsof-org/lsof"
   url "https://github.com/lsof-org/lsof/archive/4.94.0.tar.gz"
   sha256 "a9865eeb581c3abaac7426962ddb112ecfd86a5ae93086eb4581ce100f8fa8f4"
   license "Zlib"
