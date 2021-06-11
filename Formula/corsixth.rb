@@ -41,8 +41,8 @@ class Corsixth < Formula
     ENV["FULL_PRODUCT_NAME"] = "CorsixTH.app"
 
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.4/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.4/?.so"
+    ENV["LUA_PATH"] = "#{luapath}/share/lua/#{lua.version.major_minor}/?.lua"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/#{lua.version.major_minor}/?.so"
 
     resources.each do |r|
       r.stage do
@@ -70,6 +70,6 @@ class Corsixth < Formula
 
     app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
     assert_includes MachO::Tools.dylibs(app),
-                    "#{lua.opt_lib}/liblua.#{lua.version.major_minor}.dylib"
+                    "#{lua.opt_lib}/liblua.dylib"
   end
 end
