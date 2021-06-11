@@ -18,13 +18,7 @@ class Corsixth < Formula
   depends_on xcode: :build
   depends_on "ffmpeg"
   depends_on "freetype"
-
-  # This PR implements a limited form of lua 5.4 support:
-  # https://github.com/CorsixTH/CorsixTH/pull/1686
-  # It breaks some features.  Maintainer does not appear to have intentions of
-  # supporting lua 5.4.
-  depends_on "lua@5.3"
-
+  depends_on "lua"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
 
@@ -41,14 +35,14 @@ class Corsixth < Formula
 
   def install
     # Make sure I point to the right version!
-    lua = Formula["lua@5.3"]
+    lua = Formula["lua"]
 
     ENV["TARGET_BUILD_DIR"] = "."
     ENV["FULL_PRODUCT_NAME"] = "CorsixTH.app"
 
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.3/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
+    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.4/?.lua"
+    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.4/?.so"
 
     resources.each do |r|
       r.stage do
@@ -72,7 +66,7 @@ class Corsixth < Formula
 
   test do
     # Make sure I point to the right version!
-    lua = Formula["lua@5.3"]
+    lua = Formula["lua"]
 
     app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
     assert_includes MachO::Tools.dylibs(app),
