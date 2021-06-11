@@ -1,12 +1,11 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.10.tar.gz"
-  sha256 "0188f7b21b91d6d80e992b8d6116ba851468b3bd154030e8a003ed28fb6f4a44"
+  url "https://mosquitto.org/files/source/mosquitto-2.0.11.tar.gz"
+  sha256 "7b36a7198bce85cf31b132f5c6ee36dcf5dadf86fb768501eb1e11ce95d4f78a"
   # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is not in the SPDX list
   license "EPL-1.0"
-  revision 1
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -31,6 +30,12 @@ class Mosquitto < Formula
 
   on_linux do
     depends_on "util-linux"
+  end
+
+  # remove in next release
+  patch do
+    url "https://github.com/eclipse/mosquitto/commit/c01ae67af717e69c5225aaba3f3b50e7c5d0bdae.patch?full_index=1"
+    sha256 "22a6a930b48d1ae0448eaeb28c4aef6a86659b9328b9dbb5bf18633546813a54"
   end
 
   def install
