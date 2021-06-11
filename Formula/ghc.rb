@@ -94,6 +94,8 @@ class Ghc < Formula
     ENV.deparallelize { system "make", "install" }
     Dir.glob(lib/"*/package.conf.d/package.cache") { |f| rm f }
     Dir.glob(lib/"*/package.conf.d/package.cache.lock") { |f| rm f }
+
+    bin.env_script_all_files libexec/"bin", PATH: "$PATH:#{Formula["llvm"].opt_bin}" if Hardware::CPU.arm?
   end
 
   def post_install
