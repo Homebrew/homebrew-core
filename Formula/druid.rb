@@ -19,9 +19,9 @@ class Druid < Formula
   depends_on arch: :x86_64
   depends_on "openjdk@8"
 
-  resource "mysql-metadata-storage" do
-    url "http://static.druid.io/artifacts/releases/mysql-metadata-storage-0.12.3.tar.gz"
-    sha256 "8ee27e3c7906abcd401cfd59072602bd1f83828b66397ae2cf2c3ff0e1860162"
+  resource "mysql-connector-java" do
+    url "https://search.maven.org/remotecontent?filepath=mysql/mysql-connector-java/5.1.48/mysql-connector-java-5.1.48.jar"
+    sha256 "56e26caaa3821f5ae4af44f9c74f66cf8b84ea01516ad3803cbb0e9049b6eca8"
   end
 
   def install
@@ -45,7 +45,7 @@ class Druid < Formula
       s.gsub! ":=var/druid/pids", ":=#{var}/druid/pids"
     end
 
-    resource("mysql-metadata-storage").stage do
+    resource("mysql-connector-java").stage do
       (libexec/"extensions/mysql-metadata-storage").install Dir["*"]
     end
 
