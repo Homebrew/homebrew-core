@@ -1,9 +1,9 @@
 class Pass < Formula
   desc "Password manager"
   homepage "https://www.passwordstore.org/"
-  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.3.tar.xz"
-  sha256 "2b6c65846ebace9a15a118503dcd31b6440949a30d3b5291dfb5b1615b99a3f4"
-  license "GPL-2.0"
+  url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.4.tar.xz"
+  sha256 "cfa9faf659f2ed6b38e7a7c3fb43e177d00edbacc6265e6e32215ff40e3793c0"
+  license "GPL-2.0-or-later"
   head "https://git.zx2c4.com/password-store.git"
 
   livecheck do
