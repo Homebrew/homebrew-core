@@ -17,6 +17,10 @@ class Timidity < Formula
     sha256 high_sierra: "563d4ffe26aff2b7b4453d5cb159cc596bae4f804cc977978cb01856184ed9c7"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+
   depends_on "flac"
   depends_on "libao"
   depends_on "libogg"
@@ -29,6 +33,7 @@ class Timidity < Formula
   end
 
   def install
+    system "./autogen.sh" if Hardware::CPU.arm?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
