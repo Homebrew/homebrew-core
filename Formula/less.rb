@@ -28,7 +28,7 @@ class Less < Formula
   depends_on "pcre2"
 
   def install
-    system "make", "-f", "Makefile.aut", "dist" if build.head?
+    system "make", "-f", "Makefile.aut", "distfiles" if build.head?
     system "./configure", "--prefix=#{prefix}", "--with-regex=pcre2"
     system "make", "install"
   end
