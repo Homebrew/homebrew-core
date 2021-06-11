@@ -1,8 +1,8 @@
 class GnupgAT22 < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.27.tar.bz2"
-  sha256 "34e60009014ea16402069136e0a5f63d9b65f90096244975db5cea74b3d02399"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.2.28.tar.bz2"
+  sha256 "6ff891fc7583a9c3fb9f097ee0d1de0a12469d4b53997e7ba5064950637dfaec"
   license "GPL-3.0-or-later"
 
   livecheck do
