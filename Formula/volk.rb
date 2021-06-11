@@ -4,11 +4,9 @@ class Volk < Formula
   desc "Vector Optimized Library of Kernels"
   homepage "https://www.libvolk.org/"
   url "https://github.com/gnuradio/volk.git",
-      tag:      "v2.4.1",
-      revision: "797b0ac846858d081fbb53ed50e98765ec9cb6b2"
+      tag:      "v2.5.0",
+      revision: "237a6fc9242ea8c48d2bbd417a6ea14feaf7314a"
   license "GPL-3.0-or-later"
-
-  revision 1
 
   bottle do
     sha256 big_sur:  "610c013ef274b1d760bfa8759d6499612e5cd2164ab9fc1afff5d1ea4663b755"
