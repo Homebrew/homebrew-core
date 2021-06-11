@@ -3,8 +3,8 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/b3/d6/d1aa2fdb633d092cf43ec4c96b0035a0a3a4f579b691205f96ccbd4e0032/black-21.5b2.tar.gz"
-  sha256 "1fc0e0a2c8ae7d269dfcf0c60a89afa299664f3e811395d40b1922dff8f854b5"
+  url "https://files.pythonhosted.org/packages/26/37/66b198a6a660c72a85386592643b2911052c4feaa33b99681ed8c267bf1a/black-21.6b0.tar.gz"
+  sha256 "dc132348a88d103016726fe360cb9ede02cecf99b76e3660ce6c596be132ce04"
   license "MIT"
 
   livecheck do
