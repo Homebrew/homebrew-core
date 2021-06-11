@@ -4,6 +4,7 @@ class Less < Formula
   url "https://www.greenwoodsoftware.com/less/less-581.2.tar.gz"
   sha256 "ce34b47caf20a99740672bf560fc48d5d663c5e78e67bc254e616b9537d5d83b"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -24,11 +25,11 @@ class Less < Formula
   end
 
   depends_on "ncurses"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   def install
     system "make", "-f", "Makefile.aut", "dist" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--with-regex=pcre"
+    system "./configure", "--prefix=#{prefix}", "--with-regex=pcre2"
     system "make", "install"
   end
 
