@@ -29,7 +29,6 @@ class Agda < Formula
     end
   end
 
-  depends_on "llvm" => [:build, :test] if Hardware::CPU.arm?
   depends_on "cabal-install"
   depends_on "emacs"
   depends_on "ghc"
@@ -82,8 +81,6 @@ class Agda < Formula
   end
 
   test do
-    ENV.append_path "PATH", Formula["llvm"].opt_bin
-
     simpletest = testpath/"SimpleTest.agda"
     simpletest.write <<~EOS
       module SimpleTest where
