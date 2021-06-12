@@ -1,18 +1,10 @@
 class ExtraCmakeModules < Formula
   desc "Extra modules and scripts for CMake"
   homepage "https://api.kde.org/frameworks/extra-cmake-modules/html/index.html"
+  url "https://download.kde.org/stable/frameworks/5.83/extra-cmake-modules-5.83.0.tar.xz"
+  sha256 "72b7f3b3917f3208fff10f0402b0fa3a65815aca924f0f94a4f96383d8e0f81e"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "MIT"]
   head "https://invent.kde.org/frameworks/extra-cmake-modules.git"
-
-  stable do
-    url "https://download.kde.org/stable/frameworks/5.82/extra-cmake-modules-5.82.0.tar.xz"
-    sha256 "5972ec6d78c3e95ab9cbecdb0661c158570e868466357c5cec2b63a4251ecce4"
-
-    patch do # Fix doc build with Sphinx 4, should be removed in new version
-      url "https://invent.kde.org/frameworks/extra-cmake-modules/-/commit/001f901ee297bb5346729a02e8920b7528e20717.diff"
-      sha256 "dc8425cffbf41d1ccb707e6fba1ee951b5af9fd7c299404388a46a29cc017f5f"
-    end
-  end
 
   # We check the tags from the `head` repository because the latest stable
   # version doesn't seem to be easily available elsewhere.
