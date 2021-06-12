@@ -16,7 +16,6 @@ class Pandoc < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "llvm" => :build if Hardware::CPU.arm?
 
   uses_from_macos "unzip" => :build # for cabal install
   uses_from_macos "zlib"
