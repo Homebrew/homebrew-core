@@ -283,6 +283,13 @@ class Snapcraft < Formula
     sha256 "3607921face881ba3e026887d8150cca609d517579abe052ac81fc5aeffdbd76"
   end
 
+  # Fix error on ARM due to missing architecture definition for 'arm64'
+  # Remove in the next release
+  patch do
+    url "https://github.com/snapcore/snapcraft/commit/61029a4a2ae36f5368a7108b5d99bc99ccac54c5.patch?full_index=1"
+    sha256 "0950b41e5e33ea9c1a40ac4d308d22d0e13adb44655a01f469973fcd1e7c9d91"
+  end
+
   def install
     virtualenv_install_with_resources
   end
