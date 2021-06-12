@@ -1,9 +1,8 @@
 class KubeLinter < Formula
   desc "Static analysis tool for Kubernetes YAML files and Helm charts"
   homepage "https://github.com/stackrox/kube-linter"
-  url "https://github.com/stackrox/kube-linter.git",
-      tag:      "0.2.2",
-      revision: "2d8dff014dda8cd6a7ea10bf665ec421c9350b5c"
+  url "https://github.com/stackrox/kube-linter/archive/0.2.2.tar.gz"
+  sha256 "5600cf6f0a518073ae8bfa914fd34fd5b9d15aa6316abf21269bcd73870be7c3"
   license "Apache-2.0"
   head "https://github.com/stackrox/kube-linter.git"
 
@@ -16,8 +15,9 @@ class KubeLinter < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build"
-    bin.install ".gobin/kube-linter"
+    ENV["CGO_ENABLED"] = "0"
+    ldflags = "-s -w -X golang.stackrox.io/kube-linter/internal/version.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/kube-linter"
   end
 
   test do
@@ -47,5 +47,6 @@ class KubeLinter < Formula
 
     # Lint pod.yaml for default errors
     assert_match "No lint errors found!", shell_output("#{bin}/kube-linter lint pod.yaml 2>&1").chomp
+    assert_equal version.to_s, shell_output("#{bin}/kube-linter version").chomp
   end
 end
