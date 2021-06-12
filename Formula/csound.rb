@@ -2,10 +2,9 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   url "https://github.com/csound/csound.git",
-      tag:      "6.15.0",
-      revision: "18c2c7897425f462b9a7743cee157cb410c88198"
+      tag:      "6.16.0",
+      revision: "692f18d90774157b3d8a2276d68fbaefb25dfb08"
   license "LGPL-2.1-or-later"
-  revision 4
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -23,17 +22,14 @@ class Csound < Formula
   depends_on "cmake" => :build
   depends_on "eigen" => :build
   depends_on "swig" => :build
-  depends_on "faust"
   depends_on "fltk"
   depends_on "fluid-synth"
   depends_on "gettext"
   depends_on "hdf5"
   depends_on "jack"
   depends_on "liblo"
-  depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
-  depends_on :macos # Due to Python 2
   depends_on "numpy"
   depends_on "openjdk"
   depends_on "portaudio"
@@ -49,11 +45,6 @@ class Csound < Formula
   conflicts_with "libextractor", because: "both install `extract` binaries"
   conflicts_with "pkcrack", because: "both install `extract` binaries"
 
-  resource "ableton-link" do
-    url "https://github.com/Ableton/link/archive/Link-3.0.3.tar.gz"
-    sha256 "195b46f7a33bb88800de19bb08065ec0235e5a920d203a4b2c644c18fbcaff11"
-  end
-
   resource "getfem" do
     url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.4.1.tar.gz"
     sha256 "6b58cc960634d0ecf17679ba12f8e8cfe4e36b25a5fa821925d55c42ff38a64e"
@@ -62,16 +53,12 @@ class Csound < Formula
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].libexec/"openjdk.jdk/Contents/Home"
 
-    resource("ableton-link").stage { cp_r "include/ableton", buildpath }
     resource("getfem").stage { cp_r "src/gmm", buildpath }
 
     args = std_cmake_args + %W[
-      -DABLETON_LINK_HOME=#{buildpath}/ableton
-      -DBUILD_ABLETON_LINK_OPCODES=ON
       -DBUILD_JAVA_INTERFACE=ON
       -DBUILD_LINEAR_ALGEBRA_OPCODES=ON
       -DBUILD_LUA_INTERFACE=OFF
-      -DBUILD_PYTHON_INTERFACE=OFF
       -DBUILD_WEBSOCKET_OPCODE=OFF
       -DCMAKE_INSTALL_RPATH=#{frameworks}
       -DCS_FRAMEWORK_DEST=#{frameworks}
@@ -110,14 +97,9 @@ class Csound < Formula
   test do
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
-      gi_peer link_create
-      gi_programHandle faustcompile "process = _;", "--vectorize --loop-variant 1"
       FLrun
       gi_fluidEngineNumber fluidEngine
-      gi_image imagecreate 1, 1
       gi_realVector la_i_vr_create 1
-      pyinit
-      pyruni "print('hello, world')"
       instr 1
           a_, a_, a_ chuap 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
           a_signal STKPlucked 440, 1
@@ -137,7 +119,6 @@ class Csound < Formula
     ENV["SADIR"] = frameworks/"CsoundLib64.framework/Versions/Current/samples"
 
     output = shell_output "#{bin}/csound test.orc test.sco 2>&1"
-    assert_match(/^hello, world$/, output)
     assert_match(/^rtaudio:/, output)
     assert_match(/^rtmidi:/, output)
 
