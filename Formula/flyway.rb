@@ -10,8 +10,6 @@ class Flyway < Formula
     regex(/&lt;version&gt;.*?v?(\d+(?:\.\d+)+)&lt;/im)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
