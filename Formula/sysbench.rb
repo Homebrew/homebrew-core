@@ -4,6 +4,7 @@ class Sysbench < Formula
   url "https://github.com/akopytov/sysbench/archive/1.0.20.tar.gz"
   sha256 "e8ee79b1f399b2d167e6a90de52ccc90e52408f7ade1b9b7135727efe181347f"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/akopytov/sysbench.git"
 
   bottle do
@@ -17,6 +18,7 @@ class Sysbench < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "luajit-openresty"
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
@@ -24,14 +26,7 @@ class Sysbench < Formula
 
   def install
     system "./autogen.sh"
-
-    # Fix for luajit build breakage.
-    # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
-    # is not set then it's forced to 10.4, which breaks compile on Mojave.
-    # https://github.com/LuaJIT/LuaJIT/issues/518: set to 10.14 to build on Catalina.
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = (DevelopmentTools.clang_build_version >= 1100) ? "10.14" : MacOS.version
-
-    system "./configure", "--prefix=#{prefix}", "--with-mysql"
+    system "./configure", "--prefix=#{prefix}", "--with-mysql", "--with-system-luajit"
     system "make", "install"
   end
 
