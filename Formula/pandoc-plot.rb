@@ -14,7 +14,6 @@ class PandocPlot < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "llvm" => :build if Hardware::CPU.arm?
   depends_on "graphviz" => :test
   depends_on "pandoc"
 
