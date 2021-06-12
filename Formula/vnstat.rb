@@ -78,7 +78,7 @@ class Vnstat < Formula
 
   test do
     cp etc/"vnstat.conf", testpath
-    inreplace "vnstat.conf", "/usr/local/var", testpath/"var"
+    inreplace "vnstat.conf", var, testpath/"var"
     (testpath/"var/db/vnstat").mkpath
 
     begin
