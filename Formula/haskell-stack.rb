@@ -21,7 +21,6 @@ class HaskellStack < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
-  depends_on "llvm" => :build if Hardware::CPU.arm?
 
   uses_from_macos "zlib"
 
