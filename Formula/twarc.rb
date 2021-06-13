@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/b9/ad/9c3a2d49ad7dae73ce3c2254a7bff660876da82b64669fa6e9e8693cd514/twarc-2.1.5.tar.gz"
-  sha256 "e2e641a7a2dfd2ce2ec2b4d2035ca99b995e99e778a1e6d133ccb8290e925918"
+  url "https://files.pythonhosted.org/packages/83/8f/7fd1712a8769e2ad3df694a6dd4bf7e2df9f054e7aaab2b6690278392f78/twarc-2.1.6.tar.gz"
+  sha256 "23deab314f22d51574750c9d2c210041955b9b2522b5e0132d68d66baeeefd2d"
   license "MIT"
 
   bottle do
@@ -15,6 +15,7 @@ class Twarc < Formula
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
@@ -69,11 +70,6 @@ class Twarc < Formula
   resource "requests-oauthlib" do
     url "https://files.pythonhosted.org/packages/23/eb/68fc8fa86e0f5789832f275c8289257d8dc44dbe93fce7ff819112b9df8f/requests-oauthlib-1.3.0.tar.gz"
     sha256 "b4261601a71fd721a8bd6d7aa1cc1d6a8a93b4a9f5e96626f8e4d91e8beeaa6a"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do

@@ -178,6 +178,9 @@
   "todoman": {
     "exclude_packages": ["tabulate"]
   },
+  "twarc": {
+    "exclude_packages": ["six"]
+  },
   "xdot": {
     "extra_packages": ["graphviz"]
   },
