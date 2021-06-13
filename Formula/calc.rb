@@ -14,6 +14,10 @@ class Calc < Formula
 
   depends_on "readline"
 
+  on_linux do
+    depends_on "util-linux" # for `col`
+  end
+
   def install
     ENV.deparallelize
 
