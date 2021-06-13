@@ -1,8 +1,8 @@
 class Slides < Formula
   desc "Terminal based presentation tool"
   homepage "https://github.com/maaslalani/slides"
-  url "https://github.com/maaslalani/slides/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "195f5269ef78733081fa0034add5dca9c5c855ee01bd990795741cb70e385f23"
+  url "https://github.com/maaslalani/slides/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "c4f441e667c44ed97191be1974ee70d43a0b421104a9f432b9dda300399e0166"
   license "MIT"
   head "https://github.com/maaslalani/slides.git", branch: "main"
 
