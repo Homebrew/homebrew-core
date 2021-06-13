@@ -29,8 +29,8 @@ class Adios2 < Formula
   def install
     # fix `include/adios2/common/ADIOSConfig.h` file audit failure
     inreplace "source/adios2/common/ADIOSConfig.h.in" do |s|
-      s.gsub! ": @CMAKE_C_COMPILER@", ": /usr/bin/clang"
-      s.gsub! ": @CMAKE_CXX_COMPILER@", ": /usr/bin/clang++"
+      s.gsub! ": @CMAKE_C_COMPILER@", ": #{ENV.cc}"
+      s.gsub! ": @CMAKE_CXX_COMPILER@", ": #{ENV.cxx}"
     end
 
     args = std_cmake_args + %W[
@@ -53,6 +53,7 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
       -DPython_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      -DCMAKE_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages("python3")}
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
     ]
