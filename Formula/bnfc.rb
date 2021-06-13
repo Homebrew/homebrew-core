@@ -1,8 +1,8 @@
 class Bnfc < Formula
   desc "BNF Converter"
   homepage "https://bnfc.digitalgrammars.com/"
-  url "https://github.com/BNFC/bnfc/archive/v2.9.1.tar.gz"
-  sha256 "d79125168636fdcf0acd64a9b83ea620c311b16dcada0848d8a577aa8aeddec4"
+  url "https://github.com/BNFC/bnfc/archive/v2.9.2.tar.gz"
+  sha256 "cd01abd48019d3659371be3ff6b4b9bc6985c63015db02e2691a7bbf1097b367"
   license "BSD-3-Clause"
   head "https://github.com/BNFC/bnfc.git"
 
