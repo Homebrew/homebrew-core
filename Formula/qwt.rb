@@ -6,12 +6,9 @@ class Qwt < Formula
   license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
   revision 1
 
-  # Currently, 6.2-rc1 is listed as the latest release on homepage and artifact list
-  # thus, add the livecheck block to track `qwt` directory for the latest non-rc release
   livecheck do
-    url "https://sourceforge.net/projects/qwt/files/qwt/"
-    strategy :page_match
-    regex(%r{href=(?:["']|.*?qwt/)?v?(\d+(?:[.-]\d+)+)/?["' >]}i)
+    url :stable
+    regex(%r{url=.*?/qwt[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
