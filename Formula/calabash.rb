@@ -5,8 +5,6 @@ class Calabash < Formula
   sha256 "75e4f9e6ed655a778a6cdf92feeb1e3f75a995bd5e623dfff7418e8c20823c45"
   license "GPL-2.0"
 
-  bottle :unneeded
-
   depends_on "saxon"
 
   def install
