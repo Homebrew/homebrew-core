@@ -1,8 +1,8 @@
 class MariadbConnectorOdbc < Formula
   desc "Database driver using the industry standard ODBC API"
   homepage "https://downloads.mariadb.org/connector-odbc/"
-  url "https://downloads.mariadb.org/f/connector-odbc-3.1.12/mariadb-connector-odbc-3.1.12-src.tar.gz"
-  sha256 "240333cbd9abd338d2c845e55d22dd077bbd59a6ef725ec47de220e50f54a84e"
+  url "https://downloads.mariadb.org/f/connector-odbc-3.1.13/mariadb-connector-odbc-3.1.13-src.tar.gz"
+  sha256 "29aa6b8b49971050b341be86f5e130d126c4c296d965aaa6a1559745164b82aa"
   license "LGPL-2.1-or-later"
 
   livecheck do
