@@ -1,9 +1,8 @@
 class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
-  url "https://github.com/hashicorp/consul.git",
-      tag:      "v1.9.6",
-      revision: "bbcbb733b416acd7066fe4e0157c58678e4ba1e4"
+  url "https://github.com/hashicorp/consul/archive/refs/tags/v1.9.6.tar.gz"
+  sha256 "6e3c59057d43e9c614cde19499ef70d49e93f1978eb918022721abee7bc19ed8"
   license "MPL-2.0"
   head "https://github.com/hashicorp/consul.git"
 
@@ -19,30 +18,9 @@ class Consul < Formula
   end
 
   depends_on "go" => :build
-  depends_on "gox" => :build
-
-  uses_from_macos "zip" => :build
 
   def install
-    # Specificy the OS, else all platforms will be built
-    on_macos do
-      ENV["XC_OS"] = "darwin"
-    end
-    on_linux do
-      ENV["XC_OS"] = "linux"
-    end
-    ENV["XC_ARCH"] = "amd64"
-    ENV["GOPATH"] = buildpath
-    contents = Dir["{*,.git,.gitignore}"]
-    (buildpath/"src/github.com/hashicorp/consul").install contents
-
-    (buildpath/"bin").mkpath
-
-    cd "src/github.com/hashicorp/consul" do
-      system "make"
-      bin.install "bin/consul"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   plist_options manual: "consul agent -dev -bind 127.0.0.1"
