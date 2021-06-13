@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/source-build.git",
-      tag:      "v5.0.203-SDK",
-      revision: "a8f12771179965da9f48646ded87068d379563b9"
+      tag:      "v5.0.204-SDK",
+      revision: "a002cbfb6b9d903b59bd6acdef8022957538276d"
   license "MIT"
 
   livecheck do
@@ -24,16 +24,7 @@ class Dotnet < Formula
   depends_on "icu4c"
   depends_on "openssl@1.1"
 
-  # Fix build failure due to atoll definition leak. Remove in v6 release.
-  # Patch ref: https://github.com/dotnet/runtime/pull/45352
-  resource "runtime-atoll-patch" do
-    url "https://github.com/dotnet/runtime/commit/839ad29b16a8baf7b1470f13d7faa0ce941769b3.patch?full_index=1"
-    sha256 "70844513e20d09e77510f9ccf3769dacaf57c98f4dcc8054837da60111454c5b"
-  end
-
   def install
-    (buildpath/"patches/runtime").install resource("runtime-atoll-patch")
-
     # Arguments needed to not artificially time-limit downloads from Azure.
     # See the following GitHub issue comment for details:
     # https://github.com/dotnet/source-build/issues/1596#issuecomment-670995776
