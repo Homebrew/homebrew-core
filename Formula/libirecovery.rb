@@ -20,6 +20,12 @@ class Libirecovery < Formula
     depends_on "libtool" => :build
   end
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libusb"
+    depends_on "readline"
+  end
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
