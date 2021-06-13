@@ -131,8 +131,8 @@ class Cpm < Formula
   end
 
   resource "URI" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.07.tar.gz"
-    sha256 "eeb6ed2ae212434e2021e29f7556f4024169421a5d8b001a89e65982944131ea"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz"
+    sha256 "03e63ada499d2645c435a57551f041f3943970492baa3b3338246dab6f1fae0a"
   end
 
   resource "Win32::ShellQuote" do
@@ -141,8 +141,8 @@ class Cpm < Formula
   end
 
   resource "YAML::PP" do
-    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-0.026.tar.gz"
-    sha256 "4b858e671cf3e966ecc54408e8031740c2f28f87c294ee9679fb02e02d5a45eb"
+    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-0.027.tar.gz"
+    sha256 "135813d44b58d6f2fb3edfcbac93f39818bb874f0b8ebe2b0f45cae435cc05a3"
   end
 
   resource "local::lib" do
