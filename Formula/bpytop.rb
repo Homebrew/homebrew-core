@@ -1,11 +1,13 @@
 class Bpytop < Formula
   include Language::Python::Virtualenv
+  include Language::Python::Shebang
 
   desc "Linux/OSX/FreeBSD resource monitor"
   homepage "https://github.com/aristocratos/bpytop"
-  url "https://files.pythonhosted.org/packages/e9/1a/fd710c94c0888b139681d132f60608c657ff265b50b9312fd3cba35e08dc/bpytop-1.0.67.tar.gz"
-  sha256 "8b338e3627fa6e991e836bee61ef38988f6a7a3a37dc05c757a92ba4378f95bb"
+  url "https://github.com/aristocratos/bpytop/archive/v1.0.67.tar.gz"
+  sha256 "e3f0267bd40a58016b5ac81ed6424f1c8d953b33a537546b22dd1a2b01b07a97"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b82bd9c9b4e1eaa8ca06c1de80a791b66c7b250dd50d062326db0b53390da793"
@@ -25,8 +27,14 @@ class Bpytop < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources
+    system "make", "install", "PREFIX=#{prefix}"
     pkgshare.install "themes"
+
+    # Replace shebang with virtualenv python
+    rw_info = python_shebang_rewrite_info("#{libexec}/bin/python")
+    rewrite_shebang rw_info, bin/"bpytop"
   end
 
   test do
