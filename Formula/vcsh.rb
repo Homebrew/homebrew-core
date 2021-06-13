@@ -6,8 +6,6 @@ class Vcsh < Formula
   sha256 "178ddf6f7bba15bcc295a08247070665e5b799af64753e21c7fac68f72296ca8"
   license "GPL-2.0"
 
-  bottle :unneeded
-
   def install
     bin.install "vcsh"
     man1.install "vcsh.1"
