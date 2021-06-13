@@ -1,10 +1,9 @@
 class Gcovr < Formula
   desc "Reports from gcov test coverage program"
   homepage "https://gcovr.com/"
-  url "https://github.com/gcovr/gcovr/archive/4.2.tar.gz"
-  sha256 "589d5cb7164c285192ed0837d3cc17001ba25211e24933f0ba7cb9cf38b8a30e"
+  url "https://github.com/gcovr/gcovr/archive/5.0.tar.gz"
+  sha256 "1c59e223860d4436ef073bb91ec9738777fd0da4b0cbf9507dbfbfe496e4f228"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/gcovr/gcovr.git"
 
   bottle do
