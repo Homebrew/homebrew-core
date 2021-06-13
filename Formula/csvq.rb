@@ -1,8 +1,8 @@
 class Csvq < Formula
   desc "SQL-like query language for csv"
   homepage "https://mithrandie.github.io/csvq"
-  url "https://github.com/mithrandie/csvq/archive/v1.15.1.tar.gz"
-  sha256 "54c2dd8a623730f59e20058526ca79f68a93451af21207c314bdd3a674f7a7e5"
+  url "https://github.com/mithrandie/csvq/archive/v1.15.2.tar.gz"
+  sha256 "013d27df901c00dfb75ea164dcc89e93c3ed3d300086d30eff23688f4519c103"
   license "MIT"
 
   livecheck do
