@@ -5,6 +5,11 @@ class Dmalloc < Formula
   sha256 "480e3414ab6cedca837721c756b7d64b01a84d2d0e837378d98444e2f63a7c01"
   license "ISC"
 
+  livecheck do
+    url "https://dmalloc.com/releases/"
+    regex(/href=.*?dmalloc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c8e1beff8a66f4a5d7a90fa8c5f9836ed79b9241ab642966d82550916a3af5c1"
     sha256 cellar: :any_skip_relocation, big_sur:       "300f9e7b54c15071bc36fb861cc6b75ef671052c8be6096a99314b1ca0077565"
