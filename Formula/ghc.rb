@@ -23,12 +23,6 @@ class Ghc < Formula
   depends_on "sphinx-doc" => :build
   depends_on "llvm" if Hardware::CPU.arm?
 
-  # fix ghci lib loading
-  # https://gitlab.haskell.org/ghc/ghc/-/issues/19763
-  patch :p0 do
-    url "https://github.com/ghc/ghc/commit/296f25fa5f0fce033b529547e0658076e26f4cda.patch?full_index=1"
-    sha256 "20556b7b4ffd6cf3eb35d274621ed717b46f12acf5084d4413071182af969108"
-  end
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
@@ -56,6 +50,13 @@ class Ghc < Formula
       url "https://downloads.haskell.org/~ghc/8.10.5/ghc-8.10.5-x86_64-deb9-linux.tar.xz"
       sha256 "15e71325c3bdfe3804be0f84c2fc5c913d811322d19b0f4d4cff20f29cdd804d"
     end
+  end
+
+  # fix ghci lib loading
+  # https://gitlab.haskell.org/ghc/ghc/-/issues/19763
+  patch :p0 do
+    url "https://github.com/ghc/ghc/commit/296f25fa5f0fce033b529547e0658076e26f4cda.patch?full_index=1"
+    sha256 "20556b7b4ffd6cf3eb35d274621ed717b46f12acf5084d4413071182af969108"
   end
 
   def install
