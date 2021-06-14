@@ -43,8 +43,10 @@ class HaskellLanguageServer < Formula
     ghcs.each do |ghc|
       system "cabal", "v2-install", "-w", ghc.bin/"ghc", *std_cabal_v2_args
 
-      bin.install bin/"haskell-language-server" => "haskell-language-server-#{ghc.version.major_minor}"
-      rm bin/"haskell-language-server-wrapper" unless ghc == newest_ghc
+      hls = "haskell-language-server"
+      bin.install bin/hls => "#{hls}-#{ghc.version}"
+      bin.install_symlink "#{hls}-#{ghc.version}" => "#{hls}-#{ghc.version.major_minor}"
+      rm bin/"#{hls}-wrapper" unless ghc == newest_ghc
     end
   end
 
