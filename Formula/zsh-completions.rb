@@ -10,6 +10,10 @@ class ZshCompletions < Formula
     sha256 cellar: :any_skip_relocation, all: "2579cab8a4d96ce2a7d179bf36fb2898d4f3611823c6392f5eac2014ff4d7d1f"
   end
 
+  conflicts_with "vagrant-completion", because: "the vagrant-completion formula includes zsh completion for vagrant"
+  conflicts_with "tmuxinator-completion",
+    because: "the tmuxinator-completion formula includes zsh completion for tmuxinator"
+
   def install
     inreplace "src/_ghc", "/usr/local", HOMEBREW_PREFIX
     zsh_completion.install Dir["src/*"]
