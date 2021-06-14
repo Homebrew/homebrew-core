@@ -15,7 +15,7 @@ class X264 < Formula
   # the latest commits in the `stable` Git branch:
   # https://code.videolan.org/videolan/x264/-/commits/stable
   livecheck do
-    url "https://artifacts.videolan.org/x264/release-macos/"
+    url "https://artifacts.videolan.org/x264/release-macos-arm64/"
     regex(%r{href=.*?x264[._-](r\d+)[._-]([\da-z]+)/?["' >]}i)
     strategy :page_match do |page, regex|
       # Match the version and abbreviated commit hash in filenames
