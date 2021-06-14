@@ -23,7 +23,6 @@ class Ghc < Formula
   depends_on "sphinx-doc" => :build
   depends_on "llvm" if Hardware::CPU.arm?
 
-
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
     mirror "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
