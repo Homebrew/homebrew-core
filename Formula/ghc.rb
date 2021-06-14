@@ -4,7 +4,7 @@ class Ghc < Formula
   url "https://downloads.haskell.org/~ghc/8.10.5/ghc-8.10.5-src.tar.xz"
   sha256 "f10941f16e4fbd98580ab5241b9271bb0851304560c4d5ca127e3b0e20e3076f"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
@@ -22,6 +22,13 @@ class Ghc < Formula
   depends_on "python@3.9" => :build
   depends_on "sphinx-doc" => :build
   depends_on "llvm" if Hardware::CPU.arm?
+
+  # fix ghci lib loading
+  # https://gitlab.haskell.org/ghc/ghc/-/issues/19763
+  patch :p0 do
+    url "https://github.com/ghc/ghc/commit/296f25fa5f0fce033b529547e0658076e26f4cda.patch?full_index=1"
+    sha256 "20556b7b4ffd6cf3eb35d274621ed717b46f12acf5084d4413071182af969108"
+  end
 
   resource "gmp" do
     url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
