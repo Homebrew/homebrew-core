@@ -11,6 +11,7 @@ class TmuxinatorCompletion < Formula
   end
 
   conflicts_with "tmuxinator", because: "the tmuxinator formula includes completion"
+  conflicts_with "zsh-completions", because: "the zsh-completions formula includes zsh completion"
 
   def install
     bash_completion.install "completion/tmuxinator.bash" => "tmuxinator"
