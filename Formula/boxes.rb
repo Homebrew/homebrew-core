@@ -1,8 +1,8 @@
 class Boxes < Formula
   desc "Draw boxes around text"
   homepage "https://boxes.thomasjensen.com/"
-  url "https://github.com/ascii-boxes/boxes/archive/v2.0.0.tar.gz"
-  sha256 "952c85eccde42d23252dfe590d6f296a2179297ad1c54745330fb794907f5ad9"
+  url "https://github.com/ascii-boxes/boxes/archive/v2.1.1.tar.gz"
+  sha256 "95ae6b46e057a79c6414b8c0b5b561c3e9d886ab8123a4085d256edccce625f9"
   license "GPL-2.0-only"
   head "https://github.com/ascii-boxes/boxes.git"
 
@@ -13,14 +13,17 @@ class Boxes < Formula
     sha256 mojave:        "7d2bf5e65b67fbacc15bbf366decb57486393b5f53732627f09c286557e7cb74"
   end
 
+  depends_on "bison" => :build
   depends_on "libunistring"
   depends_on "pcre2"
 
   def install
     # distro uses /usr/share/boxes change to prefix
-    system "make", "GLOBALCONF=#{share}/boxes-config", "CC=#{ENV.cc}"
+    system "make", "GLOBALCONF=#{share}/boxes-config",
+                   "CC=#{ENV.cc}",
+                   "YACC=#{Formula["bison"].opt_bin/"bison"}"
 
-    bin.install "src/boxes"
+    bin.install "out/boxes"
     man1.install "doc/boxes.1"
     share.install "boxes-config"
   end
