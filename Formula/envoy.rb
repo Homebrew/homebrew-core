@@ -13,7 +13,7 @@ class Envoy < Formula
   end
 
   depends_on "automake" => :build
-  depends_on "bazelisk" => :build
+  depends_on "bazel" => :build
   depends_on "cmake" => :build
   depends_on "coreutils" => :build
   depends_on "go" => :build
@@ -22,16 +22,17 @@ class Envoy < Formula
   depends_on macos: :catalina
 
   def install
-    args = %w[
+    (buildpath/".bazelversion").atomic_write Formula["bazel"].version
+    args = %W[
       -c
       opt
       --curses=no
       --show_task_finish
       --verbose_failures
-      --action_env=PATH=/usr/local/bin:/opt/local/bin:/usr/bin:/bin
+      --action_env=PATH=#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin
       --test_output=all
     ]
-    system Formula["bazelisk"].opt_bin/"bazelisk", "build", *args, "//source/exe:envoy-static"
+    system Formula["bazel"].opt_bin/"bazel", "build", *args, "//source/exe:envoy-static"
     bin.install "bazel-bin/source/exe/envoy-static" => "envoy"
     pkgshare.install "configs", "examples"
   end
