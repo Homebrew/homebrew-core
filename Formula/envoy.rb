@@ -22,6 +22,8 @@ class Envoy < Formula
 
   def install
     args = %w[
+      -c
+      opt
       --curses=no
       --show_task_finish
       --verbose_failures
