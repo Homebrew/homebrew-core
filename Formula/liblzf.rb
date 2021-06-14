@@ -5,6 +5,11 @@ class Liblzf < Formula
   mirror "https://deb.debian.org/debian/pool/main/libl/liblzf/liblzf_3.6.orig.tar.gz"
   sha256 "9c5de01f7b9ccae40c3f619d26a7abec9986c06c36d260c179cedd04b89fb46a"
 
+  livecheck do
+    url "http://dist.schmorp.de/liblzf/"
+    regex(/href=.*?liblzf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e321946e647108f4f478e84270ef6a49463e18d412fc94a4bc260c5009bd2dba"
