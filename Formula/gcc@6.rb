@@ -113,7 +113,7 @@ class GccAT6 < Formula
 
       # Change the default directory name for 64-bit libraries to `lib`
       # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
-      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64=" unless OS.mac?
+      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
     end
 
     mkdir "build" do
