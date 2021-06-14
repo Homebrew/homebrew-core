@@ -4,6 +4,7 @@ class Glab < Formula
   url "https://github.com/profclems/glab/archive/v1.18.1.tar.gz"
   sha256 "ce10c93268eb58fa6d277ebd4ed6de254e4365a1a332122f597e295cc11496c3"
   license "MIT"
+  revision 1
   head "https://github.com/profclems/glab.git", branch: "trunk"
 
   bottle do
@@ -16,6 +17,8 @@ class Glab < Formula
   depends_on "go" => :build
 
   def install
+    on_macos { ENV["CGO_ENABLED"] = "1" }
+
     system "make", "GLAB_VERSION=#{version}"
     bin.install "bin/glab"
     (bash_completion/"glab").write Utils.safe_popen_read(bin/"glab", "completion", "--shell=bash")
