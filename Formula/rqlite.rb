@@ -1,8 +1,8 @@
 class Rqlite < Formula
   desc "Lightweight, distributed relational database built on SQLite"
   homepage "http://www.rqlite.com/"
-  url "https://github.com/rqlite/rqlite/archive/v5.12.1.tar.gz"
-  sha256 "2156d6fb4253fb6018ce2f78b0f6632256e2ea6259774e3ffd89a3250acad4c6"
+  url "https://github.com/rqlite/rqlite/archive/refs/tags/v6.0.0.tar.gz"
+  sha256 "0f54e62cda82d3d939c3bab33480796e77717cba5aee7ea57591abbffa537f3f"
   license "MIT"
 
   bottle do
@@ -15,8 +15,8 @@ class Rqlite < Formula
   depends_on "go" => :build
 
   def install
-    ["rqbench", "rqlite", "rqlited"].each do |cmd|
-      system "go", "build", *std_go_args, "-o", bin/cmd, "./cmd/#{cmd}"
+    %w[rqbench rqlite rqlited].each do |cmd|
+      system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", bin/cmd, "./cmd/#{cmd}"
     end
   end
 
