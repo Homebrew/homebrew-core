@@ -5,6 +5,11 @@ class Bibclean < Formula
   sha256 "4fa68bfd97611b0bb27b44a82df0984b300267583a313669c1217983b859b258"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://ftp.math.utah.edu/pub/bibclean/"
+    regex(/href=.*?bibclean[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "1ca564c71ae986472ba45f55cee1dc9c2070513a908b5f3931d4cbd82ed1cd45"
     sha256 big_sur:       "4b273f7061767e8e2a4776863f2da581ab726212ee1ae9b4d512a6bc228a6d7a"
