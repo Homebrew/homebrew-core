@@ -2,8 +2,8 @@ class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://github.com/AkihiroSuda/lima"
   url "https://github.com/AkihiroSuda/lima.git",
-    tag:      "v0.2.1",
-    revision: "4ccd40976296a8911ad84fddeff82bb9c2d754bd"
+    tag:      "v0.3.0",
+    revision: "c82737b29cf54225c3ec8ec7073609d42924017c"
   license "Apache-2.0"
   head "https://github.com/AkihiroSuda/lima"
 
