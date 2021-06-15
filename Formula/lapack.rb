@@ -19,6 +19,10 @@ class Lapack < Formula
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
 
+  on_linux do
+    keg_only "it conflicts with openblas"
+  end
+
   def install
     ENV.delete("MACOSX_DEPLOYMENT_TARGET")
 
