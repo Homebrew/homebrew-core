@@ -17,12 +17,7 @@ class Ghr < Formula
   depends_on "go" => :build
 
   def install
-    # Avoid running `go get`
-    inreplace "Makefile", "go get ${u} -d", ""
-
-    system "make", "build"
-    bin.install "bin/ghr" => "ghr"
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
