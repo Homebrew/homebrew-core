@@ -20,11 +20,15 @@ class PgTop < Formula
     sha256 cellar: :any, mojave:   "1110da076403c8f3030421ce4fbb5acb51d61c71102564aa00db9611d08b50c8"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "postgresql"
 
   uses_from_macos "ncurses"
 
   def install
+    system "autoreconf", "-fvi"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-postgresql=#{Formula["postgresql"].opt_prefix}"
