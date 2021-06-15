@@ -13,10 +13,10 @@ class Mmctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "37dd0cbcff879356df7b9c98a2f240d1dbf98ba1ba0120ccc09e02c4d6426dc9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3d49102a68b99a00da3e3889be2f2e2fcad95320d708560f209d3ec0897fb440"
-    sha256 cellar: :any_skip_relocation, catalina:      "a66045beaebefb112620b20d9c5e15bb09ae8360b08dd2e8228c3c5db9139e94"
-    sha256 cellar: :any_skip_relocation, mojave:        "28dd9de0d2774ae089b267e677194014614453be8bea52fa9e396b2f1b87564c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2100b6ed7798a993f34233c4b6b58759c83ce0f96b3c39a66d192d6a89c3d570"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1e14c73707eb41c21ad5b9b6aea1850b56b71b79dd7fa6e8ccd8ec48e888c162"
+    sha256 cellar: :any_skip_relocation, catalina:      "9c7223fc02910173dabd773352af3617e92e1cfacc37337e43f5606cfeeef13d"
+    sha256 cellar: :any_skip_relocation, mojave:        "4db09ecf5831227464cf41b6bd512e37a079406c124d32ec93b4ce14987772cd"
   end
 
   depends_on "go" => :build
