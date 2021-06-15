@@ -1,9 +1,9 @@
 class Lci < Formula
   desc "Interpreter for the lambda calculus"
-  homepage "https://lci.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/lci/lci/0.6/lci-0.6.tar.gz"
-  sha256 "204f1ca5e2f56247d71ab320246811c220ed511bf08c9cb7f305cf180a93948e"
-  license "GPL-2.0"
+  homepage "https://www.chatzi.org/lci/"
+  url "https://github.com/chatziko/lci/releases/download/v1.0/lci-1.0.tar.gz"
+  sha256 "1bcf40d738ce2af7ca5116f02dfb0f4ed21d7e467e3618e071c8199a1285331e"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_big_sur: "10cf9d298c08ffd7dbc86b99853c79013027b0f6e8598f9687d679a312ce3f66"
@@ -16,10 +16,18 @@ class Lci < Formula
     sha256 yosemite:      "46a84d5644606edb37c1f915df039901ac96d6728345bb95d57ed52fe783a34d"
   end
 
+  depends_on "cmake" => :build
+
   conflicts_with "lolcode", because: "both install `lci` binaries"
 
   def install
-    system "./configure", "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+      system "make", "install"
+    end
+  end
+
+  test do
+    assert_match "[I, 2]", shell_output("echo 'Append [1] [2]' | #{bin}/lci")
   end
 end
