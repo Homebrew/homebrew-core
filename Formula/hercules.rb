@@ -21,15 +21,21 @@ class Hercules < Formula
 
   head do
     url "https://github.com/hercules-390/hyperion.git"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
   end
+
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   skip_clean :la
 
   def install
-    system "./autogen.sh" if build.head?
+    if build.head?
+      system "./autogen.sh"
+    elsif Hardware::CPU.arm?
+      system "autoreconf", "-fvi"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
