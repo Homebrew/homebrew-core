@@ -64,8 +64,8 @@
     "extra_packages": ["ipykernel"]
   },
   "fdroidserver": {
-      "exclude_packages": ["numpy"],
-      "extra_packages": ["wheel"]
+    "exclude_packages": ["numpy"],
+    "extra_packages": ["wheel"]
   },
   "flintrock": {
     "exclude_packages": ["six"]
@@ -116,6 +116,9 @@
   },
   "protobuf": {
     "exclude_packages": ["six"]
+  },
+  "pyqt-builder": {
+    "exclude_packages": ["packaging", "pyparsing", "sip", "toml"]
   },
   "pywhat": {
     "exclude_packages": ["six"]
