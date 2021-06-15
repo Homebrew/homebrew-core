@@ -22,7 +22,7 @@ class Lci < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_INSTALL_PREFIX=#{prefix}"
+      system "cmake", "..", *std_cmake_args
       system "make", "install"
     end
   end
