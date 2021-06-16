@@ -5,8 +5,6 @@ class Xcv < Formula
   sha256 "f2898f78bb05f4334073adb8cdb36de0f91869636a7770c8e955cee8758c0644"
   head "https://github.com/busterc/xcv.git"
 
-  bottle :unneeded
-
   def install
     bin.install "xcv"
   end
