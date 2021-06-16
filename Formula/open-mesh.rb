@@ -18,7 +18,7 @@ class OpenMesh < Formula
     ENV.cxx11
 
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_APPS=OFF", *std_cmake_args
+      system "cmake", "..", "-DBUILD_APPS=OFF", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
       system "make", "install"
     end
   end
@@ -67,6 +67,7 @@ class OpenMesh < Formula
       -lOpenMeshCore
       -lOpenMeshTools
       --std=c++11
+      -Wl,-rpath,#{lib}
     ]
     system ENV.cxx, "test.cpp", "-o", "test", *flags
     system "./test"
