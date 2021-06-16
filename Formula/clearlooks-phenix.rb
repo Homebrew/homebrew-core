@@ -7,8 +7,6 @@ class ClearlooksPhenix < Formula
   revision 1
   head "https://github.com/jpfleury/clearlooks-phenix.git"
 
-  bottle :unneeded
-
   depends_on "gtk+3"
 
   def install
