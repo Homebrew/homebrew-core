@@ -33,6 +33,8 @@ class Ctags < Formula
     depends_on "autoconf" => :build
   end
 
+  conflicts_with "universal-ctags", because: "this formula installs the same executable as the ctags formula"
+
   # fixes https://sourceforge.net/p/ctags/bugs/312/
   patch :p2 do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/ctags/5.8.patch"
