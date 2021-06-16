@@ -6,8 +6,6 @@ class AvroTools < Formula
   sha256 "ab158f4af8f767d2358a29d8678939b2a0f96017490acfb4e7ed0708cea07913"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
