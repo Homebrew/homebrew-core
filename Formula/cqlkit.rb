@@ -5,8 +5,6 @@ class Cqlkit < Formula
   sha256 "0574b4b6fe893078e993a80f95a183b89955129ab8929f5032b7faacf611952c"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
