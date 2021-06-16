@@ -6,8 +6,6 @@ class Exenv < Formula
   license "MIT"
   head "https://github.com/mururu/exenv.git"
 
-  bottle :unneeded
-
   def install
     inreplace "libexec/exenv", "/usr/local", HOMEBREW_PREFIX
     prefix.install Dir["*"]
