@@ -11,8 +11,6 @@ class ApacheDrill < Formula
     regex(/href=.*?apache-drill[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@8"
 
   def install
