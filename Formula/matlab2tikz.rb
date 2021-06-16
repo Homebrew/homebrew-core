@@ -6,8 +6,6 @@ class Matlab2tikz < Formula
   license "BSD-2-Clause"
   head "https://github.com/matlab2tikz/matlab2tikz.git"
 
-  bottle :unneeded
-
   def install
     pkgshare.install Dir["src/*"]
   end
