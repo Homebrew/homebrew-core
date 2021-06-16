@@ -11,8 +11,6 @@ class AmdatuBootstrap < Formula
     regex(/href=.*?bootstrap[._-]v?(?:bin-)?r(\d+(?:\.\d+)*)(?:-bin)?\./i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@8"
 
   def install
