@@ -15,6 +15,8 @@ class Terragrunt < Formula
   depends_on "go" => :build
   depends_on "terraform"
 
+  conflicts_with "tgenv", because: "tgenv symlinks terragrunt binaries"
+
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.VERSION=v#{version}")
   end
