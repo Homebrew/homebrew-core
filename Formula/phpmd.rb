@@ -5,8 +5,6 @@ class Phpmd < Formula
   sha256 "c516e4a90c72ccf8170dcc806621c0f0a7ed553b8853aca085e7c38d2e187e61"
   license "BSD-3-Clause"
 
-  bottle :unneeded
-
   def install
     bin.install "phpmd.phar" => "phpmd"
   end
