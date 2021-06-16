@@ -1,22 +1,15 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://github.com/AkihiroSuda/lima"
-  url "https://github.com/AkihiroSuda/lima.git",
-    tag:      "v0.3.0",
-    revision: "c82737b29cf54225c3ec8ec7073609d42924017c"
+  url "https://github.com/AkihiroSuda/lima/archive/v0.3.0.tar.gz"
+  sha256 "0debed5cd2fcb34ce90114c4f07a3610a3b2d4aaf4592608135e9053cb5ce213"
   license "Apache-2.0"
-  head "https://github.com/AkihiroSuda/lima"
 
   depends_on "go" => :build
-
   depends_on "qemu"
 
   def install
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-
-    ENV["GOOS"]="darwin"
-    ENV["GOARCH"]=arch
-    system "make", "clean", "binaries"
+    system "make", "VERSION=#{version}", "clean", "binaries"
 
     bin.install Dir["_output/bin/*"]
     share.install Dir["_output/share/*"]
@@ -27,7 +20,6 @@ class Lima < Formula
   end
 
   test do
-    s_output = shell_output("#{bin}/limactl prune 2>&1")
-    assert_match "Pruning", s_output
+    assert_match "Pruning", shell_output("#{bin}/limactl prune 2>&1")
   end
 end
