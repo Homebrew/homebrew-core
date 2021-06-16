@@ -7,8 +7,6 @@ class Fpp < Formula
   revision 2
   head "https://github.com/facebook/pathpicker.git"
 
-  bottle :unneeded
-
   depends_on "python@3.9"
 
   def install
