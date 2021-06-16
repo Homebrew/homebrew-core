@@ -5,8 +5,6 @@ class Blackbox < Formula
   sha256 "0a8fee39dc46436472528ea3a5743c42ebefc068519545fe6fca57041f42deae"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "gnupg"
 
   def install
