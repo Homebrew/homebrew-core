@@ -6,8 +6,6 @@ class Tccutil < Formula
   license "GPL-2.0-or-later"
   head "https://github.com/jacobsalmela/tccutil.git"
 
-  bottle :unneeded
-
   depends_on :macos
 
   def install
