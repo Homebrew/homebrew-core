@@ -11,8 +11,6 @@ class SeleniumServerStandalone < Formula
     regex(/href=.*?selenium-server-standalone[._-]v?(\d+(?:\.\d+)+)\.jar/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
