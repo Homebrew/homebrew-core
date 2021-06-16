@@ -1,14 +1,13 @@
 class Widelands < Formula
   desc "Free real-time strategy game like Settlers II"
   homepage "https://www.widelands.org/"
-  url "https://launchpad.net/widelands/build21/build21/+download/widelands-build21-source.tar.gz"
-  version "21"
-  sha256 "601e0e4c6f91b3fb0ece2cd1b83ecfb02344a1b9194fbb70ef3f70e06994e357"
-  revision 7
+  url "https://github.com/widelands/widelands/archive/v1.0.tar.gz"
+  sha256 "1dab0c4062873cc72c5e0558f9e9620b0ef185f1a78923a77c4ce5b9ed76031a"
+  version_scheme 1
 
   livecheck do
     url :stable
-    regex(%r{<div class="version">\s*Latest version is [^<]*?v?(\d+(?:\.\d+)*)\s*</div>}i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
