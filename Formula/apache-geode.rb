@@ -7,8 +7,6 @@ class ApacheGeode < Formula
   sha256 "bc2d2e9bcec8f2fdfa2419894962314a3e3569fa617c3e2f6beca8097197ad02"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk@8"
 
   def install
