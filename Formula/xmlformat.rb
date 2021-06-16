@@ -9,8 +9,6 @@ class Xmlformat < Formula
     regex(/href=.*?xmlformat[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   def install
     bin.install "xmlformat.pl" => "xmlformat"
   end
