@@ -11,8 +11,6 @@ class Jsonschema2pojo < Formula
     regex(%r{href=.*?/tag/jsonschema2pojo[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
