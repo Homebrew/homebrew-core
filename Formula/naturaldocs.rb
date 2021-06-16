@@ -11,8 +11,6 @@ class Naturaldocs < Formula
     regex(%r{url=.*?/Natural.?Docs[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)}i)
   end
 
-  bottle :unneeded
-
   depends_on "mono"
 
   def install
