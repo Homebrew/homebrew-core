@@ -10,8 +10,6 @@ class HapiFhirCli < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   resource "test_resource" do
