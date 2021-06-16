@@ -6,8 +6,6 @@ class BashPreexec < Formula
   license "MIT"
   head "https://github.com/rcaloras/bash-preexec.git"
 
-  bottle :unneeded
-
   def install
     (prefix/"etc/profile.d").install "bash-preexec.sh"
   end
