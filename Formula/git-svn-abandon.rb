@@ -6,8 +6,6 @@ class GitSvnAbandon < Formula
   license "MIT"
   head "https://github.com/nothingmuch/git-svn-abandon.git"
 
-  bottle :unneeded
-
   def install
     bin.install Dir["git-svn-abandon-*"]
   end
