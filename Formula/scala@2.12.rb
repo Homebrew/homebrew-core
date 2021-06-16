@@ -7,8 +7,6 @@ class ScalaAT212 < Formula
   sha256 "8c5dd265a5daa3e7791517a2266a82eb707179954ae1889b9a53477aba46a49c"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   keg_only :versioned_formula
 
   depends_on "openjdk"
