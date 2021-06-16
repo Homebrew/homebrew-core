@@ -10,8 +10,6 @@ class Blazegraph < Formula
     regex(/^BLAZEGRAPH(?:_RELEASE)?[._-]v?(\d+(?:[._]\d+)+)$/i)
   end
 
-  bottle :unneeded
-
   # dependnecy can be lifted in the upcoming release, > 2.1.5
   depends_on "openjdk@8"
 
