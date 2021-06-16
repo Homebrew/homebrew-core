@@ -11,7 +11,6 @@ class Neofetch < Formula
     sha256 cellar: :any_skip_relocation, all: "3e914c528b75e3057342e16b096aec7ea835347cba55c045d9d8f6ec288c7ab6"
   end
 
-  depends_on "imagemagick"
   depends_on "screenresolution"
 
   def install
