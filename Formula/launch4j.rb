@@ -6,8 +6,6 @@ class Launch4j < Formula
   sha256 "caed147c560551bcf46d1a894083808e58de62941b268ef58ca803ed09736675"
   license all_of: ["BSD-3-Clause", "MIT"]
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
