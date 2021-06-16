@@ -6,8 +6,6 @@ class Mvnvm < Formula
   license "Apache-2.0"
   head "https://bitbucket.org/mjensen/mvnvm.git"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   conflicts_with "maven", because: "also installs a 'mvn' executable"
