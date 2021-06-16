@@ -6,8 +6,6 @@ class Fop < Formula
   sha256 "ccfd7a1d4e5a04e76723946efa1147ffa9a8715ce2b58d2a27085a8e744520f8"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   resource "hyph" do
