@@ -6,8 +6,6 @@ class Titlecase < Formula
   license "MIT"
   head "https://github.com/ap/titlecase.git"
 
-  bottle :unneeded
-
   def install
     bin.install "titlecase"
   end
