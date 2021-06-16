@@ -12,8 +12,6 @@ class Redpen < Formula
     regex(%r{href=.*?/tag/(?:redpen[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@11"
 
   def install
