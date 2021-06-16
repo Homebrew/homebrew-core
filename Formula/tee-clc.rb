@@ -5,8 +5,6 @@ class TeeClc < Formula
   sha256 "efc51f9b7cd8178d8f9c4c6897c98363e84cc1e44be42b7647d803c0059cffe4"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   conflicts_with "tiny-fugue", because: "both install a `tf` binary"
