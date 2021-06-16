@@ -7,8 +7,6 @@ class RbenvChefdk < Formula
   revision 1
   head "https://github.com/docwhat/rbenv-chefdk.git"
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   def install
