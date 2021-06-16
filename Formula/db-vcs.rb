@@ -5,8 +5,6 @@ class DbVcs < Formula
   sha256 "90f07c13c388896ba02032544820f8ff3a23e6f9dc1e320a1a653dd77e032ee7"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     libexec.install "db"
     libexec.install "bin/"
