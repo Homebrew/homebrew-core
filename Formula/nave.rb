@@ -6,8 +6,6 @@ class Nave < Formula
   license "ISC"
   head "https://github.com/isaacs/nave.git"
 
-  bottle :unneeded
-
   def install
     bin.install "nave.sh" => "nave"
   end
