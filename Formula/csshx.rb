@@ -8,8 +8,6 @@ class Csshx < Formula
   license "GPL-1.0"
   head "https://github.com/brockgr/csshx.git"
 
-  bottle :unneeded
-
   def install
     bin.install "csshX"
   end
