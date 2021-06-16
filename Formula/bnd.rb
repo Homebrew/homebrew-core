@@ -4,8 +4,6 @@ class Bnd < Formula
   url "https://search.maven.org/remotecontent?filepath=biz/aQute/bnd/biz.aQute.bnd/5.3.0/biz.aQute.bnd-5.3.0.jar"
   sha256 "f02cd3406b054da1840795c3cecc11c4226a8563aa74a67acc05f3d9aeaa9b85"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
