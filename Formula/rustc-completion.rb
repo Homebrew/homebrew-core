@@ -15,8 +15,6 @@ class RustcCompletion < Formula
     end
   end
 
-  bottle :unneeded
-
   def install
     bash_completion.install "etc/bash_completion.d/rustc"
   end
