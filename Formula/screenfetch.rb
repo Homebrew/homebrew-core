@@ -6,8 +6,6 @@ class Screenfetch < Formula
   license "GPL-3.0"
   head "https://github.com/KittyKatt/screenFetch.git"
 
-  bottle :unneeded
-
   def install
     bin.install "screenfetch-dev" => "screenfetch"
     man1.install "screenfetch.1"
