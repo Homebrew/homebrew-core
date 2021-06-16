@@ -15,8 +15,6 @@ class SolrAT77 < Formula
     regex(/href=.*?solr[._-]v?(7(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   keg_only :versioned_formula
 
   depends_on "openjdk@11"
