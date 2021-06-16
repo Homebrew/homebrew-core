@@ -8,8 +8,6 @@ class Iproute2mac < Formula
   license "MIT"
   revision 1
 
-  bottle :unneeded
-
   depends_on "python@3.9"
 
   def install
