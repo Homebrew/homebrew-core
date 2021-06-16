@@ -10,8 +10,6 @@ class StanfordParser < Formula
     regex(/href=.*?stanford-parser[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
