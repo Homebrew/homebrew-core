@@ -9,8 +9,6 @@ class Phpmyadmin < Formula
     regex(/href=.*?phpMyAdmin[._-]v?(\d+(?:\.\d+)+)-all-languages\.zip["' >]/i)
   end
 
-  bottle :unneeded
-
   depends_on "php" => :test
 
   def install
