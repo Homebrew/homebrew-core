@@ -6,8 +6,6 @@ class Transcrypt < Formula
   license "MIT"
   head "https://github.com/elasticdog/transcrypt.git"
 
-  bottle :unneeded
-
   def install
     bin.install "transcrypt"
     man.install "man/transcrypt.1"
