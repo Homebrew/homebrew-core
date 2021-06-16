@@ -6,8 +6,6 @@ class GithubKeygen < Formula
   license "GPL-3.0"
   head "https://github.com/dolmen/github-keygen.git"
 
-  bottle :unneeded
-
   def install
     bin.install "github-keygen"
   end
