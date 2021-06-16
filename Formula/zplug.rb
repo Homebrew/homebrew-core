@@ -6,8 +6,6 @@ class Zplug < Formula
   license "MIT"
   head "https://github.com/zplug/zplug.git"
 
-  bottle :unneeded
-
   def install
     bin.install Dir["bin/*"]
     man1.install "doc/man/man1/zplug.1"
