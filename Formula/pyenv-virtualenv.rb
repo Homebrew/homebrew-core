@@ -12,8 +12,6 @@ class PyenvVirtualenv < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   depends_on "pyenv"
 
   def install
