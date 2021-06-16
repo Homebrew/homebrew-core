@@ -5,8 +5,6 @@ class Nikto < Formula
   sha256 "c1731ae4133d3879718bb7605a8d395b2036668505effbcbbcaa4dae4e9f27f2"
   license "GPL-2.0"
 
-  bottle :unneeded
-
   def install
     cd "program" do
       inreplace "nikto.pl", "/etc/nikto.conf", "#{etc}/nikto.conf"
