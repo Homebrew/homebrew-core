@@ -5,8 +5,6 @@ class GitAnnexRemoteRclone < Formula
   sha256 "fb9bb77c6dd30dad4966926af87f63be92ef442cfeabcfd02202c657f40439d0"
   license "GPL-3.0"
 
-  bottle :unneeded
-
   depends_on "git-annex"
   depends_on "rclone"
 
