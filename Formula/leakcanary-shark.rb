@@ -5,8 +5,6 @@ class LeakcanaryShark < Formula
   sha256 "6a4198deec2369f6b7e03e4a0175eb1cdba74b02989159f652b729016e140468"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   resource "sample_hprof" do
