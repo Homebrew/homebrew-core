@@ -5,8 +5,6 @@ class Nodeenv < Formula
   sha256 "87b04b0832d38bd825e004e7c8ed82d75524efaa6b8a72e3a55088d93e4e17f7"
   license "BSD-3-Clause"
 
-  bottle :unneeded
-
   def install
     bin.install "nodeenv.py" => "nodeenv"
   end
