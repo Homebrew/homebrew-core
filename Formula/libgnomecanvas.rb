@@ -80,18 +80,22 @@ class Libgnomecanvas < Formula
       -lart_lgpl_2
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lglib-2.0
       -lgnomecanvas-2
       -lgobject-2.0
-      -lgtk-quartz-2.0
       -lpango-1.0
       -lpangocairo-1.0
     ]
     on_macos do
+      flags << "-lgdk-quartz-2.0"
+      flags << "-lgtk-quartz-2.0"
       flags << "-lintl"
+    end
+    on_linux do
+      flags << "-lgdk-x11-2.0"
+      flags << "-lgtk-x11-2.0"
     end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
