@@ -5,8 +5,6 @@ class AwsKeychain < Formula
   sha256 "3c9882d3b516b629303ca9a045fc50f6eb75fda25cd2452f10c47eda205e051f"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on :macos
 
   def install
