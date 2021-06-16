@@ -10,8 +10,6 @@ class Umlet < Formula
     regex(/href=.*?umlet-standalone[._-]v?(\d+(?:\.\d+)+)\.(t|zip)/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
