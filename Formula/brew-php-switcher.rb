@@ -6,8 +6,6 @@ class BrewPhpSwitcher < Formula
   license "MIT"
   head "https://github.com/philcook/brew-php-switcher.git"
 
-  bottle :unneeded
-
   depends_on "php" => :test
 
   def install
