@@ -12,8 +12,6 @@ class JbossForge < Formula
     regex(/["']latestVersion["']:\s*["']([^"']+?)["']/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
