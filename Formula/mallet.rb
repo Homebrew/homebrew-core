@@ -5,8 +5,6 @@ class Mallet < Formula
   sha256 "5b2d6fb9bcf600b1836b09881821a6781dd45a7d3032e61d7500d027a5b34faf"
   revision 1
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   resource "testdata" do
