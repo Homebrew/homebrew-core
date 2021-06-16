@@ -18,6 +18,7 @@ class Etsh < Formula
     sha256 high_sierra:   "dbe3c9f5881aa417660aec6e9469123dde475b33551f7207cb3cb7aaade8c16d"
   end
 
+  conflicts_with "omake", because: "both install `osh` binaries"
   conflicts_with "teleport", because: "both install `tsh` binaries"
 
   def install
