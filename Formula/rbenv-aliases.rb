@@ -7,8 +7,6 @@ class RbenvAliases < Formula
   revision 1
   head "https://github.com/tpope/rbenv-aliases.git"
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   def install
