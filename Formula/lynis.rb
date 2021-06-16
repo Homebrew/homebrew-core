@@ -10,8 +10,6 @@ class Lynis < Formula
     regex(%r{href=.*?/lynis[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  bottle :unneeded
-
   def install
     inreplace "lynis" do |s|
       s.gsub! 'tINCLUDE_TARGETS="/usr/local/include/lynis ' \
