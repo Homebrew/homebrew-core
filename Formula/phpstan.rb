@@ -5,8 +5,6 @@ class Phpstan < Formula
   sha256 "70d4b052e7f8ac32b20c918982996b79b4917a6c492f6b72b8b6ba5d47000cf0"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "php" => :test
 
   def install
