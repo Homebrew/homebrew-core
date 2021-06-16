@@ -10,8 +10,6 @@ class Jflex < Formula
     regex(/href=.*?jflex[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
