@@ -6,8 +6,6 @@ class Minimesos < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
   deprecate! date: "2018-06-22", because: :repo_archived
 
   def install
