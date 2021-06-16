@@ -10,8 +10,6 @@ class WpCli < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   def install
     bin.install "wp-cli-#{version}.phar" => "wp"
   end
