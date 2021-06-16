@@ -7,8 +7,6 @@ class Jenv < Formula
 
   head "https://github.com/jenv/jenv.git"
 
-  bottle :unneeded
-
   def install
     libexec.install Dir["*"]
     bin.write_exec_script libexec/"bin/jenv"
