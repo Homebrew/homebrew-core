@@ -6,8 +6,6 @@ class Colormake < Formula
   license "GPL-2.0"
   head "https://github.com/pagekite/Colormake.git"
 
-  bottle :unneeded
-
   def install
     inreplace "colormake", "colormake.pl", "#{libexec}/colormake.pl"
 
