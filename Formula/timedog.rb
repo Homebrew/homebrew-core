@@ -6,8 +6,6 @@ class Timedog < Formula
   license "GPL-2.0"
   head "https://github.com/nlfiedler/timedog.git"
 
-  bottle :unneeded
-
   def install
     bin.install "timedog"
   end
