@@ -7,8 +7,6 @@ class Predictionio < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
   deprecate! date: "2020-09-01", because: :unmaintained
 
   depends_on "apache-spark"
