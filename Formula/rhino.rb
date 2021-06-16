@@ -11,8 +11,6 @@ class Rhino < Formula
     regex(%r{href=.*?/tag/.*?>Rhino (\d+(?:\.\d+)+)<}i)
   end
 
-  bottle :unneeded
-
   conflicts_with "nut", because: "both install `rhino` binaries"
 
   def install
