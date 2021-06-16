@@ -5,8 +5,6 @@ class MysqlSearchReplace < Formula
   sha256 "3da4b2af67bb820534c0e8d8dc6b87f4b38be6fe2410df90177a39dc24ae4593"
   license "GPL-3.0"
 
-  bottle :unneeded
-
   def install
     libexec.install "srdb.class.php"
     libexec.install "srdb.cli.php" => "srdb"
