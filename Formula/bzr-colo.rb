@@ -4,8 +4,6 @@ class BzrColo < Formula
   url "https://launchpad.net/bzr-colo/trunk/0.4.0/+download/bzr-colo-0.4.0.tar.gz"
   sha256 "f61c1abaf80f1e4a573fefd492b70938d27c4b8ca5611cdb0e0a4dc0ed71bbb3"
 
-  bottle :unneeded
-
   depends_on "bazaar"
 
   def install
