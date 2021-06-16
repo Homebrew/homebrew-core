@@ -19,8 +19,6 @@ class Hardlink < Formula
   depends_on "gnu-getopt"
   depends_on "pcre"
 
-  conflicts_with "util-linux", because: "both install `hardlink` binaries"
-
   def install
     # xattr syscalls are provided by glibc
     inreplace "hardlink.c", "#include <attr/xattr.h>", "#include <sys/xattr.h>"
