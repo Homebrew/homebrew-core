@@ -15,8 +15,6 @@ class Bzrtools < Formula
     regex(%r{<div class="version">\s*Latest version is (.+)\s*</div>}i)
   end
 
-  bottle :unneeded
-
   depends_on "bazaar"
 
   def install
