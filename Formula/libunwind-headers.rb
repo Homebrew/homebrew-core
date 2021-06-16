@@ -10,8 +10,6 @@ class LibunwindHeaders < Formula
     regex(/href=.*?libunwind[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
-  bottle :unneeded
-
   keg_only :shadowed_by_macos, "macOS provides libunwind.dylib (but nothing else)"
 
   def install
