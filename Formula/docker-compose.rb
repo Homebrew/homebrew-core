@@ -16,11 +16,12 @@ class DockerCompose < Formula
   end
 
   depends_on "rust" => :build
-
   depends_on "libyaml"
   depends_on "python@3.9"
 
   uses_from_macos "libffi"
+
+  conflicts_with "docker-compose-completion", because: "docker-compose already includes completion scripts"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
