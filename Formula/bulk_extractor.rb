@@ -45,8 +45,14 @@ class BulkExtractor < Formula
     # Remove in next version.
     system "autoreconf", "-f"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # configure cannot find boost libs on Apple Silicon without them being specified
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-boost=#{Formula["boost"].opt_prefix}
+    ]
+
+    system "./configure", *args
     system "make"
     system "make", "install"
 
