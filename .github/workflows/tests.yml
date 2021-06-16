@@ -14,6 +14,11 @@ jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
+    outputs:
+      run-tests: ${{ steps.check-labels.outputs.run-tests }}
+      skip-arm-tests: ${{ steps.check-labels.outputs.skip-arm-tests }}
+      test-bot-fail-fast: ${{ steps.check-labels.outputs.test-bot-fail-fast }}
+      test-bot-skip-recursive-dependents: ${{ steps.check-labels.outputs.test-bot-skip-recursive-dependents }}
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
@@ -44,6 +49,7 @@ jobs:
           done
 
       - name: Check for CI labels
+        id: check-labels
         uses: actions/github-script@v3
         if: github.event_name == 'pull_request'
         with:
@@ -65,31 +71,31 @@ jobs:
               console.log("::set-output name=run-tests::true");
             }
 
-            if (label_names.includes('CI-no-fail-fast')) {
-              console.log('CI-no-fail-fast label found. Continue until all matrix builds have run.')
-              console.log("::set-output name=fail-fast::false");
-            }
-            else {
-              console.log('No CI-no-fail-fast label found. Fail on first failing matrix builds.')
-              console.log("::set-output name=fail-fast::true");
-            }
-
-            if (label_names.includes('CI-long-timeout')) {
-              console.log('CI-long-timeout label found. Setting long timeout.')
-              console.log("::set-output name=timeout-minutes::4320");
-            }
-            else {
-              console.log('No CI-long-timeout label found. Setting short timeout.')
-              console.log("::set-output name=timeout-minutes::60");
-            }
-
             if (label_names.includes('CI-force-arm')) {
               console.log('CI-force-arm label found. Running ARM builds.')
               console.log("::set-output name=skip-arm-tests::false");
             }
             else {
-              console.log('No CI-force-arm label found. Skipping ARM builds.')
+              console.log('No CI-force-arm label found. Not requiring ARM builds.')
               console.log("::set-output name=skip-arm-tests::true");
+            }
+
+            if (label_names.includes('CI-test-bot-fail-fast')) {
+              console.log('CI-test-bot-fail-fast label found. Passing --fail-fast to brew test-bot.')
+              console.log("::set-output name=test-bot-fail-fast::--fail-fast");
+            }
+            else {
+              console.log('No CI-test-bot-fail-fast label found. Not passing --fail-fast to brew test-bot.')
+              console.log("::set-output name=test-bot-fail-fast::");
+            }
+
+            if (label_names.includes('CI-test-bot-skip-recursive-dependents')) {
+              console.log('CI-test-bot-skip-recursive-dependents label found. Passing --skip-recursive-dependents to brew test-bot.')
+              console.log("::set-output name=test-bot-skip-recursive-dependents::--skip-recursive-dependents");
+            }
+            else {
+              console.log('No CI-test-bot-skip-recursive-dependents label found. Not passing --skip-recursive-dependents to brew test-bot.')
+              console.log("::set-output name=test-bot-skip-recursive-dependents::");
             }
 
   tests:
@@ -98,9 +104,9 @@ jobs:
     strategy:
       matrix:
         version: ["11-arm64", "11", "10.15", "10.14"]
-      fail-fast: ${{ needs.tap_syntax.outputs.fail-fast }}
+      fail-fast: false
     runs-on: ${{ matrix.version }}
-    timeout-minutes: ${{ needs.tap_syntax.outputs.timeout-minutes }}
+    timeout-minutes: 4320
     env:
       PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
       HOMEBREW_DEVELOPER: 1
@@ -120,13 +126,13 @@ jobs:
 
       - run: brew test-bot --only-setup
 
-      - name: Run brew test-bot --only-json-tab --only-formulae
+      - name: Run brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }}
         run: |
           mkdir bottles
           cd bottles
-          brew test-bot --only-json-tab --only-formulae
+          brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }}
 
-      - name: Output brew test-bot --only-json-tab --only-formulae failures
+      - name: Output brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }} failures
         if: always()
         run: |
           cat bottles/steps_output.txt
