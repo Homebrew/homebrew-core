@@ -11,8 +11,6 @@ class Gcviewer < Formula
     regex(%r{url=.*?/gcviewer[._-]v?(\d+(?:\.\d+)+)\.jar}i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
