@@ -15,6 +15,8 @@ class Ipinfo < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "e1ce332c726d060521e97a5402746a60778d91beaf28704d9ce5bb6e17451fb3"
   end
 
+  conflicts_with "ipinfo-cli", because: "ipinfo and ipinfo-cli install the same binaries"
+
   def install
     system "make", "BINDIR=#{bin}", "MANDIR=#{man1}", "install"
   end
