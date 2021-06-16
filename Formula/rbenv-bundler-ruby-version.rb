@@ -7,8 +7,6 @@ class RbenvBundlerRubyVersion < Formula
   revision 1
   head "https://github.com/aripollak/rbenv-bundler-ruby-version.git"
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   def install
