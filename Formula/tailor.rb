@@ -6,8 +6,6 @@ class Tailor < Formula
   license "MIT"
   revision 1
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
