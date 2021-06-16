@@ -106,6 +106,7 @@
     "extra_packages": ["wheel"]
   },
   "pipgrip": {
+    "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
   "platformio": {
