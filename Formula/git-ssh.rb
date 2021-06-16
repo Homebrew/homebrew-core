@@ -6,8 +6,6 @@ class GitSsh < Formula
   license "GPL-2.0"
   head "https://github.com/lemarsu/git-ssh.git"
 
-  bottle :unneeded
-
   def install
     # Change loading of required code from libexec location (Cellar only)
     inreplace "bin/git-ssh" do |s|
