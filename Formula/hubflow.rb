@@ -8,8 +8,6 @@ class Hubflow < Formula
   license "BSD-2-Clause"
   head "https://github.com/datasift/gitflow.git"
 
-  bottle :unneeded
-
   def install
     ENV["INSTALL_INTO"] = libexec
     system "./install.sh", "install"
