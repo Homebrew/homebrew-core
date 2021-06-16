@@ -15,8 +15,8 @@ jobs:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     outputs:
-      run-tests: ${{ steps.check-labels.outputs.run-tests }}
-      skip-arm-tests: ${{ steps.check-labels.outputs.skip-arm-tests }}
+      syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
+      force-arm: ${{ steps.check-labels.outputs.force-arm }}
       test-bot-fail-fast: ${{ steps.check-labels.outputs.test-bot-fail-fast }}
       test-bot-skip-recursive-dependents: ${{ steps.check-labels.outputs.test-bot-skip-recursive-dependents }}
     env:
@@ -64,20 +64,20 @@ jobs:
 
             if (label_names.includes('CI-syntax-only')) {
               console.log('CI-syntax-only label found. Skipping tests.')
-              console.log("::set-output name=run-tests::false");
+              console.log("::set-output name=syntax-only::true");
             }
             else {
               console.log('No CI-syntax-only label found. Running tests.')
-              console.log("::set-output name=run-tests::true");
+              console.log("::set-output name=syntax-only::false");
             }
 
             if (label_names.includes('CI-force-arm')) {
               console.log('CI-force-arm label found. Running ARM builds.')
-              console.log("::set-output name=skip-arm-tests::false");
+              console.log("::set-output name=force-arm::true");
             }
             else {
               console.log('No CI-force-arm label found. Not requiring ARM builds.')
-              console.log("::set-output name=skip-arm-tests::true");
+              console.log("::set-output name=force-arm::false");
             }
 
             if (label_names.includes('CI-test-bot-fail-fast')) {
@@ -100,7 +100,7 @@ jobs:
 
   tests:
     needs: tap_syntax
-    if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.run-tests == 'true'
+    if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.syntax-only == 'false'
     strategy:
       matrix:
         version: ["11-arm64", "11", "10.15", "10.14"]
@@ -115,7 +115,7 @@ jobs:
       HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: Check whether ARM tests will be forced
-        if: needs.tap_syntax.outputs.skip-arm-tests == 'true'
+        if: needs.tap_syntax.outputs.force-arm == 'false'
         run: echo 'HOMEBREW_REQUIRE_BOTTLED_ARM=1' >> $GITHUB_ENV
 
       - name: Set up Homebrew
