@@ -15,8 +15,6 @@ class Embulk < Formula
     regex(%r{(?<!un)Stable.+?href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}im)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@8"
 
   def install
