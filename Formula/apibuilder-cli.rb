@@ -5,8 +5,6 @@ class ApibuilderCli < Formula
   sha256 "aa85d456f22400c2c37fda026febd732f8cb8aaad40f660929d277035a5c9ce4"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     system "./install.sh", prefix
   end
