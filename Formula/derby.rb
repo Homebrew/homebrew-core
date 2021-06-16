@@ -6,8 +6,6 @@ class Derby < Formula
   sha256 "ac51246a2d9eef70cecd6562075b30aa9953f622cbd2cd3551bc3d239dc6f02a"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
