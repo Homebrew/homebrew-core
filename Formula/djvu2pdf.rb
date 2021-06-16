@@ -9,8 +9,6 @@ class Djvu2pdf < Formula
     regex(/href=.*?djvu2pdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   depends_on "djvulibre"
   depends_on "ghostscript"
 
