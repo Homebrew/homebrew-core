@@ -6,8 +6,6 @@ class ZLua < Formula
   license "MIT"
   head "https://github.com/skywind3000/z.lua.git"
 
-  bottle :unneeded
-
   depends_on "lua"
 
   def install
