@@ -10,8 +10,6 @@ class Ballerina < Formula
     regex(%r{href=.*?/downloads/.*?ballerina[._-]v?(\d+(?:\.\d+)+)\.}i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@8"
 
   def install
