@@ -5,8 +5,6 @@ class Epubcheck < Formula
   sha256 "2f725b7f491bd7e215fe3fb5492d0554207c838c35165cc195963ddcde39c887"
   license "BSD-3-Clause"
 
-  bottle :unneeded
-
   def install
     jarname = "epubcheck.jar"
     libexec.install jarname, "lib"
