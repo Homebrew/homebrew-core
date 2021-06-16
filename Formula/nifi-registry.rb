@@ -7,8 +7,6 @@ class NifiRegistry < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
