@@ -5,8 +5,6 @@ class Pgtoolkit < Formula
   sha256 "d86f34c579a4c921b77f313d4c7efbf4b12695df89e6b68def92ffa0332a7351"
   license "PostgreSQL"
 
-  bottle :unneeded
-
   def install
     bin.install "fatpack/pgcompact"
     doc.install %w[CHANGES.md LICENSE.md README.md TODO.md]
