@@ -11,8 +11,6 @@ class Spack < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   depends_on "python@3.9"
 
   def install
