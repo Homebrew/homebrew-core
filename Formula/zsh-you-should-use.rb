@@ -5,8 +5,6 @@ class ZshYouShouldUse < Formula
   sha256 "db4486cd12974332ec858d446aff9393dae6be430d425a56d7036d2ce4edeb9e"
   license "GPL-3.0-or-later"
 
-  bottle :unneeded
-
   def install
     pkgshare.install "you-should-use.plugin.zsh"
   end
