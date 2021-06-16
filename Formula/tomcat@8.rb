@@ -10,8 +10,6 @@ class TomcatAT8 < Formula
     url :stable
   end
 
-  bottle :unneeded
-
   keg_only :versioned_formula
 
   depends_on "openjdk"
