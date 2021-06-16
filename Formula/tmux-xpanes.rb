@@ -5,8 +5,6 @@ class TmuxXpanes < Formula
   sha256 "d6c6ce10bb1a487c6455474fe2274eb56ff0a8a87ee9d5cae7dae676d13c19b2"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "tmux"
 
   def install
