@@ -109,7 +109,6 @@ class Gtkmm < Formula
       -latkmm-1.6
       -lcairo
       -lcairomm-1.0
-      -lgdk-quartz-2.0
       -lgdk_pixbuf-2.0
       -lgdkmm-2.4
       -lgio-2.0
@@ -117,7 +116,6 @@ class Gtkmm < Formula
       -lglib-2.0
       -lglibmm-2.4
       -lgobject-2.0
-      -lgtk-quartz-2.0
       -lgtkmm-2.4
       -lpango-1.0
       -lpangocairo-1.0
@@ -125,7 +123,13 @@ class Gtkmm < Formula
       -lsigc-2.0
     ]
     on_macos do
+      flags << "-lgdk-quartz-2.0"
+      flags << "-lgtk-quartz-2.0"
       flags << "-lintl"
+    end
+    on_linux do
+      flags << "-lgdk-x11-2.0"
+      flags << "-lgtk-x11-2.0"
     end
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"
