@@ -5,8 +5,6 @@ class Plod < Formula
   version "1.9"
   sha256 "1b7b8267c41b11c2f5413a8d6850099e0547b7506031b0c733121ed5e8d182f5"
 
-  bottle :unneeded
-
   def install
     system "sh", "plod.shar"
 
