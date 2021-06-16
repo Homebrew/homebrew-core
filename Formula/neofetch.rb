@@ -18,6 +18,7 @@ class Neofetch < Formula
   depends_on "screenresolution"
 
   def install
+    inreplace "neofetch", "/usr/local", HOMEBREW_PREFIX
     system "make", "install", "PREFIX=#{prefix}"
   end
 
