@@ -61,6 +61,7 @@
     "exclude_packages": ["protobuf", "six", "tabulate"]
   },
   "ipython": {
+    "exclude_packages": ["six"],
     "extra_packages": ["ipykernel"]
   },
   "fdroidserver": {

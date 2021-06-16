@@ -6,6 +6,7 @@ class Ipython < Formula
   url "https://files.pythonhosted.org/packages/59/4a/06f4527f0b47d80f0f86c17e14ee0bf0fedd7028a63a4f81c314f53c6636/ipython-7.24.1.tar.gz"
   sha256 "9bc24a99f5d19721fb8a2d1408908e9c0520a17fff2233ffe82620847f17f1b6"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ipython/ipython.git"
 
   bottle do
@@ -16,6 +17,7 @@ class Ipython < Formula
   end
 
   depends_on "python@3.9"
+  depends_on "six"
   depends_on "zeromq"
 
   # use resources from ipykernel (which includes ipython)
@@ -107,11 +109,6 @@ class Ipython < Formula
   resource "pyzmq" do
     url "https://files.pythonhosted.org/packages/99/3b/69360102db726741053d1446cbe9f7f06df7e2a6d5b805ee71841abf1cdc/pyzmq-22.1.0.tar.gz"
     sha256 "7040d6dd85ea65703904d023d7f57fab793d7ffee9ba9e14f3b897f34ff2415d"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "tornado" do
