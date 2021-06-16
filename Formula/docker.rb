@@ -17,6 +17,8 @@ class Docker < Formula
   depends_on "go" => :build
   depends_on "go-md2man" => :build
 
+  conflicts_with "docker-completion", because: "docker already includes these completion scripts"
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "auto"
