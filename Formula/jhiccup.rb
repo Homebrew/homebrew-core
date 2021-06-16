@@ -9,8 +9,6 @@ class Jhiccup < Formula
     regex(/href=.*?jHiccup[._-]v?(\d+(?:\.\d+)+)-dist\.zip/i)
   end
 
-  bottle :unneeded
-
   def install
     bin.install "jHiccup", "jHiccupLogProcessor"
 
