@@ -15,8 +15,6 @@ class Scalariform < Formula
     depends_on "sbt" => :build
   end
 
-  bottle :unneeded
-
   def install
     if build.head?
       system "sbt", "project cli", "assembly"
