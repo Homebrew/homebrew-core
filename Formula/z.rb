@@ -14,8 +14,6 @@ class Z < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   def install
     (prefix/"etc/profile.d").install "z.sh"
     man1.install "z.1"
