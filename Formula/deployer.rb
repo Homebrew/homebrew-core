@@ -11,8 +11,6 @@ class Deployer < Formula
     regex(%r{\\?/releases\\?/v?(\d+(?:\.\d+)+)\\?/deployer\.phar}i)
   end
 
-  bottle :unneeded
-
   depends_on "php"
 
   conflicts_with "dep", because: "both install `dep` binaries"
