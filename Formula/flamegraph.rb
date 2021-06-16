@@ -7,8 +7,6 @@ class Flamegraph < Formula
   revision 1
   head "https://github.com/brendangregg/FlameGraph.git"
 
-  bottle :unneeded
-
   uses_from_macos "perl"
 
   def install
