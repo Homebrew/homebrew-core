@@ -9,8 +9,6 @@ class Vfuse < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   def install
     # Fix upstream artifact packaging issue
     # remove in the next release
