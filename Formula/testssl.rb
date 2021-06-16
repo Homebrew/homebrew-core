@@ -6,8 +6,6 @@ class Testssl < Formula
   license "GPL-2.0"
   head "https://github.com/drwetter/testssl.sh.git", branch: "3.1dev"
 
-  bottle :unneeded
-
   depends_on "openssl@1.1"
 
   def install
