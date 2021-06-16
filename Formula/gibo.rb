@@ -5,8 +5,6 @@ class Gibo < Formula
   sha256 "35debd3e345caf8eeb4441a3877b7e33c98caec5f5c5e2e61da1cb1a263aec4b"
   license "Unlicense"
 
-  bottle :unneeded
-
   def install
     bin.install "gibo"
     bash_completion.install "shell-completions/gibo-completion.bash"
