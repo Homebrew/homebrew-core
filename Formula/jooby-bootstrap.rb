@@ -6,8 +6,6 @@ class JoobyBootstrap < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
   deprecate! date: "2020-11-13", because: :unmaintained
 
   depends_on "maven"
