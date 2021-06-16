@@ -24,9 +24,7 @@ class HaskellLanguageServer < Formula
   depends_on "cabal-install" => [:build, :test]
   depends_on "ghc" => [:build, :test]
 
-  if Hardware::CPU.arm?
-    depends_on "llvm" => :build
-  else
+  if Hardware::CPU.intel?
     depends_on "ghc@8.6" => [:build, :test]
     depends_on "ghc@8.8" => [:build, :test]
   end
