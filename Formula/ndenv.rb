@@ -6,8 +6,6 @@ class Ndenv < Formula
   license "MIT"
   head "https://github.com/riywo/ndenv.git"
 
-  bottle :unneeded
-
   depends_on "node-build"
 
   def install
