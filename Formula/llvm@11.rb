@@ -9,7 +9,7 @@ class LlvmAT11 < Formula
 
   livecheck do
     url "https://releases.llvm.org/"
-    regex(/(11(?:\.\d+)+)/i)
+    regex(/["'](11(?:\.\d+)+)["']/i)
   end
 
   bottle do
