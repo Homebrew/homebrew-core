@@ -23,6 +23,17 @@ class LlvmAT7 < Formula
   depends_on arch: :x86_64
   depends_on "libffi"
 
+  on_linux do
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
+    depends_on "binutils" # needed for gold and strip
+    depends_on "libedit" # llvm requires <histedit.h>
+    depends_on "libelf" # openmp requires <gelf.h>
+    depends_on "ncurses"
+    depends_on "libxml2"
+    depends_on "python@3.8"
+    depends_on "zlib"
+  end
+
   resource "clang" do
     url "https://releases.llvm.org/7.1.0/cfe-7.1.0.src.tar.xz"
     sha256 "e97dc472aae52197a4d5e0185eb8f9e04d7575d2dc2b12194ddc768e0f8a846d"
@@ -41,6 +52,13 @@ class LlvmAT7 < Formula
   resource "libcxx" do
     url "https://releases.llvm.org/7.1.0/libcxx-7.1.0.src.tar.xz"
     sha256 "4442b408eaea3c1e4aa2cf21da38aba9f0856b4b522b1c3d555c3251af62b04e"
+  end
+
+  resource "libcxxabi" do
+    on_linux do
+      url "https://releases.llvm.org/7.1.0/libcxxabi-7.1.0.src.tar.xz"
+      sha256 "6241e81f7c62e11cf54f865ae2d5b8e93943e5f007ccbb59f88f2b289bee98fd"
+    end
   end
 
   resource "libunwind" do
@@ -71,6 +89,7 @@ class LlvmAT7 < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx")
+    on_linux { (buildpath/"projects/libcxx").install resource("libcxx") }
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/polly").install resource("polly")
@@ -86,11 +105,9 @@ class LlvmAT7 < Formula
     args = %W[
       -DLIBOMP_ARCH=x86_64
       -DLINK_POLLY_INTO_TOOLS=ON
-      -DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON
       -DLLVM_BUILD_LLVM_DYLIB=ON
       -DLLVM_ENABLE_EH=ON
       -DLLVM_ENABLE_FFI=ON
-      -DLLVM_ENABLE_LIBCXX=ON
       -DLLVM_ENABLE_RTTI=ON
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INSTALL_UTILS=ON
@@ -99,8 +116,51 @@ class LlvmAT7 < Formula
       -DWITH_POLLY=ON
       -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
       -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
-      -DLLVM_CREATE_XCODE_TOOLCHAIN=ON
     ]
+
+    on_macos do
+      args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if MacOS.version <= :mojave
+      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
+      args << "-DLLVM_ENABLE_LIBCXX=ON"
+      args << "-DDARWIN_osx_ARCHS=x86_64;x86_64h"
+    end
+
+    on_linux do
+      args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON"
+      args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
+      args << "-DLLVM_ENABLE_LIBCXX=OFF"
+      args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
+
+      # Enable llvm gold plugin for LTO
+      args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+
+      # Add flags to build shared and static libc++ which are independent of GCC
+      args += %w[
+        -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF
+        -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+
+        -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY=ON
+        -DLIBCXX_STATICALLY_LINK_ABI_IN_SHARED_LIBRARY=OFF
+        -DLIBCXX_STATICALLY_LINK_ABI_IN_STATIC_LIBRARY=ON
+        -DLIBCXX_USE_COMPILER_RT=ON
+
+        -DLIBCXXABI_ENABLE_STATIC_UNWINDER=ON
+        -DLIBCXXABI_STATICALLY_LINK_UNWINDER_IN_SHARED_LIBRARY=OFF
+        -DLIBCXXABI_STATICALLY_LINK_UNWINDER_IN_STATIC_LIBRARY=ON
+        -DLIBCXXABI_USE_COMPILER_RT=ON
+        -DLIBCXXABI_USE_LLVM_UNWINDER=ON
+
+        -DLIBUNWIND_USE_COMPILER_RT=ON
+      ]
+
+      # Don't pass -rtlib as an argument to GCC because it doesn't understand it.
+      inreplace (buildpath/"projects/libcxx/CMakeLists.txt"),
+        "list(APPEND LIBCXX_LINK_FLAGS \"-rtlib=compiler-rt\")", ""
+      inreplace (buildpath/"projects/libcxxabi/CMakeLists.txt"),
+        "list(APPEND LIBCXXABI_LINK_FLAGS \"-rtlib=compiler-rt\")", ""
+      inreplace (buildpath/"projects/libunwind/CMakeLists.txt"),
+        "list(APPEND LIBUNWIND_LINK_FLAGS \"-rtlib=compiler-rt\")", ""
+    end
 
     if MacOS.version >= :mojave
       sdk_path = MacOS::CLT.installed? ? "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk" : MacOS.sdk_path
@@ -111,7 +171,7 @@ class LlvmAT7 < Formula
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       system "make"
       system "make", "install"
-      system "make", "install-xcode-toolchain"
+      system "make", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
     (share/"cmake").install "cmake/modules"
@@ -125,8 +185,10 @@ class LlvmAT7 < Formula
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
     # install llvm python bindings
-    (lib/"python2.7/site-packages").install buildpath/"bindings/python/llvm"
-    (lib/"python2.7/site-packages").install buildpath/"tools/clang/bindings/python/clang"
+    xz = "2.7"
+    on_linux { xz = "3.8" }
+    (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
+    (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
   end
 
   def caveats
@@ -154,9 +216,15 @@ class LlvmAT7 < Formula
 
     clean_version = version.to_s[/(\d+\.?)+/]
 
-    system "#{bin}/clang", "-L#{lib}", "-fopenmp", "-nobuiltininc",
-                           "-I#{lib}/clang/#{clean_version}/include",
-                           "omptest.c", "-o", "omptest"
+    args = [
+      "-L#{lib}",
+      "-fopenmp",
+      "-nobuiltininc",
+      "-I#{lib}/clang/#{clean_version}/include",
+    ]
+    on_linux { args << "-Wl,-rpath=#{lib}" }
+
+    system "#{bin}/clang", *args, "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
 
     sorted_testresult = testresult.split("\n").sort.join("\n")
@@ -189,7 +257,7 @@ class LlvmAT7 < Formula
     # Testing default toolchain and SDK location.
     system "#{bin}/clang++", "-v",
            "-std=c++11", "test.cpp", "-o", "test++"
-    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib"
+    on_macos { assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" }
     assert_equal "Hello World!", shell_output("./test++").chomp
     system "#{bin}/clang", "-v", "test.c", "-o", "test"
     assert_equal "Hello World!", shell_output("./test").chomp
@@ -231,9 +299,69 @@ class LlvmAT7 < Formula
     system "#{bin}/clang++", "-v",
            "-isystem", "#{opt_include}/c++/v1",
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
-    assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib"
+           "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+    assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
+      (opt_lib/shared_library("libc++", "1")).to_path
+    (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
+      refute_match(/libstdc\+\+/, lib)
+      refute_match(/libgcc/, lib)
+      refute_match(/libatomic/, lib)
+    end
     assert_equal "Hello World!", shell_output("./testlibc++").chomp
+
+    on_linux do
+      # Link installed libc++, libc++abi, and libunwind archives both into
+      # a position independent executable (PIE), as well as into a fully
+      # position independent (PIC) DSO for things like plugins that export
+      # a C-only API but internally use C++.
+      #
+      # FIXME: It'd be nice to be able to use flags like `-static-libstdc++`
+      # together with `-stdlib=libc++` (the latter one we need anyways for
+      # headers) to achieve this but those flags don't set up the correct
+      # search paths or handle all of the libraries needed by `libc++` when
+      # linking statically.
+
+      system "#{bin}/clang++", "-v", "-o", "test_pie_runtimes",
+             "-pie", "-fPIC", "test.cpp", "-L#{opt_lib}",
+             "-stdlib=libc++", "-rtlib=compiler-rt",
+             "-static-libstdc++", "-lpthread", "-ldl"
+      assert_equal "Hello World!", shell_output("./test_pie_runtimes").chomp
+      (testpath/"test_pie_runtimes").dynamically_linked_libraries.each do |lib|
+        refute_match(/lib(std)?c\+\+/, lib)
+        refute_match(/libgcc/, lib)
+        refute_match(/libatomic/, lib)
+        refute_match(/libunwind/, lib)
+      end
+
+      (testpath/"test_plugin.cpp").write <<~EOS
+        #include <iostream>
+        __attribute__((visibility("default")))
+        extern "C" void run_plugin() {
+          std::cout << "Hello Plugin World!" << std::endl;
+        }
+      EOS
+      (testpath/"test_plugin_main.c").write <<~EOS
+        extern void run_plugin();
+        int main() {
+          run_plugin();
+        }
+      EOS
+
+      system "#{bin}/clang++", "-v", "-o", "test_plugin.so",
+             "-shared", "-fPIC", "test_plugin.cpp", "-L#{opt_lib}",
+             "-stdlib=libc++", "-rtlib=compiler-rt",
+             "-static-libstdc++", "-lpthread", "-ldl"
+      system "#{bin}/clang", "-v",
+             "test_plugin_main.c", "-o", "test_plugin_libc++",
+             "test_plugin.so", "-Wl,-rpath=#{testpath}", "-rtlib=compiler-rt"
+      assert_equal "Hello Plugin World!", shell_output("./test_plugin_libc++").chomp
+      (testpath/"test_plugin.so").dynamically_linked_libraries.each do |lib|
+        refute_match(/lib(std)?c\+\+/, lib)
+        refute_match(/libgcc/, lib)
+        refute_match(/libatomic/, lib)
+        refute_match(/libunwind/, lib)
+      end
+    end
 
     (testpath/"scanbuildtest.cpp").write <<~EOS
       #include <iostream>
@@ -245,7 +373,8 @@ class LlvmAT7 < Formula
         return 0;
       }
     EOS
-    assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
+    assert_includes shell_output("#{bin}/scan-build --use-analyzer #{bin}/clang++ " \
+                                 "#{bin}/clang++ scanbuildtest.cpp 2>&1"),
       "warning: Use of memory after it is freed"
 
     (testpath/"clangformattest.c").write <<~EOS
