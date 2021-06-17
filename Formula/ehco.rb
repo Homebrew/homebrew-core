@@ -1,8 +1,8 @@
 class Ehco < Formula
   desc "Network relay tool and a typo :)"
   homepage "https://github.com/Ehco1996/ehco"
-  url "https://github.com/Ehco1996/ehco/archive/refs/tags/v1.0.6.tar.gz"
-  sha256 "326c468c3790ad01031e52ccb4efcfa5e331d2198fdb13137749c67e8eaacf38"
+  url "https://github.com/Ehco1996/ehco/archive/refs/tags/v1.0.7.tar.gz"
+  sha256 "d6384cdb31befcf9a198dd1be6c0073e9fabb6823f2f92df63bb50fb14ec6ff1"
   license "GPL-3.0-only"
 
   livecheck do
