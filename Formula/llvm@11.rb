@@ -7,6 +7,9 @@ class LlvmAT11 < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
   revision 2
 
+  # This should be removed when LLVM 13 is released, so we only check the
+  # current version (the `llvm` formula) and one major version before it
+  # (to catch any patch version that may appear, however uncommon).
   livecheck do
     url "https://releases.llvm.org/"
     regex(/["'](11(?:\.\d+)+)["']/i)
