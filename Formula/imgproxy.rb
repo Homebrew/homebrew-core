@@ -17,12 +17,6 @@ class Imgproxy < Formula
   depends_on "pkg-config" => :build
   depends_on "vips"
 
-  # patch build, remove in next release
-  patch do
-    url "https://github.com/imgproxy/imgproxy/commit/488d786.patch?full_index=1"
-    sha256 "4d1b3646c8b61883fe35bf9da37ce2f6e2e128643b4c22ba831d0bc9aa96c9dd"
-  end
-
   def install
     ENV["CGO_LDFLAGS_ALLOW"]="-s|-w"
     ENV["CGO_CFLAGS_ALLOW"]="-Xpreprocessor"
