@@ -64,38 +64,34 @@ jobs:
 
             if (label_names.includes('CI-syntax-only')) {
               console.log('CI-syntax-only label found. Skipping tests.')
-              console.log("::set-output name=syntax-only::true");
-            }
-            else {
+              console.log('::set-output name=syntax-only::true');
+            } else {
               console.log('No CI-syntax-only label found. Running tests.')
-              console.log("::set-output name=syntax-only::false");
+              console.log('::set-output name=syntax-only::false');
             }
 
             if (label_names.includes('CI-force-arm')) {
               console.log('CI-force-arm label found. Running ARM builds.')
-              console.log("::set-output name=force-arm::true");
-            }
-            else {
+              console.log('::set-output name=force-arm::true');
+            } else {
               console.log('No CI-force-arm label found. Not requiring ARM builds.')
-              console.log("::set-output name=force-arm::false");
+              console.log('::set-output name=force-arm::false');
             }
 
             if (label_names.includes('CI-test-bot-fail-fast')) {
               console.log('CI-test-bot-fail-fast label found. Passing --fail-fast to brew test-bot.')
-              console.log("::set-output name=test-bot-fail-fast::--fail-fast");
-            }
-            else {
+              console.log('::set-output name=test-bot-fail-fast::--fail-fast');
+            } else {
               console.log('No CI-test-bot-fail-fast label found. Not passing --fail-fast to brew test-bot.')
-              console.log("::set-output name=test-bot-fail-fast::");
+              console.log('::set-output name=test-bot-fail-fast::');
             }
 
             if (label_names.includes('CI-test-bot-skip-recursive-dependents')) {
               console.log('CI-test-bot-skip-recursive-dependents label found. Passing --skip-recursive-dependents to brew test-bot.')
-              console.log("::set-output name=test-bot-skip-recursive-dependents::--skip-recursive-dependents");
-            }
-            else {
+              console.log('::set-output name=test-bot-skip-recursive-dependents::--skip-recursive-dependents');
+            } else {
               console.log('No CI-test-bot-skip-recursive-dependents label found. Not passing --skip-recursive-dependents to brew test-bot.')
-              console.log("::set-output name=test-bot-skip-recursive-dependents::");
+              console.log('::set-output name=test-bot-skip-recursive-dependents::');
             }
 
   tests:
