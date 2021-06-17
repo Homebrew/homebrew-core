@@ -7,6 +7,11 @@ class OperatorSdk < Formula
   license "Apache-2.0"
   head "https://github.com/operator-framework/operator-sdk.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "864267e4c586a03de14a612f604ad0c46d27b96b333f048721ec7cc5af8dc836"
     sha256 cellar: :any_skip_relocation, big_sur:       "c097f8d768bd4ef739d6ef71eabfa5139ea2c6ca114143e182cf2268ddf9a55d"
