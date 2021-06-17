@@ -26,7 +26,10 @@
     "exclude_packages": ["tabulate"]
   },
   "black": "black[d]",
-  "buku": "buku[server]",
+  "buku": {
+    "package_name": "buku[server]",
+    "exclude_packages": ["six"]
+  },
   "certbot": {
     "extra_packages": ["certbot-apache", "certbot-nginx"]
   },
