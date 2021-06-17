@@ -59,6 +59,13 @@ class Octave < Formula
 
   uses_from_macos "curl"
 
+  on_linux do
+    depends_on "autoconf"
+    depends_on "automake"
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
+
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
 
@@ -95,6 +102,18 @@ class Octave < Formula
                           "--with-portaudio",
                           "--with-sndfile"
     system "make", "all"
+
+    on_linux do
+      # Explicitly specify aclocal and automake without versions
+      args << "ACLOCAL=aclocal"
+      args << "AUTOMAKE=automake"
+
+      # Mesa OpenGL location must be supplied by LDFLAGS on Linux
+      args << "LDFLAGS=-L#{Formula["mesa"].opt_lib} -L#{Formula["mesa-glu"].opt_lib}"
+
+      # Need to regenerate aclocal.m4 so that it will work with brewed automake
+      system "aclocal"
+    end
 
     # Avoid revision bumps whenever fftw's, gcc's or OpenBLAS' Cellar paths change
     inreplace "src/mkoctfile.cc" do |s|
