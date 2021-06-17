@@ -8,8 +8,8 @@ class LlvmAT11 < Formula
   revision 2
 
   livecheck do
-    url :homepage
-    regex(/LLVM (\d+\.\d+\.\d+)/i)
+    url "https://releases.llvm.org/"
+    regex(/(11(?:\.\d+)+)/i)
   end
 
   bottle do
