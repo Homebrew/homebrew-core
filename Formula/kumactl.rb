@@ -20,13 +20,13 @@ class Kumactl < Formula
   depends_on "go" => :build
 
   def install
-    srcpath = buildpath/"src/kuma.io/kuma"
-    srcpath.install buildpath.children
+    ldflags = %W[
+      -s -w
+      -X github.com/kumahq/kuma/pkg/version.version=#{version}
+      -X github.com/kumahq/kuma/pkg/version.buildDate=#{Date.today}
+    ].join(" ")
 
-    cd srcpath do
-      system "make", "build/kumactl", "BUILD_INFO_VERSION=#{version}"
-      bin.install Dir["build/artifacts-*/kumactl/kumactl"].first
-    end
+    system "go", "build", *std_go_args(ldflags: ldflags), "./app/kumactl"
 
     output = Utils.safe_popen_read("#{bin}/kumactl", "completion", "bash")
     (bash_completion/"kumactl").write output
