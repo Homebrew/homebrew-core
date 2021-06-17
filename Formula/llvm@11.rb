@@ -38,6 +38,7 @@ class LlvmAT11 < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
     depends_on "libelf" # openmp requires <gelf.h>
@@ -109,7 +110,7 @@ class LlvmAT11 < Formula
 
     # we install the lldb Python module into libexec to prevent users from
     # accidentally importing it with a non-Homebrew Python or a Homebrew Python
-    # in a non-default prefix
+    # in a non-default prefix. See https://lldb.llvm.org/resources/caveats.html
     args = %W[
       -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
       -DLLVM_ENABLE_RUNTIMES=#{runtimes.join(";")}
@@ -132,6 +133,9 @@ class LlvmAT11 < Formula
       -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{py_ver}
+      -DPACKAGE_VENDOR=#{tap.user}
+      -DPACKAGE_BUGREPORT=#{tap.issues_url}
+      -DCLANG_VENDOR_UTI=org.#{tap.user.downcase}.clang
     ]
 
     if MacOS.version >= :catalina
@@ -157,6 +161,25 @@ class LlvmAT11 < Formula
       args << "-DCLANG_DEFAULT_CXX_STDLIB=libstdc++"
       # Enable llvm gold plugin for LTO
       args << "-DLLVM_BINUTILS_INCDIR=#{Formula["binutils"].opt_include}"
+      runtime_args = %w[
+        -DLLVM_ENABLE_PER_TARGET_RUNTIME_DIR=OFF
+        -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+
+        -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY=ON
+        -DLIBCXX_STATICALLY_LINK_ABI_IN_SHARED_LIBRARY=OFF
+        -DLIBCXX_STATICALLY_LINK_ABI_IN_STATIC_LIBRARY=ON
+        -DLIBCXX_USE_COMPILER_RT=ON
+        -DLIBCXX_HAS_ATOMIC_LIB=OFF
+
+        -DLIBCXXABI_ENABLE_STATIC_UNWINDER=ON
+        -DLIBCXXABI_STATICALLY_LINK_UNWINDER_IN_SHARED_LIBRARY=OFF
+        -DLIBCXXABI_STATICALLY_LINK_UNWINDER_IN_STATIC_LIBRARY=ON
+        -DLIBCXXABI_USE_COMPILER_RT=ON
+        -DLIBCXXABI_USE_LLVM_UNWINDER=ON
+
+        -DLIBUNWIND_USE_COMPILER_RT=ON
+      ]
+      args << "-DRUNTIMES_CMAKE_ARGS=#{runtime_args.join(";")}"
     end
 
     llvmpath = buildpath/"llvm"
@@ -276,9 +299,68 @@ class LlvmAT11 < Formula
     system "#{bin}/clang++", "-v",
            "-isystem", "#{opt_include}/c++/v1",
            "-std=c++11", "-stdlib=libc++", "test.cpp", "-o", "testlibc++",
-           "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
-    on_macos { assert_includes MachO::Tools.dylibs("testlibc++"), "#{opt_lib}/libc++.1.dylib" }
+           "-rtlib=compiler-rt", "-L#{opt_lib}", "-Wl,-rpath,#{opt_lib}"
+    assert_includes (testpath/"testlibc++").dynamically_linked_libraries,
+      (opt_lib/shared_library("libc++", "1")).to_s
+    (testpath/"testlibc++").dynamically_linked_libraries.each do |lib|
+      refute_match(/libstdc\+\+/, lib)
+      refute_match(/libgcc/, lib)
+      refute_match(/libatomic/, lib)
+    end
     assert_equal "Hello World!", shell_output("./testlibc++").chomp
+
+    on_linux do
+      # Link installed libc++, libc++abi, and libunwind archives both into
+      # a position independent executable (PIE), as well as into a fully
+      # position independent (PIC) DSO for things like plugins that export
+      # a C-only API but internally use C++.
+      #
+      # FIXME: It'd be nice to be able to use flags like `-static-libstdc++`
+      # together with `-stdlib=libc++` (the latter one we need anyways for
+      # headers) to achieve this but those flags don't set up the correct
+      # search paths or handle all of the libraries needed by `libc++` when
+      # linking statically.
+
+      system "#{bin}/clang++", "-v", "-o", "test_pie_runtimes",
+             "-pie", "-fPIC", "test.cpp", "-L#{opt_lib}",
+             "-stdlib=libc++", "-rtlib=compiler-rt",
+             "-static-libstdc++", "-lpthread", "-ldl"
+      assert_equal "Hello World!", shell_output("./test_pie_runtimes").chomp
+      (testpath/"test_pie_runtimes").dynamically_linked_libraries.each do |lib|
+        refute_match(/lib(std)?c\+\+/, lib)
+        refute_match(/libgcc/, lib)
+        refute_match(/libatomic/, lib)
+        refute_match(/libunwind/, lib)
+      end
+
+      (testpath/"test_plugin.cpp").write <<~EOS
+        #include <iostream>
+        __attribute__((visibility("default")))
+        extern "C" void run_plugin() {
+          std::cout << "Hello Plugin World!" << std::endl;
+        }
+      EOS
+      (testpath/"test_plugin_main.c").write <<~EOS
+        extern void run_plugin();
+        int main() {
+          run_plugin();
+        }
+      EOS
+      system "#{bin}/clang++", "-v", "-o", "test_plugin.so",
+             "-shared", "-fPIC", "test_plugin.cpp", "-L#{opt_lib}",
+             "-stdlib=libc++", "-rtlib=compiler-rt",
+             "-static-libstdc++", "-lpthread", "-ldl"
+      system "#{bin}/clang", "-v",
+             "test_plugin_main.c", "-o", "test_plugin_libc++",
+             "test_plugin.so", "-Wl,-rpath=#{testpath}", "-rtlib=compiler-rt"
+      assert_equal "Hello Plugin World!", shell_output("./test_plugin_libc++").chomp
+      (testpath/"test_plugin.so").dynamically_linked_libraries.each do |lib|
+        refute_match(/lib(std)?c\+\+/, lib)
+        refute_match(/libgcc/, lib)
+        refute_match(/libatomic/, lib)
+        refute_match(/libunwind/, lib)
+      end
+    end
 
     # Testing mlir
     (testpath/"test.mlir").write <<~EOS
@@ -298,7 +380,7 @@ class LlvmAT11 < Formula
         return 0;
       }
     EOS
-    assert_includes shell_output("#{bin}/scan-build clang++ scanbuildtest.cpp 2>&1"),
+    assert_includes shell_output("#{bin}/scan-build #{bin}/clang++ scanbuildtest.cpp 2>&1"),
       "warning: Use of memory after it is freed"
 
     (testpath/"clangformattest.c").write <<~EOS
