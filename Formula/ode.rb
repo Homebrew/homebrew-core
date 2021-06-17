@@ -42,8 +42,8 @@ class Ode < Formula
       }
     EOS
     system ENV.cc, "test.cpp", "-I#{include}/ode", "-L#{lib}", "-lode",
-                   "-L#{Formula["libccd"].opt_lib}", "-lccd",
-                   "-lc++", "-o", "test"
+                   "-L#{Formula["libccd"].opt_lib}", "-lccd", "-lm", "-lpthread",
+                   "-o", "test"
     system "./test"
   end
 end
