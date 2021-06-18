@@ -1,8 +1,8 @@
 class Libslirp < Formula
   desc "General purpose TCP-IP emulator"
   homepage "https://gitlab.freedesktop.org/slirp/libslirp"
-  url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.6.0/libslirp-v4.6.0.tar.gz"
-  sha256 "1fbe79a7402d9617c0e15fd2b946335ed3e71a839cdf02a29f24bc944adb773a"
+  url "https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.6.1/libslirp-v4.6.1.tar.gz"
+  sha256 "69ad4df0123742a29cc783b35de34771ed74d085482470df6313b6abeb799b11"
   license "BSD-3-Clause"
 
   bottle do
