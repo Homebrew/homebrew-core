@@ -11,8 +11,6 @@ class Neo4j < Formula
           |href=.*?release=v?(\d+(?:\.\d+)+)[^"' >]+edition=community/ix)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@11"
 
   def install
