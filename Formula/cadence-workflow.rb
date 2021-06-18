@@ -2,8 +2,8 @@ class CadenceWorkflow < Formula
   desc "Distributed, scalable, durable, and highly available orchestration engine"
   homepage "https://cadenceworkflow.io/"
   url "https://github.com/uber/cadence.git",
-    tag:      "v0.21.0",
-    revision: "667b7c68e67682a8d23f4b8f93e91a791313d8d6"
+    tag:      "v0.21.3",
+    revision: "36cfde8b88b17e2ff0f810e72c808ccfdc2e97f5"
   license "MIT"
   head "https://github.com/uber/cadence.git"
 
