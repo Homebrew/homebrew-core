@@ -10,8 +10,6 @@ class Jruby < Formula
     regex(%r{href=.*?/jruby-dist[._-]v?(\d+(?:\.\d+)+)-bin\.t}i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
