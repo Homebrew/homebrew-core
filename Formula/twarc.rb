@@ -3,18 +3,19 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/f0/e7/41a880e9e30533941a6c001cdcfd5f6b7700015a41e691cb96456d35e8a8/twarc-2.1.2.tar.gz"
-  sha256 "e39d04743c8c1c58457e23e9c6c41f1b1f7282f2915f25f6594719e262ed9223"
+  url "https://files.pythonhosted.org/packages/9f/62/24ff1c5491403b1e7feb5c149e1d51ab3f2f96cc3e48afd1649d28c4c9f9/twarc-2.1.8.tar.gz"
+  sha256 "5bc114d9fc3811e3247be60241b9550477b2bc2acee124367c0775f867f54aaf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e2c05da4d9235ddb1f08f6c9a00436c9f2a7ded2c4e84eff72cd396dc33a5da3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e8cf3e97b78953ad98c566095caecc86c25ad0caf7f134cb5f0be7a920115bb6"
-    sha256 cellar: :any_skip_relocation, catalina:      "5063577224f587b1830c0bcca323150ed8a44f0b4b0e1a5c8e9837170a160b24"
-    sha256 cellar: :any_skip_relocation, mojave:        "987822257fc6791820843e202c7e0df7461ab959b49b85dff1c74736aa1e28e8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2fad50f691c787ebadec56289b189dc563dc763507af8affcda8ea226f3cc373"
+    sha256 cellar: :any_skip_relocation, big_sur:       "08e9a9d6412cabaad23170247c722a8ccd3371368e82635b23f04d108d03bd1a"
+    sha256 cellar: :any_skip_relocation, catalina:      "8927954df4bc6967297e525e262b71239453be9d672e2f98bc36d7e86aa6e5de"
+    sha256 cellar: :any_skip_relocation, mojave:        "13ef0b1062dcb66f3f4b6395f65f962702bc5a4db3930aed1897d5a61f4f7ec8"
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
@@ -69,11 +70,6 @@ class Twarc < Formula
   resource "requests-oauthlib" do
     url "https://files.pythonhosted.org/packages/23/eb/68fc8fa86e0f5789832f275c8289257d8dc44dbe93fce7ff819112b9df8f/requests-oauthlib-1.3.0.tar.gz"
     sha256 "b4261601a71fd721a8bd6d7aa1cc1d6a8a93b4a9f5e96626f8e4d91e8beeaa6a"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do

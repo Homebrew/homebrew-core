@@ -12,9 +12,11 @@ class Alure < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, catalina:    "3701d2ac280fd8ef5476343c348fec853397241cb2bdcaeb25e8a53b203d292c"
-    sha256 cellar: :any, mojave:      "f2ae4fbf2822241975e66574e41070b298523e6321280bc83aff70d559db149c"
-    sha256 cellar: :any, high_sierra: "031b2eb61f6206879b76a7276298f1db9875fa996467327b519ccc6d1622a158"
+    sha256 cellar: :any, arm64_big_sur: "b7c2de932d9fa136dbecbd6b235c2db13e8fb4a46551be15cadf9f4ae58ab7f9"
+    sha256 cellar: :any, big_sur:       "0415055955d1281d292513b656af55869e32af09d92925ff26c74bcfea56487f"
+    sha256 cellar: :any, catalina:      "3701d2ac280fd8ef5476343c348fec853397241cb2bdcaeb25e8a53b203d292c"
+    sha256 cellar: :any, mojave:        "f2ae4fbf2822241975e66574e41070b298523e6321280bc83aff70d559db149c"
+    sha256 cellar: :any, high_sierra:   "031b2eb61f6206879b76a7276298f1db9875fa996467327b519ccc6d1622a158"
   end
 
   depends_on "cmake" => :build

@@ -7,7 +7,7 @@ class Mavsdk < Formula
       tag:      "v0.40.0",
       revision: "b0514e3fe84b035005e0ad40655f24914e5df57a"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -15,10 +15,10 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e4036546ad0eafcfe8395b56bd7736c29853f3bec7311724afbcb30aa6a4d779"
-    sha256 cellar: :any, big_sur:       "4b9bb17e054b199adc5231eb408d7e6999acc2f33027d2493b128d1b99eedb25"
-    sha256 cellar: :any, catalina:      "931e1885bc91841ab304916891b450fa86e4c6f774c555a410e1ee005ec7068a"
-    sha256 cellar: :any, mojave:        "40fd9622cc11e0470dbccd9bf7d4819e24418bd0adc94468b6495bb5826903c7"
+    sha256 cellar: :any, arm64_big_sur: "3a76b7fa7ef52858785f4008e7f358d8e51bb428d8e6f9b4c17993d3808e1cd3"
+    sha256 cellar: :any, big_sur:       "b2772bfb28f6cd559c03f14703ed7d07e757c55add4f2d1fe3284dd0a47e1098"
+    sha256 cellar: :any, catalina:      "483d928413d71b0728df5205a8cf12294184a8803c9c432757297eed3edeb31e"
+    sha256 cellar: :any, mojave:        "17262be3d5a81e442b11d6ee71329f480fa6507d5e6f7b5fcfae2cdf698ac337"
   end
 
   depends_on "cmake" => :build

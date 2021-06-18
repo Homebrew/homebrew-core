@@ -1,7 +1,8 @@
 name: GitHub Actions CI
 on:
   push:
-    branches: master
+    branches:
+      - master
   pull_request:
 env:
   HOMEBREW_DEVELOPER: 1
@@ -14,8 +15,10 @@ jobs:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     outputs:
-      run-tests: ${{ steps.check-labels.outputs.result }}
-      skip-arm-tests: ${{ steps.check-arm-labels.outputs.result }}
+      syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
+      force-arm: ${{ steps.check-labels.outputs.force-arm }}
+      test-bot-fail-fast: ${{ steps.check-labels.outputs.test-bot-fail-fast }}
+      test-bot-skip-recursive-dependents: ${{ steps.check-labels.outputs.test-bot-skip-recursive-dependents }}
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
@@ -45,7 +48,7 @@ jobs:
             fi
           done
 
-      - name: Check for CI-syntax-only label
+      - name: Check for CI labels
         id: check-labels
         uses: actions/github-script@v3
         if: github.event_name == 'pull_request'
@@ -57,33 +60,43 @@ jobs:
               repo: context.repo.repo,
               pull_number: context.issue.number
             })
-            if (!labels.map(label => label.name).includes('CI-syntax-only')) {
-              console.log('No CI-syntax-only label found. Running tests.')
-              return true
-            }
-            console.log('CI-syntax-only label found. Skipping tests.')
+            const label_names = labels.map(label => label.name)
 
-      - name: Check for CI-force-arm label
-        id: check-arm-labels
-        uses: actions/github-script@v3
-        if: github.event_name == 'pull_request'
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const { data: { labels: labels } } = await github.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.issue.number
-            })
-            if (!labels.map(label => label.name).includes('CI-force-arm')) {
-              console.log('No CI-force-arm label found.')
-              return true
+            if (label_names.includes('CI-syntax-only')) {
+              console.log('CI-syntax-only label found. Skipping tests.')
+              console.log('::set-output name=syntax-only::true');
+            } else {
+              console.log('No CI-syntax-only label found. Running tests.')
+              console.log('::set-output name=syntax-only::false');
             }
-            console.log('CI-force-arm label found.')
+
+            if (label_names.includes('CI-force-arm')) {
+              console.log('CI-force-arm label found. Running ARM builds.')
+              console.log('::set-output name=force-arm::true');
+            } else {
+              console.log('No CI-force-arm label found. Not requiring ARM builds.')
+              console.log('::set-output name=force-arm::false');
+            }
+
+            if (label_names.includes('CI-test-bot-fail-fast')) {
+              console.log('CI-test-bot-fail-fast label found. Passing --fail-fast to brew test-bot.')
+              console.log('::set-output name=test-bot-fail-fast::--fail-fast');
+            } else {
+              console.log('No CI-test-bot-fail-fast label found. Not passing --fail-fast to brew test-bot.')
+              console.log('::set-output name=test-bot-fail-fast::');
+            }
+
+            if (label_names.includes('CI-test-bot-skip-recursive-dependents')) {
+              console.log('CI-test-bot-skip-recursive-dependents label found. Passing --skip-recursive-dependents to brew test-bot.')
+              console.log('::set-output name=test-bot-skip-recursive-dependents::--skip-recursive-dependents');
+            } else {
+              console.log('No CI-test-bot-skip-recursive-dependents label found. Not passing --skip-recursive-dependents to brew test-bot.')
+              console.log('::set-output name=test-bot-skip-recursive-dependents::');
+            }
 
   tests:
     needs: tap_syntax
-    if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.run-tests
+    if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.syntax-only == 'false'
     strategy:
       matrix:
         version: ["11-arm64", "11", "10.15", "10.14"]
@@ -98,11 +111,9 @@ jobs:
       HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: Check whether ARM tests will be forced
-        if: needs.tap_syntax.outputs.skip-arm-tests
-        run: echo 'HOMEBREW_REQUIRE_BOTTLED_ARM=1' >> $GITHUB_ENV
-      - name: Force vendored Ruby on Catalina
-        if: matrix.version == '10.15'
-        run: echo 'HOMEBREW_FORCE_VENDOR_RUBY=1' >> $GITHUB_ENV
+        if: needs.tap_syntax.outputs.force-arm == 'false'
+        run: echo 'HOMEBREW_SKIP_UNBOTTLED_ARM_TESTS=1' >> $GITHUB_ENV
+
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
@@ -111,13 +122,13 @@ jobs:
 
       - run: brew test-bot --only-setup
 
-      - name: Run brew test-bot --only-json-tab --only-formulae
+      - name: Run brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }}
         run: |
           mkdir bottles
           cd bottles
-          brew test-bot --only-json-tab --only-formulae
+          brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }}
 
-      - name: Output brew test-bot --only-json-tab --only-formulae failures
+      - name: Output brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }} failures
         if: always()
         run: |
           cat bottles/steps_output.txt

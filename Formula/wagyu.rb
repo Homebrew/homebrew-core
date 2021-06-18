@@ -7,10 +7,11 @@ class Wagyu < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:     "2b818f64c4f18e5fc7694d89f1bc1d038a0095ede55e3a5ecec2c80a0a04fa1d"
-    sha256 cellar: :any_skip_relocation, catalina:    "69e6539d7e3801aaea4cd14acd48684f703a4c1cac0f04790d3ada827daf77f9"
-    sha256 cellar: :any_skip_relocation, mojave:      "0b6fd9b45280ecac2586b191303e0e643ef14c85cad06b6aca73e51e7af6ae46"
-    sha256 cellar: :any_skip_relocation, high_sierra: "c2175413a53a69da950ca7b879afc882f2181a34cb633e823bf2a3dc29675fc4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "42345a553422087010c9a64ac44910b4872eda94fd1cbe4adbe8d8a3959ae0af"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2b818f64c4f18e5fc7694d89f1bc1d038a0095ede55e3a5ecec2c80a0a04fa1d"
+    sha256 cellar: :any_skip_relocation, catalina:      "69e6539d7e3801aaea4cd14acd48684f703a4c1cac0f04790d3ada827daf77f9"
+    sha256 cellar: :any_skip_relocation, mojave:        "0b6fd9b45280ecac2586b191303e0e643ef14c85cad06b6aca73e51e7af6ae46"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "c2175413a53a69da950ca7b879afc882f2181a34cb633e823bf2a3dc29675fc4"
   end
 
   depends_on "rust" => :build

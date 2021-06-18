@@ -4,13 +4,14 @@ class Wxmaxima < Formula
   url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-21.05.2.tar.gz"
   sha256 "4d2d486a24090ace2f64ceccb026210e2e6299a32cb348d43134ef80440bcf01"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
   bottle do
-    sha256 arm64_big_sur: "68314ebcebe36aaa5eacdac464c9e0be072845025badf0415645c5a7bcb84ad6"
-    sha256 big_sur:       "1aa82c15d4dc6b1c9cf3d37f4a0b0e634ae9274a40f95d0cc580a624b47f15fe"
-    sha256 catalina:      "375c13df1255b033e94e1d15203cc2977556e3813679223b7298a4fc073ff66f"
-    sha256 mojave:        "5dd54bf314d07250c5f621994334158e88493c2b508f45371e71ca4114d4dc4c"
+    sha256 arm64_big_sur: "78916b4586ee997df546d122218d3a43e9038db4edffdb53289a97c5ff39632d"
+    sha256 big_sur:       "2b8f8beb1f2daa77e0750a660bf90fcbe60ac113947dc6e09a70e26af20faf58"
+    sha256 catalina:      "4bc58244e091d68df832006318abc156ce528acba0e7eeb157ba42504fb913da"
+    sha256 mojave:        "8b9b6be8aabfbe43db4124dc916c91d799cb384ea8c83828a413b95e8da27741"
   end
 
   depends_on "cmake" => :build

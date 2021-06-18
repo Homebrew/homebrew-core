@@ -3,9 +3,10 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.1.0.tar.gz"
-  sha256 "62865cde70c5631b7a4405147476e21461bc4d713f90f6cfac0a24bba36f6b97"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.2.0.tar.gz"
+  sha256 "d7271022559bfb486a9462ed5e7d1ffb52a010a197f5dfdef27f70a931907dce"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git"
 
   livecheck do
@@ -14,9 +15,9 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "11134e43fc66f713045e669118d4c9dcdfe19468bff503a0c362166f6e32dae7"
-    sha256 cellar: :any, catalina: "2e2fc2e22252fe5b5ee6f95636eaf021d041d69bca3352bfcafe7f3c03639b3e"
-    sha256 cellar: :any, mojave:   "33994c44970d556aaba1d0ec4c12dc9a0a5e7d02f63e5a4419d30ee5ff02dea0"
+    sha256 cellar: :any, big_sur:  "d3277f93f29ab446f4312349678fa3397e30b43159da943a4b8761e1a1da5a38"
+    sha256 cellar: :any, catalina: "a7c557ff1a4a498d02a004192df71c39e094422780ff4c0a21fe2a82c776c4a1"
+    sha256 cellar: :any, mojave:   "764ad400e2ccefec7d4676f5ab3f18c033aee7d94594369f2950a13f06ec0990"
   end
 
   depends_on "cmake" => :build

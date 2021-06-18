@@ -6,9 +6,10 @@ class Pandocomatic < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "1236328c4bec43942120f816ba96fba584e5324df24b14d2f94aad6ad6a4ddcc"
-    sha256 cellar: :any_skip_relocation, catalina: "fc8ec0244c32608753851a3cded8a10fb569ab39794a96f7a5a665b1bacc7fa9"
-    sha256 cellar: :any_skip_relocation, mojave:   "b5ec22ce7c10ce2f01a9a044eb200b61e00d7c551ca3847b738ad2e632978d83"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a10d18e6e50807a796a89566d5a5cc16ecf976af445b895d242b5278c6d228ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1236328c4bec43942120f816ba96fba584e5324df24b14d2f94aad6ad6a4ddcc"
+    sha256 cellar: :any_skip_relocation, catalina:      "fc8ec0244c32608753851a3cded8a10fb569ab39794a96f7a5a665b1bacc7fa9"
+    sha256 cellar: :any_skip_relocation, mojave:        "b5ec22ce7c10ce2f01a9a044eb200b61e00d7c551ca3847b738ad2e632978d83"
   end
 
   depends_on "pandoc"

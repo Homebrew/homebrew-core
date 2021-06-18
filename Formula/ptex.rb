@@ -12,9 +12,10 @@ class Ptex < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "24e834b17833b7a914fcdf930563b88e8c7dc014a80cb0bb46b993df0e4bf9d0"
-    sha256 cellar: :any, catalina: "a5b92d4df049d129184563a0a2e8573a06ba3ac986f619e171cd92d95df911f7"
-    sha256 cellar: :any, mojave:   "d4b13f11d4056ea7fe95a4de42850a03ca26bb78fea17633cdf3c429e4e38467"
+    sha256 cellar: :any, arm64_big_sur: "6bc413bd95a1879fa2daba0856f1465c0d552b90f44c8a3a687ee636f472bfed"
+    sha256 cellar: :any, big_sur:       "24e834b17833b7a914fcdf930563b88e8c7dc014a80cb0bb46b993df0e4bf9d0"
+    sha256 cellar: :any, catalina:      "a5b92d4df049d129184563a0a2e8573a06ba3ac986f619e171cd92d95df911f7"
+    sha256 cellar: :any, mojave:        "d4b13f11d4056ea7fe95a4de42850a03ca26bb78fea17633cdf3c429e4e38467"
   end
 
   depends_on "cmake" => :build

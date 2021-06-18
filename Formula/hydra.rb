@@ -18,6 +18,8 @@ class Hydra < Formula
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
+  conflicts_with "ory-hydra", because: "both install `hydra` binaries"
+
   def install
     inreplace "configure" do |s|
       # Link against our OpenSSL

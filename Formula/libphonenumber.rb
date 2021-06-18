@@ -4,6 +4,7 @@ class Libphonenumber < Formula
   url "https://github.com/google/libphonenumber/archive/v8.12.24.tar.gz"
   sha256 "7622cb6d1096f2c90650084084ab8fa5e554319b63622af2a5b2ec0308e8db15"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,10 +12,10 @@ class Libphonenumber < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5300d8c1d8b53ccae0ec23ce78109d118366fa8e5ae398c3b690a1ff933f452f"
-    sha256 cellar: :any, big_sur:       "5b2bc8b177126264f228ba80474777d89aacd62c01995ca59cf3e2638a38229d"
-    sha256 cellar: :any, catalina:      "df63fc809bb6d2529c511278c5c3321212f51bbe5f5dfd50b517bb778cb954a7"
-    sha256 cellar: :any, mojave:        "4d343e321c41bc97bb40759284887bfd0a9e18863a198f7533fb11b55876ab5d"
+    sha256 cellar: :any, arm64_big_sur: "d303c4a5b36b3fa94cf392b58fdccdfc5816c1189205dad32f8018dd02db9578"
+    sha256 cellar: :any, big_sur:       "f6dc8f6f8c3ea1e13b674d00576cf74a03671a04e354cb3fb85a6b9b145c3e46"
+    sha256 cellar: :any, catalina:      "0d134787f468db28f20d44fec123df740e2c3e79ff25c9c308a9fa57d37e0ada"
+    sha256 cellar: :any, mojave:        "1e05b66ba4ff4c70f39f414ec2546876d197105669d7e57a9ef49cb6483b8af6"
   end
 
   depends_on "cmake" => :build

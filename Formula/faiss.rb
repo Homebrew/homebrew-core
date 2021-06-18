@@ -11,9 +11,10 @@ class Faiss < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "ca98be5aa73a7f48fb1e22bcae35687f0503a76f1ff00be7d56c88e0dcf6f111"
-    sha256 cellar: :any, catalina: "d0ec19a749f8bf7a5a48cb828d7f6f1b7da9dff457d47c83b4a34cfedfb6d58a"
-    sha256 cellar: :any, mojave:   "a719758b2de8c7489bdcbd795b2d1c81780c82a191c3baf2477c71fb38c8ff2f"
+    sha256 cellar: :any, arm64_big_sur: "6c6e739ef44832c1d17f1d3bd330dde1a8f1c68ca691362061f48672d0081fa7"
+    sha256 cellar: :any, big_sur:       "ca98be5aa73a7f48fb1e22bcae35687f0503a76f1ff00be7d56c88e0dcf6f111"
+    sha256 cellar: :any, catalina:      "d0ec19a749f8bf7a5a48cb828d7f6f1b7da9dff457d47c83b4a34cfedfb6d58a"
+    sha256 cellar: :any, mojave:        "a719758b2de8c7489bdcbd795b2d1c81780c82a191c3baf2477c71fb38c8ff2f"
   end
 
   depends_on "cmake" => :build

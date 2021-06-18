@@ -26,7 +26,13 @@
     "exclude_packages": ["tabulate"]
   },
   "black": "black[d]",
-  "buku": "buku[server]",
+  "buku": {
+    "package_name": "buku[server]",
+    "exclude_packages": ["six"]
+  },
+  "certbot": {
+    "extra_packages": ["certbot-apache", "certbot-nginx"]
+  },
   "cloudformation-cli": {
     "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin"]
   },
@@ -58,11 +64,15 @@
     "exclude_packages": ["protobuf", "six", "tabulate"]
   },
   "ipython": {
+    "exclude_packages": ["six"],
     "extra_packages": ["ipykernel"]
   },
   "fdroidserver": {
-      "exclude_packages": ["numpy"],
-      "extra_packages": ["wheel"]
+    "exclude_packages": ["numpy"],
+    "extra_packages": ["wheel"]
+  },
+  "flintrock": {
+    "exclude_packages": ["six"]
   },
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
@@ -72,6 +82,9 @@
   },
   "magic-wormhole": {
     "extra_packages": ["wheel"]
+  },
+  "mkdocs": {
+    "exclude_packages": ["six"]
   },
   "molecule": {
     "extra_packages": ["docker-py", "python-vagrant"]
@@ -97,16 +110,23 @@
     "extra_packages": ["wheel"]
   },
   "pipgrip": {
+    "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
   "platformio": {
     "exclude_packages": ["tabulate"]
+  },
+  "pdm": {
+    "exclude_packages": ["six"]
   },
   "poetry": {
     "extra_packages": ["importlib-metadata", "typing-extensions"]
   },
   "protobuf": {
     "exclude_packages": ["six"]
+  },
+  "pyqt-builder": {
+    "exclude_packages": ["packaging", "pyparsing", "sip", "toml"]
   },
   "pywhat": {
     "exclude_packages": ["six"]
@@ -156,6 +176,9 @@
     	"pyobjc-framework-SystemExtensions", "pyobjc-framework-UserNotifications", "pyobjc-framework-VideoSubscriberAccount",
     	"pyobjc-framework-VideoToolbox", "pyobjc-framework-Vision", "pyobjc-framework-WebKit"]
   },
+  "sceptre": {
+    "exclude_packages": ["six"]
+  },
   "scipy": {
     "exclude_packages": ["numpy"]
   },
@@ -163,8 +186,14 @@
   "sqlite-utils": {
     "exclude_packages": ["tabulate"]
   },
+  "theharvester": {
+    "exclude_packages": ["six"]
+  },
   "todoman": {
     "exclude_packages": ["tabulate"]
+  },
+  "twarc": {
+    "exclude_packages": ["six"]
   },
   "xdot": {
     "extra_packages": ["graphviz"]

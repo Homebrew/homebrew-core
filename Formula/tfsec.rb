@@ -1,8 +1,8 @@
 class Tfsec < Formula
-  desc "Static analysis powered security scanner for your terraform code"
-  homepage "https://github.com/tfsec/tfsec"
-  url "https://github.com/tfsec/tfsec/archive/v0.39.42.tar.gz"
-  sha256 "838b5ebd69e2046d3bd06f87915ce30ef25fe469da5d27b2f9ff519c0cb0d719"
+  desc "Static analysis security scanner for your terraform code"
+  homepage "https://tfsec.dev/"
+  url "https://github.com/tfsec/tfsec/archive/v0.40.4.tar.gz"
+  sha256 "6a8bcb9f64efe9c95130130c0f3c08b8b45595c8e1872515feed35734c1d7cf7"
   license "MIT"
 
   livecheck do
@@ -11,10 +11,10 @@ class Tfsec < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d16e126ae68f68006b9025ce1c4efa7c193b55aea9195c909a44925bed5f5c89"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c30c4d5bb77fe749382cf3dc97e532d2a21ecc0c8bf16df5a91f32998ba2d64c"
-    sha256 cellar: :any_skip_relocation, catalina:      "3d240a4d3f6c35295a30de83c1752c5f0e684ef7c855a327c0301a1e9df88cf7"
-    sha256 cellar: :any_skip_relocation, mojave:        "3b932c85f2b46ba4ef20e81b7f58d9806f0ab147f13b1092efc0a80ede343b9e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ab810223479f5e2f3685f2ff59b9b024d8d764b0dbca51caae2dcc4f33213506"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c40ab3183ca991d5457d8ae0eda8ff755a243b19aef0fba7729fd066b4e0098a"
+    sha256 cellar: :any_skip_relocation, catalina:      "e3f7548c96e3edb3ba318f2a5316934b6f433309a789dc554f263a0cca4dc49e"
+    sha256 cellar: :any_skip_relocation, mojave:        "f7bd366993fe835400db27ff7bd4f6f93cdd512538abed893193cbd94ee2245c"
   end
 
   depends_on "go" => :build
@@ -32,13 +32,16 @@ class Tfsec < Formula
       }
     EOS
     (testpath/"bad/brew-validate.tf").write <<~EOS
+      resource "aws_security_group_rule" "world" {
+        description = "A security group triggering tfsec AWS006."
+        type        = "ingress"
+        cidr_blocks = ["0.0.0.0/0"]
       }
     EOS
 
     good_output = shell_output("#{bin}/tfsec #{testpath}/good")
     assert_match "No problems detected!", good_output
-    refute_match("WARNING", good_output)
-    bad_output = shell_output("#{bin}/tfsec #{testpath}/bad 2>&1")
+    bad_output = shell_output("#{bin}/tfsec #{testpath}/bad 2>&1", 1)
     assert_match "WARNING", bad_output
   end
 end

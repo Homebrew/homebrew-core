@@ -19,6 +19,8 @@ class Libtcod < Formula
   depends_on "python@3.9" => :build
   depends_on "sdl2"
 
+  conflicts_with "libzip", "minizip-ng", because: "libtcod, libzip and minizip-ng install a `zip.h` header"
+
   def install
     cd "buildsys/autotools" do
       system "autoreconf", "-fiv"

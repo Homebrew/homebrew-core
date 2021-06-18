@@ -26,7 +26,7 @@ class Nginx < Formula
   def install
     # keep clean copy of source for compiling dynamic modules e.g. passenger
     (pkgshare/"src").mkpath
-    system "tar", "-cJf", (pkgshare/"src/src.tar.xz"), "--options", "compression-level=9", "."
+    system "tar", "-cJf", (pkgshare/"src/src.tar.xz"), "."
 
     # Changes default port to 8080
     inreplace "conf/nginx.conf" do |s|

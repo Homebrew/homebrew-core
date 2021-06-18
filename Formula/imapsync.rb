@@ -5,6 +5,7 @@ class Imapsync < Formula
   # NOTE: The mirror will return 404 until the version becomes outdated.
   sha256 "1ce601150568a6b13a5d8730bee07fdc05b35f3f4e35775f1b471ba221940c2a"
   license "NLPL"
+  revision 1
   head "https://github.com/imapsync/imapsync.git"
 
   livecheck do
@@ -13,11 +14,10 @@ class Imapsync < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6f74715ffa749ee87c86e25152d9a740975ff18cb19d7be45f074b1fb9e03aa1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a3ba534c877f12aebcc57a25c959010da48efcbec3f2e677c432dfb4feffe953"
-    sha256 cellar: :any_skip_relocation, catalina:      "a48cd4e8e67263a88f3c573a64e7858f1d6afc09c1b8199049444a3ae0b5b58a"
-    sha256 cellar: :any_skip_relocation, mojave:        "14e142652f3db244155f35800681c417bfed51443130057c1529407860ef6379"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e14410815c60a8df645e24fe6b2ae0549ff16e189ae7cb62ff76e94957028799"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2080287d17a3a513a3e0ce872dfc4eb76b5a0323c6bd397179e5e5225fb6d9c3"
+    sha256 cellar: :any_skip_relocation, catalina:      "9654bda14b00c6c0f0f12c58dcd918618d761ea4c70b4d79ff0916aebb175128"
+    sha256 cellar: :any_skip_relocation, mojave:        "e031d2a41ab746c91045945a0aea0b2dd0e34317a79e17b4205afa41fe98a011"
   end
 
   depends_on "pod2man" => :build

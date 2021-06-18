@@ -17,6 +17,8 @@ class DockerMachine < Formula
   depends_on "automake" => :build
   depends_on "go" => :build
 
+  conflicts_with "docker-machine-completion", because: "docker-machine already includes completion scripts"
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "auto"

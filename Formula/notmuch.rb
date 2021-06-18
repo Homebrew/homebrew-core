@@ -4,6 +4,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.32.1.tar.xz"
   sha256 "a747ca4e8cc919d91feda6cadb97e63b72ff79119491989bbcea79ad47680615"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
   livecheck do
@@ -12,13 +13,14 @@ class Notmuch < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0eb2700e35e3687842e99f38f8c197565ee9b6b139944525d5a6297f580cbaaf"
-    sha256 cellar: :any, big_sur:       "e9abbef70a364c7d6f0a70365c71bf0f9681a2691ad4062d5c323d139ab5dd9f"
-    sha256 cellar: :any, catalina:      "582b27d35ec3dcf8924b1a8bac9c56dc97ca93410a1b9ed23ecb65b8e2f942b9"
-    sha256 cellar: :any, mojave:        "0f89750eb2ab0fd7361470777f0eea4196852f68cbae1e78d2e2b493ab682545"
+    sha256 cellar: :any, arm64_big_sur: "25e42a13769182c88367bd2940d6522210e5a82eee4f02a5173851de6ce918d5"
+    sha256 cellar: :any, big_sur:       "287a0e2f7e7dd492135626de4fbea9324893bd647bf2d8fc50e691da2be437eb"
+    sha256 cellar: :any, catalina:      "8001f0c34b748c8ee7dbd92d73b093f3aa31fc0b25160bb1e4315c65f236ecb8"
+    sha256 cellar: :any, mojave:        "6d3dd1031db525fb1623e61a12ca49bb948449b1fe4ba08b9461fa73f32ad594"
   end
 
   depends_on "doxygen" => :build
+  depends_on "emacs" => :build
   depends_on "libgpg-error" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
@@ -52,6 +54,7 @@ class Notmuch < Formula
     system "./configure", *args
     system "make", "V=1", "install"
 
+    elisp.install Dir["emacs/*.el"]
     bash_completion.install "completion/notmuch-completion.bash"
 
     (prefix/"vim/plugin").install "vim/notmuch.vim"

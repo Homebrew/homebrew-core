@@ -11,10 +11,11 @@ class Irrlicht < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, big_sur:  "a4e6536fe5a6e4e497585e5155b909878adc3005ef39f46ce4a5e5fdf4e6b9fd"
-    sha256 cellar: :any_skip_relocation, catalina: "da9222c61d7baf0d863ab4cad94c48342d99fb24cb636a88137d049ec8454c7b"
-    sha256 cellar: :any_skip_relocation, mojave:   "c2cb5b842490ab803c3faaaf4ddd28662ccc67fa72d1af73f95981b0d3371769"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "394f0bc05d009f151597e258aa8cdbe851609ed16b69211a966f56ca150ddc23"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e6de4ddb816d9c40b176e8a8688ae8763058f1f4ae166e0d2b28f5560f451b8f"
+    sha256 cellar: :any_skip_relocation, catalina:      "aebe37e4576e3bb2e0d7ba9e5dcad1561db44b093ac97fb30edf4cb0b01192e6"
+    sha256 cellar: :any_skip_relocation, mojave:        "44aa81c059704060641612ff44097bcb48f2c5fdc8685aa8ebd12bdc3a7ffa29"
   end
 
   depends_on xcode: :build
@@ -73,7 +74,7 @@ class Irrlicht < Formula
 
   test do
     on_macos do
-      assert_match "x86_64", shell_output("lipo -info #{lib}/libIrrlicht.a")
+      assert_match Hardware::CPU.arch.to_s, shell_output("lipo -info #{lib}/libIrrlicht.a")
     end
     on_linux do
       cp_r Dir["#{pkgshare}/examples/01.HelloWorld/*"], testpath

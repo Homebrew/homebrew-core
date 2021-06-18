@@ -9,6 +9,7 @@ on:
       - "Formula/at-spi2-core.rb"
       - "Formula/at-spi2-atk.rb"
       - "Formula/device-mapper.rb"
+      - "Formula/elfutils.rb"
       - "Formula/glibc.rb"
       - "Formula/libaio.rb"
       - "Formula/ladspa-sdk.rb"

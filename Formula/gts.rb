@@ -18,6 +18,8 @@ class Gts < Formula
   depends_on "glib"
   depends_on "netpbm"
 
+  conflicts_with "pcb", because: "both install a `gts.h` header"
+
   # Fix for newer netpbm.
   # This software hasn't been updated in seven years
   patch :DATA

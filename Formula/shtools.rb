@@ -7,9 +7,10 @@ class Shtools < Formula
   head "https://github.com/SHTOOLS/SHTOOLS.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "1a9fd37585d31ef6f1c61b431bfab4fde9755db5ee081d8eba1c9a358278481f"
-    sha256 cellar: :any_skip_relocation, catalina: "99aea0397bae82f956eab6868704b493b99f9160e4c5f8f558937db3e349b96b"
-    sha256 cellar: :any_skip_relocation, mojave:   "00f6302f52c6df51ee3477d0c05d66c1a1feec59a4b8883b2af53faa6a631e30"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "19803fdcf199d7c5a374a9547d11b3cf3dd645f06dba787a8652148f72d247d5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1a9fd37585d31ef6f1c61b431bfab4fde9755db5ee081d8eba1c9a358278481f"
+    sha256 cellar: :any_skip_relocation, catalina:      "99aea0397bae82f956eab6868704b493b99f9160e4c5f8f558937db3e349b96b"
+    sha256 cellar: :any_skip_relocation, mojave:        "00f6302f52c6df51ee3477d0c05d66c1a1feec59a4b8883b2af53faa6a631e30"
   end
 
   depends_on "fftw"

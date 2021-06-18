@@ -16,11 +16,11 @@ class Exim < Formula
       versions = page.scan(regex).flatten.uniq
 
       # Return versions if a `fixes` subdirectory isn't present
-      return versions if page.match(%r{href=["']?fixes/?["' >]}i).blank?
+      next versions if page.match(%r{href=["']?fixes/?["' >]}i).blank?
 
       # Fetch the page for the `fixes` directory
       fixes_page = Homebrew::Livecheck::Strategy.page_content(URI.join(@url, "fixes").to_s)
-      return versions if fixes_page[:content].blank?
+      next versions if fixes_page[:content].blank?
 
       # Match maintenance releases and add them to the versions array
       versions += fixes_page[:content].scan(regex).flatten

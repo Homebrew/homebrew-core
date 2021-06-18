@@ -7,11 +7,12 @@ class Xboard < Formula
   revision 3
 
   bottle do
-    sha256 big_sur:     "cd3b5c0a0ee1045a4ba3dc98077a2ed01fecb281bc6763ecd509b6f09efaf173"
-    sha256 catalina:    "561953a63ec6296b6faeb38b999f83ede6ba7c91501cce88eeb560c282985ee7"
-    sha256 mojave:      "c94386e2985c9a4175aba3280658670810269c0a6fe8315676cc49198070bf14"
-    sha256 high_sierra: "eecee1fb605e34564d8906a72f41d1516a210cb41af86c9dd51cdd05376d8b48"
-    sha256 sierra:      "5c9c512b8267d66e69842e9f11b9f63169ae2b953108df72f200122267724f9d"
+    sha256 arm64_big_sur: "87ddefe504448f88254af63c0eaef51f4380f76ea1d2f20fcf6ee780b9241b18"
+    sha256 big_sur:       "cd3b5c0a0ee1045a4ba3dc98077a2ed01fecb281bc6763ecd509b6f09efaf173"
+    sha256 catalina:      "561953a63ec6296b6faeb38b999f83ede6ba7c91501cce88eeb560c282985ee7"
+    sha256 mojave:        "c94386e2985c9a4175aba3280658670810269c0a6fe8315676cc49198070bf14"
+    sha256 high_sierra:   "eecee1fb605e34564d8906a72f41d1516a210cb41af86c9dd51cdd05376d8b48"
+    sha256 sierra:        "5c9c512b8267d66e69842e9f11b9f63169ae2b953108df72f200122267724f9d"
   end
 
   head do

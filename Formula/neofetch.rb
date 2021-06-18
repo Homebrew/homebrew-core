@@ -7,17 +7,15 @@ class Neofetch < Formula
   head "https://github.com/dylanaraps/neofetch.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "da4b88eedb327e2c50fb80e39c5e2b453d447cc07be88479e11c8fdc26e128ec"
-    sha256 cellar: :any_skip_relocation, big_sur:       "65997eaa4358eba12ea2eaa20d3a7daa3b30acfae81aa447eab47894d808670e"
-    sha256 cellar: :any_skip_relocation, catalina:      "9d88c0c07ebdeddaf68a5512a7f4a36cbc52851dfb1c6fc63b446f6a9baaaa01"
-    sha256 cellar: :any_skip_relocation, mojave:        "9d88c0c07ebdeddaf68a5512a7f4a36cbc52851dfb1c6fc63b446f6a9baaaa01"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "9d88c0c07ebdeddaf68a5512a7f4a36cbc52851dfb1c6fc63b446f6a9baaaa01"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "3e914c528b75e3057342e16b096aec7ea835347cba55c045d9d8f6ec288c7ab6"
   end
 
   depends_on "imagemagick"
   depends_on "screenresolution"
 
   def install
+    inreplace "neofetch", "/usr/local", HOMEBREW_PREFIX
     system "make", "install", "PREFIX=#{prefix}"
   end
 

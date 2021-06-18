@@ -26,6 +26,14 @@ class Neko < Formula
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "apr"
+    depends_on "apr-util"
+    depends_on "httpd"
+    # On mac, neko uses carbon. On Linux it uses gtk2
+    depends_on "gtk+"
+  end
+
   # Don't redefine MSG_NOSIGNAL -- https://github.com/HaxeFoundation/neko/pull/217
   patch do
     url "https://github.com/HaxeFoundation/neko/commit/24a5e8658a104ae0f3afe66ef1906bb7ef474bfa.patch?full_index=1"
@@ -73,11 +81,19 @@ class Neko < Formula
               "-Wno-dev",
               "-Wno-dev -DICONV_LIBRARIES=-liconv -DICONV_INCLUDE_DIR= -DWITH_EXTERNAL_ZLIB=1"
 
+    args = std_cmake_args
+    on_linux do
+      args << "-DAPR_LIBRARY=#{Formula["apr"].libexec}/lib"
+      args << "-DAPR_INCLUDE_DIR=#{Formula["apr"].libexec}/include/apr-1"
+      args << "-DAPRUTIL_LIBRARY=#{Formula["apr-util"].libexec}/lib"
+      args << "-DAPRUTIL_INCLUDE_DIR=#{Formula["apr-util"].libexec}/include/apr-1"
+    end
+
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
     # mysql, and mysql-client.
     system "cmake", ".", "-G", "Ninja", "-DSTATIC_DEPS=MariaDBConnector",
-           "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *std_cmake_args
+           "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *args
     system "ninja", "install"
   end
 

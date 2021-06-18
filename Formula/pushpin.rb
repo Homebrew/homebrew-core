@@ -1,15 +1,15 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://github.com/fanout/pushpin/releases/download/v1.32.1/pushpin-1.32.1.tar.bz2"
-  sha256 "f2f000a49b17ceb40a530a9445073a5e1ddd93df7bbf305e6781071c0e97f406"
+  url "https://github.com/fanout/pushpin/releases/download/v1.32.2/pushpin-1.32.2.tar.bz2"
+  sha256 "67fd1cabcaf95deb998007abb189acf06d72f761caae7292fe2a6cb35de779f1"
   license "AGPL-3.0-or-later"
   head "https://github.com/fanout/pushpin.git"
 
   bottle do
-    sha256 big_sur:  "26b58ffdd5b9c67a0ee96cde0e7cbbec603b67e152c4071e12c0e2ab53c0b591"
-    sha256 catalina: "62348eae5f8eabb64d52b63a495b2d2c23fb5153ab1f41a4f95b873b2099e871"
-    sha256 mojave:   "1f7c20feb121d725c3c21d0a65be1b40fd48b9b17287604f81373e88840af881"
+    sha256 big_sur:  "6a83e882a8717b8c984aa8a04a482b4280a491c06c90e5c1712eefff361d9a88"
+    sha256 catalina: "86a992260da757b698f8854d9ec186222c1c2b3e0439ef7220aef5f8cae00682"
+    sha256 mojave:   "ed11f20d8380fc0be0d4377d93fea9659ae2387a9964dd24720eed59ee46ec22"
   end
 
   depends_on "pkg-config" => :build

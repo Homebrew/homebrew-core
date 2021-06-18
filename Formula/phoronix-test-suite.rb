@@ -1,8 +1,8 @@
 class PhoronixTestSuite < Formula
   desc "Open-source automated testing/benchmarking software"
   homepage "https://www.phoronix-test-suite.com/"
-  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v10.2.2.tar.gz"
-  sha256 "2f214dc19bfe61cf546084798a88c7be642222e66d5523f7f8bb0ce795c66534"
+  url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v10.4.0.tar.gz"
+  sha256 "4feda834008c9844bbe675a6ce9b88a44d36965bc2d0a9d62c1407ba5b084935"
   license "GPL-3.0-or-later"
   head "https://github.com/phoronix-test-suite/phoronix-test-suite.git"
 
@@ -11,7 +11,12 @@ class PhoronixTestSuite < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e6ef9090b342a82df1e6127d2b77e3a7cef93c943f469a7a0e7ea4a63b1d6ff4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "021e080cf334bf2a07774987010e2ea1047e81348f4b020069c4c016522947de"
+    sha256 cellar: :any_skip_relocation, catalina:      "021e080cf334bf2a07774987010e2ea1047e81348f4b020069c4c016522947de"
+    sha256 cellar: :any_skip_relocation, mojave:        "021e080cf334bf2a07774987010e2ea1047e81348f4b020069c4c016522947de"
+  end
 
   def install
     ENV["DESTDIR"] = buildpath/"dest"

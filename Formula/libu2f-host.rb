@@ -6,11 +6,6 @@ class Libu2fHost < Formula
   license "GPL-3.0"
   revision 1
 
-  livecheck do
-    url "https://developers.yubico.com/libu2f-host/Releases/"
-    regex(/href=.*?libu2f-host[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "052b140ee60b38b731fe05d9d4bd0ba81765e9bac7ccc25125ba93596534fe14"
     sha256 cellar: :any, big_sur:       "4c6f6729349bce13f6710e5edf040411b78c36e6815258f54a4c8c52f907109b"

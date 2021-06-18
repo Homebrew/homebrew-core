@@ -1,16 +1,16 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/v1.5.1.tar.gz"
-  sha256 "af7467aa4331dab9a556ff1b6c265eaa6b526a85ebc1f499d091cb719e1db364"
+  url "https://github.com/Canop/broot/archive/v1.6.0.tar.gz"
+  sha256 "40d54dcd67abab02a50415de0c6d352a51293b28c3e08b29c97138c8d9e8259c"
   license "MIT"
   head "https://github.com/Canop/broot.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e90fb2484ba9bc08c8b498174d1c45f0a06b055529ba02bdf887ce5a3881e94b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "99611d7a69c70303626e745d02b2ddc83580393db3f8eb318656108a1868df89"
-    sha256 cellar: :any_skip_relocation, catalina:      "bb0b419627ff9d746fad37e98f1ad4b25d3da7d68009d9d985e6b6188d5e2e7d"
-    sha256 cellar: :any_skip_relocation, mojave:        "7da96ac53fa9c2ae7fa92a57e70f22f552759d469785b836cf8025c22c1229f7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c3c5fc41395f318814fedca2e43ce647246d1de68df200a25d6b91c3308a1aaa"
+    sha256 cellar: :any_skip_relocation, big_sur:       "28a0833e38089d1642ad48b3d62225b63ce5a366a55df12e4d25df6723a41cde"
+    sha256 cellar: :any_skip_relocation, catalina:      "71f881ecbfc812bd6eaeb0836df7110b258f4a4e8d4441d5bf633f62bec5a648"
+    sha256 cellar: :any_skip_relocation, mojave:        "ae00e63839e34e5fd65b3c48382d2737d89c4659b073c55d13192ddfa0c3a4ce"
   end
 
   depends_on "rust" => :build
@@ -47,7 +47,7 @@ class Broot < Formula
 
     require "pty"
     require "io/console"
-    PTY.spawn(bin/"broot", "--cmd", ":pt", "--no-style", "--out", testpath/"output.txt", err: :out) do |r, w, pid|
+    PTY.spawn(bin/"broot", "--cmd", ":pt", "--color", "no", "--out", testpath/"output.txt", err: :out) do |r, w, pid|
       r.winsize = [20, 80] # broot dependency termimad requires width > 2
       w.write "n\r"
       assert_match "New Configuration file written in", r.read

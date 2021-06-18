@@ -6,9 +6,10 @@ class OsmiumTool < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "09e5b002c6ab672542b2f9ad0c82c37cb988e7d2cc98549f9c66dd6770831c9d"
-    sha256 cellar: :any, catalina: "9920eb1a2bbb242e0f50efe06959e18a348ca5c8ecbc37fe92e4dfe05052869d"
-    sha256 cellar: :any, mojave:   "d6811e52a681a55880b504d684d6ba8ba19105471fecd574a8000d392689fc6d"
+    sha256 cellar: :any, arm64_big_sur: "4f31ffcb711de0f25a38037ccfd16dcf1b5f2ed07d56a466124f15911a47473d"
+    sha256 cellar: :any, big_sur:       "09e5b002c6ab672542b2f9ad0c82c37cb988e7d2cc98549f9c66dd6770831c9d"
+    sha256 cellar: :any, catalina:      "9920eb1a2bbb242e0f50efe06959e18a348ca5c8ecbc37fe92e4dfe05052869d"
+    sha256 cellar: :any, mojave:        "d6811e52a681a55880b504d684d6ba8ba19105471fecd574a8000d392689fc6d"
   end
 
   depends_on "cmake" => :build

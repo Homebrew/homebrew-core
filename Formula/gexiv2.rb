@@ -6,9 +6,10 @@ class Gexiv2 < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "281c26fef197eba6584e3250aeb131c0ab5daf8afbdc1d702de71ba1e664ccf3"
-    sha256 cellar: :any, catalina: "b96f01c0d637c9b4e16bf0f4d3dc4d072d0d672396152893b5afcbc0ae60cd3a"
-    sha256 cellar: :any, mojave:   "35e12c640ea61bd4659a86afb45e03efa8f81bfb46cb3a5119cb34f445f2dff2"
+    sha256 cellar: :any, arm64_big_sur: "34a026a5141ad0f252332d7e7c2a594f9436673068e6cc555eff0c0e537f750d"
+    sha256 cellar: :any, big_sur:       "281c26fef197eba6584e3250aeb131c0ab5daf8afbdc1d702de71ba1e664ccf3"
+    sha256 cellar: :any, catalina:      "b96f01c0d637c9b4e16bf0f4d3dc4d072d0d672396152893b5afcbc0ae60cd3a"
+    sha256 cellar: :any, mojave:        "35e12c640ea61bd4659a86afb45e03efa8f81bfb46cb3a5119cb34f445f2dff2"
   end
 
   depends_on "gobject-introspection" => :build

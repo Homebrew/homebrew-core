@@ -5,18 +5,21 @@ class LlvmAT11 < Formula
   sha256 "74d2529159fd118c3eac6f90107b5611bccc6f647fdea104024183e8d5e25831"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
+  revision 2
 
+  # This should be removed when LLVM 13 is released, so we only check the
+  # current version (the `llvm` formula) and one major version before it
+  # (to catch any patch version that may appear, however uncommon).
   livecheck do
-    url :homepage
-    regex(/LLVM (\d+\.\d+\.\d+)/i)
+    url "https://releases.llvm.org/"
+    regex(/["'](11(?:\.\d+)+)["']/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3b3549ea1b1004dcd63fed6aa0f3b9b8437f6398e924073b65bc293d8fae0532"
-    sha256 cellar: :any, big_sur:       "d44a42519c3c306a93fcbc8a3d86044d48392598c22b6d3e9170463e6ec7dc50"
-    sha256 cellar: :any, catalina:      "d5dfe866ed1b475df5c99055d98b805c9acd4225b0f8a75fbe50e21c4e5e95f4"
-    sha256 cellar: :any, mojave:        "ea145694576fbfd5955e0543c7dac64db16d66fd9b7956536ebd07506cb65960"
+    sha256 cellar: :any, arm64_big_sur: "03e8229453959ce44cc4aa3d04aae599d644a0cd611e96ef0978c331cdb75556"
+    sha256 cellar: :any, big_sur:       "a4ba9bdae23b82c7125ca0ab2c538ea9e590e61c3af0e0927912ff46d27f5bed"
+    sha256 cellar: :any, catalina:      "a214eaa69c3f978987c281497cdbd98eb7d81372da793a3ae34b11f8910c9288"
+    sha256 cellar: :any, mojave:        "6a2a325871e43bcf8a01e0d93d38aaf3ce2bc0977aeb93ef3d3d43fd0dbde4ae"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -61,6 +64,11 @@ class LlvmAT11 < Formula
   patch do
     url "https://github.com/llvm/llvm-project/commit/c4d7536136b331bada079b2afbb2bd09ad8296bf.patch?full_index=1"
     sha256 "2b894cbaf990510969bf149697882c86a068a1d704e749afa5d7b71b6ee2eb9f"
+  end
+
+  patch do
+    url "https://github.com/llvm/llvm-project/commit/c997867dc084a1bcf631816f964b3ff49a297ba3.patch?full_index=1"
+    sha256 "a215925cb872406fe770369ef3adfef1170c6ffbd65f1de44358a240307faab1"
   end
 
   # Upstream ARM patch for OpenMP runtime, remove in next version

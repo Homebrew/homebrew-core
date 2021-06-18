@@ -8,11 +8,12 @@ class Csfml < Formula
   head "https://github.com/SFML/CSFML.git"
 
   bottle do
-    sha256 cellar: :any, big_sur:     "48bbf215b25936227a04b9f34cf4095da257849561196a5b7a4fa9bcefb9e413"
-    sha256 cellar: :any, catalina:    "31fd66bf0d673c538efda5d66495bee9c4dddbf0c037d8066484c062dd3aaa3d"
-    sha256 cellar: :any, mojave:      "23ba78c253971cd63e84eb54763fac657beafa93f445ee851ba90c8e80146bbb"
-    sha256 cellar: :any, high_sierra: "4c5a98b1bd072adaacae84e7ab0f3c7f33b74c72378f303e3f35fae6dabd4df4"
-    sha256 cellar: :any, sierra:      "acfb319f9d70db51adf39a6931dfc938871ce9f9ad6dcb43d8395c7d735a2674"
+    sha256 cellar: :any, arm64_big_sur: "decefbe4e19262c15a9a579f56fa3ba9af56c018e106e8faa2a279b6d32bb9a9"
+    sha256 cellar: :any, big_sur:       "48bbf215b25936227a04b9f34cf4095da257849561196a5b7a4fa9bcefb9e413"
+    sha256 cellar: :any, catalina:      "31fd66bf0d673c538efda5d66495bee9c4dddbf0c037d8066484c062dd3aaa3d"
+    sha256 cellar: :any, mojave:        "23ba78c253971cd63e84eb54763fac657beafa93f445ee851ba90c8e80146bbb"
+    sha256 cellar: :any, high_sierra:   "4c5a98b1bd072adaacae84e7ab0f3c7f33b74c72378f303e3f35fae6dabd4df4"
+    sha256 cellar: :any, sierra:        "acfb319f9d70db51adf39a6931dfc938871ce9f9ad6dcb43d8395c7d735a2674"
   end
 
   depends_on "cmake" => :build

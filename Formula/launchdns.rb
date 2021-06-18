@@ -8,9 +8,11 @@ class Launchdns < Formula
   head "https://github.com/josh/launchdns.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "7b3d512057f002e8392874c78e3c24526b18af0c67627f7621b14abe43f1b627"
-    sha256 cellar: :any_skip_relocation, catalina: "aa1aff83c3216221621ab07183258d6eac3b4662c7c22da75b4cee95465656eb"
-    sha256 cellar: :any_skip_relocation, mojave:   "7e0a8422dce7c3af9dbc5f6a5d2c5ccd0ee77cac87c5e011af82e44402b9a216"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1b7e3e37f394c83c8957c6c2253260805a3abcbb843890c90208d7d743da3328"
+    sha256 cellar: :any_skip_relocation, big_sur:       "87785cae4d4966c318e8fb8424749261b16bb543576e1c45d5fa2bae7f4c3f0e"
+    sha256 cellar: :any_skip_relocation, catalina:      "ebae3446c46a7a6662c3e9b95d61bbee372f1f277a07a4beea1eafc00d64570a"
+    sha256 cellar: :any_skip_relocation, mojave:        "38ad8be46847983774ec6b50896560517bb027b6fe5e5543395f168e489c9c27"
   end
 
   def install
@@ -18,7 +20,10 @@ class Launchdns < Formula
     system "./configure", "--with-launch-h", "--with-launch-h-activate-socket"
     system "make", "install"
 
-    (prefix/"etc/resolver/localhost").write("nameserver 127.0.0.1\nport 55353\n")
+    (prefix/"etc/resolver/localhost").write <<~EOS
+      nameserver 127.0.0.1
+      port 55353
+    EOS
   end
 
   plist_options manual: "launchdns"

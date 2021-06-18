@@ -1,9 +1,8 @@
 class Consul < Formula
   desc "Tool for service discovery, monitoring and configuration"
   homepage "https://www.consul.io"
-  url "https://github.com/hashicorp/consul.git",
-      tag:      "v1.9.6",
-      revision: "bbcbb733b416acd7066fe4e0157c58678e4ba1e4"
+  url "https://github.com/hashicorp/consul/archive/refs/tags/v1.9.6.tar.gz"
+  sha256 "6e3c59057d43e9c614cde19499ef70d49e93f1978eb918022721abee7bc19ed8"
   license "MPL-2.0"
   head "https://github.com/hashicorp/consul.git"
 
@@ -13,36 +12,17 @@ class Consul < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "2a396a822a98275144d59a0caf3dccef184484b4acd02684b63db15c2b26a52e"
-    sha256 cellar: :any_skip_relocation, catalina: "ae11c89db309a6ea6a9ad05a918a53498fa5463de720f082bffa1a51e34d3143"
-    sha256 cellar: :any_skip_relocation, mojave:   "d863e04c43a5a89df5b2692ee264e2cbc1836230c50a01bdcb394b1bf7ac6a3f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "93d26413de8d34ef62d48c26001e3cc9877ec53f08b32751d13f1f7d64bdd84f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4363d22cedf3fd80695c920272f6162efb8115cd991206193d12dcbda4bbe3a1"
+    sha256 cellar: :any_skip_relocation, catalina:      "b09c0cc0d6eadccb2fd92ed30a81319cef6ec2c8e7e83b86de1d0db74c12f032"
+    sha256 cellar: :any_skip_relocation, mojave:        "cc9eff66d8f762f3d774aeff553aa5a9e33d054a11ab0a02cfde8d0c7ef61749"
   end
 
   depends_on "go" => :build
-  depends_on "gox" => :build
-
-  uses_from_macos "zip" => :build
 
   def install
-    # Specificy the OS, else all platforms will be built
-    on_macos do
-      ENV["XC_OS"] = "darwin"
-    end
-    on_linux do
-      ENV["XC_OS"] = "linux"
-    end
-    ENV["XC_ARCH"] = "amd64"
-    ENV["GOPATH"] = buildpath
-    contents = Dir["{*,.git,.gitignore}"]
-    (buildpath/"src/github.com/hashicorp/consul").install contents
-
-    (buildpath/"bin").mkpath
-
-    cd "src/github.com/hashicorp/consul" do
-      system "make"
-      bin.install "bin/consul"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   plist_options manual: "consul agent -dev -bind 127.0.0.1"

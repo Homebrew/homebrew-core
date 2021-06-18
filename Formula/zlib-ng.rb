@@ -1,15 +1,15 @@
 class ZlibNg < Formula
   desc "Zlib replacement with optimizations for next generation systems"
   homepage "https://github.com/zlib-ng/zlib-ng"
-  url "https://github.com/zlib-ng/zlib-ng/archive/2.0.3.tar.gz"
-  sha256 "30305bd1551e3454bddf574f9863caf7137dde0fdbd4dcd7094eacfbb23955a0"
+  url "https://github.com/zlib-ng/zlib-ng/archive/2.0.4.tar.gz"
+  sha256 "a437402f72c4c7825454018343c68af48e792ecbffc346bfaaefdc1b0fdb28cc"
   license "Zlib"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6da07fcefc7d5e5bc8c0e263ef190f40f0dfe4b175bca12905a1dbdf6cc3de4c"
-    sha256 cellar: :any, big_sur:       "a31ce3ccf4d859b63e23df088d565432d2d3e3c97d8962203960dcc295bab81a"
-    sha256 cellar: :any, catalina:      "462f4462fe656f825bb890e2fd1502d285e18ad90eb9749c6587f67f4d3188e8"
-    sha256 cellar: :any, mojave:        "33132308de914dbd6e10cb5c342667ea6dd270914d600a3c1b0c9e2a015975cb"
+    sha256 cellar: :any, arm64_big_sur: "4e92251a14daf9987f938066d7d0b8a2821a969048c0de9d924318501e29ae28"
+    sha256 cellar: :any, big_sur:       "c37be5088955a060b78ea842307e0f7cc2a73f5d59e4827bdaf4b97dd06498bb"
+    sha256 cellar: :any, catalina:      "8fdc719ddc0b97f9c66b45842fb6dfb96ae3e27101288066c1793df182845ecf"
+    sha256 cellar: :any, mojave:        "676bd181106053efa6e620527910c7630cd6af5eac220101507c2e3e204029e9"
   end
 
   # https://zlib.net/zlib_how.html

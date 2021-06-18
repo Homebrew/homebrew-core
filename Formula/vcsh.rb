@@ -6,7 +6,9 @@ class Vcsh < Formula
   sha256 "178ddf6f7bba15bcc295a08247070665e5b799af64753e21c7fac68f72296ca8"
   license "GPL-2.0"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "d6adf58cb690fa63602d8056d347bf55dde6ebd090c6f82d1bbbbc78b137d93b"
+  end
 
   def install
     bin.install "vcsh"

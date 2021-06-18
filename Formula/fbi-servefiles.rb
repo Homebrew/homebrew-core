@@ -9,9 +9,10 @@ class FbiServefiles < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, catalina:    "9383ebc1948e403d7fef0e0613063cb1febb62e5b8142c3fe7ab62bf3f3d5c1d"
-    sha256 cellar: :any_skip_relocation, mojave:      "4055c03cc79761271cf0ea70be2f54250fa5b67db91f030f4ac9449e0a2f7307"
-    sha256 cellar: :any_skip_relocation, high_sierra: "d8d8d483abd92d016d8d1a7f0e4535c51233c83914f1c61d1223b72d750f1b8a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a9fbd3f0ebcc23402e58614577e7973829b471508ad1bf0e00be09ad196f5226"
+    sha256 cellar: :any_skip_relocation, catalina:      "9383ebc1948e403d7fef0e0613063cb1febb62e5b8142c3fe7ab62bf3f3d5c1d"
+    sha256 cellar: :any_skip_relocation, mojave:        "4055c03cc79761271cf0ea70be2f54250fa5b67db91f030f4ac9449e0a2f7307"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "d8d8d483abd92d016d8d1a7f0e4535c51233c83914f1c61d1223b72d750f1b8a"
   end
 
   deprecate! date: "2020-11-12", because: :repo_archived

@@ -14,7 +14,13 @@ class SonarqubeLts < Formula
     regex(/href=.*?sonarqube[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.zip/i)
   end
 
-  bottle :unneeded
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cb7b43a7396102cfa85ab32e9647bf04ae88dfb5855104d52e664f71338cc9fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "975d8370e016c2fd615699e67787c5ea2a00cd202ed6faa259964461a57384c5"
+    sha256 cellar: :any_skip_relocation, catalina:      "975d8370e016c2fd615699e67787c5ea2a00cd202ed6faa259964461a57384c5"
+    sha256 cellar: :any_skip_relocation, mojave:        "b4ffb6a083fc4eb59d55b9fc5ddaa95dce91408a6439f905c5d92a9c44be3b20"
+  end
 
   depends_on "openjdk@11"
 

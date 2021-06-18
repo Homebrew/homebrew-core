@@ -1,17 +1,16 @@
 class Libmonome < Formula
   desc "Interact with monome devices via C, Python, or FFI"
   homepage "https://monome.org/"
-  url "https://github.com/monome/libmonome/archive/v1.4.3.tar.gz"
-  sha256 "018e8bf64fda20c09a6de57fee484d7327d9176df27a81b015fa9da4853d8b5d"
+  url "https://github.com/monome/libmonome/archive/v1.4.4.tar.gz"
+  sha256 "466acc432b023e6c0bfa8dfb46d79abb1fb8c870f16279ffca7cf5286a63a823"
   license "ISC"
   head "https://github.com/monome/libmonome.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2313a8a8da4ce4df49333c64fb727c685d3d3f069d496f95a8a27936b716cca5"
-    sha256 cellar: :any, big_sur:       "c80ff6b83563bd1ea8f6d03b79b6f152713aaa5c8f82d94c1616aa1fe31dcdb0"
-    sha256 cellar: :any, catalina:      "b9be8943cd4758aec068ac75cb966a88e2119063873f7c29913936cc775fba13"
-    sha256 cellar: :any, mojave:        "44eed89ac8eeec932fde1b7baaf7059c0bd0030ac84be0a6f7695de91954ef5c"
-    sha256 cellar: :any, high_sierra:   "95892a3038d8ec5b1ff36438f02165d200a0a1d548af060d1197ae57e3a73e89"
+    sha256 cellar: :any, arm64_big_sur: "745e10cf5a29c44c9837fa7b822407eca0993ea00c414d99b7ad2a98fe7f059c"
+    sha256 cellar: :any, big_sur:       "ba70b11a69fab981f80172fcdf8cd78cb88b64386f0d86cfcdf0089d54916dbe"
+    sha256 cellar: :any, catalina:      "7aacc1a7d070958460b380f182ccdb7cc073ccef592eb018a69d61d30c07e0f6"
+    sha256 cellar: :any, mojave:        "a75784a9297378f3c477ee251f9e729f3e98230113908af03078a92cd4c7d076"
   end
 
   depends_on "liblo"

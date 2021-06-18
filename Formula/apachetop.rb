@@ -24,6 +24,10 @@ class Apachetop < Formula
   depends_on "ncurses"
   depends_on "pcre"
 
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",

@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.54.0",
-      revision: "c22876ea85419088d1df0675a962c76a9b1966ce"
+      tag:      "v0.56.0",
+      revision: "8a2d4d6e3e55d3f0d37238bb96be636528d62e41"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,10 +15,10 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fbbb59e2f82593caf889fe9bcc0c21beeacd5e799c5794056a8f15433fef89a5"
-    sha256 cellar: :any, big_sur:       "f43ac6b8b5f879e48a3f336a5c43fb31427361816e7b49e39b983e49a48a33d8"
-    sha256 cellar: :any, catalina:      "58e14a8ffca8bb4cae611b9a7611d0705928c51bef394c57f802ed33557cf83f"
-    sha256 cellar: :any, mojave:        "f04c016d128ddc31c944829a978f13ee6c9e70d2f27e53a8ab775857e030fa59"
+    sha256 cellar: :any, arm64_big_sur: "9b5139b44384cf152515615cb0ffe89da3d74dbcf8a8209204636de1fa15030d"
+    sha256 cellar: :any, big_sur:       "98e9fb453b8a65273a4d4b37398a24b7f1322f9c75730aab230f3fe105e56889"
+    sha256 cellar: :any, catalina:      "e45a3c6712aed44ac28c0757086bc88df09cf7f3d9f8e7a5f0f370ee8257cf01"
+    sha256 cellar: :any, mojave:        "ac3bafd71e46a93ab27b42a8763473ded813127abc30a530160ddba6af1be65c"
   end
 
   depends_on "cmake" => :build
@@ -81,8 +81,8 @@ class Semgrep < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/fd/6b/b83bdc8fb9aad62f6469117874e7c11b64d94ba9e8557f73ca1f28c2df7d/ruamel.yaml-0.17.7.tar.gz"
-    sha256 "5c3fa739bbedd2f23769656784e671c6335d17a5bf163c3c3901d8663c0af287"
+    url "https://files.pythonhosted.org/packages/ea/7f/4bcd7276603b4324ac12839a949b3e58f03cda1d87218c89a8a1efe31c1a/ruamel.yaml-0.17.9.tar.gz"
+    sha256 "374373b4743aee9f6d9f40bea600fe020a7ac7ae36b838b4a6a93f72b584a14c"
   end
 
   resource "ruamel.yaml.clib" do
@@ -96,8 +96,8 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/06/ca/721a7abe555012efaa4d6ee18a0048a4f27d84c6220bb6aa6eba049117d6/tqdm-4.61.0.tar.gz"
-    sha256 "cd5791b5d7c3f2f1819efc81d36eb719a38e0906a7380365c556779f585ea042"
+    url "https://files.pythonhosted.org/packages/f2/9c/99aae7670351c694c60c72e3cc834b7eab396f738b391bd0bdfc5101a663/tqdm-4.61.1.tar.gz"
+    sha256 "24be966933e942be5f074c29755a95b315c69a91f839a29139bf26ffffe2d3fd"
   end
 
   resource "urllib3" do

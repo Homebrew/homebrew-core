@@ -1,8 +1,8 @@
 class Kdoctools < Formula
   desc "Create documentation from DocBook"
   homepage "https://api.kde.org/frameworks/kdoctools/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.82/kdoctools-5.82.0.tar.xz"
-  sha256 "414fbb92521734664535b475bf1ea2b941c3d4bdde14c06fd243a2968d1531db"
+  url "https://download.kde.org/stable/frameworks/5.83/kdoctools-5.83.0.tar.xz"
+  sha256 "d3a4ea0d5c0348fff228aa5ba14a7d3eb00296c0f00b9ac9d4b74e56a89e395b"
   license all_of: [
     "BSD-3-Clause",
     "GPL-2.0-or-later",
@@ -12,10 +12,10 @@ class Kdoctools < Formula
   head "https://invent.kde.org/frameworks/kdoctools.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "693b384773db796c27380f83d6d2dc01a68696eafd121ec3b2f227839e053121"
-    sha256 cellar: :any, big_sur:       "a2a4bbed27479a3b420d101ee13b78a0ce76cb4dc4fab4c29409725c2568efa5"
-    sha256 cellar: :any, catalina:      "8ebef7a4acbf0292b731ad04194a29b00d3b0c1bb83f6fd5c4abf9a8138745b7"
-    sha256 cellar: :any, mojave:        "95e5d25e16885304892f72c67b18ce04a7f971acdadd004520cf9f84e84d250b"
+    sha256 cellar: :any, arm64_big_sur: "aaec47ae8121fd2e68585d330f0a6bd2ee1ea6caa83279065f8d5ea15aabfef6"
+    sha256 cellar: :any, big_sur:       "e03564786cb521df5cd7aa5d024c8951493dd49c25061d39ed0f256a9d6d6ee8"
+    sha256 cellar: :any, catalina:      "33ddc698c24e960c617ee312a169c4398852ed56c37c86509ba99975dda6f95b"
+    sha256 cellar: :any, mojave:        "31fed6390bd7ef02254157e85dc02136a7eef7c68f37e8fd41d7400eb0ba13d4"
   end
 
   depends_on "cmake" => [:build, :test]

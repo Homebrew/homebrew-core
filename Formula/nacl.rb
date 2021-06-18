@@ -5,6 +5,14 @@ class Nacl < Formula
   mirror "https://deb.debian.org/debian/pool/main/n/nacl/nacl_20110221.orig.tar.bz2"
   sha256 "4f277f89735c8b0b8a6bbd043b3efb3fa1cc68a9a5da6a076507d067fc3b3bf8"
 
+  # On an HTML page, we typically match versions from file URLs in `href`
+  # attributes. This "Installation" page only provides the archive URL in text,
+  # so this regex is a bit different.
+  livecheck do
+    url "https://nacl.cr.yp.to/install.html"
+    regex(%r{https?://[^\n]+?/nacl[._-]v?(\d+{6,8})\.t}i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, big_sur:     "89574694f733c8aa852e09e3828f10dd6ce2ece4219bd825e5f6c18253bddb28"

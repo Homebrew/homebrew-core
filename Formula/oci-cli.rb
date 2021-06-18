@@ -3,16 +3,16 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/0b/2d/4b3cf8e8659b086241654f714f63ccdcda8c56b7842e5698cde141b14731/oci-cli-2.25.1.tar.gz"
-  sha256 "ce3ec1327e1c78941f47ef439e14fabf1e2b625c0a4f0e5b103f5466a5542e4a"
+  url "https://files.pythonhosted.org/packages/15/91/01097742dc656a388ccbbc4d02dc53d56f61bfc92f9aeb4965095647d88c/oci-cli-2.25.3.tar.gz"
+  sha256 "b8e6f6737557eb491ea632051634611eeaf3afac0048c22515ecef670f4dabab"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "045392ecf1704cc5bff464db4a2fae5dbe0ce38e442a8ce9e166a255ca88843a"
-    sha256 cellar: :any, big_sur:       "c741f46776f4407648d2615400013e7a4f8d7b816215e64d5cedb8f570972b45"
-    sha256 cellar: :any, catalina:      "99f73e414c3cdb1cd280103cd40fed1d4b016868adb7c53efd69e9b2f4845085"
-    sha256 cellar: :any, mojave:        "e4ce28db371c3e7a39e367924ed3d7c2d96342061511559a5373425195b883e2"
+    sha256 cellar: :any, arm64_big_sur: "437921277686f107598158bde0d1574859354650880ac70db0a0c598c6c81292"
+    sha256 cellar: :any, big_sur:       "97009578518fe1414f784004db33c5373736cef04388575e79e8fc858d88eebf"
+    sha256 cellar: :any, catalina:      "f392f5b29d33f7beb8daa0343fba64d770c7a4f2e0f81b283e6a691ac81c4559"
+    sha256 cellar: :any, mojave:        "23523d57b97d86706cfa31cdcaeefb1f412915ac890543b12c096cc2a4bf2086"
   end
 
   depends_on "python@3.9"
@@ -53,8 +53,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/09/92/3a084a225afb96ed0e74f63fab728f5e26405f902b118685e97c8a17a979/oci-2.39.0.tar.gz"
-    sha256 "e1bff7347fc34846c82c751bba0ce81141740fafd9bedd36d9fe5af56bd2b463"
+    url "https://files.pythonhosted.org/packages/e6/22/5b682078aefe68e043c6ed1c1538eae2fd8bf9e1788fa404646100ee27cb/oci-2.40.0.tar.gz"
+    sha256 "cc47c0faeff48b32156875cad6fab68c94752764d5cf75b9b7bdd53a9d62ad10"
   end
 
   resource "pycparser" do

@@ -2,9 +2,9 @@ class Minio < Formula
   desc "High Performance, Kubernetes Native Object Storage"
   homepage "https://min.io"
   url "https://github.com/minio/minio.git",
-      tag:      "RELEASE.2021-05-27T22-06-31Z",
-      revision: "89bb9f17d73882127203e07c63d288d77525f1c6"
-  version "20210527220631"
+      tag:      "RELEASE.2021-06-17T00-10-46Z",
+      revision: "180eabaa8eb105bdfdf67f988d4bef3a8339074e"
+  version "20210617001046"
   license "AGPL-3.0-or-later"
   head "https://github.com/minio/minio.git"
 
@@ -17,10 +17,10 @@ class Minio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2f6a5af4c203a1bda5e82d13a749519ebd4fa4ccecfef9f53a8c1297356102a2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "447e5e0c0200c1bb8de2c9321e3020bb7fd7ccc642f8efc60b707aa937a58888"
-    sha256 cellar: :any_skip_relocation, catalina:      "e15f7d1123c906457c8fbf889c57bfc8906755310e29bb124e9ef369bce72f01"
-    sha256 cellar: :any_skip_relocation, mojave:        "6585e3c14d939f7c351b0647ae0c91d647d9990e6b9ad66a9ecd30f739c28434"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b62c449e316bd31c850b161b1a5556b438480662f3f3a30b3a45b5a8fad8ba57"
+    sha256 cellar: :any_skip_relocation, big_sur:       "522bb7e86c67f1a08422c0eadb2510987e27fffd6a78eb0d74adbc8ba29d76a5"
+    sha256 cellar: :any_skip_relocation, catalina:      "2fd7ec227d01756bece4bc5cf681a241147f776a12dd97ba05e747120d8e9c89"
+    sha256 cellar: :any_skip_relocation, mojave:        "cc1cd3d5f37dc632bcc94cf6e141448040372d7982ce6ad11baa1599eca20150"
   end
 
   depends_on "go" => :build

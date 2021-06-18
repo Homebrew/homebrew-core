@@ -28,6 +28,8 @@ class UtilLinux < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  conflicts_with "rename", because: "both install `rename` binaries"
+
   def install
     args = std_configure_args + %w[
       --disable-silent-rules

@@ -22,6 +22,8 @@ class Bazel < Formula
 
   uses_from_macos "zip"
 
+  conflicts_with "bazelisk", because: "Bazelisk replaces the bazel binary"
+
   def install
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath

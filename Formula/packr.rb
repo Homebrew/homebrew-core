@@ -60,6 +60,7 @@ class Packr < Formula
 
     system "go", "mod", "init", "example"
     system "go", "mod", "edit", "-require=github.com/gobuffalo/packr/v2@v#{version}"
+    system "go", "mod", "tidy"
     system "go", "mod", "download"
     system bin/"packr2"
     system "go", "build"

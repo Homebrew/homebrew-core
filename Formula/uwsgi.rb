@@ -2,6 +2,7 @@ class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/unbit/uwsgi.git"
 
   stable do
@@ -17,10 +18,10 @@ class Uwsgi < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4128d2e3c32af1db0ca94dc74f30d07076b5190668630a68f68cb898441c0b9a"
-    sha256 big_sur:       "3ff3a21eaf20a4132dc2b2da9405129a9aae59584c422b57cfa6f6cdfa29937c"
-    sha256 catalina:      "339d8ce59b4cd8657a62b322b26e89649847d32c4c8a1ff149e2e16dd4cc4ff2"
-    sha256 mojave:        "f885fbd73900a196ff2438bc5c14771b0bc8c9cad0a7f59c1cbb39f484205ed5"
+    sha256 arm64_big_sur: "59e4770011029a82e5f7e1c89e61909dcfc0909f4c450378b688b1e941c7e463"
+    sha256 big_sur:       "fa9547b417d0a9d2deaf55cf8ebad966798b81252d160921053ce21ca8aa5999"
+    sha256 catalina:      "22eff54752a60c52e2b21fd541f86a0e4949f6a16e6cc308052ae5d6d5b463bb"
+    sha256 mojave:        "eddfcd8b7114e8a8a68eeb9dc837475184799cd01712b318dd5950015964eabb"
   end
 
   depends_on "pkg-config" => :build

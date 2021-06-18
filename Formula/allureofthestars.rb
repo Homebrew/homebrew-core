@@ -4,12 +4,14 @@ class Allureofthestars < Formula
   url "https://hackage.haskell.org/package/Allure-0.10.2.0/Allure-0.10.2.0.tar.gz"
   sha256 "fcb9f38ea543d3277fa90eee004f7624d1168bf7f2c17902cda1870293b7c2f4"
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
+  revision 2
   head "https://github.com/AllureOfTheStars/Allure.git"
 
   bottle do
-    sha256 big_sur:  "08e20dcd7cfc1614eccd6379f87eb90033744e7cd4b61fe16f74a7ac398dc024"
-    sha256 catalina: "f91e6b2d32786a3a3d9c8158d25bcdcc237522bf20c897db126c4637214719b4"
-    sha256 mojave:   "74bba1ecc12c907719e67be93e7ec10493684bb23f4f1c93c1325a12c9b36c2d"
+    sha256 arm64_big_sur: "5d4b52ab398c06ea763ada17bbcc5ce1809e7fa41ca86d51e84a1b735e2bf1fc"
+    sha256 big_sur:       "520edb58cb488698e8d7684072a3ad0fb60380eb5142d2aa9c93577755f93f02"
+    sha256 catalina:      "cb7ee8b10d01e3ed930b003c2f0bc56a6430da78c0dc2d4f7b478412f87cc322"
+    sha256 mojave:        "ed9c63c9bce1bbd78e176f839bf948696fc59f37c9c23ac86bdf4689903f104f"
   end
 
   depends_on "cabal-install" => :build

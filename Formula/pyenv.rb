@@ -30,6 +30,10 @@ class Pyenv < Formula
   uses_from_macos "xz"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "python@3.9" => :test
+  end
+
   def install
     inreplace "libexec/pyenv", "/usr/local", HOMEBREW_PREFIX
     inreplace "libexec/pyenv-rehash", "$(command -v pyenv)", opt_bin/"pyenv"

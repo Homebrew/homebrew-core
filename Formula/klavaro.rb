@@ -4,6 +4,7 @@ class Klavaro < Formula
   url "https://downloads.sourceforge.net/project/klavaro/klavaro-3.11.tar.bz2"
   sha256 "fc64d3bf9548a5d55af1ba72912024107883a918b95ae60cda95706116567de6"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,15 +12,15 @@ class Klavaro < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6d85b1d56ade7f5ec30aec8cfd4303a329bfe5436f88953f37efae9a740023c2"
-    sha256 big_sur:       "e2443e25a1df331f8e13220e2e23d3969c76da569360298ce2a8e8ee6bf58c16"
-    sha256 catalina:      "cdcfb850a7948e249c28f38c29fd425bf4b60c36751d881a197bd027849f4cf6"
-    sha256 mojave:        "ddd221d6a3d97da22c6a257076df29e1c8795dd2a47b4c9eb76782d451a26a35"
-    sha256 high_sierra:   "3f75e1159ad6a743c00d9b00583bb8b99eaa66875f3316b437b6e3e63f99aa8a"
+    sha256 arm64_big_sur: "41b9587830f9220f6a91c21e8891e0902c59c10dc88dee82461e244e001b703b"
+    sha256 big_sur:       "55a3a6d28e83c6ee14f2a11c8d43023a4cabbf2513209d85e662f97ceb834d1c"
+    sha256 catalina:      "0e8d999d277da066fe7e2e8bd4f13d8e82da94cdc6349b141bae1123317111ae"
+    sha256 mojave:        "edc900c59a4ea4fe50e75a5ac0be451739931cae3d77ff8691229e6f3ead8eb3"
   end
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
+  depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
 
   def install

@@ -1,15 +1,15 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/containers/podman/archive/v3.2.0.tar.gz"
-  sha256 "1206377b12c11d4065bc4789fa104ca139ba77bb5b33541f07e8e95ae4d2932a"
+  url "https://github.com/containers/podman/archive/v3.2.1.tar.gz"
+  sha256 "140cbe8d6cb7807cbd3ef6d549d888e1c0e44d32dcff3a27453630fc52e7f5b8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "052765ca9ade7d0c84a448cce179da9c08e4bee8395162205cfdb9732da39f06"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1762fa3d1f020a3d05ffc7d602f90b44e3afcd2e0dd4fee26e71875189d88b3a"
-    sha256 cellar: :any_skip_relocation, catalina:      "8539d15055a39014122fd4ebd4e400ffb8772a4e4d8bd8d86b71835a7707e19d"
-    sha256 cellar: :any_skip_relocation, mojave:        "2dd6056c5154ff860807df812de4b703d0f63b7e3ab8dc1b87379c5d1742a524"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b72a56e67472d87c4ff2ad3069185f0c91ec753983a4f898e0629556548aec0d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6a9ca5d9bc4ba5ef5b854ddf70ebff1d483e9ec1e2009f8cc8490879cdfca004"
+    sha256 cellar: :any_skip_relocation, catalina:      "99afd9a5db54007374470d775143b49a040ca6f44ace395c510b4eadad880586"
+    sha256 cellar: :any_skip_relocation, mojave:        "472fa9fe5baf06b72ff359a411a5fb86ba2184f0afdb13593e1e76b4c247653c"
   end
 
   depends_on "go" => :build

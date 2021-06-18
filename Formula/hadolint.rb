@@ -1,14 +1,15 @@
 class Hadolint < Formula
   desc "Smarter Dockerfile linter to validate best practices"
   homepage "https://github.com/hadolint/hadolint"
-  url "https://github.com/hadolint/hadolint/archive/v2.4.1.tar.gz"
-  sha256 "dade1c9659471b3aff220f0a321e98c45e24584c7bd0d5d20bd95c64a1269bdd"
+  url "https://github.com/hadolint/hadolint/archive/v2.5.0.tar.gz"
+  sha256 "0de36f1fa8f86183d51722cda142dd41039aab557b4e8d0bfc6f5fe265bf9fa1"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "e139f730ae1c5508ee710cbcf0f6453f0c26e8b40beefe910999cc97157fcd0b"
-    sha256 cellar: :any_skip_relocation, catalina: "f4b116bbfbc9cb73c045b5369fa2ec92085a025f1065d3c4c0a9ab27e96ce52f"
-    sha256 cellar: :any_skip_relocation, mojave:   "e13abd67b5d34f4bd372a3f6c5ddf6ba8c0fed41a5b00e4a36b30b755c396e66"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6732ebe9206eed36aa2fa84e80edb52d2977c4fda5d8948311f808f475fecf76"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2b6d81982fd1903ff791a11fac8248e53be31dd1b8c1e6c7ea8465e29dac16d7"
+    sha256 cellar: :any_skip_relocation, catalina:      "8ffd44ca3e4a2d25e58c99fb19192db8bf16f52a13379cee0a51ba94194fb6e8"
+    sha256 cellar: :any_skip_relocation, mojave:        "dd210590b03eb1ae282c02c388c024fec2855ce1d1451df61fa0cb16cde92244"
   end
 
   depends_on "ghc" => :build
@@ -25,8 +26,14 @@ class Hadolint < Formula
     jobs = ENV.make_jobs
     ENV.deparallelize
 
-    system "stack", "-j#{jobs}", "build"
-    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install"
+    ghc_args = [
+      "--system-ghc",
+      "--no-install-ghc",
+      "--skip-ghc-check",
+    ]
+
+    system "stack", "-j#{jobs}", "build", *ghc_args
+    system "stack", "-j#{jobs}", "--local-bin-path=#{bin}", "install", *ghc_args
   end
 
   test do

@@ -1,8 +1,8 @@
 class Butane < Formula
   desc "Translates human-readable Butane Configs into machine-readable Ignition Configs"
   homepage "https://github.com/coreos/butane"
-  url "https://github.com/coreos/butane/archive/v0.11.0.tar.gz"
-  sha256 "3da1138aa86dc069e6f08b7fa9a4f3b910593406a0cc48f71edc7b3e1d1b1c49"
+  url "https://github.com/coreos/butane/archive/v0.12.1.tar.gz"
+  sha256 "6f2967009511361ed22cabb1de18ae2a3317537925b3b33b5bfcee363a77d062"
   license "Apache-2.0"
   head "https://github.com/coreos/butane.git"
 
@@ -12,10 +12,10 @@ class Butane < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e6ae4008af9fb8dda9996a611a89933c070ea957cb82238238b93169ebc89c0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b48f545690f7676ce59117fe3fec9c3a89872241c788081c1e828a62d5e93195"
-    sha256 cellar: :any_skip_relocation, catalina:      "9a412c89813d6f51a694557d4b38b849e3133af9b2707b4a77f648ab3b7bb32d"
-    sha256 cellar: :any_skip_relocation, mojave:        "bfceadc7c496f1d78b65f725ae01572eefdd74e6b8080b539c285033fffbcbf8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c0b0fedb580b6eb107172bb425b3de3a3ced9f6e2d68d206a80e3cd9ae63c2fc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ee6687d81be057506a3e5820319c95451aa577a92a5ba28d0f2008812610336a"
+    sha256 cellar: :any_skip_relocation, catalina:      "8478d8cb15794328cdfbb4385a2aa809256205f243d7baf77bb1bfebcbbc7e10"
+    sha256 cellar: :any_skip_relocation, mojave:        "6fc9ad566d96eebbac7539661e986aa0078d6aff8a417eec1bfb4722f7361058"
   end
 
   depends_on "go" => :build

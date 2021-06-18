@@ -36,6 +36,13 @@ class MysqlAT57 < Formula
   patch :DATA
 
   def install
+    on_linux do
+      # Fix libmysqlgcs.a(gcs_logging.cc.o): relocation R_X86_64_32
+      # against `_ZN17Gcs_debug_options12m_debug_noneB5cxx11E' can not be used when making
+      # a shared object; recompile with -fPIC
+      ENV.append_to_cflags "-fPIC"
+    end
+
     # Fixes loading of VERSION file; used in conjunction with patch
     File.rename "VERSION", "MYSQL_VERSION"
 

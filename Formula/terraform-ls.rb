@@ -1,8 +1,8 @@
 class TerraformLs < Formula
   desc "Terraform Language Server"
   homepage "https://github.com/hashicorp/terraform-ls"
-  url "https://github.com/hashicorp/terraform-ls/archive/v0.17.1.tar.gz"
-  sha256 "143b2eff3dfd108fbdaf451a360425e5b8bcd9500c4276d00b76ab508085b01b"
+  url "https://github.com/hashicorp/terraform-ls/archive/v0.18.1.tar.gz"
+  sha256 "d3f198ce29f22c1629165287d9b6596a8d77c402c870d281a33ffefada1620ac"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform-ls.git", branch: "main"
 
@@ -12,16 +12,16 @@ class TerraformLs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cdbf2ef61c88d1c43d58bd480cf2e6d9c64b74ed33b128351a8d2cb124f27ab0"
-    sha256 cellar: :any_skip_relocation, big_sur:       "71fee8758db4077ec7227b1ed1f7df729d0fb920b4df9afb1fa27459b4dc2bbe"
-    sha256 cellar: :any_skip_relocation, catalina:      "c290d00be4e71aed9b87c5a884b5a7990641e3f79dad4f10b968cce22454f099"
-    sha256 cellar: :any_skip_relocation, mojave:        "e69bee59c9a3d0591def18194dacd363a88d564d9bf07aaa877b19139725aea1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "af96fa296a11276a2b236a5bb3908c17d59547deaf66288c17ae17acf8168cfc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a661cd44d22b05b3adba80a6413524bd80882e72ff595a87dfd4525f3f491a4e"
+    sha256 cellar: :any_skip_relocation, catalina:      "81640ca452d7f880ac71267a021930a3f7e35d007844e007cd65f3e11c406183"
+    sha256 cellar: :any_skip_relocation, mojave:        "ab91956b84b90bc3b3cb95df43e6e79399e1c8488979231cef4c83cca9243111"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

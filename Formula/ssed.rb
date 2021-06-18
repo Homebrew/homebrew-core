@@ -5,6 +5,11 @@ class Ssed < Formula
   sha256 "af7ff67e052efabf3fd07d967161c39db0480adc7c01f5100a1996fec60b8ec4"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?sed[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2b6c860af3e99b067b867a53b1b7135918cf1ff10e27b744a4157c2134b866f5"

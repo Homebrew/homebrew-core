@@ -1,8 +1,8 @@
 class NodeAT14 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.17.0/node-v14.17.0.tar.gz"
-  sha256 "6114e82d3256136dc85a509d835442fbdf2f8430dcd8bfa7c304097344d06fb7"
+  url "https://nodejs.org/dist/v14.17.1/node-v14.17.1.tar.gz"
+  sha256 "f85297faa15529cf134e9cfd395371fea62e092c3fe2127f2b0fdf8504905cee"
   license "MIT"
 
   livecheck do
@@ -11,10 +11,10 @@ class NodeAT14 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9a94ee6cb701f73d99917367d534b9b100c08646d4c88461fec47b2a711e454e"
-    sha256 cellar: :any, big_sur:       "062783bf3ef055f22c15a0828ebf944cfd493d5cbe4cdb2a3d7a6559fa7bdeb2"
-    sha256 cellar: :any, catalina:      "dcb9cf2bceca1ed58609ef46a9a42b0f68bc3e408a365645b7bdb5bcf216e344"
-    sha256 cellar: :any, mojave:        "c8b8d45d038f3fe40cd63fb7315ad101788b6b8470ba08fcb14b5ad52c237e04"
+    sha256 cellar: :any, arm64_big_sur: "4c2763733cacf7c5f0dcbf1fc63c3950103ad203040a07163e411c3ae67d82ae"
+    sha256 cellar: :any, big_sur:       "b9db9d770599949fa21d4851fcaaa7f93984a77a7b9432391a441d4d6cf9848f"
+    sha256 cellar: :any, catalina:      "fe41b80465a1275ee7000a60d7af06235f086b6b3839805eccd5af0b43ee9a55"
+    sha256 cellar: :any, mojave:        "2223677fc1d15b43ed4565b7330fe67aedd6ad5c53b762a05e8a88868f15ba64"
   end
 
   keg_only :versioned_formula
@@ -22,14 +22,6 @@ class NodeAT14 < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
   depends_on "icu4c"
-
-  # Patch for compatibility with ICU 69
-  # https://github.com/v8/v8/commit/035c305ce7761f51328b45f1bd83e26aef267c9d
-  patch do
-    url "https://github.com/v8/v8/commit/035c305ce7761f51328b45f1bd83e26aef267c9d.patch?full_index=1"
-    sha256 "dfe0f6c312b0bea2733252db41fedae330afa21b055ee886b0b8f9ca780e2901"
-    directory "deps/v8"
-  end
 
   def install
     # make sure subprocesses spawned by make are using our Python 3

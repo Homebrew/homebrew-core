@@ -5,6 +5,11 @@ class Liboping < Formula
   sha256 "eb38aa93f93e8ab282d97e2582fbaea88b3f889a08cbc9dbf20059c3779d5cd8"
   license "LGPL-2.1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?liboping[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "a8ea63333bfc0a7ec880d0c5727316ff622ff2f4854efc93bd9bc082080f9365"
     sha256 big_sur:       "0edb72c3d81dbc8869b28d27f063372f7eed0ac4318624fe94e4ac5be7d2337a"

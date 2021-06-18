@@ -4,7 +4,7 @@ class Wxmac < Formula
   url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5.1/wxWidgets-3.0.5.1.tar.bz2"
   sha256 "440f6e73cf5afb2cbf9af10cec8da6cdd3d3998d527598a53db87099524ac807"
   license "wxWindows"
-  revision 1
+  revision 2
   head "https://github.com/wxWidgets/wxWidgets.git"
 
   livecheck do
@@ -13,11 +13,10 @@ class Wxmac < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f8d6ccae11c8d99b893e2605ca272a376a374faac8864304d1cdf544c6152421"
-    sha256 cellar: :any, big_sur:       "95b66fefa42f869430da0597abb27500d551d5f99662e285c4f0d3a9e2800bdf"
-    sha256 cellar: :any, catalina:      "110aa0b2134d8bff1647de0cd8500f160133794b347f789bba3e1894b991b788"
-    sha256 cellar: :any, mojave:        "5f703423fc3f1e36d647a2d8be2d271a92f5d60f49ceba8e3478391bbd4f5303"
-    sha256 cellar: :any, high_sierra:   "1de8aa03e1c50af387888ffa51cfa4e0c99d158f25edb0acbf312e10c629a31d"
+    sha256 cellar: :any, arm64_big_sur: "6f933082804dd002cbe6a7f0c295deb22c53764611c7e0405fb827147b726f31"
+    sha256 cellar: :any, big_sur:       "f5695d7ccacd4140747677cfb215b85d214d7c5ad664f74f677995a7ef61d0cd"
+    sha256 cellar: :any, catalina:      "9c73e111f4393b97c297e175ca7dda6d271b20fc11c8fcbda6b535ba55b1cd8e"
+    sha256 cellar: :any, mojave:        "a2abdcc10d241f9c79155738331def644a5c61b481dcc1b9f06b48ee7a9ee152"
   end
 
   depends_on "jpeg"

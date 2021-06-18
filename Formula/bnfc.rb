@@ -8,9 +8,10 @@ class Bnfc < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, big_sur:  "0f3c56a6f814bc0625000b7341ffdb6e6b9fbc60f9e9bef4819214e836b9abd8"
-    sha256 cellar: :any_skip_relocation, catalina: "33421a59619bb8911362221d25dc6b4b857be514a63795df2ea0bd297eb5bc8a"
-    sha256 cellar: :any_skip_relocation, mojave:   "dced427e3ffcc7bdffe354025d2e19d45f31c87e8e687d243cd1505108dadc24"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "582a5d263f6ac1420e1f4a749fdefad35aad9bbf960f97f57a1c16dfd1c29e4e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0f3c56a6f814bc0625000b7341ffdb6e6b9fbc60f9e9bef4819214e836b9abd8"
+    sha256 cellar: :any_skip_relocation, catalina:      "33421a59619bb8911362221d25dc6b4b857be514a63795df2ea0bd297eb5bc8a"
+    sha256 cellar: :any_skip_relocation, mojave:        "dced427e3ffcc7bdffe354025d2e19d45f31c87e8e687d243cd1505108dadc24"
   end
 
   depends_on "cabal-install" => [:build, :test]

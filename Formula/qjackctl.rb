@@ -12,9 +12,10 @@ class Qjackctl < Formula
   end
 
   bottle do
-    sha256 big_sur:  "a2bbdebd6049b024d735ef5495899bcfdfb7d067026694f9730f2d4df3254403"
-    sha256 catalina: "abebcbd47045dcf255752535e6d24b381333702284abbf84ac0abf0faad53132"
-    sha256 mojave:   "67f7792ff4b1876d815f771609369d7a318c716a3fe13fdd8e08df166f40fc50"
+    sha256 arm64_big_sur: "6f307d378c51e9a878afa808c8ab9a83a22d78e0daa64719d9bc9e8d8eba8d76"
+    sha256 big_sur:       "a2bbdebd6049b024d735ef5495899bcfdfb7d067026694f9730f2d4df3254403"
+    sha256 catalina:      "abebcbd47045dcf255752535e6d24b381333702284abbf84ac0abf0faad53132"
+    sha256 mojave:        "67f7792ff4b1876d815f771609369d7a318c716a3fe13fdd8e08df166f40fc50"
   end
 
   depends_on "pkg-config" => :build

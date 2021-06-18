@@ -1,8 +1,8 @@
 class Cacli < Formula
   desc "Train machine learning models from Cloud Annotations"
   homepage "https://cloud.annotations.ai"
-  url "https://github.com/cloud-annotations/training/archive/v1.3.2.tar.gz"
-  sha256 "9f164636367af848de93459cf0e7919aa099c408e6ad91a58874db6bc9986bfb"
+  url "https://github.com/cloud-annotations/cloud-annotations/archive/v1.3.2.tar.gz"
+  sha256 "e7d8fd54f16098a6ac9a612b021beea3218d9747672d49eff20a285cdee69101"
   license "MIT"
 
   livecheck do

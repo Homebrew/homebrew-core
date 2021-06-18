@@ -4,12 +4,14 @@ class Dartsim < Formula
   url "https://github.com/dartsim/dart/archive/v6.10.1.tar.gz"
   sha256 "bf19cdef8e28dbc4059dcbb11997576d6e1d825791bd756e8272d2ddc5b147ce"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 big_sur:  "761351510ddd1e719882b2daaea5be4f7c04280725bf8fd0f829ea9ada7096f0"
-    sha256 catalina: "89fe235f7886635f0b2cfa26d52ece027a15b1ff6935da5c40ecbfad2f54b289"
-    sha256 mojave:   "b1630da0b45a973a399e756ba1b505897d3e50d846e8bca657eae29136847590"
+    rebuild 1
+    sha256 arm64_big_sur: "9040d281f8c9b79be449d5a1a675dae00bf0f3aa5c3b2d0378dff33f0e96cc6f"
+    sha256 big_sur:       "3f0f960d2f6d85b3c3a77e57bbccf89bc8d45e7a8a20f7a5f3640829213767a1"
+    sha256 catalina:      "e0d7a5fca7beef0c9d468061f533c5c496c12853d82781acfe5daa049a80f37c"
+    sha256 mojave:        "e282979646c3970e9c29178f33368f8ea60aa0120bff13a14dd99758bfd6a16f"
   end
 
   depends_on "cmake" => :build
@@ -38,8 +40,10 @@ class Dartsim < Formula
       args << "-DGLUT_glut_LIBRARY=#{glut_lib}"
     end
 
-    system "cmake", ".", *args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
+      system "make", "install"
+    end
 
     # Clean up the build file garbage that has been installed.
     rm_r Dir["#{share}/doc/dart/**/CMakeFiles/"]

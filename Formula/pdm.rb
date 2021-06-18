@@ -3,19 +3,20 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/59/a0/6cc4d9e4dc8a35a38b201756c69fd8b40c844bc15e3a2df9d71f1ebf30ce/pdm-1.6.2.tar.gz"
-  sha256 "e403a43f49230458a9712def22c77a89a8907379cf3cfc1087d9a3e74a59fcd2"
+  url "https://files.pythonhosted.org/packages/d6/fc/5f5caaea9e6161aa89dfc51f3efeca81899c04ca174e9085916e25e0cb22/pdm-1.6.3.tar.gz"
+  sha256 "8d3976ff119fdc2c522093e660d64dc101b9c429bbb42454c9b6edf22d0bd2a1"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "af6270ceccbfcb17c17f1953c0af37c6a4a6d41c23c4c8c3ad8fb7ab73bc0e14"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b39ff64712e7e23f0f6a49b97ac18dc5022a8ab235b441b26f98e42e3ab4dd09"
-    sha256 cellar: :any_skip_relocation, catalina:      "2c8dfa071d55a99df894779b576cdf1e4acd4fbd5b1c8f080dd7eac4911a59b1"
-    sha256 cellar: :any_skip_relocation, mojave:        "60c7503ea14b6ad799523368b212baa2e743058773a752b1a6f9cb4566072816"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "82c527a7dedc1c7f18f5bece231d163a309a82773b1826952116be380c24c76f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "30d8758b1d29fcafba376a06d722ba1970e15a77904f1b53280a294fb644afae"
+    sha256 cellar: :any_skip_relocation, catalina:      "e646c992d41132755cc08e878dba88743a70a5c54bc68f3d82ab4c9bc399e8fd"
+    sha256 cellar: :any_skip_relocation, mojave:        "0d2da32aa394dc3446d037d1e282cec080f702162f670e8de7bb7f0ed68f503d"
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -23,8 +24,8 @@ class Pdm < Formula
   end
 
   resource "atoml" do
-    url "https://files.pythonhosted.org/packages/b2/08/bdf5d2f46be558383a1eff7af3c778126e0039b5f1392fca80898686af22/atoml-1.0.1.tar.gz"
-    sha256 "f8180558dcb74891325e05776f07f8780a7ed9b20948693d07366bff55d3470d"
+    url "https://files.pythonhosted.org/packages/a9/06/96184509172e790ab6388f6b793a670f76630f29c7a19990a6cc38f15de3/atoml-1.0.2.tar.gz"
+    sha256 "6bb0c219304ad63b0a567227ad34ccfd56c197fafed3120d4eca720b885397a0"
   end
 
   resource "attrs" do
@@ -97,11 +98,6 @@ class Pdm < Formula
     sha256 "4855c2458d6904829bd34c299f11fdeed7cfefbf8a2c522e4caea6cd76b3171e"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "toml" do
     url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
@@ -127,7 +123,7 @@ class Pdm < Formula
 
     EOS
     system bin/"pdm", "add", "requests==2.24.0"
-    assert_match "dependencies = [\"requests==2.24.0\"]", (testpath/"pyproject.toml").read
+    assert_match "dependencies = [\n    \"requests==2.24.0\",\n]", (testpath/"pyproject.toml").read
     assert_predicate testpath/"pdm.lock", :exist?
     assert_match "name = \"urllib3\"", (testpath/"pdm.lock").read
     output = shell_output("#{bin}/pdm run python -c 'import requests;print(requests.__version__)'")

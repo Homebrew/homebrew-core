@@ -6,13 +6,14 @@ class Vimpager < Formula
   head "https://github.com/rkitover/vimpager.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "9ead831c50c50e1b95b18695737936bc907c9241867d3700c87120c8af09aea7"
-    sha256 cellar: :any_skip_relocation, catalina:    "2a409da1fc4a31e1165e33ed681ed15b874d514721c7295a0901ebf4516aa469"
-    sha256 cellar: :any_skip_relocation, mojave:      "f4ec02de4d30af041e98f3ab4ce6344424f7a8f5bfeca6cf21dc179cbd6e576a"
-    sha256 cellar: :any_skip_relocation, high_sierra: "73aaa39c9876664b2f0b0a98dea30ea34e05504f28d607276873345d57b97834"
-    sha256 cellar: :any_skip_relocation, sierra:      "308c68e761983beb317bbefcba285022dbc74a66486a3da7e2ac8bc929649a3a"
-    sha256 cellar: :any_skip_relocation, el_capitan:  "eccfe695299ff91b489e0385b2024e6f383426f696dc4a5462fe2e0bc6f875b1"
-    sha256 cellar: :any_skip_relocation, yosemite:    "be8ae8e77106e1fa95821b59171b982af74365693be0b416e41bb807a07c6c60"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "356c5407fc0656ac0b4ae4a7a3e62f1992525a120a7a1d0b6fdd514561d5381d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9ead831c50c50e1b95b18695737936bc907c9241867d3700c87120c8af09aea7"
+    sha256 cellar: :any_skip_relocation, catalina:      "2a409da1fc4a31e1165e33ed681ed15b874d514721c7295a0901ebf4516aa469"
+    sha256 cellar: :any_skip_relocation, mojave:        "f4ec02de4d30af041e98f3ab4ce6344424f7a8f5bfeca6cf21dc179cbd6e576a"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "73aaa39c9876664b2f0b0a98dea30ea34e05504f28d607276873345d57b97834"
+    sha256 cellar: :any_skip_relocation, sierra:        "308c68e761983beb317bbefcba285022dbc74a66486a3da7e2ac8bc929649a3a"
+    sha256 cellar: :any_skip_relocation, el_capitan:    "eccfe695299ff91b489e0385b2024e6f383426f696dc4a5462fe2e0bc6f875b1"
+    sha256 cellar: :any_skip_relocation, yosemite:      "be8ae8e77106e1fa95821b59171b982af74365693be0b416e41bb807a07c6c60"
   end
 
   depends_on "pandoc" => :build

@@ -38,7 +38,7 @@ class Hypre < Formula
       }
     EOS
 
-    system ENV.cc, "test.cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-o", "test"
     system "./test"
   end
 end

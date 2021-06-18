@@ -15,6 +15,8 @@ class Spotbugs < Formula
 
   depends_on "openjdk"
 
+  conflicts_with "fb-client", because: "both install a `fb` binary"
+
   def install
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     if build.head?

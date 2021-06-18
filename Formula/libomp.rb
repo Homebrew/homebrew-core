@@ -19,6 +19,10 @@ class Libomp < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    keg_only "provided by LLVM, which is not keg-only on Linux"
+  end
+
   def install
     # Disable LIBOMP_INSTALL_ALIASES, otherwise the library is installed as
     # libgomp alias which can conflict with GCC's libgomp.
@@ -46,7 +50,7 @@ class Libomp < Formula
             return 1;
       }
     EOS
-    system ENV.cxx, "-Werror", "-Xpreprocessor", "-fopenmp", "test.cpp",
+    system ENV.cxx, "-Werror", "-Xpreprocessor", "-fopenmp", "test.cpp", "-std=c++11",
                     "-L#{lib}", "-lomp", "-o", "test"
     system "./test"
   end

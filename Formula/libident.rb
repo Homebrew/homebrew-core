@@ -4,6 +4,11 @@ class Libident < Formula
   url "https://www.remlab.net/files/libident/libident-0.32.tar.gz"
   sha256 "8cc8fb69f1c888be7cffde7f4caeb3dc6cd0abbc475337683a720aa7638a174b"
 
+  livecheck do
+    url "https://www.remlab.net/files/libident/"
+    regex(/href=.*?libident[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, big_sur:     "50e093a609acac219853ba89a884408bebcddd23b7ae23faad9476618649cbe7"

@@ -6,15 +6,17 @@ class Pipgrip < Formula
   url "https://files.pythonhosted.org/packages/6d/58/498fceb2264c03e3a7cc672aea29c363995ff7a61d169f2cce7bc297eeba/pipgrip-0.6.10.tar.gz"
   sha256 "775b82aa6fc33b31bfadb483946172c235285d019f0577ab40fde219a7ff977d"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "186e5d20f5e9efad4af13796d0e0ac79caec559051913fe472e0e7aa1e0986ff"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fe945bd47c9f216c2d0a792cd8e285eb997a3b6f029ecb7b6c7a8db71610f675"
-    sha256 cellar: :any_skip_relocation, catalina:      "0f18bb4595009bba0811ece3c86e74caa1c84799818298431aa9cba38527ef12"
-    sha256 cellar: :any_skip_relocation, mojave:        "d4dad1ab2fa11622134520609287f74ca26f87c7abc12895348318da20852517"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c52cb1d2e5972128efe598fcc62745b5e1fa6f066901d1366dbbbea4c0a9fe62"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c9e14ba251606734a6d88de7594d82e4d62a843800772058275707c291c07fc8"
+    sha256 cellar: :any_skip_relocation, catalina:      "7dfd7fe685e31aba9deace2a2d4d51c21bab66ac74ed2876a822c10356223150"
+    sha256 cellar: :any_skip_relocation, mojave:        "09a8db46fa81ece85eb5819d911447e9feaf4c5b36da8650a7a59ef0f937806f"
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "anytree" do
     url "https://files.pythonhosted.org/packages/d8/45/de59861abc8cb66e9e95c02b214be4d52900aa92ce34241a957dcf1d569d/anytree-2.8.0.tar.gz"
@@ -39,11 +41,6 @@ class Pipgrip < Formula
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
     sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "wheel" do

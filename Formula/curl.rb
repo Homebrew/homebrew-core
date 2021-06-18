@@ -11,10 +11,11 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2316dfc6029283ebecf305d4dec3f768300b5073e0829a73c68d1fe05ab416ba"
-    sha256 cellar: :any, big_sur:       "45a306b83e606386e74797c4e1ed94437c1941c050e564a98eaf53fdb85ae69c"
-    sha256 cellar: :any, catalina:      "57e21718ba4438ece25a46bd5322b48ec277c224683758910bcfa5d348c5750a"
-    sha256 cellar: :any, mojave:        "0b735c1d95f0519efa80d375a8f4b39162250a13d2ce592209889ecc7820aca7"
+    rebuild 1
+    sha256 cellar: :any, arm64_big_sur: "36940ec937de41aefd30d264885e909ac4621f89af69e708ff28e0e6e80b18d4"
+    sha256 cellar: :any, big_sur:       "2fea808dd9f8dc2a9bac45870be0a14f2f81243652d2e46d319e36e865543367"
+    sha256 cellar: :any, catalina:      "4a549f63ab3fa72db7efa9d2a9a9f886fa093546b93b548346216feb878f5268"
+    sha256 cellar: :any, mojave:        "9313777bd2c21e174542c9dd66ee80eb6f4d8f63dae96b5ba4202b957f404b8a"
   end
 
   head do
@@ -30,7 +31,6 @@ class Curl < Formula
   depends_on "pkg-config" => :build
   depends_on "brotli"
   depends_on "libidn2"
-  depends_on "libmetalink"
   depends_on "libssh2"
   depends_on "nghttp2"
   depends_on "openldap"
@@ -57,7 +57,6 @@ class Curl < Formula
       --with-default-ssl-backend=openssl
       --with-gssapi
       --with-libidn2
-      --with-libmetalink
       --with-librtmp
       --with-libssh2
       --without-libpsl

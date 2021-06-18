@@ -1,16 +1,16 @@
 class DotenvLinter < Formula
   desc "Lightning-fast linter for .env files written in Rust"
   homepage "https://dotenv-linter.github.io"
-  url "https://github.com/dotenv-linter/dotenv-linter/archive/v3.0.0.tar.gz"
-  sha256 "a858a4ff6121ec9d9a8889b8bb8d3fd88497c8142c5c5d087a6f169bfd19d73f"
+  url "https://github.com/dotenv-linter/dotenv-linter/archive/v3.1.0.tar.gz"
+  sha256 "1b41740a061dc02ba11680d6fe28c6a961a16f8177d06042db68c0249f731070"
   license "MIT"
   head "https://github.com/dotenv-linter/dotenv-linter.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "394d505159a7fa57862d7231e2aad10ce33836f54dbfbc2010c1d57d5172eb27"
-    sha256 cellar: :any_skip_relocation, big_sur:       "851044d08dcdaa0d16d0fd1cc0743b7539ef464b7c708137a065f78e9b6d5727"
-    sha256 cellar: :any_skip_relocation, catalina:      "7e21af0a9acb92e757a0d0b1b086548c91ea8ef10cce7487797f9bc2c66825ba"
-    sha256 cellar: :any_skip_relocation, mojave:        "d9cd2cfa877f183617e0154482350605934e6a4fbbddff0c002299fbb079d87b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "184f8f44c290ad4ad9e151fb2f147348711bfc02d007124070c143a3bdd46bd8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5155e044174d3ee0ec043c1543156906a6b2ba9bc24a8d3ba4e6ba24677ec90a"
+    sha256 cellar: :any_skip_relocation, catalina:      "9def48cd0fa0f35d763898d62889faeb1371d8589623c6c607aaa7815a36b2e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "d23716aa6cba002d9629ca02547d05f964754b7ac575dd00e2d83ee6df1b4e8a"
   end
 
   depends_on "rust" => :build

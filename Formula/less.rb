@@ -4,6 +4,7 @@ class Less < Formula
   url "https://www.greenwoodsoftware.com/less/less-581.2.tar.gz"
   sha256 "ce34b47caf20a99740672bf560fc48d5d663c5e78e67bc254e616b9537d5d83b"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,10 +12,10 @@ class Less < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9e0c12d3d5fb90f1b8c6019640952850d46a67b4fbe6a97fd588c8a33e8257f7"
-    sha256 cellar: :any, big_sur:       "25c7f4a05a8c1796a2e5852af187d6fed214a4eebdf208cddf10943d9304128c"
-    sha256 cellar: :any, catalina:      "ec99b4636cf2cf7be091512342b4d4814d1c7aaf77dc06847b0faf93c614a3e2"
-    sha256 cellar: :any, mojave:        "c9beae597064d6622349a334f164b02522f25535ccb3969349d18d60c1252032"
+    sha256 cellar: :any, arm64_big_sur: "f23024af4d1356f53bb5878fbbb41bd5da0943db524e9317a5f1e90a3ae88af2"
+    sha256 cellar: :any, big_sur:       "3a13526e660b8d2b6725a48000be76f4d79e4178e516c137b807968e0faabdd8"
+    sha256 cellar: :any, catalina:      "e92c22994edb092737b72ea43911063ae2fdafe8b98692fbcadaced1f0b31f74"
+    sha256 cellar: :any, mojave:        "ac57fc123c84d43490749f55e7e6ed0605821fbbe62fc0d503c71c00f568137b"
   end
 
   head do
@@ -24,11 +25,11 @@ class Less < Formula
   end
 
   depends_on "ncurses"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   def install
-    system "make", "-f", "Makefile.aut", "dist" if build.head?
-    system "./configure", "--prefix=#{prefix}", "--with-regex=pcre"
+    system "make", "-f", "Makefile.aut", "distfiles" if build.head?
+    system "./configure", "--prefix=#{prefix}", "--with-regex=pcre2"
     system "make", "install"
   end
 

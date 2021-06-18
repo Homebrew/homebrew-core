@@ -19,6 +19,8 @@ class Oil < Formula
 
   depends_on "readline"
 
+  conflicts_with "omake", because: "both install 'osh' binaries"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--with-readline=#{Formula["readline"].opt_prefix}"

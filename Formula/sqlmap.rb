@@ -1,13 +1,16 @@
 class Sqlmap < Formula
   desc "Penetration testing for SQL injection and database servers"
   homepage "https://sqlmap.org"
-  url "https://github.com/sqlmapproject/sqlmap/archive/1.5.5.tar.gz"
-  sha256 "66a234c3ee60604a8edd685a64110663a633757d3183db314edd76526fe1a0d8"
+  url "https://github.com/sqlmapproject/sqlmap/archive/1.5.6.tar.gz"
+  sha256 "adc5feaf873ca6f50d4a1f3cf9d047b20c4e12733355528acb467926c6c375f1"
   license "GPL-2.0-or-later"
   head "https://github.com/sqlmapproject/sqlmap.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6abeaff8a1290c8476e37a4c494c4d63fca25cc162b5352ff56557d5c055bc0a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b2c9fed5611150a0e2f8767ddcb7f7f11482da54beb04d9f3d672acaa0a89040"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a463242243dabbce67c7f5c134da0c9ec62acd8a22188a28ff2a12895de8a36a"
+    sha256 cellar: :any_skip_relocation, catalina:      "a463242243dabbce67c7f5c134da0c9ec62acd8a22188a28ff2a12895de8a36a"
+    sha256 cellar: :any_skip_relocation, mojave:        "a463242243dabbce67c7f5c134da0c9ec62acd8a22188a28ff2a12895de8a36a"
   end
 
   def install

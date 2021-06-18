@@ -3,8 +3,8 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/b3/d6/d1aa2fdb633d092cf43ec4c96b0035a0a3a4f579b691205f96ccbd4e0032/black-21.5b2.tar.gz"
-  sha256 "1fc0e0a2c8ae7d269dfcf0c60a89afa299664f3e811395d40b1922dff8f854b5"
+  url "https://files.pythonhosted.org/packages/26/37/66b198a6a660c72a85386592643b2911052c4feaa33b99681ed8c267bf1a/black-21.6b0.tar.gz"
+  sha256 "dc132348a88d103016726fe360cb9ede02cecf99b76e3660ce6c596be132ce04"
   license "MIT"
 
   livecheck do
@@ -13,10 +13,10 @@ class Black < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3e24da14845c2704fa37262906e62a9121ead3ef26d9534e14fce67526ddeb86"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e562a03862e88ef6764ab690f9540f26f59511a4ae259e65bde6b73e87b7fbb0"
-    sha256 cellar: :any_skip_relocation, catalina:      "fd335c3d8e9e8fe9b10bcd5c8e01ca385c91de8ef7486de1af9420a8969f1e5a"
-    sha256 cellar: :any_skip_relocation, mojave:        "d156e1da447145bcce69d80bd7e6cc0379e0d6bdfe14000c2fff3bce404d6ac5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b6c9892303d3642a15a615b9a17a8727868eeeef681f78d7c41aae747e10cfed"
+    sha256 cellar: :any_skip_relocation, big_sur:       "541018f7593f6fe3b95a7e71de16a62a192b403e7f8a097617261dcd2ad7a6ed"
+    sha256 cellar: :any_skip_relocation, catalina:      "b898c03f34985b39552b4eba1f51fd44fd200d281bb49f3db7a0480dc25ca82d"
+    sha256 cellar: :any_skip_relocation, mojave:        "025af14e678c25c407e1732b01dbe25ea507b3fdc318bf582819140cffc6e906"
   end
 
   depends_on "python@3.9"

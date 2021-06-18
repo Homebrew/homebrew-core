@@ -7,8 +7,9 @@ class Envoy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "6102aca3db84b37f631cefbc4750fe4d4c69cdfbb9c6c010c0ceaffea5056f6e"
-    sha256 cellar: :any_skip_relocation, catalina: "79d7320da0300b598b5edefe3d6c9bb14d8cb8b08ca2cf838923e7a682f44409"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, big_sur:  "d03fb86b48336c8d3c0f3711cfc3df3557f9fb33c966ceb1caecae1653935e90"
+    sha256 cellar: :any_skip_relocation, catalina: "b2decfc5dea341e47d5460719f53723b81b26b167c051513d080b3857b44705a"
   end
 
   depends_on "automake" => :build
@@ -22,6 +23,8 @@ class Envoy < Formula
 
   def install
     args = %w[
+      -c
+      opt
       --curses=no
       --show_task_finish
       --verbose_failures

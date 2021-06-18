@@ -24,7 +24,6 @@ class Gdal < Formula
   end
 
   depends_on "pkg-config" => :build
-
   depends_on "cfitsio"
   depends_on "epsilon"
   depends_on "expat"
@@ -61,6 +60,7 @@ class Gdal < Formula
     depends_on "bash-completion"
   end
 
+  conflicts_with "avce00", because: "both install a cpl_conv.h header"
   conflicts_with "cpl", because: "both install cpl_error.h"
 
   def install

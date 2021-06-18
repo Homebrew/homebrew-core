@@ -3,6 +3,7 @@ class Cogl < Formula
   homepage "https://developer.gnome.org/cogl/"
   url "https://download.gnome.org/sources/cogl/1.22/cogl-1.22.8.tar.xz"
   sha256 "a805b2b019184710ff53d0496f9f0ce6dcca420c141a0f4f6fcc02131581d759"
+  license all_of: ["MIT", "SGI-B-2.0", "BSD-3-Clause", :public_domain]
 
   bottle do
     sha256 arm64_big_sur: "9a487a4bf7fbe5fdec29d902ba668fe20cbbc05e66864cb8d9c5fe564373e586"
@@ -38,9 +39,16 @@ class Cogl < Formula
       --prefix=#{prefix}
       --enable-cogl-pango=yes
       --enable-introspection=yes
-      --disable-glx
-      --without-x
     ]
+
+    on_macos do
+      args << "--disable-glx"
+      args << "--without-x"
+    end
+
+    on_linux do
+      args << "--enable-xlib-egl-platform=yes"
+    end
 
     system "./configure", *args
     system "make", "install"

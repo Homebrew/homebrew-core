@@ -4,23 +4,28 @@ class ZshCompletions < Formula
   url "https://github.com/zsh-users/zsh-completions/archive/0.33.0.tar.gz"
   sha256 "39452d383d0718aa2c830edba1aa32f0ee1e40002ef6932d88699a888bd58c29"
   license "MIT-Modern-Variant"
+  revision 1
   head "https://github.com/zsh-users/zsh-completions.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2579cab8a4d96ce2a7d179bf36fb2898d4f3611823c6392f5eac2014ff4d7d1f"
+    sha256 cellar: :any_skip_relocation, all: "eab228532a15b1c8eddfd38f46306cf723e6f331d38c8874d0305d6fe888ab70"
   end
 
   def install
     inreplace "src/_ghc", "/usr/local", HOMEBREW_PREFIX
-    zsh_completion.install Dir["src/*"]
+    pkgshare.install Dir["src/_*"]
   end
 
   def caveats
     <<~EOS
       To activate these completions, add the following to your .zshrc:
 
-        autoload -Uz compinit
-        compinit
+        if type brew &>/dev/null; then
+          FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+          autoload -Uz compinit
+          compinit
+        fi
 
       You may also need to force rebuild `zcompdump`:
 
@@ -35,9 +40,10 @@ class ZshCompletions < Formula
 
   test do
     (testpath/"test.zsh").write <<~EOS
+      fpath=(#{pkgshare} $fpath)
       autoload _ack
       which _ack
     EOS
-    assert_match(/^_ack/, shell_output("/bin/zsh -fd test.zsh"))
+    assert_match(/^_ack/, shell_output("/bin/zsh test.zsh"))
   end
 end

@@ -2,7 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/1.0.0.tar.gz"
@@ -20,9 +20,9 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 big_sur:  "a5deb38c8911b4d8aea515981a4f485e0235ce47c8a606b569288d084a75120e"
-    sha256 catalina: "f1e79efb22b37d85ddcfd02e689ca0d31bbb3e32997f43c1171b66c6487ea912"
-    sha256 mojave:   "b9d9b425b670df3fdbd89f2cd368bf95185626be94dc28359d0e3f38113d6d5b"
+    sha256 big_sur:  "2b3ed35fef1b42c1d2acc740edbdc72eb6849ec658f8680fef3f2c1c2a7d5378"
+    sha256 catalina: "2f270445145ad381faf1e5a2d35d5400c084a38099c4ffb4b6a861dd712ee6ff"
+    sha256 mojave:   "00a853fa0bae01d2acf4013f4e5acc75db736145bf0e9b07719909e31b1401b0"
   end
 
   head do
@@ -37,9 +37,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  # NOTE: Using llvm@11 is possible but compiling in release mode
-  #       has currently a known issue https://github.com/crystal-lang/crystal/issues/10359
-  depends_on "llvm@9"
+  depends_on "llvm@11"
   depends_on "openssl@1.1" # std uses it but it's not linked
   depends_on "pcre"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
@@ -62,7 +60,7 @@ class Crystal < Formula
     ENV.append_path "PATH", "boot/bin"
     ENV.append_path "CRYSTAL_LIBRARY_PATH", Formula["bdw-gc"].opt_lib
     ENV.append_path "CRYSTAL_LIBRARY_PATH", ENV["HOMEBREW_LIBRARY_PATHS"]
-    ENV.append_path "LLVM_CONFIG", Formula["llvm@9"].opt_bin/"llvm-config"
+    ENV.append_path "LLVM_CONFIG", Formula["llvm@11"].opt_bin/"llvm-config"
 
     # Build crystal
     crystal_build_opts = []

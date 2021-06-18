@@ -6,10 +6,11 @@ class Shadowenv < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:     "43ef903f8c706b1aaa787a28a101bb488f80fecfcf5207d56a55205464cd3ca3"
-    sha256 cellar: :any_skip_relocation, catalina:    "a8e73028069e37003f2e019230e48947913b164ebb9cdb50ea088b6398fc352c"
-    sha256 cellar: :any_skip_relocation, mojave:      "5022c65cf81ba99f8be31fdd879201e566f203f357e5ca88d14daaa0d9a83325"
-    sha256 cellar: :any_skip_relocation, high_sierra: "fe0a543dc0a0ce7adba2eebc9f8f224aa55a4f63b49a4474d576d6467d604065"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "02ff2bd5dcbda48dd8824cd7c1faa649940dfdb58076c5a9c4a0605680ee5fd1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "43ef903f8c706b1aaa787a28a101bb488f80fecfcf5207d56a55205464cd3ca3"
+    sha256 cellar: :any_skip_relocation, catalina:      "a8e73028069e37003f2e019230e48947913b164ebb9cdb50ea088b6398fc352c"
+    sha256 cellar: :any_skip_relocation, mojave:        "5022c65cf81ba99f8be31fdd879201e566f203f357e5ca88d14daaa0d9a83325"
+    sha256 cellar: :any_skip_relocation, high_sierra:   "fe0a543dc0a0ce7adba2eebc9f8f224aa55a4f63b49a4474d576d6467d604065"
   end
 
   depends_on "rust" => :build

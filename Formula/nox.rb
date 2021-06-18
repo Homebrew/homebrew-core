@@ -3,15 +3,15 @@ class Nox < Formula
 
   desc "Flexible test automation for Python"
   homepage "https://nox.thea.codes/"
-  url "https://files.pythonhosted.org/packages/fa/2c/418121898a0262d6acd5af46286e741dac50c3e4037231e55bdee3516124/nox-2021.6.6.tar.gz"
-  sha256 "ff894d2a134b0163147b43a72d5abb4348f307f100a52665a32a98a9ab8f244a"
+  url "https://files.pythonhosted.org/packages/29/6c/e3dc69ea5ef8150f859315e2abf56cb5bb110d65d628d727bd67df514432/nox-2021.6.12.tar.gz"
+  sha256 "955dbeb8e657a08226f8c1c8f8d1e2a40fe5438a792056314f351e504639a80f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ac8600a1ac8f9f1c5032a18d701e96abab4718d0f4c70398beb0661db3930a37"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0ded487819aeff6271ddcafe0855864f4aad847f9a8a7cca3929890823089e8e"
-    sha256 cellar: :any_skip_relocation, catalina:      "7acff0a39615a1f6283eda27b9ba0e6016ff46780f5e9688f2b175fdbb47c60a"
-    sha256 cellar: :any_skip_relocation, mojave:        "b577bf4ff88cc8c8f7e3a04afa724fcfa1710a41980328a684fe8fc3b47dc579"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "156d54051925ded0549150f0244f2e7838ff42bfbfa3cdbe5d88261b6c17bd95"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5d41fb9c05818d59a72ecde97a964858ade7693b4c90402320d78f3e9a051efb"
+    sha256 cellar: :any_skip_relocation, catalina:      "aa3c2cbb2cd6bfe37ea589769b6d082c6f190a227008b8ba512dfcdd92e4a151"
+    sha256 cellar: :any_skip_relocation, mojave:        "7253bde378bfe741e9272ece70c758c0588adae2b432139a8e5b70c620b1ae46"
   end
 
   depends_on "python@3.9"

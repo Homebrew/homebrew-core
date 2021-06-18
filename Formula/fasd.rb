@@ -6,7 +6,9 @@ class Fasd < Formula
   license "MIT"
   head "https://github.com/clvv/fasd.git"
 
-  bottle :unneeded
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "9241df0f32971ce5a84c977f6908b93114946843813d5375ba7b983a7a783188"
+  end
 
   def install
     bin.install "fasd"

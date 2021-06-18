@@ -1,16 +1,16 @@
 class Cpm < Formula
   desc "Fast CPAN module installer"
   homepage "https://metacpan.org/pod/cpm"
-  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.997003.tar.gz"
-  sha256 "3262f95ba38074834f0a80e6592d7025d9c6ef562a5e60b2d5039c73f1fa3469"
+  url "https://cpan.metacpan.org/authors/id/S/SK/SKAJI/App-cpm-0.997004.tar.gz"
+  sha256 "ea94269d7ce92136e4717f8cde1166b016834a4c08be18771ff697bc83b7cbbf"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/skaji/cpm.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24e03d34f10f88d7a450d83a5061e15a3c0e2b9148591e55bef939841d509774"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c5e6faef15405105b73e63c6ac49b1b32b45a5d80b55eca399ad3ce37b06ea95"
-    sha256 cellar: :any_skip_relocation, catalina:      "085d3d7363f0e44b19fc5ba3eb5789dc65a928c60716d013520af3d515d03c74"
-    sha256 cellar: :any_skip_relocation, mojave:        "2425e1296cf3bd5e6afde77a2cf63975e048cd6f18f9809dc860a38f94202ba5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c5647bdfac179a43aa9275ea4e98d3518d6b2e8eefd3e34ad45414a9bdbacb0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "87c5db7eb413d24f80b450dc52bba0b8486a3efff4c9cfb03fd41d0a2845973c"
+    sha256 cellar: :any_skip_relocation, catalina:      "87c5db7eb413d24f80b450dc52bba0b8486a3efff4c9cfb03fd41d0a2845973c"
+    sha256 cellar: :any_skip_relocation, mojave:        "87c5db7eb413d24f80b450dc52bba0b8486a3efff4c9cfb03fd41d0a2845973c"
   end
 
   depends_on "perl"
@@ -131,8 +131,8 @@ class Cpm < Formula
   end
 
   resource "URI" do
-    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.07.tar.gz"
-    sha256 "eeb6ed2ae212434e2021e29f7556f4024169421a5d8b001a89e65982944131ea"
+    url "https://cpan.metacpan.org/authors/id/O/OA/OALDERS/URI-5.09.tar.gz"
+    sha256 "03e63ada499d2645c435a57551f041f3943970492baa3b3338246dab6f1fae0a"
   end
 
   resource "Win32::ShellQuote" do
@@ -141,8 +141,8 @@ class Cpm < Formula
   end
 
   resource "YAML::PP" do
-    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-0.026.tar.gz"
-    sha256 "4b858e671cf3e966ecc54408e8031740c2f28f87c294ee9679fb02e02d5a45eb"
+    url "https://cpan.metacpan.org/authors/id/T/TI/TINITA/YAML-PP-0.027.tar.gz"
+    sha256 "135813d44b58d6f2fb3edfcbac93f39818bb874f0b8ebe2b0f45cae435cc05a3"
   end
 
   resource "local::lib" do

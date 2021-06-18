@@ -6,6 +6,11 @@ class Qwt < Formula
   license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
   revision 1
 
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/qwt[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "3c43bf4bfdf534412bf735491933f74a769a932a5aa5259f853863a9ee4b87b6"

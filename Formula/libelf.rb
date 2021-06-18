@@ -32,6 +32,8 @@ class Libelf < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  conflicts_with "elfutils", because: "both install `libelf.a` library"
+
   def install
     # Workaround for ancient config files not recognising aarch64 macos.
     am = Formula["automake"]
