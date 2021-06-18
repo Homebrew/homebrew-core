@@ -112,7 +112,7 @@ jobs:
     steps:
       - name: Check whether ARM tests will be forced
         if: needs.tap_syntax.outputs.force-arm == 'false'
-        run: echo 'HOMEBREW_REQUIRE_BOTTLED_ARM=1' >> $GITHUB_ENV
+        run: echo 'HOMEBREW_SKIP_UNBOTTLED_ARM_TESTS=1' >> $GITHUB_ENV
 
       - name: Set up Homebrew
         id: set-up-homebrew
