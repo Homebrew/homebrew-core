@@ -1,8 +1,8 @@
 class Mednafen < Formula
   desc "Multi-system emulator"
   homepage "https://mednafen.github.io/"
-  url "https://mednafen.github.io/releases/files/mednafen-1.26.1.tar.xz"
-  sha256 "842907c25c4292c9ba497c9cb9229c7d10e04e22cb4740d154ab690e6587fdf4"
+  url "https://mednafen.github.io/releases/files/mednafen-1.27.1.tar.xz"
+  sha256 "f3a89b2f32f40c3232593808d05e0c21cbdf443688ace04c9c27e4cf4d5955fb"
   license "GPL-2.0-or-later"
 
   livecheck do
