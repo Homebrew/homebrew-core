@@ -10,8 +10,6 @@ class Maxwell < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@11"
 
   def install
