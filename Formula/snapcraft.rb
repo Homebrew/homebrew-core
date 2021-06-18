@@ -4,8 +4,8 @@ class Snapcraft < Formula
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
   url "https://github.com/snapcore/snapcraft.git",
-      tag:      "4.8.1",
-      revision: "245631a94e912120d40b55a945acf0ffa0450bee"
+      tag:      "4.8.2",
+      revision: "78d1d815b8caba7a3369ea38064d816b82230cc2"
   license "GPL-3.0-only"
 
   livecheck do
@@ -281,13 +281,6 @@ class Snapcraft < Formula
   resource "zipp" do
     url "https://files.pythonhosted.org/packages/38/f9/4fa6df2753ded1bcc1ce2fdd8046f78bd240ff7647f5c9bcf547c0df77e3/zipp-3.4.1.tar.gz"
     sha256 "3607921face881ba3e026887d8150cca609d517579abe052ac81fc5aeffdbd76"
-  end
-
-  # Fix error on ARM due to missing architecture definition for 'arm64'
-  # Remove in the next release
-  patch do
-    url "https://github.com/snapcore/snapcraft/commit/61029a4a2ae36f5368a7108b5d99bc99ccac54c5.patch?full_index=1"
-    sha256 "0950b41e5e33ea9c1a40ac4d308d22d0e13adb44655a01f469973fcd1e7c9d91"
   end
 
   def install
