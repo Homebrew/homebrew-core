@@ -6,8 +6,6 @@ class Hadoop < Formula
   sha256 "ad770ae3293c8141cc074df4b623e40d79782d952507f511ef0a6b0fa3097bac"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   conflicts_with "yarn", because: "both install `yarn` binaries"
