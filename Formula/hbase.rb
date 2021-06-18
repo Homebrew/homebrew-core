@@ -1,9 +1,9 @@
 class Hbase < Formula
   desc "Hadoop database: a distributed, scalable, big data store"
   homepage "https://hbase.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.3/hbase-2.4.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hbase/2.4.3/hbase-2.4.3-bin.tar.gz"
-  sha256 "139fef2135ede2345c479c28c15013c35576852a06b5ea3dbd18710c2837b351"
+  url "https://www.apache.org/dyn/closer.lua?path=hbase/2.4.4/hbase-2.4.4-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hbase/2.4.4/hbase-2.4.4-bin.tar.gz"
+  sha256 "a51f26bb296071018db15845ddcf7e461ba9e40062732e3f48b4045865e7b08d"
   license "Apache-2.0"
 
   bottle do
