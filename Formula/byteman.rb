@@ -11,8 +11,6 @@ class Byteman < Formula
     regex(/href=.*?byteman-download[._-]v?(\d+(?:\.\d+)+)-bin\.zip/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
