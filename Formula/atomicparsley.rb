@@ -1,9 +1,9 @@
 class Atomicparsley < Formula
   desc "MPEG-4 command-line tool"
   homepage "https://github.com/wez/atomicparsley"
-  url "https://github.com/wez/atomicparsley/archive/20210124.204813.840499f.tar.gz"
-  version "20210124.204813.840499f"
-  sha256 "21e6eb6791b63ba1d06c6ffa9cf40ee81cec80da944e8a29c6dbd11d9de50b28"
+  url "https://github.com/wez/atomicparsley/archive/20210617.200601.1ac7c08.tar.gz"
+  version "20210617.200601.1ac7c08"
+  sha256 "b33cd842041e145e5965f5bddef1149aae2fde0f191ea5c4f11be4f69f96938b"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/wez/atomicparsley.git"
