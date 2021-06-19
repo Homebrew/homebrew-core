@@ -19,8 +19,6 @@ class Spdlog < Formula
   def install
     ENV.cxx11
 
-    inreplace "include/spdlog/tweakme.h", "// #define SPDLOG_FMT_EXTERNAL", "#define SPDLOG_FMT_EXTERNAL"
-
     mkdir "spdlog-build" do
       args = std_cmake_args + %W[
         -Dpkg_config_libdir=#{lib}
@@ -56,7 +54,8 @@ class Spdlog < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{Formula["fmt"].opt_lib}", "-lfmt", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-DSPDLOG_FMT_EXTERNAL", "-I#{include}", +
+    "-L#{Formula["fmt"].opt_lib}", "-lfmt", "-o", "test"
     system "./test"
     assert_predicate testpath/"basic-log.txt", :exist?
     assert_match "Test", (testpath/"basic-log.txt").read
