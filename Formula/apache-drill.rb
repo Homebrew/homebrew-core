@@ -11,12 +11,12 @@ class ApacheDrill < Formula
     regex(/href=.*?apache-drill[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  depends_on "openjdk@8"
+  depends_on "openjdk@11"
 
   def install
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("11"))
   end
 
   test do
