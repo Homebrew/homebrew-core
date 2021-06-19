@@ -29,12 +29,12 @@ class Ehco < Formula
 
     # run nc server
     nc_port = free_port
-    nc_pid = spawn "nc", "-l", "-p", nc_port.to_s
+    nc_pid = spawn "nc", "-l", nc_port.to_s
     sleep 1
 
     # run ehco server
     listen_port = free_port
-    ehco_pid = spawn bin/"ehco", "-l", "localhost:#{listen_port}", "-r", "localhost:#{nc_port}", "-web_port", nil.to_s
+    ehco_pid = spawn bin/"ehco", "-l", "localhost:#{listen_port}", "-r", "localhost:#{nc_port}"
     sleep 1
 
     system "nc", "-z", "localhost", listen_port.to_s
