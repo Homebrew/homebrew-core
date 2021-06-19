@@ -12,6 +12,8 @@ class Bltool < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     if build.head?
       system "lein", "uberjar"
