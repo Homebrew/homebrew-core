@@ -1,10 +1,9 @@
 class Corsixth < Formula
   desc "Open source clone of Theme Hospital"
   homepage "https://github.com/CorsixTH/CorsixTH"
-  url "https://github.com/CorsixTH/CorsixTH/archive/v0.64.tar.gz"
-  sha256 "12389a95de0031baec1a3fc77208d44228177f49564f1c79ae763ab4aeeafa98"
+  url "https://github.com/CorsixTH/CorsixTH/archive/v0.65.tar.gz"
+  sha256 "4994823833d13fecc4553b7ddd1e3102abcd8501baa23f18cb5a2c315e1db2c0"
   license "MIT"
-  revision 1
   head "https://github.com/CorsixTH/CorsixTH.git"
 
   bottle do
@@ -19,13 +18,7 @@ class Corsixth < Formula
   depends_on xcode: :build
   depends_on "ffmpeg"
   depends_on "freetype"
-
-  # This PR implements a limited form of lua 5.4 support:
-  # https://github.com/CorsixTH/CorsixTH/pull/1686
-  # It breaks some features.  Maintainer does not appear to have intentions of
-  # supporting lua 5.4.
-  depends_on "lua@5.3"
-
+  depends_on "lua"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
 
@@ -36,20 +29,20 @@ class Corsixth < Formula
   end
 
   resource "luafilesystem" do
-    url "https://github.com/keplerproject/luafilesystem/archive/v1_7_0_2.tar.gz"
-    sha256 "23b4883aeb4fb90b2d0f338659f33a631f9df7a7e67c54115775a77d4ac3cc59"
+    url "https://github.com/keplerproject/luafilesystem/archive/v1_8_0.tar.gz"
+    sha256 "16d17c788b8093f2047325343f5e9b74cccb1ea96001e45914a58bbae8932495"
   end
 
   def install
     # Make sure I point to the right version!
-    lua = Formula["lua@5.3"]
+    lua = Formula["lua"]
 
     ENV["TARGET_BUILD_DIR"] = "."
     ENV["FULL_PRODUCT_NAME"] = "CorsixTH.app"
 
     luapath = libexec/"vendor"
-    ENV["LUA_PATH"] = "#{luapath}/share/lua/5.3/?.lua"
-    ENV["LUA_CPATH"] = "#{luapath}/lib/lua/5.3/?.so"
+    ENV["LUA_PATH"] = luapath/"share/lua"/lua.version.major_minor/"?.lua"
+    ENV["LUA_CPATH"] = luapath/"lib/lua"/lua.version.major_minor/"?.so"
 
     resources.each do |r|
       r.stage do
@@ -67,16 +60,14 @@ class Corsixth < Formula
          "CorsixTH/CorsixTH.app/Contents/Resources/"
     prefix.install "CorsixTH/CorsixTH.app"
 
-    env = { LUA_PATH: ENV["LUA_PATH"], LUA_CPATH: ENV["LUA_CPATH"] }
-    (bin/"CorsixTH").write_env_script(prefix/"CorsixTH.app/Contents/MacOS/CorsixTH", env)
+    lua_env = { LUA_PATH: ENV["LUA_PATH"], LUA_CPATH: ENV["LUA_CPATH"] }
+    (bin/"CorsixTH").write_env_script(prefix/"CorsixTH.app/Contents/MacOS/CorsixTH", lua_env)
   end
 
   test do
-    # Make sure I point to the right version!
-    lua = Formula["lua@5.3"]
+    lua = Formula["lua"]
 
     app = prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
-    assert_includes MachO::Tools.dylibs(app),
-                    "#{lua.opt_lib}/liblua.#{lua.version.major_minor}.dylib"
+    assert_includes MachO::Tools.dylibs(app), "#{lua.opt_lib}/liblua.dylib"
   end
 end
