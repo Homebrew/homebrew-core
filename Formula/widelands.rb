@@ -30,6 +30,8 @@ class Widelands < Formula
   depends_on "sdl2_mixer"
   depends_on "sdl2_ttf"
 
+  uses_from_macos "curl"
+
   def install
     ENV.cxx11
     mkdir "build" do
