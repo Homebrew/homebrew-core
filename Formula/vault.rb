@@ -8,7 +8,7 @@ class Vault < Formula
       tag:      "v1.7.3",
       revision: "5d517c864c8f10385bf65627891bc7ef55f5e827"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/vault.git"
+  head "https://github.com/hashicorp/vault.git", branch: "main"
 
   livecheck do
     url "https://releases.hashicorp.com/vault/"
