@@ -4,14 +4,11 @@ class HapiFhirCli < Formula
   url "https://github.com/hapifhir/hapi-fhir/releases/download/v5.4.0/hapi-fhir-5.4.0-cli.zip"
   sha256 "142022d1d5b1d849e9a894bac0a8269bfccf3be4b1364b3eaeb685c588966995"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
     strategy :github_latest
   end
-
-  bottle :unneeded
 
   depends_on "openjdk"
 
