@@ -62,12 +62,16 @@ class Goffice < Formula
           return 0;
       }
     EOS
+    libxml2 = MacOS.sdk_path/"usr/include/libxml2"
+    on_linux do
+      libxml2 = Formula["libxml2"].opt_include/"libxml2"
+    end
     system ENV.cc, "-I#{include}/libgoffice-0.10",
            "-I#{Formula["glib"].opt_include}/glib-2.0",
            "-I#{Formula["glib"].opt_lib}/glib-2.0/include",
            "-I#{Formula["harfbuzz"].opt_include}/harfbuzz",
            "-I#{Formula["libgsf"].opt_include}/libgsf-1",
-           "-I#{MacOS.sdk_path}/usr/include/libxml2",
+           "-I#{libxml2}",
            "-I#{Formula["gtk+3"].opt_include}/gtk-3.0",
            "-I#{Formula["pango"].opt_include}/pango-1.0",
            "-I#{Formula["cairo"].opt_include}/cairo",
