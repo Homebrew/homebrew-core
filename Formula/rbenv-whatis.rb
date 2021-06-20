@@ -7,6 +7,9 @@ class RbenvWhatis < Formula
 
   bottle :unneeded
 
+  # https://github.com/rkh/rbenv-whatis/issues/4
+  disable! date: "2021-06-19", because: :no_license
+
   depends_on "rbenv"
 
   def install
