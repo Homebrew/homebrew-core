@@ -14,9 +14,11 @@ class ApacheDrill < Formula
   depends_on "openjdk@11"
 
   def install
+    rm_f Dir["bin/*.bat"]
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
     bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("11"))
+    rm_f Dir["#{bin}/*.txt"]
   end
 
   test do
