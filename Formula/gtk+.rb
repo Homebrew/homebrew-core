@@ -36,6 +36,16 @@ class Gtkx < Formula
   depends_on "hicolor-icon-theme"
   depends_on "pango"
 
+  on_linux do
+    depends_on "cairo"
+    depends_on "libxinerama"
+    depends_on "libxcomposite"
+    depends_on "libxcursor"
+    depends_on "libxdamage"
+    depends_on "libxfixes"
+    depends_on "libxrandr"
+  end
+
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
   # See:
   # - https://bugzilla.gnome.org/show_bug.cgi?id=757187
@@ -47,6 +57,14 @@ class Gtkx < Formula
     sha256 "ce5adf1a019ac7ed2a999efb65cfadeae50f5de8663638c7f765f8764aa7d931"
   end
 
+  def backend
+    backend = "quartz"
+    on_linux do
+      backend = "x11"
+    end
+    backend
+  end
+
   def install
     args = ["--disable-dependency-tracking",
             "--disable-silent-rules",
@@ -54,7 +72,7 @@ class Gtkx < Formula
             "--enable-static",
             "--disable-glibtest",
             "--enable-introspection=yes",
-            "--with-gdktarget=quartz",
+            "--with-gdktarget=#{backend}",
             "--disable-visibility"]
 
     if build.head?
@@ -113,7 +131,7 @@ class Gtkx < Formula
       -L#{pango.opt_lib}
       -latk-1.0
       -lcairo
-      -lgdk-quartz-2.0
+      -lgdk-#{backend}-2.0
       -lgdk_pixbuf-2.0
       -lgio-2.0
       -lglib-2.0
