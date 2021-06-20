@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/5e/e1/9833e112ae2d30c16522c916b02783f20703ad41c65a75078a1a9e31c07b/moto-2.0.9.tar.gz"
-  sha256 "d46023795ce991c5cbbb3e68666133d57eb5d2b59805585f54eec7d40be8d05f"
+  url "https://files.pythonhosted.org/packages/65/3d/41940e14bb0794390fb3e7ef0ad2f8a484c84c068b8570bcdacdee34e85a/moto-2.0.10.tar.gz"
+  sha256 "f205da54d5e9442450a519dbe5bb49c31d9f496b551a84648afa01a360fd4b82"
   license "Apache-2.0"
 
   bottle do
@@ -33,13 +33,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/cd/05/6c6c53f756295f1bdeb8e0f582bb63b04d40f018f24f93ff037188ec5d29/boto3-1.17.93.tar.gz"
-    sha256 "e55cbe77a79ef125c17900be38e1cada6d6dab1cc7356f10b24ac07f0a7d0445"
+    url "https://files.pythonhosted.org/packages/36/b6/07d93cca724e3ea2630c4ae2bccae2e6a22459a7332797415db37b88508a/boto3-1.17.97.tar.gz"
+    sha256 "0ab5afc51461c30f27aebef944211d16f47697b98ff8d2e2f6e49e59584853bb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/cb/29/043bafa9c268b3fbcc12f25f1d9a7d963272e6ec386045c4425323002f80/botocore-1.20.93.tar.gz"
-    sha256 "aae0f08627ef411a9579ae2a588a15f0859b2b40cecd5cde6055f0354712dd6f"
+    url "https://files.pythonhosted.org/packages/04/7e/bfc3b6a043070a06fd3e79482f159933727de18880f7f0c6f2ccd78b3234/botocore-1.20.97.tar.gz"
+    sha256 "f7e119cf3e0f4a36100f0e983583afa91a84fb27c479a1716820aee4f2e190ab"
   end
 
   resource "certifi" do
@@ -53,8 +53,8 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/db/f7/7a36b10461043c513ab42c93d9ee29d4985869176bd5ba750868ff1a1479/cfn-lint-0.50.0.tar.gz"
-    sha256 "72805f5af3fd870b443979d652723d9c450c31b6bca8b36b88001767901d7ddb"
+    url "https://files.pythonhosted.org/packages/a7/59/6d7cd4c6c3f31de040757e56b9f769b6a27ece4c744a5400c57ffc900ae3/cfn-lint-0.51.0.tar.gz"
+    sha256 "453c759de8372062174e40d3bce8f7e3472767074873429b2f2f6037b7f74b7d"
   end
 
   resource "chardet" do
