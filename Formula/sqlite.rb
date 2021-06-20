@@ -8,7 +8,7 @@ class Sqlite < Formula
 
   livecheck do
     url "https://sqlite.org/news.html"
-    regex(%r{v?(\d+(?:\.\d+)+)</h3>}i)
+    regex(%r{v?(\d+(?:\.\d+)+)(</a>)?</h3>}i)
   end
 
   bottle do
