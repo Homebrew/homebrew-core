@@ -35,6 +35,12 @@ class Goffice < Formula
   uses_from_macos "libxslt"
 
   def install
+    on_linux do
+      # Needed to find intltool (xml::parser)
+      ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5"
+      ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
+    end
+
     args = %W[--disable-dependency-tracking --prefix=#{prefix}]
     if build.head?
       system "./autogen.sh", *args
