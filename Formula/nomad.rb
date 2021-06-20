@@ -4,7 +4,7 @@ class Nomad < Formula
   url "https://github.com/hashicorp/nomad/archive/v1.1.1.tar.gz"
   sha256 "441d2f50a29568451cb16301a2208c9b744a480ded8c624e789983ee42ed3ea9"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/nomad.git"
+  head "https://github.com/hashicorp/nomad.git", branch: "main"
 
   livecheck do
     url :stable
