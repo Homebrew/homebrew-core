@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/5c/67/992b1c41024578637a0e995a5307a5b348833d18ef74bf7fd9c436f880e6/checkov-2.0.195.tar.gz"
-  sha256 "362d4a353ed4223a16c108a567f8493b966fc05e711c5e616db1b454517001d6"
+  url "https://files.pythonhosted.org/packages/82/0a/492dbd78c766c513b29c8140ddcfb54b28779127ea6367213e53c57a5a52/checkov-2.0.210.tar.gz"
+  sha256 "3a5ccd27397bf2b38e2830cef02a577bc9cdd53898b64041441f6d19b04f9c9d"
   license "Apache-2.0"
 
   bottle do
@@ -29,13 +29,13 @@ class Checkov < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8a/85/6d988075ff55968259d3b07d2be06d3c531f5521be09a7b0bb141fc7ca09/boto3-1.17.94.tar.gz"
-    sha256 "95d814d16fe55ae55e1e4a3db248596f9647a0c42f4796c6e05be0bfaffb1830"
+    url "https://files.pythonhosted.org/packages/36/b6/07d93cca724e3ea2630c4ae2bccae2e6a22459a7332797415db37b88508a/boto3-1.17.97.tar.gz"
+    sha256 "0ab5afc51461c30f27aebef944211d16f47697b98ff8d2e2f6e49e59584853bb"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/9d/b2/58b9b6d2c37b6fafd28300e893534beec4882eac6eecc65df888ca7bdc59/botocore-1.20.94.tar.gz"
-    sha256 "60a382a5b2f7d77b1b575d54fba819097526e3fdd0f3004f4d1142d50af0d642"
+    url "https://files.pythonhosted.org/packages/04/7e/bfc3b6a043070a06fd3e79482f159933727de18880f7f0c6f2ccd78b3234/botocore-1.20.97.tar.gz"
+    sha256 "f7e119cf3e0f4a36100f0e983583afa91a84fb27c479a1716820aee4f2e190ab"
   end
 
   resource "cached-property" do
@@ -93,6 +93,11 @@ class Checkov < Formula
     sha256 "b54415f90934c42e334114e2864cb4d4e7335b34ad396e35ad8610c96065a47e"
   end
 
+  resource "detect-secrets" do
+    url "https://files.pythonhosted.org/packages/fc/79/c5d0c23c552934ba6305a30817652b4c17686cc20d9bd4f762480199b1fb/detect_secrets-1.1.0.tar.gz"
+    sha256 "68250b31bc108f665f05f0ecfb34f92423280e48e65adbb887fdf721ed909627"
+  end
+
   resource "docker" do
     url "https://files.pythonhosted.org/packages/fa/a2/e46d7c1b51394a09271a3b07c3a68deb3a669429beafd444d9553ed52868/docker-5.0.0.tar.gz"
     sha256 "3e8bc47534e0ca9331d72c32f2881bb13b93ded0bcdeab3c833fb7cf61c0a9a5"
@@ -114,8 +119,8 @@ class Checkov < Formula
   end
 
   resource "GitPython" do
-    url "https://files.pythonhosted.org/packages/59/d1/e89344ca079f92546558bb5cedb26b4f7ad4afe5319586f49b722c4d99b0/GitPython-3.1.17.tar.gz"
-    sha256 "ee24bdc93dce357630764db659edaf6b8d664d4ff5447ccfeedd2dc5c253f41e"
+    url "https://files.pythonhosted.org/packages/29/22/3d591875078c1c5e7e11b478616821995053968a74b76043c55448c46381/GitPython-3.1.18.tar.gz"
+    sha256 "b838a895977b45ab6f0cc926a9045c8d1c44e2b653c1fcc39fe91f42c6e8f05b"
   end
 
   resource "idna" do
