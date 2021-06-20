@@ -3,6 +3,7 @@ class Libxmp < Formula
   homepage "https://xmp.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/xmp/libxmp/4.5.0/libxmp-4.5.0.tar.gz"
   sha256 "7847d262112d14e8442f44e5ac6ed9ddbca54c251284720b563c852b31f26e75"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "edb417d203308a607caade02f7156391b9f44735d1ef2f4a310143effcb59ea3"
