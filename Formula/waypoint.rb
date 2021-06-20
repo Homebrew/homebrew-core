@@ -7,9 +7,11 @@ class Waypoint < Formula
   head "https://github.com/hashicorp/waypoint.git", branch: "main"
 
   depends_on "go" => :build
+  depends_on "go-bindata" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/waypoint"
+    system "make", "bin"
+    bin.install "waypoint"
   end
 
   test do
