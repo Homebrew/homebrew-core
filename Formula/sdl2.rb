@@ -28,6 +28,12 @@ class Sdl2 < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "libice"
+    depends_on "libxcursor"
+    depends_on "libxscrnsaver"
+    depends_on "libxxf86vm"
+    depends_on "xinput"
+    depends_on "pulseaudio"
   end
 
   def install
@@ -38,7 +44,26 @@ class Sdl2 < Formula
 
     system "./autogen.sh" if build.head?
 
-    args = %W[--prefix=#{prefix} --without-x --enable-hidapi]
+    args = %W[--prefix=#{prefix} --enable-hidapi]
+    on_macos do
+      args << "--without-x"
+    end
+    on_linux do
+      args << "--with-x"
+      args << "--enable-pulseaudio"
+      args << "--enable-pulseaudio-shared"
+      args << "--enable-video-dummy"
+      args << "--enable-video-opengl"
+      args << "--enable-video-opengles"
+      args << "--enable-video-x11"
+      args << "--enable-video-x11-scrnsaver"
+      args << "--enable-video-x11-xcursor"
+      args << "--enable-video-x11-xinerama"
+      args << "--enable-video-x11-xinput"
+      args << "--enable-video-x11-xrandr"
+      args << "--enable-video-x11-xshape"
+      args << "--enable-x11-shared"
+    end
     system "./configure", *args
     system "make", "install"
   end
