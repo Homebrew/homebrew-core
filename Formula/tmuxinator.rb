@@ -24,8 +24,8 @@ class Tmuxinator < Formula
   end
 
   resource "thor" do
-    url "https://rubygems.org/downloads/thor-1.0.1.gem"
-    sha256 "7572061e3cbe6feee57828670e6a25a66dd397f05c1f8515d49f770a7d9d70f5"
+    url "https://rubygems.org/downloads/thor-1.1.0.gem"
+    sha256 "cacae12a3761be4ccbe63be19261352b108f86c721c37d87664328efeaa6d0a3"
   end
 
   resource "xdg" do
