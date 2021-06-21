@@ -13,12 +13,14 @@ class Rhino < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk@11"
+
   conflicts_with "nut", because: "both install `rhino` binaries"
 
   def install
     rhino_jar = "rhino-#{version}.jar"
     libexec.install "lib/#{rhino_jar}"
-    bin.write_jar_script libexec/rhino_jar, "rhino"
+    bin.write_jar_script libexec/rhino_jar, "rhino", java_version: "11"
     doc.install Dir["docs/*"]
   end
 
