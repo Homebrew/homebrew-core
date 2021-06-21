@@ -22,6 +22,9 @@ class Maturin < Formula
 
   test do
     system "cargo", "new", "hello_world", "--bin"
+    if File.readlines("hello_world/Cargo.toml").grep(/authors/).empty?
+      inreplace "hello_world/Cargo.toml", "[package]", "[package]\nauthors = [\"test\"]"
+    end
     system "#{bin}/maturin", "build", "-m", "hello_world/Cargo.toml", "-b", "bin", "-o", "dist"
     system "python3", "-m", "pip", "install", "hello_world", "--no-index", "--find-links", testpath/"dist"
     system "python3", "-m", "pip", "uninstall", "-y", "hello_world"
