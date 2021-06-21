@@ -12,6 +12,8 @@ class Apgdiff < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     jar = "apgdiff-#{version}.jar"
 
