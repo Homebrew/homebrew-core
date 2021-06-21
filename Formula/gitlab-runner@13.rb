@@ -1,11 +1,10 @@
-class GitlabRunner < Formula
-  desc "Official GitLab CI runner"
+class GitlabRunnerAT13 < Formula
+  desc "Official GitLab CI runner version 13"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      tag: "v13.12.0",
+      tag:      "v13.12.0",
       revision: "7a6612da06043f908b740629bbe3f0d9c59a5dad"
   license "MIT"
-  head "https://gitlab.com/gitlab-org/gitlab-runner.git", branch: "v13.12.0"
 
   livecheck do
     url :stable
@@ -18,6 +17,8 @@ class GitlabRunner < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "c2e6a2e58e7f2f1517ece07b534df58524b8aac95e718b678b09e88b76e6deac"
     sha256 cellar: :any_skip_relocation, mojave:        "48c2c70fdf6d375b8b8598aec6c5a0822dfaba2a642f6feff9cc343f681f51f2"
   end
+
+  keg_only :versioned_formula
 
   depends_on "go" => :build
 
@@ -32,6 +33,8 @@ class GitlabRunner < Formula
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+
+    bin.install_symlink "gitlab-runner@13" => "gitlab-runner"
   end
 
   plist_options manual: "gitlab-runner start"
