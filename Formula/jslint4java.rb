@@ -6,6 +6,8 @@ class Jslint4java < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     doc.install Dir["docs/*"]
     libexec.install Dir["*.jar"]
