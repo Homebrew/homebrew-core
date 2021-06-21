@@ -6,6 +6,8 @@ class Htmlcompressor < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install "htmlcompressor-#{version}.jar"
     bin.write_jar_script libexec/"htmlcompressor-#{version}.jar", "htmlcompressor"
