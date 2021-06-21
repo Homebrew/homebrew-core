@@ -7,6 +7,8 @@ class Davmail < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install Dir["*"]
     bin.write_jar_script libexec/"davmail.jar", "davmail", "-Djava.awt.headless=true"
