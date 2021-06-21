@@ -17,6 +17,8 @@ class Scalariform < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     if build.head?
       system "sbt", "project cli", "assembly"
