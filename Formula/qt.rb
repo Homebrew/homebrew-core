@@ -1,10 +1,9 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.1/6.1.0/single/qt-everywhere-src-6.1.0.tar.xz"
-  sha256 "326a710b08b0973bb4f5306a786548d8b8dd656db75ce9f3f85ea32680d3c88a"
+  url "https://download.qt.io/official_releases/qt/6.1/6.1.1/single/qt-everywhere-src-6.1.1.tar.xz"
+  sha256 "6ac937aae4c7b5a3eac90ea4d13f31ded9f78ebc93007bb919fae65c58c808c3"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -49,21 +48,6 @@ class Qt < Formula
   uses_from_macos "krb5"
   uses_from_macos "perl"
   uses_from_macos "zlib"
-
-  # TODO: remove them after 6.1.1
-  # macdeployqt: Fix plugin resolution bugs for non-standard installs
-  patch do
-    url "https://code.qt.io/cgit/qt/qttools.git/patch/?id=03abcbabbd4caa11048d19d95b23f165cd7a5361"
-    sha256 "b219a0e782b30b6942eed8ad5b0a5cf3be3dae08542a999e7c6f162cca24c4db"
-    directory "qttools"
-  end
-
-  # macdeployqt: Fix bug parsing otool output when deploying plugins
-  patch do
-    url "https://code.qt.io/cgit/qt/qttools.git/patch/?id=7f3bcf85f1041e7e56dba37593dcd80f2054c221"
-    sha256 "c34f4ef4d0047c7b60ec7ea40847bbfc3f8fa9a63a2f5ea9a38199caffdc7647"
-    directory "qttools"
-  end
 
   def install
     # FIXME: See https://bugreports.qt.io/browse/QTBUG-89559
