@@ -1,9 +1,12 @@
 class GitArchiveAll < Formula
+  include Language::Python::Shebang
+
   desc "Archive a project and its submodules"
   homepage "https://github.com/Kentzo/git-archive-all"
   url "https://github.com/Kentzo/git-archive-all/archive/1.23.0.tar.gz"
   sha256 "25f36948b704e57c47c98a33280df271de7fbfb74753b4984612eabb08fb2ab1"
   license "MIT"
+  revision 1
   head "https://github.com/Kentzo/git-archive-all.git"
 
   bottle do
@@ -13,7 +16,11 @@ class GitArchiveAll < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "a375cfca74cda33d29bc74ed712e0dedb0495c56a1378a25009edcabcbdb44fc"
   end
 
+  depends_on "python@3.9"
+
   def install
+    rewrite_shebang detected_python_shebang, "*.py"
+
     system "make", "prefix=#{prefix}", "install"
   end
 
