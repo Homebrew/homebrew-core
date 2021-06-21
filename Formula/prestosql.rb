@@ -5,8 +5,6 @@ class Prestosql < Formula
   sha256 "9ae950f2901efd5cb1ca7d1bbd8a4cbb01d16dfe9c4fe702db2ee147ab841a8b"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   conflicts_with "prestodb", because: "both install `presto` and `presto-server` binaries"
