@@ -6,18 +6,6 @@ class GitlabRunnerAT13 < Formula
       revision: "7a6612da06043f908b740629bbe3f0d9c59a5dad"
   license "MIT"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "13539c0277ea63f695de0912431f2a96742fb5dec8adc5f060775e6a831c0124"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e9cbfd5a7839cc1d4f11216892bd4f6ef5d619b248f994559eeae6355ed8bd01"
-    sha256 cellar: :any_skip_relocation, catalina:      "c2e6a2e58e7f2f1517ece07b534df58524b8aac95e718b678b09e88b76e6deac"
-    sha256 cellar: :any_skip_relocation, mojave:        "48c2c70fdf6d375b8b8598aec6c5a0822dfaba2a642f6feff9cc343f681f51f2"
-  end
-
   keg_only :versioned_formula
 
   depends_on "go" => :build
