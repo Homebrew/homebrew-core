@@ -9,6 +9,7 @@ class Calabash < Formula
     sha256 cellar: :any_skip_relocation, all: "b35fca9a2745fa7bea9a71a9eec85071eba850af9d7df2c8132b81152f1ca6ce"
   end
 
+  depends_on "openjdk"
   depends_on "saxon"
 
   def install
