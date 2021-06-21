@@ -1,10 +1,9 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/fe/fd/8704c7b7b34cdac850485e638346025ca57c5a859934b9aa1be5399b33b7/scipy-1.6.3.tar.gz"
-  sha256 "a75b014d3294fce26852a9d04ea27b5671d86736beb34acdfc05859246260707"
+  url "https://files.pythonhosted.org/packages/bb/bb/944f559d554df6c9adf037aa9fc982a9706ee0e96c0d5beac701cb158900/scipy-1.7.0.tar.gz"
+  sha256 "998c5e6ea649489302de2c0bc026ed34284f531df89d2bdc8df3a0d44d165739"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/scipy/scipy.git"
 
   bottle do
@@ -14,6 +13,8 @@ class Scipy < Formula
     sha256 cellar: :any, mojave:        "7ce61d050e7d244c9c3405dfa25c31efe50e0d7a5448003bff395aff5bd4e262"
   end
 
+  depends_on "cython" => :build
+  depends_on "pythran" => :build
   depends_on "swig" => :build
   depends_on "gcc" # for gfortran
   depends_on "numpy"
@@ -46,9 +47,12 @@ class Scipy < Formula
 
     Pathname("site.cfg").write config
 
-    version = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    ENV["PYTHONPATH"] = Formula["numpy"].opt_lib/"python#{version}/site-packages"
-    ENV.prepend_create_path "PYTHONPATH", lib/"python#{version}/site-packages"
+    site_packages = Language::Python.site_packages("python3")
+    ENV.prepend_create_path "PYTHONPATH", Formula["cython"].opt_libexec/site_packages
+    ENV.prepend_create_path "PYTHONPATH", Formula["pythran"].opt_libexec/site_packages
+    ENV.prepend_create_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
+    ENV.prepend_create_path "PYTHONPATH", site_packages
+
     system Formula["python@3.9"].opt_bin/"python3", "setup.py", "build",
       "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
     system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
