@@ -7,6 +7,8 @@ class Epubcheck < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     jarname = "epubcheck.jar"
     libexec.install jarname, "lib"
