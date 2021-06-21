@@ -6,6 +6,8 @@ class Briss < Formula
 
   bottle :unneeded
 
+  depends_on "openjdk"
+
   def install
     libexec.install Dir["*.jar"]
     bin.write_jar_script libexec/"briss-#{version}.jar", "briss"
