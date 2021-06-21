@@ -88,7 +88,10 @@ class Rust < Formula
 
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
-      args = %W[--root #{prefix} --path . --features curl-sys/force-system-lib-on-osx]
+      args = %W[--root #{prefix} --path .]
+      on_macos do
+        args += %w[--features curl-sys/force-system-lib-on-osx]
+      end
       system "cargo", "install", *args
       man1.install Dir["src/etc/man/*.1"]
       bash_completion.install "src/etc/cargo.bashcomp.sh"
