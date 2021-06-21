@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.9/source/mariadb-10.5.9.tar.gz"
-  sha256 "40ab19aeb8de141fdc188cf2251213c9e7351bee4d0cd29db704fae68d1068cf"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.11/source/mariadb-10.5.11.tar.gz"
+  sha256 "761053605fe30ce393f324852117990350840a93b3e6305ef4d2f8c8305cc47a"
   license "GPL-2.0-only"
 
   livecheck do
@@ -17,17 +17,28 @@ class Mariadb < Formula
     sha256 mojave:        "15b7c70995f293db109b71e125b069c5d3b675c08b196c31932574f7ffc42545"
   end
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "openssl@1.1"
+  depends_on "pcre2"
 
-  uses_from_macos "bison" => :build
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_macos do
+    # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
+    # file called VERSION.
+    # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
+    # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
+    # removed once that issue is closed and the fix has been merged into a stable release.
+    patch :DATA
+  end
+
   on_linux do
+    depends_on "gcc"
     depends_on "linux-pam"
   end
 
@@ -35,6 +46,8 @@ class Mariadb < Formula
     because: "mariadb, mysql, and percona install the same binaries"
   conflicts_with "mytop", because: "both install `mytop` binaries"
   conflicts_with "mariadb-connector-c", because: "both install `mariadb_config`"
+
+  fails_with gcc: "5"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
@@ -56,7 +69,6 @@ class Mariadb < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_PCRE=bundled
       -DWITH_READLINE=yes
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
@@ -73,6 +85,20 @@ class Mariadb < Formula
     args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
 
     system "cmake", ".", *std_cmake_args, *args
+
+    on_macos do
+      # Need to rename files called version/VERSION to avoid build failure
+      # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
+      # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
+      # removed once that issue is closed and the fix has been merged into a stable release.
+      mv "storage/mroonga/version", "storage/mroonga/version.txt"
+      # Reported upstream at https://jira.mariadb.org/browse/MDEV-25716 - fixed by
+      # https://github.com/mariadb-corporation/libmarias3/commit/c71898f82598 and should be fixed
+      # in 10.5.12. Does not affect older versions of mariadb because they do not include this
+      # library.
+      mv "storage/maria/libmarias3/VERSION", "storage/maria/libmarias3/VERSION.txt"
+    end
+
     system "make"
     system "make", "install"
 
@@ -106,7 +132,7 @@ class Mariadb < Formula
       wsrep_sst_rsync
       wsrep_sst_mariabackup
     ].each do |f|
-      inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
+      inreplace "#{bin}/#{f}", "$(dirname \"$0\")/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"
     end
 
@@ -186,3 +212,19 @@ class Mariadb < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
+diff --git a/storage/mroonga/CMakeLists.txt b/storage/mroonga/CMakeLists.txt
+index 555ab248751..cddb6f2f2a6 100644
+--- a/storage/mroonga/CMakeLists.txt
++++ b/storage/mroonga/CMakeLists.txt
+@@ -215,8 +215,7 @@ set(MYSQL_INCLUDE_DIRS
+   "${MYSQL_REGEX_INCLUDE_DIR}"
+   "${MYSQL_RAPIDJSON_INCLUDE_DIR}"
+   "${MYSQL_LIBBINLOGEVENTS_EXPORT_DIR}"
+-  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}"
+-  "${MYSQL_SOURCE_DIR}")
++  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}")
+
+ if(MRN_BUNDLED)
+   set(MYSQL_PLUGIN_DIR "${INSTALL_PLUGINDIR}")
