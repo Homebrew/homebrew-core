@@ -15,13 +15,6 @@ class Mockery < Formula
 
   depends_on "go" => :build
 
-  # remove in next release
-  # https://github.com/vektra/mockery/pull/390
-  patch do
-    url "https://github.com/chenrui333/mockery/commit/3641040.patch?full_index=1"
-    sha256 "180769d7e1efbc0e95f243229a7fcde63afa7140719ca23ead791ee2c8072a10"
-  end
-
   def install
     system "go", "build", *std_go_args, "-ldflags", "-s -w -X github.com/vektra/mockery/v2/pkg/config.SemVer=#{version}"
   end
