@@ -167,7 +167,7 @@ class Llvm < Formula
       # Workaround for CMake Error: failed to create symbolic link
       ENV.deparallelize if Hardware::CPU.arm?
       system "cmake", "--build", "."
-      system "cmake", "--build", ".", "--target", "install/strip"
+      system "cmake", "--build", ".", "--target", "install"
       system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
