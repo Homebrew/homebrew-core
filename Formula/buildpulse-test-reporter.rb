@@ -18,7 +18,7 @@ class BuildpulseTestReporter < Formula
   end
 
   test do
-    binary = bin/name
+    binary = bin/"buildpulse-test-reporter"
     assert_match version.to_s, shell_output("#{binary} --version")
 
     fake_dir = "im-not-real"
