@@ -1,8 +1,8 @@
 class Ice < Formula
   desc "Comprehensive RPC framework"
   homepage "https://zeroc.com"
-  url "https://github.com/zeroc-ice/ice/archive/v3.7.5.tar.gz"
-  sha256 "36bf45591a95e6ee7216153d45d8eca05ff00c1da35608f0c400e6ddc8049da9"
+  url "https://github.com/zeroc-ice/ice/archive/v3.7.6.tar.gz"
+  sha256 "75b18697c0c74f363bd0b85943f15638736e859c26778337cbfe72d31f5cfb47"
   license "GPL-2.0-only"
 
   livecheck do
