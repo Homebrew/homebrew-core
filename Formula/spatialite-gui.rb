@@ -4,7 +4,7 @@ class SpatialiteGui < Formula
   url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-1.7.1.tar.gz"
   sha256 "cb9cb1ede7f83a5fc5f52c83437e556ab9cb54d6ace3c545d31b317fd36f05e4"
   license "GPL-3.0-or-later"
-  revision 7
+  revision 8
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/"
@@ -25,7 +25,7 @@ class SpatialiteGui < Formula
   depends_on "libspatialite"
   depends_on "proj@7"
   depends_on "sqlite"
-  depends_on "wxmac"
+  depends_on "wxmac@3.0"
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/spatialite-gui/1.7.1.patch"
@@ -33,6 +33,9 @@ class SpatialiteGui < Formula
   end
 
   def install
+    wxmac = Formula["wxmac@3.0"]
+    ENV["WX_CONFIG"] = wxmac.opt_bin/"wx-config-#{wxmac.version.major_minor}"
+
     # Link flags for sqlite don't seem to get passed to make, which
     # causes builds to fatally error out on linking.
     # https://github.com/Homebrew/homebrew/issues/44003
@@ -49,7 +52,11 @@ class SpatialiteGui < Formula
 
     # Add aui library; reported upstream multiple times:
     # https://groups.google.com/forum/#!searchin/spatialite-users/aui/spatialite-users/wnkjK9pde2E/hVCpcndUP_wJ
-    inreplace "configure", "WX_LIBS=\"$(wx-config --libs)\"", "WX_LIBS=\"$(wx-config --libs std,aui)\""
+    inreplace "configure" do |s|
+      s.gsub! "WX_LIBS=\"$(wx-config --libs)\"", "WX_LIBS=\"$(wx-config --libs std,aui)\""
+      # configure does not make proper use of `WX_CONFIG`
+      s.gsub! "S=\"$(wx-config --", "S=\"$($WX_CONFIG --"
+    end
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
