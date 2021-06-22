@@ -1,9 +1,6 @@
 class ImagemagickAT6 < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://legacy.imagemagick.org/"
-  # Please always use a mirror as the primary URL as the
-  # ImageMagick site removes tarballs regularly which means we get issues
-  # unnecessarily and older versions of the formula are broken.
   url "https://www.imagemagick.org/download/releases/ImageMagick-6.9.12-16.tar.xz"
   sha256 "b1a8ede6217e7031100f57b0a90131dc490a2e0e44f709f4e9cf27832bf87f74"
   license "ImageMagick"
