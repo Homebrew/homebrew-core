@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/59/22/8a08092abaf520ce1fa73c9f58830781363d9a5b2a311916886cfd80603e/commitizen-2.17.9.tar.gz"
-  sha256 "f2d7b7d7c00fda9b48915a8f112bf7afcde82fb691e287c85ec34f9b39840afb"
+  url "https://files.pythonhosted.org/packages/dc/f4/d0548a0d7bd4be1d07d7841aa0977ee6d5025755a8372924236a7e335f09/commitizen-2.17.10.tar.gz"
+  sha256 "c70bba107018dc294c68b1a80bf835a64f63bcec2afff8e7021c38d79fdec383"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git"
 
@@ -33,8 +33,8 @@ class Commitizen < Formula
   end
 
   resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/4f/e7/65300e6b32e69768ded990494809106f87da1d436418d5f1367ed3966fd7/Jinja2-2.11.3.tar.gz"
-    sha256 "a6d58433de0ae800347cab1fa3043cebbabe8baa9d29e668f1c768cb87a333c6"
+    url "https://files.pythonhosted.org/packages/39/11/8076571afd97303dfeb6e466f27187ca4970918d4b36d5326725514d3ed3/Jinja2-3.0.1.tar.gz"
+    sha256 "703f484b47a6af502e743c9122595cc812b0271f661722403114f71a79d0f5a4"
   end
 
   resource "MarkupSafe" do
@@ -48,8 +48,8 @@ class Commitizen < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/f7/e0/47738dadee0ec15ffbfa926f01586db2397201e0af3e06a0e669adfd6f2f/prompt_toolkit-3.0.18.tar.gz"
-    sha256 "e1b4f11b9336a28fa11810bc623c357420f69dfdb6d2dac41ca2c21a55c033bc"
+    url "https://files.pythonhosted.org/packages/88/4b/2c0f9e2b52297bdeede91c8917c51575b125006da5d0485521fa2b1e0b75/prompt_toolkit-3.0.19.tar.gz"
+    sha256 "08360ee3a3148bdb5163621709ee322ec34fc4375099afa4bbf751e9b7b7fa4f"
   end
 
   resource "pyparsing" do
