@@ -1,8 +1,8 @@
 class Gdu < Formula
   desc "Disk usage analyzer with console interface written in Go"
   homepage "https://github.com/dundee/gdu"
-  url "https://github.com/dundee/gdu/archive/v5.1.0.tar.gz"
-  sha256 "d51b1204f7d2132ef8d9d5dd20327630b6c9d8ab45d9f9c1c131334c73f28fe4"
+  url "https://github.com/dundee/gdu/archive/v5.1.1.tar.gz"
+  sha256 "fb1a76562947e34fec16fd650f03793ccc5afe04fa6ba817639d92f55a1f927b"
   license "MIT"
 
   bottle do
