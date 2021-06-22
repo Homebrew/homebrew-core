@@ -22,5 +22,6 @@
   "pangomm@2.46",
   "pyqt@5",
   "python@3.9",
-  "python-tk@3.9"
+  "python-tk@3.9",
+  "wxmac@3.0"
 ]
