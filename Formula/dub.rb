@@ -4,6 +4,7 @@ class Dub < Formula
   url "https://github.com/dlang/dub/archive/v1.26.0.tar.gz"
   sha256 "53f32a2d4c933bf5743778b710c424f8f0bd0393bb32dc73b9756cf10750ae43"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/dlang/dub.git"
 
@@ -18,14 +19,14 @@ class Dub < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "e8907c0ef61417362b32f14361536d51d6a78eb52f5810c6b3a58757680ac611"
   end
 
-  depends_on "dmd" => :build
+  depends_on "ldc" => :build
   depends_on "pkg-config"
 
   uses_from_macos "curl"
 
   def install
     ENV["GITVER"] = version.to_s
-    system "./build.d"
+    system "ldc2", "-run", "./build.d"
     system "bin/dub", "scripts/man/gen_man.d"
     bin.install "bin/dub"
     man1.install Dir["scripts/man/*.1"]
