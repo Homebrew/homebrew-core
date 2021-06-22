@@ -38,16 +38,6 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-      - name: Check .github/workflows/tests-linux.yml formulae coverage
-        run: |
-          FILES=$(grep -oE 'Formula/[a-z0-9_\.\-]+' .github/workflows/linux-pr-tests.yml)
-          for FILE in $FILES; do
-            if [ ! -f "$FILE" ]; then
-              echo ".github/workflows/tests-linux.yml is testing a non existing file: $FILE"
-              exit 1
-            fi
-          done
-
       - name: Check for CI labels
         id: check-labels
         uses: actions/github-script@v3
@@ -99,65 +89,101 @@ jobs:
     if: github.event_name == 'pull_request' && needs.tap_syntax.outputs.syntax-only == 'false'
     strategy:
       matrix:
-        version: ["11-arm64", "11", "10.15", "10.14"]
+        os: [[self-hosted, "11-arm64"], [self-hosted, "11"], [self-hosted, "10.15"], [self-hosted, "10.14"], ubuntu-latest]
       fail-fast: false
-    runs-on: ${{ matrix.version }}
+    runs-on: ${{ matrix.os }}
     timeout-minutes: 4320
     env:
-      PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
       HOMEBREW_DEVELOPER: 1
-      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
+      - name: Set environment variables (macOS)
+        if: ${{ matrix.os }} != 'ubuntu-latest'
+        run: |
+          echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"' >> $GITHUB_ENV
+          echo 'GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED=1' >> $GITHUB_ENV
+
+      - name: Set environment variables (Linux)
+        if: ${{ matrix.os }} == 'ubuntu-latest'
+        run: |
+          echo 'PATH=/home/linuxbrew/.linuxbrew/bin:$PATH' >> $GITHUB_ENV
+          echo 'HOMEBREW_CORE_GIT_REMOTE=${{github.event.repository.html_url}}' >> $GITHUB_ENV
+          echo 'HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1' >> $GITHUB_ENV
+
       - name: Check whether ARM tests will be forced
-        if: needs.tap_syntax.outputs.force-arm == 'false'
+        if: needs.tap_syntax.outputs.force-arm == 'false' && matrix.os != 'ubuntu-latest'
         run: echo 'HOMEBREW_SKIP_UNBOTTLED_ARM_TESTS=1' >> $GITHUB_ENV
+
+      - name: Setup bottles folder
+        run: |
+          mkdir ~/bottles
+          echo $PATH
 
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
 
+      - name: Run Docker
+        if: matrix.os == 'ubuntu-latest'
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
+          HOMEBREW_NO_ANALYTICS: 1
+        run: |
+          set -eux
+          docker run \
+            -v /home/linuxbrew:/home/linuxbrew \
+            -v ~/bottles:/home/linuxbrew/bottles \
+            -u linuxbrew \
+            --env-file <(env | grep 'HOMEBREW\|GITHUB') \
+            ghcr.io/homebrew/ubuntu16.04:master \
+            bash -c 'cd /home/linuxbrew/ && brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }}'
+
       - run: brew test-bot --only-cleanup-before
+        if: matrix.os != 'ubuntu-latest'
+
+      - run: rm steps_output.txt
+        if: matrix.os != 'ubuntu-latest'
 
       - run: brew test-bot --only-setup
+        if: matrix.os != 'ubuntu-latest'
 
       - name: Run brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }}
+        if: matrix.os != 'ubuntu-latest'
         run: |
-          mkdir bottles
-          cd bottles
+          cd ~/bottles
           brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }}
 
       - name: Output brew test-bot --only-json-tab --only-formulae ${{ needs.tap_syntax.outputs.test-bot-fail-fast }} ${{ needs.tap_syntax.outputs.test-bot-skip-recursive-dependents }} failures
         if: always()
         run: |
-          cat bottles/steps_output.txt
-          rm bottles/steps_output.txt
+          cat ~/bottles/steps_output.txt
+          rm ~/bottles/steps_output.txt
 
       - name: Output brew bottle result
         if: always()
         run: |
-          cat bottles/bottle_output.txt
-          rm bottles/bottle_output.txt
+          cat ~/bottles/bottle_output.txt
+          rm ~/bottles/bottle_output.txt
 
       - name: Upload logs
         if: failure()
         uses: actions/upload-artifact@main
         with:
-          name: logs-${{ matrix.version }}
-          path: bottles/logs
+          name: logs-${{ matrix.os }}
+          path: ~/bottles/logs
 
       - name: Delete logs and home
         if: always()
         run: |
-          rm -rvf bottles/logs
-          rm -rvf bottles/home
+          rm -rvf ~/bottles/logs
+          rm -rvf ~/bottles/home
 
       - name: Count bottles
         id: bottles
         if: always()
         run: |
-          cd bottles
+          cd ~/bottles
           count=$(ls *.json | wc -l | xargs echo -n)
           echo "$count bottles"
           echo "::set-output name=count::$count"
@@ -169,25 +195,25 @@ jobs:
         if: always() && steps.bottles.outputs.failures > 0
         uses: actions/upload-artifact@main
         with:
-          name: bottles-${{ matrix.version }}
-          path: bottles/failed
+          name: bottles-${{ matrix.os }}
+          path: ~/bottles/failed
 
       # Must be run before the `Upload bottles` step so that failed
       # bottles are not included in the `bottles` artifact.
       - name: Delete failed bottles
         if: always()
-        run: rm -rvf bottles/failed
+        run: rm -rvf ~/bottles/failed
 
       - name: Upload bottles
         if: always() && steps.bottles.outputs.count > 0
         uses: actions/upload-artifact@main
         with:
           name: bottles
-          path: bottles
+          path: ~/bottles
 
       - run: brew test-bot --only-cleanup-after
         if: always()
 
       - name: Post Cleanup
         if: always()
-        run: rm -rvf bottles
+        run: rm -rvf ~/bottles
