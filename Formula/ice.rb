@@ -32,6 +32,7 @@ class Ice < Formula
       "SKIP=slice2confluence",
       "LANGUAGES=cpp objective-c",
     ]
+    inreplace "cpp/include/Ice/Object.h", /^#.+"-Wdeprecated-copy-dtor"+/, "" # fails with Xcode < 12.5
     system "make", "install", *args
 
     (libexec/"bin").mkpath
