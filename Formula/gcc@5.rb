@@ -79,7 +79,6 @@ class GccAT5 < Formula
     ENV["gcc_cv_prog_makeinfo_modern"] = "no"
 
     args = [
-      "--build=x86_64-apple-darwin#{OS.kernel_version}",
       "--prefix=#{prefix}",
       "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(",")}",
@@ -89,7 +88,6 @@ class GccAT5 < Formula
       "--with-mpfr=#{Formula["mpfr"].opt_prefix}",
       "--with-mpc=#{Formula["libmpc"].opt_prefix}",
       "--with-isl=#{Formula["isl@0.18"].opt_prefix}",
-      "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
       "--enable-checking=release",
@@ -101,27 +99,69 @@ class GccAT5 < Formula
       "--disable-nls",
       "--with-pkgversion=Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip,
       "--with-bugurl=#{tap.issues_url}",
-      "--enable-multilib",
     ]
 
-    # System headers may not be in /usr/include
-    sdk = MacOS.sdk_path_if_needed
-    if sdk
-      args << "--with-native-system-header-dir=/usr/include"
-      args << "--with-sysroot=#{sdk}"
+    on_macos do
+      args << "--build=x86_64-apple-darwin#{OS.kernel_version}"
+      args << "--enable-multilib"
+      args << "--with-system-zlib"
+
+      # System headers may not be in /usr/include
+      sdk = MacOS.sdk_path_if_needed
+      if sdk
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=#{sdk}"
+      end
+
+      # Ensure correct install names when linking against libgcc_s;
+      # see discussion in https://github.com/Homebrew/homebrew/pull/34303
+      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     end
 
-    # Avoid reference to sed shim
-    args << "SED=/usr/bin/sed"
+    on_linux do
+      # Fix cc1: error while loading shared libraries: libisl.so.15
+      args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}"
+      args << "--disable-multilib"
 
-    # Ensure correct install names when linking against libgcc_s;
-    # see discussion in https://github.com/Homebrew/homebrew/pull/34303
-    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+      # Change the default directory name for 64-bit libraries to `lib`
+      # http://www.linuxfromscratch.org/lfs/view/development/chapter06/gcc.html
+      inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+
+      # Fix for system gccs that do not support -static-libstdc++
+      # gengenrtl: error while loading shared libraries: libstdc++.so.6
+      mkdir_p lib
+      ln_s Utils.safe_popen_read(ENV.cc, "-print-file-name=libstdc++.so.6").strip, lib
+      ln_s Utils.safe_popen_read(ENV.cc, "-print-file-name=libgcc_s.so.1").strip, lib
+    end
 
     mkdir "build" do
       system "../configure", *args
       system "make", "bootstrap"
-      system "make", "install"
+
+      on_macos do
+        system "make", "install"
+      end
+
+      on_linux do
+        system "make", "install-strip"
+      end
+
+      # Add symlinks for libgcc, libgomp, libquadmath and libstdc++ so that bottles
+      # built in CI can find these libraries when using brewed gcc@5
+      on_linux do
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgcc_s.so"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgcc_s.a"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgcc_s.so.1"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgomp.so"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgomp.a"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libgomp.so.1"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libquadmath.so"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libquadmath.a"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libquadmath.so.0"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libstdc++.so"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libstdc++.a"
+        lib.install_symlink lib/"gcc/#{version_suffix}/libstdc++.so.6"
+      end
     end
 
     # Handle conflicts between GCC formulae.
@@ -136,6 +176,82 @@ class GccAT5 < Formula
     ext = File.extname(file)
     base = File.basename(file, ext)
     File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
+  end
+
+  def post_install
+    on_linux do
+      gcc = "#{bin}/gcc-#{version_suffix}"
+      libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
+      raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
+
+      glibc = Formula["glibc"]
+      glibc_installed = glibc.any_version_installed?
+
+      # Symlink crt1.o and friends where gcc can find it.
+      crtdir = if glibc_installed
+        glibc.opt_lib
+      else
+        Pathname.new(Utils.safe_popen_read("/usr/bin/cc", "-print-file-name=crti.o")).parent
+      end
+      ln_sf Dir[crtdir/"*crt?.o"], libgcc
+
+      # Create the GCC specs file
+      # See https://gcc.gnu.org/onlinedocs/gcc/Spec-Files.html
+
+      # Locate the specs file
+      specs = libgcc/"specs"
+      ohai "Creating the GCC specs file: #{specs}"
+      specs_orig = Pathname.new("#{specs}.orig")
+      rm_f [specs_orig, specs]
+
+      system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
+
+      # Locate the native system header dirs if user uses system glibc
+      unless glibc_installed
+        target = Utils.safe_popen_read(gcc, "-print-multiarch").chomp
+        raise "command failed: #{gcc} -print-multiarch" if $CHILD_STATUS.exitstatus.nonzero?
+
+        system_header_dirs += ["/usr/include/#{target}", "/usr/include"]
+      end
+
+      # Save a backup of the default specs file
+      specs_string = Utils.safe_popen_read(gcc, "-dumpspecs")
+      raise "command failed: #{gcc} -dumpspecs" if $CHILD_STATUS.exitstatus.nonzero?
+
+      specs_orig.write specs_string
+
+      # Set the library search path
+      # For include path:
+      #   * `-isysroot #{HOMEBREW_PREFIX}/nonexistent` prevents gcc searching built-in
+      #     system header files.
+      #   * `-idirafter <dir>` instructs gcc to search system header
+      #     files after gcc internal header files.
+      # For libraries:
+      #   * `-nostdlib -L#{libgcc}` instructs gcc to use brewed glibc
+      #     if applied.
+      #   * `-L#{libdir}` instructs gcc to find the corresponding gcc
+      #     libraries. It is essential if there are multiple brewed gcc
+      #     with different versions installed.
+      #     Noted that it should only be passed for the `gcc@*` formulae.
+      #   * `-L#{HOMEBREW_PREFIX}/lib` instructs gcc to find the rest
+      #     brew libraries.
+      libdir = HOMEBREW_PREFIX/"lib/gcc/#{version_suffix}"
+      specs.write specs_string + <<~EOS
+        *cpp_unique_options:
+        + -isysroot #{HOMEBREW_PREFIX}/nonexistent #{system_header_dirs.map { |p| "-idirafter #{p}" }.join(" ")}
+
+        *link_libgcc:
+        #{glibc_installed ? "-nostdlib -L#{libgcc}" : "+"} -L#{libdir} -L#{HOMEBREW_PREFIX}/lib
+
+        *link:
+        + --dynamic-linker #{HOMEBREW_PREFIX}/lib/ld.so -rpath #{libdir} -rpath #{HOMEBREW_PREFIX}/lib
+
+      EOS
+
+      # Symlink ligcc_s.so.1 where glibc can find it.
+      # Fix the error: libgcc_s.so.1 must be installed for pthread_cancel to work
+      ln_sf opt_lib/"libgcc_s.so.1", glibc.opt_lib if glibc_installed
+    end
   end
 
   test do
