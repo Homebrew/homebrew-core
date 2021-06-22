@@ -19,6 +19,7 @@ class Ice < Formula
 
   depends_on "lmdb"
   depends_on "mcpp"
+  depends_on macos: :catalina
 
   def install
     args = [
