@@ -1,9 +1,9 @@
 class Parallel < Formula
   desc "Shell command parallelization utility"
   homepage "https://savannah.gnu.org/projects/parallel/"
-  url "https://ftp.gnu.org/gnu/parallel/parallel-20210422.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/parallel/parallel-20210422.tar.bz2"
-  sha256 "be3e6a3b644467bef25905cb4fd917e67eef982ba4f6e258df25bb0235b59ee8"
+  url "https://ftp.gnu.org/gnu/parallel/parallel-20210622.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/parallel/parallel-20210622.tar.bz2"
+  sha256 "7b33279bf71e76c52c393081d2db69057dd320be019759c4e704841a6761ec86"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://git.savannah.gnu.org/git/parallel.git"
