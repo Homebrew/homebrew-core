@@ -38,13 +38,6 @@ class Siril < Formula
   depends_on "opencv"
   depends_on "openjpeg"
 
-  # Fix build with glib 2.68.
-  # Remove with the next release.
-  patch do
-    url "https://gitlab.com/free-astro/siril/-/commit/d319fceca5b00f156e1c5e3512d3ac1f41beb16a.diff"
-    sha256 "dd3593a8158bf661382995859665546d9fbf8b29822ad100e6a06c44f57d6013"
-  end
-
   def install
     # siril uses pkg-config but it has wrong include paths for several
     # headers. Work around that by letting it find all includes.
