@@ -189,6 +189,9 @@
     "exclude_packages": ["numpy"]
   },
   "semgrep": "semgrep",
+  "sphinx-doc": {
+    "extra_packages": ["numpydoc"]
+  },
   "sqlite-utils": {
     "exclude_packages": ["tabulate"]
   },
