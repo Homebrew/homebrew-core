@@ -10,8 +10,6 @@ class Wtf < Formula
     regex(%r{url=.*?/wtf[._-]v?(\d{6,8})\.t}i)
   end
 
-  bottle :unneeded
-
   def install
     inreplace %w[wtf wtf.6], "/usr/share", share
     bin.install "wtf"
