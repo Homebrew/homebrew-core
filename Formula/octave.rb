@@ -88,20 +88,19 @@ class Octave < Formula
     ENV.append "LDFLAGS", "-F#{Formula["qt@5"].opt_lib}"
 
     system "./bootstrap" if build.head?
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--enable-link-all-dependencies",
-                          "--enable-shared",
-                          "--disable-static",
-                          "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
-                          "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
-                          "--with-java-homedir=#{Formula["openjdk"].opt_prefix}",
-                          "--with-x=no",
-                          "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
-                          "--with-portaudio",
-                          "--with-sndfile"
-    system "make", "all"
+    args = ["--prefix=#{prefix}",
+            "--disable-dependency-tracking",
+            "--disable-silent-rules",
+            "--enable-link-all-dependencies",
+            "--enable-shared",
+            "--disable-static",
+            "--with-hdf5-includedir=#{Formula["hdf5"].opt_include}",
+            "--with-hdf5-libdir=#{Formula["hdf5"].opt_lib}",
+            "--with-java-homedir=#{Formula["openjdk"].opt_prefix}",
+            "--with-x=no",
+            "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
+            "--with-portaudio",
+            "--with-sndfile"]
 
     on_linux do
       # Explicitly specify aclocal and automake without versions
@@ -111,9 +110,15 @@ class Octave < Formula
       # Mesa OpenGL location must be supplied by LDFLAGS on Linux
       args << "LDFLAGS=-L#{Formula["mesa"].opt_lib} -L#{Formula["mesa-glu"].opt_lib}"
 
+      # Docs building is broken on Linux
+      args << "--disable-docs"
+
       # Need to regenerate aclocal.m4 so that it will work with brewed automake
       system "aclocal"
     end
+
+    system "./configure", *args
+    system "make", "all"
 
     # Avoid revision bumps whenever fftw's, gcc's or OpenBLAS' Cellar paths change
     inreplace "src/mkoctfile.cc" do |s|
