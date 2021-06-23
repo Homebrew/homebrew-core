@@ -4,10 +4,9 @@ class Openvdb < Formula
   # Check whether this can be switched to `openexr`, `imath`, and `tbb` at version bump
   # https://github.com/AcademySoftwareFoundation/openvdb/issues/1034
   # https://github.com/AcademySoftwareFoundation/openvdb/issues/932
-  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v8.0.1.tar.gz"
-  sha256 "a6845da7c604d2c72e4141c898930ac8a2375521e535f696c2cd92bebbe43c4f"
+  url "https://github.com/AcademySoftwareFoundation/openvdb/archive/v8.1.0.tar.gz"
+  sha256 "3e09d47331429be7409a3a3c27fdd3c297f96d31d2153febe194e664a99d6183"
   license "MPL-2.0"
-  revision 2
   head "https://github.com/AcademySoftwareFoundation/openvdb.git"
 
   bottle do
