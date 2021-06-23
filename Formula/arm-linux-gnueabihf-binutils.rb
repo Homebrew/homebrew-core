@@ -5,6 +5,7 @@ class ArmLinuxGnueabihfBinutils < Formula
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.1.tar.xz"
   sha256 "e81d9edf373f193af428a0f256674aea62a9d74dfe93f65192d4eae030b0f3b0"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "d88da4f91a77063ddb2a8bdf717c0b0ffdf552111660b1af59448d61ab465fa8"
@@ -21,12 +22,15 @@ class ArmLinuxGnueabihfBinutils < Formula
     # Avoid build failure: https://sourceware.org/bugzilla/show_bug.cgi?id=23424
     ENV.append "CXXFLAGS", "-Wno-c++11-narrowing"
 
+    target = "arm-linux-gnueabihf"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--enable-deterministic-archives",
                           "--prefix=#{prefix}",
+                          "--libdir=#{lib}/#{target}",
+                          "--infodir=#{info}/#{target}",
                           "--disable-werror",
-                          "--target=arm-linux-gnueabihf",
+                          "--target=#{target}",
                           "--enable-gold=yes",
                           "--enable-ld=yes",
                           "--enable-interwork",
