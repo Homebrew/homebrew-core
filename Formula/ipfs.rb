@@ -2,8 +2,8 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.io/"
   url "https://github.com/ipfs/go-ipfs.git",
-      tag:      "v0.8.0",
-      revision: "ce693d7e81e0206b3afbce30333c21a36a9f094b"
+      tag:      "v0.9.0",
+      revision: "179d1d15079ab331648023670b766604c764dc17"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
