@@ -2,8 +2,8 @@ class Moarvm < Formula
   desc "Virtual machine for NQP and Rakudo Perl 6"
   homepage "https://moarvm.org"
   # NOTE: Please keep these values in sync with nqp & rakudo when updating.
-  url "https://github.com/MoarVM/MoarVM/releases/download/2021.05/MoarVM-2021.05.tar.gz"
-  sha256 "b14c8778664e3bcaed9cfde3c7b3a3b1898be5f839efee7464979e3954a6a897"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2021.06/MoarVM-2021.06.tar.gz"
+  sha256 "2300a921d504c9d33f111cbe08097d0011bfb06000c018b8d4353d97966772a7"
   license "Artistic-2.0"
 
   livecheck do
@@ -26,8 +26,8 @@ class Moarvm < Formula
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2021.05/nqp-2021.05.tar.gz"
-    sha256 "b43cf9d25a8b3187c7e132e1edda647d58bc353ca0fb534cc9aa0f8df7fff73f"
+    url "https://github.com/Raku/nqp/releases/download/2021.06/nqp-2021.06.tar.gz"
+    sha256 "26992816b84e3624d197c64dcfaca59bcebb10338b81e5402853b426a5a200b4"
   end
 
   def install
