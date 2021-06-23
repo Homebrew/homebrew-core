@@ -1,10 +1,9 @@
 class PdftkJava < Formula
   desc "Port of pdftk in java"
   homepage "https://gitlab.com/pdftk-java/pdftk"
-  url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.2.2/pdftk-v3.2.2.tar.gz"
-  sha256 "b284e413dd43fe440152360eccbc5cb9ffd8978be8313ffc060bfebb74d14bf1"
+  url "https://gitlab.com/pdftk-java/pdftk/-/archive/v3.2.3/pdftk-v3.2.3.tar.gz"
+  sha256 "4cbaa75033c22425b4fb1518121d0ba2e39c491e4ca5073446e166d032e159b5"
   license "GPL-2.0-or-later"
-  revision 2
   head "https://gitlab.com/pdftk-java/pdftk.git"
 
   livecheck do
