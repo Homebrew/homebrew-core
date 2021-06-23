@@ -1,9 +1,9 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://www.snort.org/downloads/snort/snort-2.9.17.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort-2.9.17.1.tar.gz"
-  sha256 "303d3d5dc5affecfeaad3a331d3163f901d48d960fdd6598cb55c6d1591eed82"
+  url "https://www.snort.org/downloads/snort/snort-2.9.18.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort-2.9.18.tar.gz"
+  sha256 "d0308642f69e0d36f70db9703e5766afce2f44ff05b7d2c9cc8e3ac8323b2c77"
   license "GPL-2.0-only"
 
   livecheck do
