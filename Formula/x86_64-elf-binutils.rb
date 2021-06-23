@@ -5,6 +5,7 @@ class X8664ElfBinutils < Formula
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.1.tar.xz"
   sha256 "e81d9edf373f193af428a0f256674aea62a9d74dfe93f65192d4eae030b0f3b0"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "a5584ba07f4f488096061f8f11c5d2fad72b87f42526aae902ba24b2dded7e13"
@@ -16,9 +17,11 @@ class X8664ElfBinutils < Formula
   uses_from_macos "texinfo"
 
   def install
-    system "./configure", "--target=x86_64-elf",
+    target = "x86_64-elf"
+    system "./configure", "--target=#{target}",
                           "--prefix=#{prefix}",
-                          "--infodir=#{info}/x86_64-elf-binutils",
+                          "--libdir=#{lib}/#{target}",
+                          "--infodir=#{info}/#{target}",
                           "--disable-nls"
     system "make"
     system "make", "install"
