@@ -15,6 +15,7 @@ class OciCli < Formula
     sha256 cellar: :any, mojave:        "23523d57b97d86706cfa31cdcaeefb1f412915ac890543b12c096cc2a4bf2086"
   end
 
+  depends_on "rust" => :build
   depends_on "python@3.9"
 
   resource "arrow" do
