@@ -1,14 +1,9 @@
 class Virtuoso < Formula
   desc "High-performance object-relational SQL database"
   homepage "https://virtuoso.openlinksw.com/wiki/main/"
-  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.5.1/virtuoso-opensource-7.2.5.tar.gz"
-  # Upstream pushed a hot-fix retag of 7.2.5 as 7.2.5.1.
-  # This explicit version should be safe to remove next release.
-  version "7.2.5.1"
-  sha256 "826477d25a8493a68064919873fb4da4823ebe09537c04ff4d26ba49d9543d64"
+  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.6.1/virtuoso-opensource-7.2.6.tar.gz"
+  sha256 "38fd3c037aef62fcc7c28de5c0d6c2577d4bb19809e71421fc42093ed4d1c753"
   license "GPL-2.0-only"
-  revision 1
-  # HEAD is disabled as the below, required patches are not compatible.
 
   bottle do
     sha256 cellar: :any, big_sur:     "7f6b30ca0a581875e7efede66e4d57c6415b8ae1148a7294eb24cc89f556f2d6"
@@ -17,11 +12,16 @@ class Virtuoso < Formula
     sha256 cellar: :any, high_sierra: "3abcc2f1444324d675af9014ac20555124c875d7e9a4ba9b021fd1ad7c570845"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  head do
+    url "https://github.com/openlink/virtuoso-opensource.git", branch: "develop/7"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   # If gawk isn't found, make fails deep into the process.
   depends_on "gawk" => :build
-  depends_on "libtool" => :build
   depends_on "openssl@1.1"
 
   uses_from_macos "bison" => :build
@@ -36,22 +36,8 @@ class Virtuoso < Formula
 
   skip_clean :la
 
-  # Support OpenSSL 1.1
-  patch do
-    url "https://sources.debian.org/data/main/v/virtuoso-opensource/7.2.5.1+dfsg-2/debian/patches/ssl1.1.patch"
-    sha256 "9fcaaff5394706fcc448e35e30f89c20fe83f5eb0fbe1411d4b2550d1ec37bf3"
-  end
-
-  # TLS 1.3 compile error patch.
-  # This also updates the default TLS protocols to allow TLS 1.3.
-  patch do
-    url "https://github.com/openlink/virtuoso-opensource/commit/67e09939cf62dc753feca8381396346f6d3d4a06.patch?full_index=1"
-    sha256 "485f54e4c79d4e1e8b30c4900e5c10ae77bded3928f187e7e2e960d345ca5378"
-  end
-
   def install
-    # We patched configure.ac on stable so need to rerun the autogen.
-    system "./autogen.sh"
+    system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
