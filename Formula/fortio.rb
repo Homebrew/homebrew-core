@@ -25,7 +25,7 @@ class Fortio < Formula
   end
 
   test do
-    assert_match shell_output("#{bin}/fortio version -s"), version.to_s
+    assert_match version.to_s, shell_output("#{bin}/fortio version -s")
 
     port = free_port
     begin
