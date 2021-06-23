@@ -1,8 +1,8 @@
 class Hypre < Formula
   desc "Library featuring parallel multigrid methods for grid problems"
   homepage "https://computing.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods"
-  url "https://github.com/hypre-space/hypre/archive/v2.21.0.tar.gz"
-  sha256 "e380f914fe7efe22afc44cdf553255410dc8a02a15b2e5ebd279ba88817feaf5"
+  url "https://github.com/hypre-space/hypre/archive/v2.22.0.tar.gz"
+  sha256 "2c786eb5d3e722d8d7b40254f138bef4565b2d4724041e56a8fa073bda5cfbb5"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/hypre-space/hypre.git"
 
