@@ -22,6 +22,8 @@ class Treefrog < Formula
   depends_on "qt"
 
   def install
+    inreplace "src/corelib.pro", "/usr/local", HOMEBREW_PREFIX
+
     system "./configure", "--prefix=#{prefix}", "--enable-shared-mongoc"
 
     cd "src" do
