@@ -1,9 +1,11 @@
 class SpiceGtk < Formula
+  include Language::Python::Virtualenv
+
   desc "GTK client/libraries for SPICE"
   homepage "https://www.spice-space.org"
-  url "https://www.spice-space.org/download/gtk/spice-gtk-0.37.tar.bz2"
-  sha256 "1f28b706472ad391cda79a93fd7b4c7a03e84b88fc46ddb35dddbe323c923bb7"
-  revision 4
+  url "https://www.spice-space.org/download/gtk/spice-gtk-0.39.tar.xz"
+  sha256 "23acbee197eaaec9bce6e6bfd885bd8f79708332639243ff04833020865713cd"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
 
   livecheck do
     url "https://www.spice-space.org/download/gtk/"
@@ -18,13 +20,13 @@ class SpiceGtk < Formula
     sha256 high_sierra:   "32a55dcaa4902143f4fda24ca035ee3f1be41267d862e46bc3f7ba7a7181d026"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "autogen" => :build
-  depends_on "automake" => :build
   depends_on "gobject-introspection" => :build
   depends_on "intltool" => :build
   depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python@3.9" => :build
   depends_on "vala" => :build
 
   depends_on "atk"
@@ -50,29 +52,36 @@ class SpiceGtk < Formula
   depends_on "spice-protocol"
   depends_on "usbredir"
 
-  # Upstream patch: https://gitlab.freedesktop.org/spice/spice-gtk/issues/88
-  patch do
-    url "https://gitlab.freedesktop.org/spice/spice-gtk/commit/3c9b37bfc7c88969dfe16b8bfd874745e0fceb8a.diff"
-    sha256 "c2bb9c6dc0d07f333d10077987386680818296f1deb3b796ea7e35453aba7d91"
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
+    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
   end
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-introspection
-      --enable-gstvideo
-      --enable-gstaudio
-      --enable-gstreamer=1.0
-      --enable-vala
-      --with-coroutine=gthread
-      --with-gtk=3.0
-      --with-lz4
-      --prefix=#{prefix}
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources
+    ENV.prepend_path "PATH", libexec/"bin"
+
+    # https://gitlab.freedesktop.org/spice/spice-gtk/-/issues/144
+    inreplace "subprojects/spice-common/meson.build", "py_module.find_installation()",
+                                                      "py_module.find_installation('python3')"
+
+    # usb-device-cd.c not compiling, see: https://gitlab.freedesktop.org/spice/spice-gtk/-/issues/107
+    args = std_meson_args + %w[
+      -Dsmartcard=disabled
+      -Dusbredir=disabled
     ]
-    system "autoreconf"
-    system "./configure", *args
-    system "make", "install"
+
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja"
+      system "ninja", "install"
+    end
   end
 
   test do
