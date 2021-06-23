@@ -21,7 +21,7 @@ class Fortio < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio"
+    system "make", "official-build-clean", "official-build-version", "OFFICIAL_BIN=#{bin}/fortio"
   end
 
   test do
