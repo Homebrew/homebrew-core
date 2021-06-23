@@ -21,8 +21,7 @@ class Fortio < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio", "LIB_DIR=#{lib}"
-    lib.install "ui/static", "ui/templates"
+    system "make", "official-build", "OFFICIAL_BIN=#{bin}/fortio"
   end
 
   test do
