@@ -1,18 +1,16 @@
 class ProcyonDecompiler < Formula
   desc "Modern decompiler for Java 5 and beyond"
-  homepage "https://bitbucket.org/mstrobel/procyon/wiki/Java%20Decompiler"
-  url "https://bitbucket.org/mstrobel/procyon/downloads/procyon-decompiler-0.5.36.jar"
-  sha256 "74f9f1537113207521a075fafe64bd8265c47a9c73574bbf9fa8854bbf7126bc"
-  revision 1
+  homepage "https://github.com/mstrobel/procyon"
+  url "https://github.com/mstrobel/procyon/releases/download/0.6-prerelease/procyon-decompiler-0.6-prerelease.jar"
+  sha256 "781556282a3c71c013fd3f47823c5408d1731b2ce87dcf4c6f2a7495d526add9"
+  license "Apache-2.0"
 
   bottle :unneeded
-
-  disable! date: "2020-08-22", because: :repo_removed
 
   depends_on "openjdk"
 
   def install
-    libexec.install "procyon-decompiler-#{version}.jar"
+    libexec.install "procyon-decompiler-#{version}release.jar" => "procyon-decompiler-#{version}.jar"
     (bin/"procyon-decompiler").write <<~EOS
       #!/bin/bash
       export JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}"
