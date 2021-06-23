@@ -5,6 +5,7 @@ class I686ElfBinutils < Formula
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.1.tar.xz"
   sha256 "e81d9edf373f193af428a0f256674aea62a9d74dfe93f65192d4eae030b0f3b0"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "1250e2e488a22f422b981a5b38602b1269568020c167c491894a7d984a3fbea8"
@@ -14,9 +15,11 @@ class I686ElfBinutils < Formula
   end
 
   def install
-    system "./configure", "--target=i686-elf",
+    target = "i686-elf"
+    system "./configure", "--target=#{target}",
                           "--prefix=#{prefix}",
-                          "--infodir=#{info}/i686-elf-binutils",
+                          "--libdir=#{lib}/#{target}",
+                          "--infodir=#{info}/#{target}",
                           "--disable-nls"
     system "make"
     system "make", "install"
