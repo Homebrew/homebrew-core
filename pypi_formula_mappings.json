@@ -204,6 +204,9 @@
   "twarc": {
     "exclude_packages": ["six"]
   },
+  "wxpython": {
+    "exclude_packages": ["numpy", "pillow", "six"]
+  },
   "xdot": {
     "extra_packages": ["graphviz"]
   },
