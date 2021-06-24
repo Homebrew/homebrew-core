@@ -6,8 +6,6 @@ class Inxi < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/smxi/inxi.git"
 
-  bottle :unneeded
-
   def install
     bin.install "inxi"
     man1.install "inxi.1"
