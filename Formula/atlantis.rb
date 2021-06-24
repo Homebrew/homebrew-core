@@ -17,7 +17,7 @@ class Atlantis < Formula
   depends_on "terraform"
 
   def install
-    system "go", "build", "-ldflags", "-s -w", "-trimpath", "-o", bin/"atlantis"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
