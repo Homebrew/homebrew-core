@@ -69,7 +69,7 @@ class Wxmac < Formula
     # which are linked to the same place
     inreplace "#{bin}/wx-config", prefix, HOMEBREW_PREFIX
 
-    # Move some files out of the way to prevent conflict with `wxmac-stable`
+    # For consistency with the versioned wxmac formulae
     bin.install_symlink "#{bin}/wx-config" => "wx-config-#{version.major_minor}"
     (share/"wx"/version.major_minor).install share/"aclocal", share/"bakefile"
   end
