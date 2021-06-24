@@ -5,6 +5,7 @@ class X8664ElfGcc < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
   sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
 
   bottle do
     rebuild 1
@@ -29,10 +30,11 @@ class X8664ElfGcc < Formula
   end
 
   def install
+    target = "x86_64-elf"
     mkdir "x86_64-elf-gcc-build" do
-      system "../configure", "--target=x86_64-elf",
+      system "../configure", "--target=#{target}",
                              "--prefix=#{prefix}",
-                             "--infodir=#{info}/x86_64-elf-gcc",
+                             "--infodir=#{info}/#{target}",
                              "--disable-nls",
                              "--without-isl",
                              "--without-headers",
