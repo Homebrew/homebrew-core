@@ -4,6 +4,11 @@ class Newlisp < Formula
   url "http://www.newlisp.org/downloads/newlisp-10.7.5.tgz"
   sha256 "dc2d0ff651c2b275bc4af3af8ba59851a6fb6e1eaddc20ae75fb60b1e90126ec"
 
+  livecheck do
+    url "http://www.newlisp.org/index.cgi?Downloads"
+    regex(/href=.*?newlisp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "24b3c02002fa7c832d9a817c552b19bd520ae06f82ab526b8e993ae0a3d77d99"
     sha256 big_sur:       "509f6892a0eabf53cebe424f2f2163ded090b7942e8fe8e43047f43781b0535e"
