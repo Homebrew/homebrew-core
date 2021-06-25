@@ -3,10 +3,9 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/59/4a/06f4527f0b47d80f0f86c17e14ee0bf0fedd7028a63a4f81c314f53c6636/ipython-7.24.1.tar.gz"
-  sha256 "9bc24a99f5d19721fb8a2d1408908e9c0520a17fff2233ffe82620847f17f1b6"
+  url "https://files.pythonhosted.org/packages/73/fe/0250e9e85629f7eba7182490364174e50c48d1eac98bc5e81f993cf1a11e/ipython-7.25.0.tar.gz"
+  sha256 "54bbd1fe3882457aaf28ae060a5ccdef97f212a741754e420028d4ec5c2291dc"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/ipython/ipython.git"
 
   bottle do
@@ -87,8 +86,8 @@ class Ipython < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/f7/e0/47738dadee0ec15ffbfa926f01586db2397201e0af3e06a0e669adfd6f2f/prompt_toolkit-3.0.18.tar.gz"
-    sha256 "e1b4f11b9336a28fa11810bc623c357420f69dfdb6d2dac41ca2c21a55c033bc"
+    url "https://files.pythonhosted.org/packages/88/4b/2c0f9e2b52297bdeede91c8917c51575b125006da5d0485521fa2b1e0b75/prompt_toolkit-3.0.19.tar.gz"
+    sha256 "08360ee3a3148bdb5163621709ee322ec34fc4375099afa4bbf751e9b7b7fa4f"
   end
 
   resource "ptyprocess" do
