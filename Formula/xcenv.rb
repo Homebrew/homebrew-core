@@ -6,8 +6,6 @@ class Xcenv < Formula
   license "MIT"
   head "https://github.com/xcenv/xcenv.git"
 
-  bottle :unneeded
-
   depends_on :macos
 
   def install
