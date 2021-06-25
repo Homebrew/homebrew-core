@@ -22,6 +22,10 @@ class Chuck < Formula
 
   depends_on xcode: :build
 
+  # Big Sur compile fix https://github.com/ccrma/chuck/pull/158
+  # Adapted from above PR in order to apply to the latest release
+  patch :DATA
+
   def install
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
@@ -32,3 +36,18 @@ class Chuck < Formula
     assert_match "device", shell_output("#{bin}/chuck --probe 2>&1")
   end
 end
+
+__END__
+diff --git a/src/core/makefile.x/makefile.osx b/src/core/makefile.x/makefile.osx
+index 3b016519eda010f177cc15449a862ab1d711c15e..3350b6f8e6dfc197010add4a7506da11d6fd664c 100644
+--- a/src/core/makefile.x/makefile.osx
++++ b/src/core/makefile.x/makefile.osx
+@@ -1,7 +1,7 @@
+ # uncomment the following to force 32-bit compilation
+ # FORCE_M32=-m32
+
+-ifneq ($(shell sw_vers -productVersion | egrep '10\.(6|7|8|9|10|11|12|13|14|15)(\.[0-9]+)?'),)
++ifneq ($(shell sw_vers -productVersion | egrep '^(10\.(6|7|8|9|10|11|12|13|14|15)(\.[0-9]+)|1[123456789])?'),)
+ SDK=$(shell xcrun --show-sdk-path)
+ ISYSROOT=-isysroot $(SDK)
+ LINK_EXTRAS=-F/System/Library/PrivateFrameworks \
