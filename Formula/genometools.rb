@@ -2,10 +2,9 @@ class Genometools < Formula
   desc "Versatile open source genome analysis software"
   homepage "http://genometools.org/"
   # genometools does not have source code on par with their binary dist on their website
-  url "https://github.com/genometools/genometools/archive/v1.6.1.tar.gz"
-  sha256 "528ca143a7f1d42af8614d60ea1e5518012913a23526d82e434f0dad2e2d863f"
+  url "https://github.com/genometools/genometools/archive/v1.6.2.tar.gz"
+  sha256 "974825ddc42602bdce3d5fbe2b6e2726e7a35e81b532a0dc236f6e375d18adac"
   license "ISC"
-  revision 2
   head "https://github.com/genometools/genometools.git"
 
   bottle do
