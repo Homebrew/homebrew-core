@@ -7,8 +7,6 @@ class RbenvBinstubs < Formula
   revision 1
   head "https://github.com/ianheggie/rbenv-binstubs.git"
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   def install
