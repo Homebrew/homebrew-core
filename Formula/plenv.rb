@@ -6,8 +6,6 @@ class Plenv < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   head "https://github.com/tokuhirom/plenv.git"
 
-  bottle :unneeded
-
   depends_on "perl-build"
 
   def install
