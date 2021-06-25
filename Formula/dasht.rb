@@ -5,8 +5,6 @@ class Dasht < Formula
   sha256 "5ea43b0f7461e124d46b991892dedc8dcf506ccd5e9dc94324f7bdf6e580ff73"
   license "ISC"
 
-  bottle :unneeded
-
   depends_on "socat"
   depends_on "sqlite"
   depends_on "w3m"
