@@ -12,8 +12,6 @@ class Mahout < Formula
     depends_on "maven" => :build
   end
 
-  bottle :unneeded
-
   depends_on "hadoop"
   depends_on "openjdk"
 
