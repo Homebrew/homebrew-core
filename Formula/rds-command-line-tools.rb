@@ -5,8 +5,6 @@ class RdsCommandLineTools < Formula
   sha256 "298c15ccd04bd91f1be457645d233455364992e7dd27e09c48230fbc20b5950c"
   revision 1
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
