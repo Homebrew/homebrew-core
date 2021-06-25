@@ -1,20 +1,10 @@
 class Unison < Formula
   desc "File synchronization tool for OSX"
   homepage "https://www.cis.upenn.edu/~bcpierce/unison/"
+  url "https://github.com/bcpierce00/unison/archive/v2.51.4.tar.gz"
+  sha256 "d1ecc7581aaf2ed0f3403d4960f468acd7b9f1d92838a17c96e6d1df79b802d5"
   license "GPL-3.0-or-later"
   head "https://github.com/bcpierce00/unison.git", branch: "master"
-
-  stable do
-    url "https://github.com/bcpierce00/unison/archive/v2.51.4.tar.gz"
-    sha256 "d1ecc7581aaf2ed0f3403d4960f468acd7b9f1d92838a17c96e6d1df79b802d5"
-
-    # Patch to fix build with ocaml 4.12. Remove in 2.51.4
-    # https://github.com/bcpierce00/unison/pull/481
-    patch do
-      url "https://github.com/bcpierce00/unison/commit/14b885316e0a4b41cb80fe3daef7950f88be5c8f.patch?full_index=1"
-      sha256 "6d498d5e21d77cbc83ffc533c93cfa2f2ea30ab1b991b16e612e1d09a20efc8e"
-    end
-  end
 
   # The "latest" release on GitHub sometimes points to unstable versions (e.g.,
   # release candidates), so we check the Git tags instead.
