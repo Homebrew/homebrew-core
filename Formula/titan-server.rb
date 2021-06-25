@@ -4,8 +4,6 @@ class TitanServer < Formula
   url "http://s3.thinkaurelius.com/downloads/titan/titan-1.0.0-hadoop1.zip"
   sha256 "67538e231db5be75821b40dd026bafd0cd7451cdd7e225a2dc31e124471bb8ef"
 
-  bottle :unneeded
-
   def install
     libexec.install %w[bin conf data ext javadocs lib log scripts]
     bin.install_symlink libexec/"bin/titan.sh" => "titan"
