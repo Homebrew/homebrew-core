@@ -10,8 +10,6 @@ class OrcTools < Formula
     regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
