@@ -11,8 +11,6 @@ class Kawa < Formula
     regex(/href=.*?kawa[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
