@@ -6,8 +6,6 @@ class Ivy < Formula
   sha256 "3855a5769b5dbeafa9fb6a00f130467fd0f89da684a0b33a91e3dc5dae2715c7"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
