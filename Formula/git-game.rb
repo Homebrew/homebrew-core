@@ -5,8 +5,6 @@ class GitGame < Formula
   sha256 "d893b2c813388754c16d867cf37726cd7e73c9ccd316735aac43bf1cd3ab1412"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bin.install "git-game"
   end
