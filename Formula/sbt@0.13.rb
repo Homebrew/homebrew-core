@@ -6,10 +6,9 @@ class SbtAT013 < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
   keg_only :versioned_formula
 
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install
