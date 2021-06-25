@@ -5,28 +5,16 @@ class Riemann < Formula
   sha256 "fa2e22b712ed53144bf3319a418a3cd502ed00fa8e6bcb50443039a2664ee643"
   license "EPL-1.0"
 
-  bottle :unneeded
-
-  def shim_script
-    <<~EOS
-      #!/bin/bash
-      if [ -z "$1" ]
-      then
-        config="#{etc}/riemann.config"
-      else
-        config=$@
-      fi
-      exec "#{libexec}/bin/riemann" $config
-    EOS
-  end
+  depends_on "openjdk"
 
   def install
+    inreplace "bin/riemann", "$top/etc", etc
     etc.install "etc/riemann.config" => "riemann.config.guide"
 
     # Install jars in libexec to avoid conflicts
     libexec.install Dir["*"]
 
-    (bin+"riemann").write shim_script
+    (bin/"riemann").write_env_script libexec/"bin/riemann", Language::Java.overridable_java_home_env
   end
 
   def caveats
