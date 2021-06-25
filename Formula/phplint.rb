@@ -11,12 +11,10 @@ class Phplint < Formula
     regex(/href2?=.*?phplint[._-]v?(\d+(?:\.\d+)+(?:[._-]\d{6,8})?)\.t/i)
   end
 
-  bottle :unneeded
-
-  depends_on "php"
+  depends_on "php@7.4"
 
   def install
-    inreplace "php", "/opt/php/bin/php", Formula["php"].opt_bin/"php"
+    inreplace "php", "/opt/php/bin/php", Formula["php@7.4"].opt_bin/"php"
     libexec.install "modules", "php", "phpl", "stdlib", "utils"
     bin.install_symlink libexec/"phpl"
   end
