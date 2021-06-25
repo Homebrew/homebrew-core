@@ -2,8 +2,8 @@ class Reposurgeon < Formula
   desc "Edit version-control repository history"
   homepage "http://www.catb.org/esr/reposurgeon/"
   url "https://gitlab.com/esr/reposurgeon.git",
-      tag:      "4.21",
-      revision: "4412cb406172786f9983a3f94a60deded2181831"
+      tag:      "4.27",
+      revision: "39b0cac8387c888d3dfb5fbbb9ab69fc0fecc79b"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/reposurgeon.git"
 
@@ -15,10 +15,12 @@ class Reposurgeon < Formula
   end
 
   depends_on "asciidoctor" => :build
+  depends_on "gawk" => :build if MacOS.version <= :catalina
   depends_on "go" => :build
   depends_on "git" # requires >= 2.19.2
 
   def install
+    ENV.append_path "GEM_PATH", Formula["asciidoctor"].opt_libexec
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
     system "make"
     system "make", "install", "prefix=#{prefix}"
