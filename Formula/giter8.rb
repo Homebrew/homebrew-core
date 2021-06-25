@@ -5,8 +5,6 @@ class Giter8 < Formula
   sha256 "f3465f6b69a68c4cc67086446e6f583af3a243b2541e64dc32122a94999d29e0"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   disable! date: "2020-07-30", because: "fetches unversioned dependencies at runtime"
 
   depends_on "openjdk"
