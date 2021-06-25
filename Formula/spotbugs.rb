@@ -11,8 +11,6 @@ class Spotbugs < Formula
     depends_on "gradle" => :build
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   conflicts_with "fb-client", because: "both install a `fb` binary"
