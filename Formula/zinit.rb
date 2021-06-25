@@ -6,8 +6,6 @@ class Zinit < Formula
   license "MIT"
   head "https://github.com/zdharma/zinit.git"
 
-  bottle :unneeded
-
   uses_from_macos "zsh"
 
   def install
