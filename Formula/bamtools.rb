@@ -1,8 +1,8 @@
 class Bamtools < Formula
   desc "C++ API and command-line toolkit for BAM data"
   homepage "https://github.com/pezmaster31/bamtools"
-  url "https://github.com/pezmaster31/bamtools/archive/v2.5.1.tar.gz"
-  sha256 "4abd76cbe1ca89d51abc26bf43a92359e5677f34a8258b901a01f38c897873fc"
+  url "https://github.com/pezmaster31/bamtools/archive/v2.5.2.tar.gz"
+  sha256 "4d8b84bd07b673d0ed41031348f10ca98dd6fa6a4460f9b9668d6f1d4084dfc8"
   license "MIT"
   head "https://github.com/pezmaster31/bamtools.git"
 
