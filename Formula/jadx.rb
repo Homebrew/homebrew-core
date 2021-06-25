@@ -10,8 +10,6 @@ class Jadx < Formula
     depends_on "gradle" => :build
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   resource "sample.apk" do
