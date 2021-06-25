@@ -10,14 +10,7 @@ class H2 < Formula
     url "https://github.com/h2database/h2database.git"
   end
 
-  bottle :unneeded
-
-  def script
-    <<~EOS
-      #!/bin/sh
-      cd #{libexec} && bin/h2.sh "$@"
-    EOS
-  end
+  depends_on "openjdk"
 
   def install
     # Remove windows files
@@ -35,7 +28,7 @@ class H2 < Formula
     chmod 0755, "bin/h2.sh"
 
     libexec.install Dir["*"]
-    (bin+"h2").write script
+    (bin/"h2").write_env_script libexec/"bin/h2.sh", Language::Java.overridable_java_home_env
   end
 
   plist_options manual: "h2"
