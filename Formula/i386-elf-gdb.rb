@@ -5,6 +5,7 @@ class I386ElfGdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-10.2.tar.xz"
   sha256 "aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://sourceware.org/git/binutils-gdb.git"
 
   bottle do
@@ -29,10 +30,14 @@ class I386ElfGdb < Formula
   end
 
   def install
+    target = "i386-elf"
     args = %W[
-      --target=i386-elf
+      --target=#{target}
       --prefix=#{prefix}
-      --datarootdir=#{share}/i386-elf-gdb
+      --datarootdir=#{share}/#{target}
+      --includedir=#{include}/#{target}
+      --infodir=#{info}/#{target}
+      --mandir=#{man}
       --disable-debug
       --disable-dependency-tracking
       --with-lzma
@@ -48,8 +53,6 @@ class I386ElfGdb < Formula
       # Don't install bfd or opcodes, as they are provided by binutils
       system "make", "install-gdb"
     end
-
-    mv include/"gdb", include/"i386-elf-gdb"
   end
 
   test do
