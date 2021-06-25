@@ -32,6 +32,8 @@ class SolrAT77 < Formula
     env["SOLR_PID_DIR"] = "${SOLR_PID_DIR:-#{var/"run/solr"}}"
     bin.env_script_all_files libexec, env
     (libexec/"bin").rmtree
+
+    inreplace libexec/"solr", "/usr/local/share/solr", pkgshare
   end
 
   def post_install
