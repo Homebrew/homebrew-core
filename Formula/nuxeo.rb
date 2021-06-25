@@ -4,20 +4,22 @@ class Nuxeo < Formula
   url "https://cdn.nuxeo.com/nuxeo-10.10/nuxeo-server-10.10-tomcat.zip"
   sha256 "93a923a6e654d216a57fc91767a428e8c22cf5a879f264474f8976016e34ca6f"
 
-  bottle :unneeded
-
   depends_on "exiftool"
   depends_on "ghostscript"
   depends_on "imagemagick"
   depends_on "libwpd"
+  depends_on "openjdk"
   depends_on "poppler"
   depends_on "ufraw"
 
   def install
     libexec.install Dir["#{buildpath}/*"]
 
-    (bin/"nuxeoctl").write_env_script "#{libexec}/bin/nuxeoctl",
-      NUXEO_HOME: libexec.to_s, NUXEO_CONF: "#{etc}/nuxeo.conf"
+    env = Language::Java.overridable_java_home_env
+    env["NUXEO_HOME"] = libexec.to_s
+    env["NUXEO_CONF"] = "#{etc}/nuxeo.conf"
+
+    (bin/"nuxeoctl").write_env_script "#{libexec}/bin/nuxeoctl", env
 
     inreplace "#{libexec}/bin/nuxeo.conf" do |s|
       s.gsub!(/#nuxeo\.log\.dir.*/, "nuxeo.log.dir=#{var}/log/nuxeo")
@@ -45,6 +47,8 @@ class Nuxeo < Formula
   end
 
   test do
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+
     # Copy configuration file to test path, due to some automatic writes on it.
     cp "#{etc}/nuxeo.conf", "#{testpath}/nuxeo.conf"
     inreplace "#{testpath}/nuxeo.conf" do |s|
