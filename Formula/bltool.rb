@@ -10,8 +10,6 @@ class Bltool < Formula
     depends_on "leiningen" => :build
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
