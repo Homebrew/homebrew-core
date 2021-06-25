@@ -5,14 +5,14 @@ class Osmosis < Formula
   sha256 "b24c601578ea4cb0ca88302be6768fd0602bde86c254a0e0b90513581dba67ff"
   license "LGPL-3.0"
 
-  bottle :unneeded
+  depends_on "openjdk"
 
   # need to adjust home dir for a clean install
   patch :DATA
 
   def install
-    bin.install "bin/osmosis"
-    libexec.install %w[lib config script]
+    libexec.install %w[bin/osmosis lib config script]
+    (bin/"osmosis").write_env_script libexec/"osmosis", Language::Java.overridable_java_home_env
   end
 
   test do
@@ -50,5 +50,5 @@ __END__
  MYAPP_HOME=`cd "$MYAPP_HOME" && pwd`
 +MYAPP_HOME="$MYAPP_HOME/libexec"
  cd "$saveddir"
- 
+
  # Build up the classpath of required jar files via classworlds launcher.
