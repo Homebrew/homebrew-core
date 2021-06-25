@@ -6,8 +6,7 @@ class Bee < Formula
   license "MPL-1.1"
   revision 1
 
-  bottle :unneeded
-
+  depends_on arch: :x86_64 # openjdk@8 doesn't support ARM
   depends_on "openjdk@8"
 
   def install
