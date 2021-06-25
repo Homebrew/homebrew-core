@@ -15,8 +15,6 @@ class Binutils < Formula
 
   keg_only :shadowed_by_macos, "Apple's CLT provides the same tools"
 
-  uses_from_macos "zlib"
-
   def install
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
