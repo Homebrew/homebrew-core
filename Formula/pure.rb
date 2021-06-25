@@ -5,8 +5,6 @@ class Pure < Formula
   sha256 "152ffa2cffb6b79e10b78c0fb1de0b8461bae87822439d10ea9c749836060eca"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "zsh" => :test
   depends_on "zsh-async"
 
