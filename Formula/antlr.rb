@@ -10,8 +10,6 @@ class Antlr < Formula
     regex(/href=.*?antlr[._-]v?(\d+(?:\.\d+)+)-complete\.jar/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
