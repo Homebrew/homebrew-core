@@ -6,8 +6,6 @@ class AwsCfnTools < Formula
   sha256 "382e3e951833fd77235fae41c1742224d68bdf165e1ace4200ee88c01ac29a90"
   revision 1
 
-  bottle :unneeded
-
   depends_on "ec2-api-tools"
   depends_on "openjdk"
 
