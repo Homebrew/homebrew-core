@@ -5,8 +5,6 @@ class V < Formula
   sha256 "6483ef1248dcbc6f360b0cdeb9f9c11879815bd18b0c4f053a18ddd56a69b81f"
   head "https://github.com/rupa/v.git"
 
-  bottle :unneeded
-
   def install
     bin.install "v"
     man1.install "v.1"
