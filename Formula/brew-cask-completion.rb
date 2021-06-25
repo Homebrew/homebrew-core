@@ -7,8 +7,6 @@ class BrewCaskCompletion < Formula
   revision 1
   head "https://github.com/xyb/homebrew-cask-completion.git"
 
-  bottle :unneeded
-
   def install
     fish_completion.install "brew-cask.fish"
   end
