@@ -9,8 +9,6 @@ class PutmailQueue < Formula
     regex(%r{url=.*?/putmail-queue[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  bottle :unneeded
-
   depends_on "putmail"
 
   def install
