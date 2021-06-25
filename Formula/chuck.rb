@@ -22,12 +22,6 @@ class Chuck < Formula
 
   depends_on xcode: :build
 
-  # Big Sur compile fix https://github.com/ccrma/chuck/pull/158
-  patch do
-    url "https://github.com/ccrma/chuck/commit/51f8dfa2a6d0cf2fc8f39760cae8a754ccdaaee5.patch?full_index=1"
-    sha256 "f3853d6d107fe7ccd235ef5e02eb396f58ce55bb9e7ac7bd4043146af9d08536"
-  end
-
   def install
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
