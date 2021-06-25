@@ -5,8 +5,6 @@ class Fits < Formula
   sha256 "1378a78892db103b3a00e45c510b58c70e19a1a401b3720ff4d64a51438bfe0b"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   uses_from_macos "zlib"
