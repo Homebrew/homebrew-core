@@ -21,20 +21,15 @@ jobs:
   tap_syntax:
     if: github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu16.04:master
     env:
       HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
-      - name: Cache Bundler RubyGems
-        uses: actions/cache@v1
-        with:
-          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
-          key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
-          restore-keys: ${{ runner.os }}-rubygems-
-      - name: Install Bundler RubyGems
-        run: brew install-bundler-gems
+
       - run: brew test-bot --only-tap-syntax
 
   pre_tests:
