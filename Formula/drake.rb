@@ -6,7 +6,8 @@ class Drake < Formula
   license "EPL-1.0"
   head "https://github.com/Factual/drake.git"
 
-  bottle :unneeded
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
+  depends_on "openjdk@8"
 
   resource "jar" do
     url "https://github.com/Factual/drake/releases/download/1.0.3/drake.jar"
@@ -15,8 +16,12 @@ class Drake < Formula
 
   def install
     jar = "drake-#{version}-standalone.jar"
-    inreplace "drake-pkg", /DRAKE_JAR/, libexec/jar
-    bin.install "drake-pkg" => "drake"
+    inreplace "drake-pkg", "DRAKE_JAR", libexec/jar
+
+    libexec.install "drake-pkg" => "drake"
+    chmod 0755, libexec/"drake"
+    (bin/"drake").write_env_script libexec/"drake", Language::Java.overridable_java_home_env("1.8")
+
     resource("jar").stage do
       libexec.install "drake.jar" => jar
     end
