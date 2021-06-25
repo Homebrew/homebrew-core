@@ -10,31 +10,14 @@ class Gwt < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle :unneeded
+  depends_on "openjdk"
 
   def install
     rm Dir["*.cmd"] # remove Windows cmd files
     libexec.install Dir["*"]
 
-    # Don't use the GWT scripts because they expect the GWT jars to
-    # be in the same place as the script.
-    (bin/"webAppCreator").write <<~EOS
-      #!/bin/sh
-      HOMEDIR=#{libexec}
-      java -cp "$HOMEDIR/gwt-user.jar:$HOMEDIR/gwt-dev.jar" com.google.gwt.user.tools.WebAppCreator "$@";
-    EOS
-
-    (bin/"benchmarkViewer").write <<~EOS
-      #!/bin/sh
-      APPDIR=#{libexec}
-      java -Dcom.google.gwt.junit.reportPath="$1" -cp "$APPDIR/gwt-dev.jar" com.google.gwt.dev.RunWebApp -port auto $APPDIR/gwt-benchmark-viewer.war;
-    EOS
-
-    (bin/"i18nCreator").write <<~EOS
-      #!/bin/sh
-      HOMEDIR=#{libexec}
-      java -cp "$HOMEDIR/gwt-user.jar:$HOMEDIR/gwt-dev.jar" com.google.gwt.i18n.tools.I18NCreator "$@";
-    EOS
+    (bin/"i18nCreator").write_env_script libexec/"i18nCreator", Language::Java.overridable_java_home_env
+    (bin/"webAppCreator").write_env_script libexec/"webAppCreator", Language::Java.overridable_java_home_env
   end
 
   test do
