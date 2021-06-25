@@ -6,8 +6,6 @@ class Akka < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
   # https://github.com/akka/akka/issues/25046
   deprecate! date: "2020-07-09", because: "is recommended to use Akka with a build tool"
 
