@@ -9,17 +9,16 @@ class Xmlsh < Formula
     regex(%r{url=.*?/v?(\d+(?:\.\d+)+)/xmlsh}i)
   end
 
-  bottle :unneeded
+  depends_on "openjdk@11"
 
   def install
     rm_rf %w[win32 cygwin]
     libexec.install Dir["*"]
-    chmod 0755, "#{libexec}/unix/xmlsh"
-    (bin/"xmlsh").write <<~EOS
-      #!/bin/bash
-      export XMLSH=#{libexec}
-      exec #{libexec}/unix/xmlsh "$@"
-    EOS
+    chmod 0755, libexec/"unix/xmlsh"
+
+    env = Language::Java.overridable_java_home_env("11")
+    env["XMLSH"] = libexec
+    (bin/"xmlsh").write_env_script libexec/"unix/xmlsh", env
   end
 
   test do
