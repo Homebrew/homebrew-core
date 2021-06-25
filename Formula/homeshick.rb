@@ -6,8 +6,6 @@ class Homeshick < Formula
   license "MIT"
   head "https://github.com/andsens/homeshick.git"
 
-  bottle :unneeded
-
   conflicts_with "asdf",
     because: "asdf and homeshick both install files in lib/commands"
 
