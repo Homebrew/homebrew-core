@@ -7,8 +7,6 @@ class RbenvGemset < Formula
   revision 1
   head "https://github.com/jf/rbenv-gemset.git"
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   def install
