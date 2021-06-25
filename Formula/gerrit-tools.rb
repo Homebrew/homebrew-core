@@ -6,8 +6,6 @@ class GerritTools < Formula
   license "Apache-2.0"
   head "https://github.com/indirect/gerrit-tools.git"
 
-  bottle :unneeded
-
   def install
     prefix.install "bin"
   end
