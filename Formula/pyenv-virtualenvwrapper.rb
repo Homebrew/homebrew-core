@@ -6,8 +6,6 @@ class PyenvVirtualenvwrapper < Formula
   license "MIT"
   head "https://github.com/pyenv/pyenv-virtualenvwrapper.git"
 
-  bottle :unneeded
-
   depends_on "pyenv"
 
   def install
