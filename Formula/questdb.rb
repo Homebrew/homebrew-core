@@ -5,8 +5,6 @@ class Questdb < Formula
   sha256 "426c826b1e058241789114a0a77ee0723c886e9d5b248e4467960fc256001e00"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   depends_on "openjdk@11"
 
   def install
