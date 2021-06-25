@@ -10,8 +10,6 @@ class Autopsy < Formula
     regex(%r{href=.*?/tag/autopsy[._-]v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
-  bottle :unneeded
-
   depends_on "sleuthkit"
 
   # fixes weird configure script that wouldn't work nicely with homebrew
