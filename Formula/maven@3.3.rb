@@ -7,8 +7,6 @@ class MavenAT33 < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
   keg_only :versioned_formula
 
   deprecate! date: "2017-04-07", because: :unmaintained
