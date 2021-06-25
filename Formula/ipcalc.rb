@@ -9,8 +9,6 @@ class Ipcalc < Formula
     regex(/href=.*?ipcalc[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   def install
     bin.install "ipcalc"
   end
