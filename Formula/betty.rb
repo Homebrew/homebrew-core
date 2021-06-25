@@ -6,8 +6,6 @@ class Betty < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
   def install
     libexec.install "lib", "main.rb" => "betty"
     bin.write_exec_script libexec/"betty"
