@@ -5,8 +5,6 @@ class Unp < Formula
   version "2.0-pre7-nmu1"
   sha256 "7c2d6f2835a5a59ee2588b66d8015d97accd62e71e38ba90ebd4d71d8fd78227"
 
-  bottle :unneeded
-
   depends_on "p7zip"
 
   def install
