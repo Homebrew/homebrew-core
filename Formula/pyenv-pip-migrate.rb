@@ -6,8 +6,6 @@ class PyenvPipMigrate < Formula
   license "MIT"
   head "https://github.com/pyenv/pyenv-pip-migrate.git"
 
-  bottle :unneeded
-
   depends_on "pyenv"
 
   def install
