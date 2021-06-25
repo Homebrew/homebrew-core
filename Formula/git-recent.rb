@@ -5,8 +5,6 @@ class GitRecent < Formula
   sha256 "790c0de09ea19948b3b0ad642d82c30ee20c8d14a04b761fa2a2f716dc19eedc"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on macos: :sierra
 
   def install
