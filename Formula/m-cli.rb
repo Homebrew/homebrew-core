@@ -6,8 +6,6 @@ class MCli < Formula
   license "MIT"
   head "https://github.com/rgcr/m-cli.git"
 
-  bottle :unneeded
-
   depends_on :macos
 
   def install
