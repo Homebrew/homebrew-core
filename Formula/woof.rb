@@ -5,8 +5,6 @@ class Woof < Formula
   version "20120531"
   sha256 "d84353d07f768321a1921a67193510bf292cf0213295e8c7689176f32e945572"
 
-  bottle :unneeded
-
   def install
     bin.install "woof-2012-05-31.py" => "woof"
   end
