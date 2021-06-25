@@ -12,8 +12,6 @@ class Goenv < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle :unneeded
-
   def install
     inreplace "libexec/goenv", "/usr/local", HOMEBREW_PREFIX
     prefix.install Dir["*"]
