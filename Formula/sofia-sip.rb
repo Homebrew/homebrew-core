@@ -1,8 +1,8 @@
 class SofiaSip < Formula
   desc "SIP User-Agent library"
   homepage "https://sofia-sip.sourceforge.io/"
-  url "https://github.com/freeswitch/sofia-sip/archive/v1.13.3.tar.gz"
-  sha256 "6f9cc7ed674e2214809e390728da0df646f94e5b991cff9f393217176de9d7e4"
+  url "https://github.com/freeswitch/sofia-sip/archive/v1.13.4.tar.gz"
+  sha256 "3f3f7b7b26cc150dae7e1cae95a0fe2c65905311fe143145b4bcda8f97d7ed4e"
   license "LGPL-2.1-or-later"
 
   bottle do
