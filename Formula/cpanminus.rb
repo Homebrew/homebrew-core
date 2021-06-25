@@ -12,8 +12,6 @@ class Cpanminus < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  bottle :unneeded
-
   def install
     cd "App-cpanminus" do
       bin.install "cpanm"
