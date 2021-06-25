@@ -4,8 +4,6 @@ class BzrRewrite < Formula
   url "https://launchpad.net/bzr-rewrite/trunk/0.6.3/+download/bzr-rewrite-0.6.3.tar.gz"
   sha256 "f4d0032a41a549a0bc3ac4248cd4599da859174ea33e56befcb095dd2c930794"
 
-  bottle :unneeded
-
   depends_on "bazaar"
 
   def install
