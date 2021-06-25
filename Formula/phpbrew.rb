@@ -5,8 +5,6 @@ class Phpbrew < Formula
   sha256 "0fdcda638851ef7e306f5046ff1f9de291443656a35f5150d84368c88aa7a41a"
   license "MIT"
 
-  bottle :unneeded
-
   uses_from_macos "php"
 
   def install
