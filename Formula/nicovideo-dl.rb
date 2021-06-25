@@ -8,8 +8,6 @@ class NicovideoDl < Formula
   sha256 "886980d154953bc5ff5d44758f352ce34d814566a83ceb0b412b8d2d51f52197"
   revision 2
 
-  bottle :unneeded
-
   depends_on "python@3.9"
 
   def install
