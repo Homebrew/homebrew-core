@@ -12,8 +12,6 @@ class Clojurescript < Formula
     regex(%r{href=.*?/tag/r?(\d+(?:\.\d+)+)["' >]}i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
