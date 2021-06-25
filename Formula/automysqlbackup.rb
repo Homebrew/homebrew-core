@@ -10,8 +10,6 @@ class Automysqlbackup < Formula
     regex(%r{url=.*?/automysqlbackup[._-]v?(\d+(?:\.\d+)+(?:[._-]?rc\d+)?)\.t}i)
   end
 
-  bottle :unneeded
-
   def install
     inreplace "automysqlbackup" do |s|
       s.gsub! "/etc", etc
