@@ -8,8 +8,6 @@ class WrkTrello < Formula
     skip "Not actively developed or maintained"
   end
 
-  bottle :unneeded
-
   conflicts_with "wrk", because: "both install `wrk` binaries"
 
   def script
