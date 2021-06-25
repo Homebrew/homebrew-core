@@ -10,8 +10,6 @@ class Keychain < Formula
     strategy :github_latest
   end
 
-  bottle :unneeded
-
   def install
     bin.install "keychain"
     man1.install "keychain.1"
