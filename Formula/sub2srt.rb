@@ -6,8 +6,6 @@ class Sub2srt < Formula
   license "GPL-2.0"
   head "https://github.com/robelix/sub2srt.git"
 
-  bottle :unneeded
-
   def install
     bin.install "sub2srt"
   end
