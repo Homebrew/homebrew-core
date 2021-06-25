@@ -6,8 +6,6 @@ class CssCrush < Formula
   license "MIT"
   head "https://github.com/peteboere/css-crush.git"
 
-  bottle :unneeded
-
   def install
     libexec.install Dir["*"]
     (bin+"csscrush").write <<~EOS
