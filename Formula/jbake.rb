@@ -5,8 +5,6 @@ class Jbake < Formula
   sha256 "8d9c2b70fbf26415c5b3e530088b8b7fd1d236d3ce2c98a9c03fff4734bced39"
   license "MIT"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
