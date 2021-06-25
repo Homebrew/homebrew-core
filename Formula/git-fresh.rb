@@ -5,8 +5,6 @@ class GitFresh < Formula
   sha256 "7043aaf2bf66dade7d06ebcf96e5d368c4910c002b7b00962bd2bd24490ce2dc"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     system "./install.sh", bin
     man1.install "git-fresh.1"
