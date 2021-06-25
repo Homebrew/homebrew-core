@@ -11,7 +11,7 @@ class Dex2jar < Formula
     regex(%r{url=.*?/dex2jar[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)}i)
   end
 
-  bottle :unneeded
+  depends_on "openjdk"
 
   def install
     # Remove Windows scripts
@@ -23,7 +23,7 @@ class Dex2jar < Formula
     libexec.install Dir["*"]
 
     Dir.glob("#{libexec}/*.sh") do |script|
-      bin.install_symlink script => File.basename(script, ".sh")
+      (bin/File.basename(script, ".sh")).write_env_script script, Language::Java.overridable_java_home_env
     end
   end
 
