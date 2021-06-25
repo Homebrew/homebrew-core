@@ -10,9 +10,8 @@ class Blazegraph < Formula
     regex(/^BLAZEGRAPH(?:_RELEASE)?[._-]v?(\d+(?:[._]\d+)+)$/i)
   end
 
-  bottle :unneeded
-
-  # dependnecy can be lifted in the upcoming release, > 2.1.5
+  # Dependencies can be lifted in the upcoming release, > 2.1.5
+  depends_on arch: :x86_64 # openjdk@8 doesn't support ARM
   depends_on "openjdk@8"
 
   def install
