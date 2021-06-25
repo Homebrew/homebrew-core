@@ -5,8 +5,6 @@ class Gimme < Formula
   sha256 "71036f892b3cae08f29be6fd4c69fb20d9b003ec80a24221d73e995e12ab0fe0"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bin.install "gimme"
   end
