@@ -6,8 +6,6 @@ class Jasmin < Formula
   license "BSD-4-Clause"
   revision 2
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
