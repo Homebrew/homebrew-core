@@ -13,8 +13,6 @@ class Sqoop < Formula
     regex(%r{href=["']?v?((?!\d+\.9\d+)\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle :unneeded
-
   depends_on "coreutils"
   depends_on "hadoop"
   depends_on "hbase"
