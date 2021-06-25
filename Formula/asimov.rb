@@ -6,8 +6,6 @@ class Asimov < Formula
   license "MIT"
   head "https://github.com/stevegrunwell/asimov.git", branch: "develop"
 
-  bottle :unneeded
-
   def install
     bin.install buildpath/"asimov"
   end
