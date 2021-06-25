@@ -6,8 +6,6 @@ class Distribution < Formula
   license "GPL-2.0"
   head "https://github.com/philovivero/distribution.git"
 
-  bottle :unneeded
-
   def install
     bin.install "distribution.py" => "distribution"
     doc.install "distributionrc", "screenshot.png"
