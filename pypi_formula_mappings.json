@@ -113,6 +113,7 @@
     "exclude_packages": ["pycairo", "PyGObject"]
   },
   "pdm": {
+    "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
   "pipgrip": {
@@ -121,9 +122,6 @@
   },
   "platformio": {
     "exclude_packages": ["tabulate"]
-  },
-  "pdm": {
-    "exclude_packages": ["six"]
   },
   "poetry": {
     "extra_packages": ["importlib-metadata", "typing-extensions"]
