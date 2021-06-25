@@ -5,8 +5,6 @@ class PaxConstruct < Formula
   sha256 "fc832b94a7d095d5ee26b1ce4b3db449261f0154e55b34a7bc430cb685d51064"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   # Needed at runtime! pax-clone: line 47: exec: mvn: not found
   depends_on "maven"
 
