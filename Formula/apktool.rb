@@ -5,8 +5,7 @@ class Apktool < Formula
   sha256 "b392d7cb99b592e9c5acc3c06f1b0f180edde96c66b86b3d6932b7c0c4079fe4"
   license "Apache-2.0"
 
-  bottle :unneeded
-
+  depends_on arch: :x86_64 # openjdk@8 doesn't support ARM
   depends_on "openjdk@8"
 
   resource "sample.apk" do
