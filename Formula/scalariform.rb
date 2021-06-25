@@ -15,8 +15,6 @@ class Scalariform < Formula
     depends_on "sbt" => :build
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
