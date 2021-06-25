@@ -7,8 +7,6 @@ class RbenvVars < Formula
   revision 1
   head "https://github.com/sstephenson/rbenv-vars.git"
 
-  bottle :unneeded
-
   depends_on "rbenv"
 
   def install
