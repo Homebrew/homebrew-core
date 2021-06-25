@@ -11,9 +11,9 @@ class AntAT19 < Formula
     regex(/href=.*?apache-ant[._-]v?(1\.9(?:\.\d+)*)(?:-bin)?\.t/i)
   end
 
-  bottle :unneeded
-
   keg_only :versioned_formula
+
+  depends_on "openjdk"
 
   def install
     rm Dir["bin/*.{bat,cmd,dll,exe}"]
@@ -22,7 +22,7 @@ class AntAT19 < Formula
     rm bin/"ant"
     (bin/"ant").write <<~EOS
       #!/bin/sh
-      #{libexec}/bin/ant -lib #{HOMEBREW_PREFIX}/share/ant "$@"
+      JAVA_HOME="${JAVA_HOME:-#{Formula["openjdk"].opt_prefix}}" exec "#{libexec}/bin/ant" -lib #{HOMEBREW_PREFIX}/share/ant "$@"
     EOS
   end
 
