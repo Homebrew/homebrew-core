@@ -5,8 +5,6 @@ class ProcyonDecompiler < Formula
   sha256 "74f9f1537113207521a075fafe64bd8265c47a9c73574bbf9fa8854bbf7126bc"
   revision 1
 
-  bottle :unneeded
-
   disable! date: "2020-08-22", because: :repo_removed
 
   depends_on "openjdk"
