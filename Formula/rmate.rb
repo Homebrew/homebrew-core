@@ -6,8 +6,6 @@ class Rmate < Formula
   license "MIT"
   head "https://github.com/textmate/rmate.git"
 
-  bottle :unneeded
-
   def install
     bin.install "bin/rmate"
   end
