@@ -3,8 +3,8 @@ name: Dispatch build bottle
 on:
   workflow_dispatch:
     inputs:
-      macos:
-        description: macOS version
+      runner:
+        description: Build runner (macOS version or Linux)
         required: true
       formula:
         description: Formula name
@@ -14,6 +14,9 @@ on:
         required: false
       upload:
         description: "Whether to upload built bottles or not (default: false)"
+        required: false
+      wheezy:
+        description: Whether to build the bottle in Debian Wheezy container
         required: false
 
 env:
@@ -25,37 +28,83 @@ env:
 
 jobs:
   bottle:
-    runs-on: ${{github.event.inputs.macos}}
+    runs-on: ${{github.event.inputs.runner}}
     timeout-minutes: 4320
     env:
-      PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-      GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: ${{github.event.inputs.formula}}
         id: print_details
         run: |
           echo sender=${{github.event.sender.login}}
           echo formula=${{github.event.inputs.formula}}
-          echo version=${{github.event.inputs.macos}}
+          echo runner=${{github.event.inputs.runner}}
           echo issue=${{github.event.inputs.issue}}
           echo upload=${{github.event.inputs.upload}}
+          echo wheezy=${{github.event.inputs.wheezy}}
+
+      - name: Set environment variables
+        run: |
+          if [ "$RUNNER_OS" = 'macOS' ]; then
+            echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
+            echo 'GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED=1' >> $GITHUB_ENV
+          else
+            # No PATH needed on Linux as set by Docker
+            echo 'HOMEBREW_CORE_GIT_REMOTE=${{github.event.repository.html_url}}' >> $GITHUB_ENV
+            echo 'HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1' >> $GITHUB_ENV
+          fi
 
       - name: Set up Homebrew
         id: set-up-homebrew
+        if: runner.os == 'macOS'
         uses: Homebrew/actions/setup-homebrew@master
 
-      - run: brew test-bot --only-cleanup-before
+      - if: runner.os == 'macOS'
+        run: brew test-bot --only-cleanup-before
 
-      - run: brew test-bot --only-setup
+      # `brew doctor` won't work on Linux (yet)
+      # TODO: reenable this when possible.
+      - if: runner.os == 'macOS'
+        run: brew test-bot --only-setup
+
+      - name: Run Docker container
+        if: runner.os == 'Linux'
+        run: |
+          docker run \
+            --detach \
+            --user linuxbrew \
+            --name ${{github.sha}} \
+            --env-file <(env | egrep 'HOMEBREW|GITHUB') \
+            --workdir /tmp/bottles \
+            ${{github.event.inputs.wheezy ?  'homebrew/debian7:latest' : 'ghcr.io/homebrew/ubuntu16.04:master'}} \
+            sleep inf
+          # Fix working directory permissions
+          docker exec --user root ${{github.sha}} chmod 777 /tmp/bottles
+
+      - name: Set up Homebrew in container
+        if: runner.os == 'Linux'
+        env:
+          TAP_PATH: /home/linuxbrew/.linuxbrew/Homebrew/Library/Taps/homebrew/homebrew-core
+        run: |
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-url origin ${{github.event.repository.html_url}}
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git fetch origin ${{github.sha}} '+refs/heads/*:refs/remotes/origin/*'
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-head origin --auto
+          docker exec --workdir "$TAP_PATH" ${{github.sha}} git checkout --force -B master FETCH_HEAD
 
       - name: Run brew test-bot --keep-old --only-json-tab
-        env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
-          mkdir bottles
-          cd bottles
-          brew test-bot --keep-old --only-json-tab --only-formulae ${{github.event.inputs.formula}}
+          if [ "$RUNNER_OS" = 'macOS' ]; then
+            mkdir bottles
+            cd bottles
+            brew test-bot --keep-old --only-json-tab --only-formulae ${{github.event.inputs.formula}}
+          else
+            docker exec ${{github.sha}} brew test-bot --keep-old --only-json-tab --only-formulae ${{github.event.inputs.formula}}
+          fi
+
+      - name: Copy bottles from container
+        if: always() && runner.os == 'Linux'
+        run: docker cp ${{github.sha}}:/tmp/bottles .
 
       - name: Output brew test-bot --keep-old --only-json-tab failures
         if: always()
@@ -98,12 +147,15 @@ jobs:
           name: bottles
           path: bottles
 
-      - run: brew test-bot --only-cleanup-after
+      - name: Post cleanup
         if: always()
-
-      - name: Post Cleanup
-        if: always()
-        run: rm -rvf bottles
+        run: |
+          if [ "$RUNNER_OS" = 'Linux' ]; then
+            docker rm -f ${{github.sha}}
+          else
+            brew test-bot --only-cleanup-after
+          fi
+          rm -rvf bottles
 
       - name: Post comment on failure
         if: ${{!success() && github.event.inputs.issue > 0}}
@@ -121,15 +173,6 @@ jobs:
     env:
       HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
     steps:
-      - name: ${{github.event.inputs.formula}}
-        id: print_details
-        run: |
-          echo sender=${{github.event.sender.login}}
-          echo formula=${{github.event.inputs.formula}}
-          echo version=${{github.event.inputs.macos}}
-          echo issue=${{github.event.inputs.issue}}
-          echo upload=${{github.event.inputs.upload}}
-
       - name: Set up Homebrew
         id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@master
