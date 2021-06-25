@@ -7,8 +7,6 @@ class FregeRepl < Formula
   license "BSD-3-Clause"
   revision 2
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
