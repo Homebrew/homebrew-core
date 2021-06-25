@@ -6,8 +6,6 @@ class Doubledown < Formula
   license "BSD-2-Clause"
   head "https://github.com/devstructure/doubledown.git"
 
-  bottle :unneeded
-
   def install
     bin.install Dir["bin/*"]
     man1.install Dir["man/man1/*.1"]
