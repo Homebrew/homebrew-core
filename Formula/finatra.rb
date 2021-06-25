@@ -5,8 +5,6 @@ class Finatra < Formula
   sha256 "aa4fab5ccdc012da9edf4650addf54b6ba64eb7e6a5e88d8c76e68e4d89216de"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   def install
     libexec.install Dir["*"]
     bin.install_symlink libexec/"finatra"
