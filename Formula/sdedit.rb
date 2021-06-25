@@ -10,8 +10,6 @@ class Sdedit < Formula
     regex(%r{url=.*?/sdedit[._-]v?(\d+(?:\.\d+)+)\.jar}i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
