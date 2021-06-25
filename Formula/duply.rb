@@ -12,8 +12,6 @@ class Duply < Formula
     regex(%r{url=.*?/duply[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  bottle :unneeded
-
   depends_on "duplicity"
 
   def install
