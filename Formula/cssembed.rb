@@ -5,8 +5,6 @@ class Cssembed < Formula
   sha256 "8955016c0d32de8755d9ee33d365d1ad658a596aba48537a810ce62f3d32a1af"
   license "MIT"
 
-  bottle :unneeded
-
   deprecate! date: "2020-11-10", because: :repo_archived
 
   def install
