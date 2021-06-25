@@ -5,8 +5,6 @@ class Phive < Formula
   sha256 "70d6de4afb2e4f66ff06e35434299f2a1d81d7ea3fec9c3359adb521c196ff8d"
   license "BSD-3-Clause"
 
-  bottle :unneeded
-
   depends_on "php"
 
   def install
