@@ -6,8 +6,6 @@ class Mysqltuner < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/major/MySQLTuner-perl.git"
 
-  bottle :unneeded
-
   def install
     bin.install "mysqltuner.pl" => "mysqltuner"
   end
