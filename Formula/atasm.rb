@@ -1,10 +1,15 @@
 class Atasm < Formula
   desc "Atari MAC/65 compatible assembler for Unix"
   homepage "https://atari.miribilist.com/atasm/"
-  url "https://atari.miribilist.com/atasm/atasm107d.zip"
-  version "1.07d"
-  sha256 "24a165506346029fbe05ed99b22900ae50f91f5a8c5d38ebad6a92a5c53f3d99"
-  license "GPL-2.0"
+  url "https://atari.miribilist.com/atasm/atasm109.zip"
+  version "1.09"
+  sha256 "dbab21870dabdf419920fcfa4b5adfe9d38b291a60a4bc2ba824595f7fbc3ef0"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url "https://atari.miribilist.com/atasm/VERSION.TXT"
+    regex(/  version (\d+(?:\.\d+)+) /i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5e039ac5553f6b2dc4e02871041ce1cc7fb4030f90d6601c381ff3060f9c8f2a"
@@ -18,12 +23,12 @@ class Atasm < Formula
 
   def install
     cd "src" do
-      system "make", "prog"
+      system "make"
       bin.install "atasm"
-      system "sed -e 's,%%DOCDIR%%,/usr/local/share/doc/atasm,g' < atasm.1.in > atasm.1"
-      man1.install "atasm.1"
+      inreplace "atasm.1.in", "%%DOCDIR%%", "#{HOMEBREW_PREFIX}/share/doc/atasm"
+      man1.install "atasm.1.in" => "atasm.1"
     end
-    doc.install "examples"
+    doc.install "examples", Dir["docs/atasm.*"]
   end
 
   test do
