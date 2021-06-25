@@ -16,8 +16,6 @@ class Archey < Formula
     end
   end
 
-  bottle :unneeded
-
   deprecate! date: "2017-04-28", because: :repo_archived
 
   conflicts_with "archey4", because: "both install `archey` binaries"
