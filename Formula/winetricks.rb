@@ -6,8 +6,6 @@ class Winetricks < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/Winetricks/winetricks.git"
 
-  bottle :unneeded
-
   depends_on "cabextract"
   depends_on "p7zip"
   depends_on "unzip"
