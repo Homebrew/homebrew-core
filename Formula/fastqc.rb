@@ -10,8 +10,6 @@ class Fastqc < Formula
     regex(/href=.*?fastqc[._-]v?(\d+(?:\.\d+)+)\.zip/i)
   end
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
