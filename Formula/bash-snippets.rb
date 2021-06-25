@@ -5,8 +5,6 @@ class BashSnippets < Formula
   sha256 "59b784e714ba34a847b6a6844ae1703f46db6f0a804c3e5f2de994bbe8ebe146"
   license "MIT"
 
-  bottle :unneeded
-
   conflicts_with "cheat", because: "both install a `cheat` executable"
 
   def install
@@ -18,6 +16,5 @@ class BashSnippets < Formula
     assert_equal "Weather report: Paramus", output
     output = shell_output("#{bin}/qrify This is a test")
     assert_match "████ ▄▄▄▄▄ █▀ █▀▄█ ▄▄▄▄▄ ████", output
-    assert_match "Apple Inc. -- Stock Information", shell_output("#{bin}/stocks Apple")
   end
 end
