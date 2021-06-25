@@ -10,8 +10,6 @@ class Swaks < Formula
     regex(/href=.*?swaks[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   def install
     bin.install "swaks"
   end
