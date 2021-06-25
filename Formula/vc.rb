@@ -1,8 +1,8 @@
 class Vc < Formula
   desc "SIMD Vector Classes for C++"
   homepage "https://github.com/VcDevel/Vc"
-  url "https://github.com/VcDevel/Vc/releases/download/1.4.1/Vc-1.4.1.tar.gz"
-  sha256 "68e609a735326dc3625e98bd85258e1329fb2a26ce17f32c432723b750a4119f"
+  url "https://github.com/VcDevel/Vc/releases/download/1.4.2/Vc-1.4.2.tar.gz"
+  sha256 "50d3f151e40b0718666935aa71d299d6370fafa67411f0a9e249fbce3e6e3952"
   license "BSD-3-Clause"
 
   bottle do
