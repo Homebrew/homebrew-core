@@ -29,7 +29,7 @@ jobs:
     timeout-minutes: 4320
     env:
       PATH: "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-      GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED: 1
+      GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED: 1
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     steps:
       - name: ${{github.event.inputs.formula}}
