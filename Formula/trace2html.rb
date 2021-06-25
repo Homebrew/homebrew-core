@@ -7,8 +7,6 @@ class Trace2html < Formula
   license "BSD-3-Clause"
   revision 1
 
-  bottle :unneeded
-
   # https://github.com/google/trace-viewer/commit/5f708803
   deprecate! date: "2015-09-03", because: "has moved upstream repositories"
 
