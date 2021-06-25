@@ -5,8 +5,6 @@ class Ffind < Formula
   sha256 "cf30e09365750a197f7e041ec9bbdd40daf1301e566cd0b1a423bf71582aad8d"
   license "GPL-3.0"
 
-  bottle :unneeded
-
   conflicts_with "sleuthkit",
     because: "both install a `ffind` executable"
 
