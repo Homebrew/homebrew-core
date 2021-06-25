@@ -6,8 +6,6 @@ class Ydiff < Formula
   license "BSD-3-Clause"
   revision 1
 
-  bottle :unneeded
-
   depends_on "python@3.9"
 
   def install
