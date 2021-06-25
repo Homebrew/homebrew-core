@@ -9,8 +9,6 @@ class ZshLovers < Formula
     regex(/href=.*?zsh-lovers[._-]v?(\d+(?:\.\d+)+)[._-]all/i)
   end
 
-  bottle :unneeded
-
   def install
     system "tar", "xf", "zsh-lovers_#{version}_all.deb"
     system "tar", "xf", "data.tar.xz"
