@@ -6,8 +6,6 @@ class Hr < Formula
   license "MIT"
   head "https://github.com/LuRsT/hr.git"
 
-  bottle :unneeded
-
   def install
     bin.install "hr"
     man1.install "hr.1"
