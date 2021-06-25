@@ -5,8 +5,6 @@ class Davmail < Formula
   version "5.5.1"
   sha256 "34dfd350e7142227cdceb267666b5886ce94564b6395fa0e6098d868c110a48e"
 
-  bottle :unneeded
-
   depends_on "openjdk"
 
   def install
