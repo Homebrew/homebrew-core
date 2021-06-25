@@ -9,8 +9,6 @@ class Term < Formula
     skip "Cannot reliably check for new releases upstream"
   end
 
-  bottle :unneeded
-
   def install
     bin.install "term"
   end
