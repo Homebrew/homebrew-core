@@ -6,8 +6,6 @@ class RsyncTimeBackup < Formula
   license "MIT"
   head "https://github.com/laurent22/rsync-time-backup.git"
 
-  bottle :unneeded
-
   def install
     bin.install "rsync_tmbackup.sh"
   end
