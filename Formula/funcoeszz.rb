@@ -10,8 +10,6 @@ class Funcoeszz < Formula
     regex(/href=.*?funcoeszz[._-]v?(\d+(?:\.\d+)+)\.sh/i)
   end
 
-  bottle :unneeded
-
   depends_on "bash"
 
   def install
