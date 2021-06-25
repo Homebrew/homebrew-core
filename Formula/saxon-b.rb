@@ -13,8 +13,6 @@ class SaxonB < Formula
     regex(%r{href=.*?/v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
-  bottle :unneeded
-
   def install
     (buildpath/"saxon-b").install Dir["*.jar", "doc", "notices"]
     share.install Dir["*"]
