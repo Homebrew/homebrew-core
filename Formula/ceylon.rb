@@ -5,8 +5,7 @@ class Ceylon < Formula
   sha256 "4ec1f1781043ee369c3e225576787ce5518685f2206eafa7d2fd5cfe6ac9923d"
   revision 2
 
-  bottle :unneeded
-
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install
