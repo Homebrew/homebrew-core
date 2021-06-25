@@ -6,8 +6,6 @@ class ImgurScreenshot < Formula
   license "MIT"
   head "https://github.com/jomo/imgur-screenshot.git"
 
-  bottle :unneeded
-
   depends_on "bash"
   depends_on "jq"
   depends_on "terminal-notifier"
