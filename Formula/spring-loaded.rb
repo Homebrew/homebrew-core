@@ -6,13 +6,13 @@ class SpringLoaded < Formula
   sha256 "6edd6ffb3fd82c3eee95f5588465f1ab3a94fc5fff65b6e3a262f6de5323d203"
   license "Apache-2.0"
 
-  bottle :unneeded
+  depends_on "openjdk" => :test
 
   def install
     (share/"java").install "springloaded-#{version}.RELEASE.jar" => "springloaded.jar"
   end
 
   test do
-    system "java", "-javaagent:#{share}/java/springloaded.jar", "-version"
+    system "#{Formula["openjdk"].bin}/java", "-javaagent:#{share}/java/springloaded.jar", "-version"
   end
 end
