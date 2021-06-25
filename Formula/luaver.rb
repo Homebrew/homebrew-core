@@ -6,8 +6,6 @@ class Luaver < Formula
   license "MIT"
   head "https://github.com/DhavalKapil/luaver.git"
 
-  bottle :unneeded
-
   depends_on "wget"
 
   def install
@@ -26,11 +24,6 @@ class Luaver < Formula
     lua_versions.each do |v|
       ENV.deparallelize { system ". #{bin}/luaver install #{v} < /dev/null" }
       system ". #{bin}/luaver use #{v} && lua -v"
-    end
-    luajit_versions = %w[2.0.4]
-    luajit_versions.each do |v|
-      system ". #{bin}/luaver install-luajit #{v} < /dev/null"
-      system ". #{bin}/luaver use-luajit #{v} && luajit -v"
     end
   end
 end
