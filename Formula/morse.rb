@@ -6,6 +6,11 @@ class Morse < Formula
   license "BSD-2-Clause"
   revision 2
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?morse[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "cb06d8049d00c1b52a2c6538ea10918a7623541df2304c1f9c154e042fde868d"
     sha256 cellar: :any, big_sur:       "a956bb32257136228025435a70344d3322b621be1c932e1f61be3fbc1db3b000"
