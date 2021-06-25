@@ -2,10 +2,9 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   url "https://github.com/TASVideos/fceux.git",
-      tag:      "fceux-2.3.0",
-      revision: "65c5b0d2a1c08db75bb41340bfa5534578926944"
+      tag:      "fceux-2.4.0",
+      revision: "941da60ecb283263a3810ed199d80abf94bd6494"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/TASVideos/fceux.git"
 
   bottle do
@@ -20,6 +19,7 @@ class Fceux < Formula
   depends_on "minizip"
   depends_on "qt@5"
   depends_on "sdl2"
+  depends_on "x264"
 
   def install
     ENV["CXXFLAGS"] = "-DPUBLIC_RELEASE=1" if build.stable?
