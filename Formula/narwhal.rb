@@ -6,13 +6,12 @@ class Narwhal < Formula
   license "MIT"
   head "https://github.com/280north/narwhal.git"
 
-  bottle :unneeded
-
   conflicts_with "spidermonkey", because: "both install a js binary"
   conflicts_with "elixir-build", because: "both install `json` binaries"
 
   def install
     rm Dir["bin/*.cmd"]
+    chmod 0755, "bin/activate.bash"
     libexec.install Dir["*"]
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
