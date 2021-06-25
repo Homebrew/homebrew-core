@@ -22,7 +22,7 @@ class Ninja < Formula
 
   def install
     py = Formula["python@3.9"].opt_bin/"python3"
-    system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=#{py}"
+    system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=python3"
 
     bin.install "ninja"
     bash_completion.install "misc/bash-completion" => "ninja-completion.sh"
