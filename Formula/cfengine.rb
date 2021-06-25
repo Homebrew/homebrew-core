@@ -21,8 +21,8 @@ class Cfengine < Formula
   depends_on "pcre"
 
   resource "masterfiles" do
-    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.17.0.tar.gz"
-    sha256 "03a67dda0dfa8bc060c65e9ae8c6c4e7bf29711aeee5c62ed45dfa570513aa57"
+    url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-masterfiles-3.18.0.tar.gz"
+    sha256 "968faee4920936739f914b5fcae441cd03354e909bb26c5dcdeb6750f1fde156"
   end
 
   def install
