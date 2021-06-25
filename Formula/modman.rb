@@ -5,8 +5,6 @@ class Modman < Formula
   sha256 "58ac5b27b11def9ba162881c3687f2085c06a6ed4cfb496bafdc64ce1a2eaac6"
   license "Apache-2.0"
 
-  bottle :unneeded
-
   def install
     bin.install "modman"
     bash_completion.install "bash_completion" => "modman.bash"
