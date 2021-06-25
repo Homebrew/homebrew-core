@@ -6,8 +6,6 @@ class SpringCompletion < Formula
   license "Unlicense"
   head "https://github.com/jacaetevha/spring_bash_completion.git"
 
-  bottle :unneeded
-
   def install
     bash_completion.install "spring.bash" => "spring"
   end
