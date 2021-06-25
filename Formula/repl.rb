@@ -5,8 +5,6 @@ class Repl < Formula
   sha256 "d0542404f03159b0d6eb22a1aa4a509714c87c8594fca5121c578d50d950307d"
   license "MIT"
 
-  bottle :unneeded
-
   def install
     bin.install "bin/repl"
     man1.install "man/repl.1"
