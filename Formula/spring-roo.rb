@@ -10,8 +10,6 @@ class SpringRoo < Formula
     regex(/href=.*?spring-roo[._-]v?(\d+(?:\.\d+)+)\.RELEASE\.zip/i)
   end
 
-  bottle :unneeded
-
   def install
     rm Dir["bin/*.bat"]
     libexec.install Dir["*"]
