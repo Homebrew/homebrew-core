@@ -11,8 +11,7 @@ class Naturaldocs < Formula
     regex(%r{url=.*?/Natural.?Docs[._-]v?(\d+(?:\.\d+)+)\.(?:t|zip)}i)
   end
 
-  bottle :unneeded
-
+  depends_on arch: :x86_64 # mono does not have ARM support yet
   depends_on "mono"
 
   def install
