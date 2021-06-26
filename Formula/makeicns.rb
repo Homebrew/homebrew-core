@@ -3,6 +3,7 @@ class Makeicns < Formula
   homepage "http://www.amnoid.de/icns/makeicns.html"
   url "https://distfiles.macports.org/makeicns/makeicns-1.4.10a.tar.bz2"
   sha256 "10e44b8d84cb33ed8d92b9c2cfa42f46514586d2ec11ae9832683b69996ddeb8"
+  license "MIT"
 
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "c2a5afff3eee709316951ad70c8244fe5c628ae98fdb2e15ea607c7638733d63"
