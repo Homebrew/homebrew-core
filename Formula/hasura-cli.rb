@@ -27,9 +27,10 @@ class HasuraCli < Formula
     ].join(" ")
 
     cd "cli" do
-      ENV["CI"] = "false"
-      system "make", "build-cli-ext"
-      system "make", "copy-cli-ext"
+      with_env(CI: "false") do
+        system "make", "build-cli-ext"
+        system "make", "copy-cli-ext"
+      end
       system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"hasura", "./cmd/hasura/"
 
       output = Utils.safe_popen_read("#{bin}/hasura", "completion", "bash")
