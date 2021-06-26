@@ -6,7 +6,10 @@ class Civl < Formula
   sha256 "15bf63b3a92300e8432e95397284e29aaa5897e405db9fc2d56cd086f9e330d3"
   revision 1
 
-  bottle :unneeded
+  livecheck do
+    url "https://vsl.cis.udel.edu/lib/sw/civl/current/latest/release/"
+    regex(/href=.*?CIVL[._-]v?(\d+(?:[._-]\d+)+)\.t/i)
+  end
 
   depends_on "openjdk"
   depends_on "z3"
