@@ -16,8 +16,11 @@ class Micronaut < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "c8a99c0394d59af7dc97a47e2b0deeec3c7534d10b42218122797d03aa95e6c6"
   end
 
-  depends_on "gradle" => :build
-  depends_on "openjdk"
+  if Hardware::CPU.arm?
+    depends_on "openjdk@11"
+  else
+    depends_on "openjdk"
+  end
 
   def install
     system "./gradlew", "micronaut-cli:assemble", "-x", "test"
