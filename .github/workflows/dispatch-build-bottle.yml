@@ -51,22 +51,8 @@ jobs:
             echo 'GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED=1' >> $GITHUB_ENV
           else
             # No PATH needed on Linux as set by Docker
-            echo 'HOMEBREW_CORE_GIT_REMOTE=${{github.event.repository.html_url}}' >> $GITHUB_ENV
             echo 'HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1' >> $GITHUB_ENV
           fi
-
-      - name: Set up Homebrew
-        id: set-up-homebrew
-        if: runner.os == 'macOS'
-        uses: Homebrew/actions/setup-homebrew@master
-
-      - if: runner.os == 'macOS'
-        run: brew test-bot --only-cleanup-before
-
-      # `brew doctor` won't work on Linux (yet)
-      # TODO: reenable this when possible.
-      - if: runner.os == 'macOS'
-        run: brew test-bot --only-setup
 
       - name: Run Docker container
         if: runner.os == 'Linux'
@@ -91,6 +77,22 @@ jobs:
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git fetch origin ${{github.sha}} '+refs/heads/*:refs/remotes/origin/*'
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git remote set-head origin --auto
           docker exec --workdir "$TAP_PATH" ${{github.sha}} git checkout --force -B master FETCH_HEAD
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        if: runner.os == 'macOS'
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - if: runner.os == 'macOS'
+        run: brew test-bot --only-cleanup-before
+
+      - name: Run brew test-bot --only-setup
+        run: |
+          if [ "$RUNNER_OS" = 'macOS' ]; then
+            brew test-bot --only-setup
+          else
+            docker exec ${{github.sha}} brew test-bot --only-setup
+          fi
 
       - name: Run brew test-bot --keep-old --only-json-tab
         run: |
@@ -171,7 +173,7 @@ jobs:
     needs: bottle
     if: github.event.inputs.upload
     env:
-      HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+      HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
