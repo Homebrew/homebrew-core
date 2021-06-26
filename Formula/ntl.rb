@@ -3,6 +3,7 @@ class Ntl < Formula
   homepage "https://libntl.org"
   url "https://libntl.org/ntl-11.5.1.tar.gz"
   sha256 "210d06c31306cbc6eaf6814453c56c776d9d8e8df36d74eb306f6a523d1c6a8a"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url "https://libntl.org/download.html"
