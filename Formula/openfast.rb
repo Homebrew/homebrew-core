@@ -15,13 +15,6 @@ class Openfast < Formula
   depends_on "gcc"
   depends_on "openblas"
 
-  # Fix build on ARM
-  # https://github.com/OpenFAST/openfast/pull/744
-  patch do
-    url "https://github.com/OpenFAST/openfast/commit/2f5cb69efcaeebce099a814d6a338171b828ae0d.patch?full_index=1"
-    sha256 "77611167b092e8daef0650db82dab24127f829d060199bae8b191cac9e3c0b9a"
-  end
-
   def install
     args = std_cmake_args + %w[
       -DDOUBLE_PRECISION=OFF
