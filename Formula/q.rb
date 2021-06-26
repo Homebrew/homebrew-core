@@ -16,14 +16,16 @@ class Q < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "b8b639d8995691fa073dcdbe8e630fa133028ce97dc59d88a3129b24d8e4c038"
   end
 
+  depends_on "ronn" => :build
   depends_on "python@3.9"
   depends_on "six"
 
   def install
     # broken symlink, fixed in next version
     rm_f "bin/qtextasdata.py"
-
     virtualenv_install_with_resources
+    system "ronn", "doc/USAGE.markdown"
+    man1.install "doc/USAGE" => "q.1"
   end
 
   test do
