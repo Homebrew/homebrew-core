@@ -18,7 +18,6 @@ class Openfast < Formula
   def install
     args = std_cmake_args + %w[
       -DDOUBLE_PRECISION=OFF
-      -DCMAKE_BUILD_TYPE=RelWithDebInfo
       -DBLA_VENDOR=OpenBLAS
     ]
 
