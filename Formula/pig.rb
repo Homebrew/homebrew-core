@@ -7,17 +7,24 @@ class Pig < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
-  depends_on "openjdk"
+  if Hardware::CPU.arm?
+    depends_on "openjdk@11"
+  else
+    depends_on "openjdk"
+  end
 
   def install
     (libexec/"bin").install "bin/pig"
     libexec.install Dir["pig-#{version}-core-h*.jar"]
     libexec.install "lib"
-    (bin/"pig").write_env_script libexec/"bin/pig",
-                                 PIG_HOME:  libexec,
-                                 JAVA_HOME: Formula["openjdk"].opt_prefix
+
+    env = if Hardware::CPU.arm?
+      Language::Java.overridable_java_home_env("11")
+    else
+      Language::Java.overridable_java_home_env
+    end
+    env["PIG_HOME"] = libexec
+    (bin/"pig").write_env_script libexec/"bin/pig", env
   end
 
   test do
