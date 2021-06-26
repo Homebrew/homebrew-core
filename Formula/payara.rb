@@ -1,13 +1,19 @@
 class Payara < Formula
   desc "Java EE application server forked from GlassFish"
   homepage "https://www.payara.fish"
-  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/5.192/payara-5.192.zip"
-  sha256 "272352a4d8a6fd19a0e3e02bde946fb9a860c1206fc6e39a41279a73f43b2995"
-  revision 1
+  url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/5.2021.4/payara-5.2021.4.zip"
+  sha256 "b080057e4e2e4e7eed09eba67fe4777c2aa4a0eca401ec480d677812b7591521"
+  license any_of: [
+    "CDDL-1.1",
+    { "GPL-2.0-only" => { with: "Classpath-exception-2.0" } },
+  ]
 
-  bottle :unneeded
+  livecheck do
+    url "https://search.maven.org/remotecontent?filepath=fish/payara/distributions/payara/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
 
-  depends_on "openjdk@8"
+  depends_on "openjdk@11"
 
   conflicts_with "glassfish", because: "both install the same scripts"
 
@@ -20,7 +26,7 @@ class Payara < Formula
 
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.8"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("11"))
   end
 
   def caveats
@@ -70,8 +76,7 @@ class Payara < Formula
   test do
     ENV["GLASSFISH_HOME"] = opt_libexec/"glassfish"
     output = shell_output("#{bin}/asadmin list-domains")
-    assert_equal "domain1 not running", output
-    assert_equal "production not running", output
-    assert_equal "Command list-domains executed successfully.", output
+    assert_match "domain1 not running", output
+    assert_match "Command list-domains executed successfully.", output
   end
 end
