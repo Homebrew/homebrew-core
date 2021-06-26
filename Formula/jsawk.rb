@@ -6,8 +6,6 @@ class Jsawk < Formula
   license "BSD-3-Clause"
   head "https://github.com/micha/jsawk.git"
 
-  bottle :unneeded
-
   depends_on "spidermonkey"
 
   def install
