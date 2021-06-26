@@ -44,8 +44,8 @@ class Languagetool < Formula
 
   test do
     (testpath/"test.txt").write <<~EOS
-      Homebrew, the missing package manager for macOS.
+      Homebrew, this is an test
     EOS
-    assert_match "Homebrew", shell_output("#{bin}/languagetool -l en-US test.txt")
+    assert_match "Message: Use ?a? instead of ?an?", shell_output("#{bin}/languagetool -l en-US test.txt 2>&1")
   end
 end
