@@ -4,10 +4,11 @@ class Qscintilla2 < Formula
   url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.12.1/QScintilla_src-2.12.1.tar.gz"
   sha256 "a7331c44b5d7320cbf58cb2382c38857e9e9f4fa52c405bd7776c8b6649836c2"
   license "GPL-3.0-only"
+  head "https://github.com/opencor/qscintilla.git"
 
   livecheck do
-    url "https://www.riverbankcomputing.com/software/qscintilla/download"
-    regex(/href=.*?QScintilla(?:[._-](?:gpl|src))?[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
