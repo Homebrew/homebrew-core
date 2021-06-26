@@ -3,6 +3,7 @@ class Vmdktool < Formula
   homepage "https://manned.org/vmdktool"
   url "https://people.freebsd.org/~brian/vmdktool/vmdktool-1.4.tar.gz"
   sha256 "981eb43d3db172144f2344886040424ef525e15c85f84023a7502b238aa7b89c"
+  license "BSD-2-Clause"
 
   livecheck do
     url "https://people.freebsd.org/~brian/vmdktool/"
