@@ -2,6 +2,9 @@ name: Triage tasks
 
 on: pull_request_target
 
+concurrency:
+  group: "${{ github.ref }}"
+
 jobs:
   triage:
     runs-on: ubuntu-latest
@@ -10,126 +13,122 @@ jobs:
         uses: Homebrew/actions/check-commit-format@master
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-      - name: Cancel previous runs
-        uses: Homebrew/actions/cancel-previous-runs@master
-        if: always()
-        with:
-          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+
       - name: Label pull request
         uses: Homebrew/actions/label-pull-requests@master
         if: always()
         with:
           token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
           def: |
-              [
-                  {
-                      "label": "workflows",
-                      "path": ".github/workflows/.+"
-                  }, {
-                      "label": "new formula",
-                      "status": "added",
-                      "path": "Formula/.+"
-                  }, {
-                      "label": "marked for removal/rejection",
-                      "status": "removed",
-                      "path": "Formula/.+"
-                  }, {
-                      "label": "bottle unneeded",
-                      "path": "Formula/.+",
-                      "content": "\n  (bottle :unneeded|depends_on :linux)\n"
-                  }, {
-                      "label": "no ARM bottle",
-                      "path": "Formula/.+",
-                      "content": "\n    sha256.* big_sur: +\"[a-fA-F0-9]+\"\n",
-                      "missing_content": "\n    sha256.* arm64_big_sur: +\"[a-fA-F0-9]+\"\n"
-                  }, {
-                      "label": "formula deprecated",
-                      "path": "Formula/.+",
-                      "content": "\n  deprecate!.*\n"
-                  }, {
-                      "label": "formula disabled",
-                      "path": "Formula/.+",
-                      "content": "\n  disable!.*\n"
-                  }, {
-                      "label": "legacy",
-                      "path": "Formula/.+@.+",
-                      "except": [
-                          "Formula/openssl@1.1.rb",
-                          "Formula/openssl@3.0.rb",
-                          "Formula/python@3.9.rb",
-                          "Formula/python-tk@3.9.rb"
-                      ]
-                  }, {
-                      "label": "missing license",
-                      "path": "Formula/.+",
-                      "missing_content": "\n  license .+\n"
-                  }, {
-                      "label": "deprecated license",
-                      "path": "Formula/.+",
-                      "content": "license .*\"(GPL|LGPL|AGPL|GFDL)-[0-9].[0-9][+]?\".*"
-                  }, {
-                      "label": "go",
-                      "path": "Formula/.+",
-                      "content": "depends_on \"go(@[0-9.]+)?\""
-                  }, {
-                      "label": "haskell",
-                      "path": "Formula/.+",
-                      "content": "depends_on \"(ghc|haskell-stack)(@[0-9.]+)?\""
-                  }, {
-                      "label": "java",
-                      "path": "Formula/.+",
-                      "content": "depends_on \"openjdk(@[0-9.]+)?\""
-                  }, {
-                      "label": "linux-only",
-                      "path": "Formula/.+",
-                      "content": "depends_on :linux"
-                  }, {
-                      "label": "lua",
-                      "path": "Formula/.+",
-                      "content": "depends_on \"(lua|luajit|luajit-openresty)(@[0-9.]+)?\""
-                  }, {
-                      "label": "nodejs",
-                      "path": "Formula/.+",
-                      "content": "depends_on \"node(@[0-9.]+)?\""
-                  }, {
-                      "label": "ocaml",
-                      "path": "Formula/.+",
-                      "content": "depends_on \"ocaml(@[0-9.]+)?\""
-                  }, {
-                      "label": "perl",
-                      "path": "Formula/.+",
-                      "content": "(depends_on|uses_from_macos) \"perl(@[0-9.]+)?\""
-                  }, {
-                      "label": "php",
-                      "path": "Formula/.+",
-                      "content": "(depends_on|uses_from_macos) \"php(@[0-9.]+)?\""
-                  }, {
-                      "label": "python",
-                      "path": "Formula/.+",
-                      "content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\"",
-                      "missing_content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\" => \\[?:(build|test)"
-                  }, {
-                      "label": "ruby",
-                      "path": "Formula/.+",
-                      "content": "(depends_on|uses_from_macos) \"ruby(@[0-9.]+)?\""
-                  }, {
-                      "label": "rust",
-                      "path": "Formula/.+",
-                      "content": "depends_on \"rust(@[0-9.]+)?\""
-                  }, {
-                      "label": "swift",
-                      "path": "Formula/.+",
-                      "content": "system \"swift\", \"build\""
-                  }, {
-                      "label": "CI-linux-wheezy",
-                      "path": "Formula/(zlib|patchelf|binutils).rb",
-                      "keep_if_no_match": true
-                  }, {
-                      "label": "CI-linux-self-hosted",
-                      "path": "Formula/(rust|sqlite).rb",
-                      "keep_if_no_match": true
-                  }, {
-                      "label": "bump-formula-pr",
-                      "pr_body_content": "Created with `brew bump-formula-pr`" 
-                  }
-              ]
+            [
+                {
+                    "label": "workflows",
+                    "path": ".github/workflows/.+"
+                }, {
+                    "label": "new formula",
+                    "status": "added",
+                    "path": "Formula/.+"
+                }, {
+                    "label": "marked for removal/rejection",
+                    "status": "removed",
+                    "path": "Formula/.+"
+                }, {
+                    "label": "bottle unneeded",
+                    "path": "Formula/.+",
+                    "content": "\n  (bottle :unneeded|depends_on :linux)\n"
+                }, {
+                    "label": "no ARM bottle",
+                    "path": "Formula/.+",
+                    "content": "\n    sha256.* big_sur: +\"[a-fA-F0-9]+\"\n",
+                    "missing_content": "\n    sha256.* arm64_big_sur: +\"[a-fA-F0-9]+\"\n"
+                }, {
+                    "label": "formula deprecated",
+                    "path": "Formula/.+",
+                    "content": "\n  deprecate!.*\n"
+                }, {
+                    "label": "formula disabled",
+                    "path": "Formula/.+",
+                    "content": "\n  disable!.*\n"
+                }, {
+                    "label": "legacy",
+                    "path": "Formula/.+@.+",
+                    "except": [
+                        "Formula/openssl@1.1.rb",
+                        "Formula/openssl@3.0.rb",
+                        "Formula/python@3.9.rb",
+                        "Formula/python-tk@3.9.rb"
+                    ]
+                }, {
+                    "label": "missing license",
+                    "path": "Formula/.+",
+                    "missing_content": "\n  license .+\n"
+                }, {
+                    "label": "deprecated license",
+                    "path": "Formula/.+",
+                    "content": "license .*\"(GPL|LGPL|AGPL|GFDL)-[0-9].[0-9][+]?\".*"
+                }, {
+                    "label": "go",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"go(@[0-9.]+)?\""
+                }, {
+                    "label": "haskell",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"(ghc|haskell-stack)(@[0-9.]+)?\""
+                }, {
+                    "label": "java",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"openjdk(@[0-9.]+)?\""
+                }, {
+                    "label": "linux-only",
+                    "path": "Formula/.+",
+                    "content": "depends_on :linux"
+                }, {
+                    "label": "lua",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"(lua|luajit|luajit-openresty)(@[0-9.]+)?\""
+                }, {
+                    "label": "nodejs",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"node(@[0-9.]+)?\""
+                }, {
+                    "label": "ocaml",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"ocaml(@[0-9.]+)?\""
+                }, {
+                    "label": "perl",
+                    "path": "Formula/.+",
+                    "content": "(depends_on|uses_from_macos) \"perl(@[0-9.]+)?\""
+                }, {
+                    "label": "php",
+                    "path": "Formula/.+",
+                    "content": "(depends_on|uses_from_macos) \"php(@[0-9.]+)?\""
+                }, {
+                    "label": "python",
+                    "path": "Formula/.+",
+                    "content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\"",
+                    "missing_content": "(depends_on|uses_from_macos) \"python(@[0-9.]+)?\" => \\[?:(build|test)"
+                }, {
+                    "label": "ruby",
+                    "path": "Formula/.+",
+                    "content": "(depends_on|uses_from_macos) \"ruby(@[0-9.]+)?\""
+                }, {
+                    "label": "rust",
+                    "path": "Formula/.+",
+                    "content": "depends_on \"rust(@[0-9.]+)?\""
+                }, {
+                    "label": "swift",
+                    "path": "Formula/.+",
+                    "content": "system \"swift\", \"build\""
+                }, {
+                    "label": "CI-linux-wheezy",
+                    "path": "Formula/(zlib|patchelf|binutils).rb",
+                    "keep_if_no_match": true
+                }, {
+                    "label": "CI-linux-self-hosted",
+                    "path": "Formula/(rust|sqlite).rb",
+                    "keep_if_no_match": true
+                }, {
+                    "label": "bump-formula-pr",
+                    "pr_body_content": "Created with `brew bump-formula-pr`"
+                }
+            ]
