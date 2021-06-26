@@ -7,11 +7,10 @@ class Predictionio < Formula
   license "Apache-2.0"
   revision 1
 
-  bottle :unneeded
-
   deprecate! date: "2020-09-01", because: :unmaintained
 
   depends_on "apache-spark"
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "elasticsearch@6"
   depends_on "hadoop"
   depends_on "hbase"
