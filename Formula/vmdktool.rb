@@ -4,6 +4,11 @@ class Vmdktool < Formula
   url "https://people.freebsd.org/~brian/vmdktool/vmdktool-1.4.tar.gz"
   sha256 "981eb43d3db172144f2344886040424ef525e15c85f84023a7502b238aa7b89c"
 
+  livecheck do
+    url "https://people.freebsd.org/~brian/vmdktool/"
+    regex(/href=.*?vmdktool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2a19ea885fcf69d6929cb155489aab52543b1b1f456eedf9f49f3f6eebf51ec9"
     sha256 cellar: :any_skip_relocation, big_sur:       "9f3f1adccbe9d28c54b0009c00866636ab7872914ff6587ccf206f15cb08ac68"
