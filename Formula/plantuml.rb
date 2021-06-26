@@ -11,8 +11,6 @@ class Plantuml < Formula
     regex(%r{url=.*?/plantuml[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
-  bottle :unneeded
-
   depends_on "graphviz"
   depends_on "openjdk"
 
