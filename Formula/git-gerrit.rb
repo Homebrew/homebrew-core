@@ -6,8 +6,6 @@ class GitGerrit < Formula
   license "BSD-3-Clause"
   head "https://github.com/fbzhong/git-gerrit.git"
 
-  bottle :unneeded
-
   def install
     prefix.install "bin"
     bash_completion.install "completion/git-gerrit-completion.bash"
