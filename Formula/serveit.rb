@@ -7,8 +7,6 @@ class Serveit < Formula
   revision 1
   head "https://github.com/garybernhardt/serveit.git"
 
-  bottle :unneeded
-
   def install
     bin.install "serveit"
   end
