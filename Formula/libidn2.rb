@@ -25,6 +25,7 @@ class Libidn2 < Formula
     depends_on "automake" => :build
     depends_on "gengetopt" => :build
     depends_on "libtool" => :build
+    depends_on "ronn" => :build
   end
 
   depends_on "pkg-config" => :build
@@ -32,12 +33,7 @@ class Libidn2 < Formula
   depends_on "libunistring"
 
   def install
-    if build.head?
-      ENV["GEM_HOME"] = buildpath/"gem_home"
-      system "gem", "install", "ronn"
-      ENV.prepend_path "PATH", buildpath/"gem_home/bin"
-      system "./bootstrap"
-    end
+    system "./bootstrap" if build.head?
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
