@@ -1,16 +1,13 @@
 class I2p < Formula
   desc "Anonymous overlay network - a network within a network"
   homepage "https://geti2p.net"
-  url "https://download.i2p2.de/releases/0.9.50/i2pinstall_0.9.50.jar"
-  mirror "https://launchpad.net/i2p/trunk/0.9.50/+download/i2pinstall_0.9.50.jar"
+  url "https://launchpad.net/i2p/trunk/0.9.50/+download/i2pinstall_0.9.50.jar"
   sha256 "34902d2a7e678fda9261d489ab315661bd2915b9d0d81165acdee008d9031430"
 
   livecheck do
     url "https://geti2p.net/en/download"
     regex(/href=.*?i2pinstall[._-]v?(\d+(?:\.\d+)+)\.jar/i)
   end
-
-  bottle :unneeded
 
   depends_on "openjdk@11"
 
