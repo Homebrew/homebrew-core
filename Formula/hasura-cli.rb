@@ -1,3 +1,5 @@
+require "language/node"
+
 class HasuraCli < Formula
   desc "Command-Line Interface for Hasura GraphQL Engine"
   homepage "https://hasura.io"
@@ -13,22 +15,26 @@ class HasuraCli < Formula
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
 
   def install
+    Language::Node.setup_npm_environment
+
     ldflags = %W[
       -s -w
-      -X github.com/hasura/graphql-engine/cli/version.BuildVersion=#{version}
-      -X github.com/hasura/graphql-engine/cli/plugins.IndexBranchRef=master
-    ]
+      -X github.com/hasura/graphql-engine/cli/v2/version.BuildVersion=#{version}
+      -X github.com/hasura/graphql-engine/cli/v2/plugins.IndexBranchRef=master
+    ].join(" ")
 
     cd "cli" do
-      system "go", "build", *std_go_args, "-ldflags", ldflags.join(" "), "-o", bin/"hasura", "./cmd/hasura/"
+      system "make", "build-cli-ext"
+      system "make", "copy-cli-ext"
+      system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"hasura", "./cmd/hasura/"
 
-      system bin/"hasura", "completion", "bash", "--file", "completion_bash"
-      bash_completion.install "completion_bash" => "hasura"
-
-      system bin/"hasura", "completion", "zsh", "--file", "completion_zsh"
-      zsh_completion.install "completion_zsh" => "_hasura"
+      output = Utils.safe_popen_read("#{bin}/hasura", "completion", "bash")
+      (bash_completion/"hasura").write output
+      output = Utils.safe_popen_read("#{bin}/hasura", "completion", "zsh")
+      (zsh_completion/"_hasura").write output
     end
   end
 
