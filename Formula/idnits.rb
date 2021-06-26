@@ -10,11 +10,9 @@ class Idnits < Formula
     regex(/href=.*?idnits[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
-  bottle :unneeded
-
   resource "test" do
-    url "https://tools.ietf.org/id/draft-ietf-tcpm-undeployed-03.txt"
-    sha256 "34e72c2c089409dc1935e18f75351025af3cfc253dee50db042d188b46733550"
+    url "https://tools.ietf.org/id/draft-tian-frr-alt-shortest-path-01.txt"
+    sha256 "dd20ac54e5e864cfd426c7fbbbd7a1c200eeff5b7b4538ba3a929d9895f01b76"
   end
 
   def install
@@ -23,7 +21,7 @@ class Idnits < Formula
 
   test do
     resource("test").stage do
-      system "#{bin}/idnits", "draft-ietf-tcpm-undeployed-03.txt"
+      system "#{bin}/idnits", "draft-tian-frr-alt-shortest-path-01.txt"
     end
   end
 end
