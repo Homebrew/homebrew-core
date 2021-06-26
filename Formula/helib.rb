@@ -4,7 +4,7 @@ class Helib < Formula
   url "https://github.com/homenc/HElib/archive/v2.1.0.tar.gz"
   sha256 "641af0f602cfc7f5f5b1cfde0652252def2dfaf5f7962c2595cf598663637951"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "aa33ed89e0e48fde7617d85aa108a11ba5ba80d1d16e9bb592d2c5bf4e47580f"
