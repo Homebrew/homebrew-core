@@ -6,6 +6,7 @@ class Ronn < Formula
   license "MIT"
 
   uses_from_macos "ruby"
+  uses_from_macos "groff" => :test
 
   def install
     ENV["GEM_HOME"] = libexec
