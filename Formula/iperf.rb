@@ -3,6 +3,7 @@ class Iperf < Formula
   homepage "https://sourceforge.net/projects/iperf2/"
   url "https://downloads.sourceforge.net/project/iperf2/iperf-2.1.2.tar.gz"
   sha256 "10a117ff33807b455187349e8b05aaf4d17e9a50c6cf46fdda5054e849a9ecfe"
+  license "BSD-3-Clause"
 
   livecheck do
     url :stable
