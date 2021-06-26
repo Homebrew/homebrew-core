@@ -3,7 +3,7 @@ class Chuck < Formula
   homepage "https://chuck.cs.princeton.edu/"
   url "https://chuck.cs.princeton.edu/release/files/chuck-1.4.1.0.tgz"
   mirror "http://chuck.stanford.edu/release/files/chuck-1.4.1.0.tgz"
-  sha256 "1a66f64fd31887aee83867b72401ab09d6d24f5d97936b2527225226cfc8fe2c"
+  sha256 "74bf99ad515e3113c55b833152936fad02a3cf006a54105ff11777c473194928"
   license "GPL-2.0-or-later"
   head "https://github.com/ccrma/chuck.git"
 
@@ -22,10 +22,6 @@ class Chuck < Formula
 
   depends_on xcode: :build
 
-  # Big Sur compile fix https://github.com/ccrma/chuck/pull/158
-  # Adapted from above PR in order to apply to the latest release
-  patch :DATA
-
   def install
     system "make", "-C", "src", "osx"
     bin.install "src/chuck"
@@ -36,18 +32,3 @@ class Chuck < Formula
     assert_match "device", shell_output("#{bin}/chuck --probe 2>&1")
   end
 end
-
-__END__
-diff --git a/src/core/makefile.x/makefile.osx b/src/core/makefile.x/makefile.osx
-index 3b016519eda010f177cc15449a862ab1d711c15e..3350b6f8e6dfc197010add4a7506da11d6fd664c 100644
---- a/src/core/makefile.x/makefile.osx
-+++ b/src/core/makefile.x/makefile.osx
-@@ -1,7 +1,7 @@
- # uncomment the following to force 32-bit compilation
- # FORCE_M32=-m32
-
--ifneq ($(shell sw_vers -productVersion | egrep '10\.(6|7|8|9|10|11|12|13|14|15)(\.[0-9]+)?'),)
-+ifneq ($(shell sw_vers -productVersion | egrep '^(10\.(6|7|8|9|10|11|12|13|14|15)(\.[0-9]+)|1[123456789])?'),)
- SDK=$(shell xcrun --show-sdk-path)
- ISYSROOT=-isysroot $(SDK)
- LINK_EXTRAS=-F/System/Library/PrivateFrameworks \
