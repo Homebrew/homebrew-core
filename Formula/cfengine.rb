@@ -3,6 +3,7 @@ class Cfengine < Formula
   homepage "https://cfengine.com/"
   url "https://cfengine-package-repos.s3.amazonaws.com/tarballs/cfengine-3.18.0.tar.gz"
   sha256 "d601a3af30f3fba7d51a37476c9e1a00b750682149bf96f4a0002e804bc87783"
+  license all_of: ["BSD-3-Clause", "GPL-2.0-or-later", "GPL-3.0-only", "LGPL-2.0-or-later"]
 
   livecheck do
     url "https://cfengine.com/release-data/community/releases.json"
