@@ -27,6 +27,7 @@ class HasuraCli < Formula
     ].join(" ")
 
     cd "cli" do
+      ENV["CI"] = "false"
       system "make", "build-cli-ext"
       system "make", "copy-cli-ext"
       system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"hasura", "./cmd/hasura/"
