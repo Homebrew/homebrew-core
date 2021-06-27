@@ -21,6 +21,7 @@ class Klavaro < Formula
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gtk+3"
+  depends_on "gtkdatabox"
 
   def install
     system "./configure", "--disable-dependency-tracking",
