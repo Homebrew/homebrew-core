@@ -5,6 +5,12 @@ class Libuninameslist < Formula
   sha256 "5c0283b2e18d101e58b70a026119d66c9d3e749e4537def7799bba0bc8998f62"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+    regex(%r{href=.*?/tag/v?(\d+)["' >]}i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "d4d445060083742dc4fc503fd105b8471dedb64797f0ed232d4e9f5de8e9f7f2"
     sha256 cellar: :any, big_sur:       "1eb14661a5be9d815bf273854935e0004392881a8946fb1e2470283d3938c036"
