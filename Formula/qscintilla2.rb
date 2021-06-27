@@ -5,9 +5,14 @@ class Qscintilla2 < Formula
   sha256 "a7331c44b5d7320cbf58cb2382c38857e9e9f4fa52c405bd7776c8b6649836c2"
   license "GPL-3.0-only"
 
+  # The downloads page also lists pre-release versions, which use the same file
+  # name format as stable versions. The only difference is that files for
+  # stable versions are kept in corresponding version subdirectories and
+  # pre-release files are in the parent QScintilla directory. The regex below
+  # omits pre-release versions by only matching tarballs in a version directory.
   livecheck do
     url "https://www.riverbankcomputing.com/software/qscintilla/download"
-    regex(/href=.*?QScintilla(?:[._-](?:gpl|src))?[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    regex(%r{href=.*?QScintilla/v?\d+(?:\.\d+)+/QScintilla(?:[._-](?:gpl|src))?[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
   bottle do
