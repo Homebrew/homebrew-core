@@ -138,6 +138,12 @@ class Mathlibtools < Formula
   end
 
   test do
+    # A bug in test-bot unlinks `coreutils` in PRs that test
+    # a large number of formulae without re-linking it for this
+    # one, causing a failure. As a temporary fix, make sure
+    # `coreutils` can always be found in PATH.
+    ENV.prepend_path "PATH", Formula["coreutils"].opt_bin
+
     system bin/"leanproject", "new", "my_project"
     project_toml = testpath/"my_project/leanpkg.toml"
     assert_predicate project_toml, :exist?, "leanpkg.toml should have been created"
