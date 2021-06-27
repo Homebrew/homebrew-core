@@ -3,8 +3,8 @@ class Pywhat < Formula
 
   desc "🐸 Identify anything: emails, IP addresses, and more 🧙"
   homepage "https://github.com/bee-san/pyWhat"
-  url "https://files.pythonhosted.org/packages/a8/2d/c0c98cca2922c80abb0f45396caf4b737fb87590851074eb85c321ce4364/pywhat-3.1.0.tar.gz"
-  sha256 "89177b77b14f0c1caac3b1cb511dec50edaeeecc4ee8015df6ee4524a3ef33e8"
+  url "https://files.pythonhosted.org/packages/72/30/d5ecb60218687d87d3f97f1e20f8fb83438ac8ab7c40e073e6f4d887e903/pywhat-3.2.0.tar.gz"
+  sha256 "48d15667949976e1f385dc1d96ce71e34c55997d51d45189f7770811f7ac11d1"
   license "GPL-3.0-or-later"
   head "https://github.com/bee-san/pyWhat.git", branch: "main"
 
