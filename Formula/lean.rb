@@ -36,6 +36,12 @@ class Lean < Formula
   end
 
   test do
+    # A bug in test-bot unlinks `coreutils` in PRs that test
+    # a large number of formulae without re-linking it for this
+    # one, causing a failure. As a temporary fix, make sure
+    # `coreutils` can always be found in PATH.
+    ENV.prepend_path "PATH", Formula["coreutils"].opt_bin
+
     (testpath/"hello.lean").write <<~EOS
       def id' {α : Type} (x : α) : α := x
 
