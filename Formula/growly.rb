@@ -7,6 +7,8 @@ class Growly < Formula
 
   bottle :unneeded
 
+  disable! date: "2021-06-27", because: "depends on growlnotify which has been removed"
+
   def install
     bin.install "growly"
   end
