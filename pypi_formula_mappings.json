@@ -144,6 +144,9 @@
   "s3cmd": {
     "exclude_packages": ["six"]
   },
+  "s4cmd": {
+    "exclude_packages": ["six"]
+  },
   "salt": {
     "extra_packages": ["pycryptodome", "pygit2"],
     "exclude_packages": [
