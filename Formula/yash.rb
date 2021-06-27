@@ -18,21 +18,16 @@ class Yash < Formula
     sha256 mojave:        "0eec194f969eb03add9615ed1f4569749ff423007552fdf40b12b7df82c72024"
   end
 
+  head do
+    url "https://github.com/magicant/yash.git", branch: "trunk"
+
+    depends_on "asciidoc" => :build
+  end
+
   depends_on "gettext"
 
   def install
-    system "sh", "./configure",
-            "--prefix=#{prefix}",
-            "--enable-array",
-            "--enable-dirstack",
-            "--enable-help",
-            "--enable-history",
-            "--enable-lineedit",
-            "--enable-nls",
-            "--enable-printf",
-            "--enable-socket",
-            "--enable-test",
-            "--enable-ulimit"
+    system "sh", "./configure", "--prefix=#{prefix}"
     system "make", "install"
   end
 
