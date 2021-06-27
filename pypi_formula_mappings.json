@@ -40,7 +40,7 @@
     "extra_packages": ["wheel"]
   },
   "checkov": {
-    "exclude_packages": ["tabulate", "junit-xml"],
+    "exclude_packages": ["junit-xml", "six", "tabulate"],
     "extra_packages": ["junit-xml-2"]
   },
   "datalad": {
