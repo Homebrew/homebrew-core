@@ -15,6 +15,13 @@ class Couchpotatoserver < Formula
 
   def install
     prefix.install_metafiles
+    inreplace_files = %w[
+      couchpotato/core/helpers/variable.py
+      init/freebsd
+      init/synology
+    ]
+    inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
+    rm_f "libs/unrar2/unrar" # bundled i386 executable, breaks relocatability
     libexec.install Dir["*"]
     (bin+"couchpotatoserver").write(startup_script)
   end
