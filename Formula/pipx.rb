@@ -61,6 +61,13 @@ class Pipx < Formula
     (bin/"pipx").write_env_script(libexec/"bin/pipx", PYTHONPATH: ENV["PYTHONPATH"])
     (bin/"register-python-argcomplete").write_env_script(libexec/"bin/register-python-argcomplete",
       PYTHONPATH: ENV["PYTHONPATH"])
+
+    # Install shell completions
+    output = Utils.safe_popen_read(libexec/"bin/register-python-argcomplete", "--shell=bash", "pipx")
+    (bash_completion/"pipx").write output
+
+    output = Utils.safe_popen_read(libexec/"bin/register-python-argcomplete", "--shell=fish", "pipx")
+    (fish_completion/"pipx.fish").write output
   end
 
   test do
