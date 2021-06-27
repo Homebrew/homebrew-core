@@ -7,8 +7,8 @@ class Libuninameslist < Formula
 
   livecheck do
     url :stable
+    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)*)["' >]}i)
     strategy :github_latest
-    regex(%r{href=.*?/tag/v?(\d+)["' >]}i)
   end
 
   bottle do
