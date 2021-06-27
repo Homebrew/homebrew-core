@@ -1,10 +1,9 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.32.1.tar.xz"
-  sha256 "a747ca4e8cc919d91feda6cadb97e63b72ff79119491989bbcea79ad47680615"
+  url "https://notmuchmail.org/releases/notmuch-0.32.2.tar.xz"
+  sha256 "8e0a7eb8ff2e6011ef48b2bf11d79b9c4bb74511cfe2987758b64898c2a2ded7"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
   livecheck do
@@ -31,12 +30,6 @@ class Notmuch < Formula
   depends_on "xapian"
 
   uses_from_macos "zlib", since: :sierra
-
-  # Remove in the release after 0.32.1
-  patch do
-    url "https://git.notmuchmail.org/git?p=notmuch;a=patch;h=59c953656dbd2e65265a2c850f2375afc9d69589;hp=92454bc0935604f4a623e75dec9506c0283eee70"
-    sha256 "291066e48a26e8f78504413203685bedc77a35d0c8f94143e1daa058b444235e"
-  end
 
   def install
     args = %W[
