@@ -6,7 +6,7 @@ class Q < Formula
   url "https://github.com/harelba/q/archive/2.0.19.tar.gz"
   sha256 "cd4c60923bc40f53d974b54849f76096bf9901407c618cd0a3ccbc322aacc97d"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/harelba/q.git"
 
   bottle do
@@ -25,8 +25,8 @@ class Q < Formula
     # broken symlink, fixed in next version
     rm_f "bin/qtextasdata.py"
     virtualenv_install_with_resources
-    system "ronn", "doc/USAGE.markdown"
-    man1.install "doc/USAGE" => "q.1"
+    system "ronn", "--roff", "--section=1", "doc/USAGE.markdown"
+    man1.install "doc/USAGE.1" => "q.1"
   end
 
   test do
