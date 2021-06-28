@@ -17,6 +17,7 @@ class Mariadb < Formula
     sha256 mojave:        "15b7c70995f293db109b71e125b069c5d3b675c08b196c31932574f7ffc42545"
   end
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
