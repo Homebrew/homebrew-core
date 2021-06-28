@@ -20,6 +20,13 @@ class Mosh < Formula
       url "https://raw.githubusercontent.com/macports/macports-ports/72fb5d9a79e581a5033bce38fb00ee25a0c2fdfe/net/mosh/files/patch-version-subdir.diff"
       sha256 "939e5435ce7d9cecb7b2bccaf31294092eb131b5bd41d5776a40d660ffc95982"
     end
+
+    # Fix disappearing emoji characters due to the outdated libc on Mac
+    # https://github.com/mobile-shell/mosh/pull/1143
+    patch :p1 do
+      url "https://github.com/mobile-shell/mosh/commit/29408c7730ddfebeb2aebfad23022fdb897fb391.patch?full_index=1"
+      sha256 "55d44eb8b9b74f8f63432de562a0ddeb437206f1d0e7f2264e00e7b3ad74d3b7"
+    end
   end
 
   bottle do
