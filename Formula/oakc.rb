@@ -7,8 +7,8 @@ class Oakc < Formula
   head "https://github.com/adam-mcdaniel/oakc.git"
 
   livecheck do
-    url "https://docs.rs/oakc"
-    regex(%r{/oakc/v?(\d+(?:\.\d+)+)/}i)
+    url "https://crates.io/api/v1/crates/oakc/versions"
+    regex(/"num":\s*"(\d+(?:\.\d+)+)"/i)
   end
 
   bottle do
