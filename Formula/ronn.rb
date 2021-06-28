@@ -27,7 +27,8 @@ class Ronn < Formula
 
   test do
     (testpath/"test.ronn").write <<~EOS
-      # simple(7) -- a simple ronn example
+      simple(7) -- a simple ronn example
+      ==================================
 
       This document is created by ronn.
     EOS
