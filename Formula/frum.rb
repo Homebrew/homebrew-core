@@ -4,7 +4,7 @@ class Frum < Formula
   url "https://github.com/TaKO8Ki/frum/archive/v0.1.0.tar.gz"
   sha256 "2e9e35d7077f9bd3684a86887645516c5e0b5ced54fd78e2a2137cf2bbd94f09"
   license "MIT"
-  head "https://github.com/TaKO8Ki/frum.git"
+  head "https://github.com/TaKO8Ki/frum.git", branch: "main"
 
   depends_on "rust" => :build
 
