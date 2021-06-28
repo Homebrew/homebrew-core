@@ -13,6 +13,7 @@ class Cjdns < Formula
   end
 
   depends_on "node" => :build
+  depends_on "rust" => :build
 
   def install
     system "./do"
