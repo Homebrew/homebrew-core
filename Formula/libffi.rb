@@ -1,12 +1,9 @@
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
-  url "https://sourceware.org/pub/libffi/libffi-3.3.tar.gz"
-  mirror "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.3.orig.tar.gz"
-  mirror "https://github.com/libffi/libffi/releases/download/v3.3/libffi-3.3.tar.gz"
-  sha256 "72fba7922703ddfa7a028d513ac15a85c8d54c8d67f55fa5a4802885dc652056"
+  url "https://github.com/libffi/libffi/releases/download/v3.4.2/libffi-3.4.2.tar.gz"
+  sha256 "540fb721619a6aba3bdeef7d940d8e9e0e6d2c193595bc243241b77ff9e93620"
   license "MIT"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "10a6d66c264f9a23d1162e535fe49f27c23f6ef452b4701ed7110f06aaf1e01d"
@@ -17,23 +14,13 @@ class Libffi < Formula
   end
 
   head do
-    url "https://github.com/atgreen/libffi.git"
+    url "https://github.com/libffi/libffi.git"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   keg_only :provided_by_macos
-
-  on_macos do
-    if Hardware::CPU.arm?
-      # Improved aarch64-apple-darwin support. See https://github.com/libffi/libffi/pull/565
-      patch do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/06252df03c68aee70856e5842f85f20b259e5250/libffi/libffi-3.3-arm64.patch"
-        sha256 "9290aba7f3131ca19eb28fa7ded836b80f15cf633ffac95dc52b14d0a668d1fa"
-      end
-    end
-  end
 
   def install
     system "./autogen.sh" if build.head?
