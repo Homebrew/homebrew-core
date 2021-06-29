@@ -6,6 +6,11 @@ class Frum < Formula
   license "MIT"
   head "https://github.com/TaKO8Ki/frum.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c504c4c04a3de5d20f765b7ebbb52b108a623fa4cda8a810e870dd12ee756d8"
     sha256 cellar: :any_skip_relocation, big_sur:       "96a6ceaa6e60dba09a0ab0440fb57cf9adccae016f62ad5cba90f7c885bcf38a"
