@@ -5,6 +5,11 @@ class Fcp < Formula
   sha256 "7e4e69bdb7f1f831dc52cd517afdd5722313d3dece3afd7dad418d224d4badd1"
   license "BSD-3-Clause"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "dead76c3970ca3234354847c718ccefb8b1ec6b5316e7b0dad386a907a531665"
     sha256 cellar: :any_skip_relocation, big_sur:       "a1ab4eee959861298d34c1d83b20bc5ed75013d28d5b35bedfd773b08e80c13c"
