@@ -25,11 +25,6 @@ class Fastd < Formula
   depends_on "libuecc"
   depends_on "openssl@1.1"
 
-  patch do
-    url "https://github.com/NeoRaider/fastd/commit/0d4045fb85d85903ebb9afe03a08d9b089300062.patch?full_index=1"
-    sha256 "bb0d62e40575408497c6a285e6443c8386b4b85427463dd29df7736f3fe4ae9f"
-  end
-
   def install
     mkdir "build" do
       system "meson", "-DENABLE_LTO=ON", *std_meson_args, ".."
