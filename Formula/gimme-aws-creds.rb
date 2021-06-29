@@ -3,8 +3,8 @@ class GimmeAwsCreds < Formula
 
   desc "CLI to retrieve AWS credentials from Okta"
   homepage "https://github.com/Nike-Inc/gimme-aws-creds"
-  url "https://files.pythonhosted.org/packages/e5/aa/099db6ade30286a7f0035be57cc11fa3171c9380778ddc2c011ec6bf669e/gimme%20aws%20creds-2.4.1.tar.gz"
-  sha256 "a344bad852e1278e34f6758375b0f12050b0050adca44d31c8cc428f64186879"
+  url "https://files.pythonhosted.org/packages/d9/c1/3b744022fe388e95d9f7011c26a1f5d2a844c1a49e385403350f3e9d0815/gimme%20aws%20creds-2.4.3.tar.gz"
+  sha256 "4efd68f3e4f74672b4dc69595307a2abe34600f9d91ce18f202b069407fd0b69"
   license "Apache-2.0"
 
   bottle do
