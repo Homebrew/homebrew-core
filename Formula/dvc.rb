@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/55/d0/74697f0c4de4f848eb24fba0ed24b1bfd3a257b59f6468886e335620ca97/dvc-2.4.2.tar.gz"
-  sha256 "253f46713381318e9ec512795bf15bee8eae5a54b0009784ee424c4a4c5d850d"
+  url "https://files.pythonhosted.org/packages/91/a1/e79cc4aab71cb8703c21f0d5dee94f4893a023f190c61d0c45777213483b/dvc-2.4.3.tar.gz"
+  sha256 "52e1f9c3fca16aae22b397a3f1c350c7e463b92942e847c756318d15548641e7"
   license "Apache-2.0"
 
   bottle do
@@ -459,8 +459,8 @@ class Dvc < Formula
   end
 
   resource "pygtrie" do
-    url "https://files.pythonhosted.org/packages/18/41/2e5cefc895a32d9ca0f3574bd0df09e53a697023579a93582bedc4eeac4d/pygtrie-2.3.2.tar.gz"
-    sha256 "6299cdedd2cbdfda0895c2dbc43efe8828e698c62b574f3ef7e14b3253f80e23"
+    url "https://files.pythonhosted.org/packages/a5/8b/90d0f21a27a354e808a73eb0ffb94db990ab11ad1d8b3db3e5196c882cad/pygtrie-2.4.2.tar.gz"
+    sha256 "43205559d28863358dbbf25045029f58e2ab357317a59b11f11ade278ac64692"
   end
 
   resource "PyJWT" do
@@ -619,8 +619,8 @@ class Dvc < Formula
   end
 
   resource "webdav4" do
-    url "https://files.pythonhosted.org/packages/fb/24/38adebeb8fee8d225de49c6caa0ecf7590f216177ea25281bd254ac1ada2/webdav4-0.8.1.tar.gz"
-    sha256 "0191dfb75a9a93ba37b248dda05707e072dffd2bf8775b7f56719ec65f4326d8"
+    url "https://files.pythonhosted.org/packages/bf/67/b640fdf2add7bcf4317b91bcf161b784a4dff5bd26353968b3c0b1a5ed0f/webdav4-0.8.2.tar.gz"
+    sha256 "35f956bcdd58f79c294d0219da1271d27e34d1e504e77f134980652a557b0ecc"
   end
 
   resource "wrapt" do
