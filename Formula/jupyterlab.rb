@@ -6,6 +6,7 @@ class Jupyterlab < Formula
   url "https://files.pythonhosted.org/packages/85/17/4c6b94f3e28f53acc2b18e6d234a6ce8d274ac52cc4e6870a096695b38e3/jupyterlab-3.0.16.tar.gz"
   sha256 "7ad4fbe1f6d38255869410fd151a8b15692a663ca97c0a8146b3f5c40e275c23"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "892d1f279e6534c4ed454072a0a11232acdfc50a4abcb877a4f62adb71334c09"
