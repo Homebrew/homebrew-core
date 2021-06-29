@@ -2,8 +2,8 @@ class Kapacitor < Formula
   desc "Open source time series data processor"
   homepage "https://github.com/influxdata/kapacitor"
   url "https://github.com/influxdata/kapacitor.git",
-      tag:      "v1.5.9",
-      revision: "06a16e51ceb5b7086b3b855969c3f93532da1550"
+      tag:      "v1.6.0",
+      revision: "cee3f4e305c7f50c9d8d1d9b561ade565f46e5f6"
   license "MIT"
   head "https://github.com/influxdata/kapacitor.git"
 
@@ -20,8 +20,21 @@ class Kapacitor < Formula
   end
 
   depends_on "go" => :build
+  depends_on "rust" => :build
+
+  # NOTE: The version here is specified in the go.mod of kapacitor.
+  # If you're upgrading to a newer kapacitor version, check to see if this needs upgraded too.
+  resource "pkg-config-wrapper" do
+    url "https://github.com/influxdata/pkg-config/archive/v0.2.7.tar.gz"
+    sha256 "9bfe2c06b09fe7f3274f4ff8da1d87c9102640285bb38dad9a8c26dd5b9fe5af"
+  end
 
   def install
+    resource("pkg-config-wrapper").stage do
+      system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
+    end
+    ENV.prepend_path "PATH", buildpath/"bootstrap"
+
     ldflags = %W[
       -s
       -w
@@ -94,7 +107,7 @@ class Kapacitor < Formula
       pid = fork do
         exec "#{bin}/kapacitord -config #{testpath}/config.toml"
       end
-      sleep 2
+      sleep 20
       shell_output("#{bin}/kapacitor list tasks")
     ensure
       Process.kill("SIGINT", pid)
