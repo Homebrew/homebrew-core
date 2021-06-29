@@ -1,8 +1,8 @@
 class SwaggerCodegenAT2 < Formula
   desc "Generate clients, server stubs, and docs from an OpenAPI spec"
   homepage "https://swagger.io/swagger-codegen/"
-  url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.20.tar.gz"
-  sha256 "954ea30bee2c2718cb543dfae87ed6279b0555e672040b27a198606c81068a98"
+  url "https://github.com/swagger-api/swagger-codegen/archive/v2.4.21.tar.gz"
+  sha256 "0aba5cf7d8d1a2c2c5da3f8933f10922541e7c532082dd61c5df1cc4859c4a42"
   license "Apache-2.0"
 
   livecheck do
