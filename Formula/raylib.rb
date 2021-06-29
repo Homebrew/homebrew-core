@@ -26,13 +26,20 @@ class Raylib < Formula
   end
 
   def install
-    system "cmake", ".", "-DSTATIC_RAYLIB=ON",
-                         "-DSHARED_RAYLIB=ON",
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=ON",
                          "-DMACOS_FATLIB=OFF",
                          "-DBUILD_EXAMPLES=OFF",
                          "-DBUILD_GAMES=OFF",
                          *std_cmake_args
     system "make", "install"
+    system "make", "clean"
+    system "cmake", ".", "-DBUILD_SHARED_LIBS=OFF",
+                         "-DMACOS_FATLIB=OFF",
+                         "-DBUILD_EXAMPLES=OFF",
+                         "-DBUILD_GAMES=OFF",
+                         *std_cmake_args
+    system "make"
+    lib.install "raylib/libraylib.a"
   end
 
   test do
