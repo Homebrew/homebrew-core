@@ -23,15 +23,21 @@ class Ncurses < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-pc-files",
-                          "--with-pkg-config-libdir=#{lib}/pkgconfig",
-                          "--enable-sigwinch",
-                          "--enable-symlinks",
-                          "--enable-widec",
-                          "--with-shared",
-                          "--with-gpm=no",
-                          "--without-ada"
+    args = [
+      "--prefix=#{prefix}",
+      "--enable-pc-files",
+      "--with-pkg-config-libdir=#{lib}/pkgconfig",
+      "--enable-sigwinch",
+      "--enable-symlinks",
+      "--enable-widec",
+      "--with-shared",
+      "--with-gpm=no",
+      "--without-ada",
+    ]
+    on_linux do
+      args << "--with-terminfo-dirs=#{share}/terminfo:/etc/terminfo:/lib/terminfo:/usr/share/terminfo"
+    end
+    system "./configure", *args
     system "make", "install"
     make_libncurses_symlinks
 
