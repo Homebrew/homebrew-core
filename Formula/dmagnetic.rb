@@ -20,9 +20,9 @@ class Dmagnetic < Formula
   test do
     assert_match "ab9ec7787593e310ac4d8187db3f6cee", \
       shell_output("echo Hello | #{bin}/dMagnetic "\
-        "-vmode none -vcols 300 -vrows 300 -vecho -sres 1024x768 "\
-        "-mag #{share}/games/dMagnetic/minitest.mag "\
-        "-gfx #{share}/games/dMagnetic/minitest.gfx "\
-        "| md5").strip
+                   "-vmode none -vcols 300 -vrows 300 -vecho -sres 1024x768 "\
+                   "-mag #{share}/games/dMagnetic/minitest.mag "\
+                   "-gfx #{share}/games/dMagnetic/minitest.gfx "\
+                   "| md5").strip
   end
 end
