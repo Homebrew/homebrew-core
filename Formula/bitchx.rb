@@ -26,7 +26,7 @@ class Bitchx < Formula
                           "--mandir=#{man}",
                           "--enable-ipv6",
                           "--with-plugins=acro,aim,arcfour,amp,autocycle,blowfish,cavlink,encrypt,fserv," \
-                                         "hint,identd,nap,pkga,possum,qbx,qmail",
+                          "hint,identd,nap,pkga,possum,qbx,qmail",
                           "--with-ssl"
     system "make"
     system "make", "install"
