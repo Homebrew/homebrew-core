@@ -5,7 +5,7 @@ class LlvmAT11 < Formula
   sha256 "74d2529159fd118c3eac6f90107b5611bccc6f647fdea104024183e8d5e25831"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 2
+  revision 3
 
   # This should be removed when LLVM 13 is released, so we only check the
   # current version (the `llvm` formula) and one major version before it
