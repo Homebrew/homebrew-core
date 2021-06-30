@@ -4,7 +4,7 @@ class LlvmAT8 < Formula
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/llvm-8.0.1.src.tar.xz"
   sha256 "44787a6d02f7140f145e2250d56c9f849334e11f9ae379827510ed72f12b75e7"
   license "NCSA"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "3807a935c2ea14dab5336a75a8ed9d9f06c656673608c338b4b519a22f267c9c"
@@ -136,7 +136,7 @@ class LlvmAT8 < Formula
     # can almost be treated as an entirely different build from llvm.
     ENV.permit_arch_flags
 
-    args = %W[
+    args = %w[
       -DLIBOMP_ARCH=x86_64
       -DLINK_POLLY_INTO_TOOLS=ON
       -DLLVM_BUILD_LLVM_DYLIB=ON
@@ -149,12 +149,18 @@ class LlvmAT8 < Formula
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
       -DWITH_POLLY=ON
-      -DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_lib}/libffi-#{Formula["libffi"].version}/include
-      -DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
       -DLLDB_DISABLE_PYTHON=1
       -DLIBOMP_INSTALL_ALIASES=OFF
     ]
+
+    if MacOS.version >= :catalina
+      args << "-DFFI_INCLUDE_DIR=#{MacOS.sdk_path}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{MacOS.sdk_path}/usr/lib"
+    else
+      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
+      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
+    end
 
     if OS.mac?
       args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if MacOS.version <= :mojave
