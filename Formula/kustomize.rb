@@ -26,12 +26,13 @@ class Kustomize < Formula
 
     cd "kustomize" do
       ldflags = %W[
-        -s
+        -s -w
         -X sigs.k8s.io/kustomize/api/provenance.version=#{name}/v#{version}
         -X sigs.k8s.io/kustomize/api/provenance.gitCommit=#{commit}
         -X sigs.k8s.io/kustomize/api/provenance.buildDate=#{Time.now.iso8601}
-      ]
-      system "go", "build", "-ldflags", ldflags.join(" "), "-o", bin/"kustomize"
+      ].join(" ")
+
+      system "go", "build", *std_go_args(ldflags: ldflags)
     end
 
     output = Utils.safe_popen_read("#{bin}/kustomize", "completion", "bash")
