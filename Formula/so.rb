@@ -1,8 +1,8 @@
 class So < Formula
   desc "Terminal interface for StackOverflow"
   homepage "https://github.com/samtay/so"
-  url "https://github.com/samtay/so/archive/v0.4.3.tar.gz"
-  sha256 "4e82cb8f6d31435eec03a74d0ea4297eb28ce3ee75d4612ca5b2233c27e19c2d"
+  url "https://github.com/samtay/so/archive/v0.4.5.tar.gz"
+  sha256 "63091d63256c35854c11e030a193c73aa2dc0bbbfc1d3dca9b992ffd6166a728"
   license "MIT"
 
   bottle do
