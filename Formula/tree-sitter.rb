@@ -3,8 +3,8 @@ require "language/node"
 class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/v0.19.5.tar.gz"
-  sha256 "953edda5a21423cbfd916dbb1b1552a12f7ab649728846b5a1fb49483672e82b"
+  url "https://github.com/tree-sitter/tree-sitter/archive/v0.20.0.tar.gz"
+  sha256 "4a8070b9de17c3b8096181fe8530320ab3e8cca685d8bee6a3e8d164b5fb47da"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git"
 
@@ -20,7 +20,7 @@ class TreeSitter < Formula
   depends_on "rust" => :build
 
   def install
-    system "make"
+    system "make", "AMALGAMATED=1"
     system "make", "install", "PREFIX=#{prefix}"
 
     # NOTE: This step needs to be done *before* `cargo install`
