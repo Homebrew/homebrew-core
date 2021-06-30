@@ -23,8 +23,8 @@ class GitXargs < Formula
 
     assert_match "You must export a valid Github personal access token as GITHUB_OAUTH_TOKEN",
                   shell_output("#{bin}/git-xargs --branch-name test-branch" \
-                                "--github-org brew-test-org" \
-                                "--commit-message 'Create hello-world.txt'" \
-                                "touch hello-world.txt 2>&1", 1)
+                               "--github-org brew-test-org" \
+                               "--commit-message 'Create hello-world.txt'" \
+                               "touch hello-world.txt 2>&1", 1)
   end
 end
