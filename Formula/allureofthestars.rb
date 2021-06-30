@@ -28,8 +28,8 @@ class Allureofthestars < Formula
   test do
     assert_equal "",
       shell_output("#{bin}/Allure --dbgMsgSer --dbgMsgCli --logPriority 0 --newGame 3 --maxFps 100000 " \
-                                 "--stopAfterFrames 50 --automateAll --keepAutomated --gameMode battle " \
-                                 "--setDungeonRng \"SMGen 7 7\" --setMainRng \"SMGen 7 7\"")
+                   "--stopAfterFrames 50 --automateAll --keepAutomated --gameMode battle " \
+                   "--setDungeonRng \"SMGen 7 7\" --setMainRng \"SMGen 7 7\"")
     assert_equal "", (testpath/".Allure/stderr.txt").read
     assert_match "Client FactionId 1 closed frontend.", (testpath/".Allure/stdout.txt").read
   end
