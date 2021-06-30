@@ -70,11 +70,11 @@ class Monero < Formula
 
   test do
     cmd = "yes '' | #{bin}/monero-wallet-cli --restore-deterministic-wallet " \
-      "--password brew-test --restore-height 1 --generate-new-wallet wallet " \
-      "--electrum-seed 'baptism cousin whole exquisite bobsled fuselage left " \
-      "scoop emerge puzzled diet reinvest basin feast nautical upon mullet " \
-      "ponies sixteen refer enhanced maul aztec bemused basin'" \
-      "--command address"
+          "--password brew-test --restore-height 1 --generate-new-wallet wallet " \
+          "--electrum-seed 'baptism cousin whole exquisite bobsled fuselage left " \
+          "scoop emerge puzzled diet reinvest basin feast nautical upon mullet " \
+          "ponies sixteen refer enhanced maul aztec bemused basin'" \
+          "--command address"
     address = "4BDtRc8Ym9wGzx8vpkQQvpejxBNVpjEmVBebBPCT4XqvMxW3YaCALFraiQibejyMAxUXB5zqn4pVgHVm3JzhP2WzVAJDpHf"
     assert_equal address, shell_output(cmd).lines.last.split[1]
   end
