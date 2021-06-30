@@ -4,6 +4,7 @@ class Ecl < Formula
   url "https://common-lisp.net/project/ecl/static/files/release/ecl-21.2.1.tgz"
   sha256 "b15a75dcf84b8f62e68720ccab1393f9611c078fcd3afdd639a1086cad010900"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://gitlab.com/embeddable-common-lisp/ecl.git", branch: "develop"
 
   bottle do
