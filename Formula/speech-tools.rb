@@ -70,8 +70,8 @@ class SpeechTools < Formula
       "-otype", "est"
 
     # extract one frame from the middle using ch_track, capturing stdout
-    pitch = shell_output("#{bin}/ch_track #{ptcfile} -from #{frequency_hz * duration_secs / 2} " \
-                                                    "-to #{frequency_hz * duration_secs / 2}")
+    value = frequency_hz * duration_secs / 2
+    pitch = shell_output("#{bin}/ch_track #{ptcfile} -from #{value} -to #{value}")
 
     # should be 100 (Hz)
     assert_equal frequency_hz, pitch.to_i
