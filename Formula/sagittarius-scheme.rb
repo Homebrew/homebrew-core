@@ -4,6 +4,7 @@ class SagittariusScheme < Formula
   url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.8.tar.gz"
   sha256 "09d9c1a53abe734e09762a5f848888f0491516c09cd341a1f9c039cd810d32a2"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "cf0368881b0be31b65715e3666aa1e98f57967c82cb10a9079bd47683796b4de"
