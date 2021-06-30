@@ -6,6 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.70/glib-2.70.0.tar.xz"
   sha256 "200d7df811c5ba634afbf109f14bb40ba7fde670e89389885da14e27c0840742"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "ad3316e2792c4c82f6821617c9eee6a6612663a982d87bf18b834328061cf63c"
