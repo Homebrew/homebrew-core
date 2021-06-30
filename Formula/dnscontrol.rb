@@ -21,8 +21,7 @@ class Dnscontrol < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
-    prefix.install_metafiles
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
