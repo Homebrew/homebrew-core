@@ -33,41 +33,50 @@ class Kubeless < Formula
         socket = server.accept
         request = socket.gets
         request_path = request.split[1]
+        runtime_images_data = <<-'EOS'.gsub(/\s+/, "")
+        [{
+          \"ID\": \"python\",
+          \"versions\": [{
+            \"name\": \"python27\",
+            \"version\": \"2.7\",
+            \"httpImage\": \"kubeless/python\"
+          }]
+        }]
+        EOS
         response = case request_path
         when "/api/v1/namespaces/kubeless/configmaps/kubeless-config"
-          '{
+          <<-EOS
+          {
             "kind": "ConfigMap",
             "apiVersion": "v1",
             "metadata": { "name": "kubeless-config", "namespace": "kubeless" },
             "data": {
-              "runtime-images": "[{' \
-                '\"ID\": \"python\",' \
-                '\"versions\": [{' \
-                  '\"name\": \"python27\",' \
-                  '\"version\": \"2.7\",' \
-                  '\"httpImage\": \"kubeless/python\"' \
-                  "}]" \
-                '}]"
-              }
-            }'
+              "runtime-images": "#{runtime_images_data}"
+            }
+          }
+          EOS
         when "/apis/kubeless.io/v1beta1/namespaces/default/functions"
-          '{
+          <<-EOS
+          {
             "apiVersion": "kubeless.io/v1beta1",
             "kind": "Function",
             "metadata": { "name": "get-python", "namespace": "default" }
-            }'
+          }
+          EOS
         when "/apis/apiextensions.k8s.io/v1beta1/customresourcedefinitions/functions.kubeless.io"
-          '{
+          <<-EOS
+          {
             "apiVersion": "apiextensions.k8s.io/v1beta1",
             "kind": "CustomResourceDefinition",
             "metadata": { "name": "functions.kubeless.io" }
-            }'
+          }
+          EOS
         else
           "OK"
         end
         socket.print "HTTP/1.1 200 OK\r\n" \
-                    "Content-Length: #{response.bytesize}\r\n" \
-                    "Connection: close\r\n"
+                     "Content-Length: #{response.bytesize}\r\n" \
+                     "Connection: close\r\n"
         socket.print "\r\n"
         socket.print response
         socket.close
