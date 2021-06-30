@@ -94,7 +94,7 @@ class Step < Formula
       assert_match(/^ok$/, File.read(testpath/"health_response.txt"))
 
       shell_output("#{bin}/step ca token --password-file #{testpath}/password.txt " \
-"homebrew-smallstep-leaf > token.txt")
+                   "homebrew-smallstep-leaf > token.txt")
       token = File.read(testpath/"token.txt")
       system "#{bin}/step", "ca", "certificate", "--token", token,
           "homebrew-smallstep-leaf", "brew.crt", "brew.key"
