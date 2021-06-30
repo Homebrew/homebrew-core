@@ -21,13 +21,12 @@ class TektoncdCli < Formula
 
   def install
     system "make", "bin/tkn"
-
     bin.install "bin/tkn" => "tkn"
+
     output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"tkn", "completion", "bash")
     (bash_completion/"tkn").write output
     output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"tkn", "completion", "zsh")
     (zsh_completion/"_tkn").write output
-    prefix.install_metafiles
   end
 
   test do
