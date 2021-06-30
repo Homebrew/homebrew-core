@@ -6,6 +6,7 @@ class GobjectIntrospection < Formula
   url "https://download.gnome.org/sources/gobject-introspection/1.70/gobject-introspection-1.70.0.tar.xz"
   sha256 "902b4906e3102d17aa2fcb6dad1c19971c70f2a82a159ddc4a94df73a3cafc4a"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "03b9152f0a5a212197934b2d9f0b403166a59f5e98a1f5641344d21a27640644"
