@@ -65,11 +65,11 @@ class Wownero < Formula
 
   test do
     cmd = "yes '' | #{bin}/wownero-wallet-cli --restore-deterministic-wallet " \
-      "--password brew-test --restore-height 238084 --generate-new-wallet wallet " \
-      "--electrum-seed 'maze vixen spiders luggage vibrate western nugget older " \
-      "emails oozed frown isolated ledge business vaults budget " \
-      "saucepan faxed aloof down emulate younger jump legion saucepan'" \
-      "--command address"
+          "--password brew-test --restore-height 238084 --generate-new-wallet wallet " \
+          "--electrum-seed 'maze vixen spiders luggage vibrate western nugget older " \
+          "emails oozed frown isolated ledge business vaults budget " \
+          "saucepan faxed aloof down emulate younger jump legion saucepan'" \
+          "--command address"
     address = "Wo3YLuTzJLTQjSkyNKPQxQYz5JzR6xi2CTS1PPDJD6nQAZ1ZCk1TDEHHx8CRjHNQ9JDmwCDGhvGF3CZXmmX1sM9a1YhmcQPJM"
     assert_equal address, shell_output(cmd).lines.last.split[1]
   end
