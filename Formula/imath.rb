@@ -1,8 +1,8 @@
 class Imath < Formula
   desc "Library of 2D and 3D vector, matrix, and math operations"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.0.4.tar.gz"
-  sha256 "3b5cef518964755963550b5f4a16e7c0a0872574921b1443f1d47fdb6b8c5afe"
+  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.0.5.tar.gz"
+  sha256 "38b94c840c6400959ccf647bc1631f96f3170cb081021d774813803e798208bd"
   license "BSD-3-Clause"
 
   bottle do
