@@ -3,7 +3,7 @@ class Gifsicle < Formula
   homepage "https://www.lcdf.org/gifsicle/"
   url "https://www.lcdf.org/gifsicle/gifsicle-1.93.tar.gz"
   sha256 "92f67079732bf4c1da087e6ae0905205846e5ac777ba5caa66d12a73aa943447"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4196ed90bad0a312f4b899359d05f7f2dc454bd51ac3bd428598a9e9a9436b0a"
