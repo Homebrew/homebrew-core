@@ -84,7 +84,7 @@ class ShallowBackup < Formula
     # Creates a config file and adds a test file to it
     # There is colour in stdout, hence there are ANSI escape codes
     assert_equal "\e[34m\e[1mCreating config file at: \e[22m#{pwd}/.config/shallow-backup.conf\e[0m\n" \
-    "\e[34m\e[1mAdded: \e[22m#{test_fixtures("test.svg")}\e[0m",
+                 "\e[34m\e[1mAdded: \e[22m#{test_fixtures("test.svg")}\e[0m",
     shell_output("#{bin}/shallow-backup --add-dot #{test_fixtures("test.svg")}").strip
 
     # Checks if config file was created
