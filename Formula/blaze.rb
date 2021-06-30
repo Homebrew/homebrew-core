@@ -44,8 +44,11 @@ class Blaze < Formula
       }
     EOS
 
-    expected = "C =\n(           -1           -1 )" \
-                  "\n(            0           -4 )\n"
+    expected = <<~EOS
+      C =
+      (           -1           -1 )
+      (            0           -4 )
+    EOS
 
     system ENV.cxx, "test.cpp", "-std=c++14", "-I#{include}", "-o", "test"
     assert_equal expected, shell_output(testpath/"test")
