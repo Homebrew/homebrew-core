@@ -25,8 +25,15 @@ class Sqlcipher < Formula
     ]
 
     # Build with full-text search enabled
-    args << "CFLAGS=-DSQLITE_HAS_CODEC -DSQLITE_ENABLE_JSON1 -DSQLITE_ENABLE_FTS3 " \
-                   "-DSQLITE_ENABLE_FTS3_PARENTHESIS -DSQLITE_ENABLE_FTS5 -DSQLITE_ENABLE_COLUMN_METADATA"
+    cflags = %w[
+      -DSQLITE_HAS_CODEC
+      -DSQLITE_ENABLE_JSON1
+      -DSQLITE_ENABLE_FTS3
+      -DSQLITE_ENABLE_FTS3_PARENTHESIS
+      -DSQLITE_ENABLE_FTS5
+      -DSQLITE_ENABLE_COLUMN_METADATA
+    ].join(" ")
+    args << "CFLAGS=#{cflags}"
 
     system "./configure", *args
     system "make"
