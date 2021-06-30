@@ -27,13 +27,17 @@ class Fn < Formula
     server = TCPServer.new("localhost", port)
     pid = fork do
       loop do
+        response = {
+          id:         "01CQNY9PADNG8G00GZJ000000A",
+          name:       "myapp",
+          created_at: "2018-09-18T08:56:08.269Z",
+          updated_at: "2018-09-18T08:56:08.269Z",
+        }.to_json
+
         socket = server.accept
-        response =
-          '{"id":"01CQNY9PADNG8G00GZJ000000A","name":"myapp",' \
-           '"created_at":"2018-09-18T08:56:08.269Z","updated_at":"2018-09-18T08:56:08.269Z"}'
         socket.print "HTTP/1.1 200 OK\r\n" \
-                    "Content-Length: #{response.bytesize}\r\n" \
-                    "Connection: close\r\n"
+                     "Content-Length: #{response.bytesize}\r\n" \
+                     "Connection: close\r\n"
         socket.print "\r\n"
         socket.print response
         socket.close
