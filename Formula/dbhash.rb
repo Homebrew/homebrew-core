@@ -7,8 +7,11 @@ class Dbhash < Formula
   license "blessing"
 
   livecheck do
-    url "https://sqlite.org/news.html"
-    regex(%r{v?(\d+(?:\.\d+)+)</h3>}i)
+    url "https://sqlite.org/index.html"
+    regex(%r{href=.*?releaselog/v?(\d+(?:[._]\d+)+)\.html}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match&.first&.gsub("_", ".") }
+    end
   end
 
   bottle do
