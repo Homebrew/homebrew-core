@@ -28,6 +28,11 @@ class RandomizeLines < Formula
   end
 
   test do
-    system "echo", "-e", "\" ""1\n2\n4\" | \"#{bin}/rl\" -c 1"
+    (testpath/"test.txt").write <<~EOS
+      1
+      2
+      4
+    EOS
+    system "#{bin}/rl", "-c", "1", testpath/"test.txt"
   end
 end
