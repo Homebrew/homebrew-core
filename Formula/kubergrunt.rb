@@ -20,11 +20,11 @@ class Kubergrunt < Formula
 
   test do
     output = shell_output("#{bin}/kubergrunt eks verify --eks-cluster-arn " \
-                            "arn:aws:eks:us-east-1:123:cluster/brew-test 2>&1", 1)
+                          "arn:aws:eks:us-east-1:123:cluster/brew-test 2>&1", 1)
     assert_match "ERROR: Error finding AWS credentials", output
 
     output = shell_output("#{bin}/kubergrunt tls gen --namespace test " \
-                            "--secret-name test --ca-secret-name test 2>&1", 1)
+                          "--secret-name test --ca-secret-name test 2>&1", 1)
     assert_match "ERROR: --tls-common-name is required", output
   end
 end
