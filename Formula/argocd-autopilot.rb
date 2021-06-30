@@ -22,7 +22,8 @@ class ArgocdAutopilot < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/argocd-autopilot version")
-    assert_match "authentication failed",
-                 shell_output("#{bin}/argocd-autopilot repo create -o foo -n bar -t dummy 2>&1", 1)
+
+    assert_match "required flag(s) \\\"git-token\\\" not set\"",
+      shell_output("#{bin}/argocd-autopilot repo bootstrap --repo https://github.com/example/repo 2>&1", 1)
   end
 end
