@@ -4,6 +4,7 @@ class P11Kit < Formula
   url "https://github.com/p11-glue/p11-kit/releases/download/0.24.0/p11-kit-0.24.0.tar.xz"
   sha256 "81e6140584f635e4e956a1b93a32239acf3811ff5b2d3a5c6094e94e99d2c685"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "08f5b20fdf61c9b8fae57e972c9970aa28f5ef2daa7ea5990e20b02989c49095"
