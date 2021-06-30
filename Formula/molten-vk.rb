@@ -94,19 +94,19 @@ class MoltenVk < Formula
     xcodebuild "-quiet", "-create-xcframework",
                "-output", "External/build/Latest/SPIRVCross.xcframework",
                "-library", "External/build/Intermediates/XCFrameworkStaging/" \
-               "Release/Platform/libSPIRVCross.a"
+                           "Release/Platform/libSPIRVCross.a"
 
     # Create SPIRVTools.xcframework
     xcodebuild "-quiet", "-create-xcframework",
                "-output", "External/build/Latest/SPIRVTools.xcframework",
                "-library", "External/build/Intermediates/XCFrameworkStaging/" \
-               "Release/Platform/libSPIRVTools.a"
+                           "Release/Platform/libSPIRVTools.a"
 
     # Created glslang.xcframework
     xcodebuild "-quiet", "-create-xcframework",
                "-output", "External/build/Latest/glslang.xcframework",
                "-library", "External/build/Intermediates/XCFrameworkStaging/" \
-               "Release/Platform/libglslang.a"
+                           "Release/Platform/libglslang.a"
 
     # Build MoltenVK Package
     xcodebuild "-project", "MoltenVKPackaging.xcodeproj",
