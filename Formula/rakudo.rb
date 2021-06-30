@@ -5,6 +5,7 @@ class Rakudo < Formula
   url "https://github.com/rakudo/rakudo/releases/download/2021.09/rakudo-2021.09.tar.gz"
   sha256 "eec9a084e036b76fa4f9c68e9ccebf819fd13aafdc356892f0560eed1e8cf425"
   license "Artistic-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "e8106f54cabef24a42f96bcd8caeeab7e394d40601695430fb3e090524334288"
