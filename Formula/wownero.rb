@@ -2,10 +2,9 @@ class Wownero < Formula
   desc "Official wallet and node software for the Wownero cryptocurrency"
   homepage "https://wownero.org"
   url "https://git.wownero.com/wownero/wownero.git",
-      tag:      "v0.9.3.3",
-      revision: "e2d2b9a447502e22467af9df20e0732b3dd4ac4c"
+      tag:      "v0.10.0.1",
+      revision: "623c14e486a2c9c5ec78a14e14de221e255b2947"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "71d3fe6d4c0736cc7105242ae739105f1ace548de3c685d47c7c7b22d4992689"
@@ -25,7 +24,6 @@ class Wownero < Formula
   depends_on "unbound"
   depends_on "zeromq"
 
-  conflicts_with "miniupnpc", because: "wownero ships its own copy of miniupnpc"
   conflicts_with "monero", because: "both install a wallet2_api.h header"
 
   # Boost 1.76 compatibility
@@ -35,10 +33,6 @@ class Wownero < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make", "install"
-
-    # Fix conflict with miniupnpc.
-    # This has been reported at https://github.com/monero-project/monero/issues/3862
-    rm lib/"libminiupnpc.a"
   end
 
   plist_options manual: "wownerod --non-interactive"
