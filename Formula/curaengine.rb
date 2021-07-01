@@ -29,13 +29,13 @@ class Curaengine < Formula
   # The version tag in these resources (e.g., `/1.2.3/`) should be changed as
   # part of updating this formula to a new version.
   resource "fdmextruder_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.9.1/resources/definitions/fdmextruder.def.json"
-    sha256 "d9b38fdf02d1dcdc6ee7401118ca9468236adb860786361e453f1eeb54c95b1f"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.10.0/resources/definitions/fdmextruder.def.json"
+    sha256 "dee47d679c5adcccf9f3302726af533eb03e5250d75355a3334ffcdbb85f8445"
   end
 
   resource "fdmprinter_defaults" do
-    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.9.1/resources/definitions/fdmprinter.def.json"
-    sha256 "bc4ed29f1c4191ccf6fa76b0a2857aca7ab6ed2a5f526364f52910f330dfa6a6"
+    url "https://raw.githubusercontent.com/Ultimaker/Cura/4.10.0/resources/definitions/fdmprinter.def.json"
+    sha256 "353248f099f0b58e29d0cc19b1dbe75c5b94c977e1e77ecdae6028a457dcb235"
   end
 
   def install
