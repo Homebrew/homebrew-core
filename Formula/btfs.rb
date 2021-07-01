@@ -18,7 +18,7 @@ class Btfs < Formula
   depends_on "libtorrent-rasterbar"
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
   end
 
   on_linux do
@@ -34,6 +34,18 @@ class Btfs < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        The reasons for disabling this formula can be found here:
+          https://github.com/Homebrew/homebrew-core/pull/64491
+
+        An external tap may provide a replacement formula. See:
+          https://docs.brew.sh/Interesting-Taps-and-Forks
+      EOS
+    end
   end
 
   test do
