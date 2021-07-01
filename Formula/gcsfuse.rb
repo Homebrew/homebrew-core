@@ -15,7 +15,7 @@ class Gcsfuse < Formula
   depends_on "go" => :build
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
   end
 
   on_linux do
@@ -31,6 +31,18 @@ class Gcsfuse < Formula
     # Use that tool to build gcsfuse itself.
     gcsfuse_version = build.head? ? Utils.git_short_head : version
     system "./build_gcsfuse", buildpath, prefix, gcsfuse_version
+  end
+
+  def caveats
+    on_macos do
+      <<~EOS
+        The reasons for disabling this formula can be found here:
+          https://github.com/Homebrew/homebrew-core/pull/64491
+
+        An external tap may provide a replacement formula. See:
+          https://docs.brew.sh/Interesting-Taps-and-Forks
+      EOS
+    end
   end
 
   test do
