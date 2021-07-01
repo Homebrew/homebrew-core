@@ -13,7 +13,7 @@ class Easyengine < Formula
   end
 
   depends_on "dnsmasq"
-  depends_on "php@7.4"
+  depends_on "php"
 
   def install
     bin.install "easyengine.phar" => "ee"
