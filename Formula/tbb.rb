@@ -16,6 +16,10 @@ class Tbb < Formula
   depends_on "swig" => :build
   depends_on "python@3.9"
 
+  # Fix installation of Python components
+  # See https://github.com/oneapi-src/oneTBB/issues/343
+  patch :DATA
+
   def install
     args = *std_cmake_args + %w[
       -DTBB_TEST=OFF
@@ -83,3 +87,17 @@ class Tbb < Formula
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import tbb"
   end
 end
+
+__END__
+diff --git a/python/CMakeLists.txt b/python/CMakeLists.txt
+index 1d2b05f..81ba8de 100644
+--- a/python/CMakeLists.txt
++++ b/python/CMakeLists.txt
+@@ -49,7 +49,7 @@ add_test(NAME python_test
+                  -DPYTHON_MODULE_BUILD_PATH=${PYTHON_BUILD_WORK_DIR}/build
+                  -P ${PROJECT_SOURCE_DIR}/cmake/python/test_launcher.cmake)
+
+-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PYTHON_BUILD_WORK_DIR}/build/
++install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/${PYTHON_BUILD_WORK_DIR}/
+         DESTINATION .
+         COMPONENT tbb4py)
