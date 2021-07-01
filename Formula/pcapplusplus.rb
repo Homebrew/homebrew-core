@@ -12,8 +12,12 @@ class Pcapplusplus < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "098062050ba28c2c168edb8abd60a6fb0f7185df57f12e5aed897b8cd98f0d9d"
   end
 
+  uses_from_macos "libpcap"
+
   def install
-    system "./configure-mac_os_x.sh", "--install-dir", prefix
+    os = "mac_os_x"
+    on_linux { os = "linux" }
+    system "./configure-#{os}.sh", "--install-dir", prefix
 
     # library requires to run 'make all' and
     # 'make install' in two separate commands.
