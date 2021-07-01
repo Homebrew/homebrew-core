@@ -20,6 +20,12 @@ class Blast < Formula
 
   depends_on "lmdb"
 
+  on_macos do
+    depends_on "gcc"
+  end
+
+  fails_with :clang # no OpenMP support
+
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
