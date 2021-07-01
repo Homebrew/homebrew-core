@@ -3,9 +3,9 @@ class Global < Formula
 
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
-  url "https://ftp.gnu.org/gnu/global/global-6.6.6.tar.gz"
-  mirror "https://ftpmirror.gnu.org/global/global-6.6.6.tar.gz"
-  sha256 "758078afff98d4c051c58785c7ada3ed1977fabb77f8897ff657b71cc62d4d5d"
+  url "https://ftp.gnu.org/gnu/global/global-6.6.7.tar.gz"
+  mirror "https://ftpmirror.gnu.org/global/global-6.6.7.tar.gz"
+  sha256 "69a0f77f53827c5568176c1d382166df361e74263a047f0b3058aa2f2ad58a3c"
   license "GPL-3.0-or-later"
 
   bottle do
