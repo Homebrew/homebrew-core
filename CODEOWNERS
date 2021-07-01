@@ -11,7 +11,7 @@
 CODEOWNERS            @MikeMcQuaid
 CONTRIBUTING.md       @MikeMcQuaid
 tap_migrations.json   @MikeMcQuaid
-.github/              @MikeMcQuaid
+.github/              @MikeMcQuaid @dawidd6
 cmd/                  @MikeMcQuaid
 
 LICENSE.txt           @Homebrew/plc @MikeMcQuaid
