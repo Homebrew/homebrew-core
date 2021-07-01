@@ -27,11 +27,11 @@ class Blast < Formula
     depends_on "gcc"
   end
 
-  fails_with :clang # no OpenMP support
-
   on_linux do
     depends_on "libarchive" => :build
   end
+
+  fails_with :clang # no OpenMP support
 
   conflicts_with "proj", because: "both install a `libproj.a` library"
 
