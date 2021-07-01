@@ -1,8 +1,8 @@
 class MariadbAT102 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.2.37/source/mariadb-10.2.37.tar.gz"
-  sha256 "38c630485e3a5ed438e43257b9693f005f572d05e240ff25244d2fa7682250f5"
+  url "https://downloads.mariadb.org/f/mariadb-10.2.39/source/mariadb-10.2.39.tar.gz"
+  sha256 "d0c81ddb5d554388952487258e4a7a10cd92504a305efbcc1fa94668f1e9315d"
   license "GPL-2.0-only"
 
   livecheck do
@@ -21,14 +21,28 @@ class MariadbAT102 < Formula
   # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-102/
   deprecate! date: "2022-05-01", because: :unsupported
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
   depends_on "openssl@1.1"
+  depends_on "pcre2"
+
+  on_macos do
+    # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
+    # file called VERSION
+    # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
+    # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
+    # removed once that issue is closed and the fix has been merged into a stable release
+    patch :DATA
+  end
 
   on_linux do
+    depends_on "gcc"
     depends_on "linux-pam"
   end
+
+  fails_with gcc: "5"
 
   def install
     # Set basedir and ldata so that mysql_install_db can find the server
@@ -50,7 +64,6 @@ class MariadbAT102 < Formula
       -DINSTALL_DOCDIR=share/doc/#{name}
       -DINSTALL_INFODIR=share/info
       -DINSTALL_MYSQLSHAREDIR=share/mysql
-      -DWITH_PCRE=bundled
       -DWITH_READLINE=yes
       -DWITH_SSL=yes
       -DWITH_UNIT_TESTS=OFF
@@ -64,6 +77,15 @@ class MariadbAT102 < Formula
     args << "-DPLUGIN_TOKUDB=NO"
 
     system "cmake", ".", *std_cmake_args, *args
+
+    on_macos do
+      # Need to rename files called version/VERSION to avoid build failure
+      # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
+      # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
+      # removed once that issue is closed and the fix has been merged into a stable release.
+      mv "storage/mroonga/version", "storage/mroonga/version.txt"
+    end
+
     system "make"
     system "make", "install"
 
@@ -98,7 +120,7 @@ class MariadbAT102 < Formula
       wsrep_sst_xtrabackup
       wsrep_sst_xtrabackup-v2
     ].each do |f|
-      inreplace "#{bin}/#{f}", "$(dirname $0)/wsrep_sst_common",
+      inreplace "#{bin}/#{f}", "$(dirname \"$0\")/wsrep_sst_common",
                                "#{libexec}/wsrep_sst_common"
     end
 
@@ -181,3 +203,19 @@ class MariadbAT102 < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
+diff --git a/storage/mroonga/CMakeLists.txt b/storage/mroonga/CMakeLists.txt
+index 555ab248751..cddb6f2f2a6 100644
+--- a/storage/mroonga/CMakeLists.txt
++++ b/storage/mroonga/CMakeLists.txt
+@@ -215,8 +215,7 @@ set(MYSQL_INCLUDE_DIRS
+   "${MYSQL_REGEX_INCLUDE_DIR}"
+   "${MYSQL_RAPIDJSON_INCLUDE_DIR}"
+   "${MYSQL_LIBBINLOGEVENTS_EXPORT_DIR}"
+-  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}"
+-  "${MYSQL_SOURCE_DIR}")
++  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}")
+
+ if(MRN_BUNDLED)
+   set(MYSQL_PLUGIN_DIR "${INSTALL_PLUGINDIR}")
