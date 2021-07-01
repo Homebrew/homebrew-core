@@ -29,6 +29,7 @@ class Libgit2Glib < Formula
 
   def install
     mkdir "build" do
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
       system "meson", *std_meson_args,
                       "-Dpython=false",
                       "-Dvapi=true",
