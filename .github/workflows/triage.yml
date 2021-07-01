@@ -125,7 +125,7 @@ jobs:
                     "keep_if_no_match": true
                 }, {
                     "label": "CI-linux-self-hosted",
-                    "path": "Formula/(gdbm|go|openssl|python|rust|sqlite)(@[0-9.]+)?.rb",
+                    "path": "Formula/(gdbm|go|openssl@1.1|python@3.9|rust|sqlite).rb",
                     "keep_if_no_match": true
                 }, {
                     "label": "bump-formula-pr",
