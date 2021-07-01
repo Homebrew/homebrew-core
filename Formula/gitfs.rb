@@ -15,7 +15,7 @@ class Gitfs < Formula
   uses_from_macos "libffi"
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
   end
 
   on_linux do
@@ -68,12 +68,20 @@ class Gitfs < Formula
   end
 
   def caveats
+    on_macos do
+      return <<~EOS
+        The reasons for disabling this formula can be found here:
+          https://github.com/Homebrew/homebrew-core/pull/64491
+
+        An external tap may provide a replacement formula. See:
+          https://docs.brew.sh/Interesting-Taps-and-Forks
+      EOS
+    end
+
     <<~EOS
       gitfs clones repos in /var/lib/gitfs. You can either create it with
       sudo mkdir -m 1777 /var/lib/gitfs or use another folder with the
       repo_path argument.
-
-      Also make sure OSXFUSE is properly installed by running brew info osxfuse.
     EOS
   end
 
