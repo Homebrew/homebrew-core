@@ -21,7 +21,7 @@ class Squashfuse < Formula
   depends_on "zstd"
 
   on_macos do
-    disable! date: "2021-04-08", because: "requires FUSE"
+    disable! date: "2021-04-08", because: "requires closed-source macFUSE"
   end
 
   on_linux do
@@ -35,9 +35,21 @@ class Squashfuse < Formula
     system "make", "install"
   end
 
-  # Unfortunately, making/testing a squash mount requires sudo privileges, so
-  # just test that squashfuse execs for now.
+  def caveats
+    on_macos do
+      <<~EOS
+        The reasons for disabling this formula can be found here:
+          https://github.com/Homebrew/homebrew-core/pull/64491
+
+        An external tap may provide a replacement formula. See:
+          https://docs.brew.sh/Interesting-Taps-and-Forks
+      EOS
+    end
+  end
+
   test do
+    # Unfortunately, making/testing a squash mount requires sudo privileges, so
+    # just test that squashfuse execs for now.
     output = shell_output("#{bin}/squashfuse --version 2>&1", 254)
     assert_match version.to_s, output
   end
