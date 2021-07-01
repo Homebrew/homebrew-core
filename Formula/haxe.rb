@@ -6,8 +6,8 @@ class Haxe < Formula
 
   stable do
     url "https://github.com/HaxeFoundation/haxe.git",
-        tag:      "4.2.2",
-        revision: "a2f4ba95400edf10195ce2a1c87c56dc0d67111b"
+        tag:      "4.2.3",
+        revision: "1385eda48e60387e349282d26347b28d0b2768ca"
 
     # Remove when campl5 dependency is bumped to 8.00 in a release
     patch do
