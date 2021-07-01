@@ -4,6 +4,7 @@ class IncludeWhatYouUse < Formula
   url "https://include-what-you-use.org/downloads/include-what-you-use-0.16.src.tar.gz"
   sha256 "8d6fc9b255343bc1e5ec459e39512df1d51c60e03562985e0076036119ff5a1c"
   license "NCSA"
+  revision 1
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
   # version scheme like `Clang+LLVM 3.5` (25 November 2014). The current
@@ -56,8 +57,10 @@ class IncludeWhatYouUse < Formula
     # formula. This would be indicated by include-what-you-use failing to
     # locate stddef.h and/or stdlib.h when running the test block below.
     # https://clang.llvm.org/docs/LibTooling.html#libtooling-builtin-includes
-    (libexec/"lib").install_symlink llvm.opt_lib/"clang"
-    (libexec/"include").install_symlink llvm.opt_include/"c++"
+    (libexec/"lib").mkpath
+    ln_sf llvm.opt_lib.relative_path_from(libexec/"lib")/"clang", libexec/"lib"
+    (libexec/"include").mkpath
+    ln_sf llvm.opt_include.relative_path_from(libexec/"include")/"c++", libexec/"include"
   end
 
   test do
