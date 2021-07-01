@@ -4,11 +4,10 @@
   },
   "ansible": {
     "extra_packages": [
-      "apache-libcloud", "boto3", "dnspython", "docker-py", "junos-eznc", "jxmlease", "kerberos", "ntc-templates",
-      "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-keyczar", "python-neutronclient",
+      "apache-libcloud", "boto3", "dnspython", "docker", "junos-eznc", "jxmlease", "kerberos", "ntc-templates",
+      "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-neutronclient",
       "pywinrm", "requests-credssp", "shade", "zabbix-api"
-    ],
-    "exclude_packages": ["textfsm", "pycrypto"]
+    ]
   },
   "ansible@2.8": false,
   "ansible@2.9": {
