@@ -20,14 +20,14 @@ class Blast < Formula
 
   depends_on "lmdb"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   on_macos do
     depends_on "gcc"
   end
 
   fails_with :clang # no OpenMP support
-
-  uses_from_macos "bzip2"
-  uses_from_macos "zlib"
 
   on_linux do
     depends_on "libarchive" => :build
