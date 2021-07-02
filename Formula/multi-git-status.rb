@@ -13,10 +13,9 @@ class MultiGitStatus < Formula
   end
 
   test do
-    Dir.mkdir("test-repo")
-    Dir.chdir("test-repo"){
+    mkdir "test-repo" do
       system "git", "init"
-    }
+    end
     assert_match "./test-repo: Uncommitted changes", shell_output("#{bin}/mgitstatus 2>&1")
   end
 end
