@@ -9,9 +9,6 @@ class Scorecard < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GO111MODULE"] = "on"
-
-    system "make", "install"
     system "make", "build-scorecard"
     bin.install "scorecard"
   end
