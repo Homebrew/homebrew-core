@@ -4,7 +4,7 @@ class CargoAudit < Formula
   url "https://github.com/RustSec/rustsec/archive/cargo-audit/v0.15.0.tar.gz"
   sha256 "af5a7d7c681d1956433ec4bc239bfb2c24df90731ae514a7cd3ca909562f9855"
   license "Apache-2.0"
-  head "https://github.com/RustSec/cargo-audit.git"
+  head "https://github.com/RustSec/rustsec.git", branch: "main"
 
   livecheck do
     url :stable
