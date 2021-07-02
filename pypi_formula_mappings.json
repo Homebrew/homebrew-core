@@ -19,7 +19,7 @@
     "exclude_packages": ["textfsm", "pycrypto"]
   },
   "aws-google-auth": {
-    "exclude_packages": ["tabulate"]
+    "exclude_packages": ["pillow", "tabulate"]
   },
   "athenacli": {
     "exclude_packages": ["tabulate"]
