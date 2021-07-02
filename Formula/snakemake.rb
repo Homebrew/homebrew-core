@@ -6,7 +6,7 @@ class Snakemake < Formula
   url "https://files.pythonhosted.org/packages/96/87/4be9d51ffb0313aba8cd23d9392e512e9a9edf273f221c3c2213461716a7/snakemake-6.5.2.tar.gz"
   sha256 "deee1888c02404f5cd5c78ff360867972831124a1fb3f5af8db1f3f39fbfd7fd"
   license "MIT"
-  head "https://github.com/snakemake/snakemake.git"
+  head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0d4f1313ba1bab9b1c190d3fe12ff073bb9e0a216b3adb8134c3f3d4ba0fb86c"
