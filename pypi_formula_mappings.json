@@ -70,7 +70,7 @@
     "extra_packages": ["ipykernel"]
   },
   "fdroidserver": {
-    "exclude_packages": ["numpy"],
+    "exclude_packages": ["numpy", "pillow"],
     "extra_packages": ["wheel"]
   },
   "flintrock": {
