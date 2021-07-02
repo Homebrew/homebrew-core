@@ -6,10 +6,6 @@ class Neovim < Formula
   stable do
     url "https://github.com/neovim/neovim/archive/v0.5.0.tar.gz"
     sha256 "2294caa9d2011996499fbd70e4006e4ef55db75b99b6719154c09262e23764ef"
-
-    # Patch for Apple Silicon. Backported from
-    # https://github.com/neovim/neovim/pull/12624
-    patch :DATA
   end
 
   bottle do
