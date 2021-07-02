@@ -1,12 +1,9 @@
 class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
+  url "https://github.com/neovim/neovim/archive/v0.5.0.tar.gz"
+  sha256 "2294caa9d2011996499fbd70e4006e4ef55db75b99b6719154c09262e23764ef"
   license "Apache-2.0"
-
-  stable do
-    url "https://github.com/neovim/neovim/archive/v0.5.0.tar.gz"
-    sha256 "2294caa9d2011996499fbd70e4006e4ef55db75b99b6719154c09262e23764ef"
-  end
 
   bottle do
     sha256 arm64_big_sur: "9e24789f21eba59817331f583622d5594598162de01eeac4abfdeacdee67f7a9"
@@ -92,26 +89,3 @@ class Neovim < Formula
     assert_equal "Hello World from Neovim!!", (testpath/"test.txt").read.chomp
   end
 end
-
-__END__
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 6b3a8dc..f3370e3 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -358,16 +358,6 @@ if(CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
-   add_definitions(-D_GNU_SOURCE)
- endif()
- 
--if(CMAKE_SYSTEM_NAME STREQUAL "Darwin" AND CMAKE_SIZEOF_VOID_P EQUAL 8)
--  # Required for luajit.
--  set(CMAKE_EXE_LINKER_FLAGS
--    "${CMAKE_EXE_LINKER_FLAGS} -pagezero_size 10000 -image_base 100000000")
--  set(CMAKE_SHARED_LINKER_FLAGS
--    "${CMAKE_SHARED_LINKER_FLAGS} -image_base 100000000")
--  set(CMAKE_MODULE_LINKER_FLAGS
--    "${CMAKE_MODULE_LINKER_FLAGS} -image_base 100000000")
--endif()
--
- include_directories("${PROJECT_BINARY_DIR}/config")
- include_directories("${PROJECT_SOURCE_DIR}/src")
- 
