@@ -2,11 +2,10 @@ class Neovim < Formula
   desc "Ambitious Vim-fork focused on extensibility and agility"
   homepage "https://neovim.io/"
   license "Apache-2.0"
-  revision 2
 
   stable do
-    url "https://github.com/neovim/neovim/archive/v0.4.4.tar.gz"
-    sha256 "2f76aac59363677f37592e853ab2c06151cca8830d4b3fe4675b4a52d41fc42c"
+    url "https://github.com/neovim/neovim/archive/v0.5.0.tar.gz"
+    sha256 "2294caa9d2011996499fbd70e4006e4ef55db75b99b6719154c09262e23764ef"
 
     # Patch for Apple Silicon. Backported from
     # https://github.com/neovim/neovim/pull/12624
