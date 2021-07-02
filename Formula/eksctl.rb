@@ -5,7 +5,7 @@ class Eksctl < Formula
       tag:      "0.55.0",
       revision: "e9a7a37b078c556dc3dd2b13f012deabfcc9f685"
   license "Apache-2.0"
-  head "https://github.com/weaveworks/eksctl.git"
+  head "https://github.com/weaveworks/eksctl.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d41988acf275b74c60bbab2ca669cf582bafb310775e91458294e5dc761ec5c8"
