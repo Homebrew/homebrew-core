@@ -5,6 +5,11 @@ class Bwfmetaedit < Formula
   sha256 "273600425521d27aa3babd5d564e7c7a8c71bbf359e0bdebeac4761fc753149b"
   license "0BSD"
 
+  livecheck do
+    url "https://mediaarea.net/BWFMetaEdit/Download/Source"
+    regex(/href=.*?bwfmetaedit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3e74719411cb950866e9eec2b40fb5404238b6036a4a401785eb4cd1db220a9e"
     sha256 cellar: :any_skip_relocation, big_sur:       "1dbda1bf33cccd0b42ce0833f84c7f0a6a03162adde2650ecbd55cde00a89a8f"
