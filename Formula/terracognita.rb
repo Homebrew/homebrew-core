@@ -1,8 +1,8 @@
 class Terracognita < Formula
   desc "Reads from existing Cloud Providers and generates Terraform code"
   homepage "https://github.com/cycloidio/terracognita"
-  url "https://github.com/cycloidio/terracognita/archive/v0.6.4.tar.gz"
-  sha256 "b9282055bf2235e0f8b9fbc1ae31c22909986ee3b3df5cc64e644b34f6513485"
+  url "https://github.com/cycloidio/terracognita/archive/v0.7.0.tar.gz"
+  sha256 "71a9253ec02cf11bc97cdb6f81d8c62f8de92dac5ef8357429cf795eb52dce1b"
   license "MIT"
   head "https://github.com/cycloidio/terracognita.git"
 
@@ -16,8 +16,8 @@ class Terracognita < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-X github.com/cycloidio/terracognita/cmd.Version=v#{version}"
-    system "go", "build", *std_go_args, "-ldflags", ldflags
+    ldflags = "-s -w -X github.com/cycloidio/terracognita/cmd.Version=v#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
