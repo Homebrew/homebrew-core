@@ -23,6 +23,7 @@ class Kumactl < Formula
     ldflags = %W[
       -s -w
       -X github.com/kumahq/kuma/pkg/version.version=#{version}
+      -X github.com/kumahq/kuma/pkg/version.gitTag=#{version}
       -X github.com/kumahq/kuma/pkg/version.buildDate=#{Date.today}
     ].join(" ")
 
