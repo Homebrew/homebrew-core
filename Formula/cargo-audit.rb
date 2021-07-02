@@ -22,10 +22,11 @@ class CargoAudit < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "cargo", "install", *std_cargo_args
-
-    # test cargo-audit
-    pkgshare.install "tests/support"
+    cd "cargo-audit" do
+      system "cargo", "install", *std_cargo_args
+      # test cargo-audit
+      pkgshare.install "tests/support"
+    end
   end
 
   test do
