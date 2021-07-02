@@ -20,7 +20,7 @@ class SwaggerCodegen < Formula
     # Need to set JAVA_HOME manually since maven overrides 1.8 with 1.7+
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
 
-    system "mvn", "clean", "package"
+    system "mvn", "clean", "package", "-DskipTests"
     libexec.install "modules/swagger-codegen-cli/target/swagger-codegen-cli.jar"
     bin.write_jar_script libexec/"swagger-codegen-cli.jar", "swagger-codegen", java_version: "11"
   end
