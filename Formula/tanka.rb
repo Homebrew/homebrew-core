@@ -5,7 +5,7 @@ class Tanka < Formula
       tag:      "v0.17.0",
       revision: "3a1289b985301dc55bc24e95bcb1d3e1bdc2e825"
   license "Apache-2.0"
-  head "https://github.com/grafana/tanka.git"
+  head "https://github.com/grafana/tanka.git", branch: "main"
 
   livecheck do
     url :stable
