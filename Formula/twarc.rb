@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/b6/ff/565eb9fddd983b2feeba638c9b4e05d8e612be2dcf5439ed42c255b4a4eb/twarc-2.3.1.tar.gz"
-  sha256 "47b435ed69cbea02ae3dd1a09591b4c63fa8466affec090d0118ccbd0a40d226"
+  url "https://files.pythonhosted.org/packages/7c/95/2fcc01b45b7d1029070140e8879c88fd25542f687a24e23dcfa40cc08253/twarc-2.3.3.tar.gz"
+  sha256 "d69b3085dd9df703dd047e1a59f9a348b40d28313b3b316e69eaea88f0fdccf1"
   license "MIT"
 
   bottle do
@@ -73,8 +73,8 @@ class Twarc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/94/40/c396b5b212533716949a4d295f91a4c100d51ba95ea9e2d96b6b0517e5a5/urllib3-1.26.5.tar.gz"
-    sha256 "a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"
+    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
+    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
   end
 
   def install
