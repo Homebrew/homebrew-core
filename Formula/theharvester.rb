@@ -3,10 +3,9 @@ class Theharvester < Formula
 
   desc "Gather materials from public sources (for pen testers)"
   homepage "http://www.edge-security.com/theharvester.php"
-  url "https://github.com/laramies/theHarvester/archive/3.2.4.tar.gz"
-  sha256 "2bb8ec5ab660fdcdacde1063e364cd6e7650355bcbbe10fec3df0af427ae9165"
+  url "https://github.com/laramies/theHarvester/archive/4.0.0.tar.gz"
+  sha256 "7c7a33202634f9cfc2cce33733ed20a913a6668d0b06846c3ec278b3b02e2a45"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/laramies/theHarvester.git"
 
   bottle do
