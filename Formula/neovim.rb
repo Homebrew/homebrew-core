@@ -4,17 +4,13 @@ class Neovim < Formula
   url "https://github.com/neovim/neovim/archive/v0.5.0.tar.gz"
   sha256 "2294caa9d2011996499fbd70e4006e4ef55db75b99b6719154c09262e23764ef"
   license "Apache-2.0"
+  head "https://github.com/neovim/neovim.git"
 
   bottle do
     sha256 arm64_big_sur: "9e24789f21eba59817331f583622d5594598162de01eeac4abfdeacdee67f7a9"
     sha256 big_sur:       "33fd21ea56ff618b9840e4ca87ddf2b0450f73dff8f39eed163052e171395bdb"
     sha256 catalina:      "e2d64684c43eb19390975d6434e2845f98f9e0f0f91c00b1277750c36bdf0676"
     sha256 mojave:        "e6e9437addbf446ed88518784f461a0bdb9c578b6779f3353e066a4491b52465"
-  end
-
-  head do
-    url "https://github.com/neovim/neovim.git"
-    depends_on "tree-sitter"
   end
 
   depends_on "cmake" => :build
@@ -27,6 +23,7 @@ class Neovim < Formula
   depends_on "luajit-openresty"
   depends_on "luv"
   depends_on "msgpack"
+  depends_on "tree-sitter"
   depends_on "unibilium"
 
   uses_from_macos "gperf" => :build
