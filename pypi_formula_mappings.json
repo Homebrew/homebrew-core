@@ -105,6 +105,9 @@
   "nox": {
     "exclude_packages": ["six"]
   },
+  "ocrmypdf": {
+    "exclude_packages": ["pillow"]
+  },
   "openstackclient": {
     "extra_packages": ["python-heatclient", "python-octaviaclient"]
   },
