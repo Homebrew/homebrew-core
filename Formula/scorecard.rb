@@ -22,7 +22,7 @@ class Scorecard < Formula
     output = shell_output("GITHUB_AUTH_TOKEN=ABCDEFG123 #{bin}/scorecard --repo=github.com/kubernetes/kubernetes --checks=Active 2>&1", 1)
 
     assert_match /^Starting \[Active\]/, output
-    assert_match /repo cannot be accessed/, output
-    assert_match /401 Bad credentials/, output
+    assert_match "repo cannot be accessed", output
+    assert_match "401 Bad credentials" , output
   end
 end
