@@ -15,6 +15,8 @@ class Theharvester < Formula
     sha256 cellar: :any, mojave:        "3ad7230bdbe5030194ef667988bb7156facb54e676eda60eeeabef8c1dde40ac"
   end
 
+  depends_on "maturin" => :build
+  depends_on "rustup-init" => :build # for orjson, which needs nightly channel
   depends_on "libyaml"
   depends_on "python@3.9"
   depends_on "six"
@@ -279,9 +281,30 @@ class Theharvester < Formula
     sha256 "8a9066529240171b68893d60dca86a763eae2139dd42f42106b03cf4b426bf10"
   end
 
+  # Update the Rust nightly toolchain version whenever orjson is updated.
+  # See https://github.com/ijl/orjson/tree/#{resource("orjson").version}#packaging
+  def rust_toolchain
+    "nightly-2021-05-25"
+  end
+
   def install
+    # This will install a rust toolchain to be used with orjson.
+    system Formula["rustup-init"].bin/"rustup-init", "-qy", "--no-modify-path",
+           "--default-toolchain", rust_toolchain, "--profile", "minimal"
+
     venv = virtualenv_create(libexec/"venv", "python3")
-    venv.pip_install resources
+
+    resource("orjson").stage do
+      with_env(PATH: "#{HOMEBREW_CACHE}/cargo_cache/bin:#{ENV["PATH"]}") do
+        system Formula["maturin"].bin/"maturin", "build", "--no-sdist", "--release", "--strip", "--manylinux", "off"
+      end
+      venv.pip_install Dir[Pathname.pwd/"target/wheels/orjson*.whl"]
+    end
+
+    res = resources.map(&:name).to_set - ["orjson"]
+    res.each do |r|
+      venv.pip_install resource(r)
+    end
 
     libexec.install Dir["*"]
     (libexec/"theHarvester.py").chmod 0755
