@@ -2,11 +2,12 @@ class Libshout < Formula
   desc "Data and connectivity library for the icecast server"
   homepage "https://icecast.org/"
   url "https://downloads.xiph.org/releases/libshout/libshout-2.4.5.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/libshout/libshout-2.4.5.tar.gz"
   sha256 "d9e568668a673994ebe3f1eb5f2bee06e3236a5db92b8d0c487e1c0f886a6890"
   license "LGPL-2.0-or-later"
 
   livecheck do
-    url "https://ftp.osuosl.org/pub/xiph/releases/libshout/"
+    url "https://ftp.osuosl.org/pub/xiph/releases/libshout/?C=M&O=D"
     regex(/href=.*?libshout[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
