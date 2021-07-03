@@ -13,8 +13,8 @@ class DosboxStaging < Formula
     sha256 cellar: :any, mojave:        "403eba84e98409729480a474508c66b259b4125a80efede453da0021f6893611"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "fluid-synth"
   depends_on "libpng"
@@ -23,16 +23,11 @@ class DosboxStaging < Formula
   depends_on "sdl2_net"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --disable-sdltest
-      --enable-core-inline
-    ]
-
-    system "./autogen.sh"
-    system "./configure", *args
-    system "make", "install"
+    mkdir "build" do
+      system "meson", *std_meson_args, "-Duse_mt32emu=false", ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
+    end
     mv bin/"dosbox", bin/"dosbox-staging"
     mv man1/"dosbox.1", man1/"dosbox-staging.1"
   end
