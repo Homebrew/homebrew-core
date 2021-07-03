@@ -2,8 +2,14 @@ class Oggz < Formula
   desc "Command-line tool for manipulating Ogg files"
   homepage "https://www.xiph.org/oggz/"
   url "https://downloads.xiph.org/releases/liboggz/liboggz-1.1.1.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/liboggz/liboggz-1.1.1.tar.gz"
   sha256 "6bafadb1e0a9ae4ac83304f38621a5621b8e8e32927889e65a98706d213d415a"
   license "BSD-3-Clause"
+
+  livecheck do
+    url "https://ftp.osuosl.org/pub/xiph/releases/liboggz/?C=M&O=D"
+    regex(/href=.*?liboggz[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "286192f997ec0e02994b70cdc03d06d0616b10bea980b1aee7f3322f1d58735c"
