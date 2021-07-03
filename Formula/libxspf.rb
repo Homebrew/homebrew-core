@@ -2,7 +2,13 @@ class Libxspf < Formula
   desc "C++ library for XSPF playlist reading and writing"
   homepage "https://libspiff.sourceforge.io/"
   url "https://downloads.xiph.org/releases/xspf/libxspf-1.2.0.tar.bz2"
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/xspf/libxspf-1.2.0.tar.bz2"
   sha256 "ba9e93a0066469b074b4022b480004651ad3aa5b4313187fd407d833f79b43a5"
+
+  livecheck do
+    url "https://ftp.osuosl.org/pub/xiph/releases/xspf/?C=M&O=D"
+    regex(/href=.*?libxspf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 2
