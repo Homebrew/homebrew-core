@@ -1,8 +1,8 @@
 class Glances < Formula
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://files.pythonhosted.org/packages/2a/93/c2175c56cb4f7c36460058c6f43e733ed85dfa0616c8a2cbfeac528d6d7f/Glances-3.1.7.tar.gz"
-  sha256 "bd282e35df3f29dd1f3f6955489eb7b73b56d92059f6939b1e15ac8cd1581b08"
+  url "https://files.pythonhosted.org/packages/86/e2/9297875bf5611da8958c6ee42430efa2f36c50f26f9a60a419d54aaeda7b/Glances-3.2.0.tar.gz"
+  sha256 "2ae28c0b8d0eef428dec7474acfb8f3e7bf5914d6816ea9843db47ae9e612ddf"
   license "LGPL-3.0-or-later"
 
   bottle do
