@@ -19,8 +19,6 @@ class Miniupnpc < Formula
     sha256 cellar: :any, mojave:        "f9d73d4839a56b72369a506c52676b055a584135f9ec94d6ecd9ebb1e6407f9e"
   end
 
-  conflicts_with "wownero", because: "wownero ships its own copy of miniupnpc"
-
   def install
     system "make", "INSTALLPREFIX=#{prefix}", "install"
   end
