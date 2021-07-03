@@ -17,7 +17,8 @@ class Ronn < Formula
     sha256 mojave:        "1544009e832681a6a93e8f7f3edd13df690d52f7e8c16449b79820895bb257b3"
   end
 
-  uses_from_macos "groff" => :test
+  depends_on "groff" => :test
+
   uses_from_macos "ruby"
 
   def install
@@ -43,8 +44,8 @@ class Ronn < Formula
 
 
 
-      NAME
-             simple - a simple ronn example
+      1mNAME0m
+             1msimple 22m- a simple ronn example
 
              This document is created by ronn.
 
