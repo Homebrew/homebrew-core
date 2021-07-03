@@ -64,7 +64,7 @@ class Cataclysm < Formula
     pid = fork do
       exec bin/"cataclysm"
     end
-    sleep 30
+    sleep 7
     assert_predicate user_config_dir/"config",
                      :exist?, "User config directory should exist"
     assert_predicate user_config_dir/"templates",
