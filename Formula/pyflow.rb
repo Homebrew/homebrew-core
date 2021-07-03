@@ -1,8 +1,8 @@
 class Pyflow < Formula
   desc "Installation and dependency system for Python"
   homepage "https://github.com/David-OConnor/pyflow"
-  url "https://github.com/David-OConnor/pyflow/archive/0.3.0.1.tar.gz"
-  sha256 "c29ee89255446b9e50024f749d32b5dbe7e19ecdfbbe382bf518ace271ebc402"
+  url "https://github.com/David-OConnor/pyflow/archive/0.3.1.tar.gz"
+  sha256 "36be46aaebf7bc77d2f250b3646024fb1f2f04d92113d3ce46ea5846f7e4c4f4"
   license "MIT"
 
   bottle do
