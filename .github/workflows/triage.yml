@@ -83,6 +83,10 @@ jobs:
                     "path": "Formula/.+",
                     "content": "depends_on :linux"
                 }, {
+                    "label": "macos-only",
+                    "path": "Formula/.+",
+                    "content": "depends_on :macos"
+                }, {
                     "label": "lua",
                     "path": "Formula/.+",
                     "content": "depends_on \"(lua|luajit|luajit-openresty)(@[0-9.]+)?\""
