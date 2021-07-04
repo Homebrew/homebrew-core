@@ -31,8 +31,6 @@ class Openjdk < Formula
   depends_on "autoconf" => :build
   depends_on xcode: :build if Hardware::CPU.arm?
 
-  ignore_missing_libraries "libjvm.so"
-
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
@@ -47,6 +45,8 @@ class Openjdk < Formula
     depends_on "libxtst"
     depends_on "unzip"
     depends_on "zip"
+
+    ignore_missing_libraries "libjvm.so"
   end
 
   fails_with gcc: "5"
