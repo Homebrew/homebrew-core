@@ -38,7 +38,7 @@ class Libnetworkit < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lnetworkit", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lnetworkit", "-o", "test", "-std=c++14"
     system "./test"
   end
 end
