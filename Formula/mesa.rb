@@ -3,10 +3,19 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://archive.mesa3d.org/mesa-21.1.4.tar.xz"
-  sha256 "1f177f44098164b65731c5ded4c928fd58b14f6c9d2087aa0e37bc79bf79e90b"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
+
+  stable do
+    url "https://archive.mesa3d.org/mesa-21.1.4.tar.xz"
+    sha256 "1f177f44098164b65731c5ded4c928fd58b14f6c9d2087aa0e37bc79bf79e90b"
+
+    # should be removed in mesa 21.2
+    patch do
+      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/89b4f337d50c01c5782e19ee40b57a6c9e4b324b.diff"
+      sha256 "e3a7b97e40485d829708bf6013b0755f92f52d00c91bb0f40aa1cdae3cc69e98"
+    end
+  end
 
   livecheck do
     url "https://www.mesa3d.org/news/"
@@ -66,11 +75,6 @@ class Mesa < Formula
   resource "gl_wrap.h" do
     url "https://gitlab.freedesktop.org/mesa/demos/-/raw/faaa319d704ac677c3a93caadedeb91a4a74b7a7/src/util/gl_wrap.h"
     sha256 "c727b2341d81c2a1b8a0b31e46d24f9702a1ec55c8be3f455ddc8d72120ada72"
-  end
-
-  patch do
-    url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/50064ad367449afad03c927f7e572c138b05c5d4.diff"
-    sha256 "2f17f8f03a54350025fff65ec6d410b1c2f924a30199551457a0f43a9bada7b6"
   end
 
   def install
