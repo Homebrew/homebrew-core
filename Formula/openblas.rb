@@ -36,9 +36,11 @@ class Openblas < Formula
   fails_with :clang
 
   def install
+    ENV.runtime_cpu_detection
+    ENV.deparallelize # build is parallel by default, but setting -j confuses it
+
     ENV["DYNAMIC_ARCH"] = "1"
     ENV["USE_OPENMP"] = "1"
-    ENV["NO_AVX512"] = "1"
     # Force a large NUM_THREADS to support larger Macs than the VMs that build the bottles
     ENV["NUM_THREADS"] = "56"
     ENV["TARGET"] = case Hardware.oldest_cpu
