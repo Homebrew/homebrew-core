@@ -4,7 +4,7 @@ class Binaryen < Formula
   url "https://github.com/WebAssembly/binaryen/archive/version_101.tar.gz"
   sha256 "5d7cdec89957549f01b7c93f080d08827c87bbd4789a34694c740d15d077c041"
   license "Apache-2.0"
-  head "https://github.com/WebAssembly/binaryen.git"
+  head "https://github.com/WebAssembly/binaryen.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7c9f6e7464dd612d8fd5ecf97eb28be3a0e785807656971760355dbaee2ab308"
