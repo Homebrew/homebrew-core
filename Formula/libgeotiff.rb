@@ -6,6 +6,11 @@ class Libgeotiff < Formula
   license "MIT"
   revision 1
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "693599ceb6c27a406ef40a2132fd90736c92e639f09ba9fc73a914a692a7d302"
     sha256 cellar: :any, big_sur:       "d799eaf361b8ae3a149e616376ccc2bd6c165666931d41bea939eb1d60fd84dc"
