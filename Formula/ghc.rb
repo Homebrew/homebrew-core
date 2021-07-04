@@ -26,11 +26,20 @@ class Ghc < Formula
   depends_on "sphinx-doc" => :build
   depends_on "llvm" if Hardware::CPU.arm?
 
-  resource "gmp" do
-    url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
-    mirror "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gmp/gmp-6.2.1.tar.xz"
-    sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
+  uses_from_macos "m4" => :build
+  uses_from_macos "ncurses"
+
+  on_macos do
+    resource "gmp" do
+      url "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
+      mirror "https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz"
+      mirror "https://ftpmirror.gnu.org/gmp/gmp-6.2.1.tar.xz"
+      sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
+    end
+  end
+
+  on_linux do
+    depends_on "gmp" => :build
   end
 
   # https://www.haskell.org/ghc/download_ghc_8_10_4.html#macosx_x86_64
@@ -73,30 +82,43 @@ class Ghc < Formula
     ENV["LD"] = "ld"
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
-    # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
-    # executables link to Homebrew's GMP.
-    gmp = libexec/"integer-gmp"
+    args = []
+    on_macos do
+      # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
+      # executables link to Homebrew's GMP.
+      gmp = libexec/"integer-gmp"
 
-    # GMP *does not* use PIC by default without shared libs so --with-pic
-    # is mandatory or else you'll get "illegal text relocs" errors.
-    resource("gmp").stage do
-      cpu = Hardware::CPU.arm? ? "aarch64" : Hardware.oldest_cpu
-      system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                            "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
-      system "make"
-      system "make", "install"
+      # GMP *does not* use PIC by default without shared libs so --with-pic
+      # is mandatory or else you'll get "illegal text relocs" errors.
+      resource("gmp").stage do
+        cpu = Hardware::CPU.arm? ? "aarch64" : Hardware.oldest_cpu
+        system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
+                              "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
+        system "make"
+        system "make", "install"
+      end
+
+      args = ["--with-gmp-includes=#{gmp}/include",
+              "--with-gmp-libraries=#{gmp}/lib"]
     end
-
-    args = ["--with-gmp-includes=#{gmp}/include",
-            "--with-gmp-libraries=#{gmp}/lib"]
 
     resource("binary").stage do
       binary = buildpath/"binary"
 
-      system "./configure", "--prefix=#{binary}", *args
+      binary_args = args
+      on_linux do
+        binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
+        binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
+      end
+
+      system "./configure", "--prefix=#{binary}", *binary_args
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
+    end
+
+    on_linux do
+      args << "--with-intree-gmp"
     end
 
     system "./configure", "--prefix=#{prefix}", *args
