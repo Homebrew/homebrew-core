@@ -15,28 +15,33 @@ class TreeSitter < Formula
     sha256 cellar: :any, mojave:        "1bf537d6e22c72586f41cc75cb0f9a496243c5daab3f406f4849e69851ba09fd"
   end
 
-  depends_on "emscripten" => [:build, :test]
   depends_on "node" => [:build, :test]
   depends_on "rust" => :build
+
+  on_macos { depends_on "emscripten" => [:build, :test] }
 
   def install
     system "make", "AMALGAMATED=1"
     system "make", "install", "PREFIX=#{prefix}"
 
-    # NOTE: This step needs to be done *before* `cargo install`
-    cd "lib/binding_web" do
-      system "npm", "install", *Language::Node.local_npm_install_args
+    on_macos do
+      # NOTE: This step needs to be done *before* `cargo install`
+      cd "lib/binding_web" do
+        system "npm", "install", *Language::Node.local_npm_install_args
+      end
+      system "script/build-wasm"
     end
-    system "script/build-wasm"
 
     cd "cli" do
       system "cargo", "install", *std_cargo_args
     end
 
-    # Install the wasm module into the prefix.
-    # NOTE: This step needs to be done *after* `cargo install`.
-    %w[tree-sitter.js tree-sitter-web.d.ts tree-sitter.wasm package.json].each do |file|
-      (lib/"binding_web").install "lib/binding_web/#{file}"
+    on_macos do
+      # Install the wasm module into the prefix.
+      # NOTE: This step needs to be done *after* `cargo install`.
+      %w[tree-sitter.js tree-sitter-web.d.ts tree-sitter.wasm package.json].each do |file|
+        (lib/"binding_web").install "lib/binding_web/#{file}"
+      end
     end
   end
 
@@ -102,8 +107,10 @@ class TreeSitter < Formula
     system ENV.cc, "test_program.c", "-L#{lib}", "-ltree-sitter", "-o", "test_program"
     assert_equal "tree creation failed", shell_output("./test_program")
 
-    # test `tree-sitter build-wasm`
-    ENV.delete "CPATH"
-    system bin/"tree-sitter", "build-wasm"
+    on_macos do
+      # test `tree-sitter build-wasm`
+      ENV.delete "CPATH"
+      system bin/"tree-sitter", "build-wasm"
+    end
   end
 end
