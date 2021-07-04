@@ -4,6 +4,7 @@ class Cppcheck < Formula
   url "https://github.com/danmar/cppcheck/archive/2.5.tar.gz"
   sha256 "dc27154d799935c96903dcc46653c526c6f4148a6912b77d3a50cb35dabd82e1"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/danmar/cppcheck.git"
 
   bottle do
@@ -16,6 +17,7 @@ class Cppcheck < Formula
   depends_on "cmake" => :build
   depends_on "python@3.9" => [:build, :test]
   depends_on "pcre"
+  depends_on "tinyxml2"
 
   uses_from_macos "libxml2"
 
@@ -23,6 +25,8 @@ class Cppcheck < Formula
     args = std_cmake_args + %W[
       -DHAVE_RULES=ON
       -DUSE_MATCHCOMPILER=ON
+      -DUSE_BUNDLED_TINYXML2=OFF
+      -DENABLE_OSS_FUZZ=OFF
       -DPYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
     system "cmake", "-S", ".", "-B", "build", *args
