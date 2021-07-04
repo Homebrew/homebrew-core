@@ -13,7 +13,7 @@ class Sqsmover < Formula
       -s -w
       -X main.version=#{version}
       -X main.date=#{Time.now.iso8601}
-      -X main.builtBy=homebrew
+      -X main.builtBy=#{tap.user}
     ].join(" ")
 
     system "go", "build", *std_go_args(ldflags: ldflags)
