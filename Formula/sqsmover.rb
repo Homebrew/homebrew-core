@@ -1,8 +1,8 @@
 class Sqsmover < Formula
   desc "AWS SQS Message mover"
   homepage "https://github.com/mercury2269/sqsmover"
-  url "https://github.com/mercury2269/sqsmover/archive/v0.3.14.tar.gz"
-  sha256 "4faf5471e1232bd3d5d38de38836fdbc9786f01d123901be71441334478403b3"
+  url "https://github.com/mercury2269/sqsmover/archive/v0.4.0.tar.gz"
+  sha256 "217203f626399c67649f99af52eff6d6cdd9280ec5e2631e1de057e1bd0cdd0d"
   license "Apache-2.0"
   head "https://github.com/mercury2269/sqsmover.git"
 
