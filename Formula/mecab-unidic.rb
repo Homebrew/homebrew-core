@@ -5,6 +5,11 @@ class MecabUnidic < Formula
   url "https://dotsrc.dl.osdn.net/osdn/unidic/58338/unidic-mecab-2.1.2_src.zip"
   sha256 "6cce98269214ce7de6159f61a25ffc5b436375c098cc86d6aa98c0605cbf90d4"
 
+  livecheck do
+    url "https://osdn.net/projects/unidic/releases/"
+    regex(%r{value=.*?/rel/unidic/unidic-mecab/v?(\d+(?:\.\d+)+)["' >]}i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e2268e16ea3e293eface41c4f3693340dd784c15963ddc3693f3d48586e323d3"
