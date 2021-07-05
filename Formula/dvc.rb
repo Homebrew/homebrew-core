@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/91/a1/e79cc4aab71cb8703c21f0d5dee94f4893a023f190c61d0c45777213483b/dvc-2.4.3.tar.gz"
-  sha256 "52e1f9c3fca16aae22b397a3f1c350c7e463b92942e847c756318d15548641e7"
+  url "https://files.pythonhosted.org/packages/3b/b4/ce4044ef79ac816487b82109c38b022b9ac1d08e0c0791adcc7d9e6460a4/dvc-2.5.0.tar.gz"
+  sha256 "eefe92f989813b0494fdc74e06325c2a8ded6c64fb821aa081e90e0185b4d31b"
   license "Apache-2.0"
 
   bottle do
@@ -94,8 +94,8 @@ class Dvc < Formula
   end
 
   resource "azure-core" do
-    url "https://files.pythonhosted.org/packages/ec/01/26f0b9af1fd88a19ee390aec6cad1483fc6af33d82124be3da83328ba4d0/azure-core-1.15.0.zip"
-    sha256 "197917b98fec661c35392e32abec4f690ac2117371a814e25e57c224ce23cf1f"
+    url "https://files.pythonhosted.org/packages/9b/6f/c4d598f119f69da1ebd9e0bfdada0b6a2e01e4b5a987a55ce6921dc53629/azure-core-1.16.0.zip"
+    sha256 "b1c7d2e01846074f258c8b2e592239aef836a2b1c27d8d0e8491a2c7e2906ef4"
   end
 
   resource "azure-datalake-store" do
@@ -254,13 +254,13 @@ class Dvc < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/3f/65/9e811aa2f3e88f6d4d2b56725056928cba763d8cfa21869400e47419c3bb/google-api-python-client-2.10.0.tar.gz"
-    sha256 "58424d263344625dcf4dc08e7639a6714737102ab4ae83e5f043e3db08d9965f"
+    url "https://files.pythonhosted.org/packages/f2/5d/2c2d1917f043322ad4ce785daa390ce3b925254f7b49e795554000aefb64/google-api-python-client-2.11.0.tar.gz"
+    sha256 "47479436c0d21062ce5646465aa90232b2a458514e8f27c1ddd226abd9f127af"
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/25/c9/2891b5885fc47ea7a5b534ef6e9decead403c2392116291d5eadd321c7db/google-auth-1.32.0.tar.gz"
-    sha256 "e34e5f5de5610b202f9b40ebd9f8b27571d5c5537db9afed3a72b2db5a345039"
+    url "https://files.pythonhosted.org/packages/a5/76/7302823a61f723296e8d21cffac8f341cd826627a52ec95d91a6701bf8c8/google-auth-1.32.1.tar.gz"
+    sha256 "c7c215c74348ef24faef2f7b62f6d8e6b38824fe08b1e7b7b09a02d397eda7b3"
   end
 
   resource "google-auth-httplib2" do
@@ -334,8 +334,8 @@ class Dvc < Formula
   end
 
   resource "mailchecker" do
-    url "https://files.pythonhosted.org/packages/11/f9/3d6c82cadf2fb9617040e2248492368dafcd3608abefb7fe7cbc11c86dd7/mailchecker-4.0.9.tar.gz"
-    sha256 "ea94bfcd06d100fef5dc126f51b27269c7285e6939ab49281f21896cfa2160e7"
+    url "https://files.pythonhosted.org/packages/7a/7e/83709e6d33d61cfa016d68170b005d0604a6546b2b10bde34307cae975f4/mailchecker-4.0.10.tar.gz"
+    sha256 "571f295c2534e20ab096915681ed57e851e2ea18e7c34bde1f5304e175ae68cf"
   end
 
   resource "msal" do
@@ -384,8 +384,8 @@ class Dvc < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
-    sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
+    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
+    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
   end
 
   resource "paramiko" do
@@ -529,8 +529,8 @@ class Dvc < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/2f/b7/b8b950458f88c6d74978a37ad1d1fb9885464372fcb3d4077c2d9186a5c3/rich-10.4.0.tar.gz"
-    sha256 "6e8a3e2c61e6cf6193bfcffbb89865a0973af7779d3ead913fdbbbc33f457c2c"
+    url "https://files.pythonhosted.org/packages/93/41/79e947ce1e2e6132afcc13e617b2c1bcce90f481cf78e652f8c986b19162/rich-10.5.0.tar.gz"
+    sha256 "f8a16484b3d70708bdafd04f659f9ca0e2c0129b33a343c10c734838d361777f"
   end
 
   resource "rsa" do
@@ -544,8 +544,8 @@ class Dvc < Formula
   end
 
   resource "ruamel.yaml.clib" do
-    url "https://files.pythonhosted.org/packages/b7/81/c04fb9be62657d4dce8aa2d99fde258a3af1cd77ec72af525593e9560127/ruamel.yaml.clib-0.2.4.tar.gz"
-    sha256 "f997f13fd94e37e8b7d7dbe759088bb428adc6570da06b64a913d932d891ac8d"
+    url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
+    sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
   end
 
   resource "s3fs" do
