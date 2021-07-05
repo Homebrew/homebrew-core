@@ -95,7 +95,7 @@ class LlvmAT8 < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx")
-    on_linux { (buildpath/"projects/libcxx").install resource("libcxx") }
+    on_linux { (buildpath/"projects/libcxxabi").install resource("libcxxabi") }
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/lldb").install resource("lldb")
