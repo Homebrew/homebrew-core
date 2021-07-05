@@ -14,7 +14,8 @@ class Tack < Formula
   end
 
   test do
-    system "mkdir", "content", "templates"
+    mkdir "content"
+    mkdir "templates"
     system "sh", "-c", "echo 'who: World' > content/default.yaml"
     system "sh", "-c", "echo 'Hello {{who}}!' > templates/default.mustache"
     system "tack"
