@@ -23,6 +23,6 @@ class Crun < Formula
   end
 
   test do
-    assert_equal "crun version #{version}", shell_output("crun --version").lines.first.strip
+    assert_equal "", shell_output("crun --rootless=true list -q").strip
   end
 end
