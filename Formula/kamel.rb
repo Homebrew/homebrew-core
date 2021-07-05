@@ -5,7 +5,7 @@ class Kamel < Formula
       tag:      "v1.4.1",
       revision: "76d1cbb601267bc8f192f268b19d5039f7d92c12"
   license "Apache-2.0"
-  head "https://github.com/apache/camel-k.git"
+  head "https://github.com/apache/camel-k.git", branch: "main"
 
   livecheck do
     url :stable
