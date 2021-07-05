@@ -16,11 +16,10 @@ class Tack < Formula
   test do
     mkdir "content"
     mkdir "templates"
-    system "sh", "-c", "echo 'who: World' > content/default.yaml"
-    system "sh", "-c", "echo 'Hello {{who}}!' > templates/default.mustache"
+    (testpath/"content/default.yaml").write "who: World"
+    (testpath/"templates/default.mustache").write "Hello {{who}}!"
     system "tack"
-    assert_predicate testpath/"output", :exist?
     assert_predicate testpath/"output/index.html", :exist?
-    assert_equal "Hello World!", shell_output("cat output/index.html").strip
+    assert_equal "Hello World!", (testpath/"output/index.html").read.strip
   end
 end
