@@ -6,11 +6,6 @@ class Svgbob < Formula
   license "Apache-2.0"
   head "https://github.com/ivanceras/svgbob.git"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   depends_on "rust" => :build
 
   def install
