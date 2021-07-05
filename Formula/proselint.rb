@@ -6,7 +6,7 @@ class Proselint < Formula
   url "https://files.pythonhosted.org/packages/7e/06/f0f8e077396e7e0ef9b8e13ec5bab766c3aaf1b9d26f718f9e566981f8c2/proselint-0.11.1.tar.gz"
   sha256 "76133b5d97ef6c3020840c3c601054fd163539283ca78387145f649be6214d38"
   license "BSD-3-Clause"
-  head "https://github.com/amperser/proselint.git"
+  head "https://github.com/amperser/proselint.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d961c92da82a689bc3dd26ee643b1b46c02e05586d49866c1bd0502782d7a1d"
