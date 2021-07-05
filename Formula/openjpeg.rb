@@ -39,8 +39,8 @@ class Openjpeg < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include.children.first}", "-L#{lib}", "-lopenjp2",
-           testpath/"test.c", "-o", "test"
+    system ENV.cc, "-I#{include.children.first}",
+           testpath/"test.c", "-L#{lib}", "-lopenjp2", "-o", "test"
     system "./test"
   end
 end
