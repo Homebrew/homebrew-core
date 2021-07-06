@@ -26,6 +26,8 @@ class Nushell < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "libx11"
+    depends_on "libxcb"
   end
 
   def install
