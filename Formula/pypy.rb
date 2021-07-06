@@ -1,8 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.4-src.tar.bz2"
-  sha256 "ff9b928237767efe08ccfba79dae489519b3c768fb6e3af52d39c2a8a1c21ca4"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.5-src.tar.bz2"
+  sha256 "c0444fd9873058c1c0d99e13a934e92285cb05992c9968bf523c32bf9bec0a9d"
   license "MIT"
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
