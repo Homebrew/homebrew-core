@@ -1,8 +1,13 @@
 class Midicsv < Formula
   desc "Convert MIDI audio files to human-readable CSV format"
-  homepage "https://www.fourmilab.ch/webtools/midicsv"
+  homepage "https://www.fourmilab.ch/webtools/midicsv/"
   url "https://www.fourmilab.ch/webtools/midicsv/midicsv-1.1.tar.gz"
   sha256 "7c5a749ab5c4ebac4bd7361df0af65892f380245be57c838e08ec6e4ac9870ef"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?midicsv[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b4786091a3131f6ffafe70a561bc2a0ffcbab3ed7c651393bb1908e1bd00bad7"
