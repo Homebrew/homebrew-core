@@ -1,8 +1,8 @@
 class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
-  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.23-14/source/tarball/percona-server-8.0.23-14.tar.gz"
-  sha256 "613b8c110ede5cf67a7ac32e16556f4c67d8ad35263f4f8d6457ae0789074048"
+  url "https://www.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.25-15/source/tarball/percona-server-8.0.25-15.tar.gz"
+  sha256 "447168d0cda3a0ef82ae0d20aa5af2fccfe5697c0f298262f1e8e315ac5c2dec"
   license "BSD-3-Clause"
 
   livecheck do
@@ -32,11 +32,16 @@ class PerconaServer < Formula
   depends_on "zstd"
 
   uses_from_macos "curl"
+  uses_from_macos "cyrus-sasl"
   uses_from_macos "libedit"
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "patchelf" => :build
     depends_on "readline"
+
+    # Fix build with OpenLDAP 2.5+, which merged libldap_r into libldap
+    patch :DATA
   end
 
   conflicts_with "mariadb", "mysql",
@@ -110,7 +115,11 @@ class PerconaServer < Formula
     system "make", "install"
 
     (prefix/"mysql-test").cd do
-      system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
+      test_args = ["--vardir=#{Dir.mktmpdir}"]
+      # For Linux, disable failing on warning: "Setting thread 31563 nice to 0 failed"
+      # Docker containers lack CAP_SYS_NICE capability by default.
+      on_linux { test_args << "--nowarnings" }
+      system "./mysql-test-run.pl", "status", *test_args
     end
 
     on_macos do
@@ -217,3 +226,16 @@ class PerconaServer < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
+
+__END__
+--- a/plugin/auth_ldap/CMakeLists.txt
++++ b/plugin/auth_ldap/CMakeLists.txt
+@@ -36,7 +36,7 @@ IF(WITH_LDAP)
+ 
+   # libler?
+   MYSQL_ADD_PLUGIN(authentication_ldap_simple ${ALP_SOURCES_SIMPLE}
+-    LINK_LIBRARIES ldap_r MODULE_ONLY MODULE_OUTPUT_NAME "authentication_ldap_simple")
++    LINK_LIBRARIES ldap MODULE_ONLY MODULE_OUTPUT_NAME "authentication_ldap_simple")
+ 
+   IF(UNIX)
+     IF(INSTALL_MYSQLTESTDIR)
