@@ -22,7 +22,7 @@ class Maturin < Formula
 
   test do
     system "cargo", "new", "hello_world", "--bin"
-    system "#{bin}/maturin", "build", "-m", "hello_world/Cargo.toml", "-b", "bin", "-o", "dist"
+    system bin/"maturin", "build", "-m", "hello_world/Cargo.toml", "-b", "bin", "-o", "dist", "--compatibility", "off"
     system "python3", "-m", "pip", "install", "hello_world", "--no-index", "--find-links", testpath/"dist"
     system "python3", "-m", "pip", "uninstall", "-y", "hello_world"
   end
