@@ -3,8 +3,8 @@ class Twarc < Formula
 
   desc "Command-line tool and Python library for archiving Twitter JSON"
   homepage "https://github.com/DocNow/twarc"
-  url "https://files.pythonhosted.org/packages/b6/a7/c76a42c0be358d35e14d35e92d05b1d5b277ed810e3beec79e5f30287f4d/twarc-2.3.6.tar.gz"
-  sha256 "f7b3187c009b19e88f2bdc38e5da1446d54ea0753ba8a1f386c2ad23b93ba35e"
+  url "https://files.pythonhosted.org/packages/7c/94/ecbc981c29c375b89903b12adf4b8007882c3c784aee304d7c5be8d8910d/twarc-2.3.7.tar.gz"
+  sha256 "e85b8263e614eedd206ffe45ec9e1b7aa4e4ced3ec9ddf96303993d825a0e37b"
   license "MIT"
 
   bottle do
@@ -47,6 +47,11 @@ class Twarc < Formula
     sha256 "a2f5650770e1c87fb335af19a9b7eb73fc05ccf22144eb68db7d00cd2bcb0902"
   end
 
+  resource "humanize" do
+    url "https://files.pythonhosted.org/packages/d4/1e/d1057df6928e817e2b77ec2ac5581a6c3f7c5c332cf112a645db4d4c6f71/humanize-3.10.0.tar.gz"
+    sha256 "b2413730ce6684f85e0439a5b80b8f402e09f03e16ab8023d1da758c6ff41148"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
     sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
@@ -70,6 +75,11 @@ class Twarc < Formula
   resource "requests-oauthlib" do
     url "https://files.pythonhosted.org/packages/23/eb/68fc8fa86e0f5789832f275c8289257d8dc44dbe93fce7ff819112b9df8f/requests-oauthlib-1.3.0.tar.gz"
     sha256 "b4261601a71fd721a8bd6d7aa1cc1d6a8a93b4a9f5e96626f8e4d91e8beeaa6a"
+  end
+
+  resource "tqdm" do
+    url "https://files.pythonhosted.org/packages/0d/dd/78f7e080d3bfc87fc19bed54513b430659d38efb2d9ea6e3ad815a665a02/tqdm-4.61.2.tar.gz"
+    sha256 "8bb94db0d4468fea27d004a0f1d1c02da3cdedc00fe491c0de986b76a04d6b0a"
   end
 
   resource "urllib3" do
