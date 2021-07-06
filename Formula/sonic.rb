@@ -14,6 +14,9 @@ class Sonic < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "llvm" => :build
+  uses_from_macos "netcat" => :test
+
   def install
     system "cargo", "install", *std_cargo_args
     inreplace "config.cfg", "./", var/"sonic/"
@@ -58,7 +61,7 @@ class Sonic < Formula
     port = free_port
 
     cp etc/"sonic.cfg", testpath/"config.cfg"
-    inreplace "config.cfg", ":1491", ":#{port}"
+    inreplace "config.cfg", "[::1]:1491", "0.0.0.0:#{port}"
     inreplace "config.cfg", "#{var}/sonic", "."
 
     fork { exec bin/"sonic" }
