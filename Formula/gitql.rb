@@ -1,9 +1,10 @@
 class Gitql < Formula
   desc "Git query language"
   homepage "https://github.com/filhodanuvem/gitql"
-  url "https://github.com/filhodanuvem/gitql/archive/2.2.0.tar.gz"
-  sha256 "89bfbb41f85eaab5f6644a9750906e9c021738cbf3578119086448857cb65892"
+  url "https://github.com/filhodanuvem/gitql/archive/v2.2.1.tar.gz"
+  sha256 "eb6f9e2d99d17d83ff11a1e8132de41d8796e6a954728ba49e92e88ae7c049a7"
   license "MIT"
+  head "https://github.com/filhodanuvem/gitql.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "427cb6ac84a8d1983f73d4a458bf230df92c6f8b3974098dbaf1ac5050db1dc9"
@@ -15,11 +16,16 @@ class Gitql < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
     system "git", "init"
-    assert_match "author", shell_output("#{bin}/gitql 'SELECT * FROM commits'")
+    system "git", "config", "user.name", "A U Thor"
+    system "git", "config", "user.email", "author@example.com"
+    (testpath/"README").write "test"
+    system "git", "add", "README"
+    system "git", "commit", "-m", "Initial commit"
+    assert_match "Initial commit", shell_output("#{bin}/gitql 'SELECT * FROM commits'")
   end
 end
