@@ -7,6 +7,7 @@ class Semgrep < Formula
       tag:      "v0.57.0",
       revision: "9dff8bba2ea67c9146977667e079711aec1d4ff4"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
   livecheck do
@@ -29,6 +30,23 @@ class Semgrep < Formula
   depends_on "pkg-config" => :build
   depends_on "pcre"
   depends_on "python@3.9"
+  depends_on "tree-sitter"
+
+  uses_from_macos "rsync" => :build
+
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
+
+  # To update, temporarily comment out this resource and run `brew update-python-resources semgrep`
+  # Then uncomment this resource and manually modify the commit hash based on
+  # https://github.com/returntocorp/semgrep/blob/#{tag}/scripts/install-tree-sitter-runtime
+  resource "ocaml-tree-sitter" do
+    url "https://github.com/returntocorp/ocaml-tree-sitter-semgrep/archive/2263f3f418f97a849cb9dfeb0373bc9a3a10837c.tar.gz"
+    sha256 "f257acdcd1c42c4bbe81ad11ccbadf5211b2b1a062ece3ca04945776f89ada8a"
+  end
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
@@ -61,8 +79,8 @@ class Semgrep < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
-    sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
+    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
+    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
   end
 
   resource "pyparsing" do
@@ -86,8 +104,8 @@ class Semgrep < Formula
   end
 
   resource "ruamel.yaml.clib" do
-    url "https://files.pythonhosted.org/packages/b7/81/c04fb9be62657d4dce8aa2d99fde258a3af1cd77ec72af525593e9560127/ruamel.yaml.clib-0.2.4.tar.gz"
-    sha256 "f997f13fd94e37e8b7d7dbe759088bb428adc6570da06b64a913d932d891ac8d"
+    url "https://files.pythonhosted.org/packages/8b/25/08e5ad2431a028d0723ca5540b3af6a32f58f25e83c6dda4d0fcef7288a3/ruamel.yaml.clib-0.2.6.tar.gz"
+    sha256 "4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd"
   end
 
   resource "six" do
@@ -96,8 +114,8 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/f2/9c/99aae7670351c694c60c72e3cc834b7eab396f738b391bd0bdfc5101a663/tqdm-4.61.1.tar.gz"
-    sha256 "24be966933e942be5f074c29755a95b315c69a91f839a29139bf26ffffe2d3fd"
+    url "https://files.pythonhosted.org/packages/0d/dd/78f7e080d3bfc87fc19bed54513b430659d38efb2d9ea6e3ad815a665a02/tqdm-4.61.2.tar.gz"
+    sha256 "8bb94db0d4468fea27d004a0f1d1c02da3cdedc00fe491c0de986b76a04d6b0a"
   end
 
   resource "urllib3" do
@@ -106,34 +124,31 @@ class Semgrep < Formula
   end
 
   def install
+    (buildpath/"ocaml-tree-sitter").install resource("ocaml-tree-sitter")
+
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot
       ENV["OPAMYES"] = "1"
-
-      # Used by semgrep-core for clang to find libtree-sitter.a
-      ENV["LIBRARY_PATH"] = lib
 
       # Officially suggested workaround for breaking change in setuptools v50.0.0
       # See: https://sourceforge.net/p/ruamel-yaml/tickets/356/
       # Relevant Issue: https://github.com/pypa/setuptools/issues/2355
       ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
 
-      # Used by ocaml-tree-sitter to find tree-sitter/*.h headers
-      ENV.append_path "PKG_CONFIG_PATH", "#{lib}/pkgconfig"
-      ENV["C_INCLUDE_PATH"] = include
-
-      # Used by tree-sitter to place libtree-sitter.a, and header files
-      ENV["PREFIX"] = prefix
-
       system "opam", "init", "--no-setup", "--disable-sandboxing"
       ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.2" }
 
       # Delete OCaml version file since it conflicts with C++20 version header
       # This can be removed once semgrep upgrades to ocaml 4.12.0
-      rm "#{opamroot}/ocaml-base-compiler.4.10.2/lib/ocaml/version"
+      rm "#{opamroot}/ocaml-base-compiler.4.10.2/lib/ocaml/VERSION"
 
-      system "opam", "exec", "--", "make", "setup"
+      # Manually run steps from `opam exec -- make setup` to link Homebrew's tree-sitter
+      system "opam", "update", "-y"
+      ln_s "../../../ocaml-tree-sitter/src", "semgrep-core/src/ocaml-tree-sitter/src"
+      ln_s "../ocaml-tree-sitter/tree-sitter.opam", "semgrep-core/tree-sitter.opam"
+      system "opam", "install", "-y", "--deps-only", "./semgrep-core/src/pfff"
+      system "opam", "install", "-y", "--deps-only", "./semgrep-core"
 
       # Install tree-sitter
       cd "ocaml-tree-sitter" do
@@ -154,7 +169,7 @@ class Semgrep < Formula
     python_path = "semgrep"
     cd python_path do
       venv = virtualenv_create(libexec, Formula["python@3.9"].bin/"python3.9")
-      venv.pip_install resources
+      venv.pip_install resources.reject { |r| r.name == "ocaml-tree-sitter" }
       venv.pip_install_and_link buildpath/python_path
     end
   end
