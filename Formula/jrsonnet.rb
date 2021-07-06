@@ -1,8 +1,8 @@
 class Jrsonnet < Formula
   desc "Rust implementation of Jsonnet language"
   homepage "https://github.com/CertainLach/jrsonnet"
-  url "https://github.com/CertainLach/jrsonnet/archive/refs/tags/v0.3.8.tar.gz"
-  sha256 "98c90faeb5ad9ceb73ba9b335ca8bdb5bd1447a23af0de9a2aafc181b2b1876f"
+  url "https://github.com/CertainLach/jrsonnet/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "f35d4c2ed7a1efada7768deadb5c7509e71846844d14108d68334db9d10645fb"
   license "MIT"
   head "https://github.com/CertainLach/jrsonnet.git"
 
