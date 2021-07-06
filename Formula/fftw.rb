@@ -1,13 +1,13 @@
 class Fftw < Formula
   desc "C routines to compute the Discrete Fourier Transform"
-  homepage "http://www.fftw.org"
-  url "http://fftw.org/fftw-3.3.9.tar.gz"
+  homepage "https://fftw.org"
+  url "https://fftw.org/fftw-3.3.9.tar.gz"
   sha256 "bf2c7ce40b04ae811af714deb512510cc2c17b9ab9d6ddcf49fe4487eea7af3d"
   license all_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
   revision 1
 
   livecheck do
-    url "http://fftw.org/"
+    url :homepage
     regex(%r{latest official release.*? <b>v?(\d+(?:\.\d+)+)</b>}i)
   end
 
@@ -66,7 +66,7 @@ class Fftw < Formula
 
   test do
     # Adapted from the sample usage provided in the documentation:
-    # http://www.fftw.org/fftw3_doc/Complex-One_002dDimensional-DFTs.html
+    # https://www.fftw.org/fftw3_doc/Complex-One_002dDimensional-DFTs.html
     (testpath/"fftw.c").write <<~EOS
       #include <fftw3.h>
       int main(int argc, char* *argv)
