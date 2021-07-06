@@ -24,10 +24,6 @@ class HaskellStack < Formula
 
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "gmp"
-  end
-
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
