@@ -3,10 +3,9 @@ class TrezorAgent < Formula
 
   desc "Hardware SSH/GPG agent for Trezor, Keepkey & Ledger"
   homepage "https://github.com/romanz/trezor-agent"
-  url "https://files.pythonhosted.org/packages/f1/a7/8989377dfce48abf9115055baf6d2cfba55102929a7c5f3e5b9c8e8b5c18/trezor_agent-0.11.0.tar.gz"
-  sha256 "139d917d6495bf290bcc21da457f84ccd2e74c78b4d59a649e0cdde4288cd20c"
+  url "https://github.com/romanz/trezor-agent/archive/refs/tags/v0.14.2.tar.gz"
+  sha256 "e2e5d2afd64db24343e109a575da3667b3ce8778bd316fe60214bf8630b5df69"
   license "LGPL-3.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "89730f818019466482875a8b2cf78971ede4b59b035df8ff8db9988bf4edf8f8"
