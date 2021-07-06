@@ -49,8 +49,8 @@ class Re2 < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "-I#{include}", "-L#{lib}", "-lre2",
-           "test.cpp", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+                    "-I#{include}", "-L#{lib}", "-lre2"
     system "./test"
   end
 end
