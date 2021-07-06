@@ -1,9 +1,10 @@
 class Libnxml < Formula
   desc "C library for parsing, writing, and creating XML files"
-  homepage "https://www.autistici.org/bakunin/libnxml/"
+  homepage "https://github.com/bakulf/libnxml"
+  # Update to use an archive from GitHub once there's a release after 0.18.3
   url "https://www.autistici.org/bakunin/libnxml/libnxml-0.18.3.tar.gz"
   sha256 "0f9460e3ba16b347001caf6843f0050f5482e36ebcb307f709259fd6575aa547"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     rebuild 1
@@ -17,7 +18,21 @@ class Libnxml < Formula
     sha256 cellar: :any, yosemite:      "7c2bff9c49c93ef6a3901050212671c60e0cb4e72f2faf968eb4ae57f3d6fbeb"
   end
 
+  head do
+    url "https://github.com/bakulf/libnxml.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   def install
+    if build.head?
+      mkdir "m4"
+      inreplace "autogen.sh", "libtoolize", "glibtoolize"
+      system "./autogen.sh"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
