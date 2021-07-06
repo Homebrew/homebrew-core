@@ -3,8 +3,8 @@ class Proselint < Formula
 
   desc "Linter for prose"
   homepage "http://proselint.com"
-  url "https://files.pythonhosted.org/packages/7e/06/f0f8e077396e7e0ef9b8e13ec5bab766c3aaf1b9d26f718f9e566981f8c2/proselint-0.11.1.tar.gz"
-  sha256 "76133b5d97ef6c3020840c3c601054fd163539283ca78387145f649be6214d38"
+  url "https://files.pythonhosted.org/packages/ea/06/d5d7832b4eb44a79da7d90fb1d7b053b9e329a43f8ee4ea5700018799607/proselint-0.11.2.tar.gz"
+  sha256 "5f90d5e3414928194be23efdf1e3e821bbb79279a598cf1710b29977029c4897"
   license "BSD-3-Clause"
   head "https://github.com/amperser/proselint.git", branch: "main"
 
