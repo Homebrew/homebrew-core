@@ -15,6 +15,8 @@ class Svgbob < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "libiconv"
+
   def install
     cd "svgbob_cli" do
       system "cargo", "install", *std_cargo_args
