@@ -38,13 +38,11 @@ class Octant < Formula
 
       system "go", "run", "build.go", "web-build"
 
-      build_time = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
       ldflags = ["-X \"main.version=#{version}\"",
                  "-X \"main.gitCommit=#{Utils.git_head}\"",
-                 "-X \"main.buildTime=#{build_time}\""]
+                 "-X \"main.buildTime=#{time.iso8601}\""].join(" ")
 
-      system "go", "build", "-tags", "embedded", "-o", bin/"octant", "-ldflags", ldflags.join(" "),
-              "-v", "./cmd/octant"
+      system "go", "build", "-tags", "embedded", *std_go_args(ldflags: ldflags), "-v", "./cmd/octant"
     end
   end
 
