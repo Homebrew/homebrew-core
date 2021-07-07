@@ -4,7 +4,7 @@ class Ortp < Formula
   url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.5.22/ortp-4.5.22.tar.bz2"
   sha256 "c30fd72e7847b32b5aaa31dc5a82c92856c59ca8cb8128d50b3c0e38104d6376"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://gitlab.linphone.org/BC/public/ortp.git"
 
   bottle do
@@ -16,7 +16,7 @@ class Ortp < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "mbedtls"
+  depends_on "mbedtls@2"
 
   # bctoolbox appears to follow ortp's version. This can be verified at the GitHub mirror:
   # https://github.com/BelledonneCommunications/bctoolbox
