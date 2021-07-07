@@ -2,7 +2,7 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   license all_of: ["GPL-2.0-or-later", "MIT"]
-  revision 1
+  revision 2
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   stable do
@@ -33,7 +33,7 @@ class Haxe < Formula
   depends_on "ocaml" => :build
   depends_on "opam" => :build
   depends_on "pkg-config" => :build
-  depends_on "mbedtls"
+  depends_on "mbedtls@2"
   depends_on "neko"
   depends_on "pcre"
 
