@@ -11,6 +11,7 @@ class Slirp4netns < Formula
   depends_on "libcap"
   depends_on "libseccomp"
   depends_on "libslirp"
+  depends_on :linux
 
   resource "source-code" do
     url "https://github.com/rootless-containers/slirp4netns/archive/refs/tags/v1.1.11.tar.gz"
