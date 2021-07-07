@@ -35,7 +35,7 @@ class Anyenv < Formula
         rbenv install --list
       EOS
       cmds.split("\n").each do |cmd|
-        shell_output("source #{profile} && #{cmd}")
+        shell_output(". #{profile} && #{cmd}")
       end
     end
   end
