@@ -19,8 +19,8 @@ class Revive < Formula
   def install
     ldflags = %W[
       -X main.commit=#{Utils.git_head}
-      -X main.date=#{Time.now.utc.iso8601}
-      -X main.builtBy=Homebrew
+      -X main.date=#{time.iso8601}
+      -X main.builtBy=#{tap.user}
     ]
     ldflags << "-X main.version=#{version}" unless build.head?
     system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
