@@ -43,7 +43,7 @@ class Leptonica < Formula
       #include <leptonica/allheaders.h>
 
       int main(int argc, char **argv) {
-          std::fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
+          fprintf(stdout, "%d.%d.%d", LIBLEPT_MAJOR_VERSION, LIBLEPT_MINOR_VERSION, LIBLEPT_PATCH_VERSION);
           return 0;
       }
     EOS
