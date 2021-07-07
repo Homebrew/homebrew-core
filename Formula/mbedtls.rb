@@ -32,8 +32,9 @@ class Mbedtls < Formula
     end
 
     system "cmake", "-DUSE_SHARED_MBEDTLS_LIBRARY=On",
-      "-DPython3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
-      *std_cmake_args
+                    "-DPython3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
     system "make"
     system "make", "install"
 
