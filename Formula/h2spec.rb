@@ -1,5 +1,5 @@
 class H2spec < Formula
-  desc "A conformance testing tool for HTTP/2 implementation"
+  desc "Conformance testing tool for HTTP/2 implementation"
   homepage "https://github.com/summerwind/h2spec"
   url "https://github.com/summerwind/h2spec.git",
     tag:      "v2.6.0",
