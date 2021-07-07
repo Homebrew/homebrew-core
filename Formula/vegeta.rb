@@ -17,15 +17,13 @@ class Vegeta < Formula
   depends_on "go" => :build
 
   def install
-    build_time = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
-
     ldflags = %W[
       -s -w
       -X main.Version=#{version}
-      -X main.Date=#{build_time}
-    ]
+      -X main.Date=#{time.iso8601}
+    ].join(" ")
 
-    system "go", "build", "-o", bin/"vegeta", "-ldflags", ldflags.join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
