@@ -21,7 +21,7 @@ class ArgocdVaultPlugin < Formula
     ldflags = %W[
       -s -w
       -X github.com/IBM/argocd-vault-plugin/version.Version=#{version}
-      -X github.com/IBM/argocd-vault-plugin/version.BuildDate=#{Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")}
+      -X github.com/IBM/argocd-vault-plugin/version.BuildDate=#{time.iso8601}
       -X github.com/IBM/argocd-vault-plugin/version.CommitSHA=#{Utils.git_head}
     ].join(" ")
 
