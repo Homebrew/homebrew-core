@@ -20,6 +20,7 @@ class Httpd < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   def install
@@ -43,6 +44,10 @@ class Httpd < Formula
       s.gsub! "${datadir}/icons",   "#{pkgshare}/icons"
     end
 
+    libxml2 = "#{MacOS.sdk_path_if_needed}/usr"
+    on_linux { libxml2 = Formula["libxml2"].opt_prefix }
+    zlib = "#{MacOS.sdk_path_if_needed}/usr"
+    on_linux { zlib = Formula["zlib"].opt_prefix }
     system "./configure", "--enable-layout=Slackware-FHS",
                           "--prefix=#{prefix}",
                           "--sbindir=#{bin}",
@@ -63,15 +68,16 @@ class Httpd < Formula
                           "--with-apr=#{Formula["apr"].opt_prefix}",
                           "--with-apr-util=#{Formula["apr-util"].opt_prefix}",
                           "--with-brotli=#{Formula["brotli"].opt_prefix}",
-                          "--with-libxml2=#{MacOS.sdk_path_if_needed}/usr",
+                          "--with-libxml2=#{libxml2}",
                           "--with-mpm=prefork",
                           "--with-nghttp2=#{Formula["nghttp2"].opt_prefix}",
                           "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
                           "--with-pcre=#{Formula["pcre"].opt_prefix}",
-                          "--with-z=#{MacOS.sdk_path_if_needed}/usr",
+                          "--with-z=#{zlib}",
                           "--disable-lua",
                           "--disable-luajit"
     system "make"
+    on_linux { ENV.deparallelize }
     system "make", "install"
 
     # suexec does not install without root
@@ -100,12 +106,14 @@ class Httpd < Formula
       s.gsub! prefix, opt_prefix
     end
 
+    os = "mac"
+    on_linux { os = "linux" }
     inreplace "#{lib}/httpd/build/config_vars.mk" do |s|
       pcre = Formula["pcre"]
       s.gsub! pcre.prefix.realpath, pcre.opt_prefix
       s.gsub! "${prefix}/lib/httpd/modules",
               "#{HOMEBREW_PREFIX}/lib/httpd/modules"
-      s.gsub! "#{HOMEBREW_SHIMS_PATH}/mac/super",
+      s.gsub! "#{HOMEBREW_SHIMS_PATH}/#{os}/super",
               "#{HOMEBREW_PREFIX}/bin"
     end
   end
