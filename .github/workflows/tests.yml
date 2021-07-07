@@ -32,7 +32,7 @@ jobs:
 
       - run: brew test-bot --only-tap-syntax
 
-  pre_tests:
+  check_labels:
     if: github.event_name == 'pull_request' && github.repository == 'Homebrew/homebrew-core'
     runs-on: ubuntu-latest
     needs: tap_syntax
@@ -119,11 +119,11 @@ jobs:
             core.setOutput('runners', JSON.stringify(runners))
 
   tests:
-    needs: pre_tests
-    if: github.event_name == 'pull_request' && needs.pre_tests.outputs.syntax-only == 'false'
+    needs: check_labels
+    if: github.event_name == 'pull_request' && needs.check_labels.outputs.syntax-only == 'false'
     strategy:
       matrix:
-        runner: ${{fromJson(needs.pre_tests.outputs.runners)}}
+        runner: ${{fromJson(needs.check_labels.outputs.runners)}}
       fail-fast: false
     runs-on: ${{matrix.runner}}
     timeout-minutes: 4320
@@ -139,13 +139,13 @@ jobs:
           if [ "$RUNNER_OS" = 'macOS' ]; then
             echo 'PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin' >> $GITHUB_ENV
             echo 'GITHUB_ACTIONS_HOMEBREW_MACOS_SELF_HOSTED=1' >> $GITHUB_ENV
-            if [ '${{needs.pre_tests.outputs.force-arm}}' = 'false' ]; then
+            if [ '${{needs.check_labels.outputs.force-arm}}' = 'false' ]; then
               echo 'HOMEBREW_SKIP_UNBOTTLED_ARM_TESTS=1' >> $GITHUB_ENV
             fi
           else
             # No PATH needed on Linux as set by Docker
             echo 'HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1' >> $GITHUB_ENV
-            if [ '${{needs.pre_tests.outputs.force-linux}}' = 'false' ]; then
+            if [ '${{needs.check_labels.outputs.force-linux}}' = 'false' ]; then
               echo 'HOMEBREW_SKIP_UNBOTTLED_LINUX_TESTS=1' >> $GITHUB_ENV
             fi
           fi
@@ -160,7 +160,7 @@ jobs:
             --env-file <(env | egrep 'HOMEBREW|GITHUB') \
             --workdir /tmp/bottles \
             --pull always \
-            ${{needs.pre_tests.outputs.container}} \
+            ${{needs.check_labels.outputs.container}} \
             sleep inf
           # Fix working directory permissions
           docker exec --user root ${{github.sha}} chmod 777 /tmp/bottles
@@ -196,16 +196,16 @@ jobs:
           if [ "$RUNNER_OS" = 'macOS' ]; then
             mkdir bottles
             cd bottles
-            brew test-bot --only-json-tab --only-formulae ${{ needs.pre_tests.outputs.test-bot-fail-fast }} ${{ needs.pre_tests.outputs.test-bot-skip-recursive-dependents }}
+            brew test-bot --only-json-tab --only-formulae ${{ needs.check_labels.outputs.test-bot-fail-fast }} ${{ needs.check_labels.outputs.test-bot-skip-recursive-dependents }}
           else
-            docker exec ${{github.sha}} brew test-bot --only-json-tab --only-formulae ${{ needs.pre_tests.outputs.test-bot-fail-fast }} ${{ needs.pre_tests.outputs.test-bot-skip-recursive-dependents }}
+            docker exec ${{github.sha}} brew test-bot --only-json-tab --only-formulae ${{ needs.check_labels.outputs.test-bot-fail-fast }} ${{ needs.check_labels.outputs.test-bot-skip-recursive-dependents }}
           fi
 
       - name: Copy bottles from container
         if: always() && runner.os == 'Linux'
         run: docker cp ${{github.sha}}:/tmp/bottles .
 
-      - name: Output brew test-bot --only-json-tab --only-formulae ${{ needs.pre_tests.outputs.test-bot-fail-fast }} ${{ needs.pre_tests.outputs.test-bot-skip-recursive-dependents }} failures
+      - name: Output brew test-bot --only-json-tab --only-formulae ${{ needs.check_labels.outputs.test-bot-fail-fast }} ${{ needs.check_labels.outputs.test-bot-skip-recursive-dependents }} failures
         if: always()
         run: |
           cat bottles/steps_output.txt
