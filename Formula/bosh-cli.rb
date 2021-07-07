@@ -17,7 +17,7 @@ class BoshCli < Formula
 
   def install
     # https://github.com/cloudfoundry/bosh-cli/blob/master/ci/tasks/build.sh#L23-L24
-    inreplace "cmd/version.go", "[DEV BUILD]", "#{version}-#{tap.user}-#{Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")}"
+    inreplace "cmd/version.go", "[DEV BUILD]", "#{version}-#{tap.user}-#{time.iso8601}"
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
