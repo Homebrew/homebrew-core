@@ -20,6 +20,18 @@ class OpenjdkAT11 < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "alsa-lib"
+    depends_on "cups"
+    depends_on "fontconfig"
+    depends_on "unzip"
+    depends_on "zip"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxt"
+    depends_on "libxtst"
+
+    ignore_missing_libraries "libjvm.so"
   end
 
   resource "boot-jdk" do
@@ -46,15 +58,17 @@ class OpenjdkAT11 < Formula
     end
   end
 
-  def install
-    framework_path = File.expand_path(
-      "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
-      MacOS::Xcode.prefix,
-    )
+  patch do
+    # Fix for https://bugs.openjdk.java.net/browse/JDK-8266248 on Big Sur
+    url "https://github.com/openjdk/jdk11u-dev/commit/e44258cd04fb8d1ea727d322a0e661e44306ec57.patch?full_index=1"
+    sha256 "64ac56423da1d09013e4b14246fca60cb0551bda3fc2abcc23213e11f4ad709d"
+  end
 
+  def install
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
     boot_jdk = boot_jdk_dir/"Contents/Home"
+    on_linux { boot_jdk = boot_jdk_dir }
     java_options = ENV.delete("_JAVA_OPTIONS")
 
     # Inspecting .hg_archival.txt to find a build number
@@ -78,7 +92,6 @@ class OpenjdkAT11 < Formula
       --without-version-opt
       --with-version-build=#{build}
       --with-toolchain-path=/usr/bin
-      --with-sysroot=#{MacOS.sdk_path}
       --with-boot-jdk=#{boot_jdk}
       --with-boot-jdk-jvmargs=#{java_options}
       --with-debug-level=release
@@ -87,17 +100,33 @@ class OpenjdkAT11 < Formula
       --with-jvm-variants=server
     ]
 
-    if Hardware::CPU.arm?
-      args += %W[
-        --disable-warnings-as-errors
-        --openjdk-target=aarch64-apple-darwin
-        --with-build-jdk=#{boot_jdk}
-        --with-extra-cflags=-arch\ arm64
-        --with-extra-ldflags=-arch\ arm64\ -F#{framework_path}\ -headerpad_max_install_names
-        --with-extra-cxxflags=-arch\ arm64
-      ]
-    else
-      args << "--with-extra-ldflags=-headerpad_max_install_names"
+    framework_path = nil
+    on_macos do
+      framework_path = File.expand_path(
+        "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
+        MacOS::Xcode.prefix,
+      )
+
+      args << "--with-sysroot=#{MacOS.sdk_path}"
+
+      if Hardware::CPU.arm?
+        args += %W[
+          --disable-warnings-as-errors
+          --openjdk-target=aarch64-apple-darwin
+          --with-build-jdk=#{boot_jdk}
+          --with-extra-cflags=-arch\ arm64
+          --with-extra-ldflags=-arch\ arm64\ -F#{framework_path}\ -headerpad_max_install_names
+          --with-extra-cxxflags=-arch\ arm64
+        ]
+      else
+        args << "--with-extra-ldflags=-headerpad_max_install_names"
+      end
+    end
+
+    on_linux do
+      args << "--with-x=#{HOMEBREW_PREFIX}"
+      args << "--with-cups=#{HOMEBREW_PREFIX}"
+      args << "--with-fontconfig=#{HOMEBREW_PREFIX}"
     end
 
     chmod 0755, "configure"
@@ -106,20 +135,31 @@ class OpenjdkAT11 < Formula
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    jdk = Dir["build/*/images/jdk-bundle/*"].first
-    libexec.install jdk => "openjdk.jdk"
-    bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
-    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
-    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
+    on_macos do
+      jdk = Dir["build/*/images/jdk-bundle/*"].first
+      libexec.install jdk => "openjdk.jdk"
+      bin.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/bin/*"]
+      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/*.h"]
+      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/darwin/*.h"]
+      man1.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/man/man1/*"]
 
-    if Hardware::CPU.arm?
-      dest = libexec/"openjdk.jdk/Contents/Home/lib/JavaNativeFoundation.framework"
-      # Copy JavaNativeFoundation.framework from Xcode
-      # https://gist.github.com/claui/ea4248aa64d6a1b06c6d6ed80bc2d2b8#gistcomment-3539574
-      cp_r "#{framework_path}/JavaNativeFoundation.framework", dest, remove_destination: true
+      if Hardware::CPU.arm?
+        dest = libexec/"openjdk.jdk/Contents/Home/lib/JavaNativeFoundation.framework"
+        # Copy JavaNativeFoundation.framework from Xcode
+        # https://gist.github.com/claui/ea4248aa64d6a1b06c6d6ed80bc2d2b8#gistcomment-3539574
+        cp_r "#{framework_path}/JavaNativeFoundation.framework", dest, remove_destination: true
 
-      # Replace Apple signature by ad-hoc one (otherwise relocation will break it)
-      system "codesign", "-f", "-s", "-", "#{dest}/Versions/A/JavaNativeFoundation"
+        # Replace Apple signature by ad-hoc one (otherwise relocation will break it)
+        system "codesign", "-f", "-s", "-", dest/"Versions/A/JavaNativeFoundation"
+      end
+    end
+
+    on_linux do
+      libexec.install Dir["build/linux-x86_64-normal-server-release/images/jdk/*"]
+      bin.install_symlink Dir[libexec/"bin/*"]
+      include.install_symlink Dir[libexec/"include/*.h"]
+      include.install_symlink Dir[libexec/"include/linux/*.h"]
+      man1.install_symlink Dir[libexec/"man/man1/*"]
     end
   end
 
