@@ -30,7 +30,7 @@ class Kustomize < Formula
         -s -w
         -X sigs.k8s.io/kustomize/api/provenance.version=#{name}/v#{version}
         -X sigs.k8s.io/kustomize/api/provenance.gitCommit=#{commit}
-        -X sigs.k8s.io/kustomize/api/provenance.buildDate=#{Time.now.iso8601}
+        -X sigs.k8s.io/kustomize/api/provenance.buildDate=#{time.iso8601}
       ].join(" ")
 
       system "go", "build", *std_go_args(ldflags: ldflags)
