@@ -136,7 +136,7 @@ class Gtkx < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lgtk-quartz-2.0
+      -lgtk-#{backend}-2.0
       -lpango-1.0
       -lpangocairo-1.0
     ]
