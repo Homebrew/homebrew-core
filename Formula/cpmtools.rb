@@ -5,6 +5,11 @@ class Cpmtools < Formula
   sha256 "a0032a17f9350ad1a2b80dea52c94c66cb2b49dfb38e402b5df22bdc2c5029d0"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cpmtools[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "15e7282d0aaab6c0fdcba963da488dc134a3a91cdf386f975531ad6cb412eb4d"
     sha256 big_sur:       "72ac1f5c8c685e8a8e9e10ce3ba100883473f9578994752d0bcaab1bb987d27f"
