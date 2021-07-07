@@ -22,11 +22,11 @@ class Ksync < Formula
       -w
       -X #{project}/pkg/ksync.GitCommit=#{Utils.git_short_head}
       -X #{project}/pkg/ksync.GitTag=#{version}
-      -X #{project}/pkg/ksync.BuildDate=#{Time.now.utc.rfc3339(9)}
-      -X #{project}/pkg/ksync.VersionString=Homebrew
+      -X #{project}/pkg/ksync.BuildDate=#{time.rfc3339(9)}
+      -X #{project}/pkg/ksync.VersionString=#{tap.user}
       -X #{project}/pkg/ksync.GoVersion=go#{Formula["go"].version}
-    ]
-    system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args, "#{project}/cmd/ksync"
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags), "#{project}/cmd/ksync"
   end
 
   test do
