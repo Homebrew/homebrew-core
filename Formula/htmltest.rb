@@ -17,10 +17,10 @@ class Htmltest < Formula
 
   def install
     ldflags = %W[
-      -X main.date=#{Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")}
+      -X main.date=#{time.iso8601}
       -X main.version=#{version}
     ].join(" ")
-    system "go", "build", *std_go_args, "-ldflags", ldflags
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
