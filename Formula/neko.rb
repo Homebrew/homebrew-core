@@ -4,7 +4,7 @@ class Neko < Formula
   url "https://github.com/HaxeFoundation/neko/archive/v2-3-0/neko-2.3.0.tar.gz"
   sha256 "850e7e317bdaf24ed652efeff89c1cb21380ca19f20e68a296c84f6bad4ee995"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/HaxeFoundation/neko.git"
 
   bottle do
@@ -18,7 +18,7 @@ class Neko < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
-  depends_on "mbedtls"
+  depends_on "mbedtls@2"
   depends_on "openssl@1.1"
   depends_on "pcre"
 
