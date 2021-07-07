@@ -26,7 +26,7 @@ class Kubebuilder < Formula
       -X main.goos=#{goos}
       -X main.goarch=#{goarch}
       -X main.gitCommit=#{Utils.git_head}
-      -X main.buildDate=#{Time.now.iso8601}
+      -X main.buildDate=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags.join(" ")), "./cmd"
 
