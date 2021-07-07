@@ -23,6 +23,8 @@ class Nginx < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  uses_from_macos "xz" => :build
+
   def install
     # keep clean copy of source for compiling dynamic modules e.g. passenger
     (pkgshare/"src").mkpath
