@@ -24,7 +24,7 @@ class Mbedtls < Formula
   depends_on "python@3.9" => :build
 
   def install
-    inreplace "include/mbedtls/config.h" do |s|
+    inreplace "include/mbedtls/mbedtls_config.h" do |s|
       # enable pthread mutexes
       s.gsub! "//#define MBEDTLS_THREADING_PTHREAD", "#define MBEDTLS_THREADING_PTHREAD"
       # allow use of mutexes within mbed TLS
