@@ -44,7 +44,7 @@ class Autojump < Formula
     path = testpath/"foo/bar"
     path.mkpath
     output = `
-      source #{etc}/profile.d/autojump.sh
+      . #{etc}/profile.d/autojump.sh
       j -a "#{path.relative_path_from(testpath)}"
       j foo >/dev/null
       pwd
