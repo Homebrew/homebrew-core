@@ -18,6 +18,22 @@ class OpenjdkAT8 < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
 
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "cups"
+    depends_on "fontconfig"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxt"
+    depends_on "libxtst"
+    depends_on "unzip"
+    depends_on "zip"
+
+    ignore_missing_libraries %w[libjvm.so libawt_xawt.so]
+  end
+
   # Oracle doesn't serve JDK 7 downloads anymore, so use Zulu JDK 7 for bootstrapping.
   resource "boot-jdk" do
     on_macos do
@@ -46,11 +62,24 @@ class OpenjdkAT8 < Formula
     inreplace "hotspot/make/bsd/makefiles/saproc.make",
               '-isysroot "$(SDKPATH)" -iframework"$(SDKPATH)/System/Library/Frameworks"', ""
 
-    # Fix macOS version detection. After 10.10 this was changed to a 6 digit number,
-    # but this Makefile was written in the era of 4 digit numbers.
-    inreplace "hotspot/make/bsd/makefiles/gcc.make" do |s|
-      s.gsub! "$(subst .,,$(MACOSX_VERSION_MIN))", ENV["HOMEBREW_MACOS_VERSION_NUMERIC"]
-      s.gsub! "MACOSX_VERSION_MIN=10.7.0", "MACOSX_VERSION_MIN=#{MacOS.version}"
+    on_macos do
+      # Fix macOS version detection. After 10.10 this was changed to a 6 digit number,
+      # but this Makefile was written in the era of 4 digit numbers.
+      inreplace "hotspot/make/bsd/makefiles/gcc.make" do |s|
+        s.gsub! "$(subst .,,$(MACOSX_VERSION_MIN))", ENV["HOMEBREW_MACOS_VERSION_NUMERIC"]
+        s.gsub! "MACOSX_VERSION_MIN=10.7.0", "MACOSX_VERSION_MIN=#{MacOS.version}"
+      end
+    end
+
+    on_linux do
+      # Fix linker error with position-independent code with brewed GCC.
+      inreplace "common/autoconf/flags.m4", "-pie", "-fno-pie -no-pie"
+      # Fix unknown linker hash style on GCC toolchains.
+      inreplace "common/autoconf/flags.m4", "-Xlinker --hash-style=both", ""
+      inreplace "hotspot/make/linux/makefiles/gcc.make" do |s|
+        s.gsub! "-Xlinker -O1", ""
+        s.gsub! "-Wl,--hash-style=both", ""
+      end
     end
 
     args = %W[--with-boot-jdk-jvmargs=#{java_options}
@@ -59,17 +88,30 @@ class OpenjdkAT8 < Formula
               --with-jvm-variants=server
               --with-milestone=fcs
               --with-native-debug-symbols=none
-              --with-toolchain-type=clang
               --with-update-version=#{update}]
 
-    # Work around SDK issues with JavaVM framework.
-    if MacOS.version <= :catalina
-      sdk_path = MacOS::CLT.sdk_path(MacOS.version)
-      ENV["SDKPATH"] = ENV["SDKROOT"] = sdk_path
-      javavm_framework_path = sdk_path/"System/Library/Frameworks/JavaVM.framework/Frameworks"
-      args += %W[--with-extra-cflags=-F#{javavm_framework_path}
-                 --with-extra-cxxflags=-F#{javavm_framework_path}
-                 --with-extra-ldflags=-F#{javavm_framework_path}]
+    on_macos do
+      args << "--with-toolchain-type=clang"
+
+      # Work around SDK issues with JavaVM framework.
+      if MacOS.version <= :catalina
+        sdk_path = MacOS::CLT.sdk_path(MacOS.version)
+        ENV["SDKPATH"] = ENV["SDKROOT"] = sdk_path
+        javavm_framework_path = sdk_path/"System/Library/Frameworks/JavaVM.framework/Frameworks"
+        args += %W[--with-extra-cflags=-F#{javavm_framework_path}
+                   --with-extra-cxxflags=-F#{javavm_framework_path}
+                   --with-extra-ldflags=-F#{javavm_framework_path}]
+      end
+    end
+
+    on_linux do
+      args += %W[CC=#{ENV.cc}
+                 CXX=#{ENV.cxx}
+                 --with-toolchain-type=gcc
+                 --x-includes=#{HOMEBREW_PREFIX}/include
+                 --x-libraries=#{HOMEBREW_PREFIX}/lib
+                 --with-cups=#{HOMEBREW_PREFIX}
+                 --with-fontconfig=#{HOMEBREW_PREFIX}]
     end
 
     chmod 0755, %w[configure common/autoconf/autogen.sh]
@@ -80,11 +122,22 @@ class OpenjdkAT8 < Formula
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    jdk = Dir["build/*/images/j2sdk-bundle/*"].first
-    libexec.install jdk => "openjdk.jdk"
-    bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
-    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
-    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
+    on_macos do
+      jdk = Dir["build/*/images/j2sdk-bundle/*"].first
+      libexec.install jdk => "openjdk.jdk"
+      bin.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/bin/*"]
+      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/*.h"]
+      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/darwin/*.h"]
+      man1.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/man/man1/*"]
+    end
+
+    on_linux do
+      libexec.install Dir["build/*/images/j2sdk-image/*"]
+      bin.install_symlink Dir[libexec/"bin/*"]
+      include.install_symlink Dir[libexec/"include/*.h"]
+      include.install_symlink Dir[libexec/"include/linux/*.h"]
+      man1.install_symlink Dir[libexec/"man/man1/*"]
+    end
   end
 
   def caveats
