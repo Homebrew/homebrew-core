@@ -41,7 +41,7 @@ class Freexl < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lfreexl", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lfreexl", "-o", "test"
     assert_equal version.to_s, shell_output("./test")
   end
 end
