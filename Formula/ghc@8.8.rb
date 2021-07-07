@@ -20,14 +20,22 @@ class GhcAT88 < Formula
   keg_only :versioned_formula
 
   depends_on "python@3.9" => :build
-  depends_on "sphinx-doc" => :build
   depends_on arch: :x86_64
 
-  resource "gmp" do
-    url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
-    mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
-    mirror "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
-    sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
+  uses_from_macos "m4" => :build
+  uses_from_macos "ncurses"
+
+  on_macos do
+    resource "gmp" do
+      url "https://ftp.gnu.org/gnu/gmp/gmp-6.1.2.tar.xz"
+      mirror "https://gmplib.org/download/gmp/gmp-6.1.2.tar.xz"
+      mirror "https://ftpmirror.gnu.org/gmp/gmp-6.1.2.tar.xz"
+      sha256 "87b565e89a9a684fe4ebeeddb8399dce2599f9c9049854ca8c0dfbdea0e21912"
+    end
+  end
+
+  on_linux do
+    depends_on "gmp" => :build
   end
 
   # https://www.haskell.org/ghc/download_ghc_8_8_3.html#macosx_x86_64
@@ -49,30 +57,48 @@ class GhcAT88 < Formula
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
 
-    # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
-    # executables link to Homebrew's GMP.
-    gmp = libexec/"integer-gmp"
+    args = %w[--enable-numa=no]
+    on_macos do
+      # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
+      # executables link to Homebrew's GMP.
+      gmp = libexec/"integer-gmp"
 
-    # GMP *does not* use PIC by default without shared libs so --with-pic
-    # is mandatory or else you'll get "illegal text relocs" errors.
-    resource("gmp").stage do
-      system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
-                            "--build=#{Hardware.oldest_cpu}-apple-darwin#{OS.kernel_version.major}"
-      system "make"
-      system "make", "install"
+      # GMP *does not* use PIC by default without shared libs so --with-pic
+      # is mandatory or else you'll get "illegal text relocs" errors.
+      resource("gmp").stage do
+        system "./configure", "--prefix=#{gmp}", "--with-pic", "--disable-shared",
+                              "--build=#{Hardware.oldest_cpu}-apple-darwin#{OS.kernel_version.major}"
+        system "make"
+        system "make", "install"
+      end
+
+      args = ["--with-gmp-includes=#{gmp}/include",
+              "--with-gmp-libraries=#{gmp}/lib"]
     end
-
-    args = ["--with-gmp-includes=#{gmp}/include",
-            "--with-gmp-libraries=#{gmp}/lib"]
 
     resource("binary").stage do
       binary = buildpath/"binary"
 
-      system "./configure", "--prefix=#{binary}", *args
+      binary_args = args
+      on_linux do
+        binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
+        binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
+      end
+
+      system "./configure", "--prefix=#{binary}", *binary_args
       ENV.deparallelize { system "make", "install" }
 
       ENV.prepend_path "PATH", binary/"bin"
     end
+
+    on_linux do
+      args << "--with-intree-gmp"
+    end
+
+    # Disable PDF document generation (fails with newest sphinx)
+    (buildpath/"mk/build.mk").write <<-EOS
+      BUILD_SPHINX_PDF = NO
+    EOS
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
