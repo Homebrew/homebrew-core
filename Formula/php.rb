@@ -8,8 +8,8 @@ class Php < Formula
   license "PHP-3.01"
 
   livecheck do
-    url "https://www.php.net/releases/feed.php"
-    regex(/PHP (\d+(?:\.\d+)+) /i)
+    url "https://www.php.net/downloads"
+    regex(/href=.*?php[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
