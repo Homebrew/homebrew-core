@@ -15,16 +15,14 @@ class Youtubedr < Formula
   depends_on "go" => :build
 
   def install
-    build_time = Time.now.utc.strftime("%Y-%m-%dT%H:%M:%SZ")
-
     ldflags = %W[
       -s -w
       -X main.version=#{version}
-      -X main.date=#{build_time}
-    ]
+      -X main.date=#{time.iso8601}
+    ].join(" ")
 
     ENV["CGO_ENABLED"] = "0"
-    system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args, "./cmd/youtubedr"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/youtubedr"
   end
 
   test do
