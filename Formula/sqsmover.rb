@@ -19,7 +19,7 @@ class Sqsmover < Formula
     ldflags = %W[
       -s -w
       -X main.version=#{version}
-      -X main.date=#{Time.now.iso8601}
+      -X main.date=#{time.iso8601}
       -X main.builtBy=#{tap.user}
     ].join(" ")
 
