@@ -113,15 +113,12 @@ jobs:
 
             const test_bot_dependents_args = ["--only-formulae-dependents", "--junit"]
             test_bot_dependents_args.push('--testing-formulae=${{needs.tap_syntax.outputs.testing_formulae}}')
-            test_bot_dependents_args.push('--added-formulae=${{needs.tap_syntax.outputs.added_formulae}}')
-            test_bot_dependents_args.push('--deleted-formulae=${{needs.tap_syntax.outputs.deleted_formulae}}')
 
             if (label_names.includes('CI-force-arm')) {
               console.log('CI-force-arm label found. Not passing --skip-unbottled-arm to brew test-bot.')
             } else {
               console.log('No CI-force-arm label found. Passing --skip-unbottled-arm to brew test-bot.')
               test_bot_formulae_args.push('--skip-unbottled-arm')
-              test_bot_dependents_args.push('--skip-unbottled-arm')
             }
 
             if (label_names.includes('CI-force-linux')) {
@@ -129,7 +126,6 @@ jobs:
             } else {
               console.log('No CI-force-linux label found. Passing --skip-unbottled-linux to brew test-bot.')
               test_bot_formulae_args.push('--skip-unbottled-linux')
-              test_bot_dependents_args.push('--skip-unbottled-linux')
             }
 
             if (label_names.includes('CI-test-bot-fail-fast')) {
@@ -246,6 +242,7 @@ jobs:
       - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
         if: always()
         run: |
+          touch bottles/steps_output.txt
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
 
@@ -265,6 +262,7 @@ jobs:
       - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
         if: always()
         run: |
+          touch bottles/steps_output.txt
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
 

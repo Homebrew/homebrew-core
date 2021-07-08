@@ -99,7 +99,7 @@ jobs:
             docker exec ${{github.sha}} brew test-bot --only-setup
           fi
 
-      - name: Run brew test-bot --keep-old --only-json-tab --only-formulae --skip-dependents ${{github.event.inputs.formula}}
+      - name: Run brew test-bot --only-formulae --keep-old --only-json-tab --skip-dependents ${{github.event.inputs.formula}}
         run: |
           if [ "$RUNNER_OS" = 'macOS' ]; then
             mkdir bottles
@@ -113,9 +113,10 @@ jobs:
         if: always() && runner.os == 'Linux'
         run: docker cp ${{github.sha}}:/tmp/bottles .
 
-      - name: Failures summary for brew test-bot --keep-old --only-json-tab --only-formulae --skip-dependents ${{github.event.inputs.formula}}
+      - name: Failures summary for brew test-bot --only-formulae
         if: always()
         run: |
+          touch bottles/steps_output.txt
           cat bottles/steps_output.txt
           rm bottles/steps_output.txt
 
