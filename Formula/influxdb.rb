@@ -61,7 +61,7 @@ class Influxdb < Formula
       -w
       -X main.version=#{version}
       -X main.commit=#{Utils.git_short_head(length: 10)}
-      -X main.date=#{Time.at(ENV["SOURCE_DATE_EPOCH"].to_i).utc.iso8601}
+      -X main.date=#{time.iso8601}
     ].join(" ")
 
     system "go", "build", *std_go_args(ldflags: ldflags),
