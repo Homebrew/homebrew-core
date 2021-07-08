@@ -18,8 +18,6 @@ class Gdu < Formula
   conflicts_with "coreutils", because: "both install `gdu` binaries"
 
   def install
-    ENV["TZ"] = "UTC"
-    time = Time.at(ENV["SOURCE_DATE_EPOCH"].to_i)
     user = Utils.safe_popen_read("id", "-u", "-n")
     major = version.major
 
