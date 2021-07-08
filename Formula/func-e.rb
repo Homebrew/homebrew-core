@@ -12,7 +12,7 @@ class FuncE < Formula
       -s -w
       -X github.com/tetratelabs/func-e/internal/version.funcE=#{version}
     ]
-    system "go", "build", "-trimpath", "-ldflags", ldflags.join(" "), "-o", bin/"func-e"
+    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
   end
 
   test do
