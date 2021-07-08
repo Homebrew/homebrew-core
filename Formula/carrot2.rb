@@ -15,7 +15,7 @@ class Carrot2 < Formula
 
   # Switch to `gradle` when carrot2 supports Gradle 7+
   depends_on "gradle@6" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
     # Make possible to build the formula with the latest available in Homebrew gradle
@@ -31,7 +31,7 @@ class Carrot2 < Formula
     end
 
     (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs",
-      JAVA_CMD:    "exec '#{Formula["openjdk"].opt_bin}/java'",
+      JAVA_CMD:    "exec '#{Formula["openjdk@11"].opt_bin}/java'",
       SCRIPT_HOME: libexec/"dcs"
   end
 
@@ -64,7 +64,7 @@ class Carrot2 < Formula
   test do
     port = free_port
     fork { exec bin/"carrot2", "--port", port.to_s }
-    sleep 5
+    sleep 20
     assert_match "Lingo", shell_output("curl -s localhost:#{port}/service/list")
   end
 end
