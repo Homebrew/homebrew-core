@@ -16,9 +16,11 @@ class GitTown < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags",
-           "-X github.com/git-town/git-town/src/cmd.version=v#{version} "\
-           "-X github.com/git-town/git-town/src/cmd.buildDate=#{Time.new.strftime("%Y/%m/%d")}"
+    ldflags = %W[
+      -X github.com/git-town/git-town/src/cmd.version=v#{version}
+      -X github.com/git-town/git-town/src/cmd.buildDate=#{time.strftime("%Y/%m/%d")}
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
