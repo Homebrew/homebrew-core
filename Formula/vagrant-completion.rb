@@ -1,8 +1,8 @@
 class VagrantCompletion < Formula
   desc "Bash completion for Vagrant"
   homepage "https://github.com/hashicorp/vagrant"
-  url "https://github.com/hashicorp/vagrant/archive/v2.2.16.tar.gz"
-  sha256 "ab3c60bb12b2da916fd073192849f2b5d3f224f95febf3538212247c4cde28d6"
+  url "https://github.com/hashicorp/vagrant/archive/v2.2.17.tar.gz"
+  sha256 "4f8f2e8bb8e0abd9e2de90b4f497765b3913f4f05a27e4940df71703940c8ccf"
   license "MIT"
   head "https://github.com/hashicorp/vagrant.git", branch: "main"
 
