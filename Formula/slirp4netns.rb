@@ -6,7 +6,10 @@ class Slirp4netns < Formula
   license "GPL-2.0-or-later"
 
   depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  
   depends_on "jq" => :test
+
   depends_on "glib"
   depends_on "libcap"
   depends_on "libseccomp"
