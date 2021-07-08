@@ -162,7 +162,7 @@ jobs:
 
   tests:
     needs: setup_tests
-    if: github.event_name == 'pull_request' && ${{fromJson(needs.setup_tests.outputs.syntax-only)}}
+    if: ${{github.event_name == 'pull_request' && fromJson(needs.setup_tests.outputs.syntax-only) == false}}
     strategy:
       matrix:
         runner: ${{fromJson(needs.setup_tests.outputs.runners)}}
