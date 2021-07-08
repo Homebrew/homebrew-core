@@ -1,8 +1,8 @@
 class RubyAT26 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.7.tar.xz"
-  sha256 "f43ead5626202d5432d2050eeab606e547f0554299cc1e5cf573d45670e59611"
+  url "https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.8.tar.xz"
+  sha256 "8262e4663169c85787fdc9bfbd04d9eb86eb2a4b56d7f98373a8fcaa18e593eb"
   license "Ruby"
 
   livecheck do
