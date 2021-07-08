@@ -16,7 +16,7 @@ class Autodiff < Formula
   depends_on "eigen"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DAUTODIFF_BUILD_TESTS=off"
     system "make", "install"
     (pkgshare/"test").install "examples/forward/example-forward-single-variable-function.cpp" => "forward.cpp"
     (pkgshare/"test").install "examples/reverse/example-reverse-single-variable-function.cpp" => "reverse.cpp"
