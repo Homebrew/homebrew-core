@@ -1,8 +1,8 @@
 class Pgweb < Formula
   desc "Web-based PostgreSQL database browser"
   homepage "https://sosedoff.github.io/pgweb/"
-  url "https://github.com/sosedoff/pgweb/archive/v0.11.7.tar.gz"
-  sha256 "d35f74a6d80093764aece7b0a0ad6869799d04316efab077e0f7603835a9f159"
+  url "https://github.com/sosedoff/pgweb/archive/v0.11.8.tar.gz"
+  sha256 "b391dee6e88c534db82d71515d7efa642e6a34bcded93250fd3f8c2150e75cd9"
   license "MIT"
 
   bottle do
@@ -15,21 +15,15 @@ class Pgweb < Formula
   end
 
   depends_on "go" => :build
-  depends_on "go-bindata" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/sosedoff/pgweb").install buildpath.children
+    ldflags = %W[
+      -s -w
+      -X github.com/sosedoff/pgweb/pkg/command.BuildTime=#{time.iso8601}
+      -X github.com/sosedoff/pgweb/pkg/command.GoVersion=Formula["go"].version
+    ].join(" ")
 
-    cd "src/github.com/sosedoff/pgweb" do
-      # Avoid running `go get`
-      inreplace "Makefile", "go get", ""
-
-      system "make", "build"
-      bin.install "pgweb"
-      prefix.install_metafiles
-    end
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do
