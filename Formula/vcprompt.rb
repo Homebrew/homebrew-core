@@ -18,7 +18,8 @@ class Vcprompt < Formula
     sha256 cellar: :any, mojave:        "8be8d7b1126e40a72a85f707b07f922132769cb2c6c26f768fe57ccb9c542fa5"
   end
 
-  depends_on "autoconf" => :build
+  # Check if `autoconf` works when updating to the next release
+  depends_on "autoconf@2.69" => :build
   depends_on "sqlite"
 
   def install
