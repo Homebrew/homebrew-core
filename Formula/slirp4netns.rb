@@ -5,6 +5,7 @@ class Slirp4netns < Formula
   sha256 "87a8909746781d995b1b49eb36540e6ee745599f983c18f9b4e927ec92d86eb6"
   license "GPL-2.0-or-later"
 
+  depends_on "autoconf" => :build
   depends_on "jq" => :test
   depends_on "glib"
   depends_on "libcap"
