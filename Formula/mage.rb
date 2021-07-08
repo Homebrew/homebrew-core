@@ -21,7 +21,7 @@ class Mage < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/magefile/mage/mage.timestamp=#{Date.today}
+      -X github.com/magefile/mage/mage.timestamp=#{time.rfc3339}
       -X github.com/magefile/mage/mage.commitHash=#{Utils.git_short_head}
       -X github.com/magefile/mage/mage.gitTag=#{version}
     ]
