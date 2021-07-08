@@ -1,10 +1,15 @@
 class Nopoll < Formula
   desc "Open-source C WebSocket toolkit"
   homepage "https://www.aspl.es/nopoll/"
-  url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.6.b400.tar.gz"
-  version "0.4.6.b400"
-  sha256 "7f1b20f1d0525f30cdd2a4fc386d328b4cf98c6d11cef51fe62cd9491ba19ad9"
-  revision 1
+  url "https://www.aspl.es/nopoll/downloads/nopoll-0.4.7.b429.tar.gz"
+  version "0.4.7.b429"
+  sha256 "d5c020fec25e3fa486c308249833d06bed0d76bde9a72fd5d73cfb057c320366"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url "https://www.aspl.es/nopoll/downloads/"
+    regex(/href=.*?nopoll[._-]v?(\d+(?:\.\d+)+(?:\.b\d+)?)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e83bf8232d6018d6b7df08407aeeb44ba8ef4b0d740b0b1b849b303ef50ce27c"
