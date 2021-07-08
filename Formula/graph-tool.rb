@@ -32,7 +32,6 @@ class GraphTool < Formula
   depends_on "librsvg"
   depends_on macos: :mojave # for C++17
   depends_on "numpy"
-  depends_on "pillow"
   depends_on "py3cairo"
   depends_on "pygobject3"
   depends_on "python@3.9"
