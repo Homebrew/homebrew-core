@@ -1,7 +1,7 @@
 class Purescript < Formula
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
-  url "https://hackage.haskell.org/package/purescript-0.14.2/purescript-0.14.2.tar.gz"
+  url "https://hackage.haskell.org/package/purescript-0.14.3/purescript-0.14.3.tar.gz"
   sha256 "b538dc52b30712d6efd211da3bffa72f77a1e23b49973b017c69ec100623f389"
   license "BSD-3-Clause"
   head "https://github.com/purescript/purescript.git"
@@ -20,8 +20,8 @@ class Purescript < Formula
   uses_from_macos "zlib"
 
   resource "purescript-cst" do
-    url "https://hackage.haskell.org/package/purescript-cst-0.2.0.0/purescript-cst-0.2.0.0.tar.gz"
-    sha256 "7a1cacee4d951b5bbbfd57b8aad2baff7a94dbcb5172aef0bce2c18355a2fa6a"
+    url "https://hackage.haskell.org/package/purescript-cst-0.3.0.0/purescript-cst-0.3.0.0.tar.gz"
+    sha256 "c23ba1ef0714ff59c9e4bc7a74531f5e1422ebf616bdc3cbe9f6597cbb1bee95"
   end
 
   def install
