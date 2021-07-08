@@ -2,8 +2,8 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://project.carrot2.org"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.2.1",
-      revision: "936bcf7fa48e03fafffdf4e6f15b36074d161e6e"
+      tag:      "release/4.3.1",
+      revision: "5ee1bc852738bce97fe8be355720f5809fb4cdec"
   license "Apache-2.0"
 
   bottle do
