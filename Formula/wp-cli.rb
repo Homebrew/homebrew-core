@@ -17,6 +17,8 @@ class WpCli < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "67acd9816806eef402f59f1904fcebd2e23e6d6cb7657604430e299cf21bd300"
   end
 
+  uses_from_macos "php"
+
   def install
     bin.install "wp-cli-#{version}.phar" => "wp"
   end
