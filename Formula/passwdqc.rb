@@ -1,8 +1,14 @@
 class Passwdqc < Formula
   desc "Password/passphrase strength checking and enforcement toolset"
   homepage "https://www.openwall.com/passwdqc/"
-  url "https://www.openwall.com/passwdqc/passwdqc-1.4.0.tar.gz"
-  sha256 "72689c31c34d48349a7c2aab2cf6cf95b8d22818758aba329d5e0ead9f95fc97"
+  url "https://www.openwall.com/passwdqc/passwdqc-2.0.2.tar.gz"
+  sha256 "ff1f505764c020f6a4484b1e0cc4fdbf2e3f71b522926d90b4709104ca0604ab"
+  license "0BSD"
+
+  livecheck do
+    url :homepage
+    regex(/href=["']?passwdqc[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "9e1672f833e04b334c73027bdbec92ad00f4cf14d1f0afd836c985fd51acceb8"
@@ -13,6 +19,9 @@ class Passwdqc < Formula
   end
 
   def install
+    # https://github.com/openwall/passwdqc/issues/15
+    inreplace "passwdqc_filter.h", "<endian.h>", "<machine/endian.h>"
+
     args = %W[
       BINDIR=#{bin}
       CC=#{ENV.cc}
