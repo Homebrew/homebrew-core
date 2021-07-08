@@ -19,7 +19,7 @@ class Awsweeper < Formula
     ldflags = %W[
       -s -w
       -X github.com/jckuester/awsweeper/internal.version=#{version}
-      -X github.com/jckuester/awsweeper/internal.date=#{Date.today}
+      -X github.com/jckuester/awsweeper/internal.date=#{time.strftime("%F")}
     ]
 
     system "go", "build", *std_go_args, "-ldflags", ldflags.join(" ")
