@@ -24,15 +24,14 @@ class GitlabRunner < Formula
 
   def install
     proj = "gitlab.com/gitlab-org/gitlab-runner"
-    ldflags = [
-      "-X #{proj}/common.NAME=gitlab-runner",
-      "-X #{proj}/common.VERSION=#{version}",
-      "-X #{proj}/common.REVISION=#{Utils.git_short_head(length: 8)}",
-      "-X #{proj}/common.BRANCH=#{version.major}-#{version.minor}-stable",
-      "-X #{proj}/common.BUILT=#{Time.new.strftime("%Y-%m-%dT%H:%M:%S%:z")}",
-    ]
-
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+    ldflags = %W[
+      -X #{proj}/common.NAME=gitlab-runner
+      -X #{proj}/common.VERSION=#{version}
+      -X #{proj}/common.REVISION=#{Utils.git_short_head(length: 8)}
+      -X #{proj}/common.BRANCH=#{version.major}-#{version.minor}-stable
+      -X #{proj}/common.BUILT=#{time.strftime("%Y-%m-%dT%H:%M:%S%:z")}
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   service do
