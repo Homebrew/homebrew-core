@@ -1,8 +1,8 @@
 class Liquigraph < Formula
   desc "Migration runner for Neo4j"
   homepage "https://www.liquigraph.org/"
-  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.2.tar.gz"
-  sha256 "60d17bb39e7c070a99f4669516cae0c1b0939700127758a9e500e210943f0cca"
+  url "https://github.com/liquigraph/liquigraph/archive/liquigraph-4.0.3.tar.gz"
+  sha256 "748ceb4dee52df1edca73570f0ab081ebac2fe93c9c223ea71fa34cbc76553fc"
   license "Apache-2.0"
   head "https://github.com/liquigraph/liquigraph.git"
 
@@ -16,10 +16,10 @@ class Liquigraph < Formula
   end
 
   depends_on "maven" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
     system "mvn", "-B", "-q", "-am", "-pl", "liquigraph-cli", "clean", "package", "-DskipTests"
     (buildpath/"binaries").mkpath
     system "tar", "xzf", "liquigraph-cli/target/liquigraph-cli-bin.tar.gz", "-C", "binaries"
@@ -44,7 +44,8 @@ class Liquigraph < Formula
     EOS
 
     jdbc = "jdbc:neo4j:http://#{failing_hostname}:7474/"
-    output = shell_output("#{bin}/liquigraph -c #{changelog.realpath} -g #{jdbc} 2>&1", 1)
+    output = shell_output("#{bin}/liquigraph dry-run --changelog #{changelog.realpath}" \ 
+                              "--graph-db-uri #{jdbc} 2>&1", 1)
     assert_match "Exception: #{failing_hostname}", output
   end
 end
