@@ -8,7 +8,6 @@ class Jnethack < Formula
   url "https://scm.osdn.net/gitroot/jnethack/source.git",
       tag:      "v3.6.6-0.2",
       revision: "1dff0026832d47d3c93ff263afad233cced3a387"
-  version "3.6.6-0.2"
   license "NGPL"
   head "https://github.com/jnethack/jnethack-alpha.git", branch: "develop"
 
