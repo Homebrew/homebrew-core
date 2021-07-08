@@ -16,6 +16,20 @@ class FuncE < Formula
   end
 
   test do
-    system "#{bin}/func-e", "-v"
+    func_e_home = testpath/".func-e"
+    ENV["FUNC_E_HOME"] = func_e_home
+
+    # While this says "--version", this is a legitimate test as the --version is interpreted by Envoy.
+    # Specifically, func-e downloads and installs Envoy. Finally, it runs `envoy --version`
+    run_output = shell_output("#{bin}/func-e run --version")
+
+    # We intentionally aren't choosing an Envoy version, so we need to read the version file to figure it out.
+    installed_envoy_version = (func_e_home/"version").read
+    envoy_bin = "#{func_e_home}/versions/#{installed_envoy_version}/bin/envoy"
+    assert_path_exists envoy_bin
+
+    # Test output from the `envoy --version`. This uses a regex because we won't know the commit etc used. Ex.
+    # envoy  version: 98c1c9e9a40804b93b074badad1cdf284b47d58b/1.18.3/Modified/RELEASE/BoringSSL
+    assert_match %r{envoy +version: [a-f0-9]{40}/#{installed_envoy_version}/}, run_output
   end
 end
