@@ -1,8 +1,8 @@
 class Gitql < Formula
   desc "Git query language"
   homepage "https://github.com/filhodanuvem/gitql"
-  url "https://github.com/filhodanuvem/gitql/archive/v2.2.1.tar.gz"
-  sha256 "eb6f9e2d99d17d83ff11a1e8132de41d8796e6a954728ba49e92e88ae7c049a7"
+  url "https://github.com/filhodanuvem/gitql/archive/v2.3.0.tar.gz"
+  sha256 "e1866471dd3fc5d52fd18af5df489a25dca1168bf2517db2ee8fb976eee1e78a"
   license "MIT"
   head "https://github.com/filhodanuvem/gitql.git", branch: "main"
 
