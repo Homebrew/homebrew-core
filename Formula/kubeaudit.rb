@@ -20,7 +20,7 @@ class Kubeaudit < Formula
     ldflags = %W[
       -s -w
       -X github.com/Shopify/kubeaudit/cmd.Version=#{version}
-      -X github.com/Shopify/kubeaudit/cmd.BuildDate=#{Date.today}
+      -X github.com/Shopify/kubeaudit/cmd.BuildDate=#{time.strftime("%F")}
     ]
 
     system "go", "build", "-ldflags", ldflags.join(" "), *std_go_args, "./cmd"
