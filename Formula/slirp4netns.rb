@@ -6,7 +6,6 @@ class Slirp4netns < Formula
   license "GPL-2.0-only"
 
   depends_on "jq" => :test
-
   depends_on "glib"
   depends_on "libcap"
   depends_on "libseccomp"
