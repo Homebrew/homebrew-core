@@ -10,7 +10,6 @@ class BandcampDl < Formula
   stable do
     url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
     sha256 "3252f52780f280ba18818d40cda1c89bdb99ee33d7911320ec2ce4c374df2d6b"
-    version "0.0.8-12"
     # upstream hotfix, https://github.com/iheanyi/bandcamp-dl/pull/167
     # remove this in next release
     patch do
