@@ -13,6 +13,10 @@ class GitExtras < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "55b4518da5dc0d3f07725c86d64a844b8a98cbcdb28f2a8bd99791c444d1838f"
   end
 
+  on_linux do
+    depends_on "util-linux" # for `column`
+  end
+
   conflicts_with "git-utils",
     because: "both install a `git-pull-request` script"
 
