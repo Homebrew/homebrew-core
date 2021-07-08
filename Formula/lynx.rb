@@ -24,6 +24,7 @@ class Lynx < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   def install
     # Using --with-screen=ncurses to due to behaviour change in Big Sur
