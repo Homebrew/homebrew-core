@@ -1,12 +1,8 @@
 class GnuProlog < Formula
   desc "Prolog compiler with constraint solving"
   homepage "http://www.gprolog.org/"
-  # Normal download page is from the http://www.gprolog.org/, however in October 2020
-  # a slightly updated "1.4.5" version was posted there which broke the sha256 sum
-  # In the next release we can go back to using this as our official source, but
-  # for now download from GNU which still has the original 1.4.5 available:
-  url "https://ftp.gnu.org/gnu/gprolog/gprolog-1.4.5.tar.gz"
-  sha256 "bfdcf00e051e0628b4f9af9d6638d4fde6ad793401e58a5619d1cc6105618c7c"
+  url "http://www.gprolog.org/gprolog-1.5.0.tar.gz"
+  sha256 "670642b43c0faa27ebd68961efb17ebe707688f91b6809566ddd606139512c01"
   license any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"]
 
   livecheck do
