@@ -149,7 +149,7 @@ class Git < Formula
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
-    # git-send-email needs Net::SMTP::SSL
+    # git-send-email needs Net::SMTP::SSL or Net::SMTP >= 2.34
     resource("Net::SMTP::SSL").stage do
       (share/"perl5").install "lib/Net"
     end
@@ -186,14 +186,16 @@ class Git < Formula
     system bin/"git", "commit", "-a", "-m", "Initial Commit"
     assert_equal "haunted\nhouse", shell_output("#{bin}/git ls-files").strip
 
-    # Check Net::SMTP::SSL was installed correctly.
-    %w[foo bar].each { |f| touch testpath/f }
-    system bin/"git", "add", "foo", "bar"
-    system bin/"git", "commit", "-a", "-m", "Second Commit"
-    assert_match "Authentication Required", pipe_output(
-      "#{bin}/git send-email --from=test@example.com --to=dev@null.com " \
-      "--smtp-server=smtp.gmail.com --smtp-server-port=587 " \
-      "--smtp-encryption=tls --confirm=never HEAD^ 2>&1",
-    )
+    # Check Net::SMTP or Net::SMTP::SSL works for git-send-email
+    on_macos do
+      %w[foo bar].each { |f| touch testpath/f }
+      system bin/"git", "add", "foo", "bar"
+      system bin/"git", "commit", "-a", "-m", "Second Commit"
+      assert_match "Authentication Required", pipe_output(
+        "#{bin}/git send-email --from=test@example.com --to=dev@null.com " \
+        "--smtp-server=smtp.gmail.com --smtp-server-port=587 " \
+        "--smtp-encryption=tls --confirm=never HEAD^ 2>&1",
+      )
+    end
   end
 end
