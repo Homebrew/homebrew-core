@@ -14,6 +14,7 @@ class Autodiff < Formula
 
   depends_on "cmake" => :build
   depends_on "eigen"
+  depends_on "pybind11"
 
   def install
     system "cmake", ".", *std_cmake_args, "-DAUTODIFF_BUILD_TESTS=off"
