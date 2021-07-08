@@ -25,6 +25,9 @@
     "exclude_packages": ["tabulate"]
   },
   "black": "black[d]",
+  "breezy": {
+    "exclude_packages": ["six"]
+  },
   "buku": {
     "package_name": "buku[server]",
     "exclude_packages": ["six"]
