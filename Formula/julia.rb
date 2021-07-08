@@ -80,8 +80,14 @@ class Julia < Formula
       LIBLAPACKNAME=libopenblas
       USE_BLAS64=0
       PYTHON=python3
-      MACOSX_VERSION_MIN=#{MacOS.version}
     ]
+    on_macos { args << "MACOSX_VERSION_MIN=#{MacOS.version}" }
+    on_linux do
+      ENV.llvm_clang
+      # FIXME: Testing behavior if building a bundled libc++
+      args << "USECLANG=1"
+      args << "BUILD_CUSTOM_LIBCXX=1"
+    end
 
     # ARM gcc does not provide `libquadmath`
     args << "USE_SYSTEM_CSL=1" unless Hardware::CPU.arm?
