@@ -18,6 +18,15 @@ class Libunwind < Formula
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
+
+    # Rename `libunwind.a` to avoid conflict with LLVM's `libunwind.a`
+    mv lib/"libunwind.a", lib/"libunwind-standalone.a"
+  end
+
+  def caveats
+    <<~EOS
+      To avoid conflicts with LLVM, `libunwind.a` has been installed as `libunwind-standalone.a`.
+    EOS
   end
 
   test do
