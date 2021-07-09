@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v1.8.0.tar.gz"
-  sha256 "f7d9223e784607f78673f858deab2e3cfed95a4af39fa63366af83a4987e9aaa"
+  url "https://github.com/fluent/fluent-bit/archive/v1.8.1.tar.gz"
+  sha256 "a284d803ec9203be69b7c4ff9febb33b8c938b640f0cc7cbcf6f9223e5de4fb5"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git"
 
@@ -32,6 +32,9 @@ class FluentBit < Formula
     sha256 "80d1b0b6916ff1e0c157e6824afa769f08e28e764f65bfd28df0900d6f9bda1e"
   end
 
+  # Fix error: use of undeclared identifier 'clock_serv_t'
+  patch :DATA
+
   def install
     chdir "build" do
       # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
@@ -49,3 +52,50 @@ class FluentBit < Formula
     assert_equal "Fluent Bit v#{version}", output
   end
 end
+
+__END__
+diff --git a/lib/cmetrics/src/cmt_time.c b/lib/cmetrics/src/cmt_time.c
+index 0671542a..67f1c368 100644
+--- a/lib/cmetrics/src/cmt_time.c
++++ b/lib/cmetrics/src/cmt_time.c
+@@ -20,7 +20,7 @@
+ #include <cmetrics/cmt_info.h>
+ 
+ /* MacOS */
+-#ifdef FLB_HAVE_CLOCK_GET_TIME
++#ifdef CMT_HAVE_CLOCK_GET_TIME
+ #include <mach/clock.h>
+ #include <mach/mach.h>
+ #endif
+@@ -41,8 +41,8 @@ uint64_t cmt_time_now()
+     mach_timespec_t mts;
+     host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
+     clock_get_time(cclock, &mts);
+-    tm->tv_sec = mts.tv_sec;
+-    tm->tv_nsec = mts.tv_nsec;
++    tm.tv_sec = mts.tv_sec;
++    tm.tv_nsec = mts.tv_nsec;
+     mach_port_deallocate(mach_task_self(), cclock);
+ #else /* __STDC_VERSION__ */
+     clock_gettime(CLOCK_REALTIME, &tm);
+diff --git a/src/flb_time.c b/src/flb_time.c
+index 9f3d5964..bdc89d7e 100644
+--- a/src/flb_time.c
++++ b/src/flb_time.c
+@@ -52,13 +52,13 @@ static int _flb_time_get(struct flb_time *tm)
+ #elif defined FLB_HAVE_TIMESPEC_GET
+     /* C11 supported! */
+     return timespec_get(&tm->tm, TIME_UTC);
+-#elif defined FLB_CLOCK_GET_TIME
++#elif defined FLB_HAVE_CLOCK_GET_TIME
+     clock_serv_t cclock;
+     mach_timespec_t mts;
+     host_get_clock_service(mach_host_self(), CALENDAR_CLOCK, &cclock);
+     clock_get_time(cclock, &mts);
+-    tm->tv_sec = mts.tv_sec;
+-    tm->tv_nsec = mts.tv_nsec;
++    tm->tm.tv_sec = mts.tv_sec;
++    tm->tm.tv_nsec = mts.tv_nsec;
+     return mach_port_deallocate(mach_task_self(), cclock);
+ #else /* __STDC_VERSION__ */
+     return clock_gettime(CLOCK_REALTIME, &tm->tm);
