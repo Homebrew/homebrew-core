@@ -6,6 +6,10 @@ on:
     # Once each 24 hours, at 1 during the night
     - cron: "0 1 * * *"
 
+concurrency:
+  group: recreate-linux-runners
+  cancel-in-progress: true
+
 jobs:
   recreate:
     if: github.repository == 'Homebrew/homebrew-core'

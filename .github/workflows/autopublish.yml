@@ -6,6 +6,10 @@ on:
     # Once every hour
     - cron: "*/60 * * * *"
 
+concurrency:
+  group: autopublish
+  cancel-in-progress: true
+
 env:
   HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
 
