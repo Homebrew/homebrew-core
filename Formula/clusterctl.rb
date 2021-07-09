@@ -5,9 +5,15 @@ class Clusterctl < Formula
   sha256 "af60c8aa1b21eccc7f272c0135ffaf1a8e0ecdffb4173075efac52509ce0eeb0"
   license "Apache-2.0"
 
+  # Upstream creates releases on GitHub for the two most recent major/minor
+  # versions (e.g., 0.3.x, 0.4.x), so the "latest" release can be incorrect. We
+  # don't check the Git tags because, for this project, a version may not be
+  # considered released until the GitHub release is created. The first-party
+  # website doesn't clearly list the latest version and we have to isolate it
+  # from a GitHub URL used in a curl command in the installation instructions.
   livecheck do
-    url :stable
-    strategy :github_latest
+    url "https://cluster-api.sigs.k8s.io/user/quick-start.html"
+    regex(%r{/cluster-api/releases/download/v?(\d+(?:\.\d+)+)/}i)
   end
 
   bottle do
