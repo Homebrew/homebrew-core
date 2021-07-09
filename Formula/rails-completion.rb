@@ -7,6 +7,10 @@ class RailsCompletion < Formula
   license "MIT"
   head "https://github.com/mernen/completion-ruby.git"
 
+  livecheck do
+    skip "No version information available to check"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "e52f96f415b50192094012cd4678e96b1c5e119c133224d4302e0bf2f6acea0e"
   end
