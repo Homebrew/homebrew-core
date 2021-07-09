@@ -1,10 +1,20 @@
 class Brainfuck < Formula
   desc "Interpreter for the brainfuck language"
   homepage "https://github.com/fabianishere/brainfuck"
-  url "https://github.com/fabianishere/brainfuck/archive/2.7.1.tar.gz"
-  sha256 "06534de715dbc614f08407000c2ec6d497770069a2d7c84defd421b137313d71"
   license "Apache-2.0"
   head "https://github.com/fabianishere/brainfuck.git"
+
+  # Remove stable block in next release with merged patch
+  stable do
+    url "https://github.com/fabianishere/brainfuck/archive/2.7.1.tar.gz"
+    sha256 "06534de715dbc614f08407000c2ec6d497770069a2d7c84defd421b137313d71"
+
+    # Fix Linux build: "editline/history.h: No such file or directory"
+    # Upstream ref: https://github.com/fabianishere/brainfuck/pull/58
+    # Extracted part of commit to not apply version number changes
+    # Remove in the next release
+    patch :DATA
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "560663a6526b7ebc8f4eb49ffa77baaa5d52fd0c4567310ce89adb4e0175c7a5"
@@ -17,6 +27,7 @@ class Brainfuck < Formula
   end
 
   depends_on "cmake" => :build
+  uses_from_macos "libedit"
 
   def install
     system "cmake", ".", *std_cmake_args, "-DBUILD_SHARED_LIB=ON",
@@ -29,3 +40,19 @@ class Brainfuck < Formula
     assert_equal "ABC", output.chomp
   end
 end
+
+__END__
+diff --git a/src/main.c b/src/main.c
+index 943b08a..649061a 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -22,9 +22,6 @@
+
+ #ifdef BRAINFUCK_EDITLINE_LIB
+ 	#include <editline/readline.h>
+-	#ifndef __APPLE__
+-		#include <editline/history.h>
+-	#endif
+ #endif
+
+ #if defined(WIN32) || defined(_WIN32) || defined(__WIN32) && !defined(__CYGWIN__)
