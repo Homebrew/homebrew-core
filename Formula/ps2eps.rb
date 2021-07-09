@@ -4,6 +4,11 @@ class Ps2eps < Formula
   url "https://www.tm.uka.de/~bless/ps2eps-1.70.tar.gz"
   sha256 "3a6681c3177af9ae326459c57e84fe90829d529d247fc32ae7f66e8839e81b11"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ps2eps[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cb048bafbe5b44a17151bc81c5743045f3f4963d6f3cf2adf38685bba82c8c67"
     sha256 cellar: :any_skip_relocation, big_sur:       "91e08e8ced4f5394ad3f4990a092fa61a547cce4264127350f97912c50dda5f3"
