@@ -36,6 +36,9 @@
     "package_name": "buku[server]",
     "exclude_packages": ["six"]
   },
+  "bzt": {
+    "exclude_packages": ["cython", "six"]
+  },
   "certbot": {
     "extra_packages": ["certbot-apache", "certbot-nginx"]
   },
