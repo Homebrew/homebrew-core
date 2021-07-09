@@ -4,6 +4,7 @@ class Ortp < Formula
   url "https://gitlab.linphone.org/BC/public/ortp/-/archive/4.5.22/ortp-4.5.22.tar.bz2"
   sha256 "c30fd72e7847b32b5aaa31dc5a82c92856c59ca8cb8128d50b3c0e38104d6376"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://gitlab.linphone.org/BC/public/ortp.git"
 
   bottle do
