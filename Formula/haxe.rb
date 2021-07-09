@@ -2,6 +2,7 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   license all_of: ["GPL-2.0-or-later", "MIT"]
+  revision 1
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
   stable do
