@@ -15,6 +15,10 @@ class Sqlcipher < Formula
 
   depends_on "openssl@1.1"
 
+  # Build scripts require tclsh. `--disable-tcl` only skips building extension
+  uses_from_macos "tcl-tk" => :build
+  uses_from_macos "sqlite"
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -34,6 +38,10 @@ class Sqlcipher < Formula
       -DSQLITE_ENABLE_COLUMN_METADATA
     ].join(" ")
     args << "CFLAGS=#{cflags}"
+
+    on_linux do
+      args << "LIBS=-lm"
+    end
 
     system "./configure", *args
     system "make"
