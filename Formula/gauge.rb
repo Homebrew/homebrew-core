@@ -16,6 +16,12 @@ class Gauge < Formula
 
   depends_on "go" => :build
 
+  # remove in next release
+  patch do
+    url "https://github.com/getgauge/gauge/commit/68ab64f1684e541e148458c1bd6f3c4525897b46.patch?full_index=1"
+    sha256 "796bfdcf8c689b824de186cafe9ac3e90e5dc87a4481a57612e01f803f9510c0"
+  end
+
   def install
     system "go", "run", "build/make.go"
     system "go", "run", "build/make.go", "--install", "--prefix", prefix
