@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.11/source/mariadb-10.5.11.tar.gz"
-  sha256 "761053605fe30ce393f324852117990350840a93b3e6305ef4d2f8c8305cc47a"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.3/source/mariadb-10.6.3.tar.gz"
+  sha256 "5bc125606af5ec1fda80f594c1ddfacef8b305c158ecf8b1ca7a3f01cd0b18db"
   license "GPL-2.0-only"
 
   livecheck do
@@ -76,11 +76,8 @@ class Mariadb < Formula
       -DDEFAULT_CHARSET=utf8mb4
       -DDEFAULT_COLLATION=utf8mb4_general_ci
       -DINSTALL_SYSCONFDIR=#{etc}
-      -DCOMPILATION_COMMENT=Homebrew
+      -DCOMPILATION_COMMENT=#{tap.user}
     ]
-
-    # disable TokuDB, which is currently not supported on macOS
-    args << "-DPLUGIN_TOKUDB=NO"
 
     # Disable RocksDB on Apple Silicon (currently not supported)
     args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
@@ -93,11 +90,6 @@ class Mariadb < Formula
       # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
       # removed once that issue is closed and the fix has been merged into a stable release.
       mv "storage/mroonga/version", "storage/mroonga/version.txt"
-      # Reported upstream at https://jira.mariadb.org/browse/MDEV-25716 - fixed by
-      # https://github.com/mariadb-corporation/libmarias3/commit/c71898f82598 and should be fixed
-      # in 10.5.12. Does not affect older versions of mariadb because they do not include this
-      # library.
-      mv "storage/maria/libmarias3/VERSION", "storage/maria/libmarias3/VERSION.txt"
     end
 
     system "make"
