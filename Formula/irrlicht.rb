@@ -78,7 +78,7 @@ class Irrlicht < Formula
     end
     on_linux do
       cp_r Dir["#{pkgshare}/examples/01.HelloWorld/*"], testpath
-      system ENV.cxx, "-I#{include}/irrlicht", "-L#{lib}", "-lIrrlicht", "main.cpp", "-o", "hello"
+      system ENV.cxx, "main.cpp", "-I#{include}/irrlicht", "-L#{lib}", "-lIrrlicht", "-o", "hello"
     end
   end
 end
