@@ -12,6 +12,13 @@ class Jam < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "2927cebface8a3cbc00a23e7badb9e1676fda9bae282e78a1772b99aafba5014"
   end
 
+  # The "Jam Documentation" page has a banner stating:
+  # "Perforce is no longer actively contributing to the Jam Open Source project.
+  # The last Perforce release of Jam was version 2.6 in August of 2014. We will
+  # keep the Perforce-controlled links and information posted here available
+  # until further notice."
+  deprecate! date: "2021-07-10", because: :unmaintained
+
   conflicts_with "ftjam", because: "both install a `jam` binary"
 
   def install
