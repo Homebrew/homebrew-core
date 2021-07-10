@@ -15,6 +15,7 @@ class AcesContainer < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
 
   def install
     mkdir "build" do
@@ -33,7 +34,7 @@ class AcesContainer < Formula
           return 0;
       }
     EOS
-    system ENV.cxx, "-L#{lib}", "-lacescontainer", "test.cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lAcesContainer", "-o", "test"
     system "./test"
   end
 end
