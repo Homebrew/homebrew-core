@@ -29,6 +29,19 @@ class Emscripten < Formula
   depends_on "python@3.9"
   depends_on "yuicompressor"
 
+  # OpenJDK is needed as a dependency on Linux and ARM64 for google-closure-compiler,
+  # an emscripten dependency, because the native GraalVM image will not work.
+  on_macos do
+    depends_on "openjdk" if Hardware::CPU.arm?
+  end
+
+  on_linux do
+    depends_on "gcc"
+    depends_on "openjdk"
+  end
+
+  fails_with gcc: "5"
+
   # Use emscripten's recommended binaryen revision to avoid build failures.
   # See llvm resource below for instructions on how to update this.
   resource "binaryen" do
@@ -121,11 +134,20 @@ class Emscripten < Formula
     cd libexec do
       system "npm", "install", *Language::Node.local_npm_install_args
       rm_f "node_modules/ws/builderror.log" # Avoid references to Homebrew shims
+      # Delete native GraalVM image in incompatible platforms.
+      on_macos { rm_rf "node_modules/google-closure-compiler-osx" if Hardware::CPU.arm? }
+      on_linux { rm_rf "node_modules/google-closure-compiler-linux" }
     end
+
+    # Add JAVA_HOME to env_script on ARM64 macOS and Linux, so that google-closure-compiler
+    # can find OpenJDK
+    emscript_env = { PYTHON: Formula["python@3.9"].opt_bin/"python3" }
+    on_macos { emscript_env[:JAVA_HOME] = Language::Java.overridable_java_home_env if Hardware::CPU.arm? }
+    on_linux { emscript_env[:JAVA_HOME] = Language::Java.overridable_java_home_env }
 
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
        emranlib emrun emscons].each do |emscript|
-      (bin/emscript).write_env_script libexec/emscript, PYTHON: Formula["python@3.9"].opt_bin/"python3"
+      (bin/emscript).write_env_script libexec/emscript, emscript_env
     end
   end
 
