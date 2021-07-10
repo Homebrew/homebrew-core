@@ -9,6 +9,7 @@ class Slirp4netns < Formula
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
 
+  depends_on "bash" => :test
   depends_on "jq" => :test
 
   depends_on "glib"
@@ -37,6 +38,6 @@ class Slirp4netns < Formula
   test do
     resource("test-common").stage (testpath/"test")
     resource("test-api-socket").stage (testpath/"test")
-    system "sh", "./test/test-slirp4netns-api-socket.sh"
+    system "bash", "./test/test-slirp4netns-api-socket.sh"
   end
 end
