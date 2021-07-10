@@ -19,6 +19,10 @@ class TerraformAT011 < Formula
   depends_on "go" => :build
   depends_on "gox" => :build
 
+  on_linux do
+    depends_on "zip" => :build
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     ENV.prepend_create_path "PATH", buildpath/"bin"
@@ -40,7 +44,7 @@ class TerraformAT011 < Formula
       system "go", "mod", "vendor" # Needed for Go 1.14+
       system "make", "tools", "bin"
 
-      bin.install "pkg/darwin_amd64/terraform"
+      bin.install "pkg/#{os}_amd64/terraform"
       prefix.install_metafiles
     end
   end
