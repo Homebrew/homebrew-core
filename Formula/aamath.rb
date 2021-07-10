@@ -24,6 +24,10 @@ class Aamath < Formula
   uses_from_macos "bison" => :build # for yacc
   uses_from_macos "flex" => :build
 
+  on_linux do
+    depends_on "readline"
+  end
+
   # Fix build on clang; patch by Homebrew team
   # https://github.com/Homebrew/homebrew/issues/23872
   patch do
