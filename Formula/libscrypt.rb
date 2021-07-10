@@ -1,6 +1,6 @@
 class Libscrypt < Formula
   desc "Library for scrypt"
-  homepage "https://lolware.net/libscrypt.html"
+  homepage "https://github.com/technion/libscrypt"
   url "https://github.com/technion/libscrypt/archive/v1.21.tar.gz"
   sha256 "68e377e79745c10d489b759b970e52d819dbb80dd8ca61f8c975185df3f457d3"
   license "BSD-2-Clause"
