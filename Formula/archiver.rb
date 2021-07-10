@@ -32,8 +32,8 @@ class Archiver < Formula
            "test1", "test2", "test3"
 
     assert_predicate testpath/"test.zip", :exist?
-    assert_match "application/zip",
-                 shell_output("file -bI #{testpath}/test.zip")
+    assert_match "Zip archive data",
+                 shell_output("file -b #{testpath}/test.zip")
 
     output = shell_output("#{bin}/arc ls test.zip")
     names = output.lines.map do |line|
