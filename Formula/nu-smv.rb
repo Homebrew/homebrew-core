@@ -4,6 +4,13 @@ class NuSmv < Formula
   url "https://nusmv.fbk.eu/distrib/NuSMV-2.6.0.tar.gz"
   sha256 "dba953ed6e69965a68cd4992f9cdac6c449a3d15bf60d200f704d3a02e4bbcbb"
 
+  # The download page is behind a CAPTCHA, so we identify new versions from the
+  # the version announce links on the homepage.
+  livecheck do
+    url :homepage
+    regex(/href=.*?announce-NuSMV[._-]v?(\d+(?:\.\d+)+)\.txt/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:     "93b0188158e38160632863ca61c3e6809e2524fc46f93dacbe6d8c07a1693432"
     sha256 cellar: :any_skip_relocation, catalina:    "90dad1b30d80ee7ddba984d6ad2536fff08896e79cf1a26a083a5e9990fc3c43"
