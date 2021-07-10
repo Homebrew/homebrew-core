@@ -23,18 +23,10 @@ class Pumba < Formula
   def install
     system "go", "build", "-ldflags", "-s -w -X main.Version=#{version}",
            "-trimpath", "-o", bin/"pumba", "./cmd"
-    prefix.install_metafiles
   end
 
   test do
     output = pipe_output("#{bin}/pumba rm test-container 2>&1")
-
-    on_macos do
-      assert_match "Is the docker daemon running?", output
-    end
-
-    on_linux do
-      assert_match "no containers to remove", output
-    end
+    assert_match "Is the docker daemon running?", output
   end
 end
