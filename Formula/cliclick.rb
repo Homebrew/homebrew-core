@@ -13,6 +13,8 @@ class Cliclick < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "7ff1aa3722085a9bbcdbd3fe496a84dcef9774a75b0374c0c3f404517aa79eca"
   end
 
+  depends_on :macos
+
   def install
     system "make"
     bin.install "cliclick"
