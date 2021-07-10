@@ -15,6 +15,8 @@ class Naabu < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "libpcap"
+
   def install
     cd "v2" do
       system "go", "build", *std_go_args, "./cmd/naabu"
