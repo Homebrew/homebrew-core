@@ -17,12 +17,22 @@ class Qdbm < Formula
     sha256 cellar: :any, yosemite:      "4784d30c880c089dcef588c7d91d537269404a4917c9b2b1ef8b5123a727cee1"
   end
 
+  uses_from_macos "zlib"
+
   def install
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}",
-                          "--enable-bzip",
-                          "--enable-zlib",
-                          "--enable-iconv"
+    args = %W[
+      --disable-debug
+      --prefix=#{prefix}
+      --enable-zlib
+      --enable-iconv
+    ]
+
+    # Does not want to build on Linux
+    on_macos do
+      args << "--enable-bzip"
+    end
+
+    system "./configure", *args
     on_macos do
       system "make", "mac"
       system "make", "check-mac"
