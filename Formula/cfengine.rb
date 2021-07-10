@@ -42,7 +42,7 @@ class Cfengine < Formula
     ]
 
     on_linux do
-      args << "--with-systemd-service=no
+      args << "--with-systemd-service=no"
     end
 
     system "./configure", *args
