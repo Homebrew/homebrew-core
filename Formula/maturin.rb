@@ -1,8 +1,8 @@
 class Maturin < Formula
   desc "Build and publish Rust crates as Python packages"
   homepage "https://github.com/PyO3/maturin"
-  url "https://github.com/PyO3/maturin/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "e7ed8559b3d9ac872b6633bb2e11c91aad69d7399568a300cbf2c3d2f97c7d2a"
+  url "https://github.com/PyO3/maturin/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "61ce51df22f0b30fe7030fac0161d81c88ea24ab53ffc066842cd6e7536059ed"
   license "MIT"
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
@@ -19,6 +19,13 @@ class Maturin < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    bash_output = Utils.safe_popen_read(bin/"maturin", "completions", "bash")
+    (bash_completion/"maturin").write bash_output
+    zsh_output = Utils.safe_popen_read(bin/"maturin", "completions", "zsh")
+    (zsh_completion/"_maturin").write zsh_output
+    fish_output = Utils.safe_popen_read(bin/"maturin", "completions", "fish")
+    (fish_completion/"maturin.fish").write fish_output
   end
 
   test do
