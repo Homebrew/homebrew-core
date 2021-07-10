@@ -1,8 +1,8 @@
 class Gocryptfs < Formula
   desc "Encrypted overlay filesystem written in Go"
   homepage "https://nuetzlich.net/gocryptfs/"
-  url "https://github.com/rfjakob/gocryptfs/releases/download/v1.8.0/gocryptfs_v1.8.0_src-deps.tar.gz"
-  sha256 "c4ca576c2a47f0ed395b96f70fb58fc8f7b4beced8ae67e356eeed6898f8352a"
+  url "https://github.com/rfjakob/gocryptfs/releases/download/v2.0.1/gocryptfs_v2.0.1_src-deps.tar.gz"
+  sha256 "31be3f3a9400bd5eb8a4d5f86f7aee52a488207e12d312f2601ae08e7e26dd02"
   license "MIT"
 
   bottle do
@@ -25,13 +25,8 @@ class Gocryptfs < Formula
   end
 
   def install
-    ENV["GOPATH"] = buildpath
-    (buildpath/"src/github.com/rfjakob/gocryptfs").install buildpath.children
-    cd "src/github.com/rfjakob/gocryptfs" do
-      system "./build.bash"
-      bin.install "gocryptfs"
-      prefix.install_metafiles
-    end
+    system "./build.bash"
+    bin.install "gocryptfs"
   end
 
   def caveats
