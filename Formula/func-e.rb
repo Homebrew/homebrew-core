@@ -1,8 +1,8 @@
 class FuncE < Formula
   desc "Easily run Envoy"
   homepage "https://func-e.io"
-  url "https://github.com/tetratelabs/func-e/archive/v0.5.0.tar.gz"
-  sha256 "17fc6c5c0f7bea8ce59e0bfb315198cc9f9ecfda98d51909149d42ffd125d72f"
+  url "https://github.com/tetratelabs/func-e/archive/v0.5.1.tar.gz"
+  sha256 "ca30aa0ee97db1a9f935bea2d78fefc6c17cae68947866c0837fa7f8174cbc0f"
   license "Apache-2.0"
 
   bottle do
@@ -17,7 +17,7 @@ class FuncE < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/tetratelabs/func-e/internal/version.funcE=#{version}
+      -X main.version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
   end
