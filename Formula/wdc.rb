@@ -50,7 +50,7 @@ class Wdc < Formula
     EOS
     pugixml = Formula["pugixml"]
     openssl = Formula["openssl@1.1"]
-    curl_args = "-lcurl"
+    curl_args = ["-lcurl"]
     on_linux do
       curl = Formula["curl"]
       curl_args << "-L#{curl.opt_lib}"
