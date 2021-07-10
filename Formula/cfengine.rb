@@ -31,13 +31,21 @@ class Cfengine < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-workdir=#{var}/cfengine",
-                          "--with-lmdb=#{Formula["lmdb"].opt_prefix}",
-                          "--with-pcre=#{Formula["pcre"].opt_prefix}",
-                          "--without-mysql",
-                          "--without-postgresql"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-workdir=#{var}/cfengine
+      --with-lmdb=#{Formula["lmdb"].opt_prefix}
+      --with-pcre=#{Formula["pcre"].opt_prefix}
+      --without-mysql
+      --without-postgresql
+    ]
+
+    on_linux do
+      args << "--with-systemd-service=no
+    end
+
+    system "./configure", *args
     system "make", "install"
     (pkgshare/"CoreBase").install resource("masterfiles")
   end
