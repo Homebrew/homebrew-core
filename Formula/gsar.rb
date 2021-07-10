@@ -1,10 +1,18 @@
 class Gsar < Formula
   desc "General Search And Replace on files"
   homepage "http://tjaberg.com/"
-  url "http://tjaberg.com/gsar121.zip"
-  version "1.21"
-  sha256 "05fb9583c970aba4eb0ffae2763d7482b0697c65fda1632a247a0153d7db65a9"
-  license "GPL-2.0"
+  url "http://tjaberg.com/gsar151.zip"
+  version "1.51"
+  sha256 "72908ae302d2293de5218fd4da0b98afa2ce8890a622e709360576e93f5e8cc8"
+  license "GPL-2.0-only"
+
+  # gsar archive file names don't include a version string with dots (e.g., 123
+  # instead of 1.23), so we identify versions from the text of the "Changes"
+  # section.
+  livecheck do
+    url :homepage
+    regex(/gsar v?(\d+(?:\.\d+)+) released/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "422050c4abb86641242bd8649dc39b83bf9a0bff0b2f57c0011d59baefaa87ac"
