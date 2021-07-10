@@ -17,6 +17,12 @@ class Caf < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "gcc" # For C++17
+  end
+
+  fails_with gcc: "5"
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DCAF_ENABLE_TESTING=OFF"
