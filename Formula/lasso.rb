@@ -1,10 +1,14 @@
 class Lasso < Formula
   desc "Library for Liberty Alliance and SAML protocols"
   homepage "https://lasso.entrouvert.org/"
-  url "https://dev.entrouvert.org/releases/lasso/lasso-2.6.1.tar.gz"
-  sha256 "f8a8dbce238802f6bb9c3b8bd528b4dce2a1dc44e2d34d8d839aa54fbc8ed1de"
-  license "GPL-2.0"
-  revision 1
+  url "https://dev.entrouvert.org/releases/lasso/lasso-2.7.0.tar.gz"
+  sha256 "9282f2a546ee84b6d3a8236970fea3a47bea51cb247c31a05a374c22eb451d8d"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?lasso[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "aef8a4d9b81790ff84aad53da1c7d9a582ac69db8d775d930a30444174e186dc"
@@ -16,30 +20,20 @@ class Lasso < Formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "six" => :build
   depends_on "glib"
   depends_on "libxmlsec1"
   depends_on "openssl@1.1"
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/21/9f/b251f7f8a76dec1d6651be194dfba8fb8d7781d10ab3987190de8391d08e/six-1.14.0.tar.gz"
-    sha256 "236bdbdce46e6e6a3d61a337c0f8b763ca1e8717c03b369e87a7ec7ce1319c0a"
-  end
-
   def install
     xy = Language::Python.major_minor_version "python3"
-    ENV.prepend_create_path "PYTHONPATH", libexec/"vendor/lib/python#{xy}/site-packages"
-    resources.each do |r|
-      r.stage do
-        system "python3", *Language::Python.setup_install_args(libexec/"vendor")
-      end
-    end
-
     ENV.prepend_create_path "PYTHONPATH", libexec/"lib/python#{xy}/site-packages"
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--disable-java",
                           "--disable-perl",
                           "--disable-php5",
+                          "--disable-php7",
                           "--disable-python",
                           "--prefix=#{prefix}",
                           "--with-pkg-config=#{ENV["PKG_CONFIG_PATH"]}"
