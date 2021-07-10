@@ -1,9 +1,10 @@
 class Libmrss < Formula
   desc "C library for RSS files or streams"
-  homepage "https://www.autistici.org/bakunin/libmrss/"
+  homepage "https://github.com/bakulf/libmrss"
+  # Update to use an archive from GitHub once there's a release after 0.19.2
   url "https://www.autistici.org/bakunin/libmrss/libmrss-0.19.2.tar.gz"
   sha256 "071416adcae5c1a9317a4a313f2deb34667e3cc2be4487fb3076528ce45b210b"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     rebuild 2
@@ -14,10 +15,24 @@ class Libmrss < Formula
     sha256 cellar: :any, high_sierra:   "234ec50cc4eabdd5433abb2d27f1e359c468db4fda10a36eb2c9278034a4e000"
   end
 
+  head do
+    url "https://github.com/bakulf/libmrss.git"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libnxml"
 
   def install
+    if build.head?
+      mkdir "m4"
+      inreplace "autogen.sh", "libtoolize", "glibtoolize"
+      system "./autogen.sh"
+    end
+
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
