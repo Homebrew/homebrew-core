@@ -79,9 +79,6 @@ class Mariadb < Formula
       -DCOMPILATION_COMMENT=#{tap.user}
     ]
 
-    # Disable RocksDB on Apple Silicon (currently not supported)
-    args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
-
     system "cmake", ".", *std_cmake_args, *args
 
     on_macos do
