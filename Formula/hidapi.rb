@@ -46,7 +46,14 @@ class Hidapi < Formula
       }
     EOS
 
-    flags = ["-I#{include}/hidapi", "-L#{lib}", "-lhidapi"] + ENV.cflags.to_s.split
+    flags = ["-I#{include}/hidapi", "-L#{lib}"]
+    on_macos do
+      flags << "-lhidapi"
+    end
+    on_linux do
+      flags << "-lhidapi-hidraw"
+    end
+    flags += ENV.cflags.to_s.split
     system ENV.cc, "-o", "test", "test.c", *flags
     system "./test"
   end
