@@ -4,7 +4,7 @@ class Neomutt < Formula
   url "https://github.com/neomutt/neomutt/archive/20210205.tar.gz"
   sha256 "77e177780fc2d8abb475d9cac4342c7e61d53c243f6ce2f9bc86d819fc962cdb"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/neomutt/neomutt.git"
 
   bottle do
@@ -17,29 +17,46 @@ class Neomutt < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext"
   depends_on "gpgme"
-  depends_on "libidn"
+  depends_on "libidn2"
   depends_on "lmdb"
   depends_on "lua"
   depends_on "notmuch"
   depends_on "openssl@1.1"
   depends_on "tokyo-cabinet"
 
+  uses_from_macos "libxslt" => :build # for xsltproc
+  uses_from_macos "cyrus-sasl"
+  uses_from_macos "krb5"
+  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-gpgme",
-                          "--with-gpgme=#{Formula["gpgme"].opt_prefix}",
-                          "--gss",
-                          "--lmdb",
-                          "--notmuch",
-                          "--sasl",
-                          "--tokyocabinet",
-                          "--with-ssl=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--with-ui=ncurses",
-                          "--lua",
-                          "--with-lua=#{Formula["lua"].prefix}"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
+    args = %W[
+      --prefix=#{prefix}
+      --gss
+      --disable-idn
+      --idn2
+      --lmdb
+      --notmuch
+      --sasl
+      --tokyocabinet
+      --with-gpgme=#{Formula["gpgme"].opt_prefix}
+      --with-lua=#{Formula["lua"].opt_prefix}
+      --with-ssl=#{Formula["openssl@1.1"].opt_prefix}
+      --with-ui=ncurses
+    ]
+
+    on_linux do
+      args << "--pkgconf"
+    end
+
+    system "./configure", *args
     system "make", "install"
   end
 
