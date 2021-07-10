@@ -21,6 +21,8 @@ class Pacman4console < Formula
     sha256 yosemite:      "0177bce0045d06947a44cd810e3af8abdf2853981fe8564782a83474fc45f727"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     system "make", "prefix=#{prefix}", "datarootdir=#{pkgshare}"
     bin.install ["pacman", "pacmanedit"]
