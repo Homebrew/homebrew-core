@@ -19,6 +19,14 @@ class Sdl2Image < Formula
     sha256 cellar: :any, sierra:        "e3c9cf45d97099e818c667d23af8352e6d1bba0e3b609cdddee654f2a9da80cf"
   end
 
+  head do
+    url "https://github.com/libsdl-org/SDL_image.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "jpeg"
   depends_on "libpng"
@@ -28,6 +36,8 @@ class Sdl2Image < Formula
 
   def install
     inreplace "SDL2_image.pc.in", "@prefix@", HOMEBREW_PREFIX
+
+    system "./autogen.sh" if build.head?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
