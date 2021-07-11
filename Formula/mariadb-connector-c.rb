@@ -33,6 +33,7 @@ class MariadbConnectorC < Formula
     args << "-DWITH_OPENSSL=On"
     args << "-DWITH_EXTERNAL_ZLIB=On"
     args << "-DOPENSSL_INCLUDE_DIR=#{Formula["openssl@1.1"].opt_include}"
+    args << "-DINSTALL_MANDIR=#{share}"
     args << "-DCOMPILATION_COMMENT=Homebrew"
 
     system "cmake", ".", *args
