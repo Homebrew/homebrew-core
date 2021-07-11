@@ -37,11 +37,11 @@ class Sdl < Formula
     end
 
     # Fix audio initialization issues on Big Sur, upstream patch
-    # http://hg.libsdl.org/SDL/rev/45055c672931
+    # https://github.com/libsdl-org/SDL-1.2/commit/a2047dc403ffb58b89b717929637352045699743
     if MacOS.version >= :big_sur
       patch do
-        url "http://hg.libsdl.org/SDL/raw-rev/45055c672931"
-        sha256 "4bc838bcfe8f671e016d22d9319cb39ca94052b86ad45b805d9b4d32564ef836"
+        url "https://github.com/libsdl-org/SDL-1.2/commit/a2047dc403ffb58b89b717929637352045699743.patch?full_index=1"
+        sha256 "7684a923dfd0c13f1a78e09ca0cea2632850e4d41023867b504707946ec495d4"
       end
     end
   end
@@ -55,7 +55,7 @@ class Sdl < Formula
   end
 
   head do
-    url "https://hg.libsdl.org/SDL", branch: "SDL-1.2", using: :hg
+    url "https://github.com/libsdl-org/SDL-1.2.git", branch: "main"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
