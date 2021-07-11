@@ -4,7 +4,6 @@ class Sdl2Ttf < Formula
   url "https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz"
   sha256 "a9eceb1ad88c1f1545cd7bd28e7cbc0b2c14191d40238f531a15b01b1b22cd33"
   license "Zlib"
-  head "https://hg.libsdl.org/SDL_ttf", using: :hg
 
   livecheck do
     url :homepage
@@ -20,12 +19,22 @@ class Sdl2Ttf < Formula
     sha256 cellar: :any, high_sierra:   "1867ff73485eaa12fc00def01be8e388443ac6c226065218bb435558fdb8bb22"
   end
 
+  head do
+    url "https://github.com/libsdl-org/SDL_ttf.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "freetype"
   depends_on "sdl2"
 
   def install
     inreplace "SDL2_ttf.pc.in", "@prefix@", HOMEBREW_PREFIX
+
+    system "./autogen.sh" if build.head?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
