@@ -8,7 +8,7 @@ class Sdl2Ttf < Formula
 
   livecheck do
     url :homepage
-    regex(/SDL2_ttf[._-]v?(\d+(?:\.\d+)*)/i)
+    regex(/href=.*?SDL2_ttf[._-]v?(\d+(?:\.\d+)*)\.t/i)
   end
 
   bottle do
