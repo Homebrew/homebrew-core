@@ -16,7 +16,7 @@ class ValaLanguageServer < Formula
   depends_on "libgee"
 
   def install
-    system "meson", "-Dplugins=false", "-Dprefix=#{prefix}", "build"
+    system "meson", "-Dplugins=false", "-Dprefix=#{prefix}", "build", *std_meson_args
     system "ninja", "-C", "build"
     system "ninja", "-C", "build", "install"
   end
