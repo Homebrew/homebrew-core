@@ -4,6 +4,7 @@ class Newsboat < Formula
   url "https://newsboat.org/releases/2.24/newsboat-2.24.tar.xz"
   sha256 "62420688cca25618859548d10ff6df9ac75b9cf766699f37edd3e324d67c6ffb"
   license "MIT"
+  revision 1
   head "https://github.com/newsboat/newsboat.git"
 
   bottle do
@@ -16,6 +17,7 @@ class Newsboat < Formula
   depends_on "asciidoctor" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "xz" => :build
   depends_on "gettext"
   depends_on "json-c"
   depends_on "libstfl"
@@ -23,6 +25,7 @@ class Newsboat < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
+  uses_from_macos "sqlite"
 
   def install
     gettext = Formula["gettext"]
