@@ -39,32 +39,21 @@ class Sleepwatcher < Formula
       mv "../sleepwatcher.8", "."
       system "make", "install", "PREFIX=#{prefix}"
     end
+  end
 
-    # Write the sleep/wakeup scripts
-    (prefix + "etc/sleepwatcher").install Dir["config/rc.*"]
-
-    # Write the launchd scripts
-    inreplace Dir["config/*.plist"], "/usr/local/sbin", HOMEBREW_PREFIX/"sbin"
-
-    inreplace "config/de.bernhard-baehr.sleepwatcher-20compatibility.plist",
-      "/etc", etc/"sleepwatcher"
-
-    prefix.install Dir["config/*.plist"]
+  service do
+    run [opt_sbin/"sleepwatcher", "-V", "-s", "#{ENV["HOME"]}/.sleep", "-w", "#{ENV["HOME"]}/.wakeup"]
+    run_type :immediate
+    keep_alive true
   end
 
   def caveats
     <<~EOS
-      For SleepWatcher to work, you will need to read the following:
+      For SleepWatcher to work, you will need to write sleep and
+      wakeup scripts, located here when using brew services:
 
-        #{prefix}/ReadMe.rtf
-
-      Ignore information about installing the binary and man page,
-      but read information regarding setup of the launchd files which
-      are installed here:
-
-        #{Dir["#{prefix}/*.plist"].join("\n      ")}
-
-      These are the examples provided by the author.
+        ~/.sleep
+        ~/.wakeup
     EOS
   end
 end
