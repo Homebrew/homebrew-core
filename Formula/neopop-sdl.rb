@@ -5,6 +5,11 @@ class NeopopSdl < Formula
   sha256 "2df1b717faab9e7cb597fab834dc80910280d8abf913aa8b0dcfae90f472352e"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?NeoPop-SDL[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any, big_sur:     "53e2a47e1f4e3bc4b35a31ea06f757ef62fc11de24347fcca5f4d1799f1adf94"
     sha256 cellar: :any, catalina:    "c4bd22db58945139a07d7c007c546e2edb3be1c3763f2d3f3008b575f30cef84"
