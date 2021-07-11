@@ -11,7 +11,7 @@ class Avahi < Formula
   depends_on "libtool" => :build
   depends_on "m4" => :build
   depends_on "perl" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "xmltoman" => :build
   depends_on "dbus"
   depends_on "glib"
