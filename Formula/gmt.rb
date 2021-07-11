@@ -5,6 +5,7 @@ class Gmt < Formula
   mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.2.0-src.tar.xz"
   sha256 "a01f0a14d48bbc0b14855670f366df3cb8238f0ccdfa26fe744968b4f1c14d54"
   license "LGPL-3.0-or-later"
+  revision 1
   head "https://github.com/GenericMappingTools/gmt.git"
 
   bottle do
