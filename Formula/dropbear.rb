@@ -20,6 +20,10 @@ class Dropbear < Formula
     depends_on "automake" => :build
   end
 
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   def install
     ENV.deparallelize
 
