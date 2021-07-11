@@ -33,6 +33,8 @@ class Svgbob < Formula
     EOS
 
     system bin/"svgbob", "ascii.txt", "-o", "out.svg"
-    assert_predicate testpath/"out.svg", :exist?
+    contents = (testpath/"out.svg").read
+    assert_match %r{<text.*?>Hello</text>}, contents
+    assert_match %r{<text.*?>Homebrew</text>}, contents
   end
 end
