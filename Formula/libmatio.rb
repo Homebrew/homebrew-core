@@ -4,6 +4,7 @@ class Libmatio < Formula
   url "https://downloads.sourceforge.net/project/matio/matio/1.5.21/matio-1.5.21.tar.gz"
   sha256 "21809177e55839e7c94dada744ee55c1dea7d757ddaab89605776d50122fb065"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "fb9d717a8f88e9235218c3976be38b7ed0c5cab0ca43b8e6374355a85af435ba"
