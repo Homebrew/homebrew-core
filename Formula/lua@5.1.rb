@@ -20,14 +20,38 @@ class LuaAT51 < Formula
 
   deprecate! date: "2012-02-17", because: :unsupported
 
-  # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
-  # See: https://github.com/Homebrew/homebrew/pull/5043
-  patch :DATA
+  uses_from_macos "unzip"
+
+  on_macos do
+    # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
+    # See: https://github.com/Homebrew/homebrew/pull/5043
+    patch :DATA
+  end
+
+  on_linux do
+    depends_on "readline"
+
+    # Add shared library for linux
+    # Equivalent to the mac patch carried around here ... that will probably never get upstreamed
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/0f389e65e5abd63bfc6073bfa76082b0/raw/6e9c4c4690c737d93a376e053bcb82cdd69aac3b/lua5.1.5.patch"
+      sha256 "342b0d08eea9b9836be49fc88b3518cf207ee0e9aea09a248d3620c0b34e8e44"
+    end
+  end
 
   def install
+    on_linux do
+      # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
+      # when making a shared object; recompile with -fPIC
+      # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
+      ENV.append_to_cflags "-fPIC"
+    end
+
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
-      s.gsub! "@LUA_PREFIX@", prefix
+      on_macos do
+        s.gsub! "@LUA_PREFIX@", prefix
+      end
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
@@ -46,8 +70,22 @@ class LuaAT51 < Formula
       s.gsub! "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua.5.1 -lm"
     end
 
-    system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
-    system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.1"
+    os = "macosx"
+    on_linux do
+      os = "linux"
+    end
+
+    args = [
+      "INSTALL_TOP=#{prefix}",
+      "INSTALL_MAN=#{man1}",
+      "INSTALL_INC=#{include}/lua-5.1",
+    ]
+
+    system "make", os, *args
+    on_linux do
+      args << "TO_LIB=liblua.so.5.1.5"
+    end
+    system "make", "install", *args
 
     (lib/"pkgconfig").install "etc/lua.pc"
 
@@ -65,6 +103,13 @@ class LuaAT51 < Formula
     include.install_symlink "lua-5.1" => "lua5.1"
     (lib/"pkgconfig").install_symlink "lua-5.1.pc" => "lua5.1.pc"
     (libexec/"lib/pkgconfig").install_symlink lib/"pkgconfig/lua-5.1.pc" => "lua.pc"
+
+    on_linux do
+      # Hack around wrong .so file naming
+      %w[.so.5.1 .5.1.5.so .5.1.so 5.1.so].each do |suffix|
+        lib.install_symlink "liblua.so.5.1.5" => "liblua#{suffix}"
+      end
+    end
   end
 
   def caveats
