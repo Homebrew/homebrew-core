@@ -51,11 +51,11 @@ class LuaAT51 < Formula
     inreplace "src/Makefile" do |s|
       on_macos do
         s.gsub! "@LUA_PREFIX@", prefix
+        s.sub! "MYCFLAGS_VAL", "-fno-common -DLUA_USE_LINUX"
       end
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
-      s.sub! "MYCFLAGS_VAL", "-fno-common -DLUA_USE_LINUX"
     end
 
     # Fix path in the config header
