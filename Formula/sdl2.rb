@@ -8,7 +8,7 @@ class Sdl2 < Formula
 
   livecheck do
     url "https://www.libsdl.org/download-2.0.php"
-    regex(/SDL2[._-]v?(\d+(?:\.\d+)*)/i)
+    regex(/href=.*?SDL2[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
