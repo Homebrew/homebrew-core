@@ -14,6 +14,14 @@ class SdlMixer < Formula
     sha256 cellar: :any, high_sierra:   "a6e0ff3e96a41f88892cf1fcee7d8c21fd816094f48d376640f77184a8c78e06"
   end
 
+  head do
+    url "https://github.com/libsdl-org/SDL_mixer.git", branch: "SDL-1.2"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
   deprecate! date: "2013-08-17", because: :deprecated_upstream
 
@@ -32,6 +40,8 @@ class SdlMixer < Formula
 
   def install
     inreplace "SDL_mixer.pc.in", "@prefix@", HOMEBREW_PREFIX
+
+    system "./autogen.sh" if build.head?
 
     args = %W[
       --prefix=#{prefix}
