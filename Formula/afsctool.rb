@@ -17,6 +17,8 @@ class Afsctool < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "96437b04a2974c215979550d3d70b4c8e3f609e76954ca41059c6f246da452ee"
   end
 
+  depends_on :macos
+
   # Fixes Sierra "Unable to compress" issue; reported upstream on 24 July 2017
   patch :p2 do
     url "https://github.com/vfx01j/afsctool/commit/26293a3809c9ad1db5f9bff9dffaefb8e201a089.patch?full_index=1"
