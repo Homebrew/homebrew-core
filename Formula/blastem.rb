@@ -8,8 +8,8 @@ class Blastem < Formula
   head "https://www.retrodev.com/repos/blastem", using: :hg
 
   livecheck do
-    url "https://www.retrodev.com/repos/blastem/tags"
-    regex(%r{href=.*?/repos/blastem/rev/v?(\d+(?:\.\d+)+)["' >]}i)
+    url "https://www.retrodev.com/repos/blastem/json-tags"
+    regex(/["']tag["']:\s*?["']v?(\d+(?:\.\d+)+)["']/i)
   end
 
   bottle do
