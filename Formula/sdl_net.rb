@@ -16,6 +16,14 @@ class SdlNet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ebc10f3cf5bb91fe6e4a336d6cb615b54436bd07e4a07d084d4a97c85a530f3"
   end
 
+  head do
+    url "https://github.com/libsdl-org/SDL_net.git", branch: "SDL-1.2"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
   deprecate! date: "2013-08-17", because: :deprecated_upstream
 
@@ -23,6 +31,8 @@ class SdlNet < Formula
   depends_on "sdl"
 
   def install
+    system "./autogen.sh" if build.head?
+
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--disable-sdltest"
     system "make", "install"
