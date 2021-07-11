@@ -15,6 +15,8 @@ class Lsusb < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "e696db36d09169064b3e97852d07464125e5bc6e400cb2a4cc186e6aa606574a"
   end
 
+  depends_on :macos
+
   def install
     bin.install "lsusb"
     man8.install "man/lsusb.8"
