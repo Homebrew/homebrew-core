@@ -16,6 +16,8 @@ class Pbzip2 < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "ad103aef3e2d72293cfed3fcc42999afee9b4fc332f8319e3c079758215411c9"
   end
 
+  uses_from_macos "bzip2"
+
   def install
     system "make", "PREFIX=#{prefix}",
                    "CC=#{ENV.cxx}",
