@@ -3,7 +3,6 @@ class SdlRtf < Formula
   homepage "https://www.libsdl.org/projects/SDL_rtf/"
   url "https://www.libsdl.org/projects/SDL_rtf/release/SDL_rtf-0.1.0.tar.gz"
   sha256 "3dc0274b666e28010908ced24844ca7d279e07b66f673c990d530d4ea94b757e"
-  head "https://hg.libsdl.org/SDL_rtf", using: :hg
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "9d08d7ff2342e161defb1160668e96414902afd78756e4ab3824915385574546"
@@ -16,12 +15,22 @@ class SdlRtf < Formula
     sha256 cellar: :any, yosemite:      "8dd89df32c9ea02bcab36932c2f22bcb6de58d6002bd6fb9e95f9bbfe5ccf41e"
   end
 
+  head do
+    url "https://github.com/libsdl-org/SDL_rtf.git", branch: "SDL-1.2"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
   deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   depends_on "sdl"
 
   def install
+    system "./autogen.sh" if build.head?
+
     system "./configure", "--prefix=#{prefix}", "--disable-sdltest"
     system "make", "install"
   end
