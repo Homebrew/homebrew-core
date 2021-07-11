@@ -4,6 +4,7 @@ class Armadillo < Formula
   url "https://downloads.sourceforge.net/project/arma/armadillo-10.5.3.tar.xz"
   sha256 "e6c51d8d52a6f78b9c6459f6986135093e0ee705a674307110f6175f2cd5ee37"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -30,6 +31,10 @@ class Armadillo < Formula
 
     system "cmake", ".", "-DDETECT_HDF5=ON", "-DALLOW_OPENBLAS_MACOS=ON", *std_cmake_args
     system "make", "install"
+
+    # Avoid cellar path references that are invalidated by version/revision bumps
+    hdf5 = Formula["hdf5"]
+    inreplace include/"armadillo_bits/config.hpp", hdf5.prefix.realpath, hdf5.opt_prefix
   end
 
   test do
