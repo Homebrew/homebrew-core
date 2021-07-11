@@ -21,11 +21,21 @@ class Sdl2Net < Formula
     sha256 cellar: :any, yosemite:      "2e2bcc1e1aac84b37ebb44398e463d9004764aa369489926cd07bb97cb9f60c4"
   end
 
+  head do
+    url "https://github.com/libsdl-org/SDL_net.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   depends_on "pkg-config" => :build
   depends_on "sdl2"
 
   def install
     inreplace "SDL2_net.pc.in", "@prefix@", HOMEBREW_PREFIX
+
+    system "./autogen.sh" if build.head?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--disable-sdltest"
