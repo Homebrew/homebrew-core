@@ -9,7 +9,7 @@ class Sdl2Mixer < Formula
 
   livecheck do
     url :homepage
-    regex(/SDL2_mixer[._-]v?(\d+(?:\.\d+)*)/i)
+    regex(/href=.*?SDL2_mixer[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
