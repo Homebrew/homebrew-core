@@ -8,7 +8,7 @@ class Rubberband < Formula
 
   livecheck do
     url :homepage
-    regex(/Rubber Band Library v?(\d+(?:\.\d+)+) released/i)
+    regex(/href=.*?rubberband[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
