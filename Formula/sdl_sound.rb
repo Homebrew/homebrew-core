@@ -18,7 +18,7 @@ class SdlSound < Formula
   end
 
   head do
-    url "https://hg.icculus.org/icculus/SDL_sound", using: :hg
+    url "https://github.com/icculus/SDL_sound.git", branch: "stable-1.0"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -34,16 +34,12 @@ class SdlSound < Formula
   depends_on "sdl"
 
   def install
-    if build.head?
-      inreplace "bootstrap", "/usr/bin/glibtoolize", "#{Formula["libtool"].opt_bin}/glibtoolize"
-      system "./bootstrap"
-    end
+    system "./autogen.sh" if build.head?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--disable-sdltest"
     system "make"
-    system "make", "check"
     system "make", "install"
   end
 end
