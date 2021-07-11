@@ -7,7 +7,7 @@ class Sdl2Net < Formula
 
   livecheck do
     url :homepage
-    regex(/SDL2_net[._-]v?(\d+(?:\.\d+)*)/i)
+    regex(/href=.*?SDL2_net[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
