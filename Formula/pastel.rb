@@ -6,8 +6,8 @@ class Pastel < Formula
 
   # Remove stable block on next release with merged patch
   stable do
-    url "https://github.com/sharkdp/pastel/archive/v0.8.0.tar.gz"
-    sha256 "603dc63d6aa261f159178dffeb389471a845c1a5d62187a275a3d33a66fe9a69"
+    url "https://github.com/sharkdp/pastel/archive/v0.8.1.tar.gz"
+    sha256 "e1afcd8035a4c1da7f6d0fc8d5fc703dee72baa77bd0588a67d3b606e70146cb"
 
     # Fix lexical-core build error on newer Rust with updated dependencies
     # Remove in the next release
