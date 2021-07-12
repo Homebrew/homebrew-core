@@ -25,7 +25,7 @@ class Mkvtoolnix < Formula
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
-  depends_on "qt" => :build
+  depends_on "qt@5" => :build
   depends_on "boost"
   depends_on "flac"
   depends_on "fmt"
