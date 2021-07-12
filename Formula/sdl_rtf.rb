@@ -16,6 +16,9 @@ class SdlRtf < Formula
     sha256 cellar: :any, yosemite:      "8dd89df32c9ea02bcab36932c2f22bcb6de58d6002bd6fb9e95f9bbfe5ccf41e"
   end
 
+  # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
+  deprecate! date: "2013-08-17", because: :deprecated_upstream
+
   depends_on "sdl"
 
   def install
