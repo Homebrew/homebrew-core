@@ -46,11 +46,6 @@ class Sdl < Formula
     end
   end
 
-  livecheck do
-    url "https://www.libsdl.org/release/"
-    regex(/href=.*?SDL[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c3fda7b3047ffff537ba6f2a5711fd03f50fa776546d7788f42a4df325944fcf"
     sha256 cellar: :any,                 big_sur:       "d97aac056338f24b09ff065d8a80c6f5e9b6e16aed93003764054f6703093ecd"
@@ -66,6 +61,9 @@ class Sdl < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
+  deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   def install
     # we have to do this because most build scripts assume that all sdl modules
