@@ -17,7 +17,14 @@ class Sngrep < Formula
   depends_on "ncurses" if DevelopmentTools.clang_build_version >= 1000
   depends_on "openssl@1.1"
 
+  uses_from_macos "libpcap"
+  uses_from_macos "ncurses"
+
   def install
+    on_linux do
+      ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw"
+    end
+
     system "./bootstrap.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
