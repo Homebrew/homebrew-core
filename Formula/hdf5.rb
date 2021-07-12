@@ -52,12 +52,17 @@ class Hdf5 < Formula
     ]
     on_linux do
       args << "--with-zlib=#{Formula["zlib"].opt_prefix}"
+      # Avoid compiler paths that include shims directory
+      ENV["CC"] = ENV.cc
+      ENV["CXX"] = ENV.cxx
     end
 
     system "./configure", *args
 
     # Avoid shims in settings file
-    inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    on_macos do
+      inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    end
 
     system "make", "install"
   end
