@@ -4,7 +4,7 @@ class Creduce < Formula
   url "https://embed.cs.utah.edu/creduce/creduce-2.10.0.tar.gz"
   sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/csmith-project/creduce.git"
 
   livecheck do
@@ -42,11 +42,6 @@ class Creduce < Formula
   resource "Regexp::Common" do
     url "https://cpan.metacpan.org/authors/id/A/AB/ABIGAIL/Regexp-Common-2017060201.tar.gz"
     sha256 "ee07853aee06f310e040b6bf1a0199a18d81896d3219b9b35c9630d0eb69089b"
-  end
-
-  resource "Term::ReadKey" do
-    url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
-    sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
   end
 
   resource "URI::Escape" do
