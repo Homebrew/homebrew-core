@@ -1,21 +1,10 @@
 class Pastel < Formula
   desc "Command-line tool to generate, analyze, convert and manipulate colors"
   homepage "https://github.com/sharkdp/pastel"
+  url "https://github.com/sharkdp/pastel/archive/v0.8.1.tar.gz"
+  sha256 "e1afcd8035a4c1da7f6d0fc8d5fc703dee72baa77bd0588a67d3b606e70146cb"
   license "Apache-2.0"
   head "https://github.com/sharkdp/pastel.git"
-
-  # Remove stable block on next release with merged patch
-  stable do
-    url "https://github.com/sharkdp/pastel/archive/v0.8.1.tar.gz"
-    sha256 "e1afcd8035a4c1da7f6d0fc8d5fc703dee72baa77bd0588a67d3b606e70146cb"
-
-    # Fix lexical-core build error on newer Rust with updated dependencies
-    # Remove in the next release
-    patch do
-      url "https://github.com/sharkdp/pastel/commit/00fb2e5d52011903ddb5c33f4dfe1018d692ab3e.patch?full_index=1"
-      sha256 "39dfc577e36645c693cf6d56e505d87d02450b313cdfc6a1acd59e1c5890247c"
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5063fbbdfeae431e7522f8a66d48999e5ef0dc3d7dae922ffc088a227b90e1c4"
