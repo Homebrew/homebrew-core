@@ -3,6 +3,7 @@ class OpenSceneGraph < Formula
   homepage "https://github.com/openscenegraph/OpenSceneGraph"
   url "https://github.com/openscenegraph/OpenSceneGraph/archive/OpenSceneGraph-3.6.5.tar.gz"
   sha256 "aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12"
+  revision 1
   head "https://github.com/openscenegraph/OpenSceneGraph.git"
 
   bottle do
@@ -20,7 +21,7 @@ class OpenSceneGraph < Formula
   depends_on "freetype"
   depends_on "gtkglext"
   depends_on "jpeg-turbo"
-  depends_on "sdl"
+  depends_on "sdl2"
 
   # patch necessary to ensure support for gtkglext-quartz
   # filed as an issue to the developers https://github.com/openscenegraph/OpenSceneGraph/issues/34
@@ -37,6 +38,7 @@ class OpenSceneGraph < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_GDAL=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_Jasper=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_OpenEXR=ON
+      -DCMAKE_DISABLE_FIND_PACKAGE_SDL=ON
       -DCMAKE_DISABLE_FIND_PACKAGE_TIFF=ON
       -DCMAKE_CXX_FLAGS=-Wno-error=narrowing
       -DCMAKE_OSX_ARCHITECTURES=x86_64
