@@ -3,6 +3,7 @@ class Irrlicht < Formula
   homepage "https://irrlicht.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/irrlicht/Irrlicht%20SDK/1.8/1.8.4/irrlicht-1.8.4.zip"
   sha256 "f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433"
+  revision 1
   head "https://svn.code.sf.net/p/irrlicht/code/trunk"
 
   livecheck do
@@ -43,10 +44,26 @@ class Irrlicht < Formula
         "#  error ZLIB_VERNUM != PNG_ZLIB_VERNUM \\",
         "#  warning ZLIB_VERNUM != PNG_ZLIB_VERNUM \\"
 
+      extra_args = []
+
+      # Fix "Undefined symbols for architecture arm64: "_png_init_filter_functions_neon"
+      # Reported 18 Nov 2020 https://sourceforge.net/p/irrlicht/bugs/452/
+      extra_args << "GCC_PREPROCESSOR_DEFINITIONS='PNG_ARM_NEON_OPT=0'" if Hardware::CPU.arm?
+
+      xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",
+                 "-configuration", "Release",
+                 "-target", "IrrFramework",
+                 "SYMROOT=build",
+                 *extra_args
+
       xcodebuild "-project", "source/Irrlicht/MacOSX/MacOSX.xcodeproj",
                  "-configuration", "Release",
                  "-target", "libIrrlicht.a",
-                 "SYMROOT=build"
+                 "SYMROOT=build",
+                 *extra_args
+
+      frameworks.install "source/Irrlicht/MacOSX/build/Release/IrrFramework.framework"
+      lib.install_symlink frameworks/"IrrFramework.framework/Versions/A/IrrFramework" => "libIrrlicht.dylib"
       lib.install "source/Irrlicht/MacOSX/build/Release/libIrrlicht.a"
       include.install "include" => "irrlicht"
     end
@@ -68,18 +85,14 @@ class Irrlicht < Formula
       lib.install "lib/Linux/libIrrlicht.a"
     end
 
-    on_linux do
-      (pkgshare/"examples").install "examples/01.HelloWorld"
-    end
+    (pkgshare/"examples").install "examples/01.HelloWorld"
   end
 
   test do
     on_macos do
       assert_match Hardware::CPU.arch.to_s, shell_output("lipo -info #{lib}/libIrrlicht.a")
     end
-    on_linux do
-      cp_r Dir["#{pkgshare}/examples/01.HelloWorld/*"], testpath
-      system ENV.cxx, "main.cpp", "-I#{include}/irrlicht", "-L#{lib}", "-lIrrlicht", "-o", "hello"
-    end
+    cp_r Dir["#{pkgshare}/examples/01.HelloWorld/*"], testpath
+    system ENV.cxx, "main.cpp", "-I#{include}/irrlicht", "-L#{lib}", "-lIrrlicht", "-o", "hello"
   end
 end
