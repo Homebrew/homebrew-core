@@ -25,7 +25,6 @@ class Mkvtoolnix < Formula
 
   depends_on "docbook-xsl" => :build
   depends_on "pkg-config" => :build
-  depends_on "qt@5" => :build
   depends_on "boost"
   depends_on "flac"
   depends_on "fmt"
@@ -39,6 +38,7 @@ class Mkvtoolnix < Formula
   depends_on macos: :catalina # C++17
   depends_on "nlohmann-json"
   depends_on "pugixml"
+  depends_on "qt@5"
   depends_on "utf8cpp"
 
   uses_from_macos "libxslt" => :build
