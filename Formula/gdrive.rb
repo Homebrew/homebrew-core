@@ -1,8 +1,8 @@
 class Gdrive < Formula
   desc "Google Drive CLI Client"
   homepage "https://github.com/gdrive-org/gdrive"
-  url "https://github.com/gdrive-org/gdrive/archive/2.1.0.tar.gz"
-  sha256 "a1ea624e913e258596ea6340c8818a90c21962b0a75cf005e49a0f72f2077b2e"
+  url "https://github.com/gdrive-org/gdrive/archive/2.1.1.tar.gz"
+  sha256 "9092cb356acf58f2938954784605911e146497a18681199d0c0edc65b833a672"
   license "MIT"
   head "https://github.com/gdrive-org/gdrive.git"
 
@@ -16,21 +16,16 @@ class Gdrive < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "b03e82ba9bb723b7f6225607b3127b9d515f0d79271f76b375b74324aecfb057"
   end
 
-  # See https://github.com/prasmussen/gdrive/commit/31d0829c180795d17e00b7a354fffe4d72be712b
-  deprecate! date: "2021-02-18", because: :unmaintained
-
   depends_on "go" => :build
 
-  def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
+  patch do
+    url "https://github.com/prasmussen/gdrive/commit/faa6fc3dc104236900caa75eb22e9ed2e5ecad42.patch?full_index=1"
+    sha256 "ee7ebe604698aaeeb677c60d973d5bd6c3aca0a5fb86f6f925c375a90fea6b95"
+  end
 
-    dir = buildpath/"src/github.com/prasmussen/gdrive"
-    dir.install buildpath.children
-    dir.cd do
-      system "go", "build", "-o", bin/"gdrive", "."
-      doc.install "README.md"
-    end
+  def install
+    system "go", "build", *std_go_args, "-mod=readonly"
+    doc.install "README.md"
   end
 
   test do
