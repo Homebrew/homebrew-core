@@ -12,6 +12,8 @@ class V < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "bbee3c584bca388ac94dcd3dc701c395fc4f44418dcd0f213033cec8f4f41b17"
   end
 
+  uses_from_macos "vim"
+
   def install
     bin.install "v"
     man1.install "v.1"
@@ -19,7 +21,7 @@ class V < Formula
 
   test do
     (testpath/".vimrc").write "set viminfo='25,\"50,n#{testpath}/.viminfo"
-    system "/usr/bin/vim", "-u", testpath/".vimrc", "+wq", "test.txt"
+    system "vim", "-u", testpath/".vimrc", "+wq", "test.txt"
     assert_equal "#{testpath}/test.txt", shell_output("#{bin}/v -a --debug").chomp
   end
 end
