@@ -13,7 +13,8 @@ class Bitrise < Formula
   end
 
   depends_on "go" => :build
-  uses_from_macos "rsync" => :build
+
+  uses_from_macos "rsync"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
