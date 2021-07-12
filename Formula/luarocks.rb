@@ -26,6 +26,12 @@ class Luarocks < Formula
                           "--sysconfdir=#{etc}",
                           "--rocks-tree=#{HOMEBREW_PREFIX}"
     system "make", "install"
+
+    on_linux do
+      File.open(pkgetc/"config-#{Formula["lua"].version.major_minor}.lua", "a") do |f|
+        f.write "variables.UNZIP = \"#{Formula["unzip"].opt_bin}/unzip -n\";"
+      end
+    end
   end
 
   def caveats
