@@ -83,7 +83,7 @@ class Ghc < Formula
     ENV["LD"] = "ld"
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
-    args = []
+    args = %w[--enable-numa=no]
     on_macos do
       # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
       # executables link to Homebrew's GMP.
