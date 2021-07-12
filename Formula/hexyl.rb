@@ -1,8 +1,8 @@
 class Hexyl < Formula
   desc "Command-line hex viewer"
   homepage "https://github.com/sharkdp/hexyl"
-  url "https://github.com/sharkdp/hexyl/archive/v0.8.0.tar.gz"
-  sha256 "b2e69b4ca694afd580c7ce22ab83a207174d2bbc9dabbad020fee4a98a1205be"
+  url "https://github.com/sharkdp/hexyl/archive/v0.9.0.tar.gz"
+  sha256 "73f0dc1be1eaa1a34e3280bc1eeb4f86f34b024205fc7bf3c87d5a0bc4021a6a"
   license "Apache-2.0"
 
   bottle do
