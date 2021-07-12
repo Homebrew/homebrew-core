@@ -19,8 +19,10 @@ class Notmuch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "52de489510b6d6c8c905ca6a1c34d4a55a41d8cdee984fa06ce027c145f1107b"
   end
 
+  option "without-brew-emacs", "Build Elisp files with Emacs without requiring the Homebrew Emacs formula"
+
   depends_on "doxygen" => :build
-  depends_on "emacs" => :build
+  depends_on "emacs" => :build unless build.without?("brew-emacs")
   depends_on "libgpg-error" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
