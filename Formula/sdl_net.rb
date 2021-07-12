@@ -4,11 +4,6 @@ class SdlNet < Formula
   url "https://www.libsdl.org/projects/SDL_net/release/SDL_net-1.2.8.tar.gz"
   sha256 "5f4a7a8bb884f793c278ac3f3713be41980c5eedccecff0260411347714facb4"
 
-  livecheck do
-    url "https://www.libsdl.org/projects/SDL_net/release/"
-    regex(/href=.*?SDL_net[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "99b9b5259989971316f1ab7d1c785949868b329abe2e73b0034bdfe5f447eeb8"
     sha256 cellar: :any,                 big_sur:       "53bf15367d717f52383f6221a46c2103ed88beb591830f7d6269b9ae993521f7"
@@ -20,6 +15,9 @@ class SdlNet < Formula
     sha256 cellar: :any,                 yosemite:      "fe6b8eda1d640db450ed12f79feb731d49a62263c4b83601d69659498d697538"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ebc10f3cf5bb91fe6e4a336d6cb615b54436bd07e4a07d084d4a97c85a530f3"
   end
+
+  # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
+  deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "sdl"
