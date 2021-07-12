@@ -9,8 +9,9 @@ class Scorecard < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build-scorecard"
-    bin.install "scorecard"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
+    cd("checks/main") { system "go", "run", "main.go" }
+    doc.install "checks/checks.md"
   end
 
   test do
