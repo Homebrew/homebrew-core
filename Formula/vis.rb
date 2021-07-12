@@ -18,6 +18,9 @@ class Vis < Formula
   depends_on "libtermkey"
   depends_on "lua"
 
+  uses_from_macos "unzip" => :build
+  uses_from_macos "ncurses"
+
   resource "lpeg" do
     url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.1-1.src.rock"
     sha256 "149be31e0155c4694f77ea7264d9b398dd134eca0d00ff03358d91a6cfb2ea9d"
@@ -35,24 +38,34 @@ class Vis < Formula
       system "luarocks", "build", "lpeg", "--tree=#{luapath}"
     end
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--enable-lua"
     system "make", "install"
 
-    env = { LUA_PATH: ENV["LUA_PATH"], LUA_CPATH: ENV["LUA_CPATH"] }
-    bin.env_script_all_files(libexec/"bin", env)
-    # Rename vis & the matching manpage to avoid clashing with the system.
-    mv bin/"vis", bin/"vise"
-    mv man1/"vis.1", man1/"vise.1"
+    luaenv = { LUA_PATH: ENV["LUA_PATH"], LUA_CPATH: ENV["LUA_CPATH"] }
+    bin.env_script_all_files(libexec/"bin", luaenv)
+
+    on_macos do
+      # Rename vis & the matching manpage to avoid clashing with the system.
+      mv bin/"vis", bin/"vise"
+      mv man1/"vis.1", man1/"vise.1"
+    end
   end
 
   def caveats
-    <<~EOS
-      To avoid a name conflict with the macOS system utility /usr/bin/vis,
-      this text editor must be invoked by calling `vise` ("vis-editor").
-    EOS
+    on_macos do
+      <<~EOS
+        To avoid a name conflict with the macOS system utility /usr/bin/vis,
+        this text editor must be invoked by calling `vise` ("vis-editor").
+      EOS
+    end
   end
 
   test do
-    assert_match "vis v#{version} +curses +lua", shell_output("#{bin}/vise -v 2>&1")
+    binary = bin/"vise"
+    on_linux do
+      binary = bin/"vis"
+    end
+
+    assert_match "vis v#{version} +curses +lua", shell_output("#{binary} -v 2>&1")
   end
 end
