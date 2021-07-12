@@ -1,8 +1,8 @@
 class Jrsonnet < Formula
   desc "Rust implementation of Jsonnet language"
   homepage "https://github.com/CertainLach/jrsonnet"
-  url "https://github.com/CertainLach/jrsonnet/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "f35d4c2ed7a1efada7768deadb5c7509e71846844d14108d68334db9d10645fb"
+  url "https://github.com/CertainLach/jrsonnet/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "2396c57a49a20db99da17b8ddd1b0b283f1a6e7c5ae1dc94823e7503cbb6ce3f"
   license "MIT"
   head "https://github.com/CertainLach/jrsonnet.git"
 
@@ -20,6 +20,13 @@ class Jrsonnet < Formula
     cd "cmds/jrsonnet" do
       system "cargo", "install", *std_cargo_args
     end
+
+    bash_output = Utils.safe_popen_read(bin/"jrsonnet", "--generate", "bash", "-")
+    (bash_completion/"jrsonnet").write bash_output
+    zsh_output = Utils.safe_popen_read(bin/"jrsonnet", "--generate", "zsh", "-")
+    (zsh_completion/"_jrsonnet").write zsh_output
+    fish_output = Utils.safe_popen_read(bin/"jrsonnet", "--generate", "fish", "-")
+    (fish_completion/"jrsonnet.fish").write fish_output
   end
 
   test do
