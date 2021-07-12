@@ -4,6 +4,7 @@ class Vis < Formula
   url "https://github.com/martanne/vis/archive/v0.7.tar.gz"
   sha256 "359ebb12a986b2f4e2a945567ad7587eb7d354301a5050ce10d51544570635eb"
   license "ISC"
+  revision 1
   head "https://github.com/martanne/vis.git"
 
   bottle do
