@@ -58,7 +58,7 @@ class Pybind11 < Formula
     site_packages = "lib/python#{version}/site-packages"
 
     python_flags = `#{Formula["python@3.9"].opt_bin}/python3-config --cflags --ldflags --embed`.split
-    system ENV.cxx, "-O3", "-shared", "-std=c++11", *python_flags, "example.cpp", "-o", "example.so"
+    system ENV.cxx, "-shared", "-fPIC", "-O3", "-std=c++11", "example.cpp", "-o", "example.so", *python_flags
     system Formula["python@3.9"].opt_bin/"python3", "example.py"
 
     test_module = shell_output("#{Formula["python@3.9"].opt_bin/"python3"} -m pybind11 --includes")
