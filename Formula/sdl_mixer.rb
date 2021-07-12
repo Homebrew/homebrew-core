@@ -6,11 +6,6 @@ class SdlMixer < Formula
   license "Zlib"
   revision 4
 
-  livecheck do
-    url "https://www.libsdl.org/projects/SDL_mixer/release/"
-    regex(/href=.*?SDL_mixer[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any, arm64_big_sur: "20d1beb530df525f4aa8d5e4716eb9acf5a54330076c6ba3c1784b88a9e9e3f8"
     sha256 cellar: :any, big_sur:       "0bd16f40744f277701a46fda52b3df4aecff40371e3ae84b09556ec3e2a3bc63"
@@ -18,6 +13,9 @@ class SdlMixer < Formula
     sha256 cellar: :any, mojave:        "dd69b75165f502ff2540c6e6fa72645049b8bc25ed1794b36d3757a8bc74eb97"
     sha256 cellar: :any, high_sierra:   "a6e0ff3e96a41f88892cf1fcee7d8c21fd816094f48d376640f77184a8c78e06"
   end
+
+  # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
+  deprecate! date: "2013-08-17", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "flac"
