@@ -16,6 +16,9 @@ class Httpflow < Formula
 
   depends_on "pcre"
 
+  uses_from_macos "libpcap"
+  uses_from_macos "zlib"
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}", "CXX=#{ENV.cxx}"
