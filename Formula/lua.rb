@@ -36,8 +36,8 @@ class Lua < Formula
     # Add shared library for linux. Equivalent to the mac patch above.
     # Inspired from http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
     patch do
-      url "https://raw.githubusercontent.com/iMichka/formula-patches/c20f0fbc7a647129025911410d42100d0c38a7ab/lua/lua-so.patch"
-      sha256 "da80df731a9b03f346fb6582a176f1b5d6d02bc36faa93d046cdf60dc44d4eca"
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/0dcd11880c7d63eb395105a5cdddc1ca05b40f4a/lua/lua-so.patch"
+      sha256 "522dc63a0c1d87bf127c992dfdf73a9267890fd01a5a17e2bcf06f7eb2782942"
     end
   end
 
@@ -79,7 +79,7 @@ class Lua < Formula
     bin.install_symlink "luac" => "luac#{version.major_minor}"
     bin.install_symlink "luac" => "luac-#{version.major_minor}"
     (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
-    lib.install_symlink "liblua.#{version.major_minor}.dylib" => "liblua#{version.major_minor}.dylib"
+    lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
 
@@ -89,6 +89,9 @@ class Lua < Formula
   end
 
   def pc_file
+    libs = %w[-llua -lm]
+    on_linux { libs << "-ldl" }
+
     <<~EOS
       V= #{version.major_minor}
       R= #{version}
@@ -107,7 +110,7 @@ class Lua < Formula
       Description: An Extensible Extension Language
       Version: #{version}
       Requires:
-      Libs: -L${libdir} -llua -lm
+      Libs: -L${libdir} #{libs.join(" ")}
       Cflags: -I${includedir}
     EOS
   end
