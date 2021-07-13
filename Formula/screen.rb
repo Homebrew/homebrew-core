@@ -1,7 +1,7 @@
 class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   stable do
     url "https://ftp.gnu.org/gnu/screen/screen-4.8.0.tar.gz"
@@ -26,26 +26,31 @@ class Screen < Formula
 
   head do
     url "https://git.savannah.gnu.org/git/screen.git"
-  end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
+    depends_on "autoconf@2.69" => :build
+    depends_on "automake" => :build
+  end
 
   uses_from_macos "ncurses"
 
   def install
-    cd "src" if build.head?
+    if build.head?
+      cd "src"
+      system "./autogen.sh"
+    end
 
     # With parallel build, it fails
     # because of trying to compile files which depend osdef.h
     # before osdef.sh script generates it.
     ENV.deparallelize
 
+    # Fix error: dereferencing pointer to incomplete type 'struct utmp'
+    ENV.append_to_cflags "-include utmp.h"
+
     # Fix for Xcode 12 build errors.
     # https://savannah.gnu.org/bugs/index.php?59465
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
-    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--infodir=#{info}",
