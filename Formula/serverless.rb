@@ -16,6 +16,10 @@ class Serverless < Formula
 
   depends_on "node"
 
+  on_linux do
+    depends_on "python@3.7"
+  end
+
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
