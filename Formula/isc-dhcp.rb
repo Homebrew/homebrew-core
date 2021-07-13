@@ -1,8 +1,9 @@
 class IscDhcp < Formula
   desc "Production-grade DHCP solution"
   homepage "https://www.isc.org/dhcp"
-  url "https://ftp.isc.org/isc/dhcp/4.4.2/dhcp-4.4.2.tar.gz"
-  sha256 "1a7ccd64a16e5e68f7b5e0f527fd07240a2892ea53fe245620f4f5f607004521"
+  url "https://ftp.isc.org/isc/dhcp/4.4.2-P1/dhcp-4.4.2-P1.tar.gz"
+  version "4.4.2-P1"
+  sha256 "b05e04337539545a8faa0d6ac518defc61a07e5aec66a857f455e7f218c85a1a"
   license "MPL-2.0"
 
   livecheck do
@@ -145,5 +146,10 @@ class IscDhcp < Formula
       </dict>
       </plist>
     EOS
+  end
+
+  test do
+    cp etc/"dhcpd.conf.example.sample", testpath/"dhcpd.conf"
+    system sbin/"dhcpd", "-cf", "#{testpath}/dhcpd.conf", "-t"
   end
 end
