@@ -17,9 +17,15 @@ class Dwarfutils < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "f072dac053dee574c279956d1b072aeeb591a078d207d2d963a745e3553fab26"
   end
 
-  depends_on "libelf" => :build
-
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libelf" => :build
+  end
+
+  on_linux do
+    depends_on "libelf"
+  end
 
   def install
     system "./configure"
