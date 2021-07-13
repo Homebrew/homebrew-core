@@ -5,6 +5,11 @@ class Id3ed < Formula
   sha256 "56f26dfde7b6357c5ad22644c2a379f25fce82a200264b5d4ce62f2468d8431b"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?id3ed[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0adb83739ee928667c488d4213369f5854900380f159219d0f04dc929ff731cc"
     sha256 cellar: :any_skip_relocation, big_sur:       "a560e42fb11482b14d22079ffa0ffb2dd2307f5e740b22acd2636b4fa6e4a307"
