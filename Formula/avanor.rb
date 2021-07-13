@@ -3,7 +3,7 @@ class Avanor < Formula
   homepage "https://avanor.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/avanor/avanor/0.5.8/avanor-0.5.8-src.tar.bz2"
   sha256 "8f55be83d985470b9a5220263fc87d0a0a6e2b60dbbc977c1c49347321379ef3"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_big_sur: "6c2ae364f9e7c7ce1f3876a4ce9acb53489e9a17221646f004895ccd239e4646"
@@ -15,6 +15,9 @@ class Avanor < Formula
     sha256 el_capitan:    "a66b436a645cafa77a5bd79d22f314ff2b9331526f5efeaf79d38346647cad66"
     sha256 yosemite:      "1c12fd7f45993d18b481d3317594083e4bb88f0eecf100d4b5dd4a927c866200"
   end
+
+  uses_from_macos "expect" => :test
+  uses_from_macos "ncurses"
 
   # Upstream fix for clang: https://sourceforge.net/p/avanor/code/133/
   patch :p0 do
@@ -38,6 +41,6 @@ class Avanor < Formula
       expect eof
     EOS
     script.chmod 0700
-    system "./script.exp"
+    system "expect", "-f", "script.exp"
   end
 end
