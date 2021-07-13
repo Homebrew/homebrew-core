@@ -1,9 +1,13 @@
 class Jailkit < Formula
   desc "Utilities to create limited user accounts in a chroot jail"
   homepage "https://olivier.sessink.nl/jailkit/"
-  url "https://olivier.sessink.nl/jailkit/jailkit-2.21.tar.bz2"
-  sha256 "db3bb090a4fffdef59b5eafd594478d576cacf84306f9929d0dfbed090cf3687"
-  revision 1
+  url "https://olivier.sessink.nl/jailkit/jailkit-2.22.tar.bz2"
+  sha256 "985564721366eaf5c6482dd17e91647d21e70b4c9803c74847d649d8c8c2bbcf"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?jailkit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "9b1811caafbdea42e49b14308f79e70faccbb3f38402184f974e52026c220a57"
