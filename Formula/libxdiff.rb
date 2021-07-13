@@ -5,6 +5,11 @@ class Libxdiff < Formula
   sha256 "e9af96174e83c02b13d452a4827bdf47cb579eafd580953a8cd2c98900309124"
   license "LGPL-2.1"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libxdiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "f986d3e17b2ca9bf61f85fb8dffe837edbd5bee22b1c21c27f3ecfea9a83b12b"
