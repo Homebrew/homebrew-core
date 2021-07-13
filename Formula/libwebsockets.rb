@@ -5,7 +5,7 @@ class Libwebsockets < Formula
       tag:      "v4.2.1",
       revision: "8a580b59b23d204ca72028370e97a8f6aa0c9202"
   license "MIT"
-  head "https://github.com/warmcat/libwebsockets.git"
+  head "https://github.com/warmcat/libwebsockets.git", branch: "main"
 
   livecheck do
     url "https://github.com/warmcat/libwebsockets"
