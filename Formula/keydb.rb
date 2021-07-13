@@ -12,6 +12,12 @@ class Keydb < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "ab28323dbffb9fcc0f11eeb18d9490808592b5caab0f8168e310937abb83b212"
   end
 
+  uses_from_macos "curl"
+
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
