@@ -33,9 +33,10 @@ class NewrelicCli < Formula
   end
 
   test do
-    assert_match "pluginDir", shell_output("#{bin}/newrelic config list")
-    assert_match "logLevel", shell_output("#{bin}/newrelic config list")
-    assert_match "sendUsageData", shell_output("#{bin}/newrelic config list")
+    output = shell_output("#{bin}/newrelic config list")
+
+    assert_match "loglevel", output
+    assert_match "plugindir", output
     assert_match version.to_s, shell_output("#{bin}/newrelic version 2>&1")
   end
 end
