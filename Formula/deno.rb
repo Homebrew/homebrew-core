@@ -1,8 +1,8 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.11.5/deno_src.tar.gz"
-  sha256 "d9c07af3f39078549f7a5e9b1a463ba92674dbd1e9b02e7c324b1c725c3ab392"
+  url "https://github.com/denoland/deno/releases/download/v1.12.0/deno_src.tar.gz"
+  sha256 "5208781164573bed2a3f438c72cbbe4c88209a0795d996d07a1984193420535c"
   license "MIT"
 
   bottle do
@@ -22,11 +22,12 @@ class Deno < Formula
 
   # To find the version of gn used:
   # 1. Find rusty_v8 version: https://github.com/denoland/deno/blob/v#{version}/core/Cargo.toml
-  # 2. Find buildtools submodule commit: https://github.com/denoland/rusty_v8/tree/v#{rusty_v8_version}
-  # 3. Check gn_version: https://github.com/denoland/chromium_buildtools/blob/#{buildtools_commit}/DEPS
+  # 2. Find ninja_gn_binaries tag: https://github.com/denoland/rusty_v8/tree/v#{rusty_v8_version}/tools/ninja_gn_binaries.py
+  # 3. Find short gn commit hash from commit message: https://github.com/denoland/ninja_gn_binaries/tree/#{ninja_gn_binaries_tag}
+  # 4. Find full gn commit hash: https://gn.googlesource.com/gn.git/+/#{gn_commit}
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "dfcbc6fed0a8352696f92d67ccad54048ad182b3"
+        revision: "53d92014bf94c3893886470a1c7c1289f8818db0"
   end
 
   def install
