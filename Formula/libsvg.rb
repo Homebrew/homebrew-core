@@ -32,6 +32,12 @@ class Libsvg < Formula
 
   uses_from_macos "libxml2"
 
+  # Fix undefined reference to 'png_set_gray_1_2_4_to_8' in libpng 1.4.0+
+  patch do
+    url "https://raw.githubusercontent.com/buildroot/buildroot/45c3b0ec49fac67cc81651f0bed063722a48dc29/package/libsvg/0002-Fix-undefined-symbol-png_set_gray_1_2_4_to_8.patch"
+    sha256 "a0ca1e25ea6bd5cb9aac57ac541c90ebe3b12c1340dbc5762d487d827064e0b9"
+  end
+
   # Allow building on M1 Macs. This patch is adapted from
   # https://cgit.freedesktop.org/cairo/commit/?id=afdf3917ee86a7d8ae17f556db96478682674a76
   patch :DATA
@@ -117,7 +123,17 @@ class Libsvg < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lsvg", "-o", "test"
+
+    flags = %W[
+      -I#{include}
+      -L#{lib}
+      -lsvg
+    ]
+    on_linux do
+      flags << "-lpng"
+      flags << "-ljpeg"
+    end
+    system ENV.cc, "test.c", "-o", "test", *flags
     assert_equal "1\n2\n3\n4\n5\n6\nSUCCESS\n", shell_output("./test")
   end
 end
