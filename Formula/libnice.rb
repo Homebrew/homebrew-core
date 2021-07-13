@@ -76,7 +76,7 @@ class Libnice < Formula
     on_macos do
       flags << "-lintl"
     end
-    system ENV.cc, *flags, "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
 end
