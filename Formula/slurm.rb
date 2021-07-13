@@ -3,7 +3,7 @@ class Slurm < Formula
   homepage "https://github.com/mattthias/slurm"
   url "https://github.com/mattthias/slurm/archive/upstream/0.4.3.tar.gz"
   sha256 "b960c0d215927be1d02c176e1b189321856030226c91f840284886b727d3a3ac"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0568e6cdfc383e2ad89668439afbae2a0f9bf7f7061e3b721dc16cb4fbecc77a"
@@ -17,6 +17,8 @@ class Slurm < Formula
   end
 
   depends_on "cmake" => :build
+
+  uses_from_macos "ncurses"
 
   def install
     system "cmake", ".", *std_cmake_args
