@@ -16,6 +16,8 @@ class Hcxtools < Formula
   depends_on "pkg-config" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "curl"
+
   def install
     bin.mkpath
     man1.mkpath
