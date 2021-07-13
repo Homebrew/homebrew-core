@@ -3,8 +3,8 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://www.pyinstaller.org"
-  url "https://files.pythonhosted.org/packages/b6/27/a006fcadba0db30819c968eb8decb4937cda398ca7a44d8874172cdc228a/pyinstaller-4.3.tar.gz"
-  sha256 "5ecf8bbc230d7298a796e52bb745b95eee12878d141f1645612c99246ecd23f2"
+  url "https://files.pythonhosted.org/packages/56/68/fcf288abb7985d17c4d5802aa76cbc6e00cd85d084230338cf4ef8696a38/pyinstaller-4.4.tar.gz"
+  sha256 "af3ef0b9f265a2d3859357a25ab16743fbb6143c89fd7c3570cb84b8d24db0ba"
   license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
@@ -28,8 +28,8 @@ class Pyinstaller < Formula
   end
 
   resource "pyinstaller-hooks-contrib" do
-    url "https://files.pythonhosted.org/packages/70/4b/453588ea48782e7c3e531d2fc016aa88248687123bfac9d5c72f57a4def6/pyinstaller-hooks-contrib-2021.1.tar.gz"
-    sha256 "892310e6363655838485ee748bf1c5e5cade7963686d9af8650ee218a3e0b031"
+    url "https://files.pythonhosted.org/packages/eb/fa/fe062e44776ab8edb4ac62daca1a02bb744ebdd556ec7a75c19c717e80b4/pyinstaller-hooks-contrib-2021.2.tar.gz"
+    sha256 "7f5d0689b30da3092149fc536a835a94045ac8c9f0e6dfb23ac171890f5ea8f2"
   end
 
   def install
