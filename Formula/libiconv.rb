@@ -1,3 +1,11 @@
+class MacOSRequirement < Requirement
+  fatal true
+  satisfy(build_env: false) { OS.mac? }
+  def message
+    "is not needed on Linux, where iconv.h is provided by glibc"
+  end
+end
+
 class Libiconv < Formula
   desc "Conversion library"
   homepage "https://www.gnu.org/software/libiconv/"
@@ -16,6 +24,8 @@ class Libiconv < Formula
   end
 
   keg_only :provided_by_macos
+
+  depends_on MacOSRequirement
 
   patch do
     url "https://raw.githubusercontent.com/Homebrew/patches/9be2793af/libiconv/patch-utf8mac.diff"
