@@ -6,6 +6,11 @@ class NumUtils < Formula
   sha256 "03592760fc7844492163b14ddc9bb4e4d6526e17b468b5317b4a702ea7f6c64e"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?num-utils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a1d2623cf894f0d8838ee705b922933605c1fa0a43a6a1dc7e38f7f6ff994c3f"
