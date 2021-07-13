@@ -1,8 +1,13 @@
 class Rasqal < Formula
   desc "RDF query library"
-  homepage "http://librdf.org/rasqal/"
-  url "http://download.librdf.org/source/rasqal-0.9.33.tar.gz"
+  homepage "https://librdf.org/rasqal/"
+  url "https://download.librdf.org/source/rasqal-0.9.33.tar.gz"
   sha256 "6924c9ac6570bd241a9669f83b467c728a322470bf34f4b2da4f69492ccfd97c"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?rasqal[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "36d9d4a210921573c1cad68bc17bf0d0fced251de091855ce1b61cefc64a37c8"
