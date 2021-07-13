@@ -4,6 +4,7 @@ class Scummvm < Formula
   url "https://downloads.scummvm.org/frs/scummvm/2.2.0/scummvm-2.2.0.tar.xz"
   sha256 "1469657e593bd8acbcfac0b839b086f640ebf120633e93f116cab652b5b27387"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/scummvm/scummvm.git"
 
   livecheck do
@@ -22,7 +23,7 @@ class Scummvm < Formula
   depends_on "a52dec"
   depends_on "faad2"
   depends_on "flac"
-  depends_on "fluid-synth"
+  depends_on "fluid-synth@2.1"
   depends_on "freetype"
   depends_on "jpeg-turbo"
   depends_on "libmpeg2"
