@@ -4,7 +4,7 @@ class VtkAT82 < Formula
   url "https://www.vtk.org/files/release/8.2/VTK-8.2.0.tar.gz"
   sha256 "34c3dc775261be5e45a8049155f7228b6bd668106c72a3c435d95730d17d57bb"
   license "BSD-3-Clause"
-  revision 6
+  revision 7
 
   bottle do
     sha256 arm64_big_sur: "81fc6d19a33fa38e234b7d18bbbbc81fbd0b2996e402ba774c69193b53c358ba"
@@ -103,6 +103,7 @@ class VtkAT82 < Formula
     inreplace Dir["#{lib}/cmake/**/vtkhdf5.cmake"].first,
               Formula["hdf5"].prefix.realpath,
               Formula["hdf5"].opt_prefix
+
     # get rid of bad include paths on 10.14+
     if MacOS.version >= :mojave
       inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtklibxml2.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
@@ -110,6 +111,14 @@ class VtkAT82 < Formula
       inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtkzlib.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
       inreplace Dir["#{lib}/cmake/vtk-*/Modules/vtkpng.cmake"], %r{;/Library/Developer/CommandLineTools[^"]*}, ""
     end
+
+    # Prevent dependents from using fragile Cellar paths
+    inreplace_cmake_modules = [
+      lib/"cmake/vtk-#{version.major_minor}/VTKConfig.cmake",
+      lib/"cmake/vtk-#{version.major_minor}/VTKTargets-release.cmake",
+      lib/"cmake/vtk-#{version.major_minor}/Modules/vtkPython.cmake",
+    ]
+    inreplace inreplace_cmake_modules, prefix, opt_prefix
   end
 
   test do
