@@ -1,9 +1,14 @@
 class Sntop < Formula
   desc "Curses-based utility that polls hosts to determine connectivity"
   homepage "https://sntop.sourceforge.io/"
-  url "https://pkg.freebsd.org/ports-distfiles/sntop-1.4.3.tar.gz"
+  url "https://downloads.sourceforge.net/project/sntop/sntop/1.4.3/sntop-1.4.3.tar.gz"
   sha256 "943a5af1905c3ae7ead064e531cde6e9b3dc82598bbda26ed4a43788d81d6d89"
   license "GPL-2.0"
+
+  livecheck do
+    url :stable
+    regex(%r{url=.*?/sntop[._-]v?(\d+(?:\.\d+)+)\.t}i)
+  end
 
   bottle do
     rebuild 1
