@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.58.0",
-      revision: "983be5441d8afbe57160214430b11e70dc7731f5"
+      tag:      "v0.58.2",
+      revision: "c96ba366b2eae27e8a06c910ac3103a384e3d5cf"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -147,11 +147,7 @@ class Semgrep < Formula
       ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
 
       system "opam", "init", "--no-setup", "--disable-sandboxing"
-      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.10.2" }
-
-      # Delete OCaml version file since it conflicts with C++20 version header
-      # This can be removed once semgrep upgrades to ocaml 4.12.0
-      rm "#{opamroot}/ocaml-base-compiler.4.10.2/lib/ocaml/VERSION"
+      ENV.deparallelize { system "opam", "switch", "create", "ocaml-base-compiler.4.12.0" }
 
       # Manually run steps from `opam exec -- make setup` to link Homebrew's tree-sitter
       system "opam", "update", "-y"
