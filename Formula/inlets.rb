@@ -7,11 +7,6 @@ class Inlets < Formula
   license "MIT"
   head "https://github.com/inlets/inlets.git"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "55fdb93d26dacaca8cbb42cc68b9387423e3b618220e57f9de67855209132eeb"
     sha256 cellar: :any_skip_relocation, big_sur:       "5d6d55f2b32adc41a92f908ee15b263f9090dad596d137bf448d0d224288f365"
@@ -19,6 +14,8 @@ class Inlets < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "f87a32ce9f00b128379a23e83e62e2d9e4c811303c1b760cdde9cad16a599e99"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fc3dc0b39ea492fd4d00bef8ff4b5019567eb1e5fda0db6e7d7b276f46de4b4a"
   end
+
+  deprecate! date: "2021-07-11", because: :repo_archived
 
   depends_on "go" => :build
 
