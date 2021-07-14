@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.4.0.tar.gz"
   sha256 "6c12bab1c1ae467c75f9e5831e01a1f8912ab7eae64249faf49d3a0b84334a77"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -83,7 +83,23 @@ class Visp < Formula
                          "-DZBAR_LIBRARIES=#{Formula["zbar"].opt_lib}/libzbar.dylib",
                          "-DUSE_ZLIB=ON",
                          *std_cmake_args
+
+    # Replace generated references to OpenCV's Cellar path
+    opencv = Formula["opencv"]
+    opencv_references = Dir[
+      "CMakeCache.txt",
+      "CMakeFiles/Export/lib/cmake/visp/VISPModules.cmake",
+      "VISPConfig.cmake",
+      "VISPGenerateConfigScript.info.cmake",
+      "VISPModules.cmake",
+      "modules/**/flags.make",
+      "unix-install/VISPConfig.cmake",
+    ]
+    inreplace opencv_references, opencv.prefix.realpath, opencv.opt_prefix
     system "make", "install"
+
+    # Make sure software built against visp don't reference opencv's cellar path either
+    inreplace lib/"pkgconfig/visp.pc", opencv.prefix.realpath, opencv.opt_prefix
   end
 
   test do
