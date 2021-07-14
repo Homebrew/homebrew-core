@@ -1,9 +1,9 @@
 class GnuChess < Formula
   desc "Chess-playing program"
   homepage "https://www.gnu.org/software/chess/"
-  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.8.tar.gz"
-  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.8.tar.gz"
-  sha256 "d50446cda8012240321da39cddbb4df4d08458a8d538a4738882814139583847"
+  url "https://ftp.gnu.org/gnu/chess/gnuchess-6.2.9.tar.gz"
+  mirror "https://ftpmirror.gnu.org/chess/gnuchess-6.2.9.tar.gz"
+  sha256 "ddfcc20bdd756900a9ab6c42c7daf90a2893bf7f19ce347420ce36baebc41890"
   license "GPL-3.0-or-later"
 
   livecheck do
