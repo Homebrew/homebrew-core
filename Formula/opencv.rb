@@ -4,6 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/4.5.3.tar.gz"
   sha256 "77f616ae4bea416674d8c373984b20c8bd55e7db887fd38c6df73463a0647bab"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -94,21 +95,25 @@ class Opencv < Formula
     end
 
     mkdir "build" do
-      os = "mac"
-      on_linux do
-        os = "linux"
-      end
+      shim_prefix_regex = %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/}o
+
       system "cmake", "..", *args
-      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/#{os}/super/", ""
+      inreplace "modules/core/version_string.inc", shim_prefix_regex, ""
+
       system "make"
       system "make", "install"
+
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
-      inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/#{os}/super/", ""
+      inreplace "modules/core/version_string.inc", shim_prefix_regex, ""
+
       system "make"
       lib.install Dir["lib/*.a"]
       lib.install Dir["3rdparty/**/*.a"]
     end
+
+    # Prevent dependents from using fragile Cellar paths
+    inreplace lib/"pkgconfig/opencv#{version.major}.pc", prefix, opt_prefix
   end
 
   test do
