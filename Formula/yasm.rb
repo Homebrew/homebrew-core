@@ -39,24 +39,57 @@ class Yasm < Formula
   end
 
   test do
-    (testpath/"test.asm").write <<~EOS
-      global start
-      section .text
-      start:
-          mov     rax, 0x2000004 ; write
-          mov     rdi, 1 ; stdout
-          mov     rsi, qword msg
-          mov     rdx, msg.len
-          syscall
-          mov     rax, 0x2000001 ; exit
-          mov     rdi, 0
-          syscall
-      section .data
-      msg:    db      "Hello, world!", 10
-      .len:   equ     $ - msg
+    (testpath/"foo.s").write <<~EOS
+      mov eax, 0
+      mov ebx, 0
+      int 0x80
     EOS
-    system "#{bin}/yasm", "-f", "macho64", "test.asm"
-    system "/usr/bin/ld", "-macosx_version_min", "10.8.0", "-static", "-o", "test", "test.o"
-    system "./test"
+    system "#{bin}/yasm", "foo.s"
+    code = File.open("foo", "rb") { |f| f.read.unpack("C*") }
+    expected = [0x66, 0xb8, 0x00, 0x00, 0x00, 0x00, 0x66, 0xbb,
+                0x00, 0x00, 0x00, 0x00, 0xcd, 0x80]
+    assert_equal expected, code
+
+    on_macos do
+      (testpath/"test.asm").write <<~EOS
+        global start
+        section .text
+        start:
+            mov     rax, 0x2000004 ; write
+            mov     rdi, 1 ; stdout
+            mov     rsi, qword msg
+            mov     rdx, msg.len
+            syscall
+            mov     rax, 0x2000001 ; exit
+            mov     rdi, 0
+            syscall
+        section .data
+        msg:    db      "Hello, world!", 10
+        .len:   equ     $ - msg
+      EOS
+      system "#{bin}/yasm", "-f", "macho64", "test.asm"
+      system "/usr/bin/ld", "-macosx_version_min", "10.8.0", "-static", "-o", "test", "test.o"
+    end
+    on_linux do
+      (testpath/"test.asm").write <<~EOS
+        global _start
+        section .text
+        _start:
+            mov     rax, 1
+            mov     rdi, 1
+            mov     rsi, msg
+            mov     rdx, msg.len
+            syscall
+            mov     rax, 60
+            mov     rdi, 0
+            syscall
+        section .data
+        msg:    db      "Hello, world!", 10
+        .len:   equ     $ - msg
+      EOS
+      system "#{bin}/yasm", "-f", "elf64", "test.asm"
+      system "/usr/bin/ld", "-static", "-o", "test", "test.o"
+    end
+    assert_equal "Hello, world!\n", shell_output("./test")
   end
 end
