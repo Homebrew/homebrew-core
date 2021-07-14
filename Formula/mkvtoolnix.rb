@@ -70,8 +70,7 @@ class Mkvtoolnix < Formula
                           "--with-boost=#{Formula["boost"].opt_prefix}",
                           "--with-docbook-xsl-root=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
                           "--with-extra-includes=#{extra_includes}",
-                          "--with-extra-libs=#{extra_libs}",
-                          "--disable-gui"
+                          "--with-extra-libs=#{extra_libs}"
     system "rake", "-j#{ENV.make_jobs}"
     system "rake", "install"
   end
