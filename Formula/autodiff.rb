@@ -1,8 +1,8 @@
 class Autodiff < Formula
   desc "Automatic differentiation made easier for C++"
   homepage "https://autodiff.github.io"
-  url "https://github.com/autodiff/autodiff/archive/v0.6.0.tar.gz"
-  sha256 "b76e6a96e539f173a2a24eefa6f4e7cff54b1144cc51c51eba44ac3779a14013"
+  url "https://github.com/autodiff/autodiff/archive/v0.6.1.tar.gz"
+  sha256 "b2e8ed18ee6eb39cac9232f8cd0c29b9cd08a236417740361f5ac46118bf9374"
   license "MIT"
   head "https://github.com/autodiff/autodiff.git"
 
