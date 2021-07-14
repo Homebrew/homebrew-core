@@ -2,6 +2,7 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
+  revision 1
   head "https://github.com/JuliaLang/julia.git"
 
   stable do
@@ -164,5 +165,11 @@ class Julia < Formula
   test do
     assert_equal "4", shell_output("#{bin}/julia -E '2 + 2'").chomp
     system bin/"julia", "-e", 'Base.runtests("core")'
+
+    (lib/"julia").children.each do |so|
+      next unless so.symlink?
+
+      assert_predicate so, :exist?, "Broken linkage with #{so.basename}"
+    end
   end
 end
