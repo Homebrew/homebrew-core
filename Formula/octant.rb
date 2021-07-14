@@ -2,8 +2,8 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      tag:      "v0.21.0",
-      revision: "3c7e6079df558774f573beba39d31527685b6001"
+      tag:      "v0.22.0",
+      revision: "a723e6e682f8d73d9c2afdd033c9028c9610b025"
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git"
 
