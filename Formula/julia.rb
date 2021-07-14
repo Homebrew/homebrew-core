@@ -111,7 +111,7 @@ class Julia < Formula
       (lib/"julia").mkpath
       Formula["libunwind"].opt_lib.glob(shared_library("libunwind", "*")) do |so|
         (buildpath/"usr/lib").install_symlink so
-        ln_sf so.relative_path_from(lib/"julia"), lib/"julia"
+        (lib/"julia").install_symlink so
       end
     end
 
@@ -133,6 +133,17 @@ class Julia < Formula
     (buildpath/"usr/share/julia").install_symlink Formula["openssl@1.1"].pkgetc/"cert.pem"
 
     system "make", *args, "install"
+
+    on_linux do
+      # Replace symlinks referencing Cellar paths with ones using opt paths
+      deps.reject(&:build?).map(&:to_formula).map(&:opt_lib).each do |libdir|
+        (lib/"julia").children.each do |so|
+          next unless (libdir/so.basename).exist?
+
+          ln_sf (libdir/so.basename).relative_path_from(lib/"julia"), lib/"julia"
+        end
+      end
+    end
 
     # Create copies of the necessary gcc libraries in `buildpath/"usr/lib"`
     system "make", "-C", "deps", "USE_SYSTEM_CSL=1", "install-csl"
