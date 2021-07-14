@@ -134,6 +134,9 @@
   "poetry": {
     "extra_packages": ["importlib-metadata", "typing-extensions"]
   },
+  "principalmapper": {
+    "exclude_packages": ["six"]
+  },
   "protobuf": {
     "exclude_packages": ["six"]
   },

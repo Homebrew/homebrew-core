@@ -3,8 +3,8 @@ class Principalmapper < Formula
 
   desc "Quickly evaluate IAM permissions in AWS"
   homepage "https://github.com/nccgroup/PMapper"
-  url "https://files.pythonhosted.org/packages/b4/4d/c270b88e05d4b17705936b7a3d05056d67e117b4087c663834d9bbd348d6/principalmapper-1.1.2.tar.gz"
-  sha256 "e36366a603b812de9eaf9c242a421f6982517b236344b9c44a1c509d82c62a26"
+  url "https://files.pythonhosted.org/packages/11/eb/497f5f0229de52744aa4af6874e32db9728ba0d461a08b65456d358a9928/principalmapper-1.1.3.tar.gz"
+  sha256 "2b0bedca0b9b397ec455ba20c1576fb5e35ba4f57b87f29fc3a527da6aeae52d"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -18,8 +18,8 @@ class Principalmapper < Formula
   depends_on "six"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/03/f3/99f57f59a101268612dd11ae4d34f3ed725394c327f28a94d2be6a510f63/botocore-1.20.84.tar.gz"
-    sha256 "bc59eb748fcb07835613ebea6dcc2600ae1a8be0fae30e40b9c1e81b73262296"
+    url "https://files.pythonhosted.org/packages/29/56/64570ac92c7cb88ad731dea4da4a83d3edc9f00a13a969ad826354ba5a58/botocore-1.20.111.tar.gz"
+    sha256 "21fc74dba0d4d6297b322aa79ecb4476b9e03a84b3f38eee2bed47555f4b4013"
   end
 
   resource "jmespath" do
@@ -28,8 +28,8 @@ class Principalmapper < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
-    sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
+    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
+    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
   end
 
   resource "pydot" do
@@ -43,13 +43,13 @@ class Principalmapper < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
-    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/94/40/c396b5b212533716949a4d295f91a4c100d51ba95ea9e2d96b6b0517e5a5/urllib3-1.26.5.tar.gz"
-    sha256 "a7acd0977125325f516bda9735fa7142b909a8d01e8b2e4c8108d0984e6e0098"
+    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
+    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
   end
 
   def install
