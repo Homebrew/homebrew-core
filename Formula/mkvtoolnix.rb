@@ -38,7 +38,7 @@ class Mkvtoolnix < Formula
   depends_on macos: :catalina # C++17
   depends_on "nlohmann-json"
   depends_on "pugixml"
-  # TODO update to "qt" in version > 59.0.0
+  # TODO: update to "qt" in version > 59.0.0
   depends_on "qt@5"
   depends_on "utf8cpp"
 
