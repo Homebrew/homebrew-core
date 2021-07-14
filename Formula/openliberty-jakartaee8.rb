@@ -15,7 +15,7 @@ class OpenlibertyJakartaee8 < Formula
   def install
     rm_rf Dir["bin/**/*.bat"]
 
-    prefix.install %w[LICENSE NOTICES README.TXT]
+    prefix.install_metafiles
     libexec.install Dir["*"]
     (bin/"openliberty-jakartaee8").write_env_script "#{libexec}/bin/server",
                                                     Language::Java.overridable_java_home_env
@@ -25,8 +25,6 @@ class OpenlibertyJakartaee8 < Formula
     <<~EOS
       The home of Open Liberty Jakarta EE 8 is:
         #{opt_libexec}
-      To run Open Liberty Jakarta EE 8:
-        openliberty-jakartaee8 start
     EOS
   end
 
