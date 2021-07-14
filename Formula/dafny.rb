@@ -1,10 +1,9 @@
 class Dafny < Formula
   desc "Verification-aware programming language"
   homepage "https://github.com/dafny-lang/dafny/blob/master/README.md"
-  url "https://github.com/dafny-lang/dafny/archive/v3.1.0.tar.gz"
-  sha256 "6cecba54e4190094b805fa6462538413226dca44f288a8500003884878f1cc7a"
+  url "https://github.com/dafny-lang/dafny/archive/v3.2.0.tar.gz"
+  sha256 "5d9ce0a7bb7d4700747923cff82cf50b5e3961772f37de9fe71790979ac0b8fe"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
