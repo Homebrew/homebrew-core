@@ -1,6 +1,3 @@
-# Documentation: https://docs.brew.sh/Formula-Cookbook
-#                https://rubydoc.brew.sh/Formula
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
 class KubeNoTrouble < Formula
   desc "Easily check your cluster for use of deprecated APIs"
   homepage "https://www.doit-intl.com"
