@@ -16,7 +16,7 @@ class Strace < Formula
   end
 
   depends_on :linux
-  depends_on "linux-headers"
+  depends_on "linux-headers@4.4"
 
   def install
     system "./bootstrap" if build.head?
