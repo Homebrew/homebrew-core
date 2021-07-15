@@ -5,6 +5,11 @@ class Libpcl < Formula
   sha256 "e7b30546765011575d54ae6b44f9d52f138f5809221270c815d2478273319e1a"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?pcl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, big_sur:     "2ed8a2eb0ff0c53cb2a2653991386ceded74a41a8a215e0d641221092917e361"
