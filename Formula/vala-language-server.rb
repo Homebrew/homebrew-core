@@ -22,10 +22,15 @@ class ValaLanguageServer < Formula
   end
 
   test do
-    # There are currently no tests for VLS
-    # (https://github.com/Prince781/vala-language-server/issues/26)
-    # I'll edit this section when there are some
-    # For now, I'm just checking to see if the project description is printed in help
-    assert_match(/A language server for Vala/, shell_output("#{bin}/vala-language-server -h"))
+    path = "#{testpath}"
+    length = (151 + path.length)
+    input =
+      "Content-Length: #{length}\r\n" \
+      "\r\n" \
+      "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"" \
+      "processId\":88075,\"rootPath\":\"#{path}\",\"capabilities\":{},\"trace\":\"ver" \
+      "bose\",\"workspaceFolders\":null}}\r\n"
+    output = pipe_output("#{bin}/vala-language-server", input, 0)
+    assert_match(/^Content-Length: \d+/i, output)
   end
 end
