@@ -9,11 +9,12 @@ class DjlBench < Formula
 
   def install
     rm_rf Dir["bin/*.bat"]
+    prefix.install_metafiles
     mv "bin/benchmark", "bin/djl-bench"
     libexec.install Dir["*"]
-    env = { APP_HOME: "${APP_HOME:-#{var}}" }
-    env.merge!(Language::Java.overridable_java_home_env)
-    (bin/"djl-bench").write_env_script "#{libexec}/bin/djl-bench", env
+    djl_env = { APP_HOME: "${APP_HOME:-#{var}}" }
+    djl_env.merge!(Language::Java.overridable_java_home_env)
+    (bin/"djl-bench").write_env_script "#{libexec}/bin/djl-bench", djl_env
   end
 
   service do
@@ -22,9 +23,10 @@ class DjlBench < Formula
   end
 
   test do
-    ENV["APP_HOME"] = testpath
-    cp_r Dir["#{libexec}/*"], testpath
-    output = shell_output("#{bin}/djl-bench -h")
-    assert_includes output, "--iteration <ITERATION>         Number of total iterations (per thread)."
+    djlbenchcommand = "djl-bench -c 2 -s 1,3,224,224 -a ai.djl.mxnet:resnet -r" \
+                      "'{'layers':'50','flavor':'v2','dataset':'imagenet'}'"
+    output = shell_output("#{bin}/#{djlbenchcommand}")
+    sleep 30
+    assert_includes output, "[INFO ] - Running Benchmark on:"
   end
 end
