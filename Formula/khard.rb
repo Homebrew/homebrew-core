@@ -14,6 +14,7 @@ class Khard < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "a6c5215b5ceb614a4835e7077c171322c8166a498c25db6864efdaa6fac81b7e"
     sha256 cellar: :any_skip_relocation, mojave:        "965bb496165bac701db65a76c211d03d2adcce20c7c45f673fe1207aacdf4249"
     sha256 cellar: :any_skip_relocation, high_sierra:   "1ad50f03a758247398eb24f03d27dcb41c043101f9131f513ec2240de2fd8e8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "89d7eae4069283eff68d0d3ef47d2be68bfb541e7009d28f4aa6b3d2ea48138e"
   end
 
   depends_on "python@3.9"

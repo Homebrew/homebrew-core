@@ -10,6 +10,7 @@ class Jam < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "0f2f2b4cac48c2ef9b11d86867c4e9d941a41a582754bfc470da25a7174dde9f"
     sha256 cellar: :any_skip_relocation, mojave:        "c19a32cbe0ffa2e7d2d826ee542a74307ca29b34ba28dc5ec6aea7ff7a9127c1"
     sha256 cellar: :any_skip_relocation, high_sierra:   "2927cebface8a3cbc00a23e7badb9e1676fda9bae282e78a1772b99aafba5014"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3ff63ae4c707cc78f68f75b1ce99759a3c854ac61ad9774484eec62b235a2cf"
   end
 
   # The "Jam Documentation" page has a banner stating:

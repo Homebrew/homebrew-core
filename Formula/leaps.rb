@@ -10,6 +10,7 @@ class Leaps < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "8ed65478fa14879ff6c24e7e6710d09a8143fe33aad4f8f353bb4ab91e393824"
     sha256 cellar: :any_skip_relocation, catalina:      "3b5cbe1f1da86d1cf1a3603fd6b0697a8fbe3bdffe6083dfc5b16c60cb5c3798"
     sha256 cellar: :any_skip_relocation, mojave:        "1f777329b3f9c45a8d94ad10af2183067ca6d28c8f5db48d6c26d33e7d381961"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c1f94e5c2315b93194e5b5573de8ac9d57fe7b791e20538839df29b940d4824"
   end
 
   depends_on "go" => :build

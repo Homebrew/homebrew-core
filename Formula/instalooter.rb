@@ -14,6 +14,7 @@ class Instalooter < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "1ac4f0428acf9da6314fde7734672ce9f7ff5bd68a02f99d862b0ceafe109dee"
     sha256 cellar: :any_skip_relocation, mojave:        "8e9a6b3f62bf93f9b2c39134b989a5f3cb82f5f52b2b62644b5ca2577da80337"
     sha256 cellar: :any_skip_relocation, high_sierra:   "6e9b033c6fa3b209d3d4dd6991f2ba3b0202ef2d3a1cf9061db5a597ba082e6f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9305155251fb62c135df2e422d83c09ba7867bfe70f6fd02c934071320a2392"
   end
 
   depends_on "python@3.9"

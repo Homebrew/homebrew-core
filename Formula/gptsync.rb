@@ -13,6 +13,7 @@ class Gptsync < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "e822ef6c99aeaf6eee5812cd83ede2bc9a045dd556105150293bcf486898a59d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "d355de7bea36e310d22ed1109a34574ab93859bfe9e44b9493ebe75cfe429c33"
     sha256 cellar: :any_skip_relocation, yosemite:      "34756250a7bbd8470dd98401c86c65d9886cfac802adb2371bf0a23fa9351f7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6cf8612d628a08c143b24697ee37265edea17cfcfaa2bed8fa60be6a2e21356d"
   end
 
   def install

@@ -3,16 +3,16 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/7e/7c/13a7bac354edfe1c2f2165ded2eb8ad61d492aa210a2405c85552f94c408/Sphinx-4.1.0.tar.gz"
-  sha256 "4219f14258ca5612a0c85ed9b7222d54da69724d7e9dd92d1819ad1bf65e1ad2"
+  url "https://files.pythonhosted.org/packages/a9/7b/dd334e8d8178986b47760743b5fcee4a9796e10e1fc0ebe2bf6ac59c3a2e/Sphinx-4.1.1.tar.gz"
+  sha256 "23c846a1841af998cb736218539bb86d16f5eb95f5760b1966abcd2d584e62b8"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a082ae3fb5751b0164d84d1cecfb2407e85ce8617b7eab961c79974c986624e5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fba78c6e4997cc99cf8191b71802abf310b5e12092569117083d68b717379e79"
-    sha256 cellar: :any_skip_relocation, catalina:      "1659e6503714c3dde8b270e7a3082c631b2e5308c524acf145274c575fb13056"
-    sha256 cellar: :any_skip_relocation, mojave:        "e395574d01a76e95e92e8ca8c035b332bbfb8173aacd694a30d0bd851c0296ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c7a44f4863f257d17d1a25f435f1556e8033bb1edc978187d586e22402c1d1e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3f03aaa1ab862e63c7cd1983a63eb863a55389b2a6b35ee9bd59fd2e8d428bb0"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ff99d21a923f43b01ca96c41cefe8d5fb0c072dbe17a9024d41a42933ec4e1bc"
+    sha256 cellar: :any_skip_relocation, catalina:      "2780ac12e78e5a2a05a448afdf953b71996a8c888a685953a91e521f9586eceb"
+    sha256 cellar: :any_skip_relocation, mojave:        "1a5809b85e8a7a4bb74711f00b2495c030112d5956d861391c55329fd8b56f3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b27386cd7f771e785365736336928704165e9fcd0e97274226661e28c8064f3"
   end
 
   keg_only <<~EOS
@@ -37,9 +37,9 @@ class SphinxDoc < Formula
     sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
   end
 
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
-    sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
+  resource "charset-normalizer" do
+    url "https://files.pythonhosted.org/packages/e1/e6/707ff774274c66f1db739ff4d7eb493252899ed86f0018ac3e9e462fe3de/charset-normalizer-2.0.2.tar.gz"
+    sha256 "951567c2f7433a70ab63f1be67e5ee05d3925d9423306ecb71a3b272757bcc95"
   end
 
   resource "docutils" do
@@ -48,8 +48,8 @@ class SphinxDoc < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
-    sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
+    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
+    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
   end
 
   resource "imagesize" do
@@ -93,8 +93,8 @@ class SphinxDoc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/6b/47/c14abc08432ab22dc18b9892252efaf005ab44066de871e72a38d6af464b/requests-2.25.1.tar.gz"
-    sha256 "27973dd4a904a4f13b263a19c866c13b92a39ed1c964655f025f3f8d3d75b804"
+    url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
+    sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
   end
 
   resource "snowballstemmer" do

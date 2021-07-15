@@ -17,14 +17,15 @@ class Libagg < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "b44f75e0bbf8725910b93bf65d18cd86966d825a993d92c4995a59bba5955fd3"
-    sha256 cellar: :any, big_sur:       "9b05190639d2c1419046cbedd1f6c16e65f5ee1c03f807a8157b774a4177ca01"
-    sha256 cellar: :any, catalina:      "1ef56d71cf0fc0f5780395069105c7151f02a2264f2469ca3ae824c6366f45a6"
-    sha256 cellar: :any, mojave:        "97e0bd763cda63b61cefba2e46048275dda4d03cdaed251be5ebd0b7369b8e38"
-    sha256 cellar: :any, high_sierra:   "de1daeb1b324b1797f46ff6e6799498019de9256b4e09a128cf686e2572f6f60"
-    sha256 cellar: :any, sierra:        "872f49f0fd96ee65dca4bedba3e82c4fcf0e0b0c45de15afc82a9e70e0f0623c"
-    sha256 cellar: :any, el_capitan:    "5b9ab7a9ef2f4075bd55561f0fda99c7203a70020288747ebf90cfc1b2ee626b"
-    sha256 cellar: :any, yosemite:      "9d3da78ab9824db755cbfeb9e6596527db1ace71525cb079465b1a9fb1c00417"
+    sha256 cellar: :any,                 arm64_big_sur: "b44f75e0bbf8725910b93bf65d18cd86966d825a993d92c4995a59bba5955fd3"
+    sha256 cellar: :any,                 big_sur:       "9b05190639d2c1419046cbedd1f6c16e65f5ee1c03f807a8157b774a4177ca01"
+    sha256 cellar: :any,                 catalina:      "1ef56d71cf0fc0f5780395069105c7151f02a2264f2469ca3ae824c6366f45a6"
+    sha256 cellar: :any,                 mojave:        "97e0bd763cda63b61cefba2e46048275dda4d03cdaed251be5ebd0b7369b8e38"
+    sha256 cellar: :any,                 high_sierra:   "de1daeb1b324b1797f46ff6e6799498019de9256b4e09a128cf686e2572f6f60"
+    sha256 cellar: :any,                 sierra:        "872f49f0fd96ee65dca4bedba3e82c4fcf0e0b0c45de15afc82a9e70e0f0623c"
+    sha256 cellar: :any,                 el_capitan:    "5b9ab7a9ef2f4075bd55561f0fda99c7203a70020288747ebf90cfc1b2ee626b"
+    sha256 cellar: :any,                 yosemite:      "9d3da78ab9824db755cbfeb9e6596527db1ace71525cb079465b1a9fb1c00417"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b62898903589309b33bb8b6431fceda94c90e713a742327734fc27ba5068970"
   end
 
   depends_on "autoconf" => :build

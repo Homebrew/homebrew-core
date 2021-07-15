@@ -16,6 +16,7 @@ class KaitaiStructCompiler < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5b0f1975d18c49cb063c56d10d4788d355ca31936046d430609314740cba4058"
     sha256 cellar: :any_skip_relocation, catalina:      "5b0f1975d18c49cb063c56d10d4788d355ca31936046d430609314740cba4058"
     sha256 cellar: :any_skip_relocation, mojave:        "5b0f1975d18c49cb063c56d10d4788d355ca31936046d430609314740cba4058"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "546340d4c6241a006245544f6759c6cd7051a9136021ce28b9533acf1da98f85"
   end
 
   depends_on "openjdk"

@@ -16,6 +16,7 @@ class Httpry < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "71014794d2a136fea229dd19d6fe7dc136037c074a817d70bd7b13713653f19f"
     sha256 cellar: :any_skip_relocation, el_capitan:    "56d6a77e429bf9dde3d5e5edb9959fc7ed913430236cf628e0aec6445c07c85a"
     sha256 cellar: :any_skip_relocation, yosemite:      "af0deb9d79e72df6369f57ed1050abeb70c62f77ab481232b556ba6da5ace66c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "362c2d3249eec72e7baebdde1a8c0a2e6a2b005e70b516733b96fa01e2aaf55e"
   end
 
   uses_from_macos "libpcap"

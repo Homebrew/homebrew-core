@@ -18,6 +18,7 @@ class Kimwituxx < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "a5dfd8382b50fc856ba741b79cf7077ae741549b8b8ff32ce727cfd7e8bd2a69"
     sha256 cellar: :any_skip_relocation, el_capitan:    "98c3516d1f3a9b17397354d8dde712f8a8c0f97ac919c65fc468ab4569534cc4"
     sha256 cellar: :any_skip_relocation, yosemite:      "6b396c209bc1bc9df74df57f86e2d27a36817f2ed3a6ba2c5101879dec6ffb43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cece1163e971acd007363d1bd70c61a0d85a056b85cd878d53b520c330479754"
   end
 
   def install

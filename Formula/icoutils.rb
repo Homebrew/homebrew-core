@@ -18,6 +18,7 @@ class Icoutils < Formula
     sha256 cellar: :any, high_sierra:   "50b8adff5f3364626026d19fba9a0c9fef8cf93104b8d6907bcbe8a5f4a136c2"
     sha256 cellar: :any, sierra:        "1a3656f2fcf778aa32eb734a60dfceccd5e1a702fa6558b11b33cc6f44aeba99"
     sha256 cellar: :any, el_capitan:    "fb93eb5cfa6b222e77ec07569f501fcc03143e9decf306ebd21e9d1c6d304bce"
+    sha256               x86_64_linux:  "9a725092dcfb0f4eeda7085628686d67c98475bdb81e2b3cdc657f5837040982"
   end
 
   depends_on "libpng"

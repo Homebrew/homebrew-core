@@ -14,6 +14,8 @@ class Libevhtp < Formula
     sha256 cellar: :any, high_sierra:   "72be53d01a0ab668255e9ab605c4d7b6c16e4ca1a3f68b026c3c9ae1fe77af50"
   end
 
+  deprecate! date: "2021-07-13", because: :repo_removed
+
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "libevent"

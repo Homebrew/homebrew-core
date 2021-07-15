@@ -8,12 +8,13 @@ class Ipmitool < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "3223279b0188313a5d87ede24617f6bda5921acc1ce135c30c7c43823f14913f"
-    sha256 cellar: :any, big_sur:       "6dd8c02b3e556949c98d40980dd9c1b456d1fa078d9d7792f36977e7d239a4ac"
-    sha256 cellar: :any, catalina:      "926d5c49a0a1b9411e45c54e412403003266c27127059edb50b40e07adaf2260"
-    sha256 cellar: :any, mojave:        "3bf8d00d62c2e1dc781493d448062ad365ac8e7c73010ee37ba2040a48513c10"
-    sha256 cellar: :any, high_sierra:   "04462f0b4129d34cbf7e8e5c72591360e89dd6d6cef20008567015d57ab611c4"
-    sha256 cellar: :any, sierra:        "f08f0e5717ff8ccf031ca738eb4995b39db5d37b802800b6e0b6c154f6fed830"
+    sha256 cellar: :any,                 arm64_big_sur: "3223279b0188313a5d87ede24617f6bda5921acc1ce135c30c7c43823f14913f"
+    sha256 cellar: :any,                 big_sur:       "6dd8c02b3e556949c98d40980dd9c1b456d1fa078d9d7792f36977e7d239a4ac"
+    sha256 cellar: :any,                 catalina:      "926d5c49a0a1b9411e45c54e412403003266c27127059edb50b40e07adaf2260"
+    sha256 cellar: :any,                 mojave:        "3bf8d00d62c2e1dc781493d448062ad365ac8e7c73010ee37ba2040a48513c10"
+    sha256 cellar: :any,                 high_sierra:   "04462f0b4129d34cbf7e8e5c72591360e89dd6d6cef20008567015d57ab611c4"
+    sha256 cellar: :any,                 sierra:        "f08f0e5717ff8ccf031ca738eb4995b39db5d37b802800b6e0b6c154f6fed830"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "34d7e08574ee45e07c513a90b38c7de24636f7889e940daf8f0d87c3a9739977"
   end
 
   depends_on "openssl@1.1"

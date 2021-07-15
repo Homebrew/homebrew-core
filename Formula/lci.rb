@@ -6,10 +6,11 @@ class Lci < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "6540439b0f6ea5653aab7ac697f708bf3effa3135f2b8a8d2d98a08e137fab15"
-    sha256 big_sur:       "f531babdee7254e6bcf5a04f44e388d7b398925d7b9529f0a6fba11e3dae4ced"
-    sha256 catalina:      "a55400bf771e5c89f5357fc9847929c0bac34e0164ed306b6ea9f3be3a700ebc"
-    sha256 mojave:        "a1c26ba18c1080a20edc4baf966c579aab841ca73d8f81760df7ca0b32830e71"
+    sha256                               arm64_big_sur: "6540439b0f6ea5653aab7ac697f708bf3effa3135f2b8a8d2d98a08e137fab15"
+    sha256                               big_sur:       "f531babdee7254e6bcf5a04f44e388d7b398925d7b9529f0a6fba11e3dae4ced"
+    sha256                               catalina:      "a55400bf771e5c89f5357fc9847929c0bac34e0164ed306b6ea9f3be3a700ebc"
+    sha256                               mojave:        "a1c26ba18c1080a20edc4baf966c579aab841ca73d8f81760df7ca0b32830e71"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca80c45e5eca084c3ec55f3d7a0d140f94ae8cf3e5277341875bbac99186ef0e"
   end
 
   depends_on "cmake" => :build

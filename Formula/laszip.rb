@@ -7,11 +7,12 @@ class Laszip < Formula
   head "https://github.com/LASzip/LASzip.git"
 
   bottle do
-    sha256 arm64_big_sur: "6849693f9166120961fcada7af8d222c1e7580bc191d75a3fdef7ca685f22566"
-    sha256 big_sur:       "3b8bf75cb5a0c7f2ac6b02c59726b9b2d126ac754dc24a45ffff3adb18bc1a15"
-    sha256 catalina:      "df73f3c2c8be13bc0fab13f28cbb22262a24c283f4da85cf6b21c55531516e7f"
-    sha256 mojave:        "3a9bc6d5931145800cb5792740a3cae118d27c4879144f3c74a44c2aee75ce64"
-    sha256 high_sierra:   "a32459a4896bdc365fae55b70744bb7ae2a05b552e3bb0b0097345e0ea423014"
+    sha256                               arm64_big_sur: "6849693f9166120961fcada7af8d222c1e7580bc191d75a3fdef7ca685f22566"
+    sha256                               big_sur:       "3b8bf75cb5a0c7f2ac6b02c59726b9b2d126ac754dc24a45ffff3adb18bc1a15"
+    sha256                               catalina:      "df73f3c2c8be13bc0fab13f28cbb22262a24c283f4da85cf6b21c55531516e7f"
+    sha256                               mojave:        "3a9bc6d5931145800cb5792740a3cae118d27c4879144f3c74a44c2aee75ce64"
+    sha256                               high_sierra:   "a32459a4896bdc365fae55b70744bb7ae2a05b552e3bb0b0097345e0ea423014"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ead7c79d5802c0c0c60e8d07cd70d62d634efe3447ff0bc69b576e29f05c82e9"
   end
 
   depends_on "cmake" => :build

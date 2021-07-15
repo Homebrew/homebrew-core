@@ -6,11 +6,12 @@ class HttpParser < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7130d0b0338eaf592eb0510251f95a8a4e580ef9ecc4eaf787ba048204639498"
-    sha256 cellar: :any, big_sur:       "48d383aa989a940b3918cc83fa2bb6b5fad92c9b4c70018172d36f9e465087e3"
-    sha256 cellar: :any, catalina:      "f03615a5ecb9e65d4bd7b302a8429ba9130012b092f3f42e0afd85df2bf47453"
-    sha256 cellar: :any, mojave:        "b36ae811b2b72823cea4c7ab445ee2a5f628255aa169f0bc453fda1d3d520fbb"
-    sha256 cellar: :any, high_sierra:   "0c6b69289fa4a8dd7ad532fcefb0848af229dcb5a64df981c03e99af2ce3acd8"
+    sha256 cellar: :any,                 arm64_big_sur: "7130d0b0338eaf592eb0510251f95a8a4e580ef9ecc4eaf787ba048204639498"
+    sha256 cellar: :any,                 big_sur:       "48d383aa989a940b3918cc83fa2bb6b5fad92c9b4c70018172d36f9e465087e3"
+    sha256 cellar: :any,                 catalina:      "f03615a5ecb9e65d4bd7b302a8429ba9130012b092f3f42e0afd85df2bf47453"
+    sha256 cellar: :any,                 mojave:        "b36ae811b2b72823cea4c7ab445ee2a5f628255aa169f0bc453fda1d3d520fbb"
+    sha256 cellar: :any,                 high_sierra:   "0c6b69289fa4a8dd7ad532fcefb0848af229dcb5a64df981c03e99af2ce3acd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "96d431f1e2e5f0a301e813e270df42aa3a66f16a791bdbf929bc40d0c0270229"
   end
 
   depends_on "coreutils" => :build

@@ -10,6 +10,7 @@ class Jose < Formula
     sha256 cellar: :any, big_sur:       "7b5124a9d57f6a8ad4dfb85e706a4061cf52bfd423280198b7dcc0035158a9a8"
     sha256 cellar: :any, catalina:      "4fd0e6dc8ea1c333814995ba8cb855a6ee49d0db5cfd78272a418e981a4beb20"
     sha256 cellar: :any, mojave:        "6a6b10dbb8a8f3c6418bc35da20c5847befebcc71e1f96af00a047ccdcaa1752"
+    sha256               x86_64_linux:  "e091a0517d325bb732b082977f78b8cfe30f423dd29a8389665d900848a22b92"
   end
 
   depends_on "meson" => :build

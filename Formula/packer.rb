@@ -12,14 +12,21 @@ class Packer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "af333771d3b8e037efb0a30c42d6f4eec95226356e11d325681f736f17255dab"
-    sha256 cellar: :any_skip_relocation, big_sur:       "908d224f7b913c1c68efa613d015fa145a0e98da3ce84d4cbeba7160986138e4"
-    sha256 cellar: :any_skip_relocation, catalina:      "886f0a559d6c3858c0c8d463aa482c0a3607d7439fb99fab9023ed7b99a3c7c1"
-    sha256 cellar: :any_skip_relocation, mojave:        "ffabebc88441c9a07eaa1d3eda794b86af742931a14fa0601f5389b2c317726f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e4f558dec71576535435b00b29050e1d95e7a9b0fe45959bb1ca534477ee3aa7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ce7fa76aebf2cd8e73214ef7ac51f262addd7baa037839752b195a2a76f4f90c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3e317dfd6bc295c247f6d31fb6bbb159156709fd1a6c1f7383f01e979e259586"
+    sha256 cellar: :any_skip_relocation, catalina:      "840fb5bbc4c541debdf7083d5683f4c46f4ff3025a21055ee0e393a1562046f6"
+    sha256 cellar: :any_skip_relocation, mojave:        "da3cfaa2a21c2c94381f7e8c8c6e5bf28b046a62f53dc539dccf9a83518c3842"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9062232c9659dc6c5feef4ce187181a23dc86c86cd783bb95dbef51d794886f"
   end
 
   depends_on "go" => :build
+
+  # Fix for https://github.com/hashicorp/packer/issues/11140
+  patch do
+    url "https://github.com/hashicorp/packer/commit/0202280167618a95cbd1ec7c57b5ffc1c9f369ba.patch?full_index=1"
+    sha256 "48bb26272d44ace70791f94eae8838c3a64c1f2eb9562f24b39b1e042fc61526"
+  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")

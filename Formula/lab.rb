@@ -11,6 +11,7 @@ class Lab < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "89edf68fded2470d74bc924ee7e48da8500db6eebeef55593620908d223c33c2"
     sha256 cellar: :any_skip_relocation, catalina:      "bf63f2cd4b9cf9bb5a930922e3cff4f5c75980372a4481034a83161612fcde2e"
     sha256 cellar: :any_skip_relocation, mojave:        "def57cae9479805aca1ee18761db6df535ce30e85944eb309fb2d37c27f90f7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65bc0dd7b453e67c13d7b02e7f4d755164af2560bbb80a40ebb7ec9314a26abc"
   end
 
   depends_on "go" => :build

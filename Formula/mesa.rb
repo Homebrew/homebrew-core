@@ -7,8 +7,8 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   stable do
-    url "https://archive.mesa3d.org/mesa-21.1.4.tar.xz"
-    sha256 "1f177f44098164b65731c5ded4c928fd58b14f6c9d2087aa0e37bc79bf79e90b"
+    url "https://archive.mesa3d.org/mesa-21.1.5.tar.xz"
+    sha256 "022c7293074aeeced2278c872db4fa693147c70f8595b076cf3f1ef81520766d"
 
     # should be removed in mesa 21.2
     patch do
@@ -23,12 +23,11 @@ class Mesa < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "da05062497899ef5c3b7fef6f95d2ac2c00effdcef41b1a8060d592a9fb11e32"
-    sha256 big_sur:       "7714347a2eda2748ec8a075f6b7a30637e947740ac16f2e0a6109d72b9597937"
-    sha256 catalina:      "62fc9cec08c6f3390af975bf2810d3176de789b463c5f975f274bafbf85f14a2"
-    sha256 mojave:        "629dca53ec381164368e08b2c26aa2ca473e16ce2870a429da7a6bdc68ae6c53"
-    sha256 x86_64_linux:  "bd5fae24c77efa5c54a1bb8f006af9cd4af59ce71f89aadecabb20d0cbd42640"
+    sha256 arm64_big_sur: "c9d78d2751395d2f0643239c52696310a950d574130f5505706f726739d4afa4"
+    sha256 big_sur:       "489c222d695c1bbefa296c26d5bb46c6ce9f3f2a5c18ef87f417d1ac0c8b420e"
+    sha256 catalina:      "6eae667d3f094cc70d2bc6581198385f771e0f82317e2d46ee6592b7bb060b35"
+    sha256 mojave:        "55745e24b051eefda1d4edc13ee20c367c53ecf05ec96047954c2065e8539950"
+    sha256 x86_64_linux:  "a4203fbcfbe04e5c441abe8f4ae9145ff1e5dfd15be2a713039be36c9391800e"
   end
 
   depends_on "meson" => :build

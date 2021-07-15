@@ -14,6 +14,7 @@ class Hevea < Formula
     sha256 big_sur:       "7679aa58989eb2715fad0c5967407ce69b94bc3ec2aa7b3ad9fe7992be315858"
     sha256 catalina:      "6d654577f6c28ddd3c1029df88c7ecfce23dcc3ddac12fba90fc247abfcdb43e"
     sha256 mojave:        "6e0aa3139d0f799090295e989d8aa53d27b6d3735011ee9a8cedd85a0fd3b95b"
+    sha256 x86_64_linux:  "ae4ae6db216b2bc7e0e2fa93fd64b9d04825a448507268c331c3a7e151736810"
   end
 
   depends_on "ocamlbuild" => :build

@@ -14,6 +14,7 @@ class IrcdIrc2 < Formula
     sha256 sierra:        "72b85345931772dc3ac1fe96201906db0c70c24e129e9ee7006253080926bd2f"
     sha256 el_capitan:    "259ddceb29a5d5e0705c3b0a130368053de98282ecec2036c17d30062bd6f9f4"
     sha256 yosemite:      "af6c845d852e4a525d64f1cfbd551377c90da201c2ef3e521d48fc1513a58064"
+    sha256 x86_64_linux:  "a192696af06779b4669a9340279adb4ccbcce2c30c39a11ea325f009f9d49ee8"
   end
 
   def default_ircd_conf

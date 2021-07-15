@@ -18,6 +18,7 @@ class Kona < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "4d0adcc97354ca21c78d666906a718fa2dca47ca5cade99387750e8bf74f12c8"
     sha256 cellar: :any_skip_relocation, mojave:        "47267596e8da2d49e5f9527896a81cc5987cb993991d7e10e941bd5839fbc2e7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "e40a7ad668c3363a1ae1ab4fbc29729d2eff833b8975e1f40239c9d071adc64d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1d6b7bfd8399741bd995d1dd4d010fe4d30071d05545c62126f07e15ae9f983"
   end
 
   def install

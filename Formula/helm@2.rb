@@ -12,6 +12,7 @@ class HelmAT2 < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "831c4f5b7cf7fc1ab53364eeb2eeb6eff8babdbc51817b406b65a948ac6258c2"
     sha256 cellar: :any_skip_relocation, mojave:        "ab7ef44ce55c8b3597a2cb6dfe0ef93b74b389e6a4d6ab09c9a1ebe8dce5e594"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a1c5cb86cce4fe2941c94309c8c75cd00ed9fae2e6edc6ea67aacadcf2f13c9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "718dfe0a0929ae4e4566954651c646ba6bab37dfd0a6ffac64740d0423461922"
   end
 
   keg_only :versioned_formula

@@ -5,7 +5,7 @@ class Csound < Formula
       tag:      "6.16.1",
       revision: "19a10801d1bc32593e2cd3a5a8b24e3686d96a95"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -14,9 +14,9 @@ class Csound < Formula
   end
 
   bottle do
-    sha256 big_sur:  "a931a7d204d82f3d77cd59a4422f76b0c35104b98af921e1126657abe566e47c"
-    sha256 catalina: "22465d89add1b1ac88aba011f604cabfa4d5e561aa6c961bb0ca8370b7cf0c04"
-    sha256 mojave:   "d2fe5d9ff5667c7456649c49ec626f6c731fc1a728705152576b1f51d006eec6"
+    sha256 big_sur:  "569d8b8ca4c60fe6af258b35a05a9f1a5c01158da03b140bdb35b94f6e782f08"
+    sha256 catalina: "12d5c83ad1845c7d4c64de1e19a643a9666fd1ef00858db17f6b3aead92b1ec1"
+    sha256 mojave:   "92d638e1f39149bab2ddcb82f0f72dc5986f25fb7f11ae6952bd8417cb54f31e"
   end
 
   depends_on "asio" => :build

@@ -13,6 +13,8 @@ class Saltwater < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "da2e7d1937a9e47c96329261c76a3cc3ec445b0826b92115d3c48ab6885ca8a1"
   end
 
+  deprecate! date: "2021-06-02", because: :repo_archived
+
   depends_on "rust" => :build
 
   def install

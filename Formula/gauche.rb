@@ -4,7 +4,7 @@ class Gauche < Formula
   url "https://github.com/shirok/Gauche/releases/download/release0_9_10/Gauche-0.9.10.tgz"
   sha256 "0f39df1daec56680b542211b085179cb22e8220405dae15d9d745c56a63a2532"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -13,13 +13,13 @@ class Gauche < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "86f3f5bd68346eee408d1500bff6782b3d3fff937a96dff80f93022b695acc94"
-    sha256 big_sur:       "88d426f92baff2b17011fcf645fab3384bd9057c9bf71ca3976fd68a24c5d865"
-    sha256 catalina:      "827634eb03776d2a21ae7a0d90ee0d18c0f4dba034f50149dd4aed4f343bb906"
-    sha256 mojave:        "44dac5484933886fc49e0e3e02140c44e6189ae65c7ab32f2f3ad24521740ec8"
+    sha256 arm64_big_sur: "0fac8847033124e7ca5108de62cb3d08a573d8dc33715c911af85a668c50dfef"
+    sha256 big_sur:       "6edbe6e3edd503033d3feb3ff8a0bd1cfb4c16abbfa15328e2ccdd309656b017"
+    sha256 catalina:      "dc953fd8f622b64409d2dc6808d5cfd3828c3a36e5fd4fdbccde6db8529800e1"
+    sha256 mojave:        "06bcbbd5523d45e098d3e9f9c3c59d8e4858d66ad63f1cdb08bba8a804a08114"
   end
 
-  depends_on "mbedtls"
+  depends_on "mbedtls@2"
 
   uses_from_macos "zlib"
 

@@ -15,6 +15,7 @@ class KyotoCabinet < Formula
     sha256 big_sur:       "8a7873835b5790ece37b54d398daf834e7aa75570202cd7a174ba7e5ebecf6a3"
     sha256 catalina:      "c78b84f7dc1e82f12a8bdbeb934abeb9858968fa8c53dee9a405b1e55b49155d"
     sha256 mojave:        "214ade984ae17b36058ceca13c37fb5612da6daa0c7cbd919e635c1c714a4a1b"
+    sha256 x86_64_linux:  "4e6693149609f558bf30685031113391e230fab20a738ab0ad98c08ef8bc1545"
   end
 
   uses_from_macos "zlib"

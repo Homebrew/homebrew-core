@@ -13,12 +13,13 @@ class Httperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "2628055d8209f52ee35bd325c155bb506c36b581fa697d013f6fe32ed6ab0b2f"
-    sha256 cellar: :any, big_sur:       "5c8f3e33c44d4d705ea1e23663ac922cc61019299787defcf60df6161608a5de"
-    sha256 cellar: :any, catalina:      "80a2634adda8fe39ebda84ccdf6cbbb0357668da3615067b6f9714229801d085"
-    sha256 cellar: :any, mojave:        "390d46278c9e7bd0f58003ba49bc1a0ab110ab24864029d6ae9fd8d3f491b57c"
-    sha256 cellar: :any, high_sierra:   "5c049e4bfc272313e7c1051da7430bc09e712d5a70f1593c5ecf08ac94b3b238"
-    sha256 cellar: :any, sierra:        "015d2ce99b57fa808ae284f44904ca209e11603bf66085bf64a8270c45203490"
+    sha256 cellar: :any,                 arm64_big_sur: "2628055d8209f52ee35bd325c155bb506c36b581fa697d013f6fe32ed6ab0b2f"
+    sha256 cellar: :any,                 big_sur:       "5c8f3e33c44d4d705ea1e23663ac922cc61019299787defcf60df6161608a5de"
+    sha256 cellar: :any,                 catalina:      "80a2634adda8fe39ebda84ccdf6cbbb0357668da3615067b6f9714229801d085"
+    sha256 cellar: :any,                 mojave:        "390d46278c9e7bd0f58003ba49bc1a0ab110ab24864029d6ae9fd8d3f491b57c"
+    sha256 cellar: :any,                 high_sierra:   "5c049e4bfc272313e7c1051da7430bc09e712d5a70f1593c5ecf08ac94b3b238"
+    sha256 cellar: :any,                 sierra:        "015d2ce99b57fa808ae284f44904ca209e11603bf66085bf64a8270c45203490"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a9f46b3ca870873ea6132895df6261af1ace9559f472d72d51187f15d354214c"
   end
 
   head do

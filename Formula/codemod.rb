@@ -18,6 +18,8 @@ class Codemod < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "b7b6b35729c1e0e990f4dc2d09c197d6c07cd8fbdacaa3d81decfe16e8856cb3"
   end
 
+  deprecate! date: "2021-07-13", because: :repo_archived
+
   depends_on "python@3.9"
 
   def install

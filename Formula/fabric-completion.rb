@@ -6,6 +6,10 @@ class FabricCompletion < Formula
   version "1"
   head "https://github.com/kbakulin/fabric-completion.git"
 
+  livecheck do
+    skip "No version information available to check"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "3a73318f4d2d5ef0a1b8f14dd72755ee37273b33e9df402bf0c2b9b825a53f6a"
   end

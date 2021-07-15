@@ -19,6 +19,7 @@ class Id3ed < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "e930552e37599e7926efebaf0d893f888576a26bddef6a91e356cf1b5de15b9e"
     sha256 cellar: :any_skip_relocation, el_capitan:    "6448c8e19c8e0874ed5141193c7db06c443ac6c33ab2f6bbe8811098b063c0d1"
     sha256 cellar: :any_skip_relocation, yosemite:      "8ca64da5c8c0cbbc7ec64af436fcf3a7ae457c8d8a8073887fc63ec4e89c98b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0955550881e7f35fdf76fe198de7f2c1908d749978587c55cc9b5574ddafb2fd"
   end
 
   def install

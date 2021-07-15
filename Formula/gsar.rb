@@ -19,6 +19,7 @@ class Gsar < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "8bd2f9e7a24ec476fd8ae541dbeb60d1a5b93cc48790d28059d43fad27295581"
     sha256 cellar: :any_skip_relocation, catalina:      "6bba5adb80da7941b6a6a62015eae1ad8d6e27a11678a2d966ca0699ac05eae2"
     sha256 cellar: :any_skip_relocation, mojave:        "c3bf2fcc08cefb75fb0c8cae257f0b70f85172093649e065860324db6338f43a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "160d27dd1c5497302c7249adb93a43cdb81669cdf5d01a23405adf42d5af16f4"
   end
 
   def install

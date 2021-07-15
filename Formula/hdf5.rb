@@ -57,7 +57,10 @@ class Hdf5 < Formula
     system "./configure", *args
 
     # Avoid shims in settings file
-    inreplace "src/libhdf5.settings", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    inreplace "src/libhdf5.settings", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
+    on_linux do
+      inreplace "src/libhdf5.settings", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{Regexp.escape(ENV.cxx)}}, ENV.cxx
+    end
 
     system "make", "install"
   end

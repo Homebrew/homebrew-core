@@ -10,6 +10,7 @@ class Ipv6calc < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "c1bbb3371e2bf0c3364dc9edd87152aadb85e75342535646a7022f7324b607e0"
     sha256 cellar: :any_skip_relocation, catalina:      "cbbfa59bb3d93e1954dd7c6ecb718baddb1063c6929d57655313c2f4fb29d88c"
     sha256 cellar: :any_skip_relocation, mojave:        "20e5085d6ef92183355f83b5aa2097d4b740685dbfb2143ac355bc49bfe51eff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4bd836bca7991417c379f2cf0a7b0222e6495e34a64a074718e6351eec518fd"
   end
 
   def install

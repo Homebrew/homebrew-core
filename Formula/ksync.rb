@@ -12,6 +12,7 @@ class Ksync < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "abdae6cfb9a6e71f0580c21d576cdba97462c95eeb0d98bf380562991db3e06b"
     sha256 cellar: :any_skip_relocation, catalina:      "8424ffd61d19d4cb33bb433482b09e9d9980a0ab0a5ac1721091be8e377dcec6"
     sha256 cellar: :any_skip_relocation, mojave:        "e3548758ab06f87ad12fdb1bc25faa555c0f46f476754e0cc92a306f977cd094"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9c17bb8e01e9d2d6b36091c70aec324c299f4186241233d6cb6f460e375de34"
   end
 
   depends_on "go" => :build

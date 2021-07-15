@@ -1,8 +1,8 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.1/6.1.1/single/qt-everywhere-src-6.1.1.tar.xz"
-  sha256 "6ac937aae4c7b5a3eac90ea4d13f31ded9f78ebc93007bb919fae65c58c808c3"
+  url "https://download.qt.io/official_releases/qt/6.1/6.1.2/single/qt-everywhere-src-6.1.2.tar.xz"
+  sha256 "4b40f10eb188506656f13dbf067b714145047f41d7bf83f03b727fa1c7c4cdcb"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
@@ -14,10 +14,10 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "49063d24b2e11d21ed2062f7722299d3db01ed755fbe68467769403a393f91bd"
-    sha256 cellar: :any, big_sur:       "e662f1d81ddf33b58ea69ac67aa64ece963e19867ed3f96b494210c736b2d06c"
-    sha256 cellar: :any, catalina:      "7f9f46123093efd89eaec0879994993e5e5c156dd0cb0d2717b972eec49b31d3"
-    sha256 cellar: :any, mojave:        "d52b2b2dc6971206ef3b37194325fc7935abf577b6cc5479e2da3177da768fcb"
+    sha256 cellar: :any, arm64_big_sur: "edc0c35866cff4ab9a8b73c9babfd5fc7fe264a57e825e82437c04323a37bd62"
+    sha256 cellar: :any, big_sur:       "34272d69b54b7edc6141d58cfc40a9504c6870a2d1b7be1681d4e620dfe29cf9"
+    sha256 cellar: :any, catalina:      "2389536d2e27288a46c8b8fc54169bd8b74fc3dd3382cee7443a37e17ba3f970"
+    sha256 cellar: :any, mojave:        "bd093238a6a8e2024751fa17e5a8cfb4b5aaef553dbe2b3336653a5eb09aab19"
   end
 
   depends_on "cmake"      => [:build, :test]

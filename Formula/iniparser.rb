@@ -13,6 +13,7 @@ class Iniparser < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "69dde8e886645f5b89f83f36835c18449afe7f6c4f119d466d7f204e994952c7"
     sha256 cellar: :any_skip_relocation, high_sierra:   "cec20d33114e7a5811acb41f9f9a36a411ffd2eebb7d537167b9b541b03fff8d"
     sha256 cellar: :any_skip_relocation, sierra:        "7ad8eb3b8a66c08b78d2d9d3db18bd50e842d1c5962600ad0c9c8244d296dea8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff54f4bdd772ed7f7695079046c3668ab088e233e4f1939bf699b4b7219b964f"
   end
 
   conflicts_with "fastbit", because: "both install `include/dictionary.h`"

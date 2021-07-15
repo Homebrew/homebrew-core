@@ -14,6 +14,7 @@ class KnownHosts < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "729e8dc06654b9dae55b1f4ff15a40ee28de3642285f82deb2f67f08a031f9b2"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b1f7982e9fb744226dcdf2be12467613ca97fa9a05f92673a4c785f6f445333c"
     sha256 cellar: :any_skip_relocation, yosemite:      "be8ddf7bec2c25ee2de9f84db383b56e25e45825386e6726bedbda41824c9d6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa99a0432ff512031370fbb6b6bde95bd55c6180d07b099a5a3ee721576b6763"
   end
 
   depends_on "cmake" => :build

@@ -14,6 +14,7 @@ class IkeScan < Formula
     sha256 big_sur:       "9f721c4e99f22ccbf204f54c78a6b4ff7bef621dc4590673240b5a31dab268ef"
     sha256 catalina:      "a06543751eec6b9d198c3826ea62743a0ee12a4479bf28efb41209a0edea19be"
     sha256 mojave:        "acc102b6014ee8216274afb3a0b10460c71f0059a7aeca732dfad848c7dd2846"
+    sha256 x86_64_linux:  "e954d09eee1f1afdf2b70d915559cf804bf97947568fc4972a39af5298e5769e"
   end
 
   depends_on "autoconf" => :build

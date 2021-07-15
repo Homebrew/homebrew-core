@@ -11,6 +11,7 @@ class Htmldoc < Formula
     sha256 big_sur:       "c7ab042a45cd07798d05f04b3cdd46c0f8d074f77afff3de08674b967693031e"
     sha256 catalina:      "19e6c50efd7951727889db86a576d9d0f2ef277930918d71e9a1f051867cbe2f"
     sha256 mojave:        "e0f1dd77114431b572ede01a58a59a3464fe463b7166941d27d649a88283af95"
+    sha256 x86_64_linux:  "cb85c4ccbadbbc8cc2b5dfed686c506a631442119f0a27744c3a42acf6997c06"
   end
 
   depends_on "pkg-config" => :build
