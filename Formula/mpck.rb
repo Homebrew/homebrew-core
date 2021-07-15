@@ -5,6 +5,11 @@ class Mpck < Formula
   sha256 "a27b4843ec06b069a46363836efda3e56e1daaf193a73a4da875e77f0945dd7a"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://checkmate.gissen.nl/download.php"
+    regex(/href=.*?checkmate[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f963c58102f58169a5ea1d6264f3ea1093a62fd6461332d5e70d0e1ad9aa5d79"
     sha256 cellar: :any_skip_relocation, big_sur:       "215f2f66b6567409359c6a0f784702df9fcc2e0c86edcab52fc40f91b6911bb9"
