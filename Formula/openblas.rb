@@ -1,20 +1,10 @@
 class Openblas < Formula
   desc "Optimized BLAS library"
   homepage "https://www.openblas.net/"
+  url "https://github.com/xianyi/OpenBLAS/archive/v0.3.17.tar.gz"
+  sha256 "df2934fa33d04fd84d839ca698280df55c690c86a5a1133b3f7266fce1de279f"
   license "BSD-3-Clause"
   head "https://github.com/xianyi/OpenBLAS.git", branch: "develop"
-
-  stable do
-    url "https://github.com/xianyi/OpenBLAS/archive/v0.3.16.tar.gz"
-    sha256 "fa19263c5732af46d40d3adeec0b2c77951b67687e670fb6ba52ea3950460d79"
-
-    # Fix segfaults in dependent formulae. Remove in 0.3.17.
-    # https://github.com/xianyi/OpenBLAS/pull/3311
-    patch do
-      url "https://github.com/xianyi/OpenBLAS/commit/1dea57ab255c0dbb60228965b8a3249f8f5294e7.patch?full_index=1"
-      sha256 "f57a39f7d111df757b238492253f2c6bca5df4d6f83e0733c9459f2af286fefd"
-    end
-  end
 
   livecheck do
     url :stable
