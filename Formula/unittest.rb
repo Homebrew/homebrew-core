@@ -4,6 +4,11 @@ class Unittest < Formula
   url "https://unittest.red-bean.com/tar/unittest-0.50-62.tar.gz"
   sha256 "9586ef0149b6376da9b5f95a992c7ad1546254381808cddad1f03768974b165f"
 
+  livecheck do
+    url "https://unittest.red-bean.com/tar/"
+    regex(/href=.*?unittest[._-]v?(\d+(?:[.-]\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2da59f3f0206902816c2dac6c273768858f092eb917b696b0a8b04096ea97007"
     sha256 cellar: :any_skip_relocation, big_sur:       "8f449bf2ba73aaf03dd8316d6057639bd2c3a38ef347157f3721cbabfb60212f"
