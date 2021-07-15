@@ -4,6 +4,7 @@ class Julia < Formula
   url "https://github.com/JuliaLang/julia/releases/download/v1.6.2/julia-1.6.2.tar.gz"
   sha256 "d56422ac75cbd00a9f69ca9ffd5b6b35c8aeded8312134ef45ffbba828918b5e"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
+  revision 1
   head "https://github.com/JuliaLang/julia.git"
 
   bottle do
@@ -22,7 +23,7 @@ class Julia < Formula
   depends_on "libgit2"
   depends_on "libssh2"
   depends_on "llvm"
-  depends_on "mbedtls"
+  depends_on "mbedtls@2"
   depends_on "mpfr"
   depends_on "nghttp2"
   depends_on "openblas"
