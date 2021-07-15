@@ -143,8 +143,8 @@ class Emscripten < Formula
     # Add JAVA_HOME to env_script on ARM64 macOS and Linux, so that google-closure-compiler
     # can find OpenJDK
     emscript_env = { PYTHON: Formula["python@3.9"].opt_bin/"python3" }
-    on_macos { emscript_env[:JAVA_HOME] = Language::Java.overridable_java_home_env if Hardware::CPU.arm? }
-    on_linux { emscript_env[:JAVA_HOME] = Language::Java.overridable_java_home_env }
+    on_macos { emscript_env.merge! Language::Java.overridable_java_home_env if Hardware::CPU.arm? }
+    on_linux { emscript_env.merge! Language::Java.overridable_java_home_env }
 
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
        emranlib emrun emscons].each do |emscript|
