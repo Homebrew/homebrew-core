@@ -171,8 +171,8 @@ class Checkov < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/38/d4/92b512ba330a8852f5f6bf059917d2bcaf7525b3e40853a2d826cfbda200/networkx-2.6.1.tar.gz"
-    sha256 "bf4cb807d1bccf1593c7d0742d9127d9e04e021867299082658b0fc3907924e8"
+    url "https://files.pythonhosted.org/packages/b0/21/adfbf6168631e28577e4af9eb9f26d75fe72b2bb1d33762a5f2c425e6c2a/networkx-2.5.1.tar.gz"
+    sha256 "109cd585cac41297f71103c3c42ac6ef7379f29788eb54cb751be5a663bb235a"
   end
 
   resource "numpy" do
