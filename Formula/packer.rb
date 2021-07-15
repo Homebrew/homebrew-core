@@ -21,6 +21,12 @@ class Packer < Formula
 
   depends_on "go" => :build
 
+  # Fix for https://github.com/hashicorp/packer/issues/11140
+  patch do
+    url "https://github.com/hashicorp/packer/commit/0202280167618a95cbd1ec7c57b5ffc1c9f369ba.patch?full_index=1"
+    sha256 "48bb26272d44ace70791f94eae8838c3a64c1f2eb9562f24b39b1e042fc61526"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
 
