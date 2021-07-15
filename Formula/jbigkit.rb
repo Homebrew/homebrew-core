@@ -7,6 +7,11 @@ class Jbigkit < Formula
   license "GPL-2.0"
   head "https://www.cl.cam.ac.uk/~mgk25/git/jbigkit", using: :git
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?jbigkit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cda73dea9c469f1ad380c7fe90b75dfe22d1dcc9ba51593ba59493656cf76c94"
     sha256 cellar: :any_skip_relocation, big_sur:       "568ea0a6734dc1da5d50b5261f43753f7cf1089fae9c786e7859a8ec22562144"
