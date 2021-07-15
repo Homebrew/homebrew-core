@@ -5,6 +5,11 @@ class Dmagnetic < Formula
   sha256 "1a0356f04d3a5e252225b0fd38b9047957f292f67338ba83579958b46f184139"
   license "BSD-2-Clause"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dMagnetic[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cf25009d9eff9196c36d27402aebae7e7ecf90a5a8029162ec6f33d6457ce9ed"
     sha256 cellar: :any_skip_relocation, big_sur:       "5e7d9d39d36fbeb673598c7974ee8dbf6fc542ea00e73eeed6253db6c0fc67bf"
