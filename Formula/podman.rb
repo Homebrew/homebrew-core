@@ -4,6 +4,8 @@ class Podman < Formula
   url "https://github.com/containers/podman/archive/v3.2.2.tar.gz"
   sha256 "70f70327be96d873c83c741c004806c0014ea41039e716545c789b4393184e79"
   license "Apache-2.0"
+  revision 1
+  head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "008a58362b3a64fe9a69e2ea314889121d9a19374506ce20bcfabe558a9e6026"
@@ -14,6 +16,7 @@ class Podman < Formula
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
+  depends_on "qemu" if Hardware::CPU.intel?
 
   def install
     system "make", "podman-remote-darwin"
@@ -30,5 +33,9 @@ class Podman < Formula
   test do
     assert_match "podman version #{version}", shell_output("#{bin}/podman -v")
     assert_match(/Error: Cannot connect to the Podman socket/i, shell_output("#{bin}/podman info 2>&1", 125))
+    if Hardware::CPU.intel?
+      machineinit_output = shell_output("podman machine init --image-path fake-testimage123 fake-testvm123 2>&1", 125)
+      assert_match "Error: open fake-testimage123: no such file or directory", machineinit_output
+    end
   end
 end
