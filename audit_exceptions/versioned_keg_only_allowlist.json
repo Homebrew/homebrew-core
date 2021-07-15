@@ -16,6 +16,7 @@
   "libsigc++@2",
   "libxml++@4",
   "libxml++@5",
+  "linux-headers@4.4",
   "lua@5.1",
   "numpy@1.16",
   "openssl@1.1",
