@@ -4,7 +4,7 @@ class Dislocker < Formula
   url "https://github.com/Aorimn/dislocker/archive/v0.7.1.tar.gz"
   sha256 "742fb5c1b3ff540368ced54c29eae8b488ae5a5fcaca092947e17c2d358a6762"
   license "GPL-2.0-only"
-  revision 5
+  revision 6
 
   bottle do
     rebuild 1
@@ -12,7 +12,7 @@ class Dislocker < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "mbedtls"
+  depends_on "mbedtls@2"
 
   on_macos do
     disable! date: "2021-04-08", because: "requires closed-source macFUSE"
