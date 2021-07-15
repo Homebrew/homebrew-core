@@ -1,8 +1,13 @@
 class Qprint < Formula
   desc "Encoder and decoder for quoted-printable encoding"
-  homepage "https://www.fourmilab.ch/webtools/qprint"
+  homepage "https://www.fourmilab.ch/webtools/qprint/"
   url "https://www.fourmilab.ch/webtools/qprint/qprint-1.1.tar.gz"
   sha256 "ffa9ca1d51c871fb3b56a4bf0165418348cf080f01ff7e59cd04511b9665019c"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?qprint[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "05903a905caebf80944f4705898c5377849b7a411cf234614205b3136dba4a38"
