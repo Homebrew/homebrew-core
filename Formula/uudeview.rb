@@ -5,6 +5,11 @@ class Uudeview < Formula
   sha256 "e49a510ddf272022af204e96605bd454bb53da0b3fe0be437115768710dae435"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?uudeview[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "93a098dc40d16b9785888c20c8d1707a62fe471938c99ea8074df042548cfed7"
