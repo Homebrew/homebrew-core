@@ -86,6 +86,7 @@
   "libcppa": "caf",
   "libmongoclient": "mongo-cxx-driver",
   "libsasl2": "cyrus-sasl",
+  "linux-headers": "linux-headers@4.4",
   "lua51": "lua@5.1",
   "mat": "mat2",
   "maven32": "maven@3.2",
