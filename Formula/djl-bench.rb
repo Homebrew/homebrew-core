@@ -15,10 +15,12 @@ class DjlBench < Formula
     djl_env = { APP_HOME: "${APP_HOME:-#{var}}" }
     djl_env.merge!(Language::Java.overridable_java_home_env)
     (bin/"djl-bench").write_env_script "#{libexec}/bin/djl-bench", djl_env
-    djlbenchcommand = "djl-bench -c 2 -s 1,3,224,224 -a ai.djl.mxnet:resnet -r" \
-                      "'{'layers':'50','flavor':'v2','dataset':'imagenet'}'"
-    exec "#{libexec}/bin/#{djlbenchcommand}"
-    sleep 20
+    exec "git clone --recursive https://github.com/apache/incubator-mxnet mxnet"
+    sleep 30
+    exec "cd mxnet"
+    exec "sudo apt-get update"
+    sleep 30
+    exec "sudo apt-get install -y build-essential git ninja-build ccache libopenblas-dev libopencv-dev cmake"
   end
 
   service do
