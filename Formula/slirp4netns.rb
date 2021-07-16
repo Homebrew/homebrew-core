@@ -38,6 +38,7 @@ class Slirp4netns < Formula
   test do
     resource("test-common").stage (testpath/"test")
     resource("test-api-socket").stage (testpath/"test")
-    assert_match /unshare\: unshare failed: Operation not permitted/, shell_output("bash ./test/test-slirp4netns-api-socket.sh", 1)
+    output = shell_output("bash ./test/test-slirp4netns-api-socket.sh", 1)
+    assert_match /unshare: unshare failed: Operation not permitted/, output
   end
 end
