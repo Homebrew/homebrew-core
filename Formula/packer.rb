@@ -31,6 +31,9 @@ class Packer < Formula
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
 
+    # Allow packer to find plugins in Homebrew prefix
+    bin.env_script_all_files libexec/"bin", PACKER_PLUGIN_PATH: "$PACKER_PLUGIN_PATH:#{HOMEBREW_PREFIX/"bin"}"
+
     zsh_completion.install "contrib/zsh-completion/_packer"
   end
 
