@@ -5,7 +5,7 @@ class Zeek < Formula
       tag:      "v4.0.3",
       revision: "0ef59aa853dd0497316091a5a65a698b7ea6e4d1"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/zeek/zeek.git"
 
   bottle do
