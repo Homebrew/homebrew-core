@@ -5,6 +5,11 @@ class Cgit < Formula
   sha256 "5a5f12d2f66bd3629c8bc103ec8ec2301b292e97155d30a9a61884ea414a6da4"
   license "GPL-2.0-only"
 
+  livecheck do
+    url "https://git.zx2c4.com/cgit/refs/tags"
+    regex(/href=.*?cgit[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "1d94a449229b9550a5d76b9d1f0140ea6b267fcd982539d6537fce21447aae12"
     sha256 big_sur:       "43d5a3249276dc89f9b8730b775fab358f9a04adac63fc18dc1257cecb0de2a8"
