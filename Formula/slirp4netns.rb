@@ -40,8 +40,7 @@ class Slirp4netns < Formula
     resource("test-api-socket").stage (testpath/"test")
     # The test secript requires network namespace to run, which is not available on Homebrew CI.
     # So here we check the error messages.
-    # Actually it does not print anything so we just check for the exit value.
-    output = shell_output("bash ./test/test-slirp4netns-api-socket.sh", 1)
-    assert_match "", output
+    output = shell_output("bash ./test/test-slirp4netns-api-socket.sh 2>&1", 1)
+    assert_match "unshare: unshare failed: Operation not permitted", output
   end
 end
