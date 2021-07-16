@@ -5,6 +5,7 @@
   "gatsby-cli",
   "infer",
   "llvm",
+  "llvm-bootstrap",
   "llvm@11",
   "llvm@7",
   "llvm@8",
