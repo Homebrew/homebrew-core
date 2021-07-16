@@ -22,13 +22,12 @@ class ValaLanguageServer < Formula
   end
 
   test do
-    path = "#{testpath}"
-    length = (151 + path.length)
+    length = (151 + testpath.to_s.length)
     input =
       "Content-Length: #{length}\r\n" \
       "\r\n" \
       "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"" \
-      "processId\":88075,\"rootPath\":\"#{path}\",\"capabilities\":{},\"trace\":\"ver" \
+      "processId\":88075,\"rootPath\":\"#{testpath}\",\"capabilities\":{},\"trace\":\"ver" \
       "bose\",\"workspaceFolders\":null}}\r\n"
     output = pipe_output("#{bin}/vala-language-server", input, 0)
     assert_match(/^Content-Length: \d+/i, output)
