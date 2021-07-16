@@ -1,6 +1,7 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
+  # Keep this in sync with llvm-bootstrap.rb
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-12.0.1/llvm-project-12.0.1.src.tar.xz"
   sha256 "129cb25cd13677aad951ce5c2deb0fe4afc1e9d98950f53b51bdcfb5a73afa0e"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
@@ -37,6 +38,10 @@ class Llvm < Formula
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "llvm-bootstrap" => :build
+  end
 
   on_linux do
     depends_on "glibc" if Formula["glibc"].any_version_installed?
@@ -114,21 +119,24 @@ class Llvm < Formula
       -DCLANG_VENDOR_UTI=org.#{tap.user.downcase}.clang
     ]
 
+    sdk = MacOS.sdk_path_if_needed
     if MacOS.version >= :catalina
-      args << "-DFFI_INCLUDE_DIR=#{MacOS.sdk_path}/usr/include/ffi"
-      args << "-DFFI_LIBRARY_DIR=#{MacOS.sdk_path}/usr/lib"
+      args << "-DFFI_INCLUDE_DIR=#{sdk}/usr/include/ffi"
+      args << "-DFFI_LIBRARY_DIR=#{sdk}/usr/lib"
     else
       args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
-    sdk = MacOS.sdk_path_if_needed
+    pgo_build = false
     on_macos do
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=#{MacOS::Xcode.installed? ? "ON" : "OFF"}"
       args << "-DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}"
       args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
+
+      pgo_build = true
     end
 
     on_linux do
@@ -161,50 +169,22 @@ class Llvm < Formula
       args << "-DRUNTIMES_CMAKE_ARGS=#{runtime_args.join(";")}"
     end
 
-    llvmpath = buildpath/"llvm"
-    pgo_build = false
-    on_macos { pgo_build = build.stable? && build.bottle? }
     if pgo_build
-      # We build LLVM a few times first for optimisations. See
-      # https://github.com/Homebrew/homebrew-core/issues/77975
-
-      # PGO build adapted from:
-      # https://llvm.org/docs/HowToBuildWithPGO.html#building-clang-with-pgo
-      # https://github.com/llvm/llvm-project/blob/33ba8bd2/llvm/utils/collect_and_build_with_pgo.py
-      # https://github.com/facebookincubator/BOLT/blob/01f471e7/docs/OptimizingClang.md
-      extra_args = [
-        "-DLLVM_TARGETS_TO_BUILD=Native",
-        "-DLLVM_ENABLE_PROJECTS=clang;compiler-rt;lld",
-      ]
       cflags = ENV.cflags&.split || []
       cxxflags = ENV.cxxflags&.split || []
 
-      # The later stage builds avoid the shims, and the build
-      # will target Penryn unless otherwise specified
+      # Silence some warnings
+      cflags << "-Wno-backend-plugin"
+      cxxflags << "-Wno-backend-plugin"
+
+      # Our PGO build avoids the shims, and will target
+      # Penryn unless otherwise specified
       if Hardware::CPU.intel?
         cflags << "-march=#{Hardware.oldest_cpu}"
         cxxflags << "-march=#{Hardware.oldest_cpu}"
       end
 
-      on_macos do
-        extra_args << "-DLLVM_ENABLE_LIBCXX=ON"
-        extra_args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
-      end
-
-      extra_args << "-DCMAKE_C_FLAGS=#{cflags.join(" ")}" unless cflags.empty?
-      extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}" unless cxxflags.empty?
-
-      # First, build a stage1 compiler. It might be possible to skip this step on macOS
-      # and use system Clang instead, but this stage does not take too long, and we want
-      # to avoid incompatibilities from generating profile data with a newer Clang than
-      # the one we consume the data with.
-      mkdir llvmpath/"stage1" do
-        system "cmake", "-G", "Unix Makefiles", "..",
-                        *extra_args, *std_cmake_args
-        system "cmake", "--build", ".", "--target", "clang", "llvm-profdata", "profile"
-      end
-
-      # Our just-built Clang needs a little help finding C++ headers,
+      # Our bootstrap Clang needs a little help finding C++ headers,
       # since the atomic and type_traits headers are not in the SDK
       # on macOS versions before Big Sur.
       on_macos do
@@ -217,79 +197,21 @@ class Llvm < Formula
 
           cxxflags << "-isystem#{toolchain_path}/usr/include/c++/v1"
           cxxflags << "-isystem#{toolchain_path}/usr/include"
-          cxxflags << "-isystem#{MacOS.sdk_path_if_needed}/usr/include"
-
-          extra_args.reject! { |s| s["CMAKE_CXX_FLAGS"] }
-          extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
+          cxxflags << "-isystem#{sdk}/usr/include"
         end
       end
 
-      # Next, build an instrumented stage2 compiler
-      mkdir llvmpath/"stage2" do
-        # LLVM Profile runs out of static counters
-        # https://reviews.llvm.org/D92669, https://reviews.llvm.org/D93281
-        # Without this, the build produces many warnings of the form
-        # LLVM Profile Warning: Unable to track new values: Running out of static counters.
-        instrumented_cflags = cflags + ["-Xclang -mllvm -Xclang -vp-counters-per-site=6"]
-        instrumented_cxxflags = cxxflags + ["-Xclang -mllvm -Xclang -vp-counters-per-site=6"]
-        instrumented_extra_args = extra_args.reject { |s| s["CMAKE_C_FLAGS"] || s["CMAKE_CXX_FLAGS"] }
-
-        system "cmake", "-G", "Unix Makefiles", "..",
-                        "-DCMAKE_C_COMPILER=#{llvmpath}/stage1/bin/clang",
-                        "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage1/bin/clang++",
-                        "-DLLVM_BUILD_INSTRUMENTED=IR",
-                        "-DLLVM_BUILD_RUNTIME=NO",
-                        "-DCMAKE_C_FLAGS=#{instrumented_cflags.join(" ")}",
-                        "-DCMAKE_CXX_FLAGS=#{instrumented_cxxflags.join(" ")}",
-                        *instrumented_extra_args, *std_cmake_args
-        system "cmake", "--build", ".", "--target", "clang", "lld"
-
-        # We run some `check-*` targets to increase profiling
-        # coverage. These do not need to succeed.
-        begin
-          system "cmake", "--build", ".", "--target", "check-clang", "check-llvm", "--", "--keep-going"
-        rescue RuntimeError
-          nil
-        end
-      end
-
-      # Then, generate the profile data
-      mkdir llvmpath/"stage2-profdata" do
-        system "cmake", "-G", "Unix Makefiles", "..",
-                        "-DCMAKE_C_COMPILER=#{llvmpath}/stage2/bin/clang",
-                        "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage2/bin/clang++",
-                        *extra_args, *std_cmake_args
-
-        # This build is for profiling, so it is safe to ignore errors.
-        # We pass `--keep-going` to `make` to ignore the error that requires
-        # deparallelisation on ARM. (See below.)
-        begin
-          system "cmake", "--build", ".", "--", "--keep-going"
-        rescue RuntimeError
-          nil
-        end
-      end
-
-      # Merge the generated profile data
-      profpath = llvmpath/"stage2/profiles"
-      system llvmpath/"stage1/bin/llvm-profdata",
-             "merge",
-             "-output=#{profpath}/pgo_profile.prof",
-             *Dir[profpath/"*.profraw"]
-
-      # Make sure to build with our profiled compiler and use the profile data
-      args << "-DCMAKE_C_COMPILER=#{llvmpath}/stage1/bin/clang"
-      args << "-DCMAKE_CXX_COMPILER=#{llvmpath}/stage1/bin/clang++"
-      args << "-DLLVM_PROFDATA_FILE=#{profpath}/pgo_profile.prof"
-
-      # Silence some warnings
-      cflags << "-Wno-backend-plugin"
-      cxxflags << "-Wno-backend-plugin"
       args << "-DCMAKE_C_FLAGS=#{cflags.join(" ")}"
       args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
+
+      # Make sure to build with our profiled compiler and use the profile data
+      bootstrap = Formula["llvm-bootstrap"]
+      args << "-DCMAKE_C_COMPILER=#{bootstrap.opt_bin}/clang"
+      args << "-DCMAKE_CXX_COMPILER=#{bootstrap.opt_bin}/clang++"
+      args << "-DLLVM_PROFDATA_FILE=#{bootstrap.opt_pkgshare}/pgo_profile.prof"
     end
 
-    # Now, we can build.
+    llvmpath = buildpath/"llvm"
     mkdir llvmpath/"build" do
       system "cmake", "-G", "Unix Makefiles", "..", *(std_cmake_args + args)
       # Workaround for CMake Error: failed to create symbolic link
