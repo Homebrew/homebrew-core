@@ -30,13 +30,6 @@ class Evince < Formula
   depends_on "poppler"
   depends_on "python@3.9"
 
-  # patch submitted upstream
-  # see https://gitlab.gnome.org/GNOME/evince/-/merge_requests/348
-  patch do
-    url "https://gitlab.gnome.org/GNOME/evince/-/commit/5d08585702b6dfccc67098b501cfa99a01775c87.diff"
-    sha256 "87dd01dcf68ddee832cc9931165bc8dd66c76cb09520072afd0354b02b600146"
-  end
-
   def install
     ENV["DESTDIR"] = "/"
 
