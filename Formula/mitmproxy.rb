@@ -5,10 +5,9 @@ class Mitmproxy < Formula
   homepage "https://mitmproxy.org"
   # At version bump, check whether `protobuf` resource
   # can be replaced with the formula
-  url "https://github.com/mitmproxy/mitmproxy/archive/v6.0.2.tar.gz"
-  sha256 "15b32ce31e707d35de1707afe09e82bbf3d643bdd93968c5512caba80523c606"
+  url "https://github.com/mitmproxy/mitmproxy/archive/v7.0.0.tar.gz"
+  sha256 "edc9fd681ba1d5be36857a123df904c6260e3e1b19b0d7a813e4d8f140166b6f"
   license "MIT"
-  revision 2
   head "https://github.com/mitmproxy/mitmproxy.git"
 
   bottle do
