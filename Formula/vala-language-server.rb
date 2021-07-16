@@ -9,11 +9,11 @@ class ValaLanguageServer < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "vala"
   depends_on "glib"
   depends_on "json-glib"
   depends_on "jsonrpc-glib"
   depends_on "libgee"
+  depends_on "vala"
 
   def install
     system "meson", "-Dplugins=false", "build", *std_meson_args
