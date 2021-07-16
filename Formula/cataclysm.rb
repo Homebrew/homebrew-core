@@ -1,9 +1,9 @@
 class Cataclysm < Formula
   desc "Fork/variant of Cataclysm Roguelike"
   homepage "https://github.com/CleverRaven/Cataclysm-DDA"
-  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.E-3.tar.gz"
-  version "0.E-3"
-  sha256 "21ac5226a996ac465842f188cadea8815eae7309fe38cf8d94de2f8ac97cd820"
+  url "https://github.com/CleverRaven/Cataclysm-DDA/archive/0.F.tar.gz"
+  version "0.F"
+  sha256 "f7c373cd2450353f99a5c3937a72ae745f5440531266d2d596e5bf798001ac57"
   license "CC-BY-SA-3.0"
   head "https://github.com/CleverRaven/Cataclysm-DDA.git"
 
@@ -67,10 +67,6 @@ class Cataclysm < Formula
     sleep 30
     assert_predicate user_config_dir/"config",
                      :exist?, "User config directory should exist"
-    assert_predicate user_config_dir/"templates",
-                     :exist?, "User template directory should exist"
-    assert_predicate user_config_dir/"save",
-                     :exist?, "User save directory should exist"
   ensure
     Process.kill("TERM", pid)
   end
