@@ -40,6 +40,10 @@ class Mavsdk < Formula
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
   end
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   fails_with :clang do
     build 1100
     cause <<-EOS
@@ -47,6 +51,8 @@ class Mavsdk < Formula
         "std::__1::__fs::filesystem::__status(std::__1::__fs::filesystem::path const&, std::__1::error_code*)"
     EOS
   end
+
+  fails_with gcc: "5"
 
   # To update the resources, use homebrew-pypi-poet on the PyPI package `protoc-gen-mavsdk`.
   # These resources are needed to install protoc-gen-mavsdk, which we use to regenerate protobuf headers.
@@ -76,9 +82,7 @@ class Mavsdk < Formula
     # Install protoc-gen-mavsdk deps
     venv_dir = buildpath/"bootstrap"
     venv = virtualenv_create(venv_dir, "python3")
-    %w[Jinja2 MarkupSafe].each do |r|
-      venv.pip_install resource(r)
-    end
+    venv.pip_install resources
 
     # Install protoc-gen-mavsdk
     venv.pip_install "proto/pb_plugins"
@@ -86,7 +90,6 @@ class Mavsdk < Formula
     # Run generator script in an emulated virtual env.
     with_env(
       VIRTUAL_ENV: venv_dir,
-      PYTHONPATH:  Formula["six"].opt_prefix/Language::Python.site_packages("python3"),
       PATH:        "#{venv_dir}/bin:#{ENV["PATH"]}",
     ) do
       system "tools/generate_from_protos.sh"
