@@ -20,25 +20,50 @@ class LlvmAT8 < Formula
 
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
-  depends_on xcode: :build
+  depends_on xcode: :build if MacOS.version < :mojave
   depends_on arch: :x86_64
-  depends_on "libffi"
   depends_on "swig"
+
+  uses_from_macos "libedit"
+  uses_from_macos "libffi", since: :catalina
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   on_linux do
     depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
-    depends_on "libedit" # llvm requires <histedit.h>
     depends_on "libelf" # openmp requires <gelf.h>
-    depends_on "ncurses"
-    depends_on "libxml2"
-    depends_on "zlib"
     depends_on "python@3.8"
   end
 
   resource "clang" do
     url "https://github.com/llvm/llvm-project/releases/download/llvmorg-8.0.1/cfe-8.0.1.src.tar.xz"
     sha256 "70effd69f7a8ab249f66b0a68aba8b08af52aa2ab710dfb8a0fba102685b1646"
+
+    # Fix include paths on Big Sur
+    if MacOS.version >= :big_sur
+      # Refactor header search path logic into driver
+      # https://github.com/llvm/llvm-project/commit/e97b5f5cf37e382643b567affd714823215d0e75
+      patch :p2 do
+        url "https://github.com/llvm/llvm-project/commit/e97b5f5cf37e382643b567affd714823215d0e75.patch?full_index=1"
+        sha256 "ba4776b7a8c23c844d98c436011c24453ab6f740edd2c3bba2f8b909d2e59dcf"
+      end
+
+      # Respect --sysroot for header search
+      # https://github.com/llvm/llvm-project/commit/b2ece169ed609b9111c290254d831101d21cbf8f
+      patch :p2 do
+        url "https://github.com/llvm/llvm-project/commit/b2ece169ed609b9111c290254d831101d21cbf8f.patch?full_index=1"
+        sha256 "40a2689cd97bc85d666f74286526b5311015d030ce5a1feae627460805f7b5ca"
+      end
+
+      # Skip sysroot headers if they are found alongside the toolchain. Backported from
+      # https://github.com/llvm/llvm-project/commit/a3a24316087d0e1b4db0b8fee19cdee8b7968032
+      patch :p3 do
+        url "https://raw.githubusercontent.com/Homebrew/formula-patches/bc3176e6794efb9f2581ce4f9ede3ad34efb492c/llvm%409/llvm%409.patch"
+        sha256 "02fb21c26f468b0dab25c93b2802539133e06b0bcf19802a7ecdc227c454c4db"
+      end
+    end
   end
 
   resource "clang-extra-tools" do
@@ -135,6 +160,9 @@ class LlvmAT8 < Formula
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DDARWIN_osx_ARCHS=x86_64;x86_64h"
+
+      sdk = MacOS.sdk_path_if_needed
+      args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
     end
 
     on_linux do
@@ -172,11 +200,6 @@ class LlvmAT8 < Formula
         "list(APPEND LIBCXXABI_LINK_FLAGS \"-rtlib=compiler-rt\")", ""
       inreplace (buildpath/"projects/libunwind/CMakeLists.txt"),
         "list(APPEND LIBUNWIND_LINK_FLAGS \"-rtlib=compiler-rt\")", ""
-    end
-
-    if MacOS.version >= :mojave
-      sdk_path = MacOS::CLT.installed? ? "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk" : MacOS.sdk_path
-      args << "-DDEFAULT_SYSROOT=#{sdk_path}"
     end
 
     mkdir "build" do
