@@ -12,6 +12,8 @@ class ZshAsync < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "bdf610a55644e4182b35307a946ecb6b3724fbade6dabae0dc1d655079b34614"
   end
 
+  uses_from_macos "zsh"
+
   def install
     zsh_function.install "async.zsh" => "async"
   end
