@@ -1,8 +1,8 @@
 class DjlBench < Formula
   desc "Command-line tool that helps to benchmark the model on different platforms"
   homepage "https://github.com/deepjavalibrary/djl/tree/master/extensions/benchmark"
-  url "https://publish.djl.ai/djl-bench/0.12.0/benchmark-0.12.0.tar"
-  sha256 "778df005951c546c4e8e4e22dd62e1bc64b413334e0951ffbd8d06be5cc6ce19"
+  url "https://djl-ai.s3.amazonaws.com/publish/djl-bench/0.12.0/benchmark-0.12.0.tar"
+  sha256 "ae29191931e4a0d5cffc98a3efdfee664c79217ff61e7e968a10e07e260c192e"
   license "Apache-2.0"
 
   depends_on "openjdk"
@@ -15,12 +15,6 @@ class DjlBench < Formula
     djl_env = { APP_HOME: "${APP_HOME:-#{var}}" }
     djl_env.merge!(Language::Java.overridable_java_home_env)
     (bin/"djl-bench").write_env_script "#{libexec}/bin/djl-bench", djl_env
-    exec "git clone --recursive https://github.com/apache/incubator-mxnet mxnet"
-    sleep 30
-    exec "cd mxnet"
-    exec "sudo apt-get update"
-    sleep 30
-    exec "sudo apt-get install -y build-essential git ninja-build ccache libopenblas-dev libopencv-dev cmake"
   end
 
   service do
@@ -31,8 +25,8 @@ class DjlBench < Formula
   test do
     djlbenchcommand = "djl-bench -c 2 -s 1,3,224,224 -a ai.djl.mxnet:resnet -r" \
                       "'{'layers':'50','flavor':'v2','dataset':'imagenet'}'"
-    output = shell_output("#{bin}/#{djlbenchcommand}")
+    shell_output("#{bin}/#{djlbenchcommand}")
     sleep 30
-    assert_includes output, "[INFO ] - Running Benchmark on:"
+    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
