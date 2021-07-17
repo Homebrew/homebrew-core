@@ -17,6 +17,14 @@ class Composer < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "4c852f706d4ead18bb1cf79a972783b169fa52ce24c348a1d5dd349db5b6f404"
   end
 
+  # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
+  pour_bottle? do
+    on_macos do
+      reason "The bottle needs to be installed into `#{Homebrew::DEFAULT_PREFIX}` on Intel macOS."
+      satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX || Hardware::CPU.arm? }
+    end
+  end
+
   def install
     bin.install "composer.phar" => "composer"
   end
