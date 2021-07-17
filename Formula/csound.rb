@@ -2,10 +2,9 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   url "https://github.com/csound/csound.git",
-      tag:      "6.16.1",
-      revision: "19a10801d1bc32593e2cd3a5a8b24e3686d96a95"
+      tag:      "6.16.2",
+      revision: "fb5bdb3681e15f56c216b4e4487b45848aa6b9f4"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
