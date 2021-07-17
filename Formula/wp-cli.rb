@@ -18,6 +18,14 @@ class WpCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "a3538f32afa8bef557e659322b49734e90e0420cd96561ea56119f71d91d813c"
   end
 
+  # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
+  pour_bottle? do
+    on_macos do
+      reason "The bottle needs to be installed into `#{Homebrew::DEFAULT_PREFIX}` on Intel macOS."
+      satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX || Hardware::CPU.arm? }
+    end
+  end
+
   uses_from_macos "php"
 
   def install
