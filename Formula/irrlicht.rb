@@ -3,6 +3,9 @@ class Irrlicht < Formula
   homepage "https://irrlicht.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/irrlicht/Irrlicht%20SDK/1.8/1.8.4/irrlicht-1.8.4.zip"
   sha256 "f42b280bc608e545b820206fe2a999c55f290de5c7509a02bdbeeccc1bf9e433"
+  # Irrlicht is available under alternative license terms. See
+  # https://metadata.ftp-master.debian.org/changelogs//main/i/irrlicht/irrlicht_1.8.4+dfsg1-1.1_copyright
+  license "Zlib"
   revision 1
   head "https://svn.code.sf.net/p/irrlicht/code/trunk"
 
