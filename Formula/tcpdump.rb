@@ -30,12 +30,17 @@ class Tcpdump < Formula
 
   test do
     output = shell_output("#{bin}/tcpdump --help 2>&1")
-
     assert_match "tcpdump version #{version}", output
     assert_match "libpcap version #{Formula["libpcap"].version}", output
     assert_match "OpenSSL #{Formula["openssl@1.1"].version}", output
 
-    assert_match "tcpdump: (cannot open BPF device) /dev/bpf0: Operation not permitted",
-      shell_output("#{bin}/tcpdump ipv6 2>&1", 1)
+    match = "tcpdump: (cannot open BPF device) /dev/bpf0: Operation not permitted"
+    on_linux do
+      match = <<~EOS
+        tcpdump: eth0: You don't have permission to capture on that device
+        (socket: Operation not permitted)
+      EOS
+    end
+    assert_match match, shell_output("#{bin}/tcpdump ipv6 2>&1", 1)
   end
 end
