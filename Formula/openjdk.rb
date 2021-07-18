@@ -136,9 +136,10 @@ class Openjdk < Formula
     on_macos do
       jdk = Dir["build/*/images/jdk-bundle/*"].first
       libexec.install jdk => "openjdk.jdk"
-      bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
-      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
-      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
+      bin.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/bin/*"]
+      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/*.h"]
+      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/darwin/*.h"]
+      man1.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/man/man1/*"]
 
       if Hardware::CPU.arm?
         dest = libexec/"openjdk.jdk/Contents/Home/lib/JavaNativeFoundation.framework"
@@ -147,15 +148,16 @@ class Openjdk < Formula
         cp_r "#{framework_path}/JavaNativeFoundation.framework", dest, remove_destination: true
 
         # Replace Apple signature by ad-hoc one (otherwise relocation will break it)
-        system "codesign", "-f", "-s", "-", "#{dest}/Versions/A/JavaNativeFoundation"
+        system "codesign", "-f", "-s", "-", dest/"Versions/A/JavaNativeFoundation"
       end
     end
 
     on_linux do
       libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
-      bin.install_symlink Dir["#{libexec}/bin/*"]
-      include.install_symlink Dir["#{libexec}/include/*.h"]
-      include.install_symlink Dir["#{libexec}/include/linux/*.h"]
+      bin.install_symlink Dir[libexec/"bin/*"]
+      include.install_symlink Dir[libexec/"include/*.h"]
+      include.install_symlink Dir[libexec/"include/linux/*.h"]
+      man1.install_symlink Dir[libexec/"man/man1/*"]
     end
   end
 
