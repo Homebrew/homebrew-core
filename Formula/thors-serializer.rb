@@ -16,11 +16,29 @@ class ThorsSerializer < Formula
   depends_on "boost" => :build
   depends_on "libyaml"
 
+  uses_from_macos "unzip" => :build
+
+  on_linux do
+    depends_on "python@3.9" => :build
+    depends_on "gcc@9" # uses C++17
+  end
+
+  fails_with gcc: "5"
+  # Experimenting with other compilers...
+  fails_with gcc: "10"
+  fails_with gcc: "11"
+
   def install
     ENV["COV"] = "gcov"
+    on_linux do
+      ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
+    end
 
-    system "./configure", "--disable-vera",
-                          "--prefix=#{prefix}"
+    # Workaround for GCC error: extended character is not valid in an identifier
+    inreplace "third/ThorsIOUtil/src/ThorsIOUtil/test/testlist.h",
+              /# Copyright.*?(\d{4})/, "# Copyright \\1"
+
+    system "./configure", "--disable-vera", "--prefix=#{prefix}"
     system "make"
     system "make", "install"
   end
