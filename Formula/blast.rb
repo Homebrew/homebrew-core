@@ -1,14 +1,14 @@
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
-  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.11.0/ncbi-blast-2.11.0+-src.tar.gz"
-  version "2.11.0"
-  sha256 "d88e1858ae7ce553545a795a2120e657a799a6d334f2a07ef0330cc3e74e1954"
+  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.12.0/ncbi-blast-2.12.0+-src.tar.gz"
+  version "2.12.0"
+  sha256 "fda3c9c9d488cad6c1880a98a236d842bcf3610e3e702af61f7a48cf0a714b88"
   license :public_domain
 
   livecheck do
-    url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+    url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/VERSION"
+    regex(/.+/i)
   end
 
   bottle do
@@ -24,6 +24,10 @@ class Blast < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_macos do
+    depends_on "libomp"
+  end
+
   on_linux do
     depends_on "libarchive" => :build
   end
@@ -32,17 +36,20 @@ class Blast < Formula
 
   def install
     cd "c++" do
-      # Use ./configure --without-boost to fix
-      # error: allocating an object of abstract class type 'ncbi::CNcbiBoostLogger'
-      # Boost is used only for unit tests.
-      # See https://github.com/Homebrew/homebrew-science/pull/3537#issuecomment-220136266
-      system "./configure", "--prefix=#{prefix}",
-                            "--without-debug",
-                            "--without-boost"
+      # Boost is only used for unit tests.
+      args = %W[--prefix=#{prefix}
+                --without-debug
+                --without-boost]
+
+      on_macos do
+        args += ["OPENMP_FLAGS=-Xpreprocessor -fopenmp",
+                 "LDFLAGS=-lomp"]
+      end
+
+      system "./configure", *args
 
       # Fix the error: install: ReleaseMT/lib/*.*: No such file or directory
       system "make"
-
       system "make", "install"
     end
   end
