@@ -8,7 +8,7 @@ class Blast < Formula
 
   livecheck do
     url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/VERSION"
-    regex(/.+/i)
+    regex(/v?(\d+(?:\.\d+)+)/i)
   end
 
   bottle do
