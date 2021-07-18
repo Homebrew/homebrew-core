@@ -3,8 +3,8 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/68/d9/44a939a5e32e706d904cb7ebdc099964cdc4b677a3ebac6db2477f6ef908/regipy-1.9.3.tar.gz"
-  sha256 "86cdd32eb1148273fd0ac621ddb7dafc494b7f67cd4e9df27ed11a985464fc7a"
+  url "https://files.pythonhosted.org/packages/72/23/ae827829df2e2feab60c44fd3cf81eee17edc3cec3dea280edc4b777256e/regipy-1.9.4.tar.gz"
+  sha256 "86de2da57ccd95fc08ea51fa7e4bef6ed8aa0ab37c4286124bed126bf178c448"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git"
 
@@ -52,11 +52,6 @@ class Regipy < Formula
   resource "pytz" do
     url "https://files.pythonhosted.org/packages/b0/61/eddc6eb2c682ea6fd97a7e1018a6294be80dba08fa28e7a3570148b4612d/pytz-2021.1.tar.gz"
     sha256 "83a4a90894bf38e243cf052c8b58f381bfe9a7a483f6a9cab140bc7f702ac4da"
-  end
-
-  resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/0d/dd/78f7e080d3bfc87fc19bed54513b430659d38efb2d9ea6e3ad815a665a02/tqdm-4.61.2.tar.gz"
-    sha256 "8bb94db0d4468fea27d004a0f1d1c02da3cdedc00fe491c0de986b76a04d6b0a"
   end
 
   resource "test_hive" do
