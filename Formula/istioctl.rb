@@ -17,6 +17,10 @@ class Istioctl < Formula
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
+  # Build script bin/init.sh runs curl command with `--retry-connrefused`,
+  # which needs curl >= 7.52. Can remove if Linux CI default curl is updated.
+  uses_from_macos "curl" => :build
+
   def install
     ENV["VERSION"] = version.to_s
     ENV["TAG"] = version.to_s
@@ -24,24 +28,15 @@ class Istioctl < Formula
     ENV["HUB"] = "docker.io/istio"
     ENV["BUILD_WITH_CONTAINER"] = "0"
 
-    dirpath = nil
-    on_macos do
-      if Hardware::CPU.arm?
-        # Fix missing "amd64" for macOS ARM in istio/common/scripts/setup_env.sh
-        # Can remove when upstream adds logic to detect `$(uname -m) == "arm64"`
-        ENV["TARGET_ARCH"] = "arm64"
-
-        dirpath = "darwin_arm64"
-      else
-        dirpath = "darwin_amd64"
-      end
-    end
+    os = "darwin"
     on_linux do
-      dirpath = "linux_amd64"
+      os = "linux"
     end
+    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+    ENV["TARGET_ARCH"] = arch
 
     system "make", "istioctl", "istioctl.completion"
-    cd "out/#{dirpath}" do
+    cd "out/#{os}_#{arch}" do
       bin.install "istioctl"
       bash_completion.install "release/istioctl.bash"
       zsh_completion.install "release/_istioctl"
