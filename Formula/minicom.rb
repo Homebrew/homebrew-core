@@ -17,9 +17,13 @@ class Minicom < Formula
     sha256 mojave:        "e2b702dec206101120ce947ca2a999c9f5fe7e8c62f95b65091146b865acb268"
   end
 
+  uses_from_macos "ncurses"
+
   def install
     # There is a silly bug in the Makefile where it forgets to link to iconv. Workaround below.
-    ENV["LIBS"] = "-liconv"
+    on_macos do
+      ENV["LIBS"] = "-liconv"
+    end
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
