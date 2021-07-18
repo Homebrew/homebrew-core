@@ -22,7 +22,7 @@
     "exclude_packages": ["pillow", "tabulate"]
   },
   "athenacli": {
-    "exclude_packages": ["tabulate"]
+    "exclude_packages": ["six", "tabulate"]
   },
   "black": "black[d]",
   "bpytop": "bpytop",
