@@ -5,6 +5,11 @@ class Gbdfed < Formula
   sha256 "8042575d23a55a3c38192e67fcb5eafd8f7aa8d723012c374acb2e0a36022943"
   revision 3
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?gbdfed[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "636d528318fa5e5fc90bdc61665ca3e3dc220a5c034bb478bedda854017de83d"
     sha256 cellar: :any,                 big_sur:       "0c060efda560aa9ab6addc8087cad336ca01f420b280f0e41b2460f4d74b06aa"
