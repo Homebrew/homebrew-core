@@ -25,12 +25,9 @@ class JohnJumbo < Formula
   depends_on "gmp"
   depends_on "openssl@1.1"
 
-  conflicts_with "john", because: "both install the same binaries"
+  uses_from_macos "zlib"
 
-  # https://github.com/magnumripper/JohnTheRipper/blob/bleeding-jumbo/doc/INSTALL#L133-L143
-  fails_with :gcc do
-    cause "Upstream have a hacky workaround for supporting gcc that we can't use."
-  end
+  conflicts_with "john", because: "both install the same binaries"
 
   # Fixed setup `-mno-sse4.1` for some machines.
   # See details for example from here: https://github.com/magnumripper/JohnTheRipper/pull/4100
