@@ -18,7 +18,12 @@ class Stlink < Formula
   depends_on "libusb"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args
+    on_linux do
+      args << "-DSTLINK_MODPROBED_DIR=#{lib}/modprobe.d"
+      args << "-DSTLINK_UDEV_RULES_DIR=#{lib}/udev/rules.d"
+    end
+    system "cmake", ".", *args
     system "make", "install"
   end
 
