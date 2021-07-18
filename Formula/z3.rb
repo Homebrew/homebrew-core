@@ -23,6 +23,12 @@ class Z3 < Formula
   # which does not need Python.
   depends_on "python@3.9" => :build
 
+  on_linux do
+    depends_on "gcc" # For C++17
+  end
+
+  fails_with gcc: "5"
+
   def install
     python3 = Formula["python@3.9"].opt_bin/"python3"
     xy = Language::Python.major_minor_version python3
