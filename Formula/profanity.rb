@@ -23,6 +23,7 @@ class Profanity < Formula
 
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
+  depends_on "curl"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gpgme"
@@ -31,8 +32,6 @@ class Profanity < Formula
   depends_on "libstrophe"
   depends_on "openssl@1.1"
   depends_on "readline"
-
-  uses_from_macos "curl"
 
   on_macos do
     depends_on "terminal-notifier"
