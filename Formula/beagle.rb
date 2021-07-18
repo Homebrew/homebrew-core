@@ -3,7 +3,7 @@ class Beagle < Formula
   homepage "https://github.com/beagle-dev/beagle-lib"
   url "https://github.com/beagle-dev/beagle-lib/archive/v3.1.2.tar.gz"
   sha256 "dd872b484a3a9f0bce369465e60ccf4e4c0cd7bd5ce41499415366019f236275"
-  license "LGPL-3.0"
+  license "LGPL-3.0-or-later"
   revision 1
 
   livecheck do
@@ -26,12 +26,11 @@ class Beagle < Formula
   depends_on "openjdk" => [:build, :test]
 
   def install
+    args = std_configure_args + %w[--without-cuda --disable-libtool-dev]
+    args << "--disable-sse" if Hardware::CPU.arm?
+
     system "./autogen.sh"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--without-cuda",
-                          "--disable-libtool-dev"
+    system "./configure", *args
     system "make", "install"
   end
 
