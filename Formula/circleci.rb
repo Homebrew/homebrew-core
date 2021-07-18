@@ -6,6 +6,7 @@ class Circleci < Formula
       tag:      "v0.1.15410",
       revision: "ba6fe81ece6b6d70ce4788dea3de1d8981234319"
   license "MIT"
+  revision 1
   head "https://github.com/CircleCI-Public/circleci-cli.git"
 
   bottle do
@@ -29,6 +30,12 @@ class Circleci < Formula
       -X github.com/CircleCI-Public/circleci-cli/version.Commit=#{Utils.git_short_head}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags.join(" "))
+
+    output = Utils.safe_popen_read("#{bin}/circleci", "--skip-update-check", "completion", "bash")
+    (bash_completion/"circleck").write output
+
+    output = Utils.safe_popen_read("#{bin}/circleci", "--skip-update-check", "completion", "zsh")
+    (zsh_completion/"_circleci").write output
   end
 
   test do
