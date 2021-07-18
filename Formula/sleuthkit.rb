@@ -26,13 +26,12 @@ class Sleuthkit < Formula
 
   uses_from_macos "sqlite"
 
-  conflicts_with "ffind",
-    because: "both install a `ffind` executable"
+  conflicts_with "ffind", because: "both install a `ffind` executable"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_libexec/"openjdk.jdk/Contents/Home"
-    ENV["ANT_FOUND"]=Formula["ant"].opt_bin/"ant"
-    ENV["SED"]="/usr/bin/sed"
+    on_macos { ENV["SED"] = "/usr/bin/sed" }
+    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV["ANT_FOUND"] = Formula["ant"].opt_bin/"ant"
     ENV.append_to_cflags "-DNDEBUG"
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
@@ -40,6 +39,11 @@ class Sleuthkit < Formula
 
     cd "bindings/java" do
       system "ant"
+
+      on_linux do
+        inreplace "Makefile", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/ld", "ld"
+        inreplace "jni/Makefile", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/ld", "ld"
+      end
     end
     prefix.install "bindings"
   end
