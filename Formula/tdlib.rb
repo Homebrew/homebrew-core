@@ -14,14 +14,15 @@ class Tdlib < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gperf"
+  depends_on "gperf" => :build
   depends_on "openssl@1.1"
   depends_on "readline"
+
+  uses_from_macos "zlib"
 
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
-      system "cmake", ".", *std_cmake_args
       system "make", "install"
     end
   end
