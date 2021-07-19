@@ -42,9 +42,16 @@ class Mu < Formula
 
   uses_from_macos "texinfo" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: 5
+
   def install
     system "autoreconf", "-ivf"
     system "./configure", "--disable-dependency-tracking",
+                          "--disable-guile",
                           "--prefix=#{prefix}",
                           "--with-lispdir=#{elisp}"
     system "make"
