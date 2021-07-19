@@ -5,7 +5,7 @@ class Ttfautohint < Formula
   sha256 "87bb4932571ad57536a7cc20b31fd15bc68cb5429977eb43d903fa61617cf87e"
 
   livecheck do
-    url :stable
+    url "https://sourceforge.net/projects/freetype/rss?path=/ttfautohint"
     regex(%r{url=.*?/ttfautohint[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
