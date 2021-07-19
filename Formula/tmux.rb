@@ -70,6 +70,16 @@ class Tmux < Formula
   end
 
   test do
-    system "#{bin}/tmux", "-V"
+    system bin/"tmux", "-V"
+
+    require "pty"
+
+    socket = testpath/tap.user
+    PTY.spawn bin/"tmux", "-S", socket, "-f", "/dev/null"
+    sleep 10
+
+    assert_predicate socket, :exist?
+    assert_predicate socket, :socket?
+    assert_equal "no server running on #{socket}", shell_output("#{bin}/tmux -S#{socket} list-sessions 2>&1", 1).chomp
   end
 end
