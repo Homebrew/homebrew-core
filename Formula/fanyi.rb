@@ -1,7 +1,7 @@
 require "language/node"
 
 class Fanyi < Formula
-  desc "🇨🇳 and 🇺🇸 translate tool in your command-line"
+  desc "Mandarin and english translate tool in your command-line"
   homepage "https://github.com/afc163/fanyi"
   url "https://registry.npmjs.org/fanyi/-/fanyi-5.0.1.tgz"
   sha256 "0f80edeac5e727a299c2a0807f463231143d59b46fd8308ef794390b9d88052c"
