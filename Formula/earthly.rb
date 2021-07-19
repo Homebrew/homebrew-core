@@ -6,11 +6,6 @@ class Earthly < Formula
   license "BUSL-1.1"
   head "https://github.com/earthly/earthly.git"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6ced4b644da7733596ddb225d4d07dddcdf3cea9975a1dcdce724e65093142fb"
     sha256 cellar: :any_skip_relocation, big_sur:       "45b1406d85fbc167590873e727dd63624ed17bceadc289bb4c6c7f8e8a669317"
