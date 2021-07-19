@@ -3,7 +3,8 @@ class Wandio < Formula
   homepage "https://research.wand.net.nz/software/libwandio.php"
   url "https://research.wand.net.nz/software/wandio/wandio-4.2.3.tar.gz"
   sha256 "78c781ce2c3783b85d894e29005b7e98fc246b33f94616047de3bb4d11d4d823"
-  license "GPL-3.0"
+  license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -17,6 +18,15 @@ class Wandio < Formula
     sha256 cellar: :any, mojave:        "a16a370f4bd6d2acd415f305fb99b2bfba1b86f666c68877d01bd90ddcb7522b"
     sha256 cellar: :any, high_sierra:   "29602aec2851811108e97397e6310f091f5e5fe0844f9cfcd6657193d9c53ff4"
   end
+
+  depends_on "lz4"
+  depends_on "lzo"
+  depends_on "xz" # For LZMA
+  depends_on "zstd"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "curl"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--with-http",
