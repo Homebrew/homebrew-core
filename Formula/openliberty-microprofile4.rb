@@ -15,7 +15,7 @@ class OpenlibertyMicroprofile4 < Formula
   def install
     rm_rf Dir["bin/**/*.bat"]
 
-    prefix.install %w[LICENSE NOTICES README.TXT]
+    prefix.install_metafiles
     libexec.install Dir["*"]
     (bin/"openliberty-microprofile4").write_env_script "#{libexec}/bin/server",
                                                        Language::Java.overridable_java_home_env
@@ -25,8 +25,6 @@ class OpenlibertyMicroprofile4 < Formula
     <<~EOS
       The home of Open Liberty Micro Profile 4 is:
         #{opt_libexec}
-      To run Open Liberty Micro Profile 4:
-        openliberty-microprofile4 start
     EOS
   end
 
