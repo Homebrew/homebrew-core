@@ -25,6 +25,8 @@ class Composer < Formula
     end
   end
 
+  uses_from_macos "php"
+
   def install
     bin.install "composer.phar" => "composer"
   end
@@ -49,7 +51,7 @@ class Composer < Formula
       }
     EOS
 
-    (testpath/"src/HelloWorld/greetings.php").write <<~EOS
+    (testpath/"src/HelloWorld/Greetings.php").write <<~EOS
       <?php
 
       namespace HelloWorld;
