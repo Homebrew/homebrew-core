@@ -3,6 +3,7 @@ class Srecord < Formula
   homepage "https://srecord.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/srecord/srecord/1.64/srecord-1.64.tar.gz"
   sha256 "49a4418733c508c03ad79a29e95acec9a2fbc4c7306131d2a8f5ef32012e67e2"
+  license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2531dde4b69ae50e0cb15b498b2729862e64d00b98be831e581989d9e907f36a"
@@ -15,14 +16,22 @@ class Srecord < Formula
     sha256 cellar: :any, yosemite:      "c3c29b357c44bc3da2dbb8f23a6d83aeb637aa374fe0564eb9454e5e6b53d54c"
   end
 
+  depends_on "boost" => :build
   depends_on "libtool" => :build
-  depends_on "boost"
   depends_on "libgcrypt"
 
+  uses_from_macos "groff" => :build
+
   # Use macOS's pstopdf
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/srecord/1.64.patch"
-    sha256 "140e032d0ffe921c94b19145e5904538233423ab7dc03a9c3c90bf434de4dd03"
+  on_macos do
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/85fa66a9/srecord/1.64.patch"
+      sha256 "140e032d0ffe921c94b19145e5904538233423ab7dc03a9c3c90bf434de4dd03"
+    end
+  end
+
+  on_linux do
+    depends_on "ghostscript" => :build # for ps2pdf
   end
 
   def install
