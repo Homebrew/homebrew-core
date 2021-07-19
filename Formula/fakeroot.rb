@@ -5,11 +5,6 @@ class Fakeroot < Formula
   sha256 "2e045b3160370b8ab4d44d1f8d267e5d1d555f1bb522d650e7167b09477266ed"
   license "GPL-3.0"
 
-  livecheck do
-    url "https://deb.debian.org/debian/pool/main/f/fakeroot/"
-    regex(/href=.*?fakeroot[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any, catalina:    "c72ae187158b6cce73311fee527ba8bf8d2f0e18340bd66eef57b50b3d45c275"
     sha256 cellar: :any, mojave:      "6c23e4c601af569c2de802cac685de5d18e6ebafcb53e6c53107aa3feb3d1527"
