@@ -27,6 +27,7 @@ class Gnunet < Formula
   depends_on "unbound"
 
   uses_from_macos "curl"
+  uses_from_macos "sqlite"
 
   def install
     system "./configure", "--prefix=#{prefix}"
