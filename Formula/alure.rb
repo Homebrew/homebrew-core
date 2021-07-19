@@ -22,6 +22,10 @@ class Alure < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
 
+  on_linux do
+    depends_on "openal-soft"
+  end
+
   # Fix missing unistd include
   # Reported by email to author on 2017-08-25
   if MacOS.version >= :high_sierra
