@@ -1,8 +1,8 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/v1.2.1.tar.gz"
-  sha256 "ca11655f4357278a152476373cbc131b4183990e431196889c366706aedf6787"
+  url "https://github.com/orf/gping/archive/gping-v1.2.3.tar.gz"
+  sha256 "d9b8ad4c9a978a3ca62d5af11274c8484bfa171e0b34faacd44cd7c54756a01d"
   license "MIT"
   head "https://github.com/orf/gping.git"
 
@@ -12,7 +12,7 @@ class Gping < Formula
   # https://github.com/Homebrew/homebrew-core/pull/66366#discussion_r537339032
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^gping[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
@@ -25,7 +25,9 @@ class Gping < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    cd "gping" do
+      system "cargo", "install", *std_cargo_args
+    end
   end
 
   test do
