@@ -31,6 +31,7 @@
   "d-bus": "dbus",
   "elasticsearch@6.8": "elasticsearch@6",
   "elasticsearch@7.8": "elasticsearch@7",
+  "envoy@1.17": "envoy@1.18",
   "fbida": "exiftran",
   "fcct": "butane",
   "ffmpeg28": "ffmpeg@2.8",
