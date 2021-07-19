@@ -1,8 +1,8 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/0.48.10.tar.gz"
-  sha256 "00c4643e79b8d2e699635ec34cce53b1e9a10cd599c384cba1e140887857ba6b"
+  url "https://github.com/nicklockwood/SwiftFormat/archive/0.48.11.tar.gz"
+  sha256 "e094d9dcfa377d327fa53316b60776b47944d93fb85ae8e1ba217a954d95eeba"
   license "MIT"
   head "https://github.com/nicklockwood/SwiftFormat.git"
 
@@ -16,8 +16,8 @@ class Swiftformat < Formula
   depends_on xcode: ["10.1", :build]
 
   def install
-    xcodebuild "-project",
-        "SwiftFormat.xcodeproj",
+    xcodebuild "-arch", Hardware::CPU.arch,
+        "-project", "SwiftFormat.xcodeproj",
         "-scheme", "SwiftFormat (Command Line Tool)",
         "-configuration", "Release",
         "CODE_SIGN_IDENTITY=",
