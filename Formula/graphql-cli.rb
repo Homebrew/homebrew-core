@@ -36,8 +36,7 @@ class GraphqlCli < Formula
   end
 
   test do
-    script = (testpath/"test.sh")
-    script.write <<~EOS
+    (testpath/"test.exp").write <<~EOS
       #!/usr/bin/env expect -f
       set timeout -1
       spawn #{bin}/graphql init
@@ -54,11 +53,10 @@ class GraphqlCli < Formula
       expect eof
     EOS
 
-    script.chmod 0700
-    system "./test.sh"
+    system "expect", "-f", "test.exp"
 
     assert_predicate testpath/"brew", :exist?
     assert_match "Graphback runtime template with Apollo Server and PostgreSQL",
-      File.read(testpath/"brew/package.json")
+                 File.read(testpath/"brew/package.json")
   end
 end
