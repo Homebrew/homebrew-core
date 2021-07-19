@@ -17,12 +17,10 @@ class Gcc < Formula
   revision 1
   head "https://gcc.gnu.org/git/gcc.git"
 
+  # We can't use `url :stable` here due to the ARM-specific branch above.
   livecheck do
-    # Should be
-    # url :stable
-    # but that does not work with the ARM-specific branch above
-    url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0"
-    regex(%r{href=.*?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+    url "https://ftp.gnu.org/gnu/gcc/"
+    regex(%r{href=["']?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
   end
 
   bottle do
