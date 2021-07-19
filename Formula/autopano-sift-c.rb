@@ -5,14 +5,6 @@ class AutopanoSiftC < Formula
   sha256 "9a9029353f240b105a9c0e31e4053b37b0f9ef4bd9166dcb26be3e819c431337"
   revision 1
 
-  # We check the "autopano-sift-C" directory page since versions aren't present
-  # in the RSS feed as of writing.
-  livecheck do
-    url "https://sourceforge.net/projects/hugin/files/autopano-sift-C/"
-    strategy :page_match
-    regex(%r{href=.*?autopano-sift-C[._-]v?(\d+(?:\.\d+)+)/?["' >]}i)
-  end
-
   bottle do
     sha256 cellar: :any, catalina:    "6c95b627cbba417827b7955d6292a9c74d3993ccbcd60be4999765b2be4ac17e"
     sha256 cellar: :any, mojave:      "4ccc74538e6f6b01fd42c659991d0ba67e2544eb135f130d052dd1d2688070d8"
