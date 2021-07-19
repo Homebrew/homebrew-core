@@ -76,24 +76,29 @@ class Neko < Formula
     # maria-connector fails to detect the location of iconv.dylib on Big Sur.
     # Also, no reason for maria-connector to compile its own version of zlib,
     # just link against the system copy.
-    inreplace "libs/mysql/CMakeLists.txt",
-              "-Wno-dev",
-              "-Wno-dev -DICONV_LIBRARIES=-liconv -DICONV_INCLUDE_DIR= -DWITH_EXTERNAL_ZLIB=1"
+    mysql_cmake_args = ["-Wno-dev", "-DWITH_EXTERNAL_ZLIB=1"]
+    on_macos do
+      mysql_cmake_args << "-DICONV_LIBRARIES=-liconv"
+      mysql_cmake_args << "-DICONV_INCLUDE_DIR="
+    end
+    inreplace "libs/mysql/CMakeLists.txt", "-Wno-dev", mysql_cmake_args.join(" ")
 
     args = std_cmake_args
     on_linux do
-      args << "-DAPR_LIBRARY=#{Formula["apr"].libexec}/lib"
-      args << "-DAPR_INCLUDE_DIR=#{Formula["apr"].libexec}/include/apr-1"
-      args << "-DAPRUTIL_LIBRARY=#{Formula["apr-util"].libexec}/lib"
-      args << "-DAPRUTIL_INCLUDE_DIR=#{Formula["apr-util"].libexec}/include/apr-1"
+      args << "-DAPR_LIBRARY=#{Formula["apr"].opt_lib}"
+      args << "-DAPR_INCLUDE_DIR=#{Formula["apr"].opt_include}/apr-1"
+      args << "-DAPRUTIL_LIBRARY=#{Formula["apr-util"].opt_lib}"
+      args << "-DAPRUTIL_INCLUDE_DIR=#{Formula["apr-util"].opt_include}/apr-1"
     end
 
     # Let cmake download its own copy of MariaDBConnector during build and statically link it.
     # It is because there is no easy way to define we just need any one of mariadb, mariadb-connector-c,
     # mysql, and mysql-client.
-    system "cmake", ".", "-G", "Ninja", "-DSTATIC_DEPS=MariaDBConnector",
-           "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *args
-    system "ninja", "install"
+    mkdir "build" do
+      system "cmake", "..", "-G", "Ninja", "-DSTATIC_DEPS=MariaDBConnector",
+             "-DRELOCATABLE=OFF", "-DRUN_LDCONFIG=OFF", *args
+      system "ninja", "install"
+    end
   end
 
   def caveats
