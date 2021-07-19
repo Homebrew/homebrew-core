@@ -1,11 +1,10 @@
 class I686ElfBinutils < Formula
   desc "GNU Binutils for i686-elf cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.36.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.1.tar.xz"
-  sha256 "e81d9edf373f193af428a0f256674aea62a9d74dfe93f65192d4eae030b0f3b0"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.37.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.37.tar.xz"
+  sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_big_sur: "668698ca23b0707a9faa869d3d20160ce402fde86b7d38e9dd762b73da95f656"
