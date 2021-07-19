@@ -4,7 +4,7 @@ class TaskwarriorTui < Formula
   url "https://github.com/kdheepak/taskwarrior-tui/archive/v0.13.25.tar.gz"
   sha256 "14f68b3f1ac3692baa5fbac431b19c2e4af856f1623eaf097e993633be63b305"
   license "MIT"
-  head "https://github.com/kdheepak/taskwarrior-tui.git"
+  head "https://github.com/kdheepak/taskwarrior-tui.git", branch: "main"
 
   livecheck do
     url :stable
