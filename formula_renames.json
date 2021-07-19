@@ -105,6 +105,7 @@
   "opencv3": "opencv",
   "osh": "etsh",
   "pangomm@2.42": "pangomm@2.46",
+  "parallelstl": "onedpl",
   "perl518": "perl@5.18",
   "php72": "php@7.2",
   "polarssl": "mbedtls",
