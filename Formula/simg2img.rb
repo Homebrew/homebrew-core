@@ -14,6 +14,8 @@ class Simg2img < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "677aa2ecb11b6c0df59eb44cd75b7bc66d7f99607a4a5e0b5f9137d42428efc5"
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end
