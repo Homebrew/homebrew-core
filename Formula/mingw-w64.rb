@@ -4,6 +4,7 @@ class MingwW64 < Formula
   url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v9.0.0.tar.bz2"
   sha256 "1929b94b402f5ff4d7d37a9fe88daa9cc55515a6134805c104d1794ae22a4181"
   license "ZPL-2.1"
+  revision 1
 
   livecheck do
     url :stable
@@ -28,9 +29,9 @@ class MingwW64 < Formula
   depends_on "mpfr"
 
   resource "binutils" do
-    url "https://ftp.gnu.org/gnu/binutils/binutils-2.36.1.tar.xz"
-    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.1.tar.xz"
-    sha256 "e81d9edf373f193af428a0f256674aea62a9d74dfe93f65192d4eae030b0f3b0"
+    url "https://ftp.gnu.org/gnu/binutils/binutils-2.37.tar.xz"
+    mirror "https://ftpmirror.gnu.org/binutils/binutils-2.37.tar.xz"
+    sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
   end
 
   resource "gcc" do
