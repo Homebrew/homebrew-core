@@ -5,11 +5,6 @@ class Qtfaststart < Formula
   sha256 "115b659022dd387f662e26fbc5bc0cc14ec18daa100003ffd34f4da0479b272e"
   license "LGPL-2.1"
 
-  livecheck do
-    url "https://libav.org/releases/"
-    regex(/href=.*?libav[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9190e060b5e58f6e294576e87607b43e6f9f6399ae350ba48fb3f522a511c0c"
@@ -18,6 +13,9 @@ class Qtfaststart < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "2fac027c66defdafcbaee5b346fd5c5e6c11b5e9a267de40d604b8e837f5d2c4"
     sha256 cellar: :any_skip_relocation, high_sierra:   "073794a6af64b0fe9f2bc22480b4c605f9497c5ae9087d26fa8e51bdc0230b00"
   end
+
+  # See: https://lists.libav.org/pipermail/libav-devel/2020-April/086589.html
+  deprecate! date: "2020-04-16", because: :unmaintained
 
   resource "mov" do
     url "https://github.com/van7hu/fanca/raw/master/examples/kmplayer/samples/H264_test4_Talkingheadclipped_mov_480x320.mov"
