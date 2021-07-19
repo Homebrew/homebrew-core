@@ -1,11 +1,10 @@
 class ArmLinuxGnueabihfBinutils < Formula
   desc "FSF/GNU binutils for cross-compiling to arm-linux"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.36.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.36.1.tar.xz"
-  sha256 "e81d9edf373f193af428a0f256674aea62a9d74dfe93f65192d4eae030b0f3b0"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.37.tar.xz"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.37.tar.xz"
+  sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_big_sur: "5a659a38444d82e79e8f6257fc1d5c7356f17089ce294b2ff843ea3000bb3e60"
