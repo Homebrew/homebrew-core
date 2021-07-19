@@ -4,7 +4,7 @@ class Qbs < Formula
   url "https://download.qt.io/official_releases/qbs/1.19.1/qbs-src-1.19.1.tar.gz"
   sha256 "aab52c9eb604f029d7c504fe0e789e06d7811e33b3aaa8059460118aa8ff17a4"
   license :cannot_represent
-  head "git://code.qt.io/qbs/qbs.git"
+  head "https://code.qt.io/qbs/qbs.git"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "05d8510282eae1f4c4b05a66bbbada4e9a0925e5d9e75ad6cd5273ccb90ff353"
