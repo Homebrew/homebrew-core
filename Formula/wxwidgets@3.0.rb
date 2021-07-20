@@ -1,5 +1,5 @@
-class WxmacAT30 < Formula
-  desc "Cross-platform C++ GUI toolkit (wxWidgets for macOS) - Stable Release"
+class WxwidgetsAT30 < Formula
+  desc "Cross-platform C++ GUI toolkit - Stable Release"
   homepage "https://www.wxwidgets.org"
   url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.0.5.1/wxWidgets-3.0.5.1.tar.bz2"
   sha256 "440f6e73cf5afb2cbf9af10cec8da6cdd3d3998d527598a53db87099524ac807"
@@ -10,21 +10,13 @@ class WxmacAT30 < Formula
     regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
   end
 
-  bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "781881c92fcaadcfea66e7d33a36ae1d9b55d26839738f44248f39d187f46a3c"
-    sha256 cellar: :any,                 big_sur:       "42385ebead8045f2f4b1ac40f13f15c18b84b78ffa7110d69ebf8a798cd29dc0"
-    sha256 cellar: :any,                 catalina:      "d3d18b83d84b79735bda4497ebd92f763ed7cf4200c8ce8d651070ccd1b2719d"
-    sha256 cellar: :any,                 mojave:        "319f6ca3509265ace16fae3aaab777ae932130b741ba51d99702c0391da7833f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c20b17371eaf47ea6da7f6754d35d539f335bec8ce11f3d0c6c41a113ffbbe8"
-  end
-
   depends_on "jpeg"
   depends_on "libpng"
   depends_on "libtiff"
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "gtk+"
+    depends_on "gtk+3"
     depends_on "libsm"
     depends_on "mesa-glu"
   end
@@ -64,13 +56,13 @@ class WxmacAT30 < Formula
     system "./configure", *args
     system "make", "install"
 
-    # wx-config should reference the public prefix, not wxmac's keg
+    # wx-config should reference the public prefix, not wxwidgets's keg
     # this ensures that Python software trying to locate wxpython headers
-    # using wx-config can find both wxmac and wxpython headers,
+    # using wx-config can find both wxwidgets and wxpython headers,
     # which are linked to the same place
     inreplace "#{bin}/wx-config", prefix, HOMEBREW_PREFIX
 
-    # Move some files out of the way to prevent conflict with `wxmac`
+    # Move some files out of the way to prevent conflict with `wxwidgets`
     bin.install "#{bin}/wx-config" => "wx-config-#{version.major_minor}"
     (bin/"wxrc").unlink
     (share/"wx"/version.major_minor).install share/"aclocal", share/"bakefile"
@@ -86,7 +78,7 @@ class WxmacAT30 < Formula
 
   def caveats
     <<~EOS
-      To avoid conflicts with the wxmac formula, `wx-config` and `wxrc`
+      To avoid conflicts with the wxwidgets formula, `wx-config` and `wxrc`
       have been installed as `wx-config-#{version.major_minor}` and `wxrc-#{version.major_minor}`.
     EOS
   end

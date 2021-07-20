@@ -24,5 +24,5 @@
   "pyqt@5",
   "python@3.9",
   "python-tk@3.9",
-  "wxmac@3.0"
+  "wxwidgets@3.0"
 ]
