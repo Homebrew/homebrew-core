@@ -18,11 +18,8 @@ class Composer < Formula
   end
 
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
-  pour_bottle? do
-    on_macos do
-      reason "The bottle needs to be installed into `#{Homebrew::DEFAULT_PREFIX}` on Intel macOS."
-      satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX || Hardware::CPU.arm? }
-    end
+  on_macos do
+    pour_bottle? only_if: :default_prefix if Hardware::CPU.intel?
   end
 
   def install
