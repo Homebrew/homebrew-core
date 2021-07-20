@@ -12,15 +12,12 @@ class Phpbrew < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "2665bd49848a852a87abfc444f8ef708e3ec8364b3e5c04f21c3d7ef7ed8bdde"
   end
 
-  # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
-  pour_bottle? do
-    on_macos do
-      reason "The bottle needs to be installed into `#{Homebrew::DEFAULT_PREFIX}` on Intel macOS."
-      satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX || Hardware::CPU.arm? }
-    end
-  end
-
   uses_from_macos "php"
+
+  # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
+  on_macos do
+    pour_bottle? only_if: :default_prefix if Hardware::CPU.intel?
+  end
 
   def install
     chmod "+x", "phpbrew.phar"
