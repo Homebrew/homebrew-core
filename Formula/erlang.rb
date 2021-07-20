@@ -5,6 +5,7 @@ class Erlang < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-24.0.4/otp_src_24.0.4.tar.gz"
   sha256 "34d1f17425ed75add154261a9df2caeddb408b269b43275e5231c44f4fe5658b"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -27,7 +28,7 @@ class Erlang < Formula
   end
 
   depends_on "openssl@1.1"
-  depends_on "wxmac" # for GUI apps like observer
+  depends_on "wxwidgets" # for GUI apps like observer
 
   resource "html" do
     url "https://www.erlang.org/download/otp_doc_html_24.0.tar.gz"
