@@ -12,16 +12,13 @@ class Easyengine < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "e01550e56cc525492532558f554856f7925cd431234319715ee8a2a3caa0d32f"
   end
 
-  # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
-  pour_bottle? do
-    on_macos do
-      reason "The bottle needs to be installed into `#{Homebrew::DEFAULT_PREFIX}` on Intel macOS."
-      satisfy { HOMEBREW_PREFIX.to_s == Homebrew::DEFAULT_PREFIX || Hardware::CPU.arm? }
-    end
-  end
-
   depends_on "dnsmasq"
   depends_on "php"
+
+  # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
+  on_macos do
+    pour_bottle? only_if: :default_prefix if Hardware::CPU.intel?
+  end
 
   def install
     bin.install "easyengine.phar" => "ee"
