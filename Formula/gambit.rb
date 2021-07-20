@@ -4,7 +4,7 @@ class Gambit < Formula
   url "https://github.com/gambitproject/gambit/archive/v16.0.1.tar.gz"
   sha256 "56bb86fd17575827919194e275320a5dd498708fd8bb3b20845243d492c10fef"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8baa71e381f33562fc0580da41d111451900d28d20e162d0d86b82d10a8e21a8"
@@ -16,11 +16,11 @@ class Gambit < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "wxmac@3.0"
+  depends_on "wxwidgets@3.0"
 
   def install
-    wxmac = Formula["wxmac@3.0"]
-    ENV["WX_CONFIG"] = wxmac.opt_bin/"wx-config-#{wxmac.version.major_minor}"
+    wxwidgets = Formula["wxwidgets@3.0"]
+    ENV["WX_CONFIG"] = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
 
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking",
