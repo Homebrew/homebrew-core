@@ -1,13 +1,12 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-3.49.tar.gz"
-  version "3.490"
-  sha256 "5b65a20d5c53494ec8f638267fca4a629836b7ac8dd0ef0266834eab270ed4b3"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.0.0.tar.gz"
+  sha256 "b2a8efba0b9f86d3e1bd619f662a476ec18112b4f27cc441cc680a4e3777425e"
 
   livecheck do
     url :homepage
-    regex(/Download the latest v?(\d+(?:\.\d+)+) version of CFITSIO/i)
+    regex(/href=.*?cfitsio[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
@@ -18,6 +17,8 @@ class Cfitsio < Formula
     sha256 cellar: :any,                 high_sierra:   "ec8feab397612c13da91dd9c8e2c91289973ec1e7e10bf07f17023cf5db26745"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a4cf2b6058098fb6ed7a7f346aaa92e4cd3336d19b08c743fac516e5421bc7d"
   end
+
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}", "--enable-reentrant"
