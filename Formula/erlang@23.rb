@@ -5,6 +5,7 @@ class ErlangAT23 < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-23.3.4.5/otp_src_23.3.4.5.tar.gz"
   sha256 "f3698a686045787ea10fddd89a7e27663c3ae53cc07f75285d412beb829a25f0"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class ErlangAT23 < Formula
   keg_only :versioned_formula
 
   depends_on "openssl@1.1"
-  depends_on "wxmac" # for GUI apps like observer
+  depends_on "wxwidgets" # for GUI apps like observer
 
   resource "html" do
     url "https://www.erlang.org/download/otp_doc_html_23.3.tar.gz"
