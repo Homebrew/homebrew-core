@@ -4,7 +4,7 @@ class Wxmaxima < Formula
   url "https://github.com/wxMaxima-developers/wxmaxima/archive/Version-21.05.2.tar.gz"
   sha256 "4d2d486a24090ace2f64ceccb026210e2e6299a32cb348d43134ef80440bcf01"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
   bottle do
@@ -18,7 +18,7 @@ class Wxmaxima < Formula
   depends_on "gettext" => :build
   depends_on "ninja" => :build
   depends_on "maxima"
-  depends_on "wxmac"
+  depends_on "wxwidgets"
 
   def install
     mkdir "build-wxm" do
