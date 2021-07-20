@@ -5,7 +5,7 @@ class ErlangAT22 < Formula
   url "https://github.com/erlang/otp/releases/download/OTP-22.3.4.20/otp_src_22.3.4.20.tar.gz"
   sha256 "43289f20a7038b6835615a1f68a6e32b9aeec6db38cdb7c97adf78d048d74079"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -22,7 +22,7 @@ class ErlangAT22 < Formula
   keg_only :versioned_formula
 
   depends_on "openssl@1.1"
-  depends_on "wxmac" # for GUI apps like observer
+  depends_on "wxwidgets" # for GUI apps like observer
 
   resource "man" do
     url "https://www.erlang.org/download/otp_doc_man_22.3.tar.gz"
