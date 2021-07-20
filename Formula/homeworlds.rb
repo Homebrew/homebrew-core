@@ -5,7 +5,7 @@ class Homeworlds < Formula
       revision: "917cd7e7e6d0a5cdfcc56cd69b41e3e80b671cde"
   version "20141022"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "c094bde41b9eeccc8c9d62b2e7e808f4ca9addfeb19f81a2e2e41f26f3871363"
@@ -14,7 +14,7 @@ class Homeworlds < Formula
     sha256 cellar: :any, mojave:        "85ac4667ac133f9a45870166c29a7c0dc1ed7cbb51216db987fb8601a001ebf6"
   end
 
-  depends_on "wxmac"
+  depends_on "wxwidgets"
 
   def install
     system "make"
