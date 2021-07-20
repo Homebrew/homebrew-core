@@ -4,7 +4,7 @@ class ScummvmTools < Formula
   url "https://downloads.scummvm.org/frs/scummvm-tools/2.2.0/scummvm-tools-2.2.0.tar.xz"
   sha256 "1e72aa8f21009c1f7447c755e7f4cf499fe9b8ba3d53db681ea9295666cb48a4"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/scummvm/scummvm-tools.git"
 
   livecheck do
@@ -24,17 +24,17 @@ class ScummvmTools < Formula
   depends_on "libpng"
   depends_on "libvorbis"
   depends_on "mad"
-  depends_on "wxmac@3.0"
+  depends_on "wxwidgets@3.0"
 
   def install
-    # configure will happily carry on even if it can't find wxmac,
+    # configure will happily carry on even if it can't find wxwidgets,
     # so let's make sure the install method keeps working even when
-    # the wxmac dependency version changes
-    wxmac = deps.find { |dep| dep.name.match?(/^wxmac(@\d+(\.\d+)?)?$/) }
-                .to_formula
+    # the wxwidgets dependency version changes
+    wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)?)?$/) }
+                    .to_formula
 
     # The configure script needs a little help finding our wx-config
-    wxconfig = "wx-config-#{wxmac.version.major_minor}"
+    wxconfig = "wx-config-#{wxwidgets.version.major_minor}"
     inreplace "configure", /^_wxconfig=wx-config$/, "_wxconfig=#{wxconfig}"
 
     system "./configure", "--prefix=#{prefix}",
