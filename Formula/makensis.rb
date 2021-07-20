@@ -14,6 +14,8 @@ class Makensis < Formula
   depends_on "mingw-w64" => :build
   depends_on "scons" => :build
 
+  uses_from_macos "zlib"
+
   resource "nsis" do
     url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1.zip"
     sha256 "d463ad11aa191ab5ae64edb3a439a4a4a7a3e277fcb138254317254f7111fba7"
@@ -23,12 +25,15 @@ class Makensis < Formula
     args = [
       "CC=#{ENV.cc}",
       "CXX=#{ENV.cxx}",
+      "PREFIX=#{prefix}",
       "PREFIX_DOC=#{share}/nsis/Docs",
       "SKIPUTILS=Makensisw,NSIS Menu,zip2exe",
       # Don't strip, see https://github.com/Homebrew/homebrew/issues/28718
       "STRIP=0",
       "VERSION=#{version}",
     ]
+    on_linux { args << "APPEND_LINKFLAGS=-Wl,-rpath,#{rpath}" }
+
     system "scons", "makensis", *args
     bin.install "build/urelease/makensis/makensis"
     (share/"nsis").install resource("nsis")
