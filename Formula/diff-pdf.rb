@@ -4,7 +4,7 @@ class DiffPdf < Formula
   url "https://github.com/vslavik/diff-pdf/releases/download/v0.5/diff-pdf-0.5.tar.gz"
   sha256 "e7b8414ed68c838ddf6269d11abccdb1085d73aa08299c287a374d93041f172e"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "1a8643c9b3c96ce72d46ba82acb0fa764dc930fced4b3172a42d3578019f775d"
@@ -19,7 +19,7 @@ class DiffPdf < Formula
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "poppler"
-  depends_on "wxmac"
+  depends_on "wxwidgets"
 
   def install
     system "./configure", "--disable-dependency-tracking",
