@@ -2,7 +2,7 @@ class Ykdl < Formula
   include Language::Python::Virtualenv
 
   desc "Video downloader that focus on China mainland video sites"
-  homepage "https://github.com/zhangn1985/ykdl"
+  homepage "https://github.com/SeaHOH/ykdl"
   url "https://files.pythonhosted.org/packages/bb/15/ab7977a060f55a90f5cffb86dbc1327f3eaffbfdf88f0844a04add1199a8/ykdl-1.7.2.tar.gz"
   sha256 "abef7b5f3fbdbfc240fe3a6222b3feecc8d1f71969ad09d5f82779088272b9a8"
   license "MIT"
