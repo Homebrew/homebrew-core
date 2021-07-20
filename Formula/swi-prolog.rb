@@ -31,6 +31,14 @@ class SwiProlog < Formula
   depends_on "unixodbc"
 
   def install
+    # Remove shim paths from binary files `swipl-ld` and `libswipl.so.*`
+    on_linux do
+      inreplace "cmake/Params.cmake" do |s|
+        s.gsub! "${CMAKE_C_COMPILER}", "\"gcc\""
+        s.gsub! "${CMAKE_CXX_COMPILER}", "\"g++\""
+      end
+    end
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args,
                       "-DSWIPL_PACKAGES_JAVA=OFF",
@@ -40,13 +48,6 @@ class SwiProlog < Formula
     end
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
-
-    on_linux do
-      inreplace "libexec/lib/swipl/bin/x86_64-linux/swipl-ld",
-        HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
-      inreplace "libexec/lib/swipl/lib/x86_64-linux/libswipl.so.#{version}",
-        HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
-    end
   end
 
   test do
