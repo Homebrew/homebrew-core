@@ -39,8 +39,8 @@ class OpenjdkAT11 < Formula
   resource "boot-jdk" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://cdn.azul.com/zulu/bin/zulu11.50.19-ca-jdk11.0.12-macosx_aarch64.tar.gz"
-        sha256 "e908a0b4c0da08d41c3e19230f819b364ff2e5f1dafd62d2cf991a85a34d3a17"
+        url "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_osx-x64_bin.tar.gz"
+        sha256 "f365750d4be6111be8a62feda24e265d97536712bc51783162982b8ad96a70ee"
       else
         url "https://download.java.net/java/GA/jdk10/10.0.2/19aef61b38124481863b1413dce1855f/13/openjdk-10.0.2_osx-x64_bin.tar.gz"
         sha256 "77ea7675ee29b85aa7df138014790f91047bfdafbc997cb41a1030a0417356d7"
