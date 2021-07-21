@@ -1,8 +1,8 @@
 class Grpcurl < Formula
   desc "Like cURL, but for gRPC"
   homepage "https://github.com/fullstorydev/grpcurl"
-  url "https://github.com/fullstorydev/grpcurl/archive/v1.8.1.tar.gz"
-  sha256 "1dae107fdd32042f4fe5803378c5e0db124d573d4b96fc39cc32464b8d5adfbb"
+  url "https://github.com/fullstorydev/grpcurl/archive/v1.8.2.tar.gz"
+  sha256 "89e56bc6cdbf180068b02cc46078ebc3319010f2050f04247e1d535c7f9bf19b"
   license "MIT"
 
   bottle do
