@@ -19,6 +19,8 @@ class HopenpgpTools < Formula
   depends_on "pkg-config" => :build
   depends_on "nettle"
 
+  uses_from_macos "zlib"
+
   resource "homebrew-key.gpg" do
     url "https://gist.githubusercontent.com/zmwangx/be307671d11cd78985bd3a96182f15ea/raw/c7e803814efc4ca96cc9a56632aa542ea4ccf5b3/homebrew-key.gpg"
     sha256 "994744ca074a3662cff1d414e4b8fb3985d82f10cafcaadf1f8342f71f36b233"
