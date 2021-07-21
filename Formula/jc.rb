@@ -39,7 +39,7 @@ class Jc < Formula
 
   def install
     virtualenv_install_with_resources
-    man1.install "jc/man/jc.1.gz"
+    man1.install "man/jc.1"
   end
 
   test do
