@@ -30,13 +30,6 @@ class OpenjdkAT8 < Formula
     end
   end
 
-  # Apply this upstreamed patch to build on newer Xcode.
-  # https://github.com/AdoptOpenJDK/openjdk-jdk8u/pull/10
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9976a857d574de2927c580f1f61bcd647fb795fe/openjdk%408/xcode.patch"
-    sha256 "f59a82f2e83c97a7496ba71c811ee0849d7df6b45e32fb3da0f0078386eebd80"
-  end
-
   def install
     _, _, update = version.to_s.rpartition("+")
     java_options = ENV.delete("_JAVA_OPTIONS")
