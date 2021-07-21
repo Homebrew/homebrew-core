@@ -59,22 +59,6 @@ class OpenjdkAT11 < Formula
     on_linux { boot_jdk = boot_jdk_dir }
     java_options = ENV.delete("_JAVA_OPTIONS")
 
-    # Inspecting .hg_archival.txt to find a build number
-    # The file looks like this:
-    #
-    # repo: fd16c54261b32be1aaedd863b7e856801b7f8543
-    # node: 4397fa4529b2794ddcdf3445c0611fe383243fb4
-    # branch: default
-    # tag: jdk-11.0.9+11
-    # tag: jdk-11.0.9-ga
-    #
-    build = File.read(".hg_archival.txt")
-                .scan(/^tag: jdk-#{version}\+(.+)$/)
-                .map(&:first)
-                .map(&:to_i)
-                .max
-    raise "cannot find build number in .hg_archival.txt" if build.nil?
-
     args = %W[
       --without-version-pre
       --without-version-opt
