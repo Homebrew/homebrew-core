@@ -27,6 +27,15 @@ class Tcpflow < Formula
   depends_on "boost" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "libpcap"
+
+  on_linux do
+    depends_on "gcc" # For C++17
+  end
+
+  fails_with gcc: 5
+
   def install
     system "bash", "./bootstrap.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
