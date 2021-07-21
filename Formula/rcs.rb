@@ -14,6 +14,8 @@ class Rcs < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "f429e435048ad65275519c990aa4c2c437fd3b5d682865c057fe7f001e93946f"
   end
 
+  uses_from_macos "ed" => :build
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
