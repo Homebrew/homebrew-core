@@ -18,6 +18,9 @@ class Libzzip < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
 
+  uses_from_macos "zip" => :test
+  uses_from_macos "zlib"
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DZZIPTEST=OFF", "-DZZIPSDL=OFF", "-DCMAKE_INSTALL_RPATH=#{rpath}"
@@ -28,7 +31,7 @@ class Libzzip < Formula
 
   test do
     (testpath/"README.txt").write("Hello World!")
-    system "/usr/bin/zip", "test.zip", "README.txt"
+    system "zip", "test.zip", "README.txt"
     assert_equal "Hello World!", shell_output("#{bin}/zzcat test/README.txt")
   end
 end
