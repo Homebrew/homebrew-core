@@ -29,6 +29,12 @@ class Zeek < Formula
   uses_from_macos "libpcap"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc" # For C++17
+  end
+
+  fails_with gcc: 5
+
   def install
     # Remove SDK paths from zeek-config. This breaks usage with other SDKs.
     # https://github.com/corelight/zeek-community-id/issues/15
