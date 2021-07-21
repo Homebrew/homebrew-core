@@ -29,10 +29,9 @@ class Botan < Formula
       --with-zlib
       --with-bzip2
       --with-sqlite3
-      --with-python-versions=3.9
     ]
 
-    system "./configure.py", *args
+    system "python3", "configure.py", *args
     system "make", "install"
   end
 
