@@ -5,6 +5,7 @@ class Aom < Formula
       tag:      "v3.1.2",
       revision: "ae2be8030200925895fa6e98bd274ffdb595cbf6"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "cab48a0f87dce96cd34be83f306c76b1b12ffdc36924f66db4e5b23c7d02ed9b"
@@ -15,7 +16,10 @@ class Aom < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "yasm" => :build
+  depends_on "jpeg-xl"
+  depends_on "libvmaf"
 
   resource "bus_qcif_15fps.y4m" do
     url "https://media.xiph.org/video/derf/y4m/bus_qcif_15fps.y4m"
@@ -25,6 +29,8 @@ class Aom < Formula
   def install
     mkdir "macbuild" do
       args = std_cmake_args.concat(["-DCMAKE_INSTALL_RPATH=#{rpath}",
+                                    "-DCONFIG_TUNE_BUTTERAUGLI=1",
+                                    "-DCONFIG_TUNE_VMAF=1",
                                     "-DENABLE_DOCS=off",
                                     "-DENABLE_EXAMPLES=on",
                                     "-DENABLE_TESTDATA=off",
