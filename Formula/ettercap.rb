@@ -22,10 +22,18 @@ class Ettercap < Formula
   depends_on "openssl@1.1"
   depends_on "pcre"
 
+  uses_from_macos "curl"
+  uses_from_macos "libpcap"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def install
     # Work around a CMake bug affecting harfbuzz headers and pango
     # https://gitlab.kitware.com/cmake/cmake/issues/19531
     ENV.append_to_cflags "-I#{Formula["harfbuzz"].opt_include}/harfbuzz"
+
+    # Fix build error on wdg_file.c: fatal error: menu.h: No such file or directory
+    on_linux { ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw" }
 
     args = std_cmake_args + %W[
       -DBUNDLED_LIBS=OFF
@@ -36,9 +44,11 @@ class Ettercap < Formula
       -DENABLE_PDF_DOCS=OFF
       -DENABLE_PLUGINS=ON
       -DGTK_BUILD_TYPE=GTK3
+      -DGTK3_GLIBCONFIG_INCLUDE_DIR=#{Formula["glib"].opt_lib}/glib-2.0/include
       -DINSTALL_DESKTOP=ON
       -DINSTALL_SYSCONFDIR=#{etc}
     ]
+    on_linux { args << "-DPOLKIT_DIR=#{share}/polkit-1/actions/" }
 
     mkdir "build" do
       system "cmake", "..", *args
