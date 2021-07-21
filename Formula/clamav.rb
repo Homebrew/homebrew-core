@@ -28,7 +28,6 @@ class Clamav < Formula
 
   depends_on "pkg-config" => :build
   depends_on "json-c"
-  depends_on "libiconv"
   depends_on "libtool"
   depends_on "openssl@1.1"
   depends_on "pcre2"
@@ -38,6 +37,10 @@ class Clamav < Formula
   uses_from_macos "curl"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libiconv"
+  end
 
   skip_clean "share/clamav"
 
@@ -50,14 +53,14 @@ class Clamav < Formula
       --sysconfdir=#{etc}/clamav
       --disable-zlib-vcheck
       --with-llvm=no
-      --with-libiconv-prefix=#{Formula["libiconv"].opt_prefix}
-      --with-iconv=#{Formula["libiconv"].opt_prefix}
       --with-libjson=#{Formula["json-c"].opt_prefix}
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
       --with-pcre=#{Formula["pcre2"].opt_prefix}
     ]
 
     on_macos do
+      args << "--with-libiconv-prefix=#{Formula["libiconv"].opt_prefix}"
+      args << "--with-iconv=#{Formula["libiconv"].opt_prefix}"
       args << "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
       args << "--with-libbz2-prefix=#{MacOS.sdk_path_if_needed}/usr"
       args << "--with-xml=#{MacOS.sdk_path_if_needed}/usr"
