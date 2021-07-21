@@ -52,14 +52,6 @@ class OpenjdkAT11 < Formula
     end
   end
 
-  if Hardware::CPU.arm?
-    # Patch for Apple Silicon support
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/6e757d7b/openjdk%4011/aarch64.diff"
-      sha256 "4425b53eac3cc1a3531972f8b4982ba8dc87d6bc763cfcd19b6cab1cbaa9e6ca"
-    end
-  end
-
   def install
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
