@@ -62,7 +62,7 @@ class OpenjdkAT11 < Formula
     args = %W[
       --without-version-pre
       --without-version-opt
-      --with-version-build=#{build}
+      --with-version-build=#{revision}
       --with-toolchain-path=/usr/bin
       --with-boot-jdk=#{boot_jdk}
       --with-boot-jdk-jvmargs=#{java_options}
