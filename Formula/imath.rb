@@ -1,8 +1,8 @@
 class Imath < Formula
   desc "Library of 2D and 3D vector, matrix, and math operations"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "211c907ab26d10bd01e446da42f073ee7381e1913d8fa48084444bc4e1b4ef87"
+  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "a63fe91d8d0917acdc31b0c9344b1d7dbc74bf42de3e3ef5ec982386324b9ea4"
   license "BSD-3-Clause"
 
   bottle do
@@ -14,13 +14,6 @@ class Imath < Formula
   end
 
   depends_on "cmake" => :build
-
-  # Patch to fix build failure on ARM. Remove at version bump.
-  # https://github.com/AcademySoftwareFoundation/Imath/issues/183
-  patch do
-    url "https://github.com/AcademySoftwareFoundation/Imath/commit/eabc884d079d26afcead5128f7b093978d239ada.patch?full_index=1"
-    sha256 "20285734b4e2c99ab4f54734a130fe2ad4fe07febe07bcca3bad0e0630a57aba"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
