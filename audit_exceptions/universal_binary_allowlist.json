@@ -15,5 +15,6 @@
   "openjdk",
   "openjdk@11",
   "serverless",
+  "sourcery",
   "webpack"
 ]
