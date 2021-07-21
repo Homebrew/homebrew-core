@@ -1,8 +1,8 @@
 class Tfsec < Formula
   desc "Static analysis security scanner for your terraform code"
   homepage "https://tfsec.dev/"
-  url "https://github.com/aquasecurity/tfsec/archive/v0.50.6.tar.gz"
-  sha256 "d3ce6d0d061de72eba28bb87ed6d268d258402cafee2f08eaac883c9f592d48d"
+  url "https://github.com/aquasecurity/tfsec/archive/v0.50.7.tar.gz"
+  sha256 "a30c84ce6cb8edc9560a135a861304576404aaf7a927018271101b13c0a000dd"
   license "MIT"
   head "https://github.com/aquasecurity/tfsec.git"
 
