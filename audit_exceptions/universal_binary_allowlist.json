@@ -3,8 +3,10 @@
   "contentful-cli",
   "infer",
   "llvm",
+  "llvm@11",
   "llvm@7",
   "llvm@8",
   "llvm@9",
-  "llvm@11"
+  "openjdk",
+  "openjdk@11"
 ]
