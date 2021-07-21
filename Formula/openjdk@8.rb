@@ -53,11 +53,6 @@ class OpenjdkAT8 < Formula
       s.gsub! "MACOSX_VERSION_MIN=10.7.0", "MACOSX_VERSION_MIN=#{MacOS.version}"
     end
 
-    # Fix to permit building with Xcode 12
-    inreplace "common/autoconf/toolchain.m4",
-              '"${XC_VERSION_PARTS[[0]]}" != "4"',
-              '"${XC_VERSION_PARTS[[0]]}" != "12"'
-
     args = %W[--with-boot-jdk-jvmargs=#{java_options}
               --with-boot-jdk=#{boot_jdk}
               --with-debug-level=release
