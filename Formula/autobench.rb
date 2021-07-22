@@ -5,6 +5,11 @@ class Autobench < Formula
   sha256 "d8b4d30aaaf652df37dff18ee819d8f42751bc40272d288ee2a5d847eaf0423b"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?autobench[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c475644370c0f887d23d5fb77b4c3e24fc31ab21366e35395a8c1214c3f91143"
     sha256 cellar: :any_skip_relocation, big_sur:       "dde390cbcb35b87f2cf565a59e11ae4997400a37170abd9b276696460f81dbc4"
