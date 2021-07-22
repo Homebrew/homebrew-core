@@ -5,6 +5,15 @@ class Sgrep < Formula
   mirror "https://fossies.org/linux/misc/old/sgrep-1.94a.tar.gz"
   sha256 "d5b16478e3ab44735e24283d2d895d2c9c80139c95228df3bdb2ac446395faf9"
 
+  # The current formula version (1.94a) is an alpha version, so this regex
+  # has to allow for unstable versions. If/when a new stable version after 0.99
+  # ever appears, the optional `[a-z]?` part of this regex should be removed,
+  # so it will only match stable versions.
+  livecheck do
+    url "https://www.cs.helsinki.fi/pub/Software/Local/Sgrep/"
+    regex(/href=.*?sgrep[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, big_sur:      "fedcff86ec032617015882c5729298bbe1f1fcbda14cdde6167b00ae2af586b8"
