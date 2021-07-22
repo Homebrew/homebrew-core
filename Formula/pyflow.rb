@@ -23,12 +23,10 @@ class Pyflow < Formula
   test do
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
     pipe_output("#{bin}/pyflow init", "#{Formula["python@3.9"].version}\n1")
-    system bin/"pyflow", "install", "requests"
     system bin/"pyflow", "install", "boto3"
 
     assert_predicate testpath/"pyproject.toml", :exist?
     assert_predicate testpath/"pyflow.lock", :exist?
-    assert_match "requests", (testpath/"pyproject.toml").read
     assert_match "boto3", (testpath/"pyproject.toml").read
   end
 end
