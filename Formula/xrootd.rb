@@ -7,7 +7,7 @@ class Xrootd < Formula
   head "https://github.com/xrootd/xrootd.git"
 
   livecheck do
-    url "http://xrootd.org/dload.html"
+    url "https://xrootd.slac.stanford.edu/dload.html"
     regex(/href=.*?xrootd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
