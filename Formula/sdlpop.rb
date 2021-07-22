@@ -18,6 +18,9 @@ class Sdlpop < Formula
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
 
+  # Fix Makefile to use correct flags for SDL2 and SDL2_image
+  patch :DATA
+
   def install
     system "make", "-C", "src"
     doc.install Dir["doc/*"]
@@ -41,3 +44,23 @@ class Sdlpop < Formula
     EOS
   end
 end
+
+__END__
+diff --git a/src/Makefile b/src/Makefile
+index f7181ef..a4deeb2 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -12,14 +12,8 @@ OS      := $(shell uname)
+ CPPFLAGS += -Wall -D_GNU_SOURCE=1
+ CFLAGS += -std=gnu99 -O2
+ 
+-ifeq ($(OS),Darwin)
+-LIBS := $(shell sdl2-config --libs) -lSDL2_image
+-CFLAGS += -I/opt/local/include
+-CPPFLAGS += -D_THREAD_SAFE -DOSX
+-else
+ LIBS := $(shell pkg-config --libs   sdl2 SDL2_image)
+ CFLAGS += $(shell pkg-config --cflags sdl2 SDL2_image)
+-endif
+ 
+ all: $(BIN)
