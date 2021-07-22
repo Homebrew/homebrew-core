@@ -58,6 +58,12 @@ class OpenjdkAT11 < Formula
     sha256 "64ac56423da1d09013e4b14246fca60cb0551bda3fc2abcc23213e11f4ad709d"
   end
 
+  # backport https://github.com/openjdk/jdk11u-dev/pull/5
+  patch do
+    url "https://github.com/openjdk/jdk11u-dev/commit/5c35022bacc55400ba27ca2e49a803c2326c195d.patch?full_index=1"
+    sha256 "0583a958660517e6a6aa5dadad8c009ddbb61cfc77b8bdfa5953a748356e7975"
+  end
+
   def install
     boot_jdk_dir = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk_dir
