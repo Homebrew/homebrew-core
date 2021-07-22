@@ -24,6 +24,8 @@ class Handbrake < Formula
   depends_on xcode: ["10.3", :build]
   depends_on "yasm" => :build
 
+  depends_on "libbluray"
+
   uses_from_macos "m4" => :build
   uses_from_macos "libxml2"
 
