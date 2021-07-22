@@ -3,7 +3,7 @@ class Libgnt < Formula
   homepage "https://keep.imfreedom.org/libgnt/libgnt"
   url "https://downloads.sourceforge.net/project/pidgin/libgnt/2.14.2/libgnt-2.14.2.tar.xz"
   sha256 "61cf74b14eef10868b2d892e975aa78614f094c8f4d30dfd1aaedf52e6120e75"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://sourceforge.net/projects/pidgin/files/libgnt/"
@@ -24,8 +24,19 @@ class Libgnt < Formula
   depends_on "pkg-config" => :build
   depends_on "glib"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+
   def install
-    ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+    ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
+    # Work around for ERROR: Problem encountered: ncurses could not be found!
+    # Issue is build only checks for ncursesw headers under system prefix /usr
+    # Upstream issue: https://issues.imfreedom.org/issue/LIBGNT-15
+    on_linux do
+      inreplace "meson.build", "ncurses_sys_prefix = '/usr'",
+                               "ncurses_sys_prefix = '#{Formula["ncurses"].opt_prefix}'"
+    end
 
     mkdir "build" do
       system "meson", *std_meson_args, ".."
