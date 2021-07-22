@@ -23,6 +23,16 @@ class Sysdig < Formula
   depends_on "luajit"
   depends_on "tbb"
 
+  uses_from_macos "curl"
+
+  on_linux do
+    depends_on "elfutils"
+    depends_on "grpc"
+    depends_on "jq"
+    depends_on "libb64"
+    depends_on "protobuf"
+  end
+
   # More info on https://gist.github.com/juniorz/9986999
   resource "sample_file" do
     url "https://gist.githubusercontent.com/juniorz/9986999/raw/a3556d7e93fa890a157a33f4233efaf8f5e01a6f/sample.scap"
@@ -30,11 +40,15 @@ class Sysdig < Formula
   end
 
   def install
+    args = std_cmake_args + %W[
+      -DSYSDIG_VERSION=#{version}
+      -DUSE_BUNDLED_DEPS=OFF
+      -DCREATE_TEST_TARGETS=OFF
+    ]
+    on_linux { args << "-DBUILD_DRIVER=OFF" }
+
     mkdir "build" do
-      system "cmake", "..", "-DSYSDIG_VERSION=#{version}",
-                            "-DUSE_BUNDLED_DEPS=OFF",
-                            "-DCREATE_TEST_TARGETS=OFF",
-                            *std_cmake_args
+      system "cmake", "..", *args
       system "make"
       system "make", "install"
     end
