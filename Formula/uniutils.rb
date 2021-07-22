@@ -5,6 +5,11 @@ class Uniutils < Formula
   sha256 "c662a9215a3a67aae60510f679135d479dbddaf90f5c85a3c5bab1c89da61596"
   license "GPL-3.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?uniutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8cb5a86b69e6efe758a353744ac48a0ec1777f3b1ed814848906d6365ad7ba81"
     sha256 cellar: :any_skip_relocation, big_sur:       "df42759537263cec13ae2662eac1de96d0692b34e146eff756dbb52b79c7c5d7"
