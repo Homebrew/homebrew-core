@@ -7,6 +7,11 @@ class OpenAdventure < Formula
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/open-adventure"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?advent[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3e6e5fe49a6e152e07666b01ef6ce83063f1de437e65970079656e8ae4c2e357"
     sha256 cellar: :any_skip_relocation, big_sur:       "a3ec563817f679d2ed97360b1d32e3fef297eaa3fcaf582044213532a338d217"
