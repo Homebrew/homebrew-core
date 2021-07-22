@@ -1,9 +1,14 @@
 class Redland < Formula
   desc "RDF Library"
-  homepage "http://librdf.org/"
-  url "http://download.librdf.org/source/redland-1.0.17.tar.gz"
+  homepage "https://librdf.org/"
+  url "https://download.librdf.org/source/redland-1.0.17.tar.gz"
   sha256 "de1847f7b59021c16bdc72abb4d8e2d9187cd6124d69156f3326dd34ee043681"
   revision 1
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?redland[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "f54c731eecd682be899b7b8b5ab3424db134a1a48fe7076f0113deedb9a7f057"
