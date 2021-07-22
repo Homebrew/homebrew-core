@@ -1,12 +1,12 @@
 class Newt < Formula
   desc "Library for color text mode, widget based user interfaces"
   homepage "https://pagure.io/newt"
-  url "https://pagure.io/releases/newt/newt-0.52.21.tar.gz"
+  url "https://releases.pagure.org/newt/newt-0.52.21.tar.gz"
   sha256 "265eb46b55d7eaeb887fca7a1d51fe115658882dfe148164b6c49fccac5abb31"
   license "LGPL-2.0"
 
   livecheck do
-    url "https://pagure.io/releases/newt/"
+    url "https://releases.pagure.org/newt/"
     regex(/href=.*?newt[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
