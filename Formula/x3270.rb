@@ -6,7 +6,7 @@ class X3270 < Formula
   license "BSD-3-Clause"
 
   livecheck do
-    url "http://x3270.bgp.nu/download.html"
+    url "https://x3270.miraheze.org/wiki/Downloads"
     regex(/href=.*?suite3270[._-]v?(\d+(?:\.\d+)+(?:ga\d+)?)(?:-src)?\.t/i)
   end
 
