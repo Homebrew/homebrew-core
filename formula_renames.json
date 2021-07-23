@@ -90,6 +90,7 @@
   "lua51": "lua@5.1",
   "mat": "mat2",
   "maven32": "maven@3.2",
+  "mgba": "libmgba",
   "minizip2": "minizip-ng",
   "mkl-dnn": "onednn",
   "mobile-shell": "mosh",
