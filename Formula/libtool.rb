@@ -5,7 +5,7 @@ class Libtool < Formula
   mirror "https://ftpmirror.gnu.org/libtool/libtool-2.4.6.tar.xz"
   sha256 "7c87a8c2c8c0fc9cd5019e402bed4292462d00a718a7cd5f11218153bf28b26f"
   license "GPL-2.0-or-later"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "904c534919bf6dc14fb561dc56012b44af838f8c21fa4e948ff7a7a773b11f20"
@@ -44,6 +44,14 @@ class Libtool < Formula
     system "./configure", *args
     system "make", "install"
 
+    on_macos do
+      %w[libtool libtoolize].each do |prog|
+        (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
+        (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
+      end
+      libexec.install_symlink "gnuman" => "man"
+    end
+
     on_linux do
       bin.install_symlink "libtool" => "glibtool"
       bin.install_symlink "libtoolize" => "glibtoolize"
@@ -56,8 +64,10 @@ class Libtool < Formula
   def caveats
     on_macos do
       <<~EOS
-        In order to prevent conflicts with Apple's own libtool we have prepended a "g"
-        so, you have instead: glibtool and glibtoolize.
+        All commands have been installed with the prefix "g".
+        If you need to use these commands with their normal names, you
+        can add a "gnubin" directory to your PATH from your bashrc like:
+          PATH="#{opt_libexec}/gnubin:$PATH"
       EOS
     end
   end
