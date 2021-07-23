@@ -1,13 +1,20 @@
 class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
-  url "https://github.com/openshift/oc.git",
-      tag:      "openshift-clients-4.6.0-202006250705.p0",
-      revision: "51011e4849252c723b520643d27d3fa164d28c61",
-      shallow:  false
-  version "4.6.0"
   license "Apache-2.0"
   head "https://github.com/openshift/oc.git"
+
+  stable do
+    url "https://github.com/openshift/oc.git",
+        tag:      "openshift-clients-4.6.0-202006250705.p0",
+        revision: "51011e4849252c723b520643d27d3fa164d28c61",
+        shallow:  false
+    version "4.6.0"
+
+    # Add Makefile target to build arm64 binary
+    # Upstream PR: https://github.com/openshift/oc/pull/889
+    patch :DATA
+  end
 
   livecheck do
     url :stable
@@ -30,7 +37,10 @@ class OpenshiftCli < Formula
   uses_from_macos "krb5"
 
   def install
+    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+    os = "darwin"
     on_linux do
+      os = "linux"
       # See https://github.com/golang/go/issues/26487
       ENV.O0
     end
@@ -39,13 +49,12 @@ class OpenshiftCli < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      if build.stable?
-        system "make", "cross-build-darwin-amd64", "WHAT=cmd/oc"
-      else
-        system "make", "cross-build-darwin-amd64", "WHAT=staging/src/github.com/openshift/oc/cmd/oc"
-      end
+      args = ["cross-build-#{os}-#{arch}"]
+      args << (build.stable? ? "WHAT=cmd/oc" : "WHAT=staging/src/github.com/openshift/oc/cmd/oc")
+      on_linux { args << "SHELL=/bin/bash" }
 
-      bin.install "_output/bin/darwin_amd64/oc"
+      system "make", *args
+      bin.install "_output/bin/#{os}_#{arch}/oc"
 
       bash_completion.install "contrib/completions/bash/oc"
       zsh_completion.install "contrib/completions/zsh/oc" => "_oc"
@@ -60,3 +69,20 @@ class OpenshiftCli < Formula
     assert_match "foo", context_output
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 940a90415..a3584fbc9 100644
+--- a/Makefile
++++ b/Makefile
+@@ -88,6 +88,10 @@ cross-build-darwin-amd64:
+ 	+@GOOS=darwin GOARCH=amd64 $(MAKE) --no-print-directory build GO_BUILD_PACKAGES:=./cmd/oc GO_BUILD_FLAGS:="$(GO_BUILD_FLAGS_DARWIN)" GO_BUILD_BINDIR:=$(CROSS_BUILD_BINDIR)/darwin_amd64
+ .PHONY: cross-build-darwin-amd64
+ 
++cross-build-darwin-arm64:
++	+@GOOS=darwin GOARCH=arm64 $(MAKE) --no-print-directory build GO_BUILD_PACKAGES:=./cmd/oc GO_BUILD_FLAGS:="$(GO_BUILD_FLAGS_DARWIN)" GO_BUILD_BINDIR:=$(CROSS_BUILD_BINDIR)/darwin_arm64
++.PHONY: cross-build-darwin-arm64
++
+ cross-build-windows-amd64:
+ 	+@GOOS=windows GOARCH=amd64 $(MAKE) --no-print-directory build GO_BUILD_PACKAGES:=./cmd/oc GO_BUILD_FLAGS:="$(GO_BUILD_FLAGS_WINDOWS)" GO_BUILD_BINDIR:=$(CROSS_BUILD_BINDIR)/windows_amd64
+ .PHONY: cross-build-windows-amd64
