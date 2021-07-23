@@ -33,8 +33,8 @@ class Teleport < Formula
 
   # Keep this in sync with https://github.com/gravitational/teleport/tree/v#{version}
   resource "webassets" do
-    url "https://github.com/gravitational/webassets/archive/5adea0140c19514f77b1327c4315f99ee77e8261.tar.gz"
-    sha256 "97e253e414430b6a3493502639640c76f272a931d3fcaf55d0a91fc77e3367dd"
+    url "https://github.com/gravitational/webassets/archive/c63397375632f1a4323918dde78334472f3ffbb9.tar.gz"
+    sha256 "0510b757f259aee6ff1d43611132050ef5bf2d798c12c6e2e5c36d7fda58c104"
   end
 
   def install
