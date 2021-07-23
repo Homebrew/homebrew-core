@@ -9,5 +9,6 @@
   "llvm@9",
   "openjdk",
   "openjdk@11",
-  "serverless"
+  "serverless",
+  "webpack"
 ]
