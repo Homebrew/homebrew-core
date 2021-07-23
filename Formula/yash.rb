@@ -7,7 +7,7 @@ class Yash < Formula
   license "GPL-2.0-or-later"
 
   livecheck do
-    url "https://osdn.jp/projects/yash/releases/rss"
+    url "https://osdn.net/projects/yash/releases/rss"
     regex(%r{(\d+(?:\.\d+)+)</title>}i)
   end
 
