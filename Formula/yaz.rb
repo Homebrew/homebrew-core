@@ -1,12 +1,12 @@
 class Yaz < Formula
   desc "Toolkit for Z39.50/SRW/SRU clients/servers"
-  homepage "https://www.indexdata.com/yaz"
-  url "http://ftp.indexdata.dk/pub/yaz/yaz-5.31.0.tar.gz"
+  homepage "https://www.indexdata.com/resources/software/yaz/"
+  url "https://ftp.indexdata.com/pub/yaz/yaz-5.31.0.tar.gz"
   sha256 "864d4476d1578ac132782b3d4e2eb96391bd88f7ae3040ddcb1556aba6fe0d15"
   license "BSD-3-Clause"
 
   livecheck do
-    url "http://ftp.indexdata.dk/pub/yaz/"
+    url :homepage
     regex(/href=.*?yaz[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
