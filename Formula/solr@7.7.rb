@@ -9,9 +9,9 @@ class SolrAT77 < Formula
 
   # Remove the `livecheck` block (so the check is automatically skipped) once
   # the 7.7.x series is reported as EOL on the first-party downloads page:
-  # https://lucene.apache.org/solr/downloads.html#about-versions-and-support
+  # https://solr.apache.org/downloads.html#about-versions-and-support
   livecheck do
-    url "https://lucene.apache.org/solr/downloads.html"
+    url "https://solr.apache.org/downloads.html"
     regex(/href=.*?solr[._-]v?(7(?:\.\d+)+)\.t/i)
   end
 
