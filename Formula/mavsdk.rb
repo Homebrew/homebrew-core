@@ -4,10 +4,9 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v0.40.0",
-      revision: "b0514e3fe84b035005e0ad40655f24914e5df57a"
+      tag:      "v0.41.0",
+      revision: "5a9289eb09eb6b13f24e9d8d69f5644d2210d6b2"
   license "BSD-3-Clause"
-  revision 3
 
   livecheck do
     url :stable
