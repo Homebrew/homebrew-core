@@ -21,7 +21,7 @@ class ArchiSteamFarm < Formula
   depends_on "dotnet"
 
   def install
-    system "dotnet", "build", "ArchiSteamFarm",
+    system "dotnet", "publish", "ArchiSteamFarm",
            "--configuration", "Release",
            "--framework", "net#{Formula["dotnet"].version.major_minor}",
            "--output", libexec
