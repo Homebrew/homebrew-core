@@ -1,6 +1,6 @@
 class Getxbook < Formula
   desc "Tools to download ebooks from various sources"
-  homepage "https://njw.name/getxbook"
+  homepage "https://njw.name/getxbook/"
   url "https://njw.name/getxbook/getxbook-1.2.tar.xz"
   sha256 "7a4b1636ecb6dace814b818d9ff6a68167799b81ac6fc4dca1485efd48cf1c46"
   license "ISC"
