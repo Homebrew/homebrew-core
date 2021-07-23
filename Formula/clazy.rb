@@ -21,7 +21,7 @@ class Clazy < Formula
   depends_on "cmake"   => [:build, :test]
   depends_on "qt"      => :test
   depends_on "coreutils"
-  depends_on "llvm@11"
+  depends_on "llvm"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
@@ -65,7 +65,7 @@ class Clazy < Formula
       int main() { return 0; }
     EOS
 
-    ENV["CLANGXX"] = Formula["llvm@11"].opt_bin/"clang++"
+    ENV["CLANGXX"] = Formula["llvm"].opt_bin/"clang++"
     system "cmake", "-DCMAKE_CXX_COMPILER=#{bin}/clazy", "."
     assert_match "warning: qgetenv().isEmpty() allocates. Use qEnvironmentVariableIsEmpty() instead",
       shell_output("make VERBOSE=1 2>&1")
