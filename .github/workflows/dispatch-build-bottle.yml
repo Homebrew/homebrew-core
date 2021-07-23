@@ -60,6 +60,9 @@ jobs:
             # No PATH needed on Linux as set by Docker
             echo 'HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1' >> $GITHUB_ENV
           fi
+          if [ -n ${{github.event.inputs.wheezy}} ]; then
+            echo 'HOMEBREW_ON_DEBIAN7=1' >> $GITHUB_ENV
+          fi
 
       - name: Run Docker container
         if: runner.os == 'Linux'

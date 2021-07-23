@@ -185,6 +185,9 @@ jobs:
             # No PATH needed on Linux as set by Docker
             echo 'HOMEBREW_FORCE_HOMEBREW_ON_LINUX=1' >> $GITHUB_ENV
           fi
+          if [ ${{needs.setup_tests.outputs.container}} = 'homebrew/debian7:latest' ]; then
+            echo 'HOMEBREW_ON_DEBIAN7=1' >> $GITHUB_ENV
+          fi
 
       - name: Set up Linux Homebrew Docker container
         if: runner.os == 'Linux'
