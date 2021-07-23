@@ -10,6 +10,7 @@
   "llvm@8",
   "llvm@9",
   "netlify-cli",
+  "marp-cli",
   "openjdk",
   "openjdk@11",
   "serverless",
