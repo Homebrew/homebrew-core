@@ -6,8 +6,10 @@ class CKermit < Formula
   sha256 "0d5f2cd12bdab9401b4c836854ebbf241675051875557783c332a6a40dac0711"
   license "BSD-3-Clause"
 
+  # C-Kermit archive file names only contain the patch version and the full
+  # version has to be obtained from text on the project page.
   livecheck do
-    url "http://www.kermitproject.org/ck90.html"
+    url "https://www.kermitproject.org/ckermit.html"
     regex(/The current C-Kermit release is v?(\d+(?:\.\d+)+) /i)
   end
 
