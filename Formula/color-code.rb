@@ -3,7 +3,13 @@ class ColorCode < Formula
   homepage "http://colorcode.laebisch.com/"
   url "http://colorcode.laebisch.com/download/ColorCode-0.8.5.tar.gz"
   sha256 "7c128db12af6ab11439eb710091b4a448100553a4d11d3a7c8dafdfbc57c1a85"
+  license "GPL-3.0-or-later"
   revision 2
+
+  livecheck do
+    url "http://colorcode.laebisch.com/download"
+    regex(/href=.*?ColorCode[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "8e7c81eca9f900ce20df5013b24120a39732113506ca72db063c52dec64fb028"
