@@ -27,6 +27,7 @@ class Git < Formula
   uses_from_macos "curl"
   uses_from_macos "expat"
   uses_from_macos "openssl@1.1"
+  uses_from_macos "perl"
   uses_from_macos "zlib"
 
   on_linux do
@@ -67,15 +68,16 @@ class Git < Formula
     ENV["LIBPCREDIR"] = Formula["pcre2"].opt_prefix
     ENV["V"] = "1" # build verbosely
 
-    perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
-
     on_macos do
+      perl_version, perl_short_version = Utils.safe_popen_read("perl", "-e", "print $^V")
+                                              .match(/v((\d+\.\d+)(?:\.\d+))?/).captures
       ENV["PERLLIB_EXTRA"] = %W[
-        #{MacOS.active_developer_dir}
-        /Library/Developer/CommandLineTools
-        /Applications/Xcode.app/Contents/Developer
+        #{HOMEBREW_PREFIX}/lib/perl5/site_perl/#{perl_version}
+        #{MacOS.active_developer_dir}/Library/Perl/#{perl_short_version}
+        /Library/Developer/CommandLineTools/Library/Perl/#{perl_short_version}
+        /Applications/Xcode.app/Contents/Developer/Library/Perl/#{perl_short_version}
       ].uniq.map do |p|
-        "#{p}/Library/Perl/#{perl_version}/darwin-thread-multi-2level"
+        "#{p}/darwin-thread-multi-2level"
       end.join(":")
     end
 
