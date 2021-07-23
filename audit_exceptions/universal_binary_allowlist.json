@@ -8,5 +8,6 @@
   "llvm@8",
   "llvm@9",
   "openjdk",
-  "openjdk@11"
+  "openjdk@11",
+  "serverless"
 ]
