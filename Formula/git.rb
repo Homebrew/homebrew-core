@@ -5,7 +5,7 @@ class Git < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.32.0.tar.xz"
   sha256 "68a841da3c4389847ecd3301c25eb7e4a51d07edf5f0168615ad6179e3a83623"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/git/git.git"
 
   livecheck do
@@ -43,9 +43,17 @@ class Git < Formula
     sha256 "19e3cb0425c94d4ad82984f41522e77c8e35093e15a891f8e7195617201f6ac1"
   end
 
-  resource "Net::SMTP::SSL" do
-    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
-    sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
+  # git-send-email needs Net::SMTP::SSL or Net::SMTP >= 2.34
+  def self.use_net_smtp_ssl?
+    Utils.safe_popen_read("perl", "-MNet::SMTP", "-e",
+                          "print version->parse($Net::SMTP::VERSION) >= version->parse('2.34')").empty?
+  end
+
+  if use_net_smtp_ssl?
+    resource "Net::SMTP::SSL" do
+      url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Net-SMTP-SSL-1.04.tar.gz"
+      sha256 "7b29c45add19d3d5084b751f7ba89a8e40479a446ce21cfd9cc741e558332a00"
+    end
   end
 
   def install
@@ -151,9 +159,10 @@ class Git < Formula
     chmod 0644, Dir["#{share}/doc/git-doc/**/*.{html,txt}"]
     chmod 0755, Dir["#{share}/doc/git-doc/{RelNotes,howto,technical}"]
 
-    # git-send-email needs Net::SMTP::SSL or Net::SMTP >= 2.34
-    resource("Net::SMTP::SSL").stage do
-      (share/"perl5").install "lib/Net"
+    if Git.use_net_smtp_ssl?
+      resource("Net::SMTP::SSL").stage do
+        (share/"perl5").install "lib/Net"
+      end
     end
 
     # This is only created when building against system Perl, but it isn't
