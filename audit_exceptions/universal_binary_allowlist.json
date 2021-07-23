@@ -1,6 +1,7 @@
 [
   "babel",
   "contentful-cli",
+  "gatsby-cli",
   "infer",
   "llvm",
   "llvm@11",
