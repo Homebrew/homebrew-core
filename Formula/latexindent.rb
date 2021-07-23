@@ -52,8 +52,8 @@ class Latexindent < Formula
   end
 
   resource "Exception::Class" do
-    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Exception-Class-1.44.tar.gz"
-    sha256 "33f3fbf8b138d3b04ea4ec0ba83fb0df6ba898806bcf4ef393d4cafc1a23ee0d"
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Exception-Class-1.45.tar.gz"
+    sha256 "5482a77ef027ca1f9f39e1f48c558356e954936fc8fbbdee6c811c512701b249"
   end
 
   resource "File::HomeDir" do
@@ -62,8 +62,8 @@ class Latexindent < Formula
   end
 
   resource "File::Which" do
-    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz"
-    sha256 "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
+    url "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.27.tar.gz"
+    sha256 "3201f1a60e3f16484082e6045c896842261fc345de9fb2e620fd2a2c7af3a93a"
   end
 
   resource "Log::Dispatch" do
@@ -72,8 +72,8 @@ class Latexindent < Formula
   end
 
   resource "Log::Log4perl" do
-    url "https://cpan.metacpan.org/authors/id/E/ET/ETJ/Log-Log4perl-1.53.tar.gz"
-    sha256 "8fbfb48d016eec7344a539f3ad70870b4ac4638e49666bfa70d10f6ffd4ac38e"
+    url "https://cpan.metacpan.org/authors/id/E/ET/ETJ/Log-Log4perl-1.54.tar.gz"
+    sha256 "bbabe42d3b4cdaa3a47666b957be81d55bbd1cbcffcdff2b119586d33602eabe"
   end
 
   resource "MIME::Charset" do
@@ -82,8 +82,8 @@ class Latexindent < Formula
   end
 
   resource "MRO::Compat" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.13.tar.gz"
-    sha256 "8a2c3b6ccc19328d5579d02a7d91285e2afd85d801f49d423a8eb16f323da4f8"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/MRO-Compat-0.14_01.tar.gz"
+    sha256 "bc214d7964bc72f5a4015cc6b0d27376071cb64bd955280fea40c046b64d911a"
   end
 
   resource "Module::Build" do
@@ -117,13 +117,13 @@ class Latexindent < Formula
   end
 
   resource "Role::Tiny" do
-    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.001004.tar.gz"
-    sha256 "92ba5712850a74102c93c942eb6e7f62f7a4f8f483734ed289d08b324c281687"
+    url "https://cpan.metacpan.org/authors/id/H/HA/HAARG/Role-Tiny-2.002004.tar.gz"
+    sha256 "d7bdee9e138a4f83aa52d0a981625644bda87ff16642dfa845dcb44d9a242b45"
   end
 
   resource "Specio" do
-    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.46.tar.gz"
-    sha256 "0bf42aa116076d6efc18f72b72c7acb5638bd41c0aa09aecc12fc8bf9ceb9596"
+    url "https://cpan.metacpan.org/authors/id/D/DR/DROLSKY/Specio-0.47.tar.gz"
+    sha256 "f41307f14444f8777e572f27eeb6a964084399e7e382c47c577827ad8a286a1c"
   end
 
   resource "Sub::Exporter::Progressive" do
