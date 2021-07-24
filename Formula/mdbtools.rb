@@ -4,6 +4,7 @@ class Mdbtools < Formula
   url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.3/mdbtools-0.9.3.tar.gz"
   sha256 "bf4b297a9985e82bc64c8a620adc00e2e3483371a7d280e81249b294fe0e6619"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "e9bd349e7979d818b4b45de5cfc26ca64f357188eb63651560821940df39179b"
@@ -15,6 +16,7 @@ class Mdbtools < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "bison" => :build
   depends_on "gawk" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
@@ -25,7 +27,6 @@ class Mdbtools < Formula
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-sql",
                           "--enable-man"
     system "make", "install"
   end
