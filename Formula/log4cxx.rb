@@ -16,6 +16,12 @@ class Log4cxx < Formula
   depends_on "cmake" => :build
   depends_on "apr-util"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: 5 # needs C++17 or Boost
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
