@@ -3,7 +3,7 @@ class Pstoedit < Formula
   homepage "http://www.pstoedit.net/"
   url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.75/pstoedit-3.75.tar.gz"
   sha256 "b7b5d8510b40a5b148f7751268712fcfd0c1ed2bb46f359f655b6fcdc53364cf"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_big_sur: "62d09abcd35a1d933545c501578d9583978eac45569bb7b3702f6fd1b5cbea9a"
@@ -27,8 +27,7 @@ class Pstoedit < Formula
   fails_with gcc: "6"
 
   def install
-    ENV.cxx11
-
+    on_macos { ENV.cxx11 }
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
