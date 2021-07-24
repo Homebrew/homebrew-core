@@ -21,6 +21,7 @@ class YelpTools < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "gtk+3"
+  depends_on "itstool"
   depends_on "libxml2"
   depends_on "python@3.9"
 
