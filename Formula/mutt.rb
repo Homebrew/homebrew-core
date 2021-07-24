@@ -36,12 +36,12 @@ class Mutt < Formula
   depends_on "tokyo-cabinet"
 
   uses_from_macos "bzip2"
+  uses_from_macos "cyrus-sasl"
   uses_from_macos "krb5"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  conflicts_with "tin",
-    because: "both install mmdf.5 and mbox.5 man pages"
+  conflicts_with "tin", because: "both install mmdf.5 and mbox.5 man pages"
 
   def install
     user_in_mail_group = Etc.getgrnam("mail").mem.include?(ENV["USER"])
