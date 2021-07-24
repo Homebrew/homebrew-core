@@ -11,6 +11,7 @@
   "llvm@9",
   "netlify-cli",
   "marp-cli",
+  "node-sass",
   "openjdk",
   "openjdk@11",
   "serverless",
