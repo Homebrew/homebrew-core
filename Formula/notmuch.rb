@@ -24,6 +24,7 @@ class Notmuch < Formula
   depends_on "libgpg-error" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
+  depends_on "libffi" => :test
   depends_on "glib"
   depends_on "gmime"
   depends_on "python@3.9"
@@ -31,6 +32,12 @@ class Notmuch < Formula
   depends_on "xapian"
 
   uses_from_macos "zlib", since: :sierra
+  uses_from_macos "libffi"
+
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/2e/92/87bb61538d7e60da8a7ec247dc048f7671afe17016cd0008b3b710012804/cffi-1.14.6.tar.gz"
+    sha256 "c9a875ce9d7fe32887784274dd533c57909b7b1dcadcc128a2ac21331a9765dd"
+  end
 
   def install
     args = %W[
@@ -59,6 +66,12 @@ class Notmuch < Formula
       system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
+    resource("cffi").stage { system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix) }
+
+    cd "bindings/python-cffi" do
+      system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
+    end
+
     # If installed in non-standard prefixes, such as is the default with
     # Homebrew on Apple Silicon machines, other formulae can fail to locate
     # libnotmuch.dylib due to not checking locations like /opt/homebrew for
@@ -78,5 +91,28 @@ class Notmuch < Formula
     (testpath/".notmuch-config").write "[database]\npath=#{testpath}/Mail"
     (testpath/"Mail").mkpath
     assert_match "0 total", shell_output("#{bin}/notmuch new")
+
+    xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
+    ENV.prepend_path "PYTHONPATH", lib/"python#{xy}/site-packages"
+
+    (testpath/"test-bindings-v1.py").write <<~EOS
+      import notmuch
+      db = notmuch.Database(mode=notmuch.Database.MODE.READ_ONLY)
+      print(db.get_path())
+      db.close()
+    EOS
+    assert_match "#{testpath}/Mail", shell_output(
+      "#{Formula["python@3.9"].opt_bin}/python3 '#{testpath}/test-bindings-v1.py'",
+    )
+
+    (testpath/"test-bindings-v2.py").write <<~EOS
+      import notmuch2
+      db = notmuch2.Database(mode=notmuch2.Database.MODE.READ_ONLY)
+      print(db.path)
+      db.close()
+    EOS
+    assert_match "#{testpath}/Mail", shell_output(
+      "#{Formula["python@3.9"].opt_bin}/python3 '#{testpath}/test-bindings-v2.py'",
+    )
   end
 end
