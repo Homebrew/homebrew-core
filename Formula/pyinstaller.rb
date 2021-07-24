@@ -32,7 +32,14 @@ class Pyinstaller < Formula
     sha256 "7f5d0689b30da3092149fc536a835a94045ac8c9f0e6dfb23ac171890f5ea8f2"
   end
 
+  # Work around to create native thin bootloader using `--no-universal2` flag
+  # Upstream ref: https://github.com/pyinstaller/pyinstaller/issues/6091
+  patch :DATA
+
   def install
+    cd "bootloader" do
+      system "python3", "./waf", "all", "--no-universal2", "STRIP=/usr/bin/strip"
+    end
     virtualenv_install_with_resources
   end
 
@@ -49,3 +56,16 @@ class Pyinstaller < Formula
     assert_predicate testpath/"dist/easy_install", :exist?
   end
 end
+
+__END__
+--- a/bootloader/wscript
++++ b/bootloader/wscript
+@@ -360,7 +360,7 @@ def set_arch_flags(ctx):
+             if ctx.options.macos_universal2:
+                 mac_arch = UNIVERSAL2_FLAGS
+             else:
+-                mac_arch = ['-arch', 'x86_64']
++                mac_arch = []
+         ctx.env.append_value('CFLAGS', mac_arch)
+         ctx.env.append_value('CXXFLAGS', mac_arch)
+         ctx.env.append_value('LINKFLAGS', mac_arch)
