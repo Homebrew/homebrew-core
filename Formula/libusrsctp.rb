@@ -30,7 +30,7 @@ class Libusrsctp < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lusrsctp", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lusrsctp", "-lpthread", "-o", "test"
     system "./test"
   end
 end
