@@ -1,9 +1,12 @@
 class Sqlmap < Formula
+  include Language::Python::Shebang
+
   desc "Penetration testing for SQL injection and database servers"
   homepage "https://sqlmap.org"
   url "https://github.com/sqlmapproject/sqlmap/archive/1.5.7.tar.gz"
   sha256 "b5d7bd6bfee2fcce2f84b332a9c337d45c37343c53b5793cc4141db77789db70"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/sqlmapproject/sqlmap.git"
 
   bottle do
@@ -12,6 +15,10 @@ class Sqlmap < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "b871840ee1a99f5c2ea14522302b63fefe0d777703d4ceaad241215939dcc45c"
     sha256 cellar: :any_skip_relocation, mojave:        "b871840ee1a99f5c2ea14522302b63fefe0d777703d4ceaad241215939dcc45c"
   end
+
+  depends_on "python@3.9"
+
+  uses_from_macos "sqlite" => :test
 
   def install
     libexec.install Dir["*"]
@@ -24,11 +31,11 @@ class Sqlmap < Formula
     ]
     inreplace files, "/usr/local", HOMEBREW_PREFIX
 
-    bin.install_symlink libexec/"sqlmap.py"
-    bin.install_symlink bin/"sqlmap.py" => "sqlmap"
-
-    bin.install_symlink libexec/"sqlmapapi.py"
-    bin.install_symlink bin/"sqlmapapi.py" => "sqlmapapi"
+    %w[sqlmap sqlmapapi].each do |cmd|
+      rewrite_shebang detected_python_shebang, libexec/"#{cmd}.py"
+      bin.install_symlink libexec/"#{cmd}.py"
+      bin.install_symlink bin/"#{cmd}.py" => cmd
+    end
   end
 
   test do
