@@ -21,6 +21,7 @@ class Arpoison < Formula
   depends_on "libnet"
 
   def install
+    on_linux { inreplace "Makefile", /gcc -lnet (.*)/, "gcc \\1 -lnet" }
     system "make"
     bin.install "arpoison"
     man8.install "arpoison.8"
