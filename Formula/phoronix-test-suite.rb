@@ -18,6 +18,8 @@ class PhoronixTestSuite < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "021e080cf334bf2a07774987010e2ea1047e81348f4b020069c4c016522947de"
   end
 
+  uses_from_macos "php"
+
   def install
     ENV["DESTDIR"] = buildpath/"dest"
     system "./install-sh", prefix
@@ -31,7 +33,22 @@ class PhoronixTestSuite < Formula
   end
 
   test do
-    cd pkgshare
-    assert_match version.to_s, shell_output("#{bin}/phoronix-test-suite version")
+    on_macos { cd pkgshare }
+
+    # Work around issue directly running command on Linux CI by using spawn.
+    # Error is "Forked child process failed: pid ##### SIGKILL"
+    require "pty"
+    output = ""
+    PTY.spawn(bin/"phoronix-test-suite", "version") do |r, _w, pid|
+      sleep 2
+      Process.kill "TERM", pid
+      begin
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+    end
+
+    assert_match version.to_s, output
   end
 end
