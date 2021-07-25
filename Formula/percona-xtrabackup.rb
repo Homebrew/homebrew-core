@@ -28,10 +28,17 @@ class PerconaXtrabackup < Formula
   depends_on "protobuf"
   depends_on "zstd"
 
+  uses_from_macos "vim" => :build # needed for xxd
   uses_from_macos "curl"
+  uses_from_macos "cyrus-sasl"
   uses_from_macos "libedit"
   uses_from_macos "perl"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "patchelf" => :build
+    depends_on "libaio"
+  end
 
   # Should be installed before DBD::mysql
   resource "Devel::CheckLib" do
@@ -39,12 +46,10 @@ class PerconaXtrabackup < Formula
     sha256 "f21c5e299ad3ce0fdc0cb0f41378dca85a70e8d6c9a7599f0e56a957200ec294"
   end
 
-  # In Mojave, this is not part of the system Perl anymore
-  if MacOS.version >= :mojave
-    resource "DBI" do
-      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
-      sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
-    end
+  # This is not part of the system Perl on Linux and on macOS since Mojave
+  resource "DBI" do
+    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.643.tar.gz"
+    sha256 "8a2b993db560a2c373c174ee976a51027dd780ec766ae17620c20393d2e836fa"
   end
 
   resource "DBD::mysql" do
@@ -114,8 +119,10 @@ class PerconaXtrabackup < Formula
 
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
-    # In Mojave, this is not part of the system Perl anymore
-    if MacOS.version >= :mojave
+    # This is not part of the system Perl on Linux and on macOS since Mojave
+    install_dbi = (MacOS.version >= :mojave)
+    on_linux { install_dbi = true }
+    if install_dbi
       resource("DBI").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "install"
