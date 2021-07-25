@@ -1,8 +1,8 @@
 class Makensis < Formula
   desc "System to create Windows installers"
   homepage "https://nsis.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1-src.tar.bz2"
-  sha256 "9b5d68bf1874a7b393432410c7e8c376f174d2602179883845d2508152153ff0"
+  url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.07/nsis-3.07-src.tar.bz2"
+  sha256 "4dfad3388589985b4cd91d20e18e1458aa31e7d139b5b8adf25c3a9c1015efba"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e189ee20201ab5362625cb677875aed597ad56b85da29ca4b67dbe21396c9f4a"
@@ -19,8 +19,8 @@ class Makensis < Formula
   uses_from_macos "zlib"
 
   resource "nsis" do
-    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.06.1/nsis-3.06.1.zip"
-    sha256 "d463ad11aa191ab5ae64edb3a439a4a4a7a3e277fcb138254317254f7111fba7"
+    url "https://downloads.sourceforge.net/project/nsis/NSIS%203/3.07/nsis-3.07.zip"
+    sha256 "04dde28896ae9ab36ea3035ff3a294e78053f00048064f6d22a6f1c02bcb6ec0"
   end
 
   def install
