@@ -68,6 +68,9 @@ class Mavsdk < Formula
   end
 
   def install
+    # Fix version being reported as `v#{version}-dirty`
+    inreplace "CMakeLists.txt", "OUTPUT_VARIABLE VERSION_STR", "OUTPUT_VARIABLE VERSION_STR_IGNORED"
+
     on_macos do
       ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
     end
@@ -96,6 +99,7 @@ class Mavsdk < Formula
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DBUILD_MAVSDK_SERVER=ON",
                     "-DBUILD_TESTS=OFF",
+                    "-DVERSION_STR=v#{version}-#{tap.user}",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-H."
     system "cmake", "--build", "build/default"
@@ -107,20 +111,17 @@ class Mavsdk < Formula
     on_macos { ENV.clang }
 
     (testpath/"test.cpp").write <<~EOS
+      #include <iostream>
       #include <mavsdk/mavsdk.h>
-      #include <mavsdk/plugins/info/info.h>
       int main() {
           mavsdk::Mavsdk mavsdk;
-          mavsdk.version();
-          mavsdk::System& system = mavsdk.system();
-          auto info = std::make_shared<mavsdk::Info>(system);
+          std::cout << mavsdk.version() << std::endl;
           return 0;
       }
     EOS
     system ENV.cxx, "-std=c++17", testpath/"test.cpp", "-o", "test",
-                    "-I#{include}/mavsdk", "-L#{lib}",
-                    "-lmavsdk", "-lmavsdk_info"
-    system "./test"
+                    "-I#{include}", "-L#{lib}", "-lmavsdk"
+    assert_match "v#{version}-#{tap.user}", shell_output("./test").chomp
 
     assert_equal "Usage: #{bin}/mavsdk_server [-h | --help]",
                  shell_output("#{bin}/mavsdk_server --help").split("\n").first
