@@ -33,10 +33,8 @@ class ShairportSync < Formula
   def install
     system "autoreconf", "-fvi"
     args = %W[
-      --with-os=darwin
       --with-libdaemon
       --with-ssl=openssl
-      --with-dns_sd
       --with-ao
       --with-stdout
       --with-pa
@@ -47,6 +45,10 @@ class ShairportSync < Formula
       --sysconfdir=#{etc}/shairport-sync
       --prefix=#{prefix}
     ]
+    on_macos do
+      args << "--with-dns_sd" # Enable bonjour
+      args << "--with-os=darwin"
+    end
     system "./configure", *args
     system "make", "install"
   end
@@ -64,6 +66,11 @@ class ShairportSync < Formula
 
   test do
     output = shell_output("#{bin}/shairport-sync -V")
-    assert_match "libdaemon-OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
+    on_macos do
+      assert_match "libdaemon-OpenSSL-dns_sd-ao-pa-stdout-pipe-soxr-metadata", output
+    end
+    on_linux do
+      assert_match "OpenSSL-ao-pa-stdout-pipe-soxr-metadata-sysconfdir", output
+    end
   end
 end
