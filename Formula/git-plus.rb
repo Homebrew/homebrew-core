@@ -3,10 +3,9 @@ class GitPlus < Formula
 
   desc "Git utilities: git multi, git relation, git old-branches, git recent"
   homepage "https://github.com/tkrajina/git-plus"
-  url "https://files.pythonhosted.org/packages/73/b5/6cf7f0513fd1ef42b5a3ac0e342b3c4176551f60ad17fc5dbe52329f2b58/git-plus-v0.4.6.tar.gz"
-  sha256 "bcf3a83a2730e8b6f5bc106db00b7b6be5df534cb9543ba7ecc506c535c5158b"
+  url "https://files.pythonhosted.org/packages/e5/01/f7ff2dc29fd5b8ffe1382c5e44d4be671ea00000cb216ad2b67b8e58a5b4/git-plus-v0.4.7.tar.gz"
+  sha256 "22e0e118ed94bdc4413a763774e8cf8dfd167a1209b9ee831eac1835d4bb5302"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/tkrajina/git-plus.git"
 
   bottle do
