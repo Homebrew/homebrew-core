@@ -16,6 +16,9 @@ class Reaver < Formula
     sha256 yosemite:      "4fbf7b0225730d7a37bfb71bec7b99f78f0b0946df7bcb3e5f274795692e1b3f"
   end
 
+  uses_from_macos "libpcap"
+  uses_from_macos "sqlite"
+
   # Adds general support for macOS in reaver:
   # https://code.google.com/archive/p/reaver-wps/issues/detail?id=245
   patch do
