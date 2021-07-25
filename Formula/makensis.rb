@@ -44,6 +44,7 @@ class Makensis < Formula
 
   test do
     system "#{bin}/makensis", "-VERSION"
-    system "#{bin}/makensis", "#{share}/nsis/Examples/bigtest.nsi", "-XOutfile /dev/null"
+    # Force ANSI target to avoid https://sourceforge.net/p/nsis/bugs/1165/ until resolved upstream
+    system "#{bin}/makensis", "#{share}/nsis/Examples/bigtest.nsi", "-XOutfile /dev/null", "-XUnicode false"
   end
 end
