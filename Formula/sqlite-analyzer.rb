@@ -18,10 +18,18 @@ class SqliteAnalyzer < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "a6052e4c2c43c900d8cd541ccf21495c4e82ab1f3b952c16aca584d82570c69a"
   end
 
+  uses_from_macos "sqlite" => :test
+  uses_from_macos "tcl-tk"
+
   def install
-    sdkprefix = MacOS.sdk_path_if_needed
+    tcl = if OS.mac?
+      MacOS.sdk_path/"System/Library/Frameworks/Tcl.framework"
+    else
+      Formula["tcl-tk"].opt_lib
+    end
+
     system "./configure", "--disable-debug",
-                          "--with-tcl=#{sdkprefix}/System/Library/Frameworks/Tcl.framework/",
+                          "--with-tcl=#{tcl}",
                           "--prefix=#{prefix}"
     system "make", "sqlite3_analyzer"
     bin.install "sqlite3_analyzer"
@@ -36,7 +44,7 @@ class SqliteAnalyzer < Formula
       insert into students (name, age) values ('Sue', 12);
       insert into students (name, age) values ('Tim', 13);
     EOS
-    system "/usr/bin/sqlite3 #{dbpath} < #{sqlpath}"
+    system "sqlite3 #{dbpath} < #{sqlpath}"
     system bin/"sqlite3_analyzer", dbpath
   end
 end
