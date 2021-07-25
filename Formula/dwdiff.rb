@@ -26,7 +26,8 @@ class Dwdiff < Formula
     gettext = Formula["gettext"]
     icu4c = Formula["icu4c"]
     ENV.append "CFLAGS", "-I#{gettext.include} -I#{icu4c.include}"
-    ENV.append "LDFLAGS", "-L#{gettext.lib} -L#{icu4c.lib} -lintl"
+    ENV.append "LDFLAGS", "-L#{gettext.lib} -L#{icu4c.lib}"
+    on_macos { ENV.append "LDFLAGS", "-lintl" }
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
