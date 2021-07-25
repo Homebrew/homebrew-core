@@ -22,6 +22,9 @@ class AflFuzz < Formula
   def install
     system "make", "PREFIX=#{prefix}", "AFL_NO_X86=1"
     system "make", "install", "PREFIX=#{prefix}", "AFL_NO_X86=1"
+
+    # Delete incompatible elf32-i386 testcase file
+    rm Dir[share/"afl/**/elf/small_exec.elf"]
   end
 
   test do
@@ -34,7 +37,9 @@ class AflFuzz < Formula
       }
     EOS
 
-    system bin/"afl-clang++", "-g", cpp_file, "-o", "test"
+    cmd = "afl-clang++"
+    on_linux { cmd = "afl-g++" }
+    system bin/cmd, "-g", cpp_file, "-o", "test"
     assert_equal "Hello, world!", shell_output("./test")
   end
 end
