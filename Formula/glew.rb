@@ -16,6 +16,11 @@ class Glew < Formula
 
   depends_on "cmake" => [:build, :test]
 
+  on_linux do
+    depends_on "freeglut" => :test
+    depends_on "mesa-glu"
+  end
+
   conflicts_with "root", because: "root ships its own copy of glew"
 
   def install
@@ -28,26 +33,10 @@ class Glew < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~EOS
-      #include <GL/glew.h>
-      #include <GLUT/glut.h>
-
-      int main(int argc, char** argv) {
-        glutInit(&argc, argv);
-        glutCreateWindow("GLEW Test");
-        GLenum err = glewInit();
-        if (GLEW_OK != err) {
-          return 1;
-        }
-        return 0;
-      }
-    EOS
-    system ENV.cc, testpath/"test.c", "-o", "test", "-L#{lib}", "-lGLEW",
-           "-framework", "GLUT"
-    system "./test"
-
     (testpath/"CMakeLists.txt").write <<~EOS
       project(test_glew)
+
+      set(CMAKE_CXX_STANDARD 11)
 
       find_package(OpenGL REQUIRED)
       find_package(GLEW REQUIRED)
@@ -67,5 +56,37 @@ class Glew < Formula
 
     system "cmake", ".", "-Wno-dev"
     system "make"
+
+    glut = "GLUT"
+    on_linux do
+      glut = "GL"
+    end
+    (testpath/"test.c").write <<~EOS
+      #include <GL/glew.h>
+      #include <#{glut}/glut.h>
+
+      int main(int argc, char** argv) {
+        glutInit(&argc, argv);
+        glutCreateWindow("GLEW Test");
+        GLenum err = glewInit();
+        if (GLEW_OK != err) {
+          return 1;
+        }
+        return 0;
+      }
+    EOS
+    flags = %W[-L#{lib} -lGLEW]
+    on_macos do
+      flags << "-framework" << "GLUT"
+    end
+    on_linux do
+      flags << "-lglut"
+    end
+    system ENV.cc, testpath/"test.c", "-o", "test", *flags
+    on_linux do
+      # Fails in Linux CI with: freeglut (./test): failed to open display ''
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+    end
+    system "./test"
   end
 end
