@@ -4,6 +4,11 @@ class Mmix < Formula
   url "https://mmix.cs.hm.edu/src/mmix-20160804.tgz"
   sha256 "fad8e64fddf2d75cbcd5080616b47e11a2d292a428cdb0c12e579be680ecdee9"
 
+  livecheck do
+    url "https://mmix.cs.hm.edu/src/"
+    regex(/href=.*?mmix[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "03a6468d729fc0ccddb6187c50b8f0318dedbe2bf613ef2e86e95aada83daeac"
     sha256 cellar: :any_skip_relocation, big_sur:       "fa0a9dd7f5ea9520ffd9c4682df2d754462a7b7e6d7b30bc8ea84f39903fa29e"
