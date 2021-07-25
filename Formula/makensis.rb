@@ -44,7 +44,7 @@ class Makensis < Formula
 
   test do
     system "#{bin}/makensis", "-VERSION"
-    # Force ANSI target to avoid https://sourceforge.net/p/nsis/bugs/1165/ until resolved upstream
-    system "#{bin}/makensis", "#{share}/nsis/Examples/bigtest.nsi", "-XOutfile /dev/null", "-XUnicode false"
+    # Force ASCII target to avoid Unicode issue (until resolved upstream), see https://sourceforge.net/p/nsis/bugs/1165/
+    system "#{bin}/makensis", "-XUnicode false", "#{share}/nsis/Examples/bigtest.nsi", "-XOutfile /dev/null"
   end
 end
