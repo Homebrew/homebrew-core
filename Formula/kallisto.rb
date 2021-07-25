@@ -13,7 +13,7 @@ class Kallisto < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "8491424ec8d4f8e170315e13c5f3bb92895b608c9c7108f260459e06bbbf73f9"
   end
 
-  depends_on "autoconf" => :build
+  depends_on "autoconf@2.69" => :build
   depends_on "automake" => :build
   depends_on "cmake" => :build
   depends_on "hdf5"
