@@ -43,8 +43,13 @@ class Makensis < Formula
   end
 
   test do
+    # Workaround for https://sourceforge.net/p/nsis/bugs/1165/
+    ENV["LANG"] = "en_GB.UTF-8"
+    %w[COLLATE CTYPE MESSAGES MONETARY NUMERIC TIME].each do |lc_var|
+      ENV["LC_#{lc_var}"] = "en_GB.UTF-8"
+    end
+
     system "#{bin}/makensis", "-VERSION"
-    # Force ASCII target to avoid Unicode issue (until resolved upstream), see https://sourceforge.net/p/nsis/bugs/1165/
-    system "#{bin}/makensis", "-XUnicode false", "#{share}/nsis/Examples/bigtest.nsi", "-XOutfile /dev/null"
+    system "#{bin}/makensis", "#{share}/nsis/Examples/bigtest.nsi", "-XOutfile /dev/null"
   end
 end
