@@ -14,6 +14,8 @@ class Chisel < Formula
     sha256 cellar: :any, high_sierra:   "41797386262e226cf471995eac8ec50dffbf622140634254c6a7dab8a9471b48"
   end
 
+  depends_on :macos
+
   def install
     libexec.install Dir["*.py", "commands"]
 
