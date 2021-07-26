@@ -3,7 +3,7 @@ class Mpc < Formula
   homepage "https://www.musicpd.org/clients/mpc/"
   url "https://www.musicpd.org/download/mpc/0/mpc-0.33.tar.xz"
   sha256 "4f40ccbe18f5095437283cfc525a97815e983cbfd3a29e48ff610fa4f1bf1296"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.musicpd.org/download/mpc/0/"
@@ -34,6 +34,6 @@ class Mpc < Formula
 
   test do
     assert_match "query", shell_output("#{bin}/mpc list 2>&1", 1)
-    assert_match "-F _mpc", shell_output("source #{bash_completion}/mpc && complete -p mpc")
+    assert_match "-F _mpc", shell_output("bash -c 'source #{bash_completion}/mpc && complete -p mpc'")
   end
 end
