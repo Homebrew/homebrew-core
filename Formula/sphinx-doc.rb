@@ -3,8 +3,8 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  url "https://files.pythonhosted.org/packages/a9/7b/dd334e8d8178986b47760743b5fcee4a9796e10e1fc0ebe2bf6ac59c3a2e/Sphinx-4.1.1.tar.gz"
-  sha256 "23c846a1841af998cb736218539bb86d16f5eb95f5760b1966abcd2d584e62b8"
+  url "https://files.pythonhosted.org/packages/6c/47/d6d0785b2a2317ced13da29e9993ff0ee971e9bdbb8a8c699360d8197e76/Sphinx-4.1.2.tar.gz"
+  sha256 "3092d929cd807926d846018f2ace47ba2f3b671b309c7a89cd3306e80c826b13"
   license "BSD-2-Clause"
 
   bottle do
@@ -38,8 +38,8 @@ class SphinxDoc < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e1/e6/707ff774274c66f1db739ff4d7eb493252899ed86f0018ac3e9e462fe3de/charset-normalizer-2.0.2.tar.gz"
-    sha256 "951567c2f7433a70ab63f1be67e5ee05d3925d9423306ecb71a3b272757bcc95"
+    url "https://files.pythonhosted.org/packages/37/fd/05a04d7e14548474d30d90ad0db5d90ee2ba55cd967511a354cf88b534f1/charset-normalizer-2.0.3.tar.gz"
+    sha256 "c46c3ace2d744cfbdebceaa3c19ae691f53ae621b39fd7570f59d14fb7f2fd12"
   end
 
   resource "docutils" do
