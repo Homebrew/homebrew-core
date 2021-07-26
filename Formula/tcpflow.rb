@@ -35,7 +35,7 @@ class Tcpflow < Formula
     depends_on "gcc" # For C++17
   end
 
-  fails_with gcc: 5
+  fails_with gcc: "5"
 
   def install
     system "bash", "./bootstrap.sh" if build.head?
