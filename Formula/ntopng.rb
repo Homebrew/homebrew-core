@@ -35,13 +35,17 @@ class Ntopng < Formula
   depends_on "libtool" => :build
   depends_on "lua" => :build
   depends_on "pkg-config" => :build
-  depends_on "zeromq" => :build
   depends_on "geoip"
   depends_on "json-c"
   depends_on "libmaxminddb"
   depends_on "mysql-client"
   depends_on "redis"
   depends_on "rrdtool"
+  depends_on "zeromq"
+
+  uses_from_macos "curl"
+  uses_from_macos "libpcap"
+  uses_from_macos "sqlite"
 
   def install
     resource("nDPI").stage do
@@ -52,7 +56,7 @@ class Ntopng < Formula
     system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}"
     system "make"
-    system "make", "install"
+    system "make", "install", "MAN_DIR=#{man}"
   end
 
   test do
