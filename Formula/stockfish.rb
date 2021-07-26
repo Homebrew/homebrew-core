@@ -23,7 +23,7 @@ class Stockfish < Formula
     depends_on "gcc" # For C++17
   end
 
-  fails_with gcc: 5
+  fails_with gcc: "5"
 
   def install
     arch = Hardware::CPU.arm? ? "apple-silicon" : "x86-64-modern"
