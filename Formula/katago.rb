@@ -39,8 +39,12 @@ class Katago < Formula
 
   def install
     cd "cpp" do
-      system "cmake", ".", "-DBUILD_MCTS=1", "-DUSE_BACKEND=OPENCL", "-DNO_GIT_REVISION=1",
-                           "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}", *std_cmake_args
+      args = %w[-DBUILD_MCTS=1 -DNO_GIT_REVISION=1]
+      on_macos do
+        args << "-DUSE_BACKEND=OPENCL"
+        args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
+      end
+      system "cmake", ".", *args, *std_cmake_args
       system "make"
       bin.install "katago"
       pkgshare.install "configs"
