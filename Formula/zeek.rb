@@ -34,7 +34,7 @@ class Zeek < Formula
     depends_on "gcc" # For C++17
   end
 
-  fails_with gcc: 5
+  fails_with gcc: "5"
 
   def install
     # Remove SDK paths from zeek-config. This breaks usage with other SDKs.
