@@ -25,7 +25,7 @@ class Volk < Formula
     depends_on "gcc"
   end
 
-  fails_with gcc: 5 # https://github.com/gnuradio/volk/issues/375
+  fails_with gcc: "5" # https://github.com/gnuradio/volk/issues/375
 
   resource "Mako" do
     url "https://files.pythonhosted.org/packages/5c/db/2d2d88b924aa4674a080aae83b59ea19d593250bfe5ed789947c21736785/Mako-1.1.4.tar.gz"
