@@ -13,6 +13,7 @@ class Imagesnap < Formula
   end
 
   depends_on xcode: :build
+  depends_on :macos
 
   def install
     xcodebuild "-project", "ImageSnap.xcodeproj", "SYMROOT=build"
