@@ -61,7 +61,7 @@ class Uwsgi < Formula
 
     system "python3", "uwsgiconfig.py", "--verbose", "--build", "brew"
 
-    plugins = %w[airbrake alarm_curl alarm_speech asyncio cache
+    plugins = %w[airbrake alarm_curl asyncio cache
                  carbon cgi cheaper_backlog2 cheaper_busyness
                  corerouter curl_cron cplusplus dumbloop dummy
                  echo emperor_amqp fastrouter forkptyrouter gevent
@@ -77,6 +77,9 @@ class Uwsgi < Formula
                  transformation_chunked transformation_gzip
                  transformation_offload transformation_tofile
                  transformation_toupper ugreen webdav zergpool]
+    on_macos do
+      plugins << "alarm_speech"
+    end
 
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|
