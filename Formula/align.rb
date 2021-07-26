@@ -1,9 +1,14 @@
 class Align < Formula
   desc "Text column alignment filter"
-  homepage "https://legacy.cs.indiana.edu/~kinzler/align/"
-  url "https://www.cs.indiana.edu/~kinzler/align/align-1.7.5.tgz"
+  homepage "https://kinzler.com/me/align/"
+  url "https://kinzler.com/me/align/align-1.7.5.tgz"
   sha256 "cc692fb9dee0cc288757e708fc1a3b6b56ca1210ca181053a371cb11746969dd"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?align[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8181265610c0cb43adfc0bdcf0ca4ba3ee28debd69c6e7c08d2459b1c21f4cbd"
