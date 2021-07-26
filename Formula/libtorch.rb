@@ -58,9 +58,7 @@ class Libtorch < Formula
       system "cmake", "..", *std_cmake_args, *args
 
       # Avoid references to Homebrew shims
-      inreplace "caffe2/core/macros.h",
-                "{\"CXX_COMPILER\", \"#{HOMEBREW_SHIMS_PATH}/mac/super/clang++\"},",
-                "{\"CXX_COMPILER\", \"/usr/bin/clang++\"},"
+      inreplace "caffe2/core/macros.h", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{Regexp.escape(ENV.cxx)}}, ENV.cxx
 
       system "make"
       system "make", "install"
@@ -77,8 +75,9 @@ class Libtorch < Formula
         std::cout << tensor << std::endl;
       }
     EOS
-    system ENV.cxx, "-std=c++14", "-L#{lib}", "-ltorch", "-ltorch_cpu", "-lc10",
-      "-I#{include}/torch/csrc/api/include", "test.cpp", "-o", "test"
+    system ENV.cxx, "-std=c++14", "test.cpp", "-o", "test",
+                    "-I#{include}/torch/csrc/api/include",
+                    "-L#{lib}", "-ltorch", "-ltorch_cpu", "-lc10"
     system "./test"
   end
 end
