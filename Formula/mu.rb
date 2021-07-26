@@ -47,7 +47,7 @@ class Mu < Formula
     depends_on "gcc"
   end
 
-  fails_with gcc: 5
+  fails_with gcc: "5"
 
   def install
     system "autoreconf", "-ivf"
