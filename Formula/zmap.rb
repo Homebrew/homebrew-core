@@ -23,6 +23,9 @@ class Zmap < Formula
   depends_on "json-c"
   depends_on "libdnet"
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "libpcap"
+
   # fix json-c 0.14 compat
   # ref PR, https://github.com/zmap/zmap/pull/609
   patch :DATA
