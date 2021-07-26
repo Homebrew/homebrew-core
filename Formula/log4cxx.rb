@@ -21,7 +21,7 @@ class Log4cxx < Formula
     depends_on "gcc"
   end
 
-  fails_with gcc: 5 # needs C++17 or Boost
+  fails_with gcc: "5" # needs C++17 or Boost
 
   def install
     mkdir "build" do
