@@ -31,7 +31,7 @@ class TbbAT2020 < Formula
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
     system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}"
-    lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
+    lib.install Dir["build/BUILDPREFIX_release/#{shared_library("*")}"]
 
     # Build and install static libraries
     system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}",
@@ -41,12 +41,18 @@ class TbbAT2020 < Formula
 
     cd "python" do
       ENV["TBBROOT"] = prefix
+      on_linux do
+        system "make", "-C", "rml", "compiler=#{compiler}", "CPATH=#{include}"
+        lib.install Dir["rml/libirml.so*"]
+      end
       system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
+    os = "Darwin"
+    on_linux { os = "Linux" }
     system "cmake", *std_cmake_args,
                     "-DINSTALL_DIR=lib/cmake/TBB",
-                    "-DSYSTEM_NAME=Darwin",
+                    "-DSYSTEM_NAME=#{os}",
                     "-DTBB_VERSION_FILE=#{include}/tbb/tbb_stddef.h",
                     "-P", "cmake/tbb_config_installer.cmake"
 
