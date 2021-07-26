@@ -20,6 +20,6 @@ class Hubble < Formula
   end
 
   test do
-    assert_match(/.*tls-allow-insecure:.*/m, shell_output("#{bin}/hubble config get"))
+    assert_match(/tls-allow-insecure:/, shell_output("#{bin}/hubble config get"))
   end
 end
