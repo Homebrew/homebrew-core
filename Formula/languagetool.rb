@@ -46,6 +46,7 @@ class Languagetool < Formula
     (testpath/"test.txt").write <<~EOS
       Homebrew, this is an test
     EOS
-    assert_match "Message: Use ?a? instead of ?an?", shell_output("#{bin}/languagetool -l en-US test.txt 2>&1")
+    output = shell_output("#{bin}/languagetool -l en-US test.txt 2>&1")
+    assert_match(/Message: Use \Wa\W instead of \Wan\W/, output)
   end
 end
