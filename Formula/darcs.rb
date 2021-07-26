@@ -16,6 +16,9 @@ class Darcs < Formula
   depends_on "ghc" => :build
   depends_on "gmp"
 
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   def install
     system "cabal", "v2-update"
     system "cabal", "v2-install", *std_cabal_v2_args
