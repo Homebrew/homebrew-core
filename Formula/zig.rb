@@ -1,10 +1,10 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  # Re-enable C compilation test at 0.8.1
   url "https://ziglang.org/download/0.8.0/zig-0.8.0.tar.xz"
   sha256 "03a828d00c06b2e3bb8b7ff706997fd76bf32503b08d759756155b6e8c981e77"
   license "MIT"
+  revision 1
   head "https://github.com/ziglang/zig.git"
 
   bottle do
@@ -17,6 +17,13 @@ class Zig < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm"
+
+  # Fix compilation of C code on Mojave. Remove at version bump.
+  # https://github.com/ziglang/zig/pull/9427
+  patch do
+    url "https://github.com/ziglang/zig/commit/24bfd7bdddbf045c5568c1bb67a3f754c24eb8c4.patch?full_index=1"
+    sha256 "feda7d03502c073bd9874996453da6961dcf16f5a3e08b86d6df1d4cbc1475a7"
+  end
 
   def install
     system "cmake", ".", *std_cmake_args, "-DZIG_STATIC_LLVM=ON"
@@ -41,11 +48,7 @@ class Zig < Formula
         return 0;
       }
     EOS
-    # Compiling C is broken on Mojave. Re-enable at 0.8.1.
-    # https://github.com/ziglang/zig/issues/8999
-    if MacOS.version > :mojave
-      system "#{bin}/zig", "cc", "hello.c", "-o", "hello"
-      assert_equal "Hello, world!", shell_output("./hello")
-    end
+    system "#{bin}/zig", "cc", "hello.c", "-o", "hello"
+    assert_equal "Hello, world!", shell_output("./hello")
   end
 end
