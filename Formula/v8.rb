@@ -18,11 +18,21 @@ class V8 < Formula
     sha256 cellar: :any, mojave:        "e624c7696f994d9f538da54be2f3ef3b78ceda13f420e78bd86b6bde196c82e7"
   end
 
-  depends_on "llvm" => :build
   depends_on "ninja" => :build
   depends_on "python@3.9" => :build
 
-  depends_on xcode: ["10.0", :build] # required by v8
+  on_macos do
+    depends_on "llvm" => :build
+    depends_on xcode: ["10.0", :build] # required by v8
+  end
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "gcc"
+    depends_on "glib"
+  end
+
+  fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
   # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/9.1.269.28/DEPS#L50
@@ -103,6 +113,11 @@ class V8 < Formula
       treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
     }
 
+    on_linux do
+      gn_args[:is_clang] = false # use GCC on Linux
+      gn_args[:use_sysroot] = false # don't use sysroot
+    end
+
     # use clang from homebrew llvm formula, because the system clang is unreliable
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
 
@@ -113,10 +128,16 @@ class V8 < Formula
     system "gn", "gen", "--args=#{gn_args_string}", "out.gn"
     system "ninja", "-j", ENV.make_jobs, "-C", "out.gn", "-v", "d8"
 
-    # Install all the things
+    # Install libraries and headers into libexec so d8 can find them, and into standard directories
+    # so other packages can find them and they are linked into HOMEBREW_PREFIX
     (libexec/"include").install Dir["include/*"]
-    libexec.install Dir["out.gn/lib*.dylib", "out.gn/d8", "out.gn/icudtl.dat"]
+    include.install_symlink Dir["#{libexec}/include/*"]
+
+    libexec.install Dir["out.gn/d8", "out.gn/icudtl.dat"]
     bin.write_exec_script libexec/"d8"
+
+    libexec.install Dir["out.gn/#{shared_library("*")}"]
+    lib.install_symlink Dir["#{libexec}/#{shared_library("*")}"]
   end
 
   test do
@@ -137,7 +158,7 @@ class V8 < Formula
 
     # link against installed libc++
     system ENV.cxx, "-std=c++14", "test.cpp",
-      "-I#{libexec}/include",
-      "-L#{libexec}", "-lv8", "-lv8_libplatform"
+      "-I#{include}",
+      "-L#{lib}", "-lv8", "-lv8_libplatform"
   end
 end
