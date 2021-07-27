@@ -15,13 +15,6 @@ class Vitess < Formula
   depends_on "go" => :build
   depends_on "etcd"
 
-  # Fixes build failure on Darwin, see: https://github.com/vitessio/vitess/pull/7787
-  # Remove in v11.0.0
-  patch do
-    url "https://github.com/vitessio/vitess/commit/7efa6aa4cd3b68ccd45d46e5f1d13a4a7f9bde7d.patch?full_index=1"
-    sha256 "625290343b23688c5ac885246ed43808b865ae16005565d88791f4f733c24ce0"
-  end
-
   def install
     system "make", "install-local", "PREFIX=#{prefix}", "VTROOT=#{buildpath}"
     pkgshare.install "examples"
