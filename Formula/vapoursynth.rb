@@ -35,7 +35,9 @@ class Vapoursynth < Formula
                           "--disable-silent-rules",
                           "--disable-dependency-tracking",
                           "--with-cython=#{Formula["cython"].bin}/cython",
-                          "--with-plugindir=#{HOMEBREW_PREFIX}/lib/vapoursynth"
+                          "--with-plugindir=#{HOMEBREW_PREFIX}/lib/vapoursynth",
+                          "--with-python_prefix=#{prefix}",
+                          "--with-python_exec_prefix=#{prefix}"
     system "make", "install"
     %w[eedi3 miscfilters morpho removegrain vinverse vivtc].each do |filter|
       rm prefix/"vapoursynth/lib#{filter}.la"
