@@ -25,6 +25,13 @@ class Openexr < Formula
     sha256 "eede573a0b59b79f21de15ee9d3b7649d58d8f2a8e7787ea34f192db3b3c84a4"
   end
 
+  # Patch to fix ARM build failure. Remove at next release.
+  # https://github.com/AcademySoftwareFoundation/openexr/pull/1112
+  patch do
+    url "https://github.com/AcademySoftwareFoundation/openexr/commit/69ee64ca99d63f747ccfb8b6f4356ea463ffaa74.patch?full_index=1"
+    sha256 "7b4f18d30496283a841afe74c5cf2cbf14d3380f91f61bd53159e54df360d85f"
+  end
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
