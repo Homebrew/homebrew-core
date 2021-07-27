@@ -1,5 +1,6 @@
 class Cassandra < Formula
   include Language::Python::Virtualenv
+  include Language::Python::Shebang
 
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
@@ -15,14 +16,13 @@ class Cassandra < Formula
   end
 
   depends_on "cython" => :build
-  depends_on "python@3.9" => :build
   depends_on "openjdk@11"
+  depends_on "python@3.9"
   depends_on "six"
 
-  # thrift==0.9.3
   resource "thrift" do
-    url "https://files.pythonhosted.org/packages/ae/58/35e3f0cd290039ff862c2c9d8ae8a76896665d70343d833bdc2f748b8e55/thrift-0.9.3.tar.gz"
-    sha256 "dfbc3d3bd19d396718dab05abaf46d93ae8005e2df798ef02e32793cd963877e"
+    url "https://files.pythonhosted.org/packages/97/1e/3284d19d7be99305eda145b8aa46b0c33244e4a496ec66440dac19f8274d/thrift-0.13.0.tar.gz"
+    sha256 "9af1c86bf73433afc6010ed376a6c6aca2b54099cc0d61895f640870a9ae7d89"
   end
 
   resource "cql" do
@@ -35,6 +35,16 @@ class Cassandra < Formula
     sha256 "8ad7d7c090eb1cac6110b3bfc1fd2d334ac62f415aac09350ebb8d241b7aa7ee"
   end
 
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
+    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
+  end
+
+  resource "geomet" do
+    url "https://files.pythonhosted.org/packages/cf/21/58251b3de99e0b5ba649ff511f7f9e8399c3059dd52a643774106e929afa/geomet-0.2.1.post1.tar.gz"
+    sha256 "91d754f7c298cbfcabd3befdb69c641c27fe75e808b27aa55028605761d17e95"
+  end
+
   def install
     (var/"lib/cassandra").mkpath
     (var/"log/cassandra").mkpath
@@ -42,7 +52,7 @@ class Cassandra < Formula
     venv = virtualenv_create(libexec/"vendor", "python3")
     venv.pip_install resources
 
-    inreplace "conf/cassandra.yaml", "/var/lib/cassandra", "#{var}/lib/cassandra"
+    inreplace "conf/cassandra.yaml", "/var/lib/cassandra", var/"lib/cassandra"
     inreplace "conf/cassandra-env.sh", "/lib/", "/"
 
     inreplace "bin/cassandra", "-Dcassandra.logdir\=$CASSANDRA_LOG_DIR",
@@ -78,12 +88,12 @@ class Cassandra < Formula
 
     pkgshare.install [libexec/"bin/cassandra.in.sh", libexec/"bin/stop-server"]
     inreplace Dir[
-      "#{libexec}/bin/cassandra*",
-      "#{libexec}/bin/debug-cql",
-      "#{libexec}/bin/nodetool",
-      "#{libexec}/bin/sstable*",
+      libexec/"bin/cassandra*",
+      libexec/"bin/debug-cql",
+      libexec/"bin/nodetool",
+      libexec/"bin/sstable*",
     ], %r{`dirname "?\$0"?`/cassandra.in.sh},
-       "#{pkgshare}/cassandra.in.sh"
+       pkgshare/"cassandra.in.sh"
 
     # Make sure tools are installed
     rm Dir[buildpath/"tools/bin/*.bat"] # Delete before install to avoid copying useless files
@@ -109,16 +119,16 @@ class Cassandra < Formula
     # Update tools script files
     inreplace Dir[buildpath/"tools/bin/*"],
               "`dirname \"$0\"`/cassandra.in.sh",
-              "#{pkgshare}/cassandra-tools.in.sh"
+              pkgshare/"cassandra-tools.in.sh"
+
+    venv_bin = libexec/"vendor/bin"
+    rw_info = python_shebang_rewrite_info(venv_bin/"python")
+    rewrite_shebang rw_info, libexec/"bin/cqlsh.py"
 
     # Make sure tools are available
     bin.install Dir[buildpath/"tools/bin/*"]
-    bin.write_exec_script Dir["#{libexec}/bin/*"]
-
-    rm %W[#{bin}/cqlsh #{bin}/cqlsh.py] # Remove existing exec scripts
-    pypath = libexec/"vendor"/Language::Python.site_packages("python3")
-    (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", PYTHONPATH: pypath
-    (bin/"cqlsh.py").write_env_script libexec/"bin/cqlsh.py", PYTHONPATH: pypath
+    bin.write_exec_script Dir[libexec/"bin/*"]
+    (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", PATH: "#{venv_bin}:$PATH"
   end
 
   service do
