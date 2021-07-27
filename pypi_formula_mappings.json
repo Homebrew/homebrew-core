@@ -152,7 +152,8 @@
     "exclude_packages": ["six"]
   },
   "regipy": {
-    "exclude_packages": ["tabulate"]
+    "exclude_packages": ["tabulate"],
+    "extra_packages": ["click"]
   },
   "robot-framework": {
     "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"]
