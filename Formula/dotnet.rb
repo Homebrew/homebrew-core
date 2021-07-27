@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/source-build.git",
-      tag:      "v5.0.204-SDK",
-      revision: "a002cbfb6b9d903b59bd6acdef8022957538276d"
+      tag:      "v5.0.205-SDK",
+      revision: "42ac4d6d5a1d36cc92c89d0e810fdd2f5ed109c6"
   license "MIT"
 
   livecheck do
@@ -24,7 +24,22 @@ class Dotnet < Formula
   depends_on "icu4c"
   depends_on "openssl@1.1"
 
+  uses_from_macos "krb5"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "llvm" => [:build, :test]
+    depends_on "libunwind"
+    depends_on "lttng-ust"
+  end
+
+  fails_with :gcc
+
   def install
+    on_linux do
+      ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib
+    end
+
     # Arguments needed to not artificially time-limit downloads from Azure.
     # See the following GitHub issue comment for details:
     # https://github.com/dotnet/source-build/issues/1596#issuecomment-670995776
