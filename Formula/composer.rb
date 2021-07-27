@@ -18,12 +18,12 @@ class Composer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "71f3a9db24f8a1771666a548c53530df110aff7b522b5df7f6fcd293223b2036"
   end
 
+  uses_from_macos "php"
+
   # Keg-relocation breaks the formula when it replaces `/usr/local` with a non-default prefix
   on_macos do
     pour_bottle? only_if: :default_prefix if Hardware::CPU.intel?
   end
-
-  uses_from_macos "php"
 
   def install
     bin.install "composer.phar" => "composer"
