@@ -2,8 +2,8 @@ class Openj9 < Formula
   desc "High performance, scalable, Java virtual machine"
   homepage "https://www.eclipse.org/openj9/"
   url "https://github.com/eclipse/openj9.git",
-    tag:      "openj9-0.26.0",
-    revision: "b4cc246d9d2362346bc567861e6e0e536da3f390"
+    tag:      "openj9-0.27.0",
+    revision: "1851b0074f87e20c0007c6190c745dab9760eabe"
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
@@ -50,14 +50,14 @@ class Openj9 < Formula
 
   resource "omr" do
     url "https://github.com/eclipse/openj9-omr.git",
-    tag:      "openj9-0.26.0",
-    revision: "162e6f729733666e22726ce5326f5982bb030330"
+    tag:      "openj9-0.27.0",
+    revision: "9db1c870dfbaf4cf677cb7ba086ea303e83d7d81"
   end
 
   resource "openj9-openjdk-jdk" do
     url "https://github.com/ibmruntimes/openj9-openjdk-jdk16.git",
-    branch:   "v0.26.0-release",
-    revision: "cea22090ecf368eb47141dbbf882dcaa7afc1e15"
+    branch:   "v0.27.0-release",
+    revision: "34df42439f3be06211b15569253d33921591eb1d"
   end
 
   def install
