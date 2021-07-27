@@ -1,9 +1,13 @@
 class Ccfits < Formula
   desc "Object oriented interface to the cfitsio library"
   homepage "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/"
-  url "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/CCfits-2.5.tar.gz"
-  sha256 "938ecd25239e65f519b8d2b50702416edc723de5f0a5387cceea8c4004a44740"
-  revision 2
+  url "https://heasarc.gsfc.nasa.gov/fitsio/CCfits/CCfits-2.6.tar.gz"
+  sha256 "2bb439db67e537d0671166ad4d522290859e8e56c2f495c76faa97bc91b28612"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?CCfits[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "957e2589c467c78c2e134476b0fe123d470a3e402e37ddef27965d706c1fdbe7"
@@ -27,6 +31,7 @@ class Ccfits < Formula
       # Remove references to brew's shims
       args << "pfk_cxx_lib_path=/usr/bin/g++"
     end
+
     system "./configure", *args
     system "make"
     system "make", "install"
