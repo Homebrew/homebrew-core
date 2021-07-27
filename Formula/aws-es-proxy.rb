@@ -38,7 +38,6 @@ class AwsEsProxy < Formula
     sleep 2
 
     output = shell_output("curl --silent #{address}")
-    assert_match endpoint, output
-    assert_match "no such host", output
+    assert_match "Failed to sign", output
   end
 end
