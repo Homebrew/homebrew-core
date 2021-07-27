@@ -21,6 +21,35 @@ class Mono < Formula
   depends_on "python@3.9"
 
   uses_from_macos "unzip" => :build
+  uses_from_macos "zlib"
+
+  on_macos do
+    # When upgrading Mono, make sure to use the revision from
+    # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
+    resource "msbuild" do
+      url "https://github.com/mono/msbuild.git",
+          revision: "70bf6710473a2b6ffe363ea588f7b3ab87682a8d"
+      # Fix Linux build. Keeping while testing different URL.
+      # Port of https://github.com/mono/msbuild/commit/d482afec88b303303905958653fa906e65b2a1c2
+      patch :DATA
+    end
+  end
+
+  on_linux do
+    depends_on "openssl@1.1" => :build
+
+    # Testing different revision
+    resource "msbuild" do
+      url "https://github.com/mono/linux-packaging-msbuild.git",
+          tag:      "upstream/16.10.1+xamarinxplat.2021.05.26.14.00",
+          revision: "b7f1067b808197863dda333f8f3a14eb167a3f64"
+
+      patch do
+        url "https://raw.githubusercontent.com/archlinux/svntogit-community/7b2a0ec816efaab0b19a331563a9806074468473/trunk/mono-msbuild-use-bash.patch"
+        sha256 "a13ecb4125c673372d87a3b7d957fc8716a3c3e74cd08e9e354b5dcf170ed453"
+      end
+    end
+  end
 
   conflicts_with "xsd", because: "both install `xsd` binaries"
   conflicts_with cask: "mono-mdk"
@@ -62,13 +91,6 @@ class Mono < Formula
     sha256 "f2cc63bf77e50663d91c6d102ba1d9217d1b9100c57071f79f0ae5a45e80ef42"
   end
 
-  # When upgrading Mono, make sure to use the revision from
-  # https://github.com/mono/mono/blob/mono-#{version}/packaging/MacSDK/msbuild.py
-  resource "msbuild" do
-    url "https://github.com/mono/msbuild.git",
-        revision: "70bf6710473a2b6ffe363ea588f7b3ab87682a8d"
-  end
-
   # Temporary patch remove in the next mono release
   patch do
     url "https://github.com/mono/mono/commit/3070886a1c5e3e3026d1077e36e67bd5310e0faa.patch?full_index=1"
@@ -88,10 +110,16 @@ class Mono < Formula
     # We'll need mono for msbuild, and then later msbuild for fsharp
     ENV.prepend_path "PATH", bin
 
+    on_linux do
+      system bin/"cert-sync", Formula["openssl@1.1"].pkgetc/"cert.pem"
+    end
+
     # Next build msbuild
     resource("msbuild").stage do
-      system "./eng/cibuild_bootstrapped_msbuild.sh", "--host_type", "mono",
-             "--configuration", "Release", "--skip_tests"
+      on_linux { mv "LICENSE", "license" }
+      args = %w[--host_type mono --configuration Release --skip_tests]
+      on_linux { args << "/p:DisableNerdbankVersioning=true" }
+      system "./eng/cibuild_bootstrapped_msbuild.sh", *args
 
       system "./stage1/mono-msbuild/msbuild", "mono/build/install.proj",
              "/p:MonoInstallPrefix=#{prefix}", "/p:Configuration=Release-MONO",
@@ -187,3 +215,96 @@ class Mono < Formula
     system bin/"msbuild", "test.fsproj"
   end
 end
+
+__END__
+diff --git a/eng/cibuild_bootstrapped_msbuild.sh b/eng/cibuild_bootstrapped_msbuild.sh
+index 9a0ab2c48..522877d33 100755
+--- a/eng/cibuild_bootstrapped_msbuild.sh
++++ b/eng/cibuild_bootstrapped_msbuild.sh
+@@ -62,6 +62,11 @@ function DownloadMSBuildForMono {
+     # rename just to make it obvious when reading logs!
+     mv $artifacts_dir/msbuild $mono_msbuild_dir
+     chmod +x $artifacts_dir/mono-msbuild/MSBuild.dll
++
++    if [[ `uname -s` != 'Darwin' ]]; then
++        # with no .so available, this ends up breaking the build
++        rm -Rf $mono_msbuild_dir/SdkResolvers/Microsoft.DotNet.MSBuildSdkResolver
++    fi
+     rm "$msbuild_zip"
+   fi
+ }
+diff --git a/mono/build/install.proj b/mono/build/install.proj
+index 10d2fc271..e5dd7cfd1 100644
+--- a/mono/build/install.proj
++++ b/mono/build/install.proj
+@@ -185,11 +185,11 @@
+         <Exec
+             Condition="Exists('$(AllInstalledFiles_FileCanonical)')"
+             IgnoreExitCode="$(IgnoreDiffFailure)"
+-            Command="sort -o $(AllInstalledFiles_File) $(AllInstalledFiles_File) ; diff -u $(AllInstalledFiles_FileCanonical) $(AllInstalledFiles_File)" />
++            Command="sort -o $(AllInstalledFiles_FileCanonical) $(AllInstalledFiles_FileCanonical) ; sort -o $(AllInstalledFiles_File) $(AllInstalledFiles_File) ; diff -u $(AllInstalledFiles_FileCanonical) $(AllInstalledFiles_File)" />
+ 
+         <Exec
+             Condition="Exists('$(RemainingFiles_FileCanonical)')"
+             IgnoreExitCode="$(IgnoreDiffFailure)"
+-            Command="sort -o $(RemainingFiles_File) $(RemainingFiles_File); diff -u $(RemainingFiles_FileCanonical) $(RemainingFiles_File)" />
++            Command="sort -o $(RemainingFiles_FileCanonical) $(RemainingFiles_FileCanonical) ; sort -o $(RemainingFiles_File) $(RemainingFiles_File); diff -u $(RemainingFiles_FileCanonical) $(RemainingFiles_File)" />
+     </Target>
+ </Project>
+diff --git a/mono/build/sdks_and_nugets/dotnet_resolver.proj b/mono/build/sdks_and_nugets/dotnet_resolver.proj
+index 9606cac31..de689ce23 100644
+--- a/mono/build/sdks_and_nugets/dotnet_resolver.proj
++++ b/mono/build/sdks_and_nugets/dotnet_resolver.proj
+@@ -8,7 +8,7 @@
+ 		<ItemGroup>
+ 			<FilesToCopy
+                 Include="$(DependencyNuPkgPath)/lib/net472/**"
+-                OutputDirectory="$(DotnetSdkResolverDir)" />
++                OutputDirectory="$(DotNetSdkResolverDir)" />
+ 
+ 		</ItemGroup>
+     </Target>
+diff --git a/mono/build/sdks_and_nugets/update_sdks_and_nugets.proj b/mono/build/sdks_and_nugets/update_sdks_and_nugets.proj
+index 84bce72ca..3ca46c70c 100644
+--- a/mono/build/sdks_and_nugets/update_sdks_and_nugets.proj
++++ b/mono/build/sdks_and_nugets/update_sdks_and_nugets.proj
+@@ -1,6 +1,6 @@
+ <Project DefaultTargets="DeploySdksAndNuGets">
+     <Import Project="$(MSBuildThisFileDirectory)\..\common.props" />
+-    <Import Project="$(MSBuildThisFileDirectory)\..\DotnetBitsVersions.props" />
++    <Import Project="$(MSBuildThisFileDirectory)\..\DotNetBitsVersions.props" />
+ 
+     <PropertyGroup>
+         <HostOSName Condition="'$(HostOSName)' == ''">osx</HostOSName>
+@@ -49,7 +49,7 @@
+                     DependencyPackageName=Microsoft.DotNet.MSBuildSdkResolver;
+                     DependencyPackageVersion=$(MicrosoftDotNetMSBuildSdkResolverVersion);
+                     NuGetPackagesDir=$(NuGetPackagesDir);
+-                    DotnetSdkResolverDir=$(MSBuildSdkResolverOutDir)
++                    DotNetSdkResolverDir=$(MSBuildSdkResolverOutDir)
+                 </Properties>
+             </NuGetsToBundle>
+         </ItemGroup>
+@@ -61,7 +61,10 @@
+             Targets="Restore;Build"
+             Properties="OutputDirectory=$(DotNetOverlayDirectory)\nuget-support\msbuild-bin"/>
+         
+-        <Exec Command="$(MSBuildThisFileDirectory)/../extract_and_copy_hostfxr.sh $(DotNetSdkVersionForLibHostFxr) $(MSBuildSdkResolverOutDir)" />
++        <!-- Ignoring the .so for linux, because it works on a smaller set of distributions -->
++        <Exec
++            Condition="'$([MSBuild]::IsOSPlatform(OSX))'"
++            Command="$(MSBuildThisFileDirectory)/../extract_and_copy_hostfxr.sh $(DotNetSdkVersionForLibHostFxr) $(MSBuildSdkResolverOutDir)" />
+         <Exec Command="$(MSBuildThisFileDirectory)/../get_sdk_files.sh $(DotNetOverlayDirectory)\msbuild-bin" />
+     </Target>
+ </Project>
+diff --git a/mono/build/update_bundled_bits.proj b/mono/build/update_bundled_bits.proj
+index eb4cee4d7..0f9ebd3a1 100644
+--- a/mono/build/update_bundled_bits.proj
++++ b/mono/build/update_bundled_bits.proj
+@@ -1,5 +1,5 @@
+ <Project DefaultTargets="FetchAndUpdateSdksAndNuGets">
+-    <Import Project="$(MSBuildThisFileDirectory)\DotnetBitsVersions.props" />
++    <Import Project="$(MSBuildThisFileDirectory)\DotNetBitsVersions.props" />
+ 
+     <Target Name="Build" DependsOnTargets="FetchAndUpdateSdksAndNuGets" />
+ 
