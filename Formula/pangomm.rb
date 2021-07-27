@@ -19,6 +19,12 @@ class Pangomm < Formula
   depends_on "glibmm"
   depends_on "pango"
 
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
+
   def install
     ENV.cxx11
 
@@ -28,6 +34,7 @@ class Pangomm < Formula
       system "ninja", "install"
     end
   end
+
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <pangomm.h>
