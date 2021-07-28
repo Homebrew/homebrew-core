@@ -1,8 +1,8 @@
 class YubikeyAgent < Formula
   desc "Seamless ssh-agent for YubiKeys and other PIV tokens"
   homepage "https://filippo.io/yubikey-agent"
-  url "https://github.com/FiloSottile/yubikey-agent/archive/v0.1.4.tar.gz"
-  sha256 "797377b0781ccd4acf390cb13814d5fab653afd7b5a7eff226137f5f1503709b"
+  url "https://github.com/FiloSottile/yubikey-agent/archive/v0.1.5.tar.gz"
+  sha256 "724b21f05d3f822acd222ecc8a5d8ca64c82d5304013e088d2262795da81ca4f"
   license "BSD-3-Clause"
   head "https://filippo.io/yubikey-agent", using: :git
 
@@ -14,7 +14,6 @@ class YubikeyAgent < Formula
   end
 
   depends_on "go" => :build
-  depends_on "pinentry-mac"
 
   def install
     system "go", "build", *std_go_args, "-ldflags", "-X main.Version=v#{version}"
@@ -45,7 +44,7 @@ class YubikeyAgent < Formula
         <key>EnvironmentVariables</key>
         <dict>
           <key>PATH</key>
-          <string>/usr/bin:/bin:/usr/sbin:/sbin:#{Formula["pinentry-mac"].opt_bin}</string>
+          <string>/usr/bin:/bin:/usr/sbin:/sbin</string>
         </dict>
         <key>ProgramArguments</key>
         <array>
