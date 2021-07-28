@@ -1,16 +1,10 @@
 class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
+  url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.12.0.tar.gz"
+  sha256 "21dfa9a268de9675c1f94d54d9402e4e02120a0aa4215d064436c52b7d5bd48f"
   license "BSD-3-Clause"
-  revision 8
-
-  stable do
-    url "https://github.com/PointCloudLibrary/pcl/archive/pcl-1.11.1.tar.gz"
-    sha256 "a61558e53abafbc909e0996f91cfd2d7a400fcadf6b8cfb0ea3172b78422c74e"
-
-    # VTK 9 will be supported in PCL 1.12.
-    depends_on "vtk@8.2"
-  end
+  head "https://github.com/PointCloudLibrary/pcl.git"
 
   bottle do
     rebuild 1
@@ -18,12 +12,6 @@ class Pcl < Formula
     sha256 cellar: :any, big_sur:       "e26ac7c25e8d1cd5581b0c25a4a5abcfdc49938784696f988c606cd4248294a8"
     sha256 cellar: :any, catalina:      "4c25e37d19f4f7e300be112a6ef5dcfeaa9523b1e4aa0457a4873e478663dc54"
     sha256 cellar: :any, mojave:        "ee7e82622e783b380752ed27eeb65f6a33bc843c30a633c73bde7db2a5f3a304"
-  end
-
-  head do
-    url "https://github.com/PointCloudLibrary/pcl.git"
-
-    depends_on "vtk"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -38,6 +26,7 @@ class Pcl < Formula
   depends_on "libusb"
   depends_on "qhull"
   depends_on "qt@5"
+  depends_on "vtk"
 
   def install
     args = std_cmake_args + %w[
@@ -114,7 +103,9 @@ class Pcl < Formula
       # (Homebrew/homebrew-test-bot#544) when bumping the boost
       # revision without bumping this formula's revision as well
       ENV.prepend_path "PKG_CONFIG_PATH", Formula["eigen"].opt_share/"pkgconfig"
-      system "cmake", "..", "-DGLEW_DIR=#{Formula["glew"].opt_lib}/cmake/glew", *std_cmake_args
+      ENV.delete "CPATH" # `error: no member named 'signbit' in the global namespace`
+      system "cmake", "..", "-DQt5_DIR=#{Formula["qt@5"].opt_lib}/cmake/Qt5",
+                            *std_cmake_args
       system "make"
       system "./pcd_write"
       assert_predicate (testpath/"build/test_pcd.pcd"), :exist?
