@@ -21,6 +21,10 @@ class Fastlane < Formula
 
   depends_on "ruby"
 
+  on_macos do
+    depends_on "terminal-notifier"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     ENV["GEM_PATH"] = libexec
@@ -33,6 +37,17 @@ class Fastlane < Formula
       FASTLANE_INSTALLED_VIA_HOMEBREW: "true",
       GEM_HOME:                        libexec.to_s,
       GEM_PATH:                        libexec.to_s
+
+    # Remove vendored pre-built binary
+    terminal_notifier_dir = libexec.glob("gems/terminal-notifier-*/vendor/terminal-notifier").first
+    (terminal_notifier_dir/"terminal-notifier.app").rmtree
+
+    on_macos do
+      ln_sf(
+        (Formula["terminal-notifier"].opt_prefix/"terminal-notifier.app").relative_path_from(terminal_notifier_dir),
+        terminal_notifier_dir,
+      )
+    end
   end
 
   test do
