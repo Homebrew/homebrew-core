@@ -9,9 +9,11 @@ class MavenAT36 < Formula
 
   bottle :unneeded
 
-  depends_on "openjdk"
-
   keg_only :versioned_formula
+
+  deprecate! date: "2021-04-04", because: :unmaintained
+
+  depends_on "openjdk"
 
   def install
     # Remove windows files
