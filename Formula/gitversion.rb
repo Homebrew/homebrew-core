@@ -11,6 +11,7 @@ class Gitversion < Formula
     sha256 cellar: :any, mojave:   "85042a5e5f3791e1b07e9ee944c8a1217f3403836e7bac14793d1b37bb1fa906"
   end
 
+  depends_on arch: :x86_64 # dotnet does not support ARM
   depends_on "dotnet"
 
   def install
