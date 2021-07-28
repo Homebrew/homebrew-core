@@ -14,11 +14,21 @@ class Deno < Formula
 
   depends_on "llvm" => :build
   depends_on "ninja" => :build
+  depends_on "python@3.9" => :build
   depends_on "rust" => :build
-  depends_on xcode: ["10.0", :build] # required by v8 7.9+
-  depends_on :macos # Due to Python 2 (see https://bugs.chromium.org/p/chromium/issues/detail?id=942720)
 
   uses_from_macos "xz"
+
+  on_macos do
+    depends_on xcode: ["10.0", :build] # required by v8 7.9+
+  end
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "glib"
+  end
+
+  fails_with gcc: "5"
 
   # To find the version of gn used:
   # 1. Find rusty_v8 version: https://github.com/denoland/deno/blob/v#{version}/core/Cargo.toml
@@ -31,10 +41,13 @@ class Deno < Formula
   end
 
   def install
-    # Overwrite Chromium minimum SDK version of 10.15
-    ENV["FORCE_MAC_SDK_MIN"] = MacOS.version if MacOS.version < :mojave
+    on_macos do
+      # Overwrite Chromium minimum SDK version of 10.15
+      ENV["FORCE_MAC_SDK_MIN"] = MacOS.version if MacOS.version < :mojave
+    end
 
-    # env args for building a release build with our clang, ninja and gn
+    # env args for building a release build with our python3, ninja and gn
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
     ENV["GN"] = buildpath/"gn/out/gn"
     ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
     # build rusty_v8 from source
@@ -45,7 +58,7 @@ class Deno < Formula
 
     resource("gn").stage buildpath/"gn"
     cd "gn" do
-      system "python", "build/gen.py"
+      system "python3", "build/gen.py"
       system "ninja", "-C", "out"
     end
 
