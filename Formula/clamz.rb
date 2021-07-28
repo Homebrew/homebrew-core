@@ -3,6 +3,7 @@ class Clamz < Formula
   homepage "https://code.google.com/archive/p/clamz/"
   url "https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/clamz/clamz-0.5.tar.gz"
   sha256 "5a63f23f15dfa6c2af00ff9531ae9bfcca0facfe5b1aa82790964f050a09832b"
+  license "GPL-3.0-or-later"
   revision 1
 
   bottle do
@@ -18,6 +19,10 @@ class Clamz < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
+  depends_on "libgpg-error"
+
+  uses_from_macos "curl"
+  uses_from_macos "expat"
 
   def install
     system "./configure", "--prefix=#{prefix}"
