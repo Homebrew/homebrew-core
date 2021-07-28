@@ -4,6 +4,7 @@ class Wget < Formula
   url "https://ftp.gnu.org/gnu/wget/wget-1.21.1.tar.gz"
   sha256 "59ba0bdade9ad135eda581ae4e59a7a9f25e3a4bde6a5419632b31906120e26e"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -37,7 +38,6 @@ class Wget < Formula
                           "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
                           "--with-libssl-prefix=#{Formula["openssl@1.1"].opt_prefix}",
-                          "--disable-debug",
                           "--disable-pcre",
                           "--disable-pcre2",
                           "--without-libpsl",
