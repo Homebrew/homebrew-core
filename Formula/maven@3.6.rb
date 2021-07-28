@@ -11,7 +11,7 @@ class MavenAT36 < Formula
 
   depends_on "openjdk"
 
-  conflicts_with "mvnvm", because: "also installs a 'mvn' executable"
+  keg_only :versioned_formula
 
   def install
     # Remove windows files
