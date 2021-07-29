@@ -39,7 +39,8 @@ class Jabba < Formula
 
     system bin/"jabba", "install", jdk_version
     jdk_path = shell_output("#{bin}/jabba which #{jdk_version}").strip
+    on_macos { jdk_path = "#{jdk_path}/Contents/Home" }
     assert_match version_check,
-                 shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
+                 shell_output("#{jdk_path}/bin/java -version 2>&1")
   end
 end
