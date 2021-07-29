@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/7c/53/25a6d5898f6aea2b21f94cbd7c361552d360a44033b7ea769a4d458b8a0c/pdm-1.7.0.tar.gz"
-  sha256 "9066d51e7124a262513c5d0446cdcdc21e2406d6ddd0a7a3af2510d40471d487"
+  url "https://files.pythonhosted.org/packages/b2/19/d05437a0399de5508efa62fc9105511aefece390bd7f606bf85bc43d88b8/pdm-1.7.1.tar.gz"
+  sha256 "bcbdfe8dfce740d02791883c50ec30f1e1fcf71954a504c250988c227e7c6fd2"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -44,9 +44,9 @@ class Pdm < Formula
     sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
   end
 
-  resource "distlib" do
-    url "https://files.pythonhosted.org/packages/45/97/15fdbef466e12c890553cebb1d8b1995375202e30e0c83a1e51061556143/distlib-0.3.2.zip"
-    sha256 "106fef6dc37dd8c0e2c0a60d3fca3e77460a48907f335fa28420463a6f799736"
+  resource "installer" do
+    url "https://files.pythonhosted.org/packages/59/23/e4a9d51192dbbcb7b17a4297e4d3c48f67771dfa98f66535a019f9f21273/installer-0.2.3.tar.gz"
+    sha256 "82c899f5e3c78303242df9c9ca7ac58001c9806d8c23fa2772be769d1f560fe5"
   end
 
   resource "packaging" do
@@ -70,13 +70,13 @@ class Pdm < Formula
   end
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/7a/1c/4dbbae00fc9a3bc605fc2d92dc0e197fcf0b6e0357d217d1819afe8206af/python-dotenv-0.18.0.tar.gz"
-    sha256 "effaac3c1e58d89b3ccb4d04a40dc7ad6e0275fda25fd75ae9d323e2465e202d"
+    url "https://files.pythonhosted.org/packages/59/39/20eb771fc2113fb67638d4f2e1905c51b0c75862d09018a393470234a51c/python-dotenv-0.19.0.tar.gz"
+    sha256 "f521bc2ac9a8e03c736f62911605c5d83970021e3fa95b37d769e2bbbe9b6172"
   end
 
   resource "pythonfinder" do
-    url "https://files.pythonhosted.org/packages/86/c6/542ae66f295bb5a7829b294a33290583a12a40222d9d835bf9294a6db81d/pythonfinder-1.2.7.tar.gz"
-    sha256 "951796d7b195d09f2341087110feb903772477525272c8c1a48033fb08c0332e"
+    url "https://files.pythonhosted.org/packages/9a/2e/3dfcf82713bddfb79a36c7c183bcb03f965b3b14b7f5e832483ec22b5c71/pythonfinder-1.2.8.tar.gz"
+    sha256 "e3ea90d327f2ff61a692af9326deced042bb27f6fd562fc788637abee9bd62d9"
   end
 
   resource "resolvelib" do
@@ -90,8 +90,8 @@ class Pdm < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/5f/9e/0aa632eb780a5e3ff22e3c125dd10859eaccb49404c64b49ce3d517f7e4c/tomli-1.0.4.tar.gz"
-    sha256 "be670d0d8d7570fd0ea0113bd7bb1ba3ac6706b4de062cc4c952769355c9c268"
+    url "https://files.pythonhosted.org/packages/6c/16/f48ab3289015f8f90e2c68fb76531728b3d8e4ce5052ee80ad10e7707eda/tomli-1.1.0.tar.gz"
+    sha256 "33d7984738f8bb699c9b0a816eb646a8178a69eaa792d258486776a5d21b8ca5"
   end
 
   resource "wheel" do
