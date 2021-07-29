@@ -7,8 +7,8 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   stable do
-    url "https://archive.mesa3d.org/mesa-21.1.5.tar.xz"
-    sha256 "022c7293074aeeced2278c872db4fa693147c70f8595b076cf3f1ef81520766d"
+    url "https://mesa.freedesktop.org/archive/mesa-21.1.6.tar.xz"
+    sha256 "b1cb0122f911dfa9fe1f209a7061378c61a1448a280e711511ca72dad9999e37"
 
     # should be removed in mesa 21.2
     patch do
