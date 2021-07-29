@@ -14,7 +14,7 @@ class Vert < Formula
   end
 
   deprecate! date: "2021-07-29", because: :unmaintained
-  
+
   depends_on "dep" => :build
   depends_on "go" => :build
 
