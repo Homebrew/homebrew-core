@@ -4,6 +4,7 @@ class Cpl < Formula
   url "ftp://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/cpl-7.1.4.tar.gz"
   sha256 "cb43adba7ab15e315fbfcba4e2d8b88fa56d29a5a16036a7f082621b8416bd6c"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.eso.org/pub/dfs/pipelines/libraries/cpl/"
