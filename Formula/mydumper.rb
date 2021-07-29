@@ -23,13 +23,20 @@ class Mydumper < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", ".", *std_cmake_args,
-           # Override location of mysql-client:
-           "-DMYSQL_CONFIG_PREFER_PATH=#{Formula["mysql-client"].opt_bin}",
-           "-DMYSQL_LIBRARIES=#{Formula["mysql-client"].opt_lib}/libmysqlclient.dylib",
-           # find_package(ZLIB) has troube on Big Sur since physical libz.dylib
-           # doesn't exist on the filesystem.  Instead provide details ourselves:
-           "-DCMAKE_DISABLE_FIND_PACKAGE_ZLIB=1", "-DZLIB_INCLUDE_DIRS=/usr/include", "-DZLIB_LIBRARIES=-lz"
+    # Override location of mysql-client
+    args = std_cmake_args + %W[
+      -DMYSQL_CONFIG_PREFER_PATH=#{Formula["mysql-client"].opt_bin}
+      -DMYSQL_LIBRARIES=#{Formula["mysql-client"].opt_lib/shared_library("libmysqlclient")}
+    ]
+    # find_package(ZLIB) has trouble on Big Sur since physical libz.dylib
+    # doesn't exist on the filesystem.  Instead provide details ourselves:
+    on_macos do
+      args << "-DCMAKE_DISABLE_FIND_PACKAGE_ZLIB=1"
+      args << "-DZLIB_INCLUDE_DIRS=/usr/include"
+      args << "-DZLIB_LIBRARIES=-lz"
+    end
+
+    system "cmake", ".", *args
     system "make", "install"
   end
 
