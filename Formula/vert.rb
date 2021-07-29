@@ -13,6 +13,8 @@ class Vert < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:  "534043c69cbd56a22d656ba873e180e628b3a0ace433d8f020b886212afa050e"
   end
 
+  deprecate! date: "2021-07-29", because: :unmaintained
+  
   depends_on "dep" => :build
   depends_on "go" => :build
 
