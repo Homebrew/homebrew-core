@@ -15,16 +15,21 @@ class Gitversion < Formula
   depends_on "dotnet"
 
   def install
-    system "dotnet", "publish",
+    os = "osx"
+    on_linux do
+      os = "linux"
+    end
+
+    system "dotnet", "publish", "src/GitVersion.App/GitVersion.App.csproj",
            "--configuration", "Release",
            "--framework", "net#{Formula["dotnet"].version.major_minor}",
            "--output", libexec,
-           "src/GitVersion.App/GitVersion.App.csproj"
+           "--runtime", "#{os}-x64",
+           "--self-contained", "false",
+           "/p:PublishSingleFile=true"
 
-    (bin/"gitversion").write <<~EOS
-      #!/bin/sh
-      exec "#{Formula["dotnet"].opt_bin}/dotnet" "#{libexec}/gitversion.dll" "$@"
-    EOS
+    env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{Formula["dotnet"].opt_libexec}}" }
+    (bin/"gitversion").write_env_script libexec/"gitversion", env
   end
 
   test do

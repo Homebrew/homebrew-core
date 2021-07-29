@@ -3,6 +3,7 @@
   "babel",
   "contentful-cli",
   "gatsby-cli",
+  "gitversion",
   "infer",
   "llvm",
   "llvm@11",
