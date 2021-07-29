@@ -1,9 +1,9 @@
 class ApacheArrowGlib < Formula
   desc "GLib bindings for Apache Arrow"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-4.0.1/apache-arrow-4.0.1.tar.gz"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-5.0.0/apache-arrow-5.0.0.tar.gz"
   mirror "https://archive.apache.org/dist/arrow/arrow-4.0.1/apache-arrow-4.0.1.tar.gz"
-  sha256 "75ccbfa276b925c6b1c978a920ff2f30c4b0d3fdf8b51777915b6f69a211896e"
+  sha256 "c3b4313eca594c20f761a836719721aaf0760001af896baec3ab64420ff9910a"
   license "Apache-2.0"
   head "https://github.com/apache/arrow.git"
 
