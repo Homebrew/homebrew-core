@@ -1,9 +1,10 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
-  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-14.2.tar.xz"
-  sha256 "75d3f7742c1ae449049a4c88900e454b8b350ecaa8c544f3488a2562a9ff66f1"
+  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-15.0.tar.xz"
+  sha256 "a40b887a3ba98cc26976eb11bdb6613988f145b19024d1b6555c6a03c9cba1a0"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
+  head "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git"
 
   # The regex here avoids x.99 releases, as they're pre-release versions.
   livecheck do
@@ -18,17 +19,11 @@ class Pulseaudio < Formula
     sha256 mojave:        "ae0d2ec72fc10a895c7efc330174abef08458576ed847fb4547301a2d8cc147e"
   end
 
-  head do
-    url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "intltool" => :build
-  end
-
+  depends_on "doxygen" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "json-c"
+  depends_on "glib"
   depends_on "libsndfile"
   depends_on "libsoxr"
   depends_on "libtool"
@@ -40,25 +35,17 @@ class Pulseaudio < Formula
   uses_from_macos "m4"
 
   def install
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --enable-coreaudio-output
-      --disable-neon-opt
-      --disable-nls
-      --disable-x11
-      --with-mac-sysroot=#{MacOS.sdk_path}
-      --with-mac-version-min=#{MacOS.version}
+    args = std_meson_args + %w[
+      -Ddatabase=simple
+      -Dtests=false
+      -Dx11=disabled
     ]
 
-    if build.head?
-      # autogen.sh runs bootstrap.sh then ./configure
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
+    mkdir "build" do
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
-    system "make", "install"
   end
 
   plist_options manual: "pulseaudio"
