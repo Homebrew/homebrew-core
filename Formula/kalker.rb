@@ -14,6 +14,8 @@ class Kalker < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "m4" => :build
+
   def install
     cd "cli" do
       system "cargo", "install", *std_cargo_args
