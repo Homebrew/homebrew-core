@@ -1,9 +1,12 @@
 class Clusterctl < Formula
   desc "Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle"
   homepage "https://cluster-api.sigs.k8s.io"
-  url "https://github.com/kubernetes-sigs/cluster-api/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "af60c8aa1b21eccc7f272c0135ffaf1a8e0ecdffb4173075efac52509ce0eeb0"
+  url "https://github.com/kubernetes-sigs/cluster-api.git",
+      tag:      "v0.4.0",
+      revision: "7f879be68d15737e335b6cb39d380d1d163e06e6"
   license "Apache-2.0"
+  revision 1
+  head "https://github.com/kubernetes-sigs/cluster-api.git"
 
   # Upstream creates releases on GitHub for the two most recent major/minor
   # versions (e.g., 0.3.x, 0.4.x), so the "latest" release can be incorrect. We
@@ -27,6 +30,9 @@ class Clusterctl < Formula
   depends_on "go" => :build
 
   def install
+    # Don't dirty the git tree
+    rm_rf ".brew_home"
+
     system "make", "clusterctl"
     prefix.install "bin"
   end
