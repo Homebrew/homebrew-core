@@ -10,9 +10,6 @@ class Homeshick < Formula
     sha256 cellar: :any_skip_relocation, all: "61abfc0f6d5e42bf58f6b15eaeb155e867094b5d3cd33f88223d0ec7882106fa"
   end
 
-  conflicts_with "asdf",
-    because: "asdf and homeshick both install files in lib/commands"
-
   def install
     inreplace "bin/homeshick", /^homeshick=.*/, "homeshick=#{opt_prefix}"
 
