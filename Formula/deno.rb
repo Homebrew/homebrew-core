@@ -47,6 +47,7 @@ class Deno < Formula
     end
 
     # env args for building a release build with our python3, ninja and gn
+    ENV.prepend_path "PATH", Formula["python@3.9"].libexec/"bin"
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
     ENV["GN"] = buildpath/"gn/out/gn"
     ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
