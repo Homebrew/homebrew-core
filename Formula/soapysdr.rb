@@ -1,8 +1,8 @@
 class Soapysdr < Formula
   desc "Vendor and platform neutral SDR support library"
   homepage "https://github.com/pothosware/SoapySDR/wiki"
-  url "https://github.com/pothosware/SoapySDR/archive/soapy-sdr-0.8.0.tar.gz"
-  sha256 "cff3b1fb1cd3b88932f37df42f69fc3d8e0ea42f4788b35131ceaf5d1b908ac2"
+  url "https://github.com/pothosware/SoapySDR/archive/soapy-sdr-0.8.1.tar.gz"
+  sha256 "a508083875ed75d1090c24f88abef9895ad65f0f1b54e96d74094478f0c400e6"
   license "BSL-1.0"
   head "https://github.com/pothosware/SoapySDR.git"
 
