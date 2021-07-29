@@ -16,7 +16,8 @@ class SqlLint < Formula
 
   test do
     (testpath/"pg-enum.sql").write("CREATE TYPE status AS ENUM ('to-do', 'in-progress', 'done');")
-    output = shell_output("#{bin}/sql-lint -d postgres pg-enum.sql", 0)
+    output = shell_output("#{bin}/sql-lint -d postgres pg-enum.sql")
+    assert_equal "", output
     (testpath/"invalid-delete.sql").write("DELETE FROM table-epbdlrsrkx;")
     output = shell_output("#{bin}/sql-lint invalid-delete.sql", 1)
     assert_match "missing-where", output
