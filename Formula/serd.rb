@@ -19,7 +19,14 @@ class Serd < Formula
 
   depends_on "pkg-config" => :build
 
+  on_linux do
+    depends_on "python@3.9" => :build
+  end
+
   def install
+    on_linux do
+      ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+    end
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
     system "./waf", "install"
