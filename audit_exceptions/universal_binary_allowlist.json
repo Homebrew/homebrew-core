@@ -1,6 +1,7 @@
 [
   "ask-cli",
   "babel",
+  "cdktf",
   "contentful-cli",
   "gatsby-cli",
   "infer",
