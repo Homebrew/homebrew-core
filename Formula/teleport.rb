@@ -49,15 +49,15 @@ class Teleport < Formula
       .gsub("/var/lib/teleport", testpath)
       .gsub("/var/run", testpath)
       .gsub(/https_(.*)/, "")
-    begin
-      pid = spawn("#{bin}/teleport start -c #{testpath}/config.yml")
-      sleep 5
-      system "/usr/bin/curl", "--insecure", "https://localhost:3080"
-      system "/usr/bin/nc", "-z", "localhost", "3022"
-      system "/usr/bin/nc", "-z", "localhost", "3023"
-      system "/usr/bin/nc", "-z", "localhost", "3025"
-    ensure
-      Process.kill(9, pid)
+
+    fork do
+      exec "#{bin}/teleport start -c #{testpath}/config.yml --debug"
     end
+
+    sleep 10
+    system "curl", "--insecure", "https://localhost:3080"
+    system "nc", "-z", "localhost", "3022"
+    system "nc", "-z", "localhost", "3023"
+    system "nc", "-z", "localhost", "3025"
   end
 end
