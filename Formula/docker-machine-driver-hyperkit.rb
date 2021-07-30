@@ -17,7 +17,6 @@ class DockerMachineDriverHyperkit < Formula
 
   deprecate! date: "2021-07-29", because: :unmaintained
 
-  depends_on "dep" => :build
   depends_on "go" => :build
   depends_on "docker-machine"
 
@@ -29,7 +28,8 @@ class DockerMachineDriverHyperkit < Formula
     dir.install buildpath.children
 
     cd dir do
-      system "dep", "ensure", "-vendor-only"
+      system "go", "mod", "init", "github.com/machine-drivers/docker-machine-driver-hyperkit"
+      system "go", "mod", "tidy"
       system "go", "build", "-o", "#{bin}/docker-machine-driver-hyperkit",
              "-ldflags", "-X main.version=#{version}"
       prefix.install_metafiles
