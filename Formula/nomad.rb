@@ -1,8 +1,8 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  url "https://github.com/hashicorp/nomad/archive/v1.1.2.tar.gz"
-  sha256 "4f125ecc318209052a242bc186a83ddedaee18a46f4a8bdf7977b4be456ce2b9"
+  url "https://github.com/hashicorp/nomad/archive/v1.1.3.tar.gz"
+  sha256 "18eb2b7fcd4d32952546b3d8b052e755dedc4c63e36527404db6abdce01b197d"
   license "MPL-2.0"
   head "https://github.com/hashicorp/nomad.git", branch: "main"
 
