@@ -22,6 +22,7 @@ class Yosys < Formula
   depends_on "readline"
 
   uses_from_macos "flex"
+  uses_from_macos "tcl-tk"
 
   def install
     system "make", "install", "PREFIX=#{prefix}", "PRETTY=0"
