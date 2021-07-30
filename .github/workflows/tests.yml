@@ -90,6 +90,14 @@ jobs:
               core.setOutput('fail-fast', 'true')
             }
 
+            if (label_names.includes('CI-force-dependents-tests')) {
+              console.log('CI-force-dependents-tests label found. Testing dependents despite failing tests for any modified formulae.')
+              core.setOutput('force-dependents-tests', 'true')
+            } else {
+              console.log('No CI-force-dependents-tests label found. Skipping dependents if any test for a modified formula fails.')
+              core.setOutput('force-dependents-tests', 'false')
+            }
+
             if (label_names.includes('CI-long-timeout')) {
               console.log('CI-long-timeout label found. Setting long GitHub Actions timeout.')
               core.setOutput('timeout-minutes', '4320')
@@ -247,6 +255,7 @@ jobs:
           rm bottles/steps_output.txt
 
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
+        if: success() || ${{ fromJson(needs.setup_tests.outputs.force-dependents-tests) }}
         run: |
           if [ "$RUNNER_OS" = 'macOS' ]; then
             cd bottles
