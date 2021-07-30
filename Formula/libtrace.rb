@@ -1,8 +1,8 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://research.wand.net.nz/software/libtrace.php"
-  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.15.tar.bz2"
-  sha256 "1f0352200171fa4adcef0a2df22714186e2585ebc7e6f7ca5fdc90e1af2e18c8"
+  url "https://research.wand.net.nz/software/libtrace/libtrace-4.0.17.tar.bz2"
+  sha256 "5db6572467122581c44ce505327d7882bc21d9bad4bee8c57a147cc93a29d1ac"
   license "GPL-3.0-or-later"
 
   livecheck do
