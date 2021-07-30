@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package manager with PEP 582 support"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/b2/19/d05437a0399de5508efa62fc9105511aefece390bd7f606bf85bc43d88b8/pdm-1.7.1.tar.gz"
-  sha256 "bcbdfe8dfce740d02791883c50ec30f1e1fcf71954a504c250988c227e7c6fd2"
+  url "https://files.pythonhosted.org/packages/70/a4/8df14f24170480bd56930234e4956bb08c55684e9dcac8f4b7c1a5ac4423/pdm-1.7.2.tar.gz"
+  sha256 "35d7cb106106a445098100b4ad3ef0810af71eaa3a2ea9b0127b60e295738e08"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -90,8 +90,8 @@ class Pdm < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/6c/16/f48ab3289015f8f90e2c68fb76531728b3d8e4ce5052ee80ad10e7707eda/tomli-1.1.0.tar.gz"
-    sha256 "33d7984738f8bb699c9b0a816eb646a8178a69eaa792d258486776a5d21b8ca5"
+    url "https://files.pythonhosted.org/packages/ec/38/8eccdc662c61aed187d5f5b168c18b1d2de3827976c3691e4da8be7375aa/tomli-1.2.0.tar.gz"
+    sha256 "d60e681734099207a6add7a10326bc2ddd1fdc36c1b0f547d00ef73ac63739c2"
   end
 
   resource "wheel" do
