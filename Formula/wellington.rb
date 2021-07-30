@@ -1,6 +1,6 @@
 class Wellington < Formula
   desc "Project-focused tool to manage Sass and spriting"
-  homepage "https://getwt.io/"
+  homepage "https://github.com/wellington/wellington"
   url "https://github.com/wellington/wellington/archive/v1.0.5.tar.gz"
   sha256 "e2379722849cdd8e5f094849290aacba4b789d4d65c733dec859565c728e7205"
   license "Apache-2.0"
