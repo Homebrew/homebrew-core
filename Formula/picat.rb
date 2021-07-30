@@ -3,8 +3,9 @@ class Picat < Formula
   homepage "http://picat-lang.org/"
   url "http://picat-lang.org/download/picat31_src.tar.gz"
   version "3.1"
-  sha256 "093ca00f74a67a70ed8c5e42f3e3e29a43b761daa3cf9ca7d6bb216c401f4e72"
+  sha256 "c1ae1491d56e643693aa806c08c221d2cf0d59de1ddd8c31bcff1c917c979542"
   license "MPL-2.0"
+  revision 1
 
   livecheck do
     url "http://picat-lang.org/download.html"
@@ -18,7 +19,12 @@ class Picat < Formula
   end
 
   def install
-    system "make", "-C", "emu", "-f", "Makefile.mac64"
+    makefile = "Makefile.mac64"
+    on_linux do
+      ENV.cxx11
+      makefile = "Makefile.linux64"
+    end
+    system "make", "-C", "emu", "-f", makefile
     bin.install "emu/picat" => "picat"
     prefix.install "lib" => "pi_lib"
     doc.install Dir["doc/*"]
