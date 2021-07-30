@@ -1,8 +1,8 @@
 class Squashfs < Formula
   desc "Compressed read-only file system for Linux"
   homepage "https://github.com/plougher/squashfs-tools"
-  url "https://github.com/plougher/squashfs-tools/archive/4.4.tar.gz"
-  sha256 "a7fa4845e9908523c38d4acf92f8a41fdfcd19def41bd5090d7ad767a6dc75c3"
+  url "https://github.com/plougher/squashfs-tools/archive/4.5.tar.gz"
+  sha256 "b9e16188e6dc1857fe312633920f7d71cc36b0162eb50f3ecb1f0040f02edddd"
   license "GPL-2.0"
   head "https://github.com/plougher/squashfs-tools.git", branch: "master"
 
@@ -34,8 +34,8 @@ class Squashfs < Formula
   # Also clang fixes, extra endianness knowledge and a bundle of other macOS fixes.
   # Original patchset: https://github.com/plougher/squashfs-tools/pull/69
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/660ae1013be90a7ad70c862be60f9de87bbd25ca/squashfs/4.4.patch"
-    sha256 "eb399705d259346473ebe5d43b886b278abc66d822ee4193b7c65b4a2ca903da"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d75d6958612eb590580872d1878f26af6d2deb83/squashfs/4.5.patch"
+    sha256 "d90f3b167e016f44a87b84c2ccbb9bcfc47d28fc51b630857e7e27bd01b58084"
   end
 
   def install
@@ -58,7 +58,7 @@ class Squashfs < Formula
       bin.install %w[mksquashfs unsquashfs]
     end
 
-    doc.install %w[README-4.4 RELEASE-READMEs USAGE COPYING]
+    doc.install %w[README-4.5 RELEASE-READMEs USAGE COPYING]
   end
 
   test do
