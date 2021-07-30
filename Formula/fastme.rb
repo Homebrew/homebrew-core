@@ -5,6 +5,11 @@ class Fastme < Formula
   sha256 "ac05853bc246ccb3d88b8bc075709a82cfe096331b0f4682b639f37df2b30974"
   revision 3
 
+  livecheck do
+    url "https://gite.lirmm.fr/atgc/FastME.git"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256                               arm64_big_sur: "a63f7a94429ad21604091dbec3fa347d83c81f335a0e112e3a601975c26593f3"
     sha256 cellar: :any,                 big_sur:       "57efef94306e3b9dcbaa2b91289951b545b4ae49cdfe14fb444903e145485a49"
