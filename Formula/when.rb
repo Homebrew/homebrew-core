@@ -1,6 +1,6 @@
 class When < Formula
   desc "Tiny personal calendar"
-  homepage "http://www.lightandmatter.com/when/when.html"
+  homepage "https://www.lightandmatter.com/when/when.html"
   url "https://github.com/bcrowell/when/archive/1.1.40.tar.gz"
   sha256 "1363d48c32c4bb528514abf012ae0a61e7c686504a047ce870e72e791447c3d1"
   head "https://github.com/bcrowell/when.git"
