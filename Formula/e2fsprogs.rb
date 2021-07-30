@@ -1,8 +1,8 @@
 class E2fsprogs < Formula
   desc "Utilities for the ext2, ext3, and ext4 file systems"
   homepage "https://e2fsprogs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.2/e2fsprogs-1.46.2.tar.gz"
-  sha256 "f79f26b4f65bdc059fca12e1ec6a3040c3ce1a503fb70eb915bee71903815cd5"
+  url "https://downloads.sourceforge.net/project/e2fsprogs/e2fsprogs/v1.46.3/e2fsprogs-1.46.3.tar.gz"
+  sha256 "277d37d3d92ba823754e3e9706e8b70d19ee4e1c46512bdad5f55a99c6752c37"
   license all_of: [
     "GPL-2.0-or-later",
     "LGPL-2.0-or-later", # lib/ex2fs
@@ -10,7 +10,6 @@ class E2fsprogs < Formula
     "BSD-3-Clause",      # lib/uuid
     "MIT",               # lib/et, lib/ss
   ]
-  revision 1
   head "https://git.kernel.org/pub/scm/fs/ext2/e2fsprogs.git"
 
   livecheck do
