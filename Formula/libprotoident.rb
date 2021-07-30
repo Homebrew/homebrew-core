@@ -3,7 +3,7 @@ class Libprotoident < Formula
   homepage "https://research.wand.net.nz/software/libprotoident.php"
   url "https://research.wand.net.nz/software/libprotoident/libprotoident-2.0.13.tar.gz"
   sha256 "8ca7ccd95b3f23457c3f9eff480364565b553bbcab9b39969f964910738e5672"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
