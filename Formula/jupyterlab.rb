@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/08/b6/b1ec18582a4fa2ee13bc5b2b4210f41f789c60d07ddf4136fd5bde3497be/jupyterlab-3.1.0.tar.gz"
-  sha256 "5a020e5940ef32a9e6e1a43f7c794f542869576a30c5083799c7d97df34e9cf3"
+  url "https://files.pythonhosted.org/packages/41/b0/4901465d86a586cc9d824d88a2c84a5bc60262b2ac064041f6d635b5bac9/jupyterlab-3.1.1.tar.gz"
+  sha256 "f6b04b5cfbe1fab79dbcecd58c941cbc73b0da5e1ccc5d4333a36860d37789b0"
   license "BSD-3-Clause"
 
   bottle do
