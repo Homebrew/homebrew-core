@@ -4,6 +4,7 @@ class R < Formula
   url "https://cran.r-project.org/src/base/R-4/R-4.1.0.tar.gz"
   sha256 "e8e68959d7282ca147360fc9644ada9bd161bab781bab14d33b8999a95182781"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -18,6 +19,7 @@ class R < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "cairo"
   depends_on "gcc" # for gfortran
   depends_on "gettext"
   depends_on "jpeg"
@@ -27,6 +29,16 @@ class R < Formula
   depends_on "readline"
   depends_on "tcl-tk"
   depends_on "xz"
+
+  uses_from_macos "curl"
+
+  on_linux do
+    depends_on "pango"
+    depends_on "libice"
+    depends_on "libx11"
+    depends_on "libxt"
+    depends_on "libtirpc"
+  end
 
   # needed to preserve executable permissions on files without shebangs
   skip_clean "lib/R/bin", "lib/R/doc"
@@ -39,15 +51,32 @@ class R < Formula
     args = [
       "--prefix=#{prefix}",
       "--enable-memory-profiling",
-      "--without-cairo",
-      "--without-x",
       "--with-tcl-config=#{Formula["tcl-tk"].opt_lib}/tclConfig.sh",
       "--with-tk-config=#{Formula["tcl-tk"].opt_lib}/tkConfig.sh",
-      "--with-aqua",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
       "--enable-R-shlib",
       "--disable-java",
+      "--with-cairo",
     ]
+
+    on_macos do
+      args << "--without-x"
+      args << "--with-aqua"
+    end
+
+    on_linux do
+      args << "--libdir=#{lib}" # avoid using lib64 on CentOS
+
+      # Avoid references to homebrew shims
+      args << "LD=ld"
+
+      # If LDFLAGS contains any -L options, configure sets LD_LIBRARY_PATH to
+      # search those directories. Remove -LHOMEBREW_PREFIX/lib from LDFLAGS.
+      ENV.remove "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
+
+      ENV.append "CPPFLAGS", "-I#{Formula["libtirpc"].opt_include}/tirpc"
+      ENV.append "LDFLAGS", "-L#{Formula["libtirpc"].opt_lib}"
+    end
 
     # Help CRAN packages find gettext and readline
     ["gettext", "readline", "xz"].each do |f|
@@ -81,8 +110,13 @@ class R < Formula
     lib.install_symlink Dir[r_home/"lib/*"]
 
     # avoid triggering mandatory rebuilds of r when gcc is upgraded
+    check_replace = true
+    on_linux do
+      check_replace = false
+    end
     inreplace lib/"R/etc/Makeconf", Formula["gcc"].prefix.realpath,
-                                    Formula["gcc"].opt_prefix
+                                    Formula["gcc"].opt_prefix,
+                                    check_replace
   end
 
   def post_install
@@ -95,12 +129,21 @@ class R < Formula
 
   test do
     assert_equal "[1] 2", shell_output("#{bin}/Rscript -e 'print(1+1)'").chomp
-    assert_equal ".dylib", shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
-    assert_equal "[1] \"aqua\"",
-                 shell_output("#{bin}/Rscript -e 'library(tcltk)' -e 'tclvalue(.Tcl(\"tk windowingsystem\"))'").chomp
+    assert_equal shared_library(""), shell_output("#{bin}/R CMD config DYLIB_EXT").chomp
+    system bin/"Rscript", "-e", "if(!capabilities('cairo')) stop('cairo not available')"
 
     system bin/"Rscript", "-e", "install.packages('gss', '.', 'https://cloud.r-project.org')"
     assert_predicate testpath/"gss/libs/gss.so", :exist?,
                      "Failed to install gss package"
+
+    winsys = "[1] \"aqua\""
+    on_linux do
+      # Fails in Linux CI with: no DISPLAY variable so Tk is not available
+      return if ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+      winsys = "[1] \"x11\""
+    end
+    assert_equal winsys,
+                 shell_output("#{bin}/Rscript -e 'library(tcltk)' -e 'tclvalue(.Tcl(\"tk windowingsystem\"))'").chomp
   end
 end
