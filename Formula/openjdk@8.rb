@@ -18,6 +18,22 @@ class OpenjdkAT8 < Formula
   depends_on "pkg-config" => :build
   depends_on "freetype"
 
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "cups"
+    depends_on "fontconfig"
+    depends_on "libx11"
+    depends_on "libxext"
+    depends_on "libxrandr"
+    depends_on "libxrender"
+    depends_on "libxt"
+    depends_on "libxtst"
+    depends_on "unzip"
+    depends_on "zip"
+
+    ignore_missing_libraries %w[libjvm.so libawt_xawt.so]
+  end
+
   # Oracle doesn't serve JDK 7 downloads anymore, so use Zulu JDK 7 for bootstrapping.
   resource "boot-jdk" do
     on_macos do
@@ -59,17 +75,28 @@ class OpenjdkAT8 < Formula
               --with-jvm-variants=server
               --with-milestone=fcs
               --with-native-debug-symbols=none
-              --with-toolchain-type=clang
               --with-update-version=#{update}]
 
-    # Work around SDK issues with JavaVM framework.
-    if MacOS.version <= :catalina
-      sdk_path = MacOS::CLT.sdk_path(MacOS.version)
-      ENV["SDKPATH"] = ENV["SDKROOT"] = sdk_path
-      javavm_framework_path = sdk_path/"System/Library/Frameworks/JavaVM.framework/Frameworks"
-      args += %W[--with-extra-cflags=-F#{javavm_framework_path}
-                 --with-extra-cxxflags=-F#{javavm_framework_path}
-                 --with-extra-ldflags=-F#{javavm_framework_path}]
+    on_macos do
+      # Work around SDK issues with JavaVM framework.
+      if MacOS.version <= :catalina
+        sdk_path = MacOS::CLT.sdk_path(MacOS.version)
+        ENV["SDKPATH"] = ENV["SDKROOT"] = sdk_path
+        javavm_framework_path = sdk_path/"System/Library/Frameworks/JavaVM.framework/Frameworks"
+        args += %W[--with-extra-cflags=-F#{javavm_framework_path}
+                   --with-extra-cxxflags=-F#{javavm_framework_path}
+                   --with-extra-ldflags=-F#{javavm_framework_path}]
+      end
+
+      args << "--with-toolchain-type=clang"
+    end
+
+    on_linux do
+      args << "--with-toolchain-type=gcc"
+      args << "--x-includes=#{HOMEBREW_PREFIX}/include"
+      args << "--x-libraries=#{HOMEBREW_PREFIX}/lib"
+      args << "--with-cups=#{HOMEBREW_PREFIX}"
+      args << "--with-fontconfig=#{HOMEBREW_PREFIX}"
     end
 
     chmod 0755, %w[configure common/autoconf/autogen.sh]
@@ -80,18 +107,29 @@ class OpenjdkAT8 < Formula
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    jdk = Dir["build/*/images/j2sdk-bundle/*"].first
-    libexec.install jdk => "openjdk.jdk"
-    bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
-    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
-    include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
+    on_macos do
+      jdk = Dir["build/*/images/j2sdk-bundle/*"].first
+      libexec.install jdk => "openjdk.jdk"
+      bin.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/bin/*"]
+      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/*.h"]
+      include.install_symlink Dir["#{libexec}/openjdk.jdk/Contents/Home/include/darwin/*.h"]
+    end
+
+    on_linux do
+      libexec.install Dir["build/*/images/j2sdk-image/*"]
+      bin.install_symlink Dir["#{libexec}/bin/*"]
+      include.install_symlink Dir["#{libexec}/include/*.h"]
+      include.install_symlink Dir["#{libexec}/include/linux/*.h"]
+    end
   end
 
   def caveats
-    <<~EOS
-      For the system Java wrappers to find this JDK, symlink it with
-        sudo ln -sfn #{opt_libexec}/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
-    EOS
+    on_macos do
+      <<~EOS
+        For the system Java wrappers to find this JDK, symlink it with
+          sudo ln -sfn #{opt_libexec}/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-8.jdk
+      EOS
+    end
   end
 
   test do
