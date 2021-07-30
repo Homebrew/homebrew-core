@@ -22,10 +22,11 @@ class LibvirtGlib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-
   depends_on "gettext"
   depends_on "glib"
   depends_on "libvirt"
+
+  uses_from_macos "libxml2"
 
   def install
     system "meson", "setup", "builddir", *std_meson_args, "-Dintrospection=enabled"
@@ -47,8 +48,12 @@ class LibvirtGlib < Formula
         return 0;
       }
     EOS
+    libxml2 = "#{MacOS.sdk_path}/usr/include/libxml2"
+    on_linux do
+      libxml2 = Formula["libxml2"].opt_include/"libxml2"
+    end
     system ENV.cc, "test.cpp",
-                   "-I#{MacOS.sdk_path}/usr/include/libxml2",
+                   "-I#{libxml2}",
                    "-I#{Formula["glib"].include}/glib-2.0",
                    "-I#{Formula["glib"].lib}/glib-2.0/include",
                    "-I#{include}/libvirt-gconfig-1.0",
