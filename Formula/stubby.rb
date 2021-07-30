@@ -18,6 +18,10 @@ class Stubby < Formula
   depends_on "getdns"
   depends_on "libyaml"
 
+  on_linux do
+    depends_on "bind" => :test
+  end
+
   def install
     system "cmake", "-DCMAKE_INSTALL_RUNSTATEDIR=#{HOMEBREW_PREFIX}/var/run/", \
                     "-DCMAKE_INSTALL_SYSCONFDIR=#{HOMEBREW_PREFIX}/etc", ".", *std_cmake_args
