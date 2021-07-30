@@ -17,6 +17,8 @@ class Volt < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "vim" => :test
+
   # Go 1.14+ compatibility.
   patch do
     url "https://github.com/vim-volt/volt/commit/aa9586901d249aa40e67bc0b3e0e7d4f13d5a88b.patch?full_index=1"
