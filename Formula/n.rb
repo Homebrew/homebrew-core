@@ -1,8 +1,8 @@
 class N < Formula
   desc "Node version management"
   homepage "https://github.com/tj/n"
-  url "https://github.com/tj/n/archive/v7.3.0.tar.gz"
-  sha256 "b908b0fc86922ede37e89d1030191285209d7d521507bf136e62895e5797847f"
+  url "https://github.com/tj/n/archive/v7.3.1.tar.gz"
+  sha256 "92754b32607571e4a8d610ac6df18f43bbe7380927d79e1ef640c516eca88458"
   license "MIT"
   head "https://github.com/tj/n.git"
 
