@@ -25,36 +25,28 @@ class Memcached < Formula
     system "make", "install"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/memcached/bin/memcached"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>KeepAlive</key>
-        <true/>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/memcached</string>
-          <string>-l</string>
-          <string>localhost</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"memcached", "-l", "localhost"]
+    working_dir HOMEBREW_PREFIX
+    keep_alive true
+    run_type :immediate
   end
 
   test do
     pidfile = testpath/"memcached.pid"
-    system bin/"memcached", "--listen=localhost:#{free_port}", "--daemon", "--pidfile=#{pidfile}"
+    port = free_port
+    args = %W[
+      --listen=localhost:#{port}
+      --daemon
+      --pidfile=#{pidfile}
+    ]
+    on_linux do
+      if ENV["HOMEBREW_GITHUB_ACTIONS"]
+        args << "-u"
+        args << ENV["USER"]
+      end
+    end
+    system bin/"memcached", *args
     sleep 1
     assert_predicate pidfile, :exist?, "Failed to start memcached daemon"
     pid = (testpath/"memcached.pid").read.chomp.to_i
