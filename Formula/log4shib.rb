@@ -27,7 +27,7 @@ class Log4shib < Formula
 
   test do
     cp_r (pkgshare/"test").children, testpath
-    system ENV.cxx, "-I#{include}", "-L#{lib}", "-llog4shib", "testConfig.cpp", "-o", "test"
+    system ENV.cxx, "testConfig.cpp", "-I#{include}", "-L#{lib}", "-llog4shib", "-o", "test", "-pthread"
     system "./test"
   end
 end
