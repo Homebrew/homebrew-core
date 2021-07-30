@@ -98,7 +98,7 @@ class Tepl < Formula
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
-      -lamtk-5.0
+      -lamtk-5
       -lcairo
       -lcairo-gobject
       -lgdk-3
@@ -108,11 +108,13 @@ class Tepl < Formula
       -lgobject-2.0
       -ltepl-6
       -lgtk-3
-      -lgtksourceview-4.0
-      -lintl
+      -lgtksourceview-4
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
