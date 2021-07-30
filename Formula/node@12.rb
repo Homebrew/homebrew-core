@@ -24,13 +24,6 @@ class NodeAT12 < Formula
   depends_on "python@3.9" => :build
   depends_on "icu4c"
 
-  # Patch for compatibility with ICU 69. Backported from
-  # https://github.com/v8/v8/commit/035c305ce7761f51328b45f1bd83e26aef267c9d
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/9eb96c36ff61c76c809c975f3b4463e826eae73c/node%4012/node%4012-icu69.patch"
-    sha256 "c23163cc26c784479471f904fb47f1c16ec4177c687fd9c3988a8208a3faa583"
-  end
-
   def install
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
