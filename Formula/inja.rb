@@ -1,8 +1,8 @@
 class Inja < Formula
   desc "Template engine for modern C++"
   homepage "https://pantor.github.io/inja/"
-  url "https://github.com/pantor/inja/archive/v3.2.0.tar.gz"
-  sha256 "825e1f0076504b5aac99cc9ad8c4cbfdc33e57c06c40353f2d7b93a33caae17d"
+  url "https://github.com/pantor/inja/archive/v3.3.0.tar.gz"
+  sha256 "e628d994762dcdaa9a97f63a9b8b73d9af51af0ffa5acea6bdbba0aceaf8ee25"
   license "MIT"
   head "https://github.com/pantor/inja.git"
 
