@@ -15,6 +15,12 @@ class Glfw < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "freeglut"
+    depends_on "libxcursor"
+    depends_on "mesa"
+  end
+
   def install
     args = std_cmake_args + %w[
       -DGLFW_USE_CHDIR=TRUE
