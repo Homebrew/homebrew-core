@@ -19,6 +19,12 @@ class Hamlib < Formula
   depends_on "libtool"
   depends_on "libusb-compat"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
