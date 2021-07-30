@@ -4,6 +4,7 @@ class Leiningen < Formula
   url "https://github.com/technomancy/leiningen/archive/2.9.6.tar.gz"
   sha256 "2f3b8a7eb710bd3a266975387f216bd4a3bace2f1b0a1f0ae88a93d919d813d9"
   license "EPL-1.0"
+  revision 2
   head "https://github.com/technomancy/leiningen.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Leiningen < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "de0a514ea1a62334532c988bd8d633c65655279073dd80ab8beac826d7dccec4"
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@11"
 
   resource "jar" do
     url "https://github.com/technomancy/leiningen/releases/download/2.9.6/leiningen-2.9.6-standalone.zip", using: :nounzip
@@ -34,7 +35,7 @@ class Leiningen < Formula
 
     (libexec/"bin").install "bin/lein-pkg" => "lein"
     (libexec/"bin/lein").chmod 0755
-    (bin/"lein").write_env_script libexec/"bin/lein", Language::Java.overridable_java_home_env
+    (bin/"lein").write_env_script libexec/"bin/lein", Language::Java.overridable_java_home_env("11")
     bash_completion.install "bash_completion.bash" => "lein-completion.bash"
     zsh_completion.install "zsh_completion.zsh" => "_lein"
   end
