@@ -1,8 +1,8 @@
 class Nuclei < Formula
   desc "HTTP/DNS scanner configurable via YAML templates"
   homepage "https://nuclei.projectdiscovery.io/"
-  url "https://github.com/projectdiscovery/nuclei/archive/v2.4.1.tar.gz"
-  sha256 "e45ec95b0f9c5d32d7bc75f5a9d6d58ebcfca0c776dda867fffc7c18e91c4e82"
+  url "https://github.com/projectdiscovery/nuclei/archive/v2.4.2.tar.gz"
+  sha256 "6ef6140c7112197bf2d263788257a07722fba8a1393c40c7372629ff543c9b30"
   license "MIT"
   head "https://github.com/projectdiscovery/nuclei.git"
 
