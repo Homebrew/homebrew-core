@@ -5,7 +5,7 @@ class Influxdb < Formula
       tag:      "v2.0.7",
       revision: "2a45f0c0375a7d5615835afa6f81a53444df9cea"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/influxdata/influxdb.git"
 
   # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
@@ -26,6 +26,7 @@ class Influxdb < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
+  depends_on "influxdb-cli"
 
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
@@ -55,7 +56,7 @@ class Influxdb < Formula
     # Embed UI files into the Go source code.
     system "make", "generate"
 
-    # Build the CLI and server.
+    # Build the server.
     ldflags = %W[
       -s
       -w
@@ -64,8 +65,6 @@ class Influxdb < Formula
       -X main.date=#{time.iso8601}
     ].join(" ")
 
-    system "go", "build", *std_go_args(ldflags: ldflags),
-           "-o", bin/"influx", "./cmd/influx"
     system "go", "build", *std_go_args(ldflags: ldflags),
            "-tags", "assets", "-o", bin/"influxd", "./cmd/influxd"
 
@@ -118,9 +117,6 @@ class Influxdb < Formula
   end
 
   test do
-    ENV["INFLUXD_BOLT_PATH"] = "#{testpath}/influxd.bolt"
-    ENV["INFLUXD_ENGINE_PATH"] = "#{testpath}/engine"
-
     influxd_port = free_port
     influx_host = "http://localhost:#{influxd_port}"
     ENV["INFLUX_HOST"] = influx_host
@@ -131,10 +127,10 @@ class Influxdb < Formula
                              "--http-bind-address=:#{influxd_port}",
                              "--log-level=error"
     end
-    sleep 20
+    sleep 30
 
     # Check that the CLI works and can talk to the server.
-    assert_match "OK", shell_output("#{bin}/influx ping")
+    assert_match "OK", shell_output("influx ping")
 
     # Check that the server has properly bundled UI assets and serves them as HTML.
     curl_output = shell_output("curl --silent --head #{influx_host}")
