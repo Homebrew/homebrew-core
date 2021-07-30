@@ -1,8 +1,8 @@
 class Ejabberd < Formula
   desc "XMPP application server"
   homepage "https://www.ejabberd.im"
-  url "https://static.process-one.net/ejabberd/downloads/21.04/ejabberd-21.04.tgz"
-  sha256 "7dc2797b3223bc92f422ee35f53a1cf686a738c99641b87768b519d8c3bfb73a"
+  url "https://static.process-one.net/ejabberd/downloads/21.07/ejabberd-21.07.tgz"
+  sha256 "0e90cfd6c03191ca8aef344b9d543a038e272770be14c2288d83cc4d34825868"
   license "GPL-2.0-only"
 
   bottle do
