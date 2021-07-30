@@ -3,10 +3,9 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://files.pythonhosted.org/packages/54/0d/f48f7a7c1e5a49ead5e531e3087674bcbec050bce262bb4486e7c03d3a33/sceptre-2.5.0.tar.gz"
-  sha256 "40f4ceae1a4d66cbea94cbff04411e20f14c85be2547197de744f1fb09e986d9"
+  url "https://files.pythonhosted.org/packages/62/d1/5af9618071fb40942a119f42fce35dce3aee49e331aea7025f4a9936b6fb/sceptre-2.6.0.tar.gz"
+  sha256 "096eedf1888420d14d0f515a5dabdafdc3b1d18735ea73f0ef40f96379fc928f"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f29a291f075c15bbaba3d724d54297fc0e05f5381893392fba9d1c905758d0d9"
@@ -20,18 +19,18 @@ class Sceptre < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/40/5b/a25eb36bd333f246ab47705bf4ce3a3512c62612470cc8956e0b214deca7/boto3-1.17.67.tar.gz"
-    sha256 "61fe8cbb2d4bf1c9a69a73b3f2c68464e0ab587c9367b35f0ef691f372d5ce67"
+    url "https://files.pythonhosted.org/packages/cd/c0/3032abb4554171cd8452fa65bf24764232a941267cfbdece05103444e792/boto3-1.18.10.tar.gz"
+    sha256 "831b279c4395d5f3b360b260131e30d418ffe620ed3705a5146a90ffdd5775ab"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/af/70/4fb7c31c7dc3a43aa716a3b1dca4f0b37c71998af7c74c40dba844c919bc/botocore-1.20.67.tar.gz"
-    sha256 "4666fb5bdf7d78c51d465bac7d9eb1d31c34be46990cd1ad2d1b338bbec8c049"
+    url "https://files.pythonhosted.org/packages/94/17/92922c9fea51d346a74be1ec6ca3da3cfa9f4cd1a4b9678c8740247c7536/botocore-1.21.10.tar.gz"
+    sha256 "af5baac459c9fde0eb7dda39808e7dd1e61d758c3c0a734436ec377e0dabe319"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
-    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
+    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
+    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
   end
 
   resource "colorama" do
@@ -55,8 +54,8 @@ class Sceptre < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/b9/2e/64db92e53b86efccfaea71321f597fa2e1b2bd3853d8ce658568f7a13094/MarkupSafe-1.1.1.tar.gz"
-    sha256 "29872e92839765e546828bb7754a68c418d927cd064fd4708fab9fe9c8bb116b"
+    url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
+    sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
   end
 
   resource "networkx" do
@@ -75,8 +74,8 @@ class Sceptre < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
-    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
   resource "PyYAML" do
@@ -85,13 +84,18 @@ class Sceptre < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/27/90/f467e516a845cf378d85f0a51913c642e31e2570eb64b352c4dc4c6cbfc7/s3transfer-0.4.2.tar.gz"
-    sha256 "cb022f4b16551edebbb31a377d3f09600dbada7363d8c5db7976e7f47732e1b2"
+    url "https://files.pythonhosted.org/packages/88/ef/4d1b3f52ae20a7e72151fde5c9f254cd83f8a49047351f34006e517e1655/s3transfer-0.5.0.tar.gz"
+    sha256 "50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"
+  end
+
+  resource "sceptre-cmd-resolver" do
+    url "https://files.pythonhosted.org/packages/9d/20/df8d749892d622105b502047fa8950d9ad0025b2c5d936db2db2096e5c71/sceptre-cmd-resolver-1.1.3.tar.gz"
+    sha256 "4490387b7689f0d29ff58c79ca9232c091ba1885c6089f2300329bca038a08c1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/cb/cf/871177f1fc795c6c10787bc0e1f27bb6cf7b81dbde399fd35860472cecbc/urllib3-1.26.4.tar.gz"
-    sha256 "e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
+    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
+    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
   end
 
   def install
