@@ -18,7 +18,7 @@ class Exodriver < Formula
 
   def install
     system "make", "-C", "liblabjackusb", "install",
-           "HEADER_DESTINATION=#{include}", "DESTINATION=#{lib}"
+           "PREFIX=#{prefix}", "RUN_LDCONFIG=0", "LINK_SO=1"
     ENV.prepend "CPPFLAGS", "-I#{include}"
     ENV.prepend "LDFLAGS", "-L#{lib}"
     system "make", "-C", "examples/Modbus"
