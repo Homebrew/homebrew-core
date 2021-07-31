@@ -24,12 +24,18 @@ class Beast < Formula
   depends_on "openjdk@11"
 
   def install
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    ENV["JAVA_HOME"] = Language::Java.java_home("11")
     system "ant", "linux"
     libexec.install Dir["release/Linux/BEASTv*/*"]
     pkgshare.install_symlink libexec/"examples"
     bin.install Dir[libexec/"bin/*"]
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: ENV["JAVA_HOME"]
+
+    env = Language::Java.overridable_java_home_env("11")
+    on_linux do
+      env["PATH"] = "$JAVA_HOME/bin:$PATH"
+    end
+    bin.env_script_all_files libexec/"bin", env
+    inreplace libexec/"bin/beast", "/usr/local", HOMEBREW_PREFIX
   end
 
   test do
