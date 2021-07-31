@@ -4,7 +4,7 @@ class Ttyd < Formula
   url "https://github.com/tsl0922/ttyd/archive/1.6.3.tar.gz"
   sha256 "1116419527edfe73717b71407fb6e06f46098fc8a8e6b0bb778c4c75dc9f64b9"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
@@ -32,6 +32,12 @@ class Ttyd < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/ttyd --version")
+    port = free_port
+    fork do
+      system "#{bin}/ttyd", "--port", port.to_s, "bash"
+    end
+    sleep 5
+
+    system "curl", "-sI", "http://localhost:#{port}"
   end
 end
