@@ -17,16 +17,25 @@ class Myman < Formula
     sha256 yosemite:      "b318e0b227a3ad281afe95edc5a0cc7ab0b1d5e46b1699e6221eb201de869b48"
   end
 
-  depends_on "coreutils" => :build
-  depends_on "gnu-sed" => :build
   depends_on "groff" => :build
 
   uses_from_macos "ncurses"
 
+  on_macos do
+    depends_on "coreutils" => :build
+    depends_on "gnu-sed" => :build
+  end
+
+  on_linux do
+    depends_on "util-linux" => :build # for `col`
+  end
+
   def install
-    ENV["RMDIR"] = "grmdir"
-    ENV["SED"] = "gsed"
-    ENV["INSTALL"] = "ginstall"
+    on_macos do
+      ENV["RMDIR"] = "grmdir"
+      ENV["SED"] = "gsed"
+      ENV["INSTALL"] = "ginstall"
+    end
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
@@ -35,6 +44,6 @@ class Myman < Formula
   end
 
   test do
-    system "#{bin}/myman", "-k"
+    system bin/"myman", "-k"
   end
 end
