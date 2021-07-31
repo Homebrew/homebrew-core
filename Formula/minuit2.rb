@@ -1,8 +1,14 @@
 class Minuit2 < Formula
   desc "Physics analysis tool for function minimization"
-  homepage "https://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/"
-  url "https://www.cern.ch/mathlibs/sw/5_34_14/Minuit2/Minuit2-5.34.14.tar.gz"
-  sha256 "2ca9a283bbc315064c0a322bc4cb74c7e8fd51f9494f7856e5159d0a0aa8c356"
+  homepage "https://root.cern.ch/doc/master/md_math_minuit2_doc_Minuit2.html"
+  url "https://root.cern.ch/download/root_v6.26.00.source.tar.gz"
+  sha256 "5fb9be71fdf0c0b5e5951f89c2f03fcb5e74291d043f6240fb86f5ca977d4b31"
+  license "LGPL-2.1-or-later"
+  head "https://github.com/root-project/root.git", branch: "master"
+
+  livecheck do
+    formula "root"
+  end
 
   bottle do
     rebuild 1
@@ -16,11 +22,26 @@ class Minuit2 < Formula
     sha256 cellar: :any, yosemite:      "32ff2d05e0a85b28513789e1f625e654f2141b80202f506ad0f7721caab95ddd"
   end
 
+  depends_on "cmake" => :build
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--with-pic",
-                          "--disable-openmp",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", "math/minuit2", "-B", "build/shared", *std_cmake_args,
+                    "-Dminuit2_standalone=ON", "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}"
+    system "cmake", "--build", "build/shared"
+    system "cmake", "--install", "build/shared"
+
+    system "cmake", "-S", "math/minuit2", "-B", "build/static", *std_cmake_args,
+                    "-Dminuit2_standalone=ON", "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "build/static"
+    lib.install Dir["build/static/lib/libMinuit2*.a"]
+
+    pkgshare.install "math/minuit2/test/MnTutorial"
+  end
+
+  test do
+    cp Dir[pkgshare/"MnTutorial/{Quad1FMain.cxx,Quad1F.h}"], testpath
+    system ENV.cxx, "-std=c++11", "Quad1FMain.cxx", "-o", "test", "-I#{include}/Minuit2", "-L#{lib}", "-lMinuit2"
+    assert_match "par0: -8.26907e-11 -1 1", shell_output("./test")
   end
 end
