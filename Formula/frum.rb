@@ -1,8 +1,8 @@
 class Frum < Formula
   desc "Fast and modern Ruby version manager written in Rust"
   homepage "https://github.com/TaKO8Ki/frum/"
-  url "https://github.com/TaKO8Ki/frum/archive/v0.1.0.tar.gz"
-  sha256 "2e9e35d7077f9bd3684a86887645516c5e0b5ced54fd78e2a2137cf2bbd94f09"
+  url "https://github.com/TaKO8Ki/frum/archive/v0.1.1.tar.gz"
+  sha256 "b1227899d7b49c478cc56eba6c0e36325dca34e49db096c1a6fddceec5b0b9b9"
   license "MIT"
   head "https://github.com/TaKO8Ki/frum.git", branch: "main"
 
@@ -41,7 +41,7 @@ class Frum < Formula
     mkdir_p frum_dir/"versions/2.4.0"
     versions = shell_output("eval \"$(#{bin}/frum init)\" && frum versions").split("\n")
     assert_equal 2, versions.length
-    assert_match "2.4.0", versions[0]
-    assert_match "2.6.5", versions[1]
+    assert_includes versions, "  2.4.0"
+    assert_includes versions, "  2.6.5"
   end
 end
