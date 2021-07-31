@@ -34,7 +34,15 @@ class Tundra < Formula
         return 0;
       }
     EOS
-    (testpath/"tundra.lua").write <<~'EOS'
+
+    os = "macosx"
+    cc = "clang"
+    on_linux do
+      os = "linux"
+      cc = "gcc"
+    end
+
+    (testpath/"tundra.lua").write <<~EOS
       Build {
         Units = function()
           local test = Program {
@@ -45,14 +53,14 @@ class Tundra < Formula
         end,
         Configs = {
           {
-            Name = "macosx-clang",
-            DefaultOnHost = "macosx",
-            Tools = { "clang-osx" },
+            Name = "#{os}-#{cc}",
+            DefaultOnHost = "#{os}",
+            Tools = { "#{cc}" },
           },
         },
       }
     EOS
     system bin/"tundra2"
-    system "./t2-output/macosx-clang-debug-default/test"
+    system "./t2-output/#{os}-#{cc}-debug-default/test"
   end
 end
