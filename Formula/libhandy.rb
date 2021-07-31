@@ -98,6 +98,9 @@ class Libhandy < Formula
       flags << "-lintl"
     end
     system ENV.cc, "test.c", "-o", "test", *flags
-    system "./test"
+    # Don't have X/Wayland in Docker
+    on_macos do
+      system "./test"
+    end
   end
 end
