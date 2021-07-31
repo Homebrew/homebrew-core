@@ -3,8 +3,8 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://files.pythonhosted.org/packages/62/d1/5af9618071fb40942a119f42fce35dce3aee49e331aea7025f4a9936b6fb/sceptre-2.6.0.tar.gz"
-  sha256 "096eedf1888420d14d0f515a5dabdafdc3b1d18735ea73f0ef40f96379fc928f"
+  url "https://files.pythonhosted.org/packages/28/05/3b4e955fa88a7d24aad0d14e3e5d7b97ceb8d4b5ff37a9a308e27a13ea32/sceptre-2.6.1.tar.gz"
+  sha256 "94c9df23521df522a2f057f45e0a09af0a0a8370e05a1d47ed9f0075d3bec17d"
   license "Apache-2.0"
 
   bottle do
@@ -19,13 +19,23 @@ class Sceptre < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/cd/c0/3032abb4554171cd8452fa65bf24764232a941267cfbdece05103444e792/boto3-1.18.10.tar.gz"
-    sha256 "831b279c4395d5f3b360b260131e30d418ffe620ed3705a5146a90ffdd5775ab"
+    url "https://files.pythonhosted.org/packages/f0/53/f8e9ac6051fa0f5ad4a397198572cc3eb4157cf1b4cc98b6edf52928b0d7/boto3-1.18.11.tar.gz"
+    sha256 "ca675c724fa0fe05e992a7146cc5e1a3b3262c4323c83c7a8fcc69f9e5e47f8b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/94/17/92922c9fea51d346a74be1ec6ca3da3cfa9f4cd1a4b9678c8740247c7536/botocore-1.21.10.tar.gz"
-    sha256 "af5baac459c9fde0eb7dda39808e7dd1e61d758c3c0a734436ec377e0dabe319"
+    url "https://files.pythonhosted.org/packages/b2/1b/a6f79cf60b3f0317eba52ab0d766250f8ac8c9a35314168dacb5df6dac99/botocore-1.21.11.tar.gz"
+    sha256 "b5e9128a259fc0fe5a8c2b717f5d7e8a1321321981b5d5679939e12d4142c0f3"
+  end
+
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
+    sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
+  end
+
+  resource "charset-normalizer" do
+    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
+    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
   end
 
   resource "click" do
@@ -41,6 +51,11 @@ class Sceptre < Formula
   resource "decorator" do
     url "https://files.pythonhosted.org/packages/da/93/84fa12f2dc341f8cf5f022ee09e109961055749df2d0c75c5f98746cfe6c/decorator-4.4.2.tar.gz"
     sha256 "e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
+  end
+
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/cb/38/4c4d00ddfa48abe616d7e572e02a04273603db446975ab46bbcd36552005/idna-3.2.tar.gz"
+    sha256 "467fbad99067910785144ce333826c71fb0e63a425657295239737f7ecd125f3"
   end
 
   resource "Jinja2" do
@@ -83,6 +98,11 @@ class Sceptre < Formula
     sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
+  resource "requests" do
+    url "https://files.pythonhosted.org/packages/e7/01/3569e0b535fb2e4a6c384bdbed00c55b9d78b5084e0fb7f4d0bf523d7670/requests-2.26.0.tar.gz"
+    sha256 "b8aa58f8cf793ffd8782d3d8cb19e66ef36f7aba4353eec859e74678b01b07a7"
+  end
+
   resource "s3transfer" do
     url "https://files.pythonhosted.org/packages/88/ef/4d1b3f52ae20a7e72151fde5c9f254cd83f8a49047351f34006e517e1655/s3transfer-0.5.0.tar.gz"
     sha256 "50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"
@@ -91,6 +111,11 @@ class Sceptre < Formula
   resource "sceptre-cmd-resolver" do
     url "https://files.pythonhosted.org/packages/9d/20/df8d749892d622105b502047fa8950d9ad0025b2c5d936db2db2096e5c71/sceptre-cmd-resolver-1.1.3.tar.gz"
     sha256 "4490387b7689f0d29ff58c79ca9232c091ba1885c6089f2300329bca038a08c1"
+  end
+
+  resource "sceptre-file-resolver" do
+    url "https://files.pythonhosted.org/packages/ee/1b/cf6d885820f1cdbb93de98fd2aebcd903eaf1c5c7240b84fe831e29b6380/sceptre-file-resolver-1.0.4.tar.gz"
+    sha256 "8c148653e723fb71d7a442ee2ff9ecb499f44b17fd1d7f7af3a2130f56b399f5"
   end
 
   resource "urllib3" do
