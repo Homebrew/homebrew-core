@@ -3,8 +3,8 @@ require "language/node"
 class Truffle < Formula
   desc "Development environment, testing framework and asset pipeline for Ethereum"
   homepage "https://trufflesuite.com"
-  url "https://registry.npmjs.org/truffle/-/truffle-5.4.2.tgz"
-  sha256 "14d39217ad146fbf403c2e19a2f4cce43dcc3608d397d171f34602c69f187a29"
+  url "https://registry.npmjs.org/truffle/-/truffle-5.4.6.tgz"
+  sha256 "cc14176a572d7dd90c17545c70201e37db3d259b9cb0df7734557acad3c0c397"
   license "MIT"
 
   bottle do
@@ -14,6 +14,9 @@ class Truffle < Formula
     sha256 mojave:        "371f862ca3584732e155953d816355a8ecb0db7c45170cc97c884efcdb165692"
   end
 
+  # the formula does not build any binaries for arm64
+  # see upstream issue report, https://github.com/trufflesuite/truffle/issues/4266
+  depends_on arch: :x86_64
   depends_on "node"
 
   def install
