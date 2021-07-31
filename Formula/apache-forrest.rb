@@ -1,7 +1,7 @@
 class ApacheForrest < Formula
   desc "Publishing framework providing multiple output formats"
   homepage "https://forrest.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=forrest/apache-forrest-0.9-sources.tar.gz"
+  url "https://web.archive.org/web/20130606174723/archive.apache.org/dist/forrest/apache-forrest-0.9-sources.tar.gz"
   mirror "https://archive.apache.org/dist/forrest/apache-forrest-0.9-sources.tar.gz"
   sha256 "c6ac758db2eb0d4d91bd1733bbbc2dec4fdb33603895c464bcb47a34490fb64d"
   license "Apache-2.0"
@@ -21,7 +21,8 @@ class ApacheForrest < Formula
   depends_on "openjdk"
 
   resource "deps" do
-    url "https://www.apache.org/dyn/closer.lua?path=forrest/apache-forrest-0.9-dependencies.tar.gz"
+    url "https://web.archive.org/web/20161221052851/archive.apache.org/dist/forrest/apache-forrest-0.9-dependencies.tar.gz"
+    mirror "https://archive.apache.org/dist/forrest/apache-forrest-0.9-dependencies.tar.gz"
     sha256 "33146b4e64933691d3b779421b35da08062a704618518d561281d3b43917ccf1"
   end
 
