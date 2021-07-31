@@ -19,6 +19,10 @@ class Ponyc < Formula
   def install
     ENV.cxx11
 
+    on_linux do
+      inreplace "CMakeLists.txt", "PONY_COMPILER=\"${CMAKE_C_COMPILER}\"", "PONY_COMPILER=\"#{ENV.cc}\""
+    end
+
     ENV["MAKEFLAGS"] = "build_flags=-j#{ENV.make_jobs}"
     system "make", "libs"
     system "make", "configure"
