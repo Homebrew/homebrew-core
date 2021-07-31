@@ -39,8 +39,8 @@ class Chipmunk < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-pthread", "-I#{include}/chipmunk", "-L#{lib}", "-lchipmunk",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, testpath/"test.c", "-o", testpath/"test", "-pthread",
+                   "-I#{include}/chipmunk", "-L#{lib}", "-lchipmunk"
     system "./test"
   end
 end
