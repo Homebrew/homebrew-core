@@ -14,6 +14,8 @@ class Dvanalyzer < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "0e138c105a1f4604dbb4b7c911e83c660f2078cb24af6ba0ba12564a6e93d9c0"
   end
 
+  uses_from_macos "zlib"
+
   def install
     cd "ZenLib/Project/GNU/Library" do
       args = ["--disable-debug",
