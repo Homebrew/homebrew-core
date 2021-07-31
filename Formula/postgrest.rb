@@ -4,6 +4,7 @@ class Postgrest < Formula
   url "https://github.com/PostgREST/postgrest/archive/v8.0.0.tar.gz"
   sha256 "4a930900b59866c7ba25372fd93d2fbab5cdb52fc5fea5e481713b03a2d5e923"
   license "MIT"
+  revision 1
   head "https://github.com/PostgREST/postgrest.git"
 
   bottle do
@@ -14,7 +15,7 @@ class Postgrest < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@8.8" => :build
+  depends_on "ghc" => :build
   depends_on "postgresql"
 
   def install
