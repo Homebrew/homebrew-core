@@ -1,10 +1,8 @@
-require "language/go"
-
 class TerraformInventory < Formula
   desc "Terraform State → Ansible Dynamic Inventory"
   homepage "https://github.com/adammck/terraform-inventory"
-  url "https://github.com/adammck/terraform-inventory/archive/v0.9.tar.gz"
-  sha256 "e0f5876b2272ac3f9702e3599078aede1e448f617526beec147cd3fbbf0836bd"
+  url "https://github.com/adammck/terraform-inventory/archive/v0.10.tar.gz"
+  sha256 "8bd8956da925d4f24c45874bc7b9012eb6d8b4aa11cfc9b6b1b7b7c9321365ac"
   license "MIT"
   head "https://github.com/adammck/terraform-inventory.git"
 
@@ -20,25 +18,8 @@ class TerraformInventory < Formula
 
   depends_on "go" => :build
 
-  go_resource "github.com/adammck/venv" do
-    url "https://github.com/adammck/venv.git",
-        revision: "8a9c907a37d36a8f34fa1c5b81aaf80c2554a306"
-  end
-
-  go_resource "github.com/blang/vfs" do
-    url "https://github.com/blang/vfs.git",
-        revision: "2c3e2278e174a74f31ff8bf6f47b43ecb358a870"
-  end
-
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-
-    mkdir_p buildpath/"src/github.com/adammck/"
-    ln_sf buildpath, buildpath/"src/github.com/adammck/terraform-inventory"
-    Language::Go.stage_deps resources, buildpath/"src"
-
-    system "go", "build", "-o", bin/"terraform-inventory", "-ldflags", "-X main.build_version='#{version}'"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.build_version=#{version}")
   end
 
   test do
