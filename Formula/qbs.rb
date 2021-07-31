@@ -18,13 +18,15 @@ class Qbs < Formula
     sha256 cellar: :any, mojave:        "050718655f3d847ec157bd660b340a4b4fc08d3fbda0c32bb32951e4c37ac484"
   end
 
+  depends_on "cmake" => :build
   depends_on "qt@5"
 
   def install
     qt5 = Formula["qt@5"].opt_prefix
-    system "#{qt5}/bin/qmake", "qbs.pro", "QBS_INSTALL_PREFIX=#{prefix}", "CONFIG+=qbs_disable_rpath"
-    system "make"
-    system "make", "install", "INSTALL_ROOT=/"
+    system "cmake", ".", "-DQt5_DIR=#{qt5}/lib/cmake/Qt5", "-DQBS_ENABLE_RPATH=NO",
+                         *std_cmake_args
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
   end
 
   test do
