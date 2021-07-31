@@ -12,7 +12,7 @@ class Smlpkg < Formula
     sha256 cellar: :any_skip_relocation, mojave:   "6e7e55cdf218da273d5184d411a7a1491b1e52941859bbf08ab610b470b824c4"
   end
 
-  depends_on "mlkit"
+  depends_on "mlkit" => :build
 
   def install
     system "make", "-C", "src", "smlpkg"
