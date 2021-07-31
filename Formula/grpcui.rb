@@ -21,6 +21,7 @@ class Grpcui < Formula
 
   test do
     host = "no.such.host.dev"
-    assert_match "#{host}: no such host", shell_output("#{bin}/grpcui #{host}:999 2>&1", 1)
+    output = shell_output("#{bin}/grpcui #{host}:999 2>&1", 1)
+    assert_match(/Failed to dial target host "#{Regexp.escape(host)}:999":.*: no such host/, output)
   end
 end
