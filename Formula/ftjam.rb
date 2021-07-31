@@ -3,6 +3,7 @@ class Ftjam < Formula
   homepage "https://www.freetype.org/jam/"
   url "https://downloads.sourceforge.net/project/freetype/ftjam/2.5.2/ftjam-2.5.2.tar.bz2"
   sha256 "e89773500a92912de918e9febffabe4b6bce79d69af194435f4e032b8a6d66a3"
+  license :cannot_represent
 
   # We check the "ftjam" directory page since versions aren't present in the
   # RSS feed as of writing.
@@ -21,6 +22,8 @@ class Ftjam < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:  "f94287203827dea6ac5031e695c217a48b1b69e939dcd68a489c8477b4100447"
     sha256 cellar: :any_skip_relocation, yosemite:    "95490ead99e537713d8c26d1c1bea72b31ea06153a405867ffe83c044593caa0"
   end
+
+  uses_from_macos "bison" => :build
 
   conflicts_with "jam", because: "both install a `jam` binary"
 
