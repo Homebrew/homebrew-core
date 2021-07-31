@@ -19,6 +19,8 @@ class Fastjar < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "35230e788987e3a3c63d126af24c634bcbf58c0a320223d61f0eae69f6cbcc00"
   end
 
+  uses_from_macos "zlib"
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
