@@ -3,6 +3,7 @@ class LibreadlineJava < Formula
   homepage "https://java-readline.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/java-readline/java-readline/0.8.0/libreadline-java-0.8.0-src.tar.gz"
   sha256 "cdcfd9910bfe2dca4cd08b2462ec05efee7395e9b9c3efcb51e85fa70548c890"
+  license "LGPL-2.1-or-later"
   revision 3
 
   bottle do
@@ -32,9 +33,11 @@ class LibreadlineJava < Formula
 
     # Current Oracle JDKs put the jni.h and jni_md.h in a different place than the
     # original Apple/Sun JDK used to.
+    os = "darwin"
+    on_linux { os = "linux" }
     if File.exist? "#{java_home}/include/jni.h"
       ENV["JAVAINCLUDE"] = "#{java_home}/include"
-      ENV["JAVANATINC"]  = "#{java_home}/include/darwin"
+      ENV["JAVANATINC"]  = "#{java_home}/include/#{os}"
     elsif File.exist? "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/jni.h"
       ENV["JAVAINCLUDE"] = "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/"
       ENV["JAVANATINC"]  = "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/"
@@ -48,7 +51,7 @@ class LibreadlineJava < Formula
       s.change_make_var! "JAVALIBDIR", "$(PREFIX)/share/libreadline-java"
       s.change_make_var! "JAVAINCLUDE", ENV["JAVAINCLUDE"]
       s.change_make_var! "JAVANATINC", ENV["JAVANATINC"]
-      s.gsub! "*.so", "*.jnilib"
+      on_macos { s.gsub! "*.so", "*.jnilib" }
       s.gsub! "install -D", "install -c"
     end
 
@@ -60,10 +63,12 @@ class LibreadlineJava < Formula
       s.change_make_var! "INCLUDES", "-I $(JAVAINCLUDE) -I $(JAVANATINC) -I #{readline.opt_include}"
       s.change_make_var! "LIBPATH", "-L#{readline.opt_lib}"
       s.change_make_var! "CC", "cc"
-      s.gsub! "LIB_EXT := so", "LIB_EXT := jnilib"
-      s.gsub! "$(CC) -shared $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@",
-              "$(CC) -install_name #{HOMEBREW_PREFIX}/lib/$(LIB_PRE)$(TG).$(LIB_EXT) " \
-              "-dynamiclib $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@"
+      on_macos do
+        s.gsub! "LIB_EXT := so", "LIB_EXT := jnilib"
+        s.gsub! "$(CC) -shared $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@",
+                "$(CC) -install_name #{HOMEBREW_PREFIX}/lib/$(LIB_PRE)$(TG).$(LIB_EXT) " \
+                "-dynamiclib $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -o $@"
+      end
     end
 
     pkgshare.mkpath
@@ -84,8 +89,10 @@ class LibreadlineJava < Formula
 
   # Testing libreadline-java (can we execute and exit libreadline without exceptions?)
   test do
+    java_path = "java"
+    on_linux { java_path = Formula["openjdk@8"].opt_bin/"java" }
     assert(/Exception/ !~ pipe_output(
-      "java -Djava.library.path=#{lib} -cp #{pkgshare}/libreadline-java.jar test.ReadlineTest",
+      "#{java_path} -Djava.library.path=#{lib} -cp #{pkgshare}/libreadline-java.jar test.ReadlineTest",
       "exit",
     ))
   end
