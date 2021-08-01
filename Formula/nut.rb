@@ -1,7 +1,7 @@
 class Nut < Formula
   desc "Network UPS Tools: Support for various power devices"
   homepage "https://networkupstools.org/"
-  license "GPL-3.0"
+  license "GPL-2.0-or-later"
   revision 2
 
   stable do
@@ -40,35 +40,43 @@ class Nut < Formula
 
   def install
     if build.head?
-      ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+      ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
       system "./autogen.sh"
     else
       # Regenerate configure, due to patch applied
       system "autoreconf", "-i"
     end
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--localstatedir=#{var}",
-                          "--sysconfdir=#{etc}/nut",
-                          "--with-statepath=#{var}/state/ups",
-                          "--with-pidpath=#{var}/run",
-                          "--with-macosx_ups",
-                          "--with-openssl",
-                          "--with-serial",
-                          "--with-usb",
-                          "--without-avahi",
-                          "--without-cgi",
-                          "--without-dev",
-                          "--without-doc",
-                          "--without-ipmi",
-                          "--without-libltdl",
-                          "--without-neon",
-                          "--without-nss",
-                          "--without-powerman",
-                          "--without-snmp",
-                          "--without-wrap"
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --localstatedir=#{var}
+      --sysconfdir=#{etc}/nut
+      --with-statepath=#{var}/state/ups
+      --with-pidpath=#{var}/run
+      --with-openssl
+      --with-serial
+      --with-usb
+      --without-avahi
+      --without-cgi
+      --without-dev
+      --without-doc
+      --without-ipmi
+      --without-libltdl
+      --without-neon
+      --without-nss
+      --without-powerman
+      --without-snmp
+      --without-wrap
+    ]
+    on_macos do
+      args << "--with-macosx_ups"
+    end
+    on_linux do
+      args << "--with-udev-dir=#{lib}/udev"
+    end
 
+    system "./configure", *args
     system "make", "install"
   end
 
