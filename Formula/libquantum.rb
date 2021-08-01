@@ -3,7 +3,7 @@ class Libquantum < Formula
   homepage "http://www.libquantum.de/"
   url "http://www.libquantum.de/files/libquantum-1.1.1.tar.gz"
   sha256 "d8e3c4407076558f87640f1e618501ec85bc5f4c5a84db4117ceaec7105046e5"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1788ce1a3fad430fe6579257b4f8144fc72dea392510f170a0c8f0c213d70d80"
@@ -37,7 +37,13 @@ class Libquantum < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-O3", "-o", "qtest", "qtest.c", "-L#{lib}", "-lquantum"
+    args = [
+      "-O3",
+      "-L#{lib}",
+      "-lquantum",
+    ]
+    on_linux { args << "-fopenmp" }
+    system ENV.cc, "qtest.c", *args, "-o", "qtest"
     system "./qtest"
   end
 end
