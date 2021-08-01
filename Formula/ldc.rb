@@ -25,6 +25,8 @@ class Ldc < Formula
 
   uses_from_macos "libxml2" => :build
 
+  fails_with :gcc
+
   resource "ldc-bootstrap" do
     on_macos do
       if Hardware::CPU.intel?
@@ -37,14 +39,21 @@ class Ldc < Formula
     end
 
     on_linux do
-      url "https://github.com/ldc-developers/ldc/releases/download/v1.27.0/ldc2-1.27.0-linux-x86_64.tar.xz"
-      sha256 "bf00f5c3eadf65980dc7d70590cc869f93e289eafbc84a263220795c6067922e"
+      # ldc 1.27 requires glibc 2.27, which is too new for Ubuntu 16.04 LTS.  The last version we can bootstrap with
+      # is 1.26.  Change this when we migrate to Ubuntu 18.04 LTS.
+      url "https://github.com/ldc-developers/ldc/releases/download/v1.26.0/ldc2-1.26.0-linux-x86_64.tar.xz"
+      sha256 "06063a92ab2d6c6eebc10a4a9ed4bef3d0214abc9e314e0cd0546ee0b71b341e"
     end
   end
 
   def install
     ENV.cxx11
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
+
+    on_linux do
+      # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
+      ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib
+    end
 
     mkdir "build" do
       args = std_cmake_args + %W[
