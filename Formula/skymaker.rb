@@ -1,7 +1,10 @@
 class Skymaker < Formula
   desc "Generates fake astronomical images"
   homepage "https://www.astromatic.net/software/skymaker"
-  url "https://www.astromatic.net/download/skymaker/skymaker-3.10.5.tar.gz"
+  # Upstream URL is currently 404 Not Found. Can re-enable if upstream restores URL.
+  # url "https://www.astromatic.net/download/skymaker/skymaker-3.10.5.tar.gz"
+  url "https://web.archive.org/web/20161206053718/www.astromatic.net/download/skymaker/skymaker-3.10.5.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/skymaker/skymaker-3.10.5.tar.gz"
   sha256 "a16f9c2bd653763b5e1629e538d49f63882c46291b479b4a4997de84d8e9fb0f"
 
   bottle do
