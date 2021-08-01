@@ -1,9 +1,9 @@
 class Ndiff < Formula
   desc "Virtual package provided by nmap"
   homepage "https://www.math.utah.edu/~beebe/software/ndiff/"
-  url "http://ftp.math.utah.edu/pub/misc/ndiff-2.00.tar.gz"
+  url "https://ftp.math.utah.edu/pub/misc/ndiff-2.00.tar.gz"
   sha256 "f2bbd9a2c8ada7f4161b5e76ac5ebf9a2862cab099933167fe604b88f000ec2c"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c7c14877b300c9a36d4047b883e773397f819f60718b9e13d17ca4359b317541"
