@@ -4,6 +4,7 @@ class Neatvi < Formula
   url "https://repo.or.cz/neatvi.git",
       tag:      "09",
       revision: "a3b79df332e3c5804ae57c0348549ff35a69f262"
+  license "ISC"
   head "https://repo.or.cz/neatvi.git"
 
   bottle do
