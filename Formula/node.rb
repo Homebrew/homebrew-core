@@ -52,6 +52,7 @@ class Node < Formula
     args = %W[
       --prefix=#{prefix}
       --without-npm
+      --enable-lto
       --with-intl=system-icu
       --shared-libuv
       --shared-nghttp2
