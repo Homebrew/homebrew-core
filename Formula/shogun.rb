@@ -1,6 +1,6 @@
 class Shogun < Formula
   desc "Large scale machine learning toolbox"
-  homepage "https://www.shogun-toolbox.org/"
+  homepage "https://github.com/shogun-toolbox/shogun"
   url "https://github.com/shogun-toolbox/shogun.git",
       tag:      "shogun_6.1.4",
       revision: "ab274e7ab6bf24dd598c1daf1e626cb686d6e1cc"
