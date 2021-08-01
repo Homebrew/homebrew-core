@@ -46,7 +46,7 @@ class Libdill < Formula
           return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-ldill", "-o", "test", "test.c"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-ldill", "-o", "test"
     system "./test"
   end
 end
