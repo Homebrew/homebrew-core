@@ -3,7 +3,7 @@ class Newt < Formula
   homepage "https://pagure.io/newt"
   url "https://releases.pagure.org/newt/newt-0.52.21.tar.gz"
   sha256 "265eb46b55d7eaeb887fca7a1d51fe115658882dfe148164b6c49fccac5abb31"
-  license "LGPL-2.0"
+  license "LGPL-2.0-or-later"
 
   livecheck do
     url "https://releases.pagure.org/newt/"
@@ -23,20 +23,26 @@ class Newt < Formula
   depends_on "popt"
   depends_on "s-lang"
 
+  on_linux do
+    depends_on "python@3.9"
+  end
+
   def install
     args = ["--prefix=#{prefix}", "--without-tcl"]
 
-    inreplace "Makefile.in" do |s|
-      # name libraries correctly
-      # https://bugzilla.redhat.com/show_bug.cgi?id=1192285
-      s.gsub! "libnewt.$(SOEXT).$(SONAME)", "libnewt.$(SONAME).dylib"
-      s.gsub! "libnewt.$(SOEXT).$(VERSION)", "libnewt.$(VERSION).dylib"
+    on_macos do
+      inreplace "Makefile.in" do |s|
+        # name libraries correctly
+        # https://bugzilla.redhat.com/show_bug.cgi?id=1192285
+        s.gsub! "libnewt.$(SOEXT).$(SONAME)", "libnewt.$(SONAME).dylib"
+        s.gsub! "libnewt.$(SOEXT).$(VERSION)", "libnewt.$(VERSION).dylib"
 
-      # don't link to libpython.dylib
-      # causes https://github.com/Homebrew/homebrew/issues/30252
-      # https://bugzilla.redhat.com/show_bug.cgi?id=1192286
-      s.gsub! "`$$pyconfig --ldflags`", '"-undefined dynamic_lookup"'
-      s.gsub! "`$$pyconfig --libs`", '""'
+        # don't link to libpython.dylib
+        # causes https://github.com/Homebrew/homebrew/issues/30252
+        # https://bugzilla.redhat.com/show_bug.cgi?id=1192286
+        s.gsub! "`$$pyconfig --ldflags`", '"-undefined dynamic_lookup"'
+        s.gsub! "`$$pyconfig --libs`", '""'
+      end
     end
 
     system "./configure", *args
