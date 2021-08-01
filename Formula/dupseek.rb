@@ -5,6 +5,11 @@ class Dupseek < Formula
   sha256 "c046118160e4757c2f8377af17df2202d6b9f2001416bfaeb9cd29a19f075d93"
   license "GPL-2.0-only"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?dupseek[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b82a513c1aa616e8f6ea6f8c621355815381d6b0315c85f5956c08aea7c7493f"
