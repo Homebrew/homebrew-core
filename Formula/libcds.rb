@@ -4,6 +4,7 @@ class Libcds < Formula
   url "https://github.com/khizmax/libcds/archive/v2.3.3.tar.gz"
   sha256 "f090380ecd6b63a3c2b2f0bdb27260de2ccb22486ef7f47cc1175b70c6e4e388"
   license "BSL-1.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:     "8933bb8f315e15e385985ba2ddd4b1ebecbcce970fa434afb8648d1d95b34e5d"
@@ -17,8 +18,13 @@ class Libcds < Formula
   depends_on "boost"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    # Change the install library directory for x86_64 arch to `lib`
+    inreplace "CMakeLists.txt", "set(LIB_SUFFIX \"64\")", ""
+
+    mkdir "_build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
@@ -31,7 +37,7 @@ class Libcds < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-o", "test", "test.cpp", "-L#{lib}64", "-lcds", "-std=c++11"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", "-L#{lib}", "-lcds", "-lpthread"
     system "./test"
   end
 end
