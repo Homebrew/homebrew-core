@@ -5,6 +5,7 @@ class Csound < Formula
       tag:      "6.16.2",
       revision: "fb5bdb3681e15f56c216b4e4487b45848aa6b9f4"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -22,18 +23,21 @@ class Csound < Formula
   depends_on "cmake" => :build
   depends_on "eigen" => :build
   depends_on "swig" => :build
+  depends_on "faust"
   depends_on "fltk"
   depends_on "fluid-synth"
   depends_on "gettext"
   depends_on "hdf5"
   depends_on "jack"
   depends_on "liblo"
+  depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
   depends_on "numpy"
   depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
+  depends_on "python@3.9"
   depends_on "stk"
   depends_on "wiiuse"
 
@@ -44,6 +48,16 @@ class Csound < Formula
 
   conflicts_with "libextractor", because: "both install `extract` binaries"
   conflicts_with "pkcrack", because: "both install `extract` binaries"
+
+  resource "ableton-link" do
+    url "https://github.com/Ableton/link/archive/Link-3.0.3.tar.gz"
+    sha256 "195b46f7a33bb88800de19bb08065ec0235e5a920d203a4b2c644c18fbcaff11"
+  end
+
+  resource "csound-plugins" do
+    url "https://github.com/csound/plugins.git",
+        revision: "63b784625e66109babd3b669abcb55f5b404f976"
+  end
 
   resource "getfem" do
     url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.4.1.tar.gz"
@@ -79,6 +93,23 @@ class Csound < Formula
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
+
+    resource("ableton-link").stage buildpath/"ableton-link"
+
+    resource("csound-plugins").stage do
+      mkdir "build" do
+        system "cmake", "..",
+                        "-DABLETON_LINK_HOME=#{buildpath}/ableton-link",
+                        "-DBUILD_ABLETON_LINK_OPCODES=ON",
+                        "-DBUILD_CHUA_OPCODES=OFF",
+                        "-DCSOUNDLIB=CsoundLib64",
+                        "-DCSOUND_INCLUDE_DIR=#{include}/csound",
+                        "-DCS_FRAMEWORK_DEST=#{frameworks}",
+                        "-DUSE_FLTK=OFF",
+                        *std_cmake_args
+        system "make", "install"
+      end
+    end
   end
 
   def caveats
@@ -97,9 +128,12 @@ class Csound < Formula
   test do
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
+      gi_peer link_create
+      gi_programHandle faustcompile "process = _;", "--vectorize --loop-variant 1"
       FLrun
       gi_fluidEngineNumber fluidEngine
       gi_realVector la_i_vr_create 1
+      pyinit
       instr 1
           a_, a_, a_ chuap 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
           a_signal STKPlucked 440, 1
