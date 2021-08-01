@@ -3,7 +3,7 @@ class Ucg < Formula
   homepage "https://github.com/gvansickle/ucg"
   url "https://github.com/gvansickle/ucg/releases/download/0.3.3/universalcodegrep-0.3.3.tar.gz"
   sha256 "116d832bbc743c7dd469e5e7f1b20addb3b7a08df4b4441d59da3acf221caf2d"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   head "https://github.com/gvansickle/ucg.git"
 
   bottle do
@@ -16,12 +16,15 @@ class Ucg < Formula
     sha256 cellar: :any, el_capitan:  "e4699a681ae9d2e9d68ce7da85fc050907070bc9650fad0c4f76faf991f3a422"
   end
 
-  depends_on "argp-standalone" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre2"
+
+  on_macos do
+    depends_on "argp-standalone" => :build
+  end
 
   # Fix Xcode 9 compilation issue: https://github.com/gvansickle/ucg/issues/118
   # Patch adapted from upstream: https://github.com/gvansickle/ucg/commit/395f89
