@@ -1,10 +1,9 @@
 class Qwt < Formula
   desc "Qt Widgets for Technical Applications"
   homepage "https://qwt.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qwt/qwt/6.1.6/qwt-6.1.6.tar.bz2"
-  sha256 "99460d31c115ee4117b0175d885f47c2c590d784206f09815dc058fbe5ede1f6"
+  url "https://downloads.sourceforge.net/project/qwt/qwt/6.2.0/qwt-6.2.0.tar.bz2"
+  sha256 "9194f6513955d0fd7300f67158175064460197abab1a92fa127a67a4b0b71530"
   license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
-  revision 1
 
   livecheck do
     url :stable
