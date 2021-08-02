@@ -18,6 +18,8 @@ class Packetbeat < Formula
   depends_on "mage" => :build
   depends_on "python@3.9" => :build
 
+  uses_from_macos "libpcap"
+
   def install
     # remove non open source files
     rm_rf "x-pack"
@@ -68,7 +70,9 @@ class Packetbeat < Formula
   end
 
   test do
-    assert_match "0: en0", shell_output("#{bin}/packetbeat devices")
+    eth = "en"
+    on_linux { eth = "eth" }
+    assert_match "0: #{eth}0", shell_output("#{bin}/packetbeat devices")
     assert_match version.to_s, shell_output("#{bin}/packetbeat version")
   end
 end
