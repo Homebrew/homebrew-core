@@ -12,6 +12,8 @@ class Qwtpolar < Formula
     sha256 mojave:        "3d6ef191c60c01648584f1db3b9caecc60dfd692d2bfc9e143ee1a9e48b058ff"
   end
 
+  disable! date: "2021-08-01", because: "has been merged into qwt"
+
   depends_on xcode: :build
 
   depends_on "qt@5"
