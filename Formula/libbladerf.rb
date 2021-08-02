@@ -4,7 +4,7 @@ class Libbladerf < Formula
   url "https://github.com/Nuand/bladeRF.git",
       tag:      "2021.02",
       revision: "3b4f42dee4300669d58718df4b85616a85b64904"
-  license "GPL-2.0"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
   head "https://github.com/Nuand/bladeRF.git"
 
   livecheck do
@@ -24,9 +24,9 @@ class Libbladerf < Formula
   depends_on "libusb"
 
   def install
-    ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/usr/include/malloc"
+    on_macos { ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/usr/include/malloc" }
     mkdir "host/build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *std_cmake_args, "-DUDEV_RULES_PATH=#{lib}/udev/rules.d"
       system "make", "install"
     end
   end
