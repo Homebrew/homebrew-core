@@ -1,11 +1,11 @@
 class Pipebench < Formula
   desc "Measure the speed of STDIN/STDOUT communication"
-  homepage "http://www.habets.pp.se/synscan/programs.php?prog=pipebench"
+  homepage "https://www.habets.pp.se/synscan/programs.php?prog=pipebench"
   # Upstream server behaves oddly: https://github.com/Homebrew/homebrew/issues/40897
   # url "http://www.habets.pp.se/synscan/files/pipebench-0.40.tar.gz"
   url "https://deb.debian.org/debian/pool/main/p/pipebench/pipebench_0.40.orig.tar.gz"
   sha256 "ca764003446222ad9dbd33bbc7d94cdb96fa72608705299b6cc8734cd3562211"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5bb970ea3b27cad7960f3f60a86b3a55ad36d29cf11169019c5057e803d8ea75"
