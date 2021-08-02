@@ -2,8 +2,8 @@ class Rakudo < Formula
   desc "Perl 6 compiler targeting MoarVM"
   homepage "https://rakudo.org"
   # NOTE: Please keep these values in sync with moarvm & nqp when updating.
-  url "https://github.com/rakudo/rakudo/releases/download/2021.06/rakudo-2021.06.tar.gz"
-  sha256 "eec13a7c8c44313ea8d6804d6a10c99faf49492e4ffba6e75267acb52ba63d86"
+  url "https://github.com/rakudo/rakudo/releases/download/2021.07/rakudo-2021.07.tar.gz"
+  sha256 "178afe4dc8b2f32e155eb2f8482e1125409edfd8451c39d33a472047047fab52"
   license "Artistic-2.0"
 
   bottle do
