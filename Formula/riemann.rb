@@ -30,33 +30,11 @@ class Riemann < Formula
     EOS
   end
 
-  plist_options manual: "riemann"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/riemann</string>
-            <string>#{etc}/riemann.config</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/riemann.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/riemann.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"riemann", etc/"riemann.config"]
+    keep_alive true
+    log_path var/"log/riemann.log"
+    error_log_path var/"log/riemann.log"
   end
 
   test do
