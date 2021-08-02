@@ -16,6 +16,7 @@ class Broot < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "curl" => :build
   uses_from_macos "zlib"
 
   def install
