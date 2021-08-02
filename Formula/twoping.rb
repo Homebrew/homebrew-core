@@ -3,7 +3,7 @@ class Twoping < Formula
   homepage "https://www.finnie.org/software/2ping/"
   url "https://www.finnie.org/software/2ping/2ping-4.5.1.tar.gz"
   sha256 "b56beb1b7da1ab23faa6d28462bcab9785021011b3df004d5d3c8a97ed7d70d8"
-  license "GPL-2.0-or-later"
+  license "MPL-2.0"
   head "https://github.com/rfinnie/2ping.git", branch: "main"
 
   bottle do
