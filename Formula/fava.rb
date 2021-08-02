@@ -17,6 +17,8 @@ class Fava < Formula
 
   depends_on "python@3.9"
 
+  uses_from_macos "libxslt"
+
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
     sha256 "ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
@@ -274,7 +276,7 @@ class Fava < Formula
     EOS
 
     fork do
-      exec "#{bin}/fava", "--port=#{port}", "#{testpath}/example.ledger"
+      exec bin/"fava", "--port=#{port}", testpath/"example.ledger"
     end
 
     # Wait for fava to start up
