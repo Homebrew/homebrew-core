@@ -3,8 +3,8 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/67/62/7e8d11a473382c69fb91e33a621bcadebab87a0815d0f84306822a266984/regipy-2.0.1.tar.gz"
-  sha256 "3e68dc4c48c21aa23dab21fc83dea209fb1113194690001effbbd77f86d3b033"
+  url "https://files.pythonhosted.org/packages/de/3a/4b3cd81e78d7a748d8849a2af8e7f93da2b6b4725887b52affd3ed8a5dd5/regipy-2.0.2.tar.gz"
+  sha256 "7607c350cc1662b1a4dc4aac4f63c752c03b87fa3b5d4c3b9098fead8163028e"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git"
 
@@ -47,12 +47,6 @@ class Regipy < Formula
   resource "test_hive" do
     url "https://raw.githubusercontent.com/mkorman90/regipy/71acd6a65bdee11ff776dbd44870adad4632404c/regipy_tests/data/SYSTEM.xz"
     sha256 "b1582ab413f089e746da0528c2394f077d6f53dd4e68b877ffb2667bd027b0b0"
-  end
-
-  # Remove for next release
-  patch do
-    url "https://github.com/mkorman90/regipy/commit/655addc9069a25fae01baef4eb3fff87bca1a467.patch?full_index=1"
-    sha256 "cbcdf5f613cbbe30460172b034c1ac8427c61e2fba4f37819cbb0aea5995a567"
   end
 
   def install
