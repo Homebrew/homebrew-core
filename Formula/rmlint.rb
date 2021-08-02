@@ -21,7 +21,18 @@ class Rmlint < Formula
   depends_on "json-glib"
   depends_on "libelf"
 
+  on_linux do
+    depends_on "util-linux"
+  end
+
   def install
+    on_linux do
+      ENV.append_to_cflags "-I#{Formula["util-linux"].opt_include}"
+      ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["glib"].opt_lib}"
+      ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["json-glib"].opt_lib}"
+      ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["util-linux"].opt_lib}"
+    end
+
     # patch to address bug affecting High Sierra & Mojave introduced in rmlint v2.10.0
     # may be removed once the following issue / pull request are resolved & merged:
     #   https://github.com/sahib/rmlint/issues/438
