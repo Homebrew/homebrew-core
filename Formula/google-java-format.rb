@@ -11,6 +11,11 @@ class GoogleJavaFormat < Formula
 
   depends_on "openjdk"
 
+  resource "google-java-format-diff" do
+    url "https://raw.githubusercontent.com/google/google-java-format/v1.11.0/scripts/google-java-format-diff.py"
+    sha256 "5ba9907e08db60ae041fd5746ef57cb528815847ea84f5d0743a61d1379ccf17"
+  end
+
   def install
     libexec.install "google-java-format-#{version}-all-deps.jar" => "google-java-format.jar"
     bin.write_jar_script libexec / "google-java-format.jar", "google-java-format",
@@ -19,6 +24,7 @@ class GoogleJavaFormat < Formula
       --add-exports jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED \
       --add-exports jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED \
       --add-exports jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED"
+    resource("google-java-format-diff").stage { bin.install "google-java-format-diff.py" }
   end
 
   test do
