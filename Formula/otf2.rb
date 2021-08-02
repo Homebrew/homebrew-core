@@ -1,9 +1,14 @@
 class Otf2 < Formula
   desc "Open Trace Format 2 file handling library"
   homepage "https://www.vi-hps.org/projects/score-p/"
-  url "https://www.vi-hps.org/cms/upload/packages/otf2/otf2-2.2.tar.gz"
-  sha256 "d0519af93839dc778eddca2ce1447b1ee23002c41e60beac41ea7fe43117172d"
-  revision 2
+  url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-2.3/otf2-2.3.tar.gz"
+  sha256 "36957428d37c40d35b6b45208f050fb5cfe23c54e874189778a24b0e9219c7e3"
+  license "BSD-3-Clause"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?otf2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "8c8c0f0f92d88b2439cdcb808ba2318a3cd54b7c929a6743a473105fd177fe38"
