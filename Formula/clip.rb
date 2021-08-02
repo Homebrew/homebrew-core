@@ -21,6 +21,12 @@ class Clip < Formula
   depends_on "fribidi"
   depends_on "harfbuzz"
 
+  on_linux do
+    depends_on "gcc" => :build # for C++17
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make"
