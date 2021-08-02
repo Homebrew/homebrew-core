@@ -59,36 +59,10 @@ class TransmissionCli < Formula
     EOS
   end
 
-  plist_options manual: "transmission-daemon --foreground"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/transmission-daemon</string>
-            <string>--foreground</string>
-            <string>--config-dir</string>
-            <string>#{var}/transmission/</string>
-            <string>--log-info</string>
-            <string>--logfile</string>
-            <string>#{var}/transmission/transmission-daemon.log</string>
-          </array>
-          <key>KeepAlive</key>
-          <dict>
-            <key>NetworkState</key>
-            <true/>
-          </dict>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"transmission-daemon", "--foreground", "--config-dir", var/"transmission/", "--log-info",
+         "--logfile", var/"transmission/transmission-daemon.log"]
+    keep_alive true
   end
 
   test do
