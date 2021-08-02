@@ -3,6 +3,7 @@ class Liblwgeom < Formula
   homepage "https://postgis.net/"
   url "https://download.osgeo.org/postgis/source/postgis-2.5.4.tar.gz"
   sha256 "146d59351cf830e2a2a72fa14e700cd5eab6c18ad3e7c644f57c4cee7ed98bbe"
+  license "GPL-2.0-or-later"
   revision 1
   head "https://git.osgeo.org/gitea/postgis/postgis.git"
 
@@ -19,7 +20,7 @@ class Liblwgeom < Formula
   # See details in https://github.com/postgis/postgis/pull/348
   deprecate! date: "2020-11-23", because: "liblwgeom headers are not installed anymore, use librttopo instead"
 
-  depends_on "autoconf" => :build
+  depends_on "autoconf@2.69" => :build
   depends_on "automake" => :build
   depends_on "gpp" => :build
   depends_on "libtool" => :build
@@ -27,7 +28,7 @@ class Liblwgeom < Formula
 
   depends_on "geos"
   depends_on "json-c"
-  depends_on "proj"
+  depends_on "proj@7"
 
   uses_from_macos "libxml2"
 
@@ -39,7 +40,7 @@ class Liblwgeom < Formula
       "--disable-dependency-tracking",
       "--disable-nls",
 
-      "--with-projdir=#{Formula["proj"].opt_prefix}",
+      "--with-projdir=#{Formula["proj@7"].opt_prefix}",
       "--with-jsondir=#{Formula["json-c"].opt_prefix}",
 
       # Disable extraneous support
@@ -72,7 +73,7 @@ class Liblwgeom < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["proj"].opt_include}",
+    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["proj@7"].opt_include}",
                    "-L#{lib}", "-llwgeom", "-o", "test"
     system "./test"
   end
