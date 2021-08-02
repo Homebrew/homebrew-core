@@ -272,8 +272,7 @@ class CloudformationCli < Formula
   end
 
   test do
-    script = (testpath/"test.sh")
-    script.write <<~EOS
+    (testpath/"test.exp").write <<~EOS
       #!/usr/bin/env expect -f
       set timeout -1
 
@@ -295,8 +294,7 @@ class CloudformationCli < Formula
       expect eof
     EOS
 
-    script.chmod 0700
-    system "./test.sh"
+    system "expect", "-f", "test.exp"
 
     rpdk_config = JSON.parse(File.read(testpath/".rpdk-config"))
     assert_equal "brew::formula::test", rpdk_config["typeName"]
