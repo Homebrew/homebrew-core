@@ -79,6 +79,6 @@ class Virtualenvwrapper < Formula
 
   test do
     assert_match "created virtual environment",
-      shell_output("source virtualenvwrapper.sh; mktmpenv")
+                 shell_output("bash -c 'source virtualenvwrapper.sh; mktmpenv'")
   end
 end
