@@ -3,6 +3,7 @@ class EbookTools < Formula
   homepage "https://sourceforge.net/projects/ebook-tools/"
   url "https://downloads.sourceforge.net/project/ebook-tools/ebook-tools/0.2.2/ebook-tools-0.2.2.tar.gz"
   sha256 "cbc35996e911144fa62925366ad6a6212d6af2588f1e39075954973bbee627ae"
+  license "MIT"
   revision 3
 
   bottle do
@@ -17,6 +18,8 @@ class EbookTools < Formula
 
   depends_on "cmake" => :build
   depends_on "libzip"
+
+  uses_from_macos "libxml2"
 
   def install
     system "cmake", ".",
