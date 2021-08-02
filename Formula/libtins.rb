@@ -17,13 +17,17 @@ class Libtins < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
+  uses_from_macos "libpcap"
+
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
-    doc.install "examples"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args, "-DLIBTINS_ENABLE_CXX11=1"
+      system "make", "install"
+      doc.install "examples"
+    end
 
     # Clean up the build file garbage that has been installed.
-    rm_r Dir["#{share}/doc/libtins/**/CMakeFiles/"]
+    rm_r Dir[share/"doc/libtins/**/CMakeFiles/"]
   end
 
   test do
@@ -33,6 +37,6 @@ class Libtins < Formula
         Tins::Sniffer sniffer("en0");
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-ltins", "-o", "test"
+    system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-ltins", "-o", "test"
   end
 end
