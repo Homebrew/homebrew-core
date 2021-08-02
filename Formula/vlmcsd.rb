@@ -51,30 +51,9 @@ class Vlmcsd < Formula
     EOS
   end
 
-  plist_options manual: "vlmcsd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{bin}/vlmcsd</string>
-            <string>-i</string>
-            <string>#{etc}/vlmcsd/vlmcsd.ini</string>
-            <string>-D</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [bin/"vlmcsd", "-i", etc/"vlmcsd/vlmcsd.ini", "-D"]
+    keep_alive false
   end
 
   test do
