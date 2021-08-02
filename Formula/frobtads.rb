@@ -1,8 +1,8 @@
 class Frobtads < Formula
   desc "TADS interpreter and compilers"
   homepage "https://www.tads.org/frobtads.htm"
-  url "https://github.com/realnc/frobtads/releases/download/1.2.4/frobtads-1.2.4.tar.bz2"
-  sha256 "705be5849293844f499a85280e793941b0eacb362b90d49d85ae8308e4c5b63c"
+  url "https://github.com/realnc/frobtads/releases/download/v2.0/frobtads-2.0.tar.bz2"
+  sha256 "893bd3fd77dfdc8bfe8a96e8d7bfac693da0e4278871f10fe7faa59cc239a090"
 
   bottle do
     sha256 arm64_big_sur: "38ca03ffb773038f3662b2ae3f87fd1fe531d4fcd4e4543787d1f091876b5216"
@@ -15,13 +15,16 @@ class Frobtads < Formula
     sha256 x86_64_linux:  "3b10286a24e988e0b119a4892f1d11a626377ff1696293a6e91289441933ef1a"
   end
 
+  depends_on "cmake" => :build
+
   uses_from_macos "curl"
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
