@@ -15,6 +15,8 @@ class Grin < Formula
   depends_on "llvm" => :build # for libclang
   depends_on "rust" => :build
 
+  uses_from_macos "ncurses"
+
   def install
     ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
 
@@ -22,7 +24,7 @@ class Grin < Formula
   end
 
   test do
-    system "#{bin}/grin", "server", "config"
+    system bin/"grin", "server", "config"
     assert_predicate testpath/"grin-server.toml", :exist?
   end
 end
