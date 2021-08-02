@@ -26,6 +26,12 @@ class Irrtoolset < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "readline"
+  end
+
   def install
     system "autoreconf", "-iv"
     system "./configure", "--prefix=#{prefix}"
