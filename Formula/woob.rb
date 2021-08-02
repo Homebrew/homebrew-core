@@ -25,6 +25,9 @@ class Woob < Formula
   depends_on "python@3.9"
   depends_on "six"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+
   resource "Babel" do
     url "https://files.pythonhosted.org/packages/17/e6/ec9aa6ac3d00c383a5731cc97ed7c619d3996232c977bb8326bcbb6c687e/Babel-2.9.1.tar.gz"
     sha256 "bc0c176f9f6a994582230df350aa6e05ba2ebe4b3ac317eab29d9be5d2768da0"
