@@ -1,15 +1,10 @@
 class Angband < Formula
   desc "Dungeon exploration game"
-  homepage "https://rephial.org/"
-  url "https://rephial.org/downloads/4.2/angband-4.2.1.tar.gz"
-  sha256 "acd735c9d46bf86ee14337c71c56f743ad13ec2a95d62e7115604621e7560d0f"
-  license "GPL-2.0"
+  homepage "https://angband.github.io/angband/"
+  url "https://github.com/angband/angband/releases/download/4.2.3/Angband-4.2.3.tar.gz"
+  sha256 "833c4f8cff2aee61ad015f9346fceaa4a8c739fe2dbe5bd1acd580c91818e6bb"
+  license "GPL-2.0-only"
   head "https://github.com/angband/angband.git"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?angband[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
 
   bottle do
     sha256 arm64_big_sur: "156672377070d2d66c338e5ebc9e6a3ea0afd544a1da97f9ef35cdd2b0a859cc"
@@ -20,12 +15,8 @@ class Angband < Formula
     sha256 x86_64_linux:  "cd43efed01a8c159e358535a00c83b6025cf4ac1a2d67a84be760484127eda4c"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-
   def install
     ENV["NCURSES_CONFIG"] = "#{MacOS.sdk_path}/usr/bin/ncurses5.4-config"
-    system "./autogen.sh"
     system "./configure", "--prefix=#{prefix}",
                           "--bindir=#{bin}",
                           "--libdir=#{libexec}",
