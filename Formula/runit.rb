@@ -56,43 +56,12 @@ class Runit < Formula
     EOS
   end
 
-  plist_options manual: "runit"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/runsvdir</string>
-            <string>-P</string>
-            <string>#{var}/service</string>
-          </array>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <key>PATH</key>
-            <string>/usr/bin:/bin:/usr/sbin:/sbin:#{opt_bin}</string>
-          </dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>Crashed</key>
-            <true/>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>ProcessType</key>
-          <string>Background</string>
-         <key>StandardErrorPath</key>
-          <string>#{var}/log/runit.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/runit.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"runsvdir", "-P", var/"service"]
+    keep_alive true
+    log_path var/"log/runit.log"
+    error_log_path var/"log/runit.log"
+    environment_variables PATH: "/usr/bin:/bin:/usr/sbin:/sbin:#{opt_bin}"
   end
 
   test do
