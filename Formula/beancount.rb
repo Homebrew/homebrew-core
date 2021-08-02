@@ -17,6 +17,9 @@ class Beancount < Formula
 
   depends_on "python@3.9"
 
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
+
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"
     sha256 "832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
