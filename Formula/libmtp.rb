@@ -3,7 +3,7 @@ class Libmtp < Formula
   homepage "https://libmtp.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/libmtp/libmtp/1.1.18/libmtp-1.1.18.tar.gz"
   sha256 "7280fe50c044c818a06667f45eabca884deab3193caa8682e0b581e847a281f0"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4af12c090f3214200d4a37b9511c1fc1ba0269b40f26c0e9c45c4dbfe2c64474"
@@ -19,7 +19,8 @@ class Libmtp < Formula
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--disable-mtpz"
+                          "--disable-mtpz",
+                          "--with-udev=#{lib}/udev"
     system "make", "install"
   end
 
