@@ -1,9 +1,9 @@
 class Functionalplus < Formula
   desc "Functional Programming Library for C++"
   homepage "https://github.com/Dobiasd/FunctionalPlus"
-  url "https://github.com/Dobiasd/FunctionalPlus/archive/v0.2.14-p0.tar.gz"
-  version "0.2.14"
-  sha256 "68a0e715aa18d2fe558fede06d65ec125959895efe4d0ef21b102037c9864ba1"
+  url "https://github.com/Dobiasd/FunctionalPlus/archive/v0.2.15-p0.tar.gz"
+  version "0.2.15"
+  sha256 "4c76104ec8f6da5e66ed768380bdf128e0ba01725056c40a3c1b850cf4b441ad"
   license "BSL-1.0"
   head "https://github.com/Dobiasd/FunctionalPlus.git"
 
