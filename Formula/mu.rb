@@ -4,8 +4,8 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/archive/refs/tags/1.6.0.tar.gz"
-  sha256 "a928f8be89de66b9d7bb8e7bf10a864e0af5e89177eb80dc16e9de6079783fc8"
+  url "https://github.com/djcb/mu/releases/download/1.6.1/mu-1.6.1.tar.xz"
+  sha256 "1c9ca62c50f1f087c15aa94c6c02d206a7f297b7903dfdf67e1ced4460d7c784"
   license "GPL-3.0-or-later"
 
   # We restrict matching to versions with an even-numbered minor version number,
@@ -27,11 +27,11 @@ class Mu < Formula
   head do
     url "https://github.com/djcb/mu.git"
 
+    depends_on "autoconf" => :build
     depends_on "autoconf-archive" => :build
+    depends_on "automake" => :build
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "emacs" => :build
   depends_on "libgpg-error" => :build
   depends_on "libtool" => :build
@@ -50,7 +50,7 @@ class Mu < Formula
   fails_with gcc: "5"
 
   def install
-    system "autoreconf", "-ivf"
+    system "autoreconf", "-ivf" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-guile",
                           "--prefix=#{prefix}",
