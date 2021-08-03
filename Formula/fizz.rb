@@ -1,8 +1,8 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
-  url "https://github.com/facebookincubator/fizz/releases/download/v2021.06.14.00/fizz-v2021.06.14.00.tar.gz"
-  sha256 "d95050d02586e30c71f3a517cca619a6e415932b438ff20a62ee3192a389276a"
+  url "https://github.com/facebookincubator/fizz/releases/download/v2021.08.02.00/fizz-v2021.08.02.00.tar.gz"
+  sha256 "429be5bfdca71cdb41b92523508abbc2f8d6b39ad5ebf3585f51f4231ca1544f"
   license "BSD-2-Clause"
   head "https://github.com/facebookincubator/fizz.git"
 
@@ -26,6 +26,12 @@ class Fizz < Formula
   depends_on "openssl@1.1"
   depends_on "snappy"
   depends_on "zstd"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     mkdir "fizz/build" do
