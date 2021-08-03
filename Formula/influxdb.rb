@@ -82,38 +82,13 @@ class Influxdb < Formula
     (var/"log/influxdb2").mkpath
   end
 
-  plist_options manual: "INFLUXD_CONFIG_PATH=#{HOMEBREW_PREFIX}/etc/influxdb2/config.yml influxd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>EnvironmentVariables</key>
-        <dict>
-          <key>INFLUXD_CONFIG_PATH</key>
-          <string>#{etc}/influxdb2/config.yml</string>
-        </dict>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{bin}/influxd</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/influxdb2/influxd_output.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/influxdb2/influxd_output.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run bin/"influxd"
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"log/influxdb2/influxd_output.log"
+    error_log_path var/"log/influxdb2/influxd_output.log"
+    environment_variables INFLUXD_CONFIG_PATH: etc/"influxdb2/config.yml"
   end
 
   test do
