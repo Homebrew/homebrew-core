@@ -31,38 +31,11 @@ class YubikeyAgent < Formula
     EOS
   end
 
-  plist_options manual: "yubikey-agent -l #{HOMEBREW_PREFIX}/var/run/yubikey-agent.sock"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>EnvironmentVariables</key>
-        <dict>
-          <key>PATH</key>
-          <string>/usr/bin:/bin:/usr/sbin:/sbin</string>
-        </dict>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/yubikey-agent</string>
-          <string>-l</string>
-          <string>#{var}/run/yubikey-agent.sock</string>
-        </array>
-        <key>RunAtLoad</key><true/>
-        <key>KeepAlive</key><true/>
-        <key>ProcessType</key>
-        <string>Background</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/yubikey-agent.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/yubikey-agent.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"yubikey-agent", "-l", var/"run/yubikey-agent.sock"]
+    keep_alive true
+    log_path var/"log/yubikey-agent.log"
+    error_log_path var/"log/yubikey-agent.log"
   end
 
   test do
