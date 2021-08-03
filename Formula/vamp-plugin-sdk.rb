@@ -1,13 +1,19 @@
 class VampPluginSdk < Formula
   desc "Audio processing plugin system sdk"
   homepage "https://www.vamp-plugins.org/"
-  url "https://code.soundsoftware.ac.uk/attachments/download/2691/vamp-plugin-sdk-2.10.0.tar.gz"
+  # curl fails to fetch upstream source, using Debian's instead
+  url "https://deb.debian.org/debian/pool/main/v/vamp-plugin-sdk/vamp-plugin-sdk_2.10.0.orig.tar.gz"
+  mirror "https://code.soundsoftware.ac.uk/attachments/download/2691/vamp-plugin-sdk-2.10.0.tar.gz"
   sha256 "aeaf3762a44b148cebb10cde82f577317ffc9df2720e5445c3df85f3739ff75f"
   head "https://code.soundsoftware.ac.uk/hg/vamp-plugin-sdk", using: :hg
 
+  # code.soundsoftware.ac.uk has SSL certificate verification issues, so we're
+  # using Debian in the interim time. If/when the `stable` URL returns to
+  # code.soundsoftware.ac.uk, the previous `livecheck` block should be
+  # reinstated: https://github.com/Homebrew/homebrew-core/pull/75104
   livecheck do
-    url "https://code.soundsoftware.ac.uk/projects/vamp-plugin-sdk/files"
-    regex(/href=.*?vamp-plugin-sdk[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url "https://deb.debian.org/debian/pool/main/v/vamp-plugin-sdk/"
+    regex(/href=.*?vamp-plugin-sdk[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
   end
 
   bottle do
@@ -25,7 +31,7 @@ class VampPluginSdk < Formula
   depends_on "libsndfile"
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -40,7 +46,10 @@ class VampPluginSdk < Formula
       vampGetPluginDescriptor(unsigned int version, unsigned int index) { return NULL; }
     EOS
 
-    system ENV.cxx, "test.cpp", "-I#{include}", "-Wl,-dylib", "-o", shared_library("test")
+    flags = ["-Wl,-dylib"]
+    on_linux { flags = ["-shared", "-fPIC"] }
+
+    system ENV.cxx, "test.cpp", "-I#{include}", *flags, "-o", shared_library("test")
     assert_match "Usage:", shell_output("#{bin}/vamp-rdf-template-generator 2>&1", 2)
 
     cp "#{lib}/vamp/vamp-example-plugins.so", testpath/shared_library("vamp-example-plugins")
