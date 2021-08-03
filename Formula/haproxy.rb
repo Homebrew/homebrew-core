@@ -45,31 +45,11 @@ class Haproxy < Formula
     bin.install "haproxy"
   end
 
-  plist_options manual: "haproxy -f #{HOMEBREW_PREFIX}/etc/haproxy.cfg"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/haproxy</string>
-            <string>-f</string>
-            <string>#{etc}/haproxy.cfg</string>
-          </array>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/haproxy.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/haproxy.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"haproxy", "-f", etc/"haproxy.cfg"]
+    keep_alive true
+    log_path var/"log/haproxy.log"
+    error_log_path var/"log/haproxy.log"
   end
 
   test do
