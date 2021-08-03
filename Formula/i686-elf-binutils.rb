@@ -6,6 +6,10 @@ class I686ElfBinutils < Formula
   sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    formula "binutils"
+  end
+
   bottle do
     sha256 arm64_big_sur: "04659e65f3d10dc3881947446255bc02f946783669a26daaf79386e99e00039c"
     sha256 big_sur:       "5fff1dc8e6b6b0859f21ade50d38937bc04c03b7a36e0c48f3e6848efacf8b46"
