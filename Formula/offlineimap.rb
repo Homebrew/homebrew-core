@@ -3,7 +3,7 @@ class Offlineimap < Formula
   homepage "https://www.offlineimap.org/"
   url "https://files.pythonhosted.org/packages/09/12/73db8d38fea8ec3536cbccb8286b46b426639aff7e166840fa5e68e889e2/offlineimap-7.3.4.tar.gz"
   sha256 "5dbd7167b8729d87caa50bed63562868b6634b888348d9bc088a721530c82fef"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/OfflineIMAP/offlineimap.git"
 
   bottle do
