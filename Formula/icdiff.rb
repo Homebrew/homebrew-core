@@ -3,8 +3,8 @@ class Icdiff < Formula
 
   desc "Improved colored diff"
   homepage "https://github.com/jeffkaufman/icdiff"
-  url "https://github.com/jeffkaufman/icdiff/archive/release-2.0.0.tar.gz"
-  sha256 "bce07ff4995aafe9de274ca0a322e56275dc264948b125457d2cc73dd7e9eee2"
+  url "https://github.com/jeffkaufman/icdiff/archive/release-2.0.3.tar.gz"
+  sha256 "23e9502895999a929e1d3559403205846742f7cf8a22c5d7f3c4db910ba12321"
   license "PSF-2.0"
   head "https://github.com/jeffkaufman/icdiff.git"
 
