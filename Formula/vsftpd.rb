@@ -52,26 +52,9 @@ class Vsftpd < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "sudo vsftpd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/vsftpd</string>
-          <string>#{etc}/vsftpd.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_sbin/"vsftpd", etc/"vsftpd.conf"]
   end
 
   test do
