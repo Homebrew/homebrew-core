@@ -6,6 +6,7 @@ class Libtensorflow < Formula
   url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "233875ea27fc357f6b714b2a0de5f6ff124b50c1ee9b3b41f9e726e9e677b86c"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:  "719af44e1d97ecb589aba04419a3f4298942896e6385bce5a6567496b50c3cc7"
@@ -14,8 +15,27 @@ class Libtensorflow < Formula
   end
 
   depends_on "bazel" => :build
+  depends_on "cython" => :build
+  depends_on "nasm" => :build
   depends_on "numpy" => :build
   depends_on "python@3.9" => :build
+  depends_on "double-conversion"
+  depends_on "flatbuffers"
+  depends_on "giflib"
+  depends_on "hwloc"
+  depends_on "jpeg-turbo"
+  depends_on "jsoncpp"
+  depends_on "libdill"
+  depends_on "libpng"
+  depends_on "lmdb"
+  depends_on "pybind11"
+  depends_on "re2"
+  depends_on "six"
+  depends_on "snappy"
+
+  uses_from_macos "curl"
+  uses_from_macos "sqlite"
+  uses_from_macos "zlib"
 
   resource "test-model" do
     url "https://github.com/tensorflow/models/raw/v1.13.0/samples/languages/java/training/model/graph.pb"
@@ -24,16 +44,16 @@ class Libtensorflow < Formula
 
   def install
     # Allow tensorflow to use current version of bazel
-    (buildpath / ".bazelversion").atomic_write Formula["bazel"].version
+    (buildpath/".bazelversion").atomic_write Formula["bazel"].version
 
     ENV["PYTHON_BIN_PATH"] = Formula["python@3.9"].opt_bin/"python3"
+    ENV["USE_DEFAULT_PYTHON_LIB_PATH"] = "1"
     ENV["CC_OPT_FLAGS"] = "-march=native"
     ENV["TF_IGNORE_MAX_BAZEL_VERSION"] = "1"
     ENV["TF_NEED_JEMALLOC"] = "1"
     ENV["TF_NEED_GCP"] = "0"
     ENV["TF_NEED_HDFS"] = "0"
     ENV["TF_ENABLE_XLA"] = "0"
-    ENV["USE_DEFAULT_PYTHON_LIB_PATH"] = "1"
     ENV["TF_NEED_OPENCL"] = "0"
     ENV["TF_NEED_CUDA"] = "0"
     ENV["TF_NEED_MKL"] = "0"
@@ -47,12 +67,33 @@ class Libtensorflow < Formula
     ENV["TF_DOWNLOAD_CLANG"] = "0"
     ENV["TF_SET_ANDROID_WORKSPACE"] = "0"
     ENV["TF_CONFIGURE_IOS"] = "0"
+    ENV["TF_SYSTEM_LIBS"] = %w[
+      com_googlesource_code_re2
+      curl
+      cython
+      dill_archive
+      double_conversion
+      flatbuffers
+      gif
+      hwloc
+      jsoncpp_git
+      libjpeg_turbo
+      lmdb
+      nasm
+      org_sqlite
+      png
+      pybind11
+      six_archive
+      snappy
+      zlib
+    ].join(",")
     system "./configure"
 
     bazel_args =%W[
       --jobs=#{ENV.make_jobs}
       --compilation_mode=opt
       --copt=-march=native
+      --define=PREFIX=#{HOMEBREW_PREFIX}
     ]
     targets = %w[
       tensorflow:libtensorflow.so
@@ -63,8 +104,8 @@ class Libtensorflow < Formula
     ]
     system "bazel", "build", *bazel_args, *targets
 
-    lib.install Dir["bazel-bin/tensorflow/*.so*", "bazel-bin/tensorflow/*.dylib*"]
-    include.install "bazel-bin/tensorflow/include/tensorflow"
+    lib.install Dir["bazel-bin/tensorflow/#{shared_library("*")}"]
+    (include/"tensorflow").install Dir["bazel-bin/tensorflow/include/*"]
     bin.install %w[
       bazel-bin/tensorflow/tools/benchmark/benchmark_model
       bazel-bin/tensorflow/tools/graph_transforms/summarize_graph
@@ -76,7 +117,7 @@ class Libtensorflow < Formula
       Description: Tensorflow library
       Version: #{version}
       Libs: -L#{lib} -ltensorflow
-      Cflags: -I#{include}
+      Cflags: -I#{include}/tensorflow
     EOS
   end
 
@@ -84,11 +125,12 @@ class Libtensorflow < Formula
     (testpath/"test.c").write <<~EOS
       #include <stdio.h>
       #include <tensorflow/c/c_api.h>
+      #include <tensorflow/core/framework/tensor.h>
       int main() {
         printf("%s", TF_Version());
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-ltensorflow", "-o", "test_tf", "test.c"
+    system ENV.cc, "test.c", "-I#{include}/tensorflow", "-L#{lib}", "-ltensorflow", "-o", "test_tf"
     assert_equal version, shell_output("./test_tf")
 
     resource("test-model").stage(testpath)
