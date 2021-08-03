@@ -1,8 +1,8 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/releases/download/v2021.06.14.00/wangle-v2021.06.14.00.tar.gz"
-  sha256 "f3086e647c48af62db7ea995d33ba5499e34831eb902b3feeef172bd34fe0028"
+  url "https://github.com/facebook/wangle/releases/download/v2021.08.02.00/wangle-v2021.08.02.00.tar.gz"
+  sha256 "d76c54c0a4cc800cf6059b7207352f2af6140e3f8e4b4431989ab018ba401170"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git"
 
@@ -30,6 +30,12 @@ class Wangle < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     cd "wangle" do
@@ -60,21 +66,35 @@ class Wangle < Formula
       -lfizz
       -lwangle
     ]
+    on_linux do
+      cxx_flags << "-L#{Formula["boost"].opt_lib}"
+      cxx_flags << "-lboost_context-mt"
+      cxx_flags << "-ldl"
+      cxx_flags << "-lpthread"
+    end
 
-    system ENV.cxx, *cxx_flags, "-o", "EchoClient", pkgshare/"EchoClient.cpp"
-    system ENV.cxx, *cxx_flags, "-o", "EchoServer", pkgshare/"EchoServer.cpp"
+    system ENV.cxx, pkgshare/"EchoClient.cpp", *cxx_flags, "-o", "EchoClient"
+    system ENV.cxx, pkgshare/"EchoServer.cpp", *cxx_flags, "-o", "EchoServer"
 
     port = free_port
-
+    ohai "Starting EchoServer on port #{port}"
     fork { exec testpath/"EchoServer", "-port", port.to_s }
-    sleep 2
+    sleep 3
 
     require "pty"
-    r, w, pid = PTY.spawn(testpath/"EchoClient", "-port", port.to_s)
-    w.write "Hello from Homebrew!\nAnother test line.\n"
-    sleep 1
-    Process.kill("TERM", pid)
-    output = r.read
+    output = ""
+    PTY.spawn(testpath/"EchoClient", "-port", port.to_s) do |r, w, pid|
+      ohai "Sending data via EchoClient"
+      w.write "Hello from Homebrew!\nAnother test line.\n"
+      sleep 3
+      Process.kill "TERM", pid
+      begin
+        ohai "Reading received data"
+        r.each_line { |line| output += line }
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+    end
     assert_match("Hello from Homebrew!", output)
     assert_match("Another test line.", output)
   end
