@@ -9,6 +9,8 @@ class ZshAutosuggestions < Formula
     sha256 cellar: :any_skip_relocation, all: "7d7ebb99936012692e3ea2d4ceac150dd991ef25e8c7a7df74855b3a4217e304"
   end
 
+  uses_from_macos "zsh" => :test
+
   def install
     pkgshare.install "zsh-autosuggestions.zsh"
   end
