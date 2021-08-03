@@ -1,8 +1,8 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/bb/bb/944f559d554df6c9adf037aa9fc982a9706ee0e96c0d5beac701cb158900/scipy-1.7.0.tar.gz"
-  sha256 "998c5e6ea649489302de2c0bc026ed34284f531df89d2bdc8df3a0d44d165739"
+  url "https://files.pythonhosted.org/packages/47/33/a24aec22b7be7fdb10ec117a95e1e4099890d8bbc6646902f443fc7719d1/scipy-1.7.1.tar.gz"
+  sha256 "6b47d5fa7ea651054362561a28b1ccc8da9368a39514c1bbf6c0977a1c376764"
   license "BSD-3-Clause"
   head "https://github.com/scipy/scipy.git"
 
