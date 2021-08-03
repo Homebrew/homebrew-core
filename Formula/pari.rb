@@ -31,8 +31,10 @@ class Pari < Formula
     system "make", "all"
     system "make", "install"
 
+    os = "mac"
+    on_linux { os = "linux" }
     # Avoid references to Homebrew shims
-    inreplace lib/"pari/pari.cfg", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/", "/usr/bin/"
+    inreplace lib/"pari/pari.cfg", HOMEBREW_LIBRARY/"Homebrew/shims/#{os}/super/", "/usr/bin/"
   end
 
   def caveats
