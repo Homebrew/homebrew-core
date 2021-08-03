@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/6a/b5/89a0fb08ff16f8923eaa768bbc348a2ffcc97598ba795d1332b4f5010b24/moto-2.2.0.tar.gz"
-  sha256 "54824ad7fb5040d60558f7f34e0cb32e2de1d97612c03a1f9accfe3d5b94d2a6"
+  url "https://files.pythonhosted.org/packages/3c/c3/cd9ee8cf0c520ed2b5e98b11049a281fd1a1bec2871a9ab6e1da6183b64f/moto-2.2.1.tar.gz"
+  sha256 "4ea538fe090b964c22bb98a6f87d3c589eaf754893d297d58b74dedb94d4448c"
   license "Apache-2.0"
 
   bottle do
@@ -34,13 +34,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7e/99/1f0354ecfaf43375acf2a13f1f1937a094b9adc8b1172aea092e94d65756/boto3-1.18.8.tar.gz"
-    sha256 "19cff13dd9b51ce66fad13c9f04ffcc12d5475dd8cd660e8cd6aac42aa45c24c"
+    url "https://files.pythonhosted.org/packages/8d/16/d65ae8910b5b987c00aa382a9b47c8eb5cab9a0a99024b12445e84c5eb4d/boto3-1.18.12.tar.gz"
+    sha256 "596fb9df00a816780db8620d9f62982eb783b3eb63a75947e172101d0785e6aa"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/8f/1d/7a6ca40324a2a0de195fad98d3c092a4f2904f83d5f7b1e1d180db31cc27/botocore-1.21.8.tar.gz"
-    sha256 "437cdcd518e6f9db72ec87f170cc66d54081c8abc347abb9f9a3cd9c8e993bd1"
+    url "https://files.pythonhosted.org/packages/ec/0f/cf443c142af1e5a7728a5357304e39bfe63ab6a5eb84035eefa509bd843d/botocore-1.21.12.tar.gz"
+    sha256 "8710d03b9de3e3d94ed410f3e83809ca02050b091100d68c22ff7bf986f29fb6"
   end
 
   resource "certifi" do
@@ -54,13 +54,13 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/ce/13/96c8c7ab199e0f20f98ff5f043bb4949123f2b07c5199f2f81cc0e3ef66e/cfn-lint-0.52.0.tar.gz"
-    sha256 "f26d30bfd6e8ef4f3563c9d3bc5499728eaf614b040563448d2063a2de730308"
+    url "https://files.pythonhosted.org/packages/7a/97/501de7b17de2f2f95d6fd0c21bda61074e8843bcc83b515b604ee8b5cf70/cfn-lint-0.53.0.tar.gz"
+    sha256 "b7f5964842f7a44c5af9c61d64308dc4bcb718cf5de5428781d5564e9663463d"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/37/fd/05a04d7e14548474d30d90ad0db5d90ee2ba55cd967511a354cf88b534f1/charset-normalizer-2.0.3.tar.gz"
-    sha256 "c46c3ace2d744cfbdebceaa3c19ae691f53ae621b39fd7570f59d14fb7f2fd12"
+    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
+    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
   end
 
   resource "click" do
