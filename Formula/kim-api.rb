@@ -27,26 +27,35 @@ class KimApi < Formula
 
   def install
     # change file(COPY) to configure_file() to avoid symlink issue; will be fixed in 2.2.2
-    inreplace "cmake/items-macros.cmake.in" do |s|
-      s.gsub!(/file\(COPY ([^ ]+) DESTINATION ([^ ]*)\)/, 'configure_file(\1 \2 COPYONLY)')
-    end
-    args = std_cmake_args
+    inreplace "cmake/items-macros.cmake.in", /file\(COPY ([^ ]+) DESTINATION ([^ ]*)\)/,
+                                             "configure_file(\\1 \\2 COPYONLY)"
+    args = std_cmake_args + [
+      # adjust libexec dir
+      "-DCMAKE_INSTALL_LIBEXECDIR=lib",
+      # adjust directories for system collection
+      "-DKIM_API_SYSTEM_MODEL_DRIVERS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/model-drivers",
+      "-DKIM_API_SYSTEM_PORTABLE_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/portable-models",
+      "-DKIM_API_SYSTEM_SIMULATOR_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/simulator-models",
+      # adjust zsh completion install
+      "-DZSH_COMPLETION_COMPLETIONSDIR=#{zsh_completion}",
+      "-DBASH_COMPLETION_COMPLETIONSDIR=#{bash_completion}",
+    ]
     # adjust compiler settings for package
-    args << "-DKIM_API_CMAKE_C_COMPILER=/usr/bin/clang"
-    args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/clang++"
-    # adjust libexec dir
-    args << "-DCMAKE_INSTALL_LIBEXECDIR=lib"
-    # adjust directories for system collection
-    args << "-DKIM_API_SYSTEM_MODEL_DRIVERS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/model-drivers"
-    args << "-DKIM_API_SYSTEM_PORTABLE_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/portable-models"
-    args << "-DKIM_API_SYSTEM_SIMULATOR_MODELS_DIR=:#{HOMEBREW_PREFIX}/lib/openkim-models/simulator-models"
-    # adjust zsh completion install
-    args << "-DZSH_COMPLETION_COMPLETIONSDIR=#{zsh_completion}"
-    args << "-DBASH_COMPLETION_COMPLETIONSDIR=#{bash_completion}"
-    system "cmake", ".", *args
-    system "make"
-    system "make", "docs"
-    system "make", "install"
+    on_macos do
+      args << "-DKIM_API_CMAKE_C_COMPILER=/usr/bin/clang"
+      args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/clang++"
+    end
+    on_linux do
+      args << "-DKIM_API_CMAKE_C_COMPILER=/usr/bin/gcc"
+      args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/g++"
+    end
+
+    mkdir "build" do
+      system "cmake", "..", *args
+      system "make"
+      system "make", "docs"
+      system "make", "install"
+    end
   end
 
   test do
