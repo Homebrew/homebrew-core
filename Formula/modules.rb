@@ -19,6 +19,10 @@ class Modules < Formula
 
   depends_on "tcl-tk"
 
+  on_linux do
+    depends_on "less"
+  end
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -26,6 +30,12 @@ class Modules < Formula
       --with-tcl=#{Formula["tcl-tk"].opt_lib}
       --without-x
     ]
+
+    on_linux do
+      args << "--with-pager=#{Formula["less"].opt_bin}/less"
+      args << "--with-tclsh=#{Formula["tcl-tk"].opt_bin}/tclsh"
+    end
+
     system "./configure", *args
     system "make", "install"
   end
@@ -41,7 +51,12 @@ class Modules < Formula
 
   test do
     assert_match "restore", shell_output("#{bin}/envml --help")
-    output = shell_output("zsh -c 'source #{prefix}/init/zsh; module' 2>&1")
+    shell = "zsh"
+    on_linux { shell = "sh" }
+    cmd = "source"
+    on_linux { cmd = "." }
+
+    output = shell_output("#{shell} -c '#{cmd} #{prefix}/init/#{shell}; module' 2>&1")
     assert_match version.to_s, output
   end
 end
