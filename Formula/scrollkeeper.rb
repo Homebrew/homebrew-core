@@ -3,6 +3,7 @@ class Scrollkeeper < Formula
   homepage "https://scrollkeeper.sourceforge.io/"
   url "https://downloads.sourceforge.net/project/scrollkeeper/scrollkeeper/0.3.14/scrollkeeper-0.3.14.tar.gz"
   sha256 "4a0bd3c3a2c5eca6caf2133a504036665485d3d729a16fc60e013e1b58e7ddad"
+  license "LGPL-2.1-or-later"
   revision 2
 
   bottle do
@@ -22,12 +23,35 @@ class Scrollkeeper < Formula
   conflicts_with "rarian",
     because: "scrollkeeper and rarian install the same binaries"
 
+  resource "XML::Parser" do
+    on_linux do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.44.tar.gz"
+      sha256 "1ae9d07ee9c35326b3d9aad56eae71a6730a73a116b9fe9e8a4758b7cc033216"
+    end
+  end
+
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
+
+    on_linux do
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+      resources.each do |res|
+        res.stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make", "PERL5LIB=#{ENV["PERL5LIB"]}"
+          system "make", "install"
+        end
+      end
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--with-xml-catalog=#{etc}/xml/catalog"
     system "make"
     system "make", "install"
+  end
+
+  test do
+    assert_match "11eb", shell_output("scrollkeeper-gen-seriesid")
   end
 end
