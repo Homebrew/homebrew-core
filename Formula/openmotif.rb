@@ -35,6 +35,15 @@ class Openmotif < Formula
     because: "both Lesstif and Openmotif are complete replacements for each other"
 
   def install
+    on_linux do
+      # This patch is needed for Ubuntu 16.04 LTS, which uses
+      # --as-needed with ld.  It should no longer
+      # be needed on Ubuntu 18.04 LTS.
+      inreplace ["demos/programs/Exm/simple_app/Makefile.am", "demos/programs/Exm/simple_app/Makefile.in"],
+        /(LDADD.*\n.*libExm.a)/,
+        "\\1 -lX11"
+    end
+
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules"
