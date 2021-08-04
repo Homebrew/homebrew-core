@@ -18,26 +18,51 @@ class Stella < Formula
 
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     sdl2 = Formula["sdl2"]
     libpng = Formula["libpng"]
-    cd "src/macos" do
-      inreplace "stella.xcodeproj/project.pbxproj" do |s|
-        s.gsub! %r{(\w{24} /\* SDL2\.framework)}, '//\1'
-        s.gsub! %r{(\w{24} /\* png)}, '//\1'
-        s.gsub!(/(HEADER_SEARCH_PATHS) = \(/,
-                "\\1 = (#{sdl2.opt_include}/SDL2, #{libpng.opt_include},")
-        s.gsub!(/(LIBRARY_SEARCH_PATHS) = ("\$\(LIBRARY_SEARCH_PATHS\)");/,
-                "\\1 = (#{sdl2.opt_lib}, #{libpng.opt_lib}, \\2);")
-        s.gsub!(/(OTHER_LDFLAGS) = "((-\w+)*)"/, '\1 = "-lSDL2 -lpng \2"')
+    on_macos do
+      cd "src/macos" do
+        inreplace "stella.xcodeproj/project.pbxproj" do |s|
+          s.gsub! %r{(\w{24} /\* SDL2\.framework)}, '//\1'
+          s.gsub! %r{(\w{24} /\* png)}, '//\1'
+          s.gsub!(/(HEADER_SEARCH_PATHS) = \(/,
+                  "\\1 = (#{sdl2.opt_include}/SDL2, #{libpng.opt_include},")
+          s.gsub!(/(LIBRARY_SEARCH_PATHS) = ("\$\(LIBRARY_SEARCH_PATHS\)");/,
+                  "\\1 = (#{sdl2.opt_lib}, #{libpng.opt_lib}, \\2);")
+          s.gsub!(/(OTHER_LDFLAGS) = "((-\w+)*)"/, '\1 = "-lSDL2 -lpng \2"')
+        end
+        xcodebuild "SYMROOT=build"
+        prefix.install "build/Release/Stella.app"
+        bin.write_exec_script "#{prefix}/Stella.app/Contents/MacOS/Stella"
       end
-      xcodebuild "SYMROOT=build"
-      prefix.install "build/Release/Stella.app"
-      bin.write_exec_script "#{prefix}/Stella.app/Contents/MacOS/Stella"
+    end
+
+    on_linux do
+      system "./configure", "--prefix=#{prefix}",
+                            "--bindir=#{bin}",
+                            "--enable-release",
+                            "--with-sdl-prefix=#{sdl2.prefix}",
+                            "--with-libpng-prefix=#{libpng.prefix}",
+                            "--with-zlib-prefix=#{Formula["zlib"].prefix}"
+      system "make", "install"
     end
   end
 
   test do
-    assert_match "Stella version #{version}", shell_output("#{bin}/Stella -help").strip
+    on_macos do
+      assert_match "E.T. - The Extra-Terrestrial", shell_output("#{bin}/Stella -listrominfo").strip
+    end
+
+    on_linux do
+      assert_match "failed to initialize: unable to open database file",
+        shell_output("#{bin}/stella -listrominfo").strip
+    end
   end
 end
