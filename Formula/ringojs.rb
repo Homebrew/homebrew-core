@@ -1,10 +1,9 @@
 class Ringojs < Formula
   desc "CommonJS-based JavaScript runtime"
   homepage "https://ringojs.org"
-  url "https://github.com/ringo/ringojs/releases/download/v2.0.0/ringojs-2.0.0.tar.gz"
-  sha256 "5991953012f3c493abb8c7256fa48e885bd284976bd1ec36f20fef77ff37fac9"
+  url "https://github.com/ringo/ringojs/releases/download/v3.0.0-RC2/ringojs-3.0.0-RC2.tar.gz"
+  sha256 "05903c2fc63bd3758a13b5ae613f841097a89b5b7f57823e0b09c2a1ac516b60"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "86b956cc3c7d0279529323450abaf3bca2a61ae520cdc262c44a2ff5035b810c"
