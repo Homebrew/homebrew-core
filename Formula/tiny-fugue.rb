@@ -10,6 +10,9 @@ class TinyFugue < Formula
   livecheck do
     url :stable
     regex(%r{url=.*?/tf[._-]v?(\d+(?:\.\d+)*(?:[a-z]\d+?)?)\.t}i)
+    strategy :sourceforge do |page, regex|
+      page.scan(regex).map { |match| match.first.sub(/^(\d)(\d)([a-z])/i, '\1.\2\3') }
+    end
   end
 
   bottle do
