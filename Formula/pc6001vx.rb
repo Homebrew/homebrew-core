@@ -1,10 +1,9 @@
 class Pc6001vx < Formula
   desc "PC-6001 emulator"
   homepage "https://eighttails.seesaa.net/"
-  url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.7.0_src.tar.gz"
-  sha256 "8a735fa6769b1a268fc64c0ed92d7e27c5990b120f53ad50be255024db35b2b8"
+  url "https://eighttails.up.seesaa.net/bin/PC6001VX_3.8.2_src.tar.gz"
+  sha256 "7abe9b10aa6f683eda279794bc03ee05e1b0b2239e38718860333d35f91b4858"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
@@ -17,21 +16,38 @@ class Pc6001vx < Formula
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "qt@5"
-  depends_on "sdl2"
 
   def install
     # Need to explicitly set up include directories
-    ENV.append_to_cflags "-I#{Formula["sdl2"].opt_include}"
     ENV.append_to_cflags "-I#{Formula["ffmpeg"].opt_include}"
-    # Turn off errors on C++11 build which used for properly linking standard lib
-    ENV.append_to_cflags "-Wno-reserved-user-defined-literal"
-    # Use libc++ explicitly, otherwise build fails
-    ENV.append_to_cflags "-stdlib=libc++" if ENV.compiler == :clang
 
-    qt5 = Formula["qt@5"].opt_prefix
-    system "#{qt5}/bin/qmake", "PREFIX=#{prefix}", "QMAKE_CXXFLAGS=#{ENV.cxxflags}", "CONFIG+=c++11"
-    system "make"
-    prefix.install "PC6001VX.app"
-    bin.write_exec_script "#{prefix}/PC6001VX.app/Contents/MacOS/PC6001VX"
+    mkdir "build" do
+      qt5 = Formula["qt@5"].opt_prefix
+      system "#{qt5}/bin/qmake", "PREFIX=#{prefix}",
+                                 "QMAKE_CXXFLAGS=#{ENV.cxxflags}",
+                                 "CONFIG+=no_include_pwd",
+                                 ".."
+      system "make"
+
+      if OS.mac?
+        prefix.install "PC6001VX.app"
+        bin.write_exec_script "#{prefix}/PC6001VX.app/Contents/MacOS/PC6001VX"
+      else
+        bin.install "PC6001VX"
+      end
+    end
+  end
+
+  test do
+    user_config_dir = testpath/".pc6001vx"
+    user_config_dir.mkpath
+    pid = fork do
+      exec bin/"PC6001VX"
+    end
+    sleep 15
+    assert_predicate user_config_dir/"pc6001vx.ini",
+                     :exist?, "User config directory should exist"
+  ensure
+    Process.kill("TERM", pid)
   end
 end
