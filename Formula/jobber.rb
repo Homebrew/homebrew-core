@@ -24,28 +24,11 @@ class Jobber < Formula
   end
 
   plist_options startup: true
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>Program</key>
-          <string>#{libexec}/jobbermaster</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/jobber.log</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/jobber.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run libexec/"jobbermaster"
+    keep_alive true
+    log_path var/"log/jobber.log"
+    error_log_path var/"log/jobber.log"
   end
 
   test do
