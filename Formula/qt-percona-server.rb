@@ -5,6 +5,10 @@ class QtPerconaServer < Formula
   sha256 "b9c4061c1c7999c42c315fc5b0f4f654067b4186066dd729bbcf1bdce8d781c8"
   license all_of: ["LGPL-2.1-only", "LGPL-3.0-only"]
 
+  livecheck do
+    formula "qt"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "01e48581ae775c209104d38c183355fb3d372cf1d087685e1116267b9adb3b9a"
     sha256 cellar: :any, big_sur:       "77bb3a61d1847f283e6e139afc3b6fc81fa8b07a98598599e33eae033be46ba4"
