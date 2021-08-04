@@ -1,8 +1,8 @@
 class MscGenerator < Formula
   desc "Draws signalling charts from textual description"
   homepage "https://sourceforge.net/p/msc-generator"
-  url "https://downloads.sourceforge.net/project/msc-generator/msc-generator/v6.x/msc-generator-6.3.10.tar.gz"
-  sha256 "0ed111f00d3638774458fc4fe48314f1223b2c85233d5ed3a8dd3bfbaafdb1f8"
+  url "https://downloads.sourceforge.net/project/msc-generator/msc-generator/v6.x/msc-generator-6.4.5.tar.gz"
+  sha256 "db562b013eb1e4093b424421ee199129d6abe9afd859946bfb2e1d6a604f0d0c"
   license "AGPL-3.0-or-later"
 
   bottle do
