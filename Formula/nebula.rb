@@ -24,35 +24,11 @@ class Nebula < Formula
   end
 
   plist_options startup: true
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/nebula</string>
-          <string>-config</string>
-          <string>#{etc}/nebula/config.yml</string>
-        </array>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/nebula.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/nebula.log</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <dict>
-          <key>NetworkState</key>
-          <true/>
-        </dict>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nebula", "-config", etc/"nebula/config.yml"]
+    keep_alive true
+    log_path var/"log/nebula.log"
+    error_log_path var/"log/nebula.log"
   end
 
   test do
