@@ -1,10 +1,9 @@
 class Grok < Formula
   desc "Powerful pattern-matching/reacting too"
   homepage "https://github.com/jordansissel/grok"
-  url "https://github.com/jordansissel/grok/archive/v0.9.2.tar.gz"
-  sha256 "40edbdba488ff9145832c7adb04b27630ca2617384fbef2af014d0e5a76ef636"
+  url "https://github.com/jordansissel/grok/archive/v1.20110630.tar.gz"
+  sha256 "7010c4f79dd4e96089d4492f6af3206d459e43825d93c3cd4d4a6d5e7426f298"
   license "BSD-2-Clause"
-  revision 2
   head "https://github.com/jordansissel/grok.git"
 
   livecheck do
