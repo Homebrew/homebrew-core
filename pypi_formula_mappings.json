@@ -36,6 +36,9 @@
   "certbot": {
     "extra_packages": ["certbot-apache", "certbot-nginx"]
   },
+  "cfn-lint": {
+    "exclude_packages": ["junit-xml"]
+  },
   "ciphey": {
     "exclude_packages": ["six"]
   },
