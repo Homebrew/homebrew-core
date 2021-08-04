@@ -5,6 +5,10 @@ class QtMysql < Formula
   sha256 "b9c4061c1c7999c42c315fc5b0f4f654067b4186066dd729bbcf1bdce8d781c8"
   license all_of: ["LGPL-2.1-only", "LGPL-3.0-only"]
 
+  livecheck do
+    formula "qt"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "19e3a5c51acf56eacff24e47e48930197925953b85a6a158118c30320d8a13f0"
     sha256 cellar: :any, big_sur:       "ebf05abda54934cb916cbc9e1d4523e6e0ccc3578a8f43d1357d82d343728ae1"
