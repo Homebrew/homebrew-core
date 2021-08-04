@@ -1,8 +1,8 @@
 class Glances < Formula
   desc "Alternative to top/htop"
   homepage "https://nicolargo.github.io/glances/"
-  url "https://files.pythonhosted.org/packages/2a/93/c2175c56cb4f7c36460058c6f43e733ed85dfa0616c8a2cbfeac528d6d7f/Glances-3.1.7.tar.gz"
-  sha256 "bd282e35df3f29dd1f3f6955489eb7b73b56d92059f6939b1e15ac8cd1581b08"
+  url "https://files.pythonhosted.org/packages/2f/f1/d4812081bda89f8d331097f861cd68c977b313123d3db557f65d6018d2c7/Glances-3.2.2.tar.gz"
+  sha256 "35d23ca176512c6c0029161471daa2ba1c4efef3bbc17a23d31df1c191b8a86f"
   license "LGPL-3.0-or-later"
 
   bottle do
@@ -14,6 +14,11 @@ class Glances < Formula
   end
 
   depends_on "python@3.9"
+
+  resource "defusedxml" do
+    url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
+    sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
+  end
 
   resource "future" do
     url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
