@@ -1,8 +1,8 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v1.0.3.tar.gz"
-  sha256 "0b746b3464aeee13bfca8872123574be56309207920347b6e00f665ff4c8b402"
+  url "https://github.com/hashicorp/terraform/archive/v1.0.4.tar.gz"
+  sha256 "71a9d9e4a5d3ccfc6c41710a48870259ac977a2080f4d734a4b8fb8dc18728b6"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git", branch: "main"
 
@@ -21,7 +21,15 @@ class Terraform < Formula
 
   depends_on "go" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
+
+  # Needs libraries at runtime:
+  # /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by node)
+  fails_with gcc: "5"
 
   def install
     # v0.6.12 - source contains tests which fail if these environment variables are set locally.
