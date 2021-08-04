@@ -16,11 +16,7 @@ class Goose < Formula
   depends_on "go" => :build
 
   def install
-    # raise a quesiton about this setup, https://github.com/pressly/goose/issues/238
-    mv "_go.mod", "go.mod"
-    mv "_go.sum", "go.sum"
-
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/goose"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/goose"
   end
 
   test do
