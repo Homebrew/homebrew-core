@@ -18,6 +18,8 @@ class Sonarqube < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "27759a532884e3d571a16a818f68a6dd7b160f48ea42374716d7248f7ae4fef2"
   end
 
+  # sonarqube ships pre-built x86_64 binaries
+  depends_on arch: :x86_64
   depends_on "openjdk@11"
 
   conflicts_with "sonarqube-lts", because: "both install the same binaries"
