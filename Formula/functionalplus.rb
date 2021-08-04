@@ -7,6 +7,15 @@ class Functionalplus < Formula
   license "BSL-1.0"
   head "https://github.com/Dobiasd/FunctionalPlus.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+(?:[._-]p\d+)?)$/i)
+    strategy :git do |tags, regex|
+      # Omit `-p0` suffix but allow `-p1`, etc.
+      tags.map { |tag| tag[regex, 1]&.sub(/[._-]p0/i, "") }
+    end
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ab75da7d297b2258e1e906027bd3d5abe6b7464339288730eae5fec22b931715"
   end
