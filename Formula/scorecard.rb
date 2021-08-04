@@ -17,8 +17,8 @@ class Scorecard < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
-    cd("checks/main") { system "go", "run", "main.go" }
-    doc.install "checks/checks.md"
+    cd("docs/checks/generate") { system "go", "run", "main.go" }
+    doc.install "docs/checks.md"
   end
 
   test do
