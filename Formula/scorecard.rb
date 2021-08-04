@@ -1,8 +1,8 @@
 class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://github.com/ossf/scorecard"
-  url "https://github.com/ossf/scorecard/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "10ad1aafba9db7bfe26e0a77f534d6175ba85f8d9d6d30dd2c4f50b0a5692dad"
+  url "https://github.com/ossf/scorecard/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "9db79e73b7bccdc385d857bdab773b5cf10f70ca64c9828320b7e125a11c0222"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
