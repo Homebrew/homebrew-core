@@ -16,18 +16,31 @@ class Cbmc < Formula
   depends_on "maven" => :build
   depends_on "openjdk" => :build
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
+
   def install
-    args = std_cmake_args + %w[
-      -DCMAKE_C_COMPILER=/usr/bin/clang
-    ]
+    args = []
+
+    # Workaround borrowed from https://github.com/diffblue/cbmc/issues/4956
+    on_macos { args << "-DCMAKE_C_COMPILER=/usr/bin/clang" }
+    # Java front-end fails to build on ARM
+    args << "-DWITH_JBMC=OFF" if Hardware::CPU.arm?
 
     mkdir "build" do
-      system "cmake", "..", *args
+      system "cmake", "..", *args, *std_cmake_args
       system "cmake", "--build", "."
       system "make", "install"
     end
 
-    libexec.install lib
+    # lib contains only `jar` files
+    libexec.install lib unless Hardware::CPU.arm?
   end
 
   test do
