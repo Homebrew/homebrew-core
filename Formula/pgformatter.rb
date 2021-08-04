@@ -16,6 +16,12 @@ class Pgformatter < Formula
     system "perl", "Makefile.PL", "DESTDIR=."
     system "make", "install"
 
+    on_linux do
+      # Move man pages to share directory so they will be linked correctly on Linux
+      mkdir "usr/local/share"
+      mv "usr/local/man", "usr/local/share"
+    end
+
     prefix.install (buildpath/"usr/local").children
     (libexec/"lib").install "blib/lib/pgFormatter"
     libexec.install bin/"pg_format"
