@@ -115,32 +115,12 @@ class Nagios < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "nagios #{HOMEBREW_PREFIX}/etc/nagios/nagios.cfg"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/nagios</string>
-          <string>#{nagios_etc}/nagios.cfg</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>/dev/null</string>
-        <key>StandardOutPath</key>
-        <string>/dev/null</string>
-      </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_bin/"nagios", etc/"nagios/nagios.cfg"]
+    keep_alive true
+    log_path "/dev/null"
+    error_log_path "/dev/null"
   end
 
   test do
