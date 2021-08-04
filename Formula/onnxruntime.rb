@@ -46,8 +46,8 @@ class Onnxruntime < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lonnxruntime",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, "-I#{include}", testpath/"test.c",
+           "-L#{lib}", "-lonnxruntime", "-o", testpath/"test"
     assert_equal version, shell_output("./test").strip
   end
 end
