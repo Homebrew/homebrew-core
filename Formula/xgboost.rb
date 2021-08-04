@@ -2,8 +2,8 @@ class Xgboost < Formula
   desc "Scalable, Portable and Distributed Gradient Boosting Library"
   homepage "https://xgboost.ai/"
   url "https://github.com/dmlc/xgboost.git",
-      tag:      "v1.3.3",
-      revision: "000292ce6d99ed658f6f9aebabc6e9b330696e7e"
+      tag:      "v1.4.2",
+      revision: "522b8977c27b422a4cdbe1ecc59a4d57a5df2c36"
   license "Apache-2.0"
 
   bottle do
