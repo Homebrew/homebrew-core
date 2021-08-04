@@ -2,10 +2,9 @@ class JpegXl < Formula
   desc "New file format for still image compression"
   homepage "https://jpeg.org/jpegxl/index.html"
   # Check whether this can be switched to `openexr` and `imath` at version bump
-  url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.3.7/jpeg-xl-v0.3.7.tar.bz2"
-  sha256 "32548f17c2a596e9963aa09934710f96dca6f78ec2337d7936dada89a6090b56"
+  url "https://gitlab.com/wg1/jpeg-xl/-/archive/v0.5/jpeg-xl-v0.5.tar.bz2"
+  sha256 "43ae213b9ff28f672beb4f50dbee0834be2afe0015a62bf525d35ee2e7e89d6c"
   license "Apache-2.0"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e855720e77098e6cf1ada7dd53561e73f426d7b241512c209ef8b21b915cd3b1"
