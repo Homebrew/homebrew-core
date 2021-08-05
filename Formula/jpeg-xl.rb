@@ -27,7 +27,7 @@ class JpegXl < Formula
   # https://gitlab.com/wg1/jpeg-xl/-/blob/v#{version}/deps.sh
   resource "highway" do
     url "https://github.com/google/highway.git",
-        revision: "946a1b40233438a1b0363598a6deaa1628a01003"
+        revision: "e2397743fe092df68b760d358253773699a16c93"
   end
 
   resource "lodepng" do
