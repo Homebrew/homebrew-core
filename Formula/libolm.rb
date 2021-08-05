@@ -23,6 +23,7 @@ class Libolm < Formula
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
       #include <vector>
+      #include <stdlib.h>
 
       #include "olm/olm.h"
 
