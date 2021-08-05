@@ -1,10 +1,9 @@
 class Mdbtools < Formula
   desc "Tools to facilitate the use of Microsoft Access databases"
   homepage "https://github.com/mdbtools/mdbtools/"
-  url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.3/mdbtools-0.9.3.tar.gz"
-  sha256 "bf4b297a9985e82bc64c8a620adc00e2e3483371a7d280e81249b294fe0e6619"
+  url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.4/mdbtools-0.9.4.tar.gz"
+  sha256 "6b75aa88cb1dc49ea0144be381c8f14b2ae47c945c895656dbebc155cd9ee14b"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "b3a5aae0b39902a3065a419de67d3c57516666c6651ff2fdfa13a0cc716d7ea0"
