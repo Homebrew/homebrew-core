@@ -28,6 +28,13 @@ class Tarsnap < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "e2fsprogs" => :build
+  end
+
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime
     # Reported 20 Aug 2017 https://github.com/Tarsnap/tarsnap/issues/286
