@@ -102,7 +102,13 @@ class Netcdf < Formula
       lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
       lib/"cmake/netCDF/netCDFConfig.cmake",
       lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
-    ], HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/clang", "/usr/bin/clang"
+    ], %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
+
+    on_linux do
+      inreplace bin/"ncxx4-config",
+                %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{Regexp.escape(ENV.cxx)}},
+                ENV.cxx
+    end
 
     on_macos do
       # SIP causes system Python not to play nicely with @rpath
