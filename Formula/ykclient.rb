@@ -40,6 +40,8 @@ class Ykclient < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
 
+  uses_from_macos "curl"
+
   def install
     system "autoreconf", "-iv" if build.head?
     system "./configure", "--prefix=#{prefix}"
