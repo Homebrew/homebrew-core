@@ -82,11 +82,13 @@ class Stunnel < Formula
   end
 
   test do
+    user = "nobody"
+    on_linux { user = ENV["USER"] }
     (testpath/"tstunnel.conf").write <<~EOS
       cert = #{etc}/stunnel/stunnel.pem
 
-      setuid = nobody
-      setgid = nobody
+      setuid = #{user}
+      setgid = #{user}
 
       [pop3s]
       accept  = 995
