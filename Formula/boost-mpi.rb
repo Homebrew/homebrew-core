@@ -96,8 +96,19 @@ class BoostMpi < Formula
         return 0;
       }
     EOS
+
     boost = Formula["boost"]
-    system "mpic++", "test.cpp", "-L#{lib}", "-L#{boost.lib}", "-lboost_mpi", "-lboost_serialization", "-o", "test"
+    args = ["-L#{lib}",
+            "-L#{boost.lib}",
+            "-lboost_mpi-mt",
+            "-lboost_serialization"]
+
+    on_linux do
+      args << "-Wl,-rpath,#{lib}"
+      args << "-Wl,-rpath,#{boost.lib}"
+    end
+
+    system "mpic++", "test.cpp", *args, "-o", "test"
     system "mpirun", "-np", "2", "./test"
 
     (testpath/"CMakeLists.txt").write "find_package(Boost COMPONENTS mpi REQUIRED)"
