@@ -22,6 +22,10 @@ class Flux < Formula
   depends_on "go" => :build
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     system "make", "build"
     system "go", "build", "./cmd/flux"
