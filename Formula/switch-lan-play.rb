@@ -16,6 +16,8 @@ class SwitchLanPlay < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "libpcap"
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
