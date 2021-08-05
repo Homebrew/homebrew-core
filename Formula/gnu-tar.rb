@@ -43,6 +43,9 @@ class GnuTar < Formula
     on_macos do
       args << "--program-prefix=g"
     end
+    on_linux do
+      args << "--without-selinux"
+    end
     system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
