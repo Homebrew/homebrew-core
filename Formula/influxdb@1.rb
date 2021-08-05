@@ -1,8 +1,8 @@
 class InfluxdbAT1 < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  url "https://github.com/influxdata/influxdb/archive/v1.8.5.tar.gz"
-  sha256 "03e43e494777b117366831b45c14663c569479ac84ddef9fc83a50f6708b49f2"
+  url "https://github.com/influxdata/influxdb/archive/v1.8.9.tar.gz"
+  sha256 "3730cdee96e5fed8adc39ba91e76772c407c3d60b9c7eead9b9940c5aeb76c83"
   license "MIT"
 
   livecheck do
@@ -25,7 +25,7 @@ class InfluxdbAT1 < Formula
   def install
     ldflags = "-s -w -X main.version=#{version}"
 
-    %w[influxd influx influx_tsm influx_stress influx_inspect].each do |f|
+    %w[influxd influx influx_stress influx_inspect].each do |f|
       system "go", "build", "-ldflags", ldflags, *std_go_args, "-o", bin/f, "./cmd/#{f}"
     end
 
