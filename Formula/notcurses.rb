@@ -1,8 +1,9 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.3.12.tar.gz"
-  sha256 "ce042908fac11f7df1f9eaa610e46e9c615f53ab036b7c27ae2396292512407b"
+  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.3.13.tar.gz"
+  sha256 "c5eb822ea5b98028acd4a8dd21b155f893d928e4a30a8309eea0c406403af4e8"
+
   license "Apache-2.0"
 
   bottle do
@@ -17,7 +18,6 @@ class Notcurses < Formula
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "libunistring"
-  depends_on macos: :catalina # requires std::filesystem
   depends_on "ncurses"
   depends_on "readline"
   uses_from_macos "zlib"
