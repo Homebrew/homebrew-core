@@ -26,6 +26,12 @@ class Openvdb < Formula
   depends_on "openexr@2"
   depends_on "tbb@2020"
 
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
+
   resource "test_file" do
     url "https://artifacts.aswf.io/io/aswf/openvdb/models/cube.vdb/1.0.0/cube.vdb-1.0.0.zip"
     sha256 "05476e84e91c0214ad7593850e6e7c28f777aa4ff0a1d88d91168a7dd050f922"
@@ -46,6 +52,6 @@ class Openvdb < Formula
 
   test do
     resource("test_file").stage testpath
-    system "#{bin}/vdb_print", "-m", "cube.vdb"
+    system bin/"vdb_print", "-m", "cube.vdb"
   end
 end
