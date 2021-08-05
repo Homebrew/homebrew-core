@@ -29,6 +29,8 @@ class Protobuf < Formula
   depends_on "python@3.9" => [:build, :test]
   depends_on "six"
 
+  uses_from_macos "zlib"
+
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
