@@ -31,6 +31,9 @@ class GitNow < Formula
   depends_on "gnu-getopt"
 
   def install
+    # Fix bashism in git-now-add when executed by git-now
+    on_linux { inreplace "git-now", "#!/bin/sh", "#!/bin/bash" }
+
     system "make", "prefix=#{libexec}", "install"
     (bin/"git-now").write_env_script libexec/"bin/git-now", PATH: "#{Formula["gnu-getopt"].opt_bin}:$PATH"
     zsh_completion.install "etc/_git-now"
