@@ -4,7 +4,7 @@ class KnotResolver < Formula
   url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.4.0.tar.xz"
   sha256 "534af671b98433b23b57039acc9d7d3c100a4888a8cf9aeba36161774ca0815e"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
+  revision 2
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   livecheck do
@@ -25,13 +25,23 @@ class KnotResolver < Formula
   depends_on "knot"
   depends_on "libuv"
   depends_on "lmdb"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
+
+  on_linux do
+    depends_on "libcap-ng"
+    depends_on "systemd"
+  end
 
   def install
+    args = std_meson_args + ["--default-library=static"]
+    on_linux do
+      args << "-Dsystemd_files=enabled"
+    end
+
     mkdir "build" do
-      system "meson", *std_meson_args, "--default-library=static", ".."
-      system "ninja"
-      system "ninja", "install"
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 
