@@ -1,8 +1,8 @@
 class DockerGen < Formula
   desc "Generate files from docker container metadata"
   homepage "https://github.com/jwilder/docker-gen"
-  url "https://github.com/jwilder/docker-gen/archive/0.7.6.tar.gz"
-  sha256 "6fa4aa083b21636250a0067f9365be8c739bd56f85fdbb612dbf37578be68d1f"
+  url "https://github.com/jwilder/docker-gen/archive/0.7.7.tar.gz"
+  sha256 "12e9b71bad7e5ab18a32b994e96423f9b68df840892db19cbe3a18cba1823d36"
   license "MIT"
 
   bottle do
