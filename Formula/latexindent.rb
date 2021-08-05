@@ -1,15 +1,15 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://ctan.org/pkg/latexindent"
-  url "https://github.com/cmhughes/latexindent.pl/archive/V3.10.1.tar.gz"
-  sha256 "cf2fa07007b0dec104f9e41c8e41fed81565b4d51a98fd57bd8722a6a067b2f2"
+  url "https://github.com/cmhughes/latexindent.pl/archive/V3.11.tar.gz"
+  sha256 "83caf8dcf3f0ab343aa21ce364984ecb265312dc9c2a0502d24e576a3a4259dd"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9a9ef6fbe3af13cdd63ba1db19682433b850ef7bc2a0562eac309b911a5a3340"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1677f6a953fb4ba3cec4fe882cba8a24aab7f326eefa5b69cd755bcab73de90d"
-    sha256 cellar: :any_skip_relocation, catalina:      "d59c343ba9bb7377c2a4b4faed4f5790a02cb44040669db50cdf7398a56447fd"
-    sha256 cellar: :any_skip_relocation, mojave:        "0136e28316e6280bb501d1c9734ebb0f111a820772b2a6d554fc4eb4fbe4b116"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd9c120b2a11689cf0a59f0e47915263f5c66287547b8da883fc91060e4d69b9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "25c832684409866a5035e68d5151b953cc9670693353cd78c9e046b97f81e92a"
+    sha256 cellar: :any_skip_relocation, catalina:      "19de50e1dbcd487c918746707fdeedd26f37f926858978049d9f9586697f35c3"
+    sha256 cellar: :any_skip_relocation, mojave:        "b505eb430cbea0e8ea0a724736e03e62f2fe5797c633d55b34b3f6453b777597"
   end
 
   depends_on "perl"

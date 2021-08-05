@@ -6,6 +6,10 @@ class VapoursynthOcr < Formula
   license "ISC"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
+  livecheck do
+    formula "vapoursynth"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0ee61239f71e594c05f6a93b675b9863ab53227715c355ef9b75ca1f92e577d5"
     sha256 cellar: :any, big_sur:       "c73eea38acf6dde0e271aa71393020d8f76c9c1c48607048c14b2ca53616d629"

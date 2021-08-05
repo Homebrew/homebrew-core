@@ -6,6 +6,10 @@ class X8664ElfBinutils < Formula
   sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    formula "binutils"
+  end
+
   bottle do
     sha256 arm64_big_sur: "c1cc0eeef6981f55e0df57f0e8115956ab5b4d94d043daf805c8833ed843dc1d"
     sha256 big_sur:       "085e8d5b89905e85c00951d3f12a6b36ea2e085b07e6af28b4138956b9c53384"

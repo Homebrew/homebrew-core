@@ -16,6 +16,7 @@ class Cling < Formula
     sha256 cellar: :any, big_sur:       "e894d9476bc9ed0edb1ca8d3ca1d9fa6cefc8fc50befc93f1d1c25d1f1bee721"
     sha256 cellar: :any, catalina:      "fd178b38640189a9b096d9c98fe3b1dedc934a504ddc0d3dc1c6bbfea144f09f"
     sha256 cellar: :any, mojave:        "5135fc901ba316ca0e02f5598af21cd42a264994111252964f239b2576c7829b"
+    sha256               x86_64_linux:  "315073c45b0684a970493476b9c8476ddf90eb7d69bd5326efdf97b79ec55e25"
   end
 
   depends_on "cmake" => :build

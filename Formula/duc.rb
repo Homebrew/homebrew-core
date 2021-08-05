@@ -8,12 +8,13 @@ class Duc < Formula
   head "https://github.com/zevv/duc.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "12a17be05c5e063d0ec11c0a7844a88b51ebe89e615310b4e0180ebacfb23bac"
-    sha256 cellar: :any, big_sur:       "3b8e26bbb5e2356049e0849a889c178a6a89d7137433f5358463bcf188873363"
-    sha256 cellar: :any, catalina:      "0c6b9ba499943a6523e2618f7d9534892d5eb19250b1d250f9615d6692c64cb8"
-    sha256 cellar: :any, mojave:        "a6482213346ed6dfb26066b3442722a856cb8348d6123aecfe72929251e6b20a"
-    sha256 cellar: :any, high_sierra:   "d74b95c03260c0b14fd85e296835047bd88dbbc2f4fd0d62dc3a43409178c18c"
-    sha256 cellar: :any, sierra:        "9bde89536984080777e870473934584417fb4c34a0e44074b08a07a5db1a98d2"
+    sha256 cellar: :any,                 arm64_big_sur: "12a17be05c5e063d0ec11c0a7844a88b51ebe89e615310b4e0180ebacfb23bac"
+    sha256 cellar: :any,                 big_sur:       "3b8e26bbb5e2356049e0849a889c178a6a89d7137433f5358463bcf188873363"
+    sha256 cellar: :any,                 catalina:      "0c6b9ba499943a6523e2618f7d9534892d5eb19250b1d250f9615d6692c64cb8"
+    sha256 cellar: :any,                 mojave:        "a6482213346ed6dfb26066b3442722a856cb8348d6123aecfe72929251e6b20a"
+    sha256 cellar: :any,                 high_sierra:   "d74b95c03260c0b14fd85e296835047bd88dbbc2f4fd0d62dc3a43409178c18c"
+    sha256 cellar: :any,                 sierra:        "9bde89536984080777e870473934584417fb4c34a0e44074b08a07a5db1a98d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "396955296946ce11e195b3c82a5b6e259f3bd6a4f4de0f41eebb37258fb8f6dd"
   end
 
   depends_on "pkg-config" => :build

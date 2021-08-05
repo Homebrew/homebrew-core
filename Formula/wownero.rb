@@ -7,11 +7,12 @@ class Wownero < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "1f3a68fa3d30af2b68c05b016c7f18e566b39381305c420c62f2585f633864dd"
-    sha256 cellar: :any,                 big_sur:       "00e65726bf6e3054c65f5a53564cc237fc18724c8692f915b002b81f1a6c241d"
-    sha256 cellar: :any,                 catalina:      "bcdac9d718c91c6cbe3bd0b29b3479857220475e94cc8025151f6271e757e79f"
-    sha256 cellar: :any,                 mojave:        "52092bb5e060e9c6136439c28014799f611c60fe0f1d729d842c0f57ec25e797"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "512fb5190bb1cf7020c733ea3c77873151a2e1cdcd48a9b672a72f9fdcf8c378"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "0faaed980b9edadc285a0110e6a12219636f49ca2cc20c5a00d2cfa3259426ac"
+    sha256 cellar: :any,                 big_sur:       "9c12417ea6310d12b295ae3df4f2a099673509062a307eeb840ec89bb9e04001"
+    sha256 cellar: :any,                 catalina:      "a743feb558aeac26118636c893a5e3bd422b606b5b121ed2eb9c2e94a696f7b7"
+    sha256 cellar: :any,                 mojave:        "7f7e40f2aa800e7db13f4f582e47e76905cafae8d9cccc2b6090491ee2e3dffb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce96a0d3b3c105269ab805c518a4a18446d2e76a5dede3b2ce2bb076ff4460e5"
   end
 
   depends_on "cmake" => :build
@@ -36,26 +37,8 @@ class Wownero < Formula
     system "make", "install"
   end
 
-  plist_options manual: "wownerod --non-interactive"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/wownerod</string>
-          <string>--non-interactive</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"wownerod", "--non-interactive"]
   end
 
   test do

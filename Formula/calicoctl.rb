@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calicoctl.git",
-      tag:      "v3.19.1",
-      revision: "6fc0db96a3d2df7bd2eb0929f9c3d327380b0ed0"
+      tag:      "v3.20.0",
+      revision: "38b00edd005363b369dd7c585933b08376f76d6c"
   license "Apache-2.0"
   head "https://github.com/projectcalico/calicoctl.git"
 
@@ -13,11 +13,11 @@ class Calicoctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1a0f248d5b5f9059ed24a4cd762adb2e195f7a1c721d4f4ec40f7f707d9c892c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "400e7c298d661badd89ac967a33921297657a6f53a4155ee4fa620c7b71b8040"
-    sha256 cellar: :any_skip_relocation, catalina:      "ad8a82058db04666e990a8963dfa233b5db2d852257b14a7b98d05771d96a38a"
-    sha256 cellar: :any_skip_relocation, mojave:        "a44473b4ee9ce7ca1a4a9444a1a4d06e51f6ecc0142a00b62d2f2c1e0024c1ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af530644558d1fcf213d9d08c4f98d7cfe8dc1483ecc80f2a0dfde44ac0f10eb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "677d157528a5909b1458c93d43393963b35d1255d7049f4bf8a8fc04b7570a90"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cdbab5ac325eedda71d8202e8f4432d3a102ca58de1a4d2f046ba460b9924928"
+    sha256 cellar: :any_skip_relocation, catalina:      "48b3401872ab211cb283e5ef1c3385ee7d354343d72109a196c081e8af419a73"
+    sha256 cellar: :any_skip_relocation, mojave:        "9d45eff244ca6865529dcec2bc9d09dc701cf0ba0215cfb8ecef80cb47a80c51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad5e91a5daea68fb2cfe8d7f8e3d8414f60f83502c67f878711fdd3de3b2bbed"
   end
 
   depends_on "go" => :build

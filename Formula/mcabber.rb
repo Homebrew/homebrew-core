@@ -16,6 +16,7 @@ class Mcabber < Formula
     sha256 catalina:      "f5296e7fffbc0702dcce5794e2f47c77a998f002b0852416c8411ac5ad44b31e"
     sha256 mojave:        "301d1883a89bcf494b5ab8c2c6dc4f267b29124d479d47483f562e8c3739d531"
     sha256 high_sierra:   "73d4da3e1e562308e3d4a3b3318f2b5de951d50a44eec9115780170f282022b6"
+    sha256 x86_64_linux:  "7e2642576b5ae1c8a05f0dc894fd9775b6b941f2a1dcae6cb8d7a0840d744dd9"
   end
 
   head do

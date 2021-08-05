@@ -5,6 +5,10 @@ class QtLibiodbc < Formula
   sha256 "b9c4061c1c7999c42c315fc5b0f4f654067b4186066dd729bbcf1bdce8d781c8"
   license all_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
+  livecheck do
+    formula "qt"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "f14e7b9ce059df2d3d5d6ae0da1d6f253d4c3fb3eda393e9e99135bf601ce0c2"
     sha256 cellar: :any, big_sur:       "75d3198d3d55ac629f72c4cbe78b83a859f31ad5c42fd66a96aae9822f6ef076"

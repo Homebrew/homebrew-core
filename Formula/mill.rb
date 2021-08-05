@@ -5,6 +5,11 @@ class Mill < Formula
   sha256 "1c84fb6f1304cfb8e94ac62fa2137dfb362ec827ff01113b85de3c60c4e8f7fe"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "8aba46cac8b9d6a9999370ac170a0bc3dc19d73dd9c35f64e199fc878e68b9d2"
   end

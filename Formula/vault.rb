@@ -16,11 +16,12 @@ class Vault < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5a6708ba7e83b1b9554a1b4857b74a7fd9661e1728976795aee2aa5474c44cd1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "70bd8c59dd9a46e4b6f057476cf64da4f47843a8c114523f4ee92f0cd2f6d635"
-    sha256 cellar: :any_skip_relocation, catalina:      "a4e7e3154d186894cd3ca61eabf01f99935c076f9a19d613778d929f5ecec000"
-    sha256 cellar: :any_skip_relocation, mojave:        "238c849a19b66f426e35e6db4cdc9dead1535fc526f718f9518a9dbf4105bb27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "296b5ec554e21378d65645b832b824b577628d4e3bf6fa4e7fff416b731f7eb0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6ced42a44f42243e4a6a131cec0a6eff81787f75a9abe2def51c360eb20e3a22"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a988b0c45103f3484b4b8c127e6ea14ca62d5bbb674eff7ab045d7c648a32353"
+    sha256 cellar: :any_skip_relocation, catalina:      "31822a3eb3e2778bae0df37542646bb88704b03c90951c20c381b250e626a3db"
+    sha256 cellar: :any_skip_relocation, mojave:        "8bb899e7352119bc0609567204d0f2c5444df0dab68ff783cd90a4de0b8e329a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71e795726b9c4dbcbb5b1783a358178a037e688cf48d6cc69e2ea139187e95f0"
   end
 
   depends_on "go" => :build
@@ -35,38 +36,12 @@ class Vault < Formula
     bin.install "bin/vault"
   end
 
-  plist_options manual: "vault server -dev"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/vault</string>
-            <string>server</string>
-            <string>-dev</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/vault.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/vault.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"vault", "server", "-dev"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/vault.log"
+    error_log_path var/"log/vault.log"
   end
 
   test do

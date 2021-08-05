@@ -1,20 +1,21 @@
 class Mdbtools < Formula
   desc "Tools to facilitate the use of Microsoft Access databases"
   homepage "https://github.com/mdbtools/mdbtools/"
-  url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.3/mdbtools-0.9.3.tar.gz"
-  sha256 "bf4b297a9985e82bc64c8a620adc00e2e3483371a7d280e81249b294fe0e6619"
+  url "https://github.com/mdbtools/mdbtools/releases/download/v0.9.4/mdbtools-0.9.4.tar.gz"
+  sha256 "6b75aa88cb1dc49ea0144be381c8f14b2ae47c945c895656dbebc155cd9ee14b"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "e9bd349e7979d818b4b45de5cfc26ca64f357188eb63651560821940df39179b"
-    sha256 cellar: :any,                 big_sur:       "77eae2542ef7523274d698928adaafb36b5cdb46979795139100eb4bf9467e82"
-    sha256 cellar: :any,                 catalina:      "70e32cec43c27bdc76420adf8b6dceedc8f0919ddbbcc7e3f8fa09412a0a403a"
-    sha256 cellar: :any,                 mojave:        "741015282fc3fc0d6694afbaf3c3318e5a024cd4628bd572abf9a6ef649ccc0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56da4828a964f70ef9a1ebdcdc616a9db8ae0c31f3cb794346536168d38027c9"
+    sha256 cellar: :any,                 arm64_big_sur: "7e61d1793850007b50e3183e681579a86b0ba9cecd52afbf58fba7468b43159e"
+    sha256 cellar: :any,                 big_sur:       "701aa107dbe59e6e1d28436e754e6947be68f3bdd0db248f2e587f0003eda711"
+    sha256 cellar: :any,                 catalina:      "0bd9e0b1055dc5fe6c541694f70e778372b2eb6bff62f165380c1d14effc1a76"
+    sha256 cellar: :any,                 mojave:        "a65b18abe40ed2e1825e2ecd05dcae546803a2a1f0099e2b0a2d0918a8bd580b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "912565cef4ebae2afa1d3bc0726ac30bc0673a3271843150dd5004b9e0aa772c"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "bison" => :build
   depends_on "gawk" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
@@ -25,7 +26,6 @@ class Mdbtools < Formula
   def install
     system "autoreconf", "-fvi"
     system "./configure", "--prefix=#{prefix}",
-                          "--enable-sql",
                           "--enable-man"
     system "make", "install"
   end

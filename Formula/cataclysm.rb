@@ -9,8 +9,8 @@ class Cataclysm < Formula
 
   livecheck do
     url :stable
+    regex(%r{href=["']?[^"' >]*?/tag/([^"' >]+)["' >]}i)
     strategy :github_latest
-    regex(%r{href=.*?/tag/([^"' >]+)["' >]}i)
   end
 
   bottle do

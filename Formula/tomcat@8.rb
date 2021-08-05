@@ -11,7 +11,8 @@ class TomcatAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "09833cce8e9972c20a66ca02a7d8e77702eb132380c7b5fa338eb8c55c2ce6cd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f4cc617c4fff3908f63cb84a93dff830b164cd6d1c52dd258edb3be144b556bd"
   end
 
   keg_only :versioned_formula
@@ -28,28 +29,9 @@ class TomcatAT8 < Formula
     (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
-  plist_options manual: "catalina run"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Disabled</key>
-          <false/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/catalina</string>
-            <string>run</string>
-          </array>
-          <key>KeepAlive</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"catalina", "run"]
+    keep_alive true
   end
 
   test do

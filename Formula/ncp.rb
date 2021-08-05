@@ -13,6 +13,7 @@ class Ncp < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "2c56e482f1608eeb3925f4db0b1ef782fb1644d2a7318e522a4a3c7ba7efcdd4"
     sha256 cellar: :any_skip_relocation, sierra:        "d261de84549f890b4a3ca4c9f9d72ec25dd5a66c77fbccf6c29577c49a3c0866"
     sha256 cellar: :any_skip_relocation, el_capitan:    "08f17ef57ee62eb3ca90c7c033fba68edc2822d93689ddabdcaa49913c98f369"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5d98c3fe0c92f5a8713caa0edb66dc409712bc8d0b8b08ebdda19ee22f9bcd68"
   end
 
   depends_on "libowfat"

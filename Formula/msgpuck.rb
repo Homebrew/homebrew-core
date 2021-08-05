@@ -14,6 +14,7 @@ class Msgpuck < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "50197e08a5b55fbe804109ad01dfa815a6dde2b11b688d89a58154fed2d8d54f"
     sha256 cellar: :any_skip_relocation, sierra:        "6f4011d177bf2e42f94f853bc93283ada6c48df8fdb7269135def453e65e598d"
     sha256 cellar: :any_skip_relocation, el_capitan:    "b0accfedd2582109acec3297878bb943360282520a31b0d1c16c4ec1aa70a362"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24b63f0499e6e5bc5b138228966945ff497936a4679da98a44aa18cfeec538a1"
   end
 
   depends_on "cmake" => :build
@@ -56,7 +57,7 @@ class Msgpuck < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lmsgpuck", "-o", "test", "test.c"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmsgpuck", "-o", "test"
     system "#{testpath}/test"
   end
 end

@@ -12,6 +12,7 @@ class Sng < Formula
     sha256 big_sur:       "f0e4ce732890622d796d3ab7d5c2d078f9ad327e5d64bdf9d7625b15d7a38281"
     sha256 catalina:      "070137e810c2ea02cdb3727ef7fc0da31065762ed6fee972a33d8690fc43e051"
     sha256 mojave:        "de4c08894b82e37ff3fc07fd0ade38ede24bcf241757f0b6392ab2f4a5f87d67"
+    sha256 x86_64_linux:  "be14ddf01908c6812e41c87ca5210adde91fe356e46704a380259b587b9741a3"
   end
 
   depends_on "libpng"

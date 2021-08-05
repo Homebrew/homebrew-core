@@ -7,10 +7,12 @@ class Stubby < Formula
   head "https://github.com/getdnsapi/stubby.git", branch: "develop"
 
   bottle do
-    sha256 arm64_big_sur: "f2df8ba554f68e3624bacf30a8ed767975a768e723b653ec120382ec9e442737"
-    sha256 big_sur:       "a02d951dfa4c022685c11f3e9e43cb382ea12411fba226ae552b55cfaaf92e23"
-    sha256 catalina:      "66ef743ee60c426ca0b4108787a8b05df9456da7ab5e9dc48616c4ac3b8cd4e0"
-    sha256 mojave:        "13a42fa05c297dbd0f5c058836f7b59651b87d69a1071b36845c8710d84fc4c5"
+    rebuild 1
+    sha256 arm64_big_sur: "aacda92701ecc4c275bfe6eb5ede29a6f07f6d0d85701f293146880437f448f8"
+    sha256 big_sur:       "435174729967fbf5bb4dc87a8e2ef440f6cec7e56c46a5373dfe6f5a6a6ec96c"
+    sha256 catalina:      "df3b7e64116093724ab01d7a6f3abee725e9ffebfd030a1255d9f6c8467101f2"
+    sha256 mojave:        "21530780a842976f9dbd45777c85900b841e15a063ab522d5c8d30f4bba74eec"
+    sha256 x86_64_linux:  "9e714d6c7b77449a65f7185ea9a86489a8b9019950ec11160987d5e9fa848b7a"
   end
 
   depends_on "cmake" => :build
@@ -18,35 +20,20 @@ class Stubby < Formula
   depends_on "getdns"
   depends_on "libyaml"
 
+  on_linux do
+    depends_on "bind" => :test
+  end
+
   def install
     system "cmake", "-DCMAKE_INSTALL_RUNSTATEDIR=#{HOMEBREW_PREFIX}/var/run/", \
                     "-DCMAKE_INSTALL_SYSCONFDIR=#{HOMEBREW_PREFIX}/etc", ".", *std_cmake_args
     system "make", "install"
   end
 
-  plist_options startup: true, manual: "sudo stubby -C #{HOMEBREW_PREFIX}/etc/stubby/stubby.yml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/stubby</string>
-            <string>-C</string>
-            <string>#{etc}/stubby/stubby.yml</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"stubby", "-C", etc/"stubby/stubby.yml"]
+    keep_alive true
+    run_type :immediate
   end
 
   test do
@@ -73,7 +60,6 @@ class Stubby < Formula
     end
     sleep 2
 
-    output = shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net")
-    assert_match "status: NOERROR", output
+    assert_match "status: NOERROR", shell_output("dig @127.0.0.1 -p 5553 getdnsapi.net")
   end
 end

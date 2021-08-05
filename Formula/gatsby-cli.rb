@@ -4,15 +4,15 @@ class GatsbyCli < Formula
   desc "Gatsby command-line interface"
   homepage "https://www.gatsbyjs.org/docs/gatsby-cli/"
   # gatsby-cli should only be updated every 10 releases on multiples of 10
-  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-3.10.0.tgz"
-  sha256 "91ded5611f62dc948a3903f5d6a541877f8e4fd5f8920989e5742d0dece8fd74"
+  url "https://registry.npmjs.org/gatsby-cli/-/gatsby-cli-3.11.0.tgz"
+  sha256 "518af14ef95874e0dfd8c5cfeb54fe3901db98174fdc954885e16dccfaf3aadb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f8d432041893019a01884420500e8e37f37cff825119f723bf67940fdb3e46d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0443f524f10e8c1d59daebc1c8cc431a06ada4f578dd19aa019eda7ee2d4ad5b"
-    sha256 cellar: :any_skip_relocation, catalina:      "0443f524f10e8c1d59daebc1c8cc431a06ada4f578dd19aa019eda7ee2d4ad5b"
-    sha256 cellar: :any_skip_relocation, mojave:        "0443f524f10e8c1d59daebc1c8cc431a06ada4f578dd19aa019eda7ee2d4ad5b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9839eab73887b164bffc495ebf08266ee627f820a9f90f9e3044a08551e49e96"
+    sha256 cellar: :any_skip_relocation, big_sur:       "664884e7472b88c135790fe6448fff49fa31d68ed3b1d9f9fc591f877d78a0e7"
+    sha256 cellar: :any_skip_relocation, catalina:      "664884e7472b88c135790fe6448fff49fa31d68ed3b1d9f9fc591f877d78a0e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "664884e7472b88c135790fe6448fff49fa31d68ed3b1d9f9fc591f877d78a0e7"
   end
 
   depends_on "node"

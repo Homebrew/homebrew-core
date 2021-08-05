@@ -13,9 +13,13 @@ class Beancount < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "ec32f748bf839bc50fb311038a3eb92e7face57899f2f95da1da38d920092295"
     sha256 cellar: :any_skip_relocation, catalina:      "02b64e301e10fa05cae697fa0d89f8b7401b355bdcb88c2576b780bcaa3942af"
     sha256 cellar: :any_skip_relocation, mojave:        "3ae7fb4a729070f5caeeae26e4e53f862322b86dcbe5b6d403fc4082d062ea7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "152a452266a1973dd3417092f7c204c3aa9118b3e59cceaae39f43d7433ec9f9"
   end
 
   depends_on "python@3.9"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/f0/cb/80a4a274df7da7b8baf083249b0890a0579374c3d74b5ac0ee9291f912dc/attrs-20.3.0.tar.gz"

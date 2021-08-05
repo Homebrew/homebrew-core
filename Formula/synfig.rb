@@ -2,11 +2,10 @@ class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
   # NOTE: Please keep these values in sync with etl.rb when updating.
-  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.1/synfig-1.4.1.tar.gz"
-  mirror "https://github.com/synfig/synfig/releases/download/v1.4.1/synfig-1.4.1.tar.gz"
-  sha256 "f90f1dcff1a409bbe2bfbb2cf42b7019cf735bec3223722db2feba6e198d1bc1"
+  url "https://downloads.sourceforge.net/project/synfig/releases/1.4.2/synfig-1.4.2.tar.gz"
+  mirror "https://github.com/synfig/synfig/releases/download/v1.4.2/synfig-1.4.2.tar.gz"
+  sha256 "e66688b908ab2f05f87cc5a364f958a1351f101ccab3b3ade33a926453002f4e"
   license "GPL-3.0-or-later"
-  revision 6
   head "https://svn.code.sf.net/p/synfig/code/"
 
   livecheck do
@@ -15,10 +14,10 @@ class Synfig < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "d6677fc102a82187089fac81ed1e3b934580b542b3f3c533dbde470690f1e8a0"
-    sha256 big_sur:       "001fb43af0d7dde8e368c40c85daf1b8d3a69ada735c71151314506a0c7dd251"
-    sha256 catalina:      "a5707a244eb077e7c1b3fa6ebc02d90957bb45c02e6f2fdd78582b85038b3479"
-    sha256 mojave:        "bc43b4bba17b2ba137139acc797e79066850d210cd94a6eff35946fb0aa0691f"
+    sha256 arm64_big_sur: "c5a90497b2b4eb28f6c5a836fb623cad8f9fddfbddf488f3409f064b2e1df9a4"
+    sha256 big_sur:       "66e628cef26b73ac1dce71debf969be8b20ffec44c9bedd89634375467e7481f"
+    sha256 catalina:      "0ccb996e2cbb9eee74b8026396652ad804ef3c55b4fc1351805f7adaf8d8ef90"
+    sha256 mojave:        "506f2dd363424514817d44b47cf81dda7ac0a80f4df83f39aeca5eb2e2fb2f70"
   end
 
   depends_on "intltool" => :build

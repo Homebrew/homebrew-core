@@ -15,6 +15,7 @@ class Htpdate < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "ed41231b1e7d1760603e39f3e161be7cf817abc978f70c0dcbaec3bb206d9d8d"
     sha256 cellar: :any_skip_relocation, mojave:        "4da5825b9f51a83c7de24d289719f0d341b79685a7e1580f2de867e53941934a"
     sha256 cellar: :any_skip_relocation, high_sierra:   "437b8823d451f79f1ad8e2420387a3f50c3dc5919ef19717d41c437a88b77247"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f6fd7435b038f21853ca4066182eb24d6088484d9a5299fd1528e275bb55144"
   end
 
   depends_on macos: :high_sierra # needs <sys/timex.h>

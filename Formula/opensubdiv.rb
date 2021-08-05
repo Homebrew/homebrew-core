@@ -11,10 +11,11 @@ class Opensubdiv < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "76d36c038038fd7008964ec8d06f36b2970e56deda06e35096ab59cf02e056d9"
-    sha256 big_sur:       "2e1d8e64192097735c133a6b8282c8d204e3955b9359a85b51b129c7c8d1efe6"
-    sha256 catalina:      "3c25d8912c5751dda7134cd15b6841acead81b1d86b017acdc4e89fab9527a9b"
-    sha256 mojave:        "f335e92fcfd6f03e1c7348dc28b221fd38dfcb0d1bd27c8c5270c711b3019561"
+    sha256                               arm64_big_sur: "76d36c038038fd7008964ec8d06f36b2970e56deda06e35096ab59cf02e056d9"
+    sha256                               big_sur:       "2e1d8e64192097735c133a6b8282c8d204e3955b9359a85b51b129c7c8d1efe6"
+    sha256                               catalina:      "3c25d8912c5751dda7134cd15b6841acead81b1d86b017acdc4e89fab9527a9b"
+    sha256                               mojave:        "f335e92fcfd6f03e1c7348dc28b221fd38dfcb0d1bd27c8c5270c711b3019561"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1526f27e8ccf65a26bb4e69369abeb929ee7457f3db02237aabf1e80c1593254"
   end
 
   depends_on "cmake" => :build

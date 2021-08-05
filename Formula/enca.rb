@@ -3,7 +3,7 @@ class Enca < Formula
   homepage "https://cihar.com/software/enca/"
   url "https://dl.cihar.com/enca/enca-1.19.tar.gz"
   sha256 "4c305cc59f3e57f2cfc150a6ac511690f43633595760e1cb266bf23362d72f8a"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
   head "https://github.com/nijel/enca.git"
 
   bottle do
@@ -15,6 +15,7 @@ class Enca < Formula
     sha256 sierra:        "0920a4dd92de3f4d7725e6753a37d1cb5f2468063f4020def9167648ff21e046"
     sha256 el_capitan:    "889b9d13ff462aee05bb0afdbe012f6a388a2b5e30e13b55954f94a18db69a13"
     sha256 yosemite:      "c7e41db5725d169800674add5dfc3ab82d888f55f6703e44cda109348ed509e7"
+    sha256 x86_64_linux:  "c434ad486d2bc894f2562f7a02257bfa726a8623287e5f665cc4d20f7ea42c25"
   end
 
   def install
@@ -25,7 +26,8 @@ class Enca < Formula
 
   test do
     enca = "#{bin}/enca --language=none"
-    assert_match "ASCII", shell_output("#{enca} <<< 'Testing...'")
-    assert_match "UCS-2", shell_output("#{enca} --convert-to=UTF-16 <<< 'Testing...' | #{enca}")
+    assert_match "ASCII", pipe_output(enca, "Testing...")
+    ucs2_text = pipe_output("#{enca} --convert-to=UTF-16", "Testing...")
+    assert_match "UCS-2", pipe_output(enca, ucs2_text)
   end
 end

@@ -18,12 +18,12 @@ class Uwsgi < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "594a86025625f7fe80acb6d45274305c9f1bc2d1fcfb11726a23c02e1f52312f"
-    sha256 big_sur:       "379fad46d657ee6d6f89deae451dae6df69f4399278c64f0291325bc2356b356"
-    sha256 catalina:      "c54696e57c31eacac203eb8406e08910aec9482438e3a17a43faac38ce0d12c5"
-    sha256 mojave:        "78deea4386ab0f5acaa40d0caa5f30b41fa58abbdcfbb52de337e2b4e2da2c48"
-    sha256 x86_64_linux:  "fa77dfb3d395657992153da9f64a3e6ac8309b6d888b40aad2dd6094a6531d78"
+    rebuild 2
+    sha256 arm64_big_sur: "4326330a1880f7901c4168d85134a37f44de0e786e5fe76a9e9ecd16ed833a58"
+    sha256 big_sur:       "dd093fa094a07dba5ac53f040eaed23a9b61adc80b6cc50de246d160fcff0a34"
+    sha256 catalina:      "8194d4a365e0ce4d3ee5fd9764d008c6d0aabf6c804414d5a6b0733295f9d101"
+    sha256 mojave:        "2def48a9cc74853449722f5dc51a0224956d21906d8ff35e73a45fab3fc3faef"
+    sha256 x86_64_linux:  "acb0c806523fc521f4c703b5fe952b488f473a5eac99d5c877ac2fec2a117782"
   end
 
   depends_on "pkg-config" => :build
@@ -93,40 +93,11 @@ class Uwsgi < Formula
     bin.install "uwsgi"
   end
 
-  plist_options manual: "uwsgi"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/uwsgi</string>
-              <string>--uid</string>
-              <string>_www</string>
-              <string>--gid</string>
-              <string>_www</string>
-              <string>--master</string>
-              <string>--die-on-term</string>
-              <string>--autoload</string>
-              <string>--logto</string>
-              <string>#{HOMEBREW_PREFIX}/var/log/uwsgi.log</string>
-              <string>--emperor</string>
-              <string>#{HOMEBREW_PREFIX}/etc/uwsgi/apps-enabled</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"uwsgi", "--uid", "_www", "--gid", "_www", "--master", "--die-on-term", "--autoload", "--logto",
+         HOMEBREW_PREFIX/"var/log/uwsgi.log", "--emperor", HOMEBREW_PREFIX/"etc/uwsgi/apps-enabled"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

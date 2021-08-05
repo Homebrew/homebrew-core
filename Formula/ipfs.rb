@@ -16,11 +16,12 @@ class Ipfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "231298d145992a014cbb51f662441680df8f3770454c72bb6190d8324a78667b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e378ee908d60a07630e6825480c88e4d622131c313a4e12e239f0b19dad4e0ad"
-    sha256 cellar: :any_skip_relocation, catalina:      "60c16d40c1350166baf81c50b420504c4cf75af958da803383cc6f7b74b7f1fc"
-    sha256 cellar: :any_skip_relocation, mojave:        "567aeeb741ac0e393b848bf01c1015ac471cb0d0049478493a22b2b6dc732006"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a778ad8f01d55f6857cb5e6159584331936ea573a8d3a0586c5637a921c89ba"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1f86269d9a1876e97a32c76336d2ea58d402a021c6a1cf8f670f52a91e34634c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "ae045bd716b0681a30c771460d551e23ed746b400e9306e6c787b8c9602b7e2e"
+    sha256 cellar: :any_skip_relocation, catalina:      "ab0184411e3ca42b3836b6ada3f68deccde4ebf8eef8de147aff12949c17c1b0"
+    sha256 cellar: :any_skip_relocation, mojave:        "b66473a6df6868a7b5eb26730f42908d8b949d6e1aea4fb786d1e6e46df02563"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f07651c1b99b87bc12bfaac2cc2f825e507bcb75bcf504168ee66daad45adc3"
   end
 
   depends_on "go" => :build
@@ -32,26 +33,8 @@ class Ipfs < Formula
     bash_completion.install "misc/completion/ipfs-completion.bash"
   end
 
-  plist_options manual: "ipfs daemon"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/ipfs</string>
-          <string>daemon</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"ipfs", "daemon"]
   end
 
   test do

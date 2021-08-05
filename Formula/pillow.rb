@@ -11,10 +11,10 @@ class Pillow < Formula
     sha256 cellar: :any, big_sur:       "f431196fb3a02dd5c37bdf076daea8a56f214d6123146627a1dfa3f9f0b03dd9"
     sha256 cellar: :any, catalina:      "e27facb720fb31c1d03e3a1d8dee3f2ebb65607deb16290fb101cd8c24e3f960"
     sha256 cellar: :any, mojave:        "1864ce64006f862444bc498e031d3f3b4258644b7387546491cfd9e6f5be81f5"
+    sha256               x86_64_linux:  "fd8454a24ddf90269d840a522ed79296a901c3f5d00e8aa10926a57f4b978751"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.7" => [:build, :test] unless Hardware::CPU.arm?
   depends_on "python@3.8" => [:build, :test]
   depends_on "python@3.9" => [:build, :test]
   depends_on "jpeg"
@@ -27,6 +27,10 @@ class Pillow < Formula
   depends_on "webp"
 
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "python@3.7" => [:build, :test] unless Hardware::CPU.arm?
+  end
 
   def pythons
     deps.map(&:to_formula)

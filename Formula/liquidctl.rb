@@ -2,11 +2,11 @@ class Liquidctl < Formula
   include Language::Python::Virtualenv
 
   desc "Cross-platform tool and drivers for liquid coolers and other devices"
-  homepage "https://github.com/jonasmalacofilho/liquidctl"
+  homepage "https://github.com/liquidctl/liquidctl"
   url "https://files.pythonhosted.org/packages/cb/53/6edf9da254d2e80580b116c45a7c50edaf055917bf6d771185a5adf52d2a/liquidctl-1.7.1.tar.gz"
   sha256 "10f650b9486ddac184330940550433685ae0abc70b66fe92d994042491aab356"
   license "GPL-3.0-or-later"
-  head "https://github.com/jonasmalacofilho/liquidctl.git"
+  head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "bdb9efa7b382210874c57fe35f67213f3f6ec1355aae12d5190c1b39dd412814"

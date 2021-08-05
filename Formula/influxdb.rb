@@ -15,10 +15,11 @@ class Influxdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a35dbb44a58fd7dcea3149c7f626756f7c24d5cd170e98d9e1da7176eac8fa81"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c3b06b8d4bd823ac64796b6ae41bba75d17ef45005789b619823fff46139b61b"
-    sha256 cellar: :any_skip_relocation, catalina:      "03d0371fedd5f3d1b45b7abe9cd21724d4942b3fa9aeb4c109a95f09bb498b77"
-    sha256 cellar: :any_skip_relocation, mojave:        "3d7a2fe931bfa00cc12d241cce97123544920b1e38fd52e18bb47896d299b7e1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e7a6d19248a8d665dafdb65535db91471c9d1e221a960d6510ebfbd0fc0ed512"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fd1d249e726bf558dc5252daca83ec7939989ed10d0bbde603f6c50f313fcfd8"
+    sha256 cellar: :any_skip_relocation, catalina:      "74b7abcb4e2eac907741229394e0e4889a3b66af8d379f2797a687e5131d240d"
+    sha256 cellar: :any_skip_relocation, mojave:        "728c2867fc14149b2451940d04c53377d06016378b337bfdfde81f0c61727189"
   end
 
   depends_on "bazaar" => :build
@@ -82,38 +83,13 @@ class Influxdb < Formula
     (var/"log/influxdb2").mkpath
   end
 
-  plist_options manual: "INFLUXD_CONFIG_PATH=#{HOMEBREW_PREFIX}/etc/influxdb2/config.yml influxd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>EnvironmentVariables</key>
-        <dict>
-          <key>INFLUXD_CONFIG_PATH</key>
-          <string>#{etc}/influxdb2/config.yml</string>
-        </dict>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{bin}/influxd</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/influxdb2/influxd_output.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/influxdb2/influxd_output.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run bin/"influxd"
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"log/influxdb2/influxd_output.log"
+    error_log_path var/"log/influxdb2/influxd_output.log"
+    environment_variables INFLUXD_CONFIG_PATH: etc/"influxdb2/config.yml"
   end
 
   test do

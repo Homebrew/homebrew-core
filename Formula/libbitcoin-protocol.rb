@@ -7,10 +7,11 @@ class LibbitcoinProtocol < Formula
   revision 7
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "aafbba752b3be4a662fe4e1c3ee2bc915d323a41b9e51ec1dcced932c4cf1d7c"
-    sha256 cellar: :any, big_sur:       "aace6881bbd222da139ac545f8c1f77be1d6515a48a9153e4d7e605d242006cb"
-    sha256 cellar: :any, catalina:      "e04f1896d57ca53344e59c20372809419735fae379b3350cadaabc04a8c57780"
-    sha256 cellar: :any, mojave:        "af7dbd9acf2a65efa468e14e4923d33a69605e8ace1d91f697acf399ab6a6ca7"
+    sha256 cellar: :any,                 arm64_big_sur: "aafbba752b3be4a662fe4e1c3ee2bc915d323a41b9e51ec1dcced932c4cf1d7c"
+    sha256 cellar: :any,                 big_sur:       "aace6881bbd222da139ac545f8c1f77be1d6515a48a9153e4d7e605d242006cb"
+    sha256 cellar: :any,                 catalina:      "e04f1896d57ca53344e59c20372809419735fae379b3350cadaabc04a8c57780"
+    sha256 cellar: :any,                 mojave:        "af7dbd9acf2a65efa468e14e4923d33a69605e8ace1d91f697acf399ab6a6ca7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7353cdeff1b5ac4341580e031078ac5bc454fbc37d4d3dc448fb48dc6d909894"
   end
 
   depends_on "autoconf" => :build

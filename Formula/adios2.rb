@@ -7,6 +7,11 @@ class Adios2 < Formula
   revision 1
   head "https://github.com/ornladios/ADIOS2.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 arm64_big_sur: "b6b6dbcbe7d3d1ad478d47b4004d9ac932707a2503f810439680672a87b89e2b"
     sha256 big_sur:       "7d1abe16be0173d2c1e645c51641b59fea8983c140c5caef132016d4e1416568"

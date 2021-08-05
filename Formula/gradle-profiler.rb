@@ -6,6 +6,11 @@ class GradleProfiler < Formula
   license "Apache-2.0"
   revision 1
 
+  livecheck do
+    url "https://repo.gradle.org/ui/api/v1/download?repoKey=ext-releases-local&path=org%252Fgradle%252Fprofiler%252Fgradle-profiler%252Fmaven-metadata.xml"
+    regex(%r{<version>\s*v?(\d+(?:\.\d+)+)\s*</version>}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "92d79f184d9dff7724d483c56d3ab6822fde8e7b30008fa90b9a3f8b57bc304f"
   end

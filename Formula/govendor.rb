@@ -8,9 +8,11 @@ class Govendor < Formula
 
   bottle do
     rebuild 2
-    sha256 cellar: :any_skip_relocation, big_sur:  "479d963acb5e5d0446e223291e301581b55390c80b0e5263ad2a216b0a3acffa"
-    sha256 cellar: :any_skip_relocation, catalina: "85a344d1c8a2488bd4303b2b2bb4deb4d902bb88e2004160588b4c863d664fd0"
-    sha256 cellar: :any_skip_relocation, mojave:   "28492791ec9b8c58e472a7276c9b86450112ef642e2aa10d025eb623e0921f40"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6dfce4585d00e1429cbc2f2f6f25d8e5623f5b5689220918b3dca99ca5e0bccd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "479d963acb5e5d0446e223291e301581b55390c80b0e5263ad2a216b0a3acffa"
+    sha256 cellar: :any_skip_relocation, catalina:      "85a344d1c8a2488bd4303b2b2bb4deb4d902bb88e2004160588b4c863d664fd0"
+    sha256 cellar: :any_skip_relocation, mojave:        "28492791ec9b8c58e472a7276c9b86450112ef642e2aa10d025eb623e0921f40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "24497503629e520a1fe718029ab520b05c012677df065c9fd104afe4d898b8b8"
   end
 
   deprecate! date: "2020-03-02", because: :repo_archived
@@ -19,6 +21,7 @@ class Govendor < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
 
     (buildpath/"src/github.com/kardianos/").mkpath
     ln_sf buildpath, buildpath/"src/github.com/kardianos/govendor"

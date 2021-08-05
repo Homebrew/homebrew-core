@@ -1,17 +1,17 @@
 class Openfpgaloader < Formula
   desc "Universal utility for programming FPGA"
   homepage "https://github.com/trabucayre/openFPGALoader"
-  url "https://github.com/trabucayre/openFPGALoader/archive/v0.4.0.tar.gz"
-  sha256 "f2a67761a6fc66b5f1ba61618ea73852e3d4d7ea7166f32ea0a3274a908c6d11"
+  url "https://github.com/trabucayre/openFPGALoader/archive/v0.5.0.tar.gz"
+  sha256 "39c9686bdfcfa96b6bb1d8b37a8a53732372c16cda562036abe9930b61b29e97"
   license "Apache-2.0"
   head "https://github.com/trabucayre/openFPGALoader.git"
 
   bottle do
-    sha256 arm64_big_sur: "0b0ff606f9c897ac366cda2c8f4aeb297d235910a3e94a3fe75c6c477dac2c4a"
-    sha256 big_sur:       "023de89dec4bdccd8222433be4d20587288d4c30aeadec27c71ac9192e992bee"
-    sha256 catalina:      "7399ee5c7f0d1693867a33b423a55f2c6968bdcedfeb1d0c88c27e50c4d091cb"
-    sha256 mojave:        "6d2efdb166f86a10ae3a3c7b25989859159b2be2b63dc6cc69e874b2b6febaa1"
-    sha256 x86_64_linux:  "1fbca000552a9bb330257c05ce2c173c65d82c544699457e25d2939198da9fe3"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "77483712fb4bc07885f71696245d13d3bbb34255db2e94188588345b52f81866"
+    sha256 cellar: :any_skip_relocation, big_sur:       "33f9a2c0324595ab30136b1f83e5b97db844c362f7b5543fa009796145f23f42"
+    sha256 cellar: :any_skip_relocation, catalina:      "01322e5f63e499776d44a32f7752b71c7238f633e51ef46d46a5b8aaebc73929"
+    sha256 cellar: :any_skip_relocation, mojave:        "759abeb1d7b64b34f216518ffebc9584bccd6eef7003c29eb11740cd49c38549"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d30a0f2f57e76b8e667eecdf85281fc619dcddb9d8e6f3b2ba7491bb01ca8fb8"
   end
 
   depends_on "cmake" => :build

@@ -11,10 +11,11 @@ class Jack < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "cf18a780331e9c43a8ed6ecd26424ebbdffd601d70d02ce785cb33e808833d6d"
-    sha256 big_sur:       "ec0cff191b694dc9b41d1a4e79d954609d1504a60041be12690c5819f4ece9e2"
-    sha256 catalina:      "726a9eb19a6dd938d6869810b22cfcd8a0645a42978c5fc1aeba4bb5f9c42ba1"
-    sha256 mojave:        "120bad55e3a9649ec92a78f847ff0cbfcc2d46508c40dd5a93b314adef809cb0"
+    rebuild 1
+    sha256 arm64_big_sur: "ffbab9c78a68d9500801476cc963340ed638795d9d31cf0f20162380216f03b2"
+    sha256 big_sur:       "5fdfbe4b083a1fb96c2a6d66d8a32bff2eda70dd5488b5cd3f75c088f4e2c158"
+    sha256 catalina:      "03952b355f2868cafb1dc5b726ae9910602ae06454ed8f757402cb6c7b540dda"
+    sha256 mojave:        "bb3a77a180f342d3eafc91705996d7346331cbdc36efbb41022433a7dd2084c7"
   end
 
   depends_on "autoconf" => :build
@@ -36,38 +37,11 @@ class Jack < Formula
     system Formula["python@3.9"].opt_bin/"python3", "./waf", "install"
   end
 
-  plist_options manual: "jackd -X coremidi -d coreaudio"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>WorkingDirectory</key>
-        <string>#{opt_prefix}</string>
-        <key>EnvironmentVariables</key>
-        <dict>
-          <key>PATH</key>
-          <string>/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin</string>
-        </dict>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/jackd</string>
-          <string>-X</string>
-          <string>coremidi</string>
-          <string>-d</string>
-          <string>coreaudio</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"jackd", "-X", "coremidi", "-d", "coreaudio"]
+    keep_alive true
+    working_dir opt_prefix
+    environment_variables PATH: "/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin"
   end
 
   test do

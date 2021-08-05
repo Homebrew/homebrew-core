@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://github.com/elastic/logstash/archive/v7.13.4.tar.gz"
-  sha256 "91dd76507af4cbe296103aff4babb3bbad0817e7cee91c422b5b5fecb9426e9c"
+  url "https://github.com/elastic/logstash/archive/v7.14.0.tar.gz"
+  sha256 "556c5c68936a211d031c41abcc033bc1ba098555913e80de8947cfc5d48fa49d"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/elastic/logstash.git"
@@ -13,9 +13,9 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "24707381c5726076b9d477bccd5be153765814cc187c3bfb68c08396c86e8017"
-    sha256 cellar: :any, catalina: "da7d3f432d17d0b55dcf3d83638642e809485a0122c23b14fe6c8797035c9c16"
-    sha256 cellar: :any, mojave:   "d37de30386e7c4f2a65a9ca299229b9be758d879a5ae2a20fb3f3fc952d5c514"
+    sha256 cellar: :any, big_sur:  "0b16e600645cc57611c42525c39582f6d2952527183140062ad7328d8f226563"
+    sha256 cellar: :any, catalina: "14270acc6e0b6a4bc38f2f7ee5ee75400ff7ee1cb815bb49347c61611892a626"
+    sha256 cellar: :any, mojave:   "0954fdef97e62c0ae5b8c24489d793f87a085846eef2a877572930e2091047c6"
   end
 
   depends_on "openjdk@11"
@@ -64,36 +64,12 @@ class Logstash < Formula
     EOS
   end
 
-  plist_options manual: "logstash"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <false/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/logstash</string>
-          </array>
-          <key>EnvironmentVariables</key>
-          <dict>
-          </dict>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/logstash.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/logstash.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"logstash"
+    keep_alive false
+    working_dir var
+    log_path var/"log/logstash.log"
+    error_log_path var/"log/logstash.log"
   end
 
   test do

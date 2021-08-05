@@ -15,6 +15,7 @@ class FuseEmulator < Formula
     sha256 big_sur:       "36e52532b87822d39bcfc3df322e16cc1bce3d15e3c4898df3fb19e603627979"
     sha256 catalina:      "569522bf7f64bec6a0c0ebbd50658798830fa4509d1720a01f2a9404d5d44cc9"
     sha256 mojave:        "4431c55c622edab217e5e896e9718895747ccb8546dd4251c4457c327a0c6ae0"
+    sha256 x86_64_linux:  "4018537ef9c031ab708b26608f6d4505a7543138b34d0c5dbbb185d7a3ecbc07"
   end
 
   head do

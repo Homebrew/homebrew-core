@@ -12,6 +12,7 @@ class Virtualenvwrapper < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "0fd8944fc74014f2800ce37b599de8c5255634955d4ef16b7991af051113996c"
     sha256 cellar: :any_skip_relocation, catalina:      "697b57f6d32966c9ac4a1616ea61b38280e14a6ae7a4f728e64dfc90189893f2"
     sha256 cellar: :any_skip_relocation, mojave:        "4d4362c4a489e256a3804103464dbf05809f753f92d9918bd82be0f2e8ff88e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2d1030ca7415c3c18d235d7dfd33fc2f6f0dec7624d39bb683c1cd9c67ac8e14"
   end
 
   depends_on "python@3.9"
@@ -79,6 +80,6 @@ class Virtualenvwrapper < Formula
 
   test do
     assert_match "created virtual environment",
-      shell_output("source virtualenvwrapper.sh; mktmpenv")
+                 shell_output("bash -c 'source virtualenvwrapper.sh; mktmpenv'")
   end
 end

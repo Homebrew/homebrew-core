@@ -1,10 +1,9 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/Release-2.2.16.0.tar.gz"
-  sha256 "d1a59f32dbba3ba71ad2e62e107034d1c5287bca1b0696474e927d504cd05ef4"
+  url "https://github.com/OpenImageIO/oiio/archive/v2.2.17.0.tar.gz"
+  sha256 "b570da8928c3e8cde29bdb0e0320e727789e141c48375fb69a2548d642462396"
   license "BSD-3-Clause"
-  revision 3
   head "https://github.com/OpenImageIO/oiio.git"
 
   livecheck do
@@ -14,10 +13,10 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "fb4b8bf010a928e32564149b6473351643e09a0a075b27362a3a85345c238005"
-    sha256 cellar: :any, big_sur:       "ca331081dc4b0f31d46f6b92c3f589e08e73190e4b703d78523f935bb7cba366"
-    sha256 cellar: :any, catalina:      "be6c3a8cb74c99ef9fd7dc2949a7b635af5dcc822b105edc5097fa6644327e2d"
-    sha256 cellar: :any, mojave:        "a2398e0a68db551452e87d671e2f71d1a91e7be6b73deb4e6c2964dd13aa26bc"
+    sha256 cellar: :any, arm64_big_sur: "5c28aef2cf25dbf3453719c4712f6783f49b2f2f0e9482cf8bd2b473ef3e34ac"
+    sha256 cellar: :any, big_sur:       "bbad204a431acf7b4dd8f8c9a4106f60aae429b449e5a5981931c4a31ed3f934"
+    sha256 cellar: :any, catalina:      "c348b0fc2f14951144df8eb71f98938f2754be9689023583b6cfe0e21776344f"
+    sha256 cellar: :any, mojave:        "e9a7385f856a14fbceb940cafee67b94c8c50d095f5507a86323eed978d888e3"
   end
 
   depends_on "cmake" => :build

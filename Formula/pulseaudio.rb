@@ -61,33 +61,11 @@ class Pulseaudio < Formula
     system "make", "install"
   end
 
-  plist_options manual: "pulseaudio"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/pulseaudio</string>
-          <string>--exit-idle-time=-1</string>
-          <string>--verbose</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/#{name}.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/#{name}.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"pulseaudio", "--exit-idle-time=-1", "--verbose"]
+    keep_alive true
+    log_path var/"log/pulseaudio.log"
+    error_log_path var/"log/pulseaudio.log"
   end
 
   test do

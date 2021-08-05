@@ -16,6 +16,8 @@ class Osxutils < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "3bd65cf2550b709c111e31db7cb7d829a9260ed5dd35a682c370ed01593c1989"
   end
 
+  depends_on :macos
+
   def install
     system "make"
     system "make", "PREFIX=#{prefix}", "install"

@@ -11,6 +11,7 @@ class Tvnamer < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7482d3e40fae7da3a5a738ba27e891ab6313be37e2ca623ce3c6eabe8c07d261"
     sha256 cellar: :any_skip_relocation, catalina:      "7482d3e40fae7da3a5a738ba27e891ab6313be37e2ca623ce3c6eabe8c07d261"
     sha256 cellar: :any_skip_relocation, mojave:        "7482d3e40fae7da3a5a738ba27e891ab6313be37e2ca623ce3c6eabe8c07d261"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b055c3749deeee54611708e1e264cc631db2a675f1ff5ab2e8e7852a52f225ff"
   end
 
   depends_on "python@3.9"

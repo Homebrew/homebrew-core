@@ -3,17 +3,17 @@ class Pythran < Formula
 
   desc "Ahead of Time compiler for numeric kernels"
   homepage "https://pythran.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/2e/e9/bc3c16d683dbba5d34666b9861d1c1fdb07da0539655a3cf23a62e4cafa1/pythran-0.9.11.tar.gz"
-  sha256 "a317f91e2aade9f6550dc3bf40b5caeb45b7e012daf27e2b3e4ad928edb01667"
+  url "https://files.pythonhosted.org/packages/c6/e6/986a967dcca91d89e36f4d4a2f69a052030bce01a7cd48a6b7fba1a50189/pythran-0.9.12.post1.tar.gz"
+  sha256 "e7589cf83b0befa9a1b55e98223caf89aff887d9e3f14be912cf8703a717f185"
   license "BSD-3-Clause"
   head "https://github.com/serge-sans-paille/pythran.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4056653834555c454541d238ee682662947b616b434cad92de4c6b94af9a8cd8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "54adeffab0bcc6785b85521ba761ceee881be84749eaa4463234651dc69ed664"
-    sha256 cellar: :any_skip_relocation, catalina:      "54adeffab0bcc6785b85521ba761ceee881be84749eaa4463234651dc69ed664"
-    sha256 cellar: :any_skip_relocation, mojave:        "54adeffab0bcc6785b85521ba761ceee881be84749eaa4463234651dc69ed664"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6d4bf4eeff85441cff9152107312b6f7571e261f756381feb7c002b0f9397873"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "eb3289e9d8326e8ac6b2df366e9ef20245d2c830f166044a6f110f4e87dd5291"
+    sha256 cellar: :any_skip_relocation, big_sur:       "74ebdde670663491d2c5c590159de3f655c9b36110dc223cfe06c64f06003cae"
+    sha256 cellar: :any_skip_relocation, catalina:      "74ebdde670663491d2c5c590159de3f655c9b36110dc223cfe06c64f06003cae"
+    sha256 cellar: :any_skip_relocation, mojave:        "74ebdde670663491d2c5c590159de3f655c9b36110dc223cfe06c64f06003cae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecbf76fbaa393c2b28143bb5d2c6cc0461d798ba9bb56fa3ab380538fccdf409"
   end
 
   depends_on "gcc" # for OpenMP
@@ -23,23 +23,13 @@ class Pythran < Formula
   depends_on "six"
 
   resource "beniget" do
-    url "https://files.pythonhosted.org/packages/50/b9/7d864a50d5d2821686d4374400de45c8e0678e553657343f5f0ea6aff98d/beniget-0.3.0.tar.gz"
-    sha256 "062c893be9cdf87c3144fb15041cce4d81c67107c1591952cd45fdce789a0ff1"
-  end
-
-  resource "decorator" do
-    url "https://files.pythonhosted.org/packages/da/93/84fa12f2dc341f8cf5f022ee09e109961055749df2d0c75c5f98746cfe6c/decorator-4.4.2.tar.gz"
-    sha256 "e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
+    url "https://files.pythonhosted.org/packages/14/e7/50cbac38f77eca8efd39516be6651fdb9f3c4c0fab8cf2cf05f612578737/beniget-0.4.1.tar.gz"
+    sha256 "75554b3b8ad0553ce2f607627dad3d95c60c441189875b98e097528f8e23ac0c"
   end
 
   resource "gast" do
-    url "https://files.pythonhosted.org/packages/83/4a/07c7e59cef23fb147454663c3271c21da68ba2ab141427c20548ae5a8a4d/gast-0.4.0.tar.gz"
-    sha256 "40feb7b8b8434785585ab224d1568b857edb18297e5a3047f1ba012bc83b42c1"
-  end
-
-  resource "networkx" do
-    url "https://files.pythonhosted.org/packages/b0/21/adfbf6168631e28577e4af9eb9f26d75fe72b2bb1d33762a5f2c425e6c2a/networkx-2.5.1.tar.gz"
-    sha256 "109cd585cac41297f71103c3c42ac6ef7379f29788eb54cb751be5a663bb235a"
+    url "https://files.pythonhosted.org/packages/53/88/e12484298c9c913b68c1de191fa673f8a976036d98efbdcb60014f14c65c/gast-0.5.2.tar.gz"
+    sha256 "f81fcefa8b982624a31c9e4ec7761325a88a0eba60d36d1da90e47f8fe3c67f7"
   end
 
   resource "ply" do

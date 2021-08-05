@@ -6,15 +6,12 @@ class IrcdIrc2 < Formula
   sha256 "be94051845f9be7da0e558699c4af7963af7e647745d339351985a697eca2c81"
 
   bottle do
-    sha256 arm64_big_sur: "608dd6c598eb65e15f4084c1687813d7b6f7d35208d5c7790a6430b2cbf86825"
-    sha256 big_sur:       "e51f7e7ef9c5f11235392b7601fe7e0695e329e4d6cd6dbf07e66747cbbf8f45"
-    sha256 catalina:      "8508a48308449f51d7190eccc640b9351de2d30379b99b4fe0595cb185458204"
-    sha256 mojave:        "81e5c21532c98066b89bddc0ec6285eba22d2fcfb2c620b00ada8a6f4d641c7f"
-    sha256 high_sierra:   "ebc4e1007b994ae418cd522ecc70fa2c738dbf7eb52a883f775e7dcc9b06892e"
-    sha256 sierra:        "72b85345931772dc3ac1fe96201906db0c70c24e129e9ee7006253080926bd2f"
-    sha256 el_capitan:    "259ddceb29a5d5e0705c3b0a130368053de98282ecec2036c17d30062bd6f9f4"
-    sha256 yosemite:      "af6c845d852e4a525d64f1cfbd551377c90da201c2ef3e521d48fc1513a58064"
-    sha256 x86_64_linux:  "a192696af06779b4669a9340279adb4ccbcce2c30c39a11ea325f009f9d49ee8"
+    rebuild 1
+    sha256 arm64_big_sur: "ed3eac7c4635484c94d12579948947bff1eb6a671846fcd9273dd5ed226759fa"
+    sha256 big_sur:       "855bb8b0254ee0f410d6bdf3ad8479900f39f0ad120145485d9bdbe146f7a399"
+    sha256 catalina:      "35ae4defa513772b1e1b5b0400976d49cb213818a2272a9760a3da3a7e8c0765"
+    sha256 mojave:        "e0522b8f4eb95b0d60527e136e69474b4e9fe6f2b77a12919d5a6dd76bb2a4fa"
+    sha256 x86_64_linux:  "f8bad7fefb7315efe840f1f601b28ea1f9a83167fe40c8b9c5496330307363f6"
   end
 
   def default_ircd_conf
@@ -62,32 +59,11 @@ class IrcdIrc2 < Formula
     (etc/"ircd.conf").write default_ircd_conf
   end
 
-  plist_options manual: "ircd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <false/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/ircd</string>
-          <string>-t</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/ircd.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"ircd", "-t"]
+    keep_alive false
+    working_dir HOMEBREW_PREFIX
+    error_log_path var/"ircd.log"
   end
 
   test do

@@ -72,31 +72,9 @@ class Prestosql < Formula
     EOS
   end
 
-  plist_options manual: "presto-server run"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>AbandonProcessGroup</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{opt_libexec}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/presto-server</string>
-            <string>run</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"presto-server", "run"]
+    working_dir opt_libexec
   end
 
   test do

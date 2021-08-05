@@ -13,10 +13,11 @@ class Woob < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "495c9cea5e51223cad576f1b697e7507350e191d86d940c70796af8f6d653d33"
-    sha256 cellar: :any, big_sur:       "f75d147b1c16d0113e8f7dc707b286e1fc318a900951117ba1b2d69b1fc81d19"
-    sha256 cellar: :any, catalina:      "ead1bc5c9332e176ec53591a0bf2fcc923054692704259b3497f79d8d4c89ed2"
-    sha256 cellar: :any, mojave:        "934dedacec0cb8384854e63fa42b0d4c7fc84bb613fc250b066b14c33c8d6e56"
+    sha256 cellar: :any,                 arm64_big_sur: "495c9cea5e51223cad576f1b697e7507350e191d86d940c70796af8f6d653d33"
+    sha256 cellar: :any,                 big_sur:       "f75d147b1c16d0113e8f7dc707b286e1fc318a900951117ba1b2d69b1fc81d19"
+    sha256 cellar: :any,                 catalina:      "ead1bc5c9332e176ec53591a0bf2fcc923054692704259b3497f79d8d4c89ed2"
+    sha256 cellar: :any,                 mojave:        "934dedacec0cb8384854e63fa42b0d4c7fc84bb613fc250b066b14c33c8d6e56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3c033f16ebb59e5eee46020bf9ff8ed479813035d5d43d3b2363e3d81eba182"
   end
 
   depends_on "gnupg"
@@ -24,6 +25,9 @@ class Woob < Formula
   depends_on "pillow"
   depends_on "python@3.9"
   depends_on "six"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "Babel" do
     url "https://files.pythonhosted.org/packages/17/e6/ec9aa6ac3d00c383a5731cc97ed7c619d3996232c977bb8326bcbb6c687e/Babel-2.9.1.tar.gz"

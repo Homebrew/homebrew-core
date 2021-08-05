@@ -5,6 +5,11 @@ class Rzip < Formula
   sha256 "4bb96f4d58ccf16749ed3f836957ce97dbcff3e3ee5fd50266229a48f89815b7"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url "https://rzip.samba.org/ftp/rzip/"
+    regex(/href=.*?rzip[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "16c1e072a6f596e4bda1fb3bd99a743cdb1ef6c0ec552f1ea33224f24fb28047"
     sha256 cellar: :any_skip_relocation, big_sur:       "544443eda6593899f3358c6e7f5bce878ff590f357151b587b3c83785745492e"

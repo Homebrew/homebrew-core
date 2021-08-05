@@ -12,11 +12,12 @@ class V2ray < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "aab16537aac1687d7ba359fa7ea3e178d629672805d9d9cb3bdb6f850a62e94b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f7578b50924a4a106828878be8bbe152ea745322068e63863e855e5b65491593"
-    sha256 cellar: :any_skip_relocation, catalina:      "3be2f3867d44219f779b869f2698d64b99e76b14feccf74a55b5434a244410bd"
-    sha256 cellar: :any_skip_relocation, mojave:        "21edec4cbfec0cc8327f39fbb1fd95f8b1eb3db6acdc29c38bda421ebcfe9e02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "26e9f61091546464b5ae08d301a679ee16f70e71595dc230a4e086d3aa0c0637"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "33829b31999cbf6fc4c7660488339ccf4d2f57a463eb6f4a778d691557c4538c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b381ebf20db3835ea4f78c77e03771cf46cc1b517a041720da913fcfcc42bbae"
+    sha256 cellar: :any_skip_relocation, catalina:      "9ac8295e6615d7c551d9182e3ef71ad131be83c43191111bb981e050210088e9"
+    sha256 cellar: :any_skip_relocation, mojave:        "3cb91217f610e51779391421229b6126c380f09ff4b169f3b261d09b5763f4e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6892812312621128ad0a0ce1c70816ccb268cc8a285daac7878a56c306337664"
   end
 
   depends_on "go" => :build
@@ -56,29 +57,9 @@ class V2ray < Formula
     end
   end
 
-  plist_options manual: "v2ray -config=#{HOMEBREW_PREFIX}/etc/v2ray/config.json"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{bin}/v2ray</string>
-            <string>-config</string>
-            <string>#{etc}/v2ray/config.json</string>
-          </array>
-          <key>KeepAlive</key>
-          <true/>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [bin/"v2ray", "-config", etc/"v2ray/config.json"]
+    keep_alive true
   end
 
   test do

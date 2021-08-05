@@ -1,9 +1,8 @@
 class Hfsutils < Formula
   desc "Tools for reading and writing Macintosh volumes"
   homepage "https://www.mars.org/home/rob/proj/hfs/"
-  url "https://sources.voidlinux.org/hfsutils-3.2.6/hfsutils-3.2.6.tar.gz"
+  url "https://ftp.osuosl.org/pub/clfs/conglomeration/hfsutils/hfsutils-3.2.6.tar.gz"
   mirror "https://fossies.org/linux/misc/old/hfsutils-3.2.6.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/clfs/conglomeration/hfsutils/hfsutils-3.2.6.tar.gz"
   sha256 "bc9d22d6d252b920ec9cdf18e00b7655a6189b3f34f42e58d5bb152957289840"
   license "GPL-2.0-or-later"
 
@@ -13,6 +12,7 @@ class Hfsutils < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "133b4b04a161486e76ca06ed4e78086a83ce7ed238b10b879f78a93d66d9dc68"
     sha256 cellar: :any_skip_relocation, catalina:      "5a0e074c5fdcfb43508e049941dd5d7384a7f4843c8d0fe3df325880a45823fd"
     sha256 cellar: :any_skip_relocation, mojave:        "f32eb0e176bc5f5939a12599f0dbc808631a7680e21b5f820cc096e00fcec46e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec4614155fc7221a5410f47eac547e8c6c906bfa9965acfc03433fee57a997c9"
   end
 
   def install

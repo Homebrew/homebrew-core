@@ -1,15 +1,15 @@
 class Feedgnuplot < Formula
   desc "Tool to plot realtime and stored data from the command-line"
   homepage "https://github.com/dkogan/feedgnuplot"
-  url "https://github.com/dkogan/feedgnuplot/archive/v1.58.tar.gz"
-  sha256 "b365c5180c74146cae648b22aa56513fbe36e2360879c5e31d0a55786532a236"
+  url "https://github.com/dkogan/feedgnuplot/archive/v1.59.tar.gz"
+  sha256 "d64f03717797e7f03f9223a49777404b053a24a8001c899c1a785e51beab9a28"
   license any_of: ["GPL-1.0-or-later", "Artistic-1.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "95ac4f81cea6de374480e12c5405f91bff82b273cf3bb36e11573bc216cef391"
-    sha256 cellar: :any_skip_relocation, big_sur:       "714fbc8eac16cda3975072b8143de591fc2bb8b75b06eb2a5335243c3d11e1a2"
-    sha256 cellar: :any_skip_relocation, catalina:      "3a8fd0e2f1c53e42d244094d34bb0ef8bcb81dad65e53a59d847accd2b8486fb"
-    sha256 cellar: :any_skip_relocation, mojave:        "e7ac7f355080a99693da97468e9dd84274b1b23d2b5574eb291d3996bc21375b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cd66111d57ed08e502ad29842d72cdf7172f75c96e3e4848352669c1ca12de20"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cd66111d57ed08e502ad29842d72cdf7172f75c96e3e4848352669c1ca12de20"
+    sha256 cellar: :any_skip_relocation, catalina:      "0fb36eef2f007bbc44ce4972142c90d1ecb480ee8e2b9860de41d7e0df400451"
+    sha256 cellar: :any_skip_relocation, mojave:        "847d98727becadd6e8a8a4e2665b55d57609e3e286e8e41af0588f654f67b627"
   end
 
   depends_on "gnuplot"

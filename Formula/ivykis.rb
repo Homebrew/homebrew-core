@@ -12,11 +12,12 @@ class Ivykis < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "cd87cff2d6552030ba5b277853bf4f386bc28411ca0c9283e1ed90981f0ba6aa"
-    sha256 cellar: :any, big_sur:       "b3a788209e93dab2e5056bacbe24b7efe5554131d9b26ace853ca68f42e9d23c"
-    sha256 cellar: :any, catalina:      "5da36891f20e60db1a94b7eafeaf35605a0a4b18e833721aec01ab68399653a3"
-    sha256 cellar: :any, mojave:        "dd4fa86f2988dd4c913fc443131ce519ebf034ff492b4760f323ca663fb1744c"
-    sha256 cellar: :any, high_sierra:   "1409aa60298ac27959cf5370b70d158843524e5f5638e28e9607ac7e8783b11e"
+    sha256 cellar: :any,                 arm64_big_sur: "cd87cff2d6552030ba5b277853bf4f386bc28411ca0c9283e1ed90981f0ba6aa"
+    sha256 cellar: :any,                 big_sur:       "b3a788209e93dab2e5056bacbe24b7efe5554131d9b26ace853ca68f42e9d23c"
+    sha256 cellar: :any,                 catalina:      "5da36891f20e60db1a94b7eafeaf35605a0a4b18e833721aec01ab68399653a3"
+    sha256 cellar: :any,                 mojave:        "dd4fa86f2988dd4c913fc443131ce519ebf034ff492b4760f323ca663fb1744c"
+    sha256 cellar: :any,                 high_sierra:   "1409aa60298ac27959cf5370b70d158843524e5f5638e28e9607ac7e8783b11e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0953b9d2f273aeba941031332ea3cc9233ca70d1c451026192f2f9e0d9bb408d"
   end
 
   depends_on "autoconf" => :build

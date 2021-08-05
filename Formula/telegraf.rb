@@ -12,11 +12,12 @@ class Telegraf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "328bff7e65a271846295ea0e81c3ee58efb5ce3399f1720b4f299b63a80cb6a2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b5f5cdc0bcd37e9acd5a40f0dd1a30ab2b73a748806cef0e2b5fc9fbe9f13479"
-    sha256 cellar: :any_skip_relocation, catalina:      "4f833c5f38a99a8c45a80544eb7b398132c27a9ca31dd26d595c5f3e882f571b"
-    sha256 cellar: :any_skip_relocation, mojave:        "b96e19f8f6a231f8217377e6408d1d4374f346fd568b11e29e8ca87fef0dd548"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3266d4c2fbe6d65dd108e1fda402ba1f608ac09cab665b16d5c7cc108dabfac6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "456c7e1a8a93f7f0b2400a7b4e76e9f0988e7f6e6b7a874bca6f653a61249ebb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4ece6b8ddbb5508f4e05445385d057e01e15ea7de235cdc535ef5d4d8a322d7e"
+    sha256 cellar: :any_skip_relocation, catalina:      "b625daf3fac433733d784cc12627a9a85967fb28f25731aacfe0b99856563801"
+    sha256 cellar: :any_skip_relocation, mojave:        "ff9aa4a395bfade5554d3a98931407f8c55693ebfdde8443d74f286bd0b2b5bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5b71909e8d0b8364c1a8de269c61c76831ed4b636d0c840422a27c1216fd3486"
   end
 
   depends_on "go" => :build
@@ -31,40 +32,12 @@ class Telegraf < Formula
     (etc/"telegraf.d").mkpath
   end
 
-  plist_options manual: "telegraf -config #{HOMEBREW_PREFIX}/etc/telegraf.conf"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/telegraf</string>
-            <string>-config</string>
-            <string>#{etc}/telegraf.conf</string>
-            <string>-config-directory</string>
-            <string>#{etc}/telegraf.d</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/telegraf.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/telegraf.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"telegraf", "-config", etc/"telegraf.conf", "-config-directory", etc/"telegraf.d"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/telegraf.log"
+    error_log_path var/"log/telegraf.log"
   end
 
   test do

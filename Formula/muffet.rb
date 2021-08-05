@@ -11,6 +11,7 @@ class Muffet < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "71345b0533fc6a2f4e923a76cf179617cee16511295734b1e5b263cd919605e6"
     sha256 cellar: :any_skip_relocation, catalina:      "114262fa636aee768296d61e84d87cbc6c0b2fe163ac415cafe94b19a16633a8"
     sha256 cellar: :any_skip_relocation, mojave:        "03aecf8deeaf6655a9b9d8988c95e6501a5434492fb9ab809f7d5fbcb48d226f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ae37686a8199862819c4b0631eee42922e955a1d1e10d57f86dea3518bac212"
   end
 
   depends_on "go" => :build
@@ -20,10 +21,10 @@ class Muffet < Formula
   end
 
   test do
-    assert_match "failed to fetch root page: lookup does.not.exist: no such host",
-        shell_output("#{bin}/muffet https://does.not.exist 2>&1", 1)
+    assert_match(/failed to fetch root page: lookup does\.not\.exist.*: no such host/,
+                 shell_output("#{bin}/muffet https://does.not.exist 2>&1", 1))
 
     assert_match "https://httpbin.org/",
-        shell_output("#{bin}/muffet https://httpbin.org 2>&1", 1)
+                 shell_output("#{bin}/muffet https://httpbin.org 2>&1", 1)
   end
 end

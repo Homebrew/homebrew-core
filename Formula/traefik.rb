@@ -7,11 +7,12 @@ class Traefik < Formula
   head "https://github.com/traefik/traefik.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cd7763f06a072e65a29bd3aa8aedb9f089a0988ae6a16e3a4e979668130059d5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d8d876d792101d827c794e3e42cc3f4a6941e2005599cfa18084c87cb185e8ed"
-    sha256 cellar: :any_skip_relocation, catalina:      "72c05f0a11247c19ff7f2fca949e595024b27e3d52e1f2470fa962a3f9a0cdb8"
-    sha256 cellar: :any_skip_relocation, mojave:        "2510e7ee07707ff1f3c199670f5365a635281c6d169ca18113d61ebc45b3a09a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8450cf8f7ac33fe87dc880e99c28e611164eeabceee62383c93151a88daae4e7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9b40e9b27fb1242a1019e9248d3f16df701d2ec9b901715d1a3f3e2a1e322f1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8945c5e890858446c32105ede9883ead2b36e106ed716fd8eda4722f72a7bbce"
+    sha256 cellar: :any_skip_relocation, catalina:      "e472f5d46c3402cf16e914b2b22aca0e8431aee70587ca1d2d5908b1dacd6e34"
+    sha256 cellar: :any_skip_relocation, mojave:        "1171c9c8aea7d974a5be78e1fbf5c5e0928218be1eac9e31312d1f84ba32c61f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3219bcf8b6c842bcdb415111750d665e939de5ca662cfc7c897aebacddc5c2a9"
   end
 
   depends_on "go" => :build
@@ -24,37 +25,12 @@ class Traefik < Formula
       "-trimpath", "-o", bin/"traefik", "./cmd/traefik"
   end
 
-  plist_options manual: "traefik"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <false/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/traefik</string>
-            <string>--configfile=#{etc/"traefik/traefik.toml"}</string>
-          </array>
-          <key>EnvironmentVariables</key>
-          <dict>
-          </dict>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/traefik.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/traefik.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"traefik", "--configfile=#{etc/"traefik/traefik.toml"}"]
+    keep_alive false
+    working_dir var
+    log_path var/"log/traefik.log"
+    error_log_path var/"log/traefik.log"
   end
 
   test do

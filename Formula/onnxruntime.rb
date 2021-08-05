@@ -12,10 +12,11 @@ class Onnxruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7fc0d8e96de92351745b9ab8d0452ffa9439e06526142aded4af5abe914df93e"
-    sha256 cellar: :any, big_sur:       "715507acc42c6b996e2075fb079291cd2f06a0e4193d89a89bf7907769f53e61"
-    sha256 cellar: :any, catalina:      "8995905d5ea6d6feee5eb910b32e86cd577fa557da5d036b8d553fe997382dfc"
-    sha256 cellar: :any, mojave:        "2b09717c8dbc1616d40270037fac988f1f720ea8edf892b20d7650df826309ce"
+    sha256 cellar: :any,                 arm64_big_sur: "7fc0d8e96de92351745b9ab8d0452ffa9439e06526142aded4af5abe914df93e"
+    sha256 cellar: :any,                 big_sur:       "715507acc42c6b996e2075fb079291cd2f06a0e4193d89a89bf7907769f53e61"
+    sha256 cellar: :any,                 catalina:      "8995905d5ea6d6feee5eb910b32e86cd577fa557da5d036b8d553fe997382dfc"
+    sha256 cellar: :any,                 mojave:        "2b09717c8dbc1616d40270037fac988f1f720ea8edf892b20d7650df826309ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "551a7b6a878fbf314139d7cb5df8721364523bdefcd7b2c129371dec6536a546"
   end
 
   depends_on "cmake" => :build
@@ -46,8 +47,8 @@ class Onnxruntime < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lonnxruntime",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, "-I#{include}", testpath/"test.c",
+           "-L#{lib}", "-lonnxruntime", "-o", testpath/"test"
     assert_equal version, shell_output("./test").strip
   end
 end

@@ -8,10 +8,11 @@ class Nanomsgxx < Formula
 
   bottle do
     rebuild 3
-    sha256 cellar: :any, arm64_big_sur: "fdb165ff9a7d677801a5ee1929fb147992636fb65a28a71d1e2733305da4ffb9"
-    sha256 cellar: :any, big_sur:       "7b3e805045bb30e815c5c8e5b3385b970ebebb7ade67670e8c053e8f26f68228"
-    sha256 cellar: :any, catalina:      "3012511c27bb7d94925a68e468b1316a2b44364ff572533d8cfde94759f53b24"
-    sha256 cellar: :any, mojave:        "b1662476ea36dcf91800a55c4e11a54301158a24c7b2bdb501dbaaa7bc1024f7"
+    sha256 cellar: :any,                 arm64_big_sur: "fdb165ff9a7d677801a5ee1929fb147992636fb65a28a71d1e2733305da4ffb9"
+    sha256 cellar: :any,                 big_sur:       "7b3e805045bb30e815c5c8e5b3385b970ebebb7ade67670e8c053e8f26f68228"
+    sha256 cellar: :any,                 catalina:      "3012511c27bb7d94925a68e468b1316a2b44364ff572533d8cfde94759f53b24"
+    sha256 cellar: :any,                 mojave:        "b1662476ea36dcf91800a55c4e11a54301158a24c7b2bdb501dbaaa7bc1024f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a6282a899055fc6ca201ec484aadf25319df19fbae4569e31933865510f8eb7"
   end
 
   depends_on "pkg-config" => :build

@@ -2,28 +2,21 @@ class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
   url "https://github.com/duckdb/duckdb.git",
-      tag:      "v0.2.7",
-      revision: "8bc050d05b25a379efdaa537bd801b712671a83b"
+      tag:      "v0.2.8",
+      revision: "a8fd73b37bfc249b76b2aaa488d52dfdb39bb3d9"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "2255199bcc0917c191dfd77cbcd6b8e14b484072808b5efe5cf4572f58fa3bdd"
-    sha256 cellar: :any,                 big_sur:       "3e34f585159990b2cbdb1330e7932be0adcbfa9a4a97a50aec13d410338033b3"
-    sha256 cellar: :any,                 catalina:      "f73b9649e3e6265c3ee089510513b1124023ce4915cd21f6fe85c5b5fe5394a1"
-    sha256 cellar: :any,                 mojave:        "af8214d5a28184ca748e8c5f2284c1b0238d0c2e1a4b4fc6e5eca45e457d2644"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef025d3b72bd174cec7a755b87c9040031e0c269bde2c2989565d0d15dd5e587"
+    sha256 cellar: :any,                 arm64_big_sur: "7d3a59d4b2acfab03cb9926147a94a6a4a36ef663d8fd45fab7f09a520da3d10"
+    sha256 cellar: :any,                 big_sur:       "a5243f119762b2ace9e5f6709d81773aa9a296653d78feb1ffb9bc7795fa1be9"
+    sha256 cellar: :any,                 catalina:      "1563139761b87e9dacb1e191af79f5f74f484fc2200d25b9305bd1915f851b65"
+    sha256 cellar: :any,                 mojave:        "9d6335ff01a65260c95a0c75df6079fa003b529e8a3c513a65cad10b1039dde4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a7fff81c22eeb1a2e4e53dbf09a8f718687cc3078604caeb6fec0142baf4611"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.9" => :build
-
-  # Upstream PR to fix Linux amalgamation build: https://github.com/duckdb/duckdb/pull/2060
-  # Revisit for removal on next release
-  patch do
-    url "https://github.com/duckdb/duckdb/commit/405c21760dbad0940aa5ea1d9c121ac4cd866ab1.patch?full_index=1"
-    sha256 "184139de9cc7b696d5a0ef28f4f76ef5552f904198473f4e1ed7bdedfd93a535"
-  end
+  depends_on "utf8proc"
 
   def install
     on_linux do

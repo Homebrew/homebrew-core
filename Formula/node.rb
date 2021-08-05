@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.6.0/node-v16.6.0.tar.xz"
-  sha256 "5c5714a08b0881f37b57ab1f1b4801a1af316a2aea17faedc9c2d43247c7b9d9"
+  url "https://nodejs.org/dist/v16.6.1/node-v16.6.1.tar.xz"
+  sha256 "79b1ea058cc67f2a69462cd5f2467a1efe08c64299c053da70384ce1a0e3e557"
   license "MIT"
   head "https://github.com/nodejs/node.git"
 
@@ -12,11 +12,11 @@ class Node < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "11439782d5fa3437b2d3af95bf1a2c1b09ec0bc96987af3dfc8f999661c7bb66"
-    sha256 cellar: :any,                 big_sur:       "aa6f2ff115624801bdffdd5f89abc13b69cf52820e433cd07e3af65713effadd"
-    sha256 cellar: :any,                 catalina:      "da2b877e80ddac058c0a064b7d66037ec6ee382f29789058f6416ec65aad344a"
-    sha256 cellar: :any,                 mojave:        "235794704fe83618b19c293a4735a27c9884d1322762796acd5b4518568d9c29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a2ffb82ec8abf81bfbf81e8fc7028a41d4930736d6588f09acffd4330d265f22"
+    sha256 cellar: :any,                 arm64_big_sur: "0002381f608fcfd476d6b0cbc4eb1d7bd313626a7e12ae7a34aef53f0337179f"
+    sha256 cellar: :any,                 big_sur:       "de750653a443ee5a75609207325c70f0c947b83c763a7c16f044b5fd0524330c"
+    sha256 cellar: :any,                 catalina:      "519e44df2cc89579148aea8108e299efe9d0017d430fc652155af776d4b98d92"
+    sha256 cellar: :any,                 mojave:        "dc68f1326b0199f6c6f65db93eb483b843af975f8682feb17cc1c8789bc86df0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e2c08371469f83beb4b650459931679fb9b888c53dfd27701eec151a9326354"
   end
 
   depends_on "pkg-config" => :build
@@ -39,8 +39,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-7.19.1.tgz"
-    sha256 "93e9584be1b5109afe4750275f83c42611946c83801c7a9b5d122aacc0c6a957"
+    url "https://registry.npmjs.org/npm/-/npm-7.20.3.tgz"
+    sha256 "bf73538dbcd933e5a9d9575c0c39539aee3e70b32e27837037681662d3bc2c0b"
   end
 
   def install

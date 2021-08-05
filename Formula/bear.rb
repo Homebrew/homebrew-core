@@ -6,14 +6,15 @@ class Bear < Formula
   url "https://github.com/rizsotto/Bear/archive/3.0.13.tar.gz"
   sha256 "b57d9b139acbbad6439f5b1133266fa5afc5eb095a61cfa07cd9e8941943ae22"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/rizsotto/Bear.git"
 
   bottle do
-    sha256 arm64_big_sur: "293b7d941a86287e7a16e204d23782e2382b8aa63bffbf62c058b5d51ece75d5"
-    sha256 big_sur:       "19e053eb89067c18505711efa5608e582627e0faf03fe7bd48860d6c8ef2f96f"
-    sha256 catalina:      "d06cb81ddb0500de3caddc7d8edb6b07d97cc65e24a73844f3c7273aba859e4d"
-    sha256 mojave:        "87d82fe3dbbe37961a33cf5c37c9a70d21698240b5599a11f5b49e8c0f06201a"
-    sha256 x86_64_linux:  "026104e7bcfc9648f55b1e25bb574b57e533b127492af3bf54c536aa3651801e"
+    sha256 arm64_big_sur: "c4cec6a2cde957a3badcbd6c034339616ba4c3af89c87b2ac9336fd752baf83f"
+    sha256 big_sur:       "f9fd3891304f105a3bdb3f398e28164f22f2393c4d38f06dfc2c8e2c80d398b3"
+    sha256 catalina:      "c1eac851f134c114eb048127411ea3cf4e0d95a8320465af1e0e9cf106510996"
+    sha256 mojave:        "b73a7ea2565372625fcc6acb324aff7d26ddcbe8e284b52b463cb0c968813fee"
+    sha256 x86_64_linux:  "c6a4dbf31f2e9ece226d256fc2f26de511199074b5cf39b8bb4c55fd7d63770d"
   end
 
   depends_on "cmake" => :build

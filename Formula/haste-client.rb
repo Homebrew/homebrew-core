@@ -24,25 +24,26 @@ class HasteClient < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "c38551ce841f7a3cd825e1ae20b774836aba13fe6e129c1539eadde9b9e64a02"
     sha256 cellar: :any_skip_relocation, high_sierra:   "a97b7aaf38ec730bffa45ffc073ccf4921b4e5714069a21bf63e682a9d21527e"
     sha256 cellar: :any_skip_relocation, sierra:        "746af59be7c010e6e13b67d1f98766c0237061eabca601e5f0cad935e1c648bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "675af7af84034776b319fa54375925a68641973c22b22792e5cb4136f3500051"
   end
 
   depends_on "ruby" if MacOS.version <= :sierra
 
   resource "faraday" do
-    url "https://rubygems.org/gems/faraday-0.12.2.gem"
-    sha256 "6299046a78613ce330b67060e648a132ba7cca4f0ea769bc1d2bbcb22a23ec94"
+    url "https://rubygems.org/gems/faraday-0.17.4.gem"
+    sha256 "11677b5b261fbbfd4d959f702078d81c0bb66006c00ab2f329f32784778e4d9c"
   end
 
   if MacOS.version <= :sierra
     resource "json" do
-      url "https://rubygems.org/gems/json-2.1.0.gem"
-      sha256 "b76fd09b881088c6c64a12721a1528f2f747a1c2ee52fab4c1f60db8af946607"
+      url "https://rubygems.org/gems/json-2.5.1.gem"
+      sha256 "918d8c41dacb7cfdbe0c7bbd6014a5372f0cf1c454ca150e9f4010fe80cc3153"
     end
   end
 
   resource "multipart-post" do
-    url "https://rubygems.org/gems/multipart-post-2.0.0.gem"
-    sha256 "3dc44e50d3df3d42da2b86272c568fd7b75c928d8af3cc5f9834e2e5d9586026"
+    url "https://rubygems.org/gems/multipart-post-2.1.1.gem"
+    sha256 "d2dd7aa957650e0d99e0513cd388401b069f09528441b87d884609c8e94ffcfd"
   end
 
   def install

@@ -14,6 +14,8 @@ class Lunchy < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "71f804d56f0ff8a37209dfc427400885833fffc2d6139cf40a99e91151099900"
   end
 
+  depends_on :macos
+
   uses_from_macos "ruby"
 
   conflicts_with "lunchy-go", because: "both install a `lunchy` binary"

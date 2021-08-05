@@ -11,10 +11,11 @@ class InfluxdbAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "995eb91ced1cf89dd67db698aaf19c8a383409ea09dee11bc1b65808fb3fc93c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "faf03387f38258cd1e2559d241105cf812c5744212f615a45364330d33d2e60f"
-    sha256 cellar: :any_skip_relocation, catalina:      "a0b6a21ccfa92edc94bf9fe3ecd52f1330537a40d90dd8006546559cc69447d5"
-    sha256 cellar: :any_skip_relocation, mojave:        "8d77ad366087718862cf653c162d1e1c5a035e1baf6c70c3fc7c9b88d367387c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "87209fda062ca2cc837396f553b3b528b4744510666a76d4ce1350e6485f56b4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "50ffaa51c50e29f485f8558e6771fa0f221ce52bb2de74de7145dc85a02e1033"
+    sha256 cellar: :any_skip_relocation, catalina:      "be4f578608c750b90fafa55ecdebee4d9b322bab6dc849dffef5b2113dc7aa54"
+    sha256 cellar: :any_skip_relocation, mojave:        "9fd6a0fed10afc6225b2029fe6b4fa90af0f86cd04074d9c3a5dea4f49225232"
   end
 
   keg_only :versioned_formula
@@ -40,43 +41,12 @@ class InfluxdbAT1 < Formula
     (var/"influxdb/wal").mkpath
   end
 
-  plist_options manual: "influxd -config #{HOMEBREW_PREFIX}/etc/influxdb.conf"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/influxd</string>
-            <string>-config</string>
-            <string>#{HOMEBREW_PREFIX}/etc/influxdb.conf</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/influxdb.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/influxdb.log</string>
-          <key>SoftResourceLimits</key>
-          <dict>
-            <key>NumberOfFiles</key>
-            <integer>10240</integer>
-          </dict>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"influxd", "-config", HOMEBREW_PREFIX/"etc/influxdb.conf"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/influxdb.log"
+    error_log_path var/"log/influxdb.log"
   end
 
   test do

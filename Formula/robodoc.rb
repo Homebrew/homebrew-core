@@ -15,6 +15,7 @@ class Robodoc < Formula
     sha256 big_sur:       "72127c3a10a58f3a4d1c5eaaae50c33944063d3fe10eb71a95f17c7c32635d44"
     sha256 catalina:      "8c02f006c5ef0639855d20c284bdc9ce03f2e4ad11e6d4659a75f3080e815abf"
     sha256 mojave:        "f6cf96a433e670f0e92079848d45062fc93da258c3bda2749464aedb9bffc1f9"
+    sha256 x86_64_linux:  "7664b1da3c0a3d949f7c77cc7307cd16b7ee8c1e6af275e9a4f4d2c229dc2125"
   end
 
   head do

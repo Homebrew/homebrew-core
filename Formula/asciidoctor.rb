@@ -1,16 +1,16 @@
 class Asciidoctor < Formula
   desc "Text processor and publishing toolchain for AsciiDoc"
   homepage "https://asciidoctor.org/"
-  url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.15.tar.gz"
-  sha256 "19e8e2b6ac51221ca617e5d1587675283e0ad6c882a7b6597fc9aacf52c245cc"
+  url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.16.tar.gz"
+  sha256 "8fc1e3947012e22bccabe4d6faa31fee446f3719bb7478c79f45221b64fbd09f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bc6c3e1d9c0f14fbd70d179edb751892dcb1d44b4b8ab05758688ad1a78443d2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "98db0df78c00fe59499f5c5eed17b57f09406c9222b0f83878ac9a12cc5ffb8c"
-    sha256 cellar: :any_skip_relocation, catalina:      "98db0df78c00fe59499f5c5eed17b57f09406c9222b0f83878ac9a12cc5ffb8c"
-    sha256 cellar: :any_skip_relocation, mojave:        "d50077e74c31d0f910fed2352e3ae5eca7c731b9b84752d1e1e8bf7ef3a59f78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dc683b88a5964ec8fe4c2f76ad3f4b44d139f8c19bd965e33451803ed1eaac9b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6186ea5a18873974a7aa98d0b4777a7e3fbdfeb384e2e5f2418cfb183f8c3a04"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c790922614c89545746a2584301fa28911630c3a3d90d86e47edb9a0ef0069c2"
+    sha256 cellar: :any_skip_relocation, catalina:      "c790922614c89545746a2584301fa28911630c3a3d90d86e47edb9a0ef0069c2"
+    sha256 cellar: :any_skip_relocation, mojave:        "4e1207906049d91e5ac38fe95f759a63d7cfd32068f24985439215cd780d1ddf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c46e2d5344f1908d4bc0c2597867563b562e10625801d5085415ab81fa57e92"
   end
 
   depends_on "ruby@2.7" if MacOS.version <= :mojave

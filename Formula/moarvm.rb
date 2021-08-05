@@ -2,8 +2,8 @@ class Moarvm < Formula
   desc "Virtual machine for NQP and Rakudo Perl 6"
   homepage "https://moarvm.org"
   # NOTE: Please keep these values in sync with nqp & rakudo when updating.
-  url "https://github.com/MoarVM/MoarVM/releases/download/2021.06/MoarVM-2021.06.tar.gz"
-  sha256 "2300a921d504c9d33f111cbe08097d0011bfb06000c018b8d4353d97966772a7"
+  url "https://github.com/MoarVM/MoarVM/releases/download/2021.07/MoarVM-2021.07.tar.gz"
+  sha256 "8437ceefa5c132d0cf8328b22604e26f0a2a54c0377538aa9ae4bdfcf66d63fe"
   license "Artistic-2.0"
 
   livecheck do
@@ -12,11 +12,11 @@ class Moarvm < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "042d15c1dd99651addd6b6174062371976fd286f7bb5607cc93851d5aae77817"
-    sha256 big_sur:       "a89e2efc2219b8d4a382b31cedb58996a75f8055cc53b2d9ee602152e57e92b0"
-    sha256 catalina:      "e2e3d3ffaf9dc1b3df5432d90692f405b4b9c7464b4caca42da75ce5f85cb698"
-    sha256 mojave:        "2db8f7e21c00dd56d7389806db9468d019f14dbad337d7194a8994276d71a984"
-    sha256 x86_64_linux:  "b7316813d31849202726cd973b027f0f01cb422e41a6d29e8c012b5255872c81"
+    sha256 arm64_big_sur: "6048e75a00ca5cd8d4de71d7ffa513b77310c688438258dc3ea7cedae5f2fdef"
+    sha256 big_sur:       "b8a283f01a9cd95fc53fb655b2bae2ec83b1051613dc0ac1356926493588445d"
+    sha256 catalina:      "aedc1f8bf1977088410fbf4e2eb15627b12ff75ff6f1bc9d813732cd2bb62021"
+    sha256 mojave:        "ad7217c8112da4192a09f8846fdc41c62bdd7282dc0250393014c261c967920a"
+    sha256 x86_64_linux:  "d9b1ca7642f6eae24643c7934881504d6e9a0438c1f4ea3b68647252f031d898"
   end
 
   depends_on "libatomic_ops"
@@ -27,8 +27,8 @@ class Moarvm < Formula
   conflicts_with "rakudo-star", because: "rakudo-star currently ships with moarvm included"
 
   resource "nqp" do
-    url "https://github.com/Raku/nqp/releases/download/2021.06/nqp-2021.06.tar.gz"
-    sha256 "26992816b84e3624d197c64dcfaca59bcebb10338b81e5402853b426a5a200b4"
+    url "https://github.com/Raku/nqp/releases/download/2021.07/nqp-2021.07.tar.gz"
+    sha256 "dcaaf2a43ab3b752be6f4147a88abdc5b897e5ba85e536a0282bde8e4d363ea4"
   end
 
   def install

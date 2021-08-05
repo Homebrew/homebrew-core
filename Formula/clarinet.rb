@@ -6,6 +6,11 @@ class Clarinet < Formula
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/clarinet.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "27d4a6740525955d6ae284e5a31c767121576d1465fa2b3163ce397cf3380433"
     sha256 cellar: :any_skip_relocation, big_sur:       "f370e6bd23ccd8a6525ab94814536510d6db99503a718e7677f0c46c8d9bb9e2"

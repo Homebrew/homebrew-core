@@ -38,37 +38,13 @@ class PureFtpd < Formula
     system "make", "install"
   end
 
-  plist_options manual: "pure-ftpd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <true/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_sbin}/pure-ftpd</string>
-            <string>--chrooteveryone</string>
-            <string>--createhomedir</string>
-            <string>--allowdotfiles</string>
-            <string>--login=puredb:#{etc}/pureftpd.pdb</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/pure-ftpd.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/pure-ftpd.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"pure-ftpd", "--chrooteveryone", "--createhomedir", "--allowdotfiles",
+         "--login=puredb:#{etc}/pureftpd.pdb"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/pure-ftpd.log"
+    error_log_path var/"log/pure-ftpd.log"
   end
 
   test do

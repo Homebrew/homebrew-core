@@ -4,15 +4,15 @@ class Ttyd < Formula
   url "https://github.com/tsl0922/ttyd/archive/1.6.3.tar.gz"
   sha256 "1116419527edfe73717b71407fb6e06f46098fc8a8e6b0bb778c4c75dc9f64b9"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/tsl0922/ttyd.git"
 
   bottle do
-    sha256 arm64_big_sur: "17d9729f4c4c7162f8adeb361a64c30c2cfd5ed987728dd0692efb1096d9c5fc"
-    sha256 big_sur:       "3a8e47c44c2c09a23b83bf834a389d43907493bde07db0eea1ebb42b505df6dc"
-    sha256 catalina:      "918b9ae7215da2a72e88ff0456cf8be93e61249fadd97f1cd9ec09e71152b1ba"
-    sha256 mojave:        "d550e8e2cbae8483440e802a3d02d4beba1aec4c30d58e6cd27c07d69aafbe0f"
-    sha256 x86_64_linux:  "3b81efd9ca5aa1dfad2b0fa1c9e8840c1d1f27409c7fa817c87dd5159112096b"
+    sha256 arm64_big_sur: "3613c44348f2bbc54ee0a76bc09b99f5d1fcc0f4b207b7b6d7e5e69a60491600"
+    sha256 big_sur:       "44d98800018b084ba70f64fe6cda1c4e7d0632dc6ccc1875ccd7f9f60d424634"
+    sha256 catalina:      "fbc13a08d2e1193bba14db733744b92de148d5852d6f17c5c46a2776d1d469ad"
+    sha256 mojave:        "930c22597fe1b35a010fa73baca293feb1311bee1f625b2bfe52b6ac0a5bba1a"
+    sha256 x86_64_linux:  "3feae990ff47b0e9e4f7a14663557f2a6dadd89bed927def54c3db7d214024bf"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +32,12 @@ class Ttyd < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/ttyd --version")
+    port = free_port
+    fork do
+      system "#{bin}/ttyd", "--port", port.to_s, "bash"
+    end
+    sleep 5
+
+    system "curl", "-sI", "http://localhost:#{port}"
   end
 end

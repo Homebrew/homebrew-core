@@ -6,6 +6,10 @@ class VapoursynthSub < Formula
   license "ISC"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
+  livecheck do
+    formula "vapoursynth"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e00dd437364121c4633ac304e1494bffa20a9fad1e4f4fee4de3cd16015a17f2"
     sha256 cellar: :any, big_sur:       "40eda0329ae57f8deaac051521a8ee8f1fe6f5106db3ef024f2fce9ce3432f09"

@@ -7,11 +7,12 @@ class Nfcutils < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "257b8265cf3e136dd2a11c3b26b37f31cc3de371d97401a5fadaf1681330fbd8"
-    sha256 cellar: :any, big_sur:       "ae40ef6e8f1d98d6fc6114893715c713c28e0747a5c5a84779c89726970f8a95"
-    sha256 cellar: :any, catalina:      "963e5bf77bc285e81b9f7480f8b0362c73e5138bced77608043742df6e0992cd"
-    sha256 cellar: :any, mojave:        "972af2e69529bde17b450d36ccfbb4b9d124c59beb7bb4d69a9c63b76f7cff58"
-    sha256 cellar: :any, high_sierra:   "44dc64d49e9edc0c7b8f22c7f259262d5706f83bb452099b968b9f3576047367"
+    sha256 cellar: :any,                 arm64_big_sur: "257b8265cf3e136dd2a11c3b26b37f31cc3de371d97401a5fadaf1681330fbd8"
+    sha256 cellar: :any,                 big_sur:       "ae40ef6e8f1d98d6fc6114893715c713c28e0747a5c5a84779c89726970f8a95"
+    sha256 cellar: :any,                 catalina:      "963e5bf77bc285e81b9f7480f8b0362c73e5138bced77608043742df6e0992cd"
+    sha256 cellar: :any,                 mojave:        "972af2e69529bde17b450d36ccfbb4b9d124c59beb7bb4d69a9c63b76f7cff58"
+    sha256 cellar: :any,                 high_sierra:   "44dc64d49e9edc0c7b8f22c7f259262d5706f83bb452099b968b9f3576047367"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2f32645957380142c3180b1c67f9afb4170caa582aae8e0500731700d170dbc6"
   end
 
   depends_on "pkg-config" => :build

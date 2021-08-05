@@ -15,6 +15,7 @@ class GitRemoteGcrypt < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "348795646f446bef6471630348162d3d4ea09e2cee5f71405bdb2da5ab936eac"
     sha256 cellar: :any_skip_relocation, catalina:      "422197237a410ce36132a62aa25d15419a5a88e60affc63ceb2926f7bddacf03"
     sha256 cellar: :any_skip_relocation, mojave:        "a8ac84fcad96a05d2846adf010eba868703b7d3732c25c2da8a103e6780624fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9de2055f06de48f21fc84642b7811e54ad7048527509b6731d5537ff8e2e6fa8"
   end
 
   depends_on "docutils" => :build

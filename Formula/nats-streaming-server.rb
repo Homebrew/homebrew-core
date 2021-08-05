@@ -1,17 +1,17 @@
 class NatsStreamingServer < Formula
   desc "Lightweight cloud messaging system"
   homepage "https://nats.io"
-  url "https://github.com/nats-io/nats-streaming-server/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "adbb4a51536f9baabf42788c9e87bef029bc861cc5376e679098f2bc2dce181e"
+  url "https://github.com/nats-io/nats-streaming-server/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "116035f0c3c7e6154b7b1352d53ab16bd90b89afbce4afb70fe5d686ca4f24b0"
   license "Apache-2.0"
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3d4602a3cda6e52f30f19b7f2f77fa7ba991b2f8823c81ca0babb753d74609b3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9ddcbd4a6828e27b1a95e72c60459c984504457fd91e9bfb421eb65a31d66706"
-    sha256 cellar: :any_skip_relocation, catalina:      "8338994ba6e7900bd7c1a7037a7c83cac35b79ce5c1090ce62aba1c22b65c493"
-    sha256 cellar: :any_skip_relocation, mojave:        "0ab63e58ea6d7130a687b38c1d67f2917121828ec75605d8a7f06ab1db471638"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c616a590890b43bbb702711f0bea4c8bc4c1f0bb221650aacf7d5366175ffd1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "39b3c159d546f81777c33d8789685158c969450da3a0d3a2d9dbf4e17af4248a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0e34dac4cecf758e1e948227e72ddda767a6e018f54ae20b2263dd2c700da459"
+    sha256 cellar: :any_skip_relocation, catalina:      "972fdaccee5d7d1990da81656c332f7bb3791189cf537bc7f4f3259702675195"
+    sha256 cellar: :any_skip_relocation, mojave:        "681bd8f03835321dbe72c54cdcbab294d4bb5328f62ddcbb3dd75cf5026171d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1c1d00090e426ec88a33de2e8dd8f77b225e15baabc4e21f3f6e8e0d6b0a5a2"
   end
 
   depends_on "go" => :build
