@@ -22,8 +22,12 @@ class OpenAdventure < Formula
   depends_on "asciidoc" => :build
   depends_on "python@3.9" => :build
 
-  uses_from_macos "libedit" => :build
   uses_from_macos "libxml2" => :build
+  uses_from_macos "libedit"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
