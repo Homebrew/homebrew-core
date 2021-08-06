@@ -12,18 +12,16 @@ class Libfaketime < Formula
     sha256 mojave:   "e35274e338e72a603ed6b338437d09fc58427b65077a09e0159514e4df249317"
   end
 
-  # The `faketime` command needs GNU `gdate` not BSD `date`.
-  # See https://github.com/wolfcw/libfaketime/issues/158 and
-  # https://github.com/Homebrew/homebrew-core/issues/26568
-  depends_on "coreutils"
-
-  depends_on macos: :sierra
+  on_macos do
+    # The `faketime` command needs GNU `gdate` not BSD `date`.
+    # See https://github.com/wolfcw/libfaketime/issues/158 and
+    # https://github.com/Homebrew/homebrew-core/issues/26568
+    depends_on "coreutils"
+    depends_on macos: :sierra
+  end
 
   def install
-    system "make", "-C", "src", "-f", "Makefile.OSX", "PREFIX=#{prefix}"
-    bin.install "src/faketime"
-    (lib/"faketime").install "src/libfaketime.1.dylib"
-    man1.install "man/faketime.1"
+    system "make", "PREFIX=#{prefix}", "install"
   end
 
   test do
