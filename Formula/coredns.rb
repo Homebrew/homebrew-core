@@ -20,6 +20,10 @@ class Coredns < Formula
 
   depends_on "go" => :build
 
+  on_linux do
+    depends_on "bind" => :test # for `dig`
+  end
+
   def install
     system "make"
     bin.install "coredns"
