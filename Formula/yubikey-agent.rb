@@ -16,6 +16,13 @@ class YubikeyAgent < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "pcsc-lite"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "pinentry"
+  end
+
   def install
     system "go", "build", *std_go_args, "-ldflags", "-X main.Version=v#{version}"
   end
