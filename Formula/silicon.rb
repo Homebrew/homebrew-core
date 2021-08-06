@@ -14,6 +14,14 @@ class Silicon < Formula
 
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "fontconfig"
+    depends_on "freetype"
+    depends_on "libxcb"
+    depends_on "xclip"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
