@@ -3,6 +3,7 @@ class Shapelib < Formula
   homepage "http://shapelib.maptools.org/"
   url "https://download.osgeo.org/shapelib/shapelib-1.5.0.tar.gz"
   sha256 "1fc0a480982caef9e7b9423070b47750ba34cd0ba82668f2e638fab1d07adae1"
+  license any_of: ["LGPL-2.0-or-later", "MIT"]
 
   livecheck do
     url "https://download.osgeo.org/shapelib/"
@@ -20,8 +21,11 @@ class Shapelib < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    # shapelib's CMake scripts interpret `CMAKE_INSTALL_LIBDIR=lib` as relative
+    # to the current directory, i.e. `CMAKE_INSTALL_LIBDIR:PATH=$(pwd)/lib`
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_libdir: lib)
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
