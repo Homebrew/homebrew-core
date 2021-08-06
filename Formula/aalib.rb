@@ -40,6 +40,23 @@ class Aalib < Formula
   end
 
   test do
-    system "script", "-q", "/dev/null", bin/"aainfo"
+    output = shell_output("#{bin}/aainfo -width 100 -height 50")
+    assert_match "AAlib version:#{version.major_minor}", output
+    assert_match(/Width +:100$/, output)
+    assert_match(/Height +:50$/, output)
+
+    output = shell_output("yes '' | #{bin}/aatest -width 20 -height 10")
+    assert_match <<~EOS, output
+      floyd-steelberg dith
+      ering. . ....----:.:
+          . .......-.:.:::
+         . . . ....---:-::
+          . .......-.:.:-:
+         . . . ....--.:-::
+          . .......-.:-:-:
+         . . . ....:.:.:-:
+          . ........:.:-::
+         . . . ....:.--:-:
+    EOS
   end
 end
