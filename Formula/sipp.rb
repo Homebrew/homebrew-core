@@ -3,7 +3,8 @@ class Sipp < Formula
   homepage "https://sipp.sourceforge.io/"
   url "https://github.com/SIPp/sipp/releases/download/v3.6.1/sipp-3.6.1.tar.gz"
   sha256 "6a560e83aff982f331ddbcadfb3bd530c5896cd5b757dd6eb682133cc860ecb1"
-  license "BSD-3-Clause"
+  license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "449c55fa3ed88cbbd0ec9f1034d93df5b9affe4e168c7d332fc4a41b4b9f6d0a"
@@ -14,9 +15,13 @@ class Sipp < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "openssl@1.1"
+
+  uses_from_macos "libpcap"
+  uses_from_macos "ncurses"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DUSE_PCAP=1", "-DUSE_SSL=1"
     system "make", "install"
   end
 
