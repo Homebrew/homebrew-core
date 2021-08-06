@@ -34,7 +34,6 @@ class VercelCli < Formula
     dist_dir = libexec/"lib/node_modules/#{name}/dist"
     rm_rf dist_dir/"term-size"
 
-
     on_macos do
       macos_dir = term_size_vendor_dir/"macos"
       macos_dir.mkpath
