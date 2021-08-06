@@ -3,8 +3,8 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/3b/0a/b2908d6c9358c4e6da5aa896a6d8616217bbf764cc9ba2efc5426de39346/jupyterlab-3.1.2.tar.gz"
-  sha256 "47c0a6237a3c29d8d349dae2c36feca717c5af78481ed84cd0b0de63b0ef8d9c"
+  url "https://files.pythonhosted.org/packages/b1/64/fc16aed4f198251003b89b1a06a979366807ae2555e4388df66cbce1f091/jupyterlab-3.1.4.tar.gz"
+  sha256 "82b5ea0f4bd500ff2a6aa27304a206007d7bbe8bc2bc5c685014d72462c985da"
   license "BSD-3-Clause"
 
   bottle do
@@ -203,8 +203,8 @@ class Jupyterlab < Formula
   end
 
   resource "notebook" do
-    url "https://files.pythonhosted.org/packages/af/f5/9b852c8ff8e911637e5b47834b4dce0d4fe31b4ece72667e9fbffa42c0fe/notebook-6.4.0.tar.gz"
-    sha256 "9c4625e2a2aa49d6eae4ce20cbc3d8976db19267e32d2a304880e0c10bf8aef9"
+    url "https://files.pythonhosted.org/packages/bb/7b/de620d82888929137f565334246d6553e2d1b7880a0fc5bb6b511a143610/notebook-6.4.1.tar.gz"
+    sha256 "2a67037730e2b2991f5d684ecb07255bbb191f49234888e71e1fabf8e50679a6"
   end
 
   resource "packaging" do
@@ -278,8 +278,8 @@ class Jupyterlab < Formula
   end
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/e6/73/88ff9ae59ee839ad713f1d5d8aa9af7f731114b3ca7eaca06b5772589ac0/pyzmq-22.2.0.tar.gz"
-    sha256 "ff6454bd8067463380ea992a7cbe623bd61aeb83a8f19d47eb221eec3f798080"
+    url "https://files.pythonhosted.org/packages/d6/67/98d0d6ac5c784190a0f9728410902471552cffc78cef37830cd86b9cd70d/pyzmq-22.2.1.tar.gz"
+    sha256 "6d18c76676771fd891ca8e0e68da0bbfb88e30129835c0ade748016adb3b6242"
   end
 
   resource "requests" do
@@ -343,8 +343,8 @@ class Jupyterlab < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/58/0d/af54f4732115a20c370f43f179523d189a5cb75711c60ba00b41e163a065/websocket-client-1.1.0.tar.gz"
-    sha256 "b68e4959d704768fa20e35c9d508c8dc2bbc041fd8d267c0d7345cffe2824568"
+    url "https://files.pythonhosted.org/packages/bc/a6/5ef697df40e56459de75b57f302f2da92a51269925282a08e4eb76b16fb6/websocket-client-1.1.1.tar.gz"
+    sha256 "4cf754af7e3b3ba76589d49f9e09fd9a6c0aae9b799a89124d656009c01a261d"
   end
 
   def install
