@@ -3,7 +3,7 @@ class Taktuk < Formula
   homepage "https://taktuk.gforge.inria.fr/"
   url "https://gforge.inria.fr/frs/download.php/file/37055/taktuk-3.7.7.tar.gz"
   sha256 "56a62cca92670674c194e4b59903e379ad0b1367cec78244641aa194e9fe893e"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://gforge.inria.fr/frs/?group_id=274"
@@ -20,6 +20,8 @@ class Taktuk < Formula
     sha256 cellar: :any, el_capitan:    "4a731d243e6915729240deb75dc99cfee513bb7d0f69169981623b14ce6601c1"
   end
 
+  uses_from_macos "perl"
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"
@@ -28,6 +30,6 @@ class Taktuk < Formula
   end
 
   test do
-    system "#{bin}/taktuk", "quit"
+    system bin/"taktuk", "quit"
   end
 end
