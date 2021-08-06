@@ -22,6 +22,8 @@ class Scrypt < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "expect" => :test
+
   def install
     system "autoreconf", "-fvi" if build.head?
     system "./configure", "--prefix=#{prefix}"
@@ -29,8 +31,7 @@ class Scrypt < Formula
   end
 
   test do
-    (testpath/"test.sh").write <<~EOS
-      #!/usr/bin/expect -f
+    (testpath/"test.exp").write <<~EOS
       set timeout -1
       spawn #{bin}/scrypt enc homebrew.txt homebrew.txt.enc
       expect -exact "Please enter passphrase: "
@@ -40,10 +41,9 @@ class Scrypt < Formula
       send -- "Testing\n"
       expect eof
     EOS
-    chmod 0755, testpath/"test.sh"
     touch "homebrew.txt"
 
-    system "./test.sh"
+    system "expect", "-f", "test.exp"
     assert_predicate testpath/"homebrew.txt.enc", :exist?
   end
 end
