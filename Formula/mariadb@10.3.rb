@@ -1,10 +1,9 @@
 class MariadbAT103 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.3.30/source/mariadb-10.3.30.tar.gz"
-  sha256 "bd8735c65bdb7ebcd5d779fb9d3de3f2fcd319ad6482278d73dfe7301ad4ae1b"
+  url "https://downloads.mariadb.org/f/mariadb-10.3.31/source/mariadb-10.3.31.tar.gz"
+  sha256 "20421dfe5750f510ab0ee23420337332e6799cd38fa31332e2841dfa956eb771"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/"
@@ -29,15 +28,6 @@ class MariadbAT103 < Formula
   depends_on "groonga"
   depends_on "openssl@1.1"
   depends_on "pcre2"
-
-  on_macos do
-    # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
-    # file called VERSION
-    # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-    # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-    # removed once that issue is closed and the fix has been merged into a stable release
-    patch :DATA
-  end
 
   on_linux do
     depends_on "gcc"
@@ -79,14 +69,6 @@ class MariadbAT103 < Formula
     args << "-DPLUGIN_TOKUDB=NO"
 
     system "cmake", ".", *std_cmake_args, *args
-
-    on_macos do
-      # Need to rename files called version/VERSION to avoid build failure
-      # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-      # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-      # removed once that issue is closed and the fix has been merged into a stable release
-      mv "storage/mroonga/version", "storage/mroonga/version.txt"
-    end
 
     system "make"
     system "make", "install"
@@ -204,19 +186,3 @@ class MariadbAT103 < Formula
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
   end
 end
-
-__END__
-diff --git a/storage/mroonga/CMakeLists.txt b/storage/mroonga/CMakeLists.txt
-index 555ab248751..cddb6f2f2a6 100644
---- a/storage/mroonga/CMakeLists.txt
-+++ b/storage/mroonga/CMakeLists.txt
-@@ -215,8 +215,7 @@ set(MYSQL_INCLUDE_DIRS
-   "${MYSQL_REGEX_INCLUDE_DIR}"
-   "${MYSQL_RAPIDJSON_INCLUDE_DIR}"
-   "${MYSQL_LIBBINLOGEVENTS_EXPORT_DIR}"
--  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}"
--  "${MYSQL_SOURCE_DIR}")
-+  "${MYSQL_LIBBINLOGEVENTS_INCLUDE_DIR}")
-
- if(MRN_BUNDLED)
-   set(MYSQL_PLUGIN_DIR "${INSTALL_PLUGINDIR}")
