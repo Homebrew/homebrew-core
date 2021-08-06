@@ -19,6 +19,8 @@ class Veraxx < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "tcl-tk"
+
   # Use prebuilt docs to avoid need for pandoc
   resource "doc" do
     url "https://bitbucket.org/verateam/vera/downloads/vera++-1.3.0-doc.tar.gz"
@@ -71,17 +73,24 @@ class Veraxx < Formula
       system "make", "install"
     end
 
-    system "cmake", ".",
-           "-DVERA_USE_SYSTEM_BOOST:BOOL=ON", "-DBoost_USE_STATIC_LIBS:BOOL=ON",
-           "-DLUA_INCLUDE_DIR:PATH=#{buildpath}/3rdParty/include",
-           "-DLUA_LIBRARIES:PATH=#{buildpath}/3rdParty/lib/liblua.a",
-           "-DLUA_LIBRARY:PATH=#{buildpath}/3rdParty/lib/liblua.a",
-           "-DLUABIND_INCLUDE_DIR:PATH=#{buildpath}/3rdParty/include",
-           "-DLUABIND_LIBRARIES:PATH=#{buildpath}/3rdParty/lib/libluabind.a",
-           "-DLUABIND_LIBRARY:PATH=#{buildpath}/3rdParty/lib/libluabind.a",
-           "-DBoost_INCLUDE_DIR:PATH=#{buildpath}/3rdParty/include",
-           "-DBoost_LIBRARY_DIR_RELEASE:PATH=#{buildpath}/3rdParty/lib",
-           *std_cmake_args
+    args = std_cmake_args + %W[
+      -DVERA_USE_SYSTEM_BOOST:BOOL=ON
+      -DBoost_USE_STATIC_LIBS:BOOL=ON
+      -DLUA_INCLUDE_DIR:PATH=#{buildpath}/3rdParty/include
+      -DLUA_LIBRARIES:PATH=#{buildpath}/3rdParty/lib/liblua.a
+      -DLUA_LIBRARY:PATH=#{buildpath}/3rdParty/lib/liblua.a
+      -DLUABIND_INCLUDE_DIR:PATH=#{buildpath}/3rdParty/include
+      -DLUABIND_LIBRARIES:PATH=#{buildpath}/3rdParty/lib/libluabind.a
+      -DLUABIND_LIBRARY:PATH=#{buildpath}/3rdParty/lib/libluabind.a
+      -DBoost_INCLUDE_DIR:PATH=#{buildpath}/3rdParty/include
+      -DBoost_LIBRARY_DIR_RELEASE:PATH=#{buildpath}/3rdParty/lib
+    ]
+    on_linux do
+      # Disable building Python rules support since vera++ needs Python 2.
+      # Revisit on release with Python 3: https://bitbucket.org/verateam/vera/issues/108/migrate-to-python-3
+      args << "-DVERA_PYTHON=OFF"
+    end
+    system "cmake", ".", *args
     system "make", "install"
 
     resource("doc").stage do
