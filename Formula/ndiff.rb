@@ -5,6 +5,11 @@ class Ndiff < Formula
   sha256 "f2bbd9a2c8ada7f4161b5e76ac5ebf9a2862cab099933167fe604b88f000ec2c"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ndiff[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c7c14877b300c9a36d4047b883e773397f819f60718b9e13d17ca4359b317541"
     sha256 cellar: :any_skip_relocation, big_sur:       "409ac74964648efd98d55c7b07ffcb90066e23b08a50b495b4e43183fd3a9aef"
