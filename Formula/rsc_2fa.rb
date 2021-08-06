@@ -1,7 +1,3 @@
-# typed: false
-# frozen_string_literal: true
-
-# Homebrew formula for 2fa
 class Rsc2fa < Formula
   desc "Two-factor authentication on the command-line"
   homepage "https://pkg.go.dev/rsc.io/2fa"
