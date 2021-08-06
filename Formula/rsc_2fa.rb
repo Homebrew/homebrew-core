@@ -12,7 +12,7 @@ class Rsc2fa < Formula
   end
 
   test do
-    out = shell_output("#{bin}/2fa -help 2>&1")
+    out = shell_output("#{bin}/2fa -help 2>&1", 2)
     assert_match(/^usage:/, out)
 
     out = shell_output("echo AAAAAAAAAAAAAAAA | #{bin}/2fa -add example 2>&1")
