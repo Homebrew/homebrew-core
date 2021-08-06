@@ -38,11 +38,12 @@ class Gegl < Formula
 
   def install
     args = std_meson_args + %w[
-      -Dwith-docs=false
-      -Dwith-cairo=false
-      -Dwith-jasper=false
-      -Dwith-umfpack=false
-      -Dwith-libspiro=false
+      -Ddocs=false
+      -Dcairo=disabled
+      -Djasper=disabled
+      -Dmfpack=disabled
+      -Dlibspiro=disabled
+      --wrap-mode=default
       --force-fallback-for=libnsgif,poly2tri-c
     ]
 
