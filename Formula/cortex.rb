@@ -22,7 +22,7 @@ class Cortex < Formula
 
   def install
     system "go", "build", *std_go_args, "./cmd/cortex"
-    cd "docs/configuration" do
+    cd "docs/chunks-storage" do
       inreplace "single-process-config.yaml", "/tmp", var
       etc.install "single-process-config.yaml" => "cortex.yaml"
     end
