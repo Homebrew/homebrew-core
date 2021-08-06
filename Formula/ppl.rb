@@ -22,6 +22,10 @@ class Ppl < Formula
 
   depends_on "gmp"
 
+  on_linux do
+    depends_on "m4" => :build
+  end
+
   # Fix build failure with clang 5+.
   # https://www.cs.unipr.it/mantis/view.php?id=2128
   # http://www.cs.unipr.it/git/gitweb.cgi?p=ppl/ppl.git;a=commit;h=c39f6a07b51f89e365b05ba4147aa2aa448febd7
