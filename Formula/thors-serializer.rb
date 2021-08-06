@@ -2,8 +2,8 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      tag:      "2.2.0",
-      revision: "e51bb10e1f95a3d52391358c941a5e8dd92c1e4e"
+      tag:      "2.2.8",
+      revision: "f1f665fd55ca81acbea0cf9b081765586b194688"
   license "MIT"
 
   bottle do
@@ -14,7 +14,14 @@ class ThorsSerializer < Formula
   end
 
   depends_on "boost" => :build
+  depends_on "bzip2"
   depends_on "libyaml"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     ENV["COV"] = "gcov"
@@ -60,7 +67,7 @@ class ThorsSerializer < Formula
     EOS
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
            "-I#{Formula["boost"].opt_include}",
-           "-I#{include}", "-L#{lib}", "-lThorSerialize17", "-lThorsLogging17"
+           "-I#{include}", "-L#{lib}", "-lThorSerialize17", "-lThorsLogging17", "-ldl"
     system "./test"
   end
 end
