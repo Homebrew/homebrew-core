@@ -13,6 +13,9 @@ class Mg < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "13c778ce17746ad6531448eb48c23b8d882d7a203dcf9dda04d3fd61d0b0a28d"
   end
 
+  uses_from_macos "expect" => :test
+  uses_from_macos "ncurses"
+
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}"
@@ -21,16 +24,14 @@ class Mg < Formula
   end
 
   test do
-    (testpath/"command.sh").write <<~EOS
-      #!/usr/bin/expect -f
+    (testpath/"command.exp").write <<~EOS
       set timeout -1
       spawn #{bin}/mg
       match_max 100000
       send -- "\u0018\u0003"
       expect eof
     EOS
-    chmod 0755, testpath/"command.sh"
 
-    system testpath/"command.sh"
+    system "expect", "-f", "command.exp"
   end
 end
