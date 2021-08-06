@@ -3,7 +3,7 @@ class ExactImage < Formula
   homepage "https://exactcode.com/opensource/exactimage/"
   url "https://dl.exactcode.de/oss/exact-image/exact-image-1.0.2.tar.bz2"
   sha256 "0694c66be5dec41377acead475de69b3d7ffb42c702402f8b713f8b44cdc2791"
-  license "GPL-2.0"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://dl.exactcode.de/oss/exact-image/"
@@ -21,6 +21,9 @@ class ExactImage < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libagg"
+
+  uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   def install
     system "./configure", "--prefix=#{prefix}"
