@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.3/source/mariadb-10.6.3.tar.gz"
-  sha256 "5bc125606af5ec1fda80f594c1ddfacef8b305c158ecf8b1ca7a3f01cd0b18db"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.4/source/mariadb-10.6.4.tar.gz"
+  sha256 "75bf9b147a95d38160d01a73b098d50a1960563b46d16a235971fff64d99643c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -33,8 +33,8 @@ class Mariadb < Formula
     # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
     # file called VERSION.
     # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-    # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-    # removed once that issue is closed and the fix has been merged into a stable release.
+    # Originally reported upstream at https://jira.mariadb.org/browse/MDEV-7209,
+    # but only partially fixed.
     patch :DATA
   end
 
@@ -83,14 +83,6 @@ class Mariadb < Formula
     args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
 
     system "cmake", ".", *std_cmake_args, *args
-
-    on_macos do
-      # Need to rename files called version/VERSION to avoid build failure
-      # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-      # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-      # removed once that issue is closed and the fix has been merged into a stable release.
-      mv "storage/mroonga/version", "storage/mroonga/version.txt"
-    end
 
     system "make"
     system "make", "install"
