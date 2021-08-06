@@ -3,6 +3,7 @@ class Libmemcached < Formula
   homepage "https://libmemcached.org/"
   url "https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz"
   sha256 "e22c0bb032fde08f53de9ffbc5a128233041d9f33b5de022c0978a2149885f82"
+  license "BSD-3-Clause"
   revision 2
 
   bottle do
