@@ -17,7 +17,12 @@ class Amp < Formula
   depends_on "cmake" => :build
   depends_on "rust" => :build
 
-  uses_from_macos "libiconv"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "python@3.9" => :build
+    depends_on "libxcb"
+  end
 
   def install
     # Upstream specifies very old versions of onig_sys/cc that
@@ -38,22 +43,30 @@ class Amp < Formula
   end
 
   test do
-    input, _, wait_thr = Open3.popen2 "script -q /dev/null"
-    input.puts "stty rows 80 cols 43 && #{bin}/amp test.txt"
-    sleep 1
-    # switch to insert mode and add data
-    input.putc "i"
-    sleep 1
-    input.puts "test data"
-    # escape to normal mode, save the file, and quit
-    input.putc "\e"
-    sleep 1
-    input.putc "s"
-    sleep 1
-    input.putc "Q"
+    require "pty"
+    require "io/console"
+
+    PTY.spawn(bin/"amp", "test.txt") do |r, w, _pid|
+      r.winsize = [80, 43]
+      sleep 1
+      # switch to insert mode and add data
+      w.write "i"
+      sleep 1
+      w.write "test data"
+      sleep 1
+      # escape to normal mode, save the file, and quit
+      w.write "\e"
+      sleep 1
+      w.write "s"
+      sleep 1
+      w.write "Q"
+      begin
+        r.read
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+    end
 
     assert_match "test data\n", (testpath/"test.txt").read
-  ensure
-    Process.kill("TERM", wait_thr.pid)
   end
 end
