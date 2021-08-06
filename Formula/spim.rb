@@ -4,6 +4,7 @@ class Spim < Formula
   # No source code tarball exists
   url "https://svn.code.sf.net/p/spimsimulator/code", revision: "732"
   version "9.1.22"
+  license "BSD-3-Clause"
   head "https://svn.code.sf.net/p/spimsimulator/code/"
 
   bottle do
@@ -13,6 +14,9 @@ class Spim < Formula
     sha256 mojave:        "429ed6272e9255d16227b58bbc405c58d19ecb360540d2d228a91029b62506ab"
     sha256 high_sierra:   "dfb4e24f378665fee30af8a3c362b1bc13e83b33196b66b4102c400fcee99b2e"
   end
+
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
 
   def install
     bin.mkpath
