@@ -3,6 +3,7 @@ class Rtmidi < Formula
   homepage "https://www.music.mcgill.ca/~gary/rtmidi/"
   url "https://www.music.mcgill.ca/~gary/rtmidi/release/rtmidi-4.0.0.tar.gz"
   sha256 "370cfe710f43fbeba8d2b8c8bc310f314338c519c2cf2865e2d2737b251526cd"
+  revision 1
 
   livecheck do
     url :homepage
@@ -18,16 +19,24 @@ class Rtmidi < Formula
     sha256 cellar: :any, sierra:        "4eab0eb4ede3d1035d7918bd84e2aede8f648c2ebcf449ac6f9ce15c0c744988"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/thestk/rtmidi.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "jack"
+  end
 
   def install
-    system "./autogen.sh", "--no-configure"
-    system "./configure", "--prefix=#{prefix}"
+    system "./autogen.sh", "--no-configure" if build.head?
+    system "./configure", *std_configure_args
     system "make"
-    lib.install Dir[".libs/*.a", ".libs/*.dylib"]
-    include.install Dir["*.h"]
+    system "make", "install"
   end
 
   test do
@@ -40,7 +49,9 @@ class Rtmidi < Formula
                   << "Output ports: " << midiout.getPortCount() << "\\n";
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lrtmidi", "-o", "test"
-    system "./test"
+    system ENV.cxx, "test.cpp", "-I#{include}/rtmidi", "-L#{lib}", "-lrtmidi", "-o", "test"
+    # Only run the test on macOS since ALSA initialization errors on Linux CI.
+    # ALSA lib seq_hw.c:466:(snd_seq_hw_open) open /dev/snd/seq failed: No such file or directory
+    system "./test" if OS.mac?
   end
 end
