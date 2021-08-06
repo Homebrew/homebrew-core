@@ -18,8 +18,11 @@ class Appium < Formula
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--chromedriver-skip-install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Delete obsolete module appium-ios-driver, which installs universal binaries
+    rm_rf libexec/"lib/node_modules/appium/node_modules/appium-ios-driver"
   end
 
   plist_options manual: "appium"
