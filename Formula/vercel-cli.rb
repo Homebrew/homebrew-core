@@ -28,10 +28,10 @@ class VercelCli < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
-    term_size_vendor_dir = libexec/"lib/node_modules/#{name}/node_modules/term-size/vendor"
+    term_size_vendor_dir = libexec/"lib/node_modules/vercel/node_modules/term-size/vendor"
     term_size_vendor_dir.rmtree # remove pre-built binaries
 
-    dist_dir = libexec/"lib/node_modules/#{name}/dist"
+    dist_dir = libexec/"lib/node_modules/vercel/dist"
     rm_rf dist_dir/"term-size"
 
     on_macos do
