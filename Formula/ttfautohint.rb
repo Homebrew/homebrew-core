@@ -3,6 +3,7 @@ class Ttfautohint < Formula
   homepage "https://www.freetype.org/ttfautohint/"
   url "https://downloads.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3.tar.gz"
   sha256 "87bb4932571ad57536a7cc20b31fd15bc68cb5429977eb43d903fa61617cf87e"
+  license any_of: ["FTL", "GPL-2.0-or-later"]
 
   livecheck do
     url "https://sourceforge.net/projects/freetype/rss?path=/ttfautohint"
@@ -44,8 +45,13 @@ class Ttfautohint < Formula
 
   test do
     font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
-    cp "/Library/Fonts/#{font_name}", testpath
-    system "#{bin}/ttfautohint", font_name, "output.ttf"
+    font_dir = "/Library/Fonts"
+    on_linux do
+      font_name = "DejaVuSans.ttf"
+      font_dir = "/usr/share/fonts/truetype/dejavu"
+    end
+    cp "#{font_dir}/#{font_name}", testpath
+    system bin/"ttfautohint", font_name, "output.ttf"
     assert_predicate testpath/"output.ttf", :exist?
   end
 end
