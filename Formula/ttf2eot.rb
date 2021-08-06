@@ -21,9 +21,14 @@ class Ttf2eot < Formula
   end
 
   test do
-    font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
-    cp "/Library/Fonts/#{font_name}", testpath
-    system("#{bin}/ttf2eot < '#{font_name}' > Arial.eot")
-    assert_predicate testpath/"Arial.eot", :exist?
+    font_name = (MacOS.version >= :catalina) ? "Arial Unicode" : "Arial"
+    font_dir = "/Library/Fonts"
+    on_linux do
+      font_name = "DejaVuSans"
+      font_dir = "/usr/share/fonts/truetype/dejavu"
+    end
+    cp "#{font_dir}/#{font_name}.ttf", testpath
+    system("#{bin}/ttf2eot < '#{font_name}.ttf' > '#{font_name}.eot'")
+    assert_predicate testpath/"#{font_name}.eot", :exist?
   end
 end
