@@ -1,8 +1,8 @@
 class Ssdb < Formula
   desc "NoSQL database supporting many data structures: Redis alternative"
-  homepage "http://ssdb.io/"
+  homepage "https://ssdb.io/"
   url "https://github.com/ideawu/ssdb/archive/1.9.9.tar.gz"
-  sha256 "28b5b6505a6a660b587b7d07ef77a3983a0696f7d481aa70696e53048fa92e45"
+  sha256 "a32009950114984d6e468e10d964b0ef1e846077b69d7c7615715fdfa01aaf6e"
   license "BSD-3-Clause"
   head "https://github.com/ideawu/ssdb.git"
 
@@ -13,12 +13,6 @@ class Ssdb < Formula
   end
 
   depends_on "autoconf" => :build
-
-  # Fix ssdb 1.9.9 build
-  patch do
-    url "https://github.com/chenrui333/ssdb/commit/9556a38fb1e3cb4920e2b6ab242183a747d55a51.patch?full_index=1"
-    sha256 "ee765e6c98c991c0cf069a5bf4b0d571987b0fa35be756b5a8960190f1d14be9"
-  end
 
   def install
     inreplace "tools/ssdb-cli", /^DIR=.*$/, "DIR=#{prefix}"
