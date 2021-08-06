@@ -41,7 +41,7 @@ class Duktape < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.cc", "-o", "test", "-I#{include}", "-L#{lib}", "-lduktape"
+    system ENV.cc, "test.cc", "-o", "test", "-I#{include}", "-L#{lib}", "-lduktape", "-lm"
     assert_equal "1 + 2 = 3", shell_output("./test").strip, "Duktape can add number"
   end
 end
