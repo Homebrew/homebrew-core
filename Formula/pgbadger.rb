@@ -18,8 +18,10 @@ class Pgbadger < Formula
     system "make"
     system "make", "install"
 
+    man_dir = "share/man/man1"
+    on_linux { man_dir = "man/man1" }
     bin.install "usr/local/bin/pgbadger"
-    man1.install "usr/local/share/man/man1/pgbadger.1p"
+    man1.install "usr/local/#{man_dir}/pgbadger.1p"
   end
 
   def caveats
