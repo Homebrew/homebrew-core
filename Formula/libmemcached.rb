@@ -35,7 +35,8 @@ class Libmemcached < Formula
       #include <libmemcached-1.0/memcached.h>
 
       int main(int argc, char **argv) {
-          const char *conf = "--SERVER=localhost:11211";
+          char conf[50] = "--SERVER=127.0.0.1:";
+          strncat(conf, argv[1], 5);
           memcached_st *memc = memcached(conf, strlen(conf));
           assert(memc != NULL);
 
@@ -64,10 +65,10 @@ class Libmemcached < Formula
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmemcached", "-o", "test"
 
     memcached = Formula["memcached"].bin/"memcached"
-    # Assumes port 11211 is not already taken
-    io = IO.popen("#{memcached} --listen=localhost:11211")
+    port = free_port
+    io = IO.popen("#{memcached} -l 127.0.0.1 -p #{port}")
     sleep 1
-    system "./test"
+    system "./test", port
     Process.kill "TERM", io.pid
   end
 end
