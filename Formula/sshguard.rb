@@ -3,6 +3,7 @@ class Sshguard < Formula
   homepage "https://www.sshguard.net/"
   url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.4.2/sshguard-2.4.2.tar.gz"
   sha256 "2770b776e5ea70a9bedfec4fd84d57400afa927f0f7522870d2dcbbe1ace37e8"
+  license "ISC"
   version_scheme 1
 
   bottle do
@@ -79,6 +80,8 @@ class Sshguard < Formula
     require "pty"
     PTY.spawn(sbin/"sshguard", "-v") do |r, _w, pid|
       assert_equal "SSHGuard #{version}", r.read.strip
+    rescue Errno::EIO
+      nil
     ensure
       Process.wait pid
     end
