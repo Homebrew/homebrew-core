@@ -3,8 +3,8 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/d2/be/314b28282f0c02bb660d460495388ef739e4ee4705d93f0cb0b2632e3885/borgmatic-1.5.17.tar.gz"
-  sha256 "23c692773f49f55f803c3478b41f6cb5d9df4680225bdaa8e10023b3a6f22c66"
+  url "https://files.pythonhosted.org/packages/41/7a/f5554b18226f6e05b0ce4dc3a652fee30c350cd2c7e647c8adc174a407d0/borgmatic-1.5.18.tar.gz"
+  sha256 "757d54d73cdaf333210e24cb13e0e0b4de912d17222e4b383433ae929287fe9a"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -29,8 +29,8 @@ class Borgmatic < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/37/fd/05a04d7e14548474d30d90ad0db5d90ee2ba55cd967511a354cf88b534f1/charset-normalizer-2.0.3.tar.gz"
-    sha256 "c46c3ace2d744cfbdebceaa3c19ae691f53ae621b39fd7570f59d14fb7f2fd12"
+    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
+    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
   end
 
   resource "colorama" do
