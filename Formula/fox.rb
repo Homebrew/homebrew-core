@@ -1,13 +1,13 @@
 class Fox < Formula
   desc "Toolkit for developing Graphical User Interfaces easily"
-  homepage "http://www.fox-toolkit.org/"
+  homepage "http://fox-toolkit.org/"
   url "http://fox-toolkit.org/ftp/fox-1.6.56.tar.gz"
   sha256 "c517e5fcac0e6b78ca003cc167db4f79d89e230e5085334253e1d3f544586cb2"
   license "LGPL-2.1-or-later"
   revision 2
 
   livecheck do
-    url "http://www.fox-toolkit.org/news.html"
+    url "http://fox-toolkit.org/news.html"
     regex(/FOX STABLE v?(\d+(?:\.\d+)+)/i)
   end
 
