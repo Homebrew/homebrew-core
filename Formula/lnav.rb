@@ -1,8 +1,8 @@
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   homepage "https://lnav.org/"
-  url "https://github.com/tstack/lnav/releases/download/v0.9.0/lnav-0.9.0.tar.gz"
-  sha256 "03e15449a87fa511cd19c6bb5e95de4fffe17612520ff7683f2528d3b2a7238f"
+  url "https://github.com/tstack/lnav/releases/download/v0.10.0/lnav-0.10.0.tar.gz"
+  sha256 "05caf14d410a3912ef9093773aec321e0f4718a29476005c05dd53fcd6de1531"
   license "BSD-2-Clause"
 
   livecheck do
@@ -27,6 +27,7 @@ class Lnav < Formula
     depends_on "re2c" => :build
   end
 
+  depends_on "libarchive"
   depends_on "pcre"
   depends_on "readline"
   depends_on "sqlite"
@@ -35,8 +36,9 @@ class Lnav < Formula
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-sqlite=#{Formula["sqlite"].opt_prefix}",
-                          "--with-readline=#{Formula["readline"].opt_prefix}"
+                          "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
+                          "--with-readline=#{Formula["readline"].opt_prefix}",
+                          "--with-libarchive=#{Formula["libarchive"].opt_prefix}"
     system "make", "install"
   end
 
