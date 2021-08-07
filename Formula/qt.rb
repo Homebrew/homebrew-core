@@ -1,8 +1,8 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.1/6.1.3/single/qt-everywhere-src-6.1.3.tar.xz"
-  sha256 "552342a81fa76967656b0301233b4b586d36967fad5cd110765347aebe07413c"
+  url "https://download.qt.io/official_releases/qt/6.2/6.2.0/single/qt-everywhere-src-6.2.0.tar.xz"
+  sha256 "60c2dc0ee86dd338e5c5194bd95922abfc097841e3e855693dfb4f5aaf0db4db"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
@@ -24,6 +24,7 @@ class Qt < Formula
 
   depends_on "cmake"      => [:build, :test]
   depends_on "ninja"      => :build
+  depends_on "node"       => :build
   depends_on "pkg-config" => :build
   depends_on xcode: [:build, :test] if MacOS.version <= :mojave
 
@@ -40,30 +41,47 @@ class Qt < Formula
   depends_on "libb2"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "md4c"
   depends_on "pcre2"
   depends_on "python@3.9"
   depends_on "sqlite"
   depends_on "webp"
   depends_on "zstd"
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex"  => :build
+  uses_from_macos "gperf" => :build
+  uses_from_macos "perl"  => :build
+
   uses_from_macos "cups"
   uses_from_macos "krb5"
-  uses_from_macos "perl"
   uses_from_macos "zlib"
 
   on_linux do
     depends_on "at-spi2-core"
+    # TODO: depends_on "bluez"
+    # TODO: depends_on "ffmpeg"
     depends_on "fontconfig"
     depends_on "gcc"
     depends_on "gperf"
+    depends_on "gstreamer"
+    # TODO: depends_on "gypsy"
+    depends_on "harfbuzz"
+    # TODO: depends_on "libevent"
     depends_on "libxkbcommon"
     depends_on "libice"
     depends_on "libsm"
     depends_on "libxcomposite"
     depends_on "libdrm"
+    # TODO: depends_on "libvpx"
+    # TODO: depends_on "little-cms2"
     depends_on "mesa"
+    # TODO: depends_on "minizip"
+    # TODO: depends_on "opus"
     depends_on "pulseaudio"
+    # TODO: depends_on "re2"
     depends_on "sdl2"
+    # TODO: depends_on "snappy"
     depends_on "systemd"
     depends_on "xcb-util"
     depends_on "xcb-util-image"
@@ -71,26 +89,29 @@ class Qt < Formula
     depends_on "xcb-util-renderutil"
     depends_on "xcb-util-wm"
     depends_on "wayland"
-
-    # Apply upstream patch to fix building vendored assimp with GCC 11.
-    # Due to https://bugreports.qt.io/browse/QTBUG-91537, vendored assimp
-    # is built even when -system-assimp is set.
-    # Remove with release 6.2.
-    patch do
-      url "https://github.com/assimp/assimp/commit/6ebae5e67c49097b1c55a51f4ead053bc33d8255.patch?full_index=1"
-      sha256 "dca6be29d685bfb37d4b4a5f46b81c96da1996f120c8d54a738324daa20cc879"
-      directory "qtquick3d/src/3rdparty/assimp/src"
-    end
   end
 
   fails_with gcc: "5"
 
   def install
+    # FIXME: GN requires clang in clangBasePath/bin
+    inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
+        'rebase_path("$clang_base_path/bin/", root_build_dir)', '""'
     # FIXME: See https://bugreports.qt.io/browse/QTBUG-89559
     # and https://codereview.qt-project.org/c/qt/qtbase/+/327393
     # It is not friendly to Homebrew or macOS
     # because on macOS `/tmp` -> `/private/tmp`
-    inreplace "qtbase/CMakeLists.txt", "FATAL_ERROR", ""
+    inreplace "qtwebengine/src/3rdparty/gn/src/base/files/file_util_posix.cc",
+              "FilePath(full_path)", "FilePath(input)"
+    %w[
+      qtbase/CMakeLists.txt
+      qtwebengine/cmake/Gn.cmake
+      qtwebengine/cmake/Functions.cmake
+      qtwebengine/src/core/api/CMakeLists.txt
+      qtwebengine/src/CMakeLists.txt
+      qtwebengine/src/gn/CMakeLists.txt
+      qtwebengine/src/process/CMakeLists.txt
+    ].each { |s| inreplace s, "REALPATH", "ABSOLUTE" }
 
     config_args = %W[
       -release
@@ -112,18 +133,17 @@ class Qt < Formula
     ]
 
     config_args << "-sysroot" << MacOS.sdk_path.to_s if OS.mac?
+    # TODO: Enable qtwebengine on Linux when qt's chromium >= 93
+    # NOTE: `chromium` should be built with the latest SDK because it uses
+    # `___builtin_available` to ensure compatibility.
+    config_args << "-skip" << "qtwebengine" if OS.linux? || (DevelopmentTools.clang_build_version <= 1200)
 
-    # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
-    # and `-DTEST_assimp=ON` when Qt 6.2 is released.
-    # See https://bugreports.qt.io/browse/QTBUG-91537
     cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
 
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
 
       -DFEATURE_pkg_config=ON
-      -DFEATURE_qt3d_system_assimp=ON
-      -DTEST_assimp=ON
     ]
 
     if OS.linux?
