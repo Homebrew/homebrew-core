@@ -3,6 +3,7 @@ class Redland < Formula
   homepage "https://librdf.org/"
   url "https://download.librdf.org/source/redland-1.0.17.tar.gz"
   sha256 "de1847f7b59021c16bdc72abb4d8e2d9187cd6124d69156f3326dd34ee043681"
+  license any_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later", "Apache-2.0"]
   revision 1
 
   livecheck do
@@ -28,7 +29,7 @@ class Redland < Formula
   depends_on "unixodbc"
 
   resource "bindings" do
-    url "http://download.librdf.org/source/redland-bindings-1.0.17.1.tar.gz"
+    url "https://download.librdf.org/source/redland-bindings-1.0.17.1.tar.gz"
     sha256 "ff72b587ab55f09daf81799cb3f9d263708fad5df7a5458f0c28566a2563b7f5"
   end
 
