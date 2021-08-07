@@ -31,7 +31,7 @@ class Kore < Formula
     inreplace "src/cli.c", "/usr/local/opt/openssl/include",
                             Formula["openssl@1.1"].opt_include
 
-    system "make", "PREFIX=#{prefix}", "TASKS=1"
+    ENV.deparallelize { system "make", "PREFIX=#{prefix}", "TASKS=1" }
     system "make", "install", "PREFIX=#{prefix}"
   end
 
