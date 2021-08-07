@@ -7,8 +7,11 @@ class Boost < Formula
   head "https://github.com/boostorg/boost.git"
 
   livecheck do
-    url "https://www.boost.org/feed/downloads.rss"
-    regex(/>Version v?(\d+(?:\.\d+)+)</i)
+    url "https://www.boost.org/users/download/"
+    regex(/href=.*?boost[._-]v?(\d+(?:[._]\d+)+)\.t/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| match.first.tr("_", ".") }
+    end
   end
 
   bottle do
