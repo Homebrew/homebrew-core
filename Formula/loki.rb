@@ -1,9 +1,9 @@
 class Loki < Formula
   desc "Horizontally-scalable, highly-available log aggregation system"
   homepage "https://grafana.com/loki"
-  url "https://github.com/grafana/loki/archive/v2.2.1.tar.gz"
-  sha256 "4801a9418c913bcca5e597d09f0f7ce1f5a7ce879f8dba3e8fe86057cb592bcf"
-  license "Apache-2.0"
+  url "https://github.com/grafana/loki/archive/v2.3.0.tar.gz"
+  sha256 "c71174a2fbb7b6183cb84fc3a5e328cb4276a495c7c0be8ec53c377ec0363489"
+  license "AGPL-3.0-only"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "428bba8b394ff5df1d24f9cdc7442b0af94ce6744768d3155ef78e9917e54428"
@@ -22,37 +22,12 @@ class Loki < Formula
     end
   end
 
-  plist_options manual: "loki -config.file=#{HOMEBREW_PREFIX}/etc/loki-local-config.yaml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/loki</string>
-            <string>-config.file=#{etc}/loki-local-config.yaml</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/loki.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/loki.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"loki", "-config.file=#{etc}/loki-local-config.yaml"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/loki.log"
+    error_log_path var/"log/loki.log"
   end
 
   test do
