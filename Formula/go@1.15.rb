@@ -50,6 +50,9 @@ class GoAT115 < Formula
     bin.install_symlink Dir[libexec/"bin/go*"]
 
     system bin/"go", "install", "-race", "std"
+
+    # Binaries built for an incompatible architecture
+    rm_rf Dir[libexec/"src/runtime/pprof/testdata"]
   end
 
   test do
