@@ -7,8 +7,7 @@ class Libmagic < Formula
   license :cannot_represent
 
   livecheck do
-    url "https://astron.com/pub/file/"
-    regex(/href=.*?file[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    formula "file-formula"
   end
 
   bottle do
