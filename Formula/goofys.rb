@@ -25,13 +25,11 @@ class Goofys < Formula
   end
 
   def install
-    contents = Dir["*"]
-    gopath = buildpath/"gopath"
-    (gopath/"src/github.com/kahing/goofys").install contents
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
+    (buildpath/"src/github.com/kahing/goofys").install buildpath.children
 
-    ENV["GOPATH"] = gopath
-
-    cd gopath/"src/github.com/kahing/goofys" do
+    cd "src/github.com/kahing/goofys" do
       system "go", "build", "-o", "goofys", "-ldflags", "-X main.Version=#{Utils.git_head}"
       bin.install "goofys"
       prefix.install_metafiles
@@ -51,6 +49,6 @@ class Goofys < Formula
   end
 
   test do
-    system "#{bin}/goofys", "--version"
+    system bin/"goofys", "--version"
   end
 end
