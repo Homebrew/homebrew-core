@@ -1,8 +1,8 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.1/6.1.3/single/qt-everywhere-src-6.1.3.tar.xz"
-  sha256 "552342a81fa76967656b0301233b4b586d36967fad5cd110765347aebe07413c"
+  url "https://download.qt.io/official_releases/qt/6.2/6.2.0/single/qt-everywhere-src-6.2.0.tar.xz"
+  sha256 "60c2dc0ee86dd338e5c5194bd95922abfc097841e3e855693dfb4f5aaf0db4db"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
@@ -24,6 +24,7 @@ class Qt < Formula
 
   depends_on "cmake"      => [:build, :test]
   depends_on "ninja"      => :build
+  depends_on "node"       => :build
   depends_on "pkg-config" => :build
   depends_on xcode: [:build, :test] if MacOS.version <= :mojave
 
@@ -40,22 +41,28 @@ class Qt < Formula
   depends_on "libb2"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "md4c"
   depends_on "pcre2"
   depends_on "python@3.9"
   depends_on "sqlite"
   depends_on "webp"
   depends_on "zstd"
 
+  uses_from_macos "perl" => :build
+
   uses_from_macos "cups"
   uses_from_macos "krb5"
-  uses_from_macos "perl"
   uses_from_macos "zlib"
 
   on_linux do
     depends_on "at-spi2-core"
+    # TODO: depends_on bluez
     depends_on "fontconfig"
     depends_on "gcc"
     depends_on "gperf"
+    depends_on "gstreamer"
+    # TODO: depends_on "gypsy"
+    depends_on "harfbuzz"
     depends_on "libxkbcommon"
     depends_on "libice"
     depends_on "libsm"
@@ -71,16 +78,6 @@ class Qt < Formula
     depends_on "xcb-util-renderutil"
     depends_on "xcb-util-wm"
     depends_on "wayland"
-
-    # Apply upstream patch to fix building vendored assimp with GCC 11.
-    # Due to https://bugreports.qt.io/browse/QTBUG-91537, vendored assimp
-    # is built even when -system-assimp is set.
-    # Remove with release 6.2.
-    patch do
-      url "https://github.com/assimp/assimp/commit/6ebae5e67c49097b1c55a51f4ead053bc33d8255.patch?full_index=1"
-      sha256 "dca6be29d685bfb37d4b4a5f46b81c96da1996f120c8d54a738324daa20cc879"
-      directory "qtquick3d/src/3rdparty/assimp/src"
-    end
   end
 
   fails_with gcc: "5"
@@ -91,6 +88,31 @@ class Qt < Formula
     # It is not friendly to Homebrew or macOS
     # because on macOS `/tmp` -> `/private/tmp`
     inreplace "qtbase/CMakeLists.txt", "FATAL_ERROR", ""
+    # WORKAROUND: build gn first
+    if OS.mac?
+      # FIXME: GN requires clang in clangBasePath/bin
+      inreplace "qtwebengine/cmake/Functions.cmake", '"${clangBasePath}"', '"/usr"'
+      # Side effect by first `inreplace`
+      inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/linker_driver.py",
+        "[dsymutil_path]", "['/usr/bin/dsymutil']"
+      inreplace "qtwebengine/src/3rdparty/chromium/build/toolchain/mac/BUILD.gn",
+        'rebase_path("$clang_base_path/bin/", root_build_dir)', '""'
+      gen = "#{buildpath}/qtwebengine/src/core/Release/#{Hardware::CPU.arch}"
+      inreplace "qtwebengine/src/core/CMakeLists.txt", "${gnIncludes}", "${gnIncludes}\n#{gen}/gen/ABS_PATH#{gen}/"
+      cd "qtwebengine/src/3rdparty/gn" do
+        gn_build_args = %W[
+          --no-last-commit-position
+          --cc cc
+          --cxx c++
+          --ld clang++
+          --qt-version #{version}.qtwebengine.qt.io
+          --isysroot #{MacOS.sdk_path}
+        ]
+        system "python", "build/gen.py", *gn_build_args
+        system "ninja", "-C", "out", "gn"
+        ENV.prepend_path "PATH", buildpath/"qtwebengine/src/3rdparty/gn/out"
+      end
+    end
 
     config_args = %W[
       -release
@@ -112,18 +134,14 @@ class Qt < Formula
     ]
 
     config_args << "-sysroot" << MacOS.sdk_path.to_s if OS.mac?
+    config_args << "-skip" << "qtwebengine" if OS.linux? # Due to Python 2
 
-    # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
-    # and `-DTEST_assimp=ON` when Qt 6.2 is released.
-    # See https://bugreports.qt.io/browse/QTBUG-91537
     cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
 
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
 
       -DFEATURE_pkg_config=ON
-      -DFEATURE_qt3d_system_assimp=ON
-      -DTEST_assimp=ON
     ]
 
     if OS.linux?
@@ -143,6 +161,7 @@ class Qt < Formula
     rm bin/"qt-cmake-private-install.cmake"
 
     inreplace lib/"cmake/Qt6/qt.toolchain.cmake", Superenv.shims_path, ""
+    inreplace pkgshare/"mkspecs/qmodule.pri", Superenv.shims_path, HOMEBREW_PREFIX if OS.mac?
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
