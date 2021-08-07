@@ -24,13 +24,6 @@ class Patchelf < Formula
     sha256 "d8c1e93f13e0b7d8fc13ce75d5b089f4d4cec15dad91d08d94a166822d749459"
   end
 
-  # Fix unsupported overlap of SHT_NOTE and PT_NOTE
-  # See https://github.com/NixOS/patchelf/pull/230
-  patch do
-    url "https://github.com/rmNULL/patchelf/commit/6edec83653ce1b5fc201ff6db93b966394766814.patch?full_index=1"
-    sha256 "072eff6c5b33298b423f47ec794c7765a42d58a2050689bb20bf66076afb98ac"
-  end
-
   def install
     on_linux do
       # Fix ld.so path and rpath
