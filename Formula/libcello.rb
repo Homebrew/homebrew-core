@@ -40,7 +40,7 @@ class Libcello < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lCello", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lCello", "-lpthread", "-o", "test"
     system "./test"
   end
 end
