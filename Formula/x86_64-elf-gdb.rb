@@ -8,6 +8,10 @@ class X8664ElfGdb < Formula
   revision 1
   head "https://sourceware.org/git/binutils-gdb.git"
 
+  livecheck do
+    formula "gdb"
+  end
+
   bottle do
     sha256 arm64_big_sur: "c2ad5a848a586c732f9ef0d51c432a2606343336bafd226c909d832a66e63411"
     sha256 big_sur:       "5c67cee5589f207de3b521fea5b1805e717b5101bb95d335752e74250e520abf"
