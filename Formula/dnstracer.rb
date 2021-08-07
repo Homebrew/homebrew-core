@@ -36,6 +36,6 @@ class Dnstracer < Formula
   end
 
   test do
-    system "#{bin}/dnstracer", "brew.sh"
+    system bin/"dnstracer", "-4", "brew.sh"
   end
 end
