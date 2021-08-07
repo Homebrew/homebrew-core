@@ -22,6 +22,7 @@ class DockerSwarm < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/docker/swarm").install buildpath.children
     cd "src/github.com/docker/swarm" do
       system "go", "build", "-o", bin/"docker-swarm"
