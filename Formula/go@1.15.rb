@@ -52,7 +52,7 @@ class GoAT115 < Formula
     system bin/"go", "install", "-race", "std"
 
     # Binaries built for an incompatible architecture
-    rm_rf Dir[libexec/"src/runtime/pprof/testdata"]
+    (libexec/"src/runtime/pprof/testdata").rmtree
   end
 
   test do
