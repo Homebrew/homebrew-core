@@ -22,6 +22,12 @@ class AmqpCpp < Formula
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
 
+  # Fix missing include. Patch accepted upstream, remove on next release.
+  patch do
+    url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/commit/1dc169810d31110e134fbe032be009f5f8e98d73.patch?full_index=1"
+    sha256 "6b47988b4746c021f31b5772761776f8607645a79fab9ec403adae8a2b64883c"
+  end
+
   def install
     ENV.cxx11
 
