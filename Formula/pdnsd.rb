@@ -1,10 +1,12 @@
 class Pdnsd < Formula
   desc "Proxy DNS server with permanent caching"
-  homepage "http://members.home.nl/p.a.rombouts/pdnsd/"
-  url "http://members.home.nl/p.a.rombouts/pdnsd/releases/pdnsd-1.2.9a-par.tar.gz"
+  # The upstream urls are currently down, so temporarily use an archived copy.
+  homepage "https://web.archive.org/web/20201203080556/members.home.nl/p.a.rombouts/pdnsd/"
+  url "https://web.archive.org/web/20200323100335/members.home.nl/p.a.rombouts/pdnsd/releases/pdnsd-1.2.9a-par.tar.gz"
+  mirror "https://fossies.org/linux/misc/dns/pdnsd-1.2.9a-par.tar.gz"
   version "1.2.9a-par"
   sha256 "bb5835d0caa8c4b31679d6fd6a1a090b71bdf70950db3b1d0cea9cf9cb7e2a7b"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 2
