@@ -28,6 +28,6 @@ class Nyancat < Formula
   end
 
   test do
-    system "#{bin}/nyancat", "--frames", "1"
+    system bin/"nyancat", "--frames", "1", "--width", "40", "--height", "20", "--no-clear"
   end
 end
