@@ -6,6 +6,11 @@ class Amtterm < Formula
   license "GPL-2.0"
   head "https://git.kraxel.org/git/amtterm/", using: :git
 
+  livecheck do
+    url "https://www.kraxel.org/releases/amtterm/"
+    regex(/href=.*?amtterm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7130d5cc879edc7425791e096234f76891e742ebcfcc5c9a7043ebad0fbf8afd"
