@@ -18,6 +18,7 @@ class Gofabric8 < Formula
 
   def install
     ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     dir = buildpath/"src/github.com/fabric8io/gofabric8"
     dir.install buildpath.children
 
