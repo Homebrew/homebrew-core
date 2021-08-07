@@ -14,6 +14,7 @@ class Pgcli < Formula
     sha256 cellar: :any, mojave:        "31ca1bb800f517ffac95520caee3455746ff1b6ee16bc3960dde21721161db4e"
   end
 
+  depends_on "poetry" => :build
   depends_on "libpq"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
@@ -99,7 +100,15 @@ class Pgcli < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+
+    resource("pytzdata").stage do
+      system Formula["poetry"].opt_bin/"poetry", "build", "--format", "wheel", "--verbose", "--no-interaction"
+      venv.pip_install Dir["dist/pytzdata-*.whl"].first
+    end
+
+    venv.pip_install resources.reject { |r| r.name == "pytzdata" }
+    venv.pip_install_and_link buildpath
   end
 
   test do
