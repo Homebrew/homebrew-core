@@ -20,22 +20,24 @@ class Dep < Formula
 
   conflicts_with "deployer", because: "both install `dep` binaries"
 
-  def install
-    ENV["GOPATH"] = buildpath
+  # Allow building on Apple ARM
+  patch :DATA
 
-    platform = nil
-    on_macos do
-      platform = "darwin"
-    end
+  def install
+    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+    platform = "darwin"
     on_linux do
       platform = "linux"
     end
+
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/golang/dep").install buildpath.children
     cd "src/github.com/golang/dep" do
       ENV["DEP_BUILD_PLATFORMS"] = platform
-      ENV["DEP_BUILD_ARCHS"] = "amd64"
+      ENV["DEP_BUILD_ARCHS"] = arch
       system "hack/build-all.bash"
-      bin.install "release/dep-#{platform}-amd64" => "dep"
+      bin.install "release/dep-#{platform}-#{arch}" => "dep"
       prefix.install_metafiles
     end
   end
@@ -66,3 +68,18 @@ class Dep < Formula
     end
   end
 end
+
+__END__
+diff --git a/hack/build-all.bash b/hack/build-all.bash
+index 58d5bc2d..0c574a45 100755
+--- a/hack/build-all.bash
++++ b/hack/build-all.bash
+@@ -50,7 +50,7 @@ for OS in ${DEP_BUILD_PLATFORMS[@]}; do
+     else
+       CGO_ENABLED=0
+     fi
+-    if [[ "${ARCH}" == "ppc64" || "${ARCH}" == "ppc64le" || "${ARCH}" == "s390x" || "${ARCH}" == "arm" || "${ARCH}" == "arm64" ]] && [[ "${OS}" != "linux" ]]; then
++    if [[ "${ARCH}" == "ppc64" || "${ARCH}" == "ppc64le" || "${ARCH}" == "s390x" || "${ARCH}" == "arm" ]] && [[ "${OS}" != "linux" ]]; then
+         # ppc64, ppc64le, s390x, arm and arm64 are only supported on Linux.
+         echo "Building for ${OS}/${ARCH} not supported."
+     else
