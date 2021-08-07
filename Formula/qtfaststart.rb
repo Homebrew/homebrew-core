@@ -3,7 +3,7 @@ class Qtfaststart < Formula
   homepage "https://libav.org/"
   url "https://libav.org/releases/libav-12.3.tar.gz"
   sha256 "115b659022dd387f662e26fbc5bc0cc14ec18daa100003ffd34f4da0479b272e"
-  license "LGPL-2.1"
+  license :public_domain
 
   bottle do
     rebuild 1
@@ -30,8 +30,8 @@ class Qtfaststart < Formula
   test do
     input = "H264_test4_Talkingheadclipped_mov_480x320.mov"
     output = "out.mov"
-    resource("mov").stage testpath
-    system "#{bin}/qt-faststart", input, output
+    resource("mov").stage { testpath.install Dir["*"].first => input }
+    system bin/"qt-faststart", input, output
 
     assert_predicate testpath/output, :exist?
   end
