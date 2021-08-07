@@ -2,8 +2,8 @@ class Ptex < Formula
   desc "Texture mapping system"
   homepage "https://ptex.us/"
   url "https://github.com/wdas/ptex.git",
-      tag:      "v2.4.0",
-      revision: "5fa7d84337f072f8a842403c63e6a6a44b66e898"
+      tag:      "v2.4.1",
+      revision: "93c8bad39a6122c42c9d9d8e29d715bd73a6c575"
   license "BSD-3-Clause"
 
   livecheck do
@@ -24,7 +24,7 @@ class Ptex < Formula
   uses_from_macos "zlib"
 
   resource "wtest" do
-    url "https://raw.githubusercontent.com/wdas/ptex/v2.4.0/src/tests/wtest.cpp"
+    url "https://raw.githubusercontent.com/wdas/ptex/v2.4.1/src/tests/wtest.cpp"
     sha256 "95c78f97421eac034401b579037b7ba4536a96f4b356f8f1bb1e87b9db752444"
   end
 
