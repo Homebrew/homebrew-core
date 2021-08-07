@@ -31,6 +31,12 @@ class Lnav < Formula
   depends_on "readline"
   depends_on "sqlite"
 
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
