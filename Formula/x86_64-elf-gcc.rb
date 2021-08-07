@@ -6,6 +6,10 @@ class X8664ElfGcc < Formula
   sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
+  livecheck do
+    formula "gcc"
+  end
+
   bottle do
     sha256 arm64_big_sur: "8e89022ae000f049ac34f4e2f886faf94204e37b70da7e1b15f38c7b3d4a8f24"
     sha256 big_sur:       "549b28626170548e9def8448a09f4bb1854900652ef802672a30f691a9b44a3e"
