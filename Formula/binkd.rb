@@ -17,6 +17,8 @@ class Binkd < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "e56862a339a1de58072d3ffb23981bff13a1eb69322c5e12e47949c171d5ceff"
   end
 
+  uses_from_macos "zlib"
+
   def install
     cp Dir["mkfls/unix/*"].select { |f| File.file? f }, "."
     inreplace "binkd.conf", "/var/", "#{var}/"
