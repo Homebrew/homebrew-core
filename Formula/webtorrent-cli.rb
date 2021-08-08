@@ -20,6 +20,14 @@ class WebtorrentCli < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Remove incompatible pre-built binaries
+    modules_dir = libexec/"lib/node_modules"/name/"node_modules"
+    modules_dir.glob("*/prebuilds/{win32-,linux-arm}*").map(&:rmtree)
+
+    arch_to_remove = Hardware::CPU.intel? ? "arm64" : "x64"
+    on_linux { arch_to_remove = "*" }
+    modules_dir.glob("*/prebuilds/darwin-#{arch_to_remove}").map(&:rmtree)
   end
 
   test do
