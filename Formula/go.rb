@@ -62,7 +62,7 @@ class Go < Formula
     rm_rf Dir[libexec/"src/debug/elf/testdata"]
 
     # Remove 32-bit test data
-    rm_rf Dir[libexec/"src/runtime/pprof/testdata/test32"]
+    (libexec/"src/runtime/pprof/testdata/test32").rmtree
   end
 
   test do
