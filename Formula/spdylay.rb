@@ -39,6 +39,8 @@ class Spdylay < Formula
   test do
     # Check here for popular websites using SPDY:
     # https://w3techs.com/technologies/details/ce-spdy/all/all
-    system "#{bin}/spdycat", "-ns", "https://www.academia.edu/"
+    # With deprecation and lack of sites using SPDY, just test for failure
+    output = shell_output("#{bin}/spdycat -ns https://www.academia.edu/ 2>&1", 1).chomp
+    assert_equal "No supported SPDY version was negotiated.", output
   end
 end
