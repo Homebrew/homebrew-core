@@ -22,27 +22,21 @@ class Pnpm < Formula
 
   depends_on "node" => :build
 
-  BUILDTIME_PNPM_VERSION = "v6.12.0".freeze
+  PNPM_BUILDTIME_VERSION = "v6.7".freeze
 
   resource "pnpm-buildtime" do
-    on_macos do
-      url "https://github.com/pnpm/pnpm/releases/download/#{BUILDTIME_PNPM_VERSION}/pnpm-macos-x64"
-      sha256 "42f72a9d64a3b76fa4bc5d73d1b93c4948b6bcc1725bce5f26d6cd256020b1a5"
-    end
-    on_linux do
-      url "https://github.com/pnpm/pnpm/releases/download/#{BUILDTIME_PNPM_VERSION}/pnpm-linux-x64"
-      sha256 "90e7180d4ad0a281dd499833c849c34a0e97c9a345a66ce6bdf3022e5dd7de2f"
-    end
+    url "https://get.pnpm.io/#{PNPM_BUILDTIME_VERSION}.js"
+    sha256 "56bffe269aab055bec3a07fa65c387f5a35729550dc7fc76711844a2de6e1b8b"
   end
 
   def install
     resource("pnpm-buildtime").stage do
-      on_macos do
-        mv "pnpm-macos-x64", "pnpm"
-      end
-      on_linux do
-        mv "pnpm-linux-x64", "pnpm"
-      end
+      (buildpath/"buildtime-bin").install "#{PNPM_BUILDTIME_VERSION}.js"
+      IO.write "pnpm", <<~EOS
+        #!/bin/sh
+        node #{buildpath/"buildtime-bin"/PNPM_BUILDTIME_VERSION}.js "$@"
+        exit "$?"
+      EOS
       chmod 0755, "pnpm"
       (buildpath/"buildtime-bin").install "pnpm"
     end
