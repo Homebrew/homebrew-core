@@ -22,6 +22,8 @@ class Pnpm < Formula
 
   depends_on "node" => :build
 
+  # Described in https://github.com/pnpm/pnpm#installation
+  # Managed by https://github.com/pnpm/get
   resource "pnpm-buildtime" do
     url "https://get.pnpm.io/v6.7.js"
     sha256 "56bffe269aab055bec3a07fa65c387f5a35729550dc7fc76711844a2de6e1b8b"
