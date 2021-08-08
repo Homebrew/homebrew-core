@@ -5,8 +5,7 @@ class Libngspice < Formula
   sha256 "2263fffc6694754972af7072ef01cfe62ac790800dad651bc290bfcae79bd7b5"
 
   livecheck do
-    url :stable
-    regex(%r{url=.*?/ngspice[._-]v?(\d+(?:\.\d+)*)\.t}i)
+    formula "ngspice"
   end
 
   bottle do
