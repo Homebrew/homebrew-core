@@ -31,12 +31,14 @@ class Ngircd < Formula
                           "--with-openssl"
     system "make", "install"
 
-    prefix.install "contrib/MacOSX/de.barton.ngircd.plist.tmpl" => "de.barton.ngircd.plist"
-    (prefix+"de.barton.ngircd.plist").chmod 0644
+    on_macos do
+      prefix.install "contrib/MacOSX/de.barton.ngircd.plist.tmpl" => "de.barton.ngircd.plist"
+      (prefix/"de.barton.ngircd.plist").chmod 0644
 
-    inreplace prefix+"de.barton.ngircd.plist" do |s|
-      s.gsub! ":SBINDIR:", sbin
-      s.gsub! "/Library/Logs/ngIRCd.log", var/"Logs/ngIRCd.log"
+      inreplace prefix/"de.barton.ngircd.plist" do |s|
+        s.gsub! ":SBINDIR:", sbin
+        s.gsub! "/Library/Logs/ngIRCd.log", var/"Logs/ngIRCd.log"
+      end
     end
   end
 
