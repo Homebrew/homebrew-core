@@ -1,8 +1,8 @@
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
-  url "https://github.com/ImageOptim/gifski/archive/1.2.6.tar.gz"
-  sha256 "60af3329dfb8e86626e3251f57e13b4cfc0db79c4324ffbdbae3a9d7462cd1ed"
+  url "https://github.com/ImageOptim/gifski/archive/1.5.0.tar.gz"
+  sha256 "a55b285410c1558a5b6489b01d8dea1e28206220d383e6a2aa710378dfdc182c"
   license "AGPL-3.0-only"
 
   bottle do
@@ -17,7 +17,7 @@ class Gifski < Formula
   depends_on "ffmpeg"
 
   def install
-    system "cargo", "install", "--features=video", *std_cargo_args
+    system "cargo", "install", "--features", "video", *std_cargo_args
   end
 
   test do
