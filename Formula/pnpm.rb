@@ -29,7 +29,7 @@ class Pnpm < Formula
     end
     on_linux do
       url "https://github.com/pnpm/pnpm/releases/download/#{BUILDTIME_PNPM_VERSION}/pnpm-linux-x64"
-      sha256 "42f72a9d64a3b76fa4bc5d73d1b93c4948b6bcc1725bce5f26d6cd256020b1a5"
+      sha256 "90e7180d4ad0a281dd499833c849c34a0e97c9a345a66ce6bdf3022e5dd7de2f"
     end
   end
 
