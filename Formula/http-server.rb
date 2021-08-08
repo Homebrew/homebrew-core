@@ -30,7 +30,7 @@ class HttpServer < Formula
     pid = fork do
       exec "#{bin}/http-server", "-p#{port}"
     end
-    sleep 1
+    sleep 3
     output = shell_output("curl -sI http://localhost:#{port}")
     assert_match "200 OK", output
   ensure
