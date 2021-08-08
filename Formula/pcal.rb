@@ -15,6 +15,9 @@ class Pcal < Formula
     sha256 cellar: :any_skip_relocation, yosemite:      "f88d2fc2ede97fd94333dea90617d02405b008ef359edb694926f4e476c6ae53"
   end
 
+  uses_from_macos "groff" => :build
+  uses_from_macos "ncompress" => :build
+
   def install
     ENV.deparallelize
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
