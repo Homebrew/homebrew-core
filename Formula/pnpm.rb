@@ -73,6 +73,10 @@ class Pnpm < Formula
   end
 
   test do
+    mkdir_p "npm-global/bin"
+    system "#{bin}/pnpm", "set", "prefix", "#{pwd}/npm-global"
+    ENV.prepend_path "PATH", "#{pwd}/npm-global/bin"
+    system "#{bin}/pnpm", "env", "use", "--global", "16"
     system "#{bin}/pnpm", "init", "-y"
     assert_predicate testpath/"package.json", :exist?, "package.json must exist"
   end
