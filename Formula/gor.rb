@@ -4,7 +4,7 @@ class Gor < Formula
   url "https://github.com/buger/goreplay.git",
       tag:      "v1.3.0",
       revision: "c9274ac92a6f021240d82682002240cfceaecd5e"
-  license "LGPL-3.0"
+  license "LGPL-3.0-only"
   head "https://github.com/buger/goreplay.git"
 
   livecheck do
@@ -21,6 +21,7 @@ class Gor < Formula
 
   depends_on "go" => :build
 
+  uses_from_macos "netcat" => :test
   uses_from_macos "libpcap"
 
   def install
