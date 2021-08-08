@@ -17,31 +17,32 @@ class Premake < Formula
   end
 
   # See: https://groups.google.com/g/premake-development/c/i1uA1Wk6zYM/m/kbp9q4Awu70J
-  deprecate! date: "2015-05-28", because: :unsupported
+  deprecate! date: "2015-05-28", because: "premake4 is unsupported and premake5 is still alpha"
 
   def install
     if build.head?
-      system "make", "-f", "Bootstrap.mak", "osx"
-      system "./premake5", "gmake"
-    end
-
-    on_macos do
-      system "make", "-C", "build/gmake.macosx"
-    end
-    on_macos do
-      system "make", "-C", "build/gmake.unix"
-    end
-
-    if build.head?
+      platform = "osx"
+      on_linux do
+        platform = "linux"
+      end
+      system "make", "-f", "Bootstrap.mak", platform
+      system "./bin/release/premake5", "gmake2"
+      system "./bin/release/premake5", "embed"
+      system "make"
       bin.install "bin/release/premake5"
     else
+      platform = "macosx"
+      on_linux do
+        platform = "unix"
+      end
+      system "make", "-C", "build/gmake.#{platform}"
       bin.install "bin/release/premake4"
     end
   end
 
   test do
     if build.head?
-      assert_match version.to_s, shell_output("#{bin}/premake5 --version")
+      assert_match "5.0.0-dev", shell_output("#{bin}/premake5 --version")
     else
       assert_match version.to_s, shell_output("#{bin}/premake4 --version", 1)
     end
