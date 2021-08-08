@@ -20,6 +20,9 @@ class Bgpdump < Formula
 
   depends_on "autoconf" => :build
 
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
   def install
     system "./bootstrap.sh"
     system "./configure", "--disable-debug",
@@ -31,6 +34,6 @@ class Bgpdump < Formula
   end
 
   test do
-    system "#{bin}/bgpdump", "-T"
+    system bin/"bgpdump", "-T"
   end
 end
