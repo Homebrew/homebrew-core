@@ -78,7 +78,7 @@ class Pnpm < Formula
     ENV.prepend_path "PATH", testpath/"npm-global/bin"
     IO.write testpath/".npmrc", "prefix=#{testpath/"npm-global"}"
     system "#{bin}/pnpm", "env", "use", "--global", "16"
-    system "#{bin}/pnpm", "install", "npm"
+    system "#{bin}/pnpm", "install", "--global", "npm"
     system "#{bin}/pnpm", "init", "-y"
     assert_predicate testpath/"package.json", :exist?, "package.json must exist"
   end
