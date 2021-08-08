@@ -7,8 +7,7 @@ class NotmuchMutt < Formula
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
   livecheck do
-    url "https://notmuchmail.org/releases/"
-    regex(/href=.*?notmuch[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    formula "notmuch"
   end
 
   bottle do
