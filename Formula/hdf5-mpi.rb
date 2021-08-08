@@ -5,12 +5,8 @@ class Hdf5Mpi < Formula
   sha256 "aaf9f532b3eda83d3d3adc9f8b40a9b763152218fa45349c3bc77502ca1f8f1c"
   license "BSD-3-Clause"
 
-  # This regex isn't matching filenames within href attributes (as we normally
-  # do on HTML pages) because this page uses JavaScript to handle the download
-  # buttons and the HTML doesn't contain the related URLs.
   livecheck do
-    url "https://www.hdfgroup.org/downloads/hdf5/source-code/"
-    regex(/>\s*hdf5[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    formula "hdf5"
   end
 
   bottle do
