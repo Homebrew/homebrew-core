@@ -30,17 +30,18 @@ class Pnpm < Formula
   end
 
   def install
+    buildtime_bin = buildpath/"buildtime-bin"
     resource("pnpm-buildtime").stage do |r|
-      (buildpath/"buildtime-bin").install "v#{r.version}.js"
-      IO.write "pnpm", <<~EOS
+      buildtime_bin.install "v#{r.version}.js"
+      pnpm_shim = buildtime_bin/"pnpm"
+      pnpm_shim.atomic_write <<~EOS
         #!/bin/sh
         node #{buildpath}/buildtime-bin/v#{r.version}.js "$@"
         exit "$?"
       EOS
-      chmod 0755, "pnpm"
-      (buildpath/"buildtime-bin").install "pnpm"
+      chmod 0755, pnpm_shim
     end
-    ENV.prepend_path "PATH", buildpath/"buildtime-bin"
+    ENV.prepend_path "PATH", buildtime_bin
     system "pnpm", "install"
     system "pnpm", "run", "compile-only"
     system "pnpm", "run", "copy-artifacts"
@@ -76,7 +77,7 @@ class Pnpm < Formula
   test do
     mkdir_p testpath/"npm-global/bin"
     ENV.prepend_path "PATH", testpath/"npm-global/bin"
-    IO.write testpath/".npmrc", "prefix=#{testpath/"npm-global"}"
+    (testpath/".npmrc").atomic_write "prefix=#{testpath/"npm-global"}"
     system "#{bin}/pnpm", "env", "use", "--global", "16"
     system "#{bin}/pnpm", "install", "--global", "npm"
     system "#{bin}/pnpm", "init", "-y"
