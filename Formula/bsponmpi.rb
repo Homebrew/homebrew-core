@@ -13,6 +13,9 @@ class Bsponmpi < Formula
     sha256 el_capitan:  "10a864ad11ea1145898ae9bcd8897f107c034818e66faf3632d916d51a13a191"
   end
 
+  # SConstruct is written in Python 2 but Homebrew `scons` is built for Python 3
+  deprecate! date: "2021-08-08", because: :does_not_build
+
   depends_on "scons" => :build
   depends_on "open-mpi"
 
