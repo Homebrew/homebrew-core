@@ -44,16 +44,7 @@ class Pnpm < Formula
     system "pnpm", "install"
     system "pnpm", "run", "compile-only"
     on_macos do
-      if Hardware::CPU.arm?
-        chdir "packages/pnpm" do
-          mkdir_p "../artifacts/macos-arm64"
-          system "node_modules/.bin/pkg", "./dist/pnpm.cjs",
-            "--out-path=../artifacts/macos-arm64", "--targets=node14-macos-arm64"
-        end
-        bin.install "packages/artifacts/macos-arm64/pnpm"
-      else
-        bin.install "packages/artifacts/macos-x64/pnpm"
-      end
+      bin.install "packages/artifacts/macos-x64/pnpm"
     end
     on_linux do
       bin.install "packages/artifacts/linux-x64/pnpm"
