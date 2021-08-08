@@ -27,6 +27,27 @@ class Pnpm < Formula
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 
+  def caveats
+    <<~EOS
+      You should create npm's global directory if you want to install packages globally:
+
+        mkdir -p ~/npm-global/bin
+
+      Run the following pnpm command:
+
+        pnpm set prefix ~/npm-global
+
+      Add the following to #{shell_profile} or your desired shell
+      configuration file:
+
+        export PATH="$HOME/npm-global/bin:$PATH"
+
+      You can set prefix to any location, but leaving it unchanged from
+      #{HOMEBREW_PREFIX} will destroy any Homebrew-installed Node installations
+      upon upgrade/reinstall.
+    EOS
+  end
+
   test do
     system "#{bin}/pnpm", "init", "-y"
     assert_predicate testpath/"package.json", :exist?, "package.json must exist"
