@@ -20,7 +20,9 @@ class Pnpm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "efcac832dc165a64bbb93b7018876cf7dc70d669ae3b1f2a68c46ea0bcddc572"
   end
 
-  BUILDTIME_PNPM_VERSION = "v6.12.0"
+  depends_on "node" => :build
+
+  BUILDTIME_PNPM_VERSION = "v6.12.0".freeze
 
   resource "pnpm-buildtime" do
     on_macos do
@@ -33,15 +35,13 @@ class Pnpm < Formula
     end
   end
 
-  depends_on "node" => :build
-
   def install
     resource("pnpm-buildtime").stage do
       on_macos do
-        system "mv", "pnpm-macos-x64", "pnpm"
+        mv "pnpm-macos-x64", "pnpm"
       end
       on_linux do
-        system "mv", "pnpm-linux-x64", "pnpm"
+        mv "pnpm-linux-x64", "pnpm"
       end
       chmod 0755, "pnpm"
       (buildpath/"buildtime-bin").install "pnpm"
