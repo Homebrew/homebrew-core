@@ -45,10 +45,10 @@ class Pnpm < Formula
     system "pnpm", "run", "compile-only"
     system "pnpm", "run", "copy-artifacts"
     on_macos do
-      bin.install "dist/pnpm-macos-x64"
+      bin.install "dist/pnpm-macos-x64" => "pnpm"
     end
     on_linux do
-      bin.install "dist/pnpm-linux-x64"
+      bin.install "dist/pnpm-linux-x64" => "pnpm"
     end
   end
 
