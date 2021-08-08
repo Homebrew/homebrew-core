@@ -23,6 +23,12 @@ class ImapUw < Formula
 
   depends_on "openssl@1.1"
 
+  uses_from_macos "krb5"
+
+  on_linux do
+    depends_on "linux-pam"
+  end
+
   # Two patches below are from Debian, to fix OpenSSL 1.1 compatibility
   # https://salsa.debian.org/holmgren/uw-imap/tree/master/debian/patches
   patch do
@@ -46,7 +52,13 @@ class ImapUw < Formula
     end
     inreplace "src/osdep/unix/ssl_unix.c", "#include <x509v3.h>\n#include <ssl.h>",
                                            "#include <ssl.h>\n#include <x509v3.h>"
-    system "make", "oxp"
+
+    # Skip IPv6 warning on Linux as libc should be IPv6 safe.
+    touch "ip6"
+
+    target = "oxp"
+    on_linux { target = "ldb" }
+    system "make", target
 
     # email servers:
     sbin.install "imapd/imapd", "ipopd/ipop2d", "ipopd/ipop3d"
