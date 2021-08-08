@@ -7,6 +7,10 @@ class GitGui < Formula
   license "GPL-2.0-only"
   head "https://github.com/git/git.git"
 
+  livecheck do
+    formula "git"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4c74f3625ae0a40d8fe38346045b635aa0489e7a92239c7fed3b33c16867c613"
   end
