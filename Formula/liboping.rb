@@ -3,7 +3,7 @@ class Liboping < Formula
   homepage "https://noping.cc/"
   url "https://noping.cc/files/liboping-1.10.0.tar.bz2"
   sha256 "eb38aa93f93e8ab282d97e2582fbaea88b3f889a08cbc9dbf20059c3779d5cd8"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :homepage
@@ -22,6 +22,7 @@ class Liboping < Formula
   end
 
   uses_from_macos "ncurses"
+  uses_from_macos "perl"
 
   def install
     system "./configure", "--disable-debug",
