@@ -30,11 +30,11 @@ class Pnpm < Formula
   end
 
   def install
-    resource("pnpm-buildtime").stage do
-      (buildpath/"buildtime-bin").install "#{PNPM_BUILDTIME_VERSION}.js"
+    resource("pnpm-buildtime").stage do |r|
+      (buildpath/"buildtime-bin").install "v#{r.version}.js"
       IO.write "pnpm", <<~EOS
         #!/bin/sh
-        node #{buildpath/"buildtime-bin"/PNPM_BUILDTIME_VERSION}.js "$@"
+        node #{buildpath}/buildtime-bin/v#{r.version}.js "$@"
         exit "$?"
       EOS
       chmod 0755, "pnpm"
