@@ -43,11 +43,12 @@ class Pnpm < Formula
     ENV.prepend_path "PATH", buildpath/"buildtime-bin"
     system "pnpm", "install"
     system "pnpm", "run", "compile-only"
+    system "pnpm", "run", "copy-artifacts"
     on_macos do
-      bin.install "packages/artifacts/macos-x64/pnpm"
+      bin.install "dist/pnpm-macos-x64"
     end
     on_linux do
-      bin.install "packages/artifacts/linux-x64/pnpm"
+      bin.install "dist/pnpm-linux-x64"
     end
   end
 
