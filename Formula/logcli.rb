@@ -5,6 +5,10 @@ class Logcli < Formula
   sha256 "c71174a2fbb7b6183cb84fc3a5e328cb4276a495c7c0be8ec53c377ec0363489"
   license "AGPL-3.0-only"
 
+  livecheck do
+    formula "loki"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7f8431ea1c5b8556ae75c572eae2d20c044da0a1c3bb44395ba4b13f5916e667"
     sha256 cellar: :any_skip_relocation, big_sur:       "7c266f64a13b0e2c96d8fc394a4cc59b4f406e3071a41aaf5d19cdf085ed560a"
