@@ -22,10 +22,8 @@ class Pnpm < Formula
 
   depends_on "node" => :build
 
-  PNPM_BUILDTIME_VERSION = "v6.7".freeze
-
   resource "pnpm-buildtime" do
-    url "https://get.pnpm.io/#{PNPM_BUILDTIME_VERSION}.js"
+    url "https://get.pnpm.io/v6.7.js"
     sha256 "56bffe269aab055bec3a07fa65c387f5a35729550dc7fc76711844a2de6e1b8b"
   end
 
