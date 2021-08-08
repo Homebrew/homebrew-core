@@ -3,8 +3,8 @@ class Pnpm < Formula
 
   desc "📦🚀 Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
-  url "https://registry.npmjs.org/pnpm/-/pnpm-6.12.0.tgz"
-  sha256 "f719e0fb84e192e5379c676884e7fc2932e7beb64b507a056835bc003c6b93c3"
+  url "https://github.com/pnpm/pnpm/archive/refs/tags/v6.12.0.tar.gz"
+  sha256 "841299b2eedbbfde1ea7e0afff78cb23d33310158887e48b945bfddd882d4b61"
   license "MIT"
 
   livecheck do
@@ -20,11 +20,41 @@ class Pnpm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "efcac832dc165a64bbb93b7018876cf7dc70d669ae3b1f2a68c46ea0bcddc572"
   end
 
-  depends_on "node"
+  BUILDTIME_PNPM_VERSION = "v6.12.0"
+
+  resource "pnpm-buildtime" do
+    on_macos do
+      url "https://github.com/pnpm/pnpm/releases/download/#{BUILDTIME_PNPM_VERSION}/pnpm-macos-x64"
+      sha256 "42f72a9d64a3b76fa4bc5d73d1b93c4948b6bcc1725bce5f26d6cd256020b1a5"
+    end
+    on_linux do
+      url "https://github.com/pnpm/pnpm/releases/download/#{BUILDTIME_PNPM_VERSION}/pnpm-linux-x64"
+      sha256 "42f72a9d64a3b76fa4bc5d73d1b93c4948b6bcc1725bce5f26d6cd256020b1a5"
+    end
+  end
+
+  depends_on "node" => :build
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
-    bin.install_symlink Dir["#{libexec}/bin/*"]
+    resource("pnpm-buildtime").stage do
+      on_macos do
+        system "mv", "pnpm-macos-x64", "pnpm"
+      end
+      on_linux do
+        system "mv", "pnpm-linux-x64", "pnpm"
+      end
+      chmod 0755, "pnpm"
+      (buildpath/"buildtime-bin").install "pnpm"
+    end
+    ENV.prepend_path "PATH", buildpath/"buildtime-bin"
+    system "pnpm", "install"
+    system "pnpm", "run", "compile-only"
+    on_macos do
+      bin.install "packages/artifacts/macos-x64/pnpm"
+    end
+    on_linux do
+      bin.install "packages/artifacts/linux-x64/pnpm"
+    end
   end
 
   def caveats
