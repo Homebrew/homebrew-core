@@ -7,6 +7,11 @@ class Pipebench < Formula
   sha256 "ca764003446222ad9dbd33bbc7d94cdb96fa72608705299b6cc8734cd3562211"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?pipebench[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5bb970ea3b27cad7960f3f60a86b3a55ad36d29cf11169019c5057e803d8ea75"
     sha256 cellar: :any_skip_relocation, big_sur:       "5e5856f67d0e9f663d04895b33cf50406b8fc584f2d01cf9c364b8a549620184"

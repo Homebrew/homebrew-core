@@ -6,6 +6,10 @@ class BoostMpi < Formula
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
+  livecheck do
+    formula "boost"
+  end
+
   bottle do
     sha256                               arm64_big_sur: "8289fe7bb5a684360ab11462bf4312024a620854714ce02d6553e32274e5bfeb"
     sha256                               big_sur:       "76544350ace536b0af831854f3ce18a5c101155a132001685bcfa3ea411bbb94"

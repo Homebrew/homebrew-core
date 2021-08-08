@@ -16,6 +16,7 @@ class Kore < Formula
     sha256 big_sur:       "b9ee5f484ac7eb75b1282afee33da589de37ce1787b15eea441e63526996e47c"
     sha256 catalina:      "1c361e384d9d76c042624f56a0e847f12e9db63a5e0fd49016827bcbdb71eb95"
     sha256 mojave:        "111923e46a1a868241cea5eeed3477ef6de321684308168c8ffac582620ba95a"
+    sha256 x86_64_linux:  "915a0b5f6e3598f50e4e457c96221b07006490f5169c666dc745d8ee0c68bced"
   end
 
   depends_on macos: :sierra # needs clock_gettime
@@ -31,7 +32,7 @@ class Kore < Formula
     inreplace "src/cli.c", "/usr/local/opt/openssl/include",
                             Formula["openssl@1.1"].opt_include
 
-    system "make", "PREFIX=#{prefix}", "TASKS=1"
+    ENV.deparallelize { system "make", "PREFIX=#{prefix}", "TASKS=1" }
     system "make", "install", "PREFIX=#{prefix}"
   end
 

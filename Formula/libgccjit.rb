@@ -13,17 +13,11 @@ class Libgccjit < Formula
     sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   end
   homepage "https://gcc.gnu.org/"
-  license "GPL-3.0-or-later" => {
-    with: "GCC-exception-3.1",
-  }
+  license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
   head "https://gcc.gnu.org/git/gcc.git"
 
   livecheck do
-    # Should be
-    # url :stable
-    # but that does not work with the ARM-specific branch above
-    url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0"
-    regex(%r{href=.*?gcc[._-]v?(\d+(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+    formula "gcc"
   end
 
   bottle do

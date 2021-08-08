@@ -6,6 +6,10 @@ class I686ElfGcc < Formula
   sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
+  livecheck do
+    formula "gcc"
+  end
+
   bottle do
     sha256 arm64_big_sur: "03ea1c0b8db4064c4acd673fb1138d410699bd37c74db3e255479f93fe0f991b"
     sha256 big_sur:       "cbf70ba4c4dcd222b84b9bde4e3f69a8c621959e20facaa8677ebd0b0f14d4da"

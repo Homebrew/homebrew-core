@@ -1,22 +1,23 @@
 class Fox < Formula
   desc "Toolkit for developing Graphical User Interfaces easily"
-  homepage "http://www.fox-toolkit.org/"
+  homepage "http://fox-toolkit.org/"
   url "http://fox-toolkit.org/ftp/fox-1.6.56.tar.gz"
   sha256 "c517e5fcac0e6b78ca003cc167db4f79d89e230e5085334253e1d3f544586cb2"
   license "LGPL-2.1-or-later"
   revision 2
 
   livecheck do
-    url "http://www.fox-toolkit.org/news.html"
+    url "http://fox-toolkit.org/news.html"
     regex(/FOX STABLE v?(\d+(?:\.\d+)+)/i)
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "9e595940c212b8efb8588736216000490c8e8f4eff89b96be34aa92702538f1f"
-    sha256 cellar: :any, big_sur:       "f7988beb83a1343a270ba6107f8693550fb4b6f92632600849eb11f203bfa2fc"
-    sha256 cellar: :any, catalina:      "e9f946383a4fc88a230622abd2c38386053f20c35eb632bf62ea8e06e43be7ab"
-    sha256 cellar: :any, mojave:        "7017807cda0f8aa8e43338d4556ec842db95626984f7a9eaef4b926a9dff7310"
-    sha256 cellar: :any, high_sierra:   "3705392848b062aa09d8be70c0f99b0331eeeceaea685389d684644e86f7fe22"
+    sha256 cellar: :any,                 arm64_big_sur: "9e595940c212b8efb8588736216000490c8e8f4eff89b96be34aa92702538f1f"
+    sha256 cellar: :any,                 big_sur:       "f7988beb83a1343a270ba6107f8693550fb4b6f92632600849eb11f203bfa2fc"
+    sha256 cellar: :any,                 catalina:      "e9f946383a4fc88a230622abd2c38386053f20c35eb632bf62ea8e06e43be7ab"
+    sha256 cellar: :any,                 mojave:        "7017807cda0f8aa8e43338d4556ec842db95626984f7a9eaef4b926a9dff7310"
+    sha256 cellar: :any,                 high_sierra:   "3705392848b062aa09d8be70c0f99b0331eeeceaea685389d684644e86f7fe22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1112c8f6b5628822873dae32f31101f2f05d028629e718b3120e4fdf75e88ad"
   end
 
   depends_on "fontconfig"

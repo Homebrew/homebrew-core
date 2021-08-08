@@ -10,6 +10,7 @@ class Docuum < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5642aab3274b0bfb112c55f91e84004f9fae06196c85c11db299ba13ae25349c"
     sha256 cellar: :any_skip_relocation, catalina:      "3d3cc389fb68c4a90c8ab7276303a4ccf5aeeaa2aa25094450b49e50d750579e"
     sha256 cellar: :any_skip_relocation, mojave:        "0381a4f8be35a1bdf85af1cc10b5be22560ff44529b63bff32011d7362c78909"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b45019f50f39d1888dff2134f1d2ffd69bef5fd42b5db33f2130e5850cb5998e"
   end
 
   depends_on "rust" => :build
