@@ -1,9 +1,8 @@
 class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
-  # Should only be updated if the new version is listed as a stable release on the homepage
-  url "https://yarnpkg.com/downloads/1.22.10/yarn-v1.22.10.tar.gz"
-  sha256 "7e433d4a77e2c79e6a7ae4866782608a8e8bcad3ec6783580577c59538381a6e"
+  url "https://yarnpkg.com/downloads/1.22.11/yarn-v1.22.11.tar.gz"
+  sha256 "2c320de14a6014f62d29c34fec78fdbb0bc71c9ccba48ed0668de452c1f5fe6c"
   license "BSD-2-Clause"
 
   livecheck do
