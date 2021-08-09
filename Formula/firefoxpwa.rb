@@ -31,7 +31,7 @@ class Firefoxpwa < Formula
   def caveats
     filename = "firefoxpwa.json"
 
-    source = share
+    source = opt_share
     destination = "/Library/Application Support/Mozilla/NativeMessagingHosts"
 
     on_linux do
