@@ -4,6 +4,7 @@ class Lnav < Formula
   url "https://github.com/tstack/lnav/releases/download/v0.10.0/lnav-0.10.0.tar.gz"
   sha256 "05caf14d410a3912ef9093773aec321e0f4718a29476005c05dd53fcd6de1531"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :stable
