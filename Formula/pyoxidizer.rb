@@ -1,7 +1,7 @@
 class Pyoxidizer < Formula
   desc "Modern Python application packaging and distribution tool"
   homepage "https://github.com/indygreg/PyOxidizer"
-  url "https://github.com/indygreg/PyOxidizer/archive/refs/tags/pyoxidizer/0.17.tar.gz"
+  url "https://github.com/indygreg/PyOxidizer/archive/pyoxidizer/0.17.tar.gz"
   sha256 "9117d411b610e29dfd8d9250cd1021afb545550fd7e698b623e913c26114f013"
   license "MPL-2.0"
   head "https://github.com/indygreg/PyOxidizer.git", branch: "main"
@@ -9,9 +9,7 @@ class Pyoxidizer < Formula
   depends_on "rust" => :build
 
   def install
-    cd "pyoxidizer" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args(path: "pyoxidizer")
   end
 
   test do
