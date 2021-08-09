@@ -3,6 +3,7 @@ class Sleepwatcher < Formula
   homepage "https://www.bernhard-baehr.de/"
   url "https://www.bernhard-baehr.de/sleepwatcher_2.2.1.tgz"
   sha256 "4bf1656702167871141fbc119a844d1363d89994e1a67027f0e773023ae9643e"
+  license "GPL-3.0-or-later"
 
   livecheck do
     url :homepage
@@ -17,6 +18,8 @@ class Sleepwatcher < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "2c050aa5845cdf24b06f17bc1b4191941e4cf57cf1092f17fe35fe0e7f28159a"
     sha256 cellar: :any_skip_relocation, sierra:        "0cecea617ee9334f717a2e2e0424b944dedcc7cd403776c1cf6ff67352b96f4c"
   end
+
+  depends_on :macos
 
   def install
     # Adjust Makefile to build native binary only
