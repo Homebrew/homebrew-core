@@ -3,8 +3,8 @@ class Grc < Formula
 
   desc "Colorize logfiles and command output"
   homepage "http://kassiopeia.juls.savba.sk/~garabik/software/grc.html"
-  url "https://github.com/garabik/grc/archive/v1.12.tar.gz"
-  sha256 "4ca20134775ca15b2e26b4a464786aacd8c114cc793557b53959592b279b8d3c"
+  url "https://github.com/garabik/grc/archive/v1.13.tar.gz"
+  sha256 "a7b10d4316b59ca50f6b749f1d080cea0b41cb3b7258099c3eb195659d1f144f"
   license "GPL-2.0-or-later"
   head "https://github.com/garabik/grc.git", branch: "devel"
 
