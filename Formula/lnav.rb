@@ -4,6 +4,7 @@ class Lnav < Formula
   url "https://github.com/tstack/lnav/releases/download/v0.10.0/lnav-0.10.0.tar.gz"
   sha256 "05caf14d410a3912ef9093773aec321e0f4718a29476005c05dd53fcd6de1531"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -26,6 +27,7 @@ class Lnav < Formula
     depends_on "re2c" => :build
   end
 
+  depends_on "libarchive"
   depends_on "pcre"
   depends_on "readline"
   depends_on "sqlite"
@@ -38,11 +40,13 @@ class Lnav < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-sqlite=#{Formula["sqlite"].opt_prefix}",
-                          "--with-readline=#{Formula["readline"].opt_prefix}"
-    system "make", "install"
+    ENV.append "LDFLAGS", "-L#{Formula["libarchive"].opt_lib}"
+    system "./configure", *std_configure_args,
+                          "--with-sqlite3=#{Formula["sqlite"].opt_prefix}",
+                          "--with-readline=#{Formula["readline"].opt_prefix}",
+                          "--with-libarchive=#{Formula["libarchive"].opt_prefix}",
+                          "LDFLAGS=#{ENV.ldflags}"
+    system "make", "install", "V=1"
   end
 
   test do
