@@ -39,14 +39,9 @@ class Firefoxpwa < Formula
     end
 
     <<~EOS
-      Before you can use the browser extension, you will need to manually link the app manifest
-      This is needed because Homebrew formulae cannot access directories outside Homebrew directory
-
-      To link the manifest, run the following commands after the formula is installed:
-      $ sudo mkdir -p #{destination}
-      $ sudo ln -sf "#{source}/#{filename}" "#{destination}/#{filename}"
-
-      #{Tty.red}You will not be able to use the extension until you link the manifest!#{Tty.reset}
+      To use the browser extension, manually link the app manifest with:
+        sudo mkdir -p #{destination}
+        sudo ln -sf "#{source}/#{filename}" "#{destination}/#{filename}"
     EOS
   end
 
