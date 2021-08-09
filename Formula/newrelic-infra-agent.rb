@@ -6,7 +6,7 @@ class NewrelicInfraAgent < Formula
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git"
 
-  depends_on "go@1.16" => :build
+  depends_on "go" => :build
 
   def install
     ENV["VERSION"] = version
@@ -34,7 +34,7 @@ class NewrelicInfraAgent < Formula
   end
 
   test do
-    output = shell_output("#{bin}/newrelic-infra -version")
+    output = shell_output("NRIA_LICENSE=wrong_one #{bin}/newrelic-infra")
     assert_match(/New\ Relic\ Infrastructure\ Agent\ version:\ 1\.20\.0/, output)
   end
 end
