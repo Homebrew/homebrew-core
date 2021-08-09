@@ -20,7 +20,7 @@ class Cgns < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "hdf5"
   depends_on "szip"
 
