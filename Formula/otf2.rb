@@ -19,7 +19,7 @@ class Otf2 < Formula
   end
 
   depends_on "sphinx-doc" => :build
-  depends_on "gcc"
+  depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "python@3.9"
 
