@@ -13,6 +13,7 @@ class Fourstore < Formula
     sha256 mojave:        "9743086b58984f5b97820b6c591edcbf551f60ae49c9f655c577f7ca50e3de23"
     sha256 high_sierra:   "abfb1051513308bda54e9e7a6c3e62dad74feafa46e6b739fb33405efb0153e4"
     sha256 sierra:        "7a89fcec9a355a501880289ab072d95219e760aad3102f9332a2e7310346155f"
+    sha256 x86_64_linux:  "89ea77f8554486bf70bc2685fb5825f10328c40434084010d9c24bce233a2b8c"
   end
 
   depends_on "autoconf" => :build

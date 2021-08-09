@@ -1,8 +1,8 @@
 class NodeExporter < Formula
   desc "Prometheus exporter for machine metrics"
   homepage "https://prometheus.io/"
-  url "https://github.com/prometheus/node_exporter/archive/v1.2.1.tar.gz"
-  sha256 "7c5a93722a6a1cd7de61b0d8d69951c56fe002bb7a90164f70738dbe7f78e10a"
+  url "https://github.com/prometheus/node_exporter/archive/v1.2.2.tar.gz"
+  sha256 "3b7b710dad97d9d2b4cb8c3f166ee1c86f629cce59062b09d4fb22459163ec86"
   license "Apache-2.0"
   head "https://github.com/prometheus/node_exporter.git"
 
@@ -12,11 +12,11 @@ class NodeExporter < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bb54142bf7bbec82fa2e61401aea8f2d52bc0daa072f799dea944b4ef76ef456"
-    sha256 cellar: :any_skip_relocation, big_sur:       "51e8055b0532fed44e76081c3af03666e11cd09cfbda040e8883e6b46b7556d8"
-    sha256 cellar: :any_skip_relocation, catalina:      "22d0556f9cac4d74560d035c77bc83a8c1a3c537c6d13dfa31005a865fc8d31a"
-    sha256 cellar: :any_skip_relocation, mojave:        "17b789627b808c2a7d0db53276f6daae97fb674dcd6e2b5be8c845866fa865b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "64610c8b27e3cd02539871d559dcff67ed413f81c7b67d4417843f3f60ad8eb2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "10c3e725f35828e54645d90f4e8865068de1122cd0f55b2fbde812e871c2e45d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f1c1467f8db86b9578363d2e0705b2b150ac5843a7a780d82db57c4bab305574"
+    sha256 cellar: :any_skip_relocation, catalina:      "69c66da1f5837d53c694ec8210807fdec373fbcda411ef9e567339713a9c6431"
+    sha256 cellar: :any_skip_relocation, mojave:        "df2e4a99a7060703980b73f23ae1d7628a74d5f6ce098577dc0877ce5ec7fd23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ae95a4372832bd1bd2f76ffadf74ba51db0437c6731e5cc29719b7eb0c83806"
   end
 
   depends_on "go" => :build

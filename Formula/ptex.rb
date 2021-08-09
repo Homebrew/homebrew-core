@@ -2,8 +2,8 @@ class Ptex < Formula
   desc "Texture mapping system"
   homepage "https://ptex.us/"
   url "https://github.com/wdas/ptex.git",
-      tag:      "v2.4.0",
-      revision: "5fa7d84337f072f8a842403c63e6a6a44b66e898"
+      tag:      "v2.4.1",
+      revision: "93c8bad39a6122c42c9d9d8e29d715bd73a6c575"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,10 +12,10 @@ class Ptex < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6bc413bd95a1879fa2daba0856f1465c0d552b90f44c8a3a687ee636f472bfed"
-    sha256 cellar: :any, big_sur:       "24e834b17833b7a914fcdf930563b88e8c7dc014a80cb0bb46b993df0e4bf9d0"
-    sha256 cellar: :any, catalina:      "a5b92d4df049d129184563a0a2e8573a06ba3ac986f619e171cd92d95df911f7"
-    sha256 cellar: :any, mojave:        "d4b13f11d4056ea7fe95a4de42850a03ca26bb78fea17633cdf3c429e4e38467"
+    sha256 cellar: :any, arm64_big_sur: "f724e08c9adfdc18a09822e58f59c9cada0397237623b204257c2e9a08526af9"
+    sha256 cellar: :any, big_sur:       "876e14276688993618d4bcf794dfffea9362b514aa4a980ac8f570b1eab75d13"
+    sha256 cellar: :any, catalina:      "86db27292915d7ecbfe5a2867e54be5b098f2a721ab9372cb3ae8435855df498"
+    sha256 cellar: :any, mojave:        "26aa1f062d495a937a2e95e206f5b62fd16845d4eb09c1f49a073a6731cb4458"
   end
 
   depends_on "cmake" => :build
@@ -24,7 +24,7 @@ class Ptex < Formula
   uses_from_macos "zlib"
 
   resource "wtest" do
-    url "https://raw.githubusercontent.com/wdas/ptex/v2.4.0/src/tests/wtest.cpp"
+    url "https://raw.githubusercontent.com/wdas/ptex/v2.4.1/src/tests/wtest.cpp"
     sha256 "95c78f97421eac034401b579037b7ba4536a96f4b356f8f1bb1e87b9db752444"
   end
 

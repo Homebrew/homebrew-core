@@ -7,6 +7,11 @@ class Docker < Formula
   license "Apache-2.0"
   head "https://github.com/docker/cli.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)(?:[._-]ce)?$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2f006963b0e5393fa808670e88c3b6c6bab963aca3a7968f5bfeb41c331217c1"
     sha256 cellar: :any_skip_relocation, big_sur:       "1e6f9213259e150fcc57d05c55336018031f484277577a07b5740c3bbbc1cebb"

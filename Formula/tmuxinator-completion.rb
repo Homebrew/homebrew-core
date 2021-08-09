@@ -6,6 +6,10 @@ class TmuxinatorCompletion < Formula
   license "MIT"
   head "https://github.com/tmuxinator/tmuxinator.git"
 
+  livecheck do
+    formula "tmuxinator"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "fa94e8d05c5886957c4bd033771f196db3bc3665b4354ab8c2485a6e833db134"
   end

@@ -11,10 +11,11 @@ class Stunnel < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f50ed8a71e35d3509b0453ddba6b69f8af5f3f2f1b97418fadacc0efa3813d0f"
-    sha256 cellar: :any, big_sur:       "1f963558de66d9549d77bd970c0e67a5e01666317c20b63403361df25569f7ec"
-    sha256 cellar: :any, catalina:      "e0002bbf08f27e3533a7b518bfcc669b813122fb7e8943b5896f2d1325ad169f"
-    sha256 cellar: :any, mojave:        "f4735a2843512ff3bdd76ecaf23b1bc7049987cdc1831fdd0c410e7c91ab5f9b"
+    sha256 cellar: :any,                 arm64_big_sur: "f50ed8a71e35d3509b0453ddba6b69f8af5f3f2f1b97418fadacc0efa3813d0f"
+    sha256 cellar: :any,                 big_sur:       "1f963558de66d9549d77bd970c0e67a5e01666317c20b63403361df25569f7ec"
+    sha256 cellar: :any,                 catalina:      "e0002bbf08f27e3533a7b518bfcc669b813122fb7e8943b5896f2d1325ad169f"
+    sha256 cellar: :any,                 mojave:        "f4735a2843512ff3bdd76ecaf23b1bc7049987cdc1831fdd0c410e7c91ab5f9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fef05e1606d3f8151e4b9a91acdf554eba6dd4be6235218911d02adea2cab232"
   end
 
   depends_on "openssl@1.1"
@@ -82,11 +83,13 @@ class Stunnel < Formula
   end
 
   test do
+    user = "nobody"
+    on_linux { user = ENV["USER"] }
     (testpath/"tstunnel.conf").write <<~EOS
       cert = #{etc}/stunnel/stunnel.pem
 
-      setuid = nobody
-      setgid = nobody
+      setuid = #{user}
+      setgid = #{user}
 
       [pop3s]
       accept  = 995

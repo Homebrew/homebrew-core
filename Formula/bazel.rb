@@ -20,6 +20,7 @@ class Bazel < Formula
   depends_on "python@3.9" => :build
   depends_on "openjdk@11"
 
+  uses_from_macos "unzip"
   uses_from_macos "zip"
 
   conflicts_with "bazelisk", because: "Bazelisk replaces the bazel binary"
@@ -29,24 +30,36 @@ class Bazel < Formula
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
     # Force Bazel to use openjdk@11
-    ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_libexec/"openjdk.jdk/Contents/Home"
     ENV["EXTRA_BAZEL_ARGS"] = "--host_javabase=@local_jdk//:jdk"
+    ENV["JAVA_HOME"] = Language::Java.java_home("11")
+    # Force Bazel to use Homebrew python
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
+
+    # Bazel clears environment variables other than PATH during build, which
+    # breaks Homebrew shim scripts. We don't see this issue on macOS since
+    # the build uses a Bazel-specific wrapper for clang rather than the shim;
+    # specifically, it uses `external/local_config_cc/wrapped_clang`.
+    #
+    # The workaround here is to disable the Linux shim for C/C++ compilers.
+    # Remove this when a way to retain HOMEBREW_* variables is found.
+    on_linux do
+      ENV["CC"] = "/usr/bin/cc"
+      ENV["CXX"] = "/usr/bin/c++"
+    end
 
     (buildpath/"sources").install buildpath.children
 
     cd "sources" do
       system "./compile.sh"
-      system "./output/bazel",
-             "--output_user_root",
-             buildpath/"output_user_root",
-             "build",
-             "scripts:bash_completion"
+      system "./output/bazel", "--output_user_root",
+                               buildpath/"output_user_root",
+                               "build",
+                               "scripts:bash_completion"
 
       bin.install "scripts/packages/bazel.sh" => "bazel"
       ln_s libexec/"bin/bazel-real", bin/"bazel-#{version}"
       (libexec/"bin").install "output/bazel" => "bazel-real"
-      bin.env_script_all_files(libexec/"bin",
-        JAVA_HOME: Formula["openjdk@11"].opt_libexec/"openjdk.jdk/Contents/Home")
+      bin.env_script_all_files libexec/"bin", Language::Java.java_home_env("11")
 
       bash_completion.install "bazel-bin/scripts/bazel-complete.bash"
       zsh_completion.install "scripts/zsh_completion/_bazel"
@@ -72,9 +85,7 @@ class Bazel < Formula
       )
     EOS
 
-    system bin/"bazel",
-           "build",
-           "//:bazel-test"
+    system bin/"bazel", "build", "//:bazel-test"
     assert_equal "Hi!\n", pipe_output("bazel-bin/bazel-test")
 
     # Verify that `bazel` invokes Bazel's wrapper script, which delegates to

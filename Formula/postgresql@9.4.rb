@@ -7,9 +7,10 @@ class PostgresqlAT94 < Formula
 
   bottle do
     rebuild 4
-    sha256 big_sur:  "0331cf3d1dcb6311ad144916317c520c0a442832d038c6d11da6f42c670e263f"
-    sha256 catalina: "a72c3df7772799a0870db56245b192b655c7691984224f6eb0b9a3f839edb8a3"
-    sha256 mojave:   "64558f09195403c05cea3f52cb7c7162a61a0a01e24a40aaf297021fadf11fc9"
+    sha256 big_sur:      "0331cf3d1dcb6311ad144916317c520c0a442832d038c6d11da6f42c670e263f"
+    sha256 catalina:     "a72c3df7772799a0870db56245b192b655c7691984224f6eb0b9a3f839edb8a3"
+    sha256 mojave:       "64558f09195403c05cea3f52cb7c7162a61a0a01e24a40aaf297021fadf11fc9"
+    sha256 x86_64_linux: "fddd8da997370fa7185ce58a2cb5a2f3a95d4d24d9e20eae8dd368004682d1f9"
   end
 
   keg_only :versioned_formula

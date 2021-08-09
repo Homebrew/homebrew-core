@@ -9,9 +9,11 @@ class Dep < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:  "5bd49a3da392e08bef0ae821a534bd699c4c3f6d116d90b53007477fbad6a374"
-    sha256 cellar: :any_skip_relocation, catalina: "be9871f4e01aa179f9f3b32931838f21c5e64d33840ac36c8b601adeebb5e95b"
-    sha256 cellar: :any_skip_relocation, mojave:   "a86103fd9d7349cde0906850b1adaaa4e9b6c787cb11b0a791127c9af16ede8a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bd66e578cf33fafc42cecb83d80638b320a9b6a050cb769402532b7ec5d3f8ad"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5bd49a3da392e08bef0ae821a534bd699c4c3f6d116d90b53007477fbad6a374"
+    sha256 cellar: :any_skip_relocation, catalina:      "be9871f4e01aa179f9f3b32931838f21c5e64d33840ac36c8b601adeebb5e95b"
+    sha256 cellar: :any_skip_relocation, mojave:        "a86103fd9d7349cde0906850b1adaaa4e9b6c787cb11b0a791127c9af16ede8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d7917c664bc0a540e065deb1e14671a5a818823672ec7a5a5caee34eb8feb664"
   end
 
   deprecate! date: "2020-11-25", because: :repo_archived
@@ -20,22 +22,24 @@ class Dep < Formula
 
   conflicts_with "deployer", because: "both install `dep` binaries"
 
-  def install
-    ENV["GOPATH"] = buildpath
+  # Allow building on Apple ARM
+  patch :DATA
 
-    platform = nil
-    on_macos do
-      platform = "darwin"
-    end
+  def install
+    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+    platform = "darwin"
     on_linux do
       platform = "linux"
     end
+
+    ENV["GOPATH"] = buildpath
+    ENV["GO111MODULE"] = "auto"
     (buildpath/"src/github.com/golang/dep").install buildpath.children
     cd "src/github.com/golang/dep" do
       ENV["DEP_BUILD_PLATFORMS"] = platform
-      ENV["DEP_BUILD_ARCHS"] = "amd64"
+      ENV["DEP_BUILD_ARCHS"] = arch
       system "hack/build-all.bash"
-      bin.install "release/dep-#{platform}-amd64" => "dep"
+      bin.install "release/dep-#{platform}-#{arch}" => "dep"
       prefix.install_metafiles
     end
   end
@@ -66,3 +70,18 @@ class Dep < Formula
     end
   end
 end
+
+__END__
+diff --git a/hack/build-all.bash b/hack/build-all.bash
+index 58d5bc2d..0c574a45 100755
+--- a/hack/build-all.bash
++++ b/hack/build-all.bash
+@@ -50,7 +50,7 @@ for OS in ${DEP_BUILD_PLATFORMS[@]}; do
+     else
+       CGO_ENABLED=0
+     fi
+-    if [[ "${ARCH}" == "ppc64" || "${ARCH}" == "ppc64le" || "${ARCH}" == "s390x" || "${ARCH}" == "arm" || "${ARCH}" == "arm64" ]] && [[ "${OS}" != "linux" ]]; then
++    if [[ "${ARCH}" == "ppc64" || "${ARCH}" == "ppc64le" || "${ARCH}" == "s390x" || "${ARCH}" == "arm" ]] && [[ "${OS}" != "linux" ]]; then
+         # ppc64, ppc64le, s390x, arm and arm64 are only supported on Linux.
+         echo "Building for ${OS}/${ARCH} not supported."
+     else

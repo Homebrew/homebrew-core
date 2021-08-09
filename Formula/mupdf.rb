@@ -9,7 +9,7 @@ class Mupdf < Formula
 
   livecheck do
     url "https://mupdf.com/downloads/archive/"
-    regex(/href=.*?mupdf[._-]v?(\d+(?:\.\d+)+)-source\.t/i)
+    regex(/href=.*?mupdf[._-]v?(\d+(?:\.\d+)+)-source\.(?:t|zip)/i)
   end
 
   bottle do

@@ -6,8 +6,7 @@ class Minizip < Formula
   license "Zlib"
 
   livecheck do
-    url "https://zlib.net/"
-    regex(/href=.*?zlib[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    formula "zlib"
   end
 
   bottle do

@@ -23,6 +23,7 @@ class Algol68g < Formula
     sha256 catalina:      "046ba5e9ec0d0856557085fdf1acde227cd829d9955da28046e98c9a5ee84c09"
     sha256 mojave:        "7e1acd53615ebc407aaae64eb23af6047dbbd42f967e422b3fcfa0c6d01307b6"
     sha256 high_sierra:   "18013401e3eed914022e0a34c6b9b1ed415ec679113de78970d74aa52b0a35e8"
+    sha256 x86_64_linux:  "3db30a51c50dc264cf0f7d261fb936a17ffad5cb14f73b105e44a69a10d56f30"
   end
 
   on_linux do

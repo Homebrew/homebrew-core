@@ -69,6 +69,7 @@ class Cosi < Formula
     ln_s buildpath, buildpath/"src/github.com/dedis/cosi"
 
     ENV["GOPATH"] = "#{buildpath}/Godeps/_workspace:#{buildpath}"
+    ENV["GO111MODULE"] = "auto"
 
     Language::Go.stage_deps resources, buildpath/"src"
 

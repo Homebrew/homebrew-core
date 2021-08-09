@@ -1,16 +1,16 @@
 class Autodiff < Formula
   desc "Automatic differentiation made easier for C++"
   homepage "https://autodiff.github.io"
-  url "https://github.com/autodiff/autodiff/archive/v0.6.2.tar.gz"
-  sha256 "b065ac0ec4a94763567a3e7bd79a7d88f464a2028957bfcb994b923a0917c5e6"
+  url "https://github.com/autodiff/autodiff/archive/v0.6.3.tar.gz"
+  sha256 "afcc21c74c9c20ecf08c53ab82965652438d5bb65d146a2db43795b051c12135"
   license "MIT"
   head "https://github.com/autodiff/autodiff.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e5b36d027de4ff99c71de9435ea505260390c05354300c2dc1e80a828e883643"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8c32143624a1455ea1bb8fc383c7339b5fe9e18d826ffb1e76958ae92c8d9ccc"
-    sha256 cellar: :any_skip_relocation, catalina:      "17fb18e3ef892158ab14076c5cde5c44680ffa4451bedda27ad21e0c92d62c15"
-    sha256 cellar: :any_skip_relocation, mojave:        "62e1d5fb33c382909abf34677629ff4734b8d8486597259eafc2e6a4597a47b5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5d115a24200aeaf67131453c70b6082be66d99d2920d43d3857a90f68b54945d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e56abb1cfd0a276322bb136d08b5037285e12fff7cdcd703897928173b997383"
+    sha256 cellar: :any_skip_relocation, catalina:      "15ffb5d75d4993904a407b58a57d2c5dc00898a09ecaaa0047fbbb5c6519bc06"
+    sha256 cellar: :any_skip_relocation, mojave:        "646362ffbcd6dfe2f0822b700483eafe8a6cb939326a30fa7112e893c1495a01"
   end
 
   depends_on "cmake" => :build
