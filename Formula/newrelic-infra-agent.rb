@@ -1,8 +1,8 @@
 class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
-  url "https://github.com/newrelic/infrastructure-agent/archive/refs/tags/1.20.1.tar.gz"
-  sha256 "86401cb6ae785e45d6ed78f01cc67f48216a71fb90eec548164d6d22119850e2"
+  url "https://github.com/newrelic/infrastructure-agent/archive/refs/tags/1.20.3.tar.gz"
+  sha256 "3a29b19541e6f32fb87196a7833d08a9aed41b8ff62ef3a72326236d262cb033"
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git"
 
@@ -10,10 +10,11 @@ class NewrelicInfraAgent < Formula
 
   def install
     goarch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    ENV["VERSION"] = "1.20.1"
+    cgo = Hardware::CPU.arm? ? "0" : "1"
+    ENV["VERSION"] = "1.20.3"
     ENV["GOOS"] = "darwin"
     ENV["GOARCH"] = goarch
-    ENV["CGO_ENABLED"] = "1"
+    ENV["CGO_ENABLED"] = cgo
     system "make", "dist-for-os"
     on_macos do
       bin.install "dist/darwin-newrelic-infra_darwin_#{goarch}/newrelic-infra"
@@ -36,6 +37,6 @@ class NewrelicInfraAgent < Formula
 
   test do
     output = shell_output("#{bin}/newrelic-infra -validate")
-    assert_match(/config\ validation/, output)
+    assert_match("config validation", output)
   end
 end
