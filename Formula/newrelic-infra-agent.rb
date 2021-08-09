@@ -37,6 +37,6 @@ class NewrelicInfraAgent < Formula
 
   test do
     output = shell_output("#{bin}/newrelic-infra -validate")
-    assert_match("config validation", output)
+    assert_match "config validation", output
   end
 end
