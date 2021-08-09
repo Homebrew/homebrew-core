@@ -7,6 +7,9 @@ class Pyoxidizer < Formula
   head "https://github.com/indygreg/PyOxidizer.git", branch: "main"
 
   depends_on "rust" => :build
+  # Currently needs macOS 11 SDK due to checking for DeploymentTargetSettingName
+  # Remove when issue is fixed: https://github.com/indygreg/PyOxidizer/issues/431
+  depends_on xcode: "12.2" if MacOS.version <= :catalina
 
   def install
     system "cargo", "install", *std_cargo_args(path: "pyoxidizer")
