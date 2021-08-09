@@ -3,7 +3,7 @@ class FcitxRemoteForOsx < Formula
   homepage "https://github.com/xcodebuild/fcitx-remote-for-osx"
   url "https://github.com/xcodebuild/fcitx-remote-for-osx/archive/0.3.0.tar.gz"
   sha256 "b4490a6a0db3c28ce3ddbe89dd038f5ab404744539adc5520eab1a1a39819de6"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     rebuild 1
@@ -14,6 +14,8 @@ class FcitxRemoteForOsx < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "6c88cbd0c4ca46c2b0d809adc3e93c4be3178c014b55d377f95b7e0740cfab99"
     sha256 cellar: :any_skip_relocation, sierra:        "16efcc3f2a5ac6fd63bfea3d85286fac823cc7b21520d85f46d0b3c066668671"
   end
+
+  depends_on :macos
 
   def install
     system "./build.py", "build", "general"
