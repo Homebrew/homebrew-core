@@ -6,7 +6,7 @@ class NewrelicInfraAgent < Formula
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git"
 
-  depends_on "go@1.14" => :build
+  depends_on "go@1.16" => :build
 
   def install
     ENV["VERSION"] = version
