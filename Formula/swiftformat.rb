@@ -14,6 +14,7 @@ class Swiftformat < Formula
   end
 
   depends_on xcode: ["10.1", :build]
+  depends_on :macos
 
   def install
     xcodebuild "-arch", Hardware::CPU.arch,
