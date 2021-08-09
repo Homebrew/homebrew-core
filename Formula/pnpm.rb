@@ -20,7 +20,7 @@ class Pnpm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "7da2aca6833071eec6626c22e5026af7587cd297ce324d49b4f3bdffb60ea8ee"
   end
 
-  depends_on "node" => :build
+  depends_on "node@14" => :build
 
   # Described in https://github.com/pnpm/pnpm#installation
   # Managed by https://github.com/pnpm/get
@@ -33,13 +33,7 @@ class Pnpm < Formula
     buildtime_bin = buildpath/"buildtime-bin"
     resource("pnpm-buildtime").stage do |r|
       buildtime_bin.install "v#{r.version}.js"
-      pnpm_shim = buildtime_bin/"pnpm"
-      pnpm_shim.atomic_write <<~EOS
-        #!/bin/sh
-        node #{buildpath}/buildtime-bin/v#{r.version}.js "$@"
-        exit "$?"
-      EOS
-      chmod 0755, pnpm_shim
+      (buildtime_bin/"pnpm").write_env_script "#{Formula["node@14"].bin}/node", buildpath/"buildtime-bin/v#{r.version}.js"
     end
     ENV.prepend_path "PATH", buildtime_bin
     system "pnpm", "install"
@@ -51,7 +45,7 @@ class Pnpm < Formula
     on_linux do
       mkdir_p "packages/artifacts/linuxstatic-x64"
       chdir "packages/pnpm" do
-        system "pkg", "./dist/pnpm.cjs", "--out-path=../artifacts/linuxstatic-x64", "--targets=node14-linuxstatic-x64"
+        system "pkg", "./dist/pnpm.cjs", "--out-path=../artifacts/linuxstatic-x64", "--targets=linuxstatic-x64"
       end
       bin.install "packages/artifacts/linuxstatic-x64/pnpm" => "pnpm"
     end
