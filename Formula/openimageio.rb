@@ -52,7 +52,7 @@ class Openimageio < Formula
       -DUSE_QT=OFF
     ]
 
-    # CMake picks up the system's python dylib, even if we have a brewed one.
+    # CMake picks up the system's python shared library, even if we have a brewed one.
     py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     py3prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
     on_linux do
