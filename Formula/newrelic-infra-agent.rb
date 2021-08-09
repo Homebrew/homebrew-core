@@ -1,23 +1,24 @@
 class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
-  url "https://github.com/newrelic/infrastructure-agent/archive/refs/tags/1.20.0.tar.gz"
-  sha256 "b9f6f744b8376b0ba92657237902d8a8e7c12cbb7f56c6f13f93b52255f31224"
+  url "https://github.com/newrelic/infrastructure-agent/archive/refs/tags/1.20.1.tar.gz"
+  sha256 "86401cb6ae785e45d6ed78f01cc67f48216a71fb90eec548164d6d22119850e2"
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git"
 
   depends_on "go" => :build
 
   def install
-    ENV["VERSION"] = version
+    goarch = Hardware::CPU.arm? ? "arm64" : "amd64"
+    ENV["VERSION"] = "1.20.1"
     ENV["GOOS"] = "darwin"
-    ENV["GOARCH"] = "amd64"
+    ENV["GOARCH"] = goarch
     ENV["CGO_ENABLED"] = "1"
     system "make", "dist-for-os"
     on_macos do
-      bin.install "dist/darwin-newrelic-infra_darwin_amd64/newrelic-infra"
-      bin.install "dist/darwin-newrelic-infra-ctl_darwin_amd64/newrelic-infra-ctl"
-      bin.install "dist/darwin-newrelic-infra-service_darwin_amd64/newrelic-infra-service"
+      bin.install "dist/darwin-newrelic-infra_darwin_#{goarch}/newrelic-infra"
+      bin.install "dist/darwin-newrelic-infra-ctl_darwin_#{goarch}/newrelic-infra-ctl"
+      bin.install "dist/darwin-newrelic-infra-service_darwin_#{goarch}/newrelic-infra-service"
     end
 
     (etc/"newrelic-infra").mkpath
@@ -34,7 +35,7 @@ class NewrelicInfraAgent < Formula
   end
 
   test do
-    output = shell_output("NRIA_LICENSE=wrong_one #{bin}/newrelic-infra")
-    assert_match(/New\ Relic\ Infrastructure\ Agent\ version:\ 1\.20\.0/, output)
+    output = shell_output("#{bin}/newrelic-infra -validate")
+    assert_match(/config\ validation/, output)
   end
 end
