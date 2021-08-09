@@ -58,14 +58,14 @@ class GccAT49 < Formula
     sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
   end
 
-  def version_suffix
-    version.major.to_s
-  end
-
   resource "cloog" do
     url "http://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
     mirror "https://mirrorservice.org/sites/archive.ubuntu.com/ubuntu/pool/main/c/cloog/cloog_0.18.4.orig.tar.gz"
     sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
+  end
+
+  def version_suffix
+    version.major_minor.to_s
   end
 
   # Fix build with Xcode 9
