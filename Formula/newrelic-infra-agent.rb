@@ -8,35 +8,6 @@ class NewrelicInfraAgent < Formula
 
   depends_on "go@1.14" => :build
 
-  def plist
-    <<~EOS
-        <?xml version="1.0" encoding="UTF-8"?>
-        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-        <plist version="1.0">
-          <dict>
-            <key>Label</key>
-            <string>com.newrelic.infrastructure.agent</string>
-            <key>Program</key>
-            <string>/usr/local/bin/newrelic-infra-service</string>
-            <key>ProgramArguments</key>
-            <array>
-              <string>/usr/local/bin/newrelic-infra-service</string>
-              <string>-config</string>
-              <string>/usr/local/etc/newrelic-infra/newrelic-infra.yml</string>
-            </array>
-            <key>RunAtLoad</key>
-            <true/>
-            <key>StandardOutPath</key>
-            <string>/usr/local/var/log/newrelic-infra/newrelic-infra.log</string>
-            <key>StandardErrorPath</key>
-            <string>/usr/local/var/log/newrelic-infra/newrelic-infra.stderr.log</string>
-            <key>ExitTimeOut</key>
-            <integer>30</integer>
-          </dict>
-        </plist>
-    EOS
-  end
-
   def install
     ENV["VERSION"] = version
     ENV["GOOS"] = "darwin"
@@ -54,6 +25,12 @@ class NewrelicInfraAgent < Formula
     (var/"db/newrelic-infra").mkpath
 
     (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt"
+  end
+
+  service do
+    run [bin/"newrelic-infra-service", "-config", etc/"newrelic-infra/newrelic-infra.yml"]
+    log_path var/"log/newrelic-infra/newrelic-infra.log"
+    error_log_path var/"log/newrelic-infra/newrelic-infra.stderr.log"
   end
 
   test do
