@@ -19,6 +19,7 @@ class Swimat < Formula
   end
 
   depends_on xcode: ["10.2", :build]
+  depends_on :macos
 
   def install
     xcodebuild "-target", "CLI",
