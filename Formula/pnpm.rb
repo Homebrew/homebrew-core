@@ -34,7 +34,8 @@ class Pnpm < Formula
     resource("pnpm-buildtime").stage do |r|
       buildtime_bin.install "v#{r.version}.js"
       (buildtime_bin/"pnpm").write_env_script "#{Formula["node@14"].bin}/node",
-        buildpath/"buildtime-bin/v#{r.version}.js"
+        buildpath/"buildtime-bin/v#{r.version}.js", {}
+      chmod 0755, buildtime_bin/"pnpm"
     end
     ENV.prepend_path "PATH", buildtime_bin
     system "pnpm", "install"
