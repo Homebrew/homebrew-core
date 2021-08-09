@@ -47,7 +47,8 @@ class Pnpm < Formula
     on_linux do
       mkdir_p "packages/artifacts/linuxstatic-x64"
       chdir "packages/pnpm" do
-        system "node_modules/.bin/pkg", "./dist/pnpm.cjs", "--out-path=../artifacts/linuxstatic-x64", "--targets=linuxstatic-x64"
+        system "node_modules/.bin/pkg", "./dist/pnpm.cjs",
+          "--out-path=../artifacts/linuxstatic-x64", "--targets=linuxstatic-x64"
       end
       bin.install "packages/artifacts/linuxstatic-x64/pnpm" => "pnpm"
     end
