@@ -29,6 +29,11 @@ class Pnpm < Formula
     sha256 "56bffe269aab055bec3a07fa65c387f5a35729550dc7fc76711844a2de6e1b8b"
   end
 
+  patch do
+    url "https://github.com/umireon/pnpm/commit/5a95e7460459383a8deaf633cf21d485a5945368.patch?full_index=1"
+    sha256 "13f35a2e864b31039ff17eb4327f80a8d4df21687c498a48d8ac7427796f1166"
+  end
+
   def install
     buildtime_bin = buildpath/"buildtime-bin"
     resource("pnpm-buildtime").stage do |r|
@@ -42,15 +47,14 @@ class Pnpm < Formula
     system "pnpm", "run", "compile-only"
     system "pnpm", "run", "copy-artifacts"
     on_macos do
-      bin.install "dist/pnpm-macos-x64" => "pnpm"
+      if Hardware::CPU.arm?
+        bin.install "dist/pnpm-macos-arm64" => "pnpm"
+      else
+        bin.install "dist/pnpm-macos-x64" => "pnpm"
+      end
     end
     on_linux do
-      mkdir_p "packages/artifacts/linuxstatic-x64"
-      chdir "packages/pnpm" do
-        system "node_modules/.bin/pkg", "./dist/pnpm.cjs",
-          "--out-path=../artifacts/linuxstatic-x64", "--targets=linuxstatic-x64"
-      end
-      bin.install "packages/artifacts/linuxstatic-x64/pnpm" => "pnpm"
+      bin.install "dist/pnpm-linuxstatic-x64" => "pnpm"
     end
   end
 
