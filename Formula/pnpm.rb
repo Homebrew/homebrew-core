@@ -59,11 +59,17 @@ class Pnpm < Formula
     end
     ENV.prepend_path "PATH", buildtime_bin
     system "pnpm", "install"
-    system "pnpm", "--filter=pnpm", "run", "bundle"
     chdir "packages/pnpm" do
-      system "node_modules/.bin/pkg", "--target=host", "--out-path=dist", "dist/pnpm.cjs"
-      bin.install "dist/pnpm"
+      system buildpath/"node_modules/.bin/tsc", "--build"
+      system "pnpm", "run", "bundle"
+      on_macos do
+        system "node_modules/.bin/pkg", "--target=host", "--out-path=dist", "dist/pnpm.cjs"
+      end
+      on_linux do
+        system "node_modules/.bin/pkg", "--target=linuxstatic", "--out-path=dist", "dist/pnpm.cjs"
+      end
     end
+    bin.install "packages/pnpm/dist/pnpm"
   end
 
   def caveats
