@@ -32,10 +32,10 @@ class NewrelicInfraAgent < Formula
   end
 
   def post_install
-      (etc/"newrelic-infra").mkpath
-      (var/"log/newrelic-infra").mkpath
-      (var/"db/newrelic-infra").mkpath
-      (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt"
+    (etc/"newrelic-infra").mkpath
+    (var/"log/newrelic-infra").mkpath
+    (var/"db/newrelic-infra").mkpath
+    (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt"
   end
 
   service do
