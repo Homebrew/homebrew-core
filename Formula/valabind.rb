@@ -23,7 +23,7 @@ class Valabind < Formula
   uses_from_macos "flex" => :build
 
   def install
-    system "make"
+    system "make", "VALA_PKGLIBDIR=#{Formula["vala"].opt_lib}/vala-#{Formula["vala"].version.major_minor}"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
