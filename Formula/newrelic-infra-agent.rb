@@ -12,30 +12,25 @@ class NewrelicInfraAgent < Formula
   def install
     goarch = Hardware::CPU.arm? ? "arm64" : "amd64"
     ENV["VERSION"] = "1.20.3"
-    ENV["GOARCH"] = goarch
-    on_macos do
-      ENV["GOOS"] = "darwin"
-      ENV["CGO_ENABLED"] = "1"
-      system "make", "dist-for-os"
-      bin.install "dist/darwin-newrelic-infra_darwin_#{goarch}/newrelic-infra"
-      bin.install "dist/darwin-newrelic-infra-ctl_darwin_#{goarch}/newrelic-infra-ctl"
-      bin.install "dist/darwin-newrelic-infra-service_darwin_#{goarch}/newrelic-infra-service"
-    end
+    os = "darwin"
+    ENV["CGO_ENABLED"] = "1"
     on_linux do
-      ENV["GOOS"] = "linux"
+      os = "linux"
       ENV["CGO_ENABLED"] = "0"
-      system "make", "dist-for-os"
-      bin.install "dist/linux-newrelic-infra_linux_#{goarch}/newrelic-infra"
-      bin.install "dist/linux-newrelic-infra-ctl_linux_#{goarch}/newrelic-infra-ctl"
-      bin.install "dist/linux-newrelic-infra-service_linux_#{goarch}/newrelic-infra-service"
+    end
+    ENV["GOOS"] = os
+    system "make", "dist-for-os"
+    bin.install "dist/#{os}-newrelic-infra_#{os}_#{goarch}/newrelic-infra"
+    bin.install "dist/#{os}-newrelic-infra-ctl_#{os}_#{goarch}/newrelic-infra-ctl"
+    bin.install "dist/#{os}-newrelic-infra-service_#{os}_#{goarch}/newrelic-infra-service"
+    on_darwin do
+      (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt"
     end
   end
 
   def post_install
     (etc/"newrelic-infra").mkpath
     (var/"log/newrelic-infra").mkpath
-    (var/"db/newrelic-infra").mkpath
-    (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt"
   end
 
   service do
