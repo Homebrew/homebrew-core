@@ -30,8 +30,8 @@ class Pnpm < Formula
   end
 
   patch do
-    url "https://github.com/umireon/pnpm/commit/5a95e7460459383a8deaf633cf21d485a5945368.patch?full_index=1"
-    sha256 "13f35a2e864b31039ff17eb4327f80a8d4df21687c498a48d8ac7427796f1166"
+    url "https://github.com/umireon/pnpm/commit/52c03bc2a95fdfa8e64f1325ca245668a4c9b04e.patch?full_index=1"
+    sha256 "bfb9b85fc761f35306918cf88f4bca1f0e1728212623b1f15268f7fb82eb9a7b"
   end
 
   def install
@@ -44,7 +44,11 @@ class Pnpm < Formula
     end
     ENV.prepend_path "PATH", buildtime_bin
     system "pnpm", "install"
-    system "pnpm", "run", "compile-only"
+    if Hardware::CPU.arm?
+      system "pnpm", "run", "compile-only:arm64"
+    else
+      system "pnpm", "run", "compile-only"
+    end
     system "pnpm", "run", "copy-artifacts"
     on_macos do
       if Hardware::CPU.arm?
