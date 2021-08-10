@@ -4,6 +4,7 @@ class Vala < Formula
   url "https://download.gnome.org/sources/vala/0.52/vala-0.52.4.tar.xz"
   sha256 "ecde520e5160e659ee699f8b1cdc96065edbd44bbd08eb48ef5f2506751fdf31"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_big_sur: "980295e63a373da1594e5148ee9e5c24b58e43438ca56d3adf6fdf17706d79bc"
@@ -20,6 +21,15 @@ class Vala < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+
+  # Fix regressions in GStreamer VAPI, which cause issues for dependents like `pdfpc`
+  # Upstream pdfpc ref: https://github.com/pdfpc/pdfpc/issues/594
+  # Upstream vala ref: https://gitlab.gnome.org/GNOME/vala/-/issues/1210
+  # Remove in the next release.
+  patch do
+    url "https://gitlab.gnome.org/GNOME/vala/-/commit/873c879367d1a4d7265e32dda55d4c01d5dd957b.diff"
+    sha256 "144b964cee117b6def5c673e7447003bd4a94b7d681c3d7a8ceaf43f709c0992"
+  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
