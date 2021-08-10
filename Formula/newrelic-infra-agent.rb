@@ -23,7 +23,7 @@ class NewrelicInfraAgent < Formula
     bin.install "dist/#{os}-newrelic-infra_#{os}_#{goarch}/newrelic-infra"
     bin.install "dist/#{os}-newrelic-infra-ctl_#{os}_#{goarch}/newrelic-infra-ctl"
     bin.install "dist/#{os}-newrelic-infra-service_#{os}_#{goarch}/newrelic-infra-service"
-    on_darwin do
+    on_macos do
       (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt"
     end
   end
