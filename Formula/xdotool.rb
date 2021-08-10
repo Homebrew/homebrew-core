@@ -1,10 +1,9 @@
 class Xdotool < Formula
   desc "Fake keyboard/mouse input and window management for X"
   homepage "https://www.semicomplete.com/projects/xdotool/"
-  url "https://github.com/jordansissel/xdotool/archive/v3.20160805.1.tar.gz"
-  sha256 "ddafca1239075c203769c17a5a184587731e56fbe0438c09d08f8af1704e117a"
+  url "https://github.com/jordansissel/xdotool/releases/download/v3.20210804.2/xdotool-3.20210804.2.tar.gz"
+  sha256 "fde6b15b5978c91e0ecb78cc541a9987752e724820722e479dcc2efc17466c89"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/jordansissel/xdotool.git"
 
   bottle do
@@ -22,7 +21,7 @@ class Xdotool < Formula
   depends_on "libxkbcommon"
   depends_on "libxtst"
 
-  # Disable clock_gettime() workaround since the real API is available on OS/X >= 10.12
+  # Disable clock_gettime() workaround since the real API is available on macOS >= 10.12
   # Note that the PR from this patch was actually closed originally because of problems
   # caused on pre-10.12 environments, but that is no longer a concern.
   patch do
