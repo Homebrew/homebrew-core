@@ -19,7 +19,7 @@ class Monetdb < Formula
     sha256 x86_64_linux:  "ba15143a4f2f8dd938d017de159e6ba3ca1efc9eae806cb314979e207458cef9"
   end
 
-  depends_on "bison" => :build  # macOS bison is too old
+  depends_on "bison" => :build # macOS bison is too old
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
