@@ -17,13 +17,18 @@ class OpenAdventure < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "a3ec563817f679d2ed97360b1d32e3fef297eaa3fcaf582044213532a338d217"
     sha256 cellar: :any_skip_relocation, catalina:      "19315161a1ca025476f7bff681bbed32d52e0c462ad8de013ae2442f5cf37d08"
     sha256 cellar: :any_skip_relocation, mojave:        "950ef945af942573058ad712f85547fff68d282caa403ae8645ccf4a90ae3d30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "477e0809fe0844f0075943170f4554b716638a2b9f43b2c41531d48311edcf20"
   end
 
   depends_on "asciidoc" => :build
   depends_on "python@3.9" => :build
 
-  uses_from_macos "libedit" => :build
   uses_from_macos "libxml2" => :build
+  uses_from_macos "libedit"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"

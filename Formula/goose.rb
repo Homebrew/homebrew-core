@@ -1,26 +1,22 @@
 class Goose < Formula
   desc "Go Language's command-line interface for database migrations"
   homepage "https://github.com/pressly/goose"
-  url "https://github.com/pressly/goose/archive/v2.7.0.tar.gz"
-  sha256 "ce4115e3184d0929a90c5e4215d303aa5243e8d49f8576154396098f0c6536fd"
+  url "https://github.com/pressly/goose/archive/v3.0.1.tar.gz"
+  sha256 "f7b487d37aa37a27e9bf22d6fe51e205124999072922ce95bf0851b524413dbd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b9bfd06826a5bc66bcf6616632476c3535f26a9cd5d5955415db1f3b48e9100b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "87864462e22abc1dcf9b949c7b9b1106b0e4327fa5aabe94e514a29eeee66a10"
-    sha256 cellar: :any_skip_relocation, catalina:      "3838102fe4c61d9dec9d5147f247e1856ec134ebe4a5eb07d12aacf99513a1d9"
-    sha256 cellar: :any_skip_relocation, mojave:        "9b4be2cab4a2053e9142af56eeb15c3c91e8fd810f64a073dadf4911c4a59543"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "806392c22b5d32fd7331cbd491c6348a87730514abbc7b36cbf6cac2507ace2e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3def952ad2ed85310f60466d350b65160044df5e9c3d7b7a715a177c9e0f7761"
+    sha256 cellar: :any_skip_relocation, big_sur:       "51ceb50cb44e2a3907bbf7fb01398a6f2150ba20f7b110c668e73afccc9dfad2"
+    sha256 cellar: :any_skip_relocation, catalina:      "d67b3467e39bf391088ee9c0deaf7781478ba269c4cf45fe5c542f3f854752e8"
+    sha256 cellar: :any_skip_relocation, mojave:        "abf9f68a0c1e32a140b7d877bc89f69592bca2a00f1d1ae7fe722b6b18aa817a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bc3e7d0b692cc6f134cf1a8fe264f2c507d0b33d3047babdd4069f6038cde652"
   end
 
   depends_on "go" => :build
 
   def install
-    # raise a quesiton about this setup, https://github.com/pressly/goose/issues/238
-    mv "_go.mod", "go.mod"
-    mv "_go.sum", "go.sum"
-
-    system "go", "build", *std_go_args, "-ldflags", "-s -w", "./cmd/goose"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/goose"
   end
 
   test do

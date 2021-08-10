@@ -25,14 +25,13 @@ class Libsigcxx < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-
     mkdir "build" do
       system "meson", *std_meson_args, ".."
       system "ninja"
       system "ninja", "install"
     end
   end
+
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>

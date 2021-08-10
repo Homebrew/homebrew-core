@@ -3,30 +3,28 @@ class Redo < Formula
 
   desc "Implements djb's redo: an alternative to make"
   homepage "https://redo.rtfd.io/"
-  url "https://github.com/apenwarr/redo/archive/redo-0.42c.tar.gz"
-  sha256 "6f1600c82d00bdfa75445e1e161477f876bd2615eb4371eb1bcf0a7e252dc79f"
+  url "https://github.com/apenwarr/redo/archive/redo-0.42d.tar.gz"
+  sha256 "47056b429ff5f85f593dcba21bae7bc6a16208a56b189424eae3de5f2e79abc1"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "925acd1a773f80586f5f5d1d086b91f9f50aadfa7583e0c20ee192680d0dd335"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0615d83e9b519ec99eda993775fbea61fe32a0a83cd5a2ffc7c3da0323cd0322"
-    sha256 cellar: :any_skip_relocation, catalina:      "4531c1e25405e7cc940e109fdc7f028cfc84b6b224874d861f112371da993fac"
-    sha256 cellar: :any_skip_relocation, mojave:        "9b3f873c69959f246ea6c8abbea58f875e436fa260aefcb2697d798cfd803b3e"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "0e30bad1e3dad48d66fb4061e4fb7dbd7b5b3450a53a93275990a66b2bc558dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4d8225be3c8980d7be6392a8d42f6c2e6fbf044ca9b781c474155f860f938a38"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b9483fed7aef21d0f5701c800ca7bb5eb98b94ee20f6cc398ec7ef6d6363c2cf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b4a239a929dba39221ac591987fc1c73ad805858984a2131b6e9bc485cce7ed9"
+    sha256 cellar: :any_skip_relocation, catalina:      "260cb36224abce5771d243c8a042ec1c49854a2c6d88966e5386cec448419e22"
+    sha256 cellar: :any_skip_relocation, mojave:        "3dc4638a8e498c209bb002fa8358929664ccf3c51d50ebbf5dec596b3d25e4de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd16170577d9aaecc168b487a58dbcfb466e2247738983a0901066a942c57498"
   end
 
   depends_on "python@3.9"
 
   resource "Markdown" do
-    url "https://files.pythonhosted.org/packages/44/30/cb4555416609a8f75525e34cbacfc721aa5b0044809968b2cf553fd879c7/Markdown-3.2.2.tar.gz"
-    sha256 "1fafe3f1ecabfb514a5285fca634a53c1b32a81cb0feb154264d55bf2ff22c17"
+    url "https://files.pythonhosted.org/packages/49/02/37bd82ae255bb4dfef97a4b32d95906187b7a7a74970761fca1360c4ba22/Markdown-3.3.4.tar.gz"
+    sha256 "31b5b491868dcc87d6c24b7e3d19a0d730d59d3e46f4eea6430a321bed387a49"
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/c6/62/8a2bef01214eeaa5a4489eca7104e152968729512ee33cb5fbbc37a896b7/beautifulsoup4-4.9.1.tar.gz"
-    sha256 "73cc4d115b96f79c7d77c1c7f7a0a8d4c57860d1041df407dd1aae7f07a77fd7"
+    url "https://files.pythonhosted.org/packages/6b/c3/d31704ae558dcca862e4ee8e8388f357af6c9d9acb0cad4ba0fbbd350d9a/beautifulsoup4-4.9.3.tar.gz"
+    sha256 "84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25"
   end
 
   def install

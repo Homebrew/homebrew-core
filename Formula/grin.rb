@@ -10,10 +10,13 @@ class Grin < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "bf2f070ac6aea3f7ca867167068684b0279c4f9ed13b02e328e88e5c94fa6f6b"
     sha256 cellar: :any_skip_relocation, catalina:      "aa5d88ba12bae1e7e468d6bfc165b1c105790e391e26493a22d7500c3d13dee5"
     sha256 cellar: :any_skip_relocation, mojave:        "94e2c97fc9dc4b3f3e1ebb47d1505484052e567d8a04b1bd082c828bce448014"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd873c946772ada19893c872fdae50c64422f5d15804bfcb96ba5ec0b0aedaee"
   end
 
   depends_on "llvm" => :build # for libclang
   depends_on "rust" => :build
+
+  uses_from_macos "ncurses"
 
   def install
     ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
@@ -22,7 +25,7 @@ class Grin < Formula
   end
 
   test do
-    system "#{bin}/grin", "server", "config"
+    system bin/"grin", "server", "config"
     assert_predicate testpath/"grin-server.toml", :exist?
   end
 end

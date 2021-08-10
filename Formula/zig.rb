@@ -1,11 +1,21 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  url "https://ziglang.org/download/0.8.0/zig-0.8.0.tar.xz"
-  sha256 "03a828d00c06b2e3bb8b7ff706997fd76bf32503b08d759756155b6e8c981e77"
   license "MIT"
   revision 1
   head "https://github.com/ziglang/zig.git"
+
+  stable do
+    url "https://ziglang.org/download/0.8.0/zig-0.8.0.tar.xz"
+    sha256 "03a828d00c06b2e3bb8b7ff706997fd76bf32503b08d759756155b6e8c981e77"
+
+    # Fix compilation of C code on Mojave. Remove at version bump.
+    # https://github.com/ziglang/zig/pull/9427
+    patch do
+      url "https://github.com/ziglang/zig/commit/24bfd7bdddbf045c5568c1bb67a3f754c24eb8c4.patch?full_index=1"
+      sha256 "feda7d03502c073bd9874996453da6961dcf16f5a3e08b86d6df1d4cbc1475a7"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "509462e2ab9377e1a1464e0204bad486e18c32908aca8ae3684d12f5a46039f7"
@@ -17,13 +27,6 @@ class Zig < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm"
-
-  # Fix compilation of C code on Mojave. Remove at version bump.
-  # https://github.com/ziglang/zig/pull/9427
-  patch do
-    url "https://github.com/ziglang/zig/commit/24bfd7bdddbf045c5568c1bb67a3f754c24eb8c4.patch?full_index=1"
-    sha256 "feda7d03502c073bd9874996453da6961dcf16f5a3e08b86d6df1d4cbc1475a7"
-  end
 
   def install
     system "cmake", ".", *std_cmake_args, "-DZIG_STATIC_LLVM=ON"

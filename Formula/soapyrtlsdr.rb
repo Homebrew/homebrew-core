@@ -7,10 +7,11 @@ class Soapyrtlsdr < Formula
   head "https://github.com/pothosware/SoapyRTLSDR.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b27ae49c166978a6a923ea9113f052a6c46c97bf47da4c2e19b5fb39935501f2"
-    sha256 cellar: :any, big_sur:       "451a1decca95bdec28c0159088ccdb7d2d70067aebc7edc92da99967db51e2fa"
-    sha256 cellar: :any, catalina:      "77e5df3c37bcda727cf6cb04dff66aa0f196dda6503b886faf4892540bfca035"
-    sha256 cellar: :any, mojave:        "62c8dd85c71bc5e119f4706b0288606f1613e26adbdd88303ded2098448bae9a"
+    sha256 cellar: :any,                 arm64_big_sur: "b27ae49c166978a6a923ea9113f052a6c46c97bf47da4c2e19b5fb39935501f2"
+    sha256 cellar: :any,                 big_sur:       "451a1decca95bdec28c0159088ccdb7d2d70067aebc7edc92da99967db51e2fa"
+    sha256 cellar: :any,                 catalina:      "77e5df3c37bcda727cf6cb04dff66aa0f196dda6503b886faf4892540bfca035"
+    sha256 cellar: :any,                 mojave:        "62c8dd85c71bc5e119f4706b0288606f1613e26adbdd88303ded2098448bae9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b436aea3e9cbd452498651b3b3c1ac4fb46e66f631c4b22f6cb7250356729dc8"
   end
 
   depends_on "cmake" => :build

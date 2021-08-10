@@ -7,14 +7,19 @@ class Lychee < Formula
   head "https://github.com/lycheeverse/lychee.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "557cbb8aa12ce8173aba69f12c5cfee97b31e489a08661b002bbcc8480032ae3"
-    sha256 cellar: :any, big_sur:       "851c0881b1a76ce34c018c231248e6a17f11a7703ece7d0ea24c9ca36f69826d"
-    sha256 cellar: :any, catalina:      "1174396eb8beb8828a66e0c5fe25cf4ecf177d305ec57404d1620fa5243f5d9d"
-    sha256 cellar: :any, mojave:        "e36701a4a372cd127f0b02f0dee5ff51cd6a98ee1df6e828af36b7865677ec91"
+    sha256 cellar: :any,                 arm64_big_sur: "557cbb8aa12ce8173aba69f12c5cfee97b31e489a08661b002bbcc8480032ae3"
+    sha256 cellar: :any,                 big_sur:       "851c0881b1a76ce34c018c231248e6a17f11a7703ece7d0ea24c9ca36f69826d"
+    sha256 cellar: :any,                 catalina:      "1174396eb8beb8828a66e0c5fe25cf4ecf177d305ec57404d1620fa5243f5d9d"
+    sha256 cellar: :any,                 mojave:        "e36701a4a372cd127f0b02f0dee5ff51cd6a98ee1df6e828af36b7865677ec91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e24d88d7c45a6d61681b3edfdcc5da82e42a054288b2cfc7b8c68a160b55dad"
   end
 
   depends_on "rust" => :build
   depends_on "openssl@1.1"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
     cd "lychee-bin" do

@@ -3,16 +3,16 @@ require "language/node"
 class Mongosh < Formula
   desc "MongoDB Shell to connect, configure, query, and work with your MongoDB database"
   homepage "https://github.com/mongodb-js/mongosh#readme"
-  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.0.1.tgz"
-  sha256 "24e9987af7954bca35974b4aa1b8b295eedb489b5812600ab7107941a1d79765"
+  url "https://registry.npmjs.org/@mongosh/cli-repl/-/cli-repl-1.0.4.tgz"
+  sha256 "470de6b63f675af27d2e9870d804fa6a4c761c2c428f15989189534e74aa367d"
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_big_sur: "914ad1716df976cca9ebaf5216b02502cdeb16e52e321123ff04bc47aa1d6f56"
-    sha256                               big_sur:       "10770c9a72b7374c3beb02d2d054d91677c8a03f9d5dce8e2ecf5cb897b024db"
-    sha256                               catalina:      "cd955b0f90198c6622689531b3831b2418d813f5da41a6c2f7ccd63e10449813"
-    sha256                               mojave:        "e868c50a7476c5faeffc1d8f14f1be416a3afad270acaf0c3332c07439cf4867"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c708970f8290a81bab303f1c1657a109ede69f955d8ebfaae84960493e482fd0"
+    sha256                               arm64_big_sur: "f03fc5045c826fa9d60b54ed9ba10f4a6a20b4fb00dcf002655f0a0abb56cd4f"
+    sha256                               big_sur:       "11946a9ce542a456dab88739f3ee7e27a44fc8971cc22f672ebda641946bfe2e"
+    sha256                               catalina:      "0bc409f274063b4904eb190c288d0828de6cfa3f236797660837d862d358de59"
+    sha256                               mojave:        "6ccf76036b723d26a132ee6791e583034d286810dc1c701b6d5cf7c084ccfa7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec9cbafab99ee9cb9a7ecc84c365d1d9e0cf12436d7e0628240314e6c03ff85c"
   end
 
   depends_on "node@14"

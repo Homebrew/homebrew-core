@@ -8,6 +8,8 @@ class WifiPassword < Formula
     sha256 cellar: :any_skip_relocation, all: "fc6811d5146e2f9ac90c4fed123909cb27f533187e9ec354cb68c86eabca882e"
   end
 
+  depends_on :macos
+
   def install
     bin.install "wifi-password.sh" => "wifi-password"
   end

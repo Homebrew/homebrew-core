@@ -1,12 +1,12 @@
 class Slirp4netns < Formula
   desc "User-mode networking for unprivileged network namespaces"
   homepage "https://github.com/rootless-containers/slirp4netns"
-  url "https://github.com/rootless-containers/slirp4netns/archive/refs/tags/v1.1.11.tar.gz"
-  sha256 "87a8909746781d995b1b49eb36540e6ee745599f983c18f9b4e927ec92d86eb6"
+  url "https://github.com/rootless-containers/slirp4netns/archive/refs/tags/v1.1.12.tar.gz"
+  sha256 "279dfe58a61b9d769f620b6c0552edd93daba75d7761f7c3742ec4d26aaa2962"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "73adbc1522dc396b6fb162e374457445b1ebe45c00e781153857bd779eb7bc1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a3e13b04c8e0d947b311c04032a2933377a52fb514ff9bc9c91da0fc1fb5d01d"
   end
 
   depends_on "autoconf" => :build
@@ -23,13 +23,13 @@ class Slirp4netns < Formula
   depends_on :linux
 
   resource "test-common" do
-    url "https://raw.githubusercontent.com/rootless-containers/slirp4netns/v1.1.11/tests/common.sh"
-    sha256 "162042d762d36a1e353c79d763a1da9e0e338daee6aae439226c87b2c24d02f6"
+    url "https://raw.githubusercontent.com/rootless-containers/slirp4netns/v1.1.12/tests/common.sh"
+    sha256 "756149863c2397c09fabbc0a3234858ad4a5b2fd1480fb4646c8fa9d294c001a"
   end
 
   resource "test-api-socket" do
-    url "https://raw.githubusercontent.com/rootless-containers/slirp4netns/v1.1.11/tests/test-slirp4netns-api-socket.sh"
-    sha256 "c5f182ec7203c4c6af8e80de1cd9dc68ed09adefb07054558161ee8889eb1ffa"
+    url "https://raw.githubusercontent.com/rootless-containers/slirp4netns/v1.1.12/tests/test-slirp4netns-api-socket.sh"
+    sha256 "075f43c98d9a848ab5966d515174b3c996deec8c290873d92e200dc6ceae1500"
   end
 
   def install

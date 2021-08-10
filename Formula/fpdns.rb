@@ -12,6 +12,7 @@ class Fpdns < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "fcf157864bccda7f1064856e592acf3b6ef7d46c8dcd48aab66ceae5ef2b394e"
     sha256 cellar: :any_skip_relocation, mojave:        "dadfa0adfbca40276bc951e541e3d7867d4550fcb552749dca37c95049830a84"
     sha256 cellar: :any_skip_relocation, high_sierra:   "0de082e3b044641f04bdc018b5a720c89f1ae3f24340c1bc6bfb88fbe0c3f79f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68319dfe4e90d4370c9571a6b540536ff203da441bdf83b387818a1c6b6eed8d"
   end
 
   uses_from_macos "perl"

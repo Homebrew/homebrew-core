@@ -13,6 +13,7 @@ class Nyancat < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "2272aa5028ca779224f68fd25a3c07ff41c71bb7d14511186808a6b59bfe32c3"
     sha256 cellar: :any_skip_relocation, sierra:        "413a6ff99b622e60b0878ca74c3051d0feac094a7eb1fa9e90db715735cdd2bf"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2484fb6eabaaa65a988191b9c2f920d7290bc20f73dbf41e4a996e0306827364"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69b8c44133a399fddd0b6b6db41d2dcd9ba2420a5c5b53e62409d14cfacadc85"
   end
 
   # Makefile: Add install directory option
@@ -28,6 +29,6 @@ class Nyancat < Formula
   end
 
   test do
-    system "#{bin}/nyancat", "--frames", "1"
+    system bin/"nyancat", "--frames", "1", "--width", "40", "--height", "20", "--no-clear"
   end
 end

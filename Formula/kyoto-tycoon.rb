@@ -1,10 +1,15 @@
 class KyotoTycoon < Formula
   desc "Database server with interface to Kyoto Cabinet"
-  homepage "https://fallabs.com/kyototycoon/"
-  url "https://fallabs.com/kyototycoon/pkg/kyototycoon-0.9.56.tar.gz"
+  homepage "https://dbmx.net/kyototycoon/"
+  url "https://dbmx.net/kyototycoon/pkg/kyototycoon-0.9.56.tar.gz"
   sha256 "553e4ea83237d9153cc5e17881092cefe0b224687f7ebcc406b061b2f31c75c6"
   license "GPL-3.0-or-later"
   revision 5
+
+  livecheck do
+    url "https://dbmx.net/kyototycoon/pkg/"
+    regex(/href=.*?kyototycoon[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "244a150072e722f1ee861425fdfd1cb12a6a09ee27899b998b0794bd01cd1f12"

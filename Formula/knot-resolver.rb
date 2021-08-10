@@ -1,9 +1,10 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.3.2.tar.xz"
-  sha256 "8b6f447d5fe93422d4c129a2d4004a977369c3aa6e55258ead1cbd488bc01436"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.4.0.tar.xz"
+  sha256 "534af671b98433b23b57039acc9d7d3c100a4888a8cf9aeba36161774ca0815e"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
+  revision 2
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git"
 
   livecheck do
@@ -12,9 +13,11 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 big_sur:  "a7ea8a46735ba271c77d9222164b1b59d6c24804cba79784f06efbce28749b90"
-    sha256 catalina: "d53612425f1a690289bd46524551f2d13cef6486b5bb9389089165c4e3fca33d"
-    sha256 mojave:   "01c96cd6fc7804f1ec6520a90c023f7fc760a5be69db3d4b3cdf581d13a70714"
+    sha256 arm64_big_sur: "d5ab757a24c78ef72e9e8e27888ed7b3e72973ca2b21cac2cfb8361882f332d6"
+    sha256 big_sur:       "3524936cbe69b7950b4509d296e4b93666f3755ff6af7c8b6f91209cf3753533"
+    sha256 catalina:      "a42f4cbacb1b36b47334394496957417d26dc61731fca130c0cb6eecdeb40742"
+    sha256 mojave:        "0a335e7cde3394155ac5a172dd881974cd0ea53c02e7c92766af315e1463d176"
+    sha256 x86_64_linux:  "fd8eee3900fbe46a70bf0db719b697709479406d275837dd4e7b420ef145188c"
   end
 
   depends_on "meson" => :build
@@ -24,13 +27,23 @@ class KnotResolver < Formula
   depends_on "knot"
   depends_on "libuv"
   depends_on "lmdb"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
+
+  on_linux do
+    depends_on "libcap-ng"
+    depends_on "systemd"
+  end
 
   def install
+    args = std_meson_args + ["--default-library=static"]
+    on_linux do
+      args << "-Dsystemd_files=enabled"
+    end
+
     mkdir "build" do
-      system "meson", *std_meson_args, "--default-library=static", ".."
-      system "ninja"
-      system "ninja", "install"
+      system "meson", *args, ".."
+      system "ninja", "-v"
+      system "ninja", "install", "-v"
     end
   end
 

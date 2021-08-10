@@ -5,6 +5,7 @@ class Csound < Formula
       tag:      "6.16.2",
       revision: "fb5bdb3681e15f56c216b4e4487b45848aa6b9f4"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/csound/csound.git", branch: "develop"
 
   livecheck do
@@ -13,27 +14,30 @@ class Csound < Formula
   end
 
   bottle do
-    sha256 big_sur:  "ce840bb72a916245f0d249d4dfaa2c145b65da4aa80a064b36808c8ff081e194"
-    sha256 catalina: "8334d5985312d2b14beccb7f418abce3678b89891f34c3f47dcfe41cf2835e67"
-    sha256 mojave:   "f2190ed7b657362e1f8a176bf76acf3f0fefb43dffa5c6027eb09c5cf4ca2c51"
+    sha256 big_sur:  "e64c6a2f06edfae3c8675ce782c0a0db71cd7b4047ee7a450e5c5923603e783a"
+    sha256 catalina: "2bd927839ca82942bcc0957d4196ddfe85baedeb4e7d6cd4b435b877e5ca00a4"
+    sha256 mojave:   "d50de5525fdc9b265a864cde9dd86f03cc9a0e3f2159afffaa01fc349bb3b261"
   end
 
   depends_on "asio" => :build
   depends_on "cmake" => :build
   depends_on "eigen" => :build
   depends_on "swig" => :build
+  depends_on "faust"
   depends_on "fltk"
   depends_on "fluid-synth"
   depends_on "gettext"
   depends_on "hdf5"
   depends_on "jack"
   depends_on "liblo"
+  depends_on "libpng"
   depends_on "libsamplerate"
   depends_on "libsndfile"
   depends_on "numpy"
   depends_on "openjdk"
   depends_on "portaudio"
   depends_on "portmidi"
+  depends_on "python@3.9"
   depends_on "stk"
   depends_on "wiiuse"
 
@@ -44,6 +48,16 @@ class Csound < Formula
 
   conflicts_with "libextractor", because: "both install `extract` binaries"
   conflicts_with "pkcrack", because: "both install `extract` binaries"
+
+  resource "ableton-link" do
+    url "https://github.com/Ableton/link/archive/Link-3.0.3.tar.gz"
+    sha256 "195b46f7a33bb88800de19bb08065ec0235e5a920d203a4b2c644c18fbcaff11"
+  end
+
+  resource "csound-plugins" do
+    url "https://github.com/csound/plugins.git",
+        revision: "63b784625e66109babd3b669abcb55f5b404f976"
+  end
 
   resource "getfem" do
     url "https://download.savannah.gnu.org/releases/getfem/stable/getfem-5.4.1.tar.gz"
@@ -79,6 +93,23 @@ class Csound < Formula
     (lib/"python#{python_version}/site-packages/homebrew-csound.pth").write <<~EOS
       import site; site.addsitedir('#{libexec}')
     EOS
+
+    resource("ableton-link").stage buildpath/"ableton-link"
+
+    resource("csound-plugins").stage do
+      mkdir "build" do
+        system "cmake", "..",
+                        "-DABLETON_LINK_HOME=#{buildpath}/ableton-link",
+                        "-DBUILD_ABLETON_LINK_OPCODES=ON",
+                        "-DBUILD_CHUA_OPCODES=OFF",
+                        "-DCSOUNDLIB=CsoundLib64",
+                        "-DCSOUND_INCLUDE_DIR=#{include}/csound",
+                        "-DCS_FRAMEWORK_DEST=#{frameworks}",
+                        "-DUSE_FLTK=OFF",
+                        *std_cmake_args
+        system "make", "install"
+      end
+    end
   end
 
   def caveats
@@ -97,9 +128,12 @@ class Csound < Formula
   test do
     (testpath/"test.orc").write <<~EOS
       0dbfs = 1
+      gi_peer link_create
+      gi_programHandle faustcompile "process = _;", "--vectorize --loop-variant 1"
       FLrun
       gi_fluidEngineNumber fluidEngine
       gi_realVector la_i_vr_create 1
+      pyinit
       instr 1
           a_, a_, a_ chuap 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
           a_signal STKPlucked 440, 1

@@ -3,6 +3,7 @@ class Sshguard < Formula
   homepage "https://www.sshguard.net/"
   url "https://downloads.sourceforge.net/project/sshguard/sshguard/2.4.2/sshguard-2.4.2.tar.gz"
   sha256 "2770b776e5ea70a9bedfec4fd84d57400afa927f0f7522870d2dcbbe1ace37e8"
+  license "ISC"
   version_scheme 1
 
   bottle do
@@ -10,6 +11,7 @@ class Sshguard < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "1ef26616b9c9967b8e8749af6c92d97d534b18a411d312ce07d61ddfc7ee0a8e"
     sha256 cellar: :any_skip_relocation, catalina:      "287d98f822a15178d2cdb3f6cc11189e8ab13d9acd783f2a9b499768617b3ed4"
     sha256 cellar: :any_skip_relocation, mojave:        "ab2bdc696ad7cc7f8ea83ea2819743699f8229e5bdb842aed39eb26b6840e46e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3baada8c2364f499db90e447e43f81a6c4c26a8f1e8c1ee41c3651d736b22158"
   end
 
   head do
@@ -79,6 +81,8 @@ class Sshguard < Formula
     require "pty"
     PTY.spawn(sbin/"sshguard", "-v") do |r, _w, pid|
       assert_equal "SSHGuard #{version}", r.read.strip
+    rescue Errno::EIO
+      nil
     ensure
       Process.wait pid
     end

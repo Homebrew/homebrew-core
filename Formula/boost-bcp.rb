@@ -6,6 +6,10 @@ class BoostBcp < Formula
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
+  livecheck do
+    formula "boost"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "bf348b4c85bb27b40dc95fb19f63aa8963ef93734b722fb6712bd413ca590af9"
     sha256 cellar: :any_skip_relocation, big_sur:       "16fbea4de8f872bac006d526c2bac139b04d0f1bf72741902c7f78825f8945a6"

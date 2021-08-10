@@ -5,6 +5,10 @@ class QtUnixodbc < Formula
   sha256 "b9c4061c1c7999c42c315fc5b0f4f654067b4186066dd729bbcf1bdce8d781c8"
   license all_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
+  livecheck do
+    formula "qt"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "dda2ec85a656a261f84710d94d43cbfc35cc87a95e4744dccaec09593a772e6a"
     sha256 cellar: :any, big_sur:       "09412fe6f7cf8fe711e780d6fbec34ab22f94596e0a204b9160a16ade7dc2038"

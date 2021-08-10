@@ -1,16 +1,16 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
   homepage "https://github.com/containers/skopeo"
-  url "https://github.com/containers/skopeo/archive/v1.3.1.tar.gz"
-  sha256 "5d699bc0f50a7af6f8eb5222cd7f88f8c3b36d951425de74244eae98568f06ae"
+  url "https://github.com/containers/skopeo/archive/v1.4.0.tar.gz"
+  sha256 "f5f9d0e2d3dfdc9f1897ae3c3289d7a066150747bbb7c8f71ac5f76165b62bfb"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "152657e81def61482934df1a44bed2a48c03939712d191254e500d1ba5c30c55"
-    sha256 big_sur:       "f14b8237c61ade99e90109da69dd20955363ea30cfaf3cf7224f5c9607ba8796"
-    sha256 catalina:      "15ba8cdeeb3ca6f413ec374edfcfdf75c0c80ca651318e208255093eacd4aa88"
-    sha256 mojave:        "9ec11685b414235f80a427a3e01cbe4d8c3937474b025abf2bcab4da7a7e9e95"
-    sha256 x86_64_linux:  "ff066f19fadc5c4fbf9ee44a5dc86a6ce4b5267bcdb51edb55515c4f4adcdd91"
+    sha256 arm64_big_sur: "32812a07c07a33f30b0e400c2383d87c25f177a97af6cf29d1a90e49cfcf63a4"
+    sha256 big_sur:       "768fa98865dddf9058d7b3bc401aef8e71a755ee72d580f17e44ec667183f70e"
+    sha256 catalina:      "0ea5db30bea43f1c5931226b61d8aa7831874c3747ed6e0f782b94aa697a64de"
+    sha256 mojave:        "160aa89b3d7fce39fce9ab1481cafdf376bdb041d85e8247d52792800557861d"
+    sha256 x86_64_linux:  "7b661c597e0fc8f2858c01413f59eb99d25354c288bee1f3c87f9fdd6b4d4868"
   end
 
   depends_on "go" => :build

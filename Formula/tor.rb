@@ -19,11 +19,12 @@ class Tor < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "baa13f389c38b96b7d44916a4dc80f3ba056e42a0e4e9ee184d99378776485a5"
-    sha256 big_sur:       "75c75afbf820906d213bce25a3f5412a2791ad522270a8c3d250f79cb66ec85f"
-    sha256 catalina:      "68fe9aaabac3594836d86c4402c717f1ba5ab08a48200e6ba2967403457181fb"
-    sha256 mojave:        "a4ffc4550f1c8991a54dcc31a45b84b8811f5fae9cc9a3c90aa2da362d46003f"
-    sha256 x86_64_linux:  "b5590a7db6406dfa3b9e7826793e623bd5a9f9f5fe80bdd43ff2744842d9b8c9"
+    rebuild 1
+    sha256 arm64_big_sur: "9969523c39fb2eaee7698ffad791ecc5d489fb32cfe67de6f31bc35331a334c4"
+    sha256 big_sur:       "08c739697ab5664b1d175392ffe8352c0831edf572437d570867d031a1e6eaaf"
+    sha256 catalina:      "b06d239b25ff7b23ec4da8dbf50f68abf61cc2111f9909586fc369d7cb427f68"
+    sha256 mojave:        "53d0aea00f1bfab9b71a8df97c665b572e05102747e35bb29be72b7f95f028c2"
+    sha256 x86_64_linux:  "19f2b3ccc56a71b1cb275b6d02b6a8e7da65abbde660783abf6cb582922d382c"
   end
 
   depends_on "pkg-config" => :build
@@ -47,33 +48,12 @@ class Tor < Formula
     system "make", "install"
   end
 
-  plist_options manual: "tor"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/tor</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/tor.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/tor.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"tor"
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"log/tor.log"
+    error_log_path var/"log/tor.log"
   end
 
   test do

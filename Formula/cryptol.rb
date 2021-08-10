@@ -7,9 +7,10 @@ class Cryptol < Formula
   head "https://github.com/GaloisInc/cryptol.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "7864c5659f35ee68c4c84683362063dfb2efd8c143b0bb507fbfc3f67661af87"
-    sha256 cellar: :any_skip_relocation, catalina: "be3298c8389c666439fc38f898e4cd16ea06fc3513977dc65a3cca684a28cde0"
-    sha256 cellar: :any_skip_relocation, mojave:   "105d72cd5224912dfa83599dbf41393878bc3bd71ce9ab5d8056f490bd18e3fd"
+    sha256 cellar: :any_skip_relocation, big_sur:      "7864c5659f35ee68c4c84683362063dfb2efd8c143b0bb507fbfc3f67661af87"
+    sha256 cellar: :any_skip_relocation, catalina:     "be3298c8389c666439fc38f898e4cd16ea06fc3513977dc65a3cca684a28cde0"
+    sha256 cellar: :any_skip_relocation, mojave:       "105d72cd5224912dfa83599dbf41393878bc3bd71ce9ab5d8056f490bd18e3fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6524a42a254b2d55ba3fedf12378a5663917bcc7180faa23aebff73a5f69c8a9"
   end
 
   depends_on "cabal-install" => :build

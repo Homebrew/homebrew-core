@@ -1,18 +1,21 @@
 class X8664ElfGcc < Formula
   desc "GNU compiler collection for x86_64-elf"
   homepage "https://gcc.gnu.org"
-  url "https://ftp.gnu.org/gnu/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/gcc/gcc-11.1.0/gcc-11.1.0.tar.xz"
-  sha256 "4c4a6fb8a8396059241c2e674b85b351c26a5d678274007f076957afa1cc9ddf"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-11.2.0/gcc-11.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-11.2.0/gcc-11.2.0.tar.xz"
+  sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  revision 1
+
+  livecheck do
+    formula "gcc"
+  end
 
   bottle do
-    sha256 arm64_big_sur: "4905572ad0661c23ac76b67d1a0bd3e049931358de5ab6d0974cd8909248e375"
-    sha256 big_sur:       "21b189008c08d63297dff0ab7b5afbeae535931567706d0feb3a98c03dcfcbbd"
-    sha256 catalina:      "121efc9cc9c15bdd9ed53c6a1cf581030798d57578b1fe67e2db443172725276"
-    sha256 mojave:        "054a23c8f3273ce7cce09539f38dcf17f4261b16f63f5dc4eca3873d2d419edf"
-    sha256 x86_64_linux:  "879c17dbb2856abe141e6b4468e5931205cc4508f5471fda86ad5a2e5a0c62ae"
+    sha256 arm64_big_sur: "8e89022ae000f049ac34f4e2f886faf94204e37b70da7e1b15f38c7b3d4a8f24"
+    sha256 big_sur:       "549b28626170548e9def8448a09f4bb1854900652ef802672a30f691a9b44a3e"
+    sha256 catalina:      "6435d295ad77d012c577005b1758b3be3ae11b51f0f5d257c0f59f79e227575e"
+    sha256 mojave:        "74ed5acd47ee9fa82ba79c276eb996adf6f49dbb17e917dc02bec3e348cf7cd8"
+    sha256 x86_64_linux:  "27f94a03a1c3fda8820f6ce864ea4b3278600073eb0e9e258efc8ced07d5c088"
   end
 
   depends_on "gmp"

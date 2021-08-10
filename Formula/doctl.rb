@@ -1,17 +1,17 @@
 class Doctl < Formula
   desc "Command-line tool for DigitalOcean"
   homepage "https://github.com/digitalocean/doctl"
-  url "https://github.com/digitalocean/doctl/archive/v1.62.0.tar.gz"
-  sha256 "72202bba8c833457c64325fa71db50bd952f6c2507bd176a65702e0d60c4c339"
+  url "https://github.com/digitalocean/doctl/archive/v1.63.1.tar.gz"
+  sha256 "292a023cc9525ff131612cf26412a1507c1f4daecbeefe4f931157f58b891fa0"
   license "Apache-2.0"
   head "https://github.com/digitalocean/doctl.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "544837c0d731222fa941b1ba3dd57112e140e31fb84bcff85ada7f80c49cc141"
-    sha256 cellar: :any_skip_relocation, big_sur:       "578327701392527df4c00f5b402595b23a5be15a201e45dd82215cca6d6adb6f"
-    sha256 cellar: :any_skip_relocation, catalina:      "90045e0b9e0598286c067c48dcfbab6be840e315e6e32700f7865d89bdd71714"
-    sha256 cellar: :any_skip_relocation, mojave:        "b364315e9bbf3e3b75e7ef6573c703f339c71456dfceb39196048169b6f9ba2c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44d1c6d8a19cc8f4c0ae0a44d5a5cfc4288c94b614e742fb54c55828ef74932b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "892488e1ffc5d541dc5105bfdd5efa0c711d31619dfa8cea43fb2f5314bdfb33"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3a023b3ba8640775c10700393688e52c145b2fcca7952f2a8227b5f3e5b002b8"
+    sha256 cellar: :any_skip_relocation, catalina:      "2779eb2c226bbe74ec24c2b7762b700cbdf75f5d533f4f0622361e2378109e90"
+    sha256 cellar: :any_skip_relocation, mojave:        "d1b2fe09d6bc636bc146792a06e64f551bc468abc0bea35816c7caac16177d2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aa59fd85b6c0f3291e92ee33d5a220d7eacacffb7b721b078ca4d91045146d18"
   end
 
   depends_on "go" => :build

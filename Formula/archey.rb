@@ -26,6 +26,8 @@ class Archey < Formula
 
   deprecate! date: "2017-04-28", because: :repo_archived
 
+  depends_on :macos
+
   conflicts_with "archey4", because: "both install `archey` binaries"
 
   def install

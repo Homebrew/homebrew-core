@@ -15,6 +15,7 @@ class Obfs4proxy < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "5918cdc41743f14ee4110b132361abe21b20445fb7afd4a60859b4b1e594462a"
     sha256 cellar: :any_skip_relocation, catalina:      "4d22c53ebd7beaacc0c96b2af4fe3179f5b8a63f2f9bd624dc6d0d1d2867d40f"
     sha256 cellar: :any_skip_relocation, mojave:        "75715a8bfc51f3ab2a3dd4e56077c27626ffd802a83f18da300d394091fb79cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4406d6bb3e815416d79ccdec2df0217aadc212387dce0adf64ad2cb9f6e56d09"
   end
 
   depends_on "go" => :build

@@ -16,9 +16,14 @@ class Coredns < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "dd22bbdc9ca2dca3885d64db3ec204f1d2a5e3f72a5ebb17da28935d0574aca2"
     sha256 cellar: :any_skip_relocation, catalina:      "55ae437286e90671271c534c04511dc70f345038084639074504d94782308015"
     sha256 cellar: :any_skip_relocation, mojave:        "3f8cb527b416b4221ab2a332d0515566c15179c10ef8dbcc4eb7a0f47aea7025"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c61f2d67c25fac49389ee1e418860b137228df81ae427da898d813cd9d22f1a9"
   end
 
   depends_on "go" => :build
+
+  on_linux do
+    depends_on "bind" => :test # for `dig`
+  end
 
   def install
     system "make"

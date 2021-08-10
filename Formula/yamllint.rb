@@ -3,25 +3,25 @@ class Yamllint < Formula
 
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
-  url "https://files.pythonhosted.org/packages/50/a1/9093baeb2545d43c22bbcc98c94b926d324598b50e196b492b0882dcb465/yamllint-1.26.1.tar.gz"
-  sha256 "87d9462b3ed7e9dfa19caa177f7a77cd9888b3dc4044447d6ae0ab233bcd1324"
+  url "https://files.pythonhosted.org/packages/74/2f/05aff60fa063c49c28bd24f4f848d9a81583c65082de154fcd2a467548e6/yamllint-1.26.2.tar.gz"
+  sha256 "0b08a96750248fdf21f1e8193cb7787554ef75ed57b27f621cd6b3bf09af11a1"
   license "GPL-3.0-or-later"
   head "https://github.com/adrienverge/yamllint.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "221c2e2a16a472df48e1c34e5d3601378c1269dea73355d6e661ee7d6fbf59c5"
-    sha256 cellar: :any,                 big_sur:       "22fb22e74df2350b9785f914d016fa070c2002c662dd660e73acc3cb361e010c"
-    sha256 cellar: :any,                 catalina:      "a6df81f340082bd40685bd955826e32bddaf47645dc38be92fca8a71e8f253b8"
-    sha256 cellar: :any,                 mojave:        "1541161a955a3dff2da13c21596a6778361375202563a2e393b1511d3a396afc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fcb8b2aff84f043648b681412ac46f0de6f9ba14f9e21f2e8a197a44558f7ac"
+    sha256 cellar: :any,                 arm64_big_sur: "ec081da4389f0be3a24fe64d789291aa91d3e085661c0e728c512dec0dc168e4"
+    sha256 cellar: :any,                 big_sur:       "e10a5e22a725acbb86a6b76a98b507a5c308333c7b31e366756ab8ca7e2c2305"
+    sha256 cellar: :any,                 catalina:      "1d7a3eb846a89b904f0c9c9a973577996c63556ac919e3c96bd47c0477fe6322"
+    sha256 cellar: :any,                 mojave:        "4f16379fcb5e3142113a3c122e835b131b04e1d99348de9cf1bd7c5608006276"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57cba42a91db5d04438f9823810635751f5c65ce8a5c15b874de3113a2bd6b91"
   end
 
   depends_on "libyaml"
   depends_on "python@3.9"
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/b7/64/e097eea8dcd2b2f7df6e4425fc98e7494e37b1a6e149603c31d327080a05/pathspec-0.8.1.tar.gz"
-    sha256 "86379d6b86d75816baba717e64b1a3a3469deb93bb76d613c9ce79edc5cb68fd"
+    url "https://files.pythonhosted.org/packages/f6/33/436c5cb94e9f8902e59d1d544eb298b83c84b9ec37b5b769c5a0ad6edb19/pathspec-0.9.0.tar.gz"
+    sha256 "e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1"
   end
 
   resource "PyYAML" do

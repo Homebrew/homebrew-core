@@ -11,11 +11,12 @@ class IrcdHybrid < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6bdd65052e3054152ca0b8e5c8b9596dfc666bdd2d2d9483ae06b3d0b9761981"
-    sha256 big_sur:       "c51bee2a4d81c9467e7c2ed690cd4fbf267bfeb8221fcc4d95e6b660fc900d67"
-    sha256 catalina:      "43d205233313470bb806fad466f65d351bf664b882aea01aabe90891cdf479c0"
-    sha256 mojave:        "b89ff3f7cbeedad3fa65e8b8a28f601cfc3fd745ee591356a89ab36f257f1b3b"
-    sha256 x86_64_linux:  "278883acb7e9ee2fec1a7cd88533e8a5db4b256baf27dec1bc544d6bac240e21"
+    rebuild 1
+    sha256 arm64_big_sur: "4ebf1dabded38700beebe68996227c61364de7ccb5eacab75a281cac42d89cf9"
+    sha256 big_sur:       "667f3e98bde41933f4a672cdc7f8ab58d9a4cb554939a758fad897f7a594f530"
+    sha256 catalina:      "8475bfdc42a50e23ba0c0a0f00b7c4fde1a5e6b94eaa88a32c139184401b2bb7"
+    sha256 mojave:        "73a186cbab7d289e501c600eb633c56ab1bae6aff1a20e98878b258436174220"
+    sha256 x86_64_linux:  "dbfd3374ad89b1fdf994da5a70a3e73d2be7a6084231247bb697eca40a5a8a2e"
   end
 
   depends_on "openssl@1.1"
@@ -44,31 +45,11 @@ class IrcdHybrid < Formula
     EOS
   end
 
-  plist_options manual: "ircd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <false/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/ircd</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/ircd.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"ircd"
+    keep_alive false
+    working_dir HOMEBREW_PREFIX
+    error_log_path var/"ircd.log"
   end
 
   test do

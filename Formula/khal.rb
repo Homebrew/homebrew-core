@@ -3,17 +3,17 @@ class Khal < Formula
 
   desc "CLI calendar application"
   homepage "https://lostpackets.de/khal/"
-  url "https://files.pythonhosted.org/packages/f2/7d/c7d88bf11e6e62c5671d7b89fbc6dd7ce67d09a79ab8951ed6726791cc48/khal-0.10.3.tar.gz"
-  sha256 "2fdd8fc14fe597e5a7d6e9c63c7868d960b4ed021b563c684a71f07090eda432"
+  url "https://files.pythonhosted.org/packages/7a/d8/9718385de260ebc07ff48c838e22fde6b05d143f1f8ab81ff1c8718d7102/khal-0.10.4.tar.gz"
+  sha256 "3fdb980a9a61c0206d7a82b16f77b408a4f341a2b866b9c9fcf6a641850d129f"
   license "MIT"
   head "https://github.com/pimutils/khal.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3cced9430aa43b2bf09eabd48f715eba96fc440183a99ca653cf6bf2909a0f16"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3e90a57da163a0233afe9086d19b20992065b2166905b43971fdd9beda727846"
-    sha256 cellar: :any_skip_relocation, catalina:      "91685e0cb8aee14a698634d66032ca208493c4da59a0871e1275f3edea293048"
-    sha256 cellar: :any_skip_relocation, mojave:        "5eb78b53541dbc953a60345ff433ee5e4a5f1f0c16699cafbf71d5a49f28b509"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8834dc8baeafdd4285fa46be091e546286c89f1af2d12d9c0072e938d3eb114"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7890340d52105c964a9fcf6526ddda0f174096b7bdd5b410bc4f4cb38cb42ec8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "64699c6dd6056471043bf303fd8a6eb0546c4e064ea3ac655d4f19f43439c47e"
+    sha256 cellar: :any_skip_relocation, catalina:      "a6a286bc6e258e81d8bb2876f204eb8ec97e0ac75755d972c4d9a4c598a7d461"
+    sha256 cellar: :any_skip_relocation, mojave:        "44711ab7395207696595e5155118678db1e1f870f55e7b8937ebd2b164471a9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3ef7db0d2c3f33865d8ad1288141de2c313d8407f2c90325ef6d3975aff5249b"
   end
 
   depends_on "python@3.9"
@@ -24,8 +24,8 @@ class Khal < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
-    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
+    url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
+    sha256 "8c04c11192119b1ef78ea049e0a6f0463e4c48ef00a30160c704337586f3ad7a"
   end
 
   resource "click-log" do
@@ -44,8 +44,8 @@ class Khal < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/be/ed/5bbc91f03fa4c839c4c7360375da77f9659af5f7086b7a7bdda65771c8e0/python-dateutil-2.8.1.tar.gz"
-    sha256 "73ebfe9dbf22e832286dafa60473e4cd239f8592f699aa5adaf10050e6e1823c"
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
   resource "pytz" do
@@ -59,8 +59,8 @@ class Khal < Formula
   end
 
   resource "six" do
-    url "https://files.pythonhosted.org/packages/6b/34/415834bfdafca3c5f451532e8a8d9ba89a21c9743a0c59fbd0205c7f9426/six-1.15.0.tar.gz"
-    sha256 "30639c035cdb23534cd4aa2dd52c3bf48f06e5f4a941509c8bafd8ce11080259"
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "tzlocal" do

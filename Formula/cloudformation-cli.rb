@@ -12,6 +12,7 @@ class CloudformationCli < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "24e7c91a99cfc32f6895ee6d9807fb7610b30c8340b809d9f2ae939ca26c50a5"
     sha256 cellar: :any_skip_relocation, catalina:      "13c887a7496b2bd6e1581b2b178f50a07caa05fc9e202c4587b32a6029fbcc84"
     sha256 cellar: :any_skip_relocation, mojave:        "d339b1fa572bb4b0c8db51271a3b1a111839b8335f56c24e5ce9e35a739410c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "163e145fa1c522adc658398852401a93c59d03690f922adfde8543bc401f99cc"
   end
 
   depends_on "go" => :test
@@ -272,8 +273,7 @@ class CloudformationCli < Formula
   end
 
   test do
-    script = (testpath/"test.sh")
-    script.write <<~EOS
+    (testpath/"test.exp").write <<~EOS
       #!/usr/bin/env expect -f
       set timeout -1
 
@@ -295,8 +295,7 @@ class CloudformationCli < Formula
       expect eof
     EOS
 
-    script.chmod 0700
-    system "./test.sh"
+    system "expect", "-f", "test.exp"
 
     rpdk_config = JSON.parse(File.read(testpath/".rpdk-config"))
     assert_equal "brew::formula::test", rpdk_config["typeName"]

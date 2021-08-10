@@ -14,6 +14,7 @@ class Tcptunnel < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "8243b6410ae3d61df3d9c400be33c24b8da0fd0807161a02f38440c18d984661"
     sha256 cellar: :any_skip_relocation, el_capitan:    "e387a861c4a9ceb3014883c851cdc43a56eddba635e1d313d976095ff78bb686"
     sha256 cellar: :any_skip_relocation, yosemite:      "513995a3f0a331a06ac6531ddad6e1812a9c32add2252852c81d8abe6714c5aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b82ce2df1293960dc7d0e4b5b9d809198073121331d7287edacbd5cffe17d94c"
   end
 
   def install

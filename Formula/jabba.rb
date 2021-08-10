@@ -12,6 +12,7 @@ class Jabba < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "72c397a12fe10181efb7fca300d78d3244160c9a0a4dcbe2cd17c179df678db4"
     sha256 cellar: :any_skip_relocation, catalina:      "146e37a3138b919c497da279eecd2d282d5f6f5e0f1b9aa94257df2fbf19efba"
     sha256 cellar: :any_skip_relocation, mojave:        "6f2d27333e0b8d73ba2166c4abb960642d64a3efcd394ee5683e6c71b8d0c305"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "359b80689e628a11217fe33067133d61eb52970610e45d54ace41705ccb06b5d"
   end
 
   depends_on "glide" => :build
@@ -39,7 +40,8 @@ class Jabba < Formula
 
     system bin/"jabba", "install", jdk_version
     jdk_path = shell_output("#{bin}/jabba which #{jdk_version}").strip
+    on_macos { jdk_path = "#{jdk_path}/Contents/Home" }
     assert_match version_check,
-                 shell_output("#{jdk_path}/Contents/Home/bin/java -version 2>&1")
+                 shell_output("#{jdk_path}/bin/java -version 2>&1")
   end
 end

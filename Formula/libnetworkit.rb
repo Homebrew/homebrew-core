@@ -5,6 +5,10 @@ class Libnetworkit < Formula
   sha256 "c574473bc7d86934f0f4b3049c0eeb9c4444cfa873e5fecda194ee5b1930f82c"
   license "MIT"
 
+  livecheck do
+    formula "networkit"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "64c44c774f168ca26948606efcdb7169fe4635f691b3d90ed12a433cc3fe45eb"
     sha256 cellar: :any, big_sur:       "81ff9507c3ebdf80e372d5526d2bae58ef7aa69f983ad0f695965101301dd1d6"

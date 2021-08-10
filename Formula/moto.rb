@@ -3,16 +3,16 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/6a/b5/89a0fb08ff16f8923eaa768bbc348a2ffcc97598ba795d1332b4f5010b24/moto-2.2.0.tar.gz"
-  sha256 "54824ad7fb5040d60558f7f34e0cb32e2de1d97612c03a1f9accfe3d5b94d2a6"
+  url "https://files.pythonhosted.org/packages/bc/10/7a01a1a44153a80b18aa12c3052512b71d4beff440ba50c0ed04882f36bc/moto-2.2.2.tar.gz"
+  sha256 "b0b5a9179bcb4833fd2f67e31e44004d7ec7687106ab22150cbeac7e6e97b725"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7e6b8cb8c1a3c75efdcd8b6f32530aa77dcca39792cc8bc3cfe481131a2f76b0"
-    sha256 cellar: :any,                 big_sur:       "2ad22505929f49d13ddc9db9af0a3b96f3bb94b796ea2a3b5b2cbbaa8e760b84"
-    sha256 cellar: :any,                 catalina:      "644f6540702f9f422a136c093a79c7ba1f906c9a89babb5e93164715f9625823"
-    sha256 cellar: :any,                 mojave:        "0d56983394eb39bcbbabcee737c50f538fcfd597d5b1979c58025365528601c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abc83f52c55d640c33598957d10e9ce167862de7385095692827adf7dc60efed"
+    sha256 cellar: :any,                 arm64_big_sur: "d012d83ae5d14a88c7743c9546d76d6393fd0b17d916c1dfef1e65a40d72a84d"
+    sha256 cellar: :any,                 big_sur:       "aad43c28bc3e65ca0cfc5ea502ecf5b9357e25f106b3c52f5e1cfb86c63937fa"
+    sha256 cellar: :any,                 catalina:      "2d073424c7f04a7412cd9207e5bedf0a15834650dea7817be62d7eb3c527e53f"
+    sha256 cellar: :any,                 mojave:        "9caab75d3f02798ba25e30785ba1bdf6d4bcd1dea698b8685d752ac62da03d8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41f951c842726ec6ff8b617d6ed1c1891c30125cb0f6cada861548c71dd06f94"
   end
 
   depends_on "rust" => :build  # for cryptography
@@ -34,13 +34,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/7e/99/1f0354ecfaf43375acf2a13f1f1937a094b9adc8b1172aea092e94d65756/boto3-1.18.8.tar.gz"
-    sha256 "19cff13dd9b51ce66fad13c9f04ffcc12d5475dd8cd660e8cd6aac42aa45c24c"
+    url "https://files.pythonhosted.org/packages/75/e4/413f948020c99cfe4d98163275e38b94c6ae21c3958da37514e78c6d7d28/boto3-1.18.17.tar.gz"
+    sha256 "5e5f60ece9b73d48f668bef56ddcde716f013b48a62fdf9c5eac9512a5981136"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/8f/1d/7a6ca40324a2a0de195fad98d3c092a4f2904f83d5f7b1e1d180db31cc27/botocore-1.21.8.tar.gz"
-    sha256 "437cdcd518e6f9db72ec87f170cc66d54081c8abc347abb9f9a3cd9c8e993bd1"
+    url "https://files.pythonhosted.org/packages/8d/f4/c98c4b194ac9552de7741372bcbdcd290d93fda377e527546e9868865948/botocore-1.21.17.tar.gz"
+    sha256 "a0d64369857d86b3a6d01b0c5933671c2394584311ce3af702271ba221b09afa"
   end
 
   resource "certifi" do
@@ -54,13 +54,13 @@ class Moto < Formula
   end
 
   resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/ce/13/96c8c7ab199e0f20f98ff5f043bb4949123f2b07c5199f2f81cc0e3ef66e/cfn-lint-0.52.0.tar.gz"
-    sha256 "f26d30bfd6e8ef4f3563c9d3bc5499728eaf614b040563448d2063a2de730308"
+    url "https://files.pythonhosted.org/packages/7a/97/501de7b17de2f2f95d6fd0c21bda61074e8843bcc83b515b604ee8b5cf70/cfn-lint-0.53.0.tar.gz"
+    sha256 "b7f5964842f7a44c5af9c61d64308dc4bcb718cf5de5428781d5564e9663463d"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/37/fd/05a04d7e14548474d30d90ad0db5d90ee2ba55cd967511a354cf88b534f1/charset-normalizer-2.0.3.tar.gz"
-    sha256 "c46c3ace2d744cfbdebceaa3c19ae691f53ae621b39fd7570f59d14fb7f2fd12"
+    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
+    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
   end
 
   resource "click" do
@@ -101,6 +101,11 @@ class Moto < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
     sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
+  end
+
+  resource "importlib-metadata" do
+    url "https://files.pythonhosted.org/packages/58/f1/9b77b8aa38482b7c284b8f8eda8b99d3b1103a280f107bab362a1c518c92/importlib_metadata-4.6.3.tar.gz"
+    sha256 "0645585859e9a6689c523927a5032f2ba5919f1f7d0e84bd4533312320de1ff9"
   end
 
   resource "itsdangerous" do
@@ -199,8 +204,8 @@ class Moto < Formula
   end
 
   resource "responses" do
-    url "https://files.pythonhosted.org/packages/fe/5e/4a15f6d998e7bb3b6fe774286893784f3507ef4d30a6404b6f56eb20691a/responses-0.13.3.tar.gz"
-    sha256 "18a5b88eb24143adbf2b4100f328a2f5bfa72fbdacf12d97d41f07c26c45553d"
+    url "https://files.pythonhosted.org/packages/35/fc/d58c1464a38b9455a4bedb36d5e345b11b5158c3af10efac7e6df4bf0551/responses-0.13.4.tar.gz"
+    sha256 "9476775d856d3c24ae660bbebe29fb6d789d4ad16acd723efbfb6ee20990b899"
   end
 
   resource "rsa" do
@@ -229,8 +234,8 @@ class Moto < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/58/0d/af54f4732115a20c370f43f179523d189a5cb75711c60ba00b41e163a065/websocket-client-1.1.0.tar.gz"
-    sha256 "b68e4959d704768fa20e35c9d508c8dc2bbc041fd8d267c0d7345cffe2824568"
+    url "https://files.pythonhosted.org/packages/bc/a6/5ef697df40e56459de75b57f302f2da92a51269925282a08e4eb76b16fb6/websocket-client-1.1.1.tar.gz"
+    sha256 "4cf754af7e3b3ba76589d49f9e09fd9a6c0aae9b799a89124d656009c01a261d"
   end
 
   resource "Werkzeug" do
@@ -246,6 +251,11 @@ class Moto < Formula
   resource "xmltodict" do
     url "https://files.pythonhosted.org/packages/58/40/0d783e14112e064127063fbf5d1fe1351723e5dfe9d6daad346a305f6c49/xmltodict-0.12.0.tar.gz"
     sha256 "50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21"
+  end
+
+  resource "zipp" do
+    url "https://files.pythonhosted.org/packages/3a/9f/1d4b62cbe8d222539a84089eeab603d8e45ee1f897803a0ae0860400d6e7/zipp-3.5.0.tar.gz"
+    sha256 "f5812b1e007e48cff63449a5e9f4e7ebea716b4111f9c4f9a645f91d579bf0c4"
   end
 
   def install

@@ -9,10 +9,11 @@ class Fdroidserver < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "965470f82e41611d7468954099ba32f34fe81708a49caca6977115c8d065ed82"
-    sha256 cellar: :any, big_sur:       "d7cca25272060e21ef45c98df991665959781754bc6203343b877de4ddd37439"
-    sha256 cellar: :any, catalina:      "2181447563528090ec53e2da5080cf8c8ceeb719e0d9f1ac0a162b3821c515e3"
-    sha256 cellar: :any, mojave:        "4c5de5e0b97618a0027ff05d5dbb705c9bd21e4f5fb21a511af2166e4e34f3a0"
+    sha256 cellar: :any,                 arm64_big_sur: "965470f82e41611d7468954099ba32f34fe81708a49caca6977115c8d065ed82"
+    sha256 cellar: :any,                 big_sur:       "d7cca25272060e21ef45c98df991665959781754bc6203343b877de4ddd37439"
+    sha256 cellar: :any,                 catalina:      "2181447563528090ec53e2da5080cf8c8ceeb719e0d9f1ac0a162b3821c515e3"
+    sha256 cellar: :any,                 mojave:        "4c5de5e0b97618a0027ff05d5dbb705c9bd21e4f5fb21a511af2166e4e34f3a0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "da7a65fd8b5dd446f765422d48f647156810a3e827dcd21595f449d5b323db83"
   end
 
   depends_on "pkg-config" => :build

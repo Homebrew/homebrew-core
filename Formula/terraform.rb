@@ -1,8 +1,8 @@
 class Terraform < Formula
   desc "Tool to build, change, and version infrastructure"
   homepage "https://www.terraform.io/"
-  url "https://github.com/hashicorp/terraform/archive/v1.0.3.tar.gz"
-  sha256 "0b746b3464aeee13bfca8872123574be56309207920347b6e00f665ff4c8b402"
+  url "https://github.com/hashicorp/terraform/archive/v1.0.4.tar.gz"
+  sha256 "71a9d9e4a5d3ccfc6c41710a48870259ac977a2080f4d734a4b8fb8dc18728b6"
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git", branch: "main"
 
@@ -12,16 +12,24 @@ class Terraform < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e7e4b0631432fcaa5b8bec5c05f46de8bf758dbf0d0689fc197eb976f77c977d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bb38f9ab3d5246b6c64803f929bb88a95207b71bcae67234e94131b2ef303b0b"
-    sha256 cellar: :any_skip_relocation, catalina:      "86350749011000916becbb4001b635489bbb30675c854fa495af72b64497aa53"
-    sha256 cellar: :any_skip_relocation, mojave:        "68c738723093de490a99bc3551157f9d8ae1fe15d41e27978fa2b625506c1ab0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1aad49bcb0f93c62c8fb2eabc0b5ec7142d7fe6b0e6a763b0d81a42b92162bc9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b8e5da1aebd83f1afcd7e51b7e6d2f421d7e2be77e24ce164b066fbb959024b9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e10b91ecf7df1ceaa3b3cb543408cc825a03ea358ec94b1999f279fb6664bbcc"
+    sha256 cellar: :any_skip_relocation, catalina:      "d7dd8de08a632725c5aaa2a8a2e8d3b3adb9bf474639ae082f01414c87eee694"
+    sha256 cellar: :any_skip_relocation, mojave:        "9f3b8c36ece942718bbff7f99559799a2fe98e47b653e3bea58cb404f7cabec3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "44f1c51dbc5657e50f670843662ab6e87aa50ce4647f74e2d259d186b1dc5276"
   end
 
   depends_on "go" => :build
 
+  on_linux do
+    depends_on "gcc"
+  end
+
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
+
+  # Needs libraries at runtime:
+  # /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.29' not found (required by node)
+  fails_with gcc: "5"
 
   def install
     # v0.6.12 - source contains tests which fail if these environment variables are set locally.

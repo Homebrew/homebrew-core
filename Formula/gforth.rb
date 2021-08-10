@@ -11,6 +11,7 @@ class Gforth < Formula
     sha256 cellar: :any, catalina:      "e9063c35a2df4513ecb8c1aae8c02273c3da22487d90071db416c0b2b9bf1668"
     sha256 cellar: :any, mojave:        "25fd07e36c780229c02e3243b7aa71c3b3b2744e1626409f6321ad2d99c67471"
     sha256 cellar: :any, high_sierra:   "c5f42bd1b46307d521ccd626d7a5a4b030c48dd1788d4d580efb2d8aaa6d04bc"
+    sha256               x86_64_linux:  "c03eebdc8334fc8dfc64454149fa160d951c7c0882497e3cbe612cea9acc6603"
   end
 
   depends_on "emacs" => :build

@@ -1,8 +1,8 @@
 class Fastlane < Formula
   desc "Easiest way to build and release mobile apps"
   homepage "https://fastlane.tools"
-  url "https://github.com/fastlane/fastlane/archive/2.188.0.tar.gz"
-  sha256 "5a096f0e7682845845a082e5d041a7ad53a0277c8cbe379d6de106cd7f360c58"
+  url "https://github.com/fastlane/fastlane/archive/2.191.0.tar.gz"
+  sha256 "ce69c4110805f0847d112e1214fad4739b2449d8b981bae64341e43667ac4efc"
   license "MIT"
   head "https://github.com/fastlane/fastlane.git"
 
@@ -12,14 +12,18 @@ class Fastlane < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "f9d9bd04ef5843689fbd02cc033ef0ac4aa56e48e856a98ea042eb52422ca227"
-    sha256 cellar: :any,                 big_sur:       "2ba602f290f9a5bddc949e4014e3d4fd7ffa75157a0e143848da90cfa7824aad"
-    sha256 cellar: :any,                 catalina:      "9d4342d347d40a30ed5dd5a99b9f142671e0163416094a8fd831e6965034297b"
-    sha256 cellar: :any,                 mojave:        "d72d89a1b7a3e79cd18792c884df30b7ecfaa7123fb729f43a262f5b8d039fef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7d32aaa50bc711935ce4c56ebcbe67bad190ddcb4403c01bce4cf797ffd1d725"
+    sha256 cellar: :any,                 arm64_big_sur: "7420e0c87f24d728d151893c4934bb60012e60febaeefd3c2b69b151eaff8752"
+    sha256 cellar: :any,                 big_sur:       "9aace3baa420e9c02297be7843fa2c8a08a4221fcd21a083fcbf4b6a71fd607c"
+    sha256 cellar: :any,                 catalina:      "1b89f60e7ac60e302e4a733e1bc95c15f098efe5957dff01967d37859d6b9886"
+    sha256 cellar: :any,                 mojave:        "ef9b142b3224cd7a08a62e56555c07f68dffeee4125a434be2d3c08662e96809"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6183f1def58023a80285c8bf0985514177a9b5d8d5b0082ed629fce6f4bd0f96"
   end
 
   depends_on "ruby"
+
+  on_macos do
+    depends_on "terminal-notifier"
+  end
 
   def install
     ENV["GEM_HOME"] = libexec
@@ -33,6 +37,17 @@ class Fastlane < Formula
       FASTLANE_INSTALLED_VIA_HOMEBREW: "true",
       GEM_HOME:                        libexec.to_s,
       GEM_PATH:                        libexec.to_s
+
+    # Remove vendored pre-built binary
+    terminal_notifier_dir = libexec.glob("gems/terminal-notifier-*/vendor/terminal-notifier").first
+    (terminal_notifier_dir/"terminal-notifier.app").rmtree
+
+    on_macos do
+      ln_sf(
+        (Formula["terminal-notifier"].opt_prefix/"terminal-notifier.app").relative_path_from(terminal_notifier_dir),
+        terminal_notifier_dir,
+      )
+    end
   end
 
   test do

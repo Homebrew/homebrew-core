@@ -10,9 +10,12 @@ class Kalker < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "3c8b07d6feabc9d8d4a813b11999de0bda08e5470140479d0b29eb4506777787"
     sha256 cellar: :any_skip_relocation, catalina:      "6046b0d6fe943a55fcf34e0ee1aaccb93242df68a463d384656ba39297517e77"
     sha256 cellar: :any_skip_relocation, mojave:        "0009cbb40dac094063773bdef5f0fedba5b7f633629d1a9b76b5023b6b3eed92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5f28ab7f6be9b53c2794c38bb800ca1ac692b71a504f17c56ec87a4bda46a640"
   end
 
   depends_on "rust" => :build
+
+  uses_from_macos "m4" => :build
 
   def install
     cd "cli" do

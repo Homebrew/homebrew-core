@@ -1,16 +1,16 @@
 class Enzyme < Formula
   desc "High-performance automatic differentiation of LLVM"
   homepage "https://enzyme.mit.edu"
-  url "https://github.com/wsmoses/Enzyme/archive/v0.0.15.tar.gz"
-  sha256 "1ec27db0d790c4507b2256d851b256bf7e074eec933040e9e375d6e352a3c159"
+  url "https://github.com/wsmoses/Enzyme/archive/v0.0.16.tar.gz"
+  sha256 "3ae2932246123bbcc90cb71dc8e48959c240de30b752cfced9fda564e128b494"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/wsmoses/Enzyme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "6858e11d000b3405c8d3178608d7ca6e25129f970c083059a529d8a30d05a893"
-    sha256 cellar: :any, big_sur:       "9c3b2f50581232e6297c2c8a97e3622695ef16b46f592177f47d1086949352c5"
-    sha256 cellar: :any, catalina:      "c6dddb00f0ca44f910f8eff0e3e93f2388c8d152876b0963738f3d947ff72b73"
-    sha256 cellar: :any, mojave:        "c8b288da131cbd56583ffcda5431a22f9382cfc0c5700ccf5dea29654b9538b6"
+    sha256 cellar: :any, arm64_big_sur: "17c6c09d304ce3be3bdf6ce326205ed4ac5bcd8c8f740fe0caaf3d1b0cabf9b6"
+    sha256 cellar: :any, big_sur:       "d1adeb6639e2105fff3844a4172dec709ce16cde0e68fa79ad3f0ddb7ff05b7b"
+    sha256 cellar: :any, catalina:      "fda99caa48ada1f54dbdda5bd097c5a01465f97fb4fcf4a6bd3f023bc1cd4d34"
+    sha256 cellar: :any, mojave:        "90367fff8d5c0537edbdf5bb5cdaf6029f145b9a9e98cef320185d85e3353ec4"
   end
 
   depends_on "cmake" => :build

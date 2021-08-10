@@ -18,6 +18,7 @@ class Irrtoolset < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "958df309df54264b13dba2185761e5d4ce1397e3c6b079dbd9396e054d02d306"
     sha256 cellar: :any_skip_relocation, mojave:        "fd790b230ed1c3559d79c5e86080a6c5163d71817c13980a3abc904e15535d98"
     sha256 cellar: :any_skip_relocation, high_sierra:   "250f93336659350a65426d86c28053763f530b56ae9513b44f086196a91a59c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b03e7fcf28c8481e33209b35b08bac6d1293240ea1f7d71714c3bce19ee98b88"
   end
 
   depends_on "autoconf" => :build
@@ -25,6 +26,12 @@ class Irrtoolset < Formula
   depends_on "bison" => :build # Uses newer syntax than system Bison supports
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "readline"
+  end
 
   def install
     system "autoreconf", "-iv"

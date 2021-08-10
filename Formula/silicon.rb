@@ -10,9 +10,18 @@ class Silicon < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "27f31389064da033eae7fa05d2f5d2b3e12bf44349879652ebd971802757d1ac"
     sha256 cellar: :any_skip_relocation, catalina:      "262b846fb34927ef56ad5e12e39e766875d6f0a5e9e4217bff55fe23b7a6675d"
     sha256 cellar: :any_skip_relocation, mojave:        "440068b068edee61d6a001c7095935121cfd4575aaf6d9d6379b9685cba97d58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a33e3ca032e5181d2fb741f5084944be9ab4bb8806e275a142d79296a450d081"
   end
 
   depends_on "rust" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "fontconfig"
+    depends_on "freetype"
+    depends_on "libxcb"
+    depends_on "xclip"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

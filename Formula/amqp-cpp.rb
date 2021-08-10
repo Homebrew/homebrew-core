@@ -1,8 +1,8 @@
 class AmqpCpp < Formula
   desc "C++ library for communicating with a RabbitMQ message broker"
   homepage "https://github.com/CopernicaMarketingSoftware/AMQP-CPP"
-  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.3.12.tar.gz"
-  sha256 "0a927532ec3869004e4baffc264e65c3f8a0ae2846ee1f7ac60478c760487d36"
+  url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/archive/v4.3.14.tar.gz"
+  sha256 "6ac69a407c0edf9f8f56fdbb56acb4e5e9b331e3243cb95f26b861ae794549f4"
   license "Apache-2.0"
   head "https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git"
 
@@ -12,15 +12,21 @@ class AmqpCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0e63fe2e0fc7f090bf5c1cfd3bbe0be4f882b6bed5370c380664cbf830bcc820"
-    sha256 cellar: :any_skip_relocation, big_sur:       "333179f73aa48640012f917e74d4a81ba2b5bec984aa4891be8b250659e39900"
-    sha256 cellar: :any_skip_relocation, catalina:      "10705f95a5801071dedc5aa540dbdd4ddd7760828af1d8a9d6893fb23f5f27aa"
-    sha256 cellar: :any_skip_relocation, mojave:        "7d73220c151d2a9565d126492cf82d9d8849d82dc9323557d97a0f0ce01d6823"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dedcb0785ba3e7e063b4d8db6947496984447a833c7e1eb91cea45bfc8f82d15"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c464e68f11d1ce2c3d96aca7833c473d9dc708f417064bf0f8118c55eaa0fbcd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a91e81891937789703c6a4cb22536dcaeb0a8e933e0ca20a8db32067dd919bf4"
+    sha256 cellar: :any_skip_relocation, catalina:      "010b745ff538b044ecb43bd0bb18e1cbe374589e4bc4ca45b906eee52138c34f"
+    sha256 cellar: :any_skip_relocation, mojave:        "c1d2d2a4a73a08ad98cfdaa6d08d581398780481a74ecc928a5e7aa356d25ac1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ece40b3b1174cd90632f48759a931c515f79267330c9578c03889eb6fb60c5d"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@1.1"
+
+  # Fix missing include. Patch accepted upstream, remove on next release.
+  patch do
+    url "https://github.com/CopernicaMarketingSoftware/AMQP-CPP/commit/1dc169810d31110e134fbe032be009f5f8e98d73.patch?full_index=1"
+    sha256 "6b47988b4746c021f31b5772761776f8607645a79fab9ec403adae8a2b64883c"
+  end
 
   def install
     ENV.cxx11

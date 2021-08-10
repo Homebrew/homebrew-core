@@ -12,11 +12,12 @@ class Vsftpd < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "39c9723d0b2bdb7514c497c5ca38a8c5925e0586d2391fcab7ff3b52be0ea702"
-    sha256 big_sur:       "aca3609846714ed749df94668ae6e90b28d762c4a18066089af03310de6a8ab5"
-    sha256 catalina:      "21e36b15fcc37ae27c2e756e029714ef573a74c544d5f691a8bfe7e327143d01"
-    sha256 mojave:        "5ffca9c3643cb55a9fcdc53b5d6b044bbe9303c13fb20f7e7b46896f5db85b34"
-    sha256 x86_64_linux:  "4c3349e577989c514ddf2ba0361ff7eeaf5cbd312444afddd040af4eae888a98"
+    rebuild 1
+    sha256 arm64_big_sur: "a72e5769f4b38407207ffad9d8c62eddf87c97fe31545b1725c67e45cfee9a51"
+    sha256 big_sur:       "337d1f3d213f9ce424bc2b714f4f4279a0cfb6ff9c7f17837f4ba14a346f8896"
+    sha256 catalina:      "d34baa041fa451af6d2e1f065259a1f2333d666506b8ee75edbaf4ce585a4152"
+    sha256 mojave:        "477a576822bccca0faac9c8fa2483bfb2b3be704c89680cd6fc563198725f79a"
+    sha256 x86_64_linux:  "183b1d0636592778feac38382af55560cb4013f7d1743f798479329d5f247b29"
   end
 
   uses_from_macos "perl" => :build
@@ -52,26 +53,9 @@ class Vsftpd < Formula
     EOS
   end
 
-  plist_options startup: true, manual: "sudo vsftpd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/vsftpd</string>
-          <string>#{etc}/vsftpd.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_sbin/"vsftpd", etc/"vsftpd.conf"]
   end
 
   test do

@@ -6,6 +6,10 @@ class VapoursynthImwri < Formula
   license "LGPL-2.1-or-later"
   head "https://github.com/vapoursynth/vapoursynth.git"
 
+  livecheck do
+    formula "vapoursynth"
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5836132cd53eaa1767021d26597b1cfd3108f342abe0cad7f1ce40dd3fb6511d"
     sha256 cellar: :any, big_sur:       "01ffc95970768ce9c4b3197a0f60c51083299c44e8a46e596e85c31dc98c07a9"

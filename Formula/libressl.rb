@@ -30,6 +30,10 @@ class Libressl < Formula
 
   keg_only :provided_by_macos
 
+  on_linux do
+    keg_only "it conflicts with OpenSSL formula"
+  end
+
   def install
     args = %W[
       --disable-dependency-tracking

@@ -12,9 +12,10 @@ class Rethinkdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "bb4dc60cb80b346f5c095af46c195c6d54cc927531f690889c2d5256f55a63b4"
-    sha256 cellar: :any, catalina: "31fa08475118f77ecd8785bac8b59c1f5732171a5c0c8ec44087fbbb559cb95b"
-    sha256 cellar: :any, mojave:   "3aff9d5aff3f0bc1318f8b53e04d2b688560fcf4911f64d6c963d38f78a88316"
+    rebuild 1
+    sha256 cellar: :any, big_sur:  "4f4b04c2bc0243cb1be67ee785e85cccbecf507899b439a0497920637e2c14cc"
+    sha256 cellar: :any, catalina: "0937ad0dab31f165b3b33c0d8e9629b44ee4580e74009881ca097edb2a8157c2"
+    sha256 cellar: :any, mojave:   "35771b918dd1e41939aea3a8eec2b3fa8ee38ca4236c1ad0bd2695c3bb598caf"
   end
 
   depends_on "boost" => :build
@@ -49,35 +50,12 @@ class Rethinkdb < Formula
     etc.install "packaging/assets/config/default.conf.sample" => "rethinkdb.conf"
   end
 
-  plist_options manual: "rethinkdb"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-            <string>#{opt_bin}/rethinkdb</string>
-            <string>--config-file</string>
-            <string>#{etc}/rethinkdb.conf</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/rethinkdb/rethinkdb.log</string>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/rethinkdb/rethinkdb.log</string>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"rethinkdb", "--config-file", etc/"rethinkdb.conf"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"log/rethinkdb/rethinkdb.log"
+    error_log_path var/"log/rethinkdb/rethinkdb.log"
   end
 
   test do

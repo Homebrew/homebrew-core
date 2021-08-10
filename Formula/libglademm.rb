@@ -7,10 +7,11 @@ class Libglademm < Formula
   revision 11
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "8311ed9bcd9aa094070b749de1cd62d84645b9dfcbe38fee0cb0c0063c64031a"
-    sha256 cellar: :any, big_sur:       "5fc582a1ef83d407db91fe1bc3a41560dca9fe4d4be84b1e74f8d6ef531f213c"
-    sha256 cellar: :any, catalina:      "cde424ee8c6e03ca50817c2f705ccb7c921f45bbb25718a464647fd6efca1a0f"
-    sha256 cellar: :any, mojave:        "46f3a5ce56212f8ca23c4c73fe820ddfa0eb4a4c4ec456cb1c5cd1e020f5af1e"
+    sha256 cellar: :any,                 arm64_big_sur: "8311ed9bcd9aa094070b749de1cd62d84645b9dfcbe38fee0cb0c0063c64031a"
+    sha256 cellar: :any,                 big_sur:       "5fc582a1ef83d407db91fe1bc3a41560dca9fe4d4be84b1e74f8d6ef531f213c"
+    sha256 cellar: :any,                 catalina:      "cde424ee8c6e03ca50817c2f705ccb7c921f45bbb25718a464647fd6efca1a0f"
+    sha256 cellar: :any,                 mojave:        "46f3a5ce56212f8ca23c4c73fe820ddfa0eb4a4c4ec456cb1c5cd1e020f5af1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8f4617457fab3adb4da5975e67aa9809d3e83882ca899a60139f316129f4757"
   end
 
   depends_on "pkg-config" => [:build, :test]

@@ -12,7 +12,6 @@ class Teleport < Formula
   # to a release from the older major version.
   livecheck do
     url :stable
-    strategy :git
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 

@@ -12,6 +12,8 @@ class Zzz < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "46716ef74ec052c11d497b5192b9829d1341ebbce783c04be344a85bb9dd5a96"
   end
 
+  depends_on :macos
+
   # No test is possible: this has no --help or --version, it just
   # sleeps the Mac instantly.
   def install

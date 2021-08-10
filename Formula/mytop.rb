@@ -12,16 +12,24 @@ class Mytop < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0443f8710ab6f1be3e60afc59c15546091982df6f76e31855ff16a1bd86fcb4b"
-    sha256 cellar: :any, big_sur:       "7bbece0e0eeb32f4c8217c232d190990290625e16fa9e542fd6c68dd8aad1727"
-    sha256 cellar: :any, catalina:      "8ec423770dabfb5da68e626af379f73290cd7e04c118db9608d2ce5decf0e489"
-    sha256 cellar: :any, mojave:        "a7512239e490916ef7753a380e638e383b2dd0e0967b6b560c48adf6597b491b"
+    sha256 cellar: :any,                 arm64_big_sur: "0443f8710ab6f1be3e60afc59c15546091982df6f76e31855ff16a1bd86fcb4b"
+    sha256 cellar: :any,                 big_sur:       "7bbece0e0eeb32f4c8217c232d190990290625e16fa9e542fd6c68dd8aad1727"
+    sha256 cellar: :any,                 catalina:      "8ec423770dabfb5da68e626af379f73290cd7e04c118db9608d2ce5decf0e489"
+    sha256 cellar: :any,                 mojave:        "a7512239e490916ef7753a380e638e383b2dd0e0967b6b560c48adf6597b491b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01929f92371862962f1be2d9e8cf99dc19c80cfedc6472deffa06a9e2b7537b7"
   end
 
   depends_on "mysql-client"
   depends_on "openssl@1.1"
 
   uses_from_macos "perl"
+
+  on_linux do
+    resource "Term::ReadKey" do
+      url "https://cpan.metacpan.org/authors/id/J/JS/JSTOWE/TermReadKey-2.38.tar.gz"
+      sha256 "5a645878dc570ac33661581fbb090ff24ebce17d43ea53fd22e105a856a47290"
+    end
+  end
 
   conflicts_with "mariadb", because: "both install `mytop` binaries"
 
@@ -35,12 +43,9 @@ class Mytop < Formula
     sha256 "d6d38a416da79de874c5f1825221f22e972ad500b6527d190cc6e9ebc45194b4"
   end
 
-  # In Mojave, this is not part of the system Perl anymore
-  if MacOS.version >= :mojave
-    resource "DBI" do
-      url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
-      sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
-    end
+  resource "DBI" do
+    url "https://cpan.metacpan.org/authors/id/T/TI/TIMB/DBI-1.641.tar.gz"
+    sha256 "5509e532cdd0e3d91eda550578deaac29e2f008a12b64576e8c261bb92e8c2c1"
   end
 
   resource "DBD::mysql" do
@@ -67,8 +72,14 @@ class Mytop < Formula
   end
 
   def install
+    res = resources
+    on_macos do
+      # Before Mojave, DBI was part of the system Perl
+      res -= [resource("DBI")] if MacOS.version < :mojave
+    end
+
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    resources.each do |r|
+    res.each do |r|
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make", "install"
@@ -78,7 +89,7 @@ class Mytop < Formula
     system "perl", "Makefile.PL", "INSTALL_BASE=#{prefix}"
     system "make", "install"
     share.install prefix/"man"
-    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
+    bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
   end
 
   test do

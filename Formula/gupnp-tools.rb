@@ -10,6 +10,7 @@ class GupnpTools < Formula
     sha256 big_sur:       "df4b690dbadf285baee9134c1889ca57bc57b0e527d8fb54a33ea6a980d7fafd"
     sha256 catalina:      "e6d6066be38a1fd40b1ec0510306dcea50291348cc5cad25b5e899fd20ff6467"
     sha256 mojave:        "5b04336ba67f125c40593657d1e60ead0aa0578265efb9d4fe254f9e06781b78"
+    sha256 x86_64_linux:  "9b01e6f41aa3b2125bd7dda54b3f6846e6b6f7258e532a418064fc83ec7994c9"
   end
 
   depends_on "meson" => :build

@@ -13,9 +13,12 @@ class Volt < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "9db9e940c124e8e655cdd84b7d143f526535c588ebd6503acb3960143d08f905"
     sha256 cellar: :any_skip_relocation, high_sierra:   "7fd8887efcdc3a9816b2dea510c2e3ba218e0e719390841d3b0b416fde53378e"
     sha256 cellar: :any_skip_relocation, sierra:        "4edc3f1130757ddbf0a7b3c018825f68f2ecb24417f3afc3fd54b532e8c72c46"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe7d78905a357fa59f18330aab57269cce1fda6af521552918d54911fd075035"
   end
 
   depends_on "go" => :build
+
+  uses_from_macos "vim" => :test
 
   # Go 1.14+ compatibility.
   patch do

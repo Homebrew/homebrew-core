@@ -1,8 +1,8 @@
 class Rabbitmq < Formula
   desc "Messaging broker"
   homepage "https://www.rabbitmq.com"
-  url "https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.19/rabbitmq-server-generic-unix-3.8.19.tar.xz"
-  sha256 "b42d64d6d6738d889054176361093a6795a8e74a273fc3cdf972e01652ec187e"
+  url "https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.9.1/rabbitmq-server-generic-unix-3.9.1.tar.xz"
+  sha256 "85f87f9f582d14efb4d7b410146952f2ebfc8ab56e18cae755b09957efcb4573"
   license "MPL-2.0"
 
   livecheck do
@@ -11,13 +11,11 @@ class Rabbitmq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bce40affa97c6111c72b1d82753f18da788a500523fc8a6c79d38ab849c5d1d2"
+    sha256 cellar: :any_skip_relocation, all: "45479e738313ea0065c4502085109573211aee7cc9238a2528dc48dbd61e705f"
   end
 
   depends_on "python@3.9" => :build
   depends_on "erlang"
-
-  uses_from_macos "unzip" => :build
 
   def install
     # Install the base files
@@ -47,16 +45,11 @@ class Rabbitmq < Formula
     # Enable plugins - management web UI; STOMP, MQTT, AMQP 1.0 protocols
     enabled_plugins_path = etc/"rabbitmq/enabled_plugins"
     unless enabled_plugins_path.exist?
-      enabled_plugins_path.write "[rabbitmq_management,rabbitmq_stomp,rabbitmq_amqp1_0,rabbitmq_mqtt]."
+      enabled_plugins_path.write "[rabbitmq_management,rabbitmq_stomp,rabbitmq_amqp1_0," \
+                                 "rabbitmq_mqtt,rabbitmq_stream]."
     end
 
-    # Extract rabbitmqadmin and install to sbin
-    # use it to generate, then install the bash completion file
-    system "unzip", "-qq", "-j",
-           "#{prefix}/plugins/rabbitmq_management-#{version}.ez",
-           "rabbitmq_management-#{version}/priv/www/cli/rabbitmqadmin"
-
-    sbin.install "rabbitmqadmin"
+    sbin.install prefix/"plugins/rabbitmq_management-#{version}/priv/www/cli/rabbitmqadmin"
     (sbin/"rabbitmqadmin").chmod 0755
     (bash_completion/"rabbitmqadmin.bash").write Utils.safe_popen_read("#{sbin}/rabbitmqadmin", "--bash-completion")
   end
@@ -76,37 +69,13 @@ class Rabbitmq < Formula
     EOS
   end
 
-  plist_options manual: "rabbitmq-server"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>Program</key>
-          <string>#{opt_sbin}/rabbitmq-server</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>EnvironmentVariables</key>
-          <dict>
-            <!-- need erl in the path -->
-            <key>PATH</key>
-            <string>#{HOMEBREW_PREFIX}/sbin:/usr/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin</string>
-            <!-- specify the path to the rabbitmq-env.conf file -->
-            <key>CONF_ENV_FILE</key>
-            <string>#{etc}/rabbitmq/rabbitmq-env.conf</string>
-          </dict>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/rabbitmq/std_error.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/rabbitmq/std_out.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_sbin/"rabbitmq-server"
+    log_path var/"log/rabbitmq/std_out.log"
+    error_log_path var/"log/rabbitmq/std_error.log"
+    # need erl in PATH
+    environment_variables PATH:          "#{HOMEBREW_PREFIX}/sbin:/usr/sbin:/usr/bin:/bin:#{HOMEBREW_PREFIX}/bin",
+                          CONF_ENV_FILE: etc/"rabbitmq/rabbitmq-env.conf"
   end
 
   test do

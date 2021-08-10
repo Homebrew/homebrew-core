@@ -7,8 +7,7 @@ class PythonTkAT39 < Formula
   license "Python-2.0"
 
   livecheck do
-    url "https://www.python.org/ftp/python/"
-    regex(%r{href=.*?v?(3\.9(?:\.\d+)*)/?["' >]}i)
+    formula "python@3.9"
   end
 
   bottle do

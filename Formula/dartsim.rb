@@ -1,17 +1,15 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.10.1.tar.gz"
-  sha256 "bf19cdef8e28dbc4059dcbb11997576d6e1d825791bd756e8272d2ddc5b147ce"
+  url "https://github.com/dartsim/dart/archive/v6.11.0.tar.gz"
+  sha256 "41d783d7f99d7b5ad1874336646f1bdfa33e146e0652a6c32d12eaa21505bd51"
   license "BSD-2-Clause"
-  revision 2
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "9040d281f8c9b79be449d5a1a675dae00bf0f3aa5c3b2d0378dff33f0e96cc6f"
-    sha256 big_sur:       "3f0f960d2f6d85b3c3a77e57bbccf89bc8d45e7a8a20f7a5f3640829213767a1"
-    sha256 catalina:      "e0d7a5fca7beef0c9d468061f533c5c496c12853d82781acfe5daa049a80f37c"
-    sha256 mojave:        "e282979646c3970e9c29178f33368f8ea60aa0120bff13a14dd99758bfd6a16f"
+    sha256 arm64_big_sur: "8e6e1890a93576e5a5da756aaefecdafae8fc628cafa6288c1dccff457ce0883"
+    sha256 big_sur:       "6e5fcd1dbc6e054f8add2f4f04a788f39cd6cae0e674dd88ac2613bf23a56c8a"
+    sha256 catalina:      "4477ac4f4b5c0d78016e1948bd4476797a5eefe503867fe1c3a2589ebc745c5e"
+    sha256 mojave:        "f149e441eab5640abd4f3966aeb0a9857930a3c1b0ffa6d8254f62bc1c329681"
   end
 
   depends_on "cmake" => :build

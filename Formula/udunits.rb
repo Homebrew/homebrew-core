@@ -10,6 +10,7 @@ class Udunits < Formula
     sha256 big_sur:       "98494853cf3c9763f511e3f4d1daddd29cbcf8c8a91c4716ed5951e081753bad"
     sha256 catalina:      "b325949e293c7e881bb468893a84e75283587af9ccd21595874eec515d778b9c"
     sha256 mojave:        "4994ec2de43dcff6c6b74b3d7ec053cac4ad475b8c4b95207e7c8b999b43f884"
+    sha256 x86_64_linux:  "e05daef7e7f7ad70952a77ac4096e5a72f201c04be9c78b3c684b9846ab4cb9d"
   end
 
   depends_on "cmake" => :build
@@ -18,6 +19,13 @@ class Udunits < Formula
   uses_from_macos "texinfo" => :build
   uses_from_macos "expat"
   uses_from_macos "flex"
+
+  on_linux do
+    patch :p1 do
+      url "https://github.com/Unidata/UDUNITS-2/commit/0bb56200221ad960bc2da11fc0b4a70ec3c5d7c9.patch?full_index=1"
+      sha256 "8b84fabe21d2da252e6bdd2dd514230d73579ca034d4d83e42f40527dc72fe0c"
+    end
+  end
 
   def install
     mkdir "build" do

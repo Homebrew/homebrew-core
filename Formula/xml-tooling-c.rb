@@ -11,10 +11,11 @@ class XmlToolingC < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "65e021c1f203021118f1ed17a67869077a2ae014774729173010c8095e3b89ec"
-    sha256 cellar: :any, big_sur:       "57c8c16990f589f0e07a7e5d57dd202c4f35b6e66d57bbda66d4d9bc2af6bd33"
-    sha256 cellar: :any, catalina:      "859a056b4271610e876b42606d145a0ddc2d79cb94c0470e2ca93cdef38c4e2b"
-    sha256 cellar: :any, mojave:        "69d6679f8c610867e03269af38ce56306af656a2e1f7b3bbce30d25085d6ae9a"
+    sha256 cellar: :any,                 arm64_big_sur: "65e021c1f203021118f1ed17a67869077a2ae014774729173010c8095e3b89ec"
+    sha256 cellar: :any,                 big_sur:       "57c8c16990f589f0e07a7e5d57dd202c4f35b6e66d57bbda66d4d9bc2af6bd33"
+    sha256 cellar: :any,                 catalina:      "859a056b4271610e876b42606d145a0ddc2d79cb94c0470e2ca93cdef38c4e2b"
+    sha256 cellar: :any,                 mojave:        "69d6679f8c610867e03269af38ce56306af656a2e1f7b3bbce30d25085d6ae9a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7cc7b883e123f169a52223df4b1bbf66244b3d3363a29984ef3fde445fd625c0"
   end
 
   depends_on "pkg-config" => :build

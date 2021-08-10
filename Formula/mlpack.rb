@@ -12,10 +12,11 @@ class Mlpack < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "826d26c907780f6b8edc30180c6f6ae0885811534dec61bdbcfda3b7d75a42f2"
-    sha256 cellar: :any, big_sur:       "5aa83e0eb31c4355e128e5d7185710cbefe9ec4afcbe32e38229815428a58817"
-    sha256 cellar: :any, catalina:      "c6024d74fc22e20c8075c05501864e998cb36b5cb4c8f1d133ea82166c0e0b95"
-    sha256 cellar: :any, mojave:        "3445bbce49bef30c1818523cdf044ad15c9638d960002185144c6d71578e3600"
+    sha256 cellar: :any,                 arm64_big_sur: "826d26c907780f6b8edc30180c6f6ae0885811534dec61bdbcfda3b7d75a42f2"
+    sha256 cellar: :any,                 big_sur:       "5aa83e0eb31c4355e128e5d7185710cbefe9ec4afcbe32e38229815428a58817"
+    sha256 cellar: :any,                 catalina:      "c6024d74fc22e20c8075c05501864e998cb36b5cb4c8f1d133ea82166c0e0b95"
+    sha256 cellar: :any,                 mojave:        "3445bbce49bef30c1818523cdf044ad15c9638d960002185144c6d71578e3600"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecad09f96c51721fd59dc7d0f10c146e79176234af215a3b4965565bf61605fe"
   end
 
   depends_on "cmake" => :build

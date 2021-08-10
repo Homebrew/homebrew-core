@@ -12,9 +12,10 @@ class Tundra < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, big_sur:  "dbbb68b203aa7c4550f6c16fcf5ad2ad848c2f5620cbbd8218398d69671bc3e7"
-    sha256 cellar: :any_skip_relocation, catalina: "f36ca8b0357c6687cc29a58cca525de2f5f2abbd8d1ec69137cbc5a511745492"
-    sha256 cellar: :any_skip_relocation, mojave:   "d89e65ad931ef48f287108e2a06e5b64f34ecb82a00c6b0413833b867c27c764"
+    sha256 cellar: :any_skip_relocation, big_sur:      "dbbb68b203aa7c4550f6c16fcf5ad2ad848c2f5620cbbd8218398d69671bc3e7"
+    sha256 cellar: :any_skip_relocation, catalina:     "f36ca8b0357c6687cc29a58cca525de2f5f2abbd8d1ec69137cbc5a511745492"
+    sha256 cellar: :any_skip_relocation, mojave:       "d89e65ad931ef48f287108e2a06e5b64f34ecb82a00c6b0413833b867c27c764"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e37ea4c934066117b10d4f133c74a5b0527dca0d3509410ddeb3ccb02f3be22a"
   end
 
   depends_on "googletest" => :build
@@ -34,7 +35,15 @@ class Tundra < Formula
         return 0;
       }
     EOS
-    (testpath/"tundra.lua").write <<~'EOS'
+
+    os = "macosx"
+    cc = "clang"
+    on_linux do
+      os = "linux"
+      cc = "gcc"
+    end
+
+    (testpath/"tundra.lua").write <<~EOS
       Build {
         Units = function()
           local test = Program {
@@ -45,14 +54,14 @@ class Tundra < Formula
         end,
         Configs = {
           {
-            Name = "macosx-clang",
-            DefaultOnHost = "macosx",
-            Tools = { "clang-osx" },
+            Name = "#{os}-#{cc}",
+            DefaultOnHost = "#{os}",
+            Tools = { "#{cc}" },
           },
         },
       }
     EOS
     system bin/"tundra2"
-    system "./t2-output/macosx-clang-debug-default/test"
+    system "./t2-output/#{os}-#{cc}-debug-default/test"
   end
 end

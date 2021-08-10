@@ -1,8 +1,8 @@
 class NodeAT14 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v14.17.3/node-v14.17.3.tar.gz"
-  sha256 "dcbd156506ee79ee48439257626ca0a6db3d7eab8cb0208db6979125ae7d3a95"
+  url "https://nodejs.org/dist/v14.17.4/node-v14.17.4.tar.gz"
+  sha256 "70c75f21ac601ae9e0fd86bdfd4e13e4d302f42b4fafcd6d21804b043a571c36"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,11 @@ class NodeAT14 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "93f9271fff083158429d5d67eb6e5ea9c5a5e1bffde4c221d86070f03db8950f"
-    sha256 cellar: :any,                 big_sur:       "c87d777aa21e21e629a9e0d725eb3f60c459078dd0e421209f9dc944b707408d"
-    sha256 cellar: :any,                 catalina:      "d9da78895841afbc6fc312399c7df295c611fe44260d9740799a8aa0f246ca4a"
-    sha256 cellar: :any,                 mojave:        "7370ddc1acd747aad811c0a16191250d0b532954cd790c43bfb591d6b75bbe0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a205b6ed81a7fc3916b9180b6635b34fc3b698e7af6491c67fb8a2541bcd9095"
+    sha256 cellar: :any,                 arm64_big_sur: "5d074b17f7086d4dbeebf63b6407984b473fe58c41ed386a55f473fe4485ffe3"
+    sha256 cellar: :any,                 big_sur:       "596205b2090eae72233de80b20f0d8d24ce3df6edf69dcd9356d61f202b8d8cd"
+    sha256 cellar: :any,                 catalina:      "0d3951eea5ff2d2e3168bf206cd1c60e6870eb4dd3f2fa675f88a3d5b8aaf0d3"
+    sha256 cellar: :any,                 mojave:        "eaa596f66b2b8561bb860d847105708e2d72cb636196a9b2632cad91a76688b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d74635269004acadd259f69af97d50d1131cbbbaebc234027a78a2379795de9f"
   end
 
   keg_only :versioned_formula
@@ -24,12 +24,26 @@ class NodeAT14 < Formula
   depends_on "python@3.9" => :build
   depends_on "icu4c"
 
+  on_macos do
+    depends_on "macos-term-size"
+  end
+
   def install
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     system "python3", "configure.py", "--prefix=#{prefix}", "--with-intl=system-icu"
     system "make", "install"
+
+    term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
+    term_size_vendor_dir.rmtree # remove pre-built binaries
+
+    on_macos do
+      macos_dir = term_size_vendor_dir/"macos"
+      macos_dir.mkpath
+      # Replace the vendored pre-built term-size with one we build ourselves
+      ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
+    end
   end
 
   def post_install

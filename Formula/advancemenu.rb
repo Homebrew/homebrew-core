@@ -5,6 +5,10 @@ class Advancemenu < Formula
   sha256 "3e4628e1577e70a1dbe104f17b1b746745b8eda80837f53fbf7b091c88be8c2b"
   license "GPL-2.0"
 
+  livecheck do
+    formula "advancemame"
+  end
+
   bottle do
     sha256 arm64_big_sur: "28169ad5c0b9efda64ff4b27e5306df4ba1239937d30403dc569076e8f692010"
     sha256 big_sur:       "81fba884c95faf6fbe13f1dfa128e6875bb3ec7e9743ae70830b2b086863df10"

@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.60.0",
-      revision: "bebaa1d307b638dba47f188e75246f93f09c1600"
+      tag:      "v0.61.0",
+      revision: "132bb4b120810071620086b507eed2ceaf4728c1"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,11 +15,11 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "eef09056edaf6b813f3056c9e6a1c9c1eb7ce1f56cfd898026a51a808548875f"
-    sha256 cellar: :any, big_sur:       "fc8aa38ab7cee504bd3b69c93e37c6f66ba6796e369487d963da5f9af0db363e"
-    sha256 cellar: :any, catalina:      "c7f6f738a6aaa8a60eaddc8bbd7caf7410a1f09861a76d056c3507644785d27e"
-    sha256 cellar: :any, mojave:        "01bebb3c4bd45ec5c63be78e476f834dead040984c2fc9f3d6a561d312ed3b8d"
-    sha256               x86_64_linux:  "6f8cc449c482284dfe9479445c6202d1dc6a0709ab70da5eef83da9f5abd7c18"
+    sha256 cellar: :any, arm64_big_sur: "70a1a5b12cb0bd55d61091ba2f2fbd4f2ceaa1ab226c7657fbd42d49e1fef390"
+    sha256 cellar: :any, big_sur:       "6c1c7d9667ea0546d407e31aebd8716d89ccdf149d524c4e01b7adadfb7abfac"
+    sha256 cellar: :any, catalina:      "627055b6018fad03d2657e65930d918696e3cb23e81c1b58bf355c1f044ed2af"
+    sha256 cellar: :any, mojave:        "c9530d047b9044c35db5026a8758a353eb4f206e4e566c25ab8f1411f9ad4371"
+    sha256               x86_64_linux:  "27931d3e90766f2927bbd5c758b575b314f5c02f084ac8af31f8afef20e39220"
   end
 
   depends_on "cmake" => :build
@@ -40,14 +40,6 @@ class Semgrep < Formula
 
   fails_with gcc: "5"
 
-  # To update, temporarily comment out this resource and run `brew update-python-resources semgrep`
-  # Then uncomment this resource and manually modify the commit hash based on
-  # https://github.com/returntocorp/semgrep/blob/#{tag}/scripts/install-tree-sitter-runtime
-  resource "ocaml-tree-sitter" do
-    url "https://github.com/returntocorp/ocaml-tree-sitter-semgrep/archive/2263f3f418f97a849cb9dfeb0373bc9a3a10837c.tar.gz"
-    sha256 "f257acdcd1c42c4bbe81ad11ccbadf5211b2b1a062ece3ca04945776f89ada8a"
-  end
-
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
     sha256 "ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
@@ -64,8 +56,8 @@ class Semgrep < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/37/fd/05a04d7e14548474d30d90ad0db5d90ee2ba55cd967511a354cf88b534f1/charset-normalizer-2.0.3.tar.gz"
-    sha256 "c46c3ace2d744cfbdebceaa3c19ae691f53ae621b39fd7570f59d14fb7f2fd12"
+    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
+    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
   end
 
   resource "colorama" do
@@ -124,8 +116,8 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/0d/dd/78f7e080d3bfc87fc19bed54513b430659d38efb2d9ea6e3ad815a665a02/tqdm-4.61.2.tar.gz"
-    sha256 "8bb94db0d4468fea27d004a0f1d1c02da3cdedc00fe491c0de986b76a04d6b0a"
+    url "https://files.pythonhosted.org/packages/7f/e6/23e3f15ff29970dd64065a9a27bc809b1df727f7f9f6dfa3e36cf7975e58/tqdm-4.62.0.tar.gz"
+    sha256 "3642d483b558eec80d3c831e23953582c34d7e4540db86d9e5ed9dad238dabc6"
   end
 
   resource "urllib3" do
@@ -139,8 +131,6 @@ class Semgrep < Formula
   end
 
   def install
-    (buildpath/"ocaml-tree-sitter").install resource("ocaml-tree-sitter")
-
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot
@@ -156,15 +146,13 @@ class Semgrep < Formula
 
       # Manually run steps from `opam exec -- make setup` to link Homebrew's tree-sitter
       system "opam", "update", "-y"
-      ln_s "../../../ocaml-tree-sitter/src", "semgrep-core/src/ocaml-tree-sitter/src"
-      ln_s "../ocaml-tree-sitter/tree-sitter.opam", "semgrep-core/tree-sitter.opam"
-      system "opam", "install", "-y", "--deps-only", "./semgrep-core/src/pfff"
-      system "opam", "install", "-y", "--deps-only", "./semgrep-core"
 
-      # Install tree-sitter
-      cd "ocaml-tree-sitter" do
-        system "opam", "install", "-y", "."
-      end
+      # We pass --no-depexts so as to disable the check for pkg-config.
+      # It seems to not be found when building on ubuntu
+      # See discussion on https://github.com/Homebrew/homebrew-core/pull/82693
+      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./semgrep-core/src/pfff"
+      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./semgrep-core/src/ocaml-tree-sitter-core"
+      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./semgrep-core"
 
       # Install semgrep-core and spacegrep
       cd "semgrep-core" do
@@ -193,6 +181,20 @@ class Semgrep < Formula
     EOS
 
     output = shell_output("#{bin}/semgrep script.py -l python -e '$X == $X'")
+    assert_match "a + b == a + b", output
+
+    (testpath/"script.ts").write <<~EOS
+      function test_equal() {
+        a = 1;
+        b = 2;
+        //ERROR: match
+        if (a + b == a + b)
+            return 1;
+        return 0;
+      }
+    EOS
+
+    output = shell_output("#{bin}/semgrep script.ts -l ts -e '$X == $X'")
     assert_match "a + b == a + b", output
   end
 end

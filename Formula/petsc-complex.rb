@@ -6,8 +6,7 @@ class PetscComplex < Formula
   license "BSD-2-Clause"
 
   livecheck do
-    url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/"
-    regex(/href=.*?petsc-lite[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    formula "petsc"
   end
 
   bottle do

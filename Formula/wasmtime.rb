@@ -2,8 +2,8 @@ class Wasmtime < Formula
   desc "Standalone JIT-style runtime for WebAssembly, using Cranelift"
   homepage "https://wasmtime.dev/"
   url "https://github.com/bytecodealliance/wasmtime.git",
-      tag:      "v0.28.0",
-      revision: "e8b8947956a7fff6ce1475fafe6a13f15073570c"
+      tag:      "v0.29.0",
+      revision: "81f1dc944fc0f82db7e930ce47b4d1433786481f"
   license "Apache-2.0"
   head "https://github.com/bytecodealliance/wasmtime.git", branch: "main"
 
@@ -13,11 +13,11 @@ class Wasmtime < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "136433d0ec5369a6685d9933c3302a74836b3fecb69dcaf66bda9622bb42172d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "31f0a85a18b265a95a88cef8bb953ba3b5f2793a73cdae86e84cb09362710c5b"
-    sha256 cellar: :any_skip_relocation, catalina:      "741e62eb7b97c4a9e6d0e55b7476966db477782bebb7c3856dfddf447fbd8cde"
-    sha256 cellar: :any_skip_relocation, mojave:        "991ea5ad43a53a43d1b5caabfacdea18ec9396affa167f499fdd3867079e3c0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "778fe87d3a058b63089762d2fcef5749a8ccc611b7ca402b384a75d7d0b7513f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c0237be2d4ac8ea029abc6a91366e66088021572e9ee481df992429d64097911"
+    sha256 cellar: :any_skip_relocation, big_sur:       "922204dde4ced817ea6b7af645d328f503d90e6fb234280493b246228f4e518b"
+    sha256 cellar: :any_skip_relocation, catalina:      "fa1144a5e08ef1a65da8dfb0aeb6bc938c1a4a7aa3d227c352a2b1c695ed5185"
+    sha256 cellar: :any_skip_relocation, mojave:        "0212e601e7a82b96e3b8843fddfc027951e487e1cd2a97df8eb6ccc6f4bb469a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "183ff366ccbe15ee1f71731f6e3f2289fa10473cb7582b4e76f491b9119462ca"
   end
 
   depends_on "rust" => :build

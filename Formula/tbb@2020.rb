@@ -7,10 +7,11 @@ class TbbAT2020 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "60d6f53048879cec2af79648d56cc206c7bdd6044259244e8523ab2f49c8152b"
-    sha256 cellar: :any, big_sur:       "596f3f92c1765f24b9dc9cd866e8068c505428c9dcb9941df7b5f0ea4e10cde9"
-    sha256 cellar: :any, catalina:      "65adefc9242c9bcadfa22eeb8fbe67c8ac750d59107b7ea69da3715d1c2cbd78"
-    sha256 cellar: :any, mojave:        "7016ea351af4cab641ab86faa3f0cd50a3cc9f262ea4afdcc70b058e3d467e99"
+    sha256 cellar: :any,                 arm64_big_sur: "60d6f53048879cec2af79648d56cc206c7bdd6044259244e8523ab2f49c8152b"
+    sha256 cellar: :any,                 big_sur:       "596f3f92c1765f24b9dc9cd866e8068c505428c9dcb9941df7b5f0ea4e10cde9"
+    sha256 cellar: :any,                 catalina:      "65adefc9242c9bcadfa22eeb8fbe67c8ac750d59107b7ea69da3715d1c2cbd78"
+    sha256 cellar: :any,                 mojave:        "7016ea351af4cab641ab86faa3f0cd50a3cc9f262ea4afdcc70b058e3d467e99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6349e928b34634e00408e762ab7fbe6f77da5586c61251080a677e7e0209d766"
   end
 
   keg_only :versioned_formula
@@ -31,7 +32,7 @@ class TbbAT2020 < Formula
   def install
     compiler = (ENV.compiler == :clang) ? "clang" : "gcc"
     system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}"
-    lib.install Dir["build/BUILDPREFIX_release/*.dylib"]
+    lib.install Dir["build/BUILDPREFIX_release/#{shared_library("*")}"]
 
     # Build and install static libraries
     system "make", "tbb_build_prefix=BUILDPREFIX", "compiler=#{compiler}",
@@ -41,12 +42,18 @@ class TbbAT2020 < Formula
 
     cd "python" do
       ENV["TBBROOT"] = prefix
+      on_linux do
+        system "make", "-C", "rml", "compiler=#{compiler}", "CPATH=#{include}"
+        lib.install Dir["rml/libirml.so*"]
+      end
       system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
+    os = "Darwin"
+    on_linux { os = "Linux" }
     system "cmake", *std_cmake_args,
                     "-DINSTALL_DIR=lib/cmake/TBB",
-                    "-DSYSTEM_NAME=Darwin",
+                    "-DSYSTEM_NAME=#{os}",
                     "-DTBB_VERSION_FILE=#{include}/tbb/tbb_stddef.h",
                     "-P", "cmake/tbb_config_installer.cmake"
 
