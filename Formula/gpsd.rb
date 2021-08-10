@@ -1,9 +1,10 @@
 class Gpsd < Formula
   desc "Global Positioning System (GPS) daemon"
-  homepage "http://catb.org/gpsd/"
-  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.21.tar.xz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.21.tar.xz"
-  sha256 "5512a7d3c2e86be83c5555652e5b4cc9049e8878a4320be7f039eb1a7203e5f0"
+  homepage "https://gpsd.gitlab.io/gpsd/"
+  url "https://download.savannah.gnu.org/releases/gpsd/gpsd-3.23.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/gpsd/gpsd-3.23.tar.xz"
+  sha256 "e36429b9f6fc42004894dff3dc4453f5b43f95af8533b96d3d135987418da9df"
+  license "BSD-2-Clause"
 
   livecheck do
     url "https://download.savannah.gnu.org/releases/gpsd/"
@@ -19,7 +20,11 @@ class Gpsd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "eeb280e130d077b69e19bcd74ee415c5791d81e21a74d62248077f0937d6d5e9"
   end
 
+  depends_on "asciidoctor" => :build
+  depends_on "python@3.9" => :build
   depends_on "scons" => :build
+
+  uses_from_macos "ncurses"
 
   def install
     system "scons", "chrpath=False", "python=False", "strip=False", "prefix=#{prefix}/"
