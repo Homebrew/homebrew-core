@@ -58,6 +58,7 @@ class Pnpm < Formula
       chmod 0755, buildtime_bin/"pnpm"
     end
     ENV.prepend_path "PATH", buildtime_bin
+    system "pnpm", "install"
     system "pnpm", "--filter=pnpm", "run", "bundle"
     chdir "packages/pnpm" do
       system "node_modules/.bin/pkg", "--target=host", "--out-path=dist", "dist/pnpm.cjs"
