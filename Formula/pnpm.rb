@@ -34,6 +34,11 @@ class Pnpm < Formula
     sha256 "944082ba011ec706963ee28356452a1f11d441511e2b2d9963c480752f4bae0f"
   end
 
+  patch do
+    url "https://github.com/umireon/pnpm/commit/949c394ac90d15438a4007c5444f4644c4a871f0.patch?full_index=1"
+    sha256 "1543873afabc43c3e0ab4bf6e9e1115daecdc0bbe47deb3928c1cfbeb202ab67"
+  end
+
   def install
     buildtime_bin = buildpath/"buildtime-bin"
     resource("pnpm-buildtime").stage do |r|
