@@ -11,7 +11,6 @@ class Kn < Formula
 
   def install
     ENV["CGO_ENABLED"] = "0"
-    ENV["TAG"]         = "v#{version}"
 
     system "./hack/build.sh", "--fast"
 
