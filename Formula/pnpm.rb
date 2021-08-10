@@ -68,8 +68,8 @@ class Pnpm < Formula
       on_linux do
         system "node_modules/.bin/pkg", "--target=linuxstatic", "--out-path=dist", "dist/pnpm.cjs"
       end
+      bin.install "dist/pnpm"
     end
-    bin.install "packages/pnpm/dist/pnpm"
   end
 
   def caveats
