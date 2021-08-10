@@ -15,7 +15,7 @@ class Moto < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6e067acc4953099b76756709ecb313ff80e469028eb9401f51594f424d4b5776"
   end
 
-  depends_on "rust" => :build  # for cryptography
+  depends_on "rust" => :build # for cryptography
   depends_on "python@3.9"
 
   resource "attrs" do
