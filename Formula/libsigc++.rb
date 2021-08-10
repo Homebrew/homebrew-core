@@ -31,6 +31,7 @@ class Libsigcxx < Formula
       system "ninja", "install"
     end
   end
+
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
