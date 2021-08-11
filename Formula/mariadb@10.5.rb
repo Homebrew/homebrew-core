@@ -1,8 +1,8 @@
 class MariadbAT105 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.11/source/mariadb-10.5.11.tar.gz"
-  sha256 "761053605fe30ce393f324852117990350840a93b3e6305ef4d2f8c8305cc47a"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.12/source/mariadb-10.5.12.tar.gz"
+  sha256 "ab4f1ca69a30c5372e191a68e8b543a74168327680fb1f4067e8cc0a5582e4bd"
   license "GPL-2.0-only"
 
   livecheck do
@@ -38,8 +38,8 @@ class MariadbAT105 < Formula
     # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
     # file called VERSION.
     # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-    # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-    # removed once that issue is closed and the fix has been merged into a stable release.
+    # Originally reported upstream at https://jira.mariadb.org/browse/MDEV-7209,
+    # but only partially fixed.
     patch :DATA
   end
 
@@ -79,6 +79,12 @@ class MariadbAT105 < Formula
       -DCOMPILATION_COMMENT=#{tap.user}
     ]
 
+    on_linux do
+      args << "-DWITH_NUMA=OFF"
+      args << "-DENABLE_DTRACE=NO"
+      args << "-DCONNECT_WITH_JDBC=OFF"
+    end
+
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
@@ -86,19 +92,6 @@ class MariadbAT105 < Formula
     args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
 
     system "cmake", ".", *std_cmake_args, *args
-
-    on_macos do
-      # Need to rename files called version/VERSION to avoid build failure
-      # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-      # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-      # removed once that issue is closed and the fix has been merged into a stable release.
-      mv "storage/mroonga/version", "storage/mroonga/version.txt"
-      # Reported upstream at https://jira.mariadb.org/browse/MDEV-25716 - fixed by
-      # https://github.com/mariadb-corporation/libmarias3/commit/c71898f82598 and should be fixed
-      # in 10.5.12. Does not affect older versions of mariadb because they do not include this
-      # library.
-      mv "storage/maria/libmarias3/VERSION", "storage/maria/libmarias3/VERSION.txt"
-    end
 
     system "make"
     system "make", "install"
