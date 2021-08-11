@@ -15,6 +15,11 @@ class Logcli < Formula
   depends_on "go" => :build
   depends_on "loki" => :test
 
+  resource "testdata" do
+    url "https://raw.githubusercontent.com/grafana/loki/f5fd029660034d31833ff1d2620bb82d1c1618af/cmd/loki/loki-local-config.yaml"
+    sha256 "27db56559262963688b6b1bf582c4dc76f82faf1fa5739dcf61a8a52425b7198"
+  end
+
   def install
     system "go", "build", *std_go_args, "./cmd/logcli"
   end
@@ -22,10 +27,10 @@ class Logcli < Formula
   test do
     port = free_port
 
-    cp etc/"loki-local-config.yaml", testpath
+    testpath.install resource("testdata")
     inreplace "loki-local-config.yaml" do |s|
       s.gsub! "3100", port.to_s
-      s.gsub! var, testpath
+      s.gsub! "/tmp", testpath
     end
 
     fork { exec Formula["loki"].bin/"loki", "-config.file=loki-local-config.yaml" }
