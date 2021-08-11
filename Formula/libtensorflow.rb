@@ -1,10 +1,8 @@
 class Libtensorflow < Formula
-  include Language::Python::Virtualenv
-
   desc "C interface for Google's OS library for Machine Intelligence"
   homepage "https://www.tensorflow.org/"
-  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "233875ea27fc357f6b714b2a0de5f6ff124b50c1ee9b3b41f9e726e9e677b86c"
+  url "https://github.com/tensorflow/tensorflow/archive/refs/tags/v2.5.1.tar.gz"
+  sha256 "8d2728e155a3aa6befd9cb3d0980fabd25e2142d124f8f6b6c78cdf17ff79da5"
   license "Apache-2.0"
 
   bottle do
