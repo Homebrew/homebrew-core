@@ -1,8 +1,8 @@
 class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
-  url "https://github.com/newrelic/infrastructure-agent/archive/refs/tags/1.20.3.tar.gz"
-  sha256 "3a29b19541e6f32fb87196a7833d08a9aed41b8ff62ef3a72326236d262cb033"
+  url "https://github.com/newrelic/infrastructure-agent/archive/refs/tags/1.20.0.tar.gz"
+  sha256 "0ea19d1e70b7c9204bfe5aeb7803b4c3c6b0942036f8680ae52ae76d85e2fa68"
   license "Apache-2.0"
   head "https://github.com/newrelic/infrastructure-agent.git"
 
@@ -11,7 +11,7 @@ class NewrelicInfraAgent < Formula
 
   def install
     goarch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    ENV["VERSION"] = "1.20.3"
+    ENV["VERSION"] = version.to_s
     os = "darwin"
     ENV["CGO_ENABLED"] = "1"
     on_linux do
