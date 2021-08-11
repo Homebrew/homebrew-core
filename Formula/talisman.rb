@@ -1,9 +1,10 @@
 class Talisman < Formula
   desc "Tool to detect and prevent secrets from getting checked in"
   homepage "https://thoughtworks.github.io/talisman/"
-  url "https://github.com/thoughtworks/talisman/archive/v1.22.0.tar.gz"
-  sha256 "3e6a1d27e0306509ba5d197dad44dc40cff5fa4d14d85ae0e4293a0d6dfb0e2f"
+  url "https://github.com/thoughtworks/talisman/archive/v1.11.0.tar.gz"
+  sha256 "95ebb3ac0215bf43d6cdf17d320e22601a3a7228d979e5a6cbaf8c4082f9ad22"
   license "MIT"
+  version_scheme 1
 
   livecheck do
     url :stable
@@ -21,7 +22,7 @@ class Talisman < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-X main.Version=#{version}", "./cmd"
+    system "go", "build", *std_go_args(ldflags: "-X main.Version=#{version}")
   end
 
   test do
