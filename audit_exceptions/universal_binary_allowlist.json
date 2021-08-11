@@ -3,6 +3,7 @@
   "ask-cli",
   "babel",
   "cdktf",
+  "code-server",
   "contentful-cli",
   "gatsby-cli",
   "gitversion",
