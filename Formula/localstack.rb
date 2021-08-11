@@ -122,7 +122,7 @@ class Localstack < Formula
 
     assert_match version.to_s, shell_output("#{bin}/localstack --version")
 
-    output = shell_output("#{bin}/localstack start --docker", 125)
+    output = shell_output("#{bin}/localstack start --docker", 1)
 
     assert_match "Starting local dev environment", output
     assert_match "Cannot connect to the Docker daemon", output
