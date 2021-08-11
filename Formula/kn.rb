@@ -12,9 +12,13 @@ class Kn < Formula
   def install
     ENV["CGO_ENABLED"] = "0"
 
-    system "./hack/build.sh", "--fast"
+    ldflags = %W[
+      -X knative.dev/client/pkg/kn/commands/version.Version=v#{version}
+      -X knative.dev/client/pkg/kn/commands/version.GitRevision=#{Utils.git_head(length: 8)}
+      -X knative.dev/client/pkg/kn/commands/version.BuildDate=#{time.iso8601}
+    ].join(" ")
 
-    bin.install "kn"
+    system "go", "build", "-mod=vendor", *std_go_args(ldflags: ldflags), "./cmd/..."
   end
 
   test do
@@ -31,7 +35,6 @@ class Kn < Formula
     version_output = shell_output("#{bin}/kn version")
     assert_match("Version:      v#{version}", version_output)
     assert_match("Build Date:   ", version_output)
-    assert_match("Git Revision: ", version_output)
-    assert_match(/[a-f0-9]{8}/, version_output)
+    assert_match(/Git Revision: [a-f0-9]{8}/, version_output)
   end
 end
