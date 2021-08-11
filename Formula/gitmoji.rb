@@ -1,7 +1,7 @@
 require "language/node"
 
 class Gitmoji < Formula
-  desc "Interactive command-line tool for using gitmoji on commits"
+  desc "Interactive command-line tool for using emoji in commit messages"
   homepage "https://gitmoji.dev"
   url "https://registry.npmjs.org/gitmoji-cli/-/gitmoji-cli-4.5.0.tgz"
   sha256 "ecc75792e6af389df19773d5f70e86d9d4ae1e4f03f2dd755a44834eb5d09a46"
