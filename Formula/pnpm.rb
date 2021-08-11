@@ -3,8 +3,8 @@ class Pnpm < Formula
 
   desc "📦🚀 Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
-  url "https://github.com/pnpm/pnpm/archive/refs/tags/v6.12.1.tar.gz"
-  sha256 "8553aae7a6867e06f970da58389ca93b14dab7eca838e7f6b5827e1a4df24a2b"
+  url "https://github.com/pnpm/pnpm/archive/refs/tags/v6.13.0-0.tar.gz"
+  sha256 "362f081b6728a4ef9d21411310903f8898c881faf0682649940c66335d39f5a5"
   license "MIT"
 
   livecheck do
@@ -27,36 +27,6 @@ class Pnpm < Formula
   resource "pnpm-buildtime" do
     url "https://get.pnpm.io/v6.7.js"
     sha256 "56bffe269aab055bec3a07fa65c387f5a35729550dc7fc76711844a2de6e1b8b"
-  end
-
-  patch do
-    url "https://github.com/umireon/pnpm/commit/b7bf250ccd0484a68879fb1d9f68c37b02b3563a.patch?full_index=1"
-    sha256 "944082ba011ec706963ee28356452a1f11d441511e2b2d9963c480752f4bae0f"
-  end
-
-  patch do
-    url "https://github.com/umireon/pnpm/commit/949c394ac90d15438a4007c5444f4644c4a871f0.patch?full_index=1"
-    sha256 "1543873afabc43c3e0ab4bf6e9e1115daecdc0bbe47deb3928c1cfbeb202ab67"
-  end
-
-  patch do
-    url "https://github.com/umireon/pnpm/commit/a3f0a9076805c108560260265fb97038059a2eeb.patch?full_index=1"
-    sha256 "5b6f3c27b19f10d8420dcacd4ece8a231f3c9816d0ce45f23ce3e65ae9afbc68"
-  end
-
-  patch do
-    url "https://github.com/umireon/pnpm/commit/273ecfbd85c963aa93c485dc6bdaa8d3f9597aac.patch?full_index=1"
-    sha256 "314afd81baea93f3b28d821b872a0b86a8a7fec2366088151d4b2dd925408e55"
-  end
-
-  patch do
-    url "https://github.com/umireon/pnpm/commit/f3eb679343f0827bff0d2a55d09264f539182f8d.patch?full_index=1"
-    sha256 "2c202b3f9674a873da3e77b05fa9ecccaa81363a68764addb5681038507d56a8"
-  end
-
-  patch do
-    url "https://github.com/umireon/pnpm/commit/9989dab700e745865ba207d7b9a0cde884917345.patch?full_index=1"
-    sha256 "07ed4ce29def43d0cdfa1b37809e81ece64f4ad5ddb96e17f59d6ee6ff204e21"
   end
 
   def install
