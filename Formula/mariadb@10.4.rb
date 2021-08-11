@@ -1,10 +1,9 @@
 class MariadbAT104 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.org/f/mariadb-10.4.20/source/mariadb-10.4.20.tar.gz"
-  sha256 "87d5e29ee1f18de153266ec658138607703ed2a05b3ffb1f89091d33f4abf545"
+  url "https://downloads.mariadb.org/f/mariadb-10.4.21/source/mariadb-10.4.21.tar.gz"
+  sha256 "94dd2e6f5d286de8a7dccffe984015d4253a0568281c7440e772cfbe098a291d"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/"
@@ -38,8 +37,8 @@ class MariadbAT104 < Formula
     # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
     # file called VERSION
     # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-    # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-    # removed once that issue is closed and the fix has been merged into a stable release
+    # Originally reported upstream at https://jira.mariadb.org/browse/MDEV-7209,
+    # but only partially fixed.
     patch :DATA
   end
 
@@ -79,18 +78,16 @@ class MariadbAT104 < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
+    on_linux do
+      args << "-DWITH_NUMA=OFF"
+      args << "-DENABLE_DTRACE=NO"
+      args << "-DCONNECT_WITH_JDBC=OFF"
+    end
+
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
     system "cmake", ".", *std_cmake_args, *args
-
-    on_macos do
-      # Need to rename files called version/VERSION to avoid build failure
-      # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-      # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-      # removed once that issue is closed and the fix has been merged into a stable release
-      mv "storage/mroonga/version", "storage/mroonga/version.txt"
-    end
 
     system "make"
     system "make", "install"
