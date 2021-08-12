@@ -5,6 +5,7 @@
   "cdktf",
   "code-server",
   "contentful-cli",
+  "firebase-cli",
   "gatsby-cli",
   "gitversion",
   "infer",
