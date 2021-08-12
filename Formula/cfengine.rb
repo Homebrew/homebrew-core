@@ -6,8 +6,8 @@ class Cfengine < Formula
   license all_of: ["BSD-3-Clause", "GPL-2.0-or-later", "GPL-3.0-only", "LGPL-2.0-or-later"]
 
   livecheck do
-    url "https://cfengine.com/release-data/community/releases.json"
-    regex(/"version": ?"(\d+(?:\.\d+)+)"/i)
+    url "https://cfengine-package-repos.s3.amazonaws.com/release-data/community/releases.json"
+    regex(/["']version["']:\s*["'](\d+(?:\.\d+)+)["']/i)
   end
 
   bottle do
