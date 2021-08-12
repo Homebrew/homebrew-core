@@ -2,8 +2,8 @@ class ServerGo < Formula
   desc "Server for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub/server-go"
   url "https://github.com/OpenIoTHub/server-go.git",
-      tag:      "v1.1.76",
-      revision: "035895edf38ca35a8a72d3b9bd6c91add40af039"
+      tag:      "v1.1.77",
+      revision: "1c096fa17a6b529bb0002c224c9b035df368f30e"
   license "MIT"
 
   livecheck do
@@ -27,31 +27,11 @@ class ServerGo < Formula
     etc.install "server-go.yaml" => "server-go/server-go.yaml"
   end
 
-  plist_options manual: "server-go -c #{HOMEBREW_PREFIX}/etc/server-go/server-go.yaml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/server-go</string>
-            <string>-c</string>
-            <string>#{etc}/server-go/server-go.yaml</string>
-          </array>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/server-go.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/server-go.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"server-go", "-c", etc/"server-go/server-go.yaml"]
+    keep_alive true
+    log_path var/"log/server-go.log"
+    error_log_path var/"log/server-go.log"
   end
 
   test do
