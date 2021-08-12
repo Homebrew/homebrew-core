@@ -72,14 +72,9 @@ class OpenjdkAT8 < Formula
     end
 
     on_linux do
-      # Fix linker error with position-independent code with brewed GCC.
-      inreplace "common/autoconf/flags.m4", "-pie", "-fno-pie -no-pie"
-      # Fix unknown linker hash style on GCC toolchains.
-      inreplace "common/autoconf/flags.m4", "-Xlinker --hash-style=both", ""
-      inreplace "hotspot/make/linux/makefiles/gcc.make" do |s|
-        s.gsub! "-Xlinker -O1", ""
-        s.gsub! "-Wl,--hash-style=both", ""
-      end
+      # Fix linker errors on brewed GCC
+      inreplace "common/autoconf/flags.m4", "-Xlinker -O1", ""
+      inreplace "hotspot/make/linux/makefiles/gcc.make", "-Xlinker -O1", ""
     end
 
     args = %W[--with-boot-jdk-jvmargs=#{java_options}
