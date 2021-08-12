@@ -1,13 +1,18 @@
 class Samba < Formula
-  # Samba can be used to share directories with the guest in QEMU user-mode (SLIRP) networking
-  # with the `-net nic -net user,smb=/share/this/with/guest` option.
-  # The shared folder appears in the guest as "\\10.0.2.4\qemu".
+  # Samba can be used to share directories with the guest in QEMU user-mode
+  # (SLIRP) networking with the `-net nic -net user,smb=/share/this/with/guest`
+  # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
-  homepage "https://samba.org/"
+  homepage "https://www.samba.org/"
   url "https://download.samba.org/pub/samba/stable/samba-4.14.5.tar.gz"
   sha256 "bb6ef5d2f16b85288d823578abc453d9a80514c42e5a2ea2c4e3c60dc42335c3"
   license "GPL-3.0-or-later"
   revision 1
+
+  livecheck do
+    url "https://www.samba.org/samba/download/"
+    regex(/href=.*?samba[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 arm64_big_sur: "1a70bc9b661f27f9c9b9cab545e504f479c87b367fb78a2ee9d68ad77f687a8c"
