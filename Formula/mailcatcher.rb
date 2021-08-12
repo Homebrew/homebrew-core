@@ -78,7 +78,6 @@ class Mailcatcher < Formula
       ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 
-    # Someone else may have a better way of doing this, but this is what I could come up with
     ENV["GEM_HOME"] = buildpath/"gem_home"
     system "gem", "install", "--no-document", "bundler"
     with_env(PATH: "#{buildpath}/gem_home/bin:#{ENV["PATH"]}") do
@@ -108,8 +107,7 @@ class Mailcatcher < Formula
 
     system "gem", "build", "#{name}.gemspec"
     system "gem", "install", "--ignore-dependencies", "#{name}-#{version}.gem"
-    bin.install libexec/"bin/#{name}"
-    bin.install libexec/"bin/catchmail"
+    bin.install libexec/"bin"/name, libexec/"bin/catchmail"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
