@@ -43,6 +43,13 @@ class Node < Formula
     sha256 "bf73538dbcd933e5a9d9575c0c39539aee3e70b32e27837037681662d3bc2c0b"
   end
 
+  # Fix build with brewed c-ares.
+  # https://github.com/nodejs/node/pull/39739
+  patch do
+    url "https://github.com/nodejs/node/commit/8699aa501c4d4e1567ebe8901e5ec80cadaa9323.patch?full_index=1"
+    sha256 "678643c79258372d5054d3da16bc0c5db17130f151f0e72b6e4f20817987aac9"
+  end
+
   def install
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
