@@ -1,10 +1,9 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://www.musicpd.org/"
-  url "https://www.musicpd.org/download/mpd/0.22/mpd-0.22.9.tar.xz"
-  sha256 "f937403297c2240bd4a569f4b937ee7ab17398a5284ba9df4d6d4c3a0512bc64"
+  url "https://www.musicpd.org/download/mpd/0.22/mpd-0.22.10.tar.xz"
+  sha256 "07c82535e9999c3d4a099d8e652c88724635125b3c9f265ba9b6f2974ff9e614"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git"
 
   bottle do
@@ -88,32 +87,10 @@ class Mpd < Formula
     EOS
   end
 
-  plist_options manual: "mpd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/mpd</string>
-              <string>--no-daemon</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProcessType</key>
-          <string>Interactive</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"mpd", "--no-daemon"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do
