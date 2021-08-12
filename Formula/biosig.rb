@@ -1,8 +1,8 @@
 class Biosig < Formula
   desc "Tools for biomedical signal processing and data conversion"
   homepage "https://biosig.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-2.3.0.src.tar.gz"
-  sha256 "9c66d1167628d6c2027168fb82bcd3c28357e59bd5d8b1d9e615457a2eb59ca0"
+  url "https://downloads.sourceforge.net/project/biosig/BioSig%20for%20C_C%2B%2B/src/biosig-2.3.1.src.tar.gz"
+  sha256 "1edf6228ac99456d551ba88c997a493d39fc9ca09f4442e27e1470a30c3a34b9"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -30,6 +30,8 @@ class Biosig < Formula
     sha256 "75df4a79b8d3d785942cbfd125ce45de49c3e7fa2cd19adb70caf8c4e30e13f0"
   end
 
+  patch :DATA
+
   def install
     system "./configure", "--disable-debug",
            "--disable-dependency-tracking",
@@ -49,3 +51,18 @@ class Biosig < Formula
     assert_match "NumberOfChannels", shell_output("#{bin}/biosig_fhir TEST_44x86_e1.GDF").strip
   end
 end
+
+__END__
+
+diff --git a/biosig4c++/t210/scp-decode.cpp b/biosig4c++/t210/scp-decode.cpp
+index 82fd490f..89f6a8db 100644
+--- a/biosig4c++/t210/scp-decode.cpp
++++ b/biosig4c++/t210/scp-decode.cpp
+@@ -102,6 +102,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+ //#include <iostream>
+ #include <cstring>    //strcat, strcpy
+ #include <cstdio>
++#include <stdlib.h>
+ using namespace std;
+ 
+ /*
