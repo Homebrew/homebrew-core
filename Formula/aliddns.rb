@@ -2,8 +2,8 @@ class Aliddns < Formula
   desc "Aliyun(Alibaba Cloud) ddns for golang"
   homepage "https://github.com/OpenIoTHub/aliddns"
   url "https://github.com/OpenIoTHub/aliddns.git",
-      tag:      "v0.0.9",
-      revision: "37e4f959092b0c286019cab29ce36a0e434c6455"
+      tag:      "v0.0.12",
+      revision: "adcb7cc3b57c254a43f696bd83122cc693cc7ad0"
   license "MIT"
   head "https://github.com/OpenIoTHub/aliddns.git"
 
