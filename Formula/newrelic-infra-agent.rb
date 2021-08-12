@@ -7,6 +7,7 @@ class NewrelicInfraAgent < Formula
   head "https://github.com/newrelic/infrastructure-agent.git"
 
   depends_on "go" => :build
+  # https://github.com/newrelic/infrastructure-agent/issues/695
   depends_on arch: :x86_64
 
   def install
