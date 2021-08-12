@@ -2,17 +2,16 @@ class Openexr < Formula
   desc "High dynamic-range image file format"
   homepage "https://www.openexr.com/"
   # NOTE: Please keep these values in sync with imath.rb when updating.
-  url "https://github.com/openexr/openexr/archive/v3.0.5.tar.gz"
-  sha256 "7aa6645da70e9a0cce8215d25030cfd4f4b17b4abf1ceec314f7eae15674e8e4"
+  url "https://github.com/openexr/openexr/archive/v3.1.1.tar.gz"
+  sha256 "045254e201c0f87d1d1a4b2b5815c4ae54845af2e6ec0ab88e979b5fdb30a86e"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "43a4a1b108ced9e47e56a9b928ef8584451208b6488c3d836ddc825a4af93534"
-    sha256 cellar: :any,                 big_sur:       "cd3ab75bcb62e8d614a2f35cc5d869aa39aef8f96da9ba927baa2a948d06cd2e"
-    sha256 cellar: :any,                 catalina:      "d2116121c8892b65a58372eca5e879a925e2d1566e6197843c766bf26c81d73e"
-    sha256 cellar: :any,                 mojave:        "feb4b0d9f65243c2373140020a24ff362c945075fa11b1c2aeab4c5f5acb6c71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a6974339b7e4218c21046209dd6e71eff8600349700d0daaac0e6d2fdc9fe96"
+    sha256 cellar: :any,                 arm64_big_sur: "3d3257d9750eb7a66a3e161f3e8bfa7cfb405937325f5b91bc02fd7ac9a89c35"
+    sha256 cellar: :any,                 big_sur:       "92108b32e13d57e30e48d5bfa4adbe360b303cc19e78b7b7cb8df7865d66c449"
+    sha256 cellar: :any,                 catalina:      "40d2ebcc43006954145c03e9636b471484aaf613a48adb8558f3d3f005a22c80"
+    sha256 cellar: :any,                 mojave:        "3261656535c6449dd4b1d4a4a52d91c571127bc58ab40374510d2891cdea2cbe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8e9cca16104e95abea8c3db9a00adb783bc08f6694d8015a291987a5da8048c1"
   end
 
   depends_on "cmake" => :build

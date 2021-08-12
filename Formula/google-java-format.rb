@@ -1,12 +1,12 @@
 class GoogleJavaFormat < Formula
   desc "Reformats Java source code to comply with Google Java Style"
   homepage "https://github.com/google/google-java-format"
-  url "https://github.com/google/google-java-format/releases/download/v1.10.0/google-java-format-1.10.0-all-deps.jar"
-  sha256 "9d404cf6fe5f6aa7672693a3301ef2a22016ba540eca5d835be43104b71eb5d6"
+  url "https://github.com/google/google-java-format/releases/download/v1.11.0/google-java-format-1.11.0-all-deps.jar"
+  sha256 "2a5273633c2b1c1607b60b5e17671e6a535dedbcdef74a127629a027297ab7c7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "be92665b363b4b564f4182cf25a7ff4eb9a5306b5b95d11ec6bd385613fb4c78"
+    sha256 cellar: :any_skip_relocation, all: "3fc42b7dadb269a82002fe663bbac560e87c9e9500a92e8b1a3a9053582161cb"
   end
 
   depends_on "openjdk"

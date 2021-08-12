@@ -13,6 +13,7 @@ class Unarj < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "44c4722b1e3d30d987bcbd9fc9ccd7015c54d087bedb7da030e50cc84d0a52e6"
     sha256 cellar: :any_skip_relocation, el_capitan:    "7bdcd771f852f59915623dae370c8f807cbf20f242dad60d62afa1dc683cdf4a"
     sha256 cellar: :any_skip_relocation, yosemite:      "95794638930505f1d4a23553571d62de07dd3f62da7687ef571c6f7e893bba42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "adc76dba3257db6f81cb4a5d57a56cce3c525f3e0254609d3248a0472d699d9b"
   end
 
   resource "testfile" do
@@ -27,10 +28,10 @@ class Unarj < Formula
   end
 
   test do
-    # Ensure that you can extract ARJ.EXE from a sample self-extracting file
+    # Ensure that you can extract arj.exe from a sample self-extracting file
     resource("testfile").stage do
       system "#{bin}/unarj", "e", "ARJ286.EXE"
-      assert_predicate Pathname.pwd/"ARJ.EXE", :exist?
+      assert_predicate Pathname.pwd/"arj.exe", :exist?
     end
   end
 end

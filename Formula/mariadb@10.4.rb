@@ -4,6 +4,7 @@ class MariadbAT104 < Formula
   url "https://downloads.mariadb.org/f/mariadb-10.4.20/source/mariadb-10.4.20.tar.gz"
   sha256 "87d5e29ee1f18de153266ec658138607703ed2a05b3ffb1f89091d33f4abf545"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/"
@@ -11,10 +12,10 @@ class MariadbAT104 < Formula
   end
 
   bottle do
-    sha256 big_sur:      "c88bb9782bd0adfff9cd822e89be6f55a8c7f94cc6a20a4fde0ce1493ca86668"
-    sha256 catalina:     "cdc9413533dde13878cffcff28f8d189b4492d47d7c5f9c67c382c8560c0b37d"
-    sha256 mojave:       "86f2e63ec9006701da206c89cad1a454a641c4468ef5a395380abd6ba84ba0ed"
-    sha256 x86_64_linux: "81bef22e939d3eb0279468b4e7b9b3fbbede5a3d96492c75fe042c29c682131d"
+    sha256 big_sur:      "5d4587b6925d11da019efae8bcaa305c549a1a1c7520599dffae972531c28302"
+    sha256 catalina:     "51d055bed3d91b808bd954a5a68429defc4f2c5fdf59f66076c0c5ad7d201805"
+    sha256 mojave:       "9b56ea790363004775716cefe69acb1b7f1ff2f9fbfd9144f17d475a848519b8"
+    sha256 x86_64_linux: "2d31fa206235260af0f25557b2769b71a44e2645646b0e49a126fb2c12711218"
   end
 
   keg_only :versioned_formula

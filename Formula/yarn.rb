@@ -1,9 +1,8 @@
 class Yarn < Formula
   desc "JavaScript package manager"
   homepage "https://yarnpkg.com/"
-  # Should only be updated if the new version is listed as a stable release on the homepage
-  url "https://yarnpkg.com/downloads/1.22.10/yarn-v1.22.10.tar.gz"
-  sha256 "7e433d4a77e2c79e6a7ae4866782608a8e8bcad3ec6783580577c59538381a6e"
+  url "https://yarnpkg.com/downloads/1.22.11/yarn-v1.22.11.tar.gz"
+  sha256 "2c320de14a6014f62d29c34fec78fdbb0bc71c9ccba48ed0668de452c1f5fe6c"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,8 +10,7 @@ class Yarn < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2b7e2e40cf6448ba992f94c532a20ef2ec079004293e783290dfbd6243057f24"
-    sha256 cellar: :any_skip_relocation, all:          "5c8f50922a573a4fc2f15b2b5b0fb457d93312474f85b1a23dd3af7d3e072650"
+    sha256 cellar: :any_skip_relocation, all: "27d2f4cae93bd17d2038871f7ac6bc8b04d181ebcebd9f976e1701a3def55c8d"
   end
 
   depends_on "node"

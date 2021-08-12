@@ -14,11 +14,12 @@ class Cmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f1fe113553e36a528937db0888574e12ff46e4454a52c0a4cffeedfa8b4e35f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "811eb99b94e5359a9412a1cc4dbbcf213f3f79426fdd0983e422be67c701e1e3"
-    sha256 cellar: :any_skip_relocation, catalina:      "669b2fce7ae2cfdf22283fe07f2fc73620b80690437839fb008f74cbf971be9e"
-    sha256 cellar: :any_skip_relocation, mojave:        "2dd811d87869b2f48b30ef9d0270dcba483167b7c14d36dc8239e8561f0ae43f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "742da457c9b45d0580d8e00e9638cedcfe18d1a82c57cb80d035e707062e1d68"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d0adf9e1c020361a6f7a2e02d88b6b7d59f23c6487a54240a5ca1ac677501bb4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4ffc49c18cfc6e55a1f61fd62657de2aed1c7debec7e676e5c0160849f391287"
+    sha256 cellar: :any_skip_relocation, catalina:      "57dc1f490dd0b29f486d6cfabcd5aafdfc68dc9cc4f093bf1120761aa7d85ae7"
+    sha256 cellar: :any_skip_relocation, mojave:        "a7f593d9424c66ed3c2f6a7654c14176bc0ca913d7c676499a74835130cdc6c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60f1c7452490ddc0eb99c0217d6ec68b1c35e5aa683dfff6aacdace0a29ff147"
   end
 
   depends_on "sphinx-doc" => :build
@@ -56,7 +57,8 @@ class Cmake < Formula
     end
 
     system "./bootstrap", *args, "--", *std_cmake_args,
-                                       "-DCMake_INSTALL_EMACS_DIR=#{elisp}"
+                                       "-DCMake_INSTALL_EMACS_DIR=#{elisp}",
+                                       "-DCMake_BUILD_LTO=ON"
     system "make"
     system "make", "install"
 

@@ -14,6 +14,7 @@ class AwsGoogleAuth < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "7a0d6cb9a8776d56e1a8c990d244a33c8740016e6a7ad7f2e6737c6870c57e42"
     sha256 cellar: :any_skip_relocation, catalina:      "5938adc2d456a0c4c1efaea600e23b73eb3645267664271548da6cf4ffe91919"
     sha256 cellar: :any_skip_relocation, mojave:        "38183d79bd35c9010bc795a0e3bb4d4362b70515049e39ac31c8c2638cd8daee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58cc10ce4cd93c39236973248b0a9d7a75047b86f03f122c299fc20d7768f7ac"
   end
 
   depends_on "rust" => :build

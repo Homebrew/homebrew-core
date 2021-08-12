@@ -1,17 +1,17 @@
 class Trunk < Formula
   desc "Build, bundle & ship your Rust WASM application to the web"
   homepage "https://github.com/thedodd/trunk"
-  url "https://github.com/thedodd/trunk/archive/v0.12.1.tar.gz"
-  sha256 "6f4e74f83f1ab7a224f1ab82483cde90be7057e6b6f6f26754e8aff8f3e1ba98"
+  url "https://github.com/thedodd/trunk/archive/v0.13.1.tar.gz"
+  sha256 "c9c01c9d2aff59a8fac11a4eee4879a17ace0d2262532a391b7f5e92623caae6"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/thedodd/trunk.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "35a2a5d15c734e550e3c19f992317f7bd56eefe010a578a9064cdf0b2b9fc422"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ad02044660a3f1f9ee3ad972c650022107ae982c46cef836c0c27d22b44494e6"
-    sha256 cellar: :any_skip_relocation, catalina:      "7066418172fcc946a5ccdf6ab3c1ffbf74939efa38c41e4448c81903c286f44a"
-    sha256 cellar: :any_skip_relocation, mojave:        "fa07e6fa4721154019890ed0545be12d49adef5c3c4d57410fb49d2c04cb3582"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b1eb0bef5e59651f1fcd2625e02ff63e7a996faa8d488539aeb6866c97045454"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d07b020b907c09197db7bc81a972929069defc4a575a670de6c8ecee3ec528f7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9c6aa5119281af93f3c2674d02e71dca7c35e5b4da61a5c7b134e38d9b8b5b5b"
+    sha256 cellar: :any_skip_relocation, catalina:      "cc663c7e6a314fe6d020288e8422e513c0fb60a6895ecce17b9c5b330d6f8eee"
+    sha256 cellar: :any_skip_relocation, mojave:        "358eec5df425f78dc13e7c893942074ec046803a99bc31bc022cca38126d45a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f87770488cbac5acc72bcd4cbb4718fcf7190357fe614c2f5e03e025a09c12c1"
   end
 
   depends_on "rust" => :build

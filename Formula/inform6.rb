@@ -1,17 +1,18 @@
 class Inform6 < Formula
   desc "Design system for interactive fiction"
   homepage "https://inform-fiction.org/inform6.html"
-  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.34-6.12.4-1.tar.gz"
-  version "6.34-6.12.4-1"
-  sha256 "8cc1983c7bbed7f23fcf3cd549fe8dc10b1a506b95129c35e9f61d2e79b85295"
+  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.35-r2.tar.gz"
+  version "6.35-r2"
+  sha256 "5b08987ec4fd1b06f3c0769c7fa13607a7387ff9f901ed375916846b4217582c"
   license "Artistic-2.0"
   head "https://gitlab.com/DavidGriffith/inform6unix.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c596c279a29befbca82053e12594b6ab3524c205f969b4747bc9e8ae6a8f1cf4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a4b3d047e0686c3104ce51b8780b12202c6c3b9486ce3e386e1ac5e7acbe8944"
-    sha256 cellar: :any_skip_relocation, catalina:      "4fa26f001f5e273bca4b561f2e7c3783d55fb7ab69f3bb098f109f72a789cc95"
-    sha256 cellar: :any_skip_relocation, mojave:        "0c0de1e012507b4450e610d93e25497f13fef4c11f5d47dfdcd76cf7755f2c46"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "045dd5e16b6eb02c202d366860e7aaabc0a3af6a934fd061ac7fed5177fe31a7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9786ae0a2fe967eb5c016b11f7c7820ad10368028fd3adcbb580f8cb16e48350"
+    sha256 cellar: :any_skip_relocation, catalina:      "93637b51aab07fd75de01b2e95d128bc56993ef99333df1183ffa14b5ab80961"
+    sha256 cellar: :any_skip_relocation, mojave:        "c8f2f9c75d25a79e0e3a379fcda5768724f2ea8eb328c1b083f49bdd5b11045b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "376492f4b617b4efcd3c6bc8ee154dbedf13284649c989410339ce0cc0cce663"
   end
 
   resource "Adventureland.inf" do
@@ -20,10 +21,11 @@ class Inform6 < Formula
   end
 
   def install
-    # Disable parallel build until release with https://gitlab.com/DavidGriffith/inform6unix/-/commit/dab07d5c83a42e1c52e4058d6a31a8137f54b59c
-    # ships; see https://gitlab.com/DavidGriffith/inform6unix/-/issues/26
+    # Parallel install fails at:
+    # install -d -m 755 /usr/local/Cellar/inform6/6.35-r2/share/inform/punyinform/documentation
+    # install: /usr/local/Cellar/inform6/6.35-r2/bin/punyinform.sh: Not a directory
     ENV.deparallelize
-    system "make", "PREFIX=#{prefix}", "MAN_PREFIX=#{man}", "install"
+    system "make", "PREFIX=#{prefix}", "MAN_PREFIX=#{man}", "MANDIR=#{man1}", "install"
   end
 
   test do

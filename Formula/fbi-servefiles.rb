@@ -13,6 +13,7 @@ class FbiServefiles < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "9383ebc1948e403d7fef0e0613063cb1febb62e5b8142c3fe7ab62bf3f3d5c1d"
     sha256 cellar: :any_skip_relocation, mojave:        "4055c03cc79761271cf0ea70be2f54250fa5b67db91f030f4ac9449e0a2f7307"
     sha256 cellar: :any_skip_relocation, high_sierra:   "d8d8d483abd92d016d8d1a7f0e4535c51233c83914f1c61d1223b72d750f1b8a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6b495211bb790b4abb9dec8c464aa929ff7e36c64b73c44f3c620c3bd82a7b3e"
   end
 
   deprecate! date: "2020-11-12", because: :repo_archived

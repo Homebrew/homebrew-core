@@ -6,10 +6,11 @@ class Mydumper < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1921386bcc29a182633c60e570e8cd2fe64bc657a8fd043094bfdaba3066e1d1"
-    sha256 cellar: :any, big_sur:       "50437e47484abc3294969b9eeffcd8373bc62b53e59636d2e56d2c386192d00e"
-    sha256 cellar: :any, catalina:      "4bccea5099be96d94719a79360b48ef71876c57c7836a17455d4612817e34888"
-    sha256 cellar: :any, mojave:        "9e4ca09a18d4bc8d44b64748445bf3dafc32b0d84092e74cb460acac5e898fb8"
+    sha256 cellar: :any,                 arm64_big_sur: "1921386bcc29a182633c60e570e8cd2fe64bc657a8fd043094bfdaba3066e1d1"
+    sha256 cellar: :any,                 big_sur:       "50437e47484abc3294969b9eeffcd8373bc62b53e59636d2e56d2c386192d00e"
+    sha256 cellar: :any,                 catalina:      "4bccea5099be96d94719a79360b48ef71876c57c7836a17455d4612817e34888"
+    sha256 cellar: :any,                 mojave:        "9e4ca09a18d4bc8d44b64748445bf3dafc32b0d84092e74cb460acac5e898fb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "27e718cb5914fe9a3c479024351520231515e969e94d4e7743004773a90c5d57"
   end
 
   depends_on "cmake" => :build
@@ -23,13 +24,20 @@ class Mydumper < Formula
   uses_from_macos "zlib"
 
   def install
-    system "cmake", ".", *std_cmake_args,
-           # Override location of mysql-client:
-           "-DMYSQL_CONFIG_PREFER_PATH=#{Formula["mysql-client"].opt_bin}",
-           "-DMYSQL_LIBRARIES=#{Formula["mysql-client"].opt_lib}/libmysqlclient.dylib",
-           # find_package(ZLIB) has troube on Big Sur since physical libz.dylib
-           # doesn't exist on the filesystem.  Instead provide details ourselves:
-           "-DCMAKE_DISABLE_FIND_PACKAGE_ZLIB=1", "-DZLIB_INCLUDE_DIRS=/usr/include", "-DZLIB_LIBRARIES=-lz"
+    # Override location of mysql-client
+    args = std_cmake_args + %W[
+      -DMYSQL_CONFIG_PREFER_PATH=#{Formula["mysql-client"].opt_bin}
+      -DMYSQL_LIBRARIES=#{Formula["mysql-client"].opt_lib/shared_library("libmysqlclient")}
+    ]
+    # find_package(ZLIB) has trouble on Big Sur since physical libz.dylib
+    # doesn't exist on the filesystem.  Instead provide details ourselves:
+    on_macos do
+      args << "-DCMAKE_DISABLE_FIND_PACKAGE_ZLIB=1"
+      args << "-DZLIB_INCLUDE_DIRS=/usr/include"
+      args << "-DZLIB_LIBRARIES=-lz"
+    end
+
+    system "cmake", ".", *args
     system "make", "install"
   end
 

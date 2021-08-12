@@ -11,11 +11,12 @@ class Haproxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "b54672fb0fe03ae0fa691a09c113f2d9fa6a761f0a903a34b0c59deb8cf154ff"
-    sha256 cellar: :any,                 big_sur:       "7ab9db1ce2e05d9dace25c3326f3c01d08c7e68141d085d4dca532260b7a2781"
-    sha256 cellar: :any,                 catalina:      "926b05c986b62dc851359aaf0e327b77608bb71c2222570692d4733d7f935726"
-    sha256 cellar: :any,                 mojave:        "b98c7e96b60593cbe645a1840f5ccb82d8e253cc4e208d243920c92b303feefa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "13af7cb7dd5051248675a343830d72c2be49a33cecd3a9c08472cf84e6674d8e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "9e19720dc2e785352b8be41e9e575140fe9b08e86e840f169dc9342aab4a143d"
+    sha256 cellar: :any,                 big_sur:       "14b0514e6083608c17237344ffab08916e7f9e527d1ad6e9b13a8c537f838534"
+    sha256 cellar: :any,                 catalina:      "467226745efdb18ca77c213c26f6ace96244f02f4639a37e0e9f522ca26a7853"
+    sha256 cellar: :any,                 mojave:        "6c5cc529aa7ce7dbc53095e4dc540cb0d214f7bdcbf26a754eb0b3816a807fe9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c3ee57c4efb9759e553d1cfd2cc2119745a68028212229e460e83aa17a1f677"
   end
 
   depends_on "openssl@1.1"
@@ -45,31 +46,11 @@ class Haproxy < Formula
     bin.install "haproxy"
   end
 
-  plist_options manual: "haproxy -f #{HOMEBREW_PREFIX}/etc/haproxy.cfg"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/haproxy</string>
-            <string>-f</string>
-            <string>#{etc}/haproxy.cfg</string>
-          </array>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/haproxy.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/haproxy.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"haproxy", "-f", etc/"haproxy.cfg"]
+    keep_alive true
+    log_path var/"log/haproxy.log"
+    error_log_path var/"log/haproxy.log"
   end
 
   test do

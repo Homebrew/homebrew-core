@@ -14,6 +14,8 @@ class Mobiledevice < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "7ac3822649356127001c8b452df55c1435c467938193f223da61bbcdf2a7c11b"
   end
 
+  depends_on :macos
+
   # This is a simple change that permits building on newer versions of macOS.
   # Should be included in the next stable release.
   patch do

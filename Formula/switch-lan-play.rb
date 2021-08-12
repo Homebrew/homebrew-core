@@ -4,7 +4,7 @@ class SwitchLanPlay < Formula
   url "https://github.com/spacemeowx2/switch-lan-play.git",
       tag:      "v0.2.3",
       revision: "c0c663e3fdc95d6d6e8ab401caa2bfb5b5872e00"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ae86854d36264397768367d7ce69466967e303b5047828a6720c6574101a24b8"
@@ -12,9 +12,12 @@ class SwitchLanPlay < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "caa1992416c8eae4c281af3166238bb2bf8104c1d91d7dc37a2abd8715712ccc"
     sha256 cellar: :any_skip_relocation, mojave:        "62da027220b8d01270c8459cec638744ed06eac2ec046ccff56729b7f126eacf"
     sha256 cellar: :any_skip_relocation, high_sierra:   "41a10e6d0ce45410763c4774afa4286a8c633ac60348c0d0963e33cbef855c1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b0575f08e99046febb1ff6e1c00f02ab5b1bfa3e4b944828d0c858339748989b"
   end
 
   depends_on "cmake" => :build
+
+  uses_from_macos "libpcap"
 
   def install
     mkdir "build" do

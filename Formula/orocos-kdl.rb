@@ -6,10 +6,11 @@ class OrocosKdl < Formula
   license "LGPL-2.1"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c576e606256440c65e04cc0fd2aed93362c357ad25a46fc0f72aac022b0eec44"
-    sha256 cellar: :any, big_sur:       "615f504ff88df9e2e465dcbef63eb273499bc46227e3d68d23e074d91cc1ea51"
-    sha256 cellar: :any, catalina:      "4d1e1513aab353a9007de15aa819123cbb6593a9878e34bb951daea6ab8193c7"
-    sha256 cellar: :any, mojave:        "bce9b01c40d1c6f2ecf4362e98466ced1fffc587d9ca8e08af2da301a8852431"
+    sha256 cellar: :any,                 arm64_big_sur: "c576e606256440c65e04cc0fd2aed93362c357ad25a46fc0f72aac022b0eec44"
+    sha256 cellar: :any,                 big_sur:       "615f504ff88df9e2e465dcbef63eb273499bc46227e3d68d23e074d91cc1ea51"
+    sha256 cellar: :any,                 catalina:      "4d1e1513aab353a9007de15aa819123cbb6593a9878e34bb951daea6ab8193c7"
+    sha256 cellar: :any,                 mojave:        "bce9b01c40d1c6f2ecf4362e98466ced1fffc587d9ca8e08af2da301a8852431"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b877b036ac882aaa9cece53e6ec4d6869520076e268af49c6bdece0d44d84f4"
   end
 
   depends_on "cmake" => :build

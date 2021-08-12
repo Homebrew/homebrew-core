@@ -8,6 +8,10 @@ class SshCopyId < Formula
   license "SSH-OpenSSH"
   head "https://github.com/openssh/openssh-portable.git"
 
+  livecheck do
+    formula "openssh"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "0a70abbf0873a98e1f1653781006036f67a2cdf6a2d372e7de2865a50d2ba2cd"
   end

@@ -15,6 +15,7 @@ class Pari < Formula
     sha256 big_sur:       "84b7739fcd41c82756c2610a6b6e7686d52d9b338b9cd23b9bc7405aea3b8901"
     sha256 catalina:      "6eafc6e4947af844a2984f78ee3769df27be397d2beeab046595c87cf54a0576"
     sha256 mojave:        "6f745e024e7cd4acbea3db05f8942c843549aa0003c621bb597ac9982a65e56d"
+    sha256 x86_64_linux:  "3b62dbe1570c79d82b68c5093b621c4584eb0111f71f75c9aa9dfcb1ac1baef8"
   end
 
   depends_on "gmp"
@@ -31,8 +32,10 @@ class Pari < Formula
     system "make", "all"
     system "make", "install"
 
+    os = "mac"
+    on_linux { os = "linux" }
     # Avoid references to Homebrew shims
-    inreplace lib/"pari/pari.cfg", HOMEBREW_LIBRARY/"Homebrew/shims/mac/super/", "/usr/bin/"
+    inreplace lib/"pari/pari.cfg", HOMEBREW_LIBRARY/"Homebrew/shims/#{os}/super/", "/usr/bin/"
   end
 
   def caveats

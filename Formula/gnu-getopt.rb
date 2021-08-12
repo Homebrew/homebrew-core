@@ -1,16 +1,16 @@
 class GnuGetopt < Formula
   desc "Command-line option parsing utility"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.tar.xz"
-  sha256 "bd07b7e98839e0359842110525a3032fdb8eaf3a90bedde3dd1652d32d15cce5"
+  url "https://www.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.1.tar.xz"
+  sha256 "8e4bd42053b726cf86eb4d13a73bc1d9225a2c2e1a2e0d2a891f1020f83e6b76"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "079587e59cd2e4061082a2582c4b57a61a76945c5520ef342408445ac454aed4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e9b50df1befbbee936eda326aae7479e0a0557964eb29e5ae6ba68cd15f93a0e"
-    sha256 cellar: :any_skip_relocation, catalina:      "f496f191c9e3d5dd178255bf2baac2e9933ff7aeef4904a10539e8b98e80df4c"
-    sha256 cellar: :any_skip_relocation, mojave:        "804cd9ab8706b9aed9b2ebc7bccfbdbea97cc261bf0f0cb70ef9788070d8685a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "795aaa2bd6c72ec21d2a2476f674a033e12a8271ed9a6357ed692d1ff5dee25a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ae59371d0bc1aa629882dda55f05ef741a4b5c1f312a0e624a708c0dc88998c1"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2a7c4e963750c612e235839a8ed7c18cfa5d080b067bb2db98859d5c8b8b5aba"
+    sha256 cellar: :any_skip_relocation, catalina:      "b4d0a6f8a244e4f4011cc30a536e2959c94505f53de315bb470853d23a6f53fd"
+    sha256 cellar: :any_skip_relocation, mojave:        "6fbd596ad1960a40df146c566258ebeb01338f2ae80b03134cd64e47bd7cf839"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6b0a061947671bde9e7c1437a6fcdd9d501562a28a3dcf8c3da61cca8e6a4f7"
   end
 
   keg_only :provided_by_macos

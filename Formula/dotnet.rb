@@ -21,6 +21,7 @@ class Dotnet < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on xcode: :build
+  depends_on arch: :x86_64
   depends_on "curl"
   depends_on "icu4c"
   depends_on "openssl@1.1"

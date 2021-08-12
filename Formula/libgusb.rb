@@ -13,6 +13,7 @@ class Libgusb < Formula
     sha256 big_sur:       "2fd0b79da4ed73da54bae2ae8624ea7b669cb5fc0ff56271e59a54d17f849095"
     sha256 catalina:      "87dfd4dbc0d2061835c78347f1ea1e37def0091e66ab1da1409b32c03f4a210e"
     sha256 mojave:        "9eda4fe4eae3ab04d80b218ec9f2f5c631b8eadc31a12b0708af1adb7fb44371"
+    sha256 x86_64_linux:  "7a99316555d347858e235e865f61add728b1226aefd05cc30a11f530476c8ee0"
   end
 
   depends_on "gobject-introspection" => :build
@@ -63,10 +64,12 @@ class Libgusb < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
       -lusb-1.0
       -lgusb
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

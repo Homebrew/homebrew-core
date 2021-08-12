@@ -4,7 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/4.5.3.tar.gz"
   sha256 "77f616ae4bea416674d8c373984b20c8bd55e7db887fd38c6df73463a0647bab"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -12,10 +12,10 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "1e243368517a973644545ac94a1a052307a90157e0983da99e8e21d0a6d330b6"
-    sha256 big_sur:       "8cea776af7e0eb8f563da4f98bc0ce2d219c676a46927f2433371addf0ee3629"
-    sha256 catalina:      "5838b52232959c7e4b4683b75fb7d517dae5a787ae602d5208f3fb2ac861b7f2"
-    sha256 mojave:        "9467018e16d5c520acf5fd75de5daa952f10e3323172e8006a89692970790ff8"
+    sha256 arm64_big_sur: "eb90e4fc4608ce7285e0836586f1e1db8ffd1c150fa2accfec4574a8368a5bf5"
+    sha256 big_sur:       "a66bb42ee8e14bc77656b330267ad0bf2c83bd2df0abb0f1ad6da357bcbc94f2"
+    sha256 catalina:      "66bfff6d709f9f0dc0875701a05df2fc2c052f48b67a6c91c106a58ac4be1932"
+    sha256 mojave:        "bdd113015b81013f74206b0be03ab37a6d57af9cf924592c8f61658d63aada63"
   end
 
   depends_on "cmake" => :build

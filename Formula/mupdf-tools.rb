@@ -7,8 +7,7 @@ class MupdfTools < Formula
   head "https://git.ghostscript.com/mupdf.git"
 
   livecheck do
-    url "https://mupdf.com/downloads/archive/?C=M&O=D"
-    regex(/href=.*?mupdf[._-]v?(\d+(?:\.\d+)+)-source\.(?:t|zip)/i)
+    formula "mupdf"
   end
 
   bottle do

@@ -107,7 +107,7 @@ class Glibc < Formula
 
   def install
     # Fix Error: `loc1@GLIBC_2.2.5' can't be versioned to common symbol 'loc1'
-    # See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=
+    # See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=869717
     # Fixed in glibc 2.24
     inreplace "misc/regexp.c", /^(char \*loc[12s]);$/, "\\1 __attribute__ ((nocommon));"
 

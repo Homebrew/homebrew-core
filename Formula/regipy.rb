@@ -3,17 +3,17 @@ class Regipy < Formula
 
   desc "Offline registry hive parsing tool"
   homepage "https://github.com/mkorman90/regipy"
-  url "https://files.pythonhosted.org/packages/72/23/ae827829df2e2feab60c44fd3cf81eee17edc3cec3dea280edc4b777256e/regipy-1.9.4.tar.gz"
-  sha256 "86de2da57ccd95fc08ea51fa7e4bef6ed8aa0ab37c4286124bed126bf178c448"
+  url "https://files.pythonhosted.org/packages/c4/a3/b898885397175685ff21f1d85cc0f97f5915789fdf4e83f69c45a3dfc930/regipy-2.1.0.tar.gz"
+  sha256 "82bb10f0e0dc7837796946578e1898489e8d5a0c81d7d55b35892537035fef4e"
   license "MIT"
   head "https://github.com/mkorman90/regipy.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fac10e536db0d02edf78e62cd142affa66796fa1efdbed6c9440a82fcdce92d6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e227c5846d46a6e394d435a5a595b5cfca14a490d57a55f96fbc4f62745a6239"
-    sha256 cellar: :any_skip_relocation, catalina:      "c4cc7ee70d0302df12ea9566b6a584467b04420dd694ea8198dad5fdb25ac550"
-    sha256 cellar: :any_skip_relocation, mojave:        "b3530f14c3006c16b91f1da7e488b93e4e07c97665f76aa8fdcd6039450914b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08f6564fa524d8372b6a913aa489ff1f20e9affa7edfeae843a2cf049dd536b0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "da15356f76e35f0b88b060353a3b4b36dc25409967670a977e18619607b9568e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "147078169ccdc75d6916034f37948ffa74bd92d853bab685d274dc092186b385"
+    sha256 cellar: :any_skip_relocation, catalina:      "ad51e89ee4c8e2061e5b09c9adef797a9461f7987a8a5a6db2be6ae2087b29aa"
+    sha256 cellar: :any_skip_relocation, mojave:        "456ff2a89087634ec38185c392588c2e01d8653de7edcdb66d2c8e65d7d8bfb2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b164b006e8e156f1d96096267e1c141ed7ecd459ab377fdbc523f5cb1647f59b"
   end
 
   depends_on "python-tabulate"
@@ -37,16 +37,6 @@ class Regipy < Formula
   resource "inflection" do
     url "https://files.pythonhosted.org/packages/e1/7e/691d061b7329bc8d54edbf0ec22fbfb2afe61facb681f9aaa9bff7a27d04/inflection-0.5.1.tar.gz"
     sha256 "1a29730d366e996aaacffb2f1f1cb9593dc38e2ddd30c91250c6dde09ea9b417"
-  end
-
-  resource "jsonlines" do
-    url "https://files.pythonhosted.org/packages/bf/40/a1b1810a09e3e85567c17831fcc2fc8e48ad9a1d3b02e8be940c43b908a8/jsonlines-2.0.0.tar.gz"
-    sha256 "6fdd03104c9a421a1ba587a121aaac743bf02d8f87fa9cdaa3b852249a241fe8"
-  end
-
-  resource "Logbook" do
-    url "https://files.pythonhosted.org/packages/2f/d9/16ac346f7c0102835814cc9e5b684aaadea101560bb932a2403bd26b2320/Logbook-1.5.3.tar.gz"
-    sha256 "66f454ada0f56eae43066f604a222b09893f98c1adc18df169710761b8f32fe8"
   end
 
   resource "pytz" do

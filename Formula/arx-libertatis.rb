@@ -15,6 +15,7 @@ class ArxLibertatis < Formula
     sha256 big_sur:       "3f03719e92c9606c8ea9b9dbd891fb021cb64dab0f900ccdb4461fd9e148dcea"
     sha256 catalina:      "92502b8e62cb44e1fdedd2dccba4f52e50dc84d43ba49e9701bad63068398b74"
     sha256 mojave:        "fd6ca5b5c434e60283a830f15320e40863a74d6c86fb4c5f2301cb27b6b60489"
+    sha256 x86_64_linux:  "77ab00fa5362582badc7471df2b653af79e8345ea2a915cc1eeb6760de28cabd"
   end
 
   head do

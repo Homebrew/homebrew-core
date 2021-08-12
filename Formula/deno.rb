@@ -1,24 +1,35 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.12.2/deno_src.tar.gz"
-  sha256 "4ac5a1a29d8490220c5c35eb6eb35675eb01abf3022a1fb88e4620d7ba481734"
+  url "https://github.com/denoland/deno/releases/download/v1.13.0/deno_src.tar.gz"
+  sha256 "c1c7ccb0f6ac3d74e8ae40cccc55804ac5554f77431f70e19276da3874a1b439"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9c3ef21ec938fc371d1741b09bde3b677eb7efbc4a78004e548f14f8f0755706"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ab0a5268c2a5a1db9793945fb385b3ac5e761f86884c7e6a8f51db33d051239b"
-    sha256 cellar: :any_skip_relocation, catalina:      "40d1387b00a257db172ea2fabdfe8ec1adeaa77b9da7914be9bf4b3a41890a6d"
-    sha256 cellar: :any_skip_relocation, mojave:        "63f07564b8feeb57deb709092f940b436e995090e60a87d242a5afebe3efa7e0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5440a5b4fda3adf2b411397b75f8e7f4664b1695296a424e08760c7c84253337"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f2f66c66e3562aeacb76163e14e6faafe37927c413605b730e0da0c234c3d7a5"
+    sha256 cellar: :any_skip_relocation, catalina:      "953c535b6c66a9f76490910d1fe6a56517763b782e209f84581c811a6b1150ff"
+    sha256 cellar: :any_skip_relocation, mojave:        "d30ab799b8a78c003bd48c45b36ef50bbf8aa301934d0b252a9045a51be27ccd"
+    sha256                               x86_64_linux:  "ec567b886d0c6b035f6ea6fa17e18eeac31f741d82d0557a95846a3ec8771c67"
   end
 
   depends_on "llvm" => :build
   depends_on "ninja" => :build
+  depends_on "python@3.9" => :build
   depends_on "rust" => :build
-  depends_on xcode: ["10.0", :build] # required by v8 7.9+
-  depends_on :macos # Due to Python 2 (see https://bugs.chromium.org/p/chromium/issues/detail?id=942720)
 
   uses_from_macos "xz"
+
+  on_macos do
+    depends_on xcode: ["10.0", :build] # required by v8 7.9+
+  end
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "glib"
+  end
+
+  fails_with gcc: "5"
 
   # To find the version of gn used:
   # 1. Find rusty_v8 version: https://github.com/denoland/deno/blob/v#{version}/core/Cargo.toml
@@ -31,10 +42,14 @@ class Deno < Formula
   end
 
   def install
-    # Overwrite Chromium minimum SDK version of 10.15
-    ENV["FORCE_MAC_SDK_MIN"] = MacOS.version if MacOS.version < :mojave
+    on_macos do
+      # Overwrite Chromium minimum SDK version of 10.15
+      ENV["FORCE_MAC_SDK_MIN"] = MacOS.version if MacOS.version < :mojave
+    end
 
-    # env args for building a release build with our clang, ninja and gn
+    # env args for building a release build with our python3, ninja and gn
+    ENV.prepend_path "PATH", Formula["python@3.9"].libexec/"bin"
+    ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
     ENV["GN"] = buildpath/"gn/out/gn"
     ENV["NINJA"] = Formula["ninja"].opt_bin/"ninja"
     # build rusty_v8 from source
@@ -45,7 +60,7 @@ class Deno < Formula
 
     resource("gn").stage buildpath/"gn"
     cd "gn" do
-      system "python", "build/gen.py"
+      system "python3", "build/gen.py"
       system "ninja", "-C", "out"
     end
 

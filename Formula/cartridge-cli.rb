@@ -2,16 +2,16 @@ class CartridgeCli < Formula
   desc "Tarantool Cartridge command-line utility"
   homepage "https://tarantool.org/"
   url "https://github.com/tarantool/cartridge-cli.git",
-      tag:      "2.9.1",
-      revision: "5770f5e62e71271c216e59e81934fda8b58e0039"
+      tag:      "2.10.0",
+      revision: "2b87a1b1d6159d8fe8ed52bca58a00365e29cbde"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c71e2ad16ccad4fd763bf16764a0561544a75002578c489d07d05035a40fade4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "71cae5381ab4d0ab1a09d1d523cab9c39e48f786fbc65bdc1aed1fe641fd4eba"
-    sha256 cellar: :any_skip_relocation, catalina:      "4e3f9ffa29ba823041fe460d116afeb9a37c7453bca4f658c9a88d0baff3fbf9"
-    sha256 cellar: :any_skip_relocation, mojave:        "19eaa3369041b180f581a6b27d2816dde06eae5b214410e882fd9add29061a81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aed3b52eb3b2653ba45c1ac5b559474ecd60ee6576c0572520bc3e3bd4c4d948"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ea51b9bb88158e82edb5b079a07915993a1ef0a07e810aa87acacfa46a32031d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0e92881071540ce28124b70532542bc5769c7aee816c97d263fb59cbc9fc535a"
+    sha256 cellar: :any_skip_relocation, catalina:      "883b771de9dcb40281867c74f8a187fab3024940725736f0e0f21897ec865159"
+    sha256 cellar: :any_skip_relocation, mojave:        "14bfb8dedf6118be65ce692359f96213145d34963f17fd7a46a929ff5df64e2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03c17b33ca0210967a88b1dc0a9c835d60e5d7ab1ddebe872ca51bdcd288a4ae"
   end
 
   depends_on "go" => :build

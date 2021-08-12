@@ -12,12 +12,13 @@ class Tarsnap < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "879ca63de6f2c293dd325fe0cf7a7284cf5603bf5efcc6fc5159ddb676d1163d"
-    sha256 cellar: :any, big_sur:       "db0fceeaf2b93d4d7588ef1b3c0ac69080595e4fd05311fb3d61ccb95c9f9ae0"
-    sha256 cellar: :any, catalina:      "afa6ebfefbc93faf12ac6576f26edb0b68c6a47cc65b893d590ea1efd4301fb4"
-    sha256 cellar: :any, mojave:        "c6c97cd8e16ba02f7997d1d269373dca82d4a3d188b89dc3532c8149e277bd02"
-    sha256 cellar: :any, high_sierra:   "847aae76230beaedfa23ea0a0f375864a8af6063c8539634637ab218a425540d"
-    sha256 cellar: :any, sierra:        "dbf1a477d46c723a3cebb6b1001771bf51956035ea3369b5e2451c091cad5930"
+    sha256 cellar: :any,                 arm64_big_sur: "879ca63de6f2c293dd325fe0cf7a7284cf5603bf5efcc6fc5159ddb676d1163d"
+    sha256 cellar: :any,                 big_sur:       "db0fceeaf2b93d4d7588ef1b3c0ac69080595e4fd05311fb3d61ccb95c9f9ae0"
+    sha256 cellar: :any,                 catalina:      "afa6ebfefbc93faf12ac6576f26edb0b68c6a47cc65b893d590ea1efd4301fb4"
+    sha256 cellar: :any,                 mojave:        "c6c97cd8e16ba02f7997d1d269373dca82d4a3d188b89dc3532c8149e277bd02"
+    sha256 cellar: :any,                 high_sierra:   "847aae76230beaedfa23ea0a0f375864a8af6063c8539634637ab218a425540d"
+    sha256 cellar: :any,                 sierra:        "dbf1a477d46c723a3cebb6b1001771bf51956035ea3369b5e2451c091cad5930"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01ae2d2ea9adaba408f88a7e5917aa3891971e135b24052482193c94e8023b66"
   end
 
   head do
@@ -27,6 +28,13 @@ class Tarsnap < Formula
   end
 
   depends_on "openssl@1.1"
+
+  uses_from_macos "bzip2"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "e2fsprogs" => :build
+  end
 
   def install
     # dyld: lazy symbol binding failed: Symbol not found: _clock_gettime

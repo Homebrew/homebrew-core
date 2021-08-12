@@ -7,9 +7,10 @@ class Carrot2 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "46ec4d892dbe4c93519d0ab6c0dcb567398982bfd8e211985a9a4938351cb40d"
-    sha256 cellar: :any_skip_relocation, catalina: "86d5724dded84fadd2e522cf97350500cbd9f2af46fd59735cb001a69187041d"
-    sha256 cellar: :any_skip_relocation, mojave:   "52a22394905c670f35257fd4c428fc1c5919957d8ab5642d8ee068286ca6703c"
+    sha256 cellar: :any_skip_relocation, big_sur:      "46ec4d892dbe4c93519d0ab6c0dcb567398982bfd8e211985a9a4938351cb40d"
+    sha256 cellar: :any_skip_relocation, catalina:     "86d5724dded84fadd2e522cf97350500cbd9f2af46fd59735cb001a69187041d"
+    sha256 cellar: :any_skip_relocation, mojave:       "52a22394905c670f35257fd4c428fc1c5919957d8ab5642d8ee068286ca6703c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "66b3d79a8e8e5ef99f385a2b22c392a240cc3be1475d136eca377c4bf802c499"
   end
 
   # Switch to `gradle` when carrot2 supports Gradle 7+

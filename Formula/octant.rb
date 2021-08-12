@@ -2,8 +2,8 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      tag:      "v0.22.0",
-      revision: "a723e6e682f8d73d9c2afdd033c9028c9610b025"
+      tag:      "v0.23.0",
+      revision: "fbe2be3b687b3e2199ea32753281c9de1f334171"
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git"
 
@@ -13,11 +13,11 @@ class Octant < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3cc3381d17da6e978da8f398c45922ecafbbdc9801cdae60b02e758d10871b60"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4b45f0bc6949efb7dc9c7620392a2176795bf0b7d4f943d2c1994090d39653fe"
-    sha256 cellar: :any_skip_relocation, catalina:      "c681f72376bff4283f9c73214f6f26c41458c42295a1bf28107dc31e1a5c4929"
-    sha256 cellar: :any_skip_relocation, mojave:        "24c965290843891de8e5ab97aa1824187986fbe47093dbea644a9ff4a2f3e843"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "72d0cefc011d27ee2f2275c59ee566a17d47999fbcc10612b8055e7083387df9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c071e032b501ea669d62a91025c2b56513738e70c84d5268d69e41437954f892"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bdd354d48a3fc55eaa371badf2aa9085fab75972298c9e45a2fe6ef753dd6443"
+    sha256 cellar: :any_skip_relocation, catalina:      "2fb18a44106cbb6c54756951b9355d83de113e8c7fbfb9169af94b5497a42f63"
+    sha256 cellar: :any_skip_relocation, mojave:        "e6c0dce913f776cecf1eb5a2ce7c1115baf0a2489dfe2d61c45ff830e4475538"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c0e1ff4dc41061a0092ac2b283475563f6c636e526badbbbf9b0e511665688ac"
   end
 
   depends_on "go" => :build

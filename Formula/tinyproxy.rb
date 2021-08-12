@@ -6,11 +6,12 @@ class Tinyproxy < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_big_sur: "bd9b0b9f2217794521d4886a744f5f42a28d3dd29e2ee9c410c2698725eb9095"
-    sha256 big_sur:       "ca40240c415c22ec760fcde6c735add7b3831ff8b1758d24d8821b7d04ef1299"
-    sha256 catalina:      "e9d1db2c5652ccb5a0d5d22f7683208798dd3db7e310b71c5dd3e9fda7ccd57d"
-    sha256 mojave:        "2c8d5680d40811fb8a9947015336624a7d3361c44f6381433cb81bab0f7d0179"
-    sha256 x86_64_linux:  "411df733acf01888815fab31d85c217baf60610d0ead1d322c9792a18e87731e"
+    rebuild 1
+    sha256 arm64_big_sur: "1bca9b6a68c9d9f747edb51c4466a068b74d78a3cccd86e82baa9556808b1150"
+    sha256 big_sur:       "9528959f70fab4a85ac762699c97d7c4b6c5c7d588044954724d6b482b91cd10"
+    sha256 catalina:      "fcc32a761f871900380306fb61ffcdfbf1172d2c9d8221b5e7be301c72cf3d30"
+    sha256 mojave:        "7cbf77e2f1b40cb087200afa79aaf64b53b673da74a94eaf2e98077945019da0"
+    sha256 x86_64_linux:  "96aa07f753bda61900d7032633a19f647ed6d464bdc761d613c35bdc547650a3"
   end
 
   depends_on "asciidoc" => :build
@@ -47,30 +48,10 @@ class Tinyproxy < Formula
     (var/"run/tinyproxy").mkpath
   end
 
-  plist_options manual: "tinyproxy"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/tinyproxy</string>
-              <string>-d</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"tinyproxy", "-d"]
+    keep_alive false
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

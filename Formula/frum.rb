@@ -1,8 +1,8 @@
 class Frum < Formula
   desc "Fast and modern Ruby version manager written in Rust"
   homepage "https://github.com/TaKO8Ki/frum/"
-  url "https://github.com/TaKO8Ki/frum/archive/v0.1.0.tar.gz"
-  sha256 "2e9e35d7077f9bd3684a86887645516c5e0b5ced54fd78e2a2137cf2bbd94f09"
+  url "https://github.com/TaKO8Ki/frum/archive/v0.1.1.tar.gz"
+  sha256 "b1227899d7b49c478cc56eba6c0e36325dca34e49db096c1a6fddceec5b0b9b9"
   license "MIT"
   head "https://github.com/TaKO8Ki/frum.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Frum < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c504c4c04a3de5d20f765b7ebbb52b108a623fa4cda8a810e870dd12ee756d8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "96a6ceaa6e60dba09a0ab0440fb57cf9adccae016f62ad5cba90f7c885bcf38a"
-    sha256 cellar: :any_skip_relocation, catalina:      "d8881e709692489994009e29f63584a45fe7a2db6f2a26655438c904db1578ce"
-    sha256 cellar: :any_skip_relocation, mojave:        "8d0206951f833358562a04282c8bc58e1e9e5dce2783099c4b62e60dfda822fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e32fac7765e42b18d97730ab100c7ed68ee6a55f5a6f1a1848682ed424603e7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5caa257bf4b00da8d4000219f0aafd402c513f738894265c7b470d7add8acc6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "22742696bfd99efab6ba483134f00c8ae3316213a7d9e03a3b21bb2f20f2c984"
+    sha256 cellar: :any_skip_relocation, catalina:      "8287568e2d549cf13620b70f2d3b1a40e1e68b82c91fbc6a26e0ec01f717b28a"
+    sha256 cellar: :any_skip_relocation, mojave:        "24d6362695e8559f302e48a189e0b334b9480ddcdef845a93d07d2a743f03b73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eab5b0c5456aceb386de43ff1a378f1cc23c2b41e01ac7c0c8ae2266c398ee6b"
   end
 
   depends_on "rust" => :build
@@ -41,7 +41,7 @@ class Frum < Formula
     mkdir_p frum_dir/"versions/2.4.0"
     versions = shell_output("eval \"$(#{bin}/frum init)\" && frum versions").split("\n")
     assert_equal 2, versions.length
-    assert_match "2.4.0", versions[0]
-    assert_match "2.6.5", versions[1]
+    assert_includes versions, "  2.4.0"
+    assert_includes versions, "  2.6.5"
   end
 end

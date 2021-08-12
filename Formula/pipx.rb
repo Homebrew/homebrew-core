@@ -1,18 +1,17 @@
 class Pipx < Formula
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://github.com/pypa/pipx"
-  url "https://files.pythonhosted.org/packages/55/d2/7e4d2f0155ea58d818d043f76eb220ec4ac31df33adafaa7d7edf62b1aeb/pipx-0.16.3.tar.gz"
-  sha256 "51fa41281383212db3b2a6906713871edc1a7d597ae387873026402e281a0b25"
+  url "https://files.pythonhosted.org/packages/8c/38/b9cbadcccc01be38f7fd47e52acc623657a0ecfc51eb43129c3825efc84c/pipx-0.16.4.tar.gz"
+  sha256 "992e78082c0b33c7bc708176ce9e0df9bac9ae3b08bf111c368571bc32e723d6"
   license "MIT"
   head "https://github.com/pypa/pipx.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9fc7275f1378c5b8de804fe4567aa291388f9655b98785a04bcff767ef5ed618"
-    sha256 cellar: :any_skip_relocation, big_sur:       "18a5233a0e711c55d9b6eb1e71fd5665004fd52de354d05005a73c767c9d7c80"
-    sha256 cellar: :any_skip_relocation, catalina:      "18a5233a0e711c55d9b6eb1e71fd5665004fd52de354d05005a73c767c9d7c80"
-    sha256 cellar: :any_skip_relocation, mojave:        "18a5233a0e711c55d9b6eb1e71fd5665004fd52de354d05005a73c767c9d7c80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d37c9a3254d1486c4a56f2022015582fd819a39ffc727ab3d90f619dfaa1d9ad"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7792c215704d5427b5d23d7e1a0147b486d4889847219cdd343bb9d9345e576"
+    sha256 cellar: :any_skip_relocation, big_sur:       "909ab05f7e210097d488df3f87bdc50bd3fcd08f2761ba7fad929c7c452d268f"
+    sha256 cellar: :any_skip_relocation, catalina:      "909ab05f7e210097d488df3f87bdc50bd3fcd08f2761ba7fad929c7c452d268f"
+    sha256 cellar: :any_skip_relocation, mojave:        "909ab05f7e210097d488df3f87bdc50bd3fcd08f2761ba7fad929c7c452d268f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "69c38c16c99cbc0feae14e081c5c46b2233d10faf32617ca8357b1ba652a71f3"
   end
 
   depends_on "python@3.9"
@@ -29,14 +28,14 @@ class Pipx < Formula
 
   resource "distro" do
     on_linux do
-      url "https://files.pythonhosted.org/packages/a6/a4/75064c334d8ae433445a20816b788700db1651f21bdb0af33db2aab142fe/distro-1.5.0.tar.gz"
-      sha256 "0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92"
+      url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
+      sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
     end
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/86/3c/bcd09ec5df7123abcf695009221a52f90438d877a2f1499453c6938f5728/packaging-20.9.tar.gz"
-    sha256 "5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5"
+    url "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz"
+    sha256 "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
   end
 
   resource "pyparsing" do
@@ -45,8 +44,8 @@ class Pipx < Formula
   end
 
   resource "userpath" do
-    url "https://files.pythonhosted.org/packages/54/ff/48ddc6562a06c38db208ba347512af3d366232333d30a91538f14335a8b9/userpath-1.6.0.tar.gz"
-    sha256 "b2b9a5ca1478ecfa63514b48709d650f48bf7be89f62bd236db556b85b6deff6"
+    url "https://files.pythonhosted.org/packages/60/2c/0620bacd069a14a601b0a5ba4578b223fa6ae34b9dd97e5508798b7f3dee/userpath-1.7.0.tar.gz"
+    sha256 "dcd66c5fa9b1a3c12362f309bbb5bc7992bac8af86d17b4e6b1a4b166a11c43f"
   end
 
   def install

@@ -28,6 +28,8 @@ class GitSeries < Formula
     ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
 
+    # TODO: In the next version after 0.9.1, update this command as follows:
+    # system "cargo", "install", *std_cargo_args
     system "cargo", "install", "--root", prefix, "--path", "."
     man1.install "git-series.1"
   end

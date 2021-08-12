@@ -15,6 +15,7 @@ class LibvirtGlib < Formula
     sha256 big_sur:       "9695bd9cca917eabee5eeaa038470e0a42c13767c420357ece93519958aa7653"
     sha256 catalina:      "101d1a4bf6b4c45b49261fc97ddfb73d34a30511f6a24fc8f31c48caff8e14f4"
     sha256 mojave:        "9a3967ba636f27cd1c923603e1df533b5edc7a7d5c90b089bf0154cd7b408b7f"
+    sha256 x86_64_linux:  "dca22d86f5c9e75e1abd763a252c0468da812032f80fae12514f57bb33023ffb"
   end
 
   depends_on "gobject-introspection" => :build
@@ -22,10 +23,11 @@ class LibvirtGlib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-
   depends_on "gettext"
   depends_on "glib"
   depends_on "libvirt"
+
+  uses_from_macos "libxml2"
 
   def install
     system "meson", "setup", "builddir", *std_meson_args, "-Dintrospection=enabled"
@@ -47,8 +49,12 @@ class LibvirtGlib < Formula
         return 0;
       }
     EOS
+    libxml2 = "#{MacOS.sdk_path}/usr/include/libxml2"
+    on_linux do
+      libxml2 = Formula["libxml2"].opt_include/"libxml2"
+    end
     system ENV.cc, "test.cpp",
-                   "-I#{MacOS.sdk_path}/usr/include/libxml2",
+                   "-I#{libxml2}",
                    "-I#{Formula["glib"].include}/glib-2.0",
                    "-I#{Formula["glib"].lib}/glib-2.0/include",
                    "-I#{include}/libvirt-gconfig-1.0",

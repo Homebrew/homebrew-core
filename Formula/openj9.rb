@@ -7,8 +7,8 @@ class Openj9 < Formula
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
-    { "GPL-2.0-or-later" => { with: "Classpath-exception-2.0" } },
-    { "GPL-2.0-or-later" => { with: "OpenJDK-assembly-exception-1.0" } },
+    { "GPL-2.0-only" => { with: "Classpath-exception-2.0" } },
+    { "GPL-2.0-only" => { with: "OpenJDK-assembly-exception-1.0" } },
   ]
 
   livecheck do

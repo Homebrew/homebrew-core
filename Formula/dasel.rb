@@ -1,17 +1,17 @@
 class Dasel < Formula
   desc "JSON, YAML, TOML, XML, and CSV query and modification tool"
   homepage "https://github.com/TomWright/dasel"
-  url "https://github.com/TomWright/dasel/archive/v1.15.0.tar.gz"
-  sha256 "278a0f92bf76bb2fe0a423aeeb105dbfb7e014d6611ecf882c93a058ed134756"
+  url "https://github.com/TomWright/dasel/archive/v1.18.0.tar.gz"
+  sha256 "70ffd37287648de2171bc60c37e2144240276136242ec861d663090c9b27ce6d"
   license "MIT"
   head "https://github.com/TomWright/dasel.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c55a87da42e4be8748a80d2a0e8d68f1271afa3644ae76afd0ba72a1738a3462"
-    sha256 cellar: :any_skip_relocation, big_sur:       "052614cb3f628662351a614211c0915135d75e28085fccb29ac209acf8f491c5"
-    sha256 cellar: :any_skip_relocation, catalina:      "60b80b3589604edcbdbd19d84d392607804cc41067d7085305a054a0d0419d54"
-    sha256 cellar: :any_skip_relocation, mojave:        "522d12bd141b61ad4cb6319918f9cd45476c666b7a5f398ff8d5ee4de944c099"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "141252b7b2448fc213e744e24552629a4f864f3fef937fc9e7e8fdde1c40b60a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "dd935a4c40b1b4b1eb40999453c10ae4773594e3f094642ccaa5cba7a1b31b24"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4a5664e93bf4587cbe1c26aca1830d82c4228ff1b3b9998902479215c2bf6a14"
+    sha256 cellar: :any_skip_relocation, catalina:      "160baa77a00feca0a091d24d9326c8c2964059d8346459e366120a4740c0e627"
+    sha256 cellar: :any_skip_relocation, mojave:        "47b1b67f1e5718cedb863f57947a0ae4b42490a49765df8aac7e5f6c84e2b5ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "73fde79b675ea3064c0d5556d941f0a6d6d0d0c956fa2b3ec25ab1d78bb24919"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.5.tgz"
-  sha256 "74ecefda2afc0e054d2c7dc29166be6587fa9de7a4087a80183bc9c719dbf6b3"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.5.6.tgz"
+  sha256 "3f21423a9d3bd9774a4494e2d4fbc830ac68d63a87d4c2934eff800954cac11f"
   license "OLDAP-2.8"
 
   livecheck do
@@ -11,11 +11,11 @@ class Openldap < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "8b66ccd0a169b6f2ecdff69946a458d404fcb34fe2d4171f83530e9f66318c3f"
-    sha256 big_sur:       "4c98f6da7b2d08b95410c87a6a378dea1299bad5f44dbf2583f468495e05da30"
-    sha256 catalina:      "79ff7be2a569b51a09ee8c6239c36bf55b7f5553cae099550471d930b08a18b7"
-    sha256 mojave:        "82aef6314649c3b0f5b32085976caa677e230829b4dbdca77fcf143182b48209"
-    sha256 x86_64_linux:  "743f289e7c6049ed53f9d1add34082a1fce0409ff97a3d17c289c7a46d14ed65"
+    sha256 arm64_big_sur: "4c7569397187e1a9a102d2b382f4f93ef0dd442aba3bd35f05f66e684beff6e4"
+    sha256 big_sur:       "395680ec39b04d28561b24fa29cafc297d5b09abf8d30999627832edc7c47e19"
+    sha256 catalina:      "752cc8533a6efacfd6e67b695f7cf4de81364f94416fc9e854245e6d71a7e3bf"
+    sha256 mojave:        "95b514e1fd902a0f484151102bcee46446cf7ce7b30c6eaeae501f8c2903390b"
+    sha256 x86_64_linux:  "d932138f066bbf3c4d184a0598eaf70e795c62b5c4a4a99e8c046e21fa025bc0"
   end
 
   keg_only :provided_by_macos
@@ -23,7 +23,6 @@ class Openldap < Formula
   depends_on "openssl@1.1"
 
   on_linux do
-    depends_on "groff" => :build
     depends_on "util-linux"
   end
 
@@ -52,6 +51,16 @@ class Openldap < Formula
       --enable-unique
       --enable-valsort
     ]
+
+    on_linux do
+      args << "--without-systemd"
+
+      # Disable manpage generation, because it requires groff which has a huge
+      # dependency tree on Linux
+      inreplace "Makefile.in" do |s|
+        s.change_make_var! "SUBDIRS", "include libraries clients servers"
+      end
+    end
 
     system "./configure", *args
     system "make", "install"

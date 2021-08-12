@@ -1,8 +1,8 @@
 class FluentBit < Formula
   desc "Data Collector for IoT"
   homepage "https://github.com/fluent/fluent-bit"
-  url "https://github.com/fluent/fluent-bit/archive/v1.8.1.tar.gz"
-  sha256 "a284d803ec9203be69b7c4ff9febb33b8c938b640f0cc7cbcf6f9223e5de4fb5"
+  url "https://github.com/fluent/fluent-bit/archive/v1.8.3.tar.gz"
+  sha256 "a46e0ad3e6b462a72236fbfd69841b55787c212554b5f7d30217d1eea217d7ca"
   license "Apache-2.0"
   head "https://github.com/fluent/fluent-bit.git"
 
@@ -12,11 +12,11 @@ class FluentBit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "9e509c9fbbec4da171f7ce2b8a8c7d48a12cf18b1717438a94011f2f68773d9f"
-    sha256 cellar: :any,                 big_sur:       "7bf2cd14575c8b1f537395e9f71c1166158f8996268b3118434868c657168d4c"
-    sha256 cellar: :any,                 catalina:      "a93ac767c26eee5290ff6e2d15197faf1b8419dedefc375bee9f0eee4aaae621"
-    sha256 cellar: :any,                 mojave:        "91fbae2a767d0a0ac6eae0fafcdb39a28bc3b5079de4d808051735da93a85998"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c1c6a51ac220d1aa8817661b3bb74c557b643f638cef77230febae2d4c2bf19"
+    sha256 cellar: :any,                 arm64_big_sur: "cd42dd3fbfa4a1c047f088ba68b05ad8f804be78d93350947bf591dd0ce78b4f"
+    sha256 cellar: :any,                 big_sur:       "48cb4a587ef28140adc2b639c402ae47a118cc1ff5bd5a69f3a49c68fb492b48"
+    sha256 cellar: :any,                 catalina:      "b15884bf5a941bb917222ce95faa292795c243704704b5f36f33c2e67cde0944"
+    sha256 cellar: :any,                 mojave:        "271fc29197403f263da8206e013eb8df61b709de3c7f5e94c9d18e024208c646"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "532e558f61cd61782b0d5e136f8acef490b7962f3e4aa0e4b30d0f6e96677808"
   end
 
   depends_on "bison" => :build
@@ -63,7 +63,7 @@ index 0671542a..67f1c368 100644
 +++ b/lib/cmetrics/src/cmt_time.c
 @@ -20,7 +20,7 @@
  #include <cmetrics/cmt_info.h>
- 
+
  /* MacOS */
 -#ifdef FLB_HAVE_CLOCK_GET_TIME
 +#ifdef CMT_HAVE_CLOCK_GET_TIME
@@ -88,7 +88,7 @@ index f6654506..fe117172 100644
 @@ -434,27 +434,6 @@ if(FLB_BINARY)
        DESTINATION "${FLB_INSTALL_BINDIR}")
    endif()
- 
+
 -  # Detect init system, install upstart, systemd or init.d script
 -  if(IS_DIRECTORY /lib/systemd/system)
 -    set(FLB_SYSTEMD_SCRIPT "${PROJECT_SOURCE_DIR}/init/${FLB_OUT_NAME}.service")

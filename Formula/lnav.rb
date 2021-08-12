@@ -1,8 +1,8 @@
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   homepage "https://lnav.org/"
-  url "https://github.com/tstack/lnav/releases/download/v0.9.0/lnav-0.9.0.tar.gz"
-  sha256 "03e15449a87fa511cd19c6bb5e95de4fffe17612520ff7683f2528d3b2a7238f"
+  url "https://github.com/tstack/lnav/releases/download/v0.10.0/lnav-0.10.0.tar.gz"
+  sha256 "05caf14d410a3912ef9093773aec321e0f4718a29476005c05dd53fcd6de1531"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,12 +11,11 @@ class Lnav < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "6b79f37c40cf7a626865ffef75bc445813d91473d64068e6d906eb3cedeeab4a"
-    sha256 cellar: :any,                 big_sur:       "11eb34ef34f635e008facc8890c0bcb07585d62dd9c273890552890d863adf0e"
-    sha256 cellar: :any,                 catalina:      "b21b188394092e3ca801819e0b2eb26017132fb2baadfcb014d6fb3c8c6253e3"
-    sha256 cellar: :any,                 mojave:        "49510aa07d98f6a05f6d7ea19dc30f2ada6456b3fb644620efe1e7e3c92673b4"
-    sha256 cellar: :any,                 high_sierra:   "538a2a0b9f09829b33901bd33e5d8f566745f23a3d3fe95d6fa7f6608d3bb485"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dcb21285186fdb65393a3fab4eb29ea3d0bc26d4c6f68e07571e250b5b70ae19"
+    sha256 cellar: :any,                 arm64_big_sur: "6956716054ca3e613e95540a54a1fd8ef67ef3f4e51ce665e4b8d6c89636cc66"
+    sha256 cellar: :any,                 big_sur:       "29b6a8e732ac1e65fc3007415d9485636073a2aa31317255b29911f4ffba04b9"
+    sha256 cellar: :any,                 catalina:      "f01d5a0c1f1c2b8363d9955ff6fdda4f78ac78fede954935d2984bd8ddd9b15d"
+    sha256 cellar: :any,                 mojave:        "09cdb7d5fd6f816cd8f69bf23e29ac4e9775186bfb959b533ef321bcb61d4395"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1bebe74f8cc100795599682aed4658bd66821abcab88c92fadf6bf246cef28d"
   end
 
   head do
@@ -30,6 +29,12 @@ class Lnav < Formula
   depends_on "pcre"
   depends_on "readline"
   depends_on "sqlite"
+
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "./autogen.sh" if build.head?

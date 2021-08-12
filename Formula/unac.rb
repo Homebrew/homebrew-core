@@ -6,14 +6,15 @@ class Unac < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5d58477a342637a20d39e60b0164846f14e8f2aac2d1fc01e162e8eefef63af7"
-    sha256 cellar: :any, big_sur:       "434a30fa5bd969126e166925e6509885bb45e12977f4690c08b2b4fbcfb20dd4"
-    sha256 cellar: :any, catalina:      "c065103ee8b1c39a665dcca68787edadc6a60620e627912a721b3d5732ff0152"
-    sha256 cellar: :any, mojave:        "29753f2d4ea3f9a56f9a3d8fdca4c4fe47044ff1bc986d9ecc06d5f376197da6"
-    sha256 cellar: :any, high_sierra:   "eade4a2fba6e5828dccd3779b5e6681ca2558dbde421639624f089be835c55e8"
-    sha256 cellar: :any, sierra:        "b97f2799eafd917f8fe1cc47c39634bc91a19ca452ce11ec8fd5edf37ea1dba3"
-    sha256 cellar: :any, el_capitan:    "6c9d63dde182a55e237e63cfa4ab625164ce275e343fd88003483227bd7439bc"
-    sha256 cellar: :any, yosemite:      "0db9b14eae2c3db5d2d268deb4a3369557a13d35dd216f4ea50aa0776eb56fb3"
+    sha256 cellar: :any,                 arm64_big_sur: "5d58477a342637a20d39e60b0164846f14e8f2aac2d1fc01e162e8eefef63af7"
+    sha256 cellar: :any,                 big_sur:       "434a30fa5bd969126e166925e6509885bb45e12977f4690c08b2b4fbcfb20dd4"
+    sha256 cellar: :any,                 catalina:      "c065103ee8b1c39a665dcca68787edadc6a60620e627912a721b3d5732ff0152"
+    sha256 cellar: :any,                 mojave:        "29753f2d4ea3f9a56f9a3d8fdca4c4fe47044ff1bc986d9ecc06d5f376197da6"
+    sha256 cellar: :any,                 high_sierra:   "eade4a2fba6e5828dccd3779b5e6681ca2558dbde421639624f089be835c55e8"
+    sha256 cellar: :any,                 sierra:        "b97f2799eafd917f8fe1cc47c39634bc91a19ca452ce11ec8fd5edf37ea1dba3"
+    sha256 cellar: :any,                 el_capitan:    "6c9d63dde182a55e237e63cfa4ab625164ce275e343fd88003483227bd7439bc"
+    sha256 cellar: :any,                 yosemite:      "0db9b14eae2c3db5d2d268deb4a3369557a13d35dd216f4ea50aa0776eb56fb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee6f3909a8a3f44657dc39813bee9cd551475eb835973cb34be6cbd23fe7eb0f"
   end
 
   depends_on "autoconf" => :build
@@ -21,8 +22,10 @@ class Unac < Formula
   depends_on "gettext" => :build
   depends_on "libtool" => :build
 
-  # configure.ac doesn't properly detect Mac OS's iconv library. This patch fixes that.
-  patch :DATA
+  on_macos do
+    # configure.ac doesn't properly detect Mac OS's iconv library. This patch fixes that.
+    patch :DATA
+  end
 
   patch :p0 do
     url "https://bugs.debian.org/cgi-bin/bugreport.cgi?msg=5;filename=patch-libunac1.txt;att=1;bug=623340"

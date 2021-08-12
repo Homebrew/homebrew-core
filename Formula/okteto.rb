@@ -1,17 +1,17 @@
 class Okteto < Formula
   desc "Build better apps by developing and testing code directly in Kubernetes"
   homepage "https://okteto.com"
-  url "https://github.com/okteto/okteto/archive/1.13.2.tar.gz"
-  sha256 "432443891ef05e03c9456051e1c0fe9c8e9d875b63f1f4af70a237d662111a1c"
+  url "https://github.com/okteto/okteto/archive/1.13.4.tar.gz"
+  sha256 "99d7be227edb80c20fb4326ecd7cc735d1cfcf8fe6d6f6d61f8b997dc331b582"
   license "Apache-2.0"
   head "https://github.com/okteto/okteto.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4261b52be9e1c680f94fc963d69f6bde661b017f18ed4f74632fb9f456ee7c4a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "49f9c40de6b0cf52fc4b4e718299a3407da1382c75a68b4c469e4cb681af12ff"
-    sha256 cellar: :any_skip_relocation, catalina:      "a40a6ca85db08b70a21feab9ab3d6d44670a3589c745411d3eb2e55223502d0a"
-    sha256 cellar: :any_skip_relocation, mojave:        "6a52b050b62960d16e83905a6126aaed33d1157eb0a84fd13790da51683f9bae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4da70a04ddf17ac7f37641d84b62bdffaf9fe0f60a73b478f301c3acbc1daaa8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1e7e6947ecb9ef56116466c60bbf956a22bfcdc7bb369db2510eeab0ae051013"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fc329cad94c67f02902e1a4e4c8388f780a390ff27c1ed68015d3a2490568005"
+    sha256 cellar: :any_skip_relocation, catalina:      "e6e5ccfa4f8c9451dfa4f879cd0d1f6370902f203939ec2ca1be0a5b560f725b"
+    sha256 cellar: :any_skip_relocation, mojave:        "2119fb09239705ae39f8e87fd89ef98b03f03e2bebddf9c88c22cc4452e0e841"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0586436c4482c5523e8042948ea948955b7d3390be68a326a0301f567ed415ef"
   end
 
   depends_on "go" => :build

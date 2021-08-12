@@ -28,7 +28,7 @@ class Spotifyd < Formula
   def install
     ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
     system "cargo", "install", "--no-default-features",
-                               "--features=dbus_keyring,portaudio_backend",
+                               "--features", "dbus_keyring,portaudio_backend",
                                *std_cargo_args
   end
 

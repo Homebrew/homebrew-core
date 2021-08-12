@@ -10,7 +10,6 @@ class K3sup < Formula
   livecheck do
     url :stable
     strategy :github_latest
-    regex(%r{href=.*?/tag/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do

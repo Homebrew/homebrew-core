@@ -6,6 +6,11 @@ class Ringojs < Formula
   license "Apache-2.0"
   revision 2
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "86b956cc3c7d0279529323450abaf3bca2a61ae520cdc262c44a2ff5035b810c"
     sha256 cellar: :any_skip_relocation, big_sur:       "445095a17c58cb61c8275e174c2630cd4ac2acba61198fdf7fe978544815ad9d"

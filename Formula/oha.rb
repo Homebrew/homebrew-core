@@ -11,9 +11,16 @@ class Oha < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "f456bf2580fe0f30448d0f4ab938b74e98de4e95c5d29790cf0f2e6c92e7546b"
     sha256 cellar: :any_skip_relocation, catalina:      "7afb84c24489da1c79b34b6429e71911a11c36237359001a1ca27ab8fe33ddde"
     sha256 cellar: :any_skip_relocation, mojave:        "269bcc403430b25471b8401cc7aa416caf0a35b33350e4ab747dd57e32782136"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1a4842538f644a9c9b5de585217cb9ffa64ff299637d3f18d3ea942d9e82068"
   end
 
   depends_on "rust" => :build
+
+  uses_from_macos "openssl@1.1"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
     system "cargo", "install", *std_cargo_args

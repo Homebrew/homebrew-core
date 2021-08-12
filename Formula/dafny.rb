@@ -18,6 +18,7 @@ class Dafny < Formula
 
   depends_on "gradle" => :build
   depends_on "nuget" => :build
+  depends_on arch: :x86_64 # dotnet does not support ARM
   depends_on "dotnet"
   depends_on "openjdk@11"
 

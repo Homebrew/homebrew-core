@@ -6,8 +6,7 @@ class MysqlClient < Formula
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
-    url "https://github.com/mysql/mysql-server.git"
-    regex(/^mysql[._-]v?(\d+(?:\.\d+)+)$/i)
+    formula "mysql"
   end
 
   bottle do

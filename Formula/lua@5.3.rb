@@ -80,7 +80,7 @@ class LuaAT53 < Formula
     bin.install_symlink "luac" => "luac#{version.major_minor}"
     bin.install_symlink "luac" => "luac-#{version.major_minor}"
     (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
-    lib.install_symlink "liblua.#{version.major_minor}.dylib" => "liblua#{version.major_minor}.dylib"
+    lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
     (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
 
@@ -90,6 +90,9 @@ class LuaAT53 < Formula
   end
 
   def pc_file
+    libs = %W[-llua#{version.major_minor} -lm]
+    on_linux { libs << "-ldl" }
+
     <<~EOS
       V= #{version.major_minor}
       R= #{version}
@@ -108,7 +111,7 @@ class LuaAT53 < Formula
       Description: An Extensible Extension Language
       Version: #{version}
       Requires:
-      Libs: -L${libdir} -llua.#{version.major_minor} -lm
+      Libs: -L${libdir} #{libs.join(" ")}
       Cflags: -I${includedir}
     EOS
   end

@@ -10,6 +10,7 @@ class Tepl < Formula
     sha256 big_sur:       "b5c8dfff1540875f6bd03ec4a7e58ba68d5df65597e80eb7e469ce88c6bd4175"
     sha256 catalina:      "0c2d2161a8f65a3728e479d26ba2dc736e163b7fe902ec59666d138bfc0de47e"
     sha256 mojave:        "44b4a1c68e07df9275cb2275f6852e6b713e306f764833c620542a2cb741e565"
+    sha256 x86_64_linux:  "427e014f684cb2d7b3ddea724baa0d93123564be224efbd8632283df1f9fbd14"
   end
 
   # See: https://gitlab.gnome.org/Archive/tepl
@@ -98,7 +99,7 @@ class Tepl < Formula
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
-      -lamtk-5.0
+      -lamtk-5
       -lcairo
       -lcairo-gobject
       -lgdk-3
@@ -108,11 +109,13 @@ class Tepl < Formula
       -lgobject-2.0
       -ltepl-6
       -lgtk-3
-      -lgtksourceview-4.0
-      -lintl
+      -lgtksourceview-4
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

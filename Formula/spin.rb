@@ -11,6 +11,7 @@ class Spin < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "6432ab186b64f64851fa0f60dae53c13b6c9bfbc6195c41abc08f1ddfd824bf6"
     sha256 cellar: :any_skip_relocation, mojave:        "eae932021ba8a15f713dd60ca2a29267f5df53a832895c5ab1a342d2568c6f45"
     sha256 cellar: :any_skip_relocation, high_sierra:   "3ffbbe34633fa0e177bd25343b3bbd35d706988ab04c4a617fff530cf3dc542a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e6bc2cf070b8095de0b23f7ac8cd201c30c5e089c7635570b71ea7b9235753e1"
   end
 
   uses_from_macos "bison" => :build

@@ -39,33 +39,11 @@ class Privoxy < Formula
     system "make", "install"
   end
 
-  plist_options manual: "privoxy #{HOMEBREW_PREFIX}/etc/privoxy/config"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>WorkingDirectory</key>
-        <string>#{var}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{sbin}/privoxy</string>
-          <string>--no-daemon</string>
-          <string>#{etc}/privoxy/config</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/privoxy/logfile</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"privoxy", "--no-daemon", etc/"privoxy/config"]
+    keep_alive true
+    working_dir var
+    error_log_path var/"log/privoxy/logfile"
   end
 
   test do

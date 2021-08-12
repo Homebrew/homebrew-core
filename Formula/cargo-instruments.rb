@@ -13,6 +13,7 @@ class CargoInstruments < Formula
   end
 
   depends_on "rust" => :build
+  depends_on :macos
   depends_on "openssl@1.1"
 
   def install

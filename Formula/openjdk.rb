@@ -4,12 +4,12 @@ class Openjdk < Formula
   if Hardware::CPU.arm?
     # Temporarily use a openjdk 17 preview on Apple Silicon
     # (because it is better than nothing)
-    url "https://github.com/openjdk/jdk/archive/refs/tags/jdk-17+24.tar.gz"
-    sha256 "9d1ea3fc63ce860e55a9be77f670b18fa7b7e5c9773dca3c70042403e1ee285c"
-    version "16.0.1"
+    url "https://github.com/openjdk/jdk/archive/refs/tags/jdk-17+31.tar.gz"
+    sha256 "9a658a42b2fe3b64ef3b2617395fc8f442f046e43e52b1d3b3a6a9b83d32b2ce"
+    version "16.0.2"
   else
-    url "https://github.com/openjdk/jdk16u/archive/refs/tags/jdk-16.0.1-ga.tar.gz"
-    sha256 "ef53ef8796080a955efbfdbf05ea137ff95ac6d444dab3b2fcd57c9709a3b65d"
+    url "https://github.com/openjdk/jdk16u/archive/refs/tags/jdk-16.0.2-ga.tar.gz"
+    sha256 "d1b01bb5e710a973256a11fe852b7e23523ca8ef04997fa29cf459ba5303a476"
   end
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
@@ -20,12 +20,11 @@ class Openjdk < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "f34c581df9abeaba1e1ffb39e1274b2ce1c12e1a1855cecda55437bfe095e26d"
-    sha256 cellar: :any, big_sur:       "cf4fe13bd4dbe7864304d85b9249183ad8740587b223772b8883a63d0da681e0"
-    sha256 cellar: :any, catalina:      "1035aa2f2dcfe53985d06884ed45a8343fe4fa561a1ec81bd0364e922ae4324b"
-    sha256 cellar: :any, mojave:        "0010153ca765159d01379fe16186a956624d05399ee7bd874ab261cf68c2f3a5"
-    sha256               x86_64_linux:  "fe6b6e8afe79afa9f8d7ab2d9d825c27c94050a833a3584327069c21002421ca"
+    sha256 cellar: :any, arm64_big_sur: "83b39e22b91173ee797b09e11bbcb08b3cff5c3aeed65f64cb5f8c43d474500c"
+    sha256 cellar: :any, big_sur:       "fb57725b9d1ac7dc846842c4905630ebe6878242cd876dc23d00d3100e6d4e26"
+    sha256 cellar: :any, catalina:      "71fe0d7fb0120bb7fdb011cb9ecb107413920f97eb54f53770649f63c9780a56"
+    sha256 cellar: :any, mojave:        "d92651670572e834a36ca2af789646a28c4745930c19a3468b92834da9a0f1a1"
+    sha256               x86_64_linux:  "2627c93c2209e9da424ebba280d1fd6fceded687c9d449af4c41bb0639f3a01b"
   end
 
   keg_only :shadowed_by_macos
@@ -57,8 +56,8 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://download.java.net/java/early_access/jdk17/24/GPL/openjdk-17-ea+24_macos-aarch64_bin.tar.gz"
-        sha256 "176ab64ad860e363428ce3e4b23e8207576f8a65a567761475281cda25887640"
+        url "https://download.java.net/java/early_access/jdk17/31/GPL/openjdk-17-ea+31_macos-aarch64_bin.tar.gz"
+        sha256 "bf0acde8615ad1bef9c3696128531bec13bcdc3c28baca687bab6902c4b5c7f7"
       else
         url "https://download.java.net/java/GA/jdk15.0.2/0d1cfde4252546c6931946de8db48ee2/7/GPL/openjdk-15.0.2_osx-x64_bin.tar.gz"
         sha256 "578b17748f5a7d111474bc4c9b5a8a06b4a4aa1ba4a4bc3fef014e079ece7c74"

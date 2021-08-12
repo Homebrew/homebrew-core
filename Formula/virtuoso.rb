@@ -6,9 +6,10 @@ class Virtuoso < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any, big_sur:  "d35c507e655a9b900986b609bb232f30c811cbfb4f3ec20d60d1146059ba5305"
-    sha256 cellar: :any, catalina: "bb672169382bf5faa77845765420adc91f5af1e46239e1f9d45d187b2f335570"
-    sha256 cellar: :any, mojave:   "e19a2320912ff23b8f0a4926ee3c830d1bbbc9388fbe21634cbecf919e17f708"
+    sha256 cellar: :any,                 big_sur:      "d35c507e655a9b900986b609bb232f30c811cbfb4f3ec20d60d1146059ba5305"
+    sha256 cellar: :any,                 catalina:     "bb672169382bf5faa77845765420adc91f5af1e46239e1f9d45d187b2f335570"
+    sha256 cellar: :any,                 mojave:       "e19a2320912ff23b8f0a4926ee3c830d1bbbc9388fbe21634cbecf919e17f708"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d396498868d1529455ff98c3432df539f5c0acecc2f807c7d5f49e1cf10d3267"
   end
 
   head do

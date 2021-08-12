@@ -10,6 +10,7 @@ class Libgweather < Formula
     sha256 big_sur:       "4f178ade88811f2a868a3d7e07c3d323f6277f91b70230c4fd0295598eed534a"
     sha256 catalina:      "e66d6757c99298133ca9de4bcb28429a126de2ec9172f11d05bb86bcf037ccca"
     sha256 mojave:        "5b0afebfe3d3307607ccedac1fdedbc768c73971261a0169f57808249f49ad47"
+    sha256 x86_64_linux:  "4c1aa45018953ff6447ec59900426783c7831a2b067b3e7d74eb9e594742194a"
   end
 
   depends_on "gobject-introspection" => :build
@@ -98,10 +99,12 @@ class Libgweather < Formula
       -lgobject-2.0
       -lgtk-3
       -lgweather-3
-      -lintl
       -lpango-1.0
       -lpangocairo-1.0
     ]
+    on_macos do
+      flags << "-lintl"
+    end
     system ENV.cc, "-DGWEATHER_I_KNOW_THIS_IS_UNSTABLE=1", "test.c", "-o", "test", *flags
     system "./test"
   end

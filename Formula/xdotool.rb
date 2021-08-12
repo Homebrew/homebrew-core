@@ -1,19 +1,17 @@
 class Xdotool < Formula
   desc "Fake keyboard/mouse input and window management for X"
   homepage "https://www.semicomplete.com/projects/xdotool/"
-  url "https://github.com/jordansissel/xdotool/archive/v3.20160805.1.tar.gz"
-  sha256 "ddafca1239075c203769c17a5a184587731e56fbe0438c09d08f8af1704e117a"
+  url "https://github.com/jordansissel/xdotool/releases/download/v3.20210804.2/xdotool-3.20210804.2.tar.gz"
+  sha256 "fde6b15b5978c91e0ecb78cc541a9987752e724820722e479dcc2efc17466c89"
   license "BSD-3-Clause"
-  revision 2
   head "https://github.com/jordansissel/xdotool.git"
 
   bottle do
-    rebuild 1
-    sha256                               arm64_big_sur: "a1b51b06df321f1fb0b43d81536bd0833579a0282aa6db5aab0d966c7ddcfd17"
-    sha256                               big_sur:       "341d016062ad7e0ffe416e8d70636a912ea62e8cfeae6bfd420935ed740c70a2"
-    sha256                               catalina:      "2a11b0772f3ae332186d8d257c9687e759772d4e3fbe8a42e6fa07e9a5f11329"
-    sha256                               mojave:        "fd132f4ad55f7e709179a027878df3ee13d497d82ada355f323e2dd0b8f12409"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7380416d48181a9594dcdfc6b62819d02419c2df17e5a8cbe4e7c9dec8359024"
+    sha256 cellar: :any,                 arm64_big_sur: "a7a447517125966462a4b067fed71b0a2d5dca85f6e9b3348c47080b0754b043"
+    sha256 cellar: :any,                 big_sur:       "0e34fac27796de7761ec3d82feb73231153535e5dc1ccbd71347b588fe2d70f9"
+    sha256 cellar: :any,                 catalina:      "98d00ab9149f1d444e99dda25d190fecfbefb215ddf477f05b80a5aaf96ba24b"
+    sha256 cellar: :any,                 mojave:        "d0b162c67f2a64735fc940c371d06fd7fcbf36e17453895fd16bcebe00f40056"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5022406d6ac7bad0cb166ea02c9503fb07e2c32ebe03b928d18e991ff8f2adf"
   end
 
   depends_on "pkg-config" => :build
@@ -22,7 +20,7 @@ class Xdotool < Formula
   depends_on "libxkbcommon"
   depends_on "libxtst"
 
-  # Disable clock_gettime() workaround since the real API is available on OS/X >= 10.12
+  # Disable clock_gettime() workaround since the real API is available on macOS >= 10.12
   # Note that the PR from this patch was actually closed originally because of problems
   # caused on pre-10.12 environments, but that is no longer a concern.
   patch do

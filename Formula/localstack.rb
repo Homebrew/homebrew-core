@@ -3,15 +3,16 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/67/36/5bdc35566984c721dfb34a58fbdd1584bdae3eba529375d8fa4c24b71cd0/localstack-0.12.15.1.tar.gz"
-  sha256 "04784002db05e83fa1723ab028a52f8327cd2306751737845112864607185512"
+  url "https://files.pythonhosted.org/packages/38/31/03f142730dca7dcd7b07b2a08c66912deb745b8e48fb82df0ae99f168037/localstack-0.12.16.1.tar.gz"
+  sha256 "6e5081e45dd58a5779e823ffb1b0ecf0b3aaef38380e6f47db132f106c10197e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d85463c3b5f2e05c2b3013867ced1f301bc1d3ce259969651b9f0b18326cde9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "628de92a4e8267c6ba66bfe137e4ccfbc03a5ab69d47221333d928e8e4b6aeac"
-    sha256 cellar: :any_skip_relocation, catalina:      "5eb3eb3b7297816251020b5fb6ab13ea171c8934a3f052ba04eb8d219a6a5185"
-    sha256 cellar: :any_skip_relocation, mojave:        "557d4e2247928fa6abcda05ab97a5a131e13958953167ee2483a5335afba02bf"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "98b969d3fa3677f52984fd322fac83a5c1a311762d939aacb4d13768817cb69f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b2788dcd741a9025ae833cfba8f7e4f2ee7c9b7b653101fc46fa475975d8cab0"
+    sha256 cellar: :any_skip_relocation, catalina:      "6548491075563f907896e3fb4512f704651446966ffeca58da28eb479be1c992"
+    sha256 cellar: :any_skip_relocation, mojave:        "8d528350c46d2587aac9c81bf962c122e4cb69546befeb168566004da31a6d2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "119482cd25f4b963420fec893de1b80e3096771df57a2b528d9478078dfa0e70"
   end
 
   depends_on "docker" => :test
@@ -19,13 +20,13 @@ class Localstack < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/fe/34/314aa29cbc6ab1c05fc6f9911157e889c03ac56dd4fe3d035c4205b1e4dd/boto3-1.18.2.tar.gz"
-    sha256 "d3299d6f64cd6bd57b11e6b9c23310bbcfb6a604660201809b2ba2277bd91a93"
+    url "https://files.pythonhosted.org/packages/b7/ca/6a3d592e46e1a23bd23bd4a8b88daf92bdf97d7a4426d055fd52f07e1ade/boto3-1.18.18.tar.gz"
+    sha256 "325456ceae7144693bf86786b4d9c6202f46886d9d30b29780dd6a5b377f5a24"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/02/b0/805e0a5b3067827ac89f7de1546ceadc055935632498ef0ec3f70abe0686/botocore-1.21.2.tar.gz"
-    sha256 "f78d2a9cb8a2385b8b4de93f2b901e404ecee663ee2d290ae00d682e216af196"
+    url "https://files.pythonhosted.org/packages/1e/49/a2bd9473bfb3c89c09dbbe8ea0634598a230e46ac57c45f5ab0116d9647e/botocore-1.21.18.tar.gz"
+    sha256 "604ce93417f990782f4a4d528678cdd9eed80a6bd059fc1deedc6662825cc615"
   end
 
   resource "certifi" do
@@ -69,13 +70,13 @@ class Localstack < Formula
   end
 
   resource "localstack-client" do
-    url "https://files.pythonhosted.org/packages/9a/c5/43dc6d73324527b4bf4f28ba1932d66906bc01238ee00db7449695313fb9/localstack-client-1.21.tar.gz"
-    sha256 "78d0544cc9496dd29dffe7f42092b157b2b72eea194a74f99ac2d050ab8c6b95"
+    url "https://files.pythonhosted.org/packages/be/c7/682519d7406e0933cd3c94867eb3b4e8f3090401b263d630dc1adf08a66a/localstack-client-1.22.tar.gz"
+    sha256 "1517964f5d3746220abf2292b186050bdf28e1643072776a1810fb836033b3d9"
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/bd/3f/1106b9834dd3a8f698d1f29bfc6b4dd61c887bae7d0e194078f4b72c9cc9/localstack-ext-0.12.13.5.tar.gz"
-    sha256 "a19f76c0b6871b0653b1fe02425718a010da2758438da66003d9d0912e7b2967"
+    url "https://files.pythonhosted.org/packages/12/77/271d8776817ff75d628116d9315d11820304063c71dfec7d637e1a22c75c/localstack-ext-0.12.14.11.tar.gz"
+    sha256 "335d11345b77373a7807550b7f693aeccfbea0f2827131a47c19e7abd8179cbe"
   end
 
   resource "pyaes" do
@@ -122,7 +123,7 @@ class Localstack < Formula
 
     assert_match version.to_s, shell_output("#{bin}/localstack --version")
 
-    output = shell_output("#{bin}/localstack start --docker", 125)
+    output = shell_output("#{bin}/localstack start --docker", 1)
 
     assert_match "Starting local dev environment", output
     assert_match "Cannot connect to the Docker daemon", output

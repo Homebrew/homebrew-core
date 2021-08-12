@@ -11,7 +11,8 @@ class H2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f8e33c35df1ec248000e6dfba9db2bf3994517444ba9dc0d5ec6344a29ad2bac"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "95b75dbd44a9a1ed9ca0279e66b7993282b0a6161539de582042dcc806b9f2c7"
   end
 
   depends_on "openjdk"
@@ -35,32 +36,10 @@ class H2 < Formula
     (bin/"h2").write_env_script libexec/"bin/h2.sh", Language::Java.overridable_java_home_env
   end
 
-  plist_options manual: "h2"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/h2</string>
-              <string>-tcp</string>
-              <string>-web</string>
-              <string>-pg</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"h2", "-tcp", "-web", "-pg"]
+    keep_alive false
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

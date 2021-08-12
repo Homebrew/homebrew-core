@@ -6,11 +6,16 @@ class BoostMpi < Formula
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git"
 
+  livecheck do
+    formula "boost"
+  end
+
   bottle do
-    sha256 arm64_big_sur: "8289fe7bb5a684360ab11462bf4312024a620854714ce02d6553e32274e5bfeb"
-    sha256 big_sur:       "76544350ace536b0af831854f3ce18a5c101155a132001685bcfa3ea411bbb94"
-    sha256 catalina:      "d3e1dfd88b6d683581efb1c0d732076eaa634d42d6e8d3de05ebec949f512740"
-    sha256 mojave:        "fc0b30274d5d1eaf5f66b7c733e8c516ddfc864beddc0932eb6ee3ddd2457e6c"
+    sha256                               arm64_big_sur: "8289fe7bb5a684360ab11462bf4312024a620854714ce02d6553e32274e5bfeb"
+    sha256                               big_sur:       "76544350ace536b0af831854f3ce18a5c101155a132001685bcfa3ea411bbb94"
+    sha256                               catalina:      "d3e1dfd88b6d683581efb1c0d732076eaa634d42d6e8d3de05ebec949f512740"
+    sha256                               mojave:        "fc0b30274d5d1eaf5f66b7c733e8c516ddfc864beddc0932eb6ee3ddd2457e6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "925c67fecdd80283070e6483972dfb0b81cdae28f6a404c46e640bb95ee13a54"
   end
 
   # Test with cmake to avoid issues like:
@@ -96,8 +101,19 @@ class BoostMpi < Formula
         return 0;
       }
     EOS
+
     boost = Formula["boost"]
-    system "mpic++", "test.cpp", "-L#{lib}", "-L#{boost.lib}", "-lboost_mpi", "-lboost_serialization", "-o", "test"
+    args = ["-L#{lib}",
+            "-L#{boost.lib}",
+            "-lboost_mpi-mt",
+            "-lboost_serialization"]
+
+    on_linux do
+      args << "-Wl,-rpath,#{lib}"
+      args << "-Wl,-rpath,#{boost.lib}"
+    end
+
+    system "mpic++", "test.cpp", *args, "-o", "test"
     system "mpirun", "-np", "2", "./test"
 
     (testpath/"CMakeLists.txt").write "find_package(Boost COMPONENTS mpi REQUIRED)"

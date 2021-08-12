@@ -20,6 +20,7 @@ class SonarqubeLts < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "975d8370e016c2fd615699e67787c5ea2a00cd202ed6faa259964461a57384c5"
     sha256 cellar: :any_skip_relocation, catalina:      "975d8370e016c2fd615699e67787c5ea2a00cd202ed6faa259964461a57384c5"
     sha256 cellar: :any_skip_relocation, mojave:        "b4ffb6a083fc4eb59d55b9fc5ddaa95dce91408a6439f905c5d92a9c44be3b20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "790c3b1664d331817bf85ae9b99de3b960689085b9f7707ac424d73de6cee5c2"
   end
 
   depends_on "openjdk@11"
@@ -28,34 +29,23 @@ class SonarqubeLts < Formula
 
   def install
     # Delete native bin directories for other systems
-    rm_rf Dir["bin/{linux,windows}-*"]
+    remove = "linux"
+    keep = "macosx-universal"
+    on_linux do
+      remove = "macosx"
+      keep = "linux-x86"
+    end
+
+    rm_rf Dir["bin/{#{remove},windows}-*"]
 
     libexec.install Dir["*"]
 
-    (bin/"sonar").write_env_script libexec/"bin/macosx-universal-64/sonar.sh",
+    (bin/"sonar").write_env_script libexec/"bin/#{keep}-64/sonar.sh",
       Language::Java.overridable_java_home_env("11")
   end
 
-  plist_options manual: "sonar console"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-          <string>#{opt_bin}/sonar</string>
-          <string>start</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"sonar", "start"]
   end
 
   test do

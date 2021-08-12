@@ -6,6 +6,10 @@ class ArmLinuxGnueabihfBinutils < Formula
   sha256 "820d9724f020a3e69cb337893a0b63c2db161dadcb0e06fc11dc29eb1e84a32c"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    formula "binutils"
+  end
+
   bottle do
     sha256 arm64_big_sur: "f090259411ea17662b23b08700cc6bb63116624932ef17388e80cb88ec431fa5"
     sha256 big_sur:       "6fae8a0bdc7ef15c1f6dcfac0ae2a8bd533f0e5cbbdb44e857f48c5412b90a0c"

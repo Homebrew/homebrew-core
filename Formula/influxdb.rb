@@ -5,7 +5,7 @@ class Influxdb < Formula
       tag:      "v2.0.7",
       revision: "2a45f0c0375a7d5615835afa6f81a53444df9cea"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/influxdata/influxdb.git"
 
   # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
@@ -15,10 +15,11 @@ class Influxdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c61b51f445a245622aa88758fb4fefa61d8c23e0d01860273dba9c30e3648759"
-    sha256 cellar: :any_skip_relocation, big_sur:       "aa01e8b516ec70cfa0e7ff88dfba05b119388801169aa0f025d716ef3e7a2ed1"
-    sha256 cellar: :any_skip_relocation, catalina:      "29faac45df752b3ae7eaf3270591d613b42b5febd91be652c7340fbbcaba072b"
-    sha256 cellar: :any_skip_relocation, mojave:        "5740adbc10167d950cb7fc000856e5ae402154415c0e61bcb230a9dec1dce1e1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e7a6d19248a8d665dafdb65535db91471c9d1e221a960d6510ebfbd0fc0ed512"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fd1d249e726bf558dc5252daca83ec7939989ed10d0bbde603f6c50f313fcfd8"
+    sha256 cellar: :any_skip_relocation, catalina:      "74b7abcb4e2eac907741229394e0e4889a3b66af8d379f2797a687e5131d240d"
+    sha256 cellar: :any_skip_relocation, mojave:        "728c2867fc14149b2451940d04c53377d06016378b337bfdfde81f0c61727189"
   end
 
   depends_on "bazaar" => :build
@@ -26,6 +27,7 @@ class Influxdb < Formula
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
   depends_on "rust" => :build
+  depends_on "influxdb-cli"
 
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
@@ -55,7 +57,7 @@ class Influxdb < Formula
     # Embed UI files into the Go source code.
     system "make", "generate"
 
-    # Build the CLI and server.
+    # Build the server.
     ldflags = %W[
       -s
       -w
@@ -64,8 +66,6 @@ class Influxdb < Formula
       -X main.date=#{time.iso8601}
     ].join(" ")
 
-    system "go", "build", *std_go_args(ldflags: ldflags),
-           "-o", bin/"influx", "./cmd/influx"
     system "go", "build", *std_go_args(ldflags: ldflags),
            "-tags", "assets", "-o", bin/"influxd", "./cmd/influxd"
 
@@ -83,44 +83,16 @@ class Influxdb < Formula
     (var/"log/influxdb2").mkpath
   end
 
-  plist_options manual: "INFLUXD_CONFIG_PATH=#{HOMEBREW_PREFIX}/etc/influxdb2/config.yml influxd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>WorkingDirectory</key>
-        <string>#{HOMEBREW_PREFIX}</string>
-        <key>EnvironmentVariables</key>
-        <dict>
-          <key>INFLUXD_CONFIG_PATH</key>
-          <string>#{etc}/influxdb2/config.yml</string>
-        </dict>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{bin}/influxd</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-        <key>StandardErrorPath</key>
-        <string>#{var}/log/influxdb2/influxd_output.log</string>
-        <key>StandardOutPath</key>
-        <string>#{var}/log/influxdb2/influxd_output.log</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run bin/"influxd"
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
+    log_path var/"log/influxdb2/influxd_output.log"
+    error_log_path var/"log/influxdb2/influxd_output.log"
+    environment_variables INFLUXD_CONFIG_PATH: etc/"influxdb2/config.yml"
   end
 
   test do
-    ENV["INFLUXD_BOLT_PATH"] = "#{testpath}/influxd.bolt"
-    ENV["INFLUXD_ENGINE_PATH"] = "#{testpath}/engine"
-
     influxd_port = free_port
     influx_host = "http://localhost:#{influxd_port}"
     ENV["INFLUX_HOST"] = influx_host
@@ -131,10 +103,10 @@ class Influxdb < Formula
                              "--http-bind-address=:#{influxd_port}",
                              "--log-level=error"
     end
-    sleep 20
+    sleep 30
 
     # Check that the CLI works and can talk to the server.
-    assert_match "OK", shell_output("#{bin}/influx ping")
+    assert_match "OK", shell_output("influx ping")
 
     # Check that the server has properly bundled UI assets and serves them as HTML.
     curl_output = shell_output("curl --silent --head #{influx_host}")
