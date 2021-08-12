@@ -6,7 +6,6 @@ class Kn < Formula
       revision: "0bbb3ec9d92665d372d8393ef3036ba7e0c069a4"
   license "Apache-2.0"
 
-  depends_on "bash" => :build
   depends_on "go" => :build
 
   def install
