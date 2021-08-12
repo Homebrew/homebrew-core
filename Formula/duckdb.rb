@@ -5,6 +5,7 @@ class Duckdb < Formula
       tag:      "v0.2.8",
       revision: "a8fd73b37bfc249b76b2aaa488d52dfdb39bb3d9"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "7d3a59d4b2acfab03cb9926147a94a6a4a36ef663d8fd45fab7f09a520da3d10"
@@ -23,7 +24,7 @@ class Duckdb < Formula
       ENV.deparallelize # amalgamation builds take GBs of RAM
     end
     mkdir "build/amalgamation"
-    system Formula["python@3.9"].opt_bin/"python3", "scripts/amalgamation.py"
+    system Formula["python@3.9"].opt_bin/"python3", "scripts/amalgamation.py", "--extended"
     cd "build/amalgamation" do
       system "cmake", "../..", *std_cmake_args, "-DAMALGAMATION_BUILD=ON"
       system "make"
