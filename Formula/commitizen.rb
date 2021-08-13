@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/ea/fc/9c6685366768d54b0af4cf265dc844633642cb4472c8d23da5873283cc0e/commitizen-2.17.13.tar.gz"
-  sha256 "8ff83a6ff33db9bf1c9f6ad50829ca0823b09155787adb5d12939e0c338ee978"
+  url "https://files.pythonhosted.org/packages/66/1f/2a25267d9b3c5052b3c52f256a40a318bf33069677e2268e364b8639560b/commitizen-2.18.0.tar.gz"
+  sha256 "f24a22eb6734e1791046e817dff72505b515e9a1f282577a82423cf7563201d7"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git"
 
@@ -63,8 +63,8 @@ class Commitizen < Formula
   end
 
   resource "questionary" do
-    url "https://files.pythonhosted.org/packages/b5/a5/20e0d643ce997cd5d87b3100373e24eb2c6aa874f713b08552a01639145e/questionary-1.9.0.tar.gz"
-    sha256 "a050fdbb81406cddca679a6f492c6272da90cb09988963817828f697cf091c55"
+    url "https://files.pythonhosted.org/packages/04/c6/a8dbf1edcbc236d93348f6e7c437cf09c7356dd27119fcc3be9d70c93bb1/questionary-1.10.0.tar.gz"
+    sha256 "600d3aefecce26d48d97eee936fdb66e4bc27f934c3ab6dd1e292c4f43946d90"
   end
 
   resource "termcolor" do
