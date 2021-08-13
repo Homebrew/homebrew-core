@@ -1,0 +1,84 @@
+name: Bump formulae on schedule
+
+on:
+  schedule:
+    # Every day at 5am
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+env:
+  HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+
+jobs:
+  autobump:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Configure Git user
+        uses: Homebrew/actions/git-user-config@master
+
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@master
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
+
+      - name: Bump formulae
+        uses: Homebrew/actions/bump-formula@master
+        continue-on-error: true
+        with:
+          token: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
+          formulae: |
+            ack
+            apidoc
+            argo
+            b3sum
+            buildkit
+            chezmoi
+            consul
+            consul-template
+            devspace
+            docker
+            docker-compose
+            docker-slim
+            doctl
+            envconsul
+            etcd
+            gitleaks
+            gofish
+            golang-migrate
+            goreleaser
+            gostatic
+            hcloud
+            helm
+            helmfile
+            jfrog-cli
+            just
+            k3d
+            k9s
+            kubeaudit
+            kumactl
+            kustomize
+            lazydocker
+            mdbook
+            mdcat
+            micro
+            minikube
+            mmctl
+            neofetch
+            nomad
+            nushell
+            okteto
+            skopeo
+            starship
+            stress-ng
+            syncthing
+            teleport
+            termshark
+            terraform-ls
+            traefik
+            vale
+            virgil
