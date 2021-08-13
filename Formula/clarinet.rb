@@ -18,18 +18,15 @@ class Clarinet < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "26f6b854d18eda7155f802d982ca16d465b16ed594b6d50283c039e9e83b9743"
   end
 
-  depends_on "rustup-init" => :build # clarinet needs nightly channel
+  depends_on "rustup-init" => :build # clarinet needs nightly channel for this release
 
-  # Update the Rust nightly toolchain version whenever clarinet's Dockerfile is updated.
+  
+  # Nightly rust toolchain will be changed to stable on next release.
   # See https://github.com/hirosystems/clarinet/blob/main/Dockerfile#L7
-  def rust_toolchain
-    "nightly-2021-08-05"
-  end
-
   def install
     # This will install a nightly rust toolchain to be used with clarinet.
     system Formula["rustup-init"].bin/"rustup-init", "-qy", "--no-modify-path",
-           "--default-toolchain", rust_toolchain, "--profile", "minimal"
+           "--default-toolchain", "nightly-2021-08-05", "--profile", "minimal"
     with_env(PATH: "#{HOMEBREW_CACHE}/cargo_cache/bin:#{ENV["PATH"]}") do
       system "cargo", "install", *std_cargo_args
     end
