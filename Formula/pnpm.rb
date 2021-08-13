@@ -54,7 +54,7 @@ class Pnpm < Formula
 
   def caveats
     <<~EOS
-      You should create npm's global directory if you want to install packages globally:
+      You should create pnpm's global directory if you want to install packages globally:
 
         mkdir -p ~/npm-global/bin
 
