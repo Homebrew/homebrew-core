@@ -33,8 +33,8 @@ class ApachePulsar < Formula
     (etc/"pulsar").install_symlink libexec/"conf/*"
 
     Pathname.glob("#{libexec}/bin/*") do |path|
-      if path.fnmatch?("*common.sh") || path.directory?
-        bin.install path
+      if path.fnmatch?("*common.sh")
+        bin.install path unless path.directory?
       else
         bin_name = path.basename
         (bin+bin_name).write <<~EOS
