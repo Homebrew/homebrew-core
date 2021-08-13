@@ -101,8 +101,16 @@ class JenkinsJobBuilder < Formula
   end
 
   test do
-    assert_match("Managed by Jenkins Job Builder",
-                 pipe_output("#{bin}/jenkins-jobs test /dev/stdin",
-                             "- job:\n    name: test-job\n\n", 0))
+    on_macos do
+      assert_match("Managed by Jenkins Job Builder",
+                   pipe_output("#{bin}/jenkins-jobs test /dev/stdin",
+                               "- job:\n    name: test-job\n\n", 0))
+    end
+
+    on_linux do
+      assert_match("WARNING:jenkins_jobs.config:Config file",
+               pipe_output("#{bin}/jenkins-jobs test /dev/stdin 2>&1",
+                           "- job:\n    name: test-job\n\n", 1))
+    end
   end
 end
