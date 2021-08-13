@@ -2,8 +2,8 @@ class Gor < Formula
   desc "Real-time HTTP traffic replay tool written in Go"
   homepage "https://goreplay.org"
   url "https://github.com/buger/goreplay.git",
-      tag:      "v1.3.0",
-      revision: "c9274ac92a6f021240d82682002240cfceaecd5e"
+      tag:      "v1.3.1",
+      revision: "42d89903b65508d8a5f622afa717ff551a4e20bd"
   license "LGPL-3.0-only"
   head "https://github.com/buger/goreplay.git"
 
