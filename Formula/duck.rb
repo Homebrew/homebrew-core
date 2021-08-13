@@ -21,6 +21,7 @@ class Duck < Formula
   depends_on "ant" => :build
   depends_on "maven" => :build
   depends_on xcode: :build
+  depends_on arch: :x86_64
 
   def install
     xcconfig = buildpath/"Overrides.xcconfig"
