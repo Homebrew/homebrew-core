@@ -18,6 +18,11 @@ class Mailcatcher < Formula
     depends_on "node" => :build
   end
 
+  resource "bundler" do
+    url "https://rubygems.org/downloads/bundler-2.2.25.gem"
+    sha256 "422237ffbbf2ceb05e696df7abb1bd1a82b5b1823eb2aeb6193312a60c319d8d"
+  end
+
   resource "eventmachine" do
     url "https://rubygems.org/downloads/eventmachine-1.0.9.1.gem"
     sha256 "9f4cb30b3bce0c2a90da875a81534f12cbf6f1174f80d64c32efbda1140b599e"
@@ -79,7 +84,7 @@ class Mailcatcher < Formula
     end
 
     ENV["GEM_HOME"] = buildpath/"gem_home"
-    system "gem", "install", "--no-document", "bundler"
+    system "gem", "install", "--no-document", resource("bundler").cached_download
     with_env(PATH: "#{buildpath}/gem_home/bin:#{ENV["PATH"]}") do
       system "bundle", "config", "build.thin", "--with-cflags=-Wno-implicit-function-declaration"
       system "bundle", "config", "build.sqlite3", "--with-cflags=-fdeclspec" if ENV.compiler == :clang
@@ -99,6 +104,8 @@ class Mailcatcher < Formula
         system "gem", "install", r.cached_download, "--ignore-dependencies",
                 "--no-document", "--install-dir", libexec, "--",
                 ENV.compiler == :clang ? "--with-cflags=-fdeclspec" : ""
+      when "bundler"
+        true
       else
         system "gem", "install", r.cached_download, "--ignore-dependencies",
                 "--no-document", "--install-dir", libexec
