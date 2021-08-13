@@ -19,8 +19,6 @@ class Prestodb < Formula
 
   depends_on "openjdk"
 
-  conflicts_with "prestosql", because: "both install `presto` and `presto-server` binaries"
-
   resource "presto-cli" do
     url "https://search.maven.org/remotecontent?filepath=com/facebook/presto/presto-cli/0.258/presto-cli-0.258-executable.jar"
     sha256 "2d013cc11275494e39d125043e8c0fd939b1c3354108cc680cb19cbd19bb7dda"
