@@ -1,9 +1,8 @@
 class Mpi4py < Formula
   desc "Python bindings for MPI"
   homepage "https://mpi4py.readthedocs.io"
-  url "https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.0.3.tar.gz"
-  sha256 "012d716c8b9ed1e513fcc4b18e5af16a8791f51e6d1716baccf988ad355c5a1f"
-  revision 2
+  url "https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-3.1.0.tar.gz"
+  sha256 "134fa2b2fe6d8f91bcfcc2824cfd74b55ca3dcbff4d185b1bda009beea9232ec"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0f4729ca14721e02e752fa831f91c0463d32163e86c7097896843c553d0b8f30"
