@@ -15,6 +15,8 @@ class Jmxtrans < Formula
   depends_on "maven" => :build
   depends_on "openjdk@8"
 
+  uses_from_macos "netcat" => :test
+
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
 
@@ -39,6 +41,9 @@ class Jmxtrans < Formula
     end
 
     (bin/"jmxtrans").write_env_script libexec/"jmxtrans.sh", JAVA_HOME: Formula["openjdk@8"].opt_prefix
+
+    # Delete 32-bit Linux binaries
+    rm Dir[libexec/"target/generated-resources/appassembler/jsw/jmxtrans/{bin,lib}/*wrapper-linux-x86-32*"]
   end
 
   test do
