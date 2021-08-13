@@ -6,6 +6,11 @@ class Pyoxidizer < Formula
   license "MPL-2.0"
   head "https://github.com/indygreg/PyOxidizer.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(%r{^pyoxidizer/v?(\d+(?:\.\d+)+)$}i)
+  end
+
   depends_on "rust" => :build
   # Currently needs macOS 11 SDK due to checking for DeploymentTargetSettingName
   # Remove when issue is fixed: https://github.com/indygreg/PyOxidizer/issues/431
