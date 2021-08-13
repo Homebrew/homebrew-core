@@ -20,7 +20,6 @@ class Clarinet < Formula
 
   depends_on "rustup-init" => :build # clarinet needs nightly channel for this release
 
-  
   # Nightly rust toolchain will be changed to stable on next release.
   # See https://github.com/hirosystems/clarinet/blob/main/Dockerfile#L7
   def install
