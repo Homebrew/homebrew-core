@@ -1,8 +1,8 @@
 class Stern < Formula
   desc "Tail multiple Kubernetes pods & their containers"
   homepage "https://github.com/stern/stern"
-  url "https://github.com/stern/stern/archive/v1.19.0.tar.gz"
-  sha256 "1f19f9ec21f07317ce53b333b9633b6b91392f5af6b0fff2657ee1b2a0bae707"
+  url "https://github.com/stern/stern/archive/v1.20.0.tar.gz"
+  sha256 "72210a8fd3c1126ab4f9a26aa2d91b4515c78ae0691c9a6660c6be262920a044"
   license "Apache-2.0"
   head "https://github.com/stern/stern.git"
 
@@ -17,7 +17,7 @@ class Stern < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", "-ldflags", "-s -w -X github.com/stern/stern/cmd.version=#{version}", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/stern/stern/cmd.version=#{version}")
 
     # Install shell completion
     output = Utils.safe_popen_read("#{bin}/stern", "--completion=bash")
@@ -25,6 +25,9 @@ class Stern < Formula
 
     output = Utils.safe_popen_read("#{bin}/stern", "--completion=zsh")
     (zsh_completion/"_stern").write output
+
+    output = Utils.safe_popen_read("#{bin}/stern", "--completion=fish")
+    (fish_completion/"stern.fish").write output
   end
 
   test do
