@@ -47,9 +47,14 @@ class Ghc < Formula
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
-      if Hardware::CPU.intel?
+      if Hardware::CPU.intel? && MacOS.version > :mojave
         url "https://downloads.haskell.org/~ghc/8.10.6/ghc-8.10.6-x86_64-apple-darwin.tar.xz"
         sha256 "32ab41da04d56cae2297d6e45caa88180f99cec0e33f2756cfbc48c0c60b5721"
+      elsif Hardware::CPU.intel? && MacOS.version <= :mojave
+        # We intentionally bootstrap with 8.10.4 on Intel, as 8.10.{5,6} leads to build failure on Mojave
+        # ref: https://github.com/Homebrew/homebrew-core/pull/78821#issuecomment-857718840
+        url "https://downloads.haskell.org/~ghc/8.10.4/ghc-8.10.4-x86_64-apple-darwin.tar.xz"
+        sha256 "725ecf6543e63b81a3581fb8c97afd21a08ae11bc0fa4f8ee25d45f0362ef6d5"
       else
         url "https://downloads.haskell.org/ghc/8.10.6/ghc-8.10.6-aarch64-apple-darwin.tar.xz"
         sha256 "9e43fc3a39d2f2762262c63868653984e381e29eff6386f7325aad501b9190ad"
