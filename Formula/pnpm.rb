@@ -57,16 +57,16 @@ class Pnpm < Formula
       You should create npm's global directory somewhere if you
       want to install packages globally:
 
-        mkdir -p ~/npm-global/bin
+        mkdir -p ~/.npm-packages/bin
 
-      Run the following pnpm command:
+      Run the following command:
 
-        pnpm set prefix ~/npm-global
+        echo 'prefix=${HOME}/.npm-packages' >> ~/.npmrc
 
       Add the following to #{shell_profile} or your desired shell
       configuration file:
 
-        export PATH="$HOME/npm-global/bin:$PATH"
+        export PATH="$HOME/.npm-packages/bin:$PATH"
 
       You can set prefix to any location, but leaving it unchanged from
       #{HOMEBREW_PREFIX} will destroy any Homebrew-installed Node installations
