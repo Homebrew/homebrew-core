@@ -3,8 +3,8 @@ class Sceptre < Formula
 
   desc "Build better AWS infrastructure"
   homepage "https://sceptre.cloudreach.com"
-  url "https://files.pythonhosted.org/packages/3c/78/ffce3c38cf0e564e46c3ea31354d4c44a23f7cb4a6edcb53dc7f8b01a25e/sceptre-2.6.2.tar.gz"
-  sha256 "fa69148231d4360278cbd3bbfada0af37d074568e7197f3bb487f220fc53d377"
+  url "https://files.pythonhosted.org/packages/40/06/6239b72d9d55d47d9164bdfada3e0063e5baca6287601bc889729ae889af/sceptre-2.6.3.tar.gz"
+  sha256 "550473ae9dd3d5b2c54395bdc01f230bea1fb57311754dcbed7f787845b84c92"
   license "Apache-2.0"
 
   bottle do
@@ -19,13 +19,13 @@ class Sceptre < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f2/85/1a67e5001decf252e693b0ef6c474e7bfc2fac38d91b4f8d5c6e6b34baf9/boto3-1.18.13.tar.gz"
-    sha256 "8c3676239a35eba465e7df2df58ca400219729d4b732b7202f18caf0308ececa"
+    url "https://files.pythonhosted.org/packages/b6/53/fa8c8ae8d3ddcb2a777fa19be27f8c9a46da257909a985a83ddaf4c7445e/boto3-1.18.21.tar.gz"
+    sha256 "00748c760dc30be61c6db4b092718f6a9f8d27c767da0e232695a65adb75cde8"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/20/9f/b212213d2a67b74d7bfaf151f57e983c3b4cef3d983b50b3310afad0e651/botocore-1.21.13.tar.gz"
-    sha256 "37c1c17326f9c81aba73efc6b496ccfe536822e576bc89ceee460dc18108f3a0"
+    url "https://files.pythonhosted.org/packages/39/c3/5f09f4bda60a30741880e772ce9d1ffba7d6c667e56646ac0e6ffc5269a3/botocore-1.21.21.tar.gz"
+    sha256 "12cfe74b0a5c44afb34bdd86c1f8ad74bc2ad9ec168eaed9040ef70cb3db944f"
   end
 
   resource "certifi" do
