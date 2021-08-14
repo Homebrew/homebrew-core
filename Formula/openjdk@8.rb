@@ -78,13 +78,20 @@ class OpenjdkAT8 < Formula
       inreplace "hotspot/make/linux/makefiles/gcc.make", "-Xlinker -O1", ""
     end
 
-    args = %W[--with-boot-jdk-jvmargs=#{java_options}
-              --with-boot-jdk=#{boot_jdk}
-              --with-debug-level=release
-              --with-jvm-variants=server
-              --with-milestone=fcs
-              --with-native-debug-symbols=none
-              --with-update-version=#{update}]
+    args = %W[
+      --with-boot-jdk-jvmargs=#{java_options}
+      --with-boot-jdk=#{boot_jdk}
+      --with-debug-level=release
+      --with-conf-name=release
+      --with-jvm-variants=server
+      --with-milestone=fcs
+      --with-native-debug-symbols=none
+      --with-update-version=#{update}
+      --with-vendor-bug-url=#{tap.issues_url}
+      --with-vendor-name=#{tap.user}
+      --with-vendor-url=#{tap.issues_url}
+      --with-vendor-vm-bug-url=#{tap.issues_url}
+    ]
 
     on_macos do
       args << "--with-toolchain-type=clang"
@@ -101,9 +108,7 @@ class OpenjdkAT8 < Formula
     end
 
     on_linux do
-      args += %W[CC=#{ENV.cc}
-                 CXX=#{ENV.cxx}
-                 --with-toolchain-type=gcc
+      args += %W[--with-toolchain-type=gcc
                  --x-includes=#{HOMEBREW_PREFIX}/include
                  --x-libraries=#{HOMEBREW_PREFIX}/lib
                  --with-cups=#{HOMEBREW_PREFIX}
@@ -116,23 +121,22 @@ class OpenjdkAT8 < Formula
     system "./configure", *args
 
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
-    system "make", "images"
+    system "make", "bootcycle-images", "CONF=release"
 
-    on_macos do
-      jdk = Dir["build/*/images/j2sdk-bundle/*"].first
-      libexec.install jdk => "openjdk.jdk"
-      bin.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/bin/*"]
-      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/*.h"]
-      include.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/include/darwin/*.h"]
-      man1.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/man/man1/*"]
-    end
+    cd "build/release/images" do
+      jdk = libexec
 
-    on_linux do
-      libexec.install Dir["build/*/images/j2sdk-image/*"]
-      bin.install_symlink Dir[libexec/"bin/*"]
-      include.install_symlink Dir[libexec/"include/*.h"]
-      include.install_symlink Dir[libexec/"include/linux/*.h"]
-      man1.install_symlink Dir[libexec/"man/man1/*"]
+      on_macos do
+        libexec.install Dir["j2sdk-bundle/*"].first => "openjdk.jdk"
+        jdk /= "openjdk.jdk/Contents/Home"
+      end
+
+      on_linux { libexec.install Dir["j2sdk-image/*"] }
+
+      bin.install_symlink Dir[jdk/"bin/*"]
+      include.install_symlink Dir[jdk/"include/*.h"]
+      include.install_symlink Dir[jdk/"include/*/*.h"]
+      man1.install_symlink Dir[jdk/"man/man1/*"]
     end
   end
 
