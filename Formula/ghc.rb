@@ -42,24 +42,23 @@ class Ghc < Formula
     depends_on "gmp" => :build
   end
 
-  # https://www.haskell.org/ghc/download_ghc_8_10_4.html#macosx_x86_64
+  # https://www.haskell.org/ghc/download_ghc_8_10_6.html#macosx_x86_64
   # "This is a distribution for Mac OS X, 10.7 or later."
   # A binary of ghc is needed to bootstrap ghc
   resource "binary" do
     on_macos do
       if Hardware::CPU.intel?
-        # We intentionally bootstrap with 8.10.4 on Intel, as 8.10.5 leads to build failure on Mojave
-        url "https://downloads.haskell.org/~ghc/8.10.4/ghc-8.10.4-x86_64-apple-darwin.tar.xz"
-        sha256 "725ecf6543e63b81a3581fb8c97afd21a08ae11bc0fa4f8ee25d45f0362ef6d5"
+        url "https://downloads.haskell.org/~ghc/8.10.6/ghc-8.10.6-x86_64-apple-darwin.tar.xz"
+        sha256 "32ab41da04d56cae2297d6e45caa88180f99cec0e33f2756cfbc48c0c60b5721"
       else
-        url "https://downloads.haskell.org/ghc/8.10.5/ghc-8.10.5-aarch64-apple-darwin.tar.xz"
-        sha256 "03684e70ff03d041b9a4e0f84c177953a241ab8ec7a028c72fa21ac67e66cb09"
+        url "https://downloads.haskell.org/ghc/8.10.6/ghc-8.10.6-aarch64-apple-darwin.tar.xz"
+        sha256 "9e43fc3a39d2f2762262c63868653984e381e29eff6386f7325aad501b9190ad"
       end
     end
 
     on_linux do
-      url "https://downloads.haskell.org/~ghc/8.10.5/ghc-8.10.5-x86_64-deb9-linux.tar.xz"
-      sha256 "15e71325c3bdfe3804be0f84c2fc5c913d811322d19b0f4d4cff20f29cdd804d"
+      url "https://downloads.haskell.org/~ghc/8.10.6/ghc-8.10.6-x86_64-deb9-linux.tar.xz"
+      sha256 "c14b631437ebc867f1fe1648579bc1dbe1a9b9ad31d7c801c3c77639523a83ae"
     end
   end
 
