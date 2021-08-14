@@ -71,7 +71,6 @@ class Pnpm < Formula
       You can set prefix to any location, but leaving it unchanged from
       #{HOMEBREW_PREFIX} will destroy any Homebrew-installed Node installations
       upon upgrade/reinstall.
-      
     EOS
   end
 
