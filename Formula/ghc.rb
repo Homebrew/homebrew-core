@@ -1,14 +1,13 @@
 class Ghc < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.10.5/ghc-8.10.5-src.tar.xz"
-  sha256 "f10941f16e4fbd98580ab5241b9271bb0851304560c4d5ca127e3b0e20e3076f"
+  url "https://downloads.haskell.org/~ghc/8.10.6/ghc-8.10.6-src.tar.xz"
+  sha256 "43afba72a533408b42c1492bd047b5e37e5f7204e41a5cedd3182cc841610ce9"
   # We bundle a static GMP so GHC inherits GMP's license
   license all_of: [
     "BSD-3-Clause",
     any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"],
   ]
-  revision 2
 
   livecheck do
     url "https://www.haskell.org/ghc/download.html"
@@ -64,21 +63,7 @@ class Ghc < Formula
     end
   end
 
-  # fix ghci lib loading
-  # https://gitlab.haskell.org/ghc/ghc/-/issues/19763
-  patch do
-    url "https://github.com/ghc/ghc/commit/296f25fa5f0fce033b529547e0658076e26f4cda.patch?full_index=1"
-    sha256 "20556b7b4ffd6cf3eb35d274621ed717b46f12acf5084d4413071182af969108"
-  end
-
   def install
-    # Fix doc build error. Remove at version bump.
-    # https://gitlab.haskell.org/ghc/ghc/-/issues/19962
-    inreplace "docs/users_guide/conf.py" do |s|
-      s.gsub! "'preamble': '''", "'preamble': r'''"
-      s.gsub! "\\setlength{\\\\tymin}{45pt}", "\\setlength{\\tymin}{45pt}"
-    end
-
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
