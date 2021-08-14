@@ -1,8 +1,8 @@
 class BoostBuild < Formula
   desc "C++ build system"
   homepage "https://www.boost.org/build/"
-  url "https://github.com/boostorg/build/archive/boost-1.76.0.tar.gz"
-  sha256 "886bc799c4a7c56218a41acee89f37073672c5c02586b680bf6dc0603d6c9349"
+  url "https://github.com/boostorg/build/archive/boost-1.77.0.tar.gz"
+  sha256 "17ad1addbc08d1cc6ef52f7140097915bc4904c28c7d6d733c4a1a20d40bbc1c"
   license "BSL-1.0"
   version_scheme 1
   head "https://github.com/boostorg/build.git"
@@ -36,15 +36,9 @@ class BoostBuild < Formula
     (testpath/"Jamroot.jam").write("exe hello : hello.cpp ;")
 
     system bin/"b2", "release"
-    release = nil
-    on_macos do
-      release = "darwin-*"
-    end
-    on_linux do
-      version = IO.popen("gcc -dumpversion").read.chomp
-      release = "gcc-#{version}"
-    end
-    out = Dir["bin/#{release}/release/hello"]
+
+    compiler = File.basename(ENV.cc)
+    out = Dir["bin/#{compiler}*/release/hello"]
     assert out.length == 1
     assert_predicate testpath/out[0], :exist?
     assert_equal "Hello world", shell_output(out[0])
