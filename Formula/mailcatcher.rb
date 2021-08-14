@@ -105,7 +105,7 @@ class Mailcatcher < Formula
                 "--no-document", "--install-dir", libexec, "--",
                 ENV.compiler == :clang ? "--with-cflags=-fdeclspec" : ""
       when "bundler"
-        true
+        # bundler is needed only at build-time
       else
         system "gem", "install", r.cached_download, "--ignore-dependencies",
                 "--no-document", "--install-dir", libexec
