@@ -33,9 +33,7 @@ class ApachePulsar < Formula
     (etc/"pulsar").install_symlink libexec/"conf/*"
 
     Pathname.glob("#{libexec}/bin/*") do |path|
-      if path.fnmatch?("*common.sh")
-        bin.install path unless path.directory?
-      else
+      if !path.fnmatch?("*common.sh") && !path.directory?
         bin_name = path.basename
         (bin+bin_name).write <<~EOS
           #!/bin/bash
@@ -47,36 +45,23 @@ class ApachePulsar < Formula
     end
   end
 
-  plist_options manual: "pulsar standalone"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{bin}/pulsar</string>
-            <string>standalone</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{prefix}</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/pulsar/output.log</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/pulsar/error.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [bin/"pulsar", "standalone"]
+    log_path var/"log/pulsar/output.log"
+    error_log_path var/"log/pulsar/error.log"
   end
 
   test do
-    output = shell_output("#{bin}/pulsar version")
-    assert_match "Current version of pulsar is: #{version}", output
+    fork do
+      exec bin/"pulsar", "standalone", "--zookeeper-dir", "#{testpath}/zk", " --bookkeeper-dir", "#{testpath}/bk"
+    end
+    # The daemon takes some time to start; pulsar-client will retry until it gets a connection, but emit confusing
+    # errors until that happens, so sleep to reduce log spam.
+    sleep 15
+
+    output = shell_output("#{bin}/pulsar-client produce my-topic --messages 'hello-pulsar'")
+    assert_match "1 messages successfully produced", output
+    output = shell_output("#{bin}/pulsar initialize-cluster-metadata -c a -cs localhost -uw localhost -zk localhost")
+    assert_match "Cluster metadata for 'a' setup correctly", output
   end
 end
