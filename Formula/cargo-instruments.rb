@@ -16,6 +16,12 @@ class CargoInstruments < Formula
   depends_on :macos
   depends_on "openssl@1.1"
 
+  # Support rust 1.54, remove with next release after 0.4.1
+  patch do
+    url "https://github.com/cmyr/cargo-instruments/commit/5371c086007e15da55360fdea2e3b8e79cff002b.patch?full_index=1"
+    sha256 "73e4e95de7052d2c9393037a7b6f32dd16933c67615693b3e70722f4cf97c334"
+  end
+
   def install
     system "cargo", "install", *std_cargo_args
   end
