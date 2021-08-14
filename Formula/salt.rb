@@ -3,10 +3,9 @@ class Salt < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "https://saltproject.io/"
-  url "https://files.pythonhosted.org/packages/49/51/5c6dd25abeda4e11fc8bfbc80601bec5b14e9534c7a031d13bfb90e41fd3/salt-3003.1.tar.gz"
-  sha256 "8a7184d3de4d1727618f0d3fbba79e54389aeff85b72f4ceb8200bcc167f6ebe"
+  url "https://files.pythonhosted.org/packages/e3/cf/b423b3928f5b2fdc9fd4e330e9f765f15fb6b90d60513d6f4b1649c409eb/salt-3003.2.tar.gz"
+  sha256 "73c86c44b176d8cfdc033bb1e42e4fdc8dd3424833faa2ea0d0938fa173856a9"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/saltstack/salt.git", branch: "develop"
 
   bottle do
