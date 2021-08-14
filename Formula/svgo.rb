@@ -3,8 +3,8 @@ require "language/node"
 class Svgo < Formula
   desc "Nodejs-based tool for optimizing SVG vector graphics files"
   homepage "https://github.com/svg/svgo"
-  url "https://github.com/svg/svgo/archive/v2.3.1.tar.gz"
-  sha256 "a88c0a0f733f39f673938f75e8ae3ee25a04fa5a601a50aa00a8573c8ca84e98"
+  url "https://github.com/svg/svgo/archive/v2.4.0.tar.gz"
+  sha256 "bd1e611295cd851015a1e27f3814b18c1275b77ecc2132fb5bc776c163619ca4"
   license "MIT"
 
   bottle do
