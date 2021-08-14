@@ -21,7 +21,7 @@ class LibreadlineJava < Formula
   patch :DATA
 
   def install
-    java_home = Formula["openjdk@8"].opt_prefix
+    java_home = Language::Java.java_home("1.8")
 
     # Reported 4th May 2016: https://sourceforge.net/p/java-readline/bugs/12/
     # JDK 8 doclint for Javadoc complains about minor HTML conformance issues
@@ -35,13 +35,8 @@ class LibreadlineJava < Formula
     # original Apple/Sun JDK used to.
     os = "darwin"
     on_linux { os = "linux" }
-    if File.exist? "#{java_home}/include/jni.h"
-      ENV["JAVAINCLUDE"] = "#{java_home}/include"
-      ENV["JAVANATINC"]  = "#{java_home}/include/#{os}"
-    elsif File.exist? "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/jni.h"
-      ENV["JAVAINCLUDE"] = "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/"
-      ENV["JAVANATINC"]  = "/System/Library/Frameworks/JavaVM.framework/Versions/Current/Headers/"
-    end
+    ENV["JAVAINCLUDE"] = "#{java_home}/include"
+    ENV["JAVANATINC"]  = "#{java_home}/include/#{os}"
 
     # Take care of some hard-coded paths,
     # adjust postfix of jni libraries,
@@ -89,8 +84,7 @@ class LibreadlineJava < Formula
 
   # Testing libreadline-java (can we execute and exit libreadline without exceptions?)
   test do
-    java_path = "java"
-    on_linux { java_path = Formula["openjdk@8"].opt_bin/"java" }
+    java_path = Formula["openjdk@8"].opt_bin/"java"
     assert(/Exception/ !~ pipe_output(
       "#{java_path} -Djava.library.path=#{lib} -cp #{pkgshare}/libreadline-java.jar test.ReadlineTest",
       "exit",
