@@ -32,6 +32,10 @@ class Dpkg < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_linux do
+    keg_only "not linked to prevent conflicts with system dpkg"
+  end
+
   patch :DATA
 
   def install
