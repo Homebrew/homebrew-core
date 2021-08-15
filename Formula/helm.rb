@@ -26,11 +26,14 @@ class Helm < Formula
       man1.install Dir["*"]
     end
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, bin/"helm", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"helm", "completion", "bash")
     (bash_completion/"helm").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, bin/"helm", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"helm", "completion", "zsh")
     (zsh_completion/"_helm").write output
+
+    output = Utils.safe_popen_read(bin/"helm", "completion", "fish")
+    (fish_completion/"helm.fish").write output
   end
 
   test do
