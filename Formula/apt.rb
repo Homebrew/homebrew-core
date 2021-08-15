@@ -36,11 +36,11 @@ class Apt < Formula
   depends_on "xxhash"
   depends_on "zlib"
 
-  fails_with gcc: "5"
-
   on_linux do
     keg_only "not linked to prevent conflicts with system apt"
   end
+
+  fails_with gcc: "5"
 
   resource "SGMLS" do
     url "https://cpan.metacpan.org/authors/id/R/RA/RAAB/SGMLSpm-1.1.tar.gz"
