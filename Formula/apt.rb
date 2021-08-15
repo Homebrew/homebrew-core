@@ -38,6 +38,10 @@ class Apt < Formula
 
   fails_with gcc: "5"
 
+  on_linux do
+    keg_only "not linked to prevent conflicts with system apt"
+  end
+
   resource "SGMLS" do
     url "https://cpan.metacpan.org/authors/id/R/RA/RAAB/SGMLSpm-1.1.tar.gz"
     sha256 "550c9245291c8df2242f7e88f7921a0f636c7eec92c644418e7d89cfea70b2bd"
