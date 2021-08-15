@@ -4,6 +4,7 @@ class Xboard < Formula
   url "https://ftp.gnu.org/gnu/xboard/xboard-4.9.1.tar.gz"
   mirror "https://ftpmirror.gnu.org/xboard/xboard-4.9.1.tar.gz"
   sha256 "2b2e53e8428ad9b6e8dc8a55b3a5183381911a4dae2c0072fa96296bbb1970d6"
+  license "GPL-3.0-or-later"
   revision 3
 
   bottle do
@@ -16,7 +17,7 @@ class Xboard < Formula
   end
 
   head do
-    url "https://git.savannah.gnu.org/git/xboard.git"
+    url "https://git.savannah.gnu.org/git/xboard.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -28,6 +29,8 @@ class Xboard < Formula
   depends_on "gtk+"
   depends_on "librsvg"
   depends_on "polyglot"
+
+  uses_from_macos "texinfo" => :build
 
   def install
     system "./autogen.sh" if build.head?
