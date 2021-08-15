@@ -251,7 +251,7 @@ class Checkov < Formula
   end
 
   def install
-    inreplace "checkov/common/output/report.py", "junit_xml", "junit_xml_2"
+    inreplace "checkov/common/output/report.py", "from junit_xml", "from junit_xml_2"
     virtualenv_install_with_resources
   end
 
