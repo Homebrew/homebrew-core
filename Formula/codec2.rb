@@ -2,8 +2,8 @@ class Codec2 < Formula
   desc "Open source speech codec"
   homepage "https://www.rowetel.com/?page_id=452"
   # Linked from https://freedv.org/
-  url "https://github.com/drowe67/codec2/archive/v0.9.2.tar.gz"
-  sha256 "19181a446f4df3e6d616b50cabdac4485abb9cd3242cf312a0785f892ed4c76c"
+  url "https://github.com/drowe67/codec2/archive/v1.0.0.tar.gz"
+  sha256 "020f34dfa08cf66126633b3899a2f732995ffd471f512254c601e17cc561985d"
   license "LGPL-2.1"
 
   bottle do
