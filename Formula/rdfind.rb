@@ -3,6 +3,7 @@ class Rdfind < Formula
   homepage "https://rdfind.pauldreik.se/"
   url "https://rdfind.pauldreik.se/rdfind-1.5.0.tar.gz"
   sha256 "4150ed1256f7b12b928c65113c485761552b9496c433778aac3f9afc3e767080"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
