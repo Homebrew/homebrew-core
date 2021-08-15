@@ -23,16 +23,15 @@ class SignalCli < Formula
   resource "libsignal-client" do
     # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libsignal-client
     # we want the specific libsignal-client version from 'signal-cli-0.8.1/lib/signal-client-XXXX-X.X.X.jar'
-    version "java-0.2.3"
-    url "https://github.com/signalapp/libsignal-client/archive/refs/tags/#{version}.tar.gz"
-    sha256 "730c1dc113da5227920716656d8f888e1af167208e095a8cac3de9c0d83890c4"
+    url "https://github.com/signalapp/libsignal-client/archive/refs/tags/v0.8.1.tar.gz"
+    sha256 "549d3607919f537649aa3f179681161a2ea0a08786a684c4faf2afdc7fd60aaa"
   end
 
   resource "libzkgroup" do
     # per https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#libzkgroup
     # we want the latest release version
-    url "https://github.com/signalapp/zkgroup/archive/refs/tags/v0.7.2.tar.gz"
-    sha256 "fdd03bbf584533963d1be40ab238d4e6199b379e8112f6aaf5cd9493b7f1fb47"
+    url "https://github.com/signalapp/zkgroup/archive/refs/tags/v0.7.3.tar.gz"
+    sha256 "a2df7cf3959d424d894c837f7e0062bcd819b31355196fc5bf3de4602c69e2e0"
   end
 
   def install
@@ -46,15 +45,16 @@ class SignalCli < Formula
     resource("libsignal-client").stage do |r|
       # https://github.com/AsamK/signal-cli/wiki/Provide-native-lib-for-libsignal#building-libsignal-client-yourself
 
+      libsignal_client_jar = libexec/"lib/signal-client-java-#{r.version}.jar"
       # rm originally-embedded libsignal_jni lib
-      system "zip", "-d", libexec/"lib/signal-client-#{r.version}.jar", "libsignal_jni.so"
+      system "zip", "-d", libsignal_client_jar, "libsignal_jni.so"
 
       # build & embed library for current platform
       cd "java" do
         inreplace "settings.gradle", ", ':android'", ""
         system "./build_jni.sh", "desktop"
         cd "java/src/main/resources" do
-          system "zip", "-u", libexec/"lib/signal-client-#{r.version}.jar", shared_library("libsignal_jni")
+          system "zip", "-u", libsignal_client_jar, shared_library("libsignal_jni")
         end
       end
     end
