@@ -21,6 +21,7 @@ class Rdfind < Formula
   depends_on "nettle"
 
   def install
+    ENV.cxx11
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
