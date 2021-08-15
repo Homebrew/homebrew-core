@@ -10,6 +10,8 @@ class QwtQt5 < Formula
     regex(%r{url=.*?/qwt[._-]v?(\d+(?:\.\d+)+)\.t}i)
   end
 
+  keg_only "it conflicts with qwt"
+ 
   depends_on "qt@5"
 
   # Update designer plugin linking back to qwt framework/lib after install
@@ -22,7 +24,7 @@ class QwtQt5 < Formula
 
       # Install Qt plugin in `lib/qt/plugins/designer`, not `plugins/designer`.
       s.sub! %r{(= \$\$\{QWT_INSTALL_PREFIX\})/(plugins/designer)$},
-             "\\1/lib/qt/\\2"
+             "\\1/lib/qt@5/\\2"
     end
 
     args = ["-config", "release", "-spec"]
