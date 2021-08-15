@@ -3,8 +3,8 @@ require "language/node"
 class HasuraCli < Formula
   desc "Command-Line Interface for Hasura GraphQL Engine"
   homepage "https://hasura.io"
-  url "https://github.com/hasura/graphql-engine/archive/v2.0.1.tar.gz"
-  sha256 "b541041b0fb42b663987ac23c00bca1b7a1cde43378119f4c7339ff7b6cf0ccb"
+  url "https://github.com/hasura/graphql-engine/archive/v2.0.6.tar.gz"
+  sha256 "a5b9c9611a12406c3a487dd8db33dc8196d92085b6c2b2f4979c6d3e663450c1"
   license "Apache-2.0"
 
   bottle do
@@ -27,11 +27,21 @@ class HasuraCli < Formula
       -X github.com/hasura/graphql-engine/cli/v2/plugins.IndexBranchRef=master
     ].join(" ")
 
+    # Based on `make build-cli-ext`, but only build a single host-specific binary
+    cd "cli-ext" do
+      system "npm", "install", *Language::Node.local_npm_install_args
+      system "npm", "run", "prebuild"
+      system "./node_modules/.bin/pkg", "./build/command.js", "--output", "./bin/cli-ext-hasura", "-t", "host"
+    end
+
     cd "cli" do
-      with_env(CI: "false") do
-        system "make", "build-cli-ext"
-        system "make", "copy-cli-ext"
+      arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+      os = "darwin"
+      on_linux do
+        os = "linux"
       end
+
+      cp "../cli-ext/bin/cli-ext-hasura", "./internal/cliext/static-bin/#{os}/#{arch}/cli-ext"
       system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"hasura", "./cmd/hasura/"
 
       output = Utils.safe_popen_read("#{bin}/hasura", "completion", "bash")
