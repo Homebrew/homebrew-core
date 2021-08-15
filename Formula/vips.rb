@@ -1,10 +1,9 @@
 class Vips < Formula
   desc "Image processing library"
   homepage "https://github.com/libvips/libvips"
-  url "https://github.com/libvips/libvips/releases/download/v8.11.2/vips-8.11.2.tar.gz"
-  sha256 "bb5ab776ee4c61ae94b4496c63ef523ca7367ebceabcba78ceb1bf97b1d36e06"
+  url "https://github.com/libvips/libvips/releases/download/v8.11.3/vips-8.11.3.tar.gz"
+  sha256 "9b0a1d2f477d6fb4298d383a61232bcb4b2ea91ab76a1113d31883b50f3cdf01"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url :stable
