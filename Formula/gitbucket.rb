@@ -10,7 +10,7 @@ class Gitbucket < Formula
   end
 
   head do
-    url "https://github.com/gitbucket/gitbucket.git"
+    url "https://github.com/gitbucket/gitbucket.git", branch: "master"
     depends_on "sbt" => :build
   end
 
