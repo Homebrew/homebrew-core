@@ -665,9 +665,9 @@ class Dvc < Formula
     assert_match "gdrive", output
     assert_match "gs", output
     assert_match "http", output
+    assert_match "https", output
     assert_match "s3", output
-    assert_match "ssh", output
-    assert_match "oss", output
     assert_match "webdav", output
+    assert_match "webdavs", output
   end
 end
