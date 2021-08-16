@@ -1,10 +1,9 @@
 class Vala < Formula
   desc "Compiler for the GObject type system"
   homepage "https://wiki.gnome.org/Projects/Vala"
-  url "https://download.gnome.org/sources/vala/0.52/vala-0.52.4.tar.xz"
-  sha256 "ecde520e5160e659ee699f8b1cdc96065edbd44bbd08eb48ef5f2506751fdf31"
+  url "https://download.gnome.org/sources/vala/0.52/vala-0.52.5.tar.xz"
+  sha256 "84a1bb312b3e5dcae4b7b25c45598d375e2cb69233cefb59a15d2350c76bdd91"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_big_sur: "5aeae5a53ae70dbb63c2bb31aa7112960584eae16a098ed13a525607f1d18aaf"
@@ -21,15 +20,6 @@ class Vala < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-
-  # Fix regressions in GStreamer VAPI, which cause issues for dependents like `pdfpc`
-  # Upstream pdfpc ref: https://github.com/pdfpc/pdfpc/issues/594
-  # Upstream vala ref: https://gitlab.gnome.org/GNOME/vala/-/issues/1210
-  # Remove in the next release.
-  patch do
-    url "https://gitlab.gnome.org/GNOME/vala/-/commit/873c879367d1a4d7265e32dda55d4c01d5dd957b.diff"
-    sha256 "144b964cee117b6def5c673e7447003bd4a94b7d681c3d7a8ceaf43f709c0992"
-  end
 
   def install
     system "./configure", "--disable-dependency-tracking",
