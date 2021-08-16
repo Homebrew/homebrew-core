@@ -22,6 +22,6 @@ class Tunnel < Formula
   end
 
   test do
-    system bin/"tunnel", "ping"
+    assert_match "you need an api key", shell_output(bin/"tunnel 8080", 1)
   end
 end

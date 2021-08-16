@@ -2,8 +2,8 @@ class ServerGo < Formula
   desc "Server for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub/server-go"
   url "https://github.com/OpenIoTHub/server-go.git",
-      tag:      "v1.1.76",
-      revision: "035895edf38ca35a8a72d3b9bd6c91add40af039"
+      tag:      "v1.1.77",
+      revision: "1c096fa17a6b529bb0002c224c9b035df368f30e"
   license "MIT"
 
   livecheck do
@@ -12,10 +12,10 @@ class ServerGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "bfe52d99a8cc8580448ea469d8a1cd5368dc5ced07f3cc178875b364b3e3465a"
-    sha256 cellar: :any_skip_relocation, catalina:     "8389ec52c3a4fb7529b1d1e9310df8e6c12db24ffe4ab44fe8bf9cb0a1384d5d"
-    sha256 cellar: :any_skip_relocation, mojave:       "83da439668fa212832bbf590132d5e427b57f2ebc47180dcbb13a3b712686069"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b87d1299a13993027896fe90b1ad8542402f1631ba0e3fb5d15c180c6801e193"
+    sha256 cellar: :any_skip_relocation, big_sur:      "48b01c329bbf329c08da2d827c3891659f7a82eb15913b5f666cad9ca835d5eb"
+    sha256 cellar: :any_skip_relocation, catalina:     "d0c6e7d29e40bdf3535103019722db0dcfdc787e18747b1b3c72b87f7a52c33a"
+    sha256 cellar: :any_skip_relocation, mojave:       "80bf7c30103432008ea9fe2e5dea8d32de5d71e0d563e2a5c0aa59192238dad4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3c575de6caf4916eedf3791c3efb703153f171d9b12c3ba9e9bac579b86d2fe6"
   end
 
   depends_on "go" => :build
@@ -27,31 +27,11 @@ class ServerGo < Formula
     etc.install "server-go.yaml" => "server-go/server-go.yaml"
   end
 
-  plist_options manual: "server-go -c #{HOMEBREW_PREFIX}/etc/server-go/server-go.yaml"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/server-go</string>
-            <string>-c</string>
-            <string>#{etc}/server-go/server-go.yaml</string>
-          </array>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/server-go.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/server-go.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"server-go", "-c", etc/"server-go/server-go.yaml"]
+    keep_alive true
+    log_path var/"log/server-go.log"
+    error_log_path var/"log/server-go.log"
   end
 
   test do

@@ -4,6 +4,7 @@ class Bic < Formula
   url "https://github.com/hexagonal-sun/bic/releases/download/v1.0.0/bic-v1.0.0.tar.gz"
   sha256 "553324e39d87df59930d093a264c14176d5e3aaa24cd8bff276531fb94775100"
   license "GPL-2.0"
+
   bottle do
     sha256 cellar: :any,                 big_sur:      "36f71fa3f987da036e8bf8cefd3e640479868f2eb033f307848679b41d7ee393"
     sha256 cellar: :any,                 catalina:     "41d1871d125642f8437b5bb7b74f205b0eee956be0ad46b7677680b76764c0cb"

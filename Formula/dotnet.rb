@@ -2,8 +2,8 @@ class Dotnet < Formula
   desc ".NET Core"
   homepage "https://dotnet.microsoft.com/"
   url "https://github.com/dotnet/source-build.git",
-      tag:      "v5.0.205-SDK",
-      revision: "42ac4d6d5a1d36cc92c89d0e810fdd2f5ed109c6"
+      tag:      "v5.0.206-SDK",
+      revision: "7422fa72e3e3cb32cfad37ccb3ad5a2d9c05d857"
   license "MIT"
 
   livecheck do
@@ -12,10 +12,10 @@ class Dotnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "506a88b54fd7728c722c7824055458df93c271d87298b81979257457646dec08"
-    sha256 cellar: :any,                 catalina:     "01b623ce85fb1e0bcf78de25193f3778956d62f601b233509999c1d08c1a4c57"
-    sha256 cellar: :any,                 mojave:       "6bc5fad76c9f9f3523c3a77d9a03f86ffd25d34c48f54a86b12ae075ab0bca7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "483fc8bab6ee7421f6fe1746c87e3f3db576a8a4a291f22b63fab4556c4863be"
+    sha256 cellar: :any,                 big_sur:      "13d9201f595c6beb27a70d7ce390cb550e3fc7353c4db13b042a7318aea3b958"
+    sha256 cellar: :any,                 catalina:     "c8aeb6eb53feb7d3d0ac9ed7c5fe9d7e30971852a980f4b226f43f1471bfe3e6"
+    sha256 cellar: :any,                 mojave:       "c8af8eb10f1ac1dc48e6f89325863b4a5beeb1c5463615f352035f88c3651262"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "c3d508da58b4fa947a59f43c5129d74516ad0dafb07f316e01b2ce95b5dde3cc"
   end
 
   depends_on "cmake" => :build

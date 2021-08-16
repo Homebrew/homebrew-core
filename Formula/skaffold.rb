@@ -2,17 +2,17 @@ class Skaffold < Formula
   desc "Easy and Repeatable Kubernetes Development"
   homepage "https://skaffold.dev/"
   url "https://github.com/GoogleContainerTools/skaffold.git",
-      tag:      "v1.29.0",
-      revision: "39371bb996a3c39c3d4fa8749cabe173c5f45b3a"
+      tag:      "v1.30.0",
+      revision: "dd7e764da6f11eba1047e0773570c1a8c12ff160"
   license "Apache-2.0"
   head "https://github.com/GoogleContainerTools/skaffold.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2be733b486b8ef6451f447bb123d9012c0ba91aca8542f30fcccfc0994ea6133"
-    sha256 cellar: :any_skip_relocation, big_sur:       "01a2dddafba4796d84315afa5515fd348d3a3d94b944b85c800f4ab2fd7ac180"
-    sha256 cellar: :any_skip_relocation, catalina:      "84a31133c0b2bbb85eb84547c72fc5bce763ebebe7c38c4c2e52bc38fb665bd5"
-    sha256 cellar: :any_skip_relocation, mojave:        "893245b035ca0db7fb10cc31b85cc1d68cf04a124a85e28603b13f0a2c5ed47b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "aec322f17bcf5768ae43178cf946ba98c7ca58eb8f5c55e098950928d1865537"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9131c2c6e450d6ac909e589ca397fc8e4173e999246d1f9c86d36b707ce85a3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "9187a5a041f63d418fc4e1dc76a032afc163d764b502aaf36d872b84d67c7d31"
+    sha256 cellar: :any_skip_relocation, catalina:      "ad802d83e992dfd751ea59c49cba4863473fd7d8c141a15e78c8515fea11cac4"
+    sha256 cellar: :any_skip_relocation, mojave:        "1ebf8c889ff1c17fb2e634cd76f86a227cd879144240ddd0f0edad9d9165908c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9635093c1f3d31a02ef1eb807578be5e19e94d04e8d4468a308d3a149edb467b"
   end
 
   depends_on "go" => :build

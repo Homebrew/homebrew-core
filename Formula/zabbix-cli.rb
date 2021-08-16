@@ -5,7 +5,7 @@ class ZabbixCli < Formula
   homepage "https://github.com/unioslo/zabbix-cli/"
   url "https://github.com/unioslo/zabbix-cli/archive/2.2.1.tar.gz"
   sha256 "884ecd2a4a4c7f68a080bb7e0936dd208c813284ec3ed60b948ce90a1be7c828"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
   revision 1
   head "https://github.com/unioslo/zabbix-cli.git"
 
@@ -20,6 +20,7 @@ class ZabbixCli < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "279c0d15eb9b0d3318511c235652627498179b6b37664b47e65e47dd37848586"
     sha256 cellar: :any_skip_relocation, mojave:        "2021e4b3ca3cc30b290c7a999dd36fd9cd0d9a61bb0498f35537ee52907ad838"
     sha256 cellar: :any_skip_relocation, high_sierra:   "834aaba4a28b53861bd3bf58155131dd50d1b2ea6ccf33177d366365c707fb74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c79288da31a228a3d8657e962028e537b31e083cd8ac93783a94cd21392fbf76"
   end
 
   depends_on "python@3.9"
@@ -59,7 +60,8 @@ class ZabbixCli < Formula
   end
 
   def install
-    # script tries to install config directly to /usr/local/bin
+    # script tries to install config into /usr/local/bin (macOS) or /usr/share (Linux)
+    inreplace %w[setup.py etc/zabbix-cli.conf zabbix_cli/config.py], %r{(["' ])/usr/share/}, "\\1#{share}/"
     inreplace "setup.py", "/usr/local/bin", share
 
     virtualenv_install_with_resources

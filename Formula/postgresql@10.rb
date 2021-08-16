@@ -1,8 +1,8 @@
 class PostgresqlAT10 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v10.17/postgresql-10.17.tar.bz2"
-  sha256 "5af28071606c9cd82212c19ba584657a9d240e1c4c2da28fc1f3998a2754b26c"
+  url "https://ftp.postgresql.org/pub/source/v10.18/postgresql-10.18.tar.bz2"
+  sha256 "57477c2edc82c3f86a74747707b3babc1f301f389315ae14e819e025c0ba3801"
   license "PostgreSQL"
 
   livecheck do
@@ -11,10 +11,10 @@ class PostgresqlAT10 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "343a80500834823cd0f70a8b11f82164eb79632601331426866ca9b08ecb7902"
-    sha256 big_sur:       "bbf8b3fd564802418e5ca8e76ee537276e6c33b65bdfa7de67220b6038cec2d6"
-    sha256 catalina:      "71564a949308c86d7a539def6d45c19ef3d9b30e01f939e5f2dd657e4c974428"
-    sha256 mojave:        "d667f75cca4fb9c5fa9d319bf8a2e4efbdba70711cf8bde5fda5fa0404f28340"
+    sha256 arm64_big_sur: "b78fbea6a1a9b4181e2a2ef2c7bd436c23628f88dd822338573e724a817b2b2c"
+    sha256 big_sur:       "af833896d178d006d4bdc48eafdc270a23d7b1f62dbcd8fd88e7e63269f0adcf"
+    sha256 catalina:      "36cbf68eb8dab89c51d6d4e11dc7935e776572a5d04466b9515b655980ead968"
+    sha256 mojave:        "a5a7b07196fb7f5bb79fe04e85f5efea62500d167f2a82fd199bf40d21ff894f"
   end
 
   keg_only :versioned_formula
@@ -35,14 +35,6 @@ class PostgresqlAT10 < Formula
   on_linux do
     depends_on "linux-pam"
     depends_on "util-linux"
-  end
-
-  # Patch for `error: conflicting types for 'DefineCollation'`
-  # when built against icu4c 68.2. Adapted from
-  # https://svnweb.freebsd.org/ports/head/databases/postgresql10-server/files/patch-icu68?revision=553940&view=co
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a28787a7f9b4a33cf5036379236e5a57a36282bc/postgresql%4010/icu4c68-2.patch"
-    sha256 "8d625f31f176c256a9b8b5763e751091472d9f8a57e12bb7324c990777cf674c"
   end
 
   def install

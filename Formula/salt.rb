@@ -3,18 +3,17 @@ class Salt < Formula
 
   desc "Dynamic infrastructure communication bus"
   homepage "https://saltproject.io/"
-  url "https://files.pythonhosted.org/packages/49/51/5c6dd25abeda4e11fc8bfbc80601bec5b14e9534c7a031d13bfb90e41fd3/salt-3003.1.tar.gz"
-  sha256 "8a7184d3de4d1727618f0d3fbba79e54389aeff85b72f4ceb8200bcc167f6ebe"
+  url "https://files.pythonhosted.org/packages/e3/cf/b423b3928f5b2fdc9fd4e330e9f765f15fb6b90d60513d6f4b1649c409eb/salt-3003.2.tar.gz"
+  sha256 "73c86c44b176d8cfdc033bb1e42e4fdc8dd3424833faa2ea0d0938fa173856a9"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/saltstack/salt.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "64d2ec05ea8e96028d8e4932921968f447f51f78b22e039adddf88698f6a5d3d"
-    sha256 cellar: :any,                 big_sur:       "4361480356b9abafe2bb980d949607457f9a8b70dc7f3ee70c711d17728adcf4"
-    sha256 cellar: :any,                 catalina:      "70b57c11b9a3afe5671c5e2aa91208c70528a2eac272e2fc2d269aa4b3ea4cdc"
-    sha256 cellar: :any,                 mojave:        "303d0de97608541d8573e4b2c733b12b6ad116921159d535fc21c764cb1cdf27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0801a114e20d98371c0bcf13f696938ea99a2d77c8d3d922a98b0797d07c24e3"
+    sha256 cellar: :any,                 arm64_big_sur: "0c9560136a756dc33f37da5ab190caee5682d18254c519224b83266ecaed3303"
+    sha256 cellar: :any,                 big_sur:       "e163e8560255b27360a3f6904014783176a0266270766804027b3ea7e888aa7f"
+    sha256 cellar: :any,                 catalina:      "ff6ac3984a6843c64764492bda2e64633534bf95981d8edfef7c7b093a5e798d"
+    sha256 cellar: :any,                 mojave:        "f154f19ff8be5094153b873d0c740918c0197633c033913100b23900b44cc275"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "692a725a67ed2d6fca003d5e4b08d3a730f2b595663cba82e80f275812ed5e03"
   end
 
   depends_on "swig" => :build

@@ -1,16 +1,16 @@
 class TerraformDocs < Formula
   desc "Tool to generate documentation from Terraform modules"
   homepage "https://github.com/terraform-docs/terraform-docs"
-  url "https://github.com/terraform-docs/terraform-docs/archive/v0.14.1.tar.gz"
-  sha256 "6c3157cb7eaac2e62b32556ab9cd5f83e58c2934aa3eb7c1e61c00c7c5b1e186"
+  url "https://github.com/terraform-docs/terraform-docs/archive/v0.15.0.tar.gz"
+  sha256 "0be7d2eb0893acb79027287d8873f1c2dc4cc7f38f63889eebf59bc546b3dc8e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c2bae9abc34119abfb656979cfcfdca40cdb235fe5621807d879f6016159d27"
-    sha256 cellar: :any_skip_relocation, big_sur:       "47c837d6ceed7dd58008f98abc6dda7e2d5bcc7fc86564e895ab61df2d8b83ab"
-    sha256 cellar: :any_skip_relocation, catalina:      "9c17f4fa41db947ff3d11fce84b21be9bc497ea79728c84c9b35110614857294"
-    sha256 cellar: :any_skip_relocation, mojave:        "f295cd5412830ff30abe601dbedd2436b01ad4bebd20f7d271a691bc247bab1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1234eabe94e2d88cfeead87536d678f782a52b348ba781662c74c8fb04acc314"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7ba0b7a03e9b8d8fa699aa5c4b8b75afbced3619759e04c562acaa8c85c07d63"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d84844fbec03d7e377441da0fd6658f7c4430a5a7084887102a7ef187ec28143"
+    sha256 cellar: :any_skip_relocation, catalina:      "97eb0dc4b26e4be336b6c52e7d7e23c9cd415e92edee8566009d1196890faa7a"
+    sha256 cellar: :any_skip_relocation, mojave:        "1d1533ac73741244c1a868a6a7c0ca87aede41d7e0348bf8c62f213fbaffa81f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7aa6e7cb97366633cdf2f4b7a7c10e12025bd9e0eee28663b5be03e95a03e03f"
   end
 
   depends_on "go" => :build

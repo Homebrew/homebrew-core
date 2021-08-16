@@ -1,17 +1,17 @@
 class Kepubify < Formula
   desc "Convert ebooks from epub to kepub"
   homepage "https://pgaskin.net/kepubify/"
-  url "https://github.com/pgaskin/kepubify/archive/v4.0.0.tar.gz"
-  sha256 "4485a5d1cf2c0f14e591ad77f0a6242156bcbfaa5c0c4763f0183b7366f9649b"
+  url "https://github.com/pgaskin/kepubify/archive/v4.0.1.tar.gz"
+  sha256 "30e497e3a8490bcf571d01a7bb6cc2410689fccd7f9a516c31a166460d901aa8"
   license "MIT"
   head "https://github.com/pgaskin/kepubify.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1c7d6c06319e17573087088243f56d8770ef8c71b60dada994a0ea7bbef0d60f"
-    sha256 cellar: :any_skip_relocation, big_sur:       "da252af2e0a3f53a8716f2792276c2822f1c62a2025d10284b8967311dac5981"
-    sha256 cellar: :any_skip_relocation, catalina:      "e210cb3bbcc242dd29e8c7849384a9d504b4f36ed40afcff50332a47cacac7ab"
-    sha256 cellar: :any_skip_relocation, mojave:        "4c284abb8cb04ed19761df43c53dc35c8520f49f37b2bc1f8191fbaa643364de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbce8b5b6062c05d593831f941b1d2ff1e9a2d25bd5aa66cc0801194b5207c3d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b6cd624dfcd004722ed211e192749443e2ca43117d499eb28929c420589978f5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d7b68d8c1c34a5fe214b38c88eb5a18c11bff5698026e57d440f6f77c8f29297"
+    sha256 cellar: :any_skip_relocation, catalina:      "c8f88fe65e8d02bd957a70630d43fd4007b2c5e8f65c65789353de8b138c765f"
+    sha256 cellar: :any_skip_relocation, mojave:        "e2fdeb917185ea975bb51d87f5e50d214d4d4c8d961b16ab3634ba32dc713eb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ad4d4a9dbc75d617f3e8b87f77251c1f82885477915e16c52cfa8f032b13b242"
   end
 
   depends_on "go" => :build

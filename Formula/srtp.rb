@@ -1,8 +1,8 @@
 class Srtp < Formula
   desc "Implementation of the Secure Real-time Transport Protocol"
   homepage "https://github.com/cisco/libsrtp"
-  url "https://github.com/cisco/libsrtp/archive/v2.3.0.tar.gz"
-  sha256 "94093a5d04c5f4743e8d81182b76938374df6d393b45322f24960d250b0110e8"
+  url "https://github.com/cisco/libsrtp/archive/v2.4.0.tar.gz"
+  sha256 "713c5c1dc740707422307f39834c0b0fbb76769168d87e92c438a3cca8233d3d"
   license "BSD-3-Clause"
   head "https://github.com/cisco/libsrtp.git"
 
@@ -12,12 +12,11 @@ class Srtp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "60ba6d403720966a354577c14dbacaa27980f292eb71dec3d32472e0aa2aa659"
-    sha256 cellar: :any,                 big_sur:       "c7d718635bf47976fd6458c37a3373be978e0254811d5249477a83bf4b885388"
-    sha256 cellar: :any,                 catalina:      "b96d4c3bb159a6f43d5bdd9cc0be0d8deecb06c95df19f2d9cc1f517ffc64ad6"
-    sha256 cellar: :any,                 mojave:        "4bbad999b46dd545aa32882e968d441f5d5e709dc8549ef79e3885dd49fcb964"
-    sha256 cellar: :any,                 high_sierra:   "5c70c41484064bbe25c31a19fc2cffc5cbea3de27e837a039b17767aeb1b57b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "68c5b4e79b015930a283afafcbe90b0c4d39f197fbbe549f7bad1691c10dace2"
+    sha256 cellar: :any,                 arm64_big_sur: "406c99da58c7402c0eab7f98a07b3b6ec2989ec0705e953969810a5c5bd560fc"
+    sha256 cellar: :any,                 big_sur:       "be0566d1d89b9d9ccf62eab28136db6ccc822f0982133efb656e3221a5366f79"
+    sha256 cellar: :any,                 catalina:      "ff098e6709a973779536b3908fcc263f549cdb221c955bfc736c8b09ca96dc81"
+    sha256 cellar: :any,                 mojave:        "caddbc3415ff272cc130b8aa796f7d07553de8a9f6f490a2fc6d60ae4ce3a975"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d815739fbd0f968ebc7cdcb77330dc459d5d19c80058ec86631a2ed05314755d"
   end
 
   depends_on "pkg-config" => :build

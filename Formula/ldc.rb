@@ -1,8 +1,8 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.27.0/ldc-1.27.0-src.tar.gz"
-  sha256 "f2dc19ad2fffd4fcef2717ccdaf929ed082c57c9c89c05bdaaa6df87b9999e0b"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc-1.27.1-src.tar.gz"
+  sha256 "93c8f500b39823dcdabbd73e1bcb487a1b93cb9a60144b0de1c81ab50200e59c"
   license "BSD-3-Clause"
   head "https://github.com/ldc-developers/ldc.git"
 
@@ -12,11 +12,11 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "8064361a52f040daff82bd906a90e2227da809637aef19e5b26f3f5c0cef8161"
-    sha256 big_sur:       "97a768c8ae8112360969956719c59643dfa0af472accd7ac86c2429936323816"
-    sha256 catalina:      "cea9ac29fd2279761a135a3a2df22cd30e96410be014783f6e24aa1eba26fe3d"
-    sha256 mojave:        "09f4da2035deae98b326232b985ecd43c802e3c3fc4445d4f6ea53e79dd86630"
-    sha256 x86_64_linux:  "32773a96202c5b21110076b97a01790e166e9a635c06ac1eef320d24946e7b52"
+    sha256 arm64_big_sur: "a08707a392ab7328a11f2534ce7831b41c082da562593071eff4cd2c97e05940"
+    sha256 big_sur:       "105e995ace02a6d41a833f1405192d0f7551c4b74d11760c69cf95eaa77c5518"
+    sha256 catalina:      "858571e2c58d67e0fe05f94182fcff9249dd09bc56ad0c6b5f20c54065a5987d"
+    sha256 mojave:        "7d36db8c9ff855a75fa5c93c992d7269e836b2562aece4de20185df77fbf04f4"
+    sha256 x86_64_linux:  "a0df8131a2a5bb4a829714f880287447f50db1fef119caadf840a227c8024594"
   end
 
   depends_on "cmake" => :build
@@ -31,11 +31,11 @@ class Ldc < Formula
   resource "ldc-bootstrap" do
     on_macos do
       if Hardware::CPU.intel?
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.0/ldc2-1.27.0-osx-x86_64.tar.xz"
-        sha256 "a0cb2f1e5f375b991f3a6a93ce0dbcf1e724d8a3d84195ec7bfe93be728f909c"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc2-1.27.1-osx-x86_64.tar.xz"
+        sha256 "52d9958c424683d93c61c791029934df6812f32f76872c6647269e8a55939e6b"
       else
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.0/ldc2-1.27.0-osx-arm64.tar.xz"
-        sha256 "47922cee3392466686fa2366466640607a0896b96ea8d5995d171fb4b6e9f3ba"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.27.1/ldc2-1.27.1-osx-arm64.tar.xz"
+        sha256 "d9b5a4c1dbcde921912c7a1a6a719fc8010318036bc75d844bafe20b336629db"
       end
     end
 

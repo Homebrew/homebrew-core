@@ -1,8 +1,8 @@
 class Karchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/frameworks/karchive/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.84/karchive-5.84.0.tar.xz"
-  sha256 "9a0cd78cb09ebbffafbc84865dc5125baf649b408ef86a440a17d84e529f5ef6"
+  url "https://download.kde.org/stable/frameworks/5.85/karchive-5.85.0.tar.xz"
+  sha256 "8c196e9195485622c7e5f4523584e1e7551827a0bfbe477d08d34b7847ab6b2f"
   license all_of: [
     "BSD-2-Clause",
     "LGPL-2.0-only",
@@ -12,10 +12,10 @@ class Karchive < Formula
   head "https://invent.kde.org/frameworks/karchive.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "e953c966c506cad31960caaf5ec0efa80e9838e9b5c3fd1e8d7f2db6ddac98a1"
-    sha256 cellar: :any, big_sur:       "015849cad2e134bd237d540ec2d826a3c123edc7df372a15b26354b468314c20"
-    sha256 cellar: :any, catalina:      "fa8f9898da6c8b890fb184b9199f27b26d3c9cfde6819506b80608a093e147a5"
-    sha256 cellar: :any, mojave:        "1cd5c290587ee72d80ae4fe71106ea31e57fad1a683cc58331f5f3d8f7d61cdd"
+    sha256 cellar: :any, arm64_big_sur: "4603b87ebd5e4e3fba10c28e31be00ff89a8134aea1361b7f4cefb63f6860f23"
+    sha256 cellar: :any, big_sur:       "39f92e2091f0d15d7c2d778d99ce2b25155487cc5921c10f89ba82a1bb15a20e"
+    sha256 cellar: :any, catalina:      "d4fe94de78ae2f140b2fa97739a42ca1f4ad8edc5953f05501cb05940c0e962b"
+    sha256 cellar: :any, mojave:        "bc17b1ba460d4cd541a207844d328104dceb370c198bb2df4b0ac21cee0e5527"
   end
 
   depends_on "cmake" => [:build, :test]

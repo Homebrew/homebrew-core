@@ -4,6 +4,7 @@ class Cherrytree < Formula
   url "https://www.giuspen.com/software/cherrytree_0.99.40.tar.xz"
   sha256 "8460284d76d6a1fd555a13903abb10e0473757f6ce09a98c10220de9713bb3ed"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :homepage
@@ -11,10 +12,10 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "feb590d9d00456a398ee29513f7ff62ca11f0e449b6e742cbc6b691ac698798f"
-    sha256 big_sur:       "159969d7a15b143f6dbec2c428a70915cab6dc674b074b0a736ee462399f286e"
-    sha256 catalina:      "3df82c0d9cf2ce224b2630874d0f206cbd076940854a66bc5e564dd1aa8c0196"
-    sha256 mojave:        "418bec62eff92314782beceaa0eeb5519dbc25682ea551824e32bb8247af2830"
+    sha256 arm64_big_sur: "95ce9f758b1521244d5f4fca69ef27de1b6e4f736d09c28fb3ff81c9d6841855"
+    sha256 big_sur:       "ddb4be16eea7580b734cac8013c40c5695337154cbf51d007f65214e6a0e275e"
+    sha256 catalina:      "2c62cef6a03f56f9807728c23c1e5f75a660f10bfa3896a533837720d10ebb56"
+    sha256 mojave:        "8987e0a9c1ae537a6cd24d053aa720078d097bc1a90401474f2db8420d0c585d"
   end
 
   depends_on "cmake" => :build

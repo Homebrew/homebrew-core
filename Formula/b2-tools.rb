@@ -3,16 +3,16 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://files.pythonhosted.org/packages/a2/44/730f76c09c050951b230ae5ab093bd7e69131bba9094e004aca973967787/b2-3.0.0.tar.gz"
-  sha256 "335bb4bdbfad7d624c3c1983d026ef6ee25d6b75a6f34bee039284f87a0384a9"
+  url "https://files.pythonhosted.org/packages/e7/8a/db65b2aee78993e3e60d1b149a7fe5fbf83a729ea7b28292b53e0e42943d/b2-3.0.1.tar.gz"
+  sha256 "66bfb927a3028dfb61fb97ce49f1d7a53fc20200fbe786694b56f536a78689df"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2918e52971f21c01c104b3ed51afb42efb96fd598ef8fb042bcded0f3f93a416"
-    sha256 cellar: :any_skip_relocation, big_sur:       "6b08dfaa32d30593a39e6557627c95a5ad054e220d2e50e291f6eff8e5f99bf9"
-    sha256 cellar: :any_skip_relocation, catalina:      "6f7a86fe2049cf999ea7a8cfb37d7dc516234b3ce35bf301b516bb41ab189562"
-    sha256 cellar: :any_skip_relocation, mojave:        "162f03feb945757e384e92b60e58ce5ed62df4625d0bcc72a680b344ef3fa603"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f9629731449277b7875900b6b332abbdc5bbfdcc3906343ac14e38caa906555"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1d2b5b09a22212b6134801199327c8b5d59f50154bcace77f1b9d12c462425c9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7bdecd59d169366291b311f8059403c4285ecec02850379ec781fe9d9e16efd2"
+    sha256 cellar: :any_skip_relocation, catalina:      "00915ce6f8ae580b27bd3b98961dbe7ef5281053c3519369636ad67bc1ecd608"
+    sha256 cellar: :any_skip_relocation, mojave:        "a70e7f2f568a85030579cded303d128820d93c443a71a25c9cdd1d4456f3311e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1fb9c80719585a0739b8c96bbedbf6989805d0f48382fe6ea9aab5ffebc10fd"
   end
 
   depends_on "python@3.9"

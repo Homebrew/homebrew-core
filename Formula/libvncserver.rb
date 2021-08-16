@@ -7,8 +7,7 @@ class Libvncserver < Formula
 
   livecheck do
     url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/(?:LibVNCServer[._-])?v?(\d+(?:\.\d+)+)["' >]}i)
+    regex(/^LibVNCServer[._-]v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do

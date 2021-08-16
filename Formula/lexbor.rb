@@ -1,15 +1,15 @@
 class Lexbor < Formula
   desc "Fast embeddable web browser engine written in C with no dependencies"
   homepage "https://lexbor.com/"
-  url "https://github.com/lexbor/lexbor/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "e9ba3db87b077cde8ee189eb0851e8b11823c778c6844adcce537357dcca8ae1"
+  url "https://github.com/lexbor/lexbor/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "f3aeeb0c47d9d34b7b32411ce6a8fe833b825fa21730a593c32f53c9834a3f0d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "101be3010f94da5bd1d1a73570ef113b4c8cbb00811c6e85e5e3651362c0617a"
-    sha256 cellar: :any, big_sur:       "1531d24359e5ab1a8f02c54b779a987b84ca75e2389076d701f641471c549b19"
-    sha256 cellar: :any, catalina:      "53fe30aaa102edf50663e465c0bb4c5107113c2d304934d457b084bfc11a6c06"
-    sha256 cellar: :any, mojave:        "d8975317af905c54d37cf93d82428627202dcfaaec81472022dc8f566cf2e738"
+    sha256 cellar: :any, arm64_big_sur: "7ff7b35d9f6c4eb4ed63a7dde659430d17ca5c48564d6702dc9b4e1ea955592c"
+    sha256 cellar: :any, big_sur:       "e553e88f89c5fb07eb2e5da0950888f1f8e60a6c23c05999119f5fdc50acc9a2"
+    sha256 cellar: :any, catalina:      "717a39abae12061410e36356219b4f44a31d4ca6c050966d48a5cf941ac13421"
+    sha256 cellar: :any, mojave:        "d6ad60202c6e4b55b3a88fedd550a87c644592ff42d391f322d177ca7bbbf829"
   end
 
   depends_on "cmake" => :build

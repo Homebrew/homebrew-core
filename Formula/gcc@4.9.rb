@@ -7,7 +7,8 @@ class GccAT49 < Formula
   revision 2
 
   bottle do
-    sha256 high_sierra: "cb153d98245bcbe4809dc19adf688f642285154b19fe907c7de3cb71652b0ec6"
+    rebuild 1
+    sha256 x86_64_linux: "e4feb69ec4ab2d7bd847206e6cb419154f7a61a478f0bf7a631a82e9896981e8"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -58,14 +59,14 @@ class GccAT49 < Formula
     sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
   end
 
-  def version_suffix
-    version.major.to_s
-  end
-
   resource "cloog" do
     url "http://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.4.tar.gz"
     mirror "https://mirrorservice.org/sites/archive.ubuntu.com/ubuntu/pool/main/c/cloog/cloog_0.18.4.orig.tar.gz"
     sha256 "325adf3710ce2229b7eeb9e84d3b539556d093ae860027185e7af8a8b00a750e"
+  end
+
+  def version_suffix
+    version.major_minor.to_s
   end
 
   # Fix build with Xcode 9

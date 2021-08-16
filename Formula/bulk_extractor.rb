@@ -12,10 +12,11 @@ class BulkExtractor < Formula
   end
 
   bottle do
-    sha256 big_sur:     "4207941ab88e766e1a0fd55031585c52cea1c27ac528b7db1496a714fbeda5c4"
-    sha256 catalina:    "6acada1995761f484993f407f33014260f8c16596381172b405fe84eef206e06"
-    sha256 mojave:      "da01b2d5208c362fa10baa1a3b1d7fd018f4886eddb068107b9786c36bbff480"
-    sha256 high_sierra: "621af8efc0671cd2905f4f077c9cfef8ac2493cf65421fb2973228c2b651c24e"
+    sha256 cellar: :any, arm64_big_sur: "0d798b0a0ab7796d05d91a2fbbda7b959d76026a1360c69e9d360ead265a3ac1"
+    sha256               big_sur:       "4207941ab88e766e1a0fd55031585c52cea1c27ac528b7db1496a714fbeda5c4"
+    sha256               catalina:      "6acada1995761f484993f407f33014260f8c16596381172b405fe84eef206e06"
+    sha256               mojave:        "da01b2d5208c362fa10baa1a3b1d7fd018f4886eddb068107b9786c36bbff480"
+    sha256               high_sierra:   "621af8efc0671cd2905f4f077c9cfef8ac2493cf65421fb2973228c2b651c24e"
   end
 
   depends_on "autoconf" => :build
@@ -45,8 +46,14 @@ class BulkExtractor < Formula
     # Remove in next version.
     system "autoreconf", "-f"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # configure cannot find boost libs on Apple Silicon without them being specified
+    args = %W[
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --with-boost=#{Formula["boost"].opt_prefix}
+    ]
+
+    system "./configure", *args
     system "make"
     system "make", "install"
 

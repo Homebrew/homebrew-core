@@ -6,20 +6,21 @@ class Gitbucket < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d66ac992d7868e18152a813bc1dc8baa436aa6befab5a81b1d8b9534b5df335f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4d7f498b49317e9b8de744e3964f6edcaa5d4510cabb39ab0389a6c5683d2a6e"
   end
 
   head do
-    url "https://github.com/gitbucket/gitbucket.git"
-    depends_on "ant" => :build
+    url "https://github.com/gitbucket/gitbucket.git", branch: "master"
+    depends_on "sbt" => :build
   end
 
   depends_on "openjdk"
 
   def install
     if build.head?
-      system "ant"
-      libexec.install "war/target/gitbucket.war", "."
+      system "sbt", "executable"
+      libexec.install "target/executable/gitbucket.war"
     else
       libexec.install "gitbucket.war"
     end

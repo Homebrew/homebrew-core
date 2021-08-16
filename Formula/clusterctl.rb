@@ -2,10 +2,9 @@ class Clusterctl < Formula
   desc "Home for the Cluster Management API work, a subproject of sig-cluster-lifecycle"
   homepage "https://cluster-api.sigs.k8s.io"
   url "https://github.com/kubernetes-sigs/cluster-api.git",
-      tag:      "v0.4.0",
-      revision: "7f879be68d15737e335b6cb39d380d1d163e06e6"
+      tag:      "v0.4.1",
+      revision: "f6fd5ed7dc0fa75788f76f17c64ae82976fcc70b"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/kubernetes-sigs/cluster-api.git"
 
   # Upstream creates releases on GitHub for the two most recent major/minor
@@ -20,11 +19,11 @@ class Clusterctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1cd736fbf5ae70d95d688cbd5c4b7ae6ff5298fe8e70799ecec308fe3fd450b4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "78f9971863e00fac134bb9aa6f9f4d27828917b8d5027bdf3970e6ae9aaf3c6c"
-    sha256 cellar: :any_skip_relocation, catalina:      "9ae1266f24ac1d8396f47ff89437b214d15258858928ae2a2cb8125642a92600"
-    sha256 cellar: :any_skip_relocation, mojave:        "f96cd10f55929c64023a498da32c066752e723b37db6d8a91fd64d3139555936"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb4ffb94b1f1f435b61ab80f3f61103ff48f4ee84d46b9942106aa061696e3cd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d4fec53cb661771a6dcb2e4f2e3c860a79656a120ed332a1c1555998a3e27a3c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fb2e59764b383900968a5193c3fbc7b797c5c5722bdb03a3204e5f5d7640fd3e"
+    sha256 cellar: :any_skip_relocation, catalina:      "7f74e4c464c11673784f7331ed832b30f7006e0cce38fef385e630d09b84e995"
+    sha256 cellar: :any_skip_relocation, mojave:        "6f5e794cab422d4cfb2550d1b4ce82cfe0ea7d0ecd9cebe5959dc9500103a72d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2dae7988970564497806f8e0daeb5d0c50e337b95301507f559a392ae10d2470"
   end
 
   depends_on "go" => :build

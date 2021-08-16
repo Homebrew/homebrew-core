@@ -1,22 +1,31 @@
 class Docuum < Formula
   desc "Perform least recently used (LRU) eviction of Docker images"
   homepage "https://github.com/stepchowfun/docuum"
-  url "https://github.com/stepchowfun/docuum/archive/v0.20.2.tar.gz"
-  sha256 "001eb166900b6dba89abc4ed76640455e98090bbca321fadc7811225830f336b"
+  url "https://github.com/stepchowfun/docuum/archive/v0.20.3.tar.gz"
+  sha256 "a3a230ef718efb87eb5b42b0ffdaa87dd6df3ea64efe443e31c5fcf608a53580"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1d31a9e6c05c8386800f6d318e926f03d8e451e6d86bd8c58adb1b1484fd4e0e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5642aab3274b0bfb112c55f91e84004f9fae06196c85c11db299ba13ae25349c"
-    sha256 cellar: :any_skip_relocation, catalina:      "3d3cc389fb68c4a90c8ab7276303a4ccf5aeeaa2aa25094450b49e50d750579e"
-    sha256 cellar: :any_skip_relocation, mojave:        "0381a4f8be35a1bdf85af1cc10b5be22560ff44529b63bff32011d7362c78909"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b45019f50f39d1888dff2134f1d2ffd69bef5fd42b5db33f2130e5850cb5998e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd66c12ac9e8c81c8d4899b5882d05175cbb5a70bdd10cfbbd3a58a77247a35e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "fc871eccda08dd9bdd4cfb5bfc5665decd1881d63aa8aa7c30188ab4e7cc6658"
+    sha256 cellar: :any_skip_relocation, catalina:      "4480c15b9438c3d94006156fd48d6bd3f563b906ab4c4da7081d62e131b79a48"
+    sha256 cellar: :any_skip_relocation, mojave:        "d91f0318adf9203cb53e478089d657079b060f93d799948a46c73e72e2257805"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b2e080677044824ea663785d3d19ef43ad48e30160b054f8a4cf053afc5dcd7b"
   end
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
+  end
+
+  # https://github.com/stepchowfun/docuum#configuring-your-operating-system-to-run-the-binary-as-a-daemon
+  service do
+    run opt_bin/"docuum"
+    keep_alive true
+    log_path var/"log/docuum.log"
+    error_log_path var/"log/docuum.log"
+    environment_variables PATH: std_service_path_env
   end
 
   test do

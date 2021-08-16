@@ -11,9 +11,10 @@ class SwaggerCodegenAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "ee749950ee8cdd3ab857f180639c55a52fba2376b07651a0ebc20ac0545aafdd"
-    sha256 cellar: :any_skip_relocation, catalina: "356f53ea21ff99adaf4a8f6d92b050ef73b1215b2571a83dd7f6b94cfcdc61ba"
-    sha256 cellar: :any_skip_relocation, mojave:   "b4a4565fb71e64da0a0bdb792117421a64997eb52347f7bb2392681fbd910e9c"
+    sha256 cellar: :any_skip_relocation, big_sur:      "ee749950ee8cdd3ab857f180639c55a52fba2376b07651a0ebc20ac0545aafdd"
+    sha256 cellar: :any_skip_relocation, catalina:     "356f53ea21ff99adaf4a8f6d92b050ef73b1215b2571a83dd7f6b94cfcdc61ba"
+    sha256 cellar: :any_skip_relocation, mojave:       "b4a4565fb71e64da0a0bdb792117421a64997eb52347f7bb2392681fbd910e9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "aa9639a0489935eeea4800e7deedf8ff067db52339483a6dee429a82f24d4d40"
   end
 
   keg_only :versioned_formula

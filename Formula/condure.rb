@@ -1,16 +1,16 @@
 class Condure < Formula
   desc "HTTP/WebSocket connection manager"
   homepage "https://github.com/fanout/condure"
-  url "https://github.com/fanout/condure/archive/1.3.0.tar.gz"
-  sha256 "2f3d5a8168aca726694c604d29233bc3003f89106defb9d9ac91b702825114e0"
+  url "https://github.com/fanout/condure/archive/1.3.1.tar.gz"
+  sha256 "26945c241c1fd352757d9e747ba7cc1906c9d17b1b8de5936b372a183c3bf5ba"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c0af3918bd2cb199626d3d35db08275355e938435cc25f0e823d670d6aec834c"
-    sha256 cellar: :any,                 big_sur:       "0151c7801808961ae5ae3fa8210269100797ee7c9434b83ff14b929f2d934712"
-    sha256 cellar: :any,                 catalina:      "9aff95aaf229d51b58e5f137ef87025790fad0a9afadbde463ef7fa49fd44db6"
-    sha256 cellar: :any,                 mojave:        "03a33775b979cf451814b79483e94a88e6a895b3e3445e2a0952c4e94e838d5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "90b62f64a67e4b84bb676742ff6ca4cefb009067cd59b1a0c3460a189755a433"
+    sha256 cellar: :any,                 arm64_big_sur: "0e2e6333e04b7815f37e06a34ef3fca4f7a3c6e74b2cbbfe393a45077392161f"
+    sha256 cellar: :any,                 big_sur:       "43695f08e129f583447199a2f7cc744aa85ae79a8944c3a09f2af273f6f86929"
+    sha256 cellar: :any,                 catalina:      "2bba408b0a94fad0d0444baec011db022fb3bd6cb3374d524f67bd9878f3cc4d"
+    sha256 cellar: :any,                 mojave:        "bbfd3f576f111e2793bc3976d8fa129410fb719cf7ff62352780a6df7e12c17f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dd417c36ce2b305ca47c17bbd9a19960e2ac6f8b3e92d56120202205b8b9bc8e"
   end
 
   depends_on "pkg-config" => :build

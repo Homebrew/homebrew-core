@@ -14,6 +14,7 @@ class Swiftgen < Formula
 
   depends_on "ruby" => :build if MacOS.version <= :sierra
   depends_on xcode: ["12.0", :build]
+  depends_on :macos
 
   def install
     # Disable swiftlint build phase to avoid build errors if versions mismatch

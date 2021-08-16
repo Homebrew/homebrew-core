@@ -1,10 +1,9 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.1.0.tar.gz"
-  sha256 "e8e68959d7282ca147360fc9644ada9bd161bab781bab14d33b8999a95182781"
+  url "https://cran.r-project.org/src/base/R-4/R-4.1.1.tar.gz"
+  sha256 "515e03265752257d0b7036f380f82e42b46ed8473f54f25c7b67ed25bbbdd364"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://cran.rstudio.com/banner.shtml"
@@ -12,12 +11,11 @@ class R < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "e2698e6a62bc23a35988deec5b396f15d0b3ecc3e63225f6b08168dc6f8807ce"
-    sha256 big_sur:       "0e3ff1a7cde7eddd79e50bb45b039afeac4d3bd179487ddf533acb29217866f1"
-    sha256 catalina:      "4d93ec0474f3954e825603629324a868cf6f541ed331a85d14c6a8a1de4c5f29"
-    sha256 mojave:        "874d8ee5c9bedbe47e67ce1a38cd5fc75a78b25133fcb6651b776f858cc83e8f"
-    sha256 x86_64_linux:  "108194171cb76d1eaa1bd82934bbf354e6b1288636afc52f3cf27bbc5153c625"
+    sha256 arm64_big_sur: "11dc03536024f748a0889ff037c224b20bc73bceffa96403d066d788282de143"
+    sha256 big_sur:       "094853f678a1a13474e26f81edaaf21ffac080c21569cc55872efe1db88aad58"
+    sha256 catalina:      "ae5d7cf5f7c05ffbdc583b32e79c28f3c290aa5d5d7b03765b9104332fe3ea51"
+    sha256 mojave:        "5a79c1a2f55638b23ad41cfa92e2975b232cb6bef8eec7136c4b4f1b31a66ca6"
+    sha256 x86_64_linux:  "573f7af1a4535bb5a843a609d288ed90473543626482317386b8afe8c4f6f82a"
   end
 
   depends_on "pkg-config" => :build

@@ -3,8 +3,8 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://github.com/Azure/azure-cli/archive/azure-cli-2.27.0.tar.gz"
-  sha256 "1d24d41d57b82275cf7cc58888477dbc0b5066dc5ddb4e2c631ff5db640d5987"
+  url "https://github.com/Azure/azure-cli/archive/azure-cli-2.27.1.tar.gz"
+  sha256 "302379dcee1a3bf0ccbbdf6a2e599c4f3b4a2efafd1ab8152894f5febec6a7ef"
   license "MIT"
   head "https://github.com/Azure/azure-cli.git"
 
@@ -15,16 +15,15 @@ class AzureCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "426461b790a22d0f755cd4eec66340fc23c1a9432de67025ff5235bf8b6a4c77"
-    sha256 cellar: :any,                 big_sur:       "84a830dbe8de6fdda0a55ebb37e8e91def27e0527f67e4b99dbff6fc38cab8ac"
-    sha256 cellar: :any,                 catalina:      "06a66954f7761caa4e14ef2b48d25b67a287ebc13891e3ab614757e53b2128d3"
-    sha256 cellar: :any,                 mojave:        "1cb28e7adb65502b0aca720e063d0f552e65120763d3682731f125d0d278a539"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "625563d76fd3c9f8be730a6d3ccec4526e84bbb9bddf95a9c1ed9d98401559b1"
+    sha256 cellar: :any,                 arm64_big_sur: "13c52dc4a8c5eae7696d2d662edfdaa215b15571a1d21c2ba559f901d43039ba"
+    sha256 cellar: :any,                 big_sur:       "d6c7f411c439fd434a9ee76468661aa396980be2c308a1e02999ff9230a4073a"
+    sha256 cellar: :any,                 catalina:      "33e9b15894154be867edadaf5587ff1179809d880e1b56f0ebb58cfa104c3a1a"
+    sha256 cellar: :any,                 mojave:        "3b8dedb1409661f641ba13890a90895f634a76b5f9f1e53e5fe07b18fd89b395"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "537d2280c0c9b0fda8b653b32717389391e903fd64c10723a3472d05192cd7e7"
   end
 
   depends_on "openssl@1.1"
-  # Azure CLI is not compatible with Python 3.9 yet
-  depends_on "python@3.8"
+  depends_on "python@3.9"
 
   uses_from_macos "libffi"
 
@@ -68,8 +67,8 @@ class AzureCli < Formula
   end
 
   resource "azure-batch" do
-    url "https://files.pythonhosted.org/packages/bb/fc/b66ea2085b0826542e98d2d183026b156286056012aa1b82066d1bed0d77/azure-batch-10.0.0.zip"
-    sha256 "83d7a2b0be42ca456ac2b56fa3dc6ce704c130e888d37d924072c1d3718f32d0"
+    url "https://files.pythonhosted.org/packages/25/f6/e4a2dca7aa85d62f85f28d84ee509b4524012cdf3ea3d879cdfbacbee6bd/azure-batch-11.0.0.zip"
+    sha256 "ce5fdb0ec962eddfe85cd82205e9177cb0bbdb445265746e38b3bbbf1f16dc73"
   end
 
   resource "azure-common" do
@@ -148,8 +147,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-batch" do
-    url "https://files.pythonhosted.org/packages/c0/b5/a705807b3ab2e3c1eb03a21a48c127b4860d6b7331cfc2b74af7c5ae3fe8/azure-mgmt-batch-15.0.0.zip"
-    sha256 "9b793bb31a0d4dc8c29186db61db24d83795851a75846aadb187cf95bf853ccb"
+    url "https://files.pythonhosted.org/packages/32/06/aedae003e3b5295a3f62a4d12e00f22f6d0e31287aa637183b0b1f7125ca/azure-mgmt-batch-16.0.0.zip"
+    sha256 "1b3cecd6f16813879c6ac1a1bb01f9a6f2752cd1f9157eb04d5e41e4a89f3c34"
   end
 
   resource "azure-mgmt-batchai" do
@@ -193,8 +192,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-containerregistry" do
-    url "https://files.pythonhosted.org/packages/f7/85/3fb19f8df04d0d999ef7c3d857a65d9808dc6bb26a4d7cb99748c3d12e83/azure-mgmt-containerregistry-8.0.0.zip"
-    sha256 "480eb5d1bb910da4e87a5d7047e2f3e426083b14911ac64c48badd0218e9e756"
+    url "https://files.pythonhosted.org/packages/d6/c8/1a1ba7ec5049c4a42daaa03e3454f8725d454b928bd9fb10d6c529771150/azure-mgmt-containerregistry-8.1.0.zip"
+    sha256 "62efbb03275d920894d79879ad0ed59605163abd32177dcf24e90c1862ebccbd"
   end
 
   resource "azure-mgmt-containerservice" do

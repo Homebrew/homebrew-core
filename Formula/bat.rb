@@ -17,6 +17,12 @@ class Bat < Formula
 
   uses_from_macos "zlib"
 
+  # Support rust 1.54, remove with next release after 0.18.2
+  patch do
+    url "https://github.com/sharkdp/bat/commit/f3d53b79a2d7a51f470ac8a06b6bdd9a4f225e8f.patch?full_index=1"
+    sha256 "2770049cc989c4e1f417ace483aa55ac0a1843476c97c7af947589cb804898d7"
+  end
+
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args

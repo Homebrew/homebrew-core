@@ -14,19 +14,91 @@ class Snapcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "bb508bab811819401f421914f821c533f7060bb10416b35a99b4063a7eb01034"
-    sha256 cellar: :any, big_sur:       "fa2dcc8dc451f6c153ede3a8496e75470731f26e1a482019ec801aa8fc49ae70"
-    sha256 cellar: :any, catalina:      "3336dce19462f40383173e47afe4dd7ad30c3654a1f54081efd8909dc5409727"
-    sha256 cellar: :any, mojave:        "63dd404b915b3e07a83f7794f012da505db98d1769fe0fceb1b7114e89291502"
+    sha256 cellar: :any,                 arm64_big_sur: "bb508bab811819401f421914f821c533f7060bb10416b35a99b4063a7eb01034"
+    sha256 cellar: :any,                 big_sur:       "fa2dcc8dc451f6c153ede3a8496e75470731f26e1a482019ec801aa8fc49ae70"
+    sha256 cellar: :any,                 catalina:      "3336dce19462f40383173e47afe4dd7ad30c3654a1f54081efd8909dc5409727"
+    sha256 cellar: :any,                 mojave:        "63dd404b915b3e07a83f7794f012da505db98d1769fe0fceb1b7114e89291502"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5ed5ac8ec37d0a763f11dbb35d151528977841df7cd5731115a256a4e5f6be8c"
   end
 
-  depends_on "rust" => :build
+  depends_on "rust" => :build # for cryptography
   depends_on "libsodium"
-  depends_on "libyaml"
+  depends_on "libyaml" # for PyYAML
   depends_on "lxc"
   depends_on "python@3.9"
+  depends_on "six"
   depends_on "snap"
   depends_on "xdelta"
+
+  uses_from_macos "libxml2" # for lxml
+  uses_from_macos "libxslt" # for lxml
+
+  on_linux do
+    depends_on "intltool" => :build # for python-distutils-extra
+    depends_on "apt"
+    depends_on "gcc"
+
+    # Extra non-PyPI Python resources
+
+    resource "python-distutils-extra" do
+      url "https://deb.debian.org/debian/pool/main/p/python-distutils-extra/python-distutils-extra_2.45.tar.xz"
+      sha256 "9db7e00e609a762ac5541532816aa028475cb715a8be8ee8d615a5ab63dd7344"
+    end
+
+    resource "python-apt" do
+      url "https://ftp.debian.org/debian/pool/main/p/python-apt/python-apt_2.2.1.tar.xz"
+      sha256 "b9336cc92dc0a3bcc7be05b40f6752d10220cc968b19061f6c7fc12bf22a97f2"
+    end
+
+    # Extra PyPI Python resources for Linux
+
+    resource "catkin-pkg" do
+      url "https://files.pythonhosted.org/packages/8e/79/cd55f44d94d67b57924b148f17612f1dc6d9e5fc9c0dc35867f7caefdb6a/catkin_pkg-0.4.23.tar.gz"
+      sha256 "28ee181cca827c0aabf9397351f58a97e1475ca5ac7c106a5916e3ee191cd3d0"
+    end
+
+    resource "chardet" do
+      url "https://files.pythonhosted.org/packages/ee/2d/9cdc2b527e127b4c9db64b86647d567985940ac3698eeabc7ffaccb4ea61/chardet-4.0.0.tar.gz"
+      sha256 "0d6f53a15db4120f2b08c94f11e7d93d2c911ee118b6b30a04ec3ee8310179fa"
+    end
+
+    resource "docutils" do
+      url "https://files.pythonhosted.org/packages/4c/17/559b4d020f4b46e0287a2eddf2d8ebf76318fd3bd495f1625414b052fdc9/docutils-0.17.1.tar.gz"
+      sha256 "686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125"
+    end
+
+    resource "jeepney" do
+      url "https://files.pythonhosted.org/packages/09/0d/81744e179cf3aede2d117c20c6d5b97a62ffe16b2ca5d856e068e81c7a68/jeepney-0.7.1.tar.gz"
+      sha256 "fa9e232dfa0c498bd0b8a3a73b8d8a31978304dcef0515adc859d4e096f96f4f"
+    end
+
+    resource "pylxd" do
+      url "https://files.pythonhosted.org/packages/1b/94/066ce52e331ec2b93a9fb489bffa458794f7a26bcae0c574e5eac0515b6c/pylxd-2.3.0.tar.gz"
+      sha256 "47a1fb89776bb468342b39f722e29740ce85e2e894bef25375e4245c0a4568b5"
+    end
+
+    resource "python-dateutil" do
+      url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+      sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    end
+
+    resource "python-debian" do
+      url "https://files.pythonhosted.org/packages/72/36/fedbf0768505a9239589f6fd0bd518364a7292088f4ec8a0763ed9c48cce/python-debian-0.1.40.tar.gz"
+      sha256 "385dfb965eca75164d256486c7cf9bae772d24144249fd18b9d15d3cffb70eea"
+    end
+
+    resource "secretstorage" do
+      url "https://files.pythonhosted.org/packages/cd/08/758aeb98db87547484728ea08b0292721f1b05ff9005f59b040d6203c009/SecretStorage-3.3.1.tar.gz"
+      sha256 "fd666c51a6bf200643495a04abb261f83229dcb6fd8472ec393df7ffc8b6f195"
+    end
+
+    resource "ws4py" do
+      url "https://files.pythonhosted.org/packages/53/20/4019a739b2eefe9282d3822ef6a225250af964b117356971bd55e274193c/ws4py-0.5.1.tar.gz"
+      sha256 "29d073d7f2e006373e6a848b1d00951a1107eb81f3742952be905429dc5a5483"
+    end
+  end
+
+  fails_with gcc: "5" # due to apt on Linux
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
@@ -228,11 +300,6 @@ class Snapcraft < Formula
     sha256 "da72a452bcf4349fc467a12b54ab0e63e654a571cacc44084826d52bde12b6ee"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
     sha256 "eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"
@@ -278,10 +345,11 @@ class Snapcraft < Formula
   end
 
   test do
-    ENV["LC_ALL"]="en_US.UTF-8"
-    system "#{bin}/snapcraft", "--version"
-    system "#{bin}/snapcraft", "--help"
-    system "#{bin}/snapcraft", "init"
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    assert_match version.to_s, shell_output("#{bin}/snapcraft --version")
+    assert_match "Snapcraft is a delightful packaging tool", shell_output("#{bin}/snapcraft --help")
+
+    system bin/"snapcraft", "init"
     assert_predicate testpath/"snap/snapcraft.yaml", :exist?
   end
 end

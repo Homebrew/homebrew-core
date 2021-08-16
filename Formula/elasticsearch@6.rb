@@ -6,9 +6,10 @@ class ElasticsearchAT6 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:  "5a169338be55587bc70f8d297a5ade7ab075540935af491d1eee1ec9e64cc200"
-    sha256 cellar: :any_skip_relocation, catalina: "21760b4a0752ec2f70597637ebeb255d3b218605f5117764451c382ecabffeec"
-    sha256 cellar: :any_skip_relocation, mojave:   "c5b912c15f7add574bcf572818b4b1ac40f7b27ddbcad3eff0303a15e9acb174"
+    sha256 cellar: :any_skip_relocation, big_sur:      "5a169338be55587bc70f8d297a5ade7ab075540935af491d1eee1ec9e64cc200"
+    sha256 cellar: :any_skip_relocation, catalina:     "21760b4a0752ec2f70597637ebeb255d3b218605f5117764451c382ecabffeec"
+    sha256 cellar: :any_skip_relocation, mojave:       "c5b912c15f7add574bcf572818b4b1ac40f7b27ddbcad3eff0303a15e9acb174"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "d7a04d5ef1fbe9d8820ac250cf93950d51df1abfcadfe894a0a9115253ed1c1a"
   end
 
   keg_only :versioned_formula

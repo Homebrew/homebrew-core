@@ -1,8 +1,8 @@
 class PostgresqlAT96 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v9.6.22/postgresql-9.6.22.tar.bz2"
-  sha256 "3d32cd101025a0556813397c69feff3df3d63736adb8adeaf365c522f39f2930"
+  url "https://ftp.postgresql.org/pub/source/v9.6.23/postgresql-9.6.23.tar.bz2"
+  sha256 "a849f798401ab8c6dfa653ebbcd853b43f2200b4e3bc1ea3cb5bec9a691947b9"
   license "PostgreSQL"
 
   livecheck do
@@ -11,10 +11,10 @@ class PostgresqlAT96 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "408a339dc0058f6fb69a894f6faad84241403c698047d77f81d05871d569edff"
-    sha256 big_sur:       "66d141ccf728c3a4c529b227a3a3ece0b767c85b9ef04b5a6d787107a9addc20"
-    sha256 catalina:      "2b8fab60518c228f3dae4830f2ae662a2b5e4b7e968ba50f7ff0288eadb1cbcf"
-    sha256 mojave:        "73a3586e8bc638b8513df4226090fe843c5d4d93bce35120214772ef28c8f3a2"
+    sha256 arm64_big_sur: "0f79f7033fdb3a2491e28964e60c053f9c4fdc195a85f0ea67abb469cc8e0ef7"
+    sha256 big_sur:       "324c559bf6e31496384cd8896329535919e6a8b2235401f59520c57f6d44d6c9"
+    sha256 catalina:      "624cb85c66f1a6552dcb0ac23209d55411294b2913824ec864dbf10d2e92b569"
+    sha256 mojave:        "23fdcd093f470661f6d1d663d8f5c1d63a409412ab0eaa14df8460c4c61ea52b"
   end
 
   keg_only :versioned_formula

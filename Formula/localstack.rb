@@ -3,15 +3,16 @@ class Localstack < Formula
 
   desc "Fully functional local AWS cloud stack"
   homepage "https://github.com/localstack/localstack"
-  url "https://files.pythonhosted.org/packages/81/b1/74dc16948f18a192679551d960b6a936ec838b1bac827c2aebf7f6eca7a3/localstack-0.12.16.tar.gz"
-  sha256 "af415a2912e8c41f3bd24931f23d0f149ae0ee044612be77b635496eb033c069"
+  url "https://files.pythonhosted.org/packages/38/31/03f142730dca7dcd7b07b2a08c66912deb745b8e48fb82df0ae99f168037/localstack-0.12.16.1.tar.gz"
+  sha256 "6e5081e45dd58a5779e823ffb1b0ecf0b3aaef38380e6f47db132f106c10197e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "99ee40ce38d342ad1b86fbbb4655f4e40572c41456b0dda4681317e18f2ef1d1"
-    sha256 cellar: :any_skip_relocation, big_sur:       "597cee36cbb9470516e6769ddd4ffc8d5d92efcbd142037539d01faaee6b57ae"
-    sha256 cellar: :any_skip_relocation, catalina:      "d919025f66b72a65154c191ea29efe17f05c78992f056598457d101e70f0cf20"
-    sha256 cellar: :any_skip_relocation, mojave:        "54ed9f27eb706b9607f3a319a2f15916da750206e199d4fe31b6c0936deaa938"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "98b969d3fa3677f52984fd322fac83a5c1a311762d939aacb4d13768817cb69f"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b2788dcd741a9025ae833cfba8f7e4f2ee7c9b7b653101fc46fa475975d8cab0"
+    sha256 cellar: :any_skip_relocation, catalina:      "6548491075563f907896e3fb4512f704651446966ffeca58da28eb479be1c992"
+    sha256 cellar: :any_skip_relocation, mojave:        "8d528350c46d2587aac9c81bf962c122e4cb69546befeb168566004da31a6d2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "119482cd25f4b963420fec893de1b80e3096771df57a2b528d9478078dfa0e70"
   end
 
   depends_on "docker" => :test
@@ -19,13 +20,13 @@ class Localstack < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f0/53/f8e9ac6051fa0f5ad4a397198572cc3eb4157cf1b4cc98b6edf52928b0d7/boto3-1.18.11.tar.gz"
-    sha256 "ca675c724fa0fe05e992a7146cc5e1a3b3262c4323c83c7a8fcc69f9e5e47f8b"
+    url "https://files.pythonhosted.org/packages/b7/ca/6a3d592e46e1a23bd23bd4a8b88daf92bdf97d7a4426d055fd52f07e1ade/boto3-1.18.18.tar.gz"
+    sha256 "325456ceae7144693bf86786b4d9c6202f46886d9d30b29780dd6a5b377f5a24"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/b2/1b/a6f79cf60b3f0317eba52ab0d766250f8ac8c9a35314168dacb5df6dac99/botocore-1.21.11.tar.gz"
-    sha256 "b5e9128a259fc0fe5a8c2b717f5d7e8a1321321981b5d5679939e12d4142c0f3"
+    url "https://files.pythonhosted.org/packages/1e/49/a2bd9473bfb3c89c09dbbe8ea0634598a230e46ac57c45f5ab0116d9647e/botocore-1.21.18.tar.gz"
+    sha256 "604ce93417f990782f4a4d528678cdd9eed80a6bd059fc1deedc6662825cc615"
   end
 
   resource "certifi" do
@@ -74,8 +75,8 @@ class Localstack < Formula
   end
 
   resource "localstack-ext" do
-    url "https://files.pythonhosted.org/packages/30/cf/d9846d979de255ddc2a8068c6dd78c59486ef40e4a688395ac7836aabade/localstack-ext-0.12.13.31.tar.gz"
-    sha256 "a3fe25daf9d955117f27c114ab74f9e0c5fdc793a6fa644b4b10b0e14d9ea8d5"
+    url "https://files.pythonhosted.org/packages/12/77/271d8776817ff75d628116d9315d11820304063c71dfec7d637e1a22c75c/localstack-ext-0.12.14.11.tar.gz"
+    sha256 "335d11345b77373a7807550b7f693aeccfbea0f2827131a47c19e7abd8179cbe"
   end
 
   resource "pyaes" do
@@ -122,7 +123,7 @@ class Localstack < Formula
 
     assert_match version.to_s, shell_output("#{bin}/localstack --version")
 
-    output = shell_output("#{bin}/localstack start --docker", 125)
+    output = shell_output("#{bin}/localstack start --docker", 1)
 
     assert_match "Starting local dev environment", output
     assert_match "Cannot connect to the Docker daemon", output

@@ -1,9 +1,18 @@
 class Wordplay < Formula
   desc "Anagram generator"
-  homepage "http://hsvmovies.com/static_subpages/personal_orig/wordplay/index.html"
+  homepage "http://hsvmovies.com/static_subpages/personal_orig/wordplay/"
   url "http://hsvmovies.com/static_subpages/personal_orig/wordplay/wordplay722.tar.Z"
   version "7.22"
   sha256 "9436a8c801144ab32e38b1e168130ef43e7494f4b4939fcd510c7c5bf7f4eb6d"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?wordplay[._-]?v?(\d+(?:\.\d+)*)\.t/i)
+    strategy :page_match do |page, regex|
+      # Naively convert a version string like `722` to `7.22`
+      page.scan(regex).map { |match| match.first.sub(/^(\d)(\d+)$/, '\1.\2') }
+    end
+  end
 
   bottle do
     rebuild 1

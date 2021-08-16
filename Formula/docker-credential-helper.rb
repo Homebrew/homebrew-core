@@ -14,6 +14,10 @@ class DockerCredentialHelper < Formula
   end
 
   depends_on "go" => :build
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "libsecret"
+  end
 
   def install
     ENV["GOPATH"] = buildpath
@@ -22,17 +26,35 @@ class DockerCredentialHelper < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      system "make", "vet_osx"
-      system "make", "osxkeychain"
-      bin.install "bin/docker-credential-osxkeychain"
+      on_macos do
+        system "make", "vet_osx"
+        system "make", "osxkeychain"
+        bin.install "bin/docker-credential-osxkeychain"
+      end
+      on_linux do
+        system "make", "vet_linux"
+        system "make", "pass"
+        system "make", "secretservice"
+        bin.install "bin/docker-credential-pass"
+        bin.install "bin/docker-credential-secretservice"
+      end
       prefix.install_metafiles
     end
   end
 
   test do
-    # A more complex test isn't possible as this tool operates using the macOS
-    # user keychain (incompatible with CI).
-    run_output = shell_output("#{bin}/docker-credential-osxkeychain", 1)
-    assert_match %r{^Usage: .*/docker-credential-osxkeychain.*}, run_output
+    on_macos do
+      # A more complex test isn't possible as this tool operates using the macOS
+      # user keychain (incompatible with CI).
+      run_output = shell_output("#{bin}/docker-credential-osxkeychain", 1)
+      assert_match %r{^Usage: .*/docker-credential-osxkeychain.*}, run_output
+    end
+    on_linux do
+      run_output = shell_output("#{bin}/docker-credential-pass list")
+      assert_match "{}", run_output
+
+      run_output = shell_output("#{bin}/docker-credential-secretservice list", 1)
+      assert_match "Error from list function in secretservice_linux.c", run_output
+    end
   end
 end

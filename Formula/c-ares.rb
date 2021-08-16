@@ -1,8 +1,8 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.haxx.se/"
-  url "https://c-ares.haxx.se/download/c-ares-1.17.1.tar.gz"
-  sha256 "d73dd0f6de824afd407ce10750ea081af47eba52b8a6cb307d220131ad93fc40"
+  url "https://c-ares.haxx.se/download/c-ares-1.17.2.tar.gz"
+  sha256 "4803c844ce20ce510ef0eb83f8ea41fa24ecaae9d280c468c582d2bb25b3913d"
   license "MIT"
   head "https://github.com/c-ares/c-ares.git"
 
@@ -12,11 +12,11 @@ class CAres < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "63627c4d2e4698ba13b82aeb2a10f3aef3a7bcbb7b459c265dbd840e91e5b175"
-    sha256 cellar: :any,                 big_sur:       "514de64e48f4d2c6e448547a30ba03f613b899f30f97f9026740c59eb3f49aeb"
-    sha256 cellar: :any,                 catalina:      "3fc1e6a9c560039998b288db7dfb268c87db614841a6fa1048880b8b6bdd6e4c"
-    sha256 cellar: :any,                 mojave:        "8785faa759b2f10fcaefef1e7398b9ffe79b76b2339b4bc4b552fd9c418b1097"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "644b650919c3d688f650c70fbd8f2015d906fc65997be2e3b4830fd804aa9c6c"
+    sha256 cellar: :any,                 arm64_big_sur: "faf4361fe875f4b4d9fa521c3aed53ae6ad1935a859dec0b7cfd4638c6841a82"
+    sha256 cellar: :any,                 big_sur:       "999647263cf8819d6fd324ce9bf48ea5eaa94b34f7796c1fe3d772572f361459"
+    sha256 cellar: :any,                 catalina:      "8cf15891ac55f5d9d7a28a5122e7c5ee6c9585c82643b029ee5c295bfd408209"
+    sha256 cellar: :any,                 mojave:        "60adc74ad87d834ff201feef8a25c7e27b8ae8e3d1d09f71b08f41384cf994e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c23f4ffa78d6eb7595ffd15c22067ef5ecb8370fbbdeb4cef0f7e178e6a34e3b"
   end
 
   depends_on "cmake" => :build

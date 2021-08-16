@@ -1,13 +1,13 @@
 class WiremockStandalone < Formula
   desc "Simulator for HTTP-based APIs"
   homepage "http://wiremock.org/docs/running-standalone/"
-  url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-jre8-standalone/2.29.1/wiremock-jre8-standalone-2.29.1.jar"
-  sha256 "25d6f453863b4470f039cd44db37523ad4525217f684bbfa73f4cb8842a8dae1"
+  url "https://search.maven.org/remotecontent?filepath=com/github/tomakehurst/wiremock-jre8-standalone/2.30.1/wiremock-jre8-standalone-2.30.1.jar"
+  sha256 "6aa6d9fa536040ba3c9b062c1257b90c045672f3864b9b481496e6ff1bef91c1"
   license "Apache-2.0"
   head "https://github.com/tomakehurst/wiremock.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8961e5ce3d504ab4506ce1883306397d15438512759825335de7edded771b898"
+    sha256 cellar: :any_skip_relocation, all: "0c8011cbd6be9826fb258c0d5c4d3f5f95f9438da1895542f99f36fbe0778b12"
   end
 
   depends_on "openjdk"

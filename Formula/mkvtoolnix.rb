@@ -4,6 +4,7 @@ class Mkvtoolnix < Formula
   url "https://mkvtoolnix.download/sources/mkvtoolnix-60.0.0.tar.xz"
   sha256 "a12437790440589721e7cd8b476cb832ade6ad9f1759533ee8fe91bd9cfa74c4"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://mkvtoolnix.download/sources/"
@@ -11,9 +12,9 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "f12a40b7da95b3b3d7cd3f052c8e4ddc20a5c381dabbd735bc718b640e074ff2"
-    sha256 cellar: :any, big_sur:       "1a042def495b9b907144cae8d856bad4555e5705e910bc036938df55396e77dd"
-    sha256 cellar: :any, catalina:      "b2a04ea76f86c4e821c560ddc5792d2c49b195e1fb4b853f168744b0a5329ac7"
+    sha256 cellar: :any, arm64_big_sur: "36d50cc64a0586c1a68e6987415be8a510ca868ca2d828e3b9591e69f5b57504"
+    sha256 cellar: :any, big_sur:       "8e62bdbcd4799db726a1b41fe935bde145acfa0ba81288fb410ae0b987f22e9b"
+    sha256 cellar: :any, catalina:      "cbeab7bd88f4c8f986dcb42768d2165b9cd888897ca422e3d83d59c9fca07416"
   end
 
   head do

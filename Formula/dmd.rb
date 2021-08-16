@@ -4,30 +4,30 @@ class Dmd < Formula
   license "BSL-1.0"
 
   stable do
-    url "https://github.com/dlang/dmd/archive/v2.097.1.tar.gz"
-    sha256 "6833efa0f0a47d2926680364da56246947ad2eda75243de609fa1cf6e46746d3"
+    url "https://github.com/dlang/dmd/archive/v2.097.2.tar.gz"
+    sha256 "10e8fc9b99864bf68f384ca85f0c527221478be08d331ac477a90a2d83b71f4f"
 
     resource "druntime" do
-      url "https://github.com/dlang/druntime/archive/v2.097.1.tar.gz"
-      sha256 "f3f47cf0cfc99e3643752db87541e36e637c94874213d31c356d6af4fc6fc113"
+      url "https://github.com/dlang/druntime/archive/v2.097.2.tar.gz"
+      sha256 "ee09d6e37887bba856c767b9aa36f61b290f2cfe0c470eb4a9ccd7f2e24d4bcd"
     end
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/v2.097.1.tar.gz"
-      sha256 "64d349a8c98967ca1c2b1daf0ef904b043838c5b7a11e7e15c7b0383c78544a1"
+      url "https://github.com/dlang/phobos/archive/v2.097.2.tar.gz"
+      sha256 "3f407f94d5d50a43498acf7f463f56a96f66534901068f8d6be850a1bd12135c"
     end
 
     resource "tools" do
-      url "https://github.com/dlang/tools/archive/v2.097.1.tar.gz"
-      sha256 "e42c3bac10266e44cb4939124fce0392ce155979c1791981e30d8166f44c03ab"
+      url "https://github.com/dlang/tools/archive/v2.097.2.tar.gz"
+      sha256 "b04c7ebd16fa1b48aea4667f3906fdb62b4ff94c661eb216ba477f3310faf882"
     end
   end
 
   bottle do
-    sha256 big_sur:      "31043106abf94b9ee581e388fb61ca4e3f81c25c0c68bb00134e2deda6071d87"
-    sha256 catalina:     "0b12360c4563ae7a18ea833d87d0146596db23eda5f56de0f9e9b5d5eccc6ee5"
-    sha256 mojave:       "3acad55b161b467343944cc4bb909c9ecc49766d08f31aef65ae44f4099b8507"
-    sha256 x86_64_linux: "726d6649d5bda7391bcdb892dc70cc3257dc3e397f786804ef5e59330d64fab2"
+    sha256 big_sur:      "3d9352cd4ce2ed8874c9da854540a6c3928b3bc81b77788c7e8a09c8580bfbe0"
+    sha256 catalina:     "c9fb6b53f38ca780febac7c9d343928a9a2e88bec7aa5a6b7a05b70949915ca2"
+    sha256 mojave:       "9ccdddbfac184379c83150a87c2e230863c51866dd099ad9609c4eb22cf4f107"
+    sha256 x86_64_linux: "4fe16fa1889fe81062e0484eca751883c06ebea11c0df177f2b9b6fc8a3a24d8"
   end
 
   head do

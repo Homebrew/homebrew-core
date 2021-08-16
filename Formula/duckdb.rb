@@ -5,13 +5,14 @@ class Duckdb < Formula
       tag:      "v0.2.8",
       revision: "a8fd73b37bfc249b76b2aaa488d52dfdb39bb3d9"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7d3a59d4b2acfab03cb9926147a94a6a4a36ef663d8fd45fab7f09a520da3d10"
-    sha256 cellar: :any,                 big_sur:       "a5243f119762b2ace9e5f6709d81773aa9a296653d78feb1ffb9bc7795fa1be9"
-    sha256 cellar: :any,                 catalina:      "1563139761b87e9dacb1e191af79f5f74f484fc2200d25b9305bd1915f851b65"
-    sha256 cellar: :any,                 mojave:        "9d6335ff01a65260c95a0c75df6079fa003b529e8a3c513a65cad10b1039dde4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8a7fff81c22eeb1a2e4e53dbf09a8f718687cc3078604caeb6fec0142baf4611"
+    sha256 cellar: :any,                 arm64_big_sur: "0d7a874d4ef6c80616b6495dcd8cfd89ae092c9e5dae7ec677a4bca2a184de20"
+    sha256 cellar: :any,                 big_sur:       "614f4b26481b51f9aa98c185eeca064f6df58610b6a6187c6603098de047fd34"
+    sha256 cellar: :any,                 catalina:      "22786e74a4bf3212375b066d18cfa3fc507dd6699e86f7dc46a0eef102dd7c7d"
+    sha256 cellar: :any,                 mojave:        "263f3d4b4815b8db217f4e17787d5304c73e742dbae51cbfd2a02b1d0ac90b36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5fa7cf67a5d8884b153f9d9520770eb767453d6c0ba0b4fa2089521b74df4456"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +24,7 @@ class Duckdb < Formula
       ENV.deparallelize # amalgamation builds take GBs of RAM
     end
     mkdir "build/amalgamation"
-    system Formula["python@3.9"].opt_bin/"python3", "scripts/amalgamation.py"
+    system Formula["python@3.9"].opt_bin/"python3", "scripts/amalgamation.py", "--extended"
     cd "build/amalgamation" do
       system "cmake", "../..", *std_cmake_args, "-DAMALGAMATION_BUILD=ON"
       system "make"

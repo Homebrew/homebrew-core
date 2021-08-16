@@ -1,8 +1,8 @@
 class V2ray < Formula
   desc "Platform for building proxies to bypass network restrictions"
   homepage "https://v2fly.org/"
-  url "https://github.com/v2fly/v2ray-core/archive/v4.40.1.tar.gz"
-  sha256 "75b599cb9866c2469056b71f2c0c69cbdab08cf15f6bd2273c893cd0bd16f175"
+  url "https://github.com/v2fly/v2ray-core/archive/v4.41.1.tar.gz"
+  sha256 "9d0ca27b78beba96b8ee00141a3e45d7c706d57b3d7c449d7975a8dec815e327"
   license all_of: ["MIT", "CC-BY-SA-4.0"]
   head "https://github.com/v2fly/v2ray-core.git"
 
@@ -12,24 +12,23 @@ class V2ray < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "33829b31999cbf6fc4c7660488339ccf4d2f57a463eb6f4a778d691557c4538c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b381ebf20db3835ea4f78c77e03771cf46cc1b517a041720da913fcfcc42bbae"
-    sha256 cellar: :any_skip_relocation, catalina:      "9ac8295e6615d7c551d9182e3ef71ad131be83c43191111bb981e050210088e9"
-    sha256 cellar: :any_skip_relocation, mojave:        "3cb91217f610e51779391421229b6126c380f09ff4b169f3b261d09b5763f4e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6892812312621128ad0a0ce1c70816ccb268cc8a285daac7878a56c306337664"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cd3e2af2bfc045ed622ea9b46ce00865560957686514f5de84abb18538e986b3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "a045bd37d878fbddc311e4b5e8531a24efc84e3416637af63f613d16c61f3e16"
+    sha256 cellar: :any_skip_relocation, catalina:      "fc560d3ffd4c4ec14eb36cd49b6efe4247b323c5fbec7e56f590d720c47dec3e"
+    sha256 cellar: :any_skip_relocation, mojave:        "78279973a5e7cede499991139f7865e22747aa8c607fbae9f6045cb3560e6a40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "63c87aeb08f79f5fb148b7be48cc686f2da50671d73a45637ec8806546efeebe"
   end
 
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202106170022/geoip.dat"
-    sha256 "af7b0e6b92fa7b1d55b2b9d8155e9a2372b6b0be0e1b9e09353d9859680f6bb1"
+    url "https://github.com/v2fly/geoip/releases/download/202108120026/geoip.dat"
+    sha256 "1568a7f6865e367c52951e0b03cfe6c956b249fcf6f5732cfac98f11da1208bb"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20210621183458/dlc.dat"
-    sha256 "b78075874cb24c82fd2096e521452ff673fadb3d4d8048da73681f9b4722d0e2"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20210814110437/dlc.dat"
+    sha256 "cf2da8489617bdf210ca92135fb35eb95b86c98595fd970a244359f7d04ca3a7"
   end
 
   def install

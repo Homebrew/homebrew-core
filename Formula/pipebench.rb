@@ -1,6 +1,6 @@
 class Pipebench < Formula
   desc "Measure the speed of STDIN/STDOUT communication"
-  homepage "https://www.habets.pp.se/synscan/programs.php?prog=pipebench"
+  homepage "https://www.habets.pp.se/synscan/programs_pipebench.html"
   # Upstream server behaves oddly: https://github.com/Homebrew/homebrew/issues/40897
   # url "http://www.habets.pp.se/synscan/files/pipebench-0.40.tar.gz"
   url "https://deb.debian.org/debian/pool/main/p/pipebench/pipebench_0.40.orig.tar.gz"

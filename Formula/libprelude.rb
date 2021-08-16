@@ -6,6 +6,11 @@ class Libprelude < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  livecheck do
+    url "https://www.prelude-siem.org/projects/prelude/files"
+    regex(/href=.*?libprelude[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "62a0baace0727b7e5bbbf6dbb826e54604f18c28a3e2d20dda6bad782b50ffde"
     sha256 big_sur:       "c2e8d9d9c831ad24e13cd6d470a08c91c9dad1085ce7fe40e559df77b79a1503"

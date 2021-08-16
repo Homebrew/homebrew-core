@@ -5,6 +5,10 @@ class Promtail < Formula
   sha256 "c71174a2fbb7b6183cb84fc3a5e328cb4276a495c7c0be8ec53c377ec0363489"
   license "AGPL-3.0-only"
 
+  livecheck do
+    formula "loki"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "61a6d1f9f6f4ffc0cde6bf6fe908ef94fbe2d0a583eb4ff7f99255e02ac3fdc3"
     sha256 cellar: :any_skip_relocation, big_sur:       "2ac1bf4de911eaf2e6a0711dd22d87153e2503f50306bf768f12eb89b65a6be3"

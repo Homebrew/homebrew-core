@@ -1,17 +1,16 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.land/"
-  url "https://github.com/denoland/deno/releases/download/v1.12.2/deno_src.tar.gz"
-  sha256 "4ac5a1a29d8490220c5c35eb6eb35675eb01abf3022a1fb88e4620d7ba481734"
+  url "https://github.com/denoland/deno/releases/download/v1.13.0/deno_src.tar.gz"
+  sha256 "c1c7ccb0f6ac3d74e8ae40cccc55804ac5554f77431f70e19276da3874a1b439"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ad64ee531b91a5bf9cd12736ac9450302be7c84ce8c4e6f0f972105fb9756828"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e5a5631f621412fb7a8baf9260734b0b3aebb4ac6c5069543321490325cff552"
-    sha256 cellar: :any_skip_relocation, catalina:      "3e37ce38c1db34d978e6d85f6bb803194aee3b6fca00a0dff2bc14679b62f5d5"
-    sha256 cellar: :any_skip_relocation, mojave:        "23bce5c3d3fa94abb71a96ad0241a97a9a888f871b1b879575b2c5f77be06481"
-    sha256                               x86_64_linux:  "9132f21ca9892682056a4a6718ee9366fed446e064f5b96390cdebcb2882611c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5440a5b4fda3adf2b411397b75f8e7f4664b1695296a424e08760c7c84253337"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f2f66c66e3562aeacb76163e14e6faafe37927c413605b730e0da0c234c3d7a5"
+    sha256 cellar: :any_skip_relocation, catalina:      "953c535b6c66a9f76490910d1fe6a56517763b782e209f84581c811a6b1150ff"
+    sha256 cellar: :any_skip_relocation, mojave:        "d30ab799b8a78c003bd48c45b36ef50bbf8aa301934d0b252a9045a51be27ccd"
+    sha256                               x86_64_linux:  "ec567b886d0c6b035f6ea6fa17e18eeac31f741d82d0557a95846a3ec8771c67"
   end
 
   depends_on "llvm" => :build
