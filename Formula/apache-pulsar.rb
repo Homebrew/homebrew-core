@@ -30,6 +30,7 @@ class ApachePulsar < Formula
     share.install binpfx+"/examples"
     share.install binpfx+"/licenses"
     (var/"log/pulsar").mkpath
+    (etc/"pulsar").mkpath
     (etc/"pulsar").install_symlink libexec/"conf/*"
 
     Pathname.glob("#{libexec}/bin/*") do |path|
