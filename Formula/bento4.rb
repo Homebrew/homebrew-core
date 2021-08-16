@@ -4,6 +4,7 @@ class Bento4 < Formula
   url "https://www.bok.net/Bento4/source/Bento4-SRC-1-6-0-639.zip"
   version "1.6.0-639"
   sha256 "3c6be48e38e142cf9b7d9ff2713e84db4e39e544a16c6b496a6c855f0b99cc56"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.bok.net/Bento4/source/"
