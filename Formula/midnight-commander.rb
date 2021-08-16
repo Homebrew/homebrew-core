@@ -52,6 +52,10 @@ class MidnightCommander < Formula
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"
+
+    on_macos do
+      inreplace share/"mc/syntax/Syntax", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin"
+    end
   end
 
   test do
