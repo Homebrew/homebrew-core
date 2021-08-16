@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/bc/10/7a01a1a44153a80b18aa12c3052512b71d4beff440ba50c0ed04882f36bc/moto-2.2.2.tar.gz"
-  sha256 "b0b5a9179bcb4833fd2f67e31e44004d7ec7687106ab22150cbeac7e6e97b725"
+  url "https://files.pythonhosted.org/packages/eb/7c/f40a10267acf08869dab0014a5a80deca289e30df251efdd4bf562824feb/moto-2.2.3.tar.gz"
+  sha256 "76850f44a38c0047e573ec5d4d2e5b20a77ae2de2691b2be03ed0cae17a85a0e"
   license "Apache-2.0"
 
   bottle do
@@ -34,13 +34,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/75/e4/413f948020c99cfe4d98163275e38b94c6ae21c3958da37514e78c6d7d28/boto3-1.18.17.tar.gz"
-    sha256 "5e5f60ece9b73d48f668bef56ddcde716f013b48a62fdf9c5eac9512a5981136"
+    url "https://files.pythonhosted.org/packages/72/ac/4f109cc03f333e1dc9cc489b54b3261eb1213557b48a42afe69321706517/boto3-1.18.22.tar.gz"
+    sha256 "7405ae77ce4f2151fae1b542183f9c0f7ffb57c288b1f152819cfcb88e9cf297"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/8d/f4/c98c4b194ac9552de7741372bcbdcd290d93fda377e527546e9868865948/botocore-1.21.17.tar.gz"
-    sha256 "a0d64369857d86b3a6d01b0c5933671c2394584311ce3af702271ba221b09afa"
+    url "https://files.pythonhosted.org/packages/78/cc/0b4e959ca99c24093391d8f5a62761f23528734508623bd6845adf8e1a64/botocore-1.21.22.tar.gz"
+    sha256 "9c133caab58b04b4a9ab3f6523cc61cf815c1a5fde7b5ee279eefa48dc3a01d1"
   end
 
   resource "certifi" do
@@ -104,8 +104,8 @@ class Moto < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/58/f1/9b77b8aa38482b7c284b8f8eda8b99d3b1103a280f107bab362a1c518c92/importlib_metadata-4.6.3.tar.gz"
-    sha256 "0645585859e9a6689c523927a5032f2ba5919f1f7d0e84bd4533312320de1ff9"
+    url "https://files.pythonhosted.org/packages/aa/b9/514816064db3028d7370f2ce02e8e8f5d9bc68f6f9a41b04d19176aba70e/importlib_metadata-4.6.4.tar.gz"
+    sha256 "7b30a78db2922d78a6f47fb30683156a14f3c6aa5cc23f77cc8967e9ab2d002f"
   end
 
   resource "itsdangerous" do
@@ -234,8 +234,8 @@ class Moto < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/bc/a6/5ef697df40e56459de75b57f302f2da92a51269925282a08e4eb76b16fb6/websocket-client-1.1.1.tar.gz"
-    sha256 "4cf754af7e3b3ba76589d49f9e09fd9a6c0aae9b799a89124d656009c01a261d"
+    url "https://files.pythonhosted.org/packages/4e/8f/b5c45af5a1def38b07c09a616be932ad49c35ebdc5e3cbf93966d7ed9750/websocket-client-1.2.1.tar.gz"
+    sha256 "8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"
   end
 
   resource "Werkzeug" do
