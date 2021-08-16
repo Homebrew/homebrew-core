@@ -1,12 +1,12 @@
 class FuseOverlayfs < Formula
   desc "FUSE implementation for overlayfs"
   homepage "https://github.com/containers/fuse-overlayfs"
-  url "https://github.com/containers/fuse-overlayfs/archive/refs/tags/v1.7.tar.gz"
-  sha256 "e4d9a794d270e237a38e7ced95af95ad15268e0584eab981ed7c7b3758b95995"
+  url "https://github.com/containers/fuse-overlayfs/archive/refs/tags/v1.7.1.tar.gz"
+  sha256 "fe2c076aed7b8669e7970301a99c0b197759b611035d8199de4c0add7d2fb2b4"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d4b0aeed4dceb0f4083d84209eda9f2ac0a70e3c67a8824d3594b298e2bc7bec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2e7c2712c1ee3eba77c2ad8f3c6eee59c2500a20ef259268affaf6283a98d4d8"
   end
 
   depends_on "autoconf" => :build

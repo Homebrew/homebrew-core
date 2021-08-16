@@ -19,6 +19,15 @@ class Docuum < Formula
     system "cargo", "install", *std_cargo_args
   end
 
+  # https://github.com/stepchowfun/docuum#configuring-your-operating-system-to-run-the-binary-as-a-daemon
+  service do
+    run opt_bin/"docuum"
+    keep_alive true
+    log_path var/"log/docuum.log"
+    error_log_path var/"log/docuum.log"
+    environment_variables PATH: std_service_path_env
+  end
+
   test do
     started_successfully = false
 
