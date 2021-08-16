@@ -7,6 +7,7 @@ class Checkov < Formula
   url "https://files.pythonhosted.org/packages/ea/d2/ab888c6e689cc701acc033c5dab129e81474c06765cb4dc4e97a3a1d1bc8/checkov-2.0.330.tar.gz"
   sha256 "d59ed481a0f6d976baa5cbd0d671463ba89466a3a42174b4ed1e5c2087ee9e3a"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b0f24616405127b7ca5f6b139497e3f7ecd6d76fe1d7bf564121541bd52bb72f"
