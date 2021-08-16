@@ -1,8 +1,8 @@
 class Qd < Formula
   desc "C++/Fortran-90 double-double and quad-double package"
   homepage "https://www.davidhbailey.com/dhbsoftware/"
-  url "https://www.davidhbailey.com/dhbsoftware/qd-2.3.22.tar.gz"
-  sha256 "30c1ffe46b95a0e9fa91085949ee5fca85f97ff7b41cd5fe79f79bab730206d3"
+  url "https://www.davidhbailey.com/dhbsoftware/qd-2.3.23.tar.gz"
+  sha256 "b3eaf41ce413ec08f348ee73e606bd3ff9203e411c377c3c0467f89acf69ee26"
 
   livecheck do
     url :homepage
