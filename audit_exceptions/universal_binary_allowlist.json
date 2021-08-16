@@ -9,6 +9,7 @@
   "gatsby-cli",
   "gitversion",
   "infer",
+  "joplin-cli",
   "llvm",
   "llvm@11",
   "llvm@7",
