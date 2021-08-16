@@ -5,6 +5,11 @@ class Bookloupe < Formula
   sha256 "15b1f5a0fa01e7c0a0752c282f8a354d3dc9edbefc677e6e42044771d5abe3c9"
   revision 1
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?bookloupe[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "52b3382b76c8ef2e8edd46e3bcbe56620d659713f0e8fc4a4fe3e109fc25d7ca"
     sha256 cellar: :any,                 big_sur:       "7ccdee4a97e6c705e478e38aeca1648b06a39c2edfcfa807a4a07ab12eb0d3c8"
