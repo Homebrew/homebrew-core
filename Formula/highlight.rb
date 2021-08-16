@@ -22,6 +22,12 @@ class Highlight < Formula
   depends_on "pkg-config" => :build
   depends_on "lua"
 
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5" # needs C++17
+
   def install
     conf_dir = etc/"highlight/" # highlight needs a final / for conf_dir
     system "make", "PREFIX=#{prefix}", "conf_dir=#{conf_dir}"
