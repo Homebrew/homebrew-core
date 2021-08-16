@@ -17,6 +17,7 @@ class UBootTools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "736e048541bf3be0bc7b299672078862e501e01dec9b9d4ffee15a42a7385961"
   end
 
+  depends_on "coreutils" => :build # Makefile needs $(gdate)
   depends_on "openssl@1.1"
 
   uses_from_macos "bison" => :build
@@ -26,7 +27,6 @@ class UBootTools < Formula
     # Replace keyword not present in make 3.81
     inreplace "Makefile", "undefine MK_ARCH", "unexport MK_ARCH"
 
-    ENV["SOURCE_DATE_EPOCH"] = ""
     system "make", "tools-only_defconfig"
     system "make", "tools-only", "NO_SDL=1"
     bin.install "tools/mkimage"
