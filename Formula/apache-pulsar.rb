@@ -16,6 +16,8 @@ class ApachePulsar < Formula
   depends_on "openjdk@11"
 
   def install
+    (var/"log/pulsar").mkpath
+    (etc/"pulsar").mkpath
     chmod "+x", "src/rename-netty-native-libs.sh"
     with_env(
       "PATH"      => "#{Formula["openjdk@11"].bin}:#{ENV["PATH"]}",
@@ -29,8 +31,6 @@ class ApachePulsar < Formula
     libexec.install binpfx+"/bin", binpfx+"/lib", binpfx+"/instances", binpfx+"/conf"
     share.install binpfx+"/examples"
     share.install binpfx+"/licenses"
-    (var/"log/pulsar").mkpath
-    (etc/"pulsar").mkpath
     (etc/"pulsar").install_symlink libexec/"conf/*"
 
     Pathname.glob("#{libexec}/bin/*") do |path|
