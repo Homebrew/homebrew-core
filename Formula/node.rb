@@ -34,6 +34,11 @@ class Node < Formula
     depends_on "gcc"
   end
 
+  fails_with :clang do
+    build 1099
+    cause "Node requires Xcode CLT 11+"
+  end
+
   fails_with gcc: "5"
 
   # We track major/minor from upstream Node releases.
