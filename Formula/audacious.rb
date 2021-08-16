@@ -71,6 +71,7 @@ class Audacious < Formula
         -Dcoreaudio=false
         -Dmpris2=false
         -Dmac-media-keys=true
+        -Dcpp_std=c++14
       ]
 
       ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"
