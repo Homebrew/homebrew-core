@@ -19,9 +19,9 @@ class Bento4 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c8ed04f699e29cb193e4f035d4bb876bf1f8eb9b668689d87bfd0da5b925ebd"
   end
 
+  depends_on xcode: :build
   # artifact does not produce arm64 native binaries
   depends_on arch: :x86_64
-  depends_on xcode: :build
   depends_on "python@3.9"
 
   on_linux do
