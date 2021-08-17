@@ -1,10 +1,9 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
-  url "https://github.com/HandBrake/HandBrake/releases/download/1.3.3/HandBrake-1.3.3-source.tar.bz2"
-  sha256 "218a37d95f48b5e7cf285363d3ab16c314d97627a7a710cab3758902ae877f85"
+  url "https://github.com/HandBrake/HandBrake/releases/download/1.4.1/HandBrake-1.4.1-source.tar.bz2"
+  sha256 "39a0aecac8f26de1d88ccaca0a39dfca4af52029a792a78f93a42057a54c18f6"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/HandBrake/HandBrake.git"
 
   bottle do
@@ -34,6 +33,10 @@ class Handbrake < Formula
     depends_on "opus"
   end
 
+  # Fix missing linker flag `-framework DiskArbitration`
+  # Upstream PR: https://github.com/HandBrake/HandBrake/pull/3790
+  patch :DATA
+
   def install
     inreplace "contrib/ffmpeg/module.defs", "$(FFMPEG.GCC.gcc)", "cc"
 
@@ -52,3 +55,18 @@ class Handbrake < Formula
     system bin/"HandBrakeCLI", "--help"
   end
 end
+
+__END__
+diff --git a/test/module.defs b/test/module.defs
+index 011b17fb2..84a92fe5d 100644
+--- a/test/module.defs
++++ b/test/module.defs
+@@ -62,7 +62,7 @@ endif
+ TEST.GCC.I += $(LIBHB.GCC.I)
+ 
+ ifeq ($(HOST.system),darwin)
+-    TEST.GCC.f += IOKit CoreServices CoreText CoreGraphics AudioToolbox VideoToolbox CoreMedia CoreVideo Foundation
++    TEST.GCC.f += IOKit CoreServices CoreText CoreGraphics AudioToolbox VideoToolbox CoreMedia CoreVideo Foundation DiskArbitration
+     TEST.GCC.l += iconv
+ else ifeq ($(HOST.system),linux)
+     TEST.GCC.l += pthread dl m
