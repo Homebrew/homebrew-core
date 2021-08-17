@@ -1,8 +1,8 @@
 class Oq < Formula
   desc "Performant, and portable jq wrapper to support formats other than JSON"
   homepage "https://blacksmoke16.github.io/oq"
-  url "https://github.com/Blacksmoke16/oq/archive/v1.2.1.tar.gz"
-  sha256 "dc71c2662aa67a74add7331b5275dbce2c52adcab88767d356bcdd96f4e73b46"
+  url "https://github.com/Blacksmoke16/oq/archive/v1.3.0.tar.gz"
+  sha256 "5bfb23b0c527f45eacd40485779c708b1a05dd36015b50b84df29c2ac3f6cdac"
   license "MIT"
 
   bottle do
