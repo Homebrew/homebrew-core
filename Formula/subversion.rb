@@ -244,6 +244,16 @@ class Subversion < Formula
 
     perl_version = Utils.safe_popen_read(perl.to_s, "--version")[/v(\d+\.\d+(?:\.\d+)?)/, 1]
     ENV["PERL5LIB"] = "#{lib}/perl5/site_perl/#{perl_version}/#{platform}"
+
+    on_macos do
+      if Hardware::CPU.arm?
+        system "/usr/bin/otool", "-hV", perl
+        system "/usr/bin/otool", "-hLV", "#{ENV["PERL5LIB"]}/auto/SVN/_Core/_Core.bundle"
+        system "/usr/bin/otool", "-hLV", "#{lib}/libsvn_swig_perl-1.0.dylib"
+        system "/usr/bin/nm", "#{lib}/libsvn_swig_perl-1.0.dylib"
+      end
+    end
+
     system perl, "-e", "use SVN::Client; new SVN::Client()"
   end
 end
