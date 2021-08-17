@@ -8,6 +8,7 @@ class Cruft < Formula
   license "MIT"
   head "https://github.com/cruft/cruft.git", branch: "master"
 
+  depends_on "poetry" => :build
   depends_on "python@3.9"
   depends_on "six"
 
@@ -122,7 +123,12 @@ class Cruft < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3")
+    venv.pip_install resources
+
+    poetry = Formula["poetry"].opt_bin/"poetry"
+    system poetry, "build", "--format", "wheel", "--verbose", "--no-interaction"
+    venv.pip_install_and_link Dir["dist/cruft-*.whl"].first
   end
 
   test do
