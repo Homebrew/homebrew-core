@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/28/8d/7c6325c9fa1ef38ae806f31774982aaa6f83de836716df902e1501b94fb5/dvc-2.6.0.tar.gz"
-  sha256 "e3c1e898aff9f52a6653873269ede7a6a4750dd4e51061cabd3947ca9ad12494"
+  url "https://files.pythonhosted.org/packages/0b/8e/2b59132892e38c0c9405ecbeacfa39a5af3d6426d7917b3fd37299b3119e/dvc-2.6.2.tar.gz"
+  sha256 "4368f2fad27c801848268eeff09c0479c209c88826cfdea562cacf4401988216"
   license "Apache-2.0"
 
   bottle do
@@ -255,8 +255,8 @@ class Dvc < Formula
   end
 
   resource "google-api-core" do
-    url "https://files.pythonhosted.org/packages/84/10/8e2eef7293e29f223aea3a67186aea0f42bc219ecb415edfffaa798ea804/google-api-core-1.31.1.tar.gz"
-    sha256 "108cf94336aed7e614eafc53933ef02adf63b9f0fd87e8f8212acaa09eaca456"
+    url "https://files.pythonhosted.org/packages/2d/45/2b837f3129f0a593fb67fbd076da79ccf08dfd2fc7f9da7234839f633d88/google-api-core-1.31.2.tar.gz"
+    sha256 "8500aded318fdb235130bf183c726a05a9cb7c4b09c266bd5119b86cdb8a4d10"
   end
 
   resource "google-api-python-client" do
@@ -265,8 +265,8 @@ class Dvc < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/92/3e/ec7db6ef82a8563cca87c1f7381fda5a528d83cd9710e9cba5b75e6f7074/google-auth-1.34.0.tar.gz"
-    sha256 "f1094088bae046fb06f3d1a3d7df14717e8d959e9105b79c57725bd4e17597a2"
+    url "https://files.pythonhosted.org/packages/9a/97/bf2edc87092301da1936b0df4d9d60e5f4287b6910b7d8f5cc0ea796d620/google-auth-1.35.0.tar.gz"
+    sha256 "b7033be9028c188ee30200b204ea00ed82ea1162e8ac1df4aa6ded19a191d88e"
   end
 
   resource "google-auth-httplib2" do
@@ -445,8 +445,8 @@ class Dvc < Formula
   end
 
   resource "PyDrive2" do
-    url "https://files.pythonhosted.org/packages/f8/2a/6e8a66e99ab3386f26b90a379ce4d7a8372bb3b4acaeb412aaa52c63f3f4/PyDrive2-1.9.0.tar.gz"
-    sha256 "a24f21793720d34d5c2d9806351613a475bc8f05f8303629f16e928dc6d98593"
+    url "https://files.pythonhosted.org/packages/64/81/e0d128db979b6fabd0c07297eac1c778012243d85b857ac672f48dd88e8d/PyDrive2-1.9.1.tar.gz"
+    sha256 "bbd7498e567bb33cadc0d7072da28dc551eb0b76524c1616f501316bbd174aaf"
   end
 
   resource "pygit2" do
