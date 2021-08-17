@@ -10,6 +10,8 @@ class Spot < Formula
     regex(/href=.*?spot[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
+  depends_on "python@3.9" => :build
+
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
