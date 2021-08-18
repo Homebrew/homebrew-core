@@ -16,13 +16,13 @@ class Eigenpy < Formula
 
   def install
     pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python@3.9"].opt_prefix
+    python = Formula["python@#{pyver}"].opt_bin/"python#{pyver}"
     ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_prefix/Language::Python.site_packages("python3")
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
 
     mkdir "build" do
       args = *std_cmake_args
-      args << "-DPYTHON_EXECUTABLE=#{py_prefix}/bin/python#{pyver}"
+      args << "-DPYTHON_EXECUTABLE=#{python}"
       args << "-DBUILD_UNIT_TESTS=OFF"
       system "cmake", "..", *args
       system "make"
