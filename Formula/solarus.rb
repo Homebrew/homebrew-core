@@ -5,6 +5,7 @@ class Solarus < Formula
       tag:      "v1.6.5",
       revision: "3aec70b0556a8d7aed7903d1a3e4d9a18c5d1649"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any, big_sur:  "8432227fe84cb749c77d45a9349c6d65793f0bff13fd77640266bcd51d564b95"
@@ -17,7 +18,7 @@ class Solarus < Formula
   depends_on "libmodplug"
   depends_on "libogg"
   depends_on "libvorbis"
-  depends_on "luajit"
+  depends_on "luajit-openresty"
   depends_on "physfs"
   depends_on "sdl2"
   depends_on "sdl2_image"
@@ -28,6 +29,8 @@ class Solarus < Formula
       ENV.append_to_cflags "-I#{Formula["glm"].opt_include}"
       ENV.append_to_cflags "-I#{Formula["physfs"].opt_include}"
       system "cmake", "..",
+                      "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                      "-DSOLARUS_ARCH=#{Hardware::CPU.arch}",
                       "-DSOLARUS_GUI=OFF",
                       "-DVORBISFILE_INCLUDE_DIR=#{Formula["libvorbis"].opt_include}",
                       "-DOGG_INCLUDE_DIR=#{Formula["libogg"].opt_include}",
