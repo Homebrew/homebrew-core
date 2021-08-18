@@ -4,7 +4,7 @@ class Aha < Formula
   url "https://github.com/theZiz/aha/archive/0.5.1.tar.gz"
   sha256 "6aea13487f6b5c3e453a447a67345f8095282f5acd97344466816b05ebd0b3b1"
   license "LGPL-2.1"
-  head "https://github.com/theZiz/aha.git"
+  head "https://github.com/theZiz/aha.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fed59f6650f5b40100644b0baf1bee57b0b3ca6a05d413af70350d9d0eaa8441"
