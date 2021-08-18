@@ -4,7 +4,7 @@ class Assimp < Formula
   url "https://github.com/assimp/assimp/archive/v5.0.1.tar.gz"
   sha256 "11310ec1f2ad2cd46b95ba88faca8f7aaa1efe9aa12605c55e3de2b977b3dbfc"
   license :cannot_represent
-  head "https://github.com/assimp/assimp.git"
+  head "https://github.com/assimp/assimp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "0571a9c07e7166cbfbd2c12b17f121c718204491501f268cdd904791df3c3697"
