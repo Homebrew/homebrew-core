@@ -25,7 +25,7 @@ class NlohmannJson < Formula
   end
 
   test do
-    (testpath/"test.cc").write <<~EOS
+    (testpath/"test.cpp").write <<~EOS
       #include <nlohmann/json.hpp>
 
       using nlohmann::json;
