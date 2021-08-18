@@ -4,7 +4,7 @@ class Act < Formula
   url "https://github.com/nektos/act/archive/v0.2.24.tar.gz"
   sha256 "c6bc09cac52483e175f25d50a262e6b0815789a243a657b6b0c597f048487e0f"
   license "MIT"
-  head "https://github.com/nektos/act.git"
+  head "https://github.com/nektos/act.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a20e74be00a60813dda3b8cf2ff6b15ee16127989b9b5e316796b311391997c9"
