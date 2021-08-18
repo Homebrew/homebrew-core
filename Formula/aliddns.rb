@@ -5,7 +5,7 @@ class Aliddns < Formula
       tag:      "v0.0.12",
       revision: "adcb7cc3b57c254a43f696bd83122cc693cc7ad0"
   license "MIT"
-  head "https://github.com/OpenIoTHub/aliddns.git"
+  head "https://github.com/OpenIoTHub/aliddns.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0dc04fa8aaf8dd3d48798a71300ddf0f4bb905fe2b97875e9734b7ac15c40218"
