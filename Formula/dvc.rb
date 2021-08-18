@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/0b/8e/2b59132892e38c0c9405ecbeacfa39a5af3d6426d7917b3fd37299b3119e/dvc-2.6.2.tar.gz"
-  sha256 "4368f2fad27c801848268eeff09c0479c209c88826cfdea562cacf4401988216"
+  url "https://files.pythonhosted.org/packages/7a/50/ad3f1c16084824afe9b804ad3a50b20ecf736c7a3d9891c5f6b1eed6bfc4/dvc-2.6.3.tar.gz"
+  sha256 "ff88372d810f413683ba1c8c1404d5eaad033a692531f26793a1c4e8cbd1f041"
   license "Apache-2.0"
 
   bottle do
@@ -35,8 +35,8 @@ class Dvc < Formula
   end
 
   resource "adlfs" do
-    url "https://files.pythonhosted.org/packages/a2/c7/cfeddc339e65547c20abe741869f194728a67c2abfab82be7e9ecbedd783/adlfs-2021.8.1.tar.gz"
-    sha256 "4c60184b2bae649035dd770b43a2e3a4dba32ab1e6bec67b4beb60007038fb9f"
+    url "https://files.pythonhosted.org/packages/44/aa/fbbcd69d028924dd1c046392a544c6721e8504531817e3a9aaf3f88b4e46/adlfs-2021.8.2.tar.gz"
+    sha256 "7fcbc183e054a6f50045fdef9ca77e3b6cf104e6670d81e8e44c48608918d190"
   end
 
   resource "aiobotocore" do
@@ -260,8 +260,8 @@ class Dvc < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/3d/58/2fa7237e9d411728ccf9b752df7ec4131e4a18054857f1fe0a714ff8f8f5/google-api-python-client-2.15.0.tar.gz"
-    sha256 "8375489232823f44c601196a960505e03ec58c95ddb6415c6b1d1d76b468f8ba"
+    url "https://files.pythonhosted.org/packages/96/24/83ff640ba642362808a21ec05f1b1a13103d93eb0e61803033ad72bc9f48/google-api-python-client-2.17.0.tar.gz"
+    sha256 "20bc8f711883f9f8f96d96bc44b40ad0e2b0a9ef7df53e7c738948584fddd1c2"
   end
 
   resource "google-auth" do
@@ -400,8 +400,8 @@ class Dvc < Formula
   end
 
   resource "phonenumbers" do
-    url "https://files.pythonhosted.org/packages/5f/59/08bf8f69cb196ad29948dbd12daa28eac68b279c9b94f098789c198faebd/phonenumbers-8.12.29.tar.gz"
-    sha256 "9a396a4d69ed4cf1f8513114869cbed4f12542644374a5d5f11bc7fd66a2098a"
+    url "https://files.pythonhosted.org/packages/d0/5f/cab85c5861cfaab56975c69550e1337570fad0e31a63691ee365235b75d4/phonenumbers-8.12.30.tar.gz"
+    sha256 "9ca65c36f437881a8f7dac979a5733ae8fb5a0a436aecd47bd2c06494bdf0a20"
   end
 
   resource "ply" do
