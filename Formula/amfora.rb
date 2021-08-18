@@ -8,7 +8,7 @@ class Amfora < Formula
     "GPL-3.0-only",
     any_of: ["GPL-3.0-only", "MIT"], # rr
   ]
-  head "https://github.com/makeworld-the-better-one/amfora.git"
+  head "https://github.com/makeworld-the-better-one/amfora.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4d37d2bfd27691d2b2a69f5ec5ef94b3af3afbca7fe399dc0af3bb3eec4cab3e"
