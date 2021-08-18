@@ -138,7 +138,7 @@ jobs:
                     "keep_if_no_match": true
                 }, {
                     "label": "CI-linux-wheezy",
-                    "path": "Formula/(zlib|patchelf|binutils).rb",
+                    "path": "Formula/(zlib|binutils).rb",
                     "keep_if_no_match": true
                 }, {
                     "label": "CI-linux-self-hosted",
