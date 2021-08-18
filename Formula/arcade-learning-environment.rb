@@ -5,7 +5,7 @@ class ArcadeLearningEnvironment < Formula
   sha256 "8059a4087680da03878c1648a8ceb0413a341032ecaa44bef4ef1f9f829b6dde"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/mgbellemare/Arcade-Learning-Environment.git"
+  head "https://github.com/mgbellemare/Arcade-Learning-Environment.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ac79a55da2582b1750e695bbe66943cd3e79111708b0692edad3fdefb870d291"
