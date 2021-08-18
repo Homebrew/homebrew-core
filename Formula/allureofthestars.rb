@@ -5,7 +5,7 @@ class Allureofthestars < Formula
   sha256 "fcb9f38ea543d3277fa90eee004f7624d1168bf7f2c17902cda1870293b7c2f4"
   license all_of: ["AGPL-3.0-or-later", "GPL-2.0-or-later", "OFL-1.1", "MIT", :cannot_represent]
   revision 2
-  head "https://github.com/AllureOfTheStars/Allure.git"
+  head "https://github.com/AllureOfTheStars/Allure.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "5d4b52ab398c06ea763ada17bbcc5ce1809e7fa41ca86d51e84a1b735e2bf1fc"
