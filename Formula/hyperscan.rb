@@ -15,11 +15,20 @@ class Hyperscan < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "ragel" => :build
+  # Only supports x86 instructions and will fail to build on ARM.
+  # See https://github.com/intel/hyperscan/issues/197
+  depends_on arch: :x86_64
   depends_on "pcre"
 
   def install
+    cmake_args = std_cmake_args + ["-DBUILD_STATIC_AND_SHARED=ON"]
+    on_linux do
+      # Linux CI cannot guarantee AVX2 support needed to build fat runtime.
+      cmake_args << "-DFAT_RUNTIME=OFF"
+    end
+
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_STATIC_AND_SHARED=on"
+      system "cmake", "..", *cmake_args
       system "make", "install"
     end
   end
