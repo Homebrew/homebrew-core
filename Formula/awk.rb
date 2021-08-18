@@ -5,7 +5,7 @@ class Awk < Formula
   sha256 "c9232d23410c715234d0c26131a43ae6087462e999a61f038f1790598ce4807f"
   # https://fedoraproject.org/wiki/Licensing:MIT?rd=Licensing/MIT#Standard_ML_of_New_Jersey_Variant
   license "MIT"
-  head "https://github.com/onetrueawk/awk.git"
+  head "https://github.com/onetrueawk/awk.git", branch: "master"
 
   bottle do
     rebuild 1
