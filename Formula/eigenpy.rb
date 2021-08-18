@@ -16,7 +16,7 @@ class Eigenpy < Formula
 
   def install
     pyver = Language::Python.major_minor_version "python3"
-    py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions"/pyver
+    py_prefix = Formula["python@3.9"].opt_bin
     ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_prefix/Language::Python.site_packages("python3")
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
 
