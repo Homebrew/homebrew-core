@@ -5,7 +5,7 @@ class Algernon < Formula
   sha256 "6127eb975da960fd8aa7732c82f3b5e62d14ea763801778552bdbeec28846bf7"
   license "MIT"
   version_scheme 1
-  head "https://github.com/xyproto/algernon.git"
+  head "https://github.com/xyproto/algernon.git", branch: "main"
 
   livecheck do
     url :stable
