@@ -7,6 +7,16 @@ class PariGalpol < Formula
   sha256 "562af28316ee335ee38c1172c2d5ecccb79f55c368fb9f2c6f40fc0f416bb01b"
   license "GPL-2.0-or-later"
 
+  # The only difference in the `livecheck` blocks for pari-* formulae is the
+  # package name in the regex and they should otherwise be kept in parity.
+  livecheck do
+    url :homepage
+    regex(%r{>\s*galpol\.t[^<]+?</a>(?:[&(.;\s\w]+?(?:\),?|,))?\s*([a-z]+\s+\d{1,2},?\s+\d{4})\D}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| Date.parse(match.first)&.strftime("%Y%m%d") }
+    end
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "5574927ca436092cb927939102bb2fc3402f2c3d9aa137295959061002c362ad"
   end
