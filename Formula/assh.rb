@@ -4,7 +4,7 @@ class Assh < Formula
   url "https://github.com/moul/assh/archive/v2.11.3.tar.gz"
   sha256 "da95db33f72ad2531124b0de42074ba61ac1eebdad90bac90c68d1b02aa51354"
   license "MIT"
-  head "https://github.com/moul/assh.git"
+  head "https://github.com/moul/assh.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0860549309f01ea758615ab322bffc4599bc18e57122f7cbaf307bd3ea97a5ef"
