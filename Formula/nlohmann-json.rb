@@ -1,10 +1,9 @@
 class NlohmannJson < Formula
   desc "JSON for modern C++"
   homepage "https://github.com/nlohmann/json"
-  url "https://github.com/nlohmann/json/archive/v3.9.1.tar.gz"
-  sha256 "4cf0df69731494668bdd6460ed8cb269b68de9c19ad8c27abc24cd72605b2d5b"
+  url "https://github.com/nlohmann/json/archive/v3.10.0.tar.gz"
+  sha256 "ae04a7b41d229224ca1e6bbb4435e23aa6c6dc9727d18b13b218b6c0c61ccfd8"
   license "MIT"
-  revision 1
   head "https://github.com/nlohmann/json.git", branch: "develop"
 
   bottle do
@@ -25,31 +24,83 @@ class NlohmannJson < Formula
     end
   end
 
+  def caveats
+    <<~EOS
+      If built with CMake support, you can use find_package to use the library.
+
+      Without it, please set your include path accordingly:
+      CPPFLAGS: -I#{include}
+    EOS
+  end
+
   test do
     (testpath/"test.cc").write <<~EOS
-      #include <iostream>
       #include <nlohmann/json.hpp>
 
       using nlohmann::json;
 
       int main() {
-        json j = {
+        // create an empty structure (null)
+        json j;
+
+        // add a number that is stored as double (note the implicit conversion of j to an object)
+        j["pi"] = 3.141;
+
+        // add a Boolean that is stored as bool
+        j["happy"] = true;
+
+        // add a string that is stored as std::string
+        j["name"] = "Niels";
+
+        // add another null object by passing nullptr
+        j["nothing"] = nullptr;
+
+        // add an object inside the object
+        j["answer"]["everything"] = 42;
+
+        // add an array that is stored as std::vector (using an initializer list)
+        j["list"] = { 1, 0, 2 };
+
+        // add another object (using an initializer list of pairs)
+        j["object"] = { {"currency", "USD"}, {"value", 42.99} };
+
+        // instead, you could also write (which looks very similar to the JSON above)
+        json j2 = {
           {"pi", 3.141},
+          {"happy", true},
           {"name", "Niels"},
+          {"nothing", nullptr},
+          {"answer", {
+            {"everything", 42}
+          }},
           {"list", {1, 0, 2}},
           {"object", {
-            {"happy", true},
-            {"nothing", nullptr}
+            {"currency", "USD"},
+            {"value", 42.99}
           }}
         };
-        std::cout << j << std::endl;
+
+        // a user-defined literal
+        json j3 = R"(
+          {
+            "pi": 3.141,
+            "happy": true,
+            "name": "Niels",
+            "nothing": null,
+            "answer": {
+              "everything": 42
+            },
+            "list": [1, 0, 2],
+            "object": {
+              "currency": "USD",
+              "value": 42.99
+            }
+          }
+        )"_json;
       }
     EOS
 
-    system ENV.cxx, "test.cc", "-I#{include}", "-std=c++11", "-o", "test"
-    std_output = <<~EOS
-      {"list":[1,0,2],"name":"Niels","object":{"happy":true,"nothing":null},"pi":3.141}
-    EOS
-    assert_match std_output, shell_output("./test")
+    system ENV.cxx, "test.cpp", "-I#{include}", "-std=c++11", "-o", "test"
+    system "./test"
   end
 end
