@@ -5,7 +5,7 @@ class Ant < Formula
   mirror "https://archive.apache.org/dist/ant/binaries/apache-ant-1.10.11-bin.tar.xz"
   sha256 "baa049855cdecbefa62539555824058e52412e5ebe8f102e1db944cb762e06d9"
   license "Apache-2.0"
-  head "https://git-wip-us.apache.org/repos/asf/ant.git"
+  head "https://git-wip-us.apache.org/repos/asf/ant.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "46a14d89d209b9f1442199a73c18f88c3f2d6a1ed9c68fb170cf3b4beb161b89"
