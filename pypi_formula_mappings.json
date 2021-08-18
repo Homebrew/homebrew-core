@@ -119,6 +119,9 @@
   "nox": {
     "exclude_packages": ["six"]
   },
+  "oci-cli": {
+    "exclude_packages": ["six"]
+  },
   "ocrmypdf": {
     "exclude_packages": ["pillow"]
   },
