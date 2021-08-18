@@ -5,7 +5,7 @@ class Augustus < Formula
   sha256 "4cc4d32074b18a8b7f853ebaa7c9bef80083b38277f8afb4d33c755be66b7140"
   license "Artistic-1.0"
   revision 2
-  head "https://github.com/Gaius-Augustus/Augustus.git"
+  head "https://github.com/Gaius-Augustus/Augustus.git", branch: "master"
 
   livecheck do
     url "https://bioinf.uni-greifswald.de/augustus/binaries/"
