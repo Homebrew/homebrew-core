@@ -18,6 +18,8 @@ class Istioctl < Formula
   depends_on "go-bindata" => :build
 
   def install
+    # make parallelization should be fixed in version > 1.11.0
+    ENV.deparallelize
     ENV["VERSION"] = version.to_s
     ENV["TAG"] = version.to_s
     ENV["ISTIO_VERSION"] = version.to_s
