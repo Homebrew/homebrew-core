@@ -7,6 +7,16 @@ class PariSeadataBig < Formula
   sha256 "7c4db2624808a5bbd2ba00f8b644a439f0508532efd680a247610fdd5822a5f2"
   license "GPL-2.0-or-later"
 
+  # The only difference in the `livecheck` blocks for pari-* formulae is the
+  # package name in the regex and they should otherwise be kept in parity.
+  livecheck do
+    url :homepage
+    regex(%r{>\s*seadata-big\.t[^<]+?</a>(?:[&(.;\s\w]+?(?:\),?|,))?\s*([a-z]+\s+\d{1,2},?\s+\d{4})\D}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| Date.parse(match.first)&.strftime("%Y%m%d") }
+    end
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "ad28655dc8e08ca7dd3aa0f0fd327da56e8801e76fb4a76373d0714dcd30e85f"
   end
