@@ -6,7 +6,7 @@ class ArduinoCli < Formula
      revision: "d710b642ef7992a678053e9d68996c02f5863721"
   license "GPL-3.0-only"
   revision 1
-  head "https://github.com/arduino/arduino-cli.git"
+  head "https://github.com/arduino/arduino-cli.git", branch: "master"
 
   livecheck do
     url :stable
