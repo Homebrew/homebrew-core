@@ -5,7 +5,7 @@ class Apngasm < Formula
   sha256 "0068e31cd878e07f3dffa4c6afba6242a753dac83b3799470149d2e816c1a2a7"
   license "Zlib"
   revision 2
-  head "https://github.com/apngasm/apngasm.git"
+  head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "9f447e672e2a167926aba3a733123ad244be88f5814dbf86dff970394537abf4"
