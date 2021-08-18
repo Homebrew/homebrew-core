@@ -3,7 +3,7 @@ class Airspy < Formula
   homepage "https://airspy.com/"
   url "https://github.com/airspy/airspyone_host/archive/v1.0.10.tar.gz"
   sha256 "fcca23911c9a9da71cebeffeba708c59d1d6401eec6eb2dd73cae35b8ea3c613"
-  head "https://github.com/airspy/airspyone_host.git"
+  head "https://github.com/airspy/airspyone_host.git", branch: "master"
 
   bottle do
     sha256                               arm64_big_sur: "3cebc54737172b116e3cdabc7770777954b6c1840940588cd29f431c4db526c7"
