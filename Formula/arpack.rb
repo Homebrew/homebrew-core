@@ -5,7 +5,7 @@ class Arpack < Formula
   sha256 "ada5aeb3878874383307239c9235b716a8a170c6d096a6625bfd529844df003d"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/opencollab/arpack-ng.git"
+  head "https://github.com/opencollab/arpack-ng.git", branch: "master"
 
   bottle do
     sha256                               arm64_big_sur: "ce6c690e2da971fd3c2b1b481e2a1a63c74e45ab308abc8212d4e8622ab57fb3"
