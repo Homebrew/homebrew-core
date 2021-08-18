@@ -5,7 +5,7 @@ class Autojump < Formula
   sha256 "00daf3698e17ac3ac788d529877c03ee80c3790472a85d0ed063ac3a354c37b1"
   license "GPL-3.0-or-later"
   revision 2
-  head "https://github.com/wting/autojump.git"
+  head "https://github.com/wting/autojump.git", branch: "master"
 
   bottle do
     rebuild 1
