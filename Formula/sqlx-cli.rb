@@ -1,8 +1,8 @@
 class SqlxCli < Formula
   desc "Command-line utility for SQLx, the Rust SQL toolkit"
   homepage "https://github.com/launchbadge/sqlx"
-  url "https://github.com/launchbadge/sqlx/archive/v0.5.5.tar.gz"
-  sha256 "4e51566090a23dd5c9e1fabb70f3b15db8e2e25303f3fc9074ae81bfc7e48276"
+  url "https://github.com/launchbadge/sqlx/archive/v0.5.6.tar.gz"
+  sha256 "1e05f706823563f28b14546694281ffd8d076ba6f48126d152add823984e7dbf"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
