@@ -6,24 +6,17 @@ class HppFcl < Formula
   license "BSD-2-Clause"
   head "https://github.com/humanoid-path-planner/hpp-fcl.git", branch: "devel"
 
-  bottle do
-    root_url "https://github.com/humanoid-path-planner/hpp-fcl/releases/download/v1.7.5"
-    sha256 catalina: "48b03142dee9b83254b37e523f75faea139852f6a386a512385cd8a98be0c55e"
-  end
-
-  option "without-python", "Build without Python support"
-
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
   depends_on "assimp"
   depends_on "boost"
+  depends_on "boost-python3"
   depends_on "cddlib"
   depends_on "eigen"
+  depends_on "eigenpy"
   depends_on "octomap"
-  depends_on "boost-python3" => :recommended if build.with? "python"
-  depends_on "eigenpy" => :recommended if build.with? "python"
-  depends_on "python@3.9" => :recommended if build.with? "python"
+  depends_on "python@3.9"
 
   def install
     if build.head?
@@ -56,5 +49,4 @@ class HppFcl < Formula
       assert np.isclose(R,np.eye(3)).all()
     EOS
   end
-
 end
