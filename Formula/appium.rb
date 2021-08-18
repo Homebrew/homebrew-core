@@ -6,7 +6,7 @@ class Appium < Formula
   url "https://registry.npmjs.org/appium/-/appium-1.21.0.tgz"
   sha256 "8d61454f8f969260aecc1f46f4ca0123c55c2fbe4ecd3303d095ec90ecd3dc4f"
   license "Apache-2.0"
-  head "https://github.com/appium/appium.git"
+  head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4dd71c228058ccb1d8d5228bfe2e185f56b6bf3319bc0eb7a869063061a5d865"
