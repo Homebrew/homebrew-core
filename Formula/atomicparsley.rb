@@ -6,7 +6,7 @@ class Atomicparsley < Formula
   sha256 "546dcb5f3b625aff4f6bf22d27a0a636d15854fd729402a6933d31f3d0417e0d"
   license "GPL-2.0-or-later"
   version_scheme 1
-  head "https://github.com/wez/atomicparsley.git"
+  head "https://github.com/wez/atomicparsley.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f1997965e9c425cd6b4d524f79ccae01c052554f1cf3926dd24ea86c50c8f494"
