@@ -5,7 +5,7 @@ class Arabica < Formula
   version "20200425"
   sha256 "b00c7b8afd2c3f17b5a22171248136ecadf0223b598fd9631c23f875a5ce87fe"
   license "BSD-3-Clause"
-  head "https://github.com/jezhiggins/arabica.git"
+  head "https://github.com/jezhiggins/arabica.git", branch: "main"
 
   # The `strategy` block below is used to generate a version from the datetime
   # of the "latest" release on GitHub, so it will match the formula `version`.
