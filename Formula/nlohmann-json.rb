@@ -24,15 +24,6 @@ class NlohmannJson < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      If built with CMake support, you can use find_package to use the library.
-
-      Without it, please set your include path accordingly:
-      CPPFLAGS: -I#{include}
-    EOS
-  end
-
   test do
     (testpath/"test.cc").write <<~EOS
       #include <nlohmann/json.hpp>
