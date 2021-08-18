@@ -4,7 +4,7 @@ class Axel < Formula
   url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.10/axel-2.17.10.tar.xz"
   sha256 "46eb4f10a11c4e50320ae6a034ef03ffe59dc11c3c6542a9867a3e4dc0c4b44e"
   license "GPL-2.0-or-later"
-  head "https://github.com/eribertomota/axel.git"
+  head "https://github.com/eribertomota/axel.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "43a36bca363fd2a2700dbaca686de5d92793ae79b1813e26e6ba1965e9d0acc7"
