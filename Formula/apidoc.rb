@@ -25,7 +25,7 @@ class Apidoc < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
-    term_size_vendor_dir = libexec/"lib/node_modules/#{name}/node_modules/term-size/vendor"
+    term_size_vendor_dir = libexec/"lib/node_modules"/name/"node_modules/term-size/vendor"
     term_size_vendor_dir.rmtree # remove pre-built binaries
 
     on_macos do
@@ -34,6 +34,9 @@ class Apidoc < Formula
       # Replace the vendored pre-built term-size with one we build ourselves
       ln_sf (Formula["macos-term-size"].opt_bin/"term-size").relative_path_from(macos_dir), macos_dir
     end
+
+    # Extract native slices from universal binaries
+    deuniversalize_machos
   end
 
   test do
