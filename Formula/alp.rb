@@ -4,7 +4,7 @@ class Alp < Formula
   url "https://github.com/tkuchiki/alp/archive/v1.0.7.tar.gz"
   sha256 "8a7e89547ac26f7c7446ef641ab29d08bc495fc8ae707eeab57e87b4983c3262"
   license "MIT"
-  head "https://github.com/tkuchiki/alp.git"
+  head "https://github.com/tkuchiki/alp.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7809110b0e065a91816cdd2331a639a6c7c6f900c9721fa82323490b0ab34fab"
