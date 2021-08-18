@@ -7,7 +7,7 @@ class Alot < Formula
   sha256 "ee2c1ab1b43d022a8fe2078820ed57d8d72aec260a7d750776dac4ee841d1de4"
   license "GPL-3.0-only"
   revision 2
-  head "https://github.com/pazz/alot.git"
+  head "https://github.com/pazz/alot.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f9ba3f7cc0858982386261853661c35eeaf4f0ecf928033345f5cf84005dcc7"
