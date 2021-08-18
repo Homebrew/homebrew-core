@@ -43,9 +43,8 @@ class Gegl < Formula
       -Ddocs=false
       -Dcairo=disabled
       -Djasper=disabled
-      -Dmfpack=disabled
+      -Dumfpack=disabled
       -Dlibspiro=disabled
-      --wrap-mode=default
       --force-fallback-for=libnsgif,poly2tri-c
     ]
 
