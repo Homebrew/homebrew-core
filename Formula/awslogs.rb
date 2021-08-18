@@ -7,7 +7,7 @@ class Awslogs < Formula
   sha256 "1b249f87fa2adfae39b9867f3066ac00b9baf401f4783583ab28fcdea338f77e"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/jorgebastida/awslogs.git"
+  head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "38caa20a341705f9ef458157f2efcd340ebac1ed4a28a9f087fd362aeb10651b"
