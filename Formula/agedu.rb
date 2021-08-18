@@ -4,7 +4,7 @@ class Agedu < Formula
   url "https://www.chiark.greenend.org.uk/~sgtatham/agedu/agedu-20200705.2a7d4a2.tar.gz"
   version "20200705"
   sha256 "432dd9602df326088956b3e4f5efe656ad09777873d38695e0d68810899941c2"
-  head "https://git.tartarus.org/simon/agedu.git"
+  head "https://git.tartarus.org/simon/agedu.git", branch: "main"
 
   livecheck do
     url :homepage
