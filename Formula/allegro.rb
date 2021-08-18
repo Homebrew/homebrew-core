@@ -4,7 +4,7 @@ class Allegro < Formula
   url "https://github.com/liballeg/allegro5/releases/download/5.2.7.0/allegro-5.2.7.0.tar.gz"
   sha256 "c1e3b319d99cb453b39d393572ba2b9f3de42a96de424aee7d4a1abceaaa970c"
   license "Zlib"
-  head "https://github.com/liballeg/allegro5.git"
+  head "https://github.com/liballeg/allegro5.git", branch: "master"
 
   livecheck do
     url :stable
