@@ -42,6 +42,9 @@ class Webpack < Formula
 
     bin.install_symlink libexec/"bin/webpack-cli"
     bin.install_symlink libexec/"bin/webpack-cli" => "webpack"
+
+    # Replace universal binaries with their native slices
+    deuniversalize_machos
   end
 
   test do
