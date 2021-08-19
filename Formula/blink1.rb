@@ -5,7 +5,7 @@ class Blink1 < Formula
       tag:      "v2.2.0",
       revision: "99d272ab1e398b744e2a17b4f4a20bfb1c1d606c"
   license "CC-BY-SA-3.0"
-  head "https://github.com/todbot/blink1-tool.git"
+  head "https://github.com/todbot/blink1-tool.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "889f3e102d43f059049cec76aa5b80bb099add9927f1bd7d29f7decaa4009741"
