@@ -4,7 +4,7 @@ class Boringtun < Formula
   url "https://github.com/cloudflare/boringtun/archive/v0.3.0.tar.gz"
   sha256 "1107b0170a33769db36876334261924edc71dfc1eb00f9b464c7d2ad6d5743d3"
   license "BSD-3-Clause"
-  head "https://github.com/cloudflare/boringtun.git"
+  head "https://github.com/cloudflare/boringtun.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "0de06cdb03839450dbe101b3f1042820f82aee7eda323039be0f48a0b2baf3e9"
