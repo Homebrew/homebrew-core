@@ -20,7 +20,7 @@ class Influxdb < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "79a485ca7cdf37b3c11ae7405501857fcfda1df0c2c9945350384dc766344ea2"
   end
 
-  depends_on "bazaar" => :build
+  depends_on "breezy" => :build
   depends_on "go" => :build
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
