@@ -24,16 +24,25 @@ class Libcec < Formula
   def install
     ENV.cxx11
 
+    # The CMake scripts don't work well with some common LIBDIR values:
+    # - `CMAKE_INSTALL_LIBDIR=lib` is interpreted as path relative to build dir
+    # - `CMAKE_INSTALL_LIBDIR=#{lib}` breaks pkg-config and cmake config files
+    # - Setting no value uses UseMultiArch.cmake to set platform-specific paths
+    # To avoid theses issues, we can specify the type of input as STRING
+    cmake_args = std_cmake_args.map do |s|
+      s.gsub "-DCMAKE_INSTALL_LIBDIR=", "-DCMAKE_INSTALL_LIBDIR:STRING="
+    end
+
     resource("p8-platform").stage do
       mkdir "build" do
-        system "cmake", "..", *std_cmake_args
+        system "cmake", "..", *cmake_args
         system "make"
         system "make", "install"
       end
     end
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args
+      system "cmake", "..", *cmake_args
       system "make"
       system "make", "install"
     end
