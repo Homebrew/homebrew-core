@@ -1,10 +1,10 @@
 class Ktmpl < Formula
   desc "Parameterized templates for Kubernetes manifests"
   homepage "https://github.com/jimmycuadra/ktmpl"
-  url "https://github.com/jimmycuadra/ktmpl/archive/0.9.0.tar.gz"
-  sha256 "b2f05ae4b36f31f6801f4dcd2f5aec31d7b53b8b6dea6ddf974b22c88d8bc62b"
+  url "https://github.com/jimmycuadra/ktmpl/archive/0.9.1.tar.gz"
+  sha256 "3377f10477775dd40e78f9b3d65c3db29ecd0553e9ce8a5bdcb8d09414c782e9"
   license "MIT"
-  head "https://github.com/jimmycuadra/ktmpl.git"
+  head "https://github.com/jimmycuadra/ktmpl.git", branch: "master"
 
   bottle do
     rebuild 2
