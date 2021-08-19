@@ -3,6 +3,7 @@ class Checkbashisms < Formula
   homepage "https://launchpad.net/ubuntu/+source/devscripts/"
   url "https://deb.debian.org/debian/pool/main/d/devscripts/devscripts_2.21.4.tar.xz"
   sha256 "c18885e36d9c78b319001d4dbaf64e1b85bd322cfd0f62a04cc9d48550f7397f"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/d/devscripts/"
