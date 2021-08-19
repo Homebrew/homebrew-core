@@ -5,7 +5,7 @@ class Blaze < Formula
   sha256 "dfaae1a3a9fea0b3cc92e78c9858dcc6c93301d59f67de5d388a3a41c8a629ae"
   license "BSD-3-Clause"
   revision 1
-  head "https://bitbucket.org/blaze-lib/blaze.git"
+  head "https://bitbucket.org/blaze-lib/blaze.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "c05e15582afef1b0d7961736731a844b1939a8c99c1d60aa412aee5c5c5507f0"
