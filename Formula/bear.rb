@@ -7,7 +7,7 @@ class Bear < Formula
   sha256 "b57d9b139acbbad6439f5b1133266fa5afc5eb095a61cfa07cd9e8941943ae22"
   license "GPL-3.0-or-later"
   revision 2
-  head "https://github.com/rizsotto/Bear.git"
+  head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "7278648a98c987fb2ce8ee02b462249f85ece5c9ef3ef7384734e48b393d7e0e"
