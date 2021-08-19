@@ -3,7 +3,7 @@ class TeensyLoaderCli < Formula
   homepage "https://www.pjrc.com/teensy/loader_cli.html"
   url "https://github.com/PaulStoffregen/teensy_loader_cli/archive/2.1.tar.gz"
   sha256 "5c36fe45b9a3a71ac38848b076cd692bf7ca8826a69941c249daac3a1d95e388"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
   revision 2
   head "https://github.com/PaulStoffregen/teensy_loader_cli.git"
 
@@ -15,11 +15,20 @@ class TeensyLoaderCli < Formula
     sha256 cellar: :any_skip_relocation, high_sierra:   "58f22f026085148841808fb0a9ec9f5f7558c1ef6fbf46a2ec2a0fea8b9f1c18"
   end
 
-  def install
-    ENV["OS"] = "MACOSX"
-    ENV["SDK"] = MacOS.sdk_path || "/"
+  on_linux do
+    depends_on "libusb-compat"
+  end
 
-    inreplace "teensy_loader_cli.c", /ret != kIOReturnSuccess/, "0"
+  def install
+    on_macos do
+      ENV["OS"] = "MACOSX"
+      ENV["SDK"] = MacOS.sdk_path || "/"
+
+      # Work around "Error opening HID Manager" by disabling HID Manager check. Port of alswl's fix.
+      # Ref: https://github.com/alswl/teensy_loader_cli/commit/9c16bb0add3ba847df5509328ad6bd5bc09d9ecd
+      # Ref: https://forum.pjrc.com/threads/36546-teensy_loader_cli-on-OSX-quot-Error-opening-HID-Manager-quot
+      inreplace "teensy_loader_cli.c", /ret != kIOReturnSuccess/, "0"
+    end
 
     system "make"
     bin.install "teensy_loader_cli"
