@@ -16,7 +16,7 @@ class Librespot < Formula
     require "open3"
     require "timeout"
 
-    Open3.popen2e({ "RUST_LOG" => "DEBUG" }, "#{bin}/librespot", "-v") do |_, stderr, wait_thr|
+    Open3.popen3({ "RUST_LOG" => "DEBUG" }, "#{bin}/librespot", "-v") do |_, _, stderr, wait_thr|
       Timeout.timeout(5) do
         stderr.each do |line|
           refute_match "ERROR", line
