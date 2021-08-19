@@ -119,7 +119,7 @@ class Black < Formula
     system bin/"black", "black_test.py"
     assert_equal "print(\"It works!\")\n", (testpath/"black_test.py").read
     port = free_port
-    fork { exec "#{bin}/blackd --bind-port #{port}" }
+    fork { exec "#{bin}/blackd --bind-host 127.0.0.1 --bind-port #{port}" }
     sleep 10
     assert_match "print(\"valid\")", shell_output("curl -s -XPOST localhost:#{port} -d \"print('valid')\"").strip
   end
