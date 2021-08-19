@@ -5,7 +5,7 @@ class Babl < Formula
   sha256 "4f0d7f4aaa0bb2e725f349adf7b351a957d9fb26d555d9895a7af816b4167039"
   license "LGPL-3.0-or-later"
   # Use GitHub instead of GNOME's git. The latter is unreliable.
-  head "https://github.com/GNOME/babl.git"
+  head "https://github.com/GNOME/babl.git", branch: "master"
 
   livecheck do
     url "https://download.gimp.org/pub/babl/0.1/"
