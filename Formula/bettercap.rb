@@ -4,7 +4,7 @@ class Bettercap < Formula
   url "https://github.com/bettercap/bettercap/archive/v2.31.1.tar.gz"
   sha256 "f37ffb8c13b9f0abccb7766c4ecbf295d6219aaf4dbf141e2b71c2a1c9cdc9aa"
   license "GPL-3.0-only"
-  head "https://github.com/bettercap/bettercap.git"
+  head "https://github.com/bettercap/bettercap.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "63f4451b9ab250464d26d27d4358c4c0d4f5aaadecb2bbfaac1e8f4b1c411d2b"
