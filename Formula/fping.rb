@@ -14,20 +14,26 @@ class Fping < Formula
   end
 
   head do
-    url "https://github.com/schweikert/fping.git"
+    url "https://github.com/schweikert/fping.git", branch: "develop"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--sbindir=#{bin}"
+    system "./configure", *std_configure_args, "--sbindir=#{bin}"
     system "make", "install"
   end
 
   test do
-    assert_equal "::1 is alive", shell_output("#{bin}/fping -A localhost").chomp
+    assert_match "Version #{version}", shell_output("#{bin}/fping --version")
+    assert_match "Probing options:", shell_output("#{bin}/fping --help")
+    on_macos do
+      assert_equal "::1 is alive", shell_output("#{bin}/fping -A localhost").chomp
+    end
+    on_linux do
+      assert_match "can't create socket", shell_output("#{bin}/fping -A localhost 2>&1", 4)
+    end
   end
 end
