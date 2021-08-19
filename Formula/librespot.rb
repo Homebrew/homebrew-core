@@ -5,8 +5,7 @@ class Librespot < Formula
       tag:      "v0.2.0",
       revision: "59683d7965480e63c581dd03082ded6a080a1cd3"
   license "MIT"
-  head "https://github.com/librespot-org/librespot.git",
-      branch: "dev"
+  head "https://github.com/librespot-org/librespot.git", branch: "dev"
 
   depends_on "rust" => :build
 
