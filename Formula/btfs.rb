@@ -4,7 +4,7 @@ class Btfs < Formula
   url "https://github.com/johang/btfs/archive/v2.22.tar.gz"
   sha256 "03ebfffd7cbd91e2113d0c43d8d129ad7851753c287c326416ecf622789c4a8d"
   license "GPL-3.0-only"
-  head "https://github.com/johang/btfs.git"
+  head "https://github.com/johang/btfs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, catalina:    "d5b103b5b9004549a555352be373c2160bcd5b9f6a8e7e8b030cbf113ae76fcd"
