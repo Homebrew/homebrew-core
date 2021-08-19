@@ -4,7 +4,7 @@ class Butane < Formula
   url "https://github.com/coreos/butane/archive/v0.13.1.tar.gz"
   sha256 "b71a6cdb54fcacbf78adc06cc291958c228e5a9c8de3cacf04cebc0925ae37ab"
   license "Apache-2.0"
-  head "https://github.com/coreos/butane.git"
+  head "https://github.com/coreos/butane.git", branch: "main"
 
   livecheck do
     url :stable
