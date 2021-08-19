@@ -1,4 +1,6 @@
 class Ranger < Formula
+  include Language::Python::Shebang
+
   desc "File browser"
   homepage "https://ranger.github.io"
   url "https://ranger.github.io/ranger-1.9.3.tar.gz"
@@ -19,7 +21,8 @@ class Ranger < Formula
   def install
     man1.install "doc/ranger.1"
     libexec.install "ranger.py", "ranger"
-    bin.install_symlink libexec+"ranger.py" => "ranger"
+    rewrite_shebang detected_python_shebang, libexec/"ranger.py"
+    bin.install_symlink libexec/"ranger.py" => "ranger"
     doc.install "examples"
   end
 
