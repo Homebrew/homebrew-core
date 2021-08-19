@@ -5,6 +5,7 @@ class Snort < Formula
   mirror "https://fossies.org/linux/misc/snort3-3.1.10.0.tar.gz"
   sha256 "6bd1c2c243ff69f9222aee6fb5d48998c7e24acaa4d2349115af324f9810bb01"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/snort3/snort3.git"
 
   bottle do
@@ -25,12 +26,12 @@ class Snort < Formula
   # Hyperscan improves IPS performance, but is only available for x86_64 arch.
   depends_on "hyperscan" if Hardware::CPU.intel?
   depends_on "libdnet"
+  depends_on "libpcap" # macOS version segfaults
   depends_on "luajit-openresty"
   depends_on "openssl@1.1"
   depends_on "pcre"
   depends_on "xz" # for lzma.h
 
-  uses_from_macos "libpcap"
   uses_from_macos "zlib"
 
   on_linux do
@@ -43,7 +44,7 @@ class Snort < Formula
     inreplace "cmake/FindLuaJIT.cmake", " -pagezero_size 10000 -image_base 100000000\"", "\""
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DENABLE_STATIC_DAQ=OFF", "-DENABLE_TCMALLOC=ON"
+      system "cmake", "..", *std_cmake_args, "-DENABLE_TCMALLOC=ON"
       system "make", "install"
     end
   end
