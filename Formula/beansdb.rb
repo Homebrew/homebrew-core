@@ -4,7 +4,7 @@ class Beansdb < Formula
   url "https://github.com/douban/beansdb/archive/v0.7.1.4.tar.gz"
   sha256 "c89f267484dd47bab272b985ba0a9b9196ca63a9201fdf86963b8ed04f52ccdb"
   license "BSD-3-Clause"
-  head "https://github.com/douban/beansdb.git"
+  head "https://github.com/douban/beansdb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "98bdf58195eda75aba9fc8d1b32cd25252e3ff5eb3957ae626e40b740c8a4d58"
