@@ -5,7 +5,7 @@ class Buildkit < Formula
       tag:      "v0.9.0",
       revision: "c8bb937807d405d92be91f06ce2629e6202ac7a9"
   license "Apache-2.0"
-  head "https://github.com/moby/buildkit.git"
+  head "https://github.com/moby/buildkit.git", branch: "master"
 
   livecheck do
     url :stable
