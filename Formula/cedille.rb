@@ -5,7 +5,7 @@ class Cedille < Formula
     tag:      "v1.1.2",
     revision: "4d8a343a8d3f0b318e3c1b3209d216912dbc06ee"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/cedille/cedille.git"
 
   bottle do
@@ -33,6 +33,9 @@ class Cedille < Formula
       system-ghc: true
       install-ghc: false
     EOS
+
+    # https://github.com/cedille/cedille/issues/137
+    system "make", "cedille-stack"
 
     system "stack", "build", "--copy-bins", "--local-bin-path=#{bin}"
 
