@@ -4,7 +4,7 @@ class Bup < Formula
   url "https://github.com/bup/bup/archive/0.32.tar.gz"
   sha256 "a894cfa96c44b9ef48003b2c2104dc5fa6361dd2f4d519261a93178984a51259"
   license all_of: ["BSD-2-Clause", "LGPL-2.0-only"]
-  head "https://github.com/bup/bup.git"
+  head "https://github.com/bup/bup.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "301e0ea9de87b821c591dcdc780c5e0ce5bc2964a78fd695f5fd0ad673de5600"
