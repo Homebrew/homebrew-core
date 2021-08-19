@@ -6,7 +6,7 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/bc/44/802b7f740ef7ce53aed555223279760e1a253cebb9f3dd665e7f01f8db40/bzt-1.15.2.tar.gz"
   sha256 "c06b3eb7e965583394832550581a52bb2c53d076beebe74d23d795802ed2b522"
   license "Apache-2.0"
-  head "https://github.com/Blazemeter/taurus.git"
+  head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "74f43e75579eaac72b2e1edb4ed9916a4b44c382ac0ff7e39a4e9d1c84a85259"
