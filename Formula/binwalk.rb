@@ -6,7 +6,7 @@ class Binwalk < Formula
   url "https://github.com/ReFirmLabs/binwalk/archive/v2.3.1.tar.gz"
   sha256 "7ec9d8fcb8686f4060d37e1096669e3ed8ce1194c91ad80199622448bcc01b19"
   license "MIT"
-  head "https://github.com/ReFirmLabs/binwalk.git"
+  head "https://github.com/ReFirmLabs/binwalk.git", branch: "master"
 
   livecheck do
     url :stable
