@@ -2,7 +2,7 @@ class Brainfuck < Formula
   desc "Interpreter for the brainfuck language"
   homepage "https://github.com/fabianishere/brainfuck"
   license "Apache-2.0"
-  head "https://github.com/fabianishere/brainfuck.git"
+  head "https://github.com/fabianishere/brainfuck.git", branch: "master"
 
   # Remove stable block in next release with merged patch
   stable do
