@@ -36,6 +36,7 @@ class Gedit < Formula
 
   def install
     ENV["DESTDIR"] = "/"
+    on_linux { ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/gedit" }
 
     mkdir "build" do
       system "meson", *std_meson_args, ".."
@@ -45,8 +46,8 @@ class Gedit < Formula
   end
 
   def post_install
-    system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-qtf", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system Formula["glib"].opt_bin/"glib-compile-schemas", HOMEBREW_PREFIX/"share/glib-2.0/schemas"
+    system Formula["gtk+3"].opt_bin/"gtk3-update-icon-cache", "-qtf", HOMEBREW_PREFIX/"share/icons/hicolor"
   end
 
   test do
@@ -125,7 +126,7 @@ class Gedit < Formula
       -lgmodule-2.0
       -lgobject-2.0
       -lgtk-3
-      -lgtksourceview-4.0
+      -lgtksourceview-4
       -lpango-1.0
       -lpangocairo-1.0
       -lpeas-1.0
@@ -133,6 +134,9 @@ class Gedit < Formula
     ]
     on_macos do
       flags << "-lintl"
+    end
+    on_linux do
+      flags << "-Wl,-rpath,#{lib}/gedit"
     end
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
