@@ -6,7 +6,7 @@ class Idevicerestore < Formula
   license "LGPL-3.0-only"
 
   head do
-    url "https://git.libimobiledevice.org/idevicerestore.git"
+    url "https://git.libimobiledevice.org/idevicerestore.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
