@@ -310,7 +310,7 @@
     "extra_packages": ["numpydoc"]
   },
   "sqlite-utils": {
-    "exclude_packages": ["tabulate"]
+    "exclude_packages": ["tabulate", "six"]
   },
   "theharvester": {
     "exclude_packages": ["six"]
