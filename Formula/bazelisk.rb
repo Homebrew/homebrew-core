@@ -5,7 +5,7 @@ class Bazelisk < Formula
       tag:      "v1.10.1",
       revision: "cf1205edacc5bc8a781786b36324922640ea6ac9"
   license "Apache-2.0"
-  head "https://github.com/bazelbuild/bazelisk.git"
+  head "https://github.com/bazelbuild/bazelisk.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3aa568fb42d31462693efea8051e7ef2489e1f1f22a07500cfd513b0c7f97cf0"
