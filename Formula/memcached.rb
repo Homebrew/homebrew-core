@@ -37,15 +37,13 @@ class Memcached < Formula
     pidfile = testpath/"memcached.pid"
     port = free_port
     args = %W[
-      --listen=localhost:#{port}
+      --listen=127.0.0.1
+      --port=#{port}
       --daemon
       --pidfile=#{pidfile}
     ]
     on_linux do
-      if ENV["HOMEBREW_GITHUB_ACTIONS"]
-        args << "-u"
-        args << ENV["USER"]
-      end
+      args << "--user=#{ENV["USER"]}" if ENV["HOMEBREW_GITHUB_ACTIONS"]
     end
     system bin/"memcached", *args
     sleep 1
