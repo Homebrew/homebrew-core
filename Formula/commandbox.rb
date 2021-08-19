@@ -4,7 +4,6 @@ class Commandbox < Formula
   url "https://downloads.ortussolutions.com/ortussolutions/commandbox/5.4.0/commandbox-bin-5.4.0.zip"
   sha256 "0be40d16eee995c7b7c51b9d99be0ba0326647e3f546c71cf0ca94c53c43612d"
   license "LGPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url :homepage
