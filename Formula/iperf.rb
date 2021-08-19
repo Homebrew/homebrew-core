@@ -1,8 +1,8 @@
 class Iperf < Formula
   desc "Tool to measure maximum TCP and UDP bandwidth"
   homepage "https://sourceforge.net/projects/iperf2/"
-  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.1.3.tar.gz"
-  sha256 "d3a30ce7522f0ae6afaadd9b0b4375938b0b0b48e827163148773496c91e9320"
+  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.1.4.tar.gz"
+  sha256 "f07a0f343c60f6d07f18fa22d3501f8ca8fcb64d20b96e6a74739af444f66d5c"
   license "BSD-3-Clause"
 
   livecheck do
