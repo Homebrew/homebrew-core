@@ -4,7 +4,7 @@ class Bchunk < Formula
   url "http://he.fi/bchunk/bchunk-1.2.2.tar.gz"
   sha256 "e7d99b5b60ff0b94c540379f6396a670210400124544fb1af985dd3551eabd89"
   license "GPL-2.0"
-  head "https://github.com/hessu/bchunk.git"
+  head "https://github.com/hessu/bchunk.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "94279b4e400c05770ec6c5cce6fe7ef50a062835508add3e981942944bb3eecc"
