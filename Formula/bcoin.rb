@@ -7,7 +7,7 @@ class Bcoin < Formula
   sha256 "b4c63598ee1efc17e4622ef88c1dff972692da1157e8daf7da5ea8abc3d234df"
   license "MIT"
   revision 4
-  head "https://github.com/bcoin-org/bcoin.git"
+  head "https://github.com/bcoin-org/bcoin.git", branch: "master"
 
   bottle do
     sha256                               arm64_big_sur: "03cd2231a1a9761a6e55696ac3285930b18193a390a4e327227e0ed71c4ad350"
