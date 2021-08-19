@@ -7,7 +7,7 @@ class Bagit < Formula
   sha256 "37df1330d2e8640c8dee8ab6d0073ac701f0614d25f5252f9e05263409cee60c"
   license "CC0-1.0"
   version_scheme 1
-  head "https://github.com/LibraryOfCongress/bagit-python.git"
+  head "https://github.com/LibraryOfCongress/bagit-python.git", branch: "master"
 
   livecheck do
     url :stable
