@@ -13,6 +13,18 @@ class Librespot < Formula
   end
 
   test do
-    system "#{bin}/librespot", "-V"
+    require "open3"
+    require "timeout"
+
+    Open3.popen2e({ "RUST_LOG" => "DEBUG" }, "#{bin}/librespot", "-v") do |_, stderr, wait_thr|
+      Timeout.timeout(5) do
+        stderr.each do |line|
+          refute_match "ERROR", line
+          break if line.include? "Zeroconf server listening"
+        end
+      end
+    ensure
+      Process.kill("INT", wait_thr.pid)
+    end
   end
 end
