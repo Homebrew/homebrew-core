@@ -17,9 +17,19 @@ class Podman < Formula
   depends_on "go-md2man" => :build
   depends_on "qemu" if Hardware::CPU.intel?
 
+  resource "gvproxy" do
+    url "https://github.com/containers/gvisor-tap-vsock/archive/v0.1.0.tar.gz"
+    sha256 "e1e1bec2fc42039da1ae68d382d4560a27c04bbe2aae535837294dd6773e88e0"
+  end
+
   def install
     system "make", "podman-remote-darwin"
     bin.install "bin/darwin/podman"
+
+    resource("gvproxy").stage do
+      system "make"
+      bin.install "bin/gvproxy"
+    end
 
     system "make", "install-podman-remote-darwin-docs"
     man1.install Dir["docs/build/remote/darwin/*.1"]
