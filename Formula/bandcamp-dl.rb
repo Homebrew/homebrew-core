@@ -5,7 +5,7 @@ class BandcampDl < Formula
   homepage "https://github.com/iheanyi/bandcamp-dl"
   license "Unlicense"
   revision 6
-  head "https://github.com/iheanyi/bandcamp-dl.git"
+  head "https://github.com/iheanyi/bandcamp-dl.git", branch: "master"
 
   stable do
     url "https://github.com/iheanyi/bandcamp-dl/archive/v0.0.8-12.tar.gz"
