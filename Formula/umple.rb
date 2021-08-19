@@ -14,8 +14,6 @@ class Umple < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "c80a927eb6c67b19974ded86bca1daca1e2ad6d41e6e0a5c56b8f2e409b89730"
   end
 
-  depends_on "ant"
-  depends_on "ant-contrib"
   depends_on "openjdk"
 
   def install
