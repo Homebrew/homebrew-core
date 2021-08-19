@@ -1,8 +1,8 @@
 class Telegraf < Formula
   desc "Server-level metric gathering agent for InfluxDB"
   homepage "https://www.influxdata.com/"
-  url "https://github.com/influxdata/telegraf/archive/v1.19.2.tar.gz"
-  sha256 "a92de0b9b30d6dd4348ea5b05c0883d95149afb4add452a249e1fbe903025dd9"
+  url "https://github.com/influxdata/telegraf/archive/v1.19.3.tar.gz"
+  sha256 "d2fb8a3519a5690c801e1221e22c3693ed95204f70f6c57eb13267ca1964c659"
   license "MIT"
   head "https://github.com/influxdata/telegraf.git"
 
