@@ -5,7 +5,7 @@ class Beast < Formula
   sha256 "6e28e2df680364867e088acd181877a5d6a1d664f70abc6eccc2ce3a34f3c54a"
   license "LGPL-2.1"
   revision 1
-  head "https://github.com/beast-dev/beast-mcmc.git"
+  head "https://github.com/beast-dev/beast-mcmc.git", branch: "master"
 
   livecheck do
     url :stable
