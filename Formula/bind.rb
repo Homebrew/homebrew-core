@@ -12,7 +12,7 @@ class Bind < Formula
   sha256 "4d0d93c0d0b63080609e84625f24ff8777f8d164e78a75b1c19c334ce42d5b58"
   license "MPL-2.0"
   version_scheme 1
-  head "https://gitlab.isc.org/isc-projects/bind9.git"
+  head "https://gitlab.isc.org/isc-projects/bind9.git", branch: "main"
 
   # BIND indicates stable releases with an even-numbered minor (e.g., x.2.x)
   # and the regex below only matches these versions.
