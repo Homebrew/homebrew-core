@@ -5,6 +5,7 @@ class Kn < Formula
       tag:      "v0.24.0",
       revision: "0bbb3ec9d92665d372d8393ef3036ba7e0c069a4"
   license "Apache-2.0"
+  head "https://github.com/knative/client.git", branch: "main"
 
   depends_on "go" => :build
 
