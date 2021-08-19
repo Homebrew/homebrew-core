@@ -1,8 +1,8 @@
 class Eigen < Formula
   desc "C++ template library for linear algebra"
   homepage "https://eigen.tuxfamily.org/"
-  url "https://gitlab.com/libeigen/eigen/-/archive/3.3.9/eigen-3.3.9.tar.gz"
-  sha256 "7985975b787340124786f092b3a07d594b2e9cd53bbfe5f3d9b1daee7d55f56f"
+  url "https://gitlab.com/libeigen/eigen/-/archive/3.4/eigen-3.4.0.tar.gz"
+  sha256 "575d079f9fb56806f605b90fd85fbaeb4a3fb31b573fbbe1ab2fed3b5f88d8fe"
   license "MPL-2.0"
   head "https://gitlab.com/libeigen/eigen.git"
 
