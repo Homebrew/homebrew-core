@@ -5,7 +5,7 @@ class Cgns < Formula
   sha256 "090ec6cb0916d90c16790183fc7c2bd2bd7e9a5e3764b36c8196ba37bf1dc817"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/CGNS/CGNS.git"
+  head "https://github.com/CGNS/CGNS.git", branch: "develop"
 
   livecheck do
     url :stable
