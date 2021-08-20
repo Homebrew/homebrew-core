@@ -13,6 +13,7 @@ class ApachePulsar < Formula
   depends_on "libtool" => :build
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
+  depends_on "protobuf" => :build
   depends_on "openjdk@11"
 
   def install
