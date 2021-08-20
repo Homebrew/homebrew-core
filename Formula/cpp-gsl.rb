@@ -4,7 +4,7 @@ class CppGsl < Formula
   url "https://github.com/Microsoft/GSL/archive/v3.1.0.tar.gz"
   sha256 "d3234d7f94cea4389e3ca70619b82e8fb4c2f33bb3a070799f1e18eef500a083"
   license "MIT"
-  head "https://github.com/Microsoft/GSL.git"
+  head "https://github.com/Microsoft/GSL.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1fe9e903b18a03aa61226caafb7109b2c7f638b0e4d510c64c4911b2566b855a"
