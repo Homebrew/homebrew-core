@@ -4,7 +4,7 @@ class ContainerStructureTest < Formula
   url "https://github.com/GoogleContainerTools/container-structure-test/archive/v1.10.0.tar.gz"
   sha256 "52ba2ff4e948c6740da6da8804aeb674cf631e4d470ae5d78af07f17ba0ecbec"
   license "Apache-2.0"
-  head "https://github.com/GoogleContainerTools/container-structure-test.git"
+  head "https://github.com/GoogleContainerTools/container-structure-test.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "91fcb7cb88abaa849aa25cbf4a6f1d4d7115fd214f80f16e4a0cdb8e38c04e23"
