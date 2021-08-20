@@ -4,7 +4,7 @@ class Cpansearch < Formula
   url "https://github.com/c9s/cpansearch/archive/0.2.tar.gz"
   sha256 "09e631f361766fcacd608a0f5b3effe7b66b3a9e0970a458d418d58b8f3f2a74"
   revision 1
-  head "https://github.com/c9s/cpansearch.git"
+  head "https://github.com/c9s/cpansearch.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "37c73b9a5acde5677d8cb3d423c671eba4f0fae0e01fd057789c20184b033a54"
