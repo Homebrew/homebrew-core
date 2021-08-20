@@ -4,7 +4,7 @@ class CargoWatch < Formula
   url "https://github.com/passcod/cargo-watch/archive/v8.0.0.tar.gz"
   sha256 "42d0acfc579e7deeda57e6c1252165a17b19e2fe7486d2fd17f24adfc2876e03"
   license "CC0-1.0"
-  head "https://github.com/passcod/cargo-watch.git"
+  head "https://github.com/passcod/cargo-watch.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "22dd85a3bbe42bf3fd00a18d14d105e9631e3ab559cd5cdbf28c5f10cc924047"
