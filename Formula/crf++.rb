@@ -5,7 +5,7 @@ class Crfxx < Formula
   mirror "https://drive.google.com/uc?id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ&export=download"
   sha256 "9d1c0a994f25a5025cede5e1d3a687ec98cd4949bfb2aae13f2a873a13259cb2"
   license any_of: ["LGPL-2.1-only", "BSD-3-Clause"]
-  head "https://github.com/taku910/crfpp.git"
+  head "https://github.com/taku910/crfpp.git", branch: "master"
 
   # Archive files from upstream are hosted on Google Drive, so we can't identify
   # versions from the tarballs, as the links on the homepage don't include this
