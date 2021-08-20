@@ -4,7 +4,7 @@ class Cutter < Formula
   url "https://osdn.mirror.constant.com/cutter/73761/cutter-1.2.8.tar.gz"
   sha256 "bd5fcd6486855e48d51f893a1526e3363f9b2a03bac9fc23c157001447bc2a23"
   license "LGPL-3.0"
-  head "https://github.com/clear-code/cutter.git"
+  head "https://github.com/clear-code/cutter.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "ac45c9987b4d770856db1f5e2c8fc20fb1ed882297c22691fe29fb153f7b9828"
