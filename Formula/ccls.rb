@@ -5,7 +5,7 @@ class Ccls < Formula
   sha256 "28c228f49dfc0f23cb5d581b7de35792648f32c39f4ca35f68ff8c9cb5ce56c2"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/MaskRay/ccls.git"
+  head "https://github.com/MaskRay/ccls.git", branch: "master"
 
   bottle do
     sha256                               arm64_big_sur: "4b2edaf5fa08c9846ca7bc5cc20d36cbf6c6299af4df34527fbd511bbdebb5d7"
