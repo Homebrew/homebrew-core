@@ -6,7 +6,7 @@ class ChartTesting < Formula
       revision: "68a43ac09699ef9473266457e893a7ddd7ef6b5b"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/helm/chart-testing.git"
+  head "https://github.com/helm/chart-testing.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "66bd1f0419bfcf97ce06a3a91f107735563ee94e1e5953bcad7e48d5f1a31e9f"
