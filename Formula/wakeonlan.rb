@@ -3,6 +3,7 @@ class Wakeonlan < Formula
   homepage "https://github.com/jpoliv/wakeonlan"
   url "https://github.com/jpoliv/wakeonlan/archive/wakeonlan-0.41.tar.gz"
   sha256 "1d8c3cd106f515167e49134abb8209af891ca152a00ee94a8c5137f654e079bc"
+  license "Artistic-1.0-Perl"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "070077705631ce2eb31d05d055297b181a880ed9e03563ef7e1d50c52ded85d9"
@@ -14,6 +15,8 @@ class Wakeonlan < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "7da7f512ae921016be21fa3899d4f01841e3da5bc96570fcd85b530e4e720c06"
     sha256 cellar: :any_skip_relocation, yosemite:      "78a5d905b250ddb09cc3fa4296f2ffc8c925788a7d8e5d05e96f5581e81a7e9d"
   end
+
+  uses_from_macos "perl"
 
   def install
     system "perl", "Makefile.PL"
