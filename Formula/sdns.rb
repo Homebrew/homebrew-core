@@ -1,10 +1,10 @@
 class Sdns < Formula
   desc "Privacy important, fast, recursive dns resolver server with dnssec support"
   homepage "https://sdns.dev"
-  url "https://github.com/semihalev/sdns/archive/v1.1.7.tar.gz"
-  sha256 "f7c809f61483a3235f820ba3ccab1816fc8a9e6174c644eda31840f76017781e"
+  url "https://github.com/semihalev/sdns/archive/v1.1.8.tar.gz"
+  sha256 "9b5ca516e711764ba1e840e97b679ef3d299c60945920b84baed155fb8df8711"
   license "MIT"
-  head "https://github.com/semihalev/sdns.git"
+  head "https://github.com/semihalev/sdns.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "21793de02e83d10ac51abae2ba85addcbac395b39ee37fc41ca8847974eec92b"
