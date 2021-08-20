@@ -5,7 +5,7 @@ class ConsulTemplate < Formula
       tag:      "v0.27.0",
       revision: "d4af0222e8853b1ae1435cadf0b819651a6f149b"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/consul-template.git"
+  head "https://github.com/hashicorp/consul-template.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "954a0becbeafa3a6e0811ee83b749e9711f41302125713484edc3692e5b32449"
