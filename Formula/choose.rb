@@ -5,7 +5,7 @@ class Choose < Formula
   sha256 "d09a679920480e66bff36c76dd4d33e8ad739a53eace505d01051c114a829633"
   license "MIT"
   revision 3
-  head "https://github.com/geier/choose.git"
+  head "https://github.com/geier/choose.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c8408b41107e7824596b3c28b2f63f98c910a7452ff676805a7ec5e77ba505bc"
