@@ -5,7 +5,7 @@ class Carton < Formula
   sha256 "77d42b92732bcfc18a59d341e56ce476205b1c4d380eab3a07224f5745c23e45"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
   revision 2
-  head "https://github.com/perl-carton/carton.git"
+  head "https://github.com/perl-carton/carton.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ce1ddd8777839a7c6335edb8aeccb0603e7199f77e8535039888e4f17c1c16b"
