@@ -5,6 +5,7 @@ class V8 < Formula
   url "https://github.com/v8/v8/archive/9.2.230.22.tar.gz"
   sha256 "18be54a1aa6bf07fc704141c1450c4221f6443a63295bca8d0845be9248d798a"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://omahaproxy.appspot.com/all.json?os=mac&channel=stable"
@@ -121,6 +122,8 @@ class V8 < Formula
 
     # use clang from homebrew llvm formula, because the system clang is unreliable
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
+    # Make sure private libraries can be found from lib
+    ENV.prepend "LDFLAGS", "-Wl,-rpath,#{libexec}"
 
     # Transform to args string
     gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
@@ -132,13 +135,14 @@ class V8 < Formula
     # Install libraries and headers into libexec so d8 can find them, and into standard directories
     # so other packages can find them and they are linked into HOMEBREW_PREFIX
     (libexec/"include").install Dir["include/*"]
-    include.install_symlink Dir["#{libexec}/include/*"]
+    include.install_symlink Dir[libexec/"include/*"]
 
     libexec.install Dir["out.gn/d8", "out.gn/icudtl.dat"]
     bin.write_exec_script libexec/"d8"
 
     libexec.install Dir["out.gn/#{shared_library("*")}"]
-    lib.install_symlink Dir["#{libexec}/#{shared_library("*")}"]
+    lib.install_symlink Dir[libexec/shared_library("libv8*")]
+    on_linux { rm Dir[lib/"*.TOC"] } # Remove symlinks to .so.TOC text files
   end
 
   test do
