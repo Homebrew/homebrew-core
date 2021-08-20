@@ -4,7 +4,7 @@ class Chamber < Formula
   url "https://github.com/segmentio/chamber/archive/v2.10.2.tar.gz"
   sha256 "50e8bf541aac590a7eefbee7fe4d064a4bf23ddc8d83bbb81921f8b38c497299"
   license "MIT"
-  head "https://github.com/segmentio/chamber.git"
+  head "https://github.com/segmentio/chamber.git", branch: "master"
 
   livecheck do
     url :stable
