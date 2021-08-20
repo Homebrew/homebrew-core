@@ -3,7 +3,7 @@ class ColladaDom < Formula
   homepage "https://www.khronos.org/collada/wiki/Portal:COLLADA_DOM"
   url "https://github.com/rdiankov/collada-dom/archive/v2.5.0.tar.gz"
   sha256 "3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d"
-  head "https://github.com/rdiankov/collada-dom.git"
+  head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "74fdb739480d5afe0a658201d2ac35bbcc3612ba67760072fd6f9984bac0de89"
