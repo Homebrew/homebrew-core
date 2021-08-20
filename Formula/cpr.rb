@@ -5,7 +5,7 @@ class Cpr < Formula
       tag:      "1.6.2",
       revision: "f4622efcb59d84071ae11404ae61bd821c1c344b"
   license "MIT"
-  head "https://github.com/whoshuu/cpr.git"
+  head "https://github.com/whoshuu/cpr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "6b725644e68fd8fd18ee1624248de28bff8e0c206d566852a4821714fed3099e"
