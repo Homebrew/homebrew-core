@@ -4,7 +4,7 @@ class Cpulimit < Formula
   url "https://github.com/opsengine/cpulimit/archive/v0.2.tar.gz"
   sha256 "64312f9ac569ddcadb615593cd002c94b76e93a0d4625d3ce1abb49e08e2c2da"
   license "GPL-2.0"
-  head "https://github.com/opsengine/cpulimit.git"
+  head "https://github.com/opsengine/cpulimit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f09919436a14d7b1598720ca832435b2500aebe0839f5055a253f52c59642a5d"
