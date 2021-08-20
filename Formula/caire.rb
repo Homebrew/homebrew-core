@@ -4,7 +4,7 @@ class Caire < Formula
   url "https://github.com/esimov/caire/archive/v1.3.2.tar.gz"
   sha256 "fe759bbbf4ddb2a89d43ac99812f8a3027e2f84fc8f9771db88ac043cc41cbf7"
   license "MIT"
-  head "https://github.com/esimov/caire.git"
+  head "https://github.com/esimov/caire.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "99e369779abadd222e6d46031536c33f0097054633eae3e077f61eb5951a85cc"
