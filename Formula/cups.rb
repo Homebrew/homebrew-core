@@ -6,7 +6,7 @@ class Cups < Formula
   # https://lists.debian.org/debian-printing/2020/12/msg00006.html
   sha256 "deb3575bbe79c0ae963402787f265bfcf8d804a71fc2c94318a74efec86f96df"
   license "Apache-2.0"
-  head "https://github.com/OpenPrinting/cups.git"
+  head "https://github.com/OpenPrinting/cups.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "ac83d0ea52bebcdb2eff93c6ccbaf29c14369a7d2643bf3a85780ed34c13e0a4"
