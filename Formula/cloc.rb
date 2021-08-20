@@ -4,7 +4,7 @@ class Cloc < Formula
   url "https://github.com/AlDanial/cloc/archive/v1.90.tar.gz"
   sha256 "60b429dd2aa5cd65707b359dcbcbeb710c8e4db880886528ced0962c67e52548"
   license "GPL-2.0-or-later"
-  head "https://github.com/AlDanial/cloc.git"
+  head "https://github.com/AlDanial/cloc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "83f761b258052b7cc8ef375d5b7affa4d17afc372833b09b20695a9168ac6b9f"
