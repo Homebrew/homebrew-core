@@ -5,7 +5,7 @@ class Clusterctl < Formula
       tag:      "v0.4.1",
       revision: "f6fd5ed7dc0fa75788f76f17c64ae82976fcc70b"
   license "Apache-2.0"
-  head "https://github.com/kubernetes-sigs/cluster-api.git"
+  head "https://github.com/kubernetes-sigs/cluster-api.git", branch: "master"
 
   # Upstream creates releases on GitHub for the two most recent major/minor
   # versions (e.g., 0.3.x, 0.4.x), so the "latest" release can be incorrect. We
