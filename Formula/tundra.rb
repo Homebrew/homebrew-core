@@ -1,8 +1,8 @@
 class Tundra < Formula
   desc "Code build system that tries to be fast for incremental builds"
   homepage "https://github.com/deplinenoise/tundra"
-  url "https://github.com/deplinenoise/tundra/archive/v2.15.tar.gz"
-  sha256 "c4656a8fb97b0488bda3bfadeb36c3f9d64d9a20095d81f93d59db7d24e34e2b"
+  url "https://github.com/deplinenoise/tundra/archive/v2.16.1.tar.gz"
+  sha256 "eaf86f183a731c59ad72e3232a1f8b33ca1dc68c39503f99fc9b0cc6e33b50c1"
   license "MIT"
 
   livecheck do
