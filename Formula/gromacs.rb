@@ -1,8 +1,8 @@
 class Gromacs < Formula
   desc "Versatile package for molecular dynamics calculations"
   homepage "https://www.gromacs.org/"
-  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2021.2.tar.gz"
-  sha256 "d940d865ea91e78318043e71f229ce80d32b0dc578d64ee5aa2b1a4be801aadb"
+  url "https://ftp.gromacs.org/pub/gromacs/gromacs-2021.3.tar.gz"
+  sha256 "e109856ec444768dfbde41f3059e3123abdb8fe56ca33b1a83f31ed4575a1cc6"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -26,19 +26,6 @@ class Gromacs < Formula
   fails_with :clang
   fails_with gcc: "5"
   fails_with gcc: "6"
-
-  # https://gitlab.com/gromacs/gromacs/-/merge_requests/1494
-  # Fix build with CMake 3.20+. Remove at next release
-  patch do
-    url "https://gitlab.com/gromacs/gromacs/-/commit/e4e1263776844d660c471e3d1203acf54cdc855f.diff"
-    sha256 "984cfd741bdabf83b54f19e8399b5b75ee20994804bd18299c36a918fbdae8b0"
-  end
-
-  # Fix build with CMake 3.20+. Remove at next release
-  patch do
-    url "https://gitlab.com/gromacs/gromacs/-/commit/5771842a06f483ad52781f4f2cdf5311ddb5cfa1.diff"
-    sha256 "2c30d00404b76421c13866cc42afa5e63276f7926c862838751b158df8727b1b"
-  end
 
   def install
     # Non-executable GMXRC files should be installed in DATADIR
