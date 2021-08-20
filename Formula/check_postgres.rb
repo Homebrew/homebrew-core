@@ -5,7 +5,7 @@ class CheckPostgres < Formula
   sha256 "11b52f86c44d6cc26e9a4129e67c2589071dbe1b8ac1f8895761517491c6e44b"
   license "BSD-2-Clause"
   revision 1
-  head "https://github.com/bucardo/check_postgres.git"
+  head "https://github.com/bucardo/check_postgres.git", branch: "master"
 
   livecheck do
     url "https://bucardo.org/check_postgres/"
