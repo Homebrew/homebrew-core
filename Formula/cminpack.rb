@@ -4,7 +4,7 @@ class Cminpack < Formula
   url "https://github.com/devernay/cminpack/archive/v1.3.8.tar.gz"
   sha256 "3ea7257914ad55eabc43a997b323ba0dfee0a9b010d648b6d5b0c96425102d0e"
   license "BSD-3-Clause"
-  head "https://github.com/devernay/cminpack.git"
+  head "https://github.com/devernay/cminpack.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "d508c68c13b468c31d533289722929544c43a01e3c24082d6a58b02fb8dd875d"
