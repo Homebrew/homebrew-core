@@ -4,7 +4,7 @@ class Cryptol < Formula
   url "https://hackage.haskell.org/package/cryptol-2.11.0/cryptol-2.11.0.tar.gz"
   sha256 "43b7535f5cb792efccddbb3f4c09bd2e922777d19a6537cb3aa27adf69280716"
   license "BSD-3-Clause"
-  head "https://github.com/GaloisInc/cryptol.git"
+  head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "7864c5659f35ee68c4c84683362063dfb2efd8c143b0bb507fbfc3f67661af87"
