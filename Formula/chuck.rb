@@ -5,7 +5,7 @@ class Chuck < Formula
   mirror "http://chuck.stanford.edu/release/files/chuck-1.4.1.0.tgz"
   sha256 "74bf99ad515e3113c55b833152936fad02a3cf006a54105ff11777c473194928"
   license "GPL-2.0-or-later"
-  head "https://github.com/ccrma/chuck.git"
+  head "https://github.com/ccrma/chuck.git", branch: "main"
 
   livecheck do
     url "https://chuck.cs.princeton.edu/release/files/"
