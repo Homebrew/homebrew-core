@@ -4,6 +4,11 @@ class Otf2bdf < Formula
   url "http://sofia.nmsu.edu/~mleisher/Software/otf2bdf/otf2bdf-3.1.tbz2"
   sha256 "3d63892e81187d5192edb96c0dc6efca2e59577f00e461c28503006681aa5a83"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?otf2bdf[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_big_sur: "077dfdbef2ee5d04e9101f64cfe6da40631d8ea685e2fd6dfe052bfd0374bcf0"
