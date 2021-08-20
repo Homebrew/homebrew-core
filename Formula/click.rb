@@ -4,7 +4,7 @@ class Click < Formula
   url "https://github.com/databricks/click/archive/v0.5.4.tar.gz"
   sha256 "fa9b2cb3911ae8331217cafb941cdee52b09a27a58a5dccbdb52f408dc22f4f4"
   license "Apache-2.0"
-  head "https://github.com/databricks/click.git"
+  head "https://github.com/databricks/click.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "aa74cec2f0d6854791b46d54adbdb96bff085b67278629695f0ac266eef54717"
