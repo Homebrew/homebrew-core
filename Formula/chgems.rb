@@ -4,7 +4,7 @@ class Chgems < Formula
   url "https://github.com/postmodern/chgems/archive/v0.3.2.tar.gz"
   sha256 "515d1bfebb5d5183a41a502884e329fd4c8ddccb14ba8a6548a1f8912013f3dd"
   license "MIT"
-  head "https://github.com/postmodern/chgems.git"
+  head "https://github.com/postmodern/chgems.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f8b93d560718a526d4ee4c307168a2d15cbb824cdabd626974466acf4f6e80e"
