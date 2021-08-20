@@ -4,7 +4,7 @@ class Cql < Formula
   url "https://github.com/CovenantSQL/CovenantSQL/archive/v0.8.1.tar.gz"
   sha256 "73abb65106e5045208aa4a7cda56bc7c17ba377557ae47d60dad39a63f9c88a6"
   license "Apache-2.0"
-  head "https://github.com/CovenantSQL/CovenantSQL.git"
+  head "https://github.com/CovenantSQL/CovenantSQL.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "74a8c72f8d73c53ca3dbfcc443cf4319a9c5b590de766acb53f618063454bafa"
