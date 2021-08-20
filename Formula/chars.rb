@@ -4,7 +4,7 @@ class Chars < Formula
   url "https://github.com/antifuchs/chars/archive/v0.5.0.tar.gz"
   sha256 "5e2807b32bd75862d8b155fa774db26b649529b62da26a74e817bec5a26e1d7c"
   license "MIT"
-  head "https://github.com/antifuchs/chars.git"
+  head "https://github.com/antifuchs/chars.git", branch: "master"
 
   bottle do
     rebuild 1
