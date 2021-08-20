@@ -49,7 +49,6 @@ class PostgresqlAT10 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
       --with-gssapi
       --with-icu
       --with-ldap
@@ -58,9 +57,14 @@ class PostgresqlAT10 < Formula
       --with-openssl
       --with-pam
       --with-perl
-      --with-tcl
       --with-uuid=e2fs
     ]
+    on_macos do
+      args += %w[
+        --with-bonjour
+        --with-tcl
+      ]
+    end
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
@@ -80,12 +84,22 @@ class PostgresqlAT10 < Formula
     # Attempting to fix that by adding a dependency on `open-sp` doesn't
     # work and the build errors out on generating the documentation, so
     # for now let's simply omit it so we can package Postgresql for Mojave.
-    if DevelopmentTools.clang_build_version >= 1000
+    on_macos do
+      if DevelopmentTools.clang_build_version >= 1000
+        system "make", "all"
+        system "make", "-C", "contrib", "install", "all", *dirs
+        system "make", "install", "all", *dirs
+      else
+        system "make", "install-world", *dirs
+      end
+    end
+    on_linux do
       system "make", "all"
       system "make", "-C", "contrib", "install", "all", *dirs
       system "make", "install", "all", *dirs
-    else
-      system "make", "install-world", *dirs
+      inreplace lib/"pgxs/src/Makefile.global",
+                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
+                "LD = #{HOMEBREW_PREFIX}/bin/ld"
     end
   end
 
