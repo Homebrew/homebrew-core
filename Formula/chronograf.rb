@@ -6,7 +6,7 @@ class Chronograf < Formula
   url "https://github.com/influxdata/chronograf/archive/1.9.0.tar.gz"
   sha256 "d372ed570ffca770395ec2f8b3cf3da5c493462b3f9a9a23431bce48fa58db12"
   license "AGPL-3.0-or-later"
-  head "https://github.com/influxdata/chronograf.git"
+  head "https://github.com/influxdata/chronograf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a3ca0abd746047054e2fa1e16af01c66959d5016a0e53378f06d5e3abeefe6df"
