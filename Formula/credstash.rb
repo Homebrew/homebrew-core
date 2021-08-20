@@ -7,7 +7,7 @@ class Credstash < Formula
   sha256 "6c04e8734ef556ab459018da142dd0b244093ef176b3be5583e582e9a797a120"
   license "Apache-2.0"
   revision 3
-  head "https://github.com/fugue/credstash.git"
+  head "https://github.com/fugue/credstash.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "7e4514215fac5cf99ec2ba21cc03b842b8bd3d2e8a8524652ef81a5e166bef72"
