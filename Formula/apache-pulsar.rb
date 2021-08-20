@@ -29,8 +29,6 @@ class ApachePulsar < Formula
         "clean",
         "package",
         "-DskipTests",
-        "-Dprotobuf3.version=3.17.3",
-        "-Dgrpc.version=1.40.0",
         "-Pcore-modules",
       )
     end
