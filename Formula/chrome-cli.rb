@@ -4,7 +4,7 @@ class ChromeCli < Formula
   url "https://github.com/prasmussen/chrome-cli/archive/1.7.1.tar.gz"
   sha256 "27ee5ab9a9d60fbd829f069074fe592f2aafd129df0df4aedbbc12b8df11ac32"
   license "MIT"
-  head "https://github.com/prasmussen/chrome-cli.git"
+  head "https://github.com/prasmussen/chrome-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "835b7a9995ff61f7623ded6ce772d5ae712651aa690102c79afa0f989a6f5285"
