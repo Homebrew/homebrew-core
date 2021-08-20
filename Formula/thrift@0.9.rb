@@ -23,6 +23,8 @@ class ThriftAT09 < Formula
   depends_on "boost"
   depends_on "openssl@1.1"
 
+  uses_from_macos "flex" => :build
+
   # Fix CRYPTO_num_locks compile error
   patch do
     url "https://github.com/apache/thrift/commit/4bbfe6120e71b81df7f23dcc246990c29eb27859.patch?full_index=1"
@@ -45,7 +47,8 @@ class ThriftAT09 < Formula
       --without-php_extension
       --without-python
       --without-ruby
-      --without-tests
+      --disable-tests
+      --disable-tutorial
     ]
 
     ENV.cxx11 if ENV.compiler == :clang
@@ -60,10 +63,7 @@ class ThriftAT09 < Formula
     # We need to regenerate the configure script since it doesn't have all the changes.
     system "./bootstrap.sh"
 
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}",
-                          "--libdir=#{lib}",
-                          *args
+    system "./configure", *std_configure_args, *args
     ENV.deparallelize
     system "make", "install"
   end
