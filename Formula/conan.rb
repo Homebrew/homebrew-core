@@ -6,7 +6,7 @@ class Conan < Formula
   url "https://files.pythonhosted.org/packages/9e/60/e602099325468128a8826cc881aefeee9866f70df3a0e9c88488e80547f5/conan-1.39.0.tar.gz"
   sha256 "7f1fa90578f84d5801e53cce6aa7c98ed97a99fb2b38b3f12a5d9784722340e0"
   license "MIT"
-  head "https://github.com/conan-io/conan.git"
+  head "https://github.com/conan-io/conan.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b956a0bbec27743cbfd39bf9c2eb8f20f945d978a1d35a5bb1de0441e51839ff"
