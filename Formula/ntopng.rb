@@ -8,8 +8,8 @@ class Ntopng < Formula
     sha256 "e540eb37c3b803e93a0648a6b7d838823477224f834540106b3339ec6eab2947"
 
     resource "nDPI" do
-      url "https://github.com/ntop/nDPI/archive/3.4.tar.gz"
-      sha256 "dc9b291c7fde94edb45fb0f222e0d93c93f8d6d37f4efba20ebd9c655bfcedf9"
+      url "https://github.com/ntop/nDPI/archive/4.0.tar.gz"
+      sha256 "99e0aba6396fd633c3840f30e4942f6591a08066d037f560b65ba64e7310f4d6"
     end
   end
 
