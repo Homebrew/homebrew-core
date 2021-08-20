@@ -5,7 +5,7 @@ class Ctemplate < Formula
   sha256 "ccc4105b3dc51c82b0f194499979be22d5a14504f741115be155bd991ee93cfa"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/olafvdspek/ctemplate.git"
+  head "https://github.com/olafvdspek/ctemplate.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "3ef5f869569f3f4034fb55f1d15ceca68da21a01ff5c9e30d5b941addecf91db"
