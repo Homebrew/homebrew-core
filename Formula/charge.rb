@@ -6,7 +6,7 @@ class Charge < Formula
   url "https://registry.npmjs.org/@static/charge/-/charge-1.7.0.tgz"
   sha256 "477e6eb2a5d99854b4640017d85ee5f4ea09431a2ff046113047764f64d21ab5"
   license "MIT"
-  head "https://github.com/brandonweiss/charge.git"
+  head "https://github.com/brandonweiss/charge.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfacd98af0f9c2293eef24cb7610a5d2cf60ff237cf790b1ad5ff6cad018a855"
