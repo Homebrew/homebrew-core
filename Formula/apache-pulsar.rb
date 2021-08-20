@@ -68,4 +68,3 @@ class ApachePulsar < Formula
     assert_match "Cluster metadata for 'a' setup correctly", output
   end
 end
-
