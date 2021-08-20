@@ -6,7 +6,7 @@ class Circleci < Formula
       tag:      "v0.1.15848",
       revision: "da3388b703500bb515aa29e67cce853ba5a5a111"
   license "MIT"
-  head "https://github.com/CircleCI-Public/circleci-cli.git"
+  head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "923ce12d1bcf89d01620c440036ca17578ace6c286654b465eeef8a7c733eb62"
