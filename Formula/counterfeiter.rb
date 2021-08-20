@@ -4,7 +4,7 @@ class Counterfeiter < Formula
   url "https://github.com/maxbrunsfeld/counterfeiter/archive/v6.4.1.tar.gz"
   sha256 "bd51c80ad44881ae2008e50540fcb95a3f8e84104ee230aee86acf78c2c24bf6"
   license "MIT"
-  head "https://github.com/maxbrunsfeld/counterfeiter.git"
+  head "https://github.com/maxbrunsfeld/counterfeiter.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9cdad6769afe63f7dfdaaac7758e0bf6cc5d8265a4ab274d2f008b36ee201eb0"
