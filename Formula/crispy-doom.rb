@@ -5,7 +5,7 @@ class CrispyDoom < Formula
   sha256 "eef8dc26e8952b23717be3b20239fda4ee59842511328387766d1c8fe8252f6b"
   license "GPL-2.0-only"
 
-  head "https://github.com/fabiangreffrath/crispy-doom"
+  head "https://github.com/fabiangreffrath/crispy-doom", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6d9000bd5ee7e800eecf8748c419ea4f8d42dc1e5c78ec5e49e91ab095e34895"
