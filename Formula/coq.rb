@@ -4,7 +4,7 @@ class Coq < Formula
   url "https://github.com/coq/coq/archive/V8.13.2.tar.gz"
   sha256 "1e7793d8483f1e939f62df6749f843df967a15d843a4a5acb024904b76e25a14"
   license "LGPL-2.1-only"
-  head "https://github.com/coq/coq.git"
+  head "https://github.com/coq/coq.git", branch: "master"
 
   livecheck do
     url :stable
