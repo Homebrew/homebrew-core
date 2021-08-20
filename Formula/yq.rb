@@ -1,8 +1,8 @@
 class Yq < Formula
   desc "Process YAML documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
-  url "https://github.com/mikefarah/yq/archive/v4.11.2.tar.gz"
-  sha256 "910f64ceceabed5f63550a29923c158612be94f2855b0d10fdb549d8ad826a5f"
+  url "https://github.com/mikefarah/yq/archive/v4.12.0.tar.gz"
+  sha256 "6de20ab91dbec759627cd3db312c6739f7e4a177d989a5093ef8548e88d605bc"
   license "MIT"
 
   bottle do
