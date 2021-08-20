@@ -4,11 +4,10 @@ class Awscli < Formula
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
   license "Apache-2.0"
-  revision 1
 
   stable do
-    url "https://github.com/aws/aws-cli/archive/2.2.30.tar.gz"
-    sha256 "42168e3528a03677fb09c15336723a2799bb033cf197fab22dc0cd36ea6127eb"
+    url "https://github.com/aws/aws-cli/archive/2.2.31.tar.gz"
+    sha256 "620b072289706e6af0af598f0e237df820b0593a0620a121b1220fa5f7c48e72"
 
     # Botocore v2 is not available on PyPI and version commits are not tagged. One way to update:
     # 1. Get `botocore` version at https://github.com/aws/aws-cli/blob/#{version}/setup.py
