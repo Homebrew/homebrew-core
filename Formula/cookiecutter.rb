@@ -6,7 +6,7 @@ class Cookiecutter < Formula
   url "https://files.pythonhosted.org/packages/58/f5/6f41fa38e6efe4a0e85771f99a4ad8c33b4c14f03b4cc53b459aac4a629a/cookiecutter-1.7.3.tar.gz"
   sha256 "6b9a4d72882e243be077a7397d0f1f76fe66cf3df91f3115dbb5330e214fa457"
   license "BSD-3-Clause"
-  head "https://github.com/cookiecutter/cookiecutter.git"
+  head "https://github.com/cookiecutter/cookiecutter.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "48c4107866f0afcb5084b0da38170546238c59776cb9d313b7a88de73852a0f0"
