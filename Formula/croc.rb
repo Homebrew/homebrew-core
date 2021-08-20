@@ -4,7 +4,7 @@ class Croc < Formula
   url "https://github.com/schollz/croc/archive/v9.3.0.tar.gz"
   sha256 "a55153b4b13aae2986e4fe3e5f652228a83835bf27651e83a71750f4942c612d"
   license "MIT"
-  head "https://github.com/schollz/croc.git"
+  head "https://github.com/schollz/croc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8256fb33e8e47a4fbe901afc8b9282af3aa1620f810ce29b2687f233917f2608"
