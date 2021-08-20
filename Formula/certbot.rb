@@ -6,7 +6,7 @@ class Certbot < Formula
   url "https://files.pythonhosted.org/packages/a9/21/7c867d866c85140e60605b77ed6b1e691337ce7a30196a96f413241d8e91/certbot-1.18.0.tar.gz"
   sha256 "f3e56e18246ba5dc4951132e206844f7191d7b6a97264a005557fff25cd7287b"
   license "Apache-2.0"
-  head "https://github.com/certbot/certbot.git"
+  head "https://github.com/certbot/certbot.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "1fd1ea900f5d564ac45a3527f3bbbfa0b169f3b4ad5f979b29c23b06ccff081d"
