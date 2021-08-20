@@ -5,7 +5,7 @@ class CadenceWorkflow < Formula
     tag:      "v0.21.3",
     revision: "36cfde8b88b17e2ff0f810e72c808ccfdc2e97f5"
   license "MIT"
-  head "https://github.com/uber/cadence.git"
+  head "https://github.com/uber/cadence.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "029e2c39a8c5999af05be8351e943f1c31e4f091d0705ea73fa23053c57fc782"
