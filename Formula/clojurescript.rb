@@ -4,7 +4,7 @@ class Clojurescript < Formula
   url "https://github.com/clojure/clojurescript/releases/download/r1.10.866/cljs.jar"
   sha256 "a1b0e00934d6fe059d5a84f8f19879c702cdebb8a507799b921932354dcc020e"
   license "EPL-1.0"
-  head "https://github.com/clojure/clojurescript.git"
+  head "https://github.com/clojure/clojurescript.git", branch: "master"
 
   livecheck do
     url :stable
