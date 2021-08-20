@@ -1,5 +1,5 @@
 class FluentBit < Formula
-  desc "Data Collector for IoT"
+  desc "Fast and Lightweight Logs and Metrics processor for Linux, BSD, OSX and Windows"
   homepage "https://github.com/fluent/fluent-bit"
   url "https://github.com/fluent/fluent-bit/archive/v1.8.4.tar.gz"
   sha256 "9debe7b13e0ebb093058d4ca75125c980b38226bd4928f908357a894691f397d"
