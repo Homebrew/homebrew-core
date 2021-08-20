@@ -6,7 +6,7 @@ class ClojureLsp < Formula
       revision: "226fa911d10d332a2b1df9201cc8565a3002f642"
   version "20210816T190230"
   license "MIT"
-  head "https://github.com/clojure-lsp/clojure-lsp.git"
+  head "https://github.com/clojure-lsp/clojure-lsp.git", branch: "master"
 
   livecheck do
     url :stable
