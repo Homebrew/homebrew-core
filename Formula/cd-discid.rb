@@ -3,7 +3,7 @@ class CdDiscid < Formula
   homepage "https://linukz.org/cd-discid.shtml"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/taem/cd-discid.git"
+  head "https://github.com/taem/cd-discid.git", branch: "master"
 
   stable do
     url "https://linukz.org/download/cd-discid-1.4.tar.gz"
