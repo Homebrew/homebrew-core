@@ -4,7 +4,7 @@ class ClozureCl < Formula
   url "https://github.com/Clozure/ccl/archive/v1.12.1.tar.gz"
   sha256 "bd005fdb24cee2f7b20077cbca5e9174c10a82d98013df5cc3eabc7f31ccd933"
   license "Apache-2.0"
-  head "https://github.com/Clozure/ccl.git"
+  head "https://github.com/Clozure/ccl.git", branch: "master"
 
   livecheck do
     url :stable
