@@ -5,7 +5,7 @@ class Chezmoi < Formula
       tag:      "v2.1.5",
       revision: "1a59ced6df2009460cc063e06310197c4eddf2fe"
   license "MIT"
-  head "https://github.com/twpayne/chezmoi.git"
+  head "https://github.com/twpayne/chezmoi.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b2beb0d90626a08df5558a8d375064f56abbf9eaaba2981870c38ccc2373bcfd"
