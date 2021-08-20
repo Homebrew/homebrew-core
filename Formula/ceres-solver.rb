@@ -5,7 +5,7 @@ class CeresSolver < Formula
   sha256 "10298a1d75ca884aa0507d1abb0e0f04800a92871cd400d4c361b56a777a7603"
   license "BSD-3-Clause"
   revision 4
-  head "https://ceres-solver.googlesource.com/ceres-solver.git"
+  head "https://ceres-solver.googlesource.com/ceres-solver.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "1b729631e1d4e35fa8cdb4e38daeab4db1900273bb3b3a97800d6609c9048011"
