@@ -40,11 +40,18 @@ class Root < Formula
 
   uses_from_macos "libxml2"
 
+  on_linux do
+    depends_on "libxft"
+    depends_on "libxpm"
+  end
+
   conflicts_with "glew", because: "root ships its own copy of glew"
 
   skip_clean "bin"
 
   def install
+    on_linux { ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" }
+
     # Freetype/afterimage/gl2ps/lz4 are vendored in the tarball, so are fine.
     # However, this is still permitting the build process to make remote
     # connections. As a hack, since upstream support it, we inreplace
@@ -91,7 +98,6 @@ class Root < Formula
 
     mkdir "builddir" do
       system "cmake", "..", *args
-
       system "ninja", "install"
 
       chmod 0755, Dir[bin/"*.*sh"]
@@ -142,12 +148,10 @@ class Root < Formula
         return 0;
       }
     EOS
-    (testpath/"test_compile.bash").write <<~EOS
-      $(root-config --cxx) $(root-config --cflags) $(root-config --libs) $(root-config --ldflags) test.cpp
-      ./a.out
-    EOS
-    assert_equal "Hello, world!\n",
-                 shell_output("/bin/bash test_compile.bash")
+    flags = %w[cflags libs ldflags].map { |f| "$(root-config --#{f})" }
+    on_linux { flags << "-Wl,-rpath,#{lib}/root" }
+    shell_output("$(root-config --cxx) test.cpp #{flags.join(" ")}")
+    assert_equal "Hello, world!\n", shell_output("./a.out")
 
     # Test Python module
     system Formula["python@3.9"].opt_bin/"python3", "-c", "import ROOT; ROOT.gSystem.LoadAllLibraries()"
