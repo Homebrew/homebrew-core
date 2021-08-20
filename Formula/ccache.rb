@@ -5,7 +5,7 @@ class Ccache < Formula
   sha256 "504a0f2184465c306826f035b4bc00bae7500308d6af4abbfb50e33a694989b4"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/ccache/ccache.git"
+  head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "038f86ecd8902ca8714e8d86c1232543d44abf75ee7bb8b3647f8cf2011a7ba3"
