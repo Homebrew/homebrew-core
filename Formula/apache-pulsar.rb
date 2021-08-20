@@ -23,8 +23,8 @@ class ApachePulsar < Formula
       "JAVA_HOME" => Formula["openjdk@11"].opt_prefix,
       "TMPDIR"    => buildpath,
     ) do
-    	# Force x86_64 (using rosetta on M1 at a speed penalty) until Maven upstream protoc/grpc release changes
-    	# supporting aarch64 build: https://github.com/grpc/grpc-java/issues/7690
+      # Force x86_64 (using rosetta on M1 at a speed penalty) until Maven upstream protoc/grpc release changes
+      # supporting aarch64 build: https://github.com/grpc/grpc-java/issues/7690
       system "mvn", "-X", "clean", "package", "-DskipTests", "-Dos.detected.classifier=osx-x86_64", "-Pcore-modules"
     end
     system "tar", "-xf", "distribution/server/target/apache-pulsar-#{version}-bin.tar.gz"
@@ -70,4 +70,3 @@ class ApachePulsar < Formula
     assert_match "Cluster metadata for 'a' setup correctly", output
   end
 end
-
