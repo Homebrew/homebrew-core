@@ -1,10 +1,28 @@
 class Infer < Formula
   desc "Static analyzer for Java, C, C++, and Objective-C"
   homepage "https://fbinfer.com/"
-  url "https://github.com/facebook/infer/archive/v1.1.0.tar.gz"
-  sha256 "201c7797668a4b498fe108fcc13031b72d9dbf04dab0dc65dd6bd3f30e1f89ee"
   license "MIT"
-  head "https://github.com/facebook/infer.git"
+  revision 1
+  head "https://github.com/facebook/infer.git", branch: "master"
+
+  stable do
+    url "https://github.com/facebook/infer/archive/v1.1.0.tar.gz"
+    sha256 "201c7797668a4b498fe108fcc13031b72d9dbf04dab0dc65dd6bd3f30e1f89ee"
+
+    # Fix FileUtils.cpp:44:57: error: invalid initialization of reference of type 'const string& ...
+    # Remove in the next release.
+    patch do
+      url "https://github.com/facebook/infer/commit/c90ec0683456e0f03135e7c059a1233351440736.patch?full_index=1"
+      sha256 "516585352727c5372c4d4582ed9a64bc12e7a9eb59386aa3cec9908f0cfc86a8"
+    end
+
+    # Apply patch for finding correct C++ header from Apple SDKs.
+    # Remove in the next release.
+    patch do
+      url "https://github.com/facebook/infer/commit/ec976d3be4e78dbbb019b3be941066f74e826880.patch?full_index=1"
+      sha256 "4f299566c88dd5b6761d36fcb090d238c216d3721dde9037c725dac255be9d3b"
+    end
+  end
 
   livecheck do
     url :stable
@@ -30,14 +48,22 @@ class Infer < Formula
   depends_on "mpfr"
   depends_on "sqlite"
 
+  # Add `llvm` for lld due to CMake bug where CC=clang doesn't fallback to ld.
+  # This causes error: /bin/sh: 1: CMAKE_LINKER-NOTFOUND: not found
+  # CMake PR ref: https://gitlab.kitware.com/cmake/cmake/-/merge_requests/6457
+  uses_from_macos "llvm" => :build # TODO: remove when `cmake` is fixed
   uses_from_macos "m4" => :build
   uses_from_macos "unzip" => :build
+  uses_from_macos "libedit"
+  uses_from_macos "libffi"
+  uses_from_macos "libxml2"
   uses_from_macos "ncurses"
   uses_from_macos "xz"
   uses_from_macos "zlib"
 
   on_linux do
     depends_on "patchelf" => :build
+    depends_on "elfutils" # openmp requires <gelf.h>
   end
 
   def install
@@ -70,12 +96,17 @@ class Infer < Formula
     # Release build
     touch ".release"
 
+    # Disable handling external dependencies as opam is not aware of Homebrew on Linux.
+    # Error:  Package conflict!  * Missing dependency:  - conf-autoconf
+    on_linux { inreplace "build-infer.sh", "infer \"$INFER_ROOT\" $locked", "\\0 --no-depexts" }
+
     system "./build-infer.sh", "all", "--yes"
     system "make", "install-with-libs"
   end
 
   test do
     ENV["JAVA_HOME"] = Formula["openjdk@11"].opt_prefix
+    ENV.append_path "PATH", Formula["openjdk@11"].opt_bin
 
     (testpath/"FailingTest.c").write <<~EOS
       #include <stdio.h>
