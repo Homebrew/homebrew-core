@@ -4,7 +4,7 @@ class Croaring < Formula
   url "https://github.com/RoaringBitmap/CRoaring/archive/v0.3.4.tar.gz"
   sha256 "ddc5899823c46707d7dbf4e4c117a811b0428bdcb84978d9e65ceaefe6f59595"
   license "Apache-2.0"
-  head "https://github.com/RoaringBitmap/CRoaring.git"
+  head "https://github.com/RoaringBitmap/CRoaring.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "48c13771996920e1fe157a567214cad04e6c2203924abbe3edad98ff508f59c0"
