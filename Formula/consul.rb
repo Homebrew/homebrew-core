@@ -4,7 +4,7 @@ class Consul < Formula
   url "https://github.com/hashicorp/consul/archive/refs/tags/v1.10.1.tar.gz"
   sha256 "c840ba7b52df3ec6105a7febe900e52dde504a33bd1fa4e2e1985a88b6072d41"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/consul.git"
+  head "https://github.com/hashicorp/consul.git", branch: "main"
 
   livecheck do
     url :stable
