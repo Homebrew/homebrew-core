@@ -5,7 +5,7 @@ class Creduce < Formula
   sha256 "db1c0f123967f24d620b040cebd53001bf3dcf03e400f78556a2ff2e11fea063"
   license "BSD-3-Clause"
   revision 2
-  head "https://github.com/csmith-project/creduce.git"
+  head "https://github.com/csmith-project/creduce.git", branch: "master"
 
   livecheck do
     url :homepage
