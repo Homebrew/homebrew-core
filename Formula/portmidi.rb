@@ -21,6 +21,28 @@ class Portmidi < Formula
 
   depends_on "cmake" => :build
 
+  on_linux do
+    depends_on "alsa-lib"
+
+    # Fix hardcoded "/usr/local" paths to install libraries and headers
+    patch do
+      url "https://sources.debian.org/data/main/p/portmidi/1:217-6/debian/patches/00_cmake.diff"
+      sha256 "9a73c4453e784f97927d4412a916814b6f2ed864bd5f49d383c6650b8590fd26"
+    end
+
+    # Fix build error: midithru.c:(.text+0x374): undefined reference to `Pt_Start'
+    patch do
+      url "https://sources.debian.org/data/main/p/portmidi/1:217-6/debian/patches/20-movetest.diff"
+      sha256 "938560fc3a6910f9451b11136ab295b68d8b0e0539a3cd0f02550d209bb39202"
+    end
+
+    # Install porttime libraries
+    patch do
+      url "https://sources.debian.org/data/main/p/portmidi/1:217-6/debian/patches/30-porttime_cmake.diff"
+      sha256 "e6d26bfd2018e90d68c86cf5c7275480111873487d202bed7b1717a38dfa0fe2"
+    end
+  end
+
   # Do not build pmjni.
   patch do
     url "https://sources.debian.org/data/main/p/portmidi/1:217-6/debian/patches/13-disablejni.patch"
@@ -28,22 +50,28 @@ class Portmidi < Formula
   end
 
   def install
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
-
-    inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
-
     # need to create include/lib directories since make won't create them itself
     include.mkpath
     lib.mkpath
 
-    # Fix outdated SYSROOT to avoid:
-    # No rule to make target `/Developer/SDKs/MacOSX10.5.sdk/...'
-    inreplace "pm_common/CMakeLists.txt",
-              "set(CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk CACHE",
-              "set(CMAKE_OSX_SYSROOT /#{MacOS.sdk_path} CACHE"
+    on_macos do
+      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
-    system "make", "-f", "pm_mac/Makefile.osx"
-    system "make", "-f", "pm_mac/Makefile.osx", "install"
+      inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
+
+      # Fix outdated SYSROOT to avoid:
+      # No rule to make target `/Developer/SDKs/MacOSX10.5.sdk/...'
+      inreplace "pm_common/CMakeLists.txt",
+                "set(CMAKE_OSX_SYSROOT /Developer/SDKs/MacOSX10.5.sdk CACHE",
+                "set(CMAKE_OSX_SYSROOT /#{MacOS.sdk_path} CACHE"
+
+      system "make", "-f", "pm_mac/Makefile.osx"
+      system "make", "-f", "pm_mac/Makefile.osx", "install"
+    end
+    on_linux do
+      system "cmake", ".", *std_cmake_args, "-DCMAKE_CACHEFILE_DIR=#{buildpath}/build"
+      system "make", "install"
+    end
   end
 
   test do
