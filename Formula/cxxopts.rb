@@ -4,7 +4,7 @@ class Cxxopts < Formula
   url "https://github.com/jarro2783/cxxopts/archive/v2.2.1.tar.gz"
   sha256 "984aa3c8917d649b14d7f6277104ce38dd142ce378a9198ec926f03302399681"
   license "MIT"
-  head "https://github.com/jarro2783/cxxopts.git"
+  head "https://github.com/jarro2783/cxxopts.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "dffc57a1cc6de42f042163c6d44e42e24a778bd1cdf7f7e45e96f9b07b64880c"
