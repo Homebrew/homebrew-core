@@ -5,7 +5,7 @@ class Cmt < Formula
   sha256 "364faaf5f44544f952b511be184a724e2011fba8f0f88fdfc05fef6985dd32f6"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/smallhadroncollider/cmt.git"
+  head "https://github.com/smallhadroncollider/cmt.git", branch: "master"
 
   bottle do
     rebuild 1
