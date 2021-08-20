@@ -4,7 +4,7 @@ class CloudNuke < Formula
   url "https://github.com/gruntwork-io/cloud-nuke/archive/v0.4.0.tar.gz"
   sha256 "18cc93a7245420ed86dedf5a604afea238e6bde953ea4e938b0c43939c59c5ab"
   license "MIT"
-  head "https://github.com/gruntwork-io/cloud-nuke.git"
+  head "https://github.com/gruntwork-io/cloud-nuke.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8217bdcf73183837cbb9b9fb36ca20ea5f19954705d5d4dce76dd2b6b3579d3d"
