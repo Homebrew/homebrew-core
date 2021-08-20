@@ -4,7 +4,7 @@ class Csmith < Formula
   url "https://embed.cs.utah.edu/csmith/csmith-2.3.0.tar.gz"
   sha256 "f247cc0aede5f8a0746271b40a5092b5b5a2d034e5e8f7a836c879dde3fb65d5"
   license "BSD-2-Clause"
-  head "https://github.com/csmith-project/csmith.git"
+  head "https://github.com/csmith-project/csmith.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "79b39e5332514e816d46c871b31a283e9d16adc4d39f2b5177c3569ce2508c4a"
