@@ -23,7 +23,16 @@ class ApachePulsar < Formula
       "JAVA_HOME" => Formula["openjdk@11"].opt_prefix,
       "TMPDIR"    => buildpath,
     ) do
-      system "mvn", "-X", "clean", "package", "-DskipTests", "-Dprotobuf3.version=3.17.3", "-Pcore-modules"
+      system(
+        "mvn",
+        "-X",
+        "clean",
+        "package",
+        "-DskipTests",
+        "-Dprotobuf3.version=3.17.3",
+        "-Dgrpc.version=1.40.0",
+        "-Pcore-modules",
+      )
     end
     system "tar", "-xf", "distribution/server/target/apache-pulsar-#{version}-bin.tar.gz"
     binpfx = "apache-pulsar-#{version}"
