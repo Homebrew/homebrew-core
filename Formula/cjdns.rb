@@ -4,7 +4,7 @@ class Cjdns < Formula
   url "https://github.com/cjdelisle/cjdns/archive/cjdns-v21.1.tar.gz"
   sha256 "a6158ce7847159aa44e86f74ccc7b6ded6910a230ed8f3830db53cda5838f0b0"
   license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "BSD-3-Clause", "MIT"]
-  head "https://github.com/cjdelisle/cjdns.git"
+  head "https://github.com/cjdelisle/cjdns.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "b57d1c38866eab0c671732fdf70890fde76e7b03a2fc6a3dc59d5dea29e9fbaa"
