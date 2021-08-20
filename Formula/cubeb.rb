@@ -4,7 +4,7 @@ class Cubeb < Formula
   url "https://github.com/kinetiknz/cubeb/archive/cubeb-0.2.tar.gz"
   sha256 "cac10876da4fa3b3d2879e0c658d09e8a258734562198301d99c1e8228e66907"
   license "ISC"
-  head "https://github.com/kinetiknz/cubeb.git"
+  head "https://github.com/kinetiknz/cubeb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e56366a9d51f95c573e9bcc0a7f8985e4607cf88a9e6a87c0f2193a363c18a93"
