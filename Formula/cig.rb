@@ -4,7 +4,7 @@ class Cig < Formula
   url "https://github.com/stevenjack/cig/archive/v0.1.5.tar.gz"
   sha256 "545a4a8894e73c4152e0dcf5515239709537e0192629dc56257fe7cfc995da24"
   license "MIT"
-  head "https://github.com/stevenjack/cig.git"
+  head "https://github.com/stevenjack/cig.git", branch: "master"
 
   bottle do
     rebuild 3
