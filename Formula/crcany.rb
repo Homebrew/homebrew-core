@@ -4,7 +4,7 @@ class Crcany < Formula
   url "https://github.com/madler/crcany/archive/v2.0.tar.gz"
   sha256 "33dbe92f05a0cd9b9e133d0a6f864793d96c5c6055845e0f7220bdf3372aa5bf"
   license "Zlib"
-  head "https://github.com/madler/crcany.git"
+  head "https://github.com/madler/crcany.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6fae645339969bae0ce4cc2af169508a6ace50ccea0c5062ad67706ae573f0ae"
