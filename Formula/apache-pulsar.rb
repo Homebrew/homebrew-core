@@ -27,6 +27,7 @@ class ApachePulsar < Formula
     system "tar", "-xf", "distribution/server/target/apache-pulsar-#{version}-bin.tar.gz"
     binpfx = "apache-pulsar-#{version}"
     libexec.install binpfx+"/bin", binpfx+"/lib", binpfx+"/instances", binpfx+"/conf"
+    (libexec/"lib/presto/bin/procname/Linux-ppc64le").rmtree
     share.install binpfx+"/examples"
     share.install binpfx+"/licenses"
     (var/"log/pulsar").mkpath
