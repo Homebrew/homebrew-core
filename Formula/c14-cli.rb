@@ -4,7 +4,7 @@ class C14Cli < Formula
   url "https://github.com/scaleway/c14-cli/archive/v0.5.0.tar.gz"
   sha256 "b93960ee3ba516a91df9f81cf9b258858f8b5da6238d44a339966a5636643cb2"
   license "MIT"
-  head "https://github.com/scaleway/c14-cli.git"
+  head "https://github.com/scaleway/c14-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "46d65ade1ad6406be53f136729cbeca6892dd53f6958dfd7417e3773ac9d2041"
