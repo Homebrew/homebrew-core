@@ -4,7 +4,7 @@ class Conftest < Formula
   url "https://github.com/open-policy-agent/conftest/archive/v0.27.0.tar.gz"
   sha256 "b1a38065a1de5208ed72250b257149e21e3381423e6e3028adb214fd4380f3ef"
   license "Apache-2.0"
-  head "https://github.com/open-policy-agent/conftest.git"
+  head "https://github.com/open-policy-agent/conftest.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "854edb50cb872782f0aba919f067158ae5a36c068c2ae55b70afd65cf7376988"
