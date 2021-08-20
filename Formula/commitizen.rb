@@ -6,7 +6,7 @@ class Commitizen < Formula
   url "https://files.pythonhosted.org/packages/66/1f/2a25267d9b3c5052b3c52f256a40a318bf33069677e2268e364b8639560b/commitizen-2.18.0.tar.gz"
   sha256 "f24a22eb6734e1791046e817dff72505b515e9a1f282577a82423cf7563201d7"
   license "MIT"
-  head "https://github.com/commitizen-tools/commitizen.git"
+  head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "391c069b524a408ae1815f4f7b9dfc16e24e29d9854bdf8432364bc7ffdfaf98"
