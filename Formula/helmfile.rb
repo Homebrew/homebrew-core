@@ -4,6 +4,7 @@ class Helmfile < Formula
   url "https://github.com/roboll/helmfile/archive/v0.140.0.tar.gz"
   sha256 "ceebc1ac44fb828ec098f79a34434dc748d46e49c9aba5ff0fd4f45ab36a65db"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "869aff6c9f3bfcf5f0b4967b493bbb46313421ec075979607686e985c3acc456"
