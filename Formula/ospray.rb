@@ -39,8 +39,8 @@ class Ospray < Formula
       r.stage do
         mkdir "build" do
           system "cmake", "..", *std_cmake_args,
-                                "-DBUILD_EXAMPLES=OFF",
-                                "-DBUILD_TESTING=OFF"
+                                "-DCMAKE_INSTALL_NAME_DIR=#{lib}",
+                                "-DBUILD_EXAMPLES=OFF"
           system "make"
           system "make", "install"
         end
@@ -48,8 +48,7 @@ class Ospray < Formula
     end
 
     args = std_cmake_args + %W[
-      -DCMAKE_INSTALL_NAME_DIR=#{opt_lib}
-      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_INSTALL_NAME_DIR=#{lib}
       -DOSPRAY_ENABLE_APPS=OFF
       -DOSPRAY_ENABLE_TESTING=OFF
       -DOSPRAY_ENABLE_TUTORIALS=OFF
