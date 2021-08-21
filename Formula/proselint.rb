@@ -3,8 +3,8 @@ class Proselint < Formula
 
   desc "Linter for prose"
   homepage "http://proselint.com"
-  url "https://files.pythonhosted.org/packages/04/ee/60506bd37251f7396d73942e2bd3dac9b788269d46cf1372c5e0602e5682/proselint-0.11.3.tar.gz"
-  sha256 "e92e68b8bbb24dbf535eac59ac69b8b4ae9a0610f4f0dc83c18732150c465abf"
+  url "https://files.pythonhosted.org/packages/e9/fc/acd766ee050c8a8a27439fcb37a7042d9fc44bf840b48ebb32a5546a9db8/proselint-0.12.0.tar.gz"
+  sha256 "2a98d9c14382d94ed9122a6c0b0657a814cd5c892c77d9477309fc99f86592e6"
   license "BSD-3-Clause"
   head "https://github.com/amperser/proselint.git", branch: "main"
 
@@ -17,6 +17,7 @@ class Proselint < Formula
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/21/83/308a74ca1104fe1e3197d31693a7a2db67c2d4e668f20f43a2fca491f9f7/click-8.0.1.tar.gz"
@@ -26,11 +27,6 @@ class Proselint < Formula
   resource "future" do
     url "https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz"
     sha256 "b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   def install

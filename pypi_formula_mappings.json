@@ -148,6 +148,9 @@
   "principalmapper": {
     "exclude_packages": ["six"]
   },
+  "proselint": {
+    "exclude_packages": ["six"]
+  },
   "protobuf": {
     "exclude_packages": ["six"]
   },
