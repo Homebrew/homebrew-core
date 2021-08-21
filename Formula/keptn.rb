@@ -28,6 +28,8 @@ class Keptn < Formula
   end
 
   test do
+    system bin/"keptn", "set", "config", "kubeContextCheck", "false"
+
     run_output = shell_output("#{bin}/keptn version 2>&1")
     assert_match "\nKeptn CLI version:", run_output
 
