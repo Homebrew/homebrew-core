@@ -20,15 +20,17 @@ class Rmlint < Formula
   depends_on "sphinx-doc" => :build
   depends_on "glib"
   depends_on "json-glib"
-  depends_on "libelf"
 
   on_linux do
+    depends_on "elfutils"
     depends_on "util-linux"
   end
 
   def install
     on_linux do
       ENV.append_to_cflags "-I#{Formula["util-linux"].opt_include}"
+      ENV.append_to_cflags "-I#{Formula["elfutils"].opt_include}"
+      ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["elfutils"].opt_lib}"
       ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["glib"].opt_lib}"
       ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["json-glib"].opt_lib}"
       ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["util-linux"].opt_lib}"
