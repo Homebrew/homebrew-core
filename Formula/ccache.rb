@@ -1,10 +1,9 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.3/ccache-4.3.tar.xz"
-  sha256 "504a0f2184465c306826f035b4bc00bae7500308d6af4abbfb50e33a694989b4"
+  url "https://github.com/ccache/ccache/releases/download/v4.4/ccache-4.4.tar.xz"
+  sha256 "b40bea2ecf88fc15d4431f0d5fb8babf018d7218eaded0f40e07d4c18c667561"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
@@ -15,8 +14,18 @@ class Ccache < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "2bf3bb826da52e61604f2ab670ecff55b7834306e9b6563b0f1b8d7eacb30e89"
   end
 
+  depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
+
+  depends_on "hiredis"
   depends_on "zstd"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", ".", *std_cmake_args
