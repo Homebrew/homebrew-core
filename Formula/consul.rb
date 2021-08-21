@@ -21,6 +21,12 @@ class Consul < Formula
 
   depends_on "go" => :build
 
+  # Support go 1.17, remove after next release
+  patch do
+    url "https://github.com/hashicorp/consul/commit/e43cf462679b6fdd8b15ac7891747e970029ac4a.patch?full_index=1"
+    sha256 "4f0edde54f0caa4c7290b17f2888159a4e0b462b5c890e3068a41d4c3582ca2f"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
@@ -38,7 +44,7 @@ class Consul < Formula
     fork do
       # most ports must be free, but are irrelevant to this test
       system(
-        "#{bin}/consul",
+        bin/"consul",
         "agent",
         "-dev",
         "-bind", "127.0.0.1",
@@ -56,7 +62,7 @@ class Consul < Formula
 
     k = "brew-formula-test"
     v = "value"
-    system "#{bin}/consul", "kv", "put", "-http-addr", "127.0.0.1:#{http_port}", k, v
-    assert_equal v, shell_output("#{bin}/consul kv get -http-addr 127.0.0.1:#{http_port} #{k}").chomp
+    system bin/"consul", "kv", "put", "-http-addr", "127.0.0.1:#{http_port}", k, v
+    assert_equal v, shell_output(bin/"consul kv get -http-addr 127.0.0.1:#{http_port} #{k}").chomp
   end
 end
