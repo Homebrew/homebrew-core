@@ -1,8 +1,8 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://itk.org"
-  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.2.0/InsightToolkit-5.2.0.tar.gz"
-  sha256 "12c9cf543cbdd929330322f0a704ba6925a13d36d01fc721a74d131c0b82796e"
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.2.1/InsightToolkit-5.2.1.tar.gz"
+  sha256 "192d41bcdd258273d88069094f98c61c38693553fd751b54f8cda308439555db"
   license "Apache-2.0"
   head "https://github.com/InsightSoftwareConsortium/ITK.git"
 
