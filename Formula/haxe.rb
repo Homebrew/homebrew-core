@@ -39,7 +39,12 @@ class Haxe < Formula
 
   uses_from_macos "m4" => :build
   uses_from_macos "perl" => :build
+  uses_from_macos "rsync" => :build
   uses_from_macos "unzip" => :build
+
+  on_linux do
+    depends_on "node" => :test
+  end
 
   resource "String::ShellQuote" do
     url "https://cpan.metacpan.org/authors/id/R/RO/ROSCH/String-ShellQuote-1.04.tar.gz"
@@ -68,12 +73,9 @@ class Haxe < Formula
       ENV["OPAMYES"] = "1"
       ENV["ADD_REVISION"] = "1" if build.head?
       system "opam", "init", "--no-setup", "--disable-sandboxing"
-      system "opam", "config", "exec", "--",
-             "opam", "pin", "add", "haxe", buildpath, "--no-action"
-      system "opam", "config", "exec", "--",
-             "opam", "install", "haxe", "--deps-only", "--working-dir"
-      system "opam", "config", "exec", "--",
-             "make"
+      system "opam", "exec", "--", "opam", "pin", "add", "haxe", buildpath, "--no-action"
+      system "opam", "exec", "--", "opam", "install", "haxe", "--deps-only", "--working-dir", "--no-depexts"
+      system "opam", "exec", "--", "make"
     end
 
     # Rebuild haxelib as a valid binary
@@ -109,7 +111,11 @@ class Haxe < Formula
       }
     EOS
     system "#{bin}/haxe", "-js", "out.js", "-main", "HelloWorld"
-    _, stderr, = Open3.capture3("osascript -so -lJavaScript out.js")
-    assert_match "Hello world!", stderr.strip
+
+    cmd = "osascript -so -lJavaScript out.js 2>&1"
+    on_linux do
+      cmd = "node out.js"
+    end
+    assert_equal "Hello world!", shell_output(cmd).strip
   end
 end
