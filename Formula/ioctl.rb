@@ -2,7 +2,7 @@ class Ioctl < Formula
   desc "Command-line interface for interacting with the IoTeX blockchain"
   homepage "https://docs.iotex.io/"
   url "https://github.com/iotexproject/iotex-core/archive/v1.3.2.tar.gz"
-  sha256 "557222fcf4af396119289db006882ec4be50ae1e060745806d3597b829f78a62"
+  sha256 "513521d3cf4fca22069706f5130872405bf217e47ec0348803da31b76504c5a2"
   license "Apache-2.0"
 
   bottle do
@@ -15,6 +15,9 @@ class Ioctl < Formula
   depends_on "go" => :build
 
   def install
+    # raise outdated go.sum issue in here, https://github.com/iotexproject/iotex-core/issues/2756
+    system "go", "mod", "tidy"
+
     system "make", "ioctl"
     bin.install "bin/ioctl"
   end
