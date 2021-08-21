@@ -4,6 +4,7 @@ class BaidupcsGo < Formula
   url "https://github.com/qjfoidnh/BaiduPCS-Go/archive/v3.8.2.tar.gz"
   sha256 "65d5482bc2a82cb244b978b8e1369bd5b1c429afce74651e5aea28e057a78ae3"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/qjfoidnh/BaiduPCS-Go.git", branch: "main"
 
   bottle do
