@@ -1,15 +1,14 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "https://dev.opencascade.org/"
-  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_5_1;sf=tgz"
-  version "7.5.1"
-  sha256 "3a43d8b50df78ade72786fa63bc8808deac6380189333663e7b4ef8558ae7739"
+  url "https://git.dev.opencascade.org/gitweb/?p=occt.git;a=snapshot;h=refs/tags/V7_5_3;sf=tgz"
+  version "7.5.3"
+  sha256 "cc3d3fd9f76526502c3d9025b651f45b034187430f231414c97dda756572410b"
   license "LGPL-2.1-only"
-  revision 1
 
   # The first-party download page (https://dev.opencascade.org/release)
   # references version 7.5.0 and hasn't been updated for later maintenance
-  # releases (e.g., 7.5.1, 7.5.2), so we check the Git tags instead. Release
+  # releases (e.g., 7.5.3, 7.5.2), so we check the Git tags instead. Release
   # information is posted at https://dev.opencascade.org/forums/occt-releases
   # but the text varies enough that we can't reliably match versions from it.
   livecheck do
