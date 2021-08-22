@@ -4,7 +4,7 @@ class Webify < Formula
   url "https://github.com/beefsack/webify/archive/v1.5.0.tar.gz"
   sha256 "66805a4aef4ed0e9c49e711efc038e2cd4e74aa2dc179ea93b31dc3aa76e6d7b"
   license "MIT"
-  head "https://github.com/beefsack/webify.git"
+  head "https://github.com/beefsack/webify.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2e846193c20d268355845e6d7e8e05dfc6f505749f6560d5ea6b4c8b1e4daf0f"
