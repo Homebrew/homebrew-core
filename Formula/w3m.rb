@@ -2,7 +2,7 @@ class W3m < Formula
   desc "Pager/text based browser"
   homepage "https://w3m.sourceforge.io/"
   revision 7
-  head "https://github.com/tats/w3m.git"
+  head "https://github.com/tats/w3m.git", branch: "master"
 
   stable do
     url "https://deb.debian.org/debian/pool/main/w/w3m/w3m_0.5.3.orig.tar.gz"
