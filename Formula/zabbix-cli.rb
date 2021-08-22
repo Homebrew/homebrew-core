@@ -7,7 +7,7 @@ class ZabbixCli < Formula
   sha256 "884ecd2a4a4c7f68a080bb7e0936dd208c813284ec3ed60b948ce90a1be7c828"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/unioslo/zabbix-cli.git"
+  head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   livecheck do
     url :stable
