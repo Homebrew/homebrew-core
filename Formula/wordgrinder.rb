@@ -5,7 +5,7 @@ class Wordgrinder < Formula
   sha256 "856cbed2b4ccd5127f61c4997a30e642d414247970f69932f25b4b5a81b18d3f"
   license "MIT"
   revision 1
-  head "https://github.com/davidgiven/wordgrinder.git"
+  head "https://github.com/davidgiven/wordgrinder.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "370093b3705f72a5d6b87bacd2e64e229f3d6ac82e52e92fe147c037d65f210b"
