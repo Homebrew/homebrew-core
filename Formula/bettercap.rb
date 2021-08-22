@@ -1,8 +1,8 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/v2.31.1.tar.gz"
-  sha256 "f37ffb8c13b9f0abccb7766c4ecbf295d6219aaf4dbf141e2b71c2a1c9cdc9aa"
+  url "https://github.com/bettercap/bettercap/archive/v2.32.0.tar.gz"
+  sha256 "ea28d4d533776a328a54723a74101d1720016ffe7d434bf1d7ab222adb397ac6"
   license "GPL-3.0-only"
   head "https://github.com/bettercap/bettercap.git", branch: "master"
 
@@ -37,6 +37,12 @@ class Bettercap < Formula
   end
 
   test do
-    assert_match "Operation not permitted", shell_output("#{bin}/bettercap 2>&1", 1)
+    on_macos do
+      assert_match "Operation not permitted", shell_output(bin/"bettercap 2>&1", 1)
+    end
+
+    on_linux do
+      assert_match "Permission Denied", shell_output(bin/"bettercap 2>&1", 1)
+    end
   end
 end
