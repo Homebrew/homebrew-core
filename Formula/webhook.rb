@@ -4,7 +4,7 @@ class Webhook < Formula
   url "https://github.com/adnanh/webhook/archive/2.8.0.tar.gz"
   sha256 "c521558083f96bcefef16575a6f3f98ac79c0160fd0073be5e76d6645e068398"
   license "MIT"
-  head "https://github.com/adnanh/webhook.git"
+  head "https://github.com/adnanh/webhook.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e77443d3500d2cd479cf3b326c66cc5c59a7009ddb63f2fb3492488e7b3412c"
