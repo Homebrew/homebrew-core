@@ -4,7 +4,7 @@ class Wasmer < Formula
   url "https://github.com/wasmerio/wasmer/archive/2.0.0.tar.gz"
   sha256 "f0d86dcd98882a7459f10e58671acf233b7d00f50dffe32f5770ab3bf850a9a6"
   license "MIT"
-  head "https://github.com/wasmerio/wasmer.git"
+  head "https://github.com/wasmerio/wasmer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9634700f38301f64d011c3d82b007c125eb485405eb82a4e104dae24ae42a19b"
