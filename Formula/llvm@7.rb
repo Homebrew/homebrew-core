@@ -24,15 +24,16 @@ class LlvmAT7 < Formula
   depends_on arch: :x86_64
   depends_on "libffi"
 
+  uses_from_macos "libedit" # llvm requires <histedit.h>
+  uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
+
   on_linux do
     depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
-    depends_on "libedit" # llvm requires <histedit.h>
-    depends_on "libelf" # openmp requires <gelf.h>
-    depends_on "ncurses"
-    depends_on "libxml2"
+    depends_on "elfutils" # openmp requires <gelf.h>
     depends_on "python@3.8"
-    depends_on "zlib"
   end
 
   resource "clang" do
