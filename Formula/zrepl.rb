@@ -4,7 +4,7 @@ class Zrepl < Formula
   url "https://github.com/zrepl/zrepl/archive/v0.4.0.tar.gz"
   sha256 "e7035a8a40913614f4ab24d7caad2c26419fd2b0aaa3565c16439e59214ae590"
   license "MIT"
-  head "https://github.com/zrepl/zrepl.git"
+  head "https://github.com/zrepl/zrepl.git", branch: "master"
 
   bottle do
     rebuild 1
