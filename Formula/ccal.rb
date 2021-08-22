@@ -6,6 +6,11 @@ class Ccal < Formula
   sha256 "3d4cbdc9f905ce02ab484041fbbf7f0b7a319ae6a350c6c16d636e1a5a50df96"
   license "GPL-2.0"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?ccal[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e9555bba354683597a63cf86554624a01afbf7cc897c0e292b10edc3657f4572"
