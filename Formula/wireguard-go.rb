@@ -4,7 +4,7 @@ class WireguardGo < Formula
   url "https://git.zx2c4.com/wireguard-go/snapshot/wireguard-go-0.0.20210424.tar.xz"
   sha256 "0f9a7c0657e6119d317a0bab453aeb5140111b186ae10f62cfa081eecf2f03ba"
   license "MIT"
-  head "https://git.zx2c4.com/wireguard-go.git"
+  head "https://git.zx2c4.com/wireguard-go.git", branch: "master"
 
   livecheck do
     url :head
