@@ -5,7 +5,7 @@ class Gdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-10.2.tar.xz"
   sha256 "aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29"
   license "GPL-3.0-or-later"
-  head "https://sourceware.org/git/binutils-gdb.git"
+  head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
     sha256 big_sur:      "31de67be9674e5bd363a554e7f02002687a5ac9734526983e0430b041acea042"
