@@ -4,7 +4,7 @@ class Yj < Formula
   url "https://github.com/sclevine/yj/archive/v5.0.0.tar.gz"
   sha256 "df9a4f5b6d067842ea3da68ff92c374b98560dce1086337d39963a1346120574"
   license "Apache-2.0"
-  head "https://github.com/sclevine/yj.git"
+  head "https://github.com/sclevine/yj.git", branch: "master"
 
   bottle do
     rebuild 1
