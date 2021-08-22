@@ -3,7 +3,7 @@ class When < Formula
   homepage "https://www.lightandmatter.com/when/when.html"
   url "https://github.com/bcrowell/when/archive/1.1.40.tar.gz"
   sha256 "1363d48c32c4bb528514abf012ae0a61e7c686504a047ce870e72e791447c3d1"
-  head "https://github.com/bcrowell/when.git"
+  head "https://github.com/bcrowell/when.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cdde93a2d4051259f3b693d3ef55b11f52765bb789b592e0622ae7b42e1e7100"
