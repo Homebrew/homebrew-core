@@ -4,7 +4,7 @@ class Xh < Formula
   url "https://github.com/ducaale/xh/archive/refs/tags/v0.12.0.tar.gz"
   sha256 "6ea21c669e891fa6bcc8c8bdcf9f13db32c44bc1cdafd052d1ec34610db9a004"
   license "MIT"
-  head "https://github.com/ducaale/xh.git"
+  head "https://github.com/ducaale/xh.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "099f594778ab766b91b4af63bc6b893f04e4d17e0c484321c5677bb5f0347c6a"
