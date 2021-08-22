@@ -4,7 +4,7 @@ class Wapm < Formula
   url "https://github.com/wasmerio/wapm-cli/archive/v0.5.1.tar.gz"
   sha256 "e01dcf040cfa32cfcd1ad7aa18a0cb40a7b8040fb34a58de8ebce2c47ad154a5"
   license "MIT"
-  head "https://github.com/wasmerio/wapm-cli.git"
+  head "https://github.com/wasmerio/wapm-cli.git", branch: "master"
 
   livecheck do
     url :stable
