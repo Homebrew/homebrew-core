@@ -3,7 +3,7 @@ class Zzz < Formula
   homepage "https://github.com/Orc/Zzz"
   url "https://github.com/Orc/Zzz/archive/v1.tar.gz"
   sha256 "8c8958b65a74ab1081ce1a950af6d360166828bdb383d71cc8fe37ddb1702576"
-  head "https://github.com/Orc/Zzz.git"
+  head "https://github.com/Orc/Zzz.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e08914c722e58a5f5a43c70b395a198faf42e08bc31476fcf226ee77bd42195f"
