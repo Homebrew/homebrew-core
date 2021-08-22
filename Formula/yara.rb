@@ -4,7 +4,7 @@ class Yara < Formula
   url "https://github.com/VirusTotal/yara/archive/v4.1.1.tar.gz"
   sha256 "5f85c69606fad5cdb42e8f8101c96f6962a4928667395d9471e5aaea961e9b1d"
   license "BSD-3-Clause"
-  head "https://github.com/VirusTotal/yara.git"
+  head "https://github.com/VirusTotal/yara.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "82f2f7cd67e9e17b091238deb8a5efc439a6d6a31973f214ca97354c9efa508a"
