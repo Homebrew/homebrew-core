@@ -7,7 +7,7 @@ class Whatmp3 < Formula
   sha256 "0d8ba70a1c72835663a3fde9ba8df0ff7007268ec0a2efac76c896dea4fcf489"
   license "MIT"
   revision 4
-  head "https://github.com/RecursiveForest/whatmp3.git"
+  head "https://github.com/RecursiveForest/whatmp3.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2508dc07fce36d65efad6e315157faf498789a43e0d8f9eb595ea8122250d6bb"
