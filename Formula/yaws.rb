@@ -4,7 +4,7 @@ class Yaws < Formula
   url "https://github.com/erlyaws/yaws/archive/yaws-2.0.9.tar.gz"
   sha256 "a2bbfe10c780ef2c3b238eaf76d902f4921c63b49d135bb9878b163ef1870a6d"
   license "BSD-3-Clause"
-  head "https://github.com/erlyaws/yaws.git"
+  head "https://github.com/erlyaws/yaws.git", branch: "master"
 
   livecheck do
     url :stable
