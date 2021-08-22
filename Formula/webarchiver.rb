@@ -3,7 +3,7 @@ class Webarchiver < Formula
   homepage "https://github.com/newzealandpaul/webarchiver"
   url "https://github.com/newzealandpaul/webarchiver/archive/0.10.tar.gz"
   sha256 "06705d361ebb1de6411e4d386a01a60314aa52d5c20f64603c1b9652a3eceae4"
-  head "https://github.com/newzealandpaul/webarchiver.git"
+  head "https://github.com/newzealandpaul/webarchiver.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "50bf552bad7141e95abb811a7bb8e200747183486e3875524281175c83e81941"
