@@ -4,7 +4,7 @@ class Xcodegen < Formula
   url "https://github.com/yonaskolb/XcodeGen/archive/2.24.0.tar.gz"
   sha256 "19383a24d3b18881bc6ab648cee99edceda5268e84befe59291d32d3547152b6"
   license "MIT"
-  head "https://github.com/yonaskolb/XcodeGen.git"
+  head "https://github.com/yonaskolb/XcodeGen.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a023f81e3ae8a34609749db824fe75fcd1c65b672a3e522737a65ecc801f964d"
