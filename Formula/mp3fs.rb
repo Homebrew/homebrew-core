@@ -1,9 +1,9 @@
 class Mp3fs < Formula
   desc "Read-only FUSE file system: transcodes audio formats to MP3"
   homepage "https://khenriks.github.io/mp3fs/"
-  url "https://github.com/khenriks/mp3fs/releases/download/v1.0/mp3fs-1.0.tar.gz"
-  sha256 "cbb52062d712e8dfd3491d0b105e2e05715d493a0fd14b53a23919694a348069"
-  license "GPL-3.0"
+  url "https://github.com/khenriks/mp3fs/releases/download/v1.1.1/mp3fs-1.1.1.tar.gz"
+  sha256 "942b588fb623ea58ce8cac8844e6ff2829ad4bc9b4c163bba58e3fa9ebc15608"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any, catalina:    "26d991c2fb34055035c01d12033f28b5a694954ad9b3f650658dfa1ebc9994ea"
@@ -22,11 +22,11 @@ class Mp3fs < Formula
   end
 
   on_linux do
-    depends_on "libfuse"
+    depends_on "libfuse@2"
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
