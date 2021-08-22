@@ -4,7 +4,7 @@ class Znapzend < Formula
   url "https://github.com/oetiker/znapzend/releases/download/v0.21.0/znapzend-0.21.0.tar.gz"
   sha256 "c9218f8540269a85d83b4d9159b7990ce074bac5f56566049ba355fd45ab16c5"
   license "GPL-3.0-or-later"
-  head "https://github.com/oetiker/znapzend.git"
+  head "https://github.com/oetiker/znapzend.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "712e06398c1865796cc896a7d8c0d6c0baf4c10a52ac5006cc4c8d69b6359fcb"
