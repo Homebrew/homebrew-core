@@ -5,7 +5,7 @@ class Wangle < Formula
   sha256 "d76c54c0a4cc800cf6059b7207352f2af6140e3f8e4b4431989ab018ba401170"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/facebook/wangle.git"
+  head "https://github.com/facebook/wangle.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "f78a8dc2eba750f381964a3b7a8698107a2d94d0624040a2fd8d24d3fe064265"
