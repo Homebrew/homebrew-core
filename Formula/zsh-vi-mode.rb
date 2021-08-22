@@ -4,7 +4,7 @@ class ZshViMode < Formula
   url "https://github.com/jeffreytse/zsh-vi-mode/archive/refs/tags/v0.8.4.tar.gz"
   sha256 "d16814693099dcc6f47afe3e5575af539a7aee1071f3f532c233800918722398"
   license "MIT"
-  head "https://github.com/jeffreytse/zsh-vi-mode.git"
+  head "https://github.com/jeffreytse/zsh-vi-mode.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "75cb847e1c112353962727000722ad1bb21184ab954a9a6931caeb8cd26401c4"
