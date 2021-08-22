@@ -1,8 +1,8 @@
 class H2c < Formula
   desc "Headers 2 curl"
   homepage "https://curl.se/h2c/"
-  url "https://github.com/curl/h2c/archive/fee2a0361b4124dbd5565cee2a90ffb0c80ab7b0.tar.gz"
-  sha256 "8eba84aef62506dfff4f0d975a062fa5f347c3298784c8f4f778a0244fec4df0"
+  url "https://github.com/curl/h2c/archive/refs/tags/1.0.tar.gz"
+  sha256 "1c5e4d76131abb5151c89cc54945256509dad9d12cab36205aa5bcd7f8a311af"
   license "MIT"
 
   def install
