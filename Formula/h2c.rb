@@ -10,6 +10,6 @@ class H2c < Formula
   end
 
   test do
-    assert_match "h2c.pl [options] < file", shell_output("#{bin}/gh", --help)
+    assert_match "h2c.pl [options] < file", shell_output("h2c --help")
   end
 end
