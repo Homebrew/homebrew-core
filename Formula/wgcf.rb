@@ -4,7 +4,7 @@ class Wgcf < Formula
   url "https://github.com/ViRb3/wgcf/archive/v2.2.6.tar.gz"
   sha256 "2721bb1cf8f1f6d3bf9d9d4cb6c289047f3180b3fa8eeda5272a36343992d5ca"
   license "MIT"
-  head "https://github.com/ViRb3/wgcf.git"
+  head "https://github.com/ViRb3/wgcf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f8237910482bafc69e8278381cf25d7ad262dabe3006f9ab49ae23c457e7d06c"
