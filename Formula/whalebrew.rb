@@ -5,7 +5,7 @@ class Whalebrew < Formula
       tag:      "0.3.1",
       revision: "372a6bcd5c154128f88d7a11d898dbf89ccca00e"
   license "Apache-2.0"
-  head "https://github.com/whalebrew/whalebrew.git"
+  head "https://github.com/whalebrew/whalebrew.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e631a8b2926e1889419048610e4cf971afe61941e03525a1e5658a1da05b10e6"
