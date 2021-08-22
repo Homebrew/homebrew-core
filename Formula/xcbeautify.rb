@@ -5,7 +5,7 @@ class Xcbeautify < Formula
       tag:      "0.9.1",
       revision: "21c64495bb3eb9a46ecc9b5eea056d06383eb17c"
   license "MIT"
-  head "https://github.com/thii/xcbeautify.git"
+  head "https://github.com/thii/xcbeautify.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "07f7226da16337b9947871edf3e6112e042d9371872eea692877cd83e3f4e18c"
