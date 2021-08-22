@@ -3,7 +3,7 @@ class Snownews < Formula
   homepage "https://github.com/msharov/snownews"
   url "https://github.com/msharov/snownews/archive/v1.8.tar.gz"
   sha256 "90d2611b3e3a00bc14a8869365d366ad1dab17ea1687857440159fc7137c3bed"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   bottle do
     sha256 arm64_big_sur: "8f6543fe8c6e40ec9e04b38178d1945fc3f80141f9c1035235232771807c04de"
@@ -21,6 +21,7 @@ class Snownews < Formula
   depends_on "ncurses"
   depends_on "openssl@1.1"
 
+  uses_from_macos "curl"
   uses_from_macos "libxml2"
 
   # remove in next release
