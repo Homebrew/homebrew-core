@@ -7,7 +7,7 @@ class Webpack < Formula
   url "https://registry.npmjs.org/webpack/-/webpack-5.51.1.tgz"
   sha256 "bc03b801015b1743449bd96631541d7d6d3dc582fa3e8c980ab25ccddc7039fd"
   license "MIT"
-  head "https://github.com/webpack/webpack.git"
+  head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f878d64b9050ddbcc3567b00044b55c78aa19dd05cbdc1d3669a9e068620ae34"
