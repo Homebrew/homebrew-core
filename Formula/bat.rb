@@ -1,8 +1,8 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/v0.18.2.tar.gz"
-  sha256 "b176787e27da1f920b655bcd71b66c1569d241e2272bb9a4f6a64e6501c0cf2a"
+  url "https://github.com/sharkdp/bat/archive/v0.18.3.tar.gz"
+  sha256 "dff7fa5222f40c7b3c783d3ceb0c3ffb35662f1198b00d785f80f3f1523399dd"
   license "Apache-2.0"
 
   bottle do
@@ -16,12 +16,6 @@ class Bat < Formula
   depends_on "rust" => :build
 
   uses_from_macos "zlib"
-
-  # Support rust 1.54, remove with next release after 0.18.2
-  patch do
-    url "https://github.com/sharkdp/bat/commit/f3d53b79a2d7a51f470ac8a06b6bdd9a4f225e8f.patch?full_index=1"
-    sha256 "2770049cc989c4e1f417ace483aa55ac0a1843476c97c7af947589cb804898d7"
-  end
 
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath
