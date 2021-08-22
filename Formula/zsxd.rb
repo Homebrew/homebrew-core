@@ -3,7 +3,7 @@ class Zsxd < Formula
   homepage "https://www.solarus-games.org/en/games/the-legend-of-zelda-mystery-of-solarus-xd"
   url "https://gitlab.com/solarus-games/zsxd/-/archive/v1.12.2/zsxd-v1.12.2.tar.bz2"
   sha256 "656ac2033db2aca7ad0cd5c7abb25d88509b312b155ab83546c90abbc8583df1"
-  head "https://gitlab.com/solarus-games/zsxd.git"
+  head "https://gitlab.com/solarus-games/zsxd.git", branch: "dev"
 
   bottle do
     rebuild 1
