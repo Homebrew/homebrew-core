@@ -4,7 +4,7 @@ class Yh < Formula
   url "https://github.com/andreazorzetto/yh/archive/v0.4.0.tar.gz"
   sha256 "78ef799c500c00164ea05aacafc5c34dccc565e364285f05636c920c2c356d73"
   license "Apache-2.0"
-  head "https://github.com/andreazorzetto/yh.git"
+  head "https://github.com/andreazorzetto/yh.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1c7d591013f9ba22f605f81f1f058c3377f4125ef1d0f990651e9cdd12805cdc"
