@@ -5,7 +5,7 @@ class Xray < Formula
   sha256 "565255d8c67b254f403d498b9152fa7bc097d649c50cb318d278c2be644e92cc"
   license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
   revision 1
-  head "https://github.com/XTLS/Xray-core.git"
+  head "https://github.com/XTLS/Xray-core.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e7bd4ff6c49faa87d273c9cae05a46d4613e7718d192477e44ce34913f4b21a5"
