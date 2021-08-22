@@ -6,7 +6,7 @@ class Wego < Formula
   url "https://github.com/schachmat/wego/archive/2.0.tar.gz"
   sha256 "d63d79520b385c4ed921c7decc37a0b85c40af66600f8a5733514e04d3048075"
   license "ISC"
-  head "https://github.com/schachmat/wego.git"
+  head "https://github.com/schachmat/wego.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2dd22ca29b4b1c7ffd10d9780a4db4dfb9db52dcef73ba07fe85f23a14aa472b"
