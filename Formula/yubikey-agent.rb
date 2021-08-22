@@ -4,7 +4,7 @@ class YubikeyAgent < Formula
   url "https://github.com/FiloSottile/yubikey-agent/archive/v0.1.5.tar.gz"
   sha256 "724b21f05d3f822acd222ecc8a5d8ca64c82d5304013e088d2262795da81ca4f"
   license "BSD-3-Clause"
-  head "https://filippo.io/yubikey-agent", using: :git
+  head "https://github.com/FiloSottile/yubikey-agent.git", branch: "main"
 
   bottle do
     rebuild 1
