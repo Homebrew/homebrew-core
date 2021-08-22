@@ -6,7 +6,7 @@ class Watson < Formula
   url "https://files.pythonhosted.org/packages/59/fc/cd80b0504fec73821ccbdbb276e0ea2092d1be62f0a7ca7722d8a0cc4368/td-watson-2.0.1.tar.gz"
   sha256 "a665775a76fb3ac464153e10991577a38ca938adae2142a24c9d1b1234db95f0"
   license "MIT"
-  head "https://github.com/TailorDev/Watson.git"
+  head "https://github.com/TailorDev/Watson.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6a801dbfdacc66d2db3bcdc3ec7cd0305e9c0c9e774113e8741dcec56686b7da"
