@@ -16,11 +16,28 @@ class Gptfdisk < Formula
 
   uses_from_macos "ncurses"
 
-  # update linker path for libncurses
-  patch :DATA
+  on_linux do
+    depends_on "util-linux"
+  end
 
   def install
-    system "make", "-f", "Makefile.mac"
+    on_macos do
+      inreplace "Makefile.mac" do |s|
+        s.gsub! "/usr/local/Cellar/ncurses/6.2/lib/libncurses.dylib", "-L/usr/lib -lncurses"
+        s.gsub! "-L/usr/local/lib -lpopt", "-L#{Formula["popt"].opt_lib} -lpopt"
+      end
+
+      system "make", "-f", "Makefile.mac"
+    end
+
+    on_linux do
+      deps = %w[ncurses popt util-linux]
+      ENV.append_to_cflags deps.map { |dep| "-I#{Formula[dep].opt_include}" }.join(" ")
+      ENV["LDFLAGS"] = deps.map { |dep| "-L#{Formula[dep].opt_lib}" }.join(" ")
+
+      system "make", "-f", "Makefile"
+    end
+
     %w[cgdisk fixparts gdisk sgdisk].each do |program|
       bin.install program
       man8.install "#{program}.8"
@@ -28,23 +45,9 @@ class Gptfdisk < Formula
   end
 
   test do
-    system "dd", "if=/dev/zero", "of=test.dmg", "bs=1m", "count=1"
+    system "dd", "if=/dev/zero", "of=test.dmg", "bs=1024k", "count=1"
     assert_match "completed successfully", shell_output("#{bin}/sgdisk -o test.dmg")
     assert_match "GUID", shell_output("#{bin}/sgdisk -p test.dmg")
     assert_match "Found valid GPT with protective MBR", shell_output("#{bin}/gdisk -l test.dmg")
   end
 end
-
-__END__
-diff --git a/Makefile.mac b/Makefile.mac
-index ea21fa6..b50bb34 100644
---- a/Makefile.mac
-+++ b/Makefile.mac
-@@ -21,7 +21,7 @@ gdisk:	$(LIB_OBJS) gpttext.o gdisk.o
- #	$(CXX) $(LIB_OBJS) -L/usr/lib -licucore gpttext.o gdisk.o -o gdisk
- 
- cgdisk: $(LIB_OBJS) cgdisk.o gptcurses.o
--	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o /usr/local/Cellar/ncurses/6.2/lib/libncurses.dylib $(LDFLAGS) -o cgdisk
-+	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o -L/usr/lib -lncurses $(LDFLAGS) -o cgdisk
- #	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o /usr/lib/libncurses.dylib $(LDFLAGS) -o cgdisk
- #	$(CXX) $(LIB_OBJS) cgdisk.o gptcurses.o $(LDFLAGS) -licucore -lncurses -o cgdisk
