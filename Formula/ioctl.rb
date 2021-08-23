@@ -15,9 +15,6 @@ class Ioctl < Formula
   depends_on "go" => :build
 
   def install
-    # raise outdated go.sum issue in here, https://github.com/iotexproject/iotex-core/issues/2756
-    system "go", "mod", "tidy"
-
     system "make", "ioctl"
     bin.install "bin/ioctl"
   end
