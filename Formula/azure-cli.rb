@@ -3,8 +3,8 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://github.com/Azure/azure-cli/archive/azure-cli-2.27.1.tar.gz"
-  sha256 "302379dcee1a3bf0ccbbdf6a2e599c4f3b4a2efafd1ab8152894f5febec6a7ef"
+  url "https://github.com/Azure/azure-cli/archive/azure-cli-2.27.2.tar.gz"
+  sha256 "07ad9f0f31801f16192a2c785b2b3e3aacab6464088d8ae43644838467f6cc40"
   license "MIT"
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
@@ -647,8 +647,8 @@ class AzureCli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/ba/6e/7a7c13c21d8a4a7f82ccbfe257a045890d4dbf18c023f985f565f97393e3/Pygments-2.9.0.tar.gz"
-    sha256 "a18f47b506a429f6f4b9df81bb02beab9ca21d0a5fee38ed15aef65f0545519f"
+    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
+    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
   end
 
   resource "PyJWT" do
