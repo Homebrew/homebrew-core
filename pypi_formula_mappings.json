@@ -135,6 +135,9 @@
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
+  "pgcli": {
+    "exclude_packages": ["six", "tabulate"]
+  },
   "pipgrip": {
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
