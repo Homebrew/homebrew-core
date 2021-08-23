@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/karelzak/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.tar.xz"
-  sha256 "bd07b7e98839e0359842110525a3032fdb8eaf3a90bedde3dd1652d32d15cce5"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.37/util-linux-2.37.2.tar.xz"
+  sha256 "6a0764c1aae7fb607ef8a6dd2c0f6c47d5e5fd27aa08820abaad9ec14e28e9d9"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -34,18 +34,27 @@ class UtilLinux < Formula
     conflicts_with "rename", because: "both install `rename` binaries"
   end
 
+  # Change mkswap.c include order to avoid "c.h" including macOS system <uuid.h> via <grp.h>.
+  # The missing definitions in uuid.h cause error: use of undeclared identifier 'UUID_STR_LEN'.
+  # Issue ref: https://github.com/karelzak/util-linux/issues/1432
+  patch :DATA
+
   def install
     args = std_configure_args + %w[
       --disable-silent-rules
     ]
 
     if OS.mac?
-      args << "--disable-hardlink" # does not build on macOS
       args << "--disable-ipcs" # does not build on macOS
       args << "--disable-ipcrm" # does not build on macOS
       args << "--disable-wall" # already comes with macOS
       args << "--disable-libmount" # does not build on macOS
       args << "--enable-libuuid" # conflicts with ossp-uuid
+
+      # To build `hardlink`, we need to prevent configure from detecting macOS system
+      # <sys/xattr.h>, which doesn't have all expected functions like `lgetxattr`.
+      # Issue ref: https://github.com/karelzak/util-linux/issues/1432
+      inreplace "configure", %r{^\tsys/xattr.h \\\n}, ""
     else
       args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
       args << "--disable-kill" # Conflicts with coreutils.
@@ -78,7 +87,7 @@ class UtilLinux < Formula
       delpart dmesg
       eject
       fallocate fdformat fincore findmnt fsck fsfreeze fstrim
-      hardlink hwclock
+      hwclock
       ionice ipcrm ipcs
       kill
       last ldattach losetup lsblk lscpu lsipc lslocks lslogins lsmem lsns
@@ -114,3 +123,31 @@ class UtilLinux < Formula
     assert_equal ["d#{perms}", owner, group, "usr"], out
   end
 end
+
+__END__
+diff --git a/disk-utils/mkswap.c b/disk-utils/mkswap.c
+index c45a3a317..0040198c8 100644
+--- a/disk-utils/mkswap.c
++++ b/disk-utils/mkswap.c
+@@ -30,6 +30,10 @@
+ # include <linux/fiemap.h>
+ #endif
+ 
++#ifdef HAVE_LIBUUID
++# include <uuid.h>
++#endif
++
+ #include "linux_version.h"
+ #include "swapheader.h"
+ #include "strutils.h"
+@@ -42,10 +46,6 @@
+ #include "closestream.h"
+ #include "ismounted.h"
+ 
+-#ifdef HAVE_LIBUUID
+-# include <uuid.h>
+-#endif
+-
+ #ifdef HAVE_LIBBLKID
+ # include <blkid.h>
+ #endif
