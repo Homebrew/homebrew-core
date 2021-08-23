@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.2/gtk-4.2.1.tar.xz"
-  sha256 "023169775de43f0a1fde066fbc19d78545ea6a7562c1915abde9b8ae4a7309e6"
+  url "https://download.gnome.org/sources/gtk/4.4/gtk-4.4.0.tar.xz"
+  sha256 "e0a1508f441686c3a20dfec48af533b19a4b2e017c18eaee31dccdb7d292505b"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -37,6 +37,7 @@ class Gtk4 < Formula
 
   on_linux do
     depends_on "libxkbcommon"
+    depends_on "libxcursor"
   end
 
   def install
@@ -46,6 +47,7 @@ class Gtk4 < Formula
       -Dintrospection=enabled
       -Dbuild-examples=false
       -Dbuild-tests=false
+      -Dmedia-gstreamer=disabled
     ]
 
     if OS.mac?
