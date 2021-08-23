@@ -2,10 +2,10 @@ class Mmctl < Formula
   desc "Remote CLI tool for Mattermost server"
   homepage "https://github.com/mattermost/mmctl"
   url "https://github.com/mattermost/mmctl.git",
-      tag:      "v5.36.0",
-      revision: "a3c6ff14a9f44dc847fa629a9e8ab516b8b883ec"
+      tag:      "v5.38.0",
+      revision: "cf832fbc44c2b36afde8bf1c01ff72f877cea79d"
   license "Apache-2.0"
-  head "https://github.com/mattermost/mmctl.git"
+  head "https://github.com/mattermost/mmctl.git", branch: "master"
 
   livecheck do
     url :stable
@@ -23,20 +23,14 @@ class Mmctl < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOBIN"] = buildpath/bin
-    ENV["ADVANCED_VET"] = "FALSE"
-    ENV["BUILD_HASH"] = Utils.git_head
-    ENV["BUILD_VERSION"] = version.to_s
-    (buildpath/"src/github.com/mattermost/mmctl").install buildpath.children
-    cd "src/github.com/mattermost/mmctl" do
-      system "make", "install"
+    ldflags = "-s -w -X github.com/mattermost/mmctl/commands.BuildHash=#{Utils.git_head}"
+    system "go", "build", *std_go_args(ldflags: ldflags), "-mod=vendor"
 
-      # Install the zsh and bash completions
-      output = Utils.safe_popen_read("#{bin}/mmctl", "completion", "bash")
-      (bash_completion/"mmctl").write output
-      output = Utils.safe_popen_read("#{bin}/mmctl", "completion", "zsh")
-      (zsh_completion/"_mmctl").write output
-    end
+    # Install shell completions
+    output = Utils.safe_popen_read(bin/"mmctl", "completion", "bash")
+    (bash_completion/"mmctl").write output
+    output = Utils.safe_popen_read(bin/"mmctl", "completion", "zsh")
+    (zsh_completion/"_mmctl").write output
   end
 
   test do
