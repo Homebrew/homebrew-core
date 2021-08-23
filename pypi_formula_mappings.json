@@ -92,6 +92,9 @@
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
   },
+  "jenkins-job-builder": {
+    "exclude_packages": ["six"]
+  },
   "litecli": {
     "exclude_packages": ["tabulate"]
   },
