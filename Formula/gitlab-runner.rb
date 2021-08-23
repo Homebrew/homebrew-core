@@ -2,8 +2,8 @@ class GitlabRunner < Formula
   desc "Official GitLab CI runner"
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
-      tag:      "v14.1.0",
-      revision: "8925d9a06fd8e452e2161a768462652a2a13111f"
+      tag:      "v14.2.0",
+      revision: "58ba2b95c1808bc61882b60639371934c2c8d9c4"
   license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git"
 
