@@ -6,6 +6,11 @@ class Fst < Formula
   license any_of: ["Unlicense", "MIT"]
   head "https://github.com/BurntSushi/fst.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^fst-bin[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "04671c602275ab8d9bcf8525b94653f1953485cbb0b8a0da5fd9710b1e8125e3"
     sha256 cellar: :any_skip_relocation, big_sur:       "94a9f50588d2e816c45bcb162f03af288b86cc685eeffed746ae1fa3270c8ee2"
