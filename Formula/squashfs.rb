@@ -4,7 +4,7 @@ class Squashfs < Formula
   url "https://github.com/plougher/squashfs-tools/archive/4.4.tar.gz"
   sha256 "a7fa4845e9908523c38d4acf92f8a41fdfcd19def41bd5090d7ad767a6dc75c3"
   license "GPL-2.0"
-  head "https://github.com/plougher/squashfs-tools.git"
+  head "https://github.com/plougher/squashfs-tools.git", branch: "master"
 
   # Tags like `4.4-git.1` are not release versions and the regex omits these
   # (see: https://github.com/plougher/squashfs-tools/issues/96).
