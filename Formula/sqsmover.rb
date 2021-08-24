@@ -4,7 +4,7 @@ class Sqsmover < Formula
   url "https://github.com/mercury2269/sqsmover/archive/v0.4.0.tar.gz"
   sha256 "217203f626399c67649f99af52eff6d6cdd9280ec5e2631e1de057e1bd0cdd0d"
   license "Apache-2.0"
-  head "https://github.com/mercury2269/sqsmover.git"
+  head "https://github.com/mercury2269/sqsmover.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "070d45a4448af507da69445d83084a38a8ba1d7ecad6d1d7596b2a5cba2d8b14"
