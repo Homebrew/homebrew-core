@@ -1,9 +1,10 @@
 class Theora < Formula
   desc "Open video compression format"
   homepage "https://www.theora.org/"
-  url "https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2"
+  url "https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.bz2", using: :homebrew_curl
   mirror "https://ftp.osuosl.org/pub/xiph/releases/theora/libtheora-1.1.1.tar.bz2"
   sha256 "b6ae1ee2fa3d42ac489287d3ec34c5885730b1296f0801ae577a35193d3affbc"
+  license "BSD-3-Clause"
 
   livecheck do
     url "https://ftp.osuosl.org/pub/xiph/releases/theora/?C=M&O=D"
@@ -19,7 +20,7 @@ class Theora < Formula
   end
 
   head do
-    url "https://gitlab.xiph.org/xiph/theora.git"
+    url "https://gitlab.xiph.org/xiph/theora.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
