@@ -4,7 +4,7 @@ class SwitchaudioOsx < Formula
   url "https://github.com/deweller/switchaudio-osx/archive/1.1.0.tar.gz"
   sha256 "1e77f938c681b68e56187e66e11c524f2d337f54142d1cdbbd8dafec1153317d"
   license "MIT"
-  head "https://github.com/deweller/switchaudio-osx.git"
+  head "https://github.com/deweller/switchaudio-osx.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "631619e7f83da181c8287e6795de8d54c03cab15bf29ba4ce5b5c0fb1f3aafcb"
