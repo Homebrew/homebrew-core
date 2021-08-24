@@ -4,7 +4,7 @@ class Siril < Formula
   url "https://free-astro.org/download/siril-0.99.10.1.tar.bz2"
   sha256 "a0b3debc1efb313a84958fb1819b3a5d0a1395b096db54cce7e3e34a463a5c79"
   license "GPL-3.0-or-later"
-  head "https://gitlab.com/free-astro/siril.git"
+  head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "8917ab63cdff809d77899b5c4ee9db471826f2b9569800d2e4f30695ae7dca2b"
