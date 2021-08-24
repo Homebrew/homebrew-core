@@ -5,7 +5,7 @@ class Tile38 < Formula
       tag:      "1.25.3",
       revision: "d95935124a974dba03f2fa4bc7ee32e9d84ad9e9"
   license "MIT"
-  head "https://github.com/tidwall/tile38.git"
+  head "https://github.com/tidwall/tile38.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8b9c411ceb4f0bcc9c6510dee2881f4ddb80dc2a6722a8f031e0c28bc2d92999"
