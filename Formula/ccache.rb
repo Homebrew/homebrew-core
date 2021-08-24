@@ -1,10 +1,20 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.4/ccache-4.4.tar.xz"
-  sha256 "b40bea2ecf88fc15d4431f0d5fb8babf018d7218eaded0f40e07d4c18c667561"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/ccache/ccache.git", branch: "master"
+
+  stable do
+    url "https://github.com/ccache/ccache/releases/download/v4.4/ccache-4.4.tar.xz"
+    sha256 "b40bea2ecf88fc15d4431f0d5fb8babf018d7218eaded0f40e07d4c18c667561"
+    # make testsuite runner cope with symlinked /tmp
+    # see: https://github.com/ccache/ccache/issues/916 (will be part of a post 4.4 release)
+    patch do
+      url "https://github.com/ccache/ccache/commit/2397a0605a24d61d60738fa21591510a9fa24eed.patch?full_index=1"
+      sha256 "1222a77fc312a2b9e8b62603a45903da2388b59baa9c8a9005fa54f16342b838"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c7da75f26f701903246a5c842dcaf2d4832ad333f445a001df09e0746c233733"
@@ -28,7 +38,10 @@ class Ccache < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", ".", *std_cmake_args
+    system "cmake", ".", *std_cmake_args, "-DENABLE_IPO=TRUE"
+    system "make"
+    # ccache test suite fails with the homebrew compiler shim
+    system "cmake", "-E", "env", "CC=/usr/bin/#{DevelopmentTools.default_compiler}", "ctest", "-j#{ENV.make_jobs}"
     system "make", "install"
 
     libexec.mkpath
