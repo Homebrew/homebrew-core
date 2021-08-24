@@ -6,7 +6,7 @@ class SshCopyId < Formula
   version "8.7p1"
   sha256 "7ca34b8bb24ae9e50f33792b7091b3841d7e1b440ff57bc9fabddf01e2ed1e24"
   license "SSH-OpenSSH"
-  head "https://github.com/openssh/openssh-portable.git"
+  head "https://github.com/openssh/openssh-portable.git", branch: "master"
 
   livecheck do
     formula "openssh"
