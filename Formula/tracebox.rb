@@ -6,7 +6,7 @@ class Tracebox < Formula
       revision: "4fc12b2e330e52d340ecd64b3a33dbc34c160390"
   license "GPL-2.0-only"
   revision 3
-  head "https://github.com/tracebox/tracebox.git"
+  head "https://github.com/tracebox/tracebox.git", branch: "master"
 
   bottle do
     rebuild 1
