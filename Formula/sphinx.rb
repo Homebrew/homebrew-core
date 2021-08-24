@@ -5,7 +5,7 @@ class Sphinx < Formula
   sha256 "6662039f093314f896950519fa781bc87610f926f64b3d349229002f06ac41a9"
   license "GPL-2.0"
   revision 3
-  head "https://github.com/sphinxsearch/sphinx.git"
+  head "https://github.com/sphinxsearch/sphinx.git", branch: "master"
 
   bottle do
     rebuild 2
