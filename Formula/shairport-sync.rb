@@ -4,7 +4,7 @@ class ShairportSync < Formula
   url "https://github.com/mikebrady/shairport-sync/archive/3.3.8.tar.gz"
   sha256 "c92f9a2d86dd1138673abc66e0010c94412ad6a46da8f36c3d538f4fa6b9faca"
   license "MIT"
-  head "https://github.com/mikebrady/shairport-sync.git", branch: "development"
+  head "https://github.com/mikebrady/shairport-sync.git", branch: "master"
 
   livecheck do
     url :stable
