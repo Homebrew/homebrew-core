@@ -2,7 +2,7 @@ class Speedread < Formula
   desc "Simple terminal-based rapid serial visual presentation (RSVP) reader"
   homepage "https://github.com/pasky/speedread"
   license "MIT"
-  head "https://github.com/pasky/speedread.git"
+  head "https://github.com/pasky/speedread.git", branch: "master"
 
   stable do
     url "https://github.com/pasky/speedread/archive/v1.0.tar.gz"
