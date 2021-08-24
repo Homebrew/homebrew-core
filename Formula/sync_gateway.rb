@@ -5,7 +5,7 @@ class SyncGateway < Formula
       tag:      "2.8.2",
       revision: "4df7a2da36c88a72131b23eb044b7d0b69b456bd"
   license "Apache-2.0"
-  head "https://github.com/couchbase/sync_gateway.git"
+  head "https://github.com/couchbase/sync_gateway.git", branch: "master"
 
   livecheck do
     url :stable
