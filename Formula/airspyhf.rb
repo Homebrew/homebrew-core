@@ -24,6 +24,22 @@ class Airspyhf < Formula
   end
 
   test do
+    (testpath/"test.c").write <<~EOS
+      #include <libairspyhf/airspyhf.h>
+      int main()
+      {
+        uint64_t serials[256];
+        int n = airspyhf_list_devices(serials, 256);
+        if (n == 0)
+        {
+          return 0;
+        }
+        return 1;
+      }
+    EOS
+    system ENV.cc, "-I#{include}", "-L#{lib}", "-lairspyhf",
+           testpath/"test.c", "-o", testpath/"test"
+    system "./test"
     assert_match version.to_s, shell_output("#{bin}/airspyhf_lib_version").chomp
   end
 end
