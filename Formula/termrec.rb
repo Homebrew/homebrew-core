@@ -4,7 +4,7 @@ class Termrec < Formula
   url "https://github.com/kilobyte/termrec/archive/v0.19.tar.gz"
   sha256 "0550c12266ac524a8afb764890c420c917270b0a876013592f608ed786ca91dc"
   license "LGPL-3.0"
-  head "https://github.com/kilobyte/termrec.git"
+  head "https://github.com/kilobyte/termrec.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a03a052b7ee89450b145a866724f6f97727c56bbf0220a14a089c84951aeed35"
