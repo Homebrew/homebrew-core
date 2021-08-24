@@ -5,7 +5,7 @@ class Unshield < Formula
   sha256 "aa8c978dc0eb1158d266eaddcd1852d6d71620ddfc82807fe4bf2e19022b7bab"
   license "MIT"
   revision 1
-  head "https://github.com/twogood/unshield.git"
+  head "https://github.com/twogood/unshield.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "d12579d6ed702bf8d4b9a37f45b6d9c527c88e60d648d935d93c969d0b6b78df"
