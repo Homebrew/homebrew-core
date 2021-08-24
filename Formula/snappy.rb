@@ -4,7 +4,7 @@ class Snappy < Formula
   url "https://github.com/google/snappy/archive/1.1.9.tar.gz"
   sha256 "75c1fbb3d618dd3a0483bff0e26d0a92b495bbe5059c8b4f1c962b478b6e06e7"
   license "BSD-3-Clause"
-  head "https://github.com/google/snappy.git"
+  head "https://github.com/google/snappy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "19b5a3afc6646dcec7a1803921b44fb5c57b6734fc0e32f025633f14d1da05ec"
@@ -99,5 +99,5 @@ index 672561e..2f97b73 100644
 -  string(REGEX REPLACE "-frtti" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 -  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fno-rtti")
  endif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
- 
+
  # BUILD_SHARED_LIBS is a standard CMake variable, but we declare it here to make
