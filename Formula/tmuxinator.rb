@@ -4,7 +4,7 @@ class Tmuxinator < Formula
   url "https://github.com/tmuxinator/tmuxinator/archive/v3.0.1.tar.gz"
   sha256 "1d79dd13beaaf2ed24c8a76410c1a41bedc7785498e199534fa3928bbf8aab01"
   license "MIT"
-  head "https://github.com/tmuxinator/tmuxinator.git"
+  head "https://github.com/tmuxinator/tmuxinator.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cdd418ca1a015eb94bb192d8605d019ad4acdc69b1d7d066421ea9b0538d5003"
