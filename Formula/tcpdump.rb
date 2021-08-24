@@ -4,7 +4,7 @@ class Tcpdump < Formula
   url "https://www.tcpdump.org/release/tcpdump-4.99.1.tar.gz"
   sha256 "79b36985fb2703146618d87c4acde3e068b91c553fb93f021a337f175fd10ebe"
   license "BSD-3-Clause"
-  head "https://github.com/the-tcpdump-group/tcpdump.git"
+  head "https://github.com/the-tcpdump-group/tcpdump.git", branch: "master"
 
   livecheck do
     url "https://www.tcpdump.org/release/"
