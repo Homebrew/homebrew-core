@@ -4,7 +4,7 @@ class Telegraf < Formula
   url "https://github.com/influxdata/telegraf/archive/v1.19.3.tar.gz"
   sha256 "d2fb8a3519a5690c801e1221e22c3693ed95204f70f6c57eb13267ca1964c659"
   license "MIT"
-  head "https://github.com/influxdata/telegraf.git"
+  head "https://github.com/influxdata/telegraf.git", branch: "master"
 
   livecheck do
     url :stable
