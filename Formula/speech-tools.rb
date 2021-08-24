@@ -4,7 +4,7 @@ class SpeechTools < Formula
   url "http://festvox.org/packed/festival/2.5/speech_tools-2.5.0-release.tar.gz"
   sha256 "e4fd97ed78f14464358d09f36dfe91bc1721b7c0fa6503e04364fb5847805dcc"
   revision 1
-  head "https://github.com/festvox/speech_tools.git"
+  head "https://github.com/festvox/speech_tools.git", branch: "master"
 
   livecheck do
     url "http://festvox.org/packed/festival/?C=M&O=D"
