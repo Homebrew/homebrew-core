@@ -3,7 +3,7 @@ class Unifdef < Formula
   homepage "https://dotat.at/prog/unifdef/"
   url "https://dotat.at/prog/unifdef/unifdef-2.12.tar.gz"
   sha256 "fba564a24db7b97ebe9329713ac970627b902e5e9e8b14e19e024eb6e278d10b"
-  head "https://github.com/fanf2/unifdef.git"
+  head "https://github.com/fanf2/unifdef.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8dbc4bc39701aac4f2da738734f72bc002ad3e3e802343405b5c4acd1eb42928"
