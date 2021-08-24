@@ -4,7 +4,7 @@ class Sqlbench < Formula
   url "https://github.com/felixge/sqlbench/archive/v1.1.0.tar.gz"
   sha256 "deaf4c299891ce75abff00429343eded76e8ddc8295d488938aa9ee418a7c9b3"
   license "MIT"
-  head "https://github.com/felixge/sqlbench.git"
+  head "https://github.com/felixge/sqlbench.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8373986acd8ee9e32df964c5bff6b365f29afa06fa256789017112d9b07ffcf2"
