@@ -4,7 +4,7 @@ class Texlab < Formula
   url "https://github.com/latex-lsp/texlab/archive/v3.2.0.tar.gz"
   sha256 "230fe594ceeb2e64f60776ef00c2674dda5b2e10e960b051536336c94c7523b0"
   license "GPL-3.0-only"
-  head "https://github.com/latex-lsp/texlab.git"
+  head "https://github.com/latex-lsp/texlab.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ace13aa023a0f469b5a8d6f84866df772aec49df9da25ed8f3956655178ebf4e"
