@@ -4,7 +4,7 @@ class S3fs < Formula
   url "https://github.com/s3fs-fuse/s3fs-fuse/archive/v1.87.tar.gz"
   sha256 "c5e064efb8fb5134a463731a7cf8d7174c93a296957145200347d2f4d9d11985"
   license "GPL-2.0-or-later"
-  head "https://github.com/s3fs-fuse/s3fs-fuse.git"
+  head "https://github.com/s3fs-fuse/s3fs-fuse.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, catalina:    "5183ab606057fbe8e46a737b25c1ad4e82dd67389f48827d7bfd567c67cf8417"
