@@ -4,7 +4,7 @@ class Teleport < Formula
   url "https://github.com/gravitational/teleport/archive/v7.0.3.tar.gz"
   sha256 "54e88a53411b8133bbcc762f264cc55fd09380b5744bb3f9611b10b1e0cacf4c"
   license "Apache-2.0"
-  head "https://github.com/gravitational/teleport.git"
+  head "https://github.com/gravitational/teleport.git", branch: "master"
 
   # We check the Git tags instead of using the `GithubLatest` strategy, as the
   # "latest" version can be incorrect. As of writing, two major versions of
