@@ -4,7 +4,7 @@ class Sourcery < Formula
   url "https://github.com/krzysztofzablocki/Sourcery/archive/1.5.0.tar.gz"
   sha256 "df21295ae7cd309e7c1d6687aeee6e12a2677af2faf0da39bfd23d188ef12b08"
   license "MIT"
-  head "https://github.com/krzysztofzablocki/Sourcery.git"
+  head "https://github.com/krzysztofzablocki/Sourcery.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "04d7339341fb2d09c58d142c250acffc04ae1ad5a27e40f0d8bcf1e722ba7720"
