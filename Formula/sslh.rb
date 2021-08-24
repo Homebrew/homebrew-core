@@ -4,8 +4,7 @@ class Sslh < Formula
   url "https://www.rutschle.net/tech/sslh/sslh-v1.22.tar.gz"
   sha256 "50ea47f8a52e09855e4abcba00e2d6efa3b100faef4b7a066582dfb9bd043b6e"
   license all_of: ["GPL-2.0-or-later", "BSD-2-Clause"]
-
-  head "https://github.com/yrutschle/sslh.git"
+  head "https://github.com/yrutschle/sslh.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "4e7f76188b8a7e6e4582449b44215be2e81aeae61d0597f8a4fc5019e3e01437"
