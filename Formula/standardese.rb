@@ -6,7 +6,7 @@ class Standardese < Formula
       tag:      "0.5.2",
       revision: "0b23537e235690e01ba7f8362a22d45125e7b675"
   license "MIT"
-  head "https://github.com/standardese/standardese.git"
+  head "https://github.com/standardese/standardese.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "541c269d263b5f362e2717dab9697a9428b5bcb5bb29287f99288d3b9478ad1e"
