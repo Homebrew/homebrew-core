@@ -6,7 +6,7 @@ class Sqlmap < Formula
   url "https://github.com/sqlmapproject/sqlmap/archive/1.5.8.tar.gz"
   sha256 "a4302858bcf7791334e8f7165885369898330aa547888db0e73576b53f96771d"
   license "GPL-2.0-or-later"
-  head "https://github.com/sqlmapproject/sqlmap.git"
+  head "https://github.com/sqlmapproject/sqlmap.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3b409785b9e4fb5f3a6f11c8be9c859f222b4dd64bff4d81e4d80195f66bb03"
