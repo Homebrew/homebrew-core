@@ -1,7 +1,7 @@
 class VorbisTools < Formula
   desc "Ogg Vorbis CODEC tools"
   homepage "https://github.com/xiph/vorbis-tools"
-  url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz"
+  url "https://downloads.xiph.org/releases/vorbis/vorbis-tools-1.4.2.tar.gz", using: :homebrew_curl
   mirror "https://ftp.osuosl.org/pub/xiph/releases/vorbis/vorbis-tools-1.4.2.tar.gz"
   sha256 "db7774ec2bf2c939b139452183669be84fda5774d6400fc57fde37f77624f0b0"
 
@@ -26,14 +26,7 @@ class VorbisTools < Formula
   uses_from_macos "curl"
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --disable-nls
-      --prefix=#{prefix}
-    ]
-
-    system "./configure", *args
+    system "./configure", *std_configure_args, "--disable-nls"
     system "make", "install"
   end
 
