@@ -4,7 +4,7 @@ class Threadweaver < Formula
   url "https://download.kde.org/stable/frameworks/5.85/threadweaver-5.85.0.tar.xz"
   sha256 "431b4a480d200bf12e88ce510efd56edb062eb2284d4233f9602ae62a75da555"
   license "LGPL-2.0-or-later"
-  head "https://invent.kde.org/frameworks/threadweaver.git"
+  head "https://invent.kde.org/frameworks/threadweaver.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "32608623b3a3193c5152e82fe918f5be2873a2e77a1fa74a8a8188a0cccb1c4b"
