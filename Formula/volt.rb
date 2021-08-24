@@ -4,7 +4,7 @@ class Volt < Formula
   url "https://github.com/vim-volt/volt.git",
       tag:      "v0.3.7",
       revision: "e604467d8b440c89793b2e113cd241915e431bf9"
-  head "https://github.com/vim-volt/volt.git"
+  head "https://github.com/vim-volt/volt.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "836f10188a9b461531bac4b6eb803e4f86057342e443df99c0c466e224af18b6"
