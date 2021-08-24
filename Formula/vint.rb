@@ -6,7 +6,7 @@ class Vint < Formula
   url "https://files.pythonhosted.org/packages/9c/c7/d5fbe5f778edee83cba3aea8cc3308db327e4c161e0656e861b9cc2cb859/vim-vint-0.3.21.tar.gz"
   sha256 "5dc59b2e5c2a746c88f5f51f3fafea3d639c6b0fdbb116bb74af27bf1c820d97"
   license "MIT"
-  head "https://github.com/Vimjas/vint.git"
+  head "https://github.com/Vimjas/vint.git", branch: "master"
 
   bottle do
     rebuild 1
