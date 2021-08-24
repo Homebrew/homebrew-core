@@ -4,7 +4,7 @@ class Scotch < Formula
   url "https://gitlab.inria.fr/scotch/scotch/-/archive/v6.1.1/scotch-v6.1.1.tar.bz2"
   sha256 "543ab2f8998658e5a6123231bfb3736cfbb939f330c656f8a7913d967a933f00"
   license "CECILL-C"
-  head "https://gitlab.inria.fr/scotch/scotch.git"
+  head "https://gitlab.inria.fr/scotch/scotch.git", branch: "master"
 
   livecheck do
     url :stable
