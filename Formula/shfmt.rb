@@ -4,7 +4,7 @@ class Shfmt < Formula
   url "https://github.com/mvdan/sh/archive/v3.3.1.tar.gz"
   sha256 "c3acf5503e42f481ff3ec133007f85438a2df378981446456937a56dde758a52"
   license "BSD-3-Clause"
-  head "https://github.com/mvdan/sh.git"
+  head "https://github.com/mvdan/sh.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a332c887ceb8c7f3a72cd8397f664fb4c5a32058a0000d78b1c1956c15961d7a"
