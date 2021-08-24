@@ -60,7 +60,7 @@ class Sdl2Image < Formula
           return success;
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lSDL2_image", "-o", "test"
+    system ENV.cc, "test.c", "-I#{Formula["sdl2"].opt_include}/SDL2", "-L#{lib}", "-lSDL2_image", "-o", "test"
     system "./test"
   end
 end
