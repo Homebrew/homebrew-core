@@ -4,7 +4,7 @@ class SwiftSh < Formula
   url "https://github.com/mxcl/swift-sh/archive/2.3.0.tar.gz"
   sha256 "512ab6ba0899258673e040fa434a2ee4332128eb6ae47f63b146477667ea2d83"
   license "Unlicense"
-  head "https://github.com/mxcl/swift-sh.git"
+  head "https://github.com/mxcl/swift-sh.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d90522741b5bfdac8d8d79375cce90984af0967bca1e84e8f5f9758b29e36616"
