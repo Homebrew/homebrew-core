@@ -4,7 +4,7 @@ class Saltwater < Formula
   url "https://github.com/jyn514/saltwater/archive/0.11.0.tar.gz"
   sha256 "a9fedbb53586e045798ba26295b4da28157e4eb9945b5a74bbdaebca830f1316"
   license "BSD-3-Clause"
-  head "https://github.com/jyn514/saltwater.git"
+  head "https://github.com/jyn514/saltwater.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "3ce720ef4e471ca3cf3b0f3bc9dbb4cf8988eeae18d1d9620de5dc3f779132cb"
