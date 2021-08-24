@@ -4,7 +4,7 @@ class Svgbob < Formula
   url "https://github.com/ivanceras/svgbob/archive/0.5.5.tar.gz"
   sha256 "e17859725c7f59b21a351f31664a7fd50e04b336a7438421775c44d852589470"
   license "Apache-2.0"
-  head "https://github.com/ivanceras/svgbob.git"
+  head "https://github.com/ivanceras/svgbob.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d8e38c21372c66f2d3b9ef8f746e8268acf4b7b63713ca4794b7565e7334950e"
