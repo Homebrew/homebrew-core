@@ -4,7 +4,7 @@ class SpacemanDiff < Formula
   url "https://github.com/holman/spaceman-diff/archive/v1.0.3.tar.gz"
   sha256 "347bf7d32d6c2905f865b90c5e6f4ee2cd043159b61020381f49639ed5750fdf"
   license "MIT"
-  head "https://github.com/holman/spaceman-diff.git"
+  head "https://github.com/holman/spaceman-diff.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "66c940e56f22cd2f5fdb3cfd2e1ddd741400c0739bb91ded95f5ddf5fa3c9902"
