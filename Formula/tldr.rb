@@ -5,7 +5,7 @@ class Tldr < Formula
   sha256 "7e7f67f4c3cf7d448847e837df2122069b0cc8f7ed6963431e914b7929655efe"
   license "MIT"
   revision 2
-  head "https://github.com/tldr-pages/tldr-c-client.git"
+  head "https://github.com/tldr-pages/tldr-c-client.git", branch: "master"
 
   bottle do
     rebuild 1
