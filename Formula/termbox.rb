@@ -4,7 +4,7 @@ class Termbox < Formula
   url "https://github.com/nsf/termbox/archive/v1.1.2.tar.gz"
   sha256 "61c9940b42b3ac44bf0cba67eacba75e3c02088b8c695149528c77def04d69b1"
   license "MIT"
-  head "https://github.com/nsf/termbox.git"
+  head "https://github.com/nsf/termbox.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "ca14c123586c33205ece77cd40df64e240d90cc8ded2646880b6cdf0fd8ee083"
