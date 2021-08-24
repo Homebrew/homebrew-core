@@ -5,7 +5,7 @@ class St < Formula
   sha256 "c02a16f67e4c357690a5438319843149fd700c223128f9ffebecab2849c58bb8"
   license "MIT"
   revision 1
-  head "https://github.com/nferraz/st.git"
+  head "https://github.com/nferraz/st.git", branch: "master"
 
   livecheck do
     url :stable
