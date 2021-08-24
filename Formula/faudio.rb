@@ -4,7 +4,7 @@ class Faudio < Formula
   url "https://github.com/FNA-XNA/FAudio/archive/21.08.tar.gz"
   sha256 "42a3a295da44721c63f06fcbf5edf8077a42fdb78313b9e1c065afad12df8063"
   license "Zlib"
-  head "https://github.com/FNA-XNA/FAudio.git"
+  head "https://github.com/FNA-XNA/FAudio.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "07e49b48488a33b2ad7bc3e1312cdbf6bae72de52eb870599a801319c1897a7b"
@@ -17,8 +17,10 @@ class Faudio < Formula
   depends_on "sdl2"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   def caveats
@@ -36,7 +38,7 @@ class Faudio < Formula
         return FAudioCreate(&audio, 0, FAUDIO_DEFAULT_PROCESSOR);
       }
     EOS
-    system ENV.cc, "test.c", "-L#{lib}", "-lfaudio", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lFAudio", "-o", "test"
     system "./test"
   end
 end
