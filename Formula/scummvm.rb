@@ -5,7 +5,7 @@ class Scummvm < Formula
   sha256 "1469657e593bd8acbcfac0b839b086f640ebf120633e93f116cab652b5b27387"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/scummvm/scummvm.git"
+  head "https://github.com/scummvm/scummvm.git", branch: "master"
 
   livecheck do
     url "https://www.scummvm.org/frs/scummvm/"
