@@ -3,7 +3,7 @@ class Unnethack < Formula
   homepage "https://unnethack.wordpress.com/"
   url "https://github.com/UnNetHack/UnNetHack/archive/5.3.2.tar.gz"
   sha256 "a32a2c0e758eb91842033d53d43f718f3bc719a346e993d9b23bac06f0ac9004"
-  head "https://github.com/UnNetHack/UnNetHack.git"
+  head "https://github.com/UnNetHack/UnNetHack.git", branch: "master"
 
   livecheck do
     url :stable
