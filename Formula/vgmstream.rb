@@ -8,7 +8,7 @@ class Vgmstream < Formula
   license "ISC"
   revision 2
   version_scheme 1
-  head "https://github.com/losnoco/vgmstream.git"
+  head "https://github.com/losnoco/vgmstream.git", branch: "master"
 
   livecheck do
     url :stable
