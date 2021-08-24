@@ -5,7 +5,7 @@ class SonarScanner < Formula
   sha256 "344bfeff44b09a11082b4a4646b1ed14f213feb00a5cd6d01c86f3767cb32471"
   license "LGPL-3.0-or-later"
   revision 1
-  head "https://github.com/SonarSource/sonar-scanner-cli.git"
+  head "https://github.com/SonarSource/sonar-scanner-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4f39cced5ca59962499fcd43aae7cc4f6a23357dec24fb2ac629e748b317dec6"
