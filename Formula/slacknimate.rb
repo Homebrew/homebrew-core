@@ -4,7 +4,7 @@ class Slacknimate < Formula
   url "https://github.com/mroth/slacknimate/archive/v1.1.0.tar.gz"
   sha256 "71c7a65192c8bbb790201787fabbb757de87f8412e0d41fe386c6b4343cb845c"
   license "MPL-2.0"
-  head "https://github.com/mroth/slacknimate.git"
+  head "https://github.com/mroth/slacknimate.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "35f24a47ca03293bec53b2b622cc1c6f0a012b5c674c0fea83a79795474caefb"
