@@ -17,8 +17,6 @@ class Scry < Formula
   depends_on "libevent"
   depends_on "pcre"
 
-  uses_from_macos "libiconv"
-
   def install
     system "shards", "build",
            "--release", "--no-debug", "--verbose",
