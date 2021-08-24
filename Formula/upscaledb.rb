@@ -2,7 +2,7 @@ class Upscaledb < Formula
   desc "Database for embedded devices"
   homepage "https://upscaledb.com/"
   license "Apache-2.0"
-  head "https://github.com/cruppstahl/upscaledb.git"
+  head "https://github.com/cruppstahl/upscaledb.git", branch: "master"
 
   stable do
     url "https://github.com/cruppstahl/upscaledb.git",
