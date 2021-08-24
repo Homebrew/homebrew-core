@@ -4,7 +4,7 @@ class Terrahelp < Formula
   url "https://github.com/opencredo/terrahelp/archive/v0.7.4.tar.gz"
   sha256 "2d70b6471bfb4b9c8ff3bb12050ecedca8d39830fa221bf8c319a1b6144ee6e5"
   license "Apache-2.0"
-  head "https://github.com/opencredo/terrahelp.git"
+  head "https://github.com/opencredo/terrahelp.git", branch: "main"
 
   bottle do
     rebuild 1
