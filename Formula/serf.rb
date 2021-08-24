@@ -5,7 +5,7 @@ class Serf < Formula
       tag:      "v0.9.5",
       revision: "7faa1b06262f70780c3c35ac25a4c96d754f06f3"
   license "MPL-2.0"
-  head "https://github.com/hashicorp/serf.git"
+  head "https://github.com/hashicorp/serf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ebda6b1a139cb8b900799676be12c0993bbd894b1869577739a0ef2a4682d38"
