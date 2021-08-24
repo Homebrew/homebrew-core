@@ -4,7 +4,7 @@ class Trunk < Formula
   url "https://github.com/thedodd/trunk/archive/v0.13.1.tar.gz"
   sha256 "c9c01c9d2aff59a8fac11a4eee4879a17ace0d2262532a391b7f5e92623caae6"
   license any_of: ["MIT", "Apache-2.0"]
-  head "https://github.com/thedodd/trunk.git"
+  head "https://github.com/thedodd/trunk.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d07b020b907c09197db7bc81a972929069defc4a575a670de6c8ecee3ec528f7"
