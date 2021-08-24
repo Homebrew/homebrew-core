@@ -5,7 +5,7 @@ class TrojanGo < Formula
       tag:      "v0.10.4",
       revision: "068d23371c2676212a3399edbabfb2aaedf63750"
   license "GPL-3.0-only"
-  head "https://github.com/p4gefau1t/trojan-go.git"
+  head "https://github.com/p4gefau1t/trojan-go.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ab04942c62290d5d9a31fb4b8effe4faaec41cfeb1e2488182a81cb3f7b2ade1"
