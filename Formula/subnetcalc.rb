@@ -4,7 +4,7 @@ class Subnetcalc < Formula
   url "https://www.uni-due.de/~be0001/subnetcalc/download/subnetcalc-2.4.18.tar.xz"
   sha256 "71c0ad72eb31dde3cdcfb76f9fe752eb2d137a49d5d49ee8e2ee80bbeac42c67"
   license "GPL-3.0-or-later"
-  head "https://github.com/dreibh/subnetcalc.git"
+  head "https://github.com/dreibh/subnetcalc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "71be3468fb96a18bdc21468d75473e8b2058a96c17aa2fdfd9a094e0a3d11bd7"
