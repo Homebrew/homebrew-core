@@ -6,7 +6,7 @@ class Sshuttle < Formula
   url "https://files.pythonhosted.org/packages/e9/4b/51d6aaa900a6a13efb380b0a084a327c41aad28a267d4c1f074cb2e41baa/sshuttle-1.0.5.tar.gz"
   sha256 "fd8c691aac2cb80933aae7f94d9d9e271a820efc5c48e73408f1a90da426a1bd"
   license "LGPL-2.1-or-later"
-  head "https://github.com/sshuttle/sshuttle.git"
+  head "https://github.com/sshuttle/sshuttle.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d567ae9a98102b13d91ee38945352677712db52539892713315ad0b1c5a3649a"
