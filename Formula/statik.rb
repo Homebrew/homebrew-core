@@ -7,7 +7,7 @@ class Statik < Formula
   sha256 "9ce2c5a76284aa7d3eba2dc5b167c39d0249f96da08213a14c89f0b7edcb7746"
   license "MIT"
   revision 3
-  head "https://github.com/thanethomson/statik.git"
+  head "https://github.com/thanethomson/statik.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "d8ccb5efc25d0435ccf7c543d86991a83622845d04426eb1823e7e670ac9dbcd"
