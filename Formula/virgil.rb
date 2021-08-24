@@ -5,7 +5,7 @@ class Virgil < Formula
      tag:      "v5.2.9",
      revision: "604e4339d100c9cd133f4730ba0efbd599321ecb"
   license "BSD-3-Clause"
-  head "https://github.com/VirgilSecurity/virgil-cli.git"
+  head "https://github.com/VirgilSecurity/virgil-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "e9ce86f5569a014b80c43e5bdf3d16aed3fc81c3e6fe4841e0b649f6d07542d3"
