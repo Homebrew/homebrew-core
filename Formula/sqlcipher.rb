@@ -4,7 +4,7 @@ class Sqlcipher < Formula
   url "https://github.com/sqlcipher/sqlcipher/archive/v4.4.3.tar.gz"
   sha256 "b8df69b998c042ce7f8a99f07cf11f45dfebe51110ef92de95f1728358853133"
   license "BSD-3-Clause"
-  head "https://github.com/sqlcipher/sqlcipher.git"
+  head "https://github.com/sqlcipher/sqlcipher.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "2395b5999cde9cd6c8f53dd595a2827d8e2bdef8b801879b753378728a3cc94f"
