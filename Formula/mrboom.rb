@@ -21,7 +21,7 @@ class Mrboom < Formula
 
   def install
     system "make", "mrboom", "LIBSDL2=1"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "PREFIX=#{prefix}", "MANDIR=share/man/man6"
   end
 
   test do
