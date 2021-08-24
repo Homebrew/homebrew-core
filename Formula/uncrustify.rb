@@ -4,7 +4,7 @@ class Uncrustify < Formula
   url "https://github.com/uncrustify/uncrustify/archive/uncrustify-0.72.0.tar.gz"
   sha256 "d6fff70bc7823fac4c77013055333b79a4839909094e8eee8a14ee8f1777374e"
   license "GPL-2.0-or-later"
-  head "https://github.com/uncrustify/uncrustify.git"
+  head "https://github.com/uncrustify/uncrustify.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "327603c90e291b6f9f8c5bf837bfe4f22295cdf18dc397e012537eab2e7ca9b2"
