@@ -1,10 +1,9 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.1.tar.bz2"
-  sha256 "c498db346a9b9a4b399e514c8f56dfc0a888ce8f327f10376ff984452cd154ec"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.2.tar.bz2"
+  sha256 "e1d953e0e296072fca284215103ef168885eaac596c4660c5039a36a83e3041b"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gnupg/"
@@ -35,10 +34,6 @@ class Gnupg < Formula
   on_linux do
     depends_on "libidn"
   end
-
-  # Fix tests for gnupg 2.3.1, remove in the next release
-  # Patch ref: https://dev.gnupg.org/rGd36c4dc95b72b780375d57311bdf4ae842fd54fa
-  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -90,17 +85,3 @@ class Gnupg < Formula
     end
   end
 end
-
-__END__
-diff --git a/tests/openpgp/defs.scm b/tests/openpgp/defs.scm
-index 768d479aa..86d312f82 100644
---- a/tests/openpgp/defs.scm
-+++ b/tests/openpgp/defs.scm
-@@ -338,6 +338,7 @@
-   (create-file "common.conf"
- 	       (if (flag "--use-keyboxd" *args*)
- 		   "use-keyboxd" "#use-keyboxd")
-+	       (string-append "keyboxd-program " (tool 'keyboxd))
- 	       )
-
-   (create-file "gpg.conf"
