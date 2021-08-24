@@ -6,7 +6,7 @@ class Snort < Formula
   sha256 "6bd1c2c243ff69f9222aee6fb5d48998c7e24acaa4d2349115af324f9810bb01"
   license "GPL-2.0-only"
   revision 1
-  head "https://github.com/snort3/snort3.git"
+  head "https://github.com/snort3/snort3.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "75c1886602ba92de7e259863ed2a51c6d052a50b224674370015b4002da87bed"
