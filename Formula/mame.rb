@@ -2,11 +2,11 @@ class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
   # NOTE: Please keep these values in sync with rom-tools.rb when updating.
-  url "https://github.com/mamedev/mame/archive/mame0234.tar.gz"
-  version "0.234"
-  sha256 "6b729494c0e63fd974061c11e860667164e85c20890f60eade048e3e4e5c00cd"
+  url "https://github.com/mamedev/mame/archive/mame0235.tar.gz"
+  version "0.235"
+  sha256 "9aee1ae3775123955ab6c5fde026a016ca981515f143d848bda1595cae10750f"
   license "GPL-2.0-or-later"
-  head "https://github.com/mamedev/mame.git"
+  head "https://github.com/mamedev/mame.git", branch: "master"
 
   # MAME tags (and filenames) are formatted like `mame0226`, so livecheck will
   # report the version like `0226`. We work around this by matching the link
@@ -43,6 +43,16 @@ class Mame < Formula
 
   uses_from_macos "expat"
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc" # for C++17
+    depends_on "pulseaudio"
+    depends_on "qt@5"
+    depends_on "sdl2_ttf"
+  end
+
+  fails_with gcc: "5"
+  fails_with gcc: "6"
 
   def install
     # Cut sdl2-config's invalid option.
