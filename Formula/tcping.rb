@@ -4,7 +4,7 @@ class Tcping < Formula
   url "https://github.com/mkirchner/tcping/archive/1.3.6.tar.gz"
   sha256 "a731f0e48ff931d7b2a0e896e4db40867043740fe901dd225780f2164fdbdcf3"
   license "MIT"
-  head "https://github.com/mkirchner/tcping.git"
+  head "https://github.com/mkirchner/tcping.git", branch: "master"
 
   livecheck do
     url :stable
