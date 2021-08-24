@@ -3,7 +3,7 @@ class Sparse < Formula
   homepage "https://sparse.wiki.kernel.org/"
   url "https://www.kernel.org/pub/software/devel/sparse/dist/sparse-0.6.3.tar.xz"
   sha256 "d4f6dbad8409e8e20a19f164b2c16f1edf76438ff77cf291935fde081b61a899"
-  head "https://git.kernel.org/pub/scm/devel/sparse/sparse.git"
+  head "https://git.kernel.org/pub/scm/devel/sparse/sparse.git", branch: "master"
 
   bottle do
     sha256                               arm64_big_sur: "7ba6578a0d29486b5839541706bcf448dd2babb0a1132c2956e2ce92ba3f0657"
