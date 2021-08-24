@@ -4,7 +4,7 @@ class Srtp < Formula
   url "https://github.com/cisco/libsrtp/archive/v2.4.0.tar.gz"
   sha256 "713c5c1dc740707422307f39834c0b0fbb76769168d87e92c438a3cca8233d3d"
   license "BSD-3-Clause"
-  head "https://github.com/cisco/libsrtp.git"
+  head "https://github.com/cisco/libsrtp.git", branch: "master"
 
   livecheck do
     url :stable
