@@ -5,7 +5,7 @@ class Taskd < Formula
   sha256 "7b8488e687971ae56729ff4e2e5209ff8806cf8cd57718bfd7e521be130621b4"
   license "MIT"
   revision 1
-  head "https://github.com/GothenburgBitFactory/taskserver.git"
+  head "https://github.com/GothenburgBitFactory/taskserver.git", branch: "1.2.0"
 
   livecheck do
     url "https://taskwarrior.org/download/"
