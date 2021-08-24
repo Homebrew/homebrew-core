@@ -4,7 +4,7 @@ class Ssdb < Formula
   url "https://github.com/ideawu/ssdb/archive/1.9.9.tar.gz"
   sha256 "28b5b6505a6a660b587b7d07ef77a3983a0696f7d481aa70696e53048fa92e45"
   license "BSD-3-Clause"
-  head "https://github.com/ideawu/ssdb.git"
+  head "https://github.com/ideawu/ssdb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "fd9b492537642a493ee437e27659b605336a5b0be915feba2894e6cdf2479c70"
