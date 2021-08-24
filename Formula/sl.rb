@@ -4,7 +4,7 @@ class Sl < Formula
   url "https://github.com/mtoyoda/sl/archive/5.02.tar.gz"
   sha256 "1e5996757f879c81f202a18ad8e982195cf51c41727d3fea4af01fdcbbb5563a"
   license "MIT"
-  head "https://github.com/mtoyoda/sl.git"
+  head "https://github.com/mtoyoda/sl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d8ab2f34483a0a595350f949b1a0a4386b3836ce624245365c7bce6664bb283a"
