@@ -5,7 +5,7 @@ class SourceToImage < Formula
       tag:      "v1.3.1",
       revision: "a5a771479f73be6be4207aadc730351e515aedfb"
   license "Apache-2.0"
-  head "https://github.com/openshift/source-to-image.git"
+  head "https://github.com/openshift/source-to-image.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b5ac084c3947f1729b436f7928760e3b33e26d1929dde39a6f53baee93103b38"
