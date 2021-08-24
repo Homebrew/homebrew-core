@@ -4,7 +4,7 @@ class Threemux < Formula
   url "https://github.com/aaronjanse/3mux/archive/v1.1.0.tar.gz"
   sha256 "0f4dae181914c73eaa91bdb21ee0875f21b5da64c7c9d478f6d52a2d0aa2c0ea"
   license "MIT"
-  head "https://github.com/aaronjanse/3mux.git"
+  head "https://github.com/aaronjanse/3mux.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d3dd3465938d0ac5b845b07689a08b667613210d9d58649c9a152ade32dc347"
