@@ -3,7 +3,7 @@ class Vimpager < Formula
   homepage "https://github.com/rkitover/vimpager"
   url "https://github.com/rkitover/vimpager/archive/2.06.tar.gz"
   sha256 "cc616d0840a6f2501704eea70de222ab662421f34b2da307e11fb62aa70bda5d"
-  head "https://github.com/rkitover/vimpager.git"
+  head "https://github.com/rkitover/vimpager.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "356c5407fc0656ac0b4ae4a7a3e62f1992525a120a7a1d0b6fdd514561d5381d"
