@@ -4,7 +4,7 @@ class Spectra < Formula
   url "https://github.com/yixuan/spectra/archive/v1.0.0.tar.gz"
   sha256 "45228b7d77b916b5384245eb13aa24bc994f3b0375013a8ba6b85adfd2dafd67"
   license "MPL-2.0"
-  head "https://github.com/yixuan/spectra.git"
+  head "https://github.com/yixuan/spectra.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "94ec682e71349c61a98833532eff13ccd1242f0c1aed9100b3de5fb6cb76fa45"
