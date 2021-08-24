@@ -4,7 +4,7 @@ class TreCommand < Formula
   url "https://github.com/dduan/tre/archive/v0.3.6.tar.gz"
   sha256 "c372573a6325288b9b23dcd20d1cb100ad275f5b0636a7328395352b3549dd71"
   license "MIT"
-  head "https://github.com/dduan/tre.git"
+  head "https://github.com/dduan/tre.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "27cba0da0af50bba24136d9522eb88378be6a41aa08fc8e7d32d1e8a51e4a566"
