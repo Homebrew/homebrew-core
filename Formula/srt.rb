@@ -4,7 +4,7 @@ class Srt < Formula
   url "https://github.com/Haivision/srt/archive/v1.4.3.tar.gz"
   sha256 "c06e05664c71d635c37207a2b5a444f2c4a95950a3548402b3e0c524f735b33d"
   license "MPL-2.0"
-  head "https://github.com/Haivision/srt.git"
+  head "https://github.com/Haivision/srt.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "5030a6897c290fe9c26bcd06b1033ca4e11b25709057f39060b2f3ad37235bf5"
