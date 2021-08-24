@@ -6,7 +6,7 @@ class Sfml < Formula
   sha256 "bf1e0643acb92369b24572b703473af60bac82caf5af61e77c063b779471bb7f"
   license "Zlib"
   revision 1
-  head "https://github.com/SFML/SFML.git"
+  head "https://github.com/SFML/SFML.git", branch: "master"
 
   bottle do
     rebuild 1
