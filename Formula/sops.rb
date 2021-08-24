@@ -4,7 +4,7 @@ class Sops < Formula
   url "https://github.com/mozilla/sops/archive/v3.7.1.tar.gz"
   sha256 "536ee140d888b53b71c1e8edd669f4c11bc573428983fbea644fbbfcd7d7079a"
   license "MPL-2.0"
-  head "https://github.com/mozilla/sops.git", branch: "develop"
+  head "https://github.com/mozilla/sops.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6ed7327988bf2db73d4883d5c4e280cd5e576980b15cd584841175714e9a6a17"
