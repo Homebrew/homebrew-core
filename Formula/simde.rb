@@ -4,7 +4,7 @@ class Simde < Formula
   url "https://github.com/simd-everywhere/simde/archive/v0.7.2.tar.gz"
   sha256 "366d5e9a342c30f1e40d1234656fb49af5ee35590aaf53b3c79b2afb906ed4c8"
   license "MIT"
-  head "https://github.com/simd-everywhere/simde.git"
+  head "https://github.com/simd-everywhere/simde.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "2b76aa4bfc8e2fe4c0af7a594e7f25aba0575b4f0ca9babef7057215e9cafe74"
