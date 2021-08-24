@@ -41,7 +41,7 @@ class Libbs2b < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lbs2b", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lbs2b", "-o", "test"
     system "./test"
   end
 end
