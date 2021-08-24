@@ -4,7 +4,7 @@ class TtyClock < Formula
   url "https://github.com/xorg62/tty-clock/archive/v2.3.tar.gz"
   sha256 "343e119858db7d5622a545e15a3bbfde65c107440700b62f9df0926db8f57984"
   license "BSD-3-Clause"
-  head "https://github.com/xorg62/tty-clock.git"
+  head "https://github.com/xorg62/tty-clock.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fcae9d0e0eeaf68815b4a521f7f75c352d4188a38652b4841bd48b608120edce"
