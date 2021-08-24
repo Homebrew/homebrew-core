@@ -4,7 +4,7 @@ class Terraformer < Formula
   url "https://github.com/GoogleCloudPlatform/terraformer/archive/0.8.15.tar.gz"
   sha256 "46b9c3c0e83c1775d2ce2cf89fbbd4dda82533cdc522a8d33e57f166c4c75808"
   license "Apache-2.0"
-  head "https://github.com/GoogleCloudPlatform/terraformer.git"
+  head "https://github.com/GoogleCloudPlatform/terraformer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e0d93f65a41ae9128de2d5be7d2bb4d367e49282d325e611f734a4f16d739d97"
