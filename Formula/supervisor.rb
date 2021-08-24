@@ -6,7 +6,7 @@ class Supervisor < Formula
   url "https://files.pythonhosted.org/packages/d3/7f/c780b7471ba0ff4548967a9f7a8b0bfce222c3a496c3dfad0164172222b0/supervisor-4.2.2.tar.gz"
   sha256 "5b2b8882ec8a3c3733cce6965cc098b6d80b417f21229ab90b18fe551d619f90"
   license "BSD-3-Clause-Modification"
-  head "https://github.com/Supervisor/supervisor.git"
+  head "https://github.com/Supervisor/supervisor.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "603f334021212060950606136062b072b5a4a36c43c3f6f71000ad090b4ed347"
