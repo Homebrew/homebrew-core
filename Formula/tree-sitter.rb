@@ -6,7 +6,7 @@ class TreeSitter < Formula
   url "https://github.com/tree-sitter/tree-sitter/archive/v0.20.0.tar.gz"
   sha256 "4a8070b9de17c3b8096181fe8530320ab3e8cca685d8bee6a3e8d164b5fb47da"
   license "MIT"
-  head "https://github.com/tree-sitter/tree-sitter.git"
+  head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
   bottle do
     rebuild 1
