@@ -5,7 +5,7 @@ class Slowhttptest < Formula
   sha256 "faa83dc45e55c28a88d3cca53d2904d4059fe46d86eca9fde7ee9061f37c0d80"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/shekyan/slowhttptest.git"
+  head "https://github.com/shekyan/slowhttptest.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "cc98e77420edf6c9304650871991d7df7f89dd99381a63f021bdef192d9b1e37"
