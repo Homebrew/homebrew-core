@@ -1,7 +1,8 @@
 class Opusfile < Formula
   desc "API for decoding and seeking in .opus files"
   homepage "https://www.opus-codec.org/"
-  url "https://ftp.osuosl.org/pub/xiph/releases/opus/opusfile-0.12.tar.gz"
+  url "https://downloads.xiph.org/releases/opus/opusfile-0.12.tar.gz", using: :homebrew_curl
+  mirror "https://ftp.osuosl.org/pub/xiph/releases/opus/opusfile-0.12.tar.gz"
   sha256 "118d8601c12dd6a44f52423e68ca9083cc9f2bfe72da7a8c1acb22a80ae3550b"
   license "BSD-3-Clause"
 
@@ -14,7 +15,7 @@ class Opusfile < Formula
   end
 
   head do
-    url "https://gitlab.xiph.org/xiph/opusfile.git"
+    url "https://gitlab.xiph.org/xiph/opusfile.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -33,8 +34,7 @@ class Opusfile < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
