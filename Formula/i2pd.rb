@@ -24,7 +24,7 @@ class I2pd < Formula
       PREFIX=#{prefix}
     ]
 
-    args << "USE_AVX=no" if Hardware::CPU.arm?
+    args << "USE_AESNI=no" if Hardware::CPU.arm?
 
     system "make", "install", *args
 
