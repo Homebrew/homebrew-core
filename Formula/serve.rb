@@ -4,7 +4,7 @@ class Serve < Formula
   url "https://github.com/syntaqx/serve/archive/v0.5.0.tar.gz"
   sha256 "fab576aa29b14dcfc45ba6e0e7e6b5284a83e873b75992399b3f5ef8d415d6ae"
   license "MIT"
-  head "https://github.com/syntaqx/serve.git"
+  head "https://github.com/syntaqx/serve.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "99f115fe9c19d946db2604146c1bc1f1b85b5d2bb840951f0d105e031e4b0f0d"
