@@ -6,7 +6,7 @@ class Tarantool < Formula
   license "BSD-2-Clause"
   revision 1
   version_scheme 1
-  head "https://github.com/tarantool/tarantool.git"
+  head "https://github.com/tarantool/tarantool.git", branch: "master"
 
   bottle do
     sha256 big_sur:  "5e98389b6a0239a8aeea044669945e4d80ec14dd8dfe6c58f4d1ebd91a28b366"
