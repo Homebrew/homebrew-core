@@ -6,7 +6,7 @@ class Todoman < Formula
   url "https://files.pythonhosted.org/packages/18/27/191a27737cc3f75836218d2d1f97740ec26083b3870726946fc54861373a/todoman-4.0.0.tar.gz"
   sha256 "4c4d0c6533da8d553f3dd170c9c4ff3752eb11fd7177ee391414a39adfef60ad"
   license "ISC"
-  head "https://github.com/pimutils/todoman.git"
+  head "https://github.com/pimutils/todoman.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b7ad318c91c4605aaf963c4649d6b4da7c2b91f02d0a0e82b0237468a81c8ff4"
