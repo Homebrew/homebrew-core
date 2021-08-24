@@ -4,7 +4,7 @@ class Vultr < Formula
   url "https://github.com/JamesClonk/vultr/archive/v2.0.3.tar.gz"
   sha256 "6529d521a7fa006808cd07331f31256e91773ec7e1a0c7839cd14884034fb185"
   license "MIT"
-  head "https://github.com/JamesClonk/vultr.git"
+  head "https://github.com/JamesClonk/vultr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d0d5bffa07a97813ca4eece9a0e396d8a0c76fdd738d5041ad5d82385cb05dda"
