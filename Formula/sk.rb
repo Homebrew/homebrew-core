@@ -4,7 +4,7 @@ class Sk < Formula
   url "https://github.com/lotabout/skim/archive/v0.9.4.tar.gz"
   sha256 "5ec639c34c7657be4f7f990e9ad0d8d0a7a979eba68daa7c100126ce06702a1b"
   license "MIT"
-  head "https://github.com/lotabout/skim.git"
+  head "https://github.com/lotabout/skim.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1bd497fc73a90ccca27cc9bff110d394f65148839c25265d017fc384fddd9c55"
