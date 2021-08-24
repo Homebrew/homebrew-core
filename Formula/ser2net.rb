@@ -53,31 +53,10 @@ class Ser2net < Formula
     EOS
   end
 
-  plist_options manual: "ser2net -p 12345"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_sbin}/ser2net</string>
-              <string>-p</string>
-              <string>12345</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"ser2net", "-p", "12345"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do
