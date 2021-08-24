@@ -3,7 +3,7 @@ class Unicorn < Formula
   homepage "https://www.unicorn-engine.org/"
   url "https://github.com/unicorn-engine/unicorn/archive/1.0.3.tar.gz"
   sha256 "64fba177dec64baf3f11c046fbb70e91483e029793ec6a3e43b028ef14dc0d65"
-  head "https://github.com/unicorn-engine/unicorn.git"
+  head "https://github.com/unicorn-engine/unicorn.git", branch: "master"
 
   bottle do
     rebuild 1
