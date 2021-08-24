@@ -4,7 +4,7 @@ class TmuxMemCpuLoad < Formula
   url "https://github.com/thewtex/tmux-mem-cpu-load/archive/v3.5.1.tar.gz"
   sha256 "6b62197ba755eec775b3f494db617b239b5e9d79945e165a3c8bba3b9092d0d1"
   license "Apache-2.0"
-  head "https://github.com/thewtex/tmux-mem-cpu-load.git"
+  head "https://github.com/thewtex/tmux-mem-cpu-load.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c4a7b18971b2e0e9eeff0a08cc6279123274e0297cc5b713456b2fbfb535630a"
