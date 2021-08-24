@@ -62,7 +62,7 @@ class Gdb < Formula
       gdb requires special privileges to access Mach ports.
       You will need to codesign the binary. For instructions, see:
 
-        https://sourceware.org/gdb/wiki/BuildingOnDarwin
+        https://sourceware.org/gdb/wiki/PermissionsDarwin
 
       On 10.12 (Sierra) or later with SIP, you need to run this:
 
