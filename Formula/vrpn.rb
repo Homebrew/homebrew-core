@@ -3,7 +3,7 @@ class Vrpn < Formula
   homepage "https://github.com/vrpn/vrpn/wiki"
   url "https://github.com/vrpn/vrpn/releases/download/version_07.34/vrpn_07.34.zip"
   sha256 "1ecb68f25dcd741c4bfe161ce15424f1319a387a487efa3fbf49b8aa249c9910"
-  head "https://github.com/vrpn/vrpn.git"
+  head "https://github.com/vrpn/vrpn.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "0166e398738d642dbe0c93a058a4e436060c6b57175ad2f6cff9ed53fd2bd857"
