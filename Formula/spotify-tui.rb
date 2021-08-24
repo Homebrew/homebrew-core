@@ -4,7 +4,7 @@ class SpotifyTui < Formula
   url "https://github.com/Rigellute/spotify-tui/archive/v0.24.0.tar.gz"
   sha256 "c3da9eec76fe5387555b63ff7e4de8e0e4f5eba948af6df112e02cf8031519ee"
   license "MIT"
-  head "https://github.com/Rigellute/spotify-tui.git"
+  head "https://github.com/Rigellute/spotify-tui.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f8b013d72cb7c6345a0d2223a30911f94fb1a553de887dc0d339e26f0d5e89db"
