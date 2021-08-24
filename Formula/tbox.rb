@@ -4,7 +4,7 @@ class Tbox < Formula
   url "https://github.com/tboox/tbox/archive/v1.6.6.tar.gz"
   sha256 "13b8fa0b10c2c0ca256878a9c71ed2880980659dffaadd123c079c2126d64548"
   license "Apache-2.0"
-  head "https://github.com/tboox/tbox.git"
+  head "https://github.com/tboox/tbox.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "999ed2823cd0b81af561f0fb16e63f36be40db4e11cf9835e09a75295a3a64eb"
