@@ -4,7 +4,7 @@ class Sdb < Formula
   url "https://github.com/radareorg/sdb/archive/1.8.0.tar.gz"
   sha256 "4040dd4457f266e9566d2a19db7ba76c80b789b218960815edaa3be479261123"
   license "MIT"
-  head "https://github.com/radare/sdb.git"
+  head "https://github.com/radare/sdb.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "b0a860ce797a943bba94c3cd5f2b26629a79ffa7c924b01f0a1361130f90a7d6"
