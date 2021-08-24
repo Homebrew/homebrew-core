@@ -4,7 +4,7 @@ class SfPwgen < Formula
   url "https://github.com/anders/pwgen/archive/1.5.tar.gz"
   sha256 "e1f1d575638f216c82c2d1e9b52181d1d43fd05e7169db1d6f9f5d8a2247b475"
   license "Zlib"
-  head "https://github.com/anders/pwgen.git"
+  head "https://github.com/anders/pwgen.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f425de9f8e3e82e24a4c10143e54006c96e6063a19fb64643ec0b3ce279cdaa"
