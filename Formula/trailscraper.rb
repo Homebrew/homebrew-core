@@ -6,7 +6,7 @@ class Trailscraper < Formula
   url "https://files.pythonhosted.org/packages/f4/89/392581eaa901f2690f5d9b0c9589f41ad03606371f16bedd9680a12413aa/trailscraper-0.7.0.tar.gz"
   sha256 "8aade831f331d5f3b3780478473c4dbe45dc2018026df0112624cd37bbdc3605"
   license "Apache-2.0"
-  head "https://github.com/flosell/trailscraper.git"
+  head "https://github.com/flosell/trailscraper.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "46c7ffef4119889f37fd539e1393e2687f0de946b59f113c25c013974120dd9c"
