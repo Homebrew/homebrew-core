@@ -4,7 +4,7 @@ class SwaggerCodegen < Formula
   url "https://github.com/swagger-api/swagger-codegen/archive/v3.0.26.tar.gz"
   sha256 "01db9839aa443f4c351324c4150af8b5e06eca95452e6195354c3fcd91a052b3"
   license "Apache-2.0"
-  head "https://github.com/swagger-api/swagger-codegen.git"
+  head "https://github.com/swagger-api/swagger-codegen.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b4174bfcb8d3f5809017cbfc9ba3af8e474a969bbfd8ed81d1848568dcb0a0df"
