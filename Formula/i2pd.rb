@@ -1,8 +1,8 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.38.0.tar.gz"
-  sha256 "8452f5323795a1846d554096c08fffe5ac35897867b93a5079605df8f80a3089"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.39.0.tar.gz"
+  sha256 "3ffeb614cec826e13b50e8306177018ecb8d873668dfe66aadc733ca9fcaa568"
   license "BSD-3-Clause"
 
   bottle do
@@ -17,8 +17,7 @@ class I2pd < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "make", "install", "DEBUG=no", "HOMEBREW=1", "USE_UPNP=yes",
-                              "USE_AENSI=no", "USE_AVX=no", "PREFIX=#{prefix}"
+    system "make", "install", "DEBUG=no", "HOMEBREW=1", "USE_UPNP=yes", "PREFIX=#{prefix}"
 
     # preinstall to prevent overwriting changed by user configs
     confdir = etc/"i2pd"
