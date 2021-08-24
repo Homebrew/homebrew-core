@@ -6,7 +6,7 @@ class Vulture < Formula
   url "https://files.pythonhosted.org/packages/30/8b/bf4765866521da744ca081f09184657c0dc4fd8ee910a2fd1043d2c7cd6e/vulture-2.3.tar.gz"
   sha256 "03d5a62bcbe9ceb9a9b0575f42d71a2d414070229f2e6f95fa6e7c71aaaed967"
   license "MIT"
-  head "https://github.com/jendrikseipp/vulture.git"
+  head "https://github.com/jendrikseipp/vulture.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c98aa924262650ff457d153e7b0452a22d8a6b69543bc4712832728837af256"
