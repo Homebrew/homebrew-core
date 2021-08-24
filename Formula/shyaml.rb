@@ -6,7 +6,7 @@ class Shyaml < Formula
   url "https://files.pythonhosted.org/packages/b9/59/7e6873fa73a476de053041d26d112b65d7e1e480b88a93b4baa77197bd04/shyaml-0.6.2.tar.gz"
   sha256 "696e94f1c49d496efa58e09b49c099f5ebba7e24b5abe334f15e9759740b7fd0"
   license "BSD-2-Clause"
-  head "https://github.com/0k/shyaml.git"
+  head "https://github.com/0k/shyaml.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ff1ab13915b1148905c77a4bac3ff65db4bc496d3b2fcdf031f30678f781c9f1"
