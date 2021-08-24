@@ -4,7 +4,7 @@ class Tup < Formula
   url "https://github.com/gittup/tup/archive/v0.7.11.tar.gz"
   sha256 "be24dff5f1f32cc85c73398487a756b4a393adab5e4d8500fd5164909d3e85b9"
   license "GPL-2.0-only"
-  head "https://github.com/gittup/tup.git"
+  head "https://github.com/gittup/tup.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "fe803cdb793a0521d4b711bbbdb150d404916e997dfba17146390219910f3383"
