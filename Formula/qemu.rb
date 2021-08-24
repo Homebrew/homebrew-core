@@ -1,19 +1,10 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
+  url "https://download.qemu.org/qemu-6.1.0.tar.xz"
+  sha256 "eebc089db3414bbeedf1e464beda0a7515aad30f73261abc246c9b27503a3c96"
   license "GPL-2.0-only"
   head "https://git.qemu.org/git/qemu.git"
-
-  stable do
-    url "https://download.qemu.org/qemu-6.0.0.tar.xz"
-    sha256 "87bc1a471ca24b97e7005711066007d443423d19aacda3d442558ae032fa30b9"
-
-    # remove in next release
-    patch do
-      url "https://git.qemu.org/?p=qemu.git;a=patch;h=75eebe0b1f15464d19a39c4186bfabf328ab601a"
-      sha256 "9f4db8c6f80f4a87baf1b778fea62bbad89db9db5fd47548c2d22e5475edd910"
-    end
-  end
 
   bottle do
     sha256 arm64_big_sur: "3fcae0fc1d2a2f93fb2822fbed398b34170b0c142fadebc149e27988e68bcf3e"
@@ -41,6 +32,12 @@ class Qemu < Formula
   depends_on "pixman"
   depends_on "snappy"
   depends_on "vde"
+
+  on_linux do
+    depends_on "gcc" => :build
+  end
+
+  fails_with gcc: "5"
 
   # 820KB floppy disk image file of FreeDOS 1.2, used to test QEMU
   resource "test-image" do
@@ -95,7 +92,6 @@ class Qemu < Formula
     assert_match expected, shell_output("#{bin}/qemu-system-mips64 --version")
     assert_match expected, shell_output("#{bin}/qemu-system-mips64el --version")
     assert_match expected, shell_output("#{bin}/qemu-system-mipsel --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-moxie --version")
     assert_match expected, shell_output("#{bin}/qemu-system-nios2 --version")
     assert_match expected, shell_output("#{bin}/qemu-system-or1k --version")
     assert_match expected, shell_output("#{bin}/qemu-system-ppc --version")
