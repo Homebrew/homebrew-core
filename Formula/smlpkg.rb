@@ -4,7 +4,7 @@ class Smlpkg < Formula
   url "https://github.com/diku-dk/smlpkg/archive/v0.1.5.tar.gz"
   sha256 "53440d8b0166dd689330fc686738076225ac883a00b283e65394cf9312575c33"
   license "MIT"
-  head "https://github.com/diku-dk/smlpkg.git"
+  head "https://github.com/diku-dk/smlpkg.git", branch: "master"
 
   bottle do
     rebuild 1
