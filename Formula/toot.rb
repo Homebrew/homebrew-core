@@ -6,7 +6,7 @@ class Toot < Formula
   sha256 "1dfdba9acc8555fa3b4db903cbf806a639bf43c7855d324233041c655fc5cbd5"
   license "GPL-3.0-only"
   revision 1
-  head "https://github.com/ihabunek/toot.git"
+  head "https://github.com/ihabunek/toot.git", branch: "master"
 
   bottle do
     rebuild 1
