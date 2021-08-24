@@ -3,8 +3,8 @@ class Airspyhf < Formula
   homepage "https://airspy.com/"
   url "https://github.com/airspy/airspyhf/archive/1.6.8.tar.gz"
   sha256 "cd1e5ae89e09b813b096ae4a328e352c9432a582e03fd7da86760ba60efa77ab"
-  head "https://github.com/airspy/airspyhf.git", branch: "master"
   license "BSD-3-Clause"
+  head "https://github.com/airspy/airspyhf.git", branch: "master"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
