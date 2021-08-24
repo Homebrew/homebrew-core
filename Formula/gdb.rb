@@ -63,10 +63,6 @@ class Gdb < Formula
       You will need to codesign the binary. For instructions, see:
 
         https://sourceware.org/gdb/wiki/PermissionsDarwin
-
-      On 10.12 (Sierra) or later with SIP, you need to run this:
-
-        echo "set startup-with-shell off" >> ~/.gdbinit
     EOS
   end
 
