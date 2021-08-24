@@ -6,7 +6,7 @@ class Typescript < Formula
   url "https://registry.npmjs.org/typescript/-/typescript-4.3.5.tgz"
   sha256 "c7be550da858be7abfc73dd0b9060ab23ce835ae3b05931f4500a25c09766d45"
   license "Apache-2.0"
-  head "https://github.com/Microsoft/TypeScript.git"
+  head "https://github.com/Microsoft/TypeScript.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "fce42ea57d9ea2e049816fa1588462a9f5a3c3b12889da8a5d5fefa00dbac619"
