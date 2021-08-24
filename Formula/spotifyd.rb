@@ -4,7 +4,7 @@ class Spotifyd < Formula
   url "https://github.com/Spotifyd/spotifyd/archive/v0.3.2.tar.gz"
   sha256 "d1d5442e6639cde7fbd390a65335489611eec62a1cfcba99a4aba8e8977a9d9c"
   license "GPL-3.0-only"
-  head "https://github.com/Spotifyd/spotifyd.git"
+  head "https://github.com/Spotifyd/spotifyd.git", branch: "master"
 
   livecheck do
     url :stable
