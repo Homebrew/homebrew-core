@@ -35,14 +35,14 @@ class CmuSphinxbase < Formula
   depends_on "libsamplerate"
   depends_on "libsndfile"
 
+  uses_from_macos "bison" => :build
+
   def install
     if build.head?
       ENV["NOCONFIGURE"] = "yes"
       system "./autogen.sh"
     end
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -59,7 +59,7 @@ class CmuSphinxbase < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-L#{lib}", "-lsphinxbase", "-I#{include}/sphinxbase", "test.cpp", "-o", "test"
+    system ENV.cxx, "test.cpp", "-L#{lib}", "-lsphinxbase", "-I#{include}/sphinxbase", "-o", "test"
     system "./test"
   end
 end
