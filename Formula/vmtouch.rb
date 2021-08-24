@@ -3,7 +3,7 @@ class Vmtouch < Formula
   homepage "https://hoytech.com/vmtouch/"
   url "https://github.com/hoytech/vmtouch/archive/v1.3.1.tar.gz"
   sha256 "d57b7b3ae1146c4516429ab7d6db6f2122401db814ddd9cdaad10980e9c8428c"
-  head "https://github.com/hoytech/vmtouch.git"
+  head "https://github.com/hoytech/vmtouch.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6d55c8a93a6826d78dcd439155de21e3da33598bd00c022e1fb4d39635f12c53"
