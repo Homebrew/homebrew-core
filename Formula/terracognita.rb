@@ -4,7 +4,7 @@ class Terracognita < Formula
   url "https://github.com/cycloidio/terracognita/archive/v0.6.4.tar.gz"
   sha256 "b9282055bf2235e0f8b9fbc1ae31c22909986ee3b3df5cc64e644b34f6513485"
   license "MIT"
-  head "https://github.com/cycloidio/terracognita.git"
+  head "https://github.com/cycloidio/terracognita.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2cafed794c34f72a5e390a1bdf821798d33c55c567c6b4fa1348d800f3584711"
