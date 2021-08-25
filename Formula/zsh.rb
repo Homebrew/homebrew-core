@@ -17,7 +17,7 @@ class Zsh < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/zsh/code.git"
+    url "https://git.code.sf.net/p/zsh/code.git", branch: "master"
     depends_on "autoconf" => :build
   end
 
