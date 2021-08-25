@@ -22,6 +22,12 @@ class OryHydra < Formula
 
   conflicts_with "hydra", because: "both install `hydra` binaries"
 
+  # Support go 1.17, remove after next release
+  patch do
+    url "https://github.com/ory/hydra/commit/57b41e93f89ff847da0386a8315603bba203f417.patch?full_index=1"
+    sha256 "9b51bb86935b53e30e7e1dc3585b94f4fd901e1127263b783110d7b1bb983e11"
+  end
+
   def install
     ENV["GOBIN"] = bin
     system "make", "install"
