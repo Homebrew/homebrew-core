@@ -4,7 +4,7 @@ class Qthreads < Formula
   url "https://github.com/Qthreads/qthreads/releases/download/1.16/qthread-1.16.tar.bz2"
   sha256 "923d58f3ecf7d838a18c3616948ea32ddace7196c6805518d052c51a27219970"
   license "BSD-3-Clause"
-  head "https://github.com/Qthreads/qthreads.git"
+  head "https://github.com/Qthreads/qthreads.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, big_sur:  "1b38fc8670cd871f3bcbc3d0f7af6b7a481954d178265fa4000933ea4a081393"
