@@ -4,7 +4,7 @@ class Rhash < Formula
   url "https://downloads.sourceforge.net/project/rhash/rhash/1.4.2/rhash-1.4.2-src.tar.gz"
   sha256 "600d00f5f91ef04194d50903d3c79412099328c42f28ff43a0bdb777b00bec62"
   license "0BSD"
-  head "https://github.com/rhash/RHash.git"
+  head "https://github.com/rhash/RHash.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "18ec6f8f8b34ed448b3f1f8fd833dbb77fd5aceac7f54548734921b6ea0bf6dc"
