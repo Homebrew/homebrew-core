@@ -6,7 +6,7 @@ class Parliament < Formula
   url "https://files.pythonhosted.org/packages/1a/29/e8c814819571c78c1f1e25dbe20f995fb86b854aa59db4fbab20a641a346/parliament-1.4.0.tar.gz"
   sha256 "cf40d5f5732bcf831fdb1a13f71c3cf4f3bdb8c8d9685592ecdd6d84675b947e"
   license "BSD-3-Clause"
-  head "https://github.com/duo-labs/parliament.git"
+  head "https://github.com/duo-labs/parliament.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "70152e9beb86b2ee8e3e167abb8eb11afabff2834021ac3a13ead2833f78b018"
