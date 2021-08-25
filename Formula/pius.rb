@@ -7,7 +7,7 @@ class Pius < Formula
   sha256 "3454ade5540687caf6d8b271dd18eb773a57ab4f5503fc71b4769cc3c5f2b572"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/jaymzh/pius.git"
+  head "https://github.com/jaymzh/pius.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "30e6a2eac50a9ac4090606b89ac29de3363d8c294d62fbf54a1c0a7db07c02be"
