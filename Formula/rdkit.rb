@@ -4,7 +4,7 @@ class Rdkit < Formula
   url "https://github.com/rdkit/rdkit/archive/Release_2021_03_5.tar.gz"
   sha256 "ee7ed4189ab03cf805ab9db59121ab3ebcba4c799389d053046d7cab4dd8401e"
   license "BSD-3-Clause"
-  head "https://github.com/rdkit/rdkit.git"
+  head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
     url :stable
