@@ -4,7 +4,7 @@ class Pgpdump < Formula
   url "https://github.com/kazu-yamamoto/pgpdump/archive/v0.33.tar.gz"
   sha256 "fe580ef43f651da59816c70f38f177ea4fa769d64e3d6883a9d1f661bb0a6952"
   license "BSD-3-Clause"
-  head "https://github.com/kazu-yamamoto/pgpdump.git"
+  head "https://github.com/kazu-yamamoto/pgpdump.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e2be885245f927b5cc3203bff8af2f063d60853d2c7627100ef46f8cd4eb730d"
