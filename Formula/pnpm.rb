@@ -74,23 +74,10 @@ class Pnpm < Formula
 
   def caveats
     <<~EOS
-      You should create npm's global directory somewhere if you
-      want to install packages globally:
+      Run the following command to create the content-addressable store for the first time:
 
-        mkdir -p ~/.npm-packages/bin
+        pnpm setup
 
-      Run the following command:
-
-        echo 'prefix=${HOME}/.npm-packages' >> ~/.npmrc
-
-      Add the following to #{shell_profile} or your desired shell
-      configuration file:
-
-        export PATH="$HOME/.npm-packages/bin:$PATH"
-
-      You can set prefix to any location, but leaving it unchanged from
-      #{HOMEBREW_PREFIX} will destroy any Homebrew-installed Node installations
-      upon upgrade/reinstall.
     EOS
   end
 
