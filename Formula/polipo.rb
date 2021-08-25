@@ -4,7 +4,7 @@ class Polipo < Formula
   url "https://www.irif.univ-paris-diderot.fr/~jch/software/files/polipo/polipo-1.1.1.tar.gz"
   sha256 "a259750793ab79c491d05fcee5a917faf7d9030fb5d15e05b3704e9c9e4ee015"
   license "MIT"
-  head "https://github.com/jech/polipo.git"
+  head "https://github.com/jech/polipo.git", branch: "master"
 
   bottle do
     rebuild 2
