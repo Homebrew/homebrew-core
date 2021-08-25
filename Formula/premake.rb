@@ -5,7 +5,7 @@ class Premake < Formula
   sha256 "0fa1ed02c5229d931e87995123cdb11d44fcc8bd99bba8e8bb1bbc0aaa798161"
   license "BSD-3-Clause"
   version_scheme 1
-  head "https://github.com/premake/premake-core.git"
+  head "https://github.com/premake/premake-core.git", branch: "master"
 
   bottle do
     rebuild 1
