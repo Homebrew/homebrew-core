@@ -17,6 +17,12 @@ class Traefik < Formula
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
+  # Support go 1.17, remove after next release
+  patch do
+    url "https://github.com/traefik/traefik/commit/352a72a5d7ed6caff2315f92d61f50c475c9f137.patch?full_index=1"
+    sha256 "ff99dad7a1933b87c94e0bdf22eb38a69c09ffb9c4292f2112359ff1bbe3020f"
+  end
+
   def install
     system "go", "generate"
     system "go", "build",
