@@ -15,7 +15,7 @@ class Liblo < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/liblo/git.git"
+    url "https://git.code.sf.net/p/liblo/git.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
