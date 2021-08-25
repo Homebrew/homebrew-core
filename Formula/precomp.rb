@@ -4,7 +4,7 @@ class Precomp < Formula
   url "https://github.com/schnaader/precomp-cpp/archive/v0.4.7.tar.gz"
   sha256 "b4064f9a18b9885e574c274f93d73d8a4e7f2bbd9e959beaa773f2e61292fb2b"
   license "Apache-2.0"
-  head "https://github.com/schnaader/precomp-cpp.git"
+  head "https://github.com/schnaader/precomp-cpp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "527a77954282f384fd4bd01ec67750d73ee5fc0d989cee4be22ba688a461a90f"
