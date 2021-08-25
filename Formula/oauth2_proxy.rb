@@ -30,30 +30,10 @@ class Oauth2Proxy < Formula
     EOS
   end
 
-  plist_options manual: "oauth2-proxy"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/oauth2-proxy</string>
-              <string>--config=#{etc}/oauth2-proxy/oauth2-proxy.cfg</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"oauth2-proxy", "--config=#{etc}/oauth2-proxy/oauth2-proxy.cfg"]
+    keep_alive true
+    working_dir HOMEBREW_PREFIX
   end
 
   test do
