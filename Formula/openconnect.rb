@@ -21,7 +21,8 @@ class Openconnect < Formula
   end
 
   head do
-    url "git://git.infradead.org/users/dwmw2/openconnect.git"
+    url "git://git.infradead.org/users/dwmw2/openconnect.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
