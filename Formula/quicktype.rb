@@ -7,7 +7,7 @@ class Quicktype < Formula
   url "https://registry.npmjs.org/quicktype/-/quicktype-15.0.260.tgz"
   sha256 "57ffeb7f12f3c3476bd7e0213716006b49a8159c20e63fd60cb07eefa4289b6f"
   license "Apache-2.0"
-  head "https://github.com/quicktype/quicktype.git"
+  head "https://github.com/quicktype/quicktype.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2fa5aaec1d5d1cb1809dd3ad614dda13af59447772cfa4526945e4fbedcd780e"
