@@ -6,7 +6,7 @@ class PrometheusCpp < Formula
       revision: "84388828ae80556f57e11249dbd0063043991fb4",
       shallow:  false
   license "MIT"
-  head "https://github.com/jupp0r/prometheus-cpp.git"
+  head "https://github.com/jupp0r/prometheus-cpp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "024fed12ca3ab93cffda6808e10119299e13a9b8c2ce179a69af2660c4b2a85e"
