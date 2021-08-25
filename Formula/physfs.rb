@@ -4,7 +4,7 @@ class Physfs < Formula
   url "https://icculus.org/physfs/downloads/physfs-3.0.2.tar.bz2"
   sha256 "304df76206d633df5360e738b138c94e82ccf086e50ba84f456d3f8432f9f863"
   license "Zlib"
-  head "https://hg.icculus.org/icculus/physfs/", using: :hg
+  head "https://github.com/icculus/physfs.git", branch: "main"
 
   livecheck do
     url "https://icculus.org/physfs/downloads/"
