@@ -6,7 +6,7 @@ class Ranger < Formula
   url "https://ranger.github.io/ranger-1.9.3.tar.gz"
   sha256 "ce088a04c91c25263a9675dc5c43514b7ec1b38c8ea43d9a9d00923ff6cdd251"
   license "GPL-3.0-or-later"
-  head "https://github.com/ranger/ranger.git"
+  head "https://github.com/ranger/ranger.git", branch: "master"
 
   bottle do
     rebuild 2
