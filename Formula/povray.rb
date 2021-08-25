@@ -4,7 +4,7 @@ class Povray < Formula
   url "https://github.com/POV-Ray/povray/archive/v3.7.0.10.tar.gz"
   sha256 "7bee83d9296b98b7956eb94210cf30aa5c1bbeada8ef6b93bb52228bbc83abff"
   license "AGPL-3.0-or-later"
-  head "https://github.com/POV-Ray/povray.git"
+  head "https://github.com/POV-Ray/povray.git", branch: "master"
 
   livecheck do
     url :stable
