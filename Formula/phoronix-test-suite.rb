@@ -4,7 +4,7 @@ class PhoronixTestSuite < Formula
   url "https://github.com/phoronix-test-suite/phoronix-test-suite/archive/v10.4.0.tar.gz"
   sha256 "4feda834008c9844bbe675a6ce9b88a44d36965bc2d0a9d62c1407ba5b084935"
   license "GPL-3.0-or-later"
-  head "https://github.com/phoronix-test-suite/phoronix-test-suite.git"
+  head "https://github.com/phoronix-test-suite/phoronix-test-suite.git", branch: "master"
 
   livecheck do
     url :stable
