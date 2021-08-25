@@ -4,7 +4,7 @@ class Rtptools < Formula
   url "https://github.com/irtlab/rtptools/archive/1.22.tar.gz"
   sha256 "ac6641558200f5689234989e28ed3c44ead23757ccf2381c8878933f9c2523e0"
   license "BSD-3-Clause"
-  head "https://github.com/irtlab/rtptools.git"
+  head "https://github.com/irtlab/rtptools.git", branch: "master"
 
   livecheck do
     url :stable
