@@ -4,7 +4,7 @@ class Progress < Formula
   url "https://github.com/Xfennec/progress/archive/v0.16.tar.gz"
   sha256 "59944ee35f8ae6d62ed4f9b643eee2ae6d03825da288d9779dc43de41164c834"
   license "GPL-3.0"
-  head "https://github.com/Xfennec/progress.git"
+  head "https://github.com/Xfennec/progress.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "97407ff56c65c8f77371ce073478868eb507742db82c11e107a43413bce646c3"
