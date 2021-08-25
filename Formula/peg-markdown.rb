@@ -5,7 +5,7 @@ class PegMarkdown < Formula
   sha256 "111bc56058cfed11890af11bec7419e2f7ccec6b399bf05f8c55dae0a1712980"
   license any_of: ["GPL-2.0-or-later", "MIT"]
   revision 1
-  head "https://github.com/jgm/peg-markdown.git"
+  head "https://github.com/jgm/peg-markdown.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "25d1eb833b0688d0b2db0667f105d27e50d6a46a14ea57be5aa5ef50c7127f62"
