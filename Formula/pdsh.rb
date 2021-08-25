@@ -4,7 +4,7 @@ class Pdsh < Formula
   url "https://github.com/chaos/pdsh/releases/download/pdsh-2.34/pdsh-2.34.tar.gz"
   sha256 "b47b3e4662736ef44b6fe86e3d380f95e591863e69163aa0592e9f9f618521e9"
   license "GPL-2.0"
-  head "https://github.com/chaos/pdsh.git"
+  head "https://github.com/chaos/pdsh.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "08092fc19817b2eb4fbbb1ffe7849246f7a8c0cfc1b3493d631f41b77ab68de6"
