@@ -5,7 +5,7 @@ class Pianobar < Formula
   sha256 "653bfb96b548259e3ac360752f66fdb77e8e220312e52a43c652f7eb96e7d4fe"
   license "MIT"
   revision 1
-  head "https://github.com/PromyLOPh/pianobar.git"
+  head "https://github.com/PromyLOPh/pianobar.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "67d05332f2f15473c2a26d58ecc2d944cbc395be299bd0607fb73606f16469d3"
