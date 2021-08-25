@@ -15,7 +15,7 @@ class Flex < Formula
   end
 
   head do
-    url "https://github.com/westes/flex.git"
+    url "https://github.com/westes/flex.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -39,6 +39,20 @@ class Flex < Formula
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
 
       system "./autogen.sh"
+    end
+
+    # Fix segmentation fault during install on Ubuntu 18.04 (caused by glibc 2.26+), which
+    # provides reallocarray() but wants -D_GNU_SOURCE for the prototype when using gcc-7 and gcc-8:
+    # https://github.com/Homebrew/linuxbrew-core/issues/12313
+    # Used in the OpenEmbedded/Yocto build system since 2019-12-04:
+    # http://cgit.openembedded.org/openembedded-core/commit?id=a0fe05f3ffd67dc42e053c20bd019bb9d463d0ad
+    # https://github.com/westes/flex/issues/241 - Upstream fix is in master:
+    # https://github.com/westes/flex/commit/24fd0551333e7eded87b64dd36062da3df2f6380
+    # The upstream fix does the same but would cause us to need autoconf and regenerate the configure script.
+    # This is far less intrusive. It only tells glibc's feature.h to provide the GNU extensions,
+    # and this is more straight-forward to remove when it is obsolete with the next release:
+    on_linux do
+      ENV.append "CPPFLAGS", "-D_GNU_SOURCE"
     end
 
     system "./configure", "--disable-dependency-tracking",
