@@ -6,7 +6,7 @@ class PythonMarkdown < Formula
   url "https://files.pythonhosted.org/packages/49/02/37bd82ae255bb4dfef97a4b32d95906187b7a7a74970761fca1360c4ba22/Markdown-3.3.4.tar.gz"
   sha256 "31b5b491868dcc87d6c24b7e3d19a0d730d59d3e46f4eea6430a321bed387a49"
   license "BSD-3-Clause"
-  head "https://github.com/Python-Markdown/markdown.git"
+  head "https://github.com/Python-Markdown/markdown.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "43873534a708de73d549d2c4d0bc5b9bd096f3f1e75ea3e143aa82925ef3e6f2"
