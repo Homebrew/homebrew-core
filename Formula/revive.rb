@@ -5,7 +5,7 @@ class Revive < Formula
       tag:      "v1.1.0",
       revision: "c582d6221fe731ac65470a27a89af16131b34478"
   license "MIT"
-  head "https://github.com/mgechev/revive.git"
+  head "https://github.com/mgechev/revive.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "00e1f390c9e6013aab8c9b747d4a7228a7db4730616b96bba75c824d521c4d78"
