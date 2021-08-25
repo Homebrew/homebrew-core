@@ -5,7 +5,7 @@ class Qhull < Formula
   version "2020.2"
   sha256 "b5c2d7eb833278881b952c8a52d20179eab87766b00b865000469a45c1838b7e"
   license "Qhull"
-  head "https://github.com/qhull/qhull.git"
+  head "https://github.com/qhull/qhull.git", branch: "master"
 
   # It's necessary to match the version from the link text, as the filename
   # only contains the year (`2020`), not a full version like `2020.2`.
