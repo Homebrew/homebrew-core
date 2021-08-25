@@ -7,7 +7,7 @@ class Percol < Formula
   sha256 "7a649c6fae61635519d12a6bcacc742241aad1bff3230baef2cedd693ed9cfe8"
   license "MIT"
   revision 3
-  head "https://github.com/mooz/percol.git"
+  head "https://github.com/mooz/percol.git", branch: "master"
 
   bottle do
     rebuild 1
