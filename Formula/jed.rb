@@ -22,7 +22,8 @@ class Jed < Formula
   end
 
   head do
-    url "git://git.jedsoft.org/git/jed.git"
+    url "git://git.jedsoft.org/git/jed.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
