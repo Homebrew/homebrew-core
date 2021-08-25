@@ -5,7 +5,7 @@ class Rack < Formula
       tag:      "1.2",
       revision: "09c14b061f4a115c8f1ff07ae6be96d9b11e08df"
   license "Apache-2.0"
-  head "https://github.com/rackspace/rack.git"
+  head "https://github.com/rackspace/rack.git", branch: "master"
 
   bottle do
     rebuild 2
