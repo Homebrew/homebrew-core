@@ -4,7 +4,7 @@ class PopplerQt5 < Formula
   url "https://poppler.freedesktop.org/poppler-21.08.0.tar.xz"
   sha256 "e9cf5dc5964bce4bb0264d1c4f8122706c910588b421cfc30abc97d6b23e602d"
   license "GPL-2.0-only"
-  head "https://gitlab.freedesktop.org/poppler/poppler.git"
+  head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
   livecheck do
     formula "poppler"
