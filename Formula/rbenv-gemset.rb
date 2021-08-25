@@ -5,7 +5,7 @@ class RbenvGemset < Formula
   sha256 "856aa45ce1e9ac56d476667e2ca58f5f312600879fec4243073edc88a41954da"
   license :public_domain
   revision 1
-  head "https://github.com/jf/rbenv-gemset.git"
+  head "https://github.com/jf/rbenv-gemset.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "57bcf5e57436cf4a85a595127c09b591f6a971b132e900ab12d29aae2d00f767"
