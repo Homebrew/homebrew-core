@@ -1,9 +1,9 @@
 class Pinentry < Formula
   desc "Passphrase entry dialog utilizing the Assuan protocol"
   homepage "https://www.gnupg.org/related_software/pinentry/"
-  url "https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.1.1.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/pinentry/pinentry-1.1.1.tar.bz2"
-  sha256 "cd12a064013ed18e2ee8475e669b9f58db1b225a0144debdb85a68cecddba57f"
+  url "https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.2.0.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/pinentry/pinentry-1.2.0.tar.bz2"
+  sha256 "10072045a3e043d0581f91cd5676fcac7ffee957a16636adedaa4f583a616470"
   license "GPL-2.0-only"
 
   livecheck do
@@ -12,11 +12,11 @@ class Pinentry < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "933ed357a058e743d86ad965ecd246e8a228cc9b9fb05e310eb19c552f587201"
-    sha256 cellar: :any,                 big_sur:       "b2fca70261e4f8a945628d62d8d673ee75df71bffa469616447928ab05eaa9bb"
-    sha256 cellar: :any,                 catalina:      "83a923d3334fa79364af9539de6126014209b8f50a313b7a085986d06fe80753"
-    sha256 cellar: :any,                 mojave:        "92cf647e09770cda92dd77ef0814da6ea8b69a27710e73fc4bf601e0d9d8a8ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2a21c9099018a27bb02a3e8357c3c7b6569106fc94fc94d7560668d5dde66a42"
+    sha256 cellar: :any,                 arm64_big_sur: "f1aac9f10ce7c1cef39dd12298c1cf30f0534268084f19d63d3a9cf0e97f8205"
+    sha256 cellar: :any,                 big_sur:       "be92fdf84939d67ce31943821756e5d64b20b0b9056e31067a5fd0e96b20c2a1"
+    sha256 cellar: :any,                 catalina:      "f77593c55d085e67e32b2a164830aec2ed4023a4114cbf642772b766fe530860"
+    sha256 cellar: :any,                 mojave:        "6ca3c6242384a4e3a42cb88a2c88a932f4dbcf8b10ecdeb15afbaee0dd865f4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e257b1ff3aada1bdb7f78fba93d6ab8f445d880395cbc330f2d2277c91ad822c"
   end
 
   depends_on "pkg-config" => :build

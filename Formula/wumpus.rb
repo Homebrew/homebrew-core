@@ -4,6 +4,11 @@ class Wumpus < Formula
   url "http://www.catb.org/~esr/wumpus/wumpus-1.7.tar.gz"
   sha256 "892678a66d6d1fe2a7ede517df2694682b882797a546ac5c0568cc60b659f702"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?wumpus[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1e1c53ffe64c591ac7e32ffe612d86a043588d0b6d5f63e0d8091dbcaa8af6d8"
     sha256 cellar: :any_skip_relocation, big_sur:       "ac3f0b19f9510c8599a213401973d1cac9a0cb575bb8caa0be97d944dc94f765"

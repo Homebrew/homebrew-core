@@ -7,17 +7,18 @@ class Datree < Formula
   head "https://github.com/datreeio/datree.git", branch: "staging"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f27bd61923bc32cd4009f430d339da66c3ed1e2f67e4cd280a7e7429688c56d4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "937f49e642d5c7ae00bcc10229bf05597fb3283f67cb4029d11f1acb1c024838"
-    sha256 cellar: :any_skip_relocation, catalina:      "0bc7e64242815f234a5d6863080c3aea5bfc10c567f4695aaf5b71e9f6dc8bb6"
-    sha256 cellar: :any_skip_relocation, mojave:        "11dcd85da14660fbd59130c40d320fa1e972ad71d031f2637d29951dd2db8edd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e7e6bf64c4a4c27777db1ceff1714ead56b146434947aa877246b5c9fadf36fc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03cd690be4f19f8995b8db44af2c65667fc047687dc0a72db80bfb95b452ffc3"
+    sha256 cellar: :any_skip_relocation, big_sur:       "4556847bcbc60fdacc323a8c832a02eeba10b0ab01497adde6bdd15df273fdbe"
+    sha256 cellar: :any_skip_relocation, catalina:      "6d59313778325f28d6858f7e36b578ba8d27c19f2809e9df6f1b2e709010c879"
+    sha256 cellar: :any_skip_relocation, mojave:        "1c00134b785c2204486e3d926f70d959f891e131bbc366ab527d2ee581928618"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9cfb7e62cb37f850c1d607fe91a55dbfc95a615742efeb2909fd827297ff5b1"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/datreeio/datree/cmd.CliVersion=v#{version}")
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/datreeio/datree/cmd.CliVersion=#{version}"), "-tags", "main"
   end
 
   test do
@@ -38,6 +39,6 @@ class Datree < Formula
     assert_match "k8s schema validation error: error while parsing: missing 'apiVersion' key",
       shell_output("#{bin}/datree test #{testpath}/invalidK8sSchema.yaml 2>&1", 1)
 
-    assert_equal "v#{version}\n", shell_output("#{bin}/datree version")
+    assert_equal "#{version}\n", shell_output("#{bin}/datree version")
   end
 end
