@@ -44,7 +44,7 @@ class Pnpm < Formula
       system "pnpm", "run", "compile"
     end
     chdir "packages/beta" do
-      system "node_modules/.bin/pkg", "--target=host", "../pnpm/dist/pnpm.cjs"
+      system "node_modules/.bin/pkg", "--build", "--target=host", "../pnpm/dist/pnpm.cjs"
       bin.install "pnpm"
     end
   end
