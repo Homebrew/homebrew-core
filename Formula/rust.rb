@@ -2,6 +2,7 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   stable do
     url "https://static.rust-lang.org/dist/rustc-1.54.0-src.tar.gz"
@@ -12,6 +13,13 @@ class Rust < Formula
       url "https://github.com/rust-lang/cargo.git",
           tag:      "0.55.0",
           revision: "5ae8d74b3b2d58f32c8d357e5cfa04d430a70e0b"
+
+      # Work around crates.io timeouts with newer curl versions
+      # https://github.com/rust-lang/cargo/pull/9695
+      patch do
+        url "https://github.com/rust-lang/cargo/commit/27277d966b3cfa454d6dea7f724cb961c036251c.patch?full_index=1"
+        sha256 "55bf95b62dd38f372747922e5530544321601cf4c0e87e8174f440aa874f522d"
+      end
     end
   end
 
