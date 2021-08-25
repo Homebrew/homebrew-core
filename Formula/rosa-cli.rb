@@ -4,7 +4,7 @@ class RosaCli < Formula
   url "https://github.com/openshift/rosa/archive/refs/tags/v1.1.1.tar.gz"
   sha256 "506a8f7240a54821f7d42f827b7586555cc1ecfea5b85683b9c1db20a8329916"
   license "Apache-2.0"
-  head "https://github.com/openshift/rosa.git"
+  head "https://github.com/openshift/rosa.git", branch: "master"
 
   livecheck do
     url :stable
