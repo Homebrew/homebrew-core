@@ -4,7 +4,7 @@ class Purescript < Formula
   url "https://hackage.haskell.org/package/purescript-0.14.3/purescript-0.14.3.tar.gz"
   sha256 "2a82532d416d93d117ab942ab0b618642d788bf0dae09fc045bc1cc88ba71f3c"
   license "BSD-3-Clause"
-  head "https://github.com/purescript/purescript.git"
+  head "https://github.com/purescript/purescript.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "343622a265f66e7215f07b123360e90bc97193d65469dca3ff6e91277cf60c40"
