@@ -1,7 +1,7 @@
 class Icecast < Formula
   desc "Streaming MP3 audio server"
   homepage "https://icecast.org/"
-  url "https://downloads.xiph.org/releases/icecast/icecast-2.4.4.tar.gz"
+  url "https://downloads.xiph.org/releases/icecast/icecast-2.4.4.tar.gz", using: :homebrew_curl
   mirror "https://ftp.osuosl.org/pub/xiph/releases/icecast/icecast-2.4.4.tar.gz"
   sha256 "49b5979f9f614140b6a38046154203ee28218d8fc549888596a683ad604e4d44"
   revision 1
