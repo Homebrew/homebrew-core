@@ -2,7 +2,7 @@ class PamU2f < Formula
   desc "Provides an easy way to use U2F-compliant authenticators with PAM"
   homepage "https://developers.yubico.com/pam-u2f/"
   license "BSD-2-Clause"
-  head "https://github.com/Yubico/pam-u2f.git"
+  head "https://github.com/Yubico/pam-u2f.git", branch: "master"
 
   # remove stable block on next release with merged patch
   stable do
