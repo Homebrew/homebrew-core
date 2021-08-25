@@ -4,7 +4,7 @@ class Pastel < Formula
   url "https://github.com/sharkdp/pastel/archive/v0.8.1.tar.gz"
   sha256 "e1afcd8035a4c1da7f6d0fc8d5fc703dee72baa77bd0588a67d3b606e70146cb"
   license "Apache-2.0"
-  head "https://github.com/sharkdp/pastel.git"
+  head "https://github.com/sharkdp/pastel.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d0acfb78bf2984605f33eff15d1514482f2f15920d3d93aa054f565beaa83dec"
