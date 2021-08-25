@@ -7,7 +7,7 @@ class Q < Formula
   sha256 "cd4c60923bc40f53d974b54849f76096bf9901407c618cd0a3ccbc322aacc97d"
   license "GPL-3.0-or-later"
   revision 3
-  head "https://github.com/harelba/q.git"
+  head "https://github.com/harelba/q.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3d4d40c7c4eacc8abe3ea9d3ab9e34ea0019d93b696a8660d092507c16bfa07"
