@@ -5,7 +5,7 @@ class PdfRedactTools < Formula
   sha256 "5874a7b76be15ccaa4c20874299ef51fbaf520a858229a58678bc72a305305fc"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/firstlookmedia/pdf-redact-tools.git"
+  head "https://github.com/firstlookmedia/pdf-redact-tools.git", branch: "master"
 
   bottle do
     rebuild 1
