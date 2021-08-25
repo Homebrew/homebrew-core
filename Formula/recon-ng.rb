@@ -3,10 +3,9 @@ class ReconNg < Formula
 
   desc "Web Reconnaissance Framework"
   homepage "https://github.com/lanmaster53/recon-ng"
-  url "https://github.com/lanmaster53/recon-ng/archive/v5.1.1.tar.gz"
-  sha256 "470e293e931c23a0dc76e6915098e04db7f2e254a0639bb2c0383e0758c4fbc2"
+  url "https://github.com/lanmaster53/recon-ng/archive/v5.1.2.tar.gz"
+  sha256 "18d05030b994c9b37f624628251d3376d590f3d1eec155f67aca88fa5f3490cc"
   license "GPL-3.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "96b36eec2f0dcd83de144758e888da8c38536f7848c94fbdc202cfb1ce6657af"
