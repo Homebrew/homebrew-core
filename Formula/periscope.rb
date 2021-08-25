@@ -2,8 +2,8 @@ class Periscope < Formula
   desc "Organize and de-duplicate your files without losing data"
   homepage "https://github.com/anishathalye/periscope"
   url "https://github.com/anishathalye/periscope.git",
-      tag:      "v0.2.2",
-      revision: "ff389f2a52052b1a936921e1f5b30d36eaa961a1"
+      tag:      "v0.3.0",
+      revision: "1b162d80ad131b39dae9847a60fbfeb9cfe5624e"
   license "GPL-3.0-only"
 
   bottle do
@@ -36,23 +36,25 @@ class Periscope < Formula
     assert_match version.to_s, shell_output("#{bin}/psc version")
 
     # setup
-    (testpath/"a").write("dupe")
-    (testpath/"b").write("dupe")
-    (testpath/"c").write("unique")
+    scandir = testpath/"scandir"
+    scandir.mkdir
+    (scandir/"a").write("dupe")
+    (scandir/"b").write("dupe")
+    (scandir/"c").write("unique")
 
     # scan + summary is correct
-    shell_output "#{bin}/psc scan 2>/dev/null"
+    shell_output "#{bin}/psc scan #{scandir} 2>/dev/null"
     summary = shell_output("#{bin}/psc summary").strip.split("\n").map { |l| l.strip.split }
-    assert_equal [["tracked", "2"], ["unique", "1"], ["duplicate", "1"], ["overhead", "4", "B"]], summary
+    assert_equal [["tracked", "3"], ["unique", "2"], ["duplicate", "1"], ["overhead", "4", "B"]], summary
 
     # rm allows deleting dupes but not uniques
-    shell_output "#{bin}/psc rm #{testpath/"a"}"
-    refute_predicate (testpath/"a"), :exist?
+    shell_output "#{bin}/psc rm #{scandir/"a"}"
+    refute_predicate (scandir/"a"), :exist?
     # now b is unique
-    shell_output "#{bin}/psc rm #{testpath/"b"} 2>/dev/null", 1
-    assert_predicate (testpath/"b"), :exist?
-    shell_output "#{bin}/psc rm #{testpath/"c"} 2>/dev/null", 1
-    assert_predicate (testpath/"c"), :exist?
+    shell_output "#{bin}/psc rm #{scandir/"b"} 2>/dev/null", 1
+    assert_predicate (scandir/"b"), :exist?
+    shell_output "#{bin}/psc rm #{scandir/"c"} 2>/dev/null", 1
+    assert_predicate (scandir/"c"), :exist?
 
     # cleanup
     shell_output("#{bin}/psc finish")
