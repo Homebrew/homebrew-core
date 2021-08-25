@@ -16,15 +16,22 @@ class Cql < Formula
 
   depends_on "go" => :build
 
+  # Support go 1.17, remove after next release
+  patch do
+    url "https://github.com/CovenantSQL/CovenantSQL/commit/c1d5d81f5c27f0d02688bba41e29b84334eb438c.patch?full_index=1"
+    sha256 "ebb9216440dc7061a99ad05be3dc7634db4260585f82966104a29a7c323c903d"
+  end
+
   def install
-    ENV["CQLVERSION"] = "v#{version}"
     ENV["CGO_ENABLED"] = "1"
 
-    ldflags = "-s -w -X main.version=v#{version} " \
-              "-X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C " \
-              "-X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y"
-    system "go", "build", *std_go_args, "-tags", "sqlite_omit_load_extension",
-      "-ldflags", ldflags, "./cmd/cql"
+    ldflags = %W[
+      -s -w
+      -X main.version=v#{version}
+      -X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C
+      -X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "sqlite_omit_load_extension", "./cmd/cql"
 
     bash_completion.install "bin/completion/cql-completion.bash"
     zsh_completion.install "bin/completion/_cql"
