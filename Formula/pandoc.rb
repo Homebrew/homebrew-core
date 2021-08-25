@@ -4,7 +4,7 @@ class Pandoc < Formula
   url "https://hackage.haskell.org/package/pandoc-2.14.2/pandoc-2.14.2.tar.gz"
   sha256 "2cf7d376125671c8d0d0a8b1216cf466dbe050cc150b395fb7d7f156622b5cae"
   license "GPL-2.0-or-later"
-  head "https://github.com/jgm/pandoc.git"
+  head "https://github.com/jgm/pandoc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "817369a3214c250c65b9d6fd6bd206520c333ea55832e1e74b8d7b49002a7bed"
