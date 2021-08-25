@@ -1,8 +1,10 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/v1.19.1.tar.gz"
-  sha256 "9a7933245b40dc1b72981b0581f9a0a37c3d450ea9e804823a43ecdee9827cd8"
+  # TODO: We can't use the tar.gz archive URL, which means bump-homebrew-formula-action doesn't work. See #83921
+  url "https://github.com/envoyproxy/envoy.git",
+     tag:      "v1.19.1",
+     revision: "a2a1e3eed4214a38608ec223859fcfa8fb679b14"
   license "Apache-2.0"
 
   bottle do
