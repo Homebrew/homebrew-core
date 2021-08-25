@@ -4,7 +4,7 @@ class Z3 < Formula
   url "https://github.com/Z3Prover/z3/archive/z3-4.8.12.tar.gz"
   sha256 "e3aaefde68b839299cbc988178529535e66048398f7d083b40c69fe0da55f8b7"
   license "MIT"
-  head "https://github.com/Z3Prover/z3.git"
+  head "https://github.com/Z3Prover/z3.git", branch: "develop"
 
   livecheck do
     url :stable

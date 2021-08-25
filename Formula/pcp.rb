@@ -5,7 +5,7 @@ class Pcp < Formula
       tag:      "v0.4.0",
       revision: "7f638fe42f6dbd17e5bf5a7be5854220e2858eb2"
   license "Apache-2.0"
-  head "https://github.com/dennis-tra/pcp.git"
+  head "https://github.com/dennis-tra/pcp.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8d495ee0f766c2d09355453d4f4691c7d5ca9bdf57ac82c0ef1d3552df19fefe"

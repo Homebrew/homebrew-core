@@ -4,7 +4,7 @@ class Restic < Formula
   url "https://github.com/restic/restic/archive/v0.12.1.tar.gz"
   sha256 "a9c88d5288ce04a6cc78afcda7590d3124966dab3daa9908de9b3e492e2925fb"
   license "BSD-2-Clause"
-  head "https://github.com/restic/restic.git"
+  head "https://github.com/restic/restic.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c42f5dc067e1f3d2fc001bceb623564bff4b2bc692c486e2bc69911fc4db932e"

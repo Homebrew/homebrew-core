@@ -4,7 +4,7 @@ class Skylighting < Formula
   url "https://github.com/jgm/skylighting/archive/0.11.tar.gz"
   sha256 "5d355f6d53d2752092599791aa66a0e0f75c3a75c1081f22346cc73b3fe6f174"
   license "GPL-2.0-or-later"
-  head "https://github.com/jgm/skylighting.git"
+  head "https://github.com/jgm/skylighting.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "569fd0ebe614072b92e8976a067e95ff4fcb5bb3256bcd548ddd2f2d0e41d1ae"

@@ -1,23 +1,24 @@
 class Yaegi < Formula
   desc "Yet another elegant Go interpreter"
   homepage "https://github.com/containous/yaegi"
-  url "https://github.com/containous/yaegi/archive/v0.9.21.tar.gz"
-  sha256 "96c08b7e24babe22098937efa78b0d9fd1f926ea42648b3096c286478cab3629"
+  url "https://github.com/containous/yaegi/archive/v0.9.23.tar.gz"
+  sha256 "52394e495b36b87d67f40b9104889da3e50eda5dfe5dc5b9eb2795e40c4be135"
   license "Apache-2.0"
-  head "https://github.com/containous/yaegi.git"
+  head "https://github.com/containous/yaegi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b53bc987317d77d0e9d0e8a8bda47dbb2c5b9bbf281ca0bc7f163b6ef4fcc7d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c3311bd01750e552635d3287108897d21241d9851b58dfafa02cc5f14f911e16"
-    sha256 cellar: :any_skip_relocation, catalina:      "02f64a4e556a4f741fc584c20753211b36ba288917f7c5a5219abb73b49c551c"
-    sha256 cellar: :any_skip_relocation, mojave:        "edd4c4e43ab48c332affab25e7a6220907b94bdefc6ae99d3e295ddfd9a9e765"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9777ce234686c2f151971ab1d50c664f529190b3625b48ad953965823983fe75"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd585f269348a457fa22780f23302e91d9a8541a796a8f00e5478be3643452ff"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f951ab445e8fbd81f9009c8bd674d7b223b4a396cf8a747a41ddb8f3be823b03"
+    sha256 cellar: :any_skip_relocation, catalina:      "c05353aacaa24d9d9b50ca218c181518ee5ea513f68d11c8a9be721c910e1e80"
+    sha256 cellar: :any_skip_relocation, mojave:        "5d7b8703e0093b4619d04f30971eb946aeefee0206a93ca15dc0409419615e27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "584ba4a03a0787fd74620cc8e71af14167993c7737150dd21fe790e0904cd7de"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./cmd/yaegi"
+    system "go", "build", *std_go_args(ldflags: "-X=main.version=#{version}"), "./cmd/yaegi"
   end
 
   test do

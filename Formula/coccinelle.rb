@@ -6,7 +6,7 @@ class Coccinelle < Formula
       revision: "25e7cee77b4b6efbabf60ffaa8bccd72500ba8bd"
   license "GPL-2.0-only"
   revision 1
-  head "https://github.com/coccinelle/coccinelle.git"
+  head "https://github.com/coccinelle/coccinelle.git", branch: "master"
 
   livecheck do
     url :stable

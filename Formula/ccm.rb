@@ -5,7 +5,7 @@ class Ccm < Formula
   sha256 "f07cc0a37116d2ce1b96c0d467f792668aa25835c73beb61639fa50a1954326c"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/pcmanus/ccm.git"
+  head "https://github.com/pcmanus/ccm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "955fd74e54ceaed0772238587c7fe45600813c685cdd4c1af19a5c0c99462a1f"

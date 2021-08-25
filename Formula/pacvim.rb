@@ -4,7 +4,7 @@ class Pacvim < Formula
   url "https://github.com/jmoon018/PacVim/archive/v1.1.1.tar.gz"
   sha256 "c869c5450fbafdfe8ba8a8a9bba3718775926f276f0552052dcfa090d21acb28"
   license "LGPL-3.0-or-later"
-  head "https://github.com/jmoon018/PacVim.git"
+  head "https://github.com/jmoon018/PacVim.git", branch: "master"
 
   bottle do
     rebuild 1

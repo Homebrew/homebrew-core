@@ -4,7 +4,7 @@ class Wellington < Formula
   url "https://github.com/wellington/wellington/archive/v1.0.5.tar.gz"
   sha256 "e2379722849cdd8e5f094849290aacba4b789d4d65c733dec859565c728e7205"
   license "Apache-2.0"
-  head "https://github.com/wellington/wellington.git"
+  head "https://github.com/wellington/wellington.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "27f36c238e415ad9209494e1760b9bcb64fddc52fd45c8b7a4cd218e603e6503"

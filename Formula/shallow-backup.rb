@@ -7,7 +7,7 @@ class ShallowBackup < Formula
   sha256 "8c0a57e6a5004cf3dbc74a54da1a254e685077c973266e7198aca62441c72a0b"
   license "MIT"
   revision 1
-  head "https://github.com/alichtman/shallow-backup.git"
+  head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
     rebuild 2

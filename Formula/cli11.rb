@@ -4,7 +4,7 @@ class Cli11 < Formula
   url "https://github.com/CLIUtils/CLI11/archive/v2.0.0.tar.gz"
   sha256 "2c672f17bf56e8e6223a3bfb74055a946fa7b1ff376510371902adb9cb0ab6a3"
   license "BSD-3-Clause"
-  head "https://github.com/CLIUtils/CLI11.git"
+  head "https://github.com/CLIUtils/CLI11.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "4dcc37a06d7c5bbb42aedacda62065c2006de9bbf471fab39a96526aef318da9"

@@ -4,7 +4,7 @@ class ChrubyFish < Formula
   url "https://github.com/JeanMertz/chruby-fish/archive/v0.8.2.tar.gz"
   sha256 "e3726d39da219f5339f86302f7b5d7b62ca96570ddfcc3976595f1d62e3b34e1"
   license "MIT"
-  head "https://github.com/JeanMertz/chruby-fish.git"
+  head "https://github.com/JeanMertz/chruby-fish.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9aa6835f1c13b8d9ab4bfcd0468825d0ae6edba016bdabc88b3ab0f2b521ec74"

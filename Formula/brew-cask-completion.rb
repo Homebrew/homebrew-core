@@ -5,7 +5,7 @@ class BrewCaskCompletion < Formula
   sha256 "27c7ea3b7f7c060f5b5676a419220c4ce6ebf384237e859a61c346f61c8f7a1b"
   license "BSD-2-Clause"
   revision 1
-  head "https://github.com/xyb/homebrew-cask-completion.git"
+  head "https://github.com/xyb/homebrew-cask-completion.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a058f8dd7fb25aa2ca8452d32f7d419b3b461b0f3b1dfe4f2f2e6d0e79b014ab"

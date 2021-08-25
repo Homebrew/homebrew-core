@@ -1,8 +1,8 @@
 class MariadbAT105 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.11/source/mariadb-10.5.11.tar.gz"
-  sha256 "761053605fe30ce393f324852117990350840a93b3e6305ef4d2f8c8305cc47a"
+  url "https://downloads.mariadb.com/MariaDB/mariadb-10.5.12/source/mariadb-10.5.12.tar.gz"
+  sha256 "ab4f1ca69a30c5372e191a68e8b543a74168327680fb1f4067e8cc0a5582e4bd"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,11 +11,11 @@ class MariadbAT105 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "860b99cdb9a1c49452e98faa38edcce7c27e499c3802872cad3e701d7c2aa266"
-    sha256 big_sur:       "331ea03fb2ba8e83003bcbd7b2bbaab58e7502b18e9780525533762f333d49a2"
-    sha256 catalina:      "5db1bdff46cb07a979bc027edf55e9bbbb9a56f884931ffd48264c7bba2ccb46"
-    sha256 mojave:        "c9c1cf5daec11db466928c9177bb4d661543bc2c250f046e32bfb3d9414f6da6"
-    sha256 x86_64_linux:  "ee4ac662ab2842504fb9e431a560bcf46b120c3c2331fbcc9d9c839079e0b914"
+    sha256 arm64_big_sur: "e10c3de73fca597dd4ed6ef3f34d3265dbe5caf22820dcdb60a4fec0e8779398"
+    sha256 big_sur:       "c73638476b78cc721a56075c9855331f87642d577d72a2fa2b3e28713524147f"
+    sha256 catalina:      "97292c9a4d99032a81412f6b54412e9afbe0549954a7599214492b357981220d"
+    sha256 mojave:        "01742be284d8c6b577755c3ed381c85d4c66f02da058b2316042f8abe070115e"
+    sha256 x86_64_linux:  "e31c7b505a895e83b60fc5922955c2d0c7b3179cd5bdb4faf008a8b0d04a8068"
   end
 
   keg_only :versioned_formula
@@ -38,8 +38,8 @@ class MariadbAT105 < Formula
     # Need patch to remove MYSQL_SOURCE_DIR from include path because it contains
     # file called VERSION.
     # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-    # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-    # removed once that issue is closed and the fix has been merged into a stable release.
+    # Originally reported upstream at https://jira.mariadb.org/browse/MDEV-7209,
+    # but only partially fixed.
     patch :DATA
   end
 
@@ -79,6 +79,12 @@ class MariadbAT105 < Formula
       -DCOMPILATION_COMMENT=#{tap.user}
     ]
 
+    on_linux do
+      args << "-DWITH_NUMA=OFF"
+      args << "-DENABLE_DTRACE=NO"
+      args << "-DCONNECT_WITH_JDBC=OFF"
+    end
+
     # disable TokuDB, which is currently not supported on macOS
     args << "-DPLUGIN_TOKUDB=NO"
 
@@ -86,19 +92,6 @@ class MariadbAT105 < Formula
     args << "-DPLUGIN_ROCKSDB=NO" if Hardware::CPU.arm?
 
     system "cmake", ".", *std_cmake_args, *args
-
-    on_macos do
-      # Need to rename files called version/VERSION to avoid build failure
-      # https://github.com/Homebrew/homebrew-core/pull/76887#issuecomment-840851149
-      # Reported upstream at https://jira.mariadb.org/browse/MDEV-7209 - this fix can be
-      # removed once that issue is closed and the fix has been merged into a stable release.
-      mv "storage/mroonga/version", "storage/mroonga/version.txt"
-      # Reported upstream at https://jira.mariadb.org/browse/MDEV-25716 - fixed by
-      # https://github.com/mariadb-corporation/libmarias3/commit/c71898f82598 and should be fixed
-      # in 10.5.12. Does not affect older versions of mariadb because they do not include this
-      # library.
-      mv "storage/maria/libmarias3/VERSION", "storage/maria/libmarias3/VERSION.txt"
-    end
 
     system "make"
     system "make", "install"

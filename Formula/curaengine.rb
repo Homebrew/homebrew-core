@@ -5,7 +5,7 @@ class Curaengine < Formula
   sha256 "bbc931251c89f68b8670cd0e5a06b81fde99a5e440bdbfe0e7efc3a749642157"
   license "AGPL-3.0-or-later"
   version_scheme 1
-  head "https://github.com/Ultimaker/CuraEngine.git"
+  head "https://github.com/Ultimaker/CuraEngine.git", branch: "master"
 
   # Releases like xx.xx or xx.xx.x are older than releases like x.x.x, so we
   # work around this less-than-ideal situation by restricting the major version

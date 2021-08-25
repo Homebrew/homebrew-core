@@ -4,7 +4,7 @@ class Ballerburg < Formula
   url "https://download.tuxfamily.org/baller/ballerburg-1.2.0.tar.gz"
   sha256 "0625f4b213c1180f2cb2179ef2bc6ce35c7e99db2b27306a8690c389ceac6300"
   license "GPL-3.0"
-  head "https://git.tuxfamily.org/baller/baller.git"
+  head "https://git.tuxfamily.org/baller/baller.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a82163254a4f1ff916e0d7ba0387914f529ffa67955495e146be69b5c2b2f31e"

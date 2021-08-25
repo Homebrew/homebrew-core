@@ -4,7 +4,7 @@ class Abduco < Formula
   url "https://github.com/martanne/abduco/releases/download/v0.6/abduco-0.6.tar.gz"
   sha256 "c90909e13fa95770b5afc3b59f311b3d3d2fdfae23f9569fa4f96a3e192a35f4"
   license "ISC"
-  head "https://github.com/martanne/abduco.git"
+  head "https://github.com/martanne/abduco.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e261303a69440aa46e09bfc3be3b7fb0c5cb6b2a3f6fbeb94338491a8538a90a"

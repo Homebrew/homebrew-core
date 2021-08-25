@@ -6,7 +6,7 @@ class RobotFramework < Formula
   url "https://files.pythonhosted.org/packages/45/4f/ddfc3eb4e342e3e45e4122e345e5bb33819823e812b66afbf38a9fc4864b/robotframework-4.1.zip"
   sha256 "567f2a21f0906635e21d45fe3cb84a4809a12980c9f2706a8a5f65f40f6b4ccd"
   license "Apache-2.0"
-  head "https://github.com/robotframework/robotframework.git"
+  head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "240ad94acc409b6f6e63aa89a4dd2fca2212913977c0ff617b8f838cd1423763"

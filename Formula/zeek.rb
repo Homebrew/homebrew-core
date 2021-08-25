@@ -5,7 +5,7 @@ class Zeek < Formula
       tag:      "v4.1.0",
       revision: "73783cc8a62017835208b54753dd69ea5667ef2f"
   license "BSD-3-Clause"
-  head "https://github.com/zeek/zeek.git"
+  head "https://github.com/zeek/zeek.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "7e26e7bef14bbfb5a198f618b53c9985c2f3f9059fd367238bc69f5dabf8e880"

@@ -5,7 +5,7 @@ class Sassc < Formula
       tag:      "3.6.2",
       revision: "66f0ef37e7f0ad3a65d2f481eff09d09408f42d0"
   license "MIT"
-  head "https://github.com/sass/sassc.git"
+  head "https://github.com/sass/sassc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ae86a3868be7edf32aadf47abd949d3806789f5edf319c4d86120a05fee9053d"

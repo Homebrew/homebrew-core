@@ -15,8 +15,6 @@ class Elfutils < Formula
   depends_on "xz"
   depends_on "zlib"
 
-  conflicts_with "libelf", because: "both install `libelf.a` library"
-
   def install
     system "./configure",
            "--disable-debug",

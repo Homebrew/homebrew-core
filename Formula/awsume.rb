@@ -6,17 +6,19 @@ class Awsume < Formula
   url "https://files.pythonhosted.org/packages/2f/d4/2f9621851aa22e06b0242d1c5dc2fbeb6267d5beca92c0adf875438793c2/awsume-4.5.3.tar.gz"
   sha256 "e94cc4c1d0f3cc0db8270572e2880c0641ce14cf226355bf42440b726bf453ef"
   license "MIT"
-  head "https://github.com/trek10inc/awsume.git"
+  head "https://github.com/trek10inc/awsume.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4aabc67dc8a89b21b22e87f5daaed8098c0d8d088593588cf2877348e78e02c6"
     sha256 cellar: :any_skip_relocation, big_sur:       "806d2b9b42e2c6b2ada3ea54078acd63f9d57993d0e035ef8f1a2146b4b3acb3"
     sha256 cellar: :any_skip_relocation, catalina:      "8a625ab78b6ef09d29fe249e1455c22606842a1334483d34026203d3649098ab"
     sha256 cellar: :any_skip_relocation, mojave:        "cad6a135f48beed8f047779cd8e53822910346ff88ab96cc664b348eebe84c3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6437dc79d71a6e7127217c2b233285b2ab0a3fd84ffa0a99ab7edb0d5c1ca9b8"
   end
 
   depends_on "openssl@1.1"
   depends_on "python@3.9"
+
   uses_from_macos "sqlite"
 
   resource "boto3" do
@@ -79,11 +81,12 @@ class Awsume < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output(". #{bin}/awsume -v 2>&1")
+    assert_match version.to_s, shell_output("bash -c '. #{bin}/awsume -v 2>&1'")
 
     file_path = File.expand_path("~/.awsume/config.yaml")
     shell_output(File.exist?(file_path))
 
-    assert_match "PROFILE  TYPE  SOURCE  MFA?  REGION  ACCOUNT", shell_output(". #{bin}/awsume --list-profiles 2>&1")
+    assert_match "PROFILE  TYPE  SOURCE  MFA?  REGION  ACCOUNT",
+                 shell_output("bash -c '. #{bin}/awsume --list-profiles 2>&1'")
   end
 end

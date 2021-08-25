@@ -1,17 +1,17 @@
 class Grafana < Formula
   desc "Gorgeous metric visualizations and dashboards for timeseries databases"
   homepage "https://grafana.com"
-  url "https://github.com/grafana/grafana/archive/v8.1.1.tar.gz"
-  sha256 "324d4f34eb50bf9d6c47bf0b4f630e1a6c12e71fbffd33de6b7986c1cf8ddbfe"
+  url "https://github.com/grafana/grafana/archive/v8.1.2.tar.gz"
+  sha256 "068c4944089298cf30ebcf0da2a9f9e896ba690a78866c007ce7e54447d6b40a"
   license "AGPL-3.0-only"
-  head "https://github.com/grafana/grafana.git"
+  head "https://github.com/grafana/grafana.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2f8d56e4f8af65b634f9df71e20cb4bd7afeac6d035c3091416e2895df44e0da"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c8fab5832dfabbb8aadb8da665c4164d50bb4da8fc518e8b5c7faaea9976da18"
-    sha256 cellar: :any_skip_relocation, catalina:      "195e495e461cb48e41070f6de96d86e47861a88f91aebb74a7689ce441fb615e"
-    sha256 cellar: :any_skip_relocation, mojave:        "db0bc1a0c77c43ba3805e16ab5ee1890728c614a898b52943e8d2343f82400d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "75ed645b29d7e02cb90bcde9f15109265045b1b0d1ebdcf7ee62c040f766e80f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4d4c868960d687d05f3267973ce596cb59074fb3604cf4e0be8422da85903b72"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d94d3d2f76d0f330efbd7197a7363617ea16517b2e8bddc07ff0267462bfe1a8"
+    sha256 cellar: :any_skip_relocation, catalina:      "8129b71eea0b25fd3c5e11055a4db9c6bd561af8ff1a9fa12e6a3e2ca5710080"
+    sha256 cellar: :any_skip_relocation, mojave:        "22f7f3480ed0cc336b79c130a11ba174e7488eaf6fa426b870fa474bc268ad29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4973fcff085c82ef6a1d7a351b405fa0a2278ea4c95dfa217ec87301e80c1cb"
   end
 
   depends_on "go" => :build

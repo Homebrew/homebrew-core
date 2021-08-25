@@ -4,7 +4,7 @@ class Pgrouting < Formula
   url "https://github.com/pgRouting/pgrouting/releases/download/v3.2.1/pgrouting-3.2.1.tar.gz"
   sha256 "daeb7ba8703dde9b6cc84129eab64a0f2e1f819f00b9a9168a197c150583a5fd"
   license "GPL-2.0-or-later"
-  head "https://github.com/pgRouting/pgrouting.git"
+  head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
   livecheck do
     url :stable

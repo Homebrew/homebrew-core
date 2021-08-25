@@ -6,7 +6,7 @@ class Rbtools < Formula
   url "https://files.pythonhosted.org/packages/be/83/969a103b00d7075e3f76b197f63edcca4b10c2e65000c4d48cef31a8c5c0/RBTools-2.0.1.tar.gz"
   sha256 "df8d5e834ad291c6e743907e27e50fc2f6006cdc6b8a4f9035acc86b87dcba31"
   license "MIT"
-  head "https://github.com/reviewboard/rbtools.git"
+  head "https://github.com/reviewboard/rbtools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5504ff84a269ba3b4a0817377d0b306013dfe4d96dc87b6e72767a52e6ec7b92"

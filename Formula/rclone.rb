@@ -4,7 +4,7 @@ class Rclone < Formula
   url "https://github.com/rclone/rclone/archive/v1.56.0.tar.gz"
   sha256 "c8dc7927d3c27e9897398855013c5e4eb31a76ab45dd4aed7bcf5f0121375286"
   license "MIT"
-  head "https://github.com/rclone/rclone.git"
+  head "https://github.com/rclone/rclone.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f33d364998c47253473ca9787a99849e54b9f72779deead06f229e239ea10be"

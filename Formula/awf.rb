@@ -5,7 +5,7 @@ class Awf < Formula
   sha256 "bb14517ea3eed050b3fec37783b79c515a0f03268a55dfd0b96a594b5b655c78"
   license "GPL-3.0"
   revision 2
-  head "https://github.com/valr/awf.git"
+  head "https://github.com/valr/awf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "60373a676e554ca3b82465ff01d7bfbde233fad9e7d1ec115656903c90336a29"

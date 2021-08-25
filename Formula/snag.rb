@@ -4,7 +4,7 @@ class Snag < Formula
   url "https://github.com/Tonkpils/snag/archive/v1.2.0.tar.gz"
   sha256 "37bf661436edf4526adf5428ac5ff948871c613ff4f9b61fbbdfe1fb95f58b37"
   license "MIT"
-  head "https://github.com/Tonkpils/snag.git"
+  head "https://github.com/Tonkpils/snag.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "687d1c28e0f911d8343db56f993e4ab0088ec34e40b9a99c1139ec4f8db558c3"

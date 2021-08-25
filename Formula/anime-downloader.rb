@@ -6,7 +6,7 @@ class AnimeDownloader < Formula
   url "https://files.pythonhosted.org/packages/00/8b/2f354c0c2e56f1fe45e805698bd6a81c472473a48b814c44aaed2d41016d/anime-downloader-5.0.9.tar.gz"
   sha256 "40eaded9508a30f35993b2fc0f436c357d9939d58625a10bd595bfc11816ead4"
   license "Unlicense"
-  head "https://github.com/anime-dl/anime-downloader.git"
+  head "https://github.com/anime-dl/anime-downloader.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "51528ac11b71b803cec6866244164cc4b5e837fbc189c38cdb054bf189ef59f7"

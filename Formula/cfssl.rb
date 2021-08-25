@@ -4,7 +4,7 @@ class Cfssl < Formula
   url "https://github.com/cloudflare/cfssl/archive/v1.6.0.tar.gz"
   sha256 "9694e84b42bf3fc547fa5ac5b15099da28129b9b274b3aad3534d7145ca1cc04"
   license "BSD-2-Clause"
-  head "https://github.com/cloudflare/cfssl.git"
+  head "https://github.com/cloudflare/cfssl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "637f4d77e1d9504dd8c8bc9e9e3635191de063898630b2b17fa84dfb27c6294f"

@@ -5,6 +5,14 @@ class Globe < Formula
   version "0.0.20140814"
   sha256 "5507a4caaf3e3318fd895ab1f8edfa5887c9f64547cad70cff3249350caa6c86"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?globe[._-](\d{1,2}\w+\d{2,4})\.t/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| Date.parse(match.first)&.strftime("0.0.%Y%m%d") }
+    end
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d614010f862d04bbc2fc08ba4f220fde562ee07f08fe7f2fe15470afa2ad09c1"
     sha256 cellar: :any_skip_relocation, big_sur:       "d0c0291f6767d96e3e5e21dfbdd71f793e83208841de96b1d2907c509b5dc62d"

@@ -4,7 +4,7 @@ class Asroute < Formula
   url "https://github.com/stevenpack/asroute/archive/v0.1.0.tar.gz"
   sha256 "dfbf910966cdfacf18ba200b83791628ebd1b5fa89fdfa69b989e0cb05b3ca37"
   license "MIT"
-  head "https://github.com/stevenpack/asroute.git"
+  head "https://github.com/stevenpack/asroute.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "816be1190f677bb1ba13d1b1fd92a0ca7550341810310b59be200227936afc9c"

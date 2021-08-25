@@ -7,7 +7,7 @@ class XbeeComm < Formula
   url "https://github.com/guyzmo/xbee-comm/archive/v1.5.tar.gz"
   sha256 "c474d22feae5d9c05b3ec167b839c8fded512587da0f020ca682d60db174f24a"
   license "GPL-3.0"
-  head "https://github.com/guyzmo/xbee-comm.git"
+  head "https://github.com/guyzmo/xbee-comm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a4dda0f81a92b04ac242a71d3b233da85abdcc767b8c5ec956e3285565eef994"

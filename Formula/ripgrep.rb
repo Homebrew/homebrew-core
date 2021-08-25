@@ -4,7 +4,7 @@ class Ripgrep < Formula
   url "https://github.com/BurntSushi/ripgrep/archive/13.0.0.tar.gz"
   sha256 "0fb17aaf285b3eee8ddab17b833af1e190d73de317ff9648751ab0660d763ed2"
   license "Unlicense"
-  head "https://github.com/BurntSushi/ripgrep.git"
+  head "https://github.com/BurntSushi/ripgrep.git", branch: "master"
 
   livecheck do
     url :stable

@@ -1,17 +1,17 @@
 class JsonFortran < Formula
   desc "Fortran 2008 JSON API"
   homepage "https://github.com/jacobwilliams/json-fortran"
-  url "https://github.com/jacobwilliams/json-fortran/archive/8.2.3.tar.gz"
-  sha256 "884ef4f955eecaf18d52e818738089ab3924981fb510ef3671ad3f62ac7c6af1"
+  url "https://github.com/jacobwilliams/json-fortran/archive/8.2.5.tar.gz"
+  sha256 "16eec827f64340c226ba9a8463f001901d469bc400a1e88b849f258f9ef0d100"
   license "BSD-3-Clause"
   head "https://github.com/jacobwilliams/json-fortran.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "d1922f1d4ca2ebdbdc57fa37336c1a9497321362d2f4e78bada8a59c52e9858a"
-    sha256 cellar: :any,                 big_sur:       "b4d52a6faa11cd988843aaad4ead3be45698ab96a8c8f47579d52fba976d8b3e"
-    sha256 cellar: :any,                 catalina:      "e86c5acf2dd0cd6a8082d9129d5657c6e059df1367132094878164550c91c02d"
-    sha256 cellar: :any,                 mojave:        "efded07e3332d3da9706f4c9172ecc611e9661a6a52084b234074627588ff9d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a18d2502328ce3f7e73e476208b7edd1513cdd14182799ba3852df11d1342afb"
+    sha256 cellar: :any,                 arm64_big_sur: "3b5514eebeaab114f4d15eaecf38801243dbf459678dca3e34abde711fb9d464"
+    sha256 cellar: :any,                 big_sur:       "5f0d95474e94df306b48cb3efa41faf3063bded45b35bb115d2b9b5c14f76ca5"
+    sha256 cellar: :any,                 catalina:      "02437f7df43e2615343b61de2cdffbca011a43ea578cdd9ca4c41205c687947c"
+    sha256 cellar: :any,                 mojave:        "e09a2b0652b503775d930080bf6a9abc960b2c937e424543450d1977fcdd9ae0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f851ba973758580382272905235a3e4360dcf3a80027730d4800a5863b7085d8"
   end
 
   depends_on "cmake" => :build

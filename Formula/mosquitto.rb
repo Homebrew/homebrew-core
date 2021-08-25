@@ -14,11 +14,12 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "37075e4522029d3c29a0f5f01a2765e21d7d7861b916fbc411c18aabb5eecc1d"
-    sha256 big_sur:       "b4d048a8ae02ea81048315280fdca94beb5c36f9cbf2fc5e7d572147a1d9056f"
-    sha256 catalina:      "3e75e7bf3ff9c1e75b55ceb0558341e5105714552498252a74bbfabf061c5b83"
-    sha256 mojave:        "12ea925ba276e00955710d333279aa06ecfe0038a37a9ce7c9d4ad64bb628a96"
-    sha256 x86_64_linux:  "ca0fb993ea0a053a4061a6faedcad538650b0224834f3b3cf46665e53e2bc241"
+    rebuild 1
+    sha256 arm64_big_sur: "1b42d8e6682597d9f1fcafd98865073266ed116d753f6c6dfc7ec0734b98dcab"
+    sha256 big_sur:       "41ddee2a82f929b1754686d38f0e67570b1728eee8000ab4d4f68f52b052d152"
+    sha256 catalina:      "1459490520f73a2a331487b1fef6163957ed7e4b91868d4bb830ed8448cf7a4b"
+    sha256 mojave:        "1c2764711220dba026af2d78c32d3f077da354252be4177059f5816faf610153"
+    sha256 x86_64_linux:  "cd02e8539023e928475cf757b1865be0c65961bc55ce16c0006490e521dfb0b8"
   end
 
   depends_on "cmake" => :build
@@ -52,31 +53,10 @@ class Mosquitto < Formula
     EOS
   end
 
-  plist_options manual: "mosquitto -c #{HOMEBREW_PREFIX}/etc/mosquitto/mosquitto.conf"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/mosquitto</string>
-          <string>-c</string>
-          <string>#{etc}/mosquitto/mosquitto.conf</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <false/>
-        <key>WorkingDirectory</key>
-        <string>#{var}/mosquitto</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"mosquitto", "-c", etc/"mosquitto/mosquitto.conf"]
+    keep_alive false
+    working_dir var/"mosquitto"
   end
 
   test do

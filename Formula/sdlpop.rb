@@ -6,10 +6,11 @@ class Sdlpop < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "1ccdaf2e5186bcc2d0094fbdc59206c5b602b367287ee76a3473969897f1af8a"
-    sha256 cellar: :any, big_sur:       "2c3a47b467b2bdd321d1b7f2d73ad7f40859319b2ae6b51ef0009c2274c2581b"
-    sha256 cellar: :any, catalina:      "4c2307714ee64456baac5c4b758e48c8aca6747a0daa92b8bc31fd1597663250"
-    sha256 cellar: :any, mojave:        "d304d506f73fec8e98b223eb0f8cfd087dd7a15a144fd0b46522f7a2b78261b9"
+    sha256 cellar: :any,                 arm64_big_sur: "1ccdaf2e5186bcc2d0094fbdc59206c5b602b367287ee76a3473969897f1af8a"
+    sha256 cellar: :any,                 big_sur:       "2c3a47b467b2bdd321d1b7f2d73ad7f40859319b2ae6b51ef0009c2274c2581b"
+    sha256 cellar: :any,                 catalina:      "4c2307714ee64456baac5c4b758e48c8aca6747a0daa92b8bc31fd1597663250"
+    sha256 cellar: :any,                 mojave:        "d304d506f73fec8e98b223eb0f8cfd087dd7a15a144fd0b46522f7a2b78261b9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1a9e40fba4560043c8f5b190a51f5b4d2be4ebc4f48b6cdab8d49c7dddc9814e"
   end
 
   depends_on "pkg-config" => :build

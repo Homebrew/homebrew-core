@@ -4,7 +4,7 @@ class Stella < Formula
   url "https://github.com/stella-emu/stella/releases/download/6.5.3/stella-6.5.3-src.tar.xz"
   sha256 "b49d5e5a5aa872e1f4b6f24eabd72304abdd577801d6ec349760c73b99e7f14d"
   license "GPL-2.0-or-later"
-  head "https://github.com/stella-emu/stella.git"
+  head "https://github.com/stella-emu/stella.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, big_sur:  "413ec06db90b9e5fd3f704e8181e50d4d39c88ff579c0e9dc523ee74b2ad3558"

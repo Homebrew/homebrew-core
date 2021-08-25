@@ -5,7 +5,7 @@ class Wolfssl < Formula
       tag:      "v4.8.1-stable",
       revision: "723ed009ae5dc68acc14cd7664f93503d64cd51d"
   license "GPL-2.0-or-later"
-  head "https://github.com/wolfSSL/wolfssl.git"
+  head "https://github.com/wolfSSL/wolfssl.git", branch: "master"
 
   livecheck do
     url :stable

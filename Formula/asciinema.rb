@@ -7,7 +7,7 @@ class Asciinema < Formula
   sha256 "32f2c1a046564e030708e596f67e0405425d1eca9d5ec83cd917ef8da06bc423"
   license "GPL-3.0"
   revision 3
-  head "https://github.com/asciinema/asciinema.git"
+  head "https://github.com/asciinema/asciinema.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b681c70de003112e00b3c31555e06453e0d22483095713fd27cfe9113e5363c6"

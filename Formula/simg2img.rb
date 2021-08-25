@@ -4,7 +4,7 @@ class Simg2img < Formula
   url "https://github.com/anestisb/android-simg2img/archive/1.1.4.tar.gz"
   sha256 "cbd32490c1e29d9025601b81089b5aec1707cb62020dfcecd8747af4fde6fecd"
   license "Apache-2.0"
-  head "https://github.com/anestisb/android-simg2img.git"
+  head "https://github.com/anestisb/android-simg2img.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cd4891712dae2fd35115f8ee32ba703bc3094ff365e52c8fe6a2b0d4694ee1ae"

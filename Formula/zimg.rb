@@ -4,7 +4,7 @@ class Zimg < Formula
   url "https://github.com/sekrit-twc/zimg/archive/release-3.0.2.tar.gz"
   sha256 "b9eadf1df12ae8395ba781f2468965d411b21abbebbebeae3651d492227d4633"
   license "WTFPL"
-  head "https://github.com/sekrit-twc/zimg.git"
+  head "https://github.com/sekrit-twc/zimg.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "fc7a1db429cbb9baa6ef415c0b2714a339a589ba91f98b7b37b62c0f9e0b82e3"

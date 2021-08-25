@@ -4,7 +4,7 @@ class Xdotool < Formula
   url "https://github.com/jordansissel/xdotool/releases/download/v3.20210804.2/xdotool-3.20210804.2.tar.gz"
   sha256 "fde6b15b5978c91e0ecb78cc541a9987752e724820722e479dcc2efc17466c89"
   license "BSD-3-Clause"
-  head "https://github.com/jordansissel/xdotool.git"
+  head "https://github.com/jordansissel/xdotool.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a7a447517125966462a4b067fed71b0a2d5dca85f6e9b3348c47080b0754b043"

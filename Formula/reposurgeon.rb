@@ -5,7 +5,7 @@ class Reposurgeon < Formula
       tag:      "4.28",
       revision: "e2187a3d4a9200dba8726986762c868211ab06aa"
   license "BSD-2-Clause"
-  head "https://gitlab.com/esr/reposurgeon.git"
+  head "https://gitlab.com/esr/reposurgeon.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "eba17e8a1089183edd74c77a5ea5bdfdf9a6fcbdb2e635b9e2f5c3a71817876c"

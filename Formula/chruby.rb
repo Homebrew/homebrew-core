@@ -4,7 +4,7 @@ class Chruby < Formula
   url "https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz"
   sha256 "7220a96e355b8a613929881c091ca85ec809153988d7d691299e0a16806b42fd"
   license "MIT"
-  head "https://github.com/postmodern/chruby.git"
+  head "https://github.com/postmodern/chruby.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "97ca44a014def181a1bd3cacb5ff86783c6fddb1d1262336e9765d14a7d5959a"

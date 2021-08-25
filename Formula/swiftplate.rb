@@ -4,7 +4,7 @@ class Swiftplate < Formula
   url "https://github.com/JohnSundell/SwiftPlate/archive/1.4.0.tar.gz"
   sha256 "13c6e9d2204c24ed95ad26f3e8266b8c62e709db626acf5e511ced23de9b9143"
   license "MIT"
-  head "https://github.com/JohnSundell/SwiftPlate.git"
+  head "https://github.com/JohnSundell/SwiftPlate.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, mojave:      "5f86cbe754c458ee6529ff8f82ecd6e211977e52c96e6d4918c104d9a0bdef72"

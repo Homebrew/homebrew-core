@@ -4,7 +4,7 @@ class ProtocGenGo < Formula
   url "https://github.com/protocolbuffers/protobuf-go/archive/v1.27.1.tar.gz"
   sha256 "3ec41a8324431e72f85e0dc0c2c098cc14c3cb1ee8820996c8f46afca2d65609"
   license "BSD-3-Clause"
-  head "https://github.com/protocolbuffers/protobuf-go.git"
+  head "https://github.com/protocolbuffers/protobuf-go.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "577196328ed1d829d999d7eb7a1fbdcd340831619b5e53db1e9ff880bb0514cb"

@@ -5,7 +5,7 @@ class Tag < Formula
   sha256 "5ab057d3e3f0dbb5c3be3970ffd90f69af4cb6201c18c1cbaa23ef367e5b071e"
   license "MIT"
   revision 1
-  head "https://github.com/jdberry/tag.git"
+  head "https://github.com/jdberry/tag.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "68b99acc16647610b02c286aae5b302c7c2128164817d9eb197d2d5f9f51ca72"

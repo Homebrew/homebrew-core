@@ -2,7 +2,7 @@ class Wrangler < Formula
   desc "Refactoring tool for Erlang with emacs and Eclipse integration"
   homepage "https://www.cs.kent.ac.uk/projects/wrangler/Wrangler/"
   revision 3
-  head "https://github.com/RefactoringTools/wrangler.git"
+  head "https://github.com/RefactoringTools/wrangler.git", branch: "master"
 
   stable do
     url "https://github.com/RefactoringTools/wrangler/archive/wrangler1.2.tar.gz"

@@ -4,7 +4,7 @@ class Pgbadger < Formula
   url "https://github.com/darold/pgbadger/archive/v11.5.tar.gz"
   sha256 "49ab18810a61353ebd7fee12b899ccb9adfd064be6099084670b945db5ff1186"
   license "PostgreSQL"
-  head "https://github.com/darold/pgbadger.git"
+  head "https://github.com/darold/pgbadger.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e746195e6003286f5ffc6e9af6445a3078d7e53b06351ba272e77efecda17041"

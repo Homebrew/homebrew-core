@@ -4,20 +4,19 @@ class Scry < Formula
   url "https://github.com/crystal-lang-tools/scry/archive/v0.9.1.tar.gz"
   sha256 "53bf972557f8b6a697d2aa727df465d6e7d04f6426fcd4559a4d77c90becad81"
   license "MIT"
-  head "https://github.com/crystal-lang-tools/scry.git"
+  head "https://github.com/crystal-lang-tools/scry.git", branch: "master"
 
   bottle do
-    sha256 big_sur:  "8560c26448338c483c2e5aaa488d39156260fa2e891bec02520ae8b8d9e1bcd1"
-    sha256 catalina: "da67d98abe3010dc12f6a4152a89dd86a79e1dd098d67afec4a07bfe30c0ccdd"
-    sha256 mojave:   "0f243e9970f781e847c7b6906d743e08c1f684c37797ecfd962a1617f7ce8b8f"
+    sha256 big_sur:      "8560c26448338c483c2e5aaa488d39156260fa2e891bec02520ae8b8d9e1bcd1"
+    sha256 catalina:     "da67d98abe3010dc12f6a4152a89dd86a79e1dd098d67afec4a07bfe30c0ccdd"
+    sha256 mojave:       "0f243e9970f781e847c7b6906d743e08c1f684c37797ecfd962a1617f7ce8b8f"
+    sha256 x86_64_linux: "9aa343ca7529d5b803fa98ef2c702cc63423233a376963ea590a89458de61545"
   end
 
   depends_on "bdw-gc"
   depends_on "crystal"
   depends_on "libevent"
   depends_on "pcre"
-
-  uses_from_macos "libiconv"
 
   def install
     system "shards", "build",

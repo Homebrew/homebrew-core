@@ -4,7 +4,7 @@ class Tm < Formula
   url "https://github.com/triggermesh/tm/archive/v1.8.0.tar.gz"
   sha256 "d81509a6771ecb42a39be8ca740de05ee2758e40759ad3b3ffe87b8ec60442c8"
   license "Apache-2.0"
-  head "https://github.com/triggermesh/tm.git"
+  head "https://github.com/triggermesh/tm.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2c5ccef8f90c04a67b29e27584b8827709d441b04220717a66dfab0a9361e310"

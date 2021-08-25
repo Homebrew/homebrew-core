@@ -5,7 +5,7 @@ class Sourcekitten < Formula
       tag:      "0.31.0",
       revision: "7f4be006fe73211b0fd9666c73dc2f2303ffa756"
   license "MIT"
-  head "https://github.com/jpsim/SourceKitten.git"
+  head "https://github.com/jpsim/SourceKitten.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "28df76e8f1933869199c4d9007e66012de6c3405e8009d387500259f1a0cea8c"

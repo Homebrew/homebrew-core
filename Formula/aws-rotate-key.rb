@@ -4,7 +4,7 @@ class AwsRotateKey < Formula
   url "https://github.com/stefansundin/aws-rotate-key/archive/v1.0.7.tar.gz"
   sha256 "9dadb689583dc4d8869a346c2e7f12201e1fe65d5bf1d64eb09b69f65518bc44"
   license "MIT"
-  head "https://github.com/stefansundin/aws-rotate-key.git"
+  head "https://github.com/stefansundin/aws-rotate-key.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f386fd25ede2321a6f64f20ccbaa0d3de3079e96b24689f07accc710bd7cfc6e"

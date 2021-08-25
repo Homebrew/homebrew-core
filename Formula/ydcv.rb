@@ -7,7 +7,7 @@ class Ydcv < Formula
   sha256 "53cd59501557496512470e7db5fb14e42ddcb411fe4fa45c00864d919393c1da"
   license "GPL-3.0"
   revision 3
-  head "https://github.com/felixonmars/ydcv.git"
+  head "https://github.com/felixonmars/ydcv.git", branch: "master"
 
   bottle do
     rebuild 2

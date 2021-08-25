@@ -4,7 +4,7 @@ class Cmake < Formula
   url "https://github.com/Kitware/CMake/releases/download/v3.21.1/cmake-3.21.1.tar.gz"
   sha256 "fac3915171d4dff25913975d712f76e69aef44bf738ba7b976793a458b4cfed4"
   license "BSD-3-Clause"
-  head "https://gitlab.kitware.com/cmake/cmake.git"
+  head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
   # The "latest" release on GitHub has been an unstable version before, so we
   # check the Git tags instead.

@@ -4,7 +4,7 @@ class Confd < Formula
   url "https://github.com/kelseyhightower/confd/archive/v0.16.0.tar.gz"
   sha256 "4a6c4d87fab77aa9827370541024a365aa6b4c8c25a3a9cab52f95ba6b9a97ea"
   license "MIT"
-  head "https://github.com/kelseyhightower/confd.git"
+  head "https://github.com/kelseyhightower/confd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f2eb5cdb05b9f92b2472331857765f5b4922183d4cde23e61c44d7bb3d080dfe"

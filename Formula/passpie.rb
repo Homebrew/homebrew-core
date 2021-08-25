@@ -7,7 +7,7 @@ class Passpie < Formula
   sha256 "eec50eabb9f4c9abd9a1d89794f86afe3956e1ba9f6c831d04b164fd4fc0ad02"
   license "MIT"
   revision 1
-  head "https://github.com/marcwebbie/passpie.git"
+  head "https://github.com/marcwebbie/passpie.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "2bea6978498b4a19b59ba269d158c833d31ee75c10528f34ceb4eaa7ffe2293f"

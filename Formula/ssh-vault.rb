@@ -4,7 +4,7 @@ class SshVault < Formula
   url "https://github.com/ssh-vault/ssh-vault/archive/0.12.8.tar.gz"
   sha256 "db20269f43ecd98064cef784ef3c7aba3e0eb25ad88ee7449ba2d3d71f13b191"
   license "BSD-3-Clause"
-  head "https://github.com/ssh-vault/ssh-vault.git"
+  head "https://github.com/ssh-vault/ssh-vault.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3d31b872e937be5b52e321628ff7f05471c25f42e72dc3e4566580d919613c30"

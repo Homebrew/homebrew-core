@@ -17,6 +17,7 @@ class Black < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "cab87ba9fcc15b5d43d94a10f0618b31906b34a1e302bcbbda6cc00dd7ac4a13"
     sha256 cellar: :any_skip_relocation, catalina:      "0e753b1b5e2d4876629911a2d8807da5bb9b4be20fe585853036ff2d46286345"
     sha256 cellar: :any_skip_relocation, mojave:        "372d2251db51bb0245fa86ddd1b5da89963a3af1ba2392b732df5555a5b4c96e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7f90022601c71213effaed7625ef4c599a85ef155c462d7c1827e92e4ab098fa"
   end
 
   depends_on "python@3.9"
@@ -119,7 +120,7 @@ class Black < Formula
     system bin/"black", "black_test.py"
     assert_equal "print(\"It works!\")\n", (testpath/"black_test.py").read
     port = free_port
-    fork { exec "#{bin}/blackd --bind-port #{port}" }
+    fork { exec "#{bin}/blackd --bind-host 127.0.0.1 --bind-port #{port}" }
     sleep 10
     assert_match "print(\"valid\")", shell_output("curl -s -XPOST localhost:#{port} -d \"print('valid')\"").strip
   end

@@ -2,7 +2,7 @@ class Bitlbee < Formula
   desc "IRC to other chat networks gateway"
   homepage "https://www.bitlbee.org/"
   license "GPL-2.0"
-  head "https://github.com/bitlbee/bitlbee.git"
+  head "https://github.com/bitlbee/bitlbee.git", branch: "master"
 
   stable do
     url "https://get.bitlbee.org/src/bitlbee-3.6.tar.gz"

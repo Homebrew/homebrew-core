@@ -4,7 +4,7 @@ class Pkger < Formula
   url "https://github.com/markbates/pkger/archive/v0.17.1.tar.gz"
   sha256 "da775b5ec5675f0db75cf295ff07a4a034ba15eb5cc02d278a5767f387fb8273"
   license "MIT"
-  head "https://github.com/markbates/pkger.git"
+  head "https://github.com/markbates/pkger.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "602233db9e62865199a0e6dda19d96e258a43c596ef588d6305b62f43c09c577"

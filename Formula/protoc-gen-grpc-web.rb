@@ -58,6 +58,7 @@ class ProtocGenGrpcWeb < Formula
     EOS
     (testpath/"test.ts").write testts
     system "npm", "install", *Language::Node.local_npm_install_args, "grpc-web", "@types/google-protobuf"
-    system "tsc", "test.ts"
+    # Specify including lib for `tsc` since `es6` is required for `@types/google-protobuf`.
+    system "tsc", "--lib", "es6", "test.ts"
   end
 end

@@ -1,8 +1,8 @@
 class Nexus < Formula
   desc "Repository manager for binary software components"
   homepage "https://www.sonatype.org/"
-  url "https://github.com/sonatype/nexus-public/archive/release-3.33.0-01.tar.gz"
-  sha256 "9ee5ef637d72e1c6e3243ccc95302ea8bca54aa9856f728e2fe5d100ebddebc9"
+  url "https://github.com/sonatype/nexus-public/archive/release-3.33.1-01.tar.gz"
+  sha256 "56de3e024242823a1f9b42a3f018ef18361bc38dd1b5623855c5c44bd465d557"
   license "EPL-1.0"
 
   # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
@@ -14,10 +14,10 @@ class Nexus < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "bafa77cd699c8c1d44827cf3b222a8d91fad2ae405e09d3b79faaae30c532394"
-    sha256 cellar: :any_skip_relocation, catalina:     "5bd104d19a13c59249efad40dd99a23cdc30c4c7dcdf573e63af39ba0eacd30d"
-    sha256 cellar: :any_skip_relocation, mojave:       "f80e325a41920421822cd3edf34767893b1b92872f55d70ddd89248fea4ea44e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "64699c9dfe32798fc3ac2fe2bf5596839eb15c8cad2c4a0649bc29a52701d91a"
+    sha256 cellar: :any_skip_relocation, big_sur:      "86c9622264de9a9df1f70634ae11c7a310f7cd4d025a9c63f686ee08f45980f3"
+    sha256 cellar: :any_skip_relocation, catalina:     "55987d7725b0a838c82ada7e434021d971de24b9a13eeb8a671d745aade3d0a3"
+    sha256 cellar: :any_skip_relocation, mojave:       "6628362c9336def076a73cec32b1096659879dc5675fcb25e792d97fa157e3a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9501e3f4ad36014f8cb6979685d867dfb5c36849aa006058de44b6774bda9f49"
   end
 
   depends_on "maven" => :build
@@ -50,26 +50,8 @@ class Nexus < Formula
     mkdir "#{etc}/nexus" unless (etc/"nexus").exist?
   end
 
-  plist_options manual: "nexus start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>com.sonatype.nexus</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/nexus</string>
-            <string>start</string>
-          </array>
-          <key>RunAtLoad</key>
-        <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nexus", "start"]
   end
 
   test do

@@ -6,7 +6,7 @@ class Rtags < Formula
       revision: "9687ccdb9e539981e7934e768ea5c84464a61139"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/Andersbakken/rtags.git"
+  head "https://github.com/Andersbakken/rtags.git", branch: "master"
 
   livecheck do
     url :stable

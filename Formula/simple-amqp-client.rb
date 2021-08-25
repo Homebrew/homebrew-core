@@ -4,7 +4,7 @@ class SimpleAmqpClient < Formula
   url "https://github.com/alanxz/SimpleAmqpClient/archive/v2.5.1.tar.gz"
   sha256 "057c56b29390ec7659de1527f9ccbadb602e3e73048de79594521b3141ab586d"
   license "MIT"
-  head "https://github.com/alanxz/SimpleAmqpClient.git"
+  head "https://github.com/alanxz/SimpleAmqpClient.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "f66fc5dd89e9899a536b516486a88484a9f6e375ff2a452c686812fe2dadbc23"

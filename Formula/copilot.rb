@@ -7,7 +7,7 @@ class Copilot < Formula
       tag:      "v1.9.0",
       revision: "8fb57aca1cd7a355bbdf1b8a5c5fc590b40649f5"
   license "Apache-2.0"
-  head "https://github.com/aws/copilot-cli.git"
+  head "https://github.com/aws/copilot-cli.git", branch: "mainline"
 
   livecheck do
     url :stable

@@ -7,7 +7,7 @@ class Cadaver < Formula
   sha256 "fd4ce68a3230ba459a92bcb747fc6afa91e46d803c1d5ffe964b661793c13fca"
   license "GPL-2.0-or-later"
   revision 5
-  head "https://github.com/notroj/cadaver.git"
+  head "https://github.com/notroj/cadaver.git", branch: "master"
 
   livecheck do
     url :homepage

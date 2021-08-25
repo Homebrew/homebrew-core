@@ -32,19 +32,19 @@ class NetSnmp < Formula
     # Workaround https://github.com/net-snmp/net-snmp/issues/226 in 5.9:
     inreplace "agent/mibgroup/mibII/icmp.h", "darwin10", "darwin"
 
-    args = %W[
-      --disable-debugging
-      --prefix=#{prefix}
-      --enable-ipv6
-      --with-defaults
-      --with-persistent-directory=#{var}/db/net-snmp
-      --with-logfile=#{var}/log/snmpd.log
-      --with-mib-modules=host\ ucd-snmp/diskio
-      --without-rpm
-      --without-kmem-usage
-      --disable-embedded-perl
-      --without-perl-modules
-      --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
+    args = [
+      "--disable-debugging",
+      "--prefix=#{prefix}",
+      "--enable-ipv6",
+      "--with-defaults",
+      "--with-persistent-directory=#{var}/db/net-snmp",
+      "--with-logfile=#{var}/log/snmpd.log",
+      "--with-mib-modules=host ucd-snmp/diskio",
+      "--without-rpm",
+      "--without-kmem-usage",
+      "--disable-embedded-perl",
+      "--without-perl-modules",
+      "--with-openssl=#{Formula["openssl@1.1"].opt_prefix}",
     ]
 
     system "autoreconf", "-fvi" if Hardware::CPU.arm?

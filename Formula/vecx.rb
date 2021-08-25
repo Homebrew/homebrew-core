@@ -4,7 +4,7 @@ class Vecx < Formula
   url "https://github.com/jhawthorn/vecx/archive/v1.1.tar.gz"
   sha256 "206ab30db547b9c711438455917b5f1ee96ff87bd025ed8a4bd660f109c8b3fb"
   license "GPL-3.0"
-  head "https://github.com/jhawthorn/vecx.git"
+  head "https://github.com/jhawthorn/vecx.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e1d6a1b7d28c46a7c0f2ec2eb26e5f15ba9816d0fb6e921a0f53af16f7088b84"

@@ -4,7 +4,7 @@ class Zim < Formula
   url "https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/0.73.5.tar.gz"
   sha256 "9f983fac9655a61bfe1fa6f9e8cfa59bef099dadfdc4c003913999b184ed1342"
   license "GPL-2.0-or-later"
-  head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git"
+  head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "befd17918f9285f17cc1e82bfe237b1391ef131abbf00b0b18af5f419c0e3a20"

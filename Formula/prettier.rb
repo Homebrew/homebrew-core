@@ -6,7 +6,7 @@ class Prettier < Formula
   url "https://registry.npmjs.org/prettier/-/prettier-2.3.2.tgz"
   sha256 "f9c9840aac09de4d88f7d8af2957a93dd8bc57ef5bc1f8d5b3984c7c2a509f8f"
   license "MIT"
-  head "https://github.com/prettier/prettier.git"
+  head "https://github.com/prettier/prettier.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7108b6dc5609b87419bfe31d4f7080fddca338a9b08baf4d7600ec34910164b1"

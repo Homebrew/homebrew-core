@@ -6,7 +6,7 @@ class AwsSdkCpp < Formula
     tag:      "1.9.80",
     revision: "3ab68c3179dbe9e1e9e52da0c95c7e8b778c7cf2"
   license "Apache-2.0"
-  head "https://github.com/aws/aws-sdk-cpp.git"
+  head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "7936363c4aca487382596547109cdb1e3c32e7e6c66f0c9a626a57594f05759c"

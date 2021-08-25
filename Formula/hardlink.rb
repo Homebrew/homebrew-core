@@ -3,6 +3,7 @@ class Hardlink < Formula
   homepage "https://jak-linux.org/projects/hardlink/"
   url "https://jak-linux.org/projects/hardlink/hardlink_0.3.0.tar.xz"
   sha256 "e8c93dfcb24aeb44a75281ed73757cb862cc63b225d565db1c270af9dbb7300f"
+  license "MIT"
 
   livecheck do
     url :homepage
@@ -21,9 +22,15 @@ class Hardlink < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "b849b6cdc2d96380221c9dddc48a4c6485db0f4257ea7c48ade59b50e29f7bfd"
   end
 
+  deprecate! date: "2021-02-17", because: "has been merged into `util-linux`"
+
   depends_on "pkg-config" => :build
   depends_on "gnu-getopt"
   depends_on "pcre"
+
+  on_linux do
+    keg_only "it conflicts with the maintained `hardlink` binary in `util-linux`"
+  end
 
   def install
     # xattr syscalls are provided by glibc

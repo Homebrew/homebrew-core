@@ -3,12 +3,7 @@ class Mpfi < Formula
   homepage "https://perso.ens-lyon.fr/nathalie.revol/software.html"
   url "https://gforge.inria.fr/frs/download.php/file/37331/mpfi-1.5.3.tar.bz2"
   sha256 "2383d457b208c6cd3cf2e66b69c4ce47477b2a0db31fbec0cd4b1ebaa247192f"
-  license "GPL-3.0"
-
-  livecheck do
-    url "https://gforge.inria.fr/frs/?group_id=157"
-    regex(/href=.*?mpfi[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
     rebuild 1
@@ -20,6 +15,10 @@ class Mpfi < Formula
     sha256 cellar: :any,                 sierra:        "50d3b78c1ef6837198a0320dbbe0852ad524f83bc2e12460bfbdc188bd1da76a"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bc5ac4e71fcaf3e978ef82410d544f274e4652899bcb06bf2685d9df6a63bed"
   end
+
+  # Formula does not build, https://gforge.inria.fr/tracker/index.php?func=detail&aid=21721&group_id=157&atid=709
+  # and upstream is not actively maintaining (last commit was on 2019-08-01)
+  deprecate! date: "2021-08-15", because: :unmaintained
 
   depends_on "gmp"
   depends_on "mpfr"

@@ -5,7 +5,7 @@ class RiemannClient < Formula
   sha256 "334874f0b9a507a8abbc7138df719cba4f28f12c02c39d5e55090b8edb86f9d2"
   license "LGPL-3.0"
   revision 1
-  head "https://github.com/algernon/riemann-c-client.git"
+  head "https://github.com/algernon/riemann-c-client.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "0d4d437c6d0f17a436d78d7d0a31e2031e049a3a4d822a72bbb587da6f65d25b"

@@ -1,8 +1,8 @@
 class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/apt"
-  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.3.7.tar.xz"
-  sha256 "c946a126263b3ea51a15216689602367c0da95d6878b76dc891ea335d87bd936"
+  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.3.8.tar.xz"
+  sha256 "485af1430c75e3158b715e4424dbf96d1b5641dc4dccc50f571b2c779a837f2c"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,7 +11,7 @@ class Apt < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "fe9e3e31765c549dd65ea029333224a4e5fd2321fda80a2e7874ccebcc89d9d1"
+    sha256 x86_64_linux: "71d8ed0117cde50f392d2765de490afadd5d8eb9c34d5b04b4268046f02c242a"
   end
 
   depends_on "cmake" => :build
@@ -35,6 +35,10 @@ class Apt < Formula
   depends_on "perl"
   depends_on "xxhash"
   depends_on "zlib"
+
+  on_linux do
+    keg_only "not linked to prevent conflicts with system apt"
+  end
 
   fails_with gcc: "5"
 
@@ -74,8 +78,8 @@ class Apt < Formula
   end
 
   resource "Module::Build" do
-    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4222.tar.gz"
-    sha256 "e74b45d9a74736472b74830599cec0d1123f992760f9cd97104f94bee800b160"
+    url "https://cpan.metacpan.org/authors/id/L/LE/LEONT/Module-Build-0.4231.tar.gz"
+    sha256 "7e0f4c692c1740c1ac84ea14d7ea3d8bc798b2fb26c09877229e04f430b2b717"
   end
 
   resource "Pod::Parser" do

@@ -7,7 +7,7 @@ class Termshare < Formula
   sha256 "fa09a5492d6176feff32bbcdb3b2dc3ff1b5ab2d1cf37572cc60eb22eb531dcd"
   license "BSD-2-Clause"
   revision 1
-  head "https://github.com/progrium/termshare.git"
+  head "https://github.com/progrium/termshare.git", branch: "master"
 
   bottle do
     rebuild 1

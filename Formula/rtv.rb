@@ -7,7 +7,7 @@ class Rtv < Formula
   sha256 "c57a6cbb2525160b6aaa9180aec0293962b6969675f8ac0f2cfacff3cbd00d7c"
   license "MIT"
   revision 4
-  head "https://github.com/michael-lazar/rtv.git"
+  head "https://github.com/michael-lazar/rtv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "aa894b5babc332d7d0f0e06e7a82afb6053514515186fe2b35b1c604d545b6e2"

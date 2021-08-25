@@ -15,10 +15,11 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "0a7a6d08b3f5e431152195e85cd073742885fa2866ee78da5d75d936cc90bc23"
-    sha256 big_sur:       "c439d889df3e04bea1eb6260a07a62fa837549ecb27fd5a00cf984768ea7f231"
-    sha256 catalina:      "d91c25c904352bb6e316f455ebf81b3141fc2e33658f57d6447e92def99ac805"
-    sha256 mojave:        "5fb824614d82b9e9b158c86a445d91a970a04fd82348335d773128c66ae3b9f0"
+    rebuild 1
+    sha256 arm64_big_sur: "c8cf37b67448119b2fdef16c9eaf1b924a433f645037f9fd8a8f37fef46832a7"
+    sha256 big_sur:       "e2a1c27f807d9df77b5572cecf17e03bb59e344468f7cd017c6b427812072d5d"
+    sha256 catalina:      "032de1da579c13edd37c77bb3b57e8189b290a8c7235523a9cb4ca9fe8c51636"
+    sha256 mojave:        "121c7484b3210d173fc5704adad85c1238b097c475ffdb78a56af6e25dbe3c8b"
   end
 
   head do
@@ -71,6 +72,7 @@ class Audacious < Formula
         -Dcoreaudio=false
         -Dmpris2=false
         -Dmac-media-keys=true
+        -Dcpp_std=c++14
       ]
 
       ENV.prepend_path "PKG_CONFIG_PATH", lib/"pkgconfig"

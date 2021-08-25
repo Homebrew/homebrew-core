@@ -15,6 +15,7 @@ class Mednafen < Formula
     sha256 big_sur:       "5d671db565de9ce937475c19880caf88d38faa2b2b8a42888230a0be27f32615"
     sha256 catalina:      "beda51be33761b5b9e9764093e313b567d1b1bcd58aab91a64d3f7a4099d2c93"
     sha256 mojave:        "62500c988c009c14e45f80de2f69d3b9a352946a36888adfe94b4eda14e6fc9f"
+    sha256 x86_64_linux:  "9385785347f0e28b221bc0d8dc0a6afbcab5eeda7664bbfc749cbafc8a8d75b6"
   end
 
   depends_on "pkg-config" => :build

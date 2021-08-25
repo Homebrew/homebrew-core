@@ -5,7 +5,7 @@ class Tasksh < Formula
   sha256 "6e42f949bfd7fbdde4870af0e7b923114cc96c4344f82d9d924e984629e21ffd"
   license "MIT"
   revision 1
-  head "https://github.com/GothenburgBitFactory/taskshell.git", branch: "1.3.0"
+  head "https://github.com/GothenburgBitFactory/taskshell.git", branch: "master"
 
   livecheck do
     url "https://gothenburgbitfactory.org"

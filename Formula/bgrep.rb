@@ -4,7 +4,7 @@ class Bgrep < Formula
   url "https://github.com/tmbinc/bgrep/archive/bgrep-0.2.tar.gz"
   sha256 "24c02393fb436d7a2eb02c6042ec140f9502667500b13a59795388c1af91f9ba"
   license "BSD-2-Clause"
-  head "https://github.com/tmbinc/bgrep.git"
+  head "https://github.com/tmbinc/bgrep.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2d5628a1b93a4ad2e770502b011140bc301051e1679ac5d59eadbd9b94944b1b"

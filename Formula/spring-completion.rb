@@ -4,7 +4,7 @@ class SpringCompletion < Formula
   url "https://github.com/jacaetevha/spring_bash_completion/archive/v0.0.1.tar.gz"
   sha256 "a97b256dbdaca894dfa22bd96a6705ebf4f94fa8206d05f41927f062c3dd60bf"
   license "Unlicense"
-  head "https://github.com/jacaetevha/spring_bash_completion.git"
+  head "https://github.com/jacaetevha/spring_bash_completion.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5c188dbaccd58b79b5596c7d0c34cd3a1a997cea7f6131393b11205a77964c2a"

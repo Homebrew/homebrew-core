@@ -6,7 +6,7 @@ class Awscurl < Formula
   url "https://files.pythonhosted.org/packages/9c/82/33679049696e05fc85596ff93f19fa0b9f73200de62d5ab0bfd4eed9aa9f/awscurl-0.24.tar.gz"
   sha256 "6a8eab18238f41297b9f568fead3161e898fb0f68f2b1bb3ed5ece358a929206"
   license "MIT"
-  head "https://github.com/okigan/awscurl.git"
+  head "https://github.com/okigan/awscurl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "99eeee8b8c25ac9eca8935f086d7049009a23dd6cdff955932b69684eb5fc092"

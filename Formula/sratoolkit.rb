@@ -4,7 +4,7 @@ class Sratoolkit < Formula
   url "https://github.com/ncbi/sra-tools/archive/2.11.0.tar.gz"
   sha256 "10ac0a4d1fafc274bc107de811891d3e803d0713a247581dece4448231883810"
   license all_of: [:public_domain, "GPL-3.0-or-later", "MIT"]
-  head "https://github.com/ncbi/sra-tools.git"
+  head "https://github.com/ncbi/sra-tools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "87602a3b77c5d58a037bf2e93423e6cb925bd586fe424680035885894359aeb0"

@@ -5,7 +5,7 @@ class Stormssh < Formula
   sha256 "8d034dcd9487fa0d280e0ec855d08420f51d5f9f2249f932e3c12119eaa53453"
   license "MIT"
   revision 5
-  head "https://github.com/emre/storm.git"
+  head "https://github.com/emre/storm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "aa25e63f9cf6ff6d69e1c7b48dce6834de0ce4ed2d74af6775212ef1c9314f52"

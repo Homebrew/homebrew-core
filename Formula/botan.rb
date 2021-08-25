@@ -4,7 +4,7 @@ class Botan < Formula
   url "https://botan.randombit.net/releases/Botan-2.18.1.tar.xz"
   sha256 "f8c7b46222a857168a754a5cc329bb780504122b270018dda5304c98db28ae29"
   license "BSD-2-Clause"
-  head "https://github.com/randombit/botan.git"
+  head "https://github.com/randombit/botan.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "49d7c6c498d9eeb8d5d8be5b1dfe36107c499bb651df544028e9fec7cdac814d"

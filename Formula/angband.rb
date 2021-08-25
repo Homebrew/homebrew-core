@@ -4,7 +4,7 @@ class Angband < Formula
   url "https://github.com/angband/angband/releases/download/4.2.3/Angband-4.2.3.tar.gz"
   sha256 "833c4f8cff2aee61ad015f9346fceaa4a8c739fe2dbe5bd1acd580c91818e6bb"
   license "GPL-2.0-only"
-  head "https://github.com/angband/angband.git"
+  head "https://github.com/angband/angband.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "ab6002b750047f4c544b8427a2f021395b75ab7f9f93c26fc0f3625b758f5842"

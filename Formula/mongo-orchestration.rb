@@ -9,11 +9,12 @@ class MongoOrchestration < Formula
   head "https://github.com/10gen/mongo-orchestration.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e12c50c302a66b1467acdf6d7e3fd5028122495c97df5ccd141b4f55e07fdb6b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "be16d93c0c474454470ed030a7fbfd62246279de3169149296bb0ec8e82ce1d7"
-    sha256 cellar: :any_skip_relocation, catalina:      "3402a9a43661ba4b78ce135d4da252d87b89d29409fe8f468bdbd1035c8d1094"
-    sha256 cellar: :any_skip_relocation, mojave:        "02cc084f4df0c6502a4533b0912668bba42b034a1365298709976d8d05713e41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d1cd0513fefdbca0d903a8213af3462b9a145513691010412f81809240498ea2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "efc5b67df58e64e0a547194ab13c9c66bc4df783b75d0a898537b92d0620b5cf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e041335f3dbbf6a41a7b23422eee73925811becd1e546e7382322bbc6796aa51"
+    sha256 cellar: :any_skip_relocation, catalina:      "9c1d470d4a8c29025b8dd949da85b47e8e9b6fb25092db6919b61ae990164321"
+    sha256 cellar: :any_skip_relocation, mojave:        "1116172042657ce84ebf4a2a8a53c673d7a7f7f4b2ebf407fc4dfb479f547f8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9e71f7fdfe63ac2bcd8ac7646d1cda17bf96e06fe2b780cc04af67ab29eb9a5"
   end
 
   depends_on "python@3.9"
@@ -42,31 +43,9 @@ class MongoOrchestration < Formula
     virtualenv_install_with_resources
   end
 
-  plist_options startup: true, manual: "#{HOMEBREW_PREFIX}/opt/mongo-orchestration/bin/mongo-orchestration -b 127.0.0.1 -p 8889 --no-fork start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>mongo-orchestration</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/mongo-orchestration</string>
-            <string>-b</string>
-            <string>127.0.0.1</string>
-            <string>-p</string>
-            <string>8889</string>
-            <string>--no-fork</string>
-            <string>start</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_bin/"mongo-orchestration", "-b", "127.0.0.1", "-p", "8889", "--no-fork", "start"]
   end
 
   test do

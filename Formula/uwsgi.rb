@@ -3,7 +3,7 @@ class Uwsgi < Formula
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://github.com/unbit/uwsgi.git"
+  head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   stable do
     url "https://files.pythonhosted.org/packages/c7/75/45234f7b441c59b1eefd31ba3d1041a7e3c89602af24488e2a22e11e7259/uWSGI-2.0.19.1.tar.gz"

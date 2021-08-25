@@ -4,7 +4,7 @@ class Certigo < Formula
   url "https://github.com/square/certigo/archive/v1.12.1.tar.gz"
   sha256 "800bdfa10ffc7f6313397220d02769e88ed5dae001224c9f0199383dcb63eaec"
   license "Apache-2.0"
-  head "https://github.com/square/certigo.git"
+  head "https://github.com/square/certigo.git", branch: "master"
 
   bottle do
     rebuild 1

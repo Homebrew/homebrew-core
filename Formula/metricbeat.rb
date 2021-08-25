@@ -8,11 +8,12 @@ class Metricbeat < Formula
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b73fd97b4799a8605b953b89e7c55f3514e5c8e2c384641d23f984637d3a177c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fabe451696b2170f48ebd53cce1f600e66f237cddc45dc59f053c84a19ff11d8"
-    sha256 cellar: :any_skip_relocation, catalina:      "b9d00397315979de4ca221a8c81ed11a4f15b5659148497562b2e7f708a69e81"
-    sha256 cellar: :any_skip_relocation, mojave:        "635f3dedcdf29f30c45a77934e95432e482b776bb78ff0f052d4b5d019bb08b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4197bf95f981a0bd3564270650e63a7dd841290f48c006dd14f2ac7889f53c63"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "58ac37c3a9c06c7cfcafbb97e32a00eb7a303d5a0394d5df3ce97e37c57efa41"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cd39c9314c57875191d8a24e882137bb6cf140a5b9f693148b5b8de529196a84"
+    sha256 cellar: :any_skip_relocation, catalina:      "fa509869c27d2e661f372d2560cf5c352ff8a530d00b3854f15750f07ad07d0d"
+    sha256 cellar: :any_skip_relocation, mojave:        "a8aafc256f5faaec771ed72892a16cb3d8bd290187e7c964ebcb93e23cac361b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bc292bbe7a486703cf9c385481b029a54628714219154d8c2bbe66bcbe2a189"
   end
 
   depends_on "go" => :build
@@ -48,24 +49,8 @@ class Metricbeat < Formula
     EOS
   end
 
-  plist_options manual: "metricbeat"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN"
-      "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>Program</key>
-          <string>#{opt_bin}/metricbeat</string>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"metricbeat"
   end
 
   test do

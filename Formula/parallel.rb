@@ -6,7 +6,7 @@ class Parallel < Formula
   sha256 "7b33279bf71e76c52c393081d2db69057dd320be019759c4e704841a6761ec86"
   license "GPL-3.0-or-later"
   version_scheme 1
-  head "https://git.savannah.gnu.org/git/parallel.git"
+  head "https://git.savannah.gnu.org/git/parallel.git", branch: "master"
 
   livecheck do
     url :homepage

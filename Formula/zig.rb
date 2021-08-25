@@ -3,7 +3,7 @@ class Zig < Formula
   homepage "https://ziglang.org/"
   license "MIT"
   revision 1
-  head "https://github.com/ziglang/zig.git"
+  head "https://github.com/ziglang/zig.git", branch: "master"
 
   stable do
     url "https://ziglang.org/download/0.8.0/zig-0.8.0.tar.xz"

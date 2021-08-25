@@ -1,17 +1,17 @@
 class CrispyDoom < Formula
   desc "Limit-removing enhanced-resolution Doom source port based on Chocolate Doom"
   homepage "https://github.com/fabiangreffrath/crispy-doom"
-  url "https://github.com/fabiangreffrath/crispy-doom/archive/crispy-doom-5.10.2.tar.gz"
-  sha256 "b414636e929af2a16e1fc586101dc378da4a8ad283b339be0749de34cbb3da82"
+  url "https://github.com/fabiangreffrath/crispy-doom/archive/crispy-doom-5.10.3.tar.gz"
+  sha256 "eef8dc26e8952b23717be3b20239fda4ee59842511328387766d1c8fe8252f6b"
   license "GPL-2.0-only"
-
-  head "https://github.com/fabiangreffrath/crispy-doom"
+  head "https://github.com/fabiangreffrath/crispy-doom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "334d6f54742cb84bed5ae85562400b5660232788c59772e8b4a2c8e7bc7f1107"
-    sha256 cellar: :any, big_sur:       "e7ff93c49ac5d85a501bf4e12afb56bda7e503f5bf066503a327b35a36f08d32"
-    sha256 cellar: :any, catalina:      "9a2d4aeab66d80bef35da79c594c3623ac9fc1e82301e456a9660a57ab857a11"
-    sha256 cellar: :any, mojave:        "f36bac4833379ff5e57eb6e87b2375f2c1a7e1b43100fda8abf7a89a23124455"
+    sha256 cellar: :any,                 arm64_big_sur: "6d9000bd5ee7e800eecf8748c419ea4f8d42dc1e5c78ec5e49e91ab095e34895"
+    sha256 cellar: :any,                 big_sur:       "cbd514df66ecb0eb170169ce1f099fedefafa17f79cdeb2dfe00120d7e2fa03a"
+    sha256 cellar: :any,                 catalina:      "07ab97bfe589f66a63007f32ab6f5a937aec221fb3528ab33259fc3c6652bb60"
+    sha256 cellar: :any,                 mojave:        "ae4f7e635129aa417d47826af76123678ae786c0889b4baad08c59b3c730c36a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef1289f3ed451a8f7c301f9e56446139d349e9664f4be42c0858d082e148f935"
   end
 
   depends_on "autoconf" => :build

@@ -7,11 +7,12 @@ class NatsServer < Formula
   head "https://github.com/nats-io/nats-server.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d5df8e187ebb23873fd3508b61918228616bca2f5ccc59fa8ca78ff2e4dcf56"
-    sha256 cellar: :any_skip_relocation, big_sur:       "03901b69134159142664481989f808f3fa540e7d5e5bc5b720f92a6371c32711"
-    sha256 cellar: :any_skip_relocation, catalina:      "0aadd268fb0ae104649a867836111816d2e4163e3eb8fb8459dbc50bb108f32d"
-    sha256 cellar: :any_skip_relocation, mojave:        "68ac3dc35df36dc89216a91a05352bb459850e4f685ae2d94c6f0c8f0ff571b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82584511da9578d54ad1cd2d677fa5a35d4de3e47d3f53c89fdffb87208642b3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "24d4c3b74e4465497dd9cf8e0459e04b0abf87274c2c4c99a66d8551f32b6eb7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6a98cf8a7b270e149fe4a0bd4309a065fbabbd2639f0cd245e5ed4aa0eb7baf6"
+    sha256 cellar: :any_skip_relocation, catalina:      "cc67a59bff3e4dfe6ad8e02ec2429d50ae813fccdcef36273d5ba4cdcde8f1db"
+    sha256 cellar: :any_skip_relocation, mojave:        "e68ab829b353b6245f2a3a0b49c325875ff123b3bc67d98d828b0246c8551137"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7ed6710b25b8c2fffe3fb5d994f3c2f92847e5e01dacae98b2adc61a8a85f643"
   end
 
   depends_on "go" => :build
@@ -20,25 +21,8 @@ class NatsServer < Formula
     system "go", "build", "-ldflags", "-s -w", *std_go_args
   end
 
-  plist_options manual: "nats-server"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/nats-server</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"nats-server"
   end
 
   test do

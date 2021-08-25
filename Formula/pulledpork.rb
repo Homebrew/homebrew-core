@@ -4,7 +4,7 @@ class Pulledpork < Formula
   url "https://github.com/shirkdog/pulledpork/archive/v0.7.4.tar.gz"
   sha256 "f0149eb6f723b622024295e0ee00e1acade93fae464b9fdc323fdf15e99c388c"
   license "GPL-2.0-or-later"
-  head "https://github.com/shirkdog/pulledpork.git"
+  head "https://github.com/shirkdog/pulledpork.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "035ca3f72d7950b0446825984e779be22a25b2b8b180f226eb7589120092673e"

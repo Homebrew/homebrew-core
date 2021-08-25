@@ -4,7 +4,7 @@ class Shellcheck < Formula
   url "https://github.com/koalaman/shellcheck/archive/v0.7.2.tar.gz"
   sha256 "5911f6133951d0ba6d643025bc50f2afb6c6f66d7225dc3d42e8845bfdf74c3c"
   license "GPL-3.0-or-later"
-  head "https://github.com/koalaman/shellcheck.git"
+  head "https://github.com/koalaman/shellcheck.git", branch: "master"
 
   bottle do
     rebuild 1

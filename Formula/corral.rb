@@ -4,7 +4,7 @@ class Corral < Formula
   url "https://github.com/ponylang/corral/archive/0.5.3.tar.gz"
   sha256 "caee35ca820201c13b87e11224ede472d1ed9798985d17eee8c46b14711f7d07"
   license "BSD-2-Clause"
-  head "https://github.com/ponylang/corral.git"
+  head "https://github.com/ponylang/corral.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "8bf55316637ccd844945fb01255fd17adc6c32450468ce0f4fa6419c3fb721d7"

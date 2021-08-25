@@ -7,7 +7,7 @@ class Unoconv < Formula
   sha256 "308ebfd98e67d898834876348b27caf41470cd853fbe2681cc7dacd8fd5e6031"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/unoconv/unoconv.git"
+  head "https://github.com/unoconv/unoconv.git", branch: "master"
 
   bottle do
     rebuild 1

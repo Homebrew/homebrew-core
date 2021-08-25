@@ -19,6 +19,7 @@ class Aview < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "95cbb14a2a5cb4d8d11d9ca3621e81705df77f47d85f89383913e3a02da56041"
     sha256 cellar: :any_skip_relocation, el_capitan:    "cb20b8513b3b7d2977943d7ba14f2627892697e9a6b69c4366563786810ca95c"
     sha256 cellar: :any_skip_relocation, yosemite:      "886a6800deefcf7a1e377db57c9df0579b6f1fcb4b491a6262171411bce3517b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f2a611a1c3b2b1c76816dffcef6b3aff9f4ea88f6fbd87729dc987c39bd7cc2a"
   end
 
   depends_on "aalib"

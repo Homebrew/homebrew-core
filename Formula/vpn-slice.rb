@@ -6,7 +6,7 @@ class VpnSlice < Formula
   url "https://files.pythonhosted.org/packages/22/a2/55d1f41fdc1708c0a005f5fc678b85acaa3ed5ba470a3a0410898b3a61ff/vpn-slice-0.15.tar.gz"
   sha256 "7d5133aecbed9d5696d59dcb799c3d8d30a89a08f6d36fac335f6b8357786353"
   license "GPL-3.0-or-later"
-  head "https://github.com/dlenski/vpn-slice.git"
+  head "https://github.com/dlenski/vpn-slice.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1752b81bf66c9254d6f99dcb3b78c8d8fe25066f7882bacb9d1f52ccc6bb4ad3"

@@ -4,7 +4,7 @@ class Terrascan < Formula
   url "https://github.com/accurics/terrascan/archive/v1.9.0.tar.gz"
   sha256 "175af8ae4d432b735ba6c638bd4d85b9185c4dae0422f13495d9dfb0c40916de"
   license "Apache-2.0"
-  head "https://github.com/accurics/terrascan.git"
+  head "https://github.com/accurics/terrascan.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "dfbf9d7877f46520224f71ec7a3b8fb9db00fde330188f67fdfd57e2ec5987ed"

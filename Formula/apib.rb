@@ -4,7 +4,7 @@ class Apib < Formula
   url "https://github.com/apigee/apib/archive/APIB_1_2_1.tar.gz"
   sha256 "e47f639aa6ffc14a2e5b03bf95e8b0edc390fa0bb2594a521f779d6e17afc14c"
   license "Apache-2.0"
-  head "https://github.com/apigee/apib.git"
+  head "https://github.com/apigee/apib.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "6c066e87db949d59e554c6c9b9e7657d249171dee7a2d3b7bc53b54f36daa762"

@@ -4,7 +4,7 @@ class Archiver < Formula
   url "https://github.com/mholt/archiver/archive/v3.5.0.tar.gz"
   sha256 "8f2e3ad68553f6b58bf99e8635ff0953f62ff0a7804da7658954ffaa7d0aaa0a"
   license "MIT"
-  head "https://github.com/mholt/archiver.git"
+  head "https://github.com/mholt/archiver.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d717896d49eb78330bc10d6cb050cc0c3bf7f89d84f1dd5f4fce3529ced17776"

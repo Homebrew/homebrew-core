@@ -4,7 +4,7 @@ class Crc32c < Formula
   url "https://github.com/google/crc32c/archive/1.1.1.tar.gz"
   sha256 "a6533f45b1670b5d59b38a514d82b09c6fb70cc1050467220216335e873074e8"
   license "BSD-3-Clause"
-  head "https://github.com/google/crc32c.git"
+  head "https://github.com/google/crc32c.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "82e70741895a3e29dc0f8e48b0dd10e13e8cd380012457c1bf984ace3fd6dd03"

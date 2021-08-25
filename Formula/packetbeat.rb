@@ -5,7 +5,7 @@ class Packetbeat < Formula
       tag:      "v7.14.0",
       revision: "e127fc31fc6c00fdf8649808f9421d8f8c28b5db"
   license "Apache-2.0"
-  head "https://github.com/elastic/beats.git"
+  head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c68f6098509af8777faf45a9bf3816817af5549dc0072b21bae4742bf6487b0c"

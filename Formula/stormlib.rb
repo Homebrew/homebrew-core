@@ -4,7 +4,7 @@ class Stormlib < Formula
   url "https://github.com/ladislav-zezula/StormLib/archive/v9.23.tar.gz"
   sha256 "d62ba42f1e02efcb2cbaa03bd2e20fbd18c45499ef5fe65ffb89ee52a7bd9c92"
   license "MIT"
-  head "https://github.com/ladislav-zezula/StormLib.git"
+  head "https://github.com/ladislav-zezula/StormLib.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "16d13a201008b0f6c145e80d28ced76f29af97dfcfce05d1bc2dac84ac0dba33"

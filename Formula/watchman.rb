@@ -5,7 +5,7 @@ class Watchman < Formula
   sha256 "8994793334422d5101a087aadec55aa2d73979c0b4b63368dfc1a9ac5e547a2d"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/facebook/watchman.git"
+  head "https://github.com/facebook/watchman.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "896a77c6c7289380d1a173b0c97b2e64418e5a4098cf01c882a8c75748a4b074"

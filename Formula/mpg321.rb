@@ -14,6 +14,7 @@ class Mpg321 < Formula
     sha256 sierra:        "a69f242f57e4211f96fa56f10573777204d5ed7d61cd7b35a04e0bbd33b9064e"
     sha256 el_capitan:    "6c8921b0703d2952b6038ce7097957c3c2bfe9b59c2d41b5caddc268e96b245d"
     sha256 yosemite:      "48b9ac480d966fc344c4867f3dcef7cd59be1440b11fe7d8280d51134a881f78"
+    sha256 x86_64_linux:  "f0e6431c86cba77da50d3ea89267963a78b9e7e46edf95172f52c086b5313d76"
   end
 
   depends_on "libao"

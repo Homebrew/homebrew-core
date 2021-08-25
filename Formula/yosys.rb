@@ -5,7 +5,7 @@ class Yosys < Formula
   sha256 "f2e31371f9cf1b36cb4f57b23fd6eb849adc7d935dcf49f3c905aa5136382c2f"
   license "ISC"
   revision 3
-  head "https://github.com/YosysHQ/yosys.git"
+  head "https://github.com/YosysHQ/yosys.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "e2df722fe6fd54e15f7683bc49ec6f77895fd97687d38743507deb88c091c982"

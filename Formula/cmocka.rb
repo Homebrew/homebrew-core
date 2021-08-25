@@ -4,7 +4,7 @@ class Cmocka < Formula
   url "https://cmocka.org/files/1.1/cmocka-1.1.5.tar.xz"
   sha256 "f0ccd8242d55e2fd74b16ba518359151f6f8383ff8aef4976e48393f77bba8b6"
   license "Apache-2.0"
-  head "https://git.cryptomilk.org/projects/cmocka.git"
+  head "https://git.cryptomilk.org/projects/cmocka.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "e2ed51c48c56006bb4b8591259eb206968e46457e78b15570c567d990b5f97d3"

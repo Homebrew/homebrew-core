@@ -4,7 +4,7 @@ class Rmw < Formula
   url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.8.0/rmw-0.8.0-2.tar.gz"
   sha256 "a01b8472a7cbecc2bed5ba301e360f8defcd77821cef812051d68d4c38f12e95"
   license "GPL-3.0-or-later"
-  head "https://github.com/theimpossibleastronaut/rmw.git"
+  head "https://github.com/theimpossibleastronaut/rmw.git", branch: "master"
 
   livecheck do
     url :stable

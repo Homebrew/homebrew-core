@@ -5,7 +5,7 @@ class Timewarrior < Formula
   sha256 "c4df7e306c9a267c432522c37958530b8fd6e5a410c058f575e25af4d8c7ca53"
   license "MIT"
   revision 1
-  head "https://github.com/GothenburgBitFactory/timewarrior.git"
+  head "https://github.com/GothenburgBitFactory/timewarrior.git", branch: "dev"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c237684f26cc8b20162ab44dc3fd1822317bcc7988004ebfaaae1b262706a9c0"

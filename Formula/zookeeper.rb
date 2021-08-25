@@ -6,7 +6,7 @@ class Zookeeper < Formula
   sha256 "cb3980f61b66babe550dcb717c940160ba813512c0aca26c2b8a718fac5d465d"
   license "Apache-2.0"
   revision 1
-  head "https://gitbox.apache.org/repos/asf/zookeeper.git"
+  head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "7a09b012f9b2e0c6dde46dfebf2f66846ab86e154087310b99198572d4a37321"

@@ -82,16 +82,16 @@ class GraphTool < Formula
       venv.pip_install_and_link r
     end
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-      PYTHON=python3
-      PYTHON_LIBS=-undefined\ dynamic_lookup
-      --with-python-module-path=#{lib}/python#{xy}/site-packages
-      --with-boost-python=boost_python#{xy.to_s.delete(".")}-mt
-      --with-boost-libdir=#{HOMEBREW_PREFIX}/opt/boost/lib
-      --with-boost-coroutine=boost_coroutine-mt
+    args = [
+      "--disable-debug",
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}",
+      "PYTHON=python3",
+      "PYTHON_LIBS=-undefined dynamic_lookup",
+      "--with-python-module-path=#{lib}/python#{xy}/site-packages",
+      "--with-boost-python=boost_python#{xy.to_s.delete(".")}-mt",
+      "--with-boost-libdir=#{HOMEBREW_PREFIX}/opt/boost/lib",
+      "--with-boost-coroutine=boost_coroutine-mt",
     ]
     args << "--with-expat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
 

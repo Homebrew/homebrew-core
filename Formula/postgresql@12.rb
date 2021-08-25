@@ -15,6 +15,7 @@ class PostgresqlAT12 < Formula
     sha256 big_sur:       "a774bc0a57c5352c656601267c0b14e8050375eed5fd7f1f10ba63e2b32b73cc"
     sha256 catalina:      "415ceeef4d4c3fe947ae7e2e6052afeaef5bf1030bba4eec266862426d0100b2"
     sha256 mojave:        "dd4acba981cefba1e0afed9523787b5a865e9e617b227f3e3b74a35b649ba643"
+    sha256 x86_64_linux:  "4bb4bf85f10336e20ce903f91125ce24efe7dd25b8c9d6e444cd3de156ed3581"
   end
 
   keg_only :versioned_formula
@@ -32,7 +33,6 @@ class PostgresqlAT12 < Formula
   depends_on "openssl@1.1"
   depends_on "readline"
 
-  uses_from_macos "krb5"
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
   uses_from_macos "openldap"
@@ -56,7 +56,6 @@ class PostgresqlAT12 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
       --with-gssapi
       --with-icu
       --with-ldap
@@ -65,9 +64,14 @@ class PostgresqlAT12 < Formula
       --with-openssl
       --with-pam
       --with-perl
-      --with-tcl
       --with-uuid=e2fs
     ]
+    on_macos do
+      args += %w[
+        --with-bonjour
+        --with-tcl
+      ]
+    end
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
@@ -87,6 +91,12 @@ class PostgresqlAT12 < Formula
                                     "pkgincludedir=#{include}/postgresql",
                                     "includedir_server=#{include}/postgresql/server",
                                     "includedir_internal=#{include}/postgresql/internal"
+
+    on_linux do
+      inreplace lib/"postgresql/pgxs/src/Makefile.global",
+                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
+                "LD = #{HOMEBREW_PREFIX}/bin/ld"
+    end
   end
 
   def post_install

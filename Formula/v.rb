@@ -3,7 +3,7 @@ class V < Formula
   homepage "https://github.com/rupa/v"
   url "https://github.com/rupa/v/archive/v1.1.tar.gz"
   sha256 "6483ef1248dcbc6f360b0cdeb9f9c11879815bd18b0c4f053a18ddd56a69b81f"
-  head "https://github.com/rupa/v.git"
+  head "https://github.com/rupa/v.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3fc81e5ce826641b151e30b303496e791296a2864ded5756d6bf47408aadec12"

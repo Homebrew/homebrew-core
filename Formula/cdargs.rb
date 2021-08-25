@@ -4,7 +4,7 @@ class Cdargs < Formula
   url "https://github.com/cbxbiker61/cdargs/archive/2.1.tar.gz"
   sha256 "062515c3fbd28c68f9fa54ff6a44b81cf647469592444af0872b5ecd7444df7d"
   license "GPL-2.0"
-  head "https://github.com/cbxbiker61/cdargs.git"
+  head "https://github.com/cbxbiker61/cdargs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fb52b8d939ea7fde7c8579710b1bad8617e987214f2bfb730300b2e761ebf4dd"

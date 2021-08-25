@@ -4,7 +4,7 @@ class Samurai < Formula
   url "https://github.com/michaelforney/samurai/releases/download/1.2/samurai-1.2.tar.gz"
   sha256 "3b8cf51548dfc49b7efe035e191ff5e1963ebc4fe8f6064a5eefc5343eaf78a5"
   license "Apache-2.0"
-  head "https://github.com/michaelforney/samurai.git"
+  head "https://github.com/michaelforney/samurai.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "04ca3c9aada344360216791324e673db86948a3eaa2e82a541cb1fd28647b1bf"

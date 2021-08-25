@@ -4,7 +4,7 @@ class Wemux < Formula
   url "https://github.com/zolrath/wemux/archive/v3.2.0.tar.gz"
   sha256 "8de6607df116b86e2efddfe3740fc5eef002674e551668e5dde23e21b469b06c"
   license "MIT"
-  head "https://github.com/zolrath/wemux.git"
+  head "https://github.com/zolrath/wemux.git", branch: "master"
 
   bottle do
     rebuild 3

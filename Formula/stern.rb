@@ -4,7 +4,7 @@ class Stern < Formula
   url "https://github.com/stern/stern/archive/v1.20.0.tar.gz"
   sha256 "72210a8fd3c1126ab4f9a26aa2d91b4515c78ae0691c9a6660c6be262920a044"
   license "Apache-2.0"
-  head "https://github.com/stern/stern.git"
+  head "https://github.com/stern/stern.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "2ffc9d90c163e78ec739a24cc286a933fe7b8d151009d078d7359de9d8e55572"

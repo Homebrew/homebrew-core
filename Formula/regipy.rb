@@ -6,7 +6,7 @@ class Regipy < Formula
   url "https://files.pythonhosted.org/packages/f1/d9/ebae459c0784f409b133b6206fd29e7c66c0b9e82d0469c5760d65db7fcd/regipy-2.2.0.tar.gz"
   sha256 "d6eec6d646fdfc290296668dae1a68811b1365e3a1fca64e0b7e3290de099e8f"
   license "MIT"
-  head "https://github.com/mkorman90/regipy.git"
+  head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d23cba8777868085dd95e650e77a2b8b7717f6d075f291f63d1b33fae311fb08"

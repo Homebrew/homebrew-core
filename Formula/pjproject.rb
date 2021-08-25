@@ -4,7 +4,7 @@ class Pjproject < Formula
   url "https://github.com/pjsip/pjproject/archive/2.10.tar.gz"
   sha256 "936a4c5b98601b52325463a397ddf11ab4106c6a7b04f8dc7cdd377efbb597de"
   license "GPL-2.0-or-later"
-  head "https://github.com/pjsip/pjproject.git"
+  head "https://github.com/pjsip/pjproject.git", branch: "master"
 
   livecheck do
     url :stable

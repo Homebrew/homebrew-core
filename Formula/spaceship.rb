@@ -4,7 +4,7 @@ class Spaceship < Formula
   url "https://github.com/spaceship-prompt/spaceship-prompt/archive/v3.14.0.tar.gz"
   sha256 "89b208b9d4ea7d43f120a129458dfd45d70337b3f829a3fc11abf13dd9ba0640"
   license "MIT"
-  head "https://github.com/spaceship-prompt/spaceship-prompt.git"
+  head "https://github.com/spaceship-prompt/spaceship-prompt.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "47fd8ab82e0da6d46ace08a463ac87bd4993a1eba34cf859b349fe07ee3cb074"

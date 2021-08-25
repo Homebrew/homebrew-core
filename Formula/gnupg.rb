@@ -1,10 +1,9 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.1.tar.bz2"
-  sha256 "c498db346a9b9a4b399e514c8f56dfc0a888ce8f327f10376ff984452cd154ec"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.3.2.tar.bz2"
+  sha256 "e1d953e0e296072fca284215103ef168885eaac596c4660c5039a36a83e3041b"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gnupg/"
@@ -12,11 +11,11 @@ class Gnupg < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "fd27ef93bf469e8f5689c372f6b6dba70f2fb777b8056b22e5688b67a146b902"
-    sha256 big_sur:       "d1459dc52e4360dd6d812a833218e5ced1f08c10b131981a3ec2aab9fc5d7f9c"
-    sha256 catalina:      "fbdc50f45c45b3444b7d4dd48334e91b8a0c9dbf84da85f379981bbb2ee1a5a3"
-    sha256 mojave:        "bbbcdf26abc4cb46557b59ba60320317d457e7f794ed3092891df29153b5d807"
-    sha256 x86_64_linux:  "24dc3ed7dfaf78ef664f64389aac520950b8e82e43c2381a00123909c7bcb676"
+    sha256 arm64_big_sur: "941069d6ef19f59b24dfe2f8851fea635f679eb740a595ff0a74ac007181bc99"
+    sha256 big_sur:       "ca228c2800845d8d0e020c3e3359201edc0bac8554cfc3a2e985617eb09b629a"
+    sha256 catalina:      "9d0e847588e735e9f1137b7ccfa73a9439a8653a6949d284e3192e6fb2fdf5a5"
+    sha256 mojave:        "a483dd421a3156007c163969705a617676c78e2780ed7bf9279cbcefc903b904"
+    sha256 x86_64_linux:  "cb12c6aab9f508b977047bf4053047b3f48d010988760c53d4c728d78ba7dae9"
   end
 
   depends_on "pkg-config" => :build
@@ -35,10 +34,6 @@ class Gnupg < Formula
   on_linux do
     depends_on "libidn"
   end
-
-  # Fix tests for gnupg 2.3.1, remove in the next release
-  # Patch ref: https://dev.gnupg.org/rGd36c4dc95b72b780375d57311bdf4ae842fd54fa
-  patch :DATA
 
   def install
     system "./configure", "--disable-dependency-tracking",
@@ -90,17 +85,3 @@ class Gnupg < Formula
     end
   end
 end
-
-__END__
-diff --git a/tests/openpgp/defs.scm b/tests/openpgp/defs.scm
-index 768d479aa..86d312f82 100644
---- a/tests/openpgp/defs.scm
-+++ b/tests/openpgp/defs.scm
-@@ -338,6 +338,7 @@
-   (create-file "common.conf"
- 	       (if (flag "--use-keyboxd" *args*)
- 		   "use-keyboxd" "#use-keyboxd")
-+	       (string-append "keyboxd-program " (tool 'keyboxd))
- 	       )
-
-   (create-file "gpg.conf"

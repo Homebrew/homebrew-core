@@ -8,6 +8,15 @@ class Psftools < Formula
   license "GPL-2.0"
   version_scheme 1
 
+  # The development release on the homepage uses the same filename format as
+  # the stable release (e.g., psftools-1.1.1.tar.gz). However, the "Development
+  # Release" section comes before the "Stable Release" section, so we can use
+  # this heading to anchor stable releases for now.
+  livecheck do
+    url :homepage
+    regex(/Stable Release.+?href=.*?psftools[._-]v?(\d+(?:\.\d+)+)\.t/im)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "474daee5c218ce90013ce498fa84dc5486bfdd1ff736535a87bd618fa72f3da9"
     sha256 cellar: :any,                 big_sur:       "42056401c680e3a2372f2b16c78936b6e06c1cb3f8125f1a7c0fff8d23372de9"

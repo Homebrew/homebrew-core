@@ -1,16 +1,16 @@
 class Rover < Formula
   desc "CLI for managing and maintaining data graphs with Apollo Studio"
   homepage "https://www.apollographql.com/docs/rover/"
-  url "https://github.com/apollographql/rover/archive/v0.1.10.tar.gz"
-  sha256 "3eac9afb1f65bde39011931b976e907f0f77598717201550d104bba41139d7e6"
+  url "https://github.com/apollographql/rover/archive/v0.2.0.tar.gz"
+  sha256 "f1951282118b6edc56a005c4b930c0393b6d97c3fc13a565a9d5ef174e2360bf"
   license "MIT"
   head "https://github.com/apollographql/rover.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "883e4c458c5c797506ecb63736a771563a41563893a914d3f3e057e0d3ddd32d"
-    sha256 cellar: :any, big_sur:       "322aaa349d24157af30498a398bab956bbd1e26bb8df5195b14ee80456813d2a"
-    sha256 cellar: :any, catalina:      "a82c3830a51192762bf7517c6c5d86ef6ab5313b7c5538e4305160c78574697a"
-    sha256 cellar: :any, mojave:        "135db358e9253361c63458877e05738eb1883d8296dd010ec43fdc2263a5ac93"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "420213adbcf95b0d337acf1501e6f89293010d0b79a90dcc3e8d45740a2042f8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "2c8857515f7f8192cdd84a55407ef8b4ce825640509b5cfa642a8bf5ce69241f"
+    sha256 cellar: :any_skip_relocation, catalina:      "6b84a5d32b68ca4c1f2a57153b3ab395fee39c1172011c771f5f8bea3cce1293"
+    sha256 cellar: :any_skip_relocation, mojave:        "504e11dec505ed4abc3eaf6d10cb6adad8bc9374aa726497b307e22c4cfe6463"
   end
 
   depends_on "rust" => :build

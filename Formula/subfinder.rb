@@ -4,7 +4,7 @@ class Subfinder < Formula
   url "https://github.com/projectdiscovery/subfinder/archive/v2.4.8.tar.gz"
   sha256 "0e97f8a7bf48dc247af3dcac7bae67c1cb514b055fbcfb164a5190a484b0492c"
   license "MIT"
-  head "https://github.com/projectdiscovery/subfinder.git"
+  head "https://github.com/projectdiscovery/subfinder.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "54279ba72b52aebf1aea25b02cba294a79a8bea56bb98312b8ea69e09de1ed0b"

@@ -18,11 +18,14 @@
     ],
     "exclude_packages": ["textfsm", "pycrypto"]
   },
+  "athenacli": {
+    "exclude_packages": ["six", "tabulate"]
+  },
   "aws-google-auth": {
     "exclude_packages": ["pillow", "tabulate"]
   },
-  "athenacli": {
-    "exclude_packages": ["six", "tabulate"]
+  "awscli@1": {
+    "exclude_packages": ["six"]
   },
   "black": "black[d]",
   "bpytop": "bpytop",
@@ -89,6 +92,9 @@
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
   },
+  "jenkins-job-builder": {
+    "exclude_packages": ["six"]
+  },
   "litecli": {
     "exclude_packages": ["tabulate"]
   },
@@ -116,6 +122,9 @@
   "nox": {
     "exclude_packages": ["six"]
   },
+  "oci-cli": {
+    "exclude_packages": ["six"]
+  },
   "ocrmypdf": {
     "exclude_packages": ["pillow"]
   },
@@ -129,6 +138,9 @@
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
   },
+  "pgcli": {
+    "exclude_packages": ["six", "tabulate"]
+  },
   "pipgrip": {
     "exclude_packages": ["six"],
     "extra_packages": ["wheel"]
@@ -140,6 +152,9 @@
     "extra_packages": ["importlib-metadata", "typing-extensions"]
   },
   "principalmapper": {
+    "exclude_packages": ["six"]
+  },
+  "proselint": {
     "exclude_packages": ["six"]
   },
   "protobuf": {
@@ -158,6 +173,9 @@
   "regipy": {
     "exclude_packages": ["tabulate"],
     "extra_packages": ["click"]
+  },
+  "remarshal": {
+    "exclude_packages": ["six"]
   },
   "robot-framework": {
     "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"]
@@ -304,7 +322,7 @@
     "extra_packages": ["numpydoc"]
   },
   "sqlite-utils": {
-    "exclude_packages": ["tabulate"]
+    "exclude_packages": ["tabulate", "six"]
   },
   "theharvester": {
     "exclude_packages": ["six"]

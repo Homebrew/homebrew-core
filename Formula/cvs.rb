@@ -17,10 +17,11 @@ class Cvs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d254eab8b61ddab83920f40ee1981b0f63ea9fd7bc02e570837bc61551dfdd32"
-    sha256 cellar: :any, big_sur:       "6d6120ae3bf1d373e769370cd6ef8621cb462fb592cb337ad4057e10c4ee07ec"
-    sha256 cellar: :any, catalina:      "4844c8cc28ae86ca8adc34d149f9d78c94195b8ccb88af24a85a3112e53246f0"
-    sha256 cellar: :any, mojave:        "735fd1cc0b3e954123e93bb3565622e57a833863aaa95475c719d908a74fa1df"
+    sha256 cellar: :any,                 arm64_big_sur: "d254eab8b61ddab83920f40ee1981b0f63ea9fd7bc02e570837bc61551dfdd32"
+    sha256 cellar: :any,                 big_sur:       "6d6120ae3bf1d373e769370cd6ef8621cb462fb592cb337ad4057e10c4ee07ec"
+    sha256 cellar: :any,                 catalina:      "4844c8cc28ae86ca8adc34d149f9d78c94195b8ccb88af24a85a3112e53246f0"
+    sha256 cellar: :any,                 mojave:        "735fd1cc0b3e954123e93bb3565622e57a833863aaa95475c719d908a74fa1df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "edcf39afc3ae15d9c38013edd8981abc023e5088557528c77cb74339802d5ad3"
   end
 
   depends_on "autoconf" => :build
@@ -30,30 +31,40 @@ class Cvs < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "vim" => :build # a text editor must be detected by the configure script
     depends_on "linux-pam"
   end
 
   patch :p0 do
     url "https://opensource.apple.com/tarballs/cvs/cvs-47.tar.gz"
     sha256 "643d871d6c5f3aaa1f7be626d60bd83bbdcab0f61196f51cb81e8c20e41f808a"
-    apply "patches/PR5178707.diff",
-          "patches/ea.diff",
-          "patches/endian.diff",
-          "patches/fixtest-client-20.diff",
-          "patches/fixtest-recase.diff",
-          "patches/i18n.diff",
-          "patches/initgroups.diff",
-          "patches/nopic.diff",
-          "patches/remove-info.diff",
-          "patches/tag.diff",
-          "patches/zlib.diff"
+    patches = ["patches/PR5178707.diff",
+               "patches/ea.diff",
+               "patches/endian.diff",
+               "patches/fixtest-client-20.diff",
+               "patches/fixtest-recase.diff",
+               "patches/i18n.diff",
+               "patches/initgroups.diff",
+               "patches/remove-info.diff",
+               "patches/tag.diff",
+               "patches/zlib.diff"]
+
+    on_macos { patches << "patches/nopic.diff" }
+    apply(*patches.compact)
   end
 
-  # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
-  # Patches the upstream-provided gnulib on all platforms as is recommended
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/24118ec737c7d008420d4683a07129ed80a759eb/cvs/vasnprintf-high-sierra-fix.diff"
-    sha256 "affa485332f66bb182963680f90552937bf1455b855388f7c06ef6a3a25286e2"
+    # Fixes error: 'Illegal instruction: 4'; '%n used in a non-immutable format string' on 10.13
+    # Patches the upstream-provided gnulib on all platforms as is recommended
+    on_macos do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/24118ec737c7d008420d4683a07129ed80a759eb/cvs/vasnprintf-high-sierra-fix.diff"
+      sha256 "affa485332f66bb182963680f90552937bf1455b855388f7c06ef6a3a25286e2"
+    end
+    # Fixes error: %n in writable segment detected on Linux
+    on_linux do
+      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/dev-vcs/cvs/files/cvs-1.12.13.1-fix-gnulib-SEGV-vasnprintf.patch?id=6c49fbac47ddb2c42ee285130afea56f349a2d40"
+      sha256 "4f4b820ca39405348895d43e0d0f75bab1def93fb7a43519f6c10229a7c64952"
+    end
   end
 
   # Fixes "cvs [init aborted]: cannot get working directory: No such file or directory" on Catalina.

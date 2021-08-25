@@ -15,6 +15,7 @@ class Bochs < Formula
     sha256 big_sur:       "6e644ff1b857016a22941d01d7136a94c39a790dd6ce0f358da5b5b5ab14af78"
     sha256 catalina:      "a903d4549d08e804de103c69866708ac5a993f7a4006687e9465e67991494cb4"
     sha256 mojave:        "8428e13cd552af48b539231826a222f4b74801688aa0e74c2de40c201cb68e30"
+    sha256 x86_64_linux:  "e681cbd2cb984ea659bad90239ba755b4fca333be1a4831513b53f461974a98b"
   end
 
   depends_on "pkg-config" => :build

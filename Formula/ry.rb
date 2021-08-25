@@ -4,7 +4,7 @@ class Ry < Formula
   url "https://github.com/jayferd/ry/archive/v0.5.2.tar.gz"
   sha256 "b53b51569dfa31233654b282d091b76af9f6b8af266e889b832bb374beeb1f59"
   license "MIT"
-  head "https://github.com/jayferd/ry.git"
+  head "https://github.com/jayferd/ry.git", branch: "master"
 
   bottle do
     rebuild 2

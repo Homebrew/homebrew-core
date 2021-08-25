@@ -4,7 +4,7 @@ class Brotli < Formula
   url "https://github.com/google/brotli/archive/v1.0.9.tar.gz"
   sha256 "f9e8d81d0405ba66d181529af42a3354f838c939095ff99930da6aa9cdf6fe46"
   license "MIT"
-  head "https://github.com/google/brotli.git"
+  head "https://github.com/google/brotli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "bcd00b6f423ec35f98aec55bc2c1cf433b6e70e915cdf04dd2c3a3707f1ce341"

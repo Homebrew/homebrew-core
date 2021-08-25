@@ -7,11 +7,12 @@ class NatsStreamingServer < Formula
   head "https://github.com/nats-io/nats-streaming-server.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "39b3c159d546f81777c33d8789685158c969450da3a0d3a2d9dbf4e17af4248a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0e34dac4cecf758e1e948227e72ddda767a6e018f54ae20b2263dd2c700da459"
-    sha256 cellar: :any_skip_relocation, catalina:      "972fdaccee5d7d1990da81656c332f7bb3791189cf537bc7f4f3259702675195"
-    sha256 cellar: :any_skip_relocation, mojave:        "681bd8f03835321dbe72c54cdcbab294d4bb5328f62ddcbb3dd75cf5026171d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f1c1d00090e426ec88a33de2e8dd8f77b225e15baabc4e21f3f6e8e0d6b0a5a2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7be754512246cbc8d4b4885c94eb8210736b0794a98615e7fe006e31e7b62270"
+    sha256 cellar: :any_skip_relocation, big_sur:       "cebeb9cf1dc610edc6ebe295618e83b64b8afbffd5d2a8451e10d6a22bba9394"
+    sha256 cellar: :any_skip_relocation, catalina:      "5c160c9dfd4652d8eb58a975641968fdc302b60fb1a43a7c864f5a4ac0663b24"
+    sha256 cellar: :any_skip_relocation, mojave:        "81e07ce9a896ea551e332bb831ed5d05282f4a7865377f41837330a567cb2c03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7df96690d23eb8bddfc8acee69810ee712568f81d64e53fa0849cc168420a72e"
   end
 
   depends_on "go" => :build
@@ -21,25 +22,8 @@ class NatsStreamingServer < Formula
     prefix.install_metafiles
   end
 
-  plist_options manual: "nats-streaming-server"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/nats-streaming-server</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_bin/"nats-streaming-server"
   end
 
   test do

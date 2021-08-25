@@ -4,7 +4,7 @@ class Tpl < Formula
   url "https://github.com/troydhanson/tpl/archive/v1.6.1.tar.gz"
   sha256 "0b3750bf62f56be4c42f83c89d8449b24f1c5f1605a104801d70f2f3c06fb2ff"
   license "BSD-1-Clause"
-  head "https://github.com/troydhanson/tpl.git"
+  head "https://github.com/troydhanson/tpl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "28d206fb0a8b3d318bbb8281a2cf64cb371f6a78896bc6c4b0b4187a2c109e96"

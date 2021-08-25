@@ -11,12 +11,12 @@ class Monit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "504f884e120c6b7d869fde9dd4ba5eb0943c3fe7499c8518de1679463406d55c"
-    sha256 cellar: :any,                 big_sur:       "66ac2b24dbad30f393b7ac51ae8f013f61acd4702ccd5c2f63cf4f343540926f"
-    sha256 cellar: :any,                 catalina:      "7b43f0cfbb6632ddb61a2d218f219c790500d31de9586a0fc5cfb5181443c886"
-    sha256 cellar: :any,                 mojave:        "50adb0351b6f9b01d63416620c901a9a766fefd3fd12cd38c56fe6c39a011237"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "81955bc8e3f29f808da2dce0e09b0a84b48e9970720500e5aea5512ff7c62e3a"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_big_sur: "8899ed8eb91d13a2033ec97c60d1df0344110b177a88a10e7fb09d9f5fb51712"
+    sha256 cellar: :any,                 big_sur:       "87816b1850bfa853ba312933fdaa0af656f9ecc18cc4a420f58fae9e659d6d55"
+    sha256 cellar: :any,                 catalina:      "07be9b5e3c46d314cbdcffc239c275f98a5fa1ac9f1161d1cd2d1e21fdb44a16"
+    sha256 cellar: :any,                 mojave:        "5952392c467ab1b0286c9fe977e962089afc479e92e067a22008f4d742014b5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bce1b68d5ce46516c73147927dc386d1a91155fc81fa3dbd06d1379089061aef"
   end
 
   depends_on "openssl@1.1"
@@ -35,29 +35,8 @@ class Monit < Formula
     etc.install "monitrc"
   end
 
-  plist_options manual: "monit -I -c #{HOMEBREW_PREFIX}/etc/monitrc"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>              <string>#{plist_name}</string>
-          <key>ProcessType</key>        <string>Adaptive</string>
-          <key>Disabled</key>           <false/>
-          <key>RunAtLoad</key>          <true/>
-          <key>LaunchOnlyOnce</key>     <false/>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/monit</string>
-            <string>-I</string>
-            <string>-c</string>
-            <string>#{etc}/monitrc</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"monit", "-I", "-c", etc/"monitrc"]
   end
 
   test do

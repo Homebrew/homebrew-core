@@ -5,7 +5,7 @@ class StellarCore < Formula
       tag:      "v17.3.0",
       revision: "0b4c12a37b207dff0bfe5785ead403a000ca0f13"
   license "Apache-2.0"
-  head "https://github.com/stellar/stellar-core.git"
+  head "https://github.com/stellar/stellar-core.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0f4a64af4d39cd840a59ff1883688c2fe38ba239484c34591006d0c76e837984"

@@ -5,7 +5,7 @@ class Re2 < Formula
   version "20210801"
   sha256 "cd8c950b528f413e02c12970dce62a7b6f37733d7f68807e73a2d9bc9db79bc8"
   license "BSD-3-Clause"
-  head "https://github.com/google/re2.git"
+  head "https://github.com/google/re2.git", branch: "main"
 
   # The `strategy` block below is used to massage upstream tags into the
   # YYYYMMDD format used in the `version`. This is necessary for livecheck

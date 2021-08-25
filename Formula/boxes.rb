@@ -4,7 +4,7 @@ class Boxes < Formula
   url "https://github.com/ascii-boxes/boxes/archive/v2.1.1.tar.gz"
   sha256 "95ae6b46e057a79c6414b8c0b5b561c3e9d886ab8123a4085d256edccce625f9"
   license "GPL-2.0-only"
-  head "https://github.com/ascii-boxes/boxes.git"
+  head "https://github.com/ascii-boxes/boxes.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "8a84a206ca3a46d2364dd51f3e025762545645ff161e593a60149fc55e7a1f97"

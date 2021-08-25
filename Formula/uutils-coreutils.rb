@@ -4,7 +4,7 @@ class UutilsCoreutils < Formula
   url "https://github.com/uutils/coreutils/archive/0.0.7.tar.gz"
   sha256 "066359e9548940ee99c3d8911e951d5091aa1f2d7d409cb577c811f3993a1e7d"
   license "MIT"
-  head "https://github.com/uutils/coreutils.git"
+  head "https://github.com/uutils/coreutils.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d36cc1ff02e590820905007cb38dbf301b8876f9819e40e25a68b8174e3a8db4"

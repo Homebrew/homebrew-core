@@ -4,7 +4,7 @@ class Roundup < Formula
   url "https://github.com/bmizerany/roundup/archive/v0.0.6.tar.gz"
   sha256 "20741043ed5be7cbc54b1e9a7c7de122a0dacced77052e90e4ff08e41736f01c"
   license "MIT"
-  head "https://github.com/bmizerany/roundup.git"
+  head "https://github.com/bmizerany/roundup.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "686cc922ad95b85a419eea991cb2320b9971b38233131934ca95cb5467d9e264"

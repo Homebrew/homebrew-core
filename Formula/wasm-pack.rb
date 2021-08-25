@@ -4,7 +4,7 @@ class WasmPack < Formula
   url "https://github.com/rustwasm/wasm-pack/archive/v0.10.0.tar.gz"
   sha256 "1b89ebb73853b749fdb2bc49474e17cca5658edd3b40723405a6a6cc3e3927fd"
   license "Apache-2.0"
-  head "https://github.com/rustwasm/wasm-pack.git"
+  head "https://github.com/rustwasm/wasm-pack.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "49e5f6aec0c98af3fe8d3145ea5e70d036823a173a4f16ec0829504239c2f0e0"

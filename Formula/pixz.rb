@@ -4,7 +4,7 @@ class Pixz < Formula
   url "https://github.com/vasi/pixz/releases/download/v1.0.7/pixz-1.0.7.tar.gz"
   sha256 "d1b6de1c0399e54cbd18321b8091bbffef6d209ec136d4466f398689f62c3b5f"
   license "BSD-2-Clause"
-  head "https://github.com/vasi/pixz.git"
+  head "https://github.com/vasi/pixz.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ad1f4bab403a28e5828c010167bfe1f70eebbc1ef28385e1079115b5460ed40a"

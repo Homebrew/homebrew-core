@@ -18,6 +18,7 @@ class Aalib < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "fb1df93a418c2ae4b7c358d19b58afc0ad73d9d1e6f22b92aa5d5f086cb48a70"
     sha256 cellar: :any_skip_relocation, catalina:      "d83c1b827ca16ae5450356db32fe1b27e910a27bbe2b074a9b4c22fe310bc5b7"
     sha256 cellar: :any_skip_relocation, mojave:        "46feeea3fc331a6982fa1960645e1851d3f395f36fbd99cbf92a7406030d9511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6ba926f8aadec9e5c30880ae6e6497d44f9045d1ca1f680baf28e67309bd8ecd"
   end
 
   # Fix malloc/stdlib issue on macOS
@@ -40,6 +41,23 @@ class Aalib < Formula
   end
 
   test do
-    system "script", "-q", "/dev/null", bin/"aainfo"
+    output = shell_output("#{bin}/aainfo -width 100 -height 50")
+    assert_match "AAlib version:#{version.major_minor}", output
+    assert_match(/Width +:100$/, output)
+    assert_match(/Height +:50$/, output)
+
+    output = shell_output("yes '' | #{bin}/aatest -width 20 -height 10")
+    assert_match <<~EOS, output
+      floyd-steelberg dith
+      ering. . ....----:.:
+          . .......-.:.:::
+         . . . ....---:-::
+          . .......-.:.:-:
+         . . . ....--.:-::
+          . .......-.:-:-:
+         . . . ....:.:.:-:
+          . ........:.:-::
+         . . . ....:.--:-:
+    EOS
   end
 end

@@ -4,7 +4,7 @@ class Connect < Formula
   url "https://github.com/gotoh/ssh-connect/archive/1.105.tar.gz"
   sha256 "96c50fefe7ecf015cf64ba6cec9e421ffd3b18fef809f59961ef9229df528f3e"
   license "GPL-2.0-or-later"
-  head "https://github.com/gotoh/ssh-connect.git"
+  head "https://github.com/gotoh/ssh-connect.git", branch: "master"
 
   livecheck do
     url :stable

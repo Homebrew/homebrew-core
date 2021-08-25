@@ -4,7 +4,7 @@ class Cmus < Formula
   url "https://github.com/cmus/cmus/archive/v2.9.1.tar.gz"
   sha256 "6fb799cae60db9324f03922bbb2e322107fd386ab429c0271996985294e2ef44"
   license "GPL-2.0-or-later"
-  head "https://github.com/cmus/cmus.git"
+  head "https://github.com/cmus/cmus.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "ecccaccd592e7f937d93e0baf6c839d022bfd0142fb4c1ba1fb737bc5320cb8d"

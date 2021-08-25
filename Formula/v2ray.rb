@@ -4,7 +4,7 @@ class V2ray < Formula
   url "https://github.com/v2fly/v2ray-core/archive/v4.41.1.tar.gz"
   sha256 "9d0ca27b78beba96b8ee00141a3e45d7c706d57b3d7c449d7975a8dec815e327"
   license all_of: ["MIT", "CC-BY-SA-4.0"]
-  head "https://github.com/v2fly/v2ray-core.git"
+  head "https://github.com/v2fly/v2ray-core.git", branch: "master"
 
   livecheck do
     url :stable

@@ -5,7 +5,7 @@ class Zbar < Formula
   sha256 "25fdd6726d5c4c6f95c95d37591bfbb2dde63d13d0b10cb1350923ea8b11963b"
   license "LGPL-2.1-only"
   revision 1
-  head "https://github.com/mchehab/zbar.git"
+  head "https://github.com/mchehab/zbar.git", branch: "master"
 
   livecheck do
     url :stable

@@ -4,7 +4,7 @@ class Cocot < Formula
   url "https://github.com/vmi/cocot/archive/cocot-1.2-20171118.tar.gz"
   sha256 "b718630ce3ddf79624d7dcb625fc5a17944cbff0b76574d321fb80c61bb91e4c"
   license "BSD-3-Clause"
-  head "https://github.com/vmi/cocot.git"
+  head "https://github.com/vmi/cocot.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "835a54f7142add9b9a3ab35097a6821fc9c100568b54c2d7fa52c283fd5ca6af"

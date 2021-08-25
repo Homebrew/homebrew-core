@@ -6,7 +6,7 @@ class Zydis < Formula
       revision: "bfee99f49274a0eec3ffea16ede3a5bda9cda88f",
       shallow:  false
   license "MIT"
-  head "https://github.com/zyantific/zydis.git"
+  head "https://github.com/zyantific/zydis.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "914a4009a2c3ee6e7b039574f2b294e919571b68d4e7687a3c01c06e16c4f36a"

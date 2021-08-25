@@ -6,10 +6,11 @@ class FluidSynthAT21 < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "d25c897f88f0f35bce794a51ee17db1056177a3b23a9f35c2c88542d6565bd67"
-    sha256 cellar: :any, big_sur:       "3d2d82d9ff0d7ae9df77e14ee1ca9e160ba2cbc0d7cc6b96b1ec2de872472362"
-    sha256 cellar: :any, catalina:      "f96a93cc69dbc29048d04a00f6034b1ef3df1f088b9a893ac0744b5d11ba6189"
-    sha256 cellar: :any, mojave:        "553ad2667f43d1e0a45d7393fb1452de3459832603d792caab7b7d784bc95857"
+    sha256 cellar: :any,                 arm64_big_sur: "d25c897f88f0f35bce794a51ee17db1056177a3b23a9f35c2c88542d6565bd67"
+    sha256 cellar: :any,                 big_sur:       "3d2d82d9ff0d7ae9df77e14ee1ca9e160ba2cbc0d7cc6b96b1ec2de872472362"
+    sha256 cellar: :any,                 catalina:      "f96a93cc69dbc29048d04a00f6034b1ef3df1f088b9a893ac0744b5d11ba6189"
+    sha256 cellar: :any,                 mojave:        "553ad2667f43d1e0a45d7393fb1452de3459832603d792caab7b7d784bc95857"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2ebdb995ed2864a7ca079cc41392d7b1abc3740ba4ce70e7531978bdaaa72770"
   end
 
   keg_only :versioned_formula

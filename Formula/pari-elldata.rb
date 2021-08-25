@@ -7,6 +7,16 @@ class PariElldata < Formula
   sha256 "dd551e64932d4ab27b3f2b2d1da871c2353672fc1a74705c52e3c0de84bd0cf6"
   license "GPL-2.0-or-later"
 
+  # The only difference in the `livecheck` blocks for pari-* formulae is the
+  # package name in the regex and they should otherwise be kept in parity.
+  livecheck do
+    url :homepage
+    regex(%r{>\s*elldata\.t[^<]+?</a>(?:[&(.;\s\w]+?(?:\),?|,))?\s*([a-z]+\s+\d{1,2},?\s+\d{4})\D}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| Date.parse(match.first)&.strftime("%Y%m%d") }
+    end
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "14d4b536fee818631a347a24bc5fa176f2a82bae24a9aa5fbe2db690315b1c74"
     sha256 cellar: :any_skip_relocation, big_sur:       "14d4b536fee818631a347a24bc5fa176f2a82bae24a9aa5fbe2db690315b1c74"

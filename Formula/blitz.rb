@@ -4,7 +4,7 @@ class Blitz < Formula
   url "https://github.com/blitzpp/blitz/archive/1.0.2.tar.gz"
   sha256 "500db9c3b2617e1f03d0e548977aec10d36811ba1c43bb5ef250c0e3853ae1c2"
   license "Artistic-2.0"
-  head "https://github.com/blitzpp/blitz.git"
+  head "https://github.com/blitzpp/blitz.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "0b04264665a05ca8b018a1f9b8e7452297d675b5bb5b50f49af2dd5176de462e"

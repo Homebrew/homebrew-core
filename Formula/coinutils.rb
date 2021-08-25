@@ -5,7 +5,7 @@ class Coinutils < Formula
   sha256 "d4effff4452e73356eed9f889efd9c44fe9cd68bd37b608a5ebb2c58bd45ef81"
   license "EPL-1.0"
   revision 1
-  head "https://github.com/coin-or/CoinUtils.git"
+  head "https://github.com/coin-or/CoinUtils.git", branch: "master"
 
   livecheck do
     url :homepage

@@ -6,7 +6,7 @@ class TrashCli < Formula
   url "https://files.pythonhosted.org/packages/43/ed/ba5970572a6fd1332b8949b4c256954cd18d38764866504aa63f4322957b/trash-cli-0.21.7.24.tar.gz"
   sha256 "6cda4be92e19817fdd691fd8a9c5fa041c3b98761848ba353f0fd73cf1fe2710"
   license "GPL-2.0-or-later"
-  head "https://github.com/andreafrancia/trash-cli.git"
+  head "https://github.com/andreafrancia/trash-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "29094a8a512a9f8be4253228d64f021925bfa3fb5d9d7ad41e1709c3301852b3"

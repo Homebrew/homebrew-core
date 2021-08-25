@@ -4,7 +4,7 @@ class Systemd < Formula
   url "https://github.com/systemd/systemd/archive/v246.tar.gz"
   sha256 "4268bd88037806c61c5cd1c78d869f7f20bf7e7368c63916d47b5d1c3411bd6f"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  head "https://github.com/systemd/systemd.git"
+  head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
     rebuild 1

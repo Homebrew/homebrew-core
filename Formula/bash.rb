@@ -2,7 +2,7 @@ class Bash < Formula
   desc "Bourne-Again SHell, a UNIX command interpreter"
   homepage "https://www.gnu.org/software/bash/"
   license "GPL-3.0-or-later"
-  head "https://git.savannah.gnu.org/git/bash.git"
+  head "https://git.savannah.gnu.org/git/bash.git", branch: "master"
 
   stable do
     url "https://ftp.gnu.org/gnu/bash/bash-5.1.tar.gz"

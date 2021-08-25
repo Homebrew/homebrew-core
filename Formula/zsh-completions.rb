@@ -5,7 +5,7 @@ class ZshCompletions < Formula
   sha256 "39452d383d0718aa2c830edba1aa32f0ee1e40002ef6932d88699a888bd58c29"
   license "MIT-Modern-Variant"
   revision 1
-  head "https://github.com/zsh-users/zsh-completions.git"
+  head "https://github.com/zsh-users/zsh-completions.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "eab228532a15b1c8eddfd38f46306cf723e6f331d38c8874d0305d6fe888ab70"

@@ -5,7 +5,7 @@ class Watch < Formula
       tag:      "v3.3.17",
       revision: "19a508ea121c0c4ac6d0224575a036de745eaaf8"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  head "https://gitlab.com/procps-ng/procps.git"
+  head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "45b90fbbda918d2c87ef6ccc29f1d931cbd0a490f2b1d599444591aae04a3cb0"

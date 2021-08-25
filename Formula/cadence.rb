@@ -4,7 +4,7 @@ class Cadence < Formula
   url "https://github.com/onflow/cadence/archive/v0.18.0.tar.gz"
   sha256 "6739b8b79367847885a0ab0e51f3ee5b2018cbd270fe494fe9b2368acfbbf223"
   license "Apache-2.0"
-  head "https://github.com/onflow/cadence.git"
+  head "https://github.com/onflow/cadence.git", branch: "master"
 
   livecheck do
     url :stable

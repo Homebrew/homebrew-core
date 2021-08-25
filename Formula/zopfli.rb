@@ -4,7 +4,7 @@ class Zopfli < Formula
   url "https://github.com/google/zopfli/archive/zopfli-1.0.3.tar.gz"
   sha256 "e955a7739f71af37ef3349c4fa141c648e8775bceb2195be07e86f8e638814bd"
   license "Apache-2.0"
-  head "https://github.com/google/zopfli.git"
+  head "https://github.com/google/zopfli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8713f7f74eeab80dad2dfe679e985c11479f86385e0d4de4673365d47c7683ff"

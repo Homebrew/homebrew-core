@@ -5,7 +5,7 @@ class Bartycrouch < Formula
       tag:      "4.7.0",
       revision: "c16b219d28ce27e57744dcf67adfde7a2912d78a"
   license "MIT"
-  head "https://github.com/Flinesoft/BartyCrouch.git"
+  head "https://github.com/Flinesoft/BartyCrouch.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "26a99ff30f33322c929a0acab804cd9ddb14e2f588143c40e29b298e01681e29"

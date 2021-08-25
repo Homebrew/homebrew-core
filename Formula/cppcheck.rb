@@ -5,7 +5,7 @@ class Cppcheck < Formula
   sha256 "dc27154d799935c96903dcc46653c526c6f4148a6912b77d3a50cb35dabd82e1"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/danmar/cppcheck.git"
+  head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   bottle do
     sha256 arm64_big_sur: "7a9b2837b94a6ac5517dd8b4b204b940fff42e5b7d98fcfa3fe2f7ea5d3a7d45"

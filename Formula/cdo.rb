@@ -12,10 +12,11 @@ class Cdo < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "7a43db43e80e273009a45a8eacae5fc8598650fa48f1a3a8045d2b675fae5883"
-    sha256 cellar: :any, big_sur:       "6f3d10dfcc8bf35c102f3ee8595e95f71e5d6acbcae4e000d7bc7323c50dfbcf"
-    sha256 cellar: :any, catalina:      "8ea69492689eaf80fec52045743e19825b7892bc19ea2f962d2be74dad6a883c"
-    sha256 cellar: :any, mojave:        "7d4033220e3fa18f3e4a18c775e69b1f50e8949a67d6109d6a8544301599cfc9"
+    sha256 cellar: :any,                 arm64_big_sur: "7a43db43e80e273009a45a8eacae5fc8598650fa48f1a3a8045d2b675fae5883"
+    sha256 cellar: :any,                 big_sur:       "6f3d10dfcc8bf35c102f3ee8595e95f71e5d6acbcae4e000d7bc7323c50dfbcf"
+    sha256 cellar: :any,                 catalina:      "8ea69492689eaf80fec52045743e19825b7892bc19ea2f962d2be74dad6a883c"
+    sha256 cellar: :any,                 mojave:        "7d4033220e3fa18f3e4a18c775e69b1f50e8949a67d6109d6a8544301599cfc9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4b3ac6d4c8d33aebe1ffa457dab422e35a389a2e54e67e2fd2772b01924e8e39"
   end
 
   depends_on "eccodes"

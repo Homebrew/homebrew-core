@@ -1,15 +1,15 @@
 class I2pd < Formula
   desc "Full-featured C++ implementation of I2P client"
   homepage "https://i2pd.website/"
-  url "https://github.com/PurpleI2P/i2pd/archive/2.38.0.tar.gz"
-  sha256 "8452f5323795a1846d554096c08fffe5ac35897867b93a5079605df8f80a3089"
+  url "https://github.com/PurpleI2P/i2pd/archive/2.39.0.tar.gz"
+  sha256 "3ffeb614cec826e13b50e8306177018ecb8d873668dfe66aadc733ca9fcaa568"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, big_sur:  "6f4fbf91b730856beeec98a44f8084b03433ff3318e5a560a0b79eafb6559165"
-    sha256 cellar: :any, catalina: "45730f081ee685ce4bca5c53ceb353e01b4d480c59d3edbf59d18b63f0cfa846"
-    sha256 cellar: :any, mojave:   "c4a4454b4532969106e5fb1e3b504e4f9056c15a62665354b3f19bb5c588ac17"
+    sha256 cellar: :any, arm64_big_sur: "9e13462dfd0f3cd5e6afc79979ed48c6b09a243c3c5242b399c7dee418a3e1eb"
+    sha256 cellar: :any, big_sur:       "e2c0afab1198c4bcdde3dd1e6559ddcb868b2e192bf0dc8cdec9c336ddfc9baa"
+    sha256 cellar: :any, catalina:      "4d3df93923c0489b44ca55cb3f7071962bd530ba73d778457cc9ae9d1602ba85"
+    sha256 cellar: :any, mojave:        "eab780040dd0391df1af3aed028ed140ab126b2f272caea80aed15bda675b36b"
   end
 
   depends_on "boost"
@@ -17,8 +17,16 @@ class I2pd < Formula
   depends_on "openssl@1.1"
 
   def install
-    system "make", "install", "DEBUG=no", "HOMEBREW=1", "USE_UPNP=yes",
-                              "USE_AENSI=no", "USE_AVX=no", "PREFIX=#{prefix}"
+    args = %W[
+      DEBUG=no
+      HOMEBREW=1
+      USE_UPNP=yes
+      PREFIX=#{prefix}
+    ]
+
+    args << "USE_AESNI=no" if Hardware::CPU.arm?
+
+    system "make", "install", *args
 
     # preinstall to prevent overwriting changed by user configs
     confdir = etc/"i2pd"

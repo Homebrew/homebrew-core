@@ -11,11 +11,12 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "d9d5058320a81f82a97cf005ec2d7369a8f002792bc6f85239794aad2a076f38"
-    sha256 big_sur:       "7e949939fa4da88ebfa5ac5398416f4847ec37ac06e4c7f05413a6a575e0e28a"
-    sha256 catalina:      "dfa737ee641b3ef4c3a054134c083f0d79c2929a437ab586f79c03832f4cca00"
-    sha256 mojave:        "a5a4eb9b6f0fe8700833c868d8ee52ddeecd4551f4bb019ec53e1a0d426ec0e9"
-    sha256 x86_64_linux:  "34f2459d42e1cc4f50e8d99cd2514843145c9400f09ff9a0c3172592a9a2090f"
+    rebuild 1
+    sha256 arm64_big_sur: "824108be85caecc0b1101647c0f267fa5db8db084e865c5783fbdea111e93edf"
+    sha256 big_sur:       "5ad5be7141887ef52146e9d8950efdbcf3fbb99ca2dd1f3e3e05291b11eba498"
+    sha256 catalina:      "1cec65a2f5f219793c2f67c95108e2eedd524aaabc55c632a08b592655ea5a53"
+    sha256 mojave:        "375ae3a6ff585065e72dcf4d865ef8c9bdb1dccdc8c1f8b116f39425fbbc45ba"
+    sha256 x86_64_linux:  "ab4db157f1b69a07cb1d9e3f9b4eb1ad7cf1ba4d837328bc82235c661b22ff1c"
   end
 
   depends_on "cmake" => :build
@@ -161,30 +162,10 @@ class Mysql < Formula
     s
   end
 
-  plist_options manual: "mysql.server start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/mysqld_safe</string>
-          <string>--datadir=#{datadir}</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{datadir}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"mysqld_safe", "--datadir=#{var}/mysql"]
+    keep_alive true
+    working_dir var/"mysql"
   end
 
   test do

@@ -4,7 +4,7 @@ class Sccache < Formula
   url "https://github.com/mozilla/sccache/archive/v0.2.15.tar.gz"
   sha256 "7dbe71012f9b0b57d8475de6b36a9a3b4802e44a135e886f32c5ad1b0eb506e0"
   license "Apache-2.0"
-  head "https://github.com/mozilla/sccache.git"
+  head "https://github.com/mozilla/sccache.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e7674f3df1e319c5829551d64b4f2e25486ce7c68e2af84be9d13c496c296fbe"

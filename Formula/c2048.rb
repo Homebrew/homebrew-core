@@ -5,7 +5,7 @@ class C2048 < Formula
       revision: "578a5f314e1ce31b57e645a8c0a2c9d9d5539cde"
   version "0+20150805"
   license "MIT"
-  head "https://github.com/mevdschee/2048.c.git"
+  head "https://github.com/mevdschee/2048.c.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "89bc7f84063b8621271115ee8f9c84c836ae1e57a72db5533b11d8247d57e043"

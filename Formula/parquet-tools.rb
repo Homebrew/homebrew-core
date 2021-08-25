@@ -5,7 +5,7 @@ class ParquetTools < Formula
       tag:      "apache-parquet-1.12.0",
       revision: "db75a6815f2ba1d1ee89d1a90aeb296f1f3a8f20"
   license "Apache-2.0"
-  head "https://github.com/apache/parquet-mr.git"
+  head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "72bdfcf0a71023b65def0a02b1b581ba7a9b228ea5a1594923fddb2d1eb098d6"

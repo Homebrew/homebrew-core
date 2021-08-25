@@ -3,7 +3,7 @@ class Afio < Formula
   homepage "https://github.com/kholtman/afio"
   url "https://github.com/kholtman/afio/archive/v2.5.2.tar.gz"
   sha256 "c64ca14109df547e25702c9f3a9ca877881cd4bf38dcbe90fbd09c8d294f42b9"
-  head "https://github.com/kholtman/afio.git"
+  head "https://github.com/kholtman/afio.git", branch: "master"
 
   bottle do
     rebuild 1

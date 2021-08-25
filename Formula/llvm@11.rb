@@ -16,11 +16,12 @@ class LlvmAT11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "03e8229453959ce44cc4aa3d04aae599d644a0cd611e96ef0978c331cdb75556"
-    sha256 cellar: :any,                 big_sur:       "a4ba9bdae23b82c7125ca0ab2c538ea9e590e61c3af0e0927912ff46d27f5bed"
-    sha256 cellar: :any,                 catalina:      "a214eaa69c3f978987c281497cdbd98eb7d81372da793a3ae34b11f8910c9288"
-    sha256 cellar: :any,                 mojave:        "6a2a325871e43bcf8a01e0d93d38aaf3ce2bc0977aeb93ef3d3d43fd0dbde4ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "efb7231fa6a306df92d325aa7aaf6c1bc3525320dbd0084d7f780eae574d520c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "ef355c7412f279413c8ef0874405288c98b7cfe7c617d9e4decf1496abe7ca07"
+    sha256 cellar: :any,                 big_sur:       "28be37f5fc663e1916c230b9b94e63f11166dcc4f172e649c37fd3477bd725e5"
+    sha256 cellar: :any,                 catalina:      "d74e57328f28889026d6c480b82146d3e101a3671b8570ec54da008640f15f46"
+    sha256 cellar: :any,                 mojave:        "11e70193c46e3daac701cb4cd3b63234af30c61c8d8af7eb090c3610a73948f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ba60a5d7a7d42c01bf560eb2d31e776a6f0598faac3948e7c758f465f561f37"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -45,7 +46,7 @@ class LlvmAT11 < Formula
     depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "pkg-config" => :build
     depends_on "binutils" # needed for gold
-    depends_on "libelf" # openmp requires <gelf.h>
+    depends_on "elfutils" # openmp requires <gelf.h>
   end
 
   patch do

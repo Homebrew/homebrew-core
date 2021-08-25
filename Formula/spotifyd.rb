@@ -4,7 +4,7 @@ class Spotifyd < Formula
   url "https://github.com/Spotifyd/spotifyd/archive/v0.3.2.tar.gz"
   sha256 "d1d5442e6639cde7fbd390a65335489611eec62a1cfcba99a4aba8e8977a9d9c"
   license "GPL-3.0-only"
-  head "https://github.com/Spotifyd/spotifyd.git"
+  head "https://github.com/Spotifyd/spotifyd.git", branch: "master"
 
   livecheck do
     url :stable
@@ -12,12 +12,12 @@ class Spotifyd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "e3c99852d97789b09ef67bb82ac9e7a306df83db777bffc048173b4d2583bc4d"
-    sha256 cellar: :any,                 big_sur:       "5aadd7c8795f10a8033a0055c1ebea4b1101068b5a89b1ee83efc588121365d3"
-    sha256 cellar: :any,                 catalina:      "e0728a13eb91be7b7cfa0da67b19b3d49ec9608b745e6833014e9ff26cb9e51f"
-    sha256 cellar: :any,                 mojave:        "6fbf9e30f4501d8642f827f51ba4a610e7888e6156fccda11fab09ba0b6be3b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "487542236226aef4efa1e22c5945c39b0af94ad4b367b43107296ba8579a3095"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_big_sur: "fe8f92ca3a00fc2b8dc28a6c6d868c49f0febbe26ad818755045af763102e04f"
+    sha256 cellar: :any,                 big_sur:       "027e2994c8471dcde0b06ceda61c07166fa9083d3a08f4056ba986be37f21db0"
+    sha256 cellar: :any,                 catalina:      "b2a8c0dffe45b557509e6a70a47d9cd96c6222cdd2ab2d44c7366806ba3d7721"
+    sha256 cellar: :any,                 mojave:        "2c047d9f19710edd8795e14351e36aac051c5f9397e262f4199cf9beffe1483b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "804c7e8e5855f5082734c558606c650c6004ea4e9cfc11d342f5d802cca0c1b4"
   end
 
   depends_on "pkg-config" => :build
@@ -32,30 +32,9 @@ class Spotifyd < Formula
                                *std_cargo_args
   end
 
-  plist_options manual: "spotifyd --no-daemon --backend portaudio"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>KeepAlive</key>
-          <true/>
-          <key>ThrottleInterval</key>
-          <integer>30</integer>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/spotifyd</string>
-              <string>--no-daemon</string>
-              <string>--backend</string>
-              <string>portaudio</string>
-          </array>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"spotifyd", "--no-daemon", "--backend", "portaudio"]
+    keep_alive true
   end
 
   test do

@@ -1,16 +1,16 @@
 class Delve < Formula
   desc "Debugger for the Go programming language"
   homepage "https://github.com/go-delve/delve"
-  url "https://github.com/go-delve/delve/archive/v1.7.0.tar.gz"
-  sha256 "0504f7ea8d63a8f6eccac9f7071f9ac45f8123151ce53aedbf539f83808d122b"
+  url "https://github.com/go-delve/delve/archive/v1.7.1.tar.gz"
+  sha256 "0734b86d48291749ba2537fa6c03e4c3451628f630055c877789e0346db8d67d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d01e0c34ed53bef69cbccac5e659b4b5691ee61b28461dd76dab1a3b6ec4a5d8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "962e2a4a3a1ec84c63c3ed15bfe65f983fbc281f6bf4cd61751d5fa51b23d984"
-    sha256 cellar: :any_skip_relocation, catalina:      "88800908c79768be3ae31ef540f993344c75d635a9c028304859a3e3ec47b676"
-    sha256 cellar: :any_skip_relocation, mojave:        "4ca03590255e921f4dc68037f6871d4e396deb1a76fe4e785209a107e958c573"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1f1cb2763019dd74adc3890d16c36c0dbffa979560099da64b6d76493e0b95d5"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9ac2fc52c2967468cd727ea1ddc9083f39210882d0f3f2ce41cfa68a47a083b9"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6647269bec6a937e78224010ea51c25573103e3c2357c186dc44f230cb31dc50"
+    sha256 cellar: :any_skip_relocation, catalina:      "d56a6e6c6b36044cd7c1e120bc17abfd52903cc1cfa5a29afd1f0945245312a4"
+    sha256 cellar: :any_skip_relocation, mojave:        "95589cb592c41dc1187d43b148962ad0b24fe0e8278438205654e17f4786d1a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1cbbeb8a43d2429cedf0c7d9cd77cfbe9284f763dcfd377311cce3cab186ea7d"
   end
 
   depends_on "go" => :build

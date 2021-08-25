@@ -11,11 +11,8 @@ class Orientdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "56880dbc1ae4f6d95dda29d1ea751f5e1075b972aa6240ef94347f010ac1121b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cd2df740ba5688d9e76470167c731c9e71a3aeacbdbcffb7647868bf7c21be86"
-    sha256 cellar: :any_skip_relocation, catalina:      "cd2df740ba5688d9e76470167c731c9e71a3aeacbdbcffb7647868bf7c21be86"
-    sha256 cellar: :any_skip_relocation, mojave:        "cd2df740ba5688d9e76470167c731c9e71a3aeacbdbcffb7647868bf7c21be86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "56880dbc1ae4f6d95dda29d1ea751f5e1075b972aa6240ef94347f010ac1121b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "c487c1824c6d2e48f78437a0934f2743bfeb8731c2a3040aa2c27bc40252c642"
   end
 
   depends_on "maven" => :build
@@ -68,36 +65,12 @@ class Orientdb < Formula
     EOS
   end
 
-  plist_options manual: "orientdb start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-            <dict>
-              <key>SuccessfulExit</key>
-              <false/>
-            </dict>
-          <key>Label</key>
-          <string>homebrew.mxcl.orientdb</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{HOMEBREW_PREFIX}/opt/orientdb/libexec/bin/server.sh</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>/usr/local/var</string>
-          <key>StandardErrorPath</key>
-          <string>/usr/local/var/log/orientdb/serror.log</string>
-          <key>StandardOutPath</key>
-          <string>/usr/local/var/log/orientdb/sout.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run opt_libexec/"bin/server.sh"
+    keep_alive true
+    working_dir var
+    log_path var/"log/orientdb/sout.log"
+    error_log_path var/"log/orientdb/serror.log"
   end
 
   test do

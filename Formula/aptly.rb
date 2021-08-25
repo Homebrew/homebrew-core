@@ -5,7 +5,7 @@ class Aptly < Formula
   sha256 "4172d54613139f6c34d5a17396adc9675d7ed002e517db8381731d105351fbe5"
   license "MIT"
   revision 1
-  head "https://github.com/aptly-dev/aptly.git"
+  head "https://github.com/aptly-dev/aptly.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7e20f2357e98719f0364e6e66322d0ea2d59b8be278cc656ace3f6386212fa11"

@@ -12,12 +12,12 @@ class Gegl < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "0f3cc4cd71d7614871efd0b33f94717cb34df3305e0b5b83317516fe67df857c"
-    sha256 big_sur:       "eedaaa6ecd792ab4bb261a7e9cbce4aaff9ee88a94996170b440fae6288c5440"
-    sha256 catalina:      "df877db7d35be4bfac5b6e59f6ecdebe11c4e4fc4625e866ca84597ee195b9af"
-    sha256 mojave:        "cd242392d31ef7a597f520713742cb25e4c02f0e46ed5c8306f9a080746ae511"
-    sha256 x86_64_linux:  "c194073b1f4f3a5a0ff10e1ed0c25256b90dfce0a40425a48364665d1dd5f4e3"
+    rebuild 2
+    sha256 arm64_big_sur: "7be88b13044176edd867bbb191b255ed88f14c9a46ff39d386d9ad9284aab2e6"
+    sha256 big_sur:       "50caef9fb7dcc591ab035c2c1cd372573617ddb538701e9060a779814032726d"
+    sha256 catalina:      "2788808e5d0ec106649e389c99ef8cca417dda53b5f78c3d6c621a571d32e8c4"
+    sha256 mojave:        "80ca109fdf78762a536828c2a606878eb335c5d28dae232144a3b24d6d55983e"
+    sha256 x86_64_linux:  "bb02e24b7988c1cf5f407b9b12f2bccc0391f493e427fe82f410b29c18c30dae"
   end
 
   depends_on "glib" => :build
@@ -43,9 +43,8 @@ class Gegl < Formula
       -Ddocs=false
       -Dcairo=disabled
       -Djasper=disabled
-      -Dmfpack=disabled
+      -Dumfpack=disabled
       -Dlibspiro=disabled
-      --wrap-mode=default
       --force-fallback-for=libnsgif,poly2tri-c
     ]
 

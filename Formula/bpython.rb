@@ -6,7 +6,7 @@ class Bpython < Formula
   url "https://files.pythonhosted.org/packages/8f/34/7bdeba9999d2dfe5c0682291966bfa7edcedf2859885fa0037b8a38d0878/bpython-0.21.tar.gz"
   sha256 "88aa9b89974f6a7726499a2608fa7ded216d84c69e78114ab2ef996a45709487"
   license "MIT"
-  head "https://github.com/bpython/bpython.git"
+  head "https://github.com/bpython/bpython.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f576b76fa2209abfa8b0923f378318199af89ddfb4915150243d1d7e73543ac0"

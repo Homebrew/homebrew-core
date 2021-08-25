@@ -4,7 +4,7 @@ class Bibtexconv < Formula
   url "https://github.com/dreibh/bibtexconv/archive/bibtexconv-1.2.0.tar.gz"
   sha256 "0ace3aa17eedbc4c4950e5ef8763b1dd58bfa2d33cd00fa2b35f07febb6df940"
   license "GPL-3.0-or-later"
-  head "https://github.com/dreibh/bibtexconv.git"
+  head "https://github.com/dreibh/bibtexconv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "e1695a1a03185cbf7f50c031cfab3d77777a6c8bd47c88ea1799fd097d4b8dfa"

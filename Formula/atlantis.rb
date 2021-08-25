@@ -4,7 +4,7 @@ class Atlantis < Formula
   url "https://github.com/runatlantis/atlantis/archive/v0.17.2.tar.gz"
   sha256 "7dcba88cbcad2f7830bbc4e42839593a912c5419f0e1d49796f2a7b27203cf3f"
   license "Apache-2.0"
-  head "https://github.com/runatlantis/atlantis.git"
+  head "https://github.com/runatlantis/atlantis.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "0e1f196a5494132156d664e66871244352d59a1d9606fb72bf148190add97a7d"

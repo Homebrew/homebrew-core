@@ -6,7 +6,7 @@ class ReorderPythonImports < Formula
   url "https://files.pythonhosted.org/packages/f8/8c/447338a4a8098f28bed79b264a43fbfae4d5d70ec2cc034fc4bc4cfaa827/reorder_python_imports-2.6.0.tar.gz"
   sha256 "f4dc03142bdb57625e64299aea80e9055ce0f8b719f8f19c217a487c9fa9379e"
   license "MIT"
-  head "https://github.com/asottile/reorder_python_imports.git"
+  head "https://github.com/asottile/reorder_python_imports.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "22f68d1b365aa298c41c8ac4fd8558f734ccdc527a60577f5f40de1e4a8787c8"

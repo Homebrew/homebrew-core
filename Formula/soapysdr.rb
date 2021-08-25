@@ -4,7 +4,7 @@ class Soapysdr < Formula
   url "https://github.com/pothosware/SoapySDR/archive/soapy-sdr-0.8.1.tar.gz"
   sha256 "a508083875ed75d1090c24f88abef9895ad65f0f1b54e96d74094478f0c400e6"
   license "BSL-1.0"
-  head "https://github.com/pothosware/SoapySDR.git"
+  head "https://github.com/pothosware/SoapySDR.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a6fdf172d9d0bc7338b9792211cd9b5f945656908b1d642b987b84d68e1c7704"

@@ -4,6 +4,11 @@ class Gif2png < Formula
   url "http://www.catb.org/~esr/gif2png/gif2png-2.5.13.tar.gz"
   sha256 "997275b20338e6cfe3bd4adb084f82627c34c856bc1d67c915c397cf55146924"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?gif2png[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a8b1dd6b1f3b029b7ca53f99f18caea098810634aea1a745630028e66ecc4203"
     sha256 cellar: :any,                 big_sur:       "2c3b07aba9f301e689fbc6268894e3ab3a56044741b8b4adabd6afb1d4962af1"

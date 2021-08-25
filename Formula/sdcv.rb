@@ -5,7 +5,7 @@ class Sdcv < Formula
   sha256 "75fb95b1607fdd2fb9f7795d3432d295904614150575ae539202f680499803c9"
   license "GPL-2.0-or-later"
   version_scheme 1
-  head "https://github.com/Dushistov/sdcv.git"
+  head "https://github.com/Dushistov/sdcv.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "201982a36d116f80314330dc00ac78c98cf4e7cfe8803addecf8f5fad2ec15d2"

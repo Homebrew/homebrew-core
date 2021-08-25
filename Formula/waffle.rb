@@ -4,7 +4,7 @@ class Waffle < Formula
   url "https://gitlab.freedesktop.org/mesa/waffle/-/raw/website/files/release/waffle-1.7.0/waffle-1.7.0.tar.xz"
   sha256 "69e42d15d08f63e7a54a8b8770295a6eb04dfd1c6f86c328b6039dbe7de28ef3"
   license "BSD-2-Clause"
-  head "https://gitlab.freedesktop.org/mesa/waffle.git"
+  head "https://gitlab.freedesktop.org/mesa/waffle.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "2978050a3df20c384641d00498cc83255c945999ed249d9d7d2e33d24998e387"

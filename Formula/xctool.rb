@@ -4,7 +4,7 @@ class Xctool < Formula
   url "https://github.com/facebookarchive/xctool/archive/0.3.7.tar.gz"
   sha256 "608522865dc42959a6240010c8295ce01278f4b7a8276d838f21a8973938206d"
   license "Apache-2.0"
-  head "https://github.com/facebookarchive/xctool.git"
+  head "https://github.com/facebookarchive/xctool.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, catalina:    "0cf8c734d095ab97b2d5537b67d3f13e6ff8f38c46503ea02b9eba98ff35942c"

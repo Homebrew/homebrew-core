@@ -6,7 +6,7 @@ class I386ElfGdb < Formula
   sha256 "aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://sourceware.org/git/binutils-gdb.git"
+  head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   livecheck do
     formula "gdb"

@@ -7,7 +7,7 @@ class AwsGoogleAuth < Formula
   sha256 "0cc76e88ac188a26a484faffb21f1c7f31c0c56932aa30e6772e17245d0eb7cc"
   license "MIT"
   revision 3
-  head "https://github.com/cevoaustralia/aws-google-auth.git"
+  head "https://github.com/cevoaustralia/aws-google-auth.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "92c6a08357e8f2b971d3a3c086fd481ebbcabda69c65b9abff041dfcaa4ef298"

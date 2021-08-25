@@ -12,11 +12,12 @@ class Nomad < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "424df70a9e612b47fba9b72761ce032f5c9a96ca80f14978ba0703cf8c652130"
-    sha256 cellar: :any_skip_relocation, big_sur:       "93ea67be1eea3da7e0c0f5e2e13e9791e87a1dbdb66e8a1517ca27532fce5df7"
-    sha256 cellar: :any_skip_relocation, catalina:      "5a07c7a9eda30d79b35bac0bba71fd073598dd1dc9fb16c3e61ef453a9d50148"
-    sha256 cellar: :any_skip_relocation, mojave:        "4ba52bf3457e756b1d5a82961ad94f43ddedbce33685fce67a0731535c486ea2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9a4e1206128677c5a20f3245d2d6668e0e1766778f1ea72aace09555e19312e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4869ca6a1c58256e9c597b1f6193e6c9d28e987be9cbd535adf36ee95faf8289"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b10fb64023f9754f3c93a9c4c8fd2657562d44c652442c5b6ebe9a26b1c06388"
+    sha256 cellar: :any_skip_relocation, catalina:      "7928157e8a54ffae14d49be20765ac297c932dc6b7a306e51da522d8d365bed8"
+    sha256 cellar: :any_skip_relocation, mojave:        "e79bdbeff82fec317283b66f715a0026ad2d56ce2c744ea56322bce807dc47b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d544a13a8cc27525732f26e643f626bd59f4e712a88fd734fd93fd83a9623463"
   end
 
   depends_on "go" => :build
@@ -25,38 +26,12 @@ class Nomad < Formula
     system "go", "build", *std_go_args, "-tags", "ui"
   end
 
-  plist_options manual: "nomad agent -dev"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <dict>
-            <key>SuccessfulExit</key>
-            <false/>
-          </dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/nomad</string>
-            <string>agent</string>
-            <string>-dev</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/nomad.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/nomad.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nomad", "agent", "-dev"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/nomad.log"
+    error_log_path var/"log/nomad.log"
   end
 
   test do

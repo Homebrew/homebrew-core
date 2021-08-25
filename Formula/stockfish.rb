@@ -4,7 +4,7 @@ class Stockfish < Formula
   url "https://github.com/official-stockfish/Stockfish/archive/sf_14.tar.gz"
   sha256 "6f35e3e684da87d27d3f29ec7281ac81468a5a86b4d99ac5c599addc984a766c"
   license "GPL-3.0-only"
-  head "https://github.com/official-stockfish/Stockfish.git"
+  head "https://github.com/official-stockfish/Stockfish.git", branch: "master"
 
   livecheck do
     url :stable

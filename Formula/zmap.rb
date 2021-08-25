@@ -5,7 +5,7 @@ class Zmap < Formula
   sha256 "29627520c81101de01b0213434adb218a9f1210bfd3f2dcfdfc1f975dbce6399"
   license "Apache-2.0"
   revision 2
-  head "https://github.com/zmap/zmap.git"
+  head "https://github.com/zmap/zmap.git", branch: "main"
 
   bottle do
     sha256 arm64_big_sur: "142f0a0643a81aa7c4cd350d60c0879406524e867b8d6891265a2260e22d6ccb"

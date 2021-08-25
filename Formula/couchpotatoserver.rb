@@ -4,7 +4,7 @@ class Couchpotatoserver < Formula
   url "https://github.com/CouchPotato/CouchPotatoServer/archive/build/3.0.1.tar.gz"
   sha256 "f08f9c6ac02f66c6667f17ded1eea4c051a62bbcbadd2a8673394019878e92f7"
   license "GPL-3.0"
-  head "https://github.com/CouchPotato/CouchPotatoServer.git"
+  head "https://github.com/CouchPotato/CouchPotatoServer.git", branch: "master"
 
   bottle do
     rebuild 1

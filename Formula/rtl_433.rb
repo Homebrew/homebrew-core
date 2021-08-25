@@ -5,7 +5,7 @@ class Rtl433 < Formula
       tag:      "21.05",
       revision: "87bf52426f9690c06ca8ad4c27993fcab4b5b643"
   license "GPL-2.0-or-later"
-  head "https://github.com/merbanan/rtl_433.git"
+  head "https://github.com/merbanan/rtl_433.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "e6583ff3156f6862160b728a95b1fbb279c6f5a7dd2636200354596057050d15"

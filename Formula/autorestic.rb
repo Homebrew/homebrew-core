@@ -4,7 +4,7 @@ class Autorestic < Formula
   url "https://github.com/cupcakearmy/autorestic/archive/v1.2.0.tar.gz"
   sha256 "394f708ee77b71ea9d337dc265fd3436ad0adcb85e6c6da9ab70d6c49e32734b"
   license "Apache-2.0"
-  head "https://github.com/cupcakearmy/autorestic.git"
+  head "https://github.com/cupcakearmy/autorestic.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c76d60fdbe620a6520dc9877c500592439d8990abbabfb371ada96db062e656"

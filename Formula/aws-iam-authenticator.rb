@@ -5,7 +5,7 @@ class AwsIamAuthenticator < Formula
       tag:      "v0.5.3",
       revision: "a0516fb9ace571024263424f1770e6d861e65d09"
   license "Apache-2.0"
-  head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git"
+  head "https://github.com/kubernetes-sigs/aws-iam-authenticator.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "30639bda3ecb72388aeabc0f3e6587f58bc9867dc6b3a9f3046e9d0ef659f122"

@@ -4,7 +4,7 @@ class ProxychainsNg < Formula
   url "https://github.com/rofl0r/proxychains-ng/archive/v4.14.tar.gz"
   sha256 "ab31626af7177cc2669433bb244b99a8f98c08031498233bb3df3bcc9711a9cc"
   license "GPL-2.0"
-  head "https://github.com/rofl0r/proxychains-ng.git"
+  head "https://github.com/rofl0r/proxychains-ng.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "389c32c6e5a4a5226812a2b0136ec040f909580b144140594445327e2fc2ebbf"

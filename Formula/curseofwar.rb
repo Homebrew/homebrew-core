@@ -4,7 +4,7 @@ class Curseofwar < Formula
   url "https://github.com/a-nikolaev/curseofwar/archive/v1.3.0.tar.gz"
   sha256 "2a90204d95a9f29a0e5923f43e65188209dc8be9d9eb93576404e3f79b8a652b"
   license "GPL-3.0"
-  head "https://github.com/a-nikolaev/curseofwar.git"
+  head "https://github.com/a-nikolaev/curseofwar.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ebc08cc6d912fdb3df613a397b1ac467e910a280fc2a4955971d53bb7555045b"

@@ -3,17 +3,17 @@ class Yamllint < Formula
 
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
-  url "https://files.pythonhosted.org/packages/74/2f/05aff60fa063c49c28bd24f4f848d9a81583c65082de154fcd2a467548e6/yamllint-1.26.2.tar.gz"
-  sha256 "0b08a96750248fdf21f1e8193cb7787554ef75ed57b27f621cd6b3bf09af11a1"
+  url "https://files.pythonhosted.org/packages/9d/3d/f313c341f0592d23bd7dfe24e46af0d16a796cd865d5ac0041bb200f9cc4/yamllint-1.26.3.tar.gz"
+  sha256 "3934dcde484374596d6b52d8db412929a169f6d9e52e20f9ade5bf3523d9b96e"
   license "GPL-3.0-or-later"
-  head "https://github.com/adrienverge/yamllint.git"
+  head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ec081da4389f0be3a24fe64d789291aa91d3e085661c0e728c512dec0dc168e4"
-    sha256 cellar: :any,                 big_sur:       "e10a5e22a725acbb86a6b76a98b507a5c308333c7b31e366756ab8ca7e2c2305"
-    sha256 cellar: :any,                 catalina:      "1d7a3eb846a89b904f0c9c9a973577996c63556ac919e3c96bd47c0477fe6322"
-    sha256 cellar: :any,                 mojave:        "4f16379fcb5e3142113a3c122e835b131b04e1d99348de9cf1bd7c5608006276"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57cba42a91db5d04438f9823810635751f5c65ce8a5c15b874de3113a2bd6b91"
+    sha256 cellar: :any,                 arm64_big_sur: "c32e191d3556bb2437d473102b23e88e78b4949e49d334501cc35c5f8e174cd6"
+    sha256 cellar: :any,                 big_sur:       "2b55ce529a710907e020567612a5da5c17641a8dbf6aad0d9d52eb7bc0d9d290"
+    sha256 cellar: :any,                 catalina:      "353876497c255a31d87fc64ab9e92ea18b5cae00bf31d2de8920e26b96ddc3dc"
+    sha256 cellar: :any,                 mojave:        "d167a9db92455faa155de1271e7e7480b9f74dfc649318475a23a62531f577c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ecd751a548d7b41fd12580d7a782866ee799633a777bcb911a2abfc00ffa3d7"
   end
 
   depends_on "libyaml"

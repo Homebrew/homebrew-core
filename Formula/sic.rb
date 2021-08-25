@@ -4,7 +4,7 @@ class Sic < Formula
   url "https://dl.suckless.org/tools/sic-1.2.tar.gz"
   sha256 "ac07f905995e13ba2c43912d7a035fbbe78a628d7ba1c256f4ca1372fb565185"
   license "MIT"
-  head "https://git.suckless.org/sic", using: :git
+  head "https://git.suckless.org/sic.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7547b24c7e3e905ceb4b7b774b9ca7d2c165bd35ad2d4c7cee3908c83c19ed06"

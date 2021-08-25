@@ -4,7 +4,7 @@ class Prestd < Formula
   url "https://github.com/prest/prest/archive/v1.0.9.tar.gz"
   sha256 "47713300e4a5117bbce30413d26d3b27ef032012a94173d80b6ec3cfab41af1f"
   license "MIT"
-  head "https://github.com/prest/prest.git"
+  head "https://github.com/prest/prest.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "62dfa958b199df7d328d9d6bf14585c09f4b69b28fa1ab5f43d473c2197736c3"

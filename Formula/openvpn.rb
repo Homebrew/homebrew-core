@@ -12,11 +12,12 @@ class Openvpn < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "433d03f96b84988645792035d030fe75d6dd5798ef8378801819ea26fcf47e53"
-    sha256 big_sur:       "2793ac511bf39ba8188d91f44ed4e54a3d4d7ebe343b12bc51ab5230527dafa5"
-    sha256 catalina:      "934be2e38dcba81a70b32c075bde79d5bbe57f5f754c9216c24edb0c8a1a581f"
-    sha256 mojave:        "e7b821dff3579fbb6e1d3b9c0ece0e2152ede9eac7ff98daec488300d92c50ac"
-    sha256 x86_64_linux:  "281d7c1a86b2f6bc73cd71b9c62a0796e155558c414dadce9b4a6d84efe86da3"
+    rebuild 1
+    sha256 arm64_big_sur: "fbcc7de1a4b69e3f347a572cae9936011af0dfb4f678aa6322a289ae838959cc"
+    sha256 big_sur:       "ebcc6f226ebebc4be9a3ed47e59662731ae7b547dc452c7f5ba37c9775b98f0b"
+    sha256 catalina:      "700335319b2d9491a89f6a4f01fff49510cf02abaa8828735318fa4021e62902"
+    sha256 mojave:        "e986c3cf6d24e6bcb267b847b7167b2ce321798eee90a68194d7b0a3a477b15a"
+    sha256 x86_64_linux:  "26f9cc78641866914d4318a0545e5555b4a5a87513ed6cbead9df091da161caf"
   end
 
   depends_on "pkg-config" => :build
@@ -59,36 +60,10 @@ class Openvpn < Formula
   end
 
   plist_options startup: true
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd";>
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/openvpn</string>
-          <string>--config</string>
-          <string>#{etc}/openvpn/openvpn.conf</string>
-        </array>
-        <key>OnDemand</key>
-        <false/>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>TimeOut</key>
-        <integer>90</integer>
-        <key>WatchPaths</key>
-        <array>
-          <string>#{etc}/openvpn</string>
-        </array>
-        <key>WorkingDirectory</key>
-        <string>#{etc}/openvpn</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_sbin/"openvpn", "--config", etc/"openvpn/openvpn.conf"]
+    keep_alive true
+    working_dir etc/"openvpn"
   end
 
   test do

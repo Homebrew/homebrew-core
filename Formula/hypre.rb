@@ -1,8 +1,8 @@
 class Hypre < Formula
   desc "Library featuring parallel multigrid methods for grid problems"
   homepage "https://computing.llnl.gov/projects/hypre-scalable-linear-solvers-multigrid-methods"
-  url "https://github.com/hypre-space/hypre/archive/v2.22.0.tar.gz"
-  sha256 "2c786eb5d3e722d8d7b40254f138bef4565b2d4724041e56a8fa073bda5cfbb5"
+  url "https://github.com/hypre-space/hypre/archive/v2.22.1.tar.gz"
+  sha256 "c1e7761b907c2ee0098091b69797e9be977bff8b7fd0479dc20cad42f45c4084"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/hypre-space/hypre.git"
 
@@ -12,11 +12,11 @@ class Hypre < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d8efc39a64885386f230bb87dee3f21fb01066ea6435e3e26df806e170c4f40e"
-    sha256 cellar: :any_skip_relocation, big_sur:       "279ec7e7f7d7cb9f35726400670bf712fdcb4ff90b41ed8fa3f6b6044825385f"
-    sha256 cellar: :any_skip_relocation, catalina:      "aea86f07dd1a186e92cb3bab3724da406ddd9fb52296e5c0c3e00325ffefc8fb"
-    sha256 cellar: :any_skip_relocation, mojave:        "6e1d4bca68208860dcaec185ca1a1fcf90ef97e1ea7918868d6d7152833c147d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14347d2805d8c264f0059a9d1da1c560a148380e0dcadc1da72c9438cdbedd29"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9b881406c5ac834e5a76b3d551f678a5321b992d275f311c1351b1cdb33471e2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "bff460cccfead851b5abb304aca2f0ad15b7da66053a3d489c38b6960d0e7980"
+    sha256 cellar: :any_skip_relocation, catalina:      "b9b84fa1ff57865583aca8e025664c1b3f9f18af8c6db8de285bdffaec402e49"
+    sha256 cellar: :any_skip_relocation, mojave:        "b3af9969617a61e65607bbbbe7f67c16af7e3f95321060ad686ca1020ed2d3bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19c15f04e0d243c8d9b16be49a4454ada29c3efe07847ad8070bafcf6c12e3aa"
   end
 
   depends_on "gcc" # for gfortran

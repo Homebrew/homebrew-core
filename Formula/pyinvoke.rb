@@ -6,7 +6,7 @@ class Pyinvoke < Formula
   url "https://files.pythonhosted.org/packages/37/b3/0b88358ee07789688d17ec7074a656da68ced50a122183187be12928b535/invoke-1.6.0.tar.gz"
   sha256 "374d1e2ecf78981da94bfaf95366216aaec27c2d6a7b7d5818d92da55aa258d3"
   license "BSD-2-Clause"
-  head "https://github.com/pyinvoke/invoke.git"
+  head "https://github.com/pyinvoke/invoke.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d5299fac1aede1c601d70315a6c50877286372e3a57b41c6be1afeee3039f25d"

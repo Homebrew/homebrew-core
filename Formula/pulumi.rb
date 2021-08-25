@@ -2,20 +2,27 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      tag:      "v3.10.1",
-      revision: "7b28a0a0cfa0774f61bd19837fb02fff05db3553"
+      tag:      "v3.10.3",
+      revision: "d8ebde1590088a21216329b429a83f7b39b512ef"
   license "Apache-2.0"
-  head "https://github.com/pulumi/pulumi.git"
+  head "https://github.com/pulumi/pulumi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1ce7e081d31153bc6ed8c329548582d0beda8df00397a2f350d22019cda4fd38"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7de6a89e9be601dfa168676643e95baa6c87c51509ccacd44660976bfe3e20cd"
-    sha256 cellar: :any_skip_relocation, catalina:      "6a4af341a95865b8b1bfbffa1cb6f579b57a9fdba6fc51ac61dd83f30e060808"
-    sha256 cellar: :any_skip_relocation, mojave:        "a207b2d7865e1b9fdc9cc594b8ee4aa6681b8fe40cda30fb6a0aa433ecd3e092"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1eabe260606b14e077cd724b13787f2cdb211b0b52c0b539640632e72f0c5b9b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "081da8123a70f15fbb47853e1aa05016e9e244a7c4dcd6c90ad6b711af6eef25"
+    sha256 cellar: :any_skip_relocation, big_sur:       "097ec56afc602c2534e4434b7e5ed4a783977a3d0b046049783daba3759e6abd"
+    sha256 cellar: :any_skip_relocation, catalina:      "c43e44317532fac910af046726f0762265c8f69c3335da821d1efa5093634e21"
+    sha256 cellar: :any_skip_relocation, mojave:        "7f945464c38caae88f0176cb29098572d1f17eb72c2e09e866fddb2ab7a10dc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "792ecb85eaea940f6a540062c94775366ebe3c4f77df4d6d33fe3bbd8cb11975"
   end
 
   depends_on "go" => :build
+
+  # Support go 1.17, remove after next release
+  patch do
+    url "https://github.com/pulumi/pulumi/commit/da2bd2ab043f2588b3a136846da1b97505326f25.patch?full_index=1"
+    sha256 "b0db2dab2996615cef4ca338232a4acca02f4ca4d8fd8322b6da51be697a9ef5"
+  end
 
   def install
     cd "./sdk" do

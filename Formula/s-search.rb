@@ -4,7 +4,7 @@ class SSearch < Formula
   url "https://github.com/zquestz/s/archive/v0.5.16.tar.gz"
   sha256 "08b7082ff900c7ec61905d954b7025dc6f780c23c81f2f13e200b2bbd7a2ef9c"
   license "MIT"
-  head "https://github.com/zquestz/s.git"
+  head "https://github.com/zquestz/s.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "04e743860f3014288e42d7194b2d34b88b30dbdf0d47b1362181e87e67ef3585"

@@ -4,7 +4,7 @@ class RancherCli < Formula
   url "https://github.com/rancher/cli/archive/v2.4.11.tar.gz"
   sha256 "c16d552bf07d45c3eaf3d3290fcca2e6c5aaacf4aaa82491a01832b5ea2506ea"
   license "Apache-2.0"
-  head "https://github.com/rancher/cli.git"
+  head "https://github.com/rancher/cli.git", branch: "master"
 
   livecheck do
     url :stable

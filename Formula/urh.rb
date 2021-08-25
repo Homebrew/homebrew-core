@@ -4,7 +4,7 @@ class Urh < Formula
   url "https://files.pythonhosted.org/packages/06/d8/f140e9c0f592134580819b959121b47bce042694168032bf8b219d39c977/urh-2.9.2.tar.gz"
   sha256 "e4fac51af73a69eeca25d9a12b777677b3b983de8537a2025ba698e20e6a56af"
   license "GPL-3.0-only"
-  head "https://github.com/jopohl/urh.git"
+  head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "09dc76c4ab1a6fade85309ced90029fadec5e323768c4bf373f016b25c5aef73"

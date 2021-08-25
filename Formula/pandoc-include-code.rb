@@ -5,7 +5,7 @@ class PandocIncludeCode < Formula
   sha256 "5d01a95f8a28cd858144d503631be6bb2d015faf9284326ee3c82c8d8433501d"
   license "MPL-2.0"
   revision 2
-  head "https://github.com/owickstrom/pandoc-include-code.git"
+  head "https://github.com/owickstrom/pandoc-include-code.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "116b050084dbeca5e70da5f02d8e71502ff6d2b971e27ef1fb4e8411b6678745"

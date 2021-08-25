@@ -5,7 +5,7 @@ class Swiftgen < Formula
       tag:      "6.4.0",
       revision: "0c67b63f43814a8d7eb71f685f0bf504b03223f3"
   license "MIT"
-  head "https://github.com/SwiftGen/SwiftGen.git", branch: "develop"
+  head "https://github.com/SwiftGen/SwiftGen.git", branch: "stable"
 
   bottle do
     sha256 cellar: :any, big_sur:  "338165c7d38fa699a84115b5dbd5881e5f8d18b194ba9c139f05b96c5bf807f8"

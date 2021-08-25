@@ -1,16 +1,16 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.3.13.tar.gz"
-  sha256 "c5eb822ea5b98028acd4a8dd21b155f893d928e4a30a8309eea0c406403af4e8"
+  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.3.17.tar.gz"
+  sha256 "81db9d13b515d01b134619f3e69cc1efe9f326030c4e49128131d3288ee68e33"
 
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_big_sur: "0399de22b50be2ea952ad6a01ea047465442abdc15b8e016a077bc6bc4f8f599"
-    sha256 big_sur:       "936449cc8f5b918fb4bd4791b640e1967b1952c56d3f95d734aa361e4708862d"
-    sha256 catalina:      "3c686e777c54780349651046f7cdd6c154d44489f3db972559dfb8dc0dc47c7e"
-    sha256 mojave:        "877eb6ba861bd07faba401ac913b145013386b1dbe7c18a181a4eccc676f68db"
+    sha256 arm64_big_sur: "3206f7d892bd1b7030aaad87456d38e792e7a4f1db6a1bf236812fb806fca966"
+    sha256 big_sur:       "c3d97b3bb9d3ad6c5c71ea9b8db6af548d2f26d621f63d2fcb3b4500623deb14"
+    sha256 catalina:      "631a30874cf16b202102fb0094b38e641f72554b9043277115b70ee8b449b7fe"
+    sha256 mojave:        "7e5ba57cea44e6377410f50d119eb372656944e874fb1391efbce66e01fb6802"
   end
 
   depends_on "cmake" => :build

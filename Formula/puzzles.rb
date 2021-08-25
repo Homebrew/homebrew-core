@@ -5,7 +5,7 @@ class Puzzles < Formula
   url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20210526.8f3413c.tar.gz"
   version "20210526"
   sha256 "6c075a6ae2ab4131281fe07278d4daac6e9363142b65325f60cbf0660b532225"
-  head "https://git.tartarus.org/simon/puzzles.git"
+  head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
   # There's no directory listing page and the homepage only lists an unversioned
   # tarball. The Git repository doesn't report any tags when we use that. The

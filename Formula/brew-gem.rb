@@ -4,7 +4,7 @@ class BrewGem < Formula
   url "https://github.com/sportngin/brew-gem/archive/v1.1.1.tar.gz"
   sha256 "affa68105dcabc5c8b4832cf70ee2b35c1fbf19496173753645bda496d9b0a34"
   license "MIT"
-  head "https://github.com/sportngin/brew-gem.git"
+  head "https://github.com/sportngin/brew-gem.git", branch: "master"
 
   # Until versions exceed 2.2, the leading `v` in this regex isn't optional, as
   # we need to avoid an older `2.2` tag (a typo) while continuing to match

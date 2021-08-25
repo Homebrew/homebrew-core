@@ -4,7 +4,7 @@ class Plenv < Formula
   url "https://github.com/tokuhirom/plenv/archive/2.3.1.tar.gz"
   sha256 "12004cfed7ed083911dbda3228a9fb9ce6e40e259b34e791d970c4f335935fa3"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  head "https://github.com/tokuhirom/plenv.git"
+  head "https://github.com/tokuhirom/plenv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8003aaa1404beacb1ef33010bbf1ed82abb2436e9a3764a6d5f2cac83aa085ba"

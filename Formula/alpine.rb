@@ -4,7 +4,7 @@ class Alpine < Formula
   url "https://alpine.x10host.com/alpine/release/src/alpine-2.24.tar.xz"
   sha256 "651a9ffa0a29e2b646a0a6e0d5a2c8c50f27a07a26a61640b7c783d06d0abcef"
   license "Apache-2.0"
-  head "https://repo.or.cz/alpine.git"
+  head "https://repo.or.cz/alpine.git", branch: "master"
 
   livecheck do
     url :homepage

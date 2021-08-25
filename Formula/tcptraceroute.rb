@@ -3,7 +3,7 @@ class Tcptraceroute < Formula
   homepage "https://github.com/mct/tcptraceroute"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/mct/tcptraceroute.git"
+  head "https://github.com/mct/tcptraceroute.git", branch: "master"
 
   stable do
     url "https://github.com/mct/tcptraceroute/archive/tcptraceroute-1.5beta7.tar.gz"

@@ -4,7 +4,7 @@ class SignifyOsx < Formula
   url "https://github.com/jpouellet/signify-osx/archive/1.4.tar.gz"
   sha256 "5aa954fe6c54f2fc939771779e5bb64298e46d0a4ae3d08637df44c7ed8d2897"
   license "ISC"
-  head "https://github.com/jpouellet/signify-osx.git"
+  head "https://github.com/jpouellet/signify-osx.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "04f7c99002246fb5765666759b9a5a1f7e461a6d2d0c77e360af77951ee5de97"

@@ -7,7 +7,7 @@ class Sha1dc < Formula
 
   # The "master" branch is unusably broken and behind the
   # "simplified_c90" branch that's the basis for release.
-  head "https://github.com/cr-marcstevens/sha1collisiondetection.git"
+  head "https://github.com/cr-marcstevens/sha1collisiondetection.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "392a2173a9bf9a53f40edb2ef6c77a9d34ee567c9d18f405288b7b83e7fdc87b"

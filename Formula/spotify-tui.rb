@@ -1,17 +1,17 @@
 class SpotifyTui < Formula
   desc "Terminal-based client for Spotify"
   homepage "https://github.com/Rigellute/spotify-tui"
-  url "https://github.com/Rigellute/spotify-tui/archive/v0.24.0.tar.gz"
-  sha256 "c3da9eec76fe5387555b63ff7e4de8e0e4f5eba948af6df112e02cf8031519ee"
+  url "https://github.com/Rigellute/spotify-tui/archive/v0.25.0.tar.gz"
+  sha256 "9d6fa998e625ceff958a5355b4379ab164ba76575143a7b6d5d8aeb6c36d70a7"
   license "MIT"
-  head "https://github.com/Rigellute/spotify-tui.git"
+  head "https://github.com/Rigellute/spotify-tui.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f8b013d72cb7c6345a0d2223a30911f94fb1a553de887dc0d339e26f0d5e89db"
-    sha256 cellar: :any_skip_relocation, big_sur:       "23afc6b7fa6b41f7904ff988fb4e8d4c833ff422382867a49dce42b23a980a33"
-    sha256 cellar: :any_skip_relocation, catalina:      "10f47a62a67d0d15dbdad33139c6723c278d698d19386e0a7c5b125eb0200116"
-    sha256 cellar: :any_skip_relocation, mojave:        "ca1264421f176b28c06b197e40fce0f815ea292141b28ceb119bb5ecfdc38c7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25f6275a87b41b374c4e32253f9491a0040157d55808b76f0d83813436cd4f51"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ef8afcda5e9fc500a7dd2abc77f3b49f7d7fca7ae1da4acb9b54d263bfa434b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b47628e9447d374a0687c4335ad4d3403bdb104a5014a97f90455b5cd43aaf1c"
+    sha256 cellar: :any_skip_relocation, catalina:      "3dedb376c70bd12c90c328e0135e00251fa8f1a1f5abbd1755b1d547641945e7"
+    sha256 cellar: :any_skip_relocation, mojave:        "8304187e14830a1e879563caab9de18b13eca95dc4a65de1da36179eafb887a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ccfd440c8cf171b997b747f7a15ba272351cb3ed2101f05b08672bbd2a73ed1d"
   end
 
   depends_on "rust" => :build

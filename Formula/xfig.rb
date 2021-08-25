@@ -1,10 +1,9 @@
 class Xfig < Formula
   desc "Facility for interactive generation of figures"
   homepage "https://mcj.sourceforge.io"
-  url "https://downloads.sourceforge.net/mcj/xfig-3.2.8a.tar.xz"
-  sha256 "ba43c0ea85b230d3efa5a951a3239e206d0b033d044c590a56208f875f888578"
+  url "https://downloads.sourceforge.net/mcj/xfig-3.2.8b.tar.xz"
+  sha256 "b2cc8181cfb356f6b75cc28771970447f69aba1d728a2dac0e0bcf1aea7acd3a"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +11,11 @@ class Xfig < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "6a43d6e59266c06db6e95d612731dce290baca35ccdc885411ff01224c0dc6b2"
-    sha256 big_sur:       "2f87098117a52ae19f9260f6d0a8413378eb790ced684221dc190a36f7c919a2"
-    sha256 catalina:      "011b226be3e0e49599871b19cb8528a168cb91d5b37557eb6856f7e9d20f3506"
-    sha256 mojave:        "70d31a321c35921fb64a15a0634b6159d4918498d5a2b743659635e3067bfb9a"
-    sha256 x86_64_linux:  "bb3403cf475b187287b96bbabd5935d8f4825ea63e45e0d052762e21e36abf03"
+    sha256 arm64_big_sur: "b5b1cb44d874b54803d40a74d3dfed853f84fd9aef25fb592405c4baf85b70a0"
+    sha256 big_sur:       "d7c37dccd5e37725dedb44b09e35b58012032c9363d45237434cb7195df477c8"
+    sha256 catalina:      "8bb1ae517dc9f6b845b5fa991f6264d94396e24410f387579e7fc89cd3210559"
+    sha256 mojave:        "7dda7fca1b9524128292409321f7a1614faabff17cc02c62bbc351cac8f45969"
+    sha256 x86_64_linux:  "dcfffe75f2f42a482f9b37c6d6e76b588da469b3118a37382046d83ddd303bdf"
   end
 
   depends_on "fig2dev"

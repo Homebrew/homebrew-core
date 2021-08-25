@@ -5,7 +5,7 @@ class Postgrest < Formula
   sha256 "4a930900b59866c7ba25372fd93d2fbab5cdb52fc5fea5e481713b03a2d5e923"
   license "MIT"
   revision 1
-  head "https://github.com/PostgREST/postgrest.git"
+  head "https://github.com/PostgREST/postgrest.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a505a99c6f164a72936e18584d9a172204be89694934adc2a4d168c33ae8f91a"

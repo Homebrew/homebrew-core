@@ -4,7 +4,7 @@ class Showkey < Formula
   url "http://www.catb.org/~esr/showkey/showkey-1.8.tar.gz"
   sha256 "31b6b064976a34d7d8e7a254db0397ba2dc50f1bb6e283038b17c48a358d50d3"
   license "MIT"
-  head "https://gitlab.com/esr/showkey.git"
+  head "https://gitlab.com/esr/showkey.git", branch: "master"
 
   livecheck do
     url :homepage

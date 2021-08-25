@@ -4,7 +4,7 @@ class Uriparser < Formula
   url "https://github.com/uriparser/uriparser/releases/download/uriparser-0.9.5/uriparser-0.9.5.tar.bz2"
   sha256 "dd8061eba7f2e66c151722e6db0b27c972baa6215cf16f135dbe0f0a4bc6606c"
   license "BSD-3-Clause"
-  head "https://github.com/uriparser/uriparser.git"
+  head "https://github.com/uriparser/uriparser.git", branch: "master"
 
   bottle do
     rebuild 1

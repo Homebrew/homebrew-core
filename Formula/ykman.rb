@@ -6,7 +6,7 @@ class Ykman < Formula
   url "https://files.pythonhosted.org/packages/19/b7/c30a01e43fba70ee138eacf36f76d3930c8f4217e3ee59f07761c72fe07c/yubikey-manager-4.0.5.tar.gz"
   sha256 "20117dbdcbe5bed6c9a172dae8452c44689c283ad1a8434e28f4e05de153f288"
   license "BSD-2-Clause"
-  head "https://github.com/Yubico/yubikey-manager.git"
+  head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a6bed330081df5479a2e8e048a58cb0ea7d6a69c353d27c3aa70b03efee0854e"

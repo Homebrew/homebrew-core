@@ -18,6 +18,7 @@ class GstDevtools < Formula
     sha256 big_sur:       "c9112da83d65e0993e5b5ce4a87ae72e85093c57ad21c7b99e52a69cc36a8b1a"
     sha256 catalina:      "b01a80a014c19658e7a3d8b3a8f54db3f98bec9314ba887690b632a28b492fbb"
     sha256 mojave:        "4537802ab817fc7b4c74f9968363bec97aafdabc8439935fc905dc46dd473a60"
+    sha256 x86_64_linux:  "af7aacdec2e3482c4a3592ae25f15e30f86cf022f0d82cecfb5c952346ccf349"
   end
 
   depends_on "gobject-introspection" => :build

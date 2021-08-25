@@ -2,10 +2,9 @@ class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
   # NOTE: Please keep these values in sync with git-gui.rb when updating.
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.32.0.tar.xz"
-  sha256 "68a841da3c4389847ecd3301c25eb7e4a51d07edf5f0168615ad6179e3a83623"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.33.0.tar.xz"
+  sha256 "bf3c6ab5f82e072aad4768f647cfb1ef60aece39855f83f080f9c0222dd20c4f"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/git/git.git"
 
   livecheck do
@@ -14,11 +13,11 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "74d2f8e5376eb204c5f812bbefc77c81d500fca1295e6571f7c680a36f98a73b"
-    sha256 big_sur:       "c73ff9436e9642d745a612ed1071ae770d57fdca95589539d63e1e0c9f428f3b"
-    sha256 catalina:      "0f303c5f3bb53ff24d0ba10d7c2612b0f4bc8e384eb082b51a8aff62e4aace72"
-    sha256 mojave:        "4610c1e22e2df2e7f0c70146f630675a041064ac904702cbd492b7845be4f88e"
-    sha256 x86_64_linux:  "7c2cd04e51354d63daeccae11ec4c4a7f2b532044d462ba89c16f2577851a937"
+    sha256 arm64_big_sur: "06e9cc3e274380b2494451ed2e3c6acf1e091facdf2ce02da57921fbc6a3115a"
+    sha256 big_sur:       "1b89ec39f7a4b865b3c671f9b2495ec85992595112b74a5dc3ac78beae33ff0d"
+    sha256 catalina:      "4aaced15f34f02a7a965f9cee42b78ef471034e4d9cf3bbbe8bf2ab8f4f72678"
+    sha256 mojave:        "5e85e4d8c9aaa398420993cb9c2561db79d3a71a12b79b8631ee0de5b0d86c67"
+    sha256 x86_64_linux:  "06340f727c9e234bbe7fb940307c7ec2545b8186ed1bfbb9c20cf9763cb2d22c"
   end
 
   depends_on "gettext"
@@ -34,13 +33,13 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.32.0.tar.xz"
-    sha256 "821bd3b5dfd31040bf9ed38ef02df3dcf063546127f07d59ec9669274e8b8818"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.33.0.tar.xz"
+    sha256 "309c5d3cdd9a115f693c0e035298cc867a3b8ba8ce235fa1ac950a48cb4b0447"
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.32.0.tar.xz"
-    sha256 "19e3cb0425c94d4ad82984f41522e77c8e35093e15a891f8e7195617201f6ac1"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.33.0.tar.xz"
+    sha256 "d6d38abe3fe45b74359e65d53e51db3aa92d7f551240b7f7a779746f24c4bc31"
   end
 
   resource "Net::SMTP::SSL" do

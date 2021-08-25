@@ -1,15 +1,15 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net"
-  url "https://github.com/GitTools/GitVersion/archive/5.6.11.tar.gz"
-  sha256 "019aa795201d249929a179464d7f45d4c7b62c11b39146efe58b135d27d507c0"
+  url "https://github.com/GitTools/GitVersion/archive/5.7.0.tar.gz"
+  sha256 "d2c101d3b6ed5a0ee1e764c749bd869a2ce8f6d5563a5e2938dc3c32ad1375c7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 big_sur:      "40640f290fe8127679c87abcc704592eebaf0eae52ca55fc20cb5d5faa37c72d"
-    sha256 cellar: :any,                 catalina:     "b004bbcba66e5dbf4dca5b66974e65f5b49e9a12b97724a91a2b029e0e4406f3"
-    sha256 cellar: :any,                 mojave:       "85042a5e5f3791e1b07e9ee944c8a1217f3403836e7bac14793d1b37bb1fa906"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e7a37855fa2f2e65521a480b30c6037939118a1094938a84029b74f2dd239502"
+    sha256 cellar: :any,                 big_sur:      "da4483fe73a5085dd3a54034bdac7a17e12710c18ca53e90fe1386a188cb6946"
+    sha256 cellar: :any,                 catalina:     "106a5e3b8ac1e69809bbd4e86733bcab971f2f35fed40a2a7197f9b57d28a039"
+    sha256 cellar: :any,                 mojave:       "b5d5943589f696a3bbcdb61d0827374cd45e5903203a3e574f40bf2c19c16da1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "029c5c10ede90c0f116a12fe47af0d2e9b0da43542b70117c5eae946756f24df"
   end
 
   depends_on arch: :x86_64 # dotnet does not support ARM

@@ -4,7 +4,7 @@ class Pfetch < Formula
   url "https://github.com/dylanaraps/pfetch/archive/0.6.0.tar.gz"
   sha256 "d1f611e61c1f8ae55bd14f8f6054d06fcb9a2d973095367c1626842db66b3182"
   license "MIT"
-  head "https://github.com/dylanaraps/pfetch.git"
+  head "https://github.com/dylanaraps/pfetch.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d3d84a024e20f9a85803389150748894f9a9dab94593af5c0ee3967a82ebe55a"

@@ -2,10 +2,9 @@ class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v2.0.7",
-      revision: "2a45f0c0375a7d5615835afa6f81a53444df9cea"
+      tag:      "v2.0.8",
+      revision: "e91d41810f3f44061db544e771f0fc14515aff84"
   license "MIT"
-  revision 3
   head "https://github.com/influxdata/influxdb.git"
 
   # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
@@ -15,11 +14,10 @@ class Influxdb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e7a6d19248a8d665dafdb65535db91471c9d1e221a960d6510ebfbd0fc0ed512"
-    sha256 cellar: :any_skip_relocation, big_sur:       "fd1d249e726bf558dc5252daca83ec7939989ed10d0bbde603f6c50f313fcfd8"
-    sha256 cellar: :any_skip_relocation, catalina:      "74b7abcb4e2eac907741229394e0e4889a3b66af8d379f2797a687e5131d240d"
-    sha256 cellar: :any_skip_relocation, mojave:        "728c2867fc14149b2451940d04c53377d06016378b337bfdfde81f0c61727189"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5f89b13d719f852125fc25acc78c5fd17836f9a9018798978c29501e0eb26295"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1577d8326e21e87a25277c98f1467022f304e4fefae49e28933ec3260811f492"
+    sha256 cellar: :any_skip_relocation, catalina:      "0f879b93be65d98dae7e61459dbbd986ee75eb408fb7da9f5827f29fc43e8789"
+    sha256 cellar: :any_skip_relocation, mojave:        "9730427bea4a9debb5861f696b2e783960e42cd6696ab34022ab16dfef2a91e9"
   end
 
   depends_on "bazaar" => :build
@@ -32,15 +30,15 @@ class Influxdb < Formula
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "pkg-config-wrapper" do
-    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.7.tar.gz"
-    sha256 "9bfe2c06b09fe7f3274f4ff8da1d87c9102640285bb38dad9a8c26dd5b9fe5af"
+    url "https://github.com/influxdata/pkg-config/archive/refs/tags/v0.2.8.tar.gz"
+    sha256 "9d3f3bbcac7c787f6e8846e70172d06bd4d7394b4bcd0b8572fe2f1d03edc11b"
   end
 
   # NOTE: The version/URL here is specified in scripts/fetch-ui-assets.sh in influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
   resource "ui-assets" do
-    url "https://github.com/influxdata/ui/releases/download/OSS-v2.0.7/build.tar.gz"
-    sha256 "5aebccacb2e13d9fffd1cbca567f63791f3c19be2088045bdbcd38100381101a"
+    url "https://github.com/influxdata/ui/releases/download/OSS-v2.0.8/build.tar.gz"
+    sha256 "94965ae999a1098c26128141fbb849be3da9a723d509118eb6e0db4384ee01fc"
   end
 
   def install
@@ -52,10 +50,10 @@ class Influxdb < Formula
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
     # Extract pre-build UI resources to the location expected by go-bindata.
-    resource("ui-assets").stage(buildpath/"ui/build")
+    resource("ui-assets").stage(buildpath/"static/data/build")
 
     # Embed UI files into the Go source code.
-    system "make", "generate"
+    system "make", "generate-web-assets"
 
     # Build the server.
     ldflags = %W[

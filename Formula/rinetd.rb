@@ -6,7 +6,7 @@ class Rinetd < Formula
   license "GPL-2.0-or-later"
   # NOTE: Original (unversioned) tool is at https://github.com/boutell/rinetd
   #       Debian tracks the "samhocevar" fork so we follow suit
-  head "https://github.com/samhocevar/rinetd"
+  head "https://github.com/samhocevar/rinetd", branch: "main"
 
   livecheck do
     url :stable

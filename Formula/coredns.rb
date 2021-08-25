@@ -4,7 +4,7 @@ class Coredns < Formula
   url "https://github.com/coredns/coredns/archive/v1.8.4.tar.gz"
   sha256 "d85c8c52f4d38ab1915eb60523b4e5241ffa19d20e4f7bbce8b0f4fb59171f2a"
   license "Apache-2.0"
-  head "https://github.com/coredns/coredns.git"
+  head "https://github.com/coredns/coredns.git", branch: "master"
 
   livecheck do
     url :stable

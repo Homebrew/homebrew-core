@@ -7,7 +7,7 @@ class Vdirsyncer < Formula
       tag:      "0.16.8",
       revision: "b5dd0929d009b7b07f72903dd6fb82815f45bdd8"
   revision 2
-  head "https://github.com/pimutils/vdirsyncer.git"
+  head "https://github.com/pimutils/vdirsyncer.git", branch: "master"
 
   livecheck do
     url :stable

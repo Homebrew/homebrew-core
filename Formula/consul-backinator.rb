@@ -4,7 +4,7 @@ class ConsulBackinator < Formula
   url "https://github.com/myENA/consul-backinator/archive/v1.6.6.tar.gz"
   sha256 "b668801ca648ecf888687d7aa69d84c3f2c862f31b92076c443fdea77c984c58"
   license "MPL-2.0"
-  head "https://github.com/myENA/consul-backinator.git"
+  head "https://github.com/myENA/consul-backinator.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "579fbf5bed18b1db8efc3d97621580316dc3d2d903fe085be3cd3dbd3ef72930"

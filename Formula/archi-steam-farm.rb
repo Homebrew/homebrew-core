@@ -5,7 +5,7 @@ class ArchiSteamFarm < Formula
     tag:      "5.1.2.4",
     revision: "7ff747fb6ed26229101909f2b0abb0ca03b98988"
   license "Apache-2.0"
-  head "https://github.com/JustArchiNET/ArchiSteamFarm.git"
+  head "https://github.com/JustArchiNET/ArchiSteamFarm.git", branch: "main"
 
   livecheck do
     url :stable

@@ -5,7 +5,7 @@ class Gdb < Formula
   mirror "https://ftpmirror.gnu.org/gdb/gdb-10.2.tar.xz"
   sha256 "aaa1223d534c9b700a8bec952d9748ee1977513f178727e1bee520ee000b4f29"
   license "GPL-3.0-or-later"
-  head "https://sourceware.org/git/binutils-gdb.git"
+  head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
     sha256 big_sur:      "31de67be9674e5bd363a554e7f02002687a5ac9734526983e0430b041acea042"
@@ -62,11 +62,7 @@ class Gdb < Formula
       gdb requires special privileges to access Mach ports.
       You will need to codesign the binary. For instructions, see:
 
-        https://sourceware.org/gdb/wiki/BuildingOnDarwin
-
-      On 10.12 (Sierra) or later with SIP, you need to run this:
-
-        echo "set startup-with-shell off" >> ~/.gdbinit
+        https://sourceware.org/gdb/wiki/PermissionsDarwin
     EOS
   end
 

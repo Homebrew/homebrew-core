@@ -3,7 +3,7 @@ class Wagyu < Formula
   homepage "https://github.com/AleoHQ/wagyu"
   url "https://github.com/AleoHQ/wagyu/archive/v0.6.1.tar.gz"
   sha256 "2458b3d49653acd5df5f3161205301646527eca9f6ee3d84c7871afa275bad9f"
-  head "https://github.com/AleoHQ/wagyu.git"
+  head "https://github.com/AleoHQ/wagyu.git", branch: "master"
 
   bottle do
     rebuild 1

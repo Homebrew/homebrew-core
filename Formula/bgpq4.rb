@@ -1,8 +1,8 @@
 class Bgpq4 < Formula
   desc "BGP filtering automation for Cisco, Juniper, BIRD and OpenBGPD routers"
   homepage "https://github.com/bgp/bgpq4"
-  url "https://github.com/bgp/bgpq4/archive/refs/tags/0.0.7.tar.gz"
-  sha256 "c39af7d2a8b0f4cf61543e776677baaf067aa087181851572211d168258f7f9f"
+  url "https://github.com/bgp/bgpq4/archive/refs/tags/1.4.tar.gz"
+  sha256 "db4bb0e035e62f00b515529988ad8a552871dcf17ea1d32e0cbf3aae18c2602e"
   license "BSD-2-Clause"
   head "https://github.com/bgp/bgpq4.git", branch: "main"
 
@@ -12,15 +12,16 @@ class Bgpq4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3a5b6d4d65725eea1d40ed0192633d2265eb9011c5e7df3f3d2cfc33b2cb673c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "80d33aa9cb61cd994b2322d2709e7cdaa56887f0c92c8342f6eed501e78edd66"
-    sha256 cellar: :any_skip_relocation, catalina:      "0e49b63edcd89b6eab9c979ae6e8da2f2ac30d0bc26242a1db2cf2d0233441ca"
-    sha256 cellar: :any_skip_relocation, mojave:        "8644ec33178ee7e9b4b1293d77273c0ddcb11d6e4fa3aafb4e051af2dc4a5e07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30387477adf16b8715bac3530a8bec3338131cc9369064b908d09b24a0c43e82"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1a59f7bc0a4f0fb911f6d464f85d3c19b80da94bcc5c50188825f1e9ed6c5208"
+    sha256 cellar: :any_skip_relocation, big_sur:       "370e39599aad59b426c7eac54dc5bae8960ee6d82f494a11191f0d1ff88b95d3"
+    sha256 cellar: :any_skip_relocation, catalina:      "b2549810cc41e269f260ae42096a0b4b3051d10b44d7c94f40d4d26d9d84d73b"
+    sha256 cellar: :any_skip_relocation, mojave:        "9f8ab5fddb0e06cc1ac25d373d9bc0c8b38ebded71b36b8ef7375c51c77e91c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ac7b84ef5cd3c74b7087488d7b9d3d72ec2c89a6498686d53e2873397448c904"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   def install
     system "./bootstrap"

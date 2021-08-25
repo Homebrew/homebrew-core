@@ -3,13 +3,12 @@ class GitFilterRepo < Formula
 
   desc "Quickly rewrite git repository history"
   homepage "https://github.com/newren/git-filter-repo"
-  url "https://github.com/newren/git-filter-repo/releases/download/v2.32.0/git-filter-repo-2.32.0.tar.xz"
-  sha256 "0b3b454b278a33d06671fd1e4ab2c71f7bc719ea5df165cfbdc000093faf169b"
+  url "https://github.com/newren/git-filter-repo/releases/download/v2.33.0/git-filter-repo-2.33.0.tar.xz"
+  sha256 "7bcf11da134bbd82a4171f7fb28a3ab7bc4d478fe8ec3a3d9580e4bbdc32e6e9"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "fb2d07a98981af0ba244c00d11110e7579cb9a53ec31c8a4c512bb2112ae46ba"
+    sha256 cellar: :any_skip_relocation, all: "e6a31397b8642487d4fa6a5c8a80cfbdc8aba9cd4baab761296ac7a7fa06b7cd"
   end
 
   depends_on "python@3.9"

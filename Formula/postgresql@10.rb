@@ -15,6 +15,7 @@ class PostgresqlAT10 < Formula
     sha256 big_sur:       "af833896d178d006d4bdc48eafdc270a23d7b1f62dbcd8fd88e7e63269f0adcf"
     sha256 catalina:      "36cbf68eb8dab89c51d6d4e11dc7935e776572a5d04466b9515b655980ead968"
     sha256 mojave:        "a5a7b07196fb7f5bb79fe04e85f5efea62500d167f2a82fd199bf40d21ff894f"
+    sha256 x86_64_linux:  "10c73ffb3f8afcea15586546d26797e800caab91039904024de3c184bc5c9786"
   end
 
   keg_only :versioned_formula
@@ -49,7 +50,6 @@ class PostgresqlAT10 < Formula
       --sysconfdir=#{etc}
       --docdir=#{doc}
       --enable-thread-safety
-      --with-bonjour
       --with-gssapi
       --with-icu
       --with-ldap
@@ -58,9 +58,14 @@ class PostgresqlAT10 < Formula
       --with-openssl
       --with-pam
       --with-perl
-      --with-tcl
       --with-uuid=e2fs
     ]
+    on_macos do
+      args += %w[
+        --with-bonjour
+        --with-tcl
+      ]
+    end
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
@@ -80,12 +85,22 @@ class PostgresqlAT10 < Formula
     # Attempting to fix that by adding a dependency on `open-sp` doesn't
     # work and the build errors out on generating the documentation, so
     # for now let's simply omit it so we can package Postgresql for Mojave.
-    if DevelopmentTools.clang_build_version >= 1000
+    on_macos do
+      if DevelopmentTools.clang_build_version >= 1000
+        system "make", "all"
+        system "make", "-C", "contrib", "install", "all", *dirs
+        system "make", "install", "all", *dirs
+      else
+        system "make", "install-world", *dirs
+      end
+    end
+    on_linux do
       system "make", "all"
       system "make", "-C", "contrib", "install", "all", *dirs
       system "make", "install", "all", *dirs
-    else
-      system "make", "install-world", *dirs
+      inreplace lib/"pgxs/src/Makefile.global",
+                "LD = #{HOMEBREW_PREFIX}/Homebrew/Library/Homebrew/shims/linux/super/ld",
+                "LD = #{HOMEBREW_PREFIX}/bin/ld"
     end
   end
 

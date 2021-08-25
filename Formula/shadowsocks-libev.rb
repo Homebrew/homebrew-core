@@ -7,11 +7,12 @@ class ShadowsocksLibev < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "e805818adbe42d4f6e4eace4f56dcffd82bf6e55d4e1b3b317108488e8fa3281"
-    sha256 cellar: :any,                 big_sur:       "3086385432f8ab17b26bffbcb755bb120e8b04bb5fcfb9c3dc168e6c938e0283"
-    sha256 cellar: :any,                 catalina:      "1c87e70edb2188b171221790769ee91e3c7de3b7f7e0bc0a481fbc62502a5f97"
-    sha256 cellar: :any,                 mojave:        "7c9b678a11a0debd04e9101c9ba8eaa8b04daaafe8a8ac88d5dca0aa9869e078"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f946541590e6b200474895f7cf3895ab0c7a6b24a2d9b3ea36dc46663eec6b58"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "b1e8d388ea9ad7619ac942468e64697c4ee10f1d969b0ad6d779a7be95c84e08"
+    sha256 cellar: :any,                 big_sur:       "66f3fc332d7acd21599736d33995fe421d95cc89b6d7ce9057bc72a3713ec8d0"
+    sha256 cellar: :any,                 catalina:      "bbb14b97724efb4acf511b122f414a8f3f02810c7ec207413bb413063ef693ee"
+    sha256 cellar: :any,                 mojave:        "292cca782f44f284592f3538dd24dd5ebdb0d1e9a978f9f507cc78be3a8e471a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bd589c0338a9991d42dd08f5b470e74f3aab6843c09036d13f6b074c73a81ed"
   end
 
   head do
@@ -52,29 +53,9 @@ class ShadowsocksLibev < Formula
     system "make", "install"
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/shadowsocks-libev/bin/ss-local -c #{HOMEBREW_PREFIX}/etc/shadowsocks-libev.json"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/ss-local</string>
-            <string>-c</string>
-            <string>#{etc}/shadowsocks-libev.json</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <true/>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"ss-local", "-c", etc/"shadowsocks-libev.json"]
+    keep_alive true
   end
 
   test do

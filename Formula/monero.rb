@@ -13,12 +13,12 @@ class Monero < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "21d82b457eb630d78444ca29db2cf335f47a449e217730f84a8934faf5252e94"
-    sha256 cellar: :any,                 big_sur:       "f552779fb0f41d5ce12ee4cebe58d58859237fdece35c25f9a71268f87920d22"
-    sha256 cellar: :any,                 catalina:      "fe9009da078f04dd65f204298fb58c6c4ba6e195307cc64bf0443f6184fbd5b9"
-    sha256 cellar: :any,                 mojave:        "9efd453269f2dea7bff2061320e2f0db8a4f45ba804187439b77c1eb4098323f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1b112de4eda42a1a024d2ae26d1dca6341cb616306ca096f6357bddc0b711543"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_big_sur: "d9cfe133eaae8416ad9584d1ba44c90988637c7cab623debae8d06e503ad4f3a"
+    sha256 cellar: :any,                 big_sur:       "48b8e19c8db0fd8a8b1b5b3d1f376b43b62497d7be38b1ccdafbf6b5a22da8d6"
+    sha256 cellar: :any,                 catalina:      "52f133890b8bf7f44025ce97aa18608b9bb9ebcaadc26be7563f1a3c8638f475"
+    sha256 cellar: :any,                 mojave:        "21e5deea5fcd08facc7bc6c39f4da5ecdcdf6e5237f1316c6f445039d485bfe7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a33b53d07e5296bab8922573e57ea126be9ff0d033f99dc0064a97dd957dbb4e"
   end
 
   depends_on "cmake" => :build
@@ -47,26 +47,8 @@ class Monero < Formula
     rm lib/"libminiupnpc.a"
   end
 
-  plist_options manual: "monerod"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/monerod</string>
-          <string>--non-interactive</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"monerod", "--non-interactive"]
   end
 
   test do

@@ -6,11 +6,12 @@ class Meilisearch < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "98f84b8cc9e1a98ae5fd209602079c2877655fed22f357c8d87f04751286cc3a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "55a6830696ba4b3fd3801be99180c95305e8b8d6c88e222068be8ecf528a1ca4"
-    sha256 cellar: :any_skip_relocation, catalina:      "2b6572a94c06b50750ecf5e9d2a39ec2fe502213f12c8efe10e0dbbba4b003af"
-    sha256 cellar: :any_skip_relocation, mojave:        "87df8e1be817662fce7d9a570bb1d0482edfe3338c7e642b2f2603436e2be236"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a82957fd490d1cf26a896dab2736561cdef8bd9ba44e0e48f62863f04f601c21"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "78b12ac7cc6d02b0e05d7f39bc1dee7b050c652a3412b12bc733aac1b667af5c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "f7910799d97cf7a7d161b026a5d106a2432e96eb239194a7fed9d903e77327f1"
+    sha256 cellar: :any_skip_relocation, catalina:      "e4e78756580908dab7fccc59ac3a653f9a821630bba4f1e34e50b241b70a8d13"
+    sha256 cellar: :any_skip_relocation, mojave:        "81b40b5fb6bd5ddb0a16924999cdb7721db1d6cc9c82edb9243ecee253054223"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db9f1a92823ccb48450865fbb02d37bdb20387367bd669c1bc6f839aa0552d79"
   end
 
   depends_on "rust" => :build
@@ -21,35 +22,12 @@ class Meilisearch < Formula
     end
   end
 
-  plist_options manual: "meilisearch"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>KeepAlive</key>
-          <false/>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>ProgramArguments</key>
-          <array>
-            <string>#{opt_bin}/meilisearch</string>
-            <string>--db-path</string>
-            <string>#{var}/meilisearch/data.ms</string>
-          </array>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>WorkingDirectory</key>
-          <string>#{var}</string>
-          <key>StandardErrorPath</key>
-          <string>#{var}/log/meilisearch.log</string>
-          <key>StandardOutPath</key>
-          <string>#{var}/log/meilisearch.log</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"meilisearch", "--db-path", "#{var}/meilisearch/data.ms"]
+    keep_alive false
+    working_dir var
+    log_path var/"log/meilisearch.log"
+    error_log_path var/"log/meilisearch.log"
   end
 
   test do

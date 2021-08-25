@@ -5,7 +5,7 @@ class SwiftProtobuf < Formula
   sha256 "f3e839bb445edcbf1aeb52ce6f24ae52a16cf5c45efb1721633b4d0c73ecc537"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/apple/swift-protobuf.git"
+  head "https://github.com/apple/swift-protobuf.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "341ed4f82143e163938c81c909d339855450400fa7f52cabb7fe76533ea01c87"

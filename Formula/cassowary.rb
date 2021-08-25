@@ -4,7 +4,7 @@ class Cassowary < Formula
   url "https://github.com/rogerwelin/cassowary/archive/v0.14.0.tar.gz"
   sha256 "385232478b8552d56429fbe2584950bfbe42e3b611919a31075366a143aae9a9"
   license "MIT"
-  head "https://github.com/rogerwelin/cassowary.git"
+  head "https://github.com/rogerwelin/cassowary.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "648d2b294a0a5523a9941c54d4399ba7af9574d00535c27560642e4df77cd883"

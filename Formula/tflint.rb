@@ -4,7 +4,7 @@ class Tflint < Formula
   url "https://github.com/terraform-linters/tflint/archive/v0.31.0.tar.gz"
   sha256 "3a8a3aeae3d4b09df3c5c9eed07c2da1680191e6493c31642e0fa3f518c341da"
   license "MPL-2.0"
-  head "https://github.com/terraform-linters/tflint.git"
+  head "https://github.com/terraform-linters/tflint.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5ec327d9213b538cb3dd338e1131ff2d4e6b12816289ccf88a82c3515fb041cb"

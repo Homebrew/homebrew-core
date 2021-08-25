@@ -11,14 +11,15 @@ class Sdl2Net < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "b1c2224931852ae88aa4a3ee1e70d5576ee74521c3a893ecd16876c7b0fa35db"
-    sha256 cellar: :any, big_sur:       "d270144e643a239af9c4a7ad0f0ef5277e54bfd845caaa0cf9a7be232cd8d41a"
-    sha256 cellar: :any, catalina:      "920e892ba80cba3a99d4a15473351be5dc23f0d9445c28480c5dae904e8a8271"
-    sha256 cellar: :any, mojave:        "0631754a7016b3e6e175644cc7976cc22843f7b872e8f50662d0cb50a4264901"
-    sha256 cellar: :any, high_sierra:   "f193c7c2ae1b7f2c82cbbc9b83a16fc72d845c6396ecd33644eea19695a850ee"
-    sha256 cellar: :any, sierra:        "dc2b96762f77dd4d42fea1da4d4c2373692dd0a531f686f00de0dd4a6eed8df9"
-    sha256 cellar: :any, el_capitan:    "46d189ebe1f240381a9e8d99a2cb249e577cec98e6399e741e47275735a3471c"
-    sha256 cellar: :any, yosemite:      "2e2bcc1e1aac84b37ebb44398e463d9004764aa369489926cd07bb97cb9f60c4"
+    sha256 cellar: :any,                 arm64_big_sur: "b1c2224931852ae88aa4a3ee1e70d5576ee74521c3a893ecd16876c7b0fa35db"
+    sha256 cellar: :any,                 big_sur:       "d270144e643a239af9c4a7ad0f0ef5277e54bfd845caaa0cf9a7be232cd8d41a"
+    sha256 cellar: :any,                 catalina:      "920e892ba80cba3a99d4a15473351be5dc23f0d9445c28480c5dae904e8a8271"
+    sha256 cellar: :any,                 mojave:        "0631754a7016b3e6e175644cc7976cc22843f7b872e8f50662d0cb50a4264901"
+    sha256 cellar: :any,                 high_sierra:   "f193c7c2ae1b7f2c82cbbc9b83a16fc72d845c6396ecd33644eea19695a850ee"
+    sha256 cellar: :any,                 sierra:        "dc2b96762f77dd4d42fea1da4d4c2373692dd0a531f686f00de0dd4a6eed8df9"
+    sha256 cellar: :any,                 el_capitan:    "46d189ebe1f240381a9e8d99a2cb249e577cec98e6399e741e47275735a3471c"
+    sha256 cellar: :any,                 yosemite:      "2e2bcc1e1aac84b37ebb44398e463d9004764aa369489926cd07bb97cb9f60c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "861e38494187fb28cdbd10b7c796d45db51c08c38d62ca539b55b48befa0ae9a"
   end
 
   head do

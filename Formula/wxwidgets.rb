@@ -4,7 +4,7 @@ class Wxwidgets < Formula
   url "https://github.com/wxWidgets/wxWidgets/releases/download/v3.1.5/wxWidgets-3.1.5.tar.bz2"
   sha256 "d7b3666de33aa5c10ea41bb9405c40326e1aeb74ee725bb88f90f1d50270a224"
   license "wxWindows"
-  head "https://github.com/wxWidgets/wxWidgets.git"
+  head "https://github.com/wxWidgets/wxWidgets.git", branch: "master"
 
   livecheck do
     url :stable

@@ -3,7 +3,7 @@ class Ponysay < Formula
   homepage "https://github.com/erkin/ponysay/"
   license "GPL-3.0"
   revision 6
-  head "https://github.com/erkin/ponysay.git"
+  head "https://github.com/erkin/ponysay.git", branch: "master"
 
   stable do
     url "https://github.com/erkin/ponysay/archive/3.0.3.tar.gz"

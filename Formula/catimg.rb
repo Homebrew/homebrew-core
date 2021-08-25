@@ -4,7 +4,7 @@ class Catimg < Formula
   url "https://github.com/posva/catimg/archive/2.7.0.tar.gz"
   sha256 "3a6450316ff62fb07c3facb47ea208bf98f62abd02783e88c56f2a6508035139"
   license "MIT"
-  head "https://github.com/posva/catimg.git"
+  head "https://github.com/posva/catimg.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f5537238f20cc678e14f52ecdc1bdbf2b9d20d58d51a322ae044bad5c0df2418"

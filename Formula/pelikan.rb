@@ -4,7 +4,7 @@ class Pelikan < Formula
   url "https://github.com/twitter/pelikan/archive/0.1.2.tar.gz"
   sha256 "c105fdab8306f10c1dfa660b4e958ff6f381a5099eabcb15013ba42e4635f824"
   license "Apache-2.0"
-  head "https://github.com/twitter/pelikan.git"
+  head "https://github.com/twitter/pelikan.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "22f695e695353e9317b34caf92789363464100d5ef63a7883a393767030e9951"

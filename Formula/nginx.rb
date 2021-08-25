@@ -14,11 +14,12 @@ class Nginx < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "7cff8e877fabd919993d99e6a429b60c742231b6946251c3c2673c5eadba53d7"
-    sha256 big_sur:       "8ba34676e573272aa1f73d4dcf6bfddbaa69746a92bf812f6760baf13ddf93dc"
-    sha256 catalina:      "15ca8ac75b077c587ae84fbb78f3bbed5b44307de37485beab9d1813ae22b350"
-    sha256 mojave:        "51c2b45dce74a294f53a04eb51be7e1aa63101b72018bb38648b5161e6b8d0ea"
-    sha256 x86_64_linux:  "3c321881a4fbfc3f475a382ba499b8d581b4b6ce96484ad0ccb2653c9ecfa34b"
+    rebuild 1
+    sha256 arm64_big_sur: "2a169cd066060e3ec54204a85ffcbcbe79fc53b9dfe861b875e316ddceb86b14"
+    sha256 big_sur:       "5a99f1df27318e01a93e318011d3d050a173f3277cdcf3a5fc3dc8e70938b012"
+    sha256 catalina:      "06b290f2bad524132be51f9a380e505592cdb389a5c9e291636cc13e8d2d07a1"
+    sha256 mojave:        "8d87e8dc7692cd9681a5d54bc236ab3f27bef7f4c80824e169d8fb42c629c7fa"
+    sha256 x86_64_linux:  "88eb87f5826e49c05a438c4af8c0d973064fafa729c1d9656da41227dcadb7b7"
   end
 
   depends_on "openssl@1.1"
@@ -141,31 +142,10 @@ class Nginx < Formula
     EOS
   end
 
-  plist_options manual: "nginx"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-        <dict>
-          <key>Label</key>
-          <string>#{plist_name}</string>
-          <key>RunAtLoad</key>
-          <true/>
-          <key>KeepAlive</key>
-          <false/>
-          <key>ProgramArguments</key>
-          <array>
-              <string>#{opt_bin}/nginx</string>
-              <string>-g</string>
-              <string>daemon off;</string>
-          </array>
-          <key>WorkingDirectory</key>
-          <string>#{HOMEBREW_PREFIX}</string>
-        </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"nginx", "-g", "daemon off;"]
+    keep_alive false
+    working_dir HOMEBREW_PREFIX
   end
 
   test do

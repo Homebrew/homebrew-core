@@ -4,7 +4,7 @@ class Sqlc < Formula
   url "https://github.com/kyleconroy/sqlc/archive/v1.9.0.tar.gz"
   sha256 "8cb54ade4125602ea7adeb783efdd73de698c62c67b3e8ab4bd60371f425f30d"
   license "MIT"
-  head "https://github.com/kyleconroy/sqlc.git"
+  head "https://github.com/kyleconroy/sqlc.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f8ddf6155a3da14592bc4495e2a886b43618130000f4df8e6bb7ba7da307219c"

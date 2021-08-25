@@ -6,7 +6,7 @@ class TwinePypi < Formula
   url "https://files.pythonhosted.org/packages/19/a8/2277f24ce422d820378c1fd49bc0d5dc89d99761f184693fba5a2f283174/twine-3.4.2.tar.gz"
   sha256 "4caec0f1ed78dc4c9b83ad537e453d03ce485725f2aea57f1bb3fdde78dae936"
   license "Apache-2.0"
-  head "https://github.com/pypa/twine.git"
+  head "https://github.com/pypa/twine.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "17db2a243c02dda25e5c936c345496615fa0797dcbfebd3763aa398188e4cf3c"

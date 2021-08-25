@@ -5,7 +5,7 @@ class ParquetCli < Formula
       tag:      "apache-parquet-1.12.0",
       revision: "db75a6815f2ba1d1ee89d1a90aeb296f1f3a8f20"
   license "Apache-2.0"
-  head "https://github.com/apache/parquet-mr.git"
+  head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b3c9cf0f2d194f6ea74d86187d07fea91b26a1dba7911d9648eaefa8b6039c6b"

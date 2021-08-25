@@ -5,7 +5,7 @@ class Calicoctl < Formula
       tag:      "v3.20.0",
       revision: "38b00edd005363b369dd7c585933b08376f76d6c"
   license "Apache-2.0"
-  head "https://github.com/projectcalico/calicoctl.git"
+  head "https://github.com/projectcalico/calicoctl.git", branch: "master"
 
   livecheck do
     url :stable

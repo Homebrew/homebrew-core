@@ -5,7 +5,7 @@ class Orgalorg < Formula
       tag:      "1.1.1",
       revision: "c51061ef46e1ba8e4eafdb07094287721c6a18cd"
   license "MIT"
-  head "https://github.com/reconquest/orgalorg.git"
+  head "https://github.com/reconquest/orgalorg.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "14f5394a84d3ae2ef72ff633b5afb8e011f43fd216ce5f01ccb23bce6d3ca226"
@@ -24,8 +24,10 @@ class Orgalorg < Formula
     assert_match version.to_s, shell_output("#{bin}/orgalorg --version")
     assert_match "orgalorg - files synchronization on many hosts.", shell_output("#{bin}/orgalorg --help")
 
+    ENV.delete "SSH_AUTH_SOCK"
+
     port = free_port
-    output = shell_output("#{bin}/orgalorg -u tester --host=127.0.0.1:#{port} -C uptime 2>&1", 1)
+    output = shell_output("#{bin}/orgalorg -u tester --key '' --host=127.0.0.1:#{port} -C uptime 2>&1", 1)
     assert_match("connecting to cluster failed", output)
     assert_match("dial tcp 127.0.0.1:#{port}: connect: connection refused", output)
     assert_match("can't connect to address: [tester@127.0.0.1:#{port}]", output)

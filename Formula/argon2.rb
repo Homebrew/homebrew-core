@@ -5,7 +5,7 @@ class Argon2 < Formula
   sha256 "daf972a89577f8772602bf2eb38b6a3dd3d922bf5724d45e7f9589b5e830442c"
   license "Apache-2.0"
   revision 1
-  head "https://github.com/P-H-C/phc-winner-argon2.git"
+  head "https://github.com/P-H-C/phc-winner-argon2.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "192f3381abe337df8af214cf4dccef2cbfaa9c88df489b5cf9276cea9f8c6080"

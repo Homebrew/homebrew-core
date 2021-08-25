@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.61.0",
-      revision: "132bb4b120810071620086b507eed2ceaf4728c1"
+      tag:      "v0.62.0",
+      revision: "5460dcfe9d65fcefa876bc16e801c7aebcd8f4e5"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -15,11 +15,11 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "70a1a5b12cb0bd55d61091ba2f2fbd4f2ceaa1ab226c7657fbd42d49e1fef390"
-    sha256 cellar: :any, big_sur:       "6c1c7d9667ea0546d407e31aebd8716d89ccdf149d524c4e01b7adadfb7abfac"
-    sha256 cellar: :any, catalina:      "627055b6018fad03d2657e65930d918696e3cb23e81c1b58bf355c1f044ed2af"
-    sha256 cellar: :any, mojave:        "c9530d047b9044c35db5026a8758a353eb4f206e4e566c25ab8f1411f9ad4371"
-    sha256               x86_64_linux:  "27931d3e90766f2927bbd5c758b575b314f5c02f084ac8af31f8afef20e39220"
+    sha256 cellar: :any, arm64_big_sur: "9787e6bdbf7bb1e8446eec31bbacf9c1db9568c046b962fb293b55fd31e71175"
+    sha256 cellar: :any, big_sur:       "6466bcb5b570c48d16cd3bf9deb7432edadcf1c452c0bdd019fe31c7a1798faa"
+    sha256 cellar: :any, catalina:      "0be9eefe5df154b45bfe92883d31bfc5c214345b3503f05a24daea3990f77298"
+    sha256 cellar: :any, mojave:        "0483ab5b384043647ed90bd3941bd7adf7aeb19597c1dc40b18debd0f99a259d"
+    sha256               x86_64_linux:  "2b6c4e01bcaadc8dd15b496cd84e3bec6af78a10a4e83e20cd2fd97018b6b7cb"
   end
 
   depends_on "cmake" => :build
@@ -116,8 +116,8 @@ class Semgrep < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/7f/e6/23e3f15ff29970dd64065a9a27bc809b1df727f7f9f6dfa3e36cf7975e58/tqdm-4.62.0.tar.gz"
-    sha256 "3642d483b558eec80d3c831e23953582c34d7e4540db86d9e5ed9dad238dabc6"
+    url "https://files.pythonhosted.org/packages/48/a9/06793044a329e3d80489d5bf2153924f9463c08beec7f8ce4d20efd3cfbc/tqdm-4.62.1.tar.gz"
+    sha256 "35540feeaca9ac40c304e916729e6b78045cbbeccd3e941b2868f09306798ac9"
   end
 
   resource "urllib3" do

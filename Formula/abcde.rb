@@ -5,7 +5,7 @@ class Abcde < Formula
   sha256 "046cd0bba78dd4bbdcbcf82fe625865c60df35a005482de13a6699c5a3b83124"
   license "GPL-2.0-or-later"
   revision 1
-  head "https://git.einval.com/git/abcde.git"
+  head "https://git.einval.com/git/abcde.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "4240ff000419b4ca9c0d275d70fccb10255ea17718906768892ba3a2d7ecb444"

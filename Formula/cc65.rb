@@ -4,7 +4,7 @@ class Cc65 < Formula
   url "https://github.com/cc65/cc65/archive/V2.19.tar.gz"
   sha256 "157b8051aed7f534e5093471e734e7a95e509c577324099c3c81324ed9d0de77"
   license "Zlib"
-  head "https://github.com/cc65/cc65.git"
+  head "https://github.com/cc65/cc65.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "47405e34cd591b17d9ed65842f25ac7c6d9f61e98f21b9c403596257d7e23dae"

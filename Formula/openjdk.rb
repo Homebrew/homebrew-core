@@ -109,12 +109,12 @@ class Openjdk < Formula
           MacOS::Xcode.prefix,
         )
 
-        args += %W[
-          --openjdk-target=aarch64-apple-darwin
-          --with-build-jdk=#{boot_jdk}
-          --with-extra-cflags=-arch\ arm64
-          --with-extra-cxxflags=-arch\ arm64
-          --with-extra-ldflags=-arch\ arm64\ -F#{framework_path}
+        args += [
+          "--openjdk-target=aarch64-apple-darwin",
+          "--with-build-jdk=#{boot_jdk}",
+          "--with-extra-cflags=-arch arm64",
+          "--with-extra-cxxflags=-arch arm64",
+          "--with-extra-ldflags=-arch arm64 -F#{framework_path}",
         ]
       end
     end

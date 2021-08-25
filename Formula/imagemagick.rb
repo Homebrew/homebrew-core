@@ -1,10 +1,9 @@
 class Imagemagick < Formula
   desc "Tools and libraries to manipulate images in many formats"
   homepage "https://www.imagemagick.org/"
-  url "https://www.imagemagick.org/download/releases/ImageMagick-7.1.0-4.tar.xz"
-  sha256 "1a54bd46947f16fb29cf083be3614a14135f2fe9d1aa20665a85a8940bf6dc65"
+  url "https://www.imagemagick.org/download/releases/ImageMagick-7.1.0-5.tar.xz"
+  sha256 "faeae351785447834c44850f2d3d80bbb0fed500228373098fce553a0df1ac6b"
   license "ImageMagick"
-  revision 2
   head "https://github.com/ImageMagick/ImageMagick.git", branch: "main"
 
   livecheck do
@@ -13,11 +12,11 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4f3cb752765fb60419411099a329bf44256e532c0c04cf09ba85df953eafb6f2"
-    sha256 big_sur:       "0e76a860969c8ed7b207908067ce74a26cbc77f57661c2e133ac40bafbdaf25f"
-    sha256 catalina:      "0928952097855efd8278261b21690a3138f6850d6177fc0f452ebf2d7635f987"
-    sha256 mojave:        "00ca7b5f7268abd949a8505d9942575775969a2b4f8cce986b8e936edf4161cd"
-    sha256 x86_64_linux:  "b6454596dd36ba685eb1aac39bfb110bec272dfd0e20c37059772c0ae3fc01cd"
+    sha256 arm64_big_sur: "696b3245c4c9ecaa955f6936d581ebdaef6ffe4ebab27cf04f777219a00ebc66"
+    sha256 big_sur:       "5a364172b976b9433cc568e8c790e8994354c06cb004a2f8de55f19d3e78ad1e"
+    sha256 catalina:      "f5e65ce29dd05ecf65d84f7d35007a55f149d20b480a33510a9937d4927e9110"
+    sha256 mojave:        "cb81be9bd016dde2576e1bc4395c40e8c96b13b511e73835e3c086021e40053f"
+    sha256 x86_64_linux:  "4c66926c06378888fdd416a341271f2c0fa75b18ff9f353da3bf33d07cd6b9e3"
   end
 
   depends_on "pkg-config" => :build
@@ -50,31 +49,31 @@ class Imagemagick < Formula
     # Avoid references to shim
     inreplace Dir["**/*-config.in"], "@PKG_CONFIG@", Formula["pkg-config"].opt_bin/"pkg-config"
 
-    args = %W[
-      --enable-osx-universal-binary=no
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --disable-opencl
-      --enable-shared
-      --enable-static
-      --with-freetype=yes
-      --with-gvc=no
-      --with-modules
-      --with-openjp2
-      --with-openexr
-      --with-webp=yes
-      --with-heic=yes
-      --with-gslib
-      --with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts
-      --with-lqr
-      --without-fftw
-      --without-pango
-      --without-wmf
-      --enable-openmp
-      ac_cv_prog_c_openmp=-Xpreprocessor\ -fopenmp
-      ac_cv_prog_cxx_openmp=-Xpreprocessor\ -fopenmp
-      LDFLAGS=-lomp\ -lz
+    args = [
+      "--enable-osx-universal-binary=no",
+      "--prefix=#{prefix}",
+      "--disable-dependency-tracking",
+      "--disable-silent-rules",
+      "--disable-opencl",
+      "--enable-shared",
+      "--enable-static",
+      "--with-freetype=yes",
+      "--with-gvc=no",
+      "--with-modules",
+      "--with-openjp2",
+      "--with-openexr",
+      "--with-webp=yes",
+      "--with-heic=yes",
+      "--with-gslib",
+      "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts",
+      "--with-lqr",
+      "--without-fftw",
+      "--without-pango",
+      "--without-wmf",
+      "--enable-openmp",
+      "ac_cv_prog_c_openmp=-Xpreprocessor -fopenmp",
+      "ac_cv_prog_cxx_openmp=-Xpreprocessor -fopenmp",
+      "LDFLAGS=-lomp -lz",
     ]
 
     on_macos do

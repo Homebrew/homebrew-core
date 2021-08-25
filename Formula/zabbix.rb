@@ -4,7 +4,7 @@ class Zabbix < Formula
   url "https://cdn.zabbix.com/zabbix/sources/stable/5.4/zabbix-5.4.3.tar.gz"
   sha256 "dbbc843c8119f1f63d7378588d5eb5a46c22f32f86428bb79b9872191342bbc2"
   license "GPL-2.0-or-later"
-  head "https://github.com/zabbix/zabbix.git"
+  head "https://github.com/zabbix/zabbix.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "035570354333169d9f8e7a43ca0a0707e9adb004c9709dc00b4b2e02a7977436"

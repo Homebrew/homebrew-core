@@ -6,7 +6,7 @@ class Beancount < Formula
   url "https://files.pythonhosted.org/packages/41/ce/33834c4554087bc6f239ae24073f8b472860d42c50b3cbb8ca486dd1853b/beancount-2.3.4.tar.gz"
   sha256 "2bf08ce6a95d98000f4d73395985cd1deb81c0d52ed5a76e610bac77d82f86c0"
   license "GPL-2.0-only"
-  head "https://github.com/beancount/beancount.git"
+  head "https://github.com/beancount/beancount.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b595ea37250c19e9e90091f20e939d8f6c829e516eba6c300f119c9f1231ba6f"

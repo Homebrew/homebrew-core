@@ -4,7 +4,7 @@ class Pspg < Formula
   url "https://github.com/okbob/pspg/archive/5.3.4.tar.gz"
   sha256 "598c672d955b4f9ae6ddfe638b2f2604830525b4d871f0ff360a451ff7af4fda"
   license "BSD-2-Clause"
-  head "https://github.com/okbob/pspg.git"
+  head "https://github.com/okbob/pspg.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "1300e45afdc2c3463a9b500e66a46e6294c6a7d03619b36abe04bcb12212efc5"

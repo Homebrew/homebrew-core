@@ -4,7 +4,7 @@ class Rainbarf < Formula
   url "https://github.com/creaktive/rainbarf/archive/v1.4.tar.gz"
   sha256 "066579c0805616075c49c705d1431fb4b7c94a08ef2b27dd8846bd3569a188a4"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  head "https://github.com/creaktive/rainbarf.git"
+  head "https://github.com/creaktive/rainbarf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef63dec71481ba7ea8f46ebe302945b5d09845825dde684183a2cf2bc65c3684"

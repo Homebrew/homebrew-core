@@ -11,10 +11,11 @@ class ShibbolethSp < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "5da6a421faf2e3aaf0d222816712269cd31a78fa716854492d2c9f87a6115a77"
-    sha256 big_sur:       "99e4e8bb7eb6fb35d545079b836382f8b1e5fa71c8e6473cde4f18fb109e3b09"
-    sha256 catalina:      "1f8547fa3587591c061f7569668cd128f4918e78555c9b180a694d5a45adb4ce"
-    sha256 mojave:        "cf2279276c1f7e2585ce9d1cd12f456550215f0b4f8f950be607c1f8e6574cb3"
+    rebuild 1
+    sha256 arm64_big_sur: "9419b75809d2dbbfd2bae48ada293865da370f65da27c9dd4c774cc41b54da08"
+    sha256 big_sur:       "bf144be06888e2b528dcb08c5cbc28fbc0b75fe3748da19d4707f00ecef3193a"
+    sha256 catalina:      "99ff6cb2607d142870f44cbcacdfdf88ed57d15e89e8696467bcbd3129e3328a"
+    sha256 mojave:        "55a51d5773d4a186687d905d58d44be92d6fa2ea1e5bbb8598535cc4f8772493"
   end
 
   depends_on "apr" => :build
@@ -56,31 +57,10 @@ class ShibbolethSp < Formula
     (var/"cache/shibboleth").mkpath
   end
 
-  plist_options startup: true, manual: "shibd"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_sbin}/shibd</string>
-          <string>-F</string>
-          <string>-f</string>
-          <string>-p</string>
-          <string>#{var}/run/shibboleth/shibd.pid</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>KeepAlive</key>
-        <true/>
-      </dict>
-      </plist>
-    EOS
+  plist_options startup: true
+  service do
+    run [opt_sbin/"shibd", "-F", "-f", "-p", var/"run/shibboleth/shibd.pid"]
+    keep_alive true
   end
 
   test do

@@ -5,7 +5,7 @@ class Asdf < Formula
   sha256 "6ca280287dcb687ec12f0c37e4e193de390cdab68f2b2a0e271e3a4f1e20bd2e"
   license "MIT"
   revision 1
-  head "https://github.com/asdf-vm/asdf.git"
+  head "https://github.com/asdf-vm/asdf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "075bbc7db5d24b81f3f171b2dcd5afaf47842f46371ff48aae58740c3358a20e"

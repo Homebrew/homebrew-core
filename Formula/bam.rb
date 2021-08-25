@@ -4,7 +4,7 @@ class Bam < Formula
   url "https://github.com/matricks/bam/archive/v0.5.1.tar.gz"
   sha256 "cc8596af3325ecb18ebd6ec2baee550e82cb7b2da19588f3f843b02e943a15a9"
   license "Zlib"
-  head "https://github.com/matricks/bam.git"
+  head "https://github.com/matricks/bam.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6c0a42f9cf83eabac04cd67c5441590f3fea48f7dd9aacd1a7fef524b4a40cf9"

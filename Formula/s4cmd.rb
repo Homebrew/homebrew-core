@@ -6,7 +6,7 @@ class S4cmd < Formula
   url "https://files.pythonhosted.org/packages/42/b4/0061f4930958cd790098738659c1c39f8feaf688e698142435eedaa4ae34/s4cmd-2.1.0.tar.gz"
   sha256 "42566058a74d3e1e553351966efaaffa08e4b6ac28a19e72a51be21151ea9534"
   license "Apache-2.0"
-  head "https://github.com/bloomreach/s4cmd.git"
+  head "https://github.com/bloomreach/s4cmd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f74b744af2e66f08ed24a849997fddf69f335833ae4e1491051ab2965f620677"

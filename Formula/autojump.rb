@@ -5,7 +5,7 @@ class Autojump < Formula
   sha256 "00daf3698e17ac3ac788d529877c03ee80c3790472a85d0ed063ac3a354c37b1"
   license "GPL-3.0-or-later"
   revision 2
-  head "https://github.com/wting/autojump.git"
+  head "https://github.com/wting/autojump.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -13,6 +13,7 @@ class Autojump < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "6a803054ba48635b80cf303c9de79c4b448a6b293168a733c521f3d0b5046dff"
     sha256 cellar: :any_skip_relocation, catalina:      "6a803054ba48635b80cf303c9de79c4b448a6b293168a733c521f3d0b5046dff"
     sha256 cellar: :any_skip_relocation, mojave:        "6a803054ba48635b80cf303c9de79c4b448a6b293168a733c521f3d0b5046dff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "155704b3dbb470bf4b4e21e713e808a6c4aa0428447cd1869c6cc75c56bf0517"
   end
 
   depends_on "python@3.9"
@@ -43,12 +44,12 @@ class Autojump < Formula
   test do
     path = testpath/"foo/bar"
     path.mkpath
-    output = `
-      . #{etc}/profile.d/autojump.sh
-      j -a "#{path.relative_path_from(testpath)}"
-      j foo >/dev/null
-      pwd
-    `.strip
-    assert_equal path.realpath.to_s, output
+    cmds = [
+      ". #{etc}/profile.d/autojump.sh",
+      "j -a \"#{path.relative_path_from(testpath)}\"",
+      "j foo >/dev/null",
+      "pwd",
+    ]
+    assert_equal path.realpath.to_s, shell_output("bash -c '#{cmds.join("; ")}'").strip
   end
 end

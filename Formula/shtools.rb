@@ -4,7 +4,7 @@ class Shtools < Formula
   url "https://github.com/SHTOOLS/SHTOOLS/releases/download/v4.8/SHTOOLS-4.8.tar.gz"
   sha256 "c36fc86810017e544abbfb12f8ddf6f101a1ac8b89856a76d7d9801ffc8dac44"
   license "BSD-3-Clause"
-  head "https://github.com/SHTOOLS/SHTOOLS.git"
+  head "https://github.com/SHTOOLS/SHTOOLS.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "19803fdcf199d7c5a374a9547d11b3cf3dd645f06dba787a8652148f72d247d5"

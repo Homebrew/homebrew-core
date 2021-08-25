@@ -4,7 +4,7 @@ class VapoursynthImwri < Formula
   url "https://github.com/vapoursynth/vapoursynth/archive/R54.tar.gz"
   sha256 "ad0c446adcb3877c253dc8c1372a053ad35022bcf42600889b927d2797c5330b"
   license "LGPL-2.1-or-later"
-  head "https://github.com/vapoursynth/vapoursynth.git"
+  head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
   livecheck do
     formula "vapoursynth"

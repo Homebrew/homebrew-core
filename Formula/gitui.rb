@@ -1,16 +1,16 @@
 class Gitui < Formula
   desc "Blazing fast terminal-ui for git written in rust"
   homepage "https://github.com/extrawurst/gitui"
-  url "https://github.com/extrawurst/gitui/archive/v0.16.2.tar.gz"
-  sha256 "4e0e56fd897c5b0b42bd7fd645bd4cfae876d82e12422e70488527e8e60d5853"
+  url "https://github.com/extrawurst/gitui/archive/v0.17.tar.gz"
+  sha256 "4f81b6bc29046ad4a92a5ee9040f68a02debe93529abad78d806e4eaa35a17ff"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3add12bc0253132202b5c2ecb107599c480277d007c4373c0c0dd7a5fd49965b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "ed47e892226cf153bab91657f145657419f7c1bdc290bd07b44cb957e1b451c4"
-    sha256 cellar: :any_skip_relocation, catalina:      "000494aae7f19a34d9a363632a16951847468923101e15b3644a307ddff96948"
-    sha256 cellar: :any_skip_relocation, mojave:        "f5e9eebf059917dd42e71f34a14c6654baa9b7b91518f7324a966060040318b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "55e6292c7b708ee63e9da1a99f17166a9fb48d28a22b6f6b4d77dae9f016ab70"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03ce763a0fd2a582b0386ce335308aa06fc50703e84f41b8227b490137bc66a6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c36d1d5315900e6a8712d0f2726c8084dd7b6d88c67965677f3c7d6c601fe4d1"
+    sha256 cellar: :any_skip_relocation, catalina:      "cb14516ce1beb0fd67f0554cbe4daa75c0ff5260c648b9c4c229a066b8533bc3"
+    sha256 cellar: :any_skip_relocation, mojave:        "40a858eaeee6fc6108d577a63ebc58a64eedd738bb7330fc536a750c8f6dab09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "df440c4b1e5f6bb702be27107dea1504b247a890bc9cc97765f5b432341c26d7"
   end
 
   depends_on "rust" => :build

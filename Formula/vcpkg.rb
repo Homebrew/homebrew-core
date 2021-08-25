@@ -4,7 +4,7 @@ class Vcpkg < Formula
   url "https://github.com/microsoft/vcpkg/archive/2021.05.12.tar.gz"
   sha256 "907f26a5357c30e255fda9427f1388a39804f607a11fa4c083cc740cb268f5dc"
   license "MIT"
-  head "https://github.com/microsoft/vcpkg.git"
+  head "https://github.com/microsoft/vcpkg.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e58d2e3fbf843883563579ec544828788ca051c9b5bd46edc0e5df71c35b90dc"

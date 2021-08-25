@@ -3,7 +3,7 @@ class Vf < Formula
   homepage "https://github.com/glejeune/vf"
   url "https://github.com/glejeune/vf/archive/0.0.1.tar.gz"
   sha256 "6418d188b88d5f3885b7a8d24520ac47accadb5144ae24e836aafbea4bd41859"
-  head "https://github.com/glejeune/vf.git"
+  head "https://github.com/glejeune/vf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "af5c51ba431bf48386231cb735f98bf038dbf3145ea96d55924e12564748a93f"

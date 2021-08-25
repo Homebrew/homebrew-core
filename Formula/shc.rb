@@ -4,7 +4,7 @@ class Shc < Formula
   url "https://github.com/neurobin/shc/archive/4.0.3.tar.gz"
   sha256 "7d7fa6a9f5f53d607ab851d739ae3d3b99ca86e2cb1425a6cab9299f673aee16"
   license "GPL-3.0"
-  head "https://github.com/neurobin/shc.git"
+  head "https://github.com/neurobin/shc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "fd153e413029832fb17b013fb15d43aab1e1e22b618d58c768a049ac31e0759c"

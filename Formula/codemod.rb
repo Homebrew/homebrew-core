@@ -8,7 +8,7 @@ class Codemod < Formula
   license "Apache-2.0"
   revision 4
   version_scheme 1
-  head "https://github.com/facebook/codemod.git"
+  head "https://github.com/facebook/codemod.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cd163a10ae30dfc11ed64e45e746472360361c084339fb3c426fd97734cbf1c3"

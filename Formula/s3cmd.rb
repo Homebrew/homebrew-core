@@ -7,7 +7,7 @@ class S3cmd < Formula
   sha256 "966b0a494a916fc3b4324de38f089c86c70ee90e8e1cae6d59102103a4c0cc03"
   license "GPL-2.0-or-later"
   revision 3
-  head "https://github.com/s3tools/s3cmd.git"
+  head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "f4629ce0910520b758907fb6e34ba11d541682518dcfdbc170f99892b86bfcd3"

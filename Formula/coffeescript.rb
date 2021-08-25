@@ -6,7 +6,7 @@ class Coffeescript < Formula
   url "https://registry.npmjs.org/coffeescript/-/coffeescript-2.5.1.tgz"
   sha256 "0ab43e873a859d323f2f5a0069a8bef3acfa72b09769be3350c9d43c5bb489a0"
   license "MIT"
-  head "https://github.com/jashkenas/coffeescript.git"
+  head "https://github.com/jashkenas/coffeescript.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "cfe10ba50bec4e20897d1d2ead0a21e8bfcd25841dae5e875e8c04a8cbfdd44f"

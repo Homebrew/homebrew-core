@@ -5,7 +5,7 @@ class Caf < Formula
   url "https://github.com/actor-framework/actor-framework/archive/0.18.5.tar.gz"
   sha256 "4c96f896f000218bb65890b4d7175451834add73750d5f33b0c7fe82b7d5a679"
   license "BSD-3-Clause"
-  head "https://github.com/actor-framework/actor-framework.git"
+  head "https://github.com/actor-framework/actor-framework.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ab16a7c7af1cb9ebcf94b0f51185d2318de6c658e2c58fea826011eecd3e09f9"

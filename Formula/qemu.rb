@@ -2,7 +2,7 @@ class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
   license "GPL-2.0-only"
-  head "https://git.qemu.org/git/qemu.git"
+  head "https://git.qemu.org/git/qemu.git", branch: "master"
 
   stable do
     url "https://download.qemu.org/qemu-6.0.0.tar.xz"

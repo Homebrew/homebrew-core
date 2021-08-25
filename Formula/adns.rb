@@ -4,7 +4,7 @@ class Adns < Formula
   url "https://www.chiark.greenend.org.uk/~ian/adns/ftp/adns-1.6.0.tar.gz"
   sha256 "fb427265a981e033d1548f2b117cc021073dc8be2eaf2c45fd64ab7b00ed20de"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.0-or-later"]
-  head "https://www.chiark.greenend.org.uk/ucgi/~ianmdlvl/githttp/adns.git"
+  head "https://www.chiark.greenend.org.uk/ucgi/~ianmdlvl/githttp/adns.git", branch: "master"
 
   livecheck do
     url "https://www.chiark.greenend.org.uk/~ian/adns/ftp/"

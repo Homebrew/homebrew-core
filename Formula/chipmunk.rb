@@ -5,7 +5,7 @@ class Chipmunk < Formula
   mirror "https://www.mirrorservice.org/sites/distfiles.macports.org/chipmunk/Chipmunk-7.0.3.tgz"
   sha256 "048b0c9eff91c27bab8a54c65ad348cebd5a982ac56978e8f63667afbb63491a"
   license "MIT"
-  head "https://github.com/slembcke/Chipmunk2D.git"
+  head "https://github.com/slembcke/Chipmunk2D.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "53a1d8968efd45940eda303182f7a68be0e31221295a85e803f92f3c968c45ad"

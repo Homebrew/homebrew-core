@@ -4,7 +4,7 @@ class Soapyrtlsdr < Formula
   url "https://github.com/pothosware/SoapyRTLSDR/archive/soapy-rtl-sdr-0.3.2.tar.gz"
   sha256 "d0335684179d5b0357213cc786a78d7b6dc5728de7af9dcbf6364b17e62cef02"
   license "MIT"
-  head "https://github.com/pothosware/SoapyRTLSDR.git"
+  head "https://github.com/pothosware/SoapyRTLSDR.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "b27ae49c166978a6a923ea9113f052a6c46c97bf47da4c2e19b5fb39935501f2"

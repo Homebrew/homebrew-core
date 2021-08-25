@@ -7,7 +7,7 @@ class Subliminal < Formula
   sha256 "c6439cc733a4f37f01f8c14c096d44fd28d75d1f6f6e2d1d1003b1b82c65628b"
   license "MIT"
   revision 1
-  head "https://github.com/Diaoul/subliminal.git"
+  head "https://github.com/Diaoul/subliminal.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9d87102a64a1865c41b5bffeae63eea3a0a256a2fb33cec0f891752bc5b2425a"

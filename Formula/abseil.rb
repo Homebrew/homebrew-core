@@ -4,7 +4,7 @@ class Abseil < Formula
   url "https://github.com/abseil/abseil-cpp/archive/20210324.2.tar.gz"
   sha256 "59b862f50e710277f8ede96f083a5bb8d7c9595376146838b9580be90374ee1f"
   license "Apache-2.0"
-  head "https://github.com/abseil/abseil-cpp.git"
+  head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "e6f4665315350736b5cd574f4316ebba4d10cfeda0531602f358c1c013ae9256"

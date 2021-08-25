@@ -4,7 +4,7 @@ class Autodiff < Formula
   url "https://github.com/autodiff/autodiff/archive/v0.6.3.tar.gz"
   sha256 "afcc21c74c9c20ecf08c53ab82965652438d5bb65d146a2db43795b051c12135"
   license "MIT"
-  head "https://github.com/autodiff/autodiff.git"
+  head "https://github.com/autodiff/autodiff.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "5d115a24200aeaf67131453c70b6082be66d99d2920d43d3857a90f68b54945d"

@@ -4,7 +4,7 @@ class Pachi < Formula
   url "https://github.com/pasky/pachi/archive/pachi-12.60.tar.gz"
   sha256 "3c05cf4fe5206ba4cbe0e0026ec3225232261b44e9e05e45f76193b4b31ff8e9"
   license "GPL-2.0"
-  head "https://github.com/pasky/pachi.git"
+  head "https://github.com/pasky/pachi.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "71f7bf11f6d68a8768468e4494cdc0785f484a5ccd7713cfc4327f049e79e80a"

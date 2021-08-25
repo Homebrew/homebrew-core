@@ -3,10 +3,10 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
-  url "https://github.com/Azure/azure-cli/archive/azure-cli-2.27.1.tar.gz"
-  sha256 "302379dcee1a3bf0ccbbdf6a2e599c4f3b4a2efafd1ab8152894f5febec6a7ef"
+  url "https://github.com/Azure/azure-cli/archive/azure-cli-2.27.2.tar.gz"
+  sha256 "07ad9f0f31801f16192a2c785b2b3e3aacab6464088d8ae43644838467f6cc40"
   license "MIT"
-  head "https://github.com/Azure/azure-cli.git"
+  head "https://github.com/Azure/azure-cli.git", branch: "dev"
 
   livecheck do
     url :stable
@@ -15,11 +15,11 @@ class AzureCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "13c52dc4a8c5eae7696d2d662edfdaa215b15571a1d21c2ba559f901d43039ba"
-    sha256 cellar: :any,                 big_sur:       "d6c7f411c439fd434a9ee76468661aa396980be2c308a1e02999ff9230a4073a"
-    sha256 cellar: :any,                 catalina:      "33e9b15894154be867edadaf5587ff1179809d880e1b56f0ebb58cfa104c3a1a"
-    sha256 cellar: :any,                 mojave:        "3b8dedb1409661f641ba13890a90895f634a76b5f9f1e53e5fe07b18fd89b395"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "537d2280c0c9b0fda8b653b32717389391e903fd64c10723a3472d05192cd7e7"
+    sha256 cellar: :any,                 arm64_big_sur: "037c438217bfb4cdf4e530c2ab39c05a5a3910ed92dacfb44c580a923e99c9cd"
+    sha256 cellar: :any,                 big_sur:       "1c7f1a53eb16acf46940fe589d625a502c0aaf03860ac3c4f04d766a15ae3505"
+    sha256 cellar: :any,                 catalina:      "5ef32e5bf4b227f4cc405550c74ab53629bdcfe01d4759357e378700e3f369ac"
+    sha256 cellar: :any,                 mojave:        "aca7b391640242729b8e5578b7420f16b2310790ecdd9fc70e83cd37983d3e36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d8dc174dc36418f22586b985c02ea815c584d845bb5bd50bd5edc7993f5e9c32"
   end
 
   depends_on "openssl@1.1"
@@ -647,8 +647,8 @@ class AzureCli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/ba/6e/7a7c13c21d8a4a7f82ccbfe257a045890d4dbf18c023f985f565f97393e3/Pygments-2.9.0.tar.gz"
-    sha256 "a18f47b506a429f6f4b9df81bb02beab9ca21d0a5fee38ed15aef65f0545519f"
+    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
+    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
   end
 
   resource "PyJWT" do

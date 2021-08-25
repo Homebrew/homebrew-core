@@ -6,7 +6,7 @@ class Zpaq < Formula
   sha256 "e85ec2529eb0ba22ceaeabd461e55357ef099b80f61c14f377b429ea3d49d418"
   license "Unlicense"
   revision 1
-  head "https://github.com/zpaq/zpaq.git"
+  head "https://github.com/zpaq/zpaq.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "743d0714aa93446980dbb496709e64415234c335c8399e55054d1f85ac6b074a"

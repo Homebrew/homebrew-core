@@ -6,7 +6,7 @@ class Thefuck < Formula
   url "https://files.pythonhosted.org/packages/21/d2/f5194c2d51b2aab4bda6de97c5eb1ca5a547ad9b9f778ab5bf4ce19fba88/thefuck-3.31.tar.gz"
   sha256 "6e6083e6c94fe948fcb9c6083baee30ba4cf3f09ffd30cd9564d6473db271941"
   license "MIT"
-  head "https://github.com/nvbn/thefuck.git"
+  head "https://github.com/nvbn/thefuck.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7dbd33a054ec30e827dd7147a624d0334a8ea3b2dbf829969ce001c319488306"

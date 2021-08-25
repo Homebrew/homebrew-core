@@ -4,7 +4,7 @@ class Rsnapshot < Formula
   url "https://github.com/rsnapshot/rsnapshot/releases/download/1.4.4/rsnapshot-1.4.4.tar.gz"
   sha256 "c1cb7cb748c5a9656c386362bdf6c267959737724abb505fbf9e940a9d988579"
   license "GPL-2.0"
-  head "https://github.com/rsnapshot/rsnapshot.git"
+  head "https://github.com/rsnapshot/rsnapshot.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d3b962467213ee16410bc0e619994698c176ca9795ddb6f6087dbba934687144"

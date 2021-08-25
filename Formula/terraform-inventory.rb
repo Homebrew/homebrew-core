@@ -4,7 +4,7 @@ class TerraformInventory < Formula
   url "https://github.com/adammck/terraform-inventory/archive/v0.10.tar.gz"
   sha256 "8bd8956da925d4f24c45874bc7b9012eb6d8b4aa11cfc9b6b1b7b7c9321365ac"
   license "MIT"
-  head "https://github.com/adammck/terraform-inventory.git"
+  head "https://github.com/adammck/terraform-inventory.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "df26181ba3116beae2b5582eb6725c2c8d9ddad018be827f6d07d252cfc019c0"

@@ -4,7 +4,7 @@ class Pass < Formula
   url "https://git.zx2c4.com/password-store/snapshot/password-store-1.7.4.tar.xz"
   sha256 "cfa9faf659f2ed6b38e7a7c3fb43e177d00edbacc6265e6e32215ff40e3793c0"
   license "GPL-2.0-or-later"
-  head "https://git.zx2c4.com/password-store.git"
+  head "https://git.zx2c4.com/password-store.git", branch: "master"
 
   livecheck do
     url :head

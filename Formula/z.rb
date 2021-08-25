@@ -7,7 +7,7 @@ class Z < Formula
   sha256 "e2860e4f65770e02297ca4ca08ec1ee623a658bd9cc1acddbbe5ad22e1de70a7"
   license "WTFPL"
   version_scheme 1
-  head "https://github.com/rupa/z.git"
+  head "https://github.com/rupa/z.git", branch: "master"
 
   livecheck do
     url :stable

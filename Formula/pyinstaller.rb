@@ -3,18 +3,17 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://www.pyinstaller.org"
-  url "https://files.pythonhosted.org/packages/56/68/fcf288abb7985d17c4d5802aa76cbc6e00cd85d084230338cf4ef8696a38/pyinstaller-4.4.tar.gz"
-  sha256 "af3ef0b9f265a2d3859357a25ab16743fbb6143c89fd7c3570cb84b8d24db0ba"
+  url "https://files.pythonhosted.org/packages/a9/d9/9fdfb0ac2354d059e466d562689dbe53a23c4062019da2057f0eaed635e0/pyinstaller-4.5.1.tar.gz"
+  sha256 "30733baaf8971902286a0ddf77e5499ac5f7bf8e7c39163e83d4f8c696ef265e"
   license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "3f62cafb5efa21e3134de45dfff0fb8d3c2ed6f715d3ae9df4486e0aee791193"
-    sha256 cellar: :any_skip_relocation, big_sur:       "03823e8b8f5ca5abc9415cd09711b3e8bc89f517d99921c25a04a2c521e890a3"
-    sha256 cellar: :any_skip_relocation, catalina:      "c318c0284d2222ec06f90cbd33202a923e530edb3d7577c64b58f72d9ffb1b95"
-    sha256 cellar: :any_skip_relocation, mojave:        "71cabd305a504f8fbdd6ef48ab4f5583bfb17cc7980b835bb7dc293e6a328103"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a70f2e6a43c9257ca7f705ef9ee794b0df61983f5e92a6739337b074930442d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4272eaf2d73796e1509b1df73cd8d16b94a6355b27abac02f0ce0d17741260f4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "18d32eca7f24a755e73cdc63f64f1c2bbd813ee16d91d5f883a77cad112ea3a7"
+    sha256 cellar: :any_skip_relocation, catalina:      "fcd5279e9d8fc01bdd988a3ad7ebb3bb13162f0221d1651746beb55570824c92"
+    sha256 cellar: :any_skip_relocation, mojave:        "14b0ce068eb56e05a847cc72834163072ef3da7bfdbbd517d2f82255164ed226"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd94131c0b3c6bc8938c00b9c0a9dd1e00a7718b3a92fde29babaf60c5f5e600"
   end
 
   depends_on "python@3.9"
@@ -25,8 +24,8 @@ class Pyinstaller < Formula
   end
 
   resource "macholib" do
-    url "https://files.pythonhosted.org/packages/0d/fe/61e8f6b569c8273a8f2dd73921738239e03a2acbfc55be09f8793261f269/macholib-1.14.tar.gz"
-    sha256 "0c436bc847e7b1d9bda0560351bf76d7caf930fb585a828d13608839ef42c432"
+    url "https://files.pythonhosted.org/packages/5f/cd/045e6e025d7484eef8c534a0ffe98792fd1ea19aadc8ac048a5ed9272e9d/macholib-1.15.tar.gz"
+    sha256 "196b62c592e46f0859508a73a11eca6b082a5c8db330ba90cb56f2409e48e2d5"
   end
 
   resource "pyinstaller-hooks-contrib" do

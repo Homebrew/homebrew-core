@@ -1,9 +1,10 @@
 class Bento4 < Formula
   desc "Full-featured MP4 format and MPEG DASH library and tools"
   homepage "https://www.bento4.com/"
-  url "https://www.bok.net/Bento4/source/Bento4-SRC-1-6-0-638.zip"
-  version "1.6.0-638"
-  sha256 "e9cb2d60ca681663c071e6552c5c570ba45fde558654d8b40f0d5e627d867948"
+  url "https://www.bok.net/Bento4/source/Bento4-SRC-1-6-0-639.zip"
+  version "1.6.0-639"
+  sha256 "3c6be48e38e142cf9b7d9ff2713e84db4e39e544a16c6b496a6c855f0b99cc56"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://www.bok.net/Bento4/source/"
@@ -11,14 +12,15 @@ class Bento4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6aca82528cbf94a1ef17a0d70030a8d1b283c952123562d903bcde469c0ed1c9"
-    sha256 cellar: :any_skip_relocation, big_sur:       "bcd39d888aaf6b72f83e5f6235744ae11acb9e1330ff0766310fd2b1a9efee3d"
-    sha256 cellar: :any_skip_relocation, catalina:      "bef6df08fd97cb7824c49fd890ae11184fd90fadb789aa80cd699a0e0f0a91b1"
-    sha256 cellar: :any_skip_relocation, mojave:        "7c1b3a269b3fbeb4768896aefe7a224fc1b7ceb4072ad60f752e3ac4e98031cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c8ed04f699e29cb193e4f035d4bb876bf1f8eb9b668689d87bfd0da5b925ebd"
+    sha256 cellar: :any_skip_relocation, big_sur:      "df2c003b4246421f9125b976318bdfa47f1344561fd5702e7ae24dcdad945b47"
+    sha256 cellar: :any_skip_relocation, catalina:     "61d75b0e8d0c73c93d9630bd558f95330c23e0e476a39e742ebd86d80a6ae4ec"
+    sha256 cellar: :any_skip_relocation, mojave:       "1dae5f17d39f6ccf3dd59d8b755d67982fb272171dd790d7cc50585a7fcefc5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b275761b1d942027866b86d2c987d195f9bf6cc0536eb078a8b376da90f8571d"
   end
 
   depends_on xcode: :build
+  # artifact does not produce arm64 native binaries
+  depends_on arch: :x86_64
   depends_on "python@3.9"
 
   on_linux do

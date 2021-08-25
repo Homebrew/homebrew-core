@@ -4,7 +4,7 @@ class Tinyxml2 < Formula
   url "https://github.com/leethomason/tinyxml2/archive/9.0.0.tar.gz"
   sha256 "cc2f1417c308b1f6acc54f88eb70771a0bf65f76282ce5c40e54cfe52952702c"
   license "Zlib"
-  head "https://github.com/leethomason/tinyxml2.git"
+  head "https://github.com/leethomason/tinyxml2.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a5c5e7ea6dcc446b1f7d38441ac4a226afa14b3e5e5eb890d3105edf54f91db6"

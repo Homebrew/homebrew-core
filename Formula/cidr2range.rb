@@ -1,8 +1,8 @@
 class Cidr2range < Formula
   desc "Converts CIDRs to IP ranges"
   homepage "https://ipinfo.io"
-  url "https://github.com/ipinfo/cli/archive/cidr2range-1.0.0.tar.gz"
-  sha256 "81540e845b567fe64e192ee1ec3f1476c7d2bb035a4680c2d26e144f48916b2c"
+  url "https://github.com/ipinfo/cli/archive/cidr2range-1.1.1.tar.gz"
+  sha256 "db7da678629f43f4fa027a5c9f81f9db32566209c987cc02fe6d5d1d2de02b19"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Cidr2range < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "43859c5789d878bd51444ce5d13dd36013b83818f85d93c051019b124e8690cf"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d201dff9f15ac4300b94749621506bf270d403db91c4bfa6dd4937d233ae0511"
-    sha256 cellar: :any_skip_relocation, catalina:      "ec6dafbe0b0e2d4061f5439dcbd43bc1701465bb6040e4960e5b69eceaebd5eb"
-    sha256 cellar: :any_skip_relocation, mojave:        "bf0149de83774b10ce61d146e0a21f872de5da126d8346f7058051d30380f26b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a65457279ad303fd5b98daa30edae82bb710864745b95513ef2631996a4fcb00"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6446f558a9c5e193e0c96135c9b2e14c83bcedd4e584fdf6768f119936d56f07"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c4674bd284ea97c018ae479b439ebe1ec3bf08ca2631e3eb9a27d92479c3bf21"
+    sha256 cellar: :any_skip_relocation, catalina:      "0e761e1ac45563693d03501e82ff1a07a865e55453026cda2895650edbeda503"
+    sha256 cellar: :any_skip_relocation, mojave:        "e76347d9d442df7f4c2335c277ed801c0e4e947e8d38a9c4e0a3e5bf3519430d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0991c9fc45ebee1696c6f65477cffcf03a1ba88223bbfe95b68bb03eaa87ac9b"
   end
 
   depends_on "go" => :build

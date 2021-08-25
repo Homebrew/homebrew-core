@@ -6,7 +6,7 @@ class TelegramCli < Formula
       revision: "5935c97ed05b90015418b5208b7beeca15a6043c"
   license "GPL-2.0"
   revision 4
-  head "https://github.com/vysheng/tg.git"
+  head "https://github.com/vysheng/tg.git", branch: "master"
 
   bottle do
     rebuild 1

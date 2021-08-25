@@ -11,11 +11,12 @@ class MysqlAT57 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "91e49378fe45b90275c58685ad29ba77b62ab6993597e2436c6bfa1ec160365d"
-    sha256 big_sur:       "b926b1d4c78ae82a20758d40c1a0ca472feae13095c293114ddcefde679f8c98"
-    sha256 catalina:      "8821d67ae0a2a21ab99a4b69bc5551244365d20fcf942e3b4ae792d174536253"
-    sha256 mojave:        "bc9a49d7e64518277596abeb007a5a129251245c7c63dbfcd1c99fc557c04df9"
-    sha256 x86_64_linux:  "34293e451ebc08a20aae04ddf26c1cc2788cf4604f7f79774523f9d5e0d91d8a"
+    rebuild 1
+    sha256 arm64_big_sur: "7482f0344cef38c37b41d2153bf03e6c4d6b0681a2236f25e5bac7b50b011983"
+    sha256 big_sur:       "983b9015ebe2bf32c43eb309de1712a289eaf22c6a17de3e5f34c8d0f9189f1a"
+    sha256 catalina:      "b2c5526552206c305b1bc10f76d34bc02fcb7a22dd69a4ef81905db361b75a78"
+    sha256 mojave:        "28b664ce06979ca687d1f57353ce79275d0838c4f0edf0c1f5a34273f93bd0bc"
+    sha256 x86_64_linux:  "06074a2cd551e6c62848614cbf378ecfec540c3097deeffe5aeb6ec11e547779"
   end
 
   keg_only :versioned_formula
@@ -135,30 +136,10 @@ class MysqlAT57 < Formula
     s
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/mysql@5.7/bin/mysql.server start"
-
-  def plist
-    <<~EOS
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>KeepAlive</key>
-        <true/>
-        <key>Label</key>
-        <string>#{plist_name}</string>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/mysqld_safe</string>
-          <string>--datadir=#{datadir}</string>
-        </array>
-        <key>RunAtLoad</key>
-        <true/>
-        <key>WorkingDirectory</key>
-        <string>#{datadir}</string>
-      </dict>
-      </plist>
-    EOS
+  service do
+    run [opt_bin/"mysqld_safe", "--datadir=#{var}/mysql"]
+    keep_alive true
+    working_dir var/"mysql"
   end
 
   test do

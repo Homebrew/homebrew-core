@@ -4,7 +4,7 @@ class Stp < Formula
   url "https://github.com/stp/stp/archive/refs/tags/2.3.3.tar.gz"
   sha256 "ea6115c0fc11312c797a4b7c4db8734afcfce4908d078f386616189e01b4fffa"
   license "MIT"
-  head "https://github.com/stp/stp.git"
+  head "https://github.com/stp/stp.git", branch: "master"
 
   livecheck do
     url :stable

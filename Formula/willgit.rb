@@ -4,7 +4,7 @@ class Willgit < Formula
   url "https://github.com/DanielVartanov/willgit/archive/1.0.0.tar.gz"
   sha256 "3bb99d6ec2614a90f40962311daf51f393b3d0abfdb0f9e0a14ba7340b33a2c8"
   license "MIT"
-  head "https://github.com/DanielVartanov/willgit.git"
+  head "https://github.com/DanielVartanov/willgit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "471907584cfb2691323566ad760ea0686de7aac0e2f20edc2ad0575146caee83"

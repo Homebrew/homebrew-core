@@ -23,6 +23,11 @@ class LeafProxy < Formula
         revision: "86632e2747c926a75d32be8bd9af059aa38ae75e"
   end
 
+  patch do
+    url "https://github.com/eycorsican/leaf/commit/cfaf9736f42cd7c4e6eb6f3b696d0343834aec7c.patch?full_index=1"
+    sha256 "4403b66732e84d9faedd5a7dae7b32caa32a46099a63af22139640f30a66b3ed"
+  end
+
   def install
     (buildpath/"leaf/src/proxy/tun/netstack/lwip").install resource("lwip")
 

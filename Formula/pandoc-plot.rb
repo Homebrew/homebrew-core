@@ -1,16 +1,16 @@
 class PandocPlot < Formula
   desc "Render and include figures in Pandoc documents using many plotting toolkits"
   homepage "https://github.com/LaurentRDC/pandoc-plot"
-  url "https://hackage.haskell.org/package/pandoc-plot-1.2.3/pandoc-plot-1.2.3.tar.gz"
-  sha256 "e83e6cbb2dd79d23fc714729406696630aba78937493e95a758389395ff5fd64"
+  url "https://hackage.haskell.org/package/pandoc-plot-1.3.0/pandoc-plot-1.3.0.tar.gz"
+  sha256 "d1abc849c0e8b886c1cf237299572ba6182df82bf860140ee44d3f0ff8626334"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7adc3840d95bf27c0d4471692a03c8e22ce6775aee0c530e3fa843934c50d79c"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a9112b6db07fc3898fd926625bd4e18d871a5c0d7770d8a06640a91e1cb77f48"
-    sha256 cellar: :any_skip_relocation, catalina:      "e5a2e773adced1b2f27710cf56963f3a75119ed757536a9490fecbb50c377880"
-    sha256 cellar: :any_skip_relocation, mojave:        "ccef89ab5a6e09a6c1a5805b112d2a6afc07b5a857714de19d11a308e65c9383"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f49958ddbfc13f6c32fb5785e1e64999bd50c02eaf8ab9ac3b7df98929c46c5a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a0d1edcddf70d0803741a42ad112299fe901bf0f73f4e746ebd831af0eb9a8cb"
+    sha256 cellar: :any_skip_relocation, big_sur:       "120bd15c035dbf94e35c5c2fdbc27e551f72bfecf6d92b77ece3c525a7f4f863"
+    sha256 cellar: :any_skip_relocation, catalina:      "7761b38c9970d18e837f898dd3cd24ca1030438a8a4ba6d2c9c08c91287978bf"
+    sha256 cellar: :any_skip_relocation, mojave:        "7eb7ee123b453b2d33be167b838914ae12fcb9c13f4382d1cdf1f3350ecd9722"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3a9763df9be2d2d16bc6c5d7acd26de8528fe8eb1cc42c8f950d7c274fa866e8"
   end
 
   depends_on "cabal-install" => :build

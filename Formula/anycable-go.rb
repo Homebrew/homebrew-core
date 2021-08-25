@@ -4,7 +4,7 @@ class AnycableGo < Formula
   url "https://github.com/anycable/anycable-go/archive/v1.1.2.tar.gz"
   sha256 "4df04424a8e9ed54e7a8f6794d0de7ff6e66a4b008d7e477c5434bd70dcee5da"
   license "MIT"
-  head "https://github.com/anycable/anycable-go.git"
+  head "https://github.com/anycable/anycable-go.git", branch: "master"
 
   livecheck do
     url :stable

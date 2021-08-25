@@ -4,7 +4,7 @@ class Tvnamer < Formula
   url "https://files.pythonhosted.org/packages/7e/07/688dc96a86cf212ffdb291d2f012bc4a41ee78324a2eda4c98f05f5e3062/tvnamer-3.0.4.tar.gz"
   sha256 "dc2ea8188df6ac56439343630466b874c57756dd0b2538dd8e7905048f425f04"
   license "Unlicense"
-  head "https://github.com/dbr/tvnamer.git"
+  head "https://github.com/dbr/tvnamer.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4491772fd6ec7a015ef66cfdd2e26b017a0954b00dcb6225c05e3918d4ebaf8f"

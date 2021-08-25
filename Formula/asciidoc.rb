@@ -6,7 +6,7 @@ class Asciidoc < Formula
   url "https://github.com/asciidoc-py/asciidoc-py/archive/9.1.0.tar.gz"
   sha256 "5056c20157349f8dc74f005b6e88ccbf1078c4e26068876f13ca3d1d7d045fe7"
   license "GPL-2.0-only"
-  head "https://github.com/asciidoc-py/asciidoc-py.git"
+  head "https://github.com/asciidoc-py/asciidoc-py.git", branch: "main"
 
   livecheck do
     url :stable

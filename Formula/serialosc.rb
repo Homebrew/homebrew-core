@@ -5,7 +5,7 @@ class Serialosc < Formula
       tag:      "v1.4.3",
       revision: "12fa410a14b2759617c6df2ff9088bc79b3ee8de"
   license "ISC"
-  head "https://github.com/monome/serialosc.git"
+  head "https://github.com/monome/serialosc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "5673c0c56aa3e2186f6e55b78113002271bec33965eebfb06cf05a7a747e86ae"

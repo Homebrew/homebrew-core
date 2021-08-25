@@ -6,7 +6,7 @@ class Cedille < Formula
     revision: "4d8a343a8d3f0b318e3c1b3209d216912dbc06ee"
   license "MIT"
   revision 3
-  head "https://github.com/cedille/cedille.git"
+  head "https://github.com/cedille/cedille.git", branch: "master"
 
   bottle do
     rebuild 1

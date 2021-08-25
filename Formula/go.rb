@@ -59,9 +59,9 @@ class Go < Formula
 
     # Remove useless files.
     # Breaks patchelf because folder contains weird debug/test files
-    rm_rf Dir[libexec/"src/debug/elf/testdata"]
+    (libexec/"src/debug/elf/testdata").rmtree
     # Binaries built for an incompatible architecture
-    rm_rf Dir[libexec/"src/runtime/pprof/testdata"]
+    (libexec/"src/runtime/pprof/testdata").rmtree
   end
 
   test do

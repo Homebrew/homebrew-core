@@ -2,7 +2,7 @@ class Blis < Formula
   desc "BLAS-like Library Instantiation Software Framework"
   homepage "https://github.com/flame/blis"
   license "BSD-3-Clause"
-  head "https://github.com/flame/blis.git"
+  head "https://github.com/flame/blis.git", branch: "master"
 
   stable do
     url "https://github.com/flame/blis/archive/0.8.1.tar.gz"

@@ -4,7 +4,7 @@ class Clinfo < Formula
   url "https://github.com/Oblomov/clinfo/archive/3.0.21.02.21.tar.gz"
   sha256 "e52f5c374a10364999d57a1be30219b47fb0b4f090e418f2ca19a0c037c1e694"
   license "CC0-1.0"
-  head "https://github.com/Oblomov/clinfo.git"
+  head "https://github.com/Oblomov/clinfo.git", branch: "master"
 
   livecheck do
     url :homepage

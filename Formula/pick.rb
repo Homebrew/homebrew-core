@@ -4,7 +4,7 @@ class Pick < Formula
   url "https://github.com/mptre/pick/releases/download/v4.0.0/pick-4.0.0.tar.gz"
   sha256 "de768fd566fd4c7f7b630144c8120b779a61a8cd35898f0db42ba8af5131edca"
   license "MIT"
-  head "https://github.com/mptre/pick.git"
+  head "https://github.com/mptre/pick.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "032d06aa754000e281f773bb857266efc79e1762e8f689617778a19e17505688"
