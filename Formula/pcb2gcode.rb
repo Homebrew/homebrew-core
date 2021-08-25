@@ -4,7 +4,7 @@ class Pcb2gcode < Formula
   url "https://github.com/pcb2gcode/pcb2gcode/archive/v2.4.0.tar.gz"
   sha256 "5d4f06f7041fe14a108780bdb953aa520f7e556773a7b9fb8435e9b92fef614d"
   license "GPL-3.0-or-later"
-  head "https://github.com/pcb2gcode/pcb2gcode.git"
+  head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "596ef4d44d9da58ce8ce77fc51605c9a1229a8b763e47f785baf202b0ba2a208"
