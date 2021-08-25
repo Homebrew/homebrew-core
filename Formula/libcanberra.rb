@@ -20,7 +20,7 @@ class Libcanberra < Formula
   end
 
   head do
-    url "git://git.0pointer.de/libcanberra"
+    url "git://git.0pointer.de/libcanberra", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
