@@ -5,7 +5,7 @@ class ProofGeneral < Formula
   sha256 "1ba236d81768a87afa0287f49d4b2223097bc61d180468cbd997d46ab6132e7e"
   license "GPL-2.0"
   revision 2
-  head "https://github.com/ProofGeneral/PG.git"
+  head "https://github.com/ProofGeneral/PG.git", branch: "master"
 
   bottle do
     rebuild 3
