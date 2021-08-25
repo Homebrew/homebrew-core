@@ -9,7 +9,7 @@ class Po4a < Formula
   sha256 "e21be3ee545444bae2fe6a44aeb9d320604708cc2e4c601bcb3cc440db75b4ce"
   license "GPL-2.0-or-later"
   revision 2
-  head "https://github.com/mquinson/po4a.git"
+  head "https://github.com/mquinson/po4a.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "4cf546fc79d0aeb9c75c3fdea4130c1d0d9cfc82d3970681d4994f7cf1c24170"
