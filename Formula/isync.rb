@@ -4,7 +4,7 @@ class Isync < Formula
   url "https://downloads.sourceforge.net/project/isync/isync/1.4.3/isync-1.4.3.tar.gz"
   sha256 "b4c720745bda3447fbd5b9f71783b23f699a55295917ae7586ee5c22e91b9708"
   license "GPL-2.0"
-  head "https://git.code.sf.net/p/isync/isync.git"
+  head "https://git.code.sf.net/p/isync/isync.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "234460b3dd4674da6104722ae8590a73c67ba595af54e66d2ddaeae54efd4be9"
