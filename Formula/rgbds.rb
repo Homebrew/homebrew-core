@@ -4,7 +4,7 @@ class Rgbds < Formula
   url "https://github.com/gbdev/rgbds/archive/v0.5.1.tar.gz"
   sha256 "1e5331b5638076c1f099a961f8663256e9f8be21135427277eb0000d3d6ee887"
   license "MIT"
-  head "https://github.com/gbdev/rgbds.git"
+  head "https://github.com/gbdev/rgbds.git", branch: "master"
 
   livecheck do
     url :stable
