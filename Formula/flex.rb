@@ -41,7 +41,7 @@ class Flex < Formula
       system "./autogen.sh"
     end
 
-    # Fix segmentation fault during install on Ubuntu 18.04 (caused by glibc 2.26+), which
+    # Fix segmentation fault during install on Ubuntu 18.04 (caused by glibc 2.26+),
     # remove with the next release
     on_linux do
       ENV.append "CPPFLAGS", "-D_GNU_SOURCE"
