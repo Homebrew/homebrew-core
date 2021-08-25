@@ -4,7 +4,7 @@ class PinboardNotesBackup < Formula
   url "https://github.com/bdesham/pinboard-notes-backup/archive/v1.0.5.3.tar.gz"
   sha256 "75491e082812493096b68de0031f71a21b8e9e5e8b981b4bc648bb520c5432dc"
   license "GPL-3.0-or-later"
-  head "https://github.com/bdesham/pinboard-notes-backup.git"
+  head "https://github.com/bdesham/pinboard-notes-backup.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "57a89dec64c38b1742914b5ff0cb7e0a1555715644b465ecae8b2c67c7580ec2"
