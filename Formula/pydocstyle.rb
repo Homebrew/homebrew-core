@@ -6,7 +6,7 @@ class Pydocstyle < Formula
   url "https://files.pythonhosted.org/packages/4c/30/4cdea3c8342ad343d41603afc1372167c224a04dc5dc0bf4193ccb39b370/pydocstyle-6.1.1.tar.gz"
   sha256 "1d41b7c459ba0ee6c345f2eb9ae827cab14a7533a88c5c6f7e94923f72df92dc"
   license "MIT"
-  head "https://github.com/PyCQA/pydocstyle.git"
+  head "https://github.com/PyCQA/pydocstyle.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8de054460c03ef2ae090e16de96d5555673f615a0cc66926c23b71cd67b1f2c6"
