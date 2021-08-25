@@ -41,14 +41,16 @@ class Pnpm < Formula
     system "pnpm", "install"
     chdir "packages/pnpm" do
       system buildpath/"node_modules/.bin/tsc", "--build"
-      system "pnpm", "run", "bundle"
+      system "pnpm", "run", "compile"
+    end
+    chdir "packages/beta" do
       on_macos do
-        system "node_modules/.bin/pkg", "--target=host", "--out-path=dist", "dist/pnpm.cjs"
+        system "node_modules/.bin/pkg", "--target=host", "../pnpm/dist/pnpm.cjs"
       end
       on_linux do
-        system "node_modules/.bin/pkg", "--target=linuxstatic", "--out-path=dist", "dist/pnpm.cjs"
+        system "node_modules/.bin/pkg", "--target=linuxstatic", "../pnpm/dist/pnpm.cjs"
       end
-      bin.install "dist/pnpm"
+      bin.install "pnpm"
     end
   end
 
