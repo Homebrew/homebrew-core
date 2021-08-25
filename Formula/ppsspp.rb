@@ -2,7 +2,7 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
-  head "https://github.com/hrydgard/ppsspp.git"
+  head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   # Remove stable block when patch is removed
   stable do
