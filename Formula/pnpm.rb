@@ -1,5 +1,6 @@
 class Pnpm < Formula
   require "language/node"
+  require "patchelf/helper"
 
   desc "📦🚀 Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
@@ -55,7 +56,9 @@ class Pnpm < Formula
       marker = lib/"SHIFTED"
       unless marker.exist?
         executable = bin/"pnpm"
-        offset = 4096
+        next if executable.interpreter.size <= "/lib64/ld-linux-x86-64.so.2".size
+
+        offset = PatchELF::Helper::PAGE_SIZE
         binary = IO.binread executable
         binary.sub!(/(?<=PAYLOAD_POSITION = ')((\d+) *)(?=')/) do
           (Regexp.last_match(2).to_i + offset).to_s.ljust(Regexp.last_match(1).size)
