@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v16.7.0/node-v16.7.0.tar.xz"
-  sha256 "fa85fdfbd378e587fa04ad9548e7c9f50e690af9575730d3b330cba6fc3f2d37"
+  url "https://nodejs.org/dist/v16.8.0/node-v16.8.0.tar.xz"
+  sha256 "b8790226312970ba5d8fd98229380c48bf0366eb1a3633091e350a34a4b46392"
   license "MIT"
   head "https://github.com/nodejs/node.git"
 
@@ -44,8 +44,8 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-7.20.3.tgz"
-    sha256 "bf73538dbcd933e5a9d9575c0c39539aee3e70b32e27837037681662d3bc2c0b"
+    url "https://registry.npmjs.org/npm/-/npm-7.21.0.tgz"
+    sha256 "bd80a815b23a0fe73c532fc346bc8331212bf7ce0a516f9e488198ff55034dde"
   end
 
   # Fix build with brewed c-ares.
