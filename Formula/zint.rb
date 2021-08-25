@@ -4,7 +4,7 @@ class Zint < Formula
   url "https://downloads.sourceforge.net/project/zint/zint/2.10.0/zint-2.10.0-src.tar.gz"
   sha256 "bb97e98a32e140c344e92c8da84a9df413dca16083f2fcdc29791bec77350339"
   license "GPL-3.0-or-later"
-  head "https://git.code.sf.net/p/zint/code.git"
+  head "https://git.code.sf.net/p/zint/code.git", branch: "master"
 
   livecheck do
     url :stable
