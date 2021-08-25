@@ -6,7 +6,7 @@ class Pympress < Formula
   url "https://files.pythonhosted.org/packages/30/15/076cbcb2fcd828da499db28bda2699bdadc73c16953c564fee6e3b6c28c8/pympress-1.6.4.tar.gz"
   sha256 "f84b9dc4da0defab1dc3c39ba91837f51af7837b775194f0057d0045c8d2b04f"
   license "GPL-2.0-or-later"
-  head "https://github.com/Cimbali/pympress.git"
+  head "https://github.com/Cimbali/pympress.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "e676d43863f32308f8ceac376b28404d969d0657ddf72b9e913ca58969e663a9"
