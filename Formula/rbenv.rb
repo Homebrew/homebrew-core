@@ -4,7 +4,7 @@ class Rbenv < Formula
   url "https://github.com/rbenv/rbenv/archive/v1.1.2.tar.gz"
   sha256 "80ad89ffe04c0b481503bd375f05c212bbc7d44ef5f5e649e0acdf25eba86736"
   license "MIT"
-  head "https://github.com/rbenv/rbenv.git"
+  head "https://github.com/rbenv/rbenv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "19d0b9e3b11bcacdf692e78248c1b5764f7d3f4b58f2b83ad7b39562863ba82e"
