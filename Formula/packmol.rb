@@ -5,7 +5,7 @@ class Packmol < Formula
   sha256 "23285f2a9e2bef0e8253250d7eae2d4026a9535ddcc2b9b383f5ad45b19e123d"
   license "MIT"
   revision 2
-  head "https://github.com/mcubeg/packmol.git"
+  head "https://github.com/mcubeg/packmol.git", branch: "master"
 
   bottle do
     sha256                               arm64_big_sur: "3d43d73153e16a136bc8c222e38b04b564d974de27030ea6bc07a854e801b837"
