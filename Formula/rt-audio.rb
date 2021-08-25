@@ -5,7 +5,7 @@ class RtAudio < Formula
   sha256 "ff138b2b6ed2b700b04b406be718df213052d4c952190280cf4e2fab4b61fe09"
   license "MIT"
   revision 1
-  head "https://github.com/thestk/rtaudio.git"
+  head "https://github.com/thestk/rtaudio.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "6aaea7e2e041421f615e4a20a371e2fe9c4fe601a8d1e3da61e9820595ab7c84"
