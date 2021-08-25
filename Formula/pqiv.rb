@@ -5,7 +5,7 @@ class Pqiv < Formula
   sha256 "1538128c88a70bbad2b83fbde327d83e4df9512a2fb560eaf5eaf1d8df99dbe5"
   license "GPL-3.0"
   revision 3
-  head "https://github.com/phillipberndt/pqiv.git"
+  head "https://github.com/phillipberndt/pqiv.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0c8a40ee1f88749e55e3aa975ea32bfe8e616cc6158fb022e38a9b69e8cff13d"
