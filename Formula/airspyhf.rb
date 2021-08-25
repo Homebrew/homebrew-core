@@ -14,8 +14,8 @@ class Airspyhf < Formula
     args = std_cmake_args
 
     libusb = Formula["libusb"]
-    args << "-DLIBUSB_INCLUDE_DIR=#{libusb.opt_include}/libusb-1.0"
-    args << "-DLIBUSB_LIBRARIES=#{libusb.opt_lib}/#{shared_library("libusb-1.0")}"
+    args << "-DLIBUSB_INCLUDE_DIR=#{libusb.opt_include}/libusb-#{libusb.version.major_minor}"
+    args << "-DLIBUSB_LIBRARIES=#{libusb.opt_lib/shared_library("libusb-#{libusb.version.major_minor}")}"
 
     mkdir "build" do
       system "cmake", "..", *args
