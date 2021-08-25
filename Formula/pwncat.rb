@@ -6,7 +6,7 @@ class Pwncat < Formula
   url "https://files.pythonhosted.org/packages/e0/cd/f7c7a2d468fdf8355c574ac65f189da87a469c393ec704d8f3fa83613aa5/pwncat-0.1.1.tar.gz"
   sha256 "62e625e9061f037cfca7b7455a4f7db4213c1d1302e73d4c475c63f924f1805f"
   license "MIT"
-  head "https://github.com/cytopia/pwncat.git"
+  head "https://github.com/cytopia/pwncat.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "dc906f569c1db49247320a2c5d9e27f26880d3041c6ff2f1b178fa5b1aa6a586"
