@@ -44,12 +44,7 @@ class Pnpm < Formula
       system "pnpm", "run", "compile"
     end
     chdir "packages/beta" do
-      on_macos do
-        system "node_modules/.bin/pkg", "--target=host", "../pnpm/dist/pnpm.cjs"
-      end
-      on_linux do
-        system "node_modules/.bin/pkg", "--target=linuxstatic", "../pnpm/dist/pnpm.cjs"
-      end
+      system "node_modules/.bin/pkg", "--target=host", "../pnpm/dist/pnpm.cjs"
       bin.install "pnpm"
     end
   end
