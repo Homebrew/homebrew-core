@@ -2,8 +2,8 @@ class Pulumi < Formula
   desc "Cloud native development platform"
   homepage "https://pulumi.io/"
   url "https://github.com/pulumi/pulumi.git",
-      tag:      "v3.10.3",
-      revision: "d8ebde1590088a21216329b429a83f7b39b512ef"
+      tag:      "v3.11.0",
+      revision: "01f52892191cfbaf9fcc233746e473bfa1129927"
   license "Apache-2.0"
   head "https://github.com/pulumi/pulumi.git", branch: "master"
 
@@ -17,12 +17,6 @@ class Pulumi < Formula
   end
 
   depends_on "go" => :build
-
-  # Support go 1.17, remove after next release
-  patch do
-    url "https://github.com/pulumi/pulumi/commit/da2bd2ab043f2588b3a136846da1b97505326f25.patch?full_index=1"
-    sha256 "b0db2dab2996615cef4ca338232a4acca02f4ca4d8fd8322b6da51be697a9ef5"
-  end
 
   def install
     cd "./sdk" do
