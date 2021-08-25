@@ -5,7 +5,7 @@ class Slrn < Formula
   sha256 "3ba8a4d549201640f2b82d53fb1bec1250f908052a7983f0061c983c634c2dac"
   license "GPL-2.0-or-later"
   revision 1
-  head "git://git.jedsoft.org/git/slrn.git"
+  head "git://git.jedsoft.org/git/slrn.git", branch: "master"
 
   livecheck do
     url "https://jedsoft.org/releases/slrn/"
