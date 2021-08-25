@@ -13,7 +13,7 @@ class Gnuplot < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git"
+    url "https://git.code.sf.net/p/gnuplot/gnuplot-main.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
