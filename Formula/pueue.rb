@@ -4,7 +4,7 @@ class Pueue < Formula
   url "https://github.com/Nukesor/pueue/archive/v1.0.1.tar.gz"
   sha256 "03f19e1c13ccd8ef4972ed3849df04741047f125302d66d92fa4f4a5ef669296"
   license "MIT"
-  head "https://github.com/Nukesor/pueue.git"
+  head "https://github.com/Nukesor/pueue.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4dea86eddf7b5b0084440c24c67ad521711ab25cf460ffa5a445799d8ffbfcf3"
