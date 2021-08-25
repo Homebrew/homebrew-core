@@ -16,7 +16,8 @@ class Dgen < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/dgen/dgen.git"
+    url "https://git.code.sf.net/p/dgen/dgen.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
