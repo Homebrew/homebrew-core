@@ -44,8 +44,26 @@ class Pnpm < Formula
       system "pnpm", "run", "compile"
     end
     chdir "packages/beta" do
-      system "node_modules/.bin/pkg", "--build", "--target=host", "../pnpm/dist/pnpm.cjs"
+      system "node_modules/.bin/pkg", "--target=host", "../pnpm/dist/pnpm.cjs"
       bin.install "pnpm"
+    end
+  end
+
+  def post_install
+    on_linux do
+      lib.mkpath
+      marker = lib/"SHIFTED"
+      unless marker.exist?
+        executable = bin/"pnpm"
+        offset = 4096
+        binary = IO.binread executable
+        binary.sub!(/(?<=PAYLOAD_POSITION = ')((\d+) *)(?=')/) { ($2.to_i 
++ offset).to_s.ljust($1.size) }
+        binary.sub!(/(?<=PRELUDE_POSITION = ')((\d+) *)(?=')/) { ($2.to_i 
++ offset).to_s.ljust($1.size) }
+        executable.atomic_write binary
+        marker.atomic_write ''
+      end
     end
   end
 
