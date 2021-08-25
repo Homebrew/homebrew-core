@@ -7,7 +7,7 @@ class Remarshal < Formula
   sha256 "16425aa1575a271dd3705d812b06276eeedc3ac557e7fd28e06822ad14cd0667"
   license "MIT"
   revision 2
-  head "https://github.com/dbohdan/remarshal.git"
+  head "https://github.com/dbohdan/remarshal.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "5dbc82f8251611f4d764d4207a222e1c577004f8be4b068edac392a822e275e0"
