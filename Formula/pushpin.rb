@@ -4,7 +4,7 @@ class Pushpin < Formula
   url "https://github.com/fanout/pushpin/releases/download/v1.33.1/pushpin-1.33.1.tar.bz2"
   sha256 "37b8ed8a262492e86fd02fe55c3b6f280cff2da718400ce926b5480745cec4a4"
   license "AGPL-3.0-or-later"
-  head "https://github.com/fanout/pushpin.git"
+  head "https://github.com/fanout/pushpin.git", branch: "master"
 
   bottle do
     sha256 big_sur:  "5d4b6f4f552d6e2ce51e7b69c460841b10544061291f01d7935457a4fe59514d"
