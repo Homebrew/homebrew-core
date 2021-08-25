@@ -4,7 +4,7 @@ class Disktype < Formula
   url "https://downloads.sourceforge.net/project/disktype/disktype/9/disktype-9.tar.gz"
   sha256 "b6701254d88412bc5d2db869037745f65f94b900b59184157d072f35832c1111"
   license "MIT"
-  head "https://git.code.sf.net/p/disktype/disktype.git"
+  head "https://git.code.sf.net/p/disktype/disktype.git", branch: "master"
 
   livecheck do
     url :stable
