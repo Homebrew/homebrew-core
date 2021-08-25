@@ -14,7 +14,8 @@ class Minidlna < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/minidlna/git.git"
+    url "https://git.code.sf.net/p/minidlna/git.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build
