@@ -4,7 +4,7 @@ class Peco < Formula
   url "https://github.com/peco/peco/archive/refs/tags/v0.5.10.tar.gz"
   sha256 "781c2effc4f6a58d9ff96fb0fc8b0fba3aab56a91a34933d68c5de3aea5fe3f6"
   license "MIT"
-  head "https://github.com/peco/peco.git"
+  head "https://github.com/peco/peco.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d272601e901b030d5912749e56d9c27bc08ea42a47833658f5d0ceef3b3acf16"
