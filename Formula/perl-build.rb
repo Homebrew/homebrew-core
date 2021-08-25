@@ -4,7 +4,7 @@ class PerlBuild < Formula
   url "https://github.com/tokuhirom/Perl-Build/archive/1.32.tar.gz"
   sha256 "ba86d74ff9718977637806ef650c85615534f0b17023a72f447587676d7f66fd"
   license any_of: ["Artistic-1.0", "GPL-1.0-or-later"]
-  head "https://github.com/tokuhirom/perl-build.git"
+  head "https://github.com/tokuhirom/perl-build.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b662afe3c5e833e08c5e0a425f5597ab159b808e6285e90f96ee48e1f8d8d9a8"
