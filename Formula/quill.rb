@@ -4,7 +4,7 @@ class Quill < Formula
   url "https://github.com/odygrd/quill/archive/v1.6.2.tar.gz"
   sha256 "9c27cd7fdf4459c75d1722dd9f2226b5e82ad96b5dbf58559bc8ba3df6af8839"
   license "MIT"
-  head "https://github.com/odygrd/quill.git"
+  head "https://github.com/odygrd/quill.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "01409dc369de300077b23a0c5bf2fb6bf677ed66fca43712f5fe084d47361fec"
