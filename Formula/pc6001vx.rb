@@ -5,7 +5,7 @@ class Pc6001vx < Formula
   sha256 "8a735fa6769b1a268fc64c0ed92d7e27c5990b120f53ad50be255024db35b2b8"
   license "LGPL-2.1-or-later"
   revision 1
-  head "https://github.com/eighttails/PC6001VX.git"
+  head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "aee07f4792310c51d12c85a460ec600468169c9b584c47f56b1980ef1ad2ab25"
