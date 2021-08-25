@@ -4,7 +4,7 @@ class RipgrepAll < Formula
   url "https://github.com/phiresky/ripgrep-all/archive/v0.9.6.tar.gz"
   sha256 "8cd7c5d13bd90ef0582168cd2bef73ca13ca6e0b1ecf24b9a5cd7cb886259023"
   license "AGPL-3.0"
-  head "https://github.com/phiresky/ripgrep-all.git"
+  head "https://github.com/phiresky/ripgrep-all.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c9fa77ff1abf533bbb2e04f19dffda6aa82379e2f6130871c8619665985eec0d"
