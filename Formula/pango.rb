@@ -4,7 +4,7 @@ class Pango < Formula
   url "https://download.gnome.org/sources/pango/1.48/pango-1.48.9.tar.xz"
   sha256 "a913657d3fe5aa04c03958a3b5d3fc859e891b75cd81b873a819330f6c0872aa"
   license "LGPL-2.0-or-later"
-  head "https://gitlab.gnome.org/GNOME/pango.git"
+  head "https://gitlab.gnome.org/GNOME/pango.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "1d499bb8db7199b5dfd9fed8106babb40b03b9c781c57bcac0592bf0aa20f7a8"
