@@ -6,7 +6,7 @@ class Ptpython < Formula
   url "https://files.pythonhosted.org/packages/15/c0/2174901413124288fc5217286f05aede748eea2a2b6e0894a165bcd14846/ptpython-3.0.19.tar.gz"
   sha256 "b3d41ce7c2ce0e7e55051347eae400fc56b9b42b1c4a9db25b19ccf6195bfc12"
   license "BSD-3-Clause"
-  head "https://github.com/prompt-toolkit/ptpython.git"
+  head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "eeddb8b4d8e50f438c91b6d20a50be6d06db98f143e26885975ba00bbc40aab1"
