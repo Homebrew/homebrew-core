@@ -4,7 +4,7 @@ class Rttr < Formula
   url "https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz"
   sha256 "058554f8644450185fd881a6598f9dee7ef85785cbc2bb5a5526a43225aa313f"
   license "MIT"
-  head "https://github.com/rttrorg/rttr.git"
+  head "https://github.com/rttrorg/rttr.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "8064ec9a745621fcd2e913f48e188fbbdb01a870fe76ba3c66ebb88e20295556"
