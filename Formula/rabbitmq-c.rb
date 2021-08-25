@@ -4,7 +4,7 @@ class RabbitmqC < Formula
   url "https://github.com/alanxz/rabbitmq-c/archive/v0.11.0.tar.gz"
   sha256 "437d45e0e35c18cf3e59bcfe5dfe37566547eb121e69fca64b98f5d2c1c2d424"
   license "MIT"
-  head "https://github.com/alanxz/rabbitmq-c.git"
+  head "https://github.com/alanxz/rabbitmq-c.git", branch: "master"
 
   bottle do
     rebuild 1
