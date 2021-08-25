@@ -4,7 +4,7 @@ class Patchelf < Formula
   url "https://github.com/NixOS/patchelf/releases/download/0.13/patchelf-0.13.tar.bz2"
   sha256 "4c7ed4bcfc1a114d6286e4a0d3c1a90db147a4c3adda1814ee0eee0f9ee917ed"
   license "GPL-3.0-or-later"
-  head "https://github.com/NixOS/patchelf.git"
+  head "https://github.com/NixOS/patchelf.git", branch: "master"
 
   livecheck do
     url :stable
