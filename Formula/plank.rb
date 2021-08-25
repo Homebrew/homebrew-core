@@ -4,7 +4,7 @@ class Plank < Formula
   url "https://github.com/pinterest/plank/archive/v1.6.tar.gz"
   sha256 "6a233120905ff371b5c06a23b3fc7dd67e96355dd4d992a58ac087db22c500ef"
   license "Apache-2.0"
-  head "https://github.com/pinterest/plank.git"
+  head "https://github.com/pinterest/plank.git", branch: "master"
 
   livecheck do
     url :stable
