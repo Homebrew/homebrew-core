@@ -4,7 +4,7 @@ class RmImproved < Formula
   url "https://github.com/nivekuil/rip/archive/0.13.1.tar.gz"
   sha256 "73acdc72386242dced117afae43429b6870aa176e8cc81e11350e0aaa95e6421"
   license "GPL-3.0-or-later"
-  head "https://github.com/nivekuil/rip.git"
+  head "https://github.com/nivekuil/rip.git", branch: "master"
 
   livecheck do
     url :stable
