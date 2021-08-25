@@ -4,7 +4,7 @@ class RubyInstall < Formula
   url "https://github.com/postmodern/ruby-install/archive/v0.8.2.tar.gz"
   sha256 "72a998b76f787c32a1575f10494594ec2d963f5ad5748004292841b33f8013e7"
   license "MIT"
-  head "https://github.com/postmodern/ruby-install.git"
+  head "https://github.com/postmodern/ruby-install.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d19d4a89f08d447d522387e362b5e4627de5438e06396e2035fe735dc192d7de"
