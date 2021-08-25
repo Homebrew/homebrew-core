@@ -57,12 +57,14 @@ class Pnpm < Formula
         executable = bin/"pnpm"
         offset = 4096
         binary = IO.binread executable
-        binary.sub!(/(?<=PAYLOAD_POSITION = ')((\d+) *)(?=')/) { ($2.to_i 
-+ offset).to_s.ljust($1.size) }
-        binary.sub!(/(?<=PRELUDE_POSITION = ')((\d+) *)(?=')/) { ($2.to_i 
-+ offset).to_s.ljust($1.size) }
+        binary.sub!(/(?<=PAYLOAD_POSITION = ')((\d+) *)(?=')/) do
+          (Regexp.last_match(2).to_i + offset).to_s.ljust(Regexp.last_match(1).size)
+        end
+        binary.sub!(/(?<=PRELUDE_POSITION = ')((\d+) *)(?=')/) do
+          (Regexp.last_match(2).to_i + offset).to_s.ljust(Regexp.last_match(1).size)
+        end
         executable.atomic_write binary
-        marker.atomic_write ''
+        marker.atomic_write ""
       end
     end
   end
