@@ -5,7 +5,7 @@ class Qcli < Formula
   sha256 "d648a5fb6076c6367e4eac320018ccbd1eddcb2160ce175b361b46fcf0d4a710"
   license "GPL-3.0-or-later"
   revision 3
-  head "https://github.com/bavc/qctools.git"
+  head "https://github.com/bavc/qctools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0d9f37d9080941a3cc46915af7b014e86ab38f863efd986dcec8b3fc4c4adf30"
