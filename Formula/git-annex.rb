@@ -5,7 +5,7 @@ class GitAnnex < Formula
   sha256 "628d6d9da30da85165df3fea9e4d24f179533b2296290e46ca7fbe450ac1e71c"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
-  head "git://git-annex.branchable.com/"
+  head "git://git-annex.branchable.com/", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "96687ab13a5ff943949aa765a787d0cb6b89e25a0da5b3763ebfe5e5baae6a93"
