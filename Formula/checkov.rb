@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/14/92/224589581ee46d93856bcf315621927adb7706955cbc585ba83bdd610178/checkov-2.0.360.tar.gz"
-  sha256 "5a60eba6dc06c7a572e2ef5a0b166e37a5c57e4b0b9d48f6170c970893c20b17"
+  url "https://files.pythonhosted.org/packages/2d/40/9d1cff447e96608ede5b88e4e518a9ace52415e04bfbbd1c2a626bceb339/checkov-2.0.375.tar.gz"
+  sha256 "e7f9107ec337a5222494d205470fd398b92e64488ee54923e091a0d45d859219"
   license "Apache-2.0"
 
   bottle do
@@ -19,16 +19,6 @@ class Checkov < Formula
   depends_on "python-tabulate"
   depends_on "python@3.9"
   depends_on "six"
-
-  resource "attrs" do
-    url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
-    sha256 "ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"
-  end
-
-  resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/77/42/30a9106f3e712f530cc93f8510364cde417b42acb6b64096a7b34eb0c1b8/aws-sam-translator-1.38.0.tar.gz"
-    sha256 "0ecadda9cf5ab2318f57f1253181a2151e4c53cd35d21717a923c075a5a65cb6"
-  end
 
   resource "bc-python-hcl2" do
     url "https://files.pythonhosted.org/packages/88/3b/864cc7c4793ec8874a02f293d40f36371b6dbcff414e108a72c95069fd79/bc-python-hcl2-0.3.18.tar.gz"
@@ -58,11 +48,6 @@ class Checkov < Formula
   resource "certifi" do
     url "https://files.pythonhosted.org/packages/6d/78/f8db8d57f520a54f0b8a438319c342c61c22759d8f9a1cd2e2180b5e5ea9/certifi-2021.5.30.tar.gz"
     sha256 "2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee"
-  end
-
-  resource "cfn-lint" do
-    url "https://files.pythonhosted.org/packages/7a/97/501de7b17de2f2f95d6fd0c21bda61074e8843bcc83b515b604ee8b5cf70/cfn-lint-0.53.0.tar.gz"
-    sha256 "b7f5964842f7a44c5af9c61d64308dc4bcb718cf5de5428781d5564e9663463d"
   end
 
   resource "charset-normalizer" do
@@ -150,21 +135,6 @@ class Checkov < Formula
     sha256 "b85d0567b8666149a93172712e68920734333c0ce7e89b78b3e987f71e5ed4f9"
   end
 
-  resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/21/67/83452af2a6db7c4596d1e2ecaa841b9a900980103013b867f2865e5e1cf0/jsonpatch-1.32.tar.gz"
-    sha256 "b6ddfe6c3db30d81a96aaeceb6baf916094ffa23d7dd5fa2c13e13f8b6e600c2"
-  end
-
-  resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/6b/35/400557d3df63269a4c010cbd4865910b3c1718fbfe8d83210b216cd3efcf/jsonpointer-2.1.tar.gz"
-    sha256 "5a34b698db1eb79ceac454159d3f7c12a451a91f6334a4f638454327b7a89962"
-  end
-
-  resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
-    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
-  end
-
   resource "junit-xml-2" do
     url "https://files.pythonhosted.org/packages/4d/f2/a99adf9deb57949b81ff8e113edf971da1840251794a6f4184d61faa5a65/junit-xml-2-1.9.tar.gz"
     sha256 "3b8d9635c5215f754c7807104f6493e3ea3bc9481e2d33db294560da3a1b00f7"
@@ -208,11 +178,6 @@ class Checkov < Formula
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
     sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
-  end
-
-  resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/f4/d7/0fa558c4fb00f15aabc6d42d365fcca7a15fcc1091cd0f5784a14f390b7f/pyrsistent-0.18.0.tar.gz"
-    sha256 "773c781216f8c2900b42a7b638d5b517bb134ae1acbebe4d1e8f1f41ea60eb4b"
   end
 
   resource "python-dateutil" do
@@ -261,8 +226,8 @@ class Checkov < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/48/a9/06793044a329e3d80489d5bf2153924f9463c08beec7f8ce4d20efd3cfbc/tqdm-4.62.1.tar.gz"
-    sha256 "35540feeaca9ac40c304e916729e6b78045cbbeccd3e941b2868f09306798ac9"
+    url "https://files.pythonhosted.org/packages/37/e5/1b54ef934d731576d0145bc8ae22da5b410f96922cec52b91cc29d3ff1b6/tqdm-4.62.2.tar.gz"
+    sha256 "a4d6d112e507ef98513ac119ead1159d286deab17dffedd96921412c2d236ff5"
   end
 
   resource "typing-extensions" do
