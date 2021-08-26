@@ -27,6 +27,13 @@ class Flux < Formula
     depends_on "pkg-config" => :build
   end
 
+  # Support go 1.17, remove when upstream patch is merged/released
+  # https://github.com/influxdata/flux/pull/3982
+  patch do
+    url "https://github.com/influxdata/flux/commit/233c875bcb7d071d47149b0730d1cb5f15eb6a5a.patch?full_index=1"
+    sha256 "fadb3ee0dc5efec615b6ffc4338f9a0947d42b58406b393587754fab0196ca62"
+  end
+
   def install
     system "make", "build"
     system "go", "build", "./cmd/flux"
