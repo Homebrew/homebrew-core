@@ -22,8 +22,14 @@ class Nomad < Formula
 
   depends_on "go" => :build
 
+  # Support go 1.17, remove after next release
+  patch do
+    url "https://github.com/hashicorp/nomad/commit/5f5ec95282f4f3392562d1dd39d4f12cdbc72a82.patch?full_index=1"
+    sha256 "4c757ca650b71878390b6aaea1823482ae8196e0afaca6e72f4b65a626eb4e09"
+  end
+
   def install
-    system "go", "build", *std_go_args, "-tags", "ui"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags", "ui"
   end
 
   service do
