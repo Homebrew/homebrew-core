@@ -15,6 +15,8 @@ class Libaec < Formula
 
   depends_on "cmake" => :build
 
+  conflicts_with "szip", because: "libaec provides a replacement for szip"
+
   def install
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
