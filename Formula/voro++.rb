@@ -5,6 +5,11 @@ class Voroxx < Formula
   sha256 "ef7970071ee2ce3800daa8723649ca069dc4c71cc25f0f7d22552387f3ea437e"
   revision 1
 
+  livecheck do
+    url "http://math.lbl.gov/voro++/download/"
+    regex(/href=.*?voro\+\+[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a2c8a6acd7f49f29bbb103253151e24179f810536915a36d814217aeff389bd6"
