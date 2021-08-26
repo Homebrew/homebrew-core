@@ -13,6 +13,7 @@ class GitFixup < Formula
   def install
     system "make", "PREFIX=#{prefix}", "install"
     zsh_completion.install "completion.zsh" => "_git-fixup"
+    fish_completion.install "completion.fish" => "git-fixup.fish"
   end
 
   test do
