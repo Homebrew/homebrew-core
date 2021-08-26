@@ -48,6 +48,8 @@ class Pyenv < Formula
       bin.install_symlink "#{prefix}/plugins/python-build/bin/#{cmd}"
     end
 
+    share.install prefix/"man"
+
     # Do not manually install shell completions. See:
     #   - https://github.com/pyenv/pyenv/issues/1056#issuecomment-356818337
     #   - https://github.com/Homebrew/homebrew-core/pull/22727
