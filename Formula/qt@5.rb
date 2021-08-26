@@ -27,11 +27,60 @@ class QtAT5 < Formula
   uses_from_macos "flex"
   uses_from_macos "sqlite"
 
+  on_linux do
+    depends_on "at-spi2-core"
+    depends_on "fontconfig"
+    depends_on "gcc"
+    depends_on "glib"
+    depends_on "icu4c"
+    depends_on "libproxy"
+    depends_on "libxkbcommon"
+    depends_on "libice"
+    depends_on "libsm"
+    depends_on "libxcomposite"
+    depends_on "libdrm"
+    depends_on "mesa"
+    depends_on "pulseaudio"
+    depends_on "python@3.9"
+    depends_on "sdl2"
+    depends_on "systemd"
+    depends_on "xcb-util"
+    depends_on "xcb-util-image"
+    depends_on "xcb-util-keysyms"
+    depends_on "xcb-util-renderutil"
+    depends_on "xcb-util-wm"
+    depends_on "zstd"
+    depends_on "wayland"
+  end
+
+  fails_with gcc: "5"
+
   # Find SDK for 11.x macOS
   # Upstreamed, remove when Qt updates Chromium
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/92d4cf/qt/5.15.2.diff"
     sha256 "fa99c7ffb8a510d140c02694a11e6c321930f43797dbf2fe8f2476680db4c2b2"
+  end
+
+  # Fix build for GCC 11
+  patch do
+    url "https://invent.kde.org/qt/qt/qtbase/commit/8252ef5fc6d043004ddf7085e1c1fe1bf2ca39f7.patch"
+    sha256 "8ab742b991ed5c43e8da4b1ce1982fd38fe611aaac3d57ee37728b59932b518a"
+    directory "qtbase"
+  end
+
+  # Fix build for GCC 11
+  patch do
+    url "https://invent.kde.org/qt/qt/qtbase/commit/cb2da673f53815a5cfe15f50df49b98032429f9e.patch"
+    sha256 "33304570431c0dd3becc22f3f0911ccfc781a1ce6c7926c3acb08278cd2e60c3"
+    directory "qtbase"
+  end
+
+  # Fix build for GCC 11
+  patch do
+    url "https://invent.kde.org/qt/qt/qtdeclarative/commit/4f08a2da5b0da675cf6a75683a43a106f5a1e7b8.patch"
+    sha256 "193c2e159eccc0592b7092b1e9ff31ad9556b38462d70633e507822f75d4d24a"
+    directory "qtdeclarative"
   end
 
   # Patch for qmake on ARM
@@ -50,24 +99,42 @@ class QtAT5 < Formula
       -prefix #{prefix}
       -release
       -opensource -confirm-license
-      -system-zlib
       -qt-libpng
       -qt-libjpeg
       -qt-freetype
       -qt-pcre
       -nomake examples
       -nomake tests
-      -no-rpath
       -pkg-config
       -dbus-runtime
     ]
 
-    if Hardware::CPU.arm?
-      # Temporarily fixes for Apple Silicon
-      args << "-skip" << "qtwebengine" << "-no-assimp"
-    else
-      # Should be reenabled unconditionnaly once it is fixed on Apple Silicon
-      args << "-proprietary-codecs"
+    on_macos do
+      args << "-no-rpath"
+      args << "-system-zlib"
+      if Hardware::CPU.arm?
+        # Temporarily fixes for Apple Silicon
+        args << "-skip" << "qtwebengine" << "-no-assimp"
+      else
+        # Should be reenabled unconditionally once it is fixed on Apple Silicon
+        args << "-proprietary-codecs"
+      end
+    end
+
+    on_linux do
+      args << "-R#{lib}"
+      # https://bugreports.qt.io/browse/QTBUG-71564
+      args << "-no-avx2"
+      args << "-no-avx512"
+      args << "-qt-zlib"
+      # https://bugreports.qt.io/browse/QTBUG-60163
+      # https://codereview.qt-project.org/c/qt/qtwebengine/+/191880
+      args += %w[-skip qtwebengine]
+      args << "-no-sql-mysql"
+
+      # Change default mkspec for qmake on Linux to use brewed GCC
+      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}gcc", ENV.cc
+      inreplace "qtbase/mkspecs/common/g++-base.conf", "$${CROSS_COMPILE}g++", ENV.cxx
     end
 
     system "./configure", *args
