@@ -1,8 +1,8 @@
 class IsoCodes < Formula
   desc "Provides lists of various ISO standards"
   homepage "https://salsa.debian.org/iso-codes-team/iso-codes"
-  url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.6.0.orig.tar.xz"
-  sha256 "41c672c18554e979e6191f950f454cdf1bfb67a6369fffe2997ff68e34845409"
+  url "https://deb.debian.org/debian/pool/main/i/iso-codes/iso-codes_4.7.0.orig.tar.xz"
+  sha256 "bdfd06cdd77d73d491dcd57d6c946cb95a939f19f7ffc6a31f2f93923412219b"
   license "LGPL-2.1-or-later"
   head "https://salsa.debian.org/iso-codes-team/iso-codes.git"
 
