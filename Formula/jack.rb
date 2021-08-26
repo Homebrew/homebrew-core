@@ -22,19 +22,33 @@ class Jack < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "aften"
+  depends_on "python@3.9" => :build
   depends_on "berkeley-db"
   depends_on "libsamplerate"
   depends_on "libsndfile"
-  depends_on "python@3.9"
+  depends_on "readline"
+
+  on_macos do
+    depends_on "aften"
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "systemd"
+  end
 
   def install
-    # See https://github.com/jackaudio/jack2/issues/640#issuecomment-723022578
-    ENV.append "LDFLAGS", "-Wl,-compatibility_version,1" if MacOS.version <= :high_sierra
-    ENV.append "LDFLAGS", "-Wl,-current_version,#{version}" if MacOS.version <= :high_sierra
+    on_macos do
+      # See https://github.com/jackaudio/jack2/issues/640#issuecomment-723022578
+      ENV.append "LDFLAGS", "-Wl,-compatibility_version,1" if MacOS.version <= :high_sierra
+      ENV.append "LDFLAGS", "-Wl,-current_version,#{version}" if MacOS.version <= :high_sierra
+    end
     system Formula["python@3.9"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
     system Formula["python@3.9"].opt_bin/"python3", "./waf", "build"
     system Formula["python@3.9"].opt_bin/"python3", "./waf", "install"
+
+    # Remove Python script used to control D-Bus JACK as it isn't enabled in formula
+    rm bin/"jack_control"
   end
 
   service do
@@ -48,7 +62,8 @@ class Jack < Formula
     source_name = "test_source"
     sink_name = "test_sink"
     fork do
-      exec "#{bin}/jackd", "-X", "coremidi", "-d", "dummy"
+      on_macos { exec "#{bin}/jackd", "-X", "coremidi", "-d", "dummy" }
+      on_linux { exec "#{bin}/jackd", "-d", "dummy" }
     end
     system "#{bin}/jack_wait", "--wait", "--timeout", "10"
     fork do
