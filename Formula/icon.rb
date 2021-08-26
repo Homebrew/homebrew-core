@@ -4,6 +4,7 @@ class Icon < Formula
   url "https://github.com/gtownsend/icon/archive/v9.5.20i.tar.gz"
   version "9.5.20i"
   sha256 "3ebfcc89f3f3f7acc5afe61402f6b3b168b8cd83f79021c98bbd791e92c4cbe8"
+  license :public_domain
 
   livecheck do
     url :stable
@@ -20,7 +21,12 @@ class Icon < Formula
 
   def install
     ENV.deparallelize
-    system "make", "Configure", "name=posix"
+    target = if OS.mac?
+      "posix"
+    else
+      "linux"
+    end
+    system "make", "Configure", "name=#{target}"
     system "make"
     bin.install "bin/icon", "bin/icont", "bin/iconx"
     doc.install Dir["doc/*"]
