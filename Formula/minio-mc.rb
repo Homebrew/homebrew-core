@@ -28,6 +28,12 @@ class MinioMc < Formula
 
   conflicts_with "midnight-commander", because: "both install an `mc` binary"
 
+  # Support go 1.17, remove after next release
+  patch do
+    url "https://github.com/minio/mc/commit/855333e4ab24804dd3dcd38988ceaed112ee62f9.patch?full_index=1"
+    sha256 "c00d331fd8d420105356d004aeecd17ef4c6332796f53a3e547218b4de7dbd41"
+  end
+
   def install
     if build.head?
       system "go", "build", "-trimpath", "-o", bin/"mc"
