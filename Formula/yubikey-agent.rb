@@ -24,8 +24,15 @@ class YubikeyAgent < Formula
     depends_on "pinentry"
   end
 
+  # Support go 1.17, remove when upstream patch is merged/released
+  # https://github.com/FiloSottile/yubikey-agent/pull/99
+  patch do
+    url "https://github.com/FiloSottile/yubikey-agent/commit/92e45828da1c33531f507625f41e3bdadfe3ee86.patch?full_index=1"
+    sha256 "605503152d3ea75072a98366994b65e4810c54e3dc690d8d47b9fb67ef47bd4d"
+  end
+
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-X main.Version=v#{version}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=v#{version}")
   end
 
   def post_install
