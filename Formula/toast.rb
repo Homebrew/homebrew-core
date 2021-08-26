@@ -1,8 +1,8 @@
 class Toast < Formula
   desc "Tool for running tasks in containers"
   homepage "https://github.com/stepchowfun/toast"
-  url "https://github.com/stepchowfun/toast/archive/v0.41.0.tar.gz"
-  sha256 "ff890c4d1b911d0fc8c803de44c40e8cffdcdf7a477752c2f253445f934e5a38"
+  url "https://github.com/stepchowfun/toast/archive/v0.42.1.tar.gz"
+  sha256 "91a8a30b52fef41f94c0d2ee9a2af05dbfa68e9b83f5dc5ec8c2a4ddacb199fd"
   license "MIT"
 
   bottle do
