@@ -16,6 +16,13 @@ class Elvish < Formula
 
   depends_on "go" => :build
 
+  # Support go 1.17, remove when upstream patch is merged/released
+  # https://github.com/elves/elvish/pull/1390
+  patch do
+    url "https://github.com/elves/elvish/commit/aae0174d59f1bb7c54168fc57f71d4c2b8721838.patch?full_index=1"
+    sha256 "b7d04f3684e74a30883258be17a408b1201c7f7cb353d7b0e701c84c02e1b281"
+  end
+
   def install
     system "go", "build",
       *std_go_args(ldflags: "-s -w -X src.elv.sh/pkg/buildinfo.VersionSuffix="), "./cmd/elvish"
