@@ -21,12 +21,20 @@ class Convox < Formula
 
   depends_on "go" => :build
 
+  # Support go 1.17, remove when upstream patch is merged/released
+  # https://github.com/convox/convox/pull/389
+  patch do
+    url "https://github.com/convox/convox/commit/d28b01c5797cc8697820c890e469eb715b1d2e2e.patch?full_index=1"
+    sha256 "a0f94053a5549bf676c13cea877a33b3680b6116d54918d1fcfb7f3d2941f58b"
+  end
+
   def install
     ldflags = %W[
+      -s -w
       -X main.version=#{version}
     ].join(" ")
 
-    system "go", "build", *std_go_args, "-mod=vendor", "-ldflags", ldflags, "./cmd/convox"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/convox"
   end
 
   test do
