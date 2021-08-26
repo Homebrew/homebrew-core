@@ -35,13 +35,6 @@ class Lc0 < Formula
     sha256 "12df03a12919e6392f3efbe6f461fc0ff5451b4105f755503da151adc7ab6d67"
   end
 
-  # Fix compile error due to missing #include <condition_variable>
-  # Remove in the next release
-  patch do
-    url "https://github.com/LeelaChessZero/lc0/commit/997257a16fc74c848ab55e475c4d233d78838506.patch?full_index=1"
-    sha256 "5f4fb6b730a04bfd36567302bc4ad9d22f7f69c55c6fad35047a18d514210758"
-  end
-
   def install
     args = ["-Dgtest=false"]
     on_linux do
