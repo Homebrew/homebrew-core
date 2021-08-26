@@ -7,7 +7,6 @@ class ApachePulsar < Formula
   license "Apache-2.0"
   head "https://github.com/apache/pulsar.git", branch: "master"
 
-  depends_on arch: :x86_64
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "cppunit" => :build
@@ -15,6 +14,7 @@ class ApachePulsar < Formula
   depends_on "maven" => :build
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
+  depends_on arch: :x86_64
   depends_on "openjdk@11"
 
   def install
