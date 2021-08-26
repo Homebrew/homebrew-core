@@ -37,8 +37,7 @@ class Airspyhf < Formula
         return 1;
       }
     EOS
-    system ENV.cc, "-I#{include}", "-L#{lib}", "-lairspyhf",
-           testpath/"test.c", "-o", testpath/"test"
+    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lairspyhf", "-lm", "-o", "test"
     system "./test"
     assert_match version.to_s, shell_output("#{bin}/airspyhf_lib_version").chomp
   end
