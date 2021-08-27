@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.8.1",
-      revision: "4b0264f28defc05454c31277cfa6ff63695a458d"
+      tag:      "v1.8.2",
+      revision: "aca76f63357041a43b49f3e8c11d67358496959f"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git", branch: "main"
 
@@ -28,6 +28,12 @@ class Vault < Formula
   # Cannot build with `node` while upstream depends on node-sass<6
   depends_on "node@14" => :build
   depends_on "yarn" => :build
+
+  # remove in next release
+  patch do
+    url "https://github.com/hashicorp/vault/commit/b368a675955707db4e940da29a1043871a3781b6.patch?full_index=1"
+    sha256 "3595f5a6e3d3f73dfa0db6886f430a0ae5cbcc7f5bd5444c3652bc0c426b26f2"
+  end
 
   def install
     ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"
