@@ -23,7 +23,7 @@ class Clip < Formula
   depends_on "harfbuzz"
 
   on_linux do
-    depends_on "gcc" => :build # for C++17
+    depends_on "gcc" # for C++17
   end
 
   fails_with gcc: "5"
