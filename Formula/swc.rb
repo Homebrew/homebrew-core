@@ -30,6 +30,10 @@ class Swc < Formula
 
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    on_linux do
+      (libexec/"lib/node_modules/@swc/cli/node_modules/@swc/core/node_modules/@swc/core-linux-x64-musl").rmtree
+    end
   end
 
   test do
