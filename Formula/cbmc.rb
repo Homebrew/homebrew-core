@@ -22,7 +22,7 @@ class Cbmc < Formula
   uses_from_macos "flex" => :build
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"
