@@ -33,8 +33,13 @@ class ApachePulsar < Formula
         "-Pcore-modules",
       )
     end
-    system "tar", "-xf", "distribution/server/target/apache-pulsar-#{version}-bin.tar.gz"
-    binpfx = "apache-pulsar-#{version}"
+    built_version = if build.head?
+      `python src/get-project-version.py`.strip
+    else
+      version
+    end
+    binpfx = "apache-pulsar-#{built_version}"
+    system "tar", "-xf", "distribution/server/target/#{binpfx}-bin.tar.gz"
     libexec.install binpfx+"/bin", binpfx+"/lib", binpfx+"/instances", binpfx+"/conf"
     (libexec/"lib/presto/bin/procname/Linux-ppc64le").rmtree
     share.install binpfx+"/examples"
