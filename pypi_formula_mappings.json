@@ -92,6 +92,9 @@
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
   },
+  "internetarchive": {
+    "exclude_packages": ["six"]
+  },
   "jenkins-job-builder": {
     "exclude_packages": ["six"]
   },
