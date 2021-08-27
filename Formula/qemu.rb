@@ -34,7 +34,7 @@ class Qemu < Formula
   depends_on "vde"
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"
