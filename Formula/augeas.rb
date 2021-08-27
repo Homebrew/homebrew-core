@@ -7,13 +7,10 @@ class Augeas < Formula
   stable do
     url "http://download.augeas.net/augeas-1.12.0.tar.gz"
     sha256 "321942c9cc32185e2e9cb72d0a70eea106635b50269075aca6714e3ec282cb87"
-    # This patch is needed until the bug in GNU's libtool at
-    # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=44605 is resolved, a
-    # patched version makes its way to the Augeas' maintainers, and they
-    # release a new version. When this patch is removed, the autoconf and
-    # automake build dependencies should only be needed when building from
-    # head. You can find more info at
-    # https://github.com/Homebrew/homebrew-core/issues/83407.
+    # This patch is needed until
+    # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=44605 is resolved and makes
+    # its way to an Augeas release. When this patch is deleted, the
+    # unconditional autoconf and automake build dependencies can be removed.
     patch :DATA
   end
 
@@ -35,6 +32,8 @@ class Augeas < Formula
   head do
     url "https://github.com/hercules-team/augeas.git"
 
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "bison" => :build
     depends_on "libtool" => :build
   end
