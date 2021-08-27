@@ -7,8 +7,8 @@ class Xapian < Formula
   version_scheme 1
 
   livecheck do
-    url :homepage
-    regex(/latest stable version.*?is v?(\d+(?:\.\d+)+)</im)
+    url "https://xapian.org/download"
+    regex(/href=.*?xapian-core[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
