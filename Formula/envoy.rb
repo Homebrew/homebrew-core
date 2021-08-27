@@ -8,6 +8,7 @@ class Envoy < Formula
       revision: "a2a1e3eed4214a38608ec223859fcfa8fb679b14"
   license "Apache-2.0"
 
+  # Apple M1/arm64 is pending envoyproxy/envoy#16482
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "5d242c76931465e1bebc4ac62742bcdd68a42334679cc69f8c058e1f7b4147a1"
     sha256 cellar: :any_skip_relocation, catalina:     "48e53aac4dc4b8c7603141b711730427a5ca94ce4d3e3ce572c1c01cd96ad9f2"
@@ -18,7 +19,6 @@ class Envoy < Formula
   depends_on "bazelisk" => :build
   depends_on "cmake" => :build
   depends_on "coreutils" => :build
-  depends_on "go" => :build
   depends_on "libtool" => :build
   depends_on "ninja" => :build
   depends_on macos: :catalina
