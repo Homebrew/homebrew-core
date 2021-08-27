@@ -1,7 +1,7 @@
 class Libopusenc < Formula
   desc "Convenience libraray for creating .opus files"
   homepage "https://opus-codec.org/"
-  url "https://archive.mozilla.org/pub/opus/libopusenc-0.2.1.tar.gz"
+  url "https://archive.mozilla.org/pub/opus/libopusenc-0.2.1.tar.gz", using: :homebrew_curl
   sha256 "8298db61a8d3d63e41c1a80705baa8ce9ff3f50452ea7ec1c19a564fe106cbb9"
   license "BSD-3-Clause"
 
