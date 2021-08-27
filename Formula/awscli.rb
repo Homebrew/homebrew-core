@@ -13,9 +13,9 @@ class Awscli < Formula
     # 1. Get `botocore` version at https://github.com/aws/aws-cli/blob/#{version}/setup.py
     # 2. Get commit matching version at https://github.com/boto/botocore/commits/v2
     resource "botocore" do
-      url "https://github.com/boto/botocore/archive/3c0c177e4a98adb05fc96b4a4af2287051476512.tar.gz"
-      sha256 "a1959f95063070388a4fb8204fb1ec086ca65dea1d1b4ec22edcf079de6b13f9"
-      version "2.0.0dev140"
+      url "https://github.com/boto/botocore/archive/80f9009865ca01b1c726468eec6bcb3c56832331.tar.gz"
+      sha256 "97c91c13acf30d0b7f7480f164c77de6858eaba3a75e642f9ece07763fa644ff"
+      version "2.0.0dev141"
     end
   end
 
