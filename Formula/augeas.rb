@@ -69,6 +69,7 @@ class Augeas < Formula
     system bin/"augtool", "print", etc
   end
 end
+
 __END__
 diff --git a/configure b/configure
 index 4b8fb40..b8b62da 100755
