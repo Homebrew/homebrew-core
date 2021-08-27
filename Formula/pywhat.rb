@@ -3,8 +3,8 @@ class Pywhat < Formula
 
   desc "🐸 Identify anything: emails, IP addresses, and more 🧙"
   homepage "https://github.com/bee-san/pyWhat"
-  url "https://files.pythonhosted.org/packages/ed/52/5b08d8417e4b9711e7cefed9ca6499beec84401117f55e9c86e251b3360b/pywhat-3.3.0.tar.gz"
-  sha256 "f62e16ae0f0a6cd1abbbe2ba56f28946e3b83a5ceec6ad6f0f1358540a00740d"
+  url "https://files.pythonhosted.org/packages/20/75/ccaba78b2c979c4489450d3e240f503d161750a2346a11ce8fecca266c44/pywhat-3.4.0.tar.gz"
+  sha256 "dc814622d24d992638da801bbbc34366f74458628228ab2523b2659a90833b2e"
   license "GPL-3.0-or-later"
   head "https://github.com/bee-san/pyWhat.git", branch: "main"
 
@@ -33,14 +33,19 @@ class Pywhat < Formula
     sha256 "452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"
   end
 
+  resource "orjson" do
+    url "https://files.pythonhosted.org/packages/75/cd/eac8908d0b4a4b08067bc68c04e52d7601b0ed86bf2a6a3264c46dd51a84/orjson-3.6.3.tar.gz"
+    sha256 "353cc079cedfe990ea2d2186306f766e0d47bba63acd072e22d6df96c67be993"
+  end
+
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/ba/6e/7a7c13c21d8a4a7f82ccbfe257a045890d4dbf18c023f985f565f97393e3/Pygments-2.9.0.tar.gz"
-    sha256 "a18f47b506a429f6f4b9df81bb02beab9ca21d0a5fee38ed15aef65f0545519f"
+    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
+    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/72/f5/1f06eb039318ae8eb4d13e4abe52dd0b1fdd466b35cf9e52a2e505509532/rich-10.6.0.tar.gz"
-    sha256 "128261b3e2419a4ef9c97066ccc2abbfb49fa7c5e89c3fe4056d00aa5e9c1e65"
+    url "https://files.pythonhosted.org/packages/6b/ea/af2a2218d57cc52dc7f14e4350ee9647fa79c6c820cfc05c438795fb13b4/rich-10.7.0.tar.gz"
+    sha256 "13ac80676e12cf528dc4228dc682c8402f82577c2aa67191e294350fa2c3c4e9"
   end
 
   def install
