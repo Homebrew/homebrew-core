@@ -31,9 +31,10 @@ class Gptfdisk < Formula
     end
 
     on_linux do
-      deps = %w[ncurses popt util-linux]
-      ENV.append_to_cflags deps.map { |dep| "-I#{Formula[dep].opt_include}" }.join(" ")
-      ENV["LDFLAGS"] = deps.map { |dep| "-L#{Formula[dep].opt_lib}" }.join(" ")
+      %w[ncurses popt util-linux].each do |dep|
+        ENV.append_to_cflags "-I#{Formula[dep].opt_include}"
+        ENV.append "LDFLAGS", "-L#{Formula[dep].opt_lib}"
+      end
 
       system "make", "-f", "Makefile"
     end
