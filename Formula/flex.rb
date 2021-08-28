@@ -24,6 +24,7 @@ class Flex < Formula
     depends_on "gnu-sed" => :build
 
     depends_on "libtool" => :build
+    depends_on :macos
   end
 
   keg_only :provided_by_macos
