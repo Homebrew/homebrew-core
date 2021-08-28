@@ -5,7 +5,7 @@ class Pywhat < Formula
   homepage "https://github.com/bee-san/pyWhat"
   url "https://files.pythonhosted.org/packages/20/75/ccaba78b2c979c4489450d3e240f503d161750a2346a11ce8fecca266c44/pywhat-3.4.0.tar.gz"
   sha256 "dc814622d24d992638da801bbbc34366f74458628228ab2523b2659a90833b2e"
-  license "GPL-3.0-or-later"
+  license "MIT"
   head "https://github.com/bee-san/pyWhat.git", branch: "main"
 
   bottle do
@@ -15,6 +15,8 @@ class Pywhat < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "d90df27e0be6d69edea374a1d4c7c5a9cd6ec3943fa1c537884e42e770428cc1"
   end
 
+  depends_on "maturin" => :build
+  depends_on "rust" => :build  # for orjson
   depends_on "python@3.9"
   depends_on "six"
 
