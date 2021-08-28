@@ -2,9 +2,9 @@ class RomTools < Formula
   desc "Tools for Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
   # NOTE: Please keep these values in sync with mame.rb when updating.
-  url "https://github.com/mamedev/mame/archive/mame0234.tar.gz"
-  version "0.234"
-  sha256 "6b729494c0e63fd974061c11e860667164e85c20890f60eade048e3e4e5c00cd"
+  url "https://github.com/mamedev/mame/archive/mame0235.tar.gz"
+  version "0.235"
+  sha256 "9aee1ae3775123955ab6c5fde026a016ca981515f143d848bda1595cae10750f"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -30,25 +30,61 @@ class RomTools < Formula
   uses_from_macos "expat"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "glm" => :build
+    depends_on "jpeg" => :build
+    depends_on "portaudio" => :build
+    depends_on "portmidi" => :build
+    depends_on "pugixml" => :build
+    depends_on "pulseaudio" => :build
+    depends_on "qt@5" => :build
+    depends_on "rapidjson" => :build
+    depends_on "sdl2_ttf" => :build
+    depends_on "sqlite" => :build
+    depends_on "gcc" # for C++17
+  end
+
+  fails_with gcc: "5"
+  fails_with gcc: "6"
+
   def install
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 
     # Use bundled asio instead of latest version.
     # See: <https://github.com/mamedev/mame/issues/5721>
-    system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3",
-                   "TOOLS=1",
-                   "USE_LIBSDL=1",
-                   "USE_SYSTEM_LIB_EXPAT=1",
-                   "USE_SYSTEM_LIB_ZLIB=1",
-                   "USE_SYSTEM_LIB_ASIO=",
-                   "USE_SYSTEM_LIB_FLAC=1",
-                   "USE_SYSTEM_LIB_UTF8PROC=1"
+    args = %W[
+      PYTHON_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
+      TOOLS=1
+      USE_LIBSDL=1
+      USE_SYSTEM_LIB_EXPAT=1
+      USE_SYSTEM_LIB_ZLIB=1
+      USE_SYSTEM_LIB_ASIO=
+      USE_SYSTEM_LIB_FLAC=1
+      USE_SYSTEM_LIB_UTF8PROC=1
+    ]
+    on_linux do
+      args += %w[
+        USE_SYSTEM_LIB_GLM=1
+        USE_SYSTEM_LIB_JPEG=1
+        USE_SYSTEM_LIB_LUA=
+        USE_SYSTEM_LIB_PORTAUDIO=1
+        USE_SYSTEM_LIB_PORTMIDI=1
+        USE_SYSTEM_LIB_PUGIXML=1
+        USE_SYSTEM_LIB_RAPIDJSON=1
+        USE_SYSTEM_LIB_SQLITE3=1
+      ]
+    end
+    system "make", *args
+
     bin.install %w[
-      aueffectutil castool chdman floptool imgtool jedutil ldresample ldverify
+      castool chdman floptool imgtool jedutil ldresample ldverify
       nltool nlwav pngcmp regrep romcmp srcclean testkeys unidasm
     ]
     bin.install "split" => "rom-split"
+    on_macos do
+      bin.install "aueffectutil"
+    end
     man1.install Dir["docs/man/*.1"]
   end
 
