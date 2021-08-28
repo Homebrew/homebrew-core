@@ -38,6 +38,12 @@ class PopplerQt5 < Formula
   uses_from_macos "gperf" => :build
   uses_from_macos "curl"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   resource "font-data" do
     url "https://poppler.freedesktop.org/poppler-data-0.4.10.tar.gz"
     sha256 "6e2fcef66ec8c44625f94292ccf8af9f1d918b410d5aa69c274ce67387967b30"
