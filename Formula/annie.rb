@@ -4,6 +4,7 @@ class Annie < Formula
   url "https://github.com/iawia002/annie/archive/v0.11.0.tar.gz"
   sha256 "6b3e005b6bc2519e2c7b4767fcf66a49dc3e8d34c19cd3c6c3d5517720d4f3ff"
   license "MIT"
+  head "https://github.com/iawia002/annie.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "8cae955f23da39b7322ca960edd82ec3ff4f894e1331ed4661ae6e178b778d6d"
