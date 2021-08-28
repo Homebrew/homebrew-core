@@ -126,6 +126,13 @@ class Mailcatcher < Formula
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
+  service do
+    run [opt_bin/"mailcatcher", "-f"]
+    log_path var/"log/mailcatcher.log"
+    error_log_path var/"log/mailcatcher.log"
+    keep_alive true
+  end
+
   test do
     system "mailcatcher"
     (testpath/"mailcatcher.exp").write <<~EOS
