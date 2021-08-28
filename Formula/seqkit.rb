@@ -1,8 +1,8 @@
 class Seqkit < Formula
   desc "Cross-platform and ultrafast toolkit for FASTA/Q file manipulation in Golang"
   homepage "https://bioinf.shenwei.me/seqkit"
-  url "https://github.com/shenwei356/seqkit/archive/refs/tags/v0.16.1.tar.gz"
-  sha256 "43fe3ed16382ff3cb702fe0d724f8d9ce604be4a635106fdc7bd0c3c307bdd75"
+  url "https://github.com/shenwei356/seqkit/archive/v2.0.0.tar.gz"
+  sha256 "5e6be45885300ad53d040136241c3af1fd67ce2e9ef96723751863de57eb1b2c"
   license "MIT"
 
   bottle do
