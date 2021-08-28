@@ -3,8 +3,8 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/4c/28/1ab0e94ed163986cd5c81b23edce50779d11443179fe844f48131b060370/moto-2.2.4.tar.gz"
-  sha256 "ee652be8c3bb52c6c54bcc811f74afbfb317c59dcdfdc96d6027fe93e1b4a94d"
+  url "https://files.pythonhosted.org/packages/28/af/782477b607386d08284c384fb66ba2c1f5d8c7a60a0f5f5a14ab74cedebc/moto-2.2.5.tar.gz"
+  sha256 "45ec8723c51386ad0062d76bbd7c49239c97811988d4f547067eb52a72558134"
   license "Apache-2.0"
 
   bottle do
@@ -34,13 +34,13 @@ class Moto < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/41/38/b35889b32c096193a08d00095cfac00c7b955938f16241cfdc2e58aaac51/boto3-1.18.26.tar.gz"
-    sha256 "39ed0f5004b671e4a4241ae23023ad63674cd25f766bfe1617cfc809728bc3e0"
+    url "https://files.pythonhosted.org/packages/23/e5/c73172de2c65e9a29b999202e483e223f1f7d30b89e024c8123359adfd7e/boto3-1.18.31.tar.gz"
+    sha256 "59445d0e1d55c8c9675697ea41c98a0d82089a4be3076ea60e3a87cbe94dc141"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/05/6d/555954459910a8ef7a6c8ee63a9a85d1097705b61815cb2b2e9a72075a18/botocore-1.21.26.tar.gz"
-    sha256 "911246faac450e13a3ef0e81993dd9bd9c282a7c0f4546bfe8cccf9649364cef"
+    url "https://files.pythonhosted.org/packages/97/d0/89774e883441090c386be4ffa50320adde526b266f0b50d5df9725dad301/botocore-1.21.31.tar.gz"
+    sha256 "58cd315e2ae0971acdb3d7cda9c9c36b41c73181f41943a7443812d6d3c9ad18"
   end
 
   resource "certifi" do
@@ -69,8 +69,8 @@ class Moto < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "docker" do
@@ -101,11 +101,6 @@ class Moto < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/ea/b7/e0e3c1c467636186c39925827be42f16fee389dc404ac29e930e9136be70/idna-2.10.tar.gz"
     sha256 "b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6"
-  end
-
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/aa/b9/514816064db3028d7370f2ce02e8e8f5d9bc68f6f9a41b04d19176aba70e/importlib_metadata-4.6.4.tar.gz"
-    sha256 "7b30a78db2922d78a6f47fb30683156a14f3c6aa5cc23f77cc8967e9ab2d002f"
   end
 
   resource "itsdangerous" do
@@ -251,11 +246,6 @@ class Moto < Formula
   resource "xmltodict" do
     url "https://files.pythonhosted.org/packages/58/40/0d783e14112e064127063fbf5d1fe1351723e5dfe9d6daad346a305f6c49/xmltodict-0.12.0.tar.gz"
     sha256 "50d8c638ed7ecb88d90561beedbf720c9b4e851a9fa6c47ebd64e99d166d8a21"
-  end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/3a/9f/1d4b62cbe8d222539a84089eeab603d8e45ee1f897803a0ae0860400d6e7/zipp-3.5.0.tar.gz"
-    sha256 "f5812b1e007e48cff63449a5e9f4e7ebea716b4111f9c4f9a645f91d579bf0c4"
   end
 
   def install
