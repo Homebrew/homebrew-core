@@ -4,6 +4,7 @@ class Seqkit < Formula
   url "https://github.com/shenwei356/seqkit/archive/v2.0.0.tar.gz"
   sha256 "5e6be45885300ad53d040136241c3af1fd67ce2e9ef96723751863de57eb1b2c"
   license "MIT"
+  head "https://github.com/shenwei356/seqkit.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "3f896c3de25e93c1541ec343e9e23bc818cf6163790c824394f2cde4f5a282b6"
