@@ -3,8 +3,8 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/22/70/4a155430c03c61ee4a95ec06699977354d4c2a05a972399e91aea6ed91d6/dxpy-0.313.0.tar.gz"
-  sha256 "e530b387ba2c0e800f104b7725ab20b82feff034f7c1554a093e9d1dd582bee4"
+  url "https://files.pythonhosted.org/packages/f1/d4/fbcd6fa1f6b2f3b80c02d4198f6ab7065b7430e231826e8ad09f7053166d/dxpy-0.314.0.tar.gz"
+  sha256 "2a8a40822d33f957ba10c5ce0db5036d03f2372d2e62e7831b183f0693397547"
   license "Apache-2.0"
 
   bottle do
@@ -16,6 +16,7 @@ class Dxpy < Formula
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   on_macos do
     depends_on "readline"
@@ -74,11 +75,6 @@ class Dxpy < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
     sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do
