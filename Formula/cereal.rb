@@ -71,7 +71,8 @@ class Cereal < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-std=c++11", "-stdlib=libc++", "-lc++", "-o", "test", "test.cpp"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}", "-o", "test"
     system "./test"
+    assert_predicate testpath/"out.cereal", :exist?
   end
 end
