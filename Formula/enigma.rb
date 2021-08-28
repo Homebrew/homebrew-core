@@ -1,72 +1,69 @@
 class Enigma < Formula
   desc "Puzzle game inspired by Oxyd and Rock'n'Roll"
   homepage "https://www.nongnu.org/enigma/"
-  url "https://downloads.sourceforge.net/project/enigma-game/Release%201.21/enigma-1.21.tar.gz"
-  sha256 "d872cf067d8eb560d3bb1cb17245814bc56ac3953ae1f12e2229c8eb6f82ce01"
-  license "GPL-2.0"
-  revision 4
+  url "https://github.com/Enigma-Game/Enigma/releases/download/1.30/Enigma-1.30-src.tar.gz"
+  sha256 "ae64b91fbc2b10970071d0d78ed5b4ede9ee3868de2e6e9569546fc58437f8af"
+  license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
-    regex(%r{url=.*?/enigma[._-]v?(\d+(?:\.\d+)+)\.t}i)
+    # This uses the git tag to get version numbers.
+    # Stable releases should be tagged like 1.21.1 or 1.30
+    regex(/v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 cellar: :any, catalina:    "38e4eb761c8c03ec2ff3221d576335d60c60ecb5f369e69098d34740118d48e4"
-    sha256 cellar: :any, mojave:      "8011aae1fa4e166dd9fb406844b1efcb246eb26ecc4e29c67dec71a3f8a7b231"
-    sha256 cellar: :any, high_sierra: "9eeb7a516f7188b38bc1a9e9ea2450db22391e65401d1377028881c11acbcc15"
-    sha256 cellar: :any, sierra:      "cdca7a198f3decfc3d387d590f84a7c3125adb06185469afa737eb5d61c150b3"
+    root_url "https://github.com/Enigma-Game/homebrew-enigma/releases/download/enigma-1.30_1"
+    sha256 big_sur:      "3e9122b5f5f5fb39f3d8083d7e97bd77e40201f4db5ded91ba520fce480dc53d"
+    sha256 catalina:     "cc9af7d870ae8ac80a94febb1a0440e8382513be6dba8704356917d12ad9d38a"
+    sha256 mojave:       "22841ba05ef67b8b9e11345dc2a11e5ec36208408488639f6d46af83a0a3607d"
+    sha256 x86_64_linux: "63f862b3d337058eaff45a57c388a6fd485c0e3a0307459bc10747e39b3e55c7"
   end
 
   head do
-    url "https://github.com/Enigma-Game/Enigma.git"
+    url "https://github.com/Enigma-Game/Enigma.git", branch: "master"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
     depends_on "texi2html" => :build
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "imagemagick" => :build
   depends_on "pkg-config" => :build
   depends_on "enet"
   depends_on "freetype"
   depends_on "gettext"
   depends_on "libpng"
-  depends_on "sdl"
-  depends_on "sdl_image"
-  depends_on "sdl_mixer"
-  depends_on "sdl_ttf"
+  depends_on "sdl2"
+  depends_on "sdl2_image"
+  depends_on "sdl2_mixer"
+  depends_on "sdl2_ttf"
   depends_on "xerces-c"
 
-  # See https://github.com/Enigma-Game/Enigma/pull/8
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/4d337833ef2e10c1f06a72170f22b1cafe2b6a78/enigma/c%2B%2B11.patch"
-    sha256 "5870bb761dbba508e998fc653b7b05a130f9afe84180fa21667e7c2271ccb677"
+  on_linux do
+    depends_on "gcc"
   end
 
   def install
-    ENV.cxx11
-
     system "./autogen.sh" if build.head?
-
-    inreplace "configure" do |s|
-      s.gsub!(/-framework (SDL(_(mixer|image|ttf))?)/, '-l\1')
-      s.gsub! %r{\$\{\w+//\\"/\}/lib(freetype|png|xerces-c)\.a}, '-l\1'
-      s.gsub! %r{(LIBINTL)="\$\{with_libintl_prefix\}/lib/lib(intl)\.a"}, '\1=-l\2'
-      s.gsub!(/^\s+LIBENET_CFLAGS\n.*LIBENET.*\n\s+LIBENET_LIBS\n.*LIBENET.*$/, "")
-    end
-    inreplace "src/Makefile.in" do |s|
-      s.gsub! %r{(cp -a /Library/Frameworks/.*)$}, 'echo \1'
-      s.gsub! "mkalias -r", "ln -s"
-    end
-
     system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-libintl-prefix=#{Formula["gettext"].opt_prefix}",
-                          "--with-system-enet"
+                          "--with-system-enet",
+                          "--prefix=#{prefix}"
     system "make"
-    system "make", "macapp"
-    prefix.install "etc/macfiles/Enigma.app"
-    bin.write_exec_script "#{prefix}/Enigma.app/Contents/MacOS/enigma"
+    system "make", "install"
+    system "strip", bin/"enigma"
+    if build.head?
+      system "make", "dist"
+      mkdir_p prefix/"dist" if build.head?
+      dist_tar = Dir["enigma-*.tar.gz"]
+      odie "Unexpected number of artifacts!" if dist_tar.length != 1
+      (prefix/"dist").install dist_tar
+    end
+    mkdir_p prefix/"etc"
+    (prefix/"etc").install "etc/enigmabuilddmg"
+    (prefix/"etc").install "etc/Info.plist"
+    (prefix/"etc").install "etc/enigma.icns"
+    (prefix/"etc").install "etc/menu_bg.jpg"
   end
 
   test do
