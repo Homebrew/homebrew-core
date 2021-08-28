@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/44/16/2cbffd43ba19e972cbea241618926532c2047d4c71b677ddba9674f6fde6/pre_commit-2.14.0.tar.gz"
-  sha256 "2386eeb4cf6633712c7cc9ede83684d53c8cafca6b59f79c738098b51c6d206c"
+  url "https://files.pythonhosted.org/packages/f9/3e/14f27cbad8703a2bb3229bf94926582509c190d750afb3ac3d318551829b/pre_commit-2.14.1.tar.gz"
+  sha256 "7977a3103927932d4823178cbe4719ab55bb336f42a9f3bb2776cff99007a117"
   license "MIT"
 
   bottle do
@@ -17,6 +17,7 @@ class PreCommit < Formula
 
   depends_on "libyaml"
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "backports.entry-points-selectable" do
     url "https://files.pythonhosted.org/packages/e4/7e/249120b1ba54c70cf988a8eb8069af1a31fd29d42e3e05b9236a34533533/backports.entry_points_selectable-1.1.0.tar.gz"
@@ -24,8 +25,8 @@ class PreCommit < Formula
   end
 
   resource "cfgv" do
-    url "https://files.pythonhosted.org/packages/02/a9/19a33d254b54fbf105208bfbb4ecbce1b42a40f970e39db8f8186fdcc171/cfgv-3.3.0.tar.gz"
-    sha256 "9e600479b3b99e8af981ecdfc80a0296104ee610cab48a5ae4ffd0b668650eb1"
+    url "https://files.pythonhosted.org/packages/c4/bf/d0d622b660d414a47dc7f0d303791a627663f554345b21250e39e7acb48b/cfgv-3.3.1.tar.gz"
+    sha256 "f5a830efb9ce7a445376bb66ec94c638a9787422f96264c98edc6bdeed8ab736"
   end
 
   resource "distlib" do
@@ -58,19 +59,14 @@ class PreCommit < Formula
     sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "toml" do
     url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
     sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/e2/04/878273c00ec63df9acf76d1657155243c8874ca38833c62eface20ce15cd/virtualenv-20.7.0.tar.gz"
-    sha256 "97066a978431ec096d163e72771df5357c5c898ffdd587048f45e0aecc228094"
+    url "https://files.pythonhosted.org/packages/6d/89/9691b0d0521c069bd238585ccb7f4035b8393d843a50491270e7dae0209e/virtualenv-20.7.2.tar.gz"
+    sha256 "9ef4e8ee4710826e98ff3075c9a4739e2cb1040de6a2a8d35db0055840dc96a0"
   end
 
   def install

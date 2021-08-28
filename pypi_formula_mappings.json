@@ -157,6 +157,9 @@
   "poetry": {
     "extra_packages": ["importlib-metadata", "typing-extensions"]
   },
+  "pre-commit": {
+    "exclude_packages": ["six"]
+  },
   "principalmapper": {
     "exclude_packages": ["six"]
   },
