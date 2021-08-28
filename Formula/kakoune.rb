@@ -6,8 +6,8 @@ class Kakoune < Formula
 
   # Remove stable block in next release with merged patch
   stable do
-    url "https://github.com/mawww/kakoune/releases/download/v2020.09.01/kakoune-2020.09.01.tar.bz2"
-    sha256 "861a89c56b5d0ae39628cb706c37a8b55bc289bfbe3c72466ad0e2757ccf0175"
+    url "https://github.com/mawww/kakoune/releases/download/v2021.08.28/kakoune-2021.08.28.tar.bz2"
+    sha256 "6f6ed7dfd8c5723210dbd848708acf03af4b847016fd3ede96b2a89ad32276cb"
 
     # Fix build for GCC: error: 'numeric_limits' is not a member of 'std'
     # Remove in the next release
