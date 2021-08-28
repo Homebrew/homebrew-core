@@ -72,6 +72,7 @@
   "juju2": "juju",
   "juju@2.0": "juju",
   "jupyter": "jupyterlab",
+  "kafkacat": "kcat",
   "kde-extra-cmake-modules": "extra-cmake-modules",
   "kde-karchive": "karchive",
   "kde-kdoctools": "kdoctools",
