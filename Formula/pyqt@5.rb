@@ -19,6 +19,12 @@ class PyqtAT5 < Formula
   depends_on "python@3.9"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   # extra components
   resource "PyQt5-sip" do
     url "https://files.pythonhosted.org/packages/b1/40/dd8f081f04a12912b65417979bf2097def0af0f20c89083ada3670562ac5/PyQt5_sip-12.9.0.tar.gz"
@@ -71,7 +77,7 @@ class PyqtAT5 < Formula
     end
 
     components = %w[3d chart datavis networkauth purchasing]
-    components << "webengine" unless Hardware::CPU.arm?
+    on_macos { components << "webengine" unless Hardware::CPU.arm? }
     components.each do |p|
       resource(p).stage do
         inreplace "pyproject.toml", "[tool.sip.project]",
