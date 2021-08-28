@@ -5,7 +5,7 @@ class Inspectrum < Formula
   sha256 "7be5be96f50b0cea5b3dd647f06cc00adfa805a395484aa2ab84cf3e49b7227b"
   license "GPL-3.0-or-later"
   revision 1
-  head "https://github.com/miek/inspectrum.git"
+  head "https://github.com/miek/inspectrum.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "a0fb5fe1d6d28598185e4b550c3eb023edd06caa538965143ad9368fb12fde29"
@@ -20,9 +20,17 @@ class Inspectrum < Formula
   depends_on "liquid-dsp"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args
+      system "make", "install"
+    end
   end
 
   test do
