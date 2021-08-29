@@ -21,6 +21,8 @@ class Exiftool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "451d3581ac54e5b552b9ae6517e9e6d3d78f068e23ed0431200d6d9be814a2f8"
   end
 
+  uses_from_macos "perl"
+
   def install
     # replace the hard-coded path to the lib directory
     inreplace "exiftool", "$1/lib", libexec/"lib"
@@ -30,11 +32,7 @@ class Exiftool < Formula
     libexec.install "lib"
     bin.install "exiftool"
     doc.install Dir["html/*"]
-    suffix = ""
-    on_linux do
-      suffix = "p"
-    end
-    man1.install "blib/man1/exiftool.1#{suffix}"
+    man1.install "blib/man1/exiftool.1"
     man3.install Dir["blib/man3/*"]
   end
 
