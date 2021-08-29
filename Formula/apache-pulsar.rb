@@ -20,7 +20,10 @@ class ApachePulsar < Formula
   def install
     # Missing executable permission reported upstream: https://github.com/apache/pulsar/issues/11833
     chmod "+x", "src/rename-netty-native-libs.sh"
-    with_env("TMPDIR" => buildpath) do
+    with_env(
+      "TMPDIR"    => buildpath,
+      "JAVA_HOME" => Formula["openjdk@11"].opt_prefix,
+    ) do
       system(
         "mvn",
         "-X",
