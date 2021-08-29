@@ -12,7 +12,7 @@ class Neix < Formula
   def install
     system "cmake", ".", *std_cmake_args
     system "make"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install"
   end
 
   test do
