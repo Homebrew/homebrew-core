@@ -45,7 +45,11 @@ jobs:
                 }, {
                     "label": "no Linux bottle",
                     "path": "Formula/.+",
-                    "missing_content": "\n    sha256.* x86_64_linux: +\"[a-fA-F0-9]+\"\n"
+                    "missing_content": [
+                        "\n    sha256.* x86_64_linux: +\"[a-fA-F0-9]+\"\n",
+                        "\n    sha256.* all: +\"[a-fA-F0-9]+\"\n",
+                        "depends_on :macos"
+                    ]
                 }, {
                     "label": "formula deprecated",
                     "path": "Formula/.+",
