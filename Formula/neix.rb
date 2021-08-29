@@ -10,7 +10,7 @@ class Neix < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "cmake", ".", *std_cmake_args, "-DENABLE-TESTS=ON" # Enable the unit tests
+    system "cmake", ".", *std_cmake_args
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
   end
