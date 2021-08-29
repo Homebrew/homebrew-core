@@ -27,16 +27,19 @@ class Portaudio < Formula
 
   depends_on "pkg-config" => :build
 
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "jack"
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--enable-mac-universal=no",
                           "--enable-cxx"
     system "make", "install"
 
     # Need 'pa_mac_core.h' to compile PyAudio
-    include.install "include/pa_mac_core.h"
+    include.install "include/pa_mac_core.h" if OS.mac?
   end
 
   test do
