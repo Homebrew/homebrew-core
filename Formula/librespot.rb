@@ -8,8 +8,14 @@ class Librespot < Formula
 
   depends_on "rust" => :build
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
-    ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path.to_s
+    on_macos do
+      ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path.to_s
+    end
     system "cargo", "install", "--no-default-features", "--features", "rodio-backend,with-dns-sd", *std_cargo_args
   end
 
