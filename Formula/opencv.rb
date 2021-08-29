@@ -37,6 +37,8 @@ class Opencv < Formula
   depends_on "vtk"
   depends_on "webp"
 
+  uses_from_macos "zlib"
+
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.5.3.tar.gz"
     sha256 "73da052fd10e73aaba2560eaff10cc5177e2dcc58b27f8aedf7c649e24c233bc"
@@ -88,6 +90,20 @@ class Opencv < Formula
       -DBUILD_opencv_python3=ON
       -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
+
+    # Disable precompiled headers and force opencv to use brewed libraries on Linux
+    on_linux do
+      args << "-DENABLE_PRECOMPILED_HEADERS=OFF"
+      args << "-DJPEG_LIBRARY=#{Formula["libjpeg"].opt_lib}/libjpeg.so"
+      args << "-DOpenBLAS_LIB=#{Formula["openblas"].opt_lib}/libopenblas.so"
+      args << "-DOPENEXR_ILMIMF_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmImf.so"
+      args << "-DOPENEXR_ILMTHREAD_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmThread.so"
+      args << "-DPNG_LIBRARY=#{Formula["libpng"].opt_lib}/libpng.so"
+      args << "-DPROTOBUF_LIBRARY=#{Formula["protobuf"].opt_lib}/libprotobuf.so"
+      args << "-DTIFF_LIBRARY=#{Formula["libtiff"].opt_lib}/libtiff.so"
+      args << "-DWITH_V4L=OFF"
+      args << "-DZLIB_LIBRARY=#{Formula["zlib"].opt_lib}/libz.so"
+    end
 
     if Hardware::CPU.intel?
       args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
