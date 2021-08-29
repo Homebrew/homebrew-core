@@ -20,7 +20,6 @@ class ApachePulsar < Formula
   def install
     chmod "+x", "src/rename-netty-native-libs.sh"
     with_env(
-      "PATH"      => "#{Formula["openjdk@11"].bin}:#{ENV["PATH"]}",
       "JAVA_HOME" => Formula["openjdk@11"].opt_prefix,
       "TMPDIR"    => buildpath,
     ) do
@@ -51,12 +50,7 @@ class ApachePulsar < Formula
     Pathname.glob("#{libexec}/bin/*") do |path|
       if !path.fnmatch?("*common.sh") && !path.directory?
         bin_name = path.basename
-        (bin+bin_name).write <<~EOS
-          #!/bin/bash
-          export PATH="#{Formula["openjdk@11"].bin}:$PATH"
-          export JAVA_HOME="#{Formula["openjdk@11"].opt_prefix}"
-          exec "#{libexec}/bin/#{bin_name}" "$@"
-        EOS
+        (bin/bin_name).write_env_script libexec/"bin/#{bin_name}", Language::Java.overridable_java_home_env
       end
     end
   end
