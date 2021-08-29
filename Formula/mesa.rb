@@ -39,18 +39,18 @@ class Mesa < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "elfutils"
     depends_on "gcc"
-    depends_on "lm-sensors"
-    depends_on "libelf"
+    depends_on "libdrm"
+    depends_on "libva"
+    depends_on "libvdpau"
     depends_on "libxfixes"
     depends_on "libxrandr"
     depends_on "libxshmfence"
     depends_on "libxv"
     depends_on "libxvmc"
     depends_on "libxxf86vm"
-    depends_on "libva"
-    depends_on "libvdpau"
-    depends_on "libdrm"
+    depends_on "lm-sensors"
     depends_on "wayland"
     depends_on "wayland-protocols"
   end
