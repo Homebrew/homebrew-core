@@ -1,8 +1,8 @@
 class Kompose < Formula
   desc "Tool to move from `docker-compose` to Kubernetes"
   homepage "https://kompose.io/"
-  url "https://github.com/kubernetes/kompose/archive/v1.23.0.tar.gz"
-  sha256 "cd23a5b7ef9189464800a89f7c1cc80ed745ba157ad00506a9996017879805bc"
+  url "https://github.com/kubernetes/kompose/archive/v1.24.0.tar.gz"
+  sha256 "368c45ffdebe70899584e007d02e4a8ee70c01cc245a2baf021e4ba3a0254a06"
   license "Apache-2.0"
 
   bottle do
@@ -16,13 +16,16 @@ class Kompose < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
 
-    output = Utils.safe_popen_read("#{bin}/kompose", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"kompose", "completion", "bash")
     (bash_completion/"kompose").write output
 
-    output = Utils.safe_popen_read("#{bin}/kompose", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"kompose", "completion", "zsh")
     (zsh_completion/"_kompose").write output
+
+    output = Utils.safe_popen_read(bin/"kompose", "completion", "fish")
+    (fish_completion/"kompose.fish").write output
   end
 
   test do
