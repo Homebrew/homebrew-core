@@ -31,16 +31,11 @@ class RomTools < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "glm" => :build
-    depends_on "jpeg" => :build
     depends_on "portaudio" => :build
     depends_on "portmidi" => :build
-    depends_on "pugixml" => :build
     depends_on "pulseaudio" => :build
     depends_on "qt@5" => :build
-    depends_on "rapidjson" => :build
     depends_on "sdl2_ttf" => :build
-    depends_on "sqlite" => :build
     depends_on "gcc" # for C++17
   end
 
@@ -64,16 +59,8 @@ class RomTools < Formula
       USE_SYSTEM_LIB_UTF8PROC=1
     ]
     on_linux do
-      args += %w[
-        USE_SYSTEM_LIB_GLM=1
-        USE_SYSTEM_LIB_JPEG=1
-        USE_SYSTEM_LIB_LUA=
-        USE_SYSTEM_LIB_PORTAUDIO=1
-        USE_SYSTEM_LIB_PORTMIDI=1
-        USE_SYSTEM_LIB_PUGIXML=1
-        USE_SYSTEM_LIB_RAPIDJSON=1
-        USE_SYSTEM_LIB_SQLITE3=1
-      ]
+      args << "USE_SYSTEM_LIB_PORTAUDIO=1"
+      args << "USE_SYSTEM_LIB_PORTMIDI=1"
     end
     system "make", *args
 
