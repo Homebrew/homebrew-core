@@ -3,8 +3,8 @@ class Black < Formula
 
   desc "Python code formatter"
   homepage "https://black.readthedocs.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/20/1b/e167bc0b94bebaa05bb337978b527f2a71bd67f8769ef5a8dbcb44b89c4b/black-21.7b0.tar.gz"
-  sha256 "c8373c6491de9362e39271630b65b964607bc5c79c83783547d76c839b3aa219"
+  url "https://files.pythonhosted.org/packages/09/b0/045f72ac95cd8e2a0e457fb383022e032dc86c040f9b6eaba67968b001e3/black-21.8b0.tar.gz"
+  sha256 "570608d28aa3af1792b98c4a337dbac6367877b47b12b88ab42095cfc1a627c2"
   license "MIT"
 
   livecheck do
@@ -30,11 +30,6 @@ class Black < Formula
   resource "aiohttp_cors" do
     url "https://files.pythonhosted.org/packages/44/9e/6cdce7c3f346d8fd487adf68761728ad8cd5fbc296a7b07b92518350d31f/aiohttp-cors-0.7.0.tar.gz"
     sha256 "4d39c6d7100fd9764ed1caf8cebf0eb01bf5e3f24e2e073fda6234bc48b19f5d"
-  end
-
-  resource "appdirs" do
-    url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
-    sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
   end
 
   resource "async-timeout" do
@@ -73,23 +68,28 @@ class Black < Formula
   end
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/b7/64/e097eea8dcd2b2f7df6e4425fc98e7494e37b1a6e149603c31d327080a05/pathspec-0.8.1.tar.gz"
-    sha256 "86379d6b86d75816baba717e64b1a3a3469deb93bb76d613c9ce79edc5cb68fd"
+    url "https://files.pythonhosted.org/packages/f6/33/436c5cb94e9f8902e59d1d544eb298b83c84b9ec37b5b769c5a0ad6edb19/pathspec-0.9.0.tar.gz"
+    sha256 "e564499435a2673d586f6b2130bb5b95f04a3ba06f81b8f895b651a3c76aabb1"
+  end
+
+  resource "platformdirs" do
+    url "https://files.pythonhosted.org/packages/58/cb/ee4234464290e3dee893cf37d1adc87c24ade86ff6fc55f04a9bf9f1ec4f/platformdirs-2.2.0.tar.gz"
+    sha256 "632daad3ab546bd8e6af0537d09805cec458dce201bccfe23012df73332e181e"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/c0/d1/ad6afa6000ab869f6af2c85985d40558ffb298d9fcb2ab04c0648436008f/regex-2021.7.6.tar.gz"
-    sha256 "8394e266005f2d8c6f0bc6780001f7afa3ef81a7a2111fa35058ded6fce79e4d"
+    url "https://files.pythonhosted.org/packages/15/bd/88d793c2e39b1e91c070bf4d1317db599b1c22efbf6bd194bb568064af21/regex-2021.8.28.tar.gz"
+    sha256 "f585cbbeecb35f35609edccb95efd95a3e35824cd7752b586503f7e6087303f1"
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/5f/9e/0aa632eb780a5e3ff22e3c125dd10859eaccb49404c64b49ce3d517f7e4c/tomli-1.0.4.tar.gz"
-    sha256 "be670d0d8d7570fd0ea0113bd7bb1ba3ac6706b4de062cc4c952769355c9c268"
+    url "https://files.pythonhosted.org/packages/75/50/973397c5ba854445bcc396b593b5db1958da6ab8d665b27397daa1497018/tomli-1.2.1.tar.gz"
+    sha256 "a5b75cb6f3968abb47af1b40c1819dc519ea82bcc065776a866e8d74c5ca9442"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/aa/55/62e2d4934c282a60b4243a950c9dbfa01ae7cac0e8d6c0b5315b87432c81/typing_extensions-3.10.0.0.tar.gz"
-    sha256 "50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"
+    url "https://files.pythonhosted.org/packages/a5/50/6fbfb5a45d4d8024222849f0731f8d8ddc5c7fe657a8f799bd4c605e93e0/typing_extensions-3.10.0.1.tar.gz"
+    sha256 "83af6730a045fda60f46510f7f1f094776d90321caa4d97d20ef38871bef4bd3"
   end
 
   resource "yarl" do
