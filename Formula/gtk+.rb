@@ -49,12 +49,14 @@ class Gtkx < Formula
 
   # Patch to allow Eiffel Studio to run in Cocoa / non-X11 mode, as well as Freeciv's freeciv-gtk2 client
   # See:
+  # - https://gitlab.gnome.org/GNOME/gtk/-/issues/580
+  # referenced from
   # - https://bugzilla.gnome.org/show_bug.cgi?id=757187
   # referenced from
   # - https://bugzilla.gnome.org/show_bug.cgi?id=557780
   # - Homebrew/homebrew-games#278
   patch do
-    url "https://bug757187.bugzilla-attachments.gnome.org/attachment.cgi?id=331173"
+    url "https://gitlab.gnome.org/GNOME/gtk/uploads/2a194d81de8e8346a81816870264b3bf/gdkimage.patch"
     sha256 "ce5adf1a019ac7ed2a999efb65cfadeae50f5de8663638c7f765f8764aa7d931"
   end
 
