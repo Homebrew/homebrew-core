@@ -10,6 +10,7 @@ class Librespot < Formula
 
   on_linux do
     depends_on "pkg-config" => :build
+    depends_on "alsa-lib"
   end
 
   def install
