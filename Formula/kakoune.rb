@@ -1,21 +1,10 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
+  url "https://github.com/mawww/kakoune/releases/download/v2021.08.28/kakoune-2021.08.28.tar.bz2"
+  sha256 "6f6ed7dfd8c5723210dbd848708acf03af4b847016fd3ede96b2a89ad32276cb"
   license "Unlicense"
-  head "https://github.com/mawww/kakoune.git"
-
-  # Remove stable block in next release with merged patch
-  stable do
-    url "https://github.com/mawww/kakoune/releases/download/v2021.08.28/kakoune-2021.08.28.tar.bz2"
-    sha256 "6f6ed7dfd8c5723210dbd848708acf03af4b847016fd3ede96b2a89ad32276cb"
-
-    # Fix build for GCC: error: 'numeric_limits' is not a member of 'std'
-    # Remove in the next release
-    patch do
-      url "https://github.com/mawww/kakoune/commit/a0c23ccb720cb10469c4dfd77342524d6f607a9c.patch?full_index=1"
-      sha256 "01608c5bee3afb00593bddb1289fdec25d4e236aa00c0997a99c3c66ff7bb04d"
-    end
-  end
+  head "https://github.com/mawww/kakoune.git", branch: "master"
 
   livecheck do
     url :stable
