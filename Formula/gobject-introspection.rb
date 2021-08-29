@@ -25,7 +25,7 @@ class GobjectIntrospection < Formula
   depends_on "pkg-config"
   depends_on "python@3.9"
 
-  uses_from_macos "flex"
+  uses_from_macos "flex" => :build
 
   resource "tutorial" do
     url "https://gist.github.com/7a0023656ccfe309337a.git",
