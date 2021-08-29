@@ -1,10 +1,9 @@
 class Libssh2 < Formula
   desc "C library implementing the SSH2 protocol"
   homepage "https://libssh2.org/"
-  url "https://libssh2.org/download/libssh2-1.9.0.tar.gz"
-  sha256 "d5fb8bd563305fd1074dda90bd053fb2d29fc4bce048d182f96eaa466dfadafd"
+  url "https://libssh2.org/download/libssh2-1.10.0.tar.gz"
+  sha256 "2d64e90f3ded394b91d3a2e774ca203a4179f69aebee03003e5a6fa621e41d51"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://libssh2.org/download/"
@@ -22,7 +21,7 @@ class Libssh2 < Formula
   end
 
   head do
-    url "https://github.com/libssh2/libssh2.git"
+    url "https://github.com/libssh2/libssh2.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -35,9 +34,6 @@ class Libssh2 < Formula
 
   def install
     args = %W[
-      --prefix=#{prefix}
-      --disable-debug
-      --disable-dependency-tracking
       --disable-silent-rules
       --disable-examples-build
       --with-openssl
@@ -46,7 +42,7 @@ class Libssh2 < Formula
     ]
 
     system "./buildconf" if build.head?
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 
