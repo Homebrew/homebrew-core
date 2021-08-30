@@ -8,7 +8,7 @@ class Qbs < Formula
 
   livecheck do
     url "https://download.qt.io/official_releases/qbs/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/}i)
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
   end
 
   bottle do
