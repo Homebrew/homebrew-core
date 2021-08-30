@@ -1,9 +1,9 @@
 class Udunits < Formula
   desc "Unidata unit conversion library"
   homepage "https://www.unidata.ucar.edu/software/udunits/"
-  url "https://github.com/Unidata/UDUNITS-2/archive/v2.2.27.6.tar.gz"
-  sha256 "74fd7fb3764ce2821870fa93e66671b7069a0c971513bf1904c6b053a4a55ed1"
-  revision 1
+  url "https://github.com/Unidata/UDUNITS-2/archive/v2.2.27.13.tar.gz"
+  sha256 "23c8a2182c41c3c5c44a3113c05cf7342f35823cb5c831c1ff3e8878bf6ee89e"
+  license :cannot_represent
 
   bottle do
     sha256 arm64_big_sur: "11fbb852b729b417f5c3cca75fcf53b30e5e662638ddac30c59c699e04ae7c75"
@@ -16,9 +16,9 @@ class Udunits < Formula
   depends_on "cmake" => :build
 
   uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "texinfo" => :build
   uses_from_macos "expat"
-  uses_from_macos "flex"
 
   on_linux do
     patch :p1 do
