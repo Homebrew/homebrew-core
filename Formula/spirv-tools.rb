@@ -31,7 +31,7 @@ class SpirvTools < Formula
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "07f259e68af3a540038fa32df522554e74f53ed5"
+        revision: "e71feddb3f17c5586ff7f4cfb5ed1258b800574b"
   end
 
   def install
@@ -43,8 +43,7 @@ class SpirvTools < Formula
       system "cmake", "..", *std_cmake_args,
                             "-DBUILD_SHARED_LIBS=ON",
                             "-DSPIRV_SKIP_TESTS=ON",
-                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF",
-                            "-DEFFCEE_BUILD_TESTING=OFF"
+                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF"
       system "make", "install"
     end
 
