@@ -1,8 +1,9 @@
 class OryHydra < Formula
   desc "OpenID Certified OAuth 2.0 Server and OpenID Connect Provider"
   homepage "https://www.ory.sh/hydra/"
-  url "https://github.com/ory/hydra/archive/v1.10.6.tar.gz"
-  sha256 "68175cbdbdea6e44560ee23812d11af10a3c6bd59dc460c050cef3b7e5e37a71"
+  url "https://github.com/ory/hydra.git",
+    tag:      "v1.10.6",
+    revision: "f1771f13dd954b37330d4e90d89df41fc40be460"
   license "Apache-2.0"
 
   livecheck do
@@ -24,11 +25,18 @@ class OryHydra < Formula
   conflicts_with "hydra", because: "both install `hydra` binaries"
 
   def install
-    ENV["GOBIN"] = bin
-    system "make", "install"
+    ldflags = %W[
+      -s -w
+      -X github.com/ory/hydra/driver/config.Version=v#{version}
+      -X github.com/ory/hydra/driver/config.Date=#{time.iso8601}
+      -X github.com/ory/hydra/driver/config.Commit=#{Utils.git_head}
+    ].join(" ")
+    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "sqlite", "-o", bin/"hydra"
   end
 
   test do
+    assert_match version.to_s, shell_output(bin/"hydra version")
+
     admin_port = free_port
     (testpath/"config.yaml").write <<~EOS
       dsn: memory
