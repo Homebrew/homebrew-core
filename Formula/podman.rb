@@ -34,10 +34,42 @@ class Podman < Formula
   depends_on "go-md2man" => :build
   depends_on "qemu"
 
+  on_linux do
+    depends_on "conmon"
+    depends_on "crun"
+    depends_on "gpgme"
+    depends_on "libseccomp"
+
+    resource "cni-plugins" do
+      url "https://github.com/containernetworking/plugins/archive/v1.0.1.tar.gz"
+      sha256 "2ba3cd9f341a7190885b60d363f6f23c6d20d975a7a0ab579dd516f8c6117619"
+    end
+  end
+
   def install
     ENV["CGO_ENABLED"] = "1"
     os = OS.kernel_name.downcase
 
+    # Install podman, only on Linux
+    if OS.linux?
+      resource("cni-plugins").stage do
+        system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", libexec/"bridge", "./plugins/main/bridge"
+        system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", libexec/"portmap", "./plugins/meta/portmap"
+        system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", libexec/"firewall", "./plugins/meta/firewall"
+        system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", libexec/"tuning", "./plugins/meta/tuning"
+      end
+
+      ENV.O0 # https://github.com/golang/go/issues/26487
+      system "make", "podman"
+      bin.install "bin/podman"
+
+      (pkgshare/"containers.conf").write <<~EOS
+        [network]
+        cni_plugin_dirs = ["#{opt_libexec}"]
+      EOS
+    end
+
+    # Install podman-remote, symlinked as podman on macOS
     system "make", "podman-remote-#{os}"
     if OS.mac?
       bin.install "bin/#{os}/podman" => "podman-remote"
@@ -51,20 +83,39 @@ class Podman < Formula
       libexec.install "bin/gvproxy"
     end
 
+    # Install man pages
     if build.head?
       system "make", "podman-remote-#{os}-docs"
     else
       system "make", "install-podman-remote-#{os}-docs"
     end
 
+    man1.install Dir["docs/build/man/*.1"] if OS.linux?
     man1.install Dir["docs/build/remote/#{os}/*.1"]
 
+    # Install shell completions
     bash_completion.install "completions/bash/podman"
     zsh_completion.install "completions/zsh/_podman"
     fish_completion.install "completions/fish/podman.fish"
   end
 
+  def caveats
+    on_linux do
+      <<~EOS
+        A containers.conf file was installed, but requires the following for podman to find it:
+          sudo mkdir -p /etc/containers
+          sudo cp #{pkgshare}/containers.conf /etc/containers/containers.conf
+      EOS
+    end
+  end
+
   test do
+    if OS.linux?
+      # Linux tests run in Docker without permissions that podman requires
+      output = shell_output("CONTAINERS_CONF=#{pkgshare}/containers.conf #{bin}/podman ps -q 2>&1", 125)
+      assert_match "Error: cannot re-exec process", output
+    end
+
     assert_match "podman-remote version #{version}", shell_output("#{bin}/podman-remote -v")
     assert_match(/Cannot connect to Podman/i, shell_output("#{bin}/podman-remote info 2>&1", 125))
 
