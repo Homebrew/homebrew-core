@@ -1,8 +1,9 @@
 class Nrg2iso < Formula
   desc "Extract ISO9660 data from Nero nrg files"
   homepage "http://gregory.kokanosky.free.fr/v4/linux/nrg2iso.en.html"
-  url "http://gregory.kokanosky.free.fr/v4/linux/nrg2iso-0.4.tar.gz"
-  sha256 "25049d864680ec12bbe31b20597ce8c1ba3a4fe7a7f11e25742b83e2fda94aa3"
+  url "http://gregory.kokanosky.free.fr/v4/linux/nrg2iso-0.4.1.tar.gz"
+  sha256 "3be36a416758fc1910473b49a8dadf2a2aa3d51f1976197336bc174bc1e306e5"
+  license "GPL-3.0-or-later"
 
   # The latest version reported on the English page (nrg2iso.en.html) and the
   # main French page (nrg2iso.html) can differ, so we may want to keep an eye
@@ -25,6 +26,9 @@ class Nrg2iso < Formula
   end
 
   def install
+    # fix version output issue
+    inreplace "nrg2iso.c", "VERSION \"0.4\"", "VERSION \"#{version}\""
+
     system "make"
     bin.install "nrg2iso"
   end
