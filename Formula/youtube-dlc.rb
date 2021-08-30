@@ -6,8 +6,8 @@ class YoutubeDlc < Formula
   url "https://files.pythonhosted.org/packages/1b/12/315fc9d4d619dbe2328b8805a25c26590dc06a0fed276385d89e44ab4e4b/youtube_dlc-2020.11.11.post3.tar.gz"
   sha256 "5aaa0aa5fbd53d9acdfa95bab3c26802926eb27e425f23dc83d55cb18f11d053"
   license "Unlicense"
-  head "https://github.com/blackjack4494/yt-dlc.git", branch: "master"
   revision 1
+  head "https://github.com/blackjack4494/yt-dlc.git", branch: "master"
 
   bottle do
     rebuild 3
