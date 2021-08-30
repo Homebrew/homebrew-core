@@ -4,7 +4,7 @@ class Qcli < Formula
   url "https://github.com/bavc/qctools/archive/v1.2.tar.gz"
   sha256 "d648a5fb6076c6367e4eac320018ccbd1eddcb2160ce175b361b46fcf0d4a710"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
   head "https://github.com/bavc/qctools.git", branch: "master"
 
   bottle do
@@ -17,7 +17,7 @@ class Qcli < Formula
   depends_on "pkg-config" => :build
   depends_on "ffmpeg"
   depends_on "qt@5"
-  depends_on "qwt"
+  depends_on "qwt-qt5"
 
   def install
     qt5 = Formula["qt@5"].opt_prefix
