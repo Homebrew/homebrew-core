@@ -4,6 +4,11 @@ class Tweak < Formula
   url "https://www.chiark.greenend.org.uk/~sgtatham/tweak/tweak-3.02.tar.gz"
   sha256 "5b4c19b1bf8734d1623e723644b8da58150b882efa9f23bbe797c3922f295a1a"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?tweak[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5688f682787ca49543c2a6bed37237fc52c4ecd11707ec7d5688eaa60e9bf21"
     sha256 cellar: :any_skip_relocation, big_sur:       "db84e159f437b7ba3c6592ee9564842e6d21823325777c2317acdda483d452bd"
