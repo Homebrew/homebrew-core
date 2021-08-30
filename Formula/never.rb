@@ -20,9 +20,9 @@ class Never < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6075cc666f6d3d9033692d0ccb7e802411af1ec7d514dbe8bb83ab1001bf3f1c"
   end
 
+  depends_on "bison" => :build
   depends_on "cmake" => :build
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "libffi"
 
