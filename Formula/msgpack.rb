@@ -4,7 +4,7 @@ class Msgpack < Formula
   url "https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz"
   sha256 "6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b"
   license "BSL-1.0"
-  head "https://github.com/msgpack/msgpack-c.git"
+  head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
 
   bottle do
     sha256                               arm64_big_sur: "c66ea6e1ec61f9fa18e8146c9aa8306e39adcb0b31d2d6c6784ddd3d17a479f7"
@@ -23,7 +23,7 @@ class Msgpack < Formula
   end
 
   test do
-    # Reference: https://github.com/msgpack/msgpack-c/blob/HEAD/QUICKSTART-C.md
+    # Reference: https://github.com/msgpack/msgpack-c/blob/c_master/QUICKSTART-C.md
     (testpath/"test.c").write <<~EOS
       #include <msgpack.h>
       #include <stdio.h>
