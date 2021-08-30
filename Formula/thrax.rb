@@ -1,9 +1,16 @@
 class Thrax < Formula
+  include Language::Python::Shebang
+
   desc "Tools for compiling grammars into finite state transducers"
   homepage "http://www.openfst.org/twiki/bin/view/GRM/Thrax"
-  url "http://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.5.tar.gz"
-  sha256 "823182c9bca7f866437c0d8db9fc4c90688766f4492239bfbd73be20687c622e"
+  url "http://www.openfst.org/twiki/pub/GRM/ThraxDownload/thrax-1.3.6.tar.gz"
+  sha256 "5f00a2047674753cba6783b010ab273366dd3dffc160bdb356f7236059a793ba"
   license "Apache-2.0"
+
+  livecheck do
+    url "http://www.openfst.org/twiki/bin/view/GRM/ThraxDownload"
+    regex(/href=.*?thrax[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "df4c441ebe13c259e7ca96811eaa6df1d77aa6da679c1d168a6a783bc156f5d1"
@@ -14,10 +21,17 @@ class Thrax < Formula
 
   depends_on "openfst"
 
+  on_linux do
+    depends_on "gcc"
+    depends_on "python@3.9"
+  end
+
+  fails_with gcc: "5"
+
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking"
+    system "./configure", *std_configure_args
     system "make", "install"
+    on_linux { rewrite_shebang detected_python_shebang, bin/"thraxmakedep" }
   end
 
   test do
@@ -26,8 +40,7 @@ class Thrax < Formula
     cd "grammars" do
       system "#{bin}/thraxmakedep", "example.grm"
       system "make"
-      system "#{bin}/thraxrandom-generator", "--far=example.far",
-                                      "--rule=TOKENIZER"
+      system "#{bin}/thraxrandom-generator", "--far=example.far", "--rule=TOKENIZER"
     end
   end
 end
