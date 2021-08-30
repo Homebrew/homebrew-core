@@ -5,6 +5,7 @@ class Puzzles < Formula
   url "https://www.chiark.greenend.org.uk/~sgtatham/puzzles/puzzles-20210829.55813ea.tar.gz"
   version "20210829"
   sha256 "702670374ea7bec8f63c73d95ef333d4774378a3c9b8e903aa8bcbc92eabff62"
+  license "MIT"
   head "https://git.tartarus.org/simon/puzzles.git", branch: "main"
 
   # There's no directory listing page and the homepage only lists an unversioned
