@@ -14,7 +14,8 @@ class Libgccjit < Formula
   end
   homepage "https://gcc.gnu.org/"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  head "https://gcc.gnu.org/git/gcc.git"
+  revision 1
+  head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   livecheck do
     formula "gcc"
@@ -52,9 +53,9 @@ class Libgccjit < Formula
     args = %W[
       --build=#{cpu}-apple-darwin#{OS.kernel_version.major}
       --prefix=#{prefix}
-      --libdir=#{lib}/gcc/#{version.major}
       --disable-nls
       --enable-checking=release
+      --with-gcc-major-version-only
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
       --with-mpc=#{Formula["libmpc"].opt_prefix}
