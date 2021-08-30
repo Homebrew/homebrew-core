@@ -22,7 +22,7 @@ class ApachePulsar < Formula
     chmod "+x", "src/rename-netty-native-libs.sh"
     with_env(
       "TMPDIR"    => buildpath,
-      "JAVA_HOME" => Formula["openjdk@11"].opt_prefix,
+      "JAVA_HOME" => Language::Java.java_home_env("11"),
     ) do
       system(
         "mvn",
