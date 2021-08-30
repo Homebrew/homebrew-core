@@ -2,8 +2,8 @@ class Libwebsockets < Formula
   desc "C websockets server library"
   homepage "https://libwebsockets.org"
   url "https://github.com/warmcat/libwebsockets.git",
-      tag:      "v4.2.1",
-      revision: "8a580b59b23d204ca72028370e97a8f6aa0c9202"
+      tag:      "v4.2.2",
+      revision: "8d605f0649ed1ab6d27a443c7688598ea21fdb75"
   license "MIT"
   head "https://github.com/warmcat/libwebsockets.git", branch: "main"
 
