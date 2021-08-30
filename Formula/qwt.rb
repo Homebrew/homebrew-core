@@ -4,6 +4,7 @@ class Qwt < Formula
   url "https://downloads.sourceforge.net/project/qwt/qwt/6.2.0/qwt-6.2.0.tar.bz2"
   sha256 "9194f6513955d0fd7300f67158175064460197abab1a92fa127a67a4b0b71530"
   license "LGPL-2.1-only" => { with: "Qwt-exception-1.0" }
+  revision 1
 
   livecheck do
     url :stable
@@ -18,7 +19,7 @@ class Qwt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd8a743a4dcdef47dd5941eba2feb9f5db4f9a63588ebf97c8ebe36d4c7814e4"
   end
 
-  depends_on "qt@5"
+  depends_on "qt"
 
   on_linux do
     depends_on "gcc"
@@ -47,11 +48,10 @@ class Qwt < Formula
     else
       "macx-g++"
     end
-    spec << "-arm64" if Hardware::CPU.arm?
     args << spec
 
-    qt5 = Formula["qt@5"].opt_prefix
-    system "#{qt5}/bin/qmake", *args
+    qt = Formula["qt"]
+    system "#{qt.opt_prefix}/bin/qmake", *args
     system "make"
     system "make", "install"
   end
@@ -64,26 +64,27 @@ class Qwt < Formula
         return (curve1 == NULL);
       }
     EOS
+    qt = Formula["qt"]
     if OS.mac?
       system ENV.cxx, "test.cpp", "-o", "out",
-        "-std=c++11",
+        "-std=c++17",
         "-framework", "qwt", "-framework", "QtCore",
-        "-F#{lib}", "-F#{Formula["qt@5"].opt_lib}",
+        "-F#{lib}", "-F#{qt.opt_lib}",
         "-I#{lib}/qwt.framework/Headers",
-        "-I#{Formula["qt@5"].opt_lib}/QtCore.framework/Versions/5/Headers",
-        "-I#{Formula["qt@5"].opt_lib}/QtGui.framework/Versions/5/Headers"
+        "-I#{qt.opt_include}/QtCore",
+        "-I#{qt.opt_include}/QtGui"
     else
       system ENV.cxx,
-        "-I#{Formula["qt@5"].opt_include}",
-        "-I#{Formula["qt@5"].opt_include}/QtCore",
-        "-I#{Formula["qt@5"].opt_include}/QtGui",
+        "-I#{qt.opt_include}",
+        "-I#{qt.opt_include}/QtCore",
+        "-I#{qt.opt_include}/QtGui",
         "test.cpp",
-        "-lqwt", "-lQt5Core", "-lQt5Gui",
-        "-L#{Formula["qt@5"].opt_lib}",
+        "-lqwt", "-lQt#{qt.version.major}Core", "-lQt#{qt.version.major}Gui",
+        "-L#{qt.opt_lib}",
         "-L#{Formula["qwt"].opt_lib}",
-        "-Wl,-rpath=#{Formula["qt@5"].opt_lib}",
+        "-Wl,-rpath=#{qt.opt_lib}",
         "-Wl,-rpath=#{Formula["qwt"].opt_lib}",
-        "-o", "out", "-std=c++11", "-fPIC"
+        "-o", "out", "-std=c++17", "-fPIC"
     end
     system "./out"
   end
