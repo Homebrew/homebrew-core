@@ -1,9 +1,10 @@
 class S2n < Formula
   desc "Implementation of the TLS/SSL protocols"
   homepage "https://github.com/aws/s2n-tls"
-  url "https://github.com/aws/s2n-tls/archive/refs/tags/v1.0.16.tar.gz"
-  sha256 "7baccd91ef58e5124d43e06d461c6d63a307a609adc9b52b4dc88d5412924bd8"
+  url "https://github.com/aws/s2n-tls/archive/v1.0.17.tar.gz"
+  sha256 "e548c1208205a8959c68f8389eac721fc37fc99d3600790430783972272c9452"
   license "Apache-2.0"
+  head "https://github.com/aws/s2n-tls.git", branch: "main"
 
   livecheck do
     url :stable
@@ -21,11 +22,9 @@ class S2n < Formula
   depends_on "openssl@1.1"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", "-DBUILD_TESTING=OFF"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
