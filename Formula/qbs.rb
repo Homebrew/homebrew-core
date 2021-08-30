@@ -6,6 +6,11 @@ class Qbs < Formula
   license :cannot_represent
   head "https://code.qt.io/qbs/qbs.git", branch: "master"
 
+  livecheck do
+    url "https://download.qt.io/official_releases/qbs/"
+    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/}i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_big_sur: "cdd22251b3d3e27fb2b22f548850f4678232c2ce414523f7c893a9d505e74ac0"
     sha256 cellar: :any, big_sur:       "05e562bc5cafe7d56b1441614240bdfb22e08fee144925f66e09ee18be9b34f3"
