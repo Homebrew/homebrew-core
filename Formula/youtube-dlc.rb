@@ -1,16 +1,13 @@
 class YoutubeDlc < Formula
+  include Language::Python::Virtualenv
+
   desc "Media downloader supporting various sites such as youtube"
   homepage "https://github.com/blackjack4494/yt-dlc"
-  url "https://github.com/blackjack4494/yt-dlc/archive/2020.11.11-3.tar.gz"
-  sha256 "649f8ba9a6916ca45db0b81fbcec3485e79895cec0f29fd25ec33520ffffca84"
+  url "https://files.pythonhosted.org/packages/1b/12/315fc9d4d619dbe2328b8805a25c26590dc06a0fed276385d89e44ab4e4b/youtube_dlc-2020.11.11.post3.tar.gz"
+  sha256 "5aaa0aa5fbd53d9acdfa95bab3c26802926eb27e425f23dc83d55cb18f11d053"
   license "Unlicense"
   head "https://github.com/blackjack4494/yt-dlc.git", branch: "master"
-
-  livecheck do
-    url :stable
-    strategy :github_latest
-    regex(%r{href=.*?/tag/v?(\d+(?:[.-]\d+)+)["' >]}i)
-  end
+  revision 1
 
   bottle do
     rebuild 3
@@ -20,17 +17,14 @@ class YoutubeDlc < Formula
     sha256 cellar: :any_skip_relocation, mojave:        "044a2108153ef9ce3e4e5e7b3e6602c5789ab6f4449511050dbdc4a805e6077e"
   end
 
-  depends_on "pandoc" => :build
   depends_on "python@3.9"
-  uses_from_macos "zip" => :build
 
   def install
-    system "make"
-    bin.install "youtube-dlc"
-    bash_completion.install "youtube-dlc.bash-completion"
-    zsh_completion.install "youtube-dlc.zsh"
-    fish_completion.install "youtube-dlc.fish"
-    man1.install "youtube-dlc.1"
+    virtualenv_install_with_resources
+    man1.install_symlink libexec/"share/man/man1/youtube-dlc.1"
+    bash_completion.install libexec/"share/bash-completion/completions/youtube-dlc"
+    zsh_completion.install libexec/"share/zsh/site-functions/_youtube-dlc"
+    fish_completion.install libexec/"share/fish/vendor_completions.d/youtube-dlc.fish"
   end
 
   test do
