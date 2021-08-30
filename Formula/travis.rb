@@ -163,6 +163,7 @@ class Travis < Formula
     system "gem", "build", "travis.gemspec"
     system "gem", "install", "--ignore-dependencies", "travis-#{version}.gem"
     bin.install libexec/"bin/travis"
+    (libexec/"gems/travis-#{version}/assets/notifications/Travis CI.app").rmtree
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 
