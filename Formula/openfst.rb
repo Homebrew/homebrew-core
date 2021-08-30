@@ -1,8 +1,8 @@
 class Openfst < Formula
   desc "Library for weighted finite-state transducers"
   homepage "http://www.openfst.org/twiki/bin/view/FST/WebHome"
-  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.0.tar.gz"
-  sha256 "9730f1934f60f1320e46af44826e954bc6f7a695946548005ac33c1821745440"
+  url "http://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.1.tar.gz"
+  sha256 "24fb53b72bb687e3fa8ee96c72a31ff2920d99b980a0a8f61dda426fca6713f0"
   license "Apache-2.0"
 
   livecheck do
@@ -17,6 +17,12 @@ class Openfst < Formula
     sha256 cellar: :any, catalina:      "b49da4e3ff869f532bb920a61523f65f131e5fbfe4de034a4422664ca10bb92e"
     sha256 cellar: :any, mojave:        "06cd8774b212aca225964d495f1627dd8e4bc4b58b7d527f9b32bc3a974c69e6"
   end
+
+  on_linux do
+    depends_on "gcc" # for C++17
+  end
+
+  fails_with gcc: "5"
 
   def install
     system "./configure", "--disable-dependency-tracking",
