@@ -6,6 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.9.3.0.tar.gz"
   sha256 "4073ac72524f95fed4bda7dd553cb946f66d2e00bd07c4ae7758f1b787d507e0"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git"
 
   livecheck do
@@ -37,7 +38,7 @@ class Gnuradio < Formula
   depends_on "pyqt@5"
   depends_on "python@3.9"
   depends_on "qt@5"
-  depends_on "qwt"
+  depends_on "qwt-qt5"
   depends_on "six"
   depends_on "soapyrtlsdr"
   depends_on "uhd"
@@ -109,8 +110,8 @@ class Gnuradio < Formula
       -DENABLE_DEFAULT=OFF
       -DPYTHON_EXECUTABLE=#{venv_root}/bin/python
       -DPYTHON_VERSION_MAJOR=3
-      -DQWT_LIBRARIES=#{Formula["qwt"].lib}/qwt.framework/qwt
-      -DQWT_INCLUDE_DIRS=#{Formula["qwt"].lib}/qwt.framework/Headers
+      -DQWT_LIBRARIES=#{Formula["qwt-qt5"].lib}/qwt.framework/qwt
+      -DQWT_INCLUDE_DIRS=#{Formula["qwt-qt5"].lib}/qwt.framework/Headers
       -DCMAKE_PREFIX_PATH=#{Formula["qt@5"].opt_lib}
       -DQT_BINARY_DIR=#{Formula["qt@5"].opt_bin}
       -DENABLE_TESTING=OFF
