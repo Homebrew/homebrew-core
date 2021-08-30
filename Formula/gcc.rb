@@ -14,7 +14,8 @@ class Gcc < Formula
     sha256 "d08edc536b54c372a1010ff6619dd274c0f1603aa49212ba20f7aa2cda36fa8b"
   end
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
-  head "https://gcc.gnu.org/git/gcc.git"
+  revision 1
+  head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   # We can't use `url :stable` here due to the ARM-specific branch above.
   livecheck do
@@ -73,9 +74,9 @@ class Gcc < Formula
 
     args = %W[
       --prefix=#{prefix}
-      --libdir=#{lib}/gcc/#{version_suffix}
       --disable-nls
       --enable-checking=release
+      --with-gcc-major-version-only
       --enable-languages=#{languages.join(",")}
       --program-suffix=-#{version_suffix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
@@ -106,10 +107,6 @@ class Gcc < Formula
         args << "--with-native-system-header-dir=/usr/include"
         args << "--with-sysroot=#{sdk}"
       end
-
-      # Ensure correct install names when linking against libgcc_s;
-      # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
-      inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
     end
 
     on_linux do
