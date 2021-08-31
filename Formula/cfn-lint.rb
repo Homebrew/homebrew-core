@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-python-lint/"
-  url "https://files.pythonhosted.org/packages/7a/97/501de7b17de2f2f95d6fd0c21bda61074e8843bcc83b515b604ee8b5cf70/cfn-lint-0.53.0.tar.gz"
-  sha256 "b7f5964842f7a44c5af9c61d64308dc4bcb718cf5de5428781d5564e9663463d"
+  url "https://files.pythonhosted.org/packages/e5/62/d2c27f3a425267b69e8c9f9efcef8e0466a1d9eab0ae03ce0881f618cce5/cfn-lint-0.53.1.tar.gz"
+  sha256 "45fe0ab893e0ef6dce6f6e41840f6314a5d22ce4c8fa1b46e5970f05889d1621"
   license "MIT-0"
 
   bottle do
@@ -16,6 +16,7 @@ class CfnLint < Formula
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/ed/d6/3ebca4ca65157c12bd08a63e20ac0bdc21ac7f3694040711f9fd073c0ffb/attrs-21.2.0.tar.gz"
@@ -28,13 +29,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f2/85/1a67e5001decf252e693b0ef6c474e7bfc2fac38d91b4f8d5c6e6b34baf9/boto3-1.18.13.tar.gz"
-    sha256 "8c3676239a35eba465e7df2df58ca400219729d4b732b7202f18caf0308ececa"
+    url "https://files.pythonhosted.org/packages/1e/e8/eeb83a81a50faa21ca3a1865ce60649f857749adf727caf72851de1f9948/boto3-1.18.32.tar.gz"
+    sha256 "f4b17a2b6e04e5ec6f494e643d05b06dd60c88943f33d6f9650dd9e7f89a7022"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/20/9f/b212213d2a67b74d7bfaf151f57e983c3b4cef3d983b50b3310afad0e651/botocore-1.21.13.tar.gz"
-    sha256 "37c1c17326f9c81aba73efc6b496ccfe536822e576bc89ceee460dc18108f3a0"
+    url "https://files.pythonhosted.org/packages/5f/89/705ac13ba33df49093d878d94fad7e8f96cf43782edcfb93dbbbd9bacffe/botocore-1.21.32.tar.gz"
+    sha256 "95ff61534b2a423d0e70067c39615e4e70c119773d2180d7254bf4025c54396d"
   end
 
   resource "jmespath" do
@@ -86,11 +87,6 @@ class CfnLint < Formula
   resource "s3transfer" do
     url "https://files.pythonhosted.org/packages/88/ef/4d1b3f52ae20a7e72151fde5c9f254cd83f8a49047351f34006e517e1655/s3transfer-0.5.0.tar.gz"
     sha256 "50ed823e1dc5868ad40c8dc92072f757aa0e653a192845c94a3b676f4a62da4c"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do
