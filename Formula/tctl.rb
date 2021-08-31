@@ -1,8 +1,8 @@
 class Tctl < Formula
   desc "Temporal CLI (tctl)"
   homepage "https://temporal.io/"
-  url "https://github.com/temporalio/temporal/archive/v1.11.4.tar.gz"
-  sha256 "99fc8f4695da9a46f017ebd74cccb567014432aedb4cdfe1aeb97aa010048682"
+  url "https://github.com/temporalio/temporal/archive/v1.12.0.tar.gz"
+  sha256 "04c8612f1553c70899969e9f134b81d6fe54db7e80b580be189b1a901fe92659"
   license "MIT"
 
   bottle do
