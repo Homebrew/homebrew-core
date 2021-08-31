@@ -29,8 +29,13 @@ class Itk < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "gcc"
     depends_on "unixodbc"
+
+    ignore_missing_libraries "libjvm.so"
   end
+
+  fails_with gcc: "5"
 
   def install
     args = std_cmake_args + %W[
@@ -55,8 +60,9 @@ class Itk < Formula
       -DITK_LEGACY_REMOVE=ON
       -DModule_ITKReview=ON
       -DModule_ITKVtkGlue=ON
-      -DITK_USE_GPU=ON
     ]
+
+    on_macos { args << "-DITK_USE_GPU=ON" }
 
     # Avoid references to the Homebrew shims directory
     inreplace "Modules/Core/Common/src/CMakeLists.txt" do |s|
@@ -95,10 +101,10 @@ class Itk < Formula
     system ENV.cxx, "-std=c++11", "-isystem", "#{include}/ITK-#{v}", "-o", "test.cxx.o", "-c", "test.cxx"
     # Linking step
     system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test",
-                    "#{lib}/libITKCommon-#{v}.1.dylib",
-                    "#{lib}/libITKVNLInstantiation-#{v}.1.dylib",
-                    "#{lib}/libitkvnl_algo-#{v}.1.dylib",
-                    "#{lib}/libitkvnl-#{v}.1.dylib"
+                    shared_library("#{lib}/libITKCommon-#{v}", 1),
+                    shared_library("#{lib}/libITKVNLInstantiation-#{v}", 1),
+                    shared_library("#{lib}/libitkvnl_algo-#{v}", 1),
+                    shared_library("#{lib}/libitkvnl-#{v}", 1)
     system "./test"
   end
 end
