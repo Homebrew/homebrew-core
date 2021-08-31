@@ -95,6 +95,9 @@
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
   },
+  "howdoi": {
+    "exclude_packages": ["six"]
+  },
   "internetarchive": {
     "exclude_packages": ["six"]
   },
