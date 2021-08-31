@@ -2,8 +2,8 @@ class ArgocdVaultPlugin < Formula
   desc "Argo CD plugin to retrieve secrets from Secret Management tools"
   homepage "https://ibm.github.io/argocd-vault-plugin"
   url "https://github.com/IBM/argocd-vault-plugin.git",
-      tag:      "v1.2.0",
-      revision: "44a1e9a75d64dd3d5410acfd525128ece1ab1726"
+      tag:      "v1.3.0",
+      revision: "733d62dd23ceb01a183d995799ba9e5566b08eeb"
   license "Apache-2.0"
 
   bottle do
@@ -30,7 +30,7 @@ class ArgocdVaultPlugin < Formula
   end
 
   test do
-    assert_match "This is a plugin to replace <wildcards> with Vault secrets",
+    assert_match "This is a plugin to replace <placeholders> with Vault secrets",
       shell_output("#{bin}/argocd-vault-plugin --help")
 
     touch testpath/"empty.yaml"
