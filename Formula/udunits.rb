@@ -1,9 +1,8 @@
 class Udunits < Formula
   desc "Unidata unit conversion library"
   homepage "https://www.unidata.ucar.edu/software/udunits/"
-  url "https://github.com/Unidata/UDUNITS-2/archive/v2.2.27.6.tar.gz"
-  sha256 "74fd7fb3764ce2821870fa93e66671b7069a0c971513bf1904c6b053a4a55ed1"
-  revision 1
+  url "https://artifacts.unidata.ucar.edu/repository/downloads-udunits/udunits-2.2.28.tar.gz"
+  sha256 "590baec83161a3fd62c00efa66f6113cec8a7c461e3f61a5182167e0cc5d579e"
 
   livecheck do
     url "https://artifacts.unidata.ucar.edu/service/rest/repository/browse/downloads-udunits/"
@@ -18,29 +17,23 @@ class Udunits < Formula
     sha256 x86_64_linux:  "e05daef7e7f7ad70952a77ac4096e5a72f201c04be9c78b3c684b9846ab4cb9d"
   end
 
-  depends_on "cmake" => :build
+  head do
+    url "https://github.com/Unidata/UDUNITS-2.git", branch: "master"
 
-  uses_from_macos "bison" => :build
-  uses_from_macos "texinfo" => :build
-  uses_from_macos "expat"
-  uses_from_macos "flex"
-
-  on_linux do
-    patch :p1 do
-      url "https://github.com/Unidata/UDUNITS-2/commit/0bb56200221ad960bc2da11fc0b4a70ec3c5d7c9.patch?full_index=1"
-      sha256 "8b84fabe21d2da252e6bdd2dd514230d73579ca034d4d83e42f40527dc72fe0c"
-    end
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
+  uses_from_macos "texinfo" => :build
+  uses_from_macos "expat"
+
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-      system "make", "clean"
-      system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
-      system "make"
-      lib.install "lib/libudunits2.a"
-    end
+    system "autoreconf", "--verbose", "--install", "--force" if build.head?
+    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "make", "install"
   end
 
   test do
