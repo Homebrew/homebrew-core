@@ -42,8 +42,12 @@ class Copilot < Formula
   end
 
   test do
-    assert_match "Welcome to the Copilot CLI! We're going to walk you through some questions",
-      shell_output("#{bin}/copilot init 2>&1", 1)
+    begin
+      _, stdout, wait_thr = Open3.popen2("#{bin}/copilot init 2>&1")
+      assert_match "Note: It's best to run this command in the root of your Git repository", stdout.gets("\n")
+    ensure
+      Process.kill 9, wait_thr.pid
+    end
 
     assert_match "could not find an application attached to this workspace, please run `app init` first",
       shell_output("#{bin}/copilot pipeline init 2>&1", 1)
