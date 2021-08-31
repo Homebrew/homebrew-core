@@ -1,18 +1,10 @@
 class Augeas < Formula
   desc "Configuration editing tool and API"
   homepage "https://augeas.net/"
+  url "http://download.augeas.net/augeas-1.12.0.tar.gz"
+  sha256 "321942c9cc32185e2e9cb72d0a70eea106635b50269075aca6714e3ec282cb87"
   license "LGPL-2.1"
   revision 1
-
-  stable do
-    url "http://download.augeas.net/augeas-1.12.0.tar.gz"
-    sha256 "321942c9cc32185e2e9cb72d0a70eea106635b50269075aca6714e3ec282cb87"
-    # This patch is needed until
-    # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=44605 is resolved and makes
-    # its way to an Augeas release. When this patch is deleted, the
-    # unconditional autoconf and automake build dependencies can be removed.
-    patch :DATA
-  end
 
   livecheck do
     url "http://download.augeas.net/"
@@ -31,15 +23,12 @@ class Augeas < Formula
 
   head do
     url "https://github.com/hercules-team/augeas.git"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "bison" => :build
-    depends_on "libtool" => :build
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "bison" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "readline"
 
@@ -51,6 +40,9 @@ class Augeas < Formula
     if build.head?
       system "./autogen.sh", *args
     else
+      # autoreconf is needed to work around
+      # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=44605.
+      system "autoreconf", "--force", "--install"
       system "./configure", *args
     end
 
@@ -68,55 +60,3 @@ class Augeas < Formula
     system bin/"augtool", "print", etc
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 4b8fb40..b8b62da 100755
---- a/configure
-+++ b/configure
-@@ -11039,16 +11039,11 @@ $as_echo "$lt_cv_ld_force_load" >&6; }
-       _lt_dar_allow_undefined='$wl-undefined ${wl}suppress' ;;
-     darwin1.*)
-       _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--    darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[91]*)
--	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
--	10.[012][,.]*)
-+    darwin*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+        10.[[012]],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--	10.*)
-+        *)
- 	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;
-diff --git a/gnulib/m4/libtool.m4 b/gnulib/m4/libtool.m4
-index a644432..c8a4d45 100644
---- a/gnulib/m4/libtool.m4
-+++ b/gnulib/m4/libtool.m4
-@@ -1067,16 +1067,11 @@ _LT_EOF
-       _lt_dar_allow_undefined='$wl-undefined ${wl}suppress' ;;
-     darwin1.*)
-       _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--    darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[[91]]*)
--	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
--	10.[[012]][[,.]]*)
-+    darwin*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+       10.[[012]],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--	10.*)
-+	*)
- 	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;
