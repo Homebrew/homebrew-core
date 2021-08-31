@@ -23,12 +23,6 @@ class Kamel < Formula
   depends_on "go" => :build
   depends_on "openjdk@11" => :build
 
-  # remove in next release
-  patch do
-    url "https://github.com/apache/camel-k/commit/5385f35485e95197be33cd3684392186fe49db31.patch?full_index=1"
-    sha256 "0ab648244ed6e342ac1a1d6ecc878d78e8d0b64b14d872346d29f897e56e6bd1"
-  end
-
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
     system "make"
