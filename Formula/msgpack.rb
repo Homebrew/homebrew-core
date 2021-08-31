@@ -4,6 +4,7 @@ class Msgpack < Formula
   url "https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz"
   sha256 "6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
 
   bottle do
@@ -18,7 +19,8 @@ class Msgpack < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
+    # C++ Headers are now in msgpack-cxx
+    system "cmake", ".", *std_cmake_args, "-DMSGPACK_ENABLE_CXX=OFF"
     system "make", "install"
   end
 
