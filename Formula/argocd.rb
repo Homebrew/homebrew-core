@@ -17,8 +17,6 @@ class Argocd < Formula
   depends_on "go" => :build
 
   def install
-    # this needs to be remove to prevent multiple 'operation not permitted' errors
-    inreplace "Makefile", "CGO_ENABLED=0", ""
     system "make", "cli-local"
     bin.install "dist/argocd"
 
