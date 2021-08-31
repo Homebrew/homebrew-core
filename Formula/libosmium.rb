@@ -15,7 +15,9 @@ class Libosmium < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
 
+  uses_from_macos "bzip2"
   uses_from_macos "expat"
+  uses_from_macos "zlib"
 
   resource "protozero" do
     url "https://github.com/mapbox/protozero/archive/v1.7.0.tar.gz"
@@ -62,7 +64,7 @@ class Libosmium < Formula
       }
     EOS
 
-    system ENV.cxx, "-std=c++11", "-lexpat", "-o", "libosmium_read", "-pthread", "test.cpp"
+    system ENV.cxx, "test.cpp", "-std=c++11", "-lexpat", "-o", "libosmium_read", "-pthread"
     system "./libosmium_read", "test.osm"
   end
 end
