@@ -19,6 +19,13 @@ class Gearman < Formula
   depends_on "libevent"
   depends_on "libmemcached"
 
+  uses_from_macos "gperf" => :build
+  uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "util-linux" # for libuuid
+  end
+
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
