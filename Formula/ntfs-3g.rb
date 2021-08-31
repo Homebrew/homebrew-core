@@ -1,16 +1,13 @@
 class Ntfs3g < Formula
   desc "Read-write NTFS driver for FUSE"
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
-  revision 3
-  stable do
-    url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2017.3.23.tgz"
-    sha256 "3e5a021d7b761261836dcb305370af299793eedbded731df3d6943802e1262d5"
+  url "https://tuxera.com/opensource/ntfs-3g_ntfsprogs-2021.8.22.tgz"
+  sha256 "55b883aa05d94b2ec746ef3966cb41e66bed6db99f22ddd41d1b8b94bb202efb"
+  license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
 
-    # Fails to build on Xcode 9+. Fixed upstream in a0bc659c7ff0205cfa2b2fc3429ee4d944e1bcc3
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3933b61bbae505fa95a24f8d7681a9c5fa26dbc2/ntfs-3g/lowntfs-3g.c.patch"
-      sha256 "749653cfdfe128b9499f02625e893c710e2167eb93e7b117e33cfa468659f697"
-    end
+  livecheck do
+    url :head
+    strategy :github_latest
   end
 
   bottle do
@@ -21,7 +18,7 @@ class Ntfs3g < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/ntfs-3g/ntfs-3g.git", branch: "edge"
+    url "https://github.com/tuxera/ntfs-3g.git", branch: "edge"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
