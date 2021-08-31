@@ -35,6 +35,6 @@ class Eureka < Formula
       homebrew
     EOS
 
-    assert_match "homebrew/README.md: No such file or directory", shell_output("#{bin}/eureka --view 2>&1")
+    assert_match "homebrew/README.md: No such file or directory", pipe_output("#{bin}/eureka --view 2>&1")
   end
 end
