@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://github.com/v8/v8/wiki"
   # Track V8 version from Chrome stable: https://omahaproxy.appspot.com
-  url "https://github.com/v8/v8/archive/9.2.230.29.tar.gz"
-  sha256 "f5f2dd32533adf8b5746ff548dac583ca738c6f30c3315656cb4bec07dbdb178"
+  url "https://github.com/v8/v8/archive/9.3.345.16.tar.gz"
+  sha256 "5be8271738c2da80a89b384ad1fdf8004c1f4d077b85d0a20e924845fb883f2d"
   license "BSD-3-Clause"
 
   livecheck do
@@ -36,46 +36,46 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/9.2.230.29/DEPS#L47
+  # e.g. for CIPD dependency gn: https://github.com/v8/v8/blob/9.3.345.16/DEPS#L52
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "39a87c0b36310bdf06b692c098f199a0d97fc810"
+        revision: "24e2f7df92641de0351a96096fb2c490b2436bb8"
   end
 
-  # e.g.: https://github.com/v8/v8/blob/9.2.230.29/DEPS#L88 for the revision of build for v8 9.2.230.29
-  resource "v8/build" do
-    url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "4036cf1b17581f5668b487a25e252d56e0321a7f"
-  end
-
-  resource "v8/third_party/icu" do
-    url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "f022e298b4f4a782486bb6d5ce6589c998b51fe2"
-  end
-
+  # e.g.: https://github.com/v8/v8/blob/9.3.345.16/DEPS#L93 for the revision of trace event for v8 9.2.230.29
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
         revision: "d5bb24e5d9802c8c917fcaa4375d5239a586c168"
   end
 
+  resource "v8/build" do
+    url "https://chromium.googlesource.com/chromium/src/build.git",
+        revision: "2d999384c270a340f592cce0a0fb3f8f94c15290"
+  end
+
   resource "v8/third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "23ef29555ef4789f555f1ba8c51b4c52975f0907"
+        revision: "4ec4cd23f486bf70efcc5d2caa40f24368f752e3"
+  end
+
+  resource "v8/third_party/icu" do
+    url "https://chromium.googlesource.com/chromium/deps/icu.git",
+        revision: "b9dfc58bf9b02ea0365509244aca13841322feb0"
   end
 
   resource "v8/third_party/jinja2" do
     url "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git",
-        revision: "11b6b3e5971d760bd2d310f77643f55a818a6d25"
+        revision: "7c54c1f227727e0c4c1d3dc19dd71cd601a2db95"
   end
 
   resource "v8/third_party/markupsafe" do
     url "https://chromium.googlesource.com/chromium/src/third_party/markupsafe.git",
-        revision: "0944e71f4b2cb9a871bcbe353f95e889b64a611a"
+        revision: "1b882ef6372b58bfd55a3285f37ed801be9137cd"
   end
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "5b8d433953beb2a75a755ba321a3076b95f7cdb9"
+        revision: "dfbc590f5855bc2765256a743cad0abc56330a30"
   end
 
   def install
@@ -112,6 +112,7 @@ class V8 < Formula
       clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
       use_custom_libcxx:            false, # uses system libc++ instead of Google's custom one
       treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
+      use_lld:                      false, # https://github.com/Homebrew/homebrew-core/pull/84351#issuecomment-909621336
     }
 
     on_linux do
