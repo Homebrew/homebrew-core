@@ -1,8 +1,8 @@
 class VulkanHeaders < Formula
   desc "Vulkan Header files and API registry"
   homepage "https://github.com/KhronosGroup/Vulkan-Headers"
-  url "https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.189.tar.gz"
-  sha256 "0939d6cb950746f6f9cab59399c0a99628ed186426a972996599f90d34d8a99a"
+  url "https://github.com/KhronosGroup/Vulkan-Headers/archive/v1.2.190.tar.gz"
+  sha256 "ce997a3d6f43f9697c5ec232efb0f6e7826d0648412ed141f9495e88429075e0"
   license "Apache-2.0"
 
   bottle do
@@ -12,8 +12,8 @@ class VulkanHeaders < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--install", "build"
   end
 
   test do
