@@ -1,7 +1,7 @@
 class OpusTools < Formula
   desc "Utilities to encode, inspect, and decode .opus files"
   homepage "https://www.opus-codec.org"
-  url "https://archive.mozilla.org/pub/opus/opus-tools-0.2.tar.gz"
+  url "https://archive.mozilla.org/pub/opus/opus-tools-0.2.tar.gz", using: :homebrew_curl
   sha256 "b4e56cb00d3e509acfba9a9b627ffd8273b876b4e2408642259f6da28fa0ff86"
   license "BSD-2-Clause"
 
@@ -15,7 +15,7 @@ class OpusTools < Formula
   end
 
   head do
-    url "https://gitlab.xiph.org/xiph/opus-tools.git"
+    url "https://gitlab.xiph.org/xiph/opus-tools.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -31,8 +31,7 @@ class OpusTools < Formula
 
   def install
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
