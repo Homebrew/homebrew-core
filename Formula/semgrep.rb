@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v0.63.0",
-      revision: "ddf6726caf741f676adb93d552384069c4b152e5"
+      tag:      "v0.64.0",
+      revision: "1e4e0d7443faa21df3dd4de49c246c492f209409"
   license "LGPL-2.1-only"
   head "https://github.com/returntocorp/semgrep.git", branch: "develop"
 
@@ -101,8 +101,8 @@ class Semgrep < Formula
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/6e/ac/a4c038a2e48a8930a7b04711fec48f779875ed3a3d3941663413454b8fa7/ruamel.yaml-0.17.14.tar.gz"
-    sha256 "4185fcfa9e037fea9ffd0bb6172354a03ec98c21e462355d72e068c74e493512"
+    url "https://files.pythonhosted.org/packages/71/81/f597606e81f53eb69330e3f8287e9b5a3f7ed0481824036d550da705cd82/ruamel.yaml-0.17.16.tar.gz"
+    sha256 "1a771fc92d3823682b7f0893ad56cb5a5c87c48e62b5399d6f42c8759a583b33"
   end
 
   resource "ruamel.yaml.clib" do
