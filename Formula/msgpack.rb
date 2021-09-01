@@ -1,10 +1,9 @@
 class Msgpack < Formula
   desc "Library for a binary-based efficient data interchange format"
   homepage "https://msgpack.org/"
-  url "https://github.com/msgpack/msgpack-c/releases/download/cpp-3.3.0/msgpack-3.3.0.tar.gz"
-  sha256 "6e114d12a5ddb8cb11f669f83f32246e484a8addd0ce93f274996f1941c1f07b"
+  url "https://github.com/msgpack/msgpack-c/releases/download/c-4.0.0/msgpack-c-4.0.0.tar.gz"
+  sha256 "420fe35e7572f2a168d17e660ef981a589c9cbe77faa25eb34a520e1fcc032c8"
   license "BSL-1.0"
-  revision 1
   head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
 
   bottle do
@@ -19,7 +18,7 @@ class Msgpack < Formula
 
   def install
     # C++ Headers are now in msgpack-cxx
-    system "cmake", ".", *std_cmake_args, "-DMSGPACK_ENABLE_CXX=OFF"
+    system "cmake", ".", *std_cmake_args
     system "make", "install"
   end
 
