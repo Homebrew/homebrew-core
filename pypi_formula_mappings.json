@@ -105,6 +105,9 @@
   "jenkins-job-builder": {
     "exclude_packages": ["six"]
   },
+  "jupyterlab": {
+    "extra_packages": ["pydevd"]
+  },
   "litecli": {
     "exclude_packages": ["tabulate"]
   },
