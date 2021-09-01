@@ -1,9 +1,11 @@
 class NewrelicInfraAgent < Formula
   desc "New Relic infrastructure agent"
   homepage "https://github.com/newrelic/infrastructure-agent"
-  url "https://github.com/newrelic/infrastructure-agent/archive/refs/tags/1.20.2.tar.gz"
-  sha256 "83f521ed6ed903d9fdbeed8eb59b6b488ce5492fe305d38a7096d4c2f017138d"
+  url "https://github.com/newrelic/infrastructure-agent.git",
+      tag:      "1.20.2",
+      revision: "d30d434995dc539e38ab84f8324f1a07d0f552ff"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/newrelic/infrastructure-agent.git", branch: "master"
 
   bottle do
@@ -13,20 +15,22 @@ class NewrelicInfraAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "80a1f2d22913a89ec427d20a8e03579b6de3f74e23ecf7db99546d513eec35f6"
   end
 
-  depends_on "go" => :build
+  # https://github.com/newrelic/infrastructure-agent/issues/723
+  depends_on "go@1.16" => :build
   # https://github.com/newrelic/infrastructure-agent/issues/695
   depends_on arch: :x86_64
 
   def install
     goarch = Hardware::CPU.arm? ? "arm64" : "amd64"
     ENV["VERSION"] = version.to_s
-    ENV["GOOS"] = if OS.mac?
+    os = if OS.mac?
       ENV["CGO_ENABLED"] = "1"
       "darwin"
     else
       ENV["CGO_ENABLED"] = "0"
       "linux"
     end
+    ENV["GOOS"] = os
     system "make", "dist-for-os"
     bin.install "dist/#{os}-newrelic-infra_#{os}_#{goarch}/newrelic-infra"
     bin.install "dist/#{os}-newrelic-infra-ctl_#{os}_#{goarch}/newrelic-infra-ctl"
