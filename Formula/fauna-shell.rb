@@ -28,6 +28,6 @@ class FaunaShell < Formula
     pipe_output("#{bin}/fauna add-endpoint https://db.fauna.com:443", "your_fauna_secret\nfauna_endpoint\n")
 
     output = shell_output("#{bin}/fauna list-endpoints")
-    assert_equal "fauna_endpoint *\n", output
+    assert_match "fauna_endpoint *\n", output
   end
 end
