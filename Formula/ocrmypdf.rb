@@ -3,8 +3,8 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://github.com/jbarlow83/OCRmyPDF"
-  url "https://files.pythonhosted.org/packages/fc/f5/38d150ec54a959ce786cb6b52a35cffbf02d692de36f7a692acbee920984/ocrmypdf-12.3.3.tar.gz"
-  sha256 "07ef78ff4faf9f6cf8f885076a63ee6828c1dcb05b1b73e5e46da1a70868ddc7"
+  url "https://files.pythonhosted.org/packages/34/64/5592a77a2809e43df7add6d8e38ae4c9c3bdc38d007f046a8bf135b6d5db/ocrmypdf-12.4.0.tar.gz"
+  sha256 "94c1bbc93a93493388930bbc6ede131ea3a17c30476033d99162647c0dc874f6"
   license "MPL-2.0"
 
   bottle do
@@ -85,8 +85,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/f8/04/7a8542bed4b16a65c2714bf76cf5a0b026157da7f75e87cc88774aa10b14/pluggy-0.13.1.tar.gz"
-    sha256 "15b2acde666561e1298d71b523007ed7364de07029219b604cf808bfa1c765b0"
+    url "https://files.pythonhosted.org/packages/a1/16/db2d7de3474b6e37cbb9c008965ee63835bba517e22cdb8c35b5116b5ce1/pluggy-1.0.0.tar.gz"
+    sha256 "4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"
   end
 
   resource "pycparser" do
