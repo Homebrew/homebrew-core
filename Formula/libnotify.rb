@@ -1,9 +1,9 @@
 class Libnotify < Formula
   desc "Library that sends desktop notifications to a notification daemon"
-  homepage "https://developer.gnome.org/libnotify"
+  homepage "https://gitlab.gnome.org/GNOME/libnotify"
   url "https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz"
   sha256 "66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   # libnotify uses GNOME's "even-numbered minor is stable" version scheme but
   # we've been using a development version 0.7.x for many years, so we have to
@@ -67,8 +67,8 @@ class Libnotify < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
+    on_macos { flags << "-lintl" }
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
