@@ -54,6 +54,12 @@ class Audacious < Formula
   depends_on "sdl2"
   depends_on "wavpack"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = std_meson_args + %w[
       -Ddbus=false
