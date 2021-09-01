@@ -1,8 +1,8 @@
 class Clib < Formula
   desc "Package manager for C programming"
   homepage "https://github.com/clibs/clib"
-  url "https://github.com/clibs/clib/archive/2.7.0.tar.gz"
-  sha256 "99640506e1cf69d69451dc5d0db2d8fd169ff8247bda8c6d01dd66e9471ac6a0"
+  url "https://github.com/clibs/clib/archive/2.8.0.tar.gz"
+  sha256 "be474f6697d9a9918cbe4d3cc65a16cba2fbe0aee35d40eaca7b67557e89bce4"
   license "MIT"
   head "https://github.com/clibs/clib.git", branch: "master"
 
