@@ -29,6 +29,7 @@ class Oakc < Formula
   end
 
   test do
+    # test
     system bin/"oak", "-c", "c", pkgshare/"examples/hello_world.ok"
     assert_equal "Hello world!\n", shell_output("./main")
     assert_match "This file tests Oak's doc subcommand",
