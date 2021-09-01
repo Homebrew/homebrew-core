@@ -14,7 +14,6 @@ class Tenyr < Formula
   end
 
   depends_on "bison" => :build # tenyr requires bison >= 2.5
-  depends_on "pkg-config" => :build
   depends_on "sdl2_image"
 
   def install
