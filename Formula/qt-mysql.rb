@@ -1,8 +1,8 @@
 class QtMysql < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.1/6.1.2/submodules/qtbase-everywhere-src-6.1.2.tar.xz"
-  sha256 "b9c4061c1c7999c42c315fc5b0f4f654067b4186066dd729bbcf1bdce8d781c8"
+  url "https://download.qt.io/official_releases/qt/6.1/6.1.3/submodules/qtbase-everywhere-src-6.1.3.tar.xz"
+  sha256 "1e9abb2ea4daa0fd11f46fc871d9e896b916e1b7130fed74c83d66221bb4fe78"
   license all_of: ["LGPL-2.1-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -22,7 +22,7 @@ class QtMysql < Formula
   depends_on "qt"
 
   conflicts_with "qt-mariadb", "qt-percona-server",
-    because: "qt-mysql, qt-mariadb, and qt-percona install the same binaries"
+    because: "qt-mysql, qt-mariadb, and qt-percona-server install the same binaries"
 
   def install
     args = std_cmake_args + %W[
