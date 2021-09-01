@@ -1,8 +1,8 @@
 class Datree < Formula
   desc "CLI tool to run policies against Kubernetes manifests YAML files or Helm charts"
   homepage "https://www.datree.io/"
-  url "https://github.com/datreeio/datree/archive/0.7.1.tar.gz"
-  sha256 "5a17495e60e7748d236af16a56485138d2e10bd769b7779033d0eb37e6f90fb7"
+  url "https://github.com/datreeio/datree/archive/0.9.0.tar.gz"
+  sha256 "cb600b941abe0ad007ea32462559c42bfeacc51739d718a769dfc6e21e8f4ca2"
   license "Apache-2.0"
   head "https://github.com/datreeio/datree.git", branch: "staging"
 
@@ -36,7 +36,7 @@ class Datree < Formula
             targetPort: 9376
     EOS
 
-    assert_match "k8s schema validation error: error while parsing: missing 'apiVersion' key",
+    assert_match "k8s schema validation error: For field (root): Additional property apiversion is not allowed",
       shell_output("#{bin}/datree test #{testpath}/invalidK8sSchema.yaml 2>&1", 1)
 
     assert_equal "#{version}\n", shell_output("#{bin}/datree version")
