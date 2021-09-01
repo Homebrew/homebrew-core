@@ -17,6 +17,8 @@ class SwiftProtobuf < Formula
   depends_on xcode: ["8.3", :build]
   depends_on "protobuf"
 
+  uses_from_macos "swift"
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/protoc-gen-swift"
