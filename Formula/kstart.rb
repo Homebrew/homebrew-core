@@ -1,8 +1,13 @@
 class Kstart < Formula
   desc "Modified version of kinit that can use keytabs to authenticate"
   homepage "https://www.eyrie.org/~eagle/software/kstart/"
-  url "https://archives.eyrie.org/software/kerberos/kstart-4.2.tar.gz"
-  sha256 "2698bc1ab2fb36d49cc946b0cb864c56dd3a2f9ef596bfff59592e13d35315cd"
+  url "https://archives.eyrie.org/software/kerberos/kstart-4.3.tar.xz"
+  sha256 "7a3388ae79927c6698dc1bf20b29717e6bc34f692e00f12b3369d896f6702060"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?kstart[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d61ac55725238820aefe15b3fb7e939f9876bad579a79115168aa60b85a6a9dd"
