@@ -1,9 +1,16 @@
 class Vtclock < Formula
   desc "Text-mode fullscreen digital clock"
-  homepage "https://webonastick.com/vtclock/"
-  url "https://webonastick.com/vtclock/vtclock-2005-02-20.tar.gz"
-  sha256 "5fcbceff1cba40c57213fa5853c4574895755608eaf7248b6cc2f061133dab68"
-  license "GPL-2.0"
+  homepage "https://github.com/dse/vtclock"
+  url "https://github.com/dse/vtclock/archive/0.0.20161228.tar.gz"
+  sha256 "0148411febd672c34e436361f5969371ae5291bdc497c771af403a5ee85a78b4"
+  license "GPL-2.0-or-later"
+  version_scheme 1
+  head "https://github.com/dse/vtclock.git", branch: "master"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "34bc3937dbc073c9f9a210beda09527ae97f49826a3ef32f8f997317481cdf72"
@@ -15,6 +22,9 @@ class Vtclock < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:    "f87c685e59533a0085b439c4153c2734d4091447f5a81c627ccc0d2e589ac65d"
     sha256 cellar: :any_skip_relocation, yosemite:      "a72a8c176276c40a3e9b0c6083a61013efb55b5ea43cd786000dad3c4243dd96"
   end
+
+  depends_on "pkg-config" => :build
+  uses_from_macos "ncurses"
 
   def install
     system "make"
