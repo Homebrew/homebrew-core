@@ -24,6 +24,8 @@ class SwiftFormat < Formula
 
   depends_on xcode: ["12.5", :build]
 
+  uses_from_macos "swift"
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/swift-format"
