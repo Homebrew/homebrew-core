@@ -320,7 +320,8 @@
       "pyobjc-framework-Vision",
       "pyobjc-framework-WebKit",
       "pyobjc-framework-XgridFoundation",
-      "pyobjc"
+      "pyobjc",
+      "six"
    	]
   },
   "sceptre": {
