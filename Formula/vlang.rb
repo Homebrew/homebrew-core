@@ -24,7 +24,7 @@ class Vlang < Formula
     # "[v:master] {short SHA of the vlang release commit} - {vlang version number}".
     # The sources of this V compiler commit need to be used here
     url "https://github.com/vlang/vc.git",
-        revision: "31dd14b7927f154682437be1f2fbeed36c59ea2b"
+        revision: "fd5f57740ff6d7a8566b774318df54c2fa460f92"
   end
 
   def install
