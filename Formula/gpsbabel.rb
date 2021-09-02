@@ -3,7 +3,7 @@ class Gpsbabel < Formula
   homepage "https://www.gpsbabel.org/"
   url "https://github.com/gpsbabel/gpsbabel/archive/gpsbabel_1_7_0.tar.gz"
   sha256 "30b186631fb43db576b8177385ed5c31a5a15c02a6bc07bae1e0d7af9058a797"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
 
   livecheck do
@@ -23,6 +23,12 @@ class Gpsbabel < Formula
   depends_on "shapelib"
 
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   # upstream https://github.com/gpsbabel/gpsbabel/pull/611 added support for configuration of third party libraries.
   patch do
