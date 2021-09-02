@@ -35,25 +35,23 @@ class Ntfs3g < Formula
   end
 
   on_linux do
-    depends_on "libfuse"
+    depends_on "libfuse@2"
   end
 
   def install
-    ENV.append "LDFLAGS", "-lintl"
+    ENV.append "LDFLAGS", "-lintl" if OS.mac?
 
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+    args = std_configure_args + %W[
       --exec-prefix=#{prefix}
       --mandir=#{man}
       --with-fuse=external
       --enable-extras
+      --disable-ldconfig
     ]
 
     system "./autogen.sh" if build.head?
-    # Workaround for hardcoded /sbin in ntfsprogs
-    inreplace "ntfsprogs/Makefile.in", "/sbin", sbin
+    # Workaround for hardcoded /sbin
+    inreplace Dir["{ntfsprogs,src}/Makefile.in"], "$(DESTDIR)/sbin/", "$(DESTDIR)#{sbin}/"
     system "./configure", *args
     system "make"
     system "make", "install"
