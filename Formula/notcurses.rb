@@ -1,8 +1,8 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.3.17.tar.gz"
-  sha256 "81db9d13b515d01b134619f3e69cc1efe9f326030c4e49128131d3288ee68e33"
+  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "9bc35bfaadfd51d45e3de6d3b5d6d484a3042773a10904cb1bf4c7562d834d77"
 
   license "Apache-2.0"
 
@@ -30,11 +30,9 @@ class Notcurses < Formula
   end
 
   test do
-    # without the TERM definition, Notcurses is like a small child, lost in a
-    # horrible mall. of course, if the tests are run in some non-xterm
-    # environment, this choice might prove unfortunate.
-    # you have no chance to survive. make your time.
-    ENV["TERM"] = "xterm"
-    assert_match "notcurses", shell_output("#{bin}/notcurses-info")
+    # current homebrew CI runs with TERM=dumb. given that Notcurses explicitly
+    # does not support dumb terminals (i.e. those lacking the "cup" terminfo
+    # capability), we expect a failure here. all output will go to stderr.
+    assert_empty shell_output("#{bin}/notcurses-info", 1)
   end
 end
