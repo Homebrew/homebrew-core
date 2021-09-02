@@ -3,7 +3,7 @@ class Clhep < Formula
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
   url "https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.5.1.tgz"
   sha256 "2517c9b344ad9f55974786ae6e7a0ef8b22f4abcbf506df91194ea2299ce3813"
-  license "GPL-3.0"
+  license "GPL-3.0-only"
 
   livecheck do
     url :homepage
