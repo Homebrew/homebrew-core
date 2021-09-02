@@ -20,12 +20,25 @@ class ColorCode < Formula
 
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     qt5 = Formula["qt@5"].opt_prefix
     system "#{qt5}/bin/qmake"
     system "make"
-    prefix.install "ColorCode.app"
-    bin.write_exec_script "#{prefix}/ColorCode.app/Contents/MacOS/colorcode"
+
+    on_macos do
+      prefix.install "ColorCode.app"
+      bin.write_exec_script "#{prefix}/ColorCode.app/Contents/MacOS/colorcode"
+    end
+
+    on_linux do
+      bin.install "colorcode"
+    end
   end
 
   test do
