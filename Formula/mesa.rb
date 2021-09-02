@@ -6,6 +6,7 @@ class Mesa < Formula
   url "https://mesa.freedesktop.org/archive/mesa-21.2.1.tar.xz"
   sha256 "2c65e6710b419b67456a48beefd0be827b32db416772e0e363d5f7d54dc01787"
   license "MIT"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   livecheck do
