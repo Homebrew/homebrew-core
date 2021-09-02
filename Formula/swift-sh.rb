@@ -15,10 +15,12 @@ class SwiftSh < Formula
 
   depends_on xcode: ["11.0", :build]
 
+  uses_from_macos "swift"
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/swift-sh"
-    bin.install ".build/release/swift-sh-edit"
+    on_macos { bin.install ".build/release/swift-sh-edit" }
   end
 
   test do
