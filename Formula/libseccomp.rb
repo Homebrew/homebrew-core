@@ -1,8 +1,8 @@
 class Libseccomp < Formula
   desc "Interface to the Linux Kernel's syscall filtering mechanism"
   homepage "https://github.com/seccomp/libseccomp"
-  url "https://github.com/seccomp/libseccomp/releases/download/v2.5.1/libseccomp-2.5.1.tar.gz"
-  sha256 "ee307e383c77aa7995abc5ada544d51c9723ae399768a97667d4cdb3c3a30d55"
+  url "https://github.com/seccomp/libseccomp/releases/download/v2.5.2/libseccomp-2.5.2.tar.gz"
+  sha256 "17a652dfb491d96be893960e9b791914936ee16c13b777a3caf562fe48cb87df"
   license "LGPL-2.1-only"
 
   livecheck do
