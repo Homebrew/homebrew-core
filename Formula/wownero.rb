@@ -2,8 +2,8 @@ class Wownero < Formula
   desc "Official wallet and node software for the Wownero cryptocurrency"
   homepage "https://wownero.org"
   url "https://git.wownero.com/wownero/wownero.git",
-      tag:      "v0.10.0.3",
-      revision: "2bdd70d65d266beeca043f207ebb1964463f4a3b"
+      tag:      "v0.10.1.0",
+      revision: "8ab87421d9321d0b61992c924cfa6e3918118ad0"
   license "BSD-3-Clause"
 
   bottle do
