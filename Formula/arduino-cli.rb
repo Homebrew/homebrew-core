@@ -2,10 +2,9 @@ class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
   url "https://github.com/arduino/arduino-cli.git",
-     tag:      "0.18.3",
-     revision: "d710b642ef7992a678053e9d68996c02f5863721"
+      tag:      "0.19.0",
+      revision: "56419ecdd533e096439f554d80492a2426fed6a9"
   license "GPL-3.0-only"
-  revision 1
   head "https://github.com/arduino/arduino-cli.git", branch: "master"
 
   livecheck do
@@ -21,7 +20,8 @@ class ArduinoCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e18c5bf41053c43af9fe17ecd7a47b4fcb2b910c928e602260e09026e17650c"
   end
 
-  depends_on "go" => :build
+  # Switch to Go 1.17 at version bump
+  depends_on "go@1.16" => :build
 
   def install
     ldflags = %W[
@@ -32,13 +32,13 @@ class ArduinoCli < Formula
     ].join(" ")
     system "go", "build", *std_go_args(ldflags: ldflags)
 
-    output = Utils.safe_popen_read({ "SHELL" => "bash" }, "#{bin}/arduino-cli", "completion", "bash")
+    output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "bash")
     (bash_completion/"arduino-cli").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "zsh" }, "#{bin}/arduino-cli", "completion", "zsh")
+    output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "zsh")
     (zsh_completion/"_arduino-cli").write output
 
-    output = Utils.safe_popen_read({ "SHELL" => "fish" }, "#{bin}/arduino-cli", "completion", "fish")
+    output = Utils.safe_popen_read(bin/"arduino-cli", "completion", "fish")
     (fish_completion/"arduino-cli.fish").write output
   end
 
