@@ -15,6 +15,8 @@ class Xcbeautify < Formula
 
   depends_on xcode: ["11.4", :build]
 
+  uses_from_macos "swift"
+
   def install
     system "swift", "build", "--disable-sandbox", "--configuration", "release"
     bin.install ".build/release/xcbeautify"
