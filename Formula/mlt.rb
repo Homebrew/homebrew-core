@@ -29,6 +29,12 @@ class Mlt < Formula
   depends_on "sdl2"
   depends_on "sox"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = std_cmake_args + %W[
       -DCMAKE_INSTALL_RPATH=#{opt_lib}
