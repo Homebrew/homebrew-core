@@ -23,6 +23,6 @@ class HeliumWallet < Formula
     # Currently disabled since `helium-wallet create basic` requires user input.
     # system "${bin}/helium-wallet create basic -o wallet-test.key"
     # assert_predicate "wallet-test.key", :exist?
-    assert_equal "helium-wallet 1.6.6", shell_output("#{bin}/helium-wallet --version").strip
+    system "#{bin}/helium-wallet", "--version"
   end
 end
