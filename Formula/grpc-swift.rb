@@ -4,7 +4,7 @@ class GrpcSwift < Formula
   url "https://github.com/grpc/grpc-swift/archive/1.3.0.tar.gz"
   sha256 "9d944cb397dfe88cb372c0c4d5095d6eba7f107bdcc3e373ac53b92032e48ac0"
   license "Apache-2.0"
-  head "https://github.com/grpc/grpc-swift.git"
+  head "https://github.com/grpc/grpc-swift.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ba2ea3cb5eac186c74dc2c3cb52a4778d8165d0722f9255db46652a3d4bf68d1"
@@ -15,6 +15,8 @@ class GrpcSwift < Formula
   depends_on xcode: ["12.0", :build]
   depends_on "protobuf"
   depends_on "swift-protobuf"
+
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "--product", "protoc-gen-grpc-swift"
