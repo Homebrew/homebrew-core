@@ -13,10 +13,10 @@
   "ansible@2.9": {
     "extra_packages": [
       "apache-libcloud", "boto3", "dnspython", "docker-py", "junos-eznc", "jxmlease", "kerberos", "ntc-templates",
-      "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-keyczar", "python-neutronclient",
+      "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-neutronclient",
       "pywinrm", "requests-credssp", "shade", "zabbix-api"
     ],
-    "exclude_packages": ["textfsm", "pycrypto"]
+    "exclude_packages": ["pycrypto", "six"]
   },
   "athenacli": {
     "exclude_packages": ["six", "tabulate"]
