@@ -1,9 +1,9 @@
 class Inform6 < Formula
   desc "Design system for interactive fiction"
   homepage "https://inform-fiction.org/inform6.html"
-  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.35-r2.tar.gz"
-  version "6.35-r2"
-  sha256 "5b08987ec4fd1b06f3c0769c7fa13607a7387ff9f901ed375916846b4217582c"
+  url "https://ifarchive.org/if-archive/infocom/compilers/inform6/source/inform-6.35-r3.tar.gz"
+  version "6.35-r3"
+  sha256 "6284a60b7680cc5e228ad6d944d88d6f3eeee5838812ee86dbe42910c9f6e7e2"
   license "Artistic-2.0"
   head "https://gitlab.com/DavidGriffith/inform6unix.git"
 
@@ -22,8 +22,8 @@ class Inform6 < Formula
 
   def install
     # Parallel install fails at:
-    # install -d -m 755 /usr/local/Cellar/inform6/6.35-r2/share/inform/punyinform/documentation
-    # install: /usr/local/Cellar/inform6/6.35-r2/bin/punyinform.sh: Not a directory
+    # install -d -m 755 /usr/local/Cellar/inform6/6.35-r3/share/inform/punyinform/documentation
+    # install: /usr/local/Cellar/inform6/6.35-r3/bin/punyinform.sh: Not a directory
     ENV.deparallelize
     system "make", "PREFIX=#{prefix}", "MAN_PREFIX=#{man}", "MANDIR=#{man1}", "install"
   end
