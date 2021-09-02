@@ -6,8 +6,8 @@ class NestopiaUe < Formula
 
   # Remove stable block in next release with merged patch
   stable do
-    url "https://github.com/0ldsk00l/nestopia/archive/1.51.0.tar.gz"
-    sha256 "9dd3253629a05f68fb730e5bc59148cd5498cea359eff2cbf4202d1e1329bce9"
+    url "https://github.com/0ldsk00l/nestopia/archive/1.51.1.tar.gz"
+    sha256 "6c2198ed5f885b160bf7e22a777a5e139a7625444ec47625cd07a36627e94b3f"
 
     # Fix for build issue: https://github.com/0ldsk00l/nestopia/issues/353
     # Remove in the next release
