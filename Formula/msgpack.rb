@@ -6,6 +6,11 @@ class Msgpack < Formula
   license "BSL-1.0"
   head "https://github.com/msgpack/msgpack-c.git", branch: "c_master"
 
+  livecheck do
+    url :stable
+    regex(/^c[._-]v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "94519c5e879506abb6e665f65982df1b461e53e83904a4ff88bd9ef34a05db83"
     sha256 cellar: :any,                 big_sur:       "a6922853180da9206a75c706502c24971bfa73abf6aeed7b8341a6824e179580"
