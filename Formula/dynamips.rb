@@ -19,16 +19,30 @@ class Dynamips < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libelf"
+
+  uses_from_macos "libpcap"
+
+  on_macos do
+    depends_on "libelf"
+  end
+
+  on_linux do
+    depends_on "elfutils"
+  end
 
   def install
-    ENV.append "CFLAGS", "-I#{Formula["libelf"].include}/libelf"
+    cmake_args = std_cmake_args + ["-DANY_COMPILER=1"]
+    cmake_args << if OS.mac?
+      "-DLIBELF_INCLUDE_DIRS=#{Formula["libelf"].opt_include}/libelf"
+    else
+      "-DLIBELF_INCLUDE_DIRS=#{Formula["elfutils"].opt_include}"
+    end
 
     ENV.deparallelize
-    system "cmake", ".", "-DANY_COMPILER=1", *std_cmake_args
-    system "make", "DYNAMIPS_CODE=stable",
-                   "DYNAMIPS_ARCH=amd64",
-                   "install"
+    mkdir "build" do
+      system "cmake", "..", *cmake_args
+      system "make", "install"
+    end
   end
 
   test do
