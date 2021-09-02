@@ -1,10 +1,9 @@
 class Osmcoastline < Formula
   desc "Extracts coastline data from OpenStreetMap planet file"
   homepage "https://osmcode.org/osmcoastline/"
-  url "https://github.com/osmcode/osmcoastline/archive/v2.3.0.tar.gz"
-  sha256 "b08ddcc8cb494a19cbf4d9f1501c47443fe374a4fe171e6f55c730ca1e710689"
+  url "https://github.com/osmcode/osmcoastline/archive/v2.3.1.tar.gz"
+  sha256 "ab4a94b9bc5a5ab37b14ac4e9cbdf113d5fcf2d5a040a4eed958ffbc6cc1aa63"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "0306a9c8556638a4d128bc15d9adc68736a3022333a55beeb227af97eb30a9aa"
