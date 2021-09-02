@@ -7,6 +7,7 @@ class Samba < Formula
   url "https://download.samba.org/pub/samba/stable/samba-4.14.7.tar.gz"
   sha256 "6f50353f9602aa20245eb18ceb00e7e5ec793df0974aebd5254c38f16d8f1906"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.samba.org/samba/download/"
@@ -50,6 +51,7 @@ class Samba < Formula
         system "make", "install"
       end
     end
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/private" if OS.linux?
     system "./configure",
            "--disable-cephfs",
            "--disable-cups",
@@ -69,6 +71,7 @@ class Samba < Formula
            "--without-syslog",
            "--without-utmp",
            "--without-winbind",
+           "--with-shared-modules=!vfs_snapper",
            "--prefix=#{prefix}"
     system "make"
     system "make", "install"
