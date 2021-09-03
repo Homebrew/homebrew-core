@@ -1,8 +1,8 @@
 class Datree < Formula
   desc "CLI tool to run policies against Kubernetes manifests YAML files or Helm charts"
   homepage "https://www.datree.io/"
-  url "https://github.com/datreeio/datree/archive/0.9.0.tar.gz"
-  sha256 "cb600b941abe0ad007ea32462559c42bfeacc51739d718a769dfc6e21e8f4ca2"
+  url "https://github.com/datreeio/datree/archive/0.11.0.tar.gz"
+  sha256 "dcb5e8138d878ad87cc171631ba1bc8ff29b1565e0a7f4ff216d98b7067aabc3"
   license "Apache-2.0"
   head "https://github.com/datreeio/datree.git", branch: "staging"
 
@@ -15,6 +15,12 @@ class Datree < Formula
   end
 
   depends_on "go" => :build
+
+  # remove in next release
+  patch do
+    url "https://github.com/datreeio/datree/commit/c0c5fb1c1c8e5766969ebec09e7cdbbcc0f460f0.patch?full_index=1"
+    sha256 "8d57c6f92fa0aaba07c79e2fe8312aea29ef40285dcf77d1397ea18cafe3cd5f"
+  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/datreeio/datree/cmd.CliVersion=#{version}"), "-tags", "main"
