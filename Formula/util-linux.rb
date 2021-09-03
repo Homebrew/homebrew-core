@@ -29,7 +29,10 @@ class UtilLinux < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  conflicts_with "rename", because: "both install `rename` binaries"
+  on_linux do
+    conflicts_with "bash-completion", because: "both install `mount`, `rfkill`, and `rtcwake` completions"
+    conflicts_with "rename", because: "both install `rename` binaries"
+  end
 
   def install
     args = std_configure_args + %w[
