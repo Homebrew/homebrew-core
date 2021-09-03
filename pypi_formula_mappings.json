@@ -139,7 +139,8 @@
     "exclude_packages": ["pillow"]
   },
   "openstackclient": {
-    "extra_packages": ["python-heatclient", "python-octaviaclient"]
+    "extra_packages": ["python-heatclient", "python-octaviaclient"],
+    "exclude_packages": ["six"]
   },
   "nicotine-plus": {
     "exclude_packages": ["pycairo", "PyGObject"]
