@@ -4,8 +4,8 @@ class Checkov < Formula
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
   # checkov should only be updated every 15 releases on multiples of 15
-  url "https://files.pythonhosted.org/packages/2d/40/9d1cff447e96608ede5b88e4e518a9ace52415e04bfbbd1c2a626bceb339/checkov-2.0.375.tar.gz"
-  sha256 "e7f9107ec337a5222494d205470fd398b92e64488ee54923e091a0d45d859219"
+  url "https://files.pythonhosted.org/packages/74/65/459f05d2cc7d6f82578bd157e94ac7f5fc2bbe6fe7f172e096300c2bb6c4/checkov-2.0.390.tar.gz"
+  sha256 "f6bcdb29cb93f2d3bde058018d943b9afb5e0cfb62b27f0a5e0e9d5496a1c7f2"
   license "Apache-2.0"
 
   bottle do
@@ -21,8 +21,8 @@ class Checkov < Formula
   depends_on "six"
 
   resource "bc-python-hcl2" do
-    url "https://files.pythonhosted.org/packages/88/3b/864cc7c4793ec8874a02f293d40f36371b6dbcff414e108a72c95069fd79/bc-python-hcl2-0.3.18.tar.gz"
-    sha256 "768c1a3c00db3cb9be7bd1e08c20813cf1e86d4a3cc47a76f7f97172d7b7d432"
+    url "https://files.pythonhosted.org/packages/d8/3d/a845c2cba6a3c799cd9192aa32a44884ec51395dd37ba683ebd38d7e66a2/bc-python-hcl2-0.3.21.tar.gz"
+    sha256 "513fd5d1ce53cc44c4b687cefcb058a7b85ad959042e6b8aa612dde8ffa45faa"
   end
 
   resource "beautifulsoup4" do
@@ -96,8 +96,8 @@ class Checkov < Formula
   end
 
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/fa/a2/e46d7c1b51394a09271a3b07c3a68deb3a669429beafd444d9553ed52868/docker-5.0.0.tar.gz"
-    sha256 "3e8bc47534e0ca9331d72c32f2881bb13b93ded0bcdeab3c833fb7cf61c0a9a5"
+    url "https://files.pythonhosted.org/packages/b9/e4/b902199a501528bae3de060bb3b2e96e3362ec0311dd3e7e38e5e2d66080/docker-5.0.2.tar.gz"
+    sha256 "21ec4998e90dff7a7aaaa098ca8d839c7de412b89e6f6c30908372d58fecf663"
   end
 
   resource "dockerfile-parse" do
@@ -171,8 +171,8 @@ class Checkov < Formula
   end
 
   resource "policyuniverse" do
-    url "https://files.pythonhosted.org/packages/e1/61/25268d1ccd9e3af9c6c53afab3b3b35381489a181673381a14970d7b7740/policyuniverse-1.4.0.20210816.tar.gz"
-    sha256 "1d5136329b4c4d33b114f8c781ebb2e306ff9dc6969d106ece2567e312b2dd15"
+    url "https://files.pythonhosted.org/packages/47/83/81cbcfc4ab4de55191829903171a8be154c7389951e2a8827c23e9c7ac9e/policyuniverse-1.4.0.20210819.tar.gz"
+    sha256 "44145447d473c37ff2776667b5e1018a00c0a493c16a0a489399521b3786a8be"
   end
 
   resource "pyparsing" do
@@ -231,8 +231,8 @@ class Checkov < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/aa/55/62e2d4934c282a60b4243a950c9dbfa01ae7cac0e8d6c0b5315b87432c81/typing_extensions-3.10.0.0.tar.gz"
-    sha256 "50b6f157849174217d0656f99dc82fe932884fb250826c18350e159ec6cdf342"
+    url "https://files.pythonhosted.org/packages/ed/12/c5079a15cf5c01d7f4252b473b00f7e68ee711be605b9f001528f0298b98/typing_extensions-3.10.0.2.tar.gz"
+    sha256 "49f75d16ff11f1cd258e1b988ccff82a3ca5570217d7ad8c5f48205dd99a677e"
   end
 
   resource "update-checker" do
