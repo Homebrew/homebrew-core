@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://linuxcontainers.org"
-  url "https://linuxcontainers.org/downloads/lxd/lxd-4.17.tar.gz"
-  sha256 "54524a25398e366d7ff20726e3bd59a3ac9a4da34b49a370e27ff0599e7ff5cf"
+  url "https://linuxcontainers.org/downloads/lxd/lxd-4.18.tar.gz"
+  sha256 "b60e09e4d349eebfedff8f1ca493533fb7353aceb43cbbcd7f4e340715a5f3a5"
   license "Apache-2.0"
 
   livecheck do
@@ -21,12 +21,9 @@ class Lxc < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
     ENV["GOBIN"] = bin
-    ENV["GO111MODULE"] = "auto"
 
-    ln_s buildpath/"_dist/src", buildpath/"src"
-    system "go", "install", "-v", "github.com/lxc/lxd/lxc"
+    system "go", "build", *std_go_args, "./lxc"
   end
 
   test do
