@@ -1,8 +1,8 @@
 class Arangodb < Formula
   desc "Multi-Model NoSQL Database"
   homepage "https://www.arangodb.com/"
-  url "https://download.arangodb.com/Source/ArangoDB-3.8.0.tar.gz"
-  sha256 "6311ca3abf15831bbfd56743d58945457112a714de61e52f260134dc1523e854"
+  url "https://download.arangodb.com/Source/ArangoDB-3.8.1.tar.gz"
+  sha256 "31a17e09cd7fdec94430b8a97864009f24a142e35cdf185068fe148ae781c3a9"
   license "Apache-2.0"
   head "https://github.com/arangodb/arangodb.git", branch: "devel"
 
@@ -24,14 +24,14 @@ class Arangodb < Formula
   # with a unified CLI
   resource "starter" do
     url "https://github.com/arangodb-helper/arangodb.git",
-        tag:      "0.15.0-1",
-        revision: "df06cb77c7eaf3f232fcf01e04cb871cece07e28"
+        tag:      "0.15.1",
+        revision: "3c27ad4cfb89e96db551445212f78706b7263851"
   end
 
   # Fix compilation with Xcode 13 on 10.14, remove in next release
   patch do
-    url "https://github.com/arangodb/arangodb/commit/4e84448e.patch?full_index=1"
-    sha256 "ac5a8d2fd5a306b9b15c2afc7c3fc8304064ecb461ba2cb4af9408eaad15425c"
+    url "https://github.com/arangodb/arangodb/commit/d3fde7986.patch?full_index=1"
+    sha256 "9699643d4ea2f1b679631b92672215e258c3e7a958638f9fdd8d6de6910dc146"
   end
 
   def install
