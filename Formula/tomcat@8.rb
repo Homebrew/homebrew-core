@@ -5,6 +5,7 @@ class TomcatAT8 < Formula
   mirror "https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.70/bin/apache-tomcat-8.5.70.tar.gz"
   sha256 "eccb6aed7a768ff16c094c292af520219f2882950aa6a107f92e22ecd872d85f"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,13 +25,13 @@ class TomcatAT8 < Formula
 
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
+
+    pkgetc.install Dir["conf/*"]
+    (buildpath/"conf").rmdir
+    libexec.install_symlink pkgetc => "conf"
+
     libexec.install Dir["*"]
     (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
-  end
-
-  def post_install
-    pkgetc.mkpath
-    ln_s pkgetc, libexec/"config" unless (libexec/"config").exist?
   end
 
   def caveats
