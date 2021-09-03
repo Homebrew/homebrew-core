@@ -111,6 +111,9 @@
   "localstack": {
     "exclude_packages": ["six", "tabulate"]
   },
+  "locust": {
+    "exclude_packages": ["six"]
+  },
   "magic-wormhole": {
     "extra_packages": ["wheel"]
   },
