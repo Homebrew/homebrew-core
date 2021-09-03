@@ -118,10 +118,17 @@ class V8 < Formula
     on_linux do
       gn_args[:is_clang] = false # use GCC on Linux
       gn_args[:use_sysroot] = false # don't use sysroot
+      gn_args[:custom_toolchain] = "\"//build/toolchain/linux/unbundle:default\"" # uses system toolchain
+      gn_args[:host_toolchain] = "\"//build/toolchain/linux/unbundle:default\"" # to respect passed LDFLAGS
+      ENV["AR"] = DevelopmentTools.locate("ar")
+      ENV["NM"] = DevelopmentTools.locate("nm")
+      gn_args[:use_rbe] = false
     end
 
     # use clang from homebrew llvm formula, because the system clang is unreliable
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib # but link against system libc++
+    # Make sure private libraries can be found from lib
+    ENV.prepend "LDFLAGS", "-Wl,-rpath,#{libexec}"
 
     # Transform to args string
     gn_args_string = gn_args.map { |k, v| "#{k}=#{v}" }.join(" ")
@@ -133,13 +140,14 @@ class V8 < Formula
     # Install libraries and headers into libexec so d8 can find them, and into standard directories
     # so other packages can find them and they are linked into HOMEBREW_PREFIX
     (libexec/"include").install Dir["include/*"]
-    include.install_symlink Dir["#{libexec}/include/*"]
+    include.install_symlink Dir[libexec/"include/*"]
 
     libexec.install Dir["out.gn/d8", "out.gn/icudtl.dat"]
     bin.write_exec_script libexec/"d8"
 
     libexec.install Dir["out.gn/#{shared_library("*")}"]
-    lib.install_symlink Dir["#{libexec}/#{shared_library("*")}"]
+    lib.install_symlink Dir[libexec/shared_library("libv8*")]
+    on_linux { rm Dir[lib/"*.TOC"] } # Remove symlinks to .so.TOC text files
   end
 
   test do
