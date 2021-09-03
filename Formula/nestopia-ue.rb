@@ -1,21 +1,10 @@
 class NestopiaUe < Formula
   desc "NES emulator"
   homepage "http://0ldsk00l.ca/nestopia/"
+  url "https://github.com/0ldsk00l/nestopia/archive/1.51.1.tar.gz"
+  sha256 "6c2198ed5f885b160bf7e22a777a5e139a7625444ec47625cd07a36627e94b3f"
   license "GPL-2.0-or-later"
   head "https://github.com/0ldsk00l/nestopia.git"
-
-  # Remove stable block in next release with merged patch
-  stable do
-    url "https://github.com/0ldsk00l/nestopia/archive/1.51.1.tar.gz"
-    sha256 "6c2198ed5f885b160bf7e22a777a5e139a7625444ec47625cd07a36627e94b3f"
-
-    # Fix for build issue: https://github.com/0ldsk00l/nestopia/issues/353
-    # Remove in the next release
-    patch do
-      url "https://github.com/0ldsk00l/nestopia/commit/d57e02e19ba88d609a092da5b420432a7251b71d.patch?full_index=1"
-      sha256 "5eba25a40d1b1cefd864e2f3fad160c438f3cb7a1257bea20bbc93c0235c1123"
-    end
-  end
 
   bottle do
     sha256 arm64_big_sur: "788e9075b691d0eb39cd89bd0951fe1510af3dc2838324f8cd7a2a982a80803f"
