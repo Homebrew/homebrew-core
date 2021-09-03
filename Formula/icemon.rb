@@ -3,7 +3,7 @@ class Icemon < Formula
   homepage "https://github.com/icecc/icemon"
   url "https://github.com/icecc/icemon/archive/v3.3.tar.gz"
   sha256 "3caf14731313c99967f6e4e11ff261b061e4e3d0c7ef7565e89b12e0307814ca"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
@@ -14,30 +14,31 @@ class Icemon < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "extra-cmake-modules" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
   depends_on "icecream"
   depends_on "lzo"
   depends_on "qt@5"
 
-  resource "ecm" do
-    url "https://github.com/KDE/extra-cmake-modules/archive/v5.62.0.tar.gz"
-    sha256 "b3da80738ec793e8052819c53464244ff04a0705d92e8143b11d1918df9e970b"
+  on_linux do
+    depends_on "gcc"
   end
 
+  fails_with gcc: "5"
+
   def install
-    resource("ecm").stage do
-      cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"] }
-      system "cmake", ".",
-        "-DCMAKE_INSTALL_PREFIX=#{buildpath}/ecm",
-        *cmake_args
-      system "make", "install"
-    end
-    system "cmake", ".", "-DECM_DIR=ecm/share/ECM/cmake", *std_cmake_args
+    system "cmake", ".", "-DECM_DIR=#{Formula["extra-cmake-modules"].opt_share}/ECM/cmake", *std_cmake_args
     system "make", "install"
   end
 
   test do
-    system "#{bin}/icemon", "--version"
+    on_macos do
+      system "#{bin}/icemon", "--version"
+    end
+    on_linux do
+      assert_match("qt.qpa.xcb: could not connect to display",
+                   shell_output("#{bin}/icemon --version 2>&1", 134))
+    end
   end
 end
