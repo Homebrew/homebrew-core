@@ -33,9 +33,9 @@ class Mpi4py < Formula
     system python, "-c", "import mpi4py.MPI"
     system python, "-c", "import mpi4py.futures"
 
-    system "mpiexec", "-n", ENV.make_jobs,
+    system "mpiexec", "-n", ENV.make_jobs, "--use-hwthread-cpus",
            python, "-m", "mpi4py.run", "-m", "mpi4py.bench", "helloworld"
-    system "mpiexec", "-n", ENV.make_jobs,
+    system "mpiexec", "-n", ENV.make_jobs, "--use-hwthread-cpus",
            python, "-m", "mpi4py.run", "-m", "mpi4py.bench", "ringtest", "-l", "10", "-n", "1024"
   end
 end
