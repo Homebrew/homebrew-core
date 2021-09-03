@@ -19,7 +19,21 @@ class Mockolo < Formula
   uses_from_macos "swift"
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox", "--verbose"
+    swift_f = Formula["swift"]
+
+    # Skip the shims for testing; do not merge
+    swift = if OS.mac? && MacOS.version <= :catalina
+      swift_f.opt_prefix/"Swift-#{swift_f.version}.xctoolchain/usr/bin/swift"
+    else
+      "swift"
+    end
+
+    if OS.linux?
+      ENV["CC"] = swift_f.opt_libexec/"bin/clang"
+      ENV["CXX"] = swift_f.opt_libexec/"bin/clang++"
+    end
+
+    system swift, "build", "-c", "release", "--disable-sandbox", "--verbose"
     bin.install ".build/release/mockolo"
   end
 
