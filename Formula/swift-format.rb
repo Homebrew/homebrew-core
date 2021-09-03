@@ -29,11 +29,16 @@ class SwiftFormat < Formula
   end
 
   def install
+    swift_f = Formula["swift"]
     swift = if OS.mac? && MacOS.version <= :catalina
-      f = Formula["swift"]
-      f.opt_prefix/"Swift-#{f.version}.xctoolchain/usr/bin/swift"
+      swift_f.opt_prefix/"Swift-#{swift_f.version}.xctoolchain/usr/bin/swift"
     else
       "swift"
+    end
+
+    if OS.linux?
+      ENV["CC"] = swift_f.opt_libexec/"bin/clang"
+      ENV["CXX"] = swift_f.opt_libexec/"bin/clang++"
     end
 
     system swift, "build", "--disable-sandbox", "-c", "release"
