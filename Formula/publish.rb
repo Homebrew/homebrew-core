@@ -21,7 +21,21 @@ class Publish < Formula
   uses_from_macos "swift"
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    swift_f = Formula["swift"]
+
+    swift = if OS.mac? && MacOS.version <= :catalina
+      swift_f.opt_prefix/"Swift-#{swift_f.version}.xctoolchain/usr/bin/swift"
+    else
+      "swift"
+    end
+
+    # Skip the shims for testing; do not merge
+    if OS.linux?
+      ENV["CC"] = swift_f.opt_libexec/"bin/clang"
+      ENV["CXX"] = swift_f.opt_libexec/"bin/clang++"
+    end
+
+    system swift, "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/publish-cli" => "publish"
   end
 
