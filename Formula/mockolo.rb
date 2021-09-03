@@ -19,7 +19,7 @@ class Mockolo < Formula
   uses_from_macos "swift"
 
   def install
-    system "swift", "build", "-c", "release", "--disable-sandbox"
+    system "swift", "build", "-c", "release", "--disable-sandbox", "--verbose"
     bin.install ".build/release/mockolo"
   end
 
