@@ -11,8 +11,14 @@ class Publish < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "76ec25c3a77331097114f184bd69185e0b000d1b84f9f7be932021bcc62894cc"
   end
 
-  # https://github.com/JohnSundell/Publish#system-requirements
-  depends_on xcode: ["12.5", :build]
+  if MacOS.version >= :big_sur
+    # https://github.com/JohnSundell/Publish#system-requirements
+    depends_on xcode: ["12.5", :build]
+  else
+    depends_on "swift" => :build
+  end
+
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
