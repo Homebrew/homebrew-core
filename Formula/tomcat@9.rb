@@ -5,6 +5,7 @@ class TomcatAT9 < Formula
   mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.52/bin/apache-tomcat-9.0.52.tar.gz"
   sha256 "29909c659fda7a2e06be17684a1fadbbae9ed4cdecf8077c4ede1c34e4d4a631"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,13 +25,13 @@ class TomcatAT9 < Formula
 
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
+
+    pkgetc.install Dir["conf/*"]
+    (buildpath/"conf").rmdir
+    libexec.install_symlink pkgetc => "conf"
+
     libexec.install Dir["*"]
     (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
-  end
-
-  def post_install
-    pkgetc.mkpath
-    ln_s pkgetc, libexec/"config" unless (libexec/"config").exist?
   end
 
   def caveats
