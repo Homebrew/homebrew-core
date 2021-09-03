@@ -1,8 +1,8 @@
 class Dav1d < Formula
   desc "AV1 decoder targeted to be small and fast"
   homepage "https://code.videolan.org/videolan/dav1d"
-  url "https://code.videolan.org/videolan/dav1d/-/archive/0.9.1/dav1d-0.9.1.tar.bz2"
-  sha256 "fb2a050e6c2410c99104f631e202a02697dfe1a2fc9acc3c50a16422aefb004c"
+  url "https://code.videolan.org/videolan/dav1d/-/archive/0.9.2/dav1d-0.9.2.tar.bz2"
+  sha256 "0d198c4fe63fe7f0395b1b17de75b21c8c4508cd3204996229355759efa30ef8"
   license "BSD-2-Clause"
 
   bottle do
