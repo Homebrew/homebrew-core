@@ -8,7 +8,7 @@ class Dwm < Formula
   head "https://git.suckless.org/dwm", using: :git
 
   livecheck do
-    url :homepage
+    url "https://dl.suckless.org/dwm/"
     regex(/href=.*?dwm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
