@@ -19,6 +19,8 @@ class Bzrtools < Formula
     sha256 cellar: :any_skip_relocation, all: "27337af0179d9a1a9897def816bfc6c9e85df08186bdb72918bc6327c2b7c2db"
   end
 
+  deprecate! date: "2021-08-19", because: :unsupported
+
   depends_on "bazaar"
 
   def install
