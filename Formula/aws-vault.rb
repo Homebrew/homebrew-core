@@ -15,15 +15,9 @@ class AwsVault < Formula
 
   depends_on "go" => :build
 
-  def install
-    # Remove this line because we don't have a certificate to code sign with
-    inreplace "Makefile",
-      "codesign --options runtime --timestamp --sign \"$(CERT_ID)\" $(INSTALL_DIR)/aws-vault || true", ""
-    os = "darwin"
-    on_linux { os = "linux" }
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
+  depends_on :linux # at upstreams request because without signed binaries it's less convenient to use
 
-    system "make", "aws-vault-#{os}-#{arch}", "VERSION=#{version}-#{tap.user}"
+  def install
     system "make", "install", "INSTALL_DIR=#{bin}", "VERSION=#{version}-#{tap.user}"
 
     zsh_completion.install "contrib/completions/zsh/aws-vault.zsh"
