@@ -15,10 +15,7 @@ class Geph4 < Formula
   depends_on "rust" => :build
 
   def install
-    File.delete("Cross.toml")
-    remove_dir(".cargo")
-    Dir.chdir "geph4-client"
-    system "cargo", "install", "--bin", "geph4-client", *std_cargo_args
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
