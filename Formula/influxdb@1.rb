@@ -21,6 +21,7 @@ class InfluxdbAT1 < Formula
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
 
   # NOTE: The version here is specified in the go.mod of influxdb.
   # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
