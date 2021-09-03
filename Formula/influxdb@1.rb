@@ -20,8 +20,23 @@ class InfluxdbAT1 < Formula
   keg_only :versioned_formula
 
   depends_on "go" => :build
+  depends_on "pkg-config" => :build
+
+  # NOTE: The version here is specified in the go.mod of influxdb.
+  # If you're upgrading to a newer influxdb version, check to see if this needs upgraded too.
+  resource "pkg-config-wrapper" do
+    url "https://github.com/influxdata/pkg-config/archive/v0.2.7.tar.gz"
+    sha256 "9bfe2c06b09fe7f3274f4ff8da1d87c9102640285bb38dad9a8c26dd5b9fe5af"
+  end
 
   def install
+    # Set up the influxdata pkg-config wrapper to enable just-in-time compilation & linking
+    # of the Rust components in the server.
+    resource("pkg-config-wrapper").stage do
+      system "go", "build", *std_go_args, "-o", buildpath/"bootstrap/pkg-config"
+    end
+    ENV.prepend_path "PATH", buildpath/"bootstrap"
+
     ldflags = "-s -w -X main.version=#{version}"
 
     %w[influxd influx influx_stress influx_inspect].each do |f|
