@@ -22,7 +22,11 @@ class SwiftFormat < Formula
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
 
-  depends_on xcode: ["12.5", :build]
+  if MacOS.version >= :big_sur
+    depends_on xcode: ["12.5", :build]
+  else
+    depends_on "swift"
+  end
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
