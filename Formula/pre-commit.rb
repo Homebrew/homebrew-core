@@ -3,8 +3,8 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/f9/3e/14f27cbad8703a2bb3229bf94926582509c190d750afb3ac3d318551829b/pre_commit-2.14.1.tar.gz"
-  sha256 "7977a3103927932d4823178cbe4719ab55bb336f42a9f3bb2776cff99007a117"
+  url "https://files.pythonhosted.org/packages/63/9e/f139fe6176b417e8c725f0ecfe5021e2edc88c5e00358aacbf812f3224ed/pre_commit-2.15.0.tar.gz"
+  sha256 "3c25add78dbdfb6a28a651780d5c311ac40dd17f160eb3954a0c59da40a505a7"
   license "MIT"
 
   bottle do
@@ -50,8 +50,8 @@ class PreCommit < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/cb/ee4234464290e3dee893cf37d1adc87c24ade86ff6fc55f04a9bf9f1ec4f/platformdirs-2.2.0.tar.gz"
-    sha256 "632daad3ab546bd8e6af0537d09805cec458dce201bccfe23012df73332e181e"
+    url "https://files.pythonhosted.org/packages/e2/d4/c6ffe89de09851892b1418dc22f6ab019b7b6f362532ab813c262e1722bb/platformdirs-2.3.0.tar.gz"
+    sha256 "15b056538719b1c94bdaccb29e5f81879c7f7f0f4a153f46086d155dffcd4f0f"
   end
 
   resource "PyYAML" do
