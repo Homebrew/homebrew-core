@@ -84,7 +84,7 @@ class MoltenVk < Formula
     end
 
     # Build ExternalDependencies
-    xcodebuild "-arch", Hardware::CPU.arch,
+    xcodebuild "ARCHS=#{Hardware::CPU.arch}", "ONLY_ACTIVE_ARCH=YES",
                "-project", "ExternalDependencies.xcodeproj",
                "-scheme", "ExternalDependencies-macOS",
                "-derivedDataPath", "External/build",
@@ -92,30 +92,28 @@ class MoltenVk < Formula
                "build"
 
     # Create SPIRVCross.xcframework
-    xcodebuild "-arch", Hardware::CPU.arch,
-               "-quiet", "-create-xcframework",
+    xcodebuild "-quiet", "-create-xcframework",
                "-output", "External/build/Latest/SPIRVCross.xcframework",
                "-library", "External/build/Intermediates/XCFrameworkStaging/" \
                            "Release/Platform/libSPIRVCross.a"
 
     # Create SPIRVTools.xcframework
-    xcodebuild "-arch", Hardware::CPU.arch,
-               "-quiet", "-create-xcframework",
+    xcodebuild "-quiet", "-create-xcframework",
                "-output", "External/build/Latest/SPIRVTools.xcframework",
                "-library", "External/build/Intermediates/XCFrameworkStaging/" \
                            "Release/Platform/libSPIRVTools.a"
 
     # Created glslang.xcframework
-    xcodebuild "-arch", Hardware::CPU.arch,
-               "-quiet", "-create-xcframework",
+    xcodebuild "-quiet", "-create-xcframework",
                "-output", "External/build/Latest/glslang.xcframework",
                "-library", "External/build/Intermediates/XCFrameworkStaging/" \
                            "Release/Platform/libglslang.a"
 
     # Build MoltenVK Package
-    xcodebuild "-arch", Hardware::CPU.arch,
+    xcodebuild "ARCHS=#{Hardware::CPU.arch}", "ONLY_ACTIVE_ARCH=YES",
                "-project", "MoltenVKPackaging.xcodeproj",
                "-scheme", "MoltenVK Package (macOS only)",
+               "-derivedDataPath", "#{buildpath}/build",
                "SYMROOT=#{buildpath}/build", "OBJROOT=build",
                "build"
 
