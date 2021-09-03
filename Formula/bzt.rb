@@ -88,6 +88,13 @@ class Bzt < Formula
   resource "fuzzyset" do
     url "https://files.pythonhosted.org/packages/2e/78/7509f3efbb6acbcf842d7bdbd9a919ca8c0ed248123bdd8c57f08497e0dd/fuzzyset-0.0.19.tar.gz"
     sha256 "2bf5a3de20f107124a4842d875e5005ee523719f97ab731caf4121e86ec8ccbc"
+
+    # fix fuzzyset build with python 3.9
+    # https://github.com/axiak/fuzzyset/pull/29
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/487abfb0b16d010c2e12edb3f09977f6bf485403/bzt/fuzzyset-0.0.19.patch"
+      sha256 "6fdf909cafcb4dfa66dbff163c6f30dd2568e4673b36ef3a442da67980394591"
+    end
   end
 
   resource "hdrpy" do
