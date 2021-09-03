@@ -12,8 +12,13 @@ class Bartycrouch < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "4588599e70c69ce5f5e28c4946978cc09fad5f003368a309df251b45bfca2c5f"
   end
 
-  depends_on xcode: ["12.5", :build]
-  depends_on :macos
+  if MacOS.version >= :big_sur
+    depends_on xcode: ["12.5", :build]
+  else
+    depends_on "swift" => :build
+  end
+
+  uses_from_macos "swift"
 
   def install
     system "make", "install", "prefix=#{prefix}"
