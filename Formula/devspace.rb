@@ -23,6 +23,12 @@ class Devspace < Formula
   depends_on "go" => :build
   depends_on "kubernetes-cli"
 
+  # remove in next release
+  patch do
+    url "https://github.com/loft-sh/devspace/commit/51ce9934a921c648b34ee550b83f0e6a45f5d936.patch?full_index=1"
+    sha256 "ad0dd665a178099e7457ed71aac9b0dfa998c490233f26b7adb690cfce55b8de"
+  end
+
   def install
     ldflags = %W[
       -s -w
