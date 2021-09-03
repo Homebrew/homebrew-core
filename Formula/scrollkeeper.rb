@@ -53,6 +53,10 @@ class Scrollkeeper < Formula
   end
 
   test do
-    assert_match "11eb", shell_output("scrollkeeper-gen-seriesid")
+    seriesid1 = shell_output("scrollkeeper-gen-seriesid").strip
+    seriesid2 = shell_output("scrollkeeper-gen-seriesid").strip
+    assert_match(/^\h+(?:-\h+)+$/, seriesid1)
+    assert_match(/^\h+(?:-\h+)+$/, seriesid2)
+    refute_equal seriesid1, seriesid2
   end
 end
