@@ -31,7 +31,7 @@ class SwiftFormat < Formula
   def install
     swift = if OS.mac? && MacOS.version <= :catalina
       f = Formula["swift"]
-      f.opt_prefix/"Swift-#{f.version.major_minor}.xctoolchain/usr/bin/swift"
+      f.opt_prefix/"Swift-#{f.version}.xctoolchain/usr/bin/swift"
     else
       "swift"
     end
