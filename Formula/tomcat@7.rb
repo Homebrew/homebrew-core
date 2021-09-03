@@ -32,6 +32,17 @@ class TomcatAT7 < Formula
     (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
   end
 
+  def post_install
+    pkgetc.mkpath
+    ln_s pkgetc, libexec/"config" unless (libexec/"config").exist?
+  end
+
+  def caveats
+    <<~EOS
+      Configuration files: #{pkgetc}
+    EOS
+  end
+
   service do
     run [opt_bin/"catalina", "run"]
     keep_alive true
