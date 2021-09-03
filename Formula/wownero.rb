@@ -5,6 +5,7 @@ class Wownero < Formula
       tag:      "v0.10.1.0",
       revision: "8ab87421d9321d0b61992c924cfa6e3918118ad0"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "081e5d143f966063342d63774d83c9e27d9030d692d6e392f58b4d090fc0c8ad"
@@ -32,8 +33,13 @@ class Wownero < Formula
   patch :DATA
 
   def install
-    system "cmake", ".", *std_cmake_args
+    # Need to help CMake find `readline` when not using /usr/local prefix
+    system "cmake", ".", *std_cmake_args, "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}"
     system "make", "install"
+
+    # Fix conflict with miniupnpc.
+    # This has been reported at https://github.com/monero-project/monero/issues/3862
+    rm lib/"libminiupnpc.a"
   end
 
   service do
