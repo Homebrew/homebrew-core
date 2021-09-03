@@ -8,8 +8,8 @@ class Scummvm < Formula
   head "https://github.com/scummvm/scummvm.git", branch: "master"
 
   livecheck do
-    url "https://www.scummvm.org/frs/scummvm/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["']}i)
+    url "https://www.scummvm.org/downloads/"
+    regex(/href=.*?scummvm[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
