@@ -21,6 +21,16 @@ class Bartycrouch < Formula
   uses_from_macos "swift"
 
   def install
+    swift = Formula["swift"]
+
+    # Skip the shims for testing; do not merge
+    if OS.mac? && MacOS.version <= :catalina
+      ENV.prepend_path "PATH", swift.opt_prefix/"Swift-#{swift.version}.xctoolchain/usr/bin"
+    elsif OS.linux?
+      ENV["CC"] = swift.opt_libexec/"bin/clang"
+      ENV["CXX"] = swift.opt_libexec/"bin/clang++"
+    end
+
     system "make", "install", "prefix=#{prefix}"
   end
 
