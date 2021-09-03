@@ -9,6 +9,7 @@ class Cake < Formula
     sha256 cellar: :any_skip_relocation, all: "a6f03c118ac1931711fa751443847e3b4bea3a89a7dfd4fa13c968629342b7c4"
   end
 
+  depends_on arch: :x86_64 # mono is not yet supported on ARM
   depends_on "mono"
 
   conflicts_with "coffeescript", because: "both install `cake` binaries"
