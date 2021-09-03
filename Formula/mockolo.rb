@@ -10,7 +10,13 @@ class Mockolo < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "cf1c3210d31de9d13ff6908f4a72596221b669b0c9e457f03df322130eaceaf5"
   end
 
-  depends_on xcode: ["12.5", :build]
+  if MacOS.version >= :big_sur
+    depends_on xcode: ["12.5", :build]
+  else
+    depends_on "swift" => :build
+  end
+
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "-c", "release", "--disable-sandbox"
