@@ -29,7 +29,14 @@ class SwiftFormat < Formula
   end
 
   def install
-    system "swift", "build", "--disable-sandbox", "-c", "release"
+    swift = if OS.mac? && MacOS.version <= :catalina
+      f = Formula["swift"]
+      f.opt_prefix/"Swift-#{f.version.major_minor}.xctoolchain/usr/bin/swift"
+    else
+      "swift"
+    end
+
+    system swift, "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/swift-format"
     doc.install "Documentation/Configuration.md"
   end
