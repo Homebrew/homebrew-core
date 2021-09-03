@@ -1,8 +1,8 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.11.0/sile-0.11.0.tar.xz"
-  sha256 "7062e7ce8fbefcff19f83c76aab3fb35c4f77097fe351c4e5e5e369103f16091"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.11.1/sile-0.11.1.tar.xz"
+  sha256 "a3e627d543bf07ff43ff06cacdbceb8f37aa056a31af25e68f706ad33f497d19"
   license "MIT"
 
   bottle do
@@ -31,6 +31,7 @@ class Sile < Formula
   depends_on "openssl@1.1"
 
   uses_from_macos "expat"
+  uses_from_macos "git"
   uses_from_macos "zlib"
 
   resource "stdlib" do
