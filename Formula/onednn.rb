@@ -6,6 +6,11 @@ class Onednn < Formula
   license "Apache-2.0"
   head "https://github.com/oneapi-src/onednn.git"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "b689877ed49e48e5ad7d10c3f7b6175f3e934b8762eaefa833a3a188cfc0905d"
     sha256 cellar: :any,                 big_sur:       "54de4099e0e24c93e94437c1a3cea1844d5bc0f1a6dc50f75e8f2fcd020e9eac"
