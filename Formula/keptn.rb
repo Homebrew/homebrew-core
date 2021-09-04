@@ -1,8 +1,8 @@
 class Keptn < Formula
   desc "Is the CLI for keptn.sh a message-driven control-plane for application delivery"
   homepage "https://keptn.sh"
-  url "https://github.com/keptn/keptn/archive/0.8.6.tar.gz"
-  sha256 "6fa94966597b8c9235a8102b941d34dd46b77e18cb75a6a97d051b370067b3c6"
+  url "https://github.com/keptn/keptn/archive/0.9.0.tar.gz"
+  sha256 "297bedbe1999815391c68b86d8826aa3ef8d151986d5d2758dae4cfd21a8fed0"
   license "Apache-2.0"
 
   bottle do
@@ -28,27 +28,12 @@ class Keptn < Formula
   end
 
   test do
-    run_output = shell_output("#{bin}/keptn version 2>&1")
-    assert_match "\nKeptn CLI version:", run_output
+    system bin/"keptn", "set", "config", "AutomaticVersionCheck", "false"
+    system bin/"keptn", "set", "config", "kubeContextCheck", "false"
 
-    version_output = shell_output("#{bin}/keptn version 2>&1")
-    assert_match version.to_s, version_output
+    assert_match "Keptn CLI version: #{version}", shell_output(bin/"keptn version 2>&1")
 
-    # As we can't bring up a Kubernetes cluster in this test, we simply
-    # run "keptn status" and check that it 1) errors out, and 2) complains
-    # about a missing keptn auth.
-    require "pty"
-    require "timeout"
-    r, _w, pid = PTY.spawn("#{bin}/keptn status", err: :out)
-    begin
-      Timeout.timeout(5) do
-        assert_match "Warning: could not open KUBECONFIG file", r.gets.chomp
-        Process.wait pid
-        assert_equal 1, $CHILD_STATUS.exitstatus
-      end
-    rescue Timeout::Error
-      puts "process not finished in time, killing it"
-      Process.kill("TERM", pid)
-    end
+    assert_match "This command requires to be authenticated. See \"keptn auth\" for details",
+      shell_output(bin/"keptn status 2>&1", 1)
   end
 end
