@@ -1,8 +1,8 @@
 class Caddy < Formula
   desc "Powerful, enterprise-ready, open source web server with automatic HTTPS"
   homepage "https://caddyserver.com/"
-  url "https://github.com/caddyserver/caddy/archive/v2.4.4.tar.gz"
-  sha256 "0ea7b65406c77b2ce88cdf496e82b70838c78305659fa5c891ef004dfabcc17a"
+  url "https://github.com/caddyserver/caddy/archive/v2.4.5.tar.gz"
+  sha256 "f25a24dfd6398e02ed3e530621f800eb7c7496d302d0a86b6932c219e46320cd"
   license "Apache-2.0"
   head "https://github.com/caddyserver/caddy.git", branch: "master"
 
