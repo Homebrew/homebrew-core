@@ -33,6 +33,8 @@ class Mockolo < Formula
       ENV["CXX"] = swift_f.opt_libexec/"bin/clang++"
     end
 
+    ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
+
     system swift, "build", "-c", "release", "--disable-sandbox", "--verbose"
     bin.install ".build/release/mockolo"
   end
