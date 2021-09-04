@@ -1,8 +1,8 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.32.3.tar.xz"
-  sha256 "be2ffff884eaecf61806f89b195a373f767a62e5bf2cc02ff1f55e41a55f8b84"
+  url "https://notmuchmail.org/releases/notmuch-0.33.tar.xz"
+  sha256 "883e045b4bfa2c48c9a4671062a40603a7f6165724dd54618beeba100549d26c"
   license "GPL-3.0-or-later"
   head "https://git.notmuchmail.org/git/notmuch", using: :git
 
@@ -44,6 +44,7 @@ class Notmuch < Formula
     ]
 
     ENV.append_path "PYTHONPATH", Formula["sphinx-doc"].opt_libexec/"lib/python3.9/site-packages"
+    ENV.cxx11 if OS.linux?
 
     system "./configure", *args
     system "make", "V=1", "install"
