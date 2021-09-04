@@ -1,8 +1,8 @@
 class GpgTui < Formula
   desc "Manage your GnuPG keys with ease! 🔐"
   homepage "https://github.com/orhun/gpg-tui"
-  url "https://github.com/orhun/gpg-tui/archive/refs/tags/v0.7.4.tar.gz"
-  sha256 "12c61fac67f6f9b90c9f92e5ae754652b024ea3f85b99a2ac359f44356c49467"
+  url "https://github.com/orhun/gpg-tui/archive/v0.8.0.tar.gz"
+  sha256 "6a9a6cc163e139f03b6983cdb07442187a8e1bcc705698f2b7228ad41c3d3c75"
   license "MIT"
 
   bottle do
@@ -22,12 +22,12 @@ class GpgTui < Formula
     system "cargo", "install", *std_cargo_args
 
     ENV["OUT_DIR"] = buildpath
-    system bin/"completions"
+    system bin/"gpg-tui-completions"
     bash_completion.install "gpg-tui.bash"
     fish_completion.install "gpg-tui.fish"
     zsh_completion.install "_gpg-tui"
 
-    rm_f bin/"completions"
+    rm_f bin/"gpg-tui-completions"
     rm_f Dir[prefix/".crates*"]
   end
 
