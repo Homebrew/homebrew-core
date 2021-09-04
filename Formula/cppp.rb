@@ -4,6 +4,11 @@ class Cppp < Formula
   url "https://www.muppetlabs.com/~breadbox/pub/software/cppp-2.6.tar.gz"
   sha256 "d42cd410882c3b660c77122b232f96c209026fe0a38d819c391307761e651935"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?cppp[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "24b206e97713f4f12168a2c1a29fe546b931e2da5b72b8ed050170522b1fabf5"
     sha256 cellar: :any_skip_relocation, big_sur:       "e4e6c9586586b0c2d014cf83cd3cf0e1434f2643667900b0dfd4cb194f4f5b1c"
