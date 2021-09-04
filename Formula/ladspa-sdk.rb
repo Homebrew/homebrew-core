@@ -14,6 +14,7 @@ class LadspaSdk < Formula
     sha256 x86_64_linux: "7ca6444acaf57f0a1a15bd6fc8cce571a434b0c3d1d4c0ae375300e2da93d4ed"
   end
 
+  depends_on "libsndfile"
   depends_on :linux
 
   def install
