@@ -6,6 +6,11 @@ class Angband < Formula
   license "GPL-2.0-only"
   head "https://github.com/angband/angband.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 arm64_big_sur: "ab6002b750047f4c544b8427a2f021395b75ab7f9f93c26fc0f3625b758f5842"
     sha256 big_sur:       "3f6aee791649219ab05f70d1c9170e09137d23ee31fcfdd3862c242dd2165771"
