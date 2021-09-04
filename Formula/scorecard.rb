@@ -1,8 +1,8 @@
 class Scorecard < Formula
   desc "Security health metrics for Open Source"
   homepage "https://github.com/ossf/scorecard"
-  url "https://github.com/ossf/scorecard/archive/refs/tags/v2.1.3.tar.gz"
-  sha256 "d42dfc3e75272d95bf4c6ad81b56d406a1a5ee9c25d558a94255c9c89feb754e"
+  url "https://github.com/ossf/scorecard/archive/v2.2.3.tar.gz"
+  sha256 "4d67321b4cfffd177c3be140b6db058c716a77c433f0cfb590a0f4b4505ca34a"
   license "Apache-2.0"
   head "https://github.com/ossf/scorecard.git", branch: "main"
 
@@ -23,7 +23,7 @@ class Scorecard < Formula
 
   test do
     ENV["GITHUB_AUTH_TOKEN"] = "test"
-    output = shell_output("#{bin}/scorecard --repo=github.com/kubernetes/kubernetes --checks=Active 2>&1", 1)
+    output = shell_output("#{bin}/scorecard --repo=github.com/kubernetes/kubernetes --checks=Maintained 2>&1", 1)
     assert_match "GET https://api.github.com/repos/kubernetes/kubernetes: 401 Bad credentials", output
   end
 end
