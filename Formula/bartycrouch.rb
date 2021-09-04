@@ -15,10 +15,8 @@ class Bartycrouch < Formula
   if MacOS.version >= :big_sur
     depends_on xcode: ["12.5", :build]
   else
-    depends_on "swift" => :build
+    depends_on "swift"
   end
-
-  uses_from_macos "swift"
 
   def install
     swift = Formula["swift"]
