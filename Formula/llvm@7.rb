@@ -23,6 +23,7 @@ class LlvmAT7 < Formula
   depends_on xcode: :build
   depends_on arch: :x86_64
   depends_on "libffi"
+  depends_on maximum_macos: :catalina # Needs patches backported to LLVM 8 and 9 to work on Big Sur
 
   on_linux do
     depends_on "glibc" if Formula["glibc"].any_version_installed?
