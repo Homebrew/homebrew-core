@@ -29,6 +29,12 @@ class Karchive < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = std_cmake_args
     args << "-DBUILD_TESTING=OFF"
