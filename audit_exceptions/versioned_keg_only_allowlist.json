@@ -24,6 +24,7 @@
   "pangomm@2.46",
   "pyqt@5",
   "python@3.9",
+  "python@3.10",
   "python-tk@3.9",
   "wxwidgets@3.0"
 ]
