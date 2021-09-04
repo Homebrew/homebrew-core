@@ -3,7 +3,7 @@ class Vcsh < Formula
   homepage "https://github.com/RichiH/vcsh"
   url "https://github.com/RichiH/vcsh/releases/download/v2.0.2/vcsh-2.0.2.tar.xz"
   sha256 "3ffc0bbb43c76620c8234c98f4ae94d0a99d24bb240497aab730979a8d23ad61"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "1cea2a03ee37da016d37fed26f2d5b2a0f83925283ca56d8e79492d7202e4c39"
