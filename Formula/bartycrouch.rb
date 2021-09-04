@@ -30,6 +30,8 @@ class Bartycrouch < Formula
       ENV["CC"] = swift.opt_libexec/"bin/clang"
       ENV["CXX"] = swift.opt_libexec/"bin/clang++"
     end
+    
+    ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"]
 
     system "make", "install", "prefix=#{prefix}"
   end
