@@ -88,6 +88,17 @@ class Gdbgui < Formula
   end
 
   def install
+    # Work around missing requirements.in from PyPI source tarball, which is referenced in setup.py.
+    # While issue exists, copy https://github.com/cs01/gdbgui/blob/v#{version}/requirements.in here.
+    # TODO: Remove when upstream packaging is fixed.
+    # Issue ref: https://github.com/cs01/gdbgui/issues/403
+    (buildpath/"requirements.in").write <<~EOS
+      Flask-SocketIO>5.1, <5.2
+      Flask-Compress>1.10, <1.11
+      pygdbmi>=0.10.0.0, <0.11
+      Pygments>=2.2.0, <3.0
+    EOS
+
     virtualenv_install_with_resources
   end
 
