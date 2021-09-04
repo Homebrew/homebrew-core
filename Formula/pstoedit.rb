@@ -1,8 +1,8 @@
 class Pstoedit < Formula
   desc "Convert PostScript and PDF files to editable vector graphics"
   homepage "http://www.pstoedit.net/"
-  url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.76/pstoedit-3.76.tar.gz"
-  sha256 "8cfd97eae18f138ef255b88b3d8a405734d20ea1b6acaa7706980b8fd8e4ce41"
+  url "https://downloads.sourceforge.net/project/pstoedit/pstoedit/3.77/pstoedit-3.77.tar.gz"
+  sha256 "9a6c6b02ea91e9f836448ccc5a614caa514a9ba17e94f1d6c0babc72a4395b09"
   license "GPL-2.0-or-later"
 
   bottle do
