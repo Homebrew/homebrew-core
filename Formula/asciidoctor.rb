@@ -4,6 +4,7 @@ class Asciidoctor < Formula
   url "https://github.com/asciidoctor/asciidoctor/archive/v2.0.16.tar.gz"
   sha256 "8fc1e3947012e22bccabe4d6faa31fee446f3719bb7478c79f45221b64fbd09f"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6186ea5a18873974a7aa98d0b4777a7e3fbdfeb384e2e5f2418cfb183f8c3a04"
@@ -13,7 +14,7 @@ class Asciidoctor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8c46e2d5344f1908d4bc0c2597867563b562e10625801d5085415ab81fa57e92"
   end
 
-  depends_on "ruby@2.7" if MacOS.version <= :mojave
+  uses_from_macos "ruby", since: :catalina
 
   # All of these resources are for the asciidoctor-pdf, coderay and rouge gems. To update the asciidoctor-pdf
   # resources, check https://rubygems.org/gems/asciidoctor-pdf for the latest dependency versions. Make sure to select
