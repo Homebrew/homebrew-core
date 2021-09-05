@@ -58,7 +58,7 @@ class Squashfs < Formula
       bin.install %w[mksquashfs unsquashfs]
     end
 
-    doc.install %w[README-#{version.major_minor} RELEASE-READMEs USAGE COPYING]
+    doc.install %W[README-#{version.major_minor} RELEASE-READMEs USAGE COPYING]
   end
 
   test do
