@@ -1,9 +1,9 @@
 class Tika < Formula
   desc "Content analysis toolkit"
   homepage "https://tika.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tika/tika-app-1.26.jar"
-  mirror "https://archive.apache.org/dist/tika/tika-app-1.26.jar"
-  sha256 "6ed7332f02e8d80cebafb59907e6d370d9db3e9a81d547e4fc0d071d2cf0dc26"
+  url "https://www.apache.org/dyn/closer.lua?path=tika/2.1.0/tika-app-2.1.0.jar"
+  mirror "https://archive.apache.org/dist/tika/2.1.0/tika-app-2.1.0.jar"
+  sha256 "0a93cdffebe1f1f0aca5b203538cafd66579a65409a8d565b93d3b8150e4e69c"
   license "Apache-2.0"
 
   bottle do
