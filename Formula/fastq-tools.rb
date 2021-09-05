@@ -1,13 +1,12 @@
 class FastqTools < Formula
   desc "Small utilities for working with fastq sequence files"
   homepage "https://github.com/dcjones/fastq-tools"
-  url "https://github.com/dcjones/fastq-tools/archive/refs/tags/v0.8.3.tar.gz"
+  url "https://github.com/dcjones/fastq-tools/archive/v0.8.3.tar.gz"
   sha256 "0cd7436e81129090e707f69695682df80623b06448d95df483e572c61ddf538e"
   license "MIT"
 
   livecheck do
     url :stable
-    strategy :github_latest
   end
 
   bottle do
