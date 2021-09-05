@@ -4,7 +4,7 @@ class Gosu < Formula
   url "https://github.com/gosu-lang/gosu-lang/archive/v1.14.20.tar.gz"
   sha256 "56c4782087c20ed9a5d6e8912d128c3f87d6906d74c0b75d3b63d7fabd705e73"
   license "Apache-2.0"
-  head "https://github.com/gosu-lang/gosu-lang.git"
+  head "https://github.com/gosu-lang/gosu-lang.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "693e5dc4f4424b3a38797ca8cfefebee998c157abc23e7f2aee9d86f719f3812"
@@ -14,6 +14,7 @@ class Gosu < Formula
   end
 
   depends_on "maven" => :build
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   skip_clean "libexec/ext"
