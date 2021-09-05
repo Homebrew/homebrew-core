@@ -14,6 +14,7 @@ class LibreadlineJava < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d9f6b20007e15205e93081e1e21d2656915c84213b64af7c4f6c0f394018138d"
   end
 
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
   depends_on "readline"
 
