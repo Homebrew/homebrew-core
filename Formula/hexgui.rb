@@ -5,7 +5,7 @@ class Hexgui < Formula
   sha256 "e7bf9daebe39c4efb06d758c5634c6fa25e97031ffa98592c378af89a03e9e8d"
   license "GPL-3.0"
   revision 1
-  head "https://github.com/apetresc/hexgui.git"
+  head "https://github.com/apetresc/hexgui.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "44abaf6a475d74c93e8f986945bb5a455cfdf52ea40fd876b773b69b6b835a70"
@@ -14,6 +14,7 @@ class Hexgui < Formula
   end
 
   depends_on "ant" => :build
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install
