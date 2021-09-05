@@ -1,9 +1,10 @@
 class LinkGrammar < Formula
   desc "Carnegie Mellon University's link grammar parser"
   homepage "https://www.abisource.com/projects/link-grammar/"
-  url "https://www.abisource.com/downloads/link-grammar/5.9.1/link-grammar-5.9.1.tar.gz"
-  sha256 "e03febaa820696f47eabb033f04d713d849040c24c45579133d1d021b8ecb0ba"
+  url "https://www.abisource.com/downloads/link-grammar/5.10.1/link-grammar-5.10.1.tar.gz"
+  sha256 "dfe01cd4a979c120462c1ac417be2eb82ab573925487577997164c1007b360a0"
   license "LGPL-2.1"
+  head "https://github.com/opencog/link-grammar.git", branch: "master"
 
   livecheck do
     url :homepage
@@ -30,15 +31,16 @@ class LinkGrammar < Formula
 
   def install
     ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
-    inreplace "bindings/python/Makefile.am",
-      "$(PYTHON_LDFLAGS) -module -no-undefined",
-      "$(PYTHON_LDFLAGS) -module"
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-regexlib=c"
-    system "make", "install"
+    inreplace "bindings/python/Makefile.am", "$(PYTHON_LDFLAGS) -module -no-undefined",
+                                             "$(PYTHON_LDFLAGS) -module"
+    system "autoreconf", "--verbose", "--install", "--force"
+    system "./configure", *std_configure_args, "--with-regexlib=c"
+
+    # Work around error due to install using detected path inside Python formula.
+    # install: .../site-packages/linkgrammar.pth: Operation not permitted
+    site_packages = prefix/Language::Python.site_packages("python3")
+    system "make", "install", "pythondir=#{site_packages}",
+                              "pyexecdir=#{site_packages}"
   end
 
   test do
