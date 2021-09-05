@@ -14,13 +14,16 @@ class Vcsh < Formula
   end
 
   def install
+    # Set GIT, SED, and GREP to prevent
+    # hardcoding shim references and absolute paths
     system "./configure", "--with-zsh-completion-dir=#{zsh_completion}",
                           "--with-bash-completion-dir=#{bash_completion}",
+                          "GIT=git", "SED=sed", "GREP=grep",
                           *std_configure_args
     system "make", "install"
 
-    # Remove references to git shim
-    inreplace bin/"vcsh", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/git}o, "git"
+    # Make the shebang uniform across macOS and Linux
+    inreplace bin/"vcsh", %r{^#!/bin/(ba)?sh$}, "#!/usr/bin/env bash"
   end
 
   test do
