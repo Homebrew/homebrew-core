@@ -4,7 +4,7 @@ class Byteman < Formula
   url "https://downloads.jboss.org/byteman/4.0.17/byteman-download-4.0.17-bin.zip"
   sha256 "ba65c26dbebf8febf579d41a8849020f8381d5edaf3f48625a64962e8185dabc"
   license "LGPL-2.1-or-later"
-  head "https://github.com/bytemanproject/byteman", branch: "main"
+  head "https://github.com/bytemanproject/byteman.git", branch: "main"
 
   livecheck do
     url "https://byteman.jboss.org/downloads.html"
