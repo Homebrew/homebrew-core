@@ -5,6 +5,7 @@ class Gmp < Formula
   mirror "https://ftp.gnu.org/gnu/gmp/gmp-6.2.1.tar.xz"
   sha256 "fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
   license any_of: ["LGPL-3.0-or-later", "GPL-2.0-or-later"]
+  revision 1
 
   livecheck do
     url "https://gmplib.org/download/gmp/"
@@ -21,6 +22,12 @@ class Gmp < Formula
   end
 
   uses_from_macos "m4" => :build
+
+  # Prevent crash on macOS 12 betas with release gmp 6.2.1, can be removed after the next gmp release.
+  patch do
+    url "https://gmplib.org/repo/gmp/raw-rev/5f32dbc41afc"
+    sha256 "a44ef57903b240df6fde6c9d2fe40063f785995c43b6bfc7a237c571f53613e0"
+  end
 
   def install
     args = std_configure_args
