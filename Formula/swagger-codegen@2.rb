@@ -20,6 +20,7 @@ class SwaggerCodegenAT2 < Formula
   keg_only :versioned_formula
 
   depends_on "maven" => :build
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   def install
