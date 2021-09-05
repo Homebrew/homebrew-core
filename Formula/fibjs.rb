@@ -1,10 +1,10 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "https://fibjs.org/"
-  url "https://github.com/fibjs/fibjs/releases/download/v0.33.0/fullsrc.zip"
-  sha256 "4a681b057598f1ebcdc7b943aba506bd942d7919b7c7fcb459a2c6d4ffdaab4f"
+  url "https://github.com/fibjs/fibjs/releases/download/v0.34.0/fullsrc.zip"
+  sha256 "57ff82526307274a59cf5d373f57d2aa7690e5b3e4c31a916de4f048fd84bf04"
   license "GPL-3.0-only"
-  head "https://github.com/fibjs/fibjs.git"
+  head "https://github.com/fibjs/fibjs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "e5a997e76a3fa661cbdf75cf61e3e53e093451c2c5e9a1e55a16e6b8742fb55d"
@@ -14,8 +14,13 @@ class Fibjs < Formula
 
   depends_on "cmake" => :build
 
+  # LLVM is added as a test dependency to work around limitation in Homebrew's
+  # test compiler selection when using fails_with. Can remove :test when fixed.
+  # Issue ref: https://github.com/Homebrew/brew/issues/11795
+  uses_from_macos "llvm" => [:build, :test]
+
   on_linux do
-    depends_on "llvm" => :build
+    depends_on "libx11"
   end
 
   # https://github.com/fibjs/fibjs/blob/master/BUILDING.md
@@ -24,19 +29,16 @@ class Fibjs < Formula
   end
 
   def install
+    # help find X11 headers: fatal error: 'X11/Xlib.h' file not found
+    on_linux { ENV.append "CXXFLAGS", "-I#{HOMEBREW_PREFIX}/include" }
+
     # the build script breaks when CI is set by Homebrew
-    begin
-      env_ci = ENV.delete "CI"
+    with_env(CI: nil) do
       system "./build", "clean"
       system "./build", "release", "-j#{ENV.make_jobs}"
-    ensure
-      ENV["CI"] = env_ci
     end
 
-    os = "Darwin"
-    on_linux do
-      os = "Linux"
-    end
+    os = OS.mac? ? "Darwin" : "Linux"
     bin.install "bin/#{os}_amd64_release/fibjs"
   end
 
