@@ -3,8 +3,8 @@ class CloudformationCli < Formula
 
   desc "CloudFormation Provider Development Toolkit"
   homepage "https://github.com/aws-cloudformation/cloudformation-cli/"
-  url "https://files.pythonhosted.org/packages/3d/b7/0f99c9a112ad154fe10f915cc9e9823fd54f68e7015bfe7441cfa06de6a8/cloudformation-cli-0.2.16.tar.gz"
-  sha256 "0aba793c90fe3d9dc7ec4ff69a80197f138efe2dbea5d1c687cbc39c8e5810c9"
+  url "https://files.pythonhosted.org/packages/ee/b7/3541fad6c558f94d622a46cabfd0c69be70fb436a9f4dc3e78838a230659/cloudformation-cli-0.2.17.tar.gz"
+  sha256 "7ad3fd545a8e26f60f7fe6e5eef23dc314699abe0262d448e5a6d0d48e4df3f2"
   license "Apache-2.0"
 
   bottle do
@@ -32,13 +32,13 @@ class CloudformationCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8f/b7/c3c2d62e55ce6e932732183c4baf0fded094e82126f4342159897f6ea107/boto3-1.18.34.tar.gz"
-    sha256 "5116e9bdec19adcc5531a9b7b535be77d5314eef092aaf7033ace48a9be65036"
+    url "https://files.pythonhosted.org/packages/85/8e/3683b501d3b9b93b9d6c93d7c19858eab69ce91bd019c26f67c087de34e8/boto3-1.18.36.tar.gz"
+    sha256 "4df1085f5c24504a1b1a6584947f27b67c26eda123f29d3cecce9b2fd683e09b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/2b/ce/685b8f3091fd8bff0770090a789d48caf3cb21a4ab66a6011bedebfbbaa3/botocore-1.21.34.tar.gz"
-    sha256 "ec2cdf1c8ed64a7f392f352125d248c76103fa9d137b275b7c76836776cedf56"
+    url "https://files.pythonhosted.org/packages/07/24/0fb740c5967c2545be6404bce1b3e8b4518f90098344f59cf915428ca94e/botocore-1.21.36.tar.gz"
+    sha256 "5b9a7d30e44b8a0a2bbbde62ae01bf6c349017e836985a0248552b00bbce7fae"
   end
 
   resource "certifi" do
