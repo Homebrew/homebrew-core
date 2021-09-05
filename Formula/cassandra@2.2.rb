@@ -15,6 +15,7 @@ class CassandraAT22 < Formula
   keg_only :versioned_formula
 
   depends_on "cython" => :build
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on :macos # Due to Python 2 (does not support Python 3)
   depends_on "openjdk@8"
 
