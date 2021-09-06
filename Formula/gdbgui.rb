@@ -3,8 +3,8 @@ class Gdbgui < Formula
 
   desc "Modern, browser-based frontend to gdb (gnu debugger)"
   homepage "https://www.gdbgui.com/"
-  url "https://files.pythonhosted.org/packages/da/b4/c8419e2c6683d76df93f918a964940965040fde82a29e493b062c22baa62/gdbgui-0.15.0.0.tar.gz"
-  sha256 "3b63ae8fdcec6ff72bb1114a98f06df079ce2ded53512d660c3cadcc7b7540f4"
+  url "https://files.pythonhosted.org/packages/4b/67/63e55e2fde8628603326e5a9f1882bf831f49b2feaa966aee602fced77ae/gdbgui-0.15.0.1.tar.gz"
+  sha256 "6f0ae578b9f7181c783227b692e8ed694a3e5c200b33e8512f2488644465060d"
   license "GPL-3.0-only"
 
   bottle do
@@ -88,17 +88,6 @@ class Gdbgui < Formula
   end
 
   def install
-    # Work around missing requirements.in from PyPI source tarball, which is referenced in setup.py.
-    # While issue exists, copy https://github.com/cs01/gdbgui/blob/v#{version}/requirements.in here.
-    # TODO: Remove when upstream packaging is fixed.
-    # Issue ref: https://github.com/cs01/gdbgui/issues/403
-    (buildpath/"requirements.in").write <<~EOS
-      Flask-SocketIO>5.1, <5.2
-      Flask-Compress>1.10, <1.11
-      pygdbmi>=0.10.0.0, <0.11
-      Pygments>=2.2.0, <3.0
-    EOS
-
     virtualenv_install_with_resources
   end
 
