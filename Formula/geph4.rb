@@ -1,9 +1,10 @@
 class Geph4 < Formula
   desc "Modular Internet censorship circumvention system to deal with national filtering"
   homepage "https://geph.io/"
-  url "https://github.com/geph-official/geph4/archive/v4.4.15.tar.gz"
-  sha256 "95903027ffd100e14484286e3e05a0262af4b70806e6f1420dba6c9428f9394e"
+  url "https://github.com/geph-official/geph4/archive/v4.4.16.tar.gz"
+  sha256 "e16a98ed8332ea8edbad7eba7b12b663907cba0b10f525ebf6541212067ee097"
   license "GPL-3.0-only"
+  head "https://github.com/geph-official/geph4.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "14ea32e04cddf8f57948ac0713498feac1ff67a3a21444b086d310b2ac357581"
@@ -15,6 +16,7 @@ class Geph4 < Formula
   depends_on "rust" => :build
 
   def install
+    (buildpath/".cargo").rmtree
     system "cargo", "install", *std_cargo_args
   end
 
