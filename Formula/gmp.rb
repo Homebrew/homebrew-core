@@ -20,6 +20,13 @@ class Gmp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "786ae29f0c0b06ea86e42bd9c6ac2c49bd5757da037dead7053e8bd612c4cf8c"
   end
 
+  head do
+    url "https://gmplib.org/repo/gmp/", using: :hg
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
   uses_from_macos "m4" => :build
 
   # Prevent crash on macOS 12 betas with release gmp 6.2.1, can be removed after the next gmp release.
@@ -29,6 +36,8 @@ class Gmp < Formula
   end
 
   def install
+    system "./.bootstrap" if build.head?
+
     args = std_configure_args
     args << "--enable-cxx"
 
@@ -47,6 +56,10 @@ class Gmp < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+
+    # Prevent brew from trying to install metafiles that
+    # are actually symlinks to files in autotools kegs
+    buildpath.children.select(&:symlink?).map(&:unlink) if build.head?
   end
 
   test do
