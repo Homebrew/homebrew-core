@@ -4,6 +4,7 @@ class Buildifier < Formula
   url "https://github.com/bazelbuild/buildtools/archive/4.2.0.tar.gz"
   sha256 "d49976b0b1e81146d79072f10cabe6634afcd318b1bd86b0102d5967121c43c1"
   license "Apache-2.0"
+  head "https://github.com/bazelbuild/buildtools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "e4e94523c894ce25eb78ca146d6b5381d6a410688a4830e646003cbad414d5ad"
@@ -16,7 +17,7 @@ class Buildifier < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./buildifier"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./buildifier"
   end
 
   test do
