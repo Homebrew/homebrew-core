@@ -17,6 +17,7 @@ class Conan < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "cmake" => :test
   depends_on "libffi"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
