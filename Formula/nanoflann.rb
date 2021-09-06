@@ -6,10 +6,6 @@ class Nanoflann < Formula
   license "BSD-3-Clause"
   head "https://github.com/jlblancoc/nanoflann.git", branch: "master"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "dd4506127f2bd65002f11b2deb0b2f6b636fd864bee4a4294fd6123b9c94b6b6"
     sha256 cellar: :any_skip_relocation, big_sur:       "9ce420030884830f6b94c1fa7304d647ad4ceb44622a56781e94d2c3e8c5ca6c"
