@@ -5,10 +5,6 @@ class FastqTools < Formula
   sha256 "0cd7436e81129090e707f69695682df80623b06448d95df483e572c61ddf538e"
   license "MIT"
 
-  livecheck do
-    url :stable
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "ac48791014e14979ad786e59178d0b468510d02f5d51a86608b388adad4405f1"
     sha256 cellar: :any,                 big_sur:       "18f3e795ec5c2c182bfc995ce662816cf17ccbd719fef30937f5456d28bbccc5"
