@@ -4,6 +4,7 @@ class Firefoxpwa < Formula
   url "https://github.com/filips123/FirefoxPWA/archive/refs/tags/v1.1.0.tar.gz"
   sha256 "e3a18c742cc44d0ffde698753182733da75bfe9a2e331efddeb133c479108328"
   license "MPL-2.0"
+  revision 1
   head "https://github.com/filips123/FirefoxPWA.git", branch: "main"
 
   bottle do
@@ -19,9 +20,9 @@ class Firefoxpwa < Formula
     cd "native"
 
     # Prepare the project to work with Homebrew
-    ENV["FFPWA_EXECUTABLES"] = bin
-    ENV["FFPWA_SYSDATA"] = share
-    system "bash", "./packages/brew/configure.sh", version, bin, libexec
+    ENV["FFPWA_EXECUTABLES"] = opt_bin
+    ENV["FFPWA_SYSDATA"] = opt_share
+    system "bash", "./packages/brew/configure.sh", version, opt_bin, opt_libexec
 
     # Build and install the project
     system "cargo", "install", *std_cargo_args
