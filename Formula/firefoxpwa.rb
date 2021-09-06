@@ -47,7 +47,7 @@ class Firefoxpwa < Formula
 
     <<~EOS
       To use the browser extension, manually link the app manifest with:
-        sudo mkdir -p #{destination}
+        sudo mkdir -p "#{destination}"
         sudo ln -sf "#{source}/#{filename}" "#{destination}/#{filename}"
     EOS
   end
