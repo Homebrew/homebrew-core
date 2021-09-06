@@ -4,6 +4,7 @@ class Buildozer < Formula
   url "https://github.com/bazelbuild/buildtools/archive/4.2.0.tar.gz"
   sha256 "d49976b0b1e81146d79072f10cabe6634afcd318b1bd86b0102d5967121c43c1"
   license "Apache-2.0"
+  head "https://github.com/bazelbuild/buildtools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "6e6fbe3529f8024adcfb4a07a878d24290e0005bdb139a370f955750311470c6"
@@ -16,7 +17,7 @@ class Buildozer < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./buildozer"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./buildozer"
   end
 
   test do
