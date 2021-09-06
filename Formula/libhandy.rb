@@ -1,8 +1,8 @@
 class Libhandy < Formula
   desc "Building blocks for modern adaptive GNOME apps"
   homepage "https://gitlab.gnome.org/GNOME/libhandy"
-  url "https://gitlab.gnome.org/GNOME/libhandy/-/archive/1.2.3/libhandy-1.2.3.tar.gz"
-  sha256 "b20cbef65cef2e039b9b9d504c2245435998555cf5ada126dee49c2b89d9eda5"
+  url "https://download.gnome.org/sources/libhandy/1.4/libhandy-1.4.0.tar.xz"
+  sha256 "2676d51fa1fa40fdee7497d3e763fefa18b0338bffcd2ee32e7f7e633c885446"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -12,12 +12,6 @@ class Libhandy < Formula
     sha256 mojave:        "e23bf85ef855b2fa9bde7dabc8ef4ae651f0c1d3157ee5578b46a319c9910d47"
     sha256 x86_64_linux:  "62d3bc37a45613506fcb1d93491423a0de7697603815dafc1931c7ef56c0d676"
   end
-
-  # NOTE: The glade catalog is disabled due to a bug that has been fixed but
-  # not landed in a stable libhandy version yet (as of September 2020).
-  # See https://gitlab.gnome.org/GNOME/libhandy/-/merge_requests/614
-  # When it lands, -Dglade_catalog=enabled should work (make sure to add
-  # glade to the dependencies)
 
   depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
