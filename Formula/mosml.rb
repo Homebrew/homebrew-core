@@ -27,6 +27,11 @@ class Mosml < Formula
   end
 
   test do
-    system "#{bin}/mosml", "-P full"
+    require "pty"
+
+    _, w, = PTY.spawn bin/"mosml"
+    w.write "quit();\n"
+
+    assert_equal "I don't know what to do with file \"foo\", ignored", shell_output("#{bin}/mosmlc foo 2>&1").strip
   end
 end
