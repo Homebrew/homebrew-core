@@ -29,9 +29,7 @@ class Splint < Formula
             "--infodir=#{info}",
             "--mandir=#{man}"]
 
-    on_linux do
-      args << "LEXLIB=#{Formula["flex"].opt_lib}/libfl.so"
-    end
+    args << "LEXLIB=#{Formula["flex"].opt_lib}/libfl.so" if OS.linux?
 
     system "./configure", *args
     system "make"
