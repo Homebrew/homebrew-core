@@ -72,8 +72,11 @@ class Stunnel < Formula
   end
 
   test do
-    user = "nobody"
-    on_linux { user = ENV["USER"] }
+    user = if OS.mac?
+      "nobody"
+    else
+      ENV["USER"]
+    end
     (testpath/"tstunnel.conf").write <<~EOS
       cert = #{etc}/stunnel/stunnel.pem
 
