@@ -20,7 +20,7 @@ class Stlink < Formula
 
   def install
     args = std_cmake_args
-    on_linux do
+    if OS.linux?
       args << "-DSTLINK_MODPROBED_DIR=#{lib}/modprobe.d"
       args << "-DSTLINK_UDEV_RULES_DIR=#{lib}/udev/rules.d"
     end
