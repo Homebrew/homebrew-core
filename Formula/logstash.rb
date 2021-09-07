@@ -47,8 +47,11 @@ class Logstash < Formula
 
     # Delete Windows and other Arch/OS files
     rm Dir["bin/*.bat"]
-    os = "Darwin"
-    on_linux { os = "x86_64-Linux" }
+    os = if OS.mac?
+      "Darwin"
+    else
+      "x86_64-Linux"
+    end
     Dir["vendor/jruby/lib/jni/*"].each do |path|
       rm_r path unless path.include? os
     end
