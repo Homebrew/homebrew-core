@@ -70,11 +70,10 @@ class Netdata < Formula
       --enable-dbengine
       --with-user=netdata
     ]
-    on_macos do
+    if OS.mac?
       args << "UUID_LIBS=-lc"
       args << "UUID_CFLAGS=-I/usr/include"
-    end
-    on_linux do
+    else
       args << "UUID_LIBS=-luuid"
       args << "UUID_CFLAGS=-I#{Formula["util-linux"].opt_include}"
     end
