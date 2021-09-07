@@ -28,7 +28,7 @@ class Hackrf < Formula
     cd "host" do
       args = std_cmake_args
 
-      on_linux do
+      if OS.linux?
         args << "-DUDEV_RULES_GROUP=plugdev"
         args << "-DUDEV_RULES_PATH=#{lib}/udev/rules.d"
       end
