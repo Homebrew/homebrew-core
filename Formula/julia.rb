@@ -87,14 +87,13 @@ class Julia < Formula
 
     # Stable uses `libosxunwind` which is not in Homebrew/core
     # https://github.com/JuliaLang/julia/pull/39127
-    on_macos { args << "USE_SYSTEM_LIBUNWIND=1" if build.head? }
-    on_linux { args << "USE_SYSTEM_LIBUNWIND=1" }
+    args << "USE_SYSTEM_LIBUNWIND=1" if OS.linux? || build.head?
 
     args << "TAGGED_RELEASE_BANNER=Built by #{tap.user} (v#{pkg_version})"
 
     gcc = Formula["gcc"]
     gcclibdir = gcc.opt_lib/"gcc"/gcc.any_installed_version.major
-    on_macos do
+    if OS.mac?
       deps.map(&:to_formula).select(&:keg_only?).map(&:opt_lib).each do |libdir|
         ENV.append "LDFLAGS", "-Wl,-rpath,#{libdir}"
       end
@@ -102,9 +101,7 @@ class Julia < Formula
       # List these two last, since we want keg-only libraries to be found first
       ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
       ENV.append "LDFLAGS", "-Wl,-rpath,/usr/lib"
-    end
-
-    on_linux do
+    else
       ENV.append "LDFLAGS", "-Wl,-rpath,#{opt_lib}"
       ENV.append "LDFLAGS", "-Wl,-rpath,#{opt_lib}/julia"
 
@@ -135,7 +132,7 @@ class Julia < Formula
 
     system "make", *args, "install"
 
-    on_linux do
+    if OS.linux?
       # Replace symlinks referencing Cellar paths with ones using opt paths
       deps.reject(&:build?).map(&:to_formula).map(&:opt_lib).each do |libdir|
         (lib/"julia").children.each do |so|
