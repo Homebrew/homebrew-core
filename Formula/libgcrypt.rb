@@ -33,9 +33,7 @@ class Libgcrypt < Formula
 
     # Parallel builds work, but only when run as separate steps
     system "make"
-    on_macos do
-      MachO.codesign!("#{buildpath}/tests/.libs/random") if Hardware::CPU.arm?
-    end
+    MachO.codesign!("#{buildpath}/tests/.libs/random") if OS.mac? && Hardware::CPU.arm?
 
     system "make", "check"
     system "make", "install"
