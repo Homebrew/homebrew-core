@@ -49,7 +49,7 @@ class FetchCrl < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
       resources.each do |r|
         r.stage do
@@ -62,7 +62,7 @@ class FetchCrl < Formula
 
     system "make", "install", "PREFIX=#{prefix}", "ETC=#{etc}", "CACHE=#{var}/cache"
 
-    on_linux do
+    if OS.linux?
       bin.env_script_all_files libexec/"bin", PERL5LIB: ENV["PERL5LIB"]
       sbin.env_script_all_files libexec/"sbin", PERL5LIB: ENV["PERL5LIB"]
     end
