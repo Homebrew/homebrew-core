@@ -153,9 +153,7 @@ class Freeswitch < Formula
   def install
     # Fix build error "use of undeclared identifier 'NSIG'"
     # Remove when fixed upstream: https://github.com/signalwire/freeswitch/issues/1145
-    on_macos do
-      ENV.append_to_cflags "-D_DARWIN_C_SOURCE"
-    end
+    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
 
     resource("spandsp").stage do
       system "./bootstrap.sh"
