@@ -71,7 +71,7 @@ class Poppler < Formula
       system "make", "install", "prefix=#{prefix}"
     end
 
-    on_macos do
+    if OS.mac?
       libpoppler = (lib/"libpoppler.dylib").readlink
       [
         "#{lib}/libpoppler-cpp.dylib",
