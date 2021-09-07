@@ -82,9 +82,7 @@ class Infer < Formula
     ENV["OPAMROOT"] = opamroot
     ENV["OPAMYES"] = "1"
     ENV["OPAMVERBOSE"] = "1"
-    on_linux do
-      ENV["PATCHELF"] = Formula["patchelf"].opt_bin/"patchelf"
-    end
+    ENV["PATCHELF"] = Formula["patchelf"].opt_bin/"patchelf" if OS.linux?
 
     system "opam", "init", "--no-setup", "--disable-sandboxing"
 
@@ -99,7 +97,7 @@ class Infer < Formula
 
     # Disable handling external dependencies as opam is not aware of Homebrew on Linux.
     # Error:  Package conflict!  * Missing dependency:  - conf-autoconf
-    on_linux { inreplace "build-infer.sh", "infer \"$INFER_ROOT\" $locked", "\\0 --no-depexts" }
+    inreplace "build-infer.sh", "infer \"$INFER_ROOT\" $locked", "\\0 --no-depexts" if OS.linux?
 
     system "./build-infer.sh", "all", "--yes"
     system "make", "install-with-libs"
