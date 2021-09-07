@@ -64,7 +64,7 @@ class OpenjdkAT8 < Formula
     inreplace "hotspot/make/bsd/makefiles/saproc.make",
               '-isysroot "$(SDKPATH)" -iframework"$(SDKPATH)/System/Library/Frameworks"', ""
 
-    on_macos do
+    if OS.mac?
       # Fix macOS version detection. After 10.10 this was changed to a 6 digit number,
       # but this Makefile was written in the era of 4 digit numbers.
       inreplace "hotspot/make/bsd/makefiles/gcc.make" do |s|
@@ -73,7 +73,7 @@ class OpenjdkAT8 < Formula
       end
     end
 
-    on_linux do
+    if OS.linux?
       # Fix linker errors on brewed GCC
       inreplace "common/autoconf/flags.m4", "-Xlinker -O1", ""
       inreplace "hotspot/make/linux/makefiles/gcc.make", "-Xlinker -O1", ""
@@ -94,7 +94,7 @@ class OpenjdkAT8 < Formula
       --with-vendor-vm-bug-url=#{tap.issues_url}
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--with-toolchain-type=clang"
 
       # Work around SDK issues with JavaVM framework.
@@ -106,9 +106,7 @@ class OpenjdkAT8 < Formula
                    --with-extra-cxxflags=-F#{javavm_framework_path}
                    --with-extra-ldflags=-F#{javavm_framework_path}]
       end
-    end
-
-    on_linux do
+    else
       args += %W[--with-toolchain-type=gcc
                  --x-includes=#{HOMEBREW_PREFIX}/include
                  --x-libraries=#{HOMEBREW_PREFIX}/lib
@@ -127,12 +125,12 @@ class OpenjdkAT8 < Formula
     cd "build/release/images" do
       jdk = libexec
 
-      on_macos do
+      if OS.mac?
         libexec.install Dir["j2sdk-bundle/*"].first => "openjdk.jdk"
         jdk /= "openjdk.jdk/Contents/Home"
+      else
+        libexec.install Dir["j2sdk-image/*"]
       end
-
-      on_linux { libexec.install Dir["j2sdk-image/*"] }
 
       bin.install_symlink Dir[jdk/"bin/*"]
       include.install_symlink Dir[jdk/"include/*.h"]
