@@ -50,7 +50,7 @@ class Ipopt < Formula
 
     resource("mumps").stage do
       cp "Make.inc/Makefile.inc.generic.SEQ", "Makefile.inc"
-      on_macos { inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/" }
+      inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/" if OS.mac?
 
       # Fix for GCC 10
       inreplace "Makefile.inc", "OPTF    = -fPIC",
