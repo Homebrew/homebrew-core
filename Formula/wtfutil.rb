@@ -5,6 +5,7 @@ class Wtfutil < Formula
       tag:      "v0.39.0",
       revision: "eafc6a36e7ff2df2b2cf3ebfa65b2ef514aee2ec"
   license "MPL-2.0"
+  head "https://github.com/wtfutil/wtf.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "bd204d5ffd2338f2aa50f391abff4f7489f3eca8fb70f8bb154402809694ac17"
