@@ -71,7 +71,7 @@ class Subversion < Formula
 
     resource("py3c").unpack py3c_prefix
     resource("serf").stage do
-      on_linux do
+      if OS.linux?
         inreplace "SConstruct" do |s|
           s.gsub! "env.Append(LIBPATH=['$OPENSSL\/lib'])",
           "\\1\nenv.Append(CPPPATH=['$ZLIB\/include'])\nenv.Append(LIBPATH=['$ZLIB/lib'])"
@@ -90,9 +90,10 @@ class Subversion < Formula
       end
 
       # scons ignores our compiler and flags unless explicitly passed
-      krb5 = "/usr"
-      on_linux do
-        krb5 = Formula["krb5"].opt_prefix
+      krb5 = if OS.mac?
+        "/usr"
+      else
+        Formula["krb5"].opt_prefix
       end
 
       args = %W[
@@ -103,35 +104,36 @@ class Subversion < Formula
         APU=#{Formula["apr-util"].opt_prefix}
       ]
 
-      on_linux do
-        args << "ZLIB=#{Formula["zlib"].opt_prefix}"
-      end
+      args << "ZLIB=#{Formula["zlib"].opt_prefix}" if OS.linux?
 
       system "scons", *args
       system "scons", "install"
     end
 
     # Use existing system zlib and sqlite
-    on_linux do
+    if OS.linux?
       # svn can't find libserf-1.so.1 at runtime without this
       ENV.append "LDFLAGS", "-Wl,-rpath=#{serf_prefix}/lib"
     end
 
     # Use dep-provided other libraries
     # Don't mess with Apache modules (since we're not sudo)
-    zlib = "#{MacOS.sdk_path_if_needed}/usr"
-    on_linux do
-      zlib = Formula["zlib"].opt_prefix
+    zlib = if OS.mac?
+      "#{MacOS.sdk_path_if_needed}/usr"
+    else
+      Formula["zlib"].opt_prefix
     end
 
-    ruby = "/usr/bin/ruby"
-    on_linux do
-      ruby = "#{Formula["ruby"].opt_bin}/ruby"
+    ruby = if OS.mac?
+      "/usr/bin/ruby"
+    else
+      "#{Formula["ruby"].opt_bin}/ruby"
     end
 
-    sqlite = "#{MacOS.sdk_path_if_needed}/usr"
-    on_linux do
-      sqlite = Formula["sqlite"].opt_prefix
+    sqlite = if OS.mac?
+      "#{MacOS.sdk_path_if_needed}/usr"
+    else
+      Formula["sqlite"].opt_prefix
     end
 
     args = %W[
@@ -197,7 +199,7 @@ class Subversion < Formula
 
       onoe "'#{perl_extern_h}' does not exist" unless perl_extern_h.exist?
 
-      on_macos do
+      if OS.mac?
         inreplace "Makefile" do |s|
           s.change_make_var! "SWIG_PL_INCLUDES",
             "$(SWIG_INCLUDES) -arch x86_64 -g -pipe -fno-common " \
