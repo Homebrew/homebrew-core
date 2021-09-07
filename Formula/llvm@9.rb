@@ -5,7 +5,7 @@ class LlvmAT9 < Formula
   sha256 "00a1ee1f389f81e9979f3a640a01c431b3021de0d42278f6508391a2f0b81c9a"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 big_sur:      "79f12c8ea7d85fb8acfab731e2dad60c919ee4060de83446b7b07a26cfc0a480"
@@ -33,7 +33,7 @@ class LlvmAT9 < Formula
   on_linux do
     depends_on "glibc" if Formula["glibc"].any_version_installed?
     depends_on "binutils" # needed for gold and strip
-    depends_on "libelf" # openmp requires <gelf.h>
+    depends_on "elfutils" # openmp requires <gelf.h>
     depends_on "python@3.8"
   end
 
