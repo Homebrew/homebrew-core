@@ -30,11 +30,10 @@ class Podman < Formula
     end
 
     system "make", "podman-remote-#{os}"
-    on_macos do
+    if OS.mac?
       bin.install "bin/#{os}/podman" => "podman-remote"
       bin.install_symlink bin/"podman-remote" => "podman"
-    end
-    on_linux do
+    else
       bin.install "bin/podman-remote"
     end
 
