@@ -34,16 +34,13 @@ class Qdbm < Formula
     ]
 
     # Does not want to build on Linux
-    on_macos do
-      args << "--enable-bzip"
-    end
+    args << "--enable-bzip" if OS.mac?
 
     system "./configure", *args
-    on_macos do
+    if OS.mac?
       system "make", "mac"
       system "make", "install-mac"
-    end
-    on_linux do
+    else
       system "make"
       system "make", "install"
     end
