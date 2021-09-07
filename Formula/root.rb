@@ -51,7 +51,7 @@ class Root < Formula
   skip_clean "bin"
 
   def install
-    on_linux { ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" }
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/root" if OS.linux?
 
     # Freetype/afterimage/gl2ps/lz4 are vendored in the tarball, so are fine.
     # However, this is still permitting the build process to make remote
@@ -150,7 +150,7 @@ class Root < Formula
       }
     EOS
     flags = %w[cflags libs ldflags].map { |f| "$(root-config --#{f})" }
-    on_linux { flags << "-Wl,-rpath,#{lib}/root" }
+    flags << "-Wl,-rpath,#{lib}/root" if OS.linux?
     shell_output("$(root-config --cxx) test.cpp #{flags.join(" ")}")
     assert_equal "Hello, world!\n", shell_output("./a.out")
 
