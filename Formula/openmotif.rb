@@ -36,7 +36,7 @@ class Openmotif < Formula
     because: "both Lesstif and Openmotif are complete replacements for each other"
 
   def install
-    on_linux do
+    if OS.linux?
       # This patch is needed for Ubuntu 16.04 LTS, which uses
       # --as-needed with ld.  It should no longer
       # be needed on Ubuntu 18.04 LTS.
