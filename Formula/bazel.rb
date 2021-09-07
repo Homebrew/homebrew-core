@@ -43,7 +43,7 @@ class Bazel < Formula
     #
     # The workaround here is to disable the Linux shim for C/C++ compilers.
     # Remove this when a way to retain HOMEBREW_* variables is found.
-    on_linux do
+    if OS.linux?
       ENV["CC"] = "/usr/bin/cc"
       ENV["CXX"] = "/usr/bin/c++"
     end
