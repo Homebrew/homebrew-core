@@ -4,6 +4,7 @@ class PerlBuild < Formula
   url "https://github.com/tokuhirom/Perl-Build/archive/1.32.tar.gz"
   sha256 "ba86d74ff9718977637806ef650c85615534f0b17023a72f447587676d7f66fd"
   license any_of: ["Artistic-1.0", "GPL-1.0-or-later"]
+  revision 1
   head "https://github.com/tokuhirom/perl-build.git", branch: "master"
 
   bottle do
@@ -124,6 +125,15 @@ class PerlBuild < Formula
 
     %w[perl-build plenv-install plenv-uninstall].each do |cmd|
       (bin/cmd).write_env_script(libexec/"bin/#{cmd}", PERL5LIB: ENV["PERL5LIB"])
+    end
+
+    # Some scripts' shebang is set to the realpath of Homebrew perl, which is not
+    # found using `detected_perl_shebang`. Also, since Formula["perl"].bin returns
+    # the opt_bin directory, we need to manually construct the Cellar path.
+    if OS.linux?
+      inreplace Dir[libexec/"bin/{perl-build,config_data}"] do |s|
+        s.sub! %r{^#!#{HOMEBREW_PREFIX}/Cellar/perl/[^/]+/bin/perl}o, "#!#{Formula["perl"].opt_bin}/perl"
+      end
     end
   end
 
