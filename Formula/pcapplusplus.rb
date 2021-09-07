@@ -16,8 +16,11 @@ class Pcapplusplus < Formula
   uses_from_macos "libpcap"
 
   def install
-    os = "mac_os_x"
-    on_linux { os = "linux" }
+    os = if OS.mac?
+      "mac_os_x"
+    else
+      "linux"
+    end
     system "./configure-#{os}.sh", "--install-dir", prefix
 
     # library requires to run 'make all' and
