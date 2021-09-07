@@ -49,7 +49,7 @@ class ErlangAT23 < Formula
       --without-javac
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-darwin-64bit"
       args << "--enable-kernel-poll" if MacOS.version > :el_capitan
       args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?
