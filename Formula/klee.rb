@@ -77,11 +77,10 @@ class Klee < Formula
         -DLIBCXX_ENABLE_SHARED:BOOL=ON
         -DLIBCXXABI_ENABLE_THREADS:BOOL=OFF
       ]
-      on_macos do
-        libcxx_args << "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=OFF"
-      end
-      on_linux do
-        libcxx_args << "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=ON"
+      libcxx_args << if OS.mac?
+        "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=OFF"
+      else
+        "-DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=ON"
       end
 
       mkdir "llvm/build" do
