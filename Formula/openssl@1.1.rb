@@ -69,7 +69,7 @@ class OpensslAT11 < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
       %w[ExtUtils::MakeMaker Test::Harness Test::More].each do |r|
@@ -90,15 +90,12 @@ class OpensslAT11 < Formula
     ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
 
     arch_args = []
-    on_macos do
+    if OS.mac?
       arch_args += %W[darwin64-#{Hardware::CPU.arch}-cc enable-ec_nistp_64_gcc_128]
-    end
-    on_linux do
-      if Hardware::CPU.intel?
-        arch_args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
-      elsif Hardware::CPU.arm?
-        arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
-      end
+    elsif Hardware::CPU.intel?
+      arch_args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
+    elsif Hardware::CPU.arm?
+      arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
     end
 
     system "perl", "./Configure", *(configure_args + arch_args)
@@ -112,8 +109,11 @@ class OpensslAT11 < Formula
   end
 
   def post_install
-    on_macos(&method(:macos_post_install))
-    on_linux(&method(:linux_post_install))
+    if OS.mac?
+      macos_post_install
+    else
+      linux_post_install
+    end
   end
 
   def macos_post_install
