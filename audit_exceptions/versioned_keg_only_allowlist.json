@@ -20,6 +20,7 @@
   "lua@5.1",
   "numpy@1.16",
   "openssl@1.1",
+  "openssl@3",
   "pangomm@2.46",
   "pyqt@5",
   "python@3.9",
