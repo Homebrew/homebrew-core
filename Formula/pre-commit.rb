@@ -90,7 +90,7 @@ class PreCommit < Formula
   def post_install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     dirs_to_fix = [libexec/"lib/python#{xy}"]
-    on_linux { dirs_to_fix << libexec/"bin" }
+    dirs_to_fix << libexec/"bin" if OS.linux?
     dirs_to_fix.each do |folder|
       folder.each_child do |f|
         next unless f.symlink?
