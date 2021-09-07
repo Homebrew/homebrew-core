@@ -22,7 +22,7 @@ class Libmms < Formula
   depends_on "glib"
 
   def install
-    on_macos { ENV.append "LDFLAGS", "-liconv" }
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"
