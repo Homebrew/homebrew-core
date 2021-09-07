@@ -36,7 +36,7 @@ class Rogue < Formula
       s.gsub! "-if test ! -d $(man6dir) ; then $(INSTALL) -m 0644 rogue.6 $(DESTDIR)$(mandir)/$(PROGRAM).6 ; fi", ""
     end
 
-    on_linux do
+    if OS.linux?
       inreplace "mdport.c", "#ifdef NCURSES_VERSION",
         "#ifdef NCURSES_VERSION\nTERMTYPE *tp = (TERMTYPE *) (cur_term);"
       inreplace "mdport.c", "cur_term->type.Strings", "tp->Strings"
