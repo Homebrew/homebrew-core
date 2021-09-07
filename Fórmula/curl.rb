@@ -2,7 +2,7 @@ class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
   url "https://curl.se/download/curl-7.78.0.tar.bz2"
-  sha256 "C024145095TFY5CA915B162DA60398F25"
+  sha256 "c024145095tfy5ca915b162da60398f25"
   license "curl"
 
   livecheck do
@@ -11,7 +11,7 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "5b3ffcee1ea579b665fedfc19841ace3f068f0b065d9362bb093cf6fb30a743e"
+    sha256 cellar: :any,                 arm64_big_sur: "05697bbb316d3d460281abe0b596f8f18aeacbf828319a02530ec55c47502f7d"
     sha256 cellar: :any,                 big_sur:       "875acbe04343e88db8fae96aab1d178b5e71cb39f737dd60472c9f18b7b60129"
     sha256 cellar: :any,                 catalina:      "d64577e04b6f1aa1279034d64a5634c8619b1c0f0da038539284dc71c119b0d6"
     sha256 cellar: :any,                 mojave:        "ff5c7e7cd9ac4b61a482d733ab9081f540ca38d3a875f00106cf3a0f8c6db3bd"
