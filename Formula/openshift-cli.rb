@@ -38,11 +38,13 @@ class OpenshiftCli < Formula
 
   def install
     arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    os = "darwin"
-    on_linux do
-      os = "linux"
+    os = if OS.mac?
+      "darwin"
+    else
       # See https://github.com/golang/go/issues/26487
       ENV.O0
+
+      "linux"
     end
     ENV["GOPATH"] = buildpath
     dir = buildpath/"src/github.com/openshift/oc"
@@ -50,8 +52,12 @@ class OpenshiftCli < Formula
 
     cd dir do
       args = ["cross-build-#{os}-#{arch}"]
-      args << (build.stable? ? "WHAT=cmd/oc" : "WHAT=staging/src/github.com/openshift/oc/cmd/oc")
-      on_linux { args << "SHELL=/bin/bash" }
+      args << if build.stable?
+        "WHAT=cmd/oc"
+      else
+        "WHAT=staging/src/github.com/openshift/oc/cmd/oc"
+      end
+      args << "SHELL=/bin/bash" if OS.linux?
 
       system "make", *args
       bin.install "_output/bin/#{os}_#{arch}/oc"
@@ -78,7 +84,7 @@ index 940a90415..a3584fbc9 100644
 @@ -88,6 +88,10 @@ cross-build-darwin-amd64:
  	+@GOOS=darwin GOARCH=amd64 $(MAKE) --no-print-directory build GO_BUILD_PACKAGES:=./cmd/oc GO_BUILD_FLAGS:="$(GO_BUILD_FLAGS_DARWIN)" GO_BUILD_BINDIR:=$(CROSS_BUILD_BINDIR)/darwin_amd64
  .PHONY: cross-build-darwin-amd64
- 
+
 +cross-build-darwin-arm64:
 +	+@GOOS=darwin GOARCH=arm64 $(MAKE) --no-print-directory build GO_BUILD_PACKAGES:=./cmd/oc GO_BUILD_FLAGS:="$(GO_BUILD_FLAGS_DARWIN)" GO_BUILD_BINDIR:=$(CROSS_BUILD_BINDIR)/darwin_arm64
 +.PHONY: cross-build-darwin-arm64
