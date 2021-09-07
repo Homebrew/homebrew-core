@@ -41,9 +41,7 @@ class Handbrake < Formula
   def install
     inreplace "contrib/ffmpeg/module.defs", "$(FFMPEG.GCC.gcc)", "cc"
 
-    on_linux do
-      ENV.append "CFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2"
-    end
+    ENV.append "CFLAGS", "-I#{Formula["libxml2"].opt_include}/libxml2" if OS.linux?
 
     system "./configure", "--prefix=#{prefix}",
                           "--disable-xcode",
