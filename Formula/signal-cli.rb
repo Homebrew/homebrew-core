@@ -67,8 +67,11 @@ class SignalCli < Formula
       system "zip", "-d", zkgroup_jar, "libzkgroup.so"
 
       # build & embed library for current platform
-      target = "mac_dylib"
-      on_linux { target = "libzkgroup" }
+      target = if OS.mac?
+        "mac_dylib"
+      else
+        "libzkgroup"
+      end
       system "make", target
       cd "ffi/java/src/main/resources" do
         system "zip", "-u", zkgroup_jar, shared_library("libzkgroup")
