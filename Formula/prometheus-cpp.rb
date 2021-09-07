@@ -3,8 +3,7 @@ class PrometheusCpp < Formula
   homepage "https://github.com/jupp0r/prometheus-cpp"
   url "https://github.com/jupp0r/prometheus-cpp.git",
       tag:      "v0.12.3",
-      revision: "84388828ae80556f57e11249dbd0063043991fb4",
-      shallow:  false
+      revision: "84388828ae80556f57e11249dbd0063043991fb4"
   license "MIT"
   head "https://github.com/jupp0r/prometheus-cpp.git", branch: "master"
 
