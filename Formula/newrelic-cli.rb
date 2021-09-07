@@ -19,10 +19,9 @@ class NewrelicCli < Formula
   def install
     ENV["PROJECT_VER"] = version
     system "make", "compile-only"
-    on_macos do
+    if OS.mac?
       bin.install "bin/darwin/newrelic"
-    end
-    on_linux do
+    else
       bin.install "bin/linux/newrelic"
     end
 
