@@ -32,11 +32,10 @@ class Analog < Formula
       %Q(DEFS='-DLANGDIR="#{pkgshare}/lang/"' -DHAVE_ZLIB),
       "LIBS=-lz -lm",
     ]
-    on_macos do
-      args << "OS=OSX"
-    end
-    on_linux do
-      args << "OS=UNIX"
+    args << if OS.mac?
+      "OS=OSX"
+    else
+      "OS=UNIX"
     end
     system "make", *args
 
