@@ -44,31 +44,3 @@ class Syncthing < Formula
     system bin/"syncthing", "-generate", "./"
   end
 end
-
-__END__
-diff --git a/go.mod b/go.mod
-index 7f816508a..64fb7aede 100644
---- a/go.mod
-+++ b/go.mod
-@@ -48,7 +48,7 @@ require (
- 	github.com/vitrun/qart v0.0.0-20160531060029-bf64b92db6b0
- 	golang.org/x/crypto v0.0.0-20210421170649-83a5a9bb288b
- 	golang.org/x/net v0.0.0-20210428140749-89ef3d95e781
--	golang.org/x/sys v0.0.0-20210426230700-d19ff857e887
-+	golang.org/x/sys v0.0.0-20210819135213-f52c844e1c1c
- 	golang.org/x/text v0.3.6
- 	golang.org/x/time v0.0.0-20210220033141-f8bda1e9f3ba
- 	golang.org/x/tools v0.1.0
-diff --git a/go.sum b/go.sum
-index 11f4fd973..18c04e919 100644
---- a/go.sum
-+++ b/go.sum
-@@ -592,6 +592,8 @@ golang.org/x/sys v0.0.0-20210309074719-68d13333faf2/go.mod h1:h1NjWce9XRLGQEsW7w
- golang.org/x/sys v0.0.0-20210423082822-04245dca01da/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
- golang.org/x/sys v0.0.0-20210426230700-d19ff857e887 h1:dXfMednGJh/SUUFjTLsWJz3P+TQt9qnR11GgeI3vWKs=
- golang.org/x/sys v0.0.0-20210426230700-d19ff857e887/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
-+golang.org/x/sys v0.0.0-20210819135213-f52c844e1c1c h1:Lyn7+CqXIiC+LOR9aHD6jDK+hPcmAuCfuXztd1v4w1Q=
-+golang.org/x/sys v0.0.0-20210819135213-f52c844e1c1c/go.mod h1:oPkhp1MJrh7nUepCBck5+mAzfO9JrbApNNgaTdGDITg=
- golang.org/x/term v0.0.0-20201126162022-7de9c90e9dd1/go.mod h1:bj7SfCRtBDWHUb9snDiAeCFNEtKQo2Wmx5Cou7ajbmo=
- golang.org/x/text v0.0.0-20170915032832-14c0d48ead0c/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
- golang.org/x/text v0.3.0/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=
