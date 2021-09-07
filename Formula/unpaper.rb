@@ -33,9 +33,7 @@ class Unpaper < Formula
   def install
     system "autoreconf", "-i" if build.head?
 
-    on_linux do
-      system "autoreconf", "-i"
-    end
+    system "autoreconf", "-i" if OS.linux?
 
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
