@@ -19,9 +19,7 @@ class Csvprintf < Formula
   uses_from_macos "libxslt"
 
   def install
-    on_macos do
-      ENV.append "LDFLAGS", "-liconv"
-    end
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     system "./autogen.sh"
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
