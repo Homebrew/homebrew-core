@@ -55,8 +55,11 @@ class Packetbeat < Formula
   end
 
   test do
-    eth = "en"
-    on_linux { eth = "eth" }
+    eth = if OS.mac?
+      "en"
+    else
+      "eth"
+    end
     assert_match "0: #{eth}0", shell_output("#{bin}/packetbeat devices")
     assert_match version.to_s, shell_output("#{bin}/packetbeat version")
   end
