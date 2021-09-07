@@ -39,15 +39,14 @@ class UtilLinux < Formula
       --disable-silent-rules
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--disable-hardlink" # does not build on macOS
       args << "--disable-ipcs" # does not build on macOS
       args << "--disable-ipcrm" # does not build on macOS
       args << "--disable-wall" # already comes with macOS
       args << "--disable-libmount" # does not build on macOS
       args << "--enable-libuuid" # conflicts with ossp-uuid
-    end
-    on_linux do
+    else
       args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
       args << "--disable-kill" # Conflicts with coreutils.
       args << "--disable-cal" # Conflicts with bsdmainutils
