@@ -3,8 +3,7 @@ class Carthage < Formula
   homepage "https://github.com/Carthage/Carthage"
   url "https://github.com/Carthage/Carthage.git",
       tag:      "0.38.0",
-      revision: "9a3d1799ba8f8b9e2d4514cfa53a2cca6064136e",
-      shallow:  false
+      revision: "9a3d1799ba8f8b9e2d4514cfa53a2cca6064136e"
   license "MIT"
   head "https://github.com/Carthage/Carthage.git", branch: "master"
 
