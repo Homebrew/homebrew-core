@@ -32,7 +32,7 @@ class Thrax < Formula
   def install
     system "./configure", *std_configure_args
     system "make", "install"
-    on_linux { rewrite_shebang detected_python_shebang, bin/"thraxmakedep" }
+    rewrite_shebang detected_python_shebang, bin/"thraxmakedep" if OS.linux?
   end
 
   test do
