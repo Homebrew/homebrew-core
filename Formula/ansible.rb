@@ -576,9 +576,9 @@ class Ansible < Formula
   def install
     ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
 
-    on_macos do
+    if OS.mac? && (MacOS.version <= :sierra)
       # Fix "ld: file not found: /usr/lib/system/libsystem_darwin.dylib" for lxml
-      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
+      ENV["SDKROOT"] = MacOS.sdk_path
     end
 
     venv = virtualenv_create(libexec, "python3")
