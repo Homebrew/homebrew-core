@@ -89,7 +89,7 @@ class Gcc < Formula
     # libphobos is part of gdc
     args << "--enable-libphobos" if Hardware::CPU.intel?
 
-    on_macos do
+    if OS.mac?
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
       args << "--with-system-zlib"
 
@@ -110,9 +110,7 @@ class Gcc < Formula
       # Ensure correct install names when linking against libgcc_s;
       # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
       inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
-    end
-
-    on_linux do
+    else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV["LDFLAGS"]}"
 
@@ -127,15 +125,13 @@ class Gcc < Formula
     mkdir "build" do
       system "../configure", *args
 
-      on_macos do
+      if OS.mac?
         # Use -headerpad_max_install_names in the build,
         # otherwise updated load commands won't fit in the Mach-O header.
         # This is needed because `gcc` avoids the superenv shim.
         system "make", "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
         system "make", "install"
-      end
-
-      on_linux do
+      else
         system "make"
         system "make", "install-strip"
       end
@@ -143,7 +139,7 @@ class Gcc < Formula
       bin.install_symlink bin/"gfortran-#{version_suffix}" => "gfortran"
       bin.install_symlink bin/"gdc-#{version_suffix}" => "gdc" if Hardware::CPU.intel?
 
-      on_linux do
+      if OS.linux?
         # Only the newest brewed gcc should install gfortan libs as we can only have one.
         lib.install_symlink Dir[lib/"gcc/#{version_suffix}/libgfortran.*"]
       end
@@ -165,7 +161,7 @@ class Gcc < Formula
   end
 
   def post_install
-    on_linux do
+    if OS.linux?
       gcc = bin/"gcc-#{version_suffix}"
       libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
