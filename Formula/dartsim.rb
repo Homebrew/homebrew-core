@@ -32,7 +32,7 @@ class Dartsim < Formula
     ENV.cxx11
     args = std_cmake_args
 
-    on_macos do
+    if OS.mac?
       # Force to link to system GLUT (see: https://cmake.org/Bug/view.php?id=16045)
       glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
       args << "-DGLUT_glut_LIBRARY=#{glut_lib}"
