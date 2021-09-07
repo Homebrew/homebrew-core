@@ -34,13 +34,11 @@ class Inetutils < Formula
       --with-idn
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "SUIDMODE=", "install"
 
-    on_macos do
+    if OS.mac?
       # Binaries not shadowing macOS utils symlinked without 'g' prefix
       noshadow.each do |cmd|
         bin.install_symlink "g#{cmd}" => cmd
