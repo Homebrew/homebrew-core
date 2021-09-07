@@ -38,7 +38,7 @@ class NodeAT14 < Formula
     term_size_vendor_dir = lib/"node_modules/npm/node_modules/term-size/vendor"
     term_size_vendor_dir.rmtree # remove pre-built binaries
 
-    on_macos do
+    if OS.mac?
       macos_dir = term_size_vendor_dir/"macos"
       macos_dir.mkpath
       # Replace the vendored pre-built term-size with one we build ourselves
