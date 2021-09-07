@@ -4,6 +4,7 @@ class PostgresqlAT12 < Formula
   url "https://ftp.postgresql.org/pub/source/v12.8/postgresql-12.8.tar.bz2"
   sha256 "e26401e090c34ccb15ffb33a111f340833833535a7b7c5cd11cd88ab57d9c62a"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
