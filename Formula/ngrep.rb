@@ -31,14 +31,12 @@ class Ngrep < Formula
       "--disable-pcap-restart",
     ]
 
-    on_macos do
+    args << if OS.mac?
       # this line required to make configure succeed
-      args << "--with-pcap-includes=#{sdk}/usr/include/pcap"
-    end
-
-    on_linux do
+      "--with-pcap-includes=#{sdk}/usr/include/pcap"
+    else
       # this line required to make configure succeed
-      args << "--with-pcap-includes=#{Formula["libpcap"].opt_include}/pcap"
+      "--with-pcap-includes=#{Formula["libpcap"].opt_include}/pcap"
     end
 
     system "./configure", *args
