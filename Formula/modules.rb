@@ -32,7 +32,7 @@ class Modules < Formula
       --without-x
     ]
 
-    on_linux do
+    if OS.linux?
       args << "--with-pager=#{Formula["less"].opt_bin}/less"
       args << "--with-tclsh=#{Formula["tcl-tk"].opt_bin}/tclsh"
     end
@@ -52,11 +52,11 @@ class Modules < Formula
 
   test do
     assert_match "restore", shell_output("#{bin}/envml --help")
-    shell = "zsh"
-    on_linux { shell = "sh" }
-    cmd = "source"
-    on_linux { cmd = "." }
-
+    shell, cmd = if OS.mac?
+      ["zsh", "source"]
+    else
+      ["sh", "."]
+    end
     output = shell_output("#{shell} -c '#{cmd} #{prefix}/init/#{shell}; module' 2>&1")
     assert_match version.to_s, output
   end
