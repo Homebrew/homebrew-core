@@ -5,6 +5,12 @@ class Web100clt < Formula
   sha256 "bd298eb333d4c13f191ce3e9386162dd0de07cddde8fe39e9a74fde4e072cdd9"
   revision 1
 
+  # This page gives a 403 Forbidden response over HTTPS, so we use HTTP.
+  livecheck do
+    url "http://software.internet2.edu/sources/ndt/"
+    regex(/href=.*?ndt[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "e6fb064b785043092357a6ca59164fad4ddb9be375f84b466a307b6af724d994"
