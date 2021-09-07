@@ -105,13 +105,11 @@ class Netcdf < Formula
       lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
     ], %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
 
-    on_linux do
+    if OS.linux?
       inreplace bin/"ncxx4-config",
                 %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{Regexp.escape(ENV.cxx)}},
                 ENV.cxx
-    end
-
-    on_macos do
+    else
       # SIP causes system Python not to play nicely with @rpath
       libnetcdf = (lib/"libnetcdf.dylib").readlink
       macho = MachO.open("#{lib}/libnetcdf-cxx4.dylib")
