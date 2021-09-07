@@ -23,9 +23,7 @@ class Librespot < Formula
   end
 
   def install
-    on_macos do
-      ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path.to_s
-    end
+    ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path.to_s if OS.mac?
     system "cargo", "install", "--no-default-features", "--features", "rodio-backend,with-dns-sd", *std_cargo_args
   end
 
