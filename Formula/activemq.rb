@@ -16,15 +16,13 @@ class Activemq < Formula
   depends_on "openjdk"
 
   def install
-    on_macos do
+    if OS.mac?
       rm_rf Dir["bin/linux-x86-*"]
 
       # Discard universal binaries without usable slices
       rm_f "bin/macosx/libwrapper.jnilib"
       rm_f "bin/macosx/wrapper" if Hardware::CPU.arm?
-    end
-
-    on_linux do
+    else
       rm_rf "bin/macosx"
     end
 
