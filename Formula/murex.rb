@@ -8,13 +8,7 @@ class Murex < Formula
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    dir = buildpath/"src/github.com/lmorg/murex"
-    dir.install buildpath.children
-    cd dir do
-      system "go", "build", *std_go_args
-    end
+    system "go", "build", *std_go_args
   end
 
   test do
