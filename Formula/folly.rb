@@ -48,9 +48,7 @@ class Folly < Formula
   fails_with gcc: "5"
 
   def install
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     mkdir "_build" do
       args = std_cmake_args + %w[
@@ -70,7 +68,7 @@ class Folly < Formula
 
   test do
     # Force use of Clang rather than LLVM Clang
-    on_macos { ENV.clang }
+    ENV.clang if OS.mac?
 
     (testpath/"test.cc").write <<~EOS
       #include <folly/FBVector.h>
