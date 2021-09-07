@@ -31,7 +31,7 @@ class Cbmc < Formula
     args = []
 
     # Workaround borrowed from https://github.com/diffblue/cbmc/issues/4956
-    on_macos { args << "-DCMAKE_C_COMPILER=/usr/bin/clang" }
+    args << "-DCMAKE_C_COMPILER=/usr/bin/clang" if OS.mac?
     # Java front-end fails to build on ARM
     args << "-DWITH_JBMC=OFF" if Hardware::CPU.arm?
 
