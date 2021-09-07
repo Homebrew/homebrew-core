@@ -25,9 +25,7 @@ class Serd < Formula
   end
 
   def install
-    on_linux do
-      ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin"
-    end
+    ENV.prepend_path "PATH", Formula["python@3.9"].opt_libexec/"bin" if OS.linux?
     system "./waf", "configure", "--prefix=#{prefix}"
     system "./waf"
     system "./waf", "install"
