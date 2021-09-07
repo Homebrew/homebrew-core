@@ -34,7 +34,7 @@ class VercelCli < Formula
     dist_dir = libexec/"lib/node_modules/vercel/dist"
     rm_rf dist_dir/"term-size"
 
-    on_macos do
+    if OS.mac?
       macos_dir = term_size_vendor_dir/"macos"
       macos_dir.mkpath
       # Replace the vendored pre-built term-size with one we build ourselves
