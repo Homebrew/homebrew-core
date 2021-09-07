@@ -104,7 +104,7 @@ class Octave < Formula
             "--with-portaudio",
             "--with-sndfile"]
 
-    on_linux do
+    if OS.linux?
       # Explicitly specify aclocal and automake without versions
       args << "ACLOCAL=aclocal"
       args << "AUTOMAKE=automake"
