@@ -31,7 +31,7 @@ class Xmltoman < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
       resources.each do |res|
@@ -54,9 +54,7 @@ class Xmltoman < Formula
     bin.install %w[xmltoman xmlmantohtml]
     pkgshare.install %w[xmltoman.xsl xmltoman.dtd xmltoman.css]
 
-    on_linux do
-      bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
-    end
+    bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"]) if OS.linux?
   end
 
   def test_do
