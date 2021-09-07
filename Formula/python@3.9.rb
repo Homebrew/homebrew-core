@@ -104,7 +104,7 @@ class PythonAT39 < Formula
     ENV["PYTHONPATH"] = nil
 
     # Override the auto-detection in setup.py, which assumes a universal build.
-    on_macos do
+    if OS.mac?
       ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"
     end
 
@@ -129,15 +129,14 @@ class PythonAT39 < Formula
       --with-system-libmpdec
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-framework=#{frameworks}"
       args << "--with-dtrace"
 
       # Override LLVM_AR to be plain old system ar.
       # https://bugs.python.org/issue43109
       args << "LLVM_AR=/usr/bin/ar"
-    end
-    on_linux do
+    else
       args << "--enable-shared"
     end
 
@@ -176,7 +175,7 @@ class PythonAT39 < Formula
               "for d_ in ['#{Formula["sqlite"].opt_include}']:"
     end
 
-    on_linux do
+    if OS.linux?
       # Python's configure adds the system ncurses include entry to CPPFLAGS
       # when doing curses header check. The check may fail when there exists
       # a 32-bit system ncurses (conflicts with the brewed 64-bit one).
@@ -208,15 +207,13 @@ class PythonAT39 < Formula
     ENV.deparallelize do
       # Tell Python not to install into /Applications (default for framework builds)
       system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-      on_macos do
-        system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
-      end
+      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
     end
 
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
     Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
-    on_macos do
+    if OS.mac?
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py",
                     lib_cellar/"config*/Makefile",
@@ -232,9 +229,7 @@ class PythonAT39 < Formula
       inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py"],
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
-    end
-
-    on_linux do
+    else
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_*linux_x86_64-*.py",
                     lib_cellar/"config*/Makefile",
