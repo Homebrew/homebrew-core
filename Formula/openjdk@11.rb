@@ -68,7 +68,7 @@ class OpenjdkAT11 < Formula
   def install
     boot_jdk = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
-    on_macos { boot_jdk /= "Contents/Home" unless Hardware::CPU.arm? }
+    boot_jdk /= "Contents/Home" if OS.mac? && !Hardware::CPU.arm?
     java_options = ENV.delete("_JAVA_OPTIONS")
 
     args = %W[
@@ -89,8 +89,7 @@ class OpenjdkAT11 < Formula
       --without-version-pre
     ]
 
-    framework_path = nil
-    on_macos do
+    if OS.mac?
       framework_path = File.expand_path(
         "../SharedFrameworks/ContentDeliveryServices.framework/Versions/Current/itms/java/Frameworks",
         MacOS::Xcode.prefix,
@@ -109,9 +108,7 @@ class OpenjdkAT11 < Formula
       else
         args << "--with-extra-ldflags=-headerpad_max_install_names"
       end
-    end
-
-    on_linux do
+    else
       args << "--with-x=#{HOMEBREW_PREFIX}"
       args << "--with-cups=#{HOMEBREW_PREFIX}"
       args << "--with-fontconfig=#{HOMEBREW_PREFIX}"
@@ -125,7 +122,7 @@ class OpenjdkAT11 < Formula
 
     cd "build/release/images" do
       jdk = libexec
-      on_macos do
+      if OS.mac?
         libexec.install Dir["jdk-bundle/*"].first => "openjdk.jdk"
         jdk /= "openjdk.jdk/Contents/Home"
 
@@ -138,9 +135,9 @@ class OpenjdkAT11 < Formula
           # Replace Apple signature by ad-hoc one (otherwise relocation will break it)
           system "codesign", "-f", "-s", "-", dest/"Versions/A/JavaNativeFoundation"
         end
+      else
+        libexec.install Dir["jdk/*"]
       end
-
-      on_linux { libexec.install Dir["jdk/*"] }
 
       bin.install_symlink Dir[jdk/"bin/*"]
       include.install_symlink Dir[jdk/"include/*.h"]
