@@ -69,7 +69,7 @@ class Ykman < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fixes: smartcard/scard/helpers.c:28:22: fatal error: winscard.h: No such file or directory
       ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC"
     end
