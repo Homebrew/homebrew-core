@@ -63,7 +63,7 @@ class Itk < Formula
       -DModule_ITKVtkGlue=ON
     ]
 
-    on_macos { args << "-DITK_USE_GPU=ON" }
+    args << "-DITK_USE_GPU=ON" if OS.mac?
 
     # Avoid references to the Homebrew shims directory
     inreplace "Modules/Core/Common/src/CMakeLists.txt" do |s|
