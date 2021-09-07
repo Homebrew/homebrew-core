@@ -15,7 +15,7 @@ class Libkeccak < Formula
 
   def install
     args = ["PREFIX=#{prefix}"]
-    on_macos { args << "OSCONFIGFILE=macos.mk" }
+    args << "OSCONFIGFILE=macos.mk" if OS.mac?
 
     system "make", "install", *args
     pkgshare.install %w[.testfile test.c]
