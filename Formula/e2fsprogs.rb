@@ -43,11 +43,10 @@ class E2fsprogs < Formula
       "--disable-e2initrd-helper",
       "MKDIR_P=mkdir -p",
     ]
-    on_macos do
-      args << "--enable-bsd-shlibs" unless Hardware::CPU.arm?
-    end
-    on_linux do
-      args << "--enable-elf-shlibs"
+    args << if OS.linux?
+      "--enable-elf-shlibs"
+    elsif !Hardware::CPU.arm?
+      "--enable-bsd-shlibs"
     end
 
     system "./configure", *args
