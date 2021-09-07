@@ -25,14 +25,14 @@ class PkgConfig < Formula
       #{HOMEBREW_PREFIX}/lib/pkgconfig
       #{HOMEBREW_PREFIX}/share/pkgconfig
     ]
-    on_macos do
+    pc_path << if OS.mac?
       pc_path << "/usr/local/lib/pkgconfig"
       pc_path << "/usr/lib/pkgconfig"
-      pc_path << "#{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}"
+      "#{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}"
+    else
+      "#{HOMEBREW_LIBRARY}/Homebrew/os/linux/pkgconfig"
     end
-    on_linux do
-      pc_path << "#{HOMEBREW_LIBRARY}/Homebrew/os/linux/pkgconfig"
-    end
+
     pc_path = pc_path.uniq.join(File::PATH_SEPARATOR)
 
     system "./configure", "--disable-debug",
