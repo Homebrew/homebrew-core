@@ -39,7 +39,7 @@ class Redshift < Formula
       --disable-gui
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-corelocation"
       args << "--enable-quartz"
     end
