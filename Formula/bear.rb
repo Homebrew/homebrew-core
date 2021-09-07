@@ -46,9 +46,7 @@ class Bear < Formula
   end
 
   def install
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     args = std_cmake_args + %w[
       -DENABLE_UNIT_TESTS=OFF
