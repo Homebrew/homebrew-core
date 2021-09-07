@@ -136,15 +136,17 @@ class Emscripten < Formula
       system "npm", "install", *Language::Node.local_npm_install_args
       rm_f "node_modules/ws/builderror.log" # Avoid references to Homebrew shims
       # Delete native GraalVM image in incompatible platforms.
-      on_macos { rm_rf "node_modules/google-closure-compiler-osx" if Hardware::CPU.arm? }
-      on_linux { rm_rf "node_modules/google-closure-compiler-linux" }
+      if OS.linux?
+        rm_rf "node_modules/google-closure-compiler-linux"
+      elsif Hardware::CPU.arm?
+        rm_rf "node_modules/google-closure-compiler-osx"
+      end
     end
 
     # Add JAVA_HOME to env_script on ARM64 macOS and Linux, so that google-closure-compiler
     # can find OpenJDK
     emscript_env = { PYTHON: Formula["python@3.9"].opt_bin/"python3" }
-    on_macos { emscript_env.merge! Language::Java.overridable_java_home_env if Hardware::CPU.arm? }
-    on_linux { emscript_env.merge! Language::Java.overridable_java_home_env }
+    emscript_env.merge! Language::Java.overridable_java_home_env if OS.linux? || Hardware::CPU.arm?
 
     %w[em++ em-config emar emcc emcmake emconfigure emlink.py emmake
        emranlib emrun emscons].each do |emscript|
