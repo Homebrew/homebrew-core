@@ -37,7 +37,7 @@ class Lc0 < Formula
 
   def install
     args = ["-Dgtest=false"]
-    on_linux do
+    if OS.linux?
       args << "-Dopenblas_include=#{Formula["openblas"].opt_include}"
       args << "-Dopenblas_libdirs=#{Formula["openblas"].opt_lib}"
     end
