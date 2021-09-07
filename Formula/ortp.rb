@@ -4,7 +4,7 @@ class Ortp < Formula
   url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.0.18/ortp-5.0.18.tar.bz2"
   sha256 "5740e5f1de912a1dd7d580027f46383364f6f1316ffbbe9a8c2658423f214234"
   license "GPL-3.0-or-later"
-  head "https://gitlab.linphone.org/BC/public/ortp.git"
+  head "https://gitlab.linphone.org/BC/public/ortp.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "63abdbc8f65a8d548420f18b386d556bf33789b299b228299ffd7f9eb2c1d319"
