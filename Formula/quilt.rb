@@ -28,11 +28,10 @@ class Quilt < Formula
       "--prefix=#{prefix}",
       "--without-getopt",
     ]
-    on_macos do
+    if OS.mac?
       args << "--with-sed=#{HOMEBREW_PREFIX}/bin/gsed"
       args << "--with-stat=/usr/bin/stat" # on macOS, quilt expects BSD stat
-    end
-    on_linux do
+    else
       args << "--with-sed=#{HOMEBREW_PREFIX}/bin/sed"
     end
     system "./configure", *args
