@@ -30,9 +30,10 @@ class Landscaper < Formula
     ENV["GO111MODULE"] = "auto"
     ENV.prepend_create_path "PATH", buildpath/"bin"
     arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    os = "darwin"
-    on_linux do
-      os = "linux"
+    os = if OS.mac?
+      "darwin"
+    else
+      "linux"
     end
     ENV["TARGETS"] = "#{os}/#{arch}"
     dir = buildpath/"src/github.com/eneco/landscaper"
