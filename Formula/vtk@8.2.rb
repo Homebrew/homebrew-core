@@ -77,7 +77,7 @@ class VtkAT82 < Formula
 
     # Fix build with GCC 10 or newer
     # Adapted from https://bugs.gentoo.org/attachment.cgi?id=641488&action=diff
-    on_linux { inreplace "CMake/VTKGenerateExportHeader.cmake", "[3-9]", "[1-9][0-9]" }
+    inreplace "CMake/VTKGenerateExportHeader.cmake", "[3-9]", "[1-9][0-9]" if OS.linux?
 
     pyver = Language::Python.major_minor_version "python3"
     args = std_cmake_args + %W[
@@ -107,9 +107,7 @@ class VtkAT82 < Formula
       -DSIP_PYQT_DIR='#{Formula["pyqt5"].opt_share}/sip'
     ]
 
-    on_macos do
-      args << "-DVTK_USE_COCOA=ON"
-    end
+    args << "-DVTK_USE_COCOA=ON" if OS.mac?
 
     mkdir "build" do
       system "cmake", "..", *args
@@ -135,7 +133,7 @@ class VtkAT82 < Formula
       lib/"cmake/vtk-#{version.major_minor}/VTKConfig.cmake",
       lib/"cmake/vtk-#{version.major_minor}/Modules/vtkPython.cmake",
     ]
-    on_macos { inreplace_cmake_modules << lib/"cmake/vtk-#{version.major_minor}/VTKTargets-release.cmake" }
+    inreplace_cmake_modules << lib/"cmake/vtk-#{version.major_minor}/VTKTargets-release.cmake" if OS.mac?
 
     inreplace inreplace_cmake_modules, prefix, opt_prefix
   end
