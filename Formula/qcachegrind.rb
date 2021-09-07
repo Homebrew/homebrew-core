@@ -30,12 +30,10 @@ class Qcachegrind < Formula
                                                "-config", "release"
       system "make"
 
-      on_macos do
+      if OS.mac?
         prefix.install "qcachegrind.app"
         bin.install_symlink prefix/"qcachegrind.app/Contents/MacOS/qcachegrind"
-      end
-
-      on_linux do
+      else
         bin.install "qcachegrind/qcachegrind"
       end
     end
