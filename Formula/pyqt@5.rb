@@ -78,7 +78,7 @@ class PyqtAT5 < Formula
     end
 
     components = %w[3d chart datavis networkauth purchasing]
-    on_macos { components << "webengine" unless Hardware::CPU.arm? }
+    components << "webengine" if OS.mac? && !Hardware::CPU.arm?
     components.each do |p|
       resource(p).stage do
         inreplace "pyproject.toml", "[tool.sip.project]",
