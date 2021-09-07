@@ -20,7 +20,7 @@ class Libdv < Formula
   depends_on "popt"
 
   def install
-    on_macos do
+    if OS.mac?
       # This fixes an undefined symbol error on compile.
       # See the port file for libdv:
       #   https://trac.macports.org/browser/trunk/dports/multimedia/libdv/Portfile
