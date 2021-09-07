@@ -111,7 +111,7 @@ class QtAT5 < Formula
       -dbus-runtime
     ]
 
-    on_macos do
+    if OS.mac?
       args << "-no-rpath"
       args << "-system-zlib"
       if Hardware::CPU.arm?
@@ -121,9 +121,7 @@ class QtAT5 < Formula
         # Should be reenabled unconditionally once it is fixed on Apple Silicon
         args << "-proprietary-codecs"
       end
-    end
-
-    on_linux do
+    else
       args << "-R#{lib}"
       # https://bugreports.qt.io/browse/QTBUG-71564
       args << "-no-avx2"
