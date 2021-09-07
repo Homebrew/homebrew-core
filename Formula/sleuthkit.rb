@@ -30,7 +30,7 @@ class Sleuthkit < Formula
   conflicts_with "ffind", because: "both install a `ffind` executable"
 
   def install
-    on_macos { ENV["SED"] = "/usr/bin/sed" }
+    ENV["SED"] = "/usr/bin/sed" if OS.mac?
     ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
     ENV["ANT_FOUND"] = Formula["ant"].opt_bin/"ant"
     ENV.append_to_cflags "-DNDEBUG"
@@ -41,7 +41,7 @@ class Sleuthkit < Formula
     cd "bindings/java" do
       system "ant"
 
-      on_linux do
+      if OS.linux?
         inreplace "Makefile", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/ld", "ld"
         inreplace "jni/Makefile", HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/ld", "ld"
       end
