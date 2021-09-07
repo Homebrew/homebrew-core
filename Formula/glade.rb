@@ -52,7 +52,7 @@ class Glade < Formula
   test do
     # executable test (GUI)
     # fails in Linux CI with (glade:20337): Gtk-WARNING **: 21:45:31.876: cannot open display:
-    on_macos { system "#{bin}/glade", "--version" }
+    system "#{bin}/glade", "--version" if OS.mac?
     # API test
     (testpath/"test.c").write <<~EOS
       #include <gladeui/glade.h>
