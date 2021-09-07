@@ -51,7 +51,7 @@ class Ldc < Formula
     ENV.cxx11
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
 
-    on_linux do
+    if OS.linux?
       # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
       ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].lib
     end
@@ -67,7 +67,7 @@ class Ldc < Formula
       system "make"
       system "make", "install"
 
-      on_macos do
+      if OS.mac?
         # Workaround for https://github.com/ldc-developers/ldc/issues/3670
         cp Formula["llvm"].opt_lib/"libLLVM.dylib", lib/"libLLVM.dylib"
       end
