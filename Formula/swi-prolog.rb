@@ -33,7 +33,7 @@ class SwiProlog < Formula
 
   def install
     # Remove shim paths from binary files `swipl-ld` and `libswipl.so.*`
-    on_linux do
+    if OS.linux?
       inreplace "cmake/Params.cmake" do |s|
         s.gsub! "${CMAKE_C_COMPILER}", "\"gcc\""
         s.gsub! "${CMAKE_CXX_COMPILER}", "\"g++\""
