@@ -37,10 +37,8 @@ class Libass < Formula
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
-    on_macos do
-      # libass uses coretext on macOS, fontconfig on Linux
-      args << "--disable-fontconfig"
-    end
+    # libass uses coretext on macOS, fontconfig on Linux
+    args << "--disable-fontconfig" if OS.mac?
     system "./configure", *args
     system "make", "install"
   end
