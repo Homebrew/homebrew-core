@@ -45,7 +45,7 @@ class Mmseqs2 < Formula
       "-DHAVE_SSE4_1=1"
     end
 
-    on_macos do
+    if OS.mac?
       libomp = Formula["libomp"]
       args << "-DOpenMP_C_FLAGS=-Xpreprocessor\ -fopenmp\ -I#{libomp.opt_include}"
       args << "-DOpenMP_C_LIB_NAMES=omp"
