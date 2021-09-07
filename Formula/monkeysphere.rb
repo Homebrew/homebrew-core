@@ -50,8 +50,11 @@ class Monkeysphere < Formula
     ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin"
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
-    res = resources
-    on_macos { res = [resource("Crypt::OpenSSL::Bignum")] if MacOS.version <= :catalina }
+    res = if OS.mac? && MacOS.version <= :catalina
+      [resource("Crypt::OpenSSL::Bignum")]
+    else
+      resources
+    end
 
     res.each do |r|
       r.stage do
