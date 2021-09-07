@@ -41,9 +41,7 @@ class Puzzles < Formula
     system "cmake", ".", *std_cmake_args
     system "make", "install"
 
-    on_macos do
-      bin.write_exec_script prefix/"Puzzles.app/Contents/MacOS/Puzzles"
-    end
+    bin.write_exec_script prefix/"Puzzles.app/Contents/MacOS/Puzzles" if OS.mac?
   end
 
   test do
