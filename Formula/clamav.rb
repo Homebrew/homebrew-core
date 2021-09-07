@@ -48,9 +48,7 @@ class Clamav < Formula
       -DENABLE_TESTS=OFF
     ]
 
-    on_linux do
-      args << "-DENABLE_MILTER=OFF"
-    end
+    args << "-DENABLE_MILTER=OFF" if OS.linux?
 
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
