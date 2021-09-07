@@ -80,9 +80,7 @@ class TclTk < Formula
 
     resource("tk").stage do
       cd "unix" do
-        on_macos do
-          args << "--enable-aqua=yes"
-        end
+        args << "--enable-aqua=yes" if OS.mac?
         system "./configure", *args, "--without-x", "--with-tcl=#{lib}"
         system "make"
         system "make", "install"
@@ -98,14 +96,10 @@ class TclTk < Formula
     resource("tcllib").stage do
       system "./configure", "--prefix=#{prefix}", "--mandir=#{man}"
       system "make", "install"
-      on_macos do
-        ENV["SDKROOT"] = MacOS.sdk_path
-      end
+      ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
       system "make", "critcl"
       cp_r "modules/tcllibc", "#{lib}/"
-      on_macos do
-        ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64"
-      end
+      ln_s "#{lib}/tcllibc/macosx-x86_64-clang", "#{lib}/tcllibc/macosx-x86_64" if OS.mac?
     end
 
     resource("tcltls").stage do
