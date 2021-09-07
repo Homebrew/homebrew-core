@@ -53,9 +53,7 @@ class Neomutt < Formula
       --with-ui=ncurses
     ]
 
-    on_linux do
-      args << "--pkgconf"
-    end
+    args << "--pkgconf" if OS.linux?
 
     system "./configure", *args
     system "make", "install"
