@@ -31,7 +31,7 @@ class Jnettop < Formula
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
 
     # Fix undefined reference to `g_thread_init'
-    on_linux do
+    if OS.linux?
       inreplace "Makefile.in", "$(jnettop_LDFLAGS) $(jnettop_OBJECTS)",
                                "$(jnettop_OBJECTS) $(AM_LDFLAGS) $(LDFLAGS) $(jnettop_LDFLAGS)"
     end
