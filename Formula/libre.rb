@@ -18,10 +18,7 @@ class Libre < Formula
   uses_from_macos "zlib"
 
   def install
-    sysroot = nil
-    on_macos do
-      sysroot = "SYSROOT=#{MacOS.sdk_path}/usr"
-    end
+    sysroot = "SYSROOT=#{MacOS.sdk_path}/usr" if OS.mac?
     system "make", *sysroot, "install", "PREFIX=#{prefix}"
   end
 
