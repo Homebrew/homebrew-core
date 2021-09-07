@@ -30,7 +30,7 @@ class Homebank < Formula
   depends_on "libsoup"
 
   def install
-    on_linux do
+    if OS.linux?
       # Needed to find intltool (xml::parser)
       ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
       ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
