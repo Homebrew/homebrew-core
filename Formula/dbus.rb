@@ -62,7 +62,7 @@ class Dbus < Formula
       "--disable-tests",
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-launchd"
       args << "--with-launchd-agent-dir=#{prefix}"
     end
