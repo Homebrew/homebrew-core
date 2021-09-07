@@ -60,7 +60,7 @@ class RomTools < Formula
       USE_SYSTEM_LIB_FLAC=1
       USE_SYSTEM_LIB_UTF8PROC=1
     ]
-    on_linux do
+    if OS.linux?
       args << "USE_SYSTEM_LIB_PORTAUDIO=1"
       args << "USE_SYSTEM_LIB_PORTMIDI=1"
     end
@@ -71,9 +71,7 @@ class RomTools < Formula
       nltool nlwav pngcmp regrep romcmp srcclean testkeys unidasm
     ]
     bin.install "split" => "rom-split"
-    on_macos do
-      bin.install "aueffectutil"
-    end
+    bin.install "aueffectutil" if OS.mac?
     man1.install Dir["docs/man/*.1"]
   end
 
