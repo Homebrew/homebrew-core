@@ -34,7 +34,7 @@ class Apcupsd < Formula
       --enable-modbus-usb
     ]
 
-    on_macos do
+    if OS.mac?
       # Detecting the lack of gethostname_r() goes wrong on Xcode 12:
       args << "ac_cv_func_which_gethostbyname_r=no"
 
@@ -55,9 +55,7 @@ class Apcupsd < Formula
         # Use appropriate paths for launch daemon and launch script.
         inreplace %w[apcupsd-start.in org.apcupsd.apcupsd.plist.in], "/etc/apcupsd", sysconfdir
       end
-    end
-
-    on_linux do
+    else
       # Avoid Linux distro-specific paths
       args << "--with-distname=unknown"
       args << "--with-halpolicydir=#{share}/hal/fdi/policy/20thirdparty"
