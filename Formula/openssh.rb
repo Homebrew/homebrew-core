@@ -56,7 +56,7 @@ class Openssh < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       ENV.append "CPPFLAGS", "-D__APPLE_SANDBOX_NAMED_EXTERNAL__"
 
       # Ensure sandbox profile prefix is correct.
@@ -75,9 +75,7 @@ class Openssh < Formula
       --with-security-key-builtin
     ]
 
-    on_linux do
-      args << "--with-privsep-path=#{var}/lib/sshd"
-    end
+    args << "--with-privsep-path=#{var}/lib/sshd" if OS.linux?
 
     system "./configure", *args
     system "make"
