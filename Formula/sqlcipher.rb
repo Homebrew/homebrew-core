@@ -40,9 +40,7 @@ class Sqlcipher < Formula
     ].join(" ")
     args << "CFLAGS=#{cflags}"
 
-    on_linux do
-      args << "LIBS=-lm"
-    end
+    args << "LIBS=-lm" if OS.linux?
 
     system "./configure", *args
     system "make"
