@@ -17,7 +17,7 @@ class Pgformatter < Formula
     system "perl", "Makefile.PL", "DESTDIR=."
     system "make", "install"
 
-    on_linux do
+    if OS.linux?
       # Move man pages to share directory so they will be linked correctly on Linux
       mkdir "usr/local/share"
       mv "usr/local/man", "usr/local/share"
