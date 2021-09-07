@@ -22,16 +22,14 @@ class Gptfdisk < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       inreplace "Makefile.mac" do |s|
         s.gsub! "/usr/local/Cellar/ncurses/6.2/lib/libncurses.dylib", "-L/usr/lib -lncurses"
         s.gsub! "-L/usr/local/lib -lpopt", "-L#{Formula["popt"].opt_lib} -lpopt"
       end
 
       system "make", "-f", "Makefile.mac"
-    end
-
-    on_linux do
+    else
       %w[ncurses popt util-linux].each do |dep|
         ENV.append_to_cflags "-I#{Formula[dep].opt_include}"
         ENV.append "LDFLAGS", "-L#{Formula[dep].opt_lib}"
