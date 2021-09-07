@@ -41,7 +41,7 @@ class Qscintilla2 < Formula
     args = []
     spec = ""
 
-    on_macos do
+    if OS.mac?
       # TODO: when using qt 6, modify the spec
       spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
       spec << "-arm64" if Hardware::CPU.arm?
