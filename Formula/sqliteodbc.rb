@@ -29,12 +29,12 @@ class Sqliteodbc < Formula
     lib.mkdir
     args = ["--with-odbc=#{Formula["unixodbc"].opt_prefix}",
             "--with-sqlite3=#{Formula["sqlite"].opt_prefix}"]
-    on_linux { args << "--with-libxml2=#{Formula["libxml2"].opt_prefix}" }
+    args << "--with-libxml2=#{Formula["libxml2"].opt_prefix}" if OS.linux?
 
     system "./configure", "--prefix=#{prefix}", *args
     system "make"
     system "make", "install"
-    on_macos { lib.install_symlink lib/"libsqlite3odbc.dylib" => "libsqlite3odbc.so" }
+    lib.install_symlink lib/"libsqlite3odbc.dylib" => "libsqlite3odbc.so" if OS.mac?
   end
 
   test do
