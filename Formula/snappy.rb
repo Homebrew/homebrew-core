@@ -41,9 +41,7 @@ class Snappy < Formula
 
   def install
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     # Disable tests/benchmarks used for Snappy development
     args = std_cmake_args + %w[
@@ -60,7 +58,7 @@ class Snappy < Formula
 
   test do
     # Force use of Clang on Mojave
-    on_macos { ENV.clang }
+    ENV.clang if OS.mac?
 
     (testpath/"test.cpp").write <<~EOS
       #include <assert.h>
