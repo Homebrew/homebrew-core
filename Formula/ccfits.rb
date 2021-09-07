@@ -26,10 +26,9 @@ class Ccfits < Formula
       --disable-silent-rules
       --prefix=#{prefix}
     ]
-    on_linux do
-      # Remove references to brew's shims
-      args << "pfk_cxx_lib_path=/usr/bin/g++"
-    end
+
+    # Remove references to brew's shims
+    args << "pfk_cxx_lib_path=/usr/bin/g++" if OS.linux?
 
     system "./configure", *args
     system "make"
