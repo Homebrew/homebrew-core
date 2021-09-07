@@ -59,7 +59,7 @@ class GhcAT88 < Formula
     ENV["LD"] = "ld"
 
     args = %w[--enable-numa=no]
-    on_macos do
+    if OS.mac?
       # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
       # executables link to Homebrew's GMP.
       gmp = libexec/"integer-gmp"
@@ -81,7 +81,7 @@ class GhcAT88 < Formula
       binary = buildpath/"binary"
 
       binary_args = args
-      on_linux do
+      if OS.linux?
         binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
         binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
       end
@@ -92,9 +92,7 @@ class GhcAT88 < Formula
       ENV.prepend_path "PATH", binary/"bin"
     end
 
-    on_linux do
-      args << "--with-intree-gmp"
-    end
+    args << "--with-intree-gmp" if OS.linux?
 
     # Disable PDF document generation (fails with newest sphinx)
     (buildpath/"mk/build.mk").write <<-EOS
