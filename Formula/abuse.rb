@@ -71,7 +71,7 @@ class Abuse < Formula
                           "--with-assetdir=#{pkgshare}",
                           "--with-sdl-prefix=#{Formula["sdl"].opt_prefix}"
 
-    on_macos do
+    if OS.mac?
       # Use Framework OpenGL, not libGl
       %w[. src src/imlib src/lisp src/net src/sdlport].each do |p|
         inreplace "#{p}/Makefile", "-lGL", "-framework OpenGL"
