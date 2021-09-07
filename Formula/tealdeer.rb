@@ -24,9 +24,7 @@ class Tealdeer < Formula
   conflicts_with "tldr", because: "both install `tldr` binaries"
 
   def install
-    on_linux do
-      ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
-    end
+    ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix if OS.linux?
     system "cargo", "install", *std_cargo_args
     bash_completion.install "bash_tealdeer" => "tldr"
     zsh_completion.install "zsh_tealdeer" => "_tldr"
