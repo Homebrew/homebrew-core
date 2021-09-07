@@ -41,18 +41,15 @@ class Openmsx < Formula
     inreplace "build/probe.py", "/usr/local", HOMEBREW_PREFIX
 
     # Help finding Tcl (https://github.com/openMSX/openMSX/issues/1082)
-    on_macos do
-      ENV["TCL_CONFIG"] = "#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
-    end
+    ENV["TCL_CONFIG"] = "#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework" if OS.mac?
 
     system "./configure"
     system "make"
 
-    on_macos do
+    if OS.mac?
       prefix.install Dir["derived/**/openMSX.app"]
       bin.write_exec_script "#{prefix}/openMSX.app/Contents/MacOS/openmsx"
-    end
-    on_linux do
+    else
       system "make", "install"
     end
   end
