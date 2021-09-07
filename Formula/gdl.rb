@@ -20,7 +20,7 @@ class Gdl < Formula
   depends_on "libxml2"
 
   def install
-    on_linux do
+    if OS.linux?
       # Needed to find intltool (xml::parser)
       ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
       ENV["INTLTOOL_PERL"] = Formula["perl"].bin/"perl"
@@ -94,9 +94,7 @@ class Gdl < Formula
       -lpango-1.0
       -lpangocairo-1.0
     ]
-    on_macos do
-      flags << "-lintl"
-    end
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end
