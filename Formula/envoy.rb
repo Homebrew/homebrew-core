@@ -48,9 +48,10 @@ class Envoy < Formula
   end
 
   def install
-    env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
-    on_linux do
-      env_path = "#{Formula["python@3.9"].opt_libexec}/bin:#{env_path}"
+    env_path = if OS.mac?
+      "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+    else
+      "#{Formula["python@3.9"].opt_libexec}/bin:#{env_path}"
     end
     args = %W[
       --compilation_mode=opt
