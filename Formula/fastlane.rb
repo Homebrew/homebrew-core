@@ -42,7 +42,7 @@ class Fastlane < Formula
     terminal_notifier_dir = libexec.glob("gems/terminal-notifier-*/vendor/terminal-notifier").first
     (terminal_notifier_dir/"terminal-notifier.app").rmtree
 
-    on_macos do
+    if OS.mac?
       ln_sf(
         (Formula["terminal-notifier"].opt_prefix/"terminal-notifier.app").relative_path_from(terminal_notifier_dir),
         terminal_notifier_dir,
