@@ -78,14 +78,14 @@ class Neko < Formula
     # Also, no reason for maria-connector to compile its own version of zlib,
     # just link against the system copy.
     mysql_cmake_args = ["-Wno-dev", "-DWITH_EXTERNAL_ZLIB=1"]
-    on_macos do
+    if OS.mac?
       mysql_cmake_args << "-DICONV_LIBRARIES=-liconv"
       mysql_cmake_args << "-DICONV_INCLUDE_DIR="
     end
     inreplace "libs/mysql/CMakeLists.txt", "-Wno-dev", mysql_cmake_args.join(" ")
 
     args = std_cmake_args
-    on_linux do
+    if OS.linux?
       args << "-DAPR_LIBRARY=#{Formula["apr"].opt_lib}"
       args << "-DAPR_INCLUDE_DIR=#{Formula["apr"].opt_include}/apr-1"
       args << "-DAPRUTIL_LIBRARY=#{Formula["apr-util"].opt_lib}"
