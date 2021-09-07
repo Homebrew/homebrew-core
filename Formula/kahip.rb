@@ -22,7 +22,7 @@ class Kahip < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       gcc_major_ver = Formula["gcc"].any_installed_version.major
       ENV["CC"] = Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}"
       ENV["CXX"] = Formula["gcc"].opt_bin/"g++-#{gcc_major_ver}"
