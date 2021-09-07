@@ -26,9 +26,7 @@ class GrinWallet < Formula
   patch :DATA
 
   def install
-    on_linux do
-      ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang"
-    end
+    ENV["CLANG_PATH"] = Formula["llvm"].opt_bin/"clang" if OS.linux?
     system "cargo", "install", *std_cargo_args
   end
 
