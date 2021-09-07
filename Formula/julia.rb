@@ -85,6 +85,25 @@ class Julia < Formula
       MACOSX_VERSION_MIN=#{MacOS.version}
     ]
 
+    # Set MARCH and JULIA_CPU_TARGET to ensure Julia works on machines we distribute to.
+    # Values adapted from https://github.com/JuliaCI/julia-buildbot/blob/master/master/inventory.py
+    march = if build.head?
+      "native"
+    elsif Hardware::CPU.arm?
+      "armv8-a"
+    else
+      Hardware.oldest_cpu
+    end
+    args << "MARCH=#{march}"
+
+    cpu_targets = ["generic"]
+    cpu_targets += if Hardware::CPU.arm?
+      %w[cortex-a57 thunderx2t99 armv8.2-a,crypto,fullfp16,lse,rdm]
+    else
+      %w[sandybridge,-xsaveopt,clone_all haswell,-rdrnd,base(1)]
+    end
+    args << "JULIA_CPU_TARGET=#{cpu_targets.join(";")}" if build.stable?
+
     # Stable uses `libosxunwind` which is not in Homebrew/core
     # https://github.com/JuliaLang/julia/pull/39127
     args << "USE_SYSTEM_LIBUNWIND=1" if OS.linux? || build.head?
