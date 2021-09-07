@@ -17,8 +17,7 @@ class Lsof < Formula
   keg_only :provided_by_macos
 
   def install
-    os = "linux"
-    on_macos do
+    os = if OS.mac?
       ENV["LSOF_INCLUDE"] = "#{MacOS.sdk_path}/usr/include"
 
       # Source hardcodes full header paths at /usr/include
@@ -28,7 +27,9 @@ class Lsof < Formula
         dialects/darwin/libproc/machine.h
       ], "/usr/include", "#{MacOS.sdk_path}/usr/include"
 
-      os = "darwin"
+      "darwin"
+    else
+      "linux"
     end
 
     ENV["LSOF_CC"] = ENV.cc
