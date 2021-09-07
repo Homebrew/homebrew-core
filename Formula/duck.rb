@@ -54,18 +54,17 @@ class Duck < Formula
   def install
     # Consider creating a formula for this if other formulae need the same library
     resource("jna").stage do
-      os = "mac"
       arch = "x86-64"
-      on_linux do
-        os = "Linux"
-      end
-
-      on_macos do
+      os = if OS.linux?
+        "Linux"
+      else
         # Add linker flags for libffi because Makefile call to pkg-config doesn't seem to work properly.
         inreplace "native/Makefile", "LIBS=", "LIBS=-L#{Formula["libffi"].opt_lib} -lffi"
         # Force shared library to have dylib extension on macOS instead of jnilib
         inreplace "native/Makefile", "LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(JNISFX)",
 "LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(LIBSFX)"
+
+        "mac"
       end
 
       # Don't include directory with JNA headers in zip archive.  If we don't do this, they will be deleted
@@ -82,7 +81,7 @@ class Duck < Formula
         ENV["JAVA_HOME"] = Language::Java.java_home(Formula["openjdk"].version.major.to_s)
 
         # Fix zip error on macOS because libjnidispatch.dylib is not in file list
-        on_macos { inreplace "build.sh", "libjnidispatch.so", "libjnidispatch.so libjnidispatch.dylib" }
+        inreplace "build.sh", "libjnidispatch.so", "libjnidispatch.so libjnidispatch.dylib" if OS.mac?
         # Fix relative path in build script, which is designed to be run out extracted zip archive
         inreplace "build.sh", "cd native", "cd ../native"
 
@@ -92,7 +91,7 @@ class Duck < Formula
     end
 
     resource("JavaNativeFoundation").stage do
-      on_macos do
+      if OS.mac?
         cd "apple/JavaNativeFoundation" do
           xcodebuild "VALID_ARCHS=x86_64", "-project", "JavaNativeFoundation.xcodeproj"
           buildpath.install "build/Release/JavaNativeFoundation.framework"
@@ -100,7 +99,7 @@ class Duck < Formula
       end
     end
 
-    on_macos do
+    if OS.mac?
       xcconfig = buildpath/"Overrides.xcconfig"
       xcconfig.write <<~EOS
         OTHER_LDFLAGS = -headerpad_max_install_names
@@ -108,10 +107,9 @@ class Duck < Formula
       ENV["XCODE_XCCONFIG_FILE"] = xcconfig
     end
 
-    os = "osx"
-    on_linux do
-      os = "linux"
-
+    os = if OS.mac?
+      "osx"
+    else
       # This changes allow maven to build the cli/linux project as an appimage instead of an RPM/DEB.
       # This has been reported upstream at https://trac.cyberduck.io/ticket/11762#ticket.
       # It has been added the version 8 milestone.
@@ -122,6 +120,8 @@ class Duck < Formula
       inreplace "cli/linux/build.xml", "<arg value=\"&lt;feedback@cyberduck.io&gt;\"/>", ""
       inreplace "cli/linux/build.xml", "<arg value=\"--linux-rpm-license-type\"/>", ""
       inreplace "cli/linux/build.xml", "<arg value=\"GPL\"/>", ""
+
+      "linux"
     end
 
     revision = version.to_s.rpartition(".").last
@@ -130,13 +130,13 @@ class Duck < Formula
 
     libdir = libexec/"Contents/Frameworks"
     bindir = libexec/"Contents/MacOS"
-    on_macos do
+    if OS.mac?
       libexec.install Dir["cli/osx/target/duck.bundle/*"]
       rm_rf libdir/"JavaNativeFoundation.framework"
       libdir.install buildpath/"JavaNativeFoundation.framework"
     end
 
-    on_linux do
+    if OS.linux?
       libdir = libexec/"lib/app"
       bindir = libexec/"bin"
       libexec.install Dir["cli/linux/target/release/duck/*"]
