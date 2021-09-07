@@ -39,9 +39,7 @@ class Mongrel2 < Formula
 
     # Mongrel2 pulls from these ENV vars instead
     ENV["OPTFLAGS"] = "#{ENV.cflags} #{ENV.cppflags}"
-    on_macos do
-      ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup"
-    end
+    ENV["OPTLIBS"] = "#{ENV.ldflags} -undefined dynamic_lookup" if OS.mac?
 
     system "make", "all"
     system "make", "install", "PREFIX=#{prefix}"
