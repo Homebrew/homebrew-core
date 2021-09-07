@@ -27,9 +27,10 @@ class Jp < Formula
     build_root.install Dir["*"]
     cd build_root do
       arch = Hardware::CPU.arm? ? "arm64" : "x86_64"
-      os = "osx"
-      on_linux do
-        os = "linux"
+      os = if OS.mac?
+        "osx"
+      else
+        "linux"
       end
       system "make", "binaries/#{os}_#{arch}/jp"
       bin.install "binaries/#{os}_#{arch}/jp"
@@ -47,7 +48,7 @@ index adc9d13..664b6af 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -90,3 +90,10 @@ release/$(APP)_$(VERSION)_linux_arm64.zip: binaries/linux_arm64/$(APP)
- 
+
  binaries/linux_arm64/$(APP): $(GOFILES)
  	GOOS=linux GOARCH=arm64 go build -ldflags "-X main.version=$(VERSION)" -o binaries/linux_arm64/$(APP) ./cmd/$(APP)
 +
