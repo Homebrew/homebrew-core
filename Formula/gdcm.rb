@@ -75,9 +75,7 @@ class Gdcm < Formula
     ]
 
     mkdir "build" do
-      on_macos do
-        ENV.append "LDFLAGS", "-undefined dynamic_lookup"
-      end
+      ENV.append "LDFLAGS", "-undefined dynamic_lookup" if OS.mac?
 
       system "cmake", "..", *args
       system "ninja"
