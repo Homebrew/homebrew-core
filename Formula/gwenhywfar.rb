@@ -44,7 +44,7 @@ class Gwenhywfar < Formula
     inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
     system "autoreconf", "-fiv" # needed because of the patch. Otherwise only needed for head build (if build.head?)
     guis = ["cpp", "qt5"]
-    on_macos { guis << "cocoa" }
+    guis << "cocoa" if OS.mac?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
