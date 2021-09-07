@@ -188,9 +188,7 @@ class Latexml < Formula
     ENV.prepend_create_path "PERL5LIB", libexec+"lib/perl5"
     resources.each do |r|
       r.stage do
-        on_linux do
-          ENV["PERL_CANARY_STABILITY_NOPROMPT"] = "1"
-        end
+        ENV["PERL_CANARY_STABILITY_NOPROMPT"] = "1" if OS.linux?
 
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
         system "make"
