@@ -93,7 +93,7 @@ class Opencv < Formula
     ]
 
     # Disable precompiled headers and force opencv to use brewed libraries on Linux
-    on_linux do
+    if OS.linux?
       args << "-DENABLE_PRECOMPILED_HEADERS=OFF"
       args << "-DJPEG_LIBRARY=#{Formula["libjpeg"].opt_lib}/libjpeg.so"
       args << "-DOpenBLAS_LIB=#{Formula["openblas"].opt_lib}/libopenblas.so"
