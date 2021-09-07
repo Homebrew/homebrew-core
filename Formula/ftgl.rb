@@ -43,9 +43,7 @@ class Ftgl < Formula
       --with-glut-lib=/dev/null
     ]
 
-    on_linux do
-      args << "--with-gl-inc=#{Formula["mesa-glu"].opt_include}"
-    end
+    args << "--with-gl-inc=#{Formula["mesa-glu"].opt_include}" if OS.linux?
 
     system "./configure", *args
 
