@@ -2,7 +2,7 @@ class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   stable do
