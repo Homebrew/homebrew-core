@@ -38,7 +38,7 @@ class Pythran < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       gcc_major_ver = Formula["gcc"].any_installed_version.major
       inreplace "pythran/pythran-darwin.cfg" do |s|
         s.gsub!(/^include_dirs=/, "include_dirs=#{Formula["openblas"].opt_include}")
