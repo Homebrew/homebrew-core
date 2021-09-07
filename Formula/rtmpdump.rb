@@ -39,10 +39,10 @@ class Rtmpdump < Formula
   def install
     ENV.deparallelize
 
-    os = "darwin"
-
-    on_linux do
-      os = "posix"
+    os = if OS.mac?
+      "darwin"
+    else
+      "posix"
     end
 
     system "make", "CC=#{ENV.cc}",
