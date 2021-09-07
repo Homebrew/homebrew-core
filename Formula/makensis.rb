@@ -34,7 +34,7 @@ class Makensis < Formula
       "STRIP=0",
       "VERSION=#{version}",
     ]
-    on_linux { args << "APPEND_LINKFLAGS=-Wl,-rpath,#{rpath}" }
+    args << "APPEND_LINKFLAGS=-Wl,-rpath,#{rpath}" if OS.linux?
 
     system "scons", "makensis", *args
     bin.install "build/urelease/makensis/makensis"
