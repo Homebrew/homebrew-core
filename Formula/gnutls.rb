@@ -72,8 +72,11 @@ class Gnutls < Formula
   end
 
   def post_install
-    on_macos(&method(:macos_post_install))
-    on_linux(&method(:linux_post_install))
+    if OS.mac?
+      macos_post_install
+    else
+      linux_post_install
+    end
   end
 
   def macos_post_install
