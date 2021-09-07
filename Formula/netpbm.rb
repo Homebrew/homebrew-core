@@ -50,14 +50,12 @@ class Netpbm < Formula
       s.change_make_var! "JASPERLIB", "-ljasper"
       s.change_make_var! "JASPERHDR_DIR", "#{Formula["jasper"].opt_include}/jasper"
 
-      on_macos do
+      if OS.mac?
         s.change_make_var! "CFLAGS_SHLIB", "-fno-common"
         s.change_make_var! "NETPBMLIBTYPE", "dylib"
         s.change_make_var! "NETPBMLIBSUFFIX", "dylib"
         s.change_make_var! "LDSHLIB", "--shared -o $(SONAME)"
-      end
-
-      on_linux do
+      else
         s.change_make_var! "CFLAGS_SHLIB", "-fPIC"
       end
     end
