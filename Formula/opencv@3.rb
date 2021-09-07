@@ -89,9 +89,10 @@ class OpencvAT3 < Formula
     end
 
     mkdir "build" do
-      os = "mac"
-      on_linux do
-        os = "linux"
+      os = if OS.mac?
+        "mac"
+      else
+        "linux"
       end
       system "cmake", "..", *args
       inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/#{os}/super/", ""
