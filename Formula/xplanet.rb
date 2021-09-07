@@ -49,9 +49,7 @@ class Xplanet < Formula
       "--without-x",
       "--without-xscreensaver",
     ]
-    on_macos do
-      args << "--with-aqua"
-    end
+    args << "--with-aqua" if OS.mac?
     system "./configure", *args
 
     system "make", "install"
