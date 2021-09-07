@@ -19,10 +19,9 @@ class Wren < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       system "make", "-C", "projects/make.mac"
-    end
-    on_linux do
+    else
       system "make", "-C", "projects/make"
     end
     lib.install Dir["lib/*"]
