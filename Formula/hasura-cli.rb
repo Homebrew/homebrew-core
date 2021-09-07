@@ -36,9 +36,10 @@ class HasuraCli < Formula
 
     cd "cli" do
       arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-      os = "darwin"
-      on_linux do
-        os = "linux"
+      os = if OS.mac?
+        "darwin"
+      else
+        "linux"
       end
 
       cp "../cli-ext/bin/cli-ext-hasura", "./internal/cliext/static-bin/#{os}/#{arch}/cli-ext"
