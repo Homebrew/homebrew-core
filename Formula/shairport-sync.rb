@@ -46,7 +46,7 @@ class ShairportSync < Formula
       --sysconfdir=#{etc}/shairport-sync
       --prefix=#{prefix}
     ]
-    on_macos do
+    if OS.mac?
       args << "--with-dns_sd" # Enable bonjour
       args << "--with-os=darwin"
     end
