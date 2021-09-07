@@ -26,10 +26,8 @@ class GnuTypist < Formula
   end
 
   def install
-    on_macos do
-      # libiconv is not linked properly without this
-      ENV.append "LDFLAGS", "-liconv"
-    end
+    # libiconv is not linked properly without this
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
