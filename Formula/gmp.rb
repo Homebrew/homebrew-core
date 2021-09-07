@@ -29,12 +29,10 @@ class Gmp < Formula
     # Enable --with-pic to avoid linking issues with the static library
     args << "--with-pic"
 
-    on_macos do
+    if OS.mac?
       cpu = Hardware::CPU.arm? ? "aarch64" : Hardware.oldest_cpu
       args << "--build=#{cpu}-apple-darwin#{OS.kernel_version.major}"
-    end
-
-    on_linux do
+    else
       args << "--build=core2-linux-gnu"
       args << "ABI=32" if Hardware::CPU.is_32_bit?
     end
