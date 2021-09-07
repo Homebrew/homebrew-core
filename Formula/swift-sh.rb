@@ -21,7 +21,7 @@ class SwiftSh < Formula
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/swift-sh"
-    on_macos { bin.install ".build/release/swift-sh-edit" }
+    bin.install ".build/release/swift-sh-edit" if OS.mac?
   end
 
   test do
