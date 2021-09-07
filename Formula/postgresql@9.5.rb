@@ -64,7 +64,7 @@ class PostgresqlAT95 < Formula
       --with-uuid=e2fs
     ]
 
-    on_macos do
+    if OS.mac?
       args += %w[
         --with-bonjour
         --with-tcl
@@ -75,7 +75,7 @@ class PostgresqlAT95 < Formula
     # which does not work on CLT-only installs.
     args << "PG_SYSROOT=#{MacOS.sdk_path}" if MacOS.sdk_root_needed?
 
-    on_linux do
+    if OS.linux?
       # rebuild `configure` after patching
       # (remove if patch block not needed)
       system "autoreconf", "-ivf"
@@ -94,7 +94,7 @@ class PostgresqlAT95 < Formula
     # Attempting to fix that by adding a dependency on `open-sp` doesn't
     # work and the build errors out on generating the documentation, so
     # for now let's simply omit it so we can package Postgresql for Mojave.
-    on_macos do
+    if OS.mac?
       if DevelopmentTools.clang_build_version >= 1000
         system "make", "all"
         system "make", "-C", "contrib", "install", "all", *dirs
@@ -102,8 +102,7 @@ class PostgresqlAT95 < Formula
       else
         system "make", "install-world", *dirs
       end
-    end
-    on_linux do
+    else
       system "make", "all"
       system "make", "-C", "contrib", "install", "all", *dirs
       system "make", "install", "all", *dirs
