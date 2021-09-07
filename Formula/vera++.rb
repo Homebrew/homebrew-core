@@ -86,7 +86,7 @@ class Veraxx < Formula
       -DBoost_INCLUDE_DIR:PATH=#{buildpath}/3rdParty/include
       -DBoost_LIBRARY_DIR_RELEASE:PATH=#{buildpath}/3rdParty/lib
     ]
-    on_linux do
+    if OS.linux?
       # Disable building Python rules support since vera++ needs Python 2.
       # Revisit on release with Python 3: https://bitbucket.org/verateam/vera/issues/108/migrate-to-python-3
       args << "-DVERA_PYTHON=OFF"
