@@ -35,9 +35,7 @@ class Ncmpcpp < Formula
   def install
     ENV.cxx11
 
-    on_macos do
-      ENV.append "LDFLAGS", "-liconv"
-    end
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
