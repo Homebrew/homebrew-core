@@ -85,7 +85,7 @@ class Pypy3 < Formula
 
     (libexec/"lib").install libexec/"bin/#{shared_library("libpypy3-c")}" => shared_library("libpypy3-c")
 
-    on_macos do
+    if OS.mac?
       MachO::Tools.change_install_name("#{libexec}/bin/pypy3",
                                        "@rpath/libpypy3-c.dylib",
                                        "#{libexec}/lib/libpypy3-c.dylib")
@@ -106,7 +106,7 @@ class Pypy3 < Formula
 
     # Delete two files shipped which we do not want to deliver
     # These files make patchelf fail
-    on_linux do
+    if OS.linux?
       rm_f libexec/"bin/libpypy3-c.so.debug"
       rm_f libexec/"bin/pypy3.debug"
     end
