@@ -21,11 +21,6 @@ class Syncthing < Formula
 
   depends_on "go" => :build
 
-  # Support go 1.17, remove after next release
-  # Patch is equivalent to https://github.com/syncthing/syncthing/pull/7895,
-  # but does not apply cleanly
-  patch :DATA
-
   def install
     build_version = build.head? ? "v0.0.0-#{version}" : "v#{version}"
     system "go", "run", "build.go", "--version", build_version, "--no-upgrade", "tar"
