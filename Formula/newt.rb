@@ -31,7 +31,7 @@ class Newt < Formula
   def install
     args = ["--prefix=#{prefix}", "--without-tcl"]
 
-    on_macos do
+    if OS.mac?
       inreplace "Makefile.in" do |s|
         # name libraries correctly
         # https://bugzilla.redhat.com/show_bug.cgi?id=1192285
