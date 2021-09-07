@@ -22,10 +22,9 @@ class Ethereum < Formula
   depends_on "go" => :build
 
   def install
-    on_linux do
-      # See https://github.com/golang/go/issues/26487
-      ENV.O0
-    end
+    # See https://github.com/golang/go/issues/26487
+    ENV.O0 if OS.linux?
+
     system "make", "all"
     bin.install Dir["build/bin/*"]
   end
