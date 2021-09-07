@@ -47,9 +47,12 @@ class Httpd < Formula
     end
 
     libxml2 = "#{MacOS.sdk_path_if_needed}/usr"
-    on_linux { libxml2 = Formula["libxml2"].opt_prefix }
-    zlib = "#{MacOS.sdk_path_if_needed}/usr"
-    on_linux { zlib = Formula["zlib"].opt_prefix }
+    libxml2 = Formula["libxml2"].opt_prefix if OS.linux?
+    zlib = if OS.mac?
+      "#{MacOS.sdk_path_if_needed}/usr"
+    else
+      Formula["zlib"].opt_prefix
+    end
     system "./configure", "--enable-layout=Slackware-FHS",
                           "--prefix=#{prefix}",
                           "--sbindir=#{bin}",
@@ -79,7 +82,7 @@ class Httpd < Formula
                           "--disable-lua",
                           "--disable-luajit"
     system "make"
-    on_linux { ENV.deparallelize }
+    ENV.deparallelize if OS.linux?
     system "make", "install"
 
     # suexec does not install without root
@@ -108,8 +111,11 @@ class Httpd < Formula
       s.gsub! prefix, opt_prefix
     end
 
-    os = "mac"
-    on_linux { os = "linux" }
+    os = if OS.mac?
+      "mac"
+    else
+      "linux"
+    end
     inreplace "#{lib}/httpd/build/config_vars.mk" do |s|
       pcre = Formula["pcre"]
       s.gsub! pcre.prefix.realpath, pcre.opt_prefix
