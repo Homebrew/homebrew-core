@@ -62,7 +62,7 @@ class GhcAT86 < Formula
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
 
     args = %w[--enable-numa=no]
-    on_macos do
+    if OS.mac?
       # Build a static gmp rather than in-tree gmp, otherwise all ghc-compiled
       # executables link to Homebrew's GMP.
       gmp = libexec/"integer-gmp"
@@ -84,7 +84,7 @@ class GhcAT86 < Formula
       binary = buildpath/"binary"
 
       binary_args = args
-      on_linux do
+      if OS.linux?
         binary_args << "--with-gmp-includes=#{Formula["gmp"].opt_include}"
         binary_args << "--with-gmp-libraries=#{Formula["gmp"].opt_lib}"
       end
