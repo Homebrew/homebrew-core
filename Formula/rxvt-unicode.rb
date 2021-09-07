@@ -4,6 +4,7 @@ class RxvtUnicode < Formula
   url "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.26.tar.bz2"
   sha256 "643116b9a25d29ad29f4890131796d42e6d2d21312282a613ef66c80c5b8c98b"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url "http://dist.schmorp.de/rxvt-unicode/"
