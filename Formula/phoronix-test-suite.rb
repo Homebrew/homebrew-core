@@ -34,7 +34,7 @@ class PhoronixTestSuite < Formula
   end
 
   test do
-    on_macos { cd pkgshare }
+    cd pkgshare if OS.mac?
 
     # Work around issue directly running command on Linux CI by using spawn.
     # Error is "Forked child process failed: pid ##### SIGKILL"
