@@ -26,7 +26,7 @@ class Pstoedit < Formula
   fails_with gcc: "5"
 
   def install
-    on_macos { ENV.cxx11 }
+    ENV.cxx11 if OS.mac?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make", "install"
   end
