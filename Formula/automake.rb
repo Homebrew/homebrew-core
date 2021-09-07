@@ -17,9 +17,7 @@ class Automake < Formula
   depends_on "autoconf"
 
   def install
-    on_macos do
-      ENV["PERL"] = "/usr/bin/perl"
-    end
+    ENV["PERL"] = "/usr/bin/perl" if OS.mac?
 
     system "./configure", "--prefix=#{prefix}"
     system "make", "install"
