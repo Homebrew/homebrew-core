@@ -25,15 +25,11 @@ class GnuTime < Formula
       --info=#{info}
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
-      (libexec/"gnubin").install_symlink bin/"gtime" => "time"
-    end
+    (libexec/"gnubin").install_symlink bin/"gtime" => "time" if OS.mac?
   end
 
   def caveats
