@@ -32,12 +32,11 @@ class Haproxy < Formula
       USE_ZLIB=1
       ADDLIB=-lcrypto
     ]
-    on_macos do
+    if OS.mac?
       args << "TARGET=generic"
       # BSD only:
       args << "USE_KQUEUE=1"
-    end
-    on_linux do
+    else
       args << "TARGET=linux-glibc"
     end
 
