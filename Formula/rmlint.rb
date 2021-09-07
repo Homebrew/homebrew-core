@@ -27,7 +27,7 @@ class Rmlint < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.append_to_cflags "-I#{Formula["util-linux"].opt_include}"
       ENV.append_to_cflags "-I#{Formula["elfutils"].opt_include}"
       ENV.append "LDFLAGS", "-Wl,-rpath=#{Formula["elfutils"].opt_lib}"
