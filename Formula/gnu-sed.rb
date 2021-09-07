@@ -23,16 +23,15 @@ class GnuSed < Formula
       --disable-dependency-tracking
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
-    on_linux do
-      args << "--without-selinux"
+    args << if OS.mac?
+      "--program-prefix=g"
+    else
+      "--without-selinux"
     end
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gsed" =>"sed"
       (libexec/"gnuman/man1").install_symlink man1/"gsed.1" => "sed.1"
     end
