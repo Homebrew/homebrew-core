@@ -22,9 +22,7 @@ class Sngrep < Formula
   uses_from_macos "ncurses"
 
   def install
-    on_linux do
-      ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw"
-    end
+    ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw" if OS.linux?
 
     system "./bootstrap.sh"
     system "./configure", "--disable-debug",
