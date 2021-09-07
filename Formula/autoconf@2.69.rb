@@ -23,7 +23,7 @@ class AutoconfAT269 < Formula
   uses_from_macos "perl"
 
   def install
-    on_macos do
+    if OS.mac?
       ENV["PERL"] = "/usr/bin/perl"
 
       # force autoreconf to look for and use our glibtoolize
