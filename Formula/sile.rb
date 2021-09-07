@@ -141,7 +141,7 @@ class Sile < Formula
     ENV.prepend "LDFLAGS", "-L#{lua.opt_lib}"
 
     zlib_dir = expat_dir = "#{MacOS.sdk_path_if_needed}/usr"
-    on_linux do
+    if OS.linux?
       zlib_dir = Formula["zlib"].opt_prefix
       expat_dir = Formula["expat"].opt_prefix
     end
