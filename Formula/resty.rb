@@ -47,9 +47,7 @@ class Resty < Formula
     bin.env_script_all_files(libexec/"bin", PERL5LIB: ENV["PERL5LIB"])
 
     bin.install "pypp"
-    on_linux do
-      rewrite_shebang detected_python_shebang, bin/"pypp"
-    end
+    rewrite_shebang detected_python_shebang, bin/"pypp" if OS.linux?
   end
 
   def caveats
