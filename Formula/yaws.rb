@@ -39,7 +39,7 @@ class Yaws < Formula
     extra_args = %W[
       --with-extrainclude=#{MacOS.sdk_path}/usr/include/security
     ]
-    on_linux do
+    if OS.linux?
       extra_args = %W[
         --with-extrainclude=#{Formula["linux-pam"].opt_include}/security
       ]
@@ -58,7 +58,7 @@ class Yaws < Formula
     (lib/"yaws/examples/include").mkpath
 
     # Remove Homebrew shims references on Linux
-    on_linux do
+    if OS.linux?
       inreplace Dir["#{prefix}/var/yaws/www/*/Makefile"], HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/",
         "/usr/bin/"
     end
