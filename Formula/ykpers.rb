@@ -46,11 +46,10 @@ class Ykpers < Formula
       --prefix=#{prefix}
       --with-libyubikey-prefix=#{Formula["libyubikey"].opt_prefix}
     ]
-    on_macos do
-      args << "--with-backend=osx"
-    end
-    on_linux do
-      args << "--with-backend=libusb-1.0"
+    args << if OS.mac?
+      "--with-backend=osx"
+    else
+      "--with-backend=libusb-1.0"
     end
     system "./configure", *args
     system "make", "check"
