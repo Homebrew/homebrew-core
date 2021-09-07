@@ -19,9 +19,7 @@ class Duckdb < Formula
   depends_on "utf8proc"
 
   def install
-    on_linux do
-      ENV.deparallelize # amalgamation builds take GBs of RAM
-    end
+    ENV.deparallelize if OS.linux? # amalgamation builds take GBs of RAM
     mkdir "build/amalgamation"
     system Formula["python@3.9"].opt_bin/"python3", "scripts/amalgamation.py", "--extended"
     cd "build/amalgamation" do
