@@ -17,11 +17,10 @@ class Dbdeployer < Formula
   depends_on "go" => :build
 
   def install
-    on_macos do
+    if OS.mac?
       system "./scripts/build.sh", "OSX"
       bin.install "dbdeployer-#{version}.osx" => "dbdeployer"
-    end
-    on_linux do
+    else
       system "./scripts/build.sh", "linux"
       bin.install "dbdeployer-#{version}.linux" => "dbdeployer"
     end
