@@ -60,7 +60,7 @@ class Pdf2htmlex < Formula
       # https://github.com/coolwanglu/pdf2htmlEX/issues/713
       inreplace "gutils/gimagereadgif.c", "DGifCloseFile(gif)", "DGifCloseFile(gif, NULL)"
 
-      on_macos do
+      if OS.mac?
         # Fix linker error; see: https://trac.macports.org/ticket/25012
         ENV.append "LDFLAGS", "-lintl"
       end
