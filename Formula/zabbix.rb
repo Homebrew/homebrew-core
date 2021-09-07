@@ -27,7 +27,7 @@ class Zabbix < Formula
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    on_macos do
+    if OS.mac?
       sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
       args << "--with-iconv=#{sdk}/usr"
     end
