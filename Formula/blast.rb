@@ -41,7 +41,7 @@ class Blast < Formula
                 --without-debug
                 --without-boost]
 
-      on_macos do
+      if OS.mac?
         args += ["OPENMP_FLAGS=-Xpreprocessor -fopenmp",
                  "LDFLAGS=-lomp"]
       end
