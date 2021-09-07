@@ -21,13 +21,13 @@ class Libsvm < Formula
   end
 
   def install
-    on_linux { ENV.append_to_cflags "-fPIC" }
+    ENV.append_to_cflags "-fPIC" if OS.linux?
     system "make", "CFLAGS=#{ENV.cflags}"
     system "make", "lib"
     bin.install "svm-scale", "svm-train", "svm-predict"
     lib.install "libsvm.so.2" => shared_library("libsvm", 2)
     lib.install_symlink shared_library("libsvm", 2) => shared_library("libsvm")
-    on_macos { MachO::Tools.change_dylib_id("#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib") }
+    MachO::Tools.change_dylib_id("#{lib}/libsvm.2.dylib", "#{lib}/libsvm.2.dylib") if OS.mac?
     include.install "svm.h"
   end
 
