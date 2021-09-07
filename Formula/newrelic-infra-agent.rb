@@ -20,20 +20,18 @@ class NewrelicInfraAgent < Formula
   def install
     goarch = Hardware::CPU.arm? ? "arm64" : "amd64"
     ENV["VERSION"] = version.to_s
-    os = "darwin"
-    ENV["CGO_ENABLED"] = "1"
-    on_linux do
-      os = "linux"
+    ENV["GOOS"] = if OS.mac?
+      ENV["CGO_ENABLED"] = "1"
+      "darwin"
+    else
       ENV["CGO_ENABLED"] = "0"
+      "linux"
     end
-    ENV["GOOS"] = os
     system "make", "dist-for-os"
     bin.install "dist/#{os}-newrelic-infra_#{os}_#{goarch}/newrelic-infra"
     bin.install "dist/#{os}-newrelic-infra-ctl_#{os}_#{goarch}/newrelic-infra-ctl"
     bin.install "dist/#{os}-newrelic-infra-service_#{os}_#{goarch}/newrelic-infra-service"
-    on_macos do
-      (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt"
-    end
+    (var/"db/newrelic-infra").install "assets/licence/LICENSE.macos.txt" if OS.mac?
   end
 
   def post_install
