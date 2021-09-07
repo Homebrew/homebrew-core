@@ -76,7 +76,7 @@ class GccAT8 < Formula
       --with-bugurl=#{tap.issues_url}
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--build=x86_64-apple-darwin#{OS.kernel_version.major}"
       args << "--with-system-zlib"
 
@@ -97,9 +97,7 @@ class GccAT8 < Formula
       # Ensure correct install names when linking against libgcc_s;
       # see discussion in https://github.com/Homebrew/legacy-homebrew/pull/34303
       inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
-    end
-
-    on_linux do
+    else
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
@@ -111,15 +109,13 @@ class GccAT8 < Formula
     mkdir "build" do
       system "../configure", *args
 
-      on_macos do
+      if OS.mac?
         # Use -headerpad_max_install_names in the build,
         # otherwise updated load commands won't fit in the Mach-O header.
         # This is needed because `gcc` avoids the superenv shim.
         system "make", "BOOT_LDFLAGS=-Wl,-headerpad_max_install_names"
         system "make", "install"
-      end
-
-      on_linux do
+      else
         system "make"
         system "make", "install-strip"
       end
@@ -141,7 +137,7 @@ class GccAT8 < Formula
   end
 
   def post_install
-    on_linux do
+    if OS.linux?
       gcc = bin/"gcc-#{version_suffix}"
       libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?
