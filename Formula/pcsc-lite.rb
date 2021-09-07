@@ -32,9 +32,7 @@ class PcscLite < Formula
               --sysconfdir=#{etc}
               --disable-libsystemd]
 
-    on_linux do
-      args << "--disable-udev"
-    end
+    args << "--disable-udev" if OS.linux?
 
     system "./configure", *args
     system "make", "install"
