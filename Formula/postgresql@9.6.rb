@@ -4,6 +4,7 @@ class PostgresqlAT96 < Formula
   url "https://ftp.postgresql.org/pub/source/v9.6.23/postgresql-9.6.23.tar.bz2"
   sha256 "a849f798401ab8c6dfa653ebbcd853b43f2200b4e3bc1ea3cb5bec9a691947b9"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
