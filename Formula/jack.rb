@@ -39,10 +39,10 @@ class Jack < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac? && MacOS.version <= :high_sierra
       # See https://github.com/jackaudio/jack2/issues/640#issuecomment-723022578
-      ENV.append "LDFLAGS", "-Wl,-compatibility_version,1" if MacOS.version <= :high_sierra
-      ENV.append "LDFLAGS", "-Wl,-current_version,#{version}" if MacOS.version <= :high_sierra
+      ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
+      ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
     end
     system Formula["python@3.9"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
     system Formula["python@3.9"].opt_bin/"python3", "./waf", "build"
@@ -63,8 +63,11 @@ class Jack < Formula
     source_name = "test_source"
     sink_name = "test_sink"
     fork do
-      on_macos { exec "#{bin}/jackd", "-X", "coremidi", "-d", "dummy" }
-      on_linux { exec "#{bin}/jackd", "-d", "dummy" }
+      if OS.mac?
+        exec "#{bin}/jackd", "-X", "coremidi", "-d", "dummy"
+      else
+        exec "#{bin}/jackd", "-d", "dummy"
+      end
     end
     system "#{bin}/jack_wait", "--wait", "--timeout", "10"
     fork do
