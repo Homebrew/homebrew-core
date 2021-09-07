@@ -27,14 +27,12 @@ class Grep < Formula
       --with-packager=Homebrew
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make"
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       %w[grep egrep fgrep].each do |prog|
         (libexec/"gnubin").install_symlink bin/"g#{prog}" => prog
         (libexec/"gnuman/man1").install_symlink man1/"g#{prog}.1" => "#{prog}.1"
