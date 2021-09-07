@@ -29,9 +29,10 @@ class Cmigemo < Formula
   def install
     chmod 0755, "./configure"
     system "./configure", "--prefix=#{prefix}"
-    os = "osx"
-    on_linux do
-      os = "gcc"
+    os = if OS.mac?
+      "osx"
+    else
+      "gcc"
     end
     system "make", os
     system "make", "#{os}-dict"
