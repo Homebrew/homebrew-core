@@ -23,9 +23,7 @@ class Unrtf < Formula
   def install
     system "./bootstrap"
     args = %W[--prefix=#{prefix}]
-    on_macos do
-      args << "LIBS=-liconv"
-    end
+    args << "LIBS=-liconv" if OS.mac?
     system "./configure", *args
     system "make", "install"
   end
