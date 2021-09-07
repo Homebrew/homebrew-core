@@ -37,7 +37,7 @@ class AmplMp < Formula
   def install
     system "cmake", ".", *std_cmake_args, "-DBUILD_SHARED_LIBS=True"
     system "make", "all"
-    on_macos do
+    if OS.mac?
       MachO::Tools.change_install_name("bin/libasl.dylib", "@rpath/libmp.3.dylib",
                                        "#{opt_lib}/libmp.dylib")
     end
