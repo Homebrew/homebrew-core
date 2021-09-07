@@ -47,8 +47,11 @@ class VampPluginSdk < Formula
       vampGetPluginDescriptor(unsigned int version, unsigned int index) { return NULL; }
     EOS
 
-    flags = ["-Wl,-dylib"]
-    on_linux { flags = ["-shared", "-fPIC"] }
+    flags = if OS.mac?
+      ["-Wl,-dylib"]
+    else
+      ["-shared", "-fPIC"]
+    end
 
     system ENV.cxx, "test.cpp", "-I#{include}", *flags, "-o", shared_library("test")
     assert_match "Usage:", shell_output("#{bin}/vamp-rdf-template-generator 2>&1", 2)
