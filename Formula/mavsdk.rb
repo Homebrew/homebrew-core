@@ -71,9 +71,7 @@ class Mavsdk < Formula
     # Fix version being reported as `v#{version}-dirty`
     inreplace "CMakeLists.txt", "OUTPUT_VARIABLE VERSION_STR", "OUTPUT_VARIABLE VERSION_STR_IGNORED"
 
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     # Install protoc-gen-mavsdk deps
     venv_dir = buildpath/"bootstrap"
@@ -108,7 +106,7 @@ class Mavsdk < Formula
 
   test do
     # Force use of Clang on Mojave
-    on_macos { ENV.clang }
+    ENV.clang if OS.mac?
 
     (testpath/"test.cpp").write <<~EOS
       #include <iostream>
