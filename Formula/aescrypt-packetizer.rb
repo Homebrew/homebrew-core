@@ -38,9 +38,7 @@ class AescryptPacketizer < Formula
         prefix=#{prefix}
         --disable-gui
       ]
-      on_macos do
-        args << "--enable-iconv"
-      end
+      args << "--enable-iconv" if OS.mac?
 
       system "./configure", *args
       system "make", "install"
