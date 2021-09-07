@@ -116,7 +116,7 @@ class V8 < Formula
       use_lld:                      false, # https://github.com/Homebrew/homebrew-core/pull/84351#issuecomment-909621336
     }
 
-    on_linux do
+    if OS.linux?
       gn_args[:is_clang] = false # use GCC on Linux
       gn_args[:use_sysroot] = false # don't use sysroot
       gn_args[:custom_toolchain] = "\"//build/toolchain/linux/unbundle:default\"" # uses system toolchain
@@ -148,7 +148,7 @@ class V8 < Formula
 
     libexec.install Dir["out.gn/#{shared_library("*")}"]
     lib.install_symlink Dir[libexec/shared_library("libv8*")]
-    on_linux { rm Dir[lib/"*.TOC"] } # Remove symlinks to .so.TOC text files
+    rm Dir[lib/"*.TOC"] if OS.linux? # Remove symlinks to .so.TOC text files
   end
 
   test do
