@@ -26,11 +26,10 @@ class DcosCli < Formula
     ENV["NO_DOCKER"] = "1"
     ENV["VERSION"] = version.to_s
 
-    on_macos do
+    if OS.mac?
       system "make", "darwin"
       bin.install "build/darwin/dcos"
-    end
-    on_linux do
+    else
       system "make", "linux"
       bin.install "build/linux/dcos"
     end
