@@ -47,7 +47,7 @@ class Cmake < Formula
       --sphinx-html
       --sphinx-man
     ]
-    on_macos do
+    if OS.mac?
       args += %w[
         --system-zlib
         --system-bzip2
