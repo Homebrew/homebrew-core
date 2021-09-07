@@ -28,7 +28,7 @@ class Stella < Formula
   def install
     sdl2 = Formula["sdl2"]
     libpng = Formula["libpng"]
-    on_macos do
+    if OS.mac?
       cd "src/macos" do
         inreplace "stella.xcodeproj/project.pbxproj" do |s|
           s.gsub! %r{(\w{24} /\* SDL2\.framework)}, '//\1'
@@ -43,9 +43,7 @@ class Stella < Formula
         prefix.install "build/Release/Stella.app"
         bin.write_exec_script "#{prefix}/Stella.app/Contents/MacOS/Stella"
       end
-    end
-
-    on_linux do
+    else
       system "./configure", "--prefix=#{prefix}",
                             "--bindir=#{bin}",
                             "--enable-release",
@@ -57,11 +55,9 @@ class Stella < Formula
   end
 
   test do
-    on_macos do
+    if OS.mac?
       assert_match "E.T. - The Extra-Terrestrial", shell_output("#{bin}/Stella -listrominfo").strip
-    end
-
-    on_linux do
+    else
       assert_match "failed to initialize: unable to open database file",
         shell_output("#{bin}/stella -listrominfo").strip
     end
