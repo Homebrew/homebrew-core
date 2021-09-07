@@ -69,9 +69,7 @@ class Unzip < Formula
       L_BZ2=-lbz2
       macosx
     ]
-    on_macos do
-      args << "LFLAGS1=-liconv"
-    end
+    args << "LFLAGS1=-liconv" if OS.mac?
     system "make", "-f", "unix/Makefile", *args
     system "make", "prefix=#{prefix}", "MANDIR=#{man1}", "install"
   end
