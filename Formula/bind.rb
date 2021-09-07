@@ -65,9 +65,7 @@ class Bind < Formula
       "--without-lmdb",
       "--with-libidn2=#{Formula["libidn2"].opt_prefix}",
     ]
-    on_linux do
-      args << "--disable-linux-caps"
-    end
+    args << "--disable-linux-caps" if OS.linux?
     system "./configure", *args
 
     system "make"
