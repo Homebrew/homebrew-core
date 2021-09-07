@@ -37,7 +37,7 @@ class Znc < Formula
     ENV.append "CXXFLAGS", "-std=c++11"
     ENV.append "CXXFLAGS", "-stdlib=libc++" if ENV.compiler == :clang
 
-    on_linux do
+    if OS.linux?
       ENV.append "CXXFLAGS", "-I#{Formula["zlib"].opt_include}"
       ENV.append "LIBS", "-L#{Formula["zlib"].opt_lib}"
     end
