@@ -145,11 +145,10 @@ class Gdal < Formula
       "--without-sosi",
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--with-curl=/usr/bin/curl-config"
       args << "--with-opencl"
-    end
-    on_linux do
+    else
       args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
 
       # The python build needs libgdal.so, which is located in .libs
