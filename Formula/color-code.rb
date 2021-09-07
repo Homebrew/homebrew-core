@@ -32,12 +32,10 @@ class ColorCode < Formula
     system "#{qt5}/bin/qmake"
     system "make"
 
-    on_macos do
+    if OS.mac?
       prefix.install "ColorCode.app"
       bin.write_exec_script "#{prefix}/ColorCode.app/Contents/MacOS/colorcode"
-    end
-
-    on_linux do
+    else
       bin.install "colorcode"
     end
   end
