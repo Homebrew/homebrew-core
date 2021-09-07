@@ -76,7 +76,7 @@ class Samba < Formula
            "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    on_macos do
+    if OS.mac?
       # macOS has its own SMB daemon as /usr/sbin/smbd, so rename our smbd to samba-dot-org-smbd to avoid conflict.
       # samba-dot-org-smbd is used by qemu.rb .
       # Rename mdfind and profiles as well to avoid conflicting with /usr/bin/{mdfind,profiles}
