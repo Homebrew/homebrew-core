@@ -75,13 +75,11 @@ class Suricata < Formula
       --with-libnet-libraries=#{libnet.opt_lib}
     ]
 
-    on_macos do
-      args << "--enable-ipfw"
-    end
-
-    on_linux do
+    args << if OS.mac?
+      "--enable-ipfw"
+    else
       args << "--with-libpcap-includes=#{Formula["libpcap"].opt_include}"
-      args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
+      "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
     end
 
     system "./configure", *args
