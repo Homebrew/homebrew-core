@@ -30,7 +30,7 @@ class JoplinCli < Formula
     node_notifier_vendor_dir = libexec/"lib/node_modules/joplin/node_modules/node-notifier/vendor"
     node_notifier_vendor_dir.rmtree # remove vendored pre-built binaries
 
-    on_macos do
+    if OS.mac?
       terminal_notifier_dir = node_notifier_vendor_dir/"mac.noindex"
       terminal_notifier_dir.mkpath
 
