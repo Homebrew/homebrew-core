@@ -73,7 +73,7 @@ class Rust < Formula
 
     # Fix build failure for compiler_builtins "error: invalid deployment target
     # for -stdlib=libc++ (requires OS X 10.7 or later)"
-    on_macos { ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version }
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version if OS.mac?
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
@@ -99,9 +99,7 @@ class Rust < Formula
     resource("cargo").stage do
       ENV["RUSTC"] = bin/"rustc"
       args = %W[--root #{prefix} --path .]
-      on_macos do
-        args += %w[--features curl-sys/force-system-lib-on-osx]
-      end
+      args += %w[--features curl-sys/force-system-lib-on-osx] if OS.mac?
       system "cargo", "install", *args
       man1.install Dir["src/etc/man/*.1"]
       bash_completion.install "src/etc/cargo.bashcomp.sh"
