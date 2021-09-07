@@ -26,9 +26,7 @@ class Ripmime < Formula
     args = %W[
       CFLAGS=#{ENV.cflags}
     ]
-    on_macos do
-      args << "LIBS=-liconv"
-    end
+    args << "LIBS=-liconv" if OS.mac?
     system "make", *args
     bin.install "ripmime"
     man1.install "ripmime.1"
