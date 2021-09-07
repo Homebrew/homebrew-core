@@ -32,11 +32,10 @@ class Grafana < Formula
 
     system "node_modules/webpack/bin/webpack.js", "--config", "scripts/webpack/webpack.prod.js"
 
-    on_macos do
+    if OS.mac?
       bin.install Dir["bin/darwin-*/grafana-cli"]
       bin.install Dir["bin/darwin-*/grafana-server"]
-    end
-    on_linux do
+    else
       bin.install "bin/linux-amd64/grafana-cli"
       bin.install "bin/linux-amd64/grafana-server"
     end
