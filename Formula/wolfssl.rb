@@ -80,7 +80,7 @@ class Wolfssl < Formula
       --enable-fasthugemath
     ]
 
-    on_macos do
+    if OS.mac?
       # Extra flag is stated as a needed for the Mac platform.
       # https://www.wolfssl.com/docs/wolfssl-manual/ch2/
       # Also, only applies if fastmath is enabled.
