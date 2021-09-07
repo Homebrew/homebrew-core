@@ -34,10 +34,9 @@ class Depqbf < Formula
     system "./compile.sh"
     bin.install "depqbf"
     lib.install "libqdpll.a"
-    on_macos do
+    if OS.mac?
       lib.install "libqdpll.1.0.dylib"
-    end
-    on_linux do
+    else
       lib.install "libqdpll.so.1.0"
     end
   end
