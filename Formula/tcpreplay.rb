@@ -30,9 +30,8 @@ class Tcpreplay < Formula
       --enable-dynamic-link
     ]
 
-    on_macos do
+    args << if OS.mac?
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
-      args << "--with-macosx-sdk=#{MacOS.version}"
 
       # The SDK is currently found using `xcrun --sdk macosx<V>` starting with
       # input `--with-macosx-sdk=<V>` and then going from older 10.8 onward.
@@ -43,10 +42,10 @@ class Tcpreplay < Formula
       # Check in next release if the workaround can be removed.
       # Upstream issue: https://github.com/appneta/tcpreplay/issues/668
       inreplace "configure.ac", /(\$with_macosx_sdk\s+)(?:10\.\d+\s+)+/, "\\1" if Hardware::CPU.arm?
-    end
 
-    on_linux do
-      args << "--with-libpcap=#{Formula["libpcap"].opt_prefix}"
+      "--with-macosx-sdk=#{MacOS.version}"
+    else
+      "--with-libpcap=#{Formula["libpcap"].opt_prefix}"
     end
 
     system "./autogen.sh"
