@@ -26,12 +26,11 @@ class DockerCredentialHelper < Formula
     dir.install buildpath.children - [buildpath/".brew_home"]
 
     cd dir do
-      on_macos do
+      if OS.mac?
         system "make", "vet_osx"
         system "make", "osxkeychain"
         bin.install "bin/docker-credential-osxkeychain"
-      end
-      on_linux do
+      else
         system "make", "vet_linux"
         system "make", "pass"
         system "make", "secretservice"
