@@ -55,7 +55,7 @@ class Portmidi < Formula
     include.mkpath
     lib.mkpath
 
-    on_macos do
+    if OS.mac?
       ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
 
       inreplace "pm_mac/Makefile.osx", "PF=/usr/local", "PF=#{prefix}"
@@ -68,8 +68,7 @@ class Portmidi < Formula
 
       system "make", "-f", "pm_mac/Makefile.osx"
       system "make", "-f", "pm_mac/Makefile.osx", "install"
-    end
-    on_linux do
+    else
       system "cmake", ".", *std_cmake_args, "-DCMAKE_CACHEFILE_DIR=#{buildpath}/build"
       system "make", "install"
     end
