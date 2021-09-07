@@ -29,7 +29,7 @@ class Libedit < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    on_linux do
+    if OS.linux?
       # Conflicts with readline.
       mv man3/"history.3", man3/"history_libedit.3"
     end
