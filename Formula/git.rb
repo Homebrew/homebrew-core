@@ -60,7 +60,7 @@ class Git < Formula
 
     perl_version = Utils.safe_popen_read("perl", "--version")[/v(\d+\.\d+)(?:\.\d+)?/, 1]
 
-    on_macos do
+    if OS.mac?
       ENV["PERLLIB_EXTRA"] = %W[
         #{MacOS.active_developer_dir}
         /Library/Developer/CommandLineTools
@@ -90,12 +90,12 @@ class Git < Formula
       NO_TCLTK=1
     ]
 
-    on_macos do
-      args += %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
-    end
-    on_linux do
+    args += if OS.mac?
+      %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
+    else
       openssl_prefix = Formula["openssl@1.1"].opt_prefix
-      args += %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
+
+      %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     end
 
     system "make", "install", *args
@@ -103,7 +103,7 @@ class Git < Formula
     git_core = libexec/"git-core"
 
     # Install the macOS keychain credential helper
-    on_macos do
+    if OS.mac?
       cd "contrib/credential/osxkeychain" do
         system "make", "CC=#{ENV.cc}",
                        "CFLAGS=#{ENV.cflags}",
@@ -163,7 +163,7 @@ class Git < Formula
 
     # Set the macOS keychain credential helper by default
     # (as Apple's CLT's git also does this).
-    on_macos do
+    if OS.mac?
       (buildpath/"gitconfig").write <<~EOS
         [credential]
         \thelper = osxkeychain
