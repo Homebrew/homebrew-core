@@ -85,8 +85,11 @@ class Llvm < Formula
       libcxxabi
       libunwind
     ]
-    on_macos { runtimes << "openmp" }
-    on_linux { projects << "openmp" }
+    if OS.mac?
+      runtimes << "openmp"
+    else
+      projects << "openmp"
+    end
 
     py_ver = Language::Python.major_minor_version("python3")
     site_packages = Language::Python.site_packages("python3").delete_prefix("lib/")
@@ -144,7 +147,7 @@ class Llvm < Formula
     # gcc-5 fails at building compiler-rt. Enable PGO
     # build on Linux when we switch to Ubuntu 18.04.
     pgo_build = false
-    on_macos do
+    if OS.mac?
       args << "-DLLVM_BUILD_LLVM_C_DYLIB=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
       args << "-DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}"
@@ -154,7 +157,7 @@ class Llvm < Formula
       pgo_build = build.stable? && build.bottle?
     end
 
-    on_linux do
+    if OS.linux?
       ENV.append "CXXFLAGS", "-fpermissive -Wno-free-nonheap-object"
       ENV.append "CFLAGS", "-fpermissive -Wno-free-nonheap-object"
 
@@ -208,7 +211,7 @@ class Llvm < Formula
         cxxflags << "-march=#{Hardware.oldest_cpu}"
       end
 
-      on_macos do
+      if OS.mac?
         extra_args << "-DLLVM_ENABLE_LIBCXX=ON"
         extra_args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
       end
@@ -229,21 +232,19 @@ class Llvm < Formula
       # Our just-built Clang needs a little help finding C++ headers,
       # since we did not build libc++, and the atomic and type_traits
       # headers are not in the SDK on macOS versions before Big Sur.
-      on_macos do
-        if MacOS.version <= :catalina && macos_sdk
-          toolchain_path = if MacOS::CLT.installed?
-            MacOS::CLT::PKG_PATH
-          else
-            MacOS::Xcode.toolchain_path
-          end
-
-          cxxflags << "-isystem#{toolchain_path}/usr/include/c++/v1"
-          cxxflags << "-isystem#{toolchain_path}/usr/include"
-          cxxflags << "-isystem#{macos_sdk}/usr/include"
-
-          extra_args.reject! { |s| s["CMAKE_CXX_FLAGS"] }
-          extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
+      if OS.mac? && (MacOS.version <= :catalina && macos_sdk)
+        toolchain_path = if MacOS::CLT.installed?
+          MacOS::CLT::PKG_PATH
+        else
+          MacOS::Xcode.toolchain_path
         end
+
+        cxxflags << "-isystem#{toolchain_path}/usr/include/c++/v1"
+        cxxflags << "-isystem#{toolchain_path}/usr/include"
+        cxxflags << "-isystem#{macos_sdk}/usr/include"
+
+        extra_args.reject! { |s| s["CMAKE_CXX_FLAGS"] }
+        extra_args << "-DCMAKE_CXX_FLAGS=#{cxxflags.join(" ")}"
       end
 
       # Next, build an instrumented stage2 compiler
@@ -317,9 +318,9 @@ class Llvm < Formula
       system "cmake", "--build", ".", "--target", "install-xcode-toolchain" if MacOS::Xcode.installed?
     end
 
-    on_macos do
+    if OS.mac? && !build.head?
       # Install versioned symlink, or else `llvm-config` doesn't work properly
-      lib.install_symlink "libLLVM.dylib" => "libLLVM-#{version.major}.dylib" unless build.head?
+      lib.install_symlink "libLLVM.dylib" => "libLLVM-#{version.major}.dylib"
     end
 
     # Install LLVM Python bindings
@@ -398,7 +399,7 @@ class Llvm < Formula
     # Testing default toolchain and SDK location.
     system "#{bin}/clang++", "-v",
            "-std=c++11", "test.cpp", "-o", "test++"
-    on_macos { assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" }
+    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" if OS.mac?
     assert_equal "Hello World!", shell_output("./test++").chomp
     system "#{bin}/clang", "-v", "test.c", "-o", "test"
     assert_equal "Hello World!", shell_output("./test").chomp
