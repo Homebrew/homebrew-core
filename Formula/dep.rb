@@ -27,9 +27,10 @@ class Dep < Formula
 
   def install
     arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    platform = "darwin"
-    on_linux do
-      platform = "linux"
+    platform = if OS.mac?
+      "darwin"
+    else
+      "linux"
     end
 
     ENV["GOPATH"] = buildpath
