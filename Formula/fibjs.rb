@@ -31,7 +31,7 @@ class Fibjs < Formula
 
   def install
     # help find X11 headers: fatal error: 'X11/Xlib.h' file not found
-    on_linux { ENV.append "CXXFLAGS", "-I#{HOMEBREW_PREFIX}/include" }
+    ENV.append "CXXFLAGS", "-I#{HOMEBREW_PREFIX}/include" if OS.linux?
 
     # the build script breaks when CI is set by Homebrew
     with_env(CI: nil) do
