@@ -105,9 +105,7 @@ class Vtk < Formula
     # https://github.com/Homebrew/linuxbrew-core/pull/21654#issuecomment-738549701
     args << "-DOpenGL_GL_PREFERENCE=LEGACY"
 
-    on_macos do
-      args << "-DVTK_USE_COCOA:BOOL=ON"
-    end
+    args << "-DVTK_USE_COCOA:BOOL=ON" if OS.mac?
 
     mkdir "build" do
       system "cmake", "..", *args
