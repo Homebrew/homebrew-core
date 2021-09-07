@@ -26,20 +26,16 @@ class Istioctl < Formula
     ENV["HUB"] = "docker.io/istio"
     ENV["BUILD_WITH_CONTAINER"] = "0"
 
-    dirpath = nil
-    on_macos do
-      if Hardware::CPU.arm?
-        # Fix missing "amd64" for macOS ARM in istio/common/scripts/setup_env.sh
-        # Can remove when upstream adds logic to detect `$(uname -m) == "arm64"`
-        ENV["TARGET_ARCH"] = "arm64"
+    dirpath = if OS.linux?
+      "linux_amd64"
+    elsif Hardware::CPU.arm?
+      # Fix missing "amd64" for macOS ARM in istio/common/scripts/setup_env.sh
+      # Can remove when upstream adds logic to detect `$(uname -m) == "arm64"`
+      ENV["TARGET_ARCH"] = "arm64"
 
-        dirpath = "darwin_arm64"
-      else
-        dirpath = "darwin_amd64"
-      end
-    end
-    on_linux do
-      dirpath = "linux_amd64"
+      "darwin_arm64"
+    else
+      "darwin_amd64"
     end
 
     system "make", "istioctl", "istioctl.completion"
