@@ -44,9 +44,7 @@ class Flex < Formula
 
     # Fix segmentation fault during install on Ubuntu 18.04 (caused by glibc 2.26+),
     # remove with the next release
-    on_linux do
-      ENV.append "CPPFLAGS", "-D_GNU_SOURCE"
-    end
+    ENV.append "CPPFLAGS", "-D_GNU_SOURCE" if OS.linux?
 
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
