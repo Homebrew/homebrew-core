@@ -3,8 +3,7 @@ class Grpc < Formula
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
       tag:      "v1.39.1",
-      revision: "2d6b8f61cfdd1c4d2d7c1aae65a4fbf00e3e0981",
-      shallow:  false
+      revision: "2d6b8f61cfdd1c4d2d7c1aae65a4fbf00e3e0981"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git"
 
