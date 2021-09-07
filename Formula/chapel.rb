@@ -34,10 +34,12 @@ class Chapel < Formula
     prefix.install_metafiles
 
     # Install chpl and other binaries (e.g. chpldoc) into bin/ as exec scripts.
-    platform = "darwin-x86_64"
-
-    on_linux do
-      platform = Hardware::CPU.is_64_bit? ? "linux64-x86_64" : "linux-x86_64"
+    platform = if OS.mac?
+      "darwin-x86_64"
+    elsif Hardware::CPU.is_64_bit?
+      "linux64-x86_64"
+    else
+      "linux-x86_64"
     end
 
     bin.install Dir[libexec/"bin/#{platform}/*"]
