@@ -35,11 +35,10 @@ class Aria2 < Formula
       --without-libnettle
       --without-libgcrypt
     ]
-    on_macos do
+    if OS.mac?
       args << "--with-appletls"
       args << "--without-openssl"
-    end
-    on_linux do
+    else
       args << "--without-appletls"
       args << "--with-openssl"
     end
