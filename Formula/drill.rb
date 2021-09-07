@@ -4,6 +4,7 @@ class Drill < Formula
   url "https://github.com/fcsonline/drill/archive/0.7.2.tar.gz"
   sha256 "cc33f5e214cf8c9c975bd2b912b87541eab2ceb34689fdc1f4882b332ad4ee44"
   license "GPL-3.0-or-later"
+  head "https://github.com/fcsonline/drill.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4332ccf85b364c2cda268ad8e932594a999dc6c6a911e77a7cf5fff2df5eb628"
