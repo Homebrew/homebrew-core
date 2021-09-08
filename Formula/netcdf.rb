@@ -103,12 +103,10 @@ class Netcdf < Formula
       lib/"pkgconfig/netcdf.pc", lib/"pkgconfig/netcdf-fortran.pc",
       lib/"cmake/netCDF/netCDFConfig.cmake",
       lib/"libnetcdf.settings", lib/"libnetcdf-cxx.settings"
-    ], %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
+    ], Superenv.shims_path/ENV.cc, ENV.cc
 
     if OS.linux?
-      inreplace bin/"ncxx4-config",
-                %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{Regexp.escape(ENV.cxx)}},
-                ENV.cxx
+      inreplace bin/"ncxx4-config", Superenv.shims_path/ENV.cxx, ENV.cxx
     else
       # SIP causes system Python not to play nicely with @rpath
       libnetcdf = (lib/"libnetcdf.dylib").readlink
