@@ -5,6 +5,7 @@ class Clamav < Formula
   mirror "https://fossies.org/linux/misc/clamav-0.104.0.tar.gz"
   sha256 "a079d64cd55d6184510adfe0f341b2f278f7fb1bcc080d28d374298160f19cb2"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/Cisco-Talos/clamav-devel.git", branch: "main"
 
   livecheck do
@@ -31,6 +32,7 @@ class Clamav < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "libxml2"
+  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   on_macos do
@@ -40,15 +42,15 @@ class Clamav < Formula
   skip_clean "share/clamav"
 
   def install
-    args = std_cmake_args + %w[
+    args = std_cmake_args + %W[
+      -DAPP_CONFIG_DIRECTORY=#{etc}/clamav
       -DENABLE_JSON_SHARED=ON
       -DENABLE_STATIC_LIB=ON
       -DENABLE_SHARED_LIB=ON
       -DENABLE_EXAMPLES=OFF
       -DENABLE_TESTS=OFF
+      -DENABLE_MILTER=OFF
     ]
-
-    args << "-DENABLE_MILTER=OFF" if OS.linux?
 
     system "cmake", "-S", ".", "-B", "build", *args
     system "cmake", "--build", "build"
