@@ -60,7 +60,7 @@ class Apr < Formula
 
     if OS.linux?
       # Avoid references to the Homebrew shims directory
-      inreplace prefix/"build-#{version.major}/libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
+      inreplace prefix/"build-#{version.major}/libtool", Superenv.shims_path, "/usr/bin"
     end
   end
 
