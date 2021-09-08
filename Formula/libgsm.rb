@@ -20,8 +20,14 @@ class Libgsm < Formula
   # Builds a dynamic library for gsm, this package is no longer developed
   # upstream. Patch taken from Debian and modified to build a dylib.
   patch do
-    url "https://gist.githubusercontent.com/dholm/5840964/raw/1e2bea34876b3f7583888b2284b0e51d6f0e21f4/gistfile1.txt"
-    sha256 "3b47c28991df93b5c23659011e9d99feecade8f2623762041a5dcc0f5686ffd9"
+    on_macos do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3c6294a792d8d75f597631985370e147f5e22e8a/libgsm/libgsm_shared_mac.patch"
+      sha256 "9580ec7939e23e179bf0dd82654a58f8476f411ea67d8fa62daa449689854955"
+    end
+    on_linux do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/2e76698620c3118cdd15036a9db3f86f78342878/libgsm/libgsm_shared_linux.patch"
+      sha256 "1a9df9f9ceeeb1a813248ff5de00ddcc98f895f4d4bad671164450381d7bbd8c"
+    end
   end
 
   def install
@@ -35,7 +41,14 @@ class Libgsm < Formula
     man3.mkpath
 
     # Dynamic library must be built first
-    system "make", "lib/libgsm.1.0.13.dylib",
+    inreplace "Makefile", "@@SOVERSION@@", version
+    library = if OS.mac?
+      "libgsm.#{version}.dylib"
+    else
+      ENV.append_to_cflags "-fPIC"
+      "libgsm.so"
+    end
+    system "make", "lib/#{library}",
            "CC=#{ENV.cc}", "CCFLAGS=#{ENV.cflags}",
            "LDFLAGS=#{ENV.ldflags}"
     system "make", "all",
@@ -61,7 +74,7 @@ class Libgsm < Formula
         return 0;
       }
     EOS
-    system ENV.cc, "-L#{lib}", "-lgsm", "test.c", "-o", "test"
+    system ENV.cc, "test.c", "-L#{lib}", "-lgsm", "-o", "test"
     system "./test"
   end
 end
