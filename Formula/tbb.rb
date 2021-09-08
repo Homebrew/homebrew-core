@@ -41,17 +41,8 @@ class Tbb < Formula
       system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
-    if OS.linux?
-      inreplace prefix/"rml/CMakeFiles/irml.dir/flags.make",
-                "#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/g++-5",
-                "/usr/bin/c++"
-      inreplace prefix/"rml/CMakeFiles/irml.dir/build.make",
-                "#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/g++-5",
-                "/usr/bin/c++"
-      inreplace prefix/"rml/CMakeFiles/irml.dir/link.txt",
-                "#{HOMEBREW_LIBRARY}/Homebrew/shims/linux/super/g++-5",
-                "/usr/bin/c++"
-    end
+    inreplace_files = Dir[prefix/"rml/CMakeFiles/irml.dir/{flags.make,build.make,link.txt}"]
+    inreplace inreplace_files, Superenv.shims_path/ENV.cxx, "/usr/bin/c++" if OS.linux?
   end
 
   test do
