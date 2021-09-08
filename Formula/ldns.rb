@@ -26,6 +26,8 @@ class Ldns < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.9"
 
+  conflicts_with "drill", because: "both install a `drill` binary"
+
   def install
     args = %W[
       --prefix=#{prefix}
