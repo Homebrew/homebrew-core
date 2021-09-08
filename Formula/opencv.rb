@@ -112,17 +112,15 @@ class Opencv < Formula
     end
 
     mkdir "build" do
-      shim_prefix_regex = %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/}o
-
       system "cmake", "..", *args
-      inreplace "modules/core/version_string.inc", shim_prefix_regex, ""
+      inreplace "modules/core/version_string.inc", Superenv.shims_path, ""
 
       system "make"
       system "make", "install"
 
       system "make", "clean"
       system "cmake", "..", "-DBUILD_SHARED_LIBS=OFF", *args
-      inreplace "modules/core/version_string.inc", shim_prefix_regex, ""
+      inreplace "modules/core/version_string.inc", Superenv.shims_path, ""
 
       system "make"
       lib.install Dir["lib/*.a"]
