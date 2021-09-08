@@ -1,8 +1,8 @@
 class Sniffglue < Formula
   desc "Secure multithreaded packet sniffer"
   homepage "https://github.com/kpcyrd/sniffglue"
-  url "https://github.com/kpcyrd/sniffglue/archive/v0.12.1.tar.gz"
-  sha256 "a7c7f36b1fdf394baa0123730560f50613b7f7aeab63f60907932fa54b63b2c1"
+  url "https://github.com/kpcyrd/sniffglue/archive/v0.13.0.tar.gz"
+  sha256 "ad348a5219c337285545e36e0a8d5f7b08402095a4cf8ccd41aa84b91ca3b19a"
   license "GPL-3.0-or-later"
 
   bottle do
