@@ -42,13 +42,7 @@ class BaculaFd < Formula
     system "make", "install"
 
     # Avoid references to the Homebrew shims directory
-    if OS.mac?
-      inreplace Dir[prefix/"etc/bacula_config"],
-                HOMEBREW_SHIMS_PATH/"mac/super/", ""
-    else
-      inreplace Dir[prefix/"etc/bacula_config"],
-                HOMEBREW_SHIMS_PATH/"linux/super/", ""
-    end
+    inreplace prefix/"etc/bacula_config", "#{Superenv.shims_path}/", ""
 
     (var/"lib/bacula").mkpath
   end
