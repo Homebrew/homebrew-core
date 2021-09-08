@@ -55,7 +55,7 @@ class Libtool < Formula
       bin.install_symlink "libtoolize" => "glibtoolize"
 
       # Avoid references to the Homebrew shims directory
-      inreplace bin/"libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
+      inreplace bin/"libtool", Superenv.shims_path, "/usr/bin"
     end
   end
 
