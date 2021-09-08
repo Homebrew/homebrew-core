@@ -97,7 +97,7 @@ class Httpd < Formula
       #{include}/httpd/ap_config_layout.h
       #{lib}/httpd/build/config_vars.mk
     ] do |s|
-      s.gsub! "#{lib}/httpd/modules", "#{HOMEBREW_PREFIX}/lib/httpd/modules"
+      s.gsub! lib/"httpd/modules", HOMEBREW_PREFIX/"lib/httpd/modules"
     end
 
     inreplace %W[
@@ -111,18 +111,11 @@ class Httpd < Formula
       s.gsub! prefix, opt_prefix
     end
 
-    os = if OS.mac?
-      "mac"
-    else
-      "linux"
-    end
     inreplace "#{lib}/httpd/build/config_vars.mk" do |s|
       pcre = Formula["pcre"]
       s.gsub! pcre.prefix.realpath, pcre.opt_prefix
-      s.gsub! "${prefix}/lib/httpd/modules",
-              "#{HOMEBREW_PREFIX}/lib/httpd/modules"
-      s.gsub! "#{HOMEBREW_SHIMS_PATH}/#{os}/super",
-              "#{HOMEBREW_PREFIX}/bin"
+      s.gsub! "${prefix}/lib/httpd/modules", HOMEBREW_PREFIX/"lib/httpd/modules"
+      s.gsub! Superenv.shims_path, HOMEBREW_PREFIX/"bin"
     end
   end
 
