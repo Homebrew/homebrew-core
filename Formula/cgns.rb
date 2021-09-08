@@ -40,7 +40,7 @@ class Cgns < Formula
     end
 
     # Avoid references to Homebrew shims
-    inreplace include/"cgnsBuild.defs", %r{#{HOMEBREW_SHIMS_PATH}/[^/]+/super/#{ENV.cc}}, ENV.cc
+    inreplace include/"cgnsBuild.defs", Superenv.shims_path/ENV.cc, ENV.cc
   end
 
   test do
