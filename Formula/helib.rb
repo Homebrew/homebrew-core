@@ -1,10 +1,9 @@
 class Helib < Formula
   desc "Implementation of homomorphic encryption"
   homepage "https://github.com/homenc/HElib"
-  url "https://github.com/homenc/HElib/archive/v2.1.0.tar.gz"
-  sha256 "641af0f602cfc7f5f5b1cfde0652252def2dfaf5f7962c2595cf598663637951"
+  url "https://github.com/homenc/HElib/archive/v2.2.0.tar.gz"
+  sha256 "2fb1fadb98a791925d529013a65d7e6eefd8accd5fd8953bd45278459b83d875"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "212df077b3196784a257df04f802dae393a42bac5b04a72695b5558b0950eeed"
@@ -24,12 +23,6 @@ class Helib < Formula
   end
 
   fails_with gcc: "5"
-
-  # Fix missing <optional> header include. Merged upstream, remove on next release.
-  patch do
-    url "https://github.com/homenc/HElib/commit/9973ccc68a292d5c52388eca40eac08ae11d0263.patch?full_index=1"
-    sha256 "fa4451567a7d3b4b09e44d0659d9e41615ea9d44c8228f64a5dc21b45390bd1c"
-  end
 
   def install
     mkdir "build" do
