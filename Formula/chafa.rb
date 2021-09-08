@@ -28,6 +28,7 @@ class Chafa < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
+    man1.install "docs/chafa.1"
   end
 
   test do
