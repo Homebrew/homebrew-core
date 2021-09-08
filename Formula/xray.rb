@@ -17,18 +17,18 @@ class Xray < Formula
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202104010913/geoip.dat"
-    sha256 "f94e464f7f37e6f3c88c2aa5454ab02a4b840bc44c75c5001719a618916906cf"
+    url "https://github.com/v2fly/geoip/releases/download/202109060310/geoip.dat"
+    sha256 "ed94122961f358abede9f1954722039d5a0300b614c77cc27d92618c08b97bb8"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20210401091829/dlc.dat"
-    sha256 "ee9778dc00b703905ca1f400ad13dd462eae52c5aee6465f0a7543b0232c9d08"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20210906031055/dlc.dat"
+    sha256 "7618b876fd5a1066d0b44c1c8ce04608495ae991806890f8b1cbfafe79caf6c1"
   end
 
   resource "example_config" do
     # borrow v2ray (v4.36.2) example config
-    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v4.36.2/release/config/config.json"
+    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v4.41.1/release/config/config.json"
     sha256 "1bbadc5e1dfaa49935005e8b478b3ca49c519b66d3a3aee0b099730d05589978"
   end
 
