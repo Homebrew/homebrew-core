@@ -53,7 +53,7 @@ class MidnightCommander < Formula
     system "./configure", *args
     system "make", "install"
 
-    inreplace share/"mc/syntax/Syntax", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin" if OS.mac?
+    inreplace share/"mc/syntax/Syntax", Superenv.shims_path, "/usr/bin" if OS.mac?
   end
 
   test do
