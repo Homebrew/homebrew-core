@@ -6,6 +6,11 @@ class Prestd < Formula
   license "MIT"
   head "https://github.com/prest/prest.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "62dfa958b199df7d328d9d6bf14585c09f4b69b28fa1ab5f43d473c2197736c3"
     sha256 cellar: :any_skip_relocation, big_sur:       "782387d19993ce425672bbeba52c1df220c340dbda2a73910992c9cb4d3c2b0f"
