@@ -7,6 +7,7 @@ class Sslmate < Formula
   homepage "https://sslmate.com"
   url "https://packages.sslmate.com/other/sslmate-1.9.0.tar.gz"
   sha256 "3e40122484491f59178de80e14ccf7e90cea4fea94056b25c7f89abe31685b98"
+  license "MIT"
 
   livecheck do
     url "https://packages.sslmate.com/other/"
