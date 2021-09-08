@@ -17,6 +17,8 @@ class Drill < Formula
   depends_on "rust" => :build
   uses_from_macos "openssl@1.1"
 
+  conflicts_with "ldns", because: "both install a `drill` binary"
+
   def install
     ENV["OPENSSL_DIR"] = Formula["openssl@1.1"].opt_prefix
     system "cargo", "install", *std_cargo_args
