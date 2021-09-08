@@ -75,7 +75,7 @@ class Neovim < Formula
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DLIBLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}"
       # Patch out references to Homebrew shims
-      inreplace "config/auto/versiondef.h", /#{HOMEBREW_LIBRARY}[^ ]+/o, ENV.cc
+      inreplace "config/auto/versiondef.h", Superenv.shims_path/ENV.cc, ENV.cc
       system "make", "install"
     end
   end
