@@ -58,10 +58,7 @@ class Yaws < Formula
     (lib/"yaws/examples/include").mkpath
 
     # Remove Homebrew shims references on Linux
-    if OS.linux?
-      inreplace Dir["#{prefix}/var/yaws/www/*/Makefile"], HOMEBREW_LIBRARY/"Homebrew/shims/linux/super/",
-        "/usr/bin/"
-    end
+    inreplace Dir["#{prefix}/var/yaws/www/*/Makefile"], Superenv.shims_path, "/usr/bin" if OS.linux?
   end
 
   def post_install
