@@ -2,8 +2,8 @@ class Flux < Formula
   desc "Lightweight scripting language for querying databases"
   homepage "https://www.influxdata.com/products/flux/"
   url "https://github.com/influxdata/flux.git",
-      tag:      "v0.127.3",
-      revision: "1836a695e66e359fe826d7af2a565e0a2b4bc66c"
+      tag:      "v0.128.0",
+      revision: "1883bac5ff6ec06b4004a70f5823d42828b82bc3"
   license "MIT"
   head "https://github.com/influxdata/flux.git", branch: "master"
 
