@@ -5,6 +5,11 @@ class Cvsutils < Formula
   sha256 "174bb632c4ed812a57225a73ecab5293fcbab0368c454d113bf3c039722695bb"
   license "GPL-2.0"
 
+  livecheck do
+    url "https://www.red-bean.com/cvsutils/releases/"
+    regex(/href=.*?cvsutils[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b2a9644fe70816d7ca61c0497ce3baad7a81596e69254cf9d7d775d9e430f7f9"
     sha256 cellar: :any_skip_relocation, big_sur:       "f7173229e45bd423c11d21800ddf636afdb0903fff09e0514b21a3065ce8fba3"
