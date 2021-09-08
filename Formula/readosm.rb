@@ -24,7 +24,7 @@ class Readosm < Formula
 
     # Remove references to the Homebrew shims dir.
     %w[Makefile test_osm1 test_osm2 test_osm3].each do |file|
-      inreplace "examples/#{file}", "#{HOMEBREW_SHIMS_PATH}/mac/super/", "/usr/bin/"
+      inreplace "examples/#{file}", "#{Superenv.shims_path}/", ""
     end
 
     doc.install "examples"
