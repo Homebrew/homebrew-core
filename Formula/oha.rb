@@ -16,7 +16,7 @@ class Oha < Formula
 
   depends_on "rust" => :build
 
-  uses_from_macos "openssl@1.1"
+  uses_from_macos "openssl"
 
   on_linux do
     depends_on "pkg-config" => :build
