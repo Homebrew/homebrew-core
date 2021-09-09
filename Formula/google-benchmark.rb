@@ -1,8 +1,8 @@
 class GoogleBenchmark < Formula
   desc "C++ microbenchmark support library"
   homepage "https://github.com/google/benchmark"
-  url "https://github.com/google/benchmark/archive/v1.5.6.tar.gz"
-  sha256 "789f85b4810d13ff803834ea75999e41b326405d83d6a538baf01499eda96102"
+  url "https://github.com/google/benchmark/archive/v1.6.0.tar.gz"
+  sha256 "1f71c72ce08d2c1310011ea6436b31e39ccab8c2db94186d26657d41747c85d6"
   license "Apache-2.0"
   head "https://github.com/google/benchmark.git"
 
