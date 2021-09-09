@@ -2,8 +2,8 @@ class Octant < Formula
   desc "Kubernetes introspection tool for developers"
   homepage "https://octant.dev"
   url "https://github.com/vmware-tanzu/octant.git",
-      tag:      "v0.23.0",
-      revision: "fbe2be3b687b3e2199ea32753281c9de1f334171"
+      tag:      "v0.24.0",
+      revision: "5a8648921cc2779eb62a0ac11147f12aa29f831c"
   license "Apache-2.0"
   head "https://github.com/vmware-tanzu/octant.git"
 
@@ -22,6 +22,10 @@ class Octant < Formula
 
   depends_on "go" => :build
   depends_on "node" => :build
+
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
 
   def install
     ENV["GOPATH"] = buildpath
