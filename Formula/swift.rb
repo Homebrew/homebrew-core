@@ -1,12 +1,11 @@
 class Swift < Formula
   include Language::Python::Shebang
-  include Language::Python::Virtualenv
 
   desc "High-performance system programming language"
   homepage "https://swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/apple/swift/archive/swift-5.4.2-RELEASE.tar.gz"
-  sha256 "df36ef943e0759b602d36d538e0f19db60a1b56b01f6b8bff2564313f665a183"
+  url "https://github.com/apple/swift/archive/swift-5.4.3-RELEASE.tar.gz"
+  sha256 "b5eed91bff7667e469b13803a57d60f87c7ec136f4ebb01ae433b3ebc2b6c28b"
   license "Apache-2.0"
 
   livecheck do
@@ -47,18 +46,18 @@ class Swift < Formula
     depends_on "six" => :build
 
     resource "swift-corelibs-foundation" do
-      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.4.2-RELEASE.tar.gz"
-      sha256 "38e15b60188a4240fe71b9ca6e9409d423d342896102ac957db42d7fa8b4ad23"
+      url "https://github.com/apple/swift-corelibs-foundation/archive/swift-5.4.3-RELEASE.tar.gz"
+      sha256 "75b4a9098867cb85c54430cd9645f42ef4cb6946de8cd84ebdde6e70a451d8bb"
     end
 
     resource "swift-corelibs-libdispatch" do
-      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.4.2-RELEASE.tar.gz"
-      sha256 "84602423596712a1fd0d866d640af0c2de56c52ea03c95864af900a55945ef37"
+      url "https://github.com/apple/swift-corelibs-libdispatch/archive/swift-5.4.3-RELEASE.tar.gz"
+      sha256 "4e78210507236a523038f489d660ca66e168bfd6d005d4df0a79f466a19206aa"
     end
 
     resource "swift-corelibs-xctest" do
-      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.4.2-RELEASE.tar.gz"
-      sha256 "5e0bede769b0869e65d2626a3bfdab09faf99dfe48366a37e5c72dc3b7dc9287"
+      url "https://github.com/apple/swift-corelibs-xctest/archive/swift-5.4.3-RELEASE.tar.gz"
+      sha256 "94154379381274e483caeb32f7b33b88906be7f78ac0413929dbeb4464bef02c"
     end
   end
 
@@ -66,8 +65,8 @@ class Swift < Formula
   fails_with :gcc
 
   resource "llvm-project" do
-    url "https://github.com/apple/llvm-project/archive/swift-5.4.2-RELEASE.tar.gz"
-    sha256 "50401b5b696292ccf6dc11f59f34f8958fdc0097c7d4db9cd862a4622ee1676a"
+    url "https://github.com/apple/llvm-project/archive/swift-5.4.3-RELEASE.tar.gz"
+    sha256 "efa12cb20f894ef34aaab9eb3cdc7fa6b94633ebb65db0fcf2a1f26f3bccab0d"
 
     # Fix handling of arm64e in REPL mode.
     # Remove with Swift 5.6.
@@ -75,41 +74,48 @@ class Swift < Formula
       url "https://github.com/apple/llvm-project/commit/479b672ff9a9230dee37fad97413a88bc0ab362b.patch?full_index=1"
       sha256 "6e33121d6f83ecf3bd1307664caf349964d8226530654a3b192b912c959fa671"
     end
+
+    # Fix some invisible characters on Linux in REPL mode.
+    # Remove with Swift 5.6.
+    patch do
+      url "https://github.com/apple/llvm-project/commit/075de2d8a7567a6a39e8477407960aa2545b68c2.patch?full_index=1"
+      sha256 "4a3372b06eace476349619532ce57d028315190dec83a2de521efdee22067952"
+    end
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/swift-5.4.2-RELEASE.tar.gz"
-    sha256 "d1c2d9728667a563e9420c608ef4fcde749a86e38ee373e8b109bce5eb94510d"
+    url "https://github.com/apple/swift-cmark/archive/swift-5.4.3-RELEASE.tar.gz"
+    sha256 "5cac6b095878105fc871fb268f22d6f3b4a3d3d5ed44c018c817c77d3d1ea724"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/swift-5.4.2-RELEASE.tar.gz"
-    sha256 "d5562e63fd68f6fcd64c60820a1be0142592a2742c71c1c6fe673f34854ac599"
+    url "https://github.com/apple/swift-llbuild/archive/swift-5.4.3-RELEASE.tar.gz"
+    sha256 "69ab1466d79b0f95a04adf7c9c299aeedffde1d517b64a4c64e6c76b1f530556"
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/swift-5.4.2-RELEASE.tar.gz"
-    sha256 "3648d7cbf74a2ad69b444d78b53e278541b1bd0e4e54fb1b8bc9002596bbaf4b"
+    url "https://github.com/apple/swift-package-manager/archive/swift-5.4.3-RELEASE.tar.gz"
+    sha256 "298ec9390941d50b2a71833ce1224bd8c4c1b5c68cc19fd83da4331f07f0e5c6"
   end
 
   resource "indexstore-db" do
-    url "https://github.com/apple/indexstore-db/archive/swift-5.4.2-RELEASE.tar.gz"
-    sha256 "876f170ecbce1461cc21509a52d11b4e79a045f6348e0d8f1c643e9e6e0e1624"
+    url "https://github.com/apple/indexstore-db/archive/swift-5.4.3-RELEASE.tar.gz"
+    sha256 "d7194e45286af4cc1d29ce1c84ed7a7a6864cba07df01a4984b4bd5a56ab9463"
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.4.2-RELEASE.tar.gz"
-    sha256 "2eff815309fa34bcb18a70298e16deb974862806a449c93eb245162030fe4d73"
+    url "https://github.com/apple/sourcekit-lsp/archive/swift-5.4.3-RELEASE.tar.gz"
+    sha256 "eaf1f655d887eb2a3a6ead8c0624accbd222659e01da844a6bfd2d23c1fbb1f7"
   end
 
   resource "swift-driver" do
-    url "https://github.com/apple/swift-driver/archive/swift-5.4.2-RELEASE.tar.gz"
-    sha256 "9907e6d41236cf543a43a89b5ff67b6cb12474692f96069908d4b6f92b617518"
+    url "https://github.com/apple/swift-driver/archive/swift-5.4.3-RELEASE.tar.gz"
+    sha256 "16a1161ca78c184f40937d07a997b2045abdd7cc8cf62102e3cda6249e329fd6"
   end
 
   resource "swift-tools-support-core" do
-    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.4.2-RELEASE.tar.gz"
-    sha256 "a4bc991cf601fe0f45edc7d0a6248f1a19def4d149b3e86b37361f34b0ecbd2c"
+    url "https://github.com/apple/swift-tools-support-core/archive/swift-5.4.3-RELEASE.tar.gz"
+    sha256 "7f8271fd9f9af2e1f889d918d7cd53bf7fad34ca04e0ab2a9a7a6cc1d3ad2cbe"
   end
 
   # To find the version to use, check the release/#{version.major_minor} entry of:
@@ -142,8 +148,8 @@ class Swift < Formula
     workspace = buildpath.parent
     build = workspace/"build"
 
-    install_prefix =if OS.mac?
-      toolchain_prefix = "/Swift-#{version}.xctoolchain"
+    install_prefix = if OS.mac?
+      toolchain_prefix = "/Swift-#{version.major_minor}.xctoolchain"
       "#{toolchain_prefix}/usr"
     else
       "/libexec"
@@ -309,12 +315,10 @@ class Swift < Formula
       end
     end
 
-    if OS.linux?
-      bin.install_symlink Dir["#{libexec}/bin/{swift,sil,sourcekit}*"]
-      man1.install_symlink libexec/"share/man/man1/swift.1"
-      elisp.install_symlink libexec/"share/emacs/site-lisp/swift-mode.el"
-      doc.install_symlink Dir["#{libexec}/share/doc/swift/*"]
-    end
+    bin.install_symlink Dir["#{prefix}#{install_prefix}/bin/{swift,sil,sourcekit}*"]
+    man1.install_symlink "#{prefix}#{install_prefix}/share/man/man1/swift.1"
+    elisp.install_symlink "#{prefix}#{install_prefix}/share/emacs/site-lisp/swift-mode.el"
+    doc.install_symlink Dir["#{prefix}#{install_prefix}/share/doc/swift/*"]
 
     rewrite_shebang detected_python_shebang, *Dir["#{prefix}#{install_prefix}/bin/*.py"]
   end
@@ -322,24 +326,16 @@ class Swift < Formula
   def caveats
     on_macos do
       <<~EOS
-        The toolchain has been installed to:
-          #{opt_prefix}/Swift-#{version}.xctoolchain
+        An Xcode toolchain has been installed to:
+          #{opt_prefix}/Swift-#{version.major_minor}.xctoolchain
 
-        You can find the Swift binary at:
-          #{opt_prefix}/Swift-#{version}.xctoolchain/usr/bin/swift
-
-        You can also symlink the toolchain for use within Xcode:
-          ln -s #{opt_prefix}/Swift-#{version}.xctoolchain ~/Library/Developer/Toolchains/Swift-#{version}.xctoolchain
+        This can be symlinked for use within Xcode:
+          ln -s #{opt_prefix}/Swift-#{version.major_minor}.xctoolchain ~/Library/Developer/Toolchains/Swift-#{version.major_minor}.xctoolchain
       EOS
     end
   end
 
   test do
-    toolchain_prefix = ""
-    on_macos do
-      toolchain_prefix = "/Swift-#{version}.xctoolchain/usr"
-    end
-
     (testpath/"test.swift").write <<~'EOS'
       let base = 2
       let exponent_inner = 3
@@ -354,7 +350,7 @@ class Swift < Formula
 
       print("(\(base)^\(exponent_inner))^\(exponent_outer) == \(answer)")
     EOS
-    output = shell_output("#{prefix}#{toolchain_prefix}/bin/swift -v test.swift")
+    output = shell_output("#{bin}/swift -v test.swift")
     assert_match "(2^3)^4 == 4096\n", output
 
     # Test accessing Foundation
@@ -364,11 +360,11 @@ class Swift < Formula
       let swifty = URLComponents(string: "https://swift.org")!
       print("\(swifty.host!)")
     EOS
-    output = shell_output("#{prefix}#{toolchain_prefix}/bin/swift -v foundation-test.swift")
+    output = shell_output("#{bin}/swift -v foundation-test.swift")
     assert_match "swift.org\n", output
 
     # Test compiler
-    system "#{prefix}#{toolchain_prefix}/bin/swiftc", "-v", "foundation-test.swift", "-o", "foundation-test"
+    system "#{bin}/swiftc", "-v", "foundation-test.swift", "-o", "foundation-test"
     output = shell_output("./foundation-test")
     assert_match "swift.org\n", output
 
@@ -378,10 +374,10 @@ class Swift < Formula
         # Swift Package Manager does not currently support using SDKROOT.
         ENV.remove_macosxsdk
       end
-      system "#{prefix}#{toolchain_prefix}/bin/swift", "package", "init", "--type=executable", "-v"
+      system "#{bin}/swift", "package", "init", "--type=executable", "-v"
       cp "../foundation-test.swift", "Sources/swiftpmtest/main.swift"
-      system "#{prefix}#{toolchain_prefix}/bin/swift", "build", "-v", "--disable-sandbox"
-      assert_match "swift.org\n", shell_output("#{prefix}#{toolchain_prefix}/bin/swift run --disable-sandbox")
+      system "#{bin}/swift", "build", "-v", "--disable-sandbox"
+      assert_match "swift.org\n", shell_output("#{bin}/swift run --disable-sandbox")
     end
   end
 end
