@@ -2,24 +2,16 @@ class Rust < Formula
   desc "Safe, concurrent, practical language"
   homepage "https://www.rust-lang.org/"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.54.0-src.tar.gz"
-    sha256 "ac8511633e9b5a65ad030a1a2e5bdaa841fdfe3132f2baaa52cc04e71c6c6976"
+    url "https://static.rust-lang.org/dist/rustc-1.55.0-src.tar.gz"
+    sha256 "b2379ac710f5f876ee3c3e03122fe33098d6765d371cac6c31b1b6fc8e43821e"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
       url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.55.0",
-          revision: "5ae8d74b3b2d58f32c8d357e5cfa04d430a70e0b"
-
-      # Work around crates.io timeouts with newer curl versions
-      # https://github.com/rust-lang/cargo/pull/9695
-      patch do
-        url "https://github.com/rust-lang/cargo/commit/27277d966b3cfa454d6dea7f724cb961c036251c.patch?full_index=1"
-        sha256 "55bf95b62dd38f372747922e5530544321601cf4c0e87e8174f440aa874f522d"
-      end
+          tag:      "0.56.0",
+          revision: "32da73ab19417aa89686e1d85c1440b72fdf877d"
     end
   end
 
@@ -53,18 +45,18 @@ class Rust < Formula
     on_macos do
       # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
       if Hardware::CPU.arm?
-        url "https://static.rust-lang.org/dist/2021-06-17/cargo-1.53.0-aarch64-apple-darwin.tar.gz"
-        sha256 "5f0aea0cd507ff6e3b1e1ae54a8726172d055a8b6d8b1ba550ce9ebc96a8a891"
+        url "https://static.rust-lang.org/dist/2021-07-29/cargo-1.54.0-aarch64-apple-darwin.tar.gz"
+        sha256 "7bac3901d8eb6a4191ffeebe75b29c78bcb270158ec901addb31f588d965d35d"
       else
-        url "https://static.rust-lang.org/dist/2021-06-17/cargo-1.53.0-x86_64-apple-darwin.tar.gz"
-        sha256 "b42f4a7d054e219d8744af48cfab798473981455a050a320c46b164382726e50"
+        url "https://static.rust-lang.org/dist/2021-07-29/cargo-1.54.0-x86_64-apple-darwin.tar.gz"
+        sha256 "68564b771c94ed95705ef28ea30bfd917c4b225b476551c998a0b267152cd798"
       end
     end
 
     on_linux do
       # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.txt
-      url "https://static.rust-lang.org/dist/2021-06-17/cargo-1.53.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "e79d9d0b03cb331428ef3cfc4cbe60ded9f90708a7dd1714d974dab9a03ee7b3"
+      url "https://static.rust-lang.org/dist/2021-07-29/cargo-1.54.0-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "8c4f404e6fd3e26a535230d1d47d162d0e4a51a0ff82025ae526b5121bdbf6ad"
     end
   end
 
