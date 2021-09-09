@@ -1,8 +1,8 @@
 class PySpy < Formula
   desc "Sampling profiler for Python programs"
   homepage "https://github.com/benfred/py-spy"
-  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.3.8.tar.gz"
-  sha256 "9dbfd0ea79ef31a2966891e86cf6238ed3831938cf562e71848e07b7009cf57d"
+  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.3.9.tar.gz"
+  sha256 "1e3d240def5357e6096a3e8a37a60bbe3c28515e4590b752109510f35d237170"
   license "MIT"
   head "https://github.com/benfred/py-spy.git", branch: "master"
 
@@ -18,6 +18,13 @@ class PySpy < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    bash_output = Utils.safe_popen_read(bin/"py-spy", "completions", "bash")
+    (bash_completion/"py-spy").write bash_output
+    zsh_output = Utils.safe_popen_read(bin/"py-spy", "completions", "zsh")
+    (zsh_completion/"_py-spy").write zsh_output
+    fish_output = Utils.safe_popen_read(bin/"py-spy", "completions", "fish")
+    (fish_completion/"py-spy.fish").write fish_output
   end
 
   test do
