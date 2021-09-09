@@ -5,6 +5,11 @@ class Libdvbpsi < Formula
   sha256 "02b5998bcf289cdfbd8757bedd5987e681309b0a25b3ffe6cebae599f7a00112"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://download.videolan.org/pub/libdvbpsi/"
+    regex(%r{href=["']?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "a61aaac7ff201fdd38a929556c6a64a69993150891690f8ea9532e1b9c9c9ae3"
     sha256 cellar: :any,                 big_sur:       "255b960c43fac14b8a50af513ca3b2925cdfa0e71efa61d2eced2fd172fe8dff"
