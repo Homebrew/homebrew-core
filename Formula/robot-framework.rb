@@ -97,6 +97,11 @@ class RobotFramework < Formula
 
   def install
     virtualenv_install_with_resources
+
+    # remove non-native binary
+    on_linux do
+      rm libexec/"lib/python3.9/site-packages/selenium/webdriver/firefox/x86/x_ignore_nofocus.so"
+    end
   end
 
   test do
