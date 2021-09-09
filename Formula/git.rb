@@ -25,7 +25,7 @@ class Git < Formula
 
   uses_from_macos "curl"
   uses_from_macos "expat"
-  uses_from_macos "openssl@1.1"
+  uses_from_macos "openssl"
   uses_from_macos "zlib"
 
   on_linux do
