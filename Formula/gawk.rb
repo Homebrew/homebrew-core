@@ -5,6 +5,7 @@ class Gawk < Formula
   mirror "https://ftpmirror.gnu.org/gawk/gawk-5.1.0.tar.xz"
   sha256 "cf5fea4ac5665fd5171af4716baab2effc76306a9572988d5ba1078f196382bd"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_monterey: "d7b02e74ff4139241e646470b8a45ce75ceadae78cc1ccee6f49bc57682f3682"
@@ -40,6 +41,7 @@ class Gawk < Formula
 
     (libexec/"gnubin").install_symlink bin/"gawk" => "awk"
     (libexec/"gnuman/man1").install_symlink man1/"gawk.1" => "awk.1"
+    libexec.install_symlink "gnuman" => "man"
   end
 
   test do
