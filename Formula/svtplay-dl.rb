@@ -3,8 +3,8 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/55/fa/e7eb0da0f6c78188d98ab44d3fa37b3652e34ebe577d0bc0e35145b42c25/svtplay-dl-4.2.tar.gz"
-  sha256 "e0cfcef6f7d94c768a7bc97fcdaf3e3481f369c7a06db0112170a711db793eaa"
+  url "https://files.pythonhosted.org/packages/69/39/451ab0bff081e6875796b0b8fa431f54097473ab3cbd395e5903420f6817/svtplay-dl-4.3.tar.gz"
+  sha256 "874eff4cfd2197d3c7cd4e1e0d85ccbb8c98da9284c0f75f5bf1a13c33604ad6"
   license "MIT"
 
   bottle do
@@ -30,13 +30,13 @@ class SvtplayDl < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/37/fd/05a04d7e14548474d30d90ad0db5d90ee2ba55cd967511a354cf88b534f1/charset-normalizer-2.0.3.tar.gz"
-    sha256 "c46c3ace2d744cfbdebceaa3c19ae691f53ae621b39fd7570f59d14fb7f2fd12"
+    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
+    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "idna" do
