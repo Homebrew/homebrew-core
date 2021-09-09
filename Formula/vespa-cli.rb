@@ -22,12 +22,11 @@ class VespaCli < Formula
   end
 
   test do
-    with_env(VESPA_CLI_HOME: testpath) do
-      assert_match "vespa version #{version}", shell_output("#{bin}/vespa version")
-      query = "yql=select * from sources * where title contains 'foo';"
-      assert_match "Error: Request failed", shell_output("#{bin}/vespa query -t local '#{query}' hits=5")
-      system "#{bin}/vespa", "config", "set", "target", "cloud"
-      assert_match "target = cloud", shell_output("#{bin}/vespa config get target")
-    end
+    ENV["VESPA_CLI_HOME"] = testpath.to_s
+    assert_match "vespa version #{version}", shell_output("#{bin}/vespa version")
+    query = "yql=select * from sources * where title contains 'foo';"
+    assert_match "Error: Request failed", shell_output("#{bin}/vespa query -t local '#{query}' hits=5")
+    system "#{bin}/vespa", "config", "set", "target", "cloud"
+    assert_match "target = cloud", shell_output("#{bin}/vespa config get target")
   end
 end
