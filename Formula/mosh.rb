@@ -42,11 +42,11 @@ class Mosh < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "pkg-config" => :build
-  depends_on "openssl@1.1"
+  depends_on "openssl"
   depends_on "protobuf"
 
   uses_from_macos "ncurses"
-  uses_from_macos "openssl@1.1"
+  uses_from_macos "openssl"
   uses_from_macos "zlib"
 
   def install
