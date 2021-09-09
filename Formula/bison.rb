@@ -2,9 +2,9 @@ class Bison < Formula
   desc "Parser generator"
   homepage "https://www.gnu.org/software/bison/"
   # X.Y.9Z are beta releases that sometimes get accidentally uploaded to the release FTP
-  url "https://ftp.gnu.org/gnu/bison/bison-3.7.6.tar.xz"
-  mirror "https://ftpmirror.gnu.org/bison/bison-3.7.6.tar.xz"
-  sha256 "67d68ce1e22192050525643fc0a7a22297576682bef6a5c51446903f5aeef3cf"
+  url "https://ftp.gnu.org/gnu/bison/bison-3.8.tar.xz"
+  mirror "https://ftpmirror.gnu.org/bison/bison-3.8.tar.xz"
+  sha256 "1e0a14a8bf52d878e500c33d291026b9ebe969c27b3998d4b4285ab6dbce4527"
   license "GPL-3.0-or-later"
   version_scheme 1
 
