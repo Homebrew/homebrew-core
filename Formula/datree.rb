@@ -16,12 +16,6 @@ class Datree < Formula
 
   depends_on "go" => :build
 
-  # remove in next release
-  patch do
-    url "https://github.com/datreeio/datree/commit/c0c5fb1c1c8e5766969ebec09e7cdbbcc0f460f0.patch?full_index=1"
-    sha256 "8d57c6f92fa0aaba07c79e2fe8312aea29ef40285dcf77d1397ea18cafe3cd5f"
-  end
-
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/datreeio/datree/cmd.CliVersion=#{version}"), "-tags", "main"
   end
