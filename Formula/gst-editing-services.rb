@@ -1,8 +1,8 @@
 class GstEditingServices < Formula
   desc "GStreamer Editing Services"
   homepage "https://gstreamer.freedesktop.org/modules/gst-editing-services.html"
-  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.18.4.tar.xz"
-  sha256 "4687b870a7de18aebf50f45ff572ad9e0138020e3479e02a6f056a0c4c7a1d04"
+  url "https://gstreamer.freedesktop.org/src/gst-editing-services/gst-editing-services-1.18.5.tar.xz"
+  sha256 "8af4a8394d051f3e18280686db49a6efaccc95c0c59a17f0f564e32000590df5"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -25,11 +25,20 @@ class GstEditingServices < Formula
   depends_on "gst-plugins-base"
   depends_on "gstreamer"
 
+  uses_from_macos "flex" => :build
+
+  on_linux do
+    depends_on "json-glib"
+  end
+
   def install
     args = std_meson_args + %w[
       -Dintrospection=enabled
       -Dtests=disabled
     ]
+    # https://gitlab.freedesktop.org/gstreamer/gst-editing-services/-/issues/114
+    # https://github.com/Homebrew/homebrew-core/pull/84906
+    args << "-Dpython=disabled"
 
     mkdir "build" do
       system "meson", *args, ".."
