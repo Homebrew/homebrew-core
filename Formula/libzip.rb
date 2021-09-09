@@ -22,7 +22,7 @@ class Libzip < Formula
 
   uses_from_macos "zip" => :test
   uses_from_macos "bzip2"
-  uses_from_macos "openssl@1.1"
+  uses_from_macos "openssl"
   uses_from_macos "xz"
   uses_from_macos "zlib"
 
