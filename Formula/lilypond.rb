@@ -5,6 +5,8 @@ class Lilypond < Formula
   sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
   license "GPL-3.0-or-later"
 
+  depends_on :arch => :x86_64
+  
   depends_on "autoconf" => :build
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
@@ -22,7 +24,9 @@ class Lilypond < Formula
   depends_on "pango"
   depends_on "python@3.9"
 
+  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "texinfo" => :build
 
   resource "font-urw" do
     url "https://github.com/ArtifexSoftware/urw-base35-fonts/archive/20200910.tar.gz"
