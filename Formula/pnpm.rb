@@ -82,15 +82,6 @@ class Pnpm < Formula
     end
   end
 
-  def caveats
-    <<~EOS
-      Run the following command to create the content-addressable store for the first time:
-
-        pnpm setup
-
-    EOS
-  end
-
   test do
     mkdir_p testpath/"npm-global/bin"
     ENV.prepend_path "PATH", testpath/"npm-global/bin"
