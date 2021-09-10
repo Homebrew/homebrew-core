@@ -32,8 +32,8 @@ class Lilypond < Formula
     sha256 "67d68ce1e22192050525643fc0a7a22297576682bef6a5c51446903f5aeef3cf"
   end
 
-  resource "font-urw" do
-    url "https://github.com/ArtifexSoftware/urw-base35-fonts/archive/20200910.tar.gz"
+  resource "urw-fonts" do
+    url "https://github.com/jsfelix/lilypond-build-deps/releases/download/v2.22.1/urw-base35-fonts-20200910.tar.gz"
     sha256 "e0d9b7f11885fdfdc4987f06b2aa0565ad2a4af52b22e5ebf79e1a98abd0ae2f"
   end
 
@@ -43,7 +43,7 @@ class Lilypond < Formula
   end
 
   resource "tex-build-dep" do
-    url "https://github.com/jsfelix/homebrew-core/releases/download/v2.22.1/tex-build-dep.tar.gz"
+    url "https://github.com/jsfelix/lilypond-build-deps/releases/download/v2.22.1/tex-build-dep-20210909.tar.gz"
     sha256 "18132bb70b109c6d0399095bc0acaf2616bf9edbd401af4a966eb3807b47797a"
   end
 
@@ -71,7 +71,7 @@ class Lilypond < Formula
       "elispdir = $(datadir)/emacs/site-lisp/lilypond"
 
     mkdir "build" do
-      resource("font-urw").stage buildpath/"urw"
+      resource("urw-fonts").stage buildpath/"urw"
 
       resource("tex-build-dep").stage buildpath/"tex-build-dep"
 
