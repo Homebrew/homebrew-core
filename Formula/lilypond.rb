@@ -24,33 +24,59 @@ class Lilypond < Formula
   depends_on "pango"
   depends_on "python@3.9"
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-  uses_from_macos "texinfo" => :build
+  uses_from_macos "m4"
+
+  resource "bison" do
+    url "https://ftp.gnu.org/gnu/bison/bison-3.7.6.tar.xz"
+    sha256 "67d68ce1e22192050525643fc0a7a22297576682bef6a5c51446903f5aeef3cf"
+  end
 
   resource "font-urw" do
     url "https://github.com/ArtifexSoftware/urw-base35-fonts/archive/20200910.tar.gz"
     sha256 "e0d9b7f11885fdfdc4987f06b2aa0565ad2a4af52b22e5ebf79e1a98abd0ae2f"
   end
 
+  resource "texinfo" do
+    url "https://ftp.gnu.org/gnu/texinfo/texinfo-6.8.tar.xz"
+    sha256 "8eb753ed28bca21f8f56c1a180362aed789229bd62fff58bf8368e9beb59fec4"
+  end
+
   resource "tex-build-dep" do
     url "https://github.com/jsfelix/homebrew-core/releases/download/v2.22.1/tex-build-dep.tar.gz"
-    sha256 "ec72500b4ca61b5dbd6b7dd52e05afb574afc6409d0282907d0951b8e287ae0f"
+    sha256 "18132bb70b109c6d0399095bc0acaf2616bf9edbd401af4a966eb3807b47797a"
   end
 
   def install
+    resource("bison").stage buildpath/"bison"
+    cd "bison" do
+      system "./configure", "--disable-dependency-tracking",
+                          "--enable-relocatable",
+                          "--prefix=/out"
+      system "make", "install", "DESTDIR=#{buildpath}/bison"
+    end
+
+    resource("texinfo").stage buildpath/"texinfo"
+    cd "texinfo" do
+      system "./configure", "--disable-dependency-tracking",
+                          "--disable-install-warnings",
+                          "--prefix=#{buildpath}/texinfo/out"
+      system "make", "install"
+    end
+
     system "./autogen.sh", "--noconfigure"
 
     inreplace "config.make.in",
       %r{^\s*elispdir\s*=\s*\$\(datadir\)/emacs/site-lisp\s*$},
       "elispdir = $(datadir)/emacs/site-lisp/lilypond"
-    inreplace "lily/parser.yy", "%define parse.error verbose", "// %define parse.error verbose"
 
     mkdir "build" do
       resource("font-urw").stage buildpath/"urw"
 
       resource("tex-build-dep").stage buildpath/"tex-build-dep"
 
+      ENV.prepend_path "PATH", "#{buildpath}/bison/out/bin"
+      ENV.prepend_path "PATH", "#{buildpath}/texinfo/out/bin"
       ENV.prepend_path "PATH", "#{buildpath}/tex-build-dep/bin/universal-darwin"
 
       system "../configure",
