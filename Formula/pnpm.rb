@@ -83,9 +83,6 @@ class Pnpm < Formula
   end
 
   test do
-    mkdir_p testpath/"npm-global/bin"
-    ENV.prepend_path "PATH", testpath/"npm-global/bin"
-    (testpath/".npmrc").atomic_write "prefix=#{testpath/"npm-global"}"
     system "#{bin}/pnpm", "env", "use", "--global", "16"
     system "#{bin}/pnpm", "install", "--global", "npm"
     system "#{bin}/pnpm", "init", "-y"
