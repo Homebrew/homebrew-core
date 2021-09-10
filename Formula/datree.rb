@@ -6,6 +6,11 @@ class Datree < Formula
   license "Apache-2.0"
   head "https://github.com/datreeio/datree.git", branch: "staging"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d3dfeacb6d4db33ee1e7dc6e578c8f79fe05dab6a096cd09b6c1bddb860a8629"
     sha256 cellar: :any_skip_relocation, big_sur:       "b33f71addc4f2b5897ac1d354ec02ed22152386b1bba8430b1c418d65bb922ed"
