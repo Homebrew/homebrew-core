@@ -5,6 +5,7 @@ class Wabt < Formula
       tag:      "1.0.24",
       revision: "21279a861fa3dbac9af9d2bab16c741df17a86af"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,7 +25,7 @@ class Wabt < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", "-DBUILD_TESTS=OFF", *std_cmake_args
+      system "cmake", "..", "-DBUILD_TESTS=OFF", "-DWITH_WASI=ON", *std_cmake_args
       system "make", "install"
     end
   end
