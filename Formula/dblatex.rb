@@ -5,8 +5,6 @@ class Dblatex < Formula
   sha256 "56fee45ef3c242c4800bad20c5aeb934b31ba0894bdf86275b60b2e7b2f4cb8e"
   license "GPL-2.0-or-later"
 
-  revision 1
-
   depends_on "imagemagick"
 
   def install
