@@ -15,12 +15,11 @@ class LpSolve < Formula
   end
 
   def install
-    target = ""
-    subdir = "ux64"
-
-    on_macos do
+    subdir = if OS.mac?
       target = ".osx"
-      subdir = "osx64"
+      "osx64"
+    else
+      "ux64"
     end
 
     cd "lpsolve55" do

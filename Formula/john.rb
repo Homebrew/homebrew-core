@@ -36,9 +36,10 @@ class John < Formula
 
     ENV.deparallelize
 
-    target = "macosx-x86-64"
-    on_linux do
-      target = "linux-x86-64"
+    target = if OS.mac?
+      "macosx-x86-64"
+    else
+      "linux-x86-64"
     end
 
     system "make", "-C", "src", "clean", "CC=#{ENV.cc}", target

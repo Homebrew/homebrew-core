@@ -28,9 +28,7 @@ class Ophcrack < Formula
       --with-libssl=#{Formula["openssl@1.1"].opt_prefix}
       --prefix=#{prefix}
     ]
-    on_linux do
-      args << "--with-libexpat=#{Formula["expat"].opt_prefix}"
-    end
+    args << "--with-libexpat=#{Formula["expat"].opt_prefix}" if OS.linux?
     system "./configure", *args
     system "make", "install"
   end

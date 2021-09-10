@@ -11,6 +11,7 @@ class Octave < Formula
     sha256 big_sur:       "ffb80919aab7e5224ae38873397a6e7d292dd3cfe6b74cba3972c7f7093ebb58"
     sha256 catalina:      "4360b1bae83bcb42203b12e52da2ffa8c15a56df7a0a49f3cdf10e78d463c57b"
     sha256 mojave:        "b6932ada3ff047d5911bedad215b37c191fb2018101e18c322f4288741a8625e"
+    sha256 x86_64_linux:  "455ce92e177b1e802f937be7c17ec9d603e0e0fcc7582a6491e617dc8e264a27"
   end
 
   head do
@@ -68,6 +69,8 @@ class Octave < Formula
   # Dependencies use Fortran, leading to spurious messages about GCC
   cxxstdlib_check :skip
 
+  fails_with gcc: "5"
+
   def install
     # Default configuration passes all linker flags to mkoctfile, to be
     # inserted into every oct/mex build. This is unnecessary and can cause
@@ -101,7 +104,7 @@ class Octave < Formula
             "--with-portaudio",
             "--with-sndfile"]
 
-    on_linux do
+    if OS.linux?
       # Explicitly specify aclocal and automake without versions
       args << "ACLOCAL=aclocal"
       args << "AUTOMAKE=automake"

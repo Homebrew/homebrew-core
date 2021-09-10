@@ -52,7 +52,7 @@ class Pulseaudio < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", buildpath/"lib/perl5"
       resource("XML::Parser").stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}"
@@ -70,13 +70,11 @@ class Pulseaudio < Formula
       --disable-x11
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-coreaudio-output"
       args << "--with-mac-sysroot=#{MacOS.sdk_path}"
       args << "--with-mac-version-min=#{MacOS.version}"
-    end
-
-    on_linux do
+    else
       # Perl depends on gdbm.
       # If the dependency of pulseaudio on perl is build-time only,
       # pulseaudio detects and links gdbm at build-time, but cannot locate it at run-time.
@@ -99,7 +97,7 @@ class Pulseaudio < Formula
     end
     system "make", "install"
 
-    on_linux do
+    if OS.linux?
       # https://stackoverflow.com/questions/56309056/is-gschemas-compiled-architecture-specific-can-i-ship-it-with-my-python-library
       rm "#{share}/glib-2.0/schemas/gschemas.compiled"
     end

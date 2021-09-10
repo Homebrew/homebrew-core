@@ -9,10 +9,11 @@ class Ffmpegthumbnailer < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "0fcbba2353da43ce4c08e4b69d8c43143d8cf3813d240957a4fa783fe85c654c"
-    sha256 cellar: :any, big_sur:       "0bca865df4298da35227da4090554bc0ee787f05cb6ef5a823d023346e5b48c8"
-    sha256 cellar: :any, catalina:      "dd032464ff83d935e388a997365f6f0131a70e080c7f4da682a1e6220e60c127"
-    sha256 cellar: :any, mojave:        "ebdda9295e17e1ca9c7acc0cc392ab995fbf2a3bcbe0ca6eee0a3ced49a4eb5e"
+    sha256 cellar: :any,                 arm64_big_sur: "0fcbba2353da43ce4c08e4b69d8c43143d8cf3813d240957a4fa783fe85c654c"
+    sha256 cellar: :any,                 big_sur:       "0bca865df4298da35227da4090554bc0ee787f05cb6ef5a823d023346e5b48c8"
+    sha256 cellar: :any,                 catalina:      "dd032464ff83d935e388a997365f6f0131a70e080c7f4da682a1e6220e60c127"
+    sha256 cellar: :any,                 mojave:        "ebdda9295e17e1ca9c7acc0cc392ab995fbf2a3bcbe0ca6eee0a3ced49a4eb5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c71bee7c064ce6d4838f05ddf09709e8191d5f3fd449f2d735ced5dc5acf85f9"
   end
 
   depends_on "cmake" => :build

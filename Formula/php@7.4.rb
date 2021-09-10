@@ -2,9 +2,9 @@ class PhpAT74 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-7.4.22.tar.xz"
-  mirror "https://fossies.org/linux/www/php-7.4.22.tar.xz"
-  sha256 "8e078cd7d2f49ac3fcff902490a5bb1addc885e7e3b0d8dd068f42c68297bde8"
+  url "https://www.php.net/distributions/php-7.4.23.tar.xz"
+  mirror "https://fossies.org/linux/www/php-7.4.23.tar.xz"
+  sha256 "cea52313fcffe56343bcd3c66dbb23cd5507dc559cc2e3547cf8f5452e88a05d"
   license "PHP-3.01"
 
   livecheck do
@@ -13,11 +13,11 @@ class PhpAT74 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "ec0e177443c2b69eabfade075671514663fd1fd44944be815e948c796eac786a"
-    sha256 big_sur:       "b5eee7f153292aececd3d703e55ac48f7ff727a0677cef9945cc69560b6567b4"
-    sha256 catalina:      "71b8f62438872360e058853ba59cf57fdc38ba840a4ca49d469d088bc1a5119e"
-    sha256 mojave:        "1442332a72c07986ee6bd98c77f22f0792b31b28cdcc0310b55b2b415bb13222"
-    sha256 x86_64_linux:  "2f98f679f7f1aa1dc00390835d859009206e3e96271de9cc508ac279d3aba23b"
+    sha256 arm64_big_sur: "ca2ea40d051e0db2366413d1faa3b9b2ec1b103af6ee3f4ef1b28b6bec04e0a5"
+    sha256 big_sur:       "2278b45f5bbe7dcdb2d0dbfc216acac29f2cb264fee8ecbb5d50ce350d374ce9"
+    sha256 catalina:      "f1568997391ec7f91268c849bb6da1b00b8a5304a3ec851584a0cff60b8865b4"
+    sha256 mojave:        "4d54d3a78ae11281ac678e004e022eef1affbcff5d2093eba49c0e8bd41f775e"
+    sha256 x86_64_linux:  "ef172cc2c62c6e321ed5cd728e38bf57feeff0ea048786475f5e92efbf4139fe"
   end
 
   keg_only :versioned_formula
@@ -65,9 +65,9 @@ class PhpAT74 < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac? && (MacOS.version == :el_capitan || MacOS.version == :sierra)
       # Ensure that libxml2 will be detected correctly in older MacOS
-      ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :el_capitan || MacOS.version == :sierra
+      ENV["SDKROOT"] = MacOS.sdk_path
     end
 
     # buildconf required due to system library linking bug patch
@@ -108,11 +108,10 @@ class PhpAT74 < Formula
 
     # system pkg-config missing
     ENV["KERBEROS_CFLAGS"] = " "
-    on_macos do
+    if OS.mac?
       ENV["SASL_CFLAGS"] = "-I#{MacOS.sdk_path_if_needed}/usr/include/sasl"
       ENV["SASL_LIBS"] = "-lsasl2"
-    end
-    on_linux do
+    else
       ENV["SQLITE_CFLAGS"] = "-I#{Formula["sqlite"].opt_include}"
       ENV["SQLITE_LIBS"] = "-lsqlite3"
       ENV["BZIP_DIR"] = Formula["bzip2"].opt_prefix
@@ -120,10 +119,7 @@ class PhpAT74 < Formula
 
     # Each extension that is built on Mojave needs a direct reference to the
     # sdk path or it won't find the headers
-    headers_path = ""
-    on_macos do
-      headers_path = "=#{MacOS.sdk_path_if_needed}/usr"
-    end
+    headers_path = "=#{MacOS.sdk_path_if_needed}/usr" if OS.mac?
 
     args = %W[
       --prefix=#{prefix}
@@ -193,12 +189,11 @@ class PhpAT74 < Formula
       --with-zlib
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-dtrace"
       args << "--with-ldap-sasl"
       args << "--with-os-sdkpath=#{MacOS.sdk_path_if_needed}"
-    end
-    on_linux do
+    else
       args << "--disable-dtrace"
       args << "--without-ldap-sasl"
       args << "--without-ndbm"

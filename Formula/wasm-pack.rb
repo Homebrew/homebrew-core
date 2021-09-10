@@ -1,16 +1,16 @@
 class WasmPack < Formula
   desc "Your favorite rust -> wasm workflow tool!"
   homepage "https://rustwasm.github.io/wasm-pack/"
-  url "https://github.com/rustwasm/wasm-pack/archive/v0.10.0.tar.gz"
-  sha256 "1b89ebb73853b749fdb2bc49474e17cca5658edd3b40723405a6a6cc3e3927fd"
+  url "https://github.com/rustwasm/wasm-pack/archive/v0.10.1.tar.gz"
+  sha256 "d8242567e85f4e9f6e8ce4c8a6c56585c2f4aa5f65f3cf92a878515bf75ce686"
   license "Apache-2.0"
   head "https://github.com/rustwasm/wasm-pack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "49e5f6aec0c98af3fe8d3145ea5e70d036823a173a4f16ec0829504239c2f0e0"
-    sha256 cellar: :any_skip_relocation, catalina:     "e3d7080de0f2a638a92818bceb7d744461bc4876f61c9e4432b23daae7c586ad"
-    sha256 cellar: :any_skip_relocation, mojave:       "29fab21c9cff3ce852b31580c4cd6777918fdaabd16124f0cfb9fdfdc02c3a60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a4c5163c60c0a49e0de91a27af51bd0e329c5684a6c85c76aa6e5ca9d6f6a3d6"
+    sha256 cellar: :any_skip_relocation, big_sur:      "56ee4bb666eb8f2e4ceffeb98ec1fa03d9330cde887c8ed41795a40ef7561c2c"
+    sha256 cellar: :any_skip_relocation, catalina:     "fbf74ad3f901a30d0c8d503f033893c5f511aecd460a72ef765f0fe1b6d10d06"
+    sha256 cellar: :any_skip_relocation, mojave:       "c24a9c03bdae1f6d6d03a73c4d89ab1c7cf2f2a17df1b01a87fb96ae891e23d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "bb4abbe7b3f01ae148caa662d6ac424a72a8a95e9debff0a9c7311bd98dd4568"
   end
 
   depends_on "rust" => :build

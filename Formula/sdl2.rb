@@ -45,10 +45,9 @@ class Sdl2 < Formula
     system "./autogen.sh" if build.head?
 
     args = %W[--prefix=#{prefix} --enable-hidapi]
-    on_macos do
-      args << "--without-x"
-    end
-    on_linux do
+    args << if OS.mac?
+      "--without-x"
+    else
       args << "--with-x"
       args << "--enable-pulseaudio"
       args << "--enable-pulseaudio-shared"
@@ -62,7 +61,7 @@ class Sdl2 < Formula
       args << "--enable-video-x11-xinput"
       args << "--enable-video-x11-xrandr"
       args << "--enable-video-x11-xshape"
-      args << "--enable-x11-shared"
+      "--enable-x11-shared"
     end
     system "./configure", *args
     system "make", "install"

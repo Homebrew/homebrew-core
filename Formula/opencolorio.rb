@@ -1,18 +1,17 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "https://opencolorio.org/"
-  url "https://github.com/imageworks/OpenColorIO/archive/v2.0.1.tar.gz"
-  sha256 "ff1397b4516fdecd75096d5b575d6a23771d0c876bbcfc7beb5a82af37adcdf9"
+  url "https://github.com/imageworks/OpenColorIO/archive/v2.1.0.tar.gz"
+  sha256 "81fc7853a490031632a69c73716bc6ac271b395e2ba0e2587af9995c2b0efb5f"
   license "BSD-3-Clause"
   head "https://github.com/imageworks/OpenColorIO.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "ff7921b54ca7e0589fff3dbf2e8f2b071b0f503f1657f4963d80749a8c5aedf0"
-    sha256 cellar: :any,                 big_sur:       "94fc18f52a783c11afd946c72b100bf16d570767d5934b245c03cabb3f9de715"
-    sha256 cellar: :any,                 catalina:      "8dcc8e3561f9e564239366ed88a2488b36af37c022e8b98f94e2d6cb1e718bde"
-    sha256 cellar: :any,                 mojave:        "c0fa4803986b6960a3a3578f6e453428864eff5fb7ed5f51fd6c505258cc0ca5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "08c2c289893682d242e35d91bde98fab3cf11de92f1e4bae4ad64c34c4b4ce62"
+    sha256 cellar: :any,                 arm64_big_sur: "36f49aa701d4121185e300594128b1b55264b7f0d8da930f3e195668fa63ee2d"
+    sha256 cellar: :any,                 big_sur:       "e948b41de75e637b6e458eac15d2d018d2dce9a060b9b24e4be9cf4c689e9820"
+    sha256 cellar: :any,                 catalina:      "1502fca0c423ced4903f48870f1788f4166a6cb69310bd82f76d5dba655c68ff"
+    sha256 cellar: :any,                 mojave:        "64e9a2916188c3ccd8ae7459cf5e4ab3664c3d4cb8b764bed8314a5e95e141ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c3d838263937c5f836e95b21a161ce4f40549f20f635dfd4f48929cf9890af7"
   end
 
   depends_on "cmake" => :build

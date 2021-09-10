@@ -1,17 +1,17 @@
 class Tm < Formula
   desc "TriggerMesh CLI to work with knative objects"
   homepage "https://triggermesh.com"
-  url "https://github.com/triggermesh/tm/archive/v1.8.0.tar.gz"
-  sha256 "d81509a6771ecb42a39be8ca740de05ee2758e40759ad3b3ffe87b8ec60442c8"
+  url "https://github.com/triggermesh/tm/archive/v1.9.0.tar.gz"
+  sha256 "00b74b7b5149e6db0d26fb49486530de718d30bd6bd6a2d90cfc5c358db0e511"
   license "Apache-2.0"
   head "https://github.com/triggermesh/tm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2c5ccef8f90c04a67b29e27584b8827709d441b04220717a66dfab0a9361e310"
-    sha256 cellar: :any_skip_relocation, big_sur:       "97a35e359354f4a509ce7a050a3f9748b61c4cce6b47d02ac5bbf485e2b7cb8c"
-    sha256 cellar: :any_skip_relocation, catalina:      "51889f38a8d5a166c3e26804f8c53a1279cdd406bdc82a688eacad25fd460d87"
-    sha256 cellar: :any_skip_relocation, mojave:        "0ee5d6783bc66be56ae9d4f2ab1cfda7dc4c46c49904c174a7ef145841087791"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e81140d7724a339041f4b0523b7b652de67fbc5f2acec70263560983fa663ed"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4f4b92292ce8779e767f2518a7d2d7e649914334ed302994932a0fd234b9d125"
+    sha256 cellar: :any_skip_relocation, big_sur:       "8071336743fbd6e49a98b977df25fa11ba99dc39c8ae53a850fb7967a014cdd6"
+    sha256 cellar: :any_skip_relocation, catalina:      "0f089fca0f5c961bdc3623c42e376cc4d176495b347aa013ff8f4a3a14a58c91"
+    sha256 cellar: :any_skip_relocation, mojave:        "3b3d490e709b59a0e6f14fea36dfbea576c7fa9eea7d1e5fcf7010d2ffa23849"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a80902518bad2186e160541dcf25242757769efd5c06b0b02e6bfb6d986b79c0"
   end
 
   depends_on "go" => :build

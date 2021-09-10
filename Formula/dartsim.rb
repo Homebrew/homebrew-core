@@ -1,15 +1,15 @@
 class Dartsim < Formula
   desc "Dynamic Animation and Robotics Toolkit"
   homepage "https://dartsim.github.io/"
-  url "https://github.com/dartsim/dart/archive/v6.11.0.tar.gz"
-  sha256 "41d783d7f99d7b5ad1874336646f1bdfa33e146e0652a6c32d12eaa21505bd51"
+  url "https://github.com/dartsim/dart/archive/v6.11.1.tar.gz"
+  sha256 "1a59b9d8f55433ad111089431826cd8abbec71f61c72a8558b655d92164f8de4"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 arm64_big_sur: "8e6e1890a93576e5a5da756aaefecdafae8fc628cafa6288c1dccff457ce0883"
-    sha256 big_sur:       "6e5fcd1dbc6e054f8add2f4f04a788f39cd6cae0e674dd88ac2613bf23a56c8a"
-    sha256 catalina:      "4477ac4f4b5c0d78016e1948bd4476797a5eefe503867fe1c3a2589ebc745c5e"
-    sha256 mojave:        "f149e441eab5640abd4f3966aeb0a9857930a3c1b0ffa6d8254f62bc1c329681"
+    sha256 arm64_big_sur: "e78dc5a0caf61ba16024aaf6b166ad2ac79720ee6b822f20b2bd799928f482d0"
+    sha256 big_sur:       "b456a6e2ba1b6261ba46595702a232a27d489fa27e99598f2a4bea05e0ba7ba5"
+    sha256 catalina:      "b96bca2cfe1481d17c4545d3b3666522d71278635e0883ee60054992afe2d960"
+    sha256 mojave:        "23b84cec2916360cfc23fd2f5c338b05a38017863a21321555bc325172c4310c"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +32,7 @@ class Dartsim < Formula
     ENV.cxx11
     args = std_cmake_args
 
-    on_macos do
+    if OS.mac?
       # Force to link to system GLUT (see: https://cmake.org/Bug/view.php?id=16045)
       glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
       args << "-DGLUT_glut_LIBRARY=#{glut_lib}"

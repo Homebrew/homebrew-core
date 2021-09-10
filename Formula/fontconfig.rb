@@ -60,9 +60,7 @@ class Fontconfig < Formula
     font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max if MacOS.version >= :sierra
 
     system "autoreconf", "-iv" if build.head?
-    on_linux do
-      ENV["UUID_CFLAGS"] = "-I#{Formula["util-linux"].include}"
-    end
+    ENV["UUID_CFLAGS"] = "-I#{Formula["util-linux"].include}" if OS.linux?
     system "./configure", "--disable-dependency-tracking",
                           "--disable-silent-rules",
                           "--enable-static",

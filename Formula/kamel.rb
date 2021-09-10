@@ -2,8 +2,8 @@ class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
   url "https://github.com/apache/camel-k.git",
-      tag:      "v1.5.0",
-      revision: "9355c0808f5368e5c70bd03535ddaaeb85c6b43e"
+      tag:      "v1.6.0",
+      revision: "e929db111d6d8ac000f9262342cb3d2eed157aad"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git"
 
@@ -13,21 +13,15 @@ class Kamel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "747cf904af90425eb6dffff7a7f6cd9f9e1ac37b777a892eae3cbc3a73c411ad"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4e8c1c913c2a70db9a9714189f380124d95dc1627f78c4736c4df13d3ba5a6d1"
-    sha256 cellar: :any_skip_relocation, catalina:      "18d3e4401efd0ffc1465fc3bb6337f12342499c350a44d49aa900039000e8562"
-    sha256 cellar: :any_skip_relocation, mojave:        "70be9a875b178084c9f7af37152cd83b20d2f2208fde8ac74582840dd54b0ede"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd58835f1a6fd97db3bd9b635495bfd8808ded1aa67fe4312a3fb709da2b9333"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b04e659ed41867ffe0cf799af99263c6d8a04217fd98397aac66c320caf6cfa2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "502265a622bc26ec8989c1f7040ac487611047d64ecaf96ecbb06228dad6b575"
+    sha256 cellar: :any_skip_relocation, catalina:      "03358c7bd13d985564f394a28b213305d2b01726cb7cec864b9005e092d24001"
+    sha256 cellar: :any_skip_relocation, mojave:        "7a1badc7d4dee8911535d1bb5af005acd96d2ff7d0ecd9b5e6f61cde7dce10ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9f38fda50052a0f9121ff41000103b7b0a3f42e159911d53a99f8e1df39fe0a5"
   end
 
   depends_on "go" => :build
   depends_on "openjdk@11" => :build
-
-  # remove in next release
-  patch do
-    url "https://github.com/apache/camel-k/commit/5385f35485e95197be33cd3684392186fe49db31.patch?full_index=1"
-    sha256 "0ab648244ed6e342ac1a1d6ecc878d78e8d0b64b14d872346d29f897e56e6bd1"
-  end
 
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home("11")

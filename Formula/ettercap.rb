@@ -35,7 +35,7 @@ class Ettercap < Formula
     ENV.append_to_cflags "-I#{Formula["harfbuzz"].opt_include}/harfbuzz"
 
     # Fix build error on wdg_file.c: fatal error: menu.h: No such file or directory
-    on_linux { ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw" }
+    ENV.append_to_cflags "-I#{Formula["ncurses"].opt_include}/ncursesw" if OS.linux?
 
     args = std_cmake_args + %W[
       -DBUNDLED_LIBS=OFF
@@ -50,7 +50,7 @@ class Ettercap < Formula
       -DINSTALL_DESKTOP=ON
       -DINSTALL_SYSCONFDIR=#{etc}
     ]
-    on_linux { args << "-DPOLKIT_DIR=#{share}/polkit-1/actions/" }
+    args << "-DPOLKIT_DIR=#{share}/polkit-1/actions/" if OS.linux?
 
     mkdir "build" do
       system "cmake", "..", *args

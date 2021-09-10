@@ -3,20 +3,21 @@ class PreCommit < Formula
 
   desc "Framework for managing multi-language pre-commit hooks"
   homepage "https://pre-commit.com/"
-  url "https://files.pythonhosted.org/packages/44/16/2cbffd43ba19e972cbea241618926532c2047d4c71b677ddba9674f6fde6/pre_commit-2.14.0.tar.gz"
-  sha256 "2386eeb4cf6633712c7cc9ede83684d53c8cafca6b59f79c738098b51c6d206c"
+  url "https://files.pythonhosted.org/packages/63/9e/f139fe6176b417e8c725f0ecfe5021e2edc88c5e00358aacbf812f3224ed/pre_commit-2.15.0.tar.gz"
+  sha256 "3c25add78dbdfb6a28a651780d5c311ac40dd17f160eb3954a0c59da40a505a7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "8fef2c846b54e2c86e6771c6ba52da2e5738a14075e0e662caadd76d39a19619"
-    sha256 cellar: :any,                 big_sur:       "8920011bc2d9d95f802209690dd75439ee333d8a7fc22bea64137c8bdbb504aa"
-    sha256 cellar: :any,                 catalina:      "2d74f77df1df0c02e84df456701cf1047637e943d8f4146f3b34539a3567973f"
-    sha256 cellar: :any,                 mojave:        "74975456522e5c893f235c02a789539527f7a6255a81d071f6024f43e04be342"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94a2af98dab0d6e736f143432f0a176633333885c9d8beb86894c27d8e4ef867"
+    sha256 cellar: :any,                 arm64_big_sur: "013932b6c31d3f82d7b99bd8f49afdbbedd0464d711cddfc09a484330c665069"
+    sha256 cellar: :any,                 big_sur:       "0112b3cab8adddf225371b4416b2e8579f251ca6d38c2e8fcf6c573a248abbb7"
+    sha256 cellar: :any,                 catalina:      "00abbd23f79197175b2765e243ff9f7563c668eb57842ce5d1b6cc8ae3711d9c"
+    sha256 cellar: :any,                 mojave:        "334f75bd2eaa766f541774a4bb55c1f0ae070cd1c66602b5a7a8b107531259c9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee1fb515758a61701ca5ab6aad4e7a1989170d18dee45e8f2635ad939d369e42"
   end
 
   depends_on "libyaml"
   depends_on "python@3.9"
+  depends_on "six"
 
   resource "backports.entry-points-selectable" do
     url "https://files.pythonhosted.org/packages/e4/7e/249120b1ba54c70cf988a8eb8069af1a31fd29d42e3e05b9236a34533533/backports.entry_points_selectable-1.1.0.tar.gz"
@@ -24,8 +25,8 @@ class PreCommit < Formula
   end
 
   resource "cfgv" do
-    url "https://files.pythonhosted.org/packages/02/a9/19a33d254b54fbf105208bfbb4ecbce1b42a40f970e39db8f8186fdcc171/cfgv-3.3.0.tar.gz"
-    sha256 "9e600479b3b99e8af981ecdfc80a0296104ee610cab48a5ae4ffd0b668650eb1"
+    url "https://files.pythonhosted.org/packages/c4/bf/d0d622b660d414a47dc7f0d303791a627663f554345b21250e39e7acb48b/cfgv-3.3.1.tar.gz"
+    sha256 "f5a830efb9ce7a445376bb66ec94c638a9787422f96264c98edc6bdeed8ab736"
   end
 
   resource "distlib" do
@@ -49,18 +50,13 @@ class PreCommit < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/cb/ee4234464290e3dee893cf37d1adc87c24ade86ff6fc55f04a9bf9f1ec4f/platformdirs-2.2.0.tar.gz"
-    sha256 "632daad3ab546bd8e6af0537d09805cec458dce201bccfe23012df73332e181e"
+    url "https://files.pythonhosted.org/packages/e2/d4/c6ffe89de09851892b1418dc22f6ab019b7b6f362532ab813c262e1722bb/platformdirs-2.3.0.tar.gz"
+    sha256 "15b056538719b1c94bdaccb29e5f81879c7f7f0f4a153f46086d155dffcd4f0f"
   end
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
     sha256 "607774cbba28732bfa802b54baa7484215f530991055bb562efbed5b2f20a45e"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "toml" do
@@ -69,8 +65,8 @@ class PreCommit < Formula
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/e2/04/878273c00ec63df9acf76d1657155243c8874ca38833c62eface20ce15cd/virtualenv-20.7.0.tar.gz"
-    sha256 "97066a978431ec096d163e72771df5357c5c898ffdd587048f45e0aecc228094"
+    url "https://files.pythonhosted.org/packages/6d/89/9691b0d0521c069bd238585ccb7f4035b8393d843a50491270e7dae0209e/virtualenv-20.7.2.tar.gz"
+    sha256 "9ef4e8ee4710826e98ff3075c9a4739e2cb1040de6a2a8d35db0055840dc96a0"
   end
 
   def install
@@ -94,7 +90,7 @@ class PreCommit < Formula
   def post_install
     xy = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     dirs_to_fix = [libexec/"lib/python#{xy}"]
-    on_linux { dirs_to_fix << libexec/"bin" }
+    dirs_to_fix << libexec/"bin" if OS.linux?
     dirs_to_fix.each do |folder|
       folder.each_child do |f|
         next unless f.symlink?

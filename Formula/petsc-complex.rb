@@ -1,8 +1,8 @@
 class PetscComplex < Formula
   desc "Portable, Extensible Toolkit for Scientific Computation (complex)"
   homepage "https://www.mcs.anl.gov/petsc/"
-  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.15.3.tar.gz"
-  sha256 "483028088020001e6f8d57b78a7fc880ed52d6693f57d627779c428f55cff73d"
+  url "https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-3.15.4.tar.gz"
+  sha256 "1e62fb0859a12891022765d1e24660cfcd704291c58667082d81a0618d6b0047"
   license "BSD-2-Clause"
 
   livecheck do
@@ -10,10 +10,10 @@ class PetscComplex < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "5517fe9b0c94fcb5d028b5b0b551649663e3dea7c08fdf0a1f6b1cbe03194699"
-    sha256 big_sur:       "f1a97551d6dfb924615237e9fc21160ced3f7bac937bb44d8c51bedcdc88e489"
-    sha256 catalina:      "513bad52b770cfc44c6d4ecf2bc962d1a79daa1f0f3f8bee118c6800aeed1fe1"
-    sha256 mojave:        "cfcef275d2e2577c4d6ec18e946a4487220277c1636d40ffd1d96069e6783679"
+    sha256 arm64_big_sur: "99ed99202f405c9927e0f1ada2a3621693f37c9e70f199a6185f05721a38be0e"
+    sha256 big_sur:       "d89f0b958689f699860b9f40df6a463b2fc35fa396e57b2bd4aa1a4f292f54f6"
+    sha256 catalina:      "eeec8f9d96f7d28946539cde3a1ea163fdbd983168fbe26c048f2082320c5ef3"
+    sha256 mojave:        "646bfdb09e08a774445bdc3c138d590e644d9b449a701a534d7fabab8699186f"
   end
 
   depends_on "hdf5"
@@ -43,14 +43,10 @@ class PetscComplex < Formula
     # Avoid references to Homebrew shims
     rm_f lib/"petsc/conf/configure-hash"
 
-    on_macos do
+    if OS.mac?
       inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
-    end
-
-    on_linux do
-      if File.readlines("#{lib}/petsc/conf/petscvariables").grep(/#{HOMEBREW_SHIMS_PATH}/o).any?
-        inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
-      end
+    elsif File.readlines("#{lib}/petsc/conf/petscvariables").grep(/#{HOMEBREW_SHIMS_PATH}/o).any?
+      inreplace lib/"petsc/conf/petscvariables", "#{HOMEBREW_SHIMS_PATH}/linux/super/", ""
     end
   end
 

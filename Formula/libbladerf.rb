@@ -25,7 +25,7 @@ class Libbladerf < Formula
   depends_on "libusb"
 
   def install
-    on_macos { ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/usr/include/malloc" }
+    ENV.prepend "CFLAGS", "-I#{MacOS.sdk_path}/usr/include/malloc" if OS.mac?
     mkdir "host/build" do
       system "cmake", "..", *std_cmake_args, "-DUDEV_RULES_PATH=#{lib}/udev/rules.d"
       system "make", "install"

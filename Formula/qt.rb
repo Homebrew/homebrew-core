@@ -1,8 +1,8 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.1/6.1.2/single/qt-everywhere-src-6.1.2.tar.xz"
-  sha256 "4b40f10eb188506656f13dbf067b714145047f41d7bf83f03b727fa1c7c4cdcb"
+  url "https://download.qt.io/official_releases/qt/6.1/6.1.3/single/qt-everywhere-src-6.1.3.tar.xz"
+  sha256 "552342a81fa76967656b0301233b4b586d36967fad5cd110765347aebe07413c"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
@@ -14,10 +14,10 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "edc0c35866cff4ab9a8b73c9babfd5fc7fe264a57e825e82437c04323a37bd62"
-    sha256 cellar: :any, big_sur:       "34272d69b54b7edc6141d58cfc40a9504c6870a2d1b7be1681d4e620dfe29cf9"
-    sha256 cellar: :any, catalina:      "2389536d2e27288a46c8b8fc54169bd8b74fc3dd3382cee7443a37e17ba3f970"
-    sha256 cellar: :any, mojave:        "bd093238a6a8e2024751fa17e5a8cfb4b5aaef553dbe2b3336653a5eb09aab19"
+    sha256 cellar: :any, arm64_big_sur: "ab25be32463c05e36c5d666422c528f6400341e1d1cda03b7b3c4bf32c930e22"
+    sha256 cellar: :any, big_sur:       "e5e7ee99f8ad14e2b39cfb8ead227ba60c1837d3bbf0c275d468c35bb9b3e882"
+    sha256 cellar: :any, catalina:      "7ff0e85ccebd423a6796c68d80326d384626182360decf4f938f4ba9eb8bd524"
+    sha256 cellar: :any, mojave:        "787c45fca83b0a31b3ee19e28d1fd2a000cd1ee9dabe02e7a4818c8ffcb03470"
   end
 
   depends_on "cmake"      => [:build, :test]
@@ -31,12 +31,12 @@ class Qt < Formula
   depends_on "double-conversion"
   depends_on "freetype"
   depends_on "glib"
+  depends_on "hunspell"
   depends_on "icu4c"
   depends_on "jasper"
   depends_on "jpeg"
   depends_on "libb2"
   depends_on "libpng"
-  depends_on "libproxy"
   depends_on "libtiff"
   depends_on "pcre2"
   depends_on "python@3.9"
@@ -68,7 +68,6 @@ class Qt < Formula
       -examplesdir share/qt/examples
       -testsdir share/qt/tests
 
-      -libproxy
       -no-feature-relocatable
       -system-sqlite
 
@@ -80,9 +79,8 @@ class Qt < Formula
     # TODO: remove `-DFEATURE_qt3d_system_assimp=ON`
     # and `-DTEST_assimp=ON` when Qt 6.2 is released.
     # See https://bugreports.qt.io/browse/QTBUG-91537
-    cmake_args = std_cmake_args.reject { |s| s["CMAKE_INSTALL_PREFIX"]||s["CMAKE_FIND_FRAMEWORK"] } + %W[
+    cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}
-      -DCMAKE_FIND_FRAMEWORK=FIRST
 
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
 
@@ -97,22 +95,23 @@ class Qt < Formula
 
     rm bin/"qt-cmake-private-install.cmake"
 
-    # Some config scripts will only find Qt in a "Frameworks" folder
-    frameworks.install_symlink Dir["#{lib}/*.framework"]
-
     inreplace lib/"cmake/Qt6/qt.toolchain.cmake", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin"
 
     # The pkg-config files installed suggest that headers can be found in the
     # `include` directory. Make this so by creating symlinks from `include` to
     # the Frameworks' Headers folders.
-    Pathname.glob("#{lib}/*.framework/Headers") do |path|
-      include.install_symlink path => path.parent.basename(".framework")
+    # Tracking issues:
+    # https://bugreports.qt.io/browse/QTBUG-86080
+    # https://gitlab.kitware.com/cmake/cmake/-/merge_requests/6363
+    lib.glob("*.framework") do |f|
+      # Some config scripts will only find Qt in a "Frameworks" folder
+      frameworks.install_symlink f
+      include.install_symlink f/"Headers" => f.stem
     end
 
-    mkdir libexec
-    Pathname.glob("#{bin}/*.app") do |app|
-      mv app, libexec
-      bin.write_exec_script "#{libexec/app.stem}.app/Contents/MacOS/#{app.stem}"
+    bin.glob("*.app") do |app|
+      libexec.install app
+      bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
     end
   end
 

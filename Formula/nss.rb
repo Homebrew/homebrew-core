@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_69_RTM/src/nss-3.69.tar.gz"
-  sha256 "c880205a365e0dd488ff29fdea82716ff9fcde9da6f3b703d636f8fc08008799"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_70_RTM/src/nss-3.70.tar.gz"
+  sha256 "2b89abb8601ee405be8ac5b5703d71f1fb38a51c3a64a3d834387f78b325511b"
   license "MPL-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "80c110ce776dd9b6c9c489309cc23c7d8c4310090bbfd09f036e98b7d02ee74d"
-    sha256 cellar: :any,                 big_sur:       "1c83a6a1050562b3678e648f68a714c7567ee33c4c9069679048b8902d8d767f"
-    sha256 cellar: :any,                 catalina:      "4e540f49497c9932fbb3b65e5187bf0cced546f02c94f8b19963714b96d18051"
-    sha256 cellar: :any,                 mojave:        "fba80d27ad01ec389493d80768c08f50e9189e26f5c097d83149be80c22c0789"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd827672eec70f4b1ee80867ab1bb9d86f674f39c3c57efd578bb93a16d5d49b"
+    sha256 cellar: :any,                 arm64_big_sur: "03024d02dc3d7dd24f3157fc08d4b98de3b1496b75ac2bfb7d223c5af4301b63"
+    sha256 cellar: :any,                 big_sur:       "238f33223e0a09ce14313f7e434b6379a727d8c2737a6d676c2d48ee38b9cfa4"
+    sha256 cellar: :any,                 catalina:      "95478e75c9909c3f470956b402fc21775884e5ab35507c79de4c821f44a1c374"
+    sha256 cellar: :any,                 mojave:        "c080c770c52a84fcc426e20e3934d4b5e244207aab071a726a667136881e4c43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3891b7a2ad945d43e57efae905cd9548ebb7e2145d35b71b0d3dadf85f34b9e7"
   end
 
   depends_on "nspr"
@@ -50,8 +50,11 @@ class Nss < Formula
     # rather than copying the referenced file.
     cd "../dist"
     bin.mkpath
-    os = "Darwin"
-    on_linux { os = "Linux" }
+    os = if OS.mac?
+      "Darwin"
+    else
+      "Linux"
+    end
     Dir.glob("#{os}*/bin/*") do |file|
       cp file, bin unless file.include? ".dylib"
     end

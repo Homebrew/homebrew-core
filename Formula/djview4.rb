@@ -38,11 +38,10 @@ class Djview4 < Formula
     # From the djview4.8 README:
     # NOTE: Do not use command "make install".
     # Simply copy the application bundle where you want it.
-    on_macos do
+    if OS.mac?
       prefix.install "src/djview.app"
       bin.write_exec_script prefix/"djview.app/Contents/MacOS/djview"
-    end
-    on_linux do
+    else
       prefix.install "src/djview"
     end
   end

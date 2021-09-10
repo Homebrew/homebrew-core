@@ -1,9 +1,14 @@
 class Qdbm < Formula
   desc "Library of routines for managing a database"
-  homepage "https://fallabs.com/qdbm/"
-  url "https://fallabs.com/qdbm/qdbm-1.8.78.tar.gz"
+  homepage "https://dbmx.net/qdbm/"
+  url "https://dbmx.net/qdbm/qdbm-1.8.78.tar.gz"
   sha256 "b466fe730d751e4bfc5900d1f37b0fb955f2826ac456e70012785e012cdcb73e"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?qdbm[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 1
@@ -29,19 +34,14 @@ class Qdbm < Formula
     ]
 
     # Does not want to build on Linux
-    on_macos do
-      args << "--enable-bzip"
-    end
+    args << "--enable-bzip" if OS.mac?
 
     system "./configure", *args
-    on_macos do
+    if OS.mac?
       system "make", "mac"
-      system "make", "check-mac"
       system "make", "install-mac"
-    end
-    on_linux do
+    else
       system "make"
-      system "make", "check"
       system "make", "install"
     end
   end

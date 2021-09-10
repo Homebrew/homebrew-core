@@ -26,6 +26,8 @@ class Ldns < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.9"
 
+  conflicts_with "drill", because: "both install a `drill` binary"
+
   def install
     args = %W[
       --prefix=#{prefix}
@@ -43,7 +45,7 @@ class Ldns < Formula
     ENV["PYTHON"] = Formula["python@3.9"].opt_bin/"python3"
     system "./configure", *args
 
-    on_macos do
+    if OS.mac?
       inreplace "Makefile" do |s|
         s.change_make_var! "PYTHON_LDFLAGS", "-undefined dynamic_lookup"
         s.gsub!(/(\$\(PYTHON_LDFLAGS\).*) -no-undefined/, "\\1")

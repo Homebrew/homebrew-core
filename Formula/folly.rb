@@ -1,18 +1,17 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
   homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/v2021.08.02.00.tar.gz"
-  sha256 "2f9b0ff1af934ca715028462985b6c22004f2599af157bab475857ffc9a5688d"
+  url "https://github.com/facebook/folly/archive/v2021.09.06.00.tar.gz"
+  sha256 "8fb0a5392cbf6da1233c59933fff880dd77bbe61e0e2d578347ff436c776eda5"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/facebook/folly.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "01bbe77385b9cd484ef4280bfef97148936d8d6b859efc4dea925fe8e737d701"
-    sha256 cellar: :any,                 big_sur:       "8ec42644e8babdbb33e9a1fb258f7aa6935e11518410637b0992826fb306e15d"
-    sha256 cellar: :any,                 catalina:      "2e1e6034b3be3811e9738df39c28e14ada5314c88466863421a4a6678f484c15"
-    sha256 cellar: :any,                 mojave:        "8fa0b4668333687a08af61eafd3310a10ea877b6e89782d8b4dacf6591bf5844"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5088ab110dd2cd205944c2032733af5571a85a466abaa43ff9a4513a8873ea4d"
+    sha256 cellar: :any,                 arm64_big_sur: "ef245e121285281a818dee5d4e8fcaf9cfaab11324be2d9d1c4cd1f67c332160"
+    sha256 cellar: :any,                 big_sur:       "8b9f8aecb0dc1c358f2c2fa5906f733300e33ab47ea4bd82e0d69f03c7bf24e0"
+    sha256 cellar: :any,                 catalina:      "7a5329b53d0b1094bdd9a9a7d0e8d5fdbe2a54fb5493bce1333a74ccd4e3b351"
+    sha256 cellar: :any,                 mojave:        "366dbe5cbebf0c17ff7b850665b15c9361d14bfc3bd678b2ec80170b996cf5b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c607f5f480d170ff3b80382258018b025e897f9fed7ba947554f7ece47a551d7"
   end
 
   depends_on "cmake" => :build
@@ -49,9 +48,7 @@ class Folly < Formula
   fails_with gcc: "5"
 
   def install
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     mkdir "_build" do
       args = std_cmake_args + %w[
@@ -71,7 +68,7 @@ class Folly < Formula
 
   test do
     # Force use of Clang rather than LLVM Clang
-    on_macos { ENV.clang }
+    ENV.clang if OS.mac?
 
     (testpath/"test.cc").write <<~EOS
       #include <folly/FBVector.h>

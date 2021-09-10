@@ -16,6 +16,7 @@ class Rubberband < Formula
     sha256 cellar: :any, big_sur:       "6f8eb3495c3ab95737df9fd81ae7df3ecb122ebc7468df79049ef2b1fd363375"
     sha256 cellar: :any, catalina:      "29fe97d7bb8bb2b23c2409d2465e56ea84326e9568dbcf6533b4bf4aed52b400"
     sha256 cellar: :any, mojave:        "af62a07fc9604c1df76d654b662c949d75a4d4cb52171aa72fb911e8af533aed"
+    sha256               x86_64_linux:  "08e7e6cff8618bd5b8c525d82ad2ae7f564d057db01c0b4fce6a172106b8927c"
   end
 
   depends_on "meson" => :build

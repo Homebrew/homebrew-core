@@ -3,9 +3,10 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-21.2.0.tar.xz"
-  sha256 "0cb3c802f4b8e7699b1602c08c29d06a4d532ab5b8f7a64676c4ca6bb8f4d426"
+  url "https://mesa.freedesktop.org/archive/mesa-21.2.1.tar.xz"
+  sha256 "2c65e6710b419b67456a48beefd0be827b32db416772e0e363d5f7d54dc01787"
   license "MIT"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   livecheck do
@@ -14,11 +15,11 @@ class Mesa < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "65138ca70442cf7485ff98c028864eacced13c7b2fc62146f9026b2e7f501e05"
-    sha256 big_sur:       "6bed8a72c96b4844286c7e9666b8ea0c887891a6b867904900faf6ffd61d875e"
-    sha256 catalina:      "af5a8c808d643c0d64f70e33543a6a9c18c771152fbac4f5b8dad86167c053ed"
-    sha256 mojave:        "7308951bd120ed6de6cb3838cbc358f0b210f61e102ff366cb1b8a5c988b9ded"
-    sha256 x86_64_linux:  "066e8c5709d5cae301b73348f43f72897203286e4b5d7115070ccc58bb68c5b6"
+    sha256 arm64_big_sur: "e04319312192941e0958a7622eb0ca68fb9cb51d5122affdba32359c7c3a8930"
+    sha256 big_sur:       "322ba38e53336aab63838e86882b478be2fde40204f542215ccaad2a4c654cff"
+    sha256 catalina:      "257bea3d2ee0d5db58f02a454b5fcc6d81ee843d92c3a7964a0aa33e3f8b5775"
+    sha256 mojave:        "3c1bc6f6612fbdcbc80b54ed067a0c40dd54cc51ba24d65325b6ef457dd26060"
+    sha256 x86_64_linux:  "41d0c71f5c264e4a9d952ec32192c1ba380267acb16eed512bc2bae974b436cf"
   end
 
   depends_on "meson" => :build
@@ -39,18 +40,18 @@ class Mesa < Formula
   uses_from_macos "zlib"
 
   on_linux do
+    depends_on "elfutils"
     depends_on "gcc"
-    depends_on "lm-sensors"
-    depends_on "libelf"
+    depends_on "libdrm"
+    depends_on "libva"
+    depends_on "libvdpau"
     depends_on "libxfixes"
     depends_on "libxrandr"
     depends_on "libxshmfence"
     depends_on "libxv"
     depends_on "libxvmc"
     depends_on "libxxf86vm"
-    depends_on "libva"
-    depends_on "libvdpau"
-    depends_on "libdrm"
+    depends_on "lm-sensors"
     depends_on "wayland"
     depends_on "wayland-protocols"
   end
@@ -84,7 +85,7 @@ class Mesa < Formula
     mkdir "build" do
       args = ["-Db_ndebug=true"]
 
-      on_linux do
+      if OS.linux?
         args << "-Dplatforms=x11,wayland"
         args << "-Dglx=auto"
         args << "-Ddri3=true"
@@ -106,7 +107,7 @@ class Mesa < Formula
       system "ninja", "install"
     end
 
-    on_linux do
+    if OS.linux?
       # Strip executables/libraries/object files to reduce their size
       system("strip", "--strip-unneeded", "--preserve-dates", *(Dir[bin/"**/*", lib/"**/*"]).select do |f|
         f = Pathname.new(f)

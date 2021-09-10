@@ -5,8 +5,8 @@ class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.8.1",
-      revision: "4b0264f28defc05454c31277cfa6ff63695a458d"
+      tag:      "v1.8.2",
+      revision: "aca76f63357041a43b49f3e8c11d67358496959f"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git", branch: "main"
 
@@ -16,11 +16,11 @@ class Vault < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "10dfd405196881c33a5b20cc78f3f3ac1a5c00f3331e3facd9993bdf12e07d7b"
-    sha256 cellar: :any_skip_relocation, big_sur:       "9e9c2aa82c3b01b249e13be7823a6dc0fc9cb863542239e2e1be0917ef872b5e"
-    sha256 cellar: :any_skip_relocation, catalina:      "027b8dcb2c36e24c52b0b55e569b2ad8e3a422d8d108936b353dfd4a85196c70"
-    sha256 cellar: :any_skip_relocation, mojave:        "bb02f3e56b99260044606aa2ef4e649dace21400591c87c28a65560a0d92a11d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "05bb9e88058a23a26fff31072b869c9dde07da3b6fc6458131ab8a24fa44ae32"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9f9773d4e2c15dccb20f2a3aa8e0cd9edaa0756ffc8187e08dd8e300de04602a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "32cf10246fa1edee79817ed8c41e6136c24dd8562c466fac5af54c94daa44285"
+    sha256 cellar: :any_skip_relocation, catalina:      "f91a9a76aca031c55b39cd7d733bbfc9f6ff2cc608e9de2754c70d2197e71be9"
+    sha256 cellar: :any_skip_relocation, mojave:        "49002fcd38ec710569cb7272ae9e5ed5088e2dbca3bfea26f8126ce3f9d90113"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "354b86d78204aadc0c8c5d05b6deca0e758c31dfb50875cac52633ffe625b318"
   end
 
   depends_on "go" => :build
@@ -28,6 +28,12 @@ class Vault < Formula
   # Cannot build with `node` while upstream depends on node-sass<6
   depends_on "node@14" => :build
   depends_on "yarn" => :build
+
+  # remove in next release
+  patch do
+    url "https://github.com/hashicorp/vault/commit/b368a675955707db4e940da29a1043871a3781b6.patch?full_index=1"
+    sha256 "3595f5a6e3d3f73dfa0db6886f430a0ae5cbcc7f5bd5444c3652bc0c426b26f2"
+  end
 
   def install
     ENV.prepend_path "PATH", "#{ENV["GOPATH"]}/bin"

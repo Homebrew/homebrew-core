@@ -19,6 +19,7 @@ class Ffmpeg < Formula
     sha256 big_sur:       "9da28933b9f1abc3b1cf92382d1a8ea051c98f9dd0f4ef47e8d37d2aa9a4769a"
     sha256 catalina:      "3fcc129951906c60f6e2130131fde64e449bc562a605f64be74fc950cac930ea"
     sha256 mojave:        "8becf08fae7806a6365b489c3dcde8f6f0ddb49a64e96386c2c190a15604a486"
+    sha256 x86_64_linux:  "303961f673338cc304e8a13daa7899cb807b6433be9a7bf78ceaed3fd48d5822"
   end
 
   depends_on "nasm" => :build
@@ -114,10 +115,8 @@ class Ffmpeg < Formula
     # Remove in the next release
     args << "--enable-avresample" unless build.head?
 
-    on_macos do
-      # Needs corefoundation, coremedia, corevideo
-      args << "--enable-videotoolbox"
-    end
+    # Needs corefoundation, coremedia, corevideo
+    args << "--enable-videotoolbox" if OS.mac?
 
     system "./configure", *args
     system "make", "install"

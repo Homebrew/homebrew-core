@@ -16,6 +16,7 @@ class Opencv < Formula
     sha256 big_sur:       "a66bb42ee8e14bc77656b330267ad0bf2c83bd2df0abb0f1ad6da357bcbc94f2"
     sha256 catalina:      "66bfff6d709f9f0dc0875701a05df2fc2c052f48b67a6c91c106a58ac4be1932"
     sha256 mojave:        "bdd113015b81013f74206b0be03ab37a6d57af9cf924592c8f61658d63aada63"
+    sha256 x86_64_linux:  "e3a9bb3dae0ebc0946ae62b27db3a38744d6a0774f1baed4270d20ae6e77be02"
   end
 
   depends_on "cmake" => :build
@@ -36,6 +37,8 @@ class Opencv < Formula
   depends_on "tbb"
   depends_on "vtk"
   depends_on "webp"
+
+  uses_from_macos "zlib"
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.5.3.tar.gz"
@@ -88,6 +91,20 @@ class Opencv < Formula
       -DBUILD_opencv_python3=ON
       -DPYTHON3_EXECUTABLE=#{Formula["python@3.9"].opt_bin}/python3
     ]
+
+    # Disable precompiled headers and force opencv to use brewed libraries on Linux
+    if OS.linux?
+      args << "-DENABLE_PRECOMPILED_HEADERS=OFF"
+      args << "-DJPEG_LIBRARY=#{Formula["libjpeg"].opt_lib}/libjpeg.so"
+      args << "-DOpenBLAS_LIB=#{Formula["openblas"].opt_lib}/libopenblas.so"
+      args << "-DOPENEXR_ILMIMF_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmImf.so"
+      args << "-DOPENEXR_ILMTHREAD_LIBRARY=#{Formula["openexr"].opt_lib}/libIlmThread.so"
+      args << "-DPNG_LIBRARY=#{Formula["libpng"].opt_lib}/libpng.so"
+      args << "-DPROTOBUF_LIBRARY=#{Formula["protobuf"].opt_lib}/libprotobuf.so"
+      args << "-DTIFF_LIBRARY=#{Formula["libtiff"].opt_lib}/libtiff.so"
+      args << "-DWITH_V4L=OFF"
+      args << "-DZLIB_LIBRARY=#{Formula["zlib"].opt_lib}/libz.so"
+    end
 
     if Hardware::CPU.intel?
       args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"

@@ -1,15 +1,17 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
+  # Switch to a tarball when the following issue is resolved:
+  # https://github.com/envoyproxy/envoy/issues/17859
   url "https://github.com/envoyproxy/envoy.git",
-      tag:      "v1.19.0",
-      revision: "68fe53a889416fd8570506232052b06f5a531541"
+      tag:      "v1.19.1",
+      revision: "a2a1e3eed4214a38608ec223859fcfa8fb679b14"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, big_sur:      "ff325521cbdf6b990e33924fe345d55a1fc65286db0b1484557f02a10e0954c0"
-    sha256 cellar: :any_skip_relocation, catalina:     "b0db4468a8794a6a7de0132b64029504921fd8eee9c7f3b224f4461bc5e515f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f4f1c780aeaef9ef6caf889591c98c1b610df2e8b3a6456dcefa979f879408a7"
+    sha256 cellar: :any_skip_relocation, big_sur:      "5d242c76931465e1bebc4ac62742bcdd68a42334679cc69f8c058e1f7b4147a1"
+    sha256 cellar: :any_skip_relocation, catalina:     "48e53aac4dc4b8c7603141b711730427a5ca94ce4d3e3ce572c1c01cd96ad9f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "deab2f6221196615ee138102d6496f849b85a11880fcf5b783ec30e07ed78419"
   end
 
   depends_on "automake" => :build
@@ -46,9 +48,10 @@ class Envoy < Formula
   end
 
   def install
-    env_path = "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
-    on_linux do
-      env_path = "#{Formula["python@3.9"].opt_libexec}/bin:#{env_path}"
+    env_path = if OS.mac?
+      "#{HOMEBREW_PREFIX}/bin:/usr/bin:/bin"
+    else
+      "#{Formula["python@3.9"].opt_libexec}/bin:#{env_path}"
     end
     args = %W[
       --compilation_mode=opt

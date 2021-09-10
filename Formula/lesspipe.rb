@@ -1,16 +1,16 @@
 class Lesspipe < Formula
   desc "Input filter for the pager less"
   homepage "https://www-zeuthen.desy.de/~friebel/unix/lesspipe.html"
-  url "https://github.com/wofr06/lesspipe/archive/1.88.tar.gz"
-  sha256 "442a178f40e0261144f03f1a31048e00d09c8d0fbd7107d99d183b54f10c7ac3"
+  url "https://github.com/wofr06/lesspipe/archive/1.89.tar.gz"
+  sha256 "bc61afe1fc9a7d30904c03b5048720755e4d5585016ca56cd8a41fcf96b1eabe"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a7800c858d9cad5be753c313c5da1f33a4c9d89507b6e8adb26a2ca2f7d68c42"
-    sha256 cellar: :any_skip_relocation, big_sur:       "a7800c858d9cad5be753c313c5da1f33a4c9d89507b6e8adb26a2ca2f7d68c42"
-    sha256 cellar: :any_skip_relocation, catalina:      "a7800c858d9cad5be753c313c5da1f33a4c9d89507b6e8adb26a2ca2f7d68c42"
-    sha256 cellar: :any_skip_relocation, mojave:        "a7800c858d9cad5be753c313c5da1f33a4c9d89507b6e8adb26a2ca2f7d68c42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4262dc33731a301fefba943fee0744cd7e3d9fb8d90ab00cde86ff2a09675e34"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e1e2e8c6dfa12655279bc3a6d8869a71727f6fbc014796f9970f4b99bec879bc"
+    sha256 cellar: :any_skip_relocation, big_sur:       "e1e2e8c6dfa12655279bc3a6d8869a71727f6fbc014796f9970f4b99bec879bc"
+    sha256 cellar: :any_skip_relocation, catalina:      "e1e2e8c6dfa12655279bc3a6d8869a71727f6fbc014796f9970f4b99bec879bc"
+    sha256 cellar: :any_skip_relocation, mojave:        "e1e2e8c6dfa12655279bc3a6d8869a71727f6fbc014796f9970f4b99bec879bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a0ae934aea25951e3b5903b5bfbc3698e296d7ca7b30ed492b69aa7b1486f2a4"
   end
 
   def install

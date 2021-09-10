@@ -31,7 +31,7 @@ class Bento4 < Formula
   conflicts_with "mp4v2", because: "both install `mp4extract` and `mp4info` binaries"
 
   def install
-    on_macos do
+    if OS.mac?
       cd "Build/Targets/universal-apple-macosx" do
         xcodebuild "-target", "All", "-configuration", "Release", "SYMROOT=build"
         programs = Dir["build/Release/*"].select do |f|
@@ -42,8 +42,7 @@ class Bento4 < Formula
         end
         bin.install programs
       end
-    end
-    on_linux do
+    else
       mkdir "cmakebuild" do
         system "cmake", "..", *std_cmake_args
         system "make"

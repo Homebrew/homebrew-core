@@ -24,7 +24,7 @@ class Highlight < Formula
   depends_on "lua"
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   fails_with gcc: "5" # needs C++17

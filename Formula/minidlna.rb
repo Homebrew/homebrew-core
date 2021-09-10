@@ -7,14 +7,16 @@ class Minidlna < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "3296fc2759c028ff9316c712504be6644eb5e1fb15155e2aea1f8c4bb609cc33"
-    sha256 cellar: :any, big_sur:       "92e3ced10e41d5528a06befe8124b0badde96b3542c094109c0d9b07315af0c4"
-    sha256 cellar: :any, catalina:      "e43528eb7559099f5dd38d278c75ac2555be3f28474c84a7005e5a16f920e528"
-    sha256 cellar: :any, mojave:        "fc24ceaaed86d9b4417349afa20ad6c86b765097314cc01bb2bb81d83a4c4639"
+    sha256 cellar: :any,                 arm64_big_sur: "3296fc2759c028ff9316c712504be6644eb5e1fb15155e2aea1f8c4bb609cc33"
+    sha256 cellar: :any,                 big_sur:       "92e3ced10e41d5528a06befe8124b0badde96b3542c094109c0d9b07315af0c4"
+    sha256 cellar: :any,                 catalina:      "e43528eb7559099f5dd38d278c75ac2555be3f28474c84a7005e5a16f920e528"
+    sha256 cellar: :any,                 mojave:        "fc24ceaaed86d9b4417349afa20ad6c86b765097314cc01bb2bb81d83a4c4639"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "384178070afc9696895c67b06ae128b82bc094be413fbb8e148aa30afdb58272"
   end
 
   head do
-    url "https://git.code.sf.net/p/minidlna/git.git"
+    url "https://git.code.sf.net/p/minidlna/git.git", branch: "master"
+
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build

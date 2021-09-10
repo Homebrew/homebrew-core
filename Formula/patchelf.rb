@@ -25,7 +25,7 @@ class Patchelf < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fix ld.so path and rpath
       # see https://github.com/Homebrew/linuxbrew-core/pull/20548#issuecomment-672061606
       ENV["HOMEBREW_DYNAMIC_LINKER"] = File.readlink("#{HOMEBREW_PREFIX}/lib/ld.so")

@@ -10,6 +10,7 @@ class ScalaAT211 < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, all: "cdabefb6cb6bbb4d3d5b297fe0148488f3162c62d348647f0a07b8b06b63300d"
   end
+
   keg_only :versioned_formula
 
   deprecate! date: "2017-11-09", because: :unsupported

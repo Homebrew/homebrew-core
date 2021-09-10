@@ -28,7 +28,7 @@ class TransmissionCli < Formula
   uses_from_macos "zlib"
 
   def install
-    on_macos do
+    if OS.mac?
       ENV.append "LDFLAGS", "-framework Foundation -prebind"
       ENV.append "LDFLAGS", "-liconv"
     end

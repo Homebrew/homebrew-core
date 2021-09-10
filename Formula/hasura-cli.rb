@@ -3,16 +3,16 @@ require "language/node"
 class HasuraCli < Formula
   desc "Command-Line Interface for Hasura GraphQL Engine"
   homepage "https://hasura.io"
-  url "https://github.com/hasura/graphql-engine/archive/v2.0.7.tar.gz"
-  sha256 "3f24e5ee3d74581de0abd35856b21959c0df38f0e80f4f1069ffb0931aa25bd7"
+  url "https://github.com/hasura/graphql-engine/archive/v2.0.9.tar.gz"
+  sha256 "68dfb0d179cbaf2c9370948ec8c0d80acc69eae0acf821753deb134f0eb7a068"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ed8c967c8d9575bf17b8c7ce75fc64c2a24c1cab2fb32f347a7a28f7074694e6"
-    sha256 cellar: :any_skip_relocation, big_sur:       "33951b7c3b5be12a5111fe1a7303aa50e95584954285930ee6ed43b27b1fc8e0"
-    sha256 cellar: :any_skip_relocation, catalina:      "8236234f8858d61463b820ad5c2d3418140c4e042c59a26209611e917de3be4b"
-    sha256 cellar: :any_skip_relocation, mojave:        "0c28dcfaafe86b881a7470617bf573c69c63005a6d98b9bd2fef93ab0397ad66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7873d378c8640804520d81424d4f5ae84cac199b444c3a753980320dd1c8af50"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "88f1fb0852498d556bbbda8b28fca12fe68ad85273c225dd834b924e83f892bf"
+    sha256 cellar: :any_skip_relocation, big_sur:       "5872fb87d2a6fa1551169fa052ac1bda58d8efc79104460c5fefb72d8c7e17c3"
+    sha256 cellar: :any_skip_relocation, catalina:      "37071359a0525fe672859fbc3bd4d14af92314d1fb3b2ba7c2f7551e1c2d8b3c"
+    sha256 cellar: :any_skip_relocation, mojave:        "d51bacadaf710fef613e1f39276fe5bb3fba78ca25491cc738b35e26b83812a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4f2463554c0e2464a799e5351c59e9d904534be62862e9cfa6c8884256df2645"
   end
 
   depends_on "go" => :build
@@ -36,9 +36,10 @@ class HasuraCli < Formula
 
     cd "cli" do
       arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-      os = "darwin"
-      on_linux do
-        os = "linux"
+      os = if OS.mac?
+        "darwin"
+      else
+        "linux"
       end
 
       cp "../cli-ext/bin/cli-ext-hasura", "./internal/cliext/static-bin/#{os}/#{arch}/cli-ext"

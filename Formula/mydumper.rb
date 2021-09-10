@@ -31,7 +31,7 @@ class Mydumper < Formula
     ]
     # find_package(ZLIB) has trouble on Big Sur since physical libz.dylib
     # doesn't exist on the filesystem.  Instead provide details ourselves:
-    on_macos do
+    if OS.mac?
       args << "-DCMAKE_DISABLE_FIND_PACKAGE_ZLIB=1"
       args << "-DZLIB_INCLUDE_DIRS=/usr/include"
       args << "-DZLIB_LIBRARIES=-lz"

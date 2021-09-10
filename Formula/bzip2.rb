@@ -27,7 +27,7 @@ class Bzip2 < Formula
 
     system "make", "install", "PREFIX=#{prefix}"
 
-    on_linux do
+    if OS.linux?
       # Install shared libraries
       system "make", "-f", "Makefile-libbz2_so", "clean"
       system "make", "-f", "Makefile-libbz2_so"

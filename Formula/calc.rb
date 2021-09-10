@@ -35,9 +35,7 @@ class Calc < Formula
       "READLINE_LIB=-L#{Formula["readline"].opt_lib} -lreadline",
       "READLINE_EXTRAS=-lhistory -lncurses",
     ]
-    on_macos do
-      args << "INCDIR=#{MacOS.sdk_path}/usr/include"
-    end
+    args << "INCDIR=#{MacOS.sdk_path}/usr/include" if OS.mac?
     system "make", "install", *args
 
     libexec.install "#{bin}/cscript"

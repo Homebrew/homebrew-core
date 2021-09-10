@@ -1,9 +1,9 @@
 class Clhep < Formula
   desc "Class Library for High Energy Physics"
   homepage "https://proj-clhep.web.cern.ch/proj-clhep/"
-  url "https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.4.2.tgz"
-  sha256 "0782964fc19f06b55998a091d5a0b70e1adb682f6c062bcb5a25467a2c060e8d"
-  license "GPL-3.0"
+  url "https://proj-clhep.web.cern.ch/proj-clhep/dist1/clhep-2.4.5.1.tgz"
+  sha256 "2517c9b344ad9f55974786ae6e7a0ef8b22f4abcbf506df91194ea2299ce3813"
+  license "GPL-3.0-only"
 
   livecheck do
     url :homepage
@@ -11,11 +11,11 @@ class Clhep < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "bb4176442facaae5d335409ef825aab4a561a4d3a59316c04b66268d49f9d808"
-    sha256 cellar: :any,                 big_sur:       "73ed5e5dcdf0b6d8b50f91cb6e8839fb967be25a02f8374e185cc1cdc6718dce"
-    sha256 cellar: :any,                 catalina:      "e441759f93337bcadd69460a709ec0adc4c1655fdf1677893471f7497d840bac"
-    sha256 cellar: :any,                 mojave:        "77c920470ac55af4f79d2b6fced83301cbe187c13b2e238ab637d9bceb642120"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e0dcde280fa3b9614294b705cab45858ce01a934b742e8790a6098c4b8034afb"
+    sha256 cellar: :any,                 arm64_big_sur: "2c31ff847d0f1236c461f5742f2a29f22335c851ed65df3d559c78842795289a"
+    sha256 cellar: :any,                 big_sur:       "e0768b1406e55f56f9eb8419c1067419439e87327cceef8cfd7c903db6542da6"
+    sha256 cellar: :any,                 catalina:      "82d2152745abc5b61be30c968691f606232e526b2d3a63e3c2c5891e2611d2c9"
+    sha256 cellar: :any,                 mojave:        "4030d211eba12da6127b28db8fe2a35dab9107a8dce49bddff58aada997dbeb5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "548f3418aaaa382af761e4eda5d888cead02febf767d01964070b52bd34a6da2"
   end
 
   head do

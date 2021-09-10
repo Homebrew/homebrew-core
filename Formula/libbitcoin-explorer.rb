@@ -11,6 +11,7 @@ class LibbitcoinExplorer < Formula
     sha256 big_sur:       "bb1687e4d167c4468a50df06d4bfb9cabd6ce2deab7641ff5866f0d41e686eeb"
     sha256 catalina:      "fc49fe144993aebd296479497a30ed2441da35a8c34e3e646bc07a93dbb59873"
     sha256 mojave:        "a965f788815e2e420fb46603f62c9b455e8930258e5478becbba0280f9b5950c"
+    sha256 x86_64_linux:  "c96bb170eab0fe2bac4928ba3b866eeabdf69731a14f0a61e7afcd8a725ba975"
   end
 
   depends_on "autoconf" => :build

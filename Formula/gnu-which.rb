@@ -24,13 +24,11 @@ class GnuWhich < Formula
       --disable-dependency-tracking
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gwhich" => "which"
       (libexec/"gnuman/man1").install_symlink man1/"gwhich.1" => "which.1"
     end

@@ -4,9 +4,10 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.14.6.tar.gz"
-  sha256 "86760692dd74a04705c0f6d11b31965a477265a50e79eb15838184476146f4b0"
+  url "https://download.samba.org/pub/samba/stable/samba-4.14.7.tar.gz"
+  sha256 "6f50353f9602aa20245eb18ceb00e7e5ec793df0974aebd5254c38f16d8f1906"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.samba.org/samba/download/"
@@ -14,16 +15,18 @@ class Samba < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "71c3f6f68208f5453fc40aa7351688087cdad66909d010f4b6982ece23b387c2"
-    sha256 big_sur:       "e362c6e1c4aaf00cb51edb9bcf011247e922454c924d88dd560aa52bac3c4854"
-    sha256 catalina:      "142dbc9b9aac024f0b6dcc1e6030246b2fdaf60a1912487ca47ccad2dfd018ee"
-    sha256 mojave:        "cb3750eff5adb963a8ef11a2bce8926f7bec6de55fa468ff7d731898214f6b5e"
+    sha256 arm64_big_sur: "20bb775d1b544da1c775e080903a1f7a8ab8b30f1b5a254b6537f65f85ba449f"
+    sha256 big_sur:       "31c763e3ff4197649a5aed042ceb1d43de52fa3d3a6fecb56cd02dd1ca10e188"
+    sha256 catalina:      "ca0557e42a691a5098c106ac5e336af492338d80b99b1505bc6b7a5d379caed7"
+    sha256 mojave:        "1b8b305321311c1ebc2783a5d2eff42ceb7ea9f250c156fd9e82751a413ea4e2"
+    sha256 x86_64_linux:  "e6a226ea7bf98915a0c1fcc90a65556af66b1b68dc2a50f45b5bfa8d0d0f27bf"
   end
 
   # configure requires python3 binary to be present, even when --disable-python is set.
   depends_on "python@3.9" => :build
   depends_on "gnutls"
 
+  uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
 
   resource "Parse::Yapp" do
@@ -49,6 +52,7 @@ class Samba < Formula
         system "make", "install"
       end
     end
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/private" if OS.linux?
     system "./configure",
            "--disable-cephfs",
            "--disable-cups",
@@ -68,10 +72,11 @@ class Samba < Formula
            "--without-syslog",
            "--without-utmp",
            "--without-winbind",
+           "--with-shared-modules=!vfs_snapper",
            "--prefix=#{prefix}"
     system "make"
     system "make", "install"
-    on_macos do
+    if OS.mac?
       # macOS has its own SMB daemon as /usr/sbin/smbd, so rename our smbd to samba-dot-org-smbd to avoid conflict.
       # samba-dot-org-smbd is used by qemu.rb .
       # Rename mdfind and profiles as well to avoid conflicting with /usr/bin/{mdfind,profiles}

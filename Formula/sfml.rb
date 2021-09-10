@@ -50,9 +50,7 @@ class Sfml < Formula
             "-DSFML_INSTALL_PKGCONFIG_FILES=TRUE",
             "-DSFML_BUILD_DOC=TRUE"]
 
-    on_linux do
-      args << "-DSFML_USE_SYSTEM_DEPS=ON"
-    end
+    args << "-DSFML_USE_SYSTEM_DEPS=ON" if OS.linux?
 
     system "cmake", ".", *std_cmake_args, *args
     system "make", "install"

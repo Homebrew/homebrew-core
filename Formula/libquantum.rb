@@ -43,7 +43,7 @@ class Libquantum < Formula
       "-L#{lib}",
       "-lquantum",
     ]
-    on_linux { args << "-fopenmp" }
+    args << "-fopenmp" if OS.linux?
     system ENV.cc, "qtest.c", *args, "-o", "qtest"
     system "./qtest"
   end

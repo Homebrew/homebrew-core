@@ -70,11 +70,10 @@ class Nut < Formula
       --without-snmp
       --without-wrap
     ]
-    on_macos do
-      args << "--with-macosx_ups"
-    end
-    on_linux do
-      args << "--with-udev-dir=#{lib}/udev"
+    args << if OS.mac?
+      "--with-macosx_ups"
+    else
+      "--with-udev-dir=#{lib}/udev"
     end
 
     system "./configure", *args

@@ -3,7 +3,7 @@ class Rkflashtool < Formula
   homepage "https://sourceforge.net/projects/rkflashtool/"
   url "https://downloads.sourceforge.net/project/rkflashtool/rkflashtool-6.1/rkflashtool-6.1-src.tar.bz2"
   sha256 "2bc0ec580caa790b0aee634388a9110a429baf4b93ff2c4fce3d9ab583f51339"
-  head "https://git.code.sf.net/p/rkflashtool/Git.git"
+  head "https://git.code.sf.net/p/rkflashtool/Git.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "385d2324a9740b034fa99eabe5325cde073cf301dcfb343dee7cf44bda109cbd"

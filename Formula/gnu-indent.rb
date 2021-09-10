@@ -29,13 +29,11 @@ class GnuIndent < Formula
       --mandir=#{man}
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gindent" => "indent"
       (libexec/"gnuman/man1").install_symlink man1/"gindent.1" => "indent.1"
     end

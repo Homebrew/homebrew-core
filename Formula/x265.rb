@@ -50,12 +50,10 @@ class X265 < Formula
       system "make"
       mv "libx265.a", "libx265_main.a"
 
-      on_macos do
+      if OS.mac?
         system "libtool", "-static", "-o", "libx265.a", "libx265_main.a",
                           "libx265_main10.a", "libx265_main12.a"
-      end
-
-      on_linux do
+      else
         system "ar", "cr", "libx265.a", "libx265_main.a", "libx265_main10.a",
                            "libx265_main12.a"
         system "ranlib", "libx265.a"

@@ -22,6 +22,8 @@ class Ninja < Formula
 
   depends_on "python@3.9"
 
+  uses_from_macos "curl" => :test
+
   def install
     py = Formula["python@3.9"].opt_bin/"python3"
     system py, "./configure.py", "--bootstrap", "--verbose", "--with-python=python3"

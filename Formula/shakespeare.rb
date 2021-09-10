@@ -4,6 +4,11 @@ class Shakespeare < Formula
   url "https://shakespearelang.sourceforge.io/download/spl-1.2.1.tar.gz"
   sha256 "1206ef0a2c853b8b40ca0c682bc9d9e0a157cc91a7bf4e28f19ccd003674b7d3"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?spl[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any, arm64_big_sur: "60ae733b2e127fb14ce46ba46451ee2879f36e01154ab1d01ebd3347c7c18932"

@@ -11,14 +11,17 @@ class SwiftSh < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "490aaac152cd73af4711850ef3bf137d3db6ae8217f384dff4a9551dfafc5783"
     sha256 cellar: :any_skip_relocation, catalina:      "d3993862ace65ec747846eadfad6110157e2de946e0b416355e6bbe321d7ca6a"
     sha256 cellar: :any_skip_relocation, mojave:        "c7ece92d3a20f75c5a7551fb1a46b0750912e29021bae73a9e5e7f8d8e2397b3"
+    sha256                               x86_64_linux:  "f9eb4d26b5b8f46ec48f7e41c1d735427aa517bc2d00800d815138c734590495"
   end
 
   depends_on xcode: ["11.0", :build]
 
+  uses_from_macos "swift"
+
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release"
     bin.install ".build/release/swift-sh"
-    bin.install ".build/release/swift-sh-edit"
+    bin.install ".build/release/swift-sh-edit" if OS.mac?
   end
 
   test do

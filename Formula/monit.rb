@@ -1,8 +1,8 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-5.28.0.tar.gz"
-  sha256 "9fc6287fd9570b25a85c5d5bf988ee8bd4c54d0e9e01ff04cc4b9398a159849c"
+  url "https://mmonit.com/monit/dist/monit-5.29.0.tar.gz"
+  sha256 "f665e6dd1f26a74b5682899a877934167de2b2582e048652ecf036318477885f"
   license "AGPL-3.0-or-later"
 
   livecheck do
@@ -11,12 +11,11 @@ class Monit < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_big_sur: "8899ed8eb91d13a2033ec97c60d1df0344110b177a88a10e7fb09d9f5fb51712"
-    sha256 cellar: :any,                 big_sur:       "87816b1850bfa853ba312933fdaa0af656f9ecc18cc4a420f58fae9e659d6d55"
-    sha256 cellar: :any,                 catalina:      "07be9b5e3c46d314cbdcffc239c275f98a5fa1ac9f1161d1cd2d1e21fdb44a16"
-    sha256 cellar: :any,                 mojave:        "5952392c467ab1b0286c9fe977e962089afc479e92e067a22008f4d742014b5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bce1b68d5ce46516c73147927dc386d1a91155fc81fa3dbd06d1379089061aef"
+    sha256 cellar: :any,                 arm64_big_sur: "e8e13392bd3adc86d94271aa6e4b0b3136c3df09b9a67a178dfcc4fbaa42615e"
+    sha256 cellar: :any,                 big_sur:       "a7fcbcba9af41d5eb405122132dbee449c403fb74192b587614903d56344941c"
+    sha256 cellar: :any,                 catalina:      "c83d409452660f7761f7514a0f72e9262ff6a8861b8e062d41b85a0f82a6b0d1"
+    sha256 cellar: :any,                 mojave:        "ed304427db3dea3a9c18d261a1d9cc24c5ca20d5fafe5e5ae397bde10f1254b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99573601eeb2e8d7377fad27e08e1a31a002eec231d84a492ec59532bfdeb49e"
   end
 
   depends_on "openssl@1.1"

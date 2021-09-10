@@ -32,7 +32,7 @@ class Ngircd < Formula
                           "--with-openssl"
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       prefix.install "contrib/MacOSX/de.barton.ngircd.plist.tmpl" => "de.barton.ngircd.plist"
       (prefix/"de.barton.ngircd.plist").chmod 0644
 

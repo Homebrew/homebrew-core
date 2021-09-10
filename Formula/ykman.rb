@@ -3,17 +3,17 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/19/b7/c30a01e43fba70ee138eacf36f76d3930c8f4217e3ee59f07761c72fe07c/yubikey-manager-4.0.5.tar.gz"
-  sha256 "20117dbdcbe5bed6c9a172dae8452c44689c283ad1a8434e28f4e05de153f288"
+  url "https://files.pythonhosted.org/packages/53/6a/a3ff56677f0ebb14d56c43bce4b6cc9b494920e470b45c385285ebfca3fe/yubikey-manager-4.0.7.tar.gz"
+  sha256 "9972db8a1c7c13eb1a618015a8ad8011c03a045a08fee248e5de4f120f55fc4f"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a6bed330081df5479a2e8e048a58cb0ea7d6a69c353d27c3aa70b03efee0854e"
-    sha256 cellar: :any,                 big_sur:       "aee3deffd75f037c2b24d313108ac150318415f4772483b223145ca7e3f0fe3d"
-    sha256 cellar: :any,                 catalina:      "5d97f3733d772750722edd7ed27273adba0253989d18eee10d68dea2bb51b0cb"
-    sha256 cellar: :any,                 mojave:        "15faaedb93a0d15fa0e119d70b391c15d906abcea24f11bf45aa81568ca67004"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c6b1fe4ffa846acb30a26b0dc04c2ac90f893cd480cca49760bcbe61cefc71d4"
+    sha256 cellar: :any,                 arm64_big_sur: "bf1c6a2abc542c17e855310faa3b7556af3a00b2102e1e4441775698e2334c12"
+    sha256 cellar: :any,                 big_sur:       "3951c41b15282af752b2b2cdb13fd3553b39c4e690ebfc52b5b4c0e5ff727db8"
+    sha256 cellar: :any,                 catalina:      "cb1d3418303dbdf5e4c652bf452c3c940eca9cf894f46438875ccf8afb9fe2b9"
+    sha256 cellar: :any,                 mojave:        "d979a0fd0c625fcd30b82de7979cf11b96c41c3cc94e7183e527006c3dd081be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "57eb7a870aa161ce802c05e2eed6d2dee208556abde5685e96febb38cebc63d2"
   end
 
   depends_on "rust" => :build
@@ -39,8 +39,8 @@ class Ykman < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "fido2" do
@@ -69,7 +69,7 @@ class Ykman < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fixes: smartcard/scard/helpers.c:28:22: fatal error: winscard.h: No such file or directory
       ENV.append "CFLAGS", "-I#{Formula["pcsc-lite"].opt_include}/PCSC"
     end

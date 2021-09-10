@@ -18,25 +18,29 @@ class Portaudio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "50a45425f5c6026788791370b1ba30b0dcc82b6cedacd2240168f57f9abe6484"
-    sha256 cellar: :any,                 big_sur:       "f9ae97164b4101048870c761b15998e46f40da666c3f0e20c33cf6ce2f7319d0"
-    sha256 cellar: :any,                 catalina:      "8b87696f44cf2220cff66b9bcfa105f6a58dfec4eb2a881409e37773494c84b4"
-    sha256 cellar: :any,                 mojave:        "a2cab0bc4fee9757af7269408eb91df07ddeddfa6dd35c9740aae93816622b0b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "db0f24a3a3f52c1bc32fa7a36bab6b1b7ae0e3b936bc857ce973ab8666b2eb6a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "3daf7c4d5a1b948b2564de026336e3f3496f693ea0743e42b50f78d09ee32469"
+    sha256 cellar: :any,                 big_sur:       "f67d3a167142d0afa6ef446260075a7e1c29cf3d1246a95bac2f12732004398a"
+    sha256 cellar: :any,                 catalina:      "9b0934f5a868dc0c3874ae6491d685cff6537923cc49d6abea18c1bf59cddaea"
+    sha256 cellar: :any,                 mojave:        "e69bcb7966fae64dabb4866a9f791437b59ef1991112b2a6fb31ee94a76b9244"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "01048cd3e5c934f5fb7b7cd11430833c69022a621fcc2d868159e07bbef1e3e4"
   end
 
   depends_on "pkg-config" => :build
 
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "jack"
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--enable-mac-universal=no",
                           "--enable-cxx"
     system "make", "install"
 
     # Need 'pa_mac_core.h' to compile PyAudio
-    include.install "include/pa_mac_core.h"
+    include.install "include/pa_mac_core.h" if OS.mac?
   end
 
   test do

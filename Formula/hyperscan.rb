@@ -23,10 +23,9 @@ class Hyperscan < Formula
 
   def install
     cmake_args = std_cmake_args + ["-DBUILD_STATIC_AND_SHARED=ON"]
-    on_linux do
-      # Linux CI cannot guarantee AVX2 support needed to build fat runtime.
-      cmake_args << "-DFAT_RUNTIME=OFF"
-    end
+
+    # Linux CI cannot guarantee AVX2 support needed to build fat runtime.
+    cmake_args << "-DFAT_RUNTIME=OFF" if OS.linux?
 
     mkdir "build" do
       system "cmake", "..", *cmake_args

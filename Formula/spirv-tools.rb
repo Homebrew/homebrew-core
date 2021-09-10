@@ -1,16 +1,16 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
-  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2021.2.tar.gz"
-  sha256 "2416a0354a0b14b8e7b671f6f99652cc8a8a83dc9acf195dafd22fbee5e92035"
+  url "https://github.com/KhronosGroup/SPIRV-Tools/archive/v2021.3.tar.gz"
+  sha256 "b6b4194121ee8084c62b20f8d574c32f766e4e9237dfe60b0658b316d19c6b13"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "fde163985e77436a561a3d7bc519293312ff2182de12edeecfa8a2c5ede11d6d"
-    sha256 cellar: :any,                 big_sur:       "5771922301fbbececf2ea975947bb37fb755365f28b5d9877b67e6a935fd2b29"
-    sha256 cellar: :any,                 catalina:      "d1dd5215d2f0001194c143f3f7b77d68a40ecab0d3a9680b0ac9b011226ca22c"
-    sha256 cellar: :any,                 mojave:        "5319261202baf28c050bed985b4a012430a9568ae0f0ff968797941c299f0557"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e9d50009fda4cb51207189872dfbd6dfccfab91e8d6e43d588d3897f61a0660"
+    sha256 cellar: :any,                 arm64_big_sur: "2a6a8dddfea9c6ec0e164d3bc91cd0e07dc2ce64a15f59e6ba2a5f851f34d373"
+    sha256 cellar: :any,                 big_sur:       "2c0679ffd907c528e88fea56a965bdba726327c40c5638080b185f79a0eafcb6"
+    sha256 cellar: :any,                 catalina:      "fe79aa02c8e46822aa429be46b842dc28876602a772a75c4cce8aa4d2bf8c32f"
+    sha256 cellar: :any,                 mojave:        "3075c62d7893812454a63ccf16f88c5db3b26569a33fcfed786c7a0d15c97d80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c3f62ac74873e3278aded791b108256da0b90b9e1543ec7e5e580261dec5c16c"
   end
 
   depends_on "cmake" => :build
@@ -31,7 +31,7 @@ class SpirvTools < Formula
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "07f259e68af3a540038fa32df522554e74f53ed5"
+        revision: "e71feddb3f17c5586ff7f4cfb5ed1258b800574b"
   end
 
   def install
@@ -43,8 +43,7 @@ class SpirvTools < Formula
       system "cmake", "..", *std_cmake_args,
                             "-DBUILD_SHARED_LIBS=ON",
                             "-DSPIRV_SKIP_TESTS=ON",
-                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF",
-                            "-DEFFCEE_BUILD_TESTING=OFF"
+                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF"
       system "make", "install"
     end
 

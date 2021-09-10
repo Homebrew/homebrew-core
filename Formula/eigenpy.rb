@@ -1,17 +1,17 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support"
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.6.7/eigenpy-2.6.7.tar.gz"
-  sha256 "75b80c7a29453131c692cb55f652e4f45da6a5d0a522d04f71862baeb029a924"
+  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v2.6.8/eigenpy-2.6.8.tar.gz"
+  sha256 "4689c4ff90ad653482c8fd2b8a798994fc50cf982703252b9acc18cfa11cb59e"
   license "BSD-2-Clause"
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "ec78a5c880d9a0d009fbca8c85577a28c7da6500624183ffdf67a6d02de8757a"
-    sha256 cellar: :any,                 big_sur:       "9ab8e65c15d034579a20f06d7daf3c78c932e68b3a61e377c5f62e78c76021b2"
-    sha256 cellar: :any,                 catalina:      "82d0dae974ebd520801a7ee40d2ad82059ab713a4adb38b15da7a06c488c2cb9"
-    sha256 cellar: :any,                 mojave:        "442ff6eb6f5d551f083be28b23511ebf661b9a4ee4ea0f3e364634e8ed731aa2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c833378b523165dc2a9ae65e66288fdd3a9ec56c02d6f5c366a9a10ff1b2bb3a"
+    sha256 cellar: :any,                 arm64_big_sur: "eb11190417c96a928c5e6bafdcf631d6ce5bade0c502daab66e02aaef8203dcd"
+    sha256 cellar: :any,                 big_sur:       "6772ede3f8185fdb42833688d971407c54c0d69e78d1962b491ff1c7078cb150"
+    sha256 cellar: :any,                 catalina:      "88a10f6d708d135b5df4d59ed5248391105446c7ddf10850fbd911c65c68d82c"
+    sha256 cellar: :any,                 mojave:        "653d9c3e87e3a73dd0f6192196656c1f09a15710a3630f19816a2db5926cd7f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1630ea5636136747ed0849408bb28a0a45fec8fa653f16242aa2ae0262bc9af9"
   end
 
   depends_on "boost" => :build

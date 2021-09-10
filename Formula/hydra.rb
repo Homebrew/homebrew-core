@@ -49,9 +49,7 @@ class Hydra < Formula
     bin.mkpath
     # remove unsupported ld flags on mac
     # related to https://github.com/vanhauser-thc/thc-hydra/issues/622
-    on_macos do
-      inreplace "Makefile", "-Wl,--allow-multiple-definition", ""
-    end
+    inreplace "Makefile", "-Wl,--allow-multiple-definition", "" if OS.mac?
     system "make", "all", "install"
     share.install prefix/"man" # Put man pages in correct place
   end

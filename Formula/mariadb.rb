@@ -79,7 +79,7 @@ class Mariadb < Formula
       -DCOMPILATION_COMMENT=#{tap.user}
     ]
 
-    on_linux do
+    if OS.linux?
       args << "-DWITH_NUMA=OFF"
       args << "-DENABLE_DTRACE=NO"
       args << "-DCONNECT_WITH_JDBC=OFF"

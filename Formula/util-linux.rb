@@ -29,22 +29,24 @@ class UtilLinux < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  conflicts_with "rename", because: "both install `rename` binaries"
+  on_linux do
+    conflicts_with "bash-completion", because: "both install `mount`, `rfkill`, and `rtcwake` completions"
+    conflicts_with "rename", because: "both install `rename` binaries"
+  end
 
   def install
     args = std_configure_args + %w[
       --disable-silent-rules
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--disable-hardlink" # does not build on macOS
       args << "--disable-ipcs" # does not build on macOS
       args << "--disable-ipcrm" # does not build on macOS
       args << "--disable-wall" # already comes with macOS
       args << "--disable-libmount" # does not build on macOS
       args << "--enable-libuuid" # conflicts with ossp-uuid
-    end
-    on_linux do
+    else
       args << "--disable-use-tty-group" # Fix chgrp: changing group of 'wall': Operation not permitted
       args << "--disable-kill" # Conflicts with coreutils.
       args << "--disable-cal" # Conflicts with bsdmainutils

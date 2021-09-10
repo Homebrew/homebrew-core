@@ -42,7 +42,7 @@ class Katago < Formula
   def install
     cd "cpp" do
       args = %w[-DBUILD_MCTS=1 -DNO_GIT_REVISION=1]
-      on_macos do
+      if OS.mac?
         args << "-DUSE_BACKEND=OPENCL"
         args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}"
       end

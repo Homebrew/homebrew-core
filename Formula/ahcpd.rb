@@ -22,11 +22,10 @@ class Ahcpd < Formula
   patch :DATA
 
   def install
-    on_macos do
+    if OS.mac?
       # LDLIBS='' fixes: ld: library not found for -lrt
       system "make", "LDLIBS=''"
-    end
-    on_linux do
+    else
       system "make"
     end
     system "make", "install", "PREFIX=", "TARGET=#{prefix}"

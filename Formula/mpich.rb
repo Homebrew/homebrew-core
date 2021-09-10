@@ -79,7 +79,7 @@ class Mpich < Formula
     args << "CXXFLAGS=-Wno-deprecated"
     args << "CFLAGS=-fgnu89-inline -Wno-deprecated"
 
-    on_linux do
+    if OS.linux?
       # Use libfabric https://lists.mpich.org/pipermail/discuss/2021-January/006092.html
       args << "--with-device=ch4:ofi"
       args << "--with-libfabric=#{Formula["libfabric"].opt_prefix}"

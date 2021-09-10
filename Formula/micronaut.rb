@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/v2.5.11.tar.gz"
-  sha256 "1b55906c208b15354e4b7cff58a3c6d4df9097d23d8c8055ecd5bf39315e5a94"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/v3.0.1.tar.gz"
+  sha256 "61b58f5fd46c2986929aba75add112e20fe69d80b1425f6eb4389edead36887f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Micronaut < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bfb6024542007b56ab90871dd1a4c7040a146939d3c71430213989a6de313364"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3aee5964dc81df9cc1b1fc697ddf9b640f44da2ddf15f0800fb60078d918b8f1"
-    sha256 cellar: :any_skip_relocation, catalina:      "54e0cfead37aa6cbe94c1e57c462511d59c4ef1dbf22e4c7e00be4e9f5453877"
-    sha256 cellar: :any_skip_relocation, mojave:        "a333cea13aaac477d86b7c97ad52a6a81e05adf2a8f422f6361ed832e355185b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9647e42666e42fd4de62cff316258c090459ea231e085295dcdb0fad5c854291"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0f9d85e731f63b5cfb1a1718d8fdd10c5c4492e7322799270c9def222d6ba268"
+    sha256 cellar: :any_skip_relocation, big_sur:       "eab0b936005c6193006e3df8aaf6a53d1ac28ad0d012fca389263ea7efe40e43"
+    sha256 cellar: :any_skip_relocation, catalina:      "9172b51aec0372919f8bbaee10ee210643c1134ee5c9640f5e149227bbff7596"
+    sha256 cellar: :any_skip_relocation, mojave:        "ed5b509b24e0fffd9a2b543ee0b033f22f2ff9a0c1c6538f27b5ccfe72542ef3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb624d4ca8307aee1aa6a6197a5f5550d185f0d9d85b32ef9b5f77270988c671"
   end
 
   if Hardware::CPU.arm?

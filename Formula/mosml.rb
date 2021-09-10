@@ -3,7 +3,7 @@ class Mosml < Formula
   homepage "https://mosml.org/"
   url "https://github.com/kfl/mosml/archive/ver-2.10.1.tar.gz"
   sha256 "fed5393668b88d69475b070999b1fd34e902591345de7f09b236824b92e4a78f"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256                               arm64_big_sur: "0163ff06ef4997b1ab8eb1e55463475fc78f89ad4dd795d7ff4caeaca932a901"
@@ -27,6 +27,11 @@ class Mosml < Formula
   end
 
   test do
-    system "#{bin}/mosml", "-P full"
+    require "pty"
+
+    _, w, = PTY.spawn bin/"mosml"
+    w.write "quit();\n"
+
+    assert_equal "I don't know what to do with file \"foo\", ignored", shell_output("#{bin}/mosmlc foo 2>&1").strip
   end
 end

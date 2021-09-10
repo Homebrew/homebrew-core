@@ -40,15 +40,13 @@ class ClozureCl < Formula
     tmpdir = Pathname.new(Dir.mktmpdir)
     tmpdir.install resource("bootstrap")
 
-    on_macos do
+    if OS.mac?
       buildpath.install tmpdir/"dx86cl64.image"
       buildpath.install tmpdir/"darwin-x86-headers64"
       cd "lisp-kernel/darwinx8664" do
         system "make"
       end
-    end
-
-    on_linux do
+    else
       buildpath.install tmpdir/"lx86cl64"
       buildpath.install tmpdir/"lx86cl64.image"
       buildpath.install tmpdir/"x86-headers64"
@@ -56,16 +54,14 @@ class ClozureCl < Formula
 
     ENV["CCL_DEFAULT_DIRECTORY"] = buildpath
 
-    on_macos do
+    if OS.mac?
       system "./dx86cl64", "-n", "-l", "lib/x8664env.lisp",
             "-e", "(ccl:xload-level-0)",
             "-e", "(ccl:compile-ccl)",
             "-e", "(quit)"
       (buildpath/"image").write('(ccl:save-application "dx86cl64.image")\n(quit)\n')
       system "cat image | ./dx86cl64 -n --image-name x86-boot64.image"
-    end
-
-    on_linux do
+    else
       system "./lx86cl64", "-n", "-l", "lib/x8664env.lisp",
             "-e", "(ccl:rebuild-ccl :full t)",
             "-e", "(quit)"

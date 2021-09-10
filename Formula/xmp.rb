@@ -21,7 +21,7 @@ class Xmp < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/xmp/xmp-cli.git"
+    url "https://git.code.sf.net/p/xmp/xmp-cli.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

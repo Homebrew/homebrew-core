@@ -1,21 +1,10 @@
 class Kakoune < Formula
   desc "Selection-based modal text editor"
   homepage "https://github.com/mawww/kakoune"
+  url "https://github.com/mawww/kakoune/releases/download/v2021.08.28/kakoune-2021.08.28.tar.bz2"
+  sha256 "6f6ed7dfd8c5723210dbd848708acf03af4b847016fd3ede96b2a89ad32276cb"
   license "Unlicense"
-  head "https://github.com/mawww/kakoune.git"
-
-  # Remove stable block in next release with merged patch
-  stable do
-    url "https://github.com/mawww/kakoune/releases/download/v2020.09.01/kakoune-2020.09.01.tar.bz2"
-    sha256 "861a89c56b5d0ae39628cb706c37a8b55bc289bfbe3c72466ad0e2757ccf0175"
-
-    # Fix build for GCC: error: 'numeric_limits' is not a member of 'std'
-    # Remove in the next release
-    patch do
-      url "https://github.com/mawww/kakoune/commit/a0c23ccb720cb10469c4dfd77342524d6f607a9c.patch?full_index=1"
-      sha256 "01608c5bee3afb00593bddb1289fdec25d4e236aa00c0997a99c3c66ff7bb04d"
-    end
-  end
+  head "https://github.com/mawww/kakoune.git", branch: "master"
 
   livecheck do
     url :stable
@@ -23,12 +12,11 @@ class Kakoune < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_big_sur: "87457c197389b0e6a8346db08f8b69f544aab44f88cac1c6cf79327422b4528e"
-    sha256 cellar: :any,                 big_sur:       "0f94939ffdfce93cdc4f8ab527a36429ad2cdf9a1f42600baad7ff972835ee6a"
-    sha256 cellar: :any,                 catalina:      "daa8001d4739938d1b34a09c96160fb0e5e9525b57fa2c1949a2e15cc2159323"
-    sha256 cellar: :any,                 mojave:        "f489d4936caeda3e2e6aba22d4db82245cff1291bca5cf93d26a676e7147866f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97f34ea01f31cb9e5bba22b49ae1995b9bcb8c8dd5538c81aacc65b4a2904104"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "cf56529386ac094bf0cefac9c50a60a7234127c9d1c3ed22e853f8cf917dee91"
+    sha256 cellar: :any_skip_relocation, big_sur:       "6fdb7731b67b916f43c85d1674982a5801af161878446eba999de72a492e586e"
+    sha256 cellar: :any_skip_relocation, catalina:      "cdd59d3c8978b2c8f2ca0899867be322ce4d23eac3600a3b0684e199d5020e42"
+    sha256 cellar: :any_skip_relocation, mojave:        "af3a8f431b72c684b26bbbd115bf08ad9d8c12b95e83f7c0cea3f8881946d6a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9797d57cd6184e1b12a2c6120ccbfc51bbb369cf932400c0e556d0f9074b5d8e"
   end
 
   depends_on macos: :high_sierra # needs C++17

@@ -72,8 +72,11 @@ class Gnutls < Formula
   end
 
   def post_install
-    on_macos(&method(:macos_post_install))
-    on_linux(&method(:linux_post_install))
+    if OS.mac?
+      macos_post_install
+    else
+      linux_post_install
+    end
   end
 
   def macos_post_install
@@ -96,7 +99,17 @@ class Gnutls < Formula
         openssl_io.close_write
       end
 
-      $CHILD_STATUS.success?
+      next unless $CHILD_STATUS.success?
+
+      # XXX And drop Kerberos certs which may invalidate the whole trust store
+      # due to bug in gnutls (https://gitlab.com/gnutls/gnutls/-/issues/1255)
+      IO.popen("openssl x509 -inform pem -issuer -noout 2>/dev/null", "r+") do |openssl_io|
+        openssl_io.write(cert)
+        openssl_io.close_write
+        cn = openssl_io.read
+        openssl_io.close_read
+        cn.exclude? "CN=com.apple.kerberos.kdc"
+      end
     end
 
     # Check that the certificate is trusted in keychain

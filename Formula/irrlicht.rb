@@ -31,7 +31,7 @@ class Irrlicht < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       # Fix "error: cannot initialize a parameter of type
       # 'id<NSApplicationDelegate> _Nullable' with an rvalue of type
       # 'id<NSFileManagerDelegate>'"
@@ -68,9 +68,7 @@ class Irrlicht < Formula
       lib.install_symlink frameworks/"IrrFramework.framework/Versions/A/IrrFramework" => "libIrrlicht.dylib"
       lib.install "source/Irrlicht/MacOSX/build/Release/libIrrlicht.a"
       include.install "include" => "irrlicht"
-    end
-
-    on_linux do
+    else
       cd "source/Irrlicht" do
         inreplace "Makefile" do |s|
           s.gsub! "/usr/X11R6/lib$(LIBSELECT)", Formula["libx11"].opt_lib

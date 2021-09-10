@@ -47,9 +47,7 @@ class MinimalRacket < Formula
       ]
 
       ENV["LDFLAGS"] = "-rpath #{Formula["openssl@1.1"].opt_lib}"
-      on_linux do
-        ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}"
-      end
+      ENV["LDFLAGS"] = "-Wl,-rpath=#{Formula["openssl@1.1"].opt_lib}" if OS.linux?
 
       system "./configure", *args
       system "make"

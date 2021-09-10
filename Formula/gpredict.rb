@@ -35,7 +35,7 @@ class Gpredict < Formula
 
   def install
     # Needed by intltool (xml::parser)
-    on_linux { ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" }
+    ENV.prepend_path "PERL5LIB", "#{Formula["intltool"].libexec}/lib/perl5" if OS.linux?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

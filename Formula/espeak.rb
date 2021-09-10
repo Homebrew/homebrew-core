@@ -31,7 +31,7 @@ class Espeak < Formula
     doc.install Dir["docs/*"]
     cd "src" do
       rm "portaudio.h"
-      on_macos do
+      if OS.mac?
         # macOS does not use -soname so replacing with -install_name to compile for macOS.
         # See https://stackoverflow.com/questions/4580789/ld-unknown-option-soname-on-os-x/32280483#32280483
         inreplace "Makefile", "SONAME_OPT=-Wl,-soname,", "SONAME_OPT=-Wl,-install_name,"
@@ -51,7 +51,7 @@ class Espeak < Formula
       lib.install "libespeak.so.1.#{version.major_minor}" => libespeak
       lib.install_symlink libespeak => shared_library("libespeak", 1)
       lib.install_symlink libespeak => shared_library("libespeak")
-      on_macos { MachO::Tools.change_dylib_id("#{lib}/libespeak.dylib", "#{lib}/libespeak.dylib") }
+      MachO::Tools.change_dylib_id("#{lib}/libespeak.dylib", "#{lib}/libespeak.dylib") if OS.mac?
     end
   end
 

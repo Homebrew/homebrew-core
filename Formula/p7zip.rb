@@ -17,10 +17,9 @@ class P7zip < Formula
   patch :DATA
 
   def install
-    on_macos do
+    if OS.mac?
       mv "makefile.macosx_llvm_64bits", "makefile.machine"
-    end
-    on_linux do
+    else
       mv "makefile.linux_any_cpu", "makefile.machine"
     end
     system "make", "all3",
@@ -50,13 +49,13 @@ diff -u -r a/makefile b/makefile
 -	$(MAKE) -C CPP/7zip/Compress/Rar          depend
  	$(MAKE) -C CPP/7zip/UI/GUI                depend
  	$(MAKE) -C CPP/7zip/UI/FileManager        depend
- 
+
 @@ -42,7 +41,6 @@
  common7z:common
  	$(MKDIR) bin/Codecs
  	$(MAKE) -C CPP/7zip/Bundles/Format7zFree all
 -	$(MAKE) -C CPP/7zip/Compress/Rar         all
- 
+
  lzham:common
  	$(MKDIR) bin/Codecs
 @@ -67,7 +65,6 @@

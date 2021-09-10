@@ -39,8 +39,11 @@ class Openvpn < Formula
                           "--enable-pkcs11",
                           "--prefix=#{prefix}"
     inreplace "sample/sample-plugins/Makefile" do |s|
-      on_macos { s.gsub! HOMEBREW_SHIMS_PATH/"mac/super/pkg-config", Formula["pkg-config"].opt_bin/"pkg-config" }
-      on_linux { s.gsub! HOMEBREW_SHIMS_PATH/"linux/super/ld", "ld" }
+      if OS.mac?
+        s.gsub! HOMEBREW_SHIMS_PATH/"mac/super/pkg-config", Formula["pkg-config"].opt_bin/"pkg-config"
+      else
+        s.gsub! HOMEBREW_SHIMS_PATH/"linux/super/ld", "ld"
+      end
     end
     system "make", "install"
 

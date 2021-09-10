@@ -11,6 +11,7 @@ class ScmManager < Formula
     sha256 cellar: :any_skip_relocation, all: "3f20a7255368f9e664b6901f4760ae890b9adced776659c004b4240df695a3e3"
   end
 
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   resource "client" do

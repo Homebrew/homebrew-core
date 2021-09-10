@@ -20,6 +20,7 @@ class Audacious < Formula
     sha256 big_sur:       "e2a1c27f807d9df77b5572cecf17e03bb59e344468f7cd017c6b427812072d5d"
     sha256 catalina:      "032de1da579c13edd37c77bb3b57e8189b290a8c7235523a9cb4ca9fe8c51636"
     sha256 mojave:        "121c7484b3210d173fc5704adad85c1238b097c475ffdb78a56af6e25dbe3c8b"
+    sha256 x86_64_linux:  "77d5c5d671b6a28d855747fda5fe1d76b3ed81084f81f740ceabbeaa6e8a8959"
   end
 
   head do
@@ -53,6 +54,12 @@ class Audacious < Formula
   depends_on "qt@5"
   depends_on "sdl2"
   depends_on "wavpack"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   def install
     args = std_meson_args + %w[

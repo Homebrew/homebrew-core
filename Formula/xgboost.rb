@@ -34,9 +34,7 @@ class Xgboost < Formula
 
   def install
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     mkdir "build" do
       system "cmake", *std_cmake_args, ".."
@@ -48,7 +46,7 @@ class Xgboost < Formula
 
   test do
     # Force use of Clang on Mojave
-    on_macos { ENV.clang }
+    ENV.clang if OS.mac?
 
     cp_r (pkgshare/"demo"), testpath
     cd "demo/data" do

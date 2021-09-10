@@ -4,15 +4,15 @@ class Ttyd < Formula
   url "https://github.com/tsl0922/ttyd/archive/1.6.3.tar.gz"
   sha256 "1116419527edfe73717b71407fb6e06f46098fc8a8e6b0bb778c4c75dc9f64b9"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/tsl0922/ttyd.git", branch: "main"
 
   bottle do
-    sha256 arm64_big_sur: "3613c44348f2bbc54ee0a76bc09b99f5d1fcc0f4b207b7b6d7e5e69a60491600"
-    sha256 big_sur:       "44d98800018b084ba70f64fe6cda1c4e7d0632dc6ccc1875ccd7f9f60d424634"
-    sha256 catalina:      "fbc13a08d2e1193bba14db733744b92de148d5852d6f17c5c46a2776d1d469ad"
-    sha256 mojave:        "930c22597fe1b35a010fa73baca293feb1311bee1f625b2bfe52b6ac0a5bba1a"
-    sha256 x86_64_linux:  "3feae990ff47b0e9e4f7a14663557f2a6dadd89bed927def54c3db7d214024bf"
+    sha256 arm64_big_sur: "effc05a1dc99771d4f1862e8507a454af4591df53be2eaa7cdee3c4e62a18f1c"
+    sha256 big_sur:       "27dcb4906faadbad0117389bc2cc634743d7f2287cd6f9a8a7379dd1a4e652e3"
+    sha256 catalina:      "8774607c36974cc37ee765e925ea535dd51f33ab57fc134fb68ab45da4c70eef"
+    sha256 mojave:        "fcf3fcc3945fe46b3a9478b7f8b42149af40e331bc793af6b8202bc8d98dbc5d"
+    sha256 x86_64_linux:  "992223bf53b39c45f70bfa5940b16f8a0768ee311c969042900fca80607c7389"
   end
 
   depends_on "cmake" => :build

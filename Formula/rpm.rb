@@ -63,15 +63,13 @@ class Rpm < Formula
                           "__LD=/usr/bin/ld"
     system "make", "install"
 
-    on_macos do
-      inreplace lib/"rpm/macros", "#{HOMEBREW_SHIMS_PATH}/mac/super/", ""
-    end
+    inreplace lib/"rpm/macros", "#{HOMEBREW_SHIMS_PATH}/mac/super/", "" if OS.mac?
   end
 
   def post_install
     (var/"lib/rpm").mkpath
 
-    on_macos do
+    if OS.mac?
       # Attempt to fix expected location of GPG to a sane default.
       inreplace lib/"rpm/macros", "/usr/bin/gpg2", HOMEBREW_PREFIX/"bin/gpg"
     end

@@ -7,15 +7,23 @@ class CartridgeCli < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ea51b9bb88158e82edb5b079a07915993a1ef0a07e810aa87acacfa46a32031d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "0e92881071540ce28124b70532542bc5769c7aee816c97d263fb59cbc9fc535a"
-    sha256 cellar: :any_skip_relocation, catalina:      "883b771de9dcb40281867c74f8a187fab3024940725736f0e0f21897ec865159"
-    sha256 cellar: :any_skip_relocation, mojave:        "14bfb8dedf6118be65ce692359f96213145d34963f17fd7a46a929ff5df64e2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03c17b33ca0210967a88b1dc0a9c835d60e5d7ab1ddebe872ca51bdcd288a4ae"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4377b98d0ad6eb4505851335a1f0f28efaee3c08038e4e6b01e2b45a30746236"
+    sha256 cellar: :any_skip_relocation, big_sur:       "3a7029c4c492dcb0dc25880ab262e8990494ac59839906459974d39f3c18a684"
+    sha256 cellar: :any_skip_relocation, catalina:      "f6a520934a4deb9ced42ce061c5d5c3b8742afb25835fb01a6db0be84a3ce315"
+    sha256 cellar: :any_skip_relocation, mojave:        "08fdfac9a58c68546ffc0c6333997bb5de778d9ac19406ec679173e197dbb4ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "50793e3b6cc34d7e8e1e9f3f815db7e26a8caa7b709f2fb939b6c683b9077506"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
+
+  # Support go 1.17, remove when upstream patch is merged/released
+  # https://github.com/tarantool/cartridge-cli/pull/618
+  patch do
+    url "https://github.com/tarantool/cartridge-cli/commit/84193babc1395208a205a0c06a4a8a9a73ab6512.patch?full_index=1"
+    sha256 "5b50feeeb764018cd226595d733d6467b922a9974fc520c52c1ca692495f99c3"
+  end
 
   def install
     system "mage", "build"

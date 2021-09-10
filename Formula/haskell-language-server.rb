@@ -4,7 +4,7 @@ class HaskellLanguageServer < Formula
   url "https://github.com/haskell/haskell-language-server/archive/1.3.0.tar.gz"
   sha256 "9be31ead3fb1c0ca761de80185a23665dfe167457baaba642cf62885df98f6a1"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/haskell/haskell-language-server.git"
 
   # we need :github_latest here because otherwise
@@ -15,10 +15,10 @@ class HaskellLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "85cabaa13ef4e27a16059c26db1a4dbfea9338e8ab6ed49e01309553b8c59ff8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c77b850f178e9499b4496474adfbedacc4aba5703a936d337496810b3e972cff"
-    sha256 cellar: :any_skip_relocation, catalina:      "d40c16a158f1645c724b609420b7f1c1237a6b4e1627c39aa1372786593c382e"
-    sha256 cellar: :any_skip_relocation, mojave:        "abe628ac3b30dc4da554011c7419ed3b28fe9c21a8552fa2130c22aece655c3d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f4dee4e09fd2b361738794cfc248b37df2dfcf0baf6329f5823f8b5fbd0098af"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1cce5a8e334f975dd9c8463b60a860e603c0e45e5469cd35f380a170405c01a0"
+    sha256 cellar: :any_skip_relocation, catalina:      "9ea58194ff2a9f6b2559cbdbe6811b46de3c60d7f382ed825483d745879f397e"
+    sha256 cellar: :any_skip_relocation, mojave:        "8783e9129e39ae29c5d7c227becdb9c5138bea3617f2edcb890a802e67e311df"
   end
 
   depends_on "cabal-install" => [:build, :test]

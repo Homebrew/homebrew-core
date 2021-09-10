@@ -21,13 +21,11 @@ class A52dec < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fix error ld: imdct.lo: relocation R_X86_64_32 against `.bss' can not be
       # used when making a shared object; recompile with -fPIC
       ENV.append_to_cflags "-fPIC"
-    end
-
-    on_macos do
+    else
       # Fixes duplicate symbols errors on arm64
       ENV.append_to_cflags "-std=gnu89"
     end

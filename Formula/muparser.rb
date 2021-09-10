@@ -19,7 +19,7 @@ class Muparser < Formula
   depends_on "cmake" => :build
 
   def install
-    on_linux { ENV.cxx11 }
+    ENV.cxx11 if OS.linux?
     mkdir "build" do
       system "cmake", "..", *std_cmake_args, "-DENABLE_OPENMP=OFF"
       system "make", "install"

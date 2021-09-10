@@ -2,17 +2,17 @@ class Wownero < Formula
   desc "Official wallet and node software for the Wownero cryptocurrency"
   homepage "https://wownero.org"
   url "https://git.wownero.com/wownero/wownero.git",
-      tag:      "v0.10.0.3",
-      revision: "2bdd70d65d266beeca043f207ebb1964463f4a3b"
+      tag:      "v0.10.1.0",
+      revision: "8ab87421d9321d0b61992c924cfa6e3918118ad0"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_big_sur: "0faaed980b9edadc285a0110e6a12219636f49ca2cc20c5a00d2cfa3259426ac"
-    sha256 cellar: :any,                 big_sur:       "9c12417ea6310d12b295ae3df4f2a099673509062a307eeb840ec89bb9e04001"
-    sha256 cellar: :any,                 catalina:      "a743feb558aeac26118636c893a5e3bd422b606b5b121ed2eb9c2e94a696f7b7"
-    sha256 cellar: :any,                 mojave:        "7f7e40f2aa800e7db13f4f582e47e76905cafae8d9cccc2b6090491ee2e3dffb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ce96a0d3b3c105269ab805c518a4a18446d2e76a5dede3b2ce2bb076ff4460e5"
+    sha256 cellar: :any,                 arm64_big_sur: "ef39a53fc330916136257fa2f8e2019063e544770789b09503b53e4505bea918"
+    sha256 cellar: :any,                 big_sur:       "2a7dc81fcfa03e22dfc74d069ccc505a249823ab116ca2f6eabc3e14d25f28f2"
+    sha256 cellar: :any,                 catalina:      "2713015081577274b00955f18eca366944e1557cd89ec00d852470c40a543ded"
+    sha256 cellar: :any,                 mojave:        "549739d9edb69887b6661b5daa670ac310693c44ff8462ece01629277b6aa263"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b25b0804cff6eb8b88df6ecb0c72e836b22fd2bde9e78c7426c7c2cdba661abf"
   end
 
   depends_on "cmake" => :build
@@ -33,8 +33,13 @@ class Wownero < Formula
   patch :DATA
 
   def install
-    system "cmake", ".", *std_cmake_args
+    # Need to help CMake find `readline` when not using /usr/local prefix
+    system "cmake", ".", *std_cmake_args, "-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}"
     system "make", "install"
+
+    # Fix conflict with miniupnpc.
+    # This has been reported at https://github.com/monero-project/monero/issues/3862
+    rm lib/"libminiupnpc.a"
   end
 
   service do

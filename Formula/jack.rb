@@ -11,30 +11,45 @@ class Jack < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_big_sur: "ffbab9c78a68d9500801476cc963340ed638795d9d31cf0f20162380216f03b2"
-    sha256 big_sur:       "5fdfbe4b083a1fb96c2a6d66d8a32bff2eda70dd5488b5cd3f75c088f4e2c158"
-    sha256 catalina:      "03952b355f2868cafb1dc5b726ae9910602ae06454ed8f757402cb6c7b540dda"
-    sha256 mojave:        "bb3a77a180f342d3eafc91705996d7346331cbdc36efbb41022433a7dd2084c7"
+    rebuild 2
+    sha256 arm64_big_sur: "8460ec59472c5dc1d7f1196dcb68578539054cfb597390793f91c99eb0b9596a"
+    sha256 big_sur:       "939c93be6d821e73abe360c69c57b0786086b03bcf95233a0ef1836e18c472f7"
+    sha256 catalina:      "fbec3032a541f3e9ce3b327994d4bd305f3f849d1cb3831ec460b2bd2e029c08"
+    sha256 mojave:        "b2974079582c370b9056ac2f98308cb321dc767ac3f67229e891e1de6bc86c8f"
+    sha256 x86_64_linux:  "2a209c4eaf03a6bb1ca47b15acb8f18cbe3fe4d395859f83e31df688bec0b891"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "aften"
+  depends_on "python@3.9" => :build
   depends_on "berkeley-db"
   depends_on "libsamplerate"
   depends_on "libsndfile"
-  depends_on "python@3.9"
+  depends_on "readline"
+
+  on_macos do
+    depends_on "aften"
+  end
+
+  on_linux do
+    depends_on "alsa-lib"
+    depends_on "systemd"
+  end
 
   def install
-    # See https://github.com/jackaudio/jack2/issues/640#issuecomment-723022578
-    ENV.append "LDFLAGS", "-Wl,-compatibility_version,1" if MacOS.version <= :high_sierra
-    ENV.append "LDFLAGS", "-Wl,-current_version,#{version}" if MacOS.version <= :high_sierra
+    if OS.mac? && MacOS.version <= :high_sierra
+      # See https://github.com/jackaudio/jack2/issues/640#issuecomment-723022578
+      ENV.append "LDFLAGS", "-Wl,-compatibility_version,1"
+      ENV.append "LDFLAGS", "-Wl,-current_version,#{version}"
+    end
     system Formula["python@3.9"].opt_bin/"python3", "./waf", "configure", "--prefix=#{prefix}"
     system Formula["python@3.9"].opt_bin/"python3", "./waf", "build"
     system Formula["python@3.9"].opt_bin/"python3", "./waf", "install"
+
+    # Remove Python script used to control D-Bus JACK as it isn't enabled in formula
+    rm bin/"jack_control"
   end
 
   service do
@@ -48,7 +63,11 @@ class Jack < Formula
     source_name = "test_source"
     sink_name = "test_sink"
     fork do
-      exec "#{bin}/jackd", "-X", "coremidi", "-d", "dummy"
+      if OS.mac?
+        exec "#{bin}/jackd", "-X", "coremidi", "-d", "dummy"
+      else
+        exec "#{bin}/jackd", "-d", "dummy"
+      end
     end
     system "#{bin}/jack_wait", "--wait", "--timeout", "10"
     fork do

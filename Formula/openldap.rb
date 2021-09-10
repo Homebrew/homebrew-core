@@ -52,7 +52,7 @@ class Openldap < Formula
       --enable-valsort
     ]
 
-    on_linux do
+    if OS.linux?
       args << "--without-systemd"
 
       # Disable manpage generation, because it requires groff which has a huge

@@ -1,17 +1,16 @@
 class DosboxStaging < Formula
   desc "Modernized DOSBox soft-fork"
   homepage "https://dosbox-staging.github.io/"
-  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.77.0.tar.gz"
-  sha256 "85e1739f5dfd7d96b752b2b0e12aad6f95c7770b47fcdaf978d4128d7890d986"
+  url "https://github.com/dosbox-staging/dosbox-staging/archive/v0.77.1.tar.gz"
+  sha256 "85359efb7cd5c5c0336d88bdf023b7b462a8233490e00274fef0b85cca2f5f3c"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/dosbox-staging/dosbox-staging.git"
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "c78a913ee0090ab3529008a820ea8884484d374f173449da27c2d4049e77c3c8"
-    sha256 cellar: :any, big_sur:       "94200db2433f162408a309db31ac3f9a38c517a0d4d1a81102f2dd10949f1a46"
-    sha256 cellar: :any, catalina:      "16d067fe9d67563350c6321284496be2594db58faadb9a9f3b5b001ec106fd88"
-    sha256 cellar: :any, mojave:        "2861ee737fb11f2772f1de3ea8f8235c360b8064946c6c070a214c98b510482c"
+    sha256 cellar: :any, arm64_big_sur: "7dd4f286588301620a44495e5810974739ab4fd32cccd5b5f2396bdab0553a23"
+    sha256 cellar: :any, big_sur:       "e2e63248f71bed815d467f3afecf49983470a3579490dd7ff60afbae1383625d"
+    sha256 cellar: :any, catalina:      "01c1cf45fb8d75aeb5b81174bc02693093c047ca138ae3cf1a880c5ad1ca35eb"
+    sha256 cellar: :any, mojave:        "e56e6203ef35b2402396029baba105d93127531dcc92acf5182edf06ee747f2c"
   end
 
   depends_on "meson" => :build

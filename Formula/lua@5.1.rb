@@ -41,7 +41,7 @@ class LuaAT51 < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
       # when making a shared object; recompile with -fPIC
       # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
@@ -50,7 +50,7 @@ class LuaAT51 < Formula
 
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
-      on_macos do
+      if OS.mac?
         s.gsub! "@LUA_PREFIX@", prefix
         s.sub! "MYCFLAGS_VAL", "-fno-common -DLUA_USE_LINUX"
       end
@@ -71,9 +71,10 @@ class LuaAT51 < Formula
       s.gsub! "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua.5.1 -lm"
     end
 
-    os = "macosx"
-    on_linux do
-      os = "linux"
+    os = if OS.mac?
+      "macosx"
+    else
+      "linux"
     end
 
     args = [
@@ -83,9 +84,7 @@ class LuaAT51 < Formula
     ]
 
     system "make", os, *args
-    on_linux do
-      args << "TO_LIB=liblua.so.5.1.5"
-    end
+    args << "TO_LIB=liblua.so.5.1.5" if OS.linux?
     system "make", "install", *args
 
     (lib/"pkgconfig").install "etc/lua.pc"
@@ -105,7 +104,7 @@ class LuaAT51 < Formula
     (lib/"pkgconfig").install_symlink "lua-5.1.pc" => "lua5.1.pc"
     (libexec/"lib/pkgconfig").install_symlink lib/"pkgconfig/lua-5.1.pc" => "lua.pc"
 
-    on_linux do
+    if OS.linux?
       # Hack around wrong .so file naming
       %w[.so.5.1 .5.1.5.so .5.1.so 5.1.so].each do |suffix|
         lib.install_symlink "liblua.so.5.1.5" => "liblua#{suffix}"

@@ -3,16 +3,16 @@ class Archey4 < Formula
 
   desc "Simple system information tool written in Python"
   homepage "https://github.com/HorlogeSkynet/archey4"
-  url "https://files.pythonhosted.org/packages/99/45/f3a0541ddf67af4153da892c192bdbe0a88c66dafb669fff89f7edde110f/archey4-4.12.0.tar.gz"
-  sha256 "94926dca648226830d04ac0fb72dc70f2bf3d1fa80d53da4279d2171f61aae1a"
+  url "https://files.pythonhosted.org/packages/54/60/212f5018cc4671fd6b288faf2018ff74e8fcf68703c72e31bcea9ca6217a/archey4-4.13.1.tar.gz"
+  sha256 "80abe635c31ae02750c873c12621db56403641db9a04f8a775eb22012fa90f21"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "a533ce21021e9fdab9171f8926c07c5a1e7a37199c5cbe939ce6eb9ee38f6d69"
-    sha256 cellar: :any_skip_relocation, big_sur:       "7a61e23a65173021839e70aaf664c7fc92ebdff24b975c685fecd8aa23746453"
-    sha256 cellar: :any_skip_relocation, catalina:      "fdcf88893069bd62b09894b39dc01c1d8fc27e48f14ef9125735db74d44ad86f"
-    sha256 cellar: :any_skip_relocation, mojave:        "8c41763022d97b6780e5de02d9deba4d1e896170951edbfe883d0b5d37be6f59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1169e3370902278f58eef29a5da616dcf0852b91639ced4dccb6f74fe5d81b2b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef7f2d3afefe0ab6b360de49ab593b1889338a243ab34ec259a468680369657a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "73b88da9996449f3e24959fce41adc4614cbf84e2b561da792105d9faf370786"
+    sha256 cellar: :any_skip_relocation, catalina:      "860b9bbe915630f8f17e31e2e78ae6a6772d277c2949d26e25a37113d6835a53"
+    sha256 cellar: :any_skip_relocation, mojave:        "af0ba191fafce835871c3f054aa37a822b12ac5eb0a82459adf96be5c2be8e5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec5410a13db4510efa484b0497ee6f39c81100e4ade702df47fa53680b74b3c6"
   end
 
   depends_on "python@3.9"
@@ -20,13 +20,13 @@ class Archey4 < Formula
   conflicts_with "archey", because: "both install `archey` binaries"
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/a6/a4/75064c334d8ae433445a20816b788700db1651f21bdb0af33db2aab142fe/distro-1.5.0.tar.gz"
-    sha256 "0e58756ae38fbd8fc3020d54badb8eae17c5b9dcbed388b17bb55b8a5928df92"
+    url "https://files.pythonhosted.org/packages/a5/26/256fa167fe1bf8b97130b4609464be20331af8a3af190fb636a8a7efd7a2/distro-1.6.0.tar.gz"
+    sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
   end
 
   resource "netifaces" do
-    url "https://files.pythonhosted.org/packages/0d/18/fd6e9c71a35b67a73160ec80a49da63d1eed2d2055054cc2995714949132/netifaces-0.10.9.tar.gz"
-    sha256 "2dee9ffdd16292878336a58d04a20f0ffe95555465fee7c9bd23b3490ef2abf3"
+    url "https://files.pythonhosted.org/packages/a6/91/86a6eac449ddfae239e93ffc1918cf33fd9bab35c04d1e963b311e347a73/netifaces-0.11.0.tar.gz"
+    sha256 "043a79146eb2907edf439899f262b3dfe41717d34124298ed281139a8b93ca32"
   end
 
   def install

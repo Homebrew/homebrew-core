@@ -34,7 +34,7 @@ class Libgnt < Formula
     # Work around for ERROR: Problem encountered: ncurses could not be found!
     # Issue is build only checks for ncursesw headers under system prefix /usr
     # Upstream issue: https://issues.imfreedom.org/issue/LIBGNT-15
-    on_linux do
+    if OS.linux?
       inreplace "meson.build", "ncurses_sys_prefix = '/usr'",
                                "ncurses_sys_prefix = '#{Formula["ncurses"].opt_prefix}'"
     end

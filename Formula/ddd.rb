@@ -49,7 +49,7 @@ class Ddd < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Patch to fix compilation error
       # https://savannah.gnu.org/bugs/?33960
       # Remove with next release

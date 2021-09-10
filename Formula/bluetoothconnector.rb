@@ -14,6 +14,7 @@ class Bluetoothconnector < Formula
   end
 
   depends_on xcode: ["11.0", :build]
+  depends_on :macos
 
   def install
     system "swift", "build", "--disable-sandbox", "-c", "release", "--static-swift-stdlib"

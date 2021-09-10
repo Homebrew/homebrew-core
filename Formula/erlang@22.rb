@@ -2,10 +2,9 @@ class ErlangAT22 < Formula
   desc "Programming language for highly scalable real-time systems"
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url "https://github.com/erlang/otp/releases/download/OTP-22.3.4.20/otp_src_22.3.4.20.tar.gz"
-  sha256 "43289f20a7038b6835615a1f68a6e32b9aeec6db38cdb7c97adf78d048d74079"
+  url "https://github.com/erlang/otp/releases/download/OTP-22.3.4.21/otp_src_22.3.4.21.tar.gz"
+  sha256 "f65ab9613dc57efceee0c42a882204f543fd03a68542014ce060ecea7cb45df7"
   license "Apache-2.0"
-  revision 2
 
   livecheck do
     url :stable
@@ -13,11 +12,11 @@ class ErlangAT22 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "3756af5aaf04ee088669fd933e1355dd31eeff414c1b446052f7dcfd3b61f4fd"
-    sha256 cellar: :any,                 big_sur:       "0c4d0ebb7e3907ace04492613535c7333149ce5e2303bad621f1e8974393744b"
-    sha256 cellar: :any,                 catalina:      "39d2233bd0a71f010e4d9f512e6d1f5686c4810efaaadddd946c6ccc897a99d6"
-    sha256 cellar: :any,                 mojave:        "7a005ac1d73d442bff6556455da954c4022e9a55f9b57c37e717786e29c8f3dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "25f8f938c24ffa44ec1abc29710dd2816a06a854f257f09a13f89915a3818e2d"
+    sha256 cellar: :any,                 arm64_big_sur: "8003b927236a6a4a0048b42bfa1082c3cef56dc435d2aaf24bb2935680e8c6e0"
+    sha256 cellar: :any,                 big_sur:       "3c6231a52f643ef4d2aadb45291b50c0316eeaef0b6917c7db18a6217bf74e12"
+    sha256 cellar: :any,                 catalina:      "cc83864d045e44a185a4f88badffef56c85898ed4a2a45654056c55a8477ab0b"
+    sha256 cellar: :any,                 mojave:        "f6cfeb11ec3f61d934c6a8cd6a91fbb9e1aec7f4ca1d46883c353e9bcd8b362a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca3bb9240f26fa3c615f383e83371b216210ddf590b232ab6b5f214f0611bafb"
   end
 
   keg_only :versioned_formula
@@ -54,7 +53,7 @@ class ErlangAT22 < Formula
       --without-javac
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-darwin-64bit"
       args << "--enable-kernel-poll" if MacOS.version > :el_capitan
       args << "--with-dynamic-trace=dtrace" if MacOS::CLT.installed?

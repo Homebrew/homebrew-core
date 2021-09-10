@@ -21,7 +21,7 @@ class TeensyLoaderCli < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       ENV["OS"] = "MACOSX"
       ENV["SDK"] = MacOS.sdk_path || "/"
 

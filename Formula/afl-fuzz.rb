@@ -38,8 +38,11 @@ class AflFuzz < Formula
       }
     EOS
 
-    cmd = "afl-clang++"
-    on_linux { cmd = "afl-g++" }
+    cmd = if OS.mac?
+      "afl-clang++"
+    else
+      "afl-g++"
+    end
     system bin/cmd, "-g", cpp_file, "-o", "test"
     assert_equal "Hello, world!", shell_output("./test")
   end

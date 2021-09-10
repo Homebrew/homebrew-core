@@ -1,17 +1,17 @@
 class Xdotool < Formula
   desc "Fake keyboard/mouse input and window management for X"
   homepage "https://www.semicomplete.com/projects/xdotool/"
-  url "https://github.com/jordansissel/xdotool/releases/download/v3.20210804.2/xdotool-3.20210804.2.tar.gz"
-  sha256 "fde6b15b5978c91e0ecb78cc541a9987752e724820722e479dcc2efc17466c89"
+  url "https://github.com/jordansissel/xdotool/releases/download/v3.20210903.1/xdotool-3.20210903.1.tar.gz"
+  sha256 "9110198702d7549c4eccdab95f276d35a9fa9f540015d2739b62c55618d3b7b6"
   license "BSD-3-Clause"
   head "https://github.com/jordansissel/xdotool.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "a7a447517125966462a4b067fed71b0a2d5dca85f6e9b3348c47080b0754b043"
-    sha256 cellar: :any,                 big_sur:       "0e34fac27796de7761ec3d82feb73231153535e5dc1ccbd71347b588fe2d70f9"
-    sha256 cellar: :any,                 catalina:      "98d00ab9149f1d444e99dda25d190fecfbefb215ddf477f05b80a5aaf96ba24b"
-    sha256 cellar: :any,                 mojave:        "d0b162c67f2a64735fc940c371d06fd7fcbf36e17453895fd16bcebe00f40056"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f5022406d6ac7bad0cb166ea02c9503fb07e2c32ebe03b928d18e991ff8f2adf"
+    sha256 cellar: :any,                 arm64_big_sur: "b5ce445e70ccf9a65310630aede622b216f8cb272b660e9420205b862e01fab7"
+    sha256 cellar: :any,                 big_sur:       "f5210972a8352765068add40fd4c3fe77cf4a687cd3c81ddb719e24c739ffae2"
+    sha256 cellar: :any,                 catalina:      "fe7c50b395ca8d9b196deb24046e2d433812478f247d44738396c2c2f3745f1a"
+    sha256 cellar: :any,                 mojave:        "8d675d9a6391e70da34bcbea738af0a77b6a53a693fe8ed716f9ce6a4633aaff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cec125dd2493d3956a23e574283fab5bc60195ef3defd54088fc002a795f1e45"
   end
 
   depends_on "pkg-config" => :build

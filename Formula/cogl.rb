@@ -42,12 +42,10 @@ class Cogl < Formula
       --enable-introspection=yes
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--disable-glx"
       args << "--without-x"
-    end
-
-    on_linux do
+    else
       args << "--enable-xlib-egl-platform=yes"
     end
 

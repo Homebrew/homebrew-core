@@ -1,28 +1,17 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
+  url "https://ziglang.org/download/0.8.1/zig-0.8.1.tar.xz"
+  sha256 "8c428e14a0a89cb7a15a6768424a37442292858cdb695e2eb503fa3c7bf47f1a"
   license "MIT"
-  revision 1
   head "https://github.com/ziglang/zig.git", branch: "master"
 
-  stable do
-    url "https://ziglang.org/download/0.8.0/zig-0.8.0.tar.xz"
-    sha256 "03a828d00c06b2e3bb8b7ff706997fd76bf32503b08d759756155b6e8c981e77"
-
-    # Fix compilation of C code on Mojave. Remove at version bump.
-    # https://github.com/ziglang/zig/pull/9427
-    patch do
-      url "https://github.com/ziglang/zig/commit/24bfd7bdddbf045c5568c1bb67a3f754c24eb8c4.patch?full_index=1"
-      sha256 "feda7d03502c073bd9874996453da6961dcf16f5a3e08b86d6df1d4cbc1475a7"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "509462e2ab9377e1a1464e0204bad486e18c32908aca8ae3684d12f5a46039f7"
-    sha256 cellar: :any,                 big_sur:       "8b2243d6f8b4e25848592238ee8134af62d3db2eb855f73796066b96f4d4101e"
-    sha256 cellar: :any,                 catalina:      "c129c5da03f133d5d8ac1b0cf9f21e411778856152f94a488e0dbe2b7c8aafc9"
-    sha256 cellar: :any,                 mojave:        "f5986270bfca4ac26802df56f58c7d836d019bf133b6c885449fa6f088840ec4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "65514fee3818165516c30de75546f33e3beb632d401fa5de756b190940fd385a"
+    sha256 cellar: :any,                 arm64_big_sur: "6c1d8057521dcb3f8f46374a33b10b8cd650b3e72d082781fb6f89d86ee42f6e"
+    sha256 cellar: :any,                 big_sur:       "e1be8baf52c6146c23701345969e40f580ffbf4c14273bce206c4be26989f82d"
+    sha256 cellar: :any,                 catalina:      "91244d050c13d67518e0311dfc1e2d2233f42102b2fca5be06a9f5dbba8e6970"
+    sha256 cellar: :any,                 mojave:        "acd62f790db0e7d1a8379185c36394f9c97c96022e37cd8dbf46a56995543a75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "93cf0e20f945e484fa7681053aba4af7eca1492cd7ef58d10ccd6f979a552db1"
   end
 
   depends_on "cmake" => :build

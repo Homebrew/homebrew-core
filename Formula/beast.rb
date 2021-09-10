@@ -32,9 +32,7 @@ class Beast < Formula
     bin.install Dir[libexec/"bin/*"]
 
     env = Language::Java.overridable_java_home_env("11")
-    on_linux do
-      env["PATH"] = "$JAVA_HOME/bin:$PATH"
-    end
+    env["PATH"] = "$JAVA_HOME/bin:$PATH" if OS.linux?
     bin.env_script_all_files libexec/"bin", env
     inreplace libexec/"bin/beast", "/usr/local", HOMEBREW_PREFIX
   end

@@ -18,9 +18,10 @@ class TerraformDocs < Formula
   def install
     system "make", "build"
     cpu = Hardware::CPU.arm? ? "arm64" : "amd64"
-    os = "darwin"
-    on_linux do
-      os = "linux"
+    os = if OS.mac?
+      "darwin"
+    else
+      "linux"
     end
     bin.install "bin/#{os}-#{cpu}/terraform-docs"
     prefix.install_metafiles

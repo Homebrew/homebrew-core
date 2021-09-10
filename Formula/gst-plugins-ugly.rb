@@ -17,6 +17,7 @@ class GstPluginsUgly < Formula
     sha256 big_sur:       "0a6d18fa102bcea7e8e096a8b114fa415a32c2c6cd477fdaa68255ffb119ac28"
     sha256 catalina:      "3bf8b148e0901057104047b7392c501986096858e287cc4f11299933f1708931"
     sha256 mojave:        "beb6b703ebad1a546c0ca4a9e9253e20bdb78c3aeba4231fdd1a645ab8fd11dc"
+    sha256 x86_64_linux:  "4793a5155acb669f37d6e29f4fc48470b9f7ac8bb9332f9cfbba6a53e372f617"
   end
 
   depends_on "meson" => :build

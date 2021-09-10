@@ -1,8 +1,8 @@
 class Openimageio < Formula
   desc "Library for reading, processing and writing images"
   homepage "https://openimageio.org/"
-  url "https://github.com/OpenImageIO/oiio/archive/v2.2.17.0.tar.gz"
-  sha256 "b570da8928c3e8cde29bdb0e0320e727789e141c48375fb69a2548d642462396"
+  url "https://github.com/OpenImageIO/oiio/archive/v2.2.18.0.tar.gz"
+  sha256 "72597619f09b60cc2afc18f378b40fbec62701112957f43cff162dd9a52a26ce"
   license "BSD-3-Clause"
   head "https://github.com/OpenImageIO/oiio.git"
 
@@ -13,10 +13,11 @@ class Openimageio < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "5c28aef2cf25dbf3453719c4712f6783f49b2f2f0e9482cf8bd2b473ef3e34ac"
-    sha256 cellar: :any, big_sur:       "bbad204a431acf7b4dd8f8c9a4106f60aae429b449e5a5981931c4a31ed3f934"
-    sha256 cellar: :any, catalina:      "c348b0fc2f14951144df8eb71f98938f2754be9689023583b6cfe0e21776344f"
-    sha256 cellar: :any, mojave:        "e9a7385f856a14fbceb940cafee67b94c8c50d095f5507a86323eed978d888e3"
+    sha256 cellar: :any,                 arm64_big_sur: "5e17b7c08f795f213d4457a7f7942f17df1eaadbaf64b6036b2bacb1b7798f29"
+    sha256 cellar: :any,                 big_sur:       "263b0577dff6a7834f4de270f6f56fec485c2ee872f39180d90c458da4e0a5f9"
+    sha256 cellar: :any,                 catalina:      "e8a0028c161a4f6b1e814ac362a9f251ced660c76a375524f9a1c20e21115c99"
+    sha256 cellar: :any,                 mojave:        "cddc71a90bb3a720bb1ca7324cb69c9161d42594da8c4668ed7733ee1e0d7d40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "60a3a661966a15c3786c510069516c182bba34e92256065f1c7eec184fd46fda"
   end
 
   depends_on "cmake" => :build
@@ -54,9 +55,10 @@ class Openimageio < Formula
 
     # CMake picks up the system's python shared library, even if we have a brewed one.
     py3ver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
-    py3prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
-    on_linux do
-      py3prefix = Formula["python@3.9"].opt_prefix
+    py3prefix = if OS.mac?
+      Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{py3ver}"
+    else
+      Formula["python@3.9"].opt_prefix
     end
 
     ENV["PYTHONPATH"] = lib/"python#{py3ver}/site-packages"

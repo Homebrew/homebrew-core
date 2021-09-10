@@ -49,11 +49,10 @@ class Irssi < Formula
       --with-perl-lib=#{lib}/perl5/site_perl
     ]
 
-    on_macos do
-      args << "--with-ncurses=#{MacOS.sdk_path/"usr"}"
-    end
-    on_linux do
-      args << "--with-ncurses=#{Formula["ncurses"].prefix}"
+    args << if OS.mac?
+      "--with-ncurses=#{MacOS.sdk_path/"usr"}"
+    else
+      "--with-ncurses=#{Formula["ncurses"].prefix}"
     end
 
     if build.head?

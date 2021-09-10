@@ -4,17 +4,17 @@ class Cassandra < Formula
 
   desc "Eventually consistent, distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=cassandra/4.0.0/apache-cassandra-4.0.0-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/cassandra/4.0.0/apache-cassandra-4.0.0-bin.tar.gz"
-  sha256 "2ff17bda7126c50a2d4b26fe6169807f35d2db9e308dc2851109e1c7438ac2f1"
+  url "https://www.apache.org/dyn/closer.lua?path=cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/cassandra/4.0.1/apache-cassandra-4.0.1-bin.tar.gz"
+  sha256 "ed7022e30d9b77d9ce1072f8de95ab01ef7c5c6ed30f304e413dd5a3f92a52f8"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4681736b01dedeeae70217e432335a5872570ecb5f25f340f5c476b4f6cbfbc2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "1403d5e643f64c6a9fb0896b34d6d4229d421c92fdf493156497cf409690c6bb"
-    sha256 cellar: :any_skip_relocation, catalina:      "3762e6824b213846a69dfa2f9d378618267a6fc1a96b221c935c1db961374d69"
-    sha256 cellar: :any_skip_relocation, mojave:        "de4e32e1ea6aa9c9b721b83f1180c74931f12de6940c1cb1f67e76e1ee88f053"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b3886b54cab9f653b12d8838d41992e55ac96ab55da31b54242a445f520d0e78"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "58016fa3757cd4ec2ecaacde5a82e91848fee5c39a66e5170c97e0404169e9b8"
+    sha256 cellar: :any_skip_relocation, big_sur:       "531d95b615b56206345341760667a9beb997c861b046b8a526e04d384f36844b"
+    sha256 cellar: :any_skip_relocation, catalina:      "95e753b05138dca61b229e455e5058342a9f16b038ea008c303567d909ef7313"
+    sha256 cellar: :any_skip_relocation, mojave:        "ff726d5f9303879270d740d89e7195d8145a9e6416fdb50507faa4d6c236dce8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d6ff4ee073bfa42e4cb632e86d024e0b12528d8c7655d0c4ff207e1221063fb7"
   end
 
   depends_on "cython" => :build

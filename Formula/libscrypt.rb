@@ -18,11 +18,10 @@ class Libscrypt < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       system "make", "install-osx", "PREFIX=#{prefix}", "LDFLAGS=", "CFLAGS_EXTRA="
       system "make", "check", "LDFLAGS=", "CFLAGS_EXTRA="
-    end
-    on_linux do
+    else
       system "make"
       system "make", "check"
       lib.install "libscrypt.a", "libscrypt.so", "libscrypt.so.0"

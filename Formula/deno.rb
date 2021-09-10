@@ -42,9 +42,9 @@ class Deno < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac? && (MacOS.version < :mojave)
       # Overwrite Chromium minimum SDK version of 10.15
-      ENV["FORCE_MAC_SDK_MIN"] = MacOS.version if MacOS.version < :mojave
+      ENV["FORCE_MAC_SDK_MIN"] = MacOS.version
     end
 
     # env args for building a release build with our python3, ninja and gn

@@ -22,6 +22,10 @@ class Ronn < Formula
 
   uses_from_macos "ruby"
 
+  on_linux do
+    depends_on "util-linux" => :test # for `col`
+  end
+
   def install
     ENV["GEM_HOME"] = libexec
     system "gem", "build", "ronn.gemspec"

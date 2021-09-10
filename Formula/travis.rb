@@ -7,11 +7,12 @@ class Travis < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "8f1ccd0d3968312e30c5451e80704472d9b717275ad09d64c2d475fc92666d3e"
-    sha256 cellar: :any,                 big_sur:       "99dc7883369970404609ba84dae65605c9c53be3deda72591fe19ffc67c06ef7"
-    sha256 cellar: :any,                 catalina:      "cd76462008b4094ecc79d7b715bc8bbe25c16648c2ae4be0a939415fa61b6d02"
-    sha256 cellar: :any,                 mojave:        "23356035200869589c3cf664a6d137477529a27c60bc1ce2a68e6fc6f084693d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9c1d5934c77e544e698fe91a52e9739dcd2e3d8b463e8dc0a10c8a2d01f219df"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_big_sur: "d375256f1da626583d3ec2bd1a096da42e6a36facfab5f9bd7c0e1283518eda5"
+    sha256 cellar: :any,                 big_sur:       "2b230db93002dd126dd0d4112c7146a006f82e8ee3b7ff57bba26c78552be830"
+    sha256 cellar: :any,                 catalina:      "a395916ba611da1b47582d4284a528ba1dc1b5b76980a7768f10be8b2e5dea58"
+    sha256 cellar: :any,                 mojave:        "be4f48dadb0133a60437fe931b61415b9989a2967d8c569bd271b27fb9cafc19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "43eaf0a12ed95626c1f65c7c358370106b08a51a08e2bdf7e5a9694b7abd1d53"
   end
 
   depends_on "pkg-config" => :build
@@ -163,6 +164,7 @@ class Travis < Formula
     system "gem", "build", "travis.gemspec"
     system "gem", "install", "--ignore-dependencies", "travis-#{version}.gem"
     bin.install libexec/"bin/travis"
+    (libexec/"gems/travis-#{version}/assets/notifications/Travis CI.app").rmtree
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
   end
 

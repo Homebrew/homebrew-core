@@ -2,18 +2,17 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v7.14.0",
-      revision: "e127fc31fc6c00fdf8649808f9421d8f8c28b5db"
+      tag:      "v7.14.1",
+      revision: "703d589a09cfdbfd7f84c1d990b50b6b7f62ac29"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "58ac37c3a9c06c7cfcafbb97e32a00eb7a303d5a0394d5df3ce97e37c57efa41"
-    sha256 cellar: :any_skip_relocation, big_sur:       "cd39c9314c57875191d8a24e882137bb6cf140a5b9f693148b5b8de529196a84"
-    sha256 cellar: :any_skip_relocation, catalina:      "fa509869c27d2e661f372d2560cf5c352ff8a530d00b3854f15750f07ad07d0d"
-    sha256 cellar: :any_skip_relocation, mojave:        "a8aafc256f5faaec771ed72892a16cb3d8bd290187e7c964ebcb93e23cac361b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5bc292bbe7a486703cf9c385481b029a54628714219154d8c2bbe66bcbe2a189"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "fae3f269ce932b35cd26f99f93686d82f1eaf508dfcf8e3722fb0bf212dffa30"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0e0f626fd2ae5c00394ec6c0d0cd5376c8a0045f8405dd05156f61ea5b3b101b"
+    sha256 cellar: :any_skip_relocation, catalina:      "9a56ca3180b86193e96f8ffc8dd1413a257772d8fdfb525139ddbb5ba4e78ab4"
+    sha256 cellar: :any_skip_relocation, mojave:        "2eb502f2f97ad30dc45b8906f770d2cf3485df9936e3b07023c424ea575db548"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c9c7373bd8ba57b76b991c8bd7e5cfd10bbc6df1583f098327435acb2d89b1dd"
   end
 
   depends_on "go" => :build

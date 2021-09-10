@@ -14,7 +14,7 @@ class FdkAac < Formula
   end
 
   head do
-    url "https://git.code.sf.net/p/opencore-amr/fdk-aac.git"
+    url "https://git.code.sf.net/p/opencore-amr/fdk-aac.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

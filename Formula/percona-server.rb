@@ -119,11 +119,11 @@ class PerconaServer < Formula
       test_args = ["--vardir=#{Dir.mktmpdir}"]
       # For Linux, disable failing on warning: "Setting thread 31563 nice to 0 failed"
       # Docker containers lack CAP_SYS_NICE capability by default.
-      on_linux { test_args << "--nowarnings" }
+      test_args << "--nowarnings" if OS.linux?
       system "./mysql-test-run.pl", "status", *test_args
     end
 
-    on_macos do
+    if OS.mac?
       # Remove libssl copies as the binaries use the keg anyway and they create problems for other applications
       rm lib/"libssl.dylib"
       rm lib/"libssl.1.1.dylib"
@@ -232,11 +232,11 @@ __END__
 --- a/plugin/auth_ldap/CMakeLists.txt
 +++ b/plugin/auth_ldap/CMakeLists.txt
 @@ -36,7 +36,7 @@ IF(WITH_LDAP)
- 
+
    # libler?
    MYSQL_ADD_PLUGIN(authentication_ldap_simple ${ALP_SOURCES_SIMPLE}
 -    LINK_LIBRARIES ldap_r MODULE_ONLY MODULE_OUTPUT_NAME "authentication_ldap_simple")
 +    LINK_LIBRARIES ldap MODULE_ONLY MODULE_OUTPUT_NAME "authentication_ldap_simple")
- 
+
    IF(UNIX)
      IF(INSTALL_MYSQLTESTDIR)

@@ -71,9 +71,7 @@ class Coreutils < Formula
       b2sum base32 chcon hostid md5sum nproc numfmt pinky ptx realpath runcon
       sha1sum sha224sum sha256sum sha384sum sha512sum shred shuf stdbuf tac timeout truncate
     ]
-    on_linux do
-      no_conflict += ["dir", "dircolors", "vdir"]
-    end
+    no_conflict += ["dir", "dircolors", "vdir"] if OS.linux?
     no_conflict.each do |cmd|
       bin.install_symlink "g#{cmd}" => cmd
       man1.install_symlink "g#{cmd}.1" => "#{cmd}.1"

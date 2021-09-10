@@ -1,8 +1,8 @@
 class Detekt < Formula
   desc "Static code analysis for Kotlin"
   homepage "https://github.com/detekt/detekt"
-  url "https://github.com/detekt/detekt/releases/download/v1.18.0/detekt-cli-1.18.0-all.jar"
-  sha256 "5bb9305fb1fbebc6157291d8dfcee4b4143abc7c58ade1e0693c18e6a22b695c"
+  url "https://github.com/detekt/detekt/releases/download/v1.18.1/detekt-cli-1.18.1-all.jar"
+  sha256 "b20470994a5ffba502c88227377a44f4563df0875dc3f39486e67b7ea4c93c50"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class Detekt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0cdb94ed18d87d37cd112e2dcf042662830c929ec58de57e5823936ded9cef2a"
+    sha256 cellar: :any_skip_relocation, all: "4ceda6344829cc9727f51fd3befffa3469b973a7a4a24d2c4dde7163e400f51e"
   end
 
   depends_on "openjdk@11"

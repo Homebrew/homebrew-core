@@ -54,7 +54,7 @@ class WxwidgetsAT30 < Formula
       "--disable-monolithic",
     ]
 
-    on_macos do
+    if OS.mac?
       # Set with-macosx-version-min to avoid configure defaulting to 10.5
       args << "--with-macosx-version-min=#{MacOS.version}"
       args << "--with-osx_cocoa"

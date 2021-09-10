@@ -49,7 +49,7 @@ class Gnupg < Formula
 
     # Configure scdaemon as recommended by upstream developers
     # https://dev.gnupg.org/T5415#145864
-    on_macos do
+    if OS.mac?
       # write to buildpath then install to ensure existing files are not clobbered
       (buildpath/"scdaemon.conf").write <<~EOS
         disable-ccid

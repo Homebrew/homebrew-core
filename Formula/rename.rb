@@ -18,7 +18,9 @@ class Rename < Formula
 
   uses_from_macos "perl"
 
-  conflicts_with "util-linux", because: "both install `rename` binaries"
+  on_linux do
+    conflicts_with "util-linux", because: "both install `rename` binaries"
+  end
 
   def install
     system "#{Formula["pod2man"].opt_bin}/pod2man", "rename", "rename.1"

@@ -31,10 +31,9 @@ class Foremost < Formula
     # move it to etc instead
     inreplace "config.c", "/usr/local/etc/", "#{etc}/"
 
-    on_macos do
+    if OS.mac?
       system "make", "mac"
-    end
-    on_linux do
+    else
       system "make"
     end
 

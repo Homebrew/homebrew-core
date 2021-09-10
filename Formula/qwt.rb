@@ -11,13 +11,20 @@ class Qwt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_big_sur: "0538bfe404c21c264efe57fbc36d3cff81c39b86679d67c48501166597ab8cad"
-    sha256 cellar: :any, big_sur:       "14a5fd16a5abcf3a04b3f6d097649fbc1dd51e9fbb50d05f885757a9d9f3d9f9"
-    sha256 cellar: :any, catalina:      "c3a727be657b20efdd6a8ddec980bd28f5367ae41a0a7abefb74af86c1f24e83"
-    sha256 cellar: :any, mojave:        "5bb62a4122ade6485247357b22f0619ff35f518d9ea3f454f05c7d5c4b60985e"
+    sha256 cellar: :any,                 arm64_big_sur: "0538bfe404c21c264efe57fbc36d3cff81c39b86679d67c48501166597ab8cad"
+    sha256 cellar: :any,                 big_sur:       "14a5fd16a5abcf3a04b3f6d097649fbc1dd51e9fbb50d05f885757a9d9f3d9f9"
+    sha256 cellar: :any,                 catalina:      "c3a727be657b20efdd6a8ddec980bd28f5367ae41a0a7abefb74af86c1f24e83"
+    sha256 cellar: :any,                 mojave:        "5bb62a4122ade6485247357b22f0619ff35f518d9ea3f454f05c7d5c4b60985e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bd8a743a4dcdef47dd5941eba2feb9f5db4f9a63588ebf97c8ebe36d4c7814e4"
   end
 
   depends_on "qt@5"
+
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
 
   # Update designer plugin linking back to qwt framework/lib after install
   # See: https://sourceforge.net/p/qwt/patches/45/
@@ -33,13 +40,12 @@ class Qwt < Formula
     end
 
     args = ["-config", "release", "-spec"]
-    spec = if ENV.compiler == :clang
+    spec = if OS.linux?
+      "linux-g++"
+    elsif ENV.compiler == :clang
       "macx-clang"
     else
       "macx-g++"
-    end
-    on_linux do
-      spec = "linux-g++"
     end
     spec << "-arm64" if Hardware::CPU.arm?
     args << spec
@@ -58,7 +64,7 @@ class Qwt < Formula
         return (curve1 == NULL);
       }
     EOS
-    on_macos do
+    if OS.mac?
       system ENV.cxx, "test.cpp", "-o", "out",
         "-std=c++11",
         "-framework", "qwt", "-framework", "QtCore",
@@ -66,8 +72,7 @@ class Qwt < Formula
         "-I#{lib}/qwt.framework/Headers",
         "-I#{Formula["qt@5"].opt_lib}/QtCore.framework/Versions/5/Headers",
         "-I#{Formula["qt@5"].opt_lib}/QtGui.framework/Versions/5/Headers"
-    end
-    on_linux do
+    else
       system ENV.cxx,
         "-I#{Formula["qt@5"].opt_include}",
         "-I#{Formula["qt@5"].opt_include}/QtCore",

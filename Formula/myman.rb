@@ -32,7 +32,7 @@ class Myman < Formula
   end
 
   def install
-    on_macos do
+    if OS.mac?
       ENV["RMDIR"] = "grmdir"
       ENV["SED"] = "gsed"
       ENV["INSTALL"] = "ginstall"

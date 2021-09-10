@@ -42,15 +42,18 @@ class TbbAT2020 < Formula
 
     cd "python" do
       ENV["TBBROOT"] = prefix
-      on_linux do
+      if OS.linux?
         system "make", "-C", "rml", "compiler=#{compiler}", "CPATH=#{include}"
         lib.install Dir["rml/libirml.so*"]
       end
       system Formula["python@3.9"].opt_bin/"python3", *Language::Python.setup_install_args(prefix)
     end
 
-    os = "Darwin"
-    on_linux { os = "Linux" }
+    os = if OS.mac?
+      "Darwin"
+    else
+      "Linux"
+    end
     system "cmake", *std_cmake_args,
                     "-DINSTALL_DIR=lib/cmake/TBB",
                     "-DSYSTEM_NAME=#{os}",

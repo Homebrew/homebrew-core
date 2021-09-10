@@ -34,7 +34,7 @@ class Gnumeric < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
       resources.each do |res|

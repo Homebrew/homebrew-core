@@ -1,10 +1,9 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://download.osgeo.org/gdal/3.3.1/gdal-3.3.1.tar.xz"
-  sha256 "48ab00b77d49f08cf66c60ccce55abb6455c3079f545e60c90ee7ce857bccb70"
+  url "https://download.osgeo.org/gdal/3.3.2/gdal-3.3.2.tar.xz"
+  sha256 "630e34141cf398c3078d7d8f08bb44e804c65bbf09807b3610dcbfbc37115cc3"
   license "MIT"
-  revision 3
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -12,10 +11,11 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "63d1f92d6123d4f3fb5142b16a2d8898b0b48aa2d9133651c09f974f1575a560"
-    sha256 big_sur:       "4895d4f179c3264abe86fab90d673571f6a3a559fa5d4d27ddf16d2007cf372f"
-    sha256 catalina:      "47d4586c2b7bbbea2f70dbaee7f2aaea2e8d7d46bea69d2d476ad63d1a950015"
-    sha256 mojave:        "0f57ca35e42fd11e201056124b7c077a7ef3ca73e3857581c5fce28f74ddc002"
+    sha256 arm64_big_sur: "31518b57a3b8d78d0170bc8c4b7990f8cd4344bfef2fa80979587067b27b86ac"
+    sha256 big_sur:       "51d3c97a17843cce22f63232003044f05eb9073f721dd516002c43b54916d7a1"
+    sha256 catalina:      "6044c74a6c1fd777f8576ccb10c02eaa4c1dc71ea90709df95e343c80ab6396c"
+    sha256 mojave:        "049c7f195c02900eadd2ae3f80eee1e67b580fc3fe3b98e8ac5a1495170f4ead"
+    sha256 x86_64_linux:  "6473a6f892910e5058cdd687fe92479f4d0e5d646246c11156431318e7625fd3"
   end
 
   head do
@@ -57,11 +57,14 @@ class Gdal < Formula
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "bash-completion"
+    depends_on "util-linux"
+    depends_on "gcc"
   end
 
   conflicts_with "avce00", because: "both install a cpl_conv.h header"
   conflicts_with "cpl", because: "both install cpl_error.h"
+
+  fails_with gcc: "5"
 
   def install
     args = [
@@ -71,7 +74,6 @@ class Gdal < Formula
       "--disable-debug",
       "--with-libtool",
       "--with-local=#{prefix}",
-      "--with-opencl",
       "--with-threads",
 
       # GDAL native backends
@@ -141,11 +143,16 @@ class Gdal < Formula
       "--without-sosi",
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--with-curl=/usr/bin/curl-config"
-    end
-    on_linux do
+      args << "--with-opencl"
+    else
       args << "--with-curl=#{Formula["curl"].opt_bin}/curl-config"
+
+      # The python build needs libgdal.so, which is located in .libs
+      ENV.append "LDFLAGS", "-L#{buildpath}/.libs"
+      # The python build needs gnm headers, which are located in the gnm folder
+      ENV.append "CFLAGS", "-I#{buildpath}/gnm"
     end
 
     system "./configure", *args

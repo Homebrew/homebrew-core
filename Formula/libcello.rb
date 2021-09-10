@@ -1,10 +1,10 @@
 class Libcello < Formula
   desc "Higher-level programming in C"
-  homepage "http://libcello.org/"
-  url "http://libcello.org/static/libCello-2.1.0.tar.gz"
+  homepage "https://libcello.org/"
+  url "https://libcello.org/static/libCello-2.1.0.tar.gz"
   sha256 "49acf6525ac6808c49f2125ecdc101626801cffe87da16736afb80684b172b28"
   license "BSD-2-Clause"
-  head "https://github.com/orangeduck/libCello.git"
+  head "https://github.com/orangeduck/libCello.git", branch: "master"
 
   livecheck do
     url :homepage

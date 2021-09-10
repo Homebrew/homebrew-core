@@ -1,10 +1,10 @@
 class OpensslAT11 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-1.1.1k.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1k.tar.gz"
-  mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1k.tar.gz"
-  sha256 "892a0875b9872acd04a9fde79b1f943075d5ea162415de3047c327df33fbaee5"
+  url "https://www.openssl.org/source/openssl-1.1.1l.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.1.1l.tar.gz"
+  mirror "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1l.tar.gz"
+  sha256 "0b7a3e5e59c34827fe0c3a74b7ec8baef302b98fa80088d7f9153aa16fa76bd1"
   license "OpenSSL"
   version_scheme 1
 
@@ -14,11 +14,11 @@ class OpensslAT11 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "0a75e0f116c0653bc7a2b422e5dc500e7e51557303aa4fca9c1a28786189c1da"
-    sha256 big_sur:       "17d94c51ddfa8364baed5f3a754063e1ca75f807194f68d0b976619cf4e69c1a"
-    sha256 catalina:      "cb610ecdda346011031b890d7b7c6e1942d7fc08cf083b74f148ec7ffed8c7e1"
-    sha256 mojave:        "7928c80c309c6ece50b1c0d968a1e54011088cc896d26aa511249978a246bd50"
-    sha256 x86_64_linux:  "63b4e785e2baf4ebf0e9b8e33e0dd3aa38399d9f10fd0121088f83ad2de42c5f"
+    sha256 arm64_big_sur: "9acf35f49127e7db9a1190c0c19330cd51f925bc3c482b699aaad802be2fea2b"
+    sha256 big_sur:       "ff8b2a965c680b4d9baccd60e799d0989e7dc562d2ba81696a9996bab256a6ad"
+    sha256 catalina:      "9c8490c19c5e18a5c9f92c3410b501ad456b348f711f760b2932fd763d0d0c14"
+    sha256 mojave:        "e310413752934299a0b8277b5aca3ceeddad0a2cecbcf2a9b81277c2219312b8"
+    sha256 x86_64_linux:  "4e8d3bcafe560d3d3ae2e0a29b98fa009101d72c249cd5b99892d706ac23e6dc"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"
@@ -69,7 +69,7 @@ class OpensslAT11 < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
       %w[ExtUtils::MakeMaker Test::Harness Test::More].each do |r|
@@ -90,15 +90,12 @@ class OpensslAT11 < Formula
     ENV["PERL"] = Formula["perl"].opt_bin/"perl" if which("perl") == Formula["perl"].opt_bin/"perl"
 
     arch_args = []
-    on_macos do
+    if OS.mac?
       arch_args += %W[darwin64-#{Hardware::CPU.arch}-cc enable-ec_nistp_64_gcc_128]
-    end
-    on_linux do
-      if Hardware::CPU.intel?
-        arch_args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
-      elsif Hardware::CPU.arm?
-        arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
-      end
+    elsif Hardware::CPU.intel?
+      arch_args << (Hardware::CPU.is_64_bit? ? "linux-x86_64" : "linux-elf")
+    elsif Hardware::CPU.arm?
+      arch_args << (Hardware::CPU.is_64_bit? ? "linux-aarch64" : "linux-armv4")
     end
 
     system "perl", "./Configure", *(configure_args + arch_args)
@@ -112,8 +109,11 @@ class OpensslAT11 < Formula
   end
 
   def post_install
-    on_macos(&method(:macos_post_install))
-    on_linux(&method(:linux_post_install))
+    if OS.mac?
+      macos_post_install
+    else
+      linux_post_install
+    end
   end
 
   def macos_post_install

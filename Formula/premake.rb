@@ -22,9 +22,10 @@ class Premake < Formula
 
   def install
     if build.head?
-      platform = "osx"
-      on_linux do
-        platform = "linux"
+      platform = if OS.mac?
+        "osx"
+      else
+        "linux"
       end
       system "make", "-f", "Bootstrap.mak", platform
       system "./bin/release/premake5", "gmake2"
@@ -32,9 +33,10 @@ class Premake < Formula
       system "make"
       bin.install "bin/release/premake5"
     else
-      platform = "macosx"
-      on_linux do
-        platform = "unix"
+      platform = if OS.mac?
+        "macosx"
+      else
+        "unix"
       end
       system "make", "-C", "build/gmake.#{platform}"
       bin.install "bin/release/premake4"

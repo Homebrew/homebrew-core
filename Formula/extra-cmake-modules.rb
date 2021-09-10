@@ -18,6 +18,7 @@ class ExtraCmakeModules < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "94a885f1fefa3124584d4a318e83bbb835a253c1cd7ae52d22f83aa088d33b1d"
     sha256 cellar: :any_skip_relocation, catalina:      "94a885f1fefa3124584d4a318e83bbb835a253c1cd7ae52d22f83aa088d33b1d"
     sha256 cellar: :any_skip_relocation, mojave:        "94a885f1fefa3124584d4a318e83bbb835a253c1cd7ae52d22f83aa088d33b1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "614600c436a66b578bd75a98d691a471d814234716accf8aea6807a0f33d916e"
   end
 
   depends_on "cmake" => [:build, :test]

@@ -57,8 +57,11 @@ class ImapUw < Formula
     # Skip IPv6 warning on Linux as libc should be IPv6 safe.
     touch "ip6"
 
-    target = "oxp"
-    on_linux { target = "ldb" }
+    target = if OS.mac?
+      "oxp"
+    else
+      "ldb"
+    end
     system "make", target
 
     # email servers:

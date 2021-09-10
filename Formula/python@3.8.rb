@@ -1,8 +1,8 @@
 class PythonAT38 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.11/Python-3.8.11.tar.xz"
-  sha256 "fb1a1114ebfe9e97199603c6083e20b236a0e007a2c51f29283ffb50c1420fb2"
+  url "https://www.python.org/ftp/python/3.8.12/Python-3.8.12.tar.xz"
+  sha256 "b1d3a76420375343b5e8a22fceb1ac65b77193e9ed27146524f0a9db058728ea"
   license "Python-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class PythonAT38 < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "65ecdcb83b557deb9a43ebca10de120fbb26eee538d342054ccfbccb8636948a"
-    sha256 big_sur:       "89be87388c1e29e0746891417c13d79d71294ddb78d494f1951d75109644d2cc"
-    sha256 catalina:      "6b74a3eb7a76afb1efd89b6fa9995010bd2f36fa73b672b0b2c68ae8a0950431"
-    sha256 mojave:        "f4ac46df3d769cbd28bb1b19457d7cb535575a06609a4f52ce8f37d32900e23c"
-    sha256 x86_64_linux:  "a5d51db034e7ac52ca48e271f24589a857e715987c79ab5c3b99102e6366791e"
+    sha256 arm64_big_sur: "cb44445caa00efd70c2b809d0fcca436200304fd798f10b61a5d6f9b96656c52"
+    sha256 big_sur:       "e7850f7c142853b69b3e3849e4a8d83817e2a331f9a6581813b36ef9c63f3add"
+    sha256 catalina:      "0ab8f1428b00ff48ea64f9e8108a5a5a48bfc2268b35216585ca73adfb6cd1aa"
+    sha256 mojave:        "9a493fe975a25ede0d82ee6fcd4e3b2b4db53d14159f0eb8161f912f4c8b0835"
+    sha256 x86_64_linux:  "3f508b82c8fd66a197b4ecf43e21ba7041637ce813b6c5fc4f603dcdb10cb504"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -44,19 +44,20 @@ class PythonAT38 < Formula
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6",
              "bin/easy_install-3.7", "bin/easy_install-3.8"
 
+  # Always update to latest release
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/88/fc/d17731c0cc67a5a8e385e4f47c3b0b186720e198b70f076ccb4676804a8f/setuptools-57.0.0.tar.gz"
-    sha256 "401cbf33a7bf817d08014d51560fc003b895c4cdc1a5b521ad2969e928a07535"
+    url "https://files.pythonhosted.org/packages/db/e2/c0ced9ccffb61432305665c22842ea120c0f649eec47ecf2a45c596707c4/setuptools-57.4.0.tar.gz"
+    sha256 "6bac238ffdf24e8806c61440e755192470352850f3419a52f26ffe0a1a64f465"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/4d/0c/3b63fe024414a8a48661cf04f0993d4b2b8ef92daed45636474c018cd5b7/pip-21.1.3.tar.gz"
-    sha256 "b5b1eb91b36894bd01b8e5a56a422c2f3838573da0b0a1c63a096bb454e3b23f"
+    url "https://files.pythonhosted.org/packages/52/e1/06c018197d8151383f66ebf6979d951995cf495629fc54149491f5d157d0/pip-21.2.4.tar.gz"
+    sha256 "0eb8a1516c3d138ae8689c0c1a60fde7143310832f9dc77e11d8a4bc62de193b"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/ed/46/e298a50dde405e1c202e316fa6a3015ff9288423661d7ea5e8f22f589071/wheel-0.36.2.tar.gz"
-    sha256 "e11eefd162658ea59a60a0f6c7d493a7190ea4b9a85e335b33489d9f17e0245e"
+    url "https://files.pythonhosted.org/packages/4e/be/8139f127b4db2f79c8b117c80af56a3078cc4824b5b94250c7f81a70e03b/wheel-0.37.0.tar.gz"
+    sha256 "e2ef7239991699e3355d54f8e968a21bb940a1dbf34a4d226741e64462516fad"
   end
 
   # Link against libmpdec.so.3, update for mpdecimal.h symbol cleanup.
@@ -90,7 +91,7 @@ class PythonAT38 < Formula
     ENV["PYTHONPATH"] = nil
 
     # Override the auto-detection in setup.py, which assumes a universal build.
-    on_macos do
+    if OS.mac?
       ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"
     end
 
@@ -105,12 +106,10 @@ class PythonAT38 < Formula
       --with-system-libmpdec
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--enable-framework=#{frameworks}"
       args << "--with-dtrace"
-    end
-
-    on_linux do
+    else
       args << "--enable-shared"
 
       # Required for the _ctypes module
@@ -153,7 +152,7 @@ class PythonAT38 < Formula
               "for d_ in ['#{Formula["sqlite"].opt_include}']:"
     end
 
-    on_linux do
+    if OS.linux?
       # Python's configure adds the system ncurses include entry to CPPFLAGS
       # when doing curses header check. The check may fail when there exists
       # a 32-bit system ncurses (conflicts with the brewed 64-bit one).
@@ -185,15 +184,13 @@ class PythonAT38 < Formula
     ENV.deparallelize do
       # Tell Python not to install into /Applications (default for framework builds)
       system "make", "install", "PYTHONAPPSDIR=#{prefix}"
-      on_macos do
-        system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}"
-      end
+      system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{pkgshare}" if OS.mac?
     end
 
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
     Dir.glob("#{prefix}/*.app") { |app| mv app, app.sub(/\.app$/, " 3.app") }
 
-    on_macos do
+    if OS.mac?
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py",
                     lib_cellar/"config*/Makefile",
@@ -209,9 +206,7 @@ class PythonAT38 < Formula
       inreplace Dir[lib_cellar/"**/_sysconfigdata__darwin_darwin.py"],
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
-    end
-
-    on_linux do
+    else
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_*linux_x86_64-*.py",
                     lib_cellar/"config*/Makefile",

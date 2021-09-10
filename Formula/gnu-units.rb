@@ -22,13 +22,11 @@ class GnuUnits < Formula
       --with-installed-readline
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
+    args << "--program-prefix=g" if OS.mac?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       (libexec/"gnubin").install_symlink bin/"gunits" => "units"
       (libexec/"gnubin").install_symlink bin/"gunits_cur" => "units_cur"
       (libexec/"gnuman/man1").install_symlink man1/"gunits.1" => "units.1"

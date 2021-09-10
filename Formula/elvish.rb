@@ -1,17 +1,17 @@
 class Elvish < Formula
   desc "Friendly and expressive shell"
   homepage "https://github.com/elves/elvish"
-  url "https://github.com/elves/elvish/archive/v0.16.1.tar.gz"
-  sha256 "3874abf8bfd4aab46f8784678c00e6bb17a4e807208a055cf008994d153e1328"
+  url "https://github.com/elves/elvish/archive/v0.16.3.tar.gz"
+  sha256 "ea9d594070cff58ed9caedf4619ee195bfce179f79b9a8d5e7a635ce5cbba551"
   license "BSD-2-Clause"
-  head "https://github.com/elves/elvish.git"
+  head "https://github.com/elves/elvish.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "e16469abf01788d0ec153c5e2ea85db61623a7793bc5ef13ca564aa02a162395"
-    sha256 cellar: :any_skip_relocation, big_sur:       "5951f4c0c32b9d1e70e0cc5951529b34b1d0cf3404ce6cd96f40a573a1225138"
-    sha256 cellar: :any_skip_relocation, catalina:      "d2e7445c3c2eed9b14a5db95e1c889227a891a75345dacaf34cfc2c92e4f9349"
-    sha256 cellar: :any_skip_relocation, mojave:        "3cf7d45620b233953b79adaff992a69fd9e74ea81de9289379cc40c91391f566"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "82068a99f4cce4d3ad15a875fc6e9f97e03a51d6e4baa3de44e8f14fed924c0d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "22868343fa4e1cf95ff4c59c5a7d88216fd497e3c1ef4bce63ebd80919725cb2"
+    sha256 cellar: :any_skip_relocation, big_sur:       "baca586af00fca196d69e0e8b1b3309df1c0b8f7d72e4089fc20f8e1a2a1bbb4"
+    sha256 cellar: :any_skip_relocation, catalina:      "86453d36b3aed50cab567de1a763204f0162eb8b41ac039c7061c94cdaca630d"
+    sha256 cellar: :any_skip_relocation, mojave:        "c345a3ec54ff058d8fbd86a97948412e811785ccefe097b3defeb0061eaf0946"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7397b282b7170800c11579efe0bce701861703966dccc32113dc870345ca43e8"
   end
 
   depends_on "go" => :build

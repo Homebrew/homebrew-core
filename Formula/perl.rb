@@ -42,9 +42,7 @@ class Perl < Formula
       -Duselargefiles
       -Dusethreads
     ]
-    on_macos do
-      args << "-Dsed=/usr/bin/sed"
-    end
+    args << "-Dsed=/usr/bin/sed" if OS.mac?
 
     args << "-Dusedevel" if build.head?
 
@@ -56,7 +54,7 @@ class Perl < Formula
   end
 
   def post_install
-    on_linux do
+    if OS.linux?
       perl_archlib = Utils.safe_popen_read("perl", "-MConfig", "-e", "print $Config{archlib}")
       perl_core = Pathname.new(perl_archlib)/"CORE"
       if File.readlines("#{perl_core}/perl.h").grep(/include <xlocale.h>/).any? &&

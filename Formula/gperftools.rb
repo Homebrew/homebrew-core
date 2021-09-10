@@ -39,9 +39,7 @@ class Gperftools < Formula
     # Fix "error: unknown type name 'mach_port_t'"
     ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version == :sierra
 
-    on_macos do
-      ENV.append_to_cflags "-D_XOPEN_SOURCE"
-    end
+    ENV.append_to_cflags "-D_XOPEN_SOURCE" if OS.mac?
 
     system "autoreconf", "-fiv" if build.head?
 
@@ -49,9 +47,7 @@ class Gperftools < Formula
       "--disable-dependency-tracking",
       "--prefix=#{prefix}",
     ]
-    on_linux do
-      args << "--enable-libunwind"
-    end
+    args << "--enable-libunwind" if OS.linux?
 
     system "./configure", *args
     system "make"

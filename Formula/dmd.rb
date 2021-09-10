@@ -84,10 +84,9 @@ class Dmd < Formula
       system "make", "install", *make_args
     end
 
-    on_macos do
+    if OS.mac?
       bin.install "generated/osx/release/64/dmd"
-    end
-    on_linux do
+    else
       bin.install "generated/linux/release/64/dmd"
     end
     pkgshare.install "samples"

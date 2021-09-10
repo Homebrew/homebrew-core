@@ -6,6 +6,11 @@ class Sic < Formula
   license "MIT"
   head "https://git.suckless.org/sic.git", branch: "master"
 
+  livecheck do
+    url "https://dl.suckless.org/tools/"
+    regex(/href=.*?sic[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7547b24c7e3e905ceb4b7b774b9ca7d2c165bd35ad2d4c7cee3908c83c19ed06"
     sha256 cellar: :any_skip_relocation, big_sur:       "2c4ab579805b755bf890003ebf105f1af4963890c0d491f221233a365e5cd233"

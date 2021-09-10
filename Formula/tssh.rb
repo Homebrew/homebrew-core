@@ -1,16 +1,16 @@
 class Tssh < Formula
   desc "SSH Lightweight management tools"
   homepage "https://github.com/luanruisong/tssh"
-  url "https://github.com/luanruisong/tssh/archive/refs/tags/2.1.1.tar.gz"
-  sha256 "8ec776016adfa3c02c99bbdcb021f9a80dfa1725e645d4b0f4f33d091531e98e"
+  url "https://github.com/luanruisong/tssh/archive/refs/tags/2.1.2.tar.gz"
+  sha256 "1c6b00750260d2c567d99f8bfd0c7fc87a96ac0faa3cfc8d54cb32400e95bb56"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "bc3073bfc2b742a776029ea84e9f636a4d5f3c74eda9e5c6bb7c7bd5bed21363"
-    sha256 cellar: :any_skip_relocation, big_sur:       "b416cc7c675e0d5a21c7e6812f6e39f9111ce2460f614ae0a4c567345b4ca0f4"
-    sha256 cellar: :any_skip_relocation, catalina:      "f3db9a92163c71c92495c7a75c7a51c13cf4a3024d151885b410aa21d3a4f4ea"
-    sha256 cellar: :any_skip_relocation, mojave:        "3be96045a90dd61710b14ad968ac3734ae892223a57e24cc5cb4c9aa3f63a3ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2db334d4748c7b56d5eb7b48cb1b41e2cdc170d4b4ed6c4d09b9fe5c017c6365"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "222ab84f9c686b2606c5424d5ba3183517ab606851d7d6f9131f8122b3f4047b"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d19409fa804d5d474ac267f4bacc1a808a48c04a0d6f441a7e26b2e1c3c48f3b"
+    sha256 cellar: :any_skip_relocation, catalina:      "ebf00c55633da328741f17335406fd7572ea8b1509182131b7d46878e9451ea8"
+    sha256 cellar: :any_skip_relocation, mojave:        "518731cf99cf6194aa510453b50fbd1da16bd15c4eccfd0d8e8d6f35537ac669"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "148c99f128411e59d6e67e73f70f1a5cf74ae7553afe9587dfdcc631bf38a2bc"
   end
 
   depends_on "go" => :build

@@ -16,6 +16,7 @@ class Gwenhywfar < Formula
     sha256 big_sur:       "f172c3d2c81e2f75f851a34629baa9c90c389a42e22458dc3352a8368245ef9b"
     sha256 catalina:      "a04f53d938325ee504611552f46fc606118b54ffcd3b1e8edb67f5f61d3b75fe"
     sha256 mojave:        "4f83d9bc727e95b68c89a736cb95a7b5f5b0c4c75822cf6043b575d63420002c"
+    sha256 x86_64_linux:  "40b9fb1fe1755cac14ad2c1cac6c42200d4de14dcaee5ae4bd8a6e501430e16b"
   end
 
   depends_on "autoconf" => :build
@@ -28,6 +29,12 @@ class Gwenhywfar < Formula
   depends_on "pkg-config" # gwenhywfar-config needs pkg-config for execution
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   patch do # fixes out-of-tree builds, can be removed with 5.6.1+ release. https://www.aquamaniac.de/rdm/issues/232
     url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/repository/revisions/b953672c5f668c2ed3960607e6e25651a2cc98db/diff/m4/ax_have_qt.m4?format=diff"
     sha256 "da7c1ddce2b8d1f19293d43b0db8449a4e45b79801101e866aa42f212f750ecd"
@@ -36,10 +43,12 @@ class Gwenhywfar < Formula
   def install
     inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
     system "autoreconf", "-fiv" # needed because of the patch. Otherwise only needed for head build (if build.head?)
+    guis = ["cpp", "qt5"]
+    guis << "cocoa" if OS.mac?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
-                          "--with-guis=cocoa cpp qt5"
+                          "--with-guis=#{guis.join(" ")}"
     system "make", "install"
   end
 

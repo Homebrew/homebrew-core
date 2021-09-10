@@ -48,6 +48,7 @@ jobs:
       syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
       runners: ${{ steps.check-labels.outputs.runners }}
       fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
+      test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
       timeout-minutes: ${{ steps.check-labels.outputs.timeout-minutes }}
       container: ${{ steps.check-labels.outputs.container }}
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
@@ -88,6 +89,14 @@ jobs:
             } else {
               console.log('No CI-no-fail-fast label found. Stopping tests on first failing matrix build.')
               core.setOutput('fail-fast', 'true')
+            }
+
+            if (label_names.includes('CI-skip-dependents')) {
+              console.log('CI-skip-dependents label found. Skipping brew test-bot --only-formulae-dependents.')
+              core.setOutput('test-dependents', 'false')
+            } else {
+              console.log('No CI-skip-dependents label found. Running brew test-bot --only-formulae-dependents.')
+              core.setOutput('test-dependents', 'true')
             }
 
             if (label_names.includes('CI-long-timeout')) {
@@ -134,13 +143,6 @@ jobs:
               test_bot_dependents_args.push('--fail-fast')
             } else {
               console.log('No CI-test-bot-fail-fast label found. Not passing --fail-fast to brew test-bot.')
-            }
-
-            if (label_names.includes('CI-skip-dependents')) {
-              console.log('CI-skip-dependents label found. Passing --skip-dependents to brew test-bot.')
-              test_bot_formulae_args.push('--skip-dependents')
-            } else {
-              console.log('No CI-skip-dependents label found. Not passing --skip-dependents to brew test-bot.')
             }
 
             if (label_names.includes('CI-build-dependents-from-source')) {
@@ -247,6 +249,7 @@ jobs:
           rm bottles/steps_output.txt
 
       - name: Run brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
+        if: ${{fromJson(needs.setup_tests.outputs.test-dependents)}}
         run: |
           if [ "$RUNNER_OS" = 'macOS' ]; then
             cd bottles
@@ -256,11 +259,11 @@ jobs:
           fi
 
       - name: Copy results from container
-        if: always() && runner.os == 'Linux'
+        if: ${{always() && runner.os == 'Linux' && fromJson(needs.setup_tests.outputs.test-dependents) == true}}
         run: docker cp ${{github.sha}}:/tmp/bottles .
 
       - name: Failures summary for brew test-bot ${{ needs.setup_tests.outputs.test-bot-dependents-args }} --skipped-or-failed-formulae=${{ steps.brew-test-bot-formulae.outputs.skipped_or_failed_formulae }}
-        if: always()
+        if: ${{always() && fromJson(needs.setup_tests.outputs.test-dependents) == true}}
         run: |
           touch bottles/steps_output.txt
           cat bottles/steps_output.txt

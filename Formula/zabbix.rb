@@ -1,17 +1,17 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://cdn.zabbix.com/zabbix/sources/stable/5.4/zabbix-5.4.3.tar.gz"
-  sha256 "dbbc843c8119f1f63d7378588d5eb5a46c22f32f86428bb79b9872191342bbc2"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/5.4/zabbix-5.4.4.tar.gz"
+  sha256 "de9985978cf9638d7cb208f7f65d93141b4e1256ead56df1b95d7bda41d6a672"
   license "GPL-2.0-or-later"
   head "https://github.com/zabbix/zabbix.git", branch: "master"
 
   bottle do
-    sha256 arm64_big_sur: "035570354333169d9f8e7a43ca0a0707e9adb004c9709dc00b4b2e02a7977436"
-    sha256 big_sur:       "343653c7f8968a11db3355add8bc11883f20f9765a38ead4d452321b97cba19a"
-    sha256 catalina:      "7de5a411b7e986fbd88abfcd91bfcd0a9f946d184b042441b4e25674786ec42a"
-    sha256 mojave:        "c6c99115c81c102471826b0f61c4f95ee47d386bafca3859177a5456b986d886"
-    sha256 x86_64_linux:  "ff7e59909b33853b63a02c3afbd5f26c72f0c984aa8a69b0da8ccd1c4c1d7c7e"
+    sha256 arm64_big_sur: "4373c16468a34c494a111111c59355b46455ccaf91ff0405034806d2a089bc57"
+    sha256 big_sur:       "87aa41c567e1ec52f24117b992877a3c859edac902723e4e03bddc293145cea2"
+    sha256 catalina:      "7c3697291d893717faf0ec39643152e98509a1aad38c69e51df331c1f17c6e8e"
+    sha256 mojave:        "34a042637df8d58df9bbd84ce15638c4b8da576ab5a8b5f86e3c7a724a0a10b4"
+    sha256 x86_64_linux:  "e5cd2090baa1c65ae91bbfea560f5075ef4c52eac14c4a051aa82fc0ce888c21"
   end
 
   depends_on "openssl@1.1"
@@ -27,7 +27,7 @@ class Zabbix < Formula
       --with-openssl=#{Formula["openssl@1.1"].opt_prefix}
     ]
 
-    on_macos do
+    if OS.mac?
       sdk = MacOS::CLT.installed? ? "" : MacOS.sdk_path
       args << "--with-iconv=#{sdk}/usr"
     end

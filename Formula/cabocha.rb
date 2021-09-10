@@ -19,7 +19,7 @@ class Cabocha < Formula
   depends_on "mecab-ipadic"
 
   def install
-    on_macos { ENV["LIBS"] = "-liconv" }
+    ENV["LIBS"] = "-liconv" if OS.mac?
 
     inreplace "Makefile.in" do |s|
       s.change_make_var! "CFLAGS", ENV.cflags
@@ -38,8 +38,11 @@ class Cabocha < Formula
   end
 
   test do
-    md5 = "md5"
-    on_linux { md5 = "md5sum" }
+    md5 = if OS.mac?
+      "md5"
+    else
+      "md5sum"
+    end
     result = pipe_output(md5, pipe_output(bin/"cabocha", "CaboCha はフリーソフトウェアです。"))
     assert_equal "a5b8293e6ebcb3246c54ecd66d6e18ee", result.chomp.split.first
   end

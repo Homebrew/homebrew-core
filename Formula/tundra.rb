@@ -36,11 +36,10 @@ class Tundra < Formula
       }
     EOS
 
-    os = "macosx"
-    cc = "clang"
-    on_linux do
-      os = "linux"
-      cc = "gcc"
+    os, cc = if OS.mac?
+      ["macosx", "clang"]
+    else
+      ["linux", "gcc"]
     end
 
     (testpath/"tundra.lua").write <<~EOS

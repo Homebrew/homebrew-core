@@ -58,7 +58,7 @@ class Apr < Formula
     # No need for this to point to the versioned path.
     inreplace bin/"apr-#{version.major}-config", prefix, opt_prefix
 
-    on_linux do
+    if OS.linux?
       # Avoid references to the Homebrew shims directory
       inreplace prefix/"build-#{version.major}/libtool", HOMEBREW_SHIMS_PATH/"linux/super/", "/usr/bin/"
     end

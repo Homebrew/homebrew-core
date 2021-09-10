@@ -8,11 +8,11 @@ class Julia < Formula
   head "https://github.com/JuliaLang/julia.git"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 big_sur:      "07cef06b083672c8335143c4bde3f9e857d8c644140080a105b9812f77fcba8c"
-    sha256 cellar: :any,                 catalina:     "3a1b8e8ff03cfed29f2ea415d4782a38444d99c14100d1e85cae37c48e4965c1"
-    sha256 cellar: :any,                 mojave:       "a54f0feda6477176f7018675a1439976016e4b93ea607221dec01091b0300fc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "f01075ce69503a29a8246a939bcc29e7cffc747d368c658f941baf1bbc79c1ef"
+    rebuild 2
+    sha256 cellar: :any,                 big_sur:      "e1a5f185998c328d9d36455b32f119d6f6f43fa8e823fcaa997bad883b638e73"
+    sha256 cellar: :any,                 catalina:     "f9b537403d179cff9b3fe7a0472d0b700923dbddf63d905954d2ff21ba107a20"
+    sha256 cellar: :any,                 mojave:       "d19548ebfeaf8b424a6e74bd6f5d06463c3e2705346b8ee50f4a7fe4ebf32882"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b304390d54a6d88a5b3001a9b64a5d5de062c0215f3d87c3b750bf94cb033911"
   end
 
   depends_on "python@3.9" => :build
@@ -85,16 +85,34 @@ class Julia < Formula
       MACOSX_VERSION_MIN=#{MacOS.version}
     ]
 
+    # Set MARCH and JULIA_CPU_TARGET to ensure Julia works on machines we distribute to.
+    # Values adapted from https://github.com/JuliaCI/julia-buildbot/blob/master/master/inventory.py
+    march = if build.head?
+      "native"
+    elsif Hardware::CPU.arm?
+      "armv8-a"
+    else
+      Hardware.oldest_cpu
+    end
+    args << "MARCH=#{march}"
+
+    cpu_targets = ["generic"]
+    cpu_targets += if Hardware::CPU.arm?
+      %w[cortex-a57 thunderx2t99 armv8.2-a,crypto,fullfp16,lse,rdm]
+    else
+      %w[sandybridge,-xsaveopt,clone_all haswell,-rdrnd,base(1)]
+    end
+    args << "JULIA_CPU_TARGET=#{cpu_targets.join(";")}" if build.stable?
+
     # Stable uses `libosxunwind` which is not in Homebrew/core
     # https://github.com/JuliaLang/julia/pull/39127
-    on_macos { args << "USE_SYSTEM_LIBUNWIND=1" if build.head? }
-    on_linux { args << "USE_SYSTEM_LIBUNWIND=1" }
+    args << "USE_SYSTEM_LIBUNWIND=1" if OS.linux? || build.head?
 
     args << "TAGGED_RELEASE_BANNER=Built by #{tap.user} (v#{pkg_version})"
 
     gcc = Formula["gcc"]
     gcclibdir = gcc.opt_lib/"gcc"/gcc.any_installed_version.major
-    on_macos do
+    if OS.mac?
       deps.map(&:to_formula).select(&:keg_only?).map(&:opt_lib).each do |libdir|
         ENV.append "LDFLAGS", "-Wl,-rpath,#{libdir}"
       end
@@ -102,9 +120,7 @@ class Julia < Formula
       # List these two last, since we want keg-only libraries to be found first
       ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"
       ENV.append "LDFLAGS", "-Wl,-rpath,/usr/lib"
-    end
-
-    on_linux do
+    else
       ENV.append "LDFLAGS", "-Wl,-rpath,#{opt_lib}"
       ENV.append "LDFLAGS", "-Wl,-rpath,#{opt_lib}/julia"
 
@@ -135,7 +151,7 @@ class Julia < Formula
 
     system "make", *args, "install"
 
-    on_linux do
+    if OS.linux?
       # Replace symlinks referencing Cellar paths with ones using opt paths
       deps.reject(&:build?).map(&:to_formula).map(&:opt_lib).each do |libdir|
         (lib/"julia").children.each do |so|

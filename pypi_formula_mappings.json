@@ -13,10 +13,10 @@
   "ansible@2.9": {
     "extra_packages": [
       "apache-libcloud", "boto3", "dnspython", "docker-py", "junos-eznc", "jxmlease", "kerberos", "ntc-templates",
-      "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-keyczar", "python-neutronclient",
+      "openshift", "passlib", "pexpect", "pysphere3", "python-consul", "python-neutronclient",
       "pywinrm", "requests-credssp", "shade", "zabbix-api"
     ],
-    "exclude_packages": ["textfsm", "pycrypto"]
+    "exclude_packages": ["pycrypto", "six"]
   },
   "athenacli": {
     "exclude_packages": ["six", "tabulate"]
@@ -40,13 +40,14 @@
     "extra_packages": ["certbot-apache", "certbot-nginx"]
   },
   "cfn-lint": {
-    "exclude_packages": ["junit-xml"]
+    "exclude_packages": ["junit-xml", "six"]
   },
   "ciphey": {
     "exclude_packages": ["six"]
   },
   "cloudformation-cli": {
-    "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin"]
+    "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin", "cloudformation-cli-python-plugin"],
+    "exclude_packages": ["junit-xml", "six"]
   },
   "charm-tools": {
     "extra_packages": ["wheel"]
@@ -78,6 +79,9 @@
     ],
     "exclude_packages": ["protobuf", "six", "tabulate"]
   },
+  "dxpy": {
+    "exclude_packages": ["six"]
+  },
   "ipython": {
     "exclude_packages": ["six"],
     "extra_packages": ["ipykernel"]
@@ -92,13 +96,25 @@
   "homeassistant-cli": {
     "exclude_packages": ["tabulate"]
   },
+  "howdoi": {
+    "exclude_packages": ["six"]
+  },
+  "internetarchive": {
+    "exclude_packages": ["six"]
+  },
   "jenkins-job-builder": {
     "exclude_packages": ["six"]
+  },
+  "jupyterlab": {
+    "extra_packages": ["pydevd"]
   },
   "litecli": {
     "exclude_packages": ["tabulate"]
   },
   "localstack": {
+    "exclude_packages": ["six", "tabulate"]
+  },
+  "locust": {
     "exclude_packages": ["six"]
   },
   "magic-wormhole": {
@@ -129,7 +145,8 @@
     "exclude_packages": ["pillow"]
   },
   "openstackclient": {
-    "extra_packages": ["python-heatclient", "python-octaviaclient"]
+    "extra_packages": ["python-heatclient", "python-octaviaclient"],
+    "exclude_packages": ["six"]
   },
   "nicotine-plus": {
     "exclude_packages": ["pycairo", "PyGObject"]
@@ -150,6 +167,9 @@
   },
   "poetry": {
     "extra_packages": ["importlib-metadata", "typing-extensions"]
+  },
+  "pre-commit": {
+    "exclude_packages": ["six"]
   },
   "principalmapper": {
     "exclude_packages": ["six"]
@@ -186,6 +206,7 @@
   "s4cmd": {
     "exclude_packages": ["six"]
   },
+  "sail": "sailed-io",
   "salt": {
     "extra_packages": ["pycryptodome", "pygit2"],
     "exclude_packages": [
@@ -308,7 +329,8 @@
       "pyobjc-framework-Vision",
       "pyobjc-framework-WebKit",
       "pyobjc-framework-XgridFoundation",
-      "pyobjc"
+      "pyobjc",
+      "six"
    	]
   },
   "sceptre": {

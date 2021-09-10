@@ -51,7 +51,7 @@ class Gtkx3 < Formula
       -Dintrospection=true
     ]
 
-    on_macos do
+    if OS.mac?
       args << "-Dquartz_backend=true"
       args << "-Dx11_backend=false"
     end

@@ -53,9 +53,7 @@ class MidnightCommander < Formula
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
-      inreplace share/"mc/syntax/Syntax", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin"
-    end
+    inreplace share/"mc/syntax/Syntax", HOMEBREW_SHIMS_PATH/"mac/super", "/usr/bin" if OS.mac?
   end
 
   test do

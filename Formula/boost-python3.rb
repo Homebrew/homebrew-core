@@ -46,14 +46,13 @@ class BoostPython3 < Formula
 
     pyver = Language::Python.major_minor_version Formula["python@3.9"].opt_bin/"python3"
     py_prefix = Formula["python@3.9"].opt_frameworks/"Python.framework/Versions/#{pyver}"
-    on_linux do
-      py_prefix = Formula["python@3.9"].opt_prefix
-    end
+    py_prefix = Formula["python@3.9"].opt_prefix if OS.linux?
 
     # Force boost to compile with the desired compiler
-    compiler_text = "using darwin : : #{ENV.cxx} ;"
-    on_linux do
-      compiler_text = "using gcc : : #{ENV.cxx} ;"
+    compiler_text = if OS.mac?
+      "using darwin : : #{ENV.cxx} ;"
+    else
+      "using gcc : : #{ENV.cxx} ;"
     end
     (buildpath/"user-config.jam").write <<~EOS
       #{compiler_text}

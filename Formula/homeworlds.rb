@@ -7,6 +7,10 @@ class Homeworlds < Formula
   license "BSD-2-Clause"
   revision 2
 
+  livecheck do
+    skip "No version information available to check"
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "3abc2449ee3237a932c4250e0c36dbf76de53babb12a6cdfaac8b08e19552c20"
     sha256 cellar: :any,                 big_sur:       "81327f370fe9de62e68197c054d5929788aa4b32731769b053d4ab893f0aa631"

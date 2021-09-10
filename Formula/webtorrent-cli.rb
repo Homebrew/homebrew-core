@@ -25,8 +25,13 @@ class WebtorrentCli < Formula
     modules_dir = libexec/"lib/node_modules"/name/"node_modules"
     modules_dir.glob("*/prebuilds/{win32-,linux-arm}*").map(&:rmtree)
 
-    arch_to_remove = Hardware::CPU.intel? ? "arm64" : "x64"
-    on_linux { arch_to_remove = "*" }
+    arch_to_remove = if OS.linux?
+      "*"
+    elsif Hardware::CPU.intel?
+      "arm64"
+    else
+      "x64"
+    end
     modules_dir.glob("*/prebuilds/darwin-#{arch_to_remove}").map(&:rmtree)
   end
 

@@ -22,9 +22,7 @@ class Cconv < Formula
   depends_on "libtool" => :build
 
   def install
-    on_macos do
-      ENV.append "LDFLAGS", "-liconv"
-    end
+    ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     system "autoreconf", "-fvi"
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"

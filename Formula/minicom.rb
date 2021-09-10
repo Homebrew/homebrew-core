@@ -22,9 +22,7 @@ class Minicom < Formula
 
   def install
     # There is a silly bug in the Makefile where it forgets to link to iconv. Workaround below.
-    on_macos do
-      ENV["LIBS"] = "-liconv"
-    end
+    ENV["LIBS"] = "-liconv" if OS.mac?
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

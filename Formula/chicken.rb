@@ -30,12 +30,10 @@ class Chicken < Formula
       ARCH=x86-64
     ]
 
-    on_macos do
+    if OS.mac?
       args << "POSTINSTALL_PROGRAM=install_name_tool"
       args << "PLATFORM=macosx"
-    end
-
-    on_linux do
+    else
       args << "PLATFORM=linux"
     end
 

@@ -59,13 +59,11 @@ class R < Formula
       "--with-cairo",
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--without-x"
       args << "--with-aqua"
-    end
-
-    on_linux do
-      args << "--libdir=#{lib}" # avoid using lib64 on CentOS
+    else
+      c args << "--libdir=#{lib}" # avoid using lib64 on CentOS
 
       # Avoid references to homebrew shims
       args << "LD=ld"
@@ -110,10 +108,7 @@ class R < Formula
     lib.install_symlink Dir[r_home/"lib/*"]
 
     # avoid triggering mandatory rebuilds of r when gcc is upgraded
-    check_replace = true
-    on_linux do
-      check_replace = false
-    end
+    check_replace = OS.mac?
     inreplace lib/"R/etc/Makeconf", Formula["gcc"].prefix.realpath,
                                     Formula["gcc"].opt_prefix,
                                     check_replace

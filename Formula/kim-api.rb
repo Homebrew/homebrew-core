@@ -42,11 +42,10 @@ class KimApi < Formula
       "-DBASH_COMPLETION_COMPLETIONSDIR=#{bash_completion}",
     ]
     # adjust compiler settings for package
-    on_macos do
+    if OS.mac?
       args << "-DKIM_API_CMAKE_C_COMPILER=/usr/bin/clang"
       args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/clang++"
-    end
-    on_linux do
+    else
       args << "-DKIM_API_CMAKE_C_COMPILER=/usr/bin/gcc"
       args << "-DKIM_API_CMAKE_CXX_COMPILER=/usr/bin/g++"
     end

@@ -1,31 +1,33 @@
 class Traefik < Formula
   desc "Modern reverse proxy"
   homepage "https://traefik.io/"
-  url "https://github.com/traefik/traefik/releases/download/v2.5.1/traefik-v2.5.1.src.tar.gz"
-  sha256 "46e60fbab64c5ba87517caf83431149f7d076e8d6674a72a18c789672014a1a1"
+  url "https://github.com/traefik/traefik/releases/download/v2.5.2/traefik-v2.5.2.src.tar.gz"
+  sha256 "dc3cfeca6ac7d9c1eb520d9eb1ca2687afa132ee4c2439e39e0760723f128d6f"
   license "MIT"
   head "https://github.com/traefik/traefik.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "b7a7c73fb7c2e249e1b718e0ab1d383f56db368862d9faf035c54dd0b5e69b87"
-    sha256 cellar: :any_skip_relocation, big_sur:       "e7d9cc1fd4d3b8c1ddbbaa1080a455d0e577708cad0fdca9790241a4c08aa154"
-    sha256 cellar: :any_skip_relocation, catalina:      "6b0bcb17a65d47e5936a4a58b633c460025d22f2e17760d53573ad394f90cc3c"
-    sha256 cellar: :any_skip_relocation, mojave:        "f64ca71fd8267ed416f6037af23f774ec4af98b51a186eebb9c6d9158eb1425d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cc6a36449a23f333e02b1ea4bf7d6cb5220d58f662a64a7008fcefc56943ca4d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ecb4867cc888c871b89f87f462c9c118d3aaf17b8f9a62add9ad378599f8fc5a"
+    sha256 cellar: :any_skip_relocation, big_sur:       "1f53a074aa6ff575be96aec04efc5b1cf2495820a54eb05d46e3d305ff47a07c"
+    sha256 cellar: :any_skip_relocation, catalina:      "62f476f37872685676d29e0494bfb5cf6497f539f52b6c6742fc48a4c08a33c5"
+    sha256 cellar: :any_skip_relocation, mojave:        "a9302a157809a477dbb56c20b4625cbabc2d527ae2222cc255299f13cfdb8c58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30800a2c69601817d72e5abe32b19af3670599548b8ad2360f74c9b89572f3ad"
   end
 
   depends_on "go" => :build
   depends_on "go-bindata" => :build
 
   def install
+    ldflags = %W[
+      -s -w
+      -X github.com/traefik/traefik/v#{version.major}/pkg/version.Version=#{version}
+    ].join(" ")
     system "go", "generate"
-    system "go", "build",
-      "-ldflags", "-s -w -X github.com/traefik/traefik/v#{version.major}/pkg/version.Version=#{version}",
-      "-trimpath", "-o", bin/"traefik", "./cmd/traefik"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/traefik"
   end
 
   service do
-    run [opt_bin/"traefik", "--configfile=#{etc/"traefik/traefik.toml"}"]
+    run [opt_bin/"traefik", "--configfile=#{etc}/traefik/traefik.toml"]
     keep_alive false
     working_dir var
     log_path var/"log/traefik.log"

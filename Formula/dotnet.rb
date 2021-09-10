@@ -38,9 +38,7 @@ class Dotnet < Formula
   fails_with :gcc
 
   def install
-    on_linux do
-      ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib
-    end
+    ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib if OS.linux?
 
     # Arguments needed to not artificially time-limit downloads from Azure.
     # See the following GitHub issue comment for details:

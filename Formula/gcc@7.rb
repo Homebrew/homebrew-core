@@ -76,7 +76,7 @@ class GccAT7 < Formula
       "--disable-nls",
     ]
 
-    on_macos do
+    if OS.mac?
       args << "--build=x86_64-apple-darwin#{OS.kernel_version}"
       args << "--with-system-zlib"
 
@@ -93,9 +93,7 @@ class GccAT7 < Formula
       # Ensure correct install names when linking against libgcc_s;
       # see discussion in https://github.com/Homebrew/homebrew/pull/34303
       inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
-    end
-
-    on_linux do
+    else
       # Fix Linux error: gnu/stubs-32.h: No such file or directory.
       args << "--disable-multilib"
 
@@ -108,11 +106,9 @@ class GccAT7 < Formula
       system "../configure", *args
 
       system "make"
-      on_macos do
+      if OS.mac?
         system "make", "install"
-      end
-
-      on_linux do
+      else
         system "make", "install-strip"
       end
     end
@@ -133,7 +129,7 @@ class GccAT7 < Formula
   end
 
   def post_install
-    on_linux do
+    if OS.linux?
       gcc = bin/"gcc-#{version_suffix}"
       libgcc = Pathname.new(Utils.safe_popen_read(gcc, "-print-libgcc-file-name")).parent
       raise "command failed: #{gcc} -print-libgcc-file-name" if $CHILD_STATUS.exitstatus.nonzero?

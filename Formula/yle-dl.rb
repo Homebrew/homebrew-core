@@ -11,6 +11,7 @@ class YleDl < Formula
     sha256 cellar: :any_skip_relocation, big_sur:       "374da8b0a09e1b48725341aad408fbd483cee68d8b1f747119650c5f4ea7c7c2"
     sha256 cellar: :any_skip_relocation, catalina:      "131c2664663464e07f059d7dbad05599fc30322a3923916c1bc914fe3a523eba"
     sha256 cellar: :any_skip_relocation, mojave:        "9d18878bc755d839901e9431e27dc0913ab28881c66b8dc93361106bc3623cc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1625aad885be75572725cd9e8b13443b319af28f75094ca11f6bc3786e357e22"
   end
 
   depends_on "ffmpeg"

@@ -1,19 +1,20 @@
 class StructurizrCli < Formula
   desc "Command-line utility for Structurizr"
   homepage "https://structurizr.com"
-  url "https://github.com/structurizr/cli/releases/download/v1.12.0/structurizr-cli-1.12.0.zip"
-  sha256 "69c3995531256282e0da7c366e87dd7dc84f4c07ce70760736e4ed0d6001c347"
+  url "https://github.com/structurizr/cli/releases/download/v1.13.0/structurizr-cli-1.13.0.zip"
+  sha256 "f40385ab5b06428ba07bb4a7d19aaf90ae8e54a70716bfcb2236084e60c43c9f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "19c83b765192bf327a88de77a1b3d711feec832b390751ad45f00008d87af804"
+    sha256 cellar: :any_skip_relocation, all: "577c63bd2b048a11b1a33764323cb5175ad4c68a2b2fc097cba355c6d20f4409"
   end
 
   depends_on "openjdk"
 
   def install
-    libexec.install "structurizr-cli-#{version}.jar"
-    bin.write_jar_script libexec/"structurizr-cli-#{version}.jar", "structurizr-cli"
+    rm_f Dir["*.bat"]
+    libexec.install Dir["*"]
+    (bin/"structurizr-cli").write_env_script libexec/"structurizr.sh", Language::Java.overridable_java_home_env
   end
 
   test do

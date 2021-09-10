@@ -41,11 +41,11 @@ class Aide < Formula
       --sysconfdir=#{etc}
       --prefix=#{prefix}
     ]
-    on_macos do
-      args << "--with-curl"
-    end
-    on_linux do
-      args << "--with-curl=" + Formula["curl"].prefix
+
+    args << if OS.mac?
+      "--with-curl"
+    else
+      "--with-curl=#{Formula["curl"].prefix}"
     end
 
     system "./configure", *args

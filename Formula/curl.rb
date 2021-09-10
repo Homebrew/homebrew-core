@@ -61,12 +61,10 @@ class Curl < Formula
       --without-libpsl
     ]
 
-    on_macos do
-      args << "--with-gssapi"
-    end
-
-    on_linux do
-      args << "--with-gssapi=#{Formula["krb5"].opt_prefix}"
+    args << if OS.mac?
+      "--with-gssapi"
+    else
+      "--with-gssapi=#{Formula["krb5"].opt_prefix}"
     end
 
     system "./configure", *args

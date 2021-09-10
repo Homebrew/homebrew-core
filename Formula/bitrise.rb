@@ -1,16 +1,16 @@
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/1.47.2.tar.gz"
-  sha256 "f4847a9f864492364085005e3288ceb0a917616cc19230915c903028d1d06cf3"
+  url "https://github.com/bitrise-io/bitrise/archive/1.48.0.tar.gz"
+  sha256 "0800d63eaca091f6570e227dec26560483ed6c74ea43558781fb717b5dfbdb42"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ef7aaf94c060b3d2f2e528d58ba566e41dbcd3e169e997d798b9d9a395d38884"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f84b6aac91c201586f7fee7320bda16245c0059bb07839d8bd9129fbcd09ba4d"
-    sha256 cellar: :any_skip_relocation, catalina:      "201164203fa6dd3877110538b3195a31a5aa60b731de5312d6689406cf87b653"
-    sha256 cellar: :any_skip_relocation, mojave:        "6da13e00379086989793cd50e3f5bd44ccd2c42355568ee807448efccdcd9543"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "117812c8112334d6aa34951b2836d5c22a7e573cd847d6a62fee5c46186097ae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "973602302d6b4270875e82c41709f8cfe4171a3bd53c271ce69a199d524f3aa6"
+    sha256 cellar: :any_skip_relocation, big_sur:       "7b200d18f14e18e611c3fc9a98a6c1ef656f85d2f8d4df75f9d98c8a77067762"
+    sha256 cellar: :any_skip_relocation, catalina:      "5f7902cce52a17241873c3a172e018bd874dfb28f9159a838aa6f48cc3100704"
+    sha256 cellar: :any_skip_relocation, mojave:        "746b543d056b120d00af803f2170be17b3648c5fc7f8e100aa1d367817b3cf50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1609e537cca0ea8a5452b30eeeae470d8663f7942e2fc28b7e72c518d7bee9df"
   end
 
   depends_on "go" => :build

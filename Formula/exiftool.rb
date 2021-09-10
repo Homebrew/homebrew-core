@@ -14,12 +14,15 @@ class Exiftool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "f15d7e3cbd2a3cb5b233798dce5a9fb51538c099f640b4d44cbbe8023dfca843"
-    sha256 cellar: :any_skip_relocation, big_sur:       "8e727af23046739b711bd75afeec7ca4e5853b2a7999c7f972f3c4c0daab3c0a"
-    sha256 cellar: :any_skip_relocation, catalina:      "336b0ba051cc4f11b07c2b307dc7199f973f8c5f10d2dd9a3fbd33bb7d707bf5"
-    sha256 cellar: :any_skip_relocation, mojave:        "336b0ba051cc4f11b07c2b307dc7199f973f8c5f10d2dd9a3fbd33bb7d707bf5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "451d3581ac54e5b552b9ae6517e9e6d3d78f068e23ed0431200d6d9be814a2f8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "95b4d728377c063ff92c7a9b3fe3562bfa2cf6193aaf69bc4e168a5574228c4c"
+    sha256 cellar: :any_skip_relocation, big_sur:       "43726e8ab33280185f1444d05bf3517c8dbca843d6989122624054ec53ed96fb"
+    sha256 cellar: :any_skip_relocation, catalina:      "8ca86536d8310a0526a3c086196f545a200d338e1ba1bb906d7a7a2efa4b248b"
+    sha256 cellar: :any_skip_relocation, mojave:        "8ca86536d8310a0526a3c086196f545a200d338e1ba1bb906d7a7a2efa4b248b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d55c401cc6b9ea4bb8940684661341366f2c7876e0b4efc51cf2c477bc4970f8"
   end
+
+  uses_from_macos "perl"
 
   def install
     # replace the hard-coded path to the lib directory
@@ -30,11 +33,7 @@ class Exiftool < Formula
     libexec.install "lib"
     bin.install "exiftool"
     doc.install Dir["html/*"]
-    suffix = ""
-    on_linux do
-      suffix = "p"
-    end
-    man1.install "blib/man1/exiftool.1#{suffix}"
+    man1.install "blib/man1/exiftool.1"
     man3.install Dir["blib/man3/*"]
   end
 

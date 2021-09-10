@@ -1,8 +1,9 @@
 class Tnftp < Formula
   desc "NetBSD's FTP client"
   homepage "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/"
-  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20200705.tar.gz"
-  sha256 "ba4a92b693d04179664524eef0801c8eed4447941c9855f377f98f119f221c03"
+  url "https://ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftp-20210827.tar.gz"
+  sha256 "101901e90b656c223ec8106370dd0d783fb63d26aa6f0b2a75f40e86a9f06ea2"
+  license "BSD-4-Clause"
 
   livecheck do
     url :homepage
@@ -10,12 +11,11 @@ class Tnftp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "2c00086b60c543402f12b51611e17cf27d22c1488b1770c0653dcfafa0804569"
-    sha256 cellar: :any_skip_relocation, big_sur:       "f66f2de23252bca8e6ce5073adff9e86a0c928548b5a5c3cd2ea12f3a702d389"
-    sha256 cellar: :any_skip_relocation, catalina:      "1411f5fe465b0952891ff141431a5d09140c7d53bb3cf689054a2580bd1031fc"
-    sha256 cellar: :any_skip_relocation, mojave:        "ae4beaa65c5f258152fefeeaa196c9e2d70cf3bda2af4e387ddcf807476c7401"
-    sha256 cellar: :any_skip_relocation, high_sierra:   "900f2ece9b7a6a9edd0d96dc6c061ef6380c0fc99177119e73db65e5d8c012e0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "41370171f86ffd6f700cc06b3110c587444253dc136c86813a1eeafd0d5988e2"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "70ef6eb17e9644707e16b95e69d9515ed73b8d5e1b965d0d44b8c16e9d36bca4"
+    sha256 cellar: :any_skip_relocation, big_sur:       "543c3b1220913421326418f4fb346cf76332bedc7d5f5e19d4e02e6653833387"
+    sha256 cellar: :any_skip_relocation, catalina:      "10fc0ee307e739bc3a0f617167fe6027cf37573efd47a555239599e226c7e8b7"
+    sha256 cellar: :any_skip_relocation, mojave:        "0bb7b548299599ad06fb746a00a4bc3df48bff90615280c3786d5a0ca04a4089"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9afa6b6d747eea6fa479010921972e5479c1238c5ccd209f75852d83775c6bc4"
   end
 
   uses_from_macos "bison" => :build

@@ -2,16 +2,16 @@ class Argo < Formula
   desc "Get stuff done with container-native workflows for Kubernetes"
   homepage "https://argoproj.io"
   url "https://github.com/argoproj/argo-workflows.git",
-      tag:      "v3.1.8",
-      revision: "0df0f3a98fac4e2aa5bc02213fb0a2ccce9a682a"
+      tag:      "v3.1.9",
+      revision: "e4f6bcb02f10bea5c76f2f91ff223b8a380b4557"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "1f8b04699e665a8252fd500761064b36bb1e2fbbf73160b388ba3256c029aed5"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c9346a5334135ac40dafef1661ce1164b1f2dbf176c45c21241af79825c2c607"
-    sha256 cellar: :any_skip_relocation, catalina:      "b67cda110eb285caa8c1474614234c80c55c6eb5c57c20da8000da099a36cb68"
-    sha256 cellar: :any_skip_relocation, mojave:        "b02666cee25d2195ee17c17d20ea5e15d22eed985018569c3f584cc7e52390d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e68dcff03fee6597f6f1dec9c103f3cc90c404ed74667d05ff38021c24c69c4e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d793b915df94a12b1361a68dbdf17dee92a316953425c83e027808ae8db97efd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "92e1a838957c75a5d4357f52ee8f6f80f2d086598d2447df0e938f46b82050af"
+    sha256 cellar: :any_skip_relocation, catalina:      "0e8fcf0cc099c4ea8466e7e7c0aa5bc56a0f95d91ce21c3caaa28fe86e6583bb"
+    sha256 cellar: :any_skip_relocation, mojave:        "12be3fae5a52b38ff6c42086fc35dce870e40e974719836dd53a2865843257c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8067a5d6464507cbc5ec48ca0f4169c3a55d4466e484505a19854a769ef4472b"
   end
 
   depends_on "go" => :build

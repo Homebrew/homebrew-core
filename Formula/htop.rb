@@ -34,7 +34,7 @@ class Htop < Formula
   def install
     system "./autogen.sh"
     args = ["--prefix=#{prefix}"]
-    on_linux { args << "--enable-sensors" }
+    args << "--enable-sensors" if OS.linux?
     system "./configure", *args
     system "make", "install"
   end

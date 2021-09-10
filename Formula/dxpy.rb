@@ -3,19 +3,20 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/22/70/4a155430c03c61ee4a95ec06699977354d4c2a05a972399e91aea6ed91d6/dxpy-0.313.0.tar.gz"
-  sha256 "e530b387ba2c0e800f104b7725ab20b82feff034f7c1554a093e9d1dd582bee4"
+  url "https://files.pythonhosted.org/packages/f1/d4/fbcd6fa1f6b2f3b80c02d4198f6ab7065b7430e231826e8ad09f7053166d/dxpy-0.314.0.tar.gz"
+  sha256 "2a8a40822d33f957ba10c5ce0db5036d03f2372d2e62e7831b183f0693397547"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "4c34fce778cc109ec6699ab32870983961dbc6c0974809b0a3abf7f102425d30"
-    sha256 cellar: :any,                 big_sur:       "cf2083955ba48ca901b2213cc3fc2173a9c77684c77c3fd2a9832428a05222a9"
-    sha256 cellar: :any,                 catalina:      "61fd1dde60044864d4a2466cf43e004b5a0bf201b5b0a4b2c2562dae212894e5"
-    sha256 cellar: :any,                 mojave:        "b5d50e3bc19db5beeb3cd203a68d858896053eab6cb9ad13031a20893695f9cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0b1bb968d83e64a570cd77955f9f40056342cf618f1fac0aa4483fbd8408e50b"
+    sha256 cellar: :any,                 arm64_big_sur: "45094e233a4063ca1a1ca26766a07f853d3db6e78e5feef33bbe28a43cf5721d"
+    sha256 cellar: :any,                 big_sur:       "bdcf7989ae35a3e591911eadc1989a956605d168834edd7b9a66a23a435b95c4"
+    sha256 cellar: :any,                 catalina:      "7cbd05e7d808d92298ea2dcf6a093714a155bf2c14c8a1fa575b3a9d6969dc8a"
+    sha256 cellar: :any,                 mojave:        "12ccfe7744cccf7f9f15817c0ede0a2d43a82e50935356f80c95cb5c23b0ea88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d59dfcb311f7a46e67b532aa2cf2ea0c0926e91bfcdfe45176ed45f9543df661"
   end
 
   depends_on "python@3.9"
+  depends_on "six"
 
   on_macos do
     depends_on "readline"
@@ -74,11 +75,6 @@ class Dxpy < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/f5/4f/280162d4bd4d8aad241a21aecff7a6e46891b905a4341e7ab549ebaf7915/requests-2.23.0.tar.gz"
     sha256 "b3f43d496c6daba4493e7c431722aeb7dbc6288f52a6e04e7b6023b0247817e6"
-  end
-
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do

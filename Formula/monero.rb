@@ -2,10 +2,9 @@ class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/"
   url "https://github.com/monero-project/monero.git",
-      tag:      "v0.17.2.0",
-      revision: "f6e63ef260e795aacd408c28008398785b84103a"
+      tag:      "v0.17.2.3",
+      revision: "2222bea92fdeef7e6449d2d784cdfc3012641ee1"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -13,12 +12,11 @@ class Monero < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_big_sur: "d9cfe133eaae8416ad9584d1ba44c90988637c7cab623debae8d06e503ad4f3a"
-    sha256 cellar: :any,                 big_sur:       "48b8e19c8db0fd8a8b1b5b3d1f376b43b62497d7be38b1ccdafbf6b5a22da8d6"
-    sha256 cellar: :any,                 catalina:      "52f133890b8bf7f44025ce97aa18608b9bb9ebcaadc26be7563f1a3c8638f475"
-    sha256 cellar: :any,                 mojave:        "21e5deea5fcd08facc7bc6c39f4da5ecdcdf6e5237f1316c6f445039d485bfe7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a33b53d07e5296bab8922573e57ea126be9ff0d033f99dc0064a97dd957dbb4e"
+    sha256 cellar: :any,                 arm64_big_sur: "13245ecf80fad0038bef6dedd713f9e97ef64c7d3985bc68dd4a8597646b4059"
+    sha256 cellar: :any,                 big_sur:       "bad7e328cceef655c092f5555e16a92c4c8841fc93ad8152058327be3bf8625d"
+    sha256 cellar: :any,                 catalina:      "b416b9387fd77c4b8041864c590b233d1dc6645e3a6cca6c23ba7bf233b16d3c"
+    sha256 cellar: :any,                 mojave:        "64fa20b4cf46cc810fd8aae3b28adaa346ba0f223a196489311eab03870df2fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d43bb2f040234a457f756d77ed4f6f596115fadd1189071e2a32f570d14ac233"
   end
 
   depends_on "cmake" => :build
@@ -33,10 +31,6 @@ class Monero < Formula
   depends_on "zeromq"
 
   conflicts_with "wownero", because: "both install a wallet2_api.h header"
-
-  # Boost 1.76 compatibility
-  # https://github.com/loqs/monero/commit/5e902e5e32c672661dfe5677c4a950c4dd409198
-  patch :DATA
 
   def install
     system "cmake", ".", *std_cmake_args
@@ -62,18 +56,3 @@ class Monero < Formula
     assert_equal address, shell_output(cmd).lines.last.split[1]
   end
 end
-
-__END__
-diff --git a/contrib/epee/include/storages/portable_storage.h b/contrib/epee/include/storages/portable_storage.h
-index 1e68605ab..801bb2c34 100644
---- a/contrib/epee/include/storages/portable_storage.h
-+++ b/contrib/epee/include/storages/portable_storage.h
-@@ -40,6 +40,8 @@
- #include "span.h"
- #include "int-util.h"
-
-+#include <boost/mpl/contains.hpp>
-+
- namespace epee
- {
-   namespace serialization

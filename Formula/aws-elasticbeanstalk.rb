@@ -3,16 +3,16 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/15/fc/87f335e95d661987e795595a6ca33b9ba6770e2ad0f0f328dff3227400c4/awsebcli-3.20.1.tar.gz"
-  sha256 "5f550266596531dadaec6632d3e68c41e64e71f9a5589ae78ee3b5d3b3a3b5a6"
+  url "https://files.pythonhosted.org/packages/f9/98/03bdafa884371e353d46c78b8fde72519b0f3848b408c300fa1ec13e1264/awsebcli-3.20.2.tar.gz"
+  sha256 "1621066fbb304d05fd26d99f2e12184d39f379ccd18bd76842440d7c9a892a29"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "84fd2fab25293fc32a516d09a2b303b12ba9b2eaa4f5ff3ebc0f288875e9f67e"
-    sha256 cellar: :any,                 big_sur:       "ccb43ea50d866f79d91c73bbdf8efb8cbf31278523d2b58a714e44e9295b38d4"
-    sha256 cellar: :any,                 catalina:      "1461407d2368a673b7a06a5634ccfe235a4246b10bd5f268b817beec9270a20f"
-    sha256 cellar: :any,                 mojave:        "788c78f3dac5e1753c2e47589b0b0aa2b9f404047a027e7e44473c9ea22b636e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bca3ee0c99d33e06dfafe45b415f8a87dd70e28bd5adf949c1d92d1c9b0af416"
+    sha256 cellar: :any,                 arm64_big_sur: "0a9434783b2399114e66fbf5e6a4daf786bc37e238211c1fc07b8026d2ee9edc"
+    sha256 cellar: :any,                 big_sur:       "ad9774c8bfc5399f5b47449172b31c7b411a3f0436867cc47be11457ca71021f"
+    sha256 cellar: :any,                 catalina:      "a850d7dbcd7259ed1a2cb91d8cd985a33c2b275c70261cbd697e6228eb442abe"
+    sha256 cellar: :any,                 mojave:        "f9f54c8860fb268234226784ba6e2d6e86c603a908de7e4146d2102819d1871c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d274a381d9d23111660b9aaa8b5ef5d588804882075669d52cd2cc0cce3635c3"
   end
 
   depends_on "rust" => :build
@@ -40,8 +40,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/98/a8/7ee850d68b13987f6a7b03f524d58853ee286b75edf3c89d255fa2bd3049/botocore-1.21.19.tar.gz"
-    sha256 "7dce88db827e9b5c88701c978df00742c854d2b751fbda8db7656fb9a571afc5"
+    url "https://files.pythonhosted.org/packages/2b/ce/685b8f3091fd8bff0770090a789d48caf3cb21a4ab66a6011bedebfbbaa3/botocore-1.21.34.tar.gz"
+    sha256 "ec2cdf1c8ed64a7f392f352125d248c76103fa9d137b275b7c76836776cedf56"
   end
 
   resource "cached-property" do
@@ -75,8 +75,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "docker" do
@@ -180,8 +180,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/76/d9/bbbafc76b18da706451fa91bc2ebe21c0daf8868ef3c30b869ac7cb7f01d/urllib3-1.25.11.tar.gz"
-    sha256 "8d7eaa5a82a1cac232164990f04874c594c9453ec55eef02eab885aa02fc17a2"
+    url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
+    sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
   end
 
   resource "wcwidth" do

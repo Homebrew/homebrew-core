@@ -1,18 +1,17 @@
 class Datree < Formula
   desc "CLI tool to run policies against Kubernetes manifests YAML files or Helm charts"
   homepage "https://www.datree.io/"
-  url "https://github.com/datreeio/datree/archive/0.7.1.tar.gz"
-  sha256 "5a17495e60e7748d236af16a56485138d2e10bd769b7779033d0eb37e6f90fb7"
+  url "https://github.com/datreeio/datree/archive/0.12.1.tar.gz"
+  sha256 "a4ccfd31ef2df7833248627e768f93f3fbb61928e7be8f2288712f189a8908c6"
   license "Apache-2.0"
   head "https://github.com/datreeio/datree.git", branch: "staging"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03cd690be4f19f8995b8db44af2c65667fc047687dc0a72db80bfb95b452ffc3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "4556847bcbc60fdacc323a8c832a02eeba10b0ab01497adde6bdd15df273fdbe"
-    sha256 cellar: :any_skip_relocation, catalina:      "6d59313778325f28d6858f7e36b578ba8d27c19f2809e9df6f1b2e709010c879"
-    sha256 cellar: :any_skip_relocation, mojave:        "1c00134b785c2204486e3d926f70d959f891e131bbc366ab527d2ee581928618"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e9cfb7e62cb37f850c1d607fe91a55dbfc95a615742efeb2909fd827297ff5b1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d3dfeacb6d4db33ee1e7dc6e578c8f79fe05dab6a096cd09b6c1bddb860a8629"
+    sha256 cellar: :any_skip_relocation, big_sur:       "b33f71addc4f2b5897ac1d354ec02ed22152386b1bba8430b1c418d65bb922ed"
+    sha256 cellar: :any_skip_relocation, catalina:      "97f14aafe5fb6f6a6812572b22ad45214662dc9cd914ef883191cdba15e4ce8a"
+    sha256 cellar: :any_skip_relocation, mojave:        "fad3fc1f81349d70436f95e8e3b81c07e6b22fb01f526400b211d337ba522532"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8a707f4af82fdff4ed3583a125071f01ece704828c5de5f961f0b6ec73daffc"
   end
 
   depends_on "go" => :build
@@ -36,7 +35,7 @@ class Datree < Formula
             targetPort: 9376
     EOS
 
-    assert_match "k8s schema validation error: error while parsing: missing 'apiVersion' key",
+    assert_match "k8s schema validation error: For field (root): Additional property apiversion is not allowed",
       shell_output("#{bin}/datree test #{testpath}/invalidK8sSchema.yaml 2>&1", 1)
 
     assert_equal "#{version}\n", shell_output("#{bin}/datree version")

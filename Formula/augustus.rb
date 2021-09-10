@@ -48,7 +48,7 @@ class Augustus < Formula
     system "make", "clean"
 
     cd "src" do
-      on_macos do
+      if OS.mac?
         # Clang breaks proteinprofile on macOS. This issue has been first reported
         # to upstream in 2016 (see https://github.com/nextgenusfs/funannotate/issues/3).
         # See also https://github.com/Gaius-Augustus/Augustus/issues/64
@@ -56,8 +56,7 @@ class Augustus < Formula
         with_env("HOMEBREW_CC" => Formula["gcc"].opt_bin/"gcc-#{gcc_major_ver}") do
           system "make"
         end
-      end
-      on_linux do
+      else
         system "make"
       end
     end

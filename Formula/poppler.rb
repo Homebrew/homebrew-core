@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-21.08.0.tar.xz"
-  sha256 "e9cf5dc5964bce4bb0264d1c4f8122706c910588b421cfc30abc97d6b23e602d"
+  url "https://poppler.freedesktop.org/poppler-21.09.0.tar.xz"
+  sha256 "5a47fef738c2b99471f9b459a8bf8b40aefb7eed92caa4861c3798b2e126d05b"
   license "GPL-2.0-only"
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
@@ -12,10 +12,10 @@ class Poppler < Formula
   end
 
   bottle do
-    sha256 arm64_big_sur: "4592c1f6c567a0a215ee65d5c7cfdac73467ba735069e47f565297eafac41e36"
-    sha256 big_sur:       "c858c4d7c4f31b1a5a80ffdaa9307070eaa5bfb3b3b6877f75bc35c628d5d94d"
-    sha256 catalina:      "af05e6a724134f9069503f347b19774ad78a0244afe9a01370d24e73087de05c"
-    sha256 mojave:        "e8ceee29d278124f4c8fc015f772088ab631bb7b7bc2415e39515daf03b60463"
+    sha256 arm64_big_sur: "1dd6f10a72ad0f63afef4f7d408446a173a8c7a305a419a11e80c6495c6f17bd"
+    sha256 big_sur:       "ac1bbd7709dd6cccbfced46079c03a775c3981b467ee087255fb9f8f1fce4ec0"
+    sha256 catalina:      "831a96471fe69af4d86767d162c24c6cb43184229bbe5915105970f9f2b9c6a6"
+    sha256 mojave:        "0366441466951432fb7ccebb1cf4a213f858b7ccee3743ad5b05dbe822f43319"
   end
 
   depends_on "cmake" => :build
@@ -41,8 +41,8 @@ class Poppler < Formula
     because: "poppler, pdftohtml, pdf2image, and xpdf install conflicting executables"
 
   resource "font-data" do
-    url "https://poppler.freedesktop.org/poppler-data-0.4.10.tar.gz"
-    sha256 "6e2fcef66ec8c44625f94292ccf8af9f1d918b410d5aa69c274ce67387967b30"
+    url "https://poppler.freedesktop.org/poppler-data-0.4.11.tar.gz"
+    sha256 "2cec05cd1bb03af98a8b06a1e22f6e6e1a65b1e2f3816cb3069bb0874825f08c"
   end
 
   def install
@@ -71,7 +71,7 @@ class Poppler < Formula
       system "make", "install", "prefix=#{prefix}"
     end
 
-    on_macos do
+    if OS.mac?
       libpoppler = (lib/"libpoppler.dylib").readlink
       [
         "#{lib}/libpoppler-cpp.dylib",

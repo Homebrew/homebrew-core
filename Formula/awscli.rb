@@ -6,25 +6,25 @@ class Awscli < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/aws/aws-cli/archive/2.2.32.tar.gz"
-    sha256 "d772c4f926f7886ea6331110eb9c7d467f83afd292c1f58bd3a8859c74bb8305"
+    url "https://github.com/aws/aws-cli/archive/2.2.37.tar.gz"
+    sha256 "3a71e4efd262c3c61e6991e3e0ddb8b180ddf3027e1d2ed56c4dedfac51fead3"
 
     # Botocore v2 is not available on PyPI and version commits are not tagged. One way to update:
     # 1. Get `botocore` version at https://github.com/aws/aws-cli/blob/#{version}/setup.py
     # 2. Get commit matching version at https://github.com/boto/botocore/commits/v2
     resource "botocore" do
-      url "https://github.com/boto/botocore/archive/3c0c177e4a98adb05fc96b4a4af2287051476512.tar.gz"
-      sha256 "a1959f95063070388a4fb8204fb1ec086ca65dea1d1b4ec22edcf079de6b13f9"
-      version "2.0.0dev140"
+      url "https://github.com/boto/botocore/archive/981292a6fe9826c0675ae61c025dd93039e30aa6.tar.gz"
+      sha256 "2d5ebbb7343d15f15f2174838ca99eee9f97266d75533def1c47a28d9ba25fcd"
+      version "2.0.0dev145"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "52fc24afbcdfba1d8e4c665bdaee9743d74e4a337592e8f83f7103372be67f97"
-    sha256 cellar: :any,                 big_sur:       "aa9a43d5a7e28a2b714ca2d69d738288ec504d2d857a86ee72b39ba9385f3863"
-    sha256 cellar: :any,                 catalina:      "162cdb6a3509416b74bc327ede9ce2974d7b1b7ece069d9a5bec3e10f93d6fae"
-    sha256 cellar: :any,                 mojave:        "d33dfebf3bae3c221067df1c9c2e61cda98b7f415497d36f2e90d4c11f5fc822"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a8c35ccafe16158653d476e92378d376155d197abe246cb2a72a654ada337518"
+    sha256 cellar: :any,                 arm64_big_sur: "4e6bf964c04b641e89811c6197f93ad1f9aa3ff6cf826a4ea685ead138b3cdb5"
+    sha256 cellar: :any,                 big_sur:       "5f07df400e3aaed34846dd9cbf891581207ba310955289a1cd67cdc455816535"
+    sha256 cellar: :any,                 catalina:      "25d661130171b7002d7e94b1721fcc29610d7d6810d2bfeccb649561aa98dc81"
+    sha256 cellar: :any,                 mojave:        "b420089bd7daa04dee3f77d55994019dcd2937151ef36e281c17a967930eaa07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0f83da7bc50a982d67cb47377f9a5cc27796d08412974a81c065c038cf616d07"
   end
 
   head do
@@ -123,7 +123,7 @@ class Awscli < Formula
     # This causes installation to fail while running `scripts/gen-ac-index` with error:
     # ImportError: _awscrt.cpython-39-x86_64-linux-gnu.so: undefined symbol: EVP_CIPHER_CTX_init
     # As workaround, add relative path to local libcrypto.a before openssl's so it gets picked.
-    on_linux do
+    if OS.linux?
       ENV.prepend "CFLAGS", "-I./build/deps/install/include"
       ENV.prepend "LDFLAGS", "-L./build/deps/install/lib"
     end

@@ -15,6 +15,7 @@ class Freeciv < Formula
     sha256 big_sur:       "fa1955a0573dfabfb99742ca216f2caad95053e5909975990504097063ff239f"
     sha256 catalina:      "e93e825aebcb5c046e1b8114a366d8010f9e30a35120543327dbb7f14303cd75"
     sha256 mojave:        "5365cbee42fe93a79db42fe7d1f9690f523090d9b612ef5f508a70ed83063179"
+    sha256 x86_64_linux:  "4da618352125e2a2fbe8a2567ca18e8ac55271a0c2e244a000b7f72867ebb620"
   end
 
   head do
@@ -44,7 +45,6 @@ class Freeciv < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "curl"
-  uses_from_macos "libiconv"
   uses_from_macos "zlib"
 
   def install

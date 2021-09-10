@@ -78,7 +78,7 @@ class MariadbAT104 < Formula
       -DCOMPILATION_COMMENT=Homebrew
     ]
 
-    on_linux do
+    if OS.linux?
       args << "-DWITH_NUMA=OFF"
       args << "-DENABLE_DTRACE=NO"
       args << "-DCONNECT_WITH_JDBC=OFF"

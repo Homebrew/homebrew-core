@@ -51,7 +51,7 @@ class Libressl < Formula
   end
 
   def post_install
-    on_macos do
+    if OS.mac?
       ohai "Regenerating CA certificate bundle from keychain, this may take a while..."
 
       keychains = %w[

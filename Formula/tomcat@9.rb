@@ -5,13 +5,14 @@ class TomcatAT9 < Formula
   mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.52/bin/apache-tomcat-9.0.52.tar.gz"
   sha256 "29909c659fda7a2e06be17684a1fadbbae9ed4cdecf8077c4ede1c34e4d4a631"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "27567a8e9d0ddf80ec197734b2f5047c8e075992b6e47b5a805dd2581f59c5df"
+    sha256 cellar: :any_skip_relocation, all: "56afed5cda654fc655930293d5a1a36c9fa2b1e3b67cf93a70cc3d6851e621e7"
   end
 
   keg_only :versioned_formula
@@ -24,8 +25,19 @@ class TomcatAT9 < Formula
 
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
+
+    pkgetc.install Dir["conf/*"]
+    (buildpath/"conf").rmdir
+    libexec.install_symlink pkgetc => "conf"
+
     libexec.install Dir["*"]
     (bin/"catalina").write_env_script "#{libexec}/bin/catalina.sh", JAVA_HOME: Formula["openjdk"].opt_prefix
+  end
+
+  def caveats
+    <<~EOS
+      Configuration files: #{pkgetc}
+    EOS
   end
 
   service do

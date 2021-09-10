@@ -38,10 +38,10 @@ class Ccextractor < Formula
     # Multiple source files reference these dependencies with non-standard #include paths
     ENV["EXTRA_INCLUDE"] = "-I#{Formula["leptonica"].include} -I#{Formula["protobuf-c"].include/"protobuf-c"}"
 
-    platform = "mac"
-    build_script = "./build.command"
-
-    on_linux do
+    if OS.mac?
+      platform = "mac"
+      build_script = "./build.command"
+    else
       platform = "linux"
       build_script = "./build"
     end

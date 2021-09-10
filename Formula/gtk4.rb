@@ -48,7 +48,7 @@ class Gtk4 < Formula
       -Dbuild-tests=false
     ]
 
-    on_macos do
+    if OS.mac?
       args << "-Dx11-backend=false"
       args << "-Dmacos-backend=true"
       args << "-Dprint-cups=disabled" if MacOS.version <= :mojave

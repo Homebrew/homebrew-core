@@ -65,15 +65,11 @@ class Liquidctl < Formula
 
     man_page = buildpath/"liquidctl.8"
     # setting the is_macos register to 1 adjusts the man page for macOS
-    on_macos do
-      inreplace man_page, ".nr is_macos 0", ".nr is_macos 1"
-    end
+    inreplace man_page, ".nr is_macos 0", ".nr is_macos 1" if OS.mac?
     man.mkpath
     man8.install man_page
 
-    on_linux do
-      (lib/"udev/rules.d").install Dir["extra/linux/*.rules"]
-    end
+    (lib/"udev/rules.d").install Dir["extra/linux/*.rules"] if OS.linux?
   end
 
   test do

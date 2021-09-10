@@ -20,9 +20,10 @@ class SourceToImage < Formula
 
   def install
     system "hack/build-go.sh"
-    os = "darwin"
-    on_linux do
-      os = "linux"
+    os = if OS.mac?
+      "darwin"
+    else
+      "linux"
     end
     arch = Hardware::CPU.arm? ? "arm64" : "amd64"
     bin.install "_output/local/bin/#{os}/#{arch}/s2i"

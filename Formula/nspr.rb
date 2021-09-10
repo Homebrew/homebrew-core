@@ -32,7 +32,7 @@ class Nspr < Formula
       ]
       system "./configure", *args
 
-      on_macos do
+      if OS.mac?
         # Remove the broken (for anyone but Firefox) install_name
         inreplace "config/autoconf.mk", "-install_name @executable_path/$@ ", "-install_name #{lib}/$@ "
       end

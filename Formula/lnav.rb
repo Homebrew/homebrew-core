@@ -20,7 +20,7 @@ class Lnav < Formula
   end
 
   head do
-    url "https://github.com/tstack/lnav.git"
+    url "https://github.com/tstack/lnav.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -33,7 +33,7 @@ class Lnav < Formula
   depends_on "sqlite"
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"

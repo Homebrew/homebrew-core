@@ -14,6 +14,7 @@ class Jmxtrans < Formula
   end
 
   depends_on "maven" => :build
+  depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 
   uses_from_macos "netcat" => :test

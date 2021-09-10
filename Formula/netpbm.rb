@@ -3,8 +3,8 @@ class Netpbm < Formula
   homepage "https://netpbm.sourceforge.io/"
   # Maintainers: Look at https://sourceforge.net/p/netpbm/code/HEAD/tree/
   # for stable versions and matching revisions.
-  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4115"
-  version "10.86.23"
+  url "https://svn.code.sf.net/p/netpbm/code/stable", revision: "4127"
+  version "10.86.24"
   license "GPL-3.0-or-later"
   version_scheme 1
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
@@ -16,11 +16,11 @@ class Netpbm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "c74da6cd3cb1b4c4784a5ba42e02ea8d180ecd4e1f5a9d82b42667a98a3399c2"
-    sha256 cellar: :any,                 big_sur:       "f5605104b1fa90e59ca88ea2b9a780a504038fefb442d16018ac893dc59b77ed"
-    sha256 cellar: :any,                 catalina:      "a67c2bf374e40b9d93df420694fdffbbc8edd2b47396e4898ed0f846522c784f"
-    sha256 cellar: :any,                 mojave:        "c3b062ff7a14d95563eac4d0efeb4b63487e0f4cb1729ced49f96d781cfca115"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e737ad6ae0225ef84557604272d03bf0b784c22470101174803100039a0ae42"
+    sha256 cellar: :any,                 arm64_big_sur: "13c3e1f37b7e9760615c2d3de988a5c17713e3a2da93b589af381927255d8435"
+    sha256 cellar: :any,                 big_sur:       "2bf9486c562e3a6e4443e02a69d9f996d1fed964926172ba8f4dbadf736e5e98"
+    sha256 cellar: :any,                 catalina:      "4c613179e8a6199a4322a6ce615ad69980f23cb8f66e193c3c0882627913075c"
+    sha256 cellar: :any,                 mojave:        "533236f8c8f5a7337054c45a864f408e3954de1e3cb53d372f4c83f481e06b07"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "564649351a63309424bf4fab76f0a85fcc6ae7a966f797f0a47e06139824426a"
   end
 
   depends_on "jasper"
@@ -50,14 +50,12 @@ class Netpbm < Formula
       s.change_make_var! "JASPERLIB", "-ljasper"
       s.change_make_var! "JASPERHDR_DIR", "#{Formula["jasper"].opt_include}/jasper"
 
-      on_macos do
+      if OS.mac?
         s.change_make_var! "CFLAGS_SHLIB", "-fno-common"
         s.change_make_var! "NETPBMLIBTYPE", "dylib"
         s.change_make_var! "NETPBMLIBSUFFIX", "dylib"
         s.change_make_var! "LDSHLIB", "--shared -o $(SONAME)"
-      end
-
-      on_linux do
+      else
         s.change_make_var! "CFLAGS_SHLIB", "-fPIC"
       end
     end

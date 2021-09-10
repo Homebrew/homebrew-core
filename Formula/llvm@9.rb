@@ -105,7 +105,7 @@ class LlvmAT9 < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-extra-tools")
     (buildpath/"projects/openmp").install resource("openmp")
     (buildpath/"projects/libcxx").install resource("libcxx")
-    on_linux { (buildpath/"projects/libcxxabi").install resource("libcxxabi") }
+    (buildpath/"projects/libcxxabi").install resource("libcxxabi") if OS.linux?
     (buildpath/"projects/libunwind").install resource("libunwind")
     (buildpath/"tools/lld").install resource("lld")
     (buildpath/"tools/lldb").install resource("lldb")
@@ -145,7 +145,7 @@ class LlvmAT9 < Formula
       args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
     end
 
-    on_macos do
+    if OS.mac?
       args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if MacOS.version <= :mojave
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
@@ -155,7 +155,7 @@ class LlvmAT9 < Formula
       args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
     end
 
-    on_linux do
+    if OS.linux?
       args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
@@ -197,8 +197,11 @@ class LlvmAT9 < Formula
     man1.install_symlink share/"clang/tools/scan-build/man/scan-build.1"
 
     # install llvm python bindings
-    xz = "2.7"
-    on_linux { xz = "3.8" }
+    xz = if OS.mac?
+      "2.7"
+    else
+      "3.8"
+    end
     (lib/"python#{xz}/site-packages").install buildpath/"bindings/python/llvm"
     (lib/"python#{xz}/site-packages").install buildpath/"tools/clang/bindings/python/clang"
 
@@ -241,7 +244,7 @@ class LlvmAT9 < Formula
       "-nobuiltininc",
       "-I#{lib}/clang/#{clean_version}/include",
     ]
-    on_linux { args << "-Wl,-rpath=#{lib}" }
+    args << "-Wl,-rpath=#{lib}" if OS.linux?
 
     system "#{bin}/clang", *args, "omptest.c", "-o", "omptest", *ENV["LDFLAGS"].split
     testresult = shell_output("./omptest")
@@ -276,7 +279,7 @@ class LlvmAT9 < Formula
     # Testing default toolchain and SDK location.
     system "#{bin}/clang++", "-v",
            "-std=c++11", "test.cpp", "-o", "test++"
-    on_macos { assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" }
+    assert_includes MachO::Tools.dylibs("test++"), "/usr/lib/libc++.1.dylib" if OS.mac?
     assert_equal "Hello World!", shell_output("./test++").chomp
     system "#{bin}/clang", "-v", "test.c", "-o", "test"
     assert_equal "Hello World!", shell_output("./test").chomp

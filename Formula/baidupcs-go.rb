@@ -1,18 +1,17 @@
 class BaidupcsGo < Formula
   desc "Terminal utility for Baidu Network Disk"
   homepage "https://github.com/qjfoidnh/BaiduPCS-Go"
-  url "https://github.com/qjfoidnh/BaiduPCS-Go/archive/v3.8.2.tar.gz"
-  sha256 "65d5482bc2a82cb244b978b8e1369bd5b1c429afce74651e5aea28e057a78ae3"
+  url "https://github.com/qjfoidnh/BaiduPCS-Go/archive/v3.8.3.tar.gz"
+  sha256 "1799a64595cb820f62be8a62f0a2969c589eea4175b7b25d0b8712ec836c5632"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/qjfoidnh/BaiduPCS-Go.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "ab0f77eb1c036df0c798fe404fcfbbf4919b043a29e803a51fa7de93aeefaee8"
-    sha256 cellar: :any_skip_relocation, big_sur:       "11426ff36ab774794e844b72f85ee13da426cf300655b38b0b67cce572ea7bb5"
-    sha256 cellar: :any_skip_relocation, catalina:      "f96e86c63f91472cf89dc1ed3958de237d40e052a0dee38720f86daf42fef430"
-    sha256 cellar: :any_skip_relocation, mojave:        "6e1905f5bf03d51f68b548555534ec4c066020c0e15a70d4c20e28fe2005734c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "605ec0cf0919d1b84402d4a082477212c9e8de4d22ec1b82844795ee327452b0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "5965e0e90da8f9382fb7454360ba78da1f383807e717f79a11bb8a9d707901e7"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c68293ae2a856aed1da5ee21b407fbf7d7e1d50b1561e3db39d41720d6362e3e"
+    sha256 cellar: :any_skip_relocation, catalina:      "b4ddc705d96d8e25d257d46cb5ebf08316baece09ea00c6c74b381165271cee6"
+    sha256 cellar: :any_skip_relocation, mojave:        "5d18d7f7865b9dcdb2479d2b7ed834c7b1117ffcbb3be042df27895b04295d39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f748bfb0574bc693e73647191aa84c3e13d099612e29240b73904d7c3ba66bf6"
   end
 
   depends_on "go" => :build

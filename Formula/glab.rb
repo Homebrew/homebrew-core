@@ -17,7 +17,7 @@ class Glab < Formula
   depends_on "go" => :build
 
   def install
-    on_macos { ENV["CGO_ENABLED"] = "1" }
+    ENV["CGO_ENABLED"] = "1" if OS.mac?
 
     system "make", "GLAB_VERSION=#{version}"
     bin.install "bin/glab"

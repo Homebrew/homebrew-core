@@ -11,6 +11,7 @@ class Cmus < Formula
     sha256 big_sur:       "39c4a5d3220e312651d65e83987f9deb6671a15229a268c050edbfe43ea259b2"
     sha256 catalina:      "b08d0e0bde83d0dd8bffdbb68e93c0a56675460ac5c7d89c0f734c8e9ef75cca"
     sha256 mojave:        "068793d374ba393662864da1a542a1bf036508bbd02ee9ac17249694ec93f5d2"
+    sha256 x86_64_linux:  "2c089a54101cd2868df2d2312bdb0fe771a66492884baffc9ea1070854aeea1a"
   end
 
   depends_on "pkg-config" => :build

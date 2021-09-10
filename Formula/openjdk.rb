@@ -72,9 +72,7 @@ class Openjdk < Formula
   def install
     boot_jdk = Pathname.pwd/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
-    on_macos do
-      boot_jdk /= "Contents/Home"
-    end
+    boot_jdk /= "Contents/Home" if OS.mac?
     java_options = ENV.delete("_JAVA_OPTIONS")
 
     args = %W[
@@ -95,7 +93,7 @@ class Openjdk < Formula
     ]
 
     framework_path = nil
-    on_macos do
+    if OS.mac?
       args += %W[
         --enable-dtrace
         --with-extra-ldflags=-headerpad_max_install_names
@@ -117,9 +115,7 @@ class Openjdk < Formula
           "--with-extra-ldflags=-arch arm64 -F#{framework_path}",
         ]
       end
-    end
-
-    on_linux do
+    else
       args += %W[
         --with-x=#{HOMEBREW_PREFIX}
         --with-cups=#{HOMEBREW_PREFIX}
@@ -133,7 +129,7 @@ class Openjdk < Formula
     ENV["MAKEFLAGS"] = "JOBS=#{ENV.make_jobs}"
     system "make", "images"
 
-    on_macos do
+    if OS.mac?
       jdk = Dir["build/*/images/jdk-bundle/*"].first
       libexec.install jdk => "openjdk.jdk"
       bin.install_symlink Dir[libexec/"openjdk.jdk/Contents/Home/bin/*"]
@@ -150,9 +146,7 @@ class Openjdk < Formula
         # Replace Apple signature by ad-hoc one (otherwise relocation will break it)
         system "codesign", "-f", "-s", "-", dest/"Versions/A/JavaNativeFoundation"
       end
-    end
-
-    on_linux do
+    else
       libexec.install Dir["build/linux-x86_64-server-release/images/jdk/*"]
       bin.install_symlink Dir[libexec/"bin/*"]
       include.install_symlink Dir[libexec/"include/*.h"]

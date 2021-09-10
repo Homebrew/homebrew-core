@@ -16,6 +16,7 @@ class Itk < Formula
     sha256 big_sur:       "b7b30cd49b92cfcbd05404a4d0a592f3623f122354a82e458d5ee01ac2f9aa73"
     sha256 catalina:      "2e87abe07201cd013ac9535b02f3a012e79b049327d5ecc6ff015b1752c0a7f8"
     sha256 mojave:        "d2020a7710d5b42d0d833ff04ee2d821ff8080f34c8d2d00a86feaa39f6dfa25"
+    sha256 x86_64_linux:  "c848dd47f4c45a3def027fac4d9b640f554ceb3ef97e35e6f2d45b3e44f8a73c"
   end
 
   depends_on "cmake" => :build
@@ -29,8 +30,13 @@ class Itk < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "gcc"
     depends_on "unixodbc"
+
+    ignore_missing_libraries "libjvm.so"
   end
+
+  fails_with gcc: "5"
 
   def install
     args = std_cmake_args + %W[
@@ -55,8 +61,9 @@ class Itk < Formula
       -DITK_LEGACY_REMOVE=ON
       -DModule_ITKReview=ON
       -DModule_ITKVtkGlue=ON
-      -DITK_USE_GPU=ON
     ]
+
+    args << "-DITK_USE_GPU=ON" if OS.mac?
 
     # Avoid references to the Homebrew shims directory
     inreplace "Modules/Core/Common/src/CMakeLists.txt" do |s|
@@ -95,10 +102,10 @@ class Itk < Formula
     system ENV.cxx, "-std=c++11", "-isystem", "#{include}/ITK-#{v}", "-o", "test.cxx.o", "-c", "test.cxx"
     # Linking step
     system ENV.cxx, "-std=c++11", "test.cxx.o", "-o", "test",
-                    "#{lib}/libITKCommon-#{v}.1.dylib",
-                    "#{lib}/libITKVNLInstantiation-#{v}.1.dylib",
-                    "#{lib}/libitkvnl_algo-#{v}.1.dylib",
-                    "#{lib}/libitkvnl-#{v}.1.dylib"
+                    shared_library("#{lib}/libITKCommon-#{v}", 1),
+                    shared_library("#{lib}/libITKVNLInstantiation-#{v}", 1),
+                    shared_library("#{lib}/libitkvnl_algo-#{v}", 1),
+                    shared_library("#{lib}/libitkvnl-#{v}", 1)
     system "./test"
   end
 end

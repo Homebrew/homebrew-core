@@ -33,9 +33,7 @@ class Hidapi < Formula
     system "make", "install"
 
     # hidtest/.libs/hidtest does not exist for Linux, install it for macOS only
-    on_macos do
-      bin.install "hidtest/.libs/hidtest"
-    end
+    bin.install "hidtest/.libs/hidtest" if OS.mac?
   end
 
   test do

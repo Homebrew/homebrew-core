@@ -46,7 +46,7 @@ class Sysdig < Formula
       -DUSE_BUNDLED_DEPS=OFF
       -DCREATE_TEST_TARGETS=OFF
     ]
-    on_linux { args << "-DBUILD_DRIVER=OFF" }
+    args << "-DBUILD_DRIVER=OFF" if OS.linux?
 
     mkdir "build" do
       system "cmake", "..", *args

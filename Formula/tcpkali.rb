@@ -14,11 +14,14 @@ class Tcpkali < Formula
     sha256 cellar: :any_skip_relocation, sierra:        "f73513ed96b6436085e0941865f0cc4fd2ce1009a1d8770c740e8e97d5173cf1"
     sha256 cellar: :any_skip_relocation, el_capitan:    "2d0075b2fca885fb694660a3914362030be255c8e3dfed407bb8ca96c996bbf7"
     sha256 cellar: :any_skip_relocation, yosemite:      "71573c4926d086721c028e73d9812475fe3a58bd8313a43ef9c6a54918334760"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ae1230bcf9879d1d8f09d5e0a3b80c9baf7f59c2bfa77a296a06ed6a821d5be7"
   end
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "ncurses"
+
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

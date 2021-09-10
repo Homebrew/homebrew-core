@@ -26,6 +26,8 @@ class Rbenv < Formula
       s.gsub! ":/usr/local/etc/rbenv.d", ":#{HOMEBREW_PREFIX}/etc/rbenv.d\\0" if HOMEBREW_PREFIX.to_s != "/usr/local"
     end
 
+    inreplace "libexec/rbenv-rehash", "$(command -v rbenv)", opt_bin/"rbenv"
+
     # Compile optional bash extension.
     system "src/configure"
     system "make", "-C", "src"
@@ -41,6 +43,22 @@ class Rbenv < Formula
   end
 
   test do
-    shell_output("eval \"$(#{bin}/rbenv init -)\" && rbenv versions")
+    # Create a fake ruby version and executable.
+    rbenv_root = Pathname(shell_output("rbenv root").strip)
+    ruby_bin = rbenv_root/"versions/1.2.3/bin"
+    foo_script = ruby_bin/"foo"
+    foo_script.write "echo hello"
+    chmod "+x", foo_script
+
+    # Test versions.
+    versions = shell_output("eval \"$(#{bin}/rbenv init -)\" && rbenv versions").split("\n")
+    assert_equal 2, versions.length
+    assert_match(/\* system/, versions[0])
+    assert_equal("  1.2.3", versions[1])
+
+    # Test rehash.
+    system "rbenv", "rehash"
+    refute_match "Cellar", (rbenv_root/"shims/foo").read
+    assert_equal "hello", shell_output("eval \"$(#{bin}/rbenv init -)\" && rbenv shell 1.2.3 && foo").chomp
   end
 end

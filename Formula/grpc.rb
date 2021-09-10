@@ -3,8 +3,7 @@ class Grpc < Formula
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
       tag:      "v1.39.1",
-      revision: "2d6b8f61cfdd1c4d2d7c1aae65a4fbf00e3e0981",
-      shallow:  false
+      revision: "2d6b8f61cfdd1c4d2d7c1aae65a4fbf00e3e0981"
   license "Apache-2.0"
   head "https://github.com/grpc/grpc.git"
 
@@ -45,9 +44,7 @@ class Grpc < Formula
 
   def install
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
-    on_macos do
-      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1100
-    end
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
     mkdir "cmake/build" do
       args = %W[
         ../..
@@ -79,7 +76,7 @@ class Grpc < Formula
       bin.install "grpc_cli"
       lib.install Dir[shared_library("libgrpc++_test_config", "*")]
 
-      on_macos do
+      if OS.mac?
         # These are installed manually, so need to be relocated manually as well
         MachO::Tools.add_rpath(bin/"grpc_cli", rpath)
         MachO::Tools.add_rpath(lib/shared_library("libgrpc++_test_config"), rpath)

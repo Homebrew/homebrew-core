@@ -51,9 +51,7 @@ class RubyAT26 < Formula
       --with-opt-dir=#{paths.join(":")}
       --without-gmp
     ]
-    on_macos do
-      args << "--disable-dtrace" unless MacOS::CLT.installed?
-    end
+    args << "--disable-dtrace" if OS.mac? && !MacOS::CLT.installed?
 
     # Correct MJIT_CC to not use superenv shim
     args << "MJIT_CC=/usr/bin/#{DevelopmentTools.default_compiler}"

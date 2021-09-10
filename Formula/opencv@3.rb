@@ -11,6 +11,7 @@ class OpencvAT3 < Formula
     sha256 big_sur:       "df1ce3ce64bbd0e8b790d0932876dc6a790280092ec7c6ca614b9d25ef8f3cab"
     sha256 catalina:      "cc67ea4247db82ae722367f4270ebe9471ae0d1161930e29967bfac4e192d481"
     sha256 mojave:        "8a17a24dd94d203f5f4a7e8da30a67cdd44785250fe254143ae578d624c5dd34"
+    sha256 x86_64_linux:  "81eed5a7269665c2c812d7e0aae3567f1e75fe699982d5ade4860fd1fa79da46"
   end
 
   keg_only :versioned_formula
@@ -88,9 +89,10 @@ class OpencvAT3 < Formula
     end
 
     mkdir "build" do
-      os = "mac"
-      on_linux do
-        os = "linux"
+      os = if OS.mac?
+        "mac"
+      else
+        "linux"
       end
       system "cmake", "..", *args
       inreplace "modules/core/version_string.inc", "#{HOMEBREW_SHIMS_PATH}/#{os}/super/", ""

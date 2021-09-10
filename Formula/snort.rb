@@ -1,19 +1,18 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/3.1.10.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.1.10.0.tar.gz"
-  sha256 "6bd1c2c243ff69f9222aee6fb5d48998c7e24acaa4d2349115af324f9810bb01"
+  url "https://github.com/snort3/snort3/archive/3.1.12.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.1.12.0.tar.gz"
+  sha256 "767c8987ddefbb6be18e340d1cefd15cc3de09fb37e5d4adf438cb12b56762b9"
   license "GPL-2.0-only"
-  revision 1
   head "https://github.com/snort3/snort3.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "75c1886602ba92de7e259863ed2a51c6d052a50b224674370015b4002da87bed"
-    sha256 cellar: :any,                 big_sur:       "3d14db3d6a83c80857b430d2729816bd46f799056e8269974e7460f63a26135c"
-    sha256 cellar: :any,                 catalina:      "c6e210b20cc622800df9af6c2f0356f4b432d9c784334f0f54bc785951f42fd0"
-    sha256 cellar: :any,                 mojave:        "c36e66231f8dc03504662da1070228c818383f40e218802d918a7d7d211e13fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ecf7ae6223cb676119e0f0ac1d6fa12b70ecf5089ed2edf08fd71f047f33e407"
+    sha256 cellar: :any,                 arm64_big_sur: "3378719337ee90938e61c5d453e34362037a258c16702229797eb68a54122a22"
+    sha256 cellar: :any,                 big_sur:       "d4e6becc84fb994925e6495b6830c9f766d660d634a92dbc0bc43266f65a06c2"
+    sha256 cellar: :any,                 catalina:      "09e072fa6338598fef1cd6a21b799c9f0f19796a88a9258d6025a560a533caa5"
+    sha256 cellar: :any,                 mojave:        "4e13be31513a7b1bcdf27fe90a68beeff0e0dbd44120d3a288e99ca4c24e87f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7698ae40590d6d6ca18163b7cb91f820083653fa167a6f93063410cf0f1ef6cd"
   end
 
   depends_on "cmake" => :build

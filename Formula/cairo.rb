@@ -59,11 +59,7 @@ class Cairo < Formula
       --enable-xlib
       --enable-xlib-xrender
     ]
-    on_macos do
-      args += %w[
-        --enable-quartz-image
-      ]
-    end
+    args << "--enable-quartz-image" if OS.mac?
 
     if build.head?
       ENV["NOCONFIGURE"] = "1"

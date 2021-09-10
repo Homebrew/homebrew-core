@@ -6,11 +6,12 @@ class Mailcatcher < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_big_sur: "886937a559985918c13c1b1e20725805228c502bdac5d584d35e42a48413a2a6"
-    sha256                               big_sur:       "175d33b300625d0e2ac4dbf63d6d7c12c3f05d620e0dfd1f16797b94ed2ebcba"
-    sha256                               catalina:      "60c806b04e43ab4cc3172cb7bd5b1d8709ae76454fd6f9041d04cd59d8f6c237"
-    sha256                               mojave:        "34da0d86540d8995cdc9ccfef8178da7745a043e529f24898cee6991be541c12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "dbb2d1622c4043d3093abba9de45ed3dfbb6cbe01615936f6b4e9cc32a8be8e9"
+    rebuild 1
+    sha256                               arm64_big_sur: "6e1c1a2648d208d664a3c80533a895e4ad2fddb0f89cd8076a99ed52f7216fbe"
+    sha256                               big_sur:       "f66c059ff505ac51846dd6a749e9b76a3f734b603e620d0612a00ae834bb9ad7"
+    sha256                               catalina:      "30ab2a3c7040c47eaf0463fb98ca112eb78eeadcb5330363e80388ea1c5e0816"
+    sha256                               mojave:        "508b814f8c365c9cb0cf0fcdd94eecdb4cfc4bda6a9e165082c10304b558bec8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "99095d3f11a9228cf71d4f9a4e29eebf6f13390c60591321964c1bb5e12af1f3"
   end
 
   depends_on "pkg-config" => :build
@@ -124,6 +125,13 @@ class Mailcatcher < Formula
     system "gem", "install", "--ignore-dependencies", "#{name}-#{version}.gem"
     bin.install libexec/"bin"/name, libexec/"bin/catchmail"
     bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV["GEM_HOME"])
+  end
+
+  service do
+    run [opt_bin/"mailcatcher", "-f"]
+    log_path var/"log/mailcatcher.log"
+    error_log_path var/"log/mailcatcher.log"
+    keep_alive true
   end
 
   test do

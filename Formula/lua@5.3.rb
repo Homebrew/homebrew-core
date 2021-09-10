@@ -43,7 +43,7 @@ class LuaAT53 < Formula
   end
 
   def install
-    on_linux do
+    if OS.linux?
       # Fix: /usr/bin/ld: lapi.o: relocation R_X86_64_32 against `luaO_nilobject_' can not be used
       # when making a shared object; recompile with -fPIC
       # See http://www.linuxfromscratch.org/blfs/view/cvs/general/lua.html
@@ -53,9 +53,7 @@ class LuaAT53 < Formula
     # Substitute formula prefix in `src/Makefile` for install name (dylib ID).
     # Use our CC/CFLAGS to compile.
     inreplace "src/Makefile" do |s|
-      on_macos do
-        s.gsub! "@LUA_PREFIX@", prefix
-      end
+      s.gsub! "@LUA_PREFIX@", prefix if OS.mac?
       s.remove_make_var! "CC"
       s.change_make_var! "CFLAGS", "#{ENV.cflags} -DLUA_COMPAT_5_2 $(SYSCFLAGS) $(MYCFLAGS)"
       s.change_make_var! "MYLDFLAGS", ENV.ldflags
@@ -64,36 +62,19 @@ class LuaAT53 < Formula
     # Fix path in the config header
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
-    os = "macosx"
-    on_linux do
-      os = "linux"
+    os = if OS.mac?
+      "macosx"
+    else
+      "linux"
     end
 
-    # We ship our own pkg-config file as Lua no longer provide them upstream.
     system "make", os, "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_INC=#{include}/lua", "INSTALL_MAN=#{man1}"
-    (lib/"pkgconfig/lua.pc").write pc_file
 
-    # Fix some software potentially hunting for different pc names.
-    bin.install_symlink "lua" => "lua#{version.major_minor}"
-    bin.install_symlink "lua" => "lua-#{version.major_minor}"
-    bin.install_symlink "luac" => "luac#{version.major_minor}"
-    bin.install_symlink "luac" => "luac-#{version.major_minor}"
-    (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
-    lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
-    (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
-    (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
-
-    on_linux do
-      lib.install Dir[shared_library("src/liblua", "*")]
-    end
-  end
-
-  def pc_file
+    # We ship our own pkg-config file as Lua no longer provide them upstream.
     libs = %W[-llua#{version.major_minor} -lm]
-    on_linux { libs << "-ldl" }
-
-    <<~EOS
+    libs << "-ldl" if OS.linux?
+    (lib/"pkgconfig/lua.pc").write <<~EOS
       V= #{version.major_minor}
       R= #{version}
       prefix=#{opt_prefix}
@@ -114,6 +95,18 @@ class LuaAT53 < Formula
       Libs: -L${libdir} #{libs.join(" ")}
       Cflags: -I${includedir}
     EOS
+
+    # Fix some software potentially hunting for different pc names.
+    bin.install_symlink "lua" => "lua#{version.major_minor}"
+    bin.install_symlink "lua" => "lua-#{version.major_minor}"
+    bin.install_symlink "luac" => "luac#{version.major_minor}"
+    bin.install_symlink "luac" => "luac-#{version.major_minor}"
+    (include/"lua#{version.major_minor}").install_symlink Dir[include/"lua/*"]
+    lib.install_symlink shared_library("liblua", version.major_minor) => shared_library("liblua#{version.major_minor}")
+    (lib/"pkgconfig").install_symlink "lua.pc" => "lua#{version.major_minor}.pc"
+    (lib/"pkgconfig").install_symlink "lua.pc" => "lua-#{version.major_minor}.pc"
+
+    lib.install Dir[shared_library("src/liblua", "*")] if OS.linux?
   end
 
   def caveats

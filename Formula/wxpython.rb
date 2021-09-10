@@ -44,7 +44,7 @@ class Wxpython < Formula
     inreplace "wscript", "MACOSX_DEPLOYMENT_TARGET = \"10.6\"",
                          "MACOSX_DEPLOYMENT_TARGET = \"#{MacOS.version}\""
 
-    on_macos do
+    if OS.mac?
       sdk = MacOS.sdk_path_if_needed
       ENV.append_to_cflags "-I#{sdk}/usr/include" if sdk
     end

@@ -1,17 +1,17 @@
 class NewrelicCli < Formula
   desc "Command-line interface for New Relic"
   homepage "https://github.com/newrelic/newrelic-cli"
-  url "https://github.com/newrelic/newrelic-cli/archive/v0.34.9.tar.gz"
-  sha256 "6f0b080afeb06cac2db3d9417ff94beb74f2ea0d3e6726cecd780829dbc0f043"
+  url "https://github.com/newrelic/newrelic-cli/archive/v0.34.35.tar.gz"
+  sha256 "16fb2ab299d3827fa829c298b532a401405ea3995bccc5b155a3ba002f476633"
   license "Apache-2.0"
   head "https://github.com/newrelic/newrelic-cli.git"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9646e1e23d606d5483fc314b0ded7a9cd7a3961ec84658cbfecda23eaaf9474d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "de2ecc8a4d4a22e86b696f1eab9dd50681cdb22880fcdc3244fd7f84674f0eed"
-    sha256 cellar: :any_skip_relocation, catalina:      "fb3bc88628b640af816a86bf147d43a027c0ff48eac25869ddd41483a8024d45"
-    sha256 cellar: :any_skip_relocation, mojave:        "6c51591365356da961501578e98444e597ba63878e3af90886fb3ffcfccdfc1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "af00f35e55af725b34b4e2de3ce151d4c4d5e8ef2d344475ab5f016a2c719633"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "646aaab6133f2fdda26a7af1c366aac13dc1662eaaea4c072fbcd3d930876e02"
+    sha256 cellar: :any_skip_relocation, big_sur:       "93773341a651b93fccf1fbb743a560d9ff216f99f8603c66c250e2711da9ffe3"
+    sha256 cellar: :any_skip_relocation, catalina:      "2694f6e8a260be4850e21db6e6cf57317ef5afbf7abbdb510d6e872d49d0252a"
+    sha256 cellar: :any_skip_relocation, mojave:        "47bef396643fcae498c4d677a0fdfbf525f46aded2c9c3b011bc6f9ead0948df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c4a9de1b93429baa9986363d92d0b4e6f5e1256375d9d150e084bcf91e4a742c"
   end
 
   depends_on "go" => :build
@@ -19,10 +19,9 @@ class NewrelicCli < Formula
   def install
     ENV["PROJECT_VER"] = version
     system "make", "compile-only"
-    on_macos do
+    if OS.mac?
       bin.install "bin/darwin/newrelic"
-    end
-    on_linux do
+    else
       bin.install "bin/linux/newrelic"
     end
 

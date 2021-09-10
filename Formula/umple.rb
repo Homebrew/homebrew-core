@@ -6,6 +6,12 @@ class Umple < Formula
   sha256 "686beb3c8aa3c0546f4a218dad353f4efce05aed056c59ccf3d5394747c0e13d"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/href=.*?umple[._-]v?(\d+(?:\.\d+)+(?:\.[\da-f]+)?)\.jar/i)
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b588ed54d528a7301c1450bd03a8651abcb88119e18dd9166631adf3143a2180"
     sha256 cellar: :any_skip_relocation, big_sur:       "b588ed54d528a7301c1450bd03a8651abcb88119e18dd9166631adf3143a2180"

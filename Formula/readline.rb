@@ -25,15 +25,11 @@ class Readline < Formula
 
   def install
     args = ["--prefix=#{prefix}"]
-    on_linux do
-      args << "--with-curses"
-    end
+    args << "--with-curses" if OS.linux?
     system "./configure", *args
 
     args = []
-    on_linux do
-      args << "SHLIB_LIBS=-lcurses"
-    end
+    args << "SHLIB_LIBS=-lcurses" if OS.linux?
     # There is no termcap.pc in the base system, so we have to comment out
     # the corresponding Requires.private line.
     # Otherwise, pkg-config will consider the readline module unusable.

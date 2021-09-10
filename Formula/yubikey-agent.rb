@@ -7,12 +7,12 @@ class YubikeyAgent < Formula
   head "https://github.com/FiloSottile/yubikey-agent.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "7d81c0d8715b152af95a5a9c2dbac4e36dff67ccb239762ce0652bf62c42b6e2"
-    sha256 cellar: :any_skip_relocation, big_sur:       "72e53fa5e93d5f872e0d462ea4f4195f34adf14782f74db0a718dbfb5059fbbc"
-    sha256 cellar: :any_skip_relocation, catalina:      "4e2c60b1ec376696a2a358b8fb21015007eeb35685b809a5053b529b62f3d31e"
-    sha256 cellar: :any_skip_relocation, mojave:        "af1777f69a0237dce8afcc0b0c7b729074636171fa8532fa991ced0239555b2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "431476cdf6aae6dfd45626977c0e0b2cc1ce35e9364ed068e7ba2a196ce3e442"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d00bf8d22edfe56f5352e59ff3c72d91e98dcf64d4acc3d1c7a5edbadd61402d"
+    sha256 cellar: :any_skip_relocation, big_sur:       "29df3472e1a5e57ed20f54cef3a5c4e87662e5c64f55338b01239741795447c3"
+    sha256 cellar: :any_skip_relocation, catalina:      "4e7259eeb5ddd924251e7c73f6ae6904804193e4fee4d49e95fc02f211d3ac2e"
+    sha256 cellar: :any_skip_relocation, mojave:        "bf031ee9b131fa3646b624bb6c84a0fc5b02f3abd6b693c5d5c488e58bb4e89c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cb43a6764a9caa2c39fba8bdd5ebe79c677923b004f8c2280213bb4afc298d17"
   end
 
   depends_on "go" => :build
@@ -24,8 +24,15 @@ class YubikeyAgent < Formula
     depends_on "pinentry"
   end
 
+  # Support go 1.17, remove when upstream patch is merged/released
+  # https://github.com/FiloSottile/yubikey-agent/pull/99
+  patch do
+    url "https://github.com/FiloSottile/yubikey-agent/commit/92e45828da1c33531f507625f41e3bdadfe3ee86.patch?full_index=1"
+    sha256 "605503152d3ea75072a98366994b65e4810c54e3dc690d8d47b9fb67ef47bd4d"
+  end
+
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-X main.Version=v#{version}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=v#{version}")
   end
 
   def post_install

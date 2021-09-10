@@ -37,13 +37,11 @@ class Binutils < Formula
     system "make"
     system "make", "install"
     bin.install_symlink "ld.gold" => "gold"
-    on_macos do
+    if OS.mac?
       Dir["#{bin}/*"].each do |f|
         bin.install_symlink f => "g" + File.basename(f)
       end
-    end
-
-    on_linux do
+    else
       # Reduce the size of the bottle.
       system "strip", *Dir[bin/"*", lib/"*.a"]
     end

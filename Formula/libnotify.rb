@@ -1,9 +1,9 @@
 class Libnotify < Formula
   desc "Library that sends desktop notifications to a notification daemon"
-  homepage "https://developer.gnome.org/libnotify"
+  homepage "https://gitlab.gnome.org/GNOME/libnotify"
   url "https://download.gnome.org/sources/libnotify/0.7/libnotify-0.7.9.tar.xz"
   sha256 "66c0517ed16df7af258e83208faaf5069727dfd66995c4bbc51c16954d674761"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
 
   # libnotify uses GNOME's "even-numbered minor is stable" version scheme but
   # we've been using a development version 0.7.x for many years, so we have to
@@ -19,6 +19,7 @@ class Libnotify < Formula
     sha256 cellar: :any, catalina:      "367a8d51cb565452392b9bc92c753ca641c23f91fc4ff93fb6166b63f2beafda"
     sha256 cellar: :any, mojave:        "e6d5a6a87f885bf421e6a70c9cef1c6aaf89db46a98216af6c06754246a8f896"
     sha256 cellar: :any, high_sierra:   "0560e601843a3e42a4823904dd5534212efd823292444a9588f1cf99ea8bc8f5"
+    sha256               x86_64_linux:  "3be2be401ff1fda07663fdeaf8929ca12b92fa136acfedc2a273b1abcd9438bd"
   end
 
   depends_on "docbook-xsl" => :build
@@ -67,8 +68,8 @@ class Libnotify < Formula
       -lgio-2.0
       -lglib-2.0
       -lgobject-2.0
-      -lintl
     ]
+    flags << "-lintl" if OS.mac?
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

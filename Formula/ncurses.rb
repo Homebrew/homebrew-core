@@ -35,9 +35,7 @@ class Ncurses < Formula
       "--with-gpm=no",
       "--without-ada",
     ]
-    on_linux do
-      args << "--with-terminfo-dirs=#{share}/terminfo:/etc/terminfo:/lib/terminfo:/usr/share/terminfo"
-    end
+    args << "--with-terminfo-dirs=#{share}/terminfo:/etc/terminfo:/lib/terminfo:/usr/share/terminfo" if OS.linux?
     system "./configure", *args
     system "make", "install"
     make_libncurses_symlinks

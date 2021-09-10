@@ -18,9 +18,7 @@ class Rclone < Formula
 
   def install
     args = *std_go_args
-    on_macos do
-      args += ["-tags", "brew"]
-    end
+    args += ["-tags", "brew"] if OS.mac?
     system "go", "build",
       "-ldflags", "-s -X github.com/rclone/rclone/fs.Version=v#{version}",
       *args

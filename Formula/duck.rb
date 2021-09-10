@@ -1,8 +1,8 @@
 class Duck < Formula
   desc "Command-line interface for Cyberduck (a multi-protocol file transfer tool)"
   homepage "https://duck.sh/"
-  url "https://dist.duck.sh/duck-src-7.10.1.35318.tar.gz"
-  sha256 "e268751603bce7f276b3173f9cffe6d9a76d34a07b9054937b53b0469e7e6b8e"
+  url "https://dist.duck.sh/duck-src-7.10.2.35432.tar.gz"
+  sha256 "8f5885799a10b0e06ed0587198dbecce63b08fa609778e84673b34faccfea40b"
   license "GPL-3.0-only"
   head "https://svn.cyberduck.io/trunk/"
 
@@ -12,10 +12,10 @@ class Duck < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:      "dd5f7f78271c1784a8590d86116c99636a55e7a8d3df3fdca246758674ce6781"
-    sha256 cellar: :any, catalina:     "d42483784fdf4bb40e04866c8c7408e0cdbb05ba814b6d670fe084a08ef9346b"
-    sha256 cellar: :any, mojave:       "8ed2983e9f6f6bafa745275942cb36509be96fc1ee5f4df4dfc28d2aa2494e76"
-    sha256               x86_64_linux: "804bcb26342882ce786ee11089675ebed666c54018ff83da4223af42828378ef"
+    sha256 cellar: :any, big_sur:      "b7bb41802a4fb208fb61f1d04ac52c6275e5d06f1cb950ef0057a400ef090251"
+    sha256 cellar: :any, catalina:     "21665b8a7d45aed16246274d5e7d85300784bb3a4e9876c07f977b3857db0189"
+    sha256 cellar: :any, mojave:       "d2ac998c80f2592acf099f4a5122241a0e56945f4e20297c6a434e77816d8d9f"
+    sha256               x86_64_linux: "b91907eaf9ad7d2f582e45e7754587cee4e7a2e659fb3e505c5f0cbb2a120095"
   end
 
   depends_on "ant" => :build
@@ -54,18 +54,17 @@ class Duck < Formula
   def install
     # Consider creating a formula for this if other formulae need the same library
     resource("jna").stage do
-      os = "mac"
       arch = "x86-64"
-      on_linux do
-        os = "Linux"
-      end
-
-      on_macos do
+      os = if OS.linux?
+        "Linux"
+      else
         # Add linker flags for libffi because Makefile call to pkg-config doesn't seem to work properly.
         inreplace "native/Makefile", "LIBS=", "LIBS=-L#{Formula["libffi"].opt_lib} -lffi"
         # Force shared library to have dylib extension on macOS instead of jnilib
         inreplace "native/Makefile", "LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(JNISFX)",
 "LIBRARY=$(BUILD)/$(LIBPFX)jnidispatch$(LIBSFX)"
+
+        "mac"
       end
 
       # Don't include directory with JNA headers in zip archive.  If we don't do this, they will be deleted
@@ -82,7 +81,7 @@ class Duck < Formula
         ENV["JAVA_HOME"] = Language::Java.java_home(Formula["openjdk"].version.major.to_s)
 
         # Fix zip error on macOS because libjnidispatch.dylib is not in file list
-        on_macos { inreplace "build.sh", "libjnidispatch.so", "libjnidispatch.so libjnidispatch.dylib" }
+        inreplace "build.sh", "libjnidispatch.so", "libjnidispatch.so libjnidispatch.dylib" if OS.mac?
         # Fix relative path in build script, which is designed to be run out extracted zip archive
         inreplace "build.sh", "cd native", "cd ../native"
 
@@ -92,7 +91,7 @@ class Duck < Formula
     end
 
     resource("JavaNativeFoundation").stage do
-      on_macos do
+      if OS.mac?
         cd "apple/JavaNativeFoundation" do
           xcodebuild "VALID_ARCHS=x86_64", "-project", "JavaNativeFoundation.xcodeproj"
           buildpath.install "build/Release/JavaNativeFoundation.framework"
@@ -100,7 +99,7 @@ class Duck < Formula
       end
     end
 
-    on_macos do
+    if OS.mac?
       xcconfig = buildpath/"Overrides.xcconfig"
       xcconfig.write <<~EOS
         OTHER_LDFLAGS = -headerpad_max_install_names
@@ -108,10 +107,9 @@ class Duck < Formula
       ENV["XCODE_XCCONFIG_FILE"] = xcconfig
     end
 
-    os = "osx"
-    on_linux do
-      os = "linux"
-
+    os = if OS.mac?
+      "osx"
+    else
       # This changes allow maven to build the cli/linux project as an appimage instead of an RPM/DEB.
       # This has been reported upstream at https://trac.cyberduck.io/ticket/11762#ticket.
       # It has been added the version 8 milestone.
@@ -122,6 +120,8 @@ class Duck < Formula
       inreplace "cli/linux/build.xml", "<arg value=\"&lt;feedback@cyberduck.io&gt;\"/>", ""
       inreplace "cli/linux/build.xml", "<arg value=\"--linux-rpm-license-type\"/>", ""
       inreplace "cli/linux/build.xml", "<arg value=\"GPL\"/>", ""
+
+      "linux"
     end
 
     revision = version.to_s.rpartition(".").last
@@ -130,13 +130,13 @@ class Duck < Formula
 
     libdir = libexec/"Contents/Frameworks"
     bindir = libexec/"Contents/MacOS"
-    on_macos do
+    if OS.mac?
       libexec.install Dir["cli/osx/target/duck.bundle/*"]
       rm_rf libdir/"JavaNativeFoundation.framework"
       libdir.install buildpath/"JavaNativeFoundation.framework"
     end
 
-    on_linux do
+    if OS.linux?
       libdir = libexec/"lib/app"
       bindir = libexec/"bin"
       libexec.install Dir["cli/linux/target/release/duck/*"]

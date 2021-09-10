@@ -40,17 +40,16 @@ class GnuTar < Formula
       --mandir=#{man}
     ]
 
-    on_macos do
-      args << "--program-prefix=g"
-    end
-    on_linux do
-      args << "--without-selinux"
+    args << if OS.mac?
+      "--program-prefix=g"
+    else
+      "--without-selinux"
     end
     system "./bootstrap" if build.head?
     system "./configure", *args
     system "make", "install"
 
-    on_macos do
+    if OS.mac?
       # Symlink the executable into libexec/gnubin as "tar"
       (libexec/"gnubin").install_symlink bin/"gtar" =>"tar"
       (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"

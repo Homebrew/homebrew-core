@@ -1,8 +1,8 @@
 class Tintin < Formula
   desc "MUD client"
   homepage "https://tintin.mudhalla.net/"
-  url "https://github.com/scandum/tintin/releases/download/2.02.11/tintin-2.02.11.tar.gz"
-  sha256 "b39289ef1e26d2f5b7f7e33f70bcd894060c95dd96c157bb976f063c59a8b1f5"
+  url "https://github.com/scandum/tintin/releases/download/2.02.12/tintin-2.02.12.tar.gz"
+  sha256 "b6f9fd4f2c1e7cdc8cff4172d7a80014961b0394380ced9182209dc34d781a00"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,20 +11,15 @@ class Tintin < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "07e798401b8b564e0a73800dcbf7838db211fc7206e678da8f62e40c6317e284"
-    sha256 cellar: :any,                 big_sur:       "75d0d24c05851877e7542fca80f3e254cc8c4502946a6cc09b2cfd9cab6a94ae"
-    sha256 cellar: :any,                 catalina:      "9a9660684f30f8263a4d3502af6cc0fd6d78d088404cd4804813cf0fd6b19d13"
-    sha256 cellar: :any,                 mojave:        "5f4883e59f5d48c351fb8c0db259dd026a0aa8c456c3ddbec349793c651f6220"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "97c74f2c3121c0abd0d108af6d058eb96c94197be091b87b1e6f23f426bca1f1"
+    sha256 cellar: :any,                 arm64_big_sur: "73d0bbde0e88409ccc7a46c0aea1df8fd50c627f35d9e90fe3f2fa9d2c07467b"
+    sha256 cellar: :any,                 big_sur:       "a2c52474736bbf2789f2595d045b9257c92fd547d8943ed023fc14d99e96cd52"
+    sha256 cellar: :any,                 catalina:      "38f0217f785c1218c73f2dfd066d27e551d6f4930108a8b69524b5f11b19010e"
+    sha256 cellar: :any,                 mojave:        "23d1eaf2dd6b6a14b167353b6edcbf6934c58b5c105451e44377a30b29e46f48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e61815e3d0602667ddac1ba5eec6601f051baf43d267b9f2fec6ecfbea74eb2e"
   end
 
   depends_on "gnutls"
   depends_on "pcre"
-
-  # Fix for `error: use of undeclared identifier 'environ'`.
-  # Already applied upstream.
-  # https://github.com/scandum/tintin/issues/47
-  patch :DATA
 
   def install
     # find Homebrew's libpcre
@@ -43,30 +38,3 @@ class Tintin < Formula
     assert_match version.to_s, shell_output("#{bin}/tt++ -V", 1)
   end
 end
-
-__END__
-diff --git a/src/data.c b/src/data.c
-index 34401f8..cf23f58 100644
---- a/src/data.c
-+++ b/src/data.c
-@@ -27,6 +27,8 @@
-
- #include <limits.h>
-
-+extern char **environ;
-+
- struct listroot *init_list(struct session *ses, int type, int size)
- {
- 	struct listroot *listhead;
-diff --git a/src/scan.c b/src/scan.c
-index 7c46890..b036e9f 100644
---- a/src/scan.c
-+++ b/src/scan.c
-@@ -33,6 +33,7 @@
-   #endif
- #endif
- #include <dirent.h>
-+#include <limits.h>
- 
- #define DO_SCAN(scan) struct session *scan(struct session *ses, FILE *fp, char *arg, char *arg1, char *arg2)
- 

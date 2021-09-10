@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/3.0.51.tar.gz"
-  sha256 "89319374e839c164ecc4ab314397e0c08ce8f49fe48f6faf625bdaa0b73736c4"
+  url "https://github.com/convox/convox/archive/3.0.52.tar.gz"
+  sha256 "961f3a127625341183a070d91ee35840f0f6ea284d2d32534328bd9d965ff0b0"
   license "Apache-2.0"
   version_scheme 1
 
@@ -12,21 +12,29 @@ class Convox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "0dadd2bc011f1b5a1a9333e4bb646078b0817de59819a264f90c3faa6b563389"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d422f5f2addbf0f1ae87e703ac39ecb325129a650182caaeacac2604efe3facf"
-    sha256 cellar: :any_skip_relocation, catalina:      "60ead08f69f2224afc46b225f2eefad5455e1f12870467301734e35d85a26c87"
-    sha256 cellar: :any_skip_relocation, mojave:        "b802e8c4c9d838279f8ff68c641afdfbb71e8d1795202263ae3da982fdd49ea6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7199ad6b9b05046bd236827ad142543cfb415bd12db2c9aa524656f0584f2b9f"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "03d266175c975d1d75155a69d6724c66c0517414cf5d5755d72a041f879d83fd"
+    sha256 cellar: :any_skip_relocation, big_sur:       "d9c30460a6560b70c9aa8b7d8b63ae908645272173318e24ddd0d0bbb70e91c4"
+    sha256 cellar: :any_skip_relocation, catalina:      "49d8564ec902869d5843af7b9d8ab692f0f571195393e31971aaab87d104584c"
+    sha256 cellar: :any_skip_relocation, mojave:        "c5a7613723cfa562db110046871851f26a6a087c70df8fe0379fda5122eeacb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "12d1e07da1ad33dfafc9f81fd4492ba7c082bd4f9266a788e488c1af594041b1"
   end
 
   depends_on "go" => :build
 
+  # Support go 1.17, remove when upstream patch is merged/released
+  # https://github.com/convox/convox/pull/389
+  patch do
+    url "https://github.com/convox/convox/commit/d28b01c5797cc8697820c890e469eb715b1d2e2e.patch?full_index=1"
+    sha256 "a0f94053a5549bf676c13cea877a33b3680b6116d54918d1fcfb7f3d2941f58b"
+  end
+
   def install
     ldflags = %W[
+      -s -w
       -X main.version=#{version}
     ].join(" ")
 
-    system "go", "build", *std_go_args, "-mod=vendor", "-ldflags", ldflags, "./cmd/convox"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/convox"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Logstash < Formula
   desc "Tool for managing events and logs"
   homepage "https://www.elastic.co/products/logstash"
-  url "https://github.com/elastic/logstash/archive/v7.14.0.tar.gz"
-  sha256 "556c5c68936a211d031c41abcc033bc1ba098555913e80de8947cfc5d48fa49d"
+  url "https://github.com/elastic/logstash/archive/v7.14.1.tar.gz"
+  sha256 "517e6945b115167e2ba98541e03abf971a129744128d5454fc3ed07a56b5c10b"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/elastic/logstash.git"
@@ -13,9 +13,10 @@ class Logstash < Formula
   end
 
   bottle do
-    sha256 cellar: :any, big_sur:  "0b16e600645cc57611c42525c39582f6d2952527183140062ad7328d8f226563"
-    sha256 cellar: :any, catalina: "14270acc6e0b6a4bc38f2f7ee5ee75400ff7ee1cb815bb49347c61611892a626"
-    sha256 cellar: :any, mojave:   "0954fdef97e62c0ae5b8c24489d793f87a085846eef2a877572930e2091047c6"
+    sha256 cellar: :any,                 big_sur:      "02db87c4194fd1ff3f2dd864b7c1deb3350a0c9e434b4f182845e752f8e18c03"
+    sha256 cellar: :any,                 catalina:     "fb2eb9a36fa80a35a86023a72b7b5c0ab858dacdcf129f9e7bd5a9c4ef3a7a27"
+    sha256 cellar: :any,                 mojave:       "d9bea1dee925648a819e44978734bd5f07370c23c0522c8f3db30673c197350b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a64777902a09a37493fc30100786f00dce1191e77a2bb0f4c465b8a2bc2d2c49"
   end
 
   depends_on "openjdk@11"
@@ -44,6 +45,17 @@ class Logstash < Formula
               /^LOGSTASH_HOME=.*$/,
               "LOGSTASH_HOME=#{libexec}"
 
+    # Delete Windows and other Arch/OS files
+    rm Dir["bin/*.bat"]
+    os = if OS.mac?
+      "Darwin"
+    else
+      "x86_64-Linux"
+    end
+    Dir["vendor/jruby/lib/jni/*"].each do |path|
+      rm_r path unless path.include? os
+    end
+
     libexec.install Dir["*"]
 
     # Move config files into etc
@@ -51,7 +63,7 @@ class Logstash < Formula
     (libexec/"config").rmtree
 
     bin.install libexec/"bin/logstash", libexec/"bin/logstash-plugin"
-    bin.env_script_all_files(libexec/"bin", Language::Java.overridable_java_home_env("11"))
+    bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env("11")
   end
 
   def post_install

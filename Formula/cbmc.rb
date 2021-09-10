@@ -2,16 +2,16 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-5.37.0",
-      revision: "e4369b6241b7f74c8bb8b3145cb3b7c38e3bc369"
+      tag:      "cbmc-5.38.0",
+      revision: "667858fb799e82df7f6cafca53b13ed996824b64"
   license "BSD-4-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "4ae8055b85a0f28b3e88e31474c250c4266e642f42ad711860c118659362830d"
-    sha256 cellar: :any_skip_relocation, big_sur:       "aece82ee5cd4d18a970a72be1089416a3d2795f04927b1286aadd794a44f132d"
-    sha256 cellar: :any_skip_relocation, catalina:      "05947f565f12c98b698ba8e00bd341252a12df3f9ae6773ed0523675fe2d3789"
-    sha256 cellar: :any_skip_relocation, mojave:        "1f53a8118ffcca140dc0109abfd6ed04b06b0d49b9f547e9c7c957c9a134a4e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "59921b3a80254b47e2820665f5c48ac3bccc851e63e3b8e24c350e4be1c2e6d6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "6ae0c663a340ee634c711112bf3ef842e2aa7673c3a4d8e41b5a3128206eb9b5"
+    sha256 cellar: :any_skip_relocation, big_sur:       "0783827cb05a349c4af6ac4da4a2684f7c663c05f7e4d5370372b5647bdbff40"
+    sha256 cellar: :any_skip_relocation, catalina:      "ae28dfaf328d6563bf49b631deae3dcea5d85ff9b76973e71c238c7450fc4584"
+    sha256 cellar: :any_skip_relocation, mojave:        "319b650757af4b99cc976236c2158e011d6b0226e6134f3a341329d9fbf983a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "566db205fae9f0b2b6e5cd9114e5569654ad5fad7e3344a8cfa4163bafea376a"
   end
 
   depends_on "cmake" => :build
@@ -22,7 +22,7 @@ class Cbmc < Formula
   uses_from_macos "flex" => :build
 
   on_linux do
-    depends_on "gcc" => :build
+    depends_on "gcc"
   end
 
   fails_with gcc: "5"
@@ -31,7 +31,7 @@ class Cbmc < Formula
     args = []
 
     # Workaround borrowed from https://github.com/diffblue/cbmc/issues/4956
-    on_macos { args << "-DCMAKE_C_COMPILER=/usr/bin/clang" }
+    args << "-DCMAKE_C_COMPILER=/usr/bin/clang" if OS.mac?
     # Java front-end fails to build on ARM
     args << "-DWITH_JBMC=OFF" if Hardware::CPU.arm?
 

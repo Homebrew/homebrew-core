@@ -1,17 +1,17 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.5.6/xmake-v2.5.6.tar.gz"
-  sha256 "79e65766761642d574ac24f50c4df2b896a3d9fb649a37746a9d9c67073d5998"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.5.7/xmake-v2.5.7.tar.gz"
+  sha256 "806a5b5a430227a1a006a4e2712f87389b56e9e27076263ae3c9ac7931d429ea"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "373e4b13ef927cc2e77121f6d537cec372c1cb2d1f1db8ca896e099945afd49a"
-    sha256 cellar: :any_skip_relocation, big_sur:       "3c7768b7fd7494ce8881e5838f425010c9d1be2beab396a52c4d33cc307549f0"
-    sha256 cellar: :any_skip_relocation, catalina:      "39fc10b7da100af608f5827984802e0b361cc83642e7aee075ff3c9a699307b4"
-    sha256 cellar: :any_skip_relocation, mojave:        "2cd75a4ab1469fbc121ca9f9205cd36fea45dd659bbd99d44f81193948857188"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bb06f6a0bb057afafffea00687581550ffae76a14afa49cfcc44f221a409763"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e83a1e8b536254d7efdb575d25644b3e0957f47220468158530a671b8266728"
+    sha256 cellar: :any_skip_relocation, big_sur:       "58bce8747a74b63062537efbde6cd29657e4ca95c3d7f8bffcbc32d161966808"
+    sha256 cellar: :any_skip_relocation, catalina:      "b43c7743ad8c50bb848e374bdaed62985f61bdcce1f6e2522b5ecb8b8c728f7e"
+    sha256 cellar: :any_skip_relocation, mojave:        "dace16d198785d7e9348d5fda056dd63f8d7ff94da562f6a6289622f0a3a2028"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "19e094a5c16b026ea59d31f2a088d05a41891966a7e44abb232cfc12e997d6bd"
   end
 
   on_linux do
@@ -19,9 +19,7 @@ class Xmake < Formula
   end
 
   def install
-    on_linux do
-      ENV["XMAKE_ROOT"] = "y" if ENV["HOMEBREW_GITHUB_ACTIONS"]
-    end
+    ENV["XMAKE_ROOT"] = "y" if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     system "make"
     system "make", "install", "prefix=#{prefix}"

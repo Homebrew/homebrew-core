@@ -1,8 +1,8 @@
 class Qscintilla2 < Formula
   desc "Port to Qt of the Scintilla editing component"
   homepage "https://www.riverbankcomputing.com/software/qscintilla/intro"
-  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.12.1/QScintilla_src-2.12.1.tar.gz"
-  sha256 "a7331c44b5d7320cbf58cb2382c38857e9e9f4fa52c405bd7776c8b6649836c2"
+  url "https://www.riverbankcomputing.com/static/Downloads/QScintilla/2.13.0/QScintilla_src-2.13.0.tar.gz"
+  sha256 "05116938bedfceb2953d3c24f862e1ab4d68ba7845f135d1d7aa1086595449b2"
   license "GPL-3.0-only"
 
   # The downloads page also lists pre-release versions, which use the same file
@@ -16,11 +16,11 @@ class Qscintilla2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_big_sur: "fe9548ebe70dbd6d1470cf3394878ccae6bc4aa6dec7516fe6ab2e0e79285580"
-    sha256 cellar: :any, big_sur:       "e48009d9515d8fd172d77f712867cc703838f10c8d82476b391cc16dbcad3414"
-    sha256 cellar: :any, catalina:      "82e1076cc42016998ea0df9c0a699cbc7535cdf800771a2875dabfb392d2e451"
-    sha256 cellar: :any, mojave:        "753b282bb8e1251d1db37b171b3ef5d2b16212091e075c6065021c0417ac3f4d"
+    sha256 cellar: :any,                 arm64_big_sur: "f1eeb393d30c064ff26b314e477ac04c49c65e1e4f0798eff6511b717be14c5a"
+    sha256 cellar: :any,                 big_sur:       "673822543d6b2469f6dbcf7a7227f070ede7a104f53a09a3ba1aeec6d1c4cc2c"
+    sha256 cellar: :any,                 catalina:      "43c3199750767469f77fb742f40273f9860fcafeef580da2998a055c9aab379c"
+    sha256 cellar: :any,                 mojave:        "a89b1ca10b6df95e3a2d76fb71ff71546f4e8c9a5de6765f950af54394e42f68"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "30a6aa3971a33551be6eecfc449d51a1a84a4b98ea0a97d5a587225dd08f565d"
   end
 
   depends_on "pyqt-builder" => :build
@@ -31,11 +31,17 @@ class Qscintilla2 < Formula
   depends_on "python@3.9"
   depends_on "qt@5"
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with gcc: "5"
+
   def install
     args = []
     spec = ""
 
-    on_macos do
+    if OS.mac?
       # TODO: when using qt 6, modify the spec
       spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
       spec << "-arm64" if Hardware::CPU.arm?

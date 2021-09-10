@@ -79,9 +79,7 @@ class Uwsgi < Formula
                  transformation_chunked transformation_gzip
                  transformation_offload transformation_tofile
                  transformation_toupper ugreen webdav zergpool]
-    on_macos do
-      plugins << "alarm_speech"
-    end
+    plugins << "alarm_speech" if OS.mac?
 
     (libexec/"uwsgi").mkpath
     plugins.each do |plugin|

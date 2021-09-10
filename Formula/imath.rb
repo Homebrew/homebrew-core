@@ -1,16 +1,16 @@
 class Imath < Formula
   desc "Library of 2D and 3D vector, matrix, and math operations"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.2.tar.gz"
-  sha256 "f21350efdcc763e23bffd4ded9bbf822e630c15ece6b0697e2fcb42737c08c2d"
+  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.3.tar.gz"
+  sha256 "0bf7ec51162c4d17a4c5b850fb3f6f7a195cff9fa71f4da7735f74d7b5124320"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "37631ebf8b101e67a10dc66e09209d1cc391d67b5d78025113eddbc203f48ddc"
-    sha256 cellar: :any,                 big_sur:       "342050b4bc182b25d0db8b4044b874f86408bfa8e6c386e3bdd02a54312e1a5f"
-    sha256 cellar: :any,                 catalina:      "36960bb3e2d521dbd404109e20a65a45098a017bdc8b49ed414d969239f6222f"
-    sha256 cellar: :any,                 mojave:        "749f788cc8ab12727ddf29d3dd2310edcc5bb517477fc8ae7d8dbc60388b38ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "94659650eacc2380ab8e8142fe1958e111dde4e69492c6d47afaee3fe2a97cf5"
+    sha256 cellar: :any,                 arm64_big_sur: "2a2e81873d2de90b295234a6d639d8c61c375253c739328f54856477dad5193e"
+    sha256 cellar: :any,                 big_sur:       "0a0b0dfa316ca1c7b122de50f6a3bb8d5f2827056c2981d8b69f49d63bc6fe47"
+    sha256 cellar: :any,                 catalina:      "485012850077bef28aa6116a27868877c5c4e2b133081cae290804efd0bb7667"
+    sha256 cellar: :any,                 mojave:        "ae767801f200cee72351c40a60bcb48a9441870c5d2d7c4da844b6da44057d28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a188909af0b84e99692180e0c786a2e281d0a86f1155b14a074935ba32a33cbc"
   end
 
   depends_on "cmake" => :build

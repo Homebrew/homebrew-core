@@ -20,14 +20,12 @@ class Whois < Formula
   depends_on "libidn2"
 
   def install
-    on_macos do
-      ENV.append "LDFLAGS", "-L/usr/lib -liconv"
-    end
+    ENV.append "LDFLAGS", "-L/usr/lib -liconv" if OS.mac?
 
-    have_iconv = "HAVE_ICONV=1"
-
-    on_linux do
-      have_iconv = "HAVE_ICONV=0"
+    have_iconv = if OS.mac?
+      "HAVE_ICONV=1"
+    else
+      "HAVE_ICONV=0"
     end
 
     system "make", "whois", have_iconv

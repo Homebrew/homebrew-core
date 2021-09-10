@@ -1,10 +1,9 @@
 class Libgcrypt < Formula
   desc "Cryptographic library based on the code from GnuPG"
   homepage "https://gnupg.org/related_software/libgcrypt/"
-  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.9.3.tar.bz2"
-  sha256 "97ebe4f94e2f7e35b752194ce15a0f3c66324e0ff6af26659bbfb5ff2ec328fd"
+  url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.9.4.tar.bz2"
+  sha256 "ea849c83a72454e3ed4267697e8ca03390aee972ab421e7df69dfe42b65caaf7"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/libgcrypt/"
@@ -12,11 +11,11 @@ class Libgcrypt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_big_sur: "7ac0af3e86d07de27a266a4af024f884766b648cbbb7401b64ed284c2c5335f2"
-    sha256 cellar: :any,                 big_sur:       "20ad92478a6775e5f7a1eb47a5313acdd70f3ffd42bf8aef0e34ef525253f265"
-    sha256 cellar: :any,                 catalina:      "8f532353249ed8c616a9c8708ea1d050ba9b1cdc50e2aeaa374b94ddef184350"
-    sha256 cellar: :any,                 mojave:        "3cd2ad75c176919c00c7d49c9bcedbdcea319d9a09454df1a314680fd4f946a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a987d3b3397bc43404723e180fa5832273dc8bfc23087e6016de5a602fc8fb33"
+    sha256 cellar: :any,                 arm64_big_sur: "17c61d873adf2bd5aec0858dadeeacdf75ac1f9cce3d7acbd4d0b5c43a191f98"
+    sha256 cellar: :any,                 big_sur:       "c8c50af567c82a2c68f657b4ee3422bee39944c819a939d18b73617d8e5c0476"
+    sha256 cellar: :any,                 catalina:      "6393017fddac1c337f49fc066e5a900bfac896c94a6a0aaa73acd349a757b924"
+    sha256 cellar: :any,                 mojave:        "0c54acef4c1fe000909441cd946f60bebe636fc232edff73a88bbb9df2b10447"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "963a50f5a822f6edbdf8e22d07a2b10349223a60143343ae9a32a9f1b65ee8a9"
   end
 
   depends_on "libgpg-error"
@@ -34,9 +33,7 @@ class Libgcrypt < Formula
 
     # Parallel builds work, but only when run as separate steps
     system "make"
-    on_macos do
-      MachO.codesign!("#{buildpath}/tests/.libs/random") if Hardware::CPU.arm?
-    end
+    MachO.codesign!("#{buildpath}/tests/.libs/random") if OS.mac? && Hardware::CPU.arm?
 
     system "make", "check"
     system "make", "install"

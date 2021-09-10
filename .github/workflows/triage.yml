@@ -43,6 +43,15 @@ jobs:
                     "content": "\n    sha256.* big_sur: +\"[a-fA-F0-9]+\"\n",
                     "missing_content": "\n    sha256.* arm64_big_sur: +\"[a-fA-F0-9]+\"\n"
                 }, {
+                    "label": "no Linux bottle",
+                    "path": "Formula/.+",
+                    "content": "\n  bottle do\n",
+                    "missing_content": [
+                        "\n    sha256.* x86_64_linux: +\"[a-fA-F0-9]+\"\n",
+                        "\n    sha256.* all: +\"[a-fA-F0-9]+\"\n",
+                        "depends_on :macos"
+                    ]
+                }, {
                     "label": "formula deprecated",
                     "path": "Formula/.+",
                     "content": "\n  deprecate!.*\n"
