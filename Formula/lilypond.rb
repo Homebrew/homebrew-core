@@ -41,7 +41,7 @@ class Lilypond < Formula
     sha256 "66eed7ca2dfbf44665aa34cb80559f4a90807d46858ccf76c34f9ac1701cfa27"
   end
 
-  resource "tex-resources" do 
+  resource "tex-resources" do
     url "https://github.com/jsfelix/homebrew-core/releases/download/v2.22.1/tex-resources.tar.gz"
     sha256 "b662ee0fc506bdeae6ed8cfebface09337d27fa06203f2f9c862e26b63f93490"
   end
