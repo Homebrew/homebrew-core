@@ -1,19 +1,3 @@
-class MacTeXRequirement < Requirement
-  fatal true
-
-  satisfy { Dir.exist?("/Library/TeX") }
-
-  def message
-    <<~EOS
-      MacTeX is required. Install it with brew install --cask mactex-no-gui
-    EOS
-  end
-
-  def display_s
-    "MacTeX"
-  end
-end
-
 class Lilypond < Formula
   desc "Music notation for everyone"
   homepage "https://lilypond.org"
@@ -35,7 +19,6 @@ class Lilypond < Formula
   depends_on "glib" => :build
   depends_on "guile@2" => :build
   depends_on "imagemagick" => :build
-  depends_on MacTeXRequirement => :build
   depends_on "make" => :build
   depends_on "pango" => :build
   depends_on "pkg-config" => :build
@@ -58,6 +41,11 @@ class Lilypond < Formula
     sha256 "66eed7ca2dfbf44665aa34cb80559f4a90807d46858ccf76c34f9ac1701cfa27"
   end
 
+  resource "tex-resources" do 
+    url "https://github.com/jsfelix/homebrew-core/releases/download/v2.22.1/tex-resources.tar.gz"
+    sha256 "b662ee0fc506bdeae6ed8cfebface09337d27fa06203f2f9c862e26b63f93490"
+  end
+
   def install
     system "./autogen.sh", "--noconfigure"
 
@@ -68,12 +56,15 @@ class Lilypond < Formula
     mkdir "build" do
       resource("font-urw").stage buildpath/"urw"
 
-      ENV.append_path "PATH", "/Library/TeX/texbin"
+      resource("tex-resources").stage buildpath/"tex-resources"
+
+      ENV.append_path "PATH", "#{buildpath}/tex-resources/bin/universal-darwin"
 
       system "../configure",
              "--prefix=#{prefix}",
-             "--with-texgyre-dir=/Library/TeX/Root/texmf-dist/fonts/opentype/public/tex-gyre",
-             "--with-urwotf-dir=#{buildpath}/urw/fonts"
+             "--with-texgyre-dir=#{buildpath}/tex-resources/texmf-dist/fonts/opentype/public/tex-gyre",
+             "--with-urwotf-dir=#{buildpath}/urw/fonts",
+             "--disable-documentation"
 
       ENV.prepend_path "LTDL_LIBRARY_PATH", Formula["guile@2"].lib
 
