@@ -6,6 +6,11 @@ class ElanInit < Formula
   license "Apache-2.0"
   head "https://github.com/leanprover/elan.git"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:  "da45372a21cd030140a3c6355bbe0ea8d3021112b1c95991d406621c6061db8c"
     sha256 cellar: :any_skip_relocation, catalina: "111c0cb4a73f86ef6b3c66ed1d0f025dde9972aa22c64b6e27ab2da30725c757"
