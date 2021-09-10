@@ -4,8 +4,8 @@ class Pnpm < Formula
 
   desc "📦🚀 Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
-  url "https://github.com/pnpm/pnpm/archive/refs/tags/v6.14.4-1.tar.gz"
-  sha256 "7d4ded34e0e2ea602872e5a50bf2cbd8434fb4ef3e33f8f45a32db3f11aa9090"
+  url "https://github.com/pnpm/pnpm/archive/refs/tags/v6.14.7.tar.gz"
+  sha256 "6a4d691bd0fcc22d9991f5eb4536c1696f7c4930d0186e676c7ec4d85e2b9f23"
   license "MIT"
 
   livecheck do
@@ -30,7 +30,17 @@ class Pnpm < Formula
     sha256 "c80817f1dac65ee497fc8ca0b533e497aacfbf951a917ff4652825710bbacda7"
   end
 
+  patch do
+    url "https://github.com/umireon/pnpm/commit/4013c14e1409934b98d586cde65845268530688a.patch?full_index=1"
+    sha256 "50f76f48078cb935e3720f035e259002e1504152907972561d88d97bb4b29255"
+  end
+
   def install
+    if OS.mac?
+      (prefix/"etc").mkpath
+      (prefix/"etc/pnpmrc").atomic_write "pnpm-bin = ${HOME}/Library/pnpm\n"
+    end
+
     buildtime_bin = buildpath/"buildtime-bin"
     resource("pnpm-buildtime").stage do |r|
       buildtime_bin.install "v#{r.version}.js"
@@ -41,7 +51,6 @@ class Pnpm < Formula
     ENV.prepend_path "PATH", buildtime_bin
     system "pnpm", "install"
     chdir "packages/pnpm" do
-      system buildpath/"node_modules/.bin/tsc", "--build"
       system "pnpm", "run", "compile"
     end
     chdir "packages/beta" do
@@ -51,12 +60,13 @@ class Pnpm < Formula
   end
 
   def post_install
-    on_linux do
+    if OS.linux?
       lib.mkpath
       marker = lib/"SHIFTED"
       unless marker.exist?
         executable = bin/"pnpm"
-        next if executable.interpreter.size <= "/lib64/ld-linux-x86-64.so.2".size
+        default_interpreter_size = 27 # /lib64/ld-linux-x86-64.so.2
+        return if executable.interpreter.size <= default_interpreter_size
 
         offset = PatchELF::Helper::PAGE_SIZE
         binary = IO.binread executable
