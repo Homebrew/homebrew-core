@@ -4,7 +4,7 @@ class Jabba < Formula
   url "https://github.com/shyiko/jabba/archive/0.11.2.tar.gz"
   sha256 "33874c81387f03fe1a27c64cb6fb585a458c1a2c1548b4b86694da5f81164355"
   license "Apache-2.0"
-  head "https://github.com/shyiko/jabba.git"
+  head "https://github.com/shyiko/jabba.git", branch: "master"
 
   bottle do
     rebuild 3
@@ -39,11 +39,8 @@ class Jabba < Formula
     ENV["JABBA_HOME"] = testpath/"jabba_home"
 
     system bin/"jabba", "install", jdk_version
-    jdk_path = if OS.mac?
-      "#{jdk_path}/Contents/Home"
-    else
-      shell_output("#{bin}/jabba which #{jdk_version}").strip
-    end
+    jdk_path = shell_output("#{bin}/jabba which #{jdk_version}").strip
+    jdk_path += "/Contents/Home" if OS.mac?
     assert_match version_check,
                  shell_output("#{jdk_path}/bin/java -version 2>&1")
   end
