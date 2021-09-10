@@ -25,7 +25,7 @@ class Lilypond < Formula
   depends_on "python@3.9"
 
   uses_from_macos "flex" => :build
-  uses_from_macos "m4"
+  uses_from_macos "m4" => :build
 
   resource "bison" do
     url "https://ftp.gnu.org/gnu/bison/bison-3.7.6.tar.xz"
