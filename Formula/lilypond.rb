@@ -5,8 +5,6 @@ class Lilypond < Formula
   sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
   license "GPL-3.0-or-later"
 
-  depends_on :arch => :x86_64
-  
   depends_on "autoconf" => :build
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
@@ -15,6 +13,8 @@ class Lilypond < Formula
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
   depends_on "texi2html" => :build
+
+  depends_on arch: :x86_64
 
   depends_on "fontconfig"
   depends_on "freetype"
