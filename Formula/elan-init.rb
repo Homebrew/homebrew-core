@@ -18,6 +18,8 @@ class ElanInit < Formula
   depends_on "coreutils"
   depends_on "gmp"
 
+  uses_from_macos "zlib"
+
   conflicts_with "lean", because: "`lean` and `elan-init` install the same binaries"
 
   def install
