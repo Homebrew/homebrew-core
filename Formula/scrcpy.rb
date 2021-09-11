@@ -19,8 +19,8 @@ class Scrcpy < Formula
   depends_on "sdl2"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v1.18/scrcpy-server-v1.18"
-    sha256 "641c5c6beda9399dfae72d116f5ff43b5ed1059d871c9ebc3f47610fd33c51a3"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v1.19/scrcpy-server-v1.19"
+    sha256 "876f9322182e6aac6a58db1334f4225855ef3a17eaebc80aab6601d9d1ecb867"
   end
 
   def install
