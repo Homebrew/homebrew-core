@@ -39,8 +39,8 @@ class Fibjs < Formula
       system "./build", "release", "-j#{ENV.make_jobs}"
     end
 
-    os = OS.mac? ? "Darwin" : "Linux"
-    bin.install "bin/#{os}_amd64_release/fibjs"
+    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    bin.install "bin/#{OS.kernel_name}_#{arch}_release/fibjs"
   end
 
   test do
