@@ -29,13 +29,8 @@ class Landscaper < Formula
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "auto"
     ENV.prepend_create_path "PATH", buildpath/"bin"
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    os = if OS.mac?
-      "darwin"
-    else
-      "linux"
-    end
-    ENV["TARGETS"] = "#{os}/#{arch}"
+    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    ENV["TARGETS"] = "#{OS.kernel_name.downcase}/#{arch}"
     dir = buildpath/"src/github.com/eneco/landscaper"
     dir.install buildpath.children - [buildpath/".brew_home"]
 
