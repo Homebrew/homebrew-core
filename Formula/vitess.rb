@@ -4,6 +4,7 @@ class Vitess < Formula
   url "https://github.com/vitessio/vitess/archive/v10.0.2.tar.gz"
   sha256 "f9446e717f05e0b42dcb652e0758e1e6949d287464942418c140269b875963da"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, big_sur:      "223ec20c9812977bfa7b27f4c8bc96543151539d0e290c79e4a77cc5194cb886"
