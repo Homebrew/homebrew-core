@@ -40,10 +40,20 @@ class Pnpm < Formula
     sha256 "0b0771a6c85a00b4ca92ba62ed001786ada48d619ca3b34b6f9ed78dbfcc007b"
   end
 
+  patch do
+    url "https://github.com/umireon/pnpm/commit/d82ca986231db261b7eefe4469b87e8d066afe65.patch?full_index=1"
+    sha256 "69d7b37c14e699722e5729213ad6e255ff19e9ec455ae95e4e7240080ee13867"
+  end
+
+  patch do
+    url "https://github.com/umireon/pnpm/commit/68e6911aefc212ecb837b1874935e3bc88fc8bca.patch?full_index=1"
+    sha256 "680af17ff603ac4e3e5a555f0e7f88dd94bb30ef989dbd854b63a2df0ed4d3d4"
+  end
+
   def install
     (prefix/"etc").mkpath
-    (prefix/"etc/npmrc").atomic_write "pnpm-bin = ${HOME}/Library/pnpm\n" if OS.mac?
-    (prefix/"etc/npmrc").atomic_write "pnpm-bin = ${HOME}/.local/pnpm\n" if OS.linux?
+    (prefix/"etc/npmrc").atomic_write "global-bin-dir = ${HOME}/Library/pnpm\n" if OS.mac?
+    (prefix/"etc/npmrc").atomic_write "global-bin-dir = ${HOME}/.local/pnpm\n" if OS.linux?
 
     buildtime_bin = buildpath/"buildtime-bin"
     resource("pnpm-buildtime").stage do |r|
