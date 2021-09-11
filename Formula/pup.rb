@@ -24,12 +24,8 @@ class Pup < Formula
     dir = buildpath/"src/github.com/ericchiang/pup"
     dir.install buildpath.children
 
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    os = if OS.mac?
-      "darwin"
-    else
-      "linux"
-    end
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
 
     cd dir do
       system "gox", "-arch", arch, "-os", os, "./..."
