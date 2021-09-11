@@ -39,11 +39,7 @@ class Podman < Formula
   depends_on "qemu"
 
   def install
-    os = if OS.mac?
-      "darwin"
-    else
-      "linux"
-    end
+    os = OS.kernel_name.downcase
 
     system "make", "podman-remote-#{os}"
     if OS.mac?
