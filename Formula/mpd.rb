@@ -4,7 +4,7 @@ class Mpd < Formula
   url "https://www.musicpd.org/download/mpd/0.22/mpd-0.22.11.tar.xz"
   sha256 "143f7f34aaee6e87888f3dd35d49aade6656052651b960ca42b46cbb518ca0a0"
   license "GPL-2.0-or-later"
-  head "https://github.com/MusicPlayerDaemon/MPD.git"
+  head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "db9228271af87d44a6158f10d8a6a2cf0a238d6e378212951ed5a8c577ac0726"
@@ -91,6 +91,7 @@ class Mpd < Formula
   service do
     run [opt_bin/"mpd", "--no-daemon"]
     keep_alive true
+    process_type "interactive"
     working_dir HOMEBREW_PREFIX
   end
 
