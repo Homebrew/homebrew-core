@@ -5,7 +5,6 @@ class Fluxctl < Formula
       tag:      "1.24.1",
       revision: "13b3e660ed198b81a9dcd11457664827294074b8"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :stable
