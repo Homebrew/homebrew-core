@@ -1,15 +1,17 @@
 class Glooctl < Formula
   desc "Envoy-Powered API Gateway"
   homepage "https://docs.solo.io/gloo/latest/"
+  # NOTE: Please wait until the newest stable release is finished building and
+  # no longer marked as "Pre-release" before creating a PR for a new version.
   url "https://github.com/solo-io/gloo.git",
-      tag:      "v1.8.14",
-      revision: "3e2c4c69a65c853fab63aef9a936e060d7409a12"
+      tag:      "v1.8.15",
+      revision: "fc72632fba84c07370bb928f503fa40a6b9da6f3"
   license "Apache-2.0"
-  head "https://github.com/solo-io/gloo.git"
+  head "https://github.com/solo-io/gloo.git", branch: "master"
 
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
