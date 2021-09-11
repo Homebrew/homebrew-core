@@ -46,14 +46,10 @@ class Logstash < Formula
               "LOGSTASH_HOME=#{libexec}"
 
     # Delete Windows and other Arch/OS files
+    paths_to_keep = OS.linux? ? "#{Hardware::CPU.arch}-#{OS.kernel_name}" : OS.kernel_name
     rm Dir["bin/*.bat"]
-    os = if OS.mac?
-      "Darwin"
-    else
-      "x86_64-Linux"
-    end
     Dir["vendor/jruby/lib/jni/*"].each do |path|
-      rm_r path unless path.include? os
+      rm_r path unless path.include? paths_to_keep
     end
 
     libexec.install Dir["*"]
