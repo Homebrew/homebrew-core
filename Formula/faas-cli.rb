@@ -23,12 +23,8 @@ class FaasCli < Formula
   depends_on "go" => :build
 
   def install
-    ENV["XC_OS"] = if OS.mac?
-      "darwin"
-    else
-      "linux"
-    end
-    ENV["XC_ARCH"] = "amd64"
+    ENV["XC_OS"] = OS.kernel_name.downcase
+    ENV["XC_ARCH"] = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     project = "github.com/openfaas/faas-cli"
     ldflags = %W[
       -s -w
