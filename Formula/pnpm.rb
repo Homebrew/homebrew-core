@@ -41,10 +41,9 @@ class Pnpm < Formula
   end
 
   def install
-    if OS.mac?
-      (prefix/"etc").mkpath
-      (prefix/"etc/npmrc").atomic_write "pnpm-bin = ${HOME}/Library/pnpm\n"
-    end
+    (prefix/"etc").mkpath
+    (prefix/"etc/npmrc").atomic_write "pnpm-bin = ${HOME}/Library/pnpm\n" if OS.mac?
+    (prefix/"etc/npmrc").atomic_write "pnpm-bin = ${HOME}/.local/pnpm\n" if OS.linux?
 
     buildtime_bin = buildpath/"buildtime-bin"
     resource("pnpm-buildtime").stage do |r|
@@ -88,7 +87,8 @@ class Pnpm < Formula
   end
 
   test do
-    ENV.prepend_path "PATH", testpath/"Library/pnpm"
+    ENV.prepend_path "PATH", testpath/"Library/pnpm" if OS.mac?
+    ENV.prepend_path "PATH", testpath/".local/pnpm" if OS.linux?
     system "#{bin}/pnpm", "env", "use", "--global", "16"
     system "#{bin}/pnpm", "install", "--global", "npm"
     system "#{bin}/pnpm", "init", "-y"
