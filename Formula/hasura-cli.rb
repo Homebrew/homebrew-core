@@ -35,12 +35,8 @@ class HasuraCli < Formula
     end
 
     cd "cli" do
-      arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-      os = if OS.mac?
-        "darwin"
-      else
-        "linux"
-      end
+      arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+      os = OS.kernel_name.downcase
 
       cp "../cli-ext/bin/cli-ext-hasura", "./internal/cliext/static-bin/#{os}/#{arch}/cli-ext"
       system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"hasura", "./cmd/hasura/"
