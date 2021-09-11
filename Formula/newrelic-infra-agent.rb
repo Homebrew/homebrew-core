@@ -21,16 +21,12 @@ class NewrelicInfraAgent < Formula
   depends_on arch: :x86_64
 
   def install
-    goarch = Hardware::CPU.arm? ? "arm64" : "amd64"
+    goarch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    os = OS.kernel_name.downcase
     ENV["VERSION"] = version.to_s
-    os = if OS.mac?
-      ENV["CGO_ENABLED"] = "1"
-      "darwin"
-    else
-      ENV["CGO_ENABLED"] = "0"
-      "linux"
-    end
     ENV["GOOS"] = os
+    ENV["CGO_ENABLED"] = OS.mac? ? "1" : "0"
+
     system "make", "dist-for-os"
     bin.install "dist/#{os}-newrelic-infra_#{os}_#{goarch}/newrelic-infra"
     bin.install "dist/#{os}-newrelic-infra-ctl_#{os}_#{goarch}/newrelic-infra-ctl"
