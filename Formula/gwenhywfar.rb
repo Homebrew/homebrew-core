@@ -34,11 +34,6 @@ class Gwenhywfar < Formula
 
   fails_with gcc: "5"
 
-  patch do # fixes out-of-tree builds, can be removed with 5.6.1+ release. https://www.aquamaniac.de/rdm/issues/232
-    url "https://www.aquamaniac.de/rdm/projects/gwenhywfar/repository/revisions/b953672c5f668c2ed3960607e6e25651a2cc98db/diff/m4/ax_have_qt.m4?format=diff"
-    sha256 "da7c1ddce2b8d1f19293d43b0db8449a4e45b79801101e866aa42f212f750ecd"
-  end
-
   def install
     inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
     system "autoreconf", "-fiv" # needed because of the patch. Otherwise only needed for head build (if build.head?)
