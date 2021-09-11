@@ -25,14 +25,10 @@ class DcosCli < Formula
   def install
     ENV["NO_DOCKER"] = "1"
     ENV["VERSION"] = version.to_s
+    kernel_name = OS.kernel_name.downcase
 
-    if OS.mac?
-      system "make", "darwin"
-      bin.install "build/darwin/dcos"
-    else
-      system "make", "linux"
-      bin.install "build/linux/dcos"
-    end
+    system "make", kernel_name
+    bin.install "build/#{kernel_name}/dcos"
   end
 
   test do
