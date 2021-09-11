@@ -22,8 +22,8 @@ class Snowpack < Formula
     bin.install_symlink Dir[libexec/"bin/*"]
 
     # Remove incompatible pre-built binaries
-    os = OS.mac? ? "darwin" : "linux"
-    arch = Hardware::CPU.arm? ? "arm64" : "x64"
+    os = OS.kernel_name.downcase
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     libexec.glob("lib/node_modules/snowpack/node_modules/{bufferutil,utf-8-validate}/prebuilds/*")
            .each { |dir| dir.rmtree if dir.basename.to_s != "#{os}-#{arch}" }
     # `rollup` < 2.38.3 uses x86_64-specific `fsevents`. Can remove when `rollup` is updated.
