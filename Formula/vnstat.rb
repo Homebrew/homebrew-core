@@ -24,7 +24,9 @@ class Vnstat < Formula
       s.gsub! "/etc/vnstat.conf", "#{etc}/vnstat.conf", false
       s.gsub! "/var/", "#{var}/", false
       s.gsub! "var/lib", "var/db", false
-      s.gsub! "\"eth0\"", "\"en0\"", false
+      # https://github.com/Homebrew/homebrew-core/pull/84695#issuecomment-913043888
+      # network interface difference between macos and linux
+      s.gsub! "\"eth0\"", "\"en0\"", false if OS.mac?
     end
 
     system "./configure", "--disable-dependency-tracking",
