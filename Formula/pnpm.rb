@@ -35,10 +35,15 @@ class Pnpm < Formula
     sha256 "50f76f48078cb935e3720f035e259002e1504152907972561d88d97bb4b29255"
   end
 
+  patch do
+    url "https://github.com/umireon/pnpm/commit/b7d21cd0720eac4a5acc6c02e4229a35b9fc9cb9.patch?full_index=1"
+    sha256 "0b0771a6c85a00b4ca92ba62ed001786ada48d619ca3b34b6f9ed78dbfcc007b"
+  end
+
   def install
     if OS.mac?
       (prefix/"etc").mkpath
-      (prefix/"etc/pnpmrc").atomic_write "pnpm-bin = ${HOME}/Library/pnpm\n"
+      (prefix/"etc/npmrc").atomic_write "pnpm-bin = ${HOME}/Library/pnpm\n"
     end
 
     buildtime_bin = buildpath/"buildtime-bin"
@@ -83,6 +88,7 @@ class Pnpm < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", testpath/"Library/pnpm"
     system "#{bin}/pnpm", "env", "use", "--global", "16"
     system "#{bin}/pnpm", "install", "--global", "npm"
     system "#{bin}/pnpm", "init", "-y"
