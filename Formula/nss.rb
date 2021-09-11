@@ -50,11 +50,7 @@ class Nss < Formula
     # rather than copying the referenced file.
     cd "../dist"
     bin.mkpath
-    os = if OS.mac?
-      "Darwin"
-    else
-      "Linux"
-    end
+    os = OS.kernel_name
     Dir.glob("#{os}*/bin/*") do |file|
       cp file, bin unless file.include? ".dylib"
     end
