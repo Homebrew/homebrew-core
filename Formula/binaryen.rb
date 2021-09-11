@@ -33,6 +33,7 @@ class Binaryen < Formula
   end
 
   test do
-    system "#{bin}/wasm-opt", "-O", "#{pkgshare}/test/passes/O.wast", "-o", "1.wast"
+    system "#{bin}/wasm-opt", "-O", "#{pkgshare}/test/passes/O1_print-stack-ir.wast", "-o", "1.wast"
+    assert_match "stacky-help", File.read("1.wast")
   end
 end
