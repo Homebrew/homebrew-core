@@ -1,8 +1,13 @@
 class Jthread < Formula
   desc "C++ class to make use of threads easy"
-  homepage "https://research.edm.uhasselt.be/jori/jthread"
+  homepage "https://research.edm.uhasselt.be/jori/page/CS/Jthread.html"
   url "https://research.edm.uhasselt.be/jori/jthread/jthread-1.3.3.tar.bz2"
   sha256 "17560e8f63fa4df11c3712a304ded85870227b2710a2f39692133d354ea0b64f"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?jthread[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "12a85b410fa6b4c3e47e518813e0907b09ea01ed917ecb39354488ba1afb8ee8"
