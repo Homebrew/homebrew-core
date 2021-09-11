@@ -37,15 +37,11 @@ class OpenshiftCli < Formula
   uses_from_macos "krb5"
 
   def install
-    arch = Hardware::CPU.arm? ? "arm64" : "amd64"
-    os = if OS.mac?
-      "darwin"
-    else
-      # See https://github.com/golang/go/issues/26487
-      ENV.O0
+    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    os = OS.kernel_name.downcase
 
-      "linux"
-    end
+    # See https://github.com/golang/go/issues/26487
+    ENV.O0 if OS.linux?
 
     args = ["cross-build-#{os}-#{arch}"]
     args << if build.stable?
