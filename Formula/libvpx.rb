@@ -4,6 +4,7 @@ class Libvpx < Formula
   url "https://github.com/webmproject/libvpx/archive/v1.10.0.tar.gz"
   sha256 "85803ccbdbdd7a3b03d930187cb055f1353596969c1f92ebec2db839fa4f834a"
   license "BSD-3-Clause"
+  revision 1
   head "https://chromium.googlesource.com/webm/libvpx.git"
 
   bottle do
@@ -23,6 +24,7 @@ class Libvpx < Formula
       --disable-examples
       --disable-unit-tests
       --enable-pic
+      --enable-shared
       --enable-vp9-highbitdepth
     ]
 
