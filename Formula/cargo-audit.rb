@@ -21,6 +21,10 @@ class CargoAudit < Formula
   depends_on "rust" => :build
   depends_on "openssl@1.1"
 
+  on_linux do
+    depends_on "pkg-config" => :build
+  end
+
   def install
     cd "cargo-audit" do
       system "cargo", "install", *std_cargo_args
