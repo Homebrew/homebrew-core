@@ -4,6 +4,12 @@ class Gifski < Formula
   url "https://github.com/ImageOptim/gifski/archive/1.5.0.tar.gz"
   sha256 "a55b285410c1558a5b6489b01d8dea1e28206220d383e6a2aa710378dfdc182c"
   license "AGPL-3.0-only"
+  head "https://github.com/ImageOptim/gifski.git", branch: "main"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "f476e0a8786b81d909f6074d710c86e0097d909a802835010ca9a2e385e37f62"
