@@ -1,5 +1,4 @@
 class Pnpm < Formula
-  require "language/node"
   require "patchelf/helper"
 
   desc "📦🚀 Fast, disk space efficient package manager"
