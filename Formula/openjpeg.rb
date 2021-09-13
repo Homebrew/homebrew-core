@@ -4,7 +4,7 @@ class Openjpeg < Formula
   url "https://github.com/uclouvain/openjpeg/archive/v2.4.0.tar.gz"
   sha256 "8702ba68b442657f11aaeb2b338443ca8d5fb95b0d845757968a7be31ef7f16d"
   license "BSD-2-Clause"
-  head "https://github.com/uclouvain/openjpeg.git"
+  head "https://github.com/uclouvain/openjpeg.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "b57a02c3bc4ee8a43e47df5015e6e40a04d7149e172806157e279b1b03c715ef"
