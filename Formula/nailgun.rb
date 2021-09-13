@@ -4,7 +4,7 @@ class Nailgun < Formula
   url "https://github.com/facebook/nailgun/archive/nailgun-all-1.0.1.tar.gz"
   sha256 "c05fc01d28c895d0003b8ec6151c10ee38690552dcfaeb304497836f558006d5"
   license "Apache-2.0"
-  head "https://github.com/facebook/nailgun.git"
+  head "https://github.com/facebook/nailgun.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, catalina:    "9e4e7836ebcef4beb89f43ba07ff7e1fffb0765b8843cda5338eca8b34bafed3"
