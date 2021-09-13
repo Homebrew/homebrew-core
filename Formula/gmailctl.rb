@@ -4,6 +4,7 @@ class Gmailctl < Formula
   url "https://github.com/mbrt/gmailctl/archive/v0.9.0.tar.gz"
   sha256 "1b4d04c0fa46990231565cb743d3b9aba2011501322c224a96bec747003c35e1"
   license "MIT"
+  head "https://github.com/mbrt/gmailctl.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ca176f471c5358025d9fcdc158a732e9e64232e5c2f7aaab53efbbb846920e57"
@@ -15,15 +16,8 @@ class Gmailctl < Formula
 
   depends_on "go" => :build
 
-  # patch go.sum
-  # remove in next release
-  patch do
-    url "https://github.com/chenrui333/gmailctl/commit/63504e4.patch?full_index=1"
-    sha256 "e93ebc411b590c4966c115dfbf567271a77c51a4e3ae5b93fd114cf18ef4ecdd"
-  end
-
   def install
-    system "go", "build", "-ldflags", "-s -w -X main.version=#{version}", *std_go_args, "cmd/gmailctl/main.go"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "cmd/gmailctl/main.go"
     pkgshare.install ["default-config.jsonnet", "gmailctl.libsonnet"]
   end
 
