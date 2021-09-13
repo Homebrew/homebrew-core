@@ -4,7 +4,7 @@ class Nuclei < Formula
   url "https://github.com/projectdiscovery/nuclei/archive/v2.5.1.tar.gz"
   sha256 "77d28a3628fda7b8b08e5b74f3d314050af75f91c98f5de273db7b490b5177ba"
   license "MIT"
-  head "https://github.com/projectdiscovery/nuclei.git"
+  head "https://github.com/projectdiscovery/nuclei.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "88172817dbaef26ad7178baf79ef0c5707707c10d2ec6ff0e54bc121c4f008be"
