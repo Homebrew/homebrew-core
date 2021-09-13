@@ -5,7 +5,7 @@ class Neomutt < Formula
   sha256 "77e177780fc2d8abb475d9cac4342c7e61d53c243f6ce2f9bc86d819fc962cdb"
   license "GPL-2.0-or-later"
   revision 2
-  head "https://github.com/neomutt/neomutt.git"
+  head "https://github.com/neomutt/neomutt.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "ae39b68a39ee90a2deae8e5364edaa5f9703b551120c9d0519598f7d170378e9"
