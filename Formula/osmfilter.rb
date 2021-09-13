@@ -5,7 +5,7 @@ class Osmfilter < Formula
       tag:      "0.9",
       revision: "f341f5f237737594c1b024338f0a2fc04fabdff3"
   license "AGPL-3.0"
-  head "https://gitlab.com/osm-c-tools/osmctools.git"
+  head "https://gitlab.com/osm-c-tools/osmctools.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4b37db3c9ebe77673bbd83fb7d2e6c215760450987df2ded64044eccf6f34d3b"
