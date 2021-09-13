@@ -5,7 +5,7 @@ class Ocamlbuild < Formula
   sha256 "87b29ce96958096c0a1a8eeafeb6268077b2d11e1bf2b3de0f5ebc9cf8d42e78"
   license "LGPL-2.0"
   revision 2
-  head "https://github.com/ocaml/ocamlbuild.git"
+  head "https://github.com/ocaml/ocamlbuild.git", branch: "master"
 
   livecheck do
     url :stable
