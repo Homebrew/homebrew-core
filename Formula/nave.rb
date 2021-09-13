@@ -4,7 +4,7 @@ class Nave < Formula
   url "https://github.com/isaacs/nave/archive/v3.2.2.tar.gz"
   sha256 "a8eb92bb47f6d00326b710f086aea23ae76ceadd277f79256263f524d3540ed1"
   license "ISC"
-  head "https://github.com/isaacs/nave.git"
+  head "https://github.com/isaacs/nave.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9e7f74d74b71447c296c6b5873047496a1988e4c7c20fef6af032f7621a15528"
