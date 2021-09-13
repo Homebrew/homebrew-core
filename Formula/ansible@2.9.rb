@@ -3,8 +3,8 @@ class AnsibleAT29 < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/dc/bb/989db37e94c3e162e9932b614cc856e2207677480379208c73115555f0bf/ansible-2.9.25.tar.gz"
-  sha256 "8bcf2c2f5c609e5b91114ca8b0e4226d603b87f2be71dcb338e8b7d3adbaa28f"
+  url "https://files.pythonhosted.org/packages/f1/88/fb2f7f2fad49c5a774e9fee209245821e4c02cf963b5e58ed0ffb8688091/ansible-2.9.26.tar.gz"
+  sha256 "3ae02aad2bbedcfb419ce75ebd2a648e9deb73e9e2d8de86c82d6047b1bdeb63"
   license "GPL-3.0-or-later"
 
   # The newest PyPI release won't be a 2.9.x version, so we match versions from
@@ -89,13 +89,13 @@ class AnsibleAT29 < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f0/98/087ccee8a3605e97885e25cd17d6200a25f4c72a35473f4810f22d88b827/boto3-1.18.35.tar.gz"
-    sha256 "ba9587a6ee53741b4136e0c6cda2a23f99439ed755b29e7e8e4b55044b6a7478"
+    url "https://files.pythonhosted.org/packages/18/56/e11f23bc3d5bc768a25135e79a3a301debbacd3b7800ca2e70a1e576f5f8/boto3-1.18.41.tar.gz"
+    sha256 "44f73009506dba227e0d421e4fc44a863d8ff315aaa47d9a7be6c549a6a88a12"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/e7/32/2404a93f072fcb7466825dff4d46faa31bf6d4d54dbb3434ae4837053906/botocore-1.21.35.tar.gz"
-    sha256 "f60f8e10292dd509c5576eb42628656b72157375295d7f92120989b9f103857d"
+    url "https://files.pythonhosted.org/packages/bf/b9/4484b1af8d5ff3bc9c834f0f3bc4385872201f3da80c37402815f32e9e4d/botocore-1.21.41.tar.gz"
+    sha256 "b877f9175843939db6fde3864ffc47611863710b85dc0336bb2433e921dc8790"
   end
 
   resource "cachetools" do
@@ -139,13 +139,13 @@ class AnsibleAT29 < Formula
   end
 
   resource "debtcollector" do
-    url "https://files.pythonhosted.org/packages/43/db/878dd456ccdbba6e466fc91e2534fd183a345a3fe261c4780a0e46c6dab0/debtcollector-2.2.0.tar.gz"
-    sha256 "787981f4d235841bf6eb0467e23057fb1ac7ee24047c32028a8498b9128b6829"
+    url "https://files.pythonhosted.org/packages/23/6f/9fc10962c01ff8935df8a41f16776a1cce5f4c2aea4300a6f752d4c0fd7b/debtcollector-2.3.0.tar.gz"
+    sha256 "c7a9fac814ab5904e23905516b18356cc907e7d27c05da58d37103f001967846"
   end
 
   resource "decorator" do
-    url "https://files.pythonhosted.org/packages/4f/51/15a4f6b8154d292e130e5e566c730d8ec6c9802563d58760666f1818ba58/decorator-5.0.9.tar.gz"
-    sha256 "72ecfba4320a893c53f9706bebb2d55c270c1e51a28789361aa93e4a21319ed5"
+    url "https://files.pythonhosted.org/packages/92/3c/34f8448b61809968052882b830f7d8d9a8e1c07048f70deb039ae599f73c/decorator-5.1.0.tar.gz"
+    sha256 "e59913af105b9860aa2c8d3272d9de5a56a4e608db9a2f167a8480b323d529a7"
   end
 
   resource "dnspython" do
@@ -269,8 +269,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "ntc-templates" do
-    url "https://files.pythonhosted.org/packages/75/e1/70cea5caccff5ef9bd8f922136d0a513fb2be6166a0d37ffa38781e12149/ntc_templates-2.3.1.tar.gz"
-    sha256 "78423ae2cd513551cdcb677f46ef429e0dafab70834780a1bb3eecf4bce9b47e"
+    url "https://files.pythonhosted.org/packages/78/55/e040d261d354b114e36e8e1b473e5b754b61d9b571a0c2d485a180086d0f/ntc_templates-2.3.2.tar.gz"
+    sha256 "5c09282ee98a3970904b3cbbfda861a83a14b023e7aaf5a88e711b5dfd4a16a7"
   end
 
   resource "ntlm-auth" do
@@ -319,8 +319,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "oslo.i18n" do
-    url "https://files.pythonhosted.org/packages/de/6f/e8343be26e69e42b3d30610c3ffee576e5b901be6792e5c3af1384613b40/oslo.i18n-5.0.1.tar.gz"
-    sha256 "3484b71e30f75c437523302d1151c291caf4098928269ceec65ce535456e035b"
+    url "https://files.pythonhosted.org/packages/7c/d8/a56cdadc3eb21f399327c45662e96479cb73beee0d602769b7847e857e7d/oslo.i18n-5.1.0.tar.gz"
+    sha256 "6bf111a6357d5449640852de4640eae4159b5562bbba4c90febb0034abc095d0"
   end
 
   resource "oslo.log" do
@@ -439,8 +439,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "python-neutronclient" do
-    url "https://files.pythonhosted.org/packages/b5/f1/51ee933d67cedb8dbdb4100ab02d2058db5e847b2e8f781b1e076e4dea3c/python-neutronclient-7.5.0.tar.gz"
-    sha256 "0ea80c3ec6ba77fecc14ac609abdeb1e6ca5f0591be905f00378039483f0b789"
+    url "https://files.pythonhosted.org/packages/38/b3/98adb8796d95eb1603c3d765dcdfdfaaab74f7b433d3c0899fba42190469/python-neutronclient-7.6.0.tar.gz"
+    sha256 "667807fdafc0096026872707971bb3d4221406eed8c14057f04cc6a3837bde22"
   end
 
   resource "python-string-utils" do
@@ -514,8 +514,8 @@ class AnsibleAT29 < Formula
   end
 
   resource "scp" do
-    url "https://files.pythonhosted.org/packages/10/fc/26467959b83c3f68a8dda16cfd09d856008a5caa66a0f7d726c44023fb8a/scp-0.13.6.tar.gz"
-    sha256 "0a72f9d782e968b09b114d5607f96b1f16fe9942857afb355399edd55372fcf1"
+    url "https://files.pythonhosted.org/packages/1d/b4/1d471ed28e5c044c0e9349ff205740606b5ccdce3371e1fc5697d1e55acb/scp-0.14.1.tar.gz"
+    sha256 "b776bd6ce8c8385aa9a025b64a9815b5d798f12d4ef0d712d569503f62aece8b"
   end
 
   resource "shade" do
