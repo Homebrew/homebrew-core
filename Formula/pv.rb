@@ -52,15 +52,3 @@ index db65eaa..176fc86 100644
  #ifdef __cplusplus
  extern "C" {
  #endif
-diff --git a/src/pv/number.c b/src/pv/number.c
-index d841402..3f5f1e5 100644
---- a/src/pv/number.c
-+++ b/src/pv/number.c
-@@ -7,6 +7,7 @@
- #endif
- #include "pv.h"
-
-+#include <stddef.h>
-
- /*
-  * This function is used instead of the macro from <ctype.h> because
