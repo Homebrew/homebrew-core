@@ -7,7 +7,7 @@ class Nethack < Formula
   version "3.6.6"
   sha256 "cfde0c3ab6dd7c22ae82e1e5a59ab80152304eb23fb06e3129439271e5643ed2"
   license "NGPL"
-  head "https://github.com/NetHack/NetHack.git"
+  head "https://github.com/NetHack/NetHack.git", branch: "NetHack-3.7"
 
   # The /download/ page loads the following page in an iframe and this contains
   # links to version directories which contain the archive files.
