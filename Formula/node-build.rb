@@ -4,7 +4,7 @@ class NodeBuild < Formula
   url "https://github.com/nodenv/node-build/archive/v4.9.55.tar.gz"
   sha256 "091dea4ff1c6cee391dd184293c98a58397fcf2b1321eab59fa3846af97eebe7"
   license "MIT"
-  head "https://github.com/nodenv/node-build.git"
+  head "https://github.com/nodenv/node-build.git", branch: "master"
 
   livecheck do
     url :stable
