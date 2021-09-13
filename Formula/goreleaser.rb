@@ -5,7 +5,7 @@ class Goreleaser < Formula
       tag:      "v0.179.0",
       revision: "b654a3116074f4ead2bf6b06898dcf1d0889e1c5"
   license "MIT"
-  head "https://github.com/goreleaser/goreleaser.git"
+  head "https://github.com/goreleaser/goreleaser.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9308f09c2994c339e2b0ffc329326a196c24805aca734a43b63b52beae15c36c"
