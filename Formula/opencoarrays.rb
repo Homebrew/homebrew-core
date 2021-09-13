@@ -5,7 +5,7 @@ class Opencoarrays < Formula
   sha256 "6c200ca49808c75b0a2dfa984304643613b6bc77cc0044bee093f9afe03698f7"
   license "BSD-3-Clause"
   revision 1
-  head "https://github.com/sourceryinstitute/opencoarrays.git"
+  head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "043b88d4bf48347702c50ba3438389965196d9970216b9464561fb31628a0b71"
