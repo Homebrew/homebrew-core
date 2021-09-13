@@ -5,7 +5,7 @@ class Octant < Formula
       tag:      "v0.23.0",
       revision: "fbe2be3b687b3e2199ea32753281c9de1f334171"
   license "Apache-2.0"
-  head "https://github.com/vmware-tanzu/octant.git"
+  head "https://github.com/vmware-tanzu/octant.git", branch: "master"
 
   livecheck do
     url :stable
