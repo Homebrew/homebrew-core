@@ -6,7 +6,7 @@ class Osc < Formula
   url "https://github.com/openSUSE/osc/archive/0.174.0.tar.gz"
   sha256 "9be35b347fa07ac1235aa364b0e1229c00d5e98e202923d7a8a796e3ca2756ad"
   license "GPL-2.0-or-later"
-  head "https://github.com/openSUSE/osc.git"
+  head "https://github.com/openSUSE/osc.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "aff25f27cf63f10915f491f01a2404eb471e7c1f5a0e6215d3f663d57aa4636e"
