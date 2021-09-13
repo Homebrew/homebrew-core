@@ -4,7 +4,7 @@ class Ondir < Formula
   url "https://swapoff.org/files/ondir/ondir-0.2.3.tar.gz"
   sha256 "504a677e5b7c47c907f478d00f52c8ea629f2bf0d9134ac2a3bf0bbe64157ba3"
   license "GPL-2.0"
-  head "https://github.com/alecthomas/ondir.git"
+  head "https://github.com/alecthomas/ondir.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "135b0885a206244ce74e430ac0f2131b92742481d81f7774cc25377ca8da4b1e"
