@@ -4,7 +4,7 @@ class Offlineimap < Formula
   url "https://files.pythonhosted.org/packages/09/12/73db8d38fea8ec3536cbccb8286b46b426639aff7e166840fa5e68e889e2/offlineimap-7.3.4.tar.gz"
   sha256 "5dbd7167b8729d87caa50bed63562868b6634b888348d9bc088a721530c82fef"
   license "GPL-2.0-or-later"
-  head "https://github.com/OfflineIMAP/offlineimap.git"
+  head "https://github.com/OfflineIMAP/offlineimap.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "ddd56697d3c6e9caf9ce43cb18b4c8c5e2b71dda041363be7b3f02487700edd0"
