@@ -4,7 +4,7 @@ class Omake < Formula
   url "https://github.com/ocaml-omake/omake/archive/omake-0.10.3.tar.gz"
   sha256 "5f42aabdb4088b5c4e86c7a08e235dc7d537fd6b3064852154303bb92f5df70e"
   license "GPL-2.0-only"
-  head "https://github.com/ocaml-omake/omake.git"
+  head "https://github.com/ocaml-omake/omake.git", branch: "master"
 
   livecheck do
     url :stable
