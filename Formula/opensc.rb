@@ -4,7 +4,7 @@ class Opensc < Formula
   url "https://github.com/OpenSC/OpenSC/releases/download/0.22.0/opensc-0.22.0.tar.gz"
   sha256 "8d4e5347195ebea332be585df61dcc470331c26969e4b0447c851fb0844c7186"
   license "LGPL-2.1-or-later"
-  head "https://github.com/OpenSC/OpenSC.git"
+  head "https://github.com/OpenSC/OpenSC.git", branch: "master"
 
   livecheck do
     url :stable
