@@ -4,7 +4,7 @@ class Oauth2Proxy < Formula
   url "https://github.com/oauth2-proxy/oauth2_proxy/archive/v7.1.3.tar.gz"
   sha256 "b6d45f3b44a98002ce8f3b581ffd79ade33fb19f374093df43564464439257ad"
   license "MIT"
-  head "https://github.com/oauth2-proxy/oauth2-proxy.git"
+  head "https://github.com/oauth2-proxy/oauth2-proxy.git", branch: "master"
 
   bottle do
     rebuild 1
