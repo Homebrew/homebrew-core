@@ -1,8 +1,13 @@
 class Stone < Formula
   desc "TCP/IP packet repeater in the application layer"
   homepage "https://www.gcd.org/sengoku/stone/"
-  url "https://www.gcd.org/sengoku/stone/stone-2.3e.tar.gz"
-  sha256 "b2b664ee6771847672e078e7870e56b886be70d9ff3d7b20d0b3d26ee950c670"
+  url "https://www.gcd.org/sengoku/stone/stone-2.4.tar.gz"
+  sha256 "d5dc1af6ec5da503f2a40b3df3fe19a8fbf9d3ce696b8f46f4d53d2ac8d8eb6f"
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?stone[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t/i)
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "a91a4ebc8ed1aaa5ad7095fb0098ea3bedec1c1df5628c817bb3e056be206ca1"
