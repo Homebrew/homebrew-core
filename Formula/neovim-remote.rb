@@ -6,7 +6,7 @@ class NeovimRemote < Formula
   url "https://files.pythonhosted.org/packages/cc/d8/82aec85fc7ad0853afca2c88e73ecc7d3a50c66988c44aa9748ccbc9b689/neovim-remote-2.4.0.tar.gz"
   sha256 "f199ebb61c3decf462feed4e7d467094ed38d8afaf43620736b5983a12fe2427"
   license "MIT"
-  head "https://github.com/mhinz/neovim-remote.git"
+  head "https://github.com/mhinz/neovim-remote.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "eb32806679e25729e2106e7ee35082d41b460a49305e51402121a21a013f8924"
