@@ -4,7 +4,7 @@ class Ospray < Formula
   url "https://github.com/ospray/ospray/archive/v2.7.0.tar.gz"
   sha256 "bcaeb221b5dd383d27587ffaca7f75d7e0064f64017a0d73df90862b14b5704b"
   license "Apache-2.0"
-  head "https://github.com/ospray/ospray.git"
+  head "https://github.com/ospray/ospray.git", branch: "master"
 
   livecheck do
     url :stable
