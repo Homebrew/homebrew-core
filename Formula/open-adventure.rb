@@ -5,7 +5,7 @@ class OpenAdventure < Formula
   url "http://www.catb.org/~esr/open-adventure/advent-1.9.tar.gz"
   sha256 "36466882af195d402b62deaa08e4cef26d1646cf1329f14503ea06fdc5c7219e"
   license "BSD-2-Clause"
-  head "https://gitlab.com/esr/open-adventure"
+  head "https://gitlab.com/esr/open-adventure", branch: "master"
 
   livecheck do
     url :homepage
