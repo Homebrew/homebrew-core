@@ -4,7 +4,7 @@ class NewrelicCli < Formula
   url "https://github.com/newrelic/newrelic-cli/archive/v0.34.36.tar.gz"
   sha256 "dc4af7cadf593286b8fa38e8696ad1d1e8cb883d9dd46a7b6f24d43aaa3afe1b"
   license "Apache-2.0"
-  head "https://github.com/newrelic/newrelic-cli.git"
+  head "https://github.com/newrelic/newrelic-cli.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "7b46698c4948ac907996b24ef747d270fad2fe3258e4c72766235c74d45293f7"
