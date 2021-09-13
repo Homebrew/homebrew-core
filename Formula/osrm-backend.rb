@@ -5,7 +5,7 @@ class OsrmBackend < Formula
   sha256 "6da276d609a54600bb37007fd98d14c2a48639f51dda0d962b5801dd0118dfbb"
   license "BSD-2-Clause"
   revision 1
-  head "https://github.com/Project-OSRM/osrm-backend.git"
+  head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   livecheck do
     url :stable
