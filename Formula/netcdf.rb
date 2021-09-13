@@ -6,7 +6,7 @@ class Netcdf < Formula
   sha256 "679635119a58165c79bb9736f7603e2c19792dd848f19195bf6881492246d6d5"
   license "BSD-3-Clause"
   revision 2
-  head "https://github.com/Unidata/netcdf-c.git"
+  head "https://github.com/Unidata/netcdf-c.git", branch: "main"
 
   livecheck do
     url "https://www.unidata.ucar.edu/downloads/netcdf/"
