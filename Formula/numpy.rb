@@ -4,7 +4,7 @@ class Numpy < Formula
   url "https://files.pythonhosted.org/packages/3a/be/650f9c091ef71cb01d735775d554e068752d3ff63d7943b26316dc401749/numpy-1.21.2.zip"
   sha256 "423216d8afc5923b15df86037c6053bf030d15cc9e3224206ef868c2d63dd6dc"
   license "BSD-3-Clause"
-  head "https://github.com/numpy/numpy.git"
+  head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "f500dc16bc97e85df8944d6542ba05c94d2c23c22fb427d5295925cd81edac8f"
