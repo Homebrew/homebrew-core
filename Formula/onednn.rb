@@ -4,7 +4,7 @@ class Onednn < Formula
   url "https://github.com/oneapi-src/oneDNN/archive/v2.3.2.tar.gz"
   sha256 "8cbade2dd955bc8f281d31a2e89e7ad7b11d73cd8281c30a64b2ff8e3a63f07e"
   license "Apache-2.0"
-  head "https://github.com/oneapi-src/onednn.git"
+  head "https://github.com/oneapi-src/onednn.git", branch: "master"
 
   livecheck do
     url :stable
