@@ -4,7 +4,7 @@ class Nfpm < Formula
   url "https://github.com/goreleaser/nfpm/archive/v2.6.0.tar.gz"
   sha256 "d5d4433e4a2767f990bec48845dd8f04839ea13989271a67674821737713af91"
   license "MIT"
-  head "https://github.com/goreleaser/nfpm.git"
+  head "https://github.com/goreleaser/nfpm.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "11cc7fe2db9485e1823d15379796c9fcb4b9414cc830fa5d18d55230f96e4365"
