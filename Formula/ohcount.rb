@@ -4,7 +4,7 @@ class Ohcount < Formula
   url "https://github.com/blackducksoftware/ohcount/archive/4.0.0.tar.gz"
   sha256 "d71f69fd025f5bae58040988108f0d8d84f7204edda1247013cae555bfdae1b9"
   license "GPL-2.0"
-  head "https://github.com/blackducksoftware/ohcount.git"
+  head "https://github.com/blackducksoftware/ohcount.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "43a0bac3974271a961f6cbb035aeb37e0f63e6fc05200bdf8b28064ca7faf128"
