@@ -4,7 +4,7 @@ class Nanomsg < Formula
   url "https://github.com/nanomsg/nanomsg/archive/1.1.5.tar.gz"
   sha256 "218b31ae1534ab897cb5c419973603de9ca1a5f54df2e724ab4a188eb416df5a"
   license "MIT"
-  head "https://github.com/nanomsg/nanomsg.git"
+  head "https://github.com/nanomsg/nanomsg.git", branch: "master"
 
   livecheck do
     url :stable
