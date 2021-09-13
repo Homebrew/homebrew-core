@@ -4,7 +4,7 @@ class Mockery < Formula
   url "https://github.com/vektra/mockery/archive/v2.9.2.tar.gz"
   sha256 "a7de4dad9e89922b0e38f86f0a7f8f2bfc4c2c4be41fa3e66178c46964464476"
   license "BSD-3-Clause"
-  head "https://github.com/vektra/mockery.git"
+  head "https://github.com/vektra/mockery.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "22e8a91958982cfeb8a03c941380cd499590ce99f109889a013dce7a7314ebe0"
@@ -17,7 +17,7 @@ class Mockery < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "-ldflags", "-s -w -X github.com/vektra/mockery/v2/pkg/config.SemVer=#{version}"
+    system "go", "build", *std_go_args(ldflags: "-s -w -X github.com/vektra/mockery/v2/pkg/config.SemVer=#{version}")
   end
 
   test do
