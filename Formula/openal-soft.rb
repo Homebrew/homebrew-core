@@ -4,7 +4,7 @@ class OpenalSoft < Formula
   url "https://openal-soft.org/openal-releases/openal-soft-1.21.1.tar.bz2"
   sha256 "c8ad767e9a3230df66756a21cc8ebf218a9d47288f2514014832204e666af5d8"
   license "LGPL-2.0-or-later"
-  head "https://github.com/kcat/openal-soft.git"
+  head "https://github.com/kcat/openal-soft.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "7e15f3c0087f0bce3c5bcad1efd612ffb83327b3cd25702ffc474f6513307d73"
