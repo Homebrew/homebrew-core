@@ -6,7 +6,7 @@ class OpenBabel < Formula
   sha256 "c97023ac6300d26176c97d4ef39957f06e68848d64f1a04b0b284ccff2744f02"
   license "GPL-2.0"
   revision 1
-  head "https://github.com/openbabel/openbabel.git"
+  head "https://github.com/openbabel/openbabel.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "990abdbe32d92c4d6e7a17f1d5a2c1c4cd979f4daba30a8eba4a9e20a3e0d099"
