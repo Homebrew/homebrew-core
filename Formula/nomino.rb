@@ -4,7 +4,7 @@ class Nomino < Formula
   url "https://github.com/yaa110/nomino/archive/1.1.0.tar.gz"
   sha256 "8c41276a2e27eca7222159c709e4e8b4e7c9e21c5cc029a0058d966865362548"
   license any_of: ["Apache-2.0", "MIT"]
-  head "https://github.com/yaa110/nomino.git"
+  head "https://github.com/yaa110/nomino.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "b9bc4251a64b1dc2b091fd414aae0d6b8fddeedd1d6c1c81136aa13ba1b3466e"
