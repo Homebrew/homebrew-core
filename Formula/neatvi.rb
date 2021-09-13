@@ -5,7 +5,7 @@ class Neatvi < Formula
       tag:      "09",
       revision: "a3b79df332e3c5804ae57c0348549ff35a69f262"
   license "ISC"
-  head "https://repo.or.cz/neatvi.git"
+  head "https://repo.or.cz/neatvi.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "54c65ed58e6d27871850aa722ee40fe2d72af036bb255a41ba9d0299c8b84479"
