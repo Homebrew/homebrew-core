@@ -4,7 +4,7 @@ class Nnn < Formula
   url "https://github.com/jarun/nnn/archive/v4.2.tar.gz"
   sha256 "5675f9fe53bddfd92681ef88bf6c0fab3ad897f9e74dd6cdff32fe1fa62c687f"
   license "BSD-2-Clause"
-  head "https://github.com/jarun/nnn.git"
+  head "https://github.com/jarun/nnn.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "d9a3862cf7914262ba82dc0fa1b1480892525f68c08e89239a7ba00dfc4a7027"
