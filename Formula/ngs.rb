@@ -4,7 +4,7 @@ class Ngs < Formula
   url "https://github.com/ngs-lang/ngs/archive/v0.2.12.tar.gz"
   sha256 "bd3f3b7cca4a36150405f26bb9bcc2fb41d0149388d3051472f159072485f962"
   license "GPL-3.0"
-  head "https://github.com/ngs-lang/ngs.git"
+  head "https://github.com/ngs-lang/ngs.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_big_sur: "fc20adda0f39a4e22d54081c55b3299dced4078c96f5e7869d1903ac66c843ea"
