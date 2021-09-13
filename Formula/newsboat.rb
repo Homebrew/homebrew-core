@@ -5,7 +5,7 @@ class Newsboat < Formula
   sha256 "62420688cca25618859548d10ff6df9ac75b9cf766699f37edd3e324d67c6ffb"
   license "MIT"
   revision 1
-  head "https://github.com/newsboat/newsboat.git"
+  head "https://github.com/newsboat/newsboat.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "56dfe1b2c6f47820764638c40cd9551b3c251a07baba3834479ae2fde9cbfd53"
