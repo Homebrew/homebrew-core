@@ -6,7 +6,7 @@ class OciCli < Formula
   url "https://files.pythonhosted.org/packages/58/63/2ae0966975943638c55ecf3831a7fbdc061f84ad627f28e849223003c5d0/oci-cli-3.0.4.tar.gz"
   sha256 "3d27318112b0e0a7b7b7959df36ebabe7c06e3dcf02ed82a22575b356625e225"
   license any_of: ["UPL-1.0", "Apache-2.0"]
-  head "https://github.com/oracle/oci-cli.git"
+  head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "f1a19e3ff48f0c5fca75500a0bd682131d5f200f1e57ba186001e3d14b50995c"
