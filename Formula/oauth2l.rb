@@ -4,7 +4,7 @@ class Oauth2l < Formula
   url "https://github.com/google/oauth2l/archive/v1.2.2.tar.gz"
   sha256 "6bee262a59669be86e578190f4a7ce6f7b18d5082bd647de82c4a11257a91e83"
   license "Apache-2.0"
-  head "https://github.com/google/oauth2l.git"
+  head "https://github.com/google/oauth2l.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "97afa02857ded76e58750c9258dcdf6696cd341f4ef5da3fcef1b506d4af5d60"
