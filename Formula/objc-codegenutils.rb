@@ -4,7 +4,7 @@ class ObjcCodegenutils < Formula
   url "https://github.com/square/objc-codegenutils/archive/v1.0.tar.gz"
   sha256 "98b8819e77e18029f1bda56622d42c162e52ef98f3ba4c6c8fcf5d40c256e845"
   license "Apache-2.0"
-  head "https://github.com/square/objc-codegenutils.git"
+  head "https://github.com/square/objc-codegenutils.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "9301f21479af32f32469e8235780f85b74d3a5e7c783fecaef7bb896c734dd55"
