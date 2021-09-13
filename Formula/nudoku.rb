@@ -4,7 +4,7 @@ class Nudoku < Formula
   url "https://github.com/jubalh/nudoku/archive/2.1.0.tar.gz"
   sha256 "eeff7f3adea5bfe7b88bf7683d68e9a597aabd1442d1621f21760c746400b924"
   license "GPL-3.0-or-later"
-  head "https://github.com/jubalh/nudoku.git"
+  head "https://github.com/jubalh/nudoku.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "daa1278f79f9fdf5cd8780ba68d3bf89982728c1ddf636f89475e89b14bd9c64"
