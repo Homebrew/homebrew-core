@@ -4,7 +4,7 @@ class Osxutils < Formula
   url "https://github.com/specious/osxutils/archive/v1.9.0.tar.gz"
   sha256 "9c11d989358ed5895d9af7644b9295a17128b37f41619453026f67e99cb7ecab"
   license "GPL-2.0"
-  head "https://github.com/specious/osxutils.git"
+  head "https://github.com/specious/osxutils.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "c5d4050cda7e5ede43231c7195ffa1eb06bf5e3b5a1efa6acf8243a0e8ee424a"
