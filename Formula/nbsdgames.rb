@@ -4,7 +4,7 @@ class Nbsdgames < Formula
   url "https://github.com/abakh/nbsdgames/archive/refs/tags/v4.1.2.tar.gz"
   sha256 "b4ba777791274af7db13d2827b254cf998a757468e119c6ee106ccbeafcd04c1"
   license :public_domain
-  head "https://github.com/abakh/nbsdgames.git"
+  head "https://github.com/abakh/nbsdgames.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "4281d8274d3f05106a5e34a31db7498615e2b4ac89e52528a864d8d4c2fa0999"
