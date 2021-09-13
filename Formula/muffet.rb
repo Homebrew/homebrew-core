@@ -4,7 +4,7 @@ class Muffet < Formula
   url "https://github.com/raviqqe/muffet/archive/v2.4.4.tar.gz"
   sha256 "1dac63a5019b4df60d0884a1a88a79276962939d352a8ff14c8b9be65d173bb7"
   license "MIT"
-  head "https://github.com/raviqqe/muffet.git"
+  head "https://github.com/raviqqe/muffet.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "627821c1ad95225d73a456d4c3ba60822f4e0bd5404699b5634eb56af3b73f36"
@@ -17,7 +17,7 @@ class Muffet < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do
