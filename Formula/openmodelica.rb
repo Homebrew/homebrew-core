@@ -7,7 +7,7 @@ class Openmodelica < Formula
       revision: "11fcab4f2d6895f2db073572b2bff1a43177313f"
   license "GPL-3.0-only"
   revision 1
-  head "https://github.com/OpenModelica/OpenModelica.git"
+  head "https://github.com/OpenModelica/OpenModelica.git", branch: "master"
 
   bottle do
     rebuild 1
