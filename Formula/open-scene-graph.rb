@@ -5,7 +5,7 @@ class OpenSceneGraph < Formula
   sha256 "aea196550f02974d6d09291c5d83b51ca6a03b3767e234a8c0e21322927d1e12"
   license "LGPL-2.1-or-later" => { with: "WxWindows-exception-3.1" }
   revision 1
-  head "https://github.com/openscenegraph/OpenSceneGraph.git"
+  head "https://github.com/openscenegraph/OpenSceneGraph.git", branch: "master"
 
   bottle do
     sha256 arm64_big_sur: "83350482064d3e55281b5c4a808f4629ce0c243a49fb57e68e5f63d2d5a411c4"
