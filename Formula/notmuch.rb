@@ -4,7 +4,7 @@ class Notmuch < Formula
   url "https://notmuchmail.org/releases/notmuch-0.33.tar.xz"
   sha256 "883e045b4bfa2c48c9a4671062a40603a7f6165724dd54618beeba100549d26c"
   license "GPL-3.0-or-later"
-  head "https://git.notmuchmail.org/git/notmuch", using: :git
+  head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
   livecheck do
     url "https://notmuchmail.org/releases/"
