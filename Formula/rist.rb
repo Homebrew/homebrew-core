@@ -32,6 +32,6 @@ class Rist < Formula
   end
 
   test do
-    assert_match "Starting ristsender", shell_output("#{bin}/ristsender 2>&1")
+    assert_match "Starting ristsender", shell_output("#{bin}/ristsender 2>&1", 1)
   end
 end
