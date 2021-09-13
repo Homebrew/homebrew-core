@@ -4,7 +4,7 @@ class Opencolorio < Formula
   url "https://github.com/imageworks/OpenColorIO/archive/v2.1.0.tar.gz"
   sha256 "81fc7853a490031632a69c73716bc6ac271b395e2ba0e2587af9995c2b0efb5f"
   license "BSD-3-Clause"
-  head "https://github.com/imageworks/OpenColorIO.git"
+  head "https://github.com/imageworks/OpenColorIO.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "36f49aa701d4121185e300594128b1b55264b7f0d8da930f3e195668fa63ee2d"
