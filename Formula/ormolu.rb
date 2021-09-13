@@ -4,7 +4,7 @@ class Ormolu < Formula
   url "https://github.com/tweag/ormolu/archive/0.2.0.0.tar.gz"
   sha256 "04461449cb6ba79230ffebe9e432765b3a190dacf28b73c4931cbccbe516f8d0"
   license "BSD-3-Clause"
-  head "https://github.com/tweag/ormolu.git"
+  head "https://github.com/tweag/ormolu.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "d8fd89b32a6dbe77698d25b8d5b6a9bde490e1c9e05b73079d9146ea4ab5c032"
