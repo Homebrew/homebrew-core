@@ -29,7 +29,7 @@ class ElmFormat < Formula
     # in Homebrew. Try using Homebrew `ghc` on update. Optionally, consider adding `ghcup`
     # as a lighter-weight alternative to `haskell-stack` for installing particular ghc version.
     jobs = ENV.make_jobs
-    ENV.deparallelize { system "stack", "setup", "-j#{jobs}", "--stack-root", buildpath/".stack" }
+    ENV.deparallelize { system "stack", "-j#{jobs}", "setup", "8.10.4", "--stack-root", buildpath/".stack" }
     ENV.prepend_path "PATH", Dir[buildpath/".stack/programs/*/ghc-*/bin"].first
     system "cabal", "v2-update"
 
