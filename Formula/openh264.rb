@@ -5,7 +5,7 @@ class Openh264 < Formula
   sha256 "af173e90fce65f80722fa894e1af0d6b07572292e76de7b65273df4c0a8be678"
   license "BSD-2-Clause"
   revision 1
-  head "https://github.com/cisco/openh264.git"
+  head "https://github.com/cisco/openh264.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "c63f32513ab056a1848184f11c0d82b1c233d81be4a9dd9f29df89029be9ea75"
