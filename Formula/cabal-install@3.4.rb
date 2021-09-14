@@ -7,6 +7,7 @@ class CabalInstallAT34 < Formula
 
   keg_only :versioned_formula
 
+  depends_on "cabal-install" => :build
   depends_on "ghc"
   uses_from_macos "zlib"
 
