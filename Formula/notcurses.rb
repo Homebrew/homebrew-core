@@ -21,7 +21,12 @@ class Notcurses < Formula
   depends_on "libunistring"
   depends_on "ncurses"
   depends_on "readline"
+
   uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "gcc"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
