@@ -23,9 +23,10 @@ class Notcurses < Formula
   depends_on "readline"
   uses_from_macos "zlib"
 
-  fails_with gcc: "5"
-
   def install
+    # Not curses overrides `strndup`, but this is a macro in CI
+    ENV.append "CFLAGS", "-Ustrndup" if OS.linux?
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
