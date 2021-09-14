@@ -6,6 +6,7 @@ class Molecule < Formula
   url "https://files.pythonhosted.org/packages/7e/79/eff25f3467c76c7f781ce515386e8585860de88b48e9d7ab364a58155d20/molecule-3.4.0.tar.gz"
   sha256 "e9845e2e98a992a7d2e144c1148c6e7b7663ca3f8060ef0c01a373eda03abd9d"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_big_sur: "bc270602dd8447be6a41dd16b16fef60c82cd2b7a56377ee645972a73f7642d5"
@@ -19,7 +20,6 @@ class Molecule < Formula
   depends_on "ansible"
   depends_on "openssl@1.1"
   depends_on "python@3.9"
-  depends_on "six"
 
   uses_from_macos "libffi"
 
@@ -28,9 +28,14 @@ class Molecule < Formula
     depends_on "gmp"
   end
 
+  resource "ansible-compat" do
+    url "https://files.pythonhosted.org/packages/de/be/d2922db62b403b0232743da47b043bdc74312c8cb401383bd37a43dc27cf/ansible-compat-0.5.0.tar.gz"
+    sha256 "0730fbbb32710d19f4244a4cabad9c6b33b4b92ddf72aee353484e17543405f5"
+  end
+
   resource "ansible-lint" do
-    url "https://files.pythonhosted.org/packages/6b/92/a3710319bec4b37e91b555231c2ec890cc5d6a59f3f08de7f75a423d8d3b/ansible-lint-5.1.2.tar.gz"
-    sha256 "7f7bbe924ae4f070aac93bb70ed036649f3e5fbe6b9b243e2021b9a60b8bdc45"
+    url "https://files.pythonhosted.org/packages/1a/9f/f984a4ffeef0b0917080ec92c3aa2505a17bd004e2ee3ecce6aca0f71902/ansible-lint-5.1.3.tar.gz"
+    sha256 "795665532fea000568eef18644aa43341a5c51b8690e7c559e273162278566d0"
   end
 
   resource "arrow" do
@@ -104,8 +109,8 @@ class Molecule < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/9b/77/461087a514d2e8ece1c975d8216bc03f7048e6090c5166bc34115afdaa53/cryptography-3.4.7.tar.gz"
-    sha256 "3d10de8116d25649631977cb37da6cbdd2d6fa0e0281d014a5b7d337255ca713"
+    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
+    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
   end
 
   resource "distro" do
@@ -113,14 +118,9 @@ class Molecule < Formula
     sha256 "83f5e5a09f9c5f68f60173de572930effbcc0287bb84fdc4426cb4168c088424"
   end
 
-  resource "docker-py" do
-    url "https://files.pythonhosted.org/packages/fa/2d/906afc44a833901fc6fed1a89c228e5c88fbfc6bd2f3d2f0497fdfb9c525/docker-py-1.10.6.tar.gz"
-    sha256 "4c2a75875764d38d67f87bc7d03f7443a3895704efc57962bdf6500b8d4bc415"
-  end
-
-  resource "docker-pycreds" do
-    url "https://files.pythonhosted.org/packages/c5/e6/d1f6c00b7221e2d7c4b470132c931325c8b22c51ca62417e300f5ce16009/docker-pycreds-0.4.0.tar.gz"
-    sha256 "6ce3270bcaf404cc4c3e27e4b6c70d3521deae82fb508767870fdbf772d584d4"
+  resource "docker" do
+    url "https://files.pythonhosted.org/packages/b9/e4/b902199a501528bae3de060bb3b2e96e3362ec0311dd3e7e38e5e2d66080/docker-5.0.2.tar.gz"
+    sha256 "21ec4998e90dff7a7aaaa098ca8d839c7de412b89e6f6c30908372d58fecf663"
   end
 
   resource "enrich" do
@@ -146,6 +146,11 @@ class Molecule < Formula
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/bf/10/ff66fea6d1788c458663a84d88787bae15d45daa16f6b3ef33322a51fc7e/MarkupSafe-2.0.1.tar.gz"
     sha256 "594c67807fb16238b30c44bdf74f36c02cdf22d1c8cda91ef8a0ed8dabf5620a"
+  end
+
+  resource "molecule-docker" do
+    url "https://files.pythonhosted.org/packages/c4/79/0b6de6cba1f6206437cb3c34f0d5ab110ee55d4d13d177dc312bba26f50d/molecule-docker-1.0.2.tar.gz"
+    sha256 "a16f3bb734eb1d5ec28fa3bb678854bda7cb142968467fc8f4f31a518cd4555f"
   end
 
   resource "molecule-vagrant" do
@@ -179,8 +184,8 @@ class Molecule < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/ba/6e/7a7c13c21d8a4a7f82ccbfe257a045890d4dbf18c023f985f565f97393e3/Pygments-2.9.0.tar.gz"
-    sha256 "a18f47b506a429f6f4b9df81bb02beab9ca21d0a5fee38ed15aef65f0545519f"
+    url "https://files.pythonhosted.org/packages/b7/b3/5cba26637fe43500d4568d0ee7b7362de1fb29c0e158d50b4b69e9a40422/Pygments-2.10.0.tar.gz"
+    sha256 "f398865f7eb6874156579fdf36bc840a03cab64d1cde9e93d68f46a425ec52c6"
   end
 
   resource "PyNaCl" do
@@ -203,10 +208,10 @@ class Molecule < Formula
     sha256 "f13383a0b9fcbe649a1892b9c8eb4f8eab1d6d84b84bb7a624317afa98159cab"
   end
 
-  resource "python-vagrant" do
-    url "https://files.pythonhosted.org/packages/bb/c6/0a6d22ae1782f261fc4274ea9385b85bf792129d7126575ec2a71d8aea18/python-vagrant-0.5.15.tar.gz"
-    sha256 "af9a8a9802d382d45dbea96aa3cfbe77c6e6ad65b3fe7b7c799d41ab988179c6"
-  end
+  # resource "python-vagrant" do
+  #   url "https://files.pythonhosted.org/packages/bb/c6/0a6d22ae1782f261fc4274ea9385b85bf792129d7126575ec2a71d8aea18/python-vagrant-0.5.15.tar.gz"
+  #   sha256 "af9a8a9802d382d45dbea96aa3cfbe77c6e6ad65b3fe7b7c799d41ab988179c6"
+  # end
 
   resource "PyYAML" do
     url "https://files.pythonhosted.org/packages/a0/a4/d63f2d7597e1a4b55aa3b4d6c5b029991d3b824b5bd331af8d4ab1ed687d/PyYAML-5.4.1.tar.gz"
@@ -219,13 +224,13 @@ class Molecule < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/6b/ea/af2a2218d57cc52dc7f14e4350ee9647fa79c6c820cfc05c438795fb13b4/rich-10.7.0.tar.gz"
-    sha256 "13ac80676e12cf528dc4228dc682c8402f82577c2aa67191e294350fa2c3c4e9"
+    url "https://files.pythonhosted.org/packages/55/84/7edede78686a4ca67a1bb9d8eba31a99d4a2a0a670e80c9febbbc18a7076/rich-10.9.0.tar.gz"
+    sha256 "ba285f1c519519490034284e6a9d2e6e3f16dc7690f2de3d9140737d81304d22"
   end
 
   resource "ruamel.yaml" do
-    url "https://files.pythonhosted.org/packages/83/59/4f576abb336d30b3d47061717224be714a9dc39c774061c34cb41c1795cf/ruamel.yaml-0.17.10.tar.gz"
-    sha256 "106bc8d6dc6a0ff7c9196a47570432036f41d556b779c6b4e618085f57e39e67"
+    url "https://files.pythonhosted.org/packages/71/81/f597606e81f53eb69330e3f8287e9b5a3f7ed0481824036d550da705cd82/ruamel.yaml-0.17.16.tar.gz"
+    sha256 "1a771fc92d3823682b7f0893ad56cb5a5c87c48e62b5399d6f42c8759a583b33"
   end
 
   resource "ruamel.yaml.clib" do
@@ -236,6 +241,11 @@ class Molecule < Formula
   resource "selinux" do
     url "https://files.pythonhosted.org/packages/1a/f1/5755b134895bb9b29d6937cae52d0f58140bb97df0f72c33231345294e80/selinux-0.2.1.tar.gz"
     sha256 "d435f514e834e3fdc0941f6a29d086b80b2ea51b28112aee6254bd104ee42a74"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "subprocess-tee" do
@@ -264,23 +274,43 @@ class Molecule < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/bc/a6/5ef697df40e56459de75b57f302f2da92a51269925282a08e4eb76b16fb6/websocket-client-1.1.1.tar.gz"
-    sha256 "4cf754af7e3b3ba76589d49f9e09fd9a6c0aae9b799a89124d656009c01a261d"
+    url "https://files.pythonhosted.org/packages/4e/8f/b5c45af5a1def38b07c09a616be932ad49c35ebdc5e3cbf93966d7ed9750/websocket-client-1.2.1.tar.gz"
+    sha256 "8dfb715d8a992f5712fff8c843adae94e22b22a99b2c5e6b0ec4a1a981cc4e0d"
   end
 
   def install
     virtualenv_install_with_resources
   end
 
+  def caveats
+    <<~EOS
+
+      Depending on the Molecule driver chosen, you may need to install additional packages.
+
+      Molecule-Docker Driver
+      ----------------------
+        - Docker
+        - community.docker Ansible collection
+
+      Molecule-Vagrant Driver
+      -----------------------
+        - VirtualBox
+        - Vagrant
+
+    EOS
+  end
+
   test do
-    # Test the Vagrant driver
-    system bin/"molecule", "init", "role", "foo-vagrant", "--driver-name",
-                           "vagrant", "--verifier-name", "testinfra"
-    assert_predicate testpath/"foo-vagrant/molecule/default/molecule.yml", :exist?,
-                     "Failed to create 'foo-vagrant/molecule/default/molecule.yml' file!"
-    assert_predicate testpath/"foo-vagrant/molecule/default/tests/test_default.py", :exist?,
-                     "Failed to create 'foo-vagrant/molecule/default/tests/test_default.py' file!"
-    cd "foo-vagrant" do
+    # Test Molecule Driver installations (docker, vagrant)
+    output = shell_output("#{bin}/molecule drivers --format plain").lines
+    assert_match "docker", output[1]
+    assert_match "vagrant", output[2]
+
+    # Test basic Molecule functionality
+    system bin/"molecule", "init", "role", "foo"
+    assert_predicate testpath/"foo/molecule/default/molecule.yml", :exist?,
+                     "Failed to create 'foo/molecule/default/molecule.yml' file!"
+    cd "foo" do
       system bin/"molecule", "list"
     end
   end
