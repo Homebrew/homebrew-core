@@ -49,6 +49,10 @@ class ApachePulsar < Formula
     end
   end
 
+  def post_install
+    (var/"log/pulsar").mkpath
+  end
+
   service do
     run [bin/"pulsar", "standalone"]
     log_path var/"log/pulsar/output.log"
