@@ -16,7 +16,7 @@ class Jpdfbookmarks < Formula
     test_bookmark = "Test/1,Black,notBold,notItalic,open,FitPage"
     (testpath/"in.txt").write(test_bookmark)
 
-    system "#{bin}/jpdfbookmarks", test_fixtures("test.pdf"), "-a", "in.txt", "-o", "out.pdf"
+    system bin/"jpdfbookmarks", test_fixtures("test.pdf"), "-a", "in.txt", "-o", "out.pdf"
     assert_predicate testpath/"out.pdf", :exist?
 
     assert_equal test_bookmark, shell_output("#{bin}/jpdfbookmarks out.pdf -d").strip
