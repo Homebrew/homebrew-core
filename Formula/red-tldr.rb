@@ -12,6 +12,6 @@ class RedTldr < Formula
   end
 
   test do
-    system "red-tldr"
+    system "red-tldr","search","mimikatz"
   end
 end
