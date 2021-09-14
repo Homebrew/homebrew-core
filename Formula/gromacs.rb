@@ -50,7 +50,8 @@ class Gromacs < Formula
     inreplace "src/gromacs/gromacs-config.cmake.cmakein", "@GROMACS_CXX_COMPILER@", cxx
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DGROMACS_CXX_COMPILER=#{cxx}"
+      system "cmake", "..", *std_cmake_args, "-DGROMACS_CXX_COMPILER=#{cxx}",
+                                             "-DGMX_VERSION_STRING_OF_FORK=#{tap.user}"
       system "make", "install"
     end
 
