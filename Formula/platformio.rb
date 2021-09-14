@@ -49,8 +49,8 @@ class Platformio < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/e7/4e/2af0238001648ded297fb54ceb425ca26faa15b341b4fac5371d3938666e/charset-normalizer-2.0.4.tar.gz"
-    sha256 "f23667ebe1084be45f6ae0538e4a5a865206544097e4e8bbcacf42cd02a348f3"
+    url "https://files.pythonhosted.org/packages/68/32/95ddb68b9abeb89efd461852cdff5791d42fc5e4c528536f541091ffded3/charset-normalizer-2.0.5.tar.gz"
+    sha256 "7098e7e862f6370a2a8d1a6398cd359815c45d12626267652c3f13dec58e2367"
   end
 
   resource "click" do
@@ -113,11 +113,6 @@ class Platformio < Formula
     sha256 "e1904b5d0007aee24bdd3c43994be9b3b729f4f58e740200de1d623f8c3a8870"
   end
 
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/ae/3d/9d7576d94007eaf3bb685acbaaec66ff4cdeb0b18f1bf1f17edbeebffb0a/tabulate-0.8.9.tar.gz"
-    sha256 "eb1d13f25760052e8931f2ef80aaf6045a6cceb47514db8beab24cded16f13a7"
-  end
-
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/4f/5a/597ef5911cb8919efe4d86206aa8b2658616d676a7088f0825ca08bd7cb8/urllib3-1.26.6.tar.gz"
     sha256 "f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
@@ -134,8 +129,8 @@ class Platformio < Formula
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/74/9d/e3f93bb9dd957405e62df884f5c242e70e239b3b669bf02dd16b4b214e28/zeroconf-0.36.2.tar.gz"
-    sha256 "9f00378e0510bf02e2e9e77ce5816b1783fdbf62704eb15753a8b5d6d615b811"
+    url "https://files.pythonhosted.org/packages/fd/5d/c88bc96bc75561e22f02c09d9ab9084229432a2f476090923e3aac60276f/zeroconf-0.36.3.tar.gz"
+    sha256 "e40243199ec3f1703365d204f7b52aaf2097d9e5dcb84fa2c6be46573730b24c"
   end
 
   def install
