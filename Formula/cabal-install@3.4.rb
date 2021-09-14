@@ -12,11 +12,9 @@ class CabalInstallAT34 < Formula
   uses_from_macos "zlib"
 
   def install
-    resource("bootstrap").stage buildpath
-    cabal = buildpath/"cabal"
     cd "cabal-install" if build.head?
-    system cabal, "v2-update"
-    system cabal, "v2-install", *std_cabal_v2_args
+    system "cabal", "v2-update"
+    system "cabal", "v2-install", *std_cabal_v2_args
     bash_completion.install "bash-completion/cabal"
   end
 
