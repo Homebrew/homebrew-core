@@ -20,9 +20,11 @@ class ApachePulsar < Formula
   def install
     # Missing executable permission reported upstream: https://github.com/apache/pulsar/issues/11833
     chmod "+x", "src/rename-netty-native-libs.sh"
+
     with_env("TMPDIR" => buildpath, **Language::Java.java_home_env("11")) do
-      system("mvn", "-X", "clean", "package", "-DskipTests", "-Pcore-modules")
+      system "mvn", "-X", "clean", "package", "-DskipTests", "-Pcore-modules"
     end
+
     built_version = if build.head?
       # This script does not need any particular version of py3 nor any libs, so both
       # brew-installed python and system python will work.
@@ -30,20 +32,19 @@ class ApachePulsar < Formula
     else
       version
     end
+
     binpfx = "apache-pulsar-#{built_version}"
     system "tar", "-xf", "distribution/server/target/#{binpfx}-bin.tar.gz"
     libexec.install "#{binpfx}/bin", "#{binpfx}/lib", "#{binpfx}/instances", "#{binpfx}/conf"
     (libexec/"lib/presto/bin/procname/Linux-ppc64le").rmtree
-    share.install "#{binpfx}/examples"
-    share.install "#{binpfx}/licenses"
+    pkgshare.install "#{binpfx}/examples", "#{binpfx}/licenses"
     (var/"log/pulsar").mkpath
-    (etc/"pulsar").mkpath
     (etc/"pulsar").install_symlink libexec/"conf"
 
-    Pathname.glob("#{libexec}/bin/*") do |path|
+    libexec.glob("bin/*") do |path|
       if !path.fnmatch?("*common.sh") && !path.directory?
         bin_name = path.basename
-        (bin/bin_name).write_env_script libexec/"bin/#{bin_name}", Language::Java.java_home_env("11")
+        (bin/bin_name).write_env_script libexec/"bin"/bin_name, Language::Java.java_home_env("11")
       end
     end
   end
