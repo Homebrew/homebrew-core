@@ -4,6 +4,7 @@ class CabalInstallAT34 < Formula
   url "https://hackage.haskell.org/package/cabal-install-3.4.0.0/cabal-install-3.4.0.0.tar.gz"
   sha256 "1980ef3fb30001ca8cf830c4cae1356f6065f4fea787c7786c7200754ba73e97"
   license "BSD-3-Clause"
+
   keg_only :versioned_formula
 
   depends_on "ghc"
