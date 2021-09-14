@@ -1,8 +1,8 @@
 class Notcurses < Formula
   desc "Blingful character graphics/TUI library"
   homepage "https://nick-black.com/dankwiki/index.php/Notcurses"
-  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "9bc35bfaadfd51d45e3de6d3b5d6d484a3042773a10904cb1bf4c7562d834d77"
+  url "https://github.com/dankamongmen/notcurses/archive/refs/tags/v2.4.1.tar.gz"
+  sha256 "982fc662f7239cff6713ce0f17f1db7c76a3de1644196438de6bb276bec65704"
 
   license "Apache-2.0"
 
@@ -22,6 +22,8 @@ class Notcurses < Formula
   depends_on "ncurses"
   depends_on "readline"
   uses_from_macos "zlib"
+
+  fails_with gcc: "5"
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
