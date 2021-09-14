@@ -21,6 +21,6 @@ class CabalInstallAT34 < Formula
   end
 
   test do
-    system "#{bin}/cabal", "--config-file=#{testpath}/config", "info", "Cabal"
+    system bin/"cabal", "--config-file=#{testpath}/config", "info", "Cabal"
   end
 end
