@@ -22,11 +22,6 @@ class Readosm < Formula
                           "--prefix=#{prefix}"
     system "make", "install"
 
-    # Remove references to the Homebrew shims dir.
-    %w[Makefile test_osm1 test_osm2 test_osm3].each do |file|
-      inreplace "examples/#{file}", "#{HOMEBREW_SHIMS_PATH}/mac/super/", "/usr/bin/"
-    end
-
     doc.install "examples"
   end
 
