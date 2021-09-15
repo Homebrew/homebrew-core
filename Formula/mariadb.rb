@@ -187,6 +187,7 @@ class Mariadb < Formula
   end
 
   test do
+    system "#{bin}/mariabackup", "--version"
     (testpath/"mysql").mkpath
     (testpath/"tmp").mkpath
     system bin/"mysql_install_db", "--no-defaults", "--user=#{ENV["USER"]}",
